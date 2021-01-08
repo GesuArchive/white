@@ -5,8 +5,8 @@
 #define FOAM_INTERVAL 50  // Time between deployment of fire fighting foam
 
 /mob/living/simple_animal/bot/firebot
-	name = "\improper Firebot"
-	desc = "A little fire extinguishing bot. He looks rather anxious."
+	name = "Файрбот"
+	desc = "Маленький бот для тушения пожаров. Он выглядит довольно встревоженным."
 	icon = 'icons/mob/aibots.dmi'
 	icon_state = "firebot"
 	density = FALSE
@@ -20,7 +20,7 @@
 	model = "Firebot"
 	bot_core = /obj/machinery/bot_core/firebot
 	window_id = "autoextinguisher"
-	window_name = "Mobile Fire Extinguisher v1.0"
+	window_name = "Мобильный тушитель пожаров v1.0"
 	path_image_color = "#FFA500"
 
 	var/atom/target_fire
@@ -101,24 +101,24 @@
 	update_icon()
 
 /mob/living/simple_animal/bot/firebot/set_custom_texts()
-	text_hack = "You corrupt [name]'s safety protocols."
-	text_dehack = "You detect errors in [name] and reset his programming."
-	text_dehack_fail = "[name] is not responding to reset commands!"
+	text_hack = "Взламываю протоколы безопасности [name]."
+	text_dehack = "Замечаю ошибки в коде [name] и удаляю их."
+	text_dehack_fail = "[name] не отвечает на команды сброса!"
 
 /mob/living/simple_animal/bot/firebot/get_controls(mob/user)
 	var/dat
 	dat += hack(user)
 	dat += showpai(user)
-	dat += "<TT><B>Mobile Fire Extinguisher v1.0</B></TT><BR><BR>"
-	dat += "Status: <A href='?src=[REF(src)];power=1'>[on ? "On" : "Off"]</A><BR>"
-	dat += "Maintenance panel panel is [open ? "opened" : "closed"]<BR>"
+	dat += "<TT><B>Мобильный тушитель пожаров v1.0</B></TT><BR><BR>"
+	dat += "Состояние: <A href='?src=[REF(src)];power=1'>[on ? "Вкл" : "Выкл"]</A><BR>"
+	dat += "Техническая панель [open ? "открыта" : "закрыта"]<BR>"
 
-	dat += "Behaviour controls are [locked ? "locked" : "unlocked"]<BR>"
+	dat += "Управление поведением [locked ? "заблокировано" : "разблокировано"]<BR>"
 	if(!locked || issilicon(user) || isAdminGhostAI(user))
-		dat += "Extinguish Fires: <A href='?src=[REF(src)];operation=extinguish_fires'>[extinguish_fires ? "Yes" : "No"]</A><BR>"
-		dat += "Extinguish People: <A href='?src=[REF(src)];operation=extinguish_people'>[extinguish_people ? "Yes" : "No"]</A><BR>"
-		dat += "Patrol Station: <A href='?src=[REF(src)];operation=patrol'>[auto_patrol ? "Yes" : "No"]</A><BR>"
-		dat += "Stationary Mode: <a href='?src=[REF(src)];operation=stationary_mode'>[stationary_mode ? "Yes" : "No"]</a><br>"
+		dat += "Тушить пожары: <A href='?src=[REF(src)];operation=extinguish_fires'>[extinguish_fires ? "Да" : "Нет"]</A><BR>"
+		dat += "Тушить людей: <A href='?src=[REF(src)];operation=extinguish_people'>[extinguish_people ? "Да" : "Нет"]</A><BR>"
+		dat += "Патрулировать станцию: <A href='?src=[REF(src)];operation=patrol'>[auto_patrol ? "Да" : "Нет"]</A><BR>"
+		dat += "Стационарный режим: <a href='?src=[REF(src)];operation=stationary_mode'>[stationary_mode ? "Да" : "Нет"]</a><br>"
 
 	return dat
 
@@ -126,8 +126,8 @@
 	..()
 	if(emagged == 2)
 		if(user)
-			to_chat(user, "<span class='danger'>[capitalize(src.name)] buzzes and beeps.</span>")
-		audible_message("<span class='danger'>[capitalize(src.name)] buzzes oddly!</span>")
+			to_chat(user, "<span class='danger'>[capitalize(src.name)] жужжит и шипит.</span>")
+		audible_message("<span class='danger'>[capitalize(src.name)] громко жужжит!</span>")
 		playsound(src, "sparks", 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		if(user)
 			old_target_fire = user
@@ -181,10 +181,10 @@
 		return
 
 	if(prob(1) && target_fire == null)
-		var/list/messagevoice = list("No fires detected." = 'sound/voice/firebot/nofires.ogg',
-		"Only you can prevent station fires." = 'sound/voice/firebot/onlyyou.ogg',
-		"Temperature nominal." = 'sound/voice/firebot/tempnominal.ogg',
-		"Keep it cool." = 'sound/voice/firebot/keepitcool.ogg')
+		var/list/messagevoice = list("Не обнаружено пожаров." = 'sound/voice/firebot/nofires.ogg',
+		"Только ты можешь предотвратить пожары на станции." = 'sound/voice/firebot/onlyyou.ogg',
+		"Температура номинальна." = 'sound/voice/firebot/tempnominal.ogg',
+		"Сохраняйте это прохладным." = 'sound/voice/firebot/keepitcool.ogg')
 		var/message = pick(messagevoice)
 		speak(message)
 		playsound(src, messagevoice[message], 50)
@@ -211,10 +211,10 @@
 	if(target_fire && (get_dist(src, target_fire) <= (emagged == 2 ? 1 : 2))) // Make the bot spray water from afar when not emagged
 		if((speech_cooldown + SPEECH_INTERVAL) < world.time)
 			if(ishuman(target_fire))
-				speak("Stop, drop and roll!")
+				speak("Остановись, падай и катись!")
 				playsound(src, 'sound/voice/firebot/stopdropnroll.ogg', 50, FALSE)
 			else
-				speak("Extinguishing!")
+				speak("Тушу!")
 				playsound(src, 'sound/voice/firebot/extinguishing.ogg', 50, FALSE)
 			speech_cooldown = world.time
 
@@ -266,7 +266,7 @@
 
 	if(is_burning(scan_target))
 		if((detected_cooldown + DETECTED_VOICE_INTERVAL) < world.time)
-			speak("Fire detected!")
+			speak("Обнаружен огонь!")
 			playsound(src, 'sound/voice/firebot/detected.ogg', 50, FALSE)
 			detected_cooldown = world.time
 		result = scan_target
@@ -300,7 +300,7 @@
 
 /mob/living/simple_animal/bot/firebot/explode()
 	on = FALSE
-	visible_message("<span class='boldannounce'>[capitalize(src.name)] blows apart!</span>")
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] взрывается!</span>")
 
 	var/atom/Tsec = drop_location()
 

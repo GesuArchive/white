@@ -1,6 +1,6 @@
 /mob/living/simple_animal/bot/vibebot
-	name = "\improper Vibebot"
-	desc = "A little robot. It's just vibing, doing its thing."
+	name = "Вайб-бот"
+	desc = "Маленький робот. Он просто отдыхает, делая свое дело."
 	icon = 'icons/mob/aibots.dmi'
 	icon_state = "vibebot"
 	density = FALSE
@@ -15,7 +15,7 @@
 	bot_type = VIBE_BOT
 	model = "Vibebot"
 	window_id = "vibebot"
-	window_name = "Discomatic Vibe Bot v1.05"
+	window_name = "Диск-о-матик Вайб-Бот v1.05"
 	data_hud_type = DATA_HUD_DIAGNOSTIC_BASIC // show jobs
 	path_image_color = "#2cac12"
 	auto_patrol = TRUE
@@ -32,13 +32,13 @@
 	var/list/dat = list()
 	dat += hack(user)
 	dat += showpai(user)
-	dat += "<TT><B>DiscoMatic Vibebot v1.0</B></TT><BR><BR>"
-	dat += "Status: <A href='?src=[REF(src)];power=1'>[on ? "On" : "Off"]</A><BR>"
-	dat += "Maintenance panel panel is [open ? "opened" : "closed"]<BR>"
+	dat += "<TT><B>Диск-о-матик Вайб-Бот v1.0</B></TT><BR><BR>"
+	dat += "Состояние: <A href='?src=[REF(src)];power=1'>[on ? "Вкл" : "Выкл"]</A><BR>"
+	dat += "Техническая панель [open ? "открыта" : "закрыта"]<BR>"
 
-	dat += "Behaviour controls are [locked ? "locked" : "unlocked"]<BR>"
+	dat += "Управление поведением [locked ? "заблокировано" : "разблокировано"]<BR>"
 	if(!locked || issilicon(user) || isAdminGhostAI(user))
-		dat += "Patrol Station: <A href='?src=[REF(src)];operation=patrol'>[auto_patrol ? "Yes" : "No"]</A><BR>"
+		dat += "Патрулировать станцию: <A href='?src=[REF(src)];operation=patrol'>[auto_patrol ? "Да" : "Нет"]</A><BR>"
 
 	return dat.Join("")
 

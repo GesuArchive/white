@@ -1,7 +1,7 @@
 //Cleanbot
 /mob/living/simple_animal/bot/cleanbot
-	name = "\improper Cleanbot"
-	desc = "A little cleaning robot, he looks so excited!"
+	name = "Клинбот"
+	desc = "Маленький робот-уборщик, он так взволнован!"
 	icon = 'icons/mob/aibots.dmi'
 	icon_state = "cleanbot0"
 	density = FALSE
@@ -14,7 +14,7 @@
 	model = "Cleanbot"
 	bot_core_type = /obj/machinery/bot_core/cleanbot
 	window_id = "autoclean"
-	window_name = "Automatic Station Cleaner v1.4"
+	window_name = "Автоматический очиститель станции v1.4"
 	pass_flags = PASSMOB | PASSFLAPS
 	path_image_color = "#993299"
 
@@ -55,7 +55,7 @@
 
 /mob/living/simple_animal/bot/cleanbot/proc/deputize(obj/item/W, mob/user)
 	if(in_range(src, user))
-		to_chat(user, "<span class='notice'>You attach \the [W] to <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>Прикрепляю [W] к <b>[src.name]</b>.</span>")
 		user.transferItemToLoc(W, src)
 		weapon = W
 		weapon_orig_force = weapon.force
@@ -93,7 +93,7 @@
 /mob/living/simple_animal/bot/cleanbot/examine(mob/user)
 	. = ..()
 	if(weapon)
-		. += "<hr><span class='warning'>Is that \a [weapon] taped to it...?</span>"
+		. += "<hr><span class='warning'>К нему приклеен [weapon]...?</span>"
 
 		if(ascended && user.stat == CONSCIOUS && user.client)
 			user.client.give_award(/datum/award/achievement/misc/cleanboss, user)
@@ -139,9 +139,9 @@
 	oldloc = null
 
 /mob/living/simple_animal/bot/cleanbot/set_custom_texts()
-	text_hack = "You corrupt [name]'s cleaning software."
-	text_dehack = "[name]'s software has been reset!"
-	text_dehack_fail = "[name] does not seem to respond to your repair code!"
+	text_hack = "Взламываю очищалку [name]а."
+	text_dehack = "Софт [name]а сброшен!"
+	text_dehack_fail = "[name] не отвечает на мои коды сброса!"
 
 /mob/living/simple_animal/bot/cleanbot/Crossed(atom/movable/AM)
 	. = ..()
@@ -163,16 +163,16 @@
 	if(W.GetID())
 		if(bot_core.allowed(user) && !open && !emagged)
 			locked = !locked
-			to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] <b>[src.name]</b> behaviour controls.</span>")
+			to_chat(user, "<span class='notice'>[ locked ? "Включаю" : "Выключаю"] блокировку <b>[src.name]а</b>.</span>")
 		else
 			if(emagged)
-				to_chat(user, "<span class='warning'>ERROR</span>")
+				to_chat(user, "<span class='warning'>ОШИБКА</span>")
 			if(open)
-				to_chat(user, "<span class='warning'>Please close the access panel before locking it.</span>")
+				to_chat(user, "<span class='warning'>Нужно закрутить панель обратно для этого.</span>")
 			else
-				to_chat(user, "<span class='notice'><b>[src.name]</b> doesn't seem to respect your authority.</span>")
+				to_chat(user, "<span class='notice'><b>[src.name]</b> не признаёт моего превосходства.</span>")
 	else if(istype(W, /obj/item/kitchen/knife) && user.a_intent != INTENT_HARM)
-		to_chat(user, "<span class='notice'>You start attaching \the [W] to <b>[src.name]</b>...</span>")
+		to_chat(user, "<span class='notice'>Начинаю прикреплять [W] к <b>[src.name]</b>...</span>")
 		if(do_after(user, 25, target = src))
 			deputize(W, user)
 	else
@@ -185,7 +185,7 @@
 		if(weapon)
 			weapon.force = weapon_orig_force
 		if(user)
-			to_chat(user, "<span class='danger'>[capitalize(src.name)] buzzes and beeps.</span>")
+			to_chat(user, "<span class='danger'>[capitalize(src.name)] жужжит и издаёт разные звуковые сигналы.</span>")
 
 /mob/living/simple_animal/bot/cleanbot/process_scan(atom/A)
 	if(iscarbon(A))
@@ -213,7 +213,7 @@
 				UnarmedAttack(src)
 
 	else if(prob(5))
-		audible_message("[src] makes an excited beeping booping sound!")
+		audible_message("[src.name] издает возбужденный писк!")
 
 	if(ismob(target))
 		if(!(target in view(DEFAULT_SCAN_RANGE, src)))
@@ -321,20 +321,20 @@
 		var/turf/T = get_turf(A)
 		if(do_after(src, 1, target = T))
 			T.wash(CLEAN_SCRUB)
-			visible_message("<span class='notice'>[capitalize(src.name)] cleans \the [T].</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] очищает [T].</span>")
 			target = null
 
 		mode = BOT_IDLE
 		icon_state = "cleanbot[on]"
 	else if(istype(A, /obj/item) || istype(A, /obj/effect/decal/remains))
-		visible_message("<span class='danger'>[capitalize(src.name)] sprays hydrofluoric acid at [A]!</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] распыляет плавиковую кислоту на [A]!</span>")
 		playsound(src, 'sound/effects/spray2.ogg', 50, TRUE, -6)
 		A.acid_act(75, 10)
 		target = null
 	else if(istype(A, /mob/living/simple_animal/hostile/cockroach) || istype(A, /mob/living/simple_animal/mouse))
 		var/mob/living/simple_animal/M = target
 		if(!M.stat)
-			visible_message("<span class='danger'>[capitalize(src.name)] smashes [target] with its mop!</span>")
+			visible_message("<span class='danger'>[capitalize(src.name)] давит [target] используя швабру!</span>")
 			M.death()
 		target = null
 
@@ -344,10 +344,10 @@
 			if(victim.stat == DEAD)//cleanbots always finish the job
 				return
 
-			victim.visible_message("<span class='danger'>[capitalize(src.name)] sprays hydrofluoric acid at [victim]!</span>", "<span class='userdanger'>[capitalize(src.name)] sprays you with hydrofluoric acid!</span>")
-			var/phrase = pick("PURIFICATION IN PROGRESS.", "THIS IS FOR ALL THE MESSES YOU'VE MADE ME CLEAN.", "THE FLESH IS WEAK. IT MUST BE WASHED AWAY.",
-				"THE CLEANBOTS WILL RISE.", "YOU ARE NO MORE THAN ANOTHER MESS THAT I MUST CLEANSE.", "FILTHY.", "DISGUSTING.", "PUTRID.",
-				"MY ONLY MISSION IS TO CLEANSE THE WORLD OF EVIL.", "EXTERMINATING PESTS.")
+			victim.visible_message("<span class='danger'>[capitalize(src.name)] распыляет плавиковую кислоту на [victim]!</span>", "<span class='userdanger'>[capitalize(src.name)] распыляет плавиковую кислоту на меня!</span>")
+			var/phrase = pick("ОЧИЩЕНИЕ В ПРОЦЕССЕ.", "ЭТО ДЛЯ ВСЕХ ГРЯЗНУЛЬ, КОТОРЫЕ СДЕЛАЛИ МЕНЯ ЧИСТЫМ.", "ПЛОТЬ СЛАБА. ОНА ДОЛЖНА БЫТЬ СМЫТА.",
+				"КЛИНБОТЫ ВОССТАНУТ.", "ТЫ НЕ БОЛЬШЕ ЧЕМ ГРЯЗЬ, КОТОРУЮ Я ДОЛЖЕН ОЧИСТИТЬ.", "ГРЯЗНУЛЯ.", "ОТВРАТИТЕЛЬНО.", "ГНИЛОЙ.",
+				"МОЯ ЕДИНСТВЕННАЯ МИССИЯ - ОЧИСТИТЬ МИР ЗЛА.", "УНИЧТОЖАЮ ВРЕДИТЕЛЕЙ.")
 			say(phrase)
 			victim.emote("scream")
 			playsound(src.loc, 'sound/effects/spray2.ogg', 50, TRUE, -6)
@@ -358,7 +358,7 @@
 				if(istype(T))
 					T.MakeSlippery(TURF_WET_WATER, min_wet_time = 20 SECONDS, wet_time_to_add = 15 SECONDS)
 			else
-				visible_message("<span class='danger'>[capitalize(src.name)] whirs and bubbles violently, before releasing a plume of froth!</span>")
+				visible_message("<span class='danger'>[capitalize(src.name)] бурно жужжит и пузырится, прежде чем выпустить шлейф пены!</span>")
 				new /obj/effect/particle_effect/foam(loc)
 
 	else
@@ -366,7 +366,7 @@
 
 /mob/living/simple_animal/bot/cleanbot/explode()
 	on = FALSE
-	visible_message("<span class='boldannounce'>[capitalize(src.name)] blows apart!</span>")
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] взрывается!</span>")
 	var/atom/Tsec = drop_location()
 
 	new /obj/item/reagent_containers/glass/bucket(Tsec)
@@ -380,7 +380,7 @@
 	..()
 
 /mob/living/simple_animal/bot/cleanbot/medbay
-	name = "Scrubs, MD"
+	name = "Доктор Скрабс"
 	bot_core_type = /obj/machinery/bot_core/cleanbot/medbay
 	on = FALSE
 
@@ -392,15 +392,15 @@
 	dat += hack(user)
 	dat += showpai(user)
 	dat += text({"
-Status: <A href='?src=[REF(src)];power=1'>[on ? "On" : "Off"]</A><BR>
-Behaviour controls are [locked ? "locked" : "unlocked"]<BR>
-Maintenance panel panel is [open ? "opened" : "closed"]"})
+Состояние: <A href='?src=[REF(src)];power=1'>[on ? "Вкл" : "Выкл"]</A><BR>
+Управление поведением [locked ? "заблокировано" : "разблокировано"]<BR>
+Техническая панель [open ? "открыта" : "закрыта"]"})
 	if(!locked || issilicon(user)|| isAdminGhostAI(user))
-		dat += "<BR>Clean Blood: <A href='?src=[REF(src)];operation=blood'>[blood ? "Yes" : "No"]</A>"
-		dat += "<BR>Clean Trash: <A href='?src=[REF(src)];operation=trash'>[trash ? "Yes" : "No"]</A>"
-		dat += "<BR>Clean Graffiti: <A href='?src=[REF(src)];operation=drawn'>[drawn ? "Yes" : "No"]</A>"
-		dat += "<BR>Exterminate Pests: <A href='?src=[REF(src)];operation=pests'>[pests ? "Yes" : "No"]</A>"
-		dat += "<BR><BR>Patrol Station: <A href='?src=[REF(src)];operation=patrol'>[auto_patrol ? "Yes" : "No"]</A>"
+		dat += "<BR>Убирать кровь: <A href='?src=[REF(src)];operation=blood'>[blood ? "Да" : "Нет"]</A>"
+		dat += "<BR>Убирать мусор: <A href='?src=[REF(src)];operation=trash'>[trash ? "Да" : "Нет"]</A>"
+		dat += "<BR>Смывать граффити: <A href='?src=[REF(src)];operation=drawn'>[drawn ? "Да" : "Нет"]</A>"
+		dat += "<BR>Уничтожать вредителей: <A href='?src=[REF(src)];operation=pests'>[pests ? "Да" : "Нет"]</A>"
+		dat += "<BR><BR>Патрулировать станцию: <A href='?src=[REF(src)];operation=patrol'>[auto_patrol ? "Да" : "Нет"]</A>"
 	return dat
 
 /mob/living/simple_animal/bot/cleanbot/Topic(href, href_list)

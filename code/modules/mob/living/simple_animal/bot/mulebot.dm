@@ -10,8 +10,8 @@
 #define CHIME 3
 
 /mob/living/simple_animal/bot/mulebot
-	name = "\improper MULEbot"
-	desc = "A Multiple Utility Load Effector bot."
+	name = "MULE-бот"
+	desc = "\"Multiple Utility Load Effector\", если точнее."
 	icon_state = "mulebot0"
 	density = TRUE
 	move_resist = MOVE_FORCE_STRONG
@@ -93,12 +93,12 @@
 	. = ..()
 	if(open)
 		if(cell)
-			. += "<hr><span class='notice'>It has \a [cell] installed.</span>"
-			. += "<hr><span class='info'>You can use a <b>crowbar</b> to remove it.</span>"
+			. += "<hr><span class='notice'>Внутри установлена [cell].</span>"
+			. += "\n<span class='info'>Можно использовать <b>ломик</b> для изъятия.</span>"
 		else
-			. += "<hr><span class='notice'>It has an empty compartment where a <b>power cell</b> can be installed.</span>"
+			. += "<hr><span class='notice'>Похоже, что <b>батарейка</b> не установлена.</span>"
 	if(load) //observer check is so we don't show the name of the ghost that's sitting on it to prevent metagaming who's ded.
-		. += "<hr><span class='notice'>\A [isobserver(load) ? "ghostly figure" : load] is on its load platform.</span>"
+		. += "<hr><span class='notice'>Здесь есть [isobserver(load) ? "призрачная фигура" : load] на него платформе.</span>"
 
 
 /mob/living/simple_animal/bot/mulebot/Destroy()
@@ -140,25 +140,25 @@
 			update_icon() //this is also handled by turn_off(), so no need to call this twice.
 	else if(istype(I, /obj/item/stock_parts/cell) && open)
 		if(cell)
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has a power cell!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] внутри уже есть батарейка!</span>")
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 		cell = I
 		diag_hud_set_mulebotcell()
-		visible_message("<span class='notice'>[user] inserts \a [cell] into [src].</span>",
-						"<span class='notice'>You insert [cell] into [src].</span>")
+		visible_message("<span class='notice'>[user] вставляет [cell] в [src.name].</span>",
+						"<span class='notice'>Вставляю [cell] в [src.name].</span>")
 	else if(I.tool_behaviour == TOOL_CROWBAR && open && user.a_intent != INTENT_HARM)
 		if(!cell)
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] doesn't have a power cell!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] не имеет батарейки!</span>")
 			return
 		cell.add_fingerprint(user)
 		if(Adjacent(user) && !issilicon(user))
 			user.put_in_hands(cell)
 		else
 			cell.forceMove(drop_location())
-		visible_message("<span class='notice'>[user] crowbars [cell] out from [src].</span>",
-						"<span class='notice'>You pry [cell] out of [src].</span>")
+		visible_message("<span class='notice'>[user] вытаскивает [cell] из [src.name].</span>",
+						"<span class='notice'>Вытаскиваю [cell] из [src.name].</span>")
 		cell = null
 		diag_hud_set_mulebotcell()
 	else if(is_wire_tool(I) && open)
@@ -166,10 +166,10 @@
 	else if(load && ismob(load))  // chance to knock off rider
 		if(prob(1 + I.force * 2))
 			unload(0)
-			user.visible_message("<span class='danger'>[user] knocks [load] off [src] with \the [I]!</span>",
-									"<span class='danger'>You knock [load] off [src] with \the [I]!</span>")
+			user.visible_message("<span class='danger'>[user] сталкивает [load] с [src.name] используя [I]!</span>",
+									"<span class='danger'>Сталкиваю [load] с [src.name] используя [I]!</span>")
 		else
-			to_chat(user, "<span class='warning'>You hit [src] with \the [I] but to no effect!</span>")
+			to_chat(user, "<span class='warning'>Бью [src.name] используя [I], но ничего не происходит!</span>")
 			return ..()
 	else
 		return ..()
@@ -179,7 +179,7 @@
 		emagged = TRUE
 	if(!open)
 		locked = !locked
-		to_chat(user, "<span class='notice'>You [locked ? "lock" : "unlock"] [src]'s controls!</span>")
+		to_chat(user, "<span class='notice'>Управление [src.name] [locked ? "заблокировано" : "разблокировано"]!</span>")
 	flick("[base_icon]-emagged", src)
 	playsound(src, "sparks", 100, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 
@@ -214,7 +214,7 @@
 		if(prob(50) && !isnull(load))
 			unload(0)
 		if(prob(25))
-			visible_message("<span class='danger'>Something shorts out inside [src]!</span>")
+			visible_message("<span class='danger'>Что-то коротнуло внутри [src.name]!</span>")
 			wires.cut_random()
 
 /mob/living/simple_animal/bot/mulebot/interact(mob/user)
@@ -236,7 +236,7 @@
 	data["on"] = on
 	data["locked"] = locked
 	data["siliconUser"] = user.has_unlimited_silicon_privilege
-	data["mode"] = mode ? mode_name[mode] : "Ready"
+	data["mode"] = mode ? mode_name[mode] : "Готов"
 	data["modeStatus"] = ""
 	switch(mode)
 		if(BOT_IDLE, BOT_DELIVER, BOT_GO_HOME)
@@ -273,11 +273,11 @@
 			if(on)
 				turn_off()
 			else if(open)
-				to_chat(usr, "<span class='warning'>[name]'s maintenance panel is open!</span>")
+				to_chat(usr, "<span class='warning'>[name] имеет открытую техническую панель!</span>")
 				return
 			else if(cell)
 				if(!turn_on())
-					to_chat(usr, "<span class='warning'>You can't switch on [src]!</span>")
+					to_chat(usr, "<span class='warning'>Не могу включить [src.name]!</span>")
 					return
 			. = TRUE
 		else
@@ -301,7 +301,7 @@
 		if("destination")
 			var/new_dest
 			if(pda)
-				new_dest = input(user, "Enter Destination:", name, destination) as null|anything in GLOB.deliverybeacontags
+				new_dest = input(user, "Назначение:", name, destination) as null|anything in GLOB.deliverybeacontags
 			else
 				new_dest = params["value"]
 			if(new_dest)
@@ -309,7 +309,7 @@
 		if("setid")
 			var/new_id
 			if(pda)
-				new_id = stripped_input(user, "Enter ID:", name, id, MAX_NAME_LEN)
+				new_id = stripped_input(user, "Введите ID:", name, id, MAX_NAME_LEN)
 			else
 				new_id = params["value"]
 			if(new_id)
@@ -317,7 +317,7 @@
 		if("sethome")
 			var/new_home
 			if(pda)
-				new_home = input(user, "Enter Home:", name, home_destination) as null|anything in GLOB.deliverybeacontags
+				new_home = input(user, "Дом:", name, home_destination) as null|anything in GLOB.deliverybeacontags
 			else
 				new_home = params["value"]
 			if(new_home)
@@ -343,12 +343,12 @@
 	var/dat
 	dat += "<h3>Multiple Utility Load Effector Mk. V</h3>"
 	dat += "<b>ID:</b> [id]<BR>"
-	dat += "<b>Power:</b> [on ? "On" : "Off"]<BR>"
-	dat += "<h3>Status</h3>"
+	dat += "<b>Питание:</b> [on ? "Вкл" : "Выкл"]<BR>"
+	dat += "<h3>Состояние</h3>"
 	dat += "<div class='statusDisplay'>"
 	switch(mode)
 		if(BOT_IDLE)
-			dat += "<span class='good'>Ready</span>"
+			dat += "<span class='good'>Готов</span>"
 		if(BOT_DELIVER)
 			dat += "<span class='good'>[mode_name[BOT_DELIVER]]</span>"
 		if(BOT_GO_HOME)
@@ -362,44 +362,44 @@
 	dat += "</div>"
 
 	var/load_message = get_load_name()
-	dat += "<b>Current Load:</b> <i>[load_message ? load_message : "None"]</i><BR>"
-	dat += "<b>Destination:</b> [!destination ? "<i>None</i>" : destination]<BR>"
-	dat += "<b>Power level:</b> [cell ? cell.percent() : 0]%"
+	dat += "<b>Текущий груз:</b> <i>[load_message ? load_message : "Ничего"]</i><BR>"
+	dat += "<b>Цель:</b> [!destination ? "<i>Ничего</i>" : destination]<BR>"
+	dat += "<b>Заряд:</b> [cell ? cell.percent() : 0]%"
 
 	if(locked && !ai && !isAdminGhostAI(user))
-		dat += "&nbsp;<br /><div class='notice'>Controls are locked</div><A href='byond://?src=[REF(src)];op=unlock'>Unlock Controls</A>"
+		dat += "&nbsp;<br /><div class='notice'>Управление заблокировано</div><A href='byond://?src=[REF(src)];op=unlock'>Разблокировать управление</A>"
 	else
-		dat += "&nbsp;<br /><div class='notice'>Controls are unlocked</div><A href='byond://?src=[REF(src)];op=lock'>Lock Controls</A><BR><BR>"
+		dat += "&nbsp;<br /><div class='notice'>Управление разблокировано</div><A href='byond://?src=[REF(src)];op=lock'>Заблокировать управлние</A><BR><BR>"
 
-		dat += "<A href='byond://?src=[REF(src)];op=power'>Toggle Power</A><BR>"
-		dat += "<A href='byond://?src=[REF(src)];op=stop'>Stop</A><BR>"
-		dat += "<A href='byond://?src=[REF(src)];op=go'>Proceed</A><BR>"
-		dat += "<A href='byond://?src=[REF(src)];op=home'>Return to Home</A><BR>"
-		dat += "<A href='byond://?src=[REF(src)];op=destination'>Set Destination</A><BR>"
-		dat += "<A href='byond://?src=[REF(src)];op=setid'>Set Bot ID</A><BR>"
-		dat += "<A href='byond://?src=[REF(src)];op=sethome'>Set Home</A><BR>"
-		dat += "<A href='byond://?src=[REF(src)];op=autoret'>Toggle Auto Return Home</A> ([auto_return ? "On":"Off"])<BR>"
-		dat += "<A href='byond://?src=[REF(src)];op=autopick'>Toggle Auto Pickup Crate</A> ([auto_pickup ? "On":"Off"])<BR>"
-		dat += "<A href='byond://?src=[REF(src)];op=report'>Toggle Delivery Reporting</A> ([report_delivery ? "On" : "Off"])<BR>"
+		dat += "<A href='byond://?src=[REF(src)];op=power'>Переключить питание</A><BR>"
+		dat += "<A href='byond://?src=[REF(src)];op=stop'>Стоп</A><BR>"
+		dat += "<A href='byond://?src=[REF(src)];op=go'>Двигаться</A><BR>"
+		dat += "<A href='byond://?src=[REF(src)];op=home'>Домой</A><BR>"
+		dat += "<A href='byond://?src=[REF(src)];op=destination'>Выбрать цель</A><BR>"
+		dat += "<A href='byond://?src=[REF(src)];op=setid'>Выбрать ID бота</A><BR>"
+		dat += "<A href='byond://?src=[REF(src)];op=sethome'>Выбрать дом</A><BR>"
+		dat += "<A href='byond://?src=[REF(src)];op=autoret'>Авто-возвращение домой</A> ([auto_return ? "Вкл":"Выкл"])<BR>"
+		dat += "<A href='byond://?src=[REF(src)];op=autopick'>Авто-подбор ящиков</A> ([auto_pickup ? "Вкл":"Выкл"])<BR>"
+		dat += "<A href='byond://?src=[REF(src)];op=report'>Оповещать о доставке</A> ([report_delivery ? "Вкл" : "Выкл"])<BR>"
 		if(load)
-			dat += "<A href='byond://?src=[REF(src)];op=unload'>Unload Now</A><BR>"
-		dat += "<div class='notice'>The maintenance hatch is closed.</div>"
+			dat += "<A href='byond://?src=[REF(src)];op=unload'>Разгрузить сейчас</A><BR>"
+		dat += "<div class='notice'>Техническая панель закрыта.</div>"
 
 	return dat
 
 /mob/living/simple_animal/bot/mulebot/proc/buzz(type)
 	switch(type)
 		if(SIGH)
-			audible_message("<span class='hear'>[capitalize(src.name)] makes a sighing buzz.</span>")
+			audible_message("<span class='hear'>[capitalize(src.name)] вздыхающе гудит.</span>")
 			playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
 		if(ANNOYED)
-			audible_message("<span class='hear'>[capitalize(src.name)] makes an annoyed buzzing sound.</span>")
+			audible_message("<span class='hear'>[capitalize(src.name)] раздражённо жужжит.</span>")
 			playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
 		if(DELIGHT)
-			audible_message("<span class='hear'>[capitalize(src.name)] makes a delighted ping!</span>")
+			audible_message("<span class='hear'>[capitalize(src.name)] делает радостный пинг!</span>")
 			playsound(src, 'sound/machines/ping.ogg', 50, FALSE)
 		if(CHIME)
-			audible_message("<span class='hear'>[capitalize(src.name)] makes a chiming sound!</span>")
+			audible_message("<span class='hear'>[capitalize(src.name)] делает звыньк!</span>")
 			playsound(src, 'sound/machines/chime.ogg', 50, FALSE)
 	flick("[base_icon]1", src)
 
@@ -502,11 +502,11 @@
 /mob/living/simple_animal/bot/mulebot/get_status_tab_items()
 	. = ..()
 	if(cell)
-		. += "Charge Left: [cell.charge]/[cell.maxcharge]"
+		. += "Заряда осталось: [cell.charge]/[cell.maxcharge]"
 	else
-		. += text("No Cell Inserted!")
+		. += text("Нет батарейки!")
 	if(load)
-		. += "Current Load: [get_load_name()]"
+		. += "Текущий груз: [get_load_name()]"
 
 
 /mob/living/simple_animal/bot/mulebot/call_bot()
@@ -681,14 +681,14 @@
 		if(pathset) //The AI called us here, so notify it of our arrival.
 			loaddir = dir //The MULE will attempt to load a crate in whatever direction the MULE is "facing".
 			if(calling_ai)
-				to_chat(calling_ai, "<span class='notice'>[icon2html(src, calling_ai)] [src] wirelessly plays a chiming sound!</span>")
+				to_chat(calling_ai, "<span class='notice'>[icon2html(src, calling_ai)] [src.name] удалённо проигрывает звук!</span>")
 				calling_ai.playsound_local(calling_ai, 'sound/machines/chime.ogg', 40, FALSE)
 				calling_ai = null
 				radio_channel = RADIO_CHANNEL_AI_PRIVATE //Report on AI Private instead if the AI is controlling us.
 
 		if(load)		// if loaded, unload at target
 			if(report_delivery)
-				speak("Destination <b>[destination]</b> reached. Unloading [load].",radio_channel)
+				speak("Точка назначения <b>[destination]</b> достигнута. Разгружаю [load].",radio_channel)
 			unload(loaddir)
 		else
 			// not loaded
@@ -704,7 +704,7 @@
 				if(AM?.Adjacent(src))
 					load(AM)
 					if(report_delivery)
-						speak("Now loading [load] at <b>[get_area_name(src)]</b>.", radio_channel)
+						speak("Загружаю [load] в <b>[get_area_name(src)]</b>.", radio_channel)
 		// whatever happened, check to see if we return home
 
 		if(auto_return && home_destination && destination != home_destination)
@@ -721,18 +721,18 @@
 	var/mob/living/L = M
 	if(wires.is_cut(WIRE_AVOIDANCE)) // usually just bumps, but if the avoidance wire is cut, knocks them over.
 		if(iscyborg(L))
-			visible_message("<span class='danger'>[capitalize(src.name)] bumps into [L]!</span>")
+			visible_message("<span class='danger'>[capitalize(src.name)] влетает в [L]!</span>")
 		else if(L.Knockdown(8 SECONDS))
 			log_combat(src, L, "knocked down")
-			visible_message("<span class='danger'>[capitalize(src.name)] knocks over [L]!</span>")
+			visible_message("<span class='danger'>[capitalize(src.name)] сбивает [L]!</span>")
 	return ..()
 
 // called from mob/living/carbon/human/Crossed()
 // when mulebot is in the same loc
 /mob/living/simple_animal/bot/mulebot/proc/RunOver(mob/living/carbon/human/H)
 	log_combat(src, H, "run over", null, "(DAMTYPE: [uppertext(BRUTE)])")
-	H.visible_message("<span class='danger'>[capitalize(src.name)] drives over [H]!</span>", \
-					"<span class='userdanger'>[capitalize(src.name)] drives over you!</span>")
+	H.visible_message("<span class='danger'>[capitalize(src.name)] давит [H]!</span>", \
+					"<span class='userdanger'>[capitalize(src.name)] давит меня!</span>")
 	playsound(src, 'sound/effects/splat.ogg', 50, TRUE)
 
 	var/damage = rand(5,15)
@@ -785,7 +785,7 @@
 
 
 /mob/living/simple_animal/bot/mulebot/explode()
-	visible_message("<span class='boldannounce'>[capitalize(src.name)] blows apart!</span>")
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] взрывается!</span>")
 	var/atom/Tsec = drop_location()
 
 	new /obj/item/assembly/prox_sensor(Tsec)
@@ -821,11 +821,11 @@
 /mob/living/simple_animal/bot/mulebot/insertpai(mob/user, obj/item/paicard/card)
 	. = ..()
 	if(.)
-		visible_message("<span class='notice'>[capitalize(src.name)]'s safeties are locked on.</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] не хочет принимать пИИ.</span>")
 
 /mob/living/simple_animal/bot/mulebot/paranormal//allows ghosts only unless hacked to actually be useful
-	name = "\improper GHOULbot"
-	desc = "A rather ghastly looking... Multiple Utility Load Effector bot? It only seems to accept paranormal forces, and for this reason is fucking useless."
+	name = "Гульбот"
+	desc = "Довольно жутковато выглядящий... Бот с функцией \"Multiple Utility Load Effector\"? Кажется, что он воспринимает только паранормальные силы и по этой причине чертовски бесполезен."
 	icon_state = "paranormalmulebot0"
 	base_icon = "paranormalmulebot"
 
@@ -849,7 +849,7 @@
 		return
 
 	if(isobserver(AM))
-		visible_message("<span class='warning'>A ghostly figure appears on [src]!</span>")
+		visible_message("<span class='warning'>Призрачная фигура появлятся на [src.name]!</span>")
 		RegisterSignal(AM, COMSIG_MOVABLE_MOVED, .proc/ghostmoved)
 		AM.forceMove(src)
 
@@ -892,7 +892,7 @@
 		return "Unknown"
 
 /mob/living/simple_animal/bot/mulebot/paranormal/proc/ghostmoved()
-	visible_message("<span class='notice'>The ghostly figure vanishes...</span>")
+	visible_message("<span class='notice'>Призрачная фигура пропадает...</span>")
 	UnregisterSignal(load, COMSIG_MOVABLE_MOVED)
 	unload(0)
 

@@ -1,6 +1,6 @@
 /mob/living/simple_animal/bot/secbot/ed209
-	name = "\improper ED-209 Security Robot"
-	desc = "A security robot. He looks less than thrilled."
+	name = "ED-209 Боевой Робот"
+	desc = "Робот-охранник. Он выглядит менее чем взволнованным."
 	icon_state = "ed209"
 	density = TRUE
 	health = 100
@@ -11,7 +11,7 @@
 
 	model = "ED-209"
 	window_id = "autoed209"
-	window_name = "Automatic Security Unit v2.6"
+	window_name = "Автоматическая охранная единица v2.6"
 	ranged = TRUE
 	var/lastfired = 0
 	var/shot_delay = 15
@@ -28,9 +28,9 @@
 	set_weapon()
 
 /mob/living/simple_animal/bot/secbot/ed209/set_custom_texts()
-	text_hack = "You disable [name]'s combat inhibitor."
-	text_dehack = "You restore [name]'s combat inhibitor."
-	text_dehack_fail = "[name] ignores your attempts to restrict him!"
+	text_hack = "Отключаю боевой ингибитор [name]."
+	text_dehack = "Восстанавливаю боевой ингибитор [name]."
+	text_dehack_fail = "[name] игнорирует попытки ограничить его!"
 
 /mob/living/simple_animal/bot/secbot/ed209/emag_act(mob/user)
 	..()

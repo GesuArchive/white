@@ -1,6 +1,6 @@
 /mob/living/simple_animal/bot/secbot/grievous //This bot is powerful. If you managed to get 4 eswords somehow, you deserve this horror. Emag him for best results.
-	name = "General Beepsky"
-	desc = "Is that a secbot with four eswords in its arms...?"
+	name = "Генерал Бипскай"
+	desc = "Это секбот с четырьмя мечами в руках...?"
 	icon = 'icons/mob/aibots.dmi'
 	icon_state = "grievous"
 	health = 150
@@ -12,22 +12,22 @@
 
 
 /mob/living/simple_animal/bot/secbot/grievous/toy //A toy version of general beepsky!
-	name = "Genewul Bweepskee"
-	desc = "An adorable looking secbot with four toy swords taped to its arms"
+	name = "Геневав Бвипскай"
+	desc = "Очаровательно выглядящий секбот с четырьмя игрушечными мечами, привязанными к его рукам."
 	health = 50
 	maxHealth = 50
 	baton_type = /obj/item/toy/sword
 	weapon_force = 0
 
 /mob/living/simple_animal/bot/secbot/grievous/bullet_act(obj/projectile/P)
-	visible_message("<span class='warning'>[capitalize(src.name)] deflects [P] with its energy swords!</span>")
+	visible_message("<span class='warning'>[capitalize(src.name)] отражает [P] используя энергомечи!</span>")
 	playsound(src, 'sound/weapons/blade1.ogg', 50, TRUE)
 	return BULLET_ACT_BLOCK
 
 /mob/living/simple_animal/bot/secbot/grievous/Crossed(atom/movable/AM)
 	..()
 	if(ismob(AM) && AM == target)
-		visible_message("<span class='warning'>[capitalize(src.name)] flails his swords and cuts [AM]!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] сокрушает свои энергомечи в сторону [AM]!</span>")
 		playsound(src,'sound/effects/beepskyspinsabre.ogg',100,TRUE,-1)
 		stun_attack(AM)
 
@@ -43,7 +43,7 @@
 	if(mode != BOT_HUNT)
 		return
 	if(prob(block_chance))
-		visible_message("<span class='warning'>[capitalize(src.name)] deflects [user]'s attack with his energy swords!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] отражает атаку [user] своими энергомечами!</span>")
 		playsound(src, 'sound/weapons/blade1.ogg', 50, TRUE, -1)
 		return TRUE
 
@@ -115,13 +115,13 @@
 		else if(threatlevel >= 4)
 			target = C
 			oldtarget_name = C.name
-			speak("Level [threatlevel] infraction alert!")
+			speak("Уровень [threatlevel], предупреждение о нарушении!")
 			//playsound(src, pick('sound/voice/beepsky/criminal.ogg', 'sound/voice/beepsky/justice.ogg', 'sound/voice/beepsky/freeze.ogg'), 50, FALSE)
 			playsound(loc, pick('white/valtos/sounds/beepsky_russian/criminal.ogg', 'white/valtos/sounds/beepsky_russian/justice.ogg', 'white/valtos/sounds/beepsky_russian/freeze.ogg'), 50, FALSE)
 			playsound(src,'sound/weapons/saberon.ogg',50,TRUE,-1)
-			visible_message("<span class='warning'>[capitalize(src.name)] ignites his energy swords!</span>")
+			visible_message("<span class='warning'>[capitalize(src.name)] зажигает свои энергомечи!</span>")
 			icon_state = "grievous-c"
-			visible_message("<b>[capitalize(src.name)]</b> points at [C.name]!")
+			visible_message("<b>[capitalize(src.name)]</b> гонится за [C.name]!")
 			mode = BOT_HUNT
 			INVOKE_ASYNC(src, .proc/handle_automated_action)
 			break
@@ -132,7 +132,7 @@
 /mob/living/simple_animal/bot/secbot/grievous/explode()
 
 	walk_to(src,0)
-	visible_message("<span class='boldannounce'>[capitalize(src.name)] lets out a huge cough as it blows apart!</span>")
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] громко кашляет и взрывается!</span>")
 	var/atom/Tsec = drop_location()
 
 	var/obj/item/bot_assembly/secbot/Sa = new (Tsec)

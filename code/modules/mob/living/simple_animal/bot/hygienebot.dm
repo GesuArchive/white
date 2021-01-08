@@ -1,7 +1,7 @@
 //Cleanbot
 /mob/living/simple_animal/bot/hygienebot
-	name = "\improper Hygienebot"
-	desc = "A flying cleaning robot, he'll chase down people who can't shower properly!"
+	name = "Гигиенобот"
+	desc = "Летающий робот-уборщик, он будет преследовать людей, которые не умеют принимать душ!"
 	icon = 'icons/mob/aibots.dmi'
 	icon_state = "hygienebot"
 	density = FALSE
@@ -14,7 +14,7 @@
 	model = "Cleanbot"
 	bot_core_type = /obj/machinery/bot_core/hygienebot
 	window_id = "autoclean"
-	window_name = "Automatic Crew Cleaner X2"
+	window_name = "Автоматический очиститель персонала X2"
 	pass_flags = PASSMOB | PASSFLAPS
 	path_image_color = "#993299"
 	allow_pai = FALSE
@@ -46,7 +46,7 @@
 
 /mob/living/simple_animal/bot/hygienebot/explode()
 	walk_to(src,0)
-	visible_message("<span class='boldannounce'>[capitalize(src.name)] blows apart in a foamy explosion!</span>")
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] взрывается и разбрызгивает пену вокруг!</span>")
 	do_sparks(3, TRUE, src)
 	on = FALSE
 	new /obj/effect/particle_effect/foam(loc)
@@ -130,7 +130,7 @@
 				if(target.loc == loc && isturf(target.loc)) //LADIES AND GENTLEMAN WE GOTEM PREPARE TO DUMP
 					start_washing()
 					if(mad)
-						speak("Well about fucking time you degenerate.", "Fucking finally.", "Thank god, you finally stopped.")
+						speak("На тебя ушло много времени, ебучий дегенерат.", "Неужели блять.", "Спасибо боже, ты наконец остановился.")
 						playsound(loc, 'sound/effects/hygienebot_angry.ogg', 60, 1)
 						mad = FALSE
 					mode = BOT_SHOWERSTANCE
@@ -143,7 +143,7 @@
 					walk_to(src, target,0, currentspeed)
 					if(mad && prob(min(frustration * 2, 60)))
 						playsound(loc, 'sound/effects/hygienebot_angry.ogg', 60, 1)
-						speak(pick("Get back here you foul smelling fucker.", "STOP RUNNING OR I WILL CUT YOUR ARTERIES!", "Just fucking let me clean you you arsehole!", "STOP. RUNNING.", "Either you stop running or I will fucking drag you out of an airlock.", "I just want to fucking clean you you troglodyte.", "If you don't come back here I'll put a green cloud around you cunt."))
+						speak(pick("Вернись обратно, вонючий педик.", "ПРЕКРАТИ БЕЖАТЬ ИЛИ Я ПОРВУ ТВОИ АРТЕРИИ!", "Дай мне просто помыть тебя, ублюдок!", "ХВАТИТ. БЕГАТЬ.", "Если ты не перестанешь убегать от меня, то я выкину тебя в космос.", "Я просто хочу помыть тебя, ебучий троглодит.", "Если ты сейчас же не подойдёшь ко мне, то я пущу в тебя зелёный дым."))
 					if((get_dist(src, target)) >= olddist)
 						frustration++
 					else
@@ -153,7 +153,7 @@
 
 		if(BOT_SHOWERSTANCE)
 			if(check_purity(target))
-				speak("Enjoy your clean and tidy day!")
+				speak("Наслаждайтесь чистым и аккуратным днем!")
 				playsound(loc, 'sound/effects/hygienebot_happy.ogg', 60, 1)
 				back_to_idle()
 				return
@@ -192,9 +192,9 @@
 		if(!check_purity(H)) //Theyre impure
 			target = H
 			oldtarget_name = H.name
-			speak("Unhygienic client found. Please stand still so I can clean you.")
+			speak("Обнаружен антисанитарный клиент. Пожалуйста, стой спокойно, чтобы я мог очистить вас.")
 			playsound(loc, 'sound/effects/hygienebot_happy.ogg', 60, 1)
-			visible_message("<b>[capitalize(src.name)]</b> points at [H.name]!")
+			visible_message("<b>[capitalize(src.name)]</b> направляется к [H.name]!")
 			mode = BOT_HUNT
 			INVOKE_ASYNC(src, .proc/handle_automated_action)
 			break
@@ -216,13 +216,13 @@
 	dat += hack(user)
 	dat += showpai(user)
 	dat += {"
-<TT><B>Hygienebot X2 controls</B></TT><BR><BR>
-Status: ["<A href='?src=[REF(src)];power=[TRUE]'>[on ? "On" : "Off"]</A>"]<BR>
-Behaviour controls are [locked ? "locked" : "unlocked"]<BR>
-Maintenance panel is [open ? "opened" : "closed"]"}
+<TT><B>Автоматический очиститель персонала X2</B></TT><BR><BR>
+Состояние: ["<A href='?src=[REF(src)];power=[TRUE]'>[on ? "Вкл" : "Выкл"]</A>"]<BR>
+Управление поведением [locked ? "заблокировано" : "разблокировано"]<BR>
+Техническая панель [open ? "открыта" : "закрыта"]"}
 
 	if(!locked || issilicon(user) || isAdminGhostAI(user))
-		dat += {"<BR> Auto Patrol: ["<A href='?src=[REF(src)];operation=patrol'>[auto_patrol ? "On" : "Off"]</A>"]"}
+		dat += {"<BR> Авто-патруль: ["<A href='?src=[REF(src)];operation=patrol'>[auto_patrol ? "Вкл" : "Выкл"]</A>"]"}
 
 	return	dat.Join("")
 
