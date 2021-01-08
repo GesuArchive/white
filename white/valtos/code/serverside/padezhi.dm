@@ -14,25 +14,25 @@
 	set category = "Особенное"
 	var/pizdos = input("ВВЕДИТЕ ХУЙ")
 	if(pizdos)
-		world << "Начальное слово: [pizdos]"
+		to_chat(src, "Начальное слово: [pizdos]")
 
-		world << "Ж. Родительный: [sklonenie(pizdos, RODITELNI, 	"female")]"
-		world << "Ж. Дательный: [sklonenie(pizdos, DATELNI, 		"female")]"
-		world << "Ж. Винительный: [sklonenie(pizdos, VINITELNI, 	"female")]"
-		world << "Ж. Творительный: [sklonenie(pizdos, TVORITELNI, 	"female")]"
-		world << "Ж. Предложный: [sklonenie(pizdos, PREDLOZHNI, 	"female")]"
+		to_chat(src, "Ж. Родительный: [sklonenie(pizdos, RODITELNI, 	"female")]")
+		to_chat(src, "Ж. Дательный: [sklonenie(pizdos, DATELNI, 		"female")]")
+		to_chat(src, "Ж. Винительный: [sklonenie(pizdos, VINITELNI, 	"female")]")
+		to_chat(src, "Ж. Творительный: [sklonenie(pizdos, TVORITELNI, 	"female")]")
+		to_chat(src, "Ж. Предложный: [sklonenie(pizdos, PREDLOZHNI, 	"female")]")
 
-		world << "М. Родительный: [sklonenie(pizdos, RODITELNI, 	"male")]"
-		world << "М. Дательный: [sklonenie(pizdos, DATELNI, 		"male")]"
-		world << "М. Винительный: [sklonenie(pizdos, VINITELNI, 	"male")]"
-		world << "М. Творительный: [sklonenie(pizdos, TVORITELNI, 	"male")]"
-		world << "М. Предложный: [sklonenie(pizdos, PREDLOZHNI, 	"male")]"
+		to_chat(src, "М. Родительный: [sklonenie(pizdos, RODITELNI, 	"male")]")
+		to_chat(src, "М. Дательный: [sklonenie(pizdos, DATELNI, 		"male")]")
+		to_chat(src, "М. Винительный: [sklonenie(pizdos, VINITELNI, 	"male")]")
+		to_chat(src, "М. Творительный: [sklonenie(pizdos, TVORITELNI, 	"male")]")
+		to_chat(src, "М. Предложный: [sklonenie(pizdos, PREDLOZHNI, 	"male")]")
 
-		world << "С. Родительный: [sklonenie(pizdos, RODITELNI)]"
-		world << "С. Дательный: [sklonenie(pizdos, DATELNI)]"
-		world << "С. Винительный: [sklonenie(pizdos, VINITELNI)]"
-		world << "С. Творительный: [sklonenie(pizdos, TVORITELNI)]"
-		world << "С. Предложный: [sklonenie(pizdos, PREDLOZHNI)]"
+		to_chat(src, "С. Родительный: [sklonenie(pizdos, RODITELNI)]")
+		to_chat(src, "С. Дательный: [sklonenie(pizdos, DATELNI)]")
+		to_chat(src, "С. Винительный: [sklonenie(pizdos, VINITELNI)]")
+		to_chat(src, "С. Творительный: [sklonenie(pizdos, TVORITELNI)]")
+		to_chat(src, "С. Предложный: [sklonenie(pizdos, PREDLOZHNI)]")
 
 /proc/sklonenie_item_tvor(msgfrom as text)
 	if(length(msgfrom) <= 2)
