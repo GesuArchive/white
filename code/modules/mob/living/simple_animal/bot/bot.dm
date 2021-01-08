@@ -634,7 +634,7 @@ Pass a positive integer as an argument to override a bot's default speed.
 	if(tries >= BOT_STEP_MAX_RETRIES) //Bot is trapped, so stop trying to patrol.
 		auto_patrol = 0
 		tries = 0
-		speak("Unable to start patrol.")
+		speak("Невозможно начать патруль.")
 
 		return
 
@@ -645,7 +645,7 @@ Pass a positive integer as an argument to override a bot's default speed.
 	if(patrol_target) // has patrol target
 		INVOKE_ASYNC(src, .proc/target_patrol)
 	else					// no patrol target, so need a new one
-		speak("Engaging patrol mode.")
+		speak("Начинаю патруль.")
 		find_patrol_target()
 		tries++
 	return

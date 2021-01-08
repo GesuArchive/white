@@ -31,7 +31,7 @@ GLOBAL_LIST_INIT(meteorsC, list(/obj/effect/meteor/dust)) //for space dust event
 	var/turf/pickedstart
 	var/turf/pickedgoal
 	var/max_i = 10//number of tries to spawn meteor.
-	while(!isspaceturf(pickedstart) || !istype(pickedstart, /turf/open/openspace))
+	while(!isspaceturf(pickedstart) && !isopenspace(pickedstart))
 		var/startSide = pick(GLOB.cardinals)
 		var/startZ = pick(SSmapping.levels_by_trait(ZTRAIT_STATION))
 		pickedstart = spaceDebrisStartLoc(startSide, startZ)
