@@ -72,6 +72,9 @@
 	name = "синдимаска"
 	desc = "Обтягивающая тактическая маска, которая может быть подключена к источнику воздуха."
 	icon_state = "syndicate"
+	inhand_icon_state = "gas_mask"
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
 	strip_delay = 60
 
 /obj/item/clothing/mask/gas/clown_hat
