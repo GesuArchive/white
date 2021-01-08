@@ -281,7 +281,7 @@
 		COOLDOWN_START(src, next_salute_check, salute_delay)
 		for(var/mob/living/simple_animal/bot/B in view(5, src))
 			if(!B.commissioned && B.on)
-				visible_message("<b>[capitalize(B)]</b> салютует [src.name]!")
+				visible_message("<b>[capitalize(B.name)]</b> салютует [src.name]!")
 				break
 
 	switch(mode) //High-priority overrides are processed first. Bots can do nothing else while under direct command.
