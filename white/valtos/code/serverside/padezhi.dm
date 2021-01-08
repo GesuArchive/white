@@ -34,7 +34,7 @@
 		world << "С. Творительный: [sklonenie(pizdos, TVORITELNI)]"
 		world << "С. Предложный: [sklonenie(pizdos, PREDLOZHNI)]"
 
-/proc/sklonenie_item_tvor(msgfrom)
+/proc/sklonenie_item_tvor(msgfrom as text)
 	if(length(msgfrom) <= 2)
 		return msgfrom
 	var/word_end = copytext_char(msgfrom, -2)
@@ -48,13 +48,13 @@
 		return replacetext_char(msgfrom, copytext_char(word_end, -2), "ню", -2)
 	return msgfrom
 
-/proc/sklonenie(msgfrom, rule, gender = null)
+/proc/sklonenie(msgfrom as text, rule, gender = null)
 	var/to_ret = ""
 	for(var/word in splittext_char(msgfrom, " "))
 		to_ret += " [sklonenie_do(word, rule, gender)]"
 	return to_ret
 
-/proc/sklonenie_do(msgfrom, rule, gender = null)
+/proc/sklonenie_do(msgfrom as text, rule, gender = null)
 	if(length(msgfrom) <= 2)
 		return msgfrom
 	var/list/femaleOneStop = list("б","в","г","д","ж","з","й","к","л","м","н","п","р","с","т","ф","х","ц","ч","ш","щ","ъ","ь")
