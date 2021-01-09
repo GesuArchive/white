@@ -242,7 +242,7 @@
 				return
 			if(R.time)
 				var/adjusted_time = 0
-				usr.visible_message("<span class='notice'>[usr] starts building \a [R.title].</span>", "<span class='notice'>You start building \a [R.title]...</span>")
+				usr.visible_message("<span class='notice'>[usr] начинает строить [R.title].</span>", "<span class='notice'>Начинаю строить [R.title]...</span>")
 				if(HAS_TRAIT(usr, R.trait_booster))
 					adjusted_time = (R.time * R.trait_modifier)
 				else
