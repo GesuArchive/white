@@ -198,6 +198,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
+"cz" = (
+/obj/structure/table,
+/obj/effect/spawner/lootdrop/maintenance,
+/turf/open/floor/plating,
+/area/maintenance/port)
 "cA" = (
 /obj/structure/cable,
 /turf/open/floor/plasteel/white,
@@ -1945,6 +1950,18 @@
 	},
 /turf/open/floor/engine,
 /area/science/research/abandoned)
+"wZ" = (
+/obj/structure/table,
+/obj/item/storage/firstaid/regular{
+	pixel_x = -9;
+	pixel_y = 13
+	},
+/obj/item/toy/crayon/spraycan{
+	pixel_x = 7;
+	pixel_y = 14
+	},
+/turf/open/floor/plating,
+/area/maintenance/port)
 "xb" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -3607,6 +3624,10 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"Om" = (
+/obj/structure/sign/painting/library,
+/turf/closed/wall,
+/area/maintenance/port)
 "Os" = (
 /obj/machinery/door/window/northleft{
 	dir = 4;
@@ -3969,6 +3990,14 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
+"RZ" = (
+/obj/structure/easel,
+/obj/item/canvas/nineteen_nineteen,
+/obj/item/canvas/twentyfour_twentyfour,
+/obj/item/canvas/twentythree_nineteen,
+/obj/item/canvas/twentythree_twentythree,
+/turf/open/floor/plating,
+/area/maintenance/port)
 "Sg" = (
 /obj/machinery/door/window/northleft{
 	base_state = "right";
@@ -19260,9 +19289,9 @@ Zm
 bw
 bw
 Zm
-bw
-bw
 pf
+pf
+Om
 DC
 DC
 DC
@@ -19518,8 +19547,8 @@ bw
 PG
 Zm
 pf
-pf
-pf
+wZ
+fD
 fD
 fD
 fD
@@ -19775,7 +19804,7 @@ PG
 PG
 Zm
 pf
-fD
+RZ
 fD
 kQ
 fD
@@ -20032,7 +20061,7 @@ PG
 PG
 Zm
 pf
-fD
+cz
 GW
 BF
 fD
@@ -20545,16 +20574,16 @@ Zm
 PG
 Zm
 Zm
+PG
 Zm
 Zm
+PG
 Zm
+PG
 Zm
+PG
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 kj
 dW
@@ -20802,16 +20831,16 @@ Zm
 PG
 Zm
 Zm
+PG
 Zm
 Zm
+PG
 Zm
+PG
 Zm
+PG
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 kj
 Tk
@@ -21059,16 +21088,16 @@ bw
 bw
 Zm
 Zm
+PG
 Zm
 Zm
+PG
 Zm
+PG
 Zm
+PG
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 pQ
 fV
@@ -21314,19 +21343,19 @@ Zm
 Zm
 Zm
 PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
 pQ
 fV
 Kr
@@ -21573,16 +21602,16 @@ Zm
 PG
 Zm
 Zm
+PG
 Zm
 Zm
+PG
 Zm
+PG
 Zm
+PG
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 kj
 Jm
@@ -21830,16 +21859,16 @@ Zm
 PG
 Zm
 Zm
+PG
 Zm
 Zm
+PG
 Zm
+PG
 Zm
+PG
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 kj
 kj
@@ -22087,16 +22116,16 @@ Zm
 PG
 Zm
 Zm
+PG
 Zm
 Zm
+PG
 Zm
+PG
 Zm
+PG
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 PG
@@ -22344,16 +22373,16 @@ KI
 KI
 mw
 Zm
+PG
 Zm
 Zm
+PG
 Zm
+PG
 Zm
+PG
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 PG
@@ -22604,9 +22633,9 @@ Zm
 PG
 Zm
 Zm
+PG
 Zm
-Zm
-Zm
+PG
 Zm
 PG
 PG

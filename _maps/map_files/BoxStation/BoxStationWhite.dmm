@@ -32128,6 +32128,10 @@
 /obj/machinery/ai_slipper/smartfoam,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
+"gUc" = (
+/obj/structure/sign/painting/library,
+/turf/closed/wall,
+/area/library)
 "gWd" = (
 /obj/structure/cable,
 /obj/structure/lattice/catwalk,
@@ -34201,6 +34205,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/science/nanite)
+"ldT" = (
+/obj/structure/sign/poster/official/random,
+/turf/closed/wall,
+/area/science/research)
 "leh" = (
 /obj/structure/cable,
 /obj/machinery/power/am_control_unit,
@@ -34918,6 +34926,10 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/aft)
+"mTi" = (
+/obj/structure/sign/poster/official/random,
+/turf/closed/wall,
+/area/science/nanite)
 "mTu" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/visible,
 /obj/machinery/atmospherics/pipe/simple/green/visible{
@@ -38045,6 +38057,10 @@
 /obj/structure/rack,
 /turf/open/floor/plasteel/white,
 /area/science/xenobiology)
+"sVw" = (
+/obj/structure/sign/poster/official/random,
+/turf/closed/wall,
+/area/maintenance/starboard/fore)
 "sVx" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
@@ -83788,7 +83804,7 @@ aIu
 aJQ
 bCI
 aIt
-aFu
+gUc
 aUx
 aIt
 aRN
@@ -84291,7 +84307,7 @@ anf
 alP
 alP
 lqM
-alP
+sVw
 alP
 alP
 alP
@@ -84559,7 +84575,7 @@ aIv
 xGu
 xGu
 aIt
-aFu
+gUc
 aPd
 aIt
 aRO
@@ -85333,7 +85349,7 @@ aMW
 aFw
 aFu
 aFu
-aFu
+gUc
 aTc
 aUD
 aVS
@@ -86405,7 +86421,7 @@ bJN
 mFF
 qcR
 rCp
-bhA
+ldT
 bPN
 tiS
 tVW
@@ -87411,7 +87427,7 @@ qaX
 jrH
 sve
 dYq
-dYq
+mTi
 dYq
 wkN
 wkN
@@ -87433,7 +87449,7 @@ bDn
 bEz
 bFS
 bJT
-bhA
+ldT
 bPN
 tDw
 cba
