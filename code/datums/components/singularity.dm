@@ -187,11 +187,9 @@
 
 	if(prob(10))
 		if(SSmapping.get_turf_above(get_turf(parent)))
-			var/turf/target = get_step_multiz(parent, UP)
-			parent.forceMove(target)
+			step(parent, UP)
 		else if (SSmapping.get_turf_below(get_turf(parent)))
-			var/turf/target = get_step_multiz(parent, DOWN)
-			parent.forceMove(target)
+			step(parent, DOWN)
 	step(parent, drifting_dir)
 
 /datum/component/singularity/proc/moved(datum/source, atom/new_location)
