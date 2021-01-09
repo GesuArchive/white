@@ -185,6 +185,13 @@
 	if (!QDELETED(target) && prob(CHANCE_TO_MOVE_TO_TARGET))
 		drifting_dir = get_dir(parent, target)
 
+	if(prob(10))
+		if(SSmapping.get_turf_above(get_turf(src)))
+			var/turf/target = get_step_multiz(src, UP)
+			forceMove(target)
+		else if (SSmapping.get_turf_below(get_turf(src)))
+			var/turf/target = get_step_multiz(src, DOWN)
+			forceMove(target)
 	step(parent, drifting_dir)
 
 /datum/component/singularity/proc/moved(datum/source, atom/new_location)
