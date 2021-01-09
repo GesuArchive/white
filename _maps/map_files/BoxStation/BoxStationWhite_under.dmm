@@ -235,6 +235,10 @@
 /obj/effect/spawner/lootdrop/maintenance/two,
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/east)
+"dp" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/maintenance/port)
 "ds" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -279,6 +283,15 @@
 "dP" = (
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
+"dW" = (
+/obj/structure/stairs/west,
+/obj/structure/railing,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"em" = (
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "ew" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 5
@@ -351,6 +364,12 @@
 "fq" = (
 /turf/closed/wall/r_wall,
 /area/storage/tech)
+"fu" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/maintenance/port)
 "fx" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
@@ -359,6 +378,9 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
+"fD" = (
+/turf/open/floor/plating,
+/area/maintenance/port)
 "fE" = (
 /obj/structure/ladder,
 /turf/open/floor/plating,
@@ -366,6 +388,13 @@
 "fF" = (
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
+"fL" = (
+/obj/structure/grille,
+/obj/structure/window{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/maintenance/port)
 "fS" = (
 /obj/machinery/button/door{
 	id = "xenobio4";
@@ -382,6 +411,9 @@
 /obj/structure/ladder,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
+"fV" = (
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "gb" = (
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/trimline/green/filled/end{
@@ -768,6 +800,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
+"kj" = (
+/turf/closed/wall,
+/area/maintenance/port/aft)
 "ko" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -825,6 +860,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/tcommsat/server/upper)
+"kQ" = (
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/plating,
+/area/maintenance/port)
 "kS" = (
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
@@ -1214,6 +1253,10 @@
 /obj/structure/sign/warning/biohazard,
 /turf/closed/wall/r_wall,
 /area/science/xenobiology)
+"ox" = (
+/obj/structure/closet/emcloset,
+/turf/open/floor/plating,
+/area/maintenance/port)
 "oy" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -1253,6 +1296,10 @@
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/tcommsat/server/upper)
+"oS" = (
+/obj/structure/closet/emcloset,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "oV" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -1266,6 +1313,9 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
 /area/quartermaster/warehouse)
+"pf" = (
+/turf/closed/wall,
+/area/maintenance/port)
 "pg" = (
 /obj/machinery/atmospherics/pipe/simple/general/visible{
 	dir = 4
@@ -1336,6 +1386,10 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"pQ" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "pW" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -1567,6 +1621,13 @@
 /obj/effect/spawner/lootdrop/maintenance/two,
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/east)
+"sY" = (
+/obj/structure/window{
+	dir = 1
+	},
+/obj/structure/grille,
+/turf/open/floor/plating,
+/area/maintenance/port)
 "td" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 8
@@ -1741,6 +1802,10 @@
 /obj/structure/sign/warning/securearea,
 /turf/closed/wall/r_wall,
 /area/ai_monitored/storage/eva)
+"vi" = (
+/obj/machinery/portable_atmospherics/canister/proto/default/oxygen,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "vl" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -30
@@ -1800,6 +1865,10 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
+"wq" = (
+/obj/structure/closet/firecloset,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "wr" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 6
@@ -1821,6 +1890,11 @@
 /obj/structure/closet/firecloset,
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/east)
+"wy" = (
+/turf/open/floor/plating{
+	icon_state = "platingdmg3"
+	},
+/area/maintenance/port)
 "wz" = (
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
@@ -2276,6 +2350,12 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
+"BF" = (
+/turf/open/floor/plating{
+	initial_gas_mix = "o2=0.01;n2=0.01";
+	luminosity = 2
+	},
+/area/maintenance/port)
 "BI" = (
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
@@ -2419,6 +2499,10 @@
 /obj/item/clothing/suit/hooded/wintercoat/science,
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/east)
+"DC" = (
+/obj/structure/closet/crate/maint,
+/turf/open/floor/plating,
+/area/maintenance/port)
 "DE" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -2567,6 +2651,13 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
+"EY" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_access_txt = "12"
+	},
+/turf/open/floor/plating,
+/area/maintenance/port)
 "Fa" = (
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/east)
@@ -2786,6 +2877,11 @@
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"GW" = (
+/turf/open/floor/plating{
+	icon_state = "panelscorched"
+	},
+/area/maintenance/port)
 "Hb" = (
 /obj/machinery/camera{
 	c_tag = "Xenobiology Pens - Starboard Fore";
@@ -2947,6 +3043,15 @@
 /obj/structure/closet/cardboard,
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/east)
+"Jm" = (
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 0
+	},
+/obj/structure/stairs/east,
+/obj/structure/railing,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "Jp" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -3051,6 +3156,11 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
+"Kr" = (
+/turf/open/floor/plating{
+	icon_state = "panelscorched"
+	},
+/area/maintenance/port/aft)
 "KC" = (
 /obj/effect/turf_decal/trimline/neutral/corner{
 	dir = 4
@@ -3155,6 +3265,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/science/research/abandoned)
+"Ll" = (
+/obj/structure/closet/firecloset,
+/turf/open/floor/plating,
+/area/maintenance/port)
 "Lp" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 6
@@ -3997,6 +4111,10 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4,
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/south)
+"Tk" = (
+/obj/item/cigbutt,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "Tm" = (
 /obj/machinery/airalarm{
 	dir = 1;
@@ -4214,6 +4332,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/white,
 /area/science/research/abandoned)
+"VH" = (
+/obj/effect/decal/cleanable/vomit,
+/turf/open/floor/plating,
+/area/maintenance/port)
 "VJ" = (
 /obj/structure/sink{
 	dir = 4;
@@ -17858,13 +17980,13 @@ PG
 PG
 PG
 Zm
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bw
+bw
+bw
+bw
+bw
+bw
+bw
 PG
 Zm
 Zm
@@ -18113,16 +18235,16 @@ Zm
 Zm
 Zm
 Zm
-PG
+bw
+bw
+bw
+bw
+bw
+bw
 Zm
-PG
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-PG
+bw
+bw
+bw
 Zm
 Zm
 Zm
@@ -18367,20 +18489,20 @@ Zm
 PG
 PG
 Zm
-Zm
-Zm
-Zm
+bw
+bw
+bw
+bw
+bw
 PG
 Zm
 PG
 Zm
-PG
 Zm
 Zm
 Zm
-Zm
-PG
-Zm
+bw
+bw
 Zm
 Zm
 Zm
@@ -18623,22 +18745,22 @@ Zm
 Zm
 PG
 PG
+bw
+bw
 Zm
 Zm
-Zm
+PG
 Zm
 PG
 Zm
 PG
 Zm
-PG
-Zm
 Zm
 Zm
 Zm
 PG
-Zm
-Zm
+bw
+bw
 Zm
 Zm
 Zm
@@ -18883,20 +19005,20 @@ bw
 bw
 bw
 bw
+pf
+dp
+pf
+dp
+pf
+dp
+pf
+dp
+pf
+PG
+PG
+PG
 bw
 bw
-Zm
-bw
-bw
-bw
-bw
-PG
-PG
-PG
-PG
-PG
-PG
-PG
 PG
 PG
 PG
@@ -19135,26 +19257,26 @@ Zm
 Zm
 Zm
 Zm
-PG
-PG
+bw
+bw
 Zm
-Zm
-Zm
-Zm
-PG
-Zm
-PG
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
+bw
+bw
+pf
+DC
+DC
+DC
+fL
+Ll
+Ll
+ox
+pf
+bw
+bw
+bw
+bw
+bw
+bw
 Zm
 Zm
 Zm
@@ -19391,28 +19513,28 @@ PG
 Zm
 Zm
 Zm
-Zm
-PG
-PG
-Zm
-Zm
-Zm
-Zm
+bw
+bw
 PG
 Zm
-PG
+pf
+pf
+pf
+fD
+fD
+fD
+sY
+BF
+fD
+kQ
+pf
+bw
+bw
+bw
+bw
 Zm
-PG
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
+bw
+bw
 Zm
 Zm
 Zm
@@ -19647,30 +19769,30 @@ Zm
 PG
 Zm
 Zm
-Zm
-Zm
+bw
+bw
 PG
 PG
 Zm
+pf
+fD
+fD
+kQ
+fD
+wy
+sY
+fD
+VH
+fD
+pf
+pf
+pf
+pf
+pf
 Zm
 Zm
-Zm
-PG
-Zm
-PG
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+bw
+bw
 Zm
 Zm
 Zm
@@ -19903,32 +20025,32 @@ Zm
 Zm
 PG
 PG
+bw
+bw
 PG
 PG
 PG
-PG
-PG
+Zm
+pf
+fD
+GW
+BF
+fD
+fD
+fu
+fD
+fD
+wy
+fD
+fD
+fD
+fD
+pf
 Zm
 Zm
 Zm
-Zm
-PG
-Zm
-PG
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
+bw
+bw
 Zm
 Zm
 Zm
@@ -20159,45 +20281,45 @@ Zm
 Zm
 Zm
 PG
+bw
+bw
 Zm
 Zm
-Zm
-Zm
 PG
 PG
 PG
+pf
+pf
+pf
+dp
+pf
+dp
+pf
+dp
+pf
+dp
+pf
+pf
+pf
+EY
+pf
+kj
 PG
 PG
 PG
+bw
+bw
 PG
 PG
 PG
+bw
+bw
+bw
+bw
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-Zm
-Zm
+bw
+bw
+bw
 Zm
 Zm
 Zm
@@ -20415,23 +20537,8 @@ Zm
 Zm
 Zm
 Zm
-PG
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+bw
+bw
 Zm
 Zm
 Zm
@@ -20439,6 +20546,21 @@ PG
 Zm
 Zm
 Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+kj
+dW
+fV
+oS
+kj
 Zm
 Zm
 PG
@@ -20672,23 +20794,8 @@ Zm
 Zm
 Zm
 Zm
-PG
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+bw
+bw
 Zm
 Zm
 Zm
@@ -20696,6 +20803,21 @@ PG
 Zm
 Zm
 Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+kj
+Tk
+fV
+wq
+kj
 Zm
 Zm
 PG
@@ -20948,11 +21070,11 @@ Zm
 Zm
 Zm
 Zm
-Zm
-PG
-Zm
-Zm
-Zm
+pQ
+fV
+em
+vi
+pQ
 Zm
 Zm
 PG
@@ -21205,11 +21327,11 @@ Zm
 Zm
 Zm
 Zm
-Zm
-PG
-Zm
-Zm
-Zm
+pQ
+fV
+Kr
+vi
+pQ
 Zm
 Zm
 PG
@@ -21462,7 +21584,11 @@ Zm
 Zm
 Zm
 Zm
-Zm
+kj
+Jm
+fV
+vi
+kj
 PG
 PG
 PG
@@ -21475,13 +21601,9 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-Zm
-Zm
-Zm
+bw
+bw
+bw
 Zm
 Zm
 Zm
@@ -21719,11 +21841,11 @@ Zm
 Zm
 Zm
 Zm
-Zm
-PG
-Zm
-Zm
-Zm
+kj
+kj
+kj
+kj
+kj
 Zm
 Zm
 PG
@@ -22506,10 +22628,10 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
+bw
+bw
+bw
+bw
 Zm
 Zm
 Zm
@@ -22770,18 +22892,18 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-PG
-Zm
-PG
-Zm
-Zm
-PG
-Zm
-PG
-Zm
-Zm
+bw
+bw
+bw
+bw
+bw
+bw
+bw
+bw
+bw
+bw
+bw
+bw
 Zm
 Zm
 oi
