@@ -352,7 +352,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/machinery/door/airlock/engineering{
 	name = "Engine Room";
-	req_access_txt = "10;24"
+	req_access_txt = "10"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
@@ -532,7 +532,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Engine Room";
-	req_access_txt = "10;24"
+	req_access_txt = "10"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
@@ -5344,7 +5344,6 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
 "azy" = (
@@ -8295,6 +8294,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/machinery/light/small,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "aIr" = (
@@ -14792,6 +14792,9 @@
 /obj/structure/table,
 /obj/item/storage/box/bodybags,
 /obj/item/pen,
+/obj/item/radio/intercom{
+	pixel_x = -30
+	},
 /turf/open/floor/plasteel/dark,
 /area/science/robotics/lab)
 "bpT" = (
@@ -21731,6 +21734,10 @@
 /area/science/nanite)
 "bUr" = (
 /obj/structure/chair,
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 0
+	},
 /turf/open/floor/plating,
 /area/maintenance/starboard)
 "bUt" = (
@@ -23243,7 +23250,6 @@
 /turf/open/floor/plasteel,
 /area/engine/break_room)
 "bZv" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
@@ -25699,6 +25705,9 @@
 /area/maintenance/port/fore)
 "cjf" = (
 /obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/chair/office/light{
 	dir = 1
 	},
 /turf/open/floor/plasteel,
@@ -29093,14 +29102,14 @@
 /turf/open/floor/plating,
 /area/lawoffice)
 "cCl" = (
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -30043,9 +30052,9 @@
 /turf/open/floor/plating,
 /area/maintenance/fore)
 "cUO" = (
-/obj/machinery/power/smes,
+/obj/machinery/light/small,
 /turf/open/floor/plating,
-/area/maintenance/department/electrical)
+/area/maintenance/starboard/fore)
 "cVb" = (
 /obj/structure/chair/plastic{
 	dir = 8
@@ -30685,6 +30694,10 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/starboard)
+"eah" = (
+/obj/structure/ladder,
+/turf/open/floor/plasteel,
+/area/engine/break_room)
 "ecF" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -36758,6 +36771,17 @@
 /obj/item/stack/package_wrap,
 /turf/open/floor/wood,
 /area/library)
+"qor" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/light/small,
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "qoN" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/visible,
 /obj/structure/cable,
@@ -36865,6 +36889,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
+"qBr" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "qBw" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/plasteel/dark,
@@ -36953,6 +36983,13 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/aft)
+"qQB" = (
+/obj/machinery/space_heater,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard)
 "qQH" = (
 /obj/effect/spawner/lootdrop/minor/bowler_or_that,
 /obj/structure/rack,
@@ -37835,6 +37872,14 @@
 /obj/structure/ladder,
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
+"sBw" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/light/small,
+/turf/open/floor/plating,
+/area/maintenance/aft)
 "sBJ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -55004,7 +55049,7 @@ amC
 amC
 aom
 uAV
-aol
+hCx
 alU
 auZ
 bsU
@@ -71779,7 +71824,7 @@ bQe
 bRk
 bTi
 caA
-bZy
+eah
 bXI
 bZy
 adz
@@ -80530,7 +80575,7 @@ bAw
 bAw
 bAw
 csl
-bJy
+sBw
 bzs
 aaa
 aaa
@@ -82764,7 +82809,7 @@ aty
 arr
 apC
 alP
-jue
+qor
 alP
 anf
 awC
@@ -85331,11 +85376,11 @@ anf
 arw
 asA
 asA
-anf
+cUO
 alP
 awL
 anf
-anf
+qBr
 apE
 aBF
 aBF
@@ -86093,7 +86138,7 @@ aaa
 aaa
 alO
 anf
-anf
+cUO
 alP
 aoP
 aoP
@@ -88161,9 +88206,9 @@ atF
 auJ
 auJ
 aAz
-auI
-toG
-cUO
+aAz
+aAz
+aAz
 asB
 aCQ
 aFz
@@ -89732,7 +89777,7 @@ aPq
 mhM
 bky
 bqh
-bqh
+qQB
 blO
 boB
 bnq
