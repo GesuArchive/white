@@ -521,11 +521,11 @@
 
 /obj/item/flashlight/glowstick/suicide_act(mob/living/carbon/human/user)
 	if(!fuel)
-		user.visible_message("<span class='suicide'>[user] is trying to squirt [src]'s fluids into [user.ru_ego()] eyes... but it's empty!</span>")
+		user.visible_message("<span class='suicide'>[user] пытается squirt [src]'s fluids into [user.ru_ego()] eyes... but it's empty!</span>")
 		return SHAME
 	var/obj/item/organ/eyes/eyes = user.getorganslot(ORGAN_SLOT_EYES)
 	if(!eyes)
-		user.visible_message("<span class='suicide'>[user] is trying to squirt [src]'s fluids into [user.ru_ego()] eyes... but [user.ru_who()] don't have any!</span>")
+		user.visible_message("<span class='suicide'>[user] пытается squirt [src]'s fluids into [user.ru_ego()] eyes... but [user.ru_who()] don't have any!</span>")
 		return SHAME
 	user.visible_message("<span class='suicide'>[user] is squirting [src]'s fluids into [user.ru_ego()] eyes! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	fuel = 0

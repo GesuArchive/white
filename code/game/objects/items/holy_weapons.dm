@@ -424,7 +424,7 @@
 	attack_verb_simple = list("НЕРЕАЛЬНО рубит", "НЕРЕАЛЬНО режет", "НЕРЕАЛЬНО кромсает", "НЕРЕАЛЬНО разрывает", "НЕРЕАЛЬНО протыкает", "НЕРЕАЛЬНО атакует", "НЕРЕАЛЬНО делит", "НЕРЕАЛЬНО колбасит")
 
 /obj/item/nullrod/sord/suicide_act(mob/user) //a near-exact copy+paste of the actual sord suicide_act()
-	user.visible_message("<span class='suicide'>[user] is trying to impale [user.ru_na()]self with [src]! It might be a suicide attempt if it weren't so HOLY.</span>", \
+	user.visible_message("<span class='suicide'>[user] пытается impale [user.ru_na()]self with [src]! It might be a suicide attempt if it weren't so HOLY.</span>", \
 	"<span class='suicide'>You try to impale yourself with [src], but it's TOO HOLY...</span>")
 	return SHAME
 

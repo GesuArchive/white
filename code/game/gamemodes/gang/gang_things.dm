@@ -45,7 +45,7 @@
 		handler.gangbangers += user.mind
 	team_to_use.adjust_points(30)
 
-/// Checks if the user is trying to use the package of the family they are in, and if not, adds them to the family, with some differing processing depending on whether the user is already a family member.
+/// Checks if the user пытается use the package of the family they are in, and if not, adds them to the family, with some differing processing depending on whether the user is already a family member.
 /obj/item/gang_induction_package/proc/attempt_join_gang(mob/living/user)
 	if(user?.mind)
 		var/datum/antagonist/gang/is_gangster = user.mind.has_antag_datum(/datum/antagonist/gang)

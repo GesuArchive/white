@@ -743,7 +743,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	if(!A)
 		A = GLOB.admin_datums[ckey]
 		if (!A)
-			var/msg = " is trying to readmin but they have no deadmin entry"
+			var/msg = " пытается readmin but they have no deadmin entry"
 			message_admins("[key_name_admin(src)][msg]")
 			log_admin_private("[key_name(src)][msg]")
 			return

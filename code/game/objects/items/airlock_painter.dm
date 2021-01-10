@@ -104,7 +104,7 @@
 		return TOXLOSS
 
 	else
-		user.visible_message("<span class='suicide'>[user] is trying to inhale toner from [src]! It might be a suicide attempt if [src] had any toner.</span>")
+		user.visible_message("<span class='suicide'>[user] пытается inhale toner from [src]! It might be a suicide attempt if [src] had any toner.</span>")
 		return SHAME
 
 

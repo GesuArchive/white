@@ -20,7 +20,7 @@
 	allow_pai = FALSE
 	layer = ABOVE_MOB_LAYER
 
-	///The human target the bot is trying to wash.
+	///The human target the bot пытается wash.
 	var/mob/living/carbon/human/target
 	///The mob's current speed, which varies based on how long the bot chases it's target.
 	var/currentspeed = 5

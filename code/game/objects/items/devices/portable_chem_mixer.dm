@@ -98,7 +98,7 @@
  *
  * Checks if a valid user and a valid new beaker exist and attempts to replace the current beaker in the portable chemical mixer with the one in hand. Simply places the new beaker in if no beaker is currently loaded
  *	Arguments:
- * * mob/living/user							-	The user who is trying to exchange beakers
+ * * mob/living/user							-	The user who пытается exchange beakers
  *	* obj/item/reagent_containers/new_beaker	-	The new beaker that the user wants to put into the device
  */
 /obj/item/storage/portable_chem_mixer/proc/replace_beaker(mob/living/user, obj/item/reagent_containers/new_beaker)

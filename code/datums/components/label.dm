@@ -29,7 +29,7 @@
 	UnregisterSignal(parent, list(COMSIG_PARENT_ATTACKBY, COMSIG_PARENT_EXAMINE))
 
 /**
-	This proc will fire after the parent is hit by a hand labeler which is trying to apply another label.
+	This proc will fire after the parent is hit by a hand labeler which пытается apply another label.
 	Since the parent already has a label, it will remove the old one from the parent's name, and apply the new one.
 */
 /datum/component/label/InheritComponent(datum/component/label/new_comp , i_am_original, _label_name)

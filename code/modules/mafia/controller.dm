@@ -442,7 +442,7 @@
  *
  * If teams, it hides the tally overlay and only sends the vote messages to the team that is voting
  * Arguments:
- * * voter: the mafia role that is trying to vote for...
+ * * voter: the mafia role that пытается vote for...
  * * target: the mafia role that is getting voted for
  * * vote_type: type of vote submitted (is this the day vote? is this the mafia night vote?)
  * * teams: see mafia team defines for what to put in, makes the messages only send to a specific team (so mafia night votes only sending messages to mafia at night)

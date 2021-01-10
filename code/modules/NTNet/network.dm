@@ -151,7 +151,7 @@
 				interface.alias[network_id] = src // add to the alias list
 				linked_devices[interface.hardware_id] = interface
 			else
-				log_telecomms("The device {[interface.hardware_id]} is trying to join '[network_id]' for a second time!")
+				log_telecomms("The device {[interface.hardware_id]} пытается join '[network_id]' for a second time!")
 			return
 	// we have no network
 	interface.network = src  // now we do!
@@ -174,7 +174,7 @@
  */
 /datum/ntnet/proc/remove_interface(datum/component/ntnet_interface/interface, remove_all_alias=FALSE)
 	if(!interface.alias[network_id])
-		log_telecomms("The device {[interface.hardware_id]} is trying to leave a '[network_id]'' when its on '[interface.network.network_id]'")
+		log_telecomms("The device {[interface.hardware_id]} пытается leave a '[network_id]'' when its on '[interface.network.network_id]'")
 		return
 	// just cashing it
 	var/hardware_id = interface.hardware_id
@@ -216,13 +216,13 @@
 	var/datum/ntnet/net = original_network == null ? src : networks[original_network]
 	var/datum/ntnet/target = networks[target_network]
 	if(!target || !net)
-		log_telecomms("The device {[interface.hardware_id]} is trying to move to a network ([target_network]) that is not on ([network_id])")
+		log_telecomms("The device {[interface.hardware_id]} пытается move to a network ([target_network]) that is not on ([network_id])")
 		return
 	if(target.linked_devices[interface.hardware_id])
-		log_telecomms("The device {[interface.hardware_id]} is trying to move to a network ([target_network]) it is already on.")
+		log_telecomms("The device {[interface.hardware_id]} пытается move to a network ([target_network]) it is already on.")
 		return
 	if(!net.linked_devices[interface.hardware_id])
-		log_telecomms("The device {[interface.hardware_id]} is trying to move to a network ([target_network]) but its not on ([net.network_id]) ")
+		log_telecomms("The device {[interface.hardware_id]} пытается move to a network ([target_network]) but its not on ([net.network_id]) ")
 		return
 	net.linked_devices.Remove(interface.hardware_id)
 	target.linked_devices[interface.hardware_id] = interface

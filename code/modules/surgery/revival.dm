@@ -55,7 +55,7 @@
 	display_results(user, target, "<span class='notice'>You prepare to give [target]'s brain the spark of life with [tool].</span>",
 		"<span class='notice'>[user] prepares to shock [target]'s brain with [tool].</span>",
 		"<span class='notice'>[user] prepares to shock [target]'s brain with [tool].</span>")
-	target.notify_ghost_cloning("Someone is trying to zap your brain.", source = target)
+	target.notify_ghost_cloning("Someone пытается zap your brain.", source = target)
 
 /datum/surgery_step/revive/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
 	display_results(user, target, "<span class='notice'>You successfully shock [target]'s brain with [tool]...</span>",

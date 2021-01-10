@@ -99,7 +99,7 @@
 		var/mob/living/M = buckled_mob
 		if(M != user)
 			M.visible_message("<span class='notice'>[user] tries to pull [M] free of [src]!</span>",\
-				"<span class='notice'>[user] is trying to pull you off [src], opening up fresh wounds!</span>",\
+				"<span class='notice'>[user] пытается pull you off [src], opening up fresh wounds!</span>",\
 				"<span class='hear'>You hear a squishy wet noise.</span>")
 			if(!do_after(user, 300, target = src))
 				if(M?.buckled)

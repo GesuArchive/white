@@ -210,7 +210,7 @@
  *
  * Proc which finds a safe location to teleport a living entity to when a swarmer teleports it away.  Also energy handcuffs carbons.
  * Arguments:
- * * target - The entity the swarmer is trying to teleport away
+ * * target - The entity the swarmer пытается teleport away
  */
 /mob/living/simple_animal/hostile/swarmer/proc/prepare_target(mob/living/target)
 	if(target == src)

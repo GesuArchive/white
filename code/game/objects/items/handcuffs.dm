@@ -21,8 +21,8 @@
 //Handcuffs
 
 /obj/item/restraints/handcuffs
-	name = "handcuffs"
-	desc = "Use this to keep prisoners in line."
+	name = "наручники"
+	desc = "Используется для удержания животных в загоне."
 	gender = PLURAL
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "handcuff"
@@ -49,14 +49,14 @@
 	SEND_SIGNAL(C, COMSIG_CARBON_CUFF_ATTEMPTED, user)
 
 	if(iscarbon(user) && (HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50)))
-		to_chat(user, "<span class='warning'>Uh... how do those things work?!</span>")
+		to_chat(user, "<span class='warning'>Хыы... как это работает?!</span>")
 		apply_cuffs(user,user)
 		return
 
 	if(!C.handcuffed)
 		if(C.canBeHandcuffed())
-			C.visible_message("<span class='danger'>[user] is trying to put [src.name] on [C]!</span>", \
-								"<span class='userdanger'>[user] is trying to put [src.name] on you!</span>")
+			C.visible_message("<span class='danger'>[user] пытается надеть [src.name] на [C]!</span>", \
+								"<span class='userdanger'>[user] пытается надеть [src.name] на меня!</span>")
 
 			playsound(loc, cuffsound, 30, TRUE, -2)
 			log_combat(user, C, "attempted to handcuff")
@@ -65,16 +65,16 @@
 					apply_cuffs(C, user, TRUE)
 				else
 					apply_cuffs(C, user)
-				C.visible_message("<span class='notice'>[user] handcuffs [C].</span>", \
-									"<span class='userdanger'>[user] handcuffs you.</span>")
+				C.visible_message("<span class='notice'>[user] заковывает [C].</span>", \
+									"<span class='userdanger'>[user] заковывает меня.</span>")
 				SSblackbox.record_feedback("tally", "handcuffs", 1, type)
 
 				log_combat(user, C, "handcuffed")
 			else
-				to_chat(user, "<span class='warning'>You fail to handcuff [C]!</span>")
+				to_chat(user, "<span class='warning'>Не выходит заковать [C]!</span>")
 				log_combat(user, C, "failed to handcuff")
 		else
-			to_chat(user, "<span class='warning'>[C] doesn't have two hands...</span>")
+			to_chat(user, "<span class='warning'>[C] не имеет двух рук...</span>")
 
 /obj/item/restraints/handcuffs/proc/apply_cuffs(mob/living/carbon/target, mob/user, dispense = 0)
 	if(target.handcuffed)
@@ -98,8 +98,8 @@
 	return
 
 /obj/item/restraints/handcuffs/cable/sinew
-	name = "sinew restraints"
-	desc = "A pair of restraints fashioned from long strands of flesh."
+	name = "стяжки из сухожилий"
+	desc = "Пара стяжек, сделанных из длинных прядей плоти."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "sinewcuff"
 	inhand_icon_state = "sinewcuff"
@@ -107,8 +107,8 @@
 	color = null
 
 /obj/item/restraints/handcuffs/cable
-	name = "cable restraints"
-	desc = "Looks like some cables tied together. Could be used to tie something up."
+	name = "кабельные стяжки"
+	desc = "Похоже, что какие-то кабели связаны вместе. Может использоваться, чтобы что-то или кого-то связать."
 	icon_state = "cuff"
 	inhand_icon_state = "coil"
 	color = "#ff0000"
@@ -146,8 +146,8 @@
 	icon_state = "handcuffAlien"
 
 /obj/item/restraints/handcuffs/fake
-	name = "fake handcuffs"
-	desc = "Fake handcuffs meant for gag purposes."
+	name = "поддельные наручники"
+	desc = "Поддельные наручники, предназначенные для фетишей."
 	breakouttime = 1 SECONDS
 
 /obj/item/restraints/handcuffs/cable/attackby(obj/item/I, mob/user, params)
@@ -157,32 +157,32 @@
 			var/obj/item/wirerod/W = new /obj/item/wirerod
 			remove_item_from_storage(user)
 			user.put_in_hands(W)
-			to_chat(user, "<span class='notice'>You wrap [src] around the top of [I].</span>")
+			to_chat(user, "<span class='notice'>Оборачиваю [src.name] вокруг верхушки [I.name].</span>")
 			qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need one rod to make a wired rod!</span>")
+			to_chat(user, "<span class='warning'>Мне потребуется стержень для этого!</span>")
 			return
 	else if(istype(I, /obj/item/stack/sheet/metal))
 		var/obj/item/stack/sheet/metal/M = I
 		if(M.get_amount() < 6)
-			to_chat(user, "<span class='warning'>You need at least six metal sheets to make good enough weights!</span>")
+			to_chat(user, "<span class='warning'>Мне потребуется как минимум шесть единиц металла для веса!</span>")
 			return
-		to_chat(user, "<span class='notice'>You begin to apply [I] to [src]...</span>")
+		to_chat(user, "<span class='notice'>Начинаю навешивать [I.name] на [src.name]...</span>")
 		if(do_after(user, 35, target = src))
 			if(M.get_amount() < 6 || !M)
 				return
 			var/obj/item/restraints/legcuffs/bola/S = new /obj/item/restraints/legcuffs/bola
 			M.use(6)
 			user.put_in_hands(S)
-			to_chat(user, "<span class='notice'>You make some weights out of [I] and tie them to [src].</span>")
+			to_chat(user, "<span class='notice'>Делаю грузики используя [I.name] создавая [src.name].</span>")
 			remove_item_from_storage(user)
 			qdel(src)
 	else
 		return ..()
 
 /obj/item/restraints/handcuffs/cable/zipties
-	name = "zipties"
-	desc = "Plastic, disposable zipties that can be used to restrain temporarily but are destroyed after use."
+	name = "стяжки"
+	desc = "Одноразовые пластиковые стяжки, которые можно использовать для временного сдерживания, но которые после использования разрушаются."
 	icon_state = "cuff"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
@@ -192,7 +192,7 @@
 	color = null
 
 /obj/item/restraints/handcuffs/cable/zipties/used
-	desc = "A pair of broken zipties."
+	desc = "Пара оборванных стяжек."
 	icon_state = "cuff_used"
 	inhand_icon_state = "cuff"
 
@@ -202,8 +202,8 @@
 //Legcuffs
 
 /obj/item/restraints/legcuffs
-	name = "leg cuffs"
-	desc = "Use this to keep prisoners in line."
+	name = "кандалы"
+	desc = "Используйте это, чтобы держать заключенных в очереди."
 	gender = PLURAL
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "handcuff"
@@ -216,11 +216,11 @@
 	breakouttime = 30 SECONDS
 
 /obj/item/restraints/legcuffs/beartrap
-	name = "bear trap"
+	name = "медвежий капкан"
 	throw_speed = 1
 	throw_range = 1
 	icon_state = "beartrap"
-	desc = "A trap used to catch bears and other legged creatures."
+	desc = "Ловушка, используемая для ловли медведей и других существ с длинными ногами.."
 	var/armed = 0
 	var/trap_damage = 20
 
@@ -242,7 +242,7 @@
 		return
 	armed = !armed
 	update_icon()
-	to_chat(user, "<span class='notice'>[capitalize(src.name)] is now [armed ? "armed" : "disarmed"]</span>")
+	to_chat(user, "<span class='notice'>[capitalize(src.name)] теперь [armed ? "заряжена" : "разряжена"].</span>")
 
 /obj/item/restraints/legcuffs/beartrap/proc/close_trap()
 	armed = FALSE
@@ -258,7 +258,7 @@
 				var/obj/vehicle/ridden_vehicle = L.buckled
 				if(!ridden_vehicle.are_legs_exposed) //close the trap without injuring/trapping the rider if their legs are inside the vehicle at all times.
 					close_trap()
-					ridden_vehicle.visible_message("<span class='danger'>[ridden_vehicle] triggers <b>[src.name]</b>.</span>")
+					ridden_vehicle.visible_message("<span class='danger'>[ridden_vehicle] наезжает на <b>[src.name]</b>.</span>")
 					return ..()
 
 			if(L.movement_type & (FLYING|FLOATING)) //don't close the trap if they're flying/floating over it.
@@ -281,13 +281,13 @@
 					snap = FALSE
 			if(snap)
 				close_trap()
-				L.visible_message("<span class='danger'>[L] triggers <b>[src.name]</b>.</span>", \
-						"<span class='userdanger'>You trigger <b>[src.name]</b>!</span>")
+				L.visible_message("<span class='danger'>[L] наступает в <b>[src.name]</b>.</span>", \
+						"<span class='userdanger'>Наступаю в <b>[src.name]</b>!</span>")
 				L.apply_damage(trap_damage, BRUTE, def_zone)
 	..()
 
 /obj/item/restraints/legcuffs/beartrap/energy
-	name = "energy snare"
+	name = "энергосеть"
 	armed = 1
 	icon_state = "e_snare"
 	trap_damage = 0
@@ -312,8 +312,8 @@
 	breakouttime = 20 // Cyborgs shouldn't have a strong restraint
 
 /obj/item/restraints/legcuffs/bola
-	name = "bola"
-	desc = "A restraining device designed to be thrown at the target. Upon connecting with said target, it will wrap around their legs, making it difficult for them to move quickly."
+	name = "бола"
+	desc = "Удерживающее устройство, предназначенное для метания в цель. При соединении с указанной целью он обхватит их ноги, затрудняя их быстрое перемещение."
 	icon_state = "bola"
 	inhand_icon_state = "bola"
 	lefthand_file = 'icons/mob/inhands/weapons/thrown_lefthand.dmi'
@@ -340,27 +340,27 @@
  */
 /obj/item/restraints/legcuffs/bola/proc/ensnare(mob/living/carbon/C)
 	if(!C.legcuffed && C.num_legs >= 2)
-		visible_message("<span class='danger'><b>[src.name]</b> ensnares [C]!</span>")
+		visible_message("<span class='danger'><b>[src.name]</b> ловит ножки [C]!</span>")
 		C.legcuffed = src
 		forceMove(C)
 		C.update_equipment_speed_mods()
 		C.update_inv_legcuffed()
 		SSblackbox.record_feedback("tally", "handcuffs", 1, type)
-		to_chat(C, "<span class='userdanger'><b>[src.name]</b> ensnares you!</span>")
+		to_chat(C, "<span class='userdanger'><b>[src.name]</b> ловит мои ножки!</span>")
 		C.Knockdown(knockdown)
 		playsound(src, 'sound/effects/snap.ogg', 50, TRUE)
 
 /obj/item/restraints/legcuffs/bola/tactical//traitor variant
-	name = "reinforced bola"
-	desc = "A strong bola, made with a long steel chain. It looks heavy, enough so that it could trip somebody."
+	name = "крепкая бола"
+	desc = "Прочная бола, сделанная из длинной стальной цепи. Он выглядит тяжелым, достаточно, чтобы кого-нибудь споткнуть."
 	icon_state = "bola_r"
 	inhand_icon_state = "bola_r"
 	breakouttime = 70
 	knockdown = 35
 
 /obj/item/restraints/legcuffs/bola/energy //For Security
-	name = "energy bola"
-	desc = "A specialized hard-light bola designed to ensnare fleeing criminals and aid in arrests."
+	name = "энергобола"
+	desc = "Специализированная бола с жестким освещением, предназначенная для ловли убегающих преступников и помощи в арестах."
 	icon_state = "ebola"
 	inhand_icon_state = "ebola"
 	hitsound = 'sound/weapons/taserhit.ogg'
@@ -376,8 +376,8 @@
 	..()
 
 /obj/item/restraints/legcuffs/bola/gonbola
-	name = "gonbola"
-	desc = "Hey, if you have to be hugged in the legs by anything, it might as well be this little guy."
+	name = "гонбола"
+	desc = "Эй, если тебя что-то обнимает за ноги, то с таким же успехом это может быть этот маленький парень."
 	icon_state = "gonbola"
 	inhand_icon_state = "bola_r"
 	breakouttime = 300

@@ -953,7 +953,7 @@
 		if(!was_weightless)
 			ADD_TRAIT(src, TRAIT_MOVE_FLOATING, NO_GRAVITY_TRAIT)
 
-// The src mob is trying to strip an item from someone
+// The src mob пытается strip an item from someone
 // Override if a certain type of mob should be behave differently when stripping items (can't, for example)
 /mob/living/stripPanelUnequip(obj/item/what, mob/who, where)
 	if(!what.canStrip(who))
@@ -985,7 +985,7 @@
 
 	who.update_equipment_speed_mods() // Updates speed in case stripped speed affecting item
 
-// The src mob is trying to place an item on someone
+// The src mob пытается place an item on someone
 // Override if a certain mob should be behave differently when placing items (can't, for example)
 /mob/living/stripPanelEquip(obj/item/what, mob/who, where)
 	what = src.get_active_held_item()

@@ -1293,7 +1293,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 		if (!force)
 			return QDEL_HINT_LETMELIVE
 
-		log_world("EVACUATE THE SHITCODE IS TRYING TO STEAL MUH JOBS")
+		log_world("EVACUATE THE SHITCODE пытается STEAL MUH JOBS")
 		GLOB.dview_mob = new
 	return ..()
 

@@ -127,7 +127,7 @@
  */
 /obj/item/skillchip/proc/on_implant(obj/item/organ/brain/owner_brain)
 	if(holding_brain)
-		CRASH("Skillchip is trying to be implanted into [owner_brain], but it's already implanted in [holding_brain]")
+		CRASH("Skillchip пытается be implanted into [owner_brain], but it's already implanted in [holding_brain]")
 
 	holding_brain = owner_brain
 

@@ -125,8 +125,8 @@
 			//Always log attemped injections for admins
 			var/contained = reagents.log_list()
 			log_combat(src, L, "attempted to inject", addition="which had [contained]")
-			L.visible_message("<span class='danger'>[acting_object] is trying to inject [L]!</span>", \
-								"<span class='userdanger'>[acting_object] is trying to inject you!</span>")
+			L.visible_message("<span class='danger'>[acting_object] пытается inject [L]!</span>", \
+								"<span class='userdanger'>[acting_object] пытается inject you!</span>")
 			busy = TRUE
 			if(do_after(src, L, extra_checks=CALLBACK(L, /mob/living/proc/can_inject,null,0)))
 				var/fraction = min(transfer_amount/reagents.total_volume, 1)
@@ -154,8 +154,8 @@
 
 		if(isliving(AM) && !istype(assembly.loc, /obj/item/storage))
 			var/mob/living/L = AM
-			L.visible_message("<span class='danger'>[acting_object] is trying to take a blood sample from [L]!</span>", \
-								"<span class='userdanger'>[acting_object] is trying to take a blood sample from you!</span>")
+			L.visible_message("<span class='danger'>[acting_object] пытается take a blood sample from [L]!</span>", \
+								"<span class='userdanger'>[acting_object] пытается take a blood sample from you!</span>")
 			busy = TRUE
 			if(do_after(src, L, extra_checks=CALLBACK(L, /mob/living/proc/can_inject,null,0)))
 				if(L.transfer_blood_to(src, tramount))

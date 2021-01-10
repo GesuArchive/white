@@ -621,7 +621,7 @@
 
 /obj/item/reagent_containers/food/drinks/soda_cans/suicide_act(mob/living/carbon/human/H)
 	if(!reagents.total_volume)
-		H.visible_message("<span class='warning'>[H] is trying to take a big sip from [src]... The can is empty!</span>")
+		H.visible_message("<span class='warning'>[H] пытается take a big sip from [src]... The can is empty!</span>")
 		return SHAME
 	if(!is_drainable())
 		open_soda()

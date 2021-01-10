@@ -273,7 +273,7 @@
 	melee_damage_upper = 10
 	poison_per_bite = 3
 	gold_core_spawnable = NO_SPAWN
-	///If the spider is trying to cocoon something, what that something is.
+	///If the spider пытается cocoon something, what that something is.
 	var/atom/movable/cocoon_target
 	///How many humans this spider has drained but not layed enriched eggs for.
 	var/fed = 0

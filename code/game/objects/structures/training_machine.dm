@@ -24,7 +24,7 @@
 	var/moving = FALSE
 	///The distance the machine is allowed to roam from its starting point
 	var/range = 1
-	///A random spot within range that the trainer is trying to reach
+	///A random spot within range that the trainer пытается reach
 	var/turf/target_position
 	///The turf the machine was on when it was activated
 	var/turf/starting_turf

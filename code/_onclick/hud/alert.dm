@@ -592,7 +592,7 @@ so as to remain in compliance with the most up-to-date laws."
 //TODO: expand this system to replace the pollCandidates/CheckAntagonist/"choose quickly"/etc Yes/No messages
 /atom/movable/screen/alert/notify_cloning
 	name = "Revival"
-	desc = "Someone is trying to revive you. Re-enter your corpse if you want to be revived!"
+	desc = "Someone пытается revive you. Re-enter your corpse if you want to be revived!"
 	icon_state = "template"
 	timeout = 300
 

@@ -79,8 +79,8 @@
 			if(L) //living mob
 				var/drawn_amount = reagents.maximum_volume - reagents.total_volume
 				if(target != user)
-					target.visible_message("<span class='danger'>[user] is trying to take a blood sample from [target]!</span>", \
-									"<span class='userdanger'>[user] is trying to take a blood sample from you!</span>")
+					target.visible_message("<span class='danger'>[user] пытается take a blood sample from [target]!</span>", \
+									"<span class='userdanger'>[user] пытается take a blood sample from you!</span>")
 					busy = TRUE
 					if(!do_mob(user, target, extra_checks=CALLBACK(L, /mob/living/proc/can_inject, user, TRUE)))
 						busy = FALSE
@@ -130,8 +130,8 @@
 				if(!L.can_inject(user, TRUE))
 					return
 				if(L != user)
-					L.visible_message("<span class='danger'>[user] is trying to inject [L]!</span>", \
-											"<span class='userdanger'>[user] is trying to inject you!</span>")
+					L.visible_message("<span class='danger'>[user] пытается inject [L]!</span>", \
+											"<span class='userdanger'>[user] пытается inject you!</span>")
 					if(!do_mob(user, L, extra_checks=CALLBACK(L, /mob/living/proc/can_inject, user, TRUE)))
 						return
 					if(!reagents.total_volume)

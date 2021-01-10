@@ -257,7 +257,7 @@
 
 	if(href_list["toggle_uniform"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
 		var/obj/item/clothing/under/U = get_item_by_slot(ITEM_SLOT_ICLOTHING)
-		to_chat(src, "<span class='notice'>[usr.name] is trying to adjust your [U].</span>")
+		to_chat(src, "<span class='notice'>[usr.name] пытается adjust your [U].</span>")
 		if(do_mob(usr, src, U.strip_delay/2))
 			to_chat(src, "<span class='notice'>[usr.name] successfully adjusted your [U].</span>")
 			U.toggle_jumpsuit_adjust()
