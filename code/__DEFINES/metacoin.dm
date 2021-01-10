@@ -6,8 +6,8 @@
 #define METACOIN_TENMINUTELIVING_REWARD  1  // за каждые 10 минут жизни
 
 // Отрицательные награды
-#define METACOIN_TEETH_REWARD      		-1  // потеря зубика
-#define METACOIN_BADWORDS_REWARD        -5  // сказал плохое слово
-#define METACOIN_SUPERDEATH_REWARD      -10 // смерть от суперматерии
-#define METACOIN_CHASM_REWARD 			-20 // падение в пропасть
-#define METACOIN_SUICIDE_REWARD      	-30 // суицид
+#define METACOIN_TEETH_REWARD      		-10  // потеря зубика
+#define METACOIN_BADWORDS_REWARD        -50  // сказал плохое слово
+#define METACOIN_SUPERDEATH_REWARD      -200 // смерть от суперматерии
+#define METACOIN_CHASM_REWARD 			-20  // падение в пропасть
+#define METACOIN_SUICIDE_REWARD      	-500 // суицид
