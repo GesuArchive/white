@@ -81,7 +81,7 @@
 /datum/emote/living/carbon/human/scream/screech //If a human tries to screech it'll just scream.
 	key = "screech"
 	key_third_person = "screeches"
-	message = "screeches."
+	message = "визжит."
 	emote_type = EMOTE_AUDIBLE
 	vary = FALSE
 
