@@ -27,7 +27,7 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.f
 
 			if(W in GLOB.exc_full)
 				for(var/WC in ML)
-					if(findtext_char(WC, W) && (WC != W))
+					if(findtext_char(WC, W) && (WC == W))
 						return
 
 			inc_metabalance(target, METACOIN_BADWORDS_REWARD, reason="[uppertext(W)]...")

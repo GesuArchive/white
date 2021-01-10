@@ -163,6 +163,8 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 			to_chat(src, "<span class='warning'>Не могу говорить!</span>")
 			return
 
+	proverka_na_detey(message, src)
+
 	var/message_range = 7
 
 	var/succumbed = FALSE
@@ -227,8 +229,6 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 	if(pressure < ONE_ATMOSPHERE*0.4) //Thin air, let's italicise the message
 		spans |= SPAN_ITALICS
-
-	proverka_na_detey(message, src)
 
 	send_speech(message, message_range, src, bubble_type, spans, language, message_mods)
 
