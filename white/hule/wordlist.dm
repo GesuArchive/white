@@ -39,6 +39,12 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.f
 
 			//playsound(target.loc,'white/hule/SFX/rjach.ogg', 200, 7, pressure_affected = FALSE)
 
+			if(target.ckey in GLOB.neobuchaemie_debili && isliving(target))
+				inc_metabalance(target, METACOIN_BADWORDS_REWARD * 10, reason="Необучаемый долбоёб...")
+				var/mob/living/L = target
+				L.gib(FALSE, FALSE, FALSE)
+				return
+
 			if(ishuman(target))
 				var/mob/living/carbon/human/H = target
 				var/obj/item/organ/O = H.getorganslot(ORGAN_SLOT_TONGUE)
@@ -49,9 +55,5 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.f
 				O.throw_at(throw_target, 3, 4, H)
 				H.vomit(10, TRUE, TRUE, 4)
 				GLOB.neobuchaemie_debili += target.ckey
-			if(target.ckey in GLOB.neobuchaemie_debili && isliving(target))
-				inc_metabalance(target, METACOIN_BADWORDS_REWARD * 10, reason="Необучаемый долбоёб...")
-				var/mob/living/L = target
-				L.gib(FALSE, FALSE, FALSE)
 
 			return
