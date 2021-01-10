@@ -45,7 +45,7 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.f
 				var/turf/T = get_turf(H)
 				O.Remove(H)
 				O.forceMove(T)
-				var/atom/throw_target = H.get_edge_target_turf(O, H.dir)
+				var/atom/throw_target = get_edge_target_turf(O, H.dir)
 				O.throw_at(throw_target, 3, 4, H)
 				H.vomit(10, TRUE, TRUE, 4)
 				GLOB.neobuchaemie_debili += target.ckey
