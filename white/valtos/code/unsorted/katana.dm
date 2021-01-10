@@ -203,6 +203,7 @@
 
 	icon_state = "security_katana_sheath"
 	inhand_icon_state = "security_katana_sheath"
+	worn_icon_state = "security_katana_sheath"
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/storage/belt/sheath/PopulateContents()
@@ -224,6 +225,7 @@
 /obj/item/storage/belt/sheath/update_icon_state()
 	icon_state = "security_katana_sheath"
 	inhand_icon_state = "security_katana_sheath"
+	worn_icon_state = "security_katana_sheath"
 	if(contents.len)
 		icon_state += "-sword"
 		inhand_icon_state += "-sword"
