@@ -113,7 +113,7 @@
 			return TRUE
 	return FALSE
 
-/mob/living/carbon/human/proc/check_shields(atom/AM, damage, attack_text = "the attack", attack_type = MELEE_ATTACK, armour_penetration = 0)
+/mob/living/carbon/human/proc/check_shields(atom/AM, damage, attack_text = "атака", attack_type = MELEE_ATTACK, armour_penetration = 0)
 	var/block_chance_modifier = round(damage / -3)
 
 	for(var/obj/item/I in held_items)
@@ -160,7 +160,7 @@
 		throwpower = I.throwforce
 		if(I.thrownby == src) //No throwing stuff at yourself to trigger hit reactions
 			return ..()
-	if(check_shields(AM, throwpower, "\the [AM.name]", THROWN_PROJECTILE_ATTACK))
+	if(check_shields(AM, throwpower, "[AM.name]", THROWN_PROJECTILE_ATTACK))
 		hitpush = FALSE
 		skipcatch = TRUE
 		blocked = TRUE

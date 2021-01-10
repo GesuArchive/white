@@ -1,8 +1,8 @@
 /obj/machinery/mecha_part_fabricator
 	icon = 'icons/obj/robotics.dmi'
 	icon_state = "fab-idle"
-	name = "exosuit fabricator"
-	desc = "Nothing is being built."
+	name = "фабрикатор экзоскелетов"
+	desc = "Ничего не создаётся."
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 20
@@ -101,7 +101,7 @@
 /obj/machinery/mecha_part_fabricator/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += "<hr><span class='notice'>Дисплей: Storing up to <b>[rmat.local_size]</b> material units.<br>Material consumption at <b>[component_coeff*100]%</b>.<br>Build time reduced by <b>[100-time_coeff*100]%</b>.</span>"
+		. += "<hr><span class='notice'>Дисплей: хранение <b>[rmat.local_size]</b> материальных единиц.<br>Потребление <b>[component_coeff*100]%</b>.<br>Время создания уменьшено на <b>[100-time_coeff*100]%</b>.</span>"
 
 /**
  * Generates an info list for a given part.
@@ -289,15 +289,15 @@
 	var/datum/component/material_container/materials = rmat.mat_container
 	if (!materials)
 		if(verbose)
-			say("No access to material storage, please contact the quartermaster.")
+			say("Нет доступа к хранилищу материалов, свяжитесь с завхозом.")
 		return FALSE
 	if (rmat.on_hold())
 		if(verbose)
-			say("Mineral access is on hold, please contact the quartermaster.")
+			say("Запрещено использование материалов из хранилища, свяжитесь с завхозом.")
 		return FALSE
 	if(!check_resources(D))
 		if(verbose)
-			say("Not enough resources. Processing stopped.")
+			say("Недостаточно ресурсов. Остановка.")
 		return FALSE
 
 	build_materials = get_resources_w_coeff(D)
@@ -306,7 +306,7 @@
 	being_built = D
 	build_finish = world.time + get_construction_time_w_coeff(initial(D.construction_time))
 	build_start = world.time
-	desc = "It's building \a [D.name]."
+	desc = "Создаёт [D.name]."
 
 	rmat.silo_log(src, "built", -1, "[D.name]", build_materials)
 
@@ -319,7 +319,7 @@
 		if(exit.density)
 			return TRUE
 
-		say("Obstruction cleared. \The [stored_part] is complete.")
+		say("Препятствие убрано. Деталь [stored_part] готова.")
 		stored_part.forceMove(exit)
 		stored_part = null
 
@@ -356,12 +356,12 @@
 
 	var/turf/exit = get_step(src,(dir))
 	if(exit.density)
-		say("Error! Part outlet is obstructed.")
-		desc = "It's trying to dispense \a [D.name], but the part outlet is obstructed."
+		say("Ошибка! Выход заблокирован.")
+		desc = "Пытается выдавить [D.name], но выход заблокирован."
 		stored_part = I
 		return FALSE
 
-	say("\The [I] is complete.")
+	say("[capitalize(I.name)] готова.")
 	I.forceMove(exit)
 	return TRUE
 
@@ -607,10 +607,10 @@
 /obj/machinery/mecha_part_fabricator/proc/eject_sheets(eject_sheet, eject_amt)
 	var/datum/component/material_container/mat_container = rmat.mat_container
 	if (!mat_container)
-		say("No access to material storage, please contact the quartermaster.")
+		say("Нет доступа к хранилищу материалов, свяжитесь с завхозом.")
 		return 0
 	if (rmat.on_hold())
-		say("Mineral access is on hold, please contact the quartermaster.")
+		say("Запрещено использование материалов из хранилища, свяжитесь с завхозом.")
 		return 0
 	var/count = mat_container.retrieve_sheets(text2num(eject_amt), eject_sheet, drop_location())
 	var/list/matlist = list()
@@ -627,7 +627,7 @@
 	if(..())
 		return TRUE
 	if(being_built)
-		to_chat(user, "<span class='warning'><b>[src.name]</b> is currently processing! Please wait until completion.</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> всё ещё работает! Нужно подождать.</span>")
 		return FALSE
 	return default_deconstruction_screwdriver(user, "fab-o", "fab-idle", I)
 
@@ -635,16 +635,16 @@
 	if(..())
 		return TRUE
 	if(being_built)
-		to_chat(user, "<span class='warning'><b>[src.name]</b> is currently processing! Please wait until completion.</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> всё ещё работает! Нужно подождать.</span>")
 		return FALSE
 	return default_deconstruction_crowbar(I)
 
 /obj/machinery/mecha_part_fabricator/proc/is_insertion_ready(mob/user)
 	if(panel_open)
-		to_chat(user, "<span class='warning'>You can't load [src] while it's opened!</span>")
+		to_chat(user, "<span class='warning'>Не могу загрузить что-то в [src.name], пока он работает!</span>")
 		return FALSE
 	if(being_built)
-		to_chat(user, "<span class='warning'><b>[src.name]</b> is currently processing! Please wait until completion.</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> всё ещё работает! Нужно подождать.</span>")
 		return FALSE
 
 	return TRUE
