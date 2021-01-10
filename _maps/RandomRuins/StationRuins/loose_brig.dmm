@@ -201,7 +201,7 @@
 /area/security/main)
 "aF" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/carbon/monkey/angry,
+/mob/living/carbon/human/species/monkey/angry,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "aG" = (
@@ -1070,7 +1070,6 @@
 	pixel_y = 23
 	},
 /obj/item/gun/energy/ionrifle,
-/obj/item/gun/energy/temperature/security,
 /obj/item/clothing/suit/hooded/ablative,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -1086,7 +1085,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "cn" = (
-/obj/structure/closet/secure_closet/lethalshots,
+/obj/structure/closet/secure_closet,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
@@ -1318,8 +1317,6 @@
 /obj/effect/spawner/lootdrop/maintenance/three,
 /obj/effect/spawner/lootdrop/armory_contraband/metastation,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/gun/ballistic/automatic/ak47,
-/obj/item/ammo_box/magazine/ak47mag,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "cT" = (

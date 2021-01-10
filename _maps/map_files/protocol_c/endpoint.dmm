@@ -581,12 +581,6 @@
 /area/awaymission/errorroom)
 "cl" = (
 /obj/structure/rack,
-/obj/item/ammo_box/magazine/fallout/r20,
-/obj/item/ammo_box/magazine/fallout/r20,
-/obj/item/ammo_box/magazine/fallout/r20,
-/obj/item/ammo_box/magazine/fallout/r20,
-/obj/item/ammo_box/magazine/fallout/r20,
-/obj/item/ammo_box/magazine/fallout/r20,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -597,6 +591,16 @@
 /obj/machinery/door/window/brigdoor/southright{
 	req_access_txt = "101"
 	},
+/obj/item/restraints/legcuffs/bola/energy,
+/obj/item/restraints/legcuffs/bola/energy,
+/obj/item/restraints/legcuffs/bola/energy,
+/obj/item/restraints/legcuffs/bola/energy,
+/obj/item/restraints/legcuffs/bola/energy,
+/obj/item/restraints/legcuffs/bola/energy,
+/obj/item/restraints/legcuffs/bola/energy,
+/obj/item/restraints/legcuffs/bola/energy,
+/obj/item/restraints/legcuffs/bola/energy,
+/obj/item/restraints/legcuffs/bola/energy,
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "cm" = (
@@ -9794,13 +9798,6 @@
 /area/holodeck/rec_center/dodgeball)
 "Tj" = (
 /obj/structure/rack,
-/obj/item/gun/ballistic/automatic/fallout/marksman{
-	pixel_y = 8
-	},
-/obj/item/gun/ballistic/automatic/fallout/marksman{
-	pixel_y = 4
-	},
-/obj/item/gun/ballistic/automatic/fallout/marksman,
 /obj/structure/window/reinforced{
 	dir = 1;
 	pixel_y = 2
@@ -9810,6 +9807,13 @@
 	},
 /obj/machinery/door/window/brigdoor{
 	req_access_txt = "101"
+	},
+/obj/item/gun/energy/taser/wzzzz/carbine{
+	pixel_y = 3
+	},
+/obj/item/gun/energy/taser/wzzzz/carbine,
+/obj/item/gun/energy/taser/wzzzz/carbine{
+	pixel_y = -3
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)

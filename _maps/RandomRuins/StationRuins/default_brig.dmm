@@ -735,7 +735,6 @@
 	pixel_y = 23
 	},
 /obj/item/gun/energy/ionrifle,
-/obj/item/gun/energy/temperature/security,
 /obj/item/clothing/suit/hooded/ablative,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -750,7 +749,6 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "ca" = (
-/obj/structure/closet/secure_closet/lethalshots,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "cb" = (

@@ -768,13 +768,7 @@
 	name = "Armory Rack";
 	req_access_txt = "3"
 	},
-/obj/item/gun/ballistic/automatic/M41A{
-	pixel_y = 4
-	},
 /obj/item/gun/ballistic/automatic/M41A,
-/obj/item/gun/ballistic/automatic/M41A{
-	pixel_y = -4
-	},
 /obj/effect/turf_decal/tile/hex/neutral,
 /obj/effect/turf_decal/tile/hex/neutral{
 	dir = 1
@@ -785,6 +779,7 @@
 /obj/effect/turf_decal/tile/hex/neutral{
 	dir = 8
 	},
+/obj/item/ammo_box/magazine/m41a,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "ck" = (
@@ -905,7 +900,6 @@
 	pixel_y = 23
 	},
 /obj/item/gun/energy/ionrifle,
-/obj/item/gun/energy/temperature/security,
 /obj/item/clothing/suit/hooded/ablative,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -941,15 +935,6 @@
 	name = "Armory Rack";
 	req_access_txt = "3"
 	},
-/obj/item/ammo_box/magazine/traumatic,
-/obj/item/ammo_box/magazine/traumatic,
-/obj/item/ammo_box/magazine/traumatic,
-/obj/item/ammo_box/magazine/m41a,
-/obj/item/ammo_box/magazine/m41a,
-/obj/item/ammo_box/magazine/m41a,
-/obj/item/ammo_box/magazine/m41a,
-/obj/item/ammo_box/magazine/m41a,
-/obj/item/ammo_box/magazine/m41a,
 /obj/effect/turf_decal/tile/hex/neutral,
 /obj/effect/turf_decal/tile/hex/neutral{
 	dir = 1
@@ -960,16 +945,21 @@
 /obj/effect/turf_decal/tile/hex/neutral{
 	dir = 8
 	},
+/obj/item/ammo_box/magazine/sniper_rounds/soporific,
+/obj/item/ammo_box/magazine/sniper_rounds/soporific,
+/obj/item/ammo_box/magazine/sniper_rounds/soporific,
+/obj/item/gun/ballistic/rifle/fallout/hunting/scoped/amr,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "co" = (
-/obj/vehicle/ridden/secway,
 /obj/machinery/turretid{
 	lethal = 1;
 	name = "Armory Turret Control";
 	pixel_x = 27;
 	req_one_access_txt = "3"
 	},
+/obj/machinery/porta_turret/armory,
+/obj/effect/turf_decal/stripes/box,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "cp" = (
@@ -1291,13 +1281,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/gun/ballistic/automatic/ar/wzzzz/fg42{
-	pixel_y = 4
-	},
-/obj/item/gun/ballistic/automatic/ar/wzzzz/fg42,
-/obj/item/gun/ballistic/automatic/ar/wzzzz/fg42{
-	pixel_y = -4
-	},
+/obj/item/gun/ballistic/shotgun/spas12/rubber,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "de" = (
@@ -1317,13 +1301,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/gun/ballistic/automatic/m90/unrestricted/wzzzz/z8{
-	pixel_y = 4
-	},
-/obj/item/gun/ballistic/automatic/m90/unrestricted/wzzzz/z8,
-/obj/item/gun/ballistic/automatic/m90/unrestricted/wzzzz/z8{
-	pixel_y = -4
-	},
+/obj/item/gun/ballistic/shotgun/sniper,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "df" = (
@@ -1343,12 +1321,14 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/gun/ballistic/automatic/pistol/traumatic{
-	pixel_y = 4
+/obj/item/gun/energy/disabler{
+	pixel_x = -3;
+	pixel_y = 3
 	},
-/obj/item/gun/ballistic/automatic/pistol/traumatic,
-/obj/item/gun/ballistic/automatic/pistol/traumatic{
-	pixel_y = -4
+/obj/item/gun/energy/disabler,
+/obj/item/gun/energy/disabler{
+	pixel_x = 3;
+	pixel_y = -3
 	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
@@ -1369,13 +1349,10 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/gun/ballistic/automatic/wzzzz/assault_rifle{
-	pixel_y = 4
-	},
-/obj/item/gun/ballistic/automatic/wzzzz/assault_rifle,
-/obj/item/gun/ballistic/automatic/wzzzz/assault_rifle{
-	pixel_y = -4
-	},
+/obj/item/ammo_box/magazine/fallout/r20,
+/obj/item/ammo_box/magazine/fallout/r20,
+/obj/item/ammo_box/magazine/fallout/r20,
+/obj/item/gun/ballistic/automatic/fallout/assaultrifle/infiltrator,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "dh" = (
@@ -1400,6 +1377,7 @@
 "dj" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/poddoor/shutters{
+	dir = 4;
 	id = "armory";
 	name = "Armoury Shutter"
 	},
@@ -1705,6 +1683,7 @@
 /area/ai_monitored/security/armory)
 "dQ" = (
 /obj/machinery/door/poddoor/shutters{
+	dir = 4;
 	id = "armory";
 	name = "Armoury Shutter"
 	},
@@ -1878,48 +1857,6 @@
 /area/ai_monitored/security/armory)
 "em" = (
 /obj/structure/rack,
-/obj/item/ammo_box/magazine/wzzzz/assault_rifle{
-	pixel_x = 8
-	},
-/obj/item/ammo_box/magazine/wzzzz/assault_rifle{
-	pixel_x = 8
-	},
-/obj/item/ammo_box/magazine/wzzzz/assault_rifle{
-	pixel_x = 8
-	},
-/obj/item/ammo_box/magazine/wzzzz/assault_rifle{
-	pixel_x = 8
-	},
-/obj/item/ammo_box/magazine/wzzzz/assault_rifle{
-	pixel_x = 8
-	},
-/obj/item/ammo_box/magazine/wzzzz/assault_rifle{
-	pixel_x = 8
-	},
-/obj/item/ammo_box/magazine/wzzzz/fg42,
-/obj/item/ammo_box/magazine/wzzzz/fg42,
-/obj/item/ammo_box/magazine/wzzzz/fg42,
-/obj/item/ammo_box/magazine/wzzzz/fg42,
-/obj/item/ammo_box/magazine/wzzzz/fg42,
-/obj/item/ammo_box/magazine/wzzzz/fg42,
-/obj/item/ammo_box/magazine/wzzzz/a556carbine{
-	pixel_x = -8
-	},
-/obj/item/ammo_box/magazine/wzzzz/a556carbine{
-	pixel_x = -8
-	},
-/obj/item/ammo_box/magazine/wzzzz/a556carbine{
-	pixel_x = -8
-	},
-/obj/item/ammo_box/magazine/wzzzz/a556carbine{
-	pixel_x = -8
-	},
-/obj/item/ammo_box/magazine/wzzzz/a556carbine{
-	pixel_x = -8
-	},
-/obj/item/ammo_box/magazine/wzzzz/a556carbine{
-	pixel_x = -8
-	},
 /obj/effect/turf_decal/tile/hex/neutral,
 /obj/effect/turf_decal/tile/hex/neutral{
 	dir = 1
@@ -1929,6 +1866,15 @@
 	},
 /obj/effect/turf_decal/tile/hex/neutral{
 	dir = 8
+	},
+/obj/item/storage/box/rubbershot{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/storage/box/rubbershot,
+/obj/item/storage/box/rubbershot{
+	pixel_x = 3;
+	pixel_y = -3
 	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
