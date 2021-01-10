@@ -30,30 +30,29 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.f
 					if(findtext_char(WC, W) && (WC != W))
 						return
 
-			if(target.client)
-				inc_metabalance(target, METACOIN_BADWORDS_REWARD, reason="[uppertext(W)]...")
-				if(!ishuman(target))
-					target.client.prefs.muted |= MUTE_IC
+			inc_metabalance(target, METACOIN_BADWORDS_REWARD, reason="[uppertext(W)]...")
 
-			message_admins("Дружок [target.ckey] насрал на ИС словом \"[W]\". [ADMIN_COORDJMP(target)] [ADMIN_SMITE(target)]")
+			message_admins("Дружок [target.ckey] насрал на ИС словом \"[W]\". ([msg]) [ADMIN_COORDJMP(target)] [ADMIN_SMITE(target)]")
 
 			//playsound(target.loc,'white/hule/SFX/rjach.ogg', 200, 7, pressure_affected = FALSE)
 
-			if(target.ckey in GLOB.neobuchaemie_debili && isliving(target))
-				inc_metabalance(target, METACOIN_BADWORDS_REWARD * 9, reason="Необучаемый долбоёб...")
-				var/mob/living/L = target
-				L.gib(FALSE, FALSE, FALSE)
-				return
-
 			if(ishuman(target))
 				var/mob/living/carbon/human/H = target
+				if(target.ckey in GLOB.neobuchaemie_debili)
+					inc_metabalance(target, METACOIN_BADWORDS_REWARD * 9, reason="Необучаемый долбоёб...")
+					H.gib(FALSE, FALSE, FALSE)
+					return
 				var/obj/item/organ/O = H.getorganslot(ORGAN_SLOT_TONGUE)
-				var/turf/T = get_turf(H)
-				O.Remove(H)
-				O.forceMove(T)
-				var/atom/throw_target = get_edge_target_turf(O, H.dir)
-				O.throw_at(throw_target, 3, 4, H)
-				H.vomit(10, TRUE, TRUE, 4)
-				GLOB.neobuchaemie_debili += target.ckey
+				if(O)
+					var/turf/T = get_turf(H)
+					O.Remove(H)
+					O.forceMove(T)
+					var/atom/throw_target = get_edge_target_turf(O, H.dir)
+					O.throw_at(throw_target, 3, 4, H)
+					H.vomit(10, TRUE, TRUE, 4)
+			else
+				target.client.prefs.muted |= MUTE_IC
+
+			GLOB.neobuchaemie_debili += target.ckey
 
 			return
