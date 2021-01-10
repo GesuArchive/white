@@ -60,8 +60,6 @@
 
 	user.log_message(msg, LOG_EMOTE)
 
-	proverka_na_detey(msg, user)
-
 	var/dchatmsg = "<b>[user]</b> [pointization(r_antidaunize(msg))]"
 
 	if(user?.client?.prefs?.disabled_autocap)

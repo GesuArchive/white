@@ -163,8 +163,6 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 			to_chat(src, "<span class='warning'>Не могу говорить!</span>")
 			return
 
-	proverka_na_detey(message, src)
-
 	var/message_range = 7
 
 	var/succumbed = FALSE
