@@ -35,12 +35,12 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.f
 				if(!ishuman(target))
 					target.client.prefs.muted |= MUTE_IC
 
-			message_admins("Дружок [target.ckey] насрал на ИС словом \"[W]\". ([ADMIN_COORDJMP(target)]) ([ADMIN_SMITE(target)])")
+			message_admins("Дружок [target.ckey] насрал на ИС словом \"[W]\". [ADMIN_COORDJMP(target)] [ADMIN_SMITE(target)]")
 
 			//playsound(target.loc,'white/hule/SFX/rjach.ogg', 200, 7, pressure_affected = FALSE)
 
 			if(target.ckey in GLOB.neobuchaemie_debili && isliving(target))
-				inc_metabalance(target, METACOIN_BADWORDS_REWARD * 10, reason="Необучаемый долбоёб...")
+				inc_metabalance(target, METACOIN_BADWORDS_REWARD * 9, reason="Необучаемый долбоёб...")
 				var/mob/living/L = target
 				L.gib(FALSE, FALSE, FALSE)
 				return
