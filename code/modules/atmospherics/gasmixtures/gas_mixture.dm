@@ -165,7 +165,7 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 	if(model.temperature != initial(model.temperature) || model.temperature != initial(model_parent.temperature))
 		set_temperature(model.temperature)
 
-	return 1
+	return TRUE
 
 /datum/gas_mixture/parse_gas_string(gas_string)
 	var/list/gas = params2list(gas_string)
@@ -189,6 +189,7 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 		reactions += SSair.gas_reactions[I]
 	if(!length(reactions))
 		return
+
 	reaction_results = new
 	var/temp = return_temperature()
 	var/ener = thermal_energy()
@@ -213,6 +214,7 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 			//at this point, all requirements for the reaction are satisfied. we can now react()
 
 			. |= reaction.react(src, holder)
+
 			if (. & STOP_REACTIONS)
 				break
 

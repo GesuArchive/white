@@ -132,7 +132,7 @@
 /area/shuttle/escape)
 "ax" = (
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "ay" = (
 /obj/machinery/door/airlock/titanium{
 	name = "Emergency Shuttle Airlock"
@@ -598,7 +598,7 @@
 	icon_state = "plant-22"
 	},
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "bv" = (
 /obj/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/grille,
@@ -609,48 +609,48 @@
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "bx" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "by" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "bz" = (
 /obj/structure/table/reinforced,
 /obj/item/restraints/handcuffs,
 /obj/item/melee/baton,
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "bA" = (
 /obj/machinery/door/airlock/public/glass{
 	req_access_txt = "2"
 	},
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "bB" = (
 /obj/structure/window/reinforced{
 	dir = 4;
 	layer = 2.9
 	},
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "bC" = (
 /obj/structure/window/reinforced{
 	dir = 8;
 	layer = 2.9
 	},
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "bD" = (
 /obj/structure/bed,
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "bE" = (
 /obj/structure/shuttle/engine/heater,
 /obj/structure/window/plasma/reinforced/plastitanium,
@@ -668,11 +668,11 @@
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "bI" = (
 /obj/machinery/light,
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "bK" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Economy Class"
@@ -713,7 +713,7 @@
 	req_access_txt = "2"
 	},
 /turf/open/floor/plating,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "xt" = (
 /obj/structure/window/reinforced{
 	dir = 8;
@@ -721,6 +721,9 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/escape)
+"Lu" = (
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/escape/brig)
 "Uu" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -818,7 +821,7 @@ bu
 bw
 bw
 bw
-bs
+Lu
 ax
 bD
 bE
@@ -914,7 +917,7 @@ ax
 ax
 by
 ax
-bs
+Lu
 bB
 bB
 bE
@@ -962,7 +965,7 @@ ax
 ax
 bz
 ax
-bs
+Lu
 bC
 bC
 bE
@@ -1058,7 +1061,7 @@ bu
 bx
 bx
 bx
-bs
+Lu
 ax
 bD
 bE

@@ -115,10 +115,14 @@
 /obj/item/organ/tongue/fly/handle_speech(datum/source, list/speech_args)
 	var/static/regex/fly_buzz = new("з+", "g")
 	var/static/regex/fly_buZZ = new("З+", "g")
+	var/static/regex/fly_buss = new("с+", "g")
+	var/static/regex/fly_buSS = new("С+", "g")
 	var/message = speech_args[SPEECH_MESSAGE]
 	if(message[1] != "*")
 		message = fly_buzz.Replace_char(message, "ззз")
 		message = fly_buZZ.Replace_char(message, "ЗЗЗ")
+		message = fly_buss.Replace(message, "з")
+		message = fly_buSS.Replace(message, "З")
 	speech_args[SPEECH_MESSAGE] = message
 
 /obj/item/organ/tongue/fly/Initialize(mapload)

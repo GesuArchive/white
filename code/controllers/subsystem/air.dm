@@ -7,6 +7,7 @@ SUBSYSTEM_DEF(air)
 	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
 
 	var/cached_cost = 0
+	var/cost_atoms = 0
 	var/cost_turfs = 0
 	var/cost_groups = 0
 	var/cost_highpressure = 0
@@ -31,6 +32,7 @@ SUBSYSTEM_DEF(air)
 	//Special functions lists
 	var/list/turf/active_super_conductivity = list()
 	var/list/turf/open/high_pressure_delta = list()
+	var/list/atom_process = list()
 
 	/// A cache of objects that perisists between processing runs when resumed == TRUE. Dangerous, qdel'd objects not cleared from this may cause runtimes on processing.
 	var/list/currentrun = list()
@@ -43,20 +45,23 @@ SUBSYSTEM_DEF(air)
 	msg += "C:{"
 	msg += "EQ:[round(cost_equalize,1)]|"
 	msg += "AT:[round(cost_turfs,1)]|"
+	msg += "CL:[round(cost_ex_cleanup, 1)]|"
 	msg += "EG:[round(cost_groups,1)]|"
 	msg += "HP:[round(cost_highpressure,1)]|"
 	msg += "HS:[round(cost_hotspots,1)]|"
 	msg += "SC:[round(cost_superconductivity,1)]|"
 	msg += "PN:[round(cost_pipenets,1)]|"
+	msg += "AM:[round(cost_atmos_machinery,1)]|"
+	msg += "AO:[round(cost_atoms, 1)]|"
 	msg += "RB:[round(cost_rebuilds,1)]|"
-	msg += "AM:[round(cost_atmos_machinery,1)]"
 	msg += "} "
 	msg += "AT:[active_turfs.len]|"
 	msg += "EG:[get_amt_excited_groups()]|"
 	msg += "HS:[hotspots.len]|"
+	msg += "SC:[active_super_conductivity.len]|"
 	msg += "PN:[networks.len]|"
-	msg += "HP:[high_pressure_delta.len]|"
-	msg += "AS:[active_super_conductivity.len]|"
+	msg += "AM:[atmos_machinery.len]|"
+	msg += "AO:[atom_process.len]|"
 	msg += "AT/MS:[round((cost ? active_turfs.len/cost : 0),0.1)]"
 	return ..()
 
@@ -64,6 +69,7 @@ SUBSYSTEM_DEF(air)
 /datum/controller/subsystem/air/Initialize(timeofday)
 	extools_update_ssair()
 	map_loading = FALSE
+	gas_reactions = init_gas_reactions()
 	setup_allturfs()
 	setup_atmos_machinery()
 	setup_pipenets()
@@ -123,6 +129,18 @@ SUBSYSTEM_DEF(air)
 		if(state != SS_RUNNING)
 			return
 		resumed = FALSE
+		currentpart = SSAIR_EXCITEDCLEANUP
+
+	if(currentpart == SSAIR_EXCITEDCLEANUP)
+		timer = TICK_USAGE_REAL
+		if(!resumed)
+			cached_cost = 0
+		process_excited_cleanup(resumed)
+		cached_cost += TICK_USAGE_REAL - timer
+		if(state != SS_RUNNING)
+			return
+		cost_ex_cleanup = MC_AVERAGE(cost_ex_cleanup, TICK_DELTA_TO_MS(cached_cost))
+		resumed = FALSE
 		currentpart = SSAIR_EXCITEDGROUPS
 
 	if(currentpart == SSAIR_EXCITEDGROUPS)
@@ -159,7 +177,7 @@ SUBSYSTEM_DEF(air)
 		if(state != SS_RUNNING)
 			return
 		resumed = FALSE
-	currentpart = SSAIR_PIPENETS
+		currentpart = SSAIR_PROCESS_ATOMS
 
 /datum/controller/subsystem/air/proc/process_pipenets(delta_time, resumed = FALSE)
 	if (!resumed)
@@ -179,6 +197,20 @@ SUBSYSTEM_DEF(air)
 /datum/controller/subsystem/air/proc/add_to_rebuild_queue(atmos_machine)
 	if(istype(atmos_machine, /obj/machinery/atmospherics))
 		pipenets_needing_rebuilt += atmos_machine
+
+/datum/controller/subsystem/air/proc/process_atoms(resumed = FALSE)
+	if(!resumed)
+		src.currentrun = atom_process.Copy()
+	//cache for sanic speed (lists are references anyways)
+	var/list/currentrun = src.currentrun
+	while(currentrun.len)
+		var/atom/talk_to = currentrun[currentrun.len]
+		currentrun.len--
+		if(!talk_to)
+			return
+		talk_to.process_exposure()
+		if(MC_TICK_CHECK)
+			return
 
 /datum/controller/subsystem/air/proc/process_atmos_machinery(delta_time, resumed = FALSE)
 	if (!resumed)
@@ -220,7 +252,6 @@ SUBSYSTEM_DEF(air)
 			hotspots -= H
 		if(MC_TICK_CHECK)
 			return
-
 
 /datum/controller/subsystem/air/proc/process_high_pressure_delta(resumed = FALSE)
 	while (high_pressure_delta.len)
@@ -282,8 +313,14 @@ SUBSYSTEM_DEF(air)
 		T.set_excited(FALSE)
 		T.eg_garbage_collect()
 
-/datum/controller/subsystem/air/proc/add_to_active(turf/open/T, blockchanges = 1)
+///Adds a turf to active processing, handles duplicates. Call this with blockchanges == TRUE if you want to nuke the assoc excited group
+/datum/controller/subsystem/air/proc/add_to_active(turf/open/T, blockchanges = FALSE)
 	if(istype(T) && T.air)
+		T.significant_share_ticker = 0
+		if(blockchanges && T.excited_group) //This is used almost exclusivly for shuttles, so the excited group doesn't stay behind
+			T.excited_group.garbage_collect() //Nuke it
+		if(T.excited) //Don't keep doing it if there's no point
+			return
 		#ifdef VISUALIZE_ACTIVE_TURFS
 		T.add_atom_colour(COLOR_VIBRANT_LIME, TEMPORARY_COLOUR_PRIORITY)
 		#endif
@@ -295,13 +332,17 @@ SUBSYSTEM_DEF(air)
 			T.eg_garbage_collect()
 	else if(T.flags_1 & INITIALIZED_1)
 		for(var/turf/S in T.atmos_adjacent_turfs)
-			add_to_active(S)
+			add_to_active(S, TRUE)
 	else if(map_loading)
 		if(queued_for_activation)
 			queued_for_activation[T] = T
 		return
 	else
 		T.requires_activation = TRUE
+
+/datum/controller/subsystem/air/proc/add_to_cleanup(datum/excited_group/ex_grp)
+	//Store the cooldowns. If we're already doing cleanup, DO NOT add to the currently processing list, infinite loop man bad.
+	cleanup_ex_groups += list(list(ex_grp.breakdown_cooldown, ex_grp.dismantle_cooldown, ex_grp.turf_list.Copy()))
 
 /datum/controller/subsystem/air/StartLoadingMap()
 	LAZYINITLIST(queued_for_activation)
@@ -310,7 +351,7 @@ SUBSYSTEM_DEF(air)
 /datum/controller/subsystem/air/StopLoadingMap()
 	map_loading = FALSE
 	for(var/T in queued_for_activation)
-		add_to_active(T)
+		add_to_active(T, TRUE)
 	queued_for_activation.Cut()
 
 /datum/controller/subsystem/air/proc/setup_allturfs()

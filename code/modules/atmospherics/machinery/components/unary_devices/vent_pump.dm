@@ -114,9 +114,11 @@
 	if(!on || welded)
 		last_moles_added = 0
 		return
-
+	var/turf/open/us = loc
+	if(!istype(us))
+		return
 	var/datum/gas_mixture/air_contents = airs[1]
-	var/datum/gas_mixture/environment = loc.return_air()
+	var/datum/gas_mixture/environment = us.return_air()
 	var/environment_pressure = environment.return_pressure()
 	var/environment_moles = environment.total_moles()
 	var/last_moles_real_added = environment_moles - last_moles
@@ -152,7 +154,7 @@
 				var/datum/gas_mixture/removed = air_contents.remove(transfer_moles)
 
 				loc.assume_air(removed)
-				air_update_turf()
+				air_update_turf(FALSE, FALSE)
 
 	else // external -> internal
 		last_moles_added = 0

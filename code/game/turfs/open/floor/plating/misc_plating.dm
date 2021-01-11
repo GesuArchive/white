@@ -1,6 +1,5 @@
 
 /turf/open/floor/plating/airless
-	icon_state = "plating"
 	initial_gas_mix = AIRLESS_ATMOS
 
 /turf/open/floor/plating/lowpressure
@@ -14,6 +13,7 @@
 /turf/open/floor/plating/abductor
 	name = "чужеродное покрытие"
 	icon_state = "alienpod1"
+	base_icon_state = "alienpod1"
 	tiled_dirt = FALSE
 
 /turf/open/floor/plating/abductor/Initialize()
@@ -24,6 +24,7 @@
 /turf/open/floor/plating/abductor2
 	name = "чужеродное покрытие"
 	icon_state = "alienplating"
+	base_icon_state = "alienplating"
 	tiled_dirt = FALSE
 
 /turf/open/floor/plating/abductor2/break_tile()
@@ -99,6 +100,7 @@
 	name = "мокренький каменистый грунт"
 	smoothing_flags = NONE
 	icon_state = "wateryrock"
+	base_icon_state = "wateryrock"
 	slowdown = 2
 	footstep = FOOTSTEP_FLOOR
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
@@ -132,17 +134,20 @@
 	name = "песок"
 	desc = "Занимайся серфингом."
 	icon_state = "sand"
+	base_icon_state = "sand"
 	baseturfs = /turf/open/floor/plating/beach/sand
 
 /turf/open/floor/plating/beach/coastline_t
 	name = "побережье"
 	desc = "Сегодня сильный прилив. Заряжай дубинки."
 	icon_state = "sandwater_t"
+	base_icon_state = "sandwater_t"
 	baseturfs = /turf/open/floor/plating/beach/coastline_t
 
 /turf/open/floor/plating/beach/coastline_b //need to make this water subtype.
 	name = "побережье"
 	icon_state = "sandwater_b"
+	base_icon_state = "sandwater_b"
 	baseturfs = /turf/open/floor/plating/beach/coastline_b
 	footstep = FOOTSTEP_LAVA
 	barefootstep = FOOTSTEP_LAVA
@@ -154,6 +159,7 @@
 	name = "вода"
 	desc = "У меня такое ощущение, что никто не заботится о том, чтобы эта вода наконец была настоящей водой..."
 	icon_state = "water"
+	base_icon_state = "water"
 	baseturfs = /turf/open/floor/plating/beach/water
 	footstep = FOOTSTEP_LAVA //placeholder, kinda.
 	barefootstep = FOOTSTEP_LAVA
@@ -169,6 +175,7 @@
 	name = "железный песок"
 	desc = "Как песок, но только <i>металлический</i>."
 	icon_state = "ironsand1"
+	base_icon_state = "ironsand1"
 	footstep = FOOTSTEP_SAND
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
@@ -189,6 +196,7 @@
 	desc = "Полоса сплошного льда. Выглядит скользко."
 	icon = 'icons/turf/floors/ice_turf.dmi'
 	icon_state = "ice_turf-0"
+	base_icon_state = "ice_turf-0"
 	initial_gas_mix = FROZEN_ATMOS
 	temperature = 180
 	planetary_atmos = TRUE
@@ -215,12 +223,6 @@
 	smoothing_groups = list(SMOOTH_GROUP_FLOOR_ICE)
 	canSmoothWith = list(SMOOTH_GROUP_TURF_OPEN)
 
-/turf/open/floor/plating/ice/colder
-	temperature = 140
-
-/turf/open/floor/plating/ice/temperate
-	temperature = 255.37
-
 /turf/open/floor/plating/ice/break_tile()
 	return
 
@@ -236,6 +238,7 @@
 	desc = "Секция горячего покрытия помогает удержать снег от налипания."
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snowplating"
+	base_icon_state = "snowplating"
 	initial_gas_mix = FROZEN_ATMOS
 	temperature = 180
 	attachment_holes = FALSE
@@ -259,9 +262,6 @@
 	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_FLOOR_SNOWED)
 	canSmoothWith = list(SMOOTH_GROUP_FLOOR_SNOWED)
 	planetary_atmos = TRUE
-
-/turf/open/floor/plating/snowed/colder
-	temperature = 140
 
 /turf/open/floor/plating/snowed/temperatre
 	temperature = 255.37
@@ -303,6 +303,7 @@
 	name = "dirt"
 	desc = "Upon closer examination, it's still dirt."
 	icon_state = "sand"
+	base_icon_state = "sand"
 	broken_states = list("sand_damaged")
 	bullet_bounce_sound = null
 	footstep = FOOTSTEP_SAND

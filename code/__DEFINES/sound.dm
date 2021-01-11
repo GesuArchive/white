@@ -148,6 +148,19 @@
 #define DROP_SOUND_VOLUME 20
 #define YEET_SOUND_VOLUME 90
 
+#define AMBIENCE_GENERIC "generic"
+#define AMBIENCE_HOLY "holy"
+#define AMBIENCE_DANGER "danger"
+#define AMBIENCE_RUINS "ruins"
+#define AMBIENCE_ENGI "engi"
+#define AMBIENCE_MINING "mining"
+#define AMBIENCE_MEDICAL "med"
+#define AMBIENCE_SPOOKY "spooky"
+#define AMBIENCE_SPACE "space"
+#define AMBIENCE_MAINT "maint"
+#define AMBIENCE_AWAY "away"
+#define AMBIENCE_REEBE "reebe" //unused
+#define AMBIENCE_CREEPY "creepy" //not to be confused with spooky
 
 //default byond sound environments
 #define SOUND_ENVIRONMENT_NONE -1

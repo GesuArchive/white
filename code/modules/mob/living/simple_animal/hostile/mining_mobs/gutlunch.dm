@@ -153,8 +153,8 @@
 	L.faction = faction
 	L.setDir(dir)
 	L.Stun(20, ignore_canstun = TRUE)
-	visible_message("<span class='notice'>[capitalize(src.name)] grows up into [L].</span>")
-	Destroy()
+	visible_message("<span class='notice'>[src] grows up into [L].</span>")
+	qdel(src)
 
 //Gutlunch udder
 /obj/item/udder/gutlunch

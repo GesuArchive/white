@@ -199,7 +199,7 @@
 		var/datum/gas_mixture/removed = tile.remove_air(transfer_moles)
 
 		air_contents.merge(removed)
-		tile.air_update_turf()
+		tile.air_update_turf(FALSE, FALSE)
 
 	update_parents()
 

@@ -17,12 +17,13 @@
 	SSair.networks -= src
 	if(air?.return_volume())
 		temporarily_store_air()
-	for(var/obj/machinery/atmospherics/pipe/P in members)
-		P.parent = null
-		if(!QDELETED(P))
-			SSair.add_to_rebuild_queue(P)
-	for(var/obj/machinery/atmospherics/components/C in other_atmosmch)
-		C.nullifyPipenet(src)
+	for(var/obj/machinery/atmospherics/pipe/considered_pipe in members)
+		considered_pipe.parent = null
+		if(QDELETED(considered_pipe))
+			continue
+		SSair.add_to_rebuild_queue(considered_pipe)
+	for(var/obj/machinery/atmospherics/components/considered_component in other_atmosmch)
+		considered_component.nullifyPipenet(src)
 	return ..()
 
 /datum/pipeline/process()
@@ -33,46 +34,50 @@
 
 /datum/pipeline/proc/build_pipeline(obj/machinery/atmospherics/base)
 	var/volume = 0
-	if(istype(base, /obj/machinery/atmospherics/pipe))
-		var/obj/machinery/atmospherics/pipe/E = base
-		volume = E.volume
-		members += E
-		if(E.air_temporary)
-			air = E.air_temporary
-			E.air_temporary = null
-	else
+	if(!istype(base, /obj/machinery/atmospherics/pipe))
 		addMachineryMember(base)
+	else
+		var/obj/machinery/atmospherics/pipe/considered_pipe = base
+		volume = considered_pipe.volume
+		members += considered_pipe
+		if(considered_pipe.air_temporary)
+			air = considered_pipe.air_temporary
+			considered_pipe.air_temporary = null
+
 	if(!air)
 		air = new
 	var/list/possible_expansions = list(base)
 	while(possible_expansions.len)
 		for(var/obj/machinery/atmospherics/borderline in possible_expansions)
 			var/list/result = borderline.pipeline_expansion(src)
-			if(result?.len)
-				for(var/obj/machinery/atmospherics/P in result)
-					if(istype(P, /obj/machinery/atmospherics/pipe))
-						var/obj/machinery/atmospherics/pipe/item = P
-						if(!members.Find(item))
+			if(!result?.len)
+				possible_expansions -= borderline
+				continue
+			for(var/obj/machinery/atmospherics/considered_device in result)
+				if(!istype(considered_device, /obj/machinery/atmospherics/pipe))
+					considered_device.setPipenet(src, borderline)
+					addMachineryMember(considered_device)
+					continue
+				var/obj/machinery/atmospherics/pipe/item = considered_device
+				if(members.Find(item))
+					continue
+				if(item.parent)
+					var/static/pipenetwarnings = 10
+					if(pipenetwarnings > 0)
+						log_mapping("build_pipeline(): [item.type] added to a pipenet while still having one. (pipes leading to the same spot stacking in one turf) around [AREACOORD(item)].")
+						pipenetwarnings--
+					if(pipenetwarnings == 0)
+						log_mapping("build_pipeline(): further messages about pipenets will be suppressed")
 
-							if(item.parent)
-								var/static/pipenetwarnings = 10
-								if(pipenetwarnings > 0)
-									log_mapping("build_pipeline(): [item.type] added to a pipenet while still having one. (pipes leading to the same spot stacking in one turf) around [AREACOORD(item)].")
-									pipenetwarnings--
-									if(pipenetwarnings == 0)
-										log_mapping("build_pipeline(): further messages about pipenets will be suppressed")
-							members += item
-							possible_expansions += item
+				members += item
+				possible_expansions += item
 
-							volume += item.volume
-							item.parent = src
+				volume += item.volume
+				item.parent = src
 
-							if(item.air_temporary)
-								air.merge(item.air_temporary)
-								item.air_temporary = null
-					else
-						P.setPipenet(src, borderline)
-						addMachineryMember(P)
+				if(item.air_temporary)
+					air.merge(item.air_temporary)
+					item.air_temporary = null
 
 			possible_expansions -= borderline
 
@@ -101,11 +106,22 @@
 			members += P
 			air.set_volume(air.return_volume() + P.volume)
 	else
-		A.setPipenet(src, N)
-		addMachineryMember(A)
+		var/obj/machinery/atmospherics/pipe/reference_pipe = reference_device
+		if(reference_pipe.parent)
+			merge(reference_pipe.parent)
+		reference_pipe.parent = src
+		var/list/adjacent = reference_pipe.pipeline_expansion()
+		for(var/obj/machinery/atmospherics/pipe/adjacent_pipe in adjacent)
+			if(adjacent_pipe.parent == src)
+				continue
+			var/datum/pipeline/parent_pipeline = adjacent_pipe.parent
+			merge(parent_pipeline)
+		if(!members.Find(reference_pipe))
+			members += reference_pipe
+			air.volume += reference_pipe.volume
 
-/datum/pipeline/proc/merge(datum/pipeline/E)
-	if(E == src)
+/datum/pipeline/proc/merge(datum/pipeline/parent_pipeline)
+	if(parent_pipeline == src)
 		return
 	air.set_volume(air.return_volume() + E.air.return_volume())
 	members.Add(E.members)
@@ -119,19 +135,19 @@
 	E.members.Cut()
 	E.other_atmosmch.Cut()
 	update = TRUE
-	qdel(E)
+	qdel(parent_pipeline)
 
-/obj/machinery/atmospherics/proc/addMember(obj/machinery/atmospherics/A)
+/obj/machinery/atmospherics/proc/addMember(obj/machinery/atmospherics/considered_device)
 	return
 
-/obj/machinery/atmospherics/pipe/addMember(obj/machinery/atmospherics/A)
-	parent.addMember(A, src)
+/obj/machinery/atmospherics/pipe/addMember(obj/machinery/atmospherics/considered_device)
+	parent.addMember(considered_device, src)
 
-/obj/machinery/atmospherics/components/addMember(obj/machinery/atmospherics/A)
-	var/datum/pipeline/P = returnPipenet(A)
-	if(!P)
+/obj/machinery/atmospherics/components/addMember(obj/machinery/atmospherics/considered_device)
+	var/datum/pipeline/device_pipeline = returnPipenet(considered_device)
+	if(!device_pipeline)
 		CRASH("null.addMember() called by [type] on [COORD(src)]")
-	P.addMember(A, src)
+	device_pipeline.addMember(considered_device, src)
 
 
 /datum/pipeline/proc/temporarily_store_air()
@@ -163,8 +179,7 @@
 			if((modeled_location.heat_capacity>0) && (partial_heat_capacity>0))
 				var/delta_temperature = air.return_temperature() - target_temperature
 
-				var/heat = thermal_conductivity*delta_temperature* \
-					(partial_heat_capacity*target_heat_capacity/(partial_heat_capacity+target_heat_capacity))
+				var/heat = thermal_conductivity * delta_temperature * (partial_heat_capacity * target_heat_capacity / (partial_heat_capacity + target_heat_capacity))
 
 				air.set_temperature(air.return_temperature() - heat/total_heat_capacity)
 				modeled_location.TakeTemperature(heat/target_heat_capacity)
@@ -179,14 +194,12 @@
 			var/self_temperature_delta = 0
 			var/sharer_temperature_delta = 0
 
-			if((sharer_heat_capacity>0) && (partial_heat_capacity>0))
-				var/heat = thermal_conductivity*delta_temperature* \
-					(partial_heat_capacity*sharer_heat_capacity/(partial_heat_capacity+sharer_heat_capacity))
+			if((sharer_heat_capacity <= 0) || (partial_heat_capacity <= 0))
+				return TRUE
+			var/heat = thermal_conductivity * delta_temperature * (partial_heat_capacity * sharer_heat_capacity / (partial_heat_capacity + sharer_heat_capacity))
 
-				self_temperature_delta = -heat/total_heat_capacity
-				sharer_temperature_delta = heat/sharer_heat_capacity
-			else
-				return 1
+			self_temperature_delta = - heat / total_heat_capacity
+			sharer_temperature_delta = heat / sharer_heat_capacity
 
 			air.set_temperature(air.return_temperature() + self_temperature_delta);
 			modeled_location.TakeTemperature(sharer_temperature_delta)
@@ -209,25 +222,25 @@
 		return removeNullsFromList(.)
 
 /datum/pipeline/proc/reconcile_air()
-	var/list/datum/gas_mixture/GL = list()
-	var/list/datum/pipeline/PL = list()
-	PL += src
+	var/list/datum/gas_mixture/gas_mixture_list = list()
+	var/list/datum/pipeline/pipeline_list = list()
+	pipeline_list += src
 
-	for(var/i = 1; i <= PL.len; i++) //can't do a for-each here because we may add to the list within the loop
-		var/datum/pipeline/P = PL[i]
-		if(!P)
+	for(var/i = 1; i <= pipeline_list.len; i++) //can't do a for-each here because we may add to the list within the loop
+		var/datum/pipeline/pipeline = pipeline_list[i]
+		if(!pipeline)
 			continue
 		GL += P.return_air()
 		for(var/atmosmch in P.other_atmosmch)
 			if (istype(atmosmch, /obj/machinery/atmospherics/components/binary/valve))
-				var/obj/machinery/atmospherics/components/binary/valve/V = atmosmch
-				if(V.on)
-					PL |= V.parents[1]
-					PL |= V.parents[2]
+				var/obj/machinery/atmospherics/components/binary/valve/considered_valve = atmosmch
+				if(considered_valve.on)
+					pipeline_list |= considered_valve.parents[1]
+					pipeline_list |= considered_valve.parents[2]
 			else if (istype(atmosmch, /obj/machinery/atmospherics/components/unary/portables_connector))
-				var/obj/machinery/atmospherics/components/unary/portables_connector/C = atmosmch
-				if(C.connected_device)
-					GL += C.connected_device.air_contents
+				var/obj/machinery/atmospherics/components/unary/portables_connector/considered_connector = atmosmch
+				if(considered_connector.connected_device)
+					gas_mixture_list += considered_connector.connected_device.air_contents
 
 	var/datum/gas_mixture/total_gas_mixture = new(0)
 	var/total_volume = 0

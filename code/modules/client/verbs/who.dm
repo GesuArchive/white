@@ -70,8 +70,8 @@
 			msg += "</tr><tr>"
 	msg += "</tr></table>"
 
-	msg += "<b>Всего: [length(Lines)]</b>"
-	to_chat(src, msg)
+	msg += "<b>Total Players: [length(Lines)]</b>"
+	to_chat(src, "<span class='infoplain'>[msg]</span>")
 
 /client/proc/adminwho()
 	set category = "Адм"

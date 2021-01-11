@@ -78,10 +78,16 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	var/id_type_name = "identification card"
 	var/mining_points = 0 //For redeeming at mining equipment vendors
+	///The stuff that makes you open doors and shit
 	var/list/access = list()
-	var/registered_name = null // The name registered_name on the card
+	///Access that cannot be removed by the ID console. Do not add access levels that are actually visible in the console here if a HoP knowing what kind of ID he's modifying is a concern.
+	var/list/sticky_access
+	/// The name registered on the card (for example: Dr Bryan See)
+	var/registered_name = null
+	///The job name registered on the card (for example: Assistant)
 	var/assignment = null
-	var/access_txt // mapping aid
+	/// mapping aid
+	var/access_txt
 	var/datum/bank_account/registered_account
 	var/obj/machinery/paystand/my_store
 	var/uses_overlays = TRUE
@@ -362,8 +368,11 @@ update_label()
 /obj/item/card/id/syndicate
 	name = "ID-карта агента"
 	access = list(ACCESS_MAINT_TUNNELS, ACCESS_SYNDICATE)
-	var/anyone = FALSE //Can anyone forge the ID or just syndicate?
-	var/forged = FALSE //have we set a custom name and job assignment, or will we use what we're given when we chameleon change?
+	sticky_access = list(ACCESS_SYNDICATE)
+	///Can anyone forge the ID or just syndicate?
+	var/anyone = FALSE
+	///have we set a custom name and job assignment, or will we use what we're given when we chameleon change?
+	var/forged = FALSE
 
 /obj/item/card/id/syndicate/Initialize()
 	. = ..()
@@ -451,6 +460,7 @@ update_label()
 /obj/item/card/id/syndicate/nuke_leader
 	name = "ID-карта лидера"
 	access = list(ACCESS_MAINT_TUNNELS, ACCESS_SYNDICATE, ACCESS_SYNDICATE_LEADER)
+	sticky_access = list(ACCESS_SYNDICATE, ACCESS_SYNDICATE_LEADER)
 
 /obj/item/card/id/syndicate_command
 	name = "ID-карта синдиката"
@@ -460,6 +470,7 @@ update_label()
 	assignment = "Syndicate Overlord"
 	icon_state = "syndie"
 	access = list(ACCESS_SYNDICATE)
+	sticky_access = list(ACCESS_SYNDICATE)
 	uses_overlays = FALSE
 	registered_age = null
 
@@ -471,6 +482,7 @@ update_label()
 	assignment = "Syndicate Operative"
 	icon_state = "syndie"
 	access = list(ACCESS_SYNDICATE, ACCESS_ROBOTICS)
+	sticky_access = list(ACCESS_SYNDICATE)
 	uses_overlays = FALSE
 
 /obj/item/card/id/syndicate_command/captain_id
@@ -481,6 +493,7 @@ update_label()
 	assignment = "Syndicate Ship Captain"
 	icon_state = "syndie"
 	access = list(ACCESS_SYNDICATE, ACCESS_ROBOTICS)
+	sticky_access = list(ACCESS_SYNDICATE)
 	uses_overlays = FALSE
 
 /obj/item/card/id/captains_spare

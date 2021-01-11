@@ -43,6 +43,12 @@
 	inhand_icon_state = "blueshift"
 	custom_premium_price = PAYCHECK_HARD
 
+/obj/item/clothing/suit/armor/vest/cuirass
+	name = "cuirass"
+	desc = "A lighter plate armor used to still keep out those pesky arrows, while retaining the ability to move."
+	icon_state = "cuirass"
+	inhand_icon_state = "armor"
+
 /obj/item/clothing/suit/armor/hos
 	name = "бронепальто"
 	desc = "Великолепное пальто, усиленное специальным сплавом для дополнительной защиты и стиля для тех, кто командует присутствием."

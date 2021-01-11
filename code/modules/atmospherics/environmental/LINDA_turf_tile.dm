@@ -1,10 +1,10 @@
 /turf
 	//used for temperature calculations
 	var/thermal_conductivity = 0.05
-	var/heat_capacity = 1
+	var/heat_capacity = INFINITY //This should be opt in rather then opt out
 	var/temperature_archived
 
-	///list of open turfs adjacent to us
+	///list of turfs adjacent to us that air can flow onto
 	var/list/atmos_adjacent_turfs
 	///bitfield of dirs in which we are superconducitng
 	var/atmos_supeconductivity = NONE
@@ -29,9 +29,10 @@
 	var/datum/gas_mixture/turf/air
 
 	var/obj/effect/hotspot/active_hotspot
-	var/planetary_atmos = FALSE //air will revert to initial_gas_mix over time
+	var/planetary_atmos = FALSE //air will revert to initial_gas_mix
 
 	var/list/atmos_overlay_types //gas IDs of current active gas overlays
+	var/significant_share_ticker = 0
 	#ifdef TRACK_MAX_SHARE
 	var/max_share = 0
 	#endif
@@ -90,9 +91,40 @@
 /turf/open/return_analyzable_air()
 	return return_air()
 
-/turf/temperature_expose()
-	if(temperature > heat_capacity)
+/turf/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
+	return (exposed_temperature >= heat_capacity || to_be_destroyed)
+
+/turf/atmos_expose(datum/gas_mixture/air, exposed_temperature)
+	if(exposed_temperature >= heat_capacity)
 		to_be_destroyed = TRUE
+	if(to_be_destroyed && exposed_temperature >= max_fire_temperature_sustained)
+		max_fire_temperature_sustained = min(exposed_temperature, max_fire_temperature_sustained + heat_capacity / 4) //Ramp up to 100% yeah?
+	if(to_be_destroyed && !changing_turf)
+		burn()
+
+/turf/proc/burn()
+	burn_tile()
+	var/chance_of_deletion
+	if (heat_capacity) //beware of division by zero
+		chance_of_deletion = max_fire_temperature_sustained / heat_capacity * 8 //there is no problem with prob(23456), min() was redundant --rastaf0
+	else
+		chance_of_deletion = 100
+	if(prob(chance_of_deletion))
+		Melt()
+		max_fire_temperature_sustained = 0
+	else
+		to_be_destroyed = FALSE
+
+/turf/open/burn()
+	if(!active_hotspot) //Might not even be needed since excited groups are no longer cringe
+		..()
+
+/turf/temperature_expose(datum/gas_mixture/air, exposed_temperature)
+	atmos_expose(air, exposed_temperature)
+
+/turf/open/temperature_expose(datum/gas_mixture/air, exposed_temperature)
+	SEND_SIGNAL(src, COMSIG_TURF_EXPOSE, air, exposed_temperature)
+	check_atmos_process(null, air, exposed_temperature) //Manually do this to avoid needing to use elements, don't want 200 second atom init times
 
 /turf/proc/archive()
 	temperature_archived = temperature
@@ -170,10 +202,34 @@
 	var/last_share = our_air.get_last_share();\
 	if(last_share > MINIMUM_AIR_TO_SUSPEND){\
 		our_excited_group.reset_cooldowns();\
-		cached_atmos_cooldown = 0;\
+		cached_ticker = 0;\
+		enemy_tile.significant_share_ticker = 0;\
 	} else if(last_share > MINIMUM_MOLES_DELTA_TO_MOVE) {\
 		our_excited_group.dismantle_cooldown = 0;\
-		cached_atmos_cooldown = 0;\
+		cached_ticker = 0;\
+		enemy_tile.significant_share_ticker = 0;\
+	}
+#endif
+#ifdef TRACK_MAX_SHARE
+#define PLANET_SHARE_CHECK \
+	var/last_share = our_air.last_share;\
+	max_share = max(last_share, max_share);\
+	if(last_share > MINIMUM_AIR_TO_SUSPEND){\
+		our_excited_group.reset_cooldowns();\
+		cached_ticker = 0;\
+	} else if(last_share > MINIMUM_MOLES_DELTA_TO_MOVE) {\
+		our_excited_group.dismantle_cooldown = 0;\
+		cached_ticker = 0;\
+	}
+#else
+#define PLANET_SHARE_CHECK \
+	var/last_share = our_air.last_share;\
+	if(last_share > MINIMUM_AIR_TO_SUSPEND){\
+		our_excited_group.reset_cooldowns();\
+		cached_ticker = 0;\
+	} else if(last_share > MINIMUM_MOLES_DELTA_TO_MOVE) {\
+		our_excited_group.dismantle_cooldown = 0;\
+		cached_ticker = 0;\
 	}
 */
 
@@ -251,11 +307,26 @@
 		last_high_pressure_movement_air_cycle = SSair.times_fired
 
 ////////////////////////SUPERCONDUCTIVITY/////////////////////////////
+
+/**
+ALLLLLLLLLLLLLLLLLLLLRIGHT HERE WE GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+
+Read the code for more details, but first, a brief concept discussion/area
+
+Our goal here is to "model" heat moving through solid objects, so walls, windows, and sometimes doors.
+We do this by heating up the floor itself with the heat of the gasmix ontop of it, this is what the coeffs are for here, they slow that movement
+Then we go through the process below.
+
+If an active turf is fitting, we add it to processing, conduct with any covered tiles, (read windows and sometimes walls)
+Then we space some of our heat, and think about if we should stop conducting.
+**/
+
 /turf/proc/conductivity_directions()
 	if(archived_cycle < SSair.times_fired)
 		archive()
 	return ALL_CARDINALS
 
+///Returns a set of directions that we should be conducting in, NOTE, atmos_supeconductivity is ACTUALLY inversed, don't worrry about it
 /turf/open/conductivity_directions()
 	if(blocks_air)
 		return ..()
@@ -264,12 +335,13 @@
 		if(!(T in atmos_adjacent_turfs) && !(atmos_supeconductivity & direction))
 			. |= direction
 
+///These two procs are a bit of a web, I belive in you
 /turf/proc/neighbor_conduct_with_src(turf/open/other)
-	if(!other.blocks_air) //Open but neighbor is solid
+	if(!other.blocks_air) //Solid but neighbor is open
 		other.temperature_share_open_to_solid(src)
 	else //Both tiles are solid
 		other.share_temperature_mutual_solid(src, thermal_conductivity)
-	temperature_expose(null, temperature, null)
+	temperature_expose(null, temperature)
 
 /turf/open/neighbor_conduct_with_src(turf/other)
 	if(blocks_air)
@@ -279,9 +351,9 @@
 	if(!other.blocks_air) //Both tiles are open
 		var/turf/open/T = other
 		T.air.temperature_share(air, WINDOW_HEAT_TRANSFER_COEFFICIENT)
-	else //Solid but neighbor is open
+	else //Open but neighbor is solid
 		temperature_share_open_to_solid(other)
-	SSair.add_to_active(src, 0)
+	SSair.add_to_active(src)
 
 /turf/proc/super_conduct()
 	var/conductivity_directions = conductivity_directions()
@@ -318,7 +390,8 @@
 		temperature = air.temperature_share(null, thermal_conductivity, temperature, heat_capacity)
 	..((blocks_air ? temperature : air.return_temperature()))
 
-/turf/proc/consider_superconductivity()
+///Should we attempt to superconduct?
+/turf/proc/consider_superconductivity(starting)
 	if(!thermal_conductivity)
 		return FALSE
 
@@ -349,12 +422,12 @@
 /turf/open/proc/temperature_share_open_to_solid(turf/sharer)
 	sharer.temperature = air.temperature_share(null, sharer.thermal_conductivity, sharer.temperature, sharer.heat_capacity)
 
-/turf/proc/share_temperature_mutual_solid(turf/sharer, conduction_coefficient) //to be understood
+/turf/proc/share_temperature_mutual_solid(turf/sharer, conduction_coefficient) //This is all just heat sharing, don't get freaked out
 	var/delta_temperature = (temperature_archived - sharer.temperature_archived)
 	if(abs(delta_temperature) > MINIMUM_TEMPERATURE_DELTA_TO_CONSIDER && heat_capacity && sharer.heat_capacity)
 
 		var/heat = conduction_coefficient*delta_temperature* \
-			(heat_capacity*sharer.heat_capacity/(heat_capacity+sharer.heat_capacity))
+			(heat_capacity*sharer.heat_capacity/(heat_capacity+sharer.heat_capacity)) //The larger the combined capacity the less is shared
 
-		temperature -= heat/heat_capacity
+		temperature -= heat/heat_capacity //The higher your own heat cap the less heat you get from this arrangement
 		sharer.temperature += heat/sharer.heat_capacity

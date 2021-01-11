@@ -49,7 +49,7 @@
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "am" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 8
@@ -81,16 +81,16 @@
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "aw" = (
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "ax" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "az" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/escape)
@@ -107,7 +107,7 @@
 	pixel_x = -28
 	},
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "aF" = (
 /obj/machinery/suit_storage_unit,
 /turf/open/floor/mineral/titanium/yellow,
@@ -165,11 +165,11 @@
 	req_access_txt = "2"
 	},
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "aQ" = (
 /obj/structure/bed,
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "aR" = (
 /obj/machinery/computer/station_alert{
 	dir = 4
@@ -234,7 +234,7 @@
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "bc" = (
 /obj/structure/table,
 /obj/item/paper_bin{
@@ -437,7 +437,7 @@
 "bM" = (
 /obj/machinery/light,
 /turf/open/floor/mineral/plastitanium/red/brig,
-/area/shuttle/escape)
+/area/shuttle/escape/brig)
 "bN" = (
 /obj/machinery/light{
 	dir = 1

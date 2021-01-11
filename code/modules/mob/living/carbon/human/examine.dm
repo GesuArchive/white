@@ -179,16 +179,7 @@
 			if(suiciding)
 				. += "<span class='warning'>[t_on] выглядит как суицидник... [t_ego] уже невозможно спасти.</span>\n"
 
-			var/mob/dead/observer/ghost = get_ghost(TRUE, TRUE)
-			if(getorgan(/obj/item/organ/brain))
-				if(!ghost && !client) //There's no ghost with a mind matching the body's (and there's no client still in the body, if they haven't left the body once yet), the ghost has likely disconnected
-					. += "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и души...</span>\n"
-				else if (!ghost.can_reenter_corpse || ghost.pushed_do_not_resuscitate) //There is a ghost with a matching mind but they pushed DNR or otherwise can't reenter
-					. += "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и желания души жить...</span>\n"
-				else
-					. += "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни...</span>"
-			else
-				. += "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни...</span>\n"
+			. += generate_death_examine_text()
 
 	if(get_bodypart(BODY_ZONE_HEAD) && !getorgan(/obj/item/organ/brain))
 		. += "<span class='deadsay'>Похоже, что у н[t_ego] нет мозга...</span>\n"

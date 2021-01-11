@@ -58,13 +58,13 @@ export const MESSAGE_TYPES = [
     type: MESSAGE_TYPE_RADIO,
     name: 'Радио',
     description: 'Все радиоканалы',
-    selector: '.alert, .syndradio, .centradio, .airadio, .entradio, .comradio, .secradio, .engradio, .medradio, .sciradio, .supradio, .srvradio, .expradio, .radio, .deptradio, .newscaster',
+    selector: '.alert, .minorannounce, .syndradio, .centcomradio, .aiprivradio, .comradio, .secradio, .engradio, .medradio, .sciradio, .suppradio, .servradio, .radio, .deptradio, .binarysay, .newscaster',
   },
   {
     type: MESSAGE_TYPE_INFO,
     name: 'Инфо',
     description: 'Не очень важные сообщения информации',
-    selector: '.notice:not(.pm), .adminnotice, .info, .sinister, .cult',
+    selector: '.notice:not(.pm), .adminnotice, .info, .sinister, .cult, .infoplain',
   },
   {
     type: MESSAGE_TYPE_WARNING,
