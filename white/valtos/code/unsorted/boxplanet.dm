@@ -224,10 +224,9 @@
 	icon = 'icons/turf/snow.dmi'
 	baseturfs = /turf/open/openspace/boxplanet/surface
 	icon_state = "snow"
-	icon_plating = "snow"
+	base_icon_state = "snow"
 	initial_gas_mix = FROZEN_ATMOS
 	slowdown = 2
-	environment_type = "snow"
 	flags_1 = NONE
 	planetary_atmos = TRUE
 	broken_states = list("snow_dug")
@@ -251,7 +250,7 @@
 	icon = 'white/valtos/icons/caves_floor.dmi'
 	baseturfs = /turf/open/floor/plating/asteroid/boxplanet/caves
 	icon_state = "caves1"
-	icon_plating = "caves1"
+	base_icon_state = "caves1"
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 	slowdown = 0
 	flags_1 = NONE

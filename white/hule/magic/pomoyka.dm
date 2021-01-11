@@ -1,14 +1,14 @@
 /turf/open/floor/plating/conc
 	name = "Магический бетон"
 	icon = 'white/hule/icons/obj/pomoyka.dmi'
-	icon_plating = "concrete0"
+	base_icon_state = "concrete0"
 	icon_state = "concrete0"
 
 /turf/open/floor/plating/conc/Initialize()
 	. = ..()
 	if(prob(25))
 		var/r = rand(1,2)
-		icon_plating = "concrete[r]"
+		base_icon_state = "concrete[r]"
 		icon_state = "concrete[r]"
 
 /*

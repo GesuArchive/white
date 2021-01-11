@@ -163,24 +163,14 @@
 
 /obj/machinery/portable_atmospherics/rad_act(strength)
 	. = ..()
-	var/gas_change = FALSE
-	var/list/cached_gases = air_contents.gases
-	if(cached_gases[/datum/gas/oxygen] && cached_gases[/datum/gas/carbon_dioxide])
-		gas_change = TRUE
-		var/pulse_strength = min(strength, cached_gases[/datum/gas/oxygen][MOLES] * 1000, cached_gases[/datum/gas/carbon_dioxide][MOLES] * 2000)
-		cached_gases[/datum/gas/carbon_dioxide][MOLES] -= pulse_strength / 2000
-		cached_gases[/datum/gas/oxygen][MOLES] -= pulse_strength / 1000
-		ASSERT_GAS(/datum/gas/pluoxium, air_contents)
-		cached_gases[/datum/gas/pluoxium][MOLES] += pulse_strength / 4000
-		strength -= pulse_strength
-
-	if(cached_gases[/datum/gas/hydrogen])
-		gas_change = TRUE
-		var/pulse_strength = min(strength, cached_gases[/datum/gas/hydrogen][MOLES] * 1000)
-		cached_gases[/datum/gas/hydrogen][MOLES] -= pulse_strength / 1000
-		ASSERT_GAS(/datum/gas/tritium, air_contents)
-		cached_gases[/datum/gas/tritium][MOLES] += pulse_strength / 1000
-		strength -= pulse_strength
-
-	if(gas_change)
-		air_contents.garbage_collect()
+	if (air_contents.get_moles(/datum/gas/carbon_dioxide) && air_contents.get_moles(/datum/gas/oxygen))
+		strength = min(strength,air_contents.get_moles(/datum/gas/carbon_dioxide)*1000,air_contents.get_moles(/datum/gas/oxygen)*2000) //Ensures matter is conserved properly
+		air_contents.set_moles(/datum/gas/carbon_dioxide, max(air_contents.get_moles(/datum/gas/carbon_dioxide)-(strength * 0.001),0))
+		air_contents.set_moles(/datum/gas/oxygen, max(air_contents.get_moles(/datum/gas/oxygen)-(strength * 0.0005),0))
+		air_contents.adjust_moles(/datum/gas/pluoxium, strength * 0.004)
+		air_update_turf()
+	if (air_contents.get_moles(/datum/gas/hydrogen))
+		strength = min(strength, air_contents.get_moles(/datum/gas/hydrogen) * 1000)
+		air_contents.set_moles(/datum/gas/hydrogen, max(air_contents.get_moles(/datum/gas/hydrogen) - (strength * 0.001), 0))
+		air_contents.adjust_moles(/datum/gas/tritium, (strength * 0.001))
+		air_update_turf()

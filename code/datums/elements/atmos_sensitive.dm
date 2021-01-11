@@ -48,18 +48,18 @@
 		SSair.atom_process -= src
 		flags_1 &= ~ATMOS_IS_PROCESSING_1
 		return
-	if(!should_atmos_process(spot.air, spot.air.temperature)) //Things can change without a tile becoming active
+	if(!should_atmos_process(spot.air, spot.air.return_temperature())) //Things can change without a tile becoming active
 		SSair.atom_process -= src
 		flags_1 &= ~ATMOS_IS_PROCESSING_1
 		return
-	atmos_expose(spot.air, spot.air.temperature)
+	atmos_expose(spot.air, spot.air.return_temperature())
 
 /turf/open/process_exposure()
-	if(!should_atmos_process(air, air.temperature))
+	if(!should_atmos_process(air, air.return_temperature()))
 		SSair.atom_process -= src
 		flags_1 &= ~ATMOS_IS_PROCESSING_1
 		return
-	atmos_expose(air, air.temperature)
+	atmos_expose(air, air.return_temperature())
 
 ///We use this proc to check if we should start processing an item, or continue processing it. Returns true/false as expected
 /atom/proc/should_atmos_process(datum/gas_mixture/air, exposed_temperature)

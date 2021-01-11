@@ -99,8 +99,7 @@
 	icon = 'white/valtos/icons/prison/prison.dmi'
 	postdig_icon_change = TRUE
 	icon_state = "dirt"
-	icon_plating = "dirt"
-	environment_type = "dirt"
+	base_icon_state = "dirt"
 	turf_type = /turf/open/floor/plating/asteroid/dirty
 	floor_variance = 0
 	initial_gas_mix = "o2=22;n2=82;TEMP=225.15"

@@ -238,6 +238,7 @@
 #define SSAIR_HIGHPRESSURE 6
 #define SSAIR_HOTSPOTS 7
 #define SSAIR_SUPERCONDUCTIVITY 8
+#define SSAIR_PROCESS_ATOMS 9
 
 // Explosion Subsystem subtasks
 #define SSEXPLOSIONS_MOVABLES 1

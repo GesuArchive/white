@@ -411,8 +411,6 @@
 	var/atom/L = loc //recharging from loc turf
 
 	var/datum/gas_mixture/env = L.return_air()
-	if(!env.temperature)
-		return
 	var/pressure_delta = (SEND_PRESSURE*1.01) - air_contents.return_pressure()
 
 	if(env.return_temperature() > 0)
@@ -423,10 +421,6 @@
 		air_contents.merge(removed)
 		air_update_turf()
 
-	//Actually transfer the gas
-	var/datum/gas_mixture/removed = env.remove(transfer_moles)
-	air_contents.merge(removed)
-	air_update_turf(FALSE, FALSE)
 
 	//if full enough, switch to ready mode
 	if(air_contents.return_pressure() >= SEND_PRESSURE)
