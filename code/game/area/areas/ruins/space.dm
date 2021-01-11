@@ -229,6 +229,7 @@
 	name = "Beta Station Atmospherics"
 	icon_state = "red"
 	ambience_index = AMBIENCE_ENGI
+	ambientsounds = ENGINEERING
 	has_gravity = TRUE
 
 /area/ruin/space/has_grav/ancientstation/betacorridor
@@ -239,6 +240,7 @@
 	name = "Charlie Station Engineering"
 	icon_state = "engine"
 	ambience_index = AMBIENCE_ENGI
+	ambientsounds = ENGINEERING
 
 /area/ruin/space/has_grav/ancientstation/comm
 	name = "Charlie Station Command"

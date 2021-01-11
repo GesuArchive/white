@@ -154,6 +154,7 @@
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | NOTELEPORT
 	flags_1 = NONE
 	ambience_index = AMBIENCE_DANGER
+	ambientsounds = HIGHSEC
 	network_root_id = SYNDICATE_NETWORK_ROOT
 
 /area/syndicate_mothership/control

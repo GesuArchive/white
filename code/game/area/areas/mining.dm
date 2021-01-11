@@ -16,6 +16,7 @@
 	outdoors = TRUE
 	flags_1 = NONE
 	ambience_index = AMBIENCE_MINING
+	ambientsounds = MINING
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | NO_ALERTS
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
@@ -30,6 +31,7 @@
 	outdoors = TRUE
 	flags_1 = NONE
 	ambience_index = AMBIENCE_MINING
+	ambientsounds = MINING
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED | CAVES_ALLOWED | NO_ALERTS
 
 /area/mine/lobby
@@ -81,6 +83,7 @@
 	name = "Labor Camp Security"
 	icon_state = "security"
 	ambience_index = AMBIENCE_DANGER
+	ambientsounds = HIGHSEC
 
 
 
@@ -103,6 +106,7 @@
 	power_light = FALSE
 	requires_power = TRUE
 	ambience_index = AMBIENCE_MINING
+	ambientsounds = MINING
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED | NO_ALERTS
 
 /area/lavaland/underground
@@ -114,6 +118,7 @@
 	power_equip = FALSE
 	power_light = FALSE
 	ambience_index = AMBIENCE_MINING
+	ambientsounds = MINING
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED | NO_ALERTS
 
 
@@ -154,6 +159,7 @@
 	power_light = FALSE
 	requires_power = TRUE
 	ambience_index = AMBIENCE_MINING
+	ambientsounds = MINING
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED | NO_ALERTS
 
 /area/icemoon/surface/outdoors // weather happens here
@@ -184,6 +190,7 @@
 	power_equip = FALSE
 	power_light = FALSE
 	ambience_index = AMBIENCE_MINING
+	ambientsounds = MINING
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED | NO_ALERTS
 
 /area/icemoon/underground/unexplored // mobs and megafauna and ruins spawn here

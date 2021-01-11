@@ -54,7 +54,8 @@
 
 	var/ambience_volume = 15
 	var/ambience_index = AMBIENCE_GENERIC
-	var/list/ambientsounds
+	var/list/ambientsounds = GENERIC
+	var/list/ambigensounds
 
 	flags_1 = CAN_BE_DIRTY_1 | CULT_PERMITTED_1
 
@@ -137,8 +138,8 @@ GLOBAL_LIST_EMPTY(teleportlocs)
  */
 /area/Initialize(mapload)
 	icon_state = ""
-	if(!ambientsounds)
-		ambientsounds = GLOB.ambience_assoc[ambience_index]
+	if(!ambigensounds)
+		ambigensounds = GLOB.ambience_assoc[ambience_index]
 	if(requires_power)
 		luminosity = 0
 	else

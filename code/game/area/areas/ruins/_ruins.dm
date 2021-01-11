@@ -7,6 +7,7 @@
 	area_flags = HIDDEN_AREA | BLOBS_ALLOWED | UNIQUE_AREA | NO_ALERTS
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	ambience_index = AMBIENCE_RUINS
+	ambientsounds = RUINS
 	flags_1 = CAN_BE_DIRTY_1
 	sound_environment = SOUND_ENVIRONMENT_STONEROOM
 

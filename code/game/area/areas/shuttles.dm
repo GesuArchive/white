@@ -30,6 +30,7 @@
 /area/shuttle/syndicate
 	name = "Syndicate Infiltrator"
 	ambience_index = AMBIENCE_DANGER
+	ambientsounds = HIGHSEC
 	area_limited_icon_smoothing = /area/shuttle/syndicate
 
 /area/shuttle/syndicate/bridge
