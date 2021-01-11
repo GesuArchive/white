@@ -19,7 +19,7 @@ export const BoomBox = (props, context) => {
   return (
     <Window
       width={490}
-      height={620}
+      height={650}
       theme="ntos"
       resizable>
       <Window.Content>

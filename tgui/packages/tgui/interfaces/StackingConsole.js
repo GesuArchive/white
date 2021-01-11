@@ -16,7 +16,7 @@ export const StackingConsole = (props, context) => {
       <Window.Content scrollable>
         {!machine ? (
           <NoticeBox>
-            No connected stacking machine
+            Не обнаружен пресс.
           </NoticeBox>
         ) : (
           <StackingConsoleContent />
@@ -36,15 +36,15 @@ export const StackingConsoleContent = (props, context) => {
     <Fragment>
       <Section>
         <LabeledList>
-          <LabeledList.Item label="Stacking Amount">
-            {stacking_amount || "Unknown"}
+          <LabeledList.Item label="Стопки">
+            {stacking_amount || "Неизвестно"}
           </LabeledList.Item>
         </LabeledList>
       </Section>
-      <Section title="Stored Materials">
+      <Section title="Материалы">
         {!contents.length ? (
           <NoticeBox>
-            No stored materials
+            Внутри ничего нет.
           </NoticeBox>
         ) : (
           <LabeledList>
@@ -55,12 +55,12 @@ export const StackingConsoleContent = (props, context) => {
                 buttons={(
                   <Button
                     icon="eject"
-                    content="Release"
+                    content="Изъять"
                     onClick={() => act('release', {
                       type: sheet.type,
                     })} />
                 )}>
-                {sheet.amount || "Unknown"}
+                {sheet.amount || "Неизвестно"}
               </LabeledList.Item>
             ))}
           </LabeledList>

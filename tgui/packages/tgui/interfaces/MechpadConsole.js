@@ -23,19 +23,19 @@ export const MechpadControl = (props, context) => {
       buttons={(
         <Button
           icon="times"
-          content="Remove"
+          content="Удалить"
           color="bad"
           onClick={() => act('remove')} />
       )}>
       {!connected_mechpad && (
         <Box color="bad" textAlign="center">
-          No Pad Connected.
+          Не обнаружена платформа.
         </Box>
       ) || (
         <Button
           fluid
           icon="upload"
-          content="Launch"
+          content="Запустить"
           textAlign="center"
           onClick={() => act('launch')} />
       )}
@@ -57,7 +57,7 @@ export const MechpadConsole = (props, context) => {
       <Window.Content>
         {mechpads.length === 0 && (
           <NoticeBox>
-            No Pads Connected
+            Не подключена платформа.
           </NoticeBox>
         ) || (
           <Section>
@@ -84,7 +84,7 @@ export const MechpadConsole = (props, context) => {
                   <MechpadControl />
                 ) || (
                   <Box>
-                    Please select a pad
+                    Выбрать платформу.
                   </Box>
                 )}
               </Flex.Item>

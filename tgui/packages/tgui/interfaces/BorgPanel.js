@@ -14,7 +14,7 @@ export const BorgPanel = (props, context) => {
   const laws = data.laws || [];
   return (
     <Window
-      title="Borg Panel"
+      title="Управление киборгами"
       width={700}
       height={700}
       resizable>

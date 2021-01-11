@@ -30,7 +30,7 @@ export const Vendatray = (props, context) => {
             <Section
               fontSize="18px"
               align="center">
-              <b>{product_name ? product_name : "Empty"}</b>
+              <b>{product_name ? product_name : "Пусто"}</b>
               <Box fontSize="16px">
                 <i>{product_name ? product_cost : "N/A"} cr </i>
                 <Button
@@ -42,13 +42,13 @@ export const Vendatray = (props, context) => {
               <Button
                 fluid
                 icon="window-restore"
-                content={tray_open ? 'Open' : 'Closed'}
+                content={tray_open ? 'Открыто' : 'Закрыто'}
                 selected={tray_open}
                 onClick={() => act('Open')} />
               <Button.Confirm
                 fluid
                 icon="money-bill-wave"
-                content="Purchase Item"
+                content="Купить"
                 disabled={!product_name}
                 onClick={() => act('Buy')} />
             </Fragment>
@@ -56,17 +56,17 @@ export const Vendatray = (props, context) => {
         </Flex>
         {registered?(
           <Section italics>
-            Pays to the account of {owner_name}.
+            Платёж отправляется {owner_name}.
           </Section>
         ):(
           <Fragment>
             <Section>
-              Tray is unregistered.
+              Не зарегистрировано.
             </Section>
             <Button
               fluid
               icon="cash-register"
-              content="Register Tray"
+              content="Зарегистрировать"
               disabled={registered}
               onClick={() => act('Register')} />
           </Fragment>

@@ -61,7 +61,7 @@ export const PersonalCrafting = (props, context) => {
     <Window
       title="Меню сборки"
       width={700}
-      height={500}
+      height={600}
       resizable>
       <Window.Content scrollable>
         {!!busy && (

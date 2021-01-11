@@ -59,13 +59,13 @@
 			var/turret_integrity = max((base_turret.obj_integrity - base_turret.integrity_failure * base_turret.max_integrity) / (base_turret.max_integrity - base_turret.integrity_failure * max_integrity) * 100, 0)
 			var/turret_status
 			if(base_turret.machine_stat & BROKEN)
-				turret_status = "ERROR"
+				turret_status = "ОШИБКА"
 			else if(!base_turret.on)
-				turret_status = "Disabled"
+				turret_status = "Отключена"
 			else if(base_turret.raised)
-				turret_status = "Firing"
+				turret_status = "ОГОНЬ"
 			else
-				turret_status = "All Clear"
+				turret_status = "Чисто"
 			var/list/turret_data = list(
 				name = base_turret.name,
 				integrity = turret_integrity,

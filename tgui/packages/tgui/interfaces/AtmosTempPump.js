@@ -11,18 +11,18 @@ export const AtmosTempPump = (props, context) => {
       <Window.Content>
         <Section>
           <LabeledList>
-            <LabeledList.Item label="Power">
+            <LabeledList.Item label="Питание">
               <Button
                 icon={data.on ? 'power-off' : 'times'}
-                content={data.on ? 'On' : 'Off'}
+                content={data.on ? 'Вкл' : 'Выкл'}
                 selected={data.on}
                 onClick={() => act('power')} />
             </LabeledList.Item>
-            <LabeledList.Item label="Heat transfer rate">
+            <LabeledList.Item label="Скорость перекачки">
               <NumberInput
                 animated
                 value={parseFloat(data.rate)}
-                unit="K/s"
+                unit="K/с"
                 width="75px"
                 minValue={0}
                 maxValue={data.max_heat_transfer_rate}
@@ -33,7 +33,7 @@ export const AtmosTempPump = (props, context) => {
               <Button
                 ml={1}
                 icon="plus"
-                content="Max"
+                content="Макс"
                 disabled={data.rate === data.max_heat_transfer_rate}
                 onClick={() => act('rate', {
                   rate: 'max',

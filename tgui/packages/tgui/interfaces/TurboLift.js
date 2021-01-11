@@ -19,8 +19,8 @@ export const TurboLift = (props, context) => {
         <NoticeBox>
           {data.online && (
             currentdeck
-              && `Currently at deck ${currentdeck}`
-              || `Unable to determine current deck.`
+              && `Текущая палуба ${currentdeck}`
+              || `Да хуй знает.`
           ) || (
             <Fragment>
               This lift is currently offline. Please contact a Nanotrasen
@@ -28,7 +28,7 @@ export const TurboLift = (props, context) => {
             </Fragment>
           )}
         </NoticeBox>
-        <Section title="Lift panel">
+        <Section title="Управление лифтом">
           {Object.keys(data.decks).map(key => {
             let value = data.decks[key];
             return (

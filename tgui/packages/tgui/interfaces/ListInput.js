@@ -122,7 +122,7 @@ export const ListInput = (props, context) => {
                   icon="search"
                   color="transparent"
                   selected={showSearchBar}
-                  tooltip="Search Bar"
+                  tooltip="Поиск"
                   tooltipPosition="left"
                   onClick={() => {
                     setShowSearchBar(!showSearchBar);
@@ -175,7 +175,7 @@ export const ListInput = (props, context) => {
                   fluid
                   color="bad"
                   lineHeight={2}
-                  content="Cancel"
+                  content="Отмена"
                   onClick={() => act("cancel")}
                 />
               </Flex.Item>
@@ -184,7 +184,7 @@ export const ListInput = (props, context) => {
                   fluid
                   color="good"
                   lineHeight={2}
-                  content="Confirm"
+                  content="Подтверждение"
                   disabled={selectedButton === null}
                   onClick={() => act("choose", { choice: selectedButton })}
                 />

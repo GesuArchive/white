@@ -21,11 +21,11 @@ export const MassDriverControl = (props, context) => {
         <Fragment>
           {!!connected && (
             <Section
-              title="Auto Launch"
+              title="Авто-запуск"
               buttons={(
                 <Button
                   icon={"clock-o"}
-                  content={timing ? 'Stop' : 'Start'}
+                  content={timing ? 'Стоп' : 'Старт'}
                   selected={timing}
                   onClick={() => act('time')} />
               )}>
@@ -56,7 +56,7 @@ export const MassDriverControl = (props, context) => {
             buttons={(
               <Button
                 icon={"toggle-on"}
-                content="Toggle Outer Door"
+                content="Переключить внешнюю дверь"
                 disabled={timing || !poddoor}
                 onClick={() => act('door')} />
             )}>
@@ -64,11 +64,11 @@ export const MassDriverControl = (props, context) => {
               <Fragment>
                 <LabeledList>
                   <LabeledList.Item
-                    label="Power Level"
+                    label="Сила"
                     buttons={
                       <Button
                         icon={"bomb"}
-                        content="Test Fire"
+                        content="Тест"
                         disabled={timing}
                         onClick={() => act('driver_test')} />
                     }>
@@ -86,7 +86,7 @@ export const MassDriverControl = (props, context) => {
                 </LabeledList>
                 <Button
                   fluid
-                  content="Launch"
+                  content="Запуск"
                   disabled={timing}
                   mt={1.5}
                   icon="arrow-up"
@@ -95,7 +95,7 @@ export const MassDriverControl = (props, context) => {
               </Fragment>
             ) || (
               <Box color="bad">
-                No connected mass driver
+                Не подключен масс-драйвер.
               </Box>
             )}
           </Section>

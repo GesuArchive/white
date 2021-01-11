@@ -22,14 +22,14 @@ export const AuxBaseConsole = (props, context) => {
             lineHeight="23px"
             selected={tab === 1}
             onClick={() => setTab(1)}>
-            {type === "shuttle" ? "Shuttle Launch" : "Base Launch"}
+            {type === "shuttle" ? "Запуск шаттла" : "Управление пуском"}
           </Tabs.Tab>
           <Tabs.Tab
             icon="list"
             lineHeight="23px"
             selected={tab === 2}
             onClick={() => setTab(2)}>
-            Turrets ({turrets.length})
+            Турели ({turrets.length})
           </Tabs.Tab>
         </Tabs>
         {tab === 1 && (
@@ -46,10 +46,10 @@ export const AuxBaseConsole = (props, context) => {
 };
 
 const STATUS_COLOR_KEYS = {
-  "ERROR": "bad",
-  "Disabled": "bad",
-  "Firing": "average",
-  "All Clear": "good",
+  "ОШИБКА": "bad",
+  "Отключена": "bad",
+  "ОГОНЬ": "average",
+  "Чисто": "good",
 };
 
 export const AuxBaseConsoleContent = (props, context) => {
@@ -59,27 +59,27 @@ export const AuxBaseConsoleContent = (props, context) => {
   } = data;
   return (
     <Section
-      title={"Turret Control"}
+      title={"Управление турелями"}
       buttons={(
         !!turrets.length && (
           <Button
             icon="power-off"
-            content={"Toggle Power"}
+            content={"Переключить"}
             onClick={() => act('turrets_power')} />
         ))}>
       {!turrets.length ? (
         <NoticeBox>
-          No connected turrets
+          Нет турелей
         </NoticeBox>
       ) : (
         <Table cellpadding="3" textAlign="center">
           <Table.Row header>
-            <Table.Cell>Unit</Table.Cell>
-            <Table.Cell>Condition</Table.Cell>
-            <Table.Cell>Status</Table.Cell>
-            <Table.Cell>Direction</Table.Cell>
-            <Table.Cell>Distance</Table.Cell>
-            <Table.Cell>Power</Table.Cell>
+            <Table.Cell>Единица</Table.Cell>
+            <Table.Cell>Прочность</Table.Cell>
+            <Table.Cell>Состояние</Table.Cell>
+            <Table.Cell>Направление</Table.Cell>
+            <Table.Cell>Дистанция</Table.Cell>
+            <Table.Cell>Питание</Table.Cell>
           </Table.Row>
           {turrets.map(turret => (
             <Table.Row key={turret.key}>
@@ -94,7 +94,7 @@ export const AuxBaseConsoleContent = (props, context) => {
               <Table.Cell>
                 <Button
                   icon="power-off"
-                  content="Toggle"
+                  content="Переключить"
                   onClick={() => act('single_turret_power', {
                     single_turret_power: turret.ref,
                   })} />

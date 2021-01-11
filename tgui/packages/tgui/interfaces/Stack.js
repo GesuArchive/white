@@ -31,7 +31,7 @@ export const Stack = (props, context) => {
      }, {})
     || recipes;
 
-  const height = Math.max(94 + Object.keys(recipes).length * 26, 250);
+  const height = Math.max(94 + Object.keys(recipes).length * 28, 250);
 
   return (
     <Window
@@ -43,7 +43,7 @@ export const Stack = (props, context) => {
           title={"Amount: " + amount}
           buttons={(
             <Fragment>
-              Search
+              Искать
               <Input
                 autoFocus
                 value={searchText}
@@ -53,7 +53,7 @@ export const Stack = (props, context) => {
           )}>
           {items.length === 0 && (
             <NoticeBox>
-              No recipes found.
+              Нет особых рецептов.
             </NoticeBox>
           ) || (
             <RecipeList recipes={items} />
@@ -168,7 +168,7 @@ const Recipe = (props, context) => {
   let buttonName = title;
   buttonName += " (";
   buttonName += req_amount + " ";
-  buttonName += ("sheet" + (req_amount > 1 ? "s" : ""));
+  buttonName += ("лист" + (req_amount > 1 ? "ов" : ""));
   buttonName += ")";
 
   if (res_amount > 1) {

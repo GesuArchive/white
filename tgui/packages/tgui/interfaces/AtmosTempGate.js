@@ -11,14 +11,14 @@ export const AtmosTempGate = (props, context) => {
       <Window.Content>
         <Section>
           <LabeledList>
-            <LabeledList.Item label="Power">
+            <LabeledList.Item label="Питание">
               <Button
                 icon={data.on ? 'power-off' : 'times'}
-                content={data.on ? 'On' : 'Off'}
+                content={data.on ? 'Вкл' : 'Выкл'}
                 selected={data.on}
                 onClick={() => act('power')} />
             </LabeledList.Item>
-            <LabeledList.Item label="Heat settings">
+            <LabeledList.Item label="Настройка">
               <NumberInput
                 animated
                 value={parseFloat(data.temperature)}
@@ -33,7 +33,7 @@ export const AtmosTempGate = (props, context) => {
               <Button
                 ml={1}
                 icon="plus"
-                content="Max"
+                content="Макс"
                 disabled={data.temperature === data.max_temperature}
                 onClick={() => act('temperature', {
                   temperature: 'max',
