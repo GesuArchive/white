@@ -87,6 +87,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	infodisplay += tooltip
 
 	add_emote_panel(owner)
+	add_multiz_buttons(owner)
 
 	for(var/mytype in subtypesof(/atom/movable/screen/plane_master))
 		var/atom/movable/screen/plane_master/instance = new mytype()

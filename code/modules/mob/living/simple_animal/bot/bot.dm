@@ -748,7 +748,7 @@ Pass a positive integer as an argument to override a bot's default speed.
 			if(user_access.len != 0)
 				access_card.access = user_access + prev_access //Adds the user's access, if any.
 			mode = BOT_SUMMON
-			speak("Responding.", radio_channel)
+			speak("Выдвигаюсь.", radio_channel)
 			calc_summon_path()
 
 		if("ejectpai")
