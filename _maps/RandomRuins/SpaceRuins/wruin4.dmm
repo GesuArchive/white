@@ -411,6 +411,7 @@
 	dir = 1
 	},
 /mob/living/simple_animal/hostile/syndicate/melee/sword/space,
+/obj/structure/fans/tiny/invisible,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "by" = (
@@ -1229,11 +1230,11 @@
 /area/ruin/space/has_grav/terrorship)
 "fJ" = (
 /turf/open/space/basic,
-/area/ruin/space/has_grav/terrorship)
+/area/space)
 "fK" = (
 /mob/living/simple_animal/hostile/syndicate/melee/sword/space,
 /turf/open/space/basic,
-/area/ruin/space/has_grav/terrorship)
+/area/space)
 "hb" = (
 /obj/item/wirecutters,
 /turf/open/floor/engine,
@@ -1476,6 +1477,9 @@
 "zL" = (
 /obj/effect/turf_decal/bot,
 /turf/open/floor/engine,
+/area/ruin/space/has_grav/terrorship)
+"zS" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/ruin/space/has_grav/terrorship)
 "An" = (
 /obj/machinery/atmospherics/pipe/simple/dark{
@@ -1753,6 +1757,10 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
+"VN" = (
+/obj/effect/baseturf_helper/lava,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/terrorship)
 "VT" = (
 /obj/machinery/door/airlock/hatch,
@@ -2797,7 +2805,7 @@ bk
 dh
 fh
 fq
-aF
+zS
 fd
 ad
 ad
@@ -2998,7 +3006,7 @@ bk
 bm
 bm
 fw
-aF
+zS
 fd
 ad
 ad
@@ -3007,11 +3015,11 @@ fe
 ac
 fd
 aF
-aF
+zS
 cQ
-aF
+zS
 VT
-aF
+zS
 df
 da
 df
@@ -3069,11 +3077,11 @@ aF
 fd
 ad
 Fg
-ac
+zS
 cQ
-ac
+zS
 cQ
-ac
+zS
 Ya
 dk
 ZB
@@ -3120,11 +3128,11 @@ ac
 ac
 ac
 ac
+zS
 ac
-ac
-ac
+zS
 cQ
-ac
+zS
 ac
 ac
 ac
@@ -3240,7 +3248,7 @@ fJ
 fJ
 fJ
 fJ
-ac
+VN
 ac
 aj
 ad
@@ -3254,7 +3262,7 @@ ad
 ad
 ad
 ad
-ac
+zS
 ac
 ac
 ac
@@ -3263,7 +3271,7 @@ bC
 dJ
 bC
 bC
-aF
+zS
 bC
 fC
 cf
@@ -3275,11 +3283,11 @@ ac
 ac
 ac
 aF
-aF
+zS
 cQ
-aF
+zS
 VT
-aF
+zS
 df
 da
 df
@@ -3339,7 +3347,7 @@ bC
 bC
 bC
 bn
-ac
+zS
 cO
 vu
 ad
@@ -3397,7 +3405,7 @@ cf
 eW
 bC
 bC
-aF
+zS
 bw
 bC
 bU
@@ -3465,15 +3473,15 @@ bO
 bC
 bC
 aF
-aF
+zS
 dc
+zS
 aF
-aF
-aF
+zS
 dc
+zS
 aF
-aF
-ac
+zS
 cO
 cH
 ad
@@ -3660,9 +3668,9 @@ ad
 cs
 dA
 aF
-aF
+zS
 dc
-aF
+zS
 ac
 ac
 ac
@@ -3866,7 +3874,7 @@ aF
 cK
 bC
 bn
-aF
+zS
 bA
 bC
 bC
@@ -3882,11 +3890,11 @@ ad
 fe
 aF
 df
-aF
+zS
 fz
-aF
+zS
 df
-aF
+zS
 aF
 aF
 ac
@@ -4000,7 +4008,7 @@ bn
 aF
 ae
 aF
-aF
+zS
 bA
 bC
 bO
@@ -4020,7 +4028,7 @@ ad
 cH
 ad
 it
-aF
+zS
 ba
 ba
 ac
@@ -4074,7 +4082,7 @@ bC
 eW
 bC
 bC
-ac
+zS
 ac
 ac
 ac
@@ -4154,7 +4162,7 @@ yL
 SM
 ad
 kQ
-aF
+zS
 ba
 Xy
 ac
@@ -4208,10 +4216,10 @@ ac
 ac
 ac
 ac
-ac
+zS
 bW
 cA
-ac
+zS
 ac
 ac
 ac
@@ -4259,11 +4267,11 @@ bS
 aF
 au
 aD
-ac
+zS
 cQ
-ac
+zS
 cQ
-ac
+zS
 cZ
 dO
 el
@@ -4345,7 +4353,7 @@ ba
 aF
 ac
 ac
-ac
+zS
 ad
 ad
 oW
@@ -4390,7 +4398,7 @@ cX
 bp
 an
 bS
-aF
+zS
 fd
 cH
 ad
@@ -4398,20 +4406,20 @@ fe
 ac
 ad
 aF
-aF
+zS
 dP
+zS
 aF
-aF
-aF
+zS
 dP
+zS
 aF
-aF
-aF
+zS
 dP
-aF
+zS
 aF
 cX
-ac
+zS
 cO
 Zk
 cH
@@ -4524,7 +4532,7 @@ eZ
 eZ
 eZ
 bZ
-aF
+zS
 aw
 cj
 aK
@@ -4545,7 +4553,7 @@ dT
 cO
 cO
 aU
-ac
+zS
 cO
 ad
 ad
@@ -4586,9 +4594,9 @@ fJ
 ac
 aT
 aZ
-aF
+zS
 bv
-aF
+zS
 aZ
 ca
 ac

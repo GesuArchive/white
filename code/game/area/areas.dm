@@ -589,14 +589,15 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 
 		spawn(30)
 			var/soundLen = 30
-			var/list/sounds_list = L.client.SoundQuery()
+			if(L.client)
+				var/list/sounds_list = L.client.SoundQuery()
 
-			for(var/playing_sound in sounds_list)
-				var/sound/found = playing_sound
-				if(found.file == S.file)
-					soundLen = found.len
+				for(var/playing_sound in sounds_list)
+					var/sound/found = playing_sound
+					if(found.file == S.file)
+						soundLen = found.len
 
-			addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), soundLen * 10)
+				addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), soundLen * 10)
 
 	if(prob(35) && !istype(src, /area/awaymission))
 		var/sound/AGS = sound(pick(GENERIC_AMBIGEN))

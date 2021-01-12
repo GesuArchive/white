@@ -10,7 +10,7 @@
 	. = ..()
 	VM = src
 	LAZYADD(newvapes, src)
-	addtimer(CALLBACK(src, .proc/Merge_Master), 0)
+	addtimer(CALLBACK(src, .proc/Merge_Master), 1)
 	START_PROCESSING(SSreagent_states, src)
 
 /obj/effect/particle_effect/vapour/master/kill_vapour()

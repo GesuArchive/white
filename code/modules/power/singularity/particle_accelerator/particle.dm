@@ -10,15 +10,15 @@
 	var/speed = 1
 
 /obj/effect/accelerated_particle/weak
-	movement_range = 25
+	movement_range = 8
 	energy = 5
 
 /obj/effect/accelerated_particle/strong
-	movement_range = 45
+	movement_range = 15
 	energy = 15
 
 /obj/effect/accelerated_particle/powerful
-	movement_range = 60
+	movement_range = 20
 	energy = 50
 
 

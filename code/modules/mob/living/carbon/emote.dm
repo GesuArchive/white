@@ -37,14 +37,16 @@
 /datum/emote/living/carbon/crack
 	key = "crack"
 	key_third_person = "cracks"
-	message = "cracks their knuckles."
+	message = "хрустит своими пальцами."
 	sound = 'sound/misc/knuckles.ogg'
 	cooldown = 6 SECONDS
 
 /datum/emote/living/carbon/crack/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional)
-	if(user.usable_hands < 2)
-		return FALSE
+	if(isliving(user))
+		if(user.usable_hands < 2)
+			return FALSE
 	return ..()
+
 /datum/emote/living/carbon/moan
 	key = "moan"
 	key_third_person = "moans"

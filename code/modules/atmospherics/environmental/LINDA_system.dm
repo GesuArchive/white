@@ -108,7 +108,8 @@
 
 /atom/proc/air_update_turf(update = FALSE, remove = FALSE)
 	var/turf/T = get_turf(loc)
-	T.air_update_turf(update, remove)
+	if(T)
+		T.air_update_turf(update, remove)
 
 /**
  * A helper proc for dealing with atmos changes
