@@ -61,7 +61,7 @@
 
 	for(var/mob/M in GLOB.player_list)
 		if(!isnewplayer(M) && M.can_hear() && (is_station_level(M.z) || is_mining_level(M.z)))
-			to_chat(M, "<span class='minorannounce'><h1>[title]</h1><BR>[message]</span><BR>")
+			to_chat(M, "<h1 class='alert'>[title]</h1><span class='alert'><big>[message]</big></span>")
 			if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
 				if(alert)
 					SEND_SOUND(M, sound('sound/misc/notice1.ogg'))
