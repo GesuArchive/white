@@ -36,11 +36,23 @@
 	id = "default_central"
 	suffix = "default_central.dmm"
 	name = "Default Central"
+	always_spawn_with = list(/datum/map_template/ruin/station/bridge/bottom = PLACE_BELOW)
+
+/datum/map_template/ruin/station/bridge/bottom
+	id = "default_central_bottom"
+	suffix = "default_central_bottom.dmm"
+	name = "Default Central Bottom"
 
 /datum/map_template/ruin/station/bridge/compact
 	id = "compact_central"
 	suffix = "compact_central.dmm"
 	name = "Compact Central"
+	always_spawn_with = list(/datum/map_template/ruin/station/bridge/compact/bottom = PLACE_BELOW)
+
+/datum/map_template/ruin/station/bridge/compact/bottom
+	id = "compact_central_bottom"
+	suffix = "compact_central_bottom.dmm"
+	name = "Compact Central Bottom"
 
 /datum/map_template/ruin/station/bridge/interesting
 	id = "interesting_central"

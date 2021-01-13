@@ -35053,13 +35053,13 @@
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "nop" = (
-/obj/structure/table/rospilovo,
 /obj/item/food/carpmeat/dry,
 /obj/item/food/carpmeat/dry/donbas,
 /obj/item/food/carpmeat/dry/donbas,
 /obj/item/food/carpmeat/dry/donbas,
 /obj/effect/spawner/lootdrop/maint_drugs,
 /obj/effect/spawner/lootdrop/maint_drugs,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/crew_quarters/fitness/kachalka)
 "npc" = (
