@@ -573,6 +573,9 @@
 	},
 /obj/structure/table/reinforced,
 /obj/item/storage/firstaid/regular,
+/obj/item/radio/intercom{
+	pixel_y = 20
+	},
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "ug" = (
@@ -644,10 +647,12 @@
 "xa" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/light,
-/obj/item/radio/intercom{
-	pixel_y = -26
-	},
 /obj/structure/cable,
+/obj/machinery/power/apc/highcap/five_k{
+	areastring = "/area/bridge";
+	name = "Bridge APC";
+	pixel_y = -23
+	},
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "xk" = (
