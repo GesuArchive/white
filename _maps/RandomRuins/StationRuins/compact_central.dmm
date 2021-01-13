@@ -3049,7 +3049,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "mm" = (
@@ -3307,7 +3306,6 @@
 "wg" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/hallway/primary/central)
 "wo" = (
@@ -3688,6 +3686,7 @@
 	},
 /obj/machinery/camera/autoname,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "KG" = (
@@ -3765,6 +3764,15 @@
 	},
 /turf/open/floor/plasteel,
 /area/teleporter)
+"MC" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/maintenance/central)
 "MO" = (
 /obj/structure/chair/comfy/black,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4,
@@ -5219,7 +5227,7 @@ UJ
 UJ
 UJ
 es
-Qy
+MC
 zb
 Up
 af
@@ -5257,7 +5265,7 @@ eW
 eW
 es
 es
-Qy
+MC
 zb
 Jx
 af
