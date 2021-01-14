@@ -56,9 +56,11 @@
 	switch(action)
 		if("toggle")
 			toggle(text2num(params["id"]))
+			update_static_data(usr)
 			. = TRUE
 		if("toggle_all")
 			toggle_all()
+			update_static_data(usr)
 			. = TRUE
 
 /obj/machinery/computer/sat_control/proc/toggle(id)
@@ -76,6 +78,8 @@
 
 	data["satellites"] = list()
 	for(var/obj/machinery/satellite/S in GLOB.machines)
+		if(S.z != z)
+			continue
 		data["satellites"] += list(list(
 			"id" = S.id,
 			"active" = S.active,
