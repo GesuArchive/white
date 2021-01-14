@@ -62,8 +62,3 @@
 	display_name = "ботинки волшебницы"
 	path = /obj/item/clothing/shoes/wizgirl
 	cost = 250
-
-/datum/gear/footwear/jackboots/white
-	display_name = "сапоги"
-	path = /obj/item/clothing/shoes/jackboots/white
-	cost = 200
