@@ -53,10 +53,16 @@
 /turf/closed/indestructible/syndicate,
 /area/centcom/outdoors)
 "av" = (
-/obj/structure/railing{
-	dir = 4
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
 	},
-/turf/open/floor/plating,
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "aw" = (
 /obj/effect/turf_decal/trimline/neutral/line{
@@ -65,10 +71,12 @@
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "ax" = (
-/obj/structure/railing{
-	dir = 6
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/railing/corner,
+/obj/structure/railing/corner{
+	dir = 8
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plasteel,
 /area/centcom/control)
 "ay" = (
 /obj/docking_port/stationary{
@@ -1693,6 +1701,9 @@
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 4
 	},
+/obj/structure/railing/corner{
+	dir = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "fV" = (
@@ -1981,6 +1992,9 @@
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 4
 	},
+/obj/structure/railing{
+	dir = 8
+	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "hh" = (
@@ -2235,7 +2249,11 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/supplypod)
 "iC" = (
-/turf/open/floor/plasteel/stairs/old/chilly/single{
+/obj/structure/railing,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/plasteel/stairs/old{
 	dir = 8
 	},
 /area/centcom/control)
@@ -3477,7 +3495,7 @@
 	id = "tt5";
 	id_target = "tt6"
 	},
-/turf/open/floor/plasteel/stairs/old/chilly/single{
+/turf/open/floor/plasteel/stairs/old{
 	dir = 1
 	},
 /area/centcom/control)
@@ -3970,6 +3988,9 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/railing{
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
@@ -4904,6 +4925,7 @@
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 4
 	},
+/obj/structure/railing,
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "xm" = (
@@ -5545,6 +5567,7 @@
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 8
 	},
+/obj/structure/railing,
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "Aj" = (
@@ -5600,10 +5623,10 @@
 	},
 /area/abductor_ship)
 "Ay" = (
-/obj/structure/railing{
-	dir = 5
+/obj/machinery/light/floor{
+	brightness = 9
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plasteel,
 /area/centcom/control)
 "Az" = (
 /obj/effect/turf_decal/stripes/line{
@@ -5612,7 +5635,13 @@
 /turf/open/floor/plating,
 /area/ctf)
 "AD" = (
-/turf/open/floor/plasteel/stairs/old/chilly/single,
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/plasteel/stairs/old,
 /area/centcom/control)
 "AF" = (
 /obj/machinery/hydroponics/constructable,
@@ -5827,12 +5856,6 @@
 	},
 /turf/open/floor/carpet,
 /area/wizard_station)
-"Bp" = (
-/obj/structure/railing{
-	dir = 9
-	},
-/turf/open/floor/plating,
-/area/centcom/control)
 "Bq" = (
 /turf/open/floor/plating,
 /area/syndicate_mothership/control)
@@ -6288,6 +6311,9 @@
 	},
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 6
+	},
+/obj/structure/railing{
+	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
@@ -7088,6 +7114,9 @@
 	},
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 5
+	},
+/obj/structure/railing{
+	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
@@ -8390,7 +8419,7 @@
 	id = "tt2";
 	id_target = "tt1"
 	},
-/turf/open/floor/plasteel/stairs/old/chilly/single{
+/turf/open/floor/plasteel/stairs/old{
 	dir = 1
 	},
 /area/centcom/control)
@@ -9197,14 +9226,14 @@
 	id = "tt4";
 	id_target = "tt3"
 	},
-/turf/open/floor/plasteel/stairs/old/chilly/single,
+/turf/open/floor/plasteel/stairs/old,
 /area/centcom/control)
 "Px" = (
 /obj/effect/bump_teleporter{
 	id = "tt6";
 	id_target = "tt5"
 	},
-/turf/open/floor/plasteel/stairs/old/chilly/single{
+/turf/open/floor/plasteel/stairs/old{
 	dir = 1
 	},
 /area/centcom/control)
@@ -9322,6 +9351,9 @@
 	},
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
@@ -9710,7 +9742,7 @@
 	id = "tt1";
 	id_target = "tt2"
 	},
-/turf/open/floor/plasteel/stairs/old/chilly/single{
+/turf/open/floor/plasteel/stairs/old{
 	dir = 1
 	},
 /area/centcom/control)
@@ -9828,7 +9860,7 @@
 	id = "tt3";
 	id_target = "tt4"
 	},
-/turf/open/floor/plasteel/stairs/old/chilly/single,
+/turf/open/floor/plasteel/stairs/old,
 /area/centcom/control)
 "Tp" = (
 /obj/item/clothing/head/helmet/chaplain/witchunter_hat,
@@ -17904,11 +17936,11 @@ ZU
 Qm
 ZU
 KJ
-av
-ax
+TO
+TO
 iC
-Ay
-ax
+TO
+TO
 st
 ZU
 ZU
@@ -18163,7 +18195,7 @@ gy
 Zw
 hg
 CZ
-FF
+av
 GC
 Qg
 fU
@@ -21519,7 +21551,7 @@ aw
 pb
 vm
 xl
-Ay
+TO
 Yv
 Yr
 Yr
@@ -21775,7 +21807,7 @@ WY
 WY
 ZR
 WY
-Hw
+ax
 AD
 Go
 Yr
@@ -22033,7 +22065,7 @@ Ys
 pb
 vU
 Ai
-Bp
+TO
 Yv
 Yr
 Yr
@@ -22814,14 +22846,14 @@ ZU
 ZZ
 EM
 WY
-WY
+Ay
 WY
 WY
 WY
 QY
 WY
 WY
-WY
+Ay
 WY
 Rd
 ZZ
@@ -23848,7 +23880,7 @@ WY
 Tk
 nu
 rd
-vr
+WY
 WY
 WY
 Vc
@@ -24104,8 +24136,8 @@ WY
 WY
 WY
 qv
-vr
-vr
+WY
+WY
 vr
 WY
 Be
@@ -24613,14 +24645,14 @@ ZZ
 ZZ
 mY
 WY
-WY
+Ay
 WY
 WY
 WY
 gD
 WY
-YD
 WY
+Ay
 WY
 HD
 ZZ
