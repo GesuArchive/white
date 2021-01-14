@@ -2,8 +2,8 @@
 #define BROOM_PUSH_LIMIT 20
 
 /obj/item/pushbroom
-	name = "push broom"
-	desc = "This is my BROOMSTICK! It can be used manually or braced with two hands to sweep items as you move. It has a telescopic handle for compact storage."
+	name = "метла"
+	desc = "Это мой BROOMSTICK! Его можно использовать вручную или закрепить двумя руками, чтобы подметать предметы во время движения. Имеет телескопическую ручку для компактного хранения."
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "broom0"
 	lefthand_file = 'icons/mob/inhands/equipment/custodial_lefthand.dmi'
@@ -13,8 +13,8 @@
 	throw_speed = 3
 	throw_range = 7
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb_continuous = list("sweeps", "brushes off", "bludgeons", "whacks")
-	attack_verb_simple = list("sweep", "brush off", "bludgeon", "whack")
+	attack_verb_continuous = list("сметает", "выметает", "долбит", "шлёпает")
+	attack_verb_simple = list("сметает", "выметает", "долбит", "шлёпает")
 	resistance_flags = FLAMMABLE
 
 /obj/item/pushbroom/Initialize()
@@ -39,7 +39,7 @@
 /obj/item/pushbroom/proc/on_wield(obj/item/source, mob/user)
 	SIGNAL_HANDLER
 
-	to_chat(user, "<span class='notice'>You brace the [src] against the ground in a firm sweeping stance.</span>")
+	to_chat(user, "<span class='notice'>Хватаю [src.name] обеими руками и готовлюсь толкать МУСОР.</span>")
 	RegisterSignal(user, COMSIG_MOVABLE_MOVED, .proc/sweep)
 
 /**
@@ -91,7 +91,7 @@
 	if(i > 1)
 		if (target_bin)
 			target_bin.update_icon()
-			to_chat(user, "<span class='notice'>You sweep the pile of garbage into [target_bin].</span>")
+			to_chat(user, "<span class='notice'>Заталкиваю весь мусор в мусорку.</span>")
 		playsound(loc, 'sound/weapons/thudswoosh.ogg', 30, TRUE, -1)
 
 /**
@@ -107,8 +107,8 @@
 	J.update_icon()
 
 /obj/item/pushbroom/cyborg
-	name = "robotic push broom"
+	name = "метла робота"
 
 /obj/item/pushbroom/cyborg/janicart_insert(mob/user, obj/structure/janitorialcart/J)
-	to_chat(user, "<span class='notice'>You cannot place your [src] into the [J]</span>")
+	to_chat(user, "<span class='notice'>Не получается положить [src.name] в [J.name]</span>")
 	return FALSE

@@ -28,14 +28,28 @@
 
 /obj/vehicle/ridden/forklift/Bump(atom/A)
 	. = ..()
-	if(!A.density || !has_buckled_mobs())
+	var/turf/target = moving ? user.loc : (isturf(A) ? A : A.loc)
+	if (!isturf(target))
 		return
-
-	var/atom/movable/AM = get_edge_target_turf(A, dir)
-	var/t = get_dir(src, AM)
-	if(isobj(AM) && !AM.anchored)
-		if(AM.Move(get_step(AM.loc, t), t, glide_size))
-			Move(get_step(loc, t), t)
+	if (locate(/obj/structure/table) in target.contents)
+		return
+	var/i = 1
+	var/turf/target_turf = get_step(target, user.dir)
+	var/obj/machinery/disposal/bin/target_bin = locate(/obj/machinery/disposal/bin) in target_turf.contents
+	for(var/obj/item/garbage in target.contents)
+		if(!garbage.anchored)
+			if (target_bin)
+				garbage.forceMove(target_bin)
+			else
+				garbage.Move(target_turf, user.dir)
+			i++
+		if(i > BROOM_PUSH_LIMIT)
+			break
+	if(i > 1)
+		if (target_bin)
+			target_bin.update_icon()
+			to_chat(user, "<span class='notice'>Заталкиваю всё в мусорку.</span>")
+		playsound(loc, 'sound/weapons/thudswoosh.ogg', 30, TRUE, -1)
 
 /obj/vehicle/ridden/forklift/Moved()
 	. = ..()
