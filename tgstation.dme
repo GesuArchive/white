@@ -3723,6 +3723,7 @@
 #include "white\valtos\code\unsorted\ipc.dm"
 #include "white\valtos\code\unsorted\katana.dm"
 #include "white\valtos\code\unsorted\keybindings_reset.dm"
+#include "white\valtos\code\unsorted\liftcar.dm"
 #include "white\valtos\code\unsorted\lobbycyber.dm"
 #include "white\valtos\code\unsorted\mre.dm"
 #include "white\valtos\code\unsorted\multiz_buttons.dm"
