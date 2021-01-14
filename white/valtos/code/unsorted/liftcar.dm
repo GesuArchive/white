@@ -34,7 +34,7 @@
 	var/atom/movable/AM = get_edge_target_turf(A, dir)
 	var/t = get_dir(src, AM)
 	if(isobj(AM) && !AM.anchored)
-		if(O.Move(get_step(O.loc, t), t, glide_size))
+		if(AM.Move(get_step(AM.loc, t), t, glide_size))
 			Move(get_step(loc, t), t)
 
 /obj/vehicle/ridden/forklift/Moved()
