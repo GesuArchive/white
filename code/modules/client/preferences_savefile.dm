@@ -1,11 +1,11 @@
 //This is the lowest supported version, anything below this is completely obsolete and the entire savefile will be wiped.
-#define SAVEFILE_VERSION_MIN	32
+#define SAVEFILE_VERSION_MIN	48
 
 //This is the current version, anything below this will attempt to update (if it's not obsolete)
 //	You do not need to raise this if you are adding new values that have sane defaults.
 //	Only raise this value when changing the meaning/format/name/layout of an existing value
 //	where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX	48
+#define SAVEFILE_VERSION_MAX	49
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -42,75 +42,19 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 //if your savefile is 3 months out of date, then 'tough shit'.
 
 /datum/preferences/proc/update_preferences(current_version, savefile/S)
-	if(current_version < 33)
-		toggles |= SOUND_ENDOFROUND
-
-	if(current_version < 34)
-		auto_fit_viewport = TRUE
-
-	if(current_version < 35)
-		widescreenpref = TRUE
-
-	if(current_version < 37) //makes old keybinds compatible with #52040, sets the new default
-		var/newkey = FALSE
-		for(var/list/key in key_bindings)
-			for(var/bind in key)
-				if(bind == "quick_equipbelt")
-					key -= "quick_equipbelt"
-					key |= "quick_equip_belt"
-
-				if(bind == "bag_equip")
-					key -= "bag_equip"
-					key |= "quick_equip_bag"
-
-				if(bind == "quick_equip_suit_storage")
-					newkey = TRUE
-		if(!newkey && !key_bindings["ShiftQ"])
-			key_bindings["ShiftQ"] = list("quick_equip_suit_storage")
-
-	if(current_version < 37)
-		if(key_bindings["ShiftQ"] == "quick_equip_suit_storage")
-			key_bindings["ShiftQ"] = list("quick_equip_suit_storage")
-		see_rc_emotes = TRUE
-		see_chat_non_mob = TRUE
-
-	if(current_version < 38)
-		chat_on_map = FALSE
-
-	if(current_version < 40)
-		if(clientfps == 0)
-			clientfps = -1
-
-	if (current_version < 41)
-		var/found_block_movement = FALSE
-
-		for (var/list/key in key_bindings)
-			for (var/bind in key)
-				if (bind == "block_movement")
-					found_block_movement = TRUE
+	if(current_version < 49)
+		var/list/legacy_purchases = purchased_gear.Copy()
+		purchased_gear.Cut()
+		equipped_gear.Cut() //Not gonna bother.
+		for(var/l_gear in legacy_purchases)
+			var/n_gear
+			for(var/rg_nam in GLOB.gear_datums) //this is ugly.
+				var/datum/gear/r_gear = GLOB.gear_datums[rg_nam]
+				if(r_gear.display_name == l_gear)
+					n_gear = r_gear.id
 					break
-			if (found_block_movement)
-				break
-
-		if (!found_block_movement)
-			LAZYADD(key_bindings["Ctrl"], "block_movement")
-
-	if(current_version < 43)
-		key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key)
-		parent.set_macros()
-		save_preferences()
-
-	if(current_version < 44)
-		btprefsnew = list()
-		save_preferences()
-
-	if(current_version < 46)
-		w_toggles |= SOUND_JUKEBOX
-		save_preferences()
-
-	if(current_version < 47)
-		w_toggles &= ~TOOLTIP_USER_UP
-		save_preferences()
+			if(n_gear)
+				purchased_gear += n_gear
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
 	return

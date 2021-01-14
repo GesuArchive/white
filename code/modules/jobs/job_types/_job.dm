@@ -112,11 +112,6 @@
 		return
 	var/mob/living/carbon/human/human = H
 
-	// новый год 2021
-	//var/obj/item/stack/garland_pack/fifty/garl = new(get_turf(H))
-	//H.put_in_hands(garl)
-	//H.equip_to_slot(garl, ITEM_SLOT_BACKPACK)
-
 	if(M.client && (M.client.prefs.equipped_gear && M.client.prefs.equipped_gear.len))
 		for(var/gear in M.client.prefs.equipped_gear)
 			var/datum/gear/G = GLOB.gear_datums[gear]
@@ -137,12 +132,12 @@
 					permitted = FALSE
 
 				if(!permitted)
-					to_chat(M, "<span class='warning'>Должность или раса не позволяют мне иметь [gear]!</span>")
+					to_chat(M, "<span class='warning'>Должность или раса не позволяют мне иметь [G.display_name]!</span>")
 					continue
 
 				if(G.slot)
 					if(H.equip_to_slot_or_del(G.spawn_item(H), G.slot))
-						to_chat(M, "<span class='notice'>Экипируемся в [gear]!</span>")
+						to_chat(M, "<span class='notice'>Экипируемся в [G.display_name]!</span>")
 					else
 						gear_leftovers += G
 				else
@@ -150,37 +145,41 @@
 			else
 				M.client.prefs.equipped_gear -= gear
 
-	if(gear_leftovers)
-		if(gear_leftovers.len)
-			for(var/datum/gear/G in gear_leftovers)
-				var/metadata = M.client.prefs.equipped_gear[G.display_name]
-				var/item = G.spawn_item(null, metadata)
-				var/atom/placed_in = human.equip_or_collect(item)
+	if(gear_leftovers.len)
+		for(var/datum/gear/G in gear_leftovers)
+			var/metadata = M.client.prefs.equipped_gear[G.id]
+			var/item = G.spawn_item(null, metadata)
+			var/atom/placed_in = human.equip_or_collect(item)
 
-				if(istype(placed_in))
-					if(isturf(placed_in))
-						to_chat(M, "<span class='notice'>[capitalize(G.display_name)] находится в [placed_in]!</span>")
-					else
-						to_chat(M, "<span class='noticed'>[capitalize(G.display_name)] находится на [placed_in.name]]")
-					continue
+			if(istype(placed_in))
+				if(isturf(placed_in))
+					to_chat(M, "<span class='notice'>[capitalize(G.display_name)] находится в [placed_in]!</span>")
+				else
+					to_chat(M, "<span class='noticed'>[capitalize(G.display_name)] находится на [placed_in.name]]")
+				continue
 
-				if(H.equip_to_appropriate_slot(item))
-					to_chat(M, "<span class='notice'>[capitalize(G.display_name)] находится где-то на мне!</span>")
-					continue
-				if(H.put_in_hands(item))
-					to_chat(M, "<span class='notice'>[capitalize(G.display_name)] у меня в руках!</span>")
-					continue
+			if(H.equip_to_appropriate_slot(item))
+				to_chat(M, "<span class='notice'>[capitalize(G.display_name)] находится где-то на мне!</span>")
+				continue
+			if(H.put_in_hands(item))
+				to_chat(M, "<span class='notice'>[capitalize(G.display_name)] у меня в руках!</span>")
+				continue
 
-				var/obj/item/storage/B = (locate() in H)
-				if(B)
-					G.spawn_item(B, metadata)
-					to_chat(M, "<span class='notice'>[capitalize(G.display_name)] в [B.name]!</span>")
-					continue
+			var/obj/item/storage/B = (locate() in H)
+			if(B)
+				G.spawn_item(B, metadata)
+				to_chat(M, "<span class='notice'>[capitalize(G.display_name)] в [B.name]!</span>")
+				continue
 
-				to_chat(M, "<span class='danger'>Что-то пришлось оставить...</span>")
-				qdel(item)
+			to_chat(M, "<span class='danger'>Что-то пришлось оставить...</span>")
+			qdel(item)
 
-			qdel(gear_leftovers)
+		qdel(gear_leftovers)
+
+	// новый год 2021
+	//var/obj/item/stack/garland_pack/fifty/garl = new(get_turf(H))
+	//H.put_in_hands(garl)
+	//H.equip_to_slot(garl, ITEM_SLOT_BACKPACK)
 
 /datum/job/proc/announce(mob/living/carbon/human/H)
 	if(head_announce)
