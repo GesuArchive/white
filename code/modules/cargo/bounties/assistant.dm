@@ -298,7 +298,7 @@
 /datum/bounty/item/assistant/watertank
 	name = "Бак с водой"
 	description = "На ЦК случился пожар! Доставьте им баки с водой!"
-	reward = CARGO_CRATE_VALUE * 250
+	reward = CARGO_CRATE_VALUE * 25
 	required_count = 5
 	include_subtypes = FALSE
 	wanted_types = list(/obj/structure/reagent_dispensers/watertank)
@@ -306,7 +306,7 @@
 /datum/bounty/item/assistant/fueltank
 	name = "Бак с топливом"
 	description = "На ЦК случился пожар! Доставьте клоуну баки с топливом!"
-	reward = CARGO_CRATE_VALUE * 250
+	reward = CARGO_CRATE_VALUE * 25
 	required_count = 5
 	include_subtypes = FALSE
 	wanted_types = list(/obj/structure/reagent_dispensers/fueltank)
