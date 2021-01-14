@@ -29,12 +29,12 @@ GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
 	desc = "Урон от удара и броска 10."
 	throwforce = 10
 	force = 10
-	broken = TRUE
+	can_explode = FALSE
 
 /obj/item/extinguisher/tournament/babah
 	name = "огнетуршитель-БАБАХ"
 	desc = "Урон от удара и броска 10. Может бабахнуть."
-	broken = FALSE
+	can_explode = TRUE
 
 /obj/item/stack/tile/plasteel/tournament
 	name = "турплитка"

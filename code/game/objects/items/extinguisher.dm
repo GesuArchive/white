@@ -27,6 +27,7 @@
 	var/precision = FALSE //By default, turfs picked from a spray are random, set to 1 to make it always have at least one water effect per row
 	var/cooling_power = 2 //Sets the cooling_temperature of the water reagent datum inside of the extinguisher when it is refilled
 	var/broken = FALSE
+	var/can_explode = TRUE
 	/// Icon state when inside a tank holder
 	var/tank_holder_icon_state = "holder_extinguisher"
 
@@ -44,6 +45,7 @@
 	max_water = 30
 	sprite_name = "miniFE"
 	dog_fashion = null
+	can_explode = FALSE
 
 /obj/item/extinguisher/proc/refill()
 	if(!chem)
@@ -71,6 +73,7 @@
 	tanktype = /obj/structure/reagent_dispensers/foamtank
 	sprite_name = "foam_extinguisher"
 	precision = TRUE
+	can_explode = FALSE
 
 /obj/item/extinguisher/suicide_act(mob/living/carbon/user)
 	if (!safety && (reagents.total_volume >= 1))
@@ -97,7 +100,7 @@
 	if(user.a_intent == INTENT_HELP && !safety) //If we're on help intent and going to spray people, don't bash them.
 		return FALSE
 	else
-		if(prob(5) && !broken)
+		if(prob(5) && !broken && can_explode)
 			to_chat(user, "<span class='userdanger'>Огнетушитель шипит!</span>")
 			playsound(get_turf(src), 'white/valtos/sounds/pshsh.ogg', 80, TRUE, 5)
 			spawn(rand(10, 50))
@@ -160,7 +163,7 @@
 		refilling = TRUE
 		return FALSE
 	else
-		if(prob(10) && !broken)
+		if(prob(10) && !broken && can_explode)
 			to_chat(user, "<span class='userdanger'>Щас ебанёт кажись...</span>")
 			playsound(get_turf(src), 'white/valtos/sounds/pshsh.ogg', 80, TRUE, 5)
 			new /obj/effect/particle_effect/smoke(get_turf(src))

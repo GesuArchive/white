@@ -225,6 +225,7 @@
 	var/nozzle_mode = 0
 	var/metal_synthesis_cooldown = 0
 	var/resin_cooldown = 0
+	can_explode = FALSE
 
 /obj/item/extinguisher/mini/nozzle/Initialize()
 	. = ..()

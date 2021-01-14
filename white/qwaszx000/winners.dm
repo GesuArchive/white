@@ -11,6 +11,7 @@
 	throwforce = 15
 	force = 15
 	precision = TRUE
+	can_explode = FALSE
 
 
 /obj/item/clothing/neck/cloak/engineer_winer
