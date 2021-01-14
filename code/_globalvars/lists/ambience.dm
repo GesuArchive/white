@@ -86,6 +86,11 @@ GLOBAL_LIST_INIT(creepy_ambience,list(
 	'sound/hallucinations/turn_around2.ogg', 'sound/hallucinations/veryfar_noise.ogg',
 	'sound/hallucinations/wail.ogg'))
 
+GLOBAL_LIST_INIT(turbolift_ambience, list(
+	'white/jhnazar/sound/effects/lift/elevatormusic.ogg',
+	'white/jhnazar/sound/effects/turbolift/elevatormusic1.ogg',
+	'white/jhnazar/sound/effects/turbolift/elevatormusic2.ogg'))
+
 GLOBAL_LIST_INIT(ambience_assoc,list(
 	AMBIENCE_GENERIC = GLOB.generic_ambience,
 	AMBIENCE_HOLY = GLOB.holy_ambience,
@@ -99,4 +104,5 @@ GLOBAL_LIST_INIT(ambience_assoc,list(
 	AMBIENCE_MAINT = GLOB.maint_ambience,
 	AMBIENCE_AWAY = GLOB.away_ambience,
 	AMBIENCE_REEBE = GLOB.reebe_ambience,
-	AMBIENCE_CREEPY = GLOB.creepy_ambience))
+	AMBIENCE_CREEPY = GLOB.creepy_ambience,
+	AMBIENCE_TURBOLIFT = GLOB.turbolift_ambience))

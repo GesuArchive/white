@@ -39,6 +39,7 @@ That's it, ok bye!
 
 /area/shuttle/turbolift
 	ambientsounds = TURBOLIFT //Песни для лифта добавлять в sound.dm
+	ambience_index = AMBIENCE_TURBOLIFT
 //	looping_ambience = 'white/jhnazar/sound/effects/lift/elevatormusic.ogg' //Mandatory.
 
 /obj/machinery/lazylift_button
