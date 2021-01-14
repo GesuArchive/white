@@ -36,7 +36,7 @@
 	var/i = 1
 	var/turf/target_turf = get_step(target, dir)
 	var/obj/machinery/disposal/bin/target_bin = locate(/obj/machinery/disposal/bin) in target_turf.contents
-	for(var/obj/item/garbage in target.contents)
+	for(var/obj/garbage in target.contents)
 		if(!garbage.anchored)
 			if (target_bin)
 				garbage.forceMove(target_bin)
