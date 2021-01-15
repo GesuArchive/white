@@ -33504,6 +33504,9 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 9
+	},
 /turf/open/floor/plasteel,
 /area/engine/manufactory)
 "jHW" = (
@@ -34014,6 +34017,10 @@
 "kNS" = (
 /obj/structure/closet/emcloset,
 /turf/open/floor/plasteel,
+/area/engine/manufactory)
+"kOd" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
 /area/engine/manufactory)
 "kOf" = (
 /obj/machinery/atmospherics/pipe/simple/green/visible,
@@ -75184,7 +75191,7 @@ eCj
 inR
 tJL
 fQI
-tJL
+kOd
 icX
 gKn
 jBm
