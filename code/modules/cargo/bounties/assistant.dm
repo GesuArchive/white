@@ -231,7 +231,6 @@
 	required_count = 5
 	wanted_types = list(/obj/item/paper_bin)
 
-
 /datum/bounty/item/assistant/crayons
 	name = "Мелки"
 	description = "Ребенок доктора Джонса снова съел все наши мелки. Пожалуйста, пришлите нам свой."
@@ -244,7 +243,7 @@
 	description = "Мы проводим межгалактический конкурс по балансировке пера. Нам нужно, чтобы вы прислали стандартные шариковые ручки."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 10
-	include_subtypes = FALSE
+	include_subtypes = TRUE
 	wanted_types = list(/obj/item/pen)
 
 /datum/bounty/item/assistant/guitar
@@ -326,3 +325,115 @@
 	required_count = 1
 	include_subtypes = FALSE
 	wanted_types = list(/obj/item/storage/lockbox/loyalty)
+
+/datum/bounty/item/assistant/captains_spare
+	name = "Карта Капитана"
+	description = "Ассистенты Станции 14 решили устроить спидран карты капитана. Помогите Станции 14 отправив им свою карту Капитана."
+	reward = CARGO_CRATE_VALUE * 75
+	required_count = 1
+	include_subtypes = FALSE
+	wanted_types = list(/obj/item/card/id/captains_spare)
+
+/datum/bounty/item/assistant/closet
+	name = "Шкафчики или ящики"
+	description = "После пожара на ЦК, Коммандованию нет где складывать свои личные вещи, отправьте им шкафчики или ящики..."
+	reward = CARGO_CRATE_VALUE * 2
+	required_count = 5
+	include_subtypes = TRUE
+	wanted_types = list(/obj/structure/closet)
+
+/datum/bounty/item/assistant/champion
+	name = "Пояс Чемпиона"
+	description = "Представитель нашей станции выиграл чемпионат по робасту, только вот организаторы забыли купить пояс Чемпиона. СРОЧНО ОТПРАВЬТЕ ЕГО ИМ!!!"
+	reward = CARGO_CRATE_VALUE * 25
+	required_count = 1
+	include_subtypes = TRUE
+	wanted_types = list(/obj/item/storage/belt/champion)
+
+/datum/bounty/item/assistant/space_heater
+	name = "Обогреватель"
+	description = "После пожара на ЦК система обогрева станции сгорела. Отправьте им обогреватели!"
+	reward = CARGO_CRATE_VALUE * 2
+	required_count = 5
+	include_subtypes = FALSE
+	wanted_types = list(/obj/machinery/space_heater)
+
+/datum/bounty/item/assistant/pumpup
+	name = "Шприц с адреналином из технических тоннелей"
+	description = "[ДАННЫЕ УДАЛЕНЫ]"
+	reward = CARGO_CRATE_VALUE
+	required_count = 5
+	include_subtypes = FALSE
+	wanted_types = list(/obj/item/reagent_containers/hypospray/medipen/pumpup)
+
+/datum/bounty/item/assistant/monkey_recycler
+	name = "Переработчик макак"
+	description = "Станция 228 просит доставить им плату переработчика макак..."
+	reward = CARGO_CRATE_VALUE * 3
+	required_count = 5
+	include_subtypes = FALSE
+	wanted_types = list(/obj/item/circuitboard/machine/monkey_recycler)
+
+/datum/bounty/item/assistant/relic
+	name = "Странный предмет"
+	description = "ЦК заметило аномальную активность на нашей станции. Отправьте им подозрительные на вид предметы!"
+	reward = CARGO_CRATE_VALUE * 3
+	required_count = 5
+	include_subtypes = FALSE
+	wanted_types = list(/obj/item/relic)
+
+/datum/bounty/item/assistant/nuclearbomb_beer
+	name = "Пиво-нюка"
+	description = "ЦК устроил праздник в честь дня рождения одного из их глав, но у них закончился пивас. Отправьте им бухло-нюку!"
+	reward = CARGO_CRATE_VALUE * 10
+	required_count = 1
+	include_subtypes = FALSE
+	wanted_types = list(/obj/machinery/nuclearbomb/beer)
+
+/datum/bounty/item/assistant/flashlight
+	name = "Фонарики"
+	description = "После пожара на ЦК сгорели все лампы и, неожиданно, на них напали ксеноморфы. отправьте им фонарики чтобы видеть хоть что-то!"
+	reward = CARGO_CRATE_VALUE * 5
+	required_count = 5
+	include_subtypes = TRUE
+	wanted_types = list(/obj/item/flashlight)
+
+/datum/bounty/item/assistant/wirerod
+	name = "Палка с проводами"
+	description = "зачем..."
+	reward = CARGO_CRATE_VALUE
+	required_count = 5
+	include_subtypes = TRUE
+	wanted_types = list(/obj/item/wirerod)
+
+/datum/bounty/item/assistant/wirerod
+	name = "Перчатки Гориллы"
+	description = "На одной из Станций произошёл бунт. Отправьте им перчатки перехвата"
+	reward = CARGO_CRATE_VALUE * 5
+	required_count = 2
+	include_subtypes = TRUE
+	wanted_types = list(/obj/item/clothing/gloves/tackler)
+
+/datum/bounty/item/assistant/wirerod
+	name = "Дыхательные маски"
+	description = "На одной из Станций произошёл бунт. Отправьте им перчатки перехвата"
+	reward = CARGO_CRATE_VALUE * 5
+	required_count = 5
+	include_subtypes = TRUE
+	wanted_types = list(/obj/item/clothing/mask/breath)
+
+/datum/bounty/item/assistant/wirerod
+	name = "Анальные свечи"
+	description = "[ДАННЫЕ УДАЛЕНЫ]"
+	reward = CARGO_CRATE_VALUE * 5
+	required_count = 5
+	include_subtypes = TRUE
+	wanted_types = list(/obj/item/candle)
+
+/datum/bounty/item/assistant/wirerod
+	name = "Терминал Чёрного Рынка"
+	description = "Не забывайте что у нас действует программа устранения источников контрабанды!"
+	reward = CARGO_CRATE_VALUE * 5
+	required_count = 1
+	include_subtypes = TRUE
+	wanted_types = list(/obj/item/blackmarket_uplink)
