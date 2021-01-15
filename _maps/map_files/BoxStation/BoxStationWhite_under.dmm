@@ -112,6 +112,12 @@
 /obj/machinery/power/apc/auto_name/west,
 /turf/open/floor/plasteel/dark,
 /area/engine/storage_shared)
+"bt" = (
+/obj/machinery/computer/sat_control{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/storage/tech)
 "bw" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -32334,7 +32340,7 @@ YU
 qv
 ql
 qv
-cb
+bt
 nS
 dP
 dP
