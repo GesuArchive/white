@@ -3689,6 +3689,7 @@
 #include "white\valtos\code\serverside\tooltip.dm"
 #include "white\valtos\code\serverside\varies.dm"
 #include "white\valtos\code\slimes\crystal.dm"
+#include "white\valtos\code\slimes\muttox.dm"
 #include "white\valtos\code\teeth\misc.dm"
 #include "white\valtos\code\teeth\teeth.dm"
 #include "white\valtos\code\trading\_defines.dm"
