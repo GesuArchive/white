@@ -655,6 +655,7 @@ GLOBAL_LIST_EMPTY(bluespace_slime_crystals)
 	name = "crystalized extract"
 	desc = "It's crystalline,"
 	effect = "adamantine"
+	icon = 'white/valtos/icons/slimecrossing.dmi'
 	icon_state = "crystalline"
 	var/obj/structure/slime_crystal/crystal_type
 
