@@ -360,7 +360,7 @@
 
 /datum/bounty/item/assistant/pumpup
 	name = "Шприц с адреналином из технических тоннелей"
-	description = "[ДАННЫЕ УДАЛЕНЫ]"
+	description = "\[ДАННЫЕ УДАЛЕНЫ\]"
 	reward = CARGO_CRATE_VALUE
 	required_count = 5
 	include_subtypes = FALSE
@@ -424,7 +424,7 @@
 
 /datum/bounty/item/assistant/candle
 	name = "Анальные свечи"
-	description = "[ДАННЫЕ УДАЛЕНЫ]"
+	description = "\[ДАННЫЕ УДАЛЕНЫ\]"
 	reward = CARGO_CRATE_VALUE * 5
 	required_count = 5
 	include_subtypes = TRUE
