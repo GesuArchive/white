@@ -3744,6 +3744,7 @@
 #include "white\valtos\code\unsorted\tournament_define.dm"
 #include "white\valtos\code\unsorted\trading_outpost.dm"
 #include "white\valtos\code\unsorted\tricoder.dm"
+#include "white\valtos\code\unsorted\validhunt.dm"
 #include "white\valtos\code\unsorted\vietnam.dm"
 #include "white\valtos\code\unsorted\winds.dm"
 #include "white\valtos\code\unsorted\wizgirl.dm"
