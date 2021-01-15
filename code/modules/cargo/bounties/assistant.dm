@@ -406,7 +406,7 @@
 	include_subtypes = TRUE
 	wanted_types = list(/obj/item/wirerod)
 
-/datum/bounty/item/assistant/wirerod
+/datum/bounty/item/assistant/tackler
 	name = "Перчатки Гориллы"
 	description = "На одной из Станций произошёл бунт. Отправьте им перчатки перехвата"
 	reward = CARGO_CRATE_VALUE * 5
@@ -414,7 +414,7 @@
 	include_subtypes = TRUE
 	wanted_types = list(/obj/item/clothing/gloves/tackler)
 
-/datum/bounty/item/assistant/wirerod
+/datum/bounty/item/assistant/breath
 	name = "Дыхательные маски"
 	description = "На одной из Станций произошёл бунт. Отправьте им перчатки перехвата"
 	reward = CARGO_CRATE_VALUE * 5
@@ -422,7 +422,7 @@
 	include_subtypes = TRUE
 	wanted_types = list(/obj/item/clothing/mask/breath)
 
-/datum/bounty/item/assistant/wirerod
+/datum/bounty/item/assistant/candle
 	name = "Анальные свечи"
 	description = "[ДАННЫЕ УДАЛЕНЫ]"
 	reward = CARGO_CRATE_VALUE * 5
@@ -430,7 +430,7 @@
 	include_subtypes = TRUE
 	wanted_types = list(/obj/item/candle)
 
-/datum/bounty/item/assistant/wirerod
+/datum/bounty/item/assistant/blackmarket_uplink
 	name = "Терминал Чёрного Рынка"
 	description = "Не забывайте что у нас действует программа устранения источников контрабанды!"
 	reward = CARGO_CRATE_VALUE * 5
