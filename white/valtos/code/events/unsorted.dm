@@ -3,10 +3,10 @@
 	typepath = /datum/round_event/syndicate_assault
 	weight = 15
 	max_occurrences = 1
-	min_players = 5
+	min_players = 15
 
 /datum/round_event/syndicate_assault
-	announceWhen	= 400
+	announceWhen	= 100
 
 	var/spawncount = 1
 
@@ -16,7 +16,7 @@
 	spawncount = rand(5, 8)
 
 /datum/round_event/syndicate_assault/announce(fake)
-	priority_announce("Синдикат решил ограбить [station_name()]. Нам не удалось задержать их осадную флотилию. Держитесь.", "Вторжение на борт", 'sound/ai/announcer/assault.ogg')
+	priority_announce("Синдикат решил ограбить [station_name()]. Нам не удалось задержать их отряд. Держитесь.", "Вторжение на борт", 'sound/ai/announcer/assault.ogg')
 
 
 /datum/round_event/syndicate_assault/start()

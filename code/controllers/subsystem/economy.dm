@@ -38,6 +38,8 @@ SUBSYSTEM_DEF(economy)
 	var/earning_report
 	var/market_crashing = FALSE
 
+	var/bonus_money = 0
+
 	var/obj/machinery/computer/price_controller/PC = null
 
 /datum/controller/subsystem/economy/Initialize(timeofday)
