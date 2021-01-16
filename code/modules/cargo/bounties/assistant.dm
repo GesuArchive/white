@@ -331,7 +331,7 @@
 	description = "Ассистенты Станции 14 решили устроить спидран карты капитана. Помогите Станции 14 отправив им свою карту Капитана."
 	reward = CARGO_CRATE_VALUE * 75
 	required_count = 1
-	include_subtypes = FALSE
+	include_subtypes = TRUE
 	wanted_types = list(/obj/item/card/id/captains_spare)
 
 /datum/bounty/item/assistant/closet
@@ -381,6 +381,14 @@
 	required_count = 5
 	include_subtypes = FALSE
 	wanted_types = list(/obj/item/relic)
+
+/datum/bounty/item/assistant/nuclearbomb
+	name = "Ядерная бомба"
+	description = "Мы незнаем как вы это получите, но если вы случайно её найдёте, то отправьте её нам"
+	reward = CARGO_CRATE_VALUE * 500
+	required_count = 1
+	include_subtypes = FALSE
+	wanted_types = list(/obj/machinery/nuclearbomb)
 
 /datum/bounty/item/assistant/nuclearbomb_beer
 	name = "Пиво-нюка"
