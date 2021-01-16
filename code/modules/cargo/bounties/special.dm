@@ -33,14 +33,6 @@
 	required_count = 10
 	wanted_types = list(/obj/item/trash)
 
-/datum/bounty/item/assistant/nuclearbomb
-	name = "Ядерная бомба"
-	description = "Мы незнаем как вы это получите, но если вы случайно её найдёте, то отправьте её нам"
-	reward = CARGO_CRATE_VALUE * 500
-	required_count = 1
-	include_subtypes = FALSE
-	wanted_types = list(/obj/machinery/nuclearbomb)
-
 /datum/bounty/more_bounties
 	name = "Больше заказов"
 	description = "Выполните достаточно заказов, и ЦК отправит новые!"
