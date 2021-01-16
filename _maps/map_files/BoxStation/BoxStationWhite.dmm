@@ -2284,7 +2284,9 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
-/turf/open/floor/plasteel/checker,
+/turf/open/floor/plasteel/dark/side{
+	dir = 5
+	},
 /area/engine/atmos)
 "apa" = (
 /obj/machinery/computer/atmos_control/tank/nitrous_tank{
@@ -19385,7 +19387,9 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
-/turf/open/floor/plasteel/checker,
+/turf/open/floor/plasteel/dark/side{
+	dir = 5
+	},
 /area/hallway/primary/aft)
 "bLI" = (
 /obj/structure/disposalpipe/segment,
@@ -19611,7 +19615,7 @@
 	name = "mix to port"
 	},
 /turf/open/floor/plasteel/white,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "bMz" = (
 /obj/machinery/meter,
 /obj/machinery/embedded_controller/radio/airlock_controller/incinerator_toxmix{
@@ -19624,7 +19628,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/white,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "bMA" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -19634,7 +19638,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "bMB" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plating,
@@ -19875,13 +19879,13 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/white,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "bNy" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /turf/open/floor/plasteel/white,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "bNz" = (
 /obj/machinery/camera{
 	c_tag = "Toxins Lab East";
@@ -19897,7 +19901,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "bNA" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plating,
@@ -19981,15 +19985,6 @@
 	},
 /turf/open/openspace,
 /area/construction)
-"bNO" = (
-/obj/effect/turf_decal/tile/yellow{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/yellow{
-	dir = 8
-	},
-/turf/open/floor/plasteel/dark/corner,
-/area/hallway/primary/aft)
 "bNP" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -20019,7 +20014,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
-/turf/open/floor/plasteel/checker,
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
 /area/engine/atmos)
 "bNS" = (
 /obj/structure/disposalpipe/segment{
@@ -20223,7 +20220,7 @@
 	name = "port to mix"
 	},
 /turf/open/floor/plasteel/white,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "bOH" = (
 /obj/machinery/meter,
 /obj/machinery/button/door/incinerator_vent_toxmix{
@@ -20241,7 +20238,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/white,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "bOI" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -20251,7 +20248,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "bOJ" = (
 /obj/item/target,
 /obj/structure/window/reinforced{
@@ -20374,7 +20371,9 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
-/turf/open/floor/plasteel/dark/corner,
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
 /area/engine/atmos)
 "bOX" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
@@ -20634,12 +20633,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/security/checkpoint/engineering)
-"bQf" = (
-/obj/effect/turf_decal/tile/yellow{
-	dir = 4
-	},
-/turf/open/floor/plasteel/checker,
-/area/hallway/primary/aft)
 "bQg" = (
 /turf/open/floor/plasteel,
 /area/hallway/primary/aft)
@@ -20684,7 +20677,9 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
-/turf/open/floor/plasteel/dark/corner,
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
 /area/engine/atmos)
 "bQm" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
@@ -20964,7 +20959,9 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
-/turf/open/floor/plasteel/dark/corner,
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
 /area/hallway/primary/aft)
 "bRr" = (
 /obj/structure/chair{
@@ -20995,7 +20992,9 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
-/turf/open/floor/plasteel/dark/corner,
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
 /area/engine/atmos)
 "bRv" = (
 /obj/structure/chair/office{
@@ -21320,7 +21319,9 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
-/turf/open/floor/plasteel/dark/corner,
+/turf/open/floor/plasteel/dark/side{
+	dir = 6
+	},
 /area/engine/atmos)
 "bSF" = (
 /obj/structure/table,
@@ -21820,7 +21821,9 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
-/turf/open/floor/plasteel/dark/corner,
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
 /area/engine/atmos)
 "bUJ" = (
 /obj/machinery/door/firedoor/heavy,
@@ -22162,7 +22165,9 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
 	dir = 4
 	},
-/turf/open/floor/plasteel/dark/corner,
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
 /area/engine/atmos)
 "bVS" = (
 /obj/structure/sign/warning/securearea,
@@ -35746,7 +35751,7 @@
 	pixel_y = 23
 	},
 /turf/open/floor/plasteel/white,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "otY" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 1
@@ -36652,7 +36657,9 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
-/turf/open/floor/plasteel/dark/corner,
+/turf/open/floor/plasteel/dark/side{
+	dir = 6
+	},
 /area/hallway/primary/aft)
 "qea" = (
 /obj/effect/turf_decal/stripes/line{
@@ -70275,9 +70282,9 @@ bJq
 bzs
 bLH
 bRq
-bNO
+bRq
 bOQ
-bQf
+bRq
 bRq
 qde
 bTK

@@ -20,7 +20,7 @@ SUBSYSTEM_DEF(communications)
 	if(!can_announce(user, is_silicon))
 		return FALSE
 	if(is_silicon)
-		minor_announce(html_decode(input),"[user.name] объявляет:")
+		minor_announce(html_decode(input),"[user.name] делает объявление")
 		silicon_message_cooldown = world.time + COMMUNICATION_COOLDOWN_AI
 	else
 		priority_announce(user.treat_message(input), null, 'sound/misc/announce.ogg', "Captain")
