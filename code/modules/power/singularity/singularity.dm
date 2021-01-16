@@ -134,6 +134,14 @@
 
 /obj/singularity/process(delta_time)
 	if(current_size >= STAGE_TWO)
+		var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
+		if(!SP)
+			SP = AddComponent(/datum/component/soundplayer)
+			SP.active = TRUE
+			SP.environmental = TRUE
+			SP.playing_channel = CHANNEL_CUSTOM_JUKEBOX
+		SP.playing_volume = current_size*10
+		SP.playing_range = current_size*5
 		if(prob(event_chance))//Chance for it to run a special event TODO:Come up with one or two more that fit
 			event()
 	dissipate(delta_time)
