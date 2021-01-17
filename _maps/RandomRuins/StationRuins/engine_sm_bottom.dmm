@@ -1560,6 +1560,17 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/space/nearstation)
+"Fw" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Engineering Maintenance";
+	req_access_txt = "10"
+	},
+/obj/structure/sign/warning/radiation/rad_area{
+	pixel_x = -32
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/engine/engineering)
 "LF" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
@@ -2098,7 +2109,7 @@ ab
 ab
 "}
 (20,1,1) = {"
-ad
+Fw
 aV
 bD
 aP

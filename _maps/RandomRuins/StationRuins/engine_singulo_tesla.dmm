@@ -724,6 +724,11 @@
 /obj/machinery/power/floodlight,
 /turf/open/floor/plating,
 /area/engine/engineering)
+"cM" = (
+/obj/structure/ladder,
+/obj/effect/turf_decal/stripes/box,
+/turf/open/floor/plasteel,
+/area/engine/engineering)
 "du" = (
 /obj/structure/sign/warning/radiation/rad_area,
 /turf/closed/wall/r_wall,
@@ -1487,7 +1492,7 @@ cb
 ch
 cb
 aZ
-cb
+cM
 ba
 WL
 aJ
