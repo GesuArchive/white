@@ -48,10 +48,10 @@
 /turf/open/floor/plasteel/grimy,
 /area/crew_quarters/heads/captain)
 "br" = (
-/obj/structure/disposalpipe/trunk/multiz{
-	dir = 4
-	},
 /obj/structure/lattice/catwalk,
+/obj/structure/disposalpipe/trunk/multiz{
+	dir = 1
+	},
 /turf/open/space/basic,
 /area/space/nearstation)
 "bW" = (
@@ -136,6 +136,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central)
 "fT" = (
@@ -197,6 +198,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
 "hA" = (
@@ -302,7 +304,7 @@
 "kh" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/disposalpipe/segment{
-	dir = 6
+	dir = 4
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
@@ -381,12 +383,13 @@
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "my" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/disposalpipe/segment{
-	dir = 9
+/obj/machinery/door/airlock/maintenance{
+	name = "Captain's Office Maintenance";
+	req_access_txt = "20"
 	},
-/turf/open/space/basic,
-/area/space/nearstation)
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/crew_quarters/heads/captain)
 "mI" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -646,6 +649,9 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
+"uJ" = (
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/north)
 "vr" = (
 /obj/machinery/porta_turret/ai{
 	dir = 4
@@ -1003,6 +1009,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/delivery,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
 "ET" = (
@@ -1033,6 +1040,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
 "Ff" = (
@@ -1265,6 +1273,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/delivery,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
 "KB" = (
@@ -1575,6 +1584,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
+"UV" = (
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/north)
 "Vi" = (
 /obj/machinery/holopad,
 /turf/open/floor/carpet,
@@ -1585,6 +1598,10 @@
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
+"Wc" = (
+/obj/machinery/light,
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/north)
 "Wg" = (
 /obj/structure/table,
 /obj/item/ai_module/core/full/asimov,
@@ -1686,6 +1703,13 @@
 	},
 /turf/open/floor/plasteel/grimy,
 /area/crew_quarters/heads/captain)
+"YJ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk,
+/turf/open/space/basic,
+/area/space/nearstation)
 "YK" = (
 /obj/structure/table/wood,
 /obj/item/folder/blue,
@@ -1732,6 +1756,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central)
 "ZQ" = (
@@ -2375,7 +2400,7 @@ Dc
 Ja
 Dc
 Bk
-YS
+YJ
 br
 YS
 YS
@@ -2414,7 +2439,7 @@ il
 kT
 Bk
 kh
-my
+YS
 YS
 YS
 YS
@@ -2881,13 +2906,13 @@ YS
 YS
 YS
 YS
-YS
-YS
-Zl
-YS
-YS
-YS
-YS
+Ws
+Ws
+lr
+lr
+lr
+Ws
+Ws
 Ws
 "}
 (31,1,1) = {"
@@ -2918,14 +2943,14 @@ YS
 YS
 YS
 YS
-YS
-YS
-YS
-Zl
-YS
-YS
-YS
-YS
+Ws
+Ws
+uJ
+uJ
+uJ
+uJ
+uJ
+uJ
 Ws
 "}
 (32,1,1) = {"
@@ -2956,15 +2981,15 @@ Zl
 Zl
 Zl
 Zl
-Zl
-Zl
-Zl
-Zl
-Zl
-Zl
-Zl
-Zl
-lr
+Ws
+uJ
+uJ
+uJ
+uJ
+uJ
+uJ
+uJ
+Ws
 "}
 (33,1,1) = {"
 ab
@@ -2977,11 +3002,11 @@ aD
 aD
 aD
 aD
+my
 aD
 aD
 aD
 aD
-aD
 jH
 jH
 jH
@@ -2989,20 +3014,20 @@ jH
 jH
 jH
 jH
-Zl
-YS
-YS
-YS
-YS
-YS
-YS
-YS
 Zl
 YS
 YS
 YS
 YS
 lr
+uJ
+uJ
+uJ
+uJ
+uJ
+uJ
+uJ
+UV
 "}
 (34,1,1) = {"
 ab
@@ -3032,15 +3057,15 @@ YS
 YS
 YS
 YS
-YS
-YS
-YS
-Zl
-YS
-YS
-YS
-YS
 lr
+uJ
+uJ
+uJ
+uJ
+uJ
+uJ
+uJ
+Ws
 "}
 (35,1,1) = {"
 ab
@@ -3070,15 +3095,15 @@ YS
 YS
 YS
 YS
-YS
-YS
-YS
-Zl
-YS
-YS
-YS
-YS
-lr
+Ws
+uJ
+uJ
+uJ
+uJ
+uJ
+uJ
+Wc
+Ws
 "}
 (36,1,1) = {"
 ab
@@ -3108,14 +3133,14 @@ YS
 YS
 YS
 YS
-YS
-YS
-YS
-Zl
-YS
-YS
-YS
-YS
+Ws
+uJ
+uJ
+uJ
+uJ
+uJ
+uJ
+uJ
 Ws
 "}
 (37,1,1) = {"
@@ -3147,12 +3172,12 @@ Ws
 Ws
 Ws
 Ws
-lr
 Ws
 Ws
 Ws
+UV
 Ws
-lr
+Ws
 Ws
 Ws
 "}

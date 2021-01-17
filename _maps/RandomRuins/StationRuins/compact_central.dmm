@@ -200,6 +200,7 @@
 "aK" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central)
 "aL" = (
@@ -1445,6 +1446,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
+"el" = (
+/obj/structure/cable,
+/obj/effect/spawner/lootdrop/grille_or_trash,
+/turf/open/floor/plating,
+/area/maintenance/central)
 "en" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -5124,15 +5130,15 @@ UJ
 es
 zL
 qx
+el
 lL
 lL
 lL
-lL
-lL
+el
 lL
 lL
 Zw
-Zw
+xu
 Zw
 dT
 dy
