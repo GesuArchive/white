@@ -27,7 +27,7 @@
 	var/info_text = "As an <span class='danger'>Iron Golem</span>, you don't have any special traits."
 	var/random_eligible = TRUE //If false, the golem subtype can't be made through golem mutation toxin
 
-	var/prefix = "Iron"
+	var/prefix = "Железный"
 	var/list/special_names = list("Tarkus")
 	var/human_surname_chance = 3
 	var/special_name_chance = 5
@@ -70,7 +70,7 @@
 	mutant_organs = list(/obj/item/organ/adamantine_resonator, /obj/item/organ/vocal_cords/adamantine)
 	fixed_mut_color = "4ed"
 	info_text = "As an <span class='danger'>Adamantine Golem</span>, you possess special vocal cords allowing you to \"resonate\" messages to all golems. Your unique mineral makeup makes you immune to most types of magic."
-	prefix = "Adamantine"
+	prefix = "Адамантиновый"
 	special_names = null
 
 /datum/species/golem/adamantine/on_species_gain(mob/living/carbon/C, datum/species/old_species)
@@ -91,7 +91,7 @@
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_NOBREATH, TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_CHUNKYFINGERS,TRAIT_RADIMMUNE,TRAIT_GENELESS,TRAIT_PIERCEIMMUNE,TRAIT_NODISMEMBER) //no RESISTHEAT, NOFIRE
 	info_text = "As a <span class='danger'>Plasma Golem</span>, you burn easily. Be careful, if you get hot enough while burning, you'll blow up!"
 	heatmod = 0 //fine until they blow up
-	prefix = "Plasma"
+	prefix = "Плазмовый"
 	special_names = list("Flood","Fire","Bar","Man")
 	var/boom_warning = FALSE
 	var/datum/action/innate/ignite/ignite
@@ -148,7 +148,7 @@
 	armor = 70 //up from 55
 	meat = /obj/item/stack/ore/diamond
 	info_text = "As a <span class='danger'>Diamond Golem</span>, you are more resistant than the average golem."
-	prefix = "Diamond"
+	prefix = "Алмазный"
 	special_names = list("Back","Grill")
 
 //Faster but softer and less armoured
@@ -160,7 +160,7 @@
 	armor = 25 //down from 55
 	meat = /obj/item/stack/ore/gold
 	info_text = "As a <span class='danger'>Gold Golem</span>, you are faster but less resistant than the average golem."
-	prefix = "Golden"
+	prefix = "Золотой"
 	special_names = list("Boy")
 
 //Heavier, thus higher chance of stunning when punching
@@ -171,7 +171,7 @@
 	punchstunthreshold = 9 //60% chance, from 40%
 	meat = /obj/item/stack/ore/silver
 	info_text = "As a <span class='danger'>Silver Golem</span>, your attacks have a higher chance of stunning. Being made of silver, your body is immune to most types of magic."
-	prefix = "Silver"
+	prefix = "Серебрянный"
 	special_names = list("Surfer", "Chariot", "Lining")
 
 /datum/species/golem/silver/on_species_gain(mob/living/carbon/C, datum/species/old_species)
@@ -196,7 +196,7 @@
 	info_text = "As a <span class='danger'>Plasteel Golem</span>, you are slower, but harder to stun, and hit very hard when punching. You also magnetically attach to surfaces and so don't float without gravity and cannot have positions swapped with other beings."
 	attack_verb = "ломает"
 	attack_sound = 'sound/effects/meteorimpact.ogg' //hits pretty hard
-	prefix = "Plasteel"
+	prefix = "Пласталевый"
 	special_names = null
 
 /datum/species/golem/plasteel/negates_gravity(mob/living/carbon/human/H)
@@ -218,7 +218,7 @@
 	meat = /obj/item/stack/ore/titanium
 	info_text = "As a <span class='danger'>Titanium Golem</span>, you are immune to ash storms, and slightly more resistant to burn damage."
 	burnmod = 0.9
-	prefix = "Titanium"
+	prefix = "Титановый"
 	special_names = list("Dioxide")
 
 /datum/species/golem/titanium/on_species_gain(mob/living/carbon/C, datum/species/old_species)
@@ -237,7 +237,7 @@
 	meat = /obj/item/stack/ore/titanium
 	info_text = "As a <span class='danger'>Plastitanium Golem</span>, you are immune to both ash storms and lava, and slightly more resistant to burn damage."
 	burnmod = 0.8
-	prefix = "Plastitanium"
+	prefix = "Пластитановый"
 	special_names = null
 
 /datum/species/golem/plastitanium/on_species_gain(mob/living/carbon/C, datum/species/old_species)
@@ -259,7 +259,7 @@
 	mutanttongue = /obj/item/organ/tongue/abductor
 	speedmod = 1 //faster
 	info_text = "As an <span class='danger'>Alloy Golem</span>, you are made of advanced alien materials: you are faster and regenerate over time. You are, however, only able to be heard by other alloy golems."
-	prefix = "Alien"
+	prefix = "Чужеродный"
 	special_names = list("Outsider", "Technology", "Watcher", "Stranger") //ominous and unknown
 
 //Regenerates because self-repairing super-advanced alien tech
@@ -282,7 +282,7 @@
 	burnmod = 1.25
 	heatmod = 1.5
 	info_text = "As a <span class='danger'>Wooden Golem</span>, you have plant-like traits: you take damage from extreme temperatures, can be set on fire, and have lower armor than a normal golem. You regenerate when in the light and wither in the darkness."
-	prefix = "Wooden"
+	prefix = "Деревянный"
 	special_names = list("Bark", "Willow", "Catalpa", "Woody", "Oak", "Sap", "Twig", "Branch", "Maple", "Birch", "Elm", "Basswood", "Cottonwood", "Larch", "Aspen", "Ash", "Beech", "Buckeye", "Cedar", "Chestnut", "Cypress", "Fir", "Hawthorn", "Hazel", "Hickory", "Ironwood", "Juniper", "Leaf", "Mangrove", "Palm", "Pawpaw", "Pine", "Poplar", "Redwood", "Redbud", "Sassafras", "Spruce", "Sumac", "Trunk", "Walnut", "Yew")
 	human_surname_chance = 0
 	special_name_chance = 100
@@ -329,7 +329,7 @@
 	punchdamagelow = 1
 	punchdamagehigh = 10
 	punchstunthreshold = 9
-	prefix = "Uranium"
+	prefix = "Урановый"
 	special_names = list("Oxide", "Rod", "Meltdown", "235")
 	COOLDOWN_DECLARE(radiation_emission_cooldown)
 
@@ -374,7 +374,7 @@
 	brutemod = 0.25
 	info_text = "As a <span class='danger'>Sand Golem</span>, you are immune to physical bullets and take very little brute damage, but are extremely vulnerable to burn damage and energy weapons. You will also turn to sand when dying, preventing any form of recovery."
 	attack_sound = 'sound/effects/shovel_dig.ogg'
-	prefix = "Sand"
+	prefix = "Песчаный"
 	special_names = list("Castle", "Bag", "Dune", "Worm", "Storm")
 
 /datum/species/golem/sand/spec_death(gibbed, mob/living/carbon/human/H)
@@ -405,7 +405,7 @@
 	burnmod = 0.25
 	info_text = "As a <span class='danger'>Glass Golem</span>, you reflect lasers and energy weapons, and are very resistant to burn damage. However, you are extremely vulnerable to brute damage. On death, you'll shatter beyond any hope of recovery."
 	attack_sound = 'sound/effects/glassbr2.ogg'
-	prefix = "Glass"
+	prefix = "Стеклянный"
 	special_names = list("Lens", "Prism", "Fiber", "Bead")
 
 /datum/species/golem/glass/spec_death(gibbed, mob/living/carbon/human/H)
@@ -440,7 +440,7 @@
 	info_text = "As a <span class='danger'>Bluespace Golem</span>, you are spatially unstable: You will teleport when hit, and you can teleport manually at a long distance."
 	attack_verb = "блюспейс бьёт"
 	attack_sound = 'sound/effects/phasein.ogg'
-	prefix = "Bluespace"
+	prefix = "Блюспейсовый"
 	special_names = list("Crystal", "Polycrystal")
 
 	var/datum/action/innate/unstable_teleport/unstable_teleport
@@ -540,7 +540,7 @@
 	info_text = "As a <span class='danger'>Bananium Golem</span>, you are made for pranking. Your body emits natural honks, and you can barely even hurt people when punching them. Your skin also bleeds banana peels when damaged."
 	attack_verb = "ХОНКАЕТ"
 	attack_sound = 'sound/items/airhorn2.ogg'
-	prefix = "Bananium"
+	prefix = "Бананиумовый"
 	special_names = null
 
 	var/last_honk = 0
@@ -618,7 +618,7 @@
 	species_traits = list(NOBLOOD,NO_UNDERWEAR,NOEYESPRITES) //no mutcolors
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_NOFLASH,TRAIT_RESISTHEAT,TRAIT_NOBREATH,TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_NOFIRE,TRAIT_CHUNKYFINGERS,TRAIT_RADIMMUNE,TRAIT_GENELESS,TRAIT_PIERCEIMMUNE,TRAIT_NODISMEMBER)
 	inherent_biotypes = MOB_HUMANOID|MOB_MINERAL
-	prefix = "Runic"
+	prefix = "Рунический"
 	special_names = null
 	inherent_factions = list("cult")
 	species_language_holder = /datum/language_holder/golem/runic
@@ -679,7 +679,7 @@
 	punchdamagelow = 4
 	punchstunthreshold = 7
 	punchdamagehigh = 8 // not as heavy as stone
-	prefix = "Cloth"
+	prefix = "Тканевый"
 	special_names = null
 
 /datum/species/golem/cloth/on_species_gain(mob/living/carbon/C, datum/species/old_species)
@@ -781,7 +781,7 @@
 /datum/species/golem/plastic
 	name = "Plastic Golem"
 	id = "plastic golem"
-	prefix = "Plastic"
+	prefix = "Пластмассовый"
 	special_names = list("Sheet", "Bag", "Bottle")
 	fixed_mut_color = "fffa"
 	info_text = "As a <span class='danger'>Plastic Golem</span>, you are capable of ventcrawling and passing through plastic flaps as long as you are naked."
@@ -797,7 +797,7 @@
 /datum/species/golem/bronze
 	name = "Bronze Golem"
 	id = "bronze golem"
-	prefix = "Bronze"
+	prefix = "Бронзовый"
 	special_names = list("Bell")
 	fixed_mut_color = "cd7f32"
 	info_text = "As a <span class='danger'>Bronze Golem</span>, you are very resistant to loud noises, and make loud noises if something hard hits you, however this ability does hurt your hearing."
@@ -866,7 +866,7 @@
 /datum/species/golem/cardboard //Faster but weaker, can also make new shells on its own
 	name = "Cardboard Golem"
 	id = "cardboard golem"
-	prefix = "Cardboard"
+	prefix = "Картонный"
 	special_names = list("Box")
 	info_text = "As a <span class='danger'>Cardboard Golem</span>, you aren't very strong, but you are a bit quicker and can easily create more brethren by using cardboard on yourself."
 	species_traits = list(NOBLOOD,NO_UNDERWEAR,NOEYESPRITES)
@@ -916,7 +916,7 @@
 	id = "leather golem"
 	special_names = list("Face", "Man", "Belt") //Ah dude 4 strength 4 stam leather belt AHHH
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_NOBREATH, TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_CHUNKYFINGERS,TRAIT_RADIMMUNE,TRAIT_GENELESS,TRAIT_PIERCEIMMUNE,TRAIT_NODISMEMBER, TRAIT_STRONG_GRABBER)
-	prefix = "Leather"
+	prefix = "Кожаный"
 	fixed_mut_color = "624a2e"
 	info_text = "As a <span class='danger'>Leather Golem</span>, you are flammable, but you can grab things with incredible ease, allowing all your grabs to start at a strong level."
 	grab_sound = 'sound/weapons/whipgrab.ogg'
@@ -925,7 +925,7 @@
 /datum/species/golem/durathread
 	name = "Durathread Golem"
 	id = "дюратканевый golem"
-	prefix = "Durathread"
+	prefix = "Дюратканевый"
 	limbs_id = "d_golem"
 	special_names = list("Boll","Weave")
 	species_traits = list(NOBLOOD,NO_UNDERWEAR,NOEYESPRITES)
@@ -941,7 +941,7 @@
 	name = "Bone Golem"
 	id = "bone golem"
 	say_mod = "костлявит"
-	prefix = "Bone"
+	prefix = "Костяной"
 	limbs_id = "b_golem"
 	special_names = list("Head", "Broth", "Fracture", "Rattler", "Appetit")
 	liked_food = GROSS | MEAT | RAW
@@ -1039,7 +1039,7 @@
 	armor = 45 //down from 55
 	burnmod = 3 //melts easily
 	info_text = "As a <span class='danger'>Snow Golem</span>, you are extremely vulnerable to burn damage, but you can generate snowballs and shoot cryokinetic beams. You will also turn to snow when dying, preventing any form of recovery."
-	prefix = "Snow"
+	prefix = "Снежный"
 	special_names = list("Flake", "Blizzard", "Storm")
 	species_traits = list(NOBLOOD,NO_UNDERWEAR,NOEYESPRITES) //no mutcolors, no eye sprites
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_NOBREATH,TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_CHUNKYFINGERS,TRAIT_RADIMMUNE,TRAIT_GENELESS,TRAIT_PIERCEIMMUNE,TRAIT_NODISMEMBER)
@@ -1087,7 +1087,7 @@
 	id = "Metallic Hydrogen golem"
 	fixed_mut_color = "ddd"
 	info_text = "As a <span class='danger'>Metallic Hydrogen Golem</span>, you were forged in the highest pressures and the highest heats. Your unique mineral makeup makes you immune to most types of damages."
-	prefix = "Metallic Hydrogen"
+	prefix = "Метал-водороный"
 	special_names = null
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_NOFLASH, TRAIT_RESISTHEAT,TRAIT_NOBREATH,TRAIT_RESISTHIGHPRESSURE,TRAIT_NOFIRE,TRAIT_RADIMMUNE,TRAIT_GENELESS,TRAIT_NODISMEMBER,TRAIT_CHUNKYFINGERS)
 

@@ -2,25 +2,25 @@
 
 //Preserved terrarium/seed vault: Spawns in seed vault structures in lavaland. Ghosts become plantpeople and are advised to begin growing plants in the room near them.
 /obj/effect/mob_spawn/human/seed_vault
-	name = "preserved terrarium"
-	desc = "An ancient machine that seems to be used for storing plant matter. The glass is obstructed by a mat of vines."
-	mob_name = "a lifebringer"
+	name = "консервированный террариум"
+	desc = "Древняя машина, которая, кажется, использовалась для хранения растительных материалов. Стекло закрыто циновкой из виноградных лоз."
+	mob_name = "спасатель"
 	icon = 'icons/obj/lavaland/spawners.dmi'
 	icon_state = "terrarium"
 	density = TRUE
 	roundstart = FALSE
 	death = FALSE
 	mob_species = /datum/species/pod
-	short_desc = "You are a sentient ecosystem, an example of the mastery over life that your creators possessed."
-	flavour_text = "Your masters, benevolent as they were, created uncounted seed vaults and spread them across \
-	the universe to every planet they could chart. You are in one such seed vault. \
-	Your goal is to cultivate and spread life wherever it will go while waiting for contact from your creators. \
-	Estimated time of last contact: Deployment, 5000 millennia ago."
+	short_desc = "Вы - разумная экосистема, пример господства над жизнью, которым обладали ваши создатели."
+	flavour_text = "Ваши хозяева, какими бы доброжелательными они ни были, создали бесчисленные хранилища семян и распространили их по \
+	вселенной на каждую планету, которую они могли нанести на карту. Вы находитесь в одном из таких хранилищ семян. \
+	Ваша цель - культивировать и распространять жизнь, куда бы она ни пошла, ожидая контакта от ваших создателей. \
+	Предполагаемое время последнего контакта: развертывание, 5000 тысячелетий назад."
 	assignedrole = "Lifebringer"
 
 /obj/effect/mob_spawn/human/seed_vault/special(mob/living/new_spawn)
-	var/plant_name = pick("Tomato", "Potato", "Broccoli", "Carrot", "Ambrosia", "Pumpkin", "Ivy", "Kudzu", "Banana", "Moss", "Flower", "Bloom", "Root", "Bark", "Glowshroom", "Petal", "Leaf", \
-	"Venus", "Sprout","Cocoa", "Strawberry", "Citrus", "Oak", "Cactus", "Pepper", "Juniper")
+	var/plant_name = pick("Томат", "Картошка", "Брокколи", "Морковка", "Амброзия", "Тыква", "Плющ", "Кудзу", "Банан", "Мох", "Цветок", "Корень", "Кора", "Светогриб", "Лепесток", "Листок", \
+	"Венера", "Росток", "Кокос", "Клубника", "Цитрус", "Дуб", "Кактус", "Перец", "Можжевельник")
 	new_spawn.fully_replace_character_name(null,plant_name)
 	if(ishuman(new_spawn))
 		var/mob/living/carbon/human/H = new_spawn
@@ -34,8 +34,8 @@
 //Ash walker eggs: Spawns in ash walker dens in lavaland. Ghosts become unbreathing lizards that worship the Necropolis and are advised to retrieve corpses to create more ash walkers.
 
 /obj/structure/ash_walker_eggshell
-	name = "ash walker egg"
-	desc = "A man-sized yellow egg, spawned from some unfathomable creature. A humanoid silhouette lurks within. The egg shell looks resistant to temperature but otherwise rather brittle."
+	name = "яйцо пепельника"
+	desc = "Желтое яйцо размером с человека, порожденное каким-то непостижимым существом. Внутри скрывается силуэт гуманоида. Яичная скорлупа выглядит устойчивой к температуре, но в остальном довольно хрупкой."
 	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
 	icon_state = "large_egg"
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | FREEZE_PROOF
@@ -73,9 +73,9 @@
 
 
 /obj/effect/mob_spawn/human/ash_walker
-	name = "ash walker egg"
-	desc = "A man-sized yellow egg, spawned from some unfathomable creature. A humanoid silhouette lurks within."
-	mob_name = "an ash walker"
+	name = "яйцо пепельника"
+	desc = "Желтое яйцо размером с человека, порожденное каким-то непостижимым существом. Внутри скрывается силуэт гуманоида."
+	mob_name = "пепельник"
 	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
 	icon_state = "large_egg"
 	mob_species = /datum/species/lizard/ashwalker
@@ -84,10 +84,10 @@
 	death = FALSE
 	move_resist = MOVE_FORCE_NORMAL
 	density = FALSE
-	short_desc = "You are an ash walker. Your tribe worships the Necropolis."
-	flavour_text = "The wastes are sacred ground, its monsters a blessed bounty. \
-	You have seen lights in the distance... they foreshadow the arrival of outsiders that seek to tear apart the Necropolis and its domain. \
-	Fresh sacrifices for your nest."
+	short_desc = "Вы ходящий по пеплу. Ваше племя поклоняется Некрополю."
+	flavour_text = "Пустоши - это священная земля, ее монстры - благословенная награда. \
+	Вы видели огни вдалеке... они предвещают прибытие посторонних, которые стремятся разорвать Некрополь и его владения. \
+	Свежих жертвоприношений нашему гнезду!"
 	assignedrole = "Ash Walker"
 	var/datum/team/ashwalkers/team
 	var/obj/structure/ash_walker_eggshell/eggshell
@@ -95,12 +95,12 @@
 /obj/effect/mob_spawn/human/ash_walker/allow_spawn(mob/user)
 	if(!(user.key in team.players_spawned))//one per person unless you get a bonus spawn
 		return TRUE
-	to_chat(user, "<span class='warning'><b>You have exhausted your usefulness to the Necropolis</b>.</span>")
+	to_chat(user, "<span class='warning'><b>Вы исчерпали свою полезность для Некрополя</b>.</span>")
 	return FALSE
 
 /obj/effect/mob_spawn/human/ash_walker/special(mob/living/new_spawn)
 	new_spawn.fully_replace_character_name(null,random_unique_lizard_name(gender))
-	to_chat(new_spawn, "<b>Drag the corpses of men and beasts to your nest. It will absorb them to create more of your kind. Invade the strange structure of the outsiders if you must. Do not cause unnecessary destruction, as littering the wastes with ugly wreckage is certain to not gain you favor. Glory to the Necropolis!</b>")
+	to_chat(new_spawn, "<b>Перетащите трупы людей и зверей в свое гнездо. Он поглотит их, чтобы создать больше себе подобных. Если нужно, вторгнитесь в странную структуру посторонних. Не вызывайте ненужных разрушений, так как засорение пустошей уродливыми обломками наверняка не принесет вам пользу. Слава Некрополю!</b>")
 
 	new_spawn.mind.add_antag_datum(/datum/antagonist/ashwalker, team)
 
@@ -122,7 +122,7 @@
 	eggshell.egg = src
 	src.forceMove(eggshell)
 	if(A)
-		notify_ghosts("An ash walker egg is ready to hatch in \the [A.name].", source = src, action=NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_ASHWALKER)
+		notify_ghosts("Яйцо пепельника готово в [A.name].", source = src, action=NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_ASHWALKER)
 
 /datum/outfit/ashwalker
 	name ="Ashwalker"
@@ -132,17 +132,17 @@
 
 //Timeless prisons: Spawns in Wish Granter prisons in lavaland. Ghosts become age-old users of the Wish Granter and are advised to seek repentance for their past.
 /obj/effect/mob_spawn/human/exile
-	name = "timeless prison"
-	desc = "Although this stasis pod looks medicinal, it seems as though it's meant to preserve something for a very long time."
-	mob_name = "a penitent exile"
+	name = "вневременная тюрьма"
+	desc = "Хотя эта стазисная капсула выглядит лекарственной, кажется, что она предназначена для того, чтобы сохранять что-то в течение очень долгого времени."
+	mob_name = "кающийся изгнанник"
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	roundstart = FALSE
 	death = FALSE
 	mob_species = /datum/species/shadow
-	short_desc = "You are cursed."
-	flavour_text = "Years ago, you sacrificed the lives of your trusted friends and the humanity of yourself to reach the Wish Granter. Though you \
-	did so, it has come at a cost: your very body rejects the light, dooming you to wander endlessly in this horrible wasteland."
+	short_desc = "Меня прокляли."
+	flavour_text = "Много лет назад вы пожертвовали жизнями своих верных друзей и человечностью, чтобы достичь Исполнителя Желаний. \
+	Хотя вы и так, это дорого обходится: само ваше тело отвергает свет, обрекая вас бесконечно блуждать по этой ужасной пустоши."
 	assignedrole = "Exile"
 
 /obj/effect/mob_spawn/human/exile/Destroy()
@@ -150,22 +150,22 @@
 	return ..()
 
 /obj/effect/mob_spawn/human/exile/special(mob/living/new_spawn)
-	new_spawn.fully_replace_character_name(null,"Wish Granter's Victim ([rand(1,999)])")
+	new_spawn.fully_replace_character_name(null,"Жертва Исполнителя Желаний ([rand(1,999)])")
 	var/wish = rand(1,4)
 	switch(wish)
 		if(1)
-			to_chat(new_spawn, "<b>You wished to kill, and kill you did. You've lost track of how many, but the spark of excitement that murder once held has winked out. You feel only regret.</b>")
+			to_chat(new_spawn, "<b>Я хотел убивать, и я это делал. Счёт давно потерян, но искра возбуждения, которая когда-то была в убийстве, угасла. Чувствую только сожаление.</b>")
 		if(2)
-			to_chat(new_spawn, "<b>You wished for unending wealth, but no amount of money was worth this existence. Maybe charity might redeem your soul?</b>")
+			to_chat(new_spawn, "<b>Я желал бесконечного богатства, но никакие деньги не стоили этого существования. Может быть, благотворительность может выкупить мою душу?</b>")
 		if(3)
-			to_chat(new_spawn, "<b>You wished for power. Little good it did you, cast out of the light. You are the [gender == MALE ? "king" : "queen"] of a hell that holds no subjects. You feel only remorse.</b>")
+			to_chat(new_spawn, "<b>Я желал власти. Мало пользы от этого, теперь я изгнанный из света, а также [gender == MALE ? "король" : "королева"] пустого царства. Ощущаю только раскаяние.</b>")
 		if(4)
-			to_chat(new_spawn, "<b>You wished for immortality, even as your friends lay dying behind you. No matter how many times you cast yourself into the lava, you awaken in this room again within a few days. There is no escape.</b>")
+			to_chat(new_spawn, "<b>Я хотел бессмертия, даже когда мои друзья умирали позади меня. Независимо от того, сколько раз я бросался в лаву, я снова просыпаюсь в этой комнате в течение нескольких дней. Выхода нет.</b>")
 
 //Golem shells: Spawns in Free Golem ships in lavaland. Ghosts become mineral golems and are advised to spread personal freedom.
 /obj/effect/mob_spawn/human/golem
-	name = "inert free golem shell"
-	desc = "A humanoid shape, empty, lifeless, and full of potential."
+	name = "инертная свободная оболочка голема"
+	desc = "Гуманоидная форма, пустая, безжизненная и полная возможностей."
 	mob_name = "a free golem"
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "construct"
@@ -178,10 +178,10 @@
 	var/has_owner = FALSE
 	var/can_transfer = TRUE //if golems can switch bodies to this new shell
 	var/mob/living/owner = null //golem's owner if it has one
-	short_desc = "You are a Free Golem. Your family worships The Liberator."
-	flavour_text = "In his infinite and divine wisdom, he set your clan free to \
-	travel the stars with a single declaration: \"Yeah go do whatever.\" Though you are bound to the one who created you, it is customary in your society to repeat those same words to newborn \
-	golems, so that no golem may ever be forced to serve again."
+	short_desc = "Я свободный голем. Наша семья поклоняется Освободителю."
+	flavour_text = "В своей бесконечной и божественной мудрости он освободил наш клан существует, чтобы \
+	путешествовать по звездам с одним заявлением: \"Делай че хочешь.\" Хотя мы связаны с тем, кто нас создал, в нашем обществе принято повторять те же слова новорожденному \
+	голему, так что ни один голем больше никогда не будет вынужден служить."
 
 /obj/effect/mob_spawn/human/golem/Initialize(mapload, datum/species/golem/species = null, mob/creator = null)
 	if(species) //spawners list uses object name to register so this goes before ..()
@@ -190,20 +190,20 @@
 	. = ..()
 	var/area/A = get_area(src)
 	if(!mapload && A)
-		notify_ghosts("\A [initial(species.prefix)] golem shell has been completed in \the [A.name].", source = src, action=NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_GOLEM)
+		notify_ghosts("[initial(species.prefix)] оболочка голема была создана в [A.name].", source = src, action=NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_GOLEM)
 	if(has_owner && creator)
-		short_desc = "You are a golem."
-		flavour_text = "You move slowly, but are highly resistant to heat and cold as well as blunt trauma. You are unable to wear clothes, but can still use most tools."
-		important_info = "Serve [creator], and assist [creator.ru_na()] in completing [creator.ru_ego()] goals at any cost."
+		short_desc = "Я голем."
+		flavour_text = "Я двигаюсь медленно, но очень устойчив к жаре и холоду, а также к тупым травмам. Я не могу носить одежду, но могу пользоваться большинством инструментов."
+		important_info = "Необходимо служить [creator] и помогать во всех [creator.ru_ego()] целях любой ценой."
 		owner = creator
 
 /obj/effect/mob_spawn/human/golem/special(mob/living/new_spawn, name)
 	var/datum/species/golem/X = mob_species
 	to_chat(new_spawn, "[initial(X.info_text)]")
 	if(!owner)
-		to_chat(new_spawn, "Build golem shells in the autolathe, and feed refined mineral sheets to the shells to bring them to life! You are generally a peaceful group unless provoked.")
+		to_chat(new_spawn, "Создавайте оболочки големов в автолате и подавайте в оболочки очищенные минеральные листы, чтобы оживить их! Обычно вы мирная группа, если вас не провоцируют.")
 	else
-		new_spawn.mind.store_memory("<b>Serve [owner.real_name], your creator.</b>")
+		new_spawn.mind.store_memory("<b>Служить [owner.real_name], моему создателю.</b>")
 		new_spawn.mind.enslave_mind_to_creator(owner)
 		log_game("[key_name(new_spawn)] possessed a golem shell enslaved to [key_name(owner)].")
 		log_admin("[key_name(new_spawn)] possessed a golem shell enslaved to [key_name(owner)].")
@@ -215,15 +215,15 @@
 		H.set_cloned_appearance()
 		if(!name)
 			if(has_owner)
-				H.fully_replace_character_name(null, "[initial(X.prefix)] Golem ([rand(1,999)])")
+				H.fully_replace_character_name(null, "[initial(X.prefix)] голем ([rand(1,999)])")
 			else
 				H.fully_replace_character_name(null, H.dna.species.random_name())
 		else
 			H.fully_replace_character_name(null, name)
 	if(has_owner)
-		new_spawn.mind.assigned_role = "Servant Golem"
+		new_spawn.mind.assigned_role = "Голем прислужник"
 	else
-		new_spawn.mind.assigned_role = "Free Golem"
+		new_spawn.mind.assigned_role = "Свободный голем"
 
 /obj/effect/mob_spawn/human/golem/attack_hand(mob/user)
 	. = ..()
@@ -231,13 +231,13 @@
 		return
 	if(isgolem(user) && can_transfer)
 		var/mob/living/carbon/human/H = user
-		var/transfer_choice = alert("Transfer your soul to [src]? (Warning, your old body will die!)",,"Yes","No")
-		if(transfer_choice != "Yes")
+		var/transfer_choice = alert("Переместить свою душу в [src.name]? (Старое тело погибнет!)",,"Да","Нет")
+		if(transfer_choice != "Да")
 			return
 		if(QDELETED(src) || uses <= 0)
 			return
 		log_game("[key_name(H)] golem-swapped into [src]")
-		H.visible_message("<span class='notice'>A faint light leaves [H], moving to [src] and animating it!</span>","<span class='notice'>You leave your old body behind, and transfer into [src]!</span>")
+		H.visible_message("<span class='notice'>Внезапно [H.name] высвобождает тусклый поток света, который направляется к [src.name] и оживляет её!</span>","<span class='notice'>Покидаю старое и перемещаюсь в [src.name]!</span>")
 		show_flavour = FALSE
 		var/mob/living/carbon/human/newgolem = create(newname = H.real_name)
 		H.transfer_trait_datums(newgolem)
