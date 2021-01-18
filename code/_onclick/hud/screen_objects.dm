@@ -303,7 +303,8 @@
 	screen_loc = ui_borg_intents
 
 /atom/movable/screen/internals
-	name = "toggle internals"
+	name = "подача воздуха"
+	icon = 'white/valtos/icons/hud.dmi'
 	icon_state = "internal0"
 	screen_loc = ui_internal
 
@@ -363,12 +364,13 @@
 	C.update_action_buttons_icon()
 
 /atom/movable/screen/spacesuit
-	name = "Space suit cell status"
+	name = "Состояние батареи костюма"
+	icon = 'white/valtos/icons/hud.dmi'
 	icon_state = "spacesuit_0"
 	screen_loc = ui_spacesuit
 
 /atom/movable/screen/mov_intent
-	name = "run/walk toggle"
+	name = "бег/шаг"
 	icon = 'icons/hud/screen_midnight.dmi'
 	icon_state = "running"
 
