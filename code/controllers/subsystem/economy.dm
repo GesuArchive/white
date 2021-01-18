@@ -94,8 +94,8 @@ SUBSYSTEM_DEF(economy)
 		if(!is_station_level(V.z))
 			continue
 		V.reset_prices(V.product_records, V.coin_records)
-	earning_report = "Sector Economic Report<br /> Sector vendor prices is currently at [SSeconomy.inflation_value()*100]%.<br /> The station spending power is currently <b>[station_total] Credits</b>, and the crew's targeted allowance is at <b>[station_target] Credits</b>.<br /> That's all from the <i>Nanotrasen Economist Division</i>."
-	GLOB.news_network.SubmitArticle(earning_report, "Station Earnings Report", "Station Announcements", null, update_alert = FALSE)
+	earning_report = "Экономический отчет сектора<br /> В настоящее время цены поставщиков в секторе [SSeconomy.inflation_value()*100]%.<br /> Расходная мощность станции в настоящее время <b>[station_total] кредитов</b>, а целевое довольствие экипажа составляет <b>[station_target] кредитов</b>.<br /> Это всё от <i>Отдел экономистов Нанотрейзен</i>."
+	GLOB.news_network.SubmitArticle(earning_report, "Экономический отчет сектора", "Станционные Объявления", null, update_alert = FALSE)
 
 /**
  * Proc that returns a value meant to shift inflation values in vendors, based on how much money exists on the station.
