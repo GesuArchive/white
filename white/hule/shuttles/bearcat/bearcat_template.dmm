@@ -240,6 +240,10 @@
 	dir = 8;
 	icon_state = "pipe11-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 4;
+	icon_state = "pipe11-2"
+	},
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/captain)
 "aF" = (
@@ -887,6 +891,10 @@
 	dir = 4;
 	icon_state = "pipe11-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 8;
+	icon_state = "pipe11-4"
+	},
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/dorms)
 "cn" = (
@@ -1199,7 +1207,6 @@
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/washroom)
 "dk" = (
-/obj/structure/cable,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
 	dir = 8;
@@ -1978,12 +1985,9 @@
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/engineering)
 "fk" = (
-/obj/structure/grille,
-/obj/machinery/door/poddoor/preopen{
-	id = "bearcat_windows"
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
-/obj/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating,
 /area/shuttle/bearcat/engineering)
 "fl" = (
@@ -2712,10 +2716,10 @@ ex
 fb
 eN
 eY
-fO
+fk
 eT
 fu
-fk
+fr
 fU
 aa
 aa

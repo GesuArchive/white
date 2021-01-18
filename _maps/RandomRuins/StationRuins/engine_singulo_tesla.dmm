@@ -783,9 +783,6 @@
 	name = "Engineering External Access";
 	req_access_txt = "10;13"
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 8
-	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},

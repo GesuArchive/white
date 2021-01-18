@@ -7989,6 +7989,9 @@
 	dir = 4;
 	pixel_x = 27
 	},
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
 /turf/open/floor/carpet/peaks,
 /area/crew_quarters/fitness/kachalka)
 "aHo" = (
@@ -10879,7 +10882,7 @@
 "aVC" = (
 /obj/structure/lattice,
 /obj/effect/spawner/lootdrop/maintenance,
-/turf/open/openspace/airless,
+/turf/open/openspace,
 /area/space/nearstation)
 "aVJ" = (
 /obj/machinery/light{
@@ -14075,12 +14078,11 @@
 /obj/structure/table,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/crowbar/large,
-/obj/machinery/camera{
-	c_tag = "Mech Bay";
-	dir = 1
-	},
 /obj/machinery/light{
 	pixel_y = 0
+	},
+/obj/machinery/camera/autoname{
+	dir = 1
 	},
 /turf/open/floor/plasteel,
 /area/science/robotics/mechbay)
@@ -14257,6 +14259,9 @@
 "blV" = (
 /obj/machinery/light/small{
 	pixel_y = 0
+	},
+/obj/machinery/camera/autoname{
+	dir = 1
 	},
 /turf/open/floor/plating,
 /area/maintenance/disposal)
@@ -16943,10 +16948,8 @@
 "bAZ" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/auto_name/west,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
 "bBa" = (
@@ -23633,8 +23636,8 @@
 /obj/item/cigbutt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 5
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/maintenance/disposal/incinerator)
@@ -25498,9 +25501,8 @@
 /area/maintenance/starboard/aft)
 "chD" = (
 /obj/effect/turf_decal/loading_area,
-/obj/machinery/camera{
-	c_tag = "Engineering Storage";
-	dir = 4
+/obj/machinery/camera/autoname{
+	dir = 5
 	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
@@ -28608,7 +28610,7 @@
 "czU" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/openspace,
 /area/space/nearstation)
 "czX" = (
 /obj/machinery/door/airlock/maintenance{
@@ -29229,10 +29231,6 @@
 /turf/open/floor/engine,
 /area/engine/atmos)
 "cCC" = (
-/obj/machinery/camera{
-	c_tag = "Atmospherics East";
-	dir = 8
-	},
 /obj/effect/turf_decal/tile/hex/yellow{
 	dir = 4
 	},
@@ -29240,6 +29238,9 @@
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/tier_2,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
 /turf/open/floor/engine,
 /area/engine/atmos)
 "cCD" = (
@@ -31240,8 +31241,9 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "eXc" = (
-/turf/open/openspace/airless,
-/area/maintenance/port/aft)
+/obj/structure/lattice,
+/turf/open/openspace,
+/area/space/nearstation)
 "eXW" = (
 /obj/structure/sign/warning/nosmoking{
 	pixel_x = 25
@@ -32304,9 +32306,8 @@
 /obj/item/radio/intercom{
 	pixel_y = 20
 	},
-/obj/machinery/camera{
-	c_tag = "Engineering Storage";
-	dir = 4
+/obj/machinery/camera/autoname{
+	dir = 5
 	},
 /turf/open/floor/plasteel,
 /area/engine/storage)
@@ -33940,7 +33941,7 @@
 "knx" = (
 /obj/structure/cable,
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/openspace,
 /area/space/nearstation)
 "kqK" = (
 /obj/structure/railing,
@@ -35870,7 +35871,8 @@
 /turf/open/floor/plating,
 /area/engine/manufactory)
 "opF" = (
-/turf/open/floor/plating,
+/obj/structure/lattice/catwalk,
+/turf/open/openspace,
 /area/space/nearstation)
 "orP" = (
 /obj/machinery/computer/scan_consolenew{
@@ -36028,10 +36030,10 @@
 /area/engine/atmos)
 "oGP" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/camera,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/camera/autoname,
 /turf/open/floor/plating,
 /area/engine/engine_room/external)
 "oHH" = (
@@ -36151,16 +36153,15 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
-/obj/machinery/camera{
-	c_tag = "Atmospherics East";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/purple/visible{
 	dir = 10
 	},
 /obj/item/radio/intercom{
 	dir = 4;
 	pixel_x = 27
+	},
+/obj/machinery/camera/autoname{
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -36514,8 +36515,8 @@
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 9
 	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
@@ -40226,7 +40227,7 @@
 "wFs" = (
 /obj/structure/cable/multilayer/multiz,
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/openspace,
 /area/space/nearstation)
 "wGh" = (
 /obj/machinery/atmospherics/components/trinary/mixer/airmix{
@@ -40327,16 +40328,6 @@
 /obj/machinery/atmospherics/pipe/manifold/green/visible,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
-"wRc" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 10
-	},
-/turf/open/floor/plating,
-/area/maintenance/port/aft)
 "wSh" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -62541,7 +62532,7 @@ aaa
 aai
 cgG
 bCq
-gXs
+eXc
 bCq
 bHE
 bHE
@@ -62551,7 +62542,7 @@ mra
 mra
 mra
 mra
-eRz
+jAD
 ctv
 ctv
 eRz
@@ -62776,8 +62767,8 @@ bHA
 nXT
 bKl
 bxy
-opF
-opF
+aaH
+aaH
 bCq
 bHE
 bRg
@@ -62798,7 +62789,7 @@ aaa
 aaa
 cQm
 bLv
-aaa
+vGf
 bLv
 bHE
 bHE
@@ -62808,7 +62799,7 @@ xVC
 pyz
 bJe
 mra
-eRz
+jAD
 eRz
 eRz
 eRz
@@ -63055,7 +63046,7 @@ aaa
 aaa
 cQm
 bLv
-aaa
+vGf
 bLv
 bHE
 bHE
@@ -63065,7 +63056,7 @@ bHE
 uUz
 pVg
 mra
-aaa
+aaH
 gXs
 aaa
 gXs
@@ -63312,7 +63303,7 @@ aaa
 aaa
 cQm
 bLv
-aaa
+vGf
 bLv
 cqH
 cqH
@@ -63322,7 +63313,7 @@ sFh
 bHE
 taJ
 mra
-aaa
+aaH
 gXs
 aaa
 gXs
@@ -63569,7 +63560,7 @@ aaa
 aaa
 cQm
 bLv
-aaa
+vGf
 bCq
 bLv
 wba
@@ -63804,8 +63795,8 @@ cBB
 byE
 bKo
 bxy
-opF
-opF
+aaH
+aaH
 bCq
 bHE
 alT
@@ -63826,9 +63817,9 @@ aaa
 aaa
 cQm
 bLv
-aaa
-gXs
+vGf
 eXc
+kli
 wba
 gZq
 sID
@@ -64083,9 +64074,9 @@ aaa
 aaa
 cQm
 bLv
-gXs
+eXc
 aVC
-gXs
+eXc
 wba
 eQN
 cCs
@@ -64340,9 +64331,9 @@ aaa
 aaa
 cQm
 bLv
-aaa
-gXs
+vGf
 eXc
+kli
 wba
 rZu
 cCs
@@ -65362,7 +65353,7 @@ jfp
 jfp
 jfp
 jfp
-wRc
+jfp
 jfp
 jfp
 uBp
@@ -83616,7 +83607,7 @@ xYx
 xYx
 xYx
 qKu
-nXv
+opF
 maP
 cmI
 bTR
@@ -86186,7 +86177,7 @@ xYx
 xYx
 xYx
 pCj
-nXv
+opF
 maP
 lSv
 cvO

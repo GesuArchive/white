@@ -378,11 +378,6 @@
 "Cn" = (
 /turf/closed/mineral/random/low_chance,
 /area/ruin/space/has_grav/bseruin/asteroid)
-"CB" = (
-/obj/structure/cable,
-/obj/structure/cable,
-/turf/open/floor/plating/asteroid,
-/area/ruin/space/has_grav/bseruin/asteroid)
 "CJ" = (
 /obj/structure/foamedmetal/iron,
 /turf/open/floor/plating/foam,
@@ -630,12 +625,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bseruin/backyard)
-"TZ" = (
-/obj/machinery/power/smes,
-/obj/structure/cable,
-/obj/structure/cable,
-/turf/open/floor/mineral/titanium/blue,
-/area/shuttle)
 "UF" = (
 /obj/structure/cable,
 /obj/machinery/light/small,
@@ -1694,7 +1683,7 @@ VJ
 Vh
 eJ
 Qf
-TZ
+Qf
 Jz
 Bl
 Sp
@@ -2377,7 +2366,7 @@ Kg
 ks
 Hm
 Hm
-CB
+Hm
 Wz
 Wz
 Cn

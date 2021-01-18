@@ -1689,6 +1689,12 @@
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
+"rQ" = (
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/north)
 "rS" = (
 /obj/item/clothing/mask/gas,
 /obj/item/clothing/mask/gas{
@@ -1716,9 +1722,6 @@
 "se" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/autoname{
-	dir = 5
-	},
 /turf/open/floor/plasteel/white/side{
 	dir = 4
 	},
@@ -1819,6 +1822,13 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
+/area/quartermaster/warehouse)
+"tt" = (
+/obj/item/radio/intercom{
+	dir = 4;
+	pixel_x = 27
+	},
+/turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
 "tx" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -2029,6 +2039,13 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness)
+"vV" = (
+/obj/item/radio/intercom{
+	dir = 4;
+	pixel_x = 27
+	},
+/turf/open/floor/plating,
+/area/maintenance/port)
 "wb" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/north{
@@ -2734,6 +2751,10 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/xenobiology)
+"Do" = (
+/obj/machinery/camera/autoname,
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/north)
 "Dt" = (
 /obj/machinery/door/window/northleft{
 	dir = 4;
@@ -3328,6 +3349,10 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
+"IL" = (
+/obj/machinery/camera/autoname,
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/south)
 "IU" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate/maint,
@@ -3451,6 +3476,12 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"JS" = (
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/east)
 "JT" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -3550,6 +3581,12 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/west)
+"KL" = (
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints)
 "KN" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "misclab";
@@ -4213,6 +4250,12 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
+"Qo" = (
+/obj/machinery/camera/autoname{
+	dir = 5
+	},
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/east)
 "Qs" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
@@ -4304,6 +4347,14 @@
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
+"Rw" = (
+/obj/structure/frame/machine,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/science/research/abandoned)
 "RB" = (
 /turf/closed/wall/r_wall,
 /area/shuttle/turbolift/primary)
@@ -4612,6 +4663,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/ai_monitored/storage/eva)
+"Uc" = (
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints)
 "Up" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
@@ -4816,6 +4873,12 @@
 /obj/structure/sign/warning/electricshock,
 /turf/open/floor/plating,
 /area/science/xenobiology)
+"WT" = (
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/south)
 "WW" = (
 /obj/machinery/firealarm{
 	dir = 4;
@@ -4902,6 +4965,12 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
+"XR" = (
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/east)
 "XT" = (
 /obj/machinery/button/door{
 	id = "xenobio7";
@@ -5076,6 +5145,13 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"Zc" = (
+/obj/structure/cable,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/open/floor/circuit,
+/area/tcommsat/server/upper)
 "Zf" = (
 /obj/machinery/lazylift/master,
 /turf/open/indestructible/turbolift,
@@ -20484,7 +20560,7 @@ pf
 cz
 GW
 BF
-fD
+vV
 fD
 fu
 fD
@@ -26396,7 +26472,7 @@ Bb
 db
 db
 RK
-db
+tt
 db
 da
 GV
@@ -26947,7 +27023,7 @@ VC
 oz
 Np
 Np
-Np
+WT
 Np
 Np
 Np
@@ -29027,9 +29103,9 @@ Zm
 Zm
 Zm
 Zm
-PG
-PG
-PG
+Zm
+Zm
+Zm
 bw
 bw
 bw
@@ -32592,7 +32668,7 @@ mI
 kI
 xb
 Jp
-mI
+Zc
 uV
 Zm
 VC
@@ -33881,7 +33957,7 @@ Zm
 PG
 PG
 VC
-Np
+IL
 Np
 Np
 Np
@@ -35686,7 +35762,7 @@ St
 ye
 ye
 Np
-Np
+WT
 Np
 Np
 Np
@@ -35934,7 +36010,7 @@ ln
 wP
 ln
 dP
-ln
+Uc
 ye
 ye
 ye
@@ -36641,7 +36717,7 @@ Xc
 Bt
 Bt
 Bt
-Bt
+rQ
 Bt
 Xc
 Bt
@@ -39264,7 +39340,7 @@ ln
 ln
 ln
 ln
-ln
+KL
 ln
 ln
 rm
@@ -40562,7 +40638,7 @@ ln
 ln
 ln
 ln
-ln
+KL
 ln
 ln
 ln
@@ -41313,7 +41389,7 @@ rm
 CJ
 rm
 ln
-ln
+Uc
 rm
 rm
 rm
@@ -45121,7 +45197,7 @@ PG
 PG
 PG
 mP
-Bt
+Do
 Bt
 Bt
 Bt
@@ -46462,7 +46538,7 @@ hM
 ln
 ln
 ln
-ln
+KL
 ln
 hM
 hM
@@ -46736,7 +46812,7 @@ dL
 dL
 dL
 dL
-dL
+JS
 dL
 dL
 dL
@@ -47211,7 +47287,7 @@ Fa
 Fa
 Fa
 Fa
-Fa
+Qo
 Fa
 hM
 Fa
@@ -51353,7 +51429,7 @@ Fa
 Fa
 sX
 Fa
-Fa
+XR
 Fa
 Fa
 RC
@@ -51844,7 +51920,7 @@ Fa
 Fa
 Fa
 Vg
-Fa
+XR
 zy
 Xs
 Wz
@@ -53645,7 +53721,7 @@ YI
 Hl
 KO
 Aw
-KO
+Rw
 Tm
 zy
 PG
