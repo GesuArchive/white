@@ -259,6 +259,13 @@
 			emergency = !emergency
 			update_icon()
 
+		if("shock")
+
+			if(isElectrified())
+				set_electrified(MACHINE_NOT_ELECTRIFIED)
+			else
+				set_electrified(MACHINE_DEFAULT_ELECTRIFY_TIME)
+
 /obj/machinery/door/airlock/lock()
 	bolt()
 
