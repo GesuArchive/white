@@ -649,9 +649,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
-"uJ" = (
-/turf/open/genturf,
-/area/maintenance/bottom_station_maints/north)
 "vr" = (
 /obj/machinery/porta_turret/ai{
 	dir = 4
@@ -1584,10 +1581,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
-"UV" = (
-/obj/machinery/door/firedoor,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/north)
 "Vi" = (
 /obj/machinery/holopad,
 /turf/open/floor/carpet,
@@ -1598,10 +1591,6 @@
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
-"Wc" = (
-/obj/machinery/light,
-/turf/open/genturf,
-/area/maintenance/bottom_station_maints/north)
 "Wg" = (
 /obj/structure/table,
 /obj/item/ai_module/core/full/asimov,
@@ -2905,15 +2894,15 @@ YS
 YS
 YS
 YS
-YS
-Ws
-Ws
-lr
-lr
-lr
-Ws
-Ws
-Ws
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (31,1,1) = {"
 ab
@@ -2943,15 +2932,15 @@ YS
 YS
 YS
 YS
-Ws
-Ws
-uJ
-uJ
-uJ
-uJ
-uJ
-uJ
-Ws
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (32,1,1) = {"
 ab
@@ -2981,15 +2970,15 @@ Zl
 Zl
 Zl
 Zl
-Ws
-uJ
-uJ
-uJ
-uJ
-uJ
-uJ
-uJ
-Ws
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (33,1,1) = {"
 ab
@@ -3019,15 +3008,15 @@ YS
 YS
 YS
 YS
-lr
-uJ
-uJ
-uJ
-uJ
-uJ
-uJ
-uJ
-UV
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (34,1,1) = {"
 ab
@@ -3057,15 +3046,15 @@ YS
 YS
 YS
 YS
-lr
-uJ
-uJ
-uJ
-uJ
-uJ
-uJ
-uJ
-Ws
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (35,1,1) = {"
 ab
@@ -3095,15 +3084,15 @@ YS
 YS
 YS
 YS
-Ws
-uJ
-uJ
-uJ
-uJ
-uJ
-uJ
-Wc
-Ws
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (36,1,1) = {"
 ab
@@ -3133,15 +3122,15 @@ YS
 YS
 YS
 YS
-Ws
-uJ
-uJ
-uJ
-uJ
-uJ
-uJ
-uJ
-Ws
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (37,1,1) = {"
 ab
@@ -3171,13 +3160,13 @@ lr
 Ws
 Ws
 Ws
-Ws
-Ws
-Ws
-Ws
-UV
-Ws
-Ws
-Ws
-Ws
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
