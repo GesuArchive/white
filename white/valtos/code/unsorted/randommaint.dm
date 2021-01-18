@@ -33,7 +33,14 @@
 		/mob/living/simple_animal/hostile/mimic = 1,
 		/mob/living/simple_animal/hostile/regalrat = 1,
 		/obj/effect/decal/cleanable/cum = 1,
-		/obj/effect/decal/cleanable/poo = 1
+		/obj/effect/decal/cleanable/poo = 1,
+		/obj/effect/spawner/lootdrop/space/languagebook = 1,
+		/obj/effect/spawner/lootdrop/space/fancytool = 1,
+		/obj/effect/spawner/lootdrop/space/fancytech = 1,
+		/obj/effect/spawner/lootdrop/space/cashmoney = 1,
+		/obj/effect/spawner/lootdrop/space/material = 1,
+		/obj/effect/spawner/lootdrop/space/syndiecosmetic = 1,
+		/obj/effect/spawner/lootdrop/decorative_material = 1
 	)
 
 	///Unique ID for this spawner
