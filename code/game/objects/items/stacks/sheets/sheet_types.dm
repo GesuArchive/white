@@ -655,9 +655,10 @@ GLOBAL_LIST_INIT(plastic_recipes, list(
 	new /datum/stack_recipe("пластиковые заслонки", /obj/structure/plasticflaps, 5, one_per_turf = TRUE, on_floor = TRUE, time = 40), \
 	new /datum/stack_recipe("бутылка для воды", /obj/item/reagent_containers/food/drinks/waterbottle/empty), \
 	new /datum/stack_recipe("большая бутылка для воды", /obj/item/reagent_containers/food/drinks/waterbottle/large/empty, 3), \
-	new /datum/stack_recipe("colo cups", /obj/item/reagent_containers/food/drinks/colocup, 1), \
+	new /datum/stack_recipe("пластиковый стакан", /obj/item/reagent_containers/food/drinks/colocup, 1), \
 	new /datum/stack_recipe("знак мокрый пол", /obj/item/clothing/suit/caution, 2), \
-	new /datum/stack_recipe("пустой настенный знак", /obj/item/sign, 1)))
+	new /datum/stack_recipe("пустой настенный знак", /obj/item/sign, 1), \
+	new /datum/stack_recipe("блистерная упаковка", /obj/item/storage/blister, 1)))
 
 /obj/item/stack/sheet/plastic
 	name = "пластик"

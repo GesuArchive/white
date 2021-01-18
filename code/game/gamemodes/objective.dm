@@ -367,8 +367,8 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 
 /datum/objective/hijack
 	name = "hijack"
-	explanation_text = "Захватить шаттл, чтобы ни один преданный экипаж Нанотрейзена не был на нём в живых."
-	team_explanation_text = "Захватить шаттл, чтобы ни один преданный экипаж Нанотрейзена не был на нём в живых."
+	explanation_text = "Захватить шаттл, чтобы ни один преданный член экипажа Нанотрейзен не был на нём в живых."
+	team_explanation_text = "Захватить шаттл, чтобы ни один преданный член экипажа Нанотрейзен не был на нём в живых."
 	martyr_compatible = FALSE //Technically you won't get both anyway.
 	/// Overrides the hijack speed of any antagonist datum it is on ONLY, no other datums are impacted.
 	var/hijack_speed_override = 1
