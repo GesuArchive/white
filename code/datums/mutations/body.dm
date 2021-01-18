@@ -132,7 +132,7 @@
 	name = "Tourette's Syndrome"
 	desc = "A chronic twitch that forces the user to scream bad words." //definitely needs rewriting
 	quality = NEGATIVE
-	text_gain_indication = "<span class='danger'>You twitch.</span>"
+	text_gain_indication = "<span class='danger'>Меня ДЁРГАЕТ.</span>"
 	synchronizer_coeff = 1
 
 /datum/mutation/human/tourettes/on_life()
@@ -142,7 +142,7 @@
 			if(1)
 				owner.emote("twitch")
 			if(2 to 3)
-				owner.say("[prob(50) ? ";" : ""][pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]", forced=name)
+				owner.say("[prob(50) ? ";" : ""][pick("ГОВНО", "МОЧА", "БЛЯТЬ", "ПИЗДА", "ХУЕСОС", "МАМУ ЕБАЛ", "СИСЬКИ")]!", forced=name)
 		var/x_offset_old = owner.pixel_x
 		var/y_offset_old = owner.pixel_y
 		var/x_offset = owner.pixel_x + rand(-2,2)
