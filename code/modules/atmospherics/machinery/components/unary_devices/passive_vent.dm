@@ -1,7 +1,7 @@
 /obj/machinery/atmospherics/components/unary/passive_vent
 	icon_state = "passive_vent_map-3"
 
-	name = "passive vent"
+	name = "пассивная вентиляция"
 	desc = "Это вентиляция без помпы."
 
 	can_unwrench = TRUE

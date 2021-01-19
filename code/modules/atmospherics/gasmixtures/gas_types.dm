@@ -186,7 +186,7 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 /datum/gas/proto_nitrate
 	id = "proto_nitrate"
 	specific_heat = 30
-	name = "Прото-нитрат"
+	name = "Протонитрат"
 	dangerous = TRUE
 	gas_overlay = "proto_nitrate"
 	moles_visible = MOLES_GAS_VISIBLE
@@ -220,7 +220,7 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 /datum/gas/antinoblium
 	id = "antinoblium"
 	specific_heat = 1
-	name = "Анти-нобилий"
+	name = "Антиноблий"
 	dangerous = TRUE
 	gas_overlay = "antinoblium"
 	moles_visible = MOLES_GAS_VISIBLE

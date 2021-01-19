@@ -1,6 +1,6 @@
 /obj/machinery/meter
-	name = "gas flow meter"
-	desc = "It measures something."
+	name = "расходомер газа"
+	desc = "Он что-то измеряет."
 	icon = 'icons/obj/atmospherics/pipes/meter.dmi'
 	icon_state = "meterX"
 	layer = GAS_PUMP_LAYER
@@ -24,11 +24,11 @@
 	target_layer = 4
 
 /obj/machinery/meter/atmos/atmos_waste_loop
-	name = "waste loop gas flow meter"
+	name = "расходомер отстойника"
 	id_tag = ATMOS_GAS_MONITOR_LOOP_ATMOS_WASTE
 
 /obj/machinery/meter/atmos/distro_loop
-	name = "distribution loop gas flow meter"
+	name = "расходомер распеределителя"
 	id_tag = ATMOS_GAS_MONITOR_LOOP_DISTRIBUTION
 
 /obj/machinery/meter/Destroy()
@@ -106,11 +106,11 @@
 	if (target)
 		var/datum/gas_mixture/environment = target.return_air()
 		if(environment)
-			. = "<hr>The pressure gauge reads [round(environment.return_pressure(), 0.01)] kPa; [round(environment.return_temperature(),0.01)] K ([round(environment.return_temperature()-T0C,0.01)]&deg;C)."
+			. = "<hr>Манометр показывает [round(environment.return_pressure(), 0.01)] кПа; [round(environment.return_temperature(),0.01)] K ([round(environment.return_temperature()-T0C,0.01)]&deg;C)."
 		else
-			. = "<hr>The sensor error light is blinking."
+			. = "<hr>Ошибка сенсора."
 	else
-		. = "<hr>The connect error light is blinking."
+		. = "<hr>Ошибка подключения."
 
 /obj/machinery/meter/examine(mob/user)
 	. = ..()
@@ -118,12 +118,12 @@
 
 /obj/machinery/meter/wrench_act(mob/user, obj/item/I)
 	..()
-	to_chat(user, "<span class='notice'>You begin to unfasten <b>[src.name]</b>...</span>")
+	to_chat(user, "<span class='notice'>Начинаю откручивать <b>[src.name]</b>...</span>")
 	if (I.use_tool(src, user, 40, volume=50))
 		user.visible_message(
-			"[user] unfastens <b>[src.name]</b>.",
-			"<span class='notice'>You unfasten <b>[src.name]</b>.</span>",
-			"<span class='hear'>You hear ratchet.</span>")
+			"[user] откручивает <b>[src.name]</b>.",
+			"<span class='notice'>Откручиваю <b>[src.name]</b>.</span>",
+			"<span class='hear'>Слышу трещотку.</span>")
 		deconstruct()
 	return TRUE
 

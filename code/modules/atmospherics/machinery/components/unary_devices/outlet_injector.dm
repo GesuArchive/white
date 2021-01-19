@@ -1,7 +1,7 @@
 /obj/machinery/atmospherics/components/unary/outlet_injector
 	icon_state = "inje_map-3"
 
-	name = "air injector"
+	name = "инжектор газа"
 	desc = "К нему прикручены вентиль и помпа."
 
 	use_power = IDLE_POWER_USE
@@ -34,7 +34,7 @@
 	if(can_interact(user))
 		volume_rate = MAX_TRANSFER_RATE
 		investigate_log("was set to [volume_rate] L/s by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, "<span class='notice'>You maximize the volume output on [src] to [volume_rate] L/s.</span>")
+		to_chat(user, "<span class='notice'>Выкручиваю выход инжектора к максимальному значению в [volume_rate] Л/с.</span>")
 		update_icon()
 	return ..()
 
@@ -182,7 +182,7 @@
 /obj/machinery/atmospherics/components/unary/outlet_injector/can_unwrench(mob/user)
 	. = ..()
 	if(. && on && is_operational)
-		to_chat(user, "<span class='warning'>You cannot unwrench [src], turn it off first!</span>")
+		to_chat(user, "<span class='warning'>Не могу открутить [src.name], сначала нужно выключить это!</span>")
 		return FALSE
 
 // mapping
@@ -212,83 +212,83 @@
 	volume_rate = MAX_TRANSFER_RATE
 
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/atmos_waste
-	name = "atmos waste outlet injector"
+	name = "инжектор отстойника"
 	id =  ATMOS_GAS_MONITOR_WASTE_ATMOS
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/engine_waste
-	name = "engine outlet injector"
+	name = "инжектор двигателя"
 	id = ATMOS_GAS_MONITOR_WASTE_ENGINE
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/toxin_input
-	name = "plasma tank input injector"
+	name = "инжектор в бак плазмы"
 	id = ATMOS_GAS_MONITOR_INPUT_TOX
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/oxygen_input
-	name = "oxygen tank input injector"
+	name = "инжектор в кислородный бак"
 	id = ATMOS_GAS_MONITOR_INPUT_O2
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/nitrogen_input
-	name = "nitrogen tank input injector"
+	name = "инжектор в бак азота"
 	id = ATMOS_GAS_MONITOR_INPUT_N2
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/mix_input
-	name = "mix tank input injector"
+	name = "инжектор в камеру смешивания"
 	id = ATMOS_GAS_MONITOR_INPUT_MIX
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/nitrous_input
-	name = "nitrous oxide tank input injector"
+	name = "инжектор в камеру закиси азота"
 	id = ATMOS_GAS_MONITOR_INPUT_N2O
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/air_input
-	name = "air mix tank input injector"
+	name = "инжектор в камеру воздушного микса"
 	id = ATMOS_GAS_MONITOR_INPUT_AIR
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/carbon_input
-	name = "carbon dioxide tank input injector"
+	name = "инжектор в камеру угарного газа"
 	id = ATMOS_GAS_MONITOR_INPUT_CO2
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/bz_input
-	name = "bz tank input injector"
+	name = "инжектор в камеру с газом БЗ"
 	id = ATMOS_GAS_MONITOR_INPUT_BZ
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/freon_input
-	name = "freon tank input injector"
+	name = "инжектор в камеру с фреоном"
 	id = ATMOS_GAS_MONITOR_INPUT_FREON
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/halon_input
-	name = "halon tank input injector"
+	name = "инжектор в камеру с галоном"
 	id = ATMOS_GAS_MONITOR_INPUT_HALON
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/healium_input
-	name = "healium tank input injector"
+	name = "инжектор в камеру с хилиумом"
 	id = ATMOS_GAS_MONITOR_INPUT_HEALIUM
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/hydrogen_input
-	name = "hydrogen tank input injector"
+	name = "инжектор в камеру с водородом"
 	id = ATMOS_GAS_MONITOR_INPUT_H2
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/hypernoblium_input
-	name = "hypernoblium tank input injector"
+	name = "инжектор в камеру с гипер-ноблием"
 	id = ATMOS_GAS_MONITOR_INPUT_HYPERNOBLIUM
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/miasma_input
-	name = "miasma tank input injector"
+	name = "инжектор в камеру с миазмой"
 	id = ATMOS_GAS_MONITOR_INPUT_MIASMA
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/nitryl_input
-	name = "nitryl tank input injector"
+	name = "инжектор в камеру с нитрилом"
 	id = ATMOS_GAS_MONITOR_INPUT_NO2
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/pluoxium_input
-	name = "pluoxium tank input injector"
+	name = "инжектор в камеру с плюоксием"
 	id = ATMOS_GAS_MONITOR_INPUT_PLUOXIUM
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/proto_nitrate_input
-	name = "proto-nitrate tank input injector"
+	name = "инжектор в камеру с протонитратом"
 	id = ATMOS_GAS_MONITOR_INPUT_PROTO_NITRATE
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/stimulum_input
-	name = "stimulum tank input injector"
+	name = "инжектор в камеру с стимулумом"
 	id = ATMOS_GAS_MONITOR_INPUT_STIMULUM
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/tritium_input
-	name = "tritium tank input injector"
+	name = "инжектор в камеру с триумом"
 	id = ATMOS_GAS_MONITOR_INPUT_TRITIUM
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/water_vapor_input
-	name = "water vapor tank input injector"
+	name = "инжектор в камеру с паром"
 	id = ATMOS_GAS_MONITOR_INPUT_H2O
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/zauker_input
-	name = "zauker tank input injector"
+	name = "инжектор в камеру с циклоном Б"
 	id = ATMOS_GAS_MONITOR_INPUT_ZAUKER
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/helium_input
-	name = "helium tank input injector"
+	name = "инжектор в камеру с гелием"
 	id = ATMOS_GAS_MONITOR_INPUT_HELIUM
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/antinoblium_input
-	name = "antinoblium tank input injector"
+	name = "инжектор в камеру с антиноблием"
 	id = ATMOS_GAS_MONITOR_INPUT_ANTINOBLIUM
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/incinerator_input
-	name = "incinerator chamber input injector"
+	name = "инжектор в камеру сжигателя"
 	id = ATMOS_GAS_MONITOR_INPUT_INCINERATOR
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/toxins_mixing_input
-	name = "toxins mixing input injector"
+	name = "инжектор в камеру смешивания токсинов"
 	id = ATMOS_GAS_MONITOR_INPUT_TOXINS_LAB

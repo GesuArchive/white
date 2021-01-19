@@ -65,7 +65,7 @@
 
 /// Cryo cell
 /obj/machinery/atmospherics/components/unary/cryo_cell
-	name = "cryo cell"
+	name = "криокамера"
 	icon = 'icons/obj/cryogenics.dmi'
 	icon_state = "pod-off"
 	density = TRUE
@@ -143,7 +143,7 @@
 /obj/machinery/atmospherics/components/unary/cryo_cell/examine(mob/user) //this is leaving out everything but efficiency since they follow the same idea of "better beaker, better results"
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += "<hr><span class='notice'>Дисплей: Efficiency at <b>[efficiency*100]%</b>.</span>"
+		. += "<hr><span class='notice'>Дисплей: Эффективность <b>[efficiency*100]%</b>.</span>"
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/Destroy()
 	vis_contents.Cut()
@@ -246,7 +246,7 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 				if(!treating_wounds) // if we have wounds and haven't already alerted the doctors we're only dealing with the wounds, let them know
 					treating_wounds = TRUE
 					playsound(src, 'sound/machines/cryo_warning.ogg', volume) // Bug the doctors.
-					var/msg = "Patient vitals fully recovered, continuing automated wound treatment."
+					var/msg = "Пациент почти здоров, продолжаю лечить раны."
 					radio.talk_into(src, msg, radio_channel)
 			else // otherwise if we were only treating wounds and now we don't have any, turn off treating_wounds so we can boot 'em out
 				treating_wounds = FALSE
@@ -254,9 +254,9 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 		if(!treating_wounds)
 			set_on(FALSE)
 			playsound(src, 'sound/machines/cryo_warning.ogg', volume) // Bug the doctors.
-			var/msg = "Patient fully restored."
+			var/msg = "Пациент полностью здоров."
 			if(autoeject) // Eject if configured.
-				msg += " Auto ejecting patient now."
+				msg += " Извлечение."
 				open_machine()
 			radio.talk_into(src, msg, radio_channel)
 			return
@@ -286,7 +286,7 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 	var/datum/gas_mixture/air1 = airs[1]
 
 	if(!nodes[1] || !airs[1] || air1.get_moles(/datum/gas/oxygen) < CRYO_MIN_GAS_MOLES) // Turn off if the machine won't work.
-		var/msg = "Insufficient cryogenic gas, shutting down."
+		var/msg = "Недостаточно криогенного газа, остановка."
 		radio.talk_into(src, msg, radio_channel)
 		set_on(FALSE)
 		return
@@ -325,7 +325,7 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 /obj/machinery/atmospherics/components/unary/cryo_cell/relaymove(mob/living/user, direction)
 	if(message_cooldown <= world.time)
 		message_cooldown = world.time + 50
-		to_chat(user, "<span class='warning'>[capitalize(src.name)]'s door won't budge!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] не поддаётся!</span>")
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/open_machine(drop = FALSE)
 	if(!state_open && !panel_open)
@@ -347,25 +347,25 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 /obj/machinery/atmospherics/components/unary/cryo_cell/container_resist_act(mob/living/user)
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
-	user.visible_message("<span class='notice'>You see [user] kicking against the glass of [src]!</span>", \
-		"<span class='notice'>You struggle inside [src], kicking the release with your foot... (this will take about [DisplayTimeText(CRYO_BREAKOUT_TIME)].)</span>", \
-		"<span class='hear'>You hear a thump from [src].</span>")
+	user.visible_message("<span class='notice'>[user] пинает стекло криокамеры пытаясь выбраться!</span>", \
+		"<span class='notice'>Пинаю стекло криокамеры пытаясь выбраться из неё... (это займёт примерно [DisplayTimeText(CRYO_BREAKOUT_TIME)].)</span>", \
+		"<span class='hear'>Слышу удар по стеклу криокамеры.</span>")
 	if(do_after(user, CRYO_BREAKOUT_TIME, target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src )
 			return
-		user.visible_message("<span class='warning'>[user] successfully broke out of [src]!</span>", \
-			"<span class='notice'>You successfully break out of [src]!</span>")
+		user.visible_message("<span class='warning'>[user] выбирается из криокамеры!</span>", \
+			"<span class='notice'>Успешно выбираюсь из криокамеры!</span>")
 		open_machine()
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/examine(mob/user)
 	. = ..()
 	if(occupant)
 		if(on)
-			. += "<hr>Someone's inside [src]!"
+			. += "<hr>Кто-то внутри криокамеры!"
 		else
-			. += "<hr>You can barely make out a form floating in [src]."
+			. += "<hr>Можно разглядеть кого-то в криокамере."
 	else
-		. += "<hr>[src] seems empty."
+		. += "<hr>Криокамера пустая."
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/MouseDrop_T(mob/target, mob/user)
 	if(user.incapacitated() || !Adjacent(user) || !user.Adjacent(target) || !iscarbon(target) || !ISADVANCEDTOOLUSER(user))
@@ -375,7 +375,7 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 		if(L.incapacitated())
 			close_machine(target)
 	else
-		user.visible_message("<span class='notice'>[user] starts shoving [target] inside [src].</span>", "<span class='notice'>You start shoving [target] inside [src].</span>")
+		user.visible_message("<span class='notice'>[user] начинает заталкивать [target] в криокамеру.</span>", "<span class='notice'>Начинаю заталкивать [target] в криокамеру.</span>")
 		if (do_after(user, 2.5 SECONDS, target=target))
 			close_machine(target)
 
@@ -383,13 +383,13 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 	if(istype(I, /obj/item/reagent_containers/glass))
 		. = 1 //no afterattack
 		if(beaker)
-			to_chat(user, "<span class='warning'>A beaker is already loaded into [src]!</span>")
+			to_chat(user, "<span class='warning'>Внутри криокамеры уже есть пробирка!</span>")
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 		beaker = I
-		user.visible_message("<span class='notice'>[user] places [I] in [src].</span>", \
-							"<span class='notice'>You place [I] in [src].</span>")
+		user.visible_message("<span class='notice'>[user] устанавливает [I.name] в слот криокамеры.</span>", \
+							"<span class='notice'>Устанавливаю [I.name] в слот криокамеры.</span>")
 		var/reagentlist = pretty_string_from_reagent_list(I.reagents.reagent_list)
 		log_game("[key_name(user)] added an [I] to cryo containing [reagentlist]")
 		return
@@ -400,11 +400,11 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 		update_icon()
 		return
 	else if(I.tool_behaviour == TOOL_SCREWDRIVER)
-		to_chat(user, "<span class='warning'>You can't access the maintenance panel while the pod is " \
-		+ (on ? "active" : (occupant ? "full" : "open")) + "!</span>")
+		to_chat(user, "<span class='warning'>Не могу получить доступ к технической панели, пока машина " \
+		+ (on ? "активна" : (occupant ? "содержит кого-то" : "открыта")) + "!</span>")
 		return
 	if(istype(I, /obj/item/card/id/departmental_budget/car))
-		var/proice = input("Please set a fair price", "Cryo", "Cancel") as null|num
+		var/proice = input("Выберем цену для работы", "Криокамера", "Отмена") as null|num
 		if(!proice)
 			fair_market_price = 0
 			return
@@ -412,7 +412,7 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 			fair_market_price = 0
 		else
 			fair_market_price = proice
-		to_chat(user, "<span class='notice'>Fair market price is now [fair_market_price] ancap$.")
+		to_chat(user, "<span class='notice'>Цена за использование теперь [fair_market_price] анкапобаксов.")
 		return
 	return ..()
 
@@ -439,16 +439,16 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 		data["occupant"]["name"] = mob_occupant.name
 		switch(mob_occupant.stat)
 			if(CONSCIOUS)
-				data["occupant"]["stat"] = "Conscious"
+				data["occupant"]["stat"] = "В сознании"
 				data["occupant"]["statstate"] = "good"
 			if(SOFT_CRIT)
-				data["occupant"]["stat"] = "Conscious"
+				data["occupant"]["stat"] = "В сознании"
 				data["occupant"]["statstate"] = "average"
 			if(UNCONSCIOUS, HARD_CRIT)
-				data["occupant"]["stat"] = "Unconscious"
+				data["occupant"]["stat"] = "Без сознания"
 				data["occupant"]["statstate"] = "average"
 			if(DEAD)
-				data["occupant"]["stat"] = "Dead"
+				data["occupant"]["stat"] = "Мёртв"
 				data["occupant"]["statstate"] = "bad"
 		data["occupant"]["health"] = round(mob_occupant.health, 1)
 		data["occupant"]["maxHealth"] = mob_occupant.maxHealth

@@ -3,8 +3,8 @@
 	icon = 'icons/obj/atmospherics/pipes/pressure_tank.dmi'
 	icon_state = "generic"
 
-	name = "pressure tank"
-	desc = "A large vessel containing pressurized gas."
+	name = "канистра"
+	desc = "Огромная канистра, которая содержит газ под большим давлением."
 
 	max_integrity = 800
 	density = TRUE
@@ -28,7 +28,7 @@
 
 /obj/machinery/atmospherics/components/unary/tank/air
 	icon_state = "grey"
-	name = "pressure tank (Air)"
+	name = "канистра (Воздух)"
 
 /obj/machinery/atmospherics/components/unary/tank/air/New()
 	..()

@@ -4,8 +4,8 @@
 	icon = 'icons/obj/atmospherics/pipes/he-manifold.dmi'
 	icon_state = "manifold4w-3"
 
-	name = "4-way pipe manifold"
-	desc = "A manifold composed of heat-exchanging pipes."
+	name = "четырёхсторонний теплоколлектор"
+	desc = "Коллектор из теплообменных труб."
 
 	initialize_directions = ALL_CARDINALS
 

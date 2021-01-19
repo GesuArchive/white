@@ -2,8 +2,8 @@
 	icon = 'icons/obj/atmospherics/pipes/he-simple.dmi'
 	icon_state = "pipe11-3"
 
-	name = "pipe"
-	desc = "A one meter section of heat-exchanging pipe."
+	name = "теплообменные трубки"
+	desc = "Участок теплообменных труб длиной в один метр."
 
 	dir = SOUTH
 	initialize_directions = SOUTH|NORTH

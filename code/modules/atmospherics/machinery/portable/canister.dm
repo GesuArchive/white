@@ -90,163 +90,163 @@
 		. += "<hr><span class='notice'>Эта канистра в режиме [mode].\nСтикер сбоку сообщает <b>МАКСИМАЛЬНОЕ ДАВЛЕНИЕ: [siunit_pressure(pressure_limit, 0)]</b>.</span>"
 
 /obj/machinery/portable_atmospherics/canister/nitrogen
-	name = "Nitrogen канистра"
-	desc = "Nitrogen gas. Reportedly useful for something."
+	name = "канистра с азотом"
+	desc = "Газообразный азот. Якобы полезно для чего-то."
 	icon_state = "red"
 	base_icon_state = "red"
 	gas_type = /datum/gas/nitrogen
 
 /obj/machinery/portable_atmospherics/canister/oxygen
-	name = "Oxygen канистра"
-	desc = "Oxygen. Necessary for human life."
+	name = "канистра с кислородом"
+	desc = "Кислород. Необходим для жизни человека."
 	icon_state = "blue"
 	base_icon_state = "blue"
 	gas_type = /datum/gas/oxygen
 
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide
-	name = "Carbon dioxide канистра"
-	desc = "Carbon dioxide. What the fuck is carbon dioxide?"
+	name = "канистра с угарным газом"
+	desc = "Углекислый газ. Что за хрень этот углекислый газ?"
 	icon_state = "black"
 	base_icon_state = "black"
 	gas_type = /datum/gas/carbon_dioxide
 
 /obj/machinery/portable_atmospherics/canister/toxins
-	name = "Plasma канистра"
-	desc = "Plasma gas. The reason YOU are here. Highly toxic."
+	name = "канистра с плазмой"
+	desc = "Плазменный газ. Причина, по которой ТЫ здесь. Сильно токсичен."
 	icon_state = "orange"
 	base_icon_state = "orange"
 	gas_type = /datum/gas/plasma
 
 /obj/machinery/portable_atmospherics/canister/bz
-	name = "\improper BZ канистра"
-	desc = "BZ, a powerful hallucinogenic nerve agent."
+	name = "канистра с БЗ"
+	desc = "БЗ, сильнодействующее галлюциногенное нервно-паралитическое средство."
 	icon_state = "purple"
 	base_icon_state = "purple"
 	gas_type = /datum/gas/bz
 
 /obj/machinery/portable_atmospherics/canister/nitrous_oxide
-	name = "Nitrous oxide канистра"
-	desc = "Nitrous oxide gas. Known to cause drowsiness."
+	name = "канистра с закисью азота"
+	desc = "Закись азота. Вызывает сонливость."
 	icon_state = "redws"
 	base_icon_state = "redws"
 	gas_type = /datum/gas/nitrous_oxide
 
 /obj/machinery/portable_atmospherics/canister/air
-	name = "Air канистра"
-	desc = "Pre-mixed air."
+	name = "канистра с воздухом"
+	desc = "То, чем ты сейчас дышишь."
 	icon_state = "grey"
 	base_icon_state = "grey"
 
 /obj/machinery/portable_atmospherics/canister/tritium
-	name = "Tritium канистра"
-	desc = "Tritium. Inhalation might cause irradiation."
+	name = "канистра с тритием"
+	desc = "Тритий. Вдыхание может вызвать облучение."
 	icon_state = "green"
 	base_icon_state = "green"
 	gas_type = /datum/gas/tritium
 
 /obj/machinery/portable_atmospherics/canister/nob
-	name = "Hyper-noblium канистра"
-	desc = "Hyper-Noblium. More noble than all other gases."
+	name = "канистра с гипер-ноблием"
+	desc = "Гипер-Ноблий. Благороднее всех остальных газов."
 	icon_state = "nob"
 	base_icon_state = "nob"
 	gas_type = /datum/gas/hypernoblium
 
 /obj/machinery/portable_atmospherics/canister/nitryl
-	name = "Nitryl канистра"
-	desc = "Nitryl gas. Feels great 'til the acid eats your lungs."
+	name = "канистра с нитрилом"
+	desc = "Нитрил-газ. Чувствуй себя прекрасно, пока кислота не съест твои легкие."
 	icon_state = "brown"
 	base_icon_state = "brown"
 	gas_type = /datum/gas/nitryl
 
 /obj/machinery/portable_atmospherics/canister/stimulum
-	name = "Stimulum канистра"
-	desc = "Stimulum. High energy gas, high energy people."
+	name = "канистра со стимулумом"
+	desc = "Стимул. Газ высокой энергии, люди высокой энергии."
 	icon_state = "darkpurple"
 	base_icon_state = "darkpurple"
 	gas_type = /datum/gas/stimulum
 
 /obj/machinery/portable_atmospherics/canister/pluoxium
-	name = "Pluoxium канистра"
-	desc = "Pluoxium. Like oxygen, but more bang for your buck."
+	name = "канистра с плюоксием"
+	desc = "Плюоксий. Как кислород, но с большей отдачей."
 	icon_state = "darkblue"
 	base_icon_state = "darkblue"
 	gas_type = /datum/gas/pluoxium
 
 /obj/machinery/portable_atmospherics/canister/water_vapor
-	name = "Water vapor канистра"
-	desc = "Water Vapor. We get it, you vape."
+	name = "канистра с паром"
+	desc = "Водяной пар. Мы поняли, ты вейпер."
 	icon_state = "water_vapor"
 	base_icon_state = "water_vapor"
 	gas_type = /datum/gas/water_vapor
 	filled = 1
 
 /obj/machinery/portable_atmospherics/canister/miasma
-	name = "Miasma канистра"
-	desc = "Miasma. Makes you wish your nose was blocked."
+	name = "канистра с миазмой"
+	desc = "Миазма. Вызывает желание отрезать нос."
 	icon_state = "miasma"
 	base_icon_state = "miasma"
 	gas_type = /datum/gas/miasma
 	filled = 1
 
 /obj/machinery/portable_atmospherics/canister/freon
-	name = "Freon канистра"
-	desc = "Freon. Can absorb heat"
+	name = "канистра с фреоном"
+	desc = "Фреон. Может поглощать тепло."
 	icon_state = "freon"
 	base_icon_state = "freon"
 	gas_type = /datum/gas/freon
 	filled = 1
 
 /obj/machinery/portable_atmospherics/canister/hydrogen
-	name = "Hydrogen канистра"
-	desc = "Hydrogen, highly flammable"
+	name = "канистра с водородом"
+	desc = "Водород, легковоспламеняющийся."
 	icon_state = "h2"
 	base_icon_state = "h2"
 	gas_type = /datum/gas/hydrogen
 	filled = 1
 
 /obj/machinery/portable_atmospherics/canister/healium
-	name = "Healium канистра"
-	desc = "Healium, causes deep sleep"
+	name = "канистра с хилиумом"
+	desc = "Хилиум, вызывает глубокий сон"
 	icon_state = "healium"
 	base_icon_state = "healium"
 	gas_type = /datum/gas/healium
 	filled = 1
 
 /obj/machinery/portable_atmospherics/canister/proto_nitrate
-	name = "Proto Nitrate канистра"
-	desc = "Proto Nitrate, reacts differently with various gases"
+	name = "канистра с протонитратом"
+	desc = "Протонитрат, по-разному реагирует с различными газами."
 	icon_state = "proto_nitrate"
 	base_icon_state = "proto_nitrate"
 	gas_type = /datum/gas/proto_nitrate
 	filled = 1
 
 /obj/machinery/portable_atmospherics/canister/zauker
-	name = "Zauker канистра"
-	desc = "Zauker, highly toxic"
+	name = "канистра с циклоном Б"
+	desc = "Невероятно токсичный газ, лучше не вдыхать."
 	icon_state = "zauker"
 	base_icon_state = "zauker"
 	gas_type = /datum/gas/zauker
 	filled = 1
 
 /obj/machinery/portable_atmospherics/canister/halon
-	name = "Halon канистра"
-	desc = "Halon, removes oxygen from high temperature fires and cools down the area"
+	name = "канистра с галоном"
+	desc = "Галон, удаляет кислород из высокотемпературных пожаров и охлаждает помещение."
 	icon_state = "halon"
 	base_icon_state = "halon"
 	gas_type = /datum/gas/halon
 	filled = 1
 
 /obj/machinery/portable_atmospherics/canister/helium
-	name = "Helium canister"
-	desc = "Helium, inert gas"
+	name = "канистра с гелием"
+	desc = "Гелий, инертный газ."
 	icon_state = "halon"
 	base_icon_state = "halon"
 	gas_type = /datum/gas/helium
 	filled = 1
 
 /obj/machinery/portable_atmospherics/canister/antinoblium
-	name = "Antinoblium canister"
-	desc = "Antinoblium, we still don't know what it does, but it sells for a lot"
+	name = "канистра с антиноблием"
+	desc = "Антиноблий, мы до сих пор не знаем, что он делает, но он очень дорого продается"
 	icon_state = "halon"
 	base_icon_state = "halon"
 	gas_type = /datum/gas/antinoblium
@@ -404,12 +404,12 @@
 		return TRUE
 	var/pressure = air_contents.return_pressure()
 	if(pressure > 300)
-		to_chat(user, "<span class='alert'>The pressure gauge on <b>[src.name]</b> indicates a high pressure inside... maybe you want to reconsider?</span>")
+		to_chat(user, "<span class='alert'>Индикаторы канистры сообщают о высоком давлении внутри... может стоит передумать?</span>")
 		message_admins("[src] deconstructed by [ADMIN_LOOKUPFLW(user)]")
 		log_game("[src] deconstructed by [key_name(user)]")
-	to_chat(user, "<span class='notice'>You begin cutting <b>[src.name]</b> apart...</span>")
+	to_chat(user, "<span class='notice'>Начинаю резать <b>[src.name]</b> на куски...</span>")
 	if(I.use_tool(src, user, 3 SECONDS, volume=50))
-		to_chat(user, "<span class='notice'>You cut <b>[src.name]</b> apart.</span>")
+		to_chat(user, "<span class='notice'>Режу <b>[src.name]</b> на куски.</span>")
 		deconstruct(TRUE)
 
 	return TRUE

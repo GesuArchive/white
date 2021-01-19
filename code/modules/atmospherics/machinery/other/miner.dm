@@ -6,8 +6,8 @@
 #define GASMINER_POWER_FULLSCALE 4
 
 /obj/machinery/atmospherics/miner
-	name = "gas miner"
-	desc = "Gasses mined from the gas giant below (above?) flow out through this massive vent."
+	name = "газодобытчик"
+	desc = "Газы, добываемые газовым гигантом внизу (вверху?) выходят через это массивное отверстие."
 	icon = 'icons/obj/atmospherics/components/miners.dmi'
 	icon_state = "miner"
 	density = FALSE
@@ -25,7 +25,7 @@
 	var/power_draw_dynamic_mol_coeff = 5	//DO NOT USE DYNAMIC SETTINGS UNTIL SOMEONE MAKES A USER INTERFACE/CONTROLLER FOR THIS!
 	var/power_draw_dynamic_kpa_coeff = 0.5
 	var/broken = FALSE
-	var/broken_message = "ERROR"
+	var/broken_message = "АШЫПКА"
 	idle_power_usage = 150
 	active_power_usage = 2000
 
@@ -36,32 +36,32 @@
 /obj/machinery/atmospherics/miner/examine(mob/user)
 	. = ..()
 	if(broken)
-		. += {"<hr>Its debug output is printing "[broken_message]"."}
+		. += {"<hr>Его отладка говорит "[broken_message]"."}
 
 /obj/machinery/atmospherics/miner/proc/check_operation()
 	if(!active)
 		return FALSE
 	var/turf/T = get_turf(src)
 	if(!isopenturf(T))
-		broken_message = "<span class='boldnotice'>VENT BLOCKED</span>"
+		broken_message = "<span class='boldnotice'>ВЕНТИЛЯЦИЯ ЗАБЛОКИРОВАНА</span>"
 		set_broken(TRUE)
 		return FALSE
 	var/turf/open/OT = T
 	if(OT.planetary_atmos)
-		broken_message = "<span class='boldwarning'>DEVICE NOT ENCLOSED IN A PRESSURIZED ENVIRONMENT</span>"
+		broken_message = "<span class='boldwarning'>УСТРОЙСТВО НЕ МОЖЕТ РАБОТАТЬ В ОТКРЫТОМ ПРОСТРАНСТВЕ</span>"
 		set_broken(TRUE)
 		return FALSE
 	if(isspaceturf(T))
-		broken_message = "<span class='boldnotice'>AIR VENTING TO SPACE</span>"
+		broken_message = "<span class='boldnotice'>ГАЗ УХОДИТ В КОСМОС</span>"
 		set_broken(TRUE)
 		return FALSE
 	var/datum/gas_mixture/G = OT.return_air()
 	if(G.return_pressure() > (max_ext_kpa - ((spawn_mol*spawn_temp*R_IDEAL_GAS_EQUATION)/(CELL_VOLUME))))
-		broken_message = "<span class='boldwarning'>EXTERNAL PRESSURE OVER THRESHOLD</span>"
+		broken_message = "<span class='boldwarning'>ВНЕШНЕЕ ДАВЛЕНИЕ КРИТИЧЕСКОЕ</span>"
 		set_broken(TRUE)
 		return FALSE
 	if(G.total_moles() > max_ext_mol)
-		broken_message = "<span class='boldwarning'>EXTERNAL AIR CONCENTRATION OVER THRESHOLD</span>"
+		broken_message = "<span class='boldwarning'>ВНЕШНЯЯ КОНЦЕНТРАЦИЯ ГАЗА КРИТИЧЕСКАЯ</span>"
 		set_broken(TRUE)
 		return FALSE
 	if(broken)
@@ -139,110 +139,110 @@
 
 /obj/machinery/atmospherics/miner/attack_ai(mob/living/silicon/user)
 	if(broken)
-		to_chat(user, "[src] seems to be broken. Its debug interface outputs: [broken_message]")
+		to_chat(user, "[capitalize(src.name)] неисправен. Отладка: [broken_message]")
 	..()
 
 /obj/machinery/atmospherics/miner/n2o
-	name = "\improper N2O Gas Miner"
+	name = "газодобытчик N2O"
 	overlay_color = "#FFCCCC"
 	spawn_id = /datum/gas/nitrous_oxide
 
 /obj/machinery/atmospherics/miner/nitrogen
-	name = "\improper N2 Gas Miner"
+	name = "газодобытчик N2"
 	overlay_color = "#CCFFCC"
 	spawn_id = /datum/gas/nitrogen
 
 /obj/machinery/atmospherics/miner/oxygen
-	name = "\improper O2 Gas Miner"
+	name = "газодобытчик O2"
 	overlay_color = "#007FFF"
 	spawn_id = /datum/gas/oxygen
 
 /obj/machinery/atmospherics/miner/toxins
-	name = "\improper Plasma Gas Miner"
+	name = "газодобытчик Плазмы"
 	overlay_color = "#FF0000"
 	spawn_id = /datum/gas/plasma
 
 /obj/machinery/atmospherics/miner/carbon_dioxide
-	name = "\improper CO2 Gas Miner"
+	name = "газодобытчик CO2"
 	overlay_color = "#CDCDCD"
 	spawn_id = /datum/gas/carbon_dioxide
 
 /obj/machinery/atmospherics/miner/bz
-	name = "\improper BZ Gas Miner"
+	name = "газодобытчик БЗ"
 	overlay_color = "#FAFF00"
 	spawn_id = /datum/gas/bz
 
 /obj/machinery/atmospherics/miner/water_vapor
-	name = "\improper Water Vapor Gas Miner"
+	name = "газодобытчик Пара"
 	overlay_color = "#99928E"
 	spawn_id = /datum/gas/water_vapor
 
 /obj/machinery/atmospherics/miner/freon
-	name = "\improper Freon Gas Miner"
+	name = "газодобытчик Фреона"
 	overlay_color = "#61edff"
 	spawn_id = /datum/gas/freon
 
 /obj/machinery/atmospherics/miner/halon
-	name = "\improper Halon Gas Miner"
+	name = "газодобытчик Галона"
 	overlay_color = "#5f0085"
 	spawn_id = /datum/gas/halon
 
 /obj/machinery/atmospherics/miner/healium
-	name = "\improper Healium Gas Miner"
+	name = "газодобытчик Хилиума"
 	overlay_color = "#da4646"
 	spawn_id = /datum/gas/healium
 
 /obj/machinery/atmospherics/miner/hydrogen
-	name = "\improper Hydrogen Gas Miner"
+	name = "газодобытчик Водорода"
 	overlay_color = "#ffffff"
 	spawn_id = /datum/gas/hydrogen
 
 /obj/machinery/atmospherics/miner/hypernoblium
-	name = "\improper Hypernoblium Gas Miner"
+	name = "газодобытчик Гипер-ноблия"
 	overlay_color = "#00f7ff"
 	spawn_id = /datum/gas/hypernoblium
 
 /obj/machinery/atmospherics/miner/miasma
-	name = "\improper Miasma Gas Miner"
+	name = "газодобытчик Миазмы"
 	overlay_color = "#395806"
 	spawn_id = /datum/gas/miasma
 
 /obj/machinery/atmospherics/miner/nitryl
-	name = "\improper Nitryl Gas Miner"
+	name = "газодобытчик Нитрила"
 	overlay_color = "#752b00"
 	spawn_id = /datum/gas/nitryl
 
 /obj/machinery/atmospherics/miner/pluoxium
-	name = "\improper Pluoxium Gas Miner"
+	name = "газодобытчик Плюоксия"
 	overlay_color = "#4b54a3"
 	spawn_id = /datum/gas/pluoxium
 
 /obj/machinery/atmospherics/miner/proto_nitrate
-	name = "\improper Proto-Nitrate Gas Miner"
+	name = "газодобытчик Протонитрата"
 	overlay_color = "#00571d"
 	spawn_id = /datum/gas/proto_nitrate
 
 /obj/machinery/atmospherics/miner/stimulum
-	name = "\improper Stimulum Gas Miner"
+	name = "газодобытчик Стимулума"
 	overlay_color = "#d577dd"
 	spawn_id = /datum/gas/stimulum
 
 /obj/machinery/atmospherics/miner/tritium
-	name = "\improper Tritium Gas Miner"
+	name = "газодобытчик Трития"
 	overlay_color = "#15ff00"
 	spawn_id = /datum/gas/tritium
 
 /obj/machinery/atmospherics/miner/zauker
-	name = "\improper Zauker Gas Miner"
+	name = "газодобытчик Циклона Б"
 	overlay_color = "#022e00"
 	spawn_id = /datum/gas/zauker
 
 /obj/machinery/atmospherics/miner/helium
-	name = "\improper Helium Gas Miner"
+	name = "газодобытчик Гелия"
 	overlay_color = "#022e00"
 	spawn_id = /datum/gas/helium
 
 /obj/machinery/atmospherics/miner/antinoblium
-	name = "\improper Antinoblium Gas Miner"
+	name = "газодобытчик Антиноблия"
 	overlay_color = "#022e00"
 	spawn_id = /datum/gas/antinoblium

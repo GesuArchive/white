@@ -1,6 +1,6 @@
 /obj/structure/trash_pile
 	name = "мусор"
-	desc = "Гора мусора. Здесь есть что-то интересно, верно?"
+	desc = "Гора мусора. Здесь есть что-то интересное, верно?"
 	icon = 'white/valtos/icons/trash_piles.dmi'
 	icon_state = "randompile"
 	density = TRUE

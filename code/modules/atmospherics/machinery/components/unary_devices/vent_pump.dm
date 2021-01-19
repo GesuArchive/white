@@ -299,13 +299,13 @@
 	..()
 	if(!I.tool_start_check(user, amount=0))
 		return TRUE
-	to_chat(user, "<span class='notice'>You begin welding the vent...</span>")
+	to_chat(user, "<span class='notice'>Начинаю заваривать вентиляцию...</span>")
 	if(I.use_tool(src, user, 20, volume=50))
 		if(!welded)
-			user.visible_message("<span class='notice'>[user] welds the vent shut.</span>", "<span class='notice'>You weld the vent shut.</span>", "<span class='hear'>Слышу сварку.</span>")
+			user.visible_message("<span class='notice'>[user] заваривает вентиляцию намертво.</span>", "<span class='notice'>Завариваю ветиляцию намертво.</span>", "<span class='hear'>Слышу сварку.</span>")
 			welded = TRUE
 		else
-			user.visible_message("<span class='notice'>[user] unwelded the vent.</span>", "<span class='notice'>You unweld the vent.</span>", "<span class='hear'>Слышу сварку.</span>")
+			user.visible_message("<span class='notice'>[user] разваривает вентиляцию.</span>", "<span class='notice'>Развариваю вентиляцию.</span>", "<span class='hear'>Слышу сварку.</span>")
 			welded = FALSE
 		update_icon()
 		pipe_vision_img = image(src, loc, layer = ABOVE_HUD_LAYER, dir = dir)
@@ -317,13 +317,13 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/can_unwrench(mob/user)
 	. = ..()
 	if(. && on && is_operational)
-		to_chat(user, "<span class='warning'>You cannot unwrench [src], turn it off first!</span>")
+		to_chat(user, "<span class='warning'>Не могу открутить [src.name], сначала нужно выключить это!</span>")
 		return FALSE
 
 /obj/machinery/atmospherics/components/unary/vent_pump/examine(mob/user)
 	. = ..()
 	if(welded)
-		. += "<hr>It seems welded shut."
+		. += "<hr>Она заварена намертво."
 
 /obj/machinery/atmospherics/components/unary/vent_pump/power_change()
 	. = ..()
@@ -335,7 +335,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/attack_alien(mob/user)
 	if(!welded || !(do_after(user, 20, target = src)))
 		return
-	user.visible_message("<span class='warning'>[user] furiously claws at [src]!</span>", "<span class='notice'>You manage to clear away the stuff blocking the vent.</span>", "<span class='hear'>You hear loud scraping noises.</span>")
+	user.visible_message("<span class='warning'>[user] яростно разрывает вентиляцию!</span>", "<span class='notice'>Удалось разблокировать доступ к вентиляции.</span>", "<span class='hear'>Слышу громкий лязг метала.</span>")
 	welded = FALSE
 	update_icon()
 	pipe_vision_img = image(src, loc, layer = ABOVE_HUD_LAYER, dir = dir)
@@ -405,77 +405,77 @@
 	icon_state = "vent_map_siphon_on-3"
 
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/toxin_output
-	name = "plasma tank output inlet"
+	name = "вентиляция из камеры с плазмой"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_TOX
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/oxygen_output
-	name = "oxygen tank output inlet"
+	name = "вентиляция из камеры с кислородом"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_O2
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/nitrogen_output
-	name = "nitrogen tank output inlet"
+	name = "вентиляция из камеры с азотом"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_N2
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/mix_output
-	name = "mix tank output inlet"
+	name = "вентиляция из камеры смешивания"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_MIX
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/nitrous_output
-	name = "nitrous oxide tank output inlet"
+	name = "вентиляция из камеры с закисью азота"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_N2O
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/carbon_output
-	name = "carbon dioxide tank output inlet"
+	name = "вентиляция из камеры с угарным газом"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_CO2
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/bz_output
-	name = "bz tank output inlet"
+	name = "вентиляция из камеры с БЗ"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_BZ
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/freon_output
-	name = "freon tank output inlet"
+	name = "вентиляция из камеры с фреоном"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_FREON
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/halon_output
-	name = "halon tank output inlet"
+	name = "вентиляция из камеры с галоном"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_HALON
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/healium_output
-	name = "healium tank output inlet"
+	name = "вентиляция из камеры с хилиумом"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_HEALIUM
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/hydrogen_output
-	name = "hydrogen tank output inlet"
+	name = "вентиляция из камеры с водородом"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_H2
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/hypernoblium_output
-	name = "hypernoblium tank output inlet"
+	name = "вентиляция из камеры с гипер-ноблием"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_HYPERNOBLIUM
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/miasma_output
-	name = "miasma tank output inlet"
+	name = "вентиляция из камеры с миазмой"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_MIASMA
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/nitryl_output
-	name = "nitryl tank output inlet"
+	name = "вентиляция из камеры с нитрилом"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_NO2
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/pluoxium_output
-	name = "pluoxium tank output inlet"
+	name = "вентиляция из камеры с плюоксием"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_PLUOXIUM
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/proto_nitrate_output
-	name = "proto-nitrate tank output inlet"
+	name = "вентиляция из камеры с протонитратом"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_PROTO_NITRATE
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/stimulum_output
-	name = "stimulum tank output inlet"
+	name = "вентиляция из камеры с стимулумом"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_STIMULUM
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/tritium_output
-	name = "tritium tank output inlet"
+	name = "вентиляция из камеры с тритием"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_TRITIUM
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/water_vapor_output
-	name = "water vapor tank output inlet"
+	name = "вентиляция из камеры с паром"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_H2O
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/zauker_output
-	name = "zauker tank output inlet"
+	name = "вентиляция из камеры с циклоном Б"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_ZAUKER
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/helium_output
-	name = "helium tank output inlet"
+	name = "вентиляция из камеры с гелием"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_HELIUM
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/antinoblium_output
-	name = "antinoblium tank output inlet"
+	name = "вентиляция из камеры с антиноблием"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_ANTINOBLIUM
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/incinerator_output
-	name = "incinerator chamber output inlet"
+	name = "вентиляция из камеры сжигателя"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_INCINERATOR
 	frequency = FREQ_ATMOS_CONTROL
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/toxins_mixing_output
-	name = "toxins mixing output inlet"
+	name = "вентиляция из камеры смешивания токсинов"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_TOXINS_LAB
 	frequency = FREQ_ATMOS_CONTROL
 
@@ -531,7 +531,7 @@
 	icon_state = "vent_map_siphon_on-2"
 
 /obj/machinery/atmospherics/components/unary/vent_pump/high_volume/siphon/atmos/air_output
-	name = "air mix tank output inlet"
+	name = "вентиляция из камеры микса воздуха"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_AIR
 
 #undef INT_BOUND

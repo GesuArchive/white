@@ -1,8 +1,8 @@
 /obj/machinery/atmospherics/pipe/layer_manifold
-	name = "layer adaptor"
+	name = "переходник"
 	icon = 'icons/obj/atmospherics/pipes/manifold.dmi'
 	icon_state = "manifoldlayer"
-	desc = "A special pipe to bridge pipe layers with."
+	desc = "Специальная труба для соединения разных слоёв труб."
 	dir = SOUTH
 	initialize_directions = NORTH|SOUTH
 	pipe_flags = PIPING_ALL_LAYER | PIPING_DEFAULT_LAYER_ONLY | PIPING_CARDINAL_AUTONORMALIZE
@@ -129,7 +129,7 @@
 		user.ventcrawl_layer = clamp(user.ventcrawl_layer + 1, PIPING_LAYER_MIN, PIPING_LAYER_MAX)
 	if((SOUTH|WEST) & direction)
 		user.ventcrawl_layer = clamp(user.ventcrawl_layer - 1, PIPING_LAYER_MIN, PIPING_LAYER_MAX)
-	to_chat(user, "You align yourself with the [user.ventcrawl_layer]\th output.")
+	to_chat(user, "Переключаюсь на слой [user.ventcrawl_layer].")
 
 /obj/machinery/atmospherics/pipe/layer_manifold/visible
 	hide = FALSE

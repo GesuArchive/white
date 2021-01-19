@@ -4,8 +4,8 @@
 	icon = 'icons/obj/atmospherics/pipes/he-manifold.dmi'
 	icon_state = "manifold-3"
 
-	name = "pipe manifold"
-	desc = "A manifold composed of regular pipes."
+	name = "теплотруба-коллектор"
+	desc = "Коллектор из теплообменных труб."
 
 	dir = SOUTH
 	initialize_directions = EAST|NORTH|WEST
