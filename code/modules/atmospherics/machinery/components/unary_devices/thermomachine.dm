@@ -125,8 +125,10 @@
 	if(temperature_delta > 1)
 		active_power_usage = (heat_capacity * temperature_delta) * 10 + idle_power_usage // лол
 		update_parents()
+		power_change()
 	else
 		active_power_usage = idle_power_usage
+		power_change()
 	return 1
 
 /obj/machinery/atmospherics/components/unary/thermomachine/attackby(obj/item/I, mob/user, params)
@@ -194,6 +196,7 @@
 		if("power")
 			on = !on
 			use_power = on ? ACTIVE_POWER_USE : IDLE_POWER_USE
+			power_change()
 			investigate_log("was turned [on ? "on" : "off"] by [key_name(usr)]", INVESTIGATE_ATMOS)
 			. = TRUE
 		if("cooling")
