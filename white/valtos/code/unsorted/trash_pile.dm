@@ -46,6 +46,7 @@
 		"trashbag",
 		"brokecomp",
 	)
+	AddElement(/datum/element/swabable, CELL_LINE_TABLE_SLUDGE, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 10)
 
 /obj/structure/trash_pile/proc/do_search(mob/user)
 	if(contents.len) //There's something hidden
