@@ -114,7 +114,7 @@
 			log_game("[key_name(user)] activated a hidden grenade in [src].")
 			grenade.arm_grenade(user, msg = FALSE, volume = 10)
 	else
-		to_chat(user, "<span class='notice'>You try to pet [src], but it has no stuffing. Aww...</span>")
+		to_chat(user, "<span class='notice'>Пытаюсь pet [src], but it has no stuffing. Aww...</span>")
 
 /obj/item/toy/plush/attackby(obj/item/I, mob/living/user, params)
 	if(I.get_sharpness())

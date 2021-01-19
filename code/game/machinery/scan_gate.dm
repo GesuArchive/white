@@ -78,7 +78,7 @@
 			req_access = access
 			locked = TRUE
 		else
-			to_chat(user, "<span class='warning'>You try to lock [src] with [W], but nothing happens.</span>")
+			to_chat(user, "<span class='warning'>Пытаюсь lock [src] with [W], but nothing happens.</span>")
 	else
 		return ..()
 

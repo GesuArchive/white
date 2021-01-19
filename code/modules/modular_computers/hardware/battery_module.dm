@@ -32,7 +32,7 @@
 		return FALSE
 
 	if(battery)
-		to_chat(user, "<span class='warning'>You try to connect \the [I] to <b>[src.name]</b>, but its connectors are occupied.</span>")
+		to_chat(user, "<span class='warning'>Пытаюсь connect \the [I] to <b>[src.name]</b>, but its connectors are occupied.</span>")
 		return FALSE
 
 	if(I.w_class > holder.max_hardware_size)

@@ -28,7 +28,7 @@
 		return FALSE
 
 	if(stored_card)
-		to_chat(user, "<span class='warning'>You try to insert \the [I] into <b>[src.name]</b>, but the slot is occupied.</span>")
+		to_chat(user, "<span class='warning'>Пытаюсь insert \the [I] into <b>[src.name]</b>, but the slot is occupied.</span>")
 		return FALSE
 	if(user && !user.transferItemToLoc(I, src))
 		return FALSE

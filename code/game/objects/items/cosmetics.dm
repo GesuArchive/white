@@ -142,7 +142,7 @@
 					if(!get_location_accessible(H, location))
 						to_chat(user, "<span class='warning'>The mask is in the way!</span>")
 						return
-					user.visible_message("<span class='notice'>[user] tries to change [H]'s facial hairstyle using [src].</span>", "<span class='notice'>You try to change [H]'s facial hairstyle using [src].</span>")
+					user.visible_message("<span class='notice'>[user] tries to change [H]'s facial hairstyle using [src].</span>", "<span class='notice'>Пытаюсь change [H]'s facial hairstyle using [src].</span>")
 					if(new_style && do_after(user, 60, target = H))
 						user.visible_message("<span class='notice'>[user] successfully changes [H]'s facial hairstyle using [src].</span>", "<span class='notice'>You successfully change [H]'s facial hairstyle using [src].</span>")
 						H.facial_hairstyle = new_style
@@ -191,7 +191,7 @@
 				if(HAS_TRAIT(H, TRAIT_BALD))
 					to_chat(H, "<span class='warning'>[H] is just way too bald. Like, really really bald.</span>")
 					return
-				user.visible_message("<span class='notice'>[user] tries to change [H]'s hairstyle using [src].</span>", "<span class='notice'>You try to change [H]'s hairstyle using [src].</span>")
+				user.visible_message("<span class='notice'>[user] tries to change [H]'s hairstyle using [src].</span>", "<span class='notice'>Пытаюсь change [H]'s hairstyle using [src].</span>")
 				if(new_style && do_after(user, 60, target = H))
 					user.visible_message("<span class='notice'>[user] successfully changes [H]'s hairstyle using [src].</span>", "<span class='notice'>You successfully change [H]'s hairstyle using [src].</span>")
 					H.hairstyle = new_style

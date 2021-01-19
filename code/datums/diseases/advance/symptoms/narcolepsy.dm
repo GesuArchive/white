@@ -49,7 +49,7 @@ Bonus
 				to_chat(M, "<span class='warning'>You feel very tired.</span>")
 		if(3)
 			if(prob(50))
-				to_chat(M, "<span class='warning'>You try to focus on staying awake.</span>")
+				to_chat(M, "<span class='warning'>Пытаюсь focus on staying awake.</span>")
 			if(M.drowsyness < 70)
 				M.drowsyness += 5
 		if(4)

@@ -425,7 +425,7 @@
 
 /obj/item/nullrod/sord/suicide_act(mob/user) //a near-exact copy+paste of the actual sord suicide_act()
 	user.visible_message("<span class='suicide'>[user] пытается impale [user.ru_na()]self with [src]! It might be a suicide attempt if it weren't so HOLY.</span>", \
-	"<span class='suicide'>You try to impale yourself with [src], but it's TOO HOLY...</span>")
+	"<span class='suicide'>Пытаюсь impale yourself with [src], but it's TOO HOLY...</span>")
 	return SHAME
 
 /obj/item/nullrod/scythe

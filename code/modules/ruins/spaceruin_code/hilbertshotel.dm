@@ -88,7 +88,7 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 		// The item should be on the user or in the user's inventory somewhere.
 		// However, if they're not holding it, it may be in a pocket? In a backpack? Who knows! Still, they can't just drop it to the floor anymore...
 		if(!user.get_held_index_of_item(src))
-			to_chat(user, "<span class='warning'>You try to drop <b>[src.name]</b>, but it's too late! It's no longer in your hands! Prepare for unforeseen consequences...</span>")
+			to_chat(user, "<span class='warning'>Пытаюсь drop <b>[src.name]</b>, but it's too late! It's no longer in your hands! Prepare for unforeseen consequences...</span>")
 		// Okay, so they HAVE to be holding it here, because it's in their hand from the above check. Try to drop the item and if it fails, oh dear...
 		else if(!user.dropItemToGround(src))
 			to_chat(user, "<span class='warning'>You can't seem to drop <b>[src.name]</b>! It must be stuck to your hand somehow! Prepare for unforeseen consequences...</span>")

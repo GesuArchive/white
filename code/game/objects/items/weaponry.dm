@@ -49,7 +49,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 
 /obj/item/sord/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] пытается impale [user.ru_na()]self with [src]! It might be a suicide attempt if it weren't so shitty.</span>", \
-	"<span class='suicide'>You try to impale yourself with [src], but it's USELESS...</span>")
+	"<span class='suicide'>Пытаюсь impale yourself with [src], but it's USELESS...</span>")
 	return SHAME
 
 /obj/item/claymore

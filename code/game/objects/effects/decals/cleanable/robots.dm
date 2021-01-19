@@ -1,8 +1,8 @@
 // Note: BYOND is object oriented. There is no reason for this to be copy/pasted blood code.
 
 /obj/effect/decal/cleanable/robot_debris
-	name = "robot debris"
-	desc = "It's a useless heap of junk... <i>or is it?</i>"
+	name = "куски робота"
+	desc = "Это бесполезная куча мусора... <i>или нет?</i>"
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "gib1"
 	layer = LOW_OBJ_LAYER
@@ -60,8 +60,8 @@
 	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6", "gib7","gibdown1","gibdown1")
 
 /obj/effect/decal/cleanable/oil
-	name = "motor oil"
-	desc = "It's black and greasy. Looks like Beepsky made another mess."
+	name = "моторное масло"
+	desc = "Чёрное и грязное. Видимо Бипскай снова нагадил."
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "floor1"
 	random_icon_states = list("floor1", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7")
@@ -77,7 +77,7 @@
 /obj/effect/decal/cleanable/oil/attackby(obj/item/I, mob/living/user)
 	var/attacked_by_hot_thing = I.get_temperature()
 	if(attacked_by_hot_thing)
-		visible_message("<span class='warning'>[user] tries to ignite [src] with [I]!</span>", "<span class='warning'>You try to ignite [src] with [I].</span>")
+		visible_message("<span class='warning'>[user] пытается поджечь [src.name] используя [I]!</span>", "<span class='warning'>Пытаюсь поджечь [src.name] используя [I].</span>")
 		log_combat(user, src, (attacked_by_hot_thing < 480) ? "tried to ignite" : "ignited", I)
 		fire_act(attacked_by_hot_thing)
 		return
@@ -86,7 +86,7 @@
 /obj/effect/decal/cleanable/oil/fire_act(exposed_temperature, exposed_volume)
 	if(exposed_temperature < 480)
 		return
-	visible_message("<span class='danger'>[capitalize(src.name)] catches fire!</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] загорается!</span>")
 	var/turf/T = get_turf(src)
 	qdel(src)
 	new /obj/effect/hotspot(T)

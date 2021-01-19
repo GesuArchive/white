@@ -127,7 +127,7 @@
 		colorize(null)
 	else
 		log_combat(user, victim, "tried to force a hot potato with explosive variables ([detonate_explosion]-[detonate_dev_range]/[detonate_heavy_range]/[detonate_light_range]/[detonate_flash_range]/[detonate_fire_range]) onto")
-		user.visible_message("<span class='boldwarning'>[user] tried to force [src] onto [victim], but it could not attach!</span>", "<span class='boldwarning'>You try to force [src] onto [victim], but it is unable to attach!</span>", "<span class='boldwarning'>You hear a mechanical click and two buzzes.</span>")
+		user.visible_message("<span class='boldwarning'>[user] tried to force [src] onto [victim], but it could not attach!</span>", "<span class='boldwarning'>Пытаюсь force [src] onto [victim], but it is unable to attach!</span>", "<span class='boldwarning'>You hear a mechanical click and two buzzes.</span>")
 		user.put_in_hands(src)
 
 /obj/item/hot_potato/dropped(mob/user)

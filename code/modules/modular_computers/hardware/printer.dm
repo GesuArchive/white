@@ -41,7 +41,7 @@
 /obj/item/computer_hardware/printer/try_insert(obj/item/I, mob/living/user = null)
 	if(istype(I, /obj/item/paper))
 		if(stored_paper >= max_paper)
-			to_chat(user, "<span class='warning'>You try to add \the [I] into [src], but its paper bin is full!</span>")
+			to_chat(user, "<span class='warning'>Пытаюсь add \the [I] into [src], but its paper bin is full!</span>")
 			return FALSE
 
 		if(user && !user.temporarilyRemoveItemFromInventory(I))

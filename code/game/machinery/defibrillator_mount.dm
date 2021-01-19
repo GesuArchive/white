@@ -156,7 +156,7 @@
 		to_chat(user, "<span class='warning'>It'd be hard to remove a defib unit from a mount that has none.</span>")
 		return
 	if(clamps_locked)
-		to_chat(user, "<span class='warning'>You try to tug out [defib], but the mount's clamps are locked tight!</span>")
+		to_chat(user, "<span class='warning'>Пытаюсь tug out [defib], but the mount's clamps are locked tight!</span>")
 		return
 	if(!user.put_in_hands(defib))
 		to_chat(user, "<span class='warning'>You need a free hand!</span>")
