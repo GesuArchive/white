@@ -40,7 +40,8 @@
 		/obj/effect/spawner/lootdrop/space/cashmoney = 1,
 		/obj/effect/spawner/lootdrop/space/material = 1,
 		/obj/effect/spawner/lootdrop/space/syndiecosmetic = 1,
-		/obj/effect/spawner/lootdrop/decorative_material = 1
+		/obj/effect/spawner/lootdrop/decorative_material = 1,
+		/obj/structure/trash_pile = 3
 	)
 
 	///Unique ID for this spawner
