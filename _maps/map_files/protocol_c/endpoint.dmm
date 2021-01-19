@@ -435,8 +435,9 @@
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/two)
 "bI" = (
-/turf/open/floor/holofloor/plating/burnmix,
-/area/space)
+/obj/effect/decal/cleanable/glitter/pink,
+/turf/open/floor/holofloor/plating,
+/area/holodeck/rec_center/burn)
 "bJ" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -2291,8 +2292,9 @@
 /area/holodeck/rec_center/pet_lounge)
 "iU" = (
 /obj/effect/holodeck_effect/sparks,
-/turf/open/floor/holofloor/plating/burnmix,
-/area/space)
+/obj/effect/decal/cleanable/glitter/pink,
+/turf/open/floor/holofloor/plating,
+/area/holodeck/rec_center/burn)
 "iV" = (
 /obj/item/weldingtool,
 /turf/open/floor/holofloor/plating,
@@ -2455,6 +2457,10 @@
 /obj/machinery/readybutton,
 /turf/open/floor/holofloor/basalt,
 /area/holodeck/rec_center/thunderdome)
+"jV" = (
+/obj/structure/rospilovo/yashik/yaskik_a/big,
+/turf/open/floor/plating/asteroid/snow/centcom,
+/area/centcom/evac)
 "jZ" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -4058,6 +4064,10 @@
 /obj/effect/turf_decal/trimline/neutral/line,
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"sL" = (
+/obj/effect/landmark/mafia_game_area,
+/turf/open/space/basic,
+/area/space)
 "sM" = (
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/tile/blue{
@@ -6833,6 +6843,10 @@
 /obj/structure/closet/crate,
 /turf/open/floor/plasteel/cafeteria,
 /area/centcom/holding)
+"Fp" = (
+/obj/structure/rospilovo/musor_yashik/green/full,
+/turf/open/floor/plating/asteroid/snow/centcom,
+/area/centcom/evac)
 "Fq" = (
 /obj/structure/closet/chefcloset,
 /turf/open/floor/plasteel/cafeteria,
@@ -8775,6 +8789,10 @@
 /obj/structure/shuttle/engine/propulsion,
 /turf/open/space/basic,
 /area/wizard_station)
+"Nl" = (
+/obj/structure/trash_pile,
+/turf/open/floor/plating/asteroid/snow/centcom,
+/area/centcom/evac)
 "Nm" = (
 /obj/structure/chair/stool,
 /turf/open/floor/plasteel/dark,
@@ -9544,6 +9562,10 @@
 	},
 /turf/open/floor/holofloor,
 /area/holodeck/rec_center/court)
+"Rp" = (
+/obj/structure/rospilovo/musor_yashik/red,
+/turf/open/floor/plating/asteroid/snow/centcom,
+/area/centcom/evac)
 "Rx" = (
 /obj/item/clothing/shoes/winterboots{
 	pixel_y = 12
@@ -9635,6 +9657,10 @@
 /obj/effect/turf_decal/tile/green,
 /turf/open/floor/holofloor,
 /area/holodeck/rec_center/firingrange)
+"RV" = (
+/obj/structure/rospilovo/yashik,
+/turf/open/floor/plating/asteroid/snow/centcom,
+/area/centcom/evac)
 "RY" = (
 /obj/machinery/vending/autodrobe/all_access,
 /turf/open/floor/holofloor/carpet,
@@ -9884,6 +9910,10 @@
 	},
 /turf/open/floor/plating,
 /area/centcom/control)
+"Ts" = (
+/obj/structure/rospilovo/yashik/yaskik_a,
+/turf/open/floor/plating/asteroid/snow/centcom,
+/area/centcom/evac)
 "Tt" = (
 /obj/structure/sink{
 	dir = 4;
@@ -10288,6 +10318,10 @@
 /obj/item/book/manual/chef_recipes,
 /turf/open/floor/plasteel/cafeteria,
 /area/centcom/holding)
+"VB" = (
+/obj/structure/rospilovo/musor_yashik/green,
+/turf/open/floor/plating/asteroid/snow/centcom,
+/area/centcom/evac)
 "VD" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -25111,10 +25145,10 @@ hA
 hA
 hA
 ZT
-ZT
-ZT
 hD
-ZT
+hD
+hD
+hD
 ZT
 ZT
 hA
@@ -25368,7 +25402,7 @@ Co
 Co
 hA
 hA
-hA
+hG
 hG
 hG
 hG
@@ -25624,9 +25658,9 @@ Co
 Co
 Co
 Co
-Co
 hA
-hA
+hG
+hG
 hG
 hA
 hA
@@ -25881,9 +25915,9 @@ Co
 Co
 Co
 Co
-Co
-Co
 hA
+hG
+hG
 hG
 hA
 Co
@@ -26138,9 +26172,9 @@ Co
 Co
 Co
 Co
-Co
-Co
 hA
+hG
+hG
 hG
 hA
 Co
@@ -26395,12 +26429,12 @@ Co
 Co
 Co
 Co
-Co
-Co
 hA
 hG
+hG
+hG
 hA
-Co
+hA
 Co
 Co
 Co
@@ -26652,12 +26686,12 @@ Co
 Co
 Co
 Co
-Co
-Co
 hA
 hG
+hG
+hG
+Nl
 hA
-Co
 Co
 Co
 Co
@@ -26909,12 +26943,12 @@ Co
 Co
 Co
 Co
-Co
-Co
 hA
 hG
+hG
+hG
+hG
 hA
-Co
 Co
 Co
 Co
@@ -27166,12 +27200,12 @@ Co
 Co
 Co
 Co
-Co
-Co
 hA
 hG
+hG
+hG
+hG
 hA
-Co
 Co
 Co
 Co
@@ -27423,12 +27457,12 @@ Co
 Co
 Co
 Co
-Co
-Co
 hA
 hG
+hG
+hG
+hG
 hA
-Co
 Co
 Co
 Co
@@ -27680,12 +27714,12 @@ Co
 Co
 Co
 Co
-Co
-Co
 hA
 hG
+hG
+hG
+hG
 hA
-Co
 Co
 Co
 Co
@@ -27936,13 +27970,13 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
+hA
 hA
 hG
+hG
+hG
+hG
 hA
-Co
 Co
 Co
 Co
@@ -28193,13 +28227,13 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
 hA
 hG
+hG
+hG
+hG
+hG
 hA
-Co
 Co
 Co
 Co
@@ -28450,13 +28484,13 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
 hA
 hG
+hG
+hG
+hG
+hG
 hA
-Co
 Co
 Co
 Co
@@ -28707,13 +28741,13 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
 hA
 hG
+hG
+hG
+hG
+hG
 hA
-Co
 Co
 Co
 Co
@@ -28963,14 +28997,14 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
+hA
 hA
 hG
+hG
+hG
+hG
+hG
 hA
-Co
 Co
 Co
 Co
@@ -29220,14 +29254,14 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
 hA
 hG
+hG
+hG
+hG
+hG
+hG
 hA
-Co
 Co
 Co
 Co
@@ -29477,14 +29511,14 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
 hA
 hG
+hG
+hG
+hG
+hG
+hG
 hA
-Co
 Co
 Co
 Co
@@ -29734,14 +29768,14 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
 hA
 hG
+hG
+hG
+hG
+hG
+hG
 hA
-Co
 Co
 Co
 Co
@@ -29991,14 +30025,14 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
 hA
 hG
+hG
+hG
+hG
+hG
 hA
-Co
+hA
 Co
 Co
 Co
@@ -30248,11 +30282,11 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
 hA
-hA
+hG
+hG
+hG
+hG
 hG
 hA
 Co
@@ -30505,10 +30539,10 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
 hA
+hG
+hG
+hG
 hG
 hG
 hA
@@ -30762,10 +30796,10 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
 hA
+hG
+hG
+hG
 hG
 hG
 hA
@@ -31019,12 +31053,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
 hA
 hG
 hG
+hG
+hG
+VB
 hA
 Co
 Co
@@ -31276,10 +31310,10 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
 hA
+hG
+hG
+hG
 hG
 hA
 hA
@@ -31533,10 +31567,10 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
 hA
+hG
+hG
+hG
 hG
 hA
 Co
@@ -31790,10 +31824,10 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
 hA
+hA
+hG
+hG
 hG
 hA
 Co
@@ -32048,9 +32082,9 @@ Co
 Co
 Co
 Co
-Co
-Co
 hA
+hG
+hG
 hG
 hA
 hA
@@ -32305,13 +32339,13 @@ Co
 Co
 Co
 Co
-Co
-Co
 hA
 hG
 hG
 hG
 hG
+Nl
+Nl
 hA
 Co
 Co
@@ -32561,13 +32595,13 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
 hA
 hA
-hA
-hA
+hG
+hG
+hG
+hG
+hG
 hG
 hA
 hA
@@ -32817,16 +32851,16 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
 hA
 hG
 hG
+hG
+hG
+hG
+hG
+hG
+Nl
 hA
 Co
 Co
@@ -33074,14 +33108,14 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
 hA
-hA
+hG
+hG
+hG
+hG
+hG
+hG
+hG
 hG
 hG
 hA
@@ -33331,13 +33365,13 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
 hA
-hA
+hG
+hG
+hG
+hG
+hG
+hG
 hG
 hG
 hA
@@ -33589,13 +33623,13 @@ Co
 Co
 hA
 hA
-hA
-hA
-hA
-hA
-hA
 hG
 hG
+hG
+hG
+hG
+hG
+Nl
 hA
 hA
 Co
@@ -36414,7 +36448,7 @@ hA
 hG
 hG
 hG
-hG
+Nl
 hA
 Co
 Co
@@ -38981,7 +39015,7 @@ hG
 hG
 hG
 hG
-hG
+Fp
 hA
 Co
 Co
@@ -42566,7 +42600,7 @@ Co
 Co
 Co
 hA
-hG
+RV
 hG
 hG
 hA
@@ -46430,7 +46464,7 @@ Co
 Co
 Co
 hA
-hG
+Ts
 hG
 hG
 hA
@@ -47976,7 +48010,7 @@ Co
 Co
 Co
 hA
-hG
+Nl
 hG
 hA
 Co
@@ -49510,7 +49544,7 @@ Co
 Co
 hA
 hA
-hG
+Rp
 hA
 hG
 hG
@@ -53348,7 +53382,7 @@ hG
 hA
 hA
 hA
-hG
+jV
 hA
 hG
 hG
@@ -68074,7 +68108,7 @@ Co
 Co
 Co
 Co
-Co
+sL
 Co
 Co
 Co
