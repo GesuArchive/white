@@ -297,7 +297,7 @@ GLOBAL_VAR_INIT(hub_mimic, FALSE)
 
 	if(!GLOB.hub_mimic)
 		s += "<big><b>White Dream: /tg/</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/9uJ7dmM\">DISCORD</a>\n\n"
-		s += "WHY: AdaptiveRP, Economy, Cyberpunk, NO LAGS, Friendly Admins and more!\n\n"
+		s += "<img src='https://assets.station13.ru/l/w[rand(1, 2)].gif'>\n\n"
 		s += "\[<big>Pycc&kcy;&icy;e &icy;&dcy;y&tcy;!</big>"
 	else
 		s += "<a href=\"https://discord.gg/9uJ7dmM\" rel=\"nofollow\"><b>SS13-CM - RU EDITION NO LAGS USS Almayer</b><br>\n<img src=\"https://cm-ss13.com//byond_hub_logo.jpg\"></a>"
