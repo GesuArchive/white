@@ -5,6 +5,11 @@
 #define METACOIN_NOTSURVIVE_REWARD       5  // за смерть, если дождался конца раунда
 #define METACOIN_TENMINUTELIVING_REWARD  1  // за каждые 10 минут жизни
 
+// Награды за заказы в гражданском терминале заказов
+#define METACOIN_BOUNTY_REWARD_HARD		 rand(10, 15)  	// за сложный выполненный заказ
+#define METACOIN_BOUNTY_REWARD_NORMAL	 rand(5, 10)  	// за обычный выполненный заказ
+#define METACOIN_BOUNTY_REWARD_EASY		 rand(1, 5)		// за лёгкий выполненный заказ
+
 // Отрицательные награды
 #define METACOIN_TEETH_REWARD      		-10  // потеря зубика
 #define METACOIN_BADWORDS_REWARD        -50  // сказал плохое слово

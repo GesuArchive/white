@@ -102,9 +102,15 @@
 		reward.bounty_value = curr_bounty.reward
 		reward.bounty_name = curr_bounty.name
 		reward.bounty_holder = inserted_scan_id.registered_name
-		reward.name = "\improper [reward.bounty_value] cr [reward.name]"
-		reward.desc += " The tag indicates it was [reward.bounty_holder]'s reward for completing the <i>[reward.bounty_name]</i> bounty and that it was created at [station_time_timestamp(format = "hh:mm")]."
+		reward.name = "[reward.name] [reward.bounty_value] кредитов "
+		reward.desc += " Бирка указывает, что этот куб принадлежит [reward.bounty_holder] за выполнение заказа <i>[reward.bounty_name]</i> которые было принято в [station_time_timestamp(format = "hh:mm")]."
 		reward.AddComponent(/datum/component/pricetag, inserted_scan_id.registered_account, 30)
+		if(curr_bounty.reward <= 10000)
+			inc_metabalance(usr, METACOIN_BOUNTY_REWARD_EASY, reason="Лёгкий заказ выполнен!")
+		if(curr_bounty.reward >= 10001 && curr_bounty.reward <= 20000)
+			inc_metabalance(usr, METACOIN_BOUNTY_REWARD_NORMAL, reason="Обычный заказ выполнен!")
+		if(curr_bounty.reward >= 20001)
+			inc_metabalance(usr, METACOIN_BOUNTY_REWARD_HARD, reason="Сложный заказ выполнен!")
 	pad.visible_message("<span class='notice'>[capitalize(pad.name)] активируется!</span>")
 	flick(pad.sending_state,pad)
 	pad.icon_state = pad.idle_state

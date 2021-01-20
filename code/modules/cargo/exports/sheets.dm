@@ -82,12 +82,12 @@
 
 /datum/export/stack/cloth
 	cost = CARGO_CRATE_VALUE * 0.025
-	message = "rolls of cloth"
+	message = "ткани"
 	export_types = list(/obj/item/stack/sheet/cloth)
 
 /datum/export/stack/durathread
 	cost = CARGO_CRATE_VALUE * 0.35
-	message = "rolls of durathread"
+	message = "дюрастали"
 	export_types = list(/obj/item/stack/sheet/durathread)
 
 
@@ -114,12 +114,12 @@
 
 /datum/export/stack/pizza
 	cost = CARGO_CRATE_VALUE * 0.06
-	unit_name = "of sheetza"
+	unit_name = "пиццы"
 	export_types = list(/obj/item/stack/sheet/pizza)
 
 /datum/export/stack/meat
 	cost = CARGO_CRATE_VALUE * 0.04
-	unit_name = "of meat"
+	unit_name = "мяса"
 	export_types = list(/obj/item/stack/sheet/meat)
 
 

@@ -136,15 +136,15 @@ GLOBAL_LIST_EMPTY(bounties_list)
 	var/pick // instead of creating it a bunch let's go ahead and toss it here, we know we're going to use it for dynamics and subtypes!
 
 	/********************************Subtype Gens********************************/
-	var/list/easy_add_list_subtypes = list(/datum/bounty/item/assistant = 2,
-											/datum/bounty/item/mech = 1,
-											/datum/bounty/item/chef = 2,
-											/datum/bounty/item/security = 1,
-											/datum/bounty/virus = 1,
-											/datum/bounty/item/engineering = 1,
-											/datum/bounty/item/mining = 2,
-											/datum/bounty/item/medical = 2,
-											/datum/bounty/item/botany = 2)
+	var/list/easy_add_list_subtypes = list(/datum/bounty/item/assistant = 10,
+											/datum/bounty/item/mech = 5,
+											/datum/bounty/item/chef = 5,
+											/datum/bounty/item/security = 3,
+											/datum/bounty/virus = 5,
+											/datum/bounty/item/engineering = 5,
+											/datum/bounty/item/mining = 5,
+											/datum/bounty/item/medical = 5,
+											/datum/bounty/item/botany = 10)
 
 	for(var/the_type in easy_add_list_subtypes)
 		for(var/i in 1 to easy_add_list_subtypes[the_type])
@@ -152,11 +152,11 @@ GLOBAL_LIST_EMPTY(bounties_list)
 			try_add_bounty(new pick)
 
 	/********************************Strict Type Gens********************************/
-	var/list/easy_add_list_strict_types = list(/datum/bounty/reagent/simple_drink = 1,
-											/datum/bounty/reagent/complex_drink = 1,
-											/datum/bounty/reagent/chemical_simple = 1,
-											/datum/bounty/reagent/chemical_complex = 1,
-											/datum/bounty/pill/simple_pill = 1)
+	var/list/easy_add_list_strict_types = list(/datum/bounty/reagent/simple_drink = 5,
+											/datum/bounty/reagent/complex_drink = 2,
+											/datum/bounty/reagent/chemical_simple = 5,
+											/datum/bounty/reagent/chemical_complex = 2,
+											/datum/bounty/pill/simple_pill = 5)
 
 	for(var/the_strict_type in easy_add_list_strict_types)
 		for(var/i in 1 to easy_add_list_strict_types[the_strict_type])

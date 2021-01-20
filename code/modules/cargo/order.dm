@@ -66,8 +66,8 @@
 
 	var/station_name = (P.errors & MANIFEST_ERROR_NAME) ? new_station_name() : station_name()
 
-	P.name = "грузовой манифест - [packname?"#[id] ([pack.name])":"(Grouped Item Crate)"]"
-	P.info += "<h2>[command_name()] грузовой манифест</h2>"
+	P.name = "товарная накладная - [packname?"#[id] ([pack.name])":"(Grouped Item Crate)"]"
+	P.info += "<h2>[command_name()] товарная накладная</h2>"
 	P.info += "<hr/>"
 	if(owner && !(owner == "Cargo"))
 		P.info += "Прямая покупка от [owner]<br/>"
