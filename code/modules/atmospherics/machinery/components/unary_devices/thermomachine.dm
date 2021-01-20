@@ -125,10 +125,10 @@
 	if(temperature_delta > 1)
 		active_power_usage = (heat_capacity * temperature_delta) * 10 + idle_power_usage // лол
 		update_parents()
-		power_change()
+		use_power(active_power_usage)
 	else
 		active_power_usage = idle_power_usage
-		power_change()
+		use_power(active_power_usage)
 	return 1
 
 /obj/machinery/atmospherics/components/unary/thermomachine/attackby(obj/item/I, mob/user, params)
