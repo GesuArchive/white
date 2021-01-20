@@ -24,7 +24,7 @@
 	var/obj/structure/closet/crate/C
 	if(paying_account)
 		C = new /obj/structure/closet/crate/secure/owned(A, paying_account)
-		C.name = "[crate_name] - Purchased by [paying_account.account_holder]"
+		C.name = "[crate_name] - Куплено [paying_account.account_holder]"
 	else
 		C = new crate_type(A)
 		C.name = crate_name

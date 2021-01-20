@@ -3,7 +3,7 @@
 /datum/export/manifest_correct
 	cost =  CARGO_CRATE_VALUE * 0.4
 	k_elasticity = 0
-	unit_name = "утвержденный манифест"
+	unit_name = "утвержденная накладная"
 	export_types = list(/obj/item/paper/fluff/jobs/cargo/manifest)
 
 /datum/export/manifest_correct/applies_to(obj/O)
@@ -20,7 +20,7 @@
 /datum/export/manifest_error_denied
 	cost = -CARGO_CRATE_VALUE
 	k_elasticity = 0
-	unit_name = "правильно отклоненный манифест"
+	unit_name = "правильно отклоненная накладная"
 	export_types = list(/obj/item/paper/fluff/jobs/cargo/manifest)
 
 /datum/export/manifest_error_denied/applies_to(obj/O)
@@ -40,7 +40,7 @@
 // Erroneously approved manifest.
 // Substracts the package cost.
 /datum/export/manifest_error
-	unit_name = "ошибочно утвержденный манифест"
+	unit_name = "ошибочно утвержденная накладная"
 	export_types = list(/obj/item/paper/fluff/jobs/cargo/manifest)
 
 /datum/export/manifest_error/applies_to(obj/O)
@@ -61,7 +61,7 @@
 // Substracts the package cost minus the cost of crate.
 /datum/export/manifest_correct_denied
 	cost = CARGO_CRATE_VALUE
-	unit_name = "ошибочно отклоненный манифест"
+	unit_name = "ошибочно отклоненная накладная"
 	export_types = list(/obj/item/paper/fluff/jobs/cargo/manifest)
 
 /datum/export/manifest_correct_denied/applies_to(obj/O)
