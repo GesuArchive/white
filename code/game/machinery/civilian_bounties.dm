@@ -106,7 +106,12 @@
 		reward.desc += " Бирка указывает, что этот куб принадлежит [reward.bounty_holder] за выполнение заказа <i>[reward.bounty_name]</i> которые было принято в [station_time_timestamp(format = "hh:mm")]."
 		reward.AddComponent(/datum/component/pricetag, inserted_scan_id.registered_account, 30)
 		if(usr.client)
-			inc_metabalance(usr, METACOIN_BOUNTY_REWARD, reason="Заказ выполнен!")
+			if(reward <= 10000)
+				inc_metabalance(usr, METACOIN_BOUNTY_REWARD_EASY, reason="Лёгкий заказ выполнен!")
+			if(reward <= 20000)
+				inc_metabalance(usr, METACOIN_BOUNTY_REWARD_NORMAL, reason="Обычный заказ выполнен!")
+			if(reward >= 20000)
+				inc_metabalance(usr, METACOIN_BOUNTY_REWARD_HARD, reason="Сложный заказ выполнен!")
 	pad.visible_message("<span class='notice'>[capitalize(pad.name)] активируется!</span>")
 	flick(pad.sending_state,pad)
 	pad.icon_state = pad.idle_state
