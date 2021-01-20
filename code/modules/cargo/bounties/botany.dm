@@ -1,5 +1,5 @@
 /datum/bounty/item/botany
-	reward = CARGO_CRATE_VALUE * 10
+	reward = CARGO_CRATE_VALUE
 	var/datum/bounty/item/botany/multiplier = 0 //adds bonus reward money; increased for higher tier or rare mutations
 	var/datum/bounty/item/botany/bonus_desc //for adding extra flavor text to bounty descriptions
 	var/datum/bounty/item/botany/foodtype = "еду" //same here
@@ -7,18 +7,19 @@
 /datum/bounty/item/botany/New()
 	..()
 	description = "Шеф-повар ЦК хочет приготовить [foodtype] из [name]. [bonus_desc]»"
-	reward += multiplier * (CARGO_CRATE_VALUE * 2)
+	reward += multiplier * (CARGO_CRATE_VALUE)
 	required_count = rand(5, 10)
 
 /datum/bounty/item/botany/ambrosia_vulgaris
 	name = "листьев Амброзии Вулгарис"
 	wanted_types = list(/obj/item/food/grown/ambrosia/vulgaris)
+	multiplier = 4
 	foodtype = "вкусное рагу"
 
 /datum/bounty/item/botany/ambrosia_gaia
 	name = "листьев Амброзии Гайи"
 	wanted_types = list(/obj/item/food/grown/ambrosia/gaia)
-	multiplier = 4
+	multiplier = 8
 	foodtype = "вкусное рагу"
 
 /datum/bounty/item/botany/apple_golden
@@ -31,12 +32,13 @@
 	name = "бананов"
 	wanted_types = list(/obj/item/food/grown/banana)
 	exclude_types = list(/obj/item/food/grown/banana/bluespace)
+	multiplier = 2
 	foodtype = "вкусный банановый сплит"
 
 /datum/bounty/item/botany/banana_bluespace
 	name = "блюспейс бананов"
 	wanted_types = list(/obj/item/food/grown/banana/bluespace)
-	multiplier = 2
+	multiplier = 10
 	foodtype = "вкусный банановый сплит."
 
 /datum/bounty/item/botany/beans_koi
@@ -47,7 +49,7 @@
 /datum/bounty/item/botany/berries_death
 	name = "ягод смерти"
 	wanted_types = list(/obj/item/food/grown/berries/death)
-	multiplier = 2
+	multiplier = 4
 	bonus_desc = "Он утверждает \"что он знает что он делает\"."
 	foodtype = "вкусный сорбет"
 
@@ -89,45 +91,52 @@
 /datum/bounty/item/botany/wheat
 	name = "зерна пшеницы"
 	wanted_types = list(/obj/item/food/grown/wheat)
+	multiplier = 2
 
 /datum/bounty/item/botany/rice
 	name = "зерна риса"
 	wanted_types = list(/obj/item/food/grown/rice)
+	multiplier = 2
 
 /datum/bounty/item/botany/chili
 	name = "перца чили"
 	wanted_types = list(/obj/item/food/grown/chili)
+	multiplier = 2
 
 /datum/bounty/item/botany/ice_chili
 	name = "морозного перца чили"
 	wanted_types = list(/obj/item/food/grown/icepepper)
-	multiplier = 2
+	multiplier = 4
 
 /datum/bounty/item/botany/ghost_chili
 	name = "призрачного перца чили"
 	wanted_types = list(/obj/item/food/grown/ghost_chili)
-	multiplier = 2
+	multiplier = 4
 
 /datum/bounty/item/botany/citrus_lime
 	name = "лайма"
 	wanted_types = list(/obj/item/food/grown/citrus/lime)
 	foodtype = "вкусный сорбет"
+	multiplier = 2
 
 /datum/bounty/item/botany/citrus_lemon
 	name = "лемона"
 	wanted_types = list(/obj/item/food/grown/citrus/lemon)
 	foodtype = "вкусный сорбет"
+	multiplier = 2
 
 /datum/bounty/item/botany/citrus_oranges
 	name = "апельсина"
 	wanted_types = list(/obj/item/food/grown/citrus/orange)
 	bonus_desc = "Не отправлять лемоны и лаймы." //I vanted orahnge!
 	foodtype = "вкусный сорбет"
+	multiplier = 2
 
 /datum/bounty/item/botany/eggplant
 	name = "баклажана"
 	wanted_types = list(/obj/item/food/grown/eggplant)
 	bonus_desc = "Не путать с egg-plants."
+	multiplier = 2
 
 /datum/bounty/item/botany/eggplant_eggy
 	name = "растения-яйцо"
@@ -145,11 +154,12 @@
 	name = "арбуза"
 	wanted_types = list(/obj/item/food/grown/watermelon)
 	foodtype = "вкусный дессерт"
+	multiplier = 2
 
 /datum/bounty/item/botany/watermelon_holy
 	name = "святого арбуза"
 	wanted_types = list(/obj/item/food/grown/holymelon)
-	multiplier = 2
+	multiplier = 8
 	foodtype = "вкусный дессерт"
 
 /datum/bounty/item/botany/glowshroom
@@ -157,6 +167,7 @@
 	wanted_types = list(/obj/item/food/grown/mushroom/glowshroom)
 	exclude_types = list(/obj/item/food/grown/mushroom/glowshroom/glowcap, /obj/item/food/grown/mushroom/glowshroom/shadowshroom)
 	foodtype = "вкусный омлет"
+	multiplier = 4
 
 /datum/bounty/item/botany/glowshroom_cap
 	name = "светящейся шапки" // надо что-то оригинальней
@@ -173,7 +184,7 @@
 /datum/bounty/item/botany/nettles_death
 	name = "крапивы смерти"
 	wanted_types = list(/obj/item/food/grown/nettle/death)
-	multiplier = 2
+	multiplier = 4
 	bonus_desc = "Носите защиту при обращении с ними."
 	foodtype = "вкусный сыр"
 
@@ -182,11 +193,13 @@
 	wanted_types = list(/obj/item/food/grown/pineapple)
 	bonus_desc = "Не для потребления человеком."
 	foodtype = "ashtray"
+	multiplier = 2
 
 /datum/bounty/item/botany/tomato
 	name = "помидора"
 	wanted_types = list(/obj/item/food/grown/tomato)
 	exclude_types = list(/obj/item/food/grown/tomato/blue)
+	multiplier = 2
 
 /datum/bounty/item/botany/tomato_bluespace
 	name = "блюспейс помидора"
