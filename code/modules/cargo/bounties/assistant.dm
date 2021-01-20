@@ -201,13 +201,13 @@
 /datum/bounty/item/assistant/corgimeat
 	name = "Свежее мясо корги"
 	description = "Синдикат недавно украл всё мясо корги у ЦК. Отправьте замену немедленно."
-	reward = CARGO_CRATE_VALUE * 6
+	reward = CARGO_CRATE_VALUE * 10
 	wanted_types = list(/obj/item/food/meat/slab/corgi)
 
 /datum/bounty/item/assistant/action_figures
 	name = "Фигурки"
 	description = "Сын вице-президента увидел рекламу телешоу по телевизору, и теперь он не умолкает про них. Отправьте немного фигурок чтобы успокоить сына"
-	reward = CARGO_CRATE_VALUE * 8
+	reward = CARGO_CRATE_VALUE * 10
 	required_count = 5
 	wanted_types = list(/obj/item/toy/figure)
 
@@ -220,7 +220,7 @@
 /datum/bounty/item/assistant/dead_mice
 	name = "Мёртвая мышь"
 	description = "На станции 14 закончились замороженные мыши. Отправьте несколько свежих, чтобы их уборщик не бастовал..."
-	reward = CARGO_CRATE_VALUE * 10
+	reward = CARGO_CRATE_VALUE * 5
 	required_count = 5
 	wanted_types = list(/obj/item/food/deadmouse)
 
@@ -289,7 +289,7 @@
 /datum/bounty/item/assistant/gloves
 	name = "Резиновые перчатки"
 	description = "Асисстенты станции 14 украли все резиновые перчатки. Доставьте им новые!"
-	reward = CARGO_CRATE_VALUE * 250
+	reward = CARGO_CRATE_VALUE * 10
 	required_count = 5
 	include_subtypes = FALSE
 	wanted_types = list(/obj/item/clothing/gloves/color/yellow)
@@ -297,7 +297,7 @@
 /datum/bounty/item/assistant/watertank
 	name = "Бак с водой"
 	description = "На ЦК случился пожар! Доставьте им баки с водой!"
-	reward = CARGO_CRATE_VALUE * 25
+	reward = CARGO_CRATE_VALUE * 15
 	required_count = 5
 	include_subtypes = FALSE
 	wanted_types = list(/obj/structure/reagent_dispensers/watertank)
@@ -305,7 +305,7 @@
 /datum/bounty/item/assistant/fueltank
 	name = "Бак с топливом"
 	description = "На ЦК случился пожар! Доставьте клоуну баки с топливом!"
-	reward = CARGO_CRATE_VALUE * 25
+	reward = CARGO_CRATE_VALUE * 15
 	required_count = 5
 	include_subtypes = FALSE
 	wanted_types = list(/obj/structure/reagent_dispensers/fueltank)
@@ -313,7 +313,7 @@
 /datum/bounty/item/assistant/turntable
 	name = "Взрыв Каробка"
 	description = "На станции 15 произошло чаепитие. Они просят музыкальный автомат для продолжения смены."
-	reward = CARGO_CRATE_VALUE * 50
+	reward = CARGO_CRATE_VALUE * 15
 	required_count = 1
 	include_subtypes = FALSE
 	wanted_types = list(/obj/machinery/turntable)

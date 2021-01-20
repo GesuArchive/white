@@ -110,7 +110,7 @@
 				inc_metabalance(usr, METACOIN_BOUNTY_REWARD_EASY, reason="Лёгкий заказ выполнен!")
 			if(reward <= 20000)
 				inc_metabalance(usr, METACOIN_BOUNTY_REWARD_NORMAL, reason="Обычный заказ выполнен!")
-			if(reward >= 20000)
+			if(reward >= 20001)
 				inc_metabalance(usr, METACOIN_BOUNTY_REWARD_HARD, reason="Сложный заказ выполнен!")
 	pad.visible_message("<span class='notice'>[capitalize(pad.name)] активируется!</span>")
 	flick(pad.sending_state,pad)
