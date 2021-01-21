@@ -18,6 +18,7 @@
 				z-index: -1;
 				width: auto;
 				height: 100%;
+				background: #000;
 			}
 
 			#pp {
@@ -75,7 +76,7 @@
 			};
 
 			window.onload = function() {
-				setTimeout(movebg, 75);
+				setTimeout(movebg, 50);
 				NotifyByondOnload();
 			};
 
@@ -84,7 +85,7 @@
 				document.getElementById("pp").style.cssText = "background-position: " + mp + "px";
 				mp++
 				if(mp == 32) mp = 0;
-				setTimeout(movebg, 75);
+				setTimeout(movebg, 50);
 			};
 
 			function NotifyByondOnload() {

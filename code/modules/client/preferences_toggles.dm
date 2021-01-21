@@ -17,7 +17,7 @@
 
 /datum/verbs/menu/settings/verb/setup_character()
 	set name = " ! Основные настройки"
-	set category = "OOC"
+	set category = "Настройки"
 	set desc = "Основные настройки"
 	usr.client.prefs.current_tab = 2
 	usr.client.prefs.ShowChoices(usr)

@@ -1,3 +1,6 @@
+
+// turfs -------------------------------------------------------
+
 /turf/open/floor/dz
 	icon = 'white/valtos/icons/dz-031.dmi'
 
@@ -10,6 +13,7 @@
 
 /turf/closed/dz
 	icon = 'white/valtos/icons/dz-031.dmi'
+	flags_1 = NOJAUNT_1
 
 /turf/open/floor/dz/normal
 	name = "киберпространство"
@@ -18,7 +22,7 @@
 	layer = SPACE_LAYER
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
 	vis_flags = VIS_INHERIT_ID
-	blocks_air = TRUE
+	blocks_air = FALSE
 
 /turf/open/floor/dz/normal/Initialize()
 	SHOULD_CALL_PARENT(FALSE)
@@ -31,7 +35,20 @@
 
 	ComponentInitialize()
 
+	if(!blocks_air)
+		air = new
+		air.copy_from_turf(src)
+		update_air_ref()
+
 	return INITIALIZE_HINT_NORMAL
+
+/turf/open/floor/dz/green
+	name = "пол"
+	icon_state = "green1"
+
+/turf/open/floor/dz/cyber
+	name = "си-пол"
+	icon_state = "c_floor"
 
 /turf/open/floor/dz/pre_exit
 	name = "зона выхода"
@@ -47,16 +64,27 @@
 
 /turf/open/floor/dz/hot_plates
 	name = "опасная зона"
-	icon_state = "hot_plates"
+	icon_state = "hot_plates1"
+
+/turf/open/floor/dz/hot_plates/Initialize(mapload)
+	. = ..()
+	icon_state = "hot_plates[rand(1,3)]"
 
 /turf/closed/dz/normal
 	name = "блок"
 	icon_state = "closed"
 
+/turf/closed/dz/normal/cyber
+	name = "си-блок"
+	icon_state = "c_wall1"
+
 /turf/closed/dz/lab
 	name = "сверхкрепкая стена"
 	icon_state = "labwall-h"
 	plane = -2
+
+
+// structures --------------------------------------------------
 
 /obj/structure/sign/dz
 	name = "DZ-0031"
@@ -70,10 +98,14 @@
 /obj/structure/sign/dz/end
 	icon_state = "dz3"
 
+
+// areas -------------------------------------------------------
+
 /area/cyberspace
 	name = "Киберпространство"
 	icon_state = "maint_bar"
 	has_gravity = STANDARD_GRAVITY
+	area_flags = NOTELEPORT | HIDDEN_AREA | BLOCK_SUICIDE
 
 /area/cyberspace/exit
 	name = "Выход"
@@ -84,24 +116,28 @@
 	icon_state = "maint_sec"
 
 /area/lab031
-	name = "Лаборатория 031"
+	name = "Лаборатория x031"
 	icon_state = "maint_eva"
 	has_gravity = STANDARD_GRAVITY
+	area_flags = NOTELEPORT | HIDDEN_AREA | BLOCK_SUICIDE
 
 /area/lab031/zone1
-	name = "Зона 1"
+	name = "Лаборатория x031: Зона 1"
 
 /area/lab031/zone2
-	name = "Зона 2"
+	name = "Лаборатория x031: Зона 2"
 
 /area/lab031/zone3
-	name = "Зона 3"
+	name = "Лаборатория x031: Зона 3"
 
 /area/lab031/zone4
-	name = "Зона 4"
+	name = "Лаборатория x031: Зона 4"
 
 /area/lab031/zone5
-	name = "Зона 5"
+	name = "Лаборатория x031: Зона 5"
+
+
+// objs --------------------------------------------------------
 
 /obj/lab_monitor
 	name = "Монитор"
@@ -116,24 +152,32 @@
 	. = ..()
 	add_overlay(what_pic)
 
-/obj/effect/attack_warn
-	name = "угроза"
+/obj/effect/attack_spike
+	name = "ОПАСНОСТЬ"
 	icon = 'white/valtos/icons/dz-031.dmi'
-	icon_state = "arrow_red"
-
-/obj/effect/attack_warn/Initialize()
-	. = ..()
-	QDEL_IN(src, 10)
-
-/obj/effect/attack_warn/top
-	name = "потолок"
-	icon_state = "arrow_top"
-
-/obj/effect/attack_warn/green
-	icon_state = "arrow_green"
-
-/obj/effect/attack_warn/attention
 	icon_state = "attention"
+
+/obj/effect/attack_spike/Initialize()
+	. = ..()
+	spawn(10)
+		icon_state = "spike_hole"
+		spawn(5)
+			icon_state = "spike_strike"
+			var/latched = FALSE
+			for(var/mob/living/L in loc)
+				visible_message("<span class='danger'>Стержень жёстко пробивает тушку <b>[L]</b>!</span>")
+				L.adjustBruteLoss(50)
+				playsound(get_turf(src), 'sound/effects/wounds/pierce3.ogg', 50, 1)
+				latched = TRUE
+			spawn(5)
+				if(latched)
+					icon_state = "spike_bloody_retract"
+				else
+					icon_state = "spike_retract"
+				spawn(5)
+					icon_state = "spike_hole"
+					spawn(5)
+						qdel(src)
 
 /obj/machinery/door/veryblastdoor
 	name = "сверхкрепкий шлюз"
@@ -309,3 +353,12 @@
 		qdel(user.client)
 		return FALSE
 	. = ..()
+
+/obj/effect/turf_decal/dz031
+	icon = 'white/valtos/icons/dz-031.dmi'
+
+/obj/effect/turf_decal/dz031/grid
+	icon_state = "grid"
+
+/obj/effect/turf_decal/dz031/grid_full
+	icon_state = "grid_center"
