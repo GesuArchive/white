@@ -46,6 +46,10 @@
 	name = "пол"
 	icon_state = "green1"
 
+/turf/open/floor/dz/green/Initialize(mapload)
+	. = ..()
+	icon_state = "green[rand(1, 6)]"
+
 /turf/open/floor/dz/cyber
 	name = "си-пол"
 	icon_state = "c_floor"
@@ -161,15 +165,17 @@
 	. = ..()
 	spawn(10)
 		icon_state = "spike_hole"
-		spawn(5)
+		spawn(10)
 			icon_state = "spike_strike"
 			var/latched = FALSE
 			for(var/mob/living/L in loc)
 				visible_message("<span class='danger'>Стержень жёстко пробивает тушку <b>[L]</b>!</span>")
 				L.adjustBruteLoss(50)
-				playsound(get_turf(src), 'sound/effects/wounds/pierce3.ogg', 50, 1)
+				var/turf/T = get_turf(src)
+				new /obj/effect/decal/cleanable/blood(T)
+				playsound(T, 'sound/effects/wounds/pierce3.ogg', 50, 1)
 				latched = TRUE
-			spawn(5)
+			spawn(10)
 				if(latched)
 					icon_state = "spike_bloody_retract"
 				else
