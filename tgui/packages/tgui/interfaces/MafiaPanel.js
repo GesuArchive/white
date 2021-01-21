@@ -27,7 +27,7 @@ export const MafiaPanel = (props, context) => {
       title="Mafia"
       theme={role_theme}
       width={650} // 414 or 415 / 444 or 445
-      height={293 + playerAddedHeight}>
+      height={323 + playerAddedHeight}>
       <Window.Content scrollable={admin_controls}>
         {!roleinfo && (
           <Flex scrollable
