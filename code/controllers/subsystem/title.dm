@@ -192,6 +192,7 @@ SUBSYSTEM_DEF(title)
 		for(var/mob/dead/new_player/D in GLOB.new_player_list)
 			if(D?.client?.lobbyscreen_image)
 				D.client.clear_lobby()
+				D.stop_sound_channel(CHANNEL_LOBBYMUSIC)
 				D.client.playtitlemusic()
 		ctt = ""
 		game_loaded = TRUE
