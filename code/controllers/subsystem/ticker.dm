@@ -199,6 +199,7 @@ SUBSYSTEM_DEF(ticker)
 				Master.SetRunLevel(RUNLEVEL_LOBBY)
 			else
 				webhook_send_roundstatus("ingame")
+				SStitle.uplayers()
 
 		if(GAME_STATE_PLAYING)
 			mode.process(wait * 0.1)
@@ -317,8 +318,6 @@ SUBSYSTEM_DEF(ticker)
 
 	if(CONFIG_GET(flag/aspects))
 		SSaspects.run_aspect()
-
-	SStitle.uplayers()
 
 	return TRUE
 

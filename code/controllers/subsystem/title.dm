@@ -192,7 +192,8 @@ SUBSYSTEM_DEF(title)
 				D.client.clear_lobby()
 		ctt = ""
 		game_loaded = TRUE
-		uplayers()
+		spawn(5)
+			uplayers()
 
 /datum/controller/subsystem/title/proc/update_lobby_screen()
 	if(enabled_shit)
