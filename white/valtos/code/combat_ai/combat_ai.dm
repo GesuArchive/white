@@ -51,7 +51,7 @@
 		var/mob/living/selected_enemy
 
 		for(var/mob/living/possible_enemy in view(9, living_pawn))
-			if(possible_enemy == living_pawn || (!enemies[possible_enemy] && (HAS_AI_CONTROLLER_TYPE(possible_enemy, /datum/ai_controller/combat_ai))))
+			if(possible_enemy == living_pawn || HAS_AI_CONTROLLER_TYPE(possible_enemy, /datum/ai_controller/combat_ai))
 				continue
 
 			selected_enemy = possible_enemy
@@ -61,9 +61,6 @@
 				if(living_pawn.health < 30)
 					blackboard[BB_COMBAT_AI_CURRENT_TARGET] = selected_enemy
 					current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/combat_ai_flee)
-					return
-
-				if(TryFindWeapon())
 					return
 
 				blackboard[BB_COMBAT_AI_CURRENT_TARGET] = selected_enemy
