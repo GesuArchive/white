@@ -11196,6 +11196,8 @@
 /obj/machinery/airalarm{
 	pixel_y = 23
 	},
+/obj/machinery/power/smes/engineering,
+/obj/structure/cable,
 /turf/open/floor/engine,
 /area/engine/atmos)
 "aXp" = (
@@ -20517,6 +20519,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "bPf" = (
@@ -20525,6 +20528,7 @@
 	req_access_txt = "24"
 	},
 /obj/machinery/door/firedoor/heavy,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "bPl" = (
@@ -20838,6 +20842,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/yellow,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "bQt" = (
@@ -20864,6 +20869,7 @@
 	req_access_txt = "24"
 	},
 /obj/machinery/door/firedoor/heavy,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "bQw" = (
@@ -20873,6 +20879,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "bQx" = (
@@ -21142,6 +21149,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 10
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "bRC" = (
@@ -23448,7 +23456,6 @@
 /area/maintenance/disposal/incinerator)
 "bZJ" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "bZK" = (
@@ -24302,7 +24309,6 @@
 /area/engine/engineering)
 "ccx" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "ccy" = (
@@ -29819,7 +29825,6 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "cPn" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/violet/visible{
 	dir = 8
 	},
@@ -33210,7 +33215,6 @@
 /turf/open/floor/grass,
 /area/science/genetics)
 "iMH" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/violet/visible{
 	dir = 9
 	},
@@ -36255,6 +36259,9 @@
 /turf/open/floor/plasteel,
 /area/quartermaster/office)
 "pgn" = (
+/obj/effect/turf_decal/tile/hex/yellow{
+	dir = 1
+	},
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/engine/atmos)
@@ -36511,6 +36518,13 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/dark,
 /area/science/nanite)
+"pEb" = (
+/obj/structure/cable,
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/engine/atmos)
 "pFd" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
 	dir = 4
@@ -37557,7 +37571,6 @@
 	req_access_txt = "24"
 	},
 /obj/machinery/door/firedoor/heavy,
-/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "rGY" = (
@@ -37755,6 +37768,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
+"rVn" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/engine/atmos)
 "rVS" = (
 /obj/effect/landmark/blobstart,
 /turf/open/floor/plating,
@@ -37849,6 +37869,7 @@
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/engine,
 /area/engine/atmos)
 "scI" = (
@@ -40126,6 +40147,10 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/aft)
+"wsV" = (
+/obj/structure/cable,
+/turf/open/floor/engine,
+/area/engine/atmos)
 "wuK" = (
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -73825,7 +73850,7 @@ bMR
 bTX
 bOd
 bOd
-bQp
+bOd
 bVX
 bOd
 bRA
@@ -74082,7 +74107,7 @@ bMQ
 bMK
 bXT
 bOd
-bQp
+bOd
 bVW
 bYV
 cbG
@@ -74339,7 +74364,7 @@ cBF
 bMK
 bMK
 cbD
-bQp
+bOd
 ccy
 bMK
 cBV
@@ -75105,12 +75130,12 @@ wiz
 bLK
 bMU
 bOd
-bOd
+bQp
 bOd
 bRE
 bMQ
 cbA
-bQp
+bOd
 ccy
 bMQ
 cdA
@@ -75362,7 +75387,7 @@ wiz
 bLK
 bMX
 bQx
-bQx
+rVn
 bUR
 bMK
 bMK
@@ -75624,7 +75649,7 @@ bMQ
 bMK
 bSN
 jnZ
-pgn
+bSP
 bVV
 bMQ
 bRA
@@ -75874,9 +75899,9 @@ aaa
 aaa
 wiz
 bLK
-bQz
-bQz
-bQz
+pgn
+pgn
+pgn
 bQz
 bRJ
 jlv
@@ -76131,7 +76156,7 @@ aaa
 aaa
 wiz
 bLK
-bSP
+wsV
 bSP
 bSP
 bSP
@@ -76389,13 +76414,13 @@ aaa
 wiz
 bLK
 aXm
-bSP
-bSP
-bSP
+pEb
+wsV
+wsV
 scH
-bSP
+wsV
 iGQ
-pgn
+bSP
 ccB
 bMK
 bRA
