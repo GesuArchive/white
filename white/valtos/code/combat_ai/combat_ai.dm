@@ -95,7 +95,7 @@
 	else
 		var/mob/living/carbon/human/H = locate(/mob/living/carbon/human/) in oview(2, living_pawn)
 		if(H)
-			W = pick(H.contents)
+			W = locate(/obj/item/gun/ballistic) in H.contents
 			if(W && W.trigger_guard == TRIGGER_GUARD_NORMAL && W.pin && W.get_ammo(TRUE) && !blackboard[BB_COMBAT_AI_WEAPON_BL][W])
 				blackboard[BB_COMBAT_AI_WEAPON_TARGET] = W
 				current_movement_target = W
@@ -310,7 +310,7 @@
 	if(living_pawn.next_move > world.time)
 		return
 
-	living_pawn.changeNext_move(CLICK_CD_RANGE)
+	living_pawn.changeNext_move(CLICK_CD_RAPID)
 
 	var/obj/item/gun/ballistic/weapon = locate(/obj/item/gun/ballistic) in living_pawn.held_items
 
@@ -320,7 +320,6 @@
 		if(!weapon.chambered)
 			weapon.attack_self(living_pawn)
 			if(!weapon.magazine)
-				living_pawn.say("Перезаряжаюсь!")
 				try_to_reload(controller, weapon)
 			return
 		weapon.afterattack(target, living_pawn, FALSE)
@@ -342,9 +341,8 @@
 		return
 
 	if(mag.type == weapon.mag_type)
-		if(!living_pawn.put_in_l_hand(mag))
-			living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(LEFT_HANDS), force = TRUE)
-			return
+		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(LEFT_HANDS), force = TRUE)
+		living_pawn.put_in_l_hand(mag)
 		living_pawn.say("Перезаряжаюсь!")
 		living_pawn.swap_hand(LEFT_HANDS)
 		weapon.attackby(mag, living_pawn)
