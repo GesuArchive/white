@@ -79,7 +79,16 @@
 	if(locate(/obj/item/gun/ballistic) in living_pawn.held_items)
 		return TRUE
 
-	var/obj/item/gun/ballistic/W = locate(/obj/item/gun/ballistic) in oview(2, living_pawn)
+	var/obj/item/gun/ballistic/W = locate(/obj/item/gun/ballistic) in living_pawn.contents
+
+	if(locate(/obj/item/gun/ballistic) in living_pawn.contents)
+		living_pawn.swap_hand(RIGHT_HANDS)
+		if(!living_pawn.put_in_r_hand(mag))
+			living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(RIGHT_HANDS), force = TRUE)
+			return FALSE
+		return TRUE
+
+	W = locate(/obj/item/gun/ballistic) in oview(2, living_pawn)
 
 	if(W && W.trigger_guard == TRIGGER_GUARD_NORMAL && W.pin && W.get_ammo(TRUE) && !blackboard[BB_COMBAT_AI_WEAPON_BL][W])
 		blackboard[BB_COMBAT_AI_WEAPON_TARGET] = W
