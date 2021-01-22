@@ -9,7 +9,7 @@
 /datum/quirk/badback
 	name = "Больная спина"
 	desc = " Из-за вашей плохой осанки рюкзаки будет носить ОЧЕНЬ неудобно."
-	value = -2
+	value = -8
 	mood_quirk = TRUE
 	gain_text = "<span class='danger'>Моя спина ОЧЕНЬ СИЛЬНО болит!</span>"
 	lose_text = "<span class='notice'>Моя спина чувствует себя лучше...</span>"
@@ -26,7 +26,7 @@
 /datum/quirk/blooddeficiency
 	name = "Дефицит крови"
 	desc = "Ваш организм не может производить достаточно крови для нормального функционирования."
-	value = -2
+	value = -8
 	gain_text = "<span class='danger'>Я чувствую онемение.</span>"
 	lose_text = "<span class='notice'>Я чувствую себя бодрым!</span>"
 	medical_record_text = " Пациенту необходима дополнительная помощь для переливания крови из-за её дефицита в организме."
@@ -43,7 +43,7 @@
 /datum/quirk/blindness
 	name = "Слепой"
 	desc = "Я абсолютно слеп. Ничего не может воспрепятствовать этому."
-	value = -4
+	value = -16
 	gain_text = "<span class='danger'>Я ничего не вижу!</span>"
 	lose_text = "<span class='notice'>Я чудесным образом снова вижу!</span>"
 	medical_record_text = "Пациент имеет постоянную слепоту."
@@ -66,7 +66,7 @@
 /datum/quirk/brainproblems
 	name = "Паразит в голове"
 	desc = "В вашей голове завёлся маленький дружок, который медленно уничтожает ваш мозг. Будет хорошим выбором носить с собой маннитол."
-	value = -3
+	value = -12
 	gain_text = "<span class='danger'>Я чувствую боль в голове.</span>"
 	lose_text = "<span class='notice'>Я чувствую, что голова перестала болеть.</span>"
 	medical_record_text = "Пациент имеет паразита в своей голове, который медленно пожирает его мозг, и в скором будущем это может привести к летальному исходу."
@@ -100,7 +100,7 @@
 /datum/quirk/deafness
 	name = "Глухонемой"
 	desc = "Я ничего не слышу."
-	value = -2
+	value = -8
 	mob_trait = TRAIT_DEAF
 	gain_text = "<span class='danger'>Я не могу слышать.</span>"
 	lose_text = "<span class='notice'>Теперь я снова слышу!</span>"
@@ -111,7 +111,7 @@
 	name = "Депрессивный"
 	desc = "Иногда я просто ненавижу свою жизнь."
 	mob_trait = TRAIT_DEPRESSION
-	value = -1
+	value = -3
 	gain_text = "<span class='danger'>Я чувствую себя депрессивным.</span>"
 	lose_text = "<span class='notice'>Я больше не чувствую себя депрессивным.</span>" // если один это было так легко!
 	medical_record_text = "Пациент имеет серьёзное психическое заболевание, в результате чего у него возникают острые эпизоды депрессии."
@@ -125,7 +125,7 @@
 /datum/quirk/family_heirloom
 	name = "Семейная реликвия"
 	desc = "Я являетесь владельцем семейной реликвии, которая передаётся мне из поколения в поколение. Стоит держать это с собой!"
-	value = -1
+	value = -2
 	mood_quirk = TRUE
 	var/obj/item/heirloom
 	var/where
@@ -259,7 +259,7 @@
 /datum/quirk/frail
 	name = "Хилый"
 	desc = "Ваши кости очень хрупкие! Ваши конечности не смогут выдержать слишком много повреждений."
-	value = -2
+	value = -6
 	mob_trait = TRAIT_EASILY_WOUNDED
 	gain_text = "<span class='danger'>Я чувствую себя слабым.</span>"
 	lose_text = "<span class='notice'>Я вновь чувствую себя крепким!</span>"
@@ -269,7 +269,7 @@
 /datum/quirk/heavy_sleeper
 	name = "Крепкий сон"
 	desc = " Я крепко сплю! Всякий раз, когда я ложусь спать или теряю сознание, мне потребуется немного больше времени, чтобы встать."
-	value = -1
+	value = -2
 	mob_trait = TRAIT_HEAVY_SLEEPER
 	gain_text = "<span class='danger'>Я чувствую себя вялым.</span>"
 	lose_text = "<span class='notice'>Я вновь чувствую себя бодрым!</span>"
@@ -279,7 +279,7 @@
 /datum/quirk/hypersensitive
 	name = "Нытик"
 	desc = "Хорошо ли это, или плохо, но влияние на ваше настроение более сильнее, чем должно быть."
-	value = -1
+	value = -2
 	gain_text = "<span class='danger'>Мне хочется создать одну огромную проблему из всего.</span>"
 	lose_text = "<span class='notice'>Вам больше не хочется устраивать шумиху.</span>"
 	medical_record_text = "Пациент демонстрирует высокие перепады настроения."
@@ -299,7 +299,7 @@
 /datum/quirk/light_drinker
 	name = "Мало пьющий"
 	desc = "Вы всегда являлись трезвенником. У вас низкая устойчивость к алкоголю и вы очень быстро становитесь пьяным."
-	value = -1
+	value = -2
 	mob_trait = TRAIT_LIGHT_DRINKER
 	gain_text = "<span class='notice'>Даже мысль об алкоголе заставляет вашу голову кружиться.</span>"
 	lose_text = "<span class='danger'>Я чувствую себя более устойчивее к алкоголю.</span>"
@@ -327,7 +327,7 @@
 /datum/quirk/nyctophobia
 	name = "Боязнь темноты"
 	desc = "Вы всегда боялись темноты. Будучи в темноте без света, вам станет страшно и вы будете вести себя аккуратно."
-	value = -1
+	value = -3
 	medical_record_text = "Пациент демонстрирует страх к темноте."
 	hardcore_value = 5
 
@@ -348,7 +348,7 @@
 /datum/quirk/nonviolent
 	name = "Пацифист"
 	desc = "Мысль о насилии заставляет меня чувствовать себя неприятно. Настолько, что я не могу нанести вред окружающим."
-	value = -2
+	value = -8
 	mob_trait = TRAIT_PACIFISM
 	gain_text = "<span class='danger'>Я чувствую себя жутко, подумав о насилии!</span>"
 	lose_text = "<span class='notice'>Я чувствую, что я могу защитить себя вновь.</span>"
@@ -358,7 +358,7 @@
 /datum/quirk/paraplegic
 	name = "Инвалид"
 	desc = "Ваши ноги не функционируют и больше ничего не может помочь вам вновь встать на ноги. По крайней мере, у вас есть инвалидная коляска."
-	value = -3
+	value = -12
 	human_only = TRUE
 	gain_text = null // Handled by trauma.
 	lose_text = null
@@ -397,7 +397,7 @@
 /datum/quirk/poor_aim
 	name = "Плохо стреляющий"
 	desc = "Ваши навыки обращения с оружием оставляют желать лучшего. Для более точной стрельбы берите оружие в две руки."
-	value = -1
+	value = -4
 	mob_trait = TRAIT_POOR_AIM
 	medical_record_text = "У пациента сильная дрожь в обеих руках."
 	hardcore_value = 3
@@ -405,7 +405,7 @@
 /datum/quirk/prosopagnosia
 	name = "Прозопагнозия"
 	desc = "Я имею психическое расстройство, которое мешает мне распознавать лица."
-	value = -1
+	value = -4
 	mob_trait = TRAIT_PROSOPAGNOSIA
 	medical_record_text = "Пациент страдает от прозопагнозии и не может узнать лица."
 	hardcore_value = 5
@@ -413,7 +413,7 @@
 /datum/quirk/prosthetic_limb
 	name = "Протез конечности"
 	desc = "Ввиду инцидента, который случился в прошлом, я потерял одну из моих конечностей. Хорошо, что у меня есть её протез!"
-	value = -1
+	value = -4
 	var/slot_string = "limb"
 	medical_record_text = "Во время физического обследования у пациента был обнаружен протез."
 	hardcore_value = 3
@@ -447,7 +447,7 @@
 /datum/quirk/pushover
 	name = "Неуверенный"
 	desc = "Мой первый инстинкт будет позволять людям толкать меня. Вырываться из захвата будет также сложнее."
-	value = -2
+	value = -8
 	mob_trait = TRAIT_GRABWEAKNESS
 	gain_text = "<span class='danger'>Я чувствую себя неуверенно.</span>"
 	lose_text = "<span class='notice'>Теперь-то я смогу защитить себя!</span>"
@@ -457,7 +457,7 @@
 /datum/quirk/insanity
 	name = "Синдром Диссоциации Реальности"
 	desc = "Я страдаю от серьёзного психического расстройства, которое вызывает очень сильные галлюцинации. Вещество \"Майндбрейкер\" поможет мне подавить эти эффекты. <b>Это не является лицензией на гриф.</b>"
-	value = -2
+	value = -8
 	//no mob trait because it's handled uniquely
 	gain_text = "<span class='userdanger'>...</span>"
 	lose_text = "<span class='notice'>Я чувствую себя нормальным..</span>"
@@ -483,7 +483,7 @@
 /datum/quirk/social_anxiety
 	name = "Социофоб"
 	desc = "Разговор с людьми очень сложен для вас, и вы будете заикаться при попытке заговорить, или просто молчать."
-	value = -1
+	value = -3
 	gain_text = "<span class='danger'>Я начинаю волноваться насчёт мнения окружающих.</span>"
 	lose_text = "<span class='notice'>Вам стало легче говорить.</span>" //if only it were that easy!
 	medical_record_text = "Пациент, как правило, беспокоится о социальных связях и предпочитает избегать их."
@@ -560,7 +560,7 @@
 /datum/quirk/junkie
 	name = "Наркоман"
 	desc = "Я страдаю от наркотической зависимости."
-	value = -2
+	value = -6
 	gain_text = "<span class='danger'>Внезапно я почувствовал тягу к наркотикам.</span>"
 	medical_record_text = "Пациент страдает от зависимости и тяжелых наркотиков."
 	hardcore_value = 4
@@ -634,7 +634,7 @@
 /datum/quirk/junkie/smoker
 	name = "Курильщик"
 	desc = "Вы страдаете от никотиновой зависимости и вам придется регулярно выкуривать пачку сигарет. Не очень-то и полезно для ваших легких."
-	value = -1
+	value = -4
 	gain_text = "<span class='danger'>Вам стоит снова закурить.</span>"
 	medical_record_text = "Пациент является курильщиком."
 	reagent_type = /datum/reagent/drug/nicotine
@@ -669,7 +669,7 @@
 /datum/quirk/unstable
 	name = "Неуравновешенный"
 	desc = "Вы больше не сможете вернуть свою психику, если каким-то образом повредите её. Будьте очень осторожным и держите себя в хорошем настроении!"
-	value = -2
+	value = -10
 	mob_trait = TRAIT_UNSTABLE
 	gain_text = "<span class='danger'>Столько вещей сейчас в голове...</span>"
 	lose_text = "<span class='notice'>Я чувствую себя гораздо спокойнее.</span>"
@@ -679,7 +679,7 @@
 /datum/quirk/allergic
 	name = "Аллегрия"
 	desc = "С детства у вас имеется аллергия к некоторым препаратам."
-	value = -2
+	value = -6
 	gain_text = "<span class='danger'>Вы чувствуете сдвиг вашей иммунной системы.</span>"
 	lose_text = "<span class='notice'>Вы чувствуете, что ваш иммунитет стал более устойчивее.</span>"
 	medical_record_text = "Иммунитет пациента очень резко реагирует на определенные препараты."

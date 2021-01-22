@@ -1,6 +1,5 @@
-import { Fragment } from 'inferno';
 import { useBackend } from '../backend';
-import { Button, Flex, LabeledList, ProgressBar, Section } from '../components';
+import { Button, LabeledList, ProgressBar, Section, Stack } from '../components';
 import { NtosWindow } from '../layouts';
 
 const getMuleByRef = (mules, ref) => {
@@ -65,7 +64,7 @@ const RobotInfo = (props, context) => {
         border: `4px solid ${color}`,
       }}
       buttons={mule && (
-        <Fragment>
+        <>
           <Button
             icon="play"
             tooltip="Двигаться к цели."
@@ -85,10 +84,10 @@ const RobotInfo = (props, context) => {
             onClick={() => act('home', {
               robot: mule.mule_ref,
             })} />
-        </Fragment>
+        </>
       )}>
-      <Flex spacing={1}>
-        <Flex.Item grow={1} basis={0}>
+      <Stack>
+        <Stack.Item grow={1} basis={0}>
           <LabeledList>
             <LabeledList.Item label="Модель">
               {robot.model}
@@ -100,7 +99,7 @@ const RobotInfo = (props, context) => {
               {robot.mode}
             </LabeledList.Item>
             {mule && (
-              <Fragment>
+              <>
                 <LabeledList.Item label="Груз">
                   {data.load || "N/A"}
                 </LabeledList.Item>
@@ -121,13 +120,13 @@ const RobotInfo = (props, context) => {
                       bad: [-Infinity, 20],
                     }} />
                 </LabeledList.Item>
-              </Fragment>
+              </>
             )}
           </LabeledList>
-        </Flex.Item>
-        <Flex.Item width="180px">
+        </Stack.Item>
+        <Stack.Item width="180px">
           {mule && (
-            <Fragment>
+            <>
               <Button
                 fluid
                 content="Выбрать цель"
@@ -173,10 +172,10 @@ const RobotInfo = (props, context) => {
                 onClick={() => act('report', {
                   robot: mule.mule_ref,
                 })} />
-            </Fragment>
+            </>
           )}
           {!mule && (
-            <Fragment>
+            <>
               <Button
                 fluid
                 content="Прекратить патруль"
@@ -201,10 +200,10 @@ const RobotInfo = (props, context) => {
                 onClick={() => act('ejectpai', {
                   robot: robot.bot_ref,
                 })} />
-            </Fragment>
+            </>
           )}
-        </Flex.Item>
-      </Flex>
+        </Stack.Item>
+      </Stack>
     </Section>
   );
 };

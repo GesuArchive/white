@@ -9,7 +9,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 	healing_factor = STANDARD_ORGAN_HEALING
-	decay_factor = STANDARD_ORGAN_DECAY
+	decay_factor = STANDARD_ORGAN_DECAY * 0.9 // fails around 16.5 minutes, lungs are one of the last organs to die (of the ones we have)
 
 	low_threshold_passed = "<span class='warning'>Трудно дышать...</span>"
 	high_threshold_passed = "<span class='warning'>Ощущаю какое-то сжатие вокруг груди, моё дыхание становится поверхностным и быстрым.</span>"

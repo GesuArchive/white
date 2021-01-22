@@ -49,6 +49,7 @@
 /obj/item/gun/energy/laser/captain/scattershot
 	name = "лазерная винтовка Scatter Shot"
 	icon_state = "lasercannon"
+	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "laser"
 	desc = "Промышленная сверхмощная лазерная винтовка с модифицированной лазерной линзой, позволяющая рассеять выстрел в несколько меньших лазеров. Внутреннее ядро может заряжаться для теоретически бесконечного использования."
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/scatter, /obj/item/ammo_casing/energy/laser)
@@ -110,14 +111,14 @@
 	transform *= 1 + ((damage/7) * 0.2)//20% larger per tile
 
 ///X-ray gun
+
 /obj/item/gun/energy/xray
 	name = "рентгеновская лазерная пушка"
 	desc = "Мощная лазерная пушка, способная излучать концентрированные рентгеновские заряды, которые проходят через множество мягких целей и более тяжелых материалов."
 	icon_state = "xray"
-	inhand_icon_state = null
 	w_class = WEIGHT_CLASS_BULKY
+	inhand_icon_state = null
 	ammo_type = list(/obj/item/ammo_casing/energy/xray)
-	pin = null
 	ammo_x_offset = 3
 
 ////////Laser Tag////////////////////

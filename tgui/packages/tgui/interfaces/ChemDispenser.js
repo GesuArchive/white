@@ -1,6 +1,5 @@
 import { toFixed } from 'common/math';
 import { toTitleCase } from 'common/string';
-import { Fragment } from 'inferno';
 import { useBackend } from '../backend';
 import { AnimatedNumber, Box, Button, Icon, LabeledList, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
@@ -51,7 +50,7 @@ export const ChemDispenser = (props, context) => {
         <Section
           title="Рецепты"
           buttons={(
-            <Fragment>
+            <>
               {!recording && (
                 <Box inline mx={1}>
                   <Button
@@ -81,7 +80,7 @@ export const ChemDispenser = (props, context) => {
                   content="Сохранить"
                   onClick={() => act('save_recording')} />
               )}
-            </Fragment>
+            </>
           )}>
           <Box mr={-1}>
             {recipes.map(recipe => (
@@ -156,12 +155,12 @@ export const ChemDispenser = (props, context) => {
                 && 'Виртуальная ёмкость'
                 || data.isBeakerLoaded
                   && (
-                    <Fragment>
+                    <>
                       <AnimatedNumber
                         initial={0}
                         value={data.beakerCurrentVolume} />
                       /{data.beakerMaxVolume} единиц
-                    </Fragment>
+                    </>
                   )
                 || 'Нет ёмкости'}
             </LabeledList.Item>

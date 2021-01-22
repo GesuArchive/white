@@ -34,8 +34,8 @@
 /obj/item/gun/energy/pulse/carbine
 	name = "импульсный карабин"
 	desc = "Компактный вариант импульсной винтовки с меньшей огневой мощью, но более простым в хранении."
-	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BELT
+	w_class = WEIGHT_CLASS_BULKY
 	icon_state = "pulse_carbine"
 	worn_icon_state = "gun"
 	inhand_icon_state = null
@@ -46,6 +46,16 @@
 
 /obj/item/gun/energy/pulse/carbine/loyalpin
 	pin = /obj/item/firing_pin/implant/mindshield
+
+/obj/item/gun/energy/pulse/destroyer
+	name = "импульсный разрушитель"
+	desc = "Мощная энергетическая винтовка, созданная для чистого уничтожения."
+	worn_icon_state = "pulse"
+	cell_type = "/obj/item/stock_parts/cell/infinite"
+	ammo_type = list(/obj/item/ammo_casing/energy/laser/pulse)
+
+/obj/item/gun/energy/pulse/destroyer/attack_self(mob/living/user)
+	to_chat(user, "<span class='danger'>[src.name] имеет три настройки и все они в режиме УНИЧТОЖИТЬ.</span>")
 
 /obj/item/gun/energy/pulse/pistol
 	name = "импульсный пистолет"
@@ -59,16 +69,6 @@
 
 /obj/item/gun/energy/pulse/pistol/loyalpin
 	pin = /obj/item/firing_pin/implant/mindshield
-
-/obj/item/gun/energy/pulse/destroyer
-	name = "импульсный разрушитель"
-	desc = "Мощная энергетическая винтовка, созданная для чистого уничтожения."
-	worn_icon_state = "pulse"
-	cell_type = "/obj/item/stock_parts/cell/infinite"
-	ammo_type = list(/obj/item/ammo_casing/energy/laser/pulse)
-
-/obj/item/gun/energy/pulse/destroyer/attack_self(mob/living/user)
-	to_chat(user, "<span class='danger'>[src.name] имеет три настройки и все они в режиме УНИЧТОЖИТЬ.</span>")
 
 /obj/item/gun/energy/pulse/pistol/m1911
 	name = "\improper M1911-P"

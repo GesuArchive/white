@@ -294,9 +294,7 @@
 	if(blood_volume < BLOOD_VOLUME_SAFE || skin_tone == "albino")
 		msg += "[ru_ego(TRUE)] кожа бледная.\n"
 
-	if(bleedsuppress)
-		msg += "[t_on] перевязан[t_a].\n"
-	else if(is_bleeding())
+	if(is_bleeding())
 		var/list/obj/item/bodypart/bleeding_limbs = list()
 		var/list/obj/item/bodypart/grasped_limbs = list()
 
@@ -451,11 +449,8 @@
 				. += "<a href='?src=[REF(src)];hud=m;m_stat=1'>\[[health_r]\]</a>"
 			R = find_record("name", perpname, GLOB.data_core.medical)
 			if(R)
-				. += "<a href='?src=[REF(src)];hud=m;evaluation=1'>\[Medical evaluation\]</a><br>"
-			var/quirkstring = get_quirk_string(TRUE, CAT_QUIRK_ALL)
-			if(quirkstring)
-				. += "<hr><span class='notice ml-1'>Выявленные физиологические признаки:</span>\n"
-				. += "<span class='notice ml-2'>[quirkstring]</span>"
+				. += "<a href='?src=[REF(src)];hud=m;evaluation=1'>\[Медицинское заключение\]</a><br>"
+			. += "<a href='?src=[REF(src)];hud=m;quirk=1'>\[Признаки\]</a>"
 
 		if(HAS_TRAIT(user, TRAIT_SECURITY_HUD))
 			if(!user.stat && user != src)

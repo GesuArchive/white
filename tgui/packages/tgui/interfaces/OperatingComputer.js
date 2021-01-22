@@ -1,4 +1,3 @@
-import { Fragment } from 'inferno';
 import { useBackend, useSharedState } from '../backend';
 import { AnimatedNumber, Button, LabeledList, NoticeBox, ProgressBar, Section, Tabs } from '../components';
 import { Window } from '../layouts';
@@ -68,7 +67,7 @@ const PatientStateView = (props, context) => {
     );
   }
   return (
-    <Fragment>
+    <>
       <Section title="Статус пациента">
         {patient && (
           <LabeledList>
@@ -116,29 +115,29 @@ const PatientStateView = (props, context) => {
             <LabeledList.Item label="Следующий шаг">
               {procedure.next_step}
               {procedure.chems_needed && (
-                <Fragment>
+                <>
                   <b>Требуются химикаты:</b>
                   <br />
                   {procedure.chems_needed}
-                </Fragment>
+                </>
               )}
             </LabeledList.Item>
             {!!data.alternative_step && (
               <LabeledList.Item label="Альт">
                 {procedure.alternative_step}
                 {procedure.alt_chems_needed && (
-                  <Fragment>
+                  <>
                     <b>Требуются химикаты:</b>
                     <br />
                     {procedure.alt_chems_needed}
-                  </Fragment>
+                  </>
                 )}
               </LabeledList.Item>
             )}
           </LabeledList>
         </Section>
       ))}
-    </Fragment>
+    </>
   );
 };
 

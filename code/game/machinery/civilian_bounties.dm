@@ -1,3 +1,5 @@
+#define CIV_BOUNTY_SPLIT 30
+
 ///Pad for the Civilian Bounty Control.
 /obj/machinery/piratepad/civilian
 	name = "платформа отправки"
@@ -104,7 +106,7 @@
 		reward.bounty_holder = inserted_scan_id.registered_name
 		reward.name = "[reward.name] [reward.bounty_value] кредитов "
 		reward.desc += " Бирка указывает, что этот куб принадлежит [reward.bounty_holder] за выполнение заказа <i>[reward.bounty_name]</i> которые было принято в [station_time_timestamp(format = "hh:mm")]."
-		reward.AddComponent(/datum/component/pricetag, inserted_scan_id.registered_account, 30)
+		reward.AddComponent(/datum/component/pricetag, inserted_scan_id.registered_account, CIV_BOUNTY_SPLIT)
 		if(curr_bounty.reward <= 10000)
 			inc_metabalance(usr, METACOIN_BOUNTY_REWARD_EASY, reason="Лёгкий заказ выполнен!")
 		if(curr_bounty.reward >= 10001 && curr_bounty.reward <= 20000)
@@ -166,15 +168,15 @@
 		if(inserted_scan_id.registered_account.civilian_bounty)
 			data["id_bounty_info"] = inserted_scan_id.registered_account.civilian_bounty.description
 			data["id_bounty_num"] = inserted_scan_id.registered_account.bounty_num()
-			data["id_bounty_value"] = inserted_scan_id.registered_account.civilian_bounty.reward
+			data["id_bounty_value"] = (inserted_scan_id.registered_account.civilian_bounty.reward) * (CIV_BOUNTY_SPLIT/100)
 		if(inserted_scan_id.registered_account.bounties)
 			data["picking"] = TRUE
 			data["id_bounty_names"] = list(inserted_scan_id.registered_account.bounties[1].name,
 											inserted_scan_id.registered_account.bounties[2].name,
 											inserted_scan_id.registered_account.bounties[3].name)
-			data["id_bounty_values"] = list(inserted_scan_id.registered_account.bounties[1].reward,
-											inserted_scan_id.registered_account.bounties[2].reward,
-											inserted_scan_id.registered_account.bounties[3].reward)
+			data["id_bounty_values"] = list(inserted_scan_id.registered_account.bounties[1].reward * (CIV_BOUNTY_SPLIT/100),
+											inserted_scan_id.registered_account.bounties[2].reward * (CIV_BOUNTY_SPLIT/100),
+											inserted_scan_id.registered_account.bounties[3].reward * (CIV_BOUNTY_SPLIT/100))
 		else
 			data["picking"] = FALSE
 

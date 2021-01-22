@@ -119,7 +119,6 @@
 /obj/item/surgicaldrill/augment
 	desc = "По сути, небольшая электрическая дрель, содержащаяся в руке, края притуплены, чтобы предотвратить повреждение тканей. Может или не может пронзить небеса."
 	hitsound = 'sound/weapons/circsawhit.ogg'
-	force = 10
 	w_class = WEIGHT_CLASS_SMALL
 	toolspeed = 0.5
 
@@ -192,9 +191,8 @@
 	AddComponent(/datum/component/butchering, 40 * toolspeed, 100, 5, 'sound/weapons/circsawhit.ogg') //saws are very accurate and fast at butchering
 
 /obj/item/circular_saw/augment
-	desc = "Маленькая, но очень быстро вращающаяся пила. Края притуплены, чтобы предотвратить случайные порезы внутри хирурга."
+	desc = "Маленькая, но очень быстро вращающаяся пила."
 	w_class = WEIGHT_CLASS_SMALL
-	force = 10
 	toolspeed = 0.5
 
 /obj/item/surgical_drapes

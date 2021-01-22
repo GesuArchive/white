@@ -1,4 +1,3 @@
-import { Fragment } from 'inferno';
 import { useBackend } from '../backend';
 import { Box, Button, Flex, Section } from '../components';
 import { Window } from '../layouts';
@@ -38,7 +37,7 @@ export const Vendatray = (props, context) => {
                   onClick={() => act('Adjust')} />
               </Box>
             </Section>
-            <Fragment>
+            <>
               <Button
                 fluid
                 icon="window-restore"
@@ -51,7 +50,7 @@ export const Vendatray = (props, context) => {
                 content="Купить"
                 disabled={!product_name}
                 onClick={() => act('Buy')} />
-            </Fragment>
+            </>
           </Flex.Item>
         </Flex>
         {registered?(
@@ -59,7 +58,7 @@ export const Vendatray = (props, context) => {
             Платёж отправляется {owner_name}.
           </Section>
         ):(
-          <Fragment>
+          <>
             <Section>
               Не зарегистрировано.
             </Section>
@@ -69,7 +68,7 @@ export const Vendatray = (props, context) => {
               content="Зарегистрировать"
               disabled={registered}
               onClick={() => act('Register')} />
-          </Fragment>
+          </>
         )}
       </Window.Content>
     </Window>

@@ -599,7 +599,7 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 	. = ..()
 	. += GLOB.bronze_recipes
 
-/obj/item/stack/sheet/paperframes/Initialize()
+/obj/item/stack/sheet/paperframes/Initialize(mapload, new_amount, merge = TRUE, list/mat_override=null, mat_amt=1)
 	. = ..()
 	if(loc)
 		forceMove(loc, 0, 0)

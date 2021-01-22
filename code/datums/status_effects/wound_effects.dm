@@ -12,9 +12,15 @@
 /datum/status_effect/determined/on_apply()
 	. = ..()
 	owner.visible_message("<span class='danger'>[owner] стискивает [owner.ru_ego()] зубы от боли!</span>", "<span class='notice'><b>Прилив адреналина даёт мне на мгновение забыть про раны!</b></span>", vision_distance=COMBAT_MESSAGE_RANGE)
+	if(ishuman(owner))
+		var/mob/living/carbon/human/human_owner = owner
+		human_owner.physiology.bleed_mod *= WOUND_DETERMINATION_BLEED_MOD
 
 /datum/status_effect/determined/on_remove()
 	owner.visible_message("<span class='danger'>[owner] заметно ослабевает!</span>", "<span class='warning'><b>Раны начинают болеть с огромной силой...</b></span>", vision_distance=COMBAT_MESSAGE_RANGE)
+	if(ishuman(owner))
+		var/mob/living/carbon/human/human_owner = owner
+		human_owner.physiology.bleed_mod /= WOUND_DETERMINATION_BLEED_MOD
 	return ..()
 
 /datum/status_effect/limp
@@ -55,11 +61,11 @@
 /datum/status_effect/limp/proc/check_step(mob/whocares, OldLoc, Dir, forced)
 	SIGNAL_HANDLER
 
-	if(!owner.client || owner.body_position == LYING_DOWN || !owner.has_gravity() || (owner.movement_type & FLYING) || forced)
+	if(!owner.client || owner.body_position == LYING_DOWN || !owner.has_gravity() || (owner.movement_type & FLYING) || forced || owner.buckled)
 		return
-	var/determined_mod = 1
-	if(owner.has_status_effect(STATUS_EFFECT_DETERMINED))
-		determined_mod = 0.25
+	// less limping while we have determination still
+	var/determined_mod = owner.has_status_effect(STATUS_EFFECT_DETERMINED) ? 0.25 : 1
+
 	if(next_leg == left)
 		owner.client.move_delay += slowdown_left * determined_mod
 		next_leg = right

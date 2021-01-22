@@ -1,4 +1,3 @@
-import { Fragment } from 'inferno';
 import { useBackend } from '../backend';
 import { Button, Section } from '../components';
 import { Window } from '../layouts';
@@ -19,7 +18,7 @@ export const Timer = (props, context) => {
         <Section
           title="Таймер"
           buttons={(
-            <Fragment>
+            <>
               <Button
                 icon={'sync'}
                 content={loop ? 'Повторяет' : 'Повторять'}
@@ -30,7 +29,7 @@ export const Timer = (props, context) => {
                 content={timing ? 'Стоп' : 'Старт'}
                 selected={timing}
                 onClick={() => act('time')} />
-            </Fragment>
+            </>
           )}>
           <Button
             icon="fast-backward"

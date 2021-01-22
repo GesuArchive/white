@@ -94,6 +94,7 @@
 	name = "автоматическая винтовка службы безопасности"
 	desc = "Устаревшее оружие. Использует патроны 4.6x30mm калибра, обозначается как \"WT-550 Automatic Rifle\"."
 	icon_state = "wt550"
+	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "arg"
 	mag_type = /obj/item/ammo_box/magazine/wt550m9
 	fire_delay = 2
@@ -136,6 +137,7 @@
 	name = "\improper карабин M-90gl"
 	desc = "Три патрона за выстрел 5.56 карабин, назначеный как 'M-90gl'. Имеет встроенный гранатомёт."
 	icon_state = "m90"
+	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "m90"
 	selector_switch_icon = TRUE
 	mag_type = /obj/item/ammo_box/magazine/m556
@@ -212,7 +214,7 @@
 	icon_state = "tommygun"
 	inhand_icon_state = "shotgun"
 	selector_switch_icon = TRUE
-	w_class = WEIGHT_CLASS_HUGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = 0
 	mag_type = /obj/item/ammo_box/magazine/tommygunm45
 	can_suppress = FALSE
@@ -323,6 +325,7 @@
 	name = "снайперская винтовка"
 	desc = "Дальнобойное оружие, которое делает сильные повреждения. Нет, быстро стрелять вы не сможете."
 	icon_state = "sniper"
+	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "sniper"
 	worn_icon_state = null
 	fire_sound = 'sound/weapons/gun/sniper/shot.ogg'
@@ -376,6 +379,7 @@
 	name = "лазерная винтовка"
 	desc = "Несмотря на ее слабость в огне, её достоинство - самоперезаряжающийся магазин. Это оружие сделало немало побед НТ"
 	icon_state = "oldrifle"
+	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "arg"
 	mag_type = /obj/item/ammo_box/magazine/recharge
 	mag_display_ammo = TRUE

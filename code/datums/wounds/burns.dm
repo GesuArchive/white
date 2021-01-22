@@ -33,7 +33,7 @@
 
 /datum/wound/burn/handle_process()
 	. = ..()
-	if(strikes_to_lose_limb == 0)
+	if(strikes_to_lose_limb == 0) // we've already hit sepsis, nothing more to do
 		victim.adjustToxLoss(0.5)
 		if(prob(1))
 			victim.visible_message("<span class='danger'>Инфекция на остатках [ru_gde_zone(limb.name)] <b>[victim]</b> двигается и булькает тошнотворно!</span>", "<span class='warning'>Инфекция на моей [ru_gde_zone(limb.name)] течет по моим венам!</span>")
@@ -51,18 +51,22 @@
 	if(limb.current_gauze)
 		limb.seep_gauze(WOUND_BURN_SANITIZATION_RATE)
 
-	if(flesh_healing > 0)
+	if(flesh_healing > 0) // good bandages multiply the length of flesh healing
 		var/bandage_factor = (limb.current_gauze ? limb.current_gauze.splint_factor : 1)
 		flesh_damage = max(0, flesh_damage - 1)
-		flesh_healing = max(0, flesh_healing - bandage_factor) // good bandages multiply the length of flesh healing
+		flesh_healing = max(0, flesh_healing - bandage_factor)
+
+	// if we have little/no infection, the limb doesn't have much burn damage, and our nutrition is good, heal some flesh
+	if(infestation <= WOUND_INFECTION_MODERATE && (limb.burn_dam < 5) && (victim.nutrition >= NUTRITION_LEVEL_FED))
+		flesh_healing += 0.2
 
 	// here's the check to see if we're cleared up
-	if((flesh_damage <= 0) && (infestation <= 1))
+	if((flesh_damage <= 0) && (infestation <= WOUND_INFECTION_MODERATE))
 		to_chat(victim, "<span class='green'>Ожоги на моей [ru_gde_zone(limb.name)] пропадают!</span>")
 		qdel(src)
 		return
 
-	// sanitization is checked after the clearing check but before the rest, because we freeze the effects of infection while we have sanitization
+	// sanitization is checked after the clearing check but before the actual ill-effects, because we freeze the effects of infection while we have sanitization
 	if(sanitization > 0)
 		var/bandage_factor = (limb.current_gauze ? limb.current_gauze.splint_factor : 1)
 		infestation = max(0, infestation - WOUND_BURN_SANITIZATION_RATE)
@@ -181,7 +185,7 @@
 */
 
 /// if someone is using ointment on our burns
-/datum/wound/burn/proc/ointment(obj/item/stack/medical/ointment/I, mob/user)
+/datum/wound/burn/proc/ointmentmesh(obj/item/stack/medical/I, mob/user)
 	user.visible_message("<span class='notice'><b>[user]</b> начинает применять [I] на [ru_parse_zone(limb.name)] <b>[victim]</b>...</span>", "<span class='notice'>Начинаю применять [I] на[user == victim ? " мою" : ""] [ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"]...</span>")
 	if(!do_after(user, (user == victim ? I.self_delay : I.other_delay), extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
@@ -194,26 +198,6 @@
 
 	if((infestation <= 0 || sanitization >= infestation) && (flesh_damage <= 0 || flesh_healing > flesh_damage))
 		to_chat(user, "<span class='notice'>Сделал всё что мог при помощи [I], теперь надо подождать пока [limb.name] <b>[victim]</b> восстановится.</span>")
-	else
-		try_treating(I, user)
-
-/// if someone is using mesh on our burns
-/datum/wound/burn/proc/mesh(obj/item/stack/medical/mesh/I, mob/user)
-	if(!I.is_open)
-		to_chat(user, "<span class='warning'>Нужно открыть [I] сперва.</span>")
-		return
-	user.visible_message("<span class='notice'><b>[user]</b> начинает обматывать [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I]...</span>", "<span class='notice'>Начинаю обматывать [user == victim ? " мою" : ""] [ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
-	if(!do_after(user, (user == victim ? I.self_delay : I.other_delay), target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
-		return
-
-	limb.heal_damage(I.heal_brute, I.heal_burn)
-	user.visible_message("<span class='green'><b>[user]</b> применяет [I] на [ru_parse_zone(limb.name)] <b>[victim]</b>.</span>", "<span class='green'>Применяю [I] на [user == victim ? " мою" : ""] [ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"].</span>")
-	I.use(1)
-	sanitization += I.sanitization
-	flesh_healing += I.flesh_regeneration
-
-	if(sanitization >= infestation && flesh_healing > flesh_damage)
-		to_chat(user, "<span class='notice'>Делаю всё, что могу, используя [I], теперь нужно подождать пока кожа на [limb.name] <b>[victim]</b> восстановится.</span>")
 	else
 		try_treating(I, user)
 
@@ -232,9 +216,13 @@
 
 /datum/wound/burn/treat(obj/item/I, mob/user)
 	if(istype(I, /obj/item/stack/medical/ointment))
-		ointment(I, user)
+		ointmentmesh(I, user)
 	else if(istype(I, /obj/item/stack/medical/mesh))
-		mesh(I, user)
+		var/obj/item/stack/medical/mesh/mesh_check = I
+		if(!mesh_check.is_open)
+			to_chat(user, "<span class='warning'>Нужно открыть [mesh_check] сначала.</span>")
+			return
+		ointmentmesh(mesh_check, user)
 	else if(istype(I, /obj/item/flashlight/pen/paramedic))
 		uv(I, user)
 
@@ -244,7 +232,7 @@
 	if(flesh_healing > 0)
 		flesh_damage = max(0, flesh_damage - 0.2)
 	if((flesh_damage <= 0) && (infestation <= 1))
-		to_chat(victim, "<span class='green'>The burns on your [limb.name] have cleared up!</span>")
+		to_chat(victim, "<span class='green'>Ожоги на моей [limb.name] уходят!</span>")
 		qdel(src)
 		return
 	if(sanitization > 0)
@@ -282,7 +270,7 @@
 	threshold_penalty = 40
 	status_effect_type = /datum/status_effect/wound/burn/severe
 	treatable_by = list(/obj/item/flashlight/pen/paramedic, /obj/item/stack/medical/ointment, /obj/item/stack/medical/mesh)
-	infestation_rate = 0.05 // appx 13 minutes to reach sepsis without any treatment
+	infestation_rate = 0.07 // appx 9 minutes to reach sepsis without any treatment
 	flesh_damage = 12.5
 	scar_keyword = "burnsevere"
 

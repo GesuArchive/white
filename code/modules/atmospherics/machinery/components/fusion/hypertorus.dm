@@ -464,7 +464,7 @@
 		for(var/obj/machinery/hypertorus/corner/corner in corners)
 			corner.active = FALSE
 			corner.update_icon()
-		corners = null
+		corners = list()
 	QDEL_NULL(soundloop)
 
 /obj/machinery/atmospherics/components/unary/hypertorus/core/proc/check_fuel()
@@ -895,16 +895,11 @@
 	//The amount of heat that is finally emitted, based on the power output. Min and max are variables that depends of the modifier
 	heat_output = clamp(internal_instability * power_output * heat_modifier / 100, - heat_limiter_modifier * 0.01, heat_limiter_modifier)
 
-	//Modifies the internal_fusion temperature with the amount of heat output
-	if(internal_fusion.return_temperature() <= FUSION_MAXIMUM_TEMPERATURE)
-		internal_fusion.set_temperature(clamp(internal_fusion.return_temperature() + heat_output,TCMB,FUSION_MAXIMUM_TEMPERATURE))
-	else
-		internal_fusion.set_temperature(internal_fusion.return_temperature() - (heat_limiter_modifier * 0.01 * delta_time))
-
 	var/datum/gas_mixture/internal_output = new
 	//gas consumption and production
 	if(check_fuel())
-		var/fuel_consumption = clamp((fuel_injection_rate * 0.001) * 5 * power_level, 0.05, 30) * delta_time
+		var/fuel_consumption_rate = clamp((fuel_injection_rate * 0.001) * 5 * power_level, 0.05, 30)
+		var/fuel_consumption = fuel_consumption_rate * delta_time
 		internal_fusion.adjust_moles(/datum/gas/tritium, -min(tritium, fuel_consumption * 0.85))
 		internal_fusion.adjust_moles(/datum/gas/hydrogen, -min(hydrogen, fuel_consumption * 0.95))
 		internal_fusion.adjust_moles(/datum/gas/helium, fuel_consumption * 0.5)
@@ -913,7 +908,7 @@
 		if(power_output)
 			switch(power_level)
 				if(1)
-					var/scaled_production = clamp(heat_output * 1e-2, 0, fuel_consumption) * delta_time
+					var/scaled_production = clamp(heat_output * 1e-2, 0, fuel_consumption_rate) * delta_time
 					moderator_internal.adjust_moles(/datum/gas/carbon_dioxide, scaled_production * 0.95)
 					moderator_internal.adjust_moles(/datum/gas/water_vapor, scaled_production *0.75)
 					if(m_plasma > 100)
@@ -925,7 +920,7 @@
 						internal_output.adjust_moles(/datum/gas/proto_nitrate, scaled_production * 0.25)
 						moderator_internal.adjust_moles(/datum/gas/bz, -min(moderator_internal.get_moles(/datum/gas/bz), scaled_production * 0.95))
 				if(2)
-					var/scaled_production = clamp(heat_output * 1e-3, 0, fuel_consumption) * delta_time
+					var/scaled_production = clamp(heat_output * 1e-3, 0, fuel_consumption_rate) * delta_time
 					moderator_internal.adjust_moles(/datum/gas/carbon_dioxide, scaled_production * 1.65)
 					moderator_internal.adjust_moles(/datum/gas/water_vapor, scaled_production)
 					if(m_plasma > 50)
@@ -944,7 +939,7 @@
 						moderator_internal.adjust_moles(/datum/gas/halon, scaled_production * 1.35)
 						moderator_internal.adjust_moles(/datum/gas/nitrous_oxide, -min(moderator_internal.get_moles(/datum/gas/nitrous_oxide), scaled_production * 1.5))
 				if(3, 4)
-					var/scaled_production = clamp(heat_output * 5e-4, 0, fuel_consumption) * delta_time
+					var/scaled_production = clamp(heat_output * 5e-4, 0, fuel_consumption_rate) * delta_time
 					if(power_level == 3)
 						moderator_internal.adjust_moles(/datum/gas/oxygen, scaled_production * 0.5)
 						moderator_internal.adjust_moles(/datum/gas/nitrogen, scaled_production * 0.45)
@@ -974,7 +969,7 @@
 								l.hallucination += power_level * 50 * D * delta_time
 								l.hallucination = clamp(l.hallucination, 0, 200)
 				if(5)
-					var/scaled_production = clamp(heat_output * 1e-6, 0, fuel_consumption) * delta_time
+					var/scaled_production = clamp(heat_output * 1e-6, 0, fuel_consumption_rate) * delta_time
 					moderator_internal.adjust_moles(/datum/gas/nitryl, scaled_production * 1.65)
 					moderator_internal.adjust_moles(/datum/gas/water_vapor, scaled_production)
 					if(m_plasma > 15)
@@ -1001,12 +996,12 @@
 						moderator_internal.adjust_moles(/datum/gas/freon, scaled_production * 1.15)
 					if(m_healium > 100)
 						if(critical_threshold_proximity > 400)
-							critical_threshold_proximity = max(critical_threshold_proximity - (m_healium / 100), 0)
+							critical_threshold_proximity = max(critical_threshold_proximity - (m_healium / 100 * delta_time ), 0)
 							moderator_internal.adjust_moles(/datum/gas/healium, -min(moderator_internal.get_moles(/datum/gas/healium), scaled_production * 20))
 					if(moderator_internal.return_temperature() < 1e7 || (m_plasma > 100 && m_bz > 50))
 						internal_output.adjust_moles(/datum/gas/antinoblium, 0.1 * (scaled_helium / (fuel_injection_rate * 0.0065)))
 				if(6)
-					var/scaled_production = clamp(heat_output * 1e-7, 0, fuel_consumption) * delta_time
+					var/scaled_production = clamp(heat_output * 1e-7, 0, fuel_consumption_rate) * delta_time
 					if(m_plasma > 30)
 						moderator_internal.adjust_moles(/datum/gas/bz, scaled_production * 1.15)
 						moderator_internal.adjust_moles(/datum/gas/plasma, -min(moderator_internal.get_moles(/datum/gas/plasma), scaled_production * 1.45))
@@ -1018,6 +1013,7 @@
 						heat_output *= 2.25
 					if(m_bz)
 						for(var/mob/living/carbon/human/human in view(src, HALLUCINATION_RANGE(heat_output)))
+							//mesons won't protect you at fusion level 6
 							var/distance_root = sqrt(1 / max(1, get_dist(human, src)))
 							human.hallucination += power_level * 150 * distance_root
 							human.hallucination = clamp(human.hallucination, 0, 200)
@@ -1027,6 +1023,12 @@
 							critical_threshold_proximity = max(critical_threshold_proximity - (m_healium / 100), 0)
 							moderator_internal.adjust_moles(/datum/gas/healium, min(moderator_internal.get_moles(/datum/gas/healium), scaled_production * 20) * delta_time)
 					internal_fusion.adjust_moles(/datum/gas/antinoblium, 0.01 * (scaled_helium / (fuel_injection_rate * 0.0095)) * delta_time)
+
+	//Modifies the internal_fusion temperature with the amount of heat output
+	if(internal_fusion.temperature <= FUSION_MAXIMUM_TEMPERATURE)
+		internal_fusion.temperature = clamp(internal_fusion.temperature + heat_output,TCMB,FUSION_MAXIMUM_TEMPERATURE)
+	else
+		internal_fusion.temperature -= heat_limiter_modifier * 0.01 * delta_time
 
 	//heat up and output what's in the internal_output into the linked_output port
 	if(internal_output.total_moles() > 0)
@@ -1038,7 +1040,7 @@
 
 	//High power fusion might create other matter other than helium, iron is dangerous inside the machine, damage can be seen
 	if(moderator_internal.total_moles() > 0)
-		moderator_internal.remove(moderator_internal.total_moles() * 0.0005 * power_level)
+		moderator_internal.remove(moderator_internal.total_moles() * (1 - (1 - 0.0005 * power_level) ** delta_time))
 	if(power_level > 4 && prob(17 * power_level))//at power level 6 is 100%
 		iron_content += 0.005 * delta_time
 	if(iron_content > 0 && power_level <= 4 && prob(25 / (power_level + 1)))

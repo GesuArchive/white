@@ -1,4 +1,3 @@
-import { Fragment } from 'inferno';
 import { useBackend, useLocalState } from '../backend';
 import { Button, Dimmer, Flex, Icon, LabeledList, Section, Tabs } from '../components';
 import { Window } from '../layouts';
@@ -73,7 +72,7 @@ export const PersonalCrafting = (props, context) => {
         <Section
           title="Создание"
           buttons={(
-            <Fragment>
+            <>
               <Button.Checkbox
                 content="Компактно"
                 checked={display_compact}
@@ -82,7 +81,7 @@ export const PersonalCrafting = (props, context) => {
                 content="Только возможные"
                 checked={display_craftable_only}
                 onClick={() => act('toggle_recipes')} />
-            </Fragment>
+            </>
           )}>
           <Flex>
             <Flex.Item>

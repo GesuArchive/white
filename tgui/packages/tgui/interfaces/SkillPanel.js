@@ -38,7 +38,7 @@ export const SkillPanel = (props, context) => {
                 <br />
                 Всего опыта: [{skill.exp} XP]
                 <br />
-                XP до следующего уровня: 
+                XP до следующего уровня:
                 {skill.exp_req !== 0 ? (
                   <span>
                     [{skill.exp_prog} / {skill.exp_req}]

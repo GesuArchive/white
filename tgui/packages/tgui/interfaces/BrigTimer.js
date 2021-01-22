@@ -1,4 +1,3 @@
-import { Fragment } from 'inferno';
 import { useBackend } from '../backend';
 import { Button, Section } from '../components';
 import { Window } from '../layouts';
@@ -14,7 +13,7 @@ export const BrigTimer = (props, context) => {
         <Section
           title="Таймер клетки"
           buttons={(
-            <Fragment>
+            <>
               <Button
                 icon="clock-o"
                 content={data.timing ? 'Стоп' : 'Старт'}
@@ -25,7 +24,7 @@ export const BrigTimer = (props, context) => {
                 content={data.flash_charging ? 'Перезарядка' : 'Вспышка'}
                 disabled={data.flash_charging}
                 onClick={() => act('flash')} />
-            </Fragment>
+            </>
           )}>
           <Button
             icon="fast-backward"

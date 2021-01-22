@@ -338,37 +338,36 @@ const PageMain = (props, context) => {
   return (
     <Box>
       <Section title="Эвакуационный шаттл">
-        {
-          shuttleCalled
-            ? <Button.Confirm
-              icon="space-shuttle"
-              content="Отозвать эвакуацию"
-              color="bad"
-              disabled={!canRecallShuttles || !shuttleRecallable}
-              tooltip={(
-                canRecallShuttles && (
-                  !shuttleRecallable && "Слишком поздно. Шаттл уже в пути."
-                ) || (
-                  "У Вас недостаточно привилегий."
-                )
-              )}
-              tooltipPosition="bottom-right"
-              onClick={() => act("recallShuttle")}
-            />
-            : <Button
-              icon="space-shuttle"
-              content="Начать эвакуацию"
-              disabled={shuttleCanEvacOrFailReason !== 1}
-              tooltip={
-                shuttleCanEvacOrFailReason !== 1
-                  ? shuttleCanEvacOrFailReason
-                  : undefined
-              }
-              tooltipPosition="bottom-right"
-              onClick={() => setCallingShuttle(true)}
-            />
-        }
-
+        {shuttleCalled && (
+          <Button.Confirm
+            icon="space-shuttle"
+            content="Отозвать эвакуацию"
+            color="bad"
+            disabled={!canRecallShuttles || !shuttleRecallable}
+            tooltip={(
+              canRecallShuttles && (
+                !shuttleRecallable && "Слишком поздно. Шаттл уже в пути."
+              ) || (
+                "У Вас недостаточно привилегий."
+              )
+            )}
+            tooltipPosition="bottom-right"
+            onClick={() => act("recallShuttle")}
+          />
+        ) || (
+          <Button
+            icon="space-shuttle"
+            content="Начать эвакуацию"
+            disabled={shuttleCanEvacOrFailReason !== 1}
+            tooltip={
+              shuttleCanEvacOrFailReason !== 1
+                ? shuttleCanEvacOrFailReason
+                : undefined
+            }
+            tooltipPosition="bottom-right"
+            onClick={() => setCallingShuttle(true)}
+          />
+        )}
         {!!shuttleCalledPreviously && (
           shuttleLastCalled && (
             <Box>
@@ -658,7 +657,7 @@ const PageMessages = (props, context) => {
               color={message.answered === answerIndex + 1 ? "good" : undefined}
               key={answerIndex}
               onClick={message.answered ? undefined : () => act("answerMessage", {
-                message: messageIndex + 1,
+                message: parseInt(messageIndex, 10) + 1,
                 answer: answerIndex + 1,
               })}
             />

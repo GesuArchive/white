@@ -1,7 +1,6 @@
-import { Section, Box, Button, NoticeBox, LabeledList, NumberInput } from "../components";
-import { useBackend } from "../backend";
-import { Fragment } from "inferno";
-import { NtosWindow } from "../layouts";
+import { useBackend } from '../backend';
+import { Box, Button, LabeledList, NoticeBox, NumberInput, Section } from '../components';
+import { NtosWindow } from '../layouts';
 
 export const NtosNetMonitor = (props, context) => {
   const { act, data } = useBackend(context);
@@ -85,7 +84,7 @@ export const NtosNetMonitor = (props, context) => {
         </Section>
         <Section title="Безопасность">
           {!!idsalarm && (
-            <Fragment>
+            <>
               <NoticeBox>
                 ОБНАРУЖЕНО ВТОРЖЕНИЕ В СЕТЬ
               </NoticeBox>
@@ -93,13 +92,13 @@ export const NtosNetMonitor = (props, context) => {
                 В сети обнаружена аномальная активность. Проверьте системные
                 журналы для получения дополнительной информации
               </Box>
-            </Fragment>
+            </>
           )}
           <LabeledList>
             <LabeledList.Item
               label="Слежение"
               buttons={(
-                <Fragment>
+                <>
                   <Button
                     icon={idsstatus ? 'power-off' : 'times'}
                     content={idsstatus ? 'ВКЛЮЧЕНО' : 'ОТКЛЮЧЕНО'}
@@ -110,7 +109,7 @@ export const NtosNetMonitor = (props, context) => {
                     content="Сбросить состояние"
                     color="bad"
                     onClick={() => act('resetIDS')} />
-                </Fragment>
+                </>
               )} />
             <LabeledList.Item
               label="Максимальное число строк"

@@ -18,6 +18,7 @@
 	var/atom/us = source
 	us.UnregisterSignal(get_turf(us), COMSIG_TURF_EXPOSE)
 	if(us.flags_1 & ATMOS_IS_PROCESSING_1)
+		us.atmos_end()
 		SSair.atom_process -= us
 		us.flags_1 &= ~ATMOS_IS_PROCESSING_1
 	return ..()
@@ -37,14 +38,15 @@
 		SSair.atom_process += src
 		flags_1 |= ATMOS_IS_PROCESSING_1
 	else if(flags_1 & ATMOS_IS_PROCESSING_1)
+		atmos_end(air, exposed_temperature)
 		SSair.atom_process -= src
 		flags_1 &= ~ATMOS_IS_PROCESSING_1
 
 /atom/proc/process_exposure()
-	var/turf/open/spot
-	if(istype(loc, /turf/open))
-		spot = loc
-	else //If you end up in a locker or a wall reconsider your life decisions
+	var/turf/open/spot = loc
+	if(!istype(loc, /turf/open))
+		//If you end up in a locker or a wall reconsider your life decisions
+		atmos_end()
 		SSair.atom_process -= src
 		flags_1 &= ~ATMOS_IS_PROCESSING_1
 		return
@@ -68,4 +70,8 @@
 
 ///This is your process() proc
 /atom/proc/atmos_expose(datum/gas_mixture/air, exposed_temperature)
+	return
+
+///What to do when our requirements are no longer met. Null inputs are possible
+/atom/proc/atmos_end(datum/gas_mixture/air, exposed_temperature)
 	return

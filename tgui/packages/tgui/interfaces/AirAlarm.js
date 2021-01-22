@@ -48,7 +48,7 @@ const AirAlarmStatus = (props, context) => {
     <Section title="Состояние атмосферы">
       <LabeledList>
         {entries.length > 0 && (
-          <Fragment>
+          <>
             {entries.map(entry => {
               const status = dangerMap[entry.danger_level] || dangerMap[0];
               return (
@@ -72,7 +72,7 @@ const AirAlarmStatus = (props, context) => {
                 || data.fire_alarm && 'Пожарная тревога'
                 || 'Номинально'}
             </LabeledList.Item>
-          </Fragment>
+          </>
         ) || (
           <LabeledList.Item
             label="Внимание"
@@ -146,7 +146,7 @@ const AirAlarmControlHome = (props, context) => {
     atmos_alarm,
   } = data;
   return (
-    <Fragment>
+    <>
       <Button
         icon={atmos_alarm
           ? 'exclamation-triangle'
@@ -184,7 +184,7 @@ const AirAlarmControlHome = (props, context) => {
         icon="chart-bar"
         content="Пороги тревог"
         onClick={() => setScreen('thresholds')} />
-    </Fragment>
+    </>
   );
 };
 

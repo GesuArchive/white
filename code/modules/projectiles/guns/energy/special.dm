@@ -20,9 +20,8 @@
 	name = "ионный карабин"
 	desc = "Протонный ионный проектор MK.II - это облегченная карабинная версия большой ионной винтовки, созданная для эргономичности и эффективности."
 	icon_state = "ioncarbine"
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BELT
-	pin = null
 	flight_x_offset = 18
 	flight_y_offset = 11
 
@@ -31,7 +30,6 @@
 	desc = "Пистолет, который выпускает большое количество контролируемой радиации, чтобы медленно разбить цель на составляющие элементы."
 	icon_state = "decloner"
 	ammo_type = list(/obj/item/ammo_casing/energy/declone)
-	pin = null
 	ammo_x_offset = 1
 
 /obj/item/gun/energy/decloner/update_overlays()
@@ -80,6 +78,7 @@
 	name = "Пожиратель разума"
 	desc = "Прототип оружия, найденный на руинах исследовательской станции Эпсилон."
 	icon_state = "xray"
+	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = null
 	ammo_type = list(/obj/item/ammo_casing/energy/mindflayer)
 	ammo_x_offset = 2
@@ -112,11 +111,10 @@
 	name = "энергетический арбалет"
 	desc = "Реверсированное оружие, использующее технологию синдиката."
 	icon_state = "crossbowlarge"
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_BULKY
 	custom_materials = list(/datum/material/iron=4000)
 	suppressed = null
 	ammo_type = list(/obj/item/ammo_casing/energy/bolt/large)
-	pin = null
 
 
 /obj/item/gun/energy/plasmacutter
@@ -200,6 +198,7 @@
 	name = "блюспейс проектор червоточин"
 	desc = "Проектор, который излучает квантовые лучи высокой плотности с синей связью. Требуется ядро блюспейс аномалии для функционирования."
 	ammo_type = list(/obj/item/ammo_casing/energy/wormhole, /obj/item/ammo_casing/energy/wormhole/orange)
+	w_class = WEIGHT_CLASS_NORMAL
 	inhand_icon_state = null
 	icon_state = "wormhole_projector"
 	var/obj/effect/portal/p_blue
@@ -307,6 +306,7 @@
 	name = "температурная пушка"
 	icon_state = "freezegun"
 	desc = "Пушка, которая меняет температуру."
+	w_class = WEIGHT_CLASS_NORMAL
 	ammo_type = list(/obj/item/ammo_casing/energy/temp, /obj/item/ammo_casing/energy/temp/hot)
 	cell_type = "/obj/item/stock_parts/cell/high"
 	pin = null
@@ -321,6 +321,7 @@
 	icon_state = "instagib"
 	inhand_icon_state = "instagib"
 	desc = "Специализированная лазерная винтовка ASMD, способная уничтожать большинство целей одним попаданием."
+	w_class = WEIGHT_CLASS_BULKY
 	ammo_type = list(/obj/item/ammo_casing/energy/instakill)
 	force = 60
 	charge_sections = 5
@@ -345,6 +346,7 @@
 /obj/item/gun/energy/gravity_gun
 	name = "одноточечный гравитационный манипулятор"
 	desc = "Экспериментальное многорежимное устройство, которое запускает заряд энергии нулевой точки, вызывая локальные искажения в гравитации. Требуется ядро гравитационной аномалии для функционирования."
+	w_class = WEIGHT_CLASS_BULKY
 	ammo_type = list(/obj/item/ammo_casing/energy/gravity/repulse, /obj/item/ammo_casing/energy/gravity/attract, /obj/item/ammo_casing/energy/gravity/chaos)
 	inhand_icon_state = "gravity_gun"
 	icon_state = "gravity_gun"

@@ -1126,6 +1126,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Ксенобиологическая лаборатория"
 	icon_state = "xenobio"
 
+/area/science/cytology
+	name = "Cytology Lab"
+	icon_state = "cytology"
+
 /area/science/storage
 	name = "Хранилище токсинов"
 	icon_state = "tox_storage"
