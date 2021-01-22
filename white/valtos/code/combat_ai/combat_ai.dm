@@ -331,9 +331,6 @@
 /datum/ai_behavior/combat_ai_try_kill/proc/try_to_reload(datum/ai_controller/controller, var/obj/item/gun/ballistic/weapon)
 	var/mob/living/living_pawn = controller.pawn
 
-	if(living_pawn.next_move > world.time)
-		return
-
 	var/obj/item/ammo_box/magazine/mag = locate(/obj/item/ammo_box/magazine) in living_pawn.contents
 
 	if(!mag)
