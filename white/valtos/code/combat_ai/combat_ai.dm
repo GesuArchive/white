@@ -293,10 +293,10 @@
 		else if (target in oview(9, living_pawn))
 			if (locate(/obj/item/gun/ballistic) in living_pawn.held_items)
 				living_pawn.a_intent = INTENT_HELP
-				current_movement_target = null
+				controller.current_movement_target = null
 				try_attack(controller, target, delta_time)
 			else
-				current_movement_target = target
+				controller.current_movement_target = target
 
 /datum/ai_behavior/combat_ai_try_kill/finish_action(datum/ai_controller/controller, succeeded)
 	. = ..()
