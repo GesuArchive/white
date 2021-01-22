@@ -19,7 +19,7 @@
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 500)
 	construction_time = 75
 	build_path = /obj/item/mmi
-	category = list("Control Interfaces", "Медицинские разработки")
+	category = list("Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/posibrain
@@ -30,7 +30,7 @@
 	materials = list(/datum/material/iron = 1700, /datum/material/glass = 1350, /datum/material/gold = 500) //Gold, because SWAG.
 	construction_time = 75
 	build_path = /obj/item/mmi/posibrain
-	category = list("Control Interfaces", "Медицинские разработки")
+	category = list("Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/bluespacebeaker

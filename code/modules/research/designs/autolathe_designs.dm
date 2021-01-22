@@ -382,7 +382,7 @@
 	build_type = AUTOLATHE | PROTOLATHE
 	materials = list(/datum/material/iron = 120)
 	build_path = /obj/item/kitchen/spoon
-	category = list("initial", "Tool Designs", "Dinnerware")
+	category = list("initial", "Рабочие инструменты", "Кухня")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/plastic_spoon
