@@ -347,7 +347,7 @@
 			return
 		living_pawn.say("Перезаряжаюсь!")
 		living_pawn.swap_hand(LEFT_HANDS)
-		weapon.attack_hand(living_pawn)
+		weapon.attackby(mag, living_pawn)
 		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(LEFT_HANDS), force = TRUE)
 		living_pawn.swap_hand(RIGHT_HANDS)
 		weapon.attack_self(living_pawn)
