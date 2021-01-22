@@ -80,7 +80,7 @@
 
 	if(locate(/obj/item/gun/ballistic) in living_pawn.contents)
 		living_pawn.swap_hand(RIGHT_HANDS)
-		if(!living_pawn.put_in_r_hand(mag))
+		if(!living_pawn.put_in_r_hand(W))
 			living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(RIGHT_HANDS), force = TRUE)
 			return FALSE
 		return TRUE
