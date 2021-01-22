@@ -281,13 +281,22 @@
 	if(!target || target.stat != CONSCIOUS)
 		finish_action(controller, TRUE)
 
-	if(living_pawn.Adjacent(target) && isturf(target.loc) && !IS_DEAD_OR_INCAP(living_pawn))
-		if (locate(/obj/item/gun/ballistic) in living_pawn.held_items)
-			living_pawn.a_intent = INTENT_HELP
-			try_attack(controller, target, delta_time)
-		else
-			living_pawn.a_intent = INTENT_HARM
-			try_attack(controller, target, delta_time)
+
+	if(!IS_DEAD_OR_INCAP(living_pawn))
+		if(living_pawn.Adjacent(target) && isturf(target.loc))
+			if (locate(/obj/item/gun/ballistic) in living_pawn.held_items)
+				living_pawn.a_intent = INTENT_HELP
+				try_attack(controller, target, delta_time)
+			else
+				living_pawn.a_intent = INTENT_HARM
+				try_attack(controller, target, delta_time)
+		else if (target in oview(9, living_pawn))
+			if (locate(/obj/item/gun/ballistic) in living_pawn.held_items)
+				living_pawn.a_intent = INTENT_HELP
+				current_movement_target = null
+				try_attack(controller, target, delta_time)
+			else
+				current_movement_target = target
 
 /datum/ai_behavior/combat_ai_try_kill/finish_action(datum/ai_controller/controller, succeeded)
 	. = ..()
