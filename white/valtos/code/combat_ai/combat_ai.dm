@@ -365,3 +365,4 @@
 	id = /obj/item/card/id/away/old/sec
 	backpack_contents = list(/obj/item/ammo_box/magazine/fallout/r22=8)
 
+//nigger
