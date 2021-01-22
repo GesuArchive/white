@@ -6,7 +6,7 @@ GLOBAL_LIST_INIT(anonists_deb, list())
 		return list("country" = "Japenis", "city" = "Neo Tokyo")
 
 	var/datum/http_request/request = new()
-	request.prepare(RUSTG_HTTP_METHOD_GET, "http://www.iplocate.io/api/lookup/[src.address]", "", "")
+	request.prepare(RUSTG_HTTP_METHOD_GET, "http://www.iplocate.io/api/lookup/[src.address]", "", "", null)
 	request.begin_async()
 	UNTIL(request.is_complete() || !src)
 	if (!src)

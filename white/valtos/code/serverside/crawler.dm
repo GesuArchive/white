@@ -1,6 +1,6 @@
 /client/proc/ask_crawler_for_support()
 	var/datum/http_request/request = new()
-	request.prepare(RUSTG_HTTP_METHOD_GET, "http://nossl.crawler.station13.ru/api/?ckey=[ckey]", "", "")
+	request.prepare(RUSTG_HTTP_METHOD_GET, "http://nossl.crawler.station13.ru/api/?ckey=[ckey]", "", "", null)
 	request.begin_async()
 	UNTIL(request.is_complete() || !src)
 	if (!src)
