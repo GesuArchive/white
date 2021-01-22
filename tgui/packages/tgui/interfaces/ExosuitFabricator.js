@@ -347,11 +347,11 @@ const PartLists = (props, context) => {
   let partsList;
   // Build list of sub-categories if not using a search filter.
   if (!searchText) {
-    partsList = { "Parts": [] };
+    partsList = { "Снаряжение": [] };
     buildableParts[selectedPartTab].forEach(part => {
       part["format"] = partCondFormat(materials, queueMaterials, part);
       if (!part.subCategory) {
-        partsList["Parts"].push(part);
+        partsList["Снаряжение"].push(part);
         return;
       }
       if (!(part.subCategory in partsList)) {
