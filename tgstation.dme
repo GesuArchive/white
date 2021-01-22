@@ -3564,6 +3564,7 @@
 #include "white\valtos\code\autodoc\beedoc.dm"
 #include "white\valtos\code\color_correction\correction.dm"
 #include "white\valtos\code\color_correction\noise.dm"
+#include "white\valtos\code\combat_ai\combat_ai.dm"
 #include "white\valtos\code\dss\boosters.dm"
 #include "white\valtos\code\dwarfs\clothing.dm"
 #include "white\valtos\code\dwarfs\dwarf.dm"

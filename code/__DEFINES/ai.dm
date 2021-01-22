@@ -37,15 +37,24 @@
 
 /// Raper AI. Yes
 
-#define BB_RAPER_AGRESSIVE "BB_raper_agressive"
-#define BB_RAPER_ENEMIES "BB_raper_enemies"
-#define BB_RAPER_CURRENT_ATTACK_TARGET "BB_raper_current_attack_target"
-#define BB_RAPER_FUCKING "BB_raper_fucking"
+#define BB_RAPER_AGRESSIVE 				"BB_raper_agressive"
+#define BB_RAPER_ENEMIES 				"BB_raper_enemies"
+#define BB_RAPER_CURRENT_ATTACK_TARGET 	"BB_raper_current_attack_target"
+#define BB_RAPER_FUCKING 				"BB_raper_fucking"
 
 ///Vending machine AI controller blackboard keys
 
-#define BB_VENDING_CURRENT_TARGET "BB_vending_current_target"
-#define BB_VENDING_TILT_COOLDOWN "BB_vending_tilt_cooldown"
-#define BB_VENDING_UNTILT_COOLDOWN "BB_vending_untilt_cooldown"
-#define BB_VENDING_BUSY_TILTING "BB_vending_busy_tilting"
-#define BB_VENDING_LAST_HIT_SUCCESFUL "BB_vending_last_hit_succesful"
+#define BB_VENDING_CURRENT_TARGET 		"BB_vending_current_target"
+#define BB_VENDING_TILT_COOLDOWN 		"BB_vending_tilt_cooldown"
+#define BB_VENDING_UNTILT_COOLDOWN 		"BB_vending_untilt_cooldown"
+#define BB_VENDING_BUSY_TILTING 		"BB_vending_busy_tilting"
+#define BB_VENDING_LAST_HIT_SUCCESFUL 	"BB_vending_last_hit_succesful"
+
+/// Combat AI
+
+#define BB_COMBAT_AI_ENEMIES 		"BB_combat_ai_enemies"
+#define BB_COMBAT_AI_CURRENT_TARGET "BB_combat_ai_current_target"
+#define BB_COMBAT_AI_WEAPON_TARGET  "BB_combat_ai_weapon_target"
+#define BB_COMBAT_AI_WEAPON_BL	  	"BB_combat_ai_weapon_bl"
+#define BB_COMBAT_AI_WOUNDED 		"BB_combat_ai_wounded"
+#define BB_COMBAT_AI_SUICIDE_BOMBER "BB_combat_ai_suicide_bomber"
