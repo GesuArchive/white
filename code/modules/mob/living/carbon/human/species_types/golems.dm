@@ -579,7 +579,7 @@
 	if(liver)
 		REMOVE_TRAIT(liver, TRAIT_COMEDY_METABOLISM, SPECIES_TRAIT)
 
-/datum/species/golem/bananium/random_name(gender, unique, lastname, FALSE)
+/datum/species/golem/bananium/random_name(gender, unique, lastname, en_lang)
 	var/clown_name = pick(GLOB.clown_names)
 	var/golem_name = "[uppertext(clown_name)]"
 	return golem_name
