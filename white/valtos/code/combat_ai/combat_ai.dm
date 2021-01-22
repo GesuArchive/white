@@ -314,9 +314,9 @@
 
 	return
 
-/datum/ai_behavior/combat_ai_try_kill/proc/try_to_reload(datum/ai_controller/controller, /obj/item/I)
+/datum/ai_behavior/combat_ai_try_kill/proc/try_to_reload(datum/ai_controller/controller, var/obj/item/gun/ballistic/weapon)
 	var/mob/living/living_pawn = controller.pawn
-	var/obj/item/gun/ballistic/weapon = I
+
 	if(living_pawn.next_move > world.time)
 		return
 
