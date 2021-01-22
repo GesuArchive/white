@@ -42,7 +42,7 @@
 			C.adjustStaminaLoss(25, forced = TRUE)
 		// Stop Bleeding
 		if (istype(H) && H.is_bleeding() && rand(20) == 0)
-			H.bleedsuppress = 1
+			ADD_TRAIT(H, TRAIT_NOBLEED, MAGIC_TRAIT)
 
 		C.Jitter(5)
 

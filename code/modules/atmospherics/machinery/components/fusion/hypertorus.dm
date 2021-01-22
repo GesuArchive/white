@@ -1025,10 +1025,10 @@
 					internal_fusion.adjust_moles(/datum/gas/antinoblium, 0.01 * (scaled_helium / (fuel_injection_rate * 0.0095)) * delta_time)
 
 	//Modifies the internal_fusion temperature with the amount of heat output
-	if(internal_fusion.temperature <= FUSION_MAXIMUM_TEMPERATURE)
-		internal_fusion.temperature = clamp(internal_fusion.temperature + heat_output,TCMB,FUSION_MAXIMUM_TEMPERATURE)
+	if(internal_fusion.return_temperature() <= FUSION_MAXIMUM_TEMPERATURE)
+		internal_fusion.set_temperature(clamp(internal_fusion.return_temperature() + heat_output,TCMB,FUSION_MAXIMUM_TEMPERATURE))
 	else
-		internal_fusion.temperature -= heat_limiter_modifier * 0.01 * delta_time
+		internal_fusion.set_temperature(internal_fusion.return_temperature() - heat_limiter_modifier * 0.01 * delta_time)
 
 	//heat up and output what's in the internal_output into the linked_output port
 	if(internal_output.total_moles() > 0)

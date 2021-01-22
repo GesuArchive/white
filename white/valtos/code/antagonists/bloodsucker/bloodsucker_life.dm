@@ -176,7 +176,7 @@
 	// No Bleeding
 	if (ishuman(owner.current))
 		var/mob/living/carbon/human/H = owner.current
-		H.bleedsuppress = 1
+		ADD_TRAIT(H, TRAIT_NOBLEED, MAGIC_TRAIT)
 
 	// Damage Heal: Do I have damage to ANY bodypart?
 	if (iscarbon(owner.current))

@@ -19,8 +19,6 @@
 /turf/open/floor/mineral/Initialize()
 	. = ..()
 	icons = typelist("icons", icons)
-	if (mapload)
-		initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 
 /turf/open/floor/mineral/setup_broken_states()
 	return list("[initial(icon_state)]_dam")

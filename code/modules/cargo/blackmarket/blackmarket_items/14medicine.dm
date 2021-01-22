@@ -111,7 +111,7 @@
 				/obj/item/storage/pill_bottle/happiness,
 				/obj/item/storage/pill_bottle/modafinil,
 				/obj/item/storage/pill_bottle/methamphetamine,
-				/obj/item/storage/pill_bottle/floorpill/full,
+				/obj/item/storage/pill_bottle/maintenance_pill/full,
 				/obj/item/storage/pill_bottle/psicodine,
 				/obj/item/storage/pill_bottle/probital,
 				/obj/item/storage/pill_bottle/stimulant))
@@ -120,7 +120,7 @@
 /datum/blackmarket_item/medicine/floor_pill
 	name = "Страннная таблетка"
 	desc = "Таблетка с технических тоннелей"
-	item = /obj/item/reagent_containers/pill/floorpill
+	item = /obj/item/reagent_containers/pill/maintenance
 
 	stock_min = 1
 	stock_max = 100
