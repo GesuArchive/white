@@ -372,6 +372,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	suit_store = /obj/item/pda/security
 	id = /obj/item/card/id/away/old/sec
+	back = /obj/item/storage/backpack
 	backpack_contents = list(/obj/item/ammo_box/magazine/fallout/r22=8)
 
 //nigger
