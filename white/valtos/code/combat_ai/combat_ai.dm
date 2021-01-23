@@ -355,10 +355,10 @@
 
 /mob/living/carbon/human/combat_ai/Initialize()
 	. = ..()
-	equipOutfit(/datum/outfit/combat_ai)
+	equipOutfit(pick(typesof(/datum/outfit/combat_ai)))
 
 /datum/outfit/combat_ai
-	name = "Combat AI: Standard"
+	name = "Combat AI: Standard .22"
 
 	belt = /obj/item/gun/ballistic/automatic/fallout/marksman/service/police22
 	ears = /obj/item/radio/headset/headset_sec/alt
@@ -367,9 +367,39 @@
 	head = /obj/item/clothing/head/helmet/sec
 	suit = /obj/item/clothing/suit/armor/vest/alt
 	shoes = /obj/item/clothing/shoes/jackboots
-	suit_store = /obj/item/pda/security
 	id = /obj/item/card/id/away/old/sec
 	back = /obj/item/storage/backpack
-	backpack_contents = list(/obj/item/ammo_box/magazine/fallout/r22=8)
+	backpack_contents = list(/obj/item/ammo_box/magazine/fallout/r22=6)
+
+/datum/outfit/combat_ai/sniper
+	name = "Combat AI: Sniper"
+
+	belt = /obj/item/gun/ballistic/automatic/fallout/marksman/sniper
+	backpack_contents = list(/obj/item/ammo_box/magazine/fallout/r308=6)
+
+/datum/outfit/combat_ai/smg
+	name = "Combat AI: SMG"
+
+	belt = /obj/item/gun/ballistic/automatic/fallout/smg22
+	backpack_contents = list(/obj/item/ammo_box/magazine/fallout/smgm22=6)
+
+/datum/outfit/combat_ai/pistol
+	name = "Combat AI: Pistol"
+
+	belt = /obj/item/gun/ballistic/automatic/pistol/fallout/m10mm/military
+	backpack_contents = list(/obj/item/ammo_box/magazine/fallout/m10mm=6)
+
+/datum/outfit/combat_ai/magnum
+	name = "Combat AI: Magnum"
+
+	belt = /obj/item/gun/ballistic/revolver/fallout/rev44
+	backpack_contents = list(/obj/item/ammo_box/fallout/rev44=6)
+
+/datum/outfit/combat_ai/shotgun
+	name = "Combat AI: Shotgun"
+
+	belt = /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks
+	backpack_contents = list(/obj/item/ammo_box/fallout/sks=6)
+
 
 //nigger
