@@ -4,6 +4,7 @@
 					  BB_COMBAT_AI_WEAPON_TARGET = null,\
 					  BB_COMBAT_AI_WEAPON_BL = list(),\
 					  BB_COMBAT_AI_WOUNDED = FALSE,\
+					  BB_COMBAT_AI_STUPIDITY = 0,\
 					  BB_COMBAT_AI_SUICIDE_BOMBER = FALSE)
 
 /datum/ai_controller/combat_ai/TryPossessPawn(atom/new_pawn)
@@ -85,7 +86,7 @@
 			return FALSE
 		return TRUE
 
-	W = locate(/obj/item/gun/ballistic) in oview(2, living_pawn)
+	W = locate(/obj/item/gun/ballistic) in oview(5, living_pawn)
 
 	if(W && W.trigger_guard == TRIGGER_GUARD_NORMAL && W.pin && W.get_ammo(TRUE) && !blackboard[BB_COMBAT_AI_WEAPON_BL][W])
 		blackboard[BB_COMBAT_AI_WEAPON_TARGET] = W
@@ -93,7 +94,7 @@
 		current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/combat_ai_equip/ground)
 		return TRUE
 	else
-		var/mob/living/carbon/human/H = locate(/mob/living/carbon/human/) in oview(2, living_pawn)
+		var/mob/living/carbon/human/H = locate(/mob/living/carbon/human/) in oview(5, living_pawn)
 		if(H)
 			W = locate(/obj/item/gun/ballistic) in H.contents
 			if(W && W.trigger_guard == TRIGGER_GUARD_NORMAL && W.pin && W.get_ammo(TRUE) && !blackboard[BB_COMBAT_AI_WEAPON_BL][W])
@@ -234,6 +235,7 @@
 			if(victim.temporarilyRemoveItemFromInventory(target))
 				if(!QDELETED(target) && !equip_item(controller))
 					target.forceMove(living_pawn.drop_location())
+					living_pawn.say("Поживимся...")
 					success = TRUE
 					break
 
@@ -281,6 +283,9 @@
 	if(!target || target.stat != CONSCIOUS)
 		finish_action(controller, TRUE)
 
+	if(blackboard[BB_COMBAT_AI_STUPIDITY] > 15) // dumb shit retard
+		living_pawn.say("НАВЕРНОЕ ВЕТЕР ГУЛЯЕТ!!!")
+		finish_action(controller, FALSE)
 
 	if(!IS_DEAD_OR_INCAP(living_pawn))
 		if(living_pawn.Adjacent(target) && isturf(target.loc))
@@ -318,6 +323,7 @@
 
 	if(weapon)
 		if(!weapon.chambered)
+			blackboard[BB_COMBAT_AI_STUPIDITY]++
 			weapon.attack_self(living_pawn)
 			if(!weapon.magazine)
 				try_to_reload(controller, weapon)
@@ -334,7 +340,7 @@
 	var/obj/item/ammo_box/magazine/mag = locate(/obj/item/ammo_box/magazine) in living_pawn.contents
 
 	if(!mag)
-		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(RIGHT_HANDS), force = TRUE)
+		//living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(RIGHT_HANDS), force = TRUE)
 		return
 
 	if(mag.type == weapon.mag_type && mag.ammo_count(FALSE))

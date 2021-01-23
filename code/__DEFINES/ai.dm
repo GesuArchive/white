@@ -57,4 +57,5 @@
 #define BB_COMBAT_AI_WEAPON_TARGET  "BB_combat_ai_weapon_target"
 #define BB_COMBAT_AI_WEAPON_BL	  	"BB_combat_ai_weapon_bl"
 #define BB_COMBAT_AI_WOUNDED 		"BB_combat_ai_wounded"
+#define BB_COMBAT_AI_STUPIDITY		"BB_combat_ai_stupidity"
 #define BB_COMBAT_AI_SUICIDE_BOMBER "BB_combat_ai_suicide_bomber"
