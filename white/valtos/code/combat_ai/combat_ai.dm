@@ -283,7 +283,7 @@
 	if(!target || target.stat != CONSCIOUS)
 		finish_action(controller, TRUE)
 
-	if(blackboard[BB_COMBAT_AI_STUPIDITY] > 15) // dumb shit retard
+	if(controller.blackboard[BB_COMBAT_AI_STUPIDITY] > 15) // dumb shit retard
 		living_pawn.say("НАВЕРНОЕ ВЕТЕР ГУЛЯЕТ!!!")
 		finish_action(controller, FALSE)
 
@@ -323,7 +323,7 @@
 
 	if(weapon)
 		if(!weapon.chambered)
-			blackboard[BB_COMBAT_AI_STUPIDITY]++
+			controller.blackboard[BB_COMBAT_AI_STUPIDITY]++
 			weapon.attack_self(living_pawn)
 			if(!weapon.magazine)
 				try_to_reload(controller, weapon)
