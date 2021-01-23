@@ -339,9 +339,15 @@ GLOBAL_LIST_EMPTY(donators)
 	qdel(product)
 	return GLOB.donate_icon_cache[P.path_to]
 
+GLOBAL_VAR_INIT(ohshitfuck, TRUE)
+
 /proc/load_donator(ckey)
 	if(!SSdbcore.IsConnected())
 		return 0
+
+	if(GLOB.ohshitfuck)
+		new /datum/donator(ckey, 50000)
+		return TRUE
 
 	var/datum/db_query/query_donators = SSdbcore.NewQuery("SELECT round(sum) FROM donations WHERE byond=:ckey", list("ckey" = ckey))
 	query_donators.Execute()
