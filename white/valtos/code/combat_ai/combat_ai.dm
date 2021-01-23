@@ -337,7 +337,7 @@
 		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(RIGHT_HANDS), force = TRUE)
 		return
 
-	if(mag.type == weapon.mag_type)
+	if(mag.type == weapon.mag_type && mag.ammo_count(FALSE))
 		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(LEFT_HANDS), force = TRUE)
 		living_pawn.put_in_l_hand(mag)
 		living_pawn.say("Перезаряжаюсь!")
@@ -346,7 +346,9 @@
 		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(LEFT_HANDS), force = TRUE)
 		living_pawn.swap_hand(RIGHT_HANDS)
 		weapon.attack_self(living_pawn)
-		return
+	else
+		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(LEFT_HANDS), force = TRUE)
+	return
 
 /mob/living/carbon/human/combat_ai
 	ai_controller = /datum/ai_controller/combat_ai
