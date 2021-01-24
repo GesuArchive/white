@@ -284,8 +284,10 @@
 		finish_action(controller, TRUE)
 
 	if(controller.blackboard[BB_COMBAT_AI_STUPIDITY] > 15) // dumb shit retard
+		controller.blackboard[BB_COMBAT_AI_STUPIDITY] = 0
 		living_pawn.say("НАВЕРНОЕ ВЕТЕР ГУЛЯЕТ!!!")
-		finish_action(controller, FALSE)
+		finish_action(controller, TRUE)
+		return
 
 	if(!IS_DEAD_OR_INCAP(living_pawn))
 		if(living_pawn.Adjacent(target) && isturf(target.loc))
@@ -337,13 +339,9 @@
 /datum/ai_behavior/combat_ai_try_kill/proc/try_to_reload(datum/ai_controller/controller, var/obj/item/gun/ballistic/weapon)
 	var/mob/living/living_pawn = controller.pawn
 
-	var/obj/item/ammo_box/magazine/mag = locate(/obj/item/ammo_box/magazine) in living_pawn.contents
+	var/obj/item/ammo_box/magazine/mag = locate(weapon.mag_type) in living_pawn.contents
 
-	if(!mag)
-		//living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(RIGHT_HANDS), force = TRUE)
-		return
-
-	if(mag.type == weapon.mag_type && mag.ammo_count(FALSE))
+	if(mag?.ammo_count(FALSE))
 		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(LEFT_HANDS), force = TRUE)
 		living_pawn.put_in_l_hand(mag)
 		living_pawn.say("Перезаряжаюсь!")
