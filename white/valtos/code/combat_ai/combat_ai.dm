@@ -53,7 +53,7 @@
 		var/mob/living/selected_enemy
 
 		for(var/mob/living/possible_enemy in view(9, living_pawn))
-			if(possible_enemy == living_pawn ||  && (!blackboard[BB_COMBAT_AI_ANGRY_GAY] || HAS_AI_CONTROLLER_TYPE(possible_enemy, /datum/ai_controller/combat_ai)))
+			if(possible_enemy == living_pawn || (!blackboard[BB_COMBAT_AI_ANGRY_GAY] || HAS_AI_CONTROLLER_TYPE(possible_enemy, /datum/ai_controller/combat_ai)))
 				continue
 
 			selected_enemy = possible_enemy
