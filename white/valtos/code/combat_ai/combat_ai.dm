@@ -341,7 +341,7 @@
 /datum/ai_behavior/combat_ai_try_kill/proc/try_to_reload(datum/ai_controller/controller, var/obj/item/gun/ballistic/weapon)
 	var/mob/living/carbon/living_pawn = controller.pawn
 
-	var/obj/item/ammo_box/magazine/mag = locate(weapon.mag_type) in living_pawn?.back?.contents + living_pawn?.belt?.contents
+	var/obj/item/ammo_box/magazine/mag = locate(weapon.mag_type) in living_pawn?.back?.contents
 
 	//if(!mag)
 	//	living_pawn.say("Магазин не существует?")
