@@ -27,6 +27,9 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/space/nearstation)
+"FH" = (
+/turf/template_noop,
+/area/space/nearstation)
 
 (1,1,1) = {"
 ab
@@ -35,13 +38,13 @@ ab
 ab
 ab
 ab
-tB
+FH
 ab
 ab
 ab
 ab
 ab
-tB
+FH
 ab
 ab
 ab
@@ -49,7 +52,7 @@ ab
 ab
 ab
 ab
-tB
+FH
 ab
 ab
 ab
@@ -163,10 +166,10 @@ tB
 tB
 tB
 tB
-tB
-tB
-tB
-tB
+FH
+FH
+FH
+FH
 "}
 (6,1,1) = {"
 ab
@@ -193,7 +196,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (7,1,1) = {"
@@ -221,7 +224,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (8,1,1) = {"
@@ -249,7 +252,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (9,1,1) = {"
@@ -277,7 +280,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (10,1,1) = {"
@@ -303,10 +306,10 @@ tB
 tB
 tB
 tB
-tB
-tB
-tB
-tB
+FH
+FH
+FH
+FH
 "}
 (11,1,1) = {"
 ab
@@ -333,7 +336,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (12,1,1) = {"
@@ -361,7 +364,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (13,1,1) = {"
@@ -389,7 +392,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (14,1,1) = {"
@@ -417,7 +420,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (15,1,1) = {"
@@ -445,7 +448,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (16,1,1) = {"
@@ -471,10 +474,10 @@ tB
 tB
 tB
 tB
-tB
-tB
-tB
-tB
+FH
+FH
+FH
+FH
 "}
 (17,1,1) = {"
 ad
@@ -501,7 +504,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (18,1,1) = {"
@@ -529,7 +532,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (19,1,1) = {"
@@ -555,10 +558,10 @@ tB
 tB
 tB
 tB
-tB
-tB
-tB
-tB
+FH
+FH
+FH
+FH
 "}
 (20,1,1) = {"
 ad
@@ -585,7 +588,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (21,1,1) = {"
@@ -613,7 +616,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (22,1,1) = {"
@@ -641,7 +644,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (23,1,1) = {"
@@ -666,11 +669,11 @@ tB
 tB
 tB
 tB
-tB
-tB
-tB
-tB
-tB
+FH
+FH
+FH
+FH
+FH
 "}
 (24,1,1) = {"
 ad
@@ -697,7 +700,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (25,1,1) = {"
@@ -725,7 +728,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (26,1,1) = {"
@@ -750,11 +753,11 @@ tB
 tB
 tB
 tB
-tB
-tB
-tB
-tB
-tB
+FH
+FH
+FH
+FH
+FH
 "}
 (27,1,1) = {"
 ad
@@ -781,7 +784,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (28,1,1) = {"
@@ -809,7 +812,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (29,1,1) = {"
@@ -837,7 +840,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (30,1,1) = {"
@@ -865,7 +868,7 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
 (31,1,1) = {"
@@ -890,11 +893,11 @@ tB
 tB
 tB
 tB
-tB
-tB
-tB
-tB
-tB
+FH
+FH
+FH
+FH
+FH
 "}
 (32,1,1) = {"
 ab
@@ -921,6 +924,6 @@ tB
 ab
 ab
 ab
-tB
+FH
 ab
 "}
