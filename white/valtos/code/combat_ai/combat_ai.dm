@@ -109,7 +109,7 @@
 	var/mob/living/living_pawn = pawn
 
 	if(!TryFindWeapon())
-		living_pawn.say("Ищу оружие!")
+		living_pawn.say("Не могу найти оружие!")
 	else if(DT_PROB(5, delta_time))
 		INVOKE_ASYNC(living_pawn, /mob.proc/emote, pick("cough", "yawn", "sigh"))
 
@@ -330,6 +330,7 @@
 			if(!weapon.magazine)
 				try_to_reload(controller, weapon)
 			return
+		controller.blackboard[BB_COMBAT_AI_STUPIDITY] = 0
 		weapon.afterattack(target, living_pawn, FALSE)
 	else
 		living_pawn.UnarmedAttack(target)
@@ -341,17 +342,19 @@
 
 	var/obj/item/ammo_box/magazine/mag = locate(weapon.mag_type) in living_pawn.contents
 
+	if(!mag)
+		living_pawn.say("Магазин не существует?")
+
+	if(mag?.ammo_count(FALSE))
+		living_pawn.say("Магазин пустой.")
+
 	if(mag) //?.ammo_count(FALSE)
-		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(LEFT_HANDS), force = TRUE)
 		living_pawn.put_in_l_hand(mag)
 		living_pawn.say("Перезаряжаюсь!")
 		living_pawn.swap_hand(LEFT_HANDS)
 		weapon.attackby(mag, living_pawn)
 		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(LEFT_HANDS), force = TRUE)
 		living_pawn.swap_hand(RIGHT_HANDS)
-		weapon.attack_self(living_pawn)
-	else
-		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(LEFT_HANDS), force = TRUE)
 	return
 
 /mob/living/carbon/human/combat_ai
