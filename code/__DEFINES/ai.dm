@@ -52,6 +52,7 @@
 
 /// Combat AI
 
+#define BB_COMBAT_AI_ANGRY_GAY 		"BB_combat_ai_angry_gay"
 #define BB_COMBAT_AI_ENEMIES 		"BB_combat_ai_enemies"
 #define BB_COMBAT_AI_CURRENT_TARGET "BB_combat_ai_current_target"
 #define BB_COMBAT_AI_WEAPON_TARGET  "BB_combat_ai_weapon_target"

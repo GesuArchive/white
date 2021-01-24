@@ -1,5 +1,6 @@
 /datum/ai_controller/combat_ai
-	blackboard = list(BB_COMBAT_AI_ENEMIES = list(),\
+	blackboard = list(BB_COMBAT_AI_ANGRY_GAY = TRUE,\
+					  BB_COMBAT_AI_ENEMIES = list(),\
 					  BB_COMBAT_AI_CURRENT_TARGET = null,\
 					  BB_COMBAT_AI_WEAPON_TARGET = null,\
 					  BB_COMBAT_AI_WEAPON_BL = list(),\
@@ -47,12 +48,12 @@
 	if(HAS_TRAIT(pawn, TRAIT_PACIFISM))
 		return
 
-	if(length(enemies))
+	if(length(enemies) || blackboard[BB_COMBAT_AI_ANGRY_GAY])
 
 		var/mob/living/selected_enemy
 
 		for(var/mob/living/possible_enemy in view(9, living_pawn))
-			if(possible_enemy == living_pawn || HAS_AI_CONTROLLER_TYPE(possible_enemy, /datum/ai_controller/combat_ai))
+			if(possible_enemy == living_pawn ||  && (!blackboard[BB_COMBAT_AI_ANGRY_GAY] || HAS_AI_CONTROLLER_TYPE(possible_enemy, /datum/ai_controller/combat_ai)))
 				continue
 
 			selected_enemy = possible_enemy
@@ -324,7 +325,7 @@
 	living_pawn.face_atom(target)
 
 	if(weapon)
-		if(!weapon.chambered)
+		if(!weapon?.chambered?.BB)
 			controller.blackboard[BB_COMBAT_AI_STUPIDITY]++
 			weapon.attack_self(living_pawn)
 			if(!weapon.magazine)
@@ -340,13 +341,13 @@
 /datum/ai_behavior/combat_ai_try_kill/proc/try_to_reload(datum/ai_controller/controller, var/obj/item/gun/ballistic/weapon)
 	var/mob/living/living_pawn = controller.pawn
 
-	var/obj/item/ammo_box/magazine/mag = locate(weapon.mag_type) in living_pawn.contents
+	var/obj/item/ammo_box/magazine/mag = locate(weapon.mag_type) in living_pawn?.back?.contents + living_pawn?.belt?.contents
 
-	if(!mag)
-		living_pawn.say("Магазин не существует?")
+	//if(!mag)
+	//	living_pawn.say("Магазин не существует?")
 
-	if(mag?.ammo_count(FALSE))
-		living_pawn.say("Магазин пустой.")
+	//if(mag?.ammo_count(FALSE))
+	//	living_pawn.say("Магазин пустой.")
 
 	if(mag) //?.ammo_count(FALSE)
 		living_pawn.put_in_l_hand(mag)
