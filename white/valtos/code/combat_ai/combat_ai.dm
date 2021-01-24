@@ -341,7 +341,7 @@
 
 	var/obj/item/ammo_box/magazine/mag = locate(weapon.mag_type) in living_pawn.contents
 
-	if(mag?.ammo_count(FALSE))
+	if(mag) //?.ammo_count(FALSE)
 		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(LEFT_HANDS), force = TRUE)
 		living_pawn.put_in_l_hand(mag)
 		living_pawn.say("Перезаряжаюсь!")
@@ -364,7 +364,7 @@
 /datum/outfit/combat_ai
 	name = "Combat AI: Standard .22"
 
-	belt = /obj/item/gun/ballistic/automatic/fallout/marksman/service/police22
+	r_hand = /obj/item/gun/ballistic/automatic/fallout/marksman/service/police22
 	ears = /obj/item/radio/headset/headset_sec/alt
 	uniform = /obj/item/clothing/under/rank/omon/green
 	gloves = /obj/item/clothing/gloves/color/black
@@ -378,31 +378,31 @@
 /datum/outfit/combat_ai/sniper
 	name = "Combat AI: Sniper"
 
-	belt = /obj/item/gun/ballistic/automatic/fallout/marksman/sniper
+	r_hand = /obj/item/gun/ballistic/automatic/fallout/marksman/sniper
 	backpack_contents = list(/obj/item/ammo_box/magazine/fallout/r308=6)
 
 /datum/outfit/combat_ai/smg
 	name = "Combat AI: SMG"
 
-	belt = /obj/item/gun/ballistic/automatic/fallout/smg22
+	r_hand = /obj/item/gun/ballistic/automatic/fallout/smg22
 	backpack_contents = list(/obj/item/ammo_box/magazine/fallout/smgm22=6)
 
 /datum/outfit/combat_ai/pistol
 	name = "Combat AI: Pistol"
 
-	belt = /obj/item/gun/ballistic/automatic/pistol/fallout/m10mm/military
+	r_hand = /obj/item/gun/ballistic/automatic/pistol/fallout/m10mm/military
 	backpack_contents = list(/obj/item/ammo_box/magazine/fallout/m10mm=6)
 
 /datum/outfit/combat_ai/magnum
 	name = "Combat AI: Magnum"
 
-	belt = /obj/item/gun/ballistic/revolver/fallout/rev44
+	r_hand = /obj/item/gun/ballistic/revolver/fallout/rev44
 	backpack_contents = list(/obj/item/ammo_box/fallout/rev44=6)
 
 /datum/outfit/combat_ai/shotgun
 	name = "Combat AI: Shotgun"
 
-	belt = /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks
+	r_hand = /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks
 	backpack_contents = list(/obj/item/ammo_box/fallout/sks=6)
 
 
