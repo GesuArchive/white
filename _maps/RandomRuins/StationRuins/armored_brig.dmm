@@ -1281,7 +1281,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/gun/ballistic/shotgun/spas12/rubber,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "de" = (
