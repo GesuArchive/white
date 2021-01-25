@@ -58,30 +58,11 @@
 /obj/structure/fluff/drake_statue/falling{
 	pixel_y = 8
 	},
-/obj/effect/turf_decal/weather/side{
-	dir = 9
-	},
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
-"gn" = (
-/obj/effect/turf_decal/weather/side{
-	dir = 10
-	},
-/turf/open/floor/carpet/black,
-/area/awaymission/vietnam/dwarf)
-"gI" = (
-/obj/effect/turf_decal/weather/side{
-	dir = 6
-	},
-/turf/open/floor/carpet/black,
-/area/awaymission/vietnam/dwarf)
 "gW" = (
-/obj/effect/turf_decal/weather/side/corner,
 /obj/structure/fluff/drake_statue{
 	pixel_y = 8
-	},
-/obj/effect/turf_decal/weather/side{
-	dir = 5
 	},
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
@@ -104,57 +85,11 @@
 	},
 /turf/open/lava/smooth,
 /area/awaymission/vietnam/dwarf)
-"hU" = (
-/obj/effect/turf_decal/weather/side/corner{
-	dir = 1
-	},
-/turf/open/floor/carpet/black,
-/area/awaymission/vietnam/dwarf)
-"hX" = (
-/obj/effect/turf_decal/weather/side,
-/turf/open/floor/carpet/black,
-/area/awaymission/vietnam/dwarf)
-"ih" = (
-/obj/effect/turf_decal/weather/side/corner,
-/turf/open/floor/carpet/black,
-/area/awaymission/vietnam/dwarf)
 "iq" = (
 /obj/machinery/torch_fixture{
 	dir = 8;
 	on = 1;
 	pixel_x = -32
-	},
-/obj/effect/turf_decal/weather/side{
-	dir = 10
-	},
-/turf/open/floor/grass/gensgrass/dirty/stone,
-/area/awaymission/vietnam/dwarf)
-"is" = (
-/obj/machinery/torch_fixture{
-	dir = 4;
-	on = 1;
-	pixel_x = 32
-	},
-/obj/effect/turf_decal/weather/side{
-	dir = 6
-	},
-/turf/open/floor/grass/gensgrass/dirty/stone,
-/area/awaymission/vietnam/dwarf)
-"ix" = (
-/obj/effect/turf_decal/weather/side/corner{
-	dir = 1
-	},
-/turf/open/floor/grass/gensgrass/dirty/stone,
-/area/awaymission/vietnam/dwarf)
-"iQ" = (
-/obj/effect/turf_decal/weather/side{
-	dir = 10
-	},
-/turf/open/floor/grass/gensgrass/dirty/stone,
-/area/awaymission/vietnam/dwarf)
-"iV" = (
-/obj/effect/turf_decal/weather/side{
-	dir = 6
 	},
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
@@ -167,14 +102,6 @@
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium/red,
-/area/awaymission/vietnam/dwarf)
-"jM" = (
-/obj/effect/turf_decal/weather/side/corner,
-/turf/open/floor/grass/gensgrass/dirty/stone,
-/area/awaymission/vietnam/dwarf)
-"jW" = (
-/obj/effect/turf_decal/weather/side,
-/turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "kb" = (
 /obj/structure/table/stone,
@@ -12577,7 +12504,7 @@ vK
 gc
 hk
 iq
-ix
+lq
 vK
 vK
 lq
@@ -12826,11 +12753,11 @@ MB
 vK
 vK
 eQ
-gn
-hU
 hk
-iQ
-ix
+hk
+hk
+lq
+lq
 vK
 vK
 vK
@@ -13079,10 +13006,10 @@ vK
 aX
 eV
 eV
-hX
 hk
 hk
-jW
+hk
+lq
 vK
 lH
 lq
@@ -13331,10 +13258,10 @@ vK
 cU
 eV
 eV
-hX
 hk
 hk
-jW
+hk
+lq
 kg
 lq
 lq
@@ -13583,10 +13510,10 @@ vK
 dG
 eV
 eV
-hX
 hk
 hk
-jW
+hk
+lq
 vK
 lH
 lq
@@ -13834,11 +13761,11 @@ MB
 vK
 vK
 eQ
-gI
-ih
 hk
-iV
-jM
+hk
+hk
+lq
+lq
 vK
 lq
 lq
@@ -14088,8 +14015,8 @@ vK
 vK
 gW
 hk
-is
-jM
+nH
+lq
 vK
 vK
 vK
