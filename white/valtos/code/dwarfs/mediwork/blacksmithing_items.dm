@@ -530,6 +530,7 @@
 	if(isdwarf(user) && door_opened)
 		visible_message("<span class='notice'><b>[user]</b> [locked_door ? "от" : "за"]пирает дверь.</span>", null, COMBAT_MESSAGE_RANGE)
 		locked_door = !locked_door
+		playsound(get_turf(src), 'white/valtos/sounds/siren.ogg', 65, vary = TRUE)
 
 /obj/structure/mineral_door/heavystone/SwitchState()
 	if(locked_door)
@@ -555,6 +556,7 @@
 	message_admins("DF: [ADMIN_LOOKUPFLW(user)]: [msg]")
 	for(var/mob/M in GLOB.dwarf_list)
 		to_chat(M, "<span class='revenbignotice'>[msg]</span>")
+		SEND_SOUND(M, 'white/valtos/sounds/siren.ogg')
 
 /obj/item/clothing/head/helmet/dwarf_crown/attack_self(mob/user)
 	. = ..()
