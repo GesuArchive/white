@@ -17,8 +17,8 @@ BONUS
 
 /datum/symptom/poo
 
-	name = "Shitting"
-	desc = "The virus irritates the anus of the host, causing occasional shitting."
+	name = "Понос"
+	desc = "Вирус, который вызывает дикий понос у носителя."
 	stealth = -1
 	resistance = 3
 	stage_speed = 1
@@ -30,11 +30,11 @@ BONUS
 	symptom_delay_max = 50
 	var/infective = FALSE
 	threshold_descs = list(
-		"Resistance 3" = "Host will drop small items when shitting.",
-		"Resistance 10" = "Occasionally causes shitting fits that stun the host.",
-		"Stage Speed 6" = "Increases shitting frequency.",
-		"If Airborne" = "Shitting will infect bystanders.",
-		"Stealth 4" = "The symptom remains hidden until active."
+		"Resistance 3" = "Носитель теряет предметы из рук при дефекации.",
+		"Resistance 10" = "Носитель обездвиживается, когда происходит дефекация.",
+		"Stage Speed 6" = "Увеличивает скорость дефекации.",
+		"If Airborne" = "Понос заражает всех, кто его смог учуять.",
+		"Stealth 4" = "Симптом остаётся скрытым."
 	)
 
 /datum/symptom/poo/Start(datum/disease/advance/A)
@@ -58,7 +58,7 @@ BONUS
 	switch(A.stage)
 		if(1, 2, 3)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(M, "<span notice='warning'>[pick("You feel something coming out from your anus.", "You lightly fart.")]</span>")
+				to_chat(M, "<span notice='warning'>[pick("Что-то хочет выйти из моего ануса.", "Пержу с подливой.")]</span>")
 		else
 			M.emote("poo")
 			if(power >= 1.5)
@@ -66,7 +66,7 @@ BONUS
 				if(I && I.w_class == WEIGHT_CLASS_TINY)
 					M.dropItemToGround(I)
 			if(power >= 2 && prob(10))
-				to_chat(M, "<span notice='userdanger'>[pick("You have a farting fit!", "You can't stop farting!")]</span>")
+				to_chat(M, "<span notice='userdanger'>[pick("Врата прорвало!", "Не могу перестать СРАТЬ!")]</span>")
 				M.Immobilize(20)
 				M.emote("poo")
 				addtimer(CALLBACK(M, /mob/.proc/emote, "poo"), 12)

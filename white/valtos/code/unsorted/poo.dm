@@ -188,10 +188,74 @@
 		pooed = FALSE
 
 /datum/quirk/legkoserya
-	name = "Light Pooer"
-	desc = "You poo right in your hands and prepare to throw."
+	name = "Легкосеря"
+	desc = "Древнее умение какать прямо себе в руку и не только."
 	value = 2
 	mob_trait = TRAIT_LIGHT_POOER
-	gain_text = "<span class='notice'>You know ancient defecation techniques.</span>"
-	lose_text = "<span class='danger'>You forget how to poo professionally.</span>"
-	medical_record_text = "Patient's defecation skills are on another level." //prikol
+	gain_text = "<span class='notice'>Теперь я знаю древние техники покакунек.</span>"
+	lose_text = "<span class='danger'>Я забываю как правильно какать.</span>"
+	medical_record_text = "Дефекационные навыки пациента стоят за гранью понимания." //prikol
+
+/datum/quirk/legkoserya/post_add()
+	var/mob/living/carbon/human/H = quirk_holder
+	H.mind.teach_crafting_recipe(/datum/crafting_recipe/poop_barricade)
+
+/datum/crafting_recipe/poop_barricade
+	name = "стена говна"
+	result = /obj/structure/poop_barricade
+	tools = list()
+	reqs = list(/obj/item/food/poo = 5)
+	time = 25
+	category = CAT_STRUCTURE
+	always_available = FALSE
+
+/obj/structure/poop_barricade
+	name = "стена говна"
+	desc = "ПАХНЕТ!"
+	icon = 'white/valtos/icons/poo.dmi'
+	icon_state = "barricade"
+	density = TRUE
+	anchored = TRUE
+	climbable = TRUE
+
+/obj/structure/poop_barricade/Initialize()
+	. = ..()
+	if(dir == SOUTH)
+		layer = ABOVE_MOB_LAYER
+
+/obj/structure/poop_barricade/attackby(obj/item/I, mob/living/user, params)
+	..()
+	add_fingerprint(user)
+
+	if(istype(I, /obj/item/food/poo) && user.a_intent == INTENT_HELP)
+		if(obj_integrity < max_integrity)
+			to_chat(user, "<span class='notice'>Начинаю чинить стену говна...</span>")
+			if(user.do_after(user, 20, target = src))
+				obj_integrity = max_integrity
+				to_chat(user, "<span class='notice'>Чиню стену говна говном.</span>")
+		else
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] уже в порядке!</span>")
+		return
+
+/obj/structure/poop_barricade/deconstruct(disassembled)
+	. = ..()
+	if(!loc)
+		return
+	if(!(flags_1 & NODECONSTRUCT_1))
+		var/obj/item/food/poo/P = new /obj/item/food/poo(drop_location(), 3)
+		transfer_fingerprints_to(P)
+		qdel(src)
+
+/obj/structure/poop_barricade/CanPass(atom/movable/mover, turf/target)
+	. = ..()
+	if(get_dir(loc, target) & dir)
+		var/checking = FLYING | FLOATING
+		return . || mover.throwing || mover.movement_type & checking
+	return TRUE
+
+/obj/structure/poop_barricade/CheckExit(atom/movable/mover, turf/target)
+	..()
+	if(get_dir(loc, target) & dir)
+		var/checking = PHASING | FLYING | FLOATING
+		return !density || mover.throwing || mover.movement_type & checking || mover.move_force >= MOVE_FORCE_EXTREMELY_STRONG
+	return TRUE
