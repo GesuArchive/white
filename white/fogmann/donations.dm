@@ -339,7 +339,7 @@ GLOBAL_LIST_EMPTY(donators)
 	qdel(product)
 	return GLOB.donate_icon_cache[P.path_to]
 
-GLOBAL_VAR_INIT(ohshitfuck, TRUE)
+GLOBAL_VAR_INIT(ohshitfuck, FALSE)
 
 /proc/load_donator(ckey)
 	if(!SSdbcore.IsConnected())
