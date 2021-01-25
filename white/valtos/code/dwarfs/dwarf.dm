@@ -61,6 +61,8 @@
 	GLOB.dwarf_list += C
 	. = ..()
 	spawn(5 SECONDS)
+		var/area/A = get_area(C)
+		A.Entered(C)
 		C.mind.set_experience(/datum/skill/smithing, SKILL_EXP_APPRENTICE, FALSE)
 		C.mind.set_experience(/datum/skill/mining,   SKILL_EXP_APPRENTICE, FALSE)
 
