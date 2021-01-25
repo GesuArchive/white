@@ -533,7 +533,7 @@
 
 /obj/structure/mineral_door/heavystone/SwitchState()
 	if(locked_door)
-		to_chat(user, "<span class='warning'>Дверь заблокирована!</span>")
+		return FALSE
 	. = ..()
 
 /obj/item/clothing/head/helmet/dwarf_crown
