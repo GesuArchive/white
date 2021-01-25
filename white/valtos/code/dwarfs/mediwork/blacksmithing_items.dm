@@ -523,11 +523,11 @@
 /obj/structure/mineral_door/heavystone/examine(mob/user)
 	. = ..()
 	if(isdwarf(user))
-		. += "\n<span class='notice'>CTRL-клик для [locked_door ? "раз" : ""]блокировки двери.</span>"
+		. += "<hr><span class='notice'>CTRL-клик для [locked_door ? "раз" : ""]блокировки двери.</span>"
 
 /obj/structure/mineral_door/heavystone/CtrlClick(mob/user)
 	. = ..()
-	if(isdwarf(user) && door_opened)
+	if(isdwarf(user) && !door_opened)
 		visible_message("<span class='notice'><b>[user]</b> [locked_door ? "от" : "за"]пирает дверь.</span>", null, COMBAT_MESSAGE_RANGE)
 		locked_door = !locked_door
 		playsound(get_turf(src), 'white/valtos/sounds/stonelock.ogg', 65, vary = TRUE)

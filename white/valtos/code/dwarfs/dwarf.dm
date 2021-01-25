@@ -60,6 +60,9 @@
 	C.draw_hippie_parts()
 	GLOB.dwarf_list += C
 	. = ..()
+	spawn(5 SECONDS)
+		C.mind.set_experience(/datum/skill/smithing, SKILL_EXP_APPRENTICE, FALSE)
+		C.mind.set_experience(/datum/skill/mining,   SKILL_EXP_APPRENTICE, FALSE)
 
 /datum/species/dwarf/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	C.draw_hippie_parts(TRUE)
@@ -160,5 +163,3 @@
 	var/new_name = H.dna.species.random_name(H.gender, TRUE)
 	H.fully_replace_character_name(H.real_name, new_name)
 	H.regenerate_icons()
-	H.mind.set_experience(/datum/skill/smithing, SKILL_EXP_APPRENTICE, TRUE)
-	H.mind.set_experience(/datum/skill/mining,   SKILL_EXP_APPRENTICE, TRUE)
