@@ -518,6 +518,23 @@
 	icon_state = "heavystone"
 	max_integrity = 600
 	smoothing_groups = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
+	var/locked_door = FALSE
+
+/obj/structure/mineral_door/heavystone/examine(mob/user)
+	. = ..()
+	if(isdwarf(user))
+		. += "\n<span class='notice'>CTRL-клик для [locked_door ? "раз" : ""]блокировки двери.</span>"
+
+/obj/structure/mineral_door/heavystone/CtrlClick(mob/user)
+	. = ..()
+	if(isdwarf(user) && door_opened)
+		visible_message("<span class='notice'><b>[user]</b> [locked_door ? "от" : "за"]пирает дверь.</span>", null, COMBAT_MESSAGE_RANGE)
+		locked_door = !locked_door
+
+/obj/structure/mineral_door/heavystone/SwitchState()
+	if(locked_door)
+		to_chat(user, "<span class='warning'>Дверь заблокирована!</span>")
+	. = ..()
 
 /obj/item/clothing/head/helmet/dwarf_crown
 	name = "золотая корона"
