@@ -867,7 +867,8 @@
 		"Стены"  = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "plan_wall"),
 		"Двери"  = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "plan_door"),
 		"Столы"  = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "plan_table"),
-		"Стулья" = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "plan_chair")
+		"Стулья" = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "plan_chair"),
+		"Очистка"= image(icon = 'white/valtos/icons/objects.dmi', icon_state = "clear")
 	)
 	var/choice = show_radial_menu(user, src, choices, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
 	if(!check_menu(user))
@@ -883,6 +884,15 @@
 			mode = SHPATEL_BUILD_TABLE
 		if("Стулья")
 			mode = SHPATEL_BUILD_CHAIR
+		if("Очистка")
+			clear(user)
+
+/obj/item/blacksmith/scepter/proc/clear(mob/user)
+	var/i = 0
+	for(var/obj/effect/plan_marker/M in view(7, user))
+		qdel(M)
+		i++
+	to_chat(user, "<span class='notice'>Удалено [i] маркеров.</span>")
 
 /obj/item/blacksmith/scepter/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
