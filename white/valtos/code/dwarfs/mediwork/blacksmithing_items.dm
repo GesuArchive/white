@@ -530,7 +530,7 @@
 	if(isdwarf(user) && door_opened)
 		visible_message("<span class='notice'><b>[user]</b> [locked_door ? "от" : "за"]пирает дверь.</span>", null, COMBAT_MESSAGE_RANGE)
 		locked_door = !locked_door
-		playsound(get_turf(src), 'white/valtos/sounds/siren.ogg', 65, vary = TRUE)
+		playsound(get_turf(src), 'white/valtos/sounds/stonelock.ogg', 65, vary = TRUE)
 
 /obj/structure/mineral_door/heavystone/SwitchState()
 	if(locked_door)
