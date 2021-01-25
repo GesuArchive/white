@@ -136,7 +136,7 @@
 					playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
 					to_chat(user, "<span class='notice'>Начинаем улучшать болванку...</span>")
 					return
-				if(prob(H.mind.get_skill_modifier(/datum/skill/smithing, SKILL_PROBS_MODIFIER) * current_ingot.mod_grade))
+				if(!prob(H.mind.get_skill_modifier(/datum/skill/smithing, SKILL_PROBS_MODIFIER) * current_ingot.mod_grade))
 					current_ingot.durability--
 					if(current_ingot.durability == 0)
 						to_chat(user, "<span class='warning'>Болванка раскалывается на множество бесполезных кусочков метала...</span>")
@@ -152,8 +152,8 @@
 					user.visible_message("<span class='notice'><b>[user]</b> бьёт молотом по наковальне.</span>", \
 										"<span class='notice'>Бью молотом по наковальне.</span>")
 					current_ingot.progress_current++
-					H.adjustStaminaLoss(2)
-					H.mind.adjust_experience(/datum/skill/smithing, 8 * current_ingot.mod_grade)
+					H.adjustStaminaLoss(rand(1, 5))
+					H.mind.adjust_experience(/datum/skill/smithing, rand(0, 4) * current_ingot.mod_grade)
 					return
 			else
 				var/list/metal_allowed_list = list()
@@ -168,6 +168,7 @@
 					to_chat(user, "<span class='warning'>УЖЕ ВЫБРАН РЕЦЕПТ!</span>")
 					return
 				current_ingot.recipe = new sel_recipe.type()
+				current_ingot.recipe.max_resulting = H.mind.get_skill_modifier(/datum/skill/smithing, SKILL_RANDS_MODIFIER)
 				playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
 				to_chat(user, "<span class='notice'>Приступаем к ковке...</span>")
 				return
