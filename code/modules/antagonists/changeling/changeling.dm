@@ -506,6 +506,8 @@
 	var/list/stored_scars
 	/// Icon snapshot of the profile
 	var/datum/icon_snapshot/profile_snapshot
+	/// ID HUD icon associated with the profile
+	var/id_icon
 
 /datum/changelingprofile/Destroy()
 	qdel(dna)
@@ -532,6 +534,7 @@
 	newprofile.skillchips = skillchips.Copy()
 	newprofile.stored_scars = stored_scars.Copy()
 	newprofile.profile_snapshot = profile_snapshot
+	newprofile.id_icon = id_icon
 
 /datum/antagonist/changeling/xenobio
 	name = "Xenobio Changeling"
