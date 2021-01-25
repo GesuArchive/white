@@ -311,7 +311,7 @@
 	controller.blackboard[BB_COMBAT_AI_CURRENT_TARGET] = null
 
 
-/datum/ai_behavior/combat_ai_try_kill/proc/try_attack(datum/ai_controller/controller, mob/living/target, delta_time)
+/datum/ai_behavior/combat_ai_try_kill/proc/try_attack(datum/ai_controller/combat_ai/controller, mob/living/target, delta_time)
 
 	var/mob/living/living_pawn = controller.pawn
 
@@ -335,6 +335,7 @@
 		weapon.afterattack(target, living_pawn, FALSE)
 	else
 		living_pawn.UnarmedAttack(target)
+		controller.TryFindWeapon()
 
 	return
 
@@ -346,8 +347,9 @@
 	//if(!mag)
 	//	living_pawn.say("Магазин не существует?")
 
-	//if(mag?.ammo_count(FALSE))
-	//	living_pawn.say("Магазин пустой.")
+	if(mag?.ammo_count(FALSE))
+		living_pawn.say("Магазин пустой.")
+		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(RIGHT_HANDS), force = TRUE)
 
 	if(mag) //?.ammo_count(FALSE)
 		living_pawn.put_in_l_hand(mag)
