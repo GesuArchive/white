@@ -230,7 +230,7 @@
 	if(istype(I, /obj/item/food/poo) && user.a_intent == INTENT_HELP)
 		if(obj_integrity < max_integrity)
 			to_chat(user, "<span class='notice'>Начинаю чинить стену говна...</span>")
-			if(user.do_after(user, 20, target = src))
+			if(do_after(user, 20, target = src))
 				obj_integrity = max_integrity
 				to_chat(user, "<span class='notice'>Чиню стену говна говном.</span>")
 		else
