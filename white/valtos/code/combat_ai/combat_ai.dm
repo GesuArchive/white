@@ -344,20 +344,21 @@
 
 	var/obj/item/ammo_box/magazine/mag = locate(weapon.mag_type) in living_pawn?.back?.contents
 
-	//if(!mag)
-	//	living_pawn.say("Магазин не существует?")
+	if(!mag)
+		living_pawn.say("Магазины закончились. Перехожу в рукопашную!")
+		return
 
-	if(mag?.ammo_count(FALSE))
+	if(mag.ammo_count(FALSE))
 		living_pawn.say("Магазин пустой.")
 		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(RIGHT_HANDS), force = TRUE)
+		return
 
-	if(mag) //?.ammo_count(FALSE)
-		living_pawn.put_in_l_hand(mag)
-		living_pawn.say("Перезаряжаюсь!")
-		living_pawn.swap_hand(LEFT_HANDS)
-		weapon.attackby(mag, living_pawn)
-		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(LEFT_HANDS), force = TRUE)
-		living_pawn.swap_hand(RIGHT_HANDS)
+	living_pawn.put_in_l_hand(mag)
+	living_pawn.say("Перезаряжаюсь!")
+	living_pawn.swap_hand(LEFT_HANDS)
+	weapon.attackby(mag, living_pawn)
+	living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(LEFT_HANDS), force = TRUE)
+	living_pawn.swap_hand(RIGHT_HANDS)
 	return
 
 /mob/living/carbon/human/combat_ai
