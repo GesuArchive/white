@@ -136,7 +136,7 @@
 					playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
 					to_chat(user, "<span class='notice'>Начинаем улучшать болванку...</span>")
 					return
-				if(!prob(H.mind.get_skill_modifier(/datum/skill/smithing, SKILL_PROBS_MODIFIER) * current_ingot.mod_grade))
+				if(!prob(H.mind.get_skill_modifier(/datum/skill/smithing, SKILL_PROBS_MODIFIER) - current_ingot.mod_grade))
 					current_ingot.durability--
 					if(current_ingot.durability == 0)
 						to_chat(user, "<span class='warning'>Болванка раскалывается на множество бесполезных кусочков метала...</span>")
