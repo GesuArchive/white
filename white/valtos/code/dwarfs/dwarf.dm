@@ -58,6 +58,9 @@
 	C.hairstyle = dwarf_hair
 	C.facial_hairstyle = dwarf_beard
 	C.draw_hippie_parts()
+	C.update_body()
+	C.update_hair()
+	C.update_body_parts()
 	GLOB.dwarf_list += C
 	. = ..()
 	spawn(5 SECONDS)

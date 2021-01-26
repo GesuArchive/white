@@ -555,6 +555,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 			facial_overlay.alpha = hair_alpha
 
+			if(OFFSET_FACE in H.dna.species.offset_features)
+				facial_overlay.pixel_x += H.dna.species.offset_features[OFFSET_FACE][1]
+				facial_overlay.pixel_y += H.dna.species.offset_features[OFFSET_FACE][2]
+
 			standing += facial_overlay
 
 	if(H.head)
