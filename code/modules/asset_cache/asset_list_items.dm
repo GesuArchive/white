@@ -547,3 +547,11 @@
 	assets = list(
 		"safe_dial.png" = 'html/safe_dial.png'
 	)
+
+/datum/asset/simple/metacoins
+	assets = list(
+		"mc_32.gif"  = 'html/metacoins/32.gif',
+		"mc_48.gif"  = 'html/metacoins/48.gif',
+		"mc_64.gif"  = 'html/metacoins/64.gif',
+		"mc_192.gif" = 'html/metacoins/192.gif',
+	)

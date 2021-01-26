@@ -481,7 +481,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			var/fcolor =  "#3366CC"
 			var/metabalance = user.client.get_metabalance()
 			dat += "<table align='center' width='100%' class='metamag'>"
-			dat += "<tr><td colspan=4><center><b>Баланс: <font color='[fcolor]'>[metabalance]</font> метакэша.</b> <a href='?_src_=prefs;preference=gear;clear_loadout=1'>Снять надетое</a></center></td></tr>"
+			dat += "<tr><td colspan=4><center><b>Баланс: <img src='[SSassets.transport.get_asset_url("mc_32.gif")]' width=32 height=32 border=0> <font color='[fcolor]'>[metabalance]</font> метакэша.</b> <a href='?_src_=prefs;preference=gear;clear_loadout=1'>Снять надетое</a></center></td></tr>"
 			dat += "<tr><td colspan=4><center><b>"
 
 			var/firstcat = 1
@@ -785,6 +785,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	dat += "<a href='?_src_=prefs;preference=reset_all'>Сбросить</a>"
 	dat += "</center>"
+
+	var/datum/asset/stuff = get_asset_datum(/datum/asset/simple/metacoins)
+	stuff.send(user)
 
 	winshow(user, "preferences_window", TRUE)
 	var/datum/browser/popup = new(user, "preferences_browser_new", "<div align='center'>Настройки</div>", 1200, 770)
