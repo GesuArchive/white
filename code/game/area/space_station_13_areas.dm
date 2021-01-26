@@ -44,7 +44,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	enabled_area_tension = FALSE
 
 /area/start
-	name = "лобби"
+	name = "Лобби"
 	icon_state = "start"
 	requires_power = FALSE
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
@@ -87,7 +87,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 //Maintenance
 
 /area/maintenance
-	name = "Технические тоннели"
+	name = "Техтоннели"
 	ambience_index = AMBIENCE_MAINT
 	ambientsounds = MAINTENANCE
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA
@@ -97,79 +97,79 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 //Departments
 
 /area/maintenance/department/chapel
-	name = "Техтоннели церкви"
+	name = "Техтоннели: Церковь"
 	icon_state = "maint_chapel"
 
 /area/maintenance/department/chapel/monastery
-	name = "Техтоннели монастыря"
+	name = "Техтоннели: Монастырь"
 	icon_state = "maint_monastery"
 
 /area/maintenance/department/crew_quarters/bar
-	name = "Техтоннели бара"
+	name = "Техтоннели: Бар"
 	icon_state = "maint_bar"
 	sound_environment = SOUND_AREA_WOODFLOOR
 
 /area/maintenance/department/crew_quarters/dorms
-	name = "Техтоннели дормиториев"
+	name = "Техтоннели: Дормитории"
 	icon_state = "maint_dorms"
 
 /area/maintenance/department/eva
-	name = "Техтоннели ЕВА"
+	name = "Техтоннели: ЕВА"
 	icon_state = "maint_eva"
 
 /area/maintenance/department/electrical
-	name = "Техтоннели обслуживания"
+	name = "Техтоннели: Обслуживание"
 	icon_state = "maint_electrical"
 
 /area/maintenance/department/engine/atmos
-	name = "Атмосферные техтоннели"
+	name = "Техтоннели: Атмосферные"
 	icon_state = "maint_atmos"
 
 /area/maintenance/department/security
-	name = "Техтоннели безопасности"
+	name = "Техтоннели: Охрана"
 	icon_state = "maint_sec"
 
 /area/maintenance/department/security/upper
-	name = "Верхние техтоннели безопасности"
+	name = "Техтоннели: Верхняя охрана"
 
 /area/maintenance/department/security/brig
-	name = "Техтоннели брига"
+	name = "Техтоннели: Бриг"
 	icon_state = "maint_brig"
 
 /area/maintenance/department/medical
-	name = "Техтоннели медбея"
+	name = "Техтоннели: Медбей"
 	icon_state = "medbay_maint"
 
 /area/maintenance/department/medical/central
-	name = "Техтоннели центральной части медбея"
+	name = "Техтоннели: Центральный медбей"
 	icon_state = "medbay_maint_central"
 
 /area/maintenance/department/medical/morgue
-	name = "Техтоннели морга"
+	name = "Техтоннели: Морг"
 	icon_state = "morgue_maint"
 
 /area/maintenance/department/science
-	name = "Техтоннели научного отдела"
+	name = "Техтоннели: Научный отдел"
 	icon_state = "maint_sci"
 
 /area/maintenance/department/science/central
-	name = "Техтоннели центра научного отдела"
+	name = "Техтоннели: Центр научного отдела"
 	icon_state = "maint_sci_central"
 
 /area/maintenance/department/cargo
-	name = "Техтоннели снабжения"
+	name = "Техтоннели: Снабжение"
 	icon_state = "maint_cargo"
 
 /area/maintenance/department/bridge
-	name = "Техтоннели мостика"
+	name = "Техтоннели: Мостик"
 	icon_state = "maint_bridge"
 
 /area/maintenance/department/engine
-	name = "Техтоннели инженерного отдела"
+	name = "Техтоннели: Инженерный"
 	icon_state = "maint_engi"
 
 /area/maintenance/department/science/xenobiology
-	name = "Техтоннели ксенобиологии"
+	name = "Техтоннели: Ксенобиология"
 	icon_state = "xenomaint"
 	area_flags = VALID_TERRITORY | BLOBS_ALLOWED | UNIQUE_AREA | XENOBIOLOGY_COMPATIBLE
 
@@ -177,153 +177,153 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 //Maintenance - Generic
 
 /area/maintenance/aft
-	name = "Кормовые техтоннели"
+	name = "Техтоннели: Корма"
 	icon_state = "amaint"
 
 /area/maintenance/aft/upper
-	name = "Верхние кормовые техтоннели"
+	name = "Техтоннели: Верхняя корма"
 
 /area/maintenance/aft/secondary
-	name = "Кормовые техтоннели"
+	name = "Техтоннели: Вторичная корма"
 	icon_state = "amaint_2"
 
 /area/maintenance/central
-	name = "Центральные техтоннели"
+	name = "Техтоннели: Центр"
 	icon_state = "maintcentral"
 
 /area/maintenance/central/secondary
-	name = "Центральные техтоннели"
+	name = "Техтоннели: Вторичный центр"
 	icon_state = "maintcentral"
 
 /area/maintenance/fore
-	name = "Носовые техтоннели"
+	name = "Техтоннели: Нос"
 	icon_state = "fmaint"
 
 /area/maintenance/fore/upper
-	name = "Верхние носовые техтоннели"
+	name = "Техтоннели: Верхний нос"
 
 /area/maintenance/fore/secondary
-	name = "Носовые техтоннели"
+	name = "Техтоннели: Вторичный нос"
 	icon_state = "fmaint_2"
 
 /area/maintenance/starboard
-	name = "Техтоннели правого борта"
+	name = "Техтоннели: Правый борт"
 	icon_state = "smaint"
 
 /area/maintenance/starboard/upper
-	name = "Верхние техтоннели правого борта"
+	name = "Техтоннели: Верхний правый борт"
 
 /area/maintenance/starboard/central
-	name = "Центральные техтоннели правого борта"
+	name = "Техтоннели: Центральный правый борт"
 	icon_state = "smaint"
 
 /area/maintenance/starboard/secondary
-	name = "Дополнительные техтоннели правого борта"
+	name = "Техтоннели: Вторичный правый борт"
 	icon_state = "smaint_2"
 
 /area/maintenance/starboard/aft
-	name = "Кормовые техтоннели правого борта"
+	name = "Техтоннели: Корма правого борта"
 	icon_state = "asmaint"
 
 /area/maintenance/starboard/aft/secondary
-	name = "Кормовые дополнительные техтоннели правого борта"
+	name = "Техтоннели: Вторичная корма правого борта"
 	icon_state = "asmaint_2"
 
 /area/maintenance/starboard/fore
-	name = "Носовые техтоннели правого борта"
+	name = "Техтоннели: Носовой правый борт"
 	icon_state = "fsmaint"
 
 /area/maintenance/port
-	name = "Техтоннели порта"
+	name = "Техтоннели: Порт"
 	icon_state = "pmaint"
 
 /area/maintenance/port/central
-	name = "Центральные техтоннели порта"
+	name = "Техтоннели: Центральный порт"
 	icon_state = "maintcentral"
 
 /area/maintenance/port/aft
-	name = "Кормовые техтоннели порта"
+	name = "Техтоннели: Кормовой порт"
 	icon_state = "apmaint"
 
 /area/maintenance/port/fore
-	name = "Носовые техтоннели порта"
+	name = "Техтоннели: Носовой порт"
 	icon_state = "fpmaint"
 
 /area/maintenance/disposal
-	name = "Утилизация отходов"
+	name = "Техтоннели: Утилизация отходов"
 	icon_state = "disposal"
 
 /area/maintenance/disposal/incinerator
-	name = "Сжигатель"
+	name = "Техтоннели: Сжигатель"
 	icon_state = "incinerator"
 
 /area/maintenance/space_hut
-	name = "Космическая хижина"
+	name = "Техтоннели: Космическая хижина"
 	icon_state = "spacehut"
 
 /area/maintenance/space_hut/cabin
-	name = "Заброшенная хижина"
+	name = "Техтоннели: Заброшенная хижина"
 
 /area/maintenance/space_hut/plasmaman
-	name = "Заброшенный домик дружелюбного плазмамена"
+	name = "Техтоннели: Заброшенный домик дружелюбного плазмамена"
 
 /area/maintenance/space_hut/observatory
-	name = "Космическая обсерватория"
+	name = "Техтоннели: Космическая обсерватория"
 
 //Hallway
 /area/hallway
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/hallway/primary
-	name = "Основной коридор"
+	name = "Коридоры"
 
 /area/hallway/primary/aft
-	name = "Кормовой основной коридор"
+	name = "Коридоры: Корма"
 	icon_state = "hallA"
 
 /area/hallway/primary/fore
-	name = "Носовой основной коридор"
+	name = "Коридоры: Нос"
 	icon_state = "hallF"
 
 /area/hallway/primary/starboard
-	name = "Основной коридор правого борта"
+	name = "Коридоры: Правый борт"
 	icon_state = "hallS"
 
 /area/hallway/primary/port
-	name = "Основной коридор порта"
+	name = "Коридоры: Порт"
 	icon_state = "hallP"
 
 /area/hallway/primary/central
-	name = "Центральный основной коридор"
+	name = "Коридоры: Центральный"
 	icon_state = "hallC"
 
 /area/hallway/primary/upper
-	name = "Верхний центральный основной коридор"
+	name = "Коридоры: Верхний центральный"
 	icon_state = "hallC"
 
 
 /area/hallway/secondary/command
-	name = "Командный коридор"
+	name = "Коридоры: Командование"
 	icon_state = "bridge_hallway"
 
 /area/hallway/secondary/construction
-	name = "Строительная площадка"
+	name = "Коридоры: Строительная площадка"
 	icon_state = "construction"
 
 /area/hallway/secondary/exit
-	name = "Эвакуационный коридор"
+	name = "Коридоры: Эвакуация"
 	icon_state = "escape"
 
 /area/hallway/secondary/exit/departure_lounge
-	name = "Зал ожидания"
+	name = "Коридоры: Зал ожидания"
 	icon_state = "escape_lounge"
 
 /area/hallway/secondary/entry
-	name = "Коридор шаттла прибытия"
+	name = "Коридоры: Шаттл прибытия"
 	icon_state = "entry"
 
 /area/hallway/secondary/service
-	name = "Коридор обслуги"
+	name = "Коридоры: Обслуга"
 	icon_state = "hall_service"
 
 //Command
@@ -336,17 +336,17 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/bridge/meeting_room
-	name = "Комната встреч"
+	name = "Мостик: Комната встреч"
 	icon_state = "meeting"
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 
 /area/bridge/meeting_room/council
-	name = "Зал совета"
+	name = "Мостик: Зал совета"
 	icon_state = "meeting"
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 
 /area/bridge/showroom/corporate
-	name = "Корпоративный выставочный зал"
+	name = "Мостик: Выставочный зал"
 	icon_state = "showroom"
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 
@@ -354,107 +354,107 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	airlock_wires = /datum/wires/airlock/command
 
 /area/crew_quarters/heads/captain
-	name = "Офис капитана"
+	name = "Каюты: Офис капитана"
 	icon_state = "captain"
 	sound_environment = SOUND_AREA_WOODFLOOR
 
 /area/crew_quarters/heads/captain/private
-	name = "Каюта капитана"
+	name = "Каюты: Капитан"
 	icon_state = "captain_private"
 	sound_environment = SOUND_AREA_WOODFLOOR
 
 /area/crew_quarters/heads/chief
-	name = "Офис старшего инженера"
+	name = "Каюты: Старший инженер"
 	icon_state = "ce_office"
 
 /area/crew_quarters/heads/cmo
-	name = "Офис главного врача"
+	name = "Каюты: Главный врач"
 	icon_state = "cmo_office"
 
 /area/crew_quarters/heads/hop
-	name = "Офис кадровика"
+	name = "Каюты: Кадровик"
 	icon_state = "hop_office"
 
 /area/crew_quarters/heads/hos
-	name = "Офис начальника охраны"
+	name = "Каюты: Начальник охраны"
 	icon_state = "hos_office"
 
 /area/crew_quarters/heads/hor
-	name = "Офис научного руководителя"
+	name = "Каюты: Научный руководитель"
 	icon_state = "rd_office"
 
 /area/comms
-	name = "Реле связи"
+	name = "Телекоммуникации: Реле связи"
 	icon_state = "tcomsatcham"
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/server
-	name = "Серверная комната обмена сообщениями"
+	name = "Телекоммуникации: Серверная комната обмена сообщениями"
 	icon_state = "server"
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 //Crew
 
 /area/crew_quarters
-	name = "Жилые помещения экипажа"
+	name = "Зона отдыха"
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/crew_quarters/dorms
-	name = "Дормитории"
+	name = "Зона отдыха: Дормитории"
 	icon_state = "dorms"
 	area_flags = VALID_TERRITORY | BLOBS_ALLOWED | UNIQUE_AREA
 
 /area/crew_quarters/dorms/barracks
-	name = "Бараки"
+	name = "Зона отдыха: Бараки"
 
 /area/crew_quarters/dorms/barracks/male
-	name = "Мужские бараки"
+	name = "Зона отдыха: Мужские бараки"
 	icon_state = "dorms_male"
 
 /area/crew_quarters/dorms/barracks/female
-	name = "Женские бараки"
+	name = "Зона отдыха: Женские бараки"
 	icon_state = "dorms_female"
 
 /area/crew_quarters/toilet
-	name = "Туалеты дормитория"
+	name = "Зона отдыха: Туалеты"
 	icon_state = "toilet"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/crew_quarters/toilet/auxiliary
-	name = "Вспомогательные туалеты"
+	name = "Зона отдыха: Вспомогательные туалеты"
 	icon_state = "toilet"
 
 /area/crew_quarters/toilet/locker
-	name = "Туалеты раздевалки"
+	name = "Зона отдыха: Туалеты раздевалки"
 	icon_state = "toilet"
 
 /area/crew_quarters/toilet/restrooms
-	name = "Туалеты"
+	name = "Зона отдыха: Туалеты"
 	icon_state = "toilet"
 
 /area/crew_quarters/locker
-	name = "Раздевалка"
+	name = "Зона отдыха: Раздевалка"
 	icon_state = "locker"
 
 /area/crew_quarters/lounge
-	name = "Гостиная"
+	name = "Зона отдыха: Гостиная"
 	icon_state = "lounge"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/crew_quarters/fitness
-	name = "Фитнес-зал"
+	name = "Зона отдыха: Фитнес-зал"
 	icon_state = "fitness"
 
 /area/crew_quarters/fitness/locker_room
-	name = "Раздевалка унисекс"
+	name = "Зона отдыха: Раздевалка унисекс"
 	icon_state = "locker"
 
 /area/crew_quarters/fitness/locker_room/male
-	name = "Мужская раздевалка"
+	name = "Зона отдыха: Мужская раздевалка"
 	icon_state = "locker_male"
 
 /area/crew_quarters/fitness/locker_room/female
-	name = "Женская раздевалка"
+	name = "Зона отдыха: Женская раздевалка"
 	icon_state = "locker_female"
 
 
@@ -463,21 +463,21 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "rec"
 
 /area/crew_quarters/cafeteria
-	name = "Кафетерий"
+	name = "Зона отдыха: Кафетерий"
 	icon_state = "cafeteria"
 
 /area/crew_quarters/kitchen
-	name = "Кухня"
+	name = "Зона отдыха: Кухня"
 	icon_state = "kitchen"
 	airlock_wires = /datum/wires/airlock/service
 
 /area/crew_quarters/kitchen/coldroom
-	name = "Морозильная камера кухни"
+	name = "Зона отдыха: Морозильная камера кухни"
 	icon_state = "kitchen_cold"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/crew_quarters/bar
-	name = "Бар"
+	name = "Зона отдыха: Бар"
 	icon_state = "bar"
 	mood_bonus = 5
 	mood_message = "<span class='nicegreen'>Обожаю отдохнуть в баре!\n</span>"
@@ -485,59 +485,59 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_WOODFLOOR
 
 /area/crew_quarters/bar/atrium
-	name = "Атриум"
+	name = "Зона отдыха: Атриум"
 	icon_state = "bar"
 	sound_environment = SOUND_AREA_WOODFLOOR
 
 /area/crew_quarters/electronic_marketing_den
-	name = "Кабинет электронного маркетинга"
+	name = "Зона отдыха: Кабинет электронного маркетинга"
 	icon_state = "abandoned_m_den"
 
 /area/crew_quarters/abandoned_gambling_den
-	name = "Заброшенный игорный дом"
+	name = "Зона отдыха: Заброшенный игорный дом"
 	icon_state = "abandoned_g_den"
 
 /area/crew_quarters/abandoned_gambling_den/secondary
 	icon_state = "abandoned_g_den_2"
 
 /area/crew_quarters/theatre
-	name = "Театр"
+	name = "Зона отдыха: Театр"
 	icon_state = "theatre"
 	sound_environment = SOUND_AREA_WOODFLOOR
 
 /area/crew_quarters/theatre/abandoned
-	name = "Заброшенный театр"
+	name = "Зона отдыха: Заброшенный театр"
 	icon_state = "abandoned_theatre"
 
 /area/library
-	name = "Библиотека"
+	name = "Зона отдыха: Библиотека"
 	icon_state = "library"
 	flags_1 = CULT_PERMITTED_1
 	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
 
 /area/library/lounge
-	name = "Гостинная библиотеки"
+	name = "Зона отдыха: Гостинная библиотеки"
 	icon_state = "library_lounge"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/library/artgallery
-	name = "Галерея искусств"
+	name = "Зона отдыха: Галерея искусств"
 	icon_state = "library_gallery"
 
 /area/library/private
-	name = "Личный кабинет библиотеки"
+	name = "Зона отдыха: Личный кабинет библиотеки"
 	icon_state = "library_gallery_private"
 
 /area/library/upper
-	name = "Верхняя библиотека"
+	name = "Зона отдыха: Верхняя библиотека"
 	icon_state = "library"
 
 /area/library/printer
-	name = "Комната принтеров библиотеки"
+	name = "Зона отдыха: Комната принтеров библиотеки"
 	icon_state = "library"
 
 /area/library/abandoned
-	name = "Заброшенная библиотека"
+	name = "Зона отдыха: Заброшенная библиотека"
 	icon_state = "abandoned_library"
 	flags_1 = CULT_PERMITTED_1
 
@@ -567,7 +567,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Астероид-монастырь"
 
 /area/chapel/dock
-	name = "Док церковь"
+	name = "Док церкви"
 	icon_state = "construction"
 
 /area/lawoffice
@@ -585,65 +585,65 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/engine/engine_smes
-	name = "Инженерные СНМЭ"
+	name = "Инженерный: СНМЭ"
 	icon_state = "engine_smes"
 
 /area/engine/engineering
-	name = "Инженерия"
+	name = "Инженерный"
 	icon_state = "engine"
 
 /area/engine/atmos
-	name = "Атмосферный отсек"
+	name = "Инженерный: Атмосферный отдел"
 	icon_state = "atmos"
 	flags_1 = CULT_PERMITTED_1
 
 /area/engine/atmos/upper
-	name = "Верхний атмосферный отсек"
+	name = "Инженерный: Верхний атмосферный отдел"
 
 /area/engine/atmospherics_engine
-	name = "Двигатель атмосферного отсека"
+	name = "Инженерный: Атмосферный двигатель"
 	icon_state = "atmos_engine"
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/engine/engine_room //donut station specific
-	name = "Машинное отделение"
+	name = "Инженерный: Машинное отделение"
 	icon_state = "atmos_engine"
 
 /area/engine/lobby
-	name = "Инженерное лобби"
+	name = "Инженерный: Лобби"
 	icon_state = "engi_lobby"
 
 /area/engine/engine_room/external
-	name = "Внешний доступ к суперматерии"
+	name = "Инженерный: Внешний доступ к суперматерии"
 	icon_state = "engine_foyer"
 
 /area/engine/supermatter
-	name = "Двигатель суперматерии"
+	name = "Инженерный: Двигатель суперматерии"
 	icon_state = "engine_sm"
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/engine/break_room
-	name = "Инженерное фойе"
+	name = "Инженерный: Фойе"
 	icon_state = "engine_break"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/engine/gravity_generator
-	name = "Комната генератора гравитации"
+	name = "Инженерный: Генератор Гравитации"
 	icon_state = "grav_gen"
 
 /area/engine/storage
-	name = "Инженерное хранилище"
+	name = "Инженерный: Хранилище"
 	icon_state = "engi_storage"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/engine/storage_shared
-	name = "Общее инженерное хранилище"
+	name = "Инженерный: Общее хранилище"
 	icon_state = "engi_storage"
 
 /area/engine/transit_tube
-	name = "Транзитная труба"
+	name = "Инженерный: Транзитная труба"
 	icon_state = "transit_tube"
 
 
@@ -659,79 +659,79 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_SPACE
 
 /area/solar/fore
-	name = "Носовой солнечный массив"
+	name = "Солнечные панели: Нос"
 	icon_state = "yellow"
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/solar/aft
-	name = "Кормовой солнечный массив"
+	name = "Солнечные панели: Корма"
 	icon_state = "yellow"
 
 /area/solar/aux/port
-	name = "Портовый солнечный массив"
+	name = "Солнечные панели: Запасной порт"
 	icon_state = "panelsA"
 
 /area/solar/aux/starboard
-	name = "Запасной солнечный массив правого борта"
+	name = "Солнечные панели: Запасной правый борт"
 	icon_state = "panelsA"
 
 /area/solar/starboard
-	name = "Солнечный массив правого борта"
+	name = "Солнечные панели: Правый борт"
 	icon_state = "panelsS"
 
 /area/solar/starboard/aft
-	name = "Кормовой солнечный массив правого борта"
+	name = "Солнечные панели: Кормовой правый борт"
 	icon_state = "panelsAS"
 
 /area/solar/starboard/fore
-	name = "Носовой солнечный массив правого борта"
+	name = "Солнечные панели: Носовой правый борт"
 	icon_state = "panelsFS"
 
 /area/solar/port
-	name = "Портовый солнечный массив"
+	name = "Солнечные панели: Порт"
 	icon_state = "panelsP"
 
 /area/solar/port/aft
-	name = "Кормовой портовый солнечный массив"
+	name = "Солнечные панели: Кормовой порт"
 	icon_state = "panelsAP"
 
 /area/solar/port/fore
-	name = "Носовой портовый солнечный массив"
+	name = "Солнечные панели: Носовой порт"
 	icon_state = "panelsFP"
 
 /area/solar/aisat
-	name = "Солнечный массив ИИ"
+	name = "ИИ: Солнечные панели"
 	icon_state = "yellow"
 
 
 //Solar Maint
 
 /area/maintenance/solars
-	name = "Техтоннели солнечного массива"
+	name = "Техтоннели: Солнечные панели"
 	icon_state = "yellow"
 
 /area/maintenance/solars/port
-	name = "Портовые техтоннели солнечного массива"
+	name = "Техтоннели: Солнечные панели: Порт"
 	icon_state = "SolarcontrolP"
 
 /area/maintenance/solars/port/aft
-	name = "Кормовые портовые техтоннели солнечного массива"
+	name = "Техтоннели: Солнечные панели: Кормовой порт"
 	icon_state = "SolarcontrolAP"
 
 /area/maintenance/solars/port/fore
-	name = "Носовые портовые техтоннели солнечного массива"
+	name = "Техтоннели: Солнечные панели: Носовой порт"
 	icon_state = "SolarcontrolFP"
 
 /area/maintenance/solars/starboard
-	name = "Техтоннели солнечного массива правого борта"
+	name = "Техтоннели: Солнечные панели: Правый борт"
 	icon_state = "SolarcontrolS"
 
 /area/maintenance/solars/starboard/aft
-	name = "Кормовые техтоннели солнечного массива правого борта"
+	name = "Техтоннели: Солнечные панели: Кормовой правый борт"
 	icon_state = "SolarcontrolAS"
 
 /area/maintenance/solars/starboard/fore
-	name = "Носовые техтоннели солнечного массива правого борта"
+	name = "Техтоннели: Солнечные панели: Носовой правый борт"
 	icon_state = "SolarcontrolFS"
 
 //Teleporter
@@ -762,116 +762,116 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/medical/abandoned
-	name = "Заброшенный медбей"
+	name = "Медбей: Заброшенный"
 	icon_state = "abandoned_medbay"
 	ambientsounds = list('sound/ambience/signal.ogg')
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/medical/medbay/central
-	name = "Центр медбея"
+	name = "Медбей: Центр"
 	icon_state = "med_central"
 
 /area/medical/medbay/lobby
-	name = "Лобби медбея"
+	name = "Медбей: Лобби"
 	icon_state = "med_lobby"
 
 	//Medbay is a large area, these additional areas help level out APC load.
 
 /area/medical/medbay/zone2
-	name = "Медбей"
+	name = "Медбей: Дополнительный"
 	icon_state = "medbay2"
 
 /area/medical/medbay/aft
-	name = "Medbay Aft"
+	name = "Медбей: Кормовой"
 	icon_state = "med_aft"
 
 /area/medical/storage
-	name = "Хранилище медбея"
+	name = "Медбей: Хранилище"
 	icon_state = "med_storage"
 
 /area/medical/paramedic
-	name = "Фельдшер"
+	name = "Медбей: Фельдшер"
 	icon_state = "paramedic"
 
 /area/medical/office
-	name = "Офис медбея"
+	name = "Медбей: Офис"
 	icon_state = "med_office"
 
 /area/medical/surgery/room_c
-	name = "Хирургия C"
+	name = "Медбей: Хирургия C"
 	icon_state = "surgery"
 
 /area/medical/surgery/room_d
-	name = "Хирургия D"
+	name = "Медбей: Хирургия D"
 	icon_state = "surgery"
 
 /area/medical/break_room
-	name = "Комната отдыха медбея"
+	name = "Медбей: Комната отдыха"
 	icon_state = "med_break"
 
 /area/medical/coldroom
-	name = "Морозилка медбея"
+	name = "Медбей: Морозилка"
 	icon_state = "kitchen_cold"
 
 /area/medical/patients_rooms
-	name = "Палаты"
+	name = "Медбей: Палаты"
 	icon_state = "patients"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/medical/patients_rooms/room_a
-	name = "Палата пациента A"
+	name = "Медбей: Палата пациента A"
 	icon_state = "patients"
 
 /area/medical/patients_rooms/room_b
-	name = "Палата пациента B"
+	name = "Медбей: Палата пациента B"
 	icon_state = "patients"
 
 /area/medical/virology
-	name = "Вирусология"
+	name = "Медбей: Вирусология"
 	icon_state = "virology"
 	flags_1 = CULT_PERMITTED_1
 
 /area/medical/morgue
-	name = "Морг"
+	name = "Медбей: Морг"
 	icon_state = "morgue"
 	ambience_index = AMBIENCE_SPOOKY
 	ambientsounds = SPOOKY
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/medical/chemistry
-	name = "Химия"
+	name = "Медбей: Химия"
 	icon_state = "chem"
 
 /area/medical/pharmacy
-	name = "Аптека"
+	name = "Медбей: Аптека"
 	icon_state = "pharmacy"
 
 /area/medical/surgery
-	name = "Хирургия"
+	name = "Медбей: Хирургия А"
 	icon_state = "surgery"
 
 /area/medical/surgery/room_b
-	name = "Хирургия B"
+	name = "Медбей: Хирургия B"
 	icon_state = "surgery"
 
 /area/medical/cryo
-	name = "Криогеника"
+	name = "Медбей: Криогеника"
 	icon_state = "cryo"
 
 /area/medical/exam_room
-	name = "Экзаменационная комната"
+	name = "Медбей: Экзаменационная комната"
 	icon_state = "exam_room"
 
 /area/medical/genetics
-	name = "Лаборатория генетики"
+	name = "Медбей: Лаборатория генетики"
 	icon_state = "genetics"
 
 /area/medical/sleeper
-	name = "Лечебный центр медбея"
+	name = "Медбей: Лечебный центр"
 	icon_state = "exam_room"
 
 /area/medical/psychology
-	name = "Офис психолога"
+	name = "Медбей: Психолог"
 	icon_state = "psychology"
 	mood_bonus = 3
 	mood_message = "<span class='nicegreen'>Здесь спокойно.\n</span>"
@@ -880,7 +880,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 //Security
 
 /area/security
-	name = "Безопасность"
+	name = "Охрана"
 	icon_state = "security"
 	ambience_index = AMBIENCE_DANGER
 	ambientsounds = HIGHSEC
@@ -888,81 +888,81 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/security/main
-	name = "Офис охраны"
+	name = "Охрана: Офис"
 	icon_state = "security"
 
 /area/security/brig
-	name = "Бриг"
+	name = "Охрана: Бриг"
 	icon_state = "brig"
 
 /area/security/brig/upper
-	name = "Верхний бриг"
+	name = "Охрана: Верхний бриг"
 
 /area/security/courtroom
-	name = "Зал суда"
+	name = "Охрана: Зал суда"
 	icon_state = "courtroom"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/security/prison
-	name = "Тюремное крыло"
+	name = "Тюрьма"
 	icon_state = "sec_prison"
 
 /area/security/prison/toilet //radproof
-	name = "Тюремный туалет"
+	name = "Тюрьма: Туалет"
 	icon_state = "sec_prison_safe"
 
 /area/security/prison/safe //radproof
-	name = "Камеры тюремного крыла"
+	name = "Тюрьма: Камеры"
 	icon_state = "sec_prison_safe"
 
 /area/security/prison/upper
-	name = "Верхнее тюремное крыло"
+	name = "Тюрьма: Верхняя"
 	icon_state = "prison_upper"
 
 /area/security/prison/visit
-	name = "Зона посещения тюрьмы"
+	name = "Тюрьма: Зона посещения"
 	icon_state = "prison_visit"
 
 /area/security/prison/rec
-	name = "Тюремная комната отдыха"
+	name = "Тюрьма: Комната отдыха"
 	icon_state = "prison_rec"
 
 /area/security/prison/mess
-	name = "Тюремная столовая"
+	name = "Тюрьма: Столовая"
 	icon_state = "prison_mess"
 
 /area/security/prison/work
-	name = "Тюремный цех"
+	name = "Тюрьма: Цех"
 	icon_state = "prison_work"
 
 /area/security/prison/shower
-	name = "Тюремный душ"
+	name = "Тюрьма: Душ"
 	icon_state = "prison_shower"
 
 /area/security/prison/workout
-	name = "Тюремный спортзал"
+	name = "Тюрьма: Спортзал"
 	icon_state = "prison_workout"
 
 /area/security/prison/garden
-	name = "Тюремный сад"
+	name = "Тюрьма: Сад"
 	icon_state = "prison_garden"
 
 /area/security/processing
-	name = "Док шаттла трудового лагеря"
+	name = "Тюрьма: Док"
 	icon_state = "sec_processing"
 
 /area/security/processing/cremation
-	name = "Крематорий охраны"
+	name = "Охрана: Крематорий"
 	icon_state = "sec_cremation"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/security/warden
-	name = "Надзор брига"
+	name = "Охрана: Надзор"
 	icon_state = "warden"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/security/detectives_office
-	name = "Офис детектива"
+	name = "Охрана: Детектив"
 	icon_state = "detective"
 	ambientsounds = list('sound/ambience/ambidet1.ogg','sound/ambience/ambidet2.ogg')
 
@@ -972,26 +972,26 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/security/range
-	name = "Стрельбище"
+	name = "Охрана: Стрельбище"
 	icon_state = "firingrange"
 
 /area/security/execution
 	icon_state = "execution_room"
 
 /area/security/execution/transfer
-	name = "Трансферный центр"
+	name = "Охрана: Трансфер"
 	icon_state = "sec_processing"
 
 /area/security/execution/education
-	name = "Палата тюремного образования"
+	name = "Охрана: Школа"
 
 /area/security/nuke_storage
-	name = "Хранилище"
+	name = "Охрана: Хранилище"
 	icon_state = "nuke_storage"
 	airlock_wires = /datum/wires/airlock/command
 
 /area/ai_monitored/nuke_storage
-	name = "Хранилище"
+	name = "Охрана: Хранилище"
 	icon_state = "nuke_storage"
 	airlock_wires = /datum/wires/airlock/command
 
@@ -1006,27 +1006,27 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "checkpoint_esc"
 
 /area/security/checkpoint/supply
-	name = "Пост охраны - Снабжение"
+	name = "Пост охраны: Снабжение"
 	icon_state = "checkpoint_supp"
 
 /area/security/checkpoint/engineering
-	name = "Пост охраны - Инженерный"
+	name = "Пост охраны: Инженерный"
 	icon_state = "checkpoint_engi"
 
 /area/security/checkpoint/medical
-	name = "Пост охраны - Медбей"
+	name = "Пост охраны: Медбей"
 	icon_state = "checkpoint_med"
 
 /area/security/checkpoint/science
-	name = "Пост охраны - Научный"
+	name = "Пост охраны: Научный"
 	icon_state = "checkpoint_sci"
 
 /area/security/checkpoint/science/research
-	name = "Пост охраны - Научный отдел"
+	name = "Пост охраны: Научный отдел"
 	icon_state = "checkpoint_res"
 
 /area/security/checkpoint/customs
-	name = "Таможня"
+	name = "Охрана: Таможня"
 	icon_state = "customs_point"
 
 /area/security/checkpoint/customs/auxiliary
@@ -1042,41 +1042,41 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/quartermaster/sorting
-	name = "Офис доставки"
+	name = "Снабжение: Сортировка"
 	icon_state = "cargo_delivery"
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/quartermaster/warehouse
-	name = "Склад"
+	name = "Снабжение: Склад"
 	icon_state = "cargo_warehouse"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/quartermaster/warehouse/upper
-	name = "Верхний склад"
+	name = "Снабжение: Верхний склад"
 
 /area/quartermaster/office
-	name = "Офис снабжения"
+	name = "Снабжение: Офис"
 	icon_state = "cargo_office"
 
 /area/quartermaster/storage
-	name = "Грузовой отсек"
+	name = "Снабжение: Грузовой отсек"
 	icon_state = "cargo_bay"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/quartermaster/qm
-	name = "Офис завхоза"
+	name = "Снабжение: Офис завхоза"
 	icon_state = "quart_office"
 
 /area/quartermaster/qm/perch
-	name = "Карниз завхоза"
+	name = "Снабжение: Карниз завхоза"
 	icon_state = "quart_perch"
 
 /area/quartermaster/miningdock
-	name = "Шахтёрский док"
+	name = "Снабжение: Шахтёрский док"
 	icon_state = "mining"
 
 /area/quartermaster/miningoffice
-	name = "Шахтёрский офис"
+	name = "Снабжение: Шахтёрский офис"
 	icon_state = "mining"
 
 /area/janitor
@@ -1113,84 +1113,84 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 //Science
 
 /area/science
-	name = "Отдел науки"
+	name = "Наука"
 	icon_state = "science"
 	airlock_wires = /datum/wires/airlock/science
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/science/lab
-	name = "Исследования и разработки"
+	name = "Наука: Лаборатория"
 	icon_state = "research"
 
 /area/science/xenobiology
-	name = "Ксенобиологическая лаборатория"
+	name = "Наука: Ксенобиология"
 	icon_state = "xenobio"
 
 /area/science/cytology
-	name = "Cytology Lab"
+	name = "Наука: Цитология"
 	icon_state = "cytology"
 
 /area/science/storage
-	name = "Хранилище токсинов"
+	name = "Наука: Хранилище токсинов"
 	icon_state = "tox_storage"
 
 /area/science/test_area
-	name = "Полигон токсинов"
+	name = "Наука: Полигон токсинов"
 	icon_state = "tox_test"
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA
 
 /area/science/mixing
-	name = "Смешиватель токсинов"
+	name = "Наука: Смешиватель токсинов"
 	icon_state = "tox_mix"
 
 /area/science/mixing/chamber
-	name = "Камера смешивания токсинов"
+	name = "Наука: Камера смешивания токсинов"
 	icon_state = "tox_mix_chamber"
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA
 
 /area/science/genetics
-	name = "Лаборатория генетики"
+	name = "Наука: Генетика"
 	icon_state = "geneticssci"
 
 /area/science/misc_lab
-	name = "Лаборатория тестирования"
+	name = "Наука: Тестирование"
 	icon_state = "tox_misc"
 
 /area/science/misc_lab/range
-	name = "Исследовательский тир"
+	name = "Наука: Тир"
 	icon_state = "tox_range"
 
 /area/science/server
-	name = "Серверная комната исследовательского отдела"
+	name = "Наука: Серверная"
 	icon_state = "server"
 
 /area/science/explab
-	name = "Экспериментальная лаборатория"
+	name = "Наука: Эксперименты"
 	icon_state = "exp_lab"
 
 /area/science/robotics
-	name = "Роботика"
+	name = "Наука: Роботика"
 	icon_state = "robotics"
 
 /area/science/robotics/mechbay
-	name = "Мехдок"
+	name = "Наука: Мехдок"
 	icon_state = "mechbay"
 
 /area/science/robotics/lab
-	name = "Лаборатория робототехники"
+	name = "Наука: Робототехника"
 	icon_state = "ass_line"
 
 /area/science/research
-	name = "Отдел исследований"
+	name = "Наука: Исследования"
 	icon_state = "science"
 
 /area/science/research/abandoned
-	name = "Заброшенная исследовательская лаборатория"
+	name = "Наука: Заброшенная лаборатория"
 	icon_state = "abandoned_sci"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/science/nanite
-	name = "Нанитовая лаборатория"
+	name = "Наука: Наниты"
 	icon_state = "nanite"
 
 //Storage
@@ -1198,40 +1198,40 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/storage/tools
-	name = "Вспомогательное хранилище инструментов"
+	name = "Хранилище: Запасные инструменты"
 	icon_state = "tool_storage"
 
 /area/storage/primary
-	name = "Первичное хранилище инструментов"
+	name = "Хранилище: Инструменты"
 	icon_state = "primary_storage"
 
 /area/storage/art
-	name = "Хранилище предметов искусства"
+	name = "Хранилище: Искусство"
 	icon_state = "art_storage"
 
 /area/storage/tcom
-	name = "Хранилище телекоммуникаций"
+	name = "Хранилище: Телекоммуникации"
 	icon_state = "tcom"
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA
 
 /area/storage/eva
-	name = "Хранилище ЕВА"
+	name = "Хранилище: ЕВА"
 	icon_state = "eva"
 
 /area/storage/emergency/starboard
-	name = "Аварийное хранилище правого борта"
+	name = "Хранилище: Правый борт"
 	icon_state = "emergency_storage"
 
 /area/storage/emergency/port
-	name = "Аварийное хранилище порта"
+	name = "Хранилище: Порт"
 	icon_state = "emergency_storage"
 
 /area/storage/tech
-	name = "Техническое хранилище"
+	name = "Хранилище: Техника"
 	icon_state = "aux_storage"
 
 /area/storage/mining
-	name = "Публичное шахтёрское хранилище"
+	name = "Хранилище: Публичное шахтёрское"
 	icon_state = "mining"
 
 //Construction
@@ -1244,12 +1244,12 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/construction/mining/aux_base
-	name = "Строительная площадка вспомогательной базы"
+	name = "Строительная площадка: База"
 	icon_state = "aux_base_construction"
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 
 /area/construction/storage_wing
-	name = "Крыло хранилища"
+	name = "Строительная площадка: Хранилище"
 	icon_state = "storage_wing"
 
 // Vacant Rooms
@@ -1273,26 +1273,26 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/ai_monitored/security/armory
-	name = "Арсенал"
+	name = "Охрана: Арсенал"
 	icon_state = "armory"
 	ambience_index = AMBIENCE_DANGER
 	ambientsounds = HIGHSEC
 	airlock_wires = /datum/wires/airlock/security
 
 /area/ai_monitored/security/armory/upper
-	name = "Верхний арсенал"
+	name = "Охрана: Верхний арсенал"
 
 /area/ai_monitored/storage/eva
-	name = "Хранилище ЕВА"
+	name = "Хранилище: ЕВА"
 	icon_state = "eva"
 	ambience_index = AMBIENCE_DANGER
 	ambientsounds = HIGHSEC
 
 /area/ai_monitored/storage/eva/upper
-	name = "Верхнее хранилище ЕВА"
+	name = "Хранилище: Верхняя ЕВА"
 
 /area/ai_monitored/storage/satellite
-	name = "Техтоннели спутника ИИ"
+	name = "Спутник ИИ"
 	icon_state = "ai_storage"
 	ambience_index = AMBIENCE_DANGER
 	ambientsounds = HIGHSEC
@@ -1305,17 +1305,17 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	airlock_wires = /datum/wires/airlock/ai
 
 /area/ai_monitored/turret_protected/ai_upload
-	name = "Комната загрузки ИИ"
+	name = "ИИ: Комната загрузки"
 	icon_state = "ai_upload"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ai_monitored/turret_protected/ai_upload_foyer
-	name = "Фойе загрузки ИИ"
+	name = "ИИ: Фойе загрузки"
 	icon_state = "ai_upload_foyer"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ai_monitored/turret_protected/ai
-	name = "Комната ИИ"
+	name = "ИИ: Зал"
 	icon_state = "ai_chamber"
 
 /area/ai_monitored/turret_protected/aisat
@@ -1324,37 +1324,37 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_ENVIRONMENT_ROOM
 
 /area/ai_monitored/turret_protected/aisat/atmos
-	name = "Атмосферный отдел ИИ"
+	name = "Спутник ИИ: Атмосферный отдел"
 	icon_state = "ai"
 
 /area/ai_monitored/turret_protected/aisat/foyer
-	name = "Фойе спутника ИИ"
+	name = "Спутник ИИ: Фойе"
 	icon_state = "ai_foyer"
 
 /area/ai_monitored/turret_protected/aisat/service
-	name = "Сервисный отдел спутника ИИ"
+	name = "Спутник ИИ: Сервисный отдел"
 	icon_state = "ai"
 
 /area/ai_monitored/turret_protected/aisat/hallway
-	name = "Коридор спутника ИИ"
+	name = "Спутник ИИ: Коридор"
 	icon_state = "ai"
 
 /area/aisat
-	name = "Внешняя часть спутника ИИ"
+	name = "Спутник ИИ: Обшивка"
 	icon_state = "ai"
 	airlock_wires = /datum/wires/airlock/ai
 
 /area/ai_monitored/turret_protected/aisat_interior
-	name = "Прихожая спутника ИИ"
+	name = "Спутник ИИ: Прихожая"
 	icon_state = "ai_interior"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/ai_monitored/turret_protected/ai_sat_ext_as
-	name = "Восточная часть спутника ИИ"
+	name = "Спутник ИИ: Восток"
 	icon_state = "ai_sat_east"
 
 /area/ai_monitored/turret_protected/ai_sat_ext_ap
-	name = "Западная часть спутника ИИ"
+	name = "Спутник ИИ: Запад"
 	icon_state = "ai_sat_west"
 
 
@@ -1367,27 +1367,27 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	network_root_id = STATION_NETWORK_ROOT	// They should of unpluged the router before they left
 
 /area/tcommsat/computer
-	name = "Телекоммуникационная диспетчерская"
+	name = "Телекоммуникации: Диспетчерская"
 	icon_state = "tcomsatcomp"
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 
 /area/tcommsat/server
-	name = "Серверная комната телекоммуникаций"
+	name = "Телекоммуникации: Серверная"
 	icon_state = "tcomsatcham"
 
 /area/tcommsat/server/upper
-	name = "Верхняя серверная комната телекоммуникаций"
+	name = "Телекоммуникации: Верхняя серверная"
 
 //External Hull Access
 /area/maintenance/external
-	name = "Внешняя обшивка"
+	name = "Обшивка"
 	icon_state = "amaint"
 
 /area/maintenance/external/aft
-	name = "Кормовая внешняя обшивка"
+	name = "Обшивка: Корма"
 
 /area/maintenance/external/port
-	name = "Портовая внешняя обшивка"
+	name = "Обшивка: Порт"
 
 /area/maintenance/external/port/bow
-	name = "Портовая внешняя обшивка правого борта"
+	name = "Обшивка: Порт правого борта"

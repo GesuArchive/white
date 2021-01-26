@@ -6,7 +6,7 @@
 // from everything anyway
 
 /area/centcom
-	name = "CentCom"
+	name = "ЦК"
 	icon_state = "centcom"
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	requires_power = FALSE
@@ -15,46 +15,46 @@
 	flags_1 = NONE
 
 /area/centcom/control
-	name = "CentCom Docks"
+	name = "ЦК"
 
 /area/centcom/evac
-	name = "CentCom Recovery Ship"
+	name = "ЦК: Эвакуационный док"
 
 /area/centcom/supply
-	name = "CentCom Supply Shuttle Dock"
+	name = "ЦК: Док торгового шаттла"
 
 /area/centcom/ferry
-	name = "CentCom Transport Shuttle Dock"
+	name = "ЦК: Док десантного шаттла"
 
 /area/centcom/prison
-	name = "Admin Prison"
+	name = "ЦК: Тюрьма"
 
 /area/centcom/holding
-	name = "Holding Facility"
+	name = "ЦК: Удержание"
 
 /area/centcom/debug
-	name = "Debug Operations"
+	name = "ЦК: Дебаг"
 
 /area/centcom/outdoors
-	name = "CentCom Outdoors"
+	name = "ЦК: Поверхность"
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
 	has_gravity = TRUE
 
 /area/centcom/supplypod/supplypod_temp_holding
-	name = "Supplypod Shipping lane"
+	name = "Дропподы ЦК: Канал полёта"
 	icon_state = "supplypod_flight"
 
 /area/centcom/supplypod
-	name = "Supplypod Facility"
+	name = "Дропподы ЦК"
 	icon_state = "supplypod"
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
 
 /area/centcom/supplypod/pod_storage
-	name = "Supplypod Storage"
+	name = "Дропподы ЦК: Хранилище"
 	icon_state = "supplypod_holding"
 
 /area/centcom/supplypod/loading
-	name = "Supplypod Loading Facility"
+	name = "Дропподы ЦК: Загрузка"
 	icon_state = "supplypod_loading"
 	var/loading_id = ""
 
@@ -67,23 +67,23 @@
 	GLOB.supplypod_loading_bays[loading_id] = src
 
 /area/centcom/supplypod/loading/one
-	name = "Bay #1"
+	name = "Дропподы ЦК: Док #1"
 	loading_id = "1"
 
 /area/centcom/supplypod/loading/two
-	name = "Bay #2"
+	name = "Дропподы ЦК: Док #2"
 	loading_id = "2"
 
 /area/centcom/supplypod/loading/three
-	name = "Bay #3"
+	name = "Дропподы ЦК: Док #3"
 	loading_id = "3"
 
 /area/centcom/supplypod/loading/four
-	name = "Bay #4"
+	name = "Дропподы ЦК: Док #4"
 	loading_id = "4"
 
 /area/centcom/supplypod/loading/ert
-	name = "ERT Bay"
+	name = "Дропподы ЦК: Десант"
 	loading_id = "5"
 //THUNDERDOME
 
@@ -126,7 +126,7 @@
 
 //Wizard
 /area/wizard_station
-	name = "Wizard's Den"
+	name = "Логово волшебника"
 	icon_state = "yellow"
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	requires_power = FALSE
@@ -137,7 +137,7 @@
 
 //Abductors
 /area/abductor_ship
-	name = "Abductor Ship"
+	name = "Корабль похитителей"
 	icon_state = "yellow"
 	requires_power = FALSE
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | NOTELEPORT
@@ -147,7 +147,7 @@
 
 //Syndicates
 /area/syndicate_mothership
-	name = "Syndicate Mothership"
+	name = "Синдикат"
 	icon_state = "syndie-ship"
 	requires_power = FALSE
 	has_gravity = STANDARD_GRAVITY
@@ -158,47 +158,47 @@
 	network_root_id = SYNDICATE_NETWORK_ROOT
 
 /area/syndicate_mothership/control
-	name = "Syndicate Control Room"
+	name = "Синдикат: Комната управления"
 	icon_state = "syndie-control"
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	network_root_id = SYNDICATE_NETWORK_ROOT
 
 /area/syndicate_mothership/elite_squad
-	name = "Syndicate Elite Squad"
+	name = "Синдикат: Элитный отряд"
 	icon_state = "syndie-elite"
 	network_root_id = SYNDICATE_NETWORK_ROOT
 //CAPTURE THE FLAG
 
 /area/ctf
-	name = "Capture the Flag"
+	name = "Захват флага"
 	icon_state = "yellow"
 	requires_power = FALSE
 	has_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
 
 /area/ctf/control_room
-	name = "Control Room A"
+	name = "Захват флага: Комната управления A"
 
 /area/ctf/control_room2
-	name = "Control Room B"
+	name = "Захват флага: Комната управления B"
 
 /area/ctf/central
-	name = "Central"
+	name = "Захват флага: Центр"
 
 /area/ctf/main_hall
-	name = "Main Hall A"
+	name = "Захват флага: Основной коридор A"
 
 /area/ctf/main_hall2
-	name = "Main Hall B"
+	name = "Захват флага: Основной коридор B"
 
 /area/ctf/corridor
-	name = "Corridor A"
+	name = "Захват флага: Коридор A"
 
 /area/ctf/corridor2
-	name = "Corridor B"
+	name = "Захват флага: Коридор B"
 
 /area/ctf/flag_room
-	name = "Flag Room A"
+	name = "Захват флага: Флаг A"
 
 /area/ctf/flag_room2
-	name = "Flag Room B"
+	name = "Захват флага: Флаг B"

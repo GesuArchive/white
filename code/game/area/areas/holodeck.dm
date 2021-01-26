@@ -1,5 +1,5 @@
 /area/holodeck
-	name = "Holodeck"
+	name = "Голодек"
 	icon_state = "Holodeck"
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
 	flags_1 = NONE
@@ -46,85 +46,85 @@
 	spheres at holes, or bludgeoning people.
 */
 /area/holodeck/rec_center
-	name = "\improper Recreational Holodeck"
+	name = "Голодек: Центр"
 
 /area/holodeck/rec_center/offline
-	name = "Holodeck - Offline"
+	name = "Голодек: Оффлайн"
 
 /area/holodeck/rec_center/court
-	name = "Holodeck - Empty Court"
+	name = "Голодек: Пустое поле"
 
 /area/holodeck/rec_center/dodgeball
-	name = "Holodeck - Dodgeball Court"
+	name = "Голодек: Поле доджбола"
 
 /area/holodeck/rec_center/basketball
-	name = "Holodeck - Basketball Court"
+	name = "Голодек: Поле баскетбола"
 
 /area/holodeck/rec_center/thunderdome
-	name = "Holodeck - Thunderdome Arena"
+	name = "Голодек: Арена тандердома"
 
 /area/holodeck/rec_center/beach
-	name = "Holodeck - Beach"
+	name = "Голодек: Пляж"
 
 /area/holodeck/rec_center/lounge
-	name = "Holodeck - Lounge"
+	name = "Голодек: Гостиная"
 
 /area/holodeck/rec_center/pet_lounge
-	name = "Holodeck - Pet Park"
+	name = "Голодек: Парк животных"
 
 /area/holodeck/rec_center/firingrange
-	name = "Holodeck - Firing Range"
+	name = "Голодек: Тир"
 
 /area/holodeck/rec_center/school
-	name = "Holodeck - Anime School"
+	name = "Голодек: Аниме-школа"
 
 /area/holodeck/rec_center/chapelcourt
-	name = "Holodeck - Chapel Courtroom"
+	name = "Голодек: Пыточная церкви"
 
 /area/holodeck/rec_center/spacechess
-	name = "Holodeck - Space Chess"
+	name = "Голодек: Космошахматы"
 
 /area/holodeck/rec_center/spacecheckers
-	name = "Holodeck - Space Checkers"
+	name = "Голодек: Космошашки"
 
 /area/holodeck/rec_center/kobayashi
-	name = "Holodeck - Kobayashi Maru"
+	name = "Голодек: Кобаяши Мару"
 
 /area/holodeck/rec_center/winterwonderland
-	name = "Holodeck - Winter Wonderland"
+	name = "Голодек: Зимняя сказка"
 
 /area/holodeck/rec_center/photobooth
-	name = "Holodeck - Photobooth"
+	name = "Голодек: Фотокабина"
 
 /area/holodeck/rec_center/skatepark
-	name = "Holodeck - Skate Park"
+	name = "Голодек: Скейт-парк"
 
 // Bad programs
 
 /area/holodeck/rec_center/medical
-	name = "Holodeck - Emergency Medical"
+	name = "Голодек: Медбей"
 	restricted = TRUE
 
 /area/holodeck/rec_center/thunderdome1218
-	name = "Holodeck - 1218 AD"
+	name = "Голодек: 1218 AD"
 	restricted = TRUE
 
 /area/holodeck/rec_center/burn
-	name = "Holodeck - Atmospheric Burn Test"
+	name = "Голодек: Тест Атмоса"
 	restricted = TRUE
 
 /area/holodeck/rec_center/wildlife
-	name = "Holodeck - Wildlife Simulation"
+	name = "Голодек: Моделирование дикой природы"
 	restricted = TRUE
 
 /area/holodeck/rec_center/bunker
-	name = "Holodeck - Holdout Bunker"
+	name = "Голодек: Бункер защиты"
 	restricted = TRUE
 
 /area/holodeck/rec_center/anthophila
-	name = "Holodeck - Anthophila"
+	name = "Голодек: Антофилия"
 	restricted = TRUE
 
 /area/holodeck/rec_center/refuel
-	name = "Holodeck - Refueling Station"
+	name = "Голодек: Заправочная станция"
 	restricted = TRUE

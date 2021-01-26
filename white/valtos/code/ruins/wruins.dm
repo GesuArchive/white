@@ -1,7 +1,7 @@
 //telepadovo
 
 /area/ruin/space/has_grav/telepadovo
-	name = "Telepadovo"
+	name = "Телепадово"
 
 /datum/map_template/ruin/space/telepadovo
 	id = "telepadovo"
@@ -34,7 +34,7 @@
 	return ..()
 
 /area/ruin/space/has_grav/austation
-	name = "Autism Station"
+	name = "Аутизм"
 
 /datum/map_template/ruin/space/austation
 	id = "austation"
@@ -75,7 +75,7 @@
 //telepadovo
 
 /area/ruin/space/has_grav/powered/partywhite
-	name = "Partywhite"
+	name = "Пативайт"
 
 /*
 /area/ruin/space/has_grav/powered/partywhite/Initialize(mapload)
@@ -95,7 +95,7 @@
 //terrorship
 
 /area/ruin/space/has_grav/terrorship
-	name = "Terrorship"
+	name = "Терроршип"
 	requires_power = FALSE
 	area_flags = NOTELEPORT | HIDDEN_AREA //ага ебать
 

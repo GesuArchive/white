@@ -8,27 +8,27 @@
 
 
 /area/ruin/space/has_grav/bseruin
-	name = "BSE Ruin"
+	name = "BSE"
 	icon_state = "yellow"
 
 /area/ruin/space/has_grav/bseruin/asteroid
-	name = "Asteroid"
+	name = "BSE: Астероид"
 	icon_state = "yellow"
 
 /area/ruin/space/has_grav/bseruin/foam
-	name = "Foam"
+	name = "BSE: Пена"
 	icon_state = "bluenew"
 
 /area/ruin/space/has_grav/bseruin/ntnet
-	name = "Building 1"
+	name = "BSE: Постройка 1"
 	icon_state = "tcomsatcham"
 
 /area/ruin/space/has_grav/bseruin/shop
-	name = "Building 2"
+	name = "BSE: Постройка 2"
 	icon_state = "storage"
 
 /area/ruin/space/has_grav/bseruin/backyard
-	name = "Building 2 backyard"
+	name = "BSE: Задний двор постройки 2"
 	icon_state = "red"
 
 

@@ -87,7 +87,7 @@
 			return 'white/fogmann/blyead.ogg'
 
 /area/crew_quarters/fitness/kachalka
-	name = "kachalka"
+	name = "Техтоннели: Качалка"
 
 /obj/item/westposter
 	name = "WORK HARDER"

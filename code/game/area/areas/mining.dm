@@ -6,7 +6,7 @@
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED
 
 /area/mine/explored
-	name = "Mine"
+	name = "Шахта"
 	icon_state = "explored"
 	always_unpowered = TRUE
 	requires_power = TRUE
@@ -21,7 +21,7 @@
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/mine/unexplored
-	name = "Mine"
+	name = "Шахта: Не исследовано"
 	icon_state = "unexplored"
 	always_unpowered = TRUE
 	requires_power = TRUE
@@ -35,52 +35,52 @@
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED | CAVES_ALLOWED | NO_ALERTS
 
 /area/mine/lobby
-	name = "Mining Station"
+	name = "Шахта: Лобби"
 	icon_state = "mining_lobby"
 
 /area/mine/storage
-	name = "Mining Station Storage"
+	name = "Шахта: Хранилище"
 	icon_state = "mining_storage"
 
 /area/mine/production
-	name = "Mining Station Starboard Wing"
+	name = "Шахта: Порт"
 	icon_state = "mining_production"
 
 /area/mine/abandoned
-	name = "Abandoned Mining Station"
+	name = "Шахта: Заброшенная станция"
 
 /area/mine/living_quarters
-	name = "Mining Station Port Wing"
+	name = "Шахта: Порт"
 	icon_state = "mining_living"
 
 /area/mine/eva
-	name = "Mining Station EVA"
+	name = "Шахта: ЕВА"
 	icon_state = "mining_eva"
 
 /area/mine/maintenance
-	name = "Mining Station Communications"
+	name = "Шахта: Техтоннели"
 
 /area/mine/cafeteria
-	name = "Mining Station Cafeteria"
+	name = "Шахта: Кафетерии"
 	icon_state = "mining_labor_cafe"
 
 /area/mine/hydroponics
-	name = "Mining Station Hydroponics"
+	name = "Шахта: Гидропоника"
 	icon_state = "mining_labor_hydro"
 
 /area/mine/sleeper
-	name = "Mining Station Emergency Sleeper"
+	name = "Шахта: Слиперы"
 
 /area/mine/mechbay
-	name = "Mining Station Mech Bay"
+	name = "Шахта: Мехдок"
 	icon_state = "mechbay"
 
 /area/mine/laborcamp
-	name = "Labor Camp"
+	name = "Каторга"
 	icon_state = "mining_labor"
 
 /area/mine/laborcamp/security
-	name = "Labor Camp Security"
+	name = "Каторга: Охрана"
 	icon_state = "security"
 	ambience_index = AMBIENCE_DANGER
 	ambientsounds = HIGHSEC
@@ -98,7 +98,7 @@
 	sound_environment = SOUND_AREA_LAVALAND
 
 /area/lavaland/surface
-	name = "Lavaland"
+	name = "Лаваленд"
 	icon_state = "explored"
 	always_unpowered = TRUE
 	power_environ = FALSE
@@ -110,7 +110,7 @@
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED | NO_ALERTS
 
 /area/lavaland/underground
-	name = "Lavaland Caves"
+	name = "Лаваленд: Пещеры"
 	icon_state = "unexplored"
 	always_unpowered = TRUE
 	requires_power = TRUE
@@ -123,7 +123,7 @@
 
 
 /area/lavaland/surface/outdoors
-	name = "Lavaland Wastes"
+	name = "Лаваленд: Пустоши"
 	outdoors = TRUE
 
 /area/lavaland/surface/outdoors/unexplored //monsters and ruins spawn here
@@ -136,7 +136,7 @@
 	map_generator = /datum/map_generator/cave_generator/lavaland
 
 /area/lavaland/surface/outdoors/explored
-	name = "Lavaland Labor Camp"
+	name = "Лаваленд: Каторга"
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | NO_ALERTS
 
 
@@ -151,7 +151,7 @@
 	sound_environment = SOUND_AREA_ICEMOON
 
 /area/icemoon/surface
-	name = "Icemoon"
+	name = "Луна"
 	icon_state = "explored"
 	always_unpowered = TRUE
 	power_environ = FALSE
@@ -163,11 +163,11 @@
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED | NO_ALERTS
 
 /area/icemoon/surface/outdoors // weather happens here
-	name = "Icemoon Wastes"
+	name = "Луна: Пустоши"
 	outdoors = TRUE
 
 /area/icemoon/surface/outdoors/labor_camp
-	name = "Icemoon Labor Camp"
+	name = "Луна: Каторга"
 	area_flags = UNIQUE_AREA | NO_ALERTS
 
 /area/icemoon/surface/outdoors/unexplored //monsters and ruins spawn here
@@ -182,7 +182,7 @@
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED | CAVES_ALLOWED | NO_ALERTS
 
 /area/icemoon/underground
-	name = "Icemoon Caves"
+	name = "Луна: Пещеры"
 	outdoors = TRUE
 	always_unpowered = TRUE
 	requires_power = TRUE
@@ -194,7 +194,7 @@
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED | NO_ALERTS
 
 /area/icemoon/underground/unexplored // mobs and megafauna and ruins spawn here
-	name = "Icemoon Caves"
+	name = "Луна: Не исследовано"
 	icon_state = "unexplored"
 	area_flags = CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED | NO_ALERTS
 
@@ -206,5 +206,5 @@
 	map_generator = /datum/map_generator/cave_generator/icemoon/deep
 
 /area/icemoon/underground/explored // ruins can't spawn here
-	name = "Icemoon Underground"
+	name = "Луна: Подземелье"
 	area_flags = UNIQUE_AREA | NO_ALERTS
