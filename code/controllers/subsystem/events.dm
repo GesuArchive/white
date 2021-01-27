@@ -1,5 +1,5 @@
 SUBSYSTEM_DEF(events)
-	name = "Events"
+	name = "События"
 	init_order = INIT_ORDER_EVENTS
 	runlevels = RUNLEVEL_GAME
 
@@ -200,3 +200,4 @@ SUBSYSTEM_DEF(events)
 		if(5 HOURS to INFINITY) // вечный пиздец каждые 15 - 30 секунд
 			frequency_lower = 15 SECONDS
 			frequency_upper = 30 SECONDS
+			wizardmode = TRUE
