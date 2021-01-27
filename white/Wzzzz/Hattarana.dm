@@ -1885,10 +1885,10 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/engineering/engineer/wzzzz/mechanic
-	name = "mechanic jumpsuit"
+	name = "комбинезон механика"
 	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
-	desc = "Cheap jumpsuit for cheap workers"
+	desc = "Дешёвый комбинезон для дешёвой рабочей силы."
 	icon_state = "grayson"
 	can_adjust = FALSE
 	inhand_icon_state = "grayson"

@@ -30,7 +30,7 @@
 	ears = /obj/item/radio/headset/headset_eng
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/wzzzz/mechanic
 	shoes = /obj/item/clothing/shoes/workboots
-	head = /obj/item/clothing/head/welding
+	head = /obj/item/clothing/head/welding/open
 	r_pocket = /obj/item/t_scanner
 	l_hand = /obj/item/storage/part_replacer/cargo
 
