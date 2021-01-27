@@ -490,7 +490,7 @@
 	var/turf/above_turf = SSmapping.get_turf_above(current_turf)
 
 	if(can_zFall(above_turf, 1, current_turf, DOWN)) //Will be fall down if we go up?
-		to_chat(src, "<span class='warning'>ПОЛ МЕШАЕТСЯ!<span>")
+		to_chat(src, "<span class='warning'>ПОТОЛОК МЕШАЕТСЯ!<span>")
 		return
 
 	if(zMove(UP, TRUE))
@@ -515,7 +515,7 @@
 	var/turf/target = get_step_multiz(src, dir)
 	if(!target)
 		if(feedback)
-			to_chat(src, "<span class='warning'>ПОТОЛОК!</span>")
+			to_chat(src, "<span class='warning'>Нет прохода!</span>")
 		return FALSE
 	if(!canZMove(dir, target))
 		if(feedback)
