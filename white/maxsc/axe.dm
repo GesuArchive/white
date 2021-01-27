@@ -80,7 +80,7 @@
 /obj/item/paxee/proc/Recharge()
 	if(!charged)
 		charged = TRUE
-		to_chat(loc, "<span class='warning'>Вы готовы нести справедливость!</span>")
+		to_chat(loc, "<span class='warning'>Мы готовы нести справедливость!</span>")
 
 /obj/item/paxee/examine(mob/living/user)
 	..()

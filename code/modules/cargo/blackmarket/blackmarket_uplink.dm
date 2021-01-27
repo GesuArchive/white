@@ -26,8 +26,8 @@
 	if(obj_flags & EMAGGED)
 		return
 	if(user)
-		user.visible_message("<span class='warning'>[user] прижимает странную карту по экрану [src]'а!</span>",
-		"<span class='notice'>Вы перенастроили частоты аплинка и открыли новый маркет в аплинке</span>")
+		user.visible_message("<span class='warning'>[user] прижимает странную карту к экрану [src]!</span>",
+		"<span class='notice'>Перенастраиваю частоты аплинка и открываю новый маркет в аплинке.</span>")
 
 	obj_flags |= EMAGGED
 
@@ -40,7 +40,7 @@
 		if(!worth)
 			to_chat(user, "<span class='warning'>[I] кажется, ничего не стоит!</span>")
 		money += worth
-		to_chat(user, "<span class='notice'>Вы вкладываете [I] в [src] и оно показывают сумму в [money] кредитов на счету аплинка.</span>")
+		to_chat(user, "<span class='notice'>Вкладываю [I] в [src] и оно показывают сумму в [money] кредитов на счету аплинка.</span>")
 		qdel(I)
 		return
 	. = ..()
@@ -63,7 +63,7 @@
 	money -= amount_to_remove
 	holochip.name = "отмытые " + holochip.name
 	user.put_in_hands(holochip)
-	to_chat(user, "<span class='notice'>Вы снимаете [amount_to_remove] кредитов и вам выдаётся голочип.</span>")
+	to_chat(user, "<span class='notice'>Снимаю [amount_to_remove] кредитов в виде голочипа.</span>")
 
 /obj/item/blackmarket_uplink/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

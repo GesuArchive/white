@@ -1,7 +1,7 @@
 /obj/item/organ/ears
-	name = "ears"
+	name = "уши"
 	icon_state = "ears"
-	desc = "There are three parts to the ear. Inner, middle and outer. Only one of these parts should be normally visible."
+	desc = "Ухо состоит из трех частей. Внутренний, средний и внешний. Обычно должна быть видна только одна из этих частей."
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EARS
 	gender = PLURAL
@@ -9,10 +9,10 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY
 
-	low_threshold_passed = "<span class='info'>Your ears begin to resonate with an internal ring sometimes.</span>"
-	now_failing = "<span class='warning'>You are unable to hear at all!</span>"
-	now_fixed = "<span class='info'>Noise slowly begins filling your ears once more.</span>"
-	low_threshold_cleared = "<span class='info'>The ringing in your ears has died down.</span>"
+	low_threshold_passed = "<span class='info'>Слышу лёгкий звон в ушах.</span>"
+	now_failing = "<span class='warning'>Ничего не слышу!</span>"
+	now_fixed = "<span class='info'>Шум снова медленно начинает наполнять мои уши.</span>"
+	low_threshold_cleared = "<span class='info'>Звон в ушах утих.</span>"
 
 	// `deaf` measures "ticks" of deafness. While > 0, the person is unable
 	// to hear anything.
@@ -30,7 +30,7 @@
 /obj/item/organ/ears/on_life()
 	// only inform when things got worse, needs to happen before we heal
 	if((damage > low_threshold && prev_damage < low_threshold) || (damage > high_threshold && prev_damage < high_threshold))
-		to_chat(owner, "<span class='warning'>The ringing in your ears grows louder, blocking out any external noises for a moment.</span>")
+		to_chat(owner, "<span class='warning'>Звон в ушах становится громче, на мгновение заглушая любые внешние шумы.</span>")
 
 	. = ..()
 	// if we have non-damage related deafness like mutations, quirks or clothing (earmuffs), don't bother processing here. Ear healing from earmuffs or chems happen elsewhere
@@ -61,7 +61,7 @@
 	damage_multiplier = 0
 
 /obj/item/organ/ears/cat
-	name = "cat ears"
+	name = "котоушки"
 	icon = 'icons/obj/clothing/hats.dmi'
 	icon_state = "kitty"
 	damage_multiplier = 2
@@ -82,38 +82,38 @@
 		H.update_body()
 
 /obj/item/organ/ears/penguin
-	name = "penguin ears"
-	desc = "The source of a penguin's happy feet."
+	name = "уши пингвина"
+	desc = "Источник счастливых ног пингвина."
 
 /obj/item/organ/ears/penguin/Insert(mob/living/carbon/human/H, special = 0, drop_if_replaced = TRUE)
 	. = ..()
 	if(istype(H))
-		to_chat(H, "<span class='notice'>You suddenly feel like you've lost your balance.</span>")
+		to_chat(H, "<span class='notice'>Похоже я теряю умение балансировать на ногах!</span>")
 		H.AddElement(/datum/element/waddling)
 
 /obj/item/organ/ears/penguin/Remove(mob/living/carbon/human/H,  special = 0)
 	. = ..()
 	if(istype(H))
-		to_chat(H, "<span class='notice'>Your sense of balance comes back to you.</span>")
+		to_chat(H, "<span class='notice'>Кажется меня больше не шатает.</span>")
 		H.RemoveElement(/datum/element/waddling)
 
 /obj/item/organ/ears/bronze
-	name = "tin ears"
-	desc = "The robust ears of a bronze golem. "
+	name = "оловянные уши"
+	desc = "Крепкие уши бронзового голема."
 	damage_multiplier = 0.1 //STRONK
 	bang_protect = 1 //Fear me weaklings.
 
 /obj/item/organ/ears/cybernetic
-	name = "cybernetic ears"
+	name = "кибернетические уши"
 	icon_state = "ears-c"
-	desc = "A basic cybernetic organ designed to mimic the operation of ears."
+	desc = "Основной кибернетический орган, имитирующий работу ушей."
 	damage_multiplier = 0.9
 	organ_flags = ORGAN_SYNTHETIC
 
 /obj/item/organ/ears/cybernetic/upgraded
-	name = "upgraded cybernetic ears"
+	name = "продвинутые кибернетические уши"
 	icon_state = "ears-c-u"
-	desc = "An advanced cybernetic ear, surpassing the performance of organic ears."
+	desc = "Усовершенствованное кибернетическое ухо, превосходящее по характеристикам обычные уши."
 	damage_multiplier = 0.5
 
 /obj/item/organ/ears/cybernetic/emp_act(severity)

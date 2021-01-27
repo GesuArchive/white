@@ -1,7 +1,7 @@
 /obj/item/organ/lungs
 	var/failed = FALSE
 	var/operated = FALSE	//whether we can still have our damages fixed through surgery
-	name = "lungs"
+	name = "лёгкие"
 	icon_state = "lungs"
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_LUNGS
@@ -396,7 +396,7 @@
 				if(30 to INFINITY)
 					//Higher chance to vomit. Let the horror start
 					if(prob(15))
-						to_chat(owner, "<span class='warning'>Вонь гниющих туш невыносима! Я сейчас блевану...</span>")
+						to_chat(owner, "<span class='warning'>Вонь гниющих туш невыносима! Сейчас блевану...</span>")
 						SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/nauseating_stench)
 						owner.vomit()
 				else
@@ -480,8 +480,8 @@
 	return !(TRAIT_NOBREATH in S.inherent_traits)
 
 /obj/item/organ/lungs/plasmaman
-	name = "plasma filter"
-	desc = "A spongy rib-shaped mass for filtering plasma from the breath."
+	name = "плазма-фильтр"
+	desc = "Губчатая масса в форме ребра для фильтрации плазмы из дыхания."
 	icon_state = "lungs-plasma"
 
 	safe_oxygen_min = 0 //We don't breath this
@@ -489,8 +489,8 @@
 	safe_toxins_max = 0
 
 /obj/item/organ/lungs/slime
-	name = "vacuole"
-	desc = "A large organelle designed to store oxygen and other important gasses."
+	name = "вакуоль"
+	desc = "Большая органелла, предназначенная для хранения кислорода и других важных газов."
 
 	safe_toxins_max = 0 //We breathe this to gain POWER.
 
@@ -501,8 +501,8 @@
 		owner.blood_volume += (0.2 * plasma_pp) // 10/s when breathing literally nothing but plasma, which will suffocate you.
 
 /obj/item/organ/lungs/cybernetic
-	name = "basic cybernetic lungs"
-	desc = "A basic cybernetic version of the lungs found in traditional humanoid entities."
+	name = "базовые кибернетические лёгкие"
+	desc = "Базовая кибернетическая версия легких, встречающаяся у традиционных гуманоидных существ."
 	icon_state = "lungs-c"
 	organ_flags = ORGAN_SYNTHETIC
 	maxHealth = STANDARD_ORGAN_THRESHOLD * 0.5
@@ -510,16 +510,16 @@
 	var/emp_vulnerability = 80	//Chance of permanent effects if emp-ed.
 
 /obj/item/organ/lungs/cybernetic/tier2
-	name = "cybernetic lungs"
-	desc = "A cybernetic version of the lungs found in traditional humanoid entities. Allows for greater intakes of oxygen than organic lungs, requiring slightly less pressure."
+	name = "кибернетические лёгкие"
+	desc = "Кибернетическая версия легких традиционных гуманоидных существ. Позволяет потреблять больше кислорода, чем органические легкие, требуя немного меньшего давления."
 	icon_state = "lungs-c-u"
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	safe_oxygen_min = 13
 	emp_vulnerability = 40
 
 /obj/item/organ/lungs/cybernetic/tier3
-	name = "upgraded cybernetic lungs"
-	desc = "A more advanced version of the stock cybernetic lungs. Features the ability to filter out lower levels of toxins and carbon dioxide."
+	name = "продвинутые кибернетические лёгкие"
+	desc = "Более продвинутая версия штатных кибернетических легких. Отличается способностью отфильтровывать более низкие уровни токсинов и углекислого газа."
 	icon_state = "lungs-c-u2"
 	safe_toxins_max = 20
 	safe_co2_max = 20

@@ -230,7 +230,7 @@
 		if(I && !(I.item_flags & ABSTRACT) && dropItemToGround(I))
 			playsound(loc, 'sound/weapons/slash.ogg', 25, TRUE, -1)
 			visible_message("<span class='danger'>[M] disarmed [src]!</span>", \
-							"<span class='userdanger'>[M] disarmed you!</span>", "<span class='hear'>You hear aggressive shuffling!</span>", null, M)
+							"<span class='userdanger'>[M] disarmed you!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", null, M)
 			to_chat(M, "<span class='danger'>You disarm [src]!</span>")
 		else if(!M.client || prob(5)) // only natural monkeys get to stun reliably, (they only do it occasionaly)
 			playsound(loc, 'sound/weapons/pierce.ogg', 25, TRUE, -1)
@@ -244,7 +244,7 @@
 				Knockdown(30)
 				log_combat(M, src, "tackled")
 				visible_message("<span class='danger'>[M] tackles [src] down!</span>", \
-								"<span class='userdanger'>[M] tackles you down!</span>", "<span class='hear'>You hear aggressive shuffling followed by a loud thud!</span>", null, M)
+								"<span class='userdanger'>[M] tackles you down!</span>", "<span class='hear'>Слышу агрессивную потасовку followed by a loud thud!</span>", null, M)
 				to_chat(M, "<span class='danger'>You tackle [src] down!</span>")
 
 	if(M.limb_destroyer)
@@ -299,14 +299,14 @@
 		if(I && dropItemToGround(I))
 			playsound(loc, 'sound/weapons/slash.ogg', 25, TRUE, -1)
 			visible_message("<span class='danger'>[M] disarms [src]!</span>", \
-							"<span class='userdanger'>[M] disarms you!</span>", "<span class='hear'>You hear aggressive shuffling!</span>", null, M)
+							"<span class='userdanger'>[M] disarms you!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", null, M)
 			to_chat(M, "<span class='danger'>You disarm [src]!</span>")
 		else
 			playsound(loc, 'sound/weapons/pierce.ogg', 25, TRUE, -1)
 			Paralyze(100)
 			log_combat(M, src, "tackled")
 			visible_message("<span class='danger'>[M] tackles [src] down!</span>", \
-							"<span class='userdanger'>[M] tackles you down!</span>", "<span class='hear'>You hear aggressive shuffling followed by a loud thud!</span>", null, M)
+							"<span class='userdanger'>[M] tackles you down!</span>", "<span class='hear'>Слышу агрессивную потасовку followed by a loud thud!</span>", null, M)
 			to_chat(M, "<span class='danger'>You tackle [src] down!</span>")
 
 

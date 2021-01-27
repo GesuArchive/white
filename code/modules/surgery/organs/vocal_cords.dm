@@ -4,7 +4,7 @@
 #define COOLDOWN_NONE 100
 
 /obj/item/organ/vocal_cords //organs that are activated through speech with the :x/MODE_KEY_VOCALCORDS channel
-	name = "vocal cords"
+	name = "голосовые связки"
 	icon_state = "appendix"
 	zone = BODY_ZONE_PRECISE_MOUTH
 	slot = ORGAN_SLOT_VOICE
@@ -23,28 +23,28 @@
 	owner.say(message, spans = spans, sanitize = FALSE)
 
 /obj/item/organ/adamantine_resonator
-	name = "adamantine resonator"
-	desc = "Fragments of adamantine exist in all golems, stemming from their origins as purely magical constructs. These are used to \"hear\" messages from their leaders."
+	name = "адамантиновый резонатор"
+	desc = "Фрагменты адамантина присутствуют во всех големах, поскольку они изначально были чисто магическими конструкциями. Они используются, чтобы \"слышать\" послания своих лидеров."
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_ADAMANTINE_RESONATOR
 	icon_state = "adamantine_resonator"
 
 /obj/item/organ/vocal_cords/adamantine
-	name = "adamantine vocal cords"
-	desc = "When adamantine resonates, it causes all nearby pieces of adamantine to resonate as well. Adamantine golems use this to broadcast messages to nearby golems."
+	name = "адамантиновые голосовые связки"
+	desc = "Когда адамантин резонирует, он заставляет резонировать и все ближайшие куски адамантина. Адамантиновые големы используют это для передачи сообщений ближайшим големам."
 	actions_types = list(/datum/action/item_action/organ_action/use/adamantine_vocal_cords)
 	icon_state = "adamantine_cords"
 
 /datum/action/item_action/organ_action/use/adamantine_vocal_cords/Trigger()
 	if(!IsAvailable())
 		return
-	var/message = input(owner, "Resonate a message to all nearby golems.", "Resonate")
+	var/message = input(owner, "Что же мы скажем?", "Резонирование")
 	if(QDELETED(src) || QDELETED(owner) || !message)
 		return
 	owner.say(".x[message]")
 
 /obj/item/organ/vocal_cords/adamantine/handle_speech(message)
-	var/msg = "<span class='resonate'><span class='name'>[owner.real_name]</span> <span class='message'>resonates, \"[message]\"</span></span>"
+	var/msg = "<span class='resonate'><span class='name'>[owner.real_name]</span> <span class='message'>резонирует, \"[message]\"</span></span>"
 	for(var/m in GLOB.player_list)
 		if(iscarbon(m))
 			var/mob/living/carbon/C = m
@@ -56,8 +56,8 @@
 
 //Colossus drop, forces the listeners to obey certain commands
 /obj/item/organ/vocal_cords/colossus
-	name = "divine vocal cords"
-	desc = "They carry the voice of an ancient god."
+	name = "божественные голосовые связки"
+	desc = "Они несут голос древнего бога."
 	icon_state = "voice_of_god"
 	actions_types = list(/datum/action/item_action/organ_action/colossus)
 	var/next_command = 0
@@ -66,7 +66,7 @@
 	spans = list("colossus","yell")
 
 /datum/action/item_action/organ_action/colossus
-	name = "Voice of God"
+	name = "Голос Бога"
 	var/obj/item/organ/vocal_cords/colossus/cords = null
 
 /datum/action/item_action/organ_action/colossus/New()
@@ -91,9 +91,9 @@
 	. = ..()
 	if(!IsAvailable())
 		if(world.time < cords.next_command)
-			to_chat(owner, "<span class='notice'>You must wait [DisplayTimeText(cords.next_command - world.time)] before Speaking again.</span>")
+			to_chat(owner, "<span class='notice'>Нужно подождать [DisplayTimeText(cords.next_command - world.time)] перед тем как говорить ещё.</span>")
 		return
-	var/command = input(owner, "Speak with the Voice of God", "Command")
+	var/command = input(owner, "Громогласим?", "Команда")
 	if(QDELETED(src) || QDELETED(owner))
 		return
 	if(!command)
@@ -102,12 +102,12 @@
 
 /obj/item/organ/vocal_cords/colossus/can_speak_with()
 	if(world.time < next_command)
-		to_chat(owner, "<span class='notice'>You must wait [DisplayTimeText(next_command - world.time)] before Speaking again.</span>")
+		to_chat(owner, "<span class='notice'>Нужно подождать [DisplayTimeText(next_command - world.time)] перед тем как говорить ещё.</span>")
 		return FALSE
 	if(!owner)
 		return FALSE
 	if(!owner.can_speak_vocal())
-		to_chat(owner, "<span class='warning'>You are unable to speak!</span>")
+		to_chat(owner, "<span class='warning'>Не могу говорить!</span>")
 		return FALSE
 	return TRUE
 

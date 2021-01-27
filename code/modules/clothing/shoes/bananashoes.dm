@@ -53,7 +53,7 @@
 	if(bananium.get_material_amount(/datum/material/bananium))
 		on = !on
 		update_icon()
-		to_chat(user, "<span class='notice'>Вы [on ? "активировали" : "деактивировали"] прототипные ботинки.</span>")
+		to_chat(user, "<span class='notice'>[on ? "Активирую" : "Деактивирую"] прототипные ботинки.</span>")
 		if(!always_noslip)
 			if(on)
 				clothing_flags |= NOSLIP

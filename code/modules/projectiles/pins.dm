@@ -27,7 +27,7 @@
 			var/obj/item/gun/G = target
 			var/obj/item/firing_pin/old_pin = G.pin
 			if(old_pin && (force_replace || old_pin.pin_removeable))
-				to_chat(user, "<span class='notice'>Вы убрали [old_pin] из [G].</span>")
+				to_chat(user, "<span class='notice'>Убираю [old_pin] из [G].</span>")
 				if(Adjacent(user))
 					user.put_in_hands(old_pin)
 				else
@@ -38,7 +38,7 @@
 				if(!user.temporarilyRemoveItemFromInventory(src))
 					return
 				gun_insert(user, G)
-				to_chat(user, "<span class='notice'>Вы вставили [src] в [G].</span>")
+				to_chat(user, "<span class='notice'>Вставляю [src] в [G].</span>")
 			else
 				to_chat(user, "<span class='notice'>Это оружие уже имеет ударник.</span>")
 
@@ -46,7 +46,7 @@
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
-	to_chat(user, "<span class='notice'>Вы перезаписали механизм авторизации.</span>")
+	to_chat(user, "<span class='notice'>Перезаписываю механизм авторизации.</span>")
 
 /obj/item/firing_pin/proc/gun_insert(mob/living/user, obj/item/gun/G)
 	gun = G
@@ -83,7 +83,7 @@
 /obj/item/firing_pin/test_range
 	name = "ударник для тестовой площадки"
 	desc = "Данный ударник позволяет протестировать оружие на тестовой площадке. В ином месте это не будет работать."
-	fail_message = "<span class='warning'>ВЫ НЕ НА ТЕСТОВОЙ ПЛОЩАДКЕ.</span>"
+	fail_message = "<span class='warning'>Я НЕ НА ТЕСТОВОЙ ПЛОЩАДКЕ.</span>"
 	pin_removeable = TRUE
 
 /obj/item/firing_pin/test_range/pin_auth(mob/living/user)
@@ -255,7 +255,7 @@
 			to_chat(user, "<span class='warning'>ERROR: Ударник уже авторизован!</span>")
 			return
 		if(id == pin_owner)
-			to_chat(user, "<span class='notice'>Вы отвязали ударник от карты.</span>")
+			to_chat(user, "<span class='notice'>Отвязываю ударник от карты.</span>")
 			gun_owners -= user
 			pin_owner = null
 			owned = FALSE
@@ -270,7 +270,7 @@
 		owned = TRUE
 		payment_amount = transaction_amount
 		gun_owners += user
-		to_chat(user, "<span class='notice'>Вы связываете карту с ударником.</span>")
+		to_chat(user, "<span class='notice'>Связываю карту с ударником.</span>")
 
 /obj/item/firing_pin/paywall/pin_auth(mob/living/user)
 	if(!istype(user))//nice try commie
@@ -317,7 +317,7 @@
 /obj/item/firing_pin/explorer/pin_auth(mob/living/user)
 	var/turf/station_check = get_turf(user)
 	if(!station_check||is_station_level(station_check.z))
-		to_chat(user, "<span class='warning'>Вы не можете использовать оружие на станции!</span>")
+		to_chat(user, "<span class='warning'>Не могу использовать оружие на станции!</span>")
 		return FALSE
 	return TRUE
 
@@ -334,7 +334,7 @@
 		var/mob/living/carbon/human/M = user
 		if(istype(M.wear_suit, suit_requirement))
 			return TRUE
-	to_chat(user, "<span class='warning'>Вы должны одеть [tagcolor] броню для лазертага!</span>")
+	to_chat(user, "<span class='warning'>Нужно надеть [tagcolor] броню для лазертага!</span>")
 	return FALSE
 
 /obj/item/firing_pin/tag/red

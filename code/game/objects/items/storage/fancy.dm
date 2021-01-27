@@ -49,7 +49,7 @@
 	. = ..()
 	if(!contents.len)
 		new fold_result(user.drop_location())
-		to_chat(user, "<span class='notice'>Вы складываете [src] в [initial(fold_result.name)].</span>")
+		to_chat(user, "<span class='notice'>Складываю [src] в [initial(fold_result.name)].</span>")
 		user.put_in_active_hand(fold_result)
 		qdel(src)
 
@@ -162,7 +162,7 @@
 /obj/item/storage/fancy/candle_box/attack_self(mob/user)
 	if(!contents.len)
 		new fold_result(user.drop_location())
-		to_chat(user, "<span class='notice'>Вы складываете [src] в [initial(fold_result.name)].</span>")
+		to_chat(user, "<span class='notice'>Складываю [src] в [initial(fold_result.name)].</span>")
 		user.put_in_active_hand(fold_result)
 		qdel(src)
 
@@ -192,7 +192,7 @@
 
 /obj/item/storage/fancy/cigarettes/attack_self(mob/user)
 	if(contents.len == 0 && spawn_coupon)
-		to_chat(user, "<span class='notice'>Вы разрываете заднюю часть [src] и получаете купон!</span>")
+		to_chat(user, "<span class='notice'>Разрываю заднюю часть [src] и достаю купон!</span>")
 		var/obj/item/coupon/attached_coupon = new
 		user.put_in_hands(attached_coupon)
 		attached_coupon.generate(rigged_omen)
@@ -226,7 +226,7 @@
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_TAKE, W, user)
 		user.put_in_hands(W)
 		contents -= W
-		to_chat(user, "<span class='notice'>Вы берёте [W] из пачки.</span>")
+		to_chat(user, "<span class='notice'>Беру [W] из пачки.</span>")
 	else
 		to_chat(user, "<span class='notice'>В пачке не осталось [icon_type].</span>")
 
@@ -268,7 +268,7 @@
 			SEND_SIGNAL(src, COMSIG_TRY_STORAGE_TAKE, W, M)
 			M.equip_to_slot_if_possible(W, ITEM_SLOT_MASK)
 			contents -= W
-			to_chat(user, "<span class='notice'>Вы берёте [W] из пачки.</span>")
+			to_chat(user, "<span class='notice'>Беру [W] из пачки.</span>")
 		else
 			..()
 	else

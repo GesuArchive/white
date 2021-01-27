@@ -221,7 +221,7 @@
 				if(zone == BODY_ZONE_HEAD || zone == BODY_ZONE_PRECISE_EYES || zone == BODY_ZONE_PRECISE_MOUTH)
 					shoot_self(user, affecting)
 				else
-					user.visible_message("<span class='danger'><b>[user.name]</b> трусливо стреляет <b>[src.name]</b> в [user.ru_ego()] [affecting.name]!</span>", "<span class='userdanger'>Вы трусливо выстрелили <b>[src.name]</b> в свой [affecting.name]!</span>", "<span class='hear'>Вы слышали выстрел!</span>")
+					user.visible_message("<span class='danger'><b>[user.name]</b> трусливо стреляет <b>[src.name]</b> в [user.ru_ego()] [affecting.name]!</span>", "<span class='userdanger'>Трусливо стреляю из <b>[src.name]</b> в свой [affecting.name]!</span>", "<span class='hear'>Слышу выстрел!</span>")
 				chambered = null
 				return
 
@@ -247,7 +247,7 @@
 	if(!SS.transfer_soul("FORCE", user)) //Something went wrong
 		qdel(SS)
 		return
-	user.visible_message("<span class='danger'>Душа <b>[user.name]</b> теперь принадлежит <b>[src.name]</b>!</span>", "<span class='userdanger'>Вы проиграли в азартную игру вместе с душой!</span>")
+	user.visible_message("<span class='danger'>Душа <b>[user.name]</b> теперь принадлежит <b>[src.name]</b>!</span>", "<span class='userdanger'>Азартная игра проиграна вместе с душой!</span>")
 
 /obj/item/gun/ballistic/revolver/reverse //Fires directly at its user... unless the user is a clown, of course.
 	clumsy_check = FALSE

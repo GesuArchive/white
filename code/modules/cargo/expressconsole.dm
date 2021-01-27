@@ -44,11 +44,11 @@
 /obj/machinery/computer/cargo/express/attackby(obj/item/W, mob/living/user, params)
 	if(W.GetID() && allowed(user))
 		locked = !locked
-		to_chat(user, "<span class='notice'>Вы [locked ? "lock" : "unlock"] интерфейс.</span>")
+		to_chat(user, "<span class='notice'>[locked ? "Блокирую" : "Разблокирываю"] интерфейс.</span>")
 		return
 	else if(istype(W, /obj/item/disk/cargo/bluespace_pod))
 		podType = /obj/structure/closet/supplypod/bluespacepod//doesnt effect circuit board, making reversal possible
-		to_chat(user, "<span class='notice'>Вы вставляете диск в [src], разрешая более продвинутую доставку припасов.</span>")
+		to_chat(user, "<span class='notice'>Вставляю диск в [src], разрешая более продвинутую доставку припасов.</span>")
 		qdel(W)
 		return TRUE
 	else if(istype(W, /obj/item/supplypod_beacon))
@@ -65,7 +65,7 @@
 		return
 	if(user)
 		user.visible_message("<span class='warning'>[user] проводит подохрительной картой по [src]!</span>",
-		"<span class='notice'>Вы изменяете протоколы маршрутизации, позволяя консоли снабжения приземлиться в любом месте на станции.</span>")
+		"<span class='notice'>Изменяю протоколы маршрутизации, позволяя консоли снабжения приземлиться в любом месте на станции.</span>")
 	obj_flags |= EMAGGED
 	contraband = TRUE
 	// This also sets this on the circuit board

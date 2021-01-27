@@ -7,7 +7,7 @@
 			playsound(loc, "punch", 25, TRUE, -1)
 			log_combat(M, src, "attacked")
 			visible_message("<span class='danger'>[M] kicks [src]!</span>", \
-							"<span class='userdanger'>[M] kicks you!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", COMBAT_MESSAGE_RANGE, M)
+							"<span class='userdanger'>[M] kicks you!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, M)
 			to_chat(M, "<span class='danger'>You kick [src]!</span>")
 			if ((stat != DEAD) && (damage > 4.9))
 				Unconscious(rand(100,200))

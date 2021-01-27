@@ -18,7 +18,7 @@
 		var/armour_path = anomaly_armour_types[A.anomaly_type]
 		if(!armour_path)
 			armour_path = /obj/item/clothing/suit/armor/reactive/stealth //Lets not cheat the player if an anomaly type doesnt have its own armour coded
-		to_chat(user, "<span class='notice'>Вы вставили [A] в нагрудную пластину и броня, с нежным гудением, оживает.</span>")
+		to_chat(user, "<span class='notice'>Вставляю [A] в нагрудную пластину и броня, с нежным гудением, оживает.</span>")
 		new armour_path(get_turf(src))
 		qdel(src)
 		qdel(A)

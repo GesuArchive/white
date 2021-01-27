@@ -46,7 +46,7 @@
 		return FALSE
 	if(D.body_position == STANDING_UP)
 		D.visible_message("<span class='danger'>[A] slams [D] into the ground!</span>", \
-						"<span class='userdanger'>You're slammed into the ground by [A]!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", null, A)
+						"<span class='userdanger'>You're slammed into the ground by [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", null, A)
 		to_chat(A, "<span class='danger'>You slam [D] into the ground!</span>")
 		playsound(get_turf(A), 'sound/weapons/slam.ogg', 50, TRUE, -1)
 		D.apply_damage(10, BRUTE)
@@ -59,7 +59,7 @@
 		return FALSE
 	if(!D.stat || !D.IsParalyzed())
 		D.visible_message("<span class='danger'>[A] kicks [D] back!</span>", \
-						"<span class='userdanger'>You're kicked back by [A]!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", COMBAT_MESSAGE_RANGE, A)
+						"<span class='userdanger'>You're kicked back by [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
 		to_chat(A, "<span class='danger'>You kick [D] back!</span>")
 		playsound(get_turf(A), 'sound/weapons/cqchit1.ogg', 50, TRUE, -1)
 		var/atom/throw_target = get_edge_target_turf(D, A.dir)
@@ -69,7 +69,7 @@
 	if(D.IsParalyzed() && !D.stat)
 		log_combat(A, D, "knocked out (Head kick)(CQC)")
 		D.visible_message("<span class='danger'>[A] kicks [D]'s head, knocking [D.ru_na()] out!</span>", \
-						"<span class='userdanger'>You're knocked unconscious by [A]!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", null, A)
+						"<span class='userdanger'>You're knocked unconscious by [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", null, A)
 		to_chat(A, "<span class='danger'>You kick [D]'s head, knocking [D.ru_na()] out!</span>")
 		playsound(get_turf(A), 'sound/weapons/genhit1.ogg', 50, TRUE, -1)
 		D.SetSleeping(300)
@@ -81,7 +81,7 @@
 		return FALSE
 	log_combat(A, D, "pressured (CQC)")
 	D.visible_message("<span class='danger'>[A] punches [D]'s neck!</span>", \
-					"<span class='userdanger'>Your neck is punched by [A]!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", COMBAT_MESSAGE_RANGE, A)
+					"<span class='userdanger'>Your neck is punched by [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
 	to_chat(A, "<span class='danger'>You punch [D]'s neck!</span>")
 	D.adjustStaminaLoss(60)
 	playsound(get_turf(A), 'sound/weapons/cqchit1.ogg', 50, TRUE, -1)
@@ -109,7 +109,7 @@
 	if(!D.stat)
 		log_combat(A, D, "consecutive CQC'd (CQC)")
 		D.visible_message("<span class='danger'>[A] strikes [D]'s abdomen, neck and back consecutively</span>", \
-						"<span class='userdanger'>Your abdomen, neck and back are struck consecutively by [A]!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", COMBAT_MESSAGE_RANGE, A)
+						"<span class='userdanger'>Your abdomen, neck and back are struck consecutively by [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
 		to_chat(A, "<span class='danger'>You strike [D]'s abdomen, neck and back consecutively!</span>")
 		playsound(get_turf(D), 'sound/weapons/cqchit2.ogg', 50, TRUE, -1)
 		var/obj/item/I = D.get_active_held_item()
@@ -156,12 +156,12 @@
 	else
 		playsound(get_turf(D), 'sound/weapons/cqchit1.ogg', 50, TRUE, -1)
 	D.visible_message("<span class='danger'>[A] [picked_hit_type]ed [D]!</span>", \
-					"<span class='userdanger'>You're [picked_hit_type]ed by [A]!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", COMBAT_MESSAGE_RANGE, A)
+					"<span class='userdanger'>You're [picked_hit_type]ed by [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
 	to_chat(A, "<span class='danger'>You [picked_hit_type] [D]!</span>")
 	log_combat(A, D, "[picked_hit_type]s (CQC)")
 	if(A.resting && !D.stat && !D.IsParalyzed())
 		D.visible_message("<span class='danger'>[A] leg sweeps [D]!</span>", \
-						"<span class='userdanger'>Your legs are sweeped by [A]!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", null, A)
+						"<span class='userdanger'>Your legs are sweeped by [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", null, A)
 		to_chat(A, "<span class='danger'>You leg sweep [D]!</span>")
 		playsound(get_turf(A), 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
 		D.apply_damage(10, BRUTE)
@@ -180,7 +180,7 @@
 		if(!D.stat || !D.IsParalyzed() || !restraining)
 			I = D.get_active_held_item()
 			D.visible_message("<span class='danger'>[A] strikes [D]'s jaw with their hand!</span>", \
-							"<span class='userdanger'>Your jaw is struck by [A], you feel disoriented!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", COMBAT_MESSAGE_RANGE, A)
+							"<span class='userdanger'>Your jaw is struck by [A], you feel disoriented!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
 			to_chat(A, "<span class='danger'>You strike [D]'s jaw, leaving [D.ru_na()] disoriented!</span>")
 			playsound(get_turf(D), 'sound/weapons/cqchit1.ogg', 50, TRUE, -1)
 			if(I && D.temporarilyRemoveItemFromInventory(I))

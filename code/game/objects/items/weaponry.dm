@@ -809,7 +809,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 
 	if(HAS_TRAIT(owner, TRAIT_HULK))
 		owner.visible_message("<span class='danger'>[owner] bops [sucker] with [owner.ru_ego()] [src.name] much harder than intended, sending [sucker.ru_na()] flying!</span>", \
-			"<span class='danger'>You bop [sucker] with your [src.name] much harder than intended, sending [sucker.ru_na()] flying!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", ignored_mobs=list(sucker))
+			"<span class='danger'>You bop [sucker] with your [src.name] much harder than intended, sending [sucker.ru_na()] flying!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", ignored_mobs=list(sucker))
 		to_chat(sucker, "<span class='userdanger'>[owner] bops you incredibly hard with [owner.ru_ego()] [src.name], sending you flying!</span>")
 		sucker.apply_damage(50, STAMINA)
 		sucker.Knockdown(50)

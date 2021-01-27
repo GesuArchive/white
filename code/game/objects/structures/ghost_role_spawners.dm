@@ -95,7 +95,7 @@
 /obj/effect/mob_spawn/human/ash_walker/allow_spawn(mob/user)
 	if(!(user.key in team.players_spawned))//one per person unless you get a bonus spawn
 		return TRUE
-	to_chat(user, "<span class='warning'><b>Вы исчерпали свою полезность для Некрополя</b>.</span>")
+	to_chat(user, "<span class='warning'><b>Исчерпываю свою полезность для Некрополя</b>.</span>")
 	return FALSE
 
 /obj/effect/mob_spawn/human/ash_walker/special(mob/living/new_spawn)

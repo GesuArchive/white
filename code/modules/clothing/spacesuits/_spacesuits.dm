@@ -151,7 +151,7 @@
 			([range_low]-[range_high] degrees celcius)") as null|num
 		if(deg_c && deg_c >= range_low && deg_c <= range_high)
 			temperature_setting = round(T0C + deg_c, 0.1)
-			to_chat(user, "<span class='notice'>Вы видите изменение показаний на [deg_c] c.</span>")
+			to_chat(user, "<span class='notice'>Вижу изменение показаний на [deg_c] c.</span>")
 		return
 	else if(cell_cover_open && istype(I, /obj/item/stock_parts/cell))
 		if(cell)

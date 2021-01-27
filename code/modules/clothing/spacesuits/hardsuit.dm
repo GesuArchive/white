@@ -897,18 +897,18 @@
 /obj/item/clothing/suit/space/hardsuit/shielded/syndi/multitool_act(mob/living/user, obj/item/I)
 	. = ..()
 	if(shield_state == "broken")
-		to_chat(user, "<span class='warning'>Вы не можете взаимодействовать со скафандром, если щит сломан!</span>")
+		to_chat(user, "<span class='warning'>Не могу взаимодействовать со скафандром, если щит сломан!</span>")
 		return
 
 	if(shield_state == "shield-red")
 		shield_state = "shield-old"
 		shield_on = "shield-old"
-		to_chat(user, "<span class='warning'>Вы откатили программы в скафандре, выберите цвет щита!</span>")
+		to_chat(user, "<span class='warning'>Откатываю программы в скафандре, выберите цвет щита!</span>")
 
 	else
 		shield_state = "shield-red"
 		shield_on = "shield-red"
-		to_chat(user, "<span class='warning'>Вы улучшили программы в скафандре, сменяю цвет щита обратно на красный.</span>")
+		to_chat(user, "<span class='warning'>Улучшаю программы в скафандре, сменяю цвет щита обратно на красный.</span>")
 	user.update_inv_wear_suit()
 
 /obj/item/clothing/suit/space/hardsuit/shielded/syndi/Initialize()

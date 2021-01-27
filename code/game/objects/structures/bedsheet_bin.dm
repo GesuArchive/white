@@ -351,7 +351,7 @@ LINEN BINS
 			to_chat(user, "<span clas='warn'>Сначала [src] нужно освободить!</span>")
 			return
 		if(I.use_tool(src, user, 5, volume=50))
-			to_chat(user, "<span clas='notice'>Вы разобрали [src].</span>")
+			to_chat(user, "<span clas='notice'>Разбираю [src].</span>")
 			new /obj/item/stack/rods(loc, 2)
 			qdel(src)
 

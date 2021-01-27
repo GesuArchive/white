@@ -133,12 +133,12 @@
 	log_combat(the_hulk, yeeted_person, "has started swinging by tail")
 	yeeted_person.Stun(2 SECONDS)
 	yeeted_person.visible_message("<span class='danger'>[the_hulk] starts grasping [yeeted_person] by the tail...</span>", \
-					"<span class='userdanger'>[the_hulk] begins grasping your tail!</span>", "<span class='hear'>You hear aggressive shuffling!</span>", null, the_hulk)
+					"<span class='userdanger'>[the_hulk] begins grasping your tail!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", null, the_hulk)
 	to_chat(the_hulk, "<span class='danger'>You start grasping [yeeted_person] by the tail...</span>")
 
 	if(!do_after(the_hulk, 2 SECONDS, yeeted_person))
 		yeeted_person.visible_message("<span class='danger'>[yeeted_person] breaks free of [the_hulk]'s grasp!</span>", \
-					"<span class='userdanger'>You break free from [the_hulk]'s grasp!</span>", "<span class='hear'>You hear aggressive shuffling!</span>", null, the_hulk)
+					"<span class='userdanger'>You break free from [the_hulk]'s grasp!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", null, the_hulk)
 		to_chat(the_hulk, "<span class='danger'>You lose your grasp on [yeeted_person]'s tail!</span>")
 		return
 
@@ -238,7 +238,7 @@
 	the_hulk.setDir(original_dir)
 	yeeted_person.forceMove(the_hulk.loc) // Maybe this will help with the wallthrowing bug.
 	yeeted_person.visible_message("<span class='danger'>[the_hulk] throws [yeeted_person]!</span>", \
-					"<span class='userdanger'>You're thrown by [the_hulk]!</span>", "<span class='hear'>You hear aggressive shuffling and a loud thud!</span>", null, the_hulk)
+					"<span class='userdanger'>You're thrown by [the_hulk]!</span>", "<span class='hear'>Слышу агрессивную потасовку и громкий стук!</span>", null, the_hulk)
 	to_chat(the_hulk, "<span class='danger'>You throw [yeeted_person]!</span>")
 	playsound(the_hulk.loc, "swing_hit", 50, TRUE)
 	var/turf/T = get_edge_target_turf(the_hulk, the_hulk.dir)

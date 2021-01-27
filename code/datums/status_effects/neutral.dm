@@ -226,13 +226,13 @@
 		return
 
 	if(slappers_owner >= 2) // we only check this if it's already established the taker has 2+ hands free
-		owner.visible_message("<span class='notice'>[successful_taker] enthusiastically high-tens [owner]!</span>", "<span class='nicegreen'>Wow! You're high-tenned [successful_taker]!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", ignored_mobs=successful_taker)
+		owner.visible_message("<span class='notice'>[successful_taker] enthusiastically high-tens [owner]!</span>", "<span class='nicegreen'>Wow! You're high-tenned [successful_taker]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", ignored_mobs=successful_taker)
 		to_chat(successful_taker, "<span class='nicegreen'>You give high-tenning [owner] your all!</span>")
 		playsound(owner, 'sound/weapons/slap.ogg', 100, TRUE, 1)
 		SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_ten)
 		SEND_SIGNAL(successful_taker, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_ten)
 	else
-		owner.visible_message("<span class='notice'>[successful_taker] high-fives [owner]!</span>", "<span class='nicegreen'>All right! You're high-fived by [successful_taker]!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", ignored_mobs=successful_taker)
+		owner.visible_message("<span class='notice'>[successful_taker] high-fives [owner]!</span>", "<span class='nicegreen'>All right! You're high-fived by [successful_taker]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", ignored_mobs=successful_taker)
 		to_chat(successful_taker, "<span class='nicegreen'>You high-five [owner]!</span>")
 		playsound(owner, 'sound/weapons/slap.ogg', 50, TRUE, -1)
 		SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_five)

@@ -437,7 +437,7 @@
 	var/mob/picked = pick(candidates)
 	magnification.key = picked.key
 	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
-	to_chat(magnification, "<span class='notice'>Вы обезьянка с увеличенным интеллектом! Защищайте свой шлем ценой жизни- если вы его потеряете, то и твоя разумность пропадет вместе с ним!</span>")
+	to_chat(magnification, "<span class='notice'>Я обезьянка с увеличенным интеллектом! Нужно защищать свой шлем ценой жизни - если я его потеряю, то и моя разумность пропадет вместе с ним!</span>")
 	var/policy = get_policy(ROLE_MONKEY_HELMET)
 	if(policy)
 		to_chat(magnification, policy)

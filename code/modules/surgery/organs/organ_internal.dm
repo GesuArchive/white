@@ -1,5 +1,5 @@
 /obj/item/organ
-	name = "organ"
+	name = "орган"
 	icon = 'icons/obj/surgery.dmi'
 	var/mob/living/carbon/owner = null
 	var/status = ORGAN_ORGANIC
@@ -108,17 +108,17 @@
 /obj/item/organ/examine(mob/user)
 	. = ..()
 
-	. += "<hr><span class='notice'>It should be inserted in the [parse_zone(zone)].</span>"
+	. += "<hr><span class='notice'>Должен быть вставлен в [parse_zone(zone)].</span>"
 
 	if(organ_flags & ORGAN_FAILING)
 		if(status == ORGAN_ROBOTIC)
-			. += "\n<span class='warning'>[capitalize(src.name)] seems to be broken.</span>"
+			. += "\n<span class='warning'>[capitalize(src.name)] повреждён.</span>"
 			return
-		. += "\n<span class='warning'>[capitalize(src.name)] has decayed for too long, and has turned a sickly color. It probably won't work without repairs.</span>"
+		. += "\n<span class='warning'>[capitalize(src.name)] слишком долго разлагался и приобрел болезненный цвет. Без ремонта наверное не заработает.</span>"
 		return
 
 	if(damage > high_threshold)
-		. += "<hr><span class='warning'>[capitalize(src.name)] is starting to look discolored.</span>"
+		. += "<hr><span class='warning'>[capitalize(src.name)] начинает обесцвечиваться.</span>"
 
 /obj/item/organ/Initialize()
 	. = ..()

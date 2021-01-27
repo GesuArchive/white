@@ -113,12 +113,12 @@
 			return
 
 		if(!panel_open) //is the panel open ?
-			to_chat(user, "<span class='warning'>Вы должны открыть техническую панель сначала!</span>")
+			to_chat(user, "<span class='warning'>Стоит открыть техническую панель сначала!</span>")
 			return
 
 		var/turf/T = get_turf(user)
 		if (T.intact) //is the floor plating removed ?
-			to_chat(user, "<span class='warning'>Вы должны убрать плитку прежде чем делать это!</span>")
+			to_chat(user, "<span class='warning'>Нужно убрать плитку прежде чем делать это!</span>")
 			return
 
 
@@ -127,7 +127,7 @@
 			to_chat(user, "<span class='warning'>Нужно больше проводов!</span>")
 			return
 
-		to_chat(user, "<span class='notice'>Вы начинаете делать терминал питания...</span>")
+		to_chat(user, "<span class='notice'>Начинаю делать терминал питания...</span>")
 		playsound(src.loc, 'sound/items/deconstruct.ogg', 50, TRUE)
 
 		if(do_after(user, 20, target = src))
@@ -140,7 +140,7 @@
 			if(!terminal)
 				C.use(10)
 				user.visible_message("<span class='notice'>[user.name] сделал терминал питания.</span>",\
-					"<span class='notice'>Вы сделали терминал питания.</span>")
+					"<span class='notice'>Делаю терминал питания.</span>")
 
 				//build the terminal and link it to the network
 				make_terminal(T)
@@ -170,7 +170,7 @@
 
 /obj/machinery/power/smes/default_deconstruction_crowbar(obj/item/crowbar/C)
 	if(istype(C) && terminal)
-		to_chat(usr, "<span class='warning'>Вы должны сначала убрать терминал питания!</span>")
+		to_chat(usr, "<span class='warning'>Нужно сначала убрать терминал питания!</span>")
 		return FALSE
 
 	return ..()

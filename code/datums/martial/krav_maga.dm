@@ -89,7 +89,7 @@
 	var/obj/item/bodypart/affecting = D.get_bodypart(BODY_ZONE_CHEST)
 	var/armor_block = D.run_armor_check(affecting, MELEE)
 	D.visible_message("<span class='warning'>[A] leg sweeps [D]!</span>", \
-					"<span class='userdanger'>Your legs are sweeped by [A]!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", null, A)
+					"<span class='userdanger'>Your legs are sweeped by [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", null, A)
 	to_chat(A, "<span class='danger'>You leg sweep [D]!</span>")
 	playsound(get_turf(A), 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
 	D.apply_damage(rand(20,30), STAMINA, affecting, armor_block)
@@ -99,7 +99,7 @@
 
 /datum/martial_art/krav_maga/proc/quick_choke(mob/living/A, mob/living/D)//is actually lung punch
 	D.visible_message("<span class='warning'>[A] pounds [D] on the chest!</span>", \
-					"<span class='userdanger'>Your chest is slammed by [A]! You can't breathe!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", COMBAT_MESSAGE_RANGE, A)
+					"<span class='userdanger'>Your chest is slammed by [A]! You can't breathe!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
 	to_chat(A, "<span class='danger'>You pound [D] on the chest!</span>")
 	playsound(get_turf(A), 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
 	if(D.losebreath <= 10)
@@ -110,7 +110,7 @@
 
 /datum/martial_art/krav_maga/proc/neck_chop(mob/living/A, mob/living/D)
 	D.visible_message("<span class='warning'>[A] karate chops [D]'s neck!</span>", \
-					"<span class='userdanger'>Your neck is karate chopped by [A], rendering you unable to speak!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", COMBAT_MESSAGE_RANGE, A)
+					"<span class='userdanger'>Your neck is karate chopped by [A], rendering you unable to speak!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
 	to_chat(A, "<span class='danger'>You karate chop [D]'s neck, rendering [D.ru_na()] unable to speak!</span>")
 	playsound(get_turf(A), 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
 	D.apply_damage(5, A.get_attack_type())
@@ -146,7 +146,7 @@
 		A.do_attack_animation(D, ATTACK_EFFECT_PUNCH)
 		playsound(get_turf(D), 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
 	D.visible_message("<span class='danger'>[A] [picked_hit_type]s [D]!</span>", \
-					"<span class='userdanger'>You're [picked_hit_type]ed by [A]!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", COMBAT_MESSAGE_RANGE, A)
+					"<span class='userdanger'>You're [picked_hit_type]ed by [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
 	to_chat(A, "<span class='danger'>You [picked_hit_type] [D]!</span>")
 	log_combat(A, D, "[picked_hit_type] with [name]")
 	return TRUE
@@ -158,7 +158,7 @@
 	var/armor_block = D.run_armor_check(affecting, MELEE)
 	if(D.body_position == STANDING_UP)
 		D.visible_message("<span class='danger'>[A] reprimands [D]!</span>", \
-					"<span class='userdanger'>You're slapped by [A]!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", COMBAT_MESSAGE_RANGE, A)
+					"<span class='userdanger'>You're slapped by [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
 		to_chat(A, "<span class='danger'>You jab [D]!</span>")
 		A.do_attack_animation(D, ATTACK_EFFECT_PUNCH)
 		playsound(D, 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
@@ -166,7 +166,7 @@
 		log_combat(A, D, "punched nonlethally")
 	if(D.body_position == LYING_DOWN)
 		D.visible_message("<span class='danger'>[A] reprimands [D]!</span>", \
-					"<span class='userdanger'>You're manhandled by [A]!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", COMBAT_MESSAGE_RANGE, A)
+					"<span class='userdanger'>You're manhandled by [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
 		to_chat(A, "<span class='danger'>You stomp [D]!</span>")
 		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 		playsound(D, 'sound/effects/hit_punch.ogg', 50, TRUE, -1)

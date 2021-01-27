@@ -2,7 +2,7 @@
 #define STOMACH_METABOLISM_CONSTANT 0.5
 
 /obj/item/organ/stomach
-	name = "stomach"
+	name = "желудок"
 	icon_state = "stomach"
 	w_class = WEIGHT_CLASS_SMALL
 	zone = BODY_ZONE_CHEST
@@ -14,10 +14,10 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY * 1.15 // ~13 minutes, the stomach is one of the first organs to die
 
-	low_threshold_passed = "<span class='info'>Your stomach flashes with pain before subsiding. Food doesn't seem like a good idea right now.</span>"
-	high_threshold_passed = "<span class='warning'>Your stomach flares up with constant pain- you can hardly stomach the idea of food right now!</span>"
-	high_threshold_cleared = "<span class='info'>The pain in your stomach dies down for now, but food still seems unappealing.</span>"
-	low_threshold_cleared = "<span class='info'>The last bouts of pain in your stomach have died out.</span>"
+	low_threshold_passed = "<span class='info'>Перед тем как утихнуть, в животе вспыхивает боль. Еда сейчас не кажется разумной идеей.</span>"
+	high_threshold_passed = "<span class='warning'>Желудок горит от постоянной боли - с трудом могу переварить идею еды прямо сейчас!</span>"
+	high_threshold_cleared = "<span class='info'>Боль в животе пока утихает, но еда все еще кажется непривлекательной.</span>"
+	low_threshold_cleared = "<span class='info'>Последние приступы боли в животе утихли.</span>"
 
 	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue = 5)
 	//This is a reagent user and needs more then the 10u from edible component
@@ -105,13 +105,13 @@
 	//The stomach is damage has nutriment but low on theshhold, lo prob of vomit
 	if(prob(damage * 0.025 * nutri_vol * nutri_vol))
 		body.vomit(damage)
-		to_chat(body, "<span class='warning'>Your stomach reels in pain as you're incapable of holding down all that food!</span>")
+		to_chat(body, "<span class='warning'>Живот крутит от боли, потому что я не могу сдерживать эту еду!</span>")
 		return
 
 	// the change of vomit is now high
 	if(damage > high_threshold && prob(damage * 0.1 * nutri_vol * nutri_vol))
 		body.vomit(damage)
-		to_chat(body, "<span class='warning'>Your stomach reels in pain as you're incapable of holding down all that food!</span>")
+		to_chat(body, "<span class='warning'>Живот крутит от боли, потому что я не могу сдерживать эту еду!</span>")
 
 	if(body.nutrition <= 50)
 		applyOrganDamage(1)
@@ -127,7 +127,7 @@
 				H.stuttering += 1
 				H.add_confusion(2)
 			if(prob(10) && !H.stat)
-				to_chat(H, "<span class='warning'>You feel kind of iffy...</span>")
+				to_chat(H, "<span class='warning'>Меня тошнит...</span>")
 			H.jitteriness = max(H.jitteriness - 3, 0)
 		if(H.disgust >= DISGUST_LEVEL_VERYGROSS)
 			if(prob(pukeprob)) //iT hAndLeS mOrE ThaN PukInG
@@ -163,7 +163,7 @@
 	return ..()
 
 /obj/item/organ/stomach/bone
-	desc = "You have no idea what this strange ball of bones does."
+	desc = "Вы не представляете, что делает этот странный шар из костей."
 	metabolism_efficiency = 0.05 //very bad
 	var/milk_brute_healing = 1.5
 	var/milk_burn_healing = 1.5
@@ -174,7 +174,7 @@
 		var/mob/living/carbon/body = owner
 		if(milk.volume > 10)
 			reagents.remove_reagent(milk.type, milk.volume - 10)
-			to_chat(owner, "<span class='warning'>The excess milk is dripping off your bones!</span>")
+			to_chat(owner, "<span class='warning'>Лишнее молоко капает с костей!</span>")
 
 		body.heal_bodypart_damage(brute = milk_brute_healing, burn = milk_burn_healing)
 		for(var/i in body.all_wounds)
@@ -184,16 +184,16 @@
 	return ..()
 
 /obj/item/organ/stomach/bone/plasmaman
-	name = "digestive crystal"
+	name = "пищеварительный кристалл"
 	icon_state = "stomach-p"
-	desc = "A strange crystal that is responsible for metabolizing the unseen energy force that feeds plasmamen."
+	desc = "Странный кристалл, отвечающий за метаболизм невидимой энергии, питающей плазмамена."
 	metabolism_efficiency = 0.12
 	milk_burn_healing = 0
 
 /obj/item/organ/stomach/ethereal
-	name = "biological battery"
+	name = "биологическая батарейка"
 	icon_state = "stomach-p" //Welp. At least it's more unique in functionaliy.
-	desc = "A crystal-like organ that stores the electric charge of ethereals."
+	desc = "Кристаллический орган, хранящий электрический заряд эфирных существ."
 	var/crystal_charge = ETHEREAL_CHARGE_FULL
 
 /obj/item/organ/stomach/ethereal/on_life()
@@ -217,33 +217,33 @@
 	if(flags & SHOCK_ILLUSION)
 		return
 	adjust_charge(shock_damage * siemens_coeff * 2)
-	to_chat(owner, "<span class='notice'>You absorb some of the shock into your body!</span>")
+	to_chat(owner, "<span class='notice'>Поглощаю часть удара током своим телом!</span>")
 
 /obj/item/organ/stomach/ethereal/proc/adjust_charge(amount)
 	crystal_charge = clamp(crystal_charge + amount, ETHEREAL_CHARGE_NONE, ETHEREAL_CHARGE_DANGEROUS)
 
 /obj/item/organ/stomach/cybernetic
-	name = "basic cybernetic stomach"
+	name = "базовый кибернетический желудок"
 	icon_state = "stomach-c"
-	desc = "A basic device designed to mimic the functions of a human stomach"
+	desc = "Базовое устройство, имитирующее функции человеческого желудка."
 	organ_flags = ORGAN_SYNTHETIC
 	maxHealth = STANDARD_ORGAN_THRESHOLD * 0.5
 	var/emp_vulnerability = 80	//Chance of permanent effects if emp-ed.
 	metabolism_efficiency = 0.7 // not as good at digestion
 
 /obj/item/organ/stomach/cybernetic/tier2
-	name = "cybernetic stomach"
+	name = "кибернетический желудок"
 	icon_state = "stomach-c-u"
-	desc = "An electronic device designed to mimic the functions of a human stomach. Handles disgusting food a bit better."
+	desc = "Электронное устройство, имитирующее функции человеческого желудка. Немного лучше справляется с отвратительной едой."
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	disgust_metabolism = 2
 	emp_vulnerability = 40
 	metabolism_efficiency = 0.14
 
 /obj/item/organ/stomach/cybernetic/tier3
-	name = "upgraded cybernetic stomach"
+	name = "продвинутый кибернетический желудок"
 	icon_state = "stomach-c-u2"
-	desc = "An upgraded version of the cybernetic stomach, designed to improve further upon organic stomachs. Handles disgusting food very well."
+	desc = "Усовершенствованная версия кибернетического желудка, предназначенная для дальнейшего улучшения органических желудков. Отлично справляется с отвратительной едой."
 	maxHealth = 2 * STANDARD_ORGAN_THRESHOLD
 	disgust_metabolism = 3
 	emp_vulnerability = 20

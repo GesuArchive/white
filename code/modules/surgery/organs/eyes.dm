@@ -1,7 +1,7 @@
 /obj/item/organ/eyes
-	name = BODY_ZONE_PRECISE_EYES
+	name = "глаза"
 	icon_state = "eyeballs"
-	desc = "I see you!"
+	desc = "Я тебя вижу!"
 	zone = BODY_ZONE_PRECISE_EYES
 	slot = ORGAN_SLOT_EYES
 	gender = PLURAL
@@ -12,12 +12,12 @@
 	high_threshold = 0.3 * STANDARD_ORGAN_THRESHOLD	//threshold at 30
 	low_threshold = 0.2 * STANDARD_ORGAN_THRESHOLD	//threshold at 20
 
-	low_threshold_passed = "<span class='info'>Distant objects become somewhat less tangible.</span>"
-	high_threshold_passed = "<span class='info'>Everything starts to look a lot less clear.</span>"
-	now_failing = "<span class='warning'>Darkness envelopes you, as your eyes go blind!</span>"
-	now_fixed = "<span class='info'>Color and shapes are once again perceivable.</span>"
-	high_threshold_cleared = "<span class='info'>Your vision functions passably once more.</span>"
-	low_threshold_cleared = "<span class='info'>Your vision is cleared of any ailment.</span>"
+	low_threshold_passed = "<span class='info'>Далекие объекты становятся менее ощутимыми.</span>"
+	high_threshold_passed = "<span class='info'>Все становится менее ясным.</span>"
+	now_failing = "<span class='warning'>Тьма окутывает меня, глаза слепнут!</span>"
+	now_fixed = "<span class='info'>Цвет и формы снова ощутимы.</span>"
+	high_threshold_cleared = "<span class='info'>Зрение снова функционирует нормально.</span>"
+	low_threshold_cleared = "<span class='info'>Зрение очищено от недугов.</span>"
 
 	var/sight_flags = 0
 	var/see_in_dark = 2
@@ -85,8 +85,8 @@
 	return
 
 /obj/item/organ/eyes/night_vision
-	name = "shadow eyes"
-	desc = "A spooky set of eyes that can see in the dark."
+	name = "теневые глаза"
+	desc = "Жуткие глаза, способные видеть в темноте."
 	see_in_dark = 8
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 	actions_types = list(/datum/action/item_action/organ_action/use)
@@ -107,29 +107,29 @@
 	owner.update_sight()
 
 /obj/item/organ/eyes/night_vision/alien
-	name = "alien eyes"
-	desc = "It turned out they had them after all!"
+	name = "чужеродные глаза"
+	desc = "Оказалось, они все-таки были!"
 	sight_flags = SEE_MOBS
 
 /obj/item/organ/eyes/night_vision/zombie
-	name = "undead eyes"
-	desc = "Somewhat counterintuitively, these half-rotten eyes actually have superior vision to those of a living human."
+	name = "глаза нежити"
+	desc = "Как ни странно, у этих полусгнивших глаз на самом деле видение лучше, чем у живого человека."
 
 /obj/item/organ/eyes/night_vision/nightmare
-	name = "burning red eyes"
-	desc = "Even without their shadowy owner, looking at these eyes gives you a sense of dread."
+	name = "горящие красные глаза"
+	desc = "Даже без их призрачного хозяина, глядя в эти глаза, вы испытываете чувство страха."
 	icon_state = "burning_eyes"
 
 /obj/item/organ/eyes/night_vision/mushroom
-	name = "fung-eye"
-	desc = "While on the outside they look inert and dead, the eyes of mushroom people are actually very advanced."
+	name = "грибоглаза"
+	desc = "Хотя снаружи они выглядят инертными и мертвыми, глаза грибных людей на самом деле очень развиты."
 
 ///Robotic
 
 /obj/item/organ/eyes/robotic
-	name = "robotic eyes"
+	name = "глаза робота"
 	icon_state = "cybernetic_eyeballs"
-	desc = "Your vision is augmented."
+	desc = "Моё зрение аугментировано."
 	status = ORGAN_ROBOTIC
 	organ_flags = ORGAN_SYNTHETIC
 
@@ -139,19 +139,19 @@
 		return
 	if(prob(10 * severity))
 		return
-	to_chat(owner, "<span class='warning'>Static obfuscates your vision!</span>")
+	to_chat(owner, "<span class='warning'>Статика затуманивает моё зрение!</span>")
 	owner.flash_act(visual = 1)
 
 /obj/item/organ/eyes/robotic/xray
-	name = "\improper X-ray eyes"
-	desc = "These cybernetic eyes will give you X-ray vision. Blinking is futile."
+	name = "рентгеновские глаза"
+	desc = "Эти кибернетические глаза дадут вам рентгеновское зрение. Моргать бесполезно."
 	eye_color = "000"
 	see_in_dark = 8
 	sight_flags = SEE_MOBS | SEE_OBJS | SEE_TURFS
 
 /obj/item/organ/eyes/robotic/thermals
-	name = "thermal eyes"
-	desc = "These cybernetic eye implants will give you thermal vision. Vertical slit pupil included."
+	name = "термальные глаза"
+	desc = "Эти кибернетические глазные имплантаты дадут вам тепловое зрение. Зрачок с вертикальной щелью включен."
 	eye_color = "FC0"
 	sight_flags = SEE_MOBS
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
@@ -159,8 +159,8 @@
 	see_in_dark = 8
 
 /obj/item/organ/eyes/robotic/flashlight
-	name = "flashlight eyes"
-	desc = "It's two flashlights rigged together with some wire. Why would you put these in someone's head?"
+	name = "глаза фонарики"
+	desc = "Это два фонарика, соединенных проволокой. Зачем вы вбиваете это кому-то в голову?"
 	eye_color ="fee5a3"
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "flashlight_eyes"
@@ -190,8 +190,8 @@
 
 // Welding shield implant
 /obj/item/organ/eyes/robotic/shield
-	name = "shielded robotic eyes"
-	desc = "These reactive micro-shields will protect you from welders and flashes without obscuring your vision."
+	name = "экранированные глаза робота"
+	desc = "Эти реактивные микрозащиты защитят вас от сварки и вспышек, не закрывая обзор."
 	flash_protect = FLASH_PROTECTION_WELDER
 
 /obj/item/organ/eyes/robotic/shield/emp_act(severity)
@@ -200,8 +200,8 @@
 #define RGB2EYECOLORSTRING(definitionvar) ("[copytext_char(definitionvar, 2, 3)][copytext_char(definitionvar, 4, 5)][copytext_char(definitionvar, 6, 7)]")
 
 /obj/item/organ/eyes/robotic/glow
-	name = "High Luminosity Eyes"
-	desc = "Special glowing eyes, used by snowflakes who want to be special."
+	name = "глаза высокой яркости"
+	desc = "Особые светящиеся глаза, которыми пользуются педики, которые хотят быть особенными."
 	eye_color = "000"
 	actions_types = list(/datum/action/item_action/organ_action/use, /datum/action/item_action/organ_action/toggle)
 	var/current_color_string = "#ffffff"
@@ -247,10 +247,10 @@
 		activate()
 
 /obj/item/organ/eyes/robotic/glow/proc/prompt_for_controls(mob/user)
-	var/C = input(owner, "Select Color", "Select color", "#ffffff") as color|null
+	var/C = input(owner, "Цвет", "Цвет?", "#ffffff") as color|null
 	if(!C || QDELETED(src) || QDELETED(user) || QDELETED(owner) || owner != user)
 		return
-	var/range = input(user, "Enter range (0 - [max_light_beam_distance])", "Range Select", 0) as null|num
+	var/range = input(user, "Радиус (0 - [max_light_beam_distance])", "Радиус?", 0) as null|num
 	var/old_active = active // Get old active because set_distance() -> clear_visuals()  will set it to FALSE.
 	set_distance(clamp(range, 0, max_light_beam_distance))
 	assume_rgb(C)
@@ -298,13 +298,13 @@
 /obj/item/organ/eyes/robotic/glow/proc/activate(silent = FALSE)
 	start_visuals()
 	if(!silent)
-		to_chat(owner, "<span class='warning'>Your [src] clicks and makes a whining noise, before shooting out a beam of light!</span>")
+		to_chat(owner, "<span class='warning'>Мои [src.name] щёлкают, перед тем как выпустить жёсткий луч света!</span>")
 	cycle_mob_overlay()
 
 /obj/item/organ/eyes/robotic/glow/proc/deactivate(silent = FALSE)
 	clear_visuals()
 	if(!silent)
-		to_chat(owner, "<span class='warning'>Your [src] shuts off!</span>")
+		to_chat(owner, "<span class='warning'>Мои [src.name] вырубаются!</span>")
 	remove_mob_overlay()
 
 /obj/item/organ/eyes/robotic/glow/proc/update_visuals(datum/source, olddir, newdir)
@@ -396,18 +396,18 @@
 
 /obj/item/organ/eyes/moth
 	name = "глаза мотылька"
-	desc = "These eyes seem to have increased sensitivity to bright light, with no improvement to low light vision."
+	desc = "Эти глаза, кажется, имеют повышенную чувствительность к яркому свету без улучшения зрения при слабом освещении."
 	flash_protect = FLASH_PROTECTION_SENSITIVE
 
 /obj/item/organ/eyes/snail
-	name = "snail eyes"
-	desc = "These eyes seem to have a large range, but might be cumbersome with glasses."
+	name = "глаза улитки"
+	desc = "Кажется, что эти глаза имеют большой диапазон, но могут быть громоздкими с очками."
 	eye_icon_state = "snail_eyes"
 	icon_state = "snail_eyeballs"
 
 /obj/item/organ/eyes/fly
-	name = "fly eyes"
-	desc = "These eyes seem to stare back no matter the direction you look at it from."
+	name = "глаза мухи"
+	desc = "Эти глаза, кажется, смотрят в ответ независимо от того, с какой стороны вы смотрите на них."
 
 /obj/item/organ/eyes/fly/Insert(mob/living/carbon/M, special = FALSE)
 	. = ..()

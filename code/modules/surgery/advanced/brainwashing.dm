@@ -62,5 +62,5 @@
 			"<span class='notice'>[user] завершил операцию на мозге [target].</span>")
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 40)
 	else
-		user.visible_message("<span class='warning'>[user] внезапно замечает что мозг [user.ru_who()] над которым работал [user.p_were()] исчез.</span>", "<span class='warning'>Вы внезапно обнаружили что мозг, над которым вы работали, исчез.</span>")
+		user.visible_message("<span class='warning'>[user] внезапно замечает что мозг [user.ru_who()] над которым работал [user.p_were()] исчез.</span>", "<span class='warning'>Внезапно обнаруживаю что мозг, над которым я работал, исчез.</span>")
 	return FALSE

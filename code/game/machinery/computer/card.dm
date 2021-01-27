@@ -148,7 +148,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 			id_eject(user, target)
 
 	user.visible_message("<span class='notice'>[user] вставляет [card_to_insert] в [src].</span>",
-						"<span class='notice'>Вы вставляете [card_to_insert] в [src].</span>")
+						"<span class='notice'>Вставляю [card_to_insert] в [src].</span>")
 	playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 	updateUsrDialog()
 	return TRUE
@@ -162,7 +162,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 		if(!issilicon(user) && Adjacent(user))
 			user.put_in_hands(target)
 		user.visible_message("<span class='notice'>[user] достаёт [target] из [src].</span>", \
-							"<span class='notice'>Вы достаёте [target] из [src].</span>")
+							"<span class='notice'>Доставю [target] из [src].</span>")
 		playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 		updateUsrDialog()
 		return TRUE
@@ -430,7 +430,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 						if(region_access)
 							authenticated = 1
 			else if ((!( authenticated ) && issilicon(usr)) && (!inserted_modify_id))
-				to_chat(usr, "<span class='warning'>Вы не можете изменить ИД без вставленного другого ИД для изменения! Как только один из них окажется в слоте модификации на компьютере, вы можете войти в систему..</span>")
+				to_chat(usr, "<span class='warning'>Не могу изменить ИД без вставленного другого ИД для изменения! Как только один из них окажется в слоте модификации на компьютере, я смогу войти в систему...</span>")
 		if ("logout")
 			region_access = null
 			head_subordinates = null
@@ -496,7 +496,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 				inserted_modify_id.assignment = "Unassigned"
 				playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 			else
-				to_chat(usr, "<span class='alert'>Вы не имеете права понижать эту должность.</span>")
+				to_chat(usr, "<span class='alert'>Не имею права понижать эту должность.</span>")
 		if ("reg")
 			if (authenticated)
 				var/t2 = inserted_modify_id

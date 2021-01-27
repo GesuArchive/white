@@ -2,12 +2,12 @@
 #define LIVER_DEFAULT_TOX_LETHALITY 0.01 //lower values lower how harmful toxins are to the liver
 
 /obj/item/organ/liver
-	name = "liver"
+	name = "печень"
 	icon_state = "liver"
 	w_class = WEIGHT_CLASS_SMALL
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_LIVER
-	desc = "Pairing suggestion: chianti and fava beans."
+	desc = "Предложение по сочетанию: кьянти и бобы."
 
 	maxHealth = STANDARD_ORGAN_THRESHOLD
 	healing_factor = STANDARD_ORGAN_HEALING
@@ -48,23 +48,23 @@
 
 	if(HAS_TRAIT(user, TRAIT_ENTRAILS_READER) || (user.mind && HAS_TRAIT(user.mind, TRAIT_ENTRAILS_READER)) || isobserver(user))
 		if(HAS_TRAIT(src, TRAIT_LAW_ENFORCEMENT_METABOLISM))
-			. += "Fatty deposits and sprinkle residue, imply that this is the liver of someone in <em>security</em>."
+			. += "Жировые отложения и остатки опрыскивания предполагают, что это печень кого-то из <em>охраны</em>."
 		if(HAS_TRAIT(src, TRAIT_CULINARY_METABOLISM))
-			. += "The high iron content and slight smell of garlic, implies that this is the liver of a <em>cook</em>."
+			. += "Высокое содержание железа и легкий запах чеснока указывают на то, что это печень <em>повара</em>."
 		if(HAS_TRAIT(src, TRAIT_COMEDY_METABOLISM))
-			. += "A smell of bananas, a slippery sheen and <span class='clown'>honking</span> when depressed, implies that this is the liver of a <em>clown</em>."
+			. += "Запах бананов, скользкий блеск и <span class='clown'>хонканье</span> при расстройстве, означает, что это печень <em>клоуна</em>."
 		if(HAS_TRAIT(src, TRAIT_MEDICAL_METABOLISM))
-			. += "Marks of stress and a faint whiff of medicinal alcohol, imply that this is the liver of a <em>medical worker</em>."
+			. += "Следы стресса и слабый запах лекарственного алкоголя указывают на то, что это печень <em>медицинского работника</em>."
 		if(HAS_TRAIT(src, TRAIT_GREYTIDE_METABOLISM))
-			. += "Greyer than most with electrical burn marks, this is the liver of an <em>assistant</em>."
+			. += "Эта печень более серого, чем многие другие со следами электрических ожогов принадлежит <em>ассистенту</em>."
 		if(HAS_TRAIT(src, TRAIT_ENGINEER_METABOLISM))
-			. += "Signs of radiation exposure and space adaption, implies that this is the liver of an <em>engineer</em>."
+			. += "Признаки радиационного облучения и космической адаптации, подразумевают, что это печень <em>инженера</em>."
 
 		// royal trumps pretender royal
 		if(HAS_TRAIT(src, TRAIT_ROYAL_METABOLISM))
-			. += "A rich diet of luxury food, suppleness from soft beds, implies that this is the liver of a <em>head of staff</em>."
+			. += "Богатая диета, состоящая из роскошной пищи, гибкости на мягких кроватях, подразумевает, что это печень <em>главы</em>."
 		else if(HAS_TRAIT(src, TRAIT_PRETENDER_ROYAL_METABOLISM))
-			. += "A diet of imitation caviar, and signs of insomnia, implies that this is the liver of <em>someone who wants to be a head of staff</em>."
+			. += "Диета, состоящая из имитации икры и признаков бессонницы, подразумевает, что это печень <em>того, кто хочет быть главой</em>."
 
 
 
@@ -97,7 +97,7 @@
 			C.reagents.metabolize(C, can_overdose=TRUE)
 
 			if(provide_pain_message && damage > 10 && prob(damage/3))//the higher the damage the higher the probability
-				to_chat(C, "<span class='warning'>You feel a dull pain in your abdomen.</span>")
+				to_chat(C, "<span class='warning'>Ощущаю тупую боль в животе.</span>")
 
 		else	//for when our liver's failing
 			C.liver_failure()
@@ -113,21 +113,21 @@
 	return !(TRAIT_NOMETABOLISM in S.inherent_traits)
 
 /obj/item/organ/liver/plasmaman
-	name = "reagent processing crystal"
+	name = "кристалл для обработки реагентов"
 	icon_state = "liver-p"
-	desc = "A large crystal that is somehow capable of metabolizing chemicals, these are found in plasmamen."
+	desc = "Большой кристалл, который каким-то образом способен метаболизировать химические вещества, они находятся в плазмамене."
 
 /obj/item/organ/liver/alien
-	name = "alien liver" // doesnt matter for actual aliens because they dont take toxin damage
+	name = "чужеродная печень" // doesnt matter for actual aliens because they dont take toxin damage
 	icon_state = "liver-x" // Same sprite as fly-person liver.
-	desc = "A liver that used to belong to a killer alien, who knows what it used to eat."
+	desc = "Печень, которая раньше принадлежала инопланетянину-убийце, который знает, чем она раньше ела."
 	toxLethality = LIVER_DEFAULT_TOX_LETHALITY * 2.5 // rejects its owner early after too much punishment
 	toxTolerance = 15 // complete toxin immunity like xenos have would be too powerful
 
 /obj/item/organ/liver/cybernetic
-	name = "basic cybernetic liver"
+	name = "базовая кибернетическая печень"
 	icon_state = "liver-c"
-	desc = "A very basic device designed to mimic the functions of a human liver. Handles toxins slightly worse than an organic liver."
+	desc = "Очень простое устройство, имитирующее функции печени человека. Переносит токсины несколько хуже, чем органическая печень."
 	organ_flags = ORGAN_SYNTHETIC
 	toxTolerance = 2
 	toxLethality = 0.011
@@ -136,18 +136,18 @@
 	var/emp_vulnerability = 80	//Chance of permanent effects if emp-ed.
 
 /obj/item/organ/liver/cybernetic/tier2
-	name = "cybernetic liver"
+	name = "кибернетическая печень"
 	icon_state = "liver-c-u"
-	desc = "An electronic device designed to mimic the functions of a human liver. Handles toxins slightly better than an organic liver."
+	desc = "Электронное устройство, имитирующее функции печени человека. Справляется с токсинами немного лучше, чем органическая печень."
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	toxTolerance = 5 //can shrug off up to 5u of toxins
 	toxLethality = 0.008 //20% less damage than a normal liver
 	emp_vulnerability = 40
 
 /obj/item/organ/liver/cybernetic/tier3
-	name = "upgraded cybernetic liver"
+	name = "продвинутая кибернетическая печень"
 	icon_state = "liver-c-u2"
-	desc = "An upgraded version of the cybernetic liver, designed to improve further upon organic livers. It is resistant to alcohol poisoning and is very robust at filtering toxins."
+	desc = "Усовершенствованная версия кибернетической печени, предназначенная для дальнейшего улучшения органической печени. Он устойчив к отравлению алкоголем и превосходно фильтрует токсины."
 	alcohol_tolerance = 0.001
 	maxHealth = 2 * STANDARD_ORGAN_THRESHOLD
 	toxTolerance = 10 //can shrug off up to 10u of toxins

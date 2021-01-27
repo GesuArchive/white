@@ -57,10 +57,10 @@
 
 /obj/machinery/power/tracker/crowbar_act(mob/user, obj/item/I)
 	playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
-	user.visible_message("<span class='notice'>[user] начинает снимать стекло с [src].</span>", "<span class='notice'>Вы начинаете снимать стекло с [src]...</span>")
+	user.visible_message("<span class='notice'>[user] начинает снимать стекло с [src].</span>", "<span class='notice'>Начинаю снимать стекло с [src]...</span>")
 	if(I.use_tool(src, user, 50))
 		playsound(src.loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-		user.visible_message("<span class='notice'>[user] снимает стекло с [src].</span>", "<span class='notice'>Вы снимаете стекло с [src].</span>")
+		user.visible_message("<span class='notice'>[user] снимает стекло с [src].</span>", "<span class='notice'>Снимаю стекло с [src].</span>")
 		deconstruct(TRUE)
 	return TRUE
 

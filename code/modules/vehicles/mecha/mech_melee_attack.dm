@@ -68,14 +68,14 @@
 				return
 		updatehealth()
 		visible_message("<span class='danger'>[mecha_attacker.name] hits [src]!</span>", \
-						"<span class='userdanger'>[mecha_attacker.name] hits you!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", COMBAT_MESSAGE_RANGE, mecha_attacker)
+						"<span class='userdanger'>[mecha_attacker.name] hits you!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, mecha_attacker)
 		to_chat(mecha_attacker, "<span class='danger'>You hit [src]!</span>")
 		log_combat(user, src, "attacked", mecha_attacker, "(INTENT: [uppertext(user.a_intent)]) (DAMTYPE: [uppertext(mecha_attacker.damtype)])")
 	else
 		step_away(src, mecha_attacker)
 		log_combat(user, src, "pushed", mecha_attacker)
 		visible_message("<span class='warning'>[mecha_attacker] pushes [src] out of the way.</span>", \
-						"<span class='warning'>[mecha_attacker] pushes you out of the way.</span>", "<span class='hear'>You hear aggressive shuffling!</span>", 5, list(mecha_attacker))
+						"<span class='warning'>[mecha_attacker] pushes you out of the way.</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", 5, list(mecha_attacker))
 		to_chat(mecha_attacker, "<span class='danger'>You push [src] out of the way.</span>")
 
 /mob/living/carbon/human/mech_melee_attack(obj/vehicle/sealed/mecha/mecha_attacker, mob/user)
@@ -110,7 +110,7 @@
 			updatehealth()
 
 		visible_message("<span class='danger'>[mecha_attacker.name] hits [src]!</span>", \
-						"<span class='userdanger'>[mecha_attacker.name] hits you!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", COMBAT_MESSAGE_RANGE, list(mecha_attacker))
+						"<span class='userdanger'>[mecha_attacker.name] hits you!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, list(mecha_attacker))
 		to_chat(mecha_attacker, "<span class='danger'>You hit [src]!</span>")
 		log_combat(user, src, "attacked", mecha_attacker, "(INTENT: [uppertext(user.a_intent)]) (DAMTYPE: [uppertext(mecha_attacker.damtype)])")
 	else

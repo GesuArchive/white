@@ -69,7 +69,7 @@ That's it, ok bye!
 		to_chat(user, "<span class='warning'>Ничего не происходит...</span>")
 		return
 	if(isliving(user) && user.mouse_opacity) //Don't display things like AIs or admin ghosts clicking the button.
-		visible_message("<span class='notice'>[user] [pick("спокойно нажимает на", "давит на", "тыкает по", "шлёпает по", "ударяет")] [src] </span>", "<span class='notice'>Вы жмёте по [src].</span>")
+		visible_message("<span class='notice'>[user] [pick("спокойно нажимает на", "давит на", "тыкает по", "шлёпает по", "ударяет")] [src] </span>", "<span class='notice'>Жму [src.name].</span>")
 	flick("button_lit", src)
 	lift.master.path_to(lift.deck, lift.master.platform_location.deck)
 

@@ -61,12 +61,12 @@
 	if(!foldable)
 		return
 	if(contents.len)
-		to_chat(user, "<span class='warning'>Вы не можете сложить эту коробку с предметами внутри!</span>")
+		to_chat(user, "<span class='warning'>Могу сложить эту коробку с предметами внутри!</span>")
 		return
 	if(!ispath(foldable))
 		return
 
-	to_chat(user, "<span class='notice'>Вы слаживаете [src].</span>")
+	to_chat(user, "<span class='notice'>Складываю [src].</span>")
 	var/obj/item/I = new foldable
 	qdel(src)
 	user.put_in_hands(I)
@@ -801,7 +801,7 @@
 	..()
 	user.changeNext_move(CLICK_CD_MELEE)
 	playsound(loc, "rustle", 50, TRUE, -5)
-	user.visible_message("<span class='notice'>[user] обнимает <b>[src.name]</b>.</span>","<span class='notice'>Вы обнимаете <b>[src.name]</b>.</span>")
+	user.visible_message("<span class='notice'>[user] обнимает <b>[src.name]</b>.</span>","<span class='notice'>Обнимаю <b>[src.name]</b>.</span>")
 
 /////clown box & honkbot assembly
 /obj/item/storage/box/clown
@@ -812,12 +812,12 @@
 /obj/item/storage/box/clown/attackby(obj/item/I, mob/user, params)
 	if((istype(I, /obj/item/bodypart/l_arm/robot)) || (istype(I, /obj/item/bodypart/r_arm/robot)))
 		if(contents.len) //prevent accidently deleting contents
-			to_chat(user, "<span class='warning'>Вы должны опустошить [src] сначала!</span>")
+			to_chat(user, "<span class='warning'>Нужно опустошить [src] сначала!</span>")
 			return
 		if(!user.temporarilyRemoveItemFromInventory(I))
 			return
 		qdel(I)
-		to_chat(user, "<span class='notice'>Вы добавили колёса для [src]! Теперь у вас есть сборка хонкбота! Хонк!</span>")
+		to_chat(user, "<span class='notice'>Добавляю колёса для [src]! Теперь у меня есть сборка хонкбота! Хонк!</span>")
 		var/obj/item/bot_assembly/honkbot/A = new
 		qdel(src)
 		user.put_in_hands(A)
@@ -927,19 +927,19 @@
 				desc = "Бумажный мешок с грубой улыбкой на боку."
 			else
 				return FALSE
-		to_chat(user, "<span class='notice'>Вы видоизменяете [src] используя ручку.</span>")
+		to_chat(user, "<span class='notice'>Видоизменяю [src] используя ручку.</span>")
 		icon_state = "paperbag_[choice]"
 		inhand_icon_state = "paperbag_[choice]"
 		return FALSE
 	else if(W.get_sharpness())
 		if(!contents.len)
 			if(inhand_icon_state == "paperbag_None")
-				user.show_message("<span class='notice'>Вы прорезаете дыры для глаз [src].</span>", MSG_VISUAL)
+				user.show_message("<span class='notice'>Прорезаю дыры для глаз [src].</span>", MSG_VISUAL)
 				new /obj/item/clothing/head/papersack(user.loc)
 				qdel(src)
 				return FALSE
 			else if(inhand_icon_state == "paperbag_SmileyFace")
-				user.show_message("<span class='notice'>Вы прорезаете дыры для глаз в [src] и меняете его дизайн.</span>", MSG_VISUAL)
+				user.show_message("<span class='notice'>Прорезаю дыры для глаз в [src] и меняю его дизайн.</span>", MSG_VISUAL)
 				new /obj/item/clothing/head/papersack/smiley(user.loc)
 				qdel(src)
 				return FALSE
@@ -958,10 +958,10 @@
 	if(user.incapacitated())
 		return FALSE
 	if(contents.len)
-		to_chat(user, "<span class='warning'>Вы не можете изменить [src] с предметами внутри!</span>")
+		to_chat(user, "<span class='warning'>Не могу изменить [src] с предметами внутри!</span>")
 		return FALSE
 	if(!P || !user.is_holding(P))
-		to_chat(user, "<span class='warning'>Вам понадобится ручка, чтобы изменить [src]!</span>")
+		to_chat(user, "<span class='warning'>Мне понадобится ручка, чтобы изменить [src]!</span>")
 		return FALSE
 	return TRUE
 

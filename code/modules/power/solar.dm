@@ -72,10 +72,10 @@
 
 /obj/machinery/power/solar/crowbar_act(mob/user, obj/item/I)
 	playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
-	user.visible_message("<span class='notice'>[user] начинает снимать стекло с [src].</span>", "<span class='notice'>Вы начинаете снимать стекло с [src]...</span>")
+	user.visible_message("<span class='notice'>[user] начинает снимать стекло с [src].</span>", "<span class='notice'>Начинаю снимать стекло с [src]...</span>")
 	if(I.use_tool(src, user, 50))
 		playsound(src.loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-		user.visible_message("<span class='notice'>[user] снимает стекло с [src].</span>", "<span class='notice'>Вы снимаете стекло с [src].</span>")
+		user.visible_message("<span class='notice'>[user] снимает стекло с [src].</span>", "<span class='notice'>Снимаю стекло с [src].</span>")
 		deconstruct(TRUE)
 	return TRUE
 
@@ -244,7 +244,7 @@
 /obj/item/solar_assembly/attackby(obj/item/W, mob/user, params)
 	if(W.tool_behaviour == TOOL_WRENCH && isturf(loc))
 		if(isinspace())
-			to_chat(user, "<span class='warning'>Вы не можете прикрутить [src] тут.</span>")
+			to_chat(user, "<span class='warning'>Не могу прикрутить [src] тут.</span>")
 			return
 		set_anchored(!anchored)
 
@@ -254,19 +254,19 @@
 
 	if(istype(W, /obj/item/stack/sheet/glass) || istype(W, /obj/item/stack/sheet/rglass))
 		if(!anchored)
-			to_chat(user, "<span class='warning'>Вы должны прикрутить основание прежде чем добавлять туда стекло.</span>")
+			to_chat(user, "<span class='warning'>Мне нужно прикрутить основание прежде чем добавлять туда стекло.</span>")
 			return
 		var/obj/item/stack/sheet/S = W
 		if(S.use(2))
 			glass_type = W.type
 			playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
-			user.visible_message("<span class='notice'>[user] вставляет стекло в основание солнечной панели.</span>", "<span class='notice'>Вы вставляете стекло в основание солнейчной панели.</span>")
+			user.visible_message("<span class='notice'>[user] вставляет стекло в основание солнечной панели.</span>", "<span class='notice'>Вставляю стекло в основание солнейчной панели.</span>")
 			if(tracker)
 				new /obj/machinery/power/tracker(get_turf(src), src)
 			else
 				new /obj/machinery/power/solar(get_turf(src), src)
 		else
-			to_chat(user, "<span class='warning'>Вы должны иметь два листа стекла прежде чем вставлять их в основание!</span>")
+			to_chat(user, "<span class='warning'>Мне нужно иметь два листа стекла прежде чем вставлять их в основание!</span>")
 			return
 		return TRUE
 
@@ -423,7 +423,7 @@
 				A.set_anchored(TRUE)
 				qdel(src)
 			else
-				to_chat(user, "<span class='notice'>Вы отсоединяете монитор.</span>")
+				to_chat(user, "<span class='notice'>Отсоединяю монитор.</span>")
 				var/obj/structure/frame/computer/A = new /obj/structure/frame/computer( src.loc )
 				var/obj/item/circuitboard/computer/solar_control/M = new /obj/item/circuitboard/computer/solar_control( A )
 				for (var/obj/C in src)
