@@ -501,6 +501,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 		stack_trace("Trait mapper found no targets at ([x], [y], [z]). First Match Only: [first_match_only ? "true" : "false"] target type: [target_type] | target name: [target_name] | trait name: [trait_name]")
 	qdel(src)
 
+/*
 /// Fetches an external dmi and applies to the target object
 /obj/effect/mapping_helpers/custom_icon
 	name = "Custom Icon Helper"
@@ -555,3 +556,4 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 	var/icon/I = new(file_name)
 	icon_cache[url] = I
 	return I
+*/
