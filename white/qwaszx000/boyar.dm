@@ -22,6 +22,7 @@
 	boozepwr = 80
 
 /datum/reagent/consumable/ethanol/boyarka/traitor/on_mob_life(mob/living/M)
+	var/obj/item/organ/liver/liver = M.getorganslot(ORGAN_SLOT_LIVER)
 	if(liver && HAS_TRAIT(liver, TRAIT_BOMJ_METABOLISM))
 		M.heal_bodypart_damage(brute = 5, burn = 5)
 		. = TRUE
@@ -31,6 +32,7 @@
 		spawn(0)
 			new /datum/hallucination/delusion(M, TRUE, "demon",600,0)
 		to_chat(M, "<span class='warning'>KILL THEM ALL</span>")
+	..()
 
 /obj/item/reagent_containers/pill/boyar_t
 	name = "true boyar pill"
