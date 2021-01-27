@@ -323,7 +323,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/examine(mob/user)
 	. = ..()
 	. += "<hr>"
-	. += "Отвечает за зону: <i>[get_area_name(area, TRUE)]</i>"
+	. += "Отвечает за зону: <i>[get_area_name(get_area(src), TRUE)]</i>"
 	if(welded)
 		. += "<hr>Она заварена намертво."
 
