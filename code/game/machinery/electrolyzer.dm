@@ -7,8 +7,8 @@
 	interaction_flags_machine = INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "electrolyzer-off"
-	name = "space electrolyzer"
-	desc = "Thanks to the fast and dynamic response of our electrolyzers, on-site hydrogen production is guaranteed. Warranty void if used by clowns"
+	name = "электролизер"
+	desc = "Благодаря быстрому и динамическому реагированию наших электролизеров производство водорода на месте гарантировано. Гарантия недействительна при использовании клоунами."
 	max_integrity = 250
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 100, FIRE = 80, ACID = 10)
 	circuit = /obj/item/circuitboard/machine/electrolyzer
@@ -48,12 +48,12 @@
 /obj/machinery/electrolyzer/examine(mob/user)
 	. = ..()
 	. += "<hr>"
-	. += "<b>[src.name]</b> is [on ? "on" : "off"], and the hatch is [panel_open ? "open" : "closed"]."
+	. += "<b>[src.name]</b> [on ? "работает" : "не работает"] и техническая панель [panel_open ? "открыта" : "закрыта"]."
 
 	if(cell)
-		. += "</br>The charge meter reads [cell ? round(cell.percent(), 1) : 0]%."
+		. += "<hr>Заряд: [cell ? round(cell.percent(), 1) : 0]%."
 	else
-		. += "</br>There is no power cell installed."
+		. += "<hr>Внутри нет батарейки."
 
 /obj/machinery/electrolyzer/update_icon_state()
 	icon_state = "electrolyzer-[on ? "[mode]" : "off"]"
@@ -122,23 +122,23 @@
 		return
 	if(istype(I, /obj/item/stock_parts/cell))
 		if(!panel_open)
-			to_chat(user, "<span class='warning'>The hatch must be open to insert a power cell!</span>")
+			to_chat(user, "<span class='warning'>Техническая панель должна быть открыта для вставки батарейки!</span>")
 			return
 		if(cell)
-			to_chat(user, "<span class='warning'>There is already a power cell inside!</span>")
+			to_chat(user, "<span class='warning'>Внутри уже есть батарейка!</span>")
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 		cell = I
 		I.add_fingerprint(usr)
 
-		user.visible_message("<span class='notice'>\The [user] inserts a power cell into <b>[src.name]</b>.</span>", "<span class='notice'>You insert the power cell into <b>[src.name]</b>.</span>")
+		user.visible_message("<span class='notice'>[capitalize(user)] вставляет батарейку в <b>[src.name]</b>.</span>", "<span class='notice'>Вставляю батарейку внутрь <b>[src.name]</b>.</span>")
 		SStgui.update_uis(src)
 
 		return
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		panel_open = !panel_open
-		user.visible_message("<span class='notice'>\The [user] [panel_open ? "opens" : "closes"] the hatch on <b>[src.name]</b>.</span>", "<span class='notice'>You [panel_open ? "open" : "close"] the hatch on <b>[src.name]</b>.</span>")
+		user.visible_message("<span class='notice'>[capitalize(user)] [panel_open ? "открывает" : "закрывает"] техническую панель <b>[src.name]</b>.</span>", "<span class='notice'>[panel_open ? "Открываю" : "Закрываю"] техническую панель <b>[src.name]</b>.</span>")
 		update_icon()
 		return
 	if(default_deconstruction_crowbar(I))
@@ -171,7 +171,7 @@
 		if("power")
 			on = !on
 			mode = ELECTROLYZER_MODE_STANDBY
-			usr.visible_message("<span class='notice'>[usr] switches [on ? "on" : "off"] <b>[src.name]</b>.</span>", "<span class='notice'>You switch [on ? "on" : "off"] <b>[src.name]</b>.</span>")
+			usr.visible_message("<span class='notice'>[usr] [on ? "включает" : "выключает"] <b>[src.name]</b>.</span>", "<span class='notice'>[on ? "Включаю" : "Выключаю"] <b>[src.name]</b>.</span>")
 			update_icon()
 			if (on)
 				START_PROCESSING(SSmachines, src)

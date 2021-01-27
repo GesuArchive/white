@@ -15,10 +15,10 @@
  */
 
 /obj/structure/bookcase
-	name = "bookcase"
+	name = "книжный шкаф"
 	icon = 'icons/obj/library.dmi'
 	icon_state = "bookempty"
-	desc = "A great place for storing knowledge."
+	desc = "Отличное место для хранения знаний."
 	anchored = FALSE
 	density = TRUE
 	opacity = FALSE
@@ -36,16 +36,16 @@
 /obj/structure/bookcase/examine(mob/user)
 	. = ..()
 	if(!anchored)
-		. += "<hr><span class='notice'>The <i>bolts</i> on the bottom are unsecured.</span>"
+		. += "<hr><span class='notice'>Ох, он <i>откручен</i> от пола.</span>"
 	else
-		. += "<hr><span class='notice'>It's secured in place with <b>bolts</b>.</span>"
+		. += "<hr><span class='notice'>Он <b>прикручен</b> к полу.</span>"
 	switch(state)
 		if(BOOKCASE_UNANCHORED)
-			. += "<hr><span class='notice'>There's a <b>small crack</b> visible on the back panel.</span>"
+			. += "<hr><span class='notice'>Здесь есть <b>небольшая щель</b> сзади.</span>"
 		if(BOOKCASE_ANCHORED)
-			. += "<hr><span class='notice'>There's space inside for a <i>wooden</i> shelf.</span>"
+			. += "<hr><span class='notice'>Здесь есть место для <i>деревянной</i> полки внутри.</span>"
 		if(BOOKCASE_FINISHED)
-			. += "<hr><span class='notice'>There's a <b>small crack</b> visible on the shelf.</span>"
+			. += "<hr><span class='notice'>Здесь есть <b>небольшая щель</b> с краю.</span>"
 
 /obj/structure/bookcase/Initialize(mapload)
 	. = ..()
@@ -77,11 +77,11 @@
 		if(BOOKCASE_UNANCHORED)
 			if(I.tool_behaviour == TOOL_WRENCH)
 				if(I.use_tool(src, user, 20, volume=50))
-					to_chat(user, "<span class='notice'>You wrench the frame into place.</span>")
+					to_chat(user, "<span class='notice'>Прикручиваю рамку шкафа.</span>")
 					set_anchored(TRUE)
 			else if(I.tool_behaviour == TOOL_CROWBAR)
 				if(I.use_tool(src, user, 20, volume=50))
-					to_chat(user, "<span class='notice'>You pry the frame apart.</span>")
+					to_chat(user, "<span class='notice'>Разламываю рамку шкафа.</span>")
 					deconstruct(TRUE)
 
 		if(BOOKCASE_ANCHORED)
@@ -89,12 +89,12 @@
 				var/obj/item/stack/sheet/mineral/wood/W = I
 				if(W.get_amount() >= 2)
 					W.use(2)
-					to_chat(user, "<span class='notice'>You add a shelf.</span>")
+					to_chat(user, "<span class='notice'>Добавляю полку.</span>")
 					state = BOOKCASE_FINISHED
 					update_icon()
 			else if(I.tool_behaviour == TOOL_WRENCH)
 				I.play_tool_sound(src, 100)
-				to_chat(user, "<span class='notice'>You unwrench the frame.</span>")
+				to_chat(user, "<span class='notice'>Откручиваю рамку шкафа.</span>")
 				set_anchored(FALSE)
 
 		if(BOOKCASE_FINISHED)
@@ -107,25 +107,25 @@
 				for(var/obj/item/T in I.contents)
 					if(istype(T, /obj/item/book) || istype(T, /obj/item/spellbook))
 						STR.remove_from_storage(T, src)
-				to_chat(user, "<span class='notice'>You empty \the [I] into <b>[src.name]</b>.</span>")
+				to_chat(user, "<span class='notice'>Кладу [I.name] в <b>[src.name]</b>.</span>")
 				update_icon()
 			else if(istype(I, /obj/item/pen))
 				if(!user.is_literate())
-					to_chat(user, "<span class='notice'>You scribble illegibly on the side of [src]!</span>")
+					to_chat(user, "<span class='notice'>Пишу закорючки на стороне [src.name]! ХЕХ!</span>")
 					return
-				var/newname = stripped_input(user, "What would you like to title this bookshelf?")
+				var/newname = stripped_input(user, "Как назовём этот шкаф?")
 				if(!user.canUseTopic(src, BE_CLOSE))
 					return
 				if(!newname)
 					return
 				else
-					name = "bookcase ([sanitize(newname)])"
+					name = "книжный шкаф ([sanitize(newname)])"
 			else if(I.tool_behaviour == TOOL_CROWBAR)
 				if(contents.len)
-					to_chat(user, "<span class='warning'>You need to remove the books first!</span>")
+					to_chat(user, "<span class='warning'>Надо бы сначала вытащить все книги!</span>")
 				else
 					I.play_tool_sound(src, 100)
-					to_chat(user, "<span class='notice'>You pry the shelf out.</span>")
+					to_chat(user, "<span class='notice'>Вырываю полку.</span>")
 					new /obj/item/stack/sheet/mineral/wood(drop_location(), 2)
 					state = BOOKCASE_ANCHORED
 					update_icon()
@@ -143,7 +143,7 @@
 		create_random_books(books_to_load, src, FALSE, random_category)
 		load_random_books = FALSE
 	if(contents.len)
-		var/obj/item/book/choice = input(user, "Which book would you like to remove from the shelf?") as null|obj in sortNames(contents.Copy())
+		var/obj/item/book/choice = input(user, "Какую книгу возьмём?") as null|obj in sortNames(contents.Copy())
 		if(choice)
 			if(!(user.mobility_flags & MOBILITY_USE) || user.stat != CONSCIOUS || HAS_TRAIT(user, TRAIT_HANDS_BLOCKED) || !in_range(loc, user))
 				return
@@ -176,7 +176,7 @@
 
 
 /obj/structure/bookcase/manuals/engineering
-	name = "engineering manuals bookcase"
+	name = "книжный шкаф с инженерными инструкциями"
 
 /obj/structure/bookcase/manuals/engineering/Initialize()
 	. = ..()
@@ -189,7 +189,7 @@
 
 
 /obj/structure/bookcase/manuals/research_and_development
-	name = "\improper R&D manuals bookcase"
+	name = "книжный шкаф для руководств по исследованиям и разработкам"
 
 /obj/structure/bookcase/manuals/research_and_development/Initialize()
 	. = ..()
@@ -201,11 +201,11 @@
  * Book
  */
 /obj/item/book
-	name = "book"
+	name = "книга"
 	icon = 'icons/obj/library.dmi'
 	icon_state ="book"
 	worn_icon_state = "book"
-	desc = "Crack it open, inhale the musk of its pages, and learn something new."
+	desc = "Раскройте её, вдохните пыль с её страниц и узнайте что-то новое."
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_NORMAL		 //upped to three because books are, y'know, pretty big. (and you could hide them inside eachother recursively forever)
@@ -226,58 +226,58 @@
 	if(!user.can_read(src))
 		return
 	if(dat)
-		user << browse("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book[window_size != null ? ";size=[window_size]" : ""]")
-		user.visible_message("<span class='notice'>[user] opens a book titled \"[title]\" and begins reading intently.</span>")
+		user << browse("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><TT><I>Автор: [author].</I></TT> <BR>" + "[dat]", "window=book[window_size != null ? ";size=[window_size]" : ""]")
+		user.visible_message("<span class='notice'>[user] открывает \"[title]\" и начинает внимательно её изучать.</span>")
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "book_nerd", /datum/mood_event/book_nerd)
 		onclose(user, "book")
 	else
-		to_chat(user, "<span class='notice'>This book is completely blank!</span>")
+		to_chat(user, "<span class='notice'>Книга пустая!</span>")
 
 
 /obj/item/book/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/pen))
 		if(user.is_blind())
-			to_chat(user, "<span class='warning'>As you are trying to write on the book, you suddenly feel very stupid!</span>")
+			to_chat(user, "<span class='warning'>Когда я открываю книгу, внезапно возникает ощущение того, что чего-то мне не хватает и это не только глаз!</span>")
 			return
 		if(unique)
-			to_chat(user, "<span class='warning'>These pages don't seem to take the ink well! Looks like you can't modify it.</span>")
+			to_chat(user, "<span class='warning'>Страницы не принимают мои чернила совсем! Похоже, что дописать эту книгу у меня не выйдет.</span>")
 			return
 		var/literate = user.is_literate()
 		if(!literate)
-			to_chat(user, "<span class='notice'>You scribble illegibly on the cover of [src]!</span>")
+			to_chat(user, "<span class='notice'>Выцарапываю закорючки на обложке [src.name]!</span>")
 			return
-		var/choice = input("What would you like to change?") in list("Title", "Contents", "Author", "Cancel")
+		var/choice = input("Что меняем?") in list("Название", "Содержимое", "Автора", "Отмена")
 		if(!user.canUseTopic(src, BE_CLOSE, literate))
 			return
 		switch(choice)
-			if("Title")
-				var/newtitle = reject_bad_text(stripped_input(user, "Write a new title:"))
+			if("Название")
+				var/newtitle = reject_bad_text(stripped_input(user, "Новое название:"))
 				if(!user.canUseTopic(src, BE_CLOSE, literate))
 					return
-				if (length(newtitle) > 20)
-					to_chat(user, "<span class='warning'>That title won't fit on the cover!</span>")
+				if (length_char(newtitle) > 20)
+					to_chat(user, "<span class='warning'>Это слишком длинное название!</span>")
 					return
 				if(!newtitle)
-					to_chat(user, "<span class='warning'>That title is invalid.</span>")
+					to_chat(user, "<span class='warning'>Это название неправильное.</span>")
 					return
 				else
 					name = newtitle
 					title = newtitle
-			if("Contents")
-				var/content = stripped_input(user, "Write your book's contents (HTML NOT allowed):","","",8192)
+			if("Содержимое")
+				var/content = stripped_input(user, "Что мы сюда напишем? (HTML НЕ будет работать):","","",8192)
 				if(!user.canUseTopic(src, BE_CLOSE, literate))
 					return
 				if(!content)
-					to_chat(user, "<span class='warning'>The content is invalid.</span>")
+					to_chat(user, "<span class='warning'>Содержимое неправильное.</span>")
 					return
 				else
 					dat += content
-			if("Author")
-				var/newauthor = stripped_input(user, "Write the author's name:")
+			if("Автора")
+				var/newauthor = stripped_input(user, "Автор:")
 				if(!user.canUseTopic(src, BE_CLOSE, literate))
 					return
 				if(!newauthor)
-					to_chat(user, "<span class='warning'>The name is invalid.</span>")
+					to_chat(user, "<span class='warning'>Имя неправильное.</span>")
 					return
 				else
 					author = newauthor
@@ -287,37 +287,37 @@
 	else if(istype(I, /obj/item/barcodescanner))
 		var/obj/item/barcodescanner/scanner = I
 		if(!scanner.computer)
-			to_chat(user, "<span class='alert'>[I]'s screen flashes: 'No associated computer found!'</span>")
+			to_chat(user, "<span class='alert'>Экран [I.name] вспыхивает: 'Не привязан компьютер!'</span>")
 		else
 			switch(scanner.mode)
 				if(0)
 					scanner.book = src
-					to_chat(user, "<span class='notice'>[I]'s screen flashes: 'Book stored in buffer.'</span>")
+					to_chat(user, "<span class='notice'>Экран [I.name] вспыхивает: 'Книга сохранена в буфер.'</span>")
 				if(1)
 					scanner.book = src
 					scanner.computer.buffer_book = name
-					to_chat(user, "<span class='notice'>[I]'s screen flashes: 'Book stored in buffer. Book title stored in associated computer buffer.'</span>")
+					to_chat(user, "<span class='notice'>Экран [I.name] вспыхивает: 'Книга сохранена в буфер. Название книги теперь сохранено в буфере компьютера.'</span>")
 				if(2)
 					scanner.book = src
 					for(var/datum/borrowbook/b in scanner.computer.checkouts)
 						if(b.bookname == name)
 							scanner.computer.checkouts.Remove(b)
-							to_chat(user, "<span class='notice'>[I]'s screen flashes: 'Book stored in buffer. Book has been checked in.'</span>")
+							to_chat(user, "<span class='notice'>Экран [I.name] вспыхивает: 'Книга сохранена в буфер. Книга была зарегистрирована.'</span>")
 							return
-					to_chat(user, "<span class='notice'>[I]'s screen flashes: 'Book stored in buffer. No active check-out record found for current title.'</span>")
+					to_chat(user, "<span class='notice'>Экран [I.name] вспыхивает: 'Книга сохранена в буфер. Для текущего заголовка не найдено активных записей о выдаче.'</span>")
 				if(3)
 					scanner.book = src
 					for(var/obj/item/book in scanner.computer.inventory)
 						if(book == src)
-							to_chat(user, "<span class='alert'>[I]'s screen flashes: 'Book stored in buffer. Title already present in inventory, aborting to avoid duplicate entry.'</span>")
+							to_chat(user, "<span class='alert'>Экран [I.name] вспыхивает: 'Книга сохранена в буфер. Заголовок уже присутствует в инвентаре, прерывание во избежание дублирования записи.'</span>")
 							return
 					scanner.computer.inventory.Add(src)
-					to_chat(user, "<span class='notice'>[I]'s screen flashes: 'Book stored in buffer. Title added to general inventory.'</span>")
+					to_chat(user, "<span class='notice'>Экран [I.name] вспыхивает: 'Книга сохранена в буфер. Название добавлено в общий инвентарь.'</span>")
 
 	else if(istype(I, /obj/item/kitchen/knife) || I.tool_behaviour == TOOL_WIRECUTTER)
-		to_chat(user, "<span class='notice'>You begin to carve out [title]...</span>")
+		to_chat(user, "<span class='notice'>Начинаю резать [title]...</span>")
 		if(do_after(user, 30, target = src))
-			to_chat(user, "<span class='notice'>You carve out the pages from [title]! You didn't want to read it anyway.</span>")
+			to_chat(user, "<span class='notice'>Режу страницы [title]! Всё равно книги никто не читает.</span>")
 			var/obj/item/storage/book/B = new
 			B.name = src.name
 			B.title = src.title
@@ -339,10 +339,10 @@
  * Barcode Scanner
  */
 /obj/item/barcodescanner
-	name = "barcode scanner"
+	name = "сканер штрих-кода"
 	icon = 'icons/obj/library.dmi'
 	icon_state ="scanner"
-	desc = "A fabulous tool if you need to scan a barcode."
+	desc = "Отличный инструмент, если вам нужно отсканировать штрих-код."
 	throw_speed = 3
 	throw_range = 5
 	w_class = WEIGHT_CLASS_TINY
@@ -354,24 +354,24 @@
 	mode += 1
 	if(mode > 3)
 		mode = 0
-	to_chat(user, "[src] Status Display:")
+	to_chat(user, "Дисплей [src.name] сообщает:")
 	var/modedesc
 	switch(mode)
 		if(0)
-			modedesc = "Scan book to local buffer."
+			modedesc = "Сканировать книгу в локальный буфер."
 		if(1)
-			modedesc = "Scan book to local buffer and set associated computer buffer to match."
+			modedesc = "Сканировать книгу в локальный буфер и установить соответствующий буфер компьютера."
 		if(2)
-			modedesc = "Scan book to local buffer, attempt to check in scanned book."
+			modedesc = "Сканировать книгу в локальный буфер, попытка проверить отсканированную книгу."
 		if(3)
-			modedesc = "Scan book to local buffer, attempt to add book to general inventory."
+			modedesc = "Сканировать книгу в локальный буфер, попытаться добавить книгу в общий инвентарь."
 		else
-			modedesc = "ERROR"
-	to_chat(user, " - Mode [mode] : [modedesc]")
+			modedesc = "ОШИБКА"
+	to_chat(user, " - Режим [mode] : [modedesc]")
 	if(computer)
-		to_chat(user, "<font color=green>Computer has been associated with this unit.</font>")
+		to_chat(user, "<font color=green>Компьютер был связан с этим устройством.</font>")
 	else
-		to_chat(user, "<font color=red>No associated computer found. Only local scans will function properly.</font>")
+		to_chat(user, "<font color=red>Связанный компьютер не найден. Только локальное сканирование будет работать правильно.</font>")
 	to_chat(user, "\n")
 
 

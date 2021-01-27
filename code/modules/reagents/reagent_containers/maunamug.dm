@@ -78,12 +78,12 @@
 		to_chat(user, "<span class='warning'>The battery case must be open to insert a power cell!</span>")
 		return FALSE
 	if(cell)
-		to_chat(user, "<span class='warning'>There is already a power cell inside!</span>")
+		to_chat(user, "<span class='warning'>Внутри уже есть батарейка!</span>")
 		return FALSE
 	else if(!user.transferItemToLoc(I, src))
 		return
 	cell = I
-	user.visible_message("<span class='notice'>[user] inserts a power cell into [src].</span>", "<span class='notice'>You insert the power cell into [src].</span>")
+	user.visible_message("<span class='notice'>[user] inserts a power cell into [src].</span>", "<span class='notice'>Вставляю батарейку внутрь [src].</span>")
 	update_icon()
 
 /obj/item/reagent_containers/glass/maunamug/attack_hand(mob/living/user)

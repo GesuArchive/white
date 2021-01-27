@@ -139,7 +139,7 @@
 	else if (istype(O, /obj/item/disk/design_disk))
 		user.visible_message("<span class='notice'>[user] begins to load \the [O] in <b>[src.name]</b>...</span>",
 			"<span class='notice'>You begin to load a design from \the [O]...</span>",
-			"<span class='hear'>You hear the chatter of a floppy drive.</span>")
+			"<span class='hear'>Слышу стрёкот дискетника.</span>")
 		processing = TRUE
 		var/obj/item/disk/design_disk/D = O
 		if(do_after(user, 10, target = src))

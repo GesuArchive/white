@@ -8,8 +8,8 @@
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "sheater-off"
-	name = "space heater"
-	desc = "Made by Space Amish using traditional space techniques, this heater/cooler is guaranteed not to set the station on fire. Warranty void if used in engines."
+	name = "обогреватель"
+	desc = "Этот обогреватель/охладитель, сделанный космическими амишами с использованием традиционных космических технологий, гарантированно не подожжет станцию. Гарантия аннулируется при использовании в двигателях."
 	max_integrity = 250
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 100, FIRE = 80, ACID = 10)
 	circuit = /obj/item/circuitboard/machine/space_heater
@@ -50,13 +50,13 @@
 /obj/machinery/space_heater/examine(mob/user)
 	. = ..()
 	. += "<hr>"
-	. += "<b>[src.name]</b> is [on ? "on" : "off"], and the hatch is [panel_open ? "open" : "closed"]."
+	. += "<b>[capitalize(src.name)]</b> [on ? "включен" : "выключен"] и его техническая панель [panel_open ? "открыта" : "закрыта"]."
 	if(cell)
-		. += "</br>The charge meter reads [cell ? round(cell.percent(), 1) : 0]%."
+		. += "<hr>Заряд: [cell ? round(cell.percent(), 1) : 0]%."
 	else
-		. += "</br>There is no power cell installed."
+		. += "<hr>Внутри нет батарейки."
 	if(in_range(user, src) || isobserver(user))
-		. += "<hr><span class='notice'>Дисплей: Temperature range at <b>[settableTemperatureRange]°C</b>.<br>Heating power at <b>[siunit(heatingPower, "W", 1)]</b>.<br>Power consumption at <b>[(efficiency*-0.0025)+150]%</b>.</span>" //100%, 75%, 50%, 25%
+		. += "<hr><span class='notice'>Дисплей: Температурный диапазон <b>[settableTemperatureRange]°C</b>.<br>Сила нагрева <b>[siunit(heatingPower, "W", 1)]</b>.<br>Потребление <b>[(efficiency*-0.0025)+150]%</b>.</span>" //100%, 75%, 50%, 25%
 
 /obj/machinery/space_heater/update_icon_state()
 	if(on)
@@ -149,21 +149,21 @@
 	else if(istype(I, /obj/item/stock_parts/cell))
 		if(panel_open)
 			if(cell)
-				to_chat(user, "<span class='warning'>There is already a power cell inside!</span>")
+				to_chat(user, "<span class='warning'>Внутри уже есть батарейка!</span>")
 				return
 			else if(!user.transferItemToLoc(I, src))
 				return
 			cell = I
 			I.add_fingerprint(usr)
 
-			user.visible_message("<span class='notice'>\The [user] inserts a power cell into <b>[src.name]</b>.</span>", "<span class='notice'>You insert the power cell into <b>[src.name]</b>.</span>")
+			user.visible_message("<span class='notice'>[capitalize(user)] вставляет батарейку в <b>[src.name]</b>.</span>", "<span class='notice'>Вставляю батарейку внутрь <b>[src.name]</b>.</span>")
 			SStgui.update_uis(src)
 		else
-			to_chat(user, "<span class='warning'>The hatch must be open to insert a power cell!</span>")
+			to_chat(user, "<span class='warning'>Техническая панель должна быть открыта для вставки батарейки!</span>")
 			return
 	else if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		panel_open = !panel_open
-		user.visible_message("<span class='notice'>\The [user] [panel_open ? "opens" : "closes"] the hatch on <b>[src.name]</b>.</span>", "<span class='notice'>You [panel_open ? "open" : "close"] the hatch on <b>[src.name]</b>.</span>")
+		user.visible_message("<span class='notice'>[capitalize(user)] [panel_open ? "открывает" : "закрывает"] техническую панель <b>[src.name]</b>.</span>", "<span class='notice'>[panel_open ? "Открываю" : "Закрываю"] техническую панель <b>[src.name]</b>.</span>")
 		update_icon()
 	else if(default_deconstruction_crowbar(I))
 		return
@@ -210,7 +210,7 @@
 		if("power")
 			on = !on
 			mode = HEATER_MODE_STANDBY
-			usr.visible_message("<span class='notice'>[usr] switches [on ? "on" : "off"] <b>[src.name]</b>.</span>", "<span class='notice'>You switch [on ? "on" : "off"] <b>[src.name]</b>.</span>")
+			usr.visible_message("<span class='notice'>[usr] [on ? "включает" : "выключает"] <b>[src.name]</b>.</span>", "<span class='notice'>[on ? "Включаю" : "Выключаю"] <b>[src.name]</b>.</span>")
 			update_icon()
 			if (on)
 				START_PROCESSING(SSmachines, src)

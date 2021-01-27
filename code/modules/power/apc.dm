@@ -189,7 +189,7 @@
 		area = get_area(src)
 		opened = APC_COVER_OPENED
 		operating = FALSE
-		name = "\improper [get_area_name(area, TRUE)] APC"
+		name = "энергощиток"
 		set_machine_stat(machine_stat | MAINT)
 		update_icon()
 		addtimer(CALLBACK(src, .proc/update), 5)
@@ -271,7 +271,9 @@
 	if(machine_stat & BROKEN)
 		return
 	. += "<hr>"
-	. += "</br>Заряд: [cell.percent()]%"
+	. += "Отвечает за зону: <i>[get_area_name(area, TRUE)]</i>"
+	. += "<hr>"
+	. += "Заряд: [cell.percent()]%"
 	if(opened)
 		if(has_electronics && terminal)
 			. += "</br>Крышка [opened==APC_COVER_REMOVED?"снята":"открыта"] и батарея [ cell ? "установлена" : "отсутствует"]."
@@ -286,7 +288,7 @@
 		else
 			. += "</br>Крышка закрыта."
 
-	. += "</br><span class='notice'>Alt-Клик на энергощитке чтобы [ locked ? "разблокировать" : "заблокировать"] его интерфейс.</span>"
+	. += "<hr><span class='notice'>Alt-Клик на энергощитке чтобы [ locked ? "разблокировать" : "заблокировать"] его интерфейс.</span>"
 
 	if(issilicon(user))
 		. += "</br><span class='notice'>Ctrl-Клик на энергощитке чтобы переключить питание в состояние [ operating ? "выкл" : "вкл"].</span>"

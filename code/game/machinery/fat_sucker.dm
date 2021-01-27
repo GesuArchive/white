@@ -1,6 +1,6 @@
 /obj/machinery/fat_sucker
-	name = "lipid extractor"
-	desc = "Safely and efficiently extracts excess fat from a subject."
+	name = "экстрактор липидов"
+	desc = "Безопасно и эффективно удаляет лишний жир."
 	icon = 'icons/obj/machines/fat_sucker.dmi'
 	icon_state = "fat"
 	circuit = /obj/item/circuitboard/machine/fat_sucker
@@ -19,12 +19,12 @@
 
 	var/next_fact = 10 //in ticks, so about 20 seconds
 	var/static/list/fat_facts = list(\
-	"Fats are triglycerides made up of a combination of different building blocks; glycerol and fatty acids.", \
-	"Adults should get a recommended 20-35% of their energy intake from fat.", \
-	"Being overweight or obese puts you at an increased risk of chronic diseases, such as cardiovascular diseases, metabolic syndrome, type 2 diabetes and some types of cancers.", \
-	"Not all fats are bad. A certain amount of fat is an essential part of a healthy balanced diet. " , \
-	"Saturated fat should form no more than 11% of your daily calories.", \
-	"Unsaturated fat, that is monounsaturated fats, polyunsaturated fats and omega-3 fatty acids, is found in plant foods and fish." \
+	"Жиры - это триглицериды, состоящие из комбинации различных строительных блоков; глицерин и жирные кислоты.", \
+	"Взрослые должны получать 20-35% своей калорийности из жиров.", \
+	"Избыточный вес или ожирение подвергают вас повышенному риску хронических заболеваний, таких как сердечно-сосудистые заболевания, метаболический синдром, диабет 2 типа и некоторые виды рака.", \
+	"Не все жиры плохие. Определенное количество жира - важная часть здорового сбалансированного питания. " , \
+	"Насыщенные жиры должны составлять не более 11% ваших ежедневных калорий.", \
+	"Ненасыщенные жиры, то есть мононенасыщенные жиры, полиненасыщенные жиры и жирные кислоты омега-3, содержатся в растительной пище и рыбе." \
 	)
 
 /obj/machinery/fat_sucker/Initialize()
@@ -42,13 +42,13 @@
 
 /obj/machinery/fat_sucker/examine(mob/user)
 	. = ..()
-	. += {"<hr><span class='notice'>Alt-click to toggle the safety hatch.</span>
-				<span class='notice'>Removing [bite_size] nutritional units per operation.</span>
-				<span class='notice'>Requires [nutrient_to_meat] nutritional units per meat slab.</span>"}
+	. += {"<hr><span class='notice'>Alt-клик для разблокировки или блокировки люка.</span>
+				<span class='notice'>Удаляем [bite_size] единиц питательных веществ за операцию.</span>
+				<span class='notice'>Требует [nutrient_to_meat] единиц питательных веществ на кусок мяса.</span>"}
 
 /obj/machinery/fat_sucker/close_machine(mob/user)
 	if(panel_open)
-		to_chat(user, "<span class='warning'>You need to close the maintenance hatch first!</span>")
+		to_chat(user, "<span class='warning'>Нужно закрыть техническую панель сначала!</span>")
 		return
 	..()
 	playsound(src, 'sound/machines/click.ogg', 50)
@@ -57,7 +57,7 @@
 			occupant.forceMove(drop_location())
 			set_occupant(null)
 			return
-		to_chat(occupant, "<span class='notice'>You enter [src].</span>")
+		to_chat(occupant, "<span class='notice'>Вхожу в [src.name].</span>")
 		addtimer(CALLBACK(src, .proc/start_extracting), 20, TIMER_OVERRIDE|TIMER_UNIQUE)
 		update_icon()
 
@@ -70,18 +70,18 @@
 
 /obj/machinery/fat_sucker/container_resist_act(mob/living/user)
 	if(!free_exit || state_open)
-		to_chat(user, "<span class='notice'>The emergency release is not responding! You start pushing against the hull!</span>")
+		to_chat(user, "<span class='notice'>Аварийный выход не работает! СЕЙЧАС БУДУ ЛОМАТЬ ЭТО ВСЁ!!!</span>")
 		user.changeNext_move(CLICK_CD_BREAKOUT)
 		user.last_special = world.time + CLICK_CD_BREAKOUT
-		user.visible_message("<span class='notice'>You see [user] kicking against the door of [src]!</span>", \
-			"<span class='notice'>You lean on the back of [src] and start pushing the door open... (this will take about [DisplayTimeText(breakout_time)].)</span>", \
-			"<span class='hear'>You hear a metallic creaking from [src].</span>")
+		user.visible_message("<span class='notice'>[user] пытается выломать дверь [src.name]!</span>", \
+			"<span class='notice'>Упираюсь в стенку [src.name] и начинаю выдавливать дверь... (это займёт примерно [DisplayTimeText(breakout_time)].)</span>", \
+			"<span class='hear'>Слышу металлический стук исходящий из [src.name].</span>")
 		if(do_after(user, breakout_time, target = src))
 			if(!user || user.stat != CONSCIOUS || user.loc != src || state_open)
 				return
 			free_exit = TRUE
-			user.visible_message("<span class='warning'>[user] successfully broke out of [src]!</span>", \
-				"<span class='notice'>You successfully break out of [src]!</span>")
+			user.visible_message("<span class='warning'>[user] успешно вырывается из [src.name]!</span>", \
+				"<span class='notice'>Успешно вырываюсь из [src.name]!</span>")
 			open_machine()
 		return
 	open_machine()
@@ -92,19 +92,19 @@
 	else if(!processing || free_exit)
 		open_machine()
 	else
-		to_chat(user, "<span class='warning'>The safety hatch has been disabled!</span>")
+		to_chat(user, "<span class='warning'>Люк отключен!</span>")
 
 /obj/machinery/fat_sucker/AltClick(mob/living/user)
 	if(!user.canUseTopic(src, BE_CLOSE))
 		return
 	if(user == occupant)
-		to_chat(user, "<span class='warning'>You can't reach the controls from inside!</span>")
+		to_chat(user, "<span class='warning'>Не могу достать до панели управления изнутри!</span>")
 		return
 	if(!(obj_flags & EMAGGED) && !allowed(user))
-		to_chat(user, "<span class='warning'>You lack the required access.</span>")
+		to_chat(user, "<span class='warning'>Доступ не подходит.</span>")
 		return
 	free_exit = !free_exit
-	to_chat(user, "<span class='notice'>Safety hatch [free_exit ? "unlocked" : "locked"].</span>")
+	to_chat(user, "<span class='notice'>Люк [free_exit ? "разблокирован" : "заблокирован"].</span>")
 
 /obj/machinery/fat_sucker/update_overlays()
 	. = ..()
@@ -162,7 +162,7 @@
 			update_icon()
 			set_light(2, 1, "#ff0000")
 		else
-			say("Subject not fat enough.")
+			say("Пациент недостаточно жирный.")
 			playsound(src, 'sound/machines/buzz-sigh.ogg', 40, FALSE)
 			overlays += "[icon_state]_red" //throw a red light icon over it, to show that it won't work
 
@@ -192,10 +192,10 @@
 	if(..())
 		return
 	if(occupant)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] is currently occupied!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] уже занят!</span>")
 		return
 	if(state_open)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] must be closed to [panel_open ? "close" : "open"] its maintenance hatch!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] имеет [panel_open ? "закрытую" : "открытую"] техническую панель!</span>")
 		return
 	if(default_deconstruction_screwdriver(user, icon_state, icon_state, I))
 		update_icon()
@@ -211,5 +211,5 @@
 		return
 	start_at = 100
 	stop_at = 0
-	to_chat(user, "<span class='notice'>You remove the access restrictions and lower the automatic ejection threshold!</span>")
+	to_chat(user, "<span class='notice'>Снимаю ограничения доступа и понижаю порог автоматического выброса!</span>")
 	obj_flags |= EMAGGED

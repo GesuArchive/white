@@ -138,7 +138,7 @@
 	var/area/scrub_area = get_area(src)
 	if(!GLOB.air_scrub_names[id_tag])
 		// If we do not have a name, assign one
-		name = "фильтр [scrub_area.name] [id_tag]"
+		name = "фильтр [id_tag]"
 		GLOB.air_scrub_names[id_tag] = name
 
 	scrub_area.air_scrub_info[id_tag] = signal.data
@@ -295,6 +295,8 @@
 
 /obj/machinery/atmospherics/components/unary/vent_scrubber/examine(mob/user)
 	. = ..()
+	. += "<hr>"
+	. += "Отвечает за зону: <i>[get_area_name(area, TRUE)]</i>"
 	if(welded)
 		. += "<hr>Заварен!"
 

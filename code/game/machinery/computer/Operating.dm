@@ -2,8 +2,8 @@
 #define MENU_SURGERIES 2
 
 /obj/machinery/computer/operating
-	name = "operating computer"
-	desc = "Monitors patient vitals and displays surgery steps. Can be loaded with surgery disks to perform experimental procedures. Automatically syncs to stasis beds within its line of sight for surgical tech advancement."
+	name = "операционный компьютер"
+	desc = "Контролирует жизненно важные функции пациента и отображает этапы операции. Может быть загружен хирургическими дисками для выполнения экспериментальных процедур. Автоматически синхронизируется со стазис-кроватями в пределах прямой видимости для улучшения хирургических технологий."
 	icon_screen = "crew"
 	icon_keyboard = "med_key"
 	circuit = /obj/item/circuitboard/computer/operating
@@ -33,9 +33,9 @@
 
 /obj/machinery/computer/operating/attackby(obj/item/O, mob/user, params)
 	if(istype(O, /obj/item/disk/surgery))
-		user.visible_message("<span class='notice'>[user] begins to load \the [O] in <b>[src.name]</b>...</span>", \
-			"<span class='notice'>You begin to load a surgery protocol from \the [O]...</span>", \
-			"<span class='hear'>You hear the chatter of a floppy drive.</span>")
+		user.visible_message("<span class='notice'>[user] начинает загружать [O] в <b>[src.name]</b>...</span>", \
+			"<span class='notice'>Начинаю загружать хирургические протоколы с [O]...</span>", \
+			"<span class='hear'>Слышу стрёкот дискетника.</span>")
 		var/obj/item/disk/surgery/D = O
 		if(do_after(user, 10, target = src))
 			advanced_surgeries |= D.surgeries
@@ -99,16 +99,16 @@
 			return data
 	switch(patient.stat)
 		if(CONSCIOUS)
-			data["patient"]["stat"] = "Conscious"
+			data["patient"]["stat"] = "В сознании"
 			data["patient"]["statstate"] = "good"
 		if(SOFT_CRIT)
-			data["patient"]["stat"] = "Conscious"
+			data["patient"]["stat"] = "В сознании"
 			data["patient"]["statstate"] = "average"
 		if(UNCONSCIOUS, HARD_CRIT)
-			data["patient"]["stat"] = "Unconscious"
+			data["patient"]["stat"] = "Без сознания"
 			data["patient"]["statstate"] = "average"
 		if(DEAD)
-			data["patient"]["stat"] = "Dead"
+			data["patient"]["stat"] = "Мёртв"
 			data["patient"]["statstate"] = "bad"
 	data["patient"]["health"] = patient.health
 	data["patient"]["blood_type"] = patient.dna.blood_type
@@ -131,7 +131,7 @@
 					alternative_step = capitalize(next_step.name)
 					alt_chems_needed = next_step.get_chem_list()
 				else
-					alternative_step = "Finish operation"
+					alternative_step = "Завершить операцию"
 			data["procedures"] += list(list(
 				"name" = capitalize("[parse_zone(procedure.location)] [procedure.name]"),
 				"next_step" = capitalize(surgery_step.name),

@@ -224,9 +224,6 @@
 		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
 		pixel_y = (dir & 3)? (dir == 1 ? -24 : 24) : 0
 
-	if(name == initial(name))
-		name = "Контроллер Воздуха [get_area_name(src)]"
-
 	update_icon()
 
 	apply_mode(src)
@@ -243,6 +240,8 @@
 
 /obj/machinery/airalarm/examine(mob/user)
 	. = ..()
+	. += "<hr>"
+	. += "Отвечает за зону: <i>[get_area_name(src)]</i>"
 	. += "<hr>"
 	switch(buildstage)
 		if(0)

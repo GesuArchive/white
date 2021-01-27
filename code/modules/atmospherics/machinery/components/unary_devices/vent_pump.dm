@@ -205,7 +205,7 @@
 	if(!GLOB.air_vent_names[id_tag])
 		// If we do not have a name, assign one.
 		// Produces names like "Port Quarter Solar vent pump hZ2l6".
-		name = "вентиляция [vent_area.name] [id_tag]"
+		name = "вентиляция [id_tag]"
 		GLOB.air_vent_names[id_tag] = name
 
 	vent_area.air_vent_info[id_tag] = signal.data
@@ -322,6 +322,8 @@
 
 /obj/machinery/atmospherics/components/unary/vent_pump/examine(mob/user)
 	. = ..()
+	. += "<hr>"
+	. += "Отвечает за зону: <i>[get_area_name(area, TRUE)]</i>"
 	if(welded)
 		. += "<hr>Она заварена намертво."
 

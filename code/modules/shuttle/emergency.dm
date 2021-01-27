@@ -12,8 +12,8 @@
 #define HIJACKED 5
 
 /obj/machinery/computer/emergency_shuttle
-	name = "emergency shuttle console"
-	desc = "For shuttle control."
+	name = "консоль эвакуационного шаттла"
+	desc = "Для управления шаттлом. А вы что подумали?"
 	icon_screen = "shuttle"
 	icon_keyboard = "tech_key"
 	resistance_flags = INDESTRUCTIBLE
@@ -31,16 +31,16 @@
 /obj/machinery/computer/emergency_shuttle/examine(mob/user)
 	. = ..()
 	if(hijack_announce)
-		. += "<hr><span class='danger'>Security systems present on console. Any unauthorized tampering will result in an emergency announcement.</span>"
+		. += "<hr><span class='danger'>Системы безопасности присутствуют на консоли. Любое несанкционированное вмешательство приведет к экстренному объявлению.</span>"
 	if(user?.mind?.get_hijack_speed())
-		. += "<hr><span class='danger'>Alt click on this to attempt to hijack the shuttle. This will take multiple tries (current: stage [SSshuttle.emergency.hijack_status]/[HIJACKED]).</span>"
-		. += "\n<span class='notice'>It will take you [(hijack_stage_time * user.mind.get_hijack_speed()) / 10] seconds to reprogram a stage of the shuttle's navigational firmware, and the console will undergo automated timed lockout for [hijack_stage_cooldown/10] seconds after each stage.</span>"
+		. += "<hr><span class='danger'>Alt-клик чтобы попытаться угнать шаттл. Это займёт несколько попыток (текущая: стадия [SSshuttle.emergency.hijack_status]/[HIJACKED]).</span>"
+		. += "\n<span class='notice'>Это займёт примерно [(hijack_stage_time * user.mind.get_hijack_speed()) / 10] секунд для перепрограммирования навигационной прошивки, консоль также будет включать протоколы защиты на [hijack_stage_cooldown/10] секунд после каждого этапа.</span>"
 		if(hijack_announce)
-			. += "\n<span class='warning'>It is probably best to fortify your position as to be uninterrupted during the attempt, given the automatic announcements..</span>"
+			. += "\n<span class='warning'>Вероятно, лучше всего укрепить свою позицию, чтобы вас не прерывали во время попыток, учитывая автоматические объявления...</span>"
 
 /obj/machinery/computer/emergency_shuttle/attackby(obj/item/I, mob/user,params)
 	if(istype(I, /obj/item/card/id))
-		say("Please equip your ID card into your ID slot to authenticate.")
+		say("Пожалуйста, вставьте свою ID-карту в слот для ID для аутентификации.")
 	. = ..()
 
 /obj/machinery/computer/emergency_shuttle/ui_state(mob/user)
@@ -173,7 +173,7 @@
 	if((authorized.len >= auth_need) || (obj_flags & EMAGGED))
 		// shuttle timers use 1/10th seconds internally
 		SSshuttle.emergency.setTimer(ENGINES_START_TIME)
-		var/system_error = obj_flags & EMAGGED ? "СИСТЕМНАЯ ОШИБКА:" : null
+		var/system_error = obj_flags & EMAGGED ? "СИСТЕМНАЯ ОШИБКА" : null
 		minor_announce("Эвакуационный шаттл запустится через \
 			[TIME_LEFT] секунд", system_error, alert=TRUE)
 		. = TRUE
@@ -540,9 +540,9 @@
 				var/destination_dock = "emergency_away"
 				if(is_hijacked() || elimination_hijack())
 					destination_dock = "emergency_syndicate"
-					minor_announce("Corruption detected in \
-						shuttle navigation protocols. Please contact your \
-						supervisor.", "SYSTEM ERROR:", alert=TRUE)
+					minor_announce("Нарушение обнаружено в \
+						протоколах навигации шаттла. Пожалуйста, свяжитесь с вашим \
+						руководителем.", "СИСТЕМНАЯ ОШИБКА", alert=TRUE)
 
 				dock_id(destination_dock)
 				mode = SHUTTLE_ENDGAME
@@ -560,7 +560,7 @@
 
 
 /obj/docking_port/mobile/pod
-	name = "escape pod"
+	name = "эвакуационный под"
 	id = "pod"
 	dwidth = 1
 	width = 3
@@ -576,14 +576,14 @@
 			launch_status = EARLY_LAUNCHED
 			return ..()
 	else
-		to_chat(usr, "<span class='warning'>Escape pods will only launch during \"Code Red\" security alert.</span>")
+		to_chat(usr, "<span class='warning'>Эвакуационный под запустится только при уровне \"Красной\" тревоги или выше.</span>")
 		return TRUE
 
 /obj/docking_port/mobile/pod/cancel()
 	return
 
 /obj/machinery/computer/shuttle/pod
-	name = "pod control computer"
+	name = "консоль управления подом"
 	locked = TRUE
 	possible_destinations = "pod_asteroid"
 	icon = 'icons/obj/terminals.dmi'
@@ -599,14 +599,14 @@
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
-	to_chat(user, "<span class='warning'>You fry the pod's alert level checking system.</span>")
+	to_chat(user, "<span class='warning'>Сжигаю систему проверки уровня тревоги.</span>")
 
 /obj/machinery/computer/shuttle/pod/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	. = ..()
 	possible_destinations += ";[port.id]_lavaland"
 
 /obj/docking_port/stationary/random
-	name = "escape pod"
+	name = "эвакуационный под"
 	id = "pod"
 	dwidth = 1
 	width = 3
@@ -644,23 +644,23 @@
 
 
 /obj/item/clothing/head/helmet/space/orange
-	name = "emergency космошлем"
+	name = "аварийный космошлем"
 	icon_state = "syndicate-helm-orange"
 	inhand_icon_state = "syndicate-helm-orange"
 
 /obj/item/clothing/suit/space/orange
-	name = "emergency скафандр"
+	name = "аварийный скафандр"
 	icon_state = "syndicate-orange"
 	inhand_icon_state = "syndicate-orange"
 	slowdown = 3
 
 /obj/item/pickaxe/emergency
-	name = "emergency disembarkation tool"
-	desc = "For extracting yourself from rough landings."
+	name = "аварийный высадочный инструмент"
+	desc = "Для спасения от грубых приземлений."
 
 /obj/item/storage/pod
-	name = "emergency space suits"
-	desc = "A wall mounted safe containing space suits. Will only open in emergencies."
+	name = "аварийные скафандры"
+	desc = "Настенный сейф со скафандрами. Открывается только в экстренных случаях."
 	anchored = TRUE
 	density = FALSE
 	icon = 'icons/obj/storage.dmi'
@@ -704,10 +704,10 @@
 		return FALSE
 	if(GLOB.security_level >= SEC_LEVEL_RED || unlocked)
 		return TRUE
-	to_chat(user, "The storage unit will only unlock during a Red or Delta security alert.")
+	to_chat(user, "Блок хранения разблокируется только во время предупреждения системы безопасности Красного или Дельта кода.")
 
 /obj/docking_port/mobile/emergency/backup
-	name = "backup shuttle"
+	name = "запасной шаттл"
 	id = "backup"
 	dwidth = 2
 	width = 8
