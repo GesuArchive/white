@@ -350,7 +350,7 @@
 
 	if(mag.ammo_count(FALSE))
 		living_pawn.say("Магазин пустой.")
-		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(RIGHT_HANDS), force = TRUE)
+		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(LEFT_HANDS), force = TRUE)
 		return
 
 	living_pawn.put_in_l_hand(mag)
