@@ -222,6 +222,10 @@
 	. = ..()
 	if(dir == SOUTH)
 		layer = ABOVE_MOB_LAYER
+	var/turf/T = get_turf(src)
+	for(var/mob/M in T)
+		dir = M.dir
+		return
 
 /obj/structure/poop_barricade/attackby(obj/item/I, mob/living/user, params)
 	..()
