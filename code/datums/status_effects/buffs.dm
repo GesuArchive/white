@@ -168,7 +168,7 @@
 		slashy.attack(M, owner)
 
 /datum/status_effect/sword_spin/on_remove()
-	owner.visible_message("<span class='warning'>[owner]'s inhuman strength dissipates and the sword's runes grow cold!</span>")
+	owner.visible_message("<span class='warning'>[owner] inhuman strength dissipates and the sword's runes grow cold!</span>")
 
 
 //Used by changelings to rapidly heal
@@ -301,7 +301,7 @@
 				SM.adjustHealth(-3.5, forced = TRUE)
 
 /datum/status_effect/hippocratic_oath/proc/consume_owner()
-	owner.visible_message("<span class='notice'>[owner]'s soul is absorbed into the rod, relieving the previous snake of its duty.</span>")
+	owner.visible_message("<span class='notice'>[owner] soul is absorbed into the rod, relieving the previous snake of its duty.</span>")
 	var/mob/living/simple_animal/hostile/retaliate/poison/snake/healSnake = new(owner.loc)
 	var/list/chems = list(/datum/reagent/medicine/sal_acid, /datum/reagent/medicine/c2/convermol, /datum/reagent/medicine/oxandrolone)
 	healSnake.poison_type = pick(chems)
@@ -366,7 +366,7 @@
 
 /datum/status_effect/antimagic/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_ANTIMAGIC, MAGIC_TRAIT)
-	owner.visible_message("<span class='warning'>[owner]'s dull aura fades away...</span>")
+	owner.visible_message("<span class='warning'>[owner] dull aura fades away...</span>")
 
 /datum/status_effect/crucible_soul
 	id = "Blessing of Crucible Soul"

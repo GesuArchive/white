@@ -191,7 +191,7 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 		if(!(machine_stat & BROKEN))
 			verted = verted * -1
 			update_move_direction()
-			to_chat(user, "<span class='notice'>You reverse [src]'s direction.</span>")
+			to_chat(user, "<span class='notice'>You reverse [src] direction.</span>")
 
 	else if(user.a_intent != INTENT_HARM)
 		user.transferItemToLoc(I, drop_location())

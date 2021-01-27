@@ -46,7 +46,7 @@
 
 		if(user && !user.temporarilyRemoveItemFromInventory(I))
 			return FALSE
-		to_chat(user, "<span class='notice'>You insert \the [I] into [src]'s paper recycler.</span>")
+		to_chat(user, "<span class='notice'>You insert \the [I] into [src] paper recycler.</span>")
 		qdel(I)
 		stored_paper++
 		return TRUE

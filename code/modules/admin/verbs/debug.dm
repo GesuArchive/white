@@ -267,7 +267,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	var/client/newkey = input(src, "Pick the player to put in control.", "New player") as null|anything in sortList(GLOB.clients)
 	var/mob/oldmob = newkey.mob
 	var/delmob = FALSE
-	if((isobserver(oldmob) || alert("Do you want to delete [newkey]'s old mob?","Delete?","Yes","No") != "No"))
+	if((isobserver(oldmob) || alert("Do you want to delete [newkey] old mob?","Delete?","Yes","No") != "No"))
 		delmob = TRUE
 	if(!M || QDELETED(M))
 		to_chat(usr, "<span class='warning'>The target mob no longer exists, aborting.</span>")

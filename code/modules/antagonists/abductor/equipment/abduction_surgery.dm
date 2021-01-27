@@ -27,16 +27,16 @@
 		if(A.type in organ_types)
 			IC = A
 			break
-	user.visible_message("<span class='notice'>[user] starts to remove [target]'s organs.</span>", "<span class='notice'>You start to remove [target]'s organs...</span>")
+	user.visible_message("<span class='notice'>[user] starts to remove [target] organs.</span>", "<span class='notice'>You start to remove [target] organs...</span>")
 
 /datum/surgery_step/extract_organ/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(IC)
-		user.visible_message("<span class='notice'>[user] pulls [IC] out of [target]'s [target_zone]!</span>", "<span class='notice'>You pull [IC] out of [target]'s [target_zone].</span>")
+		user.visible_message("<span class='notice'>[user] pulls [IC] out of [target] [target_zone]!</span>", "<span class='notice'>You pull [IC] out of [target] [target_zone].</span>")
 		user.put_in_hands(IC)
 		IC.Remove(target)
 		return 1
 	else
-		to_chat(user, "<span class='warning'>You don't find anything in [target]'s [target_zone]!</span>")
+		to_chat(user, "<span class='warning'>You don't find anything in [target] [target_zone]!</span>")
 		return 1
 
 /datum/surgery_step/gland_insert

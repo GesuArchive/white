@@ -173,7 +173,7 @@
 			var/obj/machinery/power/apc/target = locate(ref) in GLOB.apcs_list
 			target.toggle_breaker()
 			var/setTo = target.operating ? "On" : "Off"
-			log_activity("Turned APC [target.area.name]'s breaker [setTo]")
+			log_activity("Turned APC [target.area.name] breaker [setTo]")
 
 /obj/machinery/computer/apc_control/emag_act(mob/user)
 	if(obj_flags & EMAGGED)

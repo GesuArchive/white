@@ -26,13 +26,13 @@
 		return
 	var/obj/item/multitool/M = I
 	M.buffer = src
-	to_chat(user, "<span class='notice'>You store linkage information in [I]'s buffer.</span>")
+	to_chat(user, "<span class='notice'>You store linkage information in [I] buffer.</span>")
 	return TRUE
 
 /obj/machinery/ticket_machine/emag_act(mob/user) //Emag the ticket machine to dispense burning tickets, as well as randomize its number to destroy the HoP's mind.
 	if(obj_flags & EMAGGED)
 		return
-	to_chat(user, "<span class='warning'>You overload [src]'s bureaucratic logic circuitry to its MAXIMUM setting.</span>")
+	to_chat(user, "<span class='warning'>You overload [src] bureaucratic logic circuitry to its MAXIMUM setting.</span>")
 	ticket_number = rand(0,max_number)
 	current_number = ticket_number
 	obj_flags |= EMAGGED
@@ -142,7 +142,7 @@
 		if(!(ticket_number >= max_number))
 			to_chat(user, "<span class='notice'>[capitalize(src.name)] refuses [I]! There [max_number-ticket_number==1 ? "is" : "are"] still [max_number-ticket_number] ticket\s left!</span>")
 			return
-		to_chat(user, "<span class='notice'>You start to refill [src]'s ticket holder (doing this will reset its ticket count!).</span>")
+		to_chat(user, "<span class='notice'>You start to refill [src] ticket holder (doing this will reset its ticket count!).</span>")
 		if(do_after(user, 30, target = src))
 			to_chat(user, "<span class='notice'>You insert [I] into [src] as it whirs nondescriptly.</span>")
 			qdel(I)

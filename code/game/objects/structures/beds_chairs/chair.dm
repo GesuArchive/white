@@ -435,7 +435,7 @@
 		"<span class='notice'>Automated spinny chairs. The pinnacle of ancient Ratvarian technology.</span>")
 		START_PROCESSING(SSfastprocess, src)
 	else
-		user.visible_message("<span class='notice'>[user] stops [src]'s uncontrollable spinning.</span>", \
+		user.visible_message("<span class='notice'>[user] stops [src] uncontrollable spinning.</span>", \
 		"<span class='notice'>You grab [src] and stop its wild spinning.</span>")
 		STOP_PROCESSING(SSfastprocess, src)
 

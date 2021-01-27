@@ -21,7 +21,7 @@
 
 	if(selected_io)
 		if(io == selected_io)
-			to_chat(user, "<span class='warning'>Wiring \the [selected_io.holder]'s [selected_io.name] into itself is rather pointless.</span>")
+			to_chat(user, "<span class='warning'>Wiring \the [selected_io.holder] [selected_io.name] into itself is rather pointless.</span>")
 			return
 		if(io.io_type != selected_io.io_type)
 			to_chat(user, "<span class='warning'>Those two types of channels are incompatible.  The first is a [selected_io.io_type], \
@@ -32,13 +32,13 @@
 			return
 		io.connect_pin(selected_io)
 
-		to_chat(user, "<span class='notice'>You connect \the [selected_io.holder]'s [selected_io.name] to \the [io.holder]'s [io.name].</span>")
+		to_chat(user, "<span class='notice'>You connect \the [selected_io.holder] [selected_io.name] to \the [io.holder] [io.name].</span>")
 		selected_io.holder.interact(user) // This is to update the UI.
 		selected_io = null
 
 	else
 		selected_io = io
-		to_chat(user, "<span class='notice'>You link \the multitool to \the [selected_io.holder]'s [selected_io.name] data channel.</span>")
+		to_chat(user, "<span class='notice'>You link \the multitool to \the [selected_io.holder] [selected_io.name] data channel.</span>")
 
 	update_icon()
 
@@ -53,8 +53,8 @@
 		return
 	else
 		io1.disconnect_pin(io2)
-		to_chat(user, "<span class='notice'>You clip the data connection between the [io1.holder.displayed_name]'s \
-		[io1.name] and the [io2.holder.displayed_name]'s [io2.name].</span>")
+		to_chat(user, "<span class='notice'>You clip the data connection between the [io1.holder.displayed_name] \
+		[io1.name] and the [io2.holder.displayed_name] [io2.name].</span>")
 		io1.holder.interact(user) // This is to update the UI.
 		update_icon()
 

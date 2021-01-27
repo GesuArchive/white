@@ -187,7 +187,7 @@
 		to_chat(L,"<span class='notice'>[GLOB.deity] does not accept pity amounts of power.</span>")
 		return
 	adjust_favor(round(the_cell.charge/300), L)
-	to_chat(L, "<span class='notice'>You offer [the_cell]'s power to [GLOB.deity], pleasing them.</span>")
+	to_chat(L, "<span class='notice'>You offer [the_cell] power to [GLOB.deity], pleasing them.</span>")
 	qdel(I)
 	return TRUE
 
@@ -213,7 +213,7 @@
 	if(!offering.lit)
 		to_chat(user, "<span class='notice'>The candle needs to be lit to be offered!</span>")
 		return
-	to_chat(user, "<span class='notice'>Another candle for [GLOB.deity]'s collection</span>")
+	to_chat(user, "<span class='notice'>Another candle for [GLOB.deity] collection</span>")
 	adjust_favor(20, user) //it's not a lot but hey there's a pacifist favor option at least
 	qdel(offering)
 	return TRUE

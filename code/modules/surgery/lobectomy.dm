@@ -22,7 +22,7 @@
 	time = 42
 
 /datum/surgery_step/lobectomy/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You begin to make an incision in [target]'s lungs...</span>",
+	display_results(user, target, "<span class='notice'>You begin to make an incision in [target] lungs...</span>",
 		"<span class='notice'>[user] begins to make an incision in [target].</span>",
 		"<span class='notice'>[user] begins to make an incision in [target].</span>")
 
@@ -32,15 +32,15 @@
 		var/obj/item/organ/lungs/L = H.getorganslot(ORGAN_SLOT_LUNGS)
 		L.operated = TRUE
 		H.setOrganLoss(ORGAN_SLOT_LUNGS, 60)
-		display_results(user, target, "<span class='notice'>You successfully excise [H]'s most damaged lobe.</span>",
-			"<span class='notice'>Successfully removes a piece of [H]'s lungs.</span>",
+		display_results(user, target, "<span class='notice'>You successfully excise [H] most damaged lobe.</span>",
+			"<span class='notice'>Successfully removes a piece of [H] lungs.</span>",
 			"")
 	return ..()
 
 /datum/surgery_step/lobectomy/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		display_results(user, target, "<span class='warning'>You screw up, failing to excise [H]'s damaged lobe!</span>",
+		display_results(user, target, "<span class='warning'>You screw up, failing to excise [H] damaged lobe!</span>",
 			"<span class='warning'>[user] screws up!</span>",
 			"<span class='warning'>[user] screws up!</span>")
 		H.losebreath += 4

@@ -103,7 +103,7 @@
 		to_chat(user, "<span class='warning'>There is no key in [src]!</span>")
 		return
 	if(!is_occupant(user) || !(occupants[user] & VEHICLE_CONTROL_DRIVE))
-		to_chat(user, "<span class='warning'>You must be driving [src] to remove [src]'s key!</span>")
+		to_chat(user, "<span class='warning'>You must be driving [src] to remove [src] key!</span>")
 		return
 	to_chat(user, "<span class='notice'>You remove [inserted_key] from [src].</span>")
 	inserted_key.forceMove(drop_location())

@@ -50,7 +50,7 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 	. = ..()
 	if(clothing_flags & VOICEBOX_TOGGLABLE)
 		clothing_flags ^= VOICEBOX_DISABLED
-		to_chat(user, "<span class='notice'>You [clothing_flags & VOICEBOX_DISABLED ? "disabled" : "enabled"] [src]'s voicebox.</span>")
+		to_chat(user, "<span class='notice'>You [clothing_flags & VOICEBOX_DISABLED ? "disabled" : "enabled"] [src] voicebox.</span>")
 
 /obj/item/clothing/mask/animal/proc/make_cursed() //apply cursed effects.
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_MASK_TRAIT)
@@ -84,7 +84,7 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 	if(ismob(loc))
 		var/mob/M = loc
 		if(M.get_item_by_slot(ITEM_SLOT_MASK) == src)
-			to_chat(M, "<span class='notice'>[capitalize(src.name)]'s curse has been lifted!</span>")
+			to_chat(M, "<span class='notice'>[capitalize(src.name)] curse has been lifted!</span>")
 			if(update_speech_mod)
 				UnregisterSignal(M, COMSIG_MOB_SAY)
 			M.update_inv_wear_mask()

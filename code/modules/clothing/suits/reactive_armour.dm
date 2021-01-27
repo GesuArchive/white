@@ -158,7 +158,7 @@
 			var/datum/effect_system/spark_spread/sparks = new /datum/effect_system/spark_spread
 			sparks.set_up(1, 1, src)
 			sparks.start()
-			owner.visible_message("<span class='danger'>Конденсаторы [owner]'s тесла брони перезаряжаются! Броня просто испускает искры.</span>")
+			owner.visible_message("<span class='danger'>Конденсаторы [owner] тесла брони перезаряжаются! Броня просто испускает искры.</span>")
 			return
 		owner.visible_message("<span class='danger'>[capitalize(src.name)] блокировала [attack_text], испуская лучи света!</span>")
 		tesla_zap(owner, zap_range, zap_power, zap_flags)

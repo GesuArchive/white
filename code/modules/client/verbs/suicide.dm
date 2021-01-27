@@ -130,8 +130,8 @@
 	if(confirm == "Yes")
 		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		set_suicide(TRUE)
-		visible_message("<span class='danger'>[capitalize(src.name)]'s brain is growing dull and lifeless. [ru_who(TRUE)] look[p_s()] like [p_theyve()] lost the will to live.</span>", \
-						"<span class='userdanger'>[capitalize(src.name)]'s brain is growing dull and lifeless. [ru_who(TRUE)] look[p_s()] like [p_theyve()] lost the will to live.</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] brain is growing dull and lifeless. [ru_who(TRUE)] look[p_s()] like [p_theyve()] lost the will to live.</span>", \
+						"<span class='userdanger'>[capitalize(src.name)] brain is growing dull and lifeless. [ru_who(TRUE)] look[p_s()] like [p_theyve()] lost the will to live.</span>")
 
 		suicide_log()
 

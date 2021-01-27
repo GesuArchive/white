@@ -74,7 +74,7 @@
 
 	var/obj/item/multitool/M = I
 	M.buffer = src
-	to_chat(user, "<span class='notice'>You store linkage information in [I]'s buffer.</span>")
+	to_chat(user, "<span class='notice'>You store linkage information in [I] buffer.</span>")
 	return TRUE
 
 /obj/machinery/plumbing/receiver/process()

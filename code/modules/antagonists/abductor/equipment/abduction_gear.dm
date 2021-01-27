@@ -277,7 +277,7 @@
 	for(M in view(2,targloc))
 		if(M == user)
 			continue
-		to_chat(user, "<span class='notice'>You silence [M]'s radio devices.</span>")
+		to_chat(user, "<span class='notice'>You silence [M] radio devices.</span>")
 		radio_off_mob(M)
 
 /obj/item/abductor/silencer/proc/radio_off_mob(mob/living/carbon/human/M)
@@ -639,8 +639,8 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 	item_flags = DROPDEL
 
 /obj/item/restraints/handcuffs/energy/used/dropped(mob/user)
-	user.visible_message("<span class='danger'>[user]'s [name] breaks in a discharge of energy!</span>", \
-							"<span class='userdanger'>[user]'s [name] breaks in a discharge of energy!</span>")
+	user.visible_message("<span class='danger'>[user] [name] breaks in a discharge of energy!</span>", \
+							"<span class='userdanger'>[user] [name] breaks in a discharge of energy!</span>")
 	var/datum/effect_system/spark_spread/S = new
 	S.set_up(4,0,user.loc)
 	S.start()

@@ -174,7 +174,7 @@
 			to_chat(user, "<span class='warning'>...and you don't feel any different.</span>")
 			qdel(src)
 			return
-	user.visible_message("<span class='warning'>[user]'s eyes flare a deep crimson!</span>", \
+	user.visible_message("<span class='warning'>[user] eyes flare a deep crimson!</span>", \
 		"<span class='userdanger'>You feel a strange power seep into your body... you have absorbed the demon's blood-travelling powers!</span>")
 	user.temporarilyRemoveItemFromInventory(src, TRUE)
 	src.Insert(user) //Consuming the heart literally replaces your heart with a demon heart. H A R D C O R E
@@ -266,7 +266,7 @@
 		if(M.revive(full_heal = TRUE, admin_revive = TRUE))
 			M.grab_ghost(force = TRUE)
 			playsound(T, feast_sound, 50, TRUE, -1)
-			to_chat(M, "<span class='clown'>You leave [src]'s warm embrace,	and feel ready to take on the world.</span>")
+			to_chat(M, "<span class='clown'>You leave [src] warm embrace,	and feel ready to take on the world.</span>")
 
 /mob/living/simple_animal/hostile/imp/slaughter/laughter/bloodcrawl_swallow(mob/living/victim)
 	// Keep their corpse so rescue is possible

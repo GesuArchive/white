@@ -166,7 +166,7 @@
 		return
 	obj_flags |= EMAGGED
 	allow_living = TRUE
-	to_chat(user, "<span class='warning'>You overload [src]'s lifesign scanners.</span>")
+	to_chat(user, "<span class='warning'>You overload [src] lifesign scanners.</span>")
 
 /obj/machinery/harvester/container_resist_act(mob/living/user)
 	if(!harvesting)

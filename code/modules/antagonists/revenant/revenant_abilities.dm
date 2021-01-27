@@ -10,7 +10,7 @@
 
 	if(ishuman(A))
 		if(A in drained_mobs)
-			to_chat(src, "<span class='revenwarning'>[A]'s soul is dead and empty.</span>" )
+			to_chat(src, "<span class='revenwarning'>[A] soul is dead and empty.</span>" )
 		else if(in_range(src, A))
 			Harvest(A)
 
@@ -57,7 +57,7 @@
 					draining = 0
 					essence_drained = 0
 					return //hey, wait a minute...
-				to_chat(src, "<span class='revenminor'>You begin siphoning essence from [target]'s soul.</span>")
+				to_chat(src, "<span class='revenminor'>You begin siphoning essence from [target] soul.</span>")
 				if(target.stat != DEAD)
 					to_chat(target, "<span class='warning'>You feel a horribly unpleasant draining sensation as your grip on life weakens...</span>")
 				if(target.stat == SOFT_CRIT)
@@ -76,12 +76,12 @@
 					change_essence_amount(essence_drained, FALSE, target)
 					if(essence_drained <= 90 && target.stat != DEAD)
 						essence_regen_cap += 5
-						to_chat(src, "<span class='revenboldnotice'>The absorption of [target]'s living soul has increased your maximum essence level. Your new maximum essence is [essence_regen_cap].</span>")
+						to_chat(src, "<span class='revenboldnotice'>The absorption of [target] living soul has increased your maximum essence level. Your new maximum essence is [essence_regen_cap].</span>")
 					if(essence_drained > 90)
 						essence_regen_cap += 15
 						perfectsouls++
-						to_chat(src, "<span class='revenboldnotice'>The perfection of [target]'s soul has increased your maximum essence level. Your new maximum essence is [essence_regen_cap].</span>")
-					to_chat(src, "<span class='revennotice'>[target]'s soul has been considerably weakened and will yield no more essence for the time being.</span>")
+						to_chat(src, "<span class='revenboldnotice'>The perfection of [target] soul has increased your maximum essence level. Your new maximum essence is [essence_regen_cap].</span>")
+					to_chat(src, "<span class='revennotice'>[target] soul has been considerably weakened and will yield no more essence for the time being.</span>")
 					target.visible_message("<span class='warning'>[target] slumps onto the ground.</span>", \
 										   "<span class='revenwarning'>Violets lights, dancing in your vision, getting clo--</span>")
 					drained_mobs.Add(target)
@@ -93,7 +93,7 @@
 											   "<span class='revenwarning'>Violets lights, dancing in your vision, receding--</span>")
 				qdel(B)
 			else
-				to_chat(src, "<span class='revenwarning'>You are not close enough to siphon [target ? "[target]'s":"[target.ru_ego()]"] soul. The link has been broken.</span>")
+				to_chat(src, "<span class='revenwarning'>You are not close enough to siphon [target ? "[target]":"[target.ru_ego()]"] soul. The link has been broken.</span>")
 	draining = FALSE
 	essence_drained = 0
 

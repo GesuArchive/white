@@ -103,6 +103,6 @@
 	//If the pin can only be pulsed
 	else if(io.io_type == PULSE_CHANNEL)
 		io.holder.check_then_do_work(io.ord,ignore_power = TRUE)
-		to_chat(user, "<span class='notice'>You pulse \the [io.holder]'s [io].</span>")
+		to_chat(user, "<span class='notice'>You pulse \the [io.holder] [io].</span>")
 
   io.holder.interact(user) // This is to update the UI.

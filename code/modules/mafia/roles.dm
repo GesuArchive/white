@@ -450,10 +450,10 @@
 		return
 	if(target)
 		if(target.detect_immune)
-			to_chat(body,"<span class='warning'>[target.body.real_name]'s memories reveal that they are the Assistant.</span>")
+			to_chat(body,"<span class='warning'>[target.body.real_name] memories reveal that they are the Assistant.</span>")
 			add_note("N[game.turn] - [target.body.real_name] - Assistant")
 		else
-			to_chat(body,"<span class='warning'>[target.body.real_name]'s memories reveal that they are the [target.name].</span>")
+			to_chat(body,"<span class='warning'>[target.body.real_name] memories reveal that they are the [target.name].</span>")
 			add_note("N[game.turn] - [target.body.real_name] - [target.name]")
 
 
@@ -566,7 +566,7 @@
 		flicker_target = null
 	flicker_target = target
 	if(action == "Flicker")
-		to_chat(body,"<span class='warning'>You will attempt to flicker [target.body.real_name]'s room tonight.</span>")
+		to_chat(body,"<span class='warning'>You will attempt to flicker [target.body.real_name] room tonight.</span>")
 	else
 		to_chat(body,"<span class='danger'>You will hunt everyone in a flickering room down tonight.</span>")
 

@@ -285,7 +285,7 @@
 	..()
 	if (slot == ITEM_SLOT_HEAD)
 		if(reagents.total_volume)
-			to_chat(user, "<span class='userdanger'>[capitalize(src.name)]'s contents spill all over you!</span>")
+			to_chat(user, "<span class='userdanger'>[capitalize(src.name)] contents spill all over you!</span>")
 			reagents.expose(user, TOUCH)
 			reagents.clear_reagents()
 		reagents.flags = NONE

@@ -131,7 +131,7 @@
 			visible_message("<span class='warning'>Swish! [AM] lands in [src].</span>")
 			return
 		else
-			visible_message("<span class='danger'>[AM] bounces off of [src]'s rim!</span>")
+			visible_message("<span class='danger'>[AM] bounces off of [src] rim!</span>")
 			return ..()
 	else
 		return ..()

@@ -20,7 +20,7 @@
 		to_chat(user, "<span class='userdanger'>No... just one more try...</span>")
 		user.gib()
 	else
-		user.visible_message("<span class='warning'>[user] pulls [src]'s lever with a glint in [user.ru_ego()] eyes!</span>", "<span class='warning'>You feel a draining as you pull the lever, but you \
+		user.visible_message("<span class='warning'>[user] pulls [src] lever with a glint in [user.ru_ego()] eyes!</span>", "<span class='warning'>You feel a draining as you pull the lever, but you \
 		know it'll be worth it.</span>")
 	icon_state = "slots2"
 	playsound(src, 'sound/lavaland/cursed_slot_machine.ogg', 50, FALSE)
@@ -147,5 +147,5 @@
 			H.dna.transfer_identity(user, transfer_SE=1)
 			user.updateappearance(mutcolor_update=1)
 			user.domutcheck()
-			user.visible_message("<span class='warning'>[user]'s appearance shifts into [H]'s!</span>", \
+			user.visible_message("<span class='warning'>[user] appearance shifts into [H]!</span>", \
 			"<span class='boldannounce'>[H.ru_who(TRUE)] think[H.p_s()] [H.p_theyre()] <i>sooo</i> much better than you. Not anymore, [H.ru_who()] won't.</span>")

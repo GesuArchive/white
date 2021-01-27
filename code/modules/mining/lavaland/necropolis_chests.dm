@@ -423,7 +423,7 @@
 		var/atom/movable/A = target
 		if(A.anchored)
 			return
-		A.visible_message("<span class='danger'>[A] is snagged by [firer]'s hook!</span>")
+		A.visible_message("<span class='danger'>[A] is snagged by [firer] hook!</span>")
 		new /datum/forced_movement(A, get_turf(firer), 5, TRUE)
 		if (isliving(target))
 			var/mob/living/fresh_meat = target
@@ -1199,7 +1199,7 @@
 		return
 	if(!beacon || QDELETED(beacon))
 		if(isturf(user.loc))
-			user.visible_message("<span class='hierophant_warning'>[user] starts fiddling with [src]'s pommel...</span>", \
+			user.visible_message("<span class='hierophant_warning'>[user] starts fiddling with [src] pommel...</span>", \
 			"<span class='notice'>You start detaching the hierophant beacon...</span>")
 			if(do_after(user, 50, target = user) && !beacon)
 				var/turf/T = get_turf(user)

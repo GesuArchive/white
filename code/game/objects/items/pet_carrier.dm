@@ -59,14 +59,14 @@
 
 /obj/item/pet_carrier/attack_self(mob/living/user)
 	if(open)
-		to_chat(user, "<span class='notice'>You close [src]'s door.</span>")
+		to_chat(user, "<span class='notice'>You close [src] door.</span>")
 		playsound(user, 'sound/effects/bin_close.ogg', 50, TRUE)
 		open = FALSE
 	else
 		if(locked)
 			to_chat(user, "<span class='warning'>[capitalize(src.name)] is locked!</span>")
 			return
-		to_chat(user, "<span class='notice'>You open [src]'s door.</span>")
+		to_chat(user, "<span class='notice'>You open [src] door.</span>")
 		playsound(user, 'sound/effects/bin_open.ogg', 50, TRUE)
 		open = TRUE
 	update_icon()
@@ -86,7 +86,7 @@
 	if(user.a_intent == INTENT_HARM)
 		return ..()
 	if(!open)
-		to_chat(user, "<span class='warning'>You need to open [src]'s door!</span>")
+		to_chat(user, "<span class='warning'>You need to open [src] door!</span>")
 		return
 	if(target.mob_size > max_occupant_weight)
 		if(ishuman(target))
@@ -122,7 +122,7 @@
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
 	if(user.mob_size <= MOB_SIZE_SMALL)
-		to_chat(user, "<span class='notice'>You poke a limb through [src]'s bars and start fumbling for the lock switch... (This will take some time.)</span>")
+		to_chat(user, "<span class='notice'>You poke a limb through [src] bars and start fumbling for the lock switch... (This will take some time.)</span>")
 		to_chat(loc, "<span class='warning'>You see [user] reach through the bars and fumble for the lock switch!</span>")
 		if(!do_after(user, rand(300, 400), target = user) || open || !locked || !(user in occupants))
 			return
@@ -137,7 +137,7 @@
 		if(!do_after(user, 200, target = user) || open || !locked || !(user in occupants))
 			return
 		loc.visible_message("<span class='warning'>[user] shoves out of	[src]!</span>", null, null, null, user)
-		to_chat(user, "<span class='notice'>You shove open [src]'s door against the lock's resistance and fall out!</span>")
+		to_chat(user, "<span class='notice'>You shove open [src] door against the lock's resistance and fall out!</span>")
 		locked = FALSE
 		open = TRUE
 		update_icon()

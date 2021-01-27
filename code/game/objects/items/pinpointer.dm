@@ -143,7 +143,7 @@
 		name_counts[crewmember_name] = 1
 
 	if(!names.len)
-		user.visible_message("<span class='notice'>[user]'s pinpointer fails to detect a signal.</span>", "<span class='notice'>Your pinpointer fails to detect a signal.</span>")
+		user.visible_message("<span class='notice'>[user] pinpointer fails to detect a signal.</span>", "<span class='notice'>Your pinpointer fails to detect a signal.</span>")
 		return
 
 	var/A = input(user, "Person to track", "Pinpoint") in sortList(names)

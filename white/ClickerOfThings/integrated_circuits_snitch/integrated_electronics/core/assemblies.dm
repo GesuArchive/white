@@ -499,7 +499,7 @@
 /obj/item/electronic_assembly/proc/try_remove_component(obj/item/integrated_circuit/IC, mob/user, silent)
 	if(!opened)
 		if(!silent)
-			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s hatch is closed, so you can't fiddle with the internal components.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] hatch is closed, so you can't fiddle with the internal components.</span>")
 		return FALSE
 
 	if(!IC.removable)
@@ -639,14 +639,14 @@
 			interact(user)
 			return TRUE
 		else
-			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s hatch is closed, so you can't fiddle with the internal components.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] hatch is closed, so you can't fiddle with the internal components.</span>")
 			for(var/obj/item/integrated_circuit/input/S in assembly_components)
 				S.attackby_react(I,user,user.a_intent)
 			return ..()
 
 	else if(istype(I, /obj/item/stock_parts/cell))
 		if(!opened)
-			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s hatch is closed, so you can't access <b>[src.name]</b>'s power supplier.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] hatch is closed, so you can't access <b>[src.name]</b>'s power supplier.</span>")
 			for(var/obj/item/integrated_circuit/input/S in assembly_components)
 				S.attackby_react(I,user,user.a_intent)
 			return ..()

@@ -512,7 +512,7 @@
 			// people who died or left should not gain any reputation
 			// people who rolled antagonist still lose it
 			if(failed && SSpersistence.antag_rep_change[p_ckey] > 0)
-//				WARNING("AR_DEBUG: Zeroed [p_ckey]'s antag_rep_change")
+//				WARNING("AR_DEBUG: Zeroed [p_ckey] antag_rep_change")
 				SSpersistence.antag_rep_change[p_ckey] = 0
 
 			continue //Happy connected client

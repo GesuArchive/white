@@ -55,7 +55,7 @@
 		return TRUE
 
 	if(!cell.charge)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)]'s battery is dead!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] battery is dead!</span>")
 		return TRUE
 	return FALSE
 

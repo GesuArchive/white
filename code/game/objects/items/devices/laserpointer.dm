@@ -183,7 +183,7 @@
 			recharging = TRUE
 			START_PROCESSING(SSobj, src)
 		if(energy <= 0)
-			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s battery is overused, it needs time to recharge!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] battery is overused, it needs time to recharge!</span>")
 			recharge_locked = TRUE
 
 	flick_overlay_view(I, targloc, 10)

@@ -451,7 +451,7 @@
 			//Search for item to steal
 			parrot_interest = search_for_item()
 			if(parrot_interest)
-				manual_emote("looks in [parrot_interest]'s direction and takes flight.")
+				manual_emote("looks in [parrot_interest] direction and takes flight.")
 				parrot_state = PARROT_SWOOP | PARROT_STEAL
 				icon_state = icon_living
 			return
@@ -735,7 +735,7 @@
 		if(stolen_item)
 			C.transferItemToLoc(stolen_item, src, TRUE)
 			held_item = stolen_item
-			visible_message("<span class='notice'>[capitalize(src.name)] grabs [held_item] out of [C]'s hand!</span>", "<span class='notice'>You snag [held_item] out of [C]'s hand!</span>", "<span class='hear'>You hear the sounds of wings flapping furiously.</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] grabs [held_item] out of [C] hand!</span>", "<span class='notice'>You snag [held_item] out of [C] hand!</span>", "<span class='hear'>You hear the sounds of wings flapping furiously.</span>")
 			return held_item
 
 	to_chat(src, "<span class='warning'>There is nothing of interest to take!</span>")
@@ -838,7 +838,7 @@
 		icon_state = icon_living
 		parrot_state = PARROT_WANDER
 		if(buckled)
-			to_chat(src, "<span class='notice'>You are no longer sitting on [buckled]'s shoulder.</span>")
+			to_chat(src, "<span class='notice'>You are no longer sitting on [buckled] shoulder.</span>")
 			buckled.unbuckle_mob(src, TRUE)
 		buckled = null
 		pixel_x = initial(pixel_x)
@@ -855,7 +855,7 @@
 		pixel_x = pick(-8,8) //pick left or right shoulder
 		icon_state = icon_sit
 		parrot_state = PARROT_PERCH
-		to_chat(src, "<span class='notice'>You sit on [H]'s shoulder.</span>")
+		to_chat(src, "<span class='notice'>You sit on [H] shoulder.</span>")
 
 
 /mob/living/simple_animal/parrot/proc/toggle_mode()
@@ -1004,4 +1004,4 @@
 	forceMove(H)
 	H.ForceContractDisease(P, FALSE)
 	parrot_interest = null
-	H.visible_message("<span class='danger'>[capitalize(src.name)] dive bombs into [H]'s chest and vanishes!</span>", "<span class='userdanger'>[capitalize(src.name)] dive bombs into your chest, vanishing! This can't be good!</span>")
+	H.visible_message("<span class='danger'>[capitalize(src.name)] dive bombs into [H] chest and vanishes!</span>", "<span class='userdanger'>[capitalize(src.name)] dive bombs into your chest, vanishing! This can't be good!</span>")

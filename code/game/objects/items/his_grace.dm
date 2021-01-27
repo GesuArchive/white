@@ -126,7 +126,7 @@
 	if(awakened)
 		return
 	awakened = TRUE
-	user.visible_message("<span class='boldwarning'>[capitalize(src.name)] begins to rattle. He thirsts.</span>", "<span class='his_grace'>You flick [src]'s latch up. You hope this is a good idea.</span>")
+	user.visible_message("<span class='boldwarning'>[capitalize(src.name)] begins to rattle. He thirsts.</span>", "<span class='his_grace'>You flick [src] latch up. You hope this is a good idea.</span>")
 	name = "His Grace"
 	desc = "A bloodthirsty artifact created by a profane rite."
 	gender = MALE
@@ -214,7 +214,7 @@
 		if(HIS_GRACE_STARVING to HIS_GRACE_CONSUME_OWNER)
 			ADD_TRAIT(src, TRAIT_NODROP, HIS_GRACE_TRAIT)
 			if(HIS_GRACE_STARVING > prev_bloodthirst)
-				master.visible_message("<span class='boldwarning'>[capitalize(src.name)] is starving!</span>", "<span class='his_grace big'>[capitalize(src.name)]'s bloodlust overcomes you. [src] must be fed, or you will become His meal.\
+				master.visible_message("<span class='boldwarning'>[capitalize(src.name)] is starving!</span>", "<span class='his_grace big'>[capitalize(src.name)] bloodlust overcomes you. [src] must be fed, or you will become His meal.\
 				[force_bonus < 15 ? " And still, His power grows.":""]</span>")
 				force_bonus = max(force_bonus, 15)
 		if(HIS_GRACE_FAMISHED to HIS_GRACE_STARVING)
@@ -227,19 +227,19 @@
 				master.visible_message("<span class='warning'>[capitalize(src.name)] is now only very hungry!</span>", "<span class='his_grace big'>Your bloodlust recedes.</span>")
 		if(HIS_GRACE_HUNGRY to HIS_GRACE_FAMISHED)
 			if(HIS_GRACE_HUNGRY > prev_bloodthirst)
-				master.visible_message("<span class='warning'>[capitalize(src.name)] is getting hungry.</span>", "<span class='his_grace big'>You feel [src]'s hunger within you.\
+				master.visible_message("<span class='warning'>[capitalize(src.name)] is getting hungry.</span>", "<span class='his_grace big'>You feel [src] hunger within you.\
 				[force_bonus < 5 ? " His power grows.":""]</span>")
 				force_bonus = max(force_bonus, 5)
 			if(prev_bloodthirst >= HIS_GRACE_FAMISHED)
-				master.visible_message("<span class='warning'>[capitalize(src.name)] is now only somewhat hungry.</span>", "<span class='his_grace'>[capitalize(src.name)]'s hunger recedes a little...</span>")
+				master.visible_message("<span class='warning'>[capitalize(src.name)] is now only somewhat hungry.</span>", "<span class='his_grace'>[capitalize(src.name)] hunger recedes a little...</span>")
 		if(HIS_GRACE_PECKISH to HIS_GRACE_HUNGRY)
 			if(HIS_GRACE_PECKISH > prev_bloodthirst)
 				master.visible_message("<span class='warning'>[capitalize(src.name)] is feeling snackish.</span>", "<span class='his_grace'>[capitalize(src.name)] begins to hunger.</span>")
 			if(prev_bloodthirst >= HIS_GRACE_HUNGRY)
-				master.visible_message("<span class='warning'>[capitalize(src.name)] is now only a little peckish.</span>", "<span class='his_grace big'>[capitalize(src.name)]'s hunger recedes somewhat...</span>")
+				master.visible_message("<span class='warning'>[capitalize(src.name)] is now only a little peckish.</span>", "<span class='his_grace big'>[capitalize(src.name)] hunger recedes somewhat...</span>")
 		if(HIS_GRACE_SATIATED to HIS_GRACE_PECKISH)
 			if(prev_bloodthirst >= HIS_GRACE_PECKISH)
-				master.visible_message("<span class='warning'>[capitalize(src.name)] is satiated.</span>", "<span class='his_grace big'>[capitalize(src.name)]'s hunger recedes...</span>")
+				master.visible_message("<span class='warning'>[capitalize(src.name)] is satiated.</span>", "<span class='his_grace big'>[capitalize(src.name)] hunger recedes...</span>")
 	force = initial(force) + force_bonus
 
 /obj/item/his_grace/proc/ascend()
@@ -254,5 +254,5 @@
 	playsound(src, 'sound/effects/his_grace_ascend.ogg', 100)
 	if(istype(master))
 		master.visible_message("<span class='his_grace big bold'>Gods will be watching.</span>")
-		name = "[master]'s mythical toolbox of three powers"
+		name = "[master] mythical toolbox of three powers"
 		master.client?.give_award(/datum/award/achievement/misc/ascension, master)

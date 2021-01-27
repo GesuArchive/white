@@ -227,7 +227,7 @@
 										else
 											dropped_glass = new /obj/item/stack/sheet/glass(drop_location())
 										glass = FALSE
-										to_chat(user, "<span class='notice'>As you finish, a [dropped_glass.singular_name] falls out of [MA]'s frame.</span>")
+										to_chat(user, "<span class='notice'>As you finish, a [dropped_glass.singular_name] falls out of [MA] frame.</span>")
 
 									transfer_assembly_vars(src, MA, TRUE)
 							else

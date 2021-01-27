@@ -141,10 +141,10 @@
 /obj/item/defibrillator/emag_act(mob/user)
 	if(safety)
 		safety = FALSE
-		to_chat(user, "<span class='warning'>You silently disable [src]'s safety protocols with the cryptographic sequencer.</span>")
+		to_chat(user, "<span class='warning'>You silently disable [src] safety protocols with the cryptographic sequencer.</span>")
 	else
 		safety = TRUE
-		to_chat(user, "<span class='notice'>You silently enable [src]'s safety protocols with the cryptographic sequencer.</span>")
+		to_chat(user, "<span class='notice'>You silently enable [src] safety protocols with the cryptographic sequencer.</span>")
 
 /obj/item/defibrillator/emp_act(severity)
 	. = ..()
@@ -351,7 +351,7 @@
 	if(!in_range(src,defib))
 		if(isliving(loc))
 			var/mob/living/user = loc
-			to_chat(user, "<span class='warning'>[defib]'s paddles overextend and come out of your hands!</span>")
+			to_chat(user, "<span class='warning'>[defib] paddles overextend and come out of your hands!</span>")
 		else
 			visible_message("<span class='notice'>[capitalize(src.name)] snap back into [defib].</span>")
 		snap_back()
@@ -494,13 +494,13 @@
 		return
 	if(!req_defib && !combat)
 		return
-	user.visible_message("<span class='warning'>[user] begins to place [src] on [H]'s chest.</span>",
-		"<span class='warning'>You overcharge the paddles and begin to place them onto [H]'s chest...</span>")
+	user.visible_message("<span class='warning'>[user] begins to place [src] on [H] chest.</span>",
+		"<span class='warning'>You overcharge the paddles and begin to place them onto [H] chest...</span>")
 	busy = TRUE
 	update_icon()
 	if(do_after(user, 1.5 SECONDS, H))
-		user.visible_message("<span class='notice'>[user] places [src] on [H]'s chest.</span>",
-			"<span class='warning'>You place [src] on [H]'s chest and begin to charge them.</span>")
+		user.visible_message("<span class='notice'>[user] places [src] on [H] chest.</span>",
+			"<span class='warning'>You place [src] on [H] chest and begin to charge them.</span>")
 		var/turf/T = get_turf(defib)
 		playsound(src, 'sound/machines/defib_charge.ogg', 50, FALSE)
 		if(req_defib)
@@ -545,11 +545,11 @@
 	update_icon()
 
 /obj/item/shockpaddles/proc/do_help(mob/living/carbon/H, mob/living/user)
-	user.visible_message("<span class='warning'>[user] begins to place [src] on [H]'s chest.</span>", "<span class='warning'>You begin to place [src] on [H]'s chest...</span>")
+	user.visible_message("<span class='warning'>[user] begins to place [src] on [H] chest.</span>", "<span class='warning'>You begin to place [src] on [H] chest...</span>")
 	busy = TRUE
 	update_icon()
 	if(do_after(user, 3 SECONDS, H)) //beginning to place the paddles on patient's chest to allow some time for people to move away to stop the process
-		user.visible_message("<span class='notice'>[user] places [src] on [H]'s chest.</span>", "<span class='warning'>You place [src] on [H]'s chest.</span>")
+		user.visible_message("<span class='notice'>[user] places [src] on [H] chest.</span>", "<span class='warning'>You place [src] on [H] chest.</span>")
 		playsound(src, 'sound/machines/defib_charge.ogg', 75, FALSE)
 		var/obj/item/organ/heart = H.getorgan(/obj/item/organ/heart)
 		if(do_after(user, 2 SECONDS, H)) //placed on chest and short delay to shock for dramatic effect, revive time is 5sec total
@@ -562,7 +562,7 @@
 						update_icon()
 						return
 			if(H.stat == DEAD)
-				H.visible_message("<span class='warning'>[H]'s body convulses a bit.</span>")
+				H.visible_message("<span class='warning'>[H] body convulses a bit.</span>")
 				playsound(src, "bodyfall", 50, TRUE)
 				playsound(src, 'sound/machines/defib_zap.ogg', 75, TRUE, -1)
 				shock_touching(30, H)

@@ -94,7 +94,7 @@
 				return FALSE
 			if(paper_copy)
 				if(!length(paper_copy.info))
-					to_chat(usr, "<span class='warning'>An error message flashes across [src]'s screen: \"The supplied paper is blank. Aborting.\"</span>")
+					to_chat(usr, "<span class='warning'>An error message flashes across [src] screen: \"The supplied paper is blank. Aborting.\"</span>")
 					return FALSE
 				// Basic paper
 				if(istype(paper_copy, /obj/item/paper))
@@ -303,7 +303,7 @@
 		temp_img = icon('icons/ass/assdrone.png')
 
 	var/obj/item/photo/copied_ass = new /obj/item/photo(loc)
-	var/datum/picture/toEmbed = new(name = "[ass]'s Ass", desc = "You see [ass]'s ass on the photo.", image = temp_img)
+	var/datum/picture/toEmbed = new(name = "[ass] Ass", desc = "You see [ass] ass on the photo.", image = temp_img)
 	give_pixel_offset(copied_ass)
 	toEmbed.psize_x = 128
 	toEmbed.psize_y = 128

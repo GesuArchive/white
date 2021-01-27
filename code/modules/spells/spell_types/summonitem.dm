@@ -98,7 +98,7 @@
 				item_to_retrieve.loc.visible_message("<span class='warning'>The [item_to_retrieve.name] suddenly appears!</span>")
 				playsound(get_turf(L), 'sound/magic/summonitems_generic.ogg', 50, TRUE)
 			else
-				item_to_retrieve.loc.visible_message("<span class='warning'>The [item_to_retrieve.name] suddenly appears in [L]'s hand!</span>")
+				item_to_retrieve.loc.visible_message("<span class='warning'>The [item_to_retrieve.name] suddenly appears in [L] hand!</span>")
 				playsound(get_turf(L), 'sound/magic/summonitems_generic.ogg', 50, TRUE)
 
 

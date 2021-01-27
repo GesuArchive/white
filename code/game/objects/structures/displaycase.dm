@@ -529,7 +529,7 @@
 /obj/structure/displaycase/forsale/multitool_act(mob/living/user, obj/item/I)
 	. = ..()
 	if(obj_integrity <= (integrity_failure *  max_integrity))
-		to_chat(user, "<span class='notice'>You start recalibrating [src]'s hover field...</span>")
+		to_chat(user, "<span class='notice'>You start recalibrating [src] hover field...</span>")
 		if(do_after(user, 20, target = src))
 			broken = FALSE
 			obj_integrity = max_integrity
@@ -560,7 +560,7 @@
 	. = ..()
 	payments_acc = null
 	req_access = list()
-	to_chat(user, "<span class='warning'>[capitalize(src.name)]'s card reader fizzles and smokes, and the account owner is reset.</span>")
+	to_chat(user, "<span class='warning'>[capitalize(src.name)] card reader fizzles and smokes, and the account owner is reset.</span>")
 
 /obj/structure/displaycase/forsale/examine(mob/user)
 	. = ..()

@@ -20,7 +20,7 @@
 	if(QDELETED(src))
 		return
 	if(toggle)
-		visible_message("<span class='danger'>The explosion glances off [src]'s energy shielding!</span>")
+		visible_message("<span class='danger'>The explosion glances off [src] energy shielding!</span>")
 
 /mob/living/simple_animal/hostile/guardian/protector/adjustHealth(amount, updating_health = TRUE, forced = FALSE)
 	. = ..()

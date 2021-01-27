@@ -29,7 +29,7 @@
 
 /obj/vehicle/sealed/car/mob_try_exit(mob/M, mob/user, silent = FALSE)
 	if(M == user && (LAZYACCESS(occupants, M) & VEHICLE_CONTROL_KIDNAPPED))
-		to_chat(user, "<span class='notice'>You push against the back of \the [src]'s trunk to try and get out.</span>")
+		to_chat(user, "<span class='notice'>You push against the back of \the [src] trunk to try and get out.</span>")
 		if(!do_after(user, escape_time, target = src))
 			return FALSE
 		to_chat(user,"<span class='danger'>[user] gets out of [src].</span>")
@@ -43,13 +43,13 @@
 	. = ..()
 	if(!(car_traits & CAN_KIDNAP))
 		return
-	to_chat(user, "<span class='notice'>You start opening [src]'s trunk.</span>")
+	to_chat(user, "<span class='notice'>You start opening [src] trunk.</span>")
 	if(do_after(user, 30))
 		if(return_amount_of_controllers_with_flag(VEHICLE_CONTROL_KIDNAPPED))
-			to_chat(user, "<span class='notice'>The people stuck in [src]'s trunk all come tumbling out.</span>")
+			to_chat(user, "<span class='notice'>The people stuck in [src] trunk all come tumbling out.</span>")
 			dump_specific_mobs(VEHICLE_CONTROL_KIDNAPPED)
 		else
-			to_chat(user, "<span class='notice'>It seems [src]'s trunk was empty.</span>")
+			to_chat(user, "<span class='notice'>It seems [src] trunk was empty.</span>")
 
 /obj/vehicle/sealed/car/proc/mob_try_forced_enter(mob/forcer, mob/M, silent = FALSE)
 	if(!istype(M))

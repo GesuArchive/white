@@ -166,19 +166,19 @@
 			return
 
 		var/mod_time = lace_time
-		to_chat(user, "<span class='notice'>You quietly set to work [tied ? "untying" : "knotting"] [loc]'s [src.name]...</span>")
+		to_chat(user, "<span class='notice'>You quietly set to work [tied ? "untying" : "knotting"] [loc] [src.name]...</span>")
 		if(HAS_TRAIT(user, TRAIT_CLUMSY)) // based clowns trained their whole lives for this
 			mod_time *= 0.75
 
 		if(do_after(user, mod_time, target = our_guy, extra_checks = CALLBACK(src, .proc/still_shoed, our_guy)))
-			to_chat(user, "<span class='notice'>You [tied ? "untie" : "knot"] the laces on [loc]'s [src.name].</span>")
+			to_chat(user, "<span class='notice'>You [tied ? "untie" : "knot"] the laces on [loc] [src.name].</span>")
 			if(tied == SHOES_UNTIED)
 				adjust_laces(SHOES_KNOTTED, user)
 			else
 				adjust_laces(SHOES_UNTIED, user)
 		else // if one of us moved
-			user.visible_message("<span class='danger'>[our_guy] stamps on [user]'s hand, mid-shoelace [tied ? "knotting" : "untying"]!</span>", "<span class='userdanger'>Ow! [our_guy] stamps on your hand!</span>", list(our_guy))
-			to_chat(our_guy, "<span class='userdanger'>You stamp on [user]'s hand! What the- [user.ru_who()] [user.p_were()] [tied ? "knotting" : "untying"] your shoelaces!</span>")
+			user.visible_message("<span class='danger'>[our_guy] stamps on [user] hand, mid-shoelace [tied ? "knotting" : "untying"]!</span>", "<span class='userdanger'>Ow! [our_guy] stamps on your hand!</span>", list(our_guy))
+			to_chat(our_guy, "<span class='userdanger'>You stamp on [user] hand! What the- [user.ru_who()] [user.p_were()] [tied ? "knotting" : "untying"] your shoelaces!</span>")
 			user.emote("scream")
 			if(istype(L))
 				var/obj/item/bodypart/ouchie = L.get_bodypart(pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))

@@ -39,7 +39,7 @@
 		if(damage_received >= max_damage)
 			if(ishuman(owner))
 				var/mob/living/carbon/human/H = owner
-				H.visible_message("<span class='danger'>[H]'s [src] breaks!</span>", "<span class='userdanger'>Your [src] breaks!</span>")
+				H.visible_message("<span class='danger'>[H] [src] breaks!</span>", "<span class='userdanger'>Your [src] breaks!</span>")
 				playsound(H, 'sound/effects/bang.ogg', 30, 1)
 				H.dropItemToGround(src, 1)
 				qdel(src)

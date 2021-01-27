@@ -103,7 +103,7 @@
 /obj/machinery/chem_dispenser/examine(mob/user)
 	. = ..()
 	if(panel_open)
-		. += "<hr><span class='notice'>[capitalize(src.name)]'s maintenance hatch is open!</span>"
+		. += "<hr><span class='notice'>[capitalize(src.name)] maintenance hatch is open!</span>"
 	if(in_range(user, src) || isobserver(user))
 		. += "<hr><span class='notice'>Дисплей:\n\
 		Recharging <b>[recharge_amount]</b> power units per interval.\n\
@@ -153,7 +153,7 @@
 	if(obj_flags & EMAGGED)
 		to_chat(user, "<span class='warning'>[capitalize(src.name)] has no functional safeties to emag.</span>")
 		return
-	to_chat(user, "<span class='notice'>You short out [src]'s safeties.</span>")
+	to_chat(user, "<span class='notice'>You short out [src] safeties.</span>")
 	dispensable_reagents |= emagged_reagents//add the emagged reagents to the dispensable ones
 	obj_flags |= EMAGGED
 

@@ -105,8 +105,8 @@ GLOBAL_PROTECT(VVpixelmovement)
 			to_chat(src, "Your edit was rejected by the object.", confidential = TRUE)
 			return
 	log_world("### ListVarEdit by [src]: [(O ? O.type : "/list")] [objectvar]: ADDED=[var_value]")
-	log_admin("[key_name(src)] modified [original_name]'s [objectvar]: ADDED=[var_value]")
-	message_admins("[key_name_admin(src)] modified [original_name]'s [objectvar]: ADDED=[var_value]")
+	log_admin("[key_name(src)] modified [original_name] [objectvar]: ADDED=[var_value]")
+	message_admins("[key_name_admin(src)] modified [original_name] [objectvar]: ADDED=[var_value]")
 
 /client/proc/mod_list(list/L, atom/O, original_name, objectvar, index, autodetect_class = FALSE)
 	if(!check_rights(R_VAREDIT))
@@ -147,8 +147,8 @@ GLOBAL_PROTECT(VVpixelmovement)
 				to_chat(src, "Your edit was rejected by the object.", confidential = TRUE)
 				return
 			log_world("### ListVarEdit by [src]: [O.type] [objectvar]: CLEAR NULLS")
-			log_admin("[key_name(src)] modified [original_name]'s [objectvar]: CLEAR NULLS")
-			message_admins("[key_name_admin(src)] modified [original_name]'s list [objectvar]: CLEAR NULLS")
+			log_admin("[key_name(src)] modified [original_name] [objectvar]: CLEAR NULLS")
+			message_admins("[key_name_admin(src)] modified [original_name] list [objectvar]: CLEAR NULLS")
 			return
 
 		if(variable == "(CLEAR DUPES)")
@@ -157,8 +157,8 @@ GLOBAL_PROTECT(VVpixelmovement)
 				to_chat(src, "Your edit was rejected by the object.", confidential = TRUE)
 				return
 			log_world("### ListVarEdit by [src]: [O.type] [objectvar]: CLEAR DUPES")
-			log_admin("[key_name(src)] modified [original_name]'s [objectvar]: CLEAR DUPES")
-			message_admins("[key_name_admin(src)] modified [original_name]'s list [objectvar]: CLEAR DUPES")
+			log_admin("[key_name(src)] modified [original_name] [objectvar]: CLEAR DUPES")
+			message_admins("[key_name_admin(src)] modified [original_name] list [objectvar]: CLEAR DUPES")
 			return
 
 		if(variable == "(SHUFFLE)")
@@ -167,8 +167,8 @@ GLOBAL_PROTECT(VVpixelmovement)
 				to_chat(src, "Your edit was rejected by the object.", confidential = TRUE)
 				return
 			log_world("### ListVarEdit by [src]: [O.type] [objectvar]: SHUFFLE")
-			log_admin("[key_name(src)] modified [original_name]'s [objectvar]: SHUFFLE")
-			message_admins("[key_name_admin(src)] modified [original_name]'s list [objectvar]: SHUFFLE")
+			log_admin("[key_name(src)] modified [original_name] [objectvar]: SHUFFLE")
+			message_admins("[key_name_admin(src)] modified [original_name] list [objectvar]: SHUFFLE")
 			return
 
 		index = names[variable]
@@ -250,8 +250,8 @@ GLOBAL_PROTECT(VVpixelmovement)
 					to_chat(src, "Your edit was rejected by the object.", confidential = TRUE)
 					return
 			log_world("### ListVarEdit by [src]: [O.type] [objectvar]: REMOVED=[html_encode("[original_var]")]")
-			log_admin("[key_name(src)] modified [original_name]'s [objectvar]: REMOVED=[original_var]")
-			message_admins("[key_name_admin(src)] modified [original_name]'s [objectvar]: REMOVED=[original_var]")
+			log_admin("[key_name(src)] modified [original_name] [objectvar]: REMOVED=[original_var]")
+			message_admins("[key_name_admin(src)] modified [original_name] [objectvar]: REMOVED=[original_var]")
 			return
 
 		if(VV_TEXT)
@@ -272,8 +272,8 @@ GLOBAL_PROTECT(VVpixelmovement)
 			to_chat(src, "Your edit was rejected by the object.", confidential = TRUE)
 			return
 	log_world("### ListVarEdit by [src]: [(O ? O.type : "/list")] [objectvar]: [original_var]=[new_var]")
-	log_admin("[key_name(src)] modified [original_name]'s [objectvar]: [original_var]=[new_var]")
-	message_admins("[key_name_admin(src)] modified [original_name]'s varlist [objectvar]: [original_var]=[new_var]")
+	log_admin("[key_name(src)] modified [original_name] [objectvar]: [original_var]=[new_var]")
+	message_admins("[key_name_admin(src)] modified [original_name] varlist [objectvar]: [original_var]=[new_var]")
 
 /proc/vv_varname_lockcheck(param_var_name)
 	if(param_var_name in GLOB.VVlocked)
@@ -382,8 +382,8 @@ GLOBAL_PROTECT(VVpixelmovement)
 		return
 	vv_update_display(O, "varedited", VV_MSG_EDITED)
 	log_world("### VarEdit by [key_name(src)]: [O.type] [variable]=[var_value] => [var_new]")
-	log_admin("[key_name(src)] modified [original_name]'s [variable] from [html_encode("[var_value]")] to [html_encode("[var_new]")]")
-	var/msg = "[key_name_admin(src)] modified [original_name]'s [variable] from [var_value] to [var_new]"
+	log_admin("[key_name(src)] modified [original_name] [variable] from [html_encode("[var_value]")] to [html_encode("[var_new]")]")
+	var/msg = "[key_name_admin(src)] modified [original_name] [variable] from [var_value] to [var_new]"
 	message_admins(msg)
 	admin_ticket_log(O, msg)
 	return TRUE

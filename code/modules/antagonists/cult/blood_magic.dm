@@ -160,7 +160,7 @@
 
 /datum/action/innate/cult/blood_spell/emp/Activate()
 	owner.whisper(invocation, language = /datum/language/common)
-	owner.visible_message("<span class='warning'>[owner]'s hand flashes a bright blue!</span>", \
+	owner.visible_message("<span class='warning'>[owner] hand flashes a bright blue!</span>", \
 		"<span class='cultitalic'>You speak the cursed words, emitting an EMP blast from your hand.</span>")
 	empulse(owner, 2, 5)
 	charges--
@@ -196,13 +196,13 @@
 /datum/action/innate/cult/blood_spell/dagger/Activate()
 	var/turf/owner_turf = get_turf(owner)
 	owner.whisper(invocation, language = /datum/language/common)
-	owner.visible_message("<span class='warning'>[owner]'s hand glows red for a moment.</span>", \
+	owner.visible_message("<span class='warning'>[owner] hand glows red for a moment.</span>", \
 		"<span class='cultitalic'>Your plea for aid is answered, and light begins to shimmer and take form within your hand!</span>")
 	var/obj/item/melee/cultblade/dagger/summoned_blade = new (owner_turf)
 	if(owner.put_in_hands(summoned_blade))
 		to_chat(owner, "<span class='warning'>A ritual dagger appears in your hand!</span>")
 	else
-		owner.visible_message("<span class='warning'>A ritual dagger appears at [owner]'s feet!</span>", \
+		owner.visible_message("<span class='warning'>A ritual dagger appears at [owner] feet!</span>", \
 			"<span class='cultitalic'>A ritual dagger materializes at your feet.</span>")
 	SEND_SOUND(owner, sound('sound/effects/magic.ogg', FALSE, 0, 25))
 	charges--
@@ -285,7 +285,7 @@
 
 /datum/action/innate/cult/blood_spell/veiling/Activate()
 	if(!revealing)
-		owner.visible_message("<span class='warning'>Thin grey dust falls from [owner]'s hand!</span>", \
+		owner.visible_message("<span class='warning'>Thin grey dust falls from [owner] hand!</span>", \
 			"<span class='cultitalic'>You invoke the veiling spell, hiding nearby runes.</span>")
 		charges--
 		SEND_SOUND(owner, sound('sound/magic/smoke.ogg',0,1,25))
@@ -304,7 +304,7 @@
 		name = "Reveal Runes"
 		button_icon_state = "back"
 	else
-		owner.visible_message("<span class='warning'>A flash of light shines from [owner]'s hand!</span>", \
+		owner.visible_message("<span class='warning'>A flash of light shines from [owner] hand!</span>", \
 			"<span class='cultitalic'>You invoke the counterspell, revealing nearby runes.</span>")
 		charges--
 		owner.whisper(invocation, language = /datum/language/common)
@@ -497,7 +497,7 @@
 		var/turf/origin = get_turf(user)
 		var/mob/living/L = target
 		if(do_teleport(L, dest, channel = TELEPORT_CHANNEL_CULT))
-			origin.visible_message("<span class='warning'>Dust flows from [user]'s hand, and [user.ru_who()] disappear[user.p_s()] with a sharp crack!</span>", \
+			origin.visible_message("<span class='warning'>Dust flows from [user] hand, and [user.ru_who()] disappear[user.p_s()] with a sharp crack!</span>", \
 				"<span class='cultitalic'>You speak the words of the talisman and find yourself somewhere else!</span>", "<i>You hear a sharp crack.</i>")
 			dest.visible_message("<span class='warning'>There is a boom of outrushing air as something appears above the rune!</span>", null, "<i>You hear a boom.</i>")
 		..()
@@ -547,7 +547,7 @@
 	item_flags = DROPDEL
 
 /obj/item/restraints/handcuffs/energy/cult/used/dropped(mob/user)
-	user.visible_message("<span class='danger'>[user]'s shackles shatter in a discharge of dark magic!</span>", \
+	user.visible_message("<span class='danger'>[user] shackles shatter in a discharge of dark magic!</span>", \
 							"<span class='userdanger'>Your [src] shatters in a discharge of dark magic!</span>")
 	. = ..()
 
@@ -597,7 +597,7 @@
 			var/mob/living/silicon/robot/candidate = target
 			if(candidate.mmi)
 				channeling = TRUE
-				user.visible_message("<span class='danger'>A dark cloud emanates from [user]'s hand and swirls around [candidate]!</span>")
+				user.visible_message("<span class='danger'>A dark cloud emanates from [user] hand and swirls around [candidate]!</span>")
 				playsound(T, 'sound/machines/airlock_alien_prying.ogg', 80, TRUE)
 				var/prev_color = candidate.color
 				candidate.color = "black"
@@ -648,7 +648,7 @@
 					return
 				target.narsie_act()
 				uses--
-				user.visible_message("<span class='warning'>Black ribbons suddenly emanate from [user]'s hand and cling to the airlock - twisting and corrupting it!</span>")
+				user.visible_message("<span class='warning'>Black ribbons suddenly emanate from [user] hand and cling to the airlock - twisting and corrupting it!</span>")
 				SEND_SOUND(user, sound('sound/effects/magic.ogg',0,1,25))
 				channeling = FALSE
 			else
@@ -731,9 +731,9 @@
 					if(ratio>1)
 						ratio = 1
 						uses -= round(overall_damage)
-						H.visible_message("<span class='warning'>[H] is fully healed by [H==user ? "[H.ru_ego()]":"[H]'s"]'s blood magic!</span>")
+						H.visible_message("<span class='warning'>[H] is fully healed by [H==user ? "[H.ru_ego()]":"[H]"] blood magic!</span>")
 					else
-						H.visible_message("<span class='warning'>[H] is partially healed by [H==user ? "[H.ru_ego()]":"[H]'s"] blood magic.</span>")
+						H.visible_message("<span class='warning'>[H] is partially healed by [H==user ? "[H.ru_ego()]":"[H]"] blood magic.</span>")
 						uses = 0
 					ratio *= -1
 					H.adjustOxyLoss((overall_damage*ratio) * (H.getOxyLoss() / overall_damage), 0)
@@ -756,8 +756,8 @@
 					uses += 50
 					user.Beam(H, icon_state="drainbeam", time = 1 SECONDS)
 					playsound(get_turf(H), 'sound/magic/enter_blood.ogg', 50)
-					H.visible_message("<span class='danger'>[user] drains some of [H]'s blood!</span>")
-					to_chat(user,"<span class='cultitalic'>Your blood rite gains 50 charges from draining [H]'s blood.</span>")
+					H.visible_message("<span class='danger'>[user] drains some of [H] blood!</span>")
+					to_chat(user,"<span class='cultitalic'>Your blood rite gains 50 charges from draining [H] blood.</span>")
 					new /obj/effect/temp_visual/cult/sparks(get_turf(H))
 				else
 					to_chat(user,"<span class='warning'>[H.p_theyre(TRUE)] missing too much blood - you cannot drain [H.ru_na()] further!</span>")
@@ -768,11 +768,11 @@
 			if(missing)
 				if(uses > missing)
 					M.adjustHealth(-missing)
-					M.visible_message("<span class='warning'>[M] is fully healed by [user]'s blood magic!</span>")
+					M.visible_message("<span class='warning'>[M] is fully healed by [user] blood magic!</span>")
 					uses -= missing
 				else
 					M.adjustHealth(-uses)
-					M.visible_message("<span class='warning'>[M] is partially healed by [user]'s blood magic!</span>")
+					M.visible_message("<span class='warning'>[M] is partially healed by [user] blood magic!</span>")
 					uses = 0
 				playsound(get_turf(M), 'sound/magic/staff_healing.ogg', 25)
 				user.Beam(M, icon_state="sendbeam", time = 1 SECONDS)
@@ -823,7 +823,7 @@
 					if(user.put_in_hands(rite))
 						to_chat(user, "<span class='cultitalic'>A [rite.name] appears in your hand!</span>")
 					else
-						user.visible_message("<span class='warning'>A [rite.name] appears at [user]'s feet!</span>", \
+						user.visible_message("<span class='warning'>A [rite.name] appears at [user] feet!</span>", \
 							"<span class='cultitalic'>A [rite.name] materializes at your feet.</span>")
 			if("Blood Bolt Barrage (300)")
 				if(uses < BLOOD_BARRAGE_COST)

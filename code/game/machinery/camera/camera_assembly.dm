@@ -160,7 +160,7 @@
 				if(malf_xray_firmware_active)
 					malf_xray_firmware_active = FALSE //flavor reason: MALF AI Upgrade Camera Network ability's firmware is incompatible with the new part
 														//real reason: make it a normal upgrade so the finished camera's icons and examine texts are restored.
-				to_chat(user, "<span class='notice'>You attach [W] into [src]'s inner circuits.</span>")
+				to_chat(user, "<span class='notice'>You attach [W] into [src] inner circuits.</span>")
 				return
 
 			else if(istype(W, /obj/item/analyzer)) //xray upgrade
@@ -169,7 +169,7 @@
 					return
 				if(!user.transferItemToLoc(W, src))
 					return
-				to_chat(user, "<span class='notice'>You attach [W] into [src]'s inner circuits.</span>")
+				to_chat(user, "<span class='notice'>You attach [W] into [src] inner circuits.</span>")
 				xray_module = W
 				if(malf_xray_firmware_active)
 					malf_xray_firmware_active = FALSE //flavor reason: MALF AI Upgrade Camera Network ability's firmware is incompatible with the new part
@@ -183,7 +183,7 @@
 					return
 				if(!user.transferItemToLoc(W, src))
 					return
-				to_chat(user, "<span class='notice'>You attach [W] into [src]'s inner circuits.</span>")
+				to_chat(user, "<span class='notice'>You attach [W] into [src] inner circuits.</span>")
 				proxy_module = W
 				return
 

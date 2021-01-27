@@ -889,16 +889,16 @@
 	H.notify_ghost_cloning("You're being injected with a revivification serum - return to your body!")
 	if(do_after(user, 80, target = H))
 		if(H.stat == DEAD && icon_state == "implanter1")
-			H.visible_message("<span class='warning'>[H]'s body thrashes violently.")
+			H.visible_message("<span class='warning'>[H] body thrashes violently.")
 			playsound(src, "bodyfall", 50, 1)
 			H.spin(20, 1)
 			if (H.suiciding || !H.getorgan(/obj/item/organ/heart) || !H.getorgan(/obj/item/organ/brain) || !H.mind)
-				H.visible_message("<span class='warning'>[H]'s body falls still again, they're gone for good.")
+				H.visible_message("<span class='warning'>[H] body falls still again, they're gone for good.")
 				return
 			if(!H.client)
 				var/identity
 				var/mob/dead/observer/winner
-				H.visible_message("<span class='warning'>[H]'s body twitches as a spirit seeks to return to this broken form.")
+				H.visible_message("<span class='warning'>[H] body twitches as a spirit seeks to return to this broken form.")
 				var/datum/antagonist/gang/G = H.mind.has_antag_datum(/datum/antagonist/gang)
 				if(G && G.gang)
 					identity = "[G.gang.name] gangster"
@@ -909,7 +909,7 @@
 					winner = pick(candidates)
 					H.key = winner.key
 				else
-					H.visible_message("<span class='warning'>[H]'s body falls still again, their spirit has moved on.")
+					H.visible_message("<span class='warning'>[H] body falls still again, their spirit has moved on.")
 					return
 			total_brute = H.getBruteLoss()
 			total_burn = H.getFireLoss()

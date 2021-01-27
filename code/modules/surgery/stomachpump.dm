@@ -29,9 +29,9 @@
 	time = 20
 
 /datum/surgery_step/stomach_pump/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You begin pumping [target]'s stomach...</span>",
-		"<span class='notice'>[user] begins to pump [target]'s stomach.</span>",
-		"<span class='notice'>[user] begins to press on [target]'s chest.</span>")
+	display_results(user, target, "<span class='notice'>You begin pumping [target] stomach...</span>",
+		"<span class='notice'>[user] begins to pump [target] stomach.</span>",
+		"<span class='notice'>[user] begins to press on [target] chest.</span>")
 
 /datum/surgery_step/stomach_pump/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(ishuman(target))
@@ -45,8 +45,8 @@
 /datum/surgery_step/stomach_pump/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		display_results(user, target, "<span class='warning'>You screw up, brusing [H]'s chest!</span>",
-			"<span class='warning'>[user] screws up, brusing [H]'s chest!</span>",
+		display_results(user, target, "<span class='warning'>You screw up, brusing [H] chest!</span>",
+			"<span class='warning'>[user] screws up, brusing [H] chest!</span>",
 			"<span class='warning'>[user] screws up!</span>")
 		H.adjustOrganLoss(ORGAN_SLOT_STOMACH, 5)
 		H.adjustBruteLoss(5)

@@ -46,7 +46,7 @@ GLOBAL_PROTECT(href_token)
 		QDEL_IN(src, 0)
 		CRASH("Admin datum created without a rank")
 	target = ckey
-	name = "[ckey]'s admin datum ([R])"
+	name = "[ckey] admin datum ([R])"
 	rank = R
 	admin_signature = "Nanotrasen Officer #[rand(0,9)][rand(0,9)][rand(0,9)]"
 	href_token = GenerateToken()
@@ -104,7 +104,7 @@ GLOBAL_PROTECT(href_token)
 
 	if(istype(C))
 		if(C.ckey != target)
-			var/msg = " has attempted to associate with [target]'s admin datum"
+			var/msg = " has attempted to associate with [target] admin datum"
 			message_admins("[key_name_admin(C)][msg]")
 			log_admin("[key_name(C)][msg]")
 			return

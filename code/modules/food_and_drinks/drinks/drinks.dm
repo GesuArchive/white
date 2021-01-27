@@ -325,7 +325,7 @@
 		spillable = TRUE
 		animate(src, transform = null, time = 2, loop = 0)
 		if(fumbled)
-			to_chat(user, "<span class='warning'>You fumble with [src]'s cap! The cap falls onto the ground and simply vanishes. Where the hell did it go?</span>")
+			to_chat(user, "<span class='warning'>You fumble with [src] cap! The cap falls onto the ground and simply vanishes. Where the hell did it go?</span>")
 			cap_lost = TRUE
 		else
 			to_chat(user, "<span class='notice'>You remove the cap from [src].</span>")
@@ -645,7 +645,7 @@
 		if(M == user)
 			user.visible_message("<span class='warning'>[user] crushes the can of [src] on [user.ru_ego()] forehead!</span>", "<span class='notice'>You crush the can of [src] on your forehead.</span>")
 		else
-			user.visible_message("<span class='warning'>[user] crushes the can of [src] on [M]'s forehead!</span>", "<span class='notice'>You crush the can of [src] on [M]'s forehead.</span>")
+			user.visible_message("<span class='warning'>[user] crushes the can of [src] on [M] forehead!</span>", "<span class='notice'>You crush the can of [src] on [M] forehead.</span>")
 		playsound(M,'sound/weapons/pierce.ogg', rand(10,50), TRUE)
 		var/obj/item/trash/can/crushed_can = new /obj/item/trash/can(M.loc)
 		crushed_can.icon_state = icon_state

@@ -33,12 +33,12 @@
 
 /datum/brain_trauma/severe/split_personality/proc/get_ghost()
 	set waitfor = FALSE
-	var/list/mob/dead/observer/candidates = pollCandidatesForMob("Do you want to play as [owner.real_name]'s split personality?", ROLE_PAI, null, null, 75, stranger_backseat, POLL_IGNORE_SPLITPERSONALITY)
+	var/list/mob/dead/observer/candidates = pollCandidatesForMob("Do you want to play as [owner.real_name] split personality?", ROLE_PAI, null, null, 75, stranger_backseat, POLL_IGNORE_SPLITPERSONALITY)
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/C = pick(candidates)
 		stranger_backseat.key = C.key
-		log_game("[key_name(stranger_backseat)] became [key_name(owner)]'s split personality.")
-		message_admins("[ADMIN_LOOKUPFLW(stranger_backseat)] became [ADMIN_LOOKUPFLW(owner)]'s split personality.")
+		log_game("[key_name(stranger_backseat)] became [key_name(owner)] split personality.")
+		message_admins("[ADMIN_LOOKUPFLW(stranger_backseat)] became [ADMIN_LOOKUPFLW(owner)] split personality.")
 	else
 		qdel(src)
 
@@ -196,7 +196,7 @@
 
 /datum/brain_trauma/severe/split_personality/brainwashing/get_ghost()
 	set waitfor = FALSE
-	var/list/mob/dead/observer/candidates = pollCandidatesForMob("Do you want to play as [owner.real_name]'s brainwashed mind?", null, null, null, 75, stranger_backseat)
+	var/list/mob/dead/observer/candidates = pollCandidatesForMob("Do you want to play as [owner.real_name] brainwashed mind?", null, null, null, 75, stranger_backseat)
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/C = pick(candidates)
 		stranger_backseat.key = C.key

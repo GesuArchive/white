@@ -189,7 +189,7 @@
 	// /proc/log_combat(atom/user, atom/target, what_done, atom/object=null, addition=null)
 	log_combat(owner, M, "used Brawn power")
 
-	owner.visible_message("<span class='warning'>[owner] tears free of [M]'s grasp!</span>", \
-			 			"<span class='warning'>You shrug off [M]'s grasp!</span>")
+	owner.visible_message("<span class='warning'>[owner] tears free of [M] grasp!</span>", \
+			 			"<span class='warning'>You shrug off [M] grasp!</span>")
 	owner.pulledby = null // It's already done, but JUST IN CASE.
 	return TRUE

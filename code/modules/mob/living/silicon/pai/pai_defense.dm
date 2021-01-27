@@ -61,7 +61,7 @@
 /mob/living/silicon/pai/bullet_act(obj/projectile/Proj)
 	if(Proj.stun)
 		fold_in(force = TRUE)
-		src.visible_message("<span class='warning'>The electrically-charged projectile disrupts [src]'s holomatrix, forcing [src] to fold in!</span>")
+		src.visible_message("<span class='warning'>The electrically-charged projectile disrupts [src] holomatrix, forcing [src] to fold in!</span>")
 	. = ..(Proj)
 
 /mob/living/silicon/pai/stripPanelUnequip(obj/item/what, mob/who, where) //prevents stripping

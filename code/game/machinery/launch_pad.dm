@@ -63,7 +63,7 @@
 					return
 				var/obj/item/multitool/M = I
 				M.buffer = src
-				to_chat(user, "<span class='notice'>You save the data in the [I.name]'s buffer.</span>")
+				to_chat(user, "<span class='notice'>You save the data in the [I.name] buffer.</span>")
 				return 1
 
 		if(default_deconstruction_crowbar(I))

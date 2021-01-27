@@ -363,8 +363,8 @@
 			qdel(query_message_secret)
 			return
 		qdel(query_message_secret)
-		log_admin_private("[kn] has toggled [target_key]'s [type] made by [admin_key] to [secret ? "not secret" : "secret"]")
-		message_admins("[kna] has toggled [target_key]'s [type] made by [admin_key] to [secret ? "not secret" : "secret"]")
+		log_admin_private("[kn] has toggled [target_key] [type] made by [admin_key] to [secret ? "not secret" : "secret"]")
+		message_admins("[kna] has toggled [target_key] [type] made by [admin_key] to [secret ? "not secret" : "secret"]")
 		browse_messages(target_ckey = ckey(target_key), agegate = TRUE)
 	qdel(query_find_message_secret)
 

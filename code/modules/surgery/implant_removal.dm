@@ -17,19 +17,19 @@
 		I = O
 		break
 	if(I)
-		display_results(user, target, "<span class='notice'>You begin to extract [I] from [target]'s [target_zone]...</span>",
-			"<span class='notice'>[user] begins to extract [I] from [target]'s [target_zone].</span>",
-			"<span class='notice'>[user] begins to extract something from [target]'s [target_zone].</span>")
+		display_results(user, target, "<span class='notice'>You begin to extract [I] from [target] [target_zone]...</span>",
+			"<span class='notice'>[user] begins to extract [I] from [target] [target_zone].</span>",
+			"<span class='notice'>[user] begins to extract something from [target] [target_zone].</span>")
 	else
-		display_results(user, target, "<span class='notice'>You look for an implant in [target]'s [target_zone]...</span>",
-			"<span class='notice'>[user] looks for an implant in [target]'s [target_zone].</span>",
-			"<span class='notice'>[user] looks for something in [target]'s [target_zone].</span>")
+		display_results(user, target, "<span class='notice'>You look for an implant in [target] [target_zone]...</span>",
+			"<span class='notice'>[user] looks for an implant in [target] [target_zone].</span>",
+			"<span class='notice'>[user] looks for something in [target] [target_zone].</span>")
 
 /datum/surgery_step/extract_implant/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(I)
-		display_results(user, target, "<span class='notice'>You successfully remove [I] from [target]'s [target_zone].</span>",
-			"<span class='notice'>[user] successfully removes [I] from [target]'s [target_zone]!</span>",
-			"<span class='notice'>[user] successfully removes something from [target]'s [target_zone]!</span>")
+		display_results(user, target, "<span class='notice'>You successfully remove [I] from [target] [target_zone].</span>",
+			"<span class='notice'>[user] successfully removes [I] from [target] [target_zone]!</span>",
+			"<span class='notice'>[user] successfully removes something from [target] [target_zone]!</span>")
 		I.removed(target)
 
 		var/obj/item/implantcase/case
@@ -49,7 +49,7 @@
 			qdel(I)
 
 	else
-		to_chat(user, "<span class='warning'>You can't find anything in [target]'s [target_zone]!</span>")
+		to_chat(user, "<span class='warning'>You can't find anything in [target] [target_zone]!</span>")
 	return ..()
 
 /datum/surgery/implant_removal/mechanic

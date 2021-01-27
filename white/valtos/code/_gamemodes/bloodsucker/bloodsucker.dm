@@ -134,7 +134,7 @@
 	var/mob/living/carbon/human/H = bloodsucker.current
 	if(NOBLOOD in H.dna.species.species_traits)
 		if(display_warning && creator)
-			to_chat(creator, "<span class='danger'>[bloodsucker]'s DNA isn't compatible!</span>")
+			to_chat(creator, "<span class='danger'>[bloodsucker] DNA isn't compatible!</span>")
 		return FALSE
 	// Already a Non-Human Antag
 	if(bloodsucker.has_antag_datum(/datum/antagonist/abductor) || bloodsucker.has_antag_datum(/datum/antagonist/changeling))

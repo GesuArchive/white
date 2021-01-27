@@ -43,7 +43,7 @@
 	if(!inserted_key || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !issilicon(user)))
 		return ..()
 	if(!is_occupant(user))
-		to_chat(user, "<span class='warning'>You must be riding the [src] to remove [src]'s key!</span>")
+		to_chat(user, "<span class='warning'>You must be riding the [src] to remove [src] key!</span>")
 		return
 	to_chat(user, "<span class='notice'>You remove \the [inserted_key] from <b>[src.name]</b>.</span>")
 	inserted_key.forceMove(drop_location())

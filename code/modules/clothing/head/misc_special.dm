@@ -268,7 +268,7 @@
 /obj/item/clothing/head/wig/afterattack(mob/living/carbon/human/target, mob/user)
 	. = ..()
 	if (istype(target) && (HAIR in target.dna.species.species_traits) && target.hairstyle != "Bald")
-		to_chat(user, "<span class='notice'>Я подстриг [src] под [target.name]'s [target.hairstyle].</span>")
+		to_chat(user, "<span class='notice'>Я подстриг [src] под [target.name] [target.hairstyle].</span>")
 		add_atom_colour("#[target.hair_color]", FIXED_COLOUR_PRIORITY)
 		hairstyle = target.hairstyle
 		update_icon()

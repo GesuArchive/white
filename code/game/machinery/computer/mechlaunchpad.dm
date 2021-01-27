@@ -70,12 +70,12 @@
 			connected_mechpad.connected_console = src
 			connected_mechpad.id = id
 			multitool.buffer = null
-			to_chat(user, "<span class='notice'>You connect the console to the pad with data from the [multitool.name]'s buffer.</span>")
+			to_chat(user, "<span class='notice'>You connect the console to the pad with data from the [multitool.name] buffer.</span>")
 		else
 			mechpads += buffered_console
 			LAZYADD(buffered_console.consoles, src)
 			multitool.buffer = null
-			to_chat(user, "<span class='notice'>You upload the data from the [multitool.name]'s buffer.</span>")
+			to_chat(user, "<span class='notice'>You upload the data from the [multitool.name] buffer.</span>")
 
 /**
  * Tries to call the launch proc on the connected mechpad, returns if there is no connected mechpad or there is no mecha on the pad
@@ -88,7 +88,7 @@
 		to_chat(user, "<span class='warning'>[capitalize(src.name)] has no connected pad!</span>")
 		return
 	if(connected_mechpad.panel_open)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)]'s pad has its' panel open! It won't work!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] pad has its' panel open! It won't work!</span>")
 		return
 	if(!(locate(/obj/vehicle/sealed/mecha) in get_turf(connected_mechpad)))
 		to_chat(user, "<span class='warning'>[capitalize(src.name)] detects no mecha on the pad!</span>")

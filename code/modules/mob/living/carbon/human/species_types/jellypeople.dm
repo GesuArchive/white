@@ -616,7 +616,7 @@
 	if(M in linked_mobs)
 		return FALSE
 	linked_mobs.Add(M)
-	to_chat(M, "<span class='notice'>You are now connected to [slimelink_owner.real_name]'s Slime Link.</span>")
+	to_chat(M, "<span class='notice'>You are now connected to [slimelink_owner.real_name] Slime Link.</span>")
 	var/datum/action/innate/linked_speech/action = new(src)
 	linked_actions.Add(action)
 	action.Grant(M)
@@ -631,7 +631,7 @@
 	UnregisterSignal(M, list(COMSIG_LIVING_DEATH, COMSIG_PARENT_QDELETING))
 	var/datum/action/innate/linked_speech/action = linked_actions[link_id]
 	action.Remove(M)
-	to_chat(M, "<span class='notice'>You are no longer connected to [slimelink_owner.real_name]'s Slime Link.</span>")
+	to_chat(M, "<span class='notice'>You are no longer connected to [slimelink_owner.real_name] Slime Link.</span>")
 	linked_mobs[link_id] = null
 	linked_actions[link_id] = null
 
@@ -664,7 +664,7 @@
 		return
 
 	if(message)
-		var/msg = "<i><font color=#008CA2>\[[species.slimelink_owner.real_name]'s Slime Link\] <b>[H]:</b> [message]</font></i>"
+		var/msg = "<i><font color=#008CA2>\[[species.slimelink_owner.real_name] Slime Link\] <b>[H]:</b> [message]</font></i>"
 		log_directed_talk(H, species.slimelink_owner, msg, LOG_SAY, "slime link")
 		for(var/X in species.linked_mobs)
 			var/mob/living/M = X
@@ -738,13 +738,13 @@
 
 	var/mob/living/target = H.pulling
 
-	to_chat(H, "<span class='notice'>You begin linking [target]'s mind to yours...</span>")
+	to_chat(H, "<span class='notice'>You begin linking [target] mind to yours...</span>")
 	to_chat(target, "<span class='warning'>You feel a foreign presence within your mind...</span>")
 	if(do_after(H, 60, target = target))
 		if(H.pulling != target || H.grab_state < GRAB_AGGRESSIVE)
 			return
 		if(species.link_mob(target))
-			to_chat(H, "<span class='notice'>You connect [target]'s mind to your slime link!</span>")
+			to_chat(H, "<span class='notice'>You connect [target] mind to your slime link!</span>")
 		else
-			to_chat(H, "<span class='warning'>You can't seem to link [target]'s mind...</span>")
+			to_chat(H, "<span class='warning'>You can't seem to link [target] mind...</span>")
 			to_chat(target, "<span class='warning'>The foreign presence leaves your mind.</span>")

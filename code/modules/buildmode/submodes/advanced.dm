@@ -49,7 +49,7 @@
 		else if(!isnull(objholder))
 			var/obj/A = new objholder (get_turf(object))
 			A.setDir(BM.build_dir)
-			log_admin("Build Mode: [key_name(c)] modified [A]'s [COORD(A)] dir to [BM.build_dir]")
+			log_admin("Build Mode: [key_name(c)] modified [A] [COORD(A)] dir to [BM.build_dir]")
 		else
 			to_chat(c, "<span class='warning'>Select object type first.</span>")
 	else if(right_click)

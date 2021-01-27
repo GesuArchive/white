@@ -40,7 +40,7 @@
 /obj/item/nanite_remote/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
 		return
-	to_chat(user, "<span class='warning'>You override [src]'s ID lock.</span>")
+	to_chat(user, "<span class='warning'>You override [src] ID lock.</span>")
 	obj_flags |= EMAGGED
 	if(locked)
 		locked = FALSE

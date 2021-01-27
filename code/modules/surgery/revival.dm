@@ -52,15 +52,15 @@
 			return FALSE
 
 /datum/surgery_step/revive/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You prepare to give [target]'s brain the spark of life with [tool].</span>",
-		"<span class='notice'>[user] prepares to shock [target]'s brain with [tool].</span>",
-		"<span class='notice'>[user] prepares to shock [target]'s brain with [tool].</span>")
+	display_results(user, target, "<span class='notice'>You prepare to give [target] brain the spark of life with [tool].</span>",
+		"<span class='notice'>[user] prepares to shock [target] brain with [tool].</span>",
+		"<span class='notice'>[user] prepares to shock [target] brain with [tool].</span>")
 	target.notify_ghost_cloning("Someone пытается zap your brain.", source = target)
 
 /datum/surgery_step/revive/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
-	display_results(user, target, "<span class='notice'>You successfully shock [target]'s brain with [tool]...</span>",
-		"<span class='notice'>[user] send a powerful shock to [target]'s brain with [tool]...</span>",
-		"<span class='notice'>[user] send a powerful shock to [target]'s brain with [tool]...</span>")
+	display_results(user, target, "<span class='notice'>You successfully shock [target] brain with [tool]...</span>",
+		"<span class='notice'>[user] send a powerful shock to [target] brain with [tool]...</span>",
+		"<span class='notice'>[user] send a powerful shock to [target] brain with [tool]...</span>")
 	playsound(get_turf(target), 'sound/magic/lightningbolt.ogg', 50, TRUE)
 	target.grab_ghost()
 	target.adjustOxyLoss(-50, 0)
@@ -75,9 +75,9 @@
 		return FALSE
 
 /datum/surgery_step/revive/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You shock [target]'s brain with [tool], but [target.ru_who()] doesn't react.</span>",
-		"<span class='notice'>[user] send a powerful shock to [target]'s brain with [tool], but [target.ru_who()] doesn't react.</span>",
-		"<span class='notice'>[user] send a powerful shock to [target]'s brain with [tool], but [target.ru_who()] doesn't react.</span>")
+	display_results(user, target, "<span class='notice'>You shock [target] brain with [tool], but [target.ru_who()] doesn't react.</span>",
+		"<span class='notice'>[user] send a powerful shock to [target] brain with [tool], but [target.ru_who()] doesn't react.</span>",
+		"<span class='notice'>[user] send a powerful shock to [target] brain with [tool], but [target.ru_who()] doesn't react.</span>")
 	playsound(get_turf(target), 'sound/magic/lightningbolt.ogg', 50, TRUE)
 	target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 15, 180)
 	return FALSE

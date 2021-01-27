@@ -65,7 +65,7 @@
 			to_chat(user, "<span class='boldnotice'>[M] is dead!</span>")
 			return
 		if(M.mind)
-			to_chat(user, "<span class='boldnotice'>You plunge into [M]'s mind...</span>")
+			to_chat(user, "<span class='boldnotice'>You plunge into [M] mind...</span>")
 			if(prob(20))
 				to_chat(M, "<span class='danger'>You feel something foreign enter your mind.</span>")//chance to alert the read-ee
 			var/list/recent_speech = list()

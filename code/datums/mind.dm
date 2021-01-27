@@ -567,8 +567,8 @@
 				new_objective.admin_edit(usr)
 				target_antag.objectives -= old_objective
 				target_antag.objectives.Insert(objective_pos, new_objective)
-			message_admins("[key_name_admin(usr)] edited [current]'s objective to [new_objective.explanation_text]")
-			log_admin("[key_name(usr)] edited [current]'s objective to [new_objective.explanation_text]")
+			message_admins("[key_name_admin(usr)] edited [current] objective to [new_objective.explanation_text]")
+			log_admin("[key_name(usr)] edited [current] objective to [new_objective.explanation_text]")
 
 	else if (href_list["obj_delete"])
 		var/datum/objective/objective
@@ -595,7 +595,7 @@
 			to_chat(usr,"Invalid objective.")
 			return
 		objective.completed = !objective.completed
-		log_admin("[key_name(usr)] toggled the win state for [current]'s objective: [objective.explanation_text]")
+		log_admin("[key_name(usr)] toggled the win state for [current] objective: [objective.explanation_text]")
 
 	else if (href_list["silicon"])
 		switch(href_list["silicon"])
@@ -611,8 +611,8 @@
 					var/mob/living/silicon/ai/ai = current
 					for (var/mob/living/silicon/robot/R in ai.connected_robots)
 						R.SetEmagged(0)
-					message_admins("[key_name_admin(usr)] has unemag'ed [ai]'s Cyborgs.")
-					log_admin("[key_name(usr)] has unemag'ed [ai]'s Cyborgs.")
+					message_admins("[key_name_admin(usr)] has unemag'ed [ai] Cyborgs.")
+					log_admin("[key_name(usr)] has unemag'ed [ai] Cyborgs.")
 
 	else if (href_list["common"])
 		switch(href_list["common"])
@@ -622,7 +622,7 @@
 			if("takeuplink")
 				take_uplink()
 				memory = null//Remove any memory they may have had.
-				log_admin("[key_name(usr)] removed [current]'s uplink.")
+				log_admin("[key_name(usr)] removed [current] uplink.")
 			if("crystals")
 				if(check_rights(R_FUN, 0))
 					var/datum/component/uplink/U = find_syndicate_uplink()
@@ -630,8 +630,8 @@
 						var/crystals = input("Amount of telecrystals for [key]","Syndicate uplink", U.telecrystals) as null | num
 						if(!isnull(crystals))
 							U.telecrystals = crystals
-							message_admins("[key_name_admin(usr)] changed [current]'s telecrystal count to [crystals].")
-							log_admin("[key_name(usr)] changed [current]'s telecrystal count to [crystals].")
+							message_admins("[key_name_admin(usr)] changed [current] telecrystal count to [crystals].")
+							log_admin("[key_name(usr)] changed [current] telecrystal count to [crystals].")
 			if("uplink")
 				if(!equip_traitor())
 					to_chat(usr, "<span class='danger'>Equipping a syndicate failed!</span>")

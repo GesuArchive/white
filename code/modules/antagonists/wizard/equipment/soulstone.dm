@@ -86,7 +86,7 @@
 	if(purified && iscultist(user))
 		hot_potato(user)
 		return
-	log_combat(user, M, "captured [M.name]'s soul", src)
+	log_combat(user, M, "captured [M.name] soul", src)
 	transfer_soul("VICTIM", M, user)
 
 ///////////////////Options for using captured souls///////////////////////////////////////
@@ -116,7 +116,7 @@
 		name = initial(name)
 		if(!silent)
 			if(iswizard(user) || usability)
-				to_chat(A, "<b>You have been released from your prison, but you are still bound to [user.real_name]'s will. Help [user.p_them()] succeed in [user.p_their()] goals at all costs.</b>")
+				to_chat(A, "<b>You have been released from your prison, but you are still bound to [user.real_name] will. Help [user.p_them()] succeed in [user.p_their()] goals at all costs.</b>")
 			else if(iscultist(user))
 				to_chat(A, "<b>You have been released from your prison, but you are still bound to the cult's will. Help them succeed in their goals at all costs.</b>")
 		was_used()
@@ -136,7 +136,7 @@
 		return
 
 	user.visible_message("<span class='notice'>[user] holds [src] above [user.p_their()] head and forces it into [target_toolbox] with a flash of light!", \
-		"<span class='notice'>You hold [src] above your head briefly, then force it into [target_toolbox], transferring the [occupant]'s soul!</span>", ignored_mobs = occupant)
+		"<span class='notice'>You hold [src] above your head briefly, then force it into [target_toolbox], transferring the [occupant] soul!</span>", ignored_mobs = occupant)
 	to_chat(occupant, "<span class='userdanger'>[user] holds you up briefly, then forces you into [target_toolbox]!</span>")
 	to_chat(occupant, "<span class='deadsay'><b>Your eternal soul has been sacrificed to restore the soul of a toolbox. Them's the breaks!</b></span>")
 
@@ -240,7 +240,7 @@
 				name = "soulstone: Shade of [T.real_name]"
 				to_chat(T, "<span class='notice'>Your soul has been captured by [src]. Its arcane energies are reknitting your ethereal form.</span>")
 				if(user != T)
-					to_chat(user, "<span class='info'><b>Capture successful!</b>:</span> [T.real_name]'s soul has been captured and stored within [src].")
+					to_chat(user, "<span class='info'><b>Capture successful!</b>:</span> [T.real_name] soul has been captured and stored within [src].")
 
 		if("CONSTRUCT")
 			var/obj/structure/constructshell/T = target
@@ -352,11 +352,11 @@
 	else
 		icon_state = "soulstone2"
 	if(user && (iswizard(user) || usability))
-		to_chat(S, "Your soul has been captured! You are now bound to [user.real_name]'s will. Help [user.ru_na()] succeed in [user.ru_ego()] goals at all costs.")
+		to_chat(S, "Your soul has been captured! You are now bound to [user.real_name] will. Help [user.ru_na()] succeed in [user.ru_ego()] goals at all costs.")
 	else if(user && iscultist(user))
 		to_chat(S, "Your soul has been captured! You are now bound to the cult's will. Help them succeed in their goals at all costs.")
 	if(message_user && user)
-		to_chat(user, "<span class='info'><b>Capture successful!</b>:</span> [T.real_name]'s soul has been ripped from [T.ru_ego()] body and stored within [src].")
+		to_chat(user, "<span class='info'><b>Capture successful!</b>:</span> [T.real_name] soul has been ripped from [T.ru_ego()] body and stored within [src].")
 
 
 /obj/item/soulstone/proc/getCultGhost(mob/living/carbon/human/T, mob/user)

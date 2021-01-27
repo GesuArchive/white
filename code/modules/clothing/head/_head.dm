@@ -33,20 +33,20 @@
 			var/obj/item/WH = H.head
 			///check if the item has NODROP
 			if(HAS_TRAIT(WH, TRAIT_NODROP))
-				H.visible_message("<span class='warning'>[capitalize(src.name)] отскакивает от [H]'s [WH.name]!</span>", "<span class='warning'>[capitalize(src.name)] отскакивает от твоей [WH.name] и падает на пол.</span>")
+				H.visible_message("<span class='warning'>[capitalize(src.name)] отскакивает от [H] [WH.name]!</span>", "<span class='warning'>[capitalize(src.name)] отскакивает от твоей [WH.name] и падает на пол.</span>")
 				return
 			///check if the item is an actual clothing head item, since some non-clothing items can be worn
 			if(istype(WH, /obj/item/clothing/head))
 				var/obj/item/clothing/head/WHH = WH
 				///SNUG_FIT hats are immune to being knocked off
 				if(WHH.clothing_flags & SNUG_FIT)
-					H.visible_message("<span class='warning'>[capitalize(src.name)] отскакивает от [H]'s [WHH.name]!</span>", "<span class='warning'>[capitalize(src.name)] отскакивает от твоей [WHH.name] и падает на пол.</span>")
+					H.visible_message("<span class='warning'>[capitalize(src.name)] отскакивает от [H] [WHH.name]!</span>", "<span class='warning'>[capitalize(src.name)] отскакивает от твоей [WHH.name] и падает на пол.</span>")
 					return
 			///if the hat manages to knock something off
 			if(H.dropItemToGround(WH))
-				H.visible_message("<span class='warning'>[capitalize(src.name)] сбита с  [WH] [H]'s головы!</span>", "<span class='warning'>[WH] была внезапно сбита с моей головы [src]!</span>")
+				H.visible_message("<span class='warning'>[capitalize(src.name)] сбита с  [WH] [H] головы!</span>", "<span class='warning'>[WH] была внезапно сбита с моей головы [src]!</span>")
 		if(H.equip_to_slot_if_possible(src, ITEM_SLOT_HEAD, 0, 1, 1))
-			H.visible_message("<span class='notice'>[capitalize(src.name)] приземляется аккурат на [H]'s!</span>", "<span class='notice'>[capitalize(src.name)] приземляется прямо на мою голову!</span>")
+			H.visible_message("<span class='notice'>[capitalize(src.name)] приземляется аккурат на [H]!</span>", "<span class='notice'>[capitalize(src.name)] приземляется прямо на мою голову!</span>")
 		return
 	if(iscyborg(hit_atom))
 		var/mob/living/silicon/robot/R = hit_atom

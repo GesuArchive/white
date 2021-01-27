@@ -475,7 +475,7 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 					return ..()
 				attack_target = get_turf(attack_target)
 				if(isclosedturf(attack_target))
-					to_chat(user, "<span class='warning'>[src]'s error light flickers; there's something in the way!</span>")
+					to_chat(user, "<span class='warning'>[src] error light flickers; there's something in the way!</span>")
 					return
 				to_chat(user, "<span class='notice'>You start building a disposals pipe...</span>")
 				playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
@@ -500,7 +500,7 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 					return ..()
 				attack_target = get_turf(attack_target)
 				if(isclosedturf(attack_target))
-					to_chat(user, "<span class='warning'>[src]'s error light flickers; there's something in the way!</span>")
+					to_chat(user, "<span class='warning'>[src] error light flickers; there's something in the way!</span>")
 					return
 				to_chat(user, "<span class='notice'>You start building a transit tube...</span>")
 				playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)

@@ -115,7 +115,7 @@
 
 
 /datum/antagonist/bloodsucker/farewell()
-	owner.current.visible_message("[owner.current]'s skin flushes with color, their eyes growing glossier. They look...alive.",\
+	owner.current.visible_message("[owner.current] skin flushes with color, their eyes growing glossier. They look...alive.",\
 			"<span class='userdanger'><FONT size = 3>With a snap, your curse has ended. You are no longer a Bloodsucker. You live once more!</FONT></span>")
 	// Refill with Blood
 	owner.current.blood_volume = max(owner.current.blood_volume,BLOOD_VOLUME_SAFE)

@@ -384,7 +384,7 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 			if(12)
 				list_temp += "<br><center><h3>[enemy_name] throws the bomb next to you, you'r too scared to pick it up. <center><h3>"
 			if(6)
-				list_temp += "<br><center><h3>[enemy_name]'s hand brushes the remote linked to the bomb, your heart skipped a beat. <center><h3>"
+				list_temp += "<br><center><h3>[enemy_name] hand brushes the remote linked to the bomb, your heart skipped a beat. <center><h3>"
 			if(2)
 				list_temp += "<br><center><h3>[enemy_name] is going to press the button! It's now or never! <center><h3>"
 			if(0)
@@ -464,7 +464,7 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 			list_temp += "<br><center><h3>[enemy_name] attacks you for [attack_amount] points of damage with their [chosen_weapon]<center><h3>"
 			if(player_stance == "counter_attack")
 				enemy_hp -= attack_amount * 2
-				list_temp += "<br><center><h3>You counter [enemy_name]'s attack and deal [attack_amount * 2] points of damage!<center><h3>"
+				list_temp += "<br><center><h3>You counter [enemy_name] attack and deal [attack_amount * 2] points of damage!<center><h3>"
 
 		if(enemy_stance == "defensive" && enemy_mp < 15)
 			list_temp += "<br><center><h3>[enemy_name] take some time to get some mp back!<center><h3> "
@@ -499,7 +499,7 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 			enemy_hp += 20
 			enemy_mp -= 30
 		else
-			list_temp += "<br><center><h3>[enemy_name]'s magical nature lets them get some mp back!<center><h3>"
+			list_temp += "<br><center><h3>[enemy_name] magical nature lets them get some mp back!<center><h3>"
 			enemy_mp += attack_amount
 
 	//poisonous passive trait, while it's less damage added than the shotgun it acts up even when the enemy doesn't attack at all.
@@ -1296,9 +1296,9 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 
 				eventdat += "Changelings among your crew suddenly burst from hiding and attack!"
 				if(ling2)
-					eventdat += "<br>[ling1] and [ling2]'s arms twist and contort into grotesque blades!"
+					eventdat += "<br>[ling1] and [ling2] arms twist and contort into grotesque blades!"
 				else
-					eventdat += "<br>[ling1]'s arm twists and contorts into a grotesque blade!"
+					eventdat += "<br>[ling1] arm twists and contorts into a grotesque blade!"
 
 				var/chance2attack = alive*20
 				if(prob(chance2attack))

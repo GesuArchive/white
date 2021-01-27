@@ -18,7 +18,7 @@
 					if(D.health < D.maxHealth)
 						D.visible_message("<span class='notice'>[D] begins to cannibalize parts from [src].</span>", "<span class='notice'>You begin to cannibalize parts from [src]...</span>")
 						if(do_after(D, 60, 0, target = src))
-							D.visible_message("<span class='notice'>[D] repairs itself using [src]'s remains!</span>", "<span class='notice'>You repair yourself using [src]'s remains.</span>")
+							D.visible_message("<span class='notice'>[D] repairs itself using [src] remains!</span>", "<span class='notice'>You repair yourself using [src] remains.</span>")
 							D.adjustBruteLoss(-src.maxHealth)
 							new /obj/effect/decal/cleanable/oil/streak(get_turf(src))
 							qdel(src)
@@ -96,18 +96,18 @@
 			to_chat(user, "<span class='notice'>You start to tighten loose screws on [src]...</span>")
 			if(I.use_tool(src, user, 80))
 				adjustBruteLoss(-getBruteLoss())
-				visible_message("<span class='notice'>[user] tightens [src == user ? "[user.ru_ego()]" : "[src]'s"] loose screws!</span>", "<span class='notice'>You tighten [src == user ? "your" : "[src]'s"] loose screws.</span>")
+				visible_message("<span class='notice'>[user] tightens [src == user ? "[user.ru_ego()]" : "[src]"] loose screws!</span>", "<span class='notice'>You tighten [src == user ? "your" : "[src]"] loose screws.</span>")
 			else
-				to_chat(user, "<span class='warning'>You need to remain still to tighten [src]'s screws!</span>")
+				to_chat(user, "<span class='warning'>You need to remain still to tighten [src] screws!</span>")
 		else
-			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s screws can't get any tighter!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] screws can't get any tighter!</span>")
 		return //This used to not exist and drones who repaired themselves also stabbed the shit out of themselves.
 	else if(I.tool_behaviour == TOOL_WRENCH && user != src) //They aren't required to be hacked, because laws can change in other ways (i.e. admins)
 		user.visible_message("<span class='notice'>[user] starts resetting [src]...</span>", \
-			"<span class='notice'>You press down on [src]'s factory reset control...</span>")
+			"<span class='notice'>You press down on [src] factory reset control...</span>")
 		if(I.use_tool(src, user, 50, volume=50))
 			user.visible_message("<span class='notice'>[user] resets [src]!</span>", \
-				"<span class='notice'>You reset [src]'s directives to factory defaults!</span>")
+				"<span class='notice'>You reset [src] directives to factory defaults!</span>")
 			update_drone_hack(FALSE)
 		return
 	else
@@ -142,7 +142,7 @@
 		if(hacked)
 			return
 		Stun(40)
-		visible_message("<span class='warning'>[capitalize(src.name)]'s display glows a vicious red!</span>", \
+		visible_message("<span class='warning'>[capitalize(src.name)] display glows a vicious red!</span>", \
 						"<span class='userdanger'>ERROR: LAW OVERRIDE DETECTED</span>")
 		to_chat(src, "<span class='boldannounce'>From now on, these are your laws:</span>")
 		laws = \
@@ -160,7 +160,7 @@
 		if(!hacked)
 			return
 		Stun(40)
-		visible_message("<span class='info'>[capitalize(src.name)]'s display glows a content blue!</span>", \
+		visible_message("<span class='info'>[capitalize(src.name)] display glows a content blue!</span>", \
 						"<font size=3 color='#0000CC'><b>ERROR: LAW OVERRIDE DETECTED</b></font>")
 		to_chat(src, "<span class='info'><b>From now on, these are your laws:</b></span>")
 		laws = initial(laws)

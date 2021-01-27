@@ -116,7 +116,7 @@
 	if(ishuman(possible_throwable))
 		var/mob/living/carbon/human/human_throwable = possible_throwable
 		if(human_throwable.wear_suit && (human_throwable.wear_suit.flags_inv & HIDEJUMPSUIT))
-			to_chat(user, "<span class='warning'>You can't reach [human_throwable]'s tail through [human_throwable.p_their()] [human_throwable.wear_suit.name]!</span>")
+			to_chat(user, "<span class='warning'>You can't reach [human_throwable] tail through [human_throwable.p_their()] [human_throwable.wear_suit.name]!</span>")
 			return
 
 	user.face_atom(clicked_atom)
@@ -137,9 +137,9 @@
 	to_chat(the_hulk, "<span class='danger'>You start grasping [yeeted_person] by the tail...</span>")
 
 	if(!do_after(the_hulk, 2 SECONDS, yeeted_person))
-		yeeted_person.visible_message("<span class='danger'>[yeeted_person] breaks free of [the_hulk]'s grasp!</span>", \
-					"<span class='userdanger'>You break free from [the_hulk]'s grasp!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", null, the_hulk)
-		to_chat(the_hulk, "<span class='danger'>You lose your grasp on [yeeted_person]'s tail!</span>")
+		yeeted_person.visible_message("<span class='danger'>[yeeted_person] breaks free of [the_hulk] grasp!</span>", \
+					"<span class='userdanger'>You break free from [the_hulk] grasp!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", null, the_hulk)
+		to_chat(the_hulk, "<span class='danger'>You lose your grasp on [yeeted_person] tail!</span>")
 		return
 
 	// we're officially a-go!

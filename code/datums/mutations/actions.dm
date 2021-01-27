@@ -93,7 +93,7 @@
 		return
 	var/direction_text = "[dir2text(get_dir(usr, tracking_target))]"
 	if(direction_text)
-		to_chat(user,"<span class='notice'>You consider [tracking_target]'s scent. The trail leads <b>[direction_text].</b></span>")
+		to_chat(user,"<span class='notice'>You consider [tracking_target] scent. The trail leads <b>[direction_text].</b></span>")
 
 /datum/mutation/human/firebreath
 	name = "Fire Breath"

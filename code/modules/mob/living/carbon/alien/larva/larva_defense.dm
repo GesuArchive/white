@@ -16,8 +16,8 @@
 			apply_damage(damage, BRUTE, affecting)
 		else
 			playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
-			visible_message("<span class='danger'>[M]'s kick misses [src]!</span>", \
-							"<span class='danger'>You avoid [M]'s kick!</span>", "<span class='hear'>You hear a swoosh!</span>", COMBAT_MESSAGE_RANGE, M)
+			visible_message("<span class='danger'>[M] kick misses [src]!</span>", \
+							"<span class='danger'>You avoid [M] kick!</span>", "<span class='hear'>You hear a swoosh!</span>", COMBAT_MESSAGE_RANGE, M)
 			to_chat(M, "<span class='warning'>Your kick misses [src]!</span>")
 
 /mob/living/carbon/alien/larva/attack_hulk(mob/living/carbon/human/user)

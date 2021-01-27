@@ -318,7 +318,7 @@
 		"<span class='warning'>With a sickening 720-degree twist of [owner.ru_ego()] back, [owner] vanishes into thin air.</span>",
 		"<span class='warning'>[owner] does some sort of strange backflip into another dimension. It looks pretty painful.</span>",
 		"<span class='warning'>[owner] does a jump to the left, a step to the right, and warps out of reality.</span>",
-		"<span class='warning'>[owner]'s torso starts folding inside out until it vanishes from reality, taking [owner] with it.</span>",
+		"<span class='warning'>[owner] torso starts folding inside out until it vanishes from reality, taking [owner] with it.</span>",
 		"<span class='warning'>One moment, you see [owner]. The next, [owner] is gone.</span>")
 		owner.visible_message(warpmessage, "<span class='userdanger'>You feel a wave of nausea as you fall through reality!</span>")
 		var/warpdistance = rand(10,15) * GET_MUTATION_POWER(src)
@@ -345,7 +345,7 @@
 			msgcooldown = world.time + 200
 		if(prob(15))
 			owner.acid_act(rand(30,50), 10)
-			owner.visible_message("<span class='warning'>[owner]'s skin bubbles and pops.</span>", "<span class='userdanger'>Your bubbling flesh pops! It burns!</span>")
+			owner.visible_message("<span class='warning'>[owner] skin bubbles and pops.</span>", "<span class='userdanger'>Your bubbling flesh pops! It burns!</span>")
 			playsound(owner,'sound/weapons/sear.ogg', 50, TRUE)
 
 /datum/mutation/human/gigantism
@@ -483,7 +483,7 @@
 
 	var/obj/item/bodypart/head/head = owner.get_bodypart(BODY_ZONE_HEAD)
 	if(head)
-		owner.visible_message("<span class='warning'>[owner]'s head splatters with a sickening crunch!</span>", ignored_mobs = list(owner))
+		owner.visible_message("<span class='warning'>[owner] head splatters with a sickening crunch!</span>", ignored_mobs = list(owner))
 		new /obj/effect/gibspawner/generic(get_turf(owner), owner)
 		head.dismember(BRUTE)
 		head.drop_organs()
@@ -505,7 +505,7 @@
 		return TRUE
 	owner.dna.species.regenerate_organs(owner, replace_current = FALSE, excluded_zones = list(BODY_ZONE_CHEST)) //replace_current needs to be FALSE to prevent weird adding and removing mutation healing
 	owner.apply_damage(damage = 50, damagetype = BRUTE, def_zone = BODY_ZONE_HEAD) //and this to DISCOURAGE organ farming, or at least not make it free.
-	owner.visible_message("<span class='warning'>[owner]'s head returns with a sickening crunch!</span>", "<span class='warning'>Your head regrows with a sickening crack! Ouch.</span>")
+	owner.visible_message("<span class='warning'>[owner] head returns with a sickening crunch!</span>", "<span class='warning'>Your head regrows with a sickening crack! Ouch.</span>")
 	new /obj/effect/gibspawner/generic(get_turf(owner), owner)
 
 

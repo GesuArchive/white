@@ -440,7 +440,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/medical/syringe_gun/proc/load_syringe(obj/item/reagent_containers/syringe/S, mob/user)
 	if(LAZYLEN(syringes) >= max_syringes)
-		to_chat(user, "[icon2html(src, user)]<span class='warning'>[capitalize(src.name)]'s syringe chamber is full!</span>")
+		to_chat(user, "[icon2html(src, user)]<span class='warning'>[capitalize(src.name)] syringe chamber is full!</span>")
 		return FALSE
 	if(get_dist(src,S) >= 2)
 		to_chat(user, "[icon2html(src, user)]<span class='warning'>The syringe is too far away!</span>")

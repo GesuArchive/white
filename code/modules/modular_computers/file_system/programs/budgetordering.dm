@@ -230,7 +230,7 @@
 			else
 				SSshuttle.shoppinglist += SO
 				if(self_paid)
-					computer.say("Order processed. The price will be charged to [account.account_holder]'s bank account on delivery.")
+					computer.say("Order processed. The price will be charged to [account.account_holder] bank account on delivery.")
 			. = TRUE
 		if("remove")
 			var/id = text2num(params["id"])

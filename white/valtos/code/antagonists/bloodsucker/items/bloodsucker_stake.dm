@@ -92,17 +92,17 @@
 		return
 			// Oops! Can't.
 	if(HAS_TRAIT(C, TRAIT_PIERCEIMMUNE))
-		to_chat(user, "<span class='danger'>[target]'s chest resists the stake. It won't go in.</span>")
+		to_chat(user, "<span class='danger'>[target] chest resists the stake. It won't go in.</span>")
 		return
 	// Make Attempt...
-	to_chat(user, "<span class='notice'>You put all your weight into embedding the stake into [target]'s chest...</span>")
+	to_chat(user, "<span class='notice'>You put all your weight into embedding the stake into [target] chest...</span>")
 	playsound(user, 'sound/magic/Demon_consume.ogg', 50, 1)
 	if (!do_mob(user, C, staketime, 0, 1, extra_checks=CALLBACK(C, /mob/living/carbon/proc/can_be_staked))) // user / target / time / uninterruptable / show progress bar / extra checks
 		return
 
 	// Drop & Embed Stake
-	user.visible_message("<span class='danger'>[user.name] drives the [src] into [target]'s chest!</span>", \
-			 "<span class='danger'>You drive the [src] into [target]'s chest!</span>")
+	user.visible_message("<span class='danger'>[user.name] drives the [src] into [target] chest!</span>", \
+			 "<span class='danger'>You drive the [src] into [target] chest!</span>")
 	playsound(get_turf(target), 'sound/effects/splat.ogg', 40, 1)
 
 	user.dropItemToGround(src, TRUE) //user.drop_item() // "drop item" doesn't seem to exist anymore. New proc is user.dropItemToGround() but it doesn't seem like it's needed now?
@@ -122,7 +122,7 @@
 				return
 			else
 				to_chat(target, "<span class='userdanger'>You have been staked! Your powers are useless, your death forever, while it remains in place.</span>")
-				to_chat(user, "<span class='warning'>You missed [C.ru_ego(TRUE)]'s heart! It would be easier if [C.ru_who(TRUE)] weren't struggling so much.</span>")
+				to_chat(user, "<span class='warning'>You missed [C.ru_ego(TRUE)] heart! It would be easier if [C.ru_who(TRUE)] weren't struggling so much.</span>")
 
 
 

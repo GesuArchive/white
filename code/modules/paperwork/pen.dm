@@ -188,10 +188,10 @@
 			if(QDELETED(O) || !user.canUseTopic(O, BE_CLOSE))
 				return
 			if(olddesc == input || input == "")
-				to_chat(user, "<span class='notice'>You decide against changing [O]'s description.</span>")
+				to_chat(user, "<span class='notice'>You decide against changing [O] description.</span>")
 			else
 				O.desc = input
-				to_chat(user, "<span class='notice'>You have successfully changed [O]'s description.</span>")
+				to_chat(user, "<span class='notice'>You have successfully changed [O] description.</span>")
 				O.renamedByPlayer = TRUE
 
 		if(penchoice == "Reset")
@@ -203,7 +203,7 @@
 			if(label)
 				label.remove_label()
 				label.apply_label()
-			to_chat(user, "<span class='notice'>You have successfully reset [O]'s name and description.</span>")
+			to_chat(user, "<span class='notice'>You have successfully reset [O] name and description.</span>")
 			O.renamedByPlayer = FALSE
 
 /*

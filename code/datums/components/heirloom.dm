@@ -22,4 +22,4 @@
 	else
 		var/datum/antagonist/obsessed/creeper = user.mind.has_antag_datum(/datum/antagonist/obsessed)
 		if(creeper && creeper.trauma.obsession == owner)
-			examine_list += "<span class='nicegreen'>This must be [owner]'s family heirloom! It smells just like them...</span>"
+			examine_list += "<span class='nicegreen'>This must be [owner] family heirloom! It smells just like them...</span>"

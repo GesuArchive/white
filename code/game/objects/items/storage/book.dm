@@ -181,7 +181,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 			log_combat(user, M, "атакует", src)
 
 	else
-		M.visible_message("<span class='danger'>[user] smacks [M]'s lifeless corpse with [src].</span>")
+		M.visible_message("<span class='danger'>[user] smacks [M] lifeless corpse with [src].</span>")
 		playsound(src.loc, "punch", 25, TRUE, -1)
 
 /obj/item/storage/book/bible/afterattack(atom/A, mob/user, proximity)

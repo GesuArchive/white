@@ -61,7 +61,7 @@
 	if(B)
 		display_results(user, target, "<span class='warning'>Я извлек неверную часть, что привело к большим повреждениям!</span>",
 			"<span class='notice'>[user] успешно выполнил лоботомию [target]!</span>",
-			"<span class='notice'>[user] завершает операцию [target]'s brain.</span>")
+			"<span class='notice'>[user] завершает операцию [target] brain.</span>")
 		B.applyOrganDamage(80)
 		switch(rand(1,3))
 			if(1)

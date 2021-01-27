@@ -235,7 +235,7 @@
 	for(var/i = alpha, i > 0, i -= 10)
 		stoplag()
 		alpha = i
-	visible_message("<span class='danger'>[capitalize(src.name)]'s body breaks apart into a fine pile of blue dust.</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] body breaks apart into a fine pile of blue dust.</span>")
 	var/reforming_essence = essence_regen_cap //retain the gained essence capacity
 	var/obj/item/ectoplasm/revenant/R = new(get_turf(src))
 	R.essence = max(reforming_essence - 15 * perfectsouls, 75) //minus any perfect souls

@@ -242,7 +242,7 @@
 /// If we don't have any slappers in hand when someone goes to high-five us, we prank the hell out of them
 /datum/status_effect/high_fiving/proc/too_slow_p1(mob/living/carbon/rube)
 	owner.visible_message("<span class='notice'>[rube] rushes in to high-five [owner], but-</span>", "<span class='nicegreen'>[rube] falls for your trick just as planned, lunging for a high-five that no longer exists! Classic!</span>", ignored_mobs=rube)
-	to_chat(rube, "<span class='nicegreen'>You go in for [owner]'s high-five, but-</span>")
+	to_chat(rube, "<span class='nicegreen'>You go in for [owner] high-five, but-</span>")
 	addtimer(CALLBACK(src, .proc/too_slow_p2, rube), 0.5 SECONDS)
 
 /// Part two of the ultimate prank
@@ -250,7 +250,7 @@
 	if(!owner || !rube)
 		qdel(src)
 		return
-	owner.visible_message("<span class='danger'>[owner] pulls away from [rube]'s slap at the last second, dodging the high-five entirely!</span>", "<span class='nicegreen'>[rube] fails to make contact with your hand, making an utter fool of [rube.ru_na()]self!</span>", "<span class='hear'>You hear a disappointing sound of flesh not hitting flesh!</span>", ignored_mobs=rube)
+	owner.visible_message("<span class='danger'>[owner] pulls away from [rube] slap at the last second, dodging the high-five entirely!</span>", "<span class='nicegreen'>[rube] fails to make contact with your hand, making an utter fool of [rube.ru_na()]self!</span>", "<span class='hear'>You hear a disappointing sound of flesh not hitting flesh!</span>", ignored_mobs=rube)
 	var/all_caps_for_emphasis = uppertext("NO! [owner] PULLS [owner.ru_ego()] HAND AWAY FROM YOURS! YOU'RE TOO SLOW!")
 	to_chat(rube, "<span class='userdanger'>[all_caps_for_emphasis]</span>")
 	playsound(owner, 'sound/weapons/thudswoosh.ogg', 100, TRUE, 1)
@@ -264,7 +264,7 @@
 	SIGNAL_HANDLER
 
 	if(!slap_item)
-		examine_list += "<span class='warning'>[owner]'s arm appears tensed up, as if [owner.ru_who()] plan on pulling it back suddenly...</span>\n"
+		examine_list += "<span class='warning'>[owner] arm appears tensed up, as if [owner.ru_who()] plan on pulling it back suddenly...</span>\n"
 
 /// One of our possible takers moved, see if they left us hanging
 /datum/status_effect/high_fiving/proc/check_taker_in_range(mob/living/carbon/taker)

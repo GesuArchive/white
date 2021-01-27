@@ -122,7 +122,7 @@ Chilling extracts:
 
 /obj/item/slimecross/chilling/darkblue/do_effect(mob/user)
 	if(isliving(user))
-		user.visible_message("<span class='notice'>[capitalize(src.name)] freezes over [user]'s entire body!</span>")
+		user.visible_message("<span class='notice'>[capitalize(src.name)] freezes over [user] entire body!</span>")
 		var/mob/living/M = user
 		M.apply_status_effect(/datum/status_effect/frozenstasis)
 	..()
@@ -254,9 +254,9 @@ Chilling extracts:
 	var/obj/item/gun/magic/bloodchill/gun = new(user)
 	if(!L.put_in_hands(gun))
 		qdel(gun)
-		user.visible_message("<span class='warning'>[capitalize(src.name)] flash-freezes [user]'s arm, cracking the flesh horribly!</span>")
+		user.visible_message("<span class='warning'>[capitalize(src.name)] flash-freezes [user] arm, cracking the flesh horribly!</span>")
 	else
-		user.visible_message("<span class='danger'>[capitalize(src.name)] chills and snaps off the front of the bone on [user]'s arm, leaving behind a strange, gun-like structure!</span>")
+		user.visible_message("<span class='danger'>[capitalize(src.name)] chills and snaps off the front of the bone on [user] arm, leaving behind a strange, gun-like structure!</span>")
 	user.emote("scream")
 	L.apply_damage(30,BURN,which_hand)
 	..()
@@ -297,7 +297,7 @@ Chilling extracts:
 
 /obj/item/slimecross/chilling/black/do_effect(mob/user)
 	if(ishuman(user))
-		user.visible_message("<span class='notice'>[capitalize(src.name)] crystallizes along [user]'s skin, turning into metallic scales!</span>")
+		user.visible_message("<span class='notice'>[capitalize(src.name)] crystallizes along [user] skin, turning into metallic scales!</span>")
 		var/mob/living/carbon/human/H = user
 		H.set_species(/datum/species/golem/random)
 	..()

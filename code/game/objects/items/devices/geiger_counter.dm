@@ -128,7 +128,7 @@
 	. = ..()
 	if(user.a_intent == INTENT_HELP)
 		if(!(obj_flags & EMAGGED))
-			user.visible_message("<span class='notice'>[user] сканирует [target] используя [src.name].</span>", "<span class='notice'>Сканирую [target]'s radiation levels with [src.name]...</span>")
+			user.visible_message("<span class='notice'>[user] сканирует [target] используя [src.name].</span>", "<span class='notice'>Сканирую [target] radiation levels with [src.name]...</span>")
 			addtimer(CALLBACK(src, .proc/scan, target, user), 20, TIMER_UNIQUE) // Let's not have spamming GetAllContents
 		else
 			user.visible_message("<span class='notice'>[user] сканирует [target] используя [src.name].</span>", "<span class='danger'>Вкачиваю радиацию запасённую [src.name] в [target]!</span>")

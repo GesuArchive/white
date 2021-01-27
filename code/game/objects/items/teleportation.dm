@@ -215,7 +215,7 @@
 			head.drop_limb()
 			var/list/safeLevels = SSmapping.levels_by_any_trait(list(ZTRAIT_SPACE_RUINS, ZTRAIT_LAVA_RUINS, ZTRAIT_STATION, ZTRAIT_MINING))
 			head.forceMove(locate(rand(1, world.maxx), rand(1, world.maxy), pick(safeLevels)))
-			itemUser.visible_message("<span class='suicide'>The portal snaps closed taking [user]'s head with it!</span>")
+			itemUser.visible_message("<span class='suicide'>The portal snaps closed taking [user] head with it!</span>")
 		else
 			itemUser.visible_message("<span class='suicide'>[user] looks even further depressed as they realize they do not have a head...and suddenly dies of shame!</span>")
 		return (BRUTELOSS)

@@ -94,7 +94,7 @@
 			else
 				if(!user.temporarilyRemoveItemFromInventory(C))
 					return
-				to_chat(user, "<span class='notice'>You insert [C] into [src]'s slot!</span>")
+				to_chat(user, "<span class='notice'>You insert [C] into [src] slot!</span>")
 				balance += C.value
 				qdel(C)
 		else
@@ -104,7 +104,7 @@
 			var/obj/item/holochip/H = I
 			if(!user.temporarilyRemoveItemFromInventory(H))
 				return
-			to_chat(user, "<span class='notice'>You insert [H.credits] holocredits into [src]'s slot!</span>")
+			to_chat(user, "<span class='notice'>You insert [H.credits] holocredits into [src] slot!</span>")
 			balance += H.credits
 			qdel(H)
 		else

@@ -95,18 +95,18 @@
 			to_chat(user, "<span class='danger'>You're going to need to remove [H.wear_mask] first.</span>")
 			return
 		playsound(loc, 'white/valtos/sounds/ducttape1.ogg', 30, 1)
-		to_chat(user, "<span class='notice'>You start tape [H]'s mouth shut.</span>")
+		to_chat(user, "<span class='notice'>You start tape [H] mouth shut.</span>")
 		if(do_mob(user, H, 20))
 			// H.wear_mask = new/obj/item/clothing/mask/hippie/tape(H)
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/hippie/tape(H), SLOT_WEAR_MASK)
-			to_chat(user, "<span class='notice'>You tape [H]'s mouth shut.</span>")
+			to_chat(user, "<span class='notice'>You tape [H] mouth shut.</span>")
 			playsound(loc, 'white/valtos/sounds/ducttape1.ogg', 50, 1)
 			if(src.use(2) == 0)
 				user.dropItemToGround(src)
 				qdel(src)
 			log_combat(user, H, "mouth-taped")
 		else
-			to_chat(user, "<span class='warning'>You fail to tape [H]'s mouth shut.</span>")
+			to_chat(user, "<span class='warning'>You fail to tape [H] mouth shut.</span>")
 
 /proc/muffledspeech(phrase)
 	phrase = html_decode(phrase)

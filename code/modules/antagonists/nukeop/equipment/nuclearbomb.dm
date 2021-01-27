@@ -104,10 +104,10 @@
 	switch(deconstruction_state)
 		if(NUKESTATE_INTACT)
 			if(istype(I, /obj/item/screwdriver/nuke))
-				to_chat(user, "<span class='notice'>You start removing [src]'s front panel's screws...</span>")
+				to_chat(user, "<span class='notice'>You start removing [src] front panel's screws...</span>")
 				if(I.use_tool(src, user, 60, volume=100))
 					deconstruction_state = NUKESTATE_UNSCREWED
-					to_chat(user, "<span class='notice'>You remove the screws from [src]'s front panel.</span>")
+					to_chat(user, "<span class='notice'>You remove the screws from [src] front panel.</span>")
 					update_icon()
 				return
 
@@ -115,9 +115,9 @@
 			if(I.tool_behaviour == TOOL_WELDER)
 				if(!I.tool_start_check(user, amount=1))
 					return
-				to_chat(user, "<span class='notice'>You start cutting [src]'s inner plate...</span>")
+				to_chat(user, "<span class='notice'>You start cutting [src] inner plate...</span>")
 				if(I.use_tool(src, user, 80, volume=100, amount=1))
-					to_chat(user, "<span class='notice'>You cut [src]'s inner plate.</span>")
+					to_chat(user, "<span class='notice'>You cut [src] inner plate.</span>")
 					deconstruction_state = NUKESTATE_WELDED
 					update_icon()
 				return
@@ -138,9 +138,9 @@
 				if(!I.tool_start_check(user, amount=20))
 					return
 
-				to_chat(user, "<span class='notice'>You begin repairing [src]'s inner metal plate...</span>")
+				to_chat(user, "<span class='notice'>You begin repairing [src] inner metal plate...</span>")
 				if(I.use_tool(src, user, 100, amount=20))
-					to_chat(user, "<span class='notice'>You repair [src]'s inner metal plate. The radiation is contained.</span>")
+					to_chat(user, "<span class='notice'>You repair [src] inner metal plate. The radiation is contained.</span>")
 					deconstruction_state = NUKESTATE_PANEL_REMOVED
 					STOP_PROCESSING(SSobj, core)
 					update_icon()
@@ -151,16 +151,16 @@
 	. = FALSE
 	switch(deconstruction_state)
 		if(NUKESTATE_UNSCREWED)
-			to_chat(user, "<span class='notice'>You start removing [src]'s front panel...</span>")
+			to_chat(user, "<span class='notice'>You start removing [src] front panel...</span>")
 			if(tool.use_tool(src, user, 30, volume=100))
-				to_chat(user, "<span class='notice'>You remove [src]'s front panel.</span>")
+				to_chat(user, "<span class='notice'>You remove [src] front panel.</span>")
 				deconstruction_state = NUKESTATE_PANEL_REMOVED
 				update_icon()
 			return TRUE
 		if(NUKESTATE_WELDED)
-			to_chat(user, "<span class='notice'>You start prying off [src]'s inner plate...</span>")
+			to_chat(user, "<span class='notice'>You start prying off [src] inner plate...</span>")
 			if(tool.use_tool(src, user, 30, volume=100))
-				to_chat(user, "<span class='notice'>You pry off [src]'s inner plate. You can see the core's green glow!</span>")
+				to_chat(user, "<span class='notice'>You pry off [src] inner plate. You can see the core's green glow!</span>")
 				deconstruction_state = NUKESTATE_CORE_EXPOSED
 				update_icon()
 				START_PROCESSING(SSobj, core)

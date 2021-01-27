@@ -224,9 +224,9 @@ Burning extracts:
 	var/obj/item/melee/arm_blade/slime/blade = new(user)
 	if(!L.put_in_hands(blade))
 		qdel(blade)
-		user.visible_message("<span class='warning'>[capitalize(src.name)] melts onto [user]'s arm, boiling the flesh horribly!</span>")
+		user.visible_message("<span class='warning'>[capitalize(src.name)] melts onto [user] arm, boiling the flesh horribly!</span>")
 	else
-		user.visible_message("<span class='danger'>[capitalize(src.name)] sublimates the flesh around [user]'s arm, transforming the bone into a gruesome blade!</span>")
+		user.visible_message("<span class='danger'>[capitalize(src.name)] sublimates the flesh around [user] arm, transforming the bone into a gruesome blade!</span>")
 	user.emote("scream")
 	L.apply_damage(30,BURN,which_hand)
 	..()

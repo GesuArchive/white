@@ -577,7 +577,7 @@ This section is for the crystal portals variations
 			closed = TRUE
 			qdel(src)
 	if(W.tool_behaviour == TOOL_ANALYZER)
-		to_chat(user, "<span class='notice'>Analyzing... [src]'s unstable field is fluctuating along frequency [format_frequency(a_signal.frequency)], code [a_signal.code].</span>")
+		to_chat(user, "<span class='notice'>Analyzing... [src] unstable field is fluctuating along frequency [format_frequency(a_signal.frequency)], code [a_signal.code].</span>")
 
 /obj/structure/crystal_portal/proc/modify_component()
 	spawn_time += 5

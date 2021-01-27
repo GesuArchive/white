@@ -283,7 +283,7 @@
 			pin.auth_fail(user)
 			return FALSE
 	else
-		to_chat(user, "<span class='warning'>[capitalize(src.name)]'s trigger is locked. This weapon doesn't have a firing pin installed!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] trigger is locked. This weapon doesn't have a firing pin installed!</span>")
 	return FALSE
 
 /obj/item/gun/proc/recharge_newshot()
@@ -420,7 +420,7 @@
 			return ..()
 		if(!user.transferItemToLoc(I, src))
 			return
-		to_chat(user, "<span class='notice'>You attach [K] to [src]'s bayonet lug.</span>")
+		to_chat(user, "<span class='notice'>You attach [K] to [src] bayonet lug.</span>")
 		bayonet = K
 		update_icon()
 
@@ -622,7 +622,7 @@
 		target.visible_message("<span class='warning'>[user] sticks [src] in [user.ru_ego()] mouth, ready to pull the trigger...</span>", \
 			"<span class='userdanger'>You stick [src] in your mouth, ready to pull the trigger...</span>")
 	else
-		target.visible_message("<span class='warning'>[user] points [src] at [target]'s head, ready to pull the trigger...</span>", \
+		target.visible_message("<span class='warning'>[user] points [src] at [target] head, ready to pull the trigger...</span>", \
 			"<span class='userdanger'>[user] points [src] at your head, ready to pull the trigger...</span>")
 
 	semicd = TRUE

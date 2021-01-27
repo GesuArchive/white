@@ -248,7 +248,7 @@ structure_check() searches for nearby cultist structures required for the invoca
 		return FALSE
 	if(convertee.anti_magic_check(TRUE, TRUE, FALSE, 0)) //Not chargecost because it can be spammed
 		for(var/M in invokers)
-			to_chat(M, "<span class='warning'>Something is shielding [convertee]'s mind!</span>")
+			to_chat(M, "<span class='warning'>Something is shielding [convertee] mind!</span>")
 		log_game("Offer rune failed - convertee had anti-magic")
 		return FALSE
 	var/brutedamage = convertee.getBruteLoss()

@@ -139,10 +139,10 @@
 			to_chat(user, "<span class='notice'>You remove [chest.cell] from [src].</span>")
 			chest.cell = null
 		else
-			to_chat(user, "<span class='warning'>The power cell slot in [src]'s torso is empty!</span>")
+			to_chat(user, "<span class='warning'>The power cell slot in [src] torso is empty!</span>")
 		return
 
-	to_chat(user, "<span class='notice'>You [chest.cell ? "replace [src]'s [chest.cell.name] with [temp_cell]" : "insert [temp_cell] into [src]"].</span>")
+	to_chat(user, "<span class='notice'>You [chest.cell ? "replace [src] [chest.cell.name] with [temp_cell]" : "insert [temp_cell] into [src]"].</span>")
 	chest.cell = temp_cell
 	return TRUE
 

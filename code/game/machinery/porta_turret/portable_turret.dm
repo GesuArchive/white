@@ -342,7 +342,7 @@ DEFINE_BITFIELD(turret_flags, list(
 /obj/machinery/porta_turret/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
 		return
-	to_chat(user, "<span class='warning'>You short out [src]'s threat assessment circuits.</span>")
+	to_chat(user, "<span class='warning'>You short out [src] threat assessment circuits.</span>")
 	audible_message("<span class='hear'>[capitalize(src.name)] hums oddly...</span>")
 	obj_flags |= EMAGGED
 	controllock = TRUE

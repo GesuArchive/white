@@ -28,11 +28,11 @@
 	if(!check_rights(R_ADMIN))
 		return
 
-	message_admins("[key_name_admin(src)] has started answering [ADMIN_LOOKUPFLW(M)]'s prayer.")
+	message_admins("[key_name_admin(src)] has started answering [ADMIN_LOOKUPFLW(M)] prayer.")
 	var/msg = input("Message:", text("Subtle PM to [M.key]")) as text|null
 
 	if(!msg)
-		message_admins("[key_name_admin(src)] decided not to answer [ADMIN_LOOKUPFLW(M)]'s prayer")
+		message_admins("[key_name_admin(src)] decided not to answer [ADMIN_LOOKUPFLW(M)] prayer")
 		return
 	if(usr)
 		if (usr.client)
@@ -69,14 +69,14 @@
 		if(!sender)
 			return
 
-	message_admins("[key_name_admin(src)] has started answering [key_name_admin(H)]'s [sender] request.")
+	message_admins("[key_name_admin(src)] has started answering [key_name_admin(H)] [sender] request.")
 	var/input = input("Please enter a message to reply to [key_name(H)] via their headset.","Outgoing message from [sender]", "") as text|null
 	if(!input)
-		message_admins("[key_name_admin(src)] decided not to answer [key_name_admin(H)]'s [sender] request.")
+		message_admins("[key_name_admin(src)] decided not to answer [key_name_admin(H)] [sender] request.")
 		return
 
 	log_directed_talk(mob, H, input, LOG_ADMIN, "reply")
-	message_admins("[key_name_admin(src)] replied to [key_name_admin(H)]'s [sender] message with: \"[input]\"")
+	message_admins("[key_name_admin(src)] replied to [key_name_admin(H)] [sender] message with: \"[input]\"")
 	to_chat(H, "<span class='hear'>Наушники начинают шуршать, затем из них раздаётся голос, который говорит:  \"Пожалуйста, прослушайте сообщение от [sender == "Syndicate" ? "вашего покровителя" : "Центрального Командования"]. Сообщение гласит[sender == "Syndicate" ? ", агент" : ""]: <b>[input].</b> Конец сообщения.\"</span>", confidential = TRUE)
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Headset Message") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -123,8 +123,8 @@
 		if(SSpersistence.antag_rep[C.ckey] <= 0)
 			SSpersistence.antag_rep -= C.ckey
 
-	log_admin("[key_name(usr)]: Modified [key_name(C)]'s antagonist reputation [log_text]")
-	message_admins("<span class='adminnotice'>[key_name_admin(usr)]: Modified [key_name(C)]'s antagonist reputation ([log_text])</span>")
+	log_admin("[key_name(usr)]: Modified [key_name(C)] antagonist reputation [log_text]")
+	message_admins("<span class='adminnotice'>[key_name_admin(usr)]: Modified [key_name(C)] antagonist reputation ([log_text])</span>")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Modify Antagonist Reputation") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_world_narrate()
@@ -198,8 +198,8 @@
 	M.status_flags ^= GODMODE
 	to_chat(usr, "<span class='adminnotice'>Toggled [(M.status_flags & GODMODE) ? "ON" : "OFF"]</span>", confidential = TRUE)
 
-	log_admin("[key_name(usr)] has toggled [key_name(M)]'s nodamage to [(M.status_flags & GODMODE) ? "On" : "Off"]")
-	var/msg = "[key_name_admin(usr)] has toggled [ADMIN_LOOKUPFLW(M)]'s nodamage to [(M.status_flags & GODMODE) ? "On" : "Off"]"
+	log_admin("[key_name(usr)] has toggled [key_name(M)] nodamage to [(M.status_flags & GODMODE) ? "On" : "Off"]")
+	var/msg = "[key_name_admin(usr)] has toggled [ADMIN_LOOKUPFLW(M)] nodamage to [(M.status_flags & GODMODE) ? "On" : "Off"]"
 	message_admins(msg)
 	admin_ticket_log(M, msg)
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Godmode", "[M.status_flags & GODMODE ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

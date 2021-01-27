@@ -54,7 +54,7 @@
 	if(ishuman(owner))
 		var/mob/living/carbon/human/H = owner
 		H.physiology.damage_resistance -= 10
-	owner.visible_message("<span class='warning'>[owner]'s gel coating liquefies and dissolves away.</span>",
+	owner.visible_message("<span class='warning'>[owner] gel coating liquefies and dissolves away.</span>",
 		"<span class='notice'>Your gel second-skin dissolves!</span>")
 
 /datum/status_effect/slimerecall
@@ -661,7 +661,7 @@
 		linked_alert.icon_state = "slime_bluespace_on"
 
 	if(healthcheck && (healthcheck - owner.health) > 5)
-		owner.visible_message("<span class='warning'>[linked_extract] notices the sudden change in [owner]'s physical health, and activates!</span>")
+		owner.visible_message("<span class='warning'>[linked_extract] notices the sudden change in [owner] physical health, and activates!</span>")
 		do_sparks(5,FALSE,owner)
 		var/F = find_safe_turf(zlevels = owner.z, extended_safety_checks = TRUE)
 		var/range = 0
@@ -873,8 +873,8 @@
 		if(M.stat == DEAD)
 			return
 		if(!messagedelivered)
-			to_chat(owner,"<span class='notice'>You feel your hands melt around [M]'s neck and start to drain [M.ru_na()] of life.</span>")
-			to_chat(owner.pulling, "<span class='userdanger'>[owner]'s hands melt around your neck, and you can feel your life starting to drain away!</span>")
+			to_chat(owner,"<span class='notice'>You feel your hands melt around [M] neck and start to drain [M.ru_na()] of life.</span>")
+			to_chat(owner.pulling, "<span class='userdanger'>[owner] hands melt around your neck, and you can feel your life starting to drain away!</span>")
 			messagedelivered = TRUE
 		examine_text = "<span class='warning'>SUBJECTPRONOUN is draining health from [owner.pulling]!</span>"
 		var/list/healing_types = list()
@@ -906,7 +906,7 @@
 /datum/status_effect/stabilized/lightpink/tick()
 	for(var/mob/living/carbon/human/H in range(1, get_turf(owner)))
 		if(H != owner && H.stat != DEAD && H.health <= 0 && !H.reagents.has_reagent(/datum/reagent/medicine/epinephrine))
-			to_chat(owner, "[linked_extract] pulses in sync with [H]'s heartbeat, trying to keep [H.ru_na()] alive.")
+			to_chat(owner, "[linked_extract] pulses in sync with [H] heartbeat, trying to keep [H.ru_na()] alive.")
 			H.reagents.add_reagent(/datum/reagent/medicine/epinephrine,5)
 	return ..()
 

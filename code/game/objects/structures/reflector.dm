@@ -79,7 +79,7 @@
 
 	if(W.tool_behaviour == TOOL_SCREWDRIVER)
 		can_rotate = !can_rotate
-		to_chat(user, "<span class='notice'>You [can_rotate ? "unlock" : "lock"] [src]'s rotation.</span>")
+		to_chat(user, "<span class='notice'>You [can_rotate ? "unlock" : "lock"] [src] rotation.</span>")
 		W.play_tool_sound(src)
 		return
 

@@ -179,7 +179,7 @@
 			R.forceMove(H)
 			BP.embedded_objects += R
 			H.update_damage_overlays()
-			visible_message("<span class='warning'>The [R] has embedded into [H]'s [BP]!</span>",
+			visible_message("<span class='warning'>The [R] has embedded into [H] [BP]!</span>",
 							"<span class='userdanger'>You feel [R] lodge into your [BP]!</span>")
 			playsound(H, impale_sound, 50, 1)
 			H.emote("scream")

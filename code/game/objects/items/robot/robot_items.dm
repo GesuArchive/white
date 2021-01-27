@@ -13,7 +13,7 @@
 /obj/item/borg/stun/attack(mob/living/M, mob/living/user)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(H.check_shields(src, 0, "[M]'s [name]", MELEE_ATTACK))
+		if(H.check_shields(src, 0, "[M] [name]", MELEE_ATTACK))
 			playsound(M, 'sound/weapons/genhit.ogg', 50, TRUE)
 			return FALSE
 	if(iscyborg(user))
@@ -178,7 +178,7 @@
 				to_chat(user, "<span class='warning'>[M] is unpowered!</span>")
 				return
 
-			to_chat(user, "<span class='notice'>You connect to [M]'s power line...</span>")
+			to_chat(user, "<span class='notice'>You connect to [M] power line...</span>")
 			while(do_after(user, 15, target = M, progress = 0))
 				if(!user || !user.cell || mode != "draw")
 					return
@@ -211,7 +211,7 @@
 				to_chat(user, "<span class='warning'>[target] has no power!</span>")
 
 
-			to_chat(user, "<span class='notice'>You connect to [target]'s power port...</span>")
+			to_chat(user, "<span class='notice'>You connect to [target] power port...</span>")
 
 			while(do_after(user, 15, target = target, progress = 0))
 				if(!user || !user.cell || mode != "draw")
@@ -249,7 +249,7 @@
 		if(cell.charge >= cell.maxcharge)
 			to_chat(user, "<span class='warning'>[target] is already charged!</span>")
 
-		to_chat(user, "<span class='notice'>You connect to [target]'s power port...</span>")
+		to_chat(user, "<span class='notice'>You connect to [target] power port...</span>")
 
 		while(do_after(user, 15, target = target, progress = 0))
 			if(!user || !user.cell || mode != "charge")
@@ -630,7 +630,7 @@
 		if(!user.has_buckled_mobs())
 			activate_field()
 		else
-			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s safety cutoff prevents you from activating it due to living beings being ontop of you!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] safety cutoff prevents you from activating it due to living beings being ontop of you!</span>")
 	else
 		deactivate_field()
 	update_icon()

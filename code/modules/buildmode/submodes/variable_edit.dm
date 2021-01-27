@@ -23,7 +23,7 @@
 
 /datum/buildmode_mode/varedit/change_settings(client/c)
 	varholder = input(c, "Enter variable name:" ,"Name", "name")
-	
+
 	if(!vv_varname_lockcheck(varholder))
 		return
 
@@ -47,7 +47,7 @@
 			if(object.vv_edit_var(varholder, valueholder) == FALSE)
 				to_chat(c, "<span class='warning'>Your edit was rejected by the object.</span>")
 				return
-			log_admin("Build Mode: [key_name(c)] modified [object.name]'s [varholder] to [valueholder]")
+			log_admin("Build Mode: [key_name(c)] modified [object.name] [varholder] to [valueholder]")
 		else
 			to_chat(c, "<span class='warning'>[initial(object.name)] does not have a var called '[varholder]'</span>")
 	if(right_click)
@@ -56,7 +56,7 @@
 			if(object.vv_edit_var(varholder, reset_value) == FALSE)
 				to_chat(c, "<span class='warning'>Your edit was rejected by the object.</span>")
 				return
-			log_admin("Build Mode: [key_name(c)] modified [object.name]'s [varholder] to [reset_value]")
+			log_admin("Build Mode: [key_name(c)] modified [object.name] [varholder] to [reset_value]")
 		else
 			to_chat(c, "<span class='warning'>[initial(object.name)] does not have a var called '[varholder]'</span>")
 

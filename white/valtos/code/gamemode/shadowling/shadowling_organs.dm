@@ -40,7 +40,7 @@
 
 /obj/item/organ/internal/shadowtumor/on_find(mob/living/finder)
 	. = ..()
-	finder.visible_message("<span class='danger'>[finder] opens up [owner]'s skull, revealing a pulsating black mass, with red tendrils attaching it to [owner.ru_ego()] brain.</span>")
+	finder.visible_message("<span class='danger'>[finder] opens up [owner] skull, revealing a pulsating black mass, with red tendrils attaching it to [owner.ru_ego()] brain.</span>")
 
 /obj/item/organ/internal/shadowtumor/Remove(mob/living/carbon/M, special)
 	if(M.dna.species.id == "l_shadowling") //Empowered thralls cannot be deconverted
@@ -66,5 +66,5 @@
 	eyes.sight_flags = initial(eyes.sight_flags)
 	M.update_sight()
 	M.remove_thrall()
-	M.visible_message("<span class='warning'>A strange black mass falls from [M]'s head!</span>")
+	M.visible_message("<span class='warning'>A strange black mass falls from [M] head!</span>")
 	return ..()

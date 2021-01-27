@@ -167,7 +167,7 @@
 		icon_state = "legionnaire_headless"
 		icon_living = "legionnaire_headless"
 		icon_aggro = "legionnaire_headless"
-		visible_message("<span class='boldwarning'>[capitalize(src.name)]'s head flies off!</span>")
+		visible_message("<span class='boldwarning'>[capitalize(src.name)] head flies off!</span>")
 		var/mob/living/simple_animal/hostile/asteroid/elite/legionnairehead/newhead = new /mob/living/simple_animal/hostile/asteroid/elite/legionnairehead(loc)
 		newhead.GiveTarget(target)
 		newhead.faction = faction.Copy()
@@ -191,7 +191,7 @@
 	icon_state = "legionnaire"
 	icon_living = "legionnaire"
 	icon_aggro = "legionnaire"
-	visible_message("<span class='boldwarning'>The top of [src]'s spine leaks a black liquid, forming into a skull!</span>")
+	visible_message("<span class='boldwarning'>The top of [src] spine leaks a black liquid, forming into a skull!</span>")
 
 /mob/living/simple_animal/hostile/asteroid/elite/legionnaire/proc/bonfire_teleport()
 	ranged_cooldown = world.time + 5

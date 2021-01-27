@@ -150,7 +150,7 @@
 
 /obj/item/organ/heart/gland/heal/proc/replace_eyes(obj/item/organ/eyes/eyes)
 	if(eyes)
-		owner.visible_message("<span class='warning'>[owner]'s [eyes.name] fall out of their sockets!</span>", "<span class='userdanger'>Your [eyes.name] fall out of their sockets!</span>")
+		owner.visible_message("<span class='warning'>[owner] [eyes.name] fall out of their sockets!</span>", "<span class='userdanger'>Your [eyes.name] fall out of their sockets!</span>")
 		playsound(owner, 'sound/effects/splat.ogg', 50, TRUE)
 		eyes.Remove(owner)
 		eyes.forceMove(owner.drop_location())
@@ -165,11 +165,11 @@
 		eye_type = owner.dna.species.mutanteyes
 	var/obj/item/organ/eyes/new_eyes = new eye_type()
 	new_eyes.Insert(owner)
-	owner.visible_message("<span class='warning'>A pair of new eyes suddenly inflates into [owner]'s eye sockets!</span>", "<span class='userdanger'>A pair of new eyes suddenly inflates into your eye sockets!</span>")
+	owner.visible_message("<span class='warning'>A pair of new eyes suddenly inflates into [owner] eye sockets!</span>", "<span class='userdanger'>A pair of new eyes suddenly inflates into your eye sockets!</span>")
 
 /obj/item/organ/heart/gland/heal/proc/replace_limb(body_zone, obj/item/bodypart/limb)
 	if(limb)
-		owner.visible_message("<span class='warning'>[owner]'s [limb.name] suddenly detaches from [owner.ru_ego()] body!</span>", "<span class='userdanger'>Your [limb.name] suddenly detaches from your body!</span>")
+		owner.visible_message("<span class='warning'>[owner] [limb.name] suddenly detaches from [owner.ru_ego()] body!</span>", "<span class='userdanger'>Your [limb.name] suddenly detaches from your body!</span>")
 		playsound(owner, "desecration", 50, TRUE, -1)
 		limb.drop_limb()
 	else
@@ -178,7 +178,7 @@
 	addtimer(CALLBACK(src, .proc/finish_replace_limb, body_zone), rand(150, 300))
 
 /obj/item/organ/heart/gland/heal/proc/finish_replace_limb(body_zone)
-	owner.visible_message("<span class='warning'>With a loud snap, [owner]'s [parse_zone(body_zone)] rapidly grows back from [owner.ru_ego()] body!</span>",
+	owner.visible_message("<span class='warning'>With a loud snap, [owner] [parse_zone(body_zone)] rapidly grows back from [owner.ru_ego()] body!</span>",
 	"<span class='userdanger'>With a loud snap, your [parse_zone(body_zone)] rapidly grows back from your body!</span>",
 	"<span class='warning'>Your hear a loud snap.</span>")
 	playsound(owner, 'sound/magic/demon_consume.ogg', 50, TRUE)
@@ -209,14 +209,14 @@
 
 /obj/item/organ/heart/gland/heal/proc/replace_chest(obj/item/bodypart/chest/chest)
 	if(chest.status == BODYPART_ROBOTIC)
-		owner.visible_message("<span class='warning'>[owner]'s [chest.name] rapidly expels its mechanical components, replacing them with flesh!</span>", "<span class='userdanger'>Your [chest.name] rapidly expels its mechanical components, replacing them with flesh!</span>")
+		owner.visible_message("<span class='warning'>[owner] [chest.name] rapidly expels its mechanical components, replacing them with flesh!</span>", "<span class='userdanger'>Your [chest.name] rapidly expels its mechanical components, replacing them with flesh!</span>")
 		playsound(owner, 'sound/magic/clockwork/anima_fragment_attack.ogg', 50, TRUE)
 		var/list/dirs = GLOB.alldirs.Copy()
 		for(var/i in 1 to 3)
 			var/obj/effect/decal/cleanable/robot_debris/debris = new(get_turf(owner))
 			debris.streak(dirs)
 	else
-		owner.visible_message("<span class='warning'>[owner]'s [chest.name] sheds off its damaged flesh, rapidly replacing it!</span>", "<span class='warning'>Your [chest.name] sheds off its damaged flesh, rapidly replacing it!</span>")
+		owner.visible_message("<span class='warning'>[owner] [chest.name] sheds off its damaged flesh, rapidly replacing it!</span>", "<span class='warning'>Your [chest.name] sheds off its damaged flesh, rapidly replacing it!</span>")
 		playsound(owner, 'sound/effects/splat.ogg', 50, TRUE)
 		var/list/dirs = GLOB.alldirs.Copy()
 		for(var/i in 1 to 3)

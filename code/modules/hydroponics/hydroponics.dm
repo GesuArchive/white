@@ -130,7 +130,7 @@
 		myseed.forceMove(src)
 
 	if(!powered() && self_sustaining)
-		visible_message("<span class='warning'>[name]'s auto-grow functionality shuts off!</span>")
+		visible_message("<span class='warning'>[name] auto-grow functionality shuts off!</span>")
 		idle_power_usage = 0
 		self_sustaining = FALSE
 		update_icon()
@@ -714,10 +714,10 @@
 		if(!myseed && !weedlevel)
 			to_chat(user, "<span class='warning'>[capitalize(src.name)] doesn't have any plants or weeds!</span>")
 			return
-		user.visible_message("<span class='notice'>[user] starts digging out [src]'s plants...</span>",
-			"<span class='notice'>You start digging out [src]'s plants...</span>")
+		user.visible_message("<span class='notice'>[user] starts digging out [src] plants...</span>",
+			"<span class='notice'>You start digging out [src] plants...</span>")
 		if(O.use_tool(src, user, 50, volume=50) || (!myseed && !weedlevel))
-			user.visible_message("<span class='notice'>[user] digs out the plants in [src]!</span>", "<span class='notice'>You dig out all of [src]'s plants!</span>")
+			user.visible_message("<span class='notice'>[user] digs out the plants in [src]!</span>", "<span class='notice'>You dig out all of [src] plants!</span>")
 			if(myseed) //Could be that they're just using it as a de-weeder
 				age = 0
 				plant_health = 0
@@ -760,7 +760,7 @@
 			myseed.endurance = (myseed.endurance/2)
 			flowergun.cell.use(flowergun.cell.charge)
 			flowergun.update_icon()
-			to_chat(user, "<span class='notice'>[myseed.plantname]'s mutation was set to [locked_mutation], depleting [flowergun]'s cell!</span>")
+			to_chat(user, "<span class='notice'>[myseed.plantname] mutation was set to [locked_mutation], depleting [flowergun] cell!</span>")
 			return
 	else
 		return ..()
@@ -802,7 +802,7 @@
 		return
 	self_sustaining = !self_sustaining
 	idle_power_usage = self_sustaining ? 5000 : 0
-	to_chat(user, "<span class='notice'>You [self_sustaining ? "activate" : "deactivated"] [src]'s autogrow function[self_sustaining ? ", maintaining the tray's health while using high amounts of power" : ""].")
+	to_chat(user, "<span class='notice'>You [self_sustaining ? "activate" : "deactivated"] [src] autogrow function[self_sustaining ? ", maintaining the tray's health while using high amounts of power" : ""].")
 	update_icon()
 
 /obj/machinery/hydroponics/AltClick(mob/user)
@@ -813,7 +813,7 @@
 	var/warning = alert(user, "Are you sure you wish to empty the tray's nutrient beaker?","Empty Tray Nutrients?", "Yes", "No")
 	if(warning == "Yes" && user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		reagents.clear_reagents()
-		to_chat(user, "<span class='warning'>You empty [src]'s nutrient tank.</span>")
+		to_chat(user, "<span class='warning'>You empty [src] nutrient tank.</span>")
 
 /**
  * Update Tray Proc

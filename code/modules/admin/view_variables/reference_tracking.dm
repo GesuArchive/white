@@ -197,7 +197,7 @@ GLOBAL_LIST_EMPTY(deletion_failures)
 			var/variable = vars_list[varname]
 
 			if(variable == src)
-				testing("Found [type] \ref[src] in [datum_container.type]'s [varname] var. [container_name]")
+				testing("Found [type] \ref[src] in [datum_container.type] [varname] var. [container_name]")
 
 			else if(islist(variable))
 				DoSearchVar(variable, "[container_name] -> list", recursive_limit - 1)

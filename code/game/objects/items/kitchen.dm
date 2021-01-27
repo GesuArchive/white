@@ -70,7 +70,7 @@
 /obj/item/kitchen/fork/plastic/afterattack(atom/target, mob/user)
 	.=..()
 	if(prob(break_chance))
-		user.visible_message("<span class='danger'>[user]'s fork snaps into tiny pieces in their hand.</span>")
+		user.visible_message("<span class='danger'>[user] fork snaps into tiny pieces in their hand.</span>")
 		qdel(src)
 
 /obj/item/kitchen/knife
@@ -130,7 +130,7 @@
 /obj/item/kitchen/knife/plastic/afterattack(mob/living/carbon/user)
 	.=..()
 	if(prob(break_chance))
-		user.visible_message("<span class='danger'>[user]'s knife snaps into tiny pieces in their hand.</span>")
+		user.visible_message("<span class='danger'>[user] knife snaps into tiny pieces in their hand.</span>")
 		qdel(src)
 
 /obj/item/kitchen/knife/ritual
@@ -307,5 +307,5 @@
 /obj/item/kitchen/spoon/plastic/afterattack(atom/target, mob/user)
 	.=..()
 	if(prob(break_chance))
-		user.visible_message("<span class='danger'>[user]'s spoon snaps into tiny pieces in their hand.</span>")
+		user.visible_message("<span class='danger'>[user] spoon snaps into tiny pieces in their hand.</span>")
 		qdel(src)

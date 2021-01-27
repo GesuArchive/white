@@ -149,7 +149,7 @@
 	if(R.mmi)
 		R.mmi.name = "[initial(R.mmi.name)]: [real_name]"
 		if(R.mmi.brain)
-			R.mmi.brain.name = "[real_name]'s brain"
+			R.mmi.brain.name = "[real_name] brain"
 		if(R.mmi.brainmob)
 			R.mmi.brainmob.real_name = real_name //the name of the brain inside the cyborg is the robotized human's name.
 			R.mmi.brainmob.name = real_name

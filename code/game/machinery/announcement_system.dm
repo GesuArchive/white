@@ -63,7 +63,7 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	else if(default_deconstruction_crowbar(P))
 		return
 	else if(P.tool_behaviour == TOOL_MULTITOOL && panel_open && (machine_stat & BROKEN))
-		to_chat(user, "<span class='notice'>You reset [src]'s firmware.</span>")
+		to_chat(user, "<span class='notice'>You reset [src] firmware.</span>")
 		set_machine_stat(machine_stat & ~BROKEN)
 		update_icon()
 	else
@@ -147,7 +147,7 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return
 	if(machine_stat & BROKEN)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)]'s firmware appears to be malfunctioning!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] firmware appears to be malfunctioning!</span>")
 		return
 	interact(user)
 

@@ -40,7 +40,7 @@
 			if(!eyes && prob(5))
 				var/obj/item/organ/eyes/snail/new_eyes = new()
 				new_eyes.Insert(affected_mob, drop_if_replaced = TRUE)
-				affected_mob.visible_message("<span class='warning'>[affected_mob]'s eyes fall out, with snail eyes taking its place!</span>", \
+				affected_mob.visible_message("<span class='warning'>[affected_mob] eyes fall out, with snail eyes taking its place!</span>", \
 				"<span class='userdanger'>You scream in pain as your eyes are pushed out by your new snail eyes!</span>")
 				affected_mob.emote("scream")
 				return

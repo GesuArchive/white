@@ -23,7 +23,7 @@
 		return
 	var/obj/item/multitool/M = I
 	M.buffer = src
-	to_chat(user, "<span class='notice'>You store linkage information in [I]'s buffer.</span>")
+	to_chat(user, "<span class='notice'>You store linkage information in [I] buffer.</span>")
 	return TRUE
 
 /obj/machinery/mineral/stacking_unit_console/ui_interact(mob/user, datum/tgui/ui)
@@ -107,7 +107,7 @@
 		if(istype(M.buffer, /obj/machinery/mineral/stacking_unit_console))
 			CONSOLE = M.buffer
 			CONSOLE.machine = src
-			to_chat(user, "<span class='notice'>You link [src] to the console in [M]'s buffer.</span>")
+			to_chat(user, "<span class='notice'>You link [src] to the console in [M] buffer.</span>")
 			return TRUE
 
 /obj/machinery/mineral/stacking_machine/proc/process_sheet(obj/item/stack/sheet/inp)

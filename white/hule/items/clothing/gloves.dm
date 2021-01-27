@@ -21,7 +21,7 @@
 			stored_items = list()
 		else
 			for(var/obj/item/I in stored_items)
-				to_chat(usr, "<span class='notice'>Your [usr.get_held_index_name(usr.get_held_index_of_item(I))]'s grip tightens.</span>")
+				to_chat(usr, "<span class='notice'>Your [usr.get_held_index_name(usr.get_held_index_of_item(I))] grip tightens.</span>")
 				ADD_TRAIT(I,TRAIT_NODROP, "mag-grip")
 
 	else

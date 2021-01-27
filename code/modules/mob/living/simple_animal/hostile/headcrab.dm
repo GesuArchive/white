@@ -34,8 +34,8 @@
 		egg.origin = mind
 	for(var/obj/item/organ/I in src)
 		I.forceMove(egg)
-	visible_message("<span class='warning'>[capitalize(src.name)] plants something in [victim]'s flesh!</span>", \
-					"<span class='danger'>We inject our egg into [victim]'s body!</span>")
+	visible_message("<span class='warning'>[capitalize(src.name)] plants something in [victim] flesh!</span>", \
+					"<span class='danger'>We inject our egg into [victim] body!</span>")
 	egg_lain = 1
 
 /mob/living/simple_animal/hostile/headcrab/AttackingTarget()

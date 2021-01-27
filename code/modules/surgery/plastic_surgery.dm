@@ -36,9 +36,9 @@
 		var/oldname = target.real_name
 		target.real_name = chosen_name
 		var/newname = target.real_name	//something about how the code handles names required that I use this instead of target.real_name
-		display_results(user, target, "<span class='notice'>You alter [oldname]'s appearance completely, [target.ru_who()] is now [newname].</span>",
-			"<span class='notice'>[user] alters [oldname]'s appearance completely, [target.ru_who()] is now [newname]!</span>",
-			"<span class='notice'>[user] finishes the operation on [target]'s face.</span>")
+		display_results(user, target, "<span class='notice'>You alter [oldname] appearance completely, [target.ru_who()] is now [newname].</span>",
+			"<span class='notice'>[user] alters [oldname] appearance completely, [target.ru_who()] is now [newname]!</span>",
+			"<span class='notice'>[user] finishes the operation on [target] face.</span>")
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
 		H.sec_hud_set_ID()

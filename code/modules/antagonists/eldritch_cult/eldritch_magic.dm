@@ -239,11 +239,11 @@
 			continue
 		if(target.anti_magic_check())
 			to_chat(user, "<span class='warning'>The spell had no effect!</span>")
-			target.visible_message("<span class='danger'>[target]'s veins flash with fire, but their magic protection repulses the blaze!</span>", \
+			target.visible_message("<span class='danger'>[target] veins flash with fire, but their magic protection repulses the blaze!</span>", \
 							"<span class='danger'>Your veins flash with fire, but your magic protection repels the blaze!</span>")
 			continue
 
-		target.visible_message("<span class='danger'>[target]'s veins are shredded from within as an unholy blaze erupts from their blood!</span>", \
+		target.visible_message("<span class='danger'>[target] veins are shredded from within as an unholy blaze erupts from their blood!</span>", \
 							"<span class='danger'>Your veins burst from within and unholy flame erupts from your blood!</span>")
 		var/obj/item/bodypart/bodypart = pick(target.bodyparts)
 		var/datum/wound/slash/critical/crit_wound = new
@@ -352,7 +352,7 @@
 				continue
 			hit_list += L
 			L.adjustFireLoss(20)
-			to_chat(L, "<span class='userdanger'>You're hit by [source]'s eldritch flames!</span>")
+			to_chat(L, "<span class='userdanger'>You're hit by [source] eldritch flames!</span>")
 
 		new /obj/effect/hotspot(T)
 		T.hotspot_expose(700,50,1)
@@ -549,15 +549,15 @@
 
 	var/mob/living/target = targets[1]
 
-	to_chat(originator, "<span class='notice'>You begin linking [target]'s mind to yours...</span>")
+	to_chat(originator, "<span class='notice'>You begin linking [target] mind to yours...</span>")
 	to_chat(target, "<span class='warning'>You feel your mind being pulled... connected... intertwined with the very fabric of reality...</span>")
 	if(!do_after(originator, 6 SECONDS, target))
 		return
 	if(!originator.link_mob(target))
-		to_chat(originator, "<span class='warning'>You can't seem to link [target]'s mind...</span>")
+		to_chat(originator, "<span class='warning'>You can't seem to link [target] mind...</span>")
 		to_chat(target, "<span class='warning'>The foreign presence leaves your mind.</span>")
 		return
-	to_chat(originator, "<span class='notice'>You connect [target]'s mind to your mansus link!</span>")
+	to_chat(originator, "<span class='notice'>You connect [target] mind to your mansus link!</span>")
 
 
 /datum/action/innate/mansus_speech

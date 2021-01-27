@@ -114,7 +114,7 @@
 			victim.blood_volume = clamp(victim.blood_volume - drained_blood, 0, BLOOD_VOLUME_MAXIMUM)
 			H.blood_volume = clamp(H.blood_volume + drained_blood, 0, BLOOD_VOLUME_MAXIMUM)
 			if(!victim.blood_volume)
-				to_chat(H, "<span class='notice'>You finish off [victim]'s blood supply.</span>")
+				to_chat(H, "<span class='notice'>You finish off [victim] blood supply.</span>")
 
 #undef VAMP_DRAIN_AMOUNT
 

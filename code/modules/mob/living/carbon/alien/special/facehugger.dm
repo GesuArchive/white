@@ -153,7 +153,7 @@
 		if(target.wear_mask && istype(target.wear_mask, /obj/item/clothing/mask/facehugger))
 			return FALSE
 	// passed initial checks - time to leap!
-	M.visible_message("<span class='danger'>[capitalize(src.name)] leaps at [M]'s face!</span>", \
+	M.visible_message("<span class='danger'>[capitalize(src.name)] leaps at [M] face!</span>", \
 							"<span class='userdanger'>[capitalize(src.name)] leaps at your face!</span>")
 
 	// probiscis-blocker handling
@@ -163,7 +163,7 @@
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H.is_mouth_covered(head_only = 1))
-				H.visible_message("<span class='danger'>[capitalize(src.name)] smashes against [H]'s [H.head]!</span>", \
+				H.visible_message("<span class='danger'>[capitalize(src.name)] smashes against [H] [H.head]!</span>", \
 									"<span class='userdanger'>[capitalize(src.name)] smashes against your [H.head]!</span>")
 				Die()
 				return FALSE
@@ -171,7 +171,7 @@
 		if(target.wear_mask)
 			var/obj/item/clothing/W = target.wear_mask
 			if(target.dropItemToGround(W))
-				target.visible_message("<span class='danger'>[capitalize(src.name)] tears [W] off of [target]'s face!</span>", \
+				target.visible_message("<span class='danger'>[capitalize(src.name)] tears [W] off of [target] face!</span>", \
 									"<span class='userdanger'>[capitalize(src.name)] tears [W] off of your face!</span>")
 		target.equip_to_slot_if_possible(src, ITEM_SLOT_MASK, 0, 1, 1)
 	return TRUE // time for a smoke
@@ -206,7 +206,7 @@
 			return
 
 	if(!sterile)
-		target.visible_message("<span class='danger'>[capitalize(src.name)] falls limp after violating [target]'s face!</span>", \
+		target.visible_message("<span class='danger'>[capitalize(src.name)] falls limp after violating [target] face!</span>", \
 								"<span class='userdanger'>[capitalize(src.name)] falls limp after violating your face!</span>")
 
 		Die()
@@ -219,7 +219,7 @@
 			log_game("[key_name(target)] was impregnated by a facehugger at [loc_name(T)]")
 
 	else
-		target.visible_message("<span class='danger'>[capitalize(src.name)] violates [target]'s face!</span>", \
+		target.visible_message("<span class='danger'>[capitalize(src.name)] violates [target] face!</span>", \
 								"<span class='userdanger'>[capitalize(src.name)] violates your face!</span>")
 
 /obj/item/clothing/mask/facehugger/proc/GoActive()

@@ -416,13 +416,13 @@
 
 	// Elders get Dusted
 	if (vamplevel >= 4) // (vamptitle)
-		owner.current.visible_message("<span class='warning'>[owner.current]'s skin crackles and dries, their skin and bones withering to dust. A hollow cry whips from what is now a sandy pile of remains.</span>", \
+		owner.current.visible_message("<span class='warning'>[owner.current] skin crackles and dries, their skin and bones withering to dust. A hollow cry whips from what is now a sandy pile of remains.</span>", \
 			 "<span class='userdanger'>Your soul escapes your withering body as the abyss welcomes you to your Final Death.</span>", \
 			 "<span class='italics'>You hear a dry, crackling sound.</span>")
 		owner.current.dust()
 	// Fledglings get Gibbed
 	else
-		owner.current.visible_message("<span class='warning'>[owner.current]'s skin bursts forth in a spray of gore and detritus. A horrible cry echoes from what is now a wet pile of decaying meat.</span>", \
+		owner.current.visible_message("<span class='warning'>[owner.current] skin bursts forth in a spray of gore and detritus. A horrible cry echoes from what is now a wet pile of decaying meat.</span>", \
 			 "<span class='userdanger'>Your soul escapes your withering body as the abyss welcomes you to your Final Death.</span>", \
 			 "<span class='italics'>You hear a wet, bursting sound.</span>")
 		owner.current.gib()

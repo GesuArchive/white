@@ -219,12 +219,12 @@
 				host_mob.visible_message("<span class='warning'>[host_mob] vomits a grainy grey slurry!</span>", "<span class='warning'>You suddenly vomit a metallic-tasting grainy grey slurry!</span>", null);
 				C.vomit(0, FALSE, TRUE, FLOOR(excess / 100, 1), FALSE, VOMIT_NANITE, FALSE, TRUE, 0)
 			else
-				host_mob.visible_message("<span class='warning'>A metallic grey slurry bursts out of [host_mob]'s skin!</span>", "<span class='userdanger'>A metallic grey slurry violently bursts out of your skin!</span>", null);
+				host_mob.visible_message("<span class='warning'>A metallic grey slurry bursts out of [host_mob] skin!</span>", "<span class='userdanger'>A metallic grey slurry violently bursts out of your skin!</span>", null);
 				if(isturf(host_mob.drop_location()))
 					var/turf/T = host_mob.drop_location()
 					T.add_vomit_floor(host_mob, VOMIT_NANITE, 0)
 		if((NANITE_EXCESS_BURST + 0.1) to INFINITY) //Way too many nanites, they just leave through the closest exit before they harm/poison the host
-			host_mob.visible_message("<span class='warning'>A torrent of metallic grey slurry violently bursts out of [host_mob]'s face and floods out of [host_mob.ru_ego()] skin!</span>",
+			host_mob.visible_message("<span class='warning'>A torrent of metallic grey slurry violently bursts out of [host_mob] face and floods out of [host_mob.ru_ego()] skin!</span>",
 								"<span class='userdanger'>A torrent of metallic grey slurry violently bursts out of your eyes, ears, and mouth, and floods out of your skin!</span>");
 
 			host_mob.blind_eyes(15) //nanites coming out of your eyes

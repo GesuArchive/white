@@ -103,7 +103,7 @@
 			return ..()
 		else if(source.a_intent == INTENT_DISARM && iscarbon(M))//meme clamp here
 			if(!killer_clamp)
-				to_chat(source, "<span class='notice'>You longingly wish to tear [M]'s arms off.</span>")
+				to_chat(source, "<span class='notice'>You longingly wish to tear [M] arms off.</span>")
 				return
 			var/mob/living/carbon/C = target
 			var/torn_off = FALSE
@@ -116,10 +116,10 @@
 				affected.dismember(damtype)
 				torn_off = TRUE
 			if(!torn_off)
-				to_chat(source, "<span class='notice'>[M]'s arms are already torn off, you must find a challenger worthy of the kill clamp!</span>")
+				to_chat(source, "<span class='notice'>[M] arms are already torn off, you must find a challenger worthy of the kill clamp!</span>")
 				return
 			playsound(src, get_dismember_sound(), 80, TRUE)
-			target.visible_message("<span class='danger'>[chassis] rips [target]'s arms off!</span>", \
+			target.visible_message("<span class='danger'>[chassis] rips [target] arms off!</span>", \
 						   "<span class='userdanger'>[chassis] rips your arms off!</span>")
 			log_combat(source, M, "removed both arms with a real clamp,", "[name]", "(INTENT: [uppertext(source.a_intent)]) (DAMTYPE: [uppertext(damtype)])")
 			return ..()
@@ -328,7 +328,7 @@
 		to_chat(loc, "<span class='warning'>This conversion kit can only be applied to APLU MK-I models.</span>")
 		return FALSE
 	if(LAZYLEN(M.cargo))
-		to_chat(loc, "<span class='warning'>[M]'s cargo hold must be empty before this conversion kit can be applied.</span>")
+		to_chat(loc, "<span class='warning'>[M] cargo hold must be empty before this conversion kit can be applied.</span>")
 		return FALSE
 	if(!(M.mecha_flags & ADDING_MAINT_ACCESS_POSSIBLE)) //non-removable upgrade, so lets make sure the pilot or owner has their say.
 		to_chat(loc, "<span class='warning'>[M] must have maintenance protocols active in order to allow this conversion kit.</span>")

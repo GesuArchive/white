@@ -861,17 +861,17 @@
 		var/mob/living/silicon/S = i
 		ai_number++
 		if(isAI(S))
-			to_chat(usr, "<b>AI [key_name(S, usr)]'s laws:</b>", confidential = TRUE)
+			to_chat(usr, "<b>AI [key_name(S, usr)] laws:</b>", confidential = TRUE)
 		else if(iscyborg(S))
 			var/mob/living/silicon/robot/R = S
 			to_chat(usr, "<b>CYBORG [key_name(S, usr)] [R.connected_ai?"(Slaved to: [key_name(R.connected_ai)])":"(Independent)"]: laws:</b>", confidential = TRUE)
 		else if (ispAI(S))
-			to_chat(usr, "<b>pAI [key_name(S, usr)]'s laws:</b>", confidential = TRUE)
+			to_chat(usr, "<b>pAI [key_name(S, usr)] laws:</b>", confidential = TRUE)
 		else
-			to_chat(usr, "<b>SOMETHING SILICON [key_name(S, usr)]'s laws:</b>", confidential = TRUE)
+			to_chat(usr, "<b>SOMETHING SILICON [key_name(S, usr)] laws:</b>", confidential = TRUE)
 
 		if (S.laws == null)
-			to_chat(usr, "[key_name(S, usr)]'s laws are null?? Contact a coder.", confidential = TRUE)
+			to_chat(usr, "[key_name(S, usr)] laws are null?? Contact a coder.", confidential = TRUE)
 		else
 			S.laws.show_laws(usr)
 	if(!ai_number)

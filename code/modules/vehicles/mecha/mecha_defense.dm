@@ -45,7 +45,7 @@
 		booster_damage_modifier /= facing_modifier
 		booster_deflection_modifier *= facing_modifier
 	if(prob(deflect_chance * booster_deflection_modifier))
-		visible_message("<span class='danger'>[capitalize(src.name)]'s armour deflects the attack!</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] armour deflects the attack!</span>")
 		log_message("Armor saved.", LOG_MECHA)
 		return 0
 	if(.)

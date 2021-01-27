@@ -362,7 +362,7 @@
 		to_chat(M, "<span class='warning'>Something happened to [src]...</span>")
 		return
 	Expand()
-	M.visible_message("<span class='danger'>[M]'s torso bursts open as a primate emerges!</span>")
+	M.visible_message("<span class='danger'>[M] torso bursts open as a primate emerges!</span>")
 	M.gib(null, TRUE, null, TRUE)
 
 /obj/item/food/monkeycube/syndicate

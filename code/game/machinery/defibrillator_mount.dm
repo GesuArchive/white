@@ -70,10 +70,10 @@
 		to_chat(user, "<span class='warning'>There's no defibrillator unit loaded!</span>")
 		return
 	if(defib.paddles.loc != defib)
-		to_chat(user, "<span class='warning'>[defib.paddles.loc == user ? "You are already" : "Someone else is"] holding [defib]'s paddles!</span>")
+		to_chat(user, "<span class='warning'>[defib.paddles.loc == user ? "You are already" : "Someone else is"] holding [defib] paddles!</span>")
 		return
 	if(!in_range(src, user))
-		to_chat(user, "<span class='warning'>[defib]'s paddles overextend and come out of your hands!</span>")
+		to_chat(user, "<span class='warning'>[defib] paddles overextend and come out of your hands!</span>")
 		return
 	user.put_in_hands(defib.paddles)
 
@@ -120,14 +120,14 @@
 		to_chat(user, "<span class='warning'>There isn't any defibrillator to clamp in!</span>")
 		return TRUE
 	if(!clamps_locked)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)]'s clamps are disengaged!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] clamps are disengaged!</span>")
 		return TRUE
-	user.visible_message("<span class='notice'>[user] presses [multitool] into [src]'s ID slot...</span>", \
+	user.visible_message("<span class='notice'>[user] presses [multitool] into [src] ID slot...</span>", \
 	"<span class='notice'>You begin overriding the clamps on [src]...</span>")
 	playsound(src, 'sound/machines/click.ogg', 50, TRUE)
 	if(!do_after(user, 100, target = src) || !clamps_locked)
 		return
-	user.visible_message("<span class='notice'>[user] pulses [multitool], and [src]'s clamps slide up.</span>", \
+	user.visible_message("<span class='notice'>[user] pulses [multitool], and [src] clamps slide up.</span>", \
 	"<span class='notice'>You override the locking clamps on [src]!</span>")
 	playsound(src, 'sound/machines/locktoggle.ogg', 50, TRUE)
 	clamps_locked = FALSE

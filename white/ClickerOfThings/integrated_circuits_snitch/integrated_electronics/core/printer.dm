@@ -72,17 +72,17 @@
 			if(recycling)
 				return
 			if(!EA.opened)
-				to_chat(user, "<span class='warning'>You can't reach [EA]'s components to remove them!</span>")
+				to_chat(user, "<span class='warning'>You can't reach [EA] components to remove them!</span>")
 				return
 			if(EA.battery)
-				to_chat(user, "<span class='warning'>Remove [EA]'s power cell first!</span>")
+				to_chat(user, "<span class='warning'>Remove [EA] power cell first!</span>")
 				return
 			for(var/V in EA.assembly_components)
 				var/obj/item/integrated_circuit/IC = V
 				if(!IC.removable)
 					to_chat(user, "<span class='warning'>[EA] has irremovable components in the casing, preventing you from emptying it.</span>")
 					return
-			to_chat(user, "<span class='notice'>You begin recycling [EA]'s components...</span>")
+			to_chat(user, "<span class='notice'>You begin recycling [EA] components...</span>")
 			playsound(src, 'sound/items/electronic_assembly_emptying.ogg', 50, TRUE)
 			if(!do_after(user, 30, target = src) || recycling) //short channel so you don't accidentally start emptying out a complex assembly
 				return

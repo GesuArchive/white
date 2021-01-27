@@ -18,7 +18,7 @@
 
 	for(var/obj/item/I in M.held_items)
 		if(!HAS_TRAIT_FROM(I,TRAIT_NODROP, "flextape"))
-			to_chat(user, "<span class='warning'>You tape [I.name] to [M.name]'s hands.</span>")
+			to_chat(user, "<span class='warning'>You tape [I.name] to [M.name] hands.</span>")
 			ADD_TRAIT(I,TRAIT_NODROP, "flextape")
 
 
@@ -42,7 +42,7 @@
 
 	for(var/obj/item/I in M.held_items)
 		if(HAS_TRAIT_FROM(I,TRAIT_NODROP, "flextape"))
-			to_chat(user, "<span class='warning'>You remove tape from [M.name]'s hands, freeing their grip on [I.name].</span>")
+			to_chat(user, "<span class='warning'>You remove tape from [M.name] hands, freeing their grip on [I.name].</span>")
 			REMOVE_TRAIT(I,TRAIT_NODROP, "flextape")
 
 /datum/design/flextape

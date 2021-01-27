@@ -212,7 +212,7 @@
 	if(prob(20))
 		M.emote("laugh")
 	if(prob(33))
-		M.visible_message("<span class='danger'>[M]'s hands flip out and flail everywhere!</span>")
+		M.visible_message("<span class='danger'>[M] hands flip out and flail everywhere!</span>")
 		M.drop_all_held_items()
 	..()
 	M.adjustToxLoss(1, 0)

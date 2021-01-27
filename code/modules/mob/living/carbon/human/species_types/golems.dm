@@ -389,8 +389,8 @@
 	if(!(P.original == H && P.firer == H))
 		if(P.flag == BULLET || P.flag == BOMB)
 			playsound(H, 'sound/effects/shovel_dig.ogg', 70, TRUE)
-			H.visible_message("<span class='danger'>The [P.name] sinks harmlessly in [H]'s sandy body!</span>", \
-			"<span class='userdanger'>The [P.name] sinks harmlessly in [H]'s sandy body!</span>")
+			H.visible_message("<span class='danger'>The [P.name] sinks harmlessly in [H] sandy body!</span>", \
+			"<span class='userdanger'>The [P.name] sinks harmlessly in [H] sandy body!</span>")
 			return BULLET_ACT_BLOCK
 	return ..()
 
@@ -420,8 +420,8 @@
 /datum/species/golem/glass/bullet_act(obj/projectile/P, mob/living/carbon/human/H)
 	if(!(P.original == H && P.firer == H)) //self-shots don't reflect
 		if(P.flag == LASER || P.flag == ENERGY)
-			H.visible_message("<span class='danger'>The [P.name] gets reflected by [H]'s glass skin!</span>", \
-			"<span class='userdanger'>The [P.name] gets reflected by [H]'s glass skin!</span>")
+			H.visible_message("<span class='danger'>The [P.name] gets reflected by [H] glass skin!</span>", \
+			"<span class='userdanger'>The [P.name] gets reflected by [H] glass skin!</span>")
 			if(P.starting)
 				var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
 				var/new_y = P.starting.y + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)

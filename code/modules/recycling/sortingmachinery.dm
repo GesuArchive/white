@@ -149,7 +149,7 @@
 	if(do_after(user, 50, target = O))
 		if(!user || user.stat != CONSCIOUS || user.loc != O || O.loc != src )
 			return
-		to_chat(user, "<span class='notice'>You successfully removed [O]'s wrapping !</span>")
+		to_chat(user, "<span class='notice'>You successfully removed [O] wrapping !</span>")
 		O.forceMove(loc)
 		playsound(src.loc, 'sound/items/poster_ripped.ogg', 50, TRUE)
 		new /obj/effect/decal/cleanable/wrapping(get_turf(user))
@@ -157,7 +157,7 @@
 		qdel(src)
 	else
 		if(user.loc == src) //so we don't get the message if we resisted multiple times and succeeded.
-			to_chat(user, "<span class='warning'>You fail to remove [O]'s wrapping!</span>")
+			to_chat(user, "<span class='warning'>You fail to remove [O] wrapping!</span>")
 
 /obj/structure/big_delivery/proc/unwrap_contents()
 	if(!sticker)
@@ -425,12 +425,12 @@
 			qdel(I)
 			if (paper_count >=  max_paper_count)
 				paper_count = max_paper_count
-				to_chat(user, "<span class='notice'>[capitalize(src.name)]'s paper supply is now full.</span>")
+				to_chat(user, "<span class='notice'>[capitalize(src.name)] paper supply is now full.</span>")
 				return
-			to_chat(user, "<span class='notice'>You refill [src]'s paper supply, you have [paper_count] left.</span>")
+			to_chat(user, "<span class='notice'>You refill [src] paper supply, you have [paper_count] left.</span>")
 			return
 		else
-			to_chat(user, "<span class='notice'>[capitalize(src.name)]'s paper supply is full.</span>")
+			to_chat(user, "<span class='notice'>[capitalize(src.name)] paper supply is full.</span>")
 			return
 
 /obj/item/sales_tagger/attack_self(mob/user)

@@ -26,7 +26,7 @@
 			return
 		if("Yes")
 			H.notransform = TRUE
-			H.visible_message("<span class='warning'>[H]'s things suddenly slip off. They hunch over and vomit up a copious amount of purple goo which begins to shape around them!</span>", \
+			H.visible_message("<span class='warning'>[H] things suddenly slip off. They hunch over and vomit up a copious amount of purple goo which begins to shape around them!</span>", \
 							"<span class='shadowling'>You remove any equipment which would hinder your hatching and begin regurgitating the resin which will protect you.</span>")
 			var/temp_flags = H.status_flags
 			H.status_flags |= GODMODE //Can't die while hatching
@@ -43,7 +43,7 @@
 							"<span class='shadowling'>You create your chrysalis and begin to contort within.</span>")
 			if(!do_mob(H,H,100,1))
 				return
-			H.visible_message("<span class='warning'><b>The skin on [H]'s back begins to split apart. Black spines slowly emerge from the divide.</b></span>", \
+			H.visible_message("<span class='warning'><b>The skin on [H] back begins to split apart. Black spines slowly emerge from the divide.</b></span>", \
 							"<span class='shadowling'>Spines pierce your back. Your claws break apart your fingers. You feel excruciating pain as your true form begins its exit.</span>")
 			if(!do_mob(H,H,90,1))
 				return
@@ -129,21 +129,21 @@
 			return
 		if("Yes")
 			H.notransform = 1
-			H.visible_message("<span class='warning'>[H]'s things suddenly slip off. They gently rise into the air, red light glowing in their eyes.</span>", \
+			H.visible_message("<span class='warning'>[H] things suddenly slip off. They gently rise into the air, red light glowing in their eyes.</span>", \
 							"<span class='shadowling'>You rise into the air and get ready for your transformation.</span>")
 			for(var/obj/item/I in H) //drops all items
 				H.unequip_everything(I)
 			if(!do_mob(H,H,50,1))
 				return
-			H.visible_message("<span class='warning'>[H]'s skin begins to crack and harden.</span>", \
+			H.visible_message("<span class='warning'>[H] skin begins to crack and harden.</span>", \
 							"<span class='shadowling'>Your flesh begins creating a shield around yourself.</span>")
 			if(!do_mob(H,H,100,1))
 				return
-			H.visible_message("<span class='warning'>The small horns on [H]'s head slowly grow and elongate.</span>", \
+			H.visible_message("<span class='warning'>The small horns on [H] head slowly grow and elongate.</span>", \
 								"<span class='shadowling'>Your body continues to mutate. Your telepathic abilities grow.</span>") //y-your horns are so big, senpai...!~
 			if(!do_mob(H,H,90,1))
 				return
-			H.visible_message("<span class='warning'>[H]'s body begins to violently stretch and contort.</span>", \
+			H.visible_message("<span class='warning'>[H] body begins to violently stretch and contort.</span>", \
 								"<span class='shadowling'>You begin to rend apart the final barriers to godhood.</span>")
 			if(!do_mob(H,H,40,1))
 				return

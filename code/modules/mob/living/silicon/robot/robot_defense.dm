@@ -90,10 +90,10 @@ GLOBAL_LIST_INIT(blacklisted_borg_hats, typecacheof(list( //Hats that don't real
 
 	if(W.tool_behaviour == TOOL_WRENCH && opened && !cell) //Deconstruction. The flashes break from the fall, to prevent this from being a ghetto reset module.
 		if(!lockcharge)
-			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s bolts spark! Maybe you should lock them down first!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] bolts spark! Maybe you should lock them down first!</span>")
 			spark_system.start()
 			return
-		to_chat(user, "<span class='notice'>You start to unfasten [src]'s securing bolts...</span>")
+		to_chat(user, "<span class='notice'>You start to unfasten [src] securing bolts...</span>")
 		if(W.use_tool(src, user, 50, volume=50) && !cell)
 			user.visible_message("<span class='notice'>[user] deconstructs [src]!</span>", "<span class='notice'>You unfasten the securing bolts, and [src] falls to pieces!</span>")
 			deconstruct()
@@ -101,9 +101,9 @@ GLOBAL_LIST_INIT(blacklisted_borg_hats, typecacheof(list( //Hats that don't real
 
 	if(W.slot_flags & ITEM_SLOT_HEAD && hat_offset != INFINITY && user.a_intent == INTENT_HELP && !is_type_in_typecache(W, GLOB.blacklisted_borg_hats))
 		if(hat && HAS_TRAIT(hat, TRAIT_NODROP))
-			to_chat(user, "<span class='warn'>You can't seem to remove [src]'s existing headwear!</span>")
+			to_chat(user, "<span class='warn'>You can't seem to remove [src] existing headwear!</span>")
 			return
-		to_chat(user, "<span class='notice'>You begin to place [W] on [src]'s head...</span>")
+		to_chat(user, "<span class='notice'>You begin to place [W] on [src] head...</span>")
 		to_chat(src, "<span class='notice'>[user] is placing [W] on your head...</span>")
 		if(do_after(user, 30, target = src))
 			if (user.temporarilyRemoveItemFromInventory(W, TRUE))
@@ -169,7 +169,7 @@ GLOBAL_LIST_INIT(blacklisted_borg_hats, typecacheof(list( //Hats that don't real
 		else
 			if(allowed(usr))
 				locked = !locked
-				to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] [src]'s cover.</span>")
+				to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] [src] cover.</span>")
 				update_icons()
 				if(emagged)
 					to_chat(user, "<span class='notice'>The cover interface glitches out for a split second.</span>")
@@ -243,7 +243,7 @@ GLOBAL_LIST_INIT(blacklisted_borg_hats, typecacheof(list( //Hats that don't real
 			if(I)
 				uneq_active()
 				visible_message("<span class='danger'>[M] disarmed [src]!</span>", \
-					"<span class='userdanger'>[M] has disabled [src]'s active module!</span>", null, COMBAT_MESSAGE_RANGE)
+					"<span class='userdanger'>[M] has disabled [src] active module!</span>", null, COMBAT_MESSAGE_RANGE)
 				log_combat(M, src, "disarmed", "[I ? " removing \the [I]" : ""]")
 			else
 				Stun(40)
@@ -329,7 +329,7 @@ GLOBAL_LIST_INIT(blacklisted_borg_hats, typecacheof(list( //Hats that don't real
 		to_chat(user, "<span class='warning'>You must unexpose the wires first!</span>")
 		return
 
-	to_chat(user, "<span class='notice'>You emag [src]'s interface.</span>")
+	to_chat(user, "<span class='notice'>You emag [src] interface.</span>")
 	emag_cooldown = world.time + 100
 
 	if(connected_ai && connected_ai.mind && connected_ai.mind.has_antag_datum(/datum/antagonist/traitor))

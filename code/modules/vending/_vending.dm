@@ -469,7 +469,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 			var/denied_items = 0
 			for(var/obj/item/the_item in T.contents)
 				if(contents.len >= MAX_VENDING_INPUT_AMOUNT) // no more than 30 item can fit inside, legacy from snack vending although not sure why it exists
-					to_chat(user, "<span class='warning'>[capitalize(src.name)]'s compartment is full.</span>")
+					to_chat(user, "<span class='warning'>[capitalize(src.name)] compartment is full.</span>")
 					break
 				if(canLoadItem(the_item) && loadingAttempt(the_item,user))
 					SEND_SIGNAL(T, COMSIG_TRY_STORAGE_TAKE, the_item, src, TRUE)
@@ -479,7 +479,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 			if(denied_items)
 				to_chat(user, "<span class='warning'>[capitalize(src.name)] refuses some items!</span>")
 			if(loaded)
-				to_chat(user, "<span class='notice'>You insert [loaded] dishes into [src]'s compartment.</span>")
+				to_chat(user, "<span class='notice'>You insert [loaded] dishes into [src] compartment.</span>")
 				updateUsrDialog()
 	else
 		. = ..()
@@ -553,7 +553,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 						if(r)
 							r.receive_damage(brute=200)
 						if(l || r)
-							C.visible_message("<span class='danger'>[C]'s legs shatter with a sickening crunch!</span>", \
+							C.visible_message("<span class='danger'>[C] legs shatter with a sickening crunch!</span>", \
 								"<span class='userdanger'>Your legs shatter with a sickening crunch!</span>")
 					if(2) // pin them beneath the machine until someone untilts it
 						forceMove(get_turf(C))
@@ -571,7 +571,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 							shard.updateEmbedding()
 					if(4) // paralyze this binch
 						// the new paraplegic gets like 4 lines of losing their legs so skip them
-						visible_message("<span class='danger'>[C]'s spinal cord is obliterated with a sickening crunch!</span>", ignored_mobs = list(C))
+						visible_message("<span class='danger'>[C] spinal cord is obliterated with a sickening crunch!</span>", ignored_mobs = list(C))
 						C.gain_trauma(/datum/brain_trauma/severe/paralysis/paraplegic)
 					if(5) // limb squish!
 						for(var/i in C.bodyparts)
@@ -581,7 +581,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 								squish_part.force_wound_upwards(type_wound)
 							else
 								squish_part.receive_damage(brute=30)
-						C.visible_message("<span class='danger'>[C]'s body is maimed underneath the mass of [src]!</span>", \
+						C.visible_message("<span class='danger'>[C] body is maimed underneath the mass of [src]!</span>", \
 							"<span class='userdanger'>Your body is maimed underneath the mass of [src]!</span>")
 					if(6) // skull squish!
 						var/obj/item/bodypart/head/O = C.get_bodypart(BODY_ZONE_HEAD)
@@ -643,7 +643,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		vending_machine_input[format_text(I.name)]++
 	else
 		vending_machine_input[format_text(I.name)] = 1
-	to_chat(user, "<span class='notice'>You insert [I] into [src]'s input compartment.</span>")
+	to_chat(user, "<span class='notice'>You insert [I] into [src] input compartment.</span>")
 	loaded_items++
 
 /obj/machinery/vending/unbuckle_mob(mob/living/buckled_mob, force=FALSE)
@@ -674,7 +674,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		if(do_you_have_access)
 			return TRUE
 		else
-			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s input compartment blinks red: Access denied.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] input compartment blinks red: Access denied.</span>")
 			return FALSE
 
 /obj/machinery/vending/exchange_parts(mob/user, obj/item/storage/part_replacer/W)

@@ -66,7 +66,7 @@
 	var/mob/living/carbon/user = owner
 	var/turf/my_turf = get_turf(owner)
 
-	user.visible_message("<span class='warning'>[user]'s form dissipates into a cloud of mist!</span>", \
+	user.visible_message("<span class='warning'>[user] form dissipates into a cloud of mist!</span>", \
 					 	 "<span class='notice'>You disspiate into formless mist.</span>")
 
 

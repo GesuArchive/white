@@ -340,7 +340,7 @@
 	if(istype(W, /obj/item/barcodescanner))
 		var/obj/item/barcodescanner/scanner = W
 		scanner.computer = src
-		to_chat(user, "<span class='notice'>[scanner]'s associated machine has been set to [src].</span>")
+		to_chat(user, "<span class='notice'>[scanner] associated machine has been set to [src].</span>")
 		audible_message("<span class='hear'>[capitalize(src.name)] lets out a low, short blip.</span>")
 	else
 		return ..()
@@ -485,7 +485,7 @@
 					B.author = author
 					B.dat = content
 					B.icon_state = "book[rand(1,8)]"
-					visible_message("<span class='notice'>[capitalize(src.name)]'s printer hums as it produces a completely bound book. How did it do that?</span>")
+					visible_message("<span class='notice'>[capitalize(src.name)] printer hums as it produces a completely bound book. How did it do that?</span>")
 				break
 			qdel(query_library_print)
 	if(href_list["printbible"])

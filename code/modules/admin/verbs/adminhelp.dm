@@ -377,7 +377,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		SEND_SOUND(initiator, sound('sound/effects/rejt.ogg'))
 
 		to_chat(initiator, "<font color='red' size='4'><b>- Запрос отклонён! -</b></font>", confidential = TRUE)
-		to_chat(initiator, "<font color='red'><b>Ваш запрос отклонён.</b> Попробуй ещё раз.</font>", confidential = TRUE)
+		to_chat(initiator, "<font color='red'><b>Запрос отклонён.</b> Попробуй ещё раз.</font>", confidential = TRUE)
 		to_chat(initiator, "Пожалуйста, успокойтесь. Администратор возможно не видел какие-либо события связанные с раундом, поэтому распишите проблему более подробно и также четко указывайте имена тех, о ком вы сообщаете.", confidential = TRUE)
 
 	SSblackbox.record_feedback("tally", "ahelp_stats", 1, "rejected")

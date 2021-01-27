@@ -1166,7 +1166,7 @@
 		transfer_in_progress = FALSE
 		return
 	user.visible_message("<span class='notice'>[user] transfers [occupier] to [card]!</span>", "<span class='notice'>Transfer complete! [occupier] is now stored in [card].</span>")
-	to_chat(occupier, "<span class='notice'>Transfer complete! You've been stored in [user]'s [card.name].</span>")
+	to_chat(occupier, "<span class='notice'>Transfer complete! You've been stored in [user] [card.name].</span>")
 	occupier.forceMove(card)
 	card.AI = occupier
 	occupier.parent.shunted = FALSE

@@ -400,7 +400,7 @@
 
 
 		else if (menu == 4)
-			log_cloning("[key_name(usr)] deleted [key_name(active_record.fields["mindref"])]'s cloning records from [src] at [AREACOORD(src)].")
+			log_cloning("[key_name(usr)] deleted [key_name(active_record.fields["mindref"])] cloning records from [src] at [AREACOORD(src)].")
 			temp = "[active_record.fields["name"]] => Record deleted."
 			records.Remove(active_record)
 			active_record = null
@@ -433,7 +433,7 @@
 				if(include_se)
 					overwrite_field_if_available(active_record, diskette, "SE")
 
-				log_cloning("[key_name(usr)] uploaded [key_name(active_record.fields["mindref"])]'s cloning records to [src] at [AREACOORD(src)] via [diskette].")
+				log_cloning("[key_name(usr)] uploaded [key_name(active_record.fields["mindref"])] cloning records to [src] at [AREACOORD(src)] via [diskette].")
 				temp = "Load successful."
 				playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 
@@ -449,7 +449,7 @@
 					playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, FALSE)
 					return
 
-				log_cloning("[key_name(usr)] added [key_name(active_record.fields["mindref"])]'s cloning records to [diskette] via [src] at [AREACOORD(src)].")
+				log_cloning("[key_name(usr)] added [key_name(active_record.fields["mindref"])] cloning records to [diskette] via [src] at [AREACOORD(src)].")
 				diskette.fields = active_record.fields.Copy()
 				diskette.name = "data disk - '[diskette.fields["name"]]'"
 				temp = "Save successful."

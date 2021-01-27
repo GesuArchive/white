@@ -246,7 +246,7 @@
 	var/mob/living/carbon/patient = exposed_mob
 	if(reac_volume >= 5 && HAS_TRAIT_FROM(patient, TRAIT_HUSK, BURN) && patient.getFireLoss() < UNHUSK_DAMAGE_THRESHOLD) //One carp yields 12u rezadone.
 		patient.cure_husk(BURN)
-		patient.visible_message("<span class='nicegreen'>[patient]'s body rapidly absorbs moisture from the environment, taking on a more healthy appearance.</span>")
+		patient.visible_message("<span class='nicegreen'>[patient] body rapidly absorbs moisture from the environment, taking on a more healthy appearance.</span>")
 
 /datum/reagent/medicine/spaceacillin
 	name = "Spaceacillin"
@@ -781,16 +781,16 @@
 	if(exposed_mob.stat != DEAD)
 		return ..()
 	if(exposed_mob.suiciding) //they are never coming back
-		exposed_mob.visible_message("<span class='warning'>[exposed_mob]'s body does not react...</span>")
+		exposed_mob.visible_message("<span class='warning'>[exposed_mob] body does not react...</span>")
 		return
 	if(iscarbon(exposed_mob) && !(methods & INGEST)) //simplemobs can still be splashed
 		return ..()
 	var/amount_to_revive = round((exposed_mob.getBruteLoss()+exposed_mob.getFireLoss())/20)
 	if(exposed_mob.getBruteLoss()+exposed_mob.getFireLoss() >= 200 || HAS_TRAIT(exposed_mob, TRAIT_HUSK) || reac_volume < amount_to_revive) //body will die from brute+burn on revive or you haven't provided enough to revive.
-		exposed_mob.visible_message("<span class='warning'>[exposed_mob]'s body convulses a bit, and then falls still once more.</span>")
+		exposed_mob.visible_message("<span class='warning'>[exposed_mob] body convulses a bit, and then falls still once more.</span>")
 		exposed_mob.do_jitter_animation(10)
 		return
-	exposed_mob.visible_message("<span class='warning'>[exposed_mob]'s body starts convulsing!</span>")
+	exposed_mob.visible_message("<span class='warning'>[exposed_mob] body starts convulsing!</span>")
 	exposed_mob.notify_ghost_cloning("Your body is being revived with Strange Reagent!")
 	exposed_mob.do_jitter_animation(10)
 	var/excess_healing = 5*(reac_volume-amount_to_revive) //excess reagent will heal blood and organs across the board

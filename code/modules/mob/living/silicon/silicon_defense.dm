@@ -21,8 +21,8 @@
 			updatehealth()
 		else
 			playsound(loc, 'sound/weapons/slashmiss.ogg', 25, TRUE, -1)
-			visible_message("<span class='danger'>[M]'s swipe misses [src]!</span>", \
-							"<span class='danger'>You avoid [M]'s swipe!</span>", null, null, M)
+			visible_message("<span class='danger'>[M] swipe misses [src]!</span>", \
+							"<span class='danger'>You avoid [M] swipe!</span>", null, null, M)
 			to_chat(M, "<span class='warning'>Your swipe misses [src]!</span>")
 
 /mob/living/silicon/attack_animal(mob/living/simple_animal/M)

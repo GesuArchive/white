@@ -6,7 +6,7 @@
 	zone = BODY_ZONE_CHEST
 
 /obj/item/organ/cyberimp/chest/nutriment
-	name = "имплант «питательный насос»"
+	name = "имплант \"питательный насос\""
 	desc = "Этот имплант синтезирует и закачаивает в ваш кровосток небольшое количество питательных веществ если вы голодаете."
 	icon_state = "chest_implant"
 	implant_color = "#00AA00"
@@ -37,7 +37,7 @@
 
 
 /obj/item/organ/cyberimp/chest/nutriment/plus
-	name = "имплант «питательный насос ПЛЮС»"
+	name = "имплант \"питательный насос ПЛЮС\""
 	desc = "Этот имплант синтезирует и закачаивает в ваш кровосток небольшое количество питательных веществ если вы голодаете."
 	icon_state = "chest_implant"
 	implant_color = "#006607"
@@ -45,7 +45,7 @@
 	poison_amount = 10
 
 /obj/item/organ/cyberimp/chest/reviver
-	name = "Имплант «Реаниматор»"
+	name = "имплант \"Реаниматор\""
 	desc = "Этот имплант постарается привести вас в чуство и исцелить если вы потеряете сознание. Для слабонервных!"
 	icon_state = "chest_implant"
 	implant_color = "#AD0000"
@@ -63,7 +63,7 @@
 			else
 				COOLDOWN_START(src, reviver_cooldown, revive_cost)
 				reviving = FALSE
-				to_chat(owner, "<span class='notice'>Ваш имплант «Реаниматор» выключается и начинает перезаряжаться. Он будет готов через [DisplayTimeText(revive_cost)].</span>")
+				to_chat(owner, "<span class='notice'>Имплант \"Реаниматор\" выключается и начинает перезаряжаться. Он будет готов через [DisplayTimeText(revive_cost)].</span>")
 		return
 
 	if(!COOLDOWN_FINISHED(src, reviver_cooldown) || owner.suiciding)
@@ -73,7 +73,7 @@
 		if(UNCONSCIOUS, HARD_CRIT)
 			revive_cost = 0
 			reviving = TRUE
-			to_chat(owner, "<span class='notice'>Я почувствовал слабое жужжание, похоже имлант «Реаниматор» начал латать мои раны...</span>")
+			to_chat(owner, "<span class='notice'>Чувствую слабое жужжание, похоже имлант \"Реаниматор\" начал латать мои раны...</span>")
 
 
 /obj/item/organ/cyberimp/chest/reviver/proc/heal()
@@ -104,7 +104,7 @@
 		var/mob/living/carbon/human/H = owner
 		if(H.stat != DEAD && prob(50 / severity) && H.can_heartattack())
 			H.set_heartattack(TRUE)
-			to_chat(H, "<span class='userdanger'>Я чувствую ужасную боль в груди!</span>")
+			to_chat(H, "<span class='userdanger'>Чувствую ужасную боль в груди!</span>")
 			addtimer(CALLBACK(src, .proc/undo_heart_attack), 600 / severity)
 
 /obj/item/organ/cyberimp/chest/reviver/proc/undo_heart_attack()
@@ -113,7 +113,7 @@
 		return
 	H.set_heartattack(FALSE)
 	if(H.stat == CONSCIOUS)
-		to_chat(H, "<span class='notice'>Чувствую что мое сердце вновь забилось!</span>")
+		to_chat(H, "<span class='notice'>Чувствую, что мое сердце вновь забилось!</span>")
 
 
 /obj/item/organ/cyberimp/chest/thrusters
@@ -158,14 +158,14 @@
 			owner.add_movespeed_modifier(/datum/movespeed_modifier/jetpack/cybernetic)
 			RegisterSignal(owner, COMSIG_MOVABLE_PRE_MOVE, .proc/pre_move_react)
 			if(!silent)
-				to_chat(owner, "<span class='notice'>Я включил свой маневровый набор.</span>")
+				to_chat(owner, "<span class='notice'>Включаю маневровый набор.</span>")
 	else
 		ion_trail.stop()
 		UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 		owner.remove_movespeed_modifier(/datum/movespeed_modifier/jetpack/cybernetic)
 		UnregisterSignal(owner, COMSIG_MOVABLE_PRE_MOVE)
 		if(!silent)
-			to_chat(owner, "<span class='notice'>Я выключил свой маневровый набор.</span>")
+			to_chat(owner, "<span class='notice'>Выключаю маневровый набор.</span>")
 		on = FALSE
 	update_icon()
 

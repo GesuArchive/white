@@ -120,7 +120,7 @@ Regenerative extracts:
 		var/obj/item/clothing/C = H.get_item_by_slot(ITEM_SLOT_HEAD)
 		fireproof(C)
 	if(fireproofed)
-		target.visible_message("<span class='notice'>Some of [target]'s clothing gets coated in the goo, and turns blue!</span>")
+		target.visible_message("<span class='notice'>Some of [target] clothing gets coated in the goo, and turns blue!</span>")
 
 /obj/item/slimecross/regenerative/darkblue/proc/fireproof(obj/item/clothing/C)
 	C.name = "fireproofed [C.name]"

@@ -167,7 +167,7 @@
 		mmi = new (src)
 		mmi.brain = new /obj/item/organ/brain(mmi)
 		mmi.brain.organ_flags |= ORGAN_FROZEN
-		mmi.brain.name = "[real_name]'s brain"
+		mmi.brain.name = "[real_name] brain"
 		mmi.name = "[initial(mmi.name)]: [real_name]"
 		mmi.set_brainmob(new /mob/living/brain(mmi))
 		mmi.brainmob.name = src.real_name

@@ -22,7 +22,7 @@
 
 	var/obj/item/organ/liver/affected_liver = affected_mob.getorgan(/obj/item/organ/liver)
 	if(!affected_liver)
-		affected_mob.visible_message("<span class='notice'><B>[affected_mob]'s liver is covered in tiny larva! They quickly shrivel and die after being exposed to the open air.</B></span>")
+		affected_mob.visible_message("<span class='notice'><B>[affected_mob] liver is covered in tiny larva! They quickly shrivel and die after being exposed to the open air.</B></span>")
 		cure()
 		return FALSE
 

@@ -175,13 +175,13 @@
 		var/obj/item/multitool/M = W
 		if(panel_open)
 			M.buffer = src
-			to_chat(user, "<span class='notice'>You download the data to the [W.name]'s buffer.</span>")
+			to_chat(user, "<span class='notice'>You download the data to the [W.name] buffer.</span>")
 		else
 			if(M.buffer && istype(M.buffer, /obj/machinery/teleport/station) && M.buffer != src)
 				if(linked_stations.len < efficiency)
 					linked_stations.Add(M.buffer)
 					M.buffer = null
-					to_chat(user, "<span class='notice'>You upload the data from the [W.name]'s buffer.</span>")
+					to_chat(user, "<span class='notice'>You upload the data from the [W.name] buffer.</span>")
 				else
 					to_chat(user, "<span class='alert'>This station can't hold more information, try to use better parts.</span>")
 		return

@@ -199,7 +199,7 @@
 	var/brainopsname = "[brainfirstname] [brainopslastname]"
 
 	R.mmi.name = "[initial(R.mmi.name)]: [brainopsname]"
-	R.mmi.brain.name = "[brainopsname]'s brain"
+	R.mmi.brain.name = "[brainopsname] brain"
 	R.mmi.brainmob.real_name = brainopsname
 	R.mmi.brainmob.name = brainopsname
 	R.real_name = R.name

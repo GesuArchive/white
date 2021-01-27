@@ -337,8 +337,8 @@
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = user.mind.has_antag_datum(ANTAG_DATUM_BLOODSUCKER)
 	bloodsuckerdatum.AddBloodVolume(-convert_cost)
 	target.add_mob_blood(user)
-	user.visible_message("<span class='notice'>[user] marks a bloody smear on [target]'s forehead and puts a wrist up to [target.ru_ego()] mouth!</span>", \
-				  	  "<span class='notice'>You paint a bloody marking across [target]'s forehead, place your wrist to [target.ru_ego()] mouth, and subject [target.ru_na()] to the Dark Communion.</span>")
+	user.visible_message("<span class='notice'>[user] marks a bloody smear on [target] forehead and puts a wrist up to [target.ru_ego()] mouth!</span>", \
+				  	  "<span class='notice'>You paint a bloody marking across [target] forehead, place your wrist to [target.ru_ego()] mouth, and subject [target.ru_na()] to the Dark Communion.</span>")
 	if(!do_mob(user, src, 50))
 		to_chat(user, "<span class='danger'><i>The ritual has been interrupted!</i></span>")
 		useLock = FALSE
@@ -412,7 +412,7 @@
 		playsound(loc, I.hitsound, 30, 1, -1)
 		I.play_tool_sound(target)
 
-	target.visible_message("<span class='danger'>[user] has [method_string] [target]'s [target_string] with [user.ru_ego()] [weapon_string]!</span>", \
+	target.visible_message("<span class='danger'>[user] has [method_string] [target] [target_string] with [user.ru_ego()] [weapon_string]!</span>", \
 						   "<span class='userdanger'>[user] has [method_string] your [target_string] with [user.ru_ego()] [weapon_string]!</span>")
 	if (!target.is_muzzled())
 		target.emote("scream")

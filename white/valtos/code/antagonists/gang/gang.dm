@@ -153,8 +153,8 @@
 	var/inf = input("Influence for [gang.name]","Gang influence", gang.influence) as null | num
 	if(!isnull(inf))
 		gang.influence = inf
-		message_admins("[key_name_admin(usr)] changed [gang.name]'s influence to [inf].")
-		log_admin("[key_name(usr)] changed [gang.name]'s influence to [inf].")
+		message_admins("[key_name_admin(usr)] changed [gang.name] influence to [inf].")
+		log_admin("[key_name(usr)] changed [gang.name] influence to [inf].")
 
 /datum/antagonist/gang/proc/add_to_gang()
 	gang.add_member(owner)

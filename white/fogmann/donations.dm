@@ -195,7 +195,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 	if(D)
 		D.ui_interact(src.mob)
 	else
-		to_chat(src,"<span class='warning'>Вы не донатили, извините.</span>")
+		to_chat(src,"<span class='warning'>Ты не донатил, извини.</span>")
 
 GLOBAL_LIST_EMPTY(donate_icon_cache)
 GLOBAL_LIST_EMPTY(donators)
@@ -269,19 +269,19 @@ GLOBAL_LIST_EMPTY(donators)
 				return 0
 
 			if((world.time-SSticker.round_start_time) > DONATIONS_SPAWN_WINDOW && !istype(get_area(user), /area/crew_quarters/bar))
-				to_chat(user,"<span class='warning'>Вам нужно быть в баре.</span>")
+				to_chat(user,"<span class='warning'>Нужно быть в баре.</span>")
 				return 0
 
 			if(prize.cost > money)
-				to_chat(user,"<span class='warning'>У вас недостаточно баланса.</span>")
+				to_chat(user,"<span class='warning'>Недостаточно баланса.</span>")
 				return 0
 
 			if(!allowed_num_items)
-				to_chat(user,"<span class='warning'>Вы достигли максимума. Молодец.</span>")
+				to_chat(user,"<span class='warning'>Достигли максимума. Ура.</span>")
 				return 0
 
 			if(!user)
-				to_chat(user,"<span class='warning'>Вам нужно быть живым.</span>")
+				to_chat(user,"<span class='warning'>Нужно быть живым.</span>")
 				return 0
 
 			if(!ispath(prize.path_to))
@@ -315,10 +315,10 @@ GLOBAL_LIST_EMPTY(donators)
 				where = user.equip_in_one_of_slots(spawned, slots, qdel_on_fail=0)
 
 			if (!where)
-				to_chat(user,"<span class='info'>Ваш [prize.name] был создан!</span>")
+				to_chat(user,"<span class='info'>[capitalize(prize.name)] был создан!</span>")
 				spawned.anchored = FALSE
 			else
-				to_chat(user,"<span class='info'>Ваш [prize.name] был создан в [where]!</span>")
+				to_chat(user,"<span class='info'>[capitalize(prize.name)] был создан в [where]!</span>")
 
 			money -= prize.cost
 			allowed_num_items--

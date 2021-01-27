@@ -133,7 +133,7 @@
 		qdel(src)
 
 /mob/living/simple_animal/hostile/asteroid/goldgrub/bullet_act(obj/projectile/P)
-	visible_message("<span class='danger'>The [P.name] is repelled by [name]'s girth!</span>")
+	visible_message("<span class='danger'>The [P.name] is repelled by [name] girth!</span>")
 	return BULLET_ACT_BLOCK
 
 /mob/living/simple_animal/hostile/asteroid/goldgrub/adjustHealth(amount, updating_health = TRUE, forced = FALSE)

@@ -49,16 +49,16 @@
 					organ_rejection_dam = 30
 
 		if(target_zone == BP.body_zone) //so we can't replace a leg with an arm, or a human arm with a monkey arm.
-			display_results(user, target, "<span class='notice'>You begin to replace [target]'s [parse_zone(target_zone)] with [tool]...</span>",
-				"<span class='notice'>[user] begins to replace [target]'s [parse_zone(target_zone)] with [tool].</span>",
-				"<span class='notice'>[user] begins to replace [target]'s [parse_zone(target_zone)].</span>")
+			display_results(user, target, "<span class='notice'>You begin to replace [target] [parse_zone(target_zone)] with [tool]...</span>",
+				"<span class='notice'>[user] begins to replace [target] [parse_zone(target_zone)] with [tool].</span>",
+				"<span class='notice'>[user] begins to replace [target] [parse_zone(target_zone)].</span>")
 		else
 			to_chat(user, "<span class='warning'>[tool] isn't the right type for [parse_zone(target_zone)].</span>")
 			return -1
 	else if(target_zone == BODY_ZONE_L_ARM || target_zone == BODY_ZONE_R_ARM)
 		display_results(user, target, "<span class='notice'>You begin to attach [tool] onto [target]...</span>",
-			"<span class='notice'>[user] begins to attach [tool] onto [target]'s [parse_zone(target_zone)].</span>",
-			"<span class='notice'>[user] begins to attach something onto [target]'s [parse_zone(target_zone)].</span>")
+			"<span class='notice'>[user] begins to attach [tool] onto [target] [parse_zone(target_zone)].</span>",
+			"<span class='notice'>[user] begins to attach something onto [target] [parse_zone(target_zone)].</span>")
 	else
 		to_chat(user, "<span class='warning'>[tool] must be installed onto an arm.</span>")
 		return -1
@@ -73,23 +73,23 @@
 	if(istype(tool, /obj/item/bodypart) && user.temporarilyRemoveItemFromInventory(tool))
 		var/obj/item/bodypart/L = tool
 		if(!L.attach_limb(target))
-			display_results(user, target, "<span class='warning'>You fail in replacing [target]'s [parse_zone(target_zone)]! Their body has rejected [L]!</span>",
-				"<span class='warning'>[user] fails to replace [target]'s [parse_zone(target_zone)]!</span>",
-				"<span class='warning'>[user] fails to replaces [target]'s [parse_zone(target_zone)]!</span>")
+			display_results(user, target, "<span class='warning'>You fail in replacing [target] [parse_zone(target_zone)]! Their body has rejected [L]!</span>",
+				"<span class='warning'>[user] fails to replace [target] [parse_zone(target_zone)]!</span>",
+				"<span class='warning'>[user] fails to replaces [target] [parse_zone(target_zone)]!</span>")
 			return
 		if(organ_rejection_dam)
 			target.adjustToxLoss(organ_rejection_dam)
-		display_results(user, target, "<span class='notice'>You succeed in replacing [target]'s [parse_zone(target_zone)].</span>",
-			"<span class='notice'>[user] successfully replaces [target]'s [parse_zone(target_zone)] with [tool]!</span>",
-			"<span class='notice'>[user] successfully replaces [target]'s [parse_zone(target_zone)]!</span>")
+		display_results(user, target, "<span class='notice'>You succeed in replacing [target] [parse_zone(target_zone)].</span>",
+			"<span class='notice'>[user] successfully replaces [target] [parse_zone(target_zone)] with [tool]!</span>",
+			"<span class='notice'>[user] successfully replaces [target] [parse_zone(target_zone)]!</span>")
 		return
 	else
 		var/obj/item/bodypart/L = target.newBodyPart(target_zone, FALSE, FALSE)
 		L.is_pseudopart = TRUE
 		if(!L.attach_limb(target))
-			display_results(user, target, "<span class='warning'>You fail in attaching [target]'s [parse_zone(target_zone)]! Their body has rejected [L]!</span>",
-				"<span class='warning'>[user] fails to attach [target]'s [parse_zone(target_zone)]!</span>",
-				"<span class='warning'>[user] fails to attach [target]'s [parse_zone(target_zone)]!</span>")
+			display_results(user, target, "<span class='warning'>You fail in attaching [target] [parse_zone(target_zone)]! Their body has rejected [L]!</span>",
+				"<span class='warning'>[user] fails to attach [target] [parse_zone(target_zone)]!</span>",
+				"<span class='warning'>[user] fails to attach [target] [parse_zone(target_zone)]!</span>")
 			L.forceMove(target.loc)
 			return
 		user.visible_message("<span class='notice'>[user] finishes attaching [tool]!</span>", "<span class='notice'>You attach [tool].</span>")

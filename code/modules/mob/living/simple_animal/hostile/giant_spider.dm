@@ -685,7 +685,7 @@
 		if(do_after(src, 20, target = src))
 			heal_overall_damage(50, 50)
 			new /obj/effect/temp_visual/heal(get_turf(src), "#80F5FF")
-			visible_message("<span class='notice'>[src]'s wounds mend together.</span>","<span class='notice'>You mend your wounds together.</span>")
+			visible_message("<span class='notice'>[src] wounds mend together.</span>","<span class='notice'>You mend your wounds together.</span>")
 		is_busy = FALSE
 		return
 	return ..()

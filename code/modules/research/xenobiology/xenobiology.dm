@@ -279,10 +279,10 @@
 			to_chat(user, "<span class='notice'>You start glowing brighter.</span>")
 
 		if(SLIME_ACTIVATE_MAJOR)
-			user.visible_message("<span class='warning'>[user]'s skin starts flashing intermittently...</span>", "<span class='warning'>Your skin starts flashing intermittently...</span>")
+			user.visible_message("<span class='warning'>[user] skin starts flashing intermittently...</span>", "<span class='warning'>Your skin starts flashing intermittently...</span>")
 			if(do_after(user, 25, target = user))
 				empulse(user, 1, 2)
-				user.visible_message("<span class='warning'>[user]'s skin flashes!</span>", "<span class='warning'>Your skin flashes as you emit an electromagnetic pulse!</span>")
+				user.visible_message("<span class='warning'>[user] skin flashes!</span>", "<span class='warning'>Your skin flashes as you emit an electromagnetic pulse!</span>")
 				return 600
 
 /obj/item/slime_extract/red
@@ -300,7 +300,7 @@
 			return 450
 
 		if(SLIME_ACTIVATE_MAJOR)
-			user.visible_message("<span class='warning'>[user]'s skin flashes red for a moment...</span>", "<span class='warning'>Your skin flashes red as you emit rage-inducing pheromones...</span>")
+			user.visible_message("<span class='warning'>[user] skin flashes red for a moment...</span>", "<span class='warning'>Your skin flashes red as you emit rage-inducing pheromones...</span>")
 			for(var/mob/living/simple_animal/slime/slime in viewers(get_turf(user), null))
 				slime.rabid = TRUE
 				slime.visible_message("<span class='danger'>The [slime] is driven into a frenzy!</span>")
@@ -324,7 +324,7 @@
 
 		if(SLIME_ACTIVATE_MAJOR)
 			user.reagents.create_foam(/datum/effect_system/foam_spread,20)
-			user.visible_message("<span class='danger'>Foam spews out from [user]'s skin!</span>", "<span class='warning'>You activate [src], and foam bursts out of your skin!</span>")
+			user.visible_message("<span class='danger'>Foam spews out from [user] skin!</span>", "<span class='warning'>You activate [src], and foam bursts out of your skin!</span>")
 			return 600
 
 /obj/item/slime_extract/darkblue
@@ -374,7 +374,7 @@
 			return 100
 
 		if(SLIME_ACTIVATE_MAJOR)
-			user.visible_message("<span class='warning'>[user]'s skin starts flashing hypnotically...</span>", "<span class='notice'>Your skin starts forming odd patterns, pacifying creatures around you.</span>")
+			user.visible_message("<span class='warning'>[user] skin starts flashing hypnotically...</span>", "<span class='notice'>Your skin starts forming odd patterns, pacifying creatures around you.</span>")
 			for(var/mob/living/carbon/C in viewers(user, null))
 				if(C != user)
 					C.reagents.add_reagent(/datum/reagent/pax,2)
@@ -468,7 +468,7 @@
 			return 450
 
 		if(SLIME_ACTIVATE_MAJOR)
-			user.visible_message("<span class='warning'>[user]'s skin starts pulsing and glowing ominously...</span>", "<span class='userdanger'>You feel unstable...</span>")
+			user.visible_message("<span class='warning'>[user] skin starts pulsing and glowing ominously...</span>", "<span class='userdanger'>You feel unstable...</span>")
 			if(do_after(user, 60, target = user))
 				to_chat(user, "<span class='userdanger'>You explode!</span>")
 				explosion(get_turf(user), 1 ,3, 6)

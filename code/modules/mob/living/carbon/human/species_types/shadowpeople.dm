@@ -112,7 +112,7 @@
 	playsound(user, 'sound/magic/demon_consume.ogg', 50, TRUE)
 
 
-	user.visible_message("<span class='warning'>Blood erupts from [user]'s arm as it reforms into a weapon!</span>", \
+	user.visible_message("<span class='warning'>Blood erupts from [user] arm as it reforms into a weapon!</span>", \
 		"<span class='userdanger'>Icy blood pumps through your veins as your arm reforms itself!</span>")
 	user.temporarilyRemoveItemFromInventory(src, TRUE)
 	Insert(user)
@@ -216,7 +216,7 @@
 	else if(ismecha(AM))
 		var/obj/vehicle/sealed/mecha/M = AM
 		if(M.mecha_flags & HAS_LIGHTS)
-			M.visible_message("<span class='danger'>[M]'s lights burn out!</span>")
+			M.visible_message("<span class='danger'>[M] lights burn out!</span>")
 			M.mecha_flags &= ~HAS_LIGHTS
 		M.set_light_on(FALSE)
 		for(var/occupant in M.occupants)

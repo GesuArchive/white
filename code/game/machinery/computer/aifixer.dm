@@ -15,9 +15,9 @@
 /obj/machinery/computer/aifixer/screwdriver_act(mob/living/user, obj/item/I)
 	if(occupier)
 		if(machine_stat & (NOPOWER|BROKEN))
-			to_chat(user, "<span class='warning'>The screws on [name]'s screen won't budge.</span>")
+			to_chat(user, "<span class='warning'>The screws on [name] screen won't budge.</span>")
 		else
-			to_chat(user, "<span class='warning'>The screws on [name]'s screen won't budge and it emits a warning beep.</span>")
+			to_chat(user, "<span class='warning'>The screws on [name] screen won't budge and it emits a warning beep.</span>")
 	else
 		return ..()
 

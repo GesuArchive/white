@@ -192,7 +192,7 @@
 		return
 
 	if(prob(2) && ghetto) //Give ghetto RCLs a 2% chance to jam, requiring it to be reactviated manually.
-		to_chat(user, "<span class='warning'>[capitalize(src.name)]'s wires jam!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] wires jam!</span>")
 		active = FALSE
 		return
 	else

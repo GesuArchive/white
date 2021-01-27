@@ -51,7 +51,7 @@
 				to_chat(user, "<span class='notice'>You navigate the sharp edges of circuitry and remove a single board from [src]</span>")
 		else
 			H.apply_damage(15, BRUTE, pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))
-			to_chat(user, "<span class='warning'>You give yourself a wicked cut on [src]'s many sharp corners and edges!</span>")
+			to_chat(user, "<span class='warning'>You give yourself a wicked cut on [src] many sharp corners and edges!</span>")
 
 /obj/item/stack/circuit_stack/full
 	amount = 8

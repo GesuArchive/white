@@ -60,7 +60,7 @@
 				return
 			var/obj/item/multitool/M = I
 			M.buffer = src
-			to_chat(user, "<span class='notice'>You save the data in [I]'s buffer. It can now be saved to pads with closed panels.</span>")
+			to_chat(user, "<span class='notice'>You save the data in [I] buffer. It can now be saved to pads with closed panels.</span>")
 			return TRUE
 	else if(I.tool_behaviour == TOOL_MULTITOOL)
 		if(!multitool_check_buffer(user, I))
@@ -72,19 +72,19 @@
 				return TRUE
 			else
 				linked_pad = M.buffer
-				to_chat(user, "<span class='notice'>You link [src] to the one in [I]'s buffer.</span>")
+				to_chat(user, "<span class='notice'>You link [src] to the one in [I] buffer.</span>")
 				return TRUE
 		else
-			to_chat(user, "<span class='warning'>There is no quantum pad data saved in [I]'s buffer!</span>")
+			to_chat(user, "<span class='warning'>There is no quantum pad data saved in [I] buffer!</span>")
 			return TRUE
 
 	else if(istype(I, /obj/item/quantum_keycard))
 		var/obj/item/quantum_keycard/K = I
 		if(K.qpad)
-			to_chat(user, "<span class='notice'>You insert [K] into [src]'s card slot, activating it.</span>")
+			to_chat(user, "<span class='notice'>You insert [K] into [src] card slot, activating it.</span>")
 			interact(user, K.qpad)
 		else
-			to_chat(user, "<span class='notice'>You insert [K] into [src]'s card slot, initiating the link procedure.</span>")
+			to_chat(user, "<span class='notice'>You insert [K] into [src] card slot, initiating the link procedure.</span>")
 			if(do_after(user, 40, target = src))
 				to_chat(user, "<span class='notice'>You complete the link between [K] and [src].</span>")
 				K.qpad = src

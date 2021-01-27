@@ -76,7 +76,7 @@
 						movement_target.attack_animal(src)
 					else if(ishuman(movement_target.loc) )
 						if(prob(20))
-							manual_emote("stares at [movement_target.loc]'s [movement_target] with a sad puppy-face")
+							manual_emote("stares at [movement_target.loc] [movement_target] with a sad puppy-face")
 
 		if(prob(1))
 			manual_emote(pick("dances around.","chases its tail!"))

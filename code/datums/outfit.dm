@@ -254,7 +254,7 @@
 
 				var/activate_msg = skillchip_instance.try_activate_skillchip(TRUE, TRUE)
 				if(activate_msg)
-					CRASH("Failed to activate [H]'s [skillchip_instance], on job [src]. Failure message: [activate_msg]")
+					CRASH("Failed to activate [H] [skillchip_instance], on job [src]. Failure message: [activate_msg]")
 
 
 	H.update_body()

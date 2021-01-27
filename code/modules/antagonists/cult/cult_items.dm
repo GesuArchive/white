@@ -748,7 +748,7 @@
 		if(isliving(spear.loc))
 			var/mob/living/L = spear.loc
 			L.dropItemToGround(spear)
-			L.visible_message("<span class='warning'>An unseen force pulls the blood spear from [L]'s hands!</span>")
+			L.visible_message("<span class='warning'>An unseen force pulls the blood spear from [L] hands!</span>")
 		spear.throw_at(owner, 10, 2, owner)
 
 

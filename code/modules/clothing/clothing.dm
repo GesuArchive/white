@@ -215,7 +215,7 @@
 
 	if(iscarbon(loc))
 		var/mob/living/carbon/C = loc
-		C.visible_message("<span class='danger'>The [zone_name] on [C]'s [src.name] is [break_verb] away!</span>", "<span class='userdanger'>The [zone_name] on your [src.name] is [break_verb] away!</span>", vision_distance = COMBAT_MESSAGE_RANGE)
+		C.visible_message("<span class='danger'>The [zone_name] on [C] [src.name] is [break_verb] away!</span>", "<span class='userdanger'>The [zone_name] on your [src.name] is [break_verb] away!</span>", vision_distance = COMBAT_MESSAGE_RANGE)
 		RegisterSignal(C, COMSIG_MOVABLE_MOVED, .proc/bristle, override = TRUE)
 
 	zones_disabled++
@@ -496,7 +496,7 @@ BLIND     // can't see anything
 		if(isliving(loc))
 			var/mob/living/M = loc
 			if(src in M.get_equipped_items(FALSE)) //make sure they were wearing it and not attacking the item in their hands / eating it if they were a moth.
-				M.visible_message("<span class='danger'>[M]'s [src.name] fall[p_s()] off, [p_theyre()] completely shredded!</span>", "<span class='warning'><b>Your [src.name] fall[p_s()] off, [p_theyre()] completely shredded!</b></span>", vision_distance = COMBAT_MESSAGE_RANGE)
+				M.visible_message("<span class='danger'>[M] [src.name] fall[p_s()] off, [p_theyre()] completely shredded!</span>", "<span class='warning'><b>Your [src.name] fall[p_s()] off, [p_theyre()] completely shredded!</b></span>", vision_distance = COMBAT_MESSAGE_RANGE)
 				M.dropItemToGround(src)
 			else
 				M.visible_message("<span class='danger'>[capitalize(src.name)] fall[p_s()] apart, completely shredded!</span>", vision_distance = COMBAT_MESSAGE_RANGE)

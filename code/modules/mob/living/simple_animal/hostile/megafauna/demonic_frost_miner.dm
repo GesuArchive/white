@@ -293,7 +293,7 @@ Difficulty: Extremely Hard
 	if(gibbed)
 		to_chat(user, "<span class='notice'>This power cannot be used if your entire mortal body is disintegrated...</span>")
 		return
-	user.visible_message("<span class='notice'>You see [user]'s soul dragged out of their body!</span>", "<span class='notice'>You feel your soul dragged away to a fresh body!</span>")
+	user.visible_message("<span class='notice'>You see [user] soul dragged out of their body!</span>", "<span class='notice'>You feel your soul dragged away to a fresh body!</span>")
 	var/typepath = user.type
 	var/mob/living/carbon/clone = new typepath(user.loc)
 	clone.real_name = user.real_name

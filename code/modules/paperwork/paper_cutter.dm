@@ -55,7 +55,7 @@
 	if(istype(P, /obj/item/hatchet/cutterblade) && !storedcutter)
 		if(!user.transferItemToLoc(P, src))
 			return
-		to_chat(user, "<span class='notice'>You replace [src]'s [P].</span>")
+		to_chat(user, "<span class='notice'>You replace [src] [P].</span>")
 		P.forceMove(src)
 		storedcutter = P
 		update_icon()
@@ -77,7 +77,7 @@
 		return
 
 	if(!cuttersecured)
-		to_chat(user, "<span class='notice'>You remove [src]'s [storedcutter].</span>")
+		to_chat(user, "<span class='notice'>You remove [src] [storedcutter].</span>")
 		user.put_in_hands(storedcutter)
 		storedcutter = null
 		update_icon()

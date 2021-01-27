@@ -137,8 +137,8 @@
 				if(current_location && current_area && (current_area.area_flags & NOTELEPORT))
 					to_chat(user, "<span class='notice'>There is no escape. No recall or intervention can work in this place.</span>")
 				else
-					to_chat(user, "<span class='notice'>There is no escape. Although recall or intervention can work in this place, attempting to flee from [src]'s immense power would be futile.</span>")
-				user.visible_message("<span class='notice'>[user] lays down their weapons and begs for [src]'s mercy!</span>", "<span class='notice'>You lay down your weapons and beg for [src]'s mercy.</span>")
+					to_chat(user, "<span class='notice'>There is no escape. Although recall or intervention can work in this place, attempting to flee from [src] immense power would be futile.</span>")
+				user.visible_message("<span class='notice'>[user] lays down their weapons and begs for [src] mercy!</span>", "<span class='notice'>You lay down your weapons and beg for [src] mercy.</span>")
 				user.drop_all_held_items()
 		else
 			to_chat(user, "<span class='notice'>You remove the grenade from [src].</span>")

@@ -283,7 +283,7 @@ That's it, ok bye!
 	req_access = list()
 	obj_flags |= EMAGGED
 	turbolift_delay = 1 SECONDS //NYOOOOOM
-	to_chat(user, "<span class='notice'>You fry [src]'s safety overrides, de-limiting its speed control circuits, button control priviledges and disabling its ability to avoid crushing people at the bottom of the shaft.</span>")
+	to_chat(user, "<span class='notice'>You fry [src] safety overrides, de-limiting its speed control circuits, button control priviledges and disabling its ability to avoid crushing people at the bottom of the shaft.</span>")
 */
 
 //Method to generate a path to a specific deck. If we're on deck 1, and want to reach deck 3, we have to go via deck 2 first.

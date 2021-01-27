@@ -58,7 +58,7 @@
 		if(boxes.len)
 			desc = "A pile of boxes suited for pizzas. There appear to be [boxes.len + 1] boxes in the pile."
 		if(box.boxtag != "")
-			desc = "[desc] The [boxes.len ? "top box" : "box"]'s tag reads: [box.boxtag]"
+			desc = "[desc] The [boxes.len ? "top box" : "box"] tag reads: [box.boxtag]"
 
 	// Icon/Overlays
 	cut_overlays()
@@ -207,7 +207,7 @@
 				to_chat(user, "<span class='notice'>You scribble illegibly on [src]!</span>")
 				return
 			var/obj/item/pizzabox/box = boxes.len ? boxes[boxes.len] : src
-			box.boxtag += stripped_input(user, "Write on [box]'s tag:", box, "", 30)
+			box.boxtag += stripped_input(user, "Write on [box] tag:", box, "", 30)
 			if(!user.canUseTopic(src, BE_CLOSE))
 				return
 			to_chat(user, "<span class='notice'>You write with [I] on [src].</span>")

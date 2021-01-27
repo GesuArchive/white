@@ -130,6 +130,6 @@
 
 /mob/living/silicon/pai/mob_try_pickup(mob/living/user)
 	if(!possible_chassis[chassis])
-		to_chat(user, "<span class='warning'>[capitalize(src.name)]'s current form isn't able to be carried!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] current form isn't able to be carried!</span>")
 		return FALSE
 	return ..()

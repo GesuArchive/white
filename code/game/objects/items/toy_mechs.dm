@@ -310,12 +310,12 @@
 		//before we do anything - deal with charged attacks
 		if(special_attack_charged)
 			src_controller.visible_message("<span class='danger'> [src] unleashes its special attack!! </span>", \
-							"<span class='danger'> You unleash [src]'s special attack! </span>")
+							"<span class='danger'> You unleash [src] special attack! </span>")
 			special_attack_move(attacker)
 		else if(attacker.special_attack_charged)
 
 			attacker_controller.visible_message("<span class='danger'> [attacker] unleashes its special attack!! </span>", \
-								"<span class='danger'> You unleash [attacker]'s special attack! </span>")
+								"<span class='danger'> You unleash [attacker] special attack! </span>")
 			attacker.special_attack_move(src)
 		else
 			//process the cooldowns
@@ -330,7 +330,7 @@
 					if(attacker.special_attack_cooldown == 0 && attacker.combat_health <= round(attacker.max_combat_health/3)) //if health is less than 1/3 and special off CD, use it
 						attacker.special_attack_charged = TRUE
 						attacker_controller.visible_message("<span class='danger'> [attacker] begins charging its special attack!! </span>", \
-											"<span class='danger'> You begin charging [attacker]'s special attack! </span>")
+											"<span class='danger'> You begin charging [attacker] special attack! </span>")
 					else //just attack
 						attacker.SpinAnimation(5, 0)
 						playsound(attacker, 'sound/mecha/mechstep.ogg', 30, TRUE)
@@ -362,19 +362,19 @@
 				if(5) //both win
 					playsound(attacker, 'sound/weapons/parry.ogg', 20, TRUE)
 					if(prob(50))
-						attacker_controller.visible_message("<span class='danger'> [src]'s attack deflects off of [attacker]. </span>", \
-											"<span class='danger'> [src]'s attack deflects off of [attacker]. </span>", \
+						attacker_controller.visible_message("<span class='danger'> [src] attack deflects off of [attacker]. </span>", \
+											"<span class='danger'> [src] attack deflects off of [attacker]. </span>", \
 											"<span class='hear'> You hear hard plastic bouncing off hard plastic.</span>", COMBAT_MESSAGE_RANGE)
 					else
-						src_controller.visible_message("<span class='danger'> [attacker]'s attack deflects off of [src]. </span>", \
-										"<span class='danger'> [attacker]'s attack deflects off of [src]. </span>", \
+						src_controller.visible_message("<span class='danger'> [attacker] attack deflects off of [src]. </span>", \
+										"<span class='danger'> [attacker] attack deflects off of [src]. </span>", \
 										"<span class='hear'> You hear hard plastic bouncing off hard plastic.</span>", COMBAT_MESSAGE_RANGE)
 
 				if(6 to 8) //defender wins
 					if(special_attack_cooldown == 0 && combat_health <= round(max_combat_health/3)) //if health is less than 1/3 and special off CD, use it
 						special_attack_charged = TRUE
 						src_controller.visible_message("<span class='danger'> [src] begins charging its special attack!! </span>", \
-										"<span class='danger'> You begin charging [src]'s special attack! </span>")
+										"<span class='danger'> You begin charging [src] special attack! </span>")
 					else //just attack
 						SpinAnimation(5, 0)
 						playsound(src, 'sound/mecha/mechstep.ogg', 30, TRUE)

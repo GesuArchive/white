@@ -109,9 +109,9 @@
 	return TRUE
 
 /datum/martial_art/krav_maga/proc/neck_chop(mob/living/A, mob/living/D)
-	D.visible_message("<span class='warning'>[A] karate chops [D]'s neck!</span>", \
+	D.visible_message("<span class='warning'>[A] karate chops [D] neck!</span>", \
 					"<span class='userdanger'>Your neck is karate chopped by [A], rendering you unable to speak!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-	to_chat(A, "<span class='danger'>You karate chop [D]'s neck, rendering [D.ru_na()] unable to speak!</span>")
+	to_chat(A, "<span class='danger'>You karate chop [D] neck, rendering [D.ru_na()] unable to speak!</span>")
 	playsound(get_turf(A), 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
 	D.apply_damage(5, A.get_attack_type())
 	if (iscarbon(D))

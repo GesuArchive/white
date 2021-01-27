@@ -3,7 +3,7 @@
 
 /obj/item/melee/proc/check_martial_counter(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	if(target.check_block())
-		target.visible_message("<span class='danger'>[target.name] blocks [src] and twists [user]'s arm behind [user.ru_ego()] back!</span>",
+		target.visible_message("<span class='danger'>[target.name] blocks [src] and twists [user] arm behind [user.ru_ego()] back!</span>",
 					"<span class='userdanger'>You block the attack!</span>")
 		user.Stun(40)
 		return TRUE
@@ -231,8 +231,8 @@
 /obj/item/melee/classic_baton/proc/get_silicon_stun_description(mob/living/target, mob/living/user)
 	. = list()
 
-	.["visible"] = "<span class='danger'>[user] pulses [target]'s sensors with the baton!</span>"
-	.["local"] = "<span class='danger'>You pulse [target]'s sensors with the baton!</span>"
+	.["visible"] = "<span class='danger'>[user] pulses [target] sensors with the baton!</span>"
+	.["local"] = "<span class='danger'>You pulse [target] sensors with the baton!</span>"
 
 	return .
 
@@ -293,7 +293,7 @@
 		if(cooldown_check <= world.time)
 			if(ishuman(target))
 				var/mob/living/carbon/human/H = target
-				if (H.check_shields(src, 0, "[user]'s [name]", MELEE_ATTACK))
+				if (H.check_shields(src, 0, "[user] [name]", MELEE_ATTACK))
 					return
 				if(check_martial_counter(H, user))
 					return
@@ -503,7 +503,7 @@
 	return BULLET_ACT_HIT
 
 /obj/item/melee/supermatter_sword/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] touches [src]'s blade. It looks like [user.p_theyre()] tired of waiting for the radiation to kill [user.ru_na()]!</span>")
+	user.visible_message("<span class='suicide'>[user] touches [src] blade. It looks like [user.p_theyre()] tired of waiting for the radiation to kill [user.ru_na()]!</span>")
 	user.dropItemToGround(src, TRUE)
 	shard.Bumped(user)
 
