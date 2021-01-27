@@ -65,6 +65,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Prisoner"
 	icon_state = "Prisoner"
 
+/obj/effect/landmark/start/bomj
+	name = "Бомж"
+	icon_state = "Prisoner"
+
 /obj/effect/landmark/start/janitor
 	name = "Janitor"
 	icon_state = "Janitor"

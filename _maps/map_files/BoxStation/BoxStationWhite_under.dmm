@@ -579,6 +579,10 @@
 /obj/effect/landmark/stationroom/maint/rdm5x4,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
+"gR" = (
+/obj/effect/landmark/start/bomj,
+/turf/open/floor/plating,
+/area/maintenance/port)
 "ha" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -1574,6 +1578,10 @@
 /obj/structure/sign/warning/biohazard,
 /turf/closed/wall/r_wall,
 /area/science/xenobiology)
+"ow" = (
+/obj/effect/landmark/start/bomj,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/east)
 "ox" = (
 /obj/structure/closet/emcloset,
 /turf/open/floor/plating,
@@ -1642,6 +1650,10 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
 /area/quartermaster/warehouse)
+"pe" = (
+/obj/effect/landmark/start/bomj,
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/west)
 "pf" = (
 /turf/closed/wall,
 /area/maintenance/port)
@@ -3680,6 +3692,10 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/ai_monitored/storage/eva)
+"HW" = (
+/obj/effect/landmark/start/bomj,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/south)
 "HY" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -4586,6 +4602,10 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
+"Py" = (
+/obj/effect/landmark/start/bomj,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/north)
 "Pz" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -20631,7 +20651,7 @@ PG
 Zm
 pf
 wZ
-fD
+gR
 fD
 fD
 fD
@@ -27049,7 +27069,7 @@ PG
 Zm
 KI
 GQ
-GQ
+pe
 GQ
 GQ
 da
@@ -28638,7 +28658,7 @@ eK
 oz
 XI
 SF
-SF
+HW
 SF
 RT
 SF
@@ -42713,7 +42733,7 @@ fF
 fF
 fF
 fF
-fF
+Py
 fF
 fF
 Xc
@@ -42968,7 +42988,7 @@ fF
 fE
 fF
 fF
-fF
+Py
 fF
 fF
 fF
@@ -43227,7 +43247,7 @@ fF
 fF
 fF
 fF
-fF
+Py
 fF
 fF
 Xc
@@ -46116,7 +46136,7 @@ dL
 dL
 dL
 dL
-dL
+ow
 dL
 dL
 dL

@@ -1,6 +1,6 @@
 /datum/reagent/consumable/ethanol/boyarka
-	name = "Boyarka"
-	description = "Boyarka"
+	name = "Боярка"
+	description = "Православная настойка."
 	color = "#880000"
 	nutriment_factor = 1 * REAGENTS_METABOLISM
 	boozepwr = 75
@@ -9,19 +9,28 @@
 	glass_desc = "Glass of berry alcohol. "
 
 /datum/reagent/consumable/ethanol/boyarka/on_mob_life(mob/living/M)
-	M.reagents.add_reagent(get_random_reagent_id(),1)
-	M.reagents.add_reagent(/datum/reagent/toxin/rotatium,1)
+	var/obj/item/organ/liver/liver = M.getorganslot(ORGAN_SLOT_LIVER)
+	if(liver && HAS_TRAIT(liver, TRAIT_BOMJ_METABOLISM))
+		M.heal_bodypart_damage(brute = 5, burn = 5)
+		. = TRUE
+	else
+		M.reagents.add_reagent(get_random_reagent_id(),1)
+		M.reagents.add_reagent(/datum/reagent/toxin/rotatium,1)
 	..()
 
 /datum/reagent/consumable/ethanol/boyarka/traitor
 	boozepwr = 80
 
 /datum/reagent/consumable/ethanol/boyarka/traitor/on_mob_life(mob/living/M)
-	M.reagents.add_reagent(get_random_reagent_id(),10)
-	M.reagents.add_reagent(/datum/reagent/toxin/rotatium,2)
-	spawn(0)
-		new /datum/hallucination/delusion(M, TRUE, "demon",600,0)
-	to_chat(M, "<span class='warning'>KILL THEM ALL</span>")
+	if(liver && HAS_TRAIT(liver, TRAIT_BOMJ_METABOLISM))
+		M.heal_bodypart_damage(brute = 5, burn = 5)
+		. = TRUE
+	else
+		M.reagents.add_reagent(get_random_reagent_id(),10)
+		M.reagents.add_reagent(/datum/reagent/toxin/rotatium,2)
+		spawn(0)
+			new /datum/hallucination/delusion(M, TRUE, "demon",600,0)
+		to_chat(M, "<span class='warning'>KILL THEM ALL</span>")
 
 /obj/item/reagent_containers/pill/boyar_t
 	name = "true boyar pill"
@@ -41,8 +50,8 @@
 	required_reagents = list(/datum/reagent/consumable/ethanol/vodka = 10, /datum/reagent/consumable/berryjuice = 1)
 
 /obj/item/reagent_containers/food/drinks/boyarka
-	name = "Boyarka"
-	desc = "Твой новый лучший друг"
+	name = "Боярка"
+	desc = "Твой новый лучший друг."
 	icon = 'white/hule/icons/obj/boyarka.dmi'
 	icon_state = "boyarka"
 	list_reagents = list(/datum/reagent/consumable/ethanol/boyarka = 30)
