@@ -21,6 +21,31 @@
 			animate(A, transform = M, time = rand(200, 1000), flags = ANIMATION_PARALLEL)
 			sleep(pick(0.3, 0.5, 0.7))
 
+/client/proc/kaboom()
+	set name = " ? Ka-Boom"
+	set category = "Дбг"
+
+	var/turf/where = get_turf(mob)
+
+	if(!where)
+		return
+
+	var/rss = input("Ka-Boom range (Tiles):") as num
+
+	var/list/AT = circlerangeturfs(where, rss)
+
+	var/x0 = where.x
+	var/y0 = where.y
+
+	for(var/turf/T in AT)
+		var/dist = max(1, cheap_hypotenuse(T.x, T.y, x0, y0))
+
+		var/matrix/M = T.transform
+		M.Scale(dist, dist)
+		spawn(dist*2)
+			animate(T, transform = M, time = 5, easing = BOUNCE_EASING)
+			animate(transform = null, time = 5, easing = BOUNCE_EASING)
+
 /client/proc/smooth_fucking_z_level()
 	set name = " ? Smooth Z-Level"
 	set category = "Дбг"

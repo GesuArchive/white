@@ -162,6 +162,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/debugNatureMapGenerator,
 	/client/proc/check_bomb_impacts,
 	/client/proc/raspidoars,
+	/client/proc/kaboom,
 	/client/proc/smooth_fucking_z_level,
 	/proc/machine_upgrade,
 	/client/proc/populate_world,
