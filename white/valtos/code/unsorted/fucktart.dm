@@ -41,7 +41,7 @@
 		var/dist = max(1, cheap_hypotenuse(T.x, T.y, x0, y0))
 
 		var/matrix/M = T.transform
-		M.Scale(dist, dist)
+		M.Scale(2, 2)
 		spawn(dist*2)
 			animate(T, transform = M, time = 5, easing = BOUNCE_EASING)
 			animate(transform = null, time = 5, easing = BOUNCE_EASING)
