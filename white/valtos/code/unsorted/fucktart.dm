@@ -32,19 +32,19 @@
 
 	var/rss = input("Ka-Boom range (Tiles):") as num
 
-	var/list/AT = circlerangeturfs(where, rss)
+	var/list/AT = circlerange(where, rss)
 
 	var/x0 = where.x
 	var/y0 = where.y
 
-	for(var/turf/T in AT)
-		var/dist = max(1, cheap_hypotenuse(T.x, T.y, x0, y0))
+	for(var/atom/A in AT)
+		var/dist = max(1, cheap_hypotenuse(A.x, A.y, x0, y0))
 
-		var/matrix/M = T.transform
+		var/matrix/M = A.transform
 		M.Scale(2, 2)
-		spawn(dist*2)
-			animate(T, transform = M, time = 5, easing = BOUNCE_EASING)
-			animate(transform = null, time = 5, easing = BOUNCE_EASING)
+		spawn(dist*1.5)
+			animate(A, transform = M, time = 3, easing = QUAD_EASING)
+			animate(transform = null, time = 3, easing = QUAD_EASING)
 
 /client/proc/smooth_fucking_z_level()
 	set name = " ? Smooth Z-Level"
