@@ -76,6 +76,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		"Lawyer" = 69,
 		"Psychologist" = 71,
 		// ANYTHING ELSE = UNKNOWN_JOB_ID, Unknowns/custom jobs will appear after civilians, and before assistants
+		"Бомж" = 998,
 		"Assistant" = 999,
 
 		// 200-229: Centcom

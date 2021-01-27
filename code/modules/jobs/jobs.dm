@@ -50,6 +50,7 @@ GLOBAL_LIST_INIT(service_positions, list(
 	"Clown",
 	"Mime",
 	"Prisoner",
+	"Бомж",
 	"Assistant"))
 
 
