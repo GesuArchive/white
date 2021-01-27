@@ -1,9 +1,9 @@
 /obj/machinery/vending/sovietsoda
-	name = "\improper BODA"
-	desc = "Old sweet water vending machine."
+	name = "BODA"
+	desc = "Старый торговый автомат пресной воды."
 	icon_state = "sovietsoda"
 	light_mask = "soviet-light-mask"
-	product_ads = "For Tsar and Country.;Have you fulfilled your nutrition quota today?;Very nice!;We are simple people, for this is all we eat.;If there is a person, there is a problem. If there is no person, then there is no problem."
+	product_ads = "За Царя и Страны.;Вы выполнили сегодня норму питания?;Очень красиво!;Мы простые люди, потому что это все, что мы едим.;Если есть человек, есть проблема. Если нет человека, значит, нет проблем."
 	products = list(/obj/item/reagent_containers/food/drinks/drinkingglass/filled/soda = 30)
 	contraband = list(/obj/item/reagent_containers/food/drinks/drinkingglass/filled/cola = 20)
 	resistance_flags = FIRE_PROOF

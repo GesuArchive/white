@@ -1,7 +1,7 @@
 //This one's from bay12
 /obj/machinery/vending/engineering
-	name = "\improper Robco Tool Maker"
-	desc = "Everything you need for do-it-yourself station repair."
+	name = "Robco Tool Maker"
+	desc = "Все необходимое для ремонта станции своими руками."
 	icon_state = "engi"
 	icon_deny = "engi-deny"
 	req_access = list(ACCESS_ENGINE_EQUIP)

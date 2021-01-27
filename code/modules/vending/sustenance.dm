@@ -1,8 +1,8 @@
 /obj/machinery/vending/sustenance
-	name = "\improper Sustenance Vendor"
-	desc = "A vending machine which vends food, as required by section 47-C of the NT's Prisoner Ethical Treatment Agreement."
-	product_slogans = "Enjoy your meal.;Enough calories to support strenuous labor."
-	product_ads = "Sufficiently healthy.;Efficiently produced tofu!;Mmm! So good!;Have a meal.;You need food to live!;Even prisoners deserve their daily bread!;Have some more candy corn!;Try our new ice cups!"
+	name = "Sustenance Vendor"
+	desc = "Торговый автомат по продаже еды в соответствии с требованиями раздела 47-C Соглашения НТ об этическом обращении с заключенными."
+	product_slogans = "Приятного аппетита.;Достаточно калорий, чтобы поддерживать напряженный труд."
+	product_ads = "Достаточно здоровый.;Эффективно произведенный тофу!;Ммм! Так вкусно!;Ешьте.;Чтобы жить, нужна еда!;Даже заключенные заслуживают хлеба насущного!;Ешьте еще кукурузных конфет!;Попробуйте наши новые ледяные чашки!"
 	light_mask = "snack-light-mask"
 	icon_state = "sustenance"
 	products = list(

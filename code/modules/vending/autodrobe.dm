@@ -1,11 +1,11 @@
 /obj/machinery/vending/autodrobe
-	name = "\improper AutoDrobe"
-	desc = "A vending machine for costumes."
+	name = "AutoDrobe"
+	desc = "Автомат по продаже костюмов."
 	icon_state = "theater"
 	icon_deny = "theater-deny"
 	req_access = list(ACCESS_THEATRE)
-	product_slogans = "Dress for success!;Suited and booted!;It's show time!;Why leave style up to fate? Use AutoDrobe!"
-	vend_reply = "Thank you for using AutoDrobe!"
+	product_slogans = "Одевайтесь на успех!;Костюмчик и буты!;Пора показывать!;Зачем оставлять стиль на произвол судьбы? Используйте AutoDrobe!"
+	vend_reply = "Спасибо за использование AutoDrobe!"
 	products = list(/obj/item/clothing/suit/chickensuit = 1,
 					/obj/item/clothing/head/chicken = 1,
 					/obj/item/clothing/under/rank/civilian/clown/blue = 1,
@@ -155,7 +155,7 @@
 	return (I.type in products)
 
 /obj/machinery/vending/autodrobe/all_access
-	desc = "A vending machine for costumes. This model appears to have no access restrictions."
+	desc = "Автомат по продаже костюмов. Эта модель не имеет ограничений доступа."
 	req_access = null
 
 /obj/item/vending_refill/autodrobe

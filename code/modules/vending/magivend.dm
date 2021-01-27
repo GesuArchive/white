@@ -1,10 +1,10 @@
 /obj/machinery/vending/magivend
-	name = "\improper MagiVend"
-	desc = "A magic vending machine."
+	name = "MagiVend"
+	desc = "Волшебный торговый автомат."
 	icon_state = "MagiVend"
-	product_slogans = "Sling spells the proper way with MagiVend!;Be your own Houdini! Use MagiVend!"
-	vend_reply = "Have an enchanted evening!"
-	product_ads = "FJKLFJSD;AJKFLBJAKL;1234 LOONIES LOL!;>MFW;Kill them fuckers!;GET DAT FUKKEN DISK;HONK!;EI NATH;Destroy the station!;Admin conspiracies since forever!;Space-time bending hardware!"
+	product_slogans = "Говори заклинания должным образом с MagiVend!;Будь своим собственным Гудини! Используй MagiVend!"
+	vend_reply = "Волшебного вечера!"
+	product_ads = "АОЛДАОЫВ;ФОЛАДИОФЛД;1234 ЛУНАТИКИ ЛОЛ!;>мое лицо, когда;Убей этих лохов!;GET DAT FUKKEN DISK;ХОНК!;ЭЙ НАХ;Уничтожь станцию!;Админские заговоры навсегда!;Оборудование для закручивания пространства-времени!"
 	products = list(/obj/item/clothing/head/wizard = 1,
 		            /obj/item/clothing/suit/wizrobe = 1,
 		            /obj/item/clothing/head/wizard/red = 1,

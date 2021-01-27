@@ -43,8 +43,8 @@ IF YOU MODIFY THE PRODUCTS LIST OF A MACHINE, MAKE SURE TO UPDATE ITS RESUPPLY C
  * Captalism in the year 2525, everything in a vending machine, even love
  */
 /obj/machinery/vending
-	name = "\improper Vendomat"
-	desc = "A generic vending machine."
+	name = "Vendomat"
+	desc = "Обычный торговый автомат."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "generic"
 	layer = BELOW_OBJ_LAYER

@@ -1,10 +1,10 @@
 /obj/machinery/vending/donksofttoyvendor
-	name = "\improper Donksoft Toy Vendor"
-	desc = "Ages 8 and up approved vendor that dispenses toys."
+	name = "Donksoft Toy Vendor"
+	desc = "Утвержденный поставщик игрушек в возрасте от 8 лет и старше."
 	icon_state = "nt-donk"
-	product_slogans = "Get your cool toys today!;Trigger a valid hunter today!;Quality toy weapons for cheap prices!;Give them to HoPs for all access!;Give them to HoS to get permabrigged!"
-	product_ads = "Feel robust with your toys!;Express your inner child today!;Toy weapons don't kill people, but valid hunters do!;Who needs responsibilities when you have toy weapons?;Make your next murder FUN!"
-	vend_reply = "Come back for more!"
+	product_slogans = "Получите свои крутые игрушки сегодня!;Запустите валид-хант сегодня!;Качественное игрушечное оружие по низким ценам!;Раздайте всем полный доступ!;Посадите начальника охраны в тюрьму!"
+	product_ads = "Почувствуйте себя крепкими со своими игрушками!;Выразите своего внутреннего ребенка сегодня!;Игрушечное оружие не убивает людей, а валид-хантеры убивают!;Кому нужны обязанности, когда у вас есть игрушечное оружие?;Сделайте следующее убийство ВЕСЁЛЫМ!"
+	vend_reply = "Вернись для большего!"
 	light_mask = "donksoft-light-mask"
 	circuit = /obj/item/circuitboard/machine/vending/donksofttoyvendor
 	products = list(

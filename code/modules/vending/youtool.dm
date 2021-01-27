@@ -1,6 +1,6 @@
 /obj/machinery/vending/tool
-	name = "\improper YouTool"
-	desc = "Tools for tools."
+	name = "YouTool"
+	desc = "Инструменты для инструментов."
 	icon_state = "tool"
 	icon_deny = "tool-deny"
 	light_mask = "tool-light-mask"

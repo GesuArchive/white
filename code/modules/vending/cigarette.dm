@@ -1,8 +1,8 @@
 /obj/machinery/vending/cigarette
-	name = "\improper ShadyCigs Deluxe"
-	desc = "If you want to get cancer, might as well do it in style."
-	product_slogans = "Space cigs taste good like a cigarette should.;I'd rather toolbox than switch.;Smoke!;Don't believe the reports - smoke today!"
-	product_ads = "Probably not bad for you!;Don't believe the scientists!;It's good for you!;Don't quit, buy more!;Smoke!;Nicotine heaven.;Best cigarettes since 2150.;Award-winning cigs."
+	name = "ShadyCigs Deluxe"
+	desc = "Если вы хотите заболеть раком, сделайте это стильно."
+	product_slogans = "Космические сигареты имеют приятный вкус, как и должна быть сигарета.;Я бы предпочел ящик с инструментами в голову, чем бросить курить!;Дым!;"
+	product_ads = "Наверное, не повредит вам!;Не верьте ученым!;Это не навредит вам!;Не бросайте, покупайте больше!;Кури!;Никотиновый рай.;Лучшие сигареты с 2150 года;Отмеченные наградами сигареты."
 	icon_state = "cigs"
 	products = list(/obj/item/storage/fancy/cigarettes = 5,
 					/obj/item/storage/fancy/cigarettes/cigpack_candy = 4,
@@ -38,10 +38,10 @@
 					/obj/item/storage/fancy/rollingpapers = 5)
 
 /obj/machinery/vending/cigarette/beach //Used in the lavaland_biodome_beach.dmm ruin
-	name = "\improper ShadyCigs Ultra"
-	desc = "Now with extra premium products!"
-	product_ads = "Probably not bad for you!;Dope will get you through times of no money better than money will get you through times of no dope!;It's good for you!"
-	product_slogans = "Turn on, tune in, drop out!;Better living through chemistry!;Toke!;Don't forget to keep a smile on your lips and a song in your heart!"
+	name = "ShadyCigs Ultra"
+	desc = "Теперь с дополнительными продуктами премиум-класса!"
+	product_slogans = "Космические сигареты имеют приятный вкус, как и должна быть сигарета.;Я бы предпочел ящик с инструментами в голову, чем бросить курить!;Дым!;"
+	product_slogans = "Включайся, настраивайся, бросай!;Лучше переживи химию!;Токе!;Не забудь сохранить улыбку на губах и песню в душе!"
 	products = list(/obj/item/storage/fancy/cigarettes = 5,
 					/obj/item/storage/fancy/cigarettes/cigpack_uplift = 3,
 					/obj/item/storage/fancy/cigarettes/cigpack_robust = 3,

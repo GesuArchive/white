@@ -1,7 +1,7 @@
 /obj/machinery/vending/games
-	name = "\improper Good Clean Fun"
-	desc = "Vends things that the Captain and Head of Personnel are probably not going to appreciate you fiddling with instead of your job..."
-	product_ads = "Escape to a fantasy world!;Fuel your gambling addiction!;Ruin your friendships!;Roll for initiative!;Elves and dwarves!;Paranoid computers!;Totally not satanic!;Fun times forever!"
+	name = "Good Clean Fun"
+	desc = "Торгует вещами, которые Капитан и Кадровик, вероятно, не оценят, когда вы возитесь с этим вместо своей работы..."
+	product_ads = "Убеги в фантастический мир!;Разжигайте свою зависимость от азартных игр!;Разрушайте вашу дружбу!;Бросьте инициативу!;Эльфы и гномы!;Параноидальные компьютеры!;Точно не сатанизм!;Веселые времена навсегда!"
 	icon_state = "games"
 	products = list(/obj/item/toy/cards/deck = 5,
 		            /obj/item/storage/pill_bottle/dice = 10,
@@ -34,5 +34,5 @@
 	light_mask = "games-light-mask"
 
 /obj/item/vending_refill/games
-	machine_name = "\improper Good Clean Fun"
+	machine_name = "Good Clean Fun"
 	icon_state = "refill_games"

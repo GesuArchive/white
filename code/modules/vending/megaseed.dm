@@ -1,8 +1,8 @@
 /obj/machinery/vending/hydroseeds
-	name = "\improper MegaSeed Servitor"
-	desc = "When you need seeds fast!"
-	product_slogans = "THIS'S WHERE TH' SEEDS LIVE! GIT YOU SOME!;Hands down the best seed selection on the station!;Also certain mushroom varieties available, more for experts! Get certified today!"
-	product_ads = "We like plants!;Grow some crops!;Grow, baby, growww!;Aw h'yeah son!"
+	name = "MegaSeed Servitor"
+	desc = "Когда нужны семена быстро!"
+	product_slogans = "ТУТ СЕМЕНА ЖИВУТ! ПОЛУЧИТЕ СВОИ!;Самый лучший выбор семян на станции!;Также доступны определенные сорта грибов, больше для знатоков! Получите сертификат сегодня!"
+	product_ads = "Мы любим растения!;Выращивай урожай!;Расти, детка, расти!;Ой, да, сын!"
 	icon_state = "seeds"
 	light_mask = "seeds-light-mask"
 	products = list(/obj/item/seeds/aloe = 3,

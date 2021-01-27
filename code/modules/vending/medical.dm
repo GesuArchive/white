@@ -1,9 +1,9 @@
 /obj/machinery/vending/medical
-	name = "\improper NanoMed Plus"
-	desc = "Medical drug dispenser."
+	name = "NanoMed Plus"
+	desc = "Диспенсер медицинских препаратов."
 	icon_state = "med"
 	icon_deny = "med-deny"
-	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
+	product_ads = "Иди спаси несколько жизней!;Лучшее для вашего медотсека.;Только лучшие инструменты.;Натуральные химикаты!;Эти штуки спасают жизни.;Разве ты не хочешь?;Пинг!"
 	req_access = list(ACCESS_MEDICAL)
 	products = list(/obj/item/stack/medical/gauze = 8,
 					/obj/item/reagent_containers/syringe = 12,
@@ -37,16 +37,16 @@
 	icon_state = "refill_medical"
 
 /obj/machinery/vending/medical/syndicate_access
-	name = "\improper SyndiMed Plus"
+	name = "SyndiMed Plus"
 	req_access = list(ACCESS_SYNDICATE)
 
 //Created out of a necessity to get these dumb chems out of the medical tools vendor.
 /obj/machinery/vending/drugs
-	name = "\improper NanoDrug Plus"
-	desc = "Medical drugs dispenser."
+	name = "NanoDrug Plus"
+	desc = "Диспенсер медицинских препаратов."
 	icon_state = "drug"
 	icon_deny = "drug-deny"
-	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
+	product_ads = "Иди спаси несколько жизней!;Лучшее для вашего медотсека.;Только лучшие инструменты.;Натуральные химикаты!;Эти штуки спасают жизни.;Разве ты не хочешь?;Пинг!"
 	req_access = list(ACCESS_MEDICAL)
 	products = list(/obj/item/reagent_containers/pill/patch/libital = 5,
 					/obj/item/reagent_containers/pill/patch/aiuri = 5,

@@ -1,8 +1,8 @@
 //This one's from bay12
 /obj/machinery/vending/cart
-	name = "\improper PTech"
-	desc = "Cartridges for PDAs."
-	product_slogans = "Carts to go!"
+	name = "PTech"
+	desc = "Картриджи для КПК."
+	product_slogans = "Тележка поехала!"
 	icon_state = "cart"
 	icon_deny = "cart-deny"
 	products = list(/obj/item/cartridge/medical = 10,
