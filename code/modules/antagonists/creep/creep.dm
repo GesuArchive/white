@@ -149,7 +149,7 @@
 	..()
 	old = find_coworker(target)
 	if(target?.current && old)
-		explanation_text = "Убить старого коллегу моей цели - [old]."
+		explanation_text = "Убить старого коллегу моей цели - [target]."
 	else
 		explanation_text = "Ничего."
 
