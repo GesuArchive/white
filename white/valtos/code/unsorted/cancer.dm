@@ -70,6 +70,7 @@
 	if(speen)
 		visible_message("<span class='danger'>[capitalize(src.name)] уворачивается всех входящих атак!")
 		step(src, pick(GLOB.cardinals))
+		bonespin()
 		return FALSE
 	else if(prob(50) && (phase == 1) && !stunned)
 		visible_message("<span class='danger'>[capitalize(src.name)] отбивает все входящие атаки костями!")
