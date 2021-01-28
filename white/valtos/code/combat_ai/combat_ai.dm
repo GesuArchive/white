@@ -232,7 +232,7 @@
 
 	var/success = FALSE
 	for(var/obj/item/gun/ballistic/I in victim.contents)
-		if(I == target)
+		if(I == target && victim.stat != CONSCIOUS)
 			if(victim.temporarilyRemoveItemFromInventory(target))
 				if(!QDELETED(target) && !equip_item(controller))
 					target.forceMove(living_pawn.drop_location())
@@ -364,9 +364,25 @@
 /mob/living/carbon/human/combat_ai
 	ai_controller = /datum/ai_controller/combat_ai
 
-/mob/living/carbon/human/combat_ai/Initialize()
+/mob/living/carbon/human/combat_ai/sniper/Initialize()
 	. = ..()
-	equipOutfit(pick(typesof(/datum/outfit/combat_ai)))
+	equipOutfit(pick(typesof(/datum/outfit/combat_ai/sniper)))
+
+/mob/living/carbon/human/combat_ai/smg/Initialize()
+	. = ..()
+	equipOutfit(pick(typesof(/datum/outfit/combat_ai/smg)))
+
+/mob/living/carbon/human/combat_ai/pistol/Initialize()
+	. = ..()
+	equipOutfit(pick(typesof(/datum/outfit/combat_ai/pistol)))
+
+/mob/living/carbon/human/combat_ai/magnum/Initialize()
+	. = ..()
+	equipOutfit(pick(typesof(/datum/outfit/combat_ai/magnum)))
+
+/mob/living/carbon/human/combat_ai/shotgun/Initialize()
+	. = ..()
+	equipOutfit(pick(typesof(/datum/outfit/combat_ai/shotgun)))
 
 /datum/outfit/combat_ai
 	name = "Combat AI: Standard .22"
