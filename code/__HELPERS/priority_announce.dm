@@ -51,7 +51,7 @@
 
 	SScommunications.send_message(M)
 
-/proc/minor_announce(message, title = "Внимание:", alert, html_encode = TRUE)
+/proc/minor_announce(message, title = "Внимание!", alert, html_encode = TRUE)
 	if(!message)
 		return
 
@@ -61,7 +61,7 @@
 
 	for(var/mob/M in GLOB.player_list)
 		if(!isnewplayer(M) && M.can_hear() && (is_station_level(M.z) || is_mining_level(M.z) || is_centcom_level(M.z)))
-			to_chat(M, "<h1 class='alert'>[title]</h1><span class='alert'>[message]</span>\n\n")
+			to_chat(M, "<h1 class='alert'>[title]</h1><span class='alert'><big>[message]</big></span>\n\n")
 			if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
 				if(alert)
 					SEND_SOUND(M, sound('sound/misc/notice1.ogg'))
