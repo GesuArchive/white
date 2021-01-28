@@ -126,7 +126,7 @@
 
 	for(var/valid_type in can_hold_list)
 		var/obj/item/valid_item = valid_type
-		desc += "\a [initial(valid_item.name)]"
+		desc += "[initial(valid_item.name)]"
 
 	return "\n\t<span class='notice'>[desc.Join("\n\t")]</span>"
 

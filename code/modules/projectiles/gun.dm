@@ -212,7 +212,7 @@
 			return
 		if(ismob(target) && user.a_intent == INTENT_GRAB)
 			if(user.GetComponent(/datum/component/gunpoint))
-				to_chat(user, "<span class='warning'>You are already holding someone up!</span>")
+				to_chat(user, "<span class='warning'>Уже держу кого-то на прицеле!</span>")
 				return
 			user.AddComponent(/datum/component/gunpoint, target, src)
 			return
@@ -263,7 +263,7 @@
 	if(clumsy_check)
 		if(istype(user))
 			if(HAS_TRAIT(user, TRAIT_CLUMSY) && prob(40))
-				to_chat(user, "<span class='userdanger'>You shoot yourself in the foot with [src]!</span>")
+				to_chat(user, "<span class='userdanger'>Стреляю себе в ногу из [src.name]!</span>")
 				var/shot_leg = pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 				process_fire(user, user, FALSE, params, shot_leg)
 				SEND_SIGNAL(user, COMSIG_MOB_CLUMSY_SHOOT_FOOT)
@@ -283,7 +283,7 @@
 			pin.auth_fail(user)
 			return FALSE
 	else
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] trigger is locked. This weapon doesn't have a firing pin installed!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] курок заблокирован. У этого оружия нет бойка!</span>")
 	return FALSE
 
 /obj/item/gun/proc/recharge_newshot()
@@ -300,7 +300,7 @@
 	if(chambered?.BB)
 		if(HAS_TRAIT(user, TRAIT_PACIFISM)) // If the user has the pacifist trait, then they won't be able to fire [src] if the round chambered inside of [src] is lethal.
 			if(chambered.harmful) // Is the bullet chambered harmful?
-				to_chat(user, "<span class='warning'>[capitalize(src.name)] is lethally chambered! You don't want to risk harming anyone...</span>")
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] заряжен летально! Я же ведь не хочу навредить кому-то...</span>")
 				return
 		if(randomspread)
 			sprd = round((rand() - 0.5) * DUALWIELD_PENALTY_EXTRA_MULTIPLIER * (randomized_gun_spread + randomized_bonus_spread))
@@ -354,7 +354,7 @@
 		if(chambered)
 			if(HAS_TRAIT(user, TRAIT_PACIFISM)) // If the user has the pacifist trait, then they won't be able to fire [src] if the round chambered inside of [src] is lethal.
 				if(chambered.harmful) // Is the bullet chambered harmful?
-					to_chat(user, "<span class='warning'>[capitalize(src.name)] is lethally chambered! You don't want to risk harming anyone...</span>")
+					to_chat(user, "<span class='warning'>[capitalize(src.name)] заряжен летально! Я же ведь не хочу навредить кому-то...</span>")
 					return
 			sprd = round((rand() - 0.5) * DUALWIELD_PENALTY_EXTRA_MULTIPLIER * (randomized_gun_spread + randomized_bonus_spread))
 			before_firing(target,user, aimed)
@@ -408,7 +408,7 @@
 		if(!gun_light)
 			if(!user.transferItemToLoc(I, src))
 				return
-			to_chat(user, "<span class='notice'>You click [S] into place on [src].</span>")
+			to_chat(user, "<span class='notice'>Защёлкиваю [S] прямо в слот [src].</span>")
 			set_gun_light(S)
 			update_gunlight()
 			alight = new(src)
@@ -420,7 +420,7 @@
 			return ..()
 		if(!user.transferItemToLoc(I, src))
 			return
-		to_chat(user, "<span class='notice'>You attach [K] to [src] bayonet lug.</span>")
+		to_chat(user, "<span class='notice'>Монтирую [K] на [src].</span>")
 		bayonet = K
 		update_icon()
 

@@ -189,7 +189,7 @@
 			D.apply_damage(5, A.get_attack_type())
 	else
 		D.visible_message("<span class='danger'>[A] fails to disarm [D]!</span>", \
-						"<span class='userdanger'>You're nearly disarmed by [A]!</span>", "<span class='hear'>You hear a swoosh!</span>", COMBAT_MESSAGE_RANGE, A)
+						"<span class='userdanger'>You're nearly disarmed by [A]!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, A)
 		to_chat(A, "<span class='warning'>You fail to disarm [D]!</span>")
 		playsound(D, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 	log_combat(A, D, "disarmed (CQC)", "[I ? " grabbing \the [I]" : ""]")

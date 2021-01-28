@@ -332,7 +332,7 @@
 				try_to_reload(controller, weapon)
 			return
 		controller.blackboard[BB_COMBAT_AI_STUPIDITY] = 0
-		weapon.afterattack(target, living_pawn, FALSE)
+		weapon.process_fire(target, living_pawn)
 	else
 		living_pawn.UnarmedAttack(target)
 		controller.TryFindWeapon()

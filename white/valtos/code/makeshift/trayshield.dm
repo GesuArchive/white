@@ -27,7 +27,7 @@
 	else if(a < max_damage)
 		to_chat(user, "It's slightly damaged.")
 
-/obj/item/shield/trayshield/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 4, attack_type = MELEE_ATTACK)
+/obj/item/shield/trayshield/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", final_block_chance = 0, damage = 4, attack_type = MELEE_ATTACK)
 	if(..())
 		if(damage < 4)
 			damage = 4

@@ -35,7 +35,7 @@
 				else
 					playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 					visible_message("<span class='danger'>[M] punch misses [src]!</span>", \
-									"<span class='danger'>You avoid [M] punch!</span>", "<span class='hear'>You hear a swoosh!</span>", COMBAT_MESSAGE_RANGE, M)
+									"<span class='danger'>You avoid [M] punch!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, M)
 					to_chat(M, "<span class='warning'>Your punch misses [src]!</span>")
 
 			if ("disarm")
@@ -45,7 +45,7 @@
 						playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 						log_combat(M, src, "pushed")
 						visible_message("<span class='danger'>[M] pushes [src] down!</span>", \
-										"<span class='userdanger'>[M] pushes you down!</span>", "<span class='hear'>Слышу агрессивную потасовку followed by a loud thud!</span>", null, M)
+										"<span class='userdanger'>[M] pushes you down!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", null, M)
 						to_chat(M, "<span class='danger'>You push [src] down!</span>")
 					else
 						if (prob(50))
@@ -57,7 +57,7 @@
 						else
 							playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 							visible_message("<span class='danger'>[M] fails to disarm [src]!</span>",\
-											"<span class='danger'>[M] fails to disarm you!</span>", "<span class='hear'>You hear a swoosh!</span>", COMBAT_MESSAGE_RANGE, M)
+											"<span class='danger'>[M] fails to disarm you!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, M)
 							to_chat(M, "<span class='warning'>You fail to disarm [src]!</span>")
 
 

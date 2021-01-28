@@ -328,7 +328,7 @@
 	else if(mode == NANO_SPEED)
 		set_nano_energy(speed_use_rate,NANO_CHARGE_DELAY)
 
-/obj/item/clothing/suit/space/hardsuit/nano/hit_reaction(mob/living/carbon/human/user, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
+/obj/item/clothing/suit/space/hardsuit/nano/hit_reaction(mob/living/carbon/human/user, atom/movable/hitby, attack_text = "атаку", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	var/obj/projectile/P = hitby
 	if(mode == NANO_ARMOR && cell && cell.charge)
 		if(prob(final_block_chance))
