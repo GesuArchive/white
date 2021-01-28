@@ -263,6 +263,24 @@
 	module_traits = list(TRAIT_PUSHIMMUNE)
 	hat_offset = 3
 
+/obj/item/robot_module/medical/be_transformed_to(obj/item/robot_module/old_module)
+	var/mob/living/silicon/robot/cyborg = loc
+	var/list/medical_icons = list(
+		"Medical" = image(icon = 'icons/mob/robots.dmi', icon_state = "medical"),
+		"Haydee" = image(icon = 'white/valtos/icons/pizdec.dmi', icon_state = "haydee")
+		)
+	var/service_robot_icon = show_radial_menu(cyborg, cyborg, medical_icons, custom_check = CALLBACK(src, .proc/check_menu, cyborg, old_module), radius = 38, require_near = TRUE)
+	switch(service_robot_icon)
+		if("Medical")
+			cyborg_base_icon = "brobot"
+		if("Haydee")
+			cyborg.icon = 'white/valtos/icons/pizdec.dmi'
+			cyborg.icon_state = "haydee"
+			cyborg_base_icon = "haydee"
+		else
+			return FALSE
+	return ..()
+
 /obj/item/robot_module/engineering
 	name = "Engineering"
 	basic_modules = list(
