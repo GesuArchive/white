@@ -26,4 +26,9 @@
 				icon_state = "lichbee_wings"
 		return TRUE
 
+	if(ckey == "leeroyjenga")
+		icon = 'white/valtos/icons/leeroyjenga.dmi'
+		icon_state = "drip_chungus"
+		return TRUE
+
 	return FALSE
