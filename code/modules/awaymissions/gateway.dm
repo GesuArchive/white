@@ -285,8 +285,9 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 /obj/machinery/computer/gateway_control/ui_data(mob/user)
 	. = ..()
 	.["gateway_present"] = G
-	.["gateway_status"] = G ? G.powered() : FALSE
-	.["current_target"] = G?.target?.get_ui_data()
+	.["gateway_found"]   = GLOB.isGatewayLoaded
+	.["gateway_status"]  = G ? G.powered() : FALSE
+	.["current_target"]  = G?.target?.get_ui_data()
 	var/list/destinations = list()
 	if(G)
 		for(var/datum/gateway_destination/D in GLOB.gateway_destinations)
@@ -310,6 +311,12 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 		if("deactivate")
 			if(G?.target)
 				G.deactivate()
+			return TRUE
+		if("find_new")
+			if(!GLOB.isGatewayLoaded)
+				priority_announce("Звёздные врата", "Началась операция по поиску новых врат в отдалённых секторах. Это займёт некоторое время.", 'sound/misc/announce_dig.ogg')
+				GLOB.isGatewayLoaded = TRUE
+				createRandomZlevel()
 			return TRUE
 
 /obj/machinery/computer/gateway_control/proc/try_to_linkup()

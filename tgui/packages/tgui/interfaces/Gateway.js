@@ -16,6 +16,7 @@ const GatewayContent = (props, context) => {
   const { act, data } = useBackend(context);
   const {
     gateway_present = false,
+    gateway_found = false,
     gateway_status = false,
     current_target = null,
     destinations = [],
@@ -51,6 +52,17 @@ const GatewayContent = (props, context) => {
     return (
       <Section>
         Не обнаружено других врат.
+      </Section>
+    );
+  }
+  if (!gateway_found) {
+    return (
+      <Section>
+        <Button
+          fluid
+          onClick={() => act("find_new")}>
+          Найти новые врата
+        </Button>
       </Section>
     );
   }
