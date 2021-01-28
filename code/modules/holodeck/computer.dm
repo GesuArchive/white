@@ -19,8 +19,8 @@
 #define HOLODECK_DMG_CD 500
 
 /obj/machinery/computer/holodeck
-	name = "holodeck control console"
-	desc = "A computer used to control a nearby holodeck."
+	name = "консоль управления голодеком"
+	desc = "Компьютер, который использется для управления ближайшим голодеком."
 	icon_screen = "holocontrol"
 	idle_power_usage = 10
 	active_power_usage = 50
@@ -133,7 +133,7 @@
 				emergency_shutdown()
 			nerf(obj_flags & EMAGGED)
 			obj_flags ^= EMAGGED
-			say("Safeties restored. Restarting...")
+			say("Протоколы безопасности восстановлены. Перезагрузка...")
 
 /obj/machinery/computer/holodeck/process(delta_time)
 	if(damaged && DT_PROB(5, delta_time))
@@ -149,7 +149,7 @@
 		emergency_shutdown()
 		damaged = TRUE
 		for(var/mob/M in urange(10,src))
-			M.show_message("The holodeck overloads!")
+			M.show_message("Голодек перегружается!")
 
 		for(var/turf/T in linked)
 			if(prob(30))
@@ -171,12 +171,12 @@
 	if(obj_flags & EMAGGED)
 		return
 	if(!LAZYLEN(emag_programs))
-		to_chat(user, "[src] does not seem to have a card swipe port. It must be an inferior model.")
+		to_chat(user, "[src.name] не имеет слота для карты. Похоже, что это всего лишь модель для интерьера.")
 		return
 	playsound(src, "sparks", 75, TRUE)
 	obj_flags |= EMAGGED
-	to_chat(user, "<span class='warning'>You vastly increase projector power and override the safety and security protocols.</span>")
-	say("Warning. Automatic shutoff and derezzing protocols have been corrupted. Please call Nanotrasen maintenance and do not use the simulator.")
+	to_chat(user, "<span class='warning'>Нещадно увеличиваю силу прожектора и снимаю протоколы безопасности.</span>")
+	say("Опасность. Автоматическое отключение и протоколы безопасности отключены. Пожалуйста, свяжитесь с технической поддержкой Нанотрейзен и не используйте голодек.")
 	log_game("[key_name(user)] emagged the Holodeck Control Console")
 	nerf(!(obj_flags & EMAGGED))
 
@@ -246,7 +246,7 @@
 	if(program == A)
 		return
 	if(current_cd > world.time && !force)
-		say("ERROR. Recalibrating projection apparatus.")
+		say("ОШИБКА. Перекалибровка...")
 		return
 	if(add_delay)
 		current_cd = world.time + HOLODECK_CD
@@ -289,7 +289,7 @@
 	for(var/obj/structure/S in added)
 		S.flags_1 |= NODECONSTRUCT_1
 	if(istype(program, /area/holodeck/rec_center/thunderdome1218) && !SSshuttle.shuttle_purchase_requirements_met[SHUTTLE_UNLOCK_MEDISIM])
-		say("Special note from \"1218 AD\" developer: I see you too are interested in the REAL dark ages of humanity! I've made this program also unlock some interesting shuttle designs on any communication console around. Have fun!")
+		say("Специальная заметка от разработчика \"1218 AD\": I see you too are interested in the REAL dark ages of humanity! I've made this program also unlock some interesting shuttle designs on any communication console around. Have fun!")
 		SSshuttle.shuttle_purchase_requirements_met[SHUTTLE_UNLOCK_MEDISIM] = TRUE
 
 /obj/machinery/computer/holodeck/proc/derez(obj/O, silent = TRUE, forced = FALSE)
@@ -309,7 +309,7 @@
 			silent = FALSE					// otherwise make sure they are dropped
 
 	if(!silent)
-		visible_message("<span class='notice'>[O] fades away!</span>")
+		visible_message("<span class='notice'>[O.name] пропадает!</span>")
 	qdel(O)
 
 #undef HOLODECK_CD
