@@ -28,12 +28,12 @@
 			else
 				GLOB.news_network.SubmitArticle(title + "\n" + text, "Центральное Командование", "Станционные Объявления", null)
 
-	announcement += "<span class='alert'>[html_encode(text)]</span>"
+	announcement += "<span class='alert'><big>[html_encode(text)]</big></span>"
 	announcement += "\n\n"
 
 	var/s = sound(sound)
 	for(var/mob/M in GLOB.player_list)
-		if(!isnewplayer(M) && M.can_hear() && (is_station_level(M.z) || is_mining_level(M.z)))
+		if(!isnewplayer(M) && M.can_hear() && (is_station_level(M.z) || is_mining_level(M.z) || is_centcom_level(M.z)))
 			to_chat(M, announcement)
 			if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
 				SEND_SOUND(M, s)
@@ -60,8 +60,8 @@
 		message = html_encode(message)
 
 	for(var/mob/M in GLOB.player_list)
-		if(!isnewplayer(M) && M.can_hear() && (is_station_level(M.z) || is_mining_level(M.z)))
-			to_chat(M, "<h1 class='alert'>[title]</h1><span class='alert'><big>[message]</big></span>\n\n")
+		if(!isnewplayer(M) && M.can_hear() && (is_station_level(M.z) || is_mining_level(M.z) || is_centcom_level(M.z)))
+			to_chat(M, "<h1 class='alert'>[title]</h1><span class='alert'>[message]</span>\n\n")
 			if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
 				if(alert)
 					SEND_SOUND(M, sound('sound/misc/notice1.ogg'))

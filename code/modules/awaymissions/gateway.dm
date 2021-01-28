@@ -314,7 +314,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 			return TRUE
 		if("find_new")
 			if(!GLOB.isGatewayLoaded)
-				priority_announce("Звёздные врата", "Началась операция по поиску новых врат в отдалённых секторах. Это займёт некоторое время.", 'sound/misc/announce_dig.ogg')
+				priority_announce("Началась операция по поиску новых врат в отдалённых секторах. Это займёт некоторое время.", "Звёздные врата", 'sound/misc/announce_dig.ogg')
 				GLOB.isGatewayLoaded = TRUE
 				createRandomZlevel()
 			return TRUE
