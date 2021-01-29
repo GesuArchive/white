@@ -262,7 +262,7 @@
 	moduleselect_icon = "medical"
 	module_traits = list(TRAIT_PUSHIMMUNE)
 	hat_offset = 3
-
+/*
 /obj/item/robot_module/medical/be_transformed_to(obj/item/robot_module/old_module)
 	var/mob/living/silicon/robot/cyborg = loc
 	var/list/medical_icons = list(
@@ -280,7 +280,7 @@
 		else
 			return FALSE
 	return ..()
-
+*/
 /obj/item/robot_module/engineering
 	name = "Engineering"
 	basic_modules = list(

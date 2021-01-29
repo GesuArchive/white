@@ -8,7 +8,7 @@ export const EmoteMenu = (props, context) => {
   return (
     <Window
       width={450}
-      height={320}
+      height={420}
       resizable>
       <Window.Content scrollable>
         {emotes

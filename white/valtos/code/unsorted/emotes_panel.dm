@@ -27,6 +27,7 @@
 	return UI_INTERACTIVE
 
 /atom/movable/screen/emote_button/ui_data(mob/user)
+	var/list/L = list()
 	var/list/keys = list()
 
 	for(var/key in GLOB.emote_list)
@@ -34,10 +35,11 @@
 			if(P.key in keys)
 				continue
 			if(P.can_run_emote(user, status_check = FALSE , intentional = TRUE))
-				keys.Add(list(list("name" = P.key, "ru_name" = capitalize(P.ru_name))))
+				keys += P.key
+				L.Add(list(list("name" = P.key, "ru_name" = capitalize(P.ru_name))))
 
 	var/list/data = list()
-	data["emotes"] = keys
+	data["emotes"] = L
 
 	return data
 
