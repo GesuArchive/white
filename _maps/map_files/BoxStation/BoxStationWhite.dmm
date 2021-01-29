@@ -33713,6 +33713,14 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/courtroom)
+"kdV" = (
+/obj/structure/cable,
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/machinery/light,
+/turf/open/floor/plating,
+/area/maintenance/fore/secondary)
 "keQ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/closed/wall,
@@ -78138,7 +78146,7 @@ nXv
 ahn
 hnW
 hnW
-bmP
+kdV
 aqu
 aaC
 aro

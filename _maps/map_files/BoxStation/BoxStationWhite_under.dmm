@@ -507,7 +507,7 @@
 /obj/structure/rospilovo/cover{
 	pixel_x = 16
 	},
-/turf/open/floor/beton,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "fS" = (
 /obj/machinery/button/door{
@@ -579,7 +579,8 @@
 /turf/closed/wall/r_wall,
 /area/crew_quarters/fitness)
 "gE" = (
-/turf/open/floor/beton,
+/obj/item/reagent_containers/syringe,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "gO" = (
 /obj/machinery/camera{
@@ -602,7 +603,10 @@
 	pixel_x = -4;
 	pixel_y = 28
 	},
-/turf/open/floor/trot,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/carpet,
 /area/maintenance/bottom_station_maints/north)
 "ha" = (
 /obj/structure/cable,
@@ -616,7 +620,7 @@
 /area/maintenance/bottom_station_maints/east)
 "hb" = (
 /obj/structure/rospilovo/doski/doski4,
-/turf/open/floor/trot,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "hj" = (
 /obj/machinery/atmospherics/components/unary/passive_vent{
@@ -678,6 +682,10 @@
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"hG" = (
+/obj/structure/bed/maint,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/north)
 "hJ" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -1331,7 +1339,7 @@
 /area/maintenance/bottom_station_maints/west)
 "mB" = (
 /obj/structure/rospilovo/doski,
-/turf/open/floor/trot,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "mC" = (
 /obj/effect/turf_decal/stripes/line,
@@ -1502,6 +1510,10 @@
 /obj/effect/landmark/stationroom/maint/rdm3x5,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
+"nw" = (
+/obj/machinery/light/small,
+/turf/open/floor/plasteel,
+/area/maintenance/bottom_station_maints/north)
 "nA" = (
 /obj/machinery/light/small,
 /turf/open/floor/plating,
@@ -1630,7 +1642,7 @@
 	pixel_x = -7;
 	pixel_y = 5
 	},
-/turf/open/floor/trot,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "ox" = (
 /obj/structure/closet/emcloset,
@@ -1701,10 +1713,6 @@
 /turf/open/floor/plating,
 /area/quartermaster/warehouse)
 "pe" = (
-/obj/machinery/light/small{
-	dir = 1;
-	pixel_y = 0
-	},
 /obj/structure/rospilovo/doski/doski2,
 /obj/structure/rospilovo/painting/stalin{
 	pixel_y = 32
@@ -1713,7 +1721,7 @@
 	pixel_x = -9;
 	pixel_y = 19
 	},
-/turf/open/floor/trot,
+/turf/open/floor/carpet,
 /area/maintenance/bottom_station_maints/north)
 "pf" = (
 /turf/closed/wall,
@@ -1909,6 +1917,13 @@
 /obj/machinery/holopad,
 /turf/open/floor/plasteel/white,
 /area/science/research/abandoned)
+"qN" = (
+/obj/structure/rospilovo/vanna{
+	pixel_x = 6;
+	pixel_y = 12
+	},
+/turf/open/floor/plasteel,
+/area/maintenance/bottom_station_maints/north)
 "qO" = (
 /obj/machinery/light/small{
 	dir = 1;
@@ -2011,6 +2026,10 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/science/xenobiology)
+"sc" = (
+/obj/structure/rospilovo/shina3,
+/turf/open/floor/plasteel,
+/area/maintenance/bottom_station_maints/north)
 "se" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/decal/cleanable/dirt,
@@ -2162,7 +2181,7 @@
 	pixel_x = 3;
 	pixel_y = -5
 	},
-/turf/open/floor/trot,
+/turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints/north)
 "tD" = (
 /obj/machinery/firealarm{
@@ -2389,7 +2408,7 @@
 "vR" = (
 /obj/effect/landmark/start/bomj,
 /obj/structure/chair/brevno/log2,
-/turf/open/floor/trot,
+/turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints/north)
 "vV" = (
 /obj/item/radio/intercom{
@@ -2406,7 +2425,8 @@
 /obj/item/storage/toolbox/emergency/old{
 	pixel_y = 7
 	},
-/turf/open/floor/trot,
+/obj/item/reagent_containers/syringe/contraband/crank,
+/turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints/north)
 "wb" = (
 /obj/structure/cable,
@@ -2702,7 +2722,7 @@
 /turf/open/floor/plasteel,
 /area/ai_monitored/storage/eva)
 "yL" = (
-/turf/open/floor/trot,
+/turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints/north)
 "yS" = (
 /turf/open/floor/plating/airless,
@@ -3115,7 +3135,7 @@
 /obj/item/seeds/berry,
 /obj/item/seeds/berry,
 /obj/item/seeds/berry,
-/turf/open/floor/beton,
+/turf/open/floor/noslip,
 /area/maintenance/bottom_station_maints/north)
 "BX" = (
 /obj/structure/rack,
@@ -3377,7 +3397,7 @@
 "Et" = (
 /obj/effect/landmark/start/bomj,
 /obj/structure/chair/brevno,
-/turf/open/floor/trot,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "Ex" = (
 /turf/closed/wall,
@@ -3574,7 +3594,7 @@
 /obj/structure/mineral_door/iron{
 	dir = 4
 	},
-/turf/open/floor/trot,
+/turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints/north)
 "Gr" = (
 /obj/structure/chair{
@@ -3818,7 +3838,7 @@
 	pixel_x = 4;
 	pixel_y = 14
 	},
-/turf/open/floor/trot,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "HY" = (
 /obj/structure/disposalpipe/segment{
@@ -3883,7 +3903,7 @@
 /obj/structure/rospilovo/propane/dual{
 	pixel_x = 6
 	},
-/turf/open/floor/trot,
+/turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints/north)
 "IF" = (
 /obj/effect/turf_decal/trimline/neutral/line{
@@ -3932,6 +3952,10 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"Ja" = (
+/obj/item/reagent_containers/syringe,
+/turf/open/floor/plasteel,
+/area/maintenance/bottom_station_maints/north)
 "Jd" = (
 /obj/structure/table,
 /turf/open/floor/engine,
@@ -3959,7 +3983,7 @@
 /obj/structure/bonfire/prelit{
 	density = 1
 	},
-/turf/open/floor/beton,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "Jv" = (
 /obj/structure/rack,
@@ -4145,7 +4169,7 @@
 /area/maintenance/bottom_station_maints/west)
 "KK" = (
 /obj/structure/rospilovo/doski/doski3,
-/turf/open/floor/beton,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "KL" = (
 /obj/machinery/camera/autoname{
@@ -4305,7 +4329,8 @@
 /area/hydroponics)
 "Mc" = (
 /obj/structure/bed/prison/bed,
-/turf/open/floor/trot,
+/obj/item/reagent_containers/syringe,
+/turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints/north)
 "Md" = (
 /obj/machinery/atmospherics/pipe/manifold/yellow/visible{
@@ -4382,7 +4407,7 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/turf/open/floor/trot,
+/turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints/north)
 "Mv" = (
 /obj/machinery/atmospherics/pipe/multiz/layer2{
@@ -4775,7 +4800,7 @@
 	pixel_x = 7;
 	pixel_y = -7
 	},
-/turf/open/floor/trot,
+/turf/open/floor/carpet,
 /area/maintenance/bottom_station_maints/north)
 "Pz" = (
 /obj/machinery/door/airlock/external,
@@ -4974,7 +4999,7 @@
 /area/crew_quarters/fitness)
 "QZ" = (
 /obj/machinery/hydroponics/soil,
-/turf/open/floor/beton,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "Rk" = (
 /obj/machinery/airalarm{
@@ -5121,7 +5146,7 @@
 /obj/structure/chair/brevno/log2,
 /obj/structure/chair/brevno,
 /obj/item/instrument/guitar,
-/turf/open/floor/trot,
+/turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints/north)
 "Sm" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -5508,7 +5533,7 @@
 	pixel_x = -5;
 	pixel_y = -4
 	},
-/turf/open/floor/trot,
+/turf/open/floor/carpet,
 /area/maintenance/bottom_station_maints/north)
 "Vv" = (
 /obj/effect/turf_decal/stripes/line{
@@ -41117,7 +41142,7 @@ Zm
 Zm
 PG
 mP
-fF
+gE
 uC
 IX
 TI
@@ -42653,15 +42678,15 @@ Zm
 Zm
 bw
 Zm
-Zm
+bw
 mP
 mP
 Do
 nU
 Do
 Gq
-Do
-mP
+Xc
+Xc
 mP
 mP
 OL
@@ -42910,7 +42935,7 @@ Zm
 Zm
 bw
 Zm
-Zm
+bw
 mP
 gR
 Mc
@@ -42918,12 +42943,12 @@ BW
 QZ
 mB
 bg
+hG
 mP
-Zm
-Zm
-Zm
-PG
-Zm
+bw
+bw
+bw
+bw
 mP
 mP
 Bt
@@ -43164,20 +43189,20 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 bw
 PG
-PG
+bw
 mP
 ow
 hb
+fF
 yL
 yL
-yL
+fF
+Ja
 mP
-mP
-Zm
-Zm
+bw
 Zm
 PG
 Zm
@@ -43424,17 +43449,17 @@ Zm
 Zm
 bw
 Zm
-Zm
+bw
 mP
 pe
 Et
 fO
-gE
-gE
+fF
+fF
+fF
+nw
 mP
-Zm
-Zm
-Zm
+bw
 Zm
 PG
 Zm
@@ -43676,22 +43701,22 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
+PG
+PG
+PG
 bw
 PG
-PG
+bw
 mP
 HW
 Sj
-gE
+fF
 Jq
-gE
-OL
-PG
-PG
-PG
+fF
+fF
+qN
+mP
+bw
 PG
 PG
 PG
@@ -43938,17 +43963,17 @@ Zm
 Zm
 bw
 Zm
-Zm
+bw
 mP
 Py
 vR
-gE
+fF
 KK
-gE
+fF
+fF
+sc
 mP
-Zm
-Zm
-Zm
+bw
 Zm
 PG
 Zm
@@ -44188,14 +44213,14 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
+PG
+PG
+PG
+PG
 bw
 PG
-PG
+bw
 mP
 Vr
 Mt
@@ -44203,9 +44228,9 @@ tC
 vY
 IB
 mP
-PG
-PG
-PG
+mP
+mP
+bw
 PG
 PG
 Zm
@@ -44452,17 +44477,17 @@ Zm
 Zm
 bw
 Zm
-Zm
+bw
 mP
 mP
 mP
-OL
 mP
 mP
 mP
-Zm
-Zm
-Zm
+mP
+bw
+bw
+bw
 Zm
 PG
 Zm
@@ -44708,20 +44733,20 @@ PG
 PG
 PG
 bw
+bw
+bw
+bw
+bw
+bw
+bw
+bw
+bw
+bw
+bw
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bw
+bw
+bw
 mP
 mP
 mP
@@ -44967,16 +44992,16 @@ Zm
 bw
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 PG
 Zm
 Zm
+PG
 Zm
 Zm
-Zm
-Zm
+bw
 Zm
 Zm
 mP
@@ -45224,16 +45249,16 @@ Zm
 bw
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 PG
 Zm
 Zm
+PG
 Zm
 Zm
-Zm
-Zm
+bw
 Zm
 mP
 mP
@@ -45481,16 +45506,16 @@ Zm
 bw
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 PG
 Zm
 Zm
+PG
 Zm
 Zm
-Zm
-Zm
+bw
 Zm
 mP
 Bt
@@ -45738,16 +45763,16 @@ Zm
 bw
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 PG
 Zm
 Zm
+PG
 Zm
 Zm
-Zm
-Zm
+bw
 Zm
 OL
 Bt
@@ -45989,22 +46014,22 @@ Zm
 Zm
 Zm
 PG
-PG
-PG
-PG
+bw
+bw
+bw
+bw
+bw
+bw
+bw
+bw
+bw
+bw
+bw
 bw
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bw
+bw
+bw
 PG
 OL
 Bt
@@ -46252,16 +46277,16 @@ Zm
 bw
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 bw
 Zm
 Zm
-Zm
-Zm
 PG
 Zm
+PG
+bw
 Zm
 OL
 Bt
@@ -46509,17 +46534,17 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 bw
 Zm
 Zm
-Zm
-Zm
 PG
 Zm
-Zm
+PG
+bw
+bw
 mP
 Qo
 Bt
@@ -46766,17 +46791,17 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 bw
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 ah
-Zm
+bw
 mP
 mP
 mP
@@ -47023,13 +47048,13 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 bw
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -47286,7 +47311,7 @@ Zm
 bw
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -47537,20 +47562,20 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-bw
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
 mP
 Bt
 Bt
@@ -47800,7 +47825,7 @@ Zm
 bw
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -48051,20 +48076,20 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-bw
-bw
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
 mP
 mP
 OL
@@ -48314,7 +48339,7 @@ Zm
 bw
 bw
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -48571,7 +48596,7 @@ Zm
 PG
 bw
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
