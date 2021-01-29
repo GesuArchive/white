@@ -1075,6 +1075,15 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			continue
 		panel_tabs |= verb_to_init.category
 		verblist[++verblist.len] = list(verb_to_init.category, verb_to_init.name)
+
+	if(mob)
+		var/list/keys = list()
+		panel_tabs |= "Действия"
+		for(var/key in GLOB.emote_list)
+			for(var/datum/emote/P in GLOB.emote_list[key])
+				if(P.can_run_emote(mob, status_check = FALSE , intentional = TRUE))
+					verblist[++verblist.len] = list("Действия", P.key)
+
 	src << output("[url_encode(json_encode(panel_tabs))];[url_encode(json_encode(verblist))]", "statbrowser:init_verbs")
 
 /client/proc/check_panel_loaded()

@@ -86,7 +86,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		tooltip.screen_loc = "SOUTH+1,CENTER-4:16"
 	infodisplay += tooltip
 
-	add_emote_panel(owner)
+	//add_emote_panel(owner)
 	add_multiz_buttons(owner)
 
 	for(var/mytype in subtypesof(/atom/movable/screen/plane_master))
