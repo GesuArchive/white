@@ -100,6 +100,11 @@
 	},
 /turf/open/floor/engine,
 /area/science/research/abandoned)
+"bg" = (
+/obj/effect/landmark/start/bomj,
+/obj/structure/bed/maint,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/north)
 "bl" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -498,6 +503,12 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/port)
+"fO" = (
+/obj/structure/rospilovo/cover{
+	pixel_x = 16
+	},
+/turf/open/floor/beton,
+/area/maintenance/bottom_station_maints/north)
 "fS" = (
 /obj/machinery/button/door{
 	id = "xenobio4";
@@ -567,6 +578,9 @@
 "gy" = (
 /turf/closed/wall/r_wall,
 /area/crew_quarters/fitness)
+"gE" = (
+/turf/open/floor/beton,
+/area/maintenance/bottom_station_maints/north)
 "gO" = (
 /obj/machinery/camera{
 	c_tag = "Xenobiology Pens - Starboard Aft";
@@ -580,9 +594,16 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "gR" = (
-/obj/effect/landmark/start/bomj,
-/turf/open/floor/plating,
-/area/maintenance/port)
+/obj/structure/rospilovo/komod{
+	pixel_x = -4;
+	pixel_y = 10
+	},
+/obj/structure/rospilovo/radio{
+	pixel_x = -4;
+	pixel_y = 28
+	},
+/turf/open/floor/trot,
+/area/maintenance/bottom_station_maints/north)
 "ha" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -593,6 +614,10 @@
 	},
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/east)
+"hb" = (
+/obj/structure/rospilovo/doski/doski4,
+/turf/open/floor/trot,
+/area/maintenance/bottom_station_maints/north)
 "hj" = (
 /obj/machinery/atmospherics/components/unary/passive_vent{
 	dir = 1
@@ -1304,6 +1329,10 @@
 "mw" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/bottom_station_maints/west)
+"mB" = (
+/obj/structure/rospilovo/doski,
+/turf/open/floor/trot,
+/area/maintenance/bottom_station_maints/north)
 "mC" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/decal/cleanable/dirt,
@@ -1492,6 +1521,13 @@
 	},
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/north)
+"nE" = (
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 0
+	},
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/north)
 "nF" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
@@ -1534,6 +1570,10 @@
 "nS" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/bottom_station_maints)
+"nU" = (
+/obj/structure/rospilovo/switcher,
+/turf/closed/wall,
+/area/maintenance/bottom_station_maints/north)
 "nX" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -1579,9 +1619,19 @@
 /turf/closed/wall/r_wall,
 /area/science/xenobiology)
 "ow" = (
-/obj/effect/landmark/start/bomj,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/east)
+/obj/structure/rospilovo/battery{
+	pixel_y = 32
+	},
+/obj/item/reagent_containers/food/drinks/bottle/vodka{
+	pixel_x = 12;
+	pixel_y = 20
+	},
+/obj/structure/rospilovo/televizor/broken{
+	pixel_x = -7;
+	pixel_y = 5
+	},
+/turf/open/floor/trot,
+/area/maintenance/bottom_station_maints/north)
 "ox" = (
 /obj/structure/closet/emcloset,
 /turf/open/floor/plating,
@@ -1651,9 +1701,20 @@
 /turf/open/floor/plating,
 /area/quartermaster/warehouse)
 "pe" = (
-/obj/effect/landmark/start/bomj,
-/turf/open/genturf,
-/area/maintenance/bottom_station_maints/west)
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 0
+	},
+/obj/structure/rospilovo/doski/doski2,
+/obj/structure/rospilovo/painting/stalin{
+	pixel_y = 32
+	},
+/obj/item/reagent_containers/food/drinks/bottle/vodka{
+	pixel_x = -9;
+	pixel_y = 19
+	},
+/turf/open/floor/trot,
+/area/maintenance/bottom_station_maints/north)
 "pf" = (
 /turf/closed/wall,
 /area/maintenance/port)
@@ -2087,6 +2148,22 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/atmos)
+"tC" = (
+/obj/structure/table,
+/obj/item/lighter/greyscale/free{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/kitchen/spoon{
+	pixel_x = 6;
+	pixel_y = 8
+	},
+/obj/item/storage/toolbox/mechanical/old{
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/turf/open/floor/trot,
+/area/maintenance/bottom_station_maints/north)
 "tD" = (
 /obj/machinery/firealarm{
 	dir = 8;
@@ -2309,6 +2386,11 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness)
+"vR" = (
+/obj/effect/landmark/start/bomj,
+/obj/structure/chair/brevno/log2,
+/turf/open/floor/trot,
+/area/maintenance/bottom_station_maints/north)
 "vV" = (
 /obj/item/radio/intercom{
 	dir = 4;
@@ -2316,6 +2398,16 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/port)
+"vY" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/table,
+/obj/item/storage/toolbox/emergency/old{
+	pixel_y = 7
+	},
+/turf/open/floor/trot,
+/area/maintenance/bottom_station_maints/north)
 "wb" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/north{
@@ -2609,6 +2701,9 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel,
 /area/ai_monitored/storage/eva)
+"yL" = (
+/turf/open/floor/trot,
+/area/maintenance/bottom_station_maints/north)
 "yS" = (
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
@@ -3011,6 +3106,17 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
+"BW" = (
+/obj/structure/rospilovo/intercom{
+	pixel_x = -32
+	},
+/obj/machinery/hydroponics/soil,
+/obj/item/seeds/berry,
+/obj/item/seeds/berry,
+/obj/item/seeds/berry,
+/obj/item/seeds/berry,
+/turf/open/floor/beton,
+/area/maintenance/bottom_station_maints/north)
 "BX" = (
 /obj/structure/rack,
 /obj/item/clothing/shoes/magboots,
@@ -3131,11 +3237,8 @@
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "Do" = (
-/obj/machinery/light/small{
-	dir = 1;
-	pixel_y = 0
-	},
-/turf/open/genturf,
+/obj/structure/girder,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "Dt" = (
 /obj/machinery/door/window/northleft{
@@ -3271,6 +3374,11 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/atmos)
+"Et" = (
+/obj/effect/landmark/start/bomj,
+/obj/structure/chair/brevno,
+/turf/open/floor/trot,
+/area/maintenance/bottom_station_maints/north)
 "Ex" = (
 /turf/closed/wall,
 /area/maintenance/bottom_station_maints/west)
@@ -3462,6 +3570,12 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/xenobiology)
+"Gq" = (
+/obj/structure/mineral_door/iron{
+	dir = 4
+	},
+/turf/open/floor/trot,
+/area/maintenance/bottom_station_maints/north)
 "Gr" = (
 /obj/structure/chair{
 	dir = 4
@@ -3692,10 +3806,20 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/ai_monitored/storage/eva)
-"HW" = (
-/obj/effect/landmark/start/bomj,
+"HV" = (
+/obj/structure/rospilovo/porog{
+	dir = 4
+	},
 /turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/south)
+/area/maintenance/bottom_station_maints/north)
+"HW" = (
+/obj/structure/rospilovo/truba,
+/obj/item/reagent_containers/food/drinks/boyarka{
+	pixel_x = 4;
+	pixel_y = 14
+	},
+/turf/open/floor/trot,
+/area/maintenance/bottom_station_maints/north)
 "HY" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -3755,6 +3879,12 @@
 /obj/structure/cable,
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/west)
+"IB" = (
+/obj/structure/rospilovo/propane/dual{
+	pixel_x = 6
+	},
+/turf/open/floor/trot,
+/area/maintenance/bottom_station_maints/north)
 "IF" = (
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 1
@@ -3825,6 +3955,12 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/tcommsat/server/upper)
+"Jq" = (
+/obj/structure/bonfire/prelit{
+	density = 1
+	},
+/turf/open/floor/beton,
+/area/maintenance/bottom_station_maints/north)
 "Jv" = (
 /obj/structure/rack,
 /obj/effect/spawner/lootdrop/maintenance/two,
@@ -4007,6 +4143,10 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/west)
+"KK" = (
+/obj/structure/rospilovo/doski/doski3,
+/turf/open/floor/beton,
+/area/maintenance/bottom_station_maints/north)
 "KL" = (
 /obj/machinery/camera/autoname{
 	dir = 8
@@ -4163,6 +4303,10 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/grass,
 /area/hydroponics)
+"Mc" = (
+/obj/structure/bed/prison/bed,
+/turf/open/floor/trot,
+/area/maintenance/bottom_station_maints/north)
 "Md" = (
 /obj/machinery/atmospherics/pipe/manifold/yellow/visible{
 	dir = 1
@@ -4233,6 +4377,13 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness)
+"Mt" = (
+/obj/structure/rospilovo/shina2{
+	pixel_x = 6;
+	pixel_y = 8
+	},
+/turf/open/floor/trot,
+/area/maintenance/bottom_station_maints/north)
 "Mv" = (
 /obj/machinery/atmospherics/pipe/multiz/layer2{
 	color = "#ff0000";
@@ -4269,6 +4420,13 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
+"MH" = (
+/obj/structure/rospilovo/water/bochka/kap{
+	pixel_x = -6;
+	pixel_y = 9
+	},
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/north)
 "MJ" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -4541,6 +4699,10 @@
 /obj/machinery/space_heater,
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/east)
+"OV" = (
+/obj/structure/rospilovo/water/luzha,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/north)
 "OY" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Fitness Maintenance";
@@ -4603,8 +4765,17 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
 "Py" = (
-/obj/effect/landmark/start/bomj,
-/turf/open/floor/plating,
+/obj/structure/rospilovo/clocks{
+	pixel_y = 37
+	},
+/obj/structure/rospilovo/plita{
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/glass/beaker/meta{
+	pixel_x = 7;
+	pixel_y = -7
+	},
+/turf/open/floor/trot,
 /area/maintenance/bottom_station_maints/north)
 "Pz" = (
 /obj/machinery/door/airlock/external,
@@ -4801,6 +4972,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness)
+"QZ" = (
+/obj/machinery/hydroponics/soil,
+/turf/open/floor/beton,
+/area/maintenance/bottom_station_maints/north)
 "Rk" = (
 /obj/machinery/airalarm{
 	dir = 8;
@@ -4941,6 +5116,13 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
+"Sj" = (
+/obj/effect/landmark/start/bomj,
+/obj/structure/chair/brevno/log2,
+/obj/structure/chair/brevno,
+/obj/item/instrument/guitar,
+/turf/open/floor/trot,
+/area/maintenance/bottom_station_maints/north)
 "Sm" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
@@ -5313,6 +5495,21 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
+"Vr" = (
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = 4;
+	pixel_y = 19
+	},
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = -5;
+	pixel_y = -4
+	},
+/turf/open/floor/trot,
+/area/maintenance/bottom_station_maints/north)
 "Vv" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -5778,6 +5975,12 @@
 "Zs" = (
 /turf/open/floor/circuit,
 /area/tcommsat/server/upper)
+"Zv" = (
+/obj/structure/rospilovo/radiation/stop{
+	pixel_y = 12
+	},
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/north)
 "Zy" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/stripes/line{
@@ -20651,7 +20854,7 @@ PG
 Zm
 pf
 wZ
-gR
+fD
 fD
 fD
 fD
@@ -27069,7 +27272,7 @@ PG
 Zm
 KI
 GQ
-pe
+GQ
 GQ
 GQ
 da
@@ -28658,7 +28861,7 @@ eK
 oz
 XI
 SF
-HW
+SF
 SF
 RT
 SF
@@ -39894,7 +40097,7 @@ kC
 kC
 gy
 gy
-gy
+uC
 Bt
 Bt
 Bt
@@ -40656,8 +40859,8 @@ bw
 Zm
 Zm
 PG
-mP
-Bt
+OL
+fF
 OY
 px
 TI
@@ -40914,7 +41117,7 @@ Zm
 Zm
 PG
 mP
-Bt
+fF
 uC
 IX
 TI
@@ -41171,7 +41374,7 @@ Zm
 Zm
 PG
 mP
-Bt
+fF
 uC
 px
 yh
@@ -41425,11 +41628,11 @@ Zm
 Zm
 bw
 mP
-OL
-OL
 mP
-Bt
-gy
+mP
+mP
+fF
+uC
 pW
 JD
 iC
@@ -41682,17 +41885,17 @@ PG
 PG
 bw
 mP
+MH
 Bt
 Bt
-Bt
-Bt
-gy
-gy
-gy
-gy
-gy
-gy
-gy
+OV
+uC
+uC
+uC
+uC
+uC
+uC
+uC
 gy
 mP
 mP
@@ -41939,10 +42142,10 @@ Zm
 Zm
 bw
 mP
+nE
 Bt
-Bt
-Bt
-Bt
+Zv
+fF
 oi
 Bt
 Bt
@@ -42199,7 +42402,7 @@ mP
 Bt
 Bt
 Bt
-Bt
+HV
 Bt
 Bt
 Bt
@@ -42454,10 +42657,10 @@ Zm
 mP
 mP
 Do
-Bt
-Bt
-Bt
-Bt
+nU
+Do
+Gq
+Do
 mP
 mP
 mP
@@ -42709,12 +42912,12 @@ bw
 Zm
 Zm
 mP
-Bt
-Bt
-Bt
-Bt
-Bt
-Bt
+gR
+Mc
+BW
+QZ
+mB
+bg
 mP
 Zm
 Zm
@@ -42733,7 +42936,7 @@ fF
 fF
 fF
 fF
-Py
+fF
 fF
 fF
 Xc
@@ -42963,14 +43166,14 @@ Zm
 Zm
 Zm
 bw
-Zm
-Zm
+PG
+PG
 mP
-Bt
-Bt
-Bt
-Bt
-Bt
+ow
+hb
+yL
+yL
+yL
 mP
 mP
 Zm
@@ -42988,7 +43191,7 @@ fF
 fE
 fF
 fF
-Py
+fF
 fF
 fF
 fF
@@ -43223,11 +43426,11 @@ bw
 Zm
 Zm
 mP
-Bt
-Bt
-Bt
-Bt
-Bt
+pe
+Et
+fO
+gE
+gE
 mP
 Zm
 Zm
@@ -43247,7 +43450,7 @@ fF
 fF
 fF
 fF
-Py
+fF
 fF
 fF
 Xc
@@ -43477,14 +43680,14 @@ Zm
 Zm
 Zm
 bw
-Zm
-Zm
-OL
-cV
-Bt
-Bt
-Bt
-Bt
+PG
+PG
+mP
+HW
+Sj
+gE
+Jq
+gE
 OL
 PG
 PG
@@ -43737,11 +43940,11 @@ bw
 Zm
 Zm
 mP
-cV
-Bt
-Bt
-Bt
-Bt
+Py
+vR
+gE
+KK
+gE
 mP
 Zm
 Zm
@@ -43991,14 +44194,14 @@ Zm
 Zm
 Zm
 bw
-Zm
-Zm
+PG
+PG
 mP
-cV
-Bt
-Bt
-Bt
-Bt
+Vr
+Mt
+tC
+vY
+IB
 mP
 PG
 PG
@@ -46136,7 +46339,7 @@ dL
 dL
 dL
 dL
-ow
+dL
 dL
 dL
 dL

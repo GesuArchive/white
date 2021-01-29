@@ -5,8 +5,8 @@
 	nutriment_factor = 1 * REAGENTS_METABOLISM
 	boozepwr = 75
 	taste_description = "вишня и Россия"
-	glass_name = "glass of boyar"
-	glass_desc = "Glass of berry alcohol. "
+	glass_name = "боярка"
+	glass_desc = "Стакан полный вкусной настойки боярышника."
 
 /datum/reagent/consumable/ethanol/boyarka/on_mob_life(mob/living/M)
 	var/obj/item/organ/liver/liver = M.getorganslot(ORGAN_SLOT_LIVER)
@@ -24,14 +24,18 @@
 /datum/reagent/consumable/ethanol/boyarka/traitor/on_mob_life(mob/living/M)
 	var/obj/item/organ/liver/liver = M.getorganslot(ORGAN_SLOT_LIVER)
 	if(liver && HAS_TRAIT(liver, TRAIT_BOMJ_METABOLISM))
-		M.heal_bodypart_damage(brute = 5, burn = 5)
+		M.heal_bodypart_damage(brute = 15, burn = 15)
+		M.emote("scream")
+		to_chat(M, "<span class='userdanger'>ОЩУЩАЮ МОЩНЕЙШИЙ ПРИЛИВ СИЛ!!!</span>")
+		for(var/i in 1 to 100)
+			addtimer(CALLBACK(M, /atom/proc/add_atom_colour, (i % 2)? "#FF00FF" : "#00FFFF", ADMIN_COLOUR_PRIORITY), i)
 		. = TRUE
 	else
 		M.reagents.add_reagent(get_random_reagent_id(),10)
 		M.reagents.add_reagent(/datum/reagent/toxin/rotatium,2)
 		spawn(0)
 			new /datum/hallucination/delusion(M, TRUE, "demon",600,0)
-		to_chat(M, "<span class='warning'>KILL THEM ALL</span>")
+		to_chat(M, "<span class='warning'>KILL THEM ALL!</span>")
 	..()
 
 /obj/item/reagent_containers/pill/boyar_t
