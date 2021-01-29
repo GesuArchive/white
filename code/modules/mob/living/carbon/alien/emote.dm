@@ -3,14 +3,16 @@
 
 /datum/emote/living/alien/gnarl
 	key = "gnarl"
+	ru_name = "корчиться"
 	key_third_person = "gnarls"
-	message = "gnarls and shows its teeth..."
+	message = "корчится и скалит зубы..."
 
 /datum/emote/living/alien/hiss
 	key = "hiss"
+	ru_name = "шипеть"
 	key_third_person = "hisses"
-	message_alien = "hisses."
-	message_larva = "hisses softly."
+	message_alien = "шипит."
+	message_larva = "мило шипит."
 
 /datum/emote/living/alien/hiss/get_sound(mob/living/user)
 	if(isalienadult(user))
@@ -18,9 +20,10 @@
 
 /datum/emote/living/alien/roar
 	key = "roar"
+	ru_name = "рычать"
 	key_third_person = "roars"
-	message_alien = "roars."
-	message_larva = "softly roars."
+	message_alien = "рычит."
+	message_larva = "мило рычит."
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 

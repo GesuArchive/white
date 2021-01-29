@@ -193,6 +193,7 @@
 
 /datum/emote/living/ask_to_stop
 	key = "ats"
+	ru_name = "ОСТАНОВИТЬ"
 	key_third_person = "ats"
 	message = "жестом просит остановиться!"
 	emote_type = EMOTE_VISIBLE|EMOTE_AUDIBLE

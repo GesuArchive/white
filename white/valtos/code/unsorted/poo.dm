@@ -123,6 +123,7 @@
 
 /datum/emote/living/poo
 	key = "poo"
+	ru_name = "наложить"
 	key_third_person = "shits on the floor"
 	emote_type = EMOTE_AUDIBLE
 

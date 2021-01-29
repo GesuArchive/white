@@ -3,6 +3,7 @@
 
 /datum/emote
 	var/key = "" //What calls the emote
+	var/ru_name = null
 	var/key_third_person = "" //This will also call the emote
 	var/message = "" //Message displayed when emote is used
 	var/message_mime = "" //Message displayed if the user is a mime
@@ -39,6 +40,9 @@
 		mob_type_allowed_typecache = typecacheof(mob_type_allowed_typecache)
 	mob_type_blacklist_typecache = typecacheof(mob_type_blacklist_typecache)
 	mob_type_ignore_stat_typecache = typecacheof(mob_type_ignore_stat_typecache)
+
+	if(!ru_name)
+		ru_name = key
 
 /datum/emote/proc/run_emote(mob/user, params, type_override, intentional = FALSE)
 	. = TRUE
@@ -107,7 +111,7 @@
 /datum/emote/proc/select_message_type(mob/user, intentional)
 	. = message
 	if(!muzzle_ignore && user.is_muzzled() && emote_type == EMOTE_AUDIBLE)
-		return "издаёт [pick("сильный ", "слабый ", "")]звук."
+		return "издаёт [pick("громкий ", "слабый ", "")]звук."
 	if(user.mind && user.mind.miming && message_mime)
 		. = message_mime
 	if(isalienadult(user) && message_alien)

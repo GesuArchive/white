@@ -4,47 +4,55 @@
 
 /datum/emote/silicon/boop
 	key = "boop"
+	ru_name = "бупать"
 	key_third_person = "boops"
-	message = "boops."
+	message = "бупает."
 
 /datum/emote/silicon/buzz
 	key = "buzz"
+	ru_name = "гудеть"
 	key_third_person = "buzzes"
-	message = "buzzes."
-	message_param = "buzzes at %t."
+	message = "гудит."
+	message_param = "гудит на %t."
 	sound = 'sound/machines/buzz-sigh.ogg'
 
 /datum/emote/silicon/buzz2
 	key = "buzz2"
-	message = "buzzes twice."
+	ru_name = "гудеть дважды"
+	message = "гудит дважды."
 	sound = 'sound/machines/buzz-two.ogg'
 
 /datum/emote/silicon/chime
 	key = "chime"
+	ru_name = "звонить"
 	key_third_person = "chimes"
-	message = "chimes."
+	message = "звонит."
 	sound = 'sound/machines/chime.ogg'
 
 /datum/emote/silicon/honk
 	key = "honk"
+	ru_name = "хонкать"
 	key_third_person = "honks"
-	message = "honks."
+	message = "хонкает."
 	vary = TRUE
 	sound = 'sound/items/bikehorn.ogg'
 
 /datum/emote/silicon/ping
 	key = "ping"
+	ru_name = "пинговать"
 	key_third_person = "pings"
-	message = "pings."
-	message_param = "pings at %t."
+	message = "пингует."
+	message_param = "пингует %t."
 	sound = 'sound/machines/ping.ogg'
 
 /datum/emote/silicon/sad
 	key = "sad"
-	message = "plays a sad trombone..."
+	ru_name = "потеря потерь"
+	message = "проигрывает грустную мелодию..."
 	sound = 'sound/misc/sadtrombone.ogg'
 
 /datum/emote/silicon/warn
 	key = "warn"
-	message = "blares an alarm!"
+	ru_name = "тревога"
+	message = "издаёт сигнал тревоги!"
 	sound = 'sound/machines/warning-buzzer.ogg'

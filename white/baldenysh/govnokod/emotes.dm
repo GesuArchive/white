@@ -1,5 +1,6 @@
 /datum/emote/living/snort
 	key = "snort"
+	ru_name = "хрюкать"
 	key_third_person = "snorts"
 	emote_type = EMOTE_AUDIBLE
 
@@ -9,6 +10,7 @@
 
 /datum/emote/living/carbon/human/rsalute
 	key = "rsalute"
+	ru_name = "салют"
 	key_third_person = "salutes"
 	message = "выполняет римский салют."
 	message_param = "приветствует %t по-римски."

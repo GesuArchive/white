@@ -34,6 +34,7 @@
 
 /datum/emote/flip
 	key = "flip"
+	ru_name = "сальто"
 	key_third_person = "flips"
 	hands_use_check = TRUE
 	mob_type_allowed_typecache = list(/mob/living, /mob/dead/observer)
@@ -68,6 +69,7 @@
 
 /datum/emote/spin
 	key = "spin"
+	ru_name = "крутиться"
 	key_third_person = "spins"
 	hands_use_check = TRUE
 	mob_type_allowed_typecache = list(/mob/living, /mob/dead/observer)

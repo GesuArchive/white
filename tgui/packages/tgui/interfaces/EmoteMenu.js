@@ -14,10 +14,10 @@ export const EmoteMenu = (props, context) => {
         {emotes
           .map(thing => (
             <Button
-              key={thing}
+              key={thing.name}
               color="white"
-              content={thing}
-              onClick={() => act(thing)} />
+              content={thing.ru_name}
+              onClick={() => act(thing.name)} />
           ))}
       </Window.Content>
     </Window>

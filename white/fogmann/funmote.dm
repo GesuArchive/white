@@ -1,7 +1,8 @@
 /datum/emote/living/fart
 	key = "fart"
+	ru_name = "пёрнуть"
 	key_third_person = "пердит"
-	message = "пердит"
+	message = "пердит."
 	emote_type = EMOTE_AUDIBLE
 
 

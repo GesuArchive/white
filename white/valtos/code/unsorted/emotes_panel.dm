@@ -34,9 +34,7 @@
 			if(P.key in keys)
 				continue
 			if(P.can_run_emote(user, status_check = FALSE , intentional = TRUE))
-				keys += P.key
-
-	keys = sortList(keys)
+				keys.Add(list(list("name" = P.key, "ru_name" = capitalize(P.ru_name))))
 
 	var/list/data = list()
 	data["emotes"] = keys

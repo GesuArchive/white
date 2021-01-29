@@ -3,20 +3,24 @@
 
 /datum/emote/living/carbon/airguitar
 	key = "airguitar"
+	ru_name = "гитарить"
 	message = "играет на воздухе и трясет головой, как шимпанзе-сафари."
 	hands_use_check = TRUE
 
 /datum/emote/living/carbon/blink
 	key = "blink"
+	ru_name = "моргнуть"
 	key_third_person = "blinks"
 	message = "моргает."
 
 /datum/emote/living/carbon/blink_r
 	key = "blink_r"
+	ru_name = "быстро моргнуть"
 	message = "быстро моргает."
 
 /datum/emote/living/carbon/clap
 	key = "clap"
+	ru_name = "хлопать"
 	key_third_person = "claps"
 	message = "хлопает."
 	muzzle_ignore = TRUE
@@ -36,6 +40,7 @@
 
 /datum/emote/living/carbon/crack
 	key = "crack"
+	ru_name = "крэкать"
 	key_third_person = "cracks"
 	message = "хрустит своими пальцами."
 	sound = 'sound/misc/knuckles.ogg'
@@ -49,6 +54,7 @@
 
 /datum/emote/living/carbon/moan
 	key = "moan"
+	ru_name = "стонать"
 	key_third_person = "moans"
 	message = "стонет!"
 	message_mime = "изображает стон!"
@@ -79,6 +85,7 @@
 
 /datum/emote/living/carbon/roll
 	key = "roll"
+	ru_name = "перекатываться"
 	key_third_person = "rolls"
 	message = "перекатывается."
 	mob_type_allowed_typecache = list(/mob/living/carbon/alien)
@@ -86,6 +93,7 @@
 
 /datum/emote/living/carbon/scratch
 	key = "scratch"
+	ru_name = "чесаться"
 	key_third_person = "scratches"
 	message = "чешется."
 	mob_type_allowed_typecache = list(/mob/living/carbon/alien)
@@ -93,6 +101,7 @@
 
 /datum/emote/living/carbon/sign
 	key = "sign"
+	ru_name = "петь"
 	key_third_person = "signs"
 	message_param = "поёт ноту %t."
 	mob_type_allowed_typecache = list(/mob/living/carbon/alien)
@@ -105,6 +114,7 @@
 
 /datum/emote/living/carbon/sign/signal
 	key = "signal"
+	ru_name = "сигнал"
 	key_third_person = "signals"
 	message_param = "поднимает %t палец."
 	mob_type_allowed_typecache = list(/mob/living/carbon/human)
@@ -112,16 +122,19 @@
 
 /datum/emote/living/carbon/tail
 	key = "tail"
+	ru_name = "махать"
 	message = "машет хвостом."
 	mob_type_allowed_typecache = list(/mob/living/carbon/alien)
 
 /datum/emote/living/carbon/wink
 	key = "wink"
+	ru_name = "подмигнуть"
 	key_third_person = "winks"
 	message = "подмигивает."
 
 /datum/emote/living/carbon/circle
 	key = "circle"
+	ru_name = "рука-круг"
 	key_third_person = "circles"
 	hands_use_check = TRUE
 
@@ -136,6 +149,7 @@
 
 /datum/emote/living/carbon/slap
 	key = "slap"
+	ru_name = "шлёпать"
 	key_third_person = "slaps"
 	hands_use_check = TRUE
 

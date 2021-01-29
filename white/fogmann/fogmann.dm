@@ -74,6 +74,7 @@
 
 /datum/emote/living/carbon/blyad
 	key = "blyadiada"
+	ru_name = "блядиада"
 	key_third_person = "blyads"
 	message = "blyads."
 	muzzle_ignore = FALSE

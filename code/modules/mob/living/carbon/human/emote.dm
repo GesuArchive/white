@@ -3,12 +3,14 @@
 
 /datum/emote/living/carbon/human/cry
 	key = "cry"
+	ru_name = "плакать"
 	key_third_person = "cries"
 	message = "плачет."
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/carbon/human/dap
 	key = "dap"
+	ru_name = "пожать руку"
 	key_third_person = "daps"
 	message = "озадаченно не может найти кому пожать руку и жмёт свою. Позорище."
 	message_param = "приветственно жмёт руку братку %t."
@@ -16,16 +18,19 @@
 
 /datum/emote/living/carbon/human/eyebrow
 	key = "eyebrow"
+	ru_name = "поднять бровь"
 	message = "поднимает бровь."
 
 /datum/emote/living/carbon/human/grumble
 	key = "grumble"
+	ru_name = "ворчать"
 	key_third_person = "grumbles"
 	message = "ворчит!"
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/carbon/human/handshake
 	key = "handshake"
+	ru_name = "пожать руку"
 	message = "пожимает свои руки."
 	message_param = "пожимает руку %t."
 	hands_use_check = TRUE
@@ -33,6 +38,7 @@
 
 /datum/emote/living/carbon/human/hug
 	key = "hug"
+	ru_name = "обнять"
 	key_third_person = "hugs"
 	message = "обнимает себя."
 	message_param = "обнимает %t."
@@ -41,12 +47,14 @@
 
 /datum/emote/living/carbon/human/mumble
 	key = "mumble"
+	ru_name = "бормотать"
 	key_third_person = "mumbles"
 	message = "бормочет!"
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/carbon/human/scream
 	key = "scream"
+	ru_name = "кричать"
 	key_third_person = "screams"
 	message = "кричит!"
 	emote_type = EMOTE_AUDIBLE
@@ -80,6 +88,7 @@
 
 /datum/emote/living/carbon/human/scream/screech //If a human tries to screech it'll just scream.
 	key = "screech"
+	ru_name = "визжать"
 	key_third_person = "screeches"
 	message = "визжит."
 	emote_type = EMOTE_AUDIBLE
@@ -87,16 +96,19 @@
 
 /datum/emote/living/carbon/human/pale
 	key = "pale"
+	ru_name = "обморок"
 	message = "бледнеет на секунду."
 
 /datum/emote/living/carbon/human/raise
 	key = "raise"
+	ru_name = "поднять руки"
 	key_third_person = "raises"
 	message = "поднимает руки."
 	hands_use_check = TRUE
 
 /datum/emote/living/carbon/human/salute
 	key = "salute"
+	ru_name = "отдать честь"
 	key_third_person = "salutes"
 	message = "отдаёт честь."
 	message_param = "отдаёт честь %t."
@@ -104,11 +116,13 @@
 
 /datum/emote/living/carbon/human/shrug
 	key = "shrug"
+	ru_name = "пожать плечами"
 	key_third_person = "shrugs"
 	message = "пожимает плечами."
 
 /datum/emote/living/carbon/human/wag
 	key = "wag"
+	ru_name = "вилять"
 	key_third_person = "wags"
 	message = "виляет хвостом."
 
@@ -140,6 +154,7 @@
 
 /datum/emote/living/carbon/human/wing
 	key = "wing"
+	ru_name = "крылья"
 	key_third_person = "wings"
 	message = "свои крылья."
 
@@ -190,6 +205,7 @@
 
 /datum/emote/living/carbon/human/dab
 	key = "dab"
+	ru_name = "дурачиться"
 	key_third_person = "dabs"
 	message = "бьёт себя рукой по лбу!"
 
@@ -212,32 +228,38 @@
 
 /datum/emote/living/carbon/human/monkey/gnarl
 	key = "gnarl"
+	ru_name = "рычать"
 	key_third_person = "gnarls"
 	message = "рычит и обнажает свои зубы..."
 
 /datum/emote/living/carbon/human/monkey/roll
 	key = "roll"
+	ru_name = "перекатываться"
 	key_third_person = "rolls"
 	message = "перекатывается."
 	hands_use_check = TRUE
 
 /datum/emote/living/carbon/human/monkey/scratch
 	key = "scratch"
+	ru_name = "чесаться"
 	key_third_person = "scratches"
 	message = "чешется."
 	hands_use_check = TRUE
 
 /datum/emote/living/carbon/human/monkey/screech/roar
 	key = "roar"
+	ru_name = "реветь"
 	key_third_person = "roars"
 	message = "ревёт."
 
 /datum/emote/living/carbon/human/monkey/tail
 	key = "tail"
+	ru_name = "махать хвостом"
 	message = "машет хвостом."
 
 /datum/emote/living/carbon/human/monkeysign
 	key = "sign"
+	ru_name = "петь"
 	key_third_person = "signs"
 	message_param = "поёт ноту %t."
 	hands_use_check = TRUE
