@@ -11,11 +11,14 @@
 /atom/movable/screen/emote_button
 	name = "Действия"
 	icon = 'white/baldenysh/icons/ui/midnight_extended.dmi'
-	icon_state = "main"
+	icon_state = "emotes"
 	var/cooldown = 0
 
 /atom/movable/screen/emote_button/Click()
 	ui_interact(usr)
+
+/atom/movable/screen/emote_button/MouseEntered()
+	flick(icon_state + "_anim", src)
 
 /atom/movable/screen/emote_button/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
