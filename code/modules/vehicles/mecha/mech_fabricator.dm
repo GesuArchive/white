@@ -130,17 +130,17 @@
 			sub_category = list()
 			if(module_types)
 				if(module_types & BORG_MODULE_SECURITY)
-					sub_category += "Security"
+					sub_category += "Охранный"
 				if(module_types & BORG_MODULE_MINER)
-					sub_category += "Mining"
+					sub_category += "Шахтёрский"
 				if(module_types & BORG_MODULE_JANITOR)
-					sub_category += "Janitor"
+					sub_category += "Уборщик"
 				if(module_types & BORG_MODULE_MEDICAL)
-					sub_category += "Medical"
+					sub_category += "Медицинский"
 				if(module_types & BORG_MODULE_ENGINEERING)
-					sub_category += "Engineering"
+					sub_category += "Инженерный"
 			else
-				sub_category += "All Cyborgs"
+				sub_category += "Все киборги"
 		// Else check if this design builds a piece of exosuit equipment.
 		else if(built_item in typesof(/obj/item/mecha_parts/mecha_equipment))
 			var/obj/item/mecha_parts/mecha_equipment/E = built_item

@@ -173,10 +173,16 @@ export const ExosuitFabricator = (props, context) => {
                   <PartSets />
                 </Section>
               </Stack.Item>
-              <Stack.Item grow>
-                <PartLists
-                  queueMaterials={materialTally}
-                  materials={materialAsObj} />
+              <Stack.Item
+                position="relative"
+                grow={1}>
+                <Box
+                  fillPositionedParent
+                  overflowY="scroll">
+                  <PartLists
+                    queueMaterials={materialTally}
+                    materials={materialAsObj} />
+                </Box>
               </Stack.Item>
               <Stack.Item width="420px">
                 <Queue
@@ -422,8 +428,6 @@ const PartCategory = (props, context) => {
   return (
     ((!!parts.length || forceShow) && (
       <Section
-        fill
-        scrollable
         title={name}
         buttons={
           <Button
