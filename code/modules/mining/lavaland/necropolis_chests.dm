@@ -627,8 +627,8 @@
 
 
 /obj/item/jacobs_ladder
-	name = "jacob's ladder"
-	desc = "A celestial ladder that violates the laws of physics."
+	name = "лестница Якоба"
+	desc = "Небесная лестница, нарушающая законы физики."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "ladder00"
 
@@ -647,8 +647,8 @@
 
 // Inherit from unbreakable but don't set ID, to suppress the default Z linkage
 /obj/structure/ladder/unbreakable/jacob
-	name = "jacob's ladder"
-	desc = "An indestructible celestial ladder that violates the laws of physics."
+	name = "лестница Якоба"
+	desc = "Небесная лестница, нарушающая законы физики."
 
 //Concussive Gauntlets
 /obj/item/clothing/gloves/gauntlets
