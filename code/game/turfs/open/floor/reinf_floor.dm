@@ -3,7 +3,8 @@
 	name = "армированный пол"
 	desc = "Чрезвычайно прочный."
 	icon_state = "engine"
-	thermal_conductivity = 0.000625
+	holodeck_compatible = TRUE
+	thermal_conductivity = 0.025
 	heat_capacity = INFINITY
 	floor_tile = /obj/item/stack/rods
 	footstep = FOOTSTEP_PLATING
@@ -11,6 +12,7 @@
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	tiled_dirt = FALSE
+
 
 /turf/open/floor/engine/examine(mob/user)
 	. += ..()
