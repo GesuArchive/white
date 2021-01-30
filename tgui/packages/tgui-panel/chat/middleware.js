@@ -128,7 +128,7 @@ export const chatMiddleware = store => {
       clearInterval(agressiveReconnectionTimer);
       agressiveReconnectionTimer = setTimeout(() => {
         Byond.command('.reconnect');
-      }, 30000);
+      }, 35000);
       return next(action);
     }
     if (type === saveChatToDisk.type) {

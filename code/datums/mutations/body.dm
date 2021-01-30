@@ -375,8 +375,8 @@
 	name = "Spastic"
 	desc = "Subject suffers from muscle spasms."
 	quality = NEGATIVE
-	text_gain_indication = "<span class='warning'>You flinch.</span>"
-	text_lose_indication = "<span class='notice'>Your flinching subsides.</span>"
+	text_gain_indication = "<span class='warning'>Дёргаюсь.</span>"
+	text_lose_indication = "<span class='notice'>Прекращаю дёргаться.</span>"
 	difficulty = 16
 
 /datum/mutation/human/spastic/on_acquiring()

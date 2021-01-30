@@ -41,24 +41,24 @@
 /obj/item/reagent_containers/food/condiment/attack(mob/M, mob/user, def_zone)
 
 	if(!reagents || !reagents.total_volume)
-		to_chat(user, "<span class='warning'>None of [src] left, oh no!</span>")
+		to_chat(user, "<span class='warning'>Ничего не осталось в [src]!</span>")
 		return FALSE
 
 	if(!canconsume(M, user))
 		return FALSE
 
 	if(M == user)
-		user.visible_message("<span class='notice'>[user] swallows some of the contents of <b>[src.name]</b>.</span>", \
-			"<span class='notice'>You swallow some of the contents of <b>[src.name]</b>.</span>")
+		user.visible_message("<span class='notice'>[user] пьёт содержимое <b>[src.name]</b>.</span>", \
+			"<span class='notice'>Пью содержимое <b>[src.name]</b>.</span>")
 	else
-		M.visible_message("<span class='warning'>[user] attempts to feed [M] from [src].</span>", \
-			"<span class='warning'>[user] attempts to feed you from [src].</span>")
+		M.visible_message("<span class='warning'>[user] пытается напоить [M] из [src].</span>", \
+			"<span class='warning'>[user] пытается напоить меня из [src].</span>")
 		if(!do_mob(user, M))
 			return
 		if(!reagents || !reagents.total_volume)
 			return // The condiment might be empty after the delay.
-		M.visible_message("<span class='warning'>[user] fed [M] from [src].</span>", \
-			"<span class='warning'>[user] fed you from [src].</span>")
+		M.visible_message("<span class='warning'>[user] поит [M] из [src].</span>", \
+			"<span class='warning'>[user] поит меня из [src].</span>")
 		log_combat(user, M, "fed", reagents.log_list())
 	reagents.trans_to(M, 10, transfered_by = user, methods = INGEST)
 	playsound(M.loc,'sound/items/drink.ogg', rand(10,50), TRUE)
@@ -71,26 +71,26 @@
 	if(istype(target, /obj/structure/reagent_dispensers)) //A dispenser. Transfer FROM it TO us.
 
 		if(!target.reagents.total_volume)
-			to_chat(user, "<span class='warning'>[target] is empty!</span>")
+			to_chat(user, "<span class='warning'>[target] пуст!</span>")
 			return
 
 		if(reagents.total_volume >= reagents.maximum_volume)
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] is full!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] полон!</span>")
 			return
 
 		var/trans = target.reagents.trans_to(src, amount_per_transfer_from_this, transfered_by = user)
-		to_chat(user, "<span class='notice'>You fill [src] with [trans] units of the contents of [target].</span>")
+		to_chat(user, "<span class='notice'>Заполняю [src] с [trans] единицами содержимого [target].</span>")
 
 	//Something like a glass or a food item. Player probably wants to transfer TO it.
 	else if(target.is_drainable() || IS_EDIBLE(target))
 		if(!reagents.total_volume)
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] is empty!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] пуст!</span>")
 			return
 		if(target.reagents.total_volume >= target.reagents.maximum_volume)
-			to_chat(user, "<span class='warning'>you can't add anymore to [target]!</span>")
+			to_chat(user, "<span class='warning'>Не могу добавить ничего больше в [target]!</span>")
 			return
 		var/trans = src.reagents.trans_to(target, amount_per_transfer_from_this, transfered_by = user)
-		to_chat(user, "<span class='notice'>You transfer [trans] units of the condiment to [target].</span>")
+		to_chat(user, "<span class='notice'>Переливаю [trans] единиц в [target].</span>")
 
 /obj/item/reagent_containers/food/condiment/enzyme
 	name = "universal enzyme"

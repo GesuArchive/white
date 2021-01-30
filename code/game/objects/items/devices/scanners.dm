@@ -480,13 +480,13 @@ GENE SCANNER
 		return
 
 	if(user.is_blind())
-		to_chat(user, "<span class='warning'>You realize that your scanner has no accessibility support for the blind!</span>")
+		to_chat(user, "<span class='warning'>Вспоминаю, что данный сканнер не умеет работать со слепыми!</span>")
 		return
 
 	var/render_list = ""
 	for(var/i in patient.get_wounded_bodyparts())
 		var/obj/item/bodypart/wounded_part = i
-		render_list += "<span class='alert ml-1'><b>Warning: Physical trauma[LAZYLEN(wounded_part.wounds) > 1? "s" : ""] detected in [wounded_part.name]</b>"
+		render_list += "<span class='alert ml-1'><b>Опасность: Физическ[LAZYLEN(wounded_part.wounds) > 1? "ие травмы" : "ая травма"] обнаружена в [ru_gde_zone(wounded_part.name)]</b>"
 		for(var/k in wounded_part.wounds)
 			var/datum/wound/W = k
 			render_list += "<div class='ml-2'>[W.get_scanner_description()]</div>\n"
@@ -496,9 +496,9 @@ GENE SCANNER
 		if(istype(scanner))
 			// Only emit the cheerful scanner message if this scan came from a scanner
 			playsound(scanner, 'sound/machines/ping.ogg', 50, FALSE)
-			to_chat(user, "<span class='notice'>\The [scanner] makes a happy ping and briefly displays a smiley face with several exclamation points! It's really excited to report that [patient] has no wounds!</span>")
+			to_chat(user, "<span class='notice'>[capitalize(scanner)] издаёт радостный пинг и выводит смешную рожицу с тремя восклицательными знаками! Это невероятно приятный отчёт о том, что [patient] не имеет травм!</span>")
 		else
-			to_chat(user, "<span class='notice ml-1'>No wounds detected in subject.</span>")
+			to_chat(user, "<span class='notice ml-1'>У пациента не найдено травм.</span>")
 	else
 		to_chat(user, jointext(render_list, ""))
 

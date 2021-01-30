@@ -164,7 +164,7 @@
 									"You feel an itch coming from behind your eyes.",
 									"Your eardrums itch.",
 									"You see tiny grey motes drifting in your field of view.")
-	var/volume_warnings_stage_5 = list("You feel sick.",
+	var/volume_warnings_stage_5 = list("Мне плохо.",
 									"You feel a dull pain from every part of your body.",
 									"You feel nauseous.")
 	var/volume_warnings_stage_6 = list("Your skin itches and burns.",

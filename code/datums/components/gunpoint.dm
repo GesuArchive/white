@@ -182,8 +182,8 @@
 		flinch_chance = 80
 
 	if(prob(flinch_chance))
-		shooter.visible_message("<span class='danger'>[shooter] flinches!</span>", \
-			"<span class='danger'>You flinch!</span>")
+		shooter.visible_message("<span class='danger'>[shooter] вздрагивает!</span>", \
+			"<span class='danger'>Вздрагиваю!</span>")
 		INVOKE_ASYNC(src, .proc/trigger_reaction)
 
 #undef GUNPOINT_SHOOTER_STRAY_RANGE

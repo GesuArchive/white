@@ -410,11 +410,12 @@ em {
   color: #e755db;
   font-weight: bold;
   font-size: 135%;
+  margin-left: 8px;
 }
 
 .danger {
   color: #fd5b5b;
-  margin-left: 4px;
+  margin-left: 8px;
 }
 
 .smalldanger {
@@ -426,6 +427,7 @@ em {
 .warning {
   color: #9d1b1b;
   font-style: italic;
+  margin-left: 4px;
 }
 
 .alertwarning {
@@ -962,7 +964,7 @@ em {
 .examine_block {
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(55, 55, 55, 0.33);
-  margin: 4px 8px;
+  margin: 7px 4px;
   padding: 8px 12px;
   max-width: 550px;
 }

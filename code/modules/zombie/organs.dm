@@ -50,7 +50,7 @@
 	if (causes_damage && !iszombie(owner) && owner.stat != DEAD)
 		owner.adjustToxLoss(0.5 * delta_time)
 		if(DT_PROB(5, delta_time))
-			to_chat(owner, "<span class='danger'>You feel sick...</span>")
+			to_chat(owner, "<span class='danger'>Мне плохо...</span>")
 	if(timer_id)
 		return
 	if(owner.suiciding)

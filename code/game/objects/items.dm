@@ -1102,7 +1102,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 			victim.transferItemToLoc(src, victim, TRUE)
 			victim.losebreath += 2
 			victim_cavity.cavity_item = src
-			to_chat(victim, "<span class='warning'>You swallow hard. [source_item? "Something small was in \the [source_item]..." : ""]</span>")
+			to_chat(victim, "<span class='warning'>Проглатываю что-то жёсткое. [source_item? "Это было в [source_item]..." : ""]</span>")
 		discover_after = FALSE
 
 	else
