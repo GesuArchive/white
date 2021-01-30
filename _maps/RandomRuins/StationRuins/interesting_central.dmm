@@ -4881,6 +4881,16 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
+"Se" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/airalarm{
+	dir = 8;
+	pixel_x = 23
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "Sw" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -6330,8 +6340,8 @@ aj
 aj
 aj
 aA
+Se
 aj
-eD
 aj
 cw
 "}
