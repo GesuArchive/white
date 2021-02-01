@@ -41,7 +41,7 @@
 		if(prefs.muted & MUTE_LOOC)
 			to_chat(src, "<span class='danger'>Не хочу писать в LOOC.</span>")
 			return
-		if(src.shadowbanned_ooc || is_banned_from(ckey, "OOC"))
+		if(is_banned_from(ckey, "OOC"))
 			to_chat(src, "<span class='danger'>Я точно не хочу писать в LOOC.</span>")
 			return
 

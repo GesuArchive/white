@@ -3344,7 +3344,6 @@
 #include "interface\stylesheet.dm"
 #include "interface\skin.dmf"
 #include "white\adv_who.dm"
-#include "white\antiwhining.dm"
 #include "white\R3801U710N.dm"
 #include "white\webhook.dm"
 #include "white\adept\cerebullum_altering_pill.dm"

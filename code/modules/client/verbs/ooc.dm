@@ -51,9 +51,6 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		to_chat(src, "<span class='danger'>Тебе нельзя.</span>")
 		return
 
-	if(!src.shadowbanned_ooc)
-		whiningcheck(src, msg)
-
 	//lobby ooc
 	var/tagmsg = "bepis"
 	if(isnewplayer(mob))
@@ -75,7 +72,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		if(isnewplayer(mob) && !isnewplayer(C.mob))
 			if(!C.holder)
 				continue
-		if(src.shadowbanned_ooc || is_banned_from(ckey, "OOC"))
+		if(is_banned_from(ckey, "OOC"))
 			if(!(C == src))
 				continue
 			else
@@ -102,7 +99,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 					to_chat(C, "<font color='[GLOB.OOC_COLOR]'><b><span class='prefix'>[tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></b></font>")
 				else
 					to_chat(C, "<span class='ooc'><span class='prefix'>[tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></span>")
-	if(src.shadowbanned_ooc || isnewplayer(mob))
+	if(isnewplayer(mob))
 		return
 	webhook_send_ooc(key, msg)
 
