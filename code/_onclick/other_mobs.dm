@@ -45,8 +45,6 @@
 	if(interaction_flags_atom & INTERACT_ATOM_ATTACK_HAND)
 		. = _try_interact(user)
 
-	zashkvar_check(user, src)
-
 //Return a non FALSE value to cancel whatever called this from propagating, if it respects it.
 /atom/proc/_try_interact(mob/user)
 	if(isAdminGhostAI(user))		//admin abuse

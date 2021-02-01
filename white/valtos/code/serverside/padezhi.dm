@@ -54,87 +54,52 @@
 		to_ret += " [sklonenie_do(word, rule, gender)]"
 	return to_ret
 
+GLOBAL_LIST_INIT(PfemaleOneStop, 		list("б","в","г","д","ж","з","й","к","л","м","н","п","р","с","т","ф","х","ц","ч","ш","щ","ъ","ь"))
+GLOBAL_LIST_INIT(POneStop, 				list("о","е","ё","э","и","ы","у","ю"))
+GLOBAL_LIST_INIT(PTwoStop, 				list("ия","иа","аа","оа","уа","ыа","еа","юа","эа","их","ых"))
+GLOBAL_LIST_INIT(PfemaleOneFrom, 		list("ь"))
+GLOBAL_LIST_INIT(PfemaleOneTo, 			list("и","и","ь","ю","и"))
+GLOBAL_LIST_INIT(PmaleOneFrom, 			list("ь"))
+GLOBAL_LIST_INIT(PmaleOneTo, 			list("я","ю","я","ем","е"))
+GLOBAL_LIST_INIT(PfemaleTwoFrom, 		list("ая","на"))
+GLOBAL_LIST_INIT(PfemaleTwoTo, 			list("ой","ой","ую","ой","ой","ой","ой","у","ой","ой"))
+GLOBAL_LIST_INIT(PfemaleThreeFrom, 		list("ска","цка"))
+GLOBAL_LIST_INIT(PfemaleThreeTo, 		list("ой","ой","ую","ой","ой"))
+GLOBAL_LIST_INIT(POneFrom, 				list("а","ь","я","й"))
+GLOBAL_LIST_INIT(POneTo, 				list("ы","е","у","ой","е","я","ю","я","ем","е","и","у","ю","ей","е","я","ю","я","ем","е"))
+GLOBAL_LIST_INIT(POneListFrom, 			list("ц","ч","ш","щ"))
+GLOBAL_LIST_INIT(POneListTo, 			list("а","у","а","ем","е"))
+GLOBAL_LIST_INIT(POneListOtherFrom, 	list("б","в","г","д","ж","з","к","л","м","н","п","р","с","т","ф","х","ц","ч"))
+GLOBAL_LIST_INIT(POneListOtherTo, 		list("а","у","а","ом","е"))
+GLOBAL_LIST_INIT(POneListTooFrom, 		list("в","н"))
+GLOBAL_LIST_INIT(POneListTooTo, 		list("а","у","а","ым","е"))
+GLOBAL_LIST_INIT(PTwoFrom, 				list("ич","ша","ия","ей","ий","на","уй","ца","ай","ой","ок","ец"))
+GLOBAL_LIST_INIT(PTwoTo, 				list("а", "у", "а", "ем", "е","и", "е", "у", "ей", "е","и", "и", "ю", "ей", "и","я", "ю", "я", "ем", "е","я", "ю", "я", "ем", "и","ы", "е", "у", "ой", "е","я", "ю", "я", "ем", "е","ы", "е", "у", "её", "е","я", "ю", "я", "ем", "е","го","му","го","ым", "м","ка","ку","ка","ком","ке","ца","цу","ца","цом","це"))
+GLOBAL_LIST_INIT(PTwoListFrom, 			list("га","ка","ха","ча","ща","жа"))
+GLOBAL_LIST_INIT(PTwoListTo, 			list("и","е","у","ой","е"))
+GLOBAL_LIST_INIT(PTwoListOtherFrom, 	list("ян","ан","йн","ах","ив"))
+GLOBAL_LIST_INIT(PTwoListOtherTo, 		list("а","у","а","ом","е"))
+GLOBAL_LIST_INIT(PThreeFrom, 			list("рих"))
+GLOBAL_LIST_INIT(PThreeTo, 				list("а","у","а","ом","е"))
+GLOBAL_LIST_INIT(PThreeListFrom, 		list("ова","ева"))
+GLOBAL_LIST_INIT(PThreeListTo, 			list("ой","ой","у","ой","ой"))
+GLOBAL_LIST_INIT(PThreeListOtherFrom, 	list("гой","кой"))
+GLOBAL_LIST_INIT(PThreeListOtherTo, 	list("го","му","го","им","м"))
+GLOBAL_LIST_INIT(PThreeListTooFrom,		list("ший","щий","жий","ний"))
+GLOBAL_LIST_INIT(PThreeListTooTo, 		list("его","ему","его","м","ем"))
+GLOBAL_LIST_INIT(POtherListTo, 			list("ого","ому","ого","м","ом"))
+GLOBAL_LIST_INIT(PFourFrom, 			list("ская"))
+GLOBAL_LIST_INIT(PFourTo, 				list("ой","ой","ую","ой","ой"))
+GLOBAL_LIST_INIT(PFourOtherFrom, 		list("иной"))
+GLOBAL_LIST_INIT(PFourOtherTo, 			list("я","ю","я","ем","е"))
+GLOBAL_LIST_INIT(PFourListFrom, 		list("ынец","обец"))
+GLOBAL_LIST_INIT(PFourListTo, 			list("ца","цу","ца","цем","це"))
+GLOBAL_LIST_INIT(PFourListOtherFrom, 	list("онец","овец"))
+GLOBAL_LIST_INIT(PFourListOtherTo, 		list("ца","цу","ца","цом","це"))
+
 /proc/sklonenie_do(msgfrom as text, rule, gender = null)
 	if(length(msgfrom) <= 2)
 		return msgfrom
-	var/list/femaleOneStop = list("б","в","г","д","ж","з","й","к","л","м","н","п","р","с","т","ф","х","ц","ч","ш","щ","ъ","ь")
-	var/list/OneStop = list("о","е","ё","э","и","ы","у","ю")
-	var/list/TwoStop = list("ия","иа","аа","оа","уа","ыа","еа","юа","эа","их","ых")
-
-	var/list/femaleOneFrom = list("ь") // -1 but, VINITELNI and TVORITELNI are 0
-	var/list/femaleOneTo = list("и","и","ь","ю","и")
-
-	var/list/maleOneFrom = list("ь") // -1
-	var/list/maleOneTo = list("я","ю","я","ем","е")
-
-	var/list/femaleTwoFrom = list("ая","на")
-	var/list/femaleTwoTo = list("ой","ой","ую","ой","ой", // -2
-								"ой","ой","у","ой","ой") // -1
-
-	var/list/femaleThreeFrom = list("ска","цка") // -1
-	var/list/femaleThreeTo = list("ой","ой","ую","ой","ой")
-
-	var/list/OneFrom = list("а","ь","я","й") // -1
-	var/list/OneTo = list("ы","е","у","ой","е",
-						  "я","ю","я","ем","е",
-						  "и","у","ю","ей","е",
-						  "я","ю","я","ем","е")
-
-	var/list/OneListFrom = list("ц","ч","ш","щ") // 0
-	var/list/OneListTo = list("а","у","а","ем","е")
-
-	var/list/OneListOtherFrom = list("б","в","г","д","ж","з","к","л","м","н","п","р","с","т","ф","х","ц","ч") // 0
-	var/list/OneListOtherTo = list("а","у","а","ом","е")
-
-	var/list/OneListTooFrom = list("в","н") // 0
-	var/list/OneListTooTo = list("а","у","а","ым","е")
-
-	var/list/TwoFrom = list("ич","ша","ия","ей","ий","на","уй","ца","ай","ой","ок","ец") //supreme shenanigans
-	var/list/TwoTo = list("а", "у", "а", "ем", "е", // 0   0
-						  "и", "е", "у", "ей", "е", // -1  1
-						  "и", "и", "ю", "ей", "и", // -1  2
-						  "я", "ю", "я", "ем", "е", // -1  3
-						  "я", "ю", "я", "ем", "и", // -1  4
-						  "ы", "е", "у", "ой", "е", // -1  5
-						  "я", "ю", "я", "ем", "е", // -1  6
-						  "ы", "е", "у", "её", "е", // -1  7
-						  "я", "ю", "я", "ем", "е", // -1  8
-						  "го","му","го","ым", "м", // -1  9
-						  "ка","ку","ка","ком","ке", // -2 10
-						  "ца","цу","ца","цом","це") // -2 11
-
-	var/list/TwoListFrom = list("га","ка","ха","ча","ща","жа") // -1
-	var/list/TwoListTo = list("и","е","у","ой","е")
-
-	var/list/TwoListOtherFrom = list("ян","ан","йн","ах","ив") // 0
-	var/list/TwoListOtherTo = list("а","у","а","ом","е")
-
-	var/list/ThreeFrom = list("рих") // 0
-	var/list/ThreeTo =  list("а","у","а","ом","е")
-
-	var/list/ThreeListFrom = list("ова","ева") // -1
-	var/list/ThreeListTo = list("ой","ой","у","ой","ой")
-
-	var/list/ThreeListOtherFrom = list("гой","кой") // -1 but -2 at TVORITELNI
-	var/list/ThreeListOtherTo = list("го","му","го","им","м")
-
-	var/list/ThreeListTooFrom = list("ший","щий","жий","ний") // -2 but -1 at TVORITELNI
-	var/list/ThreeListTooTo = list("его","ему","его","м","ем")
-
-	// OtherListFrom = list("кий", "ый")
-	var/list/OtherListTo = list("ого","ому","ого","м","ом") // -2 but -1 at TVORITELNI
-
-	var/list/FourFrom = list("ская") // -2
-	var/list/FourTo = list("ой","ой","ую","ой","ой")
-
-	var/list/FourOtherFrom = list("иной") // -1
-	var/list/FourOtherTo = list("я","ю","я","ем","е")
-
-	var/list/FourListFrom = list("ынец","обец") // -2
-	var/list/FourListTo = list("ца","цу","ца","цем","це")
-
-	var/list/FourListOtherFrom = list("онец","овец") // -2
-	var/list/FourListOtherTo = list("ца","цу","ца","цом","це")
 
 	var/word_end = ""
 	var/i = 0
@@ -142,144 +107,144 @@
 	//берём последние 2 буквы
 	word_end = copytext_char(msgfrom, -2)
 
-	for(var/end in TwoStop)
+	for(var/end in GLOB.PTwoStop)
 		if(end == word_end)
 			return msgfrom
 
 	//берём последнюю букву
 	word_end = copytext_char(msgfrom, -1)
 
-	for(var/end in OneStop)
+	for(var/end in GLOB.POneStop)
 		if(end == word_end)
 			return msgfrom
 
 	if(gender == "male")
-		for(var/end in maleOneFrom)
+		for(var/end in GLOB.PmaleOneFrom)
 			if(end == word_end)
-				return replacetext_char(msgfrom, copytext_char(end, -1), maleOneTo[rule], -1)
+				return replacetext_char(msgfrom, copytext_char(end, -1), GLOB.PmaleOneTo[rule], -1)
 
 	if(gender == "female")
 		//берём последние 3 буквы
 		word_end = copytext_char(msgfrom, -3)
 
-		for(var/end in femaleThreeFrom)
+		for(var/end in GLOB.PfemaleThreeFrom)
 			if(end == word_end)
-				return replacetext_char(msgfrom, copytext_char(end, -1), femaleThreeTo[rule], -3)
+				return replacetext_char(msgfrom, copytext_char(end, -1), GLOB.PfemaleThreeTo[rule], -3)
 
 		//берём последние 2 буквы
 		word_end = copytext_char(msgfrom, -2)
 
-		for(var/end in femaleTwoFrom)
+		for(var/end in GLOB.PfemaleTwoFrom)
 			if(end == word_end)
 				if(i == 0)
-					return replacetext_char(msgfrom, copytext_char(end, -2), femaleTwoTo[rule], -2)
+					return replacetext_char(msgfrom, copytext_char(end, -2), GLOB.PfemaleTwoTo[rule], -2)
 				else
-					return replacetext_char(msgfrom, copytext_char(end, -1), femaleTwoTo[rule + 5], -2)
+					return replacetext_char(msgfrom, copytext_char(end, -1), GLOB.PfemaleTwoTo[rule + 5], -2)
 			i++
 
-		for(var/end in femaleOneFrom)
+		for(var/end in GLOB.PfemaleOneFrom)
 			if(end == word_end)
 				if(rule == VINITELNI || rule == TVORITELNI)
-					return "[msgfrom][femaleOneTo[rule]]"
-				return replacetext_char(msgfrom, copytext_char(end, -1), femaleOneTo[rule], -1)
+					return "[msgfrom][GLOB.PfemaleOneTo[rule]]"
+				return replacetext_char(msgfrom, copytext_char(end, -1), GLOB.PfemaleOneTo[rule], -1)
 
-		for(var/end in femaleOneStop)
+		for(var/end in GLOB.PfemaleOneStop)
 			if(end == word_end)
 				return msgfrom
 
 	//берём последние 4 буквы
 	word_end = copytext_char(msgfrom, -4)
 
-	for(var/end in FourFrom)
+	for(var/end in GLOB.PFourFrom)
 		if(end == word_end)
-			return replacetext_char(msgfrom, copytext_char(end, -2), FourTo[rule], -4)
+			return replacetext_char(msgfrom, copytext_char(end, -2), GLOB.PFourTo[rule], -4)
 
-	for(var/end in FourOtherFrom)
+	for(var/end in GLOB.PFourOtherFrom)
 		if(end == word_end)
-			return replacetext_char(msgfrom, copytext_char(end, -1), FourOtherTo[rule], -4)
+			return replacetext_char(msgfrom, copytext_char(end, -1), GLOB.PFourOtherTo[rule], -4)
 
-	for(var/end in FourListFrom)
+	for(var/end in GLOB.PFourListFrom)
 		if(end == word_end)
-			return replacetext_char(msgfrom, copytext_char(end, -2), FourListTo[rule], -4)
+			return replacetext_char(msgfrom, copytext_char(end, -2), GLOB.PFourListTo[rule], -4)
 
-	for(var/end in FourListOtherFrom)
+	for(var/end in GLOB.PFourListOtherFrom)
 		if(end == word_end)
-			return replacetext_char(msgfrom, copytext_char(end, -2), FourListOtherTo[rule], -4)
+			return replacetext_char(msgfrom, copytext_char(end, -2), GLOB.PFourListOtherTo[rule], -4)
 
 	//берём последние 3 буквы
 	word_end = copytext_char(msgfrom, -3)
 
-	for(var/end in ThreeFrom)
+	for(var/end in GLOB.PThreeFrom)
 		if(end == word_end)
-			return "[msgfrom][ThreeTo[rule]]"
+			return "[msgfrom][GLOB.PThreeTo[rule]]"
 
-	for(var/end in ThreeListFrom)
+	for(var/end in GLOB.PThreeListFrom)
 		if(end == word_end)
-			return replacetext_char(msgfrom, copytext_char(end, -1), ThreeListTo[rule], -3)
+			return replacetext_char(msgfrom, copytext_char(end, -1), GLOB.PThreeListTo[rule], -3)
 
-	for(var/end in ThreeListOtherFrom)
+	for(var/end in GLOB.PThreeListOtherFrom)
 		if(end == word_end)
 			if(rule == TVORITELNI)
-				return replacetext_char(msgfrom, copytext_char(end, -2), ThreeListOtherTo[rule], -3)
-			return replacetext_char(msgfrom, copytext_char(end, -1), ThreeListOtherTo[rule], -3)
+				return replacetext_char(msgfrom, copytext_char(end, -2), GLOB.PThreeListOtherTo[rule], -3)
+			return replacetext_char(msgfrom, copytext_char(end, -1), GLOB.PThreeListOtherTo[rule], -3)
 
-	for(var/end in ThreeListTooFrom)
+	for(var/end in GLOB.PThreeListTooFrom)
 		if(end == word_end)
 			if(rule == TVORITELNI)
-				return replacetext_char(msgfrom, copytext_char(end, -1), ThreeListTooTo[rule], -3)
-			return replacetext_char(msgfrom, copytext_char(end, -2), ThreeListTooTo[rule], -3)
+				return replacetext_char(msgfrom, copytext_char(end, -1), GLOB.PThreeListTooTo[rule], -3)
+			return replacetext_char(msgfrom, copytext_char(end, -2), GLOB.PThreeListTooTo[rule], -3)
 
 	if("кий" == word_end)
 		if(rule == TVORITELNI)
-			return replacetext_char(msgfrom, copytext_char("кий", -1), OtherListTo[rule], -3)
-		return replacetext_char(msgfrom, copytext_char("кий", -2), OtherListTo[rule], -3)
+			return replacetext_char(msgfrom, copytext_char("кий", -1), GLOB.POtherListTo[rule], -3)
+		return replacetext_char(msgfrom, copytext_char("кий", -2), GLOB.POtherListTo[rule], -3)
 
 	//берём последние 2 буквы
 	word_end = copytext_char(msgfrom, -2)
 
 	i = 0
-	for(var/end in TwoFrom)
+	for(var/end in GLOB.PTwoFrom)
 		if(end == word_end)
 			if(i == 0)
-				return "[msgfrom][TwoTo[rule]]"
+				return "[msgfrom][GLOB.PTwoTo[rule]]"
 			if(i <= 9)
-				return replacetext_char(msgfrom, copytext_char(end, -1), TwoTo[rule + (5 * i)], -2)
+				return replacetext_char(msgfrom, copytext_char(end, -1), GLOB.PTwoTo[rule + (5 * i)], -2)
 			else
-				return replacetext_char(msgfrom, copytext_char(end, -2), TwoTo[rule + (5 * i)], -2)
+				return replacetext_char(msgfrom, copytext_char(end, -2), GLOB.PTwoTo[rule + (5 * i)], -2)
 		i++
 
-	for(var/end in TwoListFrom)
+	for(var/end in GLOB.PTwoListFrom)
 		if(end == word_end)
-			return replacetext_char(msgfrom, copytext_char(end, -1), TwoListTo[rule], -2)
+			return replacetext_char(msgfrom, copytext_char(end, -1), GLOB.PTwoListTo[rule], -2)
 
-	for(var/end in TwoListOtherFrom)
+	for(var/end in GLOB.PTwoListOtherFrom)
 		if(end == word_end)
-			return "[msgfrom][TwoListOtherTo[rule]]"
+			return "[msgfrom][GLOB.PTwoListOtherTo[rule]]"
 
 	if("ый" == word_end)
 		if(rule == TVORITELNI)
-			return replacetext_char(msgfrom, copytext_char("ый", -1), OtherListTo[rule], -2)
-		return replacetext_char(msgfrom, copytext_char("ый", -2), OtherListTo[rule], -2)
+			return replacetext_char(msgfrom, copytext_char("ый", -1), GLOB.POtherListTo[rule], -2)
+		return replacetext_char(msgfrom, copytext_char("ый", -2), GLOB.POtherListTo[rule], -2)
 
 	//берём последюю букву
 	word_end = copytext_char(msgfrom, -1)
 
 	i = 0
-	for(var/end in OneFrom)
+	for(var/end in GLOB.POneFrom)
 		if(end == word_end)
-			return replacetext_char(msgfrom, copytext_char(end, -1), OneTo[rule + (5 * i)], -1)
+			return replacetext_char(msgfrom, copytext_char(end, -1), GLOB.POneTo[rule + (5 * i)], -1)
 		i++
 
-	for(var/end in OneListFrom)
+	for(var/end in GLOB.POneListFrom)
 		if(end == word_end)
-			return "[msgfrom][OneListTo[rule]]"
+			return "[msgfrom][GLOB.POneListTo[rule]]"
 
-	for(var/end in OneListOtherFrom)
+	for(var/end in GLOB.POneListOtherFrom)
 		if(end == word_end)
-			return "[msgfrom][OneListOtherTo[rule]]"
+			return "[msgfrom][GLOB.POneListOtherTo[rule]]"
 
-	for(var/end in OneListTooFrom)
+	for(var/end in GLOB.POneListTooFrom)
 		if(end == word_end)
-			return "[msgfrom][OneListTooTo[rule]]"
+			return "[msgfrom][GLOB.POneListTooTo[rule]]"
 
 	return msgfrom // возвращаем слово, если оно чудом не нашло своего конца
