@@ -20,6 +20,8 @@
 	var/stage = 0
 	/// The proc used to handle the parent [/atom] when processing. TODO: Unify damage and resistance flags so that this doesn't need to exist!
 	var/datum/callback/process_effect
+	/// The icon state intended to be used for the acid component. Used to override the default acid overlay icon state.
+	var/custom_acid_overlay = null
 
 /datum/component/acid/Initialize(_acid_power, _acid_volume, _max_volume=null)
 	if((_acid_power) <= 0 || (_acid_volume <= 0))
@@ -149,7 +151,7 @@
 /datum/component/acid/proc/on_update_overlays(atom/parent_atom, list/overlays)
 	SIGNAL_HANDLER
 
-	overlays += mutable_appearance('icons/effects/acid.dmi', parent_atom.custom_acid_overlay || ACID_OVERLAY_DEFAULT)
+	overlays += mutable_appearance('icons/effects/acid.dmi', custom_acid_overlay || ACID_OVERLAY_DEFAULT)
 
 /// Alerts any examiners to the acid on the parent atom.
 /datum/component/acid/proc/on_examine(atom/A, mob/user, list/examine_list)

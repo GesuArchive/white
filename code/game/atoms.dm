@@ -78,9 +78,6 @@
 	/// Radiation insulation types
 	var/rad_insulation = RAD_NO_INSULATION
 
-	/// The icon state intended to be used for the acid component. Used to override the default acid overlay icon state.
-	var/custom_acid_overlay = null
-
 	///The custom materials this atom is made of, used by a lot of things like furniture, walls, and floors (if I finish the functionality, that is.)
 	///The list referenced by this var can be shared by multiple objects and should not be directly modified. Instead, use [set_custom_materials][/atom/proc/set_custom_materials].
 	var/list/custom_materials
@@ -92,10 +89,6 @@
 	var/datum/wires/wires = null
 
 	var/list/alternate_appearances
-
-
-	/// Last appearance of the atom for demo saving purposes
-	var/image/demo_last_appearance
 
 	///Light systems, both shouldn't be active at the same time.
 	var/light_system = STATIC_LIGHT
@@ -118,8 +111,6 @@
 	var/chat_color_name
 	/// Last color calculated for the the chatmessage overlays
 	var/chat_color
-	/// A luminescence-shifted value of the last color calculated for chatmessage overlays
-	var/chat_color_darkened
 
 	///Default pixel x shifting for the atom's icon.
 	var/base_pixel_x = 0
