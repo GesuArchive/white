@@ -177,14 +177,14 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 //Maintenance - Generic
 
 /area/maintenance/aft
-	name = "Техтоннели: Корма"
+	name = "Техтоннели: Кормовые"
 	icon_state = "amaint"
 
 /area/maintenance/aft/upper
-	name = "Техтоннели: Верхняя корма"
+	name = "Техтоннели: Верхние кормовые"
 
 /area/maintenance/aft/secondary
-	name = "Техтоннели: Вторичная корма"
+	name = "Техтоннели: Вторичные кормовые"
 	icon_state = "amaint_2"
 
 /area/maintenance/central
@@ -196,14 +196,14 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "maintcentral"
 
 /area/maintenance/fore
-	name = "Техтоннели: Нос"
+	name = "Техтоннели: Носовые"
 	icon_state = "fmaint"
 
 /area/maintenance/fore/upper
-	name = "Техтоннели: Верхний нос"
+	name = "Техтоннели: Верхние носовые"
 
 /area/maintenance/fore/secondary
-	name = "Техтоннели: Вторичный нос"
+	name = "Техтоннели: Вторичные носовые"
 	icon_state = "fmaint_2"
 
 /area/maintenance/starboard
@@ -222,11 +222,11 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "smaint_2"
 
 /area/maintenance/starboard/aft
-	name = "Техтоннели: Корма правого борта"
+	name = "Техтоннели: Кормовой правый борт"
 	icon_state = "asmaint"
 
 /area/maintenance/starboard/aft/secondary
-	name = "Техтоннели: Вторичная корма правого борта"
+	name = "Техтоннели: Вторичный кормовой правый борт"
 	icon_state = "asmaint_2"
 
 /area/maintenance/starboard/fore
@@ -278,11 +278,11 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Коридоры"
 
 /area/hallway/primary/aft
-	name = "Коридоры: Корма"
+	name = "Коридоры: Кормовые"
 	icon_state = "hallA"
 
 /area/hallway/primary/fore
-	name = "Коридоры: Нос"
+	name = "Коридоры: Носовые"
 	icon_state = "hallF"
 
 /area/hallway/primary/starboard
@@ -659,12 +659,12 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_SPACE
 
 /area/solar/fore
-	name = "Солнечные панели: Нос"
+	name = "Солнечные панели: Носовые"
 	icon_state = "yellow"
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/solar/aft
-	name = "Солнечные панели: Корма"
+	name = "Солнечные панели: Кормовые"
 	icon_state = "yellow"
 
 /area/solar/aux/port
@@ -1384,7 +1384,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "amaint"
 
 /area/maintenance/external/aft
-	name = "Обшивка: Корма"
+	name = "Обшивка: Кормовая"
 
 /area/maintenance/external/port
 	name = "Обшивка: Порт"
