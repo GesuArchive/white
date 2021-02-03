@@ -2,7 +2,7 @@
 	name = "вилочный погрузчик"
 	desc = "Для детей от 18-ти лет."
 	icon = 'white/valtos/icons/forklift.dmi'
-	icon_state = "forklift"
+	icon_state = "pog"
 	layer = LYING_MOB_LAYER
 	var/static/mutable_appearance/overlay = mutable_appearance(icon, "forklift_cover", ABOVE_MOB_LAYER)
 	max_drivers = 1
