@@ -10,7 +10,7 @@
 	max_buckled_mobs = 1
 	pixel_y = 0
 	pixel_x = -24
-	var/picking_up = FALSE
+	var/fork_on = FALSE
 
 /obj/vehicle/sealed/car/driftcar/Initialize()
 	. = ..()
@@ -19,6 +19,7 @@
 	D.vehicle_move_delay = movedelay
 	D.set_vehicle_dir_offsets(EAST, -16, 0)
 	D.set_vehicle_dir_offsets(WEST, -24, 0)
+	initialize_controller_action_type(/datum/action/vehicle/sealed/forkmove, VEHICLE_CONTROL_DRIVE)
 
 /datum/component/riding/vehicle/forklift
 	vehicle_move_delay = 2
@@ -59,3 +60,18 @@
 	for(var/atom/A in range(1, src))
 		if(!(A in buckled_mobs))
 			Bump(A)
+
+/datum/action/vehicle/sealed/forkmove
+	name = "Переключить вилку"
+	desc = "Вжжжжжжжжжжжжжжжжжжжж!"
+	button_icon_state = "skateboard_ollie"
+
+/datum/action/vehicle/sealed/forkmove/Trigger()
+	if(!vehicle_target.fork_on)
+		flick("pog_lift_anim", vehicle_target)
+		vehicle_target.icon_state = "pog_lift"
+		vehicle_target.overlay = mutable_appearance(vehicle_target.icon, "pog_lift_overlay", ABOVE_MOB_LAYER)
+	else
+		flick("pog_anim", vehicle_target)
+		vehicle_target.icon_state = "pog"
+		vehicle_target.overlay = mutable_appearance(vehicle_target.icon, "pog_overlay", ABOVE_MOB_LAYER)
