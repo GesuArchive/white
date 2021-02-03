@@ -67,11 +67,12 @@
 	button_icon_state = "skateboard_ollie"
 
 /datum/action/vehicle/sealed/forkmove/Trigger()
-	if(!vehicle_target.fork_on)
-		flick("pog_lift_anim", vehicle_target)
-		vehicle_target.icon_state = "pog_lift"
-		vehicle_target.overlay = mutable_appearance(vehicle_target.icon, "pog_lift_overlay", ABOVE_MOB_LAYER)
+	var//obj/vehicle/ridden/forklift/FL = vehicle_target
+	if(!FL.fork_on)
+		flick("pog_lift_anim", FL)
+		FL.icon_state = "pog_lift"
+		FL.overlay = mutable_appearance(FL.icon, "pog_lift_overlay", ABOVE_MOB_LAYER)
 	else
-		flick("pog_anim", vehicle_target)
-		vehicle_target.icon_state = "pog"
-		vehicle_target.overlay = mutable_appearance(vehicle_target.icon, "pog_overlay", ABOVE_MOB_LAYER)
+		flick("pog_anim", FL)
+		FL.icon_state = "pog"
+		FL.overlay = mutable_appearance(FL.icon, "pog_overlay", ABOVE_MOB_LAYER)
