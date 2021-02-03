@@ -91,7 +91,7 @@
 	sharpness = SHARP_EDGED
 	icon_state = "teeth_xeno"
 	max_amount = 48
-	merge_type = /obj/item/stack/teeth/xeon
+	merge_type = /obj/item/stack/teeth/xeno
 
 /datum/design/replacement_teeth
 	name = "Искуственный зуб"
