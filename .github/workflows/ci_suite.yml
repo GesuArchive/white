@@ -112,8 +112,3 @@ jobs:
         run: |
           md deploy
           bash tools/deploy.sh ./deploy
-      - name: Deploy artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: deploy
-          path: deploy
