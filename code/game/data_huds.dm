@@ -244,8 +244,10 @@ Security HUDs! Basic mode shows only the job.
 	holder.icon_state = "hudno_id"
 	if(wear_id?.GetID())
 		var/jobid = r_jobgen(wear_id.GetJobName())
-		if(jobid == "russianofficer" || jobid == "veteran" || jobid == "internationalofficer" || jobid == "trader" || jobid == "hacker" || jobid == "механик")
+		if(jobid in GLOB.white_job_list)
 			holder.icon = 'white/valtos/icons/hud.dmi'
+		if(jobid == "механик")
+			jobid = "mechanic"
 		holder.icon_state = "hud[r_jobgen(wear_id.GetJobName())]"
 	sec_hud_set_security_status()
 

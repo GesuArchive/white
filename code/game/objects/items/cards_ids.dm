@@ -305,8 +305,11 @@
 	if(registered_name && registered_name != "Captain")
 		. += mutable_appearance(icon, "assigned")
 	if(job)
-		if(job == "russianofficer" || job == "veteran" || job == "internationalofficer" || job == "trader" || job == "hacker" || job == "механик")
-			. += mutable_appearance('white/valtos/icons/card.dmi', "id[job]")
+		if(job in GLOB.white_job_list)
+			if(job = "механик")
+				. += mutable_appearance('white/valtos/icons/card.dmi', "idmechanic")
+			else
+				. += mutable_appearance('white/valtos/icons/card.dmi', "id[job]")
 		else
 			. += mutable_appearance(icon, "id[job]")
 

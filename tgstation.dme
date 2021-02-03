@@ -3650,6 +3650,7 @@
 #include "white\valtos\code\guns\traumat.dm"
 #include "white\valtos\code\jobs\bomj.dm"
 #include "white\valtos\code\jobs\hacker.dm"
+#include "white\valtos\code\jobs\job_defines.dm"
 #include "white\valtos\code\jobs\mechanic.dm"
 #include "white\valtos\code\jobs\russian.dm"
 #include "white\valtos\code\jobs\trader.dm"
