@@ -13,7 +13,6 @@
 /obj/machinery/door/airlock/titanium{
 	name = "Emergency Shuttle Airlock"
 	},
-/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
 "ag" = (
@@ -31,7 +30,6 @@
 	name = "Meta emergency shuttle";
 	width = 25
 	},
-/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
 "al" = (
@@ -932,7 +930,7 @@ be
 cc
 be
 be
-Gp
+bf
 "}
 (6,1,1) = {"
 ac
@@ -948,7 +946,7 @@ bf
 bT
 be
 be
-Gp
+bf
 "}
 (7,1,1) = {"
 ac
