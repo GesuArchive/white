@@ -67,7 +67,7 @@
 	button_icon_state = "skateboard_ollie"
 
 /datum/action/vehicle/sealed/forkmove/Trigger()
-	var//obj/vehicle/ridden/forklift/FL = vehicle_target
+	var/obj/vehicle/ridden/forklift/FL = vehicle_target
 	if(!FL.fork_on)
 		flick("pog_lift_anim", FL)
 		FL.icon_state = "pog_lift"
