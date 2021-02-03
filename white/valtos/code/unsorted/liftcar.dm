@@ -10,7 +10,7 @@
 	max_buckled_mobs = 1
 	var/fork_on = FALSE
 
-/obj/vehicle/sealed/car/forklift/Initialize()
+/obj/vehicle/ridden/forklift/Initialize()
 	. = ..()
 	var/datum/component/riding/D = LoadComponent(/datum/component/riding)
 	D.vehicle_move_delay = movedelay
@@ -21,11 +21,11 @@
 	initialize_controller_action_type(/datum/action/vehicle/sealed/forkmove, VEHICLE_CONTROL_PERMISSION)
 	switch(dir)
 		if(NORTH, SOUTH)
-			bound_width = 0
-			bound_height = 32
-		if(WEST, EAST)
 			bound_width = 32
-			bound_height = 0
+			bound_height = 64
+		if(WEST, EAST)
+			bound_width = 64
+			bound_height = 32
 
 /datum/component/riding/vehicle/forklift
 	vehicle_move_delay = 2
@@ -65,11 +65,11 @@
 		return
 	switch(dir)
 		if(NORTH, SOUTH)
-			bound_width = 0
-			bound_height = 32
-		if(WEST, EAST)
 			bound_width = 32
-			bound_height = 0
+			bound_height = 64
+		if(WEST, EAST)
+			bound_width = 64
+			bound_height = 32
 	for(var/atom/A in range(1, src))
 		if(!(A in buckled_mobs))
 			Bump(A)
