@@ -306,7 +306,7 @@
 		. += mutable_appearance(icon, "assigned")
 	if(job)
 		if(job in GLOB.white_job_list)
-			if(job = "механик")
+			if(job == "механик")
 				. += mutable_appearance('white/valtos/icons/card.dmi', "idmechanic")
 			else
 				. += mutable_appearance('white/valtos/icons/card.dmi', "id[job]")
