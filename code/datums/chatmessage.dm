@@ -305,7 +305,7 @@
 		if(5)
 			return "#[num2hex(c, 2)][num2hex(m, 2)][num2hex(x, 2)]"
 
-/proc/hsv2rgb(var/hue, var/sat, var/val)
+/proc/hsv2rgb(hue, sat, val)
 	val *= 255
 	if(sat <= 0)
 		return rgb(val, val, val)

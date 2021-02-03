@@ -111,8 +111,8 @@ SUBSYSTEM_DEF(economy)
 	return inflation_value
 
 /**
-  * Прок для получения выплат за покуику товаров
-  **/
+ * Прок для получения выплат за покуику товаров
+ **/
 /datum/controller/subsystem/economy/proc/adjust_cargo_money(amount, source, slave, product)
 	var/datum/bank_account/D = get_dep_account(ACCOUNT_CAR)
 	if(D)

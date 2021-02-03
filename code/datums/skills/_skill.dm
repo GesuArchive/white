@@ -28,7 +28,7 @@ GLOBAL_LIST_INIT(skill_types, subtypesof(/datum/skill))
 	"<span class='nicegreen'>Я гораздо лучше понимаю [name]!</span>",
 	"<span class='nicegreen'>Я уже неплохо справляюсь с таким навыком как [name]!</span>",
 	"<span class='nicegreen'>После долгих практик и упорного обучения, я теперь почти \
-	 превосходно понимаю что такое [name]. Могу называть себя [title].</span>",
+	превосходно понимаю что такое [name]. Могу называть себя [title].</span>",
 	"<span class='nicegreen'>Благодаря невероятной решимости и усилиям я достиг пика в развитии [name]. Я наконец могу считать себя легендарным [title]!</span>" )
 	levelDownMessages = list("<span class='nicegreen'>Я как-то полностью потерял понимание [name]. Сообщите администратору, если увидите это.</span>",
 	"<span class='nicegreen'>Я начинаю забывать что такое [name]. Нужно больше практики...</span>",

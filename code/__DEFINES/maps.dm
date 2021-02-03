@@ -79,23 +79,23 @@ require only minor tweaks.
 	ZTRAIT_BOMBCAP_MULTIPLIER = 8, \
 	ZTRAIT_BASETURF = /turf/open/lava/smooth/lava_land_surface)
 #define ZTRAITS_GENSOKYO list(\
-    ZTRAIT_MINING = TRUE, \
-    ZTRAIT_GENSOKYO_RUINS = TRUE, \
-    ZTRAIT_BOMBCAP_MULTIPLIER = 8, \
-    ZTRAIT_BASETURF = /turf/open/floor/grass/gensgrass)
+	ZTRAIT_MINING = TRUE, \
+	ZTRAIT_GENSOKYO_RUINS = TRUE, \
+	ZTRAIT_BOMBCAP_MULTIPLIER = 8, \
+	ZTRAIT_BASETURF = /turf/open/floor/grass/gensgrass)
 #define ZTRAITS_ICEMOON list(\
-    ZTRAIT_MINING = TRUE, \
-    ZTRAIT_SNOWSTORM = TRUE, \
-    ZTRAIT_ICE_RUINS = TRUE, \
-    ZTRAIT_BOMBCAP_MULTIPLIER = 8, \
-    ZTRAIT_DOWN = -1, \
-    ZTRAIT_BASETURF = /turf/open/floor/plating/asteroid/snow/ice)
+	ZTRAIT_MINING = TRUE, \
+	ZTRAIT_SNOWSTORM = TRUE, \
+	ZTRAIT_ICE_RUINS = TRUE, \
+	ZTRAIT_BOMBCAP_MULTIPLIER = 8, \
+	ZTRAIT_DOWN = -1, \
+	ZTRAIT_BASETURF = /turf/open/floor/plating/asteroid/snow/ice)
 #define ZTRAITS_ICEMOON_UNDERGROUND list(\
-    ZTRAIT_MINING = TRUE, \
-    ZTRAIT_ICE_RUINS_UNDERGROUND = TRUE, \
-    ZTRAIT_BOMBCAP_MULTIPLIER = 8, \
-    ZTRAIT_UP = 1, \
-    ZTRAIT_BASETURF = /turf/open/lava/plasma/ice_moon)
+	ZTRAIT_MINING = TRUE, \
+	ZTRAIT_ICE_RUINS_UNDERGROUND = TRUE, \
+	ZTRAIT_BOMBCAP_MULTIPLIER = 8, \
+	ZTRAIT_UP = 1, \
+	ZTRAIT_BASETURF = /turf/open/lava/plasma/ice_moon)
 
 #define DL_NAME "name"
 #define DL_TRAITS "traits"

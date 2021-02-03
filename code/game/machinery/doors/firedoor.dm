@@ -123,7 +123,7 @@
 			return
 		if(C.tool_behaviour == TOOL_SCREWDRIVER)
 			user.visible_message("<span class='notice'>[user] [boltslocked ? "разблокирует" : "блокирует"] болты [src].</span>", \
-				 "<span class='notice'>[boltslocked ? "Разблокирую" : "Блокирую"] напольные болты [src].</span>")
+				"<span class='notice'>[boltslocked ? "Разблокирую" : "Блокирую"] напольные болты [src].</span>")
 			C.play_tool_sound(src)
 			boltslocked = !boltslocked
 			return

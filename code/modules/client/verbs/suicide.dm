@@ -185,7 +185,7 @@
 		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		var/turf/T = get_turf(src.loc)
 		T.visible_message("<span class='notice'>[capitalize(src.name)] flashes a message across its screen, \"Wiping core files. Please acquire a new personality to continue using pAI device functions.\"</span>", null, \
-		 	"<span class='notice'>[capitalize(src.name)] bleeps electronically.</span>")
+			"<span class='notice'>[capitalize(src.name)] bleeps electronically.</span>")
 
 		suicide_log()
 

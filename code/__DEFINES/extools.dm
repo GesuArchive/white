@@ -17,15 +17,15 @@
 	or call resolve() on the /datum/promise to receive the return value at any time.
 	Example:
 	var/x = call_wait("sample.dll", "do_work", "arg1", "arg2", "arg3")
-	 - Calls the do_work function from sample.dll with 3 arguments. The proc sleeps until do_work returns.
+	- Calls the do_work function from sample.dll with 3 arguments. The proc sleeps until do_work returns.
 	var/datum/promise/P = call_async("sample.dll", "do_work", "arg1")
 	... do something else ...
 	var/result = P.resolve()
-	 - Calls do_work with 1 argument. Returns a promise object. Runs some other code before calling P.resolve() to obtain the result.
+	- Calls do_work with 1 argument. Returns a promise object. Runs some other code before calling P.resolve() to obtain the result.
 	/proc/print_result(result)
 		world << result
 	call_cb("sample.dll", "do_work", /proc/print_result, "arg1", "arg2")
-	 - Calls do_work with 2 arguments. The callback is invoked with the result as the single argument. Execution resumes immediately.
+	- Calls do_work with 2 arguments. The callback is invoked with the result as the single argument. Execution resumes immediately.
 */
 
 #if 0

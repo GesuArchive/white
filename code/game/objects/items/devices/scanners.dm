@@ -121,9 +121,9 @@ GENE SCANNER
 		user.visible_message("<span class='warning'>[user] анализирует жизненные показатели пола!</span>", \
 							"<span class='notice'>Глупо анализирую показатели пола!</span>")
 		to_chat(user, "<span class='info'>Результаты анализа пола:\n\tОбщий статус: <b>Здоров</b></span>\
-					 \n<span class='info'>Тип: <font color='blue'>Удушение</font>/<font color='green'>Токсины</font>/<font color='#FF8000'>Ожоги</font>/<font color='red'>Травмы</font></span>\
-					 \n<span class='info'>\tПоказатели: <font color='blue'>0</font>-<font color='green'>0</font>-<font color='#FF8000'>0</font>-<font color='red'>0</font></span>\
-					 \n<span class='info'>Температура тела: ???</span>")
+					\n<span class='info'>Тип: <font color='blue'>Удушение</font>/<font color='green'>Токсины</font>/<font color='#FF8000'>Ожоги</font>/<font color='red'>Травмы</font></span>\
+					\n<span class='info'>\tПоказатели: <font color='blue'>0</font>-<font color='green'>0</font>-<font color='#FF8000'>0</font>-<font color='red'>0</font></span>\
+					\n<span class='info'>Температура тела: ???</span>")
 		return
 
 	if(ispodperson(M) && !advanced)
@@ -724,7 +724,7 @@ GENE SCANNER
 
 		if(cached_scan_results && cached_scan_results["fusion"]) //notify the user if a fusion reaction was detected
 			render_list += "<span class='boldnotice'>Огромные объёмы нейтронов обнаружены в воздухе. Похоже тут происходит фьюжен.</span>\
-						 \n<span class='notice'>Нестабильность последней фьюжен-реакции: [round(cached_scan_results["fusion"], 0.01)].</span>"
+						\n<span class='notice'>Нестабильность последней фьюжен-реакции: [round(cached_scan_results["fusion"], 0.01)].</span>"
 
 	to_chat(user, jointext(render_list, "\n")) // we let the join apply newlines so we do need handholding
 	return TRUE
@@ -771,19 +771,19 @@ GENE SCANNER
 		if (T.slime_mutation[3] == T.slime_mutation[4])
 			if (T.slime_mutation[2] == T.slime_mutation[1])
 				to_render += "\nВозможная мутация: [T.slime_mutation[3]]\
-							  \nНестабильность: [T.mutation_chance/2]% мутация при делении"
+							\nНестабильность: [T.mutation_chance/2]% мутация при делении"
 			else
 				to_render += "\nВозможная мутация: [T.slime_mutation[1]], [T.slime_mutation[2]], [T.slime_mutation[3]] (x2)\
-							  \nНестабильность: [T.mutation_chance]% мутация при делении"
+							\nНестабильность: [T.mutation_chance]% мутация при делении"
 		else
 			to_render += "\nВозможная мутация: [T.slime_mutation[1]], [T.slime_mutation[2]], [T.slime_mutation[3]], [T.slime_mutation[4]]\
-						  \nНестабильность: [T.mutation_chance]% мутация при делении"
+						\nНестабильность: [T.mutation_chance]% мутация при делении"
 	if (T.cores > 1)
 		to_render += "\nОбнаружено несколько ядер"
 	to_render += "\nРост: [T.amount_grown]/[SLIME_EVOLUTION_THRESHOLD]"
 	if(T.effectmod)
 		to_render += "\n<span class='notice'>Мутация ядер в процессе: [T.effectmod]</span>\
-					  \n<span class='notice'>Прогрмесс в мутации ядер: [T.applied] / [SLIME_EXTRACT_CROSSING_REQUIRED]</span>"
+					\n<span class='notice'>Прогрмесс в мутации ядер: [T.applied] / [SLIME_EXTRACT_CROSSING_REQUIRED]</span>"
 	to_chat(user, to_render + "\n========================")
 
 
