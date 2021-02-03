@@ -1,5 +1,5 @@
 SUBSYSTEM_DEF(title)
-	name = "Title Screen"
+	name = "Заставки"
 	flags = SS_NO_FIRE
 	init_order = INIT_ORDER_TITLE
 

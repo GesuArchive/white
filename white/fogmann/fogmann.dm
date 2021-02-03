@@ -123,7 +123,7 @@
 	l_pocket = /obj/item/ammo_box/magazine/m9mm
 	r_pocket = /obj/item/ammo_box/magazine/m9mm
 	back = /obj/item/storage/backpack/duffelbag/drone
-	backpack_contents = list(/obj/item/gun/ballistic/automatic/m90/columbine)
+	backpack_contents = list(/obj/item/gun/ballistic/automatic/m90/columbine = 1)
 
 //fluff
 /obj/item/storage/belt/chameleon/bomb

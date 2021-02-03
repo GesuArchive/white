@@ -409,6 +409,7 @@
 	icon = 'white/valtos/icons/prison/prison.dmi'
 	icon_state = "tile_beton"
 	turf_type = /turf/open/floor/beton
+	merge_type = /obj/item/stack/tile/beton
 
 /obj/item/stack/tile/trot
 	name = "кусок асфальта"
@@ -417,6 +418,7 @@
 	icon = 'white/valtos/icons/prison/prison.dmi'
 	icon_state = "tile_trot"
 	turf_type = /turf/open/floor/trot
+	merge_type = /obj/item/stack/tile/trot
 
 /********************Plants***************************/
 

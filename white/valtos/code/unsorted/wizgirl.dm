@@ -28,5 +28,3 @@
 	shoes = /obj/item/clothing/shoes/wizgirl
 	l_pocket = /obj/item/storage/pill_bottle/krokodil
 	r_pocket = /obj/item/storage/pill_bottle/crank
-
-	box = /obj/item/storage/box/survival

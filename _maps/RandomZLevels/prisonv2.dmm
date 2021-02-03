@@ -1750,12 +1750,10 @@
 /area/prisonv2)
 "fV" = (
 /obj/structure/table/prison,
-/obj/item/food/oatmealcookie,
 /turf/open/floor/carpet,
 /area/prisonv2)
 "fW" = (
 /obj/structure/table/prison,
-/obj/item/food/pumpkinpieslice,
 /turf/open/floor/carpet,
 /area/prisonv2)
 "fX" = (

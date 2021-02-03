@@ -57,7 +57,8 @@
 	return
 
 /obj/projectile/beam/laser/heavylaser/penetrator
-	movement_type = FLYING | PHASING
+	projectile_piercing = PASSMOB
+	projectile_phasing = (ALL & (~PASSMOB))
 	range = 12
 
 /obj/item/melee/classic_baton/dildon

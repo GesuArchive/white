@@ -10,6 +10,7 @@
 	mag_type = /obj/item/ammo_box/magazine/m9mm
 	burst_size = 1
 	fire_delay = 0.5
+	w_class = WEIGHT_CLASS_NORMAL
 /*
 /datum/outfit/schoolshooter
 	name = "Schoolshooter"

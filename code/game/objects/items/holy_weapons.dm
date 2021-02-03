@@ -402,7 +402,7 @@
 	icon_state = "multiverse"
 	inhand_icon_state = "multiverse"
 	worn_icon_state = "multiverse"
-	slot_flags = ITEM_SLOT_BACK
+	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	force = 15
 
 /obj/item/nullrod/claymore/multiverse/melee_attack_chain(mob/user, atom/target, params)

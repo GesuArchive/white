@@ -8,6 +8,7 @@
 	desc = "Кто-то потерял зуб. Класс."
 	icon = 'white/valtos/icons/teeth.dmi'
 	icon_state = "teeth"
+	merge_type = /obj/item/stack/teeth
 
 /obj/item/stack/teeth/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] jams [src] into \his eyes! It looks like \he's trying to commit suicide.</span>")
@@ -16,6 +17,7 @@
 /obj/item/stack/teeth/human
 	name = "человеческие зубы"
 	singular_name = "человеческие зубы"
+	merge_type = /obj/item/stack/teeth/human
 
 /obj/item/stack/teeth/human/Initialize()
 	. = ..()
@@ -26,15 +28,18 @@
 	singular_name = "золотой зуб"
 	desc = "Кто-то потратился на это."
 	icon_state = "teeth_gold"
+	merge_type = /obj/item/stack/teeth/human/gold
 
 /obj/item/stack/teeth/human/wood
 	name = "деревянные зубы"
 	singular_name = "деревянный зуб"
 	desc = "Сделано из самой худшей древесины."
 	icon_state = "teeth_wood"
+	merge_type = /obj/item/stack/teeth/human/wood
 
 /obj/item/stack/teeth/generic //Used for species without unique teeth defined yet
 	name = "зуб"
+	merge_type = /obj/item/stack/teeth/generic
 
 /obj/item/stack/teeth/generic/Initialize()
 	. = ..()
@@ -48,6 +53,7 @@
 	icon_state = "dentals"
 	custom_materials = list(/datum/material/iron = 250)
 	material_flags = MATERIAL_ADD_PREFIX | MATERIAL_COLOR | MATERIAL_AFFECT_STATISTICS//Can change color and add prefix
+	merge_type = /obj/item/stack/teeth/replacement
 
 /obj/item/stack/teeth/replacement/Initialize()
 	. = ..()
@@ -59,6 +65,7 @@
 	desc = "Трофейный."
 	sharpness = SHARP_EDGED
 	icon_state = "teeth_cat"
+	merge_type = /obj/item/stack/teeth/cat
 
 /obj/item/stack/teeth/cat/Initialize()
 	. = ..()
@@ -70,6 +77,7 @@
 	desc = "Достаточно острый."
 	sharpness = SHARP_EDGED
 	icon_state = "teeth_cat"
+	merge_type = /obj/item/stack/teeth/lizard
 
 /obj/item/stack/teeth/lizard/Initialize()
 	. = ..()
@@ -83,6 +91,7 @@
 	sharpness = SHARP_EDGED
 	icon_state = "teeth_xeno"
 	max_amount = 48
+	merge_type = /obj/item/stack/teeth/xeon
 
 /datum/design/replacement_teeth
 	name = "Искуственный зуб"
