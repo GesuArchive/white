@@ -10,23 +10,6 @@
 	max_buckled_mobs = 1
 	var/fork_on = FALSE
 
-/obj/vehicle/ridden/forklift/Initialize()
-	. = ..()
-	var/datum/component/riding/D = LoadComponent(/datum/component/riding)
-	D.vehicle_move_delay = movedelay
-	D.set_vehicle_dir_offsets(NORTH, 0, -4)
-	D.set_vehicle_dir_offsets(SOUTH, 0, -12)
-	D.set_vehicle_dir_offsets(EAST, -11, -12)
-	D.set_vehicle_dir_offsets(WEST, -28, -12)
-	initialize_controller_action_type(/datum/action/vehicle/sealed/forkmove, VEHICLE_CONTROL_PERMISSION)
-	switch(dir)
-		if(NORTH, SOUTH)
-			bound_width = 32
-			bound_height = 64
-		if(WEST, EAST)
-			bound_width = 64
-			bound_height = 32
-
 /datum/component/riding/vehicle/forklift
 	vehicle_move_delay = 2
 	ride_check_flags = RIDER_NEEDS_LEGS | RIDER_NEEDS_ARMS | UNBUCKLE_DISABLED_RIDER
@@ -35,11 +18,23 @@
 	. = ..()
 	for(var/i in GLOB.cardinals)
 		set_vehicle_dir_layer(i, BELOW_MOB_LAYER)
+	set_vehicle_dir_offsets(NORTH, 0, -4)
+	set_vehicle_dir_offsets(SOUTH, 0, -12)
+	set_vehicle_dir_offsets(EAST, -11, -12)
+	set_vehicle_dir_offsets(WEST, -28, -12)
 
 /obj/vehicle/ridden/forklift/Initialize()
 	. = ..()
 	add_overlay(overlay)
 	AddElement(/datum/element/ridable, /datum/component/riding/vehicle/forklift)
+	initialize_controller_action_type(/datum/action/vehicle/forkmove, VEHICLE_CONTROL_PERMISSION)
+	switch(dir)
+		if(NORTH, SOUTH)
+			bound_width = 32
+			bound_height = 64
+		if(WEST, EAST)
+			bound_width = 64
+			bound_height = 32
 
 /obj/vehicle/ridden/forklift/Bump(atom/A)
 	. = ..()
@@ -74,12 +69,12 @@
 		if(!(A in buckled_mobs))
 			Bump(A)
 
-/datum/action/vehicle/sealed/forkmove
+/datum/action/vehicle/forkmove
 	name = "Переключить вилку"
 	desc = "Вжжжжжжжжжжжжжжжжжжжж!"
 	button_icon_state = "skateboard_ollie"
 
-/datum/action/vehicle/sealed/forkmove/Trigger()
+/datum/action/vehicle/forkmove/Trigger()
 	var/obj/vehicle/ridden/forklift/FL = vehicle_target
 	if(!FL.fork_on)
 		flick("pog_lift_anim", FL)
