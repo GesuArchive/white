@@ -12,6 +12,14 @@
 	pixel_x = -24
 	var/picking_up = FALSE
 
+/obj/vehicle/sealed/car/driftcar/Initialize()
+	. = ..()
+	var/datum/component/riding/D = LoadComponent(/datum/component/riding)
+	D.set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, -8), TEXT_SOUTH = list(0, 4), TEXT_EAST = list(-10, 5), TEXT_WEST = list( 10, 5)))
+	D.vehicle_move_delay = movedelay
+	D.set_vehicle_dir_offsets(EAST, -16, 0)
+	D.set_vehicle_dir_offsets(WEST, -24, 0)
+
 /datum/component/riding/vehicle/forklift
 	vehicle_move_delay = 2
 	ride_check_flags = RIDER_NEEDS_LEGS | RIDER_NEEDS_ARMS | UNBUCKLE_DISABLED_RIDER
