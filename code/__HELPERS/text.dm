@@ -352,17 +352,11 @@
 		text = copytext_char(text, 1, max_length)
 	return trim_left(trim_right(text))
 
-/*
-//Returns a string with the first element of the string capitalized.
-/proc/capitalize(t as text)
-    return uppertext(copytext_char(t, 1, 2)) + copytext_char(t, 2)
-*/
-
-//Returns a string with the first element of the string capitalized.
-/proc/capitalize(t as text)
+/proc/capitalize(t)
+	. = t
 	if(t)
-		t = uppertext(t[1]) + copytext(t, 1 + length(t[1]))
-	return t
+		. = t[1]
+		return uppertext(.) + copytext(t, 1 + length(.))
 
 //Returns a string with the first element of the every word of the string capitalized.
 /proc/capitalize_words(text)

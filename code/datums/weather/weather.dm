@@ -12,7 +12,7 @@
 	var/name = "space wind"
 	/// description of weather
 	var/desc = "Сильные порывы ветра покрывают территорию, периодически сбивая с ног всех, кто попал на открытую площадку."
-    /// The message displayed in chat to foreshadow the weather's beginning
+	/// The message displayed in chat to foreshadow the weather's beginning
 	var/telegraph_message = "<span class='warning'>Ветер начинает подниматься.</span>"
 	/// In deciseconds, how long from the beginning of the telegraph until the weather begins
 	var/telegraph_duration = 300
