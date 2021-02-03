@@ -4,7 +4,7 @@
 	icon = 'white/valtos/icons/forklift.dmi'
 	icon_state = "pog"
 	layer = LYING_MOB_LAYER
-	var/static/mutable_appearance/overlay = mutable_appearance(icon, "forklift_cover", ABOVE_MOB_LAYER)
+	var/static/mutable_appearance/overlay = mutable_appearance(icon, "pog_overlay", ABOVE_MOB_LAYER)
 	max_drivers = 1
 	max_occupants = 1
 	max_buckled_mobs = 1
