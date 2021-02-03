@@ -247,8 +247,9 @@ Security HUDs! Basic mode shows only the job.
 		if(jobid in GLOB.white_job_list)
 			holder.icon = 'white/valtos/icons/hud.dmi'
 		if(jobid == "механик")
-			jobid = "mechanic"
-		holder.icon_state = "hud[r_jobgen(wear_id.GetJobName())]"
+			holder.icon_state = "hudmechanic"
+		else
+			holder.icon_state = "hud[r_jobgen(wear_id.GetJobName())]"
 	sec_hud_set_security_status()
 
 /mob/living/proc/sec_hud_set_implants()
