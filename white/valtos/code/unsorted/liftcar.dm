@@ -28,13 +28,6 @@
 	add_overlay(overlay)
 	AddElement(/datum/element/ridable, /datum/component/riding/vehicle/forklift)
 	initialize_controller_action_type(/datum/action/vehicle/forkmove, VEHICLE_CONTROL_PERMISSION)
-	switch(dir)
-		if(NORTH, SOUTH)
-			bound_width = 32
-			bound_height = 64
-		if(WEST, EAST)
-			bound_width = 64
-			bound_height = 32
 
 /obj/vehicle/ridden/forklift/Bump(atom/A)
 	. = ..()
@@ -58,13 +51,6 @@
 	. = ..()
 	if(!has_buckled_mobs())
 		return
-	switch(dir)
-		if(NORTH, SOUTH)
-			bound_width = 32
-			bound_height = 64
-		if(WEST, EAST)
-			bound_width = 64
-			bound_height = 32
 	for(var/atom/A in range(1, src))
 		if(!(A in buckled_mobs))
 			Bump(A)
