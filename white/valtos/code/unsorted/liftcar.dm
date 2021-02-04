@@ -9,6 +9,10 @@
 	max_occupants = 1
 	max_buckled_mobs = 1
 	var/fork_on = FALSE
+	var/forkbusy = FALSE
+	var/motherfucker = FALSE
+
+	var/atom/movable/THING
 
 /datum/component/riding/vehicle/forklift
 	vehicle_move_delay = 2
@@ -18,11 +22,11 @@
 	. = ..()
 	for(var/i in GLOB.cardinals)
 		set_vehicle_dir_layer(i, BELOW_MOB_LAYER)
-	set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, -8), TEXT_SOUTH = list(0, 4), TEXT_EAST = list(-10, 5), TEXT_WEST = list( 10, 5)))
-	set_vehicle_dir_offsets(NORTH, 0, -4)
-	set_vehicle_dir_offsets(SOUTH, 0, -12)
-	set_vehicle_dir_offsets(EAST, -11, -12)
-	set_vehicle_dir_offsets(WEST, -28, -12)
+	set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 4), TEXT_SOUTH = list(0, 6), TEXT_EAST = list(-2, 11), TEXT_WEST = list(2, 11)))
+	set_vehicle_dir_offsets(NORTH, 0, 0)
+	set_vehicle_dir_offsets(SOUTH, 0, -10)
+	set_vehicle_dir_offsets(EAST, -13, 0)
+	set_vehicle_dir_offsets(WEST, -26, 0)
 
 /obj/vehicle/ridden/forklift/Initialize()
 	. = ..()
@@ -32,29 +36,63 @@
 
 /obj/vehicle/ridden/forklift/Bump(atom/A)
 	. = ..()
-	var/turf/target = loc
-	if (!isturf(target))
-		return
-	if (locate(/obj/structure/table) in target.contents)
-		return
-	var/i = 1
-	var/turf/target_turf = get_step(target, dir)
-	for(var/obj/garbage in target.contents)
-		if(!garbage.anchored && garbage != src)
-			garbage.Move(target_turf, dir)
-			i++
-		if(i > BROOM_PUSH_LIMIT)
-			break
-	if(i > 1)
-		playsound(loc, 'sound/weapons/thudswoosh.ogg', 30, TRUE, -1)
 
-/obj/vehicle/ridden/forklift/Moved()
+/obj/vehicle/ridden/forklift/Move()
+	if(THING)
+		var/turf/T = get_step(get_turf(src), dir)
+		if(isclosedturf(T))
+			return FALSE
+		THING.forceMove(T)
 	. = ..()
-	if(!has_buckled_mobs())
+
+/obj/vehicle/ridden/forklift/proc/toggle_fork()
+	if(forkbusy)
 		return
-	for(var/atom/A in range(1, src))
-		if(!(A in buckled_mobs))
-			Bump(A)
+	canmove = FALSE
+	forkbusy = TRUE
+	if(!fork_on)
+		flick("pog_lift_anim", src)
+		icon_state = "pog_lift"
+		overlay = mutable_appearance(icon, "pog_lift_overlay", ABOVE_MOB_LAYER)
+		addtimer(CALLBACK(src, .proc/toggle_busy), 20)
+		playsound(src, 'sound/vehicles/clowncar_cannonmode2.ogg', 75)
+		visible_message("<span class='danger'>[capitalize(src.name)] поднимает вилку.</span>")
+		fork_on = TRUE
+		pick_front()
+	else
+		flick("pog_anim", src)
+		icon_state = "pog"
+		overlay = mutable_appearance(src, "pog_overlay", ABOVE_MOB_LAYER)
+		addtimer(CALLBACK(src, .proc/toggle_busy), 20)
+		playsound(src, 'sound/vehicles/clowncar_cannonmode1.ogg', 75)
+		visible_message("<span class='danger'>[capitalize(src.name)] опускает вилку.</span>")
+		fork_on = FALSE
+		drop_front()
+
+/obj/vehicle/ridden/forklift/proc/toggle_busy()
+	canmove = TRUE
+	forkbusy = FALSE
+
+/obj/vehicle/ridden/forklift/proc/pick_front()
+	if(THING)
+		return
+	var/turf/T = get_step(get_turf(src), dir)
+	if(motherfucker)
+		for(var/mob/M in T)
+			THING = M
+			break
+	else
+		for(var/obj/structure/S in T)
+			THING = S
+			break
+	if(THING)
+		THING.pixel_y = 32
+
+/obj/vehicle/ridden/forklift/proc/drop_front()
+	if(THING)
+		THING.forceMove(get_step(get_turf(src), dir))
+		THING.pixel_y = THING.base_pixel_y
+		THING = null
 
 /datum/action/vehicle/forkmove
 	name = "Переключить вилку"
@@ -63,13 +101,4 @@
 
 /datum/action/vehicle/forkmove/Trigger()
 	var/obj/vehicle/ridden/forklift/FL = vehicle_target
-	if(!FL.fork_on)
-		flick("pog_lift_anim", FL)
-		FL.icon_state = "pog_lift"
-		FL.overlay = mutable_appearance(FL.icon, "pog_lift_overlay", ABOVE_MOB_LAYER)
-		FL.fork_on = TRUE
-	else
-		flick("pog_anim", FL)
-		FL.icon_state = "pog"
-		FL.overlay = mutable_appearance(FL.icon, "pog_overlay", ABOVE_MOB_LAYER)
-		FL.fork_on = FALSE
+	FL.toggle_fork()
