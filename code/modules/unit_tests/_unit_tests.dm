@@ -49,6 +49,7 @@
 #include "component_tests.dm"
 #include "confusion.dm"
 #include "designs.dm"
+#include "dynamic_ruleset_sanity.dm"
 #include "emoting.dm"
 #include "heretic_knowledge.dm"
 #include "holidays.dm"
