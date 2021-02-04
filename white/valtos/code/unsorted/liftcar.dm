@@ -18,6 +18,7 @@
 	. = ..()
 	for(var/i in GLOB.cardinals)
 		set_vehicle_dir_layer(i, BELOW_MOB_LAYER)
+	set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, -8), TEXT_SOUTH = list(0, 4), TEXT_EAST = list(-10, 5), TEXT_WEST = list( 10, 5)))
 	set_vehicle_dir_offsets(NORTH, 0, -4)
 	set_vehicle_dir_offsets(SOUTH, 0, -12)
 	set_vehicle_dir_offsets(EAST, -11, -12)
