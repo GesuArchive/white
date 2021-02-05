@@ -49,7 +49,7 @@
 		if(mob_obstacle.move_resist <= move_force)
 			step(A, dir)
 
-/obj/vehicle/ridden/forklift/after_move(direction)
+/obj/vehicle/ridden/forklift/Moved(direction)
 	if(THING)
 		var/turf/T = get_step(get_turf(src), direction)
 		if(isclosedturf(T))
