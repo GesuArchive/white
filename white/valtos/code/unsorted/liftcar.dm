@@ -36,10 +36,22 @@
 
 /obj/vehicle/ridden/forklift/Bump(atom/A)
 	. = ..()
+	if(.)
+		return
+	if(!A.density || !has_buckled_mobs())
+		return
+	if(isobj(A))
+		var/obj/obj_obstacle = A
+		if(!obj_obstacle.anchored && obj_obstacle.move_resist <= move_force)
+			step(A, dir)
+	else if(ismob(A))
+		var/mob/mob_obstacle = A
+		if(mob_obstacle.move_resist <= move_force)
+			step(A, dir)
 
-/obj/vehicle/ridden/forklift/Move()
+/obj/vehicle/ridden/forklift/after_move(direction)
 	if(THING)
-		var/turf/T = get_step(get_turf(src), dir)
+		var/turf/T = get_step(get_turf(src), direction)
 		if(isclosedturf(T))
 			return FALSE
 		THING.forceMove(T)
@@ -82,7 +94,9 @@
 			THING = M
 			break
 	else
-		for(var/obj/structure/S in T)
+		for(var/obj/S in T)
+			if(S.invisibility != 0 || S.layer = WIRE_LAYER || (S.resistance_flags & INDESTRUCTIBLE))
+				continue
 			THING = S
 			break
 	if(THING)
