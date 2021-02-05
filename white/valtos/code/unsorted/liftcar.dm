@@ -95,7 +95,7 @@
 			break
 	else
 		for(var/obj/S in T)
-			if(S.invisibility != 0 || S.layer = WIRE_LAYER || (S.resistance_flags & INDESTRUCTIBLE))
+			if(S.invisibility != 0 || S.layer == WIRE_LAYER || (S.resistance_flags & INDESTRUCTIBLE))
 				continue
 			THING = S
 			break
