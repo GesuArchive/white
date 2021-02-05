@@ -42,6 +42,7 @@
 	name = "External Access";
 	req_access_txt = "13"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "aal" = (
@@ -14046,6 +14047,7 @@
 /obj/machinery/door/airlock/external{
 	req_access_txt = "13"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/fore/secondary)
 "blq" = (
@@ -30092,7 +30094,7 @@
 /turf/open/floor/plasteel,
 /area/security/courtroom)
 "cXK" = (
-/turf/open/floor/plasteel,
+/turf/open/floor/plating,
 /area/maintenance/disposal/incinerator)
 "cYU" = (
 /obj/structure/cable,
@@ -34507,16 +34509,9 @@
 /turf/open/floor/plasteel,
 /area/storage/primary)
 "lKr" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/atmos{
-	name = "Turbine Access";
-	req_access_txt = "24"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/maintenance/disposal/incinerator)
+/obj/structure/lattice,
+/turf/open/openspace,
+/area/science/xenobiology)
 "lLp" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -34918,13 +34913,11 @@
 /turf/open/floor/plasteel,
 /area/crew_quarters/locker)
 "mSR" = (
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 4
-	},
 /obj/machinery/door/airlock/external{
 	name = "External Access";
 	req_access_txt = "13"
 	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "mTi" = (
@@ -36236,7 +36229,7 @@
 	name = "Atmospherics External Airlock";
 	req_access_txt = "24"
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plating,
 /area/maintenance/disposal/incinerator)
 "pyz" = (
 /obj/structure/table,
@@ -37331,10 +37324,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plasteel,
 /area/vacant_room/commissary)
-"rFI" = (
-/obj/structure/table,
-/turf/open/floor/plating,
-/area/maintenance/aft)
 "rFU" = (
 /obj/machinery/door/airlock/atmos/glass{
 	name = "Atmospherics Laboratory";
@@ -39342,7 +39331,7 @@
 	req_access_txt = "24"
 	},
 /obj/structure/fans/tiny,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating,
 /area/maintenance/disposal/incinerator)
 "vwG" = (
 /turf/open/floor/engine/vacuum,
@@ -79945,7 +79934,7 @@ aaa
 aaa
 aaa
 ahn
-ahn
+anF
 ahn
 jce
 and
@@ -80201,9 +80190,9 @@ aaa
 aaa
 aaa
 aaa
-alP
-alP
 ahn
+anF
+anF
 jce
 wAK
 arj
@@ -80458,8 +80447,8 @@ aaa
 aaa
 aaa
 nXv
-alO
-aqy
+alP
+alP
 alP
 cqp
 alP
@@ -80973,7 +80962,7 @@ aaa
 aaa
 nXv
 alO
-anf
+aqy
 alP
 aqy
 anf
@@ -81573,7 +81562,7 @@ bzs
 fKF
 bAw
 bAw
-bAw
+cdH
 ceF
 bzs
 gXs
@@ -81828,9 +81817,9 @@ rCU
 haX
 bzs
 uGA
-rFI
+bAw
+bAw
 bzs
-mSR
 bzs
 bzs
 nXv
@@ -82085,9 +82074,9 @@ rCU
 haX
 bzs
 wsx
-cdH
-bzs
 bAw
+bAw
+mSR
 bAw
 xhW
 nXv
@@ -82345,7 +82334,7 @@ viD
 bzs
 bzs
 bUU
-lKr
+bUU
 bUU
 xXh
 xXh
@@ -83342,10 +83331,10 @@ bIM
 bMl
 bMq
 xYx
-xYx
+lKr
 xYx
 fgW
-xYx
+lKr
 xYx
 bDb
 inq
@@ -83599,10 +83588,10 @@ bJH
 bMm
 cBz
 xYx
+lKr
 xYx
 xYx
-xYx
-xYx
+lKr
 xYx
 bDb
 izk
@@ -83856,10 +83845,10 @@ bEn
 bMm
 trt
 xYx
+lKr
 xYx
 xYx
-xYx
-xYx
+lKr
 xYx
 bDb
 jOX

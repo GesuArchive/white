@@ -5,6 +5,9 @@
 "aD" = (
 /turf/closed/wall,
 /area/maintenance/bottom_station_maints/north)
+"gf" = (
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints)
 "jH" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -14,6 +17,20 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
+"xZ" = (
+/obj/machinery/door/airlock/external{
+	name = "External Access";
+	req_access_txt = "13"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
+"BR" = (
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
+"DF" = (
+/turf/closed/wall/r_wall,
+/area/maintenance/bottom_station_maints)
 "Ws" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/bottom_station_maints/north)
@@ -1009,9 +1026,9 @@ YS
 Zl
 YS
 YS
-YS
-YS
-YS
+DF
+xZ
+DF
 "}
 (27,1,1) = {"
 ab
@@ -1046,10 +1063,10 @@ YS
 YS
 Zl
 YS
-YS
-YS
-YS
-YS
+DF
+DF
+BR
+DF
 "}
 (28,1,1) = {"
 ab
@@ -1084,10 +1101,10 @@ YS
 YS
 Zl
 YS
-YS
-YS
-YS
-YS
+DF
+gf
+BR
+DF
 "}
 (29,1,1) = {"
 ab
@@ -1122,10 +1139,10 @@ YS
 YS
 Zl
 YS
-YS
-YS
-YS
-YS
+DF
+gf
+BR
+DF
 "}
 (30,1,1) = {"
 ab

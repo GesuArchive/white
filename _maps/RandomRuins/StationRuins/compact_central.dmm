@@ -1034,16 +1034,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
-"cU" = (
-/obj/structure/fireaxecabinet{
-	pixel_y = -32
-	},
-/obj/effect/turf_decal/tile/blue,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/plasteel,
-/area/hallway/primary/central)
 "cV" = (
 /obj/machinery/computer/med_data{
 	dir = 1
@@ -2460,6 +2450,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/structure/ladder,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "hn" = (
@@ -4564,7 +4555,7 @@ bT
 aK
 QI
 fS
-cU
+dc
 as
 eB
 HD

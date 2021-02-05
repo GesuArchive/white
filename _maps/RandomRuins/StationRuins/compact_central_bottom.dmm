@@ -33,6 +33,9 @@
 /obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/heads/captain)
+"aU" = (
+/turf/closed/wall/r_wall,
+/area/maintenance/bottom_station_maints)
 "bd" = (
 /obj/machinery/light{
 	dir = 4
@@ -105,6 +108,10 @@
 /obj/structure/cable,
 /turf/open/space/basic,
 /area/space/nearstation)
+"dt" = (
+/obj/structure/rack,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "dO" = (
 /obj/machinery/status_display/evac,
 /turf/closed/wall/r_wall,
@@ -174,6 +181,10 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel/grimy,
 /area/crew_quarters/heads/captain)
+"gV" = (
+/obj/effect/spawner/lootdrop/grille_or_trash,
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints)
 "hk" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -649,6 +660,9 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
+"uV" = (
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints)
 "vr" = (
 /obj/machinery/porta_turret/ai{
 	dir = 4
@@ -736,6 +750,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
+"xH" = (
+/obj/structure/ladder,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "yg" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -1154,6 +1172,11 @@
 	},
 /turf/open/floor/plasteel/grimy,
 /area/crew_quarters/heads/captain)
+"GM" = (
+/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/structure/rack,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "Hh" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -1442,6 +1465,11 @@
 /obj/structure/cable,
 /turf/open/space/basic,
 /area/space/nearstation)
+"Pa" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "Pe" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -2554,13 +2582,13 @@ YS
 YS
 YS
 YS
+aU
+Pa
+Pa
+Pa
+aU
 YS
-Zl
-Zl
-Zl
-Zl
-Zl
-Zl
+YS
 "}
 (22,1,1) = {"
 ab
@@ -2591,13 +2619,13 @@ YS
 YS
 YS
 YS
-YS
-YS
-Zl
-YS
-YS
-YS
-YS
+aU
+aU
+GM
+GM
+dt
+aU
+aU
 YS
 "}
 (23,1,1) = {"
@@ -2629,14 +2657,14 @@ YS
 YS
 YS
 YS
-YS
-YS
-Zl
-YS
-YS
-YS
-YS
-YS
+Pa
+gV
+xH
+uV
+uV
+gV
+aU
+aU
 "}
 (24,1,1) = {"
 ab
@@ -2667,14 +2695,14 @@ YS
 YS
 YS
 YS
-YS
-YS
-Zl
-YS
-YS
-YS
-YS
-YS
+Pa
+gV
+uV
+uV
+uV
+uV
+uV
+aU
 "}
 (25,1,1) = {"
 ab
@@ -2705,14 +2733,14 @@ Zl
 Zl
 Zl
 Zl
-Zl
-Zl
-Zl
-Zl
-Zl
-Zl
-Zl
-Zl
+aU
+aU
+aU
+aU
+uV
+uV
+uV
+aU
 "}
 (26,1,1) = {"
 ab
@@ -2745,12 +2773,12 @@ YS
 YS
 YS
 YS
-Zl
 YS
-YS
-YS
-YS
-YS
+aU
+aU
+uV
+uV
+aU
 "}
 (27,1,1) = {"
 ab
@@ -2783,12 +2811,12 @@ YS
 YS
 YS
 YS
-Zl
 YS
 YS
-YS
-YS
-YS
+aU
+uV
+uV
+aU
 "}
 (28,1,1) = {"
 ab
@@ -2821,12 +2849,12 @@ YS
 YS
 YS
 YS
-Zl
 YS
 YS
-YS
-YS
-YS
+aU
+uV
+uV
+aU
 "}
 (29,1,1) = {"
 ab
@@ -2859,12 +2887,12 @@ YS
 YS
 YS
 YS
-Zl
 YS
 YS
-YS
-YS
-YS
+aU
+uV
+uV
+aU
 "}
 (30,1,1) = {"
 ab
