@@ -18,15 +18,15 @@
 	amount = 30
 
 /obj/item/stack/light_w/attackby(obj/item/O, mob/user, params)
-	if(istype(O, /obj/item/stack/sheet/metal))
-		var/obj/item/stack/sheet/metal/M = O
+	if(istype(O, /obj/item/stack/sheet/iron))
+		var/obj/item/stack/sheet/iron/M = O
 		if (M.use(1))
 			var/obj/item/L = new /obj/item/stack/tile/light(user.drop_location())
 			to_chat(user, "<span class='notice'>Создаю светоплитку.</span>")
 			L.add_fingerprint(user)
 			use(1)
 		else
-			to_chat(user, "<span class='warning'>Мне нужен один металлический лист, чтобы закончить светоплитку!</span>")
+			to_chat(user, "<span class='warning'>Мне нужен один железный лист, чтобы закончить светоплитку!</span>")
 	else
 		return ..()
 

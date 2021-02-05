@@ -129,7 +129,7 @@
 				W.play_tool_sound(src)
 				construction_state--
 				user.visible_message("[user] unsecures [src]'s core.", "You unsecure [src]'s core.")
-			else if(istype(W, /obj/item/stack/sheet/metal))
+			else if(istype(W, /obj/item/stack/sheet/iron))
 				. = TRUE
 				if(ST.use(5))
 					user.visible_message("[user] fabricates a pressure bulkhead for [src].", "You frabricate a pressure bulkhead for [src].")
@@ -141,7 +141,7 @@
 				. = TRUE
 				W.play_tool_sound(src)
 				construction_state--
-				var/obj/item/stack/sheet/metal/five/M = new
+				var/obj/item/stack/sheet/iron/five/M = new
 				M.forceMove(loc)
 				user.visible_message("[user] pops [src]'s bulkhead panelling loose.", "You pop [src]'s bulkhead panelling loose.")
 			else if(W.tool_behaviour == TOOL_WRENCH)

@@ -39,7 +39,7 @@
 #define AIRLOCK_EMAG	6
 
 #define AIRLOCK_SECURITY_NONE			0 //Normal airlock				//Wires are not secured
-#define AIRLOCK_SECURITY_METAL			1 //Medium security airlock		//There is a simple metal over wires (use welder)
+#define AIRLOCK_SECURITY_IRON			1 //Medium security airlock		//There is a simple iron plate over wires (use welder)
 #define AIRLOCK_SECURITY_PLASTEEL_I_S	2 								//Sliced inner plating (use crowbar), jumps to 0
 #define AIRLOCK_SECURITY_PLASTEEL_I		3 								//Removed outer plating, second layer here (use welder)
 #define AIRLOCK_SECURITY_PLASTEEL_O_S	4 								//Sliced outer plating (use crowbar)
@@ -126,13 +126,13 @@
 		addtimer(CALLBACK(.proc/update_other_id), 5)
 	if(glass)
 		airlock_material = "glass"
-	if(security_level > AIRLOCK_SECURITY_METAL)
+	if(security_level > AIRLOCK_SECURITY_IRON)
 		obj_integrity = normal_integrity * AIRLOCK_INTEGRITY_MULTIPLIER
 		max_integrity = normal_integrity * AIRLOCK_INTEGRITY_MULTIPLIER
 	else
 		obj_integrity = normal_integrity
 		max_integrity = normal_integrity
-	if(damage_deflection == AIRLOCK_DAMAGE_DEFLECTION_N && security_level > AIRLOCK_SECURITY_METAL)
+	if(damage_deflection == AIRLOCK_DAMAGE_DEFLECTION_N && security_level > AIRLOCK_SECURITY_IRON)
 		damage_deflection = AIRLOCK_DAMAGE_DEFLECTION_R
 	prepare_huds()
 	for(var/datum/atom_hud/data/diagnostic/diag_hud in GLOB.huds)
@@ -685,7 +685,7 @@
 		switch(security_level)
 			if(AIRLOCK_SECURITY_NONE)
 				. += "Провода видны!"
-			if(AIRLOCK_SECURITY_METAL)
+			if(AIRLOCK_SECURITY_IRON)
 				. += "Провода закрыты металлическим щитком."
 			if(AIRLOCK_SECURITY_PLASTEEL_I_S)
 				. += "Куча кусков пластали внутри."
@@ -698,7 +698,7 @@
 			if(AIRLOCK_SECURITY_PLASTEEL)
 				. += "Здесь защитная сетка поверх панели."
 	else if(security_level)
-		if(security_level == AIRLOCK_SECURITY_METAL)
+		if(security_level == AIRLOCK_SECURITY_IRON)
 			. += "<hr>Выглядит достаточно крепким."
 		else
 			. += "<hr>Выглядит крепким."
@@ -849,8 +849,8 @@
 	if(panel_open)
 		switch(security_level)
 			if(AIRLOCK_SECURITY_NONE)
-				if(istype(C, /obj/item/stack/sheet/metal))
-					var/obj/item/stack/sheet/metal/S = C
+				if(istype(C, /obj/item/stack/sheet/iron))
+					var/obj/item/stack/sheet/iron/S = C
 					if(S.get_amount() < 2)
 						to_chat(user, "<span class='warning'>Мне потребуется два листа металла для укрепления [src].</span>")
 						return
@@ -860,7 +860,7 @@
 							return
 						user.visible_message("<span class='notice'>[user] укрепляет [src] металлом.</span>",
 											"<span class='notice'>Укрепляю [src] металлом.</span>")
-						security_level = AIRLOCK_SECURITY_METAL
+						security_level = AIRLOCK_SECURITY_IRON
 						update_icon()
 					return
 				else if(istype(C, /obj/item/stack/sheet/plasteel))
@@ -879,7 +879,7 @@
 						damage_deflection = AIRLOCK_DAMAGE_DEFLECTION_R
 						update_icon()
 					return
-			if(AIRLOCK_SECURITY_METAL)
+			if(AIRLOCK_SECURITY_IRON)
 				if(C.tool_behaviour == TOOL_WELDER)
 					if(!C.tool_start_check(user, amount=2))
 						return
@@ -891,7 +891,7 @@
 										"<span class='notice'>Прорезаюсь сквозь защитный экран [src].</span>",
 										"<span class='hear'>Слышу сварку.</span>")
 						security_level = AIRLOCK_SECURITY_NONE
-						spawn_atom_to_turf(/obj/item/stack/sheet/metal, user.loc, 2)
+						spawn_atom_to_turf(/obj/item/stack/sheet/iron, user.loc, 2)
 						update_icon()
 					return
 			if(AIRLOCK_SECURITY_PLASTEEL_I_S)
@@ -1621,7 +1621,7 @@
 #undef AIRLOCK_EMAG
 
 #undef AIRLOCK_SECURITY_NONE
-#undef AIRLOCK_SECURITY_METAL
+#undef AIRLOCK_SECURITY_IRON
 #undef AIRLOCK_SECURITY_PLASTEEL_I_S
 #undef AIRLOCK_SECURITY_PLASTEEL_I
 #undef AIRLOCK_SECURITY_PLASTEEL_O_S

@@ -32,7 +32,7 @@
 	reqs = list(/obj/item/mecha_parts/mecha_equipment/weapon/energy/plasma = 1,
 				/datum/reagent/fuel = 100,
 				/obj/item/food/poo = 15,
-				/obj/item/stack/sheet/metal = 1)
+				/obj/item/stack/sheet/iron = 1)
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH)
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
@@ -42,7 +42,7 @@
 	result = /obj/item/mecha_ammo/poo
 	time = 60
 	reqs = list(/obj/item/food/poo = 5,
-				/obj/item/stack/sheet/metal = 1)
+				/obj/item/stack/sheet/iron = 1)
 	tool_behaviors = list(TOOL_WIRECUTTER)
 	category = CAT_WEAPONRY
 	subcategory = CAT_AMMO

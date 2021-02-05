@@ -537,7 +537,7 @@
 		if(all_components.len)
 			to_chat(user, "<span class='warning'>Извлеките все компоненты из <b>[src.name]</b> перед его разборкой.</span>")
 			return
-		new /obj/item/stack/sheet/metal( get_turf(src.loc), steel_sheet_cost )
+		new /obj/item/stack/sheet/iron( get_turf(src.loc), steel_sheet_cost )
 		physical.visible_message("<span class='notice'><b>[src.name]</b> разобран [user].</span>")
 		relay_qdel()
 		qdel(src)

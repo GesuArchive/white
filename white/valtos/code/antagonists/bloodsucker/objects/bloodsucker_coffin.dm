@@ -93,7 +93,7 @@
 	breakout_time = 300
 	pryLidTimer = 200
 	resistance_flags = NONE
-	material_drop = /obj/item/stack/sheet/metal
+	material_drop = /obj/item/stack/sheet/iron
 	material_drop_amount = 5
 
 //////////////////////////////////////////////
@@ -225,7 +225,7 @@
 				 /obj/item/screwdriver)
 	reqs = list(/obj/item/stack/sheet/cloth = 1,
 				/obj/item/stack/sheet/mineral/wood = 5,
-				/obj/item/stack/sheet/metal = 1)
+				/obj/item/stack/sheet/iron = 1)
 				///obj/item/stack/package_wrap = 8,
 				///obj/item/pipe = 2)
 	time = 150
@@ -248,7 +248,7 @@
 	result =/obj/structure/closet/crate/coffin/metalcoffin
 	tool_paths = list(/obj/item/weldingtool,
 				 /obj/item/screwdriver)
-	reqs = list(/obj/item/stack/sheet/metal = 5)
+	reqs = list(/obj/item/stack/sheet/iron = 5)
 	time = 100
 	category = CAT_STRUCTURE
 	always_available = TRUE

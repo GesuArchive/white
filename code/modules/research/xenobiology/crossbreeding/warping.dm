@@ -320,7 +320,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	icon = 'icons/obj/slimecrossing.dmi'
 	icon_state = "rune_dark_purple"
 	desc = "To gain something you must sacrifice something else in return."
-	var/static/list/materials = list(/obj/item/stack/sheet/metal, /obj/item/stack/sheet/glass, /obj/item/stack/sheet/mineral/silver,
+	var/static/list/materials = list(/obj/item/stack/sheet/iron, /obj/item/stack/sheet/glass, /obj/item/stack/sheet/mineral/silver,
 									/obj/item/stack/sheet/mineral/gold, /obj/item/stack/sheet/mineral/diamond, /obj/item/stack/sheet/mineral/uranium,
 									/obj/item/stack/sheet/mineral/titanium, /obj/item/stack/sheet/mineral/coal, /obj/item/stack/sheet/mineral/uranium,
 									/obj/item/stack/sheet/bluespace_crystal)

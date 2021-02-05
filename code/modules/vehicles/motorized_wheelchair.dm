@@ -110,15 +110,15 @@
 
 /obj/vehicle/ridden/wheelchair/motorized/wrench_act(mob/living/user, obj/item/I)
 	to_chat(user, "<span class='notice'>You begin to detach the wheels...</span>")
-	if(!I.use_tool(src, user, 40, volume=50))
-		return TRUE
-	to_chat(user, "<span class='notice'>You detach the wheels and deconstruct the chair.</span>")
-	new /obj/item/stack/rods(drop_location(), 8)
-	new /obj/item/stack/sheet/metal(drop_location(), 10)
-	var/turf/T = get_turf(src)
-	for(var/atom/movable/thing as anything in contents)
-		thing.forceMove(T)
-	qdel(src)
+	if(I.use_tool(src, user, 40, volume=50))
+		to_chat(user, "<span class='notice'>You detach the wheels and deconstruct the chair.</span>")
+		new /obj/item/stack/rods(drop_location(), 8)
+		new /obj/item/stack/sheet/iron(drop_location(), 10)
+		var/turf/T = get_turf(src)
+		for(var/c in contents)
+			var/atom/movable/thing = c
+			thing.forceMove(T)
+		qdel(src)
 	return TRUE
 
 /obj/vehicle/ridden/wheelchair/motorized/examine(mob/user)

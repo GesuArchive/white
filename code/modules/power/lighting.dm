@@ -141,7 +141,7 @@
 				else
 					to_chat(user, "<span class='notice'>Начинаю разбирать [src]...</span>")
 					if (W.use_tool(src, user, 30, volume=50))
-						new /obj/item/stack/sheet/metal(drop_location(), sheets_refunded)
+						new /obj/item/stack/sheet/iron(drop_location(), sheets_refunded)
 						user.visible_message("<span class='notice'>[user.name] разбирает [src].</span>", \
 							"<span class='notice'>Разбираю [src].</span>", "<span class='hear'>Слышу трещотку.</span>")
 						playsound(src, 'sound/items/deconstruct.ogg', 75, TRUE)
@@ -198,7 +198,7 @@
 
 /obj/structure/light_construct/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/metal(loc, sheets_refunded)
+		new /obj/item/stack/sheet/iron(loc, sheets_refunded)
 	qdel(src)
 
 /obj/structure/light_construct/small

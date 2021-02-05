@@ -70,7 +70,7 @@
 	result = /obj/item/gun/ballistic/shotgun/makeshift
 	reqs = list(/obj/item/weaponcrafting/receiver = 1,
 				/obj/item/pipe = 1,
-				/obj/item/stack/sheet/metal = 20,
+				/obj/item/stack/sheet/iron = 20,
 				/obj/item/stack/rods = 5)
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH)
 	time = 150
@@ -78,7 +78,7 @@
 /datum/crafting_recipe/cookbook/mshotgunmag
 	name = "Makeshift Shotgun magazine"
 	result = /obj/item/ammo_box/magazine/makeshift
-	reqs = list(/obj/item/stack/sheet/metal = 5,
+	reqs = list(/obj/item/stack/sheet/iron = 5,
 				/obj/item/stack/rods = 4)
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH)
 	time = 75
@@ -107,7 +107,7 @@
 	name = "Ebonumba Topor"
 	result = /obj/item/paxe
 	reqs = list(/obj/item/stack/sheet/plasteel = 1,
-				/obj/item/stack/sheet/metal = 5,
+				/obj/item/stack/sheet/iron = 5,
 				/obj/item/spear = 1,
 				/obj/item/stack/cable_coil = 10)
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH)

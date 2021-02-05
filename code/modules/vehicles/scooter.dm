@@ -182,13 +182,13 @@
 //CONSTRUCTION
 /obj/item/scooter_frame
 	name = "scooter frame"
-	desc = "A metal frame for building a scooter. Looks like you'll need to add some metal to make wheels."
+	desc = "A metal frame for building a scooter. Looks like you'll need to add some iron to make wheels."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "scooter_frame"
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/scooter_frame/attackby(obj/item/I, mob/user, params)
-	if(!istype(I, /obj/item/stack/sheet/metal))
+	if(!istype(I, /obj/item/stack/sheet/iron))
 		return ..()
 	if(!I.tool_start_check(user, amount=5))
 		return
@@ -234,7 +234,7 @@
 	if(!I.use_tool(src, user, 20, volume=50))
 		return
 	to_chat(user, "<span class='notice'>You deconstruct the wheels on [src].</span>")
-	new /obj/item/stack/sheet/metal(drop_location(), 5)
+	new /obj/item/stack/sheet/iron(drop_location(), 5)
 	new /obj/item/scooter_frame(drop_location())
 	if(has_buckled_mobs())
 		var/mob/living/carbon/skatergirl = buckled_mobs[1]

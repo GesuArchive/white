@@ -114,7 +114,7 @@
 //	return FALSE
 
 /obj/structure/bloodsucker/vassalrack/deconstruct(disassembled = TRUE)
-	new /obj/item/stack/sheet/metal(src.loc, 4)
+	new /obj/item/stack/sheet/iron(src.loc, 4)
 	new /obj/item/stack/rods(loc, 4)
 	qdel(src)
 
@@ -548,7 +548,7 @@
 				 /obj/item/wrench
 				 )
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 3,
-				/obj/item/stack/sheet/metal = 2,
+				/obj/item/stack/sheet/iron = 2,
 				/obj/item/restraints/handcuffs/cable = 2,
 				///obj/item/storage/belt = 1
 				///obj/item/stack/sheet/animalhide = 1, // /obj/item/stack/sheet/leather = 1,
@@ -569,7 +569,7 @@
 	tool_paths = list(/obj/item/weldingtool,
 				 /obj/item/wrench
 				 )
-	reqs = list(/obj/item/stack/sheet/metal = 3,
+	reqs = list(/obj/item/stack/sheet/iron = 3,
 				/obj/item/stack/rods = 1,
 				/obj/item/candle = 1
 				)

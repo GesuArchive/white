@@ -10,7 +10,7 @@
 	var/self_charge = FALSE
 	///if set to true, displays the precise amount of charges upon examining. If false, only displays if it has any charges or no charges at all.
 	var/precise_display = TRUE
-	
+
 	///spawns items with a crutchy "bluespace" effect.
 	var/bluespace_effect = FALSE
 
@@ -22,7 +22,7 @@
 	var/word5 = "каких-то предметов"
 
 	///Items that this bag is allowed to spawn.
-	var/list/items = list(/obj/item/stack/sheet/mineral/diamond, /obj/item/stack/sheet/mineral/gold, /obj/item/stack/sheet/mineral/uranium, /obj/item/stack/sheet/mineral/wood, /obj/item/stack/sheet/metal, /obj/item/stack/sheet/mineral/silver, /obj/item/stack/sheet/mineral/titanium, /obj/item/stack/sheet/glass)
+	var/list/items = list(/obj/item/stack/sheet/mineral/diamond, /obj/item/stack/sheet/mineral/gold, /obj/item/stack/sheet/mineral/uranium, /obj/item/stack/sheet/mineral/wood, /obj/item/stack/sheet/iron, /obj/item/stack/sheet/mineral/silver, /obj/item/stack/sheet/mineral/titanium, /obj/item/stack/sheet/glass)
 	var/timer
 
 //возможно будет хорошей идеей вывести этот прок в глобальные, но я хз.
@@ -62,7 +62,7 @@
 	// (click to open while in belt slot, drag in a hand slot to deequip, etc) but absolutely did not want
 	// to fuck with the storage component.
 
-	//ugly af, should probably find a better way of doing this. 
+	//ugly af, should probably find a better way of doing this.
 
 	if(src.loc != user)
 		return ..()
@@ -88,7 +88,7 @@
 		return
 	to_chat(user, "<span class = 'notice'>Я вытаскиваю [item.name] из мешка!</span>")
 	user.put_in_hands(item)
-	
+
 	if(bluespace_effect)
 		item.alpha = 180
 		item.transform = item.transform.Scale(0.2)
@@ -101,7 +101,7 @@
 
 /obj/item/item_generator/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
-	
+
 	if(istype(over, /atom/movable/screen/inventory/hand))
 		var/atom/movable/screen/inventory/hand/H = over
 		usr.putItemFromInventoryInHandIfPossible(src, H.held_index)
@@ -130,7 +130,7 @@
 	if(!self_charge) //safeguard
 		deltimer(timer) //don't care about passing null to deltimer, it just returns false immediately.
 		return
-	
+
 	if(charges < max_charges)
 		charges++
 	if(charges >= max_charges) //second check to see if we have reached the max_charges after adding one charge.

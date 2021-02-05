@@ -17,7 +17,7 @@
 		if(I.use_tool(src, user, 50))
 			user.visible_message("<span class='notice'>[user] разобрал [src]!</span>", "<span class='notice'>Разломал [src] на куски металла.</span>")
 			playsound(user, 'sound/items/deconstruct.ogg', 50, TRUE)
-			new/obj/item/stack/sheet/metal(drop_location())
+			new/obj/item/stack/sheet/iron(drop_location())
 			qdel(src)
 		return
 	..()

@@ -287,7 +287,7 @@
 	school = "evocation"
 	sound = 'white/valtos/sounds/hacker_heal.ogg'
 	action_icon_state = "thrownlightning"
-	var/list/allowed_items = list(/obj/item/stack/sheet/metal,\
+	var/list/allowed_items = list(/obj/item/stack/sheet/iron,\
 								  /obj/item/stack/sheet/glass,\
 								  /obj/item/stack/sheet/plasteel,\
 								  /obj/item/stack/sheet/mineral/plasma,\

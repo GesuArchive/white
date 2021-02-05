@@ -64,7 +64,7 @@
 	message = "пластали"
 	export_types = list(/obj/item/stack/sheet/plasteel)
 
-// 1 glass + 0.5 metal, cost is rounded up.
+// 1 glass + 0.5 iron, cost is rounded up.
 /datum/export/stack/rglass
 	cost = CARGO_CRATE_VALUE * 0.02
 	message = "армированного стекла"
