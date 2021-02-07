@@ -6,7 +6,8 @@
 /turf/closed/wall,
 /area/maintenance/bottom_station_maints/north)
 "gf" = (
-/turf/open/genturf,
+/obj/structure/closet/crate/solarpanel_small,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "jH" = (
 /obj/structure/lattice,
@@ -17,6 +18,10 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
+"oH" = (
+/obj/structure/closet/emcloset/anchored,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "xZ" = (
 /obj/machinery/door/airlock/external{
 	name = "External Access";
@@ -1140,7 +1145,7 @@ YS
 Zl
 YS
 DF
-gf
+oH
 BR
 DF
 "}

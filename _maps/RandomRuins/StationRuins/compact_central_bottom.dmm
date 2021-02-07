@@ -183,7 +183,7 @@
 /area/crew_quarters/heads/captain)
 "gV" = (
 /obj/effect/spawner/lootdrop/grille_or_trash,
-/turf/open/genturf,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "hk" = (
 /obj/structure/window/reinforced{
@@ -299,6 +299,10 @@
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
+"iP" = (
+/obj/structure/closet/emcloset/anchored,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "jF" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
@@ -661,7 +665,7 @@
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "uV" = (
-/turf/open/genturf,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "vr" = (
 /obj/machinery/porta_turret/ai{
@@ -1676,6 +1680,11 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/bridge)
+"Xo" = (
+/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/structure/closet/firecloset/full,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "XF" = (
 /obj/machinery/porta_turret/ai{
 	dir = 4
@@ -2696,7 +2705,7 @@ YS
 YS
 YS
 Pa
-gV
+Xo
 uV
 uV
 uV
@@ -2737,7 +2746,7 @@ aU
 aU
 aU
 aU
-uV
+iP
 uV
 uV
 aU
