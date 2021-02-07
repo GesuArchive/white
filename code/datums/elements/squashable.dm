@@ -53,13 +53,13 @@
 				crossing_mob.visible_message("<span class='notice'>[crossing_mob] squashed [target].</span>", "<span class='notice'>You squashed [target].</span>")
 				Squish(target)
 			else
-				target.visible_message("<span class='notice'>[target] avoids getting crushed.</span>")
+				target.visible_message("<span class='notice'>[target] чуть не раздавили.</span>")
 	else if(isstructure(crossing_movable))
 		if(should_squash)
 			crossing_movable.visible_message("<span class='notice'>[target] is crushed under [crossing_movable].</span>")
 			Squish(target)
 		else
-			target.visible_message("<span class='notice'>[target] avoids getting crushed.</span>")
+			target.visible_message("<span class='notice'>[target] чуть не раздавили.</span>")
 
 /datum/element/squashable/proc/Squish(mob/living/target)
 	if(squash_flags & SQUASHED_SHOULD_BE_GIBBED)

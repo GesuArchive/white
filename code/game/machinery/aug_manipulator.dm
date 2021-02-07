@@ -85,7 +85,7 @@
 			if(O.use_tool(src, user, 40, volume=50))
 				if(!(machine_stat & BROKEN))
 					return
-				to_chat(user, "<span class='notice'>You repair [src].</span>")
+				to_chat(user, "<span class='notice'>Чиню [src].</span>")
 				set_machine_stat(machine_stat & ~BROKEN)
 				obj_integrity = max(obj_integrity, max_integrity)
 				update_icon()
@@ -111,7 +111,7 @@
 		storedpart.icon = style_list_icons[choice]
 		eject_part(user)
 	else
-		to_chat(user, "<span class='warning'><b>[src.name]</b> is empty!</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> пустой!</span>")
 
 /**
  * Checks if we are allowed to interact with a radial menu
@@ -137,7 +137,7 @@
 		storedpart = null
 		update_icon()
 	else
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] is empty!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] пустой!</span>")
 
 /obj/machinery/aug_manipulator/AltClick(mob/living/user)
 	..()

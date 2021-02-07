@@ -17,7 +17,7 @@ Bonus
 
 /datum/symptom/deafness
 
-	name = "Deafness"
+	name = "Глухота"
 	desc = "The virus causes inflammation of the eardrums, causing intermittent deafness."
 	stealth = -1
 	resistance = -2

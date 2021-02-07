@@ -231,7 +231,7 @@ GLOBAL_LIST_INIT(meteorsC, list(/obj/effect/meteor/dust)) //for space dust event
 
 //Medium-sized
 /obj/effect/meteor/medium
-	name = "meteor"
+	name = "метеор"
 	dropamt = 3
 	threat = 5
 

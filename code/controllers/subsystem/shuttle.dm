@@ -1,7 +1,7 @@
 #define MAX_TRANSIT_REQUEST_RETRIES 10
 
 SUBSYSTEM_DEF(shuttle)
-	name = "Shuttle"
+	name = "Шаттл"
 	wait = 10
 	init_order = INIT_ORDER_SHUTTLE
 	flags = SS_KEEP_TIMING|SS_NO_TICK_CHECK

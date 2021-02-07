@@ -27,7 +27,7 @@
 	/// Key that enables wire assignments to be common across different holders. If null, will use the holder_type as a key.
 	var/dictionary_key = null
 	/// The display name for the wire set shown in station blueprints. Not shown in blueprints if randomize is TRUE or it's an item NT wouldn't know about (Explosives/Nuke). Also used in the hacking interface.
-	var/proper_name = "Unknown"
+	var/proper_name = "Неизвестно"
 
 	/// List of all wires.
 	var/list/wires = list()

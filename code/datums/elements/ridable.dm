@@ -152,7 +152,7 @@
 
 
 /obj/item/riding_offhand
-	name = "offhand"
+	name = "навскидку"
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "offhand"
 	w_class = WEIGHT_CLASS_HUGE
@@ -184,6 +184,6 @@
 		return //Piggyback user.
 	user.unbuckle_mob(rider)
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, "<span class='notice'>You gently let go of [rider].</span>")
+		to_chat(user, "<span class='notice'>Вы осторожно слезаете с [rider].</span>")
 		return
 	return rider

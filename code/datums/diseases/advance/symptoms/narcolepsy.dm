@@ -13,7 +13,7 @@ Bonus
 //////////////////////////////////////
 */
 /datum/symptom/narcolepsy
-	name = "Narcolepsy"
+	name = "Нарколепсия"
 	desc = "The virus causes a hormone imbalance, making the host sleepy and narcoleptic."
 	stealth = -1
 	resistance = -2

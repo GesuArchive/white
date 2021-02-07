@@ -50,7 +50,7 @@
 
 //Cough gives you a chronic cough that causes you to drop items.
 /datum/mutation/human/cough
-	name = "Cough"
+	name = "Кашель"
 	desc = "A chronic cough."
 	quality = MINOR_NEGATIVE
 	text_gain_indication = "<span class='danger'>You start coughing.</span>"
@@ -97,7 +97,7 @@
 	new_transform.Scale(1, 0.8)
 	owner.transform = new_transform.Multiply(owner.transform)
 	passtable_on(owner, GENETIC_MUTATION)
-	owner.visible_message("<span class='danger'>[owner] suddenly shrinks!</span>", "<span class='notice'>Everything around you seems to grow..</span>")
+	owner.visible_message("<span class='danger'>[owner] резко уменьшился!</span>", "<span class='notice'>Кажется, что всё такое большое..</span>")
 
 /datum/mutation/human/dwarfism/on_losing(mob/living/carbon/human/owner)
 	if(..())
@@ -107,7 +107,7 @@
 	new_transform.Scale(1, 1.25)
 	owner.transform = new_transform.Multiply(owner.transform)
 	passtable_off(owner, GENETIC_MUTATION)
-	owner.visible_message("<span class='danger'>[owner] suddenly grows!</span>", "<span class='notice'>Everything around you seems to shrink..</span>")
+	owner.visible_message("<span class='danger'>[owner] резко увеличился!</span>", "<span class='notice'>Кажется, что всё такое маленькое..</span>")
 
 //Clumsiness has a very large amount of small drawbacks depending on item.
 /datum/mutation/human/clumsy
@@ -153,7 +153,7 @@
 
 //Deafness makes you deaf.
 /datum/mutation/human/deaf
-	name = "Deafness"
+	name = "Глухота"
 	desc = "The holder of this genome is completely deaf."
 	quality = NEGATIVE
 	text_gain_indication = "<span class='danger'>You can't seem to hear anything.</span>"
@@ -361,7 +361,7 @@
 	ADD_TRAIT(owner, TRAIT_GIANT, GENETIC_MUTATION)
 	owner.resize = 1.25
 	owner.update_transform()
-	owner.visible_message("<span class='danger'>[owner] suddenly grows!</span>", "<span class='notice'>Everything around you seems to shrink..</span>")
+	owner.visible_message("<span class='danger'>[owner] резко увеличился!</span>", "<span class='notice'>Кажется, что всё такое маленькое..</span>")
 
 /datum/mutation/human/gigantism/on_losing(mob/living/carbon/human/owner)
 	if(..())
@@ -369,7 +369,7 @@
 	REMOVE_TRAIT(owner, TRAIT_GIANT, GENETIC_MUTATION)
 	owner.resize = 0.8
 	owner.update_transform()
-	owner.visible_message("<span class='danger'>[owner] suddenly shrinks!</span>", "<span class='notice'>Everything around you seems to grow..</span>")
+	owner.visible_message("<span class='danger'>[owner] резко уменьшился!</span>", "<span class='notice'>Кажется, что всё такое большое..</span>")
 
 /datum/mutation/human/spastic
 	name = "Spastic"

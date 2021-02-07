@@ -1,5 +1,5 @@
 /datum/mutation/human/shock
-	name = "Shock Touch"
+	name = "Электро-толерантность"
 	desc = "The affected can channel excess electricity through their hands without shocking themselves, allowing them to shock others."
 	quality = POSITIVE
 	locked = TRUE
@@ -10,7 +10,7 @@
 	instability = 30
 
 /obj/effect/proc_holder/spell/targeted/touch/shock
-	name = "Shock Touch"
+	name = "Электро-толерантность"
 	desc = "Channel electricity to your hand to shock people with."
 	drawmessage = "You channel electricity into your hand."
 	dropmessage = "You let the electricity from your hand dissipate."
@@ -36,7 +36,7 @@
 			C.dropItemToGround(C.get_active_held_item())
 			C.dropItemToGround(C.get_inactive_held_item())
 			C.add_confusion(15)
-			C.visible_message("<span class='danger'>[user] electrocutes [target]!</span>","<span class='userdanger'>[user] electrocutes you!</span>")
+			C.visible_message("<span class='danger'>[user] ударяет [target] током!</span>","<span class='userdanger'>[user] ударяет меня током!</span>")
 			return ..()
 		else
 			user.visible_message("<span class='warning'>[user] fails to electrocute [target]!</span>")
@@ -44,7 +44,7 @@
 	else if(isliving(target))
 		var/mob/living/L = target
 		L.electrocute_act(15, user, 1, SHOCK_NOSTUN)
-		L.visible_message("<span class='danger'>[user] electrocutes [target]!</span>","<span class='userdanger'>[user] electrocutes you!</span>")
+		L.visible_message("<span class='danger'>[user] ударяет [target] током!</span>","<span class='userdanger'>[user] ударяет меня током!</span>")
 		return ..()
 	else
 		to_chat(user,"<span class='warning'>The electricity doesn't seem to affect [target]...</span>")

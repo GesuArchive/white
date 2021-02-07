@@ -81,7 +81,7 @@
 	var/mob/living/shooter = parent
 	shooter.visible_message("<span class='danger'>[shooter] bumps into [target] and fumbles [shooter.ru_ego()] aim!</span>", \
 		"<span class='danger'>You bump into [target] and fumble your aim!</span>", ignored_mobs = target)
-	to_chat(target, "<span class='userdanger'>[shooter] bumps into you and fumbles [shooter.ru_ego()] aim!</span>")
+	to_chat(target, "<span class='userdanger'>[shooter] врезается в меня, тем самым сбивая прицел [shooter.ru_ego()]</span>")
 	qdel(src)
 
 ///If the shooter shoves or grabs the target, cancel the holdup to avoid cheesing and forcing the charged shot
@@ -92,7 +92,7 @@
 		return
 	shooter.visible_message("<span class='danger'>[shooter] bumps into [target] and fumbles [shooter.ru_ego()] aim!</span>", \
 		"<span class='danger'>You bump into [target] and fumble your aim!</span>", ignored_mobs = target)
-	to_chat(target, "<span class='userdanger'>[shooter] bumps into you and fumbles [shooter.ru_ego()] aim!</span>")
+	to_chat(target, "<span class='userdanger'>[shooter] врезается в меня, тем самым сбивая прицел [shooter.ru_ego()]</span>")
 	qdel(src)
 
 ///Update the damage multiplier for whatever stage we're entering into

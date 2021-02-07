@@ -283,7 +283,7 @@ GLOBAL_VAR_INIT(hsboxspawn, TRUE)
 
 				var/typepath = text2path(href_list["path"])
 				if(!typepath)
-					to_chat(usr, "Bad path: \"[href_list["path"]]\"")
+					to_chat(usr, "Ошибка в пути: \"[href_list["path"]]\"")
 					return
 				new typepath(usr.loc)
 
@@ -295,7 +295,7 @@ GLOBAL_VAR_INIT(hsboxspawn, TRUE)
 			if("hsbspawn")
 				var/typepath = text2path(href_list["path"])
 				if(!typepath)
-					to_chat(usr, "Bad path: \"[href_list["path"]]\"")
+					to_chat(usr, "Ошибка в пути: \"[href_list["path"]]\"")
 					return
 				new typepath(usr.loc)
 

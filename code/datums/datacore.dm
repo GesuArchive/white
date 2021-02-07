@@ -237,8 +237,8 @@
 		var/datum/picture/ps = new
 		pf.picture_name = "[H]"
 		ps.picture_name = "[H]"
-		pf.picture_desc = "This is [H]."
-		ps.picture_desc = "This is [H]."
+		pf.picture_desc = "Это [H]."
+		ps.picture_desc = "Это [H]."
 		pf.picture_image = icon(image, dir = SOUTH)
 		ps.picture_image = icon(image, dir = WEST)
 		var/obj/item/photo/photo_front = new(null, pf)

@@ -142,7 +142,7 @@
 	return FALSE
 
 /mob/living/proc/plasma_fist_help()
-	set name = "Recall Teachings"
+	set name = "Вспомните учения"
 	set desc = "Remember the martial techniques of the Plasma Fist."
 	set category = "Plasma Fist"
 

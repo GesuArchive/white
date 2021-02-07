@@ -36,7 +36,7 @@
 /obj/machinery/cell_charger/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stock_parts/cell) && !panel_open)
 		if(machine_stat & BROKEN)
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] is broken!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] сломан!</span>")
 			return
 		if(!anchored)
 			to_chat(user, "<span class='warning'>[capitalize(src.name)] isn't attached to the ground!</span>")

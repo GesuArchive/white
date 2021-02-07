@@ -6,7 +6,7 @@ If you make a derivative work from this code, you must include this notification
 */
 
 /mob/living/proc/wrestling_help()
-	set name = "Recall Teachings"
+	set name = "Вспомните учения"
 	set desc = "Remember how to wrestle."
 	set category = "Wrestling"
 
@@ -54,7 +54,7 @@ If you make a derivative work from this code, you must include this notification
 
 /datum/action/slam/Trigger()
 	if(owner.incapacitated())
-		to_chat(owner, "<span class='warning'>You can't WRESTLE while you're OUT FOR THE COUNT.</span>")
+		to_chat(owner, "<span class='warning'>Не могу бороться пока я В ОТКЛЮЧКЕ.</span>")
 		return
 	owner.visible_message("<span class='danger'>[owner] prepares to BODY SLAM!</span>", "<b><i>Your next attack will be a BODY SLAM.</i></b>")
 	owner.mind.martial_art.streak = "slam"
@@ -65,7 +65,7 @@ If you make a derivative work from this code, you must include this notification
 
 /datum/action/throw_wrassle/Trigger()
 	if(owner.incapacitated())
-		to_chat(owner, "<span class='warning'>You can't WRESTLE while you're OUT FOR THE COUNT.</span>")
+		to_chat(owner, "<span class='warning'>Не могу бороться пока я В ОТКЛЮЧКЕ.</span>")
 		return
 	owner.visible_message("<span class='danger'>[owner] prepares to THROW!</span>", "<b><i>Your next attack will be a THROW.</i></b>")
 	owner.mind.martial_art.streak = "throw"
@@ -76,7 +76,7 @@ If you make a derivative work from this code, you must include this notification
 
 /datum/action/kick/Trigger()
 	if(owner.incapacitated())
-		to_chat(owner, "<span class='warning'>You can't WRESTLE while you're OUT FOR THE COUNT.</span>")
+		to_chat(owner, "<span class='warning'>Не могу бороться пока я В ОТКЛЮЧКЕ.</span>")
 		return
 	owner.visible_message("<span class='danger'>[owner] prepares to KICK!</span>", "<b><i>Your next attack will be a KICK.</i></b>")
 	owner.mind.martial_art.streak = "kick"
@@ -87,7 +87,7 @@ If you make a derivative work from this code, you must include this notification
 
 /datum/action/strike/Trigger()
 	if(owner.incapacitated())
-		to_chat(owner, "<span class='warning'>You can't WRESTLE while you're OUT FOR THE COUNT.</span>")
+		to_chat(owner, "<span class='warning'>Не могу бороться пока я В ОТКЛЮЧКЕ.</span>")
 		return
 	owner.visible_message("<span class='danger'>[owner] prepares to STRIKE!</span>", "<b><i>Your next attack will be a STRIKE.</i></b>")
 	owner.mind.martial_art.streak = "strike"
@@ -98,7 +98,7 @@ If you make a derivative work from this code, you must include this notification
 
 /datum/action/drop/Trigger()
 	if(owner.incapacitated())
-		to_chat(owner, "<span class='warning'>You can't WRESTLE while you're OUT FOR THE COUNT.</span>")
+		to_chat(owner, "<span class='warning'>Не могу бороться пока я В ОТКЛЮЧКЕ.</span>")
 		return
 	owner.visible_message("<span class='danger'>[owner] prepares to LEG DROP!</span>", "<b><i>Your next attack will be a LEG DROP.</i></b>")
 	owner.mind.martial_art.streak = "drop"
@@ -106,7 +106,7 @@ If you make a derivative work from this code, you must include this notification
 /datum/martial_art/wrestling/teach(mob/living/owner, make_temporary=FALSE)
 	if(..())
 		to_chat(owner, "<span class='userdanger'>SNAP INTO A THIN TIM!</span>")
-		to_chat(owner, "<span class='danger'>Place your cursor over a move at the top of the screen to see what it does.</span>")
+		to_chat(owner, "<span class='danger'>Наведитесь курсором на иконку приёма, чтобы узнать о нём подробнее.</span>")
 		drop.Grant(owner)
 		kick.Grant(owner)
 		slam.Grant(owner)
@@ -131,7 +131,7 @@ If you make a derivative work from this code, you must include this notification
 	if(!D)
 		return
 	if(!A.pulling || A.pulling != D)
-		to_chat(A, "<span class='warning'>You need to have [D] in a cinch!</span>")
+		to_chat(A, "<span class='warning'>Мне нужно взять [D] в захват!</span>")
 		return
 	D.forceMove(A.loc)
 	D.setDir(get_dir(D, A))
@@ -159,11 +159,11 @@ If you make a derivative work from this code, you must include this notification
 		if (A && D)
 
 			if (get_dist(A, D) > 1)
-				to_chat(A, "<span class='warning'>[D] is too far away!</span>")
+				to_chat(A, "<span class='warning'>[D] слишком далеко!</span>")
 				return
 
 			if (!isturf(A.loc) || !isturf(D.loc))
-				to_chat(A, "<span class='warning'>You can't throw [D] from here!</span>")
+				to_chat(A, "<span class='warning'>Не могу бросить [D] отсюда!</span>")
 				return
 
 			A.setDir(turn(A.dir, 90))
@@ -181,11 +181,11 @@ If you make a derivative work from this code, you must include this notification
 		// These are necessary because of the sleep call.
 
 		if (get_dist(A, D) > 1)
-			to_chat(A, "<span class='warning'>[D] is too far away!</span>")
+			to_chat(A, "<span class='warning'>[D] слишком далеко!</span>")
 			return
 
 		if (!isturf(A.loc) || !isturf(D.loc))
-			to_chat(A, "<span class='warning'>You can't throw [D] from here!</span>")
+			to_chat(A, "<span class='warning'>Не могу бросить [D] отсюда!</span>")
 			return
 
 		D.forceMove(A.loc) // Maybe this will help with the wallthrowing bug.
@@ -214,7 +214,7 @@ If you make a derivative work from this code, you must include this notification
 	if(!D)
 		return
 	if(!A.pulling || A.pulling != D)
-		to_chat(A, "<span class='warning'>You need to have [D] in a cinch!</span>")
+		to_chat(A, "<span class='warning'>Мне нужно взять [D] в захват!</span>")
 		return
 	D.forceMove(A.loc)
 	A.setDir(get_dir(A, D))
@@ -244,7 +244,7 @@ If you make a derivative work from this code, you must include this notification
 					D.pixel_x = A.pixel_x + 8
 
 			if (get_dist(A, D) > 1)
-				to_chat(A, "<span class='warning'>[D] is too far away!</span>")
+				to_chat(A, "<span class='warning'>[D] слишком далеко!</span>")
 				A.pixel_x = A.base_pixel_x
 				A.pixel_y = A.base_pixel_y
 				D.pixel_x = D.base_pixel_x
@@ -252,7 +252,7 @@ If you make a derivative work from this code, you must include this notification
 				return
 
 			if (!isturf(A.loc) || !isturf(D.loc))
-				to_chat(A, "<span class='warning'>You can't slam [D] here!</span>")
+				to_chat(A, "<span class='warning'>Не могу ударить [D] об это!</span>")
 				A.pixel_x = A.base_pixel_x
 				A.pixel_y = A.base_pixel_y
 				D.pixel_x = D.base_pixel_x
@@ -276,11 +276,11 @@ If you make a derivative work from this code, you must include this notification
 		D.pixel_y = D.base_pixel_y
 
 		if (get_dist(A, D) > 1)
-			to_chat(A, "<span class='warning'>[D] is too far away!</span>")
+			to_chat(A, "<span class='warning'>[D] слишком далеко!</span>")
 			return
 
 		if (!isturf(A.loc) || !isturf(D.loc))
-			to_chat(A, "<span class='warning'>You can't slam [D] here!</span>")
+			to_chat(A, "<span class='warning'>Не могу ударить [D] об это!</span>")
 			return
 
 		D.forceMove(A.loc)
@@ -402,7 +402,7 @@ If you make a derivative work from this code, you must include this notification
 								"<span class='userdanger'>...and dive head-first into the ground, ouch!</span>")
 				A.adjustBruteLoss(rand(10,20))
 				A.Paralyze(60)
-			to_chat(A, "<span class='warning'>[D] is too far away!</span>")
+			to_chat(A, "<span class='warning'>[D] слишком далеко!</span>")
 			return
 
 		if (!isturf(A.loc) || !isturf(D.loc))

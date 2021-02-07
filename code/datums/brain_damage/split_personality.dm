@@ -2,9 +2,9 @@
 #define STRANGER 1
 
 /datum/brain_trauma/severe/split_personality
-	name = "Split Personality"
-	desc = "Patient's brain is split into two personalities, which randomly switch control of the body."
-	scan_desc = "complete lobe separation"
+	name = "Раздвоение личности"
+	desc = "Сознание пациента раскололось на две личности, каждая из которых, в процессе борьбы, переодически перехватывает управление телом."
+	scan_desc = "доля полностью удалена"
 	gain_text = "<span class='warning'>You feel like your mind was split in two.</span>"
 	lose_text = "<span class='notice'>You feel alone again.</span>"
 	var/current_controller = OWNER
@@ -118,8 +118,8 @@
 
 
 /mob/living/split_personality
-	name = "split personality"
-	real_name = "unknown conscience"
+	name = "Раздвоение личности"
+	real_name = "неизвестное сознание"
 	var/mob/living/carbon/body
 	var/datum/brain_trauma/severe/split_personality/trauma
 
@@ -163,9 +163,9 @@
 ///////////////BRAINWASHING////////////////////
 
 /datum/brain_trauma/severe/split_personality/brainwashing
-	name = "Split Personality"
-	desc = "Patient's brain is split into two personalities, which randomly switch control of the body."
-	scan_desc = "complete lobe separation"
+	name = "Раздвоение личности"
+	desc = "Сознание пациента раскололось на две личности, каждая из которых, в процессе борьбы, переодически перехватывает управление телом."
+	scan_desc = "доля полностью удалена"
 	gain_text = ""
 	lose_text = "<span class='notice'>You are free of your brainwashing.</span>"
 	can_gain = FALSE
@@ -219,8 +219,8 @@
 		speech_args[SPEECH_MESSAGE] = "" //oh hey did you want to tell people about the secret word to bring you back?
 
 /mob/living/split_personality/traitor
-	name = "split personality"
-	real_name = "unknown conscience"
+	name = "Раздвоение личности"
+	real_name = "неизвестное сознание"
 	var/objective
 	var/codeword
 

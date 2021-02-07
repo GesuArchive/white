@@ -1,6 +1,6 @@
 //Canister Frames
 /obj/structure/canister_frame
-	name = "canister frame"
+	name = "рама канистры"
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "frame_0"
 	density = TRUE
@@ -9,7 +9,7 @@
 	. = ..()
 
 /obj/structure/canister_frame/machine
-	name = "canister frame"
+	name = "рама канистры"
 	desc = "A frame used to build different kinds of canisters."
 
 	/// The previous canister frame tier path

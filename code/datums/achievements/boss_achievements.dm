@@ -4,7 +4,7 @@
 
 /datum/award/achievement/boss/tendril_exterminator
 	name = "Tendril Exterminator"
-	desc = "Watch your step"
+	desc = "Смотрите под ноги."
 	database_id = BOSS_MEDAL_TENDRIL
 	icon = "tendril"
 
@@ -16,36 +16,36 @@
 
 /datum/award/achievement/boss/blood_miner_kill
 	name = "Blood-Drunk Miner Killer"
-	desc = "I guess he couldn't handle his drink that well."
+	desc = "Похоже, что он перебрал с алкоголем."
 	database_id = BOSS_MEDAL_MINER
 	icon = "miner"
 
 /datum/award/achievement/boss/demonic_miner_kill
 	name = "Demonic-Frost Miner Killer"
-	desc = "Definitely harder than the Blood-Drunk Miner."
+	desc = "Он пьянее Пьяного Шахтёра."
 	database_id = BOSS_MEDAL_FROSTMINER
 
 /datum/award/achievement/boss/bubblegum_kill
 	name = "Bubblegum Killer"
-	desc = "I guess he wasn't made of candy after all"
+	desc = "Не похоже, чтобы он был сделан из конфет и леденцов."
 	database_id = BOSS_MEDAL_BUBBLEGUM
 	icon = "bbgum"
 
 /datum/award/achievement/boss/colossus_kill
 	name = "Colossus Killer"
-	desc = "The bigger they are... the better the loot"
+	desc = "Чем они больше... тем лучше добыча!"
 	database_id = BOSS_MEDAL_COLOSSUS
 	icon = "colossus"
 
 /datum/award/achievement/boss/drake_kill
 	name = "Drake Killer"
-	desc = "Now I can wear Rune Platebodies!"
+	desc = "Теперь я могу носить Рунные Пластины!"
 	database_id = BOSS_MEDAL_DRAKE
 	icon = "drake"
 
 /datum/award/achievement/boss/hierophant_kill
 	name = "Hierophant Killer"
-	desc = "Hierophant, but not triumphant."
+	desc = "Пусть и жрец, но не молодец."
 	database_id = BOSS_MEDAL_HIEROPHANT
 	icon = "hierophant"
 
@@ -57,47 +57,47 @@
 
 /datum/award/achievement/boss/swarmer_beacon_kill
 	name = "Swarm Beacon Killer"
-	desc = "GET THEM OFF OF ME!"
+	desc = "СНИМИТЕ ИХ С МЕНЯ!"
 	database_id = BOSS_MEDAL_SWARMERS
 	icon = "swarmer"
 
 /datum/award/achievement/boss/wendigo_kill
 	name = "Wendigo Killer"
-	desc = "You've now ruined years of mythical storytelling."
+	desc = "Вы загубили тысячелетний мифологический эпос."
 	database_id = BOSS_MEDAL_WENDIGO
 
 /datum/award/achievement/boss/blood_miner_crusher
 	name = "Blood-Drunk Miner Crusher"
-	desc = "I guess he couldn't handle his drink that well."
+	desc = "Похоже, что он перебрал с алкоголем."
 	database_id = BOSS_MEDAL_MINER_CRUSHER
 	icon = "miner"
 
 /datum/award/achievement/boss/demonic_miner_crusher
 	name = "Demonic-Frost Miner Crusher"
-	desc = "Definitely harder than the Blood-Drunk Miner."
+	desc = "Он пьянее Пьяного Шахтёра."
 	database_id = BOSS_MEDAL_FROSTMINER_CRUSHER
 
 /datum/award/achievement/boss/bubblegum_crusher
 	name = "Bubblegum Crusher"
-	desc = "I guess he wasn't made of candy after all"
+	desc = "Не похоже, чтобы он был сделан из конфет и леденцов."
 	database_id = BOSS_MEDAL_BUBBLEGUM_CRUSHER
 	icon = "bbgum"
 
 /datum/award/achievement/boss/colossus_crusher
 	name = "Colossus Crusher"
-	desc = "The bigger they are... the better the loot"
+	desc = "Чем они больше... тем лучше добыча!"
 	database_id = BOSS_MEDAL_COLOSSUS_CRUSHER
 	icon = "colossus"
 
 /datum/award/achievement/boss/drake_crusher
 	name = "Drake Crusher"
-	desc = "Now I can wear Rune Platebodies!"
+	desc = "Теперь я могу носить Рунные Пластины!"
 	database_id = BOSS_MEDAL_DRAKE_CRUSHER
 	icon = "drake"
 
 /datum/award/achievement/boss/hierophant_crusher
 	name = "Hierophant Crusher"
-	desc = "Hierophant, but not triumphant."
+	desc = "Пусть и жрец, но не молодец."
 	database_id = BOSS_MEDAL_HIEROPHANT_CRUSHER
 	icon = "hierophant"
 
@@ -108,23 +108,23 @@
 
 /datum/award/achievement/boss/swarmer_beacon_crusher
 	name = "Swarm Beacon Crusher"
-	desc = "GET THEM OFF OF ME!"
+	desc = "СНИМИТЕ ИХ С МЕНЯ!"
 	database_id = BOSS_MEDAL_SWARMERS_CRUSHER
 
 /datum/award/achievement/boss/wendigo_crusher
 	name = "Wendigo Crusher"
-	desc = "You've now ruined years of mythical storytelling."
+	desc = "Вы загубили тысячелетний мифологический эпос."
 	database_id = BOSS_MEDAL_WENDIGO_CRUSHER
 
 //should be removed soon
 /datum/award/achievement/boss/king_goat_kill
 	name = "King Goat Killer"
-	desc = "The king is dead, long live the king!"
+	desc = "Король умер. Да здравствует король!"
 	database_id = BOSS_MEDAL_KINGGOAT
 	icon = "goatboss"
 
 /datum/award/achievement/boss/king_goat_crusher
 	name = "King Goat Crusher"
-	desc = "The king is dead, long live the king!"
+	desc = "Король умер. Да здравствует король!"
 	database_id = BOSS_MEDAL_KINGGOAT_CRUSHER
 	icon = "goatboss"

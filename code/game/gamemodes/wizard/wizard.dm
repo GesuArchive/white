@@ -3,7 +3,7 @@
 	var/list/datum/mind/apprentices = list()
 
 /datum/game_mode/wizard
-	name = "wizard"
+	name = "маг"
 	config_tag = "wizard"
 	report_type = "wizard"
 	antag_flag = ROLE_WIZARD

@@ -132,7 +132,7 @@
 			log_combat(A, D, "grabbed", addition="aggressively")
 			D.visible_message("<span class='warning'>[A] violently grabs [D]!</span>", \
 							"<span class='userdanger'>You're grabbed violently by [A]!</span>", "<span class='hear'>You hear sounds of aggressive fondling!</span>", COMBAT_MESSAGE_RANGE, A)
-			to_chat(A, "<span class='danger'>You violently grab [D]!</span>")
+			to_chat(A, "<span class='danger'>Я крепко хватаю [D]!</span>")
 		return TRUE
 	else
 		return FALSE
@@ -157,12 +157,12 @@
 		playsound(get_turf(D), 'sound/weapons/cqchit1.ogg', 50, TRUE, -1)
 	D.visible_message("<span class='danger'>[A] [picked_hit_type]ed [D]!</span>", \
 					"<span class='userdanger'>You're [picked_hit_type]ed by [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-	to_chat(A, "<span class='danger'>You [picked_hit_type] [D]!</span>")
+	to_chat(A, "<span class='danger'>Я [picked_hit_type] [D]!</span>")
 	log_combat(A, D, "[picked_hit_type]s (CQC)")
 	if(A.resting && !D.stat && !D.IsParalyzed())
 		D.visible_message("<span class='danger'>[A] leg sweeps [D]!</span>", \
 						"<span class='userdanger'>Your legs are sweeped by [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", null, A)
-		to_chat(A, "<span class='danger'>You leg sweep [D]!</span>")
+		to_chat(A, "<span class='danger'>Сбиваю [D] с ног!</span>")
 		playsound(get_turf(A), 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
 		D.apply_damage(10, BRUTE)
 		D.Paralyze(60)

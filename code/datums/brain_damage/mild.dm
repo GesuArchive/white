@@ -5,7 +5,7 @@
 /datum/brain_trauma/mild
 
 /datum/brain_trauma/mild/hallucinations
-	name = "Hallucinations"
+	name = "Галлюцинации"
 	desc = "Patient suffers constant hallucinations."
 	scan_desc = "schizophrenia"
 	gain_text = "<span class='warning'>You feel your grip on reality slipping...</span>"

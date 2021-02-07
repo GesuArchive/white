@@ -114,6 +114,6 @@
 
 ///Projectile type used by laser eyes
 /obj/projectile/beam/laser_eyes
-	name = "beam"
+	name = "луч"
 	icon = 'icons/effects/genetics.dmi'
 	icon_state = "eyelasers"

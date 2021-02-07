@@ -222,7 +222,7 @@
 	name = "Toggle Gunlight"
 
 /datum/action/item_action/toggle_mode
-	name = "Toggle Mode"
+	name = "Режим управления"
 
 /datum/action/item_action/toggle_barrier_spread
 	name = "Toggle Barrier Spread"
@@ -231,7 +231,7 @@
 	name = "Equip/Unequip TED Gun"
 
 /datum/action/item_action/toggle_paddles
-	name = "Toggle Paddles"
+	name = "Управление ручками"
 
 /datum/action/item_action/set_internals
 	name = "Set Internals"
@@ -256,7 +256,7 @@
 	name = "Toggle Helmet Light"
 
 /datum/action/item_action/toggle_welding_screen
-	name = "Toggle Welding Screen"
+	name = "Переключить сварочный экран"
 
 /datum/action/item_action/toggle_welding_screen/Trigger()
 	var/obj/item/clothing/head/hardhat/weldhat/H = target
@@ -264,7 +264,7 @@
 		H.toggle_welding_screen(owner)
 
 /datum/action/item_action/toggle_welding_screen/plasmaman
-	name = "Toggle Welding Screen"
+	name = "Переключить сварочный экран"
 
 /datum/action/item_action/toggle_welding_screen/plasmaman/Trigger()
 	var/obj/item/clothing/head/helmet/space/plasmaman/H = target
@@ -347,7 +347,7 @@
 
 /datum/action/item_action/toggle/New(Target)
 	..()
-	name = "Toggle [target.name]"
+	name = "переключить [target.name]"
 	button.name = name
 
 /datum/action/item_action/halt
@@ -464,7 +464,7 @@
 
 /datum/action/item_action/organ_action/toggle/New(Target)
 	..()
-	name = "Toggle [target.name]"
+	name = "переключить [target.name]"
 	button.name = name
 
 /datum/action/item_action/organ_action/use/New(Target)

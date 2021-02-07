@@ -20,7 +20,7 @@
 // GUN PART KIT //
 
 /obj/item/weaponcrafting/gunkit/
-	name = "generic gun parts kit"
+	name = "стандартный комплект оружейных деталей для пистолета"
 	desc = "It's an empty gun parts container! Why do you have this?"
 	icon = 'icons/obj/improvised.dmi'
 	icon_state = "kitsuitcase"
@@ -38,7 +38,7 @@
 	desc = "A suitcase containing the necessary gun parts to turn a laser gun into a x-ray laser gun. Do not point most parts directly towards face."
 
 /obj/item/weaponcrafting/gunkit/ion
-	name = "generic gun parts kit"
+	name = "стандартный комплект оружейных деталей для пистолета"
 	desc = "A suitcase containing the necessary gun parts to transform a standard laser gun into a ion carbine."
 
 /obj/item/weaponcrafting/gunkit/temperature

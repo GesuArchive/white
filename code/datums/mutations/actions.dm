@@ -96,7 +96,7 @@
 		to_chat(user,"<span class='notice'>You consider [tracking_target] scent. The trail leads <b>[direction_text].</b></span>")
 
 /datum/mutation/human/firebreath
-	name = "Fire Breath"
+	name = "Огненное Дыхание"
 	desc = "An ancient mutation that gives lizards breath of fire."
 	quality = POSITIVE
 	difficulty = 12
@@ -114,7 +114,7 @@
 		S.strength = GET_MUTATION_POWER(src)
 
 /obj/effect/proc_holder/spell/aimed/firebreath
-	name = "Fire Breath"
+	name = "Огненное Дыхание"
 	desc = "You can breathe fire at a target."
 	school = "evocation"
 	charge_max = 600

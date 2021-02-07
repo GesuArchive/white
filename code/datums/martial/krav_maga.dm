@@ -12,10 +12,10 @@
 
 /datum/action/neck_chop/Trigger()
 	if(owner.incapacitated())
-		to_chat(owner, "<span class='warning'>You can't use [name] while you're incapacitated.</span>")
+		to_chat(owner, "<span class='warning'>Я не могу использовать [name], пока я парализован.</span>")
 		return
 	if (owner.mind.martial_art.streak == "neck_chop")
-		owner.visible_message("<span class='danger'>[owner] assumes a neutral stance.</span>", "<b><i>Your next attack is cleared.</i></b>")
+		owner.visible_message("<span class='danger'>[owner] становится в нейтральную стойку.</span>", "<b><i>Я вышел из боевой стойки.</i></b>")
 		owner.mind.martial_art.streak = ""
 	else
 		owner.visible_message("<span class='danger'>[owner] assumes the Neck Chop stance!</span>", "<b><i>Your next attack will be a Neck Chop.</i></b>")
@@ -28,10 +28,10 @@
 
 /datum/action/leg_sweep/Trigger()
 	if(owner.incapacitated())
-		to_chat(owner, "<span class='warning'>You can't use [name] while you're incapacitated.</span>")
+		to_chat(owner, "<span class='warning'>Я не могу использовать [name], пока я парализован.</span>")
 		return
 	if (owner.mind.martial_art.streak == "leg_sweep")
-		owner.visible_message("<span class='danger'>[owner] assumes a neutral stance.</span>", "<b><i>Your next attack is cleared.</i></b>")
+		owner.visible_message("<span class='danger'>[owner] становится в нейтральную стойку.</span>", "<b><i>Я вышел из боевой стойки.</i></b>")
 		owner.mind.martial_art.streak = ""
 	else
 		owner.visible_message("<span class='danger'>[owner] assumes the Leg Sweep stance!</span>", "<b><i>Your next attack will be a Leg Sweep.</i></b>")
@@ -44,10 +44,10 @@
 
 /datum/action/lung_punch/Trigger()
 	if(owner.incapacitated())
-		to_chat(owner, "<span class='warning'>You can't use [name] while you're incapacitated.</span>")
+		to_chat(owner, "<span class='warning'>Я не могу использовать [name], пока я парализован.</span>")
 		return
 	if (owner.mind.martial_art.streak == "quick_choke")
-		owner.visible_message("<span class='danger'>[owner] assumes a neutral stance.</span>", "<b><i>Your next attack is cleared.</i></b>")
+		owner.visible_message("<span class='danger'>[owner] становится в нейтральную стойку.</span>", "<b><i>Я вышел из боевой стойки.</i></b>")
 		owner.mind.martial_art.streak = ""
 	else
 		owner.visible_message("<span class='danger'>[owner] assumes the Lung Punch stance!</span>", "<b><i>Your next attack will be a Lung Punch.</i></b>")
@@ -56,7 +56,7 @@
 /datum/martial_art/krav_maga/teach(mob/living/owner, make_temporary=FALSE)
 	if(..())
 		to_chat(owner, "<span class='userdanger'>You know the arts of [name]!</span>")
-		to_chat(owner, "<span class='danger'>Place your cursor over a move at the top of the screen to see what it does.</span>")
+		to_chat(owner, "<span class='danger'>Наведитесь курсором на иконку приёма, чтобы узнать о нём подробнее.</span>")
 		neckchop.Grant(owner)
 		legsweep.Grant(owner)
 		lungpunch.Grant(owner)
@@ -90,7 +90,7 @@
 	var/armor_block = D.run_armor_check(affecting, MELEE)
 	D.visible_message("<span class='warning'>[A] leg sweeps [D]!</span>", \
 					"<span class='userdanger'>Your legs are sweeped by [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", null, A)
-	to_chat(A, "<span class='danger'>You leg sweep [D]!</span>")
+	to_chat(A, "<span class='danger'>Сбиваю [D] с ног!</span>")
 	playsound(get_turf(A), 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
 	D.apply_damage(rand(20,30), STAMINA, affecting, armor_block)
 	D.Knockdown(60)
@@ -147,7 +147,7 @@
 		playsound(get_turf(D), 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
 	D.visible_message("<span class='danger'>[A] [picked_hit_type]s [D]!</span>", \
 					"<span class='userdanger'>You're [picked_hit_type]ed by [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-	to_chat(A, "<span class='danger'>You [picked_hit_type] [D]!</span>")
+	to_chat(A, "<span class='danger'>Я [picked_hit_type] [D]!</span>")
 	log_combat(A, D, "[picked_hit_type] with [name]")
 	return TRUE
 

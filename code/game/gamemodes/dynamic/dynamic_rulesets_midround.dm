@@ -329,7 +329,7 @@
 //////////////////////////////////////////////
 
 /datum/dynamic_ruleset/midround/from_ghosts/wizard
-	name = "Wizard"
+	name = "Волшебник"
 	antag_datum = /datum/antagonist/wizard
 	antag_flag = ROLE_WIZARD
 	enemy_roles = list("Russian Officer", "Hacker","Veteran", "Security Officer", "Detective","Head of Security", "Captain")
@@ -402,7 +402,7 @@
 //////////////////////////////////////////////
 
 /datum/dynamic_ruleset/midround/from_ghosts/blob
-	name = "Blob"
+	name = "Блоб"
 	antag_datum = /datum/antagonist/blob
 	antag_flag = ROLE_BLOB
 	enemy_roles = list("Russian Officer", "Hacker","Veteran", "Security Officer", "Detective", "Head of Security", "Captain")
@@ -469,7 +469,7 @@
 //////////////////////////////////////////////
 
 /datum/dynamic_ruleset/midround/from_ghosts/nightmare
-	name = "Nightmare"
+	name = "Кошмар"
 	antag_datum = /datum/antagonist/nightmare
 	antag_flag = "Nightmare"
 	antag_flag_override = ROLE_ALIEN
@@ -515,7 +515,7 @@
 //////////////////////////////////////////////
 
 /datum/dynamic_ruleset/midround/from_ghosts/space_dragon
-	name = "Space Dragon"
+	name = "Космический дракон"
 	antag_datum = /datum/antagonist/space_dragon
 	antag_flag = "Space Dragon"
 	antag_flag_override = ROLE_SPACE_DRAGON
@@ -597,7 +597,7 @@
 //////////////////////////////////////////////
 
 /datum/dynamic_ruleset/midround/swarmers
-	name = "Swarmers"
+	name = "Паразиты"
 	antag_datum = /datum/antagonist/swarmer
 	antag_flag = "Swarmer"
 	antag_flag_override = ROLE_ALIEN
@@ -632,7 +632,7 @@
 //////////////////////////////////////////////
 
 /datum/dynamic_ruleset/midround/from_ghosts/space_ninja
-	name = "Space Ninja"
+	name = "Космический ниндзя"
 	antag_datum = /datum/antagonist/ninja
 	antag_flag = "Space Ninja"
 	antag_flag_override = ROLE_NINJA

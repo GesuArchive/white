@@ -4,12 +4,12 @@
 	icon_state = "dk_yellow"
 
 /area/ruin/powered/clownplanet
-	name = "Clown Planet"
+	name = "Планета Клоунов"
 	icon_state = "dk_yellow"
 	ambientsounds = list('sound/ambience/clown.ogg')
 
 /area/ruin/unpowered/gaia
-	name = "Patch of Eden"
+	name = "Клочок Эдэма"
 	icon_state = "dk_yellow"
 
 /area/ruin/powered/snow_biodome
@@ -19,14 +19,14 @@
 	icon_state = "dk_yellow"
 
 /area/ruin/powered/golem_ship
-	name = "Free Golem Ship"
+	name = "Корабль свободных големов"
 	icon_state = "dk_yellow"
 
 /area/ruin/powered/greed
 	icon_state = "dk_yellow"
 
 /area/ruin/unpowered/hierophant
-	name = "Hierophant's Arena"
+	name = "Арена Иерофанта"
 	icon_state = "dk_yellow"
 
 /area/ruin/powered/pride
@@ -36,11 +36,11 @@
 	icon_state = "dk_yellow"
 
 /area/ruin/unpowered/elephant_graveyard
-	name = "Elephant Graveyard"
+	name = "Кладбище слонов"
 	icon_state = "dk_yellow"
 
 /area/ruin/powered/graveyard_shuttle
-	name = "Elephant Graveyard"
+	name = "Кладбище слонов"
 	icon_state = "green"
 
 /area/ruin/unpowered/syndicate_lava_base
@@ -93,7 +93,7 @@
 //Xeno Nest
 
 /area/ruin/unpowered/xenonest
-	name = "The Hive"
+	name = "Улей"
 	always_unpowered = TRUE
 	power_environ = FALSE
 	power_equip = FALSE

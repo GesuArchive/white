@@ -510,14 +510,14 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/lizardhat
-	name = "Lizard Cloche Hat"
+	name = "Колпак ящерицы"
 	result = /obj/item/clothing/head/lizard
 	time = 10
 	reqs = list(/obj/item/organ/tail/lizard = 1)
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/lizardhat_alternate
-	name = "Lizard Cloche Hat"
+	name = "Колпак ящерицы"
 	result = /obj/item/clothing/head/lizard
 	time = 10
 	reqs = list(/obj/item/stack/sheet/animalhide/lizard = 1)
@@ -909,7 +909,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/aitater
-	name = "intelliTater"
+	name = "интел-модный"
 	result = /obj/item/aicard/aitater
 	time = 30
 	tools = list(TOOL_WIRECUTTER)
@@ -927,7 +927,7 @@
 	return FALSE
 
 /datum/crafting_recipe/aispook
-	name = "intelliLantern"
+	name = "интел-стрёмный"
 	result = /obj/item/aicard/aispook
 	time = 30
 	tools = list(TOOL_WIRECUTTER)

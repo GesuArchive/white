@@ -118,7 +118,7 @@
 	resilience = TRAUMA_RESILIENCE_ABSOLUTE
 
 /datum/brain_trauma/severe/narcolepsy
-	name = "Narcolepsy"
+	name = "Нарколепсия"
 	desc = "Пациент может непроизвольно заснуть во время обычных занятий."
 	scan_desc = "травматическая нарколепсия"
 	gain_text = "<span class='warning'>Пора спать...</span>"

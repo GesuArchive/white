@@ -164,7 +164,7 @@
 	eye.origin = H
 	eye.eye_initialized = TRUE
 	eye.eye_user = user
-	eye.name = "Camera Eye ([user.name])"
+	eye.name = "Глаз-камера ([user.name])"
 	user.remote_control = eye
 	user.reset_perspective(eye)
 	eye.setLoc(H.loc)
@@ -212,7 +212,7 @@
 
 //RECORDS
 /datum/holorecord
-	var/caller_name = "Unknown" //Caller name
+	var/caller_name = "Неизвестно" //Caller name
 	var/image/caller_image
 	var/list/entries = list()
 	var/language = /datum/language/common //Initial language, can be changed by HOLORECORD_LANGUAGE entries

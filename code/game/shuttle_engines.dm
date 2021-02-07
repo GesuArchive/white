@@ -13,7 +13,7 @@
 	CanAtmosPass = ATMOS_PASS_DENSITY
 
 /obj/structure/shuttle/engine
-	name = "engine"
+	name = "двигатель"
 	desc = "A bluespace engine used to make shuttles move."
 	density = TRUE
 	anchored = TRUE
@@ -135,7 +135,7 @@
 	desc = "Redirects around energized particles in engine structures."
 
 /obj/structure/shuttle/engine/large
-	name = "engine"
+	name = "двигатель"
 	opacity = TRUE
 	icon = 'icons/obj/2x2.dmi'
 	icon_state = "large_engine"
@@ -145,7 +145,7 @@
 	appearance_flags = 0
 
 /obj/structure/shuttle/engine/huge
-	name = "engine"
+	name = "двигатель"
 	opacity = TRUE
 	icon = 'icons/obj/3x3.dmi'
 	icon_state = "huge_engine"

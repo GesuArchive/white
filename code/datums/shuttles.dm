@@ -241,7 +241,7 @@
 
 /datum/map_template/shuttle/emergency/medisim
 	suffix = "medisim"
-	name = "Medieval Reality Simulation Dome"
+	name = "Купол симуляции Средневековой эры"
 	description = "A state of the art simulation dome, loaded onto your shuttle! Watch and laugh at how petty humanity used to be before it reached the stars. Guaranteed to be at least 40% historically accurate."
 	admin_notes = "Ghosts can spawn in and fight as knights or archers. The CTF auto restarts, so no admin intervention necessary."
 	credit_cost = 20000
@@ -277,7 +277,7 @@
 		arena_template.load_new_z()
 
 /datum/map_template/arena
-	name = "The Arena"
+	name = "Арена"
 	mappath = "_maps/templates/the_arena.dmm"
 
 /datum/map_template/shuttle/emergency/birdboat
@@ -658,11 +658,11 @@
 
 /datum/map_template/shuttle/ruin/caravan_victim
 	suffix = "caravan_victim"
-	name = "Small Freighter"
+	name = "Небольшое грузовое судно"
 
 /datum/map_template/shuttle/ruin/pirate_cutter
 	suffix = "pirate_cutter"
-	name = "Pirate Cutter"
+	name = "Пиратский куттер"
 
 /datum/map_template/shuttle/ruin/syndicate_dropship
 	suffix = "syndicate_dropship"
@@ -670,7 +670,7 @@
 
 /datum/map_template/shuttle/ruin/syndicate_fighter_shiv
 	suffix = "syndicate_fighter_shiv"
-	name = "Syndicate Fighter"
+	name = "Синди-истребитель "
 
 /datum/map_template/shuttle/snowdin/mining
 	suffix = "mining"

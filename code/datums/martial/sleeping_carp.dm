@@ -136,7 +136,7 @@
 
 /// Verb added to humans who learn the art of the sleeping carp.
 /mob/living/proc/sleeping_carp_help()
-	set name = "Recall Teachings"
+	set name = "Вспомните учения"
 	set desc = "Remember the martial techniques of the Sleeping Carp clan."
 	set category = "Sleeping Carp"
 

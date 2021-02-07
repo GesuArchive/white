@@ -1,6 +1,6 @@
 /obj/machinery/nuclearbomb/syndicate/bananium
 	name = "bananium fission explosive"
-	desc = "You probably shouldn't stick around to see if this is armed."
+	desc = "Райсуд в Перми решил заблокировать сайт с инструкцией 'Как сделать атомную бомбу у себя дома', которая начиналась словами: 'Пошлите девку в погреб, пусть принесет 27 фунтов доброго оружейного плутония...'."
 	icon = 'icons/obj/machines/nuke.dmi'
 	icon_state = "bananiumbomb_base"
 

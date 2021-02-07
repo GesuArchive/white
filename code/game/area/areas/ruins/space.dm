@@ -38,13 +38,13 @@
 
 
 /area/ruin/space/has_grav/powered/dinner_for_two
-	name = "Dinner for Two"
+	name = "Ужин на двоих"
 
 /area/ruin/space/has_grav/powered/cat_man
 	name = "Kitty Den"
 
 /area/ruin/space/has_grav/powered/authorship
-	name = "Authorship"
+	name = "Судно 'Безмятежность'"
 
 /area/ruin/space/has_grav/powered/aesthetic
 	name = "Aesthetic"
@@ -379,7 +379,7 @@
 //ABANDONED TELEPORTER
 
 /area/ruin/space/abandoned_tele
-	name = "Abandoned Teleporter"
+	name = "Заброшенный телепорт"
 	icon_state = "teleporter"
 	ambientsounds = list('sound/ambience/ambimalf.ogg', 'sound/ambience/signal.ogg')
 
@@ -393,14 +393,14 @@
 
 /area/ruin/space/has_grav/whiteship/box
 
-	name = "Abandoned Ship"
+	name = "Заброшенный корабль"
 	icon_state = "red"
 
 
 //SYNDICATE LISTENING POST STATION
 
 /area/ruin/space/has_grav/listeningstation
-	name = "Listening Post"
+	name = "Пост прослушивания"
 	icon_state = "yellow"
 
 /area/ruin/space/has_grav/powered/ancient_shuttle

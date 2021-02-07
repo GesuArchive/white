@@ -1,5 +1,5 @@
 /datum/game_mode/meteor
-	name = "meteor"
+	name = "метеор"
 	config_tag = "meteor"
 	report_type = "meteor"
 	false_report_weight = 1

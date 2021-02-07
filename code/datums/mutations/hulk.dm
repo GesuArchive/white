@@ -162,7 +162,7 @@
 	if(!yeeted_person || !the_hulk || the_hulk.incapacitated())
 		return
 	if(get_dist(the_hulk, yeeted_person) > 1 || !isturf(the_hulk.loc) || !isturf(yeeted_person.loc))
-		to_chat(the_hulk, "<span class='warning'>You lose your grasp on [yeeted_person]!</span>")
+		to_chat(the_hulk, "<span class='warning'>[yeeted_person] вырвался из моего захвата!</span>")
 		return
 
 	var/delay = 5
@@ -232,7 +232,7 @@
 	if(!yeeted_person || !the_hulk || the_hulk.incapacitated())
 		return
 	if(get_dist(the_hulk, yeeted_person) > 1 || !isturf(the_hulk.loc) || !isturf(yeeted_person.loc))
-		to_chat(the_hulk, "<span class='warning'>You lose your grasp on [yeeted_person]!</span>")
+		to_chat(the_hulk, "<span class='warning'>[yeeted_person] вырвался из моего захвата!</span>")
 		return
 
 	the_hulk.setDir(original_dir)

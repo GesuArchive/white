@@ -1,9 +1,9 @@
 /datum/game_mode
-	var/traitor_name = "traitor"
+	var/traitor_name = "предатель"
 	var/list/datum/mind/traitors = list()
 
 /datum/game_mode/traitor
-	name = "traitor"
+	name = "предатель"
 	config_tag = "traitor"
 	report_type = "traitor"
 	antag_flag = ROLE_TRAITOR

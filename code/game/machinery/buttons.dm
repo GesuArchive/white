@@ -73,21 +73,21 @@
 	if(panel_open)
 		if(!device && istype(W, /obj/item/assembly))
 			if(!user.transferItemToLoc(W, src))
-				to_chat(user, "<span class='warning'>\The [W] is stuck to you!</span>")
+				to_chat(user, "<span class='warning'>[W] прилип ко мне!</span>")
 				return
 			device = W
-			to_chat(user, "<span class='notice'>You add [W] to the button.</span>")
+			to_chat(user, "<span class='notice'>Прикручиваю [W] к кнопке.</span>")
 
 		if(!board && istype(W, /obj/item/electronics/airlock))
 			if(!user.transferItemToLoc(W, src))
-				to_chat(user, "<span class='warning'>\The [W] is stuck to you!</span>")
+				to_chat(user, "<span class='warning'>[W] прилип ко мне!</span>")
 				return
 			board = W
 			if(board.one_access)
 				req_one_access = board.accesses
 			else
 				req_access = board.accesses
-			to_chat(user, "<span class='notice'>You add [W] to the button.</span>")
+			to_chat(user, "<span class='notice'>Прикручиваю [W] к кнопке.</span>")
 
 		if(!device && !board && W.tool_behaviour == TOOL_WRENCH)
 			to_chat(user, "<span class='notice'>You start unsecuring the button frame...</span>")
@@ -205,17 +205,17 @@
 	..()
 
 /obj/machinery/button/door/incinerator_vent_toxmix
-	name = "combustion chamber vent control"
+	name = "управление системой вентиляции камеры сгорания"
 	id = INCINERATOR_TOXMIX_VENT
 	req_access = list(ACCESS_TOXINS)
 
 /obj/machinery/button/door/incinerator_vent_atmos_main
-	name = "turbine vent control"
+	name = "управление системой вентиляции турбины"
 	id = INCINERATOR_ATMOS_MAINVENT
 	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_MAINT_TUNNELS)
 
 /obj/machinery/button/door/incinerator_vent_atmos_aux
-	name = "combustion chamber vent control"
+	name = "управление системой вентиляции камеры сгорания"
 	id = INCINERATOR_ATMOS_AUXVENT
 	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_MAINT_TUNNELS)
 
@@ -230,12 +230,12 @@
 	req_one_access = list(ACCESS_ATMOSPHERICS)
 
 /obj/machinery/button/door/incinerator_vent_syndicatelava_main
-	name = "turbine vent control"
+	name = "управление системой вентиляции турбины"
 	id = INCINERATOR_SYNDICATELAVA_MAINVENT
 	req_access = list(ACCESS_SYNDICATE)
 
 /obj/machinery/button/door/incinerator_vent_syndicatelava_aux
-	name = "combustion chamber vent control"
+	name = "управление системой вентиляции камеры сгорания"
 	id = INCINERATOR_SYNDICATELAVA_AUXVENT
 	req_access = list(ACCESS_SYNDICATE)
 

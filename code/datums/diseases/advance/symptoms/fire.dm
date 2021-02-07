@@ -64,7 +64,7 @@ Bonus
 		if(5)
 			Firestacks_stage_5(M, A)
 			M.IgniteMob()
-			to_chat(M, "<span class='userdanger'>Your skin erupts into an inferno!</span>")
+			to_chat(M, "<span class='userdanger'>Моя кожа буквально пылает!</span>")
 			M.emote("scream")
 
 /datum/symptom/fire/proc/Firestacks_stage_4(mob/living/M, datum/disease/advance/A)
@@ -154,7 +154,7 @@ Bonus
 				explosion(get_turf(M),-1,(-1 + explosion_power),(2 * explosion_power))
 			Alkali_fire_stage_5(M, A)
 			M.IgniteMob()
-			to_chat(M, "<span class='userdanger'>Your skin erupts into an inferno!</span>")
+			to_chat(M, "<span class='userdanger'>Моя кожа буквально пылает!</span>")
 			M.emote("scream")
 
 /datum/symptom/alkali/proc/Alkali_fire_stage_4(mob/living/M, datum/disease/advance/A)

@@ -68,7 +68,7 @@
 /datum/map_template/ruin/space/derelict2
 	id = "derelict2"
 	suffix = "derelict2.dmm"
-	name = "Dinner for Two"
+	name = "Ужин на двоих"
 	description = "Oh this is the night\n\
 		It's a beautiful night\n\
 		And we call it bella notte"
@@ -114,7 +114,7 @@
 /datum/map_template/ruin/space/intact_empty_ship
 	id = "intact-empty-ship"
 	suffix = "intactemptyship.dmm"
-	name = "Authorship"
+	name = "Судно 'Безмятежность'"
 	description = "Just somewhere quiet, where I can focus on my work with no interruptions."
 
 /datum/map_template/ruin/space/caravanambush
@@ -184,7 +184,7 @@
 /datum/map_template/ruin/space/abandonedteleporter
 	id = "abandonedteleporter"
 	suffix = "abandonedteleporter.dmm"
-	name = "Abandoned Teleporter"
+	name = "Заброшенный телепорт"
 	description = "In space construction the teleporter is often the first system brought online. \
 	This lonely, half-built teleporter is a sign of a proposed structure that for one reason or another just never got built."
 
@@ -279,7 +279,7 @@
 /datum/map_template/ruin/space/clownplanet
 	id = "clownplanet"
 	suffix = "clownplanet.dmm"
-	name = "Clown Planet"
+	name = "Планета Клоунов"
 	description = "Thought lost in 2552, this minor planet has recently been rediscovered."
 
 /datum/map_template/ruin/space/clericden

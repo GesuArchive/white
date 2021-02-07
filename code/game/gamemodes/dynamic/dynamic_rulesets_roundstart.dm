@@ -179,7 +179,7 @@
 
 // Dynamic is a wonderful thing that adds wizards to every round and then adds even more wizards during the round.
 /datum/dynamic_ruleset/roundstart/wizard
-	name = "Wizard"
+	name = "Волшебник"
 	antag_flag = ROLE_WIZARD
 	antag_datum = /datum/antagonist/wizard
 	minimum_required_age = 14
@@ -363,7 +363,7 @@
 //////////////////////////////////////////////
 
 /datum/dynamic_ruleset/roundstart/revs
-	name = "Revolution"
+	name = "Революция"
 	persistent = TRUE
 	antag_flag = ROLE_REV_HEAD
 	antag_flag_override = ROLE_REV
@@ -448,7 +448,7 @@
 //////////////////////////////////////////////
 
 /datum/dynamic_ruleset/roundstart/families
-	name = "Families"
+	name = "Семьи"
 	persistent = TRUE
 	antag_flag = ROLE_FAMILIES
 	protected_roles = list("Prisoner", "Head of Personnel")
@@ -542,7 +542,7 @@
 //////////////////////////////////////////////
 
 /datum/dynamic_ruleset/roundstart/monkey
-	name = "Monkey"
+	name = "Обезьяна"
 	antag_flag = ROLE_MONKEY
 	antag_datum = /datum/antagonist/monkey/leader
 	restricted_roles = list("Cyborg", "AI", "Prisoner")
