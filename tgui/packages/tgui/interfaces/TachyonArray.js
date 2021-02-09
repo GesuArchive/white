@@ -11,8 +11,7 @@ export const TachyonArray = (props, context) => {
   return (
     <Window
       width={550}
-      height={250}
-      resizable>
+      height={250}>
       <Window.Content scrollable>
         <Flex direction="column" height="100%">
           <Flex.Item grow={1} className="TachyonArray__Content">

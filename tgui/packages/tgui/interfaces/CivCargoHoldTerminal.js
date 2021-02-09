@@ -15,7 +15,7 @@ export const CivCargoHoldTerminal = (props, context) => {
   const in_text = "Приветствуем, драгоценный сотрудник.";
   const out_text = "Для начала работы вставьте вашу ID-карту в консоль.";
   return (
-    <Window resizable
+    <Window
       width={500}
       height={375}>
       <Window.Content scrollable>

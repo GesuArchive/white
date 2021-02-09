@@ -26,8 +26,7 @@ export const ChemReactionChamber = (props, context) => {
   return (
     <Window
       width={250}
-      height={280}
-      resizable>
+      height={280}>
       <Window.Content scrollable>
         <Section
           title="Состояние"
@@ -59,7 +58,7 @@ export const ChemReactionChamber = (props, context) => {
               <Flex position="relative">
                 <AnimatedNumber value={ph}>
                   {(_, value) => (
-                    <RoundGauge 
+                    <RoundGauge
                       value={value}
                       minValue={0}
                       maxValue={14}
