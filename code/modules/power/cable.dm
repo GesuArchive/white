@@ -462,7 +462,8 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	"Layer 3" = image(icon = 'icons/hud/radial.dmi', icon_state = "coil-blue"),
 	"Multilayer cable hub" = image(icon = 'icons/obj/power.dmi', icon_state = "cable_bridge"),
 	"Multi Z layer cable hub" = image(icon = 'icons/obj/power.dmi', icon_state = "cablerelay-broken-cable"),
-	"Cable restraints" = restraints_icon
+	"Cable restraints" = restraints_icon,
+	"Вешалка" = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "noose")
 	)
 
 	var/layer_result = show_radial_menu(user, src, radial_menu, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
@@ -506,6 +507,13 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 				var/obj/item/restraints/handcuffs/cable/restraints = new
 				restraints.color = color
 				user.put_in_hands(restraints)
+		if("Вешалка")
+			if (amount >= 30)
+				if(!(locate(/obj/structure/chair) in user.loc) && !(locate(/obj/structure/bed) in user.loc) && !(locate(/obj/structure/table) in user.loc) && !(locate(/obj/structure/toilet) in user.loc))
+					to_chat(user, "<span class='warning'>Нужно стоять на вершине стула/стола/туалета для создания вешалки!</span>")
+					return
+				use(30)
+				new /obj/item/stack/cable_coil(get_turf(user))
 	update_icon()
 
 
