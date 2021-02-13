@@ -198,7 +198,7 @@
 	var/obscured = check_obscured_slots()
 	var/list/dat = list()
 
-	dat += "<head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"></head><table>"
+	dat += "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head><table>"
 	for(var/i in 1 to held_items.len)
 		var/obj/item/I = get_item_for_held_index(i)
 		dat += "<tr><td><B>[get_held_index_name(i)]:</B></td><td><A href='?src=[REF(src)];item=[ITEM_SLOT_HANDS];hand_index=[i]'>[(I && !(I.item_flags & ABSTRACT)) ? I : "<font color=grey>Ничего</font>"]</a></td></tr>"

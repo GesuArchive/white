@@ -226,7 +226,7 @@
 	if(!user.can_read(src))
 		return
 	if(dat)
-		user << browse("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><TT><I>Автор: [author].</I></TT> <BR>" + "[dat]", "window=book[window_size != null ? ";size=[window_size]" : ""]")
+		user << browse("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><TT><I>Автор: [author].</I></TT> <BR>" + "[dat]", "window=book[window_size != null ? ";size=[window_size]" : ""]")
 		user.visible_message("<span class='notice'>[user] открывает \"[title]\" и начинает внимательно её изучать.</span>")
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "book_nerd", /datum/mood_event/book_nerd)
 		onclose(user, "book")

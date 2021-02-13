@@ -445,7 +445,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	//Collect keywords
 	var/list/keywords = mob.get_policy_keywords()
 	var/header = get_policy(POLICY_VERB_HEADER)
-	var/list/policytext = list(header,"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><hr>")
+	var/list/policytext = list(header,"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><hr>")
 	var/anything = FALSE
 	for(var/keyword in keywords)
 		var/p = get_policy(keyword)

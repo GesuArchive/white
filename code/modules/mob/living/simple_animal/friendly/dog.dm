@@ -191,7 +191,7 @@
 	user.set_machine(src)
 	var/list/dat = list()
 
-	dat += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><table>"
+	dat += "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><table>"
 	dat += "<tr><td><B>Голова:</B></td><td><A href='?src=[REF(src)];[inventory_head ? "remove_inv=head'>[inventory_head]" : "add_inv=head'><font color=grey>Ничего</font>"]</A></td></tr>"
 	dat += "<tr><td><B>Спина:</B></td><td><A href='?src=[REF(src)];[inventory_back ? "remove_inv=back'>[inventory_back]" : "add_inv=back'><font color=grey>Ничего</font>"]</A></td></tr>"
 	dat += "<tr><td><B>Ошейник:</B></td><td><A href='?src=[REF(src)];[pcollar ? "remove_inv=collar'>[pcollar]" : "add_inv=collar'><font color=grey>Ничего</font>"]</A></td></tr>"
