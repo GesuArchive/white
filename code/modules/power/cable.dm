@@ -513,7 +513,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 					to_chat(user, "<span class='warning'>Нужно стоять на вершине стула/стола/туалета для создания вешалки!</span>")
 					return
 				use(30)
-				new /obj/item/stack/cable_coil(get_turf(user))
+				new /obj/structure/chair/noose(get_turf(user))
 	update_icon()
 
 

@@ -1,10 +1,3 @@
-/obj/item/stack/cable_coil/building_checks(datum/stack_recipe/R, multiplier)
-	if(R.title == "вешалка")
-		if(!(locate(/obj/structure/chair) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
-			to_chat(usr, "<span class='warning'>Нужно стоять на вершите стула/стола/туалета для создания вешалки!</span>")
-			return FALSE
-	return ..()
-
 /obj/structure/chair/noose //It's a "chair".
 	name = "вешалка"
 	desc = "Интересная."
@@ -103,7 +96,7 @@
 		"<span class='userdanger'>[user] пытается натянуть вешалку на мою шею!</span>")
 	if(user != M)
 		to_chat(user, "<span class='notice'>Это займёт примерно 20 секунд и надо не двигаться.</span>")
-	if(do_mob(user, M, user == M ? 0:200))
+	if(do_mob(user, M, user == M ? 10:200))
 		if(buckle_mob(M))
 			user.visible_message(\
 				"<span class='warning'>[user] вешает [M != user ? "[M]" : "себя"]!</span>",\
