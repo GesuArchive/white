@@ -134,7 +134,8 @@
 				if(buckled_mob.stat == DEAD)
 					flavor_text = list("<span class='suicide'>[buckled_mob] вяло качается на вешалке.</span>",\
 						"<span class='suicide'>Взгляд [buckled_mob] направлен в пустоту.</span>")
-				buckled_mob.visible_message(pick(flavor_text))
+				if(prob(5))
+					buckled_mob.visible_message(pick(flavor_text))
 				playsound(buckled_mob.loc, 'white/valtos/sounds/noose_idle.ogg', 30, 1, -3)
 
 /mob/living/carbon/human
