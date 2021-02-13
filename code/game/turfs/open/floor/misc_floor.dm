@@ -177,7 +177,7 @@
 	name = "пластмассовый пол"
 	desc = "Дешевый, легкий пол. Легко плавится."
 	icon_state = "plastic"
-	thermal_conductivity = 0.1
+	thermal_conductivity = 0.000625
 	heat_capacity = 900
 	custom_materials = list(/datum/material/plastic=500)
 	floor_tile = /obj/item/stack/tile/plastic

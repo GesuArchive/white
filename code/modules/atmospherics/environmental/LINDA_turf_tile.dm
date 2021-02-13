@@ -366,6 +366,8 @@ Then we space some of our heat, and think about if we should stop conducting.
 /turf/proc/super_conduct()
 	var/conductivity_directions = conductivity_directions()
 
+	archive()
+
 	if(conductivity_directions)
 		//Conduct with tiles around me
 		for(var/direction in GLOB.cardinals)
