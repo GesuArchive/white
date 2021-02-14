@@ -31,6 +31,9 @@
 	for(var/turf/open/space/S in RANGE_TURFS(1, src)) //RANGE_TURFS is in code\__HELPERS\game.dm
 		S.update_starlight()
 
+	for(var/turf/open/openspace/S in RANGE_TURFS(1, src)) //RANGE_TURFS is in code\__HELPERS\game.dm
+		S.update_starlight()
+
 	needs_update = TRUE
 	GLOB.lighting_update_objects += src
 
