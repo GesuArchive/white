@@ -1,5 +1,5 @@
-import { useBackend } from '../backend';
-import { Button, Section, Table } from '../components';
+import { useBackend, useSharedState } from '../backend';
+import { Button, Section, Table, Modal, Flex } from '../components';
 import { NtosWindow } from '../layouts';
 
 export const NtosFileManager = (props, context) => {
@@ -46,7 +46,7 @@ export const NtosFileManager = (props, context) => {
   );
 };
 
-const FileTable = props => {
+const FileTable = (props, context) => {
   const {
     files = [],
     usbconnected,
@@ -56,6 +56,8 @@ const FileTable = props => {
     onRename,
     onToggleSilence,
   } = props;
+  const [openedFile, setOpenedFile] = useSharedState(
+    context, "opened_file", null);
   return (
     <Table>
       <Table.Row header>
@@ -69,6 +71,11 @@ const FileTable = props => {
           Размер
         </Table.Cell>
       </Table.Row>
+      {openedFile && <FileModal
+        label={openedFile.name}
+        sdata={openedFile.has_data}
+        onBack={() => setOpenedFile(null)}
+      />}
       {files.map(file => (
         <Table.Row key={file.name} className="candystripe">
           <Table.Cell>
@@ -90,11 +97,17 @@ const FileTable = props => {
             {file.size}
           </Table.Cell>
           <Table.Cell collapsing>
+            {!!file.has_data && (
+              <Button
+                icon="file"
+                tooltip="Открыть"
+                onClick={() => setOpenedFile(file)} />
+            )}
             {!!file.alert_able && (
               <Button
                 icon={file.alert_silenced ? 'bell-slash' : 'bell'}
                 color={file.alert_silenced ? 'red' : 'default'}
-                tooltip={file.alert_silenced ? 'Unmute Alerts' : 'Mute Alerts'}
+                tooltip={file.alert_silenced ? 'Разоткнуть' : 'Заткнуть'}
                 onClick={() => onToggleSilence(file.name)} />
             )}
             {!file.undeletable && (
@@ -124,5 +137,30 @@ const FileTable = props => {
         </Table.Row>
       ))}
     </Table>
+  );
+};
+
+const FileModal = props => {
+  return (
+    <Modal>
+      <Flex direction="column">
+        <Flex.Item fontSize="16px" maxWidth="90vw" mb={1}>
+          {props.label}
+        </Flex.Item>
+
+        <Flex.Item mr={2} mb={1}>
+          {props.sdata}
+        </Flex.Item>
+
+        <Flex.Item>
+          <Button
+            icon="times"
+            content="Закрыть"
+            color="bad"
+            onClick={props.onBack}
+          />
+        </Flex.Item>
+      </Flex>
+    </Modal>
   );
 };
