@@ -85,7 +85,7 @@
 	name = "Radiation Chamber Shutters"
 	},
 /turf/open/floor/plating,
-/area/engine/supermatter)
+/area/engine/engineering)
 "ao" = (
 /obj/machinery/particle_accelerator/control_box,
 /obj/structure/cable,
@@ -514,11 +514,9 @@
 /turf/open/floor/plating,
 /area/engine/engineering)
 "bA" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/item/crowbar,
-/turf/open/floor/engine,
+/obj/structure/cable/multilayer/multiz,
+/obj/effect/turf_decal/stripes/box,
+/turf/open/floor/plating,
 /area/engine/engineering)
 "bB" = (
 /obj/item/screwdriver,
@@ -686,9 +684,6 @@
 /turf/closed/wall,
 /area/engine/engineering)
 "cg" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
 /obj/machinery/button/door{
 	dir = 8;
 	id = "engsm";
@@ -696,6 +691,10 @@
 	pixel_x = -24;
 	req_access_txt = "10"
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/cable,
 /turf/open/floor/engine,
 /area/engine/engineering)
 "ch" = (
@@ -753,7 +752,6 @@
 	dir = 6
 	},
 /obj/effect/turf_decal/trimline/yellow,
-/obj/machinery/field/generator,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "lt" = (
@@ -864,12 +862,20 @@
 	},
 /turf/open/floor/engine,
 /area/engine/engineering)
+"xp" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/the_singularitygen{
+	icon_state = "beacon0"
+	},
+/turf/open/floor/plating,
+/area/engine/engineering)
 "xC" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
 /obj/effect/turf_decal/trimline/yellow,
-/obj/machinery/field/generator,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "xH" = (
@@ -957,7 +963,6 @@
 /area/engine/engineering)
 "GV" = (
 /obj/effect/turf_decal/box,
-/obj/machinery/the_singularitygen/tesla,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "Ia" = (
@@ -993,7 +998,13 @@
 	dir = 9
 	},
 /obj/effect/turf_decal/trimline/yellow,
-/obj/machinery/field/generator,
+/turf/open/floor/plating,
+/area/engine/engineering)
+"MF" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/the_singularitygen/tesla,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "NJ" = (
@@ -1022,7 +1033,6 @@
 	dir = 5
 	},
 /obj/effect/turf_decal/trimline/yellow,
-/obj/machinery/field/generator,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "Ui" = (
@@ -1043,6 +1053,10 @@
 "WN" = (
 /obj/structure/sign/warning/securearea,
 /turf/closed/wall/r_wall,
+/area/engine/engineering)
+"WX" = (
+/obj/item/crowbar,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "YP" = (
 /obj/effect/turf_decal/stripes/line,
@@ -1601,7 +1615,7 @@ au
 aW
 as
 ao
-as
+WX
 bc
 bg
 OM
@@ -1610,7 +1624,7 @@ YT
 YT
 YT
 JX
-Is
+MF
 xC
 Jm
 Jm
@@ -1666,7 +1680,7 @@ bQ
 Is
 Is
 Qx
-Jm
+xp
 hM
 YT
 YT
