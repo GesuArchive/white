@@ -96,7 +96,7 @@
 				noisy = binary.alert_able
 				silenced = binary.alert_silenced
 			if(istype(textfile))
-				has_data = text.stored_data
+				has_data = textfile.stored_data
 			files += list(list(
 				"name" = F.filename,
 				"type" = F.filetype,
