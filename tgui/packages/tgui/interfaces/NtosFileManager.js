@@ -163,7 +163,8 @@ const FileModal = props => {
           <Box
               p={1}
               fluid
-              height="50vh"
+              overflowY="scroll"
+              height="60vh"
               width="80vw"
               backgroundColor="black"
               textColor="green"

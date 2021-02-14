@@ -1,4 +1,4 @@
-import { decodeHtmlEntities } from 'common/string';
+import { decodeHtmlEntities, capitalize } from 'common/string';
 import { useBackend } from '../../backend';
 import { Button, LabeledList, NumberInput, Section } from '../../components';
 import { getGasLabel } from '../../constants';
@@ -22,7 +22,7 @@ export const Vent = (props, context) => {
   return (
     <Section
       level={2}
-      title={decodeHtmlEntities(long_name)}
+      title={capitalize(decodeHtmlEntities(long_name))}
       buttons={(
         <Button
           icon={power ? 'power-off' : 'times'}
@@ -126,7 +126,7 @@ export const Scrubber = (props, context) => {
   return (
     <Section
       level={2}
-      title={decodeHtmlEntities(long_name)}
+      title={capitalize(decodeHtmlEntities(long_name))}
       buttons={(
         <Button
           icon={power ? 'power-off' : 'times'}
