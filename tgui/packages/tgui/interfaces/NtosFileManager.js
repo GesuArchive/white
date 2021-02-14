@@ -1,5 +1,5 @@
 import { useBackend, useSharedState } from '../backend';
-import { Button, Section, Table, Modal, Flex } from '../components';
+import { Button, Section, Table, Modal, Flex, Box } from '../components';
 import { NtosWindow } from '../layouts';
 
 export const NtosFileManager = (props, context) => {
@@ -10,6 +10,8 @@ export const NtosFileManager = (props, context) => {
     files = [],
     usbfiles = [],
   } = data;
+  const [openedFile, setOpenedFile] = useSharedState(
+    context, "opened_file", null);
   return (
     <NtosWindow resizable theme={PC_device_theme}>
       <NtosWindow.Content scrollable>
@@ -24,6 +26,7 @@ export const NtosFileManager = (props, context) => {
               new_name: newName,
             })}
             onDuplicate={file => act('PRG_clone', { file: file })}
+            onOpenfile={file => setOpenedFile(file)}
             onToggleSilence={file => act('PRG_togglesilence', { name: file })} />
         </Section>
         {usbconnected && (
@@ -41,6 +44,11 @@ export const NtosFileManager = (props, context) => {
               onDuplicate={file => act('PRG_clone', { file: file })} />
           </Section>
         )}
+        {openedFile && <FileModal
+          label={openedFile.name}
+          sdata={openedFile.has_data}
+          onBack={() => setOpenedFile(null)}
+        />}
       </NtosWindow.Content>
     </NtosWindow>
   );
@@ -55,12 +63,12 @@ const FileTable = (props, context) => {
     onDelete,
     onRename,
     onToggleSilence,
+    onOpenfile
   } = props;
-  const [openedFile, setOpenedFile] = useSharedState(
-    context, "opened_file", null);
   return (
     <Table>
       <Table.Row header>
+        <Table.Cell collapsing />
         <Table.Cell>
           Файл
         </Table.Cell>
@@ -71,13 +79,17 @@ const FileTable = (props, context) => {
           Размер
         </Table.Cell>
       </Table.Row>
-      {openedFile && <FileModal
-        label={openedFile.name}
-        sdata={openedFile.has_data}
-        onBack={() => setOpenedFile(null)}
-      />}
       {files.map(file => (
         <Table.Row key={file.name} className="candystripe">
+          <Table.Cell>
+            {!!file.has_data && (
+              <Button
+                icon="file"
+                tooltip="Открыть"
+                tooltipPosition="right"
+                onClick={() => onOpenfile(file)} />
+            )}
+          </Table.Cell>
           <Table.Cell>
             {!file.undeletable ? (
               <Button.Input
@@ -97,12 +109,6 @@ const FileTable = (props, context) => {
             {file.size}
           </Table.Cell>
           <Table.Cell collapsing>
-            {!!file.has_data && (
-              <Button
-                icon="file"
-                tooltip="Открыть"
-                onClick={() => setOpenedFile(file)} />
-            )}
             {!!file.alert_able && (
               <Button
                 icon={file.alert_silenced ? 'bell-slash' : 'bell'}
@@ -141,6 +147,11 @@ const FileTable = (props, context) => {
 };
 
 const FileModal = props => {
+  const text_html = {
+    __html: '<span class="paper-text">'
+      + props.sdata
+      + '</span>',
+  };
   return (
     <Modal>
       <Flex direction="column">
@@ -148,8 +159,16 @@ const FileModal = props => {
           {props.label}
         </Flex.Item>
 
-        <Flex.Item mr={2} mb={1}>
-          {props.sdata}
+        <Flex.Item mr={2} mb={2} mt={1}>
+          <Box
+              p={1}
+              fluid
+              height="50vh"
+              width="80vw"
+              backgroundColor="black"
+              textColor="green"
+              dangerouslySetInnerHTML={text_html}
+            />
         </Flex.Item>
 
         <Flex.Item>
