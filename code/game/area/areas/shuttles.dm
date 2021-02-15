@@ -56,6 +56,10 @@
 	name = "Пиратский шаттл"
 	requires_power = TRUE
 
+/area/shuttle/pirate/flying_dutchman
+	name = "Flying Dutchman"
+	requires_power = FALSE
+
 ////////////////////////////Bounty Hunter Shuttles////////////////////////////
 
 /area/shuttle/hunter
