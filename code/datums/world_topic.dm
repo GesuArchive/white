@@ -349,7 +349,7 @@
 			"UPDATE donations SET sum = :value WHERE byond = :userkey",
 			list("value" = value, "userkey" = userkey)
 		)
-	else
+	else if (!check_donations(userkey))
 		query_set_donate = SSdbcore.NewQuery(
 			"INSERT INTO donations (sum, byond) VALUES (:value, :userkey)",
 			list("value" = value, "userkey" = userkey)
