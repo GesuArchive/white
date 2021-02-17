@@ -8,14 +8,14 @@
 		/obj/item/storage/mrebag,
 		/obj/item/storage/mrebag,
 		/obj/item/storage/mrebag/dessert,
-		/obj/item/food/bun,
+		/obj/item/food/breadslice/meat,
 		/obj/item/reagent_containers/food/drinks/soda_cans/random,
 		/obj/item/reagent_containers/food/condiment/pack/hotsauce)
 
 /obj/item/storage/mre/PopulateContents()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 7
+	STR.max_items = 6
 	STR.max_w_class = WEIGHT_CLASS_SMALL
 	STR.allow_quick_empty = FALSE
 	STR.rustle_sound = FALSE
@@ -48,7 +48,7 @@
 		/obj/item/storage/mrebag/vegan,
 		/obj/item/storage/mrebag/vegan,
 		/obj/item/storage/mrebag/dessert,
-		/obj/item/food/breadslice,
+		/obj/item/food/breadslice/tofu,
 		/obj/item/reagent_containers/food/drinks/waterbottle,
 		/obj/item/reagent_containers/food/drinks/soda_cans/random)
 
@@ -59,7 +59,7 @@
 		/obj/item/storage/mrebag/protein,
 		/obj/item/storage/mrebag/protein,
 		/obj/item/storage/mrebag/dessert,
-		/obj/item/food/bun,
+		/obj/item/food/grilledcheese,
 		/obj/item/reagent_containers/food/condiment/pack/bbqsauce,
 		/obj/item/reagent_containers/food/drinks/soda_cans/random)
 
@@ -128,5 +128,5 @@
 	STR.allow_quick_empty = FALSE
 	STR.rustle_sound = FALSE
 	STR.locked = TRUE
-	var/obj/item/picked_content = pick(subtypesof(/obj/item/food/candy))
+	var/obj/item/picked_content = pick(subtypesof(/obj/item/food/donut))
 	new picked_content(src)
