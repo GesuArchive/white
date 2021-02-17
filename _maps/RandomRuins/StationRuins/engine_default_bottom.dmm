@@ -46,7 +46,7 @@
 "ix" = (
 /obj/structure/cable/multilayer/multiz,
 /obj/effect/turf_decal/stripes/box,
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/engine/engineering)
 "kn" = (
 /obj/effect/turf_decal/stripes/box,

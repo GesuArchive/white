@@ -5,6 +5,7 @@
 	icon_state = "pog"
 	layer = LYING_MOB_LAYER
 	var/static/mutable_appearance/overlay = mutable_appearance(icon, "pog_overlay", ABOVE_MOB_LAYER)
+	var/mutable_appearance/load_overlay
 	max_drivers = 1
 	max_occupants = 1
 	max_buckled_mobs = 1
@@ -49,14 +50,6 @@
 		if(mob_obstacle.move_resist <= move_force)
 			step(A, dir)
 
-/obj/vehicle/ridden/forklift/Moved(direction)
-	if(THING)
-		var/turf/T = get_step(get_turf(src), direction)
-		if(isclosedturf(T))
-			return FALSE
-		THING.forceMove(T)
-	. = ..()
-
 /obj/vehicle/ridden/forklift/proc/toggle_fork()
 	if(forkbusy)
 		return
@@ -94,19 +87,57 @@
 			THING = M
 			break
 	else
-		for(var/obj/S in T)
-			if(S.invisibility != 0 || S.layer == WIRE_LAYER || (S.resistance_flags & INDESTRUCTIBLE))
-				continue
+		for(var/obj/structure/closet/S in T)
 			THING = S
 			break
 	if(THING)
-		THING.pixel_y = 32
+		THING.forceMove(src)
+		RegisterSignal(src, COMSIG_ATOM_DIR_CHANGE, .proc/update_visuals)
 
 /obj/vehicle/ridden/forklift/proc/drop_front()
 	if(THING)
 		THING.forceMove(get_step(get_turf(src), dir))
-		THING.pixel_y = THING.base_pixel_y
+		THING.pixel_y = initial(THING.pixel_y)
+		THING.layer = initial(THING.layer)
+		THING.plane = initial(THING.plane)
 		THING = null
+		UnregisterSignal(src, COMSIG_ATOM_DIR_CHANGE)
+
+/obj/vehicle/ridden/forklift/update_overlays()
+	. = ..()
+	if(!THING || ismob(THING))
+		load_overlay = null
+		return
+	load_overlay = mutable_appearance(THING.icon, THING.icon_state, layer + 0.01)
+	switch(dir)
+		if(NORTH)
+			load_overlay.pixel_y = initial(THING.pixel_y) + 48
+			load_overlay.pixel_y = initial(THING.pixel_x)
+		if(SOUTH)
+			load_overlay.pixel_y = initial(THING.pixel_y) - 16
+			load_overlay.pixel_y = initial(THING.pixel_x)
+		if(WEST)
+			load_overlay.pixel_y = initial(THING.pixel_y) + 32
+			load_overlay.pixel_y = initial(THING.pixel_x) + 32
+		if(EAST)
+			load_overlay.pixel_y = initial(THING.pixel_y) + 32
+			load_overlay.pixel_y = initial(THING.pixel_x) - 32
+	. += load_overlay
+
+/obj/vehicle/ridden/forklift/proc/update_visuals()
+	switch(dir)
+		if(NORTH)
+			load_overlay.pixel_y = initial(THING.pixel_y) + 48
+			load_overlay.pixel_y = initial(THING.pixel_x)
+		if(SOUTH)
+			load_overlay.pixel_y = initial(THING.pixel_y) - 16
+			load_overlay.pixel_y = initial(THING.pixel_x)
+		if(WEST)
+			load_overlay.pixel_y = initial(THING.pixel_y) + 32
+			load_overlay.pixel_y = initial(THING.pixel_x) + 32
+		if(EAST)
+			load_overlay.pixel_y = initial(THING.pixel_y) + 32
+			load_overlay.pixel_y = initial(THING.pixel_x) - 32
 
 /datum/action/vehicle/forkmove
 	name = "Переключить вилку"
