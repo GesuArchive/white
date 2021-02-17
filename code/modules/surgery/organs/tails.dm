@@ -98,3 +98,8 @@
 		H.dna.features["tail_monkey"] = "None"
 		H.dna.species.mutant_bodyparts -= "tail_monkey"
 		H.update_body()
+
+/obj/item/organ/tail/cat/fox
+	name = "лисий хвост"
+	desc = "Отрезанный лисий хвост. Кто сейчас виляет?"
+	tail_type = "Fox"

@@ -1619,6 +1619,18 @@
 	icon_state = "cat"
 	color_src = HAIR
 
+/datum/sprite_accessory/tails/human/fox
+	name = "Fox"
+	icon_state = "fox"
+	color_src = HAIR
+	icon = 'white/valtos/icons/mutant_bodyparts.dmi'
+
+/datum/sprite_accessory/tails_animated/human/fox
+	name = "Fox"
+	icon_state = "fox"
+	color_src = HAIR
+	icon = 'white/valtos/icons/mutant_bodyparts.dmi'
+
 /datum/sprite_accessory/tails/monkey/default
 	name = "Monkey"
 	icon_state = "monkey"

@@ -853,7 +853,7 @@
 		// hippie end
 		// yogs start
 		if(should_draw_yogs)
-			limb.icon = 'white/valtos/icons/shadowling_bodyparts.dmi'
+			limb.icon = 'white/valtos/icons/mutant_bodyparts.dmi'
 			if(should_draw_gender)
 				limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
 			else
