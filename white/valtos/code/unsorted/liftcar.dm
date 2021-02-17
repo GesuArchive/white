@@ -92,6 +92,8 @@
 			break
 	if(THING)
 		THING.forceMove(src)
+		load_overlay = mutable_appearance(THING.icon, THING.icon_state, layer + 0.01)
+		add_overlay(load_overlay)
 		RegisterSignal(src, COMSIG_ATOM_DIR_CHANGE, .proc/update_visuals)
 
 /obj/vehicle/ridden/forklift/proc/drop_front()
@@ -101,43 +103,24 @@
 		THING.layer = initial(THING.layer)
 		THING.plane = initial(THING.plane)
 		THING = null
+		cut_overlay(load_overlay)
 		UnregisterSignal(src, COMSIG_ATOM_DIR_CHANGE)
 
-/obj/vehicle/ridden/forklift/update_overlays()
-	. = ..()
-	if(!THING || ismob(THING))
-		load_overlay = null
-		return
-	load_overlay = mutable_appearance(THING.icon, THING.icon_state, layer + 0.01)
-	switch(dir)
-		if(NORTH)
-			load_overlay.pixel_y = initial(THING.pixel_y) + 48
-			load_overlay.pixel_y = initial(THING.pixel_x)
-		if(SOUTH)
-			load_overlay.pixel_y = initial(THING.pixel_y) - 16
-			load_overlay.pixel_y = initial(THING.pixel_x)
-		if(WEST)
-			load_overlay.pixel_y = initial(THING.pixel_y) + 32
-			load_overlay.pixel_y = initial(THING.pixel_x) + 32
-		if(EAST)
-			load_overlay.pixel_y = initial(THING.pixel_y) + 32
-			load_overlay.pixel_y = initial(THING.pixel_x) - 32
-	. += load_overlay
-
 /obj/vehicle/ridden/forklift/proc/update_visuals()
-	switch(dir)
-		if(NORTH)
-			load_overlay.pixel_y = initial(THING.pixel_y) + 48
-			load_overlay.pixel_y = initial(THING.pixel_x)
-		if(SOUTH)
-			load_overlay.pixel_y = initial(THING.pixel_y) - 16
-			load_overlay.pixel_y = initial(THING.pixel_x)
-		if(WEST)
-			load_overlay.pixel_y = initial(THING.pixel_y) + 32
-			load_overlay.pixel_y = initial(THING.pixel_x) + 32
-		if(EAST)
-			load_overlay.pixel_y = initial(THING.pixel_y) + 32
-			load_overlay.pixel_y = initial(THING.pixel_x) - 32
+	if(THING)
+		switch(dir)
+			if(NORTH)
+				load_overlay.pixel_y = initial(THING.pixel_y) + 48
+				load_overlay.pixel_y = initial(THING.pixel_x)
+			if(SOUTH)
+				load_overlay.pixel_y = initial(THING.pixel_y) - 16
+				load_overlay.pixel_y = initial(THING.pixel_x)
+			if(WEST)
+				load_overlay.pixel_y = initial(THING.pixel_y) + 32
+				load_overlay.pixel_y = initial(THING.pixel_x) + 32
+			if(EAST)
+				load_overlay.pixel_y = initial(THING.pixel_y) + 32
+				load_overlay.pixel_y = initial(THING.pixel_x) - 32
 
 /datum/action/vehicle/forkmove
 	name = "Переключить вилку"

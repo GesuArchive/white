@@ -3,8 +3,6 @@
 // what the fuck now are you retarded?
 /////////////////////////////////////
 
-#define TRAIT_LIGHT_POOER		"legkoserya"
-
 /obj/item/food/poo
 	name = "говно"
 	desc = "Продукт человеческой единицы."

@@ -5,6 +5,11 @@
 "ad" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/bottom_station_maints)
+"aq" = (
+/obj/machinery/magnetic_concentrator,
+/obj/effect/turf_decal/stripes/box,
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "bd" = (
 /obj/structure/particle_accelerator/power_box,
 /turf/open/floor/plating/airless,
@@ -51,6 +56,9 @@
 "kn" = (
 /obj/effect/turf_decal/stripes/box,
 /obj/structure/cable,
+/obj/machinery/power/emitter/welded{
+	dir = 8
+	},
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "lj" = (
@@ -61,8 +69,10 @@
 /turf/open/floor/plating/airless,
 /area/engine/engineering)
 "lS" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 6
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
 	},
 /turf/open/floor/plating/airless,
 /area/engine/engineering)
@@ -91,6 +101,13 @@
 /obj/structure/particle_accelerator/particle_emitter/left,
 /turf/open/floor/plating/airless,
 /area/engine/engineering)
+"wq" = (
+/obj/structure/lattice,
+/obj/machinery/the_singularitygen{
+	icon_state = "beacon0"
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "yB" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
@@ -99,8 +116,25 @@
 "CS" = (
 /turf/open/floor/plating/airless,
 /area/engine/engineering)
+"Dt" = (
+/obj/machinery/power/rad_collector/anchored,
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/end{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "FH" = (
 /turf/template_noop,
+/area/space/nearstation)
+"Hu" = (
+/obj/machinery/power/rad_collector/anchored,
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plating/airless,
 /area/space/nearstation)
 "Ia" = (
 /obj/effect/turf_decal/stripes/box,
@@ -113,11 +147,29 @@
 /turf/open/floor/plating/airless,
 /area/engine/engineering)
 "IR" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 10
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
 	},
 /turf/open/floor/plating/airless,
 /area/engine/engineering)
+"KK" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/box,
+/obj/machinery/power/emitter/welded{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
+"Lc" = (
+/obj/effect/turf_decal/stripes/box,
+/obj/structure/cable,
+/obj/machinery/power/emitter/welded{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "Mu" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -143,8 +195,17 @@
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/engine/engineering)
+"SV" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/box,
+/obj/machinery/power/emitter/welded{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "SY" = (
 /obj/effect/turf_decal/stripes/line,
+/obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/engine/engineering)
 "TX" = (
@@ -159,20 +220,17 @@
 	},
 /turf/open/floor/plating/airless,
 /area/engine/engineering)
-"Vf" = (
+"Yf" = (
 /obj/effect/turf_decal/stripes/box,
-/obj/machinery/power/emitter/welded{
-	dir = 8
-	},
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
-"Yf" = (
-/obj/effect/turf_decal/stripes/box,
-/obj/machinery/power/emitter/welded{
-	dir = 4
-	},
+"YX" = (
+/obj/machinery/power/rad_collector/anchored,
 /obj/structure/cable,
+/obj/effect/turf_decal/stripes/end{
+	dir = 8
+	},
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "Zq" = (
@@ -505,11 +563,11 @@ Yf
 yB
 yB
 yB
+KK
 yB
 yB
 yB
-yB
-kn
+Lc
 ab
 ab
 tB
@@ -638,7 +696,7 @@ yB
 cA
 cA
 cA
-tB
+YX
 tB
 tB
 Ia
@@ -666,7 +724,7 @@ yB
 ab
 ab
 ab
-tB
+Hu
 ab
 ab
 uN
@@ -693,7 +751,7 @@ Zq
 Mu
 ev
 ix
-ev
+Mu
 IR
 ab
 ab
@@ -756,8 +814,8 @@ ab
 uN
 ab
 ab
-tB
-ab
+wq
+aq
 tB
 ab
 ab
@@ -834,7 +892,7 @@ yB
 ab
 ab
 ab
-tB
+Hu
 ab
 ab
 uN
@@ -862,7 +920,7 @@ yB
 ab
 ab
 ab
-tB
+Dt
 tB
 tB
 Ia
@@ -1037,11 +1095,11 @@ kn
 yB
 yB
 yB
+SV
 yB
 yB
 yB
-yB
-Vf
+Yf
 tB
 tB
 tB

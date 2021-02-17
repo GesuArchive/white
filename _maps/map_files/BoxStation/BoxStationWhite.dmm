@@ -32251,8 +32251,7 @@
 /turf/open/openspace,
 /area/hydroponics)
 "gRM" = (
-/obj/machinery/power/tesla_coil,
-/obj/machinery/power/tesla_coil,
+/obj/machinery/power/rad_collector,
 /turf/open/floor/plating,
 /area/engine/engine_smes)
 "gSS" = (
@@ -66712,7 +66711,7 @@ cec
 bVI
 cay
 cjJ
-chY
+gRM
 ciX
 cjM
 chY
@@ -66972,7 +66971,7 @@ cjJ
 gRM
 xwN
 ciW
-chY
+gRM
 ckB
 ckC
 cjJ
@@ -67226,7 +67225,7 @@ ced
 bVI
 cay
 cjJ
-chY
+gRM
 xwN
 xwN
 xwN

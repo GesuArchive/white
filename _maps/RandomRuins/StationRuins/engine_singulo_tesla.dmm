@@ -752,6 +752,7 @@
 	dir = 6
 	},
 /obj/effect/turf_decal/trimline/yellow,
+/obj/machinery/field/generator,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "lt" = (
@@ -862,20 +863,12 @@
 	},
 /turf/open/floor/engine,
 /area/engine/engineering)
-"xp" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/machinery/the_singularitygen{
-	icon_state = "beacon0"
-	},
-/turf/open/floor/plating,
-/area/engine/engineering)
 "xC" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
 /obj/effect/turf_decal/trimline/yellow,
+/obj/machinery/field/generator,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "xH" = (
@@ -963,6 +956,7 @@
 /area/engine/engineering)
 "GV" = (
 /obj/effect/turf_decal/box,
+/obj/machinery/the_singularitygen/tesla,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "Ia" = (
@@ -998,13 +992,7 @@
 	dir = 9
 	},
 /obj/effect/turf_decal/trimline/yellow,
-/turf/open/floor/plating,
-/area/engine/engineering)
-"MF" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/machinery/the_singularitygen/tesla,
+/obj/machinery/field/generator,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "NJ" = (
@@ -1033,6 +1021,7 @@
 	dir = 5
 	},
 /obj/effect/turf_decal/trimline/yellow,
+/obj/machinery/field/generator,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "Ui" = (
@@ -1624,7 +1613,7 @@ YT
 YT
 YT
 JX
-MF
+Is
 xC
 Jm
 Jm
@@ -1680,7 +1669,7 @@ bQ
 Is
 Is
 Qx
-xp
+Jm
 hM
 YT
 YT
