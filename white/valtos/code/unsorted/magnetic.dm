@@ -46,22 +46,22 @@
 /obj/machinery/magnetic_concentrator/bullet_act(obj/projectile/Proj)
 	if(Proj.flag != BULLET)
 		magpower = min(magpower + Proj.damage, maxmagpower)
+		update_icon()
 	. = ..()
 
 /obj/machinery/magnetic_concentrator/attackby(obj/item/I, mob/living/user, params)
 	if(I.tool_behaviour == TOOL_WRENCH)
 		default_unfasten_wrench(user, I, time = 20)
-		update_icon()
 	else
 		. = ..()
 
 /obj/machinery/magnetic_concentrator/Initialize()
 	. = ..()
-	START_PROCESSING(SSfastprocess, src)
+	START_PROCESSING(SSobj, src)
 
 /obj/machinery/magnetic_concentrator/Destroy()
 	. = ..()
-	STOP_PROCESSING(SSfastprocess, src)
+	STOP_PROCESSING(SSobj, src)
 
 /obj/machinery/magnetic_concentrator/process()
 	. = ..()
