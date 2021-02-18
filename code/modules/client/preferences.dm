@@ -171,7 +171,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	random_character()		//let's create a random character then - rather than a fat, bald and naked man.
 	key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key) // give them default keybinds and update their movement keys
 	C?.set_macros()
-	real_name = pref_species.random_name(gender,1, en_lang = en_names)
+	real_name = pref_species.random_name(gender, 1, en_lang = en_names)
 	if(!loaded_preferences_successfully)
 		save_preferences()
 	save_character()		//let's save this new random character so it doesn't keep generating new ones.

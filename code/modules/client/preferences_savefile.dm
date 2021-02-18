@@ -420,7 +420,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		update_character(needs_update, S)		//needs_update == savefile_version if we need an update (positive integer)
 
 	//Sanitize
-	real_name = reject_bad_name(real_name)
+	real_name = reject_bad_name(real_name, TRUE)
 	gender = sanitize_gender(gender)
 	body_type = sanitize_gender(body_type, FALSE, FALSE, gender)
 	if(!real_name)
