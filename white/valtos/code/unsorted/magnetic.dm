@@ -41,7 +41,7 @@
 	luminosity = 0
 	if(magpower > 1)
 		luminosity = 1
-		SSvis_overlays.add_vis_overlay(src, icon, "magnetic_concentrator_overlay", EMISSIVE_LAYER, EMISSIVE_PLANE, dir, alpha)
+		SSvis_overlays.add_vis_overlay(src, icon, "magnetic_concentrator_overlay", EMISSIVE_LAYER, ABOVE_LIGHTING_PLANE, dir, alpha)
 
 /obj/machinery/magnetic_concentrator/bullet_act(obj/projectile/Proj)
 	if(Proj.flag != BULLET)
@@ -63,29 +63,41 @@
 	. = ..()
 	STOP_PROCESSING(SSobj, src)
 
+/obj/machinery/magnetic_concentrator/singularity_pull(S, current_size)
+	return
+
 /obj/machinery/magnetic_concentrator/process()
-	. = ..()
-	if(!hooked_singulo)
+	if(!hooked_singulo && magpower > 1)
 		for(var/obj/singularity/S in orange(1, src))
 			hooked_singulo = S
 			hooked_singulo.forceMove(get_turf(src))
 			hooked_singulo.alpha = 200
 			visible_message("<span class='warning'>[capitalize(src.name)] цапает сингулярность!</span>")
-			var/datum/component/singularity/singularity = hooked_singulo.singularity_component.resolve()
-			singularity?.grav_pull = 0
-			singularity?.roaming = 0
-			singularity?.consume_range = 0
+			qdel(hooked_singulo.singularity_component)
 	else if (hooked_singulo)
-		var/datum/component/singularity/singularity = hooked_singulo.singularity_component.resolve()
 		if(magpower > 1)
-			magpower -= hooked_singulo.current_size
-			singularity?.grav_pull = 0
-			singularity?.roaming = 0
-			singularity?.consume_range = 0
+			magpower -= hooked_singulo.current_size * 5
+			hooked_singulo.forceMove(get_turf(src))
+			for (var/_tile in spiral_range_turfs(hooked_singulo.current_size, src))
+				var/turf/tile = _tile
+				if (!tile || !isturf(loc))
+					continue
+				if(tile == get_turf(src))
+					continue
+				if (get_dist(tile, src) > hooked_singulo.current_size)
+					tile.singularity_pull(src, hooked_singulo.current_size)
+				for (var/_thing in tile)
+					var/atom/thing = _thing
+					if (QDELETED(thing))
+						continue
+					if (isturf(loc) && thing != src && thing != hooked_singulo)
+						var/atom/movable/movable_thing = thing
+						if (get_dist(movable_thing, src) > hooked_singulo.current_size)
+							movable_thing.singularity_pull(src, hooked_singulo.current_size)
+						else
+							hooked_singulo.consume(movable_thing)
+					CHECK_TICK
 		else
-			singularity?.grav_pull = 4
-			singularity?.roaming = 1
-			singularity?.consume_range = 0
+			hooked_singulo.be_free()
 			hooked_singulo.alpha = 255
 			hooked_singulo = null
-			qdel(src)

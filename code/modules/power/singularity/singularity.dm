@@ -59,6 +59,14 @@
 	if (!mapload)
 		notify_ghosts("IT'S LOOSE", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, ghost_sound = 'sound/machines/warning-buzzer.ogg', header = "IT'S LOOSE", notify_volume = 75)
 
+/obj/singularity/proc/be_free()
+	var/datum/component/singularity/new_component = AddComponent(
+		/datum/component/singularity, \
+		consume_callback = CALLBACK(src, .proc/consume), \
+	)
+
+	singularity_component = WEAKREF(new_component)
+
 /obj/singularity/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	GLOB.singularities.Remove(src)
@@ -360,9 +368,7 @@
 /obj/singularity/proc/can_move(turf/T)
 	if(!T)
 		return FALSE
-	if((locate(/obj/machinery/magnetic_concentrator) in get_turf(src)))
-		return FALSE
-	else if((locate(/obj/machinery/field/containment) in T)||(locate(/obj/machinery/shieldwall) in T))
+	if((locate(/obj/machinery/field/containment) in T)||(locate(/obj/machinery/shieldwall) in T))
 		return FALSE
 	else if(locate(/obj/machinery/field/generator) in T)
 		var/obj/machinery/field/generator/G = locate(/obj/machinery/field/generator) in T
