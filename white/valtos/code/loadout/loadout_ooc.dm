@@ -10,6 +10,7 @@
 /datum/gear/ooc/char_slot/purchase(var/client/C)
 	C?.prefs?.max_slots += 1
 	C?.prefs?.save_preferences()
+	return TRUE
 
 /datum/gear/ooc/force_aspect
 	display_name = "Выбрать аспект"
@@ -20,16 +21,16 @@
 /datum/gear/ooc/force_aspect/purchase(var/client/C)
 	if (SSticker.current_state == GAME_STATE_SETTING_UP || SSticker.current_state == GAME_STATE_PLAYING || SSticker.current_state == GAME_STATE_FINISHED)
 		to_chat(C, "<span class='rose bold'>Невозможно! Доступно только перед началом раунда (когда игра прогрузилась, но ещё в лобби).</span>")
-		return
+		return FALSE
 	var/datum/round_aspect/sel_aspect = input("Аспекты:", "Выбирайте!", null, null) as null|anything in SSaspects.aspects
 	if(!sel_aspect)
 		to_chat(C, "<span class='notice'>Не выбран аспект.</span>")
-		inc_metabalance(C, cost, TRUE, "Возвращаю [display_name].")
-		return
+		return FALSE
 	else
 		message_admins("[key_name(C)] покупает аспект [sel_aspect].")
 		to_chat(C, "<span class='notice'>Выбрано <b>[sel_aspect]</b>! Другие игроки могут добавить ещё аспекты.</span>")
 		SSaspects.forced_aspects[sel_aspect] = sel_aspect.weight
+		return TRUE
 
 /datum/gear/ooc/purge_this_shit
 	display_name = "Фатальный сброс"
@@ -49,4 +50,6 @@
 			explosion(get_turf(C.mob), 14, 28, 56)
 
 		to_chat(world, "<BR><BR><BR><center><span class='big bold'>[C.ckey] уничтожает банк метакэша.</span></center><BR><BR><BR>")
+		return TRUE
+	return FALSE
 

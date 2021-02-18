@@ -72,7 +72,7 @@ GLOBAL_LIST_EMPTY(gear_datums)
 		description = initial(O.desc)
 
 /datum/gear/proc/purchase(var/client/C) //Called when the gear is first purchased
-	return
+	return TRUE
 
 /datum/gear_data
 	var/path
