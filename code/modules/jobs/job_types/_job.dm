@@ -296,7 +296,7 @@
 	return job_changes[endpart]
 
 /datum/job/proc/radio_help_message(mob/M)
-	to_chat(M, "<b>Добавь :h перед сообщением, чтобы говорить в канал моего отдела. Дабы увидеть другие каналы, стоит посмотреть на наушник.</b>")
+	to_chat(M, "<span class='smallnotice'>Если добавить :h перед сообщением, то получится говорить в канал отдела. Чтобы увидеть другие каналы, стоит посмотреть на наушник.</span>")
 
 /datum/outfit/job
 	name = "Standard Gear"
