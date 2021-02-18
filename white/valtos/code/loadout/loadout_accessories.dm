@@ -80,3 +80,10 @@
 	slot = ITEM_SLOT_EYES
 	path = /obj/item/clothing/glasses/monocle
 	cost = 100
+
+/datum/gear/accessory/sunglasses
+	display_name = "Солнцезащитные очки"
+	slot = ITEM_SLOT_EYES
+	path = /obj/item/clothing/glasses/sunglasses
+	allowed_roles = list("Cargo Technician")
+	cost = 1000

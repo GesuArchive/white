@@ -56,6 +56,12 @@
 	allowed_roles = list("Veteran", "Security Officer", "Russian Officer", "Head of Security")
 	cost = 500
 
+/datum/gear/assault_rifle
+	display_name = "Штурмовой карабин"
+	path = /obj/item/gun/ballistic/automatic/wzzzz/assault_rifle
+	allowed_roles = list("Warden")
+	cost = 5000
+
 /datum/gear/spare_id
 	display_name = "Золотая ID-карта капитана"
 	description = "Мечта, которая никогда не сбудется. Наверное."
