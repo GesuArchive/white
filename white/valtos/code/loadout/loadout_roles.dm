@@ -14,7 +14,7 @@
 	cost = 500
 	job_path = /datum/job/engineer/mechanic
 
-/datum/gear/roles/mechanic
+/datum/gear/roles/bomj
 	display_name = "Бомж"
 	description = "Просто бомж."
 	cost = 5
