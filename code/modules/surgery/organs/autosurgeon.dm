@@ -97,7 +97,7 @@
 /obj/item/autosurgeon/organ/syndicate/laser_arm
 	desc = "Одноразовый автохирург с имплантом боевого лазера. Из него можно вытащить импланты отвёрткой, но обратно их уже не вставить"
 	uses = 1
-	starting_organ = /obj/item/organ/cyberimp/arm/gun/laser
+	starting_organ = /obj/item/organ/cyberimp/arm/item_set/gun/laser
 
 /obj/item/autosurgeon/organ/syndicate/thermal_eyes
 	starting_organ = /obj/item/organ/eyes/robotic/thermals
@@ -106,11 +106,13 @@
 	starting_organ = /obj/item/organ/eyes/robotic/xray
 
 /obj/item/autosurgeon/organ/syndicate/anti_stun
-	starting_organ = /obj/item/organ/cyberimp/brain/anti_stun
+	starting_organ = /obj/item/organ/cyberimp/brain/anti_stun/syndicate
 
 /obj/item/autosurgeon/organ/syndicate/reviver
-	starting_organ = /obj/item/organ/cyberimp/chest/reviver
+	starting_organ = /obj/item/organ/cyberimp/chest/reviver/syndicate
 
+/obj/item/autosurgeon/organ/syndicate/esword
+	starting_organ = /obj/item/organ/cyberimp/arm/item_set/esword
 /obj/item/autosurgeon/skillchip
 	name = "автохирург чипов навыков"
 	desc = "Устройство которое автоматически вживляет чипы умений в мозг цели, без необходимости проводить операцию. \

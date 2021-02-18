@@ -5,6 +5,8 @@
 	/// Available shipping methods and prices, just leave the shipping method out that you don't want to have.
 	var/list/shipping
 
+	/// Amount of time before the market is repopulated
+	var/time_left = 0
 
 	// Automatic vars, do not touch these.
 	/// Items available from this market, populated by SSblackmarket on initialization.

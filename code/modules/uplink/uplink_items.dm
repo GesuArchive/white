@@ -154,6 +154,12 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	cost = 30 // normally 42
 	include_modes = list(/datum/game_mode/nuclear, /datum/game_mode/nuclear/clown_ops)
 
+/datum/uplink_item/stealthy_tools/cyberlink
+	name = "Cybersun Cybernetics Access System"
+	desc = "Syndicate made cyberlink, allowing you access to implants manufactured by Syndicate corporation's. Doesn't work with NT made implants, due to software diffrences."
+	item = /obj/item/autosurgeon/organ/cyberlink_syndicate
+	cost = 2
+
 /datum/uplink_item/bundles_tc/bulldog
 	name = "Bulldog bundle"
 	desc = "Lean and mean: Optimized for people that want to get up close and personal. Contains the popular \
