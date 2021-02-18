@@ -48,7 +48,7 @@ GLOBAL_LIST_EMPTY(gear_datums)
 	for(var/loadout_category in GLOB.loadout_categories)
 		var/datum/loadout_category/LC = GLOB.loadout_categories[loadout_category]
 		LC.gear = sortAssoc(LC.gear)
-	return 1
+	return TRUE
 
 /datum/gear
 	var/display_name       //Name. Should be unique.

@@ -191,7 +191,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/dat = list("<center>")
 
 	dat += "<a href='?_src_=prefs;preference=tab;tab=0' [current_tab == 0 ? "class='linkOn'" : ""]>Персонаж</a>"
-	dat += "<a href='?_src_=prefs;preference=tab;tab=1' [current_tab == 1 ? "class='linkOn'" : ""]>Мета-Магазин</a>"
+	dat += "<a href='?_src_=prefs;preference=tab;tab=1' [current_tab == 1 ? "class='linkOn'" : ""]>Магазин</a>"
 	dat += "<a href='?_src_=prefs;preference=tab;tab=2' [current_tab == 2 ? "class='linkOn'" : ""]>Игра</a>"
 	dat += "<a href='?_src_=prefs;preference=tab;tab=3' [current_tab == 3 ? "class='linkOn'" : ""]>OOC</a>"
 	dat += "<a href='?_src_=prefs;preference=tab;tab=4' [current_tab == 4 ? "class='linkOn'" : ""]>Хоткеи</a>"
@@ -508,15 +508,17 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				var/datum/gear/G = LC.gear[gear_name]
 				var/ticked = (G.id in equipped_gear)
 
-				dat += "<tr style='vertical-align:middle;' class='metaitem'><td width=300>"
+				dat += "<tr style='vertical-align:middle;' class='metaitem"
 				if(G.id in purchased_gear)
+					dat += " buyed'><td width=300>"
 					if(G.sort_category == "OOC")
-						dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.id]'>Купить ещё "
-					if(G.sort_category == "Роли")
-						dat += "<a style='white-space:normal;' href='#'>Куплено "
+						dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.id]'>Купить ещё</a>"
+					else if(G.sort_category == "Роли")
+						dat += "<a style='white-space:normal;' href='#'>Куплено</a>"
 					else
-						dat += "[G.get_base64_icon_html()]<a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[ticked ? "Экипировано" : "Экипировать"] "
+						dat += "[G.get_base64_icon_html()]<a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[ticked ? "Экипировано" : "Экипировать"]</a>"
 				else
+					dat += "'><td width=300>"
 					if(G.sort_category == "OOC" || G.sort_category == "Роли")
 						dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.id]'>Купить</a>"
 					else
