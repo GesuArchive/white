@@ -76,7 +76,7 @@
 			qdel(hooked_singulo.singularity_component)
 	else if (hooked_singulo)
 		if(magpower > 1)
-			magpower -= hooked_singulo.current_size * 5
+			magpower -= hooked_singulo.current_size * 3
 			hooked_singulo.forceMove(get_turf(src))
 			for (var/_tile in spiral_range_turfs(hooked_singulo.current_size, src))
 				var/turf/tile = _tile
@@ -84,7 +84,7 @@
 					continue
 				if(tile == get_turf(src))
 					continue
-				if (get_dist(tile, src) > hooked_singulo.current_size)
+				if (get_dist(tile, src) > 1)
 					tile.singularity_pull(src, hooked_singulo.current_size)
 				for (var/_thing in tile)
 					var/atom/thing = _thing
@@ -92,7 +92,7 @@
 						continue
 					if (isturf(loc) && thing != src && thing != hooked_singulo)
 						var/atom/movable/movable_thing = thing
-						if (get_dist(movable_thing, src) > hooked_singulo.current_size)
+						if (get_dist(movable_thing, src) > 1)
 							movable_thing.singularity_pull(src, hooked_singulo.current_size)
 						else
 							hooked_singulo.consume(movable_thing)
