@@ -177,7 +177,7 @@
 	var/obj/item/organ/eyes/eyes = H.getorgan(/obj/item/organ/eyes)
 	if(!eyes || eyes.lighting_alpha)
 		return
-	eyes.Insert(H)
+	eyes.refresh()
 
 /datum/quirk/selfaware
 	name = "Самоконтроль"

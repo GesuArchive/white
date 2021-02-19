@@ -4,7 +4,6 @@
     reagent_state = LIQUID
     color = "#FAFAFA"
     overdose_threshold = 20
-    addiction_threshold = 10
     taste_description = "соль"
     var/datum/martial_art/psychotic_brawling/pb
 

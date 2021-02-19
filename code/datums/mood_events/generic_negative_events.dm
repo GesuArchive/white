@@ -133,6 +133,10 @@
 	description = "<span class='warning'>Здесь темновато...</span>\n"
 	mood_change = -3
 
+/datum/mood_event/bright_light
+	description = "<span class='boldwarning'>Я ненавижу белых... Хочу срочно стать негром...</span>\n"
+	mood_change = -12
+
 /datum/mood_event/family_heirloom_missing
 	description = "<span class='warning'>Я скучаю по моей семейной реликвии...</span>\n"
 	mood_change = -4
