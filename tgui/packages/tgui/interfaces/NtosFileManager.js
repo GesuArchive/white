@@ -63,7 +63,7 @@ const FileTable = (props, context) => {
     onDelete,
     onRename,
     onToggleSilence,
-    onOpenfile
+    onOpenfile,
   } = props;
   return (
     <Table>
@@ -161,15 +161,15 @@ const FileModal = props => {
 
         <Flex.Item mr={2} mb={2} mt={1}>
           <Box
-              p={1}
-              fluid
-              overflowY="scroll"
-              height="60vh"
-              width="80vw"
-              backgroundColor="black"
-              textColor="green"
-              dangerouslySetInnerHTML={text_html}
-            />
+            p={1}
+            fluid
+            overflowY="scroll"
+            height="60vh"
+            width="80vw"
+            backgroundColor="black"
+            textColor="green"
+            dangerouslySetInnerHTML={text_html}
+          />
         </Flex.Item>
 
         <Flex.Item>

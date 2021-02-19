@@ -605,14 +605,17 @@
 			if(length(reagents.reagent_list))
 				if(user.can_see_reagents()) //Show each individual reagent
 					for(var/datum/reagent/R in reagents.reagent_list)
-						. += "</br>[R.volume] единиц [R.name]"
+						. += "\n[round(R.volume, 0.01)] единиц [R.name]"
+					if(reagents.is_reacting)
+						. += "\n<span class='warning'>Сейчас бурлит!</span>"
+					. += "\n<span class='notice'>Кислотность раствора [round(reagents.ph, 0.01)] и его температура [reagents.chem_temp]K.</span>"
 				else //Otherwise, just show the total volume
 					var/total_volume = 0
 					for(var/datum/reagent/R in reagents.reagent_list)
 						total_volume += R.volume
-					. += "</br>[total_volume] единиц различных реагентов"
+					. += "[total_volume] единиц различных реагентов."
 			else
-				. += "</br>Ничего."
+				. += "Ничего."
 		else if(reagents.flags & AMOUNT_VISIBLE)
 			if(reagents.total_volume)
 				. += "<span class='notice'>В нём ещё есть [reagents.total_volume] единиц.</span>"

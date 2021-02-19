@@ -19,7 +19,7 @@ export const EmoteMenu = (props, context) => {
               width="90px"
               fontSize="11px"
               compact
-              color={index%2 == 0 ? "white" : "grey"}
+              color={index%2 === 0 ? "white" : "grey"}
               content={thing.ru_name}
               onClick={() => act(thing.name)} />
           ))}

@@ -21,9 +21,9 @@
 	if(check_compatibility())
 		if(HUD_type)
 			var/datum/atom_hud/H = GLOB.huds[HUD_type]
-			H.add_hud_to(M)
+			H.add_hud_to(H)
 		if(HUD_trait)
-			ADD_TRAIT(M, HUD_trait, ORGAN_TRAIT)
+			ADD_TRAIT(owner, HUD_trait, ORGAN_TRAIT)
 		return
 	if(HUD_type)
 		var/datum/atom_hud/H = GLOB.huds[HUD_type]
