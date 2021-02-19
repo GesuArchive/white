@@ -74,7 +74,8 @@ GLOBAL_LIST_INIT(AISwarmerCapsByType, list(/mob/living/simple_animal/hostile/swa
 		var/mob/living/simple_animal/hostile/swarmer/ai/resource/R = new(loc)
 		step(R, ddir) //Step the swarmers, instead of spawning them there, incase the turf is solid
 
-/mob/living/simple_animal/hostile/megafauna/swarmer_swarm_beacon/Life()
+
+/mob/living/simple_animal/hostile/megafauna/swarmer_swarm_beacon/Life(delta_time = SSMOBS_DT, times_fired)
 	. = ..()
 	if(.)
 		var/createtype = GetUncappedAISwarmerType()
