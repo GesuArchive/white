@@ -701,7 +701,7 @@
 /// Updates the icon of the atom
 /atom/proc/update_icon(updates=ALL)
 	SIGNAL_HANDLER
-	SHOULD_CALL_PARENT(TRUE)
+	//SHOULD_CALL_PARENT(TRUE) лично я ебал резолвать 180 конфликтов изза етой хуйни
 
 	. = NONE
 	updates &= ~SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_ICON, updates)
@@ -729,7 +729,7 @@
 
 /// Updates the icon state of the atom
 /atom/proc/update_icon_state()
-	SHOULD_CALL_PARENT(TRUE)
+	//SHOULD_CALL_PARENT(TRUE)
 	return SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_ICON_STATE)
 
 /// Updates the overlays of the atom
