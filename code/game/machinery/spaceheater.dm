@@ -9,6 +9,7 @@
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "sheater-off"
+	base_icon_state = "sheater"
 	name = "обогреватель"
 	desc = "Этот обогреватель/охладитель, сделанный космическими амишами с использованием традиционных космических технологий, гарантированно не подожжет станцию. Гарантия аннулируется при использовании в двигателях."
 	max_integrity = 250
