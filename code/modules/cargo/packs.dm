@@ -1878,6 +1878,7 @@
 					/obj/item/seeds/wheat/rice,
 					/obj/item/seeds/carrot,
 					/obj/item/seeds/sunflower,
+					/obj/item/seeds/rose,
 					/obj/item/seeds/chanter,
 					/obj/item/seeds/potato,
 					/obj/item/seeds/sugarcane)

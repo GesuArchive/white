@@ -68,7 +68,7 @@
 	product = /obj/item/food/grown/whitebeet
 	lifespan = 60
 	endurance = 50
-	yield = 6
+	yield = 5
 	instability = 10
 	growing_icon = 'icons/obj/hydroponics/growing_vegetables.dmi'
 	icon_dead = "whitebeet-dead"

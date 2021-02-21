@@ -35,11 +35,8 @@
 /obj/item/grown/attackby(obj/item/O, mob/user, params)
 	..()
 	if (istype(O, /obj/item/plant_analyzer))
-		var/msg = "<span class='info'>This is \a <span class='name'>[capitalize(src.name)]</span>\n"
-		if(seed)
-			msg += seed.get_analyzer_text()
-		msg += "</span>"
-		to_chat(usr, "<div class='examine_block'>[msg]</div>")
+		var/obj/item/plant_analyzer/plant_analyzer = O
+		to_chat(user, plant_analyzer.scan_plant(src))
 		return
 
 /obj/item/grown/proc/add_juice()
