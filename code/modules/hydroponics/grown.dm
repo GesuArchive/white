@@ -141,11 +141,24 @@
 	if(seed)
 		for(var/datum/plant_gene/trait/trait in seed.genes)
 			trait.on_squash(src, target)
+	if(!seed.get_gene(/datum/plant_gene/trait/noreact))
+		reagents.expose(T)
+		for(var/A in T)
+			reagents.expose(A)
+		qdel(src)
+	if(seed.get_gene(/datum/plant_gene/trait/noreact))
+		visible_message("<span class='warning'>[capitalize(src.name)] сжимается и разжимается вместе с содержимым внутри.</span>")
+		addtimer(CALLBACK(src, .proc/squashreact), 20)
 
 	reagents.expose(T)
 	for(var/A in T)
 		reagents.expose(A)
 
+	qdel(src)
+
+/obj/item/food/grown/proc/squashreact()
+	for(var/datum/plant_gene/trait/trait in seed.genes)
+		trait.on_squash(src)
 	qdel(src)
 
 /obj/item/food/grown/proc/OnConsume(mob/living/eater, mob/living/feeder)
