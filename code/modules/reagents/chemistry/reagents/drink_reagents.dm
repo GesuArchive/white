@@ -426,6 +426,7 @@
 /datum/reagent/consumable/nuka_cola
 	name = "Nuka Cola"
 	description = "Cola, cola never changes."
+	special_sound = 'white/valtos/sounds/drink/fallout_3.ogg'
 	color = "#100800" // rgb: 16, 8, 0
 	quality = DRINK_VERYGOOD
 	taste_description = "будущее"
@@ -889,6 +890,7 @@
 /datum/reagent/consumable/pineapplejuice
 	name = "Pineapple Juice"
 	description = "Tart, tropical, and hotly debated."
+	special_sound = 'white/valtos/sounds/drink/pineapple_apple_pen.ogg'
 	color = "#F7D435"
 	taste_description = "ананас"
 	glass_name = "glass of pineapple juice"

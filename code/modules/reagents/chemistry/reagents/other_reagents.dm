@@ -222,6 +222,7 @@
 /datum/reagent/water/holywater
 	name = "Holy Water"
 	description = "Water blessed by some deity."
+	special_sound = 'white/valtos/sounds/drink/hallelujah.ogg'
 	color = "#E0E8EF" // rgb: 224, 232, 239
 	glass_icon_state  = "glass_clear"
 	glass_name = "glass of holy water"

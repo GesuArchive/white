@@ -92,6 +92,8 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	var/burning_volume = 0.5
 	///Assoc list with key type of addiction this reagent feeds, and value amount of addiction points added per unit of reagent metabolzied (which means * REAGENTS_METABOLISM every life())
 	var/list/addiction_types = null
+	///A sound. Yes.
+	var/sound/special_sound = null
 
 /datum/reagent/New()
 	SHOULD_CALL_PARENT(TRUE)

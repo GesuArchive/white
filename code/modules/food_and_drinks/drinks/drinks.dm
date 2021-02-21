@@ -45,6 +45,15 @@
 			"<span class='userdanger'>[user] поит меня содержимым [src.name].</span>")
 		log_combat(user, M, "fed", reagents.log_list())
 
+	for(var/i in reagents)
+		var/datum/reagent/R = i
+		if(!R.special_sound)
+			continue
+		else if(R.special_sound in M.known_reagent_sounds)
+			continue
+		M.known_reagent_sounds += R.special_sound
+		SEND_SOUND(M, R.special_sound)
+
 	SEND_SIGNAL(src, COMSIG_DRINK_DRANK, M, user)
 	var/fraction = min(gulp_size/reagents.total_volume, 1)
 	reagents.trans_to(M, gulp_size, transfered_by = user, methods = INGEST)

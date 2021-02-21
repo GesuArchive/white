@@ -9,7 +9,7 @@
 	resistance_flags = ACID_PROOF
 
 
-/obj/item/reagent_containers/glass/attack(mob/M, mob/user, obj/target)
+/obj/item/reagent_containers/glass/attack(mob/living/M, mob/user, obj/target)
 	if(!canconsume(M, user))
 		return
 
@@ -48,6 +48,16 @@
 				log_combat(user, M, "fed", reagents.log_list())
 			else
 				to_chat(user, "<span class='notice'>Делаю глоток из [src].</span>")
+
+			for(var/i in reagents)
+				var/datum/reagent/R = i
+				if(!R.special_sound)
+					continue
+				else if(R.special_sound in M.known_reagent_sounds)
+					continue
+				M.known_reagent_sounds += R.special_sound
+				SEND_SOUND(M, R.special_sound)
+
 			SEND_SIGNAL(src, COMSIG_GLASS_DRANK, M, user)
 			addtimer(CALLBACK(reagents, /datum/reagents.proc/trans_to, M, 5, TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
 			playsound(M.loc,'sound/items/drink.ogg', rand(10,50), TRUE)
