@@ -34805,6 +34805,13 @@
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"mbK" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/item/aquarium_kit,
+/turf/open/floor/plating,
+/area/maintenance/fore/upper)
 "mcm" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
@@ -67927,7 +67934,7 @@ awh
 cyg
 ayO
 aHN
-aDF
+mbK
 aCc
 aDF
 aHO
