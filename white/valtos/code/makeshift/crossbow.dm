@@ -143,7 +143,7 @@
 	reqs = list(/obj/item/stack/rods = 3,
 		        /obj/item/stack/cable_coil = 10,
 		        /obj/item/weaponcrafting/stock = 1)
-	tools = list(/obj/item/weldingtool,
+	tool_behaviors = list(/obj/item/weldingtool,
 		         /obj/item/screwdriver)
 	time = 150
 	category = CAT_WEAPONRY

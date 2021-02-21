@@ -154,7 +154,7 @@
 /datum/crafting_recipe/smithman/anvil
 	name = "Наковальня"
 	result = /obj/item/blacksmith/anvil_free
-	tools = list(/obj/item/blacksmith/smithing_hammer)
+	tool_behaviors = list(/obj/item/blacksmith/smithing_hammer)
 	reqs = list(/obj/item/blacksmith/ingot = 3,
 				/obj/item/raw_stone/block = 5)
 	time = 350
@@ -164,7 +164,7 @@
 /datum/crafting_recipe/smithman/workplace
 	name = "Наковальня на полене"
 	result = /obj/anvil
-	tools = list(/obj/item/blacksmith/smithing_hammer)
+	tool_behaviors = list(/obj/item/blacksmith/smithing_hammer)
 	reqs = list(/obj/item/blacksmith/srub = 1,
 				/obj/item/blacksmith/anvil_free = 1)
 	time = 350

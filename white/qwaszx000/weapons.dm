@@ -71,7 +71,7 @@ Arrow&bow
 	name = "Arrow"
 	result = /obj/item/reagent_containers/syringe/arrow
 	reqs = list(/obj/item/stack/rods = 1)
-	tools = list(TOOL_WIRECUTTER)
+	tool_behaviors = list(TOOL_WIRECUTTER)
 	time = 25
 	category= CAT_WEAPONRY
 	subcategory = CAT_WEAPON

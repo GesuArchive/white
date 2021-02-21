@@ -31,7 +31,7 @@
 				/datum/reagent/consumable/sugar = 5,
 				/obj/item/match = 3,
 				/obj/item/stack/sheet/metal = 1)
-	tools = list(TOOL_WIRECUTTER)
+	tool_behaviors = list(TOOL_WIRECUTTER)
 	category = CAT_WEAPONRY
 	subcategory = CAT_AMMO
 
@@ -45,6 +45,6 @@
 				/datum/reagent/consumable/sugar = 5,
 				/obj/item/match = 3,
 				/obj/item/stack/sheet/metal = 1)
-	tools = list(TOOL_WIRECUTTER)
+	tool_behaviors = list(TOOL_WIRECUTTER)
 	category = CAT_WEAPONRY
 	subcategory = CAT_AMMO

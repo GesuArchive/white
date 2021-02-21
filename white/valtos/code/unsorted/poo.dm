@@ -202,7 +202,7 @@
 /datum/crafting_recipe/poop_barricade
 	name = "стена говна"
 	result = /obj/structure/poop_barricade
-	tools = list()
+	tool_behaviors = list()
 	reqs = list(/obj/item/food/poo = 5)
 	time = 25
 	category = CAT_STRUCTURE

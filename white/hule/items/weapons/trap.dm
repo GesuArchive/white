@@ -75,7 +75,7 @@
 	result = /obj/item/wirekit
 	reqs = list(/obj/item/stack/cable_coil = 30,
 				/obj/item/stack/rods = 5)
-	tools = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	time = 200
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON

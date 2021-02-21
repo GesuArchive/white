@@ -401,7 +401,7 @@
 	time = 80
 	reqs = list(/obj/item/stack/sheet/plasteel = 2,
 				/obj/item/stack/sheet/animalhide/goliath_hide = 1)
-	tools = list(TOOL_SCREWDRIVER)
+	tool_behaviors = list(TOOL_SCREWDRIVER)
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/ranger
@@ -410,7 +410,7 @@
 	time = 80
 	reqs = list(/obj/item/stack/sheet/plasteel = 3,
 				/obj/item/stack/sheet/animalhide/goliath_hide = 3)
-	tools = list(TOOL_SCREWDRIVER)
+	tool_behaviors = list(TOOL_SCREWDRIVER)
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/frog
@@ -418,5 +418,5 @@
 	result =  /obj/item/clothing/accessory/medal/frog
 	time = 80
 	reqs = list(/obj/item/stack/sheet/mineral/titanium = 1)
-	tools = list(TOOL_WELDER)
+	tool_behaviors = list(TOOL_WELDER)
 	category = CAT_MISC
