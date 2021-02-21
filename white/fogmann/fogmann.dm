@@ -257,7 +257,7 @@
  	suffix = "redroom.dmm"
  	name = "Red Room"
 
-/obj/item/food/carpmeat/dry/donbas
+/obj/item/food/fishmeat/carp/dry/donbas
 	name = "Debaltsevo fish"
 	desc = "Dryed fish with tomatoes. S vodoi v samiy raz."
 	icon = 'white/pieceofcrap.dmi'
@@ -266,7 +266,7 @@
 	tastes = list("рыба" = 1, "томаты" =1)
 	foodtypes = MEAT
 
-/obj/item/food/carpmeat/dry
+/obj/item/food/fishmeat/carp/dry
 	name = "Dryed fish"
 	desc = "Just dryed fish. S pivkom v samiy raz."
 	icon = 'white/pieceofcrap.dmi'
@@ -277,17 +277,17 @@
 
 /datum/crafting_recipe/dryfish
 	name = "Dryed Fish"
-	result =  /obj/item/food/carpmeat/dry
+	result =  /obj/item/food/fishmeat/carp/dry
 	time = 80
-	reqs = list(/obj/item/food/carpmeat = 3,
+	reqs = list(/obj/item/food/fishmeat/carp = 3,
 				/datum/reagent/fuel = 5)
 	category = CAT_MISC
 
 /datum/crafting_recipe/dryfish/donbass
 	name = "Debaltsevo Fish"
-	result =  /obj/item/food/carpmeat/dry/donbas
+	result =  /obj/item/food/fishmeat/carp/dry/donbas
 	time = 40
-	reqs = list(/obj/item/food/carpmeat/dry = 1,
+	reqs = list(/obj/item/food/fishmeat/carp/dry = 1,
 				/datum/reagent/consumable/tomatojuice = 10,
 				/obj/item/food/grown/tomato = 1)
 	category = CAT_MISC

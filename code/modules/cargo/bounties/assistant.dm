@@ -276,7 +276,7 @@
 	reward = CARGO_CRATE_VALUE * 5
 	required_count = 3
 	include_subtypes = FALSE
-	wanted_types = list(/obj/item/food/carpmeat/dry/donbas)
+	wanted_types = list(/obj/item/food/fishmeat/carp/dry/donbas)
 
 /datum/bounty/item/assistant/donbas
 	name = "Русская поваренная книга"

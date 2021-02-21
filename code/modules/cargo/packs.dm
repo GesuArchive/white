@@ -1721,7 +1721,7 @@
 					/obj/item/food/meat/rawbacon,
 					/obj/item/food/meat/slab/penguin,
 					/obj/item/food/spiderleg,
-					/obj/item/food/carpmeat,
+					/obj/item/food/fishmeat/carp,
 					/obj/item/food/meat/slab/human)
 	crate_name = "food crate"
 
@@ -1862,6 +1862,27 @@
 					/obj/item/kirbyplants/random)
 	crate_name = "potted plants crate"
 	crate_type = /obj/structure/closet/crate/wooden
+
+/datum/supply_pack/misc/aquarium_kit
+	name = "Aquarium Kit"
+	desc = "Everything you need to start your own aquarium. Contains aquarium construction kit, fish catalog, feed can and three freshwater fish from our collection."
+	cost = CARGO_CRATE_VALUE * 10
+	contains = list(/obj/item/book/fish_catalog,
+					/obj/item/storage/fish_case/random/freshwater,
+					/obj/item/storage/fish_case/random/freshwater,
+					/obj/item/storage/fish_case/random/freshwater,
+					/obj/item/fish_feed,
+					/obj/item/storage/box/aquarium_props,
+					/obj/item/aquarium_kit)
+	crate_name = "aquarium kit crate"
+	crate_type = /obj/structure/closet/crate/wooden
+
+/datum/supply_pack/misc/aquarium_fish
+	name = "Aquarium Fish Case"
+	desc = "An aquarium fish handpicked by monkeys from our collection."
+	cost = CARGO_CRATE_VALUE * 2
+	contains = list(/obj/item/storage/fish_case/random)
+	crate_name = "aquarium fish crate"
 
 /datum/supply_pack/organic/seeds
 	name = "Seeds Crate"

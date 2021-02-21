@@ -35226,10 +35226,10 @@
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "nop" = (
-/obj/item/food/carpmeat/dry,
-/obj/item/food/carpmeat/dry/donbas,
-/obj/item/food/carpmeat/dry/donbas,
-/obj/item/food/carpmeat/dry/donbas,
+/obj/item/food/fishmeat/carp/dry,
+/obj/item/food/fishmeat/carp/dry/donbas,
+/obj/item/food/fishmeat/carp/dry/donbas,
+/obj/item/food/fishmeat/carp/dry/donbas,
 /obj/effect/spawner/lootdrop/maint_drugs,
 /obj/effect/spawner/lootdrop/maint_drugs,
 /obj/structure/table/wood,

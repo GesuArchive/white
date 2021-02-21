@@ -525,21 +525,6 @@
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
 
-/datum/crafting_recipe/pipegun_prime
-	name = "Regal Pipegun"
-	always_available = FALSE
-	result = /obj/item/gun/ballistic/rifle/boltaction/pipegun/prime
-	reqs = list(/obj/item/gun/ballistic/rifle/boltaction/pipegun = 1,
-				/obj/item/food/deadmouse = 1,
-				/datum/reagent/consumable/grey_bull = 20,
-				/obj/item/spear = 1,
-				/obj/item/storage/toolbox= 1)
-	tool_behaviors = list(TOOL_SCREWDRIVER)
-	tool_paths = list(/obj/item/clothing/gloves/color/yellow, /obj/item/clothing/mask/gas, /obj/item/melee/baton/cattleprod)
-	time = 300 //contemplate for a bit
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
-
 /datum/crafting_recipe/chainsaw
 	name = "Chainsaw"
 	result = /obj/item/chainsaw
