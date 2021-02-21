@@ -30268,6 +30268,9 @@
 	},
 /turf/open/openspace,
 /area/science/xenobiology)
+"dcg" = (
+/turf/open/openspace,
+/area/maintenance/space_hut/plasmaman)
 "dci" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
@@ -30431,6 +30434,11 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"dnP" = (
+/obj/effect/spawner/structure/window/reinforced/tinted,
+/obj/machinery/door/poddoor/shutters/prison,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "dpw" = (
 /obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/tile/green{
@@ -31988,6 +31996,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/fitness)
+"gvx" = (
+/obj/structure/marker_beacon,
+/turf/open/floor/plating/rust{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/space/nearstation)
 "gvI" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 5
@@ -32357,6 +32371,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
+"hdj" = (
+/obj/structure/ladder,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "hhs" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
@@ -33136,6 +33155,9 @@
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/open/floor/plating,
 /area/maintenance/starboard)
+"iBR" = (
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "iBZ" = (
 /obj/machinery/power/smes,
 /obj/structure/cable,
@@ -33656,6 +33678,12 @@
 /obj/machinery/atmospherics/pipe/simple/purple/visible,
 /turf/open/floor/plating,
 /area/engine/atmos)
+"jGc" = (
+/obj/effect/decal/cleanable/poo,
+/turf/open/floor/plating/rust{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/space/nearstation)
 "jHd" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
@@ -33937,6 +33965,12 @@
 	},
 /turf/open/floor/plating,
 /area/engine/engineering)
+"kjo" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "kjF" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel,
@@ -34374,6 +34408,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/storage)
+"kYB" = (
+/obj/effect/decal/cleanable/cobweb,
+/turf/open/openspace,
+/area/maintenance/space_hut/plasmaman)
 "kZR" = (
 /obj/structure/closet/toolcloset,
 /turf/open/floor/plating,
@@ -35101,6 +35139,11 @@
 	},
 /turf/open/floor/plasteel/grimy,
 /area/security/detectives_office)
+"mSz" = (
+/turf/open/floor/plating/rust{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/space/nearstation)
 "mSB" = (
 /obj/machinery/light{
 	dir = 4
@@ -36116,6 +36159,12 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
+"oMB" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating/rust{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/space/nearstation)
 "oMN" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -37066,6 +37115,9 @@
 /obj/structure/grille/broken,
 /turf/open/openspace/airless,
 /area/space/nearstation)
+"qvP" = (
+/turf/closed/wall/rust,
+/area/maintenance/space_hut/plasmaman)
 "qyE" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/effect/decal/cleanable/dirt,
@@ -38751,6 +38803,12 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
+"tCA" = (
+/obj/structure/holosign/barrier/atmos,
+/obj/effect/decal/cleanable/oil/slippery,
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "tDw" = (
 /obj/machinery/light_switch{
 	pixel_y = 28
@@ -40086,6 +40144,13 @@
 /obj/item/circuitboard/mecha/ripley/peripherals,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"wlg" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "wlp" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -40624,6 +40689,10 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
+"xrm" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "xsJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -56328,7 +56397,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+gXs
 aaa
 aaa
 aaa
@@ -56585,7 +56654,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+gXs
 aaa
 aaa
 aaa
@@ -56842,7 +56911,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+gXs
 aaa
 aaa
 aaa
@@ -57099,7 +57168,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+gXs
 aaa
 aaa
 aaa
@@ -57352,15 +57421,15 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+gXs
+gXs
+gXs
+gXs
+gXs
+gXs
+gXs
+gXs
+gXs
 aaS
 gXs
 abs
@@ -57613,7 +57682,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+gXs
 aaa
 aaa
 aaa
@@ -57870,7 +57939,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+gXs
 aaa
 aaa
 aaa
@@ -58127,7 +58196,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+gXs
 aaa
 aaa
 aaa
@@ -58384,7 +58453,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+gXs
 aaa
 aaa
 aaa
@@ -58638,13 +58707,13 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+gvx
+mSz
+mSz
+mSz
+mSz
+mSz
+mSz
 aaa
 aaa
 aaa
@@ -58895,14 +58964,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+mSz
+mSz
+mSz
+mSz
+mSz
+mSz
+mSz
+mSz
 aaa
 aaa
 aaa
@@ -59151,18 +59220,18 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+mSz
+mSz
+mSz
+qvP
+qvP
+qvP
+qvP
+qvP
+qvP
+gXs
+gXs
+gXs
 aaS
 aaa
 gXs
@@ -59408,15 +59477,15 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+mSz
+mSz
+mSz
+qvP
+kYB
+wlg
+iBR
+iBR
+dnP
 aaa
 aaa
 aaa
@@ -59659,21 +59728,21 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+gXs
+gXs
+gXs
+gXs
+gXs
+mSz
+mSz
+mSz
+mSz
+qvP
+dcg
+wlg
+hdj
+xrm
+dnP
 aaa
 aaa
 aaa
@@ -59921,16 +59990,16 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+mSz
+jGc
+mSz
+mSz
+qvP
+dcg
+kjo
+xrm
+xrm
+dnP
 aaa
 aaa
 aaa
@@ -60178,20 +60247,20 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+mSz
+mSz
+mSz
+mSz
+qvP
+qvP
+dnP
+tCA
+dnP
+qvP
+gXs
+gXs
+gXs
+gXs
 gXs
 aaa
 aaa
@@ -60435,15 +60504,15 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+mSz
+mSz
+mSz
+mSz
+mSz
+mSz
+oMB
+oMB
+mSz
 aaa
 aaa
 aaa
@@ -60694,13 +60763,13 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+mSz
+mSz
+mSz
+mSz
+mSz
+mSz
+mSz
 aaa
 aaa
 aaa
@@ -60952,11 +61021,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+mSz
+mSz
+mSz
+mSz
+mSz
 aaa
 aaa
 aaa
