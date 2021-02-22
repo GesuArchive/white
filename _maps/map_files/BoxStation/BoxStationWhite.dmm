@@ -21258,6 +21258,10 @@
 	network = list("ss13","prison")
 	},
 /obj/effect/turf_decal/trimline/white/line,
+/obj/machinery/grill/unwrenched,
+/obj/item/stack/sheet/mineral/coal/ten,
+/obj/item/wrench,
+/obj/structure/closet/crate/large,
 /turf/open/floor/plasteel/showroomfloor,
 /area/hallway/secondary/service)
 "bRS" = (
