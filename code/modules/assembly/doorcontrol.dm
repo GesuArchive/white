@@ -208,3 +208,46 @@
 	lift.lift_master_datum.set_controls(UNLOCKED)
 
 #undef FLOOR_TRAVEL_TIME
+
+/obj/item/assembly/control/tram
+	name = "кнопка вызова трамвая"
+	desc = "Используется для вызова трамвая. Круто."
+	///for finding the landmark initially - should be the exact same as the landmark's destination id.
+	var/initial_id
+	///this is our destination's landmark, so we only have to find it the first time.
+	var/obj/effect/landmark/tram/to_where
+
+/obj/item/assembly/control/tram/activate()
+	if(cooldown)
+		return
+	cooldown = TRUE
+	addtimer(VARSET_CALLBACK(src, cooldown, FALSE), 2 SECONDS)
+	var/obj/structure/industrial_lift/tram/tram_part
+	for(var/obj/structure/industrial_lift/tram/possible_lift in GLOB.lifts) //this is a tram lift check in of itself, with byond's filtering system
+		tram_part = possible_lift
+		break
+	if(!tram_part)
+		say("Травмвай не отвечает на сигнал. Трамвай всё ещё существует?")
+		return
+	if(!tram_part.from_where) //edge case where the tram has not moved yet and set up it's landmarks but has been called
+		for(var/obj/effect/landmark/tram/tram_landmark in GLOB.landmarks_list)
+			if(tram_landmark.destination_id == tram_part.initial_id)
+				tram_part.from_where = tram_landmark
+				break
+	//find where the tram is going to/is
+	var/obj/effect/landmark/tram/from_where = tram_part.from_where
+	if(tram_part.travelling) //in use
+		say("Трамвай уже двигается к [from_where].")
+		return
+	if(!to_where)
+		//find where the tram needs to go to (our destination). only needs to happen the first time
+		for(var/obj/effect/landmark/tram/our_destination in GLOB.landmarks_list)
+			if(our_destination.destination_id == initial_id)
+				to_where = our_destination
+				break
+	if(from_where == to_where) //already here
+		say("Трамвай уже здесь. Забирайтесь на борт и выбирайте маршрут.")
+		return
+
+	say("Трамвай вызван к [to_where]. Пожалуйста, подождите пока он не прибудет.")
+	tram_part.tram_travel(from_where, to_where)

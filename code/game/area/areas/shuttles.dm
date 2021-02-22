@@ -208,3 +208,6 @@
 
 /area/shuttle/caravan/freighter3
 	name = "Крошечный грузовой корабль"
+
+/area/shuttle/transport/tramstation
+	name = "Трамвай"
