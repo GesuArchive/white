@@ -1,4 +1,4 @@
-/obj/item/clothing/under/prison/d
+/obj/item/clothing/under/prison/dclass
 	name = "комбинезон D-666"
 	desc = "А что означает эта буква?"
 	worn_icon = 'white/valtos/icons/clothing/mob/uniform.dmi'
@@ -12,24 +12,29 @@
 	..()
 	name = "комбинезон D-[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
 
-/obj/effect/mob_spawn/human/prison/prisoner/d
+/obj/effect/mob_spawn/human/prison/prisoner/dclass
 	name = "шконка класса D"
 	flavour_text = "Мне дали шанс искупить свою вину отправив в этот комплекс. Кстати, отправили меня сюда за "
-	outfit = /datum/outfit/scp_prisoner_d
+	outfit = /datum/outfit/scp_prisoner_dclass
 	assignedrole = "SCP: Class-D"
 
-/obj/effect/mob_spawn/human/prison/prisoner/rd
+/obj/effect/mob_spawn/human/prison/prisoner/scientist
 	name = "шконка научного сотрудника"
 	flavour_text = "Мне дали шанс искупить свою вину отправив в этот комплекс следить за другими заключёнными. Где-то тут должна быть карта доступа. Кстати, отправили меня сюда за "
-	outfit = /datum/outfit/scp_rd
+	outfit = /datum/outfit/scp_scientist
 	assignedrole = "SCP: RD"
 
-/datum/outfit/scp_prisoner_d
+/datum/outfit/scp_prisoner_dclass
 	name = "SCP: Prisoner D"
-	uniform = /obj/item/clothing/under/prison/d
+	uniform = /obj/item/clothing/under/prison/dclass
 	shoes = /obj/item/clothing/shoes/sneakers/orange
 
-/datum/outfit/scp_rd
+/datum/outfit/scp_scientist
 	name = "SCP: Scientist"
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/wzzzz/morpheus
 	shoes = /obj/item/clothing/shoes/sneakers/brown
+
+/obj/effect/mob_spawn/human/prison/doctor/special(mob/living/L)
+	var/list/imena = list("Петренко", "Гаврилов", "Смирнов", "Гмызенко", "Юлия", "Сафронов", "Павлов", "Пердюк", "Золотарев", "Михалыч", "Попов", "Лштшфум Ащьф")
+	L.real_name = "Профессор [pick(imena)]"
+	L.name = L.real_name
