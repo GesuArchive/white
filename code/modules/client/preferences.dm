@@ -1200,7 +1200,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(!(TG.subtype_path in type_blacklist) || !(TG.slot in slot_blacklist))
 						equipped_gear += TG.id
 					else
-						to_chat(user, "<span class='warning'>Некуда надевать [TG.display_name]. Что-то уже надето на этот слот.</span>")
+						to_chat(user, "<span class='warning'>Нет места для [TG.display_name]. Что-то уже есть в этом слоте.</span>")
 			save_preferences()
 
 		else if(href_list["select_category"])

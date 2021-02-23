@@ -87,3 +87,27 @@
 	path = /obj/item/clothing/glasses/sunglasses
 	allowed_roles = list("Cargo Technician")
 	cost = 1000
+
+/datum/gear/accessory/cosmetics
+	subtype_path = /datum/gear/accessory/cosmetics
+	cost = 120
+
+/datum/gear/accessory/cosmetics/lipstick
+	display_name = "Помада, чёрная"
+	path = /obj/item/lipstick/black
+	sort_category = "Косметика"
+	cost = 60
+
+/datum/gear/accessory/cosmetics/lipstick/red
+	display_name = "Помада, красная"
+	path = /obj/item/lipstick
+	cost = 60
+
+/datum/gear/accessory/cosmetics/lipstick/lime
+	display_name = "Помада, лайм"
+	path = /obj/item/lipstick/jade //its lime colored
+
+/datum/gear/accessory/cosmetics/lipstick/random
+	display_name = "Помада, мультицвет"
+	path = /obj/item/lipstick/random
+	cost = 575

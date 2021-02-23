@@ -3680,7 +3680,6 @@
 #include "white\valtos\code\lifeweb\turfs.dm"
 #include "white\valtos\code\loadout\loadout.dm"
 #include "white\valtos\code\loadout\loadout_accessories.dm"
-#include "white\valtos\code\loadout\loadout_cosmestics.dm"
 #include "white\valtos\code\loadout\loadout_general.dm"
 #include "white\valtos\code\loadout\loadout_gloves.dm"
 #include "white\valtos\code\loadout\loadout_hat.dm"
