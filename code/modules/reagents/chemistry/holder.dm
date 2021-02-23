@@ -54,8 +54,9 @@
 
 		for(var/product in D.results)
 			var/datum/reagent/reagent = find_reagent_object_from_type(product)
-			product_names += reagent.name
-			product_ids += product
+			if(reagent)
+				product_names += reagent.name
+				product_ids += product
 
 		var/product_name
 		if(!length(product_names))

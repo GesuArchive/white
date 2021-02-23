@@ -13,7 +13,8 @@
 	appearance_flags = KEEP_TOGETHER
 	smoothing_flags = SMOOTH_CORNERS
 	can_be_unanchored = TRUE
-	canSmoothWith = list(/obj/structure/grille, /obj/structure/grille/broken)
+	canSmoothWith = list(SMOOTH_GROUP_GRILLE)
+	smoothing_groups = list(SMOOTH_GROUP_GRILLE)
 	var/holes = 0 //bitflag
 
 	var/rods_type = /obj/item/stack/rods
