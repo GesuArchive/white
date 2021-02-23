@@ -469,8 +469,6 @@
 	air.adjust_moles(/datum/gas/nitrous_oxide, -reaction_efficency)
 	air.adjust_moles(/datum/gas/plasma, -2 * reaction_efficency)
 
-	SSresearch.science_tech.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = min((reaction_efficency**2) * BZ_RESEARCH_SCALE), BZ_RESEARCH_MAX_AMOUNT))
-
 	if(energy_released > 0)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
@@ -508,7 +506,6 @@
 			air.adjust_moles(/datum/gas/hydrogen, -heat_efficency * 3.5)
 			if (prob(100 / increase_factor))
 				new /obj/item/stack/sheet/mineral/metal_hydrogen(location)
-				SSresearch.science_tech.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = min((heat_efficency * increase_factor * 0.5), METAL_HYDROGEN_RESEARCH_MAX_AMOUNT)))
 
 	if(energy_used > 0)
 		var/new_heat_capacity = air.heat_capacity()
@@ -569,7 +566,6 @@
 	air.adjust_moles(/datum/gas/stimulum, heat_scale * 0.75)
 	air.adjust_moles(/datum/gas/tritium, -heat_scale)
 	air.adjust_moles(/datum/gas/nitryl, -heat_scale)
-	SSresearch.science_tech.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = STIMULUM_RESEARCH_AMOUNT*max(stim_energy_change,0)))
 	if(stim_energy_change)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
@@ -598,8 +594,6 @@
 	air.adjust_moles(/datum/gas/tritium, -nob_formed * 5)
 	air.adjust_moles(/datum/gas/nitrogen, -nob_formed * 10)
 	air.adjust_moles(/datum/gas/hypernoblium, nob_formed)
-	SSresearch.science_tech.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = nob_formed * NOBLIUM_RESEARCH_AMOUNT))
-
 	if (nob_formed)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
