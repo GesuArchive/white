@@ -305,10 +305,10 @@
 		living_pawn.do_sex(target, pick("do_throatfuck", "do_anal"))
 	finish_action(controller, TRUE)
 
-/mob/living/carbon/human/rapist
+/mob/living/carbon/human/raper
 	ai_controller = /datum/ai_controller/raper
 
-/mob/living/carbon/human/rapist/Initialize()
+/mob/living/carbon/human/raper/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_STUNIMMUNE, "sosi")
 	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, "sosi")
