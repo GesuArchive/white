@@ -262,7 +262,7 @@
 /obj/structure/chair/stool/bar
 	name = "барный стул"
 	desc = "На нем есть какие-то неприятные пятна ..."
-	icon = 'icons/obj/chairs.dmi'
+	icon = 'white/valtos/icons/chairs.dmi'
 	icon_state = "bar"
 	item_chair = /obj/item/chair/stool/bar
 
@@ -365,7 +365,7 @@
 
 /obj/item/chair/stool/bar
 	name = "барный стул"
-	icon = 'icons/obj/chairs.dmi'
+	icon = 'white/valtos/icons/chairs.dmi'
 	icon_state = "bar_toppled"
 	inhand_icon_state = "stool_bar"
 	origin_type = /obj/structure/chair/stool/bar
