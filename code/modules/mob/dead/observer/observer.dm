@@ -196,6 +196,8 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		ghost_others = client.prefs.ghost_others
 
 	if(update_custom_icon())
+		hair_overlay = null
+		facial_hair_overlay = null
 		return TRUE
 
 	if(hair_overlay)
