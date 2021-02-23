@@ -1549,7 +1549,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 											"<span class='userdanger'>Вам пришло письмо-о-о!</span>")
 							H.set_confusion(max(H.get_confusion(), 20))
 							H.adjust_blurriness(I.force)
-							H.Unconscious(I.force * 0.75)
+							H.Unconscious(I.force * 5)
 						if(prob(10))
 							H.gain_trauma(/datum/brain_trauma/mild/concussion)
 					else
