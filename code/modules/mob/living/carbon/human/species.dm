@@ -1510,7 +1510,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	hit_area = ru_parse_zone(affecting.name)
 	var/def_zone = affecting.body_zone
 
-	var/armor_block = H.run_armor_check(affecting, MELEE, "<span class='notice'>Моя броня защищает меня от удара в [hit_area]!</span>", "<span class='warning'>Моя броня смягчает удар в [hit_area]!</span>",I.armour_penetration)
+	var/armor_block = H.run_armor_check(affecting, MELEE, "<span class='notice'>Броня защищает меня от удара в [hit_area]!</span>", "<span class='warning'>Броня смягчает удар в [hit_area]!</span>",I.armour_penetration)
 	armor_block = min(90,armor_block) //cap damage reduction at 90%
 	var/Iwound_bonus = I.wound_bonus
 
@@ -1539,16 +1539,17 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				if(get_dist(user, H) <= 1)	//people with TK won't get smeared with blood
 					user.add_mob_blood(H)
 
-		switch(hit_area)
+		switch(affecting.body_zone)
 			if(BODY_ZONE_HEAD)
 				if(!I.get_sharpness() && armor_block < 50)
 					if(prob(I.force))
-						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 20)
+						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, I.force * 0.5)
 						if(H.stat == CONSCIOUS)
 							H.visible_message("<span class='danger'>[H] беспорядочно шатается!</span>", \
-											"<span class='userdanger'>Я получаю письмо!</span>")
+											"<span class='userdanger'>Вам пришло письмо-о-о!</span>")
 							H.set_confusion(max(H.get_confusion(), 20))
-							H.adjust_blurriness(10)
+							H.adjust_blurriness(I.force)
+							H.Unconscious(I.force * 0.75)
 						if(prob(10))
 							H.gain_trauma(/datum/brain_trauma/mild/concussion)
 					else
