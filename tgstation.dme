@@ -3765,6 +3765,7 @@
 #include "white\valtos\code\unsorted\randommaint.dm"
 #include "white\valtos\code\unsorted\raper.dm"
 #include "white\valtos\code\unsorted\rusprikols.dm"
+#include "white\valtos\code\unsorted\scp.dm"
 #include "white\valtos\code\unsorted\smartfoam.dm"
 #include "white\valtos\code\unsorted\sobr.dm"
 #include "white\valtos\code\unsorted\sound_panel.dm"
