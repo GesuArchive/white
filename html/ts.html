@@ -97,7 +97,7 @@
 				if(state) {
 					document.getElementById("pp").style.cssText = "background-position: " + mp + "px; width: 400px;";
 				} else {
-					document.getElementById("pp").style.cssText = "background-position: " + mp + "px; width: auto;";
+					document.getElementById("pp").style.cssText = "background-position: " + mp + "px; min-width: 400px;";
 				}
 				mp++
 				if(mp == 32) mp = 0;
