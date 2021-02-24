@@ -32,11 +32,14 @@
 	name = "SCP: Prisoner D"
 	uniform = /obj/item/clothing/under/prison/dclass
 	shoes = /obj/item/clothing/shoes/sneakers/orange
+	id = /obj/item/card/id/prisoner
 
 /datum/outfit/scp_scientist
 	name = "SCP: Scientist"
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/wzzzz/morpheus
+	suit = /obj/item/clothing/suit/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/sneakers/brown
+	id = /obj/item/card/id/ert/security
 
 /obj/effect/mob_spawn/human/prison/prisoner/scientist/special(mob/living/L)
 	var/list/imena = list("Петренко", "Гаврилов", "Смирнов", "Гмызенко", "Юлия", "Сафронов", "Павлов", "Пердюк", "Золотарев", "Михалыч", "Попов", "Лштшфум Ащьф")

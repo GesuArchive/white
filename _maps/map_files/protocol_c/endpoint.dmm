@@ -1963,15 +1963,13 @@
 	},
 /area/holodeck/rec_center/lounge)
 "gH" = (
-/obj/structure/ladder/unbreakable{
-	height = 1;
-	id = "gal1";
-	name = "durable ladder"
+/obj/effect/turf_decal/stripes/full,
+/obj/structure/table/reinforced,
+/obj/item/storage/pill_bottle/labebium{
+	pixel_x = 1;
+	pixel_y = 7
 	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/open/floor/plasteel,
+/turf/open/floor/engine,
 /area/centcom/control)
 "gI" = (
 /obj/machinery/door/airlock/centcom{
@@ -2770,6 +2768,10 @@
 	},
 /turf/open/indestructible/labfloor,
 /area/centcom/debug)
+"kS" = (
+/mob/living/carbon/human/raper,
+/turf/open/floor/engine,
+/area/centcom/control)
 "kT" = (
 /turf/open/floor/holofloor/basalt,
 /area/holodeck/rec_center/thunderdome)
@@ -3074,6 +3076,15 @@
 /obj/effect/turf_decal/tile/green,
 /turf/open/floor/holofloor,
 /area/holodeck/rec_center/basketball)
+"mK" = (
+/obj/item/reagent_containers/glass/bottle/romerol{
+	pixel_x = 1;
+	pixel_y = 7
+	},
+/obj/effect/turf_decal/stripes/full,
+/obj/structure/table/reinforced,
+/turf/open/floor/engine,
+/area/centcom/control)
 "mQ" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -4575,6 +4586,7 @@
 "tX" = (
 /obj/machinery/light/floor,
 /obj/structure/lattice/catwalk,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/control)
 "tZ" = (
@@ -5388,6 +5400,7 @@
 	req_access_txt = "101"
 	},
 /obj/structure/lattice/catwalk,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/control)
 "xG" = (
@@ -5687,6 +5700,12 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
+/area/centcom/control)
+"yL" = (
+/obj/item/hilbertshotel,
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/engine,
 /area/centcom/control)
 "yM" = (
 /obj/effect/turf_decal/tile/blue{
@@ -6028,6 +6047,7 @@
 /obj/machinery/camera/autoname{
 	dir = 6
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/control)
 "Au" = (
@@ -7957,14 +7977,14 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/item/melee/baton,
-/obj/item/melee/baton,
-/obj/item/melee/baton,
-/obj/item/melee/baton,
-/obj/item/melee/baton,
-/obj/item/melee/baton,
-/obj/item/melee/baton,
-/obj/item/melee/baton,
+/obj/item/melee/baton/loaded/german,
+/obj/item/melee/baton/loaded/german,
+/obj/item/melee/baton/loaded/german,
+/obj/item/melee/baton/loaded/german,
+/obj/item/melee/baton/loaded/german,
+/obj/item/melee/baton/loaded/german,
+/obj/item/melee/baton/loaded/german,
+/obj/item/melee/baton/loaded/german,
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "HP" = (
@@ -8480,6 +8500,8 @@
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/control)
 "JG" = (
@@ -8557,6 +8579,7 @@
 /area/holodeck/rec_center/chapelcourt)
 "JT" = (
 /obj/machinery/power/shieldwallgen/anchored,
+/obj/structure/cable,
 /turf/closed/indestructible/syndicate,
 /area/centcom/control)
 "JU" = (
@@ -8999,6 +9022,11 @@
 /obj/structure/mineral_door/paperframe,
 /turf/open/floor/wood,
 /area/centcom/holding)
+"LG" = (
+/obj/structure/cable,
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating,
+/area/centcom/control)
 "LH" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -9145,6 +9173,7 @@
 	req_access_txt = "101"
 	},
 /obj/structure/lattice/catwalk,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/control)
 "LY" = (
@@ -10302,6 +10331,15 @@
 	},
 /turf/open/floor/holofloor,
 /area/holodeck/rec_center/court)
+"Ro" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/obj/machinery/power/port_gen/pacman/super,
+/obj/item/stack/sheet/mineral/uranium{
+	amount = 25
+	},
+/turf/open/floor/plating,
+/area/centcom/control)
 "Rp" = (
 /obj/structure/rospilovo/musor_yashik/red,
 /turf/open/floor/plating/asteroid/snow/centcom,
@@ -10403,6 +10441,7 @@
 /area/centcom/evac)
 "RY" = (
 /obj/structure/lattice/catwalk,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/control)
 "Sh" = (
@@ -10414,6 +10453,7 @@
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/vault,
 /area/centcom/control)
 "Sj" = (
@@ -10425,6 +10465,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/red/line,
+/obj/structure/cable,
 /turf/open/floor/vault,
 /area/centcom/control)
 "Sk" = (
@@ -10467,6 +10508,10 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
+/area/centcom/control)
+"Sp" = (
+/mob/living/carbon/human/species/golem/bronze,
+/turf/open/floor/engine,
 /area/centcom/control)
 "Sq" = (
 /obj/effect/turf_decal/tile/green,
@@ -10516,7 +10561,14 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/red/line,
+/obj/structure/cable,
 /turf/open/floor/vault,
+/area/centcom/control)
+"SE" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/power/smes/engineering,
+/obj/structure/cable,
+/turf/open/floor/plating,
 /area/centcom/control)
 "SH" = (
 /obj/structure/chess/blackrook,
@@ -10748,6 +10800,7 @@
 "TI" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/camera/autoname,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/control)
 "TJ" = (
@@ -11124,6 +11177,10 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
+/area/centcom/control)
+"Vr" = (
+/obj/structure/cable,
+/turf/closed/indestructible/syndicate,
 /area/centcom/control)
 "Vv" = (
 /obj/structure/table/wood/poker,
@@ -11517,6 +11574,15 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ctf)
+"Xl" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/door/airlock/centcom{
+	name = "SCP";
+	req_access_txt = "101"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/centcom/control)
 "Xn" = (
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
@@ -11734,6 +11800,8 @@
 /area/centcom/control)
 "YA" = (
 /obj/machinery/camera/autoname,
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/control)
 "YC" = (
@@ -11905,6 +11973,8 @@
 	name = "SCP";
 	req_access_txt = "101"
 	},
+/obj/structure/cable,
+/obj/structure/lattice/catwalk,
 /turf/open/floor/plating,
 /area/centcom/control)
 "Zt" = (
@@ -11933,6 +12003,11 @@
 	},
 /turf/open/floor/holofloor/snow,
 /area/holodeck/rec_center/winterwonderland)
+"ZB" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/floor,
+/turf/open/floor/plating,
+/area/centcom/control)
 "ZE" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -26894,7 +26969,7 @@ ZT
 hA
 hA
 ZU
-TO
+RY
 ZU
 oy
 RY
@@ -27151,7 +27226,7 @@ ZT
 hA
 hA
 ZU
-TO
+LG
 Zq
 RY
 tX
@@ -27408,7 +27483,7 @@ ZT
 hA
 hA
 ZU
-TO
+RY
 ZU
 oy
 RY
@@ -27665,7 +27740,7 @@ ZT
 hA
 hA
 ZU
-TO
+RY
 ZU
 ZU
 xB
@@ -27922,7 +27997,7 @@ ZT
 hA
 hA
 ZU
-TO
+RY
 ZU
 oy
 RY
@@ -28179,7 +28254,7 @@ ZT
 hA
 hA
 ZU
-TO
+RY
 ZU
 oy
 RY
@@ -28436,7 +28511,7 @@ ZT
 hA
 hA
 ZU
-TO
+RY
 ZU
 oy
 RY
@@ -28693,7 +28768,7 @@ ZT
 hA
 hA
 ZU
-TO
+RY
 ZU
 oy
 RY
@@ -29207,7 +29282,7 @@ hA
 hA
 hA
 ZU
-TO
+RY
 ZU
 oy
 tX
@@ -29460,11 +29535,11 @@ hA
 hA
 hA
 hA
-hA
-hA
-hA
 ZU
-TO
+ZU
+ZU
+ZU
+RY
 ZU
 oy
 RY
@@ -29716,12 +29791,12 @@ ZU
 ZU
 ZU
 hA
-hA
-hA
-hA
-hA
 ZU
-TO
+ZU
+RY
+SE
+Vr
+RY
 ZU
 oy
 RY
@@ -29974,11 +30049,11 @@ Ho
 ZU
 ZU
 ZU
-hA
-hA
-hA
+Ro
+RY
+ZB
 ZU
-TO
+RY
 ZU
 oy
 RY
@@ -30229,13 +30304,13 @@ Ho
 zG
 Ho
 Af
-TO
+RY
 ZU
 ZU
+Xl
 ZU
 ZU
-ZU
-TO
+RY
 ZU
 Us
 RY
@@ -30486,13 +30561,13 @@ Ho
 Ho
 Ho
 ZU
-TO
-TO
+RY
+RY
 JF
-TO
-TO
-TO
-TO
+RY
+RY
+RY
+RY
 ZU
 ZU
 xB
@@ -32005,8 +32080,8 @@ Co
 Co
 Co
 Co
-ZZ
-ZZ
+Co
+Co
 ZZ
 ZU
 ps
@@ -32262,9 +32337,9 @@ Co
 Co
 Co
 Co
+Co
+Co
 ZZ
-ZU
-ZU
 ZU
 ps
 ps
@@ -32519,10 +32594,10 @@ Co
 Co
 Co
 Co
+Co
+Co
 ZZ
 ZU
-gH
-ZR
 ps
 ps
 ps
@@ -32776,9 +32851,9 @@ Co
 Co
 Co
 Co
+Co
+Co
 ZZ
-ZU
-ZU
 ZU
 ps
 ps
@@ -33033,8 +33108,8 @@ Co
 Co
 Co
 Co
-ZZ
-ZZ
+Co
+Co
 ZZ
 ZU
 ps
@@ -34866,30 +34941,30 @@ xB
 RY
 tX
 RY
-Zq
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-TO
+xB
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
 JF
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-Zq
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+xB
 RY
 xV
 ZU
@@ -35639,25 +35714,25 @@ Ho
 Ho
 ZU
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
 ZZ
 ZU
 Ho
@@ -35880,19 +35955,19 @@ Co
 ZZ
 ZU
 Ho
-Ho
+gH
 Wh
 ZU
 Ho
-Ho
+mK
 Wh
 ZU
 Ho
-Ho
+yL
 Wh
 ZU
 Ho
-Ho
+Sp
 Wh
 ZU
 ZZ
@@ -35918,7 +35993,7 @@ Co
 ZZ
 ZU
 Ho
-Ho
+kS
 Wh
 ZU
 ZZ

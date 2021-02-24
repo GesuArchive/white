@@ -19,7 +19,10 @@
 
 /obj/item/door_remote/Initialize()
 	. = ..()
-	access_list = get_region_accesses(region_access)
+	if(region_access == 0)
+		access_list = get_all_accesses() + get_all_centcom_access() + get_all_syndicate_access()
+	else
+		access_list = get_region_accesses(region_access)
 	RegisterSignal(src, COMSIG_COMPONENT_NTNET_NAK, .proc/bad_signal)
 	RegisterSignal(src, COMSIG_COMPONENT_NTNET_ACK, .proc/good_signal)
 
