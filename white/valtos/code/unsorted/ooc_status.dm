@@ -15,4 +15,4 @@
 	)
 
 	var/data_to_send = jointext(data_list, "\n")
-	to_chat(src, "<span class='notice'>Информация: [data_to_send]</span>")
+	to_chat(src, "<span class='notice'>\n[data_to_send]\n</span>")
