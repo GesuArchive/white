@@ -14,15 +14,19 @@
 
 /obj/effect/mob_spawn/human/prison/prisoner/dclass
 	name = "шконка класса D"
+	short_desc = "Роль заключённого."
 	flavour_text = "Мне дали шанс искупить свою вину отправив в этот комплекс. Кстати, отправили меня сюда за "
+	important_info = "Подчиняйтесь учёным."
 	outfit = /datum/outfit/scp_prisoner_dclass
 	assignedrole = "SCP: Class-D"
 
 /obj/effect/mob_spawn/human/prison/prisoner/scientist
 	name = "шконка научного сотрудника"
+	short_desc = "Роль научного сотрудника лаборатории."
 	flavour_text = "Мне дали шанс искупить свою вину отправив в этот комплекс следить за другими заключёнными. Где-то тут должна быть карта доступа. Кстати, отправили меня сюда за "
+	important_info = "Используйте заключённых как пушечное мясо. Их хватит."
 	outfit = /datum/outfit/scp_scientist
-	assignedrole = "SCP: RD"
+	assignedrole = "SCP: Scientist"
 
 /datum/outfit/scp_prisoner_dclass
 	name = "SCP: Prisoner D"
@@ -34,7 +38,7 @@
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/wzzzz/morpheus
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 
-/obj/effect/mob_spawn/human/prison/doctor/special(mob/living/L)
+/obj/effect/mob_spawn/human/prison/prisoner/scientist/special(mob/living/L)
 	var/list/imena = list("Петренко", "Гаврилов", "Смирнов", "Гмызенко", "Юлия", "Сафронов", "Павлов", "Пердюк", "Золотарев", "Михалыч", "Попов", "Лштшфум Ащьф")
 	L.real_name = "Профессор [pick(imena)]"
 	L.name = L.real_name
