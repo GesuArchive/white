@@ -258,11 +258,11 @@
 		controller.blackboard[BB_RAPER_CURRENT_ATTACK_TARGET] = null
 		controller.blackboard[BB_RAPER_FUCKING] = FALSE
 	else if (living_pawn.Adjacent(target))
-		living_pawn.do_sex(target, pick("do_throatfuck", "do_anal"))
+		living_pawn.do_sex(target, pick("do_anal"))
 		INVOKE_ASYNC(src, .proc/try_fuck_mob, controller) //put him in!
 	else
 		living_pawn.forceMove(get_turf(target))
-		living_pawn.do_sex(target, pick("do_throatfuck", "do_anal"))
+		living_pawn.do_sex(target, pick("do_anal"))
 		controller.current_movement_target = target
 
 /datum/ai_behavior/fuck_mob/perform(delta_time, datum/ai_controller/controller)
@@ -301,8 +301,10 @@
 		for(var/obj/item/W in target)
 			if(istype(W, /obj/item/restraints))
 				continue
+			if(W.item_flags & ABSTRACT)
+				continue
 			target.dropItemToGround(W)
-		living_pawn.do_sex(target, pick("do_throatfuck", "do_anal"))
+		living_pawn.do_sex(target, pick("do_anal"))
 	finish_action(controller, TRUE)
 
 /mob/living/carbon/human/raper
