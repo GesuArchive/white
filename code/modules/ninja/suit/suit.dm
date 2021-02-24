@@ -187,7 +187,7 @@
 	if(!istype(ninja))
 		return FALSE
 	if(!IS_SPACE_NINJA(ninja))
-		to_chat(ninja, "<span class='danger'><B>fÄTaL ÈÈRRoR</B>: 382200-*#00CÖDE <B>RED</B>\nUNAUHORIZED USÈ DETÈCeD\nCoMMÈNCING SUB-R0UIN3 13...\nTÈRMInATING U-U-USÈR...</span>")
+		to_chat(ninja, "<span class='danger'><B>fATaL EERRoR</B>: 382200-*#00CODE <B>RED</B>\nUNAUHORIZED USE DETECeD\nCoMMENCING SUB-R0UIN3 13...\nTERMInATING U-U-USER...</span>")
 		ninja.gib()
 		return FALSE
 	if(!istype(ninja.head, /obj/item/clothing/head/helmet/space/space_ninja))

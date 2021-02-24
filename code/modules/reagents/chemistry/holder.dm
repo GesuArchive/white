@@ -649,7 +649,7 @@
 
 /// Removes addiction to a specific reagent on [/datum/reagents/var/my_atom]
 /datum/reagents/proc/remove_addiction(datum/reagent/R)
-	to_chat(my_atom, "<span class='notice'>You feel like you've gotten over your need for [R.name].</span>")
+	to_chat(my_atom, "<span class='notice'>Чувствую, что удовлетворил свою потребность в [R.name].</span>")
 	SEND_SIGNAL(my_atom, COMSIG_CLEAR_MOOD_EVENT, "[R.type]_overdose")
 	LAZYREMOVE(addiction_list, R)
 	qdel(R)
@@ -798,7 +798,7 @@
 					ME2.Uses--
 					if(ME2.Uses <= 0) // give the notification that the slime core is dead
 						for(var/mob/M in seen)
-							to_chat(M, "<span class='notice'>[iconhtml] \The [my_atom] power is consumed in the reaction.</span>")
+							to_chat(M, "<span class='notice'>[iconhtml] Сила [my_atom] потребляется в реакции.</span>")
 							ME2.name = "used slime extract"
 							ME2.desc = "This extract has been used up."
 

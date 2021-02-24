@@ -272,7 +272,7 @@
 	if (do_after(ninja, 60, target = src))
 		spark_system.start()
 		playsound(loc, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-		to_chat(src, "<span class='danger'>UPLOAD COMPLETE.  NEW CYBORG MODULE DETECTED.  INSTALLING...</span>")
+		to_chat(src, "<span class='danger'>UPLOAD COMPLETE. NEW CYBORG MODULE DETECTED. INSTALLING...</span>")
 		faction = list(ROLE_NINJA)
 		bubble_icon = "syndibot"
 		UnlinkSelf()

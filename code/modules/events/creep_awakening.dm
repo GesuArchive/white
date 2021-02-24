@@ -1,5 +1,5 @@
 /datum/round_event_control/obsessed
-	name = "Obsession Awakening"
+	name = "Пробуждение Одержимости"
 	typepath = /datum/round_event/obsessed
 	max_occurrences = 1
 	min_players = 5

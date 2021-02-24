@@ -8,8 +8,8 @@
  *
  */
 /obj/machinery/computer/camera_advanced/base_construction
-	name = "generic base construction console"
-	desc = "An industrial computer integrated with a camera-assisted rapid construction drone."
+	name = "универсальная базовая строительная консоль"
+	desc = "Промышленный компьютер, связанный с быстрым строительным дроном с камерой."
 	networks = list("ss13")
 	circuit = /obj/item/circuitboard/computer/base_construction
 	off_action = new/datum/action/innate/camera_off/base_construction
@@ -103,7 +103,7 @@
  *
  */
 /mob/camera/ai_eye/remote/base_construction
-	name = "construction holo-drone"
+	name = "строительный голо-дрон"
 	//Allows any curious crew to watch the base after it leaves. (This is safe as the base cannot be modified once it leaves)
 	move_on_shuttle = TRUE 
 	icon = 'icons/obj/mining.dmi'
@@ -128,7 +128,7 @@
 
 ///[Base console's][/obj/machinery/computer/camera_advanced/base_construction] internal RCD. Has a large material capacity and a fast buildspeed.
 /obj/item/construction/rcd/internal 
-	name = "internal RCD"
+	name = "внутренний RCD"
 	max_matter = 600
-	no_ammo_message = "<span class='warning'>Internal matter exhausted. Please add additional materials.</span>"
+	no_ammo_message = "<span class='warning'>Внутренняя материя исчерпана. Пожалуйста, добавьте дополнительные материалы.</span>"
 	delay_mod = 0.5

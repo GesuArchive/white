@@ -27,7 +27,7 @@
  */
 /mob/living/simple_animal/hostile/space_dragon
 	name = "Space Dragon"
-	desc = "A vile, leviathan-esque creature that flies in the most unnatural way.  Looks slightly similar to a space carp."
+	desc = "A vile, leviathan-esque creature that flies in the most unnatural way. Looks slightly similar to a space carp."
 	maxHealth = 400
 	health = 400
 	a_intent = INTENT_HARM
@@ -114,10 +114,10 @@
 		return
 	riftTimer = min(riftTimer + 1, maxRiftTimer + 1)
 	if(riftTimer == (maxRiftTimer - 60))
-		to_chat(src, "<span class='boldwarning'>You have a minute left to summon the rift!  Get to it!</span>")
+		to_chat(src, "<span class='boldwarning'>You have a minute left to summon the rift! Get to it!</span>")
 		return
 	if(riftTimer == maxRiftTimer)
-		to_chat(src, "<span class='boldwarning'>You've failed to summon the rift in a timely manner!  You're being pulled back from whence you came!</span>")
+		to_chat(src, "<span class='boldwarning'>You've failed to summon the rift in a timely manner! You're being pulled back from whence you came!</span>")
 		destroy_rifts()
 		QDEL_NULL(src)
 
@@ -451,7 +451,7 @@
 /datum/action/innate/space_dragon/gust_attack
 	name = "Gust Attack"
 	button_icon_state = "gust_attack"
-	desc = "Use your wings to knock back foes with gusts of air, pushing them away and stunning them.  Using this too often will leave you vulnerable for longer periods of time."
+	desc = "Use your wings to knock back foes with gusts of air, pushing them away and stunning them. Using this too often will leave you vulnerable for longer periods of time."
 
 /datum/action/innate/space_dragon/gust_attack/Activate()
 	var/mob/living/simple_animal/hostile/space_dragon/S = owner
@@ -473,12 +473,12 @@
 		return
 	var/area/A = get_area(S)
 	if(!(A.area_flags & VALID_TERRITORY))
-		to_chat(S, "<span class='warning'>You can't summon a rift here!  Try summoning somewhere secure within the station!</span>")
+		to_chat(S, "<span class='warning'>You can't summon a rift here! Try summoning somewhere secure within the station!</span>")
 		return
 	for(var/obj/structure/carp_rift/rift in S.rift_list)
 		var/area/RA = get_area(rift)
 		if(RA == A)
-			to_chat(S, "<span class='warning'>You've already summoned a rift in this area!  You have to summon again somewhere else!</span>")
+			to_chat(S, "<span class='warning'>You've already summoned a rift in this area! You have to summon again somewhere else!</span>")
 			return
 	to_chat(S, "<span class='warning'>You begin to open a rift...</span>")
 	if(do_after(S, 100, target = S))
@@ -489,7 +489,7 @@
 		S.riftTimer = -1
 		CR.dragon = S
 		S.rift_list += CR
-		to_chat(S, "<span class='boldwarning'>The rift has been summoned.  Prevent the crew from destroying it at all costs!</span>")
+		to_chat(S, "<span class='boldwarning'>The rift has been summoned. Prevent the crew from destroying it at all costs!</span>")
 		notify_ghosts("The Space Dragon has opened a rift!", source = CR, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Carp Rift Opened")
 		qdel(src)
 
@@ -547,7 +547,7 @@
 /obj/structure/carp_rift/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	if(time_charged != max_charge + 1)
-		to_chat(dragon, "<span class='boldwarning'>The rift has been destroyed!  You have failed, and find yourself brought down by the weight of your failure.</span>")
+		to_chat(dragon, "<span class='boldwarning'>The rift has been destroyed! You have failed, and find yourself brought down by the weight of your failure.</span>")
 		dragon.set_varspeed(5)
 		dragon.tiredness_mult = 5
 		dragon.destroy_rifts()
@@ -652,7 +652,7 @@
 	var/datum/antagonist/space_dragon/S = dragon.mind.has_antag_datum(/datum/antagonist/space_dragon)
 	if(S)
 		S.carp += newcarp.mind
-	to_chat(newcarp, "<span class='boldwarning'>You have arrived in order to assist the space dragon with securing the rift.  Do not jeopardize the mission, and protect the rift at all costs!</span>")
+	to_chat(newcarp, "<span class='boldwarning'>You have arrived in order to assist the space dragon with securing the rift. Do not jeopardize the mission, and protect the rift at all costs!</span>")
 	carp_stored--
 	if(carp_stored <= 0 && charge_state < CHARGE_COMPLETED)
 		icon_state = "carp_rift"

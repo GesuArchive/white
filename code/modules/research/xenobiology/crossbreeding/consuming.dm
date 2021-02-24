@@ -301,7 +301,7 @@ Consuming extracts:
 			tastemessage = "красный dye"
 			colour = "#FF0000"
 		if(2)
-			tastemessage = "оранжевый  dye"
+			tastemessage = "оранжевый dye"
 			colour = "#FFA500"
 		if(3)
 			tastemessage = "жёлтый dye"

@@ -8,7 +8,7 @@
 
 /datum/buildmode_mode/copy/show_help(client/c)
 	to_chat(c, "<span class='notice'>***********************************************************</span>")
-	to_chat(c, "<span class='notice'>Left Mouse Button on obj/turf/mob   = Spawn a Copy of selected target</span>")
+	to_chat(c, "<span class='notice'>Left Mouse Button on obj/turf/mob = Spawn a Copy of selected target</span>")
 	to_chat(c, "<span class='notice'>Right Mouse Button on obj/mob = Select target to copy</span>")
 	to_chat(c, "<span class='notice'>***********************************************************</span>")
 

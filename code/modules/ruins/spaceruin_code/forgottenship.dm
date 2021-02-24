@@ -7,15 +7,15 @@ GLOBAL_VAR_INIT(fscpassword, generate_password())
 ///////////	forgottenship objects
 
 /obj/machinery/door/password/voice/sfc
-	name = "Voice-activated Vault door"
-	desc = "You'll need special syndicate passcode to open this one."
+	name = "Дверь Хранилища с голосовым замком"
+	desc = "Потребуется особый пароль Синдиката, чтобы открыть её."
 /obj/machinery/door/password/voice/sfc/Initialize(mapload)
 	. = ..()
 	password = "[GLOB.fscpassword]"
 
 /obj/machinery/vending/medical/syndicate_access/cybersun
-	name = "\improper CyberMed ++"
-	desc = "An advanced vendor that dispenses medical drugs, both recreational and medicinal."
+	name = "КиберМед++"
+	desc = "Продвинутый автомат по выдаче медицинских наркотиков."
 	products = list(/obj/item/reagent_containers/syringe = 4,
 					/obj/item/healthanalyzer = 4,
 					/obj/item/reagent_containers/pill/patch/libital = 5,
@@ -71,8 +71,8 @@ GLOBAL_VAR_INIT(fscpassword, generate_password())
 ///////////	forgottenship items
 
 /obj/item/disk/surgery/forgottenship
-	name = "Advanced Surgery Disk"
-	desc = "A disk that contains advanced surgery procedures, must be loaded into an Operating Console."
+	name = "Диск Продвинутой Хирургии"
+	desc = Диск, содержащий информацию о сложных хирургических операциях."
 	surgeries = list(/datum/surgery/advanced/lobotomy, /datum/surgery/advanced/bioware/vein_threading, /datum/surgery/advanced/bioware/nerve_splicing)
 
 /obj/structure/fluff/empty_sleeper/syndicate/captain
@@ -85,8 +85,8 @@ GLOBAL_VAR_INIT(fscpassword, generate_password())
 	AddComponent(/datum/component/gps, "Old Encrypted Signal")
 
 /obj/item/storage/box/firingpins/syndicate
-	name = "box of syndicate firing pins"
-	desc = "A box full of special syndicate firing pins which allow only syndicate operatives to use weapons with those firing pins."
+	name = "коробка синдикатовских бойков"
+	desc = "Коробка, полная особых синдикатовских бойков, оружие с которыми могут использовать лишь оперативники Синдиката."
 
 /obj/item/storage/box/firingpins/syndicate/PopulateContents()
 	for(var/i in 1 to 5)

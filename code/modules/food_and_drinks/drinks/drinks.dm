@@ -414,7 +414,7 @@
 	var/datum/reagent/random_reagent = new reagent_id
 	list_reagents = list(random_reagent.type = 50)
 	. = ..()
-	desc +=  "<span class='notice'>The writing reads '[random_reagent.name]'.</span>"
+	desc += "<span class='notice'>The writing reads '[random_reagent.name]'.</span>"
 	update_icon()
 
 /obj/item/reagent_containers/food/drinks/beer

@@ -228,13 +228,13 @@
 		if(!BB)
 			. = ""
 		else if(BB.nodamage || !BB.damage || BB.damage_type == STAMINA)
-			user.visible_message("<span class='danger'>[user] tries to light [A.loc == user ? "[user.ru_ego()] [A.name]" : A] with [src], but it doesn't do anything. Dumbass.</span>")
+			user.visible_message("<span class='danger'>[user] пытается зажечь [A.loc == user ? "[user.ru_ego()] [A.name]" : A] используя [src], но не выходит. Тупица.</span>")
 			playsound(user, E.fire_sound, 50, TRUE)
 			playsound(user, BB.hitsound, 50, TRUE)
 			cell.use(E.e_cost)
 			. = ""
 		else if(BB.damage_type != BURN)
-			user.visible_message("<span class='danger'>[user] tries to light [A.loc == user ? "[user.ru_ego()] [A.name]" : A] with [src], but only succeeds in utterly destroying it. Dumbass.</span>")
+			user.visible_message("<span class='danger'>[user] пытается поджечь [A.loc == user ? "[user.ru_ego()] [A.name]" : A] при помощи [src], но в итоге просто уничтожил это. Тупица.</span>")
 			playsound(user, E.fire_sound, 50, TRUE)
 			playsound(user, BB.hitsound, 50, TRUE)
 			cell.use(E.e_cost)
@@ -244,4 +244,4 @@
 			playsound(user, E.fire_sound, 50, TRUE)
 			playsound(user, BB.hitsound, 50, TRUE)
 			cell.use(E.e_cost)
-			. = "<span class='danger'>[user] casually lights [A.loc == user ? "[user.ru_ego()] [A.name]" : A] with [src]. Damn.</span>"
+			. = "<span class='danger'>[user] непринужденно зажигает [A.loc == user ? "[user.ru_ego()] [A.name]" : A] при помощи [src]. Вот блин.</span>"

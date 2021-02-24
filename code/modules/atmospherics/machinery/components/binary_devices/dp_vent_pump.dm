@@ -11,7 +11,7 @@
 	//node2 is output port
 	//node1 is input port
 
-	name = "dual-port air vent"
+	name = "Двухпортовая вентиляция"
 	desc = "К нему прикручены вентиль и помпа. Тут два порта."
 
 	hide = TRUE
@@ -175,7 +175,7 @@
 		update_icon()
 
 /obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume
-	name = "large dual-port air vent"
+	name = "Большая двухпортовая вентиляция"
 
 /obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume/New()
 	..()

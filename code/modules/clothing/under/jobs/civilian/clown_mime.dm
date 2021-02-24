@@ -67,7 +67,7 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/civilian/clown/orange
-	name = "оранжевый  костюм клоуна"
+	name = "оранжевый костюм клоуна"
 	desc = "<i>'ОРАНЖЕВЫЙ ХОНК!'</i>"
 	icon_state = "orangeclown"
 	inhand_icon_state = "orangeclown"

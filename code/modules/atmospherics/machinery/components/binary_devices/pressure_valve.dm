@@ -1,7 +1,7 @@
 /obj/machinery/atmospherics/components/binary/pressure_valve
 	icon_state = "pvalve_map-3"
-	name = "pressure valve"
-	desc = "An activable one way valve that let gas pass through if the pressure on the input side is higher than the set pressure."
+	name = "Вентиль давления"
+	desc = "Переключаемый вентиль, который позволяет газу пройти если внешнее давление выше чем давление источника. Только в одну сторону."
 
 	can_unwrench = TRUE
 	shift_underlay_only = FALSE
@@ -31,7 +31,7 @@
 	if(can_interact(user))
 		target_pressure = MAX_OUTPUT_PRESSURE
 		investigate_log("was set to [target_pressure] kPa by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, "<span class='notice'>You set the target pressure on [src] to [target_pressure] kPa.</span>")
+		to_chat(user, "<span class='notice'>Я выставляю давление в [src] на [target_pressure] кПа.</span>")
 		update_icon()
 	return ..()
 

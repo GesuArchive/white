@@ -1,6 +1,6 @@
 /obj/effect/oneway
-	name = "one way effect"
-	desc = "Only lets things in from it's dir."
+	name = " Односторонний эффект"
+	desc = "Принимает вещи только из одного направления."
 	icon = 'icons/effects/mapping_helpers.dmi'
 	icon_state = "field_dir"
 	invisibility = INVISIBILITY_MAXIMUM
@@ -14,8 +14,8 @@
 
 
 /obj/effect/wind
-	name = "wind effect"
-	desc = "Creates pressure effect in it's direction. Use sparingly."
+	name = "Воздушный эффект"
+	desc = "Создает давление в своем направлении. Использовать осторожно"
 	icon = 'icons/effects/mapping_helpers.dmi'
 	icon_state = "field_dir"
 	invisibility = INVISIBILITY_MAXIMUM
@@ -32,8 +32,8 @@
 
 //Keep these rare due to cost of doing these checks
 /obj/effect/path_blocker
-	name = "magic barrier"
-	desc = "You shall not pass."
+	name = "Магический барьер"
+	desc = "Ты не пройдешь."
 	icon = 'icons/effects/mapping_helpers.dmi'
 	icon_state = "blocker" //todo make this actually look fine when visible
 	anchored = TRUE
@@ -55,7 +55,7 @@
 	return !reverse
 
 /obj/structure/pitgrate
-	name = "pit grate"
+	name = "Слив"
 	icon = 'icons/obj/smooth_structures/lattice.dmi'
 	icon_state = "lattice-255"
 	plane = FLOOR_PLANE
@@ -113,7 +113,7 @@
 	. = ..()
 
 /obj/structure/pitgrate/hidden
-	name = "floor"
+	name = "Пол"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "floor"
 	hidden = TRUE

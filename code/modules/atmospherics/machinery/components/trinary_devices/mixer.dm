@@ -2,8 +2,8 @@
 	icon_state = "mixer_off-0"
 	density = FALSE
 
-	name = "gas mixer"
-	desc = "Very useful for mixing gasses."
+	name = "Смеситель газов"
+	desc = "Смешивает газы."
 
 	can_unwrench = TRUE
 
@@ -27,7 +27,7 @@
 	if(can_interact(user))
 		target_pressure = MAX_OUTPUT_PRESSURE
 		investigate_log("was set to [target_pressure] kPa by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, "<span class='notice'>You maximize the pressure output on [src] to [target_pressure] kPa.</span>")
+		to_chat(user, "<span class='notice'>Выкручиваю давление [src] на [target_pressure] кПа.</span>")
 		update_icon()
 	return ..()
 
@@ -225,7 +225,7 @@
 	icon_state = "mixer_on_f_map-4"
 
 /obj/machinery/atmospherics/components/trinary/mixer/airmix //For standard airmix to distro
-	name = "air mixer"
+	name = "Смешиватель воздуха"
 	icon_state = "mixer_on-0"
 	node1_concentration = N2STANDARD
 	node2_concentration = O2STANDARD

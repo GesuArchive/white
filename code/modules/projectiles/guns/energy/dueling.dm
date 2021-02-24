@@ -24,7 +24,7 @@
 	var/mob/living/A = get_duelist(gun_A)
 	var/mob/living/B = get_duelist(gun_B)
 	if(!A || !B)
-		message_duelists("<span class='warning'>To begin the duel, both participants need to be holding paired dueling pistols.</span>")
+		message_duelists("<span class='warning'>Чтобы начать дуэль оба участника должны держать парные дуэльные пистолеты.</span>")
 		return
 	begin()
 
@@ -34,7 +34,7 @@
 	fired.Cut()
 	countdown_step = countdown_length
 
-	message_duelists("<span class='notice'>Set your gun setting and move [required_distance] steps away from your opponent.</span>")
+	message_duelists("<span class='notice'>Настройте своё оружие и отойдите на [required_distance] шагов от оппонента.</span>")
 
 	START_PROCESSING(SSobj,src)
 
@@ -56,7 +56,7 @@
 	return G == gun_A ? gun_B : gun_A
 
 /datum/duel/proc/end()
-	message_duelists("<span class='notice'>Duel finished. Re-engaging safety.</span>")
+	message_duelists("<span class='notice'>Дуэль окончена. Возобновляем безопасность.</span>")
 	STOP_PROCESSING(SSobj,src)
 	state = DUEL_IDLE
 
@@ -83,24 +83,24 @@
 
 
 /datum/duel/proc/back_to_prep()
-	message_duelists("<span class='notice'>Positions invalid. Please move to valid positions [required_distance] steps away from each other to continue.</span>")
+	message_duelists("<span class='notice'>Неверные позиции. Пожалуйста, займите верную позиции отойдя на [required_distance] шагов друг от друга чтобы продолжить.</span>")
 	state = DUEL_PREPARATION
 	confirmations.Cut()
 	countdown_step = countdown_length
 
 /datum/duel/proc/confirm_positioning()
-	message_duelists("<span class='notice'>Position confirmed. Confirm readiness by pulling the trigger once.</span>")
+	message_duelists("<span class='notice'>Позиция подтверждена. Подтвердите готовность единожды нажав на курок.</span>")
 	state = DUEL_READY
 
 /datum/duel/proc/confirm_ready()
-	message_duelists("<span class='notice'>Readiness confirmed. Starting countdown. Commence firing at zero mark.</span>")
+	message_duelists("<span class='notice'>Готовность подтверждена. Начинаю отсчет. Открывайте стрельбу при достижении нуля.</span>")
 	state = DUEL_COUNTDOWN
 
 /datum/duel/proc/countdown_step()
 	countdown_step--
 	if(countdown_step == 0)
 		state = DUEL_FIRING
-		message_duelists("<span class='userdanger'>Fire!</span>")
+		message_duelists("<span class='userdanger'>Огонь!</span>")
 	else
 		message_duelists("<span class='userdanger'>[countdown_step]!</span>")
 
@@ -129,8 +129,8 @@
 	return TRUE
 
 /obj/item/gun/energy/dueling
-	name = "dueling pistol"
-	desc = "High-tech dueling pistol. Launches chaff and projectile according to preset settings."
+	name = "дуэльный пистолет"
+	desc = "Высокотехнологичный дуэльный пистолет. Запускает снаряд и дипольную помеху в соответствии с заданными настройками."
 	icon_state = "dueling_pistol"
 	inhand_icon_state = "gun"
 	ammo_x_offset = 2
@@ -172,7 +172,7 @@
 			setting = DUEL_SETTING_C
 		if(DUEL_SETTING_C)
 			setting = DUEL_SETTING_A
-	to_chat(user,"<span class='notice'>You switch [src] setting to [setting] mode.</span>")
+	to_chat(user,"<span class='notice'>Переключил настройки [src] на режим [setting].</span>")
 	update_icon()
 
 /obj/item/gun/energy/dueling/update_overlays()
@@ -197,7 +197,7 @@
 		if(DUEL_READY)
 			return .
 		else
-			to_chat(user,"<span class='warning'>[capitalize(src.name)] is locked. Wait for FIRE signal before shooting.</span>")
+			to_chat(user,"<span class='warning'>[capitalize(src.name)] заблокирован. Дождитесь команды ОГОНЬ перед тем как стрелять.</span>")
 			return FALSE
 
 /obj/item/gun/energy/dueling/proc/is_duelist(mob/living/L)
@@ -210,10 +210,10 @@
 /obj/item/gun/energy/dueling/process_fire(atom/target, mob/living/user, message, params, zone_override, bonus_spread)
 	if(duel.state == DUEL_READY)
 		duel.confirmations[src] = TRUE
-		to_chat(user,"<span class='notice'>You confirm your readiness.</span>")
+		to_chat(user,"<span class='notice'>Я подтвердил готовность.</span>")
 		return
 	else if(!is_duelist(target)) //I kinda want to leave this out just to see someone shoot a bystander or missing.
-		to_chat(user,"<span class='warning'>[capitalize(src.name)] safety system prevents shooting anyone but your designated opponent.</span>")
+		to_chat(user,"<span class='warning'>[capitalize(src.name)] система безопасности предотвращает стрельбу по кому либо, кроме указанного оппонента.</span>")
 		return
 	else
 		duel.fired[src] = TRUE
@@ -261,7 +261,7 @@
 //Projectile
 
 /obj/projectile/energy/duel
-	name = "dueling beam"
+	name = "дуэльный луч"
 	icon_state = "declone"
 	reflectable = FALSE
 	homing = TRUE
@@ -303,8 +303,8 @@
 
 //Storage case.
 /obj/item/storage/lockbox/dueling
-	name = "dueling pistol case"
-	desc = "Let's solve this like gentlespacemen."
+	name = "футляр для дуэльных пистолетов"
+	desc = "Разберемся с этим как и подобает в порядочном космическом обществе."
 	icon_state = "medalbox+l"
 	inhand_icon_state = "syringe_kit"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'

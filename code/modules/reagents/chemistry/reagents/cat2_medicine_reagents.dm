@@ -7,7 +7,7 @@
 /*Suffix: -bital*/
 
 /datum/reagent/medicine/c2/helbital //kinda a C2 only if you're not in hardcrit.
-	name = "Helbital"
+	name = "Хэллбитал"
 	description = "Named after the norse goddess Hel, this medicine heals the patient's bruises the closer they are to death. Patients will find the medicine 'aids' their healing if not near death by causing asphyxiation."
 	color = "#9400D3"
 	taste_description = "холод и безжизненность"
@@ -38,26 +38,26 @@
 		var/list/RockPaperScissors = list("rock" = "paper", "paper" = "scissors", "scissors" = "rock") //choice = loses to
 		if(M.apply_status_effect(/datum/status_effect/necropolis_curse,CURSE_BLINDING))
 			helbent = TRUE
-		to_chat(M, "<span class='hierophant'>Malevolent spirits appear before you, bartering your life in a 'friendly' game of rock, paper, scissors. Which do you choose?</span>")
+		to_chat(M, "<span class='hierophant'>Передо мной появляются зловещие духи, выторговывая вашу жизнь в «товарищеской» партии в камень-ножницы-бумагу. Что выбрать?</span>")
 		var/timeisticking = world.time
 		var/RPSchoice = input(M, "Janken Time! You have 60 Seconds to Choose!", "Rock Paper Scissors",null) as null|anything in RockPaperScissors
 		if(QDELETED(M) || (timeisticking+(1.1 MINUTES) < world.time))
 			reaping = FALSE
 			return //good job, you ruined it
 		if(!RPSchoice)
-			to_chat(M, "<span class='hierophant'>You decide to not press your luck, but the spirits remain... hopefully they'll go away soon.</span>")
+			to_chat(M, "<span class='hierophant'>Решил не испытывать удачу, но призраки всё еще здесь... Надеюсь они скоро исчезнут.</span>")
 			reaping = FALSE
 			return
 		var/grim = pick(RockPaperScissors)
 		if(grim == RPSchoice) //You Tied!
-			to_chat(M, "<span class='hierophant'>You tie, and the malevolent spirits disappear... for now.</span>")
+			to_chat(M, "<span class='hierophant'>Ничья. Зловещие духи исчезли... Пока что.</span>")
 			reaping = FALSE
 		else if(RockPaperScissors[RPSchoice] == grim) //You lost!
-			to_chat(M, "<span class='hierophant'>You lose, and the malevolent spirits smirk eerily as they surround your body.</span>")
+			to_chat(M, "<span class='hierophant'>Проиграл, и зловещие духи начали окружать меня устрашающе ухмыляясь.</span>")
 			M.dust()
 			return
 		else //VICTORY ROYALE
-			to_chat(M, "<span class='hierophant'>You win, and the malevolent spirits fade away as well as your wounds.</span>")
+			to_chat(M, "<span class='hierophant'>Победил, зловещие духи исчезли, как и мои раны.</span>")
 			M.client.give_award(/datum/award/achievement/misc/helbitaljanken, M)
 			M.revive(full_heal = TRUE, admin_revive = FALSE)
 			holder.del_reagent(type)
@@ -79,7 +79,7 @@
 	..()
 
 /datum/reagent/medicine/c2/libital //messes with your liber
-	name = "Libital"
+	name = "Либитал"
 	description = "A bruise reliever. Does minor liver damage."
 	color = "#ECEC8D" // rgb: 236	236	141
 	taste_description = "горький с оттенком алкоголя"
@@ -92,7 +92,7 @@
 	return TRUE
 
 /datum/reagent/medicine/c2/probital
-	name = "Probital"
+	name = "Пробитал"
 	description = "Originally developed as a prototype-gym supliment for those looking for quick workout turnover, this oral medication quickly repairs broken muscle tissue but causes lactic acid buildup, tiring the patient. Overdosing can cause extreme drowsiness. An Influx of nutrients promotes the muscle repair even further."
 	reagent_state = SOLID
 	color = "#FFFF6B"
@@ -117,7 +117,7 @@
 	if(M.getStaminaLoss() >= 80)
 		M.drowsyness++
 	if(M.getStaminaLoss() >= 100)
-		to_chat(M,"<span class='warning'>You feel more tired than you usually do, perhaps if you rest your eyes for a bit...</span>")
+		to_chat(M,"<span class='warning'>Чувствую небывалую усталость, возможно, стоит дать глазам немного отдохнуть...</span>")
 		M.adjustStaminaLoss(-100, TRUE)
 		M.Sleeping(10 SECONDS)
 	..()
@@ -135,7 +135,7 @@
 /******BURN******/
 /*Suffix: -uri*/
 /datum/reagent/medicine/c2/lenturi
-	name = "Lenturi"
+	name = "Лентури"
 	description = "Used to treat burns. Makes you move slower while it is in your system. Applies stomach damage when it leaves your system."
 	reagent_state = LIQUID
 	color = "#6171FF"
@@ -157,7 +157,7 @@
 	return ..()
 
 /datum/reagent/medicine/c2/aiuri
-	name = "Aiuri"
+	name = "Айурин"
 	description = "Used to treat burns. Does minor eye damage."
 	reagent_state = LIQUID
 	color = "#8C93FF"
@@ -171,7 +171,7 @@
 	return TRUE
 
 /datum/reagent/medicine/c2/hercuri
-	name = "Hercuri"
+	name = "Херкурин"
 	description = "Not to be confused with element Mercury, this medicine excels in reverting effects of dangerous high-temperature environments. Prolonged exposure can cause hypothermia."
 	reagent_state = LIQUID
 	color = "#F7FFA5"
@@ -215,7 +215,7 @@
 #define	CONVERMOL_RATIO 5		//# Oxygen damage to result in 1 tox
 
 /datum/reagent/medicine/c2/convermol
-	name = "Convermol"
+	name = "Конвермол"
 	description = "Restores oxygen deprivation while producing a lesser amount of toxic byproducts. Both scale with exposure to the drug and current amount of oxygen deprivation. Overdose causes toxic byproducts regardless of oxygen deprivation."
 	reagent_state = LIQUID
 	color = "#FF6464"
@@ -240,7 +240,7 @@
 #undef	CONVERMOL_RATIO
 
 /datum/reagent/medicine/c2/tirimol
-	name = "Tirimol"
+	name = "Тримол"
 	description = "An oxygen deprivation medication that causes fatigue. Prolonged exposure causes the patient to fall asleep once the medicine metabolizes."
 	color = "#FF6464"
 	var/drowsycd = 0
@@ -265,7 +265,7 @@
 /*Suffix: -iver*/
 
 /datum/reagent/medicine/c2/seiver //a bit of a gray joke
-	name = "Seiver"
+	name = "Сэйвер"
 	description = "A medicine that shifts functionality based on temperature. Colder temperatures incurs radiation removal while hotter temperatures promote antitoxicity. Damages the heart." //CHEM HOLDER TEMPS, NOT AIR TEMPS
 	var/radbonustemp = (T0C - 100) //being below this number gives you 10% off rads.
 
@@ -303,7 +303,7 @@
 	return TRUE
 
 /datum/reagent/medicine/c2/multiver //enhanced with MULTIple medicines
-	name = "Multiver"
+	name = "Мультивер"
 	description = "A chem-purger that becomes more effective the more unique medicines present. Slightly heals toxicity but causes lung damage (mitigatable by unique medicines)."
 
 /datum/reagent/medicine/c2/multiver/on_mob_life(mob/living/carbon/human/M)
@@ -333,7 +333,7 @@
 #define issyrinormusc(A)	(istype(A,/datum/reagent/medicine/c2/syriniver) || istype(A,/datum/reagent/medicine/c2/musiver)) //musc is metab of syrin so let's make sure we're not purging either
 
 /datum/reagent/medicine/c2/syriniver //Inject >> SYRINge
-	name = "Syriniver"
+	name = "Сиринивир"
 	description = "A potent antidote for intravenous use with a narrow therapeutic index, it is considered an active prodrug of musiver."
 	reagent_state = LIQUID
 	color = "#8CDF24" // heavy saturation to make the color blend better
@@ -374,7 +374,7 @@
 	. = 1
 
 /datum/reagent/medicine/c2/musiver //MUScles
-	name = "Musiver"
+	name = "Мюзивер"
 	description = "The active metabolite of syriniver. Causes muscle weakness on overdose"
 	reagent_state = LIQUID
 	color = "#DFD54E"
@@ -412,7 +412,7 @@
 /******COMBOS******/
 /*Suffix: Combo of healing, prob gonna get wack REAL fast*/
 /datum/reagent/medicine/c2/synthflesh
-	name = "Synthflesh"
+	name = "Синтеплоть"
 	description = "Heals brute and burn damage at the cost of toxicity (66% of damage healed). 100u or more can restore corpses husked by burns. Touch application only."
 	reagent_state = LIQUID
 	color = "#FFEBEB"
@@ -433,11 +433,11 @@
 		iter_wound.on_synthflesh(reac_volume)
 	carbies.adjustToxLoss((harmies+burnies)*0.66)
 	if(show_message)
-		to_chat(carbies, "<span class='danger'>You feel your burns and bruises healing! It stings like hell!</span>")
+		to_chat(carbies, "<span class='danger'>Чувствую как мои ожоги и синяки заживают! Чертовски жжется!</span>")
 	SEND_SIGNAL(carbies, COMSIG_ADD_MOOD_EVENT, "painful_medicine", /datum/mood_event/painful_medicine)
 	if(HAS_TRAIT_FROM(exposed_mob, TRAIT_HUSK, BURN) && carbies.getFireLoss() < UNHUSK_DAMAGE_THRESHOLD && (carbies.reagents.get_reagent_amount(/datum/reagent/medicine/c2/synthflesh) + reac_volume >= SYNTHFLESH_UNHUSK_AMOUNT))
 		carbies.cure_husk(BURN)
-		carbies.visible_message("<span class='nicegreen'>A rubbery liquid coats [carbies] burns. [carbies] looks a lot healthier!") //we're avoiding using the phrases "burnt flesh" and "burnt skin" here because carbies could be a skeleton or a golem or something
+		carbies.visible_message("<span class='nicegreen'>Смолянистая жидкость покрывает ожоги [carbies]. Кажется, [carbies] идет на поправку!") //we're avoiding using the phrases "burnt flesh" and "burnt skin" here because carbies could be a skeleton or a golem or something
 
 /******ORGAN HEALING******/
 /*Suffix: -rite*/
@@ -452,14 +452,14 @@
 *Overdosing on penthrite also causes a heart failure.
 */
 /datum/reagent/medicine/c2/penthrite
-	name = "Penthrite"
+	name = "Пентрит"
 	description = "An expensive medicine that aids with pumping blood around the body even without a heart, and prevents the heart from slowing down. Mixing it with epinephrine or atropine will cause an explosion."
 	color = "#F5F5F5"
 	overdose_threshold = 50
 
 /datum/reagent/medicine/c2/penthrite/on_mob_metabolize(mob/living/M)
 	. = ..()
-	to_chat(M,"<span class='notice'>Your heart begins to beat with great force!")
+	to_chat(M,"<span class='notice'>Сердце начинает колотиться с жуткой силой!")
 	ADD_TRAIT(M, TRAIT_STABLEHEART, type)
 	ADD_TRAIT(M, TRAIT_NOHARDCRIT,type)
 	ADD_TRAIT(M, TRAIT_NOSOFTCRIT,type)
@@ -483,11 +483,11 @@
 
 
 		if(prob(33))
-			to_chat(H,"<span class='danger'>Your body пытается give up, but your heart is still beating!</span>")
+			to_chat(H,"<span class='danger'>Моё тело хочет сдаться, но сердце всё еще бьется!</span>")
 
 	if(H.health <= (H.crit_threshold + HEALTH_THRESHOLD_FULLCRIT*2)) //certain death below this threshold
 		REMOVE_TRAIT(H, TRAIT_STABLEHEART, type) //we have to remove the stable heart trait before we give them a heart attack
-		to_chat(H,"<span class='danger'>You feel something rupturing inside your chest!</span>")
+		to_chat(H,"<span class='danger'>Чувствую как в груди что-то разрывается!</span>")
 		H.emote("scream")
 		H.set_heartattack(TRUE)
 		volume = 0

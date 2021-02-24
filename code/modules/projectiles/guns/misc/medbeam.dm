@@ -1,6 +1,6 @@
 /obj/item/gun/medbeam
-	name = "Medical Beamgun"
-	desc = "Don't cross the streams!"
+	name = "Медицинский Лучевой Пистолет"
+	desc = "Не скрещивайте лучи!"
 	icon = 'icons/obj/chronos.dmi'
 	icon_state = "chronogun"
 	inhand_icon_state = "chronogun"
@@ -52,7 +52,7 @@
 /obj/item/gun/medbeam/proc/beam_died()
 	active = FALSE //skip qdelling the beam again if we're doing this proc, because
 	if(isliving(loc))
-		to_chat(loc, "<span class='warning'>You lose control of the beam!</span>")
+		to_chat(loc, "<span class='warning'>Потерял контроль над лучом!</span>")
 	LoseTarget()
 
 /obj/item/gun/medbeam/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
@@ -134,7 +134,7 @@
 	return
 
 /obj/effect/ebeam/medical
-	name = "medical beam"
+	name = "медицинский луч"
 
 //////////////////////////////Mech Version///////////////////////////////
 /obj/item/gun/medbeam/mech

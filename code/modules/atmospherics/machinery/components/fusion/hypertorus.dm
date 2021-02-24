@@ -57,8 +57,8 @@
 	icon = 'icons/obj/atmospherics/components/hypertorus.dmi'
 	icon_state = "core"
 
-	name = "thermomachine"
-	desc = "Heats or cools gas in connected pipes."
+	name = "Термомашина"
+	desc = "Нагревает или охлаждает газ в подключенных трубах."
 	anchored = TRUE
 	density = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
@@ -80,7 +80,7 @@
 
 /obj/machinery/atmospherics/components/unary/hypertorus/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>[src] can be rotated by first opening the panel with a screwdriver and then using a wrench on it.</span>"
+	. += "<span class='notice'>[src] можно повернуть если открутить панель отверткой и использовать гаечный ключ.</span>"
 
 /obj/machinery/atmospherics/components/unary/hypertorus/attackby(obj/item/I, mob/user, params)
 	if(!fusion_started)
@@ -117,8 +117,8 @@
 		icon_state = icon_state_off
 
 /obj/machinery/atmospherics/components/unary/hypertorus/fuel_input
-	name = "HFR fuel input port"
-	desc = "Input port for the Hypertorus Fusion Reactor, designed to take in only Hydrogen and Tritium in gas forms."
+	name = "Топливный порт ГТР"
+	desc = "Порт приема топлива Гиперторусного Реактора, принимающий только водород и тритий."
 	icon_state = "fuel_input_off"
 	icon_state_open = "fuel_input_open"
 	icon_state_off = "fuel_input_off"
@@ -126,8 +126,8 @@
 	circuit = /obj/item/circuitboard/machine/HFR_fuel_input
 
 /obj/machinery/atmospherics/components/unary/hypertorus/waste_output
-	name = "HFR waste output port"
-	desc = "Waste port for the Hypertorus Fusion Reactor, designed to output the hot waste gases coming from the core of the machine."
+	name = "Порт сброса отходов ГТР"
+	desc = "Порт Гиперторусного Реактора, отводящий горячие газы из ядра машины."
 	icon_state = "waste_output_off"
 	icon_state_open = "waste_output_open"
 	icon_state_off = "waste_output_off"
@@ -135,8 +135,8 @@
 	circuit = /obj/item/circuitboard/machine/HFR_waste_output
 
 /obj/machinery/atmospherics/components/unary/hypertorus/moderator_input
-	name = "HFR moderator input port"
-	desc = "Moderator port for the Hypertorus Fusion Reactor, designed to move gases inside the machine to cool and control the flow of the reaction."
+	name = "Управляющий порт ГТР"
+	desc = "Управляющий порт Гиперторусного Реактора, принимающий газы в машину для охлаждения и контроля реакции."
 	icon_state = "moderator_input_off"
 	icon_state_open = "moderator_input_open"
 	icon_state_off = "moderator_input_off"
@@ -144,8 +144,8 @@
 	circuit = /obj/item/circuitboard/machine/HFR_moderator_input
 
 /obj/machinery/atmospherics/components/unary/hypertorus/core
-	name = "HFR core"
-	desc = "This is the Hypertorus Fusion Reactor core, an advanced piece of technology to finely tune the reaction inside of the machine. It has I/O for cooling gases."
+	name = "Ядро ГТР"
+	desc = "Ядро Гиперторусного Реактора. Высокотехнологичная штука, управляющая реакцией внутри машины."
 	icon = 'icons/obj/atmospherics/components/hypertorus.dmi'
 	icon_state = "core_off"
 	circuit = /obj/item/circuitboard/machine/HFR_core
@@ -405,9 +405,9 @@
 
 /obj/machinery/atmospherics/components/unary/hypertorus/core/proc/activate(mob/living/user)
 	if(active)
-		to_chat(user, "<span class='notice'>You already activated the machine.</span>")
+		to_chat(user, "<span class='notice'>Я уже активировал машину.</span>")
 		return
-	to_chat(user, "<span class='notice'>You link all parts toghether.</span>")
+	to_chat(user, "<span class='notice'>Соединяю все части вместе.</span>")
 	active = TRUE
 	update_icon()
 	linked_interface.active = TRUE
@@ -1105,7 +1105,7 @@
 
 /obj/machinery/hypertorus/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>[src] can be rotated by first opening the panel with a screwdriver and then using a wrench on it.</span>"
+	. += "<span class='notice'>[src] можно повернуть если открутить панель отверткой и использовать гаечный ключ.</span>"
 
 /obj/machinery/hypertorus/attackby(obj/item/I, mob/user, params)
 	if(!fusion_started)
@@ -1126,8 +1126,8 @@
 		icon_state = icon_state_off
 
 /obj/machinery/hypertorus/interface
-	name = "HFR interface"
-	desc = "Interface for the HFR to control the flow of the reaction."
+	name = "Интерфейс ГТР"
+	desc = "Интерфейс управления реакцией в ГТР."
 	icon_state = "interface_off"
 	circuit = /obj/item/circuitboard/machine/HFR_interface
 	var/obj/machinery/atmospherics/components/unary/hypertorus/core/connected_core
@@ -1146,7 +1146,7 @@
 	var/obj/machinery/atmospherics/components/unary/hypertorus/core/centre = locate() in T
 
 	if(!centre || !centre.check_part_connectivity())
-		to_chat(user, "<span class='notice'>Check all parts and then try again.</span>")
+		to_chat(user, "<span class='notice'>Проверь все части и попробуй еще раз.</span>")
 		return TRUE
 	new/obj/item/paper/guides/jobs/atmos/hypertorus(loc)
 	connected_core = centre
@@ -1161,7 +1161,7 @@
 			ui = new(user, src, "Hypertorus", name)
 			ui.open()
 	else
-		to_chat(user, "<span class='notice'>Activate the machine first by using a multitool on the interface.</span>")
+		to_chat(user, "<span class='notice'>Сначала активируй машину, использовав мультитул на интерфейс.</span>")
 
 /obj/machinery/hypertorus/interface/ui_data()
 	var/data = list()
@@ -1294,8 +1294,8 @@
 			. = TRUE
 
 /obj/machinery/hypertorus/corner
-	name = "HFR corner"
-	desc = "Structural piece of the machine."
+	name = "Угол ГТР"
+	desc = "Часть корпуса машины."
 	icon_state = "corner_off"
 	circuit = /obj/item/circuitboard/machine/HFR_corner
 	icon_state_off = "corner_off"
@@ -1303,7 +1303,7 @@
 	icon_state_active = "corner_active"
 
 /obj/item/paper/guides/jobs/atmos/hypertorus
-	name = "paper- 'Quick guide to safe handling of the HFR'"
+	name = "paper- 'Краткое руководство по безопасному использованию ГТР'"
 	info = "<B>How to safely(TM) operate the Hypertorus</B><BR>\
 	-Build the machine as it’s shown in the main guide.<BR>\
 	-Make a 50/50 gasmix of tritium and hydrogen totalling around 2000 moles.<BR>\

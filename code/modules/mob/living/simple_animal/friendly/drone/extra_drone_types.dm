@@ -116,8 +116,8 @@
 	"<span class='notice'>Derelict drones are a ghost role that is allowed to roam freely on KS13, with the main goal of repairing and improving it.</span>\n"+\
 	"<span class='notice'>Do not interfere with the round going on outside KS13.</span>\n"+\
 	"<span class='notice'>Actions that constitute interference include, but are not limited to:</span>\n"+\
-	"<span class='notice'>     - Going to the main station in search of materials.</span>\n"+\
-	"<span class='notice'>     - Interacting with non-drone players outside KS13, dead or alive.</span>\n"+\
+	"<span class='notice'> - Going to the main station in search of materials.</span>\n"+\
+	"<span class='notice'> - Interacting with non-drone players outside KS13, dead or alive.</span>\n"+\
 	"<span class='warning'>These rules are at admin discretion and will be heavily enforced.</span>\n"+\
 	"<span class='warning'><u>If you do not have the regular drone laws, follow your laws to the best of your ability.</u></span>"
 

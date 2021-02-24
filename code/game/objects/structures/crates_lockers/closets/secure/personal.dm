@@ -1,6 +1,6 @@
 /obj/structure/closet/secure_closet/personal
-	desc = "It's a secure locker for personnel. The first card swiped gains control."
-	name = "personal closet"
+	desc = "Это сейф для персонала. Привязывает карту при первом свайпе."
+	name = "шкаф персонала"
 	req_access = list(ACCESS_ALL_PERSONAL_LOCKERS)
 	var/registered_name = null
 
@@ -15,7 +15,7 @@
 	new /obj/item/radio/headset( src )
 
 /obj/structure/closet/secure_closet/personal/patient
-	name = "patient's closet"
+	name = "шкаф пациента"
 
 /obj/structure/closet/secure_closet/personal/patient/PopulateContents()
 	new /obj/item/clothing/under/color/white( src )
@@ -39,7 +39,7 @@
 	var/obj/item/card/id/I = W.GetID()
 	if(istype(I))
 		if(broken)
-			to_chat(user, "<span class='danger'>It appears to be broken.</span>")
+			to_chat(user, "<span class='danger'>Кажется, он сломан.</span>")
 			return
 		if(!I || !I.registered_name)
 			return
@@ -50,7 +50,7 @@
 
 			if(!registered_name)
 				registered_name = I.registered_name
-				desc = "Owned by [I.registered_name]."
+				desc = "Принадлежит [I.registered_name]."
 		else
 			to_chat(user, "<span class='danger'>Доступ запрещён.</span>")
 	else

@@ -8,7 +8,7 @@
 
 
 /datum/reagent/consumable
-	name = "Consumable"
+	name = "Поглощаемые вещества"
 	taste_description = "универсальная еда"
 	taste_mult = 4
 	var/nutriment_factor = 1 * REAGENTS_METABOLISM
@@ -41,7 +41,7 @@
 			SEND_SIGNAL(exposed_mob, COMSIG_ADD_MOOD_EVENT, "quality_food", /datum/mood_event/amazingtaste)
 
 /datum/reagent/consumable/nutriment
-	name = "Nutriment"
+	name = "Питательные вещества"
 	description = "All the vitamins, minerals, and carbohydrates the body needs in pure form."
 	reagent_state = SOLID
 	nutriment_factor = 15 * REAGENTS_METABOLISM
@@ -99,7 +99,7 @@
 	return data
 
 /datum/reagent/consumable/nutriment/vitamin
-	name = "Vitamin"
+	name = "Витамин"
 	description = "All the best vitamins, minerals, and carbohydrates the body needs in pure form."
 
 	brute_heal = 1
@@ -112,18 +112,18 @@
 
 /// The basic resource of vat growing.
 /datum/reagent/consumable/nutriment/protein
-	name = "Protein"
+	name = "Протеин"
 	description = "A natural polyamide made up of amino acids. An essential constituent of mosts known forms of life."
 	brute_heal = 0.8 //Rewards the player for eating a balanced diet.
 	nutriment_factor = 9 * REAGENTS_METABOLISM //45% as calorie dense as corn oil.
 
 /datum/reagent/consumable/nutriment/organ_tissue
-	name = "Organ Tissue"
+	name = "Органная Ткань"
 	description = "Natural tissues that make up the bulk of organs, providing many vitamins and minerals."
 	taste_description = "rich earthy pungent"
 
 /datum/reagent/consumable/cooking_oil
-	name = "Cooking Oil"
+	name = "Кулинарное Масло"
 	description = "A variety of cooking oil derived from fat or plants. Used in food preparation and frying."
 	color = "#EADD6B" //RGB: 234, 221, 107 (based off of canola oil)
 	taste_mult = 0.8
@@ -140,9 +140,9 @@
 	if(!isitem(exposed_obj) || istype(exposed_obj, /obj/item/food/deepfryholder))
 		return
 	if(is_type_in_typecache(exposed_obj, GLOB.oilfry_blacklisted_items) || (exposed_obj.resistance_flags & INDESTRUCTIBLE))
-		exposed_obj.loc.visible_message("<span class='notice'>The hot oil has no effect on [exposed_obj]!</span>")
+		exposed_obj.loc.visible_message("<span class='notice'>Горячее масло не оказало эффекта на [exposed_obj]!</span>")
 		return
-	exposed_obj.loc.visible_message("<span class='warning'>[exposed_obj] rapidly fries as it's splashed with hot oil! Somehow.</span>")
+	exposed_obj.loc.visible_message("<span class='warning'>[exposed_obj] быстро обжарился благодаря вылитому горячему маслу! Каким то образом.</span>")
 	var/obj/item/food/deepfryholder/fry_target = new(exposed_obj.drop_location(), exposed_obj)
 	fry_target.fry(volume)
 	fry_target.reagents.add_reagent(/datum/reagent/consumable/cooking_oil, reac_volume)
@@ -157,8 +157,8 @@
 		oil_damage *= max(1 - touch_protection, 0)
 	var/FryLoss = round(min(38, oil_damage * reac_volume))
 	if(!HAS_TRAIT(exposed_mob, TRAIT_OIL_FRIED))
-		exposed_mob.visible_message("<span class='warning'>The boiling oil sizzles as it covers [exposed_mob]!</span>", \
-		"<span class='userdanger'>You're covered in boiling oil!</span>")
+		exposed_mob.visible_message("<span class='warning'>Кипящее масло шипит, покрывая [exposed_mob]!</span>", \
+		"<span class='userdanger'>Я облит кипящим маслом!</span>")
 		if(FryLoss)
 			exposed_mob.emote("scream")
 		playsound(exposed_mob, 'sound/machines/fryer/deep_fryer_emerge.ogg', 25, TRUE)
@@ -177,7 +177,7 @@
 	exposed_turf.add_atom_colour(color, TEMPORARY_COLOUR_PRIORITY)
 
 /datum/reagent/consumable/sugar
-	name = "Sugar"
+	name = "Сахар"
 	description = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
 	reagent_state = SOLID
 	color = "#FFFFFF" // rgb: 255, 255, 255
@@ -195,7 +195,7 @@
 		mytray.adjustPests(rand(1,2))
 
 /datum/reagent/consumable/sugar/overdose_start(mob/living/M)
-	to_chat(M, "<span class='userdanger'>You go into hyperglycaemic shock! Lay off the twinkies!</span>")
+	to_chat(M, "<span class='userdanger'>Впадаю в гипергликемический шок! Нужно завязывать со сладостами!</span>")
 	M.AdjustSleeping(600)
 	. = 1
 
@@ -205,7 +205,7 @@
 	. = 1
 
 /datum/reagent/consumable/virus_food
-	name = "Virus Food"
+	name = "Пища для Вируса"
 	description = "A mixture of water and milk. Virus cells can use this mixture to reproduce."
 	nutriment_factor = 2 * REAGENTS_METABOLISM
 	color = "#899613" // rgb: 137, 150, 19
@@ -218,14 +218,14 @@
 		mytray.adjustHealth(-round(chems.get_reagent_amount(type) * 0.5))
 
 /datum/reagent/consumable/soysauce
-	name = "Soysauce"
+	name = "Соевый Соус"
 	description = "A salty sauce made from the soy plant."
 	nutriment_factor = 2 * REAGENTS_METABOLISM
 	color = "#792300" // rgb: 121, 35, 0
 	taste_description = "умами"
 
 /datum/reagent/consumable/ketchup
-	name = "Ketchup"
+	name = "Кетчуп"
 	description = "Ketchup, catsup, whatever. It's tomato paste."
 	nutriment_factor = 5 * REAGENTS_METABOLISM
 	color = "#731008" // rgb: 115, 16, 8
@@ -233,7 +233,7 @@
 
 
 /datum/reagent/consumable/capsaicin
-	name = "Capsaicin Oil"
+	name = "Масло Капсаицина"
 	description = "This is what makes chilis hot."
 	color = "#B31008" // rgb: 179, 16, 8
 	taste_description = "горячие перцы"
@@ -264,7 +264,7 @@
 	..()
 
 /datum/reagent/consumable/frostoil
-	name = "Frost Oil"
+	name = "Морозное Масло"
 	description = "A special oil that noticeably chills the body. Extracted from chilly peppers and slimes."
 	color = "#8BA6E9" // rgb: 139, 166, 233
 	taste_description = "мята"
@@ -311,7 +311,7 @@
 		exposed_slime.adjustToxLoss(rand(15,30))
 
 /datum/reagent/consumable/condensedcapsaicin
-	name = "Condensed Capsaicin"
+	name = "Конденсированный Капсаицин"
 	description = "A chemical agent used for self-defense and in police work."
 	color = "#B31008" // rgb: 179, 16, 8
 	taste_description = "жгучая агония"
@@ -341,7 +341,7 @@
 	if(methods & INGEST)
 		if(!holder.has_reagent(/datum/reagent/consumable/milk))
 			if(prob(15))
-				to_chat(exposed_mob, "<span class='danger'>[pick("Your head pounds.", "Your mouth feels like it's on fire.", "You feel dizzy.")]</span>")
+				to_chat(exposed_mob, "<span class='danger'>[pick("Голова Болит.", "Во рту будто пожар.", "Чувствую головокружение.")]</span>")
 			if(prob(10))
 				victim.blur_eyes(1)
 			if(prob(10))
@@ -352,11 +352,11 @@
 /datum/reagent/consumable/condensedcapsaicin/on_mob_life(mob/living/carbon/M)
 	if(!holder.has_reagent(/datum/reagent/consumable/milk))
 		if(prob(10))
-			M.visible_message("<span class='warning'>[M] [pick("dry heaves!","coughs!","splutters!")]</span>")
+			M.visible_message("<span class='warning'>[M] [pick("тошнит!","кашляет!","хрипит!")]</span>")
 	..()
 
 /datum/reagent/consumable/salt
-	name = "Table Salt"
+	name = "Столовая Соль"
 	description = "A salt made of sodium chloride. Commonly used to season food."
 	reagent_state = SOLID
 	color = "#FFFFFF" // rgb: 255,255,255
@@ -371,14 +371,14 @@
 	new/obj/effect/decal/cleanable/food/salt(exposed_turf)
 
 /datum/reagent/consumable/blackpepper
-	name = "Black Pepper"
+	name = "Черный Перец"
 	description = "A powder ground from peppercorns. *AAAACHOOO*"
 	reagent_state = SOLID
 	// no color (ie, black)
 	taste_description = "перец"
 
 /datum/reagent/consumable/coco
-	name = "Coco Powder"
+	name = "какао порошок"
 	description = "A fatty, bitter paste made from coco beans."
 	reagent_state = SOLID
 	nutriment_factor = 5 * REAGENTS_METABOLISM
@@ -386,7 +386,7 @@
 	taste_description = "горечь"
 
 /datum/reagent/drug/mushroomhallucinogen
-	name = "Mushroom Hallucinogen"
+	name = "Грибной Галлюциноген"
 	description = "A strong hallucinogenic drug derived from certain species of mushroom."
 	color = "#E700E7" // rgb: 231, 0, 231
 	metabolization_rate = 0.2 * REAGENTS_METABOLISM
@@ -416,7 +416,7 @@
 	..()
 
 /datum/reagent/consumable/garlic //NOTE: having garlic in your blood stops vampires from biting you.
-	name = "Garlic Juice"
+	name = "Чесночный Сок"
 	description = "Crushed garlic. Chefs love it, but it can make you smell bad."
 	color = "#FEFEFE"
 	taste_description = "чеснок"
@@ -425,7 +425,7 @@
 /datum/reagent/consumable/garlic/on_mob_life(mob/living/carbon/M)
 	if(isvampire(M)) //incapacitating but not lethal. Unfortunately, vampires cannot vomit.
 		if(prob(min(25,current_cycle)))
-			to_chat(M, "<span class='danger'>You can't get the scent of garlic out of your nose! You can barely think...</span>")
+			to_chat(M, "<span class='danger'>Не могу отделаться от чесночного запаха! Из-за него мысли путаются...</span>")
 			M.Paralyze(10)
 			M.Jitter(10)
 	else
@@ -437,7 +437,7 @@
 	..()
 
 /datum/reagent/consumable/sprinkles
-	name = "Sprinkles"
+	name = "Посыпка"
 	description = "Multi-colored little bits of sugar, commonly found on donuts. Loved by cops."
 	color = "#FF00FF" // rgb: 255, 0, 255
 	taste_description = "каприз детства"
@@ -450,7 +450,7 @@
 	..()
 
 /datum/reagent/consumable/cornoil
-	name = "Corn Oil"
+	name = "Кукурузное Масло"
 	description = "An oil derived from various types of corn."
 	nutriment_factor = 20 * REAGENTS_METABOLISM
 	color = "#302000" // rgb: 48, 32, 0
@@ -470,20 +470,20 @@
 		qdel(hotspot)
 
 /datum/reagent/consumable/enzyme
-	name = "Universal Enzyme"
+	name = "Универсальный Фермент"
 	description = "A universal enzyme used in the preparation of certain chemicals and foods."
 	color = "#365E30" // rgb: 54, 94, 48
 	taste_description = "сладость"
 
 /datum/reagent/consumable/dry_ramen
-	name = "Dry Ramen"
+	name = "Сухой Рамен"
 	description = "Space age food, since August 25, 1958. Contains dried noodles, vegetables, and chemicals that boil in contact with water."
 	reagent_state = SOLID
 	color = "#302000" // rgb: 48, 32, 0
 	taste_description = "сухая и дешевая лапша"
 
 /datum/reagent/consumable/hot_ramen
-	name = "Hot Ramen"
+	name = "Горячий Рамен"
 	description = "The noodles are boiled, the flavors are artificial, just like being back in school."
 	nutriment_factor = 5 * REAGENTS_METABOLISM
 	color = "#302000" // rgb: 48, 32, 0
@@ -501,7 +501,7 @@
 	..()
 
 /datum/reagent/consumable/hell_ramen
-	name = "Hell Ramen"
+	name = "Адский Рамен"
 	description = "The noodles are boiled, the flavors are artificial, just like being back in school."
 	nutriment_factor = 5 * REAGENTS_METABOLISM
 	color = "#302000" // rgb: 48, 32, 0
@@ -512,7 +512,7 @@
 	..()
 
 /datum/reagent/consumable/flour
-	name = "Flour"
+	name = "Мука"
 	description = "This is what you rub all over yourself to pretend to be a ghost."
 	reagent_state = SOLID
 	color = "#FFFFFF" // rgb: 0, 0, 0
@@ -529,19 +529,19 @@
 		reagentdecal.reagents.add_reagent(/datum/reagent/consumable/flour, reac_volume)
 
 /datum/reagent/consumable/cherryjelly
-	name = "Cherry Jelly"
+	name = "Вишневое Желе"
 	description = "Totally the best. Only to be spread on foods with excellent lateral symmetry."
 	color = "#801E28" // rgb: 128, 30, 40
 	taste_description = "вишня"
 
 /datum/reagent/consumable/bluecherryjelly
-	name = "Blue Cherry Jelly"
+	name = "Желе из Синей Вишни"
 	description = "Blue and tastier kind of cherry jelly."
 	color = "#00F0FF"
 	taste_description = "синяя вишня"
 
 /datum/reagent/consumable/rice
-	name = "Rice"
+	name = "Рис"
 	description = "tiny nutritious grains"
 	reagent_state = SOLID
 	nutriment_factor = 3 * REAGENTS_METABOLISM
@@ -549,7 +549,7 @@
 	taste_description = "рис"
 
 /datum/reagent/consumable/vanilla
-	name = "Vanilla Powder"
+	name = "Ванильный Порошок"
 	description = "A fatty, bitter paste made from vanilla pods."
 	reagent_state = SOLID
 	nutriment_factor = 5 * REAGENTS_METABOLISM
@@ -557,20 +557,20 @@
 	taste_description = "ваниль"
 
 /datum/reagent/consumable/eggyolk
-	name = "Egg Yolk"
+	name = "Яичный Желток"
 	description = "It's full of protein."
 	nutriment_factor = 3 * REAGENTS_METABOLISM
 	color = "#FFB500"
 	taste_description = "яйца"
 
 /datum/reagent/consumable/corn_starch
-	name = "Corn Starch"
+	name = "Кукурузный Крахмал"
 	description = "A slippery solution."
 	color = "#DBCE95"
 	taste_description = "слайм"
 
 /datum/reagent/consumable/corn_syrup
-	name = "Corn Syrup"
+	name = "Кукурузный Сироп"
 	description = "Decays into sugar."
 	color = "#DBCE95"
 	metabolization_rate = 3 * REAGENTS_METABOLISM
@@ -581,7 +581,7 @@
 	..()
 
 /datum/reagent/consumable/honey
-	name = "Honey"
+	name = "Мёд"
 	description = "Sweet sweet honey that decays into sugar. Has antibacterial and natural healing properties."
 	color = "#d3a308"
 	nutriment_factor = 15 * REAGENTS_METABOLISM
@@ -618,19 +618,19 @@
 		surgery.speed_modifier = max(0.6, surgery.speed_modifier)
 
 /datum/reagent/consumable/mayonnaise
-	name = "Mayonnaise"
+	name = "Майонез"
 	description = "A white and oily mixture of mixed egg yolks."
 	color = "#DFDFDF"
 	taste_description = "майонез"
 
 /datum/reagent/consumable/mold // yeah, ok, togopal, I guess you could call that a condiment
-	name = "Mold"
+	name = "Плесень"
 	description = "This condiment will make any food break the mold. Or your stomach."
 	color ="#708a88"
 	taste_description = "прогорклый гриб"
 
 /datum/reagent/consumable/tearjuice
-	name = "Tear Juice"
+	name = "Слезный Сок"
 	description = "A blinding substance extracted from certain onions."
 	color = "#c0c9a0"
 	taste_description = "горечь"
@@ -641,10 +641,10 @@
 		return
 
 	if(!exposed_mob.getorganslot(ORGAN_SLOT_EYES))	//can't blind somebody with no eyes
-		to_chat(exposed_mob, "<span class='notice'>Your eye sockets feel wet.</span>")
+		to_chat(exposed_mob, "<span class='notice'>Уголки глаз намокли.</span>")
 	else
 		if(!exposed_mob.eye_blurry)
-			to_chat(exposed_mob, "<span class='warning'>Tears well up in your eyes!</span>")
+			to_chat(exposed_mob, "<span class='warning'>Слезы вытекают из моих глаз!</span>")
 		exposed_mob.blind_eyes(2)
 		exposed_mob.blur_eyes(5)
 
@@ -653,12 +653,12 @@
 	if(M.eye_blurry)	//Don't worsen vision if it was otherwise fine
 		M.blur_eyes(4)
 		if(prob(10))
-			to_chat(M, "<span class='warning'>Your eyes sting!</span>")
+			to_chat(M, "<span class='warning'>Глаза болят!</span>")
 			M.blind_eyes(2)
 
 
 /datum/reagent/consumable/nutriment/stabilized
-	name = "Stabilized Nutriment"
+	name = "Стабилизированное Питание"
 	description = "A bioengineered protien-nutrient structure designed to decompose in high saturation. In layman's terms, it won't get you fat."
 	reagent_state = SOLID
 	nutriment_factor = 15 * REAGENTS_METABOLISM
@@ -673,7 +673,7 @@
 
 
 /datum/reagent/consumable/entpoly
-	name = "Entropic Polypnium"
+	name = "Энтропический Полипниум"
 	description = "An ichor, derived from a certain mushroom, makes for a bad time."
 	color = "#1d043d"
 	taste_description = "горький гриб"
@@ -693,7 +693,7 @@
 
 
 /datum/reagent/consumable/tinlux
-	name = "Tinea Luxor"
+	name = "Светящийся Лишай"
 	description = "A stimulating ichor which causes luminescent fungi to grow on the skin. "
 	color = "#b5a213"
 	taste_description = "покалывающий гриб"
@@ -725,7 +725,7 @@
 
 
 /datum/reagent/consumable/vitfro
-	name = "Vitrium Froth"
+	name = "Витриумная Пена"
 	description = "A bubbly paste that heals wounds of the skin."
 	color = "#d3a308"
 	nutriment_factor = 3 * REAGENTS_METABOLISM
@@ -739,7 +739,7 @@
 	..()
 
 /datum/reagent/consumable/clownstears
-	name = "Clown's Tears"
+	name = "Слезы Клоуна"
 	description = "The sorrow and melancholy of a thousand bereaved clowns, forever denied their Honkmechs."
 	nutriment_factor = 5 * REAGENTS_METABOLISM
 	color = "#eef442" // rgb: 238, 244, 66
@@ -747,7 +747,7 @@
 
 
 /datum/reagent/consumable/liquidelectricity
-	name = "Liquid Electricity"
+	name = "Жидкое Электричество"
 	description = "The blood of Ethereals, and the stuff that keeps them going. Great for them, horrid for anyone else."
 	nutriment_factor = 5 * REAGENTS_METABOLISM
 	color = "#97ee63"
@@ -787,7 +787,7 @@
 	. = 1
 
 /datum/reagent/consumable/secretsauce
-	name = "Secret Sauce"
+	name = "Тайный Соус"
 	description = "What could it be?"
 	nutriment_factor = 2 * REAGENTS_METABOLISM
 	color = "#792300"
@@ -797,7 +797,7 @@
 	can_synth = FALSE
 
 /datum/reagent/consumable/nutriment/peptides
-	name = "Peptides"
+	name = "Пептиды"
 	color = "#BBD4D9"
 	taste_description = "мятная глазурь"
 	description = "These restorative peptides not only speed up wound healing, but are nutritious as well!"
@@ -806,7 +806,7 @@
 	burn_heal = 1
 
 /datum/reagent/consumable/caramel
-	name = "Caramel"
+	name = "Карамель"
 	description = "Who would have guessed that heated sugar could be so delicious?"
 	nutriment_factor = 10 * REAGENTS_METABOLISM
 	color = "#D98736"
@@ -815,7 +815,7 @@
 	reagent_state = SOLID
 
 /datum/reagent/consumable/char
-	name = "Char"
+	name = "Уголь"
 	description = "Essence of the grill. Has strange properties when overdosed."
 	reagent_state = LIQUID
 	nutriment_factor = 5 * REAGENTS_METABOLISM
@@ -831,7 +831,7 @@
 	return
 
 /datum/reagent/consumable/bbqsauce
-	name = "BBQ Sauce"
+	name = "Соус Барбекю"
 	description = "Sweet, smoky, savory, and gets everywhere. Perfect for grilling."
 	nutriment_factor = 5 * REAGENTS_METABOLISM
 	color = "#78280A" // rgb: 120 40, 10
@@ -839,7 +839,7 @@
 	taste_description = "дымчатая сладость"
 
 /datum/reagent/consumable/chocolatepudding
-	name = "Chocolate Pudding"
+	name = "Шоколадный Пудинг"
 	description = "A great dessert for chocolate lovers."
 	color = "#800000"
 	quality = DRINK_VERYGOOD
@@ -850,7 +850,7 @@
 	glass_desc = "Tasty."
 
 /datum/reagent/consumable/vanillapudding
-	name = "Vanilla Pudding"
+	name = "Ванильный Пудинг"
 	description = "A great dessert for vanilla lovers."
 	color = "#FAFAD2"
 	quality = DRINK_VERYGOOD
@@ -861,7 +861,7 @@
 	glass_desc = "Tasty."
 
 /datum/reagent/consumable/laughsyrup
-	name = "Laughin' Syrup"
+	name = "Сироп Хохотача"
 	description = "The product of juicing Laughin' Peas. Fizzy, and seems to change flavour based on what it's used with!"
 	color = "#803280"
 	nutriment_factor = 5 * REAGENTS_METABOLISM
@@ -869,14 +869,14 @@
 	taste_description = "fizzy sweetness"
 
 /datum/reagent/consumable/gravy
-	name = "Gravy"
+	name = "Подлива"
 	description = "A mixture of flour, water, and the juices of cooked meat."
 	taste_description = "gravy"
 	color = "#623301"
 	taste_mult = 1.2
 
 /datum/reagent/consumable/pancakebatter
-	name = "pancake batter"
+	name = "блинное тесто"
 	description = "A very milky batter. 5 units of this on the griddle makes a mean pancake."
 	taste_description = "milky batter"
 	color = "#fccc98"

@@ -2,7 +2,7 @@
 
 ///Wizard tower item
 /obj/item/disk/design_disk/adv/knight_gear
-	name = "Magic Disk of Smithing"
+	name = "Волшебный диск ковки"
 
 /obj/item/disk/design_disk/adv/knight_gear/Initialize()
 	. = ..()
@@ -27,8 +27,8 @@
 //Free Golems
 
 /obj/item/disk/design_disk/golem_shell
-	name = "Golem Creation Disk"
-	desc = "A gift from the Liberator."
+	name = "Диск создания големов"
+	desc = "Подарок от Освободителя."
 	icon_state = "datadisk1"
 	max_blueprints = 1
 
@@ -38,8 +38,8 @@
 	blueprints[1] = G
 
 /datum/design/golem_shell
-	name = "Golem Shell Construction"
-	desc = "Allows for the construction of a Golem Shell."
+	name = "Создание корпусов големов"
+	desc = "Позволяет создание Корпуса голема."
 	id = "golem"
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 40000)
@@ -47,10 +47,10 @@
 	category = list("Импорт")
 
 /obj/item/golem_shell
-	name = "incomplete free golem shell"
+	name = "незавершённый корпус свободного голема"
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "construct"
-	desc = "The incomplete body of a golem. Add ten sheets of any mineral to finish."
+	desc = "Незаконченное тело голема. Добавьте 10 листов любого материала чтобы завершить работу."
 	var/shell_type = /obj/effect/mob_spawn/human/golem
 	var/has_owner = FALSE //if the resulting golem obeys someone
 	w_class = WEIGHT_CLASS_BULKY
@@ -92,23 +92,23 @@
 		var/species = golem_shell_species_types[O.merge_type]
 		if(species)
 			if(O.use(10))
-				to_chat(user, "<span class='notice'>You finish up the golem shell with ten sheets of [O].</span>")
+				to_chat(user, "<span class='notice'>Вы достраиваете корпус голема десятью листами [O].</span>")
 				new shell_type(get_turf(src), species, user)
 				qdel(src)
 			else
-				to_chat(user, "<span class='warning'>You need at least ten sheets to finish a golem!</span>")
+				to_chat(user, "<span class='warning'>Вам нужно как минимум 10 листов чтобы достроить голема!</span>")
 		else
-			to_chat(user, "<span class='warning'>You can't build a golem out of this kind of material!</span>")
+			to_chat(user, "<span class='warning'>Ты не можешь построить голема из этого материала!</span>")
 
 //made with xenobiology, the golem obeys its creator
 /obj/item/golem_shell/servant
-	name = "incomplete servant golem shell"
+	name = "незавершённый корпус голема-прислужника"
 	shell_type = /obj/effect/mob_spawn/human/golem/servant
 
 ///Syndicate Listening Post
 
 /obj/effect/mob_spawn/human/lavaland_syndicate
-	name = "Syndicate Bioweapon Scientist"
+	name = "Исследователь Биооружия Синдиката"
 	roundstart = FALSE
 	death = FALSE
 	random = TRUE
@@ -124,7 +124,7 @@
 	new_spawn.grant_language(/datum/language/codespeak, TRUE, TRUE, LANGUAGE_MIND)
 
 /datum/outfit/lavaland_syndicate
-	name = "Lavaland Syndicate Agent"
+	name = "Агент Синдиката в Лаваленде"
 	r_hand = /obj/item/gun/ballistic/automatic/sniper_rifle
 	uniform = /obj/item/clothing/under/syndicate
 	suit = /obj/item/clothing/suit/toggle/labcoat
@@ -140,7 +140,7 @@
 	H.faction |= ROLE_SYNDICATE
 
 /obj/effect/mob_spawn/human/lavaland_syndicate/comms
-	name = "Syndicate Comms Agent"
+	name = "Связист Синдиката"
 	short_desc = "You are a syndicate comms agent, employed in a top secret research facility developing biological weapons."
 	flavour_text = "Unfortunately, your hated enemy, Nanotrasen, has begun mining in this sector. Monitor enemy activity as best you can, and try to keep a low profile. Use the communication equipment to provide support to any field agents, and sow disinformation to throw Nanotrasen off your trail. Do not let the base fall into enemy hands!"
 	important_info = "DO NOT abandon the base."
@@ -158,7 +158,7 @@
 		return INITIALIZE_HINT_QDEL
 
 /datum/outfit/lavaland_syndicate/comms
-	name = "Lavaland Syndicate Comms Agent"
+	name = "Связист Синдиката в Лаваленде"
 	r_hand = /obj/item/melee/transforming/energy/sword/saber
 	mask = /obj/item/clothing/mask/chameleon/gps
 	suit = /obj/item/clothing/suit/armor/vest

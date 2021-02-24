@@ -1,8 +1,8 @@
 //Not to be confused with /obj/item/reagent_containers/food/drinks/bottle
 
 /obj/item/reagent_containers/glass/bottle
-	name = "bottle"
-	desc = "A small bottle."
+	name = "флакон"
+	desc = "Маленький флакон."
 	icon_state = "bottle"
 	inhand_icon_state = "atoxinbottle"
 	possible_transfer_amounts = list(5,10,15,25,30)
@@ -16,107 +16,107 @@
 	update_icon()
 
 /obj/item/reagent_containers/glass/bottle/epinephrine
-	name = "epinephrine bottle"
-	desc = "A small bottle. Contains epinephrine - used to stabilize patients."
+	name = "флакон с эпинефрином"
+	desc = "Маленький флакон. Внутри эпинефрин, используемый для стабилизации пациентов."
 	list_reagents = list(/datum/reagent/medicine/epinephrine = 30)
 
 /obj/item/reagent_containers/glass/bottle/toxin
-	name = "toxin bottle"
-	desc = "A small bottle of toxins. Do not drink, it is poisonous."
+	name = "флакон с токсином"
+	desc = "Маленький флакон, наполненный токсинами. Не пить, отравлено."
 	list_reagents = list(/datum/reagent/toxin = 30)
 
 /obj/item/reagent_containers/glass/bottle/cyanide
-	name = "cyanide bottle"
-	desc = "A small bottle of cyanide. Bitter almonds?"
+	name = "флакон с цианидом"
+	desc = "Маленький флакон с цианидом. Горький миндаль?"
 	list_reagents = list(/datum/reagent/toxin/cyanide = 30)
 
 /obj/item/reagent_containers/glass/bottle/spewium
-	name = "spewium bottle"
-	desc = "A small bottle of spewium."
+	name = "флакон с спьювиумом"
+	desc = "Маленький флакон с спьювиумом."
 	list_reagents = list(/datum/reagent/toxin/spewium = 30)
 
 /obj/item/reagent_containers/glass/bottle/morphine
-	name = "morphine bottle"
-	desc = "A small bottle of morphine."
+	name = "флакон с морфием"
+	desc = "Маленький флакон с морфием."
 	icon = 'icons/obj/chemical.dmi'
 	list_reagents = list(/datum/reagent/medicine/morphine = 30)
 
 /obj/item/reagent_containers/glass/bottle/chloralhydrate
-	name = "chloral hydrate bottle"
-	desc = "A small bottle of Choral Hydrate. Mickey's Favorite!"
+	name = "флакон с хлоралгидратом"
+	desc = "Маленький флакон с хлоралгидратом. Лучшее лакомство!"
 	icon_state = "bottle20"
 	list_reagents = list(/datum/reagent/toxin/chloralhydrate = 15)
 
 /obj/item/reagent_containers/glass/bottle/mannitol
-	name = "mannitol bottle"
-	desc = "A small bottle of Mannitol. Useful for healing brain damage."
+	name = "флакон с маннитолом"
+	desc = "Флакончик с маннитолом. Используется для лечения повреждений мозга."
 	list_reagents = list(/datum/reagent/medicine/mannitol = 30)
 
 /obj/item/reagent_containers/glass/bottle/multiver
-	name = "multiver bottle"
-	desc = "A small bottle of multiver, which removes toxins and other chemicals from the bloodstream but causes shortness of breath. All effects scale with the amount of reagents in the patient."
+	name = "флакон с мультивером"
+	desc = "Маленький флакон мультивера, который выводит токсины и прочие химикаты из кровостока, но вызывает отдышку. Эффект зависит от количества реагентов в организме пациента."
 	list_reagents = list(/datum/reagent/medicine/c2/multiver = 30)
 
 /obj/item/reagent_containers/glass/bottle/calomel
-	name = "calomel bottle"
-	desc = "A small bottle of calomel, which quickly purges all chemicals from the patient. Causes toxin damage if the patient is not heavily injured."
+	name = "флакон с каломелью"
+	desc = "Маленькй флакон каломели, которая быстро очищает организм пациента от химикатов. Наносит токсичный урон, если пациент не сильно ранен.."
 	list_reagents = list(/datum/reagent/medicine/calomel = 30)
 
 /obj/item/reagent_containers/glass/bottle/syriniver
-	name = "syriniver bottle"
-	desc = "A small bottle of syriniver."
+	name = "флакон с сиринивером"
+	desc = "Маленький флакон сиринивера."
 	list_reagents = list(/datum/reagent/medicine/c2/syriniver = 30)
 
 /obj/item/reagent_containers/glass/bottle/mutagen
-	name = "unstable mutagen bottle"
-	desc = "A small bottle of unstable mutagen. Randomly changes the DNA structure of whoever comes in contact."
+	name = "флакон с нестабильным мутагеном"
+	desc = "Маленький флакон с нестабильным мутагеном. Случайным образом изменяет структуру ДНК у любого с кем контактирует."
 	list_reagents = list(/datum/reagent/toxin/mutagen = 30)
 
 /obj/item/reagent_containers/glass/bottle/plasma
-	name = "liquid plasma bottle"
-	desc = "A small bottle of liquid plasma. Extremely toxic and reacts with micro-organisms inside blood."
+	name = "флакон с жидкой плазмой"
+	desc = "Маленький флакон с жидкой плазмой. Крайне токсична и вступает в реакцию с содержащимися в крови микроорганизмами."
 	list_reagents = list(/datum/reagent/toxin/plasma = 30)
 
 /obj/item/reagent_containers/glass/bottle/synaptizine
-	name = "synaptizine bottle"
-	desc = "A small bottle of synaptizine."
+	name = "флакон с синаптизином"
+	desc = "Маленький флакон с синаптизином."
 	list_reagents = list(/datum/reagent/medicine/synaptizine = 30)
 
 /obj/item/reagent_containers/glass/bottle/ammonia
-	name = "ammonia bottle"
-	desc = "A small bottle of ammonia."
+	name = "флакон с аммиаком"
+	desc = "Маленький флакон с аммиаком."
 	list_reagents = list(/datum/reagent/ammonia = 30)
 
 /obj/item/reagent_containers/glass/bottle/diethylamine
-	name = "diethylamine bottle"
-	desc = "A small bottle of diethylamine."
+	name = "флакон с диэтиламином"
+	desc = "Маленький флакон с диэтиламином."
 	list_reagents = list(/datum/reagent/diethylamine = 30)
 
 /obj/item/reagent_containers/glass/bottle/facid
-	name = "Fluorosulfuric Acid Bottle"
-	desc = "A small bottle. Contains a small amount of fluorosulfuric acid."
+	name = "Флакон с Фтористоводородной Кислотой"
+	desc = "Маленький флакон. Содержит небольшое количество фтористоводородной кислоты."
 	list_reagents = list(/datum/reagent/toxin/acid/fluacid = 30)
 
 /obj/item/reagent_containers/glass/bottle/adminordrazine
-	name = "Adminordrazine Bottle"
-	desc = "A small bottle. Contains the liquid essence of the gods."
+	name = "Флакон с Админордразином"
+	desc = "Маленький флакон. Содержит жидкую эссенцию богов."
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "holyflask"
 	list_reagents = list(/datum/reagent/medicine/adminordrazine = 30)
 
 /obj/item/reagent_containers/glass/bottle/capsaicin
-	name = "Capsaicin Bottle"
-	desc = "A small bottle. Contains hot sauce."
+	name = "Флакон с Капсаицином"
+	desc = "Маленький флакон. Содержит обжигающе острый соус."
 	list_reagents = list(/datum/reagent/consumable/capsaicin = 30)
 
 /obj/item/reagent_containers/glass/bottle/frostoil
-	name = "Frost Oil Bottle"
-	desc = "A small bottle. Contains cold sauce."
+	name = "Флакон с Морозным Маслом"
+	desc = "Маленький флакон. Содержит остужающий холодный соус."
 	list_reagents = list(/datum/reagent/consumable/frostoil = 30)
 
 /obj/item/reagent_containers/glass/bottle/traitor
-	name = "syndicate bottle"
-	desc = "A small bottle. Contains a random nasty chemical."
+	name = "флакон синдиката"
+	desc = "Маленький флакон. Содержит случайный нехороший химикат."
 	icon = 'icons/obj/chemical.dmi'
 	var/extra_reagent = null
 
@@ -126,146 +126,146 @@
 	reagents.add_reagent(extra_reagent, 3)
 
 /obj/item/reagent_containers/glass/bottle/polonium
-	name = "polonium bottle"
-	desc = "A small bottle. Contains Polonium."
+	name = "флакон с полонием"
+	desc = "Маленький флакон. Содержит полоний."
 	list_reagents = list(/datum/reagent/toxin/polonium = 30)
 
 /obj/item/reagent_containers/glass/bottle/magillitis
-	name = "magillitis bottle"
-	desc = "A small bottle. Contains a serum known only as 'magillitis'."
+	name = "флакон с магиллитисом"
+	desc = "Маленький флакон. Содержит сыворотку известную как магиллитис"
 	list_reagents = list(/datum/reagent/magillitis = 5)
 
 /obj/item/reagent_containers/glass/bottle/venom
-	name = "venom bottle"
-	desc = "A small bottle. Contains Venom."
+	name = "флакон с отравой"
+	desc = "Маленький флакон. Содержит Отраву."
 	list_reagents = list(/datum/reagent/toxin/venom = 30)
 
 /obj/item/reagent_containers/glass/bottle/fentanyl
-	name = "fentanyl bottle"
-	desc = "A small bottle. Contains Fentanyl."
+	name = "флакон с фентанилом"
+	desc = "Маленький флакон. Содержит Фентанил."
 	list_reagents = list(/datum/reagent/toxin/fentanyl = 30)
 
 /obj/item/reagent_containers/glass/bottle/formaldehyde
-	name = "formaldehyde bottle"
-	desc = "A small bottle. Contains formaldehyde, a chemical that prevents organs from decaying."
+	name = "флакон с формальдегидом"
+	desc = "Маленький флакон. Содержит формальдегид, химикат предотвращающий разложение органов."
 	list_reagents = list(/datum/reagent/toxin/formaldehyde = 30)
 
 /obj/item/reagent_containers/glass/bottle/initropidril
-	name = "initropidril bottle"
-	desc = "A small bottle. Contains initropidril."
+	name = "флакон с инитропидрилом"
+	desc = "Маленький флакон. Содержит инитропидрил."
 	list_reagents = list(/datum/reagent/toxin/initropidril = 30)
 
 /obj/item/reagent_containers/glass/bottle/pancuronium
-	name = "pancuronium bottle"
-	desc = "A small bottle. Contains pancuronium."
+	name = "флакон с панкурониумом"
+	desc = "Маленький флакон. Содержит панкуроний."
 	list_reagents = list(/datum/reagent/toxin/pancuronium = 30)
 
 /obj/item/reagent_containers/glass/bottle/sodium_thiopental
-	name = "sodium thiopental bottle"
-	desc = "A small bottle. Contains sodium thiopental."
+	name = "флакон с тиопенталом натрия"
+	desc = "Маленький флакон. Содержит тиопентал натрия."
 	list_reagents = list(/datum/reagent/toxin/sodium_thiopental = 30)
 
 /obj/item/reagent_containers/glass/bottle/coniine
-	name = "coniine bottle"
-	desc = "A small bottle. Contains coniine."
+	name = "флакон с кониином"
+	desc = "Маленький флакон. Содержит кониин."
 	list_reagents = list(/datum/reagent/toxin/coniine = 30)
 
 /obj/item/reagent_containers/glass/bottle/curare
-	name = "curare bottle"
-	desc = "A small bottle. Contains curare."
+	name = "флакон с кураре"
+	desc = "Маленький флакон. Содержит кураре."
 	list_reagents = list(/datum/reagent/toxin/curare = 30)
 
 /obj/item/reagent_containers/glass/bottle/amanitin
-	name = "amanitin bottle"
-	desc = "A small bottle. Contains amanitin."
+	name = "флакон с аманитином"
+	desc = "Маленький флакон. Содержит аманитин."
 	list_reagents = list(/datum/reagent/toxin/amanitin = 30)
 
 /obj/item/reagent_containers/glass/bottle/histamine
-	name = "histamine bottle"
-	desc = "A small bottle. Contains Histamine."
+	name = "флакон с гистамином"
+	desc = "Маленький флакон. Содержит Гистамин."
 	list_reagents = list(/datum/reagent/toxin/histamine = 30)
 
 /obj/item/reagent_containers/glass/bottle/diphenhydramine
-	name = "antihistamine bottle"
-	desc = "A small bottle of diphenhydramine."
+	name = "флакон с антигистаминным веществом"
+	desc = "Маленький флакон с дифенгидрамином."
 	list_reagents = list(/datum/reagent/medicine/diphenhydramine = 30)
 
 /obj/item/reagent_containers/glass/bottle/potass_iodide
-	name = "anti-radiation bottle"
-	desc = "A small bottle of potassium iodide."
+	name = "флакон с антирадом"
+	desc = "Маленький флакон с йодидом калия."
 	list_reagents = list(/datum/reagent/medicine/potass_iodide = 30)
 
 /obj/item/reagent_containers/glass/bottle/salglu_solution
-	name = "saline-glucose solution bottle"
-	desc = "A small bottle of saline-glucose solution."
+	name = "флакон физраствора с глюкозой"
+	desc = "Маленький флакон наполненный физраствором с глюкозой."
 	icon_state = "bottle1"
 	list_reagents = list(/datum/reagent/medicine/salglu_solution = 30)
 
 /obj/item/reagent_containers/glass/bottle/atropine
-	name = "atropine bottle"
-	desc = "A small bottle of atropine."
+	name = "флакон с атропином"
+	desc = "Маленький флакон с атропином."
 	list_reagents = list(/datum/reagent/medicine/atropine = 30)
 
 /obj/item/reagent_containers/glass/bottle/romerol
-	name = "romerol bottle"
-	desc = "A small bottle of Romerol. The REAL zombie powder."
+	name = "флакон с ромеролом"
+	desc = "Маленький флакон с Ромеролом, НАСТОЯЩИМ зомби порошком."
 	list_reagents = list(/datum/reagent/romerol = 30)
 
 /obj/item/reagent_containers/glass/bottle/random_virus
-	name = "Experimental disease culture bottle"
-	desc = "A small bottle. Contains an untested viral culture in synthblood medium."
+	name = "Флакон со штаммом экспериментальной болезни"
+	desc = "Маленький флакон. Содержит непроверенный штамм вируса в синтекровяной среде."
 	spawned_disease = /datum/disease/advance/random
 
 /obj/item/reagent_containers/glass/bottle/pierrot_throat
-	name = "Pierrot's Throat culture bottle"
-	desc = "A small bottle. Contains H0NI<42 virion culture in synthblood medium."
+	name = "Флакон со штаммом Глотки Пьеро"
+	desc = "Маленький флакон. Содержит штамм вириона HONI<42 в синтекровяной среде."
 	spawned_disease = /datum/disease/pierrot_throat
 
 /obj/item/reagent_containers/glass/bottle/cold
-	name = "Rhinovirus culture bottle"
-	desc = "A small bottle. Contains XY-rhinovirus culture in synthblood medium."
+	name = "Флакон со штаммом риновируса"
+	desc = "Маленький флакон. Содержит штамм XY-риновируса в синтекровяной среде."
 	spawned_disease = /datum/disease/advance/cold
 
 /obj/item/reagent_containers/glass/bottle/flu_virion
-	name = "Flu virion culture bottle"
-	desc = "A small bottle. Contains H13N1 flu virion culture in synthblood medium."
+	name = "Флакон со штаммом вириона гриппа"
+	desc = "Маленький флакон. Содержит штамм вириона гриппа H13N1 в синтекровяной среде."
 	spawned_disease = /datum/disease/advance/flu
 
 /obj/item/reagent_containers/glass/bottle/retrovirus
-	name = "Retrovirus culture bottle"
-	desc = "A small bottle. Contains a retrovirus culture in a synthblood medium."
+	name = "Флакон со штаммом ретровируса"
+	desc = "Маленький флакон. Содержит штамм ретровируса в синтекровяной среде."
 	spawned_disease = /datum/disease/dna_retrovirus
 
 /obj/item/reagent_containers/glass/bottle/gbs
-	name = "GBS culture bottle"
-	desc = "A small bottle. Contains Gravitokinetic Bipotential SADS+ culture in synthblood medium."//Or simply - General BullShit
+	name = "Флакон со штаммом GBS"
+	desc = "Маленький флакон. Содержит штамм Gravitokinetic Bipotential SADS+ в среде синтекрови."//Or simply - General BullShit
 	amount_per_transfer_from_this = 5
 	spawned_disease = /datum/disease/gbs
 
 /obj/item/reagent_containers/glass/bottle/fake_gbs
-	name = "GBS culture bottle"
-	desc = "A small bottle. Contains Gravitokinetic Bipotential SADS- culture in synthblood medium."//Or simply - General BullShit
+	name = "Флакон со штаммом GBS"
+	desc = "Маленький флакон. Содержит штамм Gravitokinetic Bipotential SADS- в среде синтекрови."//Or simply - General BullShit
 	spawned_disease = /datum/disease/fake_gbs
 
 /obj/item/reagent_containers/glass/bottle/brainrot
-	name = "Brainrot culture bottle"
-	desc = "A small bottle. Contains Cryptococcus Cosmosis culture in synthblood medium."
+	name = "Флакон со штаммом Мозговой Гнили"
+	desc = "Маленький флакон. Содержит штамм Cryptococcus Cosmosis в синтекровяной среде."
 	icon_state = "bottle3"
 	spawned_disease = /datum/disease/brainrot
 
 /obj/item/reagent_containers/glass/bottle/magnitis
-	name = "Magnitis culture bottle"
-	desc = "A small bottle. Contains a small dosage of Fukkos Miracos."
+	name = "Флакон со штаммом Магнитиса"
+	desc = "Маленький флакон. Содержит небольшую дозировку Ебчих Чуд."
 	spawned_disease = /datum/disease/magnitis
 
 /obj/item/reagent_containers/glass/bottle/wizarditis
-	name = "Wizarditis culture bottle"
-	desc = "A small bottle. Contains a sample of Rincewindus Vulgaris."
+	name = "Флакон со штаммом Визардитиса"
+	desc = "Маленький флакон. Содержит образец Ринцевиндуса Вулгариса."
 	spawned_disease = /datum/disease/wizarditis
 
 /obj/item/reagent_containers/glass/bottle/anxiety
-	name = "Severe Anxiety culture bottle"
-	desc = "A small bottle. Contains a sample of Lepidopticides."
+	name = "Флакон со штаммом Тяжелой Тревожности"
+	desc = "Маленький флакон. Содержит образец лепидоптицидов."
 	spawned_disease = /datum/disease/anxiety
 
 /obj/item/reagent_containers/glass/bottle/beesease
@@ -274,122 +274,122 @@
 	spawned_disease = /datum/disease/beesease
 
 /obj/item/reagent_containers/glass/bottle/fluspanish
-	name = "Spanish flu culture bottle"
-	desc = "A small bottle. Contains a sample of Inquisitius."
+	name = "Флакон со штаммом Испанки"
+	desc = "Маленький флакон. Содержит образец Инквизициума."
 	spawned_disease = /datum/disease/fluspanish
 
 /obj/item/reagent_containers/glass/bottle/tuberculosis
-	name = "Fungal Tuberculosis culture bottle"
-	desc = "A small bottle. Contains a sample of Fungal Tubercle bacillus."
+	name = "Флакон со штаммом Грибкового Туберкулеза"
+	desc = "Маленький флакон. Содержит образец палочки Грибкового Туберкулеза."
 	spawned_disease = /datum/disease/tuberculosis
 
 /obj/item/reagent_containers/glass/bottle/tuberculosiscure
-	name = "BVAK bottle"
-	desc = "A small bottle containing Bio Virus Antidote Kit."
+	name = "Флакон с ПБВН"
+	desc = "Маленький флакон, содержащий ПротивоБиоВирусный Набор."
 	list_reagents = list(/datum/reagent/vaccine/fungal_tb = 30)
 
 //Oldstation.dmm chemical storage bottles
 
 /obj/item/reagent_containers/glass/bottle/hydrogen
-	name = "hydrogen bottle"
+	name = "флакон с водородом"
 	list_reagents = list(/datum/reagent/hydrogen = 30)
 
 /obj/item/reagent_containers/glass/bottle/lithium
-	name = "lithium bottle"
+	name = "флакон с литием"
 	list_reagents = list(/datum/reagent/lithium = 30)
 
 /obj/item/reagent_containers/glass/bottle/carbon
-	name = "carbon bottle"
+	name = "флакон с углеродом"
 	list_reagents = list(/datum/reagent/carbon = 30)
 
 /obj/item/reagent_containers/glass/bottle/nitrogen
-	name = "nitrogen bottle"
+	name = "флакон с азотом"
 	list_reagents = list(/datum/reagent/nitrogen = 30)
 
 /obj/item/reagent_containers/glass/bottle/oxygen
-	name = "oxygen bottle"
+	name = "флакон с кислородом"
 	list_reagents = list(/datum/reagent/oxygen = 30)
 
 /obj/item/reagent_containers/glass/bottle/fluorine
-	name = "fluorine bottle"
+	name = "флакон с фтором"
 	list_reagents = list(/datum/reagent/fluorine = 30)
 
 /obj/item/reagent_containers/glass/bottle/sodium
-	name = "sodium bottle"
+	name = "флакон с натрием"
 	list_reagents = list(/datum/reagent/sodium = 30)
 
 /obj/item/reagent_containers/glass/bottle/aluminium
-	name = "aluminium bottle"
+	name = "флакон с алюминием"
 	list_reagents = list(/datum/reagent/aluminium = 30)
 
 /obj/item/reagent_containers/glass/bottle/silicon
-	name = "silicon bottle"
+	name = "флакон с кремнием"
 	list_reagents = list(/datum/reagent/silicon = 30)
 
 /obj/item/reagent_containers/glass/bottle/phosphorus
-	name = "phosphorus bottle"
+	name = "флакон с фосфором"
 	list_reagents = list(/datum/reagent/phosphorus = 30)
 
 /obj/item/reagent_containers/glass/bottle/sulfur
-	name = "sulfur bottle"
+	name = "флакон с серой"
 	list_reagents = list(/datum/reagent/sulfur = 30)
 
 /obj/item/reagent_containers/glass/bottle/chlorine
-	name = "chlorine bottle"
+	name = "флакон с хлором"
 	list_reagents = list(/datum/reagent/chlorine = 30)
 
 /obj/item/reagent_containers/glass/bottle/potassium
-	name = "potassium bottle"
+	name = "флакон с калием"
 	list_reagents = list(/datum/reagent/potassium = 30)
 
 /obj/item/reagent_containers/glass/bottle/iron
-	name = "iron bottle"
+	name = "флакон с железом"
 	list_reagents = list(/datum/reagent/iron = 30)
 
 /obj/item/reagent_containers/glass/bottle/copper
-	name = "copper bottle"
+	name = "флакон с медью"
 	list_reagents = list(/datum/reagent/copper = 30)
 
 /obj/item/reagent_containers/glass/bottle/mercury
-	name = "mercury bottle"
+	name = "флакон с ртутью"
 	list_reagents = list(/datum/reagent/mercury = 30)
 
 /obj/item/reagent_containers/glass/bottle/radium
-	name = "radium bottle"
+	name = "флакон с радием"
 	list_reagents = list(/datum/reagent/uranium/radium = 30)
 
 /obj/item/reagent_containers/glass/bottle/water
-	name = "water bottle"
+	name = "флакон с водой"
 	list_reagents = list(/datum/reagent/water = 30)
 
 /obj/item/reagent_containers/glass/bottle/ethanol
-	name = "ethanol bottle"
+	name = "флакон с этанолом"
 	list_reagents = list(/datum/reagent/consumable/ethanol = 30)
 
 /obj/item/reagent_containers/glass/bottle/sugar
-	name = "sugar bottle"
+	name = "флакон с сахаром"
 	list_reagents = list(/datum/reagent/consumable/sugar = 30)
 
 /obj/item/reagent_containers/glass/bottle/sacid
-	name = "sulphuric acid bottle"
+	name = "флакон с серной кислотой"
 	list_reagents = list(/datum/reagent/toxin/acid = 30)
 
 /obj/item/reagent_containers/glass/bottle/welding_fuel
-	name = "welding fuel bottle"
+	name = "флакон со сварочным топливом"
 	list_reagents = list(/datum/reagent/fuel = 30)
 
 /obj/item/reagent_containers/glass/bottle/silver
-	name = "silver bottle"
+	name = "флакон с серебром"
 	list_reagents = list(/datum/reagent/silver = 30)
 
 /obj/item/reagent_containers/glass/bottle/iodine
-	name = "iodine bottle"
+	name = "флакон с йодом"
 	list_reagents = list(/datum/reagent/iodine = 30)
 
 /obj/item/reagent_containers/glass/bottle/bromine
-	name = "bromine bottle"
+	name = "флакон с бромом"
 	list_reagents = list(/datum/reagent/bromine = 30)
 
 /obj/item/reagent_containers/glass/bottle/thermite
-	name = "thermite bottle"
+	name = "флакон с термитом"
 	list_reagents = list(/datum/reagent/thermite = 30)

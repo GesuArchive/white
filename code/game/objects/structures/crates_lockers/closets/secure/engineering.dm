@@ -1,5 +1,5 @@
 /obj/structure/closet/secure_closet/engineering_chief
-	name = "\proper chief engineer's locker"
+	name = "\proper шкафчик главного инженера"
 	req_access = list(ACCESS_CE)
 	icon_state = "ce"
 
@@ -28,7 +28,7 @@
 	new /obj/item/storage/box/skillchips/engineering(src)
 
 /obj/structure/closet/secure_closet/engineering_electrical
-	name = "electrical supplies locker"
+	name = "шкафчик с электроприборами"
 	req_access = list(ACCESS_ENGINE_EQUIP)
 	icon_state = "eng"
 	icon_door = "eng_elec"
@@ -44,7 +44,7 @@
 	generate_items_inside(items_inside,src)
 
 /obj/structure/closet/secure_closet/engineering_welding
-	name = "welding supplies locker"
+	name = "шкафчик для сварочных принадлежностей"
 	req_access = list(ACCESS_ENGINE_EQUIP)
 	icon_state = "eng"
 	icon_door = "eng_weld"
@@ -57,7 +57,7 @@
 		new /obj/item/weldingtool(src)
 
 /obj/structure/closet/secure_closet/engineering_personal
-	name = "engineer's locker"
+	name = "шкафчик инженера"
 	req_access = list(ACCESS_ENGINE_EQUIP)
 	icon_state = "eng_secure"
 
@@ -74,7 +74,7 @@
 
 
 /obj/structure/closet/secure_closet/atmospherics
-	name = "\proper atmospheric technician's locker"
+	name = "\proper шкафчик атмосферника"
 	req_access = list(ACCESS_ATMOSPHERICS)
 	icon_state = "atmos"
 

@@ -445,7 +445,7 @@
 	panel = "Spider"
 	active = FALSE
 	action = null
-	desc = "Charge at a target, knocking them down if you collide with them.  Stuns yourself if you fail."
+	desc = "Charge at a target, knocking them down if you collide with them. Stuns yourself if you fail."
 	ranged_mousepointer = 'icons/effects/mouse_pointers/wrap_target.dmi'
 	action_icon = 'icons/mob/actions/actions_animal.dmi'
 	action_icon_state = "wrap_0"
@@ -544,7 +544,7 @@
 
 /datum/action/innate/spider/lay_eggs/enriched
 	name = "Lay Enriched Eggs"
-	desc = "Lay a cluster of eggs, which will soon grow into a greater spider.  Requires you drain a human per cluster of these eggs."
+	desc = "Lay a cluster of eggs, which will soon grow into a greater spider. Requires you drain a human per cluster of these eggs."
 	button_icon_state = "lay_enriched_eggs"
 	enriched = TRUE
 
@@ -662,7 +662,7 @@
  * They also produce web in 70% of the time of the base spider.  They also occasionally leave puddles of blood when they walk around.  Flavorful!
  */
 /mob/living/simple_animal/hostile/poison/giant_spider/hunter/flesh
-	desc = "A odd fleshy creature in the shape of a spider.  Its eyes are pitch black and soulless."
+	desc = "A odd fleshy creature in the shape of a spider. Its eyes are pitch black and soulless."
 	icon_state = "flesh_spider"
 	icon_living = "flesh_spider"
 	icon_dead = "flesh_spider_dead"

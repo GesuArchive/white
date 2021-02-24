@@ -50,7 +50,7 @@
 	fire_stacks = 3
 
 /obj/projectile/bullet/mm712x82_match
-	name = "7.12x82mm match bullet"
+	name = "спортивная пуля калибра 7.12x82мм"
 	damage = 40
 	ricochets_max = 2
 	ricochet_chance = 60
@@ -59,7 +59,7 @@
 	wound_bonus = -50
 
 /obj/projectile/bullet/mm712x82_bouncy
-	name = "7.12x82mm rubber bullet"
+	name = "резиновая пуля калибра 7.12x82мм"
 	damage = 25
 	ricochets_max = 40
 	ricochet_chance = 500 // will bounce off anything and everything, whether they like it or not

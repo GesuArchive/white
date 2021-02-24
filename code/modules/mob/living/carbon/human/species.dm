@@ -1412,7 +1412,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		to_chat(user, "<span class='danger'>Бью [target]!</span>")
 
 		//target.visible_message("<span class='danger'>[user][return_damage_string(dam_dice_rolled)] [atk_verb] [target]!</span>",
-		//			"<span class='userdanger'>[user][return_damage_string(dam_dice_rolled)] [atk_verb] меня!</span>", "<span class='hear'>Слышу как что-то [return_damage_string(dam_dice_rolled)] бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, user)
+		//			"<span class='userdanger'>[user][return_damage_string(dam_dice_rolled)] [atk_verb] меня!</span>", "<span class='hear'>Слышу как что-то [return_damage_string(dam_dice_rolled)] бьёт по плоти!</span>",COMBAT_MESSAGE_RANGE, user)
 		//to_chat(user, "<span class='danger'>Бью[return_damage_string(dam_dice_rolled)] [target]!</span>")
 
 		target.lastattacker = user.real_name
@@ -2156,7 +2156,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		H.CloseWings()
 
 /datum/action/innate/flight
-	name = "Toggle Flight"
+	name = "переключить полёт"
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_IMMOBILE
 	icon_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "flight"

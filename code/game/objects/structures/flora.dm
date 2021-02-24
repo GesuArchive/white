@@ -108,7 +108,7 @@
 	pixel_x = 0
 
 /obj/structure/festivus
-	name = "festivus pole"
+	name = "фестивальный столб"
 	icon = 'icons/obj/flora/pinetrees.dmi'
 	icon_state = "festivus_pole"
 	desc = "Во время прошлогодних подвигов директор по исследованиям смог погрузить эту неподвижную удочку в сеялку."
@@ -386,7 +386,7 @@
 	icon_state = "plant-[rand(26, 29)]"
 
 /obj/item/kirbyplants/potty
-	name = "Potty the Potted Plant"
+	name = "цветок Горшок в горшке. Пока не умер"
 	desc = "Секретный агент работал в баре станции, чтобы защитить мистический торт."
 	icon_state = "potty"
 	trimmable = FALSE
