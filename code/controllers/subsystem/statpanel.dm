@@ -11,7 +11,7 @@ SUBSYSTEM_DEF(statpanels)
 
 /datum/controller/subsystem/statpanels/fire(resumed = FALSE)
 	if (!resumed)
-		var/list/global_data = list()
+		var/list/global_data = list("")
 
 		if(SSshuttle.emergency)
 			var/ETA = SSshuttle.emergency.getModeStr()
