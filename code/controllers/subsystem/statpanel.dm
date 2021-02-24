@@ -28,7 +28,7 @@ SUBSYSTEM_DEF(statpanels)
 			continue
 		if(target.stat_tab == "Состояние")
 			var/other_str = url_encode(json_encode(target.mob.get_status_tab_items()))
-			target << output("[encoded_global_data]; ;[other_str]", "statbrowser:update")
+			target << output("[encoded_global_data];[other_str]", "statbrowser:update")
 		if(!target.holder)
 			target << output("", "statbrowser:remove_admin_tabs")
 		else
