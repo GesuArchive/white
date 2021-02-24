@@ -202,7 +202,7 @@ export const ChemDispenser = (props, context) => {
                     initial={0}
                     value={chemical.volume} />
                   {' '}
-                  единиц {chemical.name}
+                  ед. {chemical.name}
                 </Box>
               ))}
               {((beakerContents.length > 0 && !!data.showpH) && (
