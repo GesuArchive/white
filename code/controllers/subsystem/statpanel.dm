@@ -11,17 +11,7 @@ SUBSYSTEM_DEF(statpanels)
 
 /datum/controller/subsystem/statpanels/fire(resumed = FALSE)
 	if (!resumed)
-		var/datum/map_config/cached = SSmapping.next_map_config
-		var/round_time = world.time - SSticker.round_start_time
-		var/list/global_data = list(
-			"Карта: [SSmapping.config?.map_name || "Загрузка..."]",
-			cached ? "Следующая: [cached.map_name]" : null,
-			"ID раунда: [GLOB.round_id ? GLOB.round_id : "NULL"]",
-			"Серверное время: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
-			"Длительность раунда: [round_time > MIDNIGHT_ROLLOVER ? "[round(round_time/MIDNIGHT_ROLLOVER)]:[worldtime2text()]" : worldtime2text()]",
-			"Время на станции: [station_time_timestamp()]",
-			"Замедление времени: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)"
-		)
+		var/list/global_data = list()
 
 		if(SSshuttle.emergency)
 			var/ETA = SSshuttle.emergency.getModeStr()
@@ -36,10 +26,9 @@ SUBSYSTEM_DEF(statpanels)
 		currentrun.len--
 		if(!target.statbrowser_ready)
 			continue
-		if(target.stat_tab == "Статус")
-			var/ping_str = url_encode("Пинг: [round(target.lastping, 1)]мс (Средний: [round(target.avgping, 1)]мс)")
+		if(target.stat_tab == "Состояние")
 			var/other_str = url_encode(json_encode(target.mob.get_status_tab_items()))
-			target << output("[encoded_global_data];[ping_str];[other_str]", "statbrowser:update")
+			target << output("[encoded_global_data];[other_str]", "statbrowser:update")
 		if(!target.holder)
 			target << output("", "statbrowser:remove_admin_tabs")
 		else

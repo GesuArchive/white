@@ -3755,6 +3755,7 @@
 #include "white\valtos\code\unsorted\mre.dm"
 #include "white\valtos\code\unsorted\multiz_buttons.dm"
 #include "white\valtos\code\unsorted\noose.dm"
+#include "white\valtos\code\unsorted\ooc_status.dm"
 #include "white\valtos\code\unsorted\palputinum.dm"
 #include "white\valtos\code\unsorted\pig.dm"
 #include "white\valtos\code\unsorted\planet.dm"
