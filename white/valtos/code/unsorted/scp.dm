@@ -47,9 +47,9 @@
 	"Ржавый", "Седой", "Сявка", "Темнила", "Чайка", "Чепушило", "Шакал", "Шерстяной", "Шмаровоз", "Шпилевой", "Олька", "Машка", \
 	"Щипач", "Якорник", "Сладкий", "Семьянин", "Порученец", "Блатной", "Арап", "Артист", "Апельсин", "Афер", "Анимешник", \
 	"Онанист", "Рэкетир")
-	L.fully_replace_character_name(null, "[pick(klikuhi)]")
+	L.fully_replace_character_name(L.real_name, "[pick(klikuhi)]")
 
 /obj/effect/mob_spawn/human/prison/prisoner/scientist/special(mob/living/L)
 	var/list/imena = list("Петренко", "Гаврилов", "Смирнов", "Гмызенко", "Юлия", "Сафронов", "Павлов", "Пердюк", "Золотарев", \
 	"Михалыч", "Попов", "Астоль", "Меместофель", "Шепард", "Шруман", "Залупов")
-	L.fully_replace_character_name(null, "Профессор [pick(imena)]")
+	L.fully_replace_character_name(L.real_name, "Профессор [pick(imena)]")
