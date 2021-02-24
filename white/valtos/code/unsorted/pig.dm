@@ -31,8 +31,6 @@
 	can_be_held = FALSE
 	held_state = "pig"
 	faction = list("neutral")
-	var/obj/item/inventory_head
-	var/obj/item/inventory_back
 
 /mob/living/simple_animal/pet/dog/corgi/pig/Initialize()
 	. = ..()

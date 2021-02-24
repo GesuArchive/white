@@ -6,3 +6,4 @@
 #define IS_NORMAL_LIST(L) (GET_TYPEID("\ref[L]") == TYPEID_NORMAL_LIST)
 
 
+#define isstrictlytype(A, B) (istype(A, B) && ispath(B, A))
