@@ -41,7 +41,13 @@
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	id = /obj/item/card/id/ert/security
 
+/obj/effect/mob_spawn/human/prison/prisoner/special(mob/living/L)
+	var/list/klikuhi = list("Борзый", "Дохляк", "Академик", "Акула", "Базарило", "Бродяга", "Валет", "Воровайка", "Гнедой", \
+	"Гребень", "Дельфин", "Дырявый", "Игловой", "Карась", "Каторжанин", "Лабух", "Мазурик", "Мокрушник", "Понтовитый", \
+	"Ржавый", "Седой", "Сявка", "Темнила", "Чайка", "Чепушило", "Шакал", "Шерстяной", "Шмаровоз", "Шпилевой", "Олька", "Машка", \
+	"Щипач", "Якорник", "Сладкий", "Семьянин", "Порученец", "Блатной", "Арап", "Артист", "Апельсин", "Афер")
+	L.fully_replace_character_name(null, "[pick(klikuhi)]")
+
 /obj/effect/mob_spawn/human/prison/prisoner/scientist/special(mob/living/L)
 	var/list/imena = list("Петренко", "Гаврилов", "Смирнов", "Гмызенко", "Юлия", "Сафронов", "Павлов", "Пердюк", "Золотарев", "Михалыч", "Попов", "Лштшфум Ащьф")
-	L.real_name = "Профессор [pick(imena)]"
-	L.name = L.real_name
+	L.fully_replace_character_name(null, "Профессор [pick(imena)]")
