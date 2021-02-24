@@ -70,12 +70,12 @@
 			var/chemname = R.name
 			if(is_hallucinating && prob(5))
 				chemname = "[pick_list_replacements("hallucination.json", "chemicals")]"
-			chemicals.Add(list(list("title" = chemname, "id" = ckey(R.name))))
+			chemicals.Add(list(list("title" = chemname, "id" = lowertext(R.name))))
 	data["chemicals"] = chemicals
 	data["amount"] = amount
 	data["possible_amounts"] = possible_amounts
 
-	data["current_reagent"] = ckey(initial(reagent_id.name))
+	data["current_reagent"] = lowertext(initial(reagent_id.name))
 	return data
 
 /obj/machinery/plumbing/synthesizer/ui_act(action, params)
