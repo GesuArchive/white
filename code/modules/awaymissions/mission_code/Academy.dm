@@ -83,7 +83,7 @@
 
 /obj/structure/academy_wizard_spawner
 	name = "Система Защиты Академии"
-	desc = "Сделано "Отречением.""
+	desc = "Сделано \"Отречением.\""
 	icon = 'icons/obj/cult.dmi'
 	icon_state = "forge"
 	anchored = TRUE
