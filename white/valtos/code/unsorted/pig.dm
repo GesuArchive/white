@@ -1,5 +1,5 @@
-/mob/living/simple_animal/pig
-	name = "свинья"
+/mob/living/simple_animal/pet/dog/corgi/pig
+	name = "Свинья"
 	desc = "Хрюкает."
 	icon = 'white/valtos/icons/animal.dmi'
 	icon_state = "pig"
@@ -9,6 +9,7 @@
 	speak_emote = list("хрюкает")
 	emote_hear = list("хрюкает.")
 	emote_see = list("хрюкает.")
+	pet_bonus = FALSE
 	speak_chance = 5
 	turns_per_move = 1
 	see_in_dark = 3
@@ -30,8 +31,18 @@
 	can_be_held = FALSE
 	held_state = "pig"
 	faction = list("neutral")
+	var/obj/item/inventory_head
+	var/obj/item/inventory_back
 
-/mob/living/simple_animal/pig/Life()
+/mob/living/simple_animal/pet/dog/corgi/pig/Initialize()
+	. = ..()
+	if(prob(1))
+		name = "Randy Sandy"
+		desc = "<big>Самый жирный боров.</big>"
+		maxHealth = 500
+		health = 500
+
+/mob/living/simple_animal/pet/dog/corgi/pig/Life()
 	..()
 	if(stat)
 		return

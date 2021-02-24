@@ -1,6 +1,6 @@
 /obj/vehicle/sealed/mecha/working/ripley/buran
 	desc = "Гарантия тоталитарной власти. Держится на духовных скрепах."
-	name = "\improper APLU MK-IV \"Buran\""
+	name = "APLU MK-IV \"Буран\""
 	icon = 'white/valtos/icons/mecha.dmi'
 	icon_state = "buran"
 	max_temperature = 65000
@@ -27,7 +27,7 @@
 	ME.attach(src)
 
 /obj/structure/mecha_wreckage/ripley/buran
-	name = "\improper Buran wreckage"
+	name = "Ошмётки Бурана"
 	icon_state = "buran-broken"
 
 /obj/machinery/porta_turret/armory
@@ -62,7 +62,7 @@
 	range = 12
 
 /obj/item/melee/classic_baton/dildon
-	name = "dildo"
+	name = "дилдо"
 	desc = "При неправильном обращении окажется у меня в жопе."
 	icon = 'white/valtos/icons/melee.dmi'
 	icon_state = "dildo"
@@ -78,40 +78,40 @@
 	var/headstamp //надпись на башне
 
 /obj/item/stock_parts/capacitor/noneuclid
-	name = "noneuclid capacitor"
-	desc = "An capacity capacitor used in the construction of a variety of devices."
+	name = "неевклидный конденсатор"
+	desc = "Емкостной конденсатор используется в конструкции самых разных устройств."
 	icon_state = "quadratic_capacitor"
 	rating = 8
 	custom_materials = list(/datum/material/iron=1, /datum/material/glass=1)
 	color = "#ff3333"
 
 /obj/item/stock_parts/scanning_module/noneuclid
-	name = "noneuclid scanning module"
-	desc = "A compact, ultra resolution noneuclid scanning module used in the construction of certain devices."
+	name = "неевклидный сканирующий модуль"
+	desc = "Компактный неевклидный сканирующий модуль сверхвысокого разрешения, используемый в конструкции некоторых устройств."
 	icon_state = "triphasic_scan_module"
 	rating = 8
 	custom_materials = list(/datum/material/iron=1, /datum/material/glass=1)
 	color = "#ff3333"
 
 /obj/item/stock_parts/manipulator/noneuclid
-	name = "noneuclid-manipulator"
-	desc = "A tiny little manipulator used in the construction of certain devices."
+	name = "неевклидовый-манипулятор"
+	desc = "Крошечный манипулятор, используемый при создании некоторых устройств."
 	icon_state = "femto_mani"
 	rating = 8
 	custom_materials = list(/datum/material/iron=1)
 	color = "#ff3333"
 
 /obj/item/stock_parts/micro_laser/noneuclid
-	name = "noneuclid micro-laser"
+	name = "неевклидный микролазер"
 	icon_state = "quadultra_micro_laser"
-	desc = "A tiny laser used in certain devices."
+	desc = "Крошечный лазер, используемый в некоторых устройствах."
 	rating = 8
 	custom_materials = list(/datum/material/iron=1, /datum/material/glass=1)
 	color = "#ff3333"
 
 /obj/item/stock_parts/matter_bin/noneuclid
-	name = "noneuclid matter bin"
-	desc = "A container designed to hold noneuclid matter awaiting reconstruction."
+	name = "неевклидовый контейнер материалов"
+	desc = "Контейнер, предназначенный для хранения неевклидного вещества, ожидающего реконструкции."
 	icon_state = "bluespace_matter_bin"
 	rating = 8
 	custom_materials = list(/datum/material/iron=1)

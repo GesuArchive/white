@@ -76,10 +76,10 @@
 						movement_target.attack_animal(src)
 					else if(ishuman(movement_target.loc) )
 						if(prob(20))
-							manual_emote("stares at [movement_target.loc] [movement_target] with a sad puppy-face")
+							manual_emote("пялится на [movement_target.loc] [movement_target] с интересным взглядом")
 
 		if(prob(1))
-			manual_emote(pick("dances around.","chases its tail!"))
+			manual_emote(pick("вытанцовывает.","крутится!"))
 			INVOKE_ASYNC(GLOBAL_PROC, .proc/dance_rotate, src)
 
 //Corgis and pugs are now under one dog subtype
