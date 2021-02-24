@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;world - </title>
+</head>
+<body>
+<header>
+    <a href="index.html"></a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="world.html#proc">Proc Details</a></header>
+<main>
+<h1>World <aside>/<a href="world.html">world</a></aside>
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/world.dm#L13">
+        <img src="git.png" width="16" height="16" title="code&#x2F;world.dm 13"/></a></h1>
+
+<p>Two possibilities exist: either we are alone in the Universe or we are not. Both are equally terrifying. ~ Arthur C. Clarke</p>
+<p>The byond world object stores some basic byond level config, and has a few hub specific procs for managing hub visiblity</p>
+<p>The world /New() is the root of where a round itself begins</p><table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="world.html#proc/ImmediateInvokeAsync">ImmediateInvokeAsync</a></th><td>Immediately Invoke proctocall on thingtocall, with waitfor set to false</td></tr>
+            <tr><th><a href="world.html#proc/New">New</a></th><td>World creation</td></tr>
+            <tr><th><a href="world.html#proc/TgsApiVersion">TgsApiVersion</a></th><td>Returns the current <a href="datum/tgs_version.html" title="/datum/tgs_version">/datum/tgs_version</a> of the DMAPI being used if it was activated, null otherwise.</td></tr>
+            <tr><th><a href="world.html#proc/TgsAvailable">TgsAvailable</a></th><td>Returns [TRUE] if DreamDaemon was launched under TGS, the API matches, and was properly initialized. [FALSE] will be returned otherwise.</td></tr>
+            <tr><th><a href="world.html#proc/TgsChatBroadcast">TgsChatBroadcast</a></th><td>Send a message to connected chats that are flagged as game-related in TGS.</td></tr>
+            <tr><th><a href="world.html#proc/TgsChatChannelInfo">TgsChatChannelInfo</a></th><td>Returns a list of connected <a href="datum/tgs_chat_channel.html" title="/datum/tgs_chat_channel">/datum/tgs_chat_channel</a>s if TGS is present, null otherwise.</td></tr>
+            <tr><th><a href="world.html#proc/TgsChatPrivateMessage">TgsChatPrivateMessage</a></th><td>Send a private message to a specific user.</td></tr>
+            <tr><th><a href="world.html#proc/TgsEndProcess">TgsEndProcess</a></th><td>Forces a hard reboot of DreamDaemon by ending the process.</td></tr>
+            <tr><th><a href="world.html#proc/TgsInitializationComplete">TgsInitializationComplete</a></th><td>Call this when your initializations are complete and your game is ready to play before any player interactions happen.</td></tr>
+            <tr><th><a href="world.html#proc/TgsInstanceName">TgsInstanceName</a></th><td>Returns the name of the TGS instance running the game if TGS is present, null otherwise.</td></tr>
+            <tr><th><a href="world.html#proc/TgsMaximumAPIVersion">TgsMaximumAPIVersion</a></th><td>Returns the maximum supported <a href="datum/tgs_version.html" title="/datum/tgs_version">/datum/tgs_version</a> of the DMAPI.</td></tr>
+            <tr><th><a href="world.html#proc/TgsMinimumAPIVersion">TgsMinimumAPIVersion</a></th><td>Returns the minimum supported <a href="datum/tgs_version.html" title="/datum/tgs_version">/datum/tgs_version</a> of the DMAPI.</td></tr>
+            <tr><th><a href="world.html#proc/TgsNew">TgsNew</a></th><td>Call this somewhere in <a href="world.html#proc/New" title="/world">/world/proc/New</a> that is always run. This function may sleep!</td></tr>
+            <tr><th><a href="world.html#proc/TgsReboot">TgsReboot</a></th><td>Call this at the beginning of [world/proc/Reboot].</td></tr>
+            <tr><th><a href="world.html#proc/TgsRevision">TgsRevision</a></th><td>Return the current <a href="datum/tgs_revision_information.html" title="/datum/tgs_revision_information">/datum/tgs_revision_information</a> of the running server if TGS is present, null otherwise.</td></tr>
+            <tr><th><a href="world.html#proc/TgsSecurityLevel">TgsSecurityLevel</a></th><td>Returns the current BYOND security level as a TGS_SECURITY_ define if TGS is present, null otherwise.</td></tr>
+            <tr><th><a href="world.html#proc/TgsTargetedChatBroadcast">TgsTargetedChatBroadcast</a></th><td>Send a message to connected chats.</td></tr>
+            <tr><th><a href="world.html#proc/TgsTestMerges">TgsTestMerges</a></th><td>Returns a list of active <a href="datum/tgs_revision_information/test_merge.html" title="/datum/tgs_revision_information/test_merge">/datum/tgs_revision_information/test_merge</a>s if TGS is present, null otherwise.</td></tr>
+            <tr><th><a href="world.html#proc/TgsVersion">TgsVersion</a></th><td>Returns the current <a href="datum/tgs_version.html" title="/datum/tgs_version">/datum/tgs_version</a> of TGS if it is running the server, null otherwise.</td></tr>
+            <tr><th><a href="world.html#proc/jatum_deserialize">jatum_deserialize</a></th><td>Attempt to create a value from a JATUN JSON.</td></tr>
+            <tr><th><a href="world.html#proc/jatum_serialize">jatum_serialize</a></th><td>Attempt to serialize a given value to the JATUM format.</td></tr></table><h2 id="proc">Proc Details</h2><h3 id="proc/ImmediateInvokeAsync"><aside class="declaration">proc </aside>ImmediateInvokeAsync<aside>(thingtocall, proctocall, ...) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/datums/callback.dm#L86">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;callback.dm 86"/></a></aside>
+        </h3>
+        <p>Immediately Invoke proctocall on thingtocall, with waitfor set to false</p>
+<p>Arguments:</p>
+<ul>
+<li>thingtocall Object to call on</li>
+<li>proctocall Proc to call on that object</li>
+<li>... optional list of arguments to pass as arguments to the proc being called</li>
+</ul><h3 id="proc/New"><aside class="declaration">proc </aside>New<aside>() 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/game/world.dm#L31">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;world.dm 31"/></a></aside>
+        </h3>
+        <p>World creation</p>
+<p>Here is where a round itself is actually begun and setup.</p>
+<ul>
+<li>db connection setup</li>
+<li>config loaded from files</li>
+<li>loads admins</li>
+<li>Sets up the dynamic menu system</li>
+<li>and most importantly, calls initialize on the master subsystem, starting the game loop that causes the rest of the game to begin processing and setting up</li>
+</ul>
+<p>Nothing happens until something moves. ~Albert Einstein</p>
+<p>For clarity, this proc gets triggered later in the initialization pipeline, it is not the first thing to happen, as it might seem.</p>
+<p>Initialization Pipeline:
+Global vars are new()'ed, (including config, glob, and the master controller will also new and preinit all subsystems when it gets new()ed)
+Compiled in maps are loaded (mainly centcom). all areas/turfs/objs/mobs(ATOMs) in these maps will be new()ed
+world/New() (You are here)
+Once world/New() returns, client's can connect.
+1 second sleep
+Master Controller initialization.
+Subsystem initialization.
+Non-compiled-in maps are maploaded, all atoms are new()ed
+All atoms in both compiled and uncompiled maps are initialized()</p><h3 id="proc/TgsApiVersion"><aside class="declaration">proc </aside>TgsApiVersion<aside>() 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__DEFINES/tgs.dm#L324">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;tgs.dm 324"/></a></aside>
+        </h3>
+        <p>Returns the current <a href="datum/tgs_version.html" title="/datum/tgs_version">/datum/tgs_version</a> of the DMAPI being used if it was activated, null otherwise.</p><h3 id="proc/TgsAvailable"><aside class="declaration">proc </aside>TgsAvailable<aside>() 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__DEFINES/tgs.dm#L276">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;tgs.dm 276"/></a></aside>
+        </h3>
+        <p>Returns [TRUE] if DreamDaemon was launched under TGS, the API matches, and was properly initialized. [FALSE] will be returned otherwise.</p><h3 id="proc/TgsChatBroadcast"><aside class="declaration">proc </aside>TgsChatBroadcast<aside>(message, /list/channels) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__DEFINES/tgs.dm#L316">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;tgs.dm 316"/></a></aside>
+        </h3>
+        <p>Send a message to connected chats that are flagged as game-related in TGS.</p>
+<p>message - The string to send.
+channels - Optional list of <a href="datum/tgs_chat_channel.html" title="/datum/tgs_chat_channel">/datum/tgs_chat_channel</a>s to restrict the message to.</p><h3 id="proc/TgsChatChannelInfo"><aside class="declaration">proc </aside>TgsChatChannelInfo<aside>() 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__DEFINES/tgs.dm#L344">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;tgs.dm 344"/></a></aside>
+        </h3>
+        <p>Returns a list of connected <a href="datum/tgs_chat_channel.html" title="/datum/tgs_chat_channel">/datum/tgs_chat_channel</a>s if TGS is present, null otherwise.</p><h3 id="proc/TgsChatPrivateMessage"><aside class="declaration">proc </aside>TgsChatPrivateMessage<aside>(message, /<a href="datum.html">datum</a>/<a href="datum/tgs_chat_user.html">tgs_chat_user</a>/user) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__DEFINES/tgs.dm#L305">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;tgs.dm 305"/></a></aside>
+        </h3>
+        <p>Send a private message to a specific user.</p>
+<p>message - The string to send.
+user: The <a href="datum/tgs_chat_user.html" title="/datum/tgs_chat_user">/datum/tgs_chat_user</a> to PM.</p><h3 id="proc/TgsEndProcess"><aside class="declaration">proc </aside>TgsEndProcess<aside>() 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__DEFINES/tgs.dm#L287">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;tgs.dm 287"/></a></aside>
+        </h3>
+        <p>Forces a hard reboot of DreamDaemon by ending the process.</p>
+<p>Unlike del(world) clients will try to reconnect.
+If TGS has not requested a <a href="code/__DEFINES/tgs.html#define/TGS_REBOOT_MODE_SHUTDOWN" title="TGS_REBOOT_MODE_SHUTDOWN">TGS_REBOOT_MODE_SHUTDOWN</a> DreamDaemon will be launched again</p><h3 id="proc/TgsInitializationComplete"><aside class="declaration">proc </aside>TgsInitializationComplete<aside>() 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__DEFINES/tgs.dm#L136">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;tgs.dm 136"/></a></aside>
+        </h3>
+        <p>Call this when your initializations are complete and your game is ready to play before any player interactions happen.</p>
+<p>This may use [/world/var/sleep_offline] to make this happen so ensure no changes are made to it while this call is running.
+Afterwards, consider explicitly setting it to what you want to avoid this BYOND bug: http://www.byond.com/forum/post/2575184
+Before this point, note that any static files or directories may be in use by another server. Your code should account for this.
+This function should not be called before ..() in <a href="world.html#proc/New" title="/world">/world/proc/New</a>.</p><h3 id="proc/TgsInstanceName"><aside class="declaration">proc </aside>TgsInstanceName<aside>() 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__DEFINES/tgs.dm#L328">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;tgs.dm 328"/></a></aside>
+        </h3>
+        <p>Returns the name of the TGS instance running the game if TGS is present, null otherwise.</p><h3 id="proc/TgsMaximumAPIVersion"><aside class="declaration">proc </aside>TgsMaximumAPIVersion<aside>() 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__DEFINES/tgs.dm#L266">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;tgs.dm 266"/></a></aside>
+        </h3>
+        <p>Returns the maximum supported <a href="datum/tgs_version.html" title="/datum/tgs_version">/datum/tgs_version</a> of the DMAPI.</p><h3 id="proc/TgsMinimumAPIVersion"><aside class="declaration">proc </aside>TgsMinimumAPIVersion<aside>() 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__DEFINES/tgs.dm#L270">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;tgs.dm 270"/></a></aside>
+        </h3>
+        <p>Returns the minimum supported <a href="datum/tgs_version.html" title="/datum/tgs_version">/datum/tgs_version</a> of the DMAPI.</p><h3 id="proc/TgsNew"><aside class="declaration">proc </aside>TgsNew<aside>(/<a href="datum.html">datum</a>/<a href="datum/tgs_event_handler.html">tgs_event_handler</a>/event_handler, minimum_required_security_level) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__DEFINES/tgs.dm#L125">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;tgs.dm 125"/></a></aside>
+        </h3>
+        <p>Call this somewhere in <a href="world.html#proc/New" title="/world">/world/proc/New</a> that is always run. This function may sleep!</p>
+<ul>
+<li>event_handler - Optional user defined <a href="datum/tgs_event_handler.html" title="/datum/tgs_event_handler">/datum/tgs_event_handler</a>.</li>
+<li>minimum_required_security_level: The minimum required security level to run the game in which the DMAPI is integrated. Can be one of <a href="code/__DEFINES/tgs.html#define/TGS_SECURITY_ULTRASAFE" title="TGS_SECURITY_ULTRASAFE">TGS_SECURITY_ULTRASAFE</a>, <a href="code/__DEFINES/tgs.html#define/TGS_SECURITY_SAFE" title="TGS_SECURITY_SAFE">TGS_SECURITY_SAFE</a>, or <a href="code/__DEFINES/tgs.html#define/TGS_SECURITY_TRUSTED" title="TGS_SECURITY_TRUSTED">TGS_SECURITY_TRUSTED</a>.</li>
+</ul><h3 id="proc/TgsReboot"><aside class="declaration">proc </aside>TgsReboot<aside>() 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__DEFINES/tgs.dm#L145">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;tgs.dm 145"/></a></aside>
+        </h3>
+        <p>Call this at the beginning of [world/proc/Reboot].</p><h3 id="proc/TgsRevision"><aside class="declaration">proc </aside>TgsRevision<aside>() 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__DEFINES/tgs.dm#L332">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;tgs.dm 332"/></a></aside>
+        </h3>
+        <p>Return the current <a href="datum/tgs_revision_information.html" title="/datum/tgs_revision_information">/datum/tgs_revision_information</a> of the running server if TGS is present, null otherwise.</p><h3 id="proc/TgsSecurityLevel"><aside class="declaration">proc </aside>TgsSecurityLevel<aside>() 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__DEFINES/tgs.dm#L336">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;tgs.dm 336"/></a></aside>
+        </h3>
+        <p>Returns the current BYOND security level as a TGS_SECURITY_ define if TGS is present, null otherwise.</p><h3 id="proc/TgsTargetedChatBroadcast"><aside class="declaration">proc </aside>TgsTargetedChatBroadcast<aside>(message, admin_only) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__DEFINES/tgs.dm#L296">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;tgs.dm 296"/></a></aside>
+        </h3>
+        <p>Send a message to connected chats.</p>
+<p>message - The string to send.
+admin_only: If [TRUE], message will be sent to admin connected chats. Vice-versa applies.</p><h3 id="proc/TgsTestMerges"><aside class="declaration">proc </aside>TgsTestMerges<aside>() 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__DEFINES/tgs.dm#L340">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;tgs.dm 340"/></a></aside>
+        </h3>
+        <p>Returns a list of active <a href="datum/tgs_revision_information/test_merge.html" title="/datum/tgs_revision_information/test_merge">/datum/tgs_revision_information/test_merge</a>s if TGS is present, null otherwise.</p><h3 id="proc/TgsVersion"><aside class="declaration">proc </aside>TgsVersion<aside>() 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__DEFINES/tgs.dm#L320">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;tgs.dm 320"/></a></aside>
+        </h3>
+        <p>Returns the current <a href="datum/tgs_version.html" title="/datum/tgs_version">/datum/tgs_version</a> of TGS if it is running the server, null otherwise.</p><h3 id="proc/jatum_deserialize"><aside class="declaration">proc </aside>jatum_deserialize<aside>(json) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__HELPERS/jatum.dm#L142">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;jatum.dm 142"/></a></aside>
+        </h3>
+        <p>Attempt to create a value from a JATUN JSON.</p>
+<ul>
+<li>json - The JSON to deserialize.</li>
+</ul><h3 id="proc/jatum_serialize"><aside class="declaration">proc </aside>jatum_serialize<aside>(value) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__HELPERS/jatum.dm#L17">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;jatum.dm 17"/></a></aside>
+        </h3>
+        <p>Attempt to serialize a given value to the JATUM format.</p>
+<ul>
+<li>value - The var to serialize.</li>
+</ul></main>
+<footer>
+    tgstation.dme
+    <a href="https://github.com/frosty-dev/white-dream-main/tree/92f153585d66ba456c3c0d4cd51be959631e1360">92f1535</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.3.0</a></footer>
+</body>
+</html>

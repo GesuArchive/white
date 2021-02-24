@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;mob - </title>
+</head>
+<body>
+<header>
+    <a href="index.html"></a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="mob.html#proc">Proc Details</a></header>
+<main>
+<h1>mob <aside>/<a href="mob.html">mob</a></aside><aside> inherits /<a href="atom.html">atom</a>/<a href="atom/movable.html">movable</a></aside>
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__HELPERS/pronouns.dm#L120">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;pronouns.dm 120"/></a></h1>
+
+<table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="mob.html#proc/AltClickOn">AltClickOn</a></th><td>Alt click
+Unused except for AI</td></tr>
+            <tr><th><a href="mob.html#proc/ClickOn">ClickOn</a></th><td>Standard mob ClickOn()
+Handles exceptions: Buildmode, middle click, modified clicks, mech actions</td></tr>
+            <tr><th><a href="mob.html#proc/CtrlClickOn">CtrlClickOn</a></th><td>Ctrl click
+For most objects, pull</td></tr>
+            <tr><th><a href="mob.html#proc/CtrlShiftClickOn">CtrlShiftClickOn</a></th><td>Control+Shift click
+Unused except for AI</td></tr>
+            <tr><th><a href="mob.html#proc/DblClickOn">DblClickOn</a></th><td>Default behavior: ignore double clicks (the second click that makes the doubleclick call already calls for a normal click)</td></tr>
+            <tr><th><a href="mob.html#proc/MiddleClickOn">MiddleClickOn</a></th><td>Middle click
+Mainly used for swapping hands</td></tr>
+            <tr><th><a href="mob.html#proc/MouseWheelOn">MouseWheelOn</a></th><td>MouseWheelOn</td></tr>
+            <tr><th><a href="mob.html#proc/RangedAttack">RangedAttack</a></th><td>Ranged unarmed attack:</td></tr>
+            <tr><th><a href="mob.html#proc/ShiftClickOn">ShiftClickOn</a></th><td>Shift click
+For most mobs, examine.
+This is overridden in ai.dm</td></tr>
+            <tr><th><a href="mob.html#proc/UnarmedAttack">UnarmedAttack</a></th><td>Translates into <a href="atom.html#proc/attack_hand" title="/atom">atom/proc/attack_hand</a>, etc.</td></tr>
+            <tr><th><a href="mob.html#proc/create_chat_message">create_chat_message</a></th><td>Creates a message overlay at a defined location for a given speaker</td></tr>
+            <tr><th><a href="mob.html#proc/face_atom">face_atom</a></th><td>Simple helper to face what you clicked on, in case it should be needed in more than one place</td></tr>
+            <tr><th><a href="mob.html#proc/manual_emote">manual_emote</a></th><td>Allows the intrepid coder to send a basic emote
+Takes text as input, sends it out to those who need to know after some light parsing
+If you need something more complex, make it into a datum emote
+Arguments:</td></tr>
+            <tr><th><a href="mob.html#proc/nominate_heart">nominate_heart</a></th><td>Once we've confirmed who we're commendating, log it and add them to the hearts list</td></tr>
+            <tr><th><a href="mob.html#proc/query_heart">query_heart</a></th><td>Ask someone if they'd like to award a commendation for the round, 3 tries to get the name they want before we give up</td></tr>
+            <tr><th><a href="mob.html#proc/set_species">set_species</a></th><td>DNA MOB-PROCS</td></tr>
+            <tr><th><a href="mob.html#proc/throw_alert">throw_alert</a></th><td>Proc to create or update an alert. Returns the alert if the alert is new or updated, 0 if it was thrown already
+category is a text string. Each mob may only have one alert per category; the previous one will be replaced
+path is a type path of the actual alert type to throw
+severity is an optional number that will be placed at the end of the icon_state for this alert
+for example, high pressure's icon_state is &quot;highpressure&quot; and can be serverity 1 or 2 to get &quot;highpressure1&quot; or &quot;highpressure2&quot;
+new_master is optional and sets the alert's icon state to &quot;template&quot; in the ui_style icons with the master as an overlay.
+flicks are forwarded to master
+override makes it so the alert is not replaced until cleared by a clear_alert with clear_override, and it's used for hallucinations.</td></tr></table><h2 id="proc">Proc Details</h2><h3 id="proc/AltClickOn"><aside class="declaration">proc </aside>AltClickOn<aside>(/<a href="atom.html">atom</a>/A) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/click.dm#L334">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;click.dm 334"/></a></aside>
+        </h3>
+        <p>Alt click
+Unused except for AI</p><h3 id="proc/ClickOn"><aside class="declaration">proc </aside>ClickOn<aside>(/<a href="atom.html">atom</a>/A, params) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/click.dm#L67">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;click.dm 67"/></a></aside>
+        </h3>
+        <p>Standard mob ClickOn()
+Handles exceptions: Buildmode, middle click, modified clicks, mech actions</p>
+<p>After that, mostly just check your state, check whether you're holding an item,
+check whether you're adjacent to the target, then pass off the click to whoever
+is receiving it.
+The most common are:</p>
+<ul>
+<li><a href="mob.html#proc/UnarmedAttack" title="/mob">mob/proc/UnarmedAttack</a> (atom,adjacent) - used here only when adjacent, with no item in hand; in the case of humans, checks gloves</li>
+<li><a href="atom.html#proc/attackby" title="/atom">atom/proc/attackby</a> (item,user) - used only when adjacent</li>
+<li><a href="obj/item.html#proc/afterattack" title="/obj/item">obj/item/proc/afterattack</a> (atom,user,adjacent,params) - used both ranged and adjacent</li>
+<li><a href="mob.html#proc/RangedAttack" title="/mob">mob/proc/RangedAttack</a> (atom,params) - used only ranged, only used for tk and laser eyes but could be changed</li>
+</ul><h3 id="proc/CtrlClickOn"><aside class="declaration">proc </aside>CtrlClickOn<aside>(/<a href="atom.html">atom</a>/A) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/click.dm#L310">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;click.dm 310"/></a></aside>
+        </h3>
+        <p>Ctrl click
+For most objects, pull</p><h3 id="proc/CtrlShiftClickOn"><aside class="declaration">proc </aside>CtrlShiftClickOn<aside>(/<a href="atom.html">atom</a>/A) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/click.dm#L361">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;click.dm 361"/></a></aside>
+        </h3>
+        <p>Control+Shift click
+Unused except for AI</p><h3 id="proc/DblClickOn"><aside class="declaration">proc </aside>DblClickOn<aside>(/<a href="atom.html">atom</a>/A, params) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/click.dm#L249">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;click.dm 249"/></a></aside>
+        </h3>
+        <p>Default behavior: ignore double clicks (the second click that makes the doubleclick call already calls for a normal click)</p><h3 id="proc/MiddleClickOn"><aside class="declaration">proc </aside>MiddleClickOn<aside>(/<a href="atom.html">atom</a>/A, params) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/click.dm#L285">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;click.dm 285"/></a></aside>
+        </h3>
+        <p>Middle click
+Mainly used for swapping hands</p><h3 id="proc/MouseWheelOn"><aside class="declaration">proc </aside>MouseWheelOn<aside>(/<a href="atom.html">atom</a>/A, delta_x, delta_y, params) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/click.dm#L452">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;click.dm 452"/></a></aside>
+        </h3>
+        <p>MouseWheelOn</p><h3 id="proc/RangedAttack"><aside class="declaration">proc </aside>RangedAttack<aside>(/<a href="atom.html">atom</a>/A, params) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/click.dm#L276">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;click.dm 276"/></a></aside>
+        </h3>
+        <p>Ranged unarmed attack:</p>
+<p>This currently is just a default for all mobs, involving
+laser eyes and telekinesis.  You could easily add exceptions
+for things like ranged glove touches, spitting alien acid/neurotoxin,
+animals lunging, etc.</p><h3 id="proc/ShiftClickOn"><aside class="declaration">proc </aside>ShiftClickOn<aside>(/<a href="atom.html">atom</a>/A) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/click.dm#L296">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;click.dm 296"/></a></aside>
+        </h3>
+        <p>Shift click
+For most mobs, examine.
+This is overridden in ai.dm</p><h3 id="proc/UnarmedAttack"><aside class="declaration">proc </aside>UnarmedAttack<aside>(/<a href="atom.html">atom</a>/A, proximity_flag) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/click.dm#L263">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;click.dm 263"/></a></aside>
+        </h3>
+        <p>Translates into <a href="atom.html#proc/attack_hand" title="/atom">atom/proc/attack_hand</a>, etc.</p>
+<p>Note: proximity_flag here is used to distinguish between normal usage (flag=1),
+and usage when clicking on things telekinetically (flag=0).  This proc will
+not be called at ranged except with telekinesis.</p>
+<p>proximity_flag is not currently passed to attack_hand, and is instead used
+in human click code to allow glove touches only at melee range.</p><h3 id="proc/create_chat_message"><aside class="declaration">proc </aside>create_chat_message<aside>(/<a href="atom.html">atom</a>/<a href="atom/movable.html">movable</a>/speaker, /<a href="datum.html">datum</a>/language/message_language, raw_message, /list/spans, runechat_flags) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/datums/chatmessage.dm#L234">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;chatmessage.dm 234"/></a></aside>
+        </h3>
+        <p>Creates a message overlay at a defined location for a given speaker</p>
+<p>Arguments:</p>
+<ul>
+<li>speaker - The atom who is saying this message</li>
+<li>message_language - The language that the message is said in</li>
+<li>raw_message - The text content of the message</li>
+<li>spans - Additional classes to be added to the message</li>
+</ul><h3 id="proc/face_atom"><aside class="declaration">proc </aside>face_atom<aside>(/<a href="atom.html">atom</a>/A) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/click.dm#L379">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;click.dm 379"/></a></aside>
+        </h3>
+        <p>Simple helper to face what you clicked on, in case it should be needed in more than one place</p><h3 id="proc/manual_emote"><aside class="declaration">proc </aside>manual_emote<aside>(text) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/datums/emotes.dm#L168">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;emotes.dm 168"/></a></aside>
+        </h3>
+        <p>Allows the intrepid coder to send a basic emote
+Takes text as input, sends it out to those who need to know after some light parsing
+If you need something more complex, make it into a datum emote
+Arguments:</p>
+<ul>
+<li>text - The text to send out</li>
+</ul><h3 id="proc/nominate_heart"><aside class="declaration">proc </aside>nominate_heart<aside>(/<a href="mob.html">mob</a>/heart_recepient) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__HELPERS/hearted.dm#L76">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;hearted.dm 76"/></a></aside>
+        </h3>
+        <p>Once we've confirmed who we're commendating, log it and add them to the hearts list</p><h3 id="proc/query_heart"><aside class="declaration">proc </aside>query_heart<aside>(attempt) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/__HELPERS/hearted.dm#L34">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;hearted.dm 34"/></a></aside>
+        </h3>
+        <p>Ask someone if they'd like to award a commendation for the round, 3 tries to get the name they want before we give up</p><h3 id="proc/set_species"><aside class="declaration">proc </aside>set_species<aside>(/<a href="datum.html">datum</a>/species/mrace, icon_update) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/datums/dna.dm#L289">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;dna.dm 289"/></a></aside>
+        </h3>
+        <p>DNA MOB-PROCS</p><h3 id="proc/throw_alert"><aside class="declaration">proc </aside>throw_alert<aside>(category, type, severity, /<a href="obj.html">obj</a>/new_master, override) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/hud/alert.dm#L15">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;hud&#x2F;alert.dm 15"/></a></aside>
+        </h3>
+        <p>Proc to create or update an alert. Returns the alert if the alert is new or updated, 0 if it was thrown already
+category is a text string. Each mob may only have one alert per category; the previous one will be replaced
+path is a type path of the actual alert type to throw
+severity is an optional number that will be placed at the end of the icon_state for this alert
+for example, high pressure's icon_state is &quot;highpressure&quot; and can be serverity 1 or 2 to get &quot;highpressure1&quot; or &quot;highpressure2&quot;
+new_master is optional and sets the alert's icon state to &quot;template&quot; in the ui_style icons with the master as an overlay.
+flicks are forwarded to master
+override makes it so the alert is not replaced until cleared by a clear_alert with clear_override, and it's used for hallucinations.</p></main>
+<footer>
+    tgstation.dme
+    <a href="https://github.com/frosty-dev/white-dream-main/tree/92f153585d66ba456c3c0d4cd51be959631e1360">92f1535</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.3.0</a></footer>
+</body>
+</html>

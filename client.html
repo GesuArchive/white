@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;client - </title>
+</head>
+<body>
+<header>
+    <a href="index.html"></a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="client.html#proc">Proc Details</a></header>
+<main>
+<h1>client <aside>/<a href="client.html">client</a></aside>
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/(builtins)#L1">
+        <img src="git.png" width="16" height="16" title="(builtins) 1"/></a></h1>
+
+<table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="client.html#proc/ResetAmbiencePlayed">ResetAmbiencePlayed</a></th><td>Reset the played var to false on the client</td></tr>
+            <tr><th><a href="client.html#proc/clear_all_maps">clear_all_maps</a></th><td>Clears all the maps of registered screen objects.</td></tr>
+            <tr><th><a href="client.html#proc/clear_map">clear_map</a></th><td>Clears the map of registered screen objects.</td></tr>
+            <tr><th><a href="client.html#proc/close_popup">close_popup</a></th><td>Closes a popup.</td></tr>
+            <tr><th><a href="client.html#proc/create_popup">create_popup</a></th><td>Creates a popup window with a basic map element in it, without any
+further initialization.</td></tr>
+            <tr><th><a href="client.html#proc/handle_popup_close">handle_popup_close</a></th><td>When the popup closes in any way (player or proc call) it calls this.</td></tr>
+            <tr><th><a href="client.html#proc/register_map_obj">register_map_obj</a></th><td>Registers screen obj with the client, which makes it visible on the
+assigned map, and becomes a part of the assigned map's lifecycle.</td></tr>
+            <tr><th><a href="client.html#proc/set_tab">set_tab</a></th><td>verbs that send information from the browser UI</td></tr>
+            <tr><th><a href="client.html#proc/setup_popup">setup_popup</a></th><td>Create the popup, and get it ready for generic use by giving
+it a background.</td></tr></table><h2 id="proc">Proc Details</h2><h3 id="proc/ResetAmbiencePlayed"><aside class="declaration">proc </aside>ResetAmbiencePlayed<aside>() 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/game/area/areas.dm#L645">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;area&#x2F;areas.dm 645"/></a></aside>
+        </h3>
+        <p>Reset the played var to false on the client</p><h3 id="proc/clear_all_maps"><aside class="declaration">proc </aside>clear_all_maps<aside>() 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/hud/map_popups.dm#L80">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;hud&#x2F;map_popups.dm 80"/></a></aside>
+        </h3>
+        <p>Clears all the maps of registered screen objects.</p><h3 id="proc/clear_map"><aside class="declaration">proc </aside>clear_map<aside>(map_name) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/hud/map_popups.dm#L68">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;hud&#x2F;map_popups.dm 68"/></a></aside>
+        </h3>
+        <p>Clears the map of registered screen objects.</p>
+<p>Not really needed most of the time, as the client's screen list gets reset
+on relog. any of the buttons are going to get caught by garbage collection
+anyway. they're effectively qdel'd.</p><h3 id="proc/close_popup"><aside class="declaration">proc </aside>close_popup<aside>(popup) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/hud/map_popups.dm#L137">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;hud&#x2F;map_popups.dm 137"/></a></aside>
+        </h3>
+        <p>Closes a popup.</p><h3 id="proc/create_popup"><aside class="declaration">proc </aside>create_popup<aside>(name, ratiox, ratioy) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/hud/map_popups.dm#L92">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;hud&#x2F;map_popups.dm 92"/></a></aside>
+        </h3>
+        <p>Creates a popup window with a basic map element in it, without any
+further initialization.</p>
+<p>Ratio is how many pixels by how many pixels (keep it simple).</p>
+<p>Returns a map name.</p><h3 id="proc/handle_popup_close"><aside class="declaration">verb </aside>handle_popup_close<aside>(window_id) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/hud/map_popups.dm#L144">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;hud&#x2F;map_popups.dm 144"/></a></aside>
+        </h3>
+        <p>When the popup closes in any way (player or proc call) it calls this.</p><h3 id="proc/register_map_obj"><aside class="declaration">proc </aside>register_map_obj<aside>(/<a href="atom.html">atom</a>/<a href="atom/movable.html">movable</a>/<a href="atom/movable/screen.html">screen</a>/screen_obj) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/hud/map_popups.dm#L49">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;hud&#x2F;map_popups.dm 49"/></a></aside>
+        </h3>
+        <p>Registers screen obj with the client, which makes it visible on the
+assigned map, and becomes a part of the assigned map's lifecycle.</p><h3 id="proc/set_tab"><aside class="declaration">verb </aside>set_tab<aside>(tab) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/controllers/subsystem/statpanel.dm#L162">
+        <img src="git.png" width="16" height="16" title="code&#x2F;controllers&#x2F;subsystem&#x2F;statpanel.dm 162"/></a></aside>
+        </h3>
+        <p>verbs that send information from the browser UI</p><h3 id="proc/setup_popup"><aside class="declaration">proc </aside>setup_popup<aside>(popup_name, width, height, tilesize, bg_icon) 
+        
+    
+            <a href="https://github.com/frosty-dev/white-dream-main/blob/92f153585d66ba456c3c0d4cd51be959631e1360/code/_onclick/hud/map_popups.dm#L116">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;hud&#x2F;map_popups.dm 116"/></a></aside>
+        </h3>
+        <p>Create the popup, and get it ready for generic use by giving
+it a background.</p>
+<p>Width and height are multiplied by 64 by default.</p></main>
+<footer>
+    tgstation.dme
+    <a href="https://github.com/frosty-dev/white-dream-main/tree/92f153585d66ba456c3c0d4cd51be959631e1360">92f1535</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.3.0</a></footer>
+</body>
+</html>
