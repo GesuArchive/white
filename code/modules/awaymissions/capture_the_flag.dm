@@ -106,7 +106,7 @@
 	name = "Красный флаг"
 	icon_state = "banner-red"
 	inhand_icon_state = "banner-red"
-	desc = "Красное знамя, используемое в "Захвате Флага"."
+	desc = "Красное знамя, используемое в \"Захвате Флага\"."
 	team = RED_TEAM
 	reset_path = /obj/effect/ctf/flag_reset/red
 
@@ -115,7 +115,7 @@
 	name = "Синий флаг"
 	icon_state = "banner-blue"
 	inhand_icon_state = "banner-blue"
-	desc = "Синее знамя, используемое в "Захвате Флага"."
+	desc = "Синее знамя, используемое в \"Захвате Флага\"."
 	team = BLUE_TEAM
 	reset_path = /obj/effect/ctf/flag_reset/blue
 
@@ -159,14 +159,14 @@
 		notify_ghosts("CTF has been [ctf_enabled? "enabled" : "disabled"] in [A]!",'sound/effects/ghost2.ogg')
 
 /obj/machinery/capture_the_flag
-	name = "Контроллер "Захвата Флага""
-	desc = "Используется для "Захвата Флага"."
+	name = "Контроллер \"Захвата Флага\""
+	desc = "Используется для \"Захвата Флага\"."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "syndbeacon"
 	resistance_flags = INDESTRUCTIBLE
 	var/game_id = "centcom"
 
-	var/victory_rejoin_text = "<span class='userdanger'>Игра окончена. Кликните на контроллеры чтобы проголосовать за новый раунд "Захвата Флага"</span>"
+	var/victory_rejoin_text = "<span class='userdanger'>Игра окончена. Кликните на контроллеры чтобы проголосовать за новый раунд \"Захвата Флага\"</span>"
 	var/team = WHITE_TEAM
 	var/team_span = ""
 	//Capture the Flag scoring
@@ -215,7 +215,7 @@
 			living_participant.adjustFireLoss(-2.5 * delta_time)
 
 /obj/machinery/capture_the_flag/red
-	name = "Красный контроллер "Захвата Флага""
+	name = "Красный контроллер \"Захвата Флага\""
 	icon_state = "syndbeacon"
 	team = RED_TEAM
 	team_span = "redteamradio"
@@ -223,7 +223,7 @@
 	instagib_gear = /datum/outfit/ctf/red/instagib
 
 /obj/machinery/capture_the_flag/blue
-	name = "Синий контроллер "Захвата Флага""
+	name = "Синий контроллер \"Захвата Флага\""
 	icon_state = "bluebeacon"
 	team = BLUE_TEAM
 	team_span = "blueteamradio"
@@ -241,7 +241,7 @@
 
 
 		if(!(GLOB.ghost_role_flags & GHOSTROLE_MINIGAME))
-			to_chat(user, "<span class='warning'>"Захват Флага" был отключен администрацией.</span>")
+			to_chat(user, "<span class='warning'>\"Захват Флага\" был отключен администрацией.</span>")
 			return
 		for(var/obj/machinery/capture_the_flag/CTF in GLOB.machines)
 			if(CTF.game_id != game_id && CTF.ctf_enabled)
@@ -254,7 +254,7 @@
 			people_who_want_to_play.Cut()
 			toggle_id_ctf(null, game_id)
 		else
-			to_chat(user, "<span class='notice'>Запрос на запуск "Захвата Флага". [num]/[CTF_REQUIRED_PLAYERS] игроков готово.</span>")
+			to_chat(user, "<span class='notice'>Запрос на запуск \"Захвата Флага\". [num]/[CTF_REQUIRED_PLAYERS] игроков готово.</span>")
 
 		return
 
@@ -389,7 +389,7 @@
 
 	dead_barricades.Cut()
 
-	notify_ghosts("[name] активирован!", enter_link="<a href=?src=[REF(src)];join=1>(Нажми чтобы присоединиться к [team] команде!)</a> или нажми прямо на контроллер!", source = src, action=NOTIFY_ATTACK, header = ""Захват флага" активирован")
+	notify_ghosts("[name] активирован!", enter_link="<a href=?src=[REF(src)];join=1>(Нажми чтобы присоединиться к [team] команде!)</a> или нажми прямо на контроллер!", source = src, action=NOTIFY_ATTACK, header = "\"Захват флага\" активирован")
 
 	if(!arena_reset)
 		reset_the_arena()
@@ -547,7 +547,7 @@
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/blue_laser
 
 /datum/outfit/ctf
-	name = ""Захват флага""
+	name = "\"Захват флага\""
 	ears = /obj/item/radio/headset
 	uniform = /obj/item/clothing/under/syndicate
 	suit = /obj/item/clothing/suit/space/hardsuit/shielded/ctf

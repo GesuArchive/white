@@ -72,7 +72,7 @@ GLOBAL_VAR_INIT(fscpassword, generate_password())
 
 /obj/item/disk/surgery/forgottenship
 	name = "Диск Продвинутой Хирургии"
-	desc = Диск, содержащий информацию о сложных хирургических операциях."
+	desc = "Диск, содержащий информацию о сложных хирургических операциях."
 	surgeries = list(/datum/surgery/advanced/lobotomy, /datum/surgery/advanced/bioware/vein_threading, /datum/surgery/advanced/bioware/nerve_splicing)
 
 /obj/structure/fluff/empty_sleeper/syndicate/captain
