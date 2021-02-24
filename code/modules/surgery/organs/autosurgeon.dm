@@ -143,7 +143,7 @@
 		return
 
 	if(!stored_skillchip)
-		to_chat(user, "<span class='alert'>Внутри [capitalize(src.name)]  нет чипа навыков.</span>")
+		to_chat(user, "<span class='alert'>Внутри [capitalize(src.name)] нет чипа навыков.</span>")
 		return
 
 	if(!istype(user))

@@ -1,7 +1,7 @@
 /obj/machinery/atmospherics/components/binary/temperature_gate
 	icon_state = "tgate_map-3"
-	name = "temperature gate"
-	desc = "An activable gate that compares the input temperature with the interface set temperature to check if the gas can flow or not."
+	name = "Температурные врата"
+	desc = "Переключаемые врата, которые сравнивают температуру поступающего газа с выставленной в интерфейсе и пропускают газ если он подходит по условиям."
 
 	can_unwrench = TRUE
 	shift_underlay_only = FALSE
@@ -30,7 +30,7 @@
 	if(can_interact(user))
 		target_temperature = max_temperature
 		investigate_log("was set to [target_temperature] K by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, "<span class='notice'>You set the target temperature on [src] to [target_temperature] K.</span>")
+		to_chat(user, "<span class='notice'>Я выставляю температуру в [src] на [target_temperature] К.</span>")
 		update_icon()
 	return ..()
 
@@ -123,7 +123,7 @@
 	if (istype(I))
 		inverted = !inverted
 		if(inverted)
-			to_chat(user, "<span class='notice'>You set the [src] sensors to release gases when the temperature is higher than the setted one.</span>")
+			to_chat(user, "<span class='notice'>Я ставлю сенсоры [src] так, что они будут пропускать газы только если температура выше чем выставленная.</span>")
 		else
-			to_chat(user, "<span class='notice'>You set the [src] sensors to the default settings.</span>")
+			to_chat(user, "<span class='notice'>Я выставляю сенсоры [src] на стандартные настройки.</span>")
 	return TRUE

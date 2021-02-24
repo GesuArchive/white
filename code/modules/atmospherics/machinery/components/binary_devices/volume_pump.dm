@@ -12,8 +12,8 @@
 
 /obj/machinery/atmospherics/components/binary/volume_pump
 	icon_state = "volpump_map-3"
-	name = "volumetric gas pump"
-	desc = "A pump that moves gas by volume."
+	name = "Улучшенная помпа"
+	desc = "Помпа, двигающая газ с силой."
 
 	can_unwrench = TRUE
 	shift_underlay_only = FALSE
@@ -39,7 +39,7 @@
 	if(can_interact(user))
 		transfer_rate = MAX_TRANSFER_RATE
 		investigate_log("was set to [transfer_rate] L/s by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, "<span class='notice'>You maximize the volume output on [src] to [transfer_rate] L/s.</span>")
+		to_chat(user, "<span class='notice'>Максимально выкручиваю силу потока в [src] на [transfer_rate] Л/с.</span>")
 		update_icon()
 	return ..()
 
@@ -184,10 +184,10 @@
 /obj/machinery/atmospherics/components/binary/volume_pump/multitool_act(mob/living/user, obj/item/I)
 	if(!overclocked)
 		overclocked = TRUE
-		to_chat(user, "The pump makes a grinding noise and air starts to hiss out as you disable its pressure limits.")
+		to_chat(user, "Помпа начинает скрежетать и выпускать воздух как только ограничитель давления выключается.")
 	else
 		overclocked = FALSE
-		to_chat(user, "The pump quiets down as you turn its limiters back on.")
+		to_chat(user, "Помпа затихает как только я включаю ограничитель давления.")
 	return TRUE
 
 // mapping

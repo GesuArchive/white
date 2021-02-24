@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/dropper
-	name = "dropper"
-	desc = "A dropper. Holds up to 5 units."
+	name = "пипетка"
+	desc = "Пипетка, вместимостью до 5 единиц."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "dropper0"
 	worn_icon_state = "pen"
@@ -19,11 +19,11 @@
 
 	if(reagents.total_volume > 0)
 		if(target.reagents.total_volume >= target.reagents.maximum_volume)
-			to_chat(user, "<span class='notice'>[target] is full.</span>")
+			to_chat(user, "<span class='notice'>[target] заполнена.</span>")
 			return
 
 		if(!target.is_injectable(user))
-			to_chat(user, "<span class='warning'>You cannot transfer reagents to [target]!</span>")
+			to_chat(user, "<span class='warning'>Не могу переместить реагенты в [target]!</span>")
 			return
 
 		var/trans = 0
@@ -41,18 +41,18 @@
 
 					trans = reagents.trans_to(safe_thing, amount_per_transfer_from_this, transfered_by = user, methods = TOUCH)
 
-					target.visible_message("<span class='danger'>[user] tries to squirt something into [target] eyes, but fails!</span>", \
-											"<span class='userdanger'>[user] tries to squirt something into your eyes, but fails!</span>")
+					target.visible_message("<span class='danger'>[user] пытается капнуть чем-то в глаза [target], но у него не выходит!</span>", \
+											"<span class='userdanger'>[user] пытается капнуть чем-то в мои глаза, но у него не выходит!</span>")
 
-					to_chat(user, "<span class='notice'>You transfer [trans] unit\s of the solution.</span>")
+					to_chat(user, "<span class='notice'>Я перенес [trans] единиц раствора.</span>")
 					update_icon()
 					return
 			else if(isalien(target)) //hiss-hiss has no eyes!
-				to_chat(target, "<span class='danger'>[target] does not seem to have any eyes!</span>")
+				to_chat(target, "<span class='danger'>Похоже, у [target] нет глаз!</span>")
 				return
 
-			target.visible_message("<span class='danger'>[user] squirts something into [target] eyes!</span>", \
-									"<span class='userdanger'>[user] squirts something into your eyes!</span>")
+			target.visible_message("<span class='danger'>[user] закапал что-то в глаза [target]!</span>", \
+									"<span class='userdanger'>[user] закапал что-то в мои глаза!</span>")
 
 			reagents.expose(target, TOUCH, fraction)
 			var/mob/M = target
@@ -64,22 +64,22 @@
 			log_combat(user, M, "squirted", R)
 
 		trans = src.reagents.trans_to(target, amount_per_transfer_from_this, transfered_by = user)
-		to_chat(user, "<span class='notice'>You transfer [trans] unit\s of the solution.</span>")
+		to_chat(user, "<span class='notice'>Я перенес [trans] единиц раствора.</span>")
 		update_icon()
 
 	else
 
 		if(!target.is_drawable(user, FALSE)) //No drawing from mobs here
-			to_chat(user, "<span class='warning'>You cannot directly remove reagents from [target]!</span>")
+			to_chat(user, "<span class='warning'>Я не могу напрямую извлечь реагенты из [target]!</span>")
 			return
 
 		if(!target.reagents.total_volume)
-			to_chat(user, "<span class='warning'>[target] is empty!</span>")
+			to_chat(user, "<span class='warning'>[target] пуста!</span>")
 			return
 
 		var/trans = target.reagents.trans_to(src, amount_per_transfer_from_this, transfered_by = user)
 
-		to_chat(user, "<span class='notice'>You fill [src] with [trans] unit\s of the solution.</span>")
+		to_chat(user, "<span class='notice'>Я наполняю [src] [trans] единицами раствора.</span>")
 
 		update_icon()
 

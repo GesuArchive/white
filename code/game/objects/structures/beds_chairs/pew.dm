@@ -1,6 +1,6 @@
 /obj/structure/chair/pew
-	name = "wooden pew"
-	desc = "Kneel here and pray."
+	name = "деревянная скамья"
+	desc = "На колени и молись."
 	icon = 'icons/obj/sofa.dmi'
 	icon_state = "pewmiddle"
 	resistance_flags = FLAMMABLE
@@ -10,7 +10,7 @@
 	item_chair = null
 
 /obj/structure/chair/pew/left
-	name = "left wooden pew end"
+	name = "левый край деревянной скамьи"
 	icon_state = "pewend_left"
 	var/mutable_appearance/leftpewarmrest
 
@@ -41,7 +41,7 @@
 	update_leftpewarmrest()
 
 /obj/structure/chair/pew/right
-	name = "right wooden pew end"
+	name = "правый край деревянной скамьи"
 	icon_state = "pewend_right"
 	var/mutable_appearance/rightpewarmrest
 

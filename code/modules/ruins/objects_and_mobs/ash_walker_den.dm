@@ -1,8 +1,8 @@
 #define ASH_WALKER_SPAWN_THRESHOLD 2
 //The ash walker den consumes corpses or unconscious mobs to create ash walker eggs. For more info on those, check ghost_role_spawners.dm
 /obj/structure/lavaland/ash_walker
-	name = "necropolis tendril nest"
-	desc = "A vile tendril of corruption. It's surrounded by a nest of rapidly growing eggs..."
+	name = "гнездо некро-тентаклей"
+	desc = "Мерзкие искажённые тентакли. Они окружены гнездом быстро растущих яиц..."
 	icon = 'icons/mob/nest.dmi'
 	icon_state = "ash_walker_nest"
 
@@ -43,17 +43,17 @@
 					qdel(W)
 			if(issilicon(H)) //no advantage to sacrificing borgs...
 				H.gib()
-				visible_message("<span class='notice'>Serrated tendrils eagerly pull [H] apart, but find nothing of interest.</span>")
+				visible_message("<span class='notice'>Зазубренные тентакли жадно разрывают [H] на кусочки, но не находят ничего интересного.</span>")
 				return
 
 			if(H.mind?.has_antag_datum(/datum/antagonist/ashwalker) && (H.key || H.get_ghost(FALSE, TRUE))) //special interactions for dead lava lizards with ghosts attached
-				visible_message("<span class='warning'>Serrated tendrils carefully pull [H] to [src], absorbing the body and creating it anew.</span>")
+				visible_message("<span class='warning'>Зазубренные тентакли аккуратно притягивают [H] к [src], поглощая тело и создавая его заново.</span>")
 				var/datum/mind/deadmind
 				if(H.key)
 					deadmind = H
 				else
 					deadmind = H.get_ghost(FALSE, TRUE)
-				to_chat(deadmind, "Your body has been returned to the nest. You are being remade anew, and will awaken shortly. </br><b>Your memories will remain intact in your new body, as your soul is being salvaged</b>")
+				to_chat(deadmind, "Ваше тело вернулось в гнездо. Вас создают заново, и вы скоро проснетесь. </br><b>Ваши воспоминания останутся с вами, в отличии от поглощаемой гнездом души.</b>")
 				SEND_SOUND(deadmind, sound('sound/magic/enter_blood.ogg',volume=100))
 				addtimer(CALLBACK(src, .proc/remake_walker, H.mind, H.real_name), 20 SECONDS)
 				new /obj/effect/gibspawner/generic(get_turf(H))
@@ -64,13 +64,13 @@
 				meat_counter += 20
 			else
 				meat_counter++
-			visible_message("<span class='warning'>Serrated tendrils eagerly pull [H] to [src], tearing the body apart as its blood seeps over the eggs.</span>")
+			visible_message("<span class='warning'>Зазубренные тентакли жадно притягивают [H] к [src], разрывая тело на кусочки и поливая яйца кровью.</span>")
 			playsound(get_turf(src),'sound/magic/demon_consume.ogg', 100, TRUE)
 			var/deliverykey = H.fingerprintslast //key of whoever brought the body
 			var/mob/living/deliverymob = get_mob_by_key(deliverykey) //mob of said key
 			//there is a 40% chance that the Lava Lizard unlocks their respawn with each sacrifice
 			if(deliverymob && (deliverymob.mind?.has_antag_datum(/datum/antagonist/ashwalker)) && (deliverykey in ashies.players_spawned) && (prob(40)))
-				to_chat(deliverymob, "<span class='warning'><b>The Necropolis is pleased with your sacrifice. You feel confident your existence after death is secure.</b></span>")
+				to_chat(deliverymob, "<span class='warning'><b>Некрополис удовлетворён вашей жертвой. Вы ощущаете уверенность в своём посмертии .</b></span>")
 				ashies.players_spawned -= deliverykey
 			H.gib()
 			obj_integrity = min(obj_integrity + max_integrity*0.05,max_integrity)//restores 5% hp of tendril
@@ -88,11 +88,11 @@
 	M.update_body()
 	oldmind.transfer_to(M)
 	M.mind.grab_ghost()
-	to_chat(M, "<b>You have been pulled back from beyond the grave, with a new body and renewed purpose. Glory to the Necropolis!</b>")
+	to_chat(M, "<b>Вы ощущаете, как возвращаетесь с того света с новым телом и новой задачей. Слава Некрополису!</b>")
 	playsound(get_turf(M),'sound/magic/exit_blood.ogg', 100, TRUE)
 
 /obj/structure/lavaland/ash_walker/proc/spawn_mob()
 	if(meat_counter >= ASH_WALKER_SPAWN_THRESHOLD)
 		new /obj/effect/mob_spawn/human/ash_walker(get_step(loc, pick(GLOB.alldirs)), ashies)
-		visible_message("<span class='danger'>One of the eggs swells to an unnatural size and tumbles free. It's ready to hatch!</span>")
+		visible_message("<span class='danger'>Одно из яиц вырастает до ненормальных размеров и свободно дергается. Оно готово к вылуплению!</span>")
 		meat_counter -= ASH_WALKER_SPAWN_THRESHOLD

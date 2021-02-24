@@ -61,7 +61,7 @@
 			var/obj/item/storage/bag/trash/t=I
 			t.janicart_insert(user, src)
 		else
-			to_chat(user,  fail_msg)
+			to_chat(user, fail_msg)
 	else if(istype(I, /obj/item/reagent_containers/spray/cleaner))
 		if(!myspray)
 			put_in_cart(I, user)

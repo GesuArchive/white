@@ -226,7 +226,7 @@
 	if(user.a_intent == INTENT_HARM)
 		return
 	if(generator)
-		to_chat(user, "<span class='warning'>Нужно отключить генератор сначала!</span>")
+		to_chat(user, "<span class='warning'>Сначала нужно отключить генератор!</span>")
 		return TRUE
 
 	panel_open = !panel_open

@@ -44,7 +44,7 @@
 					return
 			///if the hat manages to knock something off
 			if(H.dropItemToGround(WH))
-				H.visible_message("<span class='warning'>[capitalize(src.name)] сбита с  [WH] [H] головы!</span>", "<span class='warning'>[WH] была внезапно сбита с моей головы [src]!</span>")
+				H.visible_message("<span class='warning'>[capitalize(src.name)] сбита с [WH] [H] головы!</span>", "<span class='warning'>[WH] была внезапно сбита с моей головы [src]!</span>")
 		if(H.equip_to_slot_if_possible(src, ITEM_SLOT_HEAD, 0, 1, 1))
 			H.visible_message("<span class='notice'>[capitalize(src.name)] приземляется аккурат на [H]!</span>", "<span class='notice'>[capitalize(src.name)] приземляется прямо на мою голову!</span>")
 		return

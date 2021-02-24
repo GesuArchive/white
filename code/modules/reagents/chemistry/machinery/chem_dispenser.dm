@@ -12,8 +12,8 @@
 			return ckey(id)
 
 /obj/machinery/chem_dispenser
-	name = "chem dispenser"
-	desc = "Creates and dispenses chemicals."
+	name = "раздатчик химикатов"
+	desc = "Создает и выдает химикаты."
 	density = TRUE
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "dispenser"
@@ -105,11 +105,11 @@
 /obj/machinery/chem_dispenser/examine(mob/user)
 	. = ..()
 	if(panel_open)
-		. += "<hr><span class='notice'>[capitalize(src.name)] maintenance hatch is open!</span>"
+		. += "<hr><span class='notice'>Служебный люк [capitalize(src.name)] открыт!</span>"
 	if(in_range(user, src) || isobserver(user))
 		. += "<hr><span class='notice'>Дисплей:\n\
-		Recharging <b>[recharge_amount]</b> power units per interval.\n\
-		Power efficiency increased by <b>[round((powerefficiency*1000)-100, 1)]%</b>.</span>"
+		Зарядка <b>[recharge_amount]</b> силовых единиц за интервал.\n\
+		Энергоэффективность повышена на <b>[round((powerefficiency*1000)-100, 1)]%</b>.</span>"
 
 
 /obj/machinery/chem_dispenser/on_set_is_operational(old_value)
@@ -153,9 +153,9 @@
 
 /obj/machinery/chem_dispenser/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] has no functional safeties to emag.</span>")
+		to_chat(user, "<span class='warning'>У [capitalize(src.name)] отсутствуют функциональные предохранители, которые можно взломать.</span>")
 		return
-	to_chat(user, "<span class='notice'>You short out [src] safeties.</span>")
+	to_chat(user, "<span class='notice'>Я закоротил предохранители [src].</span>")
 	dispensable_reagents |= emagged_reagents//add the emagged reagents to the dispensable ones
 	obj_flags |= EMAGGED
 
@@ -332,8 +332,8 @@
 				for(var/reagent in recording_recipe)
 					var/reagent_id = GLOB.name2reagent[translate_legacy_chem_id(reagent)]
 					if(!dispensable_reagents.Find(reagent_id))
-						visible_message("<span class='warning'>[capitalize(src.name)] buzzes.</span>", "<span class='hear'>You hear a faint buzz.</span>")
-						to_chat(usr, "<span class ='danger'>[capitalize(src.name)] cannot find <b>[reagent]</b>!</span>")
+						visible_message("<span class='warning'>[capitalize(src.name)] гудит.</span>", "<span class='hear'>Слышу слабое гудение.</span>")
+						to_chat(usr, "<span class ='danger'>[capitalize(src.name)] не может найти <b>[reagent]</b>!</span>")
 						playsound(src, 'sound/machines/buzz-two.ogg', 50, TRUE)
 						return
 				saved_recipes[name] = recording_recipe
@@ -362,10 +362,10 @@
 		if(!user.transferItemToLoc(B, src))
 			return
 		replace_beaker(user, B)
-		to_chat(user, "<span class='notice'>You add [B] to [src].</span>")
+		to_chat(user, "<span class='notice'>Добавил [B] в [src].</span>")
 		updateUsrDialog()
 	else if(user.a_intent != INTENT_HARM && !istype(I, /obj/item/card/emag))
-		to_chat(user, "<span class='warning'>You can't load [I] into [src]!</span>")
+		to_chat(user, "<span class='warning'>Не могу загрузить [I] в [src]!</span>")
 		return ..()
 	else
 		return ..()
@@ -391,7 +391,7 @@
 	cell.use(total/powerefficiency)
 	cell.emp_act(severity)
 	work_animation()
-	visible_message("<span class='danger'>[capitalize(src.name)] malfunctions, spraying chemicals everywhere!</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] неисправен и забрызгивает всё химикатами!</span>")
 
 /obj/machinery/chem_dispenser/RefreshParts()
 	recharge_amount = initial(recharge_amount)
@@ -459,8 +459,8 @@
 	return b_o
 
 /obj/machinery/chem_dispenser/drinks
-	name = "soda dispenser"
-	desc = "Contains a large reservoir of soft drinks."
+	name = "раздатчик газировки"
+	desc = "Содержит большой резервуар с безалкогольными напитками."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "soda_dispenser"
 	has_panel_overlay = FALSE
@@ -506,7 +506,7 @@
 	)
 
 /obj/machinery/chem_dispenser/drinks/fullupgrade //fully ugpraded stock parts, emagged
-	desc = "Contains a large reservoir of soft drinks. This model has had its safeties shorted out."
+	desc = "Содержит большой резервуар с безалкогольными напитками. Предохранители данного аппарата закорочены."
 	obj_flags = CAN_BE_HIT | EMAGGED
 	flags_1 = NODECONSTRUCT_1
 
@@ -531,8 +531,8 @@
 	RefreshParts()
 
 /obj/machinery/chem_dispenser/drinks/beer
-	name = "booze dispenser"
-	desc = "Contains a large reservoir of the good stuff."
+	name = "раздатчик бухлишка"
+	desc = "Содержит большой резервуар ништяков."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "booze_dispenser"
 	circuit = /obj/item/circuitboard/machine/chem_dispenser/drinks/beer
@@ -567,7 +567,7 @@
 	)
 
 /obj/machinery/chem_dispenser/drinks/beer/fullupgrade //fully ugpraded stock parts, emagged
-	desc = "Contains a large reservoir of the good stuff. This model has had its safeties shorted out."
+	desc = "Содержит большой резервуар с ништяками. Предохранители данного аппарата закорочены."
 	obj_flags = CAN_BE_HIT | EMAGGED
 	flags_1 = NODECONSTRUCT_1
 
@@ -592,16 +592,16 @@
 	RefreshParts()
 
 /obj/machinery/chem_dispenser/mutagen
-	name = "mutagen dispenser"
-	desc = "Creates and dispenses mutagen."
+	name = "раздатчик мутагенов"
+	desc = "Производит и раздает мутагены."
 	dispensable_reagents = list(/datum/reagent/toxin/mutagen)
 	upgrade_reagents = null
 	emagged_reagents = list(/datum/reagent/toxin/plasma)
 
 
 /obj/machinery/chem_dispenser/mutagensaltpeter
-	name = "botanical chemical dispenser"
-	desc = "Creates and dispenses chemicals useful for botany."
+	name = "раздатчик ботанических химикатов"
+	desc = "Производит и раздает химикаты, используемые в ботанике."
 	flags_1 = NODECONSTRUCT_1
 
 	dispensable_reagents = list(
@@ -640,7 +640,7 @@
 	RefreshParts()
 
 /obj/machinery/chem_dispenser/fullupgrade //fully ugpraded stock parts, emagged
-	desc = "Creates and dispenses chemicals. This model has had its safeties shorted out."
+	desc = "Производит и раздает химикаты. Предохранители данного аппарата закорочены."
 	obj_flags = CAN_BE_HIT | EMAGGED
 	flags_1 = NODECONSTRUCT_1
 
@@ -665,8 +665,8 @@
 	RefreshParts()
 
 /obj/machinery/chem_dispenser/abductor
-	name = "reagent synthesizer"
-	desc = "Synthesizes a variety of reagents using proto-matter."
+	name = "синтезатор реагентов"
+	desc = "Синтезирует разнообразные реагенты используя протоматерию."
 	icon = 'icons/obj/abductor.dmi'
 	icon_state = "chem_dispenser"
 	has_panel_overlay = FALSE

@@ -220,12 +220,12 @@
 
 /obj/item/firing_pin/paywall/attack_self(mob/user)
 	multi_payment = !multi_payment
-	to_chat(user, "<span class='notice'>You set the pin to [( multi_payment ) ? "process payment for every shot" : "one-time license payment"].</span>")
+	to_chat(user, "<span class='notice'>Установил ударник на [( multi_payment ) ? "обрабатывать платеж за каждый выстрел" : "единоразовый платеж по лицензии"].</span>")
 
 /obj/item/firing_pin/paywall/examine(mob/user)
 	. = ..()
 	if(pin_owner)
-		. += "<hr><span class='notice'>This firing pin is currently authorized to pay into the account of [pin_owner.registered_name].</span>"
+		. += "<hr><span class='notice'>Данный ударник в данный момент авторизован для приема платежей на счет [pin_owner.registered_name].</span>"
 
 /obj/item/firing_pin/paywall/gun_insert(mob/living/user, obj/item/gun/G)
 	if(!pin_owner)
@@ -311,7 +311,7 @@
 	name = "малонаселенный ударник"
 	desc = "Ударник, используемый австралийскими силами, переоборудован, чтобы предотвратить сброс оружия на станцию"
 	icon_state = "firing_pin_explorer"
-	fail_message = "<span class='warning'>CANNOT FIRE WHILE ON STATION, MATE!</span>"
+	fail_message = "<span class='warning'>НЕ СТРЕЛЯЕТ НА СТАНЦИИ, ДРУЖОК!</span>"
 
 // This checks that the user isn't on the station Z-level.
 /obj/item/firing_pin/explorer/pin_auth(mob/living/user)

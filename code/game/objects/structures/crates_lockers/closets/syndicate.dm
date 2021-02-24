@@ -1,10 +1,10 @@
 /obj/structure/closet/syndicate
-	name = "armory closet"
-	desc = "Why is this here?"
+	name = "оружейный шкаф"
+	desc = "Почему это здесь?"
 	icon_state = "syndicate"
 
 /obj/structure/closet/syndicate/personal
-	desc = "It's a personal storage unit for operative gear."
+	desc = "Это личное хранилище для оперативного оборудования."
 
 /obj/structure/closet/syndicate/personal/PopulateContents()
 	..()
@@ -20,7 +20,7 @@
 	new /obj/item/pickaxe/drill/diamonddrill(src)
 
 /obj/structure/closet/syndicate/nuclear
-	desc = "It's a storage unit for a Syndicate boarding party."
+	desc = "Это хранилище для абордажной группы Синдиката."
 
 /obj/structure/closet/syndicate/nuclear/PopulateContents()
 	for(var/i in 1 to 5)
@@ -31,7 +31,7 @@
 	new /obj/item/pda/syndicate(src)
 
 /obj/structure/closet/syndicate/resources
-	desc = "An old, dusty locker."
+	desc = "Старый, пыльный шкафчик."
 
 /obj/structure/closet/syndicate/resources/PopulateContents()
 	..()
@@ -94,7 +94,7 @@
 		new /obj/item/tank/jetpack/carbondioxide(src)
 
 /obj/structure/closet/syndicate/resources/everything
-	desc = "It's an emergency storage closet for repairs."
+	desc = "Это аварийное хранилище для ремонта."
 
 /obj/structure/closet/syndicate/resources/everything/PopulateContents()
 	var/list/resources = list(

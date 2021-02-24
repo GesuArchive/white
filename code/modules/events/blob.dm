@@ -1,5 +1,5 @@
 /datum/round_event_control/blob
-	name = "Blob"
+	name = "Блоб."
 	typepath = /datum/round_event/ghost_role/blob
 	weight = 10
 	max_occurrences = 1

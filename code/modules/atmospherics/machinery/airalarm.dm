@@ -180,7 +180,7 @@
 
 /obj/machinery/airalarm/all_access
 	name = "вседоступный контроллер воздуха"
-	desc = "Похоже этот контроллер доступен для интеракции любому."
+	desc = "Похоже этот контроллер может использовать любой."
 	locked = FALSE
 	req_access = null
 	req_one_access = null
@@ -855,7 +855,7 @@
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
-	visible_message("<span class='warning'>Искры вылетают из [src]!</span>", "<span class='notice'>Емагаю [src], вырубая его протоколы безопасности.</span>")
+	visible_message("<span class='warning'>Искры вылетают из [src]!</span>", "<span class='notice'>Взламываю [src], вырубая его протоколы безопасности.</span>")
 	playsound(src, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 /obj/machinery/airalarm/deconstruct(disassembled = TRUE)

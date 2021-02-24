@@ -26,7 +26,7 @@
 	icon_state = "away3"
 
 /area/awaymission/wildwest/vaultdoors
-	name = "Wild West Vault Doors"  // this is to keep the vault area being entirely lit because of requires_power
+	name = "Wild West Vault Doors" // this is to keep the vault area being entirely lit because of requires_power
 	icon_state = "away2"
 	requires_power = FALSE
 

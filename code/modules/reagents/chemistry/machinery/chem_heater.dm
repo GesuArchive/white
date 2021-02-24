@@ -92,7 +92,7 @@
 /obj/machinery/chem_heater/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += "<hr><span class='notice'>Дисплей: Heating reagents at <b>[heater_coefficient*1000]%</b> speed.</span>"
+		. += "<hr><span class='notice'>Дисплей: Скорость нагревательных реагентов на <b>[heater_coefficient*1000]%</b>.</span>"
 
 /obj/machinery/chem_heater/process(delta_time)
 	..()
@@ -163,7 +163,7 @@
 		if(!user.transferItemToLoc(B, src))
 			return
 		replace_beaker(user, B)
-		to_chat(user, "<span class='notice'>You add [B] to [src].</span>")
+		to_chat(user, "<span class='notice'>Добавил [B] к [src].</span>")
 		updateUsrDialog()
 		update_icon()
 		return

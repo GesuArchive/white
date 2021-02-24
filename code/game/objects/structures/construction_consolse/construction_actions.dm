@@ -1,5 +1,5 @@
 /datum/action/innate/camera_off/base_construction
-	name = "Log out"
+	name = "Выйти из системы"
 
 ///Generic construction action for base [construction consoles][/obj/machinery/computer/camera_advanced/base_construction]. 
 /datum/action/innate/construction
@@ -32,15 +32,15 @@
 	if (!area_constraint)
 		return TRUE
 	if(!istype(build_area, area_constraint))
-		to_chat(owner, "<span class='warning'>You can only build within [area_constraint]!</span>")
+		to_chat(owner, "<span class='warning'>Вы можете строить только внутри [area_constraint]!</span>")
 		return FALSE
 	if(only_station_z && !is_station_level(build_target.z))
-		to_chat(owner, "<span class='warning'>[area_constraint] has launched and can no longer be modified.</span>")
+		to_chat(owner, "<span class='warning'>[area_constraint] запущен и больше не может быть изменен.</span>")
 		return FALSE
 	return TRUE
 
 /datum/action/innate/construction/build
-	name = "Build"
+	name = "Строить"
 	button_icon_state = "build"
 
 /datum/action/innate/construction/build/Activate()
@@ -60,7 +60,7 @@
 	playsound(target_turf, 'sound/items/deconstruct.ogg', 60, TRUE)
 
 /datum/action/innate/construction/switch_mode
-	name = "Switch Mode"
+	name = "Переключить режим"
 	button_icon_state = "builder_mode"
 
 /datum/action/innate/construction/switch_mode/Activate()
@@ -70,10 +70,10 @@
 	var/buildmode = input("Set construction mode.", "Base Console", null) in buildlist
 	check_rcd()
 	base_console.internal_rcd.mode = buildlist[buildmode]
-	to_chat(owner, "Build mode is now [buildmode].")
+	to_chat(owner, "Сейчас выбран режим строительства [buildmode].")
 
 /datum/action/innate/construction/airlock_type
-	name = "Select Airlock Type"
+	name = "Выберите тип шлюза"
 	button_icon_state = "airlock_select"
 
 /datum/action/innate/construction/airlock_type/Activate()
@@ -83,7 +83,7 @@
 	base_console.internal_rcd.change_airlock_setting()
 
 /datum/action/innate/construction/window_type
-	name = "Select Window Glass"
+	name = "Выбрать оконное стекло"
 	button_icon_state = "window_select"
 
 /datum/action/innate/construction/window_type/Activate()
@@ -94,7 +94,7 @@
 
 ///Generic action used with base construction consoles to build anything that can't be built with an RCD
 /datum/action/innate/construction/place_structure
-	name = "Place Generic Structure"
+	name = "Разместить Общую Структуру"
 	var/obj/structure_path
 	var/structure_name
 	var/place_sound
@@ -104,17 +104,17 @@
 		return
 	var/turf/place_turf = get_turf(remote_eye)
 	if(!base_console.structures[structure_name])
-		to_chat(owner, "<span class='warning'>[base_console] is out of [structure_name]!</span>")
+		to_chat(owner, "<span class='warning'>[base_console] вне [structure_name]!</span>")
 		return
 	if(!check_spot())
 		return
 	//Can't place inside a closed turf
 	if(place_turf.density)
-		to_chat(owner, "<span class='warning'>[structure_name] may only be placed on a floor.</span>")
+		to_chat(owner, "<span class='warning'>[structure_name] может быть размещено только на полу.</span>")
 		return
 	//Can't place two dense objects inside eachother
 	if(initial(structure_path.density) && place_turf.is_blocked_turf())
-		to_chat(owner, "<span class='warning'>Location is obstructed by something. Please clear the location and try again.</span>")
+		to_chat(owner, "<span class='warning'>Что-то мешает разместить постройку. Очистите зону строительства и повторите попытку.</span>")
 		return
 	var/obj/placed_structure = new structure_path(place_turf)
 	base_console.structures[structure_name]--
@@ -127,17 +127,17 @@
 	return
 
 /datum/action/innate/construction/place_structure/fan
-	name = "Place Tiny Fan"
+	name = "Разместить Крошечный Вентилятор"
 	button_icon_state = "build_fan"
 	structure_name = "fans"
 	structure_path = /obj/structure/fans/tiny
 	place_sound =  'sound/machines/click.ogg'
 
 /datum/action/innate/construction/place_structure/turret/after_place(obj/placed_structure, remaining)
-	to_chat(owner, "<span class='notice'>Tiny fan placed. [remaining] fans remaining.</span>")
+	to_chat(owner, "<span class='notice'>Крошечный вентилятор размещён. [remaining] вентиляторов осталось.</span>")
 
 /datum/action/innate/construction/place_structure/turret
-	name = "Install Plasma Anti-Wildlife Turret"
+	name = "Разместить Плазменную Турель для борьбы с фауной"
 	button_icon_state = "build_turret"
 	structure_name = "turrets"
 	structure_path = /obj/machinery/porta_turret/aux_base
@@ -146,7 +146,7 @@
 /datum/action/innate/construction/place_structure/turret/after_place(obj/placed_structure, remaining)
 	var/obj/machinery/computer/auxiliary_base/turret_controller = locate() in get_area(placed_structure)
 	if(!turret_controller)
-		to_chat(owner, "<span class='notice'><b>Warning:</b> Aux base controller not found. Turrets might not work properly.</span>")
+		to_chat(owner, "<span class='notice'><b>Warning:</b> Вспомогательный базовый контроллер не обнаружен. Турели могут работать некорректно.</span>")
 		return
 	turret_controller.turrets += placed_structure
-	to_chat(owner, "<span class='notice'>You've constructed an additional turret. [remaining] turrets remaining.</span>")
+	to_chat(owner, "<span class='notice'>Вы построили дополнительную турель. [remaining] турелей осталось.</span>")

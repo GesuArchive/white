@@ -5,7 +5,7 @@
 /datum/chemical_reaction/medicine/helbital
 	results = list(/datum/reagent/medicine/c2/helbital = 3)
 	required_reagents = list(/datum/reagent/consumable/sugar = 1, /datum/reagent/fluorine = 1, /datum/reagent/carbon = 1)
-	mix_message = "The mixture turns into a thick, yellow powder."
+	mix_message = "Смесь превращается в густой желтый порошок."
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_HEALING | REACTION_TAG_BRUTE
 
 /datum/chemical_reaction/medicine/libital
@@ -46,7 +46,7 @@
 	results = list(/datum/reagent/medicine/c2/convermol = 3)
 	required_reagents = list(/datum/reagent/hydrogen = 1, /datum/reagent/fluorine = 1, /datum/reagent/fuel/oil = 1)
 	required_temp = 370
-	mix_message = "The mixture rapidly turns into a dense pink liquid."
+	mix_message = "Смесь быстро превращается в густо-розовую жидкость."
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_HEALING | REACTION_TAG_OXY
 
 /datum/chemical_reaction/medicine/tirimol
@@ -65,7 +65,7 @@
 /datum/chemical_reaction/medicine/multiver
 	results = list(/datum/reagent/medicine/c2/multiver = 2)
 	required_reagents = list(/datum/reagent/ash = 1, /datum/reagent/consumable/salt = 1)
-	mix_message = "The mixture yields a fine black powder."
+	mix_message = "Смесь превращается в мелкий черный порошок."
 	required_temp = 380
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_HEALING | REACTION_TAG_PLANT | REACTION_TAG_TOXIN
 

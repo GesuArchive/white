@@ -532,7 +532,7 @@
 		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, src, /datum/mood_event/sapped)
 
 /obj/projectile/magic/necropotence
-	name = "bolt of necropotence"
+	name = "заряд некротической силы"
 	icon_state = "necropotence"
 
 /obj/projectile/magic/necropotence/on_hit(target)
@@ -601,8 +601,8 @@
 		qdel(trauma)
 
 /obj/projectile/magic/aoe
-	name = "Area Bolt"
-	desc = "What the fuck does this do?!"
+	name = "Заряд Области"
+	desc = "Ну и что он, блять, делает?!"
 	damage = 0
 	var/proxdet = TRUE
 
@@ -692,4 +692,4 @@
 	flag = MAGIC
 
 /obj/projectile/magic/nothing
-	name = "bolt of nothing"
+	name = "заряд пустоты"

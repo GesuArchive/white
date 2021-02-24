@@ -1,5 +1,5 @@
 /datum/species/fly
-	name = "Flyperson"
+	name = "человеческая муха"
 	id = "fly"
 	say_mod = "жужжит"
 	species_traits = list(NOEYESPRITES,HAS_FLESH,HAS_BONE)
@@ -36,7 +36,7 @@
 	return 1
 
 /obj/item/organ/heart/fly
-	desc = "You have no idea what the hell this is, or how it manages to keep something alive in any capacity."
+	desc = "Неизвестно, что это такое, или как оно умудряется поддерживать что-то живым в любом виде."
 
 /obj/item/organ/heart/fly/Initialize()
 	. = ..()
@@ -47,7 +47,7 @@
 	return //don't set icon thank you
 
 /obj/item/organ/lungs/fly
-	desc = "You have no idea what the hell this is, or how it manages to keep something alive in any capacity."
+	desc = "Неизвестно, что это такое, или как оно умудряется поддерживать что-то живым в любом виде."
 
 /obj/item/organ/lungs/fly/Initialize()
 	. = ..()
@@ -55,7 +55,7 @@
 	icon_state = pick("brain-x-d", "liver-x", "kidneys-x", "stomach-x", "lungs-x", "random_fly_1", "random_fly_2", "random_fly_3", "random_fly_4", "random_fly_5")
 
 /obj/item/organ/liver/fly
-	desc = "You have no idea what the hell this is, or how it manages to keep something alive in any capacity."
+	desc = "Неизвестно, что это такое, или как оно умудряется поддерживать что-то живым в любом виде."
 	alcohol_tolerance = 0.007 //flies eat vomit, so a lower alcohol tolerance is perfect!
 
 /obj/item/organ/liver/fly/Initialize()
@@ -64,7 +64,7 @@
 	icon_state = pick("brain-x-d", "liver-x", "kidneys-x", "stomach-x", "lungs-x", "random_fly_1", "random_fly_2", "random_fly_3", "random_fly_4", "random_fly_5")
 
 /obj/item/organ/stomach/fly
-	desc = "You have no idea what the hell this is, or how it manages to keep something alive in any capacity."
+	desc = "Неизвестно, что это такое, или как оно умудряется поддерживать что-то живым в любом виде."
 
 /obj/item/organ/stomach/fly/Initialize()
 	. = ..()
@@ -77,12 +77,12 @@
 		// we do not loss any nutrition as a fly when vomiting out food
 		body.vomit(0, FALSE, FALSE, 2, TRUE, force=TRUE, purge_ratio = 0.67)
 		playsound(get_turf(owner), 'sound/effects/splat.ogg', 50, TRUE)
-		body.visible_message("<span class='danger'>[body] vomits on the floor!</span>", \
-					"<span class='userdanger'>You throw up on the floor!</span>")
+		body.visible_message("<span class='danger'>[body] блюёт на пол!</span>", \
+					"<span class='userdanger'>блюю на пол!</span>")
 	return ..()
 
 /obj/item/organ/appendix/fly
-	desc = "You have no idea what the hell this is, or how it manages to keep something alive in any capacity."
+	desc = "Неизвестно, что это такое, или как оно умудряется поддерживать что-то живым в любом виде."
 
 /obj/item/organ/appendix/fly/Initialize()
 	. = ..()
@@ -94,7 +94,7 @@
 
 //useless organs we throw in just to fuck with surgeons a bit more
 /obj/item/organ/fly
-	desc = "You have no idea what the hell this is, or how it manages to keep something alive in any capacity."
+	desc = "Неизвестно, что это такое, или как оно умудряется поддерживать что-то живым в любом виде."
 
 /obj/item/organ/fly/Initialize()
 	. = ..()

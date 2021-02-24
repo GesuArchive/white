@@ -8,24 +8,24 @@
 	item_flags = NEEDS_PERMIT | NO_MAT_REDEMPTION
 
 /obj/item/gun/magic/staff/change
-	name = "staff of change"
-	desc = "An artefact that spits bolts of coruscating energy which cause the target's very form to reshape itself."
+	name = "посох перемен"
+	desc = "Артефакт испускающий лучи сверкающей энергии, заставляющей форму цели менять саму себя."
 	fire_sound = 'sound/magic/staff_change.ogg'
 	ammo_type = /obj/item/ammo_casing/magic/change
 	icon_state = "staffofchange"
 	inhand_icon_state = "staffofchange"
 
 /obj/item/gun/magic/staff/animate
-	name = "staff of animation"
-	desc = "An artefact that spits bolts of life-force which causes objects which are hit by it to animate and come to life! This magic doesn't affect machines."
+	name = "посох анимации"
+	desc = "Артефакт испускающий лучи жизненной силы, которая анимирует и оживляет коснувшиеся её объекты! Эта магия не действует на механизмы."
 	fire_sound = 'sound/magic/staff_animation.ogg'
 	ammo_type = /obj/item/ammo_casing/magic/animate
 	icon_state = "staffofanimation"
 	inhand_icon_state = "staffofanimation"
 
 /obj/item/gun/magic/staff/healing
-	name = "staff of healing"
-	desc = "An artefact that spits bolts of restoring magic which can remove ailments of all kinds and even raise the dead."
+	name = "посох исцеления"
+	desc = "Артефакт испускающий лучи восстанавливающей магии, способной исцелять все известные недуги и даже воскрешать мертвых."
 	fire_sound = 'sound/magic/staff_healing.ogg'
 	ammo_type = /obj/item/ammo_casing/magic/heal
 	icon_state = "staffofhealing"
@@ -35,8 +35,8 @@
 	return
 
 /obj/item/gun/magic/staff/chaos
-	name = "staff of chaos"
-	desc = "An artefact that spits bolts of chaotic magic that can potentially do anything."
+	name = "посох хаоса"
+	desc = "Артефакт испускающий лучи хаотичной магии которая может привести к любым возможным последствиям."
 	fire_sound = 'sound/magic/staff_chaos.ogg'
 	ammo_type = /obj/item/ammo_casing/magic/chaos
 	icon_state = "staffofchaos"
@@ -55,8 +55,8 @@
 	. = ..()
 
 /obj/item/gun/magic/staff/door
-	name = "staff of door creation"
-	desc = "An artefact that spits bolts of transformative magic that can create doors in walls."
+	name = "посох создания дверей"
+	desc = "Артефакт испускающий лучи трансформирующей магии, способной создавать двери в стенах."
 	fire_sound = 'sound/magic/staff_door.ogg'
 	ammo_type = /obj/item/ammo_casing/magic/door
 	icon_state = "staffofdoor"
@@ -66,8 +66,8 @@
 	no_den_usage = 1
 
 /obj/item/gun/magic/staff/honk
-	name = "staff of the honkmother"
-	desc = "Honk."
+	name = "посох хонкоматери"
+	desc = "Хонк."
 	fire_sound = 'sound/items/airhorn.ogg'
 	ammo_type = /obj/item/ammo_casing/magic/honk
 	icon_state = "honker"
@@ -76,8 +76,8 @@
 	recharge_rate = 8
 
 /obj/item/gun/magic/staff/spellblade
-	name = "spellblade"
-	desc = "A deadly combination of laziness and boodlust, this blade allows the user to dismember their enemies without all the hard work of actually swinging the sword."
+	name = "зачарованный клинок"
+	desc = "Смертельная комбинация лени и жажды крови, этот клинок позволяет рубить врагов без трудной части с маханием мечом."
 	fire_sound = 'sound/magic/fireball.ogg'
 	ammo_type = /obj/item/ammo_casing/magic/spellblade
 	icon_state = "spellblade"
@@ -101,8 +101,8 @@
 	return ..()
 
 /obj/item/gun/magic/staff/locker
-	name = "staff of the locker"
-	desc = "An artefact that expells encapsulating bolts, for incapacitating thy enemy."
+	name = "посох блокировки"
+	desc = "Артефакт испускающий лучи изолирующей магии, обезвреживающей ваших врагов."
 	fire_sound = 'sound/magic/staff_change.ogg'
 	ammo_type = /obj/item/ammo_casing/magic/locker
 	icon_state = "locker"
@@ -114,8 +114,8 @@
 //yes, they don't have sounds. they're admin staves, and their projectiles will play the chaos bolt sound anyway so why bother?
 
 /obj/item/gun/magic/staff/flying
-	name = "staff of flying"
-	desc = "An artefact that spits bolts of graceful magic that can make something fly."
+	name = "посох полета"
+	desc = "Артефакт испускающий лучи грациозной магии, способной позволить чему-то летать."
 	fire_sound = 'sound/magic/staff_healing.ogg'
 	ammo_type = /obj/item/ammo_casing/magic/flying
 	icon_state = "staffofflight"
@@ -123,8 +123,8 @@
 	worn_icon_state = "flightstaff"
 
 /obj/item/gun/magic/staff/sapping
-	name = "staff of sapping"
-	desc = "An artefact that spits bolts of sapping magic that can make something sad."
+	name = "посох иссушения"
+	desc = "Артефакт испускающий лучи иссушающей магии, способной сделать что-то грустное."
 	fire_sound = 'sound/magic/staff_change.ogg'
 	ammo_type = /obj/item/ammo_casing/magic/sapping
 	icon_state = "staffofsapping"
@@ -132,8 +132,8 @@
 	worn_icon_state = "sapstaff"
 
 /obj/item/gun/magic/staff/necropotence
-	name = "staff of necropotence"
-	desc = "An artefact that spits bolts of death magic that can repurpose the soul."
+	name = "посох некросилы"
+	desc = "Артефакт испускающий лучи смертельной магии, способной переиначить душу."
 	fire_sound = 'sound/magic/staff_change.ogg'
 	ammo_type = /obj/item/ammo_casing/magic/necropotence
 	icon_state = "staffofnecropotence"
@@ -141,8 +141,8 @@
 	worn_icon_state = "necrostaff"
 
 /obj/item/gun/magic/staff/wipe
-	name = "staff of possession"
-	desc = "An artefact that spits bolts of mind-unlocking magic that can let ghosts invade the victim's mind."
+	name = "посох владения"
+	desc = "Артефакт, испускающий лучи магии, способной создать брешь в разуме жертвы, позволяя призракам вселиться в её разум."
 	fire_sound = 'sound/magic/staff_change.ogg'
 	ammo_type = /obj/item/ammo_casing/magic/wipe
 	icon_state = "staffofwipe"

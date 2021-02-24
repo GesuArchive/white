@@ -44,7 +44,7 @@
 	if(ghost_role == "Нет" || !loc || QDELETED(user))
 		return
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_SPAWNER) && !(flags_1 & ADMIN_SPAWNED_1))
-		to_chat(user, "<span class='warning'>An admin has temporarily disabled non-admin ghost roles!</span>")
+		to_chat(user, "<span class='warning'>Администраторы временно отключили гост-роли</span>")
 		return
 	if(!uses)
 		to_chat(user, "<span class='warning'>Заряды кончились!</span>")
@@ -301,7 +301,7 @@
 ///////////Civilians//////////////////////
 
 /obj/effect/mob_spawn/human/corpse/assistant
-	name = "Assistant"
+	name = "Ассистент"
 	outfit = /datum/outfit/job/assistant
 	icon_state = "corpsegreytider"
 
@@ -315,22 +315,22 @@
 	disease = /datum/disease/fluspanish
 
 /obj/effect/mob_spawn/human/corpse/cargo_tech
-	name = "Cargo Tech"
+	name = "Карготех"
 	outfit = /datum/outfit/job/cargo_tech
 	icon_state = "corpsecargotech"
 
 /obj/effect/mob_spawn/human/cook
-	name = "Cook"
+	name = "Повар"
 	outfit = /datum/outfit/job/cook
 	icon_state = "corpsecook"
 
 /obj/effect/mob_spawn/human/doctor
-	name = "Doctor"
+	name = "Врач"
 	outfit = /datum/outfit/job/doctor
 	icon_state = "corpsedoctor"
 
 /obj/effect/mob_spawn/human/engineer
-	name = "Engineer"
+	name = "Инженер"
 	outfit = /datum/outfit/job/engineer/gloved
 	icon_state = "corpseengineer"
 
@@ -338,17 +338,17 @@
 	outfit = /datum/outfit/job/engineer/gloved/rig
 
 /obj/effect/mob_spawn/human/clown
-	name = "Clown"
+	name = "Клоун"
 	outfit = /datum/outfit/job/clown
 	icon_state = "corpseclown"
 
 /obj/effect/mob_spawn/human/scientist
-	name = "Scientist"
+	name = "Ученый"
 	outfit = /datum/outfit/job/scientist
 	icon_state = "corpsescientist"
 
 /obj/effect/mob_spawn/human/miner
-	name = "Shaft Miner"
+	name = "Шахтер"
 	outfit = /datum/outfit/job/miner
 	icon_state = "corpseminer"
 
@@ -363,7 +363,7 @@
 	outfit = /datum/outfit/plasmaman
 
 /obj/effect/mob_spawn/human/bartender
-	name = "Space Bartender"
+	name = "Космобармен"
 	id_job = "Bartender"
 	id_access_list = list(ACCESS_BAR)
 	outfit = /datum/outfit/spacebartender
@@ -374,13 +374,13 @@
 /////////////////Officers+Nanotrasen Security//////////////////////
 
 /obj/effect/mob_spawn/human/bridgeofficer
-	name = "Bridge Officer"
+	name = "Офицер мостика"
 	id_job = "Bridge Officer"
 	id_access_list = list(ACCESS_CENT_CAPTAIN)
 	outfit = /datum/outfit/nanotrasenbridgeofficercorpse
 
 /datum/outfit/nanotrasenbridgeofficercorpse
-	name = "Bridge Officer Corpse"
+	name = "Труп офицера мостика"
 	ears = /obj/item/radio/headset/heads/hop
 	uniform = /obj/item/clothing/under/rank/centcom/officer
 	suit = /obj/item/clothing/suit/armor/bulletproof
@@ -389,13 +389,13 @@
 	id = /obj/item/card/id
 
 /obj/effect/mob_spawn/human/commander
-	name = "Commander"
+	name = "Командир"
 	id_job = "Commander"
 	id_access_list = list(ACCESS_CENT_CAPTAIN, ACCESS_CENT_GENERAL, ACCESS_CENT_SPECOPS, ACCESS_CENT_MEDICAL, ACCESS_CENT_STORAGE)
 	outfit = /datum/outfit/nanotrasencommandercorpse
 
 /datum/outfit/nanotrasencommandercorpse
-	name = "\improper Nanotrasen Private Security Commander"
+	name = "\improper Глава Внутренней Безопасности Нанотрейзен"
 	uniform = /obj/item/clothing/under/rank/centcom/commander
 	suit = /obj/item/clothing/suit/armor/bulletproof
 	ears = /obj/item/radio/headset/heads/captain
@@ -408,13 +408,13 @@
 	id = /obj/item/card/id
 
 /obj/effect/mob_spawn/human/nanotrasensoldier
-	name = "\improper Nanotrasen Private Security Officer"
+	name = "\improper Офицер Внутренней Безопасности Нанотрейзен"
 	id_job = "Private Security Force"
 	id_access_list = list(ACCESS_CENT_CAPTAIN, ACCESS_CENT_GENERAL, ACCESS_CENT_SPECOPS, ACCESS_CENT_MEDICAL, ACCESS_CENT_STORAGE, ACCESS_SECURITY, ACCESS_MECH_SECURITY)
 	outfit = /datum/outfit/nanotrasensoldiercorpse
 
 /datum/outfit/nanotrasensoldiercorpse
-	name = "NT Private Security Officer Corpse"
+	name = "Труп офицера безопасности НТ"
 	uniform = /obj/item/clothing/under/rank/security/officer
 	suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/combat
@@ -428,24 +428,24 @@
 //there are living variants of many of these, they're now in ghost_role_spawners.dm
 
 /obj/effect/mob_spawn/human/skeleton
-	name = "skeletal remains"
+	name = "Разложившиеся останки"
 	mob_name = "skeleton"
 	mob_species = /datum/species/skeleton
 	mob_gender = NEUTER
 
 /obj/effect/mob_spawn/human/zombie
-	name = "rotting corpse"
+	name = "Гниющий труп"
 	mob_name = "zombie"
 	mob_species = /datum/species/zombie
 	assignedrole = "Zombie"
 
 /obj/effect/mob_spawn/human/abductor
-	name = "abductor"
+	name = "Похититель"
 	mob_name = "alien"
 	mob_species = /datum/species/abductor
 	outfit = /datum/outfit/abductorcorpse
 
 /datum/outfit/abductorcorpse
-	name = "Abductor Corpse"
+	name = "Труп Похитителя"
 	uniform = /obj/item/clothing/under/color/grey
 	shoes = /obj/item/clothing/shoes/combat

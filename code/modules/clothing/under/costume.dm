@@ -50,7 +50,7 @@
 	inhand_icon_state = "schoolgirlgreen"
 
 /obj/item/clothing/under/costume/schoolgirl/orange
-	name = "оранжевый  костюм школьницы"
+	name = "оранжевый костюм школьницы"
 	icon_state = "schoolgirlorange"
 	inhand_icon_state = "schoolgirlorange"
 

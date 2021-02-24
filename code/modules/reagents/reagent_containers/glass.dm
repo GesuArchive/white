@@ -1,6 +1,6 @@
 
 /obj/item/reagent_containers/glass
-	name = "glass"
+	name = "стакан"
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5, 10, 15, 20, 25, 30, 50)
 	volume = 50
@@ -152,8 +152,8 @@
 	return ..()
 
 /obj/item/reagent_containers/glass/beaker
-	name = "beaker"
-	desc = "A beaker. It can hold up to 50 units."
+	name = "химический стакан"
+	desc = "Химический стакан, вместимостью до 50 единиц."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "beaker"
 	inhand_icon_state = "beaker"
@@ -169,14 +169,14 @@
 	return reagents.maximum_volume
 
 /obj/item/reagent_containers/glass/beaker/jar
-	name = "honey jar"
-	desc = "A jar for honey. It can hold up to 50 units of sweet delight."
+	name = "банка мёда"
+	desc = "Банка для мёда. Она может вместить до 50 единиц сахарного наслаждения."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "vapour"
 
 /obj/item/reagent_containers/glass/beaker/large
-	name = "large beaker"
-	desc = "A large beaker. Can hold up to 100 units."
+	name = "большой химический стакан"
+	desc = "Большой химический стакан, вместимостью до 100 единиц."
 	icon_state = "beakerlarge"
 	custom_materials = list(/datum/material/glass=2500)
 	volume = 100
@@ -184,8 +184,8 @@
 	possible_transfer_amounts = list(5,10,15,20,25,30,50,100)
 
 /obj/item/reagent_containers/glass/beaker/plastic
-	name = "x-large beaker"
-	desc = "An extra-large beaker. Can hold up to 120 units."
+	name = "огромный химический стакан"
+	desc = "Огромный химический стакан, вместимостью до 120 единиц."
 	icon_state = "beakerwhite"
 	fill_icon_state = "beakerlarge"
 	custom_materials = list(/datum/material/glass=2500, /datum/material/plastic=3000)
@@ -194,8 +194,8 @@
 	possible_transfer_amounts = list(5,10,15,20,25,30,60,120)
 
 /obj/item/reagent_containers/glass/beaker/meta
-	name = "metamaterial beaker"
-	desc = "A large beaker. Can hold up to 180 units."
+	name = "метаматериальный химический стакан"
+	desc = "Громадный химический стакан, вместимостью до 180 единиц."
 	icon_state = "beakergold"
 	custom_materials = list(/datum/material/glass=2500, /datum/material/plastic=3000, /datum/material/gold=1000, /datum/material/titanium=1000)
 	volume = 180
@@ -203,9 +203,9 @@
 	possible_transfer_amounts = list(5,10,15,20,25,30,60,120,180)
 
 /obj/item/reagent_containers/glass/beaker/noreact
-	name = "cryostasis beaker"
-	desc = "A cryostasis beaker that allows for chemical storage without \
-		reactions. Can hold up to 50 units."
+	name = "химический стакан криостазиса"
+	desc = "Химический стакан криостазиса, позволяющий хранить химикаты \
+		не начиная реакцию. Вместимость до 50 единиц."
 	icon_state = "beakernoreact"
 	custom_materials = list(/datum/material/iron=3000)
 	reagent_flags = OPENCONTAINER | NO_REACT
@@ -213,8 +213,8 @@
 	amount_per_transfer_from_this = 10
 
 /obj/item/reagent_containers/glass/beaker/bluespace
-	name = "bluespace beaker"
-	desc = "A bluespace beaker, powered by experimental bluespace technology \
+	name = "химический стакан блюспейс"
+	desc = "химический стакан разработанный с использованием экспериментальной блюспейс технологии \
 		and Element Cuban combined with the Compound Pete. Can hold up to \
 		300 units."
 	icon_state = "beakerbluespace"
@@ -253,8 +253,8 @@
 	list_reagents = list(/datum/reagent/medicine/c2/synthflesh = 50)
 
 /obj/item/reagent_containers/glass/bucket
-	name = "bucket"
-	desc = "It's a bucket."
+	name = "ведро"
+	desc = "Это ведро."
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "bucket"
 	inhand_icon_state = "bucket"
@@ -281,7 +281,7 @@
 	)
 
 /obj/item/reagent_containers/glass/bucket/wooden
-	name = "wooden bucket"
+	name = "деревянное ведро"
 	icon_state = "woodbucket"
 	inhand_icon_state = "woodbucket"
 	custom_materials = list(/datum/material/wood = MINERAL_MATERIAL_AMOUNT * 2)
@@ -291,13 +291,13 @@
 /obj/item/reagent_containers/glass/bucket/attackby(obj/O, mob/user, params)
 	if(istype(O, /obj/item/mop))
 		if(reagents.total_volume < 1)
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] is out of water!</span>")
+			to_chat(user, "<span class='warning'>Внутри [capitalize(src.name)] закончилась вода!</span>")
 		else
 			reagents.trans_to(O, 5, transfered_by = user)
-			to_chat(user, "<span class='notice'>You wet [O] in [src].</span>")
+			to_chat(user, "<span class='notice'>Намочил [O] в [src].</span>")
 			playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
 	else if(isprox(O)) //This works with wooden buckets for now. Somewhat unintended, but maybe someone will add sprites for it soon(TM)
-		to_chat(user, "<span class='notice'>You add [O] to [src].</span>")
+		to_chat(user, "<span class='notice'>Добавил [O] в [src].</span>")
 		qdel(O)
 		qdel(src)
 		user.put_in_hands(new /obj/item/bot_assembly/cleanbot)
@@ -308,7 +308,7 @@
 	..()
 	if (slot == ITEM_SLOT_HEAD)
 		if(reagents.total_volume)
-			to_chat(user, "<span class='userdanger'>[capitalize(src.name)] contents spill all over you!</span>")
+			to_chat(user, "<span class='userdanger'>Содержимое [capitalize(src.name)] разлилось на меня!</span>")
 			reagents.expose(user, TOUCH)
 			reagents.clear_reagents()
 		reagents.flags = NONE
@@ -327,15 +327,15 @@
 	return ..()
 
 /obj/item/pestle
-	name = "pestle"
-	desc = "An ancient, simple tool used in conjunction with a mortar to grind or juice items."
+	name = "пестик"
+	desc = "Древний простой инструмент, используемый со ступкой для измельчения, или давки предметов."
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "pestle"
 	force = 7
 
 /obj/item/reagent_containers/glass/mortar
-	name = "mortar"
+	name = "ступка"
 	desc = "A specially formed bowl of ancient design. It is possible to crush or juice items placed in it using a pestle; however the process, unlike modern methods, is slow and physically exhausting. Alt click to eject the item."
 	icon_state = "mortar"
 	amount_per_transfer_from_this = 10

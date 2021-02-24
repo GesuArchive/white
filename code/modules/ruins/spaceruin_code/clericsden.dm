@@ -16,9 +16,9 @@
 	info = "FATHER ODIVALLUS DO NOT GO FORWARD WITH THE RITUAL. THE ASTEROID WE'RE ANCHORED TO IS UNSTABLE, YOU WILL DESTROY THE STATION. I HOPE THIS REACHES YOU IN TIME. FATHER AURELLION."
 
 /mob/living/simple_animal/hostile/construct/proteon
-	name = "Proteon"
+	name = "Протеон"
 	real_name = "Proteon"
-	desc = "A weaker construct meant to scour ruins for objects of Nar'Sie's affection. Those barbed claws are no joke."
+	desc = "Слабый конструкт, созданный для прочесывания руин в поиске предметов, одарённых вниманием Нар'Си. С такими когтями шутки плохи."
 	icon_state = "proteon"
 	icon_living = "proteon"
 	maxHealth = 35

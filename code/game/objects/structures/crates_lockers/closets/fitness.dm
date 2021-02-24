@@ -1,6 +1,6 @@
 /obj/structure/closet/athletic_mixed
-	name = "athletic wardrobe"
-	desc = "It's a storage unit for athletic wear."
+	name = "спортивный гардероб"
+	desc = "Это хранилище для спортивной одежды."
 	icon_door = "mixed"
 
 /obj/structure/closet/athletic_mixed/PopulateContents()
@@ -15,8 +15,8 @@
 
 
 /obj/structure/closet/boxinggloves
-	name = "boxing gloves"
-	desc = "It's a storage unit for gloves for use in the boxing ring."
+	name = "боксерские перчатки"
+	desc = "Это хранилище для боксерских перчаток."
 
 /obj/structure/closet/boxinggloves/PopulateContents()
 	..()
@@ -27,8 +27,8 @@
 
 
 /obj/structure/closet/masks
-	name = "mask closet"
-	desc = "IT'S A STORAGE UNIT FOR FIGHTER MASKS OLE!"
+	name = "шкаф для масок"
+	desc = "ЭТО ЯЩИК ДЛЯ МАСОК БОЙЦОВ ОЛЕ!"
 
 /obj/structure/closet/masks/PopulateContents()
 	..()
@@ -38,8 +38,8 @@
 
 
 /obj/structure/closet/lasertag/red
-	name = "красный laser tag equipment"
-	desc = "It's a storage unit for laser tag equipment."
+	name = "красный комплект снаряжения для лазертага"
+	desc = "Это хранилище оборудования для лазертага."
 	icon_door = "red"
 
 /obj/structure/closet/lasertag/red/PopulateContents()
@@ -52,8 +52,8 @@
 
 
 /obj/structure/closet/lasertag/blue
-	name = "синий laser tag equipment"
-	desc = "It's a storage unit for laser tag equipment."
+	name = "синий комплект снаряжения для лазертага"
+	desc = "Это хранилище оборудования для лазертага."
 	icon_door = "blue"
 
 /obj/structure/closet/lasertag/blue/PopulateContents()

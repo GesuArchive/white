@@ -10,8 +10,8 @@ Passive gate is similar to the regular pump except:
 /obj/machinery/atmospherics/components/binary/passive_gate
 	icon_state = "passgate_map-3"
 
-	name = "passive gate"
-	desc = "A one-way air valve that does not require power. Passes gas when the output pressure is lower than the target pressure."
+	name = "Пассивные врата"
+	desc = "Врата, пропускающие газ в одну сторону и не требующие энергии. Пропускают газ когда внешнее давление ниже давления источника"
 
 	can_unwrench = TRUE
 	shift_underlay_only = FALSE
@@ -38,7 +38,7 @@ Passive gate is similar to the regular pump except:
 	if(can_interact(user))
 		target_pressure = MAX_OUTPUT_PRESSURE
 		investigate_log("was set to [target_pressure] kPa by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, "<span class='notice'>You maximize the pressure output on [src] to [target_pressure] kPa.</span>")
+		to_chat(user, "<span class='notice'>Я максимально выкручиваю давление в [src] до [target_pressure] кПа.</span>")
 		update_icon()
 	return ..()
 

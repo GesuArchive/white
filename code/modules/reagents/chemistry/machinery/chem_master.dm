@@ -5,8 +5,8 @@
  * Contains logic for both ChemMaster and CondiMaster, switched by "condi".
  */
 /obj/machinery/chem_master
-	name = "ChemMaster 3000"
-	desc = "Used to separate chemicals and distribute them in a variety of forms."
+	name = "ХимМастер 3000"
+	desc = "Используется для разделения химикатов и их распределения в различных состояниях."
 	density = TRUE
 	layer = BELOW_OBJ_LAYER
 	icon = 'icons/obj/chemical.dmi'
@@ -122,24 +122,24 @@
 	if(istype(I, /obj/item/reagent_containers) && !(I.item_flags & ABSTRACT) && I.is_open_container())
 		. = TRUE // no afterattack
 		if(panel_open)
-			to_chat(user, "<span class='warning'>You can't use the [src.name] while its panel is opened!</span>")
+			to_chat(user, "<span class='warning'>Не могу использовать [src.name] пока его панель открыта!</span>")
 			return
 		var/obj/item/reagent_containers/B = I
 		. = TRUE // no afterattack
 		if(!user.transferItemToLoc(B, src))
 			return
 		replace_beaker(user, B)
-		to_chat(user, "<span class='notice'>You add [B] to [src].</span>")
+		to_chat(user, "<span class='notice'>Добавил [B] к [src].</span>")
 		updateUsrDialog()
 		update_icon()
 	else if(!condi && istype(I, /obj/item/storage/pill_bottle))
 		if(bottle)
-			to_chat(user, "<span class='warning'>A pill bottle is already loaded into [src]!</span>")
+			to_chat(user, "<span class='warning'>Пузырек с таблетками уже помещен в [src]!</span>")
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 		bottle = I
-		to_chat(user, "<span class='notice'>You add [I] into the dispenser slot.</span>")
+		to_chat(user, "<span class='notice'>Добавил [I] в разъем раздатчика.</span>")
 		updateUsrDialog()
 	else
 		return ..()
@@ -601,6 +601,6 @@
  * All logic related to this is in [/obj/machinery/chem_master] and condimaster specific UI enabled by "condi = TRUE"
  */
 /obj/machinery/chem_master/condimaster
-	name = "CondiMaster 3000"
-	desc = "Used to create condiments and other cooking supplies."
+	name = "ПрипраМастер 3000"
+	desc = "Используется для создания приправ и других полезных для готовки вещей."
 	condi = TRUE

@@ -7,7 +7,7 @@
 // where all the reagents related to medicine go.
 
 /datum/reagent/medicine
-	name = "Medicine"
+	name = "медикамент"
 	taste_description = "горечь"
 
 /datum/reagent/medicine/on_mob_life(mob/living/carbon/M)
@@ -17,7 +17,7 @@
 	holder.remove_reagent(type, metabolization_rate / M.metabolism_efficiency) //medicine reagents stay longer if you have a better metabolism
 
 /datum/reagent/medicine/leporazine
-	name = "Leporazine"
+	name = "Лепоразин"
 	description = "Leporazine will effectively regulate a patient's body temperature, ensuring it never leaves safe levels."
 	ph = 8.4
 	color = "#DB90C6"
@@ -37,7 +37,7 @@
 	..()
 
 /datum/reagent/medicine/adminordrazine //An OP chemical for admins
-	name = "Adminordrazine"
+	name = "Админордразин"
 	description = "It's magic. We don't have to explain it."
 	color = "#E0BB00" //golden for the gods
 	taste_description = "badmins"
@@ -59,7 +59,7 @@
 			if(1   to 32)
 				mytray.mutatepest(user)
 			else if(prob(20))
-				mytray.visible_message("<span class='warning'>Nothing happens...</span>")
+				mytray.visible_message("<span class='warning'>Ничего не произошло...</span>")
 
 /datum/reagent/medicine/adminordrazine/on_mob_life(mob/living/carbon/M)
 	M.reagents.remove_all_type(/datum/reagent/toxin, 5*REM, 0, 1)
@@ -102,12 +102,12 @@
 	. = 1
 
 /datum/reagent/medicine/adminordrazine/quantum_heal
-	name = "Quantum Medicine"
+	name = "Квантовая медицина"
 	description = "Rare and experimental particles, that apparently swap the user's body with one from an alternate dimension where it's completely healthy."
 	taste_description = "наука"
 
 /datum/reagent/medicine/synaptizine
-	name = "Synaptizine"
+	name = "Синаптизин"
 	description = "Increases resistance to stuns as well as reducing drowsiness and hallucinations."
 	color = "#FF00FF"
 	ph = 4
@@ -129,7 +129,7 @@
 	..()
 
 /datum/reagent/medicine/synaphydramine
-	name = "Diphen-Synaptizine"
+	name = "Дифен-Синаптизин"
 	description = "Reduces drowsiness, hallucinations, and Histamine from body."
 	color = "#EC536D" // rgb: 236, 83, 109
 	ph = 5.2
@@ -148,7 +148,7 @@
 	..()
 
 /datum/reagent/medicine/cryoxadone
-	name = "Cryoxadone"
+	name = "Криоксадон"
 	description = "A chemical mixture with almost magical healing powers. Its main limitation is that the patient's body temperature must be under 270K for it to metabolise correctly."
 	color = "#0000C8"
 	taste_description = "отстой"
@@ -180,7 +180,7 @@
 	mytray.adjustToxic(-round(chems.get_reagent_amount(type) * 3))
 
 /datum/reagent/medicine/clonexadone
-	name = "Clonexadone"
+	name = "Клоноксадон"
 	description = "A chemical that derives from Cryoxadone. It specializes in healing clone damage, but nothing else. Requires very cold temperatures to properly metabolize, and metabolizes quicker than cryoxadone."
 	color = "#3D3DC6"
 	taste_description = "мускулы"
@@ -196,7 +196,7 @@
 	..()
 
 /datum/reagent/medicine/pyroxadone
-	name = "Pyroxadone"
+	name = "Пироксадон"
 	description = "A mixture of cryoxadone and slime jelly, that apparently inverses the requirement for its activation."
 	color = "#f7832a"
 	taste_description = "острое желе"
@@ -229,7 +229,7 @@
 	..()
 
 /datum/reagent/medicine/rezadone
-	name = "Rezadone"
+	name = "Резадон"
 	description = "A powder derived from fish toxin, Rezadone can effectively treat genetic damage as well as restoring minor wounds and restoring corpses husked by burns. Overdose will cause intense nausea and minor toxin damage."
 	reagent_state = SOLID
 	color = "#669900" // rgb: 102, 153, 0
@@ -260,10 +260,10 @@
 	var/mob/living/carbon/patient = exposed_mob
 	if(reac_volume >= 5 && HAS_TRAIT_FROM(patient, TRAIT_HUSK, BURN) && patient.getFireLoss() < UNHUSK_DAMAGE_THRESHOLD) //One carp yields 12u rezadone.
 		patient.cure_husk(BURN)
-		patient.visible_message("<span class='nicegreen'>[patient] body rapidly absorbs moisture from the environment, taking on a more healthy appearance.</span>")
+		patient.visible_message("<span class='nicegreen'>Тело [patient] быстро впитывает влагу из окружающей среды, принимая более здоровый вид.</span>")
 
 /datum/reagent/medicine/spaceacillin
-	name = "Spaceacillin"
+	name = "Космоцилин"
 	description = "Spaceacillin will prevent a patient from conventionally spreading any diseases they are currently infected with. Also reduces infection in serious burns."
 	color = "#E1F2E6"
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM
@@ -273,7 +273,7 @@
 //Goon Chems. Ported mainly from Goonstation. Easily mixable (or not so easily) and provide a variety of effects.
 
 /datum/reagent/medicine/oxandrolone
-	name = "Oxandrolone"
+	name = "Оксандролон"
 	description = "Stimulates the healing of severe burns. Extremely rapidly heals severe burns and slowly heals minor ones. Overdose will worsen existing burns."
 	reagent_state = LIQUID
 	color = "#1E8BFF"
@@ -297,7 +297,7 @@
 	..()
 
 /datum/reagent/medicine/salglu_solution
-	name = "Saline-Glucose Solution"
+	name = "Солевой Раствор Глюкозы"
 	description = "Has a 33% chance per metabolism cycle to heal brute and burn damage. Can be used as a temporary blood substitute, as well as slowly speeding blood regeneration."
 	reagent_state = LIQUID
 	color = "#DCDCDC"
@@ -327,11 +327,11 @@
 
 /datum/reagent/medicine/salglu_solution/overdose_process(mob/living/M)
 	if(prob(3))
-		to_chat(M, "<span class='warning'>You feel salty.</span>")
+		to_chat(M, "<span class='warning'>Какое соленое чувство.</span>")
 		holder.add_reagent(/datum/reagent/consumable/salt, 1)
 		holder.remove_reagent(/datum/reagent/medicine/salglu_solution, 0.5)
 	else if(prob(3))
-		to_chat(M, "<span class='warning'>You feel sweet.</span>")
+		to_chat(M, "<span class='warning'>Какое сладкое чувство.</span>")
 		holder.add_reagent(/datum/reagent/consumable/sugar, 1)
 		holder.remove_reagent(/datum/reagent/medicine/salglu_solution, 0.5)
 	if(prob(33))
@@ -341,7 +341,7 @@
 	..()
 
 /datum/reagent/medicine/mine_salve
-	name = "Miner's Salve"
+	name = "Шахтерская Мазь"
 	description = "A powerful painkiller. Restores bruising and burns in addition to making the patient believe they are fully healed. Also great for treating severe burn wounds in a pinch."
 	reagent_state = LIQUID
 	color = "#6D6374"
@@ -364,7 +364,7 @@
 	if(methods & (INGEST|VAPOR|INJECT))
 		exposed_mob.adjust_nutrition(-5)
 		if(show_message)
-			to_chat(exposed_mob, "<span class='warning'>Your stomach feels empty and cramps!</span>")
+			to_chat(exposed_mob, "<span class='warning'>Ощущаю пустоту в желудке и спазмы!</span>")
 
 	if(methods & (PATCH|TOUCH))
 		var/mob/living/carbon/exposed_carbon = exposed_mob
@@ -373,7 +373,7 @@
 			surgery.speed_modifier = max(0.1, surgery.speed_modifier)
 
 		if(show_message)
-			to_chat(exposed_carbon, "<span class='danger'>You feel your injuries fade away to nothing!</span>" )
+			to_chat(exposed_carbon, "<span class='danger'>Чувствую, что мои раны затягиваются!</span>" )
 
 /datum/reagent/medicine/mine_salve/on_mob_end_metabolize(mob/living/M)
 	if(iscarbon(M))
@@ -382,7 +382,7 @@
 	..()
 
 /datum/reagent/medicine/omnizine
-	name = "Omnizine"
+	name = "Омнизин"
 	description = "Slowly heals all damage types. Overdose will cause damage in all types instead."
 	reagent_state = LIQUID
 	color = "#DCDCDC"
@@ -409,14 +409,14 @@
 	. = 1
 
 /datum/reagent/medicine/omnizine/protozine
-	name = "Protozine"
+	name = "Протозин"
 	description = "A less environmentally friendly and somewhat weaker variant of omnizine."
 	color = "#d8c7b7"
 	healing = 0.2
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/medicine/calomel
-	name = "Calomel"
+	name = "Каломел"
 	description = "Quickly purges the body of all chemicals. Toxin damage is dealt if the patient is in good condition."
 	reagent_state = LIQUID
 	color = "#19C832"
@@ -434,7 +434,7 @@
 	..()
 
 /datum/reagent/medicine/potass_iodide
-	name = "Potassium Iodide"
+	name = "Йодид Калия"
 	description = "Efficiently restores low radiation damage."
 	reagent_state = LIQUID
 	color = "#BAA15D"
@@ -448,7 +448,7 @@
 	..()
 
 /datum/reagent/medicine/pen_acid
-	name = "Pentetic Acid"
+	name = "Диэтилентриаминпентауксусная кислота"
 	description = "Reduces massive amounts of radiation and toxin damage while purging other chemicals from the body."
 	reagent_state = LIQUID
 	color = "#E6FFF0"
@@ -466,7 +466,7 @@
 	. = 1
 
 /datum/reagent/medicine/sal_acid
-	name = "Salicylic Acid"
+	name = "Салициловая Кислота"
 	description = "Stimulates the healing of severe bruises. Extremely rapidly heals severe bruising and slowly heals minor ones. Overdose will worsen existing bruising."
 	reagent_state = LIQUID
 	color = "#D2D2D2"
@@ -490,7 +490,7 @@
 	..()
 
 /datum/reagent/medicine/salbutamol
-	name = "Salbutamol"
+	name = "Сальбутамол"
 	description = "Rapidly restores oxygen deprivation as well as preventing more of it to an extent."
 	reagent_state = LIQUID
 	color = "#00FFFF"
@@ -506,7 +506,7 @@
 	. = 1
 
 /datum/reagent/medicine/ephedrine
-	name = "Ephedrine"
+	name = "Эфедрин"
 	description = "Increases stun resistance and movement speed, giving you hand cramps. Overdose deals toxin damage and inhibits breathing."
 	reagent_state = LIQUID
 	color = "#D2FFFA"
@@ -530,7 +530,7 @@
 	if(prob(20) && iscarbon(M))
 		var/obj/item/I = M.get_active_held_item()
 		if(I && M.dropItemToGround(I))
-			to_chat(M, "<span class='notice'>Your hands spaz out and you drop what you were holding!</span>")
+			to_chat(M, "<span class='notice'>Мои руки дернулись и я выронил то, что держал в них!</span>")
 			M.Jitter(10)
 
 	M.AdjustAllImmobility(-20)
@@ -542,11 +542,11 @@
 	if(prob(2) && iscarbon(M))
 		var/datum/disease/D = new /datum/disease/heart_failure
 		M.ForceContractDisease(D)
-		to_chat(M, "<span class='userdanger'>You're pretty sure you just felt your heart stop for a second there..</span>")
+		to_chat(M, "<span class='userdanger'>Я уверен что ощутил как мое сердце пропустило удар..</span>")
 		M.playsound_local(M, 'sound/effects/singlebeat.ogg', 100, 0)
 
 	if(prob(7))
-		to_chat(M, "<span class='notice'>[pick("Моя голова разрывается.", "You feel a tight pain in your chest.", "You find it hard to stay still.", "You feel your heart practically beating out of your chest.")]</span>")
+		to_chat(M, "<span class='notice'>[pick("У меня очень сильно болит голова.", "Глазам больно.", "Мне сложно ровно стоять.", "По ощущениям мое сердце буквально вырывается из груди.")]</span>")
 
 	if(prob(33))
 		M.adjustToxLoss(1*REM, 0)
@@ -555,9 +555,8 @@
 	return TRUE
 
 
-
 /datum/reagent/medicine/diphenhydramine
-	name = "Diphenhydramine"
+	name = "Дифенгидрамин"
 	description = "Rapidly purges the body of Histamine and reduces jitteriness. Slight chance of causing drowsiness."
 	reagent_state = LIQUID
 	color = "#64FFE6"
@@ -573,7 +572,7 @@
 	..()
 
 /datum/reagent/medicine/morphine
-	name = "Morphine"
+	name = "Морфий"
 	description = "A painkiller that allows the patient to move at full speed even when injured. Causes drowsiness and eventually unconsciousness in high doses. Overdose will cause a variety of effects, ranging from minor to lethal."
 	reagent_state = LIQUID
 	color = "#A9FBFB"
@@ -596,7 +595,7 @@
 		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "numb", /datum/mood_event/narcotic_medium, name)
 	switch(current_cycle)
 		if(11)
-			to_chat(M, "<span class='warning'>You start to feel tired...</span>" )
+			to_chat(M, "<span class='warning'>Я начал ощущать усталость...</span>" )
 		if(12 to 24)
 			M.drowsyness += 1
 		if(24 to INFINITY)
@@ -613,7 +612,7 @@
 
 
 /datum/reagent/medicine/oculine
-	name = "Oculine"
+	name = "Окулин"
 	description = "Quickly restores eye damage, cures nearsightedness, and has a chance to restore vision to the blind."
 	reagent_state = LIQUID
 	color = "#404040" //oculine is dark grey, inacusiate is light grey
@@ -631,18 +630,18 @@
 	eyes.applyOrganDamage(-2)
 	if(HAS_TRAIT_FROM(M, TRAIT_BLIND, EYE_DAMAGE))
 		if(prob(20))
-			to_chat(M, "<span class='warning'>Your vision slowly returns...</span>")
+			to_chat(M, "<span class='warning'>Ко мне постепенно возвращается зрение...</span>")
 			M.cure_blind(EYE_DAMAGE)
 			M.cure_nearsighted(EYE_DAMAGE)
 			M.blur_eyes(35)
 	else if(HAS_TRAIT_FROM(M, TRAIT_NEARSIGHT, EYE_DAMAGE))
-		to_chat(M, "<span class='warning'>The blackness in your peripheral vision fades.</span>")
+		to_chat(M, "<span class='warning'>В моем периферийном зрении рассеивается темнота.</span>")
 		M.cure_nearsighted(EYE_DAMAGE)
 		M.blur_eyes(10)
 	..()
 
 /datum/reagent/medicine/inacusiate
-	name = "Inacusiate"
+	name = "Инакусиат"
 	description = "Rapidly repairs damage to the patient's ears to cure deafness, assuming the source of said deafness isn't from genetic mutations, chronic deafness, or a total defecit of ears." //by "chronic" deafness, we mean people with the "deaf" quirk
 	color = "#606060" // ditto
 	ph = 2
@@ -654,7 +653,7 @@
 	..()
 
 /datum/reagent/medicine/atropine
-	name = "Atropine"
+	name = "Атропин"
 	description = "If a patient is in critical condition, rapidly heals all damage types as well as regulating oxygen in the body. Excellent for stabilizing wounded patients."
 	reagent_state = LIQUID
 	color = "#1D3535" //slightly more blue, like epinephrine
@@ -684,7 +683,7 @@
 	..()
 
 /datum/reagent/medicine/epinephrine
-	name = "Epinephrine"
+	name = "Эпинефрин"
 	description = "Very minor boost to stun resistance. Slowly heals damage if a patient is in critical condition, as well as regulating oxygen loss. Overdose causes weakness and toxin damage."
 	reagent_state = LIQUID
 	color = "#D2FFFA"
@@ -733,7 +732,7 @@
 	..()
 
 /datum/reagent/medicine/strange_reagent
-	name = "Strange Reagent"
+	name = "Странный Реагент"
 	description = "A miracle drug capable of bringing the dead back to life. Works topically unless anotamically complex, in which case works orally. Only works if the target has less than 200 total brute and burn damage and hasn't been husked and requires more reagent depending on damage inflicted. Causes damage to the living."
 	reagent_state = LIQUID
 	color = "#A0E85E"
@@ -754,16 +753,16 @@
 	if(exposed_mob.stat != DEAD)
 		return ..()
 	if(exposed_mob.suiciding) //they are never coming back
-		exposed_mob.visible_message("<span class='warning'>[exposed_mob] body does not react...</span>")
+		exposed_mob.visible_message("<span class='warning'>Тело [exposed_mob] не реагирует...</span>")
 		return
 	if(iscarbon(exposed_mob) && !(methods & INGEST)) //simplemobs can still be splashed
 		return ..()
 	var/amount_to_revive = round((exposed_mob.getBruteLoss()+exposed_mob.getFireLoss())/20)
 	if(exposed_mob.getBruteLoss()+exposed_mob.getFireLoss() >= 200 || HAS_TRAIT(exposed_mob, TRAIT_HUSK) || reac_volume < amount_to_revive) //body will die from brute+burn on revive or you haven't provided enough to revive.
-		exposed_mob.visible_message("<span class='warning'>[exposed_mob] body convulses a bit, and then falls still once more.</span>")
+		exposed_mob.visible_message("<span class='warning'>Тело [exposed_mob] недолго бьется в конвульсиях, а затем вновь замирает.</span>")
 		exposed_mob.do_jitter_animation(10)
 		return
-	exposed_mob.visible_message("<span class='warning'>[exposed_mob] body starts convulsing!</span>")
+	exposed_mob.visible_message("<span class='warning'>Тело [exposed_mob] начинает биться в конвульсиях!</span>")
 	exposed_mob.notify_ghost_cloning("Your body is being revived with Strange Reagent!")
 	exposed_mob.do_jitter_animation(10)
 	var/excess_healing = 5*(reac_volume-amount_to_revive) //excess reagent will heal blood and organs across the board
@@ -780,7 +779,7 @@
 	. = TRUE
 
 /datum/reagent/medicine/mannitol
-	name = "Mannitol"
+	name = "Маннитол"
 	description = "Efficiently restores brain damage."
 	color = "#A0A0A0" //mannitol is light grey, neurine is lighter grey
 	ph = 10.4
@@ -800,7 +799,7 @@
 	. = ..()
 
 /datum/reagent/medicine/neurine
-	name = "Neurine"
+	name = "Нейрин"
 	description = "Reacts with neural tissue, helping reform damaged connections. Can cure minor traumas."
 	color = "#C0C0C0" //ditto
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -822,7 +821,7 @@
 	..()
 
 /datum/reagent/medicine/mutadone
-	name = "Mutadone"
+	name = "Мутадон"
 	description = "Removes jitteriness and restores genetic defects."
 	color = "#5096C8"
 	taste_description = "кислота"
@@ -837,7 +836,7 @@
 		..()
 
 /datum/reagent/medicine/antihol
-	name = "Antihol"
+	name = "Опохмелин"
 	description = "Purges alcoholic substance from the patient's body and eliminates its side effects."
 	color = "#00B4C8"
 	taste_description = "сырые яйца"
@@ -858,7 +857,7 @@
 	. = 1
 
 /datum/reagent/medicine/stimulants
-	name = "Stimulants"
+	name = "Стимуляторы"
 	description = "Increases stun resistance and movement speed in addition to restoring minor damage and weakness. Overdose causes weakness and toxin damage."
 	color = "#78008C"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
@@ -898,7 +897,7 @@
 	..()
 
 /datum/reagent/medicine/insulin
-	name = "Insulin"
+	name = "Инсулин"
 	description = "Increases sugar depletion rates."
 	reagent_state = LIQUID
 	color = "#FFFFF0"
@@ -915,7 +914,7 @@
 //Trek Chems, used primarily by medibots. Only heals a specific damage type, but is very efficient.
 
 /datum/reagent/medicine/inaprovaline //is this used anywhere?
-	name = "Inaprovaline"
+	name = "Инапровалин"
 	description = "Stabilizes the breathing of patients. Good for those in critical condition."
 	reagent_state = LIQUID
 	color = "#A4D8D8"
@@ -928,7 +927,7 @@
 	..()
 
 /datum/reagent/medicine/regen_jelly
-	name = "Regenerative Jelly"
+	name = "Регенеративное Желе"
 	description = "Gradually regenerates all types of damage, without harming slime anatomy."
 	reagent_state = LIQUID
 	color = "#CC23FF"
@@ -954,7 +953,7 @@
 	. = 1
 
 /datum/reagent/medicine/syndicate_nanites //Used exclusively by Syndicate medical cyborgs
-	name = "Restorative Nanites"
+	name = "Восстанавливающие Наниты"
 	description = "Miniature medical robots that swiftly restore bodily damage."
 	reagent_state = SOLID
 	color = "#555555"
@@ -980,7 +979,7 @@
 	. = 1
 
 /datum/reagent/medicine/earthsblood //Created by ambrosia gaia plants
-	name = "Earthsblood"
+	name = "Кровь Земли"
 	description = "Ichor from an extremely powerful plant. Great for restoring wounds, but it's a little heavy on the brain. For some strange reason, it also induces temporary pacifism in those who imbibe it and semi-permanent pacifism in those who overdose on it."
 	color = "#FFAF00"
 	metabolization_rate = 0.4 //Math is based on specific metab rate so we want this to be static AKA if define or medicine metab rate changes, we want this to stay until we can rework calculations.
@@ -1034,7 +1033,7 @@
 	. = 1
 
 /datum/reagent/medicine/haloperidol
-	name = "Haloperidol"
+	name = "Галоперидол"
 	description = "Increases depletion rates for most stimulating/hallucinogenic drugs. Reduces druggy effects and jitteriness. Severe stamina regeneration penalty, causes drowsiness. Small chance of brain damage."
 	reagent_state = LIQUID
 	color = "#27870a"
@@ -1058,7 +1057,7 @@
 
 //used for changeling's adrenaline power
 /datum/reagent/medicine/changelingadrenaline
-	name = "Changeling Adrenaline"
+	name = "Адреналин Генокрада"
 	description = "Reduces the duration of unconciousness, knockdown and stuns. Restores stamina, but deals toxin damage when overdosed."
 	color = "#C1151D"
 	overdose_threshold = 30
@@ -1092,7 +1091,7 @@
 	return TRUE
 
 /datum/reagent/medicine/changelinghaste
-	name = "Changeling Haste"
+	name = "Стимулятор Генокрада"
 	description = "Drastically increases movement speed, but deals toxin damage."
 	color = "#AE151D"
 	metabolization_rate = 1
@@ -1112,7 +1111,7 @@
 	return TRUE
 
 /datum/reagent/medicine/higadrite
-	name = "Higadrite"
+	name = "Хигадрит"
 	description = "A medication utilized to treat ailing livers."
 	color = "#FF3542"
 	self_consuming = TRUE
@@ -1127,7 +1126,7 @@
 	REMOVE_TRAIT(M, TRAIT_STABLELIVER, type)
 
 /datum/reagent/medicine/cordiolis_hepatico
-	name = "Cordiolis Hepatico"
+	name = "Печеночный Кориолис"
 	description = "A strange, pitch-black reagent that seems to absorb all light. Effects unknown."
 	color = "#000000"
 	self_consuming = TRUE
@@ -1144,7 +1143,7 @@
 	REMOVE_TRAIT(M, TRAIT_STABLELIVER, type)
 
 /datum/reagent/medicine/muscle_stimulant
-	name = "Muscle Stimulant"
+	name = "Мышечный Стимулятор"
 	description = "A potent chemical that allows someone under its influence to be at full physical ability even when under massive amounts of pain."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -1157,7 +1156,7 @@
 	L.remove_movespeed_mod_immunities(type, /datum/movespeed_modifier/damage_slowdown)
 
 /datum/reagent/medicine/modafinil
-	name = "Modafinil"
+	name = "Модафинил"
 	description = "Long-lasting sleep suppressant that very slightly reduces stun and knockdown times. Overdosing has horrendous side effects and deals lethal oxygen damage, will knock you unconscious if not dealt with."
 	reagent_state = LIQUID
 	color = "#BEF7D8" // palish blue white
@@ -1187,7 +1186,7 @@
 	..()
 
 /datum/reagent/medicine/modafinil/overdose_start(mob/living/M)
-	to_chat(M, "<span class='userdanger'>You feel awfully out of breath and jittery!</span>")
+	to_chat(M, "<span class='userdanger'>Ощущаю ужасную отдышку и нахлынувшую панику!</span>")
 	metabolization_rate = 0.025 * REAGENTS_METABOLISM // sets metabolism to 0.01 per tick on overdose
 
 /datum/reagent/medicine/modafinil/overdose_process(mob/living/M)
@@ -1208,11 +1207,11 @@
 			if(prob(50))
 				M.losebreath++
 			if(prob(20))
-				to_chat(M, "<span class='userdanger'>You have a sudden fit!</span>")
+				to_chat(M, "<span class='userdanger'>Внезапно случился припадок!</span>")
 				M.emote("moan")
 				M.Paralyze(20) // you should be in a bad spot at this point unless epipen has been used
 		if(81)
-			to_chat(M, "<span class='userdanger'>You feel too exhausted to continue!</span>") // at this point you will eventually die unless you get charcoal
+			to_chat(M, "<span class='userdanger'>Я слишком устал, не могу так дальше!</span>") // at this point you will eventually die unless you get charcoal
 			M.adjustOxyLoss(0.1*REM, 0)
 			M.adjustStaminaLoss(0.1*REM, 0)
 		if(82 to INFINITY)
@@ -1223,7 +1222,7 @@
 	return TRUE
 
 /datum/reagent/medicine/psicodine
-	name = "Psicodine"
+	name = "Псицодин"
 	description = "Suppresses anxiety and other various forms of mental distress. Overdose causes hallucinations and minor toxin damage."
 	reagent_state = LIQUID
 	color = "#07E79E"
@@ -1258,7 +1257,7 @@
 	. = 1
 
 /datum/reagent/medicine/metafactor
-	name = "Mitogen Metabolism Factor"
+	name = "Фактор Метобализма Митогенов"
 	description = "This enzyme catalyzes the conversion of nutricious food into healing peptides."
 	metabolization_rate = 0.0625  * REAGENTS_METABOLISM //slow metabolism rate so the patient can self heal with food even after the troph has metabolized away for amazing reagent efficency.
 	reagent_state = SOLID
@@ -1275,7 +1274,7 @@
 	..()
 
 /datum/reagent/medicine/silibinin
-	name = "Silibinin"
+	name = "Силбинин"
 	description = "A thistle derrived hepatoprotective flavolignan mixture that help reverse damage to the liver."
 	reagent_state = SOLID
 	color = "#FFFFD0"
@@ -1288,7 +1287,7 @@
 	. = 1
 
 /datum/reagent/medicine/polypyr  //This is intended to be an ingredient in advanced chems.
-	name = "Polypyrylium Oligomers"
+	name = "Полипирилиевые олигомеры"
 	description = "A purple mixture of short polyelectrolyte chains not easily synthesized in the laboratory. It is valued as an intermediate in the synthesis of the cutting edge pharmaceuticals."
 	reagent_state = SOLID
 	color = "#9423FF"
@@ -1317,7 +1316,7 @@
 	. = 1
 
 /datum/reagent/medicine/granibitaluri
-	name = "Granibitaluri" //achieve "GRANular" amounts of C2
+	name = "Гранибитарал" //achieve "GRANular" amounts of C2
 	description = "A mild painkiller useful as an additive alongside more potent medicines. Speeds up the healing of small wounds and burns, but is ineffective at treating severe injuries. Extremely large doses are toxic, and may eventually cause liver failure."
 	color = "#E0E0E0"
 	reagent_state = LIQUID
@@ -1339,7 +1338,7 @@
 	..()
 
 /datum/reagent/medicine/badstims  //These are bad for combat on purpose. Used in adrenal implant.
-	name = "Experimental Stimulants"
+	name = "Экспериментальные Стимуляторы"
 	description = "Experimental Stimulants designed to get you away from trouble."
 	reagent_state = LIQUID
 	color = "#F5F5F5"
@@ -1349,7 +1348,7 @@
 	if(prob(30) && iscarbon(M))
 		var/obj/item/I = M.get_active_held_item()
 		if(I && M.dropItemToGround(I))
-			to_chat(M, "<span class='notice'>Your hands spaz out and you drop what you were holding!</span>")
+			to_chat(M, "<span class='notice'>Мои руки дернулись и я выронил то, что держал в них!</span>")
 	M.adjustStaminaLoss(-10, 0)
 	M.Jitter(10)
 	M.Dizzy(15)
@@ -1372,7 +1371,7 @@
 
 // helps bleeding wounds clot faster
 /datum/reagent/medicine/coagulant
-	name = "Sanguirite"
+	name = "Сангурит"
 	description = "A proprietary coagulant used to help bleeding wounds clot faster."
 	reagent_state = LIQUID
 	color = "#bb2424"
@@ -1409,7 +1408,7 @@
 
 	if(bloodiest_wound)
 		if(!was_working)
-			to_chat(M, "<span class='green'>You can feel your flowing blood start thickening!</span>")
+			to_chat(M, "<span class='green'>Моя льющаяся кровь начинает сгущаться!</span>")
 			was_working = TRUE
 		bloodiest_wound.blood_flow = max(0, bloodiest_wound.blood_flow - clot_rate)
 	else if(was_working)
@@ -1424,9 +1423,9 @@
 		M.losebreath += rand(2,4)
 		M.adjustOxyLoss(rand(1,3))
 		if(prob(30))
-			to_chat(M, "<span class='danger'>You can feel your blood clotting up in your veins!</span>")
+			to_chat(M, "<span class='danger'>Чувствую как кровь сворачивается в венах!</span>")
 		else if(prob(10))
-			to_chat(M, "<span class='userdanger'>You feel like your blood has stopped moving!</span>")
+			to_chat(M, "<span class='userdanger'>Ощущение, будто бы моя кровь перестала течь!</span>")
 			M.adjustOxyLoss(rand(3,4))
 
 		if(prob(50))
@@ -1445,7 +1444,7 @@
 
 /datum/reagent/medicine/coagulant/on_mob_end_metabolize(mob/living/M)
 	if(was_working)
-		to_chat(M, "<span class='warning'>The medicine thickening your blood loses its effect!</span>")
+		to_chat(M, "<span class='warning'>Медикамент, сгущающий мою кровь, перестал действовать!</span>")
 	if(!ishuman(M))
 		return
 
@@ -1454,7 +1453,7 @@
 
 // i googled "natural coagulant" and a couple of results came up for banana peels, so after precisely 30 more seconds of research, i now dub grinding banana peels good for your blood
 /datum/reagent/medicine/coagulant/banana_peel
-	name = "Pulped Banana Peel"
+	name = "Очищенная Банановая Кожура"
 	description = "Ancient Clown Lore says that pulped banana peels are good for your blood, but are you really going to take medical advice from a clown about bananas?"
 	color = "#50531a" // rgb: 175, 175, 0
 	taste_description = "horribly stringy, bitter pulp"

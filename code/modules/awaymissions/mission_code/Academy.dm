@@ -2,62 +2,62 @@
 //Academy Areas
 
 /area/awaymission/academy
-	name = "Academy Asteroids"
+	name = "Астероиды академии"
 	icon_state = "away"
 
 /area/awaymission/academy/headmaster
-	name = "Academy Fore Block"
+	name = "Переднее крыло Академии"
 	icon_state = "away1"
 
 /area/awaymission/academy/classrooms
-	name = "Academy Classroom Block"
+	name = "Крыло аудиторий Академии"
 	icon_state = "away2"
 
 /area/awaymission/academy/academyaft
-	name = "Academy Ship Aft Block"
+	name = "Крыло стыковки кораблей Академии"
 	icon_state = "away3"
 
 /area/awaymission/academy/academygate
-	name = "Academy Gateway"
+	name = "Врата Академии"
 	icon_state = "away4"
 
 /area/awaymission/academy/academycellar
-	name = "Academy Cellar"
+	name = "Подвал Академии"
 	icon_state = "away4"
 
 /area/awaymission/academy/academyengine
-	name = "Academy Engine"
+	name = "Двигатель Академии"
 	icon_state = "away4"
 
 //Academy Items
 
 /obj/item/paper/fluff/awaymissions/academy/console_maint
-	name = "Console Maintenance"
+	name = "Обслуживание консоли"
 	info = "We're upgrading to the latest mainframes for our consoles, the shipment should be in before spring break is over!"
 
 /obj/item/paper/fluff/awaymissions/academy/class/automotive
-	name = "Automotive Repair 101"
+	name = "Починка автоматики для чайников"
 
 /obj/item/paper/fluff/awaymissions/academy/class/pyromancy
-	name = "Pyromancy 250"
+	name = "Пиромантия от А до Я"
 
 /obj/item/paper/fluff/awaymissions/academy/class/biology
-	name = "Biology Lab"
+	name = "Биолаборатория"
 
 /obj/item/paper/fluff/awaymissions/academy/grade/aplus
-	name = "Summoning Midterm Exam"
+	name = "Промежуточный экзамен по призыванию"
 	info = "Grade: A+ Educator's Notes: Excellent form."
 
 /obj/item/paper/fluff/awaymissions/academy/grade/bminus
-	name = "Summoning Midterm Exam"
+	name = "Промежуточный экзамен по призыванию"
 	info = "Grade: B- Educator's Notes: Keep applying yourself, you're showing improvement."
 
 /obj/item/paper/fluff/awaymissions/academy/grade/dminus
-	name = "Summoning Midterm Exam"
+	name = "Промежуточный экзамен по призыванию"
 	info = "Grade: D- Educator's Notes: SEE ME AFTER CLASS."
 
 /obj/item/paper/fluff/awaymissions/academy/grade/failure
-	name = "Pyromancy Evaluation"
+	name = "Оценка по пиромантии"
 	info = "Current Grade: F. Educator's Notes: No improvement shown despite multiple private lessons.  Suggest additional tutelage."
 
 /// The immobile, close pulling singularity seen in the academy away mission
@@ -75,15 +75,15 @@
 		mezzer()
 
 /obj/item/clothing/glasses/meson/truesight
-	name = "The Lens of Truesight"
-	desc = "I can see forever!"
+	name = "Монокль Истинного Зрения"
+	desc = "Я вижу ВСЕ!"
 	icon_state = "monocle"
 	inhand_icon_state = "headset"
 
 
 /obj/structure/academy_wizard_spawner
-	name = "Academy Defensive System"
-	desc = "Made by Abjuration, Inc."
+	name = "Система Защиты Академии"
+	desc = "Сделано "Отречением.""
 	icon = 'icons/obj/cult.dmi'
 	icon_state = "forge"
 	anchored = TRUE
@@ -149,12 +149,12 @@
 /obj/structure/academy_wizard_spawner/deconstruct(disassembled = TRUE)
 	if(!broken)
 		broken = 1
-		visible_message("<span class='warning'>[capitalize(src.name)] breaks down!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] ломается!</span>")
 		icon_state = "forge_off"
 		STOP_PROCESSING(SSobj, src)
 
 /datum/outfit/wizard/academy
-	name = "Academy Wizard"
+	name = "Маг Академии"
 	r_pocket = null
 	r_hand = null
 	suit = /obj/item/clothing/suit/wizrobe/red
@@ -162,8 +162,8 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /obj/item/dice/d20/fate
-	name = "\improper Die of Fate"
-	desc = "A die with twenty sides. You can feel unearthly energies radiating from it. Using this might be VERY risky."
+	name = "\improper Кубик Судьбы"
+	desc = "Кубик с двадцатью сторонами. Чувствую неестественную энергию, исходящую от него. Использовать на свой страх и риск."
 	icon_state = "d20"
 	sides = 20
 	microwave_riggable = FALSE
@@ -176,8 +176,8 @@
 	reusable = FALSE
 
 /obj/item/dice/d20/fate/cursed
-	name = "cursed Die of Fate"
-	desc = "A die with twenty sides. You feel that rolling this is a REALLY bad idea."
+	name = "Проклятый Кубик Судьбы"
+	desc = "Кубик с двадцатью сторонами. Кидать такой будет ОЧЕНЬ плохой идеей."
 	color = "#00BB00"
 
 	rigged = DICE_TOTALLY_RIGGED
@@ -187,8 +187,8 @@
 	reusable = FALSE
 
 /obj/item/dice/d20/fate/stealth
-	name = "d20"
-	desc = "A die with twenty sides. The preferred die to throw at the GM."
+	name = "д20"
+	desc = "Кубик с двадцатью сторонами. Желательно кидать в ГМа."
 
 /obj/item/dice/d20/fate/stealth/one_use
 	reusable = FALSE
@@ -202,7 +202,7 @@
 
 /obj/item/dice/d20/fate/diceroll(mob/user)
 	if(!COOLDOWN_FINISHED(src, roll_cd))
-		to_chat(user, "<span class='warning'>Hold on, [src] isn't caught up with your last roll!</span>")
+		to_chat(user, "<span class='warning'>Подожди, [src] еще не оправился после твоего предыдущего броска!</span>")
 		return
 
 	. = ..()
@@ -210,14 +210,14 @@
 		return
 
 	if(!ishuman(user) || !user.mind || (user.mind in SSticker.mode.wizards))
-		to_chat(user, "<span class='warning'>You feel the magic of the dice is restricted to ordinary humans!</span>")
+		to_chat(user, "<span class='warning'>Чувствую что магия кубика доступна только обычным людям!</span>")
 		return
 
 	if(!reusable)
 		used = TRUE
 
 	var/turf/T = get_turf(src)
-	T.visible_message("<span class='userdanger'>[src] flares briefly.</span>")
+	T.visible_message("<span class='userdanger'>[src] тихонько мерцает.</span>")
 
 	addtimer(CALLBACK(src, .proc/effect, user, .), 1 SECONDS)
 	COOLDOWN_START(src, roll_cd, 2.5 SECONDS)
@@ -225,7 +225,7 @@
 /obj/item/dice/d20/fate/equipped(mob/user, slot)
 	. = ..()
 	if(!ishuman(user) || !user.mind || (user.mind in SSticker.mode.wizards))
-		to_chat(user, "<span class='warning'>You feel the magic of the dice is restricted to ordinary humans! You should leave it alone.</span>")
+		to_chat(user, "<span class='warning'>Чувствую что магия кубика доступна только обычным людям! Лучше перестать его трогать.</span>")
 		user.dropItemToGround(src)
 
 
@@ -234,35 +234,35 @@
 	switch(roll)
 		if(1)
 			//Dust
-			T.visible_message("<span class='userdanger'>[user] turns to dust!</span>")
+			T.visible_message("<span class='userdanger'>[user] рассыпается в прах!</span>")
 			user.dust()
 		if(2)
 			//Death
-			T.visible_message("<span class='userdanger'>[user] suddenly dies!</span>")
+			T.visible_message("<span class='userdanger'>[user] падает замертво!</span>")
 			user.death()
 		if(3)
 			//Swarm of creatures
-			T.visible_message("<span class='userdanger'>A swarm of creatures surrounds [user]!</span>")
+			T.visible_message("<span class='userdanger'>Рой монстров окружает [user]!</span>")
 			for(var/direction in GLOB.alldirs)
 				new /mob/living/simple_animal/hostile/netherworld(get_step(get_turf(user),direction))
 		if(4)
 			//Destroy Equipment
-			T.visible_message("<span class='userdanger'>Everything [user] is holding and wearing disappears!</span>")
+			T.visible_message("<span class='userdanger'>Все, что было на [user] вдруг исчезает!</span>")
 			for(var/obj/item/I in user)
 				if(istype(I, /obj/item/implant))
 					continue
 				qdel(I)
 		if(5)
 			//Monkeying
-			T.visible_message("<span class='userdanger'>[user] transforms into a monkey!</span>")
+			T.visible_message("<span class='userdanger'>[user] превращается в обезьяну!</span>")
 			user.monkeyize()
 		if(6)
 			//Cut speed
-			T.visible_message("<span class='userdanger'>[user] starts moving slower!</span>")
+			T.visible_message("<span class='userdanger'>[user] двигается медленнее!</span>")
 			user.add_movespeed_modifier(/datum/movespeed_modifier/die_of_fate)
 		if(7)
 			//Throw
-			T.visible_message("<span class='userdanger'>Unseen forces throw [user]!</span>")
+			T.visible_message("<span class='userdanger'>Невидимая сила бросает [user]!</span>")
 			user.Stun(60)
 			user.adjustBruteLoss(50)
 			var/throw_dir = pick(GLOB.cardinals)
@@ -270,25 +270,25 @@
 			user.throw_at(throw_target, 200, 4)
 		if(8)
 			//Fuel tank Explosion
-			T.visible_message("<span class='userdanger'>An explosion bursts into existence around [user]!</span>")
+			T.visible_message("<span class='userdanger'>Реальность взрывается вокруг [user]!</span>")
 			explosion(get_turf(user),-1,0,2, flame_range = 2)
 		if(9)
 			//Cold
 			var/datum/disease/D = new /datum/disease/cold()
-			T.visible_message("<span class='userdanger'>[user] looks a little under the weather!</span>")
+			T.visible_message("<span class='userdanger'>[user] чувствует себя как-то нехорошо!</span>")
 			user.ForceContractDisease(D, FALSE, TRUE)
 		if(10)
 			//Nothing
-			T.visible_message("<span class='userdanger'>Nothing seems to happen.</span>")
+			T.visible_message("<span class='userdanger'>Ничего не происходит.</span>")
 		if(11)
 			//Cookie
-			T.visible_message("<span class='userdanger'>A cookie appears out of thin air!</span>")
+			T.visible_message("<span class='userdanger'>Из воздуха материализуется печенька!</span>")
 			var/obj/item/food/cookie/C = new(drop_location())
 			do_smoke(0, drop_location())
 			C.name = "Cookie of Fate"
 		if(12)
 			//Healing
-			T.visible_message("<span class='userdanger'>[user] looks very healthy!</span>")
+			T.visible_message("<span class='userdanger'>[user] выглядит очень здоровым!</span>")
 			user.revive(full_heal = TRUE, admin_revive = TRUE)
 		if(13)
 			//Mad Dosh

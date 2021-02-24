@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/automatic/toy
-	name = "foam force SMG"
-	desc = "A prototype three-round burst toy submachine gun. Ages 8 and up."
+	name = "игрушечный ПП"
+	desc = "Прототип стреляющего трехзарядной очередью из пены игрушечного пистолета. Для лиц старше 8 лет."
 	icon_state = "saber"
 	selector_switch_icon = TRUE
 	inhand_icon_state = "gun"
@@ -22,8 +22,8 @@
 	pin = /obj/item/firing_pin
 
 /obj/item/gun/ballistic/automatic/toy/pistol
-	name = "foam force pistol"
-	desc = "A small, easily concealable toy handgun. Ages 8 and up."
+	name = "игрушечный пистолет"
+	desc = "Маленький игрушечный пистолет, стреляющий пеной. Для лиц старше 8 лет."
 	icon_state = "pistol"
 	bolt_type = BOLT_TYPE_LOCKING
 	w_class = WEIGHT_CLASS_SMALL
@@ -47,8 +47,8 @@
 	pin = /obj/item/firing_pin
 
 /obj/item/gun/ballistic/shotgun/toy
-	name = "foam force shotgun"
-	desc = "A toy shotgun with wood furniture and a four-shell capacity underneath. Ages 8 and up."
+	name = "игрушечный дробовик"
+	desc = "Стреляющий пеной игрушечный дробовик в деревянном оформлении, емкостью в 4 патрона. Для лиц старше 8 лет.."
 	force = 0
 	throwforce = 0
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/toy
@@ -72,8 +72,8 @@
 	pin = /obj/item/firing_pin
 
 /obj/item/gun/ballistic/shotgun/toy/crossbow
-	name = "foam force crossbow"
-	desc = "A weapon favored by many overactive children. Ages 8 and up."
+	name = "игрушечный арбалет"
+	desc = "Фаворит среди стреляющего пеной оружия среди множества гиперактивных детей. Для лиц старше 8 лет."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "foamcrossbow"
 	inhand_icon_state = "crossbow"
