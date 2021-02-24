@@ -9,7 +9,7 @@
 		if ("mine_salve")
 			return "minerssalve"
 		else
-			return ckey(id)
+			return lowertext(id)
 
 /obj/machinery/chem_dispenser
 	name = "раздатчик химикатов"
@@ -225,7 +225,7 @@
 			var/chemname = temp.name
 			if(is_hallucinating && prob(5))
 				chemname = "[pick_list_replacements("hallucination.json", "chemicals")]"
-			chemicals.Add(list(list("title" = chemname, "id" = ckey(temp.name), "pH" = temp.ph, "pHCol" = convert_ph_to_readable_color(temp.ph))))
+			chemicals.Add(list(list("title" = chemname, "id" = lowertext(temp.name), "pH" = temp.ph, "pHCol" = convert_ph_to_readable_color(temp.ph))))
 	data["chemicals"] = chemicals
 	data["recipes"] = saved_recipes
 
@@ -235,7 +235,7 @@
 		var/datum/chemical_reaction/reaction = get_chemical_reaction(beaker.reagents.ui_reaction_id)
 		for(var/_reagent in reaction.required_reagents)
 			var/datum/reagent/reagent = find_reagent_object_from_type(_reagent)
-			data["recipeReagents"] += ckey(reagent.name)
+			data["recipeReagents"] += lowertext(reagent.name)
 	return data
 
 /obj/machinery/chem_dispenser/ui_act(action, params)

@@ -213,13 +213,13 @@
 	var/beaker_contents[0]
 	if(beaker)
 		for(var/datum/reagent/R in beaker.reagents.reagent_list)
-			beaker_contents.Add(list(list("name" = R.name, "id" = ckey(R.name), "volume" = round(R.volume, 0.01)))) // list in a list because Byond merges the first list...
+			beaker_contents.Add(list(list("name" = R.name, "id" = lowertext(R.name), "volume" = round(R.volume, 0.01)))) // list in a list because Byond merges the first list...
 	data["beakerContents"] = beaker_contents
 
 	var/buffer_contents[0]
 	if(reagents.total_volume)
 		for(var/datum/reagent/N in reagents.reagent_list)
-			buffer_contents.Add(list(list("name" = N.name, "id" = ckey(N.name), "volume" = round(N.volume, 0.01)))) // ^
+			buffer_contents.Add(list(list("name" = N.name, "id" = lowertext(N.name), "volume" = round(N.volume, 0.01)))) // ^
 	data["bufferContents"] = buffer_contents
 
 	//Calculated at init time as it never changes
