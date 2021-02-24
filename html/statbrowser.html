@@ -609,6 +609,7 @@ function TakeTabFromByond(tab) {
 }
 
 function update(global_data, other_entries) {
+	status_tab_parts = [" "];
 	var parsed = JSON.parse(global_data);
 	for(var i = 0; i < parsed.length; i++) if(parsed[i] != null) status_tab_parts.push(parsed[i]);
 	parsed = JSON.parse(other_entries);
