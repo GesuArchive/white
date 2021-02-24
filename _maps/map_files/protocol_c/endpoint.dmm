@@ -939,6 +939,13 @@
 /obj/machinery/capture_the_flag/blue,
 /turf/open/floor/circuit/green/anim,
 /area/ctf)
+"dp" = (
+/obj/machinery/shower{
+	dir = 4
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plasteel/white,
+/area/centcom/control)
 "dq" = (
 /obj/structure/table/wood,
 /obj/item/folder/red,
@@ -1932,6 +1939,7 @@
 	armor = list("melee" = 50, "bullet" = 20, "laser" = 20, "energy" = 75, "bomb" = 25, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 70);
 	dir = 8;
 	id = "gallery1";
+	max_integrity = 1000;
 	name = "Gallery"
 	},
 /obj/effect/turf_decal/stripes/full,
@@ -1964,11 +1972,8 @@
 /area/holodeck/rec_center/lounge)
 "gH" = (
 /obj/effect/turf_decal/stripes/full,
-/obj/structure/table/reinforced,
-/obj/item/storage/pill_bottle/labebium{
-	pixel_x = 1;
-	pixel_y = 7
-	},
+/obj/machinery/light/floor,
+/obj/structure/closet/infinite,
 /turf/open/floor/engine,
 /area/centcom/control)
 "gI" = (
@@ -2365,6 +2370,20 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/holofloor/grass,
 /area/holodeck/rec_center/pet_lounge)
+"iR" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/structure/table/reinforced,
+/obj/item/storage/box/syringes,
+/obj/item/clothing/glasses/science{
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/obj/item/clothing/glasses/science,
+/turf/open/floor/plasteel/white,
+/area/centcom/control)
 "iU" = (
 /obj/effect/holodeck_effect/sparks,
 /obj/effect/decal/cleanable/glitter/pink,
@@ -2502,7 +2521,12 @@
 /obj/machinery/camera/autoname{
 	dir = 1
 	},
-/turf/open/floor/plasteel/dark,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/machinery/chem_dispenser/fullupgrade,
+/turf/open/floor/plasteel/white,
 /area/centcom/control)
 "jK" = (
 /obj/machinery/door/poddoor{
@@ -2557,6 +2581,12 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
+"jQ" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/white,
+/area/centcom/control)
 "jS" = (
 /obj/structure/table,
 /obj/machinery/readybutton,
@@ -2566,6 +2596,10 @@
 /obj/structure/rospilovo/yashik/yaskik_a/big,
 /turf/open/floor/plating/asteroid/snow/centcom,
 /area/centcom/evac)
+"jY" = (
+/obj/machinery/light/floor,
+/turf/open/floor/wood,
+/area/centcom/control)
 "jZ" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -2770,6 +2804,7 @@
 /area/centcom/debug)
 "kS" = (
 /mob/living/carbon/human/raper,
+/obj/machinery/light/floor,
 /turf/open/floor/engine,
 /area/centcom/control)
 "kT" = (
@@ -2929,6 +2964,10 @@
 /obj/structure/flora/ausbushes/palebush,
 /turf/open/floor/holofloor/grass,
 /area/holodeck/rec_center/pet_lounge)
+"lI" = (
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plasteel/elevatorshaft,
+/area/centcom/control)
 "lJ" = (
 /obj/structure/closet/crate/bin,
 /turf/open/floor/holofloor{
@@ -3083,6 +3122,7 @@
 	},
 /obj/effect/turf_decal/stripes/full,
 /obj/structure/table/reinforced,
+/obj/machinery/light/floor,
 /turf/open/floor/engine,
 /area/centcom/control)
 "mQ" = (
@@ -3117,6 +3157,18 @@
 	dir = 9
 	},
 /turf/open/floor/plasteel,
+/area/centcom/control)
+"mX" = (
+/obj/machinery/button/crematorium{
+	id = "crematoriumScp";
+	pixel_x = -27;
+	pixel_y = 2;
+	req_access_txt = "101"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/white,
 /area/centcom/control)
 "mY" = (
 /obj/machinery/portable_atmospherics/canister/tier_3,
@@ -3442,6 +3494,15 @@
 "om" = (
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/two)
+"op" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/structure/table/reinforced,
+/obj/machinery/reagentgrinder,
+/turf/open/floor/plasteel/white,
+/area/centcom/control)
 "or" = (
 /obj/structure/chess/blackqueen,
 /turf/open/floor/holofloor/dark,
@@ -3580,6 +3641,13 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/control)
+"oZ" = (
+/obj/machinery/door/airlock/centcom{
+	name = "SCP";
+	req_access_txt = "101"
+	},
+/turf/open/floor/plasteel/white,
+/area/centcom/control)
 "pa" = (
 /obj/machinery/portable_atmospherics/canister/tritium,
 /turf/open/floor/plasteel,
@@ -3632,6 +3700,14 @@
 /obj/item/storage/crayons,
 /turf/open/floor/holofloor/carpet,
 /area/holodeck/rec_center/photobooth)
+"pn" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/machinery/chem_master,
+/turf/open/floor/plasteel/white,
+/area/centcom/control)
 "pq" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -4144,6 +4220,14 @@
 /obj/effect/turf_decal/trimline/neutral/line,
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"rJ" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/structure/chair/office,
+/turf/open/floor/plasteel/white,
+/area/centcom/control)
 "rK" = (
 /obj/item/ctf/red,
 /turf/open/floor/circuit/green/anim,
@@ -4548,6 +4632,16 @@
 /obj/effect/turf_decal/trimline/neutral/line,
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"tH" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/structure/table/reinforced,
+/obj/item/stack/sheet/mineral/plasma,
+/obj/item/hand_labeler,
+/turf/open/floor/plasteel/white,
+/area/centcom/control)
 "tQ" = (
 /obj/machinery/door/airlock/centcom{
 	name = "CentCom Supply";
@@ -4587,7 +4681,7 @@
 /obj/machinery/light/floor,
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/centcom/control)
 "tZ" = (
 /obj/structure/ladder/unbreakable{
@@ -5401,7 +5495,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/centcom/control)
 "xG" = (
 /obj/machinery/door/window{
@@ -5705,6 +5799,7 @@
 /obj/item/hilbertshotel,
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/stripes/full,
+/obj/machinery/light/floor,
 /turf/open/floor/engine,
 /area/centcom/control)
 "yM" = (
@@ -6048,7 +6143,7 @@
 	dir = 6
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/centcom/control)
 "Au" = (
 /obj/item/storage/firstaid/fire,
@@ -7304,6 +7399,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
+"Fk" = (
+/obj/effect/turf_decal/bot_red,
+/turf/open/floor/plasteel/dark,
+/area/centcom/control)
 "Fm" = (
 /obj/structure/table,
 /turf/open/floor/holofloor/plating,
@@ -7638,6 +7737,12 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
+"GA" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/obj/machinery/power/terminal,
+/turf/open/floor/plasteel/elevatorshaft,
+/area/centcom/control)
 "GC" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -8502,7 +8607,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/centcom/control)
 "JG" = (
 /obj/effect/turf_decal/stripes/line,
@@ -9025,7 +9130,7 @@
 "LG" = (
 /obj/structure/cable,
 /obj/structure/lattice/catwalk,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/centcom/control)
 "LH" = (
 /obj/effect/turf_decal/stripes/line{
@@ -9174,7 +9279,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/centcom/control)
 "LY" = (
 /obj/item/kirbyplants{
@@ -9885,6 +9990,10 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/control)
+"OO" = (
+/obj/machinery/light/floor,
+/turf/open/floor/plasteel/white,
+/area/centcom/control)
 "OR" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/open/floor/plasteel,
@@ -10160,6 +10269,13 @@
 /obj/machinery/hydroponics/soil,
 /turf/open/floor/holofloor/grass,
 /area/holodeck/rec_center/pet_lounge)
+"Qu" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/turf/open/floor/plasteel/white,
+/area/centcom/control)
 "Qx" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -10338,7 +10454,7 @@
 /obj/item/stack/sheet/mineral/uranium{
 	amount = 25
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/centcom/control)
 "Rp" = (
 /obj/structure/rospilovo/musor_yashik/red,
@@ -10442,7 +10558,7 @@
 "RY" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/centcom/control)
 "Sh" = (
 /obj/effect/turf_decal/stripes/line{
@@ -10510,7 +10626,12 @@
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "Sp" = (
-/mob/living/carbon/human/species/golem/bronze,
+/obj/machinery/light/floor,
+/obj/item/pizzabox/infinite{
+	pixel_y = 12
+	},
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/stripes/full,
 /turf/open/floor/engine,
 /area/centcom/control)
 "Sq" = (
@@ -10568,7 +10689,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/power/smes/engineering,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/centcom/control)
 "SH" = (
 /obj/structure/chess/blackrook,
@@ -10801,7 +10922,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/camera/autoname,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/centcom/control)
 "TJ" = (
 /obj/item/clipboard,
@@ -11246,13 +11367,14 @@
 	},
 /area/holodeck/rec_center/medical)
 "VK" = (
-/obj/structure/bodycontainer/morgue,
+/obj/structure/bodycontainer/crematorium{
+	dir = 4;
+	id = "crematoriumScp"
+	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "VM" = (
-/obj/machinery/shower{
-	pixel_y = 12
-	},
+/obj/structure/closet,
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "VO" = (
@@ -11581,7 +11703,7 @@
 	req_access_txt = "101"
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/centcom/control)
 "Xn" = (
 /obj/effect/turf_decal/bot,
@@ -11802,7 +11924,7 @@
 /obj/machinery/camera/autoname,
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/centcom/control)
 "YC" = (
 /obj/item/gavelblock,
@@ -11975,7 +12097,7 @@
 	},
 /obj/structure/cable,
 /obj/structure/lattice/catwalk,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/centcom/control)
 "Zt" = (
 /turf/open/ai_visible,
@@ -12006,7 +12128,15 @@
 "ZB" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/floor,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/elevatorshaft,
+/area/centcom/control)
+"ZC" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/machinery/chem_heater,
+/turf/open/floor/plasteel/white,
 /area/centcom/control)
 "ZE" = (
 /obj/effect/turf_decal/stripes/line{
@@ -25941,11 +26071,11 @@ hA
 ZZ
 ZU
 VK
-VK
-VK
-VK
-VK
-VK
+mX
+dp
+op
+tH
+iR
 ZU
 ZZ
 mY
@@ -26197,11 +26327,11 @@ ZT
 hA
 ZZ
 ZU
-XX
-XX
-XX
-XX
-YV
+Fk
+jQ
+Xu
+pn
+rJ
 jG
 ZU
 ZZ
@@ -26455,11 +26585,11 @@ hA
 hA
 ZU
 VM
-XX
-XX
-XX
-XX
-XX
+jQ
+OO
+Qu
+Qu
+ZC
 ZU
 ZZ
 ZZ
@@ -26715,7 +26845,7 @@ ZU
 ZU
 ZU
 ZU
-zS
+oZ
 ZU
 ZU
 ZU
@@ -29793,7 +29923,7 @@ ZU
 hA
 ZU
 ZU
-RY
+GA
 SE
 Vr
 RY
@@ -31599,7 +31729,7 @@ oy
 ZU
 oy
 RY
-oy
+wj
 ZU
 ZU
 ZU
@@ -31856,8 +31986,8 @@ ZU
 ZU
 oy
 RY
-wj
-ZU
+oy
+lI
 ZU
 rD
 uT
@@ -32114,7 +32244,7 @@ ZU
 oy
 RY
 oy
-ZU
+lI
 ZU
 hd
 XX
@@ -32371,7 +32501,7 @@ ZU
 oy
 RY
 oy
-ZU
+lI
 ZU
 Wi
 px
@@ -33913,7 +34043,7 @@ ZU
 oy
 RY
 oy
-ZU
+lI
 ZU
 rD
 CD
@@ -34170,7 +34300,7 @@ ZU
 oy
 RY
 oy
-ZU
+lI
 ZU
 hd
 XX
@@ -34426,8 +34556,8 @@ ZU
 ZU
 oy
 RY
-wj
-ZU
+oy
+lI
 ZU
 Wi
 px
@@ -34683,7 +34813,7 @@ oy
 ZU
 oy
 RY
-oy
+wj
 ZU
 ZU
 ZU
@@ -34923,7 +35053,7 @@ Co
 ZZ
 ZU
 jD
-kr
+jY
 kr
 yI
 pO

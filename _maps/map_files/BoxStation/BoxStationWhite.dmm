@@ -19624,7 +19624,7 @@
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "bLY" = (
-/mob/living/simple_animal/pig,
+/mob/living/simple_animal/pet/dog/corgi/pig,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 9
 	},
