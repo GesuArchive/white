@@ -1,6 +1,6 @@
 /obj/item/gun/grenadelauncher
-	name = "grenade launcher"
-	desc = "A terrible, terrible thing. It's really awful!"
+	name = "гранатомет"
+	desc = "Ужасная, ужасная вещь. Действительно ужасающая!"
 	icon = 'icons/obj/guns/projectile.dmi'
 	icon_state = "riotgun"
 	inhand_icon_state = "riotgun"
@@ -23,17 +23,17 @@
 			if(!user.transferItemToLoc(I, src))
 				return
 			grenades += I
-			to_chat(user, "<span class='notice'>You put the grenade in the grenade launcher.</span>")
-			to_chat(user, "<span class='notice'>[grenades.len] / [max_grenades] Grenades.</span>")
+			to_chat(user, "<span class='notice'>Поместил гранату в гранатомет.</span>")
+			to_chat(user, "<span class='notice'>[grenades.len] / [max_grenades] Гранат.</span>")
 		else
-			to_chat(usr, "<span class='warning'>The grenade launcher cannot hold more grenades!</span>")
+			to_chat(usr, "<span class='warning'>Гранатомет полностью заряжен!</span>")
 
 /obj/item/gun/grenadelauncher/can_shoot()
 	return grenades.len
 
 /obj/item/gun/grenadelauncher/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
-	user.visible_message("<span class='danger'>[user] fired a grenade!</span>", \
-						"<span class='danger'>You fire the grenade launcher!</span>")
+	user.visible_message("<span class='danger'>[user] выстрелил гранату!</span>", \
+						"<span class='danger'>Я выстрелил из гранатомета!</span>")
 	var/obj/item/grenade/F = grenades[1] //Now with less copypasta!
 	grenades -= F
 	F.forceMove(user.loc)

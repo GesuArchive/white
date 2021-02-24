@@ -1,5 +1,5 @@
 /datum/species/dullahan
-	name = "Dullahan"
+	name = "дюллахан"
 	id = "dullahan"
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS, HAS_FLESH, HAS_BONE)
@@ -88,15 +88,15 @@
 	zone = "abstract"
 
 /obj/item/organ/eyes/dullahan
-	name = "head vision"
-	desc = "An abstraction."
+	name = "видимость головы"
+	desc = "Абстракция."
 	actions_types = list(/datum/action/item_action/organ_action/dullahan)
 	zone = "abstract"
 	tint = INFINITY // to switch the vision perspective to the head on species_gain() without issue.
 
 /datum/action/item_action/organ_action/dullahan
-	name = "Toggle Perspective"
-	desc = "Switch between seeing normally from your head, or blindly from your body."
+	name = "Переключить перспективу"
+	desc = "Переключиться между зрением головы, или слепым вашего тела."
 
 /datum/action/item_action/organ_action/dullahan/Trigger()
 	. = ..()
@@ -113,7 +113,7 @@
 			D.update_vision_perspective(H)
 
 /obj/item/dullahan_relay
-	name = "dullahan relay"
+	name = "реле Дюллахана"
 	var/mob/living/owner
 	flags_1 = HEAR_1
 

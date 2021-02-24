@@ -10,8 +10,8 @@ Nothing to do with hydroponics in here. Sorry to dissapoint you.
 Borg Hypospray
 */
 /obj/item/reagent_containers/borghypo
-	name = "cyborg hypospray"
-	desc = "An advanced chemical synthesizer and injection system, designed for heavy-duty medical equipment."
+	name = "кибернетический гипоспрей"
+	desc = "Продвинутый химический синтезатор с системой введения, используемый в тяжелом медицинском оборудовании."
 	icon = 'icons/obj/syringe.dmi'
 	inhand_icon_state = "hypo"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -105,16 +105,16 @@ Borg Hypospray
 /obj/item/reagent_containers/borghypo/attack(mob/living/carbon/M, mob/user)
 	var/datum/reagents/R = reagent_list[mode]
 	if(!R.total_volume)
-		to_chat(user, "<span class='warning'>The injector is empty!</span>")
+		to_chat(user, "<span class='warning'>Инжектор пуст!</span>")
 		return
 	if(!istype(M))
 		return
 	if(R.total_volume && M.can_inject(user, 1, user.zone_selected,bypass_protection))
 		to_chat(M, "<span class='warning'>Чувствую небольшое покалывание!</span>")
-		to_chat(user, "<span class='notice'>You inject [M] with the injector.</span>")
+		to_chat(user, "<span class='notice'>Я ввожу [M] используя инжектор.</span>")
 		if(M.reagents)
 			var/trans = R.trans_to(M, amount_per_transfer_from_this, transfered_by = user, methods = INJECT)
-			to_chat(user, "<span class='notice'>[trans] unit\s injected. [R.total_volume] unit\s remaining.</span>")
+			to_chat(user, "<span class='notice'>[trans] единиц введено. [R.total_volume] единиц осталось.</span>")
 
 	var/list/injected = list()
 	for(var/datum/reagent/RG in R.reagent_list)
@@ -128,7 +128,7 @@ Borg Hypospray
 	mode = chosen_reagent
 	playsound(loc, 'sound/effects/pop.ogg', 50, FALSE)
 	var/datum/reagent/R = GLOB.chemical_reagents_list[reagent_ids[mode]]
-	to_chat(user, "<span class='notice'>[capitalize(src.name)] is now dispensing '[R.name]'.</span>")
+	to_chat(user, "<span class='notice'>[capitalize(src.name)] теперь выделяет '[R.name]'.</span>")
 	return
 
 /obj/item/reagent_containers/borghypo/examine(mob/user)
@@ -136,7 +136,7 @@ Borg Hypospray
 	. += DescribeContents()	//Because using the standardized reagents datum was just too cool for whatever fuckwit wrote this
 	var/datum/reagent/loaded = modes[mode]
 	. += "<hr>Currently loaded: [initial(loaded.name)]. [initial(loaded.description)]"
-	. += "\n<span class='notice'><i>Alt+Click</i> to change transfer amount. Currently set to [amount_per_transfer_from_this == 5 ? "dose normally (5u)" : "microdose (2u)"].</span>"
+	. += "\n<span class='notice'><i>Alt+ЛКМ</i> чтобы изменить вводимое количество. На данный момент установлена [amount_per_transfer_from_this == 5 ? "обычная доза (5ед)" : "микроскопическая доза (2ед)"].</span>"
 
 /obj/item/reagent_containers/borghypo/proc/DescribeContents()
 	. = list()
@@ -147,11 +147,11 @@ Borg Hypospray
 	for(var/datum/reagents/RS in reagent_list)
 		var/datum/reagent/R = locate() in RS.reagent_list
 		if(R)
-			. += "\n<span class='notice'>It currently has [R.volume] unit\s of [R.name] stored.</span>"
+			. += "\n<span class='notice'>На данный момент внутри [R.volume] единиц [R.name].</span>"
 			empty = FALSE
 
 	if(empty)
-		. += "<span class='warning'>It is currently empty! Allow some time for the internal synthesizer to produce more.</span>"
+		. += "<span class='warning'>На данный момент внутри пусто! Подождите немного до момента как внутри синтезируется больше вещества.</span>"
 
 /obj/item/reagent_containers/borghypo/AltClick(mob/living/user)
 	. = ..()
@@ -161,7 +161,7 @@ Borg Hypospray
 		amount_per_transfer_from_this = 2
 	else
 		amount_per_transfer_from_this = 5
-	to_chat(user,"<span class='notice'>[capitalize(src.name)] is now set to [amount_per_transfer_from_this == 5 ? "dose normally" : "microdose"].</span>")
+	to_chat(user,"<span class='notice'>[capitalize(src.name)] теперь установлен на [amount_per_transfer_from_this == 5 ? "обычную дозу" : "микроскопическую дозу"].</span>")
 
 /obj/item/reagent_containers/borghypo/hacked
 	icon_state = "borghypo_s"
@@ -169,20 +169,20 @@ Borg Hypospray
 	accepts_reagent_upgrades = FALSE
 
 /obj/item/reagent_containers/borghypo/clown
-	name = "laughter injector"
-	desc = "Keeps the crew happy and productive!"
+	name = "инжектор хохотача"
+	desc = "Поддерживает счастье и продуктивность экипажа!"
 	reagent_ids = list(/datum/reagent/consumable/laughter)
 	accepts_reagent_upgrades = FALSE
 
 /obj/item/reagent_containers/borghypo/clown/hacked
-	name = "laughter injector"
-	desc = "Keeps the crew so happy they don't work!"
+	name = "инжектор хохотача"
+	desc = "Поддерживает счастье экипажа настолько, что они не работают!"
 	reagent_ids = list(/datum/reagent/consumable/superlaughter)
 	accepts_reagent_upgrades = FALSE
 
 /obj/item/reagent_containers/borghypo/syndicate
-	name = "syndicate cyborg hypospray"
-	desc = "An experimental piece of Syndicate technology used to produce powerful restorative nanites used to very quickly restore injuries of all types. Also metabolizes potassium iodide for radiation poisoning, inacusiate for ear damage and morphine for offense."
+	name = "гипоспрей киборга синдиката"
+	desc = "Экспериментальный образец технологии Синдиката, используемый для производства мощных восстанавливающих нанитов используемых для очень быстрого восстановления любых типов повреждений. Также метаболизирует йодид калия при радиационном отравлении, инакусиат при повреждениях ушей и морфий в случае столкновения."
 	icon_state = "borghypo_s"
 	charge_cost = 20
 	recharge_time = 2
@@ -199,8 +199,8 @@ Borg Hypospray
 Borg Shaker
 */
 /obj/item/reagent_containers/borghypo/borgshaker
-	name = "cyborg shaker"
-	desc = "An advanced drink synthesizer and mixer."
+	name = "кибернетический шейкер"
+	desc = "Продвинутый синтезатор напитков, также используется для их смешивания."
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "shaker"
 	possible_transfer_amounts = list(5,10,20)
@@ -247,27 +247,27 @@ Borg Shaker
 	else if(target.is_refillable())
 		var/datum/reagents/R = reagent_list[mode]
 		if(!R.total_volume)
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] is currently out of this ingredient! Please allow some time for the synthesizer to produce more.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] на данный момент не имеет ингредиента! Подождите немного до момента как внутри синтезируется больше вещества.</span>")
 			return
 
 		if(target.reagents.total_volume >= target.reagents.maximum_volume)
-			to_chat(user, "<span class='notice'>[target] is full.</span>")
+			to_chat(user, "<span class='notice'>[target] наполнен.</span>")
 			return
 
 		var/trans = R.trans_to(target, amount_per_transfer_from_this, transfered_by = user)
-		to_chat(user, "<span class='notice'>You transfer [trans] unit\s of the solution to [target].</span>")
+		to_chat(user, "<span class='notice'>Вы перелили [trans] единиц раствора в [target].</span>")
 
 /obj/item/reagent_containers/borghypo/borgshaker/DescribeContents()
 	var/datum/reagents/RS = reagent_list[mode]
 	var/datum/reagent/R = locate() in RS.reagent_list
 	if(R)
-		return "<span class='notice'>It currently has [R.volume] unit\s of [R.name] stored.</span>"
+		return "<span class='notice'>На данный момент внутри [R.volume] единиц [R.name].</span>"
 	else
-		return "<span class='warning'>It is currently empty! Please allow some time for the synthesizer to produce more.</span>"
+		return "<span class='warning'>На данный момент пуст! Подождите немного до момента как внутри синтезируется больше вещества.</span>"
 
 /obj/item/reagent_containers/borghypo/borgshaker/hacked
-	name = "cyborg shaker"
-	desc = "Will mix drinks that knock them dead."
+	name = "кибернетический шейкер"
+	desc = "Смешает напиток который свалит их наповал."
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "threemileislandglass"
 	possible_transfer_amounts = list(5,10,20)
@@ -278,20 +278,20 @@ Borg Shaker
 	reagent_ids = list(/datum/reagent/toxin/fakebeer, /datum/reagent/consumable/ethanol/fernet)
 
 /obj/item/reagent_containers/borghypo/peace
-	name = "Peace Hypospray"
+	name = "Гипоспрей Мир"
 
 	reagent_ids = list(/datum/reagent/peaceborg/confuse,/datum/reagent/peaceborg/tire,/datum/reagent/pax/peaceborg)
 	accepts_reagent_upgrades = FALSE
 
 /obj/item/reagent_containers/borghypo/peace/hacked
-	desc = "Everything's peaceful in death!"
+	desc = "Всё такое миролюбивое когда ты мертв!"
 	icon_state = "borghypo_s"
 	reagent_ids = list(/datum/reagent/peaceborg/confuse,/datum/reagent/peaceborg/tire,/datum/reagent/pax/peaceborg,/datum/reagent/toxin/staminatoxin,/datum/reagent/toxin/sulfonal,/datum/reagent/toxin/sodium_thiopental,/datum/reagent/toxin/cyanide,/datum/reagent/toxin/fentanyl)
 	accepts_reagent_upgrades = FALSE
 
 /obj/item/reagent_containers/borghypo/epi
-	name = "epinephrine injector"
-	desc = "An advanced chemical synthesizer and injection system, designed to stabilize patients."
+	name = "инжектор эпинефрина"
+	desc = "Продвинутый химический синтезатор с системой введения, разработанный для стабилизации пациентов."
 	reagent_ids = list(/datum/reagent/medicine/epinephrine)
 	accepts_reagent_upgrades = FALSE
 

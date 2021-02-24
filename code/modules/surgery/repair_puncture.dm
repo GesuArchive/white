@@ -54,7 +54,7 @@
 
 	display_results(user, target, "<span class='notice'>You successfully realign some of the blood vessels in [target] [parse_zone(target_zone)].</span>",
 		"<span class='notice'>[user] successfully realigns some of the blood vessels in [target] [parse_zone(target_zone)] with [tool]!</span>",
-		"<span class='notice'>[user] successfully realigns some of the blood vessels in  [target] [parse_zone(target_zone)]!</span>")
+		"<span class='notice'>[user] successfully realigns some of the blood vessels in [target] [parse_zone(target_zone)]!</span>")
 	log_combat(user, target, "excised infected flesh in", addition="INTENT: [uppertext(user.a_intent)]")
 	surgery.operated_bodypart.receive_damage(brute=3, wound_bonus=CANT_WOUND)
 	pierce_wound.blood_flow -= 0.25

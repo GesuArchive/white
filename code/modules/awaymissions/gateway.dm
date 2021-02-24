@@ -112,7 +112,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 /datum/gateway_destination/gateway/home/proc/check_exile_implant(mob/living/L)
 	for(var/obj/item/implant/exile/E in L.implants)//Checking that there is an exile implant
-		to_chat(L, "<span class='userdanger'>The station gate has detected your exile implant and is blocking your entry.</span>")
+		to_chat(L, "<span class='userdanger'>Механизм врат обнаружил твой имплант ссылки и не пропускает тебя.</span>")
 		return TRUE
 	return FALSE
 
@@ -144,8 +144,8 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	gateway = null
 
 /obj/machinery/gateway
-	name = "gateway"
-	desc = "A mysterious gateway built by unknown hands, it allows for faster than light travel to far-flung locations."
+	name = "Врата"
+	desc = "Таинственные врата, построенные кем-то неизвестным. Позволяют путешествовать в отдаленные места на сверхсветовых скоростях."
 	icon = 'icons/obj/machines/gateway.dmi'
 	icon_state = "portal_frame"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -244,9 +244,9 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 /obj/machinery/gateway/multitool_act(mob/living/user, obj/item/I)
 	if(calibrated)
-		to_chat(user, "<span class='alert'>The gate is already calibrated, there is no work for you to do here.</span>")
+		to_chat(user, "<span class='alert'>Врата откалиброваны, больше ничего делать не нужно.</span>")
 	else
-		to_chat(user, "<span class='boldnotice'>Recalibration successful!</span>: \black This gate's systems have been fine tuned. Travel to this gate will now be on target.")
+		to_chat(user, "<span class='boldnotice'>Успешная рекалибровка!</span>: \black Системы врат налажены. Теперь через них можно проходить.")
 		calibrated = TRUE
 	return TRUE
 
@@ -259,7 +259,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	. = ..()
 	if(!target)
 		if(!GLOB.the_gateway)
-			to_chat(user,"<span class='warning'>Home gateway is not responding!</span>")
+			to_chat(user,"<span class='warning'>Начальные врата не отвечают!</span>")
 		if(GLOB.the_gateway.target)
 			GLOB.the_gateway.deactivate() //this will turn the home gateway off so that it's free for us to connect to
 		activate(GLOB.the_gateway.destination)
@@ -268,8 +268,8 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 /* Gateway control computer */
 /obj/machinery/computer/gateway_control
-	name = "Gateway Control"
-	desc = "Human friendly interface to the mysterious gate next to it."
+	name = "Интерфейс врат"
+	desc = "Удобный человеческому глазу интерфейс для врат, стоящих рядом."
 	var/obj/machinery/gateway/G
 
 /obj/machinery/computer/gateway_control/Initialize(mapload, obj/item/circuitboard/C)
@@ -330,8 +330,8 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	G.activate(D)
 
 /obj/item/paper/fluff/gateway
-	info = "Congratulations,<br><br>Your station has been selected to carry out the Gateway Project.<br><br>The equipment will be shipped to you at the start of the next quarter.<br> You are to prepare a secure location to house the equipment as outlined in the attached documents.<br><br>--Nanotrasen Bluespace Research"
-	name = "Confidential Correspondence, Pg 1"
+	info = "Поздравляем,<br><br>Ваша станция была выбрана для нашего проекта "Врата".<br><br>Мы пришлем вам оборудование в следующем квартале.<br> Оборудуйте защищенное помещение по требованиям, приведенным в прикрепленных документах.<br><br>--Исследовательский Центр Блюспейса Нанотрейзен"
+	name = "Конфиденциальная переписка, стр 1"
 
 /obj/effect/gateway_portal_effect
 	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE

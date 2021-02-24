@@ -1,6 +1,6 @@
 /obj/structure/closet/cabinet
-	name = "cabinet"
-	desc = "Old will forever be in fashion."
+	name = "ящик для документов"
+	desc = "Винтаж всегда в моде."
 	icon_state = "cabinet"
 	resistance_flags = FLAMMABLE
 	open_sound = 'sound/machines/wooden_closet_open.ogg'
@@ -10,19 +10,19 @@
 	max_integrity = 70
 
 /obj/structure/closet/acloset
-	name = "strange closet"
-	desc = "It looks alien!"
+	name = "странный шкаф"
+	desc = "Это выглядит чуждым!"
 	icon_state = "alien"
 
 
 /obj/structure/closet/gimmick
-	name = "administrative supply closet"
-	desc = "It's a storage unit for things that have no right being here."
+	name = "кладовка администраторов"
+	desc = "Это хранилище для запрещенных вещей."
 	icon_state = "syndicate"
 
 /obj/structure/closet/gimmick/russian
-	name = "\improper Russian surplus closet"
-	desc = "It's a storage unit for Russian standard-issue surplus."
+	name = "\improper Российский шкаф с припасами"
+	desc = "Это хранилище для стандартных Русских припасов."
 
 /obj/structure/closet/gimmick/russian/PopulateContents()
 	..()
@@ -32,8 +32,8 @@
 		new /obj/item/clothing/under/costume/soviet(src)
 
 /obj/structure/closet/gimmick/tacticool
-	name = "tacticool gear closet"
-	desc = "It's a storage unit for Tacticool gear."
+	name = "шкаф для тактического снаряжения"
+	desc = "Это хранилище тактического снаряжения."
 
 /obj/structure/closet/gimmick/tacticool/PopulateContents()
 	..()
@@ -54,12 +54,12 @@
 
 
 /obj/structure/closet/thunderdome
-	name = "\improper Thunderdome closet"
-	desc = "Everything you need!"
+	name = "\improper шкаф Купола грома"
+	desc = "Все, что тебе нужно!"
 	anchored = TRUE
 
 /obj/structure/closet/thunderdome/tdred
-	name = "red-team Thunderdome closet"
+	name = "шкаф красной команды Купола грома"
 	icon_door = "red"
 
 /obj/structure/closet/thunderdome/tdred/PopulateContents()
@@ -78,7 +78,7 @@
 		new /obj/item/clothing/head/helmet/thunderdome(src)
 
 /obj/structure/closet/thunderdome/tdgreen
-	name = "green-team Thunderdome closet"
+	name = "шкаф зеленой команды Купола грома"
 	icon_door = "green"
 
 /obj/structure/closet/thunderdome/tdgreen/PopulateContents()
@@ -97,7 +97,7 @@
 		new /obj/item/clothing/head/helmet/thunderdome(src)
 
 /obj/structure/closet/malf/suits
-	desc = "It's a storage unit for operational gear."
+	desc = "Это хранилище для оперативного оборудования."
 	icon_state = "syndicate"
 
 /obj/structure/closet/malf/suits/PopulateContents()
@@ -111,8 +111,8 @@
 	new /obj/item/multitool(src)
 
 /obj/structure/closet/mini_fridge
-	name = "grimy mini-fridge"
-	desc = "A small contraption designed to imbue a few drinks with a pleasant chill. This antiquated unit however seems to serve no purpose other than keeping the roaches company."
+	name = "грязный минихолодильник"
+	desc = "Небольшое приспособление, предназначенное для охлаждения напитков. Однако сейчас используется только как домик для тараканов"
 	icon_state = "mini_fridge"
 	icon_welded = "welded_small"
 	max_mob_size = MOB_SIZE_SMALL

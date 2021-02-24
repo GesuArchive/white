@@ -611,7 +611,7 @@
 /obj/item/clothing/suit/space/hardsuit/security
 	icon_state = "hardsuit-sec"
 	name = "скафандр охраны"
-	desc = "Специальный костюм для работы в условиях низкого давления.  Имеет дополнительный слой брони."
+	desc = "Специальный костюм для работы в условиях низкого давления. Имеет дополнительный слой брони."
 	inhand_icon_state = "sec_hardsuit"
 	armor = list(MELEE = 35, BULLET = 15, LASER = 30, ENERGY = 40, BOMB = 10, BIO = 100, RAD = 50, FIRE = 75, ACID = 75, WOUND = 20)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/security

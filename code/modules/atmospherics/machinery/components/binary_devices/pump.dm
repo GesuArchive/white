@@ -12,8 +12,8 @@
 
 /obj/machinery/atmospherics/components/binary/pump
 	icon_state = "pump_map-3"
-	name = "gas pump"
-	desc = "A pump that moves gas by pressure."
+	name = "Газовая помпа"
+	desc = "Помпа, которая двигает газ давлением."
 
 	can_unwrench = TRUE
 	shift_underlay_only = FALSE
@@ -38,7 +38,7 @@
 	if(can_interact(user))
 		target_pressure = MAX_OUTPUT_PRESSURE
 		investigate_log("was set to [target_pressure] kPa by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, "<span class='notice'>You maximize the pressure output on [src] to [target_pressure] kPa.</span>")
+		to_chat(user, "<span class='notice'>Я максимально выкручиваю давление в [src] на [target_pressure] кПа.</span>")
 		update_icon()
 	return ..()
 

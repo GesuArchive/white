@@ -11,8 +11,8 @@
 #define MAX_HOLE_SIZE LARGE_HOLE
 
 /obj/structure/fence
-	name = "fence"
-	desc = "A chain link fence. Not as effective as a wall, but generally it keeps people out."
+	name = "заборчик"
+	desc = "Забор из сетки рабицы. Не так эффективно, как стена, но людей не пропускает."
 	density = TRUE
 	anchored = TRUE
 
@@ -62,29 +62,29 @@
 /obj/structure/fence/attackby(obj/item/W, mob/user)
 	if(W.tool_behaviour == TOOL_WIRECUTTER)
 		if(!cuttable)
-			to_chat(user, "<span class='warning'>This section of the fence can't be cut!</span>")
+			to_chat(user, "<span class='warning'>Эту секцию забора нельзя прорезать!</span>")
 			return
 		if(invulnerable)
-			to_chat(user, "<span class='warning'>This fence is too strong to cut through!</span>")
+			to_chat(user, "<span class='warning'>Этот забор слишком прочный, чтобы прорезать его!</span>")
 			return
 		var/current_stage = hole_size
 		if(current_stage >= MAX_HOLE_SIZE)
-			to_chat(user, "<span class='warning'>This fence has too much cut out of it already!</span>")
+			to_chat(user, "<span class='warning'>В этом заборе уже прорезали слишком много дыр!</span>")
 			return
 
-		user.visible_message("<span class='danger'>\The [user] starts cutting through <b>[src.name]</b> with \the [W].</span>",\
-		"<span class='danger'>You start cutting through <b>[src.name]</b> with \the [W].</span>")
+		user.visible_message("<span class='danger'> [user] начинает прорезать <b>[src.name]</b> с помощью \the [W].</span>",\
+		"<span class='danger'>Я начинаю прорезать <b>[src.name]</b> используя \the [W].</span>")
 
 		if(do_after(user, CUT_TIME*W.toolspeed, target = src))
 			if(current_stage == hole_size)
 				switch(++hole_size)
 					if(MEDIUM_HOLE)
-						visible_message("<span class='notice'>\The [user] cuts into <b>[src.name]</b> some more.</span>")
-						to_chat(user, "<span class='info'>You could probably fit yourself through that hole now. Although climbing through would be much faster if you made it even bigger.</span>")
+						visible_message("<span class='notice'>[user] врезается <b>[src.name]</b> еще немного.</span>")
+						to_chat(user, "<span class='info'>Я могу пролезть в дыру уже сейчас. Но я пролезу быстрее если сделать дыру побольше.</span>")
 						climbable = TRUE
 					if(LARGE_HOLE)
-						visible_message("<span class='notice'>\The [user] completely cuts through <b>[src.name]</b>.</span>")
-						to_chat(user, "<span class='info'>The hole in <b>[src.name]</b> is now big enough to walk through.</span>")
+						visible_message("<span class='notice'> [user] полностью разрезает <b>[src.name]</b>.</span>")
+						to_chat(user, "<span class='info'>Дыра в <b>[src.name]</b> достаточно большая чтобы пройти в нее не пригибаясь.</span>")
 						climbable = FALSE
 
 				update_cut_status()
@@ -107,8 +107,8 @@
 //FENCE DOORS
 
 /obj/structure/fence/door
-	name = "fence door"
-	desc = "Not very useful without a real lock."
+	name = "калитка"
+	desc = "Сомнительная польза без замка. В виду активизации деятельности международной террористической организации «ИГИЛ» убедительно просим вас закрывать калитку на крючок."
 	icon_state = "door_closed"
 	cuttable = FALSE
 	var/open = FALSE
@@ -131,7 +131,7 @@
 
 /obj/structure/fence/door/proc/toggle(mob/user)
 	open = !open
-	visible_message("<span class='notice'>\The [user] [open ? "opens" : "closes"] <b>[src.name]</b>.</span>")
+	visible_message("<span class='notice'> [user] [open ? "открывает" : "закрывает"] <b>[src.name]</b>.</span>")
 	update_door_status()
 	playsound(src, 'sound/machines/click.ogg', 100, TRUE)
 

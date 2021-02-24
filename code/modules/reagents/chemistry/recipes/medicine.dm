@@ -15,12 +15,12 @@
 /datum/chemical_reaction/oculine
 	results = list(/datum/reagent/medicine/oculine = 3)
 	required_reagents = list(/datum/reagent/medicine/c2/multiver = 1, /datum/reagent/carbon = 1, /datum/reagent/hydrogen = 1)
-	mix_message = "The mixture bubbles noticeably and becomes a dark grey color!"
+	mix_message = "Смесь начала заметное бурление и приобрела темно-серый окрас!"
 
 /datum/chemical_reaction/inacusiate
 	results = list(/datum/reagent/medicine/inacusiate = 2)
 	required_reagents = list(/datum/reagent/water = 1, /datum/reagent/carbon = 1, /datum/reagent/medicine/c2/multiver = 1)
-	mix_message = "The mixture sputters loudly and becomes a light grey color!"
+	mix_message = "Смесь сильно закипела и приобрела светло-серый окрас!"
 
 /datum/chemical_reaction/synaptizine
 	results = list(/datum/reagent/medicine/synaptizine = 3)
@@ -70,12 +70,12 @@
 /datum/chemical_reaction/ephedrine
 	results = list(/datum/reagent/medicine/ephedrine = 4)
 	required_reagents = list(/datum/reagent/consumable/sugar = 1, /datum/reagent/fuel/oil = 1, /datum/reagent/hydrogen = 1, /datum/reagent/diethylamine = 1)
-	mix_message = "The solution fizzes and gives off toxic fumes."
+	mix_message = "Раствор шипит и выделяет токсичные пары."
 
 /datum/chemical_reaction/diphenhydramine
 	results = list(/datum/reagent/medicine/diphenhydramine = 4)
 	required_reagents = list(/datum/reagent/fuel/oil = 1, /datum/reagent/carbon = 1, /datum/reagent/bromine = 1, /datum/reagent/diethylamine = 1, /datum/reagent/consumable/ethanol = 1)
-	mix_message = "The mixture dries into a pale blue powder."
+	mix_message = "Высохнув, смесь превратилась в бледно-синий порошок."
 
 /datum/chemical_reaction/atropine
 	results = list(/datum/reagent/medicine/atropine = 5)
@@ -96,7 +96,7 @@
 /datum/chemical_reaction/mannitol
 	results = list(/datum/reagent/medicine/mannitol = 3)
 	required_reagents = list(/datum/reagent/consumable/sugar = 1, /datum/reagent/hydrogen = 1, /datum/reagent/water = 1)
-	mix_message = "The solution slightly bubbles, becoming thicker."
+	mix_message = "Раствор едва заметно пузырится, становясь гуще."
 
 /datum/chemical_reaction/neurine
 	results = list(/datum/reagent/medicine/neurine = 3)

@@ -8,13 +8,13 @@
 #define CTF_REQUIRED_PLAYERS 4
 
 /obj/item/ctf
-	name = "banner"
+	name = "Баннер"
 	icon = 'icons/obj/banner.dmi'
 	icon_state = "banner"
 	inhand_icon_state = "banner"
 	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
-	desc = "A banner with Nanotrasen's logo on it."
+	desc = "Баннер с логотипом Нанотрейзен."
 	slowdown = 2
 	throw_speed = 0
 	throw_range = 1
@@ -59,7 +59,7 @@
 		var/area/mob_area = get_area(M)
 		if(istype(mob_area, game_area))
 			if(!capture)
-				to_chat(M, "<span class='userdanger'>[src] has been returned to the base!</span>")
+				to_chat(M, "<span class='userdanger'>[src] возвращен на базу!</span>")
 	STOP_PROCESSING(SSobj, src)
 	return TRUE //so if called by a signal, it doesn't delete
 
@@ -67,10 +67,10 @@
 /obj/item/ctf/attack_hand(mob/living/user)
 	//pre normal check item stuff, this is for our special flag checks
 	if(!is_ctf_target(user) && !anyonecanpickup)
-		to_chat(user, "<span class='warning'>Non-players shouldn't be moving the flag!</span>")
+		to_chat(user, "<span class='warning'>Флаг могут двигать только игроки!</span>")
 		return
 	if(team in user.faction)
-		to_chat(user, "<span class='warning'>You can't move your own flag!</span>")
+		to_chat(user, "<span class='warning'>Не могу двигать свой флаг!</span>")
 		return
 	if(loc == user)
 		if(!user.dropItemToGround(src))
@@ -78,7 +78,7 @@
 	for(var/mob/M in GLOB.player_list)
 		var/area/mob_area = get_area(M)
 		if(istype(mob_area, game_area))
-			to_chat(M, "<span class='userdanger'>\The [initial(src.name)] has been taken!</span>")
+			to_chat(M, "<span class='userdanger'>\[initial(src.name)] взят!</span>")
 	STOP_PROCESSING(SSobj, src)
 	anchored = FALSE //normal checks need this to be FALSE to pass
 	. = ..() //this is the actual normal item checks
@@ -98,45 +98,45 @@
 	for(var/mob/M in GLOB.player_list)
 		var/area/mob_area = get_area(M)
 		if(istype(mob_area, game_area))
-			to_chat(M, "<span class='userdanger'>\The [initial(name)] has been dropped!</span>")
+			to_chat(M, "<span class='userdanger'>\The [initial(name)] упал!</span>")
 	anchored = TRUE
 
 
 /obj/item/ctf/red
-	name = "red flag"
+	name = "Красный флаг"
 	icon_state = "banner-red"
 	inhand_icon_state = "banner-red"
-	desc = "A red banner used to play capture the flag."
+	desc = "Красное знамя, используемое в "Захвате Флага"."
 	team = RED_TEAM
 	reset_path = /obj/effect/ctf/flag_reset/red
 
 
 /obj/item/ctf/blue
-	name = "blue flag"
+	name = "Синий флаг"
 	icon_state = "banner-blue"
 	inhand_icon_state = "banner-blue"
-	desc = "A blue banner used to play capture the flag."
+	desc = "Синее знамя, используемое в "Захвате Флага"."
 	team = BLUE_TEAM
 	reset_path = /obj/effect/ctf/flag_reset/blue
 
 /obj/effect/ctf/flag_reset
-	name = "banner landmark"
+	name = "Точка знамени"
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "banner"
-	desc = "This is where a banner with Nanotrasen's logo on it would go."
+	desc = "Сюда вставляется знамя Нанотрейзен."
 	layer = LOW_ITEM_LAYER
 
 /obj/effect/ctf/flag_reset/red
-	name = "красный flag landmark"
+	name = "Точка красного флага"
 	icon_state = "banner-red"
-	desc = "This is where a red banner used to play capture the flag \
-		would go."
+	desc = "Сюда вставляется \
+		красный флаг."
 
 /obj/effect/ctf/flag_reset/blue
-	name = "синий flag landmark"
+	name = "Точка синего флага"
 	icon_state = "banner-blue"
-	desc = "This is where a blue banner used to play capture the flag \
-		would go."
+	desc = "Сюда вставляется \
+		синий флаг."
 
 /proc/toggle_id_ctf(user, activated_id, automated = FALSE)
 	var/ctf_enabled = FALSE
@@ -159,14 +159,14 @@
 		notify_ghosts("CTF has been [ctf_enabled? "enabled" : "disabled"] in [A]!",'sound/effects/ghost2.ogg')
 
 /obj/machinery/capture_the_flag
-	name = "CTF Controller"
-	desc = "Used for running friendly games of capture the flag."
+	name = "Контроллер "Захвата Флага""
+	desc = "Используется для "Захвата Флага"."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "syndbeacon"
 	resistance_flags = INDESTRUCTIBLE
 	var/game_id = "centcom"
 
-	var/victory_rejoin_text = "<span class='userdanger'>Teams have been cleared. Click on the machines to vote to begin another round.</span>"
+	var/victory_rejoin_text = "<span class='userdanger'>Игра окончена. Кликните на контроллеры чтобы проголосовать за новый раунд "Захвата Флага"</span>"
 	var/team = WHITE_TEAM
 	var/team_span = ""
 	//Capture the Flag scoring
@@ -215,7 +215,7 @@
 			living_participant.adjustFireLoss(-2.5 * delta_time)
 
 /obj/machinery/capture_the_flag/red
-	name = "Red CTF Controller"
+	name = "Красный контроллер "Захвата Флага""
 	icon_state = "syndbeacon"
 	team = RED_TEAM
 	team_span = "redteamradio"
@@ -223,7 +223,7 @@
 	instagib_gear = /datum/outfit/ctf/red/instagib
 
 /obj/machinery/capture_the_flag/blue
-	name = "Blue CTF Controller"
+	name = "Синий контроллер "Захвата Флага""
 	icon_state = "bluebeacon"
 	team = BLUE_TEAM
 	team_span = "blueteamradio"
@@ -241,11 +241,11 @@
 
 
 		if(!(GLOB.ghost_role_flags & GHOSTROLE_MINIGAME))
-			to_chat(user, "<span class='warning'>CTF has been temporarily disabled by admins.</span>")
+			to_chat(user, "<span class='warning'>"Захват Флага" был отключен администрацией.</span>")
 			return
 		for(var/obj/machinery/capture_the_flag/CTF in GLOB.machines)
 			if(CTF.game_id != game_id && CTF.ctf_enabled)
-				to_chat(user, "<span class='warning'>There is already an ongoing game in the [get_area(CTF)]!</span>")
+				to_chat(user, "<span class='warning'>На [get_area(CTF)] уже проводится игра!</span>")
 				return
 		people_who_want_to_play |= user.ckey
 		var/num = people_who_want_to_play.len
@@ -254,7 +254,7 @@
 			people_who_want_to_play.Cut()
 			toggle_id_ctf(null, game_id)
 		else
-			to_chat(user, "<span class='notice'>CTF has been requested. [num]/[CTF_REQUIRED_PLAYERS] have readied up.</span>")
+			to_chat(user, "<span class='notice'>Запрос на запуск "Захвата Флага". [num]/[CTF_REQUIRED_PLAYERS] игроков готово.</span>")
 
 		return
 
@@ -262,7 +262,7 @@
 		return
 	if(user.ckey in team_members)
 		if(user.ckey in recently_dead_ckeys)
-			to_chat(user, "<span class='warning'>It must be more than [DisplayTimeText(respawn_cooldown)] from your last death to respawn!</span>")
+			to_chat(user, "<span class='warning'>Нужно подождать еще [DisplayTimeText(respawn_cooldown)] с моей смерти!</span>")
 			return
 		var/client/new_team_member = user.client
 		if(user.mind && user.mind.current)
@@ -274,10 +274,10 @@
 		if(CTF.game_id != game_id || CTF == src || CTF.ctf_enabled == FALSE)
 			continue
 		if(user.ckey in CTF.team_members)
-			to_chat(user, "<span class='warning'>No switching teams while the round is going!</span>")
+			to_chat(user, "<span class='warning'>Нельзя менять команду во время раунда!</span>")
 			return
 		if(CTF.team_members.len < src.team_members.len)
-			to_chat(user, "<span class='warning'>[src.team] has more team members than [CTF.team]! Try joining [CTF.team] team to even things up.</span>")
+			to_chat(user, "<span class='warning'>В [src.team] больше игроков чем в [CTF.team]! Попробуй присоединиться к [CTF.team] команде чтобы все было честно.</span>")
 			return
 	var/client/new_team_member = user.client
 	if(user.mind && user.mind.current)
@@ -346,7 +346,7 @@
 			for(var/mob/ctf_player in GLOB.player_list)
 				var/area/mob_area = get_area(ctf_player)
 				if(istype(mob_area, game_area))
-					to_chat(ctf_player, "<span class='userdanger [team_span]'>[user.real_name] has captured \the [flag], scoring a point for [team] team! They now have [points]/[points_to_win] points!</span>")
+					to_chat(ctf_player, "<span class='userdanger [team_span]'>[user.real_name] захватил \ [flag] и заработал очко для [team] команды! Теперь у них [points]/[points_to_win] очков!</span>")
 			if(points >= points_to_win)
 				victory()
 
@@ -355,7 +355,7 @@
 		var/mob/living/competitor = _competitor
 		var/area/mob_area = get_area(competitor)
 		if(istype(mob_area, game_area))
-			to_chat(competitor, "<span class='narsie [team_span]'>[team] team wins!</span>")
+			to_chat(competitor, "<span class='narsie [team_span]'>[team] команда победила!</span>")
 			to_chat(competitor, victory_rejoin_text)
 			for(var/obj/item/ctf/W in competitor)
 				competitor.dropItemToGround(W)
@@ -389,7 +389,7 @@
 
 	dead_barricades.Cut()
 
-	notify_ghosts("[name] has been activated!", enter_link="<a href=?src=[REF(src)];join=1>(Click to join the [team] team!)</a> or click on the controller directly!", source = src, action=NOTIFY_ATTACK, header = "CTF has been activated")
+	notify_ghosts("[name] активирован!", enter_link="<a href=?src=[REF(src)];join=1>(Нажми чтобы присоединиться к [team] команде!)</a> или нажми прямо на контроллер!", source = src, action=NOTIFY_ATTACK, header = ""Захват флага" активирован")
 
 	if(!arena_reset)
 		reset_the_arena()
@@ -441,7 +441,7 @@
 			CTF.respawn_cooldown = DEFAULT_RESPAWN
 
 /obj/item/gun/ballistic/automatic/pistol/deagle/ctf
-	desc = "This looks like it could really hurt in melee."
+	desc = "Неплохо в ближнем бою."
 	force = 75
 	mag_type = /obj/item/ammo_box/magazine/m50/ctf
 
@@ -470,7 +470,7 @@
 
 /obj/item/gun/ballistic/automatic/laser/ctf
 	mag_type = /obj/item/ammo_box/magazine/recharge/ctf
-	desc = "This looks like it could really hurt in melee."
+	desc = "Неплохо в ближнем бою."
 	force = 50
 
 /obj/item/gun/ballistic/automatic/laser/ctf/dropped()
@@ -547,7 +547,7 @@
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/blue_laser
 
 /datum/outfit/ctf
-	name = "CTF"
+	name = ""Захват флага""
 	ears = /obj/item/radio/headset
 	uniform = /obj/item/clothing/under/syndicate
 	suit = /obj/item/clothing/suit/space/hardsuit/shielded/ctf
@@ -623,8 +623,8 @@
 
 
 /obj/structure/trap/ctf
-	name = "Spawn protection"
-	desc = "Stay outta the enemy spawn!"
+	name = "Защита базы"
+	desc = "Держись подальше от базы противника!"
 	icon_state = "trap"
 	resistance_flags = INDESTRUCTIBLE
 	var/team = WHITE_TEAM
@@ -639,7 +639,7 @@
 	if(!is_ctf_target(L))
 		return
 	if(!(src.team in L.faction))
-		to_chat(L, "<span class='danger'><B>Stay out of the enemy spawn!</B></span>")
+		to_chat(L, "<span class='danger'><B>Держись подальше от базы противника!</B></span>")
 		L.death()
 
 /obj/structure/trap/ctf/red
@@ -651,8 +651,8 @@
 	icon_state = "trap-frost"
 
 /obj/structure/barricade/security/ctf
-	name = "barrier"
-	desc = "A barrier. Provides cover in fire fights."
+	name = "Барьер"
+	desc = "Барьер. За ним можно укрыться."
 	deploy_time = 0
 	deploy_message = 0
 
@@ -671,9 +671,9 @@
 	resistance_flags = INDESTRUCTIBLE
 
 /obj/effect/ctf/ammo
-	name = "ammo pickup"
-	desc = "You like revenge, right? Everybody likes revenge! Well, \
-		let's go get some!"
+	name = "Пополнение боезапаса"
+	desc = "Хочешь отомстить? Иди \
+		и отомсти!"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "at_shield1"
 	layer = ABOVE_MOB_LAYER
@@ -704,14 +704,14 @@
 			for(var/obj/item/gun/G in M)
 				qdel(G)
 			O.equip(M)
-			to_chat(M, "<span class='notice'>Ammunition reloaded!</span>")
+			to_chat(M, "<span class='notice'>Оружие снова заряжено!</span>")
 			playsound(get_turf(M), 'sound/weapons/gun/shotgun/rack.ogg', 50, TRUE, -1)
 			qdel(src)
 			break
 
 /obj/effect/ctf/dead_barricade
-	name = "dead barrier"
-	desc = "It provided cover in fire fights. And now it's gone."
+	name = "Уничтоженный барьер"
+	desc = "За ним можно было укрыться. Теперь он разрушен."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "barrier0"
 	var/game_id = "centcom"
@@ -731,8 +731,8 @@
 //Control Point
 
 /obj/machinery/control_point
-	name = "control point"
-	desc = "You should capture this."
+	name = "Точка контроля"
+	desc = "Это надо захватить."
 	icon = 'icons/obj/machines/dominator.dmi'
 	icon_state = "dominator"
 	resistance_flags = INDESTRUCTIBLE
@@ -765,7 +765,7 @@
 				for(var/mob/M in GLOB.player_list)
 					var/area/mob_area = get_area(M)
 					if(istype(mob_area, game_area))
-						to_chat(M, "<span class='userdanger'>[user.real_name] has captured \the [src], claiming it for [CTF.team]! Go take it back!</span>")
+						to_chat(M, "<span class='userdanger'>[user.real_name] захватил \ [src] для [CTF.team]! Иди и забери обратно!</span>")
 				break
 
 #undef WHITE_TEAM

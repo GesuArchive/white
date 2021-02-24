@@ -1,5 +1,5 @@
 /datum/reagent/drug
-	name = "Drug"
+	name = "Наркотик"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
 	taste_description = "горечь"
 	var/trippy = TRUE //Does this drug make you trip?
@@ -9,7 +9,7 @@
 		SEND_SIGNAL(M, COMSIG_CLEAR_MOOD_EVENT, "[type]_high")
 
 /datum/reagent/drug/space_drugs
-	name = "Space drugs"
+	name = "Космо-наркотики"
 	description = "An illegal chemical compound used as drug."
 	color = "#60A584" // rgb: 96, 165, 132
 	overdose_threshold = 30
@@ -25,7 +25,7 @@
 	..()
 
 /datum/reagent/drug/space_drugs/overdose_start(mob/living/M)
-	to_chat(M, "<span class='userdanger'>You start tripping hard!</span>")
+	to_chat(M, "<span class='userdanger'>Вот это меня накрыло!</span>")
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/overdose, name)
 
 /datum/reagent/drug/space_drugs/overdose_process(mob/living/M)
@@ -34,7 +34,7 @@
 	..()
 
 /datum/reagent/drug/nicotine
-	name = "Nicotine"
+	name = "Никотин"
 	description = "Slightly reduces stun times. If overdosed it will deal toxin and oxygen damage."
 	reagent_state = LIQUID
 	color = "#60A584" // rgb: 96, 165, 132
@@ -71,7 +71,7 @@
 	. = 1
 
 /datum/reagent/drug/crank
-	name = "Crank"
+	name = "Крэнк"
 	description = "Reduces stun times by about 200%. If overdosed or addicted it will deal significant Toxin, Brute and Brain damage."
 	reagent_state = LIQUID
 	color = "#FA00C8"
@@ -120,7 +120,7 @@
 	. = 1
 
 /datum/reagent/drug/krokodil
-	name = "Krokodil"
+	name = "Крокодил"
 	description = "Cools and calms you down. If overdosed it will deal significant Brain and Toxin damage. If addicted it will begin to deal fatal amounts of Brute damage as the subject's skin falls off."
 	reagent_state = LIQUID
 	color = "#0064B4"
@@ -149,12 +149,12 @@
 
 /datum/reagent/drug/krokodil/addiction_act_stage2(mob/living/M)
 	if(prob(25))
-		to_chat(M, "<span class='danger'>Your skin feels loose...</span>")
+		to_chat(M, "<span class='danger'>Кожа ощущается дряблой...</span>")
 	..()
 
 /datum/reagent/drug/krokodil/addiction_act_stage3(mob/living/M)
 	if(prob(25))
-		to_chat(M, "<span class='danger'>Your skin starts to peel away...</span>")
+		to_chat(M, "<span class='danger'>Моя кожа начинает облезать...</span>")
 	M.adjustBruteLoss(3*REM, 0)
 	..()
 	. = 1
@@ -162,7 +162,7 @@
 /datum/reagent/drug/krokodil/addiction_act_stage4(mob/living/carbon/human/M)
 	CHECK_DNA_AND_SPECIES(M)
 	if(!istype(M.dna.species, /datum/species/krokodil_addict))
-		to_chat(M, "<span class='userdanger'>Your skin falls off easily!</span>")
+		to_chat(M, "<span class='userdanger'>Моя кожа с легкостью отвалилась!</span>")
 		M.adjustBruteLoss(50*REM, 0) // holy shit your skin just FELL THE FUCK OFF
 		M.set_species(/datum/species/krokodil_addict)
 	else
@@ -171,7 +171,7 @@
 	. = 1
 
 /datum/reagent/drug/methamphetamine
-	name = "Methamphetamine"
+	name = "Метамфетамин"
 	description = "Reduces stun times by about 300%, speeds the user up, and allows the user to quickly recover stamina while dealing a small amount of Brain damage. If overdosed the subject will move randomly, laugh randomly, drop items and suffer from Toxin and Brain damage. If addicted the subject will constantly jitter and drool, before becoming dizzy and losing motor control and eventually suffer heavy toxin damage."
 	reagent_state = LIQUID
 	color = "#FAFAFA"
@@ -212,7 +212,7 @@
 	if(prob(20))
 		M.emote("laugh")
 	if(prob(33))
-		M.visible_message("<span class='danger'>[M] hands flip out and flail everywhere!</span>")
+		M.visible_message("<span class='danger'>Руки [M] вывернулись и стали размахивать!</span>")
 		M.drop_all_held_items()
 	..()
 	M.adjustToxLoss(1, 0)
@@ -255,7 +255,7 @@
 	. = 1
 
 /datum/reagent/drug/bath_salts
-	name = "Bath Salts"
+	name = "Соли для Ванны"
 	description = "Makes you impervious to stuns and grants a stamina regeneration buff, but you will be a nearly uncontrollable tramp-bearded raving lunatic."
 	reagent_state = LIQUID
 	color = "#FAFAFA"
@@ -355,7 +355,7 @@
 	. = 1
 
 /datum/reagent/drug/aranesp
-	name = "Aranesp"
+	name = "Аранесп"
 	description = "Amps you up, gets you going, and rapidly restores stamina damage. Side effects include breathlessness and toxicity."
 	reagent_state = LIQUID
 	color = "#78FFF0"
@@ -373,7 +373,7 @@
 	. = 1
 
 /datum/reagent/drug/happiness
-	name = "Happiness"
+	name = "Счастье"
 	description = "Fills you with ecstasic numbness and causes minor brain damage. Highly addictive. If overdosed causes sudden mood swings."
 	reagent_state = LIQUID
 	color = "#EE35FF"
@@ -450,7 +450,7 @@
 	. = 1
 
 /datum/reagent/drug/pumpup
-	name = "Pump-Up"
+	name = "Подкачка"
 	description = "Take on the world! A fast acting, hard hitting drug that pushes the limit on what you can handle."
 	reagent_state = LIQUID
 	color = "#e38e44"
@@ -469,7 +469,7 @@
 	M.Jitter(5)
 
 	if(prob(5))
-		to_chat(M, "<span class='notice'>[pick("Go! Go! GO!", "You feel ready...", "You feel invincible...")]</span>")
+		to_chat(M, "<span class='notice'>[pick("Да! Да! ДААААА!", "Я готов...", "Я неуязвим...")]</span>")
 	if(prob(15))
 		M.losebreath++
 		M.adjustToxLoss(2, 0)
@@ -477,7 +477,7 @@
 	. = 1
 
 /datum/reagent/drug/pumpup/overdose_start(mob/living/M)
-	to_chat(M, "<span class='userdanger'>You can't stop shaking, your heart beats faster and faster...</span>")
+	to_chat(M, "<span class='userdanger'>Не могу перестать дрожать, моё сердце бьется всё быстрее с каждой секундой...</span>")
 
 /datum/reagent/drug/pumpup/overdose_process(mob/living/M)
 	M.Jitter(5)
@@ -493,7 +493,7 @@
 	..()
 
 /datum/reagent/drug/maint
-	name = "Maintenance Drugs"
+	name = "Туннельные Наркотики"
 	addiction_type = /datum/reagent/drug/maint
 	can_synth = FALSE
 
@@ -526,7 +526,7 @@
 		M.emote(pick("twitch","drool"))
 
 /datum/reagent/drug/maint/powder
-	name = "Maintenance Powder"
+	name = "Туннельная Пыль"
 	description = "An unknown powder that you most likely gotten from an assistant, a bored chemist... or cooked yourself. It is a refined form of tar that enhances your mental ability, making you learn stuff a lot faster."
 	reagent_state = SOLID
 	color = "#ffffff"
@@ -553,7 +553,7 @@
 	M.adjustOrganLoss(ORGAN_SLOT_BRAIN,3)
 
 /datum/reagent/drug/maint/sludge
-	name = "Maintenance Sludge"
+	name = "Туннельный Шлам"
 	description = "An unknown sludge that you most likely gotten from an assistant, a bored chemist... or cooked yourself. Half refined, it fills your body with itself, making it more resistant to wounds, but causes toxins to accumulate."
 	reagent_state = LIQUID
 	color = "#203d2c"
@@ -587,7 +587,7 @@
 		carbie.vomit()
 
 /datum/reagent/drug/maint/tar
-	name = "Maintenance Tar"
+	name = "Туннельная Смола"
 	description = "An unknown tar that you most likely gotten from an assistant, a bored chemist... or cooked yourself. Raw tar, straight from the floor. It can help you with escaping bad situations at the cost of liver damage."
 	reagent_state = LIQUID
 	color = "#000000"

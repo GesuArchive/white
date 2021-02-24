@@ -1,5 +1,5 @@
 /datum/species/abductor
-	name = "Abductor"
+	name = "похититель"
 	id = "abductor"
 	say_mod = "тараторит"
 	sexes = FALSE

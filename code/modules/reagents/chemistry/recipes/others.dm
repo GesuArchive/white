@@ -275,28 +275,28 @@
 	mob_react = FALSE
 
 /datum/chemical_reaction/foam/on_reaction(datum/reagents/holder, created_volume)
-	holder.create_foam(/datum/effect_system/foam_spread,2*created_volume,notification="<span class='danger'>The solution spews out foam!</span>")
+	holder.create_foam(/datum/effect_system/foam_spread,2*created_volume,notification="<span class='danger'>Раствор испускает пену!</span>")
 
 /datum/chemical_reaction/metalfoam
 	required_reagents = list(/datum/reagent/aluminium = 3, /datum/reagent/foaming_agent = 1, /datum/reagent/toxin/acid/fluacid = 1)
 	mob_react = FALSE
 
 /datum/chemical_reaction/metalfoam/on_reaction(datum/reagents/holder, created_volume)
-	holder.create_foam(/datum/effect_system/foam_spread/metal,5*created_volume,1,"<span class='danger'>The solution spews out a metallic foam!</span>")
+	holder.create_foam(/datum/effect_system/foam_spread/metal,5*created_volume,1,"<span class='danger'>Раствор испускает металлическую пену!</span>")
 
 /datum/chemical_reaction/smart_foam
 	required_reagents = list(/datum/reagent/aluminium = 3, /datum/reagent/smart_foaming_agent = 1, /datum/reagent/toxin/acid/fluacid = 1)
 	mob_react = TRUE
 
 /datum/chemical_reaction/smart_foam/on_reaction(datum/reagents/holder, created_volume)
-	holder.create_foam(/datum/effect_system/foam_spread/metal/smart,5*created_volume,1,"<span class='danger'>The solution spews out metallic foam!</span>")
+	holder.create_foam(/datum/effect_system/foam_spread/metal/smart,5*created_volume,1,"<span class='danger'>Раствор выделяет металлическую пену!</span>")
 
 /datum/chemical_reaction/ironfoam
 	required_reagents = list(/datum/reagent/iron = 3, /datum/reagent/foaming_agent = 1, /datum/reagent/toxin/acid/fluacid = 1)
 	mob_react = FALSE
 
 /datum/chemical_reaction/ironfoam/on_reaction(datum/reagents/holder, created_volume)
-	holder.create_foam(/datum/effect_system/foam_spread/metal,5*created_volume,2,"<span class='danger'>The solution spews out a metallic foam!</span>")
+	holder.create_foam(/datum/effect_system/foam_spread/metal,5*created_volume,2,"<span class='danger'>Раствор испускает металлическую пену!</span>")
 
 /datum/chemical_reaction/foaming_agent
 	results = list(/datum/reagent/foaming_agent = 1)
@@ -305,7 +305,7 @@
 /datum/chemical_reaction/smart_foaming_agent
 	results = list(/datum/reagent/smart_foaming_agent = 3)
 	required_reagents = list(/datum/reagent/foaming_agent = 3, /datum/reagent/acetone = 1, /datum/reagent/iron = 1)
-	mix_message = "The solution mixes into a frothy metal foam and conforms to the walls of its container."
+	mix_message = "Раствор превращается в металлическую пену и прилегает к стенкам контейнера."
 
 
 /////////////////////////////// Cleaning and hydroponics /////////////////////////////////////////////////
@@ -436,7 +436,7 @@
 
 /datum/chemical_reaction/monkey
 	required_reagents = list(/datum/reagent/monkey_powder = 50, /datum/reagent/water = 1)
-	mix_message = "<span class='danger'>Expands into a brown mass before shaping itself into a monkey!.</span>"
+	mix_message = "<span class='danger'>Расширяется в коричневую массу, перед тем как обернуться обезьяной!.</span>"
 
 /datum/chemical_reaction/monkey/on_reaction(datum/reagents/holder, created_volume)
 	var/mob/living/carbon/M = holder.my_atom
@@ -530,11 +530,11 @@
 	results = list(/datum/reagent/toxin/slimejelly = 5)
 	required_reagents = list(/datum/reagent/fuel/oil = 3, /datum/reagent/uranium/radium = 2, /datum/reagent/consumable/tinlux =1)
 	required_container = /obj/item/food/grown/mushroom/glowshroom
-	mix_message = "The mushroom's insides bubble and pop and it becomes very limp."
+	mix_message = "Внутри гриба что-то пузыриться и лопается, становясь очень мягким."
 
 /datum/chemical_reaction/slime_extractification
 	required_reagents = list(/datum/reagent/toxin/slimejelly = 30, /datum/reagent/consumable/frostoil = 5, /datum/reagent/toxin/plasma = 5)
-	mix_message = "The mixture condenses into a ball."
+	mix_message = "Смесь конденсируется в шар."
 
 /datum/chemical_reaction/slime_extractification/on_reaction(datum/reagents/holder, created_volume)
 	var/location = get_turf(holder.my_atom)

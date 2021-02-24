@@ -306,9 +306,9 @@ Nothing else in the console has ID requirements.
 			if(stored_research.can_afford(node.get_price(stored_research)))
 				l += "<BR><A href='?src=[REF(src)];research_node=[node.id]'>[node.price_display(stored_research)]</A>"
 			else
-				l += "<BR><span class='linkOff'>[node.price_display(stored_research)]</span>"  // gray - too expensive
+				l += "<BR><span class='linkOff'>[node.price_display(stored_research)]</span>" // gray - too expensive
 		else
-			l += "<BR><span class='linkOff bad'>[node.price_display(stored_research)]</span>"  // red - missing prereqs
+			l += "<BR><span class='linkOff bad'>[node.price_display(stored_research)]</span>" // red - missing prereqs
 		if(ui_mode == RDCONSOLE_UI_MODE_NORMAL)
 			l += "[node.description]"
 			for(var/i in node.design_ids)

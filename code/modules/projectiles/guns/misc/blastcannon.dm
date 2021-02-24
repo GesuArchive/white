@@ -4,8 +4,8 @@
  * It's basically an immovable rod launcher.
  */
 /obj/item/gun/blastcannon
-	name = "pipe gun"
-	desc = "A pipe welded onto a gun stock, with a mechanical trigger. The pipe has an opening near the top, and there seems to be a spring loaded wheel in the hole. Small enough to stow in a bag."
+	name = "трубопистолет"
+	desc = "Труба приваренная к прикладу пистолета с механическим курком. Сверху на трубе есть отверстие и если в него заглянуть, то можно увидеть подпружиненное колесо. Довольно небольшой, можно таскать в сумке."
 	icon_state = "empty_blastcannon"
 	inhand_icon_state = "blastcannon_empty"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -53,7 +53,7 @@
 	if(bomb)
 		bomb.forceMove(user.loc)
 		user.put_in_hands(bomb)
-		user.visible_message("<span class='warning'>[user] detaches [bomb] from [src].</span>")
+		user.visible_message("<span class='warning'>[user] отсоединяет [bomb] от [src].</span>")
 		bomb = null
 		name = initial(name)
 		desc = initial(desc)
@@ -69,16 +69,16 @@
 		return ..()
 
 	if(!bomb_to_attach.tank_one || !bomb_to_attach.tank_two)
-		to_chat(user, "<span class='warning'>What good would an incomplete bomb do?</span>")
+		to_chat(user, "<span class='warning'>И что за польза от незавершенной бомбы?</span>")
 		return FALSE
 	if(!user.transferItemToLoc(bomb_to_attach, src))
-		to_chat(user, "<span class='warning'>[bomb_to_attach] seems to be stuck to your hand!</span>")
+		to_chat(user, "<span class='warning'>[bomb_to_attach] похоже, застряла в твоей руке!</span>")
 		return FALSE
 
-	user.visible_message("<span class='warning'>[user] attaches [bomb_to_attach] to [src]!</span>")
+	user.visible_message("<span class='warning'>[user] присоединил [bomb_to_attach] к [src]!</span>")
 	bomb = bomb_to_attach
-	name = "blast cannon"
-	desc = "A makeshift device used to concentrate a bomb's blast energy to a narrow wave."
+	name = "пушка уничтожитель"
+	desc = "Самодельное устройство используемое для концентрации энергии от взрыва бомбы в направленную волну."
 	update_icon()
 	return TRUE
 
@@ -131,7 +131,7 @@
 
 /// The projectile used by the blastcannon
 /obj/projectile/blastwave
-	name = "blast wave"
+	name = "взрывная волна"
 	icon_state = "blastwave"
 	damage = 0
 	nodamage = FALSE

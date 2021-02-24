@@ -37,7 +37,7 @@
 /// PM9 standard rocket
 /obj/projectile/bullet/a84mm_he
 	name ="\improper HE ракета"
-	desc = "Boom."
+	desc = "Бабах."
 	icon_state = "missile"
 	damage = 50
 	ricochets_max = 0 //it's a MISSILE
@@ -55,7 +55,7 @@
 /// PM9 weak rocket
 /obj/projectile/bullet/a84mm_weak
 	name ="low-yield HE missile"
-	desc = "Boom, but less so."
+	desc = "Бабах, но поменьше."
 	icon_state = "missile"
 	damage = 30
 	ricochets_max = 0 //it's a MISSILE
@@ -73,7 +73,7 @@
 /// Mech BRM-6 missile
 /obj/projectile/bullet/a84mm_br
 	name ="\improper HE ракета"
-	desc = "Boom."
+	desc = "Бабах."
 	icon_state = "missile"
 	damage = 30
 	ricochets_max = 0 //it's a MISSILE
@@ -88,7 +88,7 @@
 
 /obj/item/broken_missile
 	name = "\improper сломанная ракета"
-	desc = "A missile that did not detonate. The tail has snapped and it is in no way fit to be used again."
+	desc = "Не сдетонировавшая ракета. Хвост сломался и использовать её повторно не получится."
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "missile_broken"
 	w_class = WEIGHT_CLASS_TINY

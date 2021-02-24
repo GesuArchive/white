@@ -273,44 +273,44 @@ This section is for the event controller
 	kill()
 
 /turf/open/indestructible/crystal_floor
-	name = "Crystal floor"
-	desc = "A crystallized floor"
+	name = "Кристальный пол."
+	desc = "Кристаллизованный пол."
 	icon_state = "noslip-damaged1"
 	baseturfs = /turf/open/space
 
 /turf/open/indestructible/crystal_floor/examine(mob/user)
 	. += ..()
-	. += "<hr><span class='notice'>The floor is made of sturdy crystals.</span>"
+	. += "<hr><span class='notice'>Пол, сделанный из крепких кристаллов.</span>"
 
 /turf/open/indestructible/crystal_floor/welder_act(mob/living/user, obj/item/I)
 	. = ..()
 	if(!I.tool_start_check(user, amount=0))
 		return FALSE
-	to_chat(user, "<span class='notice'>You begin heating up the crystal...</span>")
+	to_chat(user, "<span class='notice'>Ты начинаешь нагревать кристалл...</span>")
 	if(I.use_tool(src, user, 2.5 SECONDS, volume=100))
-		to_chat(user, "<span class='notice'>The crystal crumbles into dust.</span>")
+		to_chat(user, "<span class='notice'>Кристалл крошится в пыль.</span>")
 		ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 		return TRUE
 	return FALSE
 
 /turf/closed/indestructible/crystal_wall
-	name = "Crystal wall"
-	desc = "A crystallized wall"
+	name = "Кристальная стена."
+	desc = "Кристаллизованная стена."
 	icon = 'icons/turf/mining.dmi'
 	icon_state = "rock_highchance"
 	baseturfs = /turf/open/space
 
 /turf/closed/indestructible/crystal_wall/examine(mob/user)
 	. += ..()
-	. += "<hr><span class='notice'>The wall is made of sturdy crystals.</span>"
+	. += "<hr><span class='notice'>Эта стена сделана из крепких кристаллов.</span>"
 
 /turf/open/indestructible/crystal_floor/welder_act(mob/living/user, obj/item/I)
 	. = ..()
 	if(!I.tool_start_check(user, amount=0))
 		return FALSE
-	to_chat(user, "<span class='notice'>You begin heating up the crystal...</span>")
+	to_chat(user, "<span class='notice'>Ты начинаешь нагревать кристалл...</span>")
 	if(I.use_tool(src, user, 2.5 SECONDS, volume=100))
-		to_chat(user, "<span class='notice'>The crystal crumbles into dust.</span>")
+		to_chat(user, "<span class='notice'>Кристалл крошится в пыль.</span>")
 		ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 		return TRUE
 	return FALSE
@@ -319,7 +319,7 @@ This section is for the event controller
 This section is for the destabilized SM
 */
 /obj/machinery/destabilized_crystal
-	name = "destabilized crystal"
+	name = "Дестабилизованный кристалл."
 	desc = "A strangely translucent and iridescent crystal."
 	icon = 'icons/obj/supermatter.dmi'
 	icon_state = "psy"
@@ -379,7 +379,7 @@ This section is for the destabilized SM
 		return
 	if(istype(W, /obj/item/crystal_stabilizer))
 		if(length(GLOB.huge_crystal_portals) > 0)
-			to_chat(user, "<span class='notice'>The shield protecting the crystal is still up! Close all the main portals before attempting this again!</span>")
+			to_chat(user, "<span class='notice'>Щит, защищающий кристалл, все еще активен! Закройте все основные порталы, прежде чем пытаться снова!</span>")
 			return
 		var/obj/item/crystal_stabilizer/injector = W
 		if(!injector.filled)
@@ -397,7 +397,7 @@ This section is for the destabilized SM
 		radiation_pulse(src, 1000, 6)
 		if(!W.use_tool(src, user, 2 SECONDS, volume = 100))
 			return
-		to_chat(user, "<span class='notice'>The [src] has been restored and restabilized!</span>")
+		to_chat(user, "<span class='notice'> [src] был восстановлен и стабилизирован!</span>")
 		playsound(get_turf(src), 'sound/effects/supermatter.ogg', 35, TRUE)
 		injector.filled = FALSE
 		active = FALSE
@@ -407,9 +407,9 @@ This section is for the destabilized SM
 	. = ..()
 	. += "<hr><span class='notice'>The Crystal appears to be heavily destabilized. Maybe it can be fixed by injecting it with something from another world.</span>"
 	if(length(GLOB.huge_crystal_portals) > 0)
-		. += "\n<span class='notice'>The Destabilized Crystal appears to be protected by some kind of shield.</span>"
+		. += "\n<span class='notice'>Дестабилизированный Кристалл защищен неким щитом.</span>"
 	else
-		. += "\n<span class='notice'>The shield that was protecting the Crystal is gone, it's time to restore it.</span>"
+		. += "\n<span class='notice'>Щита, что защищает кристалл, больше нет, время восстановить кристалл.</span>"
 
 /obj/machinery/destabilized_crystal/Bumped(atom/movable/movable_atom)
 	if(!isliving(movable_atom))
@@ -441,7 +441,7 @@ This section is for the destabilized SM
 This section is for the crystal stabilizer item and the crystal from the closed portals
 */
 /obj/item/crystal_stabilizer
-	name = "Supermatter Stabilizer"
+	name = "Стабилизатор Суперматерии"
 	desc = "Used when the Supermatter Matrix is starting to reach the destruction point."
 	icon = 'icons/obj/supermatter.dmi'
 	icon_state = "stabilizer"
@@ -456,7 +456,7 @@ This section is for the crystal stabilizer item and the crystal from the closed 
 	if(!filled)
 		. += "\n<span class='notice'>The [src] is empty.</span>"
 	else
-		. += "\n<span class='notice'>The [src] is full and can be used to stabilize the Supermatter.</span>"
+		. += "\n<span class='notice'>[src] полон и может быть использован для стабилизации Суперматерии.</span>"
 
 /obj/item/crystal_stabilizer/attackby(obj/item/W, mob/living/user, params)
 	. = ..()
@@ -471,7 +471,7 @@ This section is for the crystal stabilizer item and the crystal from the closed 
 		qdel(W)
 
 /obj/item/stack/sheet/otherworld_crystal
-	name = "otherworld crystals"
+	name = "Чужеродные кристаллы."
 	icon_state = "otherworld-crystal"
 	singular_name = "otherworld crystal"
 	icon = 'icons/obj/stack_objects.dmi'
@@ -504,7 +504,7 @@ This section is for the crystal portals variations
 */
 /obj/structure/crystal_portal
 	name = "crystal portal"
-	desc = "this shouldn't be here"
+	desc = "Этого тут не должно быть."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "anom"
 	color = COLOR_SILVER
@@ -584,8 +584,8 @@ This section is for the crystal portals variations
 	AddComponent(spawner_type, mob_types, spawn_time, faction, spawn_text, max_mobs)
 
 /obj/structure/crystal_portal/small
-	name = "Small Portal"
-	desc = "A small portal to an unkown dimension!"
+	name = "Маленький портал."
+	desc = "Маленький портал в неизвестное измерение!"
 	color = COLOR_BRIGHT_BLUE
 	max_mobs = 2
 	spawn_time = 5 SECONDS
@@ -595,8 +595,8 @@ This section is for the crystal portals variations
 		)
 
 /obj/structure/crystal_portal/medium
-	name = "Medium Portal"
-	desc = "A medium portal to an unkown dimension!"
+	name = "Средний портал."
+	desc = "Средний портал в неизвестное измерение!"
 	color = COLOR_GREEN
 	max_mobs = 3
 	spawn_time = 15 SECONDS
@@ -607,8 +607,8 @@ This section is for the crystal portals variations
 		)
 
 /obj/structure/crystal_portal/big
-	name = "Big Portal"
-	desc = "A big portal to an unkown dimension!"
+	name = "Большой портал."
+	desc = "Большой портал в неизвестное измерение!"
 	color = COLOR_RED
 	max_mobs = 4
 	spawn_time = 15 SECONDS
@@ -620,8 +620,8 @@ This section is for the crystal portals variations
 		)
 
 /obj/structure/crystal_portal/huge
-	name = "Huge Portal"
-	desc = "A huge portal to an unkown dimension!"
+	name = "Огромный портал."
+	desc = "Огромный портал в неизвестное измерение!"
 	color = COLOR_BLACK
 	max_mobs = 2
 	spawn_time = 40 SECONDS
@@ -642,7 +642,7 @@ This section is for the crystal monsters variations
 */
 /mob/living/simple_animal/hostile/crystal_monster
 	name = "crystal monster"
-	desc = "A monster made of crystals similar to the Supermatter ones."
+	desc = "Монстр из кристаллов, схожих с кристаллами Суперматерии."
 	icon = 'icons/mob/crystal_mobs.dmi'
 	icon_state = "crystal_minion"
 	icon_living = "crystal_minion"

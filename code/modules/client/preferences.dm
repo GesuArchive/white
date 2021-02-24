@@ -304,7 +304,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<tr><td><b>Рубаха:</b></td><td align='right'><a href='?_src_=prefs;preference=undershirt;task=input'>[undershirt]</a></td>"
 			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERSHIRT]'>[(randomise[RANDOM_UNDERSHIRT]) ? "🔓" : "🔒"]</A></td></tr>"
 
-			dat += "<tr><td><b>Носки:</b></td><td  align='right'><a href='?_src_=prefs;preference=socks;task=input'>[socks]</a></td>"
+			dat += "<tr><td><b>Носки:</b></td><td align='right'><a href='?_src_=prefs;preference=socks;task=input'>[socks]</a></td>"
 			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SOCKS]'>[(randomise[RANDOM_SOCKS]) ? "🔓" : "🔒"]</A></td></tr>"
 
 			dat += "<tr><td><b>Рюкзак:</b></td><td align='right'><a href='?_src_=prefs;preference=bag;task=input'>[backpack]</a></td>"

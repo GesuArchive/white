@@ -1,5 +1,5 @@
 /obj/effect/sliding_puzzle
-	name = "Sliding puzzle generator"
+	name = "Генератор загадок-пятнашек"
 	icon = 'icons/obj/balloons.dmi' //mapping
 	icon_state = "syndballoon"
 	invisibility = INVISIBILITY_ABSTRACT
@@ -195,8 +195,8 @@
 		make_solvable()
 
 /obj/structure/puzzle_element
-	name = "mysterious pillar"
-	desc = "puzzling..."
+	name = "загадочная колонна"
+	desc = "загадочно..."
 	icon = 'icons/obj/lavaland/artefacts.dmi'
 	icon_state = "puzzle_pillar"
 	anchored = FALSE
@@ -282,7 +282,7 @@
 
 /obj/effect/sliding_puzzle/prison/Destroy()
 	if(prisoner)
-		to_chat(prisoner,"<span class='userdanger'>With the cube broken by force, you can feel your body falling apart.</span>")
+		to_chat(prisoner,"<span class='userdanger'>После разрушения куба силой, вы чувствуете, как ваше тело распадается на кусочки.</span>")
 		prisoner.death()
 		qdel(prisoner)
 	. = ..()
@@ -300,8 +300,8 @@
 	return
 
 /obj/item/prisoncube
-	name = "Prison Cube"
-	desc = "Dusty cube with humanoid imprint on it."
+	name = "Куб-тюрьма"
+	desc = "Пыльный куб с гуманоидным следом на нём."
 	icon = 'icons/obj/lavaland/artefacts.dmi'
 	icon_state = "prison_cube"
 
@@ -314,12 +314,12 @@
 	//Handcuffed or unconcious
 	if(istype(carbon_victim) && carbon_victim.handcuffed || victim.stat != CONSCIOUS)
 		if(!puzzle_imprison(target))
-			to_chat(user,"<span class='warning'>[capitalize(src.name)] does nothing.</span>")
+			to_chat(user,"<span class='warning'>[capitalize(src.name)] ничего не делает.</span>")
 			return
-		to_chat(user,"<span class='warning'>You trap [victim] in the prison cube!</span>")
+		to_chat(user,"<span class='warning'>Вы заключаете [victim] в куб-тюрьму!</span>")
 		qdel(src)
 	else
-		to_chat(user,"<span class='notice'>[capitalize(src.name)] only accepts restrained or unconcious prisoners.</span>")
+		to_chat(user,"<span class='notice'>[capitalize(src.name)] принимает только связанных или оглушённых пленников.</span>")
 
 /proc/puzzle_imprison(mob/living/prisoner)
 	var/turf/T = get_turf(prisoner)
@@ -331,7 +331,7 @@
 	//First grab the prisoner and move them temporarily into the generator so they won't get thrown around.
 	prisoner.notransform = TRUE
 	prisoner.forceMove(cube)
-	to_chat(prisoner,"<span class='userdanger'>You're trapped by the prison cube! You will remain trapped until someone solves it.</span>")
+	to_chat(prisoner,"<span class='userdanger'>Вы заключены в кубе-тюрьме! Вы останетесь здесь, пока кто-нибудь не решит загадку куба.</span>")
 
 	//Clear the area from objects (and cube user)
 	var/list/things_to_throw = list()

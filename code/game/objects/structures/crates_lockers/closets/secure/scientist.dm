@@ -1,5 +1,5 @@
 /obj/structure/closet/secure_closet/research_director
-	name = "\proper research director's locker"
+	name = "\proper шкафчик директора по исследованиям"
 	req_access = list(ACCESS_RD)
 	icon_state = "rd"
 
@@ -31,7 +31,7 @@
 
 
 /obj/structure/closet/secure_closet/cytology
-	name = "cytology equipment locker"
+	name = "шкафчик для цитологического оборудования"
 	icon_state = "science"
 	req_access = list(ACCESS_RESEARCH)
 

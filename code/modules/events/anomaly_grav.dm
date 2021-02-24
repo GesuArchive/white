@@ -1,5 +1,5 @@
 /datum/round_event_control/anomaly/anomaly_grav
-	name = "Anomaly: Gravitational"
+	name = "Аномалия: Гравитационная"
 	typepath = /datum/round_event/anomaly/anomaly_grav
 
 	max_occurrences = 5

@@ -1,6 +1,6 @@
 
 /obj/structure/closet/secure_closet/exile
-	name = "exile implants"
+	name = "Имплант ссылки"
 	req_access = list(ACCESS_HOS)
 
 /obj/structure/closet/secure_closet/exile/PopulateContents()

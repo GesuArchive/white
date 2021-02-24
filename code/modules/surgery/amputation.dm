@@ -13,7 +13,7 @@
 	time = 64
 
 /datum/surgery_step/sever_limb/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>Начинаю отрезать от  [target] [parse_zone(target_zone)]...</span>",
+	display_results(user, target, "<span class='notice'>Начинаю отрезать от [target] [parse_zone(target_zone)]...</span>",
 		"<span class='notice'>[user] начинает орезать от [target] [parse_zone(target_zone)]!</span>",
 		"<span class='notice'>[user] начинает отрезать от [target] [parse_zone(target_zone)]!</span>")
 

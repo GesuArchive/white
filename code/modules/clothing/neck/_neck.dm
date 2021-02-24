@@ -129,7 +129,7 @@
 	color = "#E0C14F" //Yellow
 
 /obj/item/clothing/neck/scarf/orange
-	name = "оранжевый  шарф"
+	name = "оранжевый шарф"
 	icon_state = "scarf"
 	color = "#C67A4B" //Orange
 

@@ -15,7 +15,7 @@
 	flag = ENERGY
 
 /obj/projectile/energy/florarevolution
-	name = "gamma somatoray"
+	name = "гамма-сомато-луч"
 	icon_state = "energy3"
 	damage = 0
 	damage_type = TOX

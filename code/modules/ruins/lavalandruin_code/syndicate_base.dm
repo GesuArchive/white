@@ -1,8 +1,8 @@
 //lavaland_surface_syndicate_base1.dmm
 
 /obj/machinery/vending/syndichem
-	name = "\improper SyndiChem"
-	desc = "A vending machine full of grenades and grenade accessories. Sponsored by DonkCo(tm)."
+	name = "СиндиХим"
+	desc = "Торговый автомат, полный гранат и аксессуаров к ним."
 	req_access = list(ACCESS_SYNDICATE)
 	products = list(/obj/item/stack/cable_coil = 5,
 					/obj/item/assembly/igniter = 20,

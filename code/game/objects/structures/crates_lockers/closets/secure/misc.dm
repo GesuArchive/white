@@ -1,6 +1,6 @@
 /obj/structure/closet/secure_closet/ert_com
-	name = "emergency response team commander's locker"
-	desc = "A storage unit containing equipment for an Emergency Response Team Commander."
+	name = "шкафчик командира группы экстренного реагирования"
+	desc = "Хранилище, содержащее оборудование для командира группы быстрого реагирования на чрезвычайные ситуации."
 	req_access = list(ACCESS_CENT_CAPTAIN)
 	icon_state = "cap"
 
@@ -20,8 +20,8 @@
 		new /obj/item/gun/ballistic/revolver/mateba(src)
 
 /obj/structure/closet/secure_closet/ert_sec
-	name = "emergency response team security locker"
-	desc = "A storage unit containing equipment for an Emergency Response Team Security Officer."
+	name = "шкафчик сотрудника службы безопасности группы экстренного реагирования"
+	desc = "Хранилище, содержащее оборудование для сотрудника службы безопасности группы реагирования на чрезвычайные ситуации."
 	req_access = list(ACCESS_CENT_SPECOPS)
 	icon_state = "hos"
 
@@ -34,8 +34,8 @@
 	new /obj/item/shield/riot/tele(src)
 
 /obj/structure/closet/secure_closet/ert_med
-	name = "emergency response team medical locker"
-	desc = "A storage unit containing equipment for an Emergency Response Team Medical Officer."
+	name = "медицинский шкафчик группы экстренного реагирования"
+	desc = "Хранилище, содержащее оборудование для медицинского сотрудника Группы экстренного реагирования."
 	req_access = list(ACCESS_CENT_MEDICAL)
 	icon_state = "cmo"
 
@@ -50,8 +50,8 @@
 	new /mob/living/simple_animal/bot/medbot(src)
 
 /obj/structure/closet/secure_closet/ert_engi
-	name = "emergency response team engineer locker"
-	desc = "A storage unit containing equipment for an Emergency Response Team Engineer."
+	name = "Шкафчик инженера группы аварийного реагирования"
+	desc = "Хранилище, содержащее оборудование для инженера группы аварийного реагирования."
 	req_access = list(ACCESS_CENT_STORAGE)
 	icon_state = "ce"
 

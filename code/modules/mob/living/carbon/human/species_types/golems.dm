@@ -1,6 +1,6 @@
 /datum/species/golem
 	// Animated beings of stone. They have increased defenses, and do not need to breathe. They're also slow as fuuuck.
-	name = "Golem"
+	name = "голем"
 	id = "iron golem"
 	species_traits = list(NOBLOOD,MUTCOLORS,NO_UNDERWEAR)
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_RESISTHEAT,TRAIT_NOBREATH,TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_NOFIRE,TRAIT_CHUNKYFINGERS,TRAIT_RADIMMUNE,TRAIT_GENELESS,TRAIT_PIERCEIMMUNE,TRAIT_NODISMEMBER)
@@ -24,7 +24,7 @@
 	// changes, only the Random Golem type can be chosen
 	limbs_id = "golem"
 	fixed_mut_color = "aaa"
-	var/info_text = "As an <span class='danger'>Iron Golem</span>, you don't have any special traits."
+	var/info_text = "Будучи <span class='danger'>железным големом</span>, я не имею какой-либо характерной черты."
 	var/random_eligible = TRUE //If false, the golem subtype can't be made through golem mutation toxin
 
 	var/prefix = "Железный"
@@ -46,7 +46,7 @@
 	return golem_name
 
 /datum/species/golem/random
-	name = "Random Golem"
+	name = "случайный голем"
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN
 	var/static/list/random_golem_types
 
@@ -64,12 +64,12 @@
 	to_chat(H, "[initial(golem_type.info_text)]")
 
 /datum/species/golem/adamantine
-	name = "Adamantine Golem"
+	name = "адамантиновый голем"
 	id = "adamantine golem"
 	meat = /obj/item/food/meat/slab/human/mutant/golem/adamantine
 	mutant_organs = list(/obj/item/organ/adamantine_resonator, /obj/item/organ/vocal_cords/adamantine)
 	fixed_mut_color = "4ed"
-	info_text = "As an <span class='danger'>Adamantine Golem</span>, you possess special vocal cords allowing you to \"resonate\" messages to all golems. Your unique mineral makeup makes you immune to most types of magic."
+	info_text = "Будучи <span class='danger'>адамантиновым големом</span>, я владею особенными голосовыми связками, дающие мне возможность \"резонировать\" сообщения всем големам. Мой минеральный состав делает меня неуязвимым к многим видам магии."
 	prefix = "Адамантиновый"
 	special_names = null
 
@@ -83,13 +83,13 @@
 
 //The suicide bombers of golemkind
 /datum/species/golem/plasma
-	name = "Plasma Golem"
+	name = "плазма голем"
 	id = "plasma golem"
 	fixed_mut_color = "a3d"
 	meat = /obj/item/stack/ore/plasma
 	//Can burn and takes damage from heat
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_NOBREATH, TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_CHUNKYFINGERS,TRAIT_RADIMMUNE,TRAIT_GENELESS,TRAIT_PIERCEIMMUNE,TRAIT_NODISMEMBER) //no RESISTHEAT, NOFIRE
-	info_text = "As a <span class='danger'>Plasma Golem</span>, you burn easily. Be careful, if you get hot enough while burning, you'll blow up!"
+	info_text = "Будучи <span class='danger'>плазма големом</span>, я легко воспламеняюсь. Нужно быть осторожным, если я перегреюсь, пока горю, я взорвусь!"
 	heatmod = 0 //fine until they blow up
 	prefix = "Плазмовый"
 	special_names = list("Flood","Fire","Bar","Man")
@@ -99,11 +99,11 @@
 /datum/species/golem/plasma/spec_life(mob/living/carbon/human/H)
 	if(H.bodytemperature > 750)
 		if(!boom_warning && H.on_fire)
-			to_chat(H, "<span class='userdanger'>You feel like you could blow up at any moment!</span>")
+			to_chat(H, "<span class='userdanger'>Чувсвую, что могу взорваться в любой момент!</span>")
 			boom_warning = TRUE
 	else
 		if(boom_warning)
-			to_chat(H, "<span class='notice'>You feel more stable.</span>")
+			to_chat(H, "<span class='notice'>Чувствую себя стабильнее.</span>")
 			boom_warning = FALSE
 
 	if(H.bodytemperature > 850 && H.on_fire && prob(25))
@@ -126,8 +126,8 @@
 	..()
 
 /datum/action/innate/ignite
-	name = "Ignite"
-	desc = "Set yourself aflame, bringing yourself closer to exploding!"
+	name = "поджечь себя"
+	desc = "Поджечь себя, чтобы бахнуть!"
 	check_flags = AB_CHECK_CONSCIOUS
 	button_icon_state = "sacredflame"
 
@@ -135,42 +135,42 @@
 	if(ishuman(owner))
 		var/mob/living/carbon/human/H = owner
 		if(H.fire_stacks)
-			to_chat(owner, "<span class='notice'>You ignite yourself!</span>")
+			to_chat(owner, "<span class='notice'>Я поджёг себя!</span>")
 		else
-			to_chat(owner, "<span class='warning'>Пытаюсь ignite yourself, but fail!</span>")
+			to_chat(owner, "<span class='warning'>Пытаюсь поджечь себя, но моя затея не удалась...</span>")
 		H.IgniteMob() //firestacks are already there passively
 
 //Harder to hurt
 /datum/species/golem/diamond
-	name = "Diamond Golem"
+	name = "алмазный голем"
 	id = "diamond golem"
 	fixed_mut_color = "0ff"
 	armor = 70 //up from 55
 	meat = /obj/item/stack/ore/diamond
-	info_text = "As a <span class='danger'>Diamond Golem</span>, you are more resistant than the average golem."
+	info_text = "Будучи <span class='danger'>алмазным големом</span>, я более стойкий, чем среднестатистический голем."
 	prefix = "Алмазный"
 	special_names = list("Back","Grill")
 
 //Faster but softer and less armoured
 /datum/species/golem/gold
-	name = "Gold Golem"
+	name = "золотой голем"
 	id = "gold golem"
 	fixed_mut_color = "cc0"
 	speedmod = 1
 	armor = 25 //down from 55
 	meat = /obj/item/stack/ore/gold
-	info_text = "As a <span class='danger'>Gold Golem</span>, you are faster but less resistant than the average golem."
+	info_text = "будучи <span class='danger'>золотым големом</span>, я быстрее, но менее стойкий чем среднестатистический голем."
 	prefix = "Золотой"
 	special_names = list("Boy")
 
 //Heavier, thus higher chance of stunning when punching
 /datum/species/golem/silver
-	name = "Silver Golem"
+	name = "серебряный голем"
 	id = "silver golem"
 	fixed_mut_color = "ddd"
 	punchstunthreshold = 9 //60% chance, from 40%
 	meat = /obj/item/stack/ore/silver
-	info_text = "As a <span class='danger'>Silver Golem</span>, your attacks have a higher chance of stunning. Being made of silver, your body is immune to most types of magic."
+	info_text = "Будучи <span class='danger'>серебряным големом</span>, мои атаки чаще оглушают. Так как моё тело состоит из серебра, большая часть магии не действует на меня." 
 	prefix = "Серебрянный"
 	special_names = list("Surfer", "Chariot", "Lining")
 
@@ -193,7 +193,7 @@
 	punchstunthreshold = 18 //still 40% stun chance
 	speedmod = 4 //pretty fucking slow
 	meat = /obj/item/stack/ore/iron
-	info_text = "As a <span class='danger'>Plasteel Golem</span>, you are slower, but harder to stun, and hit very hard when punching. You also magnetically attach to surfaces and so don't float without gravity and cannot have positions swapped with other beings."
+	info_text = "Будучи <span class='danger'>пласталевым големом </span> я медленнее, но меня сложнее оглушить, и я очень сильно бью. также я магическим способом примагничиваюсь к поверхностям, поэтому я могу ходить без гравитации, и со мной никто не может меняться местами."
 	attack_verb = "ломает"
 	attack_sound = 'sound/effects/meteorimpact.ogg' //hits pretty hard
 	prefix = "Пласталевый"
@@ -212,11 +212,11 @@
 
 //Immune to ash storms
 /datum/species/golem/titanium
-	name = "Titanium Golem"
+	name = "титановый голем"
 	id = "titanium golem"
 	fixed_mut_color = "fff"
 	meat = /obj/item/stack/ore/titanium
-	info_text = "As a <span class='danger'>Titanium Golem</span>, you are immune to ash storms, and slightly more resistant to burn damage."
+	info_text = "Будучи <span class='danger'>титановым големом</span> мне не страшны пыльные бури, и я более стойкий к урону от ожогов."
 	burnmod = 0.9
 	prefix = "Титановый"
 	special_names = list("Dioxide")
@@ -231,11 +231,11 @@
 
 //Immune to ash storms and lava
 /datum/species/golem/plastitanium
-	name = "Plastitanium Golem"
+	name = "пластитановый голем"
 	id = "plastitanium golem"
 	fixed_mut_color = "888"
 	meat = /obj/item/stack/ore/titanium
-	info_text = "As a <span class='danger'>Plastitanium Golem</span>, you are immune to both ash storms and lava, and slightly more resistant to burn damage."
+	info_text = "Будучи <span class='danger'>пластитановым големом</span> мне не страшны пыльные бури и лавовые реки, и я более стойкий к урону от ожогов." 
 	burnmod = 0.8
 	prefix = "Пластитановый"
 	special_names = null
@@ -258,7 +258,7 @@
 	meat = /obj/item/stack/sheet/mineral/abductor
 	mutanttongue = /obj/item/organ/tongue/abductor
 	speedmod = 1 //faster
-	info_text = "As an <span class='danger'>Alloy Golem</span>, you are made of advanced alien materials: you are faster and regenerate over time. You are, however, only able to be heard by other alloy golems."
+	info_text = "Будучи <span class='danger'>големом из инопланетного сплава</span> я быстрее и могу регенерировать со временем. Однако, я могу только слышать големов, сделанных из такого-же сплава, что и я."
 	prefix = "Чужеродный"
 	special_names = list("Outsider", "Technology", "Watcher", "Stranger") //ominous and unknown
 
@@ -272,7 +272,7 @@
 
 //Since this will usually be created from a collaboration between podpeople and free golems, wood golems are a mix between the two races
 /datum/species/golem/wood
-	name = "Wood Golem"
+	name = "деревянный голем"
 	id = "wood golem"
 	fixed_mut_color = "9E704B"
 	meat = /obj/item/stack/sheet/mineral/wood
@@ -281,7 +281,7 @@
 	armor = 30
 	burnmod = 1.25
 	heatmod = 1.5
-	info_text = "As a <span class='danger'>Wooden Golem</span>, you have plant-like traits: you take damage from extreme temperatures, can be set on fire, and have lower armor than a normal golem. You regenerate when in the light and wither in the darkness."
+	info_text = "Будучи <span class='danger'>деревянным големом</span> я имею такие-же черты, что и растения: получаю урон от высоких температур, могу быть поддожён, и я менее стойкий, чем другие големы. Ещё я регенерируюсь, когда нахожусь у света, и увядаю, при его отсутствии."
 	prefix = "Деревянный"
 	special_names = list("Bark", "Willow", "Catalpa", "Woody", "Oak", "Sap", "Twig", "Branch", "Maple", "Birch", "Elm", "Basswood", "Cottonwood", "Larch", "Aspen", "Ash", "Beech", "Buckeye", "Cedar", "Chestnut", "Cypress", "Fir", "Hawthorn", "Hazel", "Hickory", "Ironwood", "Juniper", "Leaf", "Mangrove", "Palm", "Pawpaw", "Pine", "Poplar", "Redwood", "Redbud", "Sassafras", "Spruce", "Sumac", "Trunk", "Walnut", "Yew")
 	human_surname_chance = 0
@@ -314,11 +314,11 @@
 
 //Radioactive puncher, hits for burn but only as hard as human, slightly more durable against brute but less against everything else
 /datum/species/golem/uranium
-	name = "Uranium Golem"
+	name = "урановый голем"
 	id = "uranium golem"
 	fixed_mut_color = "7f0"
 	meat = /obj/item/stack/ore/uranium
-	info_text = "As an <span class='danger'>Uranium Golem</span>, your very touch burns and irradiates organic lifeforms. You don't hit as hard as most golems, but you are far more durable against blunt force trauma."
+	info_text = "Будучи <span class='danger'>урановым големом</span> мои касания сжигают и облучают органические формы жизни. Мои атаки слабее, чем у других големов, но я более стойкий к ударам тупого предмета."
 	attack_verb = "burn"
 	attack_sound = 'sound/weapons/sear.ogg'
 	attack_type = BURN
@@ -365,20 +365,20 @@
 
 //Immune to physical bullets and resistant to brute, but very vulnerable to burn damage. Dusts on death.
 /datum/species/golem/sand
-	name = "Sand Golem"
+	name = "песчаный голем"
 	id = "sand golem"
 	fixed_mut_color = "ffdc8f"
 	meat = /obj/item/stack/ore/glass //this is sand
 	armor = 0
 	burnmod = 3 //melts easily
 	brutemod = 0.25
-	info_text = "As a <span class='danger'>Sand Golem</span>, you are immune to physical bullets and take very little brute damage, but are extremely vulnerable to burn damage and energy weapons. You will also turn to sand when dying, preventing any form of recovery."
+	info_text = "Будучи <span class='danger'>песчаным големом</span>, пули не наносят мне вреда, а физические повреждения наносятся слабее, чем другим големам, но я уязвим к ожогам и энергетическим оружиям. Я превращусь в песок, когда умру, предотвращая возможность любого вида восстановления."
 	attack_sound = 'sound/effects/shovel_dig.ogg'
 	prefix = "Песчаный"
 	special_names = list("Castle", "Bag", "Dune", "Worm", "Storm")
 
 /datum/species/golem/sand/spec_death(gibbed, mob/living/carbon/human/H)
-	H.visible_message("<span class='danger'>[H] turns into a pile of sand!</span>")
+	H.visible_message("<span class='danger'>[H] превращается в кучу песка.</span>")
 	for(var/obj/item/W in H)
 		H.dropItemToGround(W)
 	for(var/i=1, i <= rand(3,5), i++)
@@ -389,28 +389,28 @@
 	if(!(P.original == H && P.firer == H))
 		if(P.flag == BULLET || P.flag == BOMB)
 			playsound(H, 'sound/effects/shovel_dig.ogg', 70, TRUE)
-			H.visible_message("<span class='danger'>The [P.name] sinks harmlessly in [H] sandy body!</span>", \
-			"<span class='userdanger'>The [P.name] sinks harmlessly in [H] sandy body!</span>")
+			H.visible_message("<span class='danger'>[P.name] впитывается в тело [H]!</span>", \
+			"<span class='userdanger'>[P.name] впитывается в тело [H]!</span>")
 			return BULLET_ACT_BLOCK
 	return ..()
 
 //Reflects lasers and resistant to burn damage, but very vulnerable to brute damage. Shatters on death.
 /datum/species/golem/glass
-	name = "Glass Golem"
+	name = "стеклянный голем"
 	id = "glass golem"
 	fixed_mut_color = "5a96b4aa" //transparent body
 	meat = /obj/item/shard
 	armor = 0
 	brutemod = 3 //very fragile
 	burnmod = 0.25
-	info_text = "As a <span class='danger'>Glass Golem</span>, you reflect lasers and energy weapons, and are very resistant to burn damage. However, you are extremely vulnerable to brute damage. On death, you'll shatter beyond any hope of recovery."
+	info_text = "Будучи <span class='danger'>стеклянным големом</span> я отражаю лазеры и энергию, и очень стойкий к ожогам. Тем не менее я очень сильно уязвим к травмам. При смерти я разломаюсь на куски без возможности восстановления."
 	attack_sound = 'sound/effects/glassbr2.ogg'
 	prefix = "Стеклянный"
 	special_names = list("Lens", "Prism", "Fiber", "Bead")
 
 /datum/species/golem/glass/spec_death(gibbed, mob/living/carbon/human/H)
 	playsound(H, "shatter", 70, TRUE)
-	H.visible_message("<span class='danger'>[H] shatters!</span>")
+	H.visible_message("<span class='danger'>[H] разламывается на куски!</span>")
 	for(var/obj/item/W in H)
 		H.dropItemToGround(W)
 	for(var/i=1, i <= rand(3,5), i++)
@@ -420,8 +420,8 @@
 /datum/species/golem/glass/bullet_act(obj/projectile/P, mob/living/carbon/human/H)
 	if(!(P.original == H && P.firer == H)) //self-shots don't reflect
 		if(P.flag == LASER || P.flag == ENERGY)
-			H.visible_message("<span class='danger'>The [P.name] gets reflected by [H] glass skin!</span>", \
-			"<span class='userdanger'>The [P.name] gets reflected by [H] glass skin!</span>")
+			H.visible_message("<span class='danger'>[P.name] отражается от [H]!</span>", \
+			"<span class='userdanger'>[P.name] отражается от [H]!</span>")
 			if(P.starting)
 				var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
 				var/new_y = P.starting.y + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
@@ -433,11 +433,11 @@
 
 //Teleports when hit or when it wants to
 /datum/species/golem/bluespace
-	name = "Bluespace Golem"
+	name = "блюспейс голем"
 	id = "bluespace golem"
 	fixed_mut_color = "33f"
 	meat = /obj/item/stack/ore/bluespace_crystal
-	info_text = "As a <span class='danger'>Bluespace Golem</span>, you are spatially unstable: You will teleport when hit, and you can teleport manually at a long distance."
+	info_text = "Будучи <span class='danger'>блюспейс големом</span> моё тело пространственно нестабильно. При ударе по мне, я телепортируюсь в случайное место, а также могу вручную телепортироваться на далёкие расстояния."
 	attack_verb = "блюспейс бьёт"
 	attack_sound = 'sound/effects/phasein.ogg'
 	prefix = "Блюспейсовый"
@@ -448,7 +448,7 @@
 	var/last_teleport = 0
 
 /datum/species/golem/bluespace/proc/reactive_teleport(mob/living/carbon/human/H)
-	H.visible_message("<span class='warning'>[H] teleports!</span>", "<span class='danger'>You destabilize and teleport!</span>")
+	H.visible_message("<span class='warning'>[H] teleports!</span>", "<span class='danger'>YЯ дестабилизируюсь, и телепортируюсь!</span>")
 	new /obj/effect/particle_effect/sparks(get_turf(H))
 	playsound(get_turf(H), "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	do_teleport(H, get_turf(H), 6, asoundin = 'sound/weapons/emitter2.ogg', channel = TELEPORT_CHANNEL_BLUESPACE)
@@ -492,7 +492,7 @@
 	..()
 
 /datum/action/innate/unstable_teleport
-	name = "Unstable Teleport"
+	name = "нестабильный телепорт"
 	check_flags = AB_CHECK_CONSCIOUS
 	button_icon_state = "jaunt"
 	icon_icon = 'icons/mob/actions/actions_spells.dmi'
@@ -509,12 +509,12 @@
 
 /datum/action/innate/unstable_teleport/Activate()
 	var/mob/living/carbon/human/H = owner
-	H.visible_message("<span class='warning'>[H] starts vibrating!</span>", "<span class='danger'>You start charging your bluespace core...</span>")
+	H.visible_message("<span class='warning'>[H] starts vibrating!</span>", "<span class='danger'>начинаю заряжать своё блюспейс ядро...</span>")
 	playsound(get_turf(H), 'sound/weapons/flash.ogg', 25, TRUE)
 	addtimer(CALLBACK(src, .proc/teleport, H), 15)
 
 /datum/action/innate/unstable_teleport/proc/teleport(mob/living/carbon/human/H)
-	H.visible_message("<span class='warning'>[H] disappears in a shower of sparks!</span>", "<span class='danger'>You teleport!</span>")
+	H.visible_message("<span class='warning'>[H] исчезает в куче искр!</span>", "<span class='danger'>Телепортируюсь!</span>")
 	var/datum/effect_system/spark_spread/spark_system = new /datum/effect_system/spark_spread
 	spark_system.set_up(10, 0, src)
 	spark_system.attach(H)
@@ -528,7 +528,7 @@
 
 //honk
 /datum/species/golem/bananium
-	name = "Bananium Golem"
+	name = "бананиевый голем"
 	id = "bananium golem"
 	fixed_mut_color = "ff0"
 	say_mod = "хонкает"
@@ -550,7 +550,7 @@
 	punchdamagehigh = 1
 	punchstunthreshold = 2 //Harmless and can't stun
 	meat = /obj/item/stack/ore/bananium
-	info_text = "As a <span class='danger'>Bananium Golem</span>, you are made for pranking. Your body emits natural honks, and you can barely even hurt people when punching them. Your skin also bleeds banana peels when damaged."
+	info_text = "Будучи <span class='danger'>бананиевым големом</span> я сделан для пранков. Моё тело издаёт звуки хонка, из-за чего мои удары почти не вредят остальным. При получении урона, моё тело кровоточит банановыми кожурами."
 	attack_verb = "ХОНКАЕТ"
 	attack_sound = 'sound/items/airhorn2.ogg'
 	prefix = "Бананиумовый"
@@ -630,11 +630,11 @@
 	speech_args[SPEECH_SPANS] |= SPAN_CLOWN
 
 /datum/species/golem/runic
-	name = "Runic Golem"
+	name = "рунический голем"
 	id = "runic golem"
 	limbs_id = "cultgolem"
 	sexes = FALSE
-	info_text = "As a <span class='danger'>Runic Golem</span>, you possess eldritch powers granted by the Elder Goddess Nar'Sie."
+	info_text = "Будучи <span class='danger'>руническим големом</span> я обладаю сверхъестественными силами, дарованные Старшей Богиней Нар Си."
 	species_traits = list(NOBLOOD,NO_UNDERWEAR,NOEYESPRITES) //no mutcolors
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_NOFLASH,TRAIT_RESISTHEAT,TRAIT_NOBREATH,TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_NOFIRE,TRAIT_CHUNKYFINGERS,TRAIT_RADIMMUNE,TRAIT_GENELESS,TRAIT_PIERCEIMMUNE,TRAIT_NODISMEMBER)
 	inherent_biotypes = MOB_HUMANOID|MOB_MINERAL
@@ -684,12 +684,12 @@
 		H.reagents.remove_reagent(chem.type, REAGENTS_METABOLISM)
 
 /datum/species/golem/cloth
-	name = "Cloth Golem"
+	name = "тканевый голем"
 	id = "cloth golem"
 	limbs_id = "clothgolem"
 	sexes = FALSE
-	info_text = "As a <span class='danger'>Cloth Golem</span>, you are able to reform yourself after death, provided your remains aren't burned or destroyed. You are, of course, very flammable. \
-	Being made of cloth, your body is magic resistant and faster than that of other golems, but weaker and less resilient."
+	info_text = "Будучи <span class='danger'>тканевым големом</span> после смерти я могу преобразовать своё тело и заново возродиться, если мои остатки не сгорели или не уничтожены. Также меня легко воспламенить. \
+	Так как я сделан из ткани, моё тело игнорирует магию и быстрее, чем у других големов, но оно слабее."
 	species_traits = list(NOBLOOD,NO_UNDERWEAR) //no mutcolors, and can burn
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_RESISTCOLD,TRAIT_NOBREATH,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_RADIMMUNE,TRAIT_GENELESS,TRAIT_PIERCEIMMUNE,TRAIT_NODISMEMBER,TRAIT_CHUNKYFINGERS)
 	inherent_biotypes = MOB_UNDEAD|MOB_HUMANOID
@@ -730,17 +730,17 @@
 	if(gibbed)
 		return
 	if(H.on_fire)
-		H.visible_message("<span class='danger'>[H] burns into ash!</span>")
+		H.visible_message("<span class='danger'>[H] сгорает до тла!</span>")
 		H.dust(just_ash = TRUE)
 		return
 
-	H.visible_message("<span class='danger'>[H] falls apart into a pile of bandages!</span>")
+	H.visible_message("<span class='danger'>[H] распадается на куски ткани!</span>")
 	new /obj/structure/cloth_pile(get_turf(H), H)
 	..()
 
 /obj/structure/cloth_pile
-	name = "pile of bandages"
-	desc = "It emits a strange aura, as if there was still life within it..."
+	name = "куча из ткани"
+	desc = "Эта куча испускает странную ауру, будто в ней есть чья-то жизнь..."
 	max_integrity = 50
 	armor = list(MELEE = 90, BULLET = 90, LASER = 25, ENERGY = 80, BOMB = 50, BIO = 100, FIRE = -50, ACID = -50)
 	icon = 'icons/obj/items_and_weapons.dmi'
@@ -756,7 +756,7 @@
 		H.unequip_everything()
 		H.forceMove(src)
 		cloth_golem = H
-		to_chat(cloth_golem, "<span class='notice'>You start gathering your life energy, preparing to rise again...</span>")
+		to_chat(cloth_golem, "<span class='notice'>Начинаю собирать жизненную энергию, чтобы восстать из мёртвых...</span>")
 		addtimer(CALLBACK(src, .proc/revive), revive_time)
 	else
 		return INITIALIZE_HINT_QDEL
@@ -767,7 +767,7 @@
 	return ..()
 
 /obj/structure/cloth_pile/burn()
-	visible_message("<span class='danger'>[capitalize(src.name)] burns into ash!</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] сгорает до тла!</span>")
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	..()
 
@@ -784,7 +784,7 @@
 		cloth_golem.grab_ghost() //won't pull if it's a suicide
 	sleep(20)
 	cloth_golem.forceMove(get_turf(src))
-	cloth_golem.visible_message("<span class='danger'>[capitalize(src.name)] rises and reforms into [cloth_golem]!</span>","<span class='userdanger'>You reform into yourself!</span>")
+	cloth_golem.visible_message("<span class='danger'>[capitalize(src.name)] встаёт и преобразовывается в [cloth_golem]!</span>","<span class='userdanger'>Преобразовываю себя!</span>")
 	cloth_golem = null
 	qdel(src)
 
@@ -795,16 +795,16 @@
 		return
 
 	if(P.get_temperature())
-		visible_message("<span class='danger'>[capitalize(src.name)] bursts into flames!</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] горит!</span>")
 		fire_act()
 
 /datum/species/golem/plastic
-	name = "Plastic Golem"
+	name = "пластиковый голем"
 	id = "plastic golem"
 	prefix = "Пластмассовый"
 	special_names = list("Sheet", "Bag", "Bottle")
 	fixed_mut_color = "fffa"
-	info_text = "As a <span class='danger'>Plastic Golem</span>, you are capable of ventcrawling and passing through plastic flaps as long as you are naked."
+	info_text = "Будучи <span class='danger'>пластиковым големом</span> мне дана возможность ходить по вентиляциям и проходить сквозь пластиковые заслонки пока я голый."
 
 /datum/species/golem/plastic/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	. = ..()
@@ -815,12 +815,12 @@
 	C.ventcrawler = initial(C.ventcrawler)
 
 /datum/species/golem/bronze
-	name = "Bronze Golem"
+	name = "бронзовый голем"
 	id = "bronze golem"
 	prefix = "Бронзовый"
 	special_names = list("Bell")
 	fixed_mut_color = "cd7f32"
-	info_text = "As a <span class='danger'>Bronze Golem</span>, you are very resistant to loud noises, and make loud noises if something hard hits you, however this ability does hurt your hearing."
+	info_text = "Будучи <span class='danger'>бронзовым големом</span> мне не опасны громкие звуки. Если меня кто-то бьёт, я издаю громкие звуки, тем не менее такая способность вредит моим ушам... Звучит логично!"
 	special_step_sounds = list('sound/machines/clockcult/integration_cog_install.ogg', 'sound/magic/clockwork/fellowship_armory.ogg' )
 	mutantears = /obj/item/organ/ears/bronze
 	var/last_gong_time = 0
@@ -859,36 +859,36 @@
 		if(M.stat == DEAD)	//F
 			continue
 		if(M == H)
-			H.show_message("<span class='narsiesmall'>You cringe with pain as your body rings around you!</span>", MSG_AUDIBLE)
+			H.show_message("<span class='narsiesmall'>Сьёживаюсь от боли как только моё тело начало звенеть!</span>", MSG_AUDIBLE)
 			H.playsound_local(H, 'sound/effects/gong.ogg', 100, TRUE)
 			H.soundbang_act(2, 0, 100, 1)
 			H.jitteriness += 7
 		var/distance = max(0,get_dist(get_turf(H),get_turf(M)))
 		switch(distance)
 			if(0 to 1)
-				M.show_message("<span class='narsiesmall'>GONG!</span>", MSG_AUDIBLE)
+				M.show_message("<span class='narsiesmall'>ГОНГ!</span>", MSG_AUDIBLE)
 				M.playsound_local(H, 'sound/effects/gong.ogg', 100, TRUE)
 				M.soundbang_act(1, 0, 30, 3)
 				M.add_confusion(10)
 				M.jitteriness += 4
 				SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "gonged", /datum/mood_event/loud_gong)
 			if(2 to 3)
-				M.show_message("<span class='cult'>GONG!</span>", MSG_AUDIBLE)
+				M.show_message("<span class='cult'>ГОНГ!</span>", MSG_AUDIBLE)
 				M.playsound_local(H, 'sound/effects/gong.ogg', 75, TRUE)
 				M.soundbang_act(1, 0, 15, 2)
 				M.jitteriness += 3
 				SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "gonged", /datum/mood_event/loud_gong)
 			else
-				M.show_message("<span class='warning'>GONG!</span>", MSG_AUDIBLE)
+				M.show_message("<span class='warning'>ГОНГ!</span>", MSG_AUDIBLE)
 				M.playsound_local(H, 'sound/effects/gong.ogg', 50, TRUE)
 
 
 /datum/species/golem/cardboard //Faster but weaker, can also make new shells on its own
-	name = "Cardboard Golem"
+	name = "картонный голем"
 	id = "cardboard golem"
 	prefix = "Картонный"
 	special_names = list("Box")
-	info_text = "As a <span class='danger'>Cardboard Golem</span>, you aren't very strong, but you are a bit quicker and can easily create more brethren by using cardboard on yourself."
+	info_text = "Будучи <span class='danger'>картонным големом</span> я слаб, но немного быстрее и могу с лёгкостью создать себе подобных братьев с помощью использования картона на себе."
 	species_traits = list(NOBLOOD,NO_UNDERWEAR,NOEYESPRITES)
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_NOBREATH, TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_CHUNKYFINGERS,TRAIT_RADIMMUNE,TRAIT_GENELESS,TRAIT_PIERCEIMMUNE,TRAIT_NODISMEMBER, TRAIT_NOFLASH)
 	limbs_id = "c_golem" //special sprites
@@ -915,16 +915,16 @@
 		if(last_creation + brother_creation_cooldown > world.time) //no cheesing dork
 			return
 		if(C.amount < 10)
-			to_chat(H, "<span class='warning'>You do not have enough cardboard!</span>")
+			to_chat(H, "<span class='warning'>Не хватает картона!</span>")
 			return FALSE
-		to_chat(H, "<span class='notice'>You attempt to create a new cardboard brother.</span>")
+		to_chat(H, "<span class='notice'>Пытаюсь создать нового картонного брата.</span>")
 		if(do_after(user, 30, target = user))
 			if(last_creation + brother_creation_cooldown > world.time) //no cheesing dork
 				return
 			if(!C.use(10))
-				to_chat(H, "<span class='warning'>You do not have enough cardboard!</span>")
+				to_chat(H, "<span class='warning'>Не хватает картона!</span>")
 				return FALSE
-			to_chat(H, "<span class='notice'>You create a new cardboard golem shell.</span>")
+			to_chat(H, "<span class='notice'>Создаю новую картонную оболочку голема.</span>")
 			create_brother(H.loc)
 
 /datum/species/golem/cardboard/proc/create_brother(location)
@@ -932,18 +932,18 @@
 	last_creation = world.time
 
 /datum/species/golem/leather
-	name = "Leather Golem"
+	name = "кожаный голем"
 	id = "leather golem"
 	special_names = list("Face", "Man", "Belt") //Ah dude 4 strength 4 stam leather belt AHHH
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_NOBREATH, TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_CHUNKYFINGERS,TRAIT_RADIMMUNE,TRAIT_GENELESS,TRAIT_PIERCEIMMUNE,TRAIT_NODISMEMBER, TRAIT_STRONG_GRABBER)
 	prefix = "Кожаный"
 	fixed_mut_color = "624a2e"
-	info_text = "As a <span class='danger'>Leather Golem</span>, you are flammable, but you can grab things with incredible ease, allowing all your grabs to start at a strong level."
+	info_text = "Будучи <span class='danger'>кожаным големом</span> меня легко воспламенить, но я могу брать вещи с невероятной лёгкостью, позволяя сразу хватать крепче."
 	grab_sound = 'sound/weapons/whipgrab.ogg'
 	attack_sound = 'sound/weapons/whip.ogg'
 
 /datum/species/golem/durathread
-	name = "Durathread Golem"
+	name = "дюратканевый голем"
 	id = "дюратканевый golem"
 	prefix = "Дюратканевый"
 	limbs_id = "d_golem"
@@ -951,14 +951,14 @@
 	species_traits = list(NOBLOOD,NO_UNDERWEAR,NOEYESPRITES)
 	fixed_mut_color = null
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_NOBREATH, TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_CHUNKYFINGERS,TRAIT_RADIMMUNE,TRAIT_GENELESS,TRAIT_PIERCEIMMUNE,TRAIT_NODISMEMBER, TRAIT_NOFLASH)
-	info_text = "As a <span class='danger'>Durathread Golem</span>, your strikes will cause those your targets to start choking, but your woven body won't withstand fire as well."
+	info_text = "Будучи <span class='danger'>дюратканевым големом</span> мои атаки душат цели, но моё тканевое тело легко воспламеняемое."
 
 /datum/species/golem/durathread/spec_unarmedattacked(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	target.apply_status_effect(STATUS_EFFECT_CHOKINGSTRAND)
 
 /datum/species/golem/bone
-	name = "Bone Golem"
+	name = "костяной голем"
 	id = "bone golem"
 	say_mod = "костлявит"
 	prefix = "Костяной"
@@ -974,7 +974,7 @@
 	fixed_mut_color = null
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_NOFLASH,TRAIT_RESISTHEAT,TRAIT_NOBREATH,TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_NOFIRE,TRAIT_CHUNKYFINGERS,TRAIT_RADIMMUNE,TRAIT_GENELESS,TRAIT_PIERCEIMMUNE,TRAIT_NODISMEMBER,TRAIT_FAKEDEATH)
 	species_language_holder = /datum/language_holder/golem/bone
-	info_text = "As a <span class='danger'>Bone Golem</span>, You have a powerful spell that lets you chill your enemies with fear, and milk heals you! Just make sure to watch our for bone-hurting juice."
+	info_text = "Будучи <span class='danger'>костяным големом</span> я имею способность. которая пробирает врагов до страха. Меня лечит молоко."
 	var/datum/action/innate/bonechill/bonechill
 
 /datum/species/golem/bone/on_species_gain(mob/living/carbon/C, datum/species/old_species)
@@ -1000,7 +1000,7 @@
 				if(2)
 					H.manual_emote(pick("oofs silently.", "looks like their bones hurt.", "grimaces, as though their bones hurt."))
 				if(3)
-					to_chat(H, "<span class='warning'>Your bones hurt!</span>")
+					to_chat(H, "<span class='warning'>Мои кости болят!</span>")
 		if(chem.overdosed)
 			if(prob(4) && iscarbon(H)) //big oof
 				var/selected_part = pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG) //God help you if the same limb gets picked twice quickly.

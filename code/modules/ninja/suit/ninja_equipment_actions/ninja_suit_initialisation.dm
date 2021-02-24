@@ -57,7 +57,7 @@ GLOBAL_LIST_INIT(ninja_deinitialize_messages, list(
 		s_busy = FALSE
 		return
 	if (phase > NINJA_LOCK_PHASE && (ninja.stat == DEAD || ninja.health <= 0))
-		to_chat(ninja, "<span class='danger'><B>FÄAL ï¿½Rrï¿½R</B>: 344--93#ï¿½&&21 BRï¿½ï¿½N |/|/aVï¿½ PATT$RN <B>RED</B>\nA-A-aBï¿½rTï¿½NG...</span>")
+		to_chat(ninja, "<span class='danger'><B>FAAL i??Rri??R</B>: 344--93#i??&&21 BRi??i??N |/|/aVi?? PATT$RN <B>RED</B>\nA-A-aBi??rTi??NG...</span>")
 		unlock_suit(ninja)
 		s_busy = FALSE
 		return

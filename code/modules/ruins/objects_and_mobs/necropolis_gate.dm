@@ -1,7 +1,7 @@
 //The necropolis gate is used to call forth Legion from the Necropolis.
 /obj/structure/necropolis_gate
-	name = "necropolis gate"
-	desc = "A massive stone gateway."
+	name = "врата некрополиса"
+	desc = "Большие каменные врата."
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "gate_full"
 	flags_1 = ON_BORDER_1
@@ -88,7 +88,7 @@
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 /obj/structure/necropolis_gate/attack_hand(mob/user)
 	if(locked)
-		to_chat(user, "<span class='boldannounce'>It's [open ? "stuck open":"locked"].</span>")
+		to_chat(user, "<span class='boldannounce'>Они [open ? "застряли в открытом положении":"закрыты"].</span>")
 		return
 	toggle_the_gate(user)
 	return ..()
@@ -100,7 +100,7 @@
 	var/turf/T = get_turf(src)
 	if(open)
 		new /obj/effect/temp_visual/necropolis(T)
-		visible_message("<span class='boldwarning'>The door slams closed!</span>")
+		visible_message("<span class='boldwarning'>Дверь захлопывается!</span>")
 		sleep(1)
 		playsound(T, 'sound/effects/stonedoor_openclose.ogg', 300, TRUE, frequency = 80000)
 		sleep(1)
@@ -123,7 +123,7 @@
 		cut_overlay(door_overlay)
 		new /obj/effect/temp_visual/necropolis/open(T)
 		sleep(2)
-		visible_message("<span class='warning'>The door starts to grind open...</span>")
+		visible_message("<span class='warning'>Дверь начинается со скрипом открываться...</span>")
 		playsound(T, 'sound/effects/stonedoor_openclose.ogg', 300, TRUE, frequency = 20000)
 		sleep(22)
 		sight_blocker.forceMove(src)
@@ -139,7 +139,7 @@
 
 GLOBAL_DATUM(necropolis_gate, /obj/structure/necropolis_gate/legion_gate)
 /obj/structure/necropolis_gate/legion_gate
-	desc = "A tremendous, impossibly large gateway, set into a massive tower of stone."
+	desc = "Колоссальные, невероятно огромные врата, ведущие в гигантскую каменную башню."
 	sight_blocker_distance = 2
 
 /obj/structure/necropolis_gate/legion_gate/Initialize()
@@ -160,7 +160,7 @@ GLOBAL_DATUM(necropolis_gate, /obj/structure/necropolis_gate/legion_gate)
 		var/safety = alert(user, "You think this might be a bad idea...", "Knock on the door?", "Proceed", "Abort")
 		if(safety == "Abort" || !in_range(src, user) || !src || open || changing_openness || user.incapacitated())
 			return
-		user.visible_message("<span class='warning'>[user] knocks on [src]...</span>", "<span class='boldannounce'>You tentatively knock on [src]...</span>")
+		user.visible_message("<span class='warning'>[user] стучится в [src]...</span>", "<span class='boldannounce'>Вы осторожно стучитесь в [src]...</span>")
 		playsound(user.loc, 'sound/effects/shieldbash.ogg', 100, TRUE)
 		sleep(50)
 	return ..()
@@ -172,7 +172,7 @@ GLOBAL_DATUM(necropolis_gate, /obj/structure/necropolis_gate/legion_gate)
 	if(.)
 		locked = TRUE
 		var/turf/T = get_turf(src)
-		visible_message("<span class='userdanger'>Something horrible emerges from the Necropolis!</span>")
+		visible_message("<span class='userdanger'>Что-то ужасное появляется из Некрополиса!</span>")
 		if(legion_damaged)
 			message_admins("Legion took damage while the necropolis gate was closed, and has released itself!")
 			log_game("Legion took damage while the necropolis gate was closed and released itself.")
@@ -183,7 +183,7 @@ GLOBAL_DATUM(necropolis_gate, /obj/structure/necropolis_gate/legion_gate)
 		var/sound/legion_sound = sound('sound/creatures/legion_spawn.ogg')
 		for(var/mob/M in GLOB.player_list)
 			if(M.z == z)
-				to_chat(M, "<span class='userdanger'>Discordant whispers flood your mind in a thousand voices. Each one speaks your name, over and over. Something horrible has been released.</span>")
+				to_chat(M, "<span class='userdanger'>Тысячи раздирающих душу голосов начинают шептать в твоей голове. Каждый повторяет твоё имя, вновь и вновь. Что-то ужасное вырвалось на свободу.</span>")
 				M.playsound_local(T, null, 100, FALSE, 0, FALSE, pressure_affected = FALSE, S = legion_sound)
 				flash_color(M, flash_color = "#FF0000", flash_time = 50)
 		var/mutable_appearance/release_overlay = mutable_appearance('icons/effects/effects.dmi', "legiondoor")
@@ -203,8 +203,8 @@ GLOBAL_DATUM(necropolis_gate, /obj/structure/necropolis_gate/legion_gate)
 	duration = 38
 
 /obj/structure/necropolis_arch
-	name = "necropolis arch"
-	desc = "A massive arch over the necropolis gate, set into a massive tower of stone."
+	name = "арка некрополиса"
+	desc = "Массивная арка над вратами некрополиса, ведущими в огромную каменную башню."
 	icon = 'icons/effects/160x160.dmi'
 	icon_state = "arch_full"
 	appearance_flags = 0
@@ -238,7 +238,7 @@ GLOBAL_DATUM(necropolis_gate, /obj/structure/necropolis_gate/legion_gate)
 #define UNIQUE_EFFECT 3 //The tile has some sort of unique effect when crossed.
 //stone tiles for boss arenas
 /obj/structure/stone_tile
-	name = "stone tile"
+	name = "каменная плитка"
 	icon = 'icons/turf/boss_floors.dmi'
 	icon_state = "pristine_tile1"
 	layer = ABOVE_OPEN_TURF_LAYER
@@ -312,96 +312,96 @@ GLOBAL_DATUM(necropolis_gate, /obj/structure/necropolis_gate/legion_gate)
 	return
 
 /obj/structure/stone_tile/block
-	name = "stone block"
+	name = "блок камня"
 	icon_state = "pristine_block1"
 	tile_key = "pristine_block"
 	tile_random_sprite_max = 4
 
 /obj/structure/stone_tile/slab
-	name = "stone slab"
+	name = "каменная плита"
 	icon_state = "pristine_slab1"
 	tile_key = "pristine_slab"
 	tile_random_sprite_max = 4
 
 /obj/structure/stone_tile/center
-	name = "stone center tile"
+	name = "центральная каменная плитка"
 	icon_state = "pristine_center1"
 	tile_key = "pristine_center"
 	tile_random_sprite_max = 4
 
 /obj/structure/stone_tile/surrounding
-	name = "stone surrounding slab"
+	name = "окружающая каменная плита"
 	icon_state = "pristine_surrounding1"
 	tile_key = "pristine_surrounding"
 	tile_random_sprite_max = 2
 
 /obj/structure/stone_tile/surrounding_tile
-	name = "stone surrounding tile"
+	name = "окружающая каменная плитка"
 	icon_state = "pristine_surrounding_tile1"
 	tile_key = "pristine_surrounding_tile"
 	tile_random_sprite_max = 2
 
 //cracked stone tiles
 /obj/structure/stone_tile/cracked
-	name = "cracked stone tile"
+	name = "треснутая каменная плитка"
 	icon_state = "cracked_tile1"
 	tile_key = "cracked_tile"
 
 /obj/structure/stone_tile/block/cracked
-	name = "cracked stone block"
+	name = "треснутый блок камня"
 	icon_state = "cracked_block1"
 	tile_key = "cracked_block"
 
 /obj/structure/stone_tile/slab/cracked
-	name = "cracked stone slab"
+	name = "треснутая каменная плита"
 	icon_state = "cracked_slab1"
 	tile_key = "cracked_slab"
 	tile_random_sprite_max = 1
 
 /obj/structure/stone_tile/center/cracked
-	name = "cracked stone center tile"
+	name = "треснутая центральная каменная плитка"
 	icon_state = "cracked_center1"
 	tile_key = "cracked_center"
 
 /obj/structure/stone_tile/surrounding/cracked
-	name = "cracked stone surrounding slab"
+	name = "треснутая окружающая каменная плита"
 	icon_state = "cracked_surrounding1"
 	tile_key = "cracked_surrounding"
 	tile_random_sprite_max = 1
 
 /obj/structure/stone_tile/surrounding_tile/cracked
-	name = "cracked stone surrounding tile"
+	name = "треснутая окружающая каменная плитка"
 	icon_state = "cracked_surrounding_tile1"
 	tile_key = "cracked_surrounding_tile"
 
 //burnt stone tiles
 /obj/structure/stone_tile/burnt
-	name = "burnt stone tile"
+	name = "подгорелая каменная плитка"
 	icon_state = "burnt_tile1"
 	tile_key = "burnt_tile"
 
 /obj/structure/stone_tile/block/burnt
-	name = "burnt stone block"
+	name = "подгорелый блок камня"
 	icon_state = "burnt_block1"
 	tile_key = "burnt_block"
 
 /obj/structure/stone_tile/slab/burnt
-	name = "burnt stone slab"
+	name = "подгорелая каменная плита"
 	icon_state = "burnt_slab1"
 	tile_key = "burnt_slab"
 
 /obj/structure/stone_tile/center/burnt
-	name = "burnt stone center tile"
+	name = "подгорелая центральная каменная плитка"
 	icon_state = "burnt_center1"
 	tile_key = "burnt_center"
 
 /obj/structure/stone_tile/surrounding/burnt
-	name = "burnt stone surrounding slab"
+	name = "подгорелая окружающая каменная плита"
 	icon_state = "burnt_surrounding1"
 	tile_key = "burnt_surrounding"
 
 /obj/structure/stone_tile/surrounding_tile/burnt
-	name = "burnt stone surrounding tile"
+	name = "подгорелая окружающая каменная плитка"
 	icon_state = "burnt_surrounding_tile1"
 	tile_key = "burnt_surrounding_tile"
 

@@ -1,7 +1,7 @@
 
 /obj/item/gun/ballistic/bow
-	name = "longbow"
-	desc = "While pretty finely crafted, surely you can find something better to use in the current year."
+	name = "lдлинный лук"
+	desc = "Не смотря на хорошее качество вы, наверняка, найдете что-то более подходящее для современных реалий."
 	icon = 'icons/obj/guns/projectile.dmi'
 	icon_state = "bow"
 	inhand_icon_state = "bow"
@@ -43,7 +43,7 @@
 
 /obj/item/gun/ballistic/bow/attack_self(mob/user)
 	if(chambered)
-		to_chat(user, "<span class='notice'>You [drawn ? "release the tension on" : "draw the string on"] [src].</span>")
+		to_chat(user, "<span class='notice'>Я [drawn ? "ослабляю натяжение" : "натягиваю тетиву"] [src].</span>")
 		drawn = !drawn
 	update_icon()
 
@@ -51,7 +51,7 @@
 	if(!chambered)
 		return
 	if(!drawn)
-		to_chat(user, "<span clasas='warning'>Without drawing the bow, the arrow uselessly falls to the ground.</span>")
+		to_chat(user, "<span clasas='warning'>Стрела падает на землю ввиду не натянутой тетивы.</span>")
 		drop_arrow()
 		update_icon()
 		return
@@ -63,15 +63,15 @@
 	return //so clicking sounds please
 
 /obj/item/ammo_box/magazine/internal/bow
-	name = "bowstring"
+	name = "тетива"
 	ammo_type = /obj/item/ammo_casing/caseless/arrow
 	max_ammo = 1
 	start_empty = TRUE
 	caliber = "arrow"
 
 /obj/item/ammo_casing/caseless/arrow
-	name = "arrow"
-	desc = "Stabby Stabman!"
+	name = "стрела"
+	desc = "Пыряющий Пырятель!"
 	icon_state = "arrow"
 	flags_1 = NONE
 	throwforce = 1
@@ -89,8 +89,8 @@
 		qdel(src)
 
 /obj/projectile/bullet/reusable/arrow
-	name = "arrow"
-	desc = "Ow! Get it out of me!"
+	name = "стрела"
+	desc = "Ай! Вытащи её из меня!"
 	ammo_type = /obj/item/ammo_casing/caseless/arrow
 	damage = 50
 	speed = 1
@@ -99,8 +99,8 @@
 
 
 /obj/item/storage/bag/quiver
-	name = "quiver"
-	desc = "Holds arrows for your bow. Good, because while pocketing arrows is possible, it surely can't be pleasant."
+	name = "колчан"
+	desc = "Вместилище для ваших стрел. Полезен, ведь не смотря на то что стрелы можно носить в карманах это не особо приятно."
 	icon_state = "quiver"
 	inhand_icon_state = "quiver"
 	worn_icon_state = "harpoon_quiver"

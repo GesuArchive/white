@@ -1,6 +1,6 @@
 /obj/structure/fireaxecabinet
-	name = "fire axe cabinet"
-	desc = "There is a small label that reads \"For Emergency use only\" along with details for safe use of the axe. As if."
+	name = "шкаф для пожарного топора"
+	desc = "Есть небольшая этикетка, которая гласит \"Только для экстренного использования\" вместе с деталями для безопасного использования топора. Будто кто-то будет использовать его по назначению."
 	icon = 'icons/obj/wallmounts.dmi'
 	icon_state = "fireaxe"
 	anchored = TRUE
@@ -30,20 +30,20 @@
 			if(!I.tool_start_check(user, amount=2))
 				return
 
-			to_chat(user, "<span class='notice'>You begin repairing [src].</span>")
+			to_chat(user, "<span class='notice'>Я начинаю чинить [src].</span>")
 			if(I.use_tool(src, user, 40, volume=50, amount=2))
 				obj_integrity = max_integrity
 				update_icon()
-				to_chat(user, "<span class='notice'>You repair [src].</span>")
+				to_chat(user, "<span class='notice'>Я чиню [src].</span>")
 		else
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] is already in good condition!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] сейчас в хорошем состоянии!</span>")
 		return
 	else if(istype(I, /obj/item/stack/sheet/glass) && broken)
 		var/obj/item/stack/sheet/glass/G = I
 		if(G.get_amount() < 2)
-			to_chat(user, "<span class='warning'>You need two glass sheets to fix [src]!</span>")
+			to_chat(user, "<span class='warning'>Вам нужно два листа стекла, чтобы починить [src]!</span>")
 			return
-		to_chat(user, "<span class='notice'>You start fixing [src]...</span>")
+		to_chat(user, "<span class='notice'>Я начинаю чинить [src]...</span>")
 		if(do_after(user, 20, target = src) && G.use(2))
 			broken = FALSE
 			obj_integrity = max_integrity
@@ -52,12 +52,12 @@
 		if(istype(I, /obj/item/fireaxe) && !fireaxe)
 			var/obj/item/fireaxe/F = I
 			if(F?.wielded)
-				to_chat(user, "<span class='warning'>Unwield the [F.name] first.</span>")
+				to_chat(user, "<span class='warning'>Для начала разварите [F.name] .</span>")
 				return
 			if(!user.transferItemToLoc(F, src))
 				return
 			fireaxe = F
-			to_chat(user, "<span class='notice'>You place the [F.name] back in the [name].</span>")
+			to_chat(user, "<span class='notice'>Я кладу [F.name] обратно в [name].</span>")
 			update_icon()
 			return
 		else if(!broken)
@@ -112,12 +112,12 @@
 		if(fireaxe)
 			user.put_in_hands(fireaxe)
 			fireaxe = null
-			to_chat(user, "<span class='notice'>You take the fire axe from the [name].</span>")
+			to_chat(user, "<span class='notice'>Вы берете пожарный топор из [name].</span>")
 			src.add_fingerprint(user)
 			update_icon()
 			return
 	if(locked)
-		to_chat(user, "<span class='warning'>The [name] won't budge!</span>")
+		to_chat(user, "<span class='warning'> [name] не хочет двигаться!</span>")
 		return
 	else
 		open = !open
@@ -135,7 +135,7 @@
 /obj/structure/fireaxecabinet/attack_tk(mob/user)
 	. = COMPONENT_CANCEL_ATTACK_CHAIN
 	if(locked)
-		to_chat(user, "<span class='warning'>The [name] won't budge!</span>")
+		to_chat(user, "<span class='warning'> [name] не собирается двигаться!</span>")
 		return
 	open = !open
 	update_icon()
@@ -167,10 +167,10 @@
 		. += "glass_raised"
 
 /obj/structure/fireaxecabinet/proc/toggle_lock(mob/user)
-	to_chat(user, "<span class='notice'>Resetting circuitry...</span>")
+	to_chat(user, "<span class='notice'>Сброс схем...</span>")
 	playsound(src, 'sound/machines/locktoggle.ogg', 50, TRUE)
 	if(do_after(user, 20, target = src))
-		to_chat(user, "<span class='notice'>You [locked ? "disable" : "re-enable"] the locking modules.</span>")
+		to_chat(user, "<span class='notice'>Я [locked ? "выключаю" : "перезапускаю"] блокирующие модули.</span>")
 		locked = !locked
 		update_icon()
 
@@ -180,7 +180,7 @@
 	set src in oview(1)
 
 	if(locked)
-		to_chat(usr, "<span class='warning'>The [name] won't budge!</span>")
+		to_chat(usr, "<span class='warning'> [name] двигаться не собирается!</span>")
 		return
 	else
 		open = !open

@@ -66,7 +66,7 @@
 /datum/action/innate/elite_attack/bonfire_teleport
 	name = "Bonfire Teleport"
 	button_icon_state = "bonfire_teleport"
-	chosen_message = "<span class='boldwarning'>You will leave a bonfire.  Second use will let you swap positions with it indefintiely.  Using this move on the same tile as your active bonfire removes it.</span>"
+	chosen_message = "<span class='boldwarning'>You will leave a bonfire. Second use will let you swap positions with it indefintiely. Using this move on the same tile as your active bonfire removes it.</span>"
 	chosen_attack_num = BONFIRE_TELEPORT
 
 /datum/action/innate/elite_attack/spew_smoke
@@ -236,7 +236,7 @@
 //The legionnaire's head.  Basically the same as any legion head, but we have to tell our creator when we die so they can generate another head.
 /mob/living/simple_animal/hostile/asteroid/elite/legionnairehead
 	name = "legionnaire head"
-	desc = "The legionnaire's head floating by itself.  One shouldn't get too close, though once it sees you, you really don't have a choice."
+	desc = "The legionnaire's head floating by itself. One shouldn't get too close, though once it sees you, you really don't have a choice."
 	icon_state = "legionnaire_head"
 	icon_living = "legionnaire_head"
 	icon_aggro = "legionnaire_head"
@@ -266,7 +266,7 @@
 //The legionnaire's bonfire, which can be swapped positions with.  Also sets flammable living beings on fire when they walk over it.
 /obj/structure/legionnaire_bonfire
 	name = "bone pile"
-	desc = "A pile of bones which seems to occasionally move a little.  It's probably a good idea to smash them."
+	desc = "A pile of bones which seems to occasionally move a little. It's probably a good idea to smash them."
 	icon = 'icons/obj/lavaland/legionnaire_bonfire.dmi'
 	icon_state = "bonfire"
 	max_integrity = 100

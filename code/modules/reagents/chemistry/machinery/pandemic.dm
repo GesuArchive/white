@@ -2,8 +2,8 @@
 #define SYMPTOM_DETAILS 2
 
 /obj/machinery/computer/pandemic
-	name = "PanD.E.M.I.C 2200"
-	desc = "Used to work with viruses."
+	name = "ПанД.Е.М.И.Я 2200"
+	desc = "Используется при работе с вирусами."
 	density = TRUE
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "mixer0"
@@ -206,7 +206,7 @@
 			var/id = get_virus_id_by_index(text2num(params["index"]))
 			var/datum/disease/advance/A = SSdisease.archive_diseases[id]
 			if(!istype(A) || !A.mutable)
-				to_chat(usr, "<span class='warning'>ERROR: Cannot replicate virus strain.</span>")
+				to_chat(usr, "<span class='warning'>ОШИБКА: Невозможно воспроизвести штамм вируса.</span>")
 				return
 			A = A.Copy()
 			var/list/data = list("viruses" = list(A))
@@ -240,13 +240,13 @@
 		if(machine_stat & (NOPOWER|BROKEN))
 			return
 		if(beaker)
-			to_chat(user, "<span class='warning'>A container is already loaded into [src]!</span>")
+			to_chat(user, "<span class='warning'>Контейнер уже помещен в [src]!</span>")
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 
 		beaker = I
-		to_chat(user, "<span class='notice'>You insert [I] into [src].</span>")
+		to_chat(user, "<span class='notice'>Ввел [I] в [src].</span>")
 		update_icon()
 	else
 		return ..()

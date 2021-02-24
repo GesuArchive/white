@@ -1,5 +1,5 @@
 /datum/species/android
-	name = "Android"
+	name = "андроид"
 	id = "android"
 	say_mod = "констатирует"
 	species_traits = list(NOBLOOD)

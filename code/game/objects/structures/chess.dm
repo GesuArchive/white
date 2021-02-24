@@ -3,12 +3,12 @@
 	density = FALSE
 	icon = 'icons/obj/chess.dmi'
 	icon_state = "white_pawn"
-	name = "\improper Probably a White Pawn"
-	desc = "This is weird. Please inform adminstration on how you managed to get the parent chess piece. Thanks!"
+	name = "\improper Вероятно, Белая Пешка"
+	desc = "Это странно. Пожалуйста, сообщите администрации, как вам удалось получить родительскую шахматную фигуру. Спасибо!"
 	max_integrity = 100
 
 /obj/structure/chess/wrench_act(mob/user, obj/item/tool)
-	to_chat(user, "<span class='notice'>You start to take apart the chess piece.</span>")
+	to_chat(user, "<span class='notice'>Начинаю разбирать шахматную фигуру.</span>")
 	if(!do_after(user, 0.5 SECONDS, target = src))
 		return TRUE
 	var/obj/item/stack/sheet/metal/metal_sheets = new (drop_location(), 2)
@@ -18,61 +18,61 @@
 	return TRUE
 
 /obj/structure/chess/whitepawn
-	name = "\improper White Pawn"
-	desc = "A white pawn chess piece. Get accused of cheating when executing a sick En Passant."
+	name = "\improper Белая Пешка"
+	desc = "Белая пешка. Вас обвинят в мошенничестве при взятии фигуры слабого En Passant."
 	icon_state = "white_pawn"
 
 /obj/structure/chess/whiterook
-	name = "\improper White Rook"
-	desc = "A white rook chess piece. Also known as a castle. Can move any number of tiles in a straight line. It has a special move called castling."
+	name = "\improper Белая Ладья"
+	desc = "Белая ладья. Также известная как башня. Может перемещаться на любое количество клеток по прямой. У неё есть особый ход, называемый рокировкой."
 	icon_state = "white_rook"
 
 /obj/structure/chess/whiteknight
-	name = "\improper White Knight"
-	desc = "A white knight chess piece. It can hop over other pieces, moving in L shapes. A white kni- oh. Hah!"
+	name = "\improper Белый Конь"
+	desc = "Белый конь. Он может перепрыгивать через другие фигуры, двигается буквой Г."
 	icon_state = "white_knight"
 
 /obj/structure/chess/whitebishop
-	name = "\improper White Bishop"
-	desc = "A white bishop chess piece. It can move any number of tiles in a diagonal line."
+	name = "\improper Белый Слон"
+	desc = "Белый слон. Он может перемещаться на любое количество клеток по диагонали."
 	icon_state = "white_bishop"
 
 /obj/structure/chess/whitequeen
-	name = "\improper White Queen"
-	desc = "A white queen chess piece. It can move any number of tiles in diagonal and straight lines."
+	name = "\improper Белый Ферзь"
+	desc = "Белый ферзь. Он может перемещаться на любое количество клеток по диагонали, горизонтали и вертикали."
 	icon_state = "white_queen"
 
 /obj/structure/chess/whiteking
-	name = "\improper White King"
-	desc = "A white king chess piece. It can move any tile in one direction."
+	name = "\improper Белый Король"
+	desc = "Белый король. Он может перемещаться на одну клетку в любом направлении."
 	icon_state = "white_king"
 
 /obj/structure/chess/blackpawn
-	name = "\improper Black Pawn"
-	desc = "A black pawn chess piece. Get accused of cheating when executing a sick En Passant."
+	name = "\improper Чёрная Пешка"
+	desc = "Чёрная пешка. Вас обвинят в мошенничестве при взятии фигуры слабого En Passant."
 	icon_state = "black_pawn"
 
 /obj/structure/chess/blackrook
-	name = "\improper Black Rook"
-	desc = "A black rook chess piece. Also known as a castle. Can move any number of tiles in a straight line. It has a special move called castling."
+	name = "\improper Чёрная Ладья"
+	desc = "Чёрная ладья. Также известная как башня. Может перемещаться на любое количество клеток по прямой. У неё есть особый ход, называемый рокировкой."
 	icon_state = "black_rook"
 
 /obj/structure/chess/blackknight
-	name = "\improper Black Knight"
-	desc = "A black knight chess piece. It can hop over other pieces, moving in L shapes."
+	name = "\improper Чёрный Конь"
+	desc = "Чёрный конь. Он может перепрыгивать через другие фигуры, двигается буквой Г"
 	icon_state = "black_knight"
 
 /obj/structure/chess/blackbishop
-	name = "\improper Black Bishop"
-	desc = "A black bishop chess piece. It can move any number of tiles in a diagonal line."
+	name = "\improper Чёрный Слон"
+	desc = "Чёрный слон. Он может перемещаться на любое количество клеток по диагонали."
 	icon_state = "black_bishop"
 
 /obj/structure/chess/blackqueen
-	name = "\improper Black Queen"
-	desc = "A black queen chess piece. It can move any number of tiles in diagonal and straight lines."
+	name = "\improper Чёрный Ферзь"
+	desc = "Чёрный ферзь. Он может перемещаться на любое количество клеток по диагонали, горизонтали и вертикали."
 	icon_state = "black_queen"
 
 /obj/structure/chess/blackking
-	name = "\improper Black King"
-	desc = "A black king chess piece. It can move one tile in any direction."
+	name = "\improper Чёрный Король"
+	desc = "Чёрный король. Он может перемещаться на одну клетку в любом направлении."
 	icon_state = "black_king"

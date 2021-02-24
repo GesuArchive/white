@@ -6,7 +6,7 @@
 	var/explosiondev = 3
 	var/explosionmed = 6
 	var/explosionlight = 12
-	name = "bluespace artillery control"
+	name = "Интерфейс блюспейс артиллерии"
 	icon_state = "control_boxp1"
 	icon = 'icons/obj/machines/particle_accelerator.dmi'
 	density = TRUE
@@ -16,7 +16,7 @@
 		reload += delta_time
 
 /obj/structure/artilleryplaceholder
-	name = "artillery"
+	name = "Артиллерия"
 	icon = 'icons/obj/machines/artillery.dmi'
 	anchored = TRUE
 	density = TRUE
@@ -30,7 +30,7 @@
 	dat += "Locked on<BR>"
 	dat += "<B>Charge progress: [reload]/[reload_cooldown]:</B><BR>"
 	dat += "<A href='byond://?src=[REF(src)];fire=1'>Open Fire</A><BR>"
-	dat += "Deployment of weapon authorized by <br>Nanotrasen Naval Command<br><br>Remember, friendly fire is grounds for termination of your contract and life.<HR>"
+	dat += "Запуск оружия авторизирован <br>Командованием Флота Нанотрейзен<br><br>Помните, дружественный огонь будет стоить вам контракта и жизни.<HR>"
 	user << browse(dat, "window=scroll")
 	onclose(user, "scroll")
 
