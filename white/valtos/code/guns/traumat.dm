@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/automatic/pistol/traumatic
-	name = "\improper Enforcer T46"
+	name = "Еnforcer T46"
 	desc = "Эти штуки были взяты буквально с боем. Теперь это обыденность."
 	icon = 'white/valtos/icons/gun.dmi'
 	icon_state = "enforcer"

@@ -5,7 +5,7 @@
 	flick(icon_state + "_anim", src)
 
 /atom/movable/screen/ghost/jumptomob
-	name = "Jump to mob"
+	name = "Перейти к"
 	icon_state = "jumptomob"
 
 /atom/movable/screen/ghost/jumptomob/Click()
@@ -13,7 +13,7 @@
 	G.jumptomob()
 
 /atom/movable/screen/ghost/orbit
-	name = "Orbit"
+	name = "Следить"
 	icon_state = "orbit"
 
 /atom/movable/screen/ghost/orbit/Click()
@@ -21,7 +21,7 @@
 	G.follow()
 
 /atom/movable/screen/ghost/reenter_corpse
-	name = "Reenter corpse"
+	name = "Вернуться в тело"
 	icon_state = "reenter_corpse"
 
 /atom/movable/screen/ghost/reenter_corpse/Click()
@@ -29,23 +29,33 @@
 	G.reenter_corpse()
 
 /atom/movable/screen/ghost/teleport
-	name = "Teleport"
+	name = "Телепорт"
 	icon_state = "teleport"
 
 /atom/movable/screen/ghost/teleport/Click()
 	var/mob/dead/observer/G = usr
 	G.dead_tele()
 
+/atom/movable/screen/ghost/spawners
+	name = "Меню перерождений"
+	icon_state = "spawners"
+	icon = 'white/baldenysh/icons/ui/midnight_extended.dmi'
+
+/atom/movable/screen/ghost/spawners/Click()
+	var/mob/dead/observer/G = usr
+	G.open_spawners_menu()
+
 /atom/movable/screen/ghost/pai
-	name = "pAI Candidate"
+	name = "Кандидат в пИИ"
 	icon_state = "pai"
+	icon = 'white/baldenysh/icons/ui/midnight_extended.dmi'
 
 /atom/movable/screen/ghost/pai/Click()
 	var/mob/dead/observer/G = usr
 	G.register_pai()
 
 /atom/movable/screen/ghost/mafia
-	name = "Mafia Signup"
+	name = "Мафия"
 	icon_state = "mafia"
 
 /atom/movable/screen/ghost/mafia/Click()
@@ -76,6 +86,10 @@
 	using.hud = src
 	static_inventory += using
 
+	using = new /atom/movable/screen/ghost/spawners()
+	using.screen_loc = ui_ghost_spawners
+	static_inventory += using
+
 	using = new /atom/movable/screen/ghost/pai()
 	using.screen_loc = ui_ghost_pai
 	using.hud = src
@@ -86,7 +100,7 @@
 	using.hud = src
 	static_inventory += using
 
-	using = new /atom/movable/screen/language_menu
+	using = new /atom/movable/screen/language_menu/ghost
 	using.icon = ui_style
 	using.hud = src
 	static_inventory += using

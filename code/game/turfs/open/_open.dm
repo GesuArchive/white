@@ -234,6 +234,7 @@
 			C.Paralyze(paralyze_amount)
 			C.stop_pulling()
 		else
+			C.Paralyze(10)
 			C.Knockdown(20)
 
 		if(buckled_obj)

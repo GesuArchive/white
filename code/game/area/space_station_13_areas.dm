@@ -270,6 +270,44 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/maintenance/space_hut/observatory
 	name = "Техтоннели: Космическая обсерватория"
 
+/area/maintenance/tram
+	name = "Техтоннели: Основные трамвайные"
+
+/area/maintenance/tram/left
+	name = "Техтоннели: Портовые подтрамвайные"
+	icon_state = "mainttramL"
+
+/area/maintenance/tram/mid
+	name = "Техтоннели: Центральные подтрамвайные"
+	icon_state = "mainttramM"
+
+/area/maintenance/tram/right
+	name = "Техтоннели: Правобортовые подтрамвайные"
+	icon_state = "mainttramR"
+
+//Radation storm shelter
+/area/maintenance/radshelter
+	name = "Противорадиационное убежище"
+	icon_state = "green"
+
+/area/maintenance/radshelter/medical
+	name = "Противорадиационное убежище: Медбей"
+
+/area/maintenance/radshelter/sec
+	name = "Противорадиационное убежище: Охрана"
+
+/area/maintenance/radshelter/service
+	name = "Противорадиационное убежище: Обслуга"
+
+/area/maintenance/radshelter/civil
+	name = "Противорадиационное убежище: Гражданские"
+
+/area/maintenance/radshelter/sci
+	name = "Противорадиационное убежище: Научный отдел"
+
+/area/maintenance/radshelter/cargo
+	name = "Противорадиационное убежище: Снабжение"
+
 //Hallway
 /area/hallway
 	sound_environment = SOUND_AREA_STANDARD_STATION
@@ -301,6 +339,20 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Коридоры: Верхний центральный"
 	icon_state = "hallC"
 
+/area/hallway/primary/tram
+	name = "Коридоры: Метро"
+
+/area/hallway/primary/tram/left
+	name = "Коридоры: Порт метро"
+	icon_state = "halltramL"
+
+/area/hallway/primary/tram/center
+	name = "Коридоры: Центр метро"
+	icon_state = "halltramM"
+
+/area/hallway/primary/tram/right
+	name = "Коридоры: Правый борт метро"
+	icon_state = "halltramR"
 
 /area/hallway/secondary/command
 	name = "Коридоры: Командование"
@@ -309,6 +361,9 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/hallway/secondary/construction
 	name = "Коридоры: Строительная площадка"
 	icon_state = "construction"
+
+/area/hallway/secondary/construction/engineering
+	name = "Инженерная стройплощадка"
 
 /area/hallway/secondary/exit
 	name = "Коридоры: Эвакуация"
@@ -1117,6 +1172,9 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "science"
 	airlock_wires = /datum/wires/airlock/science
 	sound_environment = SOUND_AREA_STANDARD_STATION
+
+/area/science/breakroom
+	name = "Наука: Комната отдыха"
 
 /area/science/lab
 	name = "Наука: Лаборатория"

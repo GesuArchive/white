@@ -276,7 +276,7 @@
 	reward = CARGO_CRATE_VALUE * 5
 	required_count = 3
 	include_subtypes = FALSE
-	wanted_types = list(/obj/item/food/carpmeat/dry/donbas)
+	wanted_types = list(/obj/item/food/fishmeat/carp/dry/donbas)
 
 /datum/bounty/item/assistant/donbas
 	name = "Русская поваренная книга"
@@ -424,7 +424,7 @@
 
 /datum/bounty/item/assistant/breath
 	name = "Дыхательные маски"
-	description = "На одной из Станций произошёл бунт. Отправьте им перчатки перехвата"
+	description = "На одной из Станций произошёл пожар. Отправьте им дыхательные маски"
 	reward = CARGO_CRATE_VALUE * 5
 	required_count = 5
 	include_subtypes = TRUE

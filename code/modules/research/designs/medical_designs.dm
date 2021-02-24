@@ -71,6 +71,15 @@
 	build_path = /obj/item/reagent_containers/glass/beaker/meta
 	category = list("Медицинские разработки")
 
+/datum/design/ph_meter
+	name = "Chemical analyser"
+	id = "ph_meter"
+	build_type = PROTOLATHE
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+	materials = list(/datum/material/glass = 2500, /datum/material/gold = 1000, /datum/material/titanium = 1000)
+	build_path = /obj/item/ph_meter
+	category = list("Медицинские разработки")
+
 /datum/design/bluespacesyringe
 	name = "Bluespace Syringe"
 	desc = "An advanced syringe that can hold 60 units of chemicals"
@@ -303,7 +312,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 400)
 	build_path = /obj/item/organ/eyes/robotic/shield
-	category = list("Implants", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cyberimp_gloweyes
@@ -314,7 +323,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 1000)
 	build_path = /obj/item/organ/eyes/robotic/glow
-	category = list("Implants", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cyberimp_breather
@@ -325,7 +334,7 @@
 	construction_time = 35
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 250)
 	build_path = /obj/item/organ/cyberimp/mouth/breathing_tube
-	category = list("Implants", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cyberimp_surgical
@@ -335,8 +344,8 @@
 	build_type = PROTOLATHE | MECHFAB
 	materials = list (/datum/material/iron = 2500, /datum/material/glass = 1500, /datum/material/silver = 1500)
 	construction_time = 200
-	build_path = /obj/item/organ/cyberimp/arm/surgery
-	category = list("Implants", "Медицинские разработки")
+	build_path = /obj/item/organ/cyberimp/arm/item_set/surgery
+	category = list("Импланты", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cyberimp_toolset
@@ -346,8 +355,8 @@
 	build_type = PROTOLATHE | MECHFAB
 	materials = list (/datum/material/iron = 2500, /datum/material/glass = 1500, /datum/material/silver = 1500)
 	construction_time = 200
-	build_path = /obj/item/organ/cyberimp/arm/toolset
-	category = list("Implants", "Медицинские разработки")
+	build_path = /obj/item/organ/cyberimp/arm/item_set/toolset
+	category = list("Импланты", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cyberimp_medical_hud
@@ -358,7 +367,7 @@
 	construction_time = 50
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/silver = 500, /datum/material/gold = 500)
 	build_path = /obj/item/organ/cyberimp/eyes/hud/medical
-	category = list("Implants", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cyberimp_security_hud
@@ -369,7 +378,7 @@
 	construction_time = 50
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/silver = 750, /datum/material/gold = 750)
 	build_path = /obj/item/organ/cyberimp/eyes/hud/security
-	category = list("Implants", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cyberimp_diagnostic_hud
@@ -380,7 +389,7 @@
 	construction_time = 50
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/silver = 600, /datum/material/gold = 600)
 	build_path = /obj/item/organ/cyberimp/eyes/hud/diagnostic
-	category = list("Implants", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cyberimp_xray
@@ -391,7 +400,7 @@
 	construction_time = 60
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/silver = 600, /datum/material/gold = 600, /datum/material/plasma = 1000, /datum/material/uranium = 1000, /datum/material/diamond = 1000, /datum/material/bluespace = 1000)
 	build_path = /obj/item/organ/eyes/robotic/xray
-	category = list("Implants", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cyberimp_thermals
@@ -402,7 +411,7 @@
 	construction_time = 60
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/silver = 600, /datum/material/gold = 600, /datum/material/plasma = 1000, /datum/material/diamond = 2000)
 	build_path = /obj/item/organ/eyes/robotic/thermals
-	category = list("Implants", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cyberimp_antidrop
@@ -413,7 +422,7 @@
 	construction_time = 60
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/silver = 400, /datum/material/gold = 400)
 	build_path = /obj/item/organ/cyberimp/brain/anti_drop
-	category = list("Implants", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cyberimp_antistun
@@ -424,7 +433,7 @@
 	construction_time = 60
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/silver = 500, /datum/material/gold = 1000)
 	build_path = /obj/item/organ/cyberimp/brain/anti_stun
-	category = list("Implants", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cyberimp_nutriment
@@ -435,7 +444,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 500, /datum/material/gold = 500)
 	build_path = /obj/item/organ/cyberimp/chest/nutriment
-	category = list("Implants", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cyberimp_nutriment_plus
@@ -446,7 +455,7 @@
 	construction_time = 50
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/gold = 500, /datum/material/uranium = 750)
 	build_path = /obj/item/organ/cyberimp/chest/nutriment/plus
-	category = list("Implants", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cyberimp_reviver
@@ -457,7 +466,7 @@
 	construction_time = 60
 	materials = list(/datum/material/iron = 800, /datum/material/glass = 800, /datum/material/gold = 300, /datum/material/uranium = 500)
 	build_path = /obj/item/organ/cyberimp/chest/reviver
-	category = list("Implants", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cyberimp_thrusters
@@ -468,7 +477,29 @@
 	construction_time = 80
 	materials = list(/datum/material/iron = 4000, /datum/material/glass = 2000, /datum/material/silver = 1000, /datum/material/diamond = 1000)
 	build_path = /obj/item/organ/cyberimp/chest/thrusters
-	category = list("Implants", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
+/datum/design/cyberlink_nt_low
+	name = "NT Cyberlink 1.0"
+	desc = "Allows for synchronization of basic cybernetic mechanisms."
+	id = "ci-nt_low"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 80
+	materials = list(/datum/material/iron = 4000, /datum/material/glass = 2000, /datum/material/silver = 1000)
+	build_path = /obj/item/organ/cyberimp/cyberlink/nt_low
+	category = list("Импланты", "Медицинские разработки")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
+/datum/design/cyberlink_nt_high
+	name = "NT Cyberlink 2.0"
+	desc = "Allows for synchronization of advanced cybernetic mechanisms."
+	id = "ci-nt_high"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 80
+	materials = list(/datum/material/iron = 6000, /datum/material/glass = 4000, /datum/material/silver = 2000 , /datum/material/gold = 2000)
+	build_path = /obj/item/organ/cyberimp/cyberlink/nt_high
+	category = list("Импланты", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /////////////////////////////////////////

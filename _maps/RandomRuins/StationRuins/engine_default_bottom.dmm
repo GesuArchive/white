@@ -5,6 +5,15 @@
 "ad" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/bottom_station_maints)
+"aq" = (
+/obj/machinery/magnetic_concentrator,
+/obj/effect/turf_decal/stripes/box,
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
+"bd" = (
+/obj/structure/particle_accelerator/power_box,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
 "cd" = (
 /obj/machinery/door/airlock/external{
 	name = "External Access";
@@ -23,13 +32,214 @@
 "cA" = (
 /turf/closed/wall/r_wall,
 /area/engine/engineering)
+"ev" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"fq" = (
+/obj/structure/cable,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"fC" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"ix" = (
+/obj/structure/cable/multilayer/multiz,
+/obj/effect/turf_decal/stripes/box,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"kn" = (
+/obj/effect/turf_decal/stripes/box,
+/obj/structure/cable,
+/obj/machinery/power/emitter/welded{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
+"lj" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"lS" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"qa" = (
+/obj/machinery/particle_accelerator/control_box,
+/obj/structure/cable,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"sT" = (
+/obj/structure/particle_accelerator/particle_emitter/right,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
 "tB" = (
 /obj/structure/lattice,
 /turf/template_noop,
 /area/space/nearstation)
+"ud" = (
+/obj/structure/particle_accelerator/fuel_chamber,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"uN" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space/nearstation)
+"vK" = (
+/obj/structure/particle_accelerator/particle_emitter/left,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"wq" = (
+/obj/structure/lattice,
+/obj/machinery/the_singularitygen{
+	icon_state = "beacon0"
+	},
+/turf/template_noop,
+/area/space/nearstation)
+"yB" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/turf/template_noop,
+/area/space/nearstation)
+"CS" = (
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"Dt" = (
+/obj/machinery/power/rad_collector/anchored,
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/end{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "FH" = (
 /turf/template_noop,
 /area/space/nearstation)
+"Hu" = (
+/obj/machinery/power/rad_collector/anchored,
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
+"Ia" = (
+/obj/effect/turf_decal/stripes/box,
+/obj/effect/turf_decal/trimline/yellow,
+/obj/machinery/field/generator,
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
+"Iu" = (
+/obj/structure/particle_accelerator/particle_emitter/center,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"IR" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"KK" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/box,
+/obj/machinery/power/emitter/welded{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
+"Lc" = (
+/obj/effect/turf_decal/stripes/box,
+/obj/structure/cable,
+/obj/machinery/power/emitter/welded{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
+"Mu" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"Oi" = (
+/obj/structure/particle_accelerator/end_cap,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"OA" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/structure/cable,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"PB" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"SV" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/box,
+/obj/machinery/power/emitter/welded{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
+"SY" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/cable,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"TX" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/light{
+	dir = 1;
+	light_color = "#c1caff";
+	pixel_y = 0
+	},
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"Yf" = (
+/obj/effect/turf_decal/stripes/box,
+/obj/structure/cable,
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
+"YX" = (
+/obj/machinery/power/rad_collector/anchored,
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/end{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
+"Zq" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/structure/cable,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
 
 (1,1,1) = {"
 ab
@@ -321,7 +531,7 @@ ab
 tB
 ab
 ab
-ab
+tB
 ab
 ab
 tB
@@ -329,7 +539,7 @@ ab
 ab
 ab
 ab
-ab
+tB
 ab
 ab
 tB
@@ -342,22 +552,22 @@ ab
 (12,1,1) = {"
 ab
 ab
-ab
-ab
-ab
-ab
-tB
-ab
-ab
-ab
-ab
-ab
-tB
-ab
-ab
-ab
-ab
-ab
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+Yf
+yB
+yB
+yB
+KK
+yB
+yB
+yB
+Lc
 ab
 ab
 tB
@@ -370,8 +580,14 @@ ab
 (13,1,1) = {"
 ab
 ab
+yB
 ab
 ab
+ab
+tB
+ab
+ab
+tB
 ab
 ab
 tB
@@ -379,13 +595,7 @@ ab
 ab
 ab
 ab
-ab
 tB
-ab
-ab
-ab
-ab
-ab
 ab
 ab
 tB
@@ -398,8 +608,14 @@ ab
 (14,1,1) = {"
 ad
 ab
+yB
 ab
 ab
+ab
+tB
+ab
+ab
+tB
 ab
 ab
 tB
@@ -407,13 +623,7 @@ ab
 ab
 ab
 ab
-ab
 tB
-ab
-ab
-ab
-ab
-ab
 ab
 ab
 tB
@@ -426,14 +636,14 @@ ab
 (15,1,1) = {"
 ad
 ab
-ab
+yB
 cA
 cA
 cA
 tB
 ab
 ab
-ab
+tB
 ab
 ab
 tB
@@ -441,7 +651,7 @@ ab
 ab
 ab
 ab
-ab
+tB
 ab
 ab
 tB
@@ -454,24 +664,24 @@ ab
 (16,1,1) = {"
 ad
 tB
-tB
+yB
 cd
 cv
 cA
 tB
+ab
+ab
 tB
+ab
+ab
 tB
+ab
+ab
+ab
+ab
 tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
+ab
+ab
 tB
 tB
 FH
@@ -482,24 +692,24 @@ FH
 (17,1,1) = {"
 ad
 ab
-ab
+yB
 cA
 cA
 cA
+YX
 tB
-ab
-ab
-ab
-ab
-ab
 tB
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+Ia
+uN
+uN
+uN
+uN
+uN
+uN
+uN
+Ia
+tB
+tB
 tB
 ab
 ab
@@ -510,6 +720,14 @@ ab
 (18,1,1) = {"
 ad
 ab
+yB
+ab
+ab
+ab
+Hu
+ab
+ab
+uN
 ab
 ab
 ab
@@ -517,15 +735,7 @@ ab
 tB
 ab
 ab
-ab
-ab
-ab
-tB
-ab
-ab
-ab
-ab
-ab
+uN
 ab
 ab
 tB
@@ -537,25 +747,25 @@ ab
 "}
 (19,1,1) = {"
 ad
+Zq
+Mu
+ev
+ix
+Mu
+IR
+ab
+ab
+uN
+ab
+ab
+ab
+ab
 tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
+ab
+ab
+uN
+ab
+ab
 tB
 tB
 FH
@@ -565,23 +775,23 @@ FH
 "}
 (20,1,1) = {"
 ad
+PB
+CS
+qa
+fq
+vK
+SY
 ab
 ab
-ab
-ab
-ab
+uN
+tB
+tB
+tB
+tB
 tB
 ab
 ab
-ab
-ab
-ab
-tB
-ab
-ab
-ab
-ab
-ab
+uN
 ab
 ab
 tB
@@ -593,23 +803,23 @@ ab
 "}
 (21,1,1) = {"
 ad
+TX
+Oi
+ud
+bd
+Iu
+SY
 ab
 ab
+uN
 ab
 ab
-ab
+wq
+aq
 tB
 ab
 ab
-ab
-ab
-ab
-tB
-ab
-ab
-ab
-ab
-ab
+uN
 ab
 ab
 tB
@@ -621,23 +831,23 @@ ab
 "}
 (22,1,1) = {"
 ad
+PB
+CS
+CS
+CS
+sT
+SY
 ab
 ab
-ab
+uN
 ab
 ab
 tB
-ab
-ab
-ab
-ab
-ab
 tB
-ab
-ab
-ab
-ab
-ab
+tB
+tB
+tB
+uN
 ab
 ab
 tB
@@ -649,25 +859,25 @@ ab
 "}
 (23,1,1) = {"
 ad
+OA
+lj
+fC
+fC
+fC
+lS
+ab
+ab
+uN
+ab
+ab
 tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
+ab
+ab
+ab
+ab
+uN
+ab
+ab
 tB
 FH
 FH
@@ -678,8 +888,14 @@ FH
 (24,1,1) = {"
 ad
 ab
+yB
 ab
 ab
+ab
+Hu
+ab
+ab
+uN
 ab
 ab
 tB
@@ -687,13 +903,7 @@ ab
 ab
 ab
 ab
-ab
-tB
-ab
-ab
-ab
-ab
-ab
+uN
 ab
 ab
 tB
@@ -706,24 +916,24 @@ ab
 (25,1,1) = {"
 ad
 ab
+yB
 ab
 ab
 ab
-ab
+Dt
 tB
-ab
-ab
-ab
-ab
-ab
 tB
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+Ia
+uN
+uN
+uN
+uN
+uN
+uN
+uN
+Ia
+tB
+tB
 tB
 ab
 ab
@@ -734,24 +944,24 @@ ab
 (26,1,1) = {"
 ad
 tB
+yB
 tB
 tB
 tB
 tB
+ab
+ab
 tB
+ab
+ab
 tB
+ab
+ab
+ab
+ab
 tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
+ab
+ab
 tB
 FH
 FH
@@ -762,8 +972,14 @@ FH
 (27,1,1) = {"
 ad
 ab
+yB
 ab
 ab
+ab
+tB
+ab
+ab
+tB
 ab
 ab
 tB
@@ -771,13 +987,7 @@ ab
 ab
 ab
 ab
-ab
 tB
-ab
-ab
-ab
-ab
-ab
 ab
 ab
 tB
@@ -790,8 +1000,14 @@ ab
 (28,1,1) = {"
 ad
 ab
+yB
 ab
 ab
+ab
+tB
+ab
+ab
+tB
 ab
 ab
 tB
@@ -799,13 +1015,7 @@ ab
 ab
 ab
 ab
-ab
 tB
-ab
-ab
-ab
-ab
-ab
 ab
 ab
 tB
@@ -818,8 +1028,14 @@ ab
 (29,1,1) = {"
 ab
 ab
+yB
 ab
 ab
+ab
+tB
+ab
+ab
+tB
 ab
 ab
 tB
@@ -827,13 +1043,7 @@ ab
 ab
 ab
 ab
-ab
 tB
-ab
-ab
-ab
-ab
-ab
 ab
 ab
 tB
@@ -846,8 +1056,14 @@ ab
 (30,1,1) = {"
 ab
 ab
+yB
 ab
 ab
+ab
+tB
+ab
+ab
+tB
 ab
 ab
 tB
@@ -855,13 +1071,7 @@ ab
 ab
 ab
 ab
-ab
 tB
-ab
-ab
-ab
-ab
-ab
 ab
 ab
 tB
@@ -874,22 +1084,22 @@ ab
 (31,1,1) = {"
 ab
 tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
-tB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+kn
+yB
+yB
+yB
+SV
+yB
+yB
+yB
+Yf
 tB
 tB
 tB

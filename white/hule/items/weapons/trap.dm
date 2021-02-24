@@ -26,7 +26,7 @@
 
 /obj/structure/boobytrap/proc/activate()
 	if(grenade)
-		grenade.arm_grenade()
+		grenade.detonate(owner)
 		qdel(src)
 
 /obj/structure/boobytrap/Crossed(atom/movable/AM as mob|obj)
@@ -54,7 +54,7 @@
 		if(do_after(user, 30, target = src))
 			W.play_tool_sound(src)
 			if(prob(80) && user.mind.antag_datums == null && user != owner)
-				to_chat(user, "<span class='userdanger'>Совершаю ошибку при попытке обезвредить ловушку!</span>")
+				to_chat(user, "<span class='userdanger'>ОШИБОЧКА ВЫШЛА!</span>")
 				activate()
 				return
 			if(grenade)
@@ -75,7 +75,7 @@
 	result = /obj/item/wirekit
 	reqs = list(/obj/item/stack/cable_coil = 30,
 				/obj/item/stack/rods = 5)
-	tools = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	time = 200
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON

@@ -319,5 +319,24 @@
 
 /obj/machinery/button/elevator/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>There's a small inscription on the button...</span>"
-	. += "<span class='notice'>THIS CALLS THE ELEVATOR! IT DOES NOT OPERATE IT! Interact with the elevator itself to use it!</span>"
+	. += "<hr><span class='notice'>There's a small inscription on the button...</span>"
+	. += "\n<span class='notice'>THIS CALLS THE ELEVATOR! IT DOES NOT OPERATE IT! Interact with the elevator itself to use it!</span>"
+
+/obj/machinery/button/tram
+	name = "вызов трамвая"
+	desc = "Кнопка для вызова трамвая. Пока ничего подозрительного."
+	icon_state = "launcher"
+	skin = "launcher"
+	device_type = /obj/item/assembly/control/tram
+	req_access = list()
+	id = 1
+
+/obj/machinery/button/tram/setup_device()
+	var/obj/item/assembly/control/tram/tram_device = device
+	tram_device.initial_id = id
+	. = ..()
+
+/obj/machinery/button/elevator/examine(mob/user)
+	. = ..()
+	. += "<hr><span class='notice'>Здесь есть закорючки на кнопке...</span>"
+	. += "\n<span class='notice'>ЭТО ВЫЗЫВАЕТ ТРАМВАЙ! ЭТО НЕ УПРАВЛЯЕТ ИМ! Управляйте трамваем изнутри, если хотите!</span>"

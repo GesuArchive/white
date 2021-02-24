@@ -153,3 +153,9 @@
 	desc = "My eternal soul was destroyed to make a toolbox look funny and all I got was this achievement..."
 	database_id = MEDAL_TOOLBOX_SOUL
 	icon = "toolbox_soul"
+
+/datum/award/achievement/misc/chemistry_tut
+	name = "Невероятный химик"
+	desc = "Прошёл обучение химика с высоким показателем чистоты!"
+	database_id = MEDAL_CHEM_TUT
+	icon = "chem_tut"

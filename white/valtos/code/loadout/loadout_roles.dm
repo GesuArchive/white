@@ -6,6 +6,7 @@
 /datum/gear/roles/purchase(client/C)
 	C?.prefs?.jobs_buyed += job_path
 	C?.prefs?.save_preferences()
+	return TRUE
 
 /datum/gear/roles/mechanic
 	display_name = "Механик"
@@ -13,7 +14,7 @@
 	cost = 500
 	job_path = /datum/job/engineer/mechanic
 
-/datum/gear/roles/mechanic
+/datum/gear/roles/bomj
 	display_name = "Бомж"
 	description = "Просто бомж."
 	cost = 5

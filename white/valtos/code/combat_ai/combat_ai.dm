@@ -348,7 +348,7 @@
 		living_pawn.say("Магазины закончились. Перехожу в рукопашную!")
 		return
 
-	if(mag.ammo_count(FALSE))
+	if(!mag.ammo_count(FALSE))
 		living_pawn.say("Магазин пустой.")
 		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(LEFT_HANDS), force = TRUE)
 		return

@@ -53,14 +53,14 @@
 	switch(action)
 		//Generic Buttons anyone can use.
 		if("admin_log")
-			var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><B>Admin Log<HR></B>"
+			var/dat = "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><B>Admin Log<HR></B>"
 			for(var/l in GLOB.admin_log)
 				dat += "<li>[l]</li>"
 			if(!GLOB.admin_log.len)
 				dat += "No-one has done anything this round!"
 			holder << browse(dat, "window=admin_log")
 		if("show_admins")
-			var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><B>Current admins:</B><HR>"
+			var/dat = "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><B>Current admins:</B><HR>"
 			if(GLOB.admin_datums)
 				for(var/ckey in GLOB.admin_datums)
 					var/datum/admins/D = GLOB.admin_datums[ckey]
@@ -102,18 +102,18 @@
 					var/datum/disease/D = thing
 					D.cure(0)
 		if("list_bombers")
-			var/dat = "<B>Bombing List</B><HR>"
+			var/dat = "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><B>Bombing List</B><HR>"
 			for(var/l in GLOB.bombers)
 				dat += text("[l]<BR>")
 			holder << browse(dat, "window=bombers")
 
 		if("list_signalers")
-			var/dat = "<B>Showing last [length(GLOB.lastsignalers)] signalers.</B><HR>"
+			var/dat = "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><B>Showing last [length(GLOB.lastsignalers)] signalers.</B><HR>"
 			for(var/sig in GLOB.lastsignalers)
 				dat += "[sig]<BR>"
 			holder << browse(dat, "window=lastsignalers;size=800x500")
 		if("list_lawchanges")
-			var/dat = "<B>Showing last [length(GLOB.lawchanges)] law changes.</B><HR>"
+			var/dat = "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><B>Showing last [length(GLOB.lawchanges)] law changes.</B><HR>"
 			for(var/sig in GLOB.lawchanges)
 				dat += "[sig]<BR>"
 			holder << browse(dat, "window=lawchanges;size=800x500")
@@ -127,14 +127,14 @@
 			else
 				alert("For some reason there's a SSticker, but not a game mode")
 		if("manifest")
-			var/dat = "<B>Showing Crew Manifest.</B><HR>"
+			var/dat = "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><B>Showing Crew Manifest.</B><HR>"
 			dat += "<table cellspacing=5><tr><th>Name</th><th>Position</th></tr>"
 			for(var/datum/data/record/t in GLOB.data_core.general)
 				dat += "<tr><td>[t.fields["name"]]</td><td>[t.fields["rank"]]</td></tr>"
 			dat += "</table>"
 			holder << browse(dat, "window=manifest;size=440x410")
 		if("dna")
-			var/dat = "<B>Showing DNA from blood.</B><HR>"
+			var/dat = "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><B>Showing DNA from blood.</B><HR>"
 			dat += "<table cellspacing=5><tr><th>Name</th><th>DNA</th><th>Blood Type</th></tr>"
 			for(var/i in GLOB.human_list)
 				var/mob/living/carbon/human/H = i
@@ -143,7 +143,7 @@
 			dat += "</table>"
 			holder << browse(dat, "window=DNA;size=440x410")
 		if("fingerprints")
-			var/dat = "<B>Showing Fingerprints.</B><HR>"
+			var/dat = "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><B>Showing Fingerprints.</B><HR>"
 			dat += "<table cellspacing=5><tr><th>Name</th><th>Fingerprints</th></tr>"
 			for(var/i in GLOB.human_list)
 				var/mob/living/carbon/human/H = i

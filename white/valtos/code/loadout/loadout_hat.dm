@@ -33,6 +33,16 @@
 	path = /obj/item/clothing/head/beret
 	cost = 100
 
+/datum/gear/hat/blue_beret
+	display_name = "Берет, синий"
+	path = /obj/item/clothing/head/wzzzz/beret/blue
+	cost = 100
+
+/datum/gear/hat/black_beret
+	display_name = "Берет, чёрный"
+	path = /obj/item/clothing/head/beret/black
+	cost = 100
+
 /datum/gear/hat/wizgirl
 	display_name = "шляпа волшебницы"
 	path = /obj/item/clothing/head/wizgirl

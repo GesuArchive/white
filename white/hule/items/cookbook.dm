@@ -71,7 +71,7 @@
 				/obj/item/pipe = 1,
 				/obj/item/stack/sheet/metal = 20,
 				/obj/item/stack/rods = 5)
-	tools = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH)
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH)
 	time = 150
 
 /datum/crafting_recipe/cookbook/mshotgunmag
@@ -79,7 +79,7 @@
 	result = /obj/item/ammo_box/magazine/makeshift
 	reqs = list(/obj/item/stack/sheet/metal = 5,
 				/obj/item/stack/rods = 4)
-	tools = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH)
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH)
 	time = 75
 	subcategory = CAT_AMMO
 
@@ -90,7 +90,7 @@
 				/datum/reagent/drug/krokodil = 10,
 				/datum/reagent/consumable/ethanol/vodka = 5,
 				/obj/item/grenade/smokebomb = 1)
-	tools = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH)
 	time = 100
 
 /datum/crafting_recipe/cookbook/grenadeprimer
@@ -99,7 +99,7 @@
 	reqs = list(/obj/item/assembly/igniter = 1,
 				/obj/item/stock_parts/manipulator = 2,
 				/obj/item/stack/cable_coil = 20)
-	tools = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	time = 100
 
 /datum/crafting_recipe/cookbook/poleaxe
@@ -109,7 +109,7 @@
 				/obj/item/stack/sheet/metal = 5,
 				/obj/item/spear = 1,
 				/obj/item/stack/cable_coil = 10)
-	tools = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH)
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH)
 	time = 100
 
 /datum/crafting_recipe/cookbook/wheelys
@@ -118,5 +118,5 @@
 	reqs = list(/obj/item/clothing/shoes/sneakers = 1,
 				/obj/item/stack/sheet/metal = 5,
 				/obj/item/stack/cable_coil = 10)
-	tools = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	time = 100

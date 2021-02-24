@@ -85,7 +85,7 @@
 	name = "Radiation Chamber Shutters"
 	},
 /turf/open/floor/plating,
-/area/engine/supermatter)
+/area/engine/engineering)
 "ao" = (
 /obj/machinery/particle_accelerator/control_box,
 /obj/structure/cable,
@@ -514,11 +514,9 @@
 /turf/open/floor/plating,
 /area/engine/engineering)
 "bA" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/item/crowbar,
-/turf/open/floor/engine,
+/obj/structure/cable/multilayer/multiz,
+/obj/effect/turf_decal/stripes/box,
+/turf/open/floor/plating,
 /area/engine/engineering)
 "bB" = (
 /obj/item/screwdriver,
@@ -686,9 +684,6 @@
 /turf/closed/wall,
 /area/engine/engineering)
 "cg" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
 /obj/machinery/button/door{
 	dir = 8;
 	id = "engsm";
@@ -696,6 +691,10 @@
 	pixel_x = -24;
 	req_access_txt = "10"
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/cable,
 /turf/open/floor/engine,
 /area/engine/engineering)
 "ch" = (
@@ -1043,6 +1042,10 @@
 "WN" = (
 /obj/structure/sign/warning/securearea,
 /turf/closed/wall/r_wall,
+/area/engine/engineering)
+"WX" = (
+/obj/item/crowbar,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "YP" = (
 /obj/effect/turf_decal/stripes/line,
@@ -1601,7 +1604,7 @@ au
 aW
 as
 ao
-as
+WX
 bc
 bg
 OM

@@ -3789,10 +3789,10 @@
 	armor = list("melee" = 10, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 5)
 
 /obj/item/clothing/under/rank/engineering/engineer/wzzzz/morpheus
-	name = "indusrtry jumpsuit"
+	name = "комбинезон рабочего"
 	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
 	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
-	desc = "Uniform for heavy industry"
+	desc = "Для тяжёлой работы."
 	icon_state = "morpheus"
 	can_adjust = FALSE
 	inhand_icon_state = "morpheus"

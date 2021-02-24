@@ -418,8 +418,8 @@ function createStatusTab(name) {
 	B.className = "button";
 	//ORDERING ALPHABETICALLY
 	B.style.order = name.charCodeAt(0);
-	if(name == "Статус" || name == "MC")
-		B.style.order = name == "Статус" ? 1 : 2;
+	if(name == "Состояние" || name == "MC")
+		B.style.order = name == "Состояние" ? 1 : 2;
 	//END ORDERING
 	menu.appendChild(B);
 	SendTabToByond(name);
@@ -514,7 +514,7 @@ function verbs_cat_check(cat) {
 	if(verbs_in_cat != 1) {
 		removeStatusTab(tabCat);
 		if(current_tab == tabCat)
-			tab_change("Статус");
+			tab_change("Состояние");
 	}
 }
 
@@ -608,13 +608,12 @@ function TakeTabFromByond(tab) {
 	window.location.href = "byond://winset?command=Remove-Tabs " + tab;
 }
 
-function update(global_data, ping_entry, other_entries) {
-	status_tab_parts = [ping_entry];
+function update(global_data, other_entries) {
 	var parsed = JSON.parse(global_data);
 	for(var i = 0; i < parsed.length; i++) if(parsed[i] != null) status_tab_parts.push(parsed[i]);
 	parsed = JSON.parse(other_entries);
 	for(var i = 0; i < parsed.length; i++) if(parsed[i] != null) status_tab_parts.push(parsed[i]);
-	if(current_tab == "Статус")
+	if(current_tab == "Состояние")
 		draw_status();
 	else if(current_tab == "Debug Stat Panel")
 		draw_debug();
@@ -633,7 +632,7 @@ function update_mc(global_mc_data, coords_entry) {
 function remove_mc() {
 	removeStatusTab("MC");
 	if(current_tab == "MC")
-		tab_change("Статус");
+		tab_change("Состояние");
 }
 function remove_spells() {
 	for(var s = 0; s < spell_tabs.length; s++){
@@ -697,7 +696,7 @@ function tab_change(tab) {
 		document.getElementById(tab).className = "button active"; // make current button active
 	var spell_tabs_thingy = (spell_tabs.includes(tab));
 	var verb_tabs_thingy = (verb_tabs.includes(tab));
-	if(tab == "Статус") {
+	if(tab == "Состояние") {
 		draw_status();
 	} else if(tab == "MC") {
 		draw_mc();
@@ -783,9 +782,9 @@ function draw_debug() {
 
 }
 function draw_status() {
-	if(!document.getElementById("Статус")) {
-		createStatusTab("Статус");
-		current_tab = "Статус";
+	if(!document.getElementById("Состояние")) {
+		createStatusTab("Состояние");
+		current_tab = "Состояние";
 	}
 	statcontentdiv[textContentKey] = '';
 	for(var i = 0; i < status_tab_parts.length; i++) {
@@ -859,7 +858,7 @@ function remove_sdql2() {
 		sdql2 = [];
 		removePermanentTab("SDQL2");
 		if(current_tab == "SDQL2")
-			tab_change("Статус");
+			tab_change("Состояние");
 	}
 	checkStatusTab();
 }
@@ -869,7 +868,7 @@ function remove_tickets() {
 		tickets = [];
 		removePermanentTab("Тикеты");
 		if(current_tab == "Тикеты")
-			tab_change("Статус");
+			tab_change("Состояние");
 	}
 	checkStatusTab();
 }
@@ -879,7 +878,7 @@ function remove_interviews() {
 		tickets = [];
 		removePermanentTab("Гости");
 		if(current_tab == "Гости")
-			tab_change("Статус");
+			tab_change("Состояние");
 	}
 	checkStatusTab();
 }
@@ -897,7 +896,7 @@ function add_admin_tabs(ht) {
 	href_token = ht;
 	addPermanentTab("MC");
 	addPermanentTab("Тикеты");
-	addPermanentTab("Гости");
+	// addPermanentTab("Гости");
 }
 function create_listedturf(TN) {
 	remove_listedturf(); // remove the last one if we had one
@@ -980,7 +979,7 @@ function remove_listedturf() {
 	removePermanentTab(turfname);
 	checkStatusTab();
 	if(current_tab == turfname)
-		tab_change("Статус");
+		tab_change("Состояние");
 }
 function draw_sdql2(){
 	statcontentdiv[textContentKey] = "";
@@ -1186,8 +1185,8 @@ document[addEventListenerKey]("click", function(e) {
 });
 
 if(!current_tab) {
-	addPermanentTab("Статус");
-	tab_change("Статус");
+	addPermanentTab("Состояние");
+	tab_change("Состояние");
 }
 
 window.onload = function() {

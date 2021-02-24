@@ -9,7 +9,7 @@
 	resistance_flags = ACID_PROOF
 
 
-/obj/item/reagent_containers/glass/attack(mob/M, mob/user, obj/target)
+/obj/item/reagent_containers/glass/attack(mob/living/M, mob/user, obj/target)
 	if(!canconsume(M, user))
 		return
 
@@ -48,6 +48,15 @@
 				log_combat(user, M, "fed", reagents.log_list())
 			else
 				to_chat(user, "<span class='notice'>Делаю глоток из [src].</span>")
+
+			for(var/datum/reagent/R in reagents.reagent_list)
+				if(!R.special_sound)
+					continue
+				else if(R.special_sound in M.known_reagent_sounds)
+					continue
+				M.known_reagent_sounds += R.special_sound
+				SEND_SOUND(M, R.special_sound)
+
 			SEND_SIGNAL(src, COMSIG_GLASS_DRANK, M, user)
 			addtimer(CALLBACK(reagents, /datum/reagents.proc/trans_to, M, 5, TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
 			playsound(M.loc,'sound/items/drink.ogg', rand(10,50), TRUE)
@@ -107,6 +116,20 @@
 	if(hotness && reagents)
 		reagents.expose_temperature(hotness)
 		to_chat(user, "<span class='notice'>Грею [name] используя [I]!</span>")
+
+	//Cooling method
+	if(istype(I, /obj/item/extinguisher))
+		var/obj/item/extinguisher/extinguisher = I
+		if(extinguisher.safety)
+			return
+		if (extinguisher.reagents.total_volume < 1)
+			to_chat(user, "<span class='warning'>[capitalize(extinguisher)] пуст!</span>")
+			return
+		var/cooling = (0 - reagents.chem_temp) * extinguisher.cooling_power * 2
+		reagents.expose_temperature(cooling)
+		to_chat(user, "<span class='notice'>Охлаждаю [name] используя [I]!</span>")
+		playsound(loc, 'sound/effects/extinguish.ogg', 75, TRUE, -3)
+		extinguisher.reagents.remove_all(1)
 
 	if(istype(I, /obj/item/food/egg)) //breaking eggs
 		var/obj/item/food/egg/E = I

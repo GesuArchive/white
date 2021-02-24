@@ -119,7 +119,8 @@
 /datum/component/singularity/process(delta_time)
 	if (roaming)
 		move()
-	eat()
+	if(grav_pull)
+		eat()
 
 /datum/component/singularity/proc/block_blob()
 	SIGNAL_HANDLER

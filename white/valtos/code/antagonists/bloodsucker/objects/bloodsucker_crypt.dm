@@ -543,7 +543,7 @@
 	name = "Persuasion Rack"
 	//desc = "For converting crewmembers into loyal Vassals."
 	result = /obj/structure/bloodsucker/vassalrack
-	tools = list(/obj/item/weldingtool,
+	tool_behaviors = list(/obj/item/weldingtool,
 				 ///obj/item/screwdriver,
 				 /obj/item/wrench
 				 )
@@ -566,7 +566,7 @@
 	name = "Candelabrum"
 	//desc = "For converting crewmembers into loyal Vassals."
 	result = /obj/structure/bloodsucker/candelabrum
-	tools = list(/obj/item/weldingtool,
+	tool_behaviors = list(/obj/item/weldingtool,
 				 /obj/item/wrench
 				 )
 	reqs = list(/obj/item/stack/sheet/metal = 3,

@@ -22,7 +22,7 @@ THAT STUPID GAME KIT
 	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
 
 /obj/item/game_kit/proc/update()
-	var/dat = text("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><CENTER><B>Игровое поле</B></CENTER><BR><a href='?src=\ref[];mode=hia'>[]</a> <a href='?src=\ref[];mode=remove'>Х</a><HR><table width= 256  border= 0  height= 256  cellspacing= 0  cellpadding= 0 >", src, (src.selected ? text("Выбрано: []", src.selected) : "Ничего не выбрано"), src)
+	var/dat = text("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><CENTER><B>Игровое поле</B></CENTER><BR><a href='?src=\ref[];mode=hia'>[]</a> <a href='?src=\ref[];mode=remove'>Х</a><HR><table width= 256  border= 0  height= 256  cellspacing= 0  cellpadding= 0 >", src, (src.selected ? text("Выбрано: []", src.selected) : "Ничего не выбрано"), src)
 	for (var/y = 1 to 8)
 		dat += "<tr>"
 

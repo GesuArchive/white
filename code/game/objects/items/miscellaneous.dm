@@ -204,7 +204,7 @@
 	new /obj/item/food/meat/slab/bear(src)
 	new /obj/item/food/meat/slab/spider(src)
 	new /obj/item/food/spidereggs(src)
-	new /obj/item/food/carpmeat(src)
+	new /obj/item/food/fishmeat/carp(src)
 	new /obj/item/food/meat/slab/xeno(src)
 	new /obj/item/food/meat/slab/corgi(src)
 	new /obj/item/food/meatball(src)
@@ -214,7 +214,7 @@
 
 /obj/item/storage/box/ingredients/exotic/PopulateContents()
 	for(var/i in 1 to 2)
-		new /obj/item/food/carpmeat(src)
+		new /obj/item/food/fishmeat/carp(src)
 		new /obj/item/food/grown/soybeans(src)
 		new /obj/item/food/grown/cabbage(src)
 	new /obj/item/food/grown/chili(src)
@@ -300,8 +300,8 @@
 		augment_list = list()
 		var/list/templist = list(
 		/obj/item/organ/cyberimp/brain/anti_drop,
-		/obj/item/organ/cyberimp/arm/toolset,
-		/obj/item/organ/cyberimp/arm/surgery,
+		/obj/item/organ/cyberimp/arm/item_set/toolset,
+		/obj/item/organ/cyberimp/arm/item_set/surgery,
 		/obj/item/organ/cyberimp/chest/thrusters,
 		/obj/item/organ/lungs/cybernetic/tier3,
 		/obj/item/organ/liver/cybernetic/tier3) //cyberimplants range from a nice bonus to fucking broken bullshit so no subtypesof
@@ -408,3 +408,8 @@
 	name = "poppy bouquet"
 	desc = "A bouquet of poppies. You feel loved just looking at it."
 	icon_state = "poppybouquet"
+
+/obj/item/bouquet/rose
+	name = "rose bouquet"
+	desc = "A bouquet of roses. A bundle of love."
+	icon_state = "rosebouquet"

@@ -33,7 +33,7 @@
 				/datum/reagent/fuel = 100,
 				/obj/item/food/poo = 15,
 				/obj/item/stack/sheet/metal = 1)
-	tools = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH)
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH)
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
 
@@ -43,6 +43,6 @@
 	time = 60
 	reqs = list(/obj/item/food/poo = 5,
 				/obj/item/stack/sheet/metal = 1)
-	tools = list(TOOL_WIRECUTTER)
+	tool_behaviors = list(TOOL_WIRECUTTER)
 	category = CAT_WEAPONRY
 	subcategory = CAT_AMMO

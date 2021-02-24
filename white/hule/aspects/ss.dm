@@ -42,4 +42,4 @@ SUBSYSTEM_DEF(aspects)
 		ca_desc = current_aspect.desc
 
 	for(var/P in GLOB.mob_living_list)
-		to_chat(P, "\n<span class='notice'><B>Важно:</B> [ca_desc]</span>\n")
+		to_chat(P, "\n<span class='notice'><B>[gvorno(TRUE)]:</B> [ca_desc]</span>\n")

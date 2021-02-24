@@ -59,6 +59,14 @@
 	if (!mapload)
 		notify_ghosts("IT'S LOOSE", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, ghost_sound = 'sound/machines/warning-buzzer.ogg', header = "IT'S LOOSE", notify_volume = 75)
 
+/obj/singularity/proc/be_free()
+	var/datum/component/singularity/new_component = AddComponent(
+		/datum/component/singularity, \
+		consume_callback = CALLBACK(src, .proc/consume), \
+	)
+
+	singularity_component = WEAKREF(new_component)
+
 /obj/singularity/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	GLOB.singularities.Remove(src)
@@ -142,6 +150,9 @@
 			SP.playing_channel = CHANNEL_CUSTOM_JUKEBOX
 		SP.playing_volume = current_size*10
 		SP.playing_range = current_size*5
+
+		radiation_pulse(src, min(5000, (energy*4.5)+1000), RAD_DISTANCE_COEFFICIENT*0.5)
+
 		if(prob(event_chance))//Chance for it to run a special event TODO:Come up with one or two more that fit
 			event()
 	dissipate(delta_time)

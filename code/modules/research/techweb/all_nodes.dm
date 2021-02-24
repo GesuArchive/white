@@ -75,7 +75,7 @@
 	display_name = "Advanced Biotechnology"
 	description = "Advanced Biotechnology"
 	prereq_ids = list("biotech")
-	design_ids = list("piercesyringe", "crewpinpointer", "smoke_machine", "plasmarefiller", "limbgrower", "meta_beaker", "healthanalyzer_advanced", "harvester", "holobarrier_med", "detective_scanner", "defibrillator_compact")
+	design_ids = list("piercesyringe", "crewpinpointer", "smoke_machine", "plasmarefiller", "limbgrower", "meta_beaker", "healthanalyzer_advanced", "harvester", "holobarrier_med", "detective_scanner", "defibrillator_compact", "ph_meter")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/bio_process
@@ -476,6 +476,22 @@
 	prereq_ids = list("adv_cyber_implants","weaponry","NVGtech","high_efficiency")
 	design_ids = list("ci-xray", "ci-thermals", "ci-antidrop", "ci-antistun", "ci-thrusters")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
+
+/datum/techweb_node/ntlink_low
+	id = "ntlink_low"
+	display_name = "Cybernetic Application"
+	description = "Creation of NT-secure basic cyberlinks for low-grade cybernetic augmentation"
+	prereq_ids = list("adv_biotech","adv_biotech", "datatheory" )
+	design_ids = list("ci-nt_low")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000)
+
+/datum/techweb_node/ntlink_high
+	id = "ntlink_high"
+	display_name = "Advanced Cybernetic Application"
+	description = "Creation of NT-secure advanced cyberlinks for high-grade cybernetic augmentation"
+	prereq_ids = list("ntlink_low", "adv_cyber_implants","high_efficiency")
+	design_ids = list("ci-nt_high")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
 
 ////////////////////////Tools////////////////////////
 
@@ -914,8 +930,6 @@
 	prereq_ids = list("nanite_smart")
 	design_ids = list("hive_nanites","zip_nanites","free_range_nanites","unsafe_storage_nanites")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000, TECHWEB_POINT_TYPE_NANITES = 2500)
-	hidden = TRUE
-	experimental = TRUE
 
 ////////////////////////Alien technology////////////////////////
 /datum/techweb_node/alientech //AYYYYYYYYLMAOO tech

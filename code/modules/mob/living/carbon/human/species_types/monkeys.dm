@@ -1,7 +1,7 @@
 /datum/species/monkey
 	name = "Monkey"
 	id = "monkey"
-	say_mod = "chimpers"
+	say_mod = "выкрикивает"
 	attack_verb = "bite"
 	attack_sound = 'sound/weapons/bite.ogg'
 	miss_sound = 'sound/weapons/bite.ogg'

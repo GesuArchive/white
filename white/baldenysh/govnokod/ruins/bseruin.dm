@@ -89,3 +89,21 @@
 
 /obj/item/storage/secure/briefcase/smuggler/PopulateContents()
 	new /obj/item/modular_computer/laptop/preset/civilian
+
+/obj/item/modular_computer/laptop/preset/bse
+	desc = "Старый ноутбук. Возможно в нём что-то осталось полезное."
+
+
+/obj/item/modular_computer/laptop/preset/bse/install_programs()
+	var/obj/item/computer_hardware/hard_drive/hard_drive = all_components[MC_HDD]
+	hard_drive.store_file(new/datum/computer_file/program/chatclient())
+	hard_drive.store_file(new/datum/computer_file/data/bse_note())
+
+/datum/computer_file/data/bse_note
+	filename = "Заметка"
+	filetype = "TXT"
+	stored_data = "Как запустить артиллерию. Инструкция для самых маленьких:<br> - Нужно достать жидкое электричество. Тела в морге и капельницы в обратном режиме помогут.<br> - Смешать его с <i>жидким</i> серебром, получатся кристаллы.<br> - Заправить этими кристаллами генераторы и настроить артиллерию.<br> - ВАЖНО! При использовании артиллерии желательно выбирать место, где точно не будет разгерметизации."
+
+/obj/item/paper/fluff/instruction_ecrys_bse
+	name = "подсказка"
+	info = "В ноутбуке я оставила инструкцию. Прочитай его пожалуйста, дорогой.<br><br>С любовью, тв---~"

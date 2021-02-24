@@ -10,11 +10,12 @@
 	glass_desc = "Are you sure this is tomato juice?"
 	shot_glass_icon_state = "shotglassred"
 	penetrates_skin = NONE
+	ph = 7.4
 
 	// FEED ME
 /datum/reagent/blood/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray)
 	. = ..()
-	if(chems.has_reagent(src.type, 1))
+	if(chems.has_reagent(type, 1))
 		mytray.adjustPests(rand(2,3))
 
 /datum/reagent/blood/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message=TRUE, touch_protection=0)
@@ -101,6 +102,8 @@
 	taste_description = "жирное железо"
 	shot_glass_icon_state = "shotglassred"
 	material = /datum/material/meat
+	ph = 7.45
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/vaccine
 	//data must contain virus type
@@ -146,6 +149,7 @@
 	glass_name = "glass of water"
 	glass_desc = "The father of all refreshments."
 	shot_glass_icon_state = "shotglassclear"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /*
  *	Water reaction to turf
@@ -218,19 +222,22 @@
 /datum/reagent/water/holywater
 	name = "Святая Вода"
 	description = "Water blessed by some deity."
+	special_sound = 'white/valtos/sounds/drink/hallelujah.ogg'
 	color = "#E0E8EF" // rgb: 224, 232, 239
 	glass_icon_state  = "glass_clear"
 	glass_name = "glass of holy water"
 	glass_desc = "A glass of holy water."
 	self_consuming = TRUE //divine intervention won't be limited by the lack of a liver
+	ph = 7.5 //God is alkaline
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 	// Holy water. Mostly the same as water, it also heals the plant a little with the power of the spirits. Also ALSO increases instability.
 /datum/reagent/water/holywater/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray)
-	if(chems.has_reagent(src.type, 1))
-		mytray.adjustWater(round(chems.get_reagent_amount(src.type) * 1))
-		mytray.adjustHealth(round(chems.get_reagent_amount(src.type) * 0.1))
+	if(chems.has_reagent(type, 1))
+		mytray.adjustWater(round(chems.get_reagent_amount(type) * 1))
+		mytray.adjustHealth(round(chems.get_reagent_amount(type) * 0.1))
 		if(myseed)
-			myseed.adjust_instability(round(chems.get_reagent_amount(src.type) * 0.15))
+			myseed.adjust_instability(round(chems.get_reagent_amount(type) * 0.15))
 
 /datum/reagent/water/holywater/on_mob_metabolize(mob/living/L)
 	..()
@@ -287,6 +294,7 @@
 			qdel(R)
 	exposed_turf.Bless()
 
+// Holy water. Mostly the same as water, it also heals the plant a little with the power of the spirits. Also ALSO increases instability.
 /datum/reagent/water/holywater/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray)
 	. = ..()
 	mytray.adjustWater(round(chems.get_reagent_amount(src.type) * 1))
@@ -299,6 +307,7 @@
 	description = "An ubiquitous chemical substance that is composed of hydrogen and oxygen, but it looks kinda hollow."
 	color = "#88878777"
 	taste_description = "пустота"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/hydrogen_peroxide
 	name = "Перекись Водорода"
@@ -310,6 +319,8 @@
 	glass_name = "glass of oxygenated water"
 	glass_desc = "The father of all refreshments. Surely it tastes great, right?"
 	shot_glass_icon_state = "shotglassclear"
+	ph = 6.2
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /*
  *	Water reaction to turf
@@ -336,6 +347,8 @@
 	taste_description = "страдания"
 	metabolization_rate = 2.5 * REAGENTS_METABOLISM  //1u/tick
 	penetrates_skin = TOUCH|VAPOR
+	ph = 6.5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/fuel/unholywater/on_mob_life(mob/living/carbon/M)
 	if(iscultist(M))
@@ -360,6 +373,8 @@
 	name = "Адская Вода"
 	description = "YOUR FLESH! IT BURNS!"
 	taste_description = "сжигание"
+	ph = 0.1
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/hellwater/on_mob_life(mob/living/carbon/M)
 	M.set_fire_stacks(min(5, M.fire_stacks + 3))
@@ -373,6 +388,7 @@
 	name = "Кровь Бога"
 	description = "Slowly heals all damage types. Has a rather high overdose threshold. Glows with mysterious power."
 	overdose_threshold = 150
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 ///Used for clownery
 /datum/reagent/lube
@@ -381,6 +397,7 @@
 	color = "#009CA8" // rgb: 0, 156, 168
 	taste_description = "вишня" // by popular demand
 	var/lube_kind = TURF_WET_LUBE ///What kind of slipperiness gets added to turfs.
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/lube/expose_turf(turf/open/exposed_turf, reac_volume)
 	. = ..()
@@ -394,6 +411,7 @@
 	name = "Супер-Дупер Смазка"
 	description = "This \[REDACTED\] has been outlawed after the incident on \[DATA EXPUNGED\]."
 	lube_kind = TURF_WET_SUPERLUBE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/spraytan
 	name = "Спрей для Загара"
@@ -402,6 +420,8 @@
 	metabolization_rate = 10 * REAGENTS_METABOLISM // very fast, so it can be applied rapidly.  But this changes on an overdose
 	overdose_threshold = 11 //Slightly more than one un-nozzled spraybottle.
 	taste_description = "кислые апельсины"
+	ph = 5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/spraytan/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message = TRUE)
 	. = ..()
@@ -545,12 +565,14 @@
 	description = "A corruptive toxin."
 	color = "#13BC5E" // rgb: 19, 188, 94
 	race = /datum/species/jelly/slime
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/mutationtoxin/felinid
 	name = "Токсин Мутации в Фелинида"
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/human/felinid
 	taste_description = "что-то мяукающее"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/mutationtoxin/lizard
 	name = "Токсин Мутации в Ящера"
@@ -558,6 +580,7 @@
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/lizard
 	taste_description = "дыхание дракона, но не так круто"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/mutationtoxin/fly
 	name = "Токсин Мутации в Муху"
@@ -565,6 +588,7 @@
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/fly
 	taste_description = "мусор"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/mutationtoxin/moth
 	name = "Токсин Мутации в Мотылька"
@@ -572,6 +596,7 @@
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/moth
 	taste_description = "одежда"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/mutationtoxin/pod
 	name = "Токсин Мутации в Дендроида"
@@ -579,6 +604,7 @@
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/pod
 	taste_description = "цветы"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/mutationtoxin/jelly
 	name = "Дефектный Токсин Мутации"
@@ -586,6 +612,7 @@
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/jelly
 	taste_description = "бабушкин желатин"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/mutationtoxin/jelly/on_mob_life(mob/living/carbon/human/H)
 	if(isjellyperson(H))
@@ -608,6 +635,7 @@
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/golem/random
 	taste_description = "камни"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/mutationtoxin/abductor
 	name = "Токсин Мутации в Похитителя"
@@ -615,6 +643,7 @@
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/abductor
 	taste_description = "что-то из этого мира... нет, вселенная!"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/mutationtoxin/android
 	name = "Токсин Мутации в Андройда"
@@ -622,6 +651,7 @@
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/android
 	taste_description = "схемотехника и сталь"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 //BLACKLISTED RACES
 /datum/reagent/mutationtoxin/skeleton
@@ -630,6 +660,7 @@
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/skeleton
 	taste_description = "молоко... и много молока"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/mutationtoxin/zombie
 	name = "Токсин Мутации в Зомби"
@@ -637,6 +668,7 @@
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/zombie //Not the infectious kind. The days of xenobio zombie outbreaks are long past.
 	taste_description = "моз... ничего особенного"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/mutationtoxin/ash
 	name = "Токсин Мутации в Пепельника"
@@ -644,6 +676,7 @@
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/lizard/ashwalker
 	taste_description = "дикость"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 //DANGEROUS RACES
 /datum/reagent/mutationtoxin/shadow
@@ -652,6 +685,7 @@
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/shadow
 	taste_description = "ночь"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/mutationtoxin/plasma
 	name = "Токсин Мутации в Плазмалюда"
@@ -659,6 +693,7 @@
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/plasmaman
 	taste_description = "плазма"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 #undef MUT_MSG_IMMEDIATE
 #undef MUT_MSG_EXTENDED
@@ -670,6 +705,7 @@
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	metabolization_rate = INFINITY
 	taste_description = "слайм"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/mulligan/on_mob_life(mob/living/carbon/human/H)
 	..()
@@ -685,6 +721,7 @@
 	color = "#13BC5E" // rgb: 19, 188, 94
 	taste_description = "слайм"
 	penetrates_skin = NONE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/aslimetoxin/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message=TRUE, touch_protection=0)
 	. = ..()
@@ -695,7 +732,6 @@
 	name = "Благословение Обжорства"
 	description = "An advanced corruptive toxin produced by something terrible."
 	color = "#5EFF3B" //RGB: 94, 255, 59
-	can_synth = FALSE
 	taste_description = "распад"
 	penetrates_skin = NONE
 
@@ -709,6 +745,8 @@
 	color = "#202040" // rgb: 20, 20, 40
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
 	taste_description = "горечь"
+	ph = 10
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/serotrotium/on_mob_life(mob/living/carbon/M)
 	if(ishuman(M))
@@ -722,6 +760,8 @@
 	reagent_state = GAS
 	color = "#808080" // rgb: 128, 128, 128
 	taste_mult = 0 // oderless and tasteless
+	ph = 9.2//It's acutally a huge range and very dependant on the chemistry but ph is basically a made up var in it's implementation anyways
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 
 /datum/reagent/oxygen/expose_turf(turf/open/exposed_turf, reac_volume)
@@ -737,6 +777,8 @@
 	reagent_state = SOLID
 	color = "#6E3B08" // rgb: 110, 59, 8
 	taste_description = "металл"
+	ph = 5.5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/copper/expose_obj(obj/exposed_obj, reac_volume)
 	. = ..()
@@ -754,6 +796,7 @@
 	reagent_state = GAS
 	color = "#808080" // rgb: 128, 128, 128
 	taste_mult = 0
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/nitrogen/expose_turf(turf/open/exposed_turf, reac_volume)
 	if(istype(exposed_turf))
@@ -767,6 +810,8 @@
 	reagent_state = GAS
 	color = "#808080" // rgb: 128, 128, 128
 	taste_mult = 0
+	ph = 0.1//Now I'm stuck in a trap of my own design. Maybe I should make -ve phes? (not 0 so I don't get div/0 errors)
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/potassium
 	name = "Калий"
@@ -774,12 +819,14 @@
 	reagent_state = SOLID
 	color = "#A0A0A0" // rgb: 160, 160, 160
 	taste_description = "сладость"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/mercury
 	name = "Ртуть"
 	description = "A curious metal that's a liquid at room temperature. Neurodegenerative and very bad for the mind."
 	color = "#484848" // rgb: 72, 72, 72A
 	taste_mult = 0 // apparently tasteless.
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/mercury/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(src, TRAIT_IMMOBILIZED) && !isspaceturf(M.loc))
@@ -795,6 +842,8 @@
 	reagent_state = SOLID
 	color = "#BF8C00" // rgb: 191, 140, 0
 	taste_description = "гнилые яйца"
+	ph = 4.5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/carbon
 	name = "Углерод"
@@ -802,6 +851,8 @@
 	reagent_state = SOLID
 	color = "#1C1300" // rgb: 30, 20, 0
 	taste_description = "кислый мел"
+	ph = 5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/carbon/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
@@ -818,6 +869,8 @@
 	reagent_state = GAS
 	color = "#FFFB89" //pale yellow? let's make it light gray
 	taste_description = "хлорка"
+	ph = 7.4
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 
 // You're an idiot for thinking that one of the most corrosive and deadly gasses would be beneficial
@@ -842,6 +895,8 @@
 	reagent_state = GAS
 	color = "#808080" // rgb: 128, 128, 128
 	taste_description = "кислота"
+	ph = 2
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 // You're an idiot for thinking that one of the most corrosive and deadly gasses would be beneficial
 /datum/reagent/fluorine/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
@@ -863,6 +918,8 @@
 	reagent_state = SOLID
 	color = "#808080" // rgb: 128, 128, 128
 	taste_description = "солёный металл"
+	ph = 11.6
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/phosphorus
 	name = "Фосфор"
@@ -870,6 +927,8 @@
 	reagent_state = SOLID
 	color = "#832828" // rgb: 131, 40, 40
 	taste_description = "уксус"
+	ph = 6.5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 // Phosphoric salts are beneficial though. And even if the plant suffers, in the long run the tray gets some nutrients. The benefit isn't worth that much.
 /datum/reagent/phosphorus/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
@@ -885,6 +944,8 @@
 	reagent_state = SOLID
 	color = "#808080" // rgb: 128, 128, 128
 	taste_description = "металл"
+	ph = 11.3
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/lithium/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(M, TRAIT_IMMOBILIZED) && !isspaceturf(M.loc))
@@ -898,12 +959,16 @@
 	description = "Glycerol is a simple polyol compound. Glycerol is sweet-tasting and of low toxicity."
 	color = "#D3B913"
 	taste_description = "сладость"
+	ph = 9
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/space_cleaner/sterilizine
 	name = "Антисептик"
 	description = "Sterilizes wounds in preparation for surgery."
 	color = "#D0EFEE" // space cleaner but lighter
 	taste_description = "горечь"
+	ph = 10.5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/space_cleaner/sterilizine/expose_mob(mob/living/carbon/exposed_carbon, methods=TOUCH, reac_volume)
 	. = ..()
@@ -920,8 +985,9 @@
 	reagent_state = SOLID
 	taste_description = "железо"
 	material = /datum/material/iron
-
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	color = "#606060" //pure iron? let's make it violet of course
+	ph = 6
 
 /datum/reagent/iron/on_mob_life(mob/living/carbon/C)
 	if(C.blood_volume < BLOOD_VOLUME_NORMAL)
@@ -935,6 +1001,7 @@
 	color = "#F7C430" // rgb: 247, 196, 48
 	taste_description = "дорогой металл"
 	material = /datum/material/gold
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/silver
 	name = "Серебро"
@@ -943,6 +1010,7 @@
 	color = "#D0D0D0" // rgb: 208, 208, 208
 	taste_description = "дорогой, но разумный металл"
 	material = /datum/material/silver
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/uranium
 	name ="Uranium"
@@ -951,7 +1019,9 @@
 	color = "#5E9964" //this used to be silver, but liquid uranium can still be green and it's more easily noticeable as uranium like this so why bother?
 	taste_description = "внутренности реактора"
 	var/irradiation_level = 1
+	ph = 4
 	material = /datum/material/uranium
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/uranium/on_mob_life(mob/living/carbon/M)
 	M.apply_effect(irradiation_level/M.metabolism_efficiency,EFFECT_IRRADIATE,0)
@@ -984,6 +1054,8 @@
 	taste_description = "синий цвет и сожаление"
 	irradiation_level = 2*REM
 	material = null
+	ph = 10
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/uranium/radium/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
 	. = ..()
@@ -998,6 +1070,8 @@
 	color = "#0000CC"
 	taste_description = "шипучий синий"
 	material = /datum/material/bluespace
+	ph = 12
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/bluespace/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
 	. = ..()
@@ -1021,6 +1095,7 @@
 	reagent_state = SOLID
 	color = "#A8A8A8" // rgb: 168, 168, 168
 	taste_description = "металл"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/silicon
 	name = "Кремний"
@@ -1029,6 +1104,8 @@
 	color = "#A8A8A8" // rgb: 168, 168, 168
 	taste_mult = 0
 	material = /datum/material/glass
+	ph = 10
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/fuel
 	name = "Сварочное топливо"
@@ -1039,6 +1116,11 @@
 	glass_name = "glass of welder fuel"
 	glass_desc = "Unless you're an industrial tool, this is probably not safe for consumption."
 	penetrates_skin = NONE
+	ph = 4
+	burning_temperature = 1725 //more refined than oil
+	burning_volume = 0.2
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	addiction_types = list(/datum/addiction/alcohol = 4)
 
 /datum/reagent/fuel/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)//Splashing people with welding fuel to make them easy to ignite!
 	. = ..()
@@ -1058,6 +1140,8 @@
 	reagent_weight = 0.6 //so it sprays further
 	penetrates_skin = NONE
 	var/clean_types = CLEAN_WASH
+	ph = 5.5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/space_cleaner/expose_obj(obj/exposed_obj, reac_volume)
 	. = ..()
@@ -1091,6 +1175,8 @@
 	metabolization_rate = 1.5 * REAGENTS_METABOLISM
 	taste_description = "кислота"
 	penetrates_skin = VAPOR
+	ph = 2
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/space_cleaner/ez_clean/on_mob_life(mob/living/carbon/M)
 	M.adjustBruteLoss(3.33)
@@ -1110,6 +1196,8 @@
 	color = "#ADB5DB" //i hate default violets and 'crypto' keeps making me think of cryo so it's light blue now
 	metabolization_rate = 1.5 * REAGENTS_METABOLISM
 	taste_description = "кислотность"
+	ph = 11.9
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/cryptobiolin/on_mob_life(mob/living/carbon/M)
 	M.Dizzy(1)
@@ -1121,6 +1209,9 @@
 	description = "Impedrezene is a narcotic that impedes one's ability by slowing down the higher brain cell functions."
 	color = "#E07DDD" // pink = happy = dumb
 	taste_description = "онемение"
+	ph = 9.1
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	addiction_types = list(/datum/addiction/opiods = 10)
 
 /datum/reagent/impedrezene/on_mob_life(mob/living/carbon/M)
 	M.jitteriness = max(M.jitteriness-5,0)
@@ -1136,7 +1227,7 @@
 	name = "Наномашины"
 	description = "Microscopic construction robots."
 	color = "#535E66" // rgb: 83, 94, 102
-	can_synth = FALSE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	taste_description = "отстой"
 	penetrates_skin = NONE
 
@@ -1149,7 +1240,7 @@
 	name = "Ксеномикробы"
 	description = "Microbes with an entirely alien cellular structure."
 	color = "#535E66" // rgb: 83, 94, 102
-	can_synth = FALSE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	taste_description = "отстой"
 	penetrates_skin = NONE
 
@@ -1162,9 +1253,10 @@
 	name = "Микробы Tubercle bacillus Cosmosis"
 	description = "Active fungal spores."
 	color = "#92D17D" // rgb: 146, 209, 125
-	can_synth = FALSE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	taste_description = "слайм"
 	penetrates_skin = NONE
+	ph = 11
 
 /datum/reagent/fungalspores/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message = TRUE, touch_protection = 0)
 	. = ..()
@@ -1176,8 +1268,8 @@
 	description = "Virological agent that infects the subject with Gastrolosis."
 	color = "#003300" // rgb(0, 51, 0)
 	taste_description = "жижа"
-	can_synth = FALSE //special orange man request
 	penetrates_skin = NONE
+	ph = 11
 
 /datum/reagent/snail/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message = TRUE, touch_protection = 0)
 	. = ..()
@@ -1189,6 +1281,8 @@
 	description = "A perfluoronated sulfonic acid that forms a foam when mixed with water."
 	color = "#9E6B38" // rgb: 158, 107, 56
 	taste_description = "металл"
+	ph = 11
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/foaming_agent// Metal foaming agent. This is lithium hydride. Add other recipes (e.g. LiH + H2O -> LiOH + H2) eventually.
 	name = "Пенный реагент"
@@ -1196,6 +1290,8 @@
 	reagent_state = SOLID
 	color = "#664B63" // rgb: 102, 75, 99
 	taste_description = "металл"
+	ph = 11.5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/smart_foaming_agent //Smart foaming agent. Functions similarly to metal foam, but conforms to walls.
 	name = "Реагент умной пены"
@@ -1203,6 +1299,8 @@
 	reagent_state = SOLID
 	color = "#664B63" // rgb: 102, 75, 99
 	taste_description = "металл"
+	ph = 11.8
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/ammonia
 	name = "Аммиак"
@@ -1210,6 +1308,8 @@
 	reagent_state = GAS
 	color = "#404030" // rgb: 64, 64, 48
 	taste_description = "протрава"
+	ph = 11.6
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/ammonia/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
 	. = ..()
@@ -1225,6 +1325,8 @@
 	description = "A secondary amine, mildly corrosive."
 	color = "#604030" // rgb: 96, 64, 48
 	taste_description = "железо"
+	ph = 12
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 // This is more bad ass, and pests get hurt by the corrosive nature of it, not the plant. The new trade off is it culls stability.
 /datum/reagent/diethylamine/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
@@ -1242,6 +1344,8 @@
 	description = "A gas commonly produced by burning carbon fuels. You're constantly producing this in your lungs."
 	color = "#B0B0B0" // rgb : 192, 192, 192
 	taste_description = "что-то непостижимое"
+	ph = 6
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/carbondioxide/expose_turf(turf/open/exposed_turf, reac_volume)
 	if(istype(exposed_turf))
@@ -1256,7 +1360,8 @@
 	metabolization_rate = 1.5 * REAGENTS_METABOLISM
 	color = "#808080"
 	taste_description = "сладость"
-
+	ph = 5.8
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/nitrous_oxide/expose_turf(turf/open/exposed_turf, reac_volume)
 	. = ..()
@@ -1286,6 +1391,9 @@
 	metabolization_rate = REAGENTS_METABOLISM * 0.5 // Because stimulum/nitryl/freon/hypernoblium are handled through gas breathing, metabolism must be lower for breathcode to keep up
 	color = "E1A116"
 	taste_description = "кислотность"
+	ph = 1.8
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	addiction_types = list(/datum/addiction/stimulants = 14)
 
 /datum/reagent/stimulum/on_mob_metabolize(mob/living/L)
 	..()
@@ -1309,6 +1417,8 @@
 	metabolization_rate = REAGENTS_METABOLISM * 0.5 // Because stimulum/nitryl/freon/hypernoblium are handled through gas breathing, metabolism must be lower for breathcode to keep up
 	color = "90560B"
 	taste_description = "сжигание"
+	ph = 2
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/nitryl/on_mob_metabolize(mob/living/L)
 	..()
@@ -1325,6 +1435,7 @@
 	metabolization_rate = REAGENTS_METABOLISM * 0.5 // Because stimulum/nitryl/freon/hypernoblium are handled through gas breathing, metabolism must be lower for breathcode to keep up
 	color = "90560B"
 	taste_description = "горение"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/freon/on_mob_metabolize(mob/living/L)
 	. = ..()
@@ -1341,6 +1452,7 @@
 	metabolization_rate = REAGENTS_METABOLISM * 0.5 // Because stimulum/nitryl/freon/hyper-nob are handled through gas breathing, metabolism must be lower for breathcode to keep up
 	color = "90560B"
 	taste_description = "searingly cold"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/hypernoblium/on_mob_metabolize(mob/living/L)
 	. = ..()
@@ -1359,6 +1471,7 @@
 	metabolization_rate = REAGENTS_METABOLISM * 0.5
 	color = "90560B"
 	taste_description = "rubbery"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/healium/on_mob_metabolize(mob/living/L)
 	. = ..()
@@ -1381,6 +1494,7 @@
 	metabolization_rate = REAGENTS_METABOLISM * 0.5
 	color = "90560B"
 	taste_description = "minty"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/halon/on_mob_metabolize(mob/living/L)
 	. = ..()
@@ -1417,90 +1531,111 @@
 	colorname = "red"
 	color = "#DA0000" // red
 	random_color_list = list("#FC7474")
+	ph = 0.5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/orange
 	name = "Оранжевый Порошок"
 	colorname = "orange"
 	color = "#FF9300" // orange
 	random_color_list = list("#FF9300")
+	ph = 2
 
 /datum/reagent/colorful_reagent/powder/yellow
 	name = "Желтый Порошок"
 	colorname = "yellow"
 	color = "#FFF200" // yellow
 	random_color_list = list("#FFF200")
+	ph = 5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/green
 	name = "Зеленый Порошок"
 	colorname = "green"
 	color = "#A8E61D" // green
 	random_color_list = list("#A8E61D")
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/blue
 	name = "Синий Порошок"
 	colorname = "blue"
 	color = "#00B7EF" // blue
 	random_color_list = list("#71CAE5")
+	ph = 10
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/purple
 	name = "Фиолетовый Порошок"
 	colorname = "purple"
 	color = "#DA00FF" // purple
 	random_color_list = list("#BD8FC4")
+	ph = 13
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/invisible
 	name = "Невидимый Порошок"
 	colorname = "invisible"
 	color = "#FFFFFF00" // white + no alpha
 	random_color_list = list(null)	//because using the powder color turns things invisible
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/black
 	name = "Черный Порошок"
 	colorname = "black"
 	color = "#1C1C1C" // not quite black
 	random_color_list = list("#8D8D8D")	//more grey than black, not enough to hide your true colors
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/white
 	name = "Белый Порошок"
 	colorname = "white"
 	color = "#FFFFFF" // white
 	random_color_list = list("#FFFFFF") //doesn't actually change appearance at all
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /* used by crayons, can't color living things but still used for stuff like food recipes */
 
 /datum/reagent/colorful_reagent/powder/red/crayon
 	name = "Красный Порошковый Мел"
 	can_colour_mobs = FALSE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/orange/crayon
 	name = "Оранжевый Порошковый Мел"
 	can_colour_mobs = FALSE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/yellow/crayon
 	name = "Желтый Порошковый Мел"
 	can_colour_mobs = FALSE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/green/crayon
 	name = "Зеленый Порошковый Мел"
 	can_colour_mobs = FALSE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/blue/crayon
 	name = "Синий Порошковый Мел"
 	can_colour_mobs = FALSE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/purple/crayon
 	name = "Фиолетовый Порошковый Мел"
 	can_colour_mobs = FALSE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 //datum/reagent/colorful_reagent/powder/invisible/crayon
 
 /datum/reagent/colorful_reagent/powder/black/crayon
 	name = "Черный Порошковый Мел"
 	can_colour_mobs = FALSE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/white/crayon
 	name = "Белый Порошковый Мел"
 	can_colour_mobs = FALSE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 //////////////////////////////////Hydroponics stuff///////////////////////////////
 
@@ -1510,6 +1645,7 @@
 	color = "#000000" // RBG: 0, 0, 0
 	var/tox_prob = 0
 	taste_description = "удобрение"
+	ph = 3
 
 /datum/reagent/plantnutriment/on_mob_life(mob/living/carbon/M)
 	if(prob(tox_prob))
@@ -1522,6 +1658,7 @@
 	description = "Contains electrolytes. It's what plants crave."
 	color = "#376400" // RBG: 50, 100, 0
 	tox_prob = 10
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/plantnutriment/eznutriment/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray)
 	. = ..()
@@ -1535,6 +1672,7 @@
 	description = "Unstable nutriment that makes plants mutate more often than usual."
 	color = "#1A1E4D" // RBG: 26, 30, 77
 	tox_prob = 25
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/plantnutriment/left4zednutriment/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray)
 	. = ..()
@@ -1547,6 +1685,7 @@
 	description = "Very potent nutriment that slows plants from mutating."
 	color = "#9D9D00" // RBG: 157, 157, 0
 	tox_prob = 15
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/plantnutriment/robustharvestnutriment/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray)
 	. = ..()
@@ -1560,6 +1699,7 @@
 	description = "A specialized nutriment, which decreases product quantity and potency, but strengthens the plants endurance."
 	color = "#a06fa7" // RBG: 160, 111, 167
 	tox_prob = 15
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/plantnutriment/endurogrow/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray)
 	. = ..()
@@ -1573,6 +1713,7 @@
 	description = "A specialized nutriment, which increases the plant's production speed, as well as it's susceptibility to weeds."
 	color = "#912e00" // RBG: 145, 46, 0
 	tox_prob = 25
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/plantnutriment/liquidearthquake/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray)
 	. = ..()
@@ -1591,6 +1732,10 @@
 	reagent_state = LIQUID
 	color = "#2D2D2D"
 	taste_description = "масло"
+	burning_temperature = 1200//Oil is crude
+	burning_volume = 0.05 //but has a lot of hydrocarbons
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	addiction_types = null
 
 /datum/reagent/stable_plasma
 	name = "Стабильная Плазма"
@@ -1599,6 +1744,8 @@
 	color = "#2D2D2D"
 	taste_description = "горечь"
 	taste_mult = 1.5
+	ph = 1.5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/stable_plasma/on_mob_life(mob/living/carbon/C)
 	C.adjustPlasma(10)
@@ -1610,6 +1757,8 @@
 	reagent_state = LIQUID
 	color = "#BC8A00"
 	taste_description = "металл"
+	ph = 4.5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/carpet
 	name = "Ковёр"
@@ -1618,6 +1767,7 @@
 	color = "#771100"
 	taste_description = "ковёр" // Your tounge feels furry.
 	var/carpet_type = /turf/open/floor/carpet
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/carpet/expose_turf(turf/exposed_turf, reac_volume)
 	if(isplatingturf(exposed_turf) || istype(exposed_turf, /turf/open/floor/plasteel))
@@ -1631,6 +1781,7 @@
 	color = "#1E1E1E"
 	taste_description = "лакрица"
 	carpet_type = /turf/open/floor/carpet/black
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/carpet/blue
 	name = "Синий Ковёр"
@@ -1638,6 +1789,7 @@
 	color = "#0000DC"
 	taste_description = "замороженный ковер"
 	carpet_type = /turf/open/floor/carpet/blue
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/carpet/cyan
 	name = "Голубой Ковёр"
@@ -1645,6 +1797,7 @@
 	color = "#00B4FF"
 	taste_description = "асбест"
 	carpet_type = /turf/open/floor/carpet/cyan
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/carpet/green
 	name = "Зеленый Ковёр"
@@ -1652,6 +1805,7 @@
 	color = "#A8E61D"
 	taste_description = "зеленый ковёр" //the caps is intentional
 	carpet_type = /turf/open/floor/carpet/green
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/carpet/orange
 	name = "Оранжевый Ковёр"
@@ -1659,6 +1813,7 @@
 	color = "#E78108"
 	taste_description = "апельсиновый сок"
 	carpet_type = /turf/open/floor/carpet/orange
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/carpet/purple
 	name = "Фиолетовый Ковёр"
@@ -1666,6 +1821,7 @@
 	color = "#91D865"
 	taste_description = "желе"
 	carpet_type = /turf/open/floor/carpet/purple
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/carpet/red
 	name = "Красный Ковёр"
@@ -1673,6 +1829,7 @@
 	color = "#731008"
 	taste_description = "кровь и кишки"
 	carpet_type = /turf/open/floor/carpet/red
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/carpet/royal
 	name = "Королевский Ковёр?"
@@ -1700,6 +1857,7 @@
 	color = "#000000"
 	taste_description = "царственность"
 	carpet_type = /turf/open/floor/carpet/royalblack
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/carpet/royal/blue
 	name = "Синий Королевский Ковёр"
@@ -1707,6 +1865,7 @@
 	color = "#5A64C8"
 	taste_description = "голубая кровь" //also intentional
 	carpet_type = /turf/open/floor/carpet/royalblue
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/bromine
 	name = "Бром"
@@ -1714,6 +1873,8 @@
 	reagent_state = LIQUID
 	color = "#D35415"
 	taste_description = "химикаты"
+	ph = 7.8
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/pentaerythritol
 	name = "Пентаэритхритол"
@@ -1721,6 +1882,7 @@
 	reagent_state = SOLID
 	color = "#E66FFF"
 	taste_description = "кислота"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/acetaldehyde
 	name = "Ацетальдегид"
@@ -1728,6 +1890,7 @@
 	reagent_state = SOLID
 	color = "#EEEEEF"
 	taste_description = "мертвецы" //made from formaldehyde, ya get da joke ?
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/acetone_oxide
 	name = "Оксид Ацетона"
@@ -1735,6 +1898,7 @@
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	taste_description = "кислота"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 
 /datum/reagent/acetone_oxide/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)//Splashing people kills people!
@@ -1751,6 +1915,8 @@
 	reagent_state = LIQUID
 	color = "#E7EA91"
 	taste_description = "кислота"
+	ph = 5.5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/ash
 	name = "Пепел"
@@ -1758,6 +1924,8 @@
 	reagent_state = LIQUID
 	color = "#515151"
 	taste_description = "пепел"
+	ph = 6.5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 // Ash is also used IRL in gardening, as a fertilizer enhancer and weed killer
 /datum/reagent/ash/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
@@ -1772,6 +1940,7 @@
 	reagent_state = LIQUID
 	color = "#AF14B7"
 	taste_description = "кислота"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent
 	name = "Цветной Реагент"
@@ -1781,6 +1950,7 @@
 	color = "#C8A5DC"
 	taste_description = "радуга"
 	var/can_colour_mobs = TRUE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/New()
 	SSticker.OnRoundstart(CALLBACK(src,.proc/UpdateColor))
@@ -1808,6 +1978,7 @@
 	color = "#C8A5DC"
 	taste_description = "кислотность"
 	penetrates_skin = NONE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/hair_dye/New()
 	SSticker.OnRoundstart(CALLBACK(src,.proc/UpdateColor))
@@ -1833,6 +2004,7 @@
 	color = "#A86B45" //hair is brown
 	taste_description = "кислотность"
 	penetrates_skin = NONE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/barbers_aid/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message=TRUE, touch_protection=FALSE)
 	. = ..()
@@ -1854,6 +2026,7 @@
 	color = "#7A4E33" //hair is dark browmn
 	taste_description = "кислотность"
 	penetrates_skin = NONE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/concentrated_barbers_aid/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message=TRUE, touch_protection=FALSE)
 	. = ..()
@@ -1873,6 +2046,7 @@
 	color = "#ecb2cf"
 	taste_description = "горечь"
 	penetrates_skin = NONE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/baldium/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message=TRUE, touch_protection=FALSE)
 	. = ..()
@@ -1891,6 +2065,8 @@
 	reagent_state = LIQUID
 	color = "#60A584" // rgb: 96, 165, 132
 	taste_description = "крутая соль"
+	ph = 11.2
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 // Saltpetre is used for gardening IRL, to simplify highly, it speeds up growth and strengthens plants
 /datum/reagent/saltpetre/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
@@ -1908,6 +2084,8 @@
 	reagent_state = LIQUID
 	color = "#FFFFD6" // very very light yellow
 	taste_description = "кислота"
+	ph = 11.9
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/drying_agent
 	name = "Иссушающее вещество"
@@ -1915,6 +2093,8 @@
 	reagent_state = LIQUID
 	color = "#A70FFF"
 	taste_description = "сухость"
+	ph = 10.7
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/drying_agent/expose_turf(turf/open/exposed_turf, reac_volume)
 	. = ..()
@@ -1936,43 +2116,51 @@
 	name = "мутагенный агар"
 	color = "#A3C00F" // rgb: 163,192,15
 	taste_description = "кислотность"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/toxin/mutagen/mutagenvirusfood/sugar
 	name = "сахарозный агар"
 	color = "#41B0C0" // rgb: 65,176,192
 	taste_description = "сладость"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/medicine/synaptizine/synaptizinevirusfood
 	name = "вирусный рацион"
 	color = "#D18AA5" // rgb: 209,138,165
 	taste_description = "горечь"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/toxin/plasma/plasmavirusfood
 	name = "вирусная плазма"
 	color = "#A270A8" // rgb: 166,157,169
 	taste_description = "горечь"
 	taste_mult = 1.5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/toxin/plasma/plasmavirusfood/weak
 	name = "ослабленная вирусная плазма"
 	color = "#A28CA5" // rgb: 206,195,198
 	taste_description = "горечь"
 	taste_mult = 1.5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/uranium/uraniumvirusfood
 	name = "распадающийся урановый гель"
 	color = "#67ADBA" // rgb: 103,173,186
 	taste_description = "внутренности реактора"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/uranium/uraniumvirusfood/unstable
 	name = "нестабильный урановый гель"
 	color = "#2FF2CB" // rgb: 47,242,203
 	taste_description = "внутренности реактора"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/uranium/uraniumvirusfood/stable
 	name = "стабильный урановый гель"
 	color = "#04506C" // rgb: 4,80,108
 	taste_description = "внутренности реактора"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 // Bee chemicals
 
@@ -1981,6 +2169,8 @@
 	description = "Royal Bee Jelly, if injected into a Queen Space Bee said bee will split into two bees."
 	color = "#00ff80"
 	taste_description = "странный мёд"
+	ph = 3
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/royal_bee_jelly/on_mob_life(mob/living/carbon/M)
 	if(prob(2))
@@ -1999,8 +2189,8 @@
 		of the host body."
 	color = "#123524" // RGB (18, 53, 36)
 	metabolization_rate = INFINITY
-	can_synth = FALSE
 	taste_description = "мозги"
+	ph = 0.5
 
 /datum/reagent/romerol/expose_mob(mob/living/carbon/human/exposed_mob, methods=TOUCH, reac_volume)
 	. = ..()
@@ -2014,6 +2204,7 @@
 	description = "An experimental serum which causes rapid muscular growth in Hominidae. Side-affects may include hypertrichosis, violent outbursts, and an unending affinity for bananas."
 	reagent_state = LIQUID
 	color = "#00f041"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/magillitis/on_mob_life(mob/living/carbon/M)
 	..()
@@ -2026,6 +2217,7 @@
 	color = "#ff0000"//strong red. rgb 255, 0, 0
 	var/current_size = RESIZE_DEFAULT_SIZE
 	taste_description = "горечь" // apparently what viagra tastes like
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/growthserum/on_mob_life(mob/living/carbon/H)
 	var/newsize = current_size
@@ -2057,6 +2249,8 @@
 	description = "the petroleum based components of plastic."
 	color = "#f7eded"
 	taste_description = "пластик"
+	ph = 6
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/glitter
 	name = "дженерик блестки"
@@ -2065,6 +2259,7 @@
 	taste_description = "пластик"
 	reagent_state = SOLID
 	var/glitter_type = /obj/effect/decal/cleanable/glitter
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/glitter/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
@@ -2077,17 +2272,20 @@
 	description = "pink sparkles that get everywhere"
 	color = "#ff8080" //A light pink color
 	glitter_type = /obj/effect/decal/cleanable/glitter/pink
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/glitter/white
 	name = "белые блестки"
 	description = "белый sparkles that get everywhere"
 	glitter_type = /obj/effect/decal/cleanable/glitter/white
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/glitter/blue
 	name = "синие блестки"
 	description = "синий sparkles that get everywhere"
 	color = "#4040FF" //A blueish color
 	glitter_type = /obj/effect/decal/cleanable/glitter/blue
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/pax
 	name = "Пакс"
@@ -2095,6 +2293,8 @@
 	color = "#AAAAAA55"
 	taste_description = "вода"
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
+	ph = 15
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/pax/on_mob_metabolize(mob/living/L)
 	..()
@@ -2110,6 +2310,7 @@
 	color = "#FAFF00"
 	taste_description = "едкая корица"
 	metabolization_rate = 0.2 * REAGENTS_METABOLISM
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/bz_metabolites/on_mob_metabolize(mob/living/L)
 	..()
@@ -2130,13 +2331,14 @@
 	name = "синтепакс"
 	description = "A colorless liquid that suppresses violence in its subjects. Cheaper to synthesize than normal Pax, but wears off faster."
 	metabolization_rate = 1.5 * REAGENTS_METABOLISM
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/peaceborg/confuse
 	name = "Оглушающий Раствор"
 	description = "Makes the target off balance and dizzy"
 	metabolization_rate = 1.5 * REAGENTS_METABOLISM
 	taste_description = "головокружение"
-	can_synth = TRUE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/peaceborg/confuse/on_mob_life(mob/living/carbon/M)
 	if(M.get_confusion() < 6)
@@ -2152,7 +2354,7 @@
 	description = "An extremely weak stamina-toxin that tires out the target. Completely harmless."
 	metabolization_rate = 1.5 * REAGENTS_METABOLISM
 	taste_description = "усталость"
-	can_synth = TRUE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/peaceborg/tire/on_mob_life(mob/living/carbon/M)
 	var/healthcomp = (100 - M.health)	//DOES NOT ACCOUNT FOR ADMINBUS THINGS THAT MAKE YOU HAVE MORE THAN 200/210 HEALTH, OR SOMETHING OTHER THAN A HUMAN PROCESSING THIS.
@@ -2167,7 +2369,7 @@
 	description = "A highly mutative liquid of unknown origin."
 	color = "#9A6750" //RGB: 154, 103, 80
 	taste_description = "внутреннее спокойствие"
-	can_synth = FALSE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	penetrates_skin = NONE
 
 /datum/reagent/tranquility/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message = TRUE, touch_protection = 0)
@@ -2181,7 +2383,6 @@
 	description = "A highly specialized extract coming from the Australicus sector, used to create broodmother spiders."
 	color = "#ED2939"
 	taste_description = "вверх ногами"
-	can_synth = FALSE
 
 /// Improvised reagent that induces vomiting. Created by dipping a dead mouse in welder fluid.
 /datum/reagent/yuck
@@ -2192,11 +2393,11 @@
 	color = "#545000"
 	taste_description = "внутренности"
 	taste_mult = 4
-	can_synth = FALSE
 	metabolization_rate = 0.4 * REAGENTS_METABOLISM
 	var/yuck_cycle = 0 //! The `current_cycle` when puking starts.
 
 /datum/reagent/yuck/on_mob_add(mob/living/L)
+	. = ..()
 	if(HAS_TRAIT(L, TRAIT_NOHUNGER)) //they can't puke
 		holder.del_reagent(type)
 
@@ -2241,25 +2442,28 @@
 	description = "Just add water!"
 	color = "#9C5A19"
 	taste_description = "бананы"
-	can_synth = TRUE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/plasma_oxide
 	name = "Гипер-Плазменная Окись"
 	description = "Compound created deep in the cores of demon-class planets. Commonly found through deep geysers."
 	color = "#470750" // rgb: 255, 255, 255
 	taste_description = "hell"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/exotic_stabilizer
 	name = "Экзотический Стабилизатор"
 	description = "Advanced compound created by mixing stabilizing agent and hyper-plasmium oxide."
 	color = "#180000" // rgb: 255, 255, 255
 	taste_description = "blood"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/wittel
 	name = "Виттель"
 	description = "An extremely rare metallic-white substance only found on demon-class planets."
 	color = "#FFFFFF" // rgb: 255, 255, 255
 	taste_mult = 0 // oderless and tasteless
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/metalgen
 	name = "Металген"
@@ -2267,7 +2471,7 @@
 	description = "A purple metal morphic liquid, said to impose it's metallic properties on whatever it touches."
 	color = "#b000aa"
 	taste_mult = 0 // oderless and tasteless
-
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	/// The material flags used to apply the transmuted materials
 	var/applied_material_flags = MATERIAL_ADD_PREFIX | MATERIAL_COLOR
 	/// The amount of materials to apply to the transmuted objects if they don't contain materials
@@ -2307,6 +2511,7 @@
 	taste_mult = 0 // oderless and tasteless
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM //20 times as long, so it's actually viable to use
 	var/time_multiplier = 1 MINUTES //1 minute per unit of gravitum on objects. Seems overpowered, but the whole thing is very niche
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/gravitum/expose_obj(obj/exposed_obj, volume)
 	. = ..()
@@ -2315,6 +2520,7 @@
 
 /datum/reagent/gravitum/on_mob_add(mob/living/L)
 	L.AddElement(/datum/element/forced_gravity, 0) //0 is the gravity, and in this case weightless
+	return ..()
 
 /datum/reagent/gravitum/on_mob_end_metabolize(mob/living/L)
 	L.RemoveElement(/datum/element/forced_gravity, 0)
@@ -2325,6 +2531,7 @@
 	reagent_state = SOLID
 	color = "#E6E6DA"
 	taste_mult = 0
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 // "Second wind" reagent generated when someone suffers a wound. Epinephrine, adrenaline, and stimulants are all already taken so here we are
 /datum/reagent/determination
@@ -2368,6 +2575,7 @@
 	taste_description = "Ag'hsj'saje'sh"
 	color = "#1f8016"
 	metabolization_rate = 2.5 * REAGENTS_METABOLISM  //1u/tick
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/eldritch/on_mob_life(mob/living/carbon/M)
 	if(IS_HERETIC(M))
@@ -2387,3 +2595,17 @@
 		M.adjustOxyLoss(2, FALSE)
 		M.adjustBruteLoss(2, FALSE)
 	..()
+
+/datum/reagent/universal_indicator
+	name = "Universal indicator"
+	description = "A solution that can be used to create pH paper booklets, or sprayed on things to colour them by their pH."
+	taste_description = "a strong chemical taste"
+	color = "#1f8016"
+
+//Colours things by their pH
+/datum/reagent/universal_indicator/expose_atom(atom/exposed_atom, reac_volume)
+	. = ..()
+	if(exposed_atom.reagents)
+		var/color
+		CONVERT_PH_TO_COLOR(exposed_atom.reagents.ph, color)
+		exposed_atom.add_atom_colour(color, WASHABLE_COLOUR_PRIORITY)

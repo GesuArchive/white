@@ -48,7 +48,7 @@
 /obj/machinery/vending/hydroseeds{
 	slogan_delay = 700
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "bb" = (
 /obj/effect/turf_decal/trimline/green/filled/corner{
@@ -56,7 +56,7 @@
 	},
 /obj/effect/turf_decal/trimline/green/filled/corner,
 /obj/structure/cable,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "bc" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -152,6 +152,18 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
+"bA" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating/corner{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/warehouse)
 "bB" = (
 /obj/structure/rack,
 /obj/item/clothing/shoes/magboots,
@@ -169,6 +181,26 @@
 "bK" = (
 /turf/closed/wall/r_wall,
 /area/quartermaster/warehouse)
+"bL" = (
+/obj/item/stack/ammonia_crystals,
+/obj/item/stack/ammonia_crystals,
+/obj/item/stack/ammonia_crystals,
+/obj/item/stack/ammonia_crystals,
+/obj/item/stack/ammonia_crystals,
+/obj/structure/rack,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
+"bM" = (
+/obj/structure/table,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare{
+	pixel_y = 4
+	},
+/obj/item/flashlight/flare{
+	pixel_y = 8
+	},
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "bN" = (
 /turf/open/floor/grass,
 /area/hydroponics)
@@ -375,6 +407,13 @@
 /obj/structure/railing,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
+"eg" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "el" = (
 /obj/machinery/power/smes/engineering,
 /obj/structure/cable,
@@ -535,7 +574,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "gd" = (
 /turf/open/floor/plasteel,
@@ -564,6 +603,11 @@
 	},
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints)
+"go" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/closet/crate/maint,
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/warehouse)
 "gs" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -607,6 +651,11 @@
 	},
 /turf/open/floor/carpet,
 /area/maintenance/bottom_station_maints/north)
+"gT" = (
+/obj/structure/ladder,
+/obj/effect/turf_decal/box,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "ha" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -666,7 +715,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "hB" = (
 /obj/machinery/door/window/northleft{
@@ -800,6 +849,11 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
+"iy" = (
+/obj/machinery/door/firedoor/closed,
+/obj/structure/cable,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "iB" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -819,6 +873,10 @@
 	},
 /turf/open/indestructible/turbolift,
 /area/shuttle/turbolift/primary)
+"iL" = (
+/obj/machinery/door/firedoor/closed,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "iN" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Xenobiology Maintenance";
@@ -895,7 +953,7 @@
 "jA" = (
 /obj/effect/turf_decal/trimline/green/filled/corner,
 /obj/structure/cable,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "jB" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -1033,7 +1091,8 @@
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/obj/effect/turf_decal/siding/thinplating,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "kh" = (
 /obj/structure/cable,
@@ -1058,6 +1117,11 @@
 "kj" = (
 /turf/closed/wall,
 /area/maintenance/port/aft)
+"kn" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/brown/warning,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "ko" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -1079,7 +1143,7 @@
 /obj/effect/turf_decal/loading_area{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "ku" = (
 /obj/machinery/light/small,
@@ -1147,7 +1211,7 @@
 	dir = 8
 	},
 /obj/machinery/light,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "kU" = (
 /obj/machinery/atmospherics/components/binary/pump{
@@ -1173,7 +1237,8 @@
 /obj/item/radio/intercom{
 	pixel_y = 20
 	},
-/turf/open/floor/plasteel,
+/obj/effect/turf_decal/siding/thinplating,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "kZ" = (
 /obj/effect/turf_decal/stripes/line{
@@ -1250,6 +1315,10 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
+"lF" = (
+/obj/machinery/autolathe/hacked,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "lH" = (
 /obj/machinery/camera/autoname{
 	dir = 8
@@ -1259,6 +1328,11 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/atmos)
+"lJ" = (
+/obj/structure/holosign/barrier/atmos,
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "lL" = (
 /obj/machinery/firealarm{
 	dir = 1;
@@ -1324,7 +1398,12 @@
 /obj/machinery/camera{
 	c_tag = "Cargo Bay North"
 	},
-/turf/open/floor/plasteel,
+/obj/effect/turf_decal/siding/thinplating,
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/warehouse)
+"mg" = (
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "mq" = (
 /obj/machinery/light/small{
@@ -1425,7 +1504,8 @@
 	dir = 1;
 	pixel_y = 0
 	},
-/turf/open/floor/plasteel,
+/obj/effect/turf_decal/siding/thinplating,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "ng" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
@@ -1495,7 +1575,8 @@
 /obj/machinery/status_display/supply{
 	pixel_y = 32
 	},
-/turf/open/floor/plasteel,
+/obj/effect/turf_decal/siding/thinplating,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "nr" = (
 /obj/machinery/light/floor,
@@ -1546,7 +1627,8 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/obj/effect/turf_decal/siding/thinplating,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "nH" = (
 /obj/structure/sign/warning/securearea{
@@ -1600,6 +1682,9 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
+"oa" = (
+/turf/closed/wall/rust,
+/area/maintenance/space_hut/plasmaman)
 "od" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -1842,6 +1927,18 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
+"qi" = (
+/obj/machinery/airalarm{
+	dir = 1;
+	pixel_y = -22
+	},
+/obj/structure/table,
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 1
+	},
+/obj/effect/spawner/lootdrop/maintenance/two,
+/turf/open/floor/plating,
+/area/quartermaster/warehouse)
 "qj" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -1870,6 +1967,20 @@
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hydroponics)
+"qo" = (
+/obj/item/bedsheet/random,
+/obj/structure/bed/maint,
+/obj/machinery/button/door{
+	id = "cells";
+	name = "Shutters Control Button";
+	pixel_x = -24;
+	pixel_y = 8;
+	req_access_txt = "29"
+	},
+/obj/item/modular_computer/laptop/preset/civilian,
+/obj/effect/decal/cleanable/cum,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "qq" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -1885,7 +1996,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/green/filled/corner,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "qx" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -1948,7 +2059,7 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 4
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "rb" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -1957,7 +2068,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "rd" = (
 /obj/structure/cable,
@@ -1981,6 +2092,12 @@
 /obj/machinery/seed_extractor,
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
+"rF" = (
+/obj/effect/turf_decal/siding/thinplating/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/warehouse)
 "rG" = (
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
@@ -2107,7 +2224,7 @@
 	dir = 8
 	},
 /obj/machinery/smartfridge/drying_rack,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "ti" = (
 /obj/machinery/airalarm{
@@ -2151,7 +2268,10 @@
 	dir = 4;
 	pixel_x = 27
 	},
-/turf/open/floor/plasteel,
+/obj/effect/turf_decal/siding/thinplating/corner{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "tx" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -2268,7 +2388,7 @@
 /area/science/xenobiology)
 "tT" = (
 /obj/machinery/light,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "ub" = (
 /obj/machinery/door/firedoor,
@@ -2288,6 +2408,12 @@
 	},
 /turf/open/floor/plasteel/freezer,
 /area/science/xenobiology)
+"ud" = (
+/obj/structure/cable,
+/obj/machinery/power/port_gen/pacman/biogen,
+/obj/effect/turf_decal/trimline/brown/warning,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "ug" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -2362,6 +2488,10 @@
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
+"uP" = (
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/hydroponics)
 "uV" = (
 /turf/closed/wall/r_wall,
 /area/tcommsat/server/upper)
@@ -2385,6 +2515,10 @@
 	},
 /turf/open/floor/grass,
 /area/hydroponics)
+"vq" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "vF" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -2661,8 +2795,13 @@
 /obj/effect/turf_decal/trimline/green/filled/corner{
 	dir = 1
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
+"xR" = (
+/obj/machinery/power/apc/auto_name/south,
+/obj/structure/cable,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "xU" = (
 /obj/structure/cable,
 /turf/open/floor/plating/rust,
@@ -2704,6 +2843,16 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/shuttle/turbolift/primary)
+"yu" = (
+/obj/effect/spawner/structure/window/reinforced/tinted,
+/obj/machinery/door/poddoor/shutters/prison,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
+"yv" = (
+/obj/structure/closet/crate/large,
+/obj/item/storage/firstaid/regular,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "yx" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -2731,7 +2880,10 @@
 	dir = 8;
 	id = "QMLoad"
 	},
-/turf/open/floor/plasteel,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "yW" = (
 /obj/machinery/light/floor,
@@ -2785,6 +2937,10 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
+"zl" = (
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "zs" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 8
@@ -2812,6 +2968,9 @@
 "zz" = (
 /obj/machinery/light,
 /obj/machinery/chem_master/condimaster,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 4
+	},
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
 "zA" = (
@@ -2839,6 +2998,13 @@
 /obj/effect/turf_decal/stripes/box,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
+"zG" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "zH" = (
 /obj/machinery/atmospherics/pipe/manifold/yellow/visible,
 /turf/open/floor/engine,
@@ -2889,7 +3055,8 @@
 	dir = 1;
 	pixel_y = 0
 	},
-/turf/open/floor/plasteel,
+/obj/effect/turf_decal/siding/thinplating,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "zS" = (
 /obj/structure/closet/toolcloset,
@@ -3076,7 +3243,10 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/turf/open/floor/plasteel,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "Bf" = (
 /obj/machinery/door/airlock/maintenance{
@@ -3097,7 +3267,7 @@
 /obj/effect/turf_decal/trimline/green/filled/end{
 	dir = 8
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "BF" = (
 /turf/open/floor/plating{
@@ -3123,7 +3293,7 @@
 /obj/effect/turf_decal/trimline/green/filled/end{
 	dir = 4
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "BW" = (
 /obj/structure/rospilovo/intercom{
@@ -3221,6 +3391,10 @@
 /obj/machinery/holopad,
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
+"CU" = (
+/obj/machinery/light/small/red,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "CV" = (
 /obj/machinery/door/window/northleft{
 	dir = 4;
@@ -3344,7 +3518,7 @@
 /obj/structure/cable,
 /obj/structure/table,
 /obj/machinery/reagentgrinder,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "DW" = (
 /obj/structure/cable,
@@ -3466,6 +3640,14 @@
 	},
 /turf/open/floor/plating,
 /area/quartermaster/warehouse)
+"Fg" = (
+/obj/structure/table,
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 1
+	},
+/obj/effect/spawner/lootdrop/maintenance/two,
+/turf/open/floor/plating,
+/area/quartermaster/warehouse)
 "Fj" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
@@ -3473,7 +3655,8 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/obj/effect/turf_decal/siding/thinplating/corner,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "Fk" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
@@ -3483,6 +3666,12 @@
 /obj/machinery/lazylift_button,
 /turf/closed/wall/r_wall,
 /area/shuttle/turbolift/primary)
+"Ft" = (
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/warehouse)
 "Fu" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/table/reinforced,
@@ -3501,11 +3690,11 @@
 /area/science/xenobiology)
 "Fv" = (
 /obj/structure/stairs/south,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "Fw" = (
 /obj/machinery/vending/hydronutrients,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "Fx" = (
 /obj/structure/cable,
@@ -3569,7 +3758,7 @@
 "Gg" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/bot,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "Gk" = (
 /obj/effect/turf_decal/siding/purple{
@@ -3647,7 +3836,7 @@
 /area/maintenance/bottom_station_maints)
 "GI" = (
 /obj/structure/cable,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "GL" = (
 /obj/structure/cable,
@@ -3778,7 +3967,13 @@
 	dir = 5
 	},
 /obj/structure/cable,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/warehouse)
+"Hu" = (
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "Hv" = (
 /obj/machinery/suit_storage_unit/standard_unit,
@@ -3825,6 +4020,12 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/ai_monitored/storage/eva)
+"HO" = (
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/warehouse)
 "HV" = (
 /obj/structure/rospilovo/porog{
 	dir = 4
@@ -4030,7 +4231,7 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "JG" = (
 /obj/structure/chair{
@@ -4077,6 +4278,10 @@
 /obj/structure/sign/warning/vacuum,
 /turf/closed/wall,
 /area/maintenance/bottom_station_maints/east)
+"Ki" = (
+/obj/structure/cable,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "Kn" = (
 /obj/structure/cable,
 /obj/effect/spawner/structure/window/reinforced,
@@ -4160,7 +4365,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/bot,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "KI" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -4304,6 +4509,14 @@
 /obj/structure/closet/crate,
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/east)
+"LD" = (
+/obj/structure/table,
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 1
+	},
+/obj/item/camera,
+/turf/open/floor/plating,
+/area/quartermaster/warehouse)
 "LK" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -4434,7 +4647,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "MC" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -4569,6 +4782,9 @@
 "ND" = (
 /obj/effect/landmark/start/botanist,
 /obj/machinery/holopad,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 4
+	},
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
 "NG" = (
@@ -4628,6 +4844,12 @@
 	},
 /turf/open/floor/engine,
 /area/engine/atmos)
+"Ol" = (
+/obj/structure/cable,
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/effect/turf_decal/trimline/brown/warning,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "Om" = (
 /obj/structure/sign/painting/library,
 /turf/closed/wall,
@@ -4720,6 +4942,12 @@
 /obj/structure/rospilovo/water/luzha,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
+"OW" = (
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/hydroponics)
 "OY" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Fitness Maintenance";
@@ -4767,7 +4995,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "Pv" = (
 /obj/structure/ladder,
@@ -4831,6 +5059,10 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
+"PE" = (
+/obj/effect/decal/cleanable/vomit/old,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "PG" = (
 /obj/structure/lattice,
 /turf/open/space/basic,
@@ -4843,7 +5075,10 @@
 /obj/effect/turf_decal/loading_area{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "PN" = (
 /obj/structure/ladder,
@@ -4904,6 +5139,9 @@
 	pixel_y = 23
 	},
 /obj/structure/cable,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 4
+	},
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
 "Qo" = (
@@ -4957,7 +5195,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "QI" = (
 /obj/machinery/light{
@@ -5015,11 +5253,7 @@
 /turf/open/floor/plasteel/dark,
 /area/engine/storage_shared)
 "Ru" = (
-/obj/machinery/airalarm{
-	dir = 1;
-	pixel_y = -22
-	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "Rw" = (
 /obj/structure/frame/machine,
@@ -5049,7 +5283,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "RN" = (
 /obj/machinery/power/shieldwallgen/xenobiologyaccess,
@@ -5148,6 +5385,11 @@
 /obj/machinery/smartfridge/disks,
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
+"Ss" = (
+/turf/open/floor/plating/rust{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/maintenance/space_hut/plasmaman)
 "St" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -5220,9 +5462,16 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/turf_decal/bot,
-/obj/structure/closet/crate/maint,
-/turf/open/floor/plasteel,
+/obj/vehicle/ridden/forklift{
+	dir = 4
+	},
+/obj/effect/turf_decal/box/corners{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/corners{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
 "SL" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -5231,6 +5480,13 @@
 /obj/machinery/vending/wardrobe/hydro_wardrobe,
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
+"SM" = (
+/obj/effect/turf_decal/box/corners,
+/obj/effect/turf_decal/box/corners{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/warehouse)
 "SX" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
@@ -5252,6 +5508,11 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
+"Ta" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/mechanical/old,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "Te" = (
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
@@ -5324,7 +5585,7 @@
 /area/space/nearstation)
 "Tz" = (
 /obj/effect/turf_decal/trimline/green/filled/line,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "TB" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -5436,6 +5697,9 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/storage_shared)
+"UV" = (
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "UX" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/corner{
@@ -5471,6 +5735,16 @@
 /obj/structure/ladder,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/west)
+"Ve" = (
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 8
+	},
+/obj/machinery/bounty_board{
+	dir = 4;
+	pixel_x = 32
+	},
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/warehouse)
 "Vf" = (
 /obj/effect/landmark/stationroom/maint/rdm5x3,
 /turf/open/floor/plating,
@@ -5510,7 +5784,7 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "Vr" = (
 /obj/structure/rospilovo/bochka/red{
@@ -5713,7 +5987,7 @@
 /obj/effect/turf_decal/trimline/green/filled/corner{
 	dir = 4
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "Xk" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -5870,6 +6144,10 @@
 /obj/machinery/hydroponics/constructable,
 /turf/open/floor/grass,
 /area/hydroponics)
+"YB" = (
+/obj/effect/decal/cleanable/garbage,
+/turf/open/floor/plating/rust,
+/area/maintenance/space_hut/plasmaman)
 "YC" = (
 /obj/structure/ladder,
 /obj/structure/cable,
@@ -5920,7 +6198,7 @@
 	dir = 8
 	},
 /obj/machinery/chem_dispenser/botany,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "YP" = (
 /obj/structure/cable/multilayer/multiz,
@@ -6075,7 +6353,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/hydroponics)
 "ZY" = (
 /turf/open/floor/plasteel/white,
@@ -19780,6 +20058,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -19791,8 +20070,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -20037,6 +20315,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -20048,8 +20327,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -20294,6 +20572,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -20305,8 +20584,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -20541,6 +20819,17 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -20552,18 +20841,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -20798,6 +21076,17 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -20809,18 +21098,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -21055,6 +21333,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -21064,27 +21343,26 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
 PG
 PG
 PG
@@ -21312,6 +21590,17 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -21323,18 +21612,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -21563,6 +21841,23 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -21574,24 +21869,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -21820,6 +22098,23 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -21831,24 +22126,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -22077,6 +22355,23 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -22088,24 +22383,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -22334,6 +22612,23 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -22345,24 +22640,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -22591,6 +22869,23 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -22602,24 +22897,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -22848,6 +23126,23 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -22859,24 +23154,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -23101,39 +23379,39 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
 Zm
 Zm
 Zm
@@ -23362,6 +23640,23 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -23373,24 +23668,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -23619,6 +23897,23 @@ Zm
 Zm
 Zm
 Zm
+oa
+oa
+oa
+oa
+oa
+oa
+oa
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -23630,24 +23925,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -23876,6 +24154,23 @@ Zm
 Zm
 Zm
 Zm
+lJ
+UV
+vq
+vq
+vq
+UV
+oa
+Ss
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -23887,24 +24182,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -24132,6 +24410,24 @@ Zm
 Zm
 Zm
 Zm
+oa
+oa
+UV
+oa
+oa
+oa
+iL
+oa
+oa
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -24143,25 +24439,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -24389,6 +24667,24 @@ Zm
 Zm
 Zm
 Zm
+oa
+lF
+PE
+oa
+YB
+UV
+vq
+vq
+oa
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -24400,25 +24696,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -24462,13 +24740,13 @@ mw
 GQ
 GQ
 da
-aI
+go
 KH
-zT
+mg
 oX
-aI
+mg
 SI
-aI
+mg
 da
 GQ
 GQ
@@ -24644,6 +24922,26 @@ Zm
 Zm
 Zm
 Zm
+bw
+oa
+oa
+oa
+oa
+oa
+vq
+vq
+gT
+CU
+oa
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -24655,27 +24953,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -24719,13 +24997,13 @@ Yp
 tP
 GQ
 da
-zT
+mg
 Gg
-zT
+mg
 da
-zT
-aI
-aI
+mg
+SM
+mg
 da
 da
 GQ
@@ -24901,6 +25179,17 @@ Zm
 Zm
 Zm
 Zm
+bw
+yu
+qo
+UV
+ud
+oa
+zl
+eg
+zG
+xR
+oa
 Zm
 Zm
 Zm
@@ -24909,32 +25198,21 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
 PG
 PG
 PG
@@ -24978,11 +25256,11 @@ Wf
 Pp
 Hr
 GI
-db
+Ru
 Hx
-db
-db
-db
+Ru
+Ru
+Ru
 hl
 da
 GQ
@@ -25158,6 +25436,26 @@ Zm
 Zm
 Zm
 Zm
+bw
+yu
+UV
+UV
+kn
+oa
+oa
+iy
+oa
+oa
+oa
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
 Zm
 Zm
 Zm
@@ -25169,27 +25467,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -25234,12 +25512,12 @@ GQ
 GQ
 da
 Fj
-db
-db
+Ft
+Ft
 PL
-db
-db
-db
+Ft
+Ft
+rF
 Fe
 da
 GQ
@@ -25415,6 +25693,26 @@ Zm
 Zm
 Zm
 Zm
+bw
+oa
+oa
+oa
+Ol
+Ki
+Ki
+Ki
+yv
+oa
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -25426,27 +25724,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -25675,6 +25953,23 @@ Zm
 Zm
 Zm
 Zm
+oa
+oa
+bM
+bL
+Ta
+oa
+oa
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -25686,24 +25981,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -25753,7 +26031,7 @@ Wo
 zT
 db
 Ey
-db
+HO
 kT
 da
 da
@@ -25932,6 +26210,23 @@ Zm
 Zm
 Zm
 Zm
+PG
+oa
+oa
+oa
+oa
+oa
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -25943,24 +26238,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -26010,7 +26288,7 @@ db
 aI
 LB
 zT
-db
+HO
 kt
 Fv
 da
@@ -26189,6 +26467,23 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -26200,24 +26495,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 ah
 Zm
 Zm
@@ -26267,7 +26545,7 @@ db
 CP
 db
 aI
-db
+HO
 kt
 Fv
 da
@@ -26446,6 +26724,23 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -26457,24 +26752,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -26524,7 +26802,7 @@ Wo
 aI
 db
 It
-db
+HO
 tT
 da
 da
@@ -26703,6 +26981,23 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -26714,24 +27009,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -26781,10 +27059,10 @@ db
 aI
 db
 aI
-db
+HO
 Ru
+qi
 da
-GQ
 GQ
 GQ
 mw
@@ -26960,6 +27238,23 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -26971,24 +27266,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -27038,10 +27316,10 @@ Su
 Hh
 Nc
 zT
-db
-db
+HO
+Ru
+LD
 da
-GQ
 GQ
 GQ
 mw
@@ -27217,6 +27495,23 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -27228,24 +27523,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -27289,16 +27567,16 @@ GQ
 GQ
 GQ
 da
-Fj
+bA
 RK
 Bb
-db
-db
+Hu
+Ve
 RK
 tt
-db
+Ru
+Fg
 da
-GV
 GQ
 GQ
 mw
@@ -27474,6 +27752,23 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -27485,24 +27780,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -27555,7 +27833,7 @@ da
 da
 da
 da
-GQ
+da
 GQ
 GQ
 mw
@@ -27731,37 +28009,37 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
 Zm
 Zm
 Zm
@@ -27988,6 +28266,13 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -27997,14 +28282,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -28016,7 +28294,7 @@ Zm
 nN
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -28245,6 +28523,23 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -28256,24 +28551,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -28502,6 +28780,23 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -28513,24 +28808,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -28759,6 +29037,23 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -28770,24 +29065,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -29016,6 +29294,23 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -29027,24 +29322,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -29273,6 +29551,13 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -29294,14 +29579,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -29530,29 +29808,29 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
 PG
 PG
 PG
@@ -29787,6 +30065,13 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -29797,14 +30082,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -30044,6 +30322,13 @@ Zm
 Zm
 Zm
 Zm
+bw
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -30054,14 +30339,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -30301,6 +30579,13 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -30311,14 +30596,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -30558,6 +30836,13 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -30568,14 +30853,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -30815,6 +31093,13 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -30825,14 +31110,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -31072,6 +31350,13 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -31082,14 +31367,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -31329,6 +31607,13 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -31339,14 +31624,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -31586,6 +31864,13 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+Zm
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
@@ -31596,14 +31881,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -31836,39 +32114,39 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+bw
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
 PG
 PG
 PG
@@ -32106,6 +32384,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -32116,8 +32395,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -32363,6 +32641,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -32373,8 +32652,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -32620,6 +32898,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -32630,8 +32909,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -32877,6 +33155,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -32887,8 +33166,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -33134,6 +33412,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -33144,8 +33423,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -33391,6 +33669,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -33401,8 +33680,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -33648,6 +33926,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -33658,8 +33937,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -33905,6 +34183,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -33915,8 +34194,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -34162,6 +34440,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -34172,12 +34451,11 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
+nN
 Zm
 Zm
 Zm
@@ -34419,23 +34697,23 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-nN
 Zm
 PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+bw
 PG
 PG
 PG
@@ -34676,6 +34954,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -34686,8 +34965,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -34933,6 +35211,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -34943,8 +35222,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -35190,6 +35468,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -35200,8 +35479,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -35447,6 +35725,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -35457,8 +35736,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -35704,6 +35982,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -35714,8 +35993,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -35961,6 +36239,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -35971,8 +36250,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -36207,37 +36485,37 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
 PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+bw
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+bw
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+bw
 PG
 PG
 PG
@@ -36475,6 +36753,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -36485,8 +36764,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -36732,6 +37010,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -36742,8 +37021,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -36989,6 +37267,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -36999,8 +37278,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 nN
@@ -37246,6 +37524,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -37256,8 +37535,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -37503,6 +37781,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -37513,8 +37792,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -37760,6 +38038,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -37770,8 +38049,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -38017,6 +38295,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -38027,8 +38306,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -38274,6 +38552,7 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
@@ -38284,8 +38563,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -38531,7 +38809,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -38788,7 +39066,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -45066,8 +45344,8 @@ dL
 Qz
 Qz
 Qz
-Qz
-Qz
+ds
+ds
 Qz
 Qz
 Qz
@@ -46804,13 +47082,13 @@ YF
 YF
 YF
 Qe
-rG
-rG
-rG
+OW
+OW
+OW
 ND
-rG
-rG
-rG
+OW
+OW
+OW
 zz
 Wq
 ln
@@ -47064,7 +47342,7 @@ MB
 bb
 QH
 hy
-BI
+uP
 jA
 QH
 Pu

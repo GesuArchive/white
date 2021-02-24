@@ -156,6 +156,16 @@
 	price_max = 5000
 	availability_prob = 50
 
+/datum/blackmarket_item/implants/autosurgeon/surgery
+	name = "Кибернетическая система Киберсан"
+	desc = "Поможет заставить работать все известные импланты."
+	item = /obj/item/autosurgeon/organ/cyberlink_syndicate
+	stock_min = 1
+	stock_max = 5
+
+	price_min = 100
+	price_max = 5000
+	availability_prob = 95
 
 
 

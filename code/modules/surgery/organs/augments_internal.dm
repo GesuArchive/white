@@ -1,24 +1,3 @@
-
-/obj/item/organ/cyberimp
-	name = "кибернетический имплант"
-	desc = "Современный имплантат, улучшающий функциональность базовой линии."
-	status = ORGAN_ROBOTIC
-	organ_flags = ORGAN_SYNTHETIC
-	var/implant_color = "#FFFFFF"
-	var/implant_overlay
-	var/syndicate_implant = FALSE //Makes the implant invisible to health analyzers and medical HUDs.
-
-/obj/item/organ/cyberimp/New(mob/M = null)
-	if(iscarbon(M))
-		src.Insert(M)
-	if(implant_overlay)
-		var/mutable_appearance/overlay = mutable_appearance(icon, implant_overlay)
-		overlay.color = implant_color
-		add_overlay(overlay)
-	return ..()
-
-
-
 //[[[[BRAIN]]]]
 
 /obj/item/organ/cyberimp/brain
@@ -45,9 +24,13 @@
 	var/list/stored_items = list()
 	implant_color = "#DE7E00"
 	slot = ORGAN_SLOT_BRAIN_ANTIDROP
+	encode_info = AUGMENT_NT_HIGHLEVEL
 	actions_types = list(/datum/action/item_action/organ_action/toggle)
 
 /obj/item/organ/cyberimp/brain/anti_drop/ui_action_click()
+	if(!check_compatibility())
+		to_chat(owner, "<span class='warning'>НЕЙРОЛИНК: ERR01 НЕСОВМЕСТИМЫЙ ИМПЛАНТ</span>")
+		return
 	active = !active
 	if(active)
 		for(var/obj/item/I in owner.held_items)
@@ -99,6 +82,7 @@
 	desc = "Этот имплант автоматически вернет вам контроль над центральной нервной системой, сократив время паралича при оглушении."
 	implant_color = "#FFFF00"
 	slot = ORGAN_SLOT_BRAIN_ANTISTUN
+	encode_info = AUGMENT_NT_HIGHLEVEL
 
 	var/static/list/signalCache = list(
 		COMSIG_LIVING_STATUS_STUN,
@@ -118,6 +102,9 @@
 	RegisterSignal(owner, signalCache, .proc/on_signal)
 
 /obj/item/organ/cyberimp/brain/anti_stun/proc/on_signal(datum/source, amount)
+	if(!check_compatibility())
+		to_chat(owner, "<span class='warning'>НЕЙРОЛИНК: ERR01 НЕСОВМЕСТИМЫЙ ИМПЛАНТ</span>")
+		return
 	if(!(organ_flags & ORGAN_FAILING) && amount > 0)
 		addtimer(CALLBACK(src, .proc/clear_stuns), stun_cap_amount, TIMER_UNIQUE|TIMER_OVERRIDE)
 
@@ -137,6 +124,9 @@
 
 /obj/item/organ/cyberimp/brain/anti_stun/proc/reboot()
 	organ_flags &= ~ORGAN_FAILING
+
+/obj/item/organ/cyberimp/brain/anti_stun/syndicate
+	encode_info = AUGMENT_SYNDICATE_LEVEL
 
 //[[[[MOUTH]]]]
 /obj/item/organ/cyberimp/mouth
@@ -167,10 +157,13 @@
 		/obj/item/autosurgeon/organ/syndicate/thermal_eyes,
 		/obj/item/autosurgeon/organ/syndicate/xray_eyes,
 		/obj/item/autosurgeon/organ/syndicate/anti_stun,
-		/obj/item/autosurgeon/organ/syndicate/reviver)
+		/obj/item/autosurgeon/organ/syndicate/reviver,
+		/obj/item/autosurgeon/organ/syndicate/esword,
+		)
 	var/amount = 5
 
 /obj/item/storage/box/cyber_implants/PopulateContents()
+	new /obj/item/autosurgeon/organ/cyberlink_syndicate(src)
 	var/implant
 	while(contents.len <= amount)
 		implant = pick(boxed)

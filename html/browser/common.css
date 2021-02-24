@@ -431,9 +431,20 @@ ul.sparse {
 	border-left: 1px solid #101010;
 }
 
+.metamag .buyed td {
+	background: #090909;
+	padding: 8px;
+	border-top: 1px solid #151515;
+	border-left: 1px solid #252525;
+}
+
 .metamag .metaitem .metaprice {
 	text-align: center;
 	font-size: 16px;
+	vertical-align: middle;
+}
+
+.metamag .metaitem img {
 	vertical-align: middle;
 }
 

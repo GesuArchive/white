@@ -430,6 +430,8 @@ GENE SCANNER
 			render_list += "<span class='notice ml-1'>В крови пациента обнаружены следующие химикаты:</span>\n"
 			for(var/r in M.reagents.reagent_list)
 				var/datum/reagent/reagent = r
+				if(reagent.chemical_flags & REAGENT_INVISIBLE) //Don't show hidden chems on scanners
+					continue
 				render_list += "<span class='notice ml-2'>[round(reagent.volume, 0.001)] юнитов [reagent.name][reagent.overdosed ? "</span> - <span class='boldannounce'>ПЕРЕДОЗИРОВКА</span>" : ".</span>"]\n"
 		else
 			render_list += "<span class='notice ml-1'>Не обнаружено реагентов в крови.</span>\n"
@@ -439,6 +441,8 @@ GENE SCANNER
 				render_list += "<span class='notice ml-1'>В желудке пациента обнаружены следующие химикаты:</span>\n"
 				for(var/bile in belly.reagents.reagent_list)
 					var/datum/reagent/bit = bile
+					if(bit.chemical_flags & REAGENT_INVISIBLE) //Don't show hidden chems on scanners
+						continue
 					if(!belly.food_reagents[bit.type])
 						render_list += "<span class='notice ml-2'>[round(bit.volume, 0.001)] юнитов [bit.name][bit.overdosed ? "</span> - <span class='boldannounce'>ПЕРЕДОЗИРОВКА</span>" : ".</span>"]\n"
 					else
@@ -448,11 +452,10 @@ GENE SCANNER
 			else
 				render_list += "<span class='notice ml-1'>Не обнаружено реагентов в желудке.</span>\n"
 
-		if(LAZYLEN(M.reagents.addiction_list))
+		if(LAZYLEN(M.mind.active_addictions))
 			render_list += "<span class='boldannounce ml-1'>У пациента есть зависимость от следующих химикатов:</span>\n"
-			for(var/a in M.reagents.addiction_list)
-				var/datum/reagent/addiction = a
-				render_list += "<span class='alert ml-2'>[addiction.name]</span>\n"
+			for(var/datum/addiction/addiction_type as anything in M.mind.active_addictions)
+				render_list += "<span class='alert ml-2'>[addiction_type.name]</span>\n"
 		else
 			render_list += "<span class='notice ml-1'>У пациента нет зависимостей от химикатов.</span>\n"
 

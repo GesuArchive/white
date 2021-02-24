@@ -4,6 +4,7 @@
 	C << browse(file('icons/blank_console.png'),     "file=blank_console.png;display=0")
 	C << browse(file('html/ts.html'),     			 "window=lobbyprotoc")
 	spawn(50)
+		C << output(SStitle.game_loaded, 			 "lobbyprotoc:set_state")
 		C << output(SStitle.ctt, 					 "lobbyprotoc:set_cons_now")
 
 /datum/lobbyscreen/proc/hide_titlescreen(client/C)
@@ -18,6 +19,7 @@
 	C << browse(file('icons/blank_console.png'),     "file=blank_console.png;display=0")
 	C << browse(file('html/ts.html'),     			 "window=lobbyprotoc")
 	spawn(50)
+		C << output(SStitle.game_loaded, 			 "lobbyprotoc:set_state")
 		C << output(SStitle.ctt, 					 "lobbyprotoc:set_cons_now")
 
 /client/proc/send_to_lobby_console(msg)
@@ -30,11 +32,13 @@
 	lobbyscreen_image.show_titlescreen(src)
 
 /client/proc/clear_lobby()
+	src << output(SStitle.game_loaded, "lobbyprotoc:set_state")
 	src << output("", "lobbyprotoc:cls")
 
 /client/verb/lobby_ready()
 	set hidden = TRUE
 
+	src << output(SStitle.game_loaded, "lobbyprotoc:set_state")
 	src << output(SStitle.ctt, "lobbyprotoc:set_cons_now")
 
 /client/proc/reload_lobby()

@@ -89,17 +89,22 @@
 		for(var/datum/computer_file/F in HDD.stored_files)
 			var/noisy = FALSE
 			var/silenced = FALSE
+			var/has_data = null
 			var/datum/computer_file/program/binary = F
+			var/datum/computer_file/data/textfile = F
 			if(istype(binary))
 				noisy = binary.alert_able
 				silenced = binary.alert_silenced
+			if(istype(textfile))
+				has_data = textfile.stored_data
 			files += list(list(
 				"name" = F.filename,
 				"type" = F.filetype,
 				"size" = F.size,
 				"undeletable" = F.undeletable,
 				"alert_able" = noisy,
-				"alert_silenced" = silenced
+				"alert_silenced" = silenced,
+				"has_data" = has_data
 			))
 		data["files"] = files
 		if(RHDD)

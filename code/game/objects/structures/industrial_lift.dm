@@ -90,12 +90,12 @@
 				//Go along the Y axis from max to min, from up to down
 				for(var/y in max_y to min_y step -1)
 					var/obj/structure/industrial_lift/lift_platform = locate(/obj/structure/industrial_lift, locate(x, y, z))
-					lift_platform.travel(going)
+					lift_platform?.travel(going)
 			else
 				//Go along the Y axis from min to max, from down to up
 				for(var/y in min_y to max_y)
 					var/obj/structure/industrial_lift/lift_platform = locate(/obj/structure/industrial_lift, locate(x, y, z))
-					lift_platform.travel(going)
+					lift_platform?.travel(going)
 	else
 		//Go along the X axis from max to min, from right to left
 		for(var/x in max_x to min_x step -1)
@@ -103,12 +103,12 @@
 				//Go along the Y axis from max to min, from up to down
 				for(var/y in max_y to min_y step -1)
 					var/obj/structure/industrial_lift/lift_platform = locate(/obj/structure/industrial_lift, locate(x, y, z))
-					lift_platform.travel(going)
+					lift_platform?.travel(going)
 			else
 				//Go along the Y axis from min to max, from down to up
 				for(var/y in min_y to max_y)
 					var/obj/structure/industrial_lift/lift_platform = locate(/obj/structure/industrial_lift, locate(x, y, z))
-					lift_platform.travel(going)
+					lift_platform?.travel(going)
 	set_controls(UNLOCKED)
 
 ///Check destination turfs
@@ -163,6 +163,7 @@ GLOBAL_LIST_EMPTY(lifts)
 	RegisterSignal(src, COMSIG_MOVABLE_CROSSED, .proc/AddItemOnLift)
 	RegisterSignal(loc, COMSIG_ATOM_CREATED, .proc/AddItemOnLift)//For atoms created on platform
 	RegisterSignal(src, COMSIG_MOVABLE_UNCROSSED, .proc/RemoveItemFromLift)
+	RegisterSignal(src, COMSIG_MOVABLE_BUMP, .proc/GracefullyBreak)
 
 	if(!lift_master_datum)
 		lift_master_datum = new(src)
@@ -177,6 +178,26 @@ GLOBAL_LIST_EMPTY(lifts)
 		return
 	LAZYREMOVE(lift_load, AM)
 	UnregisterSignal(AM, COMSIG_PARENT_QDELETING)
+
+/**
+ * Signal for when the tram runs into a field of which it cannot go through.
+ * Stops the train's travel fully, sends a message, and destroys the train.
+ * Arguments:
+ * bumped_atom - The atom this tram bumped into
+ */
+/obj/structure/industrial_lift/proc/GracefullyBreak(atom/bumped_atom)
+	SIGNAL_HANDLER
+
+	if(istype(bumped_atom, /obj/machinery/field))
+		return
+
+	bumped_atom.visible_message("<span class='userdanger'>[src] crashes into the field violently!</span>")
+	for(var/obj/structure/industrial_lift/tram/tram_part as anything in lift_master_datum.lift_platforms)
+		tram_part.travel_distance = 0
+		tram_part.travelling = FALSE
+		if(prob(15) || locate(/mob/living) in tram_part.lift_load) //always go boom on people on the track
+			explosion(get_turf(tram_part),rand(0,1),2,3) //50% chance of gib
+		qdel(tram_part)
 
 /obj/structure/industrial_lift/proc/AddItemOnLift(datum/source, atom/movable/AM)
 	if(AM in lift_load)
@@ -199,17 +220,46 @@ GLOBAL_LIST_EMPTY(lifts)
 		destination = get_step_multiz(src, going)
 	else
 		destination = going
-	if(going == DOWN)//make sure this stays pre-item moving, or you'll crush anything on the lift under the lift.
+	if(going == DOWN)
 		for(var/mob/living/crushed in destination.contents)
 			to_chat(crushed, "<span class='userdanger'>You are crushed by [src]!</span>")
 			crushed.gib(FALSE,FALSE,FALSE)//the nicest kind of gibbing, keeping everything intact.
+	else if(going != UP) //can't really crush something upwards
+		for(var/obj/structure/anchortrouble in destination.contents)
+			if(anchortrouble.anchored && (!istype(anchortrouble, /obj/structure/holosign)) && anchortrouble.layer >= GAS_PUMP_LAYER) //to avoid pipes, wires, etc
+				playsound(src, 'sound/effects/bang.ogg', 50, TRUE)
+				visible_message("<span class='notice'>[src] smashes through [anchortrouble]!</span>")
+				anchortrouble.deconstruct(FALSE)
+		for(var/mob/living/collided in destination.contents)
+			to_chat(collided, "<span class='userdanger'>[src] collides into you!</span>")
+			playsound(src, 'sound/effects/splat.ogg', 50, TRUE)
+			var/damage = rand(5,10)
+			collided.apply_damage(2*damage, BRUTE, BODY_ZONE_HEAD)
+			collided.apply_damage(2*damage, BRUTE, BODY_ZONE_CHEST)
+			collided.apply_damage(0.5*damage, BRUTE, BODY_ZONE_L_LEG)
+			collided.apply_damage(0.5*damage, BRUTE, BODY_ZONE_R_LEG)
+			collided.apply_damage(0.5*damage, BRUTE, BODY_ZONE_L_ARM)
+			collided.apply_damage(0.5*damage, BRUTE, BODY_ZONE_R_ARM)
+
+			if(QDELETED(collided)) //in case it was a mob that dels on death
+				continue
+			var/turf/T = get_turf(src)
+			T.add_mob_blood(collided)
+
+			collided.throw_at()
+			//if going EAST, will turn to the NORTHEAST or SOUTHEAST and throw the ran over guy away
+			var/atom/throw_target = get_edge_target_turf(collided, turn(going, pick(45, -45)))
+			collided.throw_at(throw_target, 200, 4)
 	forceMove(destination)
 	for(var/am in things2move)
+		if(isnull(am))
+			LAZYREMOVE(lift_load, am)//after enough use, one of these always ends up inside despite signals. when they show, we need to scrub them out.
+			continue
 		var/atom/movable/thing = am
 		thing.forceMove(destination)
 
-/obj/structure/industrial_lift/proc/use(mob/user, is_ghost=FALSE)
-	if(is_ghost && !in_range(src, user))
+/obj/structure/industrial_lift/proc/use(mob/living/user)
+	if(!isliving(user) || !in_range(src, user))
 		return
 
 	var/list/tool_list = list()
@@ -226,7 +276,7 @@ GLOBAL_LIST_EMPTY(lifts)
 		add_fingerprint(user)
 		return
 	var/result = show_radial_menu(user, src, tool_list, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
-	if(!is_ghost && !in_range(src, user))
+	if(!isliving(user) || !in_range(src, user))
 		return  // nice try
 	switch(result)
 		if("Up")
@@ -338,3 +388,126 @@ GLOBAL_LIST_EMPTY(lifts)
 			return
 
 	add_fingerprint(user)
+
+
+/obj/structure/industrial_lift/tram
+	name = "трамвай"
+	desc = "Для путешествий по станции."
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "titanium_yellow"
+	base_icon_state = null
+	smoothing_flags = NONE
+	smoothing_groups = null
+	canSmoothWith = null
+	//kind of a centerpiece of the station, so pretty tough to destroy
+	armor = list(MELEE = 80, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 100, BIO = 80, RAD = 80, FIRE = 100, ACID = 100)
+	resistance_flags = FIRE_PROOF | ACID_PROOF
+	var/travelling = FALSE
+	var/travel_distance = 0
+	///for finding the landmark initially - should be the exact same as the landmark's destination id.
+	var/initial_id = "middle_part"
+	var/obj/effect/landmark/tram/from_where
+	var/travel_direction
+	var/time_inbetween_moves = 1
+
+/obj/structure/industrial_lift/tram/console
+	name = "консоль трамвая"
+	desc = "Вот через эту штуку можно управлять трамваем. Наверное."
+	icon = 'icons/obj/modular_console.dmi'
+	icon_state = "console"
+	layer = 2.3
+	density = TRUE
+
+/obj/structure/industrial_lift/tram/use(mob/user) //dont click the floor dingus we use computers now
+	return
+
+/obj/structure/industrial_lift/tram/console/use(mob/user)
+	if(!isliving(user) || !in_range(src, user))
+		return
+
+	if(controls_locked || travelling)
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] заблокирована!</span>")
+		add_fingerprint(user)
+		return
+
+
+	var/list/radial_buttons = list()
+	var/list/button2landmark = list()
+
+	if(!from_where) //only needs to grab landmark the first time
+		for(var/obj/effect/landmark/tram/our_location in GLOB.landmarks_list)
+			if(our_location.destination_id == initial_id)
+				from_where = our_location
+				break
+	for(var/obj/effect/landmark/tram/destination in GLOB.landmarks_list)
+		if(destination == from_where)
+			continue
+		var/direction_to_destination = get_dir(from_where, destination)
+		var/direction_text = uppertext(dir2text(direction_to_destination))
+		//far left or far right tram destination have multiple in the left and right slot, so lets add this as SOUTH
+		var/button_direction
+		if(radial_buttons[direction_text])
+			button_direction = "NORTH[direction_text]" //there is already something in this direction
+		else
+			button_direction = direction_text
+		button2landmark[button_direction] = destination
+		radial_buttons[button_direction] = image(icon = 'icons/effects/effects.dmi', icon_state = destination.destination_id, dir = direction_to_destination)
+	if(!radial_buttons.len)
+		return //nowhere to go
+	var/result = show_radial_menu(user, src, radial_buttons, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = FALSE)
+	if (!result || result == "Cancel" || !in_range(src, user))
+		return  // cancelling or trying to be a dirty cheat
+	add_fingerprint(user)
+	if(controls_locked || travelling) // someone else started
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] заблокирована! Кто-то уже запустил трамвай!</span>")
+		return
+	tram_travel(from_where, button2landmark[result])
+
+/obj/structure/industrial_lift/tram/process(delta_time)
+	if(!travel_distance)
+		addtimer(CALLBACK(src, .proc/unlock_controls), 3 SECONDS)
+		return PROCESS_KILL
+	else
+		travel_distance--
+		lift_master_datum.MoveLiftHorizontal(travel_direction, z)
+
+/obj/structure/industrial_lift/tram/proc/tram_travel(obj/effect/landmark/tram/from_where, obj/effect/landmark/tram/to_where)
+	visible_message("<span class='notice'>[capitalize(src.name)] двигается к [to_where]!</span")
+
+	lift_master_datum.set_controls(LOCKED)
+	for(var/obj/structure/industrial_lift/tram/other_tram_part as anything in lift_master_datum.lift_platforms) //only thing everyone needs to know is the new location.
+		if(other_tram_part.travelling) //wee woo wee woo there was a double action queued. damn multi tile structs
+			return //we don't care to undo locked controls, though, as that will resolve itself
+		other_tram_part.travelling = TRUE
+		other_tram_part.from_where = to_where
+	travel_direction = get_dir(from_where, to_where)
+	travel_distance = get_dist(from_where, to_where)
+	//first movement is immediate
+	lift_master_datum.MoveLiftHorizontal(travel_direction, z)
+	travel_distance--
+
+	START_PROCESSING(SStramprocess, src)
+
+/obj/structure/industrial_lift/tram/proc/unlock_controls()
+	visible_message("<span class='notice'>[capitalize(src.name)] теперь разблокирована.</span")
+	for(var/lift in lift_master_datum.lift_platforms) //only thing everyone needs to know is the new location.
+		var/obj/structure/industrial_lift/tram/other_tram_part = lift
+		other_tram_part.travelling = FALSE
+		lift_master_datum.set_controls(UNLOCKED)
+
+/obj/effect/landmark/tram
+	name = "точка назначения" //the tram buttons will mention this.
+	icon_state = "tram"
+	var/destination_id
+
+/obj/effect/landmark/tram/left_part
+	name = "западное крыло"
+	destination_id = "left_part"
+
+/obj/effect/landmark/tram/middle_part
+	name = "цетральное крыло"
+	destination_id = "middle_part"
+
+/obj/effect/landmark/tram/right_part
+	name = "восточное крыло"
+	destination_id = "right_part"

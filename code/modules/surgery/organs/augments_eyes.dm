@@ -3,6 +3,7 @@
 	desc = "Импланты для ваших глаз."
 	icon_state = "eye_implant"
 	implant_overlay = "eye_implant_overlay"
+	encode_info = AUGMENT_NT_LOWLEVEL
 	slot = ORGAN_SLOT_EYES
 	zone = BODY_ZONE_PRECISE_EYES
 	w_class = WEIGHT_CLASS_TINY
@@ -15,8 +16,26 @@
 	var/HUD_type = 0
 	var/HUD_trait = null
 
+/obj/item/organ/cyberimp/eyes/hud/update_implants()
+	. = ..()
+	if(check_compatibility())
+		if(HUD_type)
+			var/datum/atom_hud/H = GLOB.huds[HUD_type]
+			H.add_hud_to(H)
+		if(HUD_trait)
+			ADD_TRAIT(owner, HUD_trait, ORGAN_TRAIT)
+		return
+	if(HUD_type)
+		var/datum/atom_hud/H = GLOB.huds[HUD_type]
+		H.remove_hud_from(owner)
+	if(HUD_trait)
+		REMOVE_TRAIT(owner, HUD_trait, ORGAN_TRAIT)
+
 /obj/item/organ/cyberimp/eyes/hud/Insert(mob/living/carbon/M, special = 0, drop_if_replaced = FALSE)
 	..()
+	if(!check_compatibility())
+		to_chat(owner, "<span class='warning'>НЕЙРОЛИНК: ERR01 НЕСОВМЕСТИМЫЙ ИМПЛАНТ</span>")
+		return
 	if(HUD_type)
 		var/datum/atom_hud/H = GLOB.huds[HUD_type]
 		H.add_hud_to(M)
@@ -52,3 +71,9 @@
 	name = "контрабандный имплант интерфейса службы безопасности"
 	desc = "Интерфейс службы безопасности от КиберСан Индастриз. Эти нелегальные кибернетические глаза выведут интерфейс службы безопасности поверх всего что вы видите"
 	syndicate_implant = TRUE
+	encode_info = AUGMENT_SYNDICATE_LEVEL
+
+/obj/item/organ/cyberimp/eyes/hud/sensor
+	name = "анализаторный сенсор Интердайн"
+	desc = "Этот медицинский имплант позволит вам видеть сигналы датчиков находящихся поблизости мертвых людей, что очень полезно для медработников."
+	encode_info = AUGMENT_TG_LEVEL

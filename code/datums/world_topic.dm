@@ -349,7 +349,7 @@
 			"UPDATE donations SET sum = :value WHERE byond = :userkey",
 			list("value" = value, "userkey" = userkey)
 		)
-	else
+	else if (!check_donations(userkey))
 		query_set_donate = SSdbcore.NewQuery(
 			"INSERT INTO donations (sum, byond) VALUES (:value, :userkey)",
 			list("value" = value, "userkey" = userkey)
@@ -366,7 +366,7 @@
 	for(var/client/C in GLOB.clients)
 		if(userkey == C.ckey)
 			if(isliving(C.mob))
-				var/mob/L = new /mob/living/carbon/human/rapist(get_turf(C.mob))
+				var/mob/L = new /mob/living/carbon/human/raper(get_turf(C.mob))
 				QDEL_IN(L, delete_after SECONDS)
 				return TRUE
 	return FALSE

@@ -45,6 +45,14 @@
 			"<span class='userdanger'>[user] поит меня содержимым [src.name].</span>")
 		log_combat(user, M, "fed", reagents.log_list())
 
+	for(var/datum/reagent/R in reagents.reagent_list)
+		if(!R.special_sound)
+			continue
+		else if(R.special_sound in M.known_reagent_sounds)
+			continue
+		M.known_reagent_sounds += R.special_sound
+		SEND_SOUND(M, R.special_sound)
+
 	SEND_SIGNAL(src, COMSIG_DRINK_DRANK, M, user)
 	var/fraction = min(gulp_size/reagents.total_volume, 1)
 	reagents.trans_to(M, gulp_size, transfered_by = user, methods = INGEST)
@@ -116,6 +124,21 @@
 	if(hotness && reagents)
 		reagents.expose_temperature(hotness)
 		to_chat(user, "<span class='notice'>Нагреваю [name] при помощи [I.name]!</span>")
+
+	//Cooling method
+	if(istype(I, /obj/item/extinguisher))
+		var/obj/item/extinguisher/extinguisher = I
+		if(extinguisher.safety)
+			return
+		if(extinguisher.reagents.total_volume < 1)
+			to_chat(user, "<span class='warning'>[capitalize(extinguisher)] пуст!</span>")
+			return
+		var/cooling = (0 - reagents.chem_temp) * (extinguisher.cooling_power * 2)
+		reagents.expose_temperature(cooling)
+		to_chat(user, "<span class='notice'>Охлаждаю [name] при помощи [I]!</span>")
+		playsound(loc, 'sound/effects/extinguish.ogg', 75, TRUE, -3)
+		extinguisher.reagents.remove_all(1)
+
 	..()
 
 /obj/item/reagent_containers/food/drinks/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)

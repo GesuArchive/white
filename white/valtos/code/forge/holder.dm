@@ -10,15 +10,6 @@
 	var/chem_bluespaced = FALSE
 	var/chem_centrifuged = FALSE
 
-/proc/get_random_toxin_reagent_id()	// Returns a random toxin reagent ID minus blacklisted reagents
-	var/static/list/random_reagents = list()
-	if(!random_reagents.len)
-		for(var/thing  in subtypesof(/datum/reagent/toxin))
-			var/datum/reagent/RT = thing
-			if(initial(RT.can_synth))
-				random_reagents += RT.type
-	var/picked_reagent = pick(random_reagents)
-	return picked_reagent
 /* hippiecode sucks
 /datum/reagents/proc/handle_reactions()
 	if(!QDELETED(src))	//don't call the proc if the container doesn't exist

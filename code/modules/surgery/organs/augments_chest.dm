@@ -10,12 +10,16 @@
 	desc = "Этот имплант синтезирует и закачаивает в ваш кровосток небольшое количество питательных веществ если вы голодаете."
 	icon_state = "chest_implant"
 	implant_color = "#00AA00"
+	encode_info = AUGMENT_NT_LOWLEVEL
 	var/hunger_threshold = NUTRITION_LEVEL_STARVING
 	var/synthesizing = 0
 	var/poison_amount = 5
 	slot = ORGAN_SLOT_STOMACH_AID
 
 /obj/item/organ/cyberimp/chest/nutriment/on_life()
+	if(!check_compatibility())
+		return
+
 	if(synthesizing)
 		return
 
@@ -42,6 +46,7 @@
 	icon_state = "chest_implant"
 	implant_color = "#006607"
 	hunger_threshold = NUTRITION_LEVEL_HUNGRY
+	encode_info = AUGMENT_NT_HIGHLEVEL
 	poison_amount = 10
 
 /obj/item/organ/cyberimp/chest/reviver
@@ -50,12 +55,15 @@
 	icon_state = "chest_implant"
 	implant_color = "#AD0000"
 	slot = ORGAN_SLOT_HEART_AID
+	encode_info = AUGMENT_NT_HIGHLEVEL
 	var/revive_cost = 0
 	var/reviving = FALSE
 	COOLDOWN_DECLARE(reviver_cooldown)
 
 
 /obj/item/organ/cyberimp/chest/reviver/on_life()
+	if(!check_compatibility())
+		return
 	if(reviving)
 		switch(owner.stat)
 			if(UNCONSCIOUS, HARD_CRIT)
@@ -115,6 +123,8 @@
 	if(H.stat == CONSCIOUS)
 		to_chat(H, "<span class='notice'>Чувствую, что мое сердце вновь забилось!</span>")
 
+/obj/item/organ/cyberimp/chest/reviver/syndicate
+	encode_info = AUGMENT_SYNDICATE_LEVEL
 
 /obj/item/organ/cyberimp/chest/thrusters
 	name = "комплект маневровых имплантов"
@@ -126,6 +136,7 @@
 	implant_color = null
 	actions_types = list(/datum/action/item_action/organ_action/toggle)
 	w_class = WEIGHT_CLASS_NORMAL
+	encode_info = AUGMENT_NT_HIGHLEVEL
 	var/on = FALSE
 	var/datum/effect_system/trail_follow/ion/ion_trail
 
@@ -145,8 +156,16 @@
 /obj/item/organ/cyberimp/chest/thrusters/ui_action_click()
 	toggle()
 
+/obj/item/organ/cyberimp/chest/thrusters/update_implants()
+	. = ..()
+	if(check_compatibility())
+		return
+
+	if(on)
+		toggle(TRUE)
+
 /obj/item/organ/cyberimp/chest/thrusters/proc/toggle(silent = FALSE)
-	if(!on)
+	if(!on && check_compatibility())
 		if((organ_flags & ORGAN_FAILING))
 			if(!silent)
 				to_chat(owner, "<span class='warning'>Кажется мой маневровый набор сломался!</span>")

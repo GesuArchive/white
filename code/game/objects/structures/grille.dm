@@ -1,7 +1,7 @@
 /obj/structure/grille
 	desc = "Хрупкий каркас из металлических стержней."
 	name = "решетка"
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/obj/smooth_structures/grille.dmi'
 	icon_state = "grille"
 	density = TRUE
 	anchored = TRUE
@@ -10,12 +10,17 @@
 	armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 100, BOMB = 10, BIO = 100, RAD = 100, FIRE = 0, ACID = 0)
 	max_integrity = 50
 	integrity_failure = 0.4
+	appearance_flags = KEEP_TOGETHER
+	smoothing_flags = SMOOTH_CORNERS
+	can_be_unanchored = TRUE
+	canSmoothWith = list(SMOOTH_GROUP_GRILLE)
+	smoothing_groups = list(SMOOTH_GROUP_GRILLE)
+	var/holes = 0 //bitflag
 
 	var/rods_type = /obj/item/stack/rods
 	var/rods_amount = 2
 	var/rods_broken = TRUE
 	var/grille_type = null
-	var/broken_type = /obj/structure/grille/broken
 
 /obj/structure/grille/ComponentInitialize()
 	. = ..()
@@ -27,21 +32,28 @@
 
 /obj/structure/grille/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, attack_dir)
 	. = ..()
-	update_icon()
-
-/obj/structure/grille/update_icon()
-	if(QDELETED(src) || broken)
-		return
-
 	var/ratio = obj_integrity / max_integrity
 	ratio = CEILING(ratio*4, 1) * 25
 
-	if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
-		QUEUE_SMOOTH(src)
-
-	if(ratio > 50)
+	if(ratio > 75)
 		return
-	icon_state = "grille50_[rand(0,3)]"
+
+	if(broken)
+		holes = (holes | 16) //16 is the biggest hole
+		update_icon()
+		return
+
+	holes = (holes | (1 << rand(0,3))) //add random holes between 1 and 8
+
+	update_icon()
+
+/obj/structure/grille/update_icon()
+	if(QDELETED(src))
+		return
+	for(var/i = 0; i < 5; i++)
+		var/mask = 1 << i
+		if(holes & mask)
+			filters += filter(type="alpha", icon = icon('icons/obj/smooth_structures/grille.dmi', "broken_[i]"), flags = MASK_INVERSE)
 
 /obj/structure/grille/examine(mob/user)
 	. = ..()
@@ -146,6 +158,8 @@
 			set_anchored(!anchored)
 			user.visible_message("<span class='notice'>[user] [anchored ? "прикручивает" : "откручивает"] [src.name].</span>", \
 				"<span class='notice'>Я [anchored ? "прикручиваю [src.name] к полу" : "откручиваю [src.name] от пола"].</span>")
+			if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
+				QUEUE_SMOOTH(src)
 			return
 	else if(istype(W, /obj/item/stack/rods) && broken)
 		var/obj/item/stack/rods/R = W
@@ -224,10 +238,13 @@
 
 /obj/structure/grille/obj_break()
 	if(!broken && !(flags_1 & NODECONSTRUCT_1))
-		new broken_type(src.loc)
+		density = FALSE
+		broken = TRUE
 		var/obj/R = new rods_type(drop_location(), rods_broken)
 		transfer_fingerprints_to(R)
-		qdel(src)
+		rods_amount = 1
+		rods_broken = FALSE
+		grille_type = /obj/structure/grille
 
 
 // shock user with probability prb (if all connections & power are working)
@@ -277,11 +294,15 @@
 	return null
 
 /obj/structure/grille/broken // Pre-broken grilles for map placement
-	icon_state = "brokengrille"
+	icon_state = "grille_broken"
 	density = FALSE
 	obj_integrity = 20
 	broken = TRUE
 	rods_amount = 1
 	rods_broken = FALSE
 	grille_type = /obj/structure/grille
-	broken_type = null
+
+/obj/structure/grille/broken/Initialize()
+	. = ..()
+	holes = (holes | 16)
+	update_icon()

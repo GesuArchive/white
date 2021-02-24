@@ -47,6 +47,28 @@
 	dog_fashion = null
 	can_explode = FALSE
 
+/obj/item/extinguisher/crafted
+	name = "импровизированный охлаждающий спрей"
+	desc = "Спрей, который может мощно пшикнуть."
+	icon_state = "coolant0"
+	inhand_icon_state = "miniFE"
+	hitsound = null	//it is much lighter, after all.
+	flags_1 = null //doesn't CONDUCT_1
+	throwforce = 1
+	w_class = WEIGHT_CLASS_SMALL
+	force = 3
+	custom_materials = list(/datum/material/iron = 50, /datum/material/glass = 40)
+	max_water = 30
+	sprite_name = "coolant"
+	dog_fashion = null
+	cooling_power = 1.5
+	power = 3
+
+/obj/item/extinguisher/crafted/attack_self(mob/user)
+	safety = !safety
+	icon_state = "[sprite_name][!safety]"
+	to_chat(user, "[safety ? "Убираю трубочку и прикрепляю её к боку канистры" : "Устанавливаю трубочку в качестве дула, спрей готов к использованию"].")
+
 /obj/item/extinguisher/proc/refill()
 	if(!chem)
 		return

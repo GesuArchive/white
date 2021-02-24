@@ -196,6 +196,8 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		ghost_others = client.prefs.ghost_others
 
 	if(update_custom_icon())
+		hair_overlay = null
+		facial_hair_overlay = null
 		return TRUE
 
 	if(hair_overlay)
@@ -287,8 +289,8 @@ Works together with spawning an observer, noted above.
 			SStgui.on_transfer(src, ghost) // Transfer NanoUIs.
 			ghost.can_reenter_corpse = can_reenter_corpse
 			ghost.key = key
-			ghost.client.init_verbs()
-			if(!can_reenter_corpse)	// Disassociates observer mind from the body mind
+			ghost.client?.init_verbs()
+			if(!can_reenter_corpse)// Disassociates observer mind from the body mind
 				ghost.mind = null
 			return ghost
 

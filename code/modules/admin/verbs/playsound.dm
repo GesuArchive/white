@@ -36,14 +36,20 @@
 		if("Cancel")
 			return
 
-	log_admin("[key_name(src)] played sound [S]")
-	message_admins("[key_name_admin(src)] played sound [S]")
+	//log_admin("[key_name(src)] played sound [S]")
+	//message_admins("[key_name_admin(src)] played sound [S]")
+	var/count = 0
 
 	for(var/mob/M in GLOB.player_list)
 		if(M.client.prefs.toggles & SOUND_MIDI)
 			admin_sound.volume = vol * M.client.admin_music_volume
 			SEND_SOUND(M, admin_sound)
 			admin_sound.volume = vol
+			count++
+
+	count = round(count / GLOB.player_list.len * 100,0.5)
+	log_admin("[key_name(src)] played sound [S] to [count]% of the server.")
+	message_admins("[key_name_admin(src)] played sound [S] to [count]% of the server.")
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Play Global Sound") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 

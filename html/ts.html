@@ -27,11 +27,17 @@
 				white-space: break-spaces;
 				padding: 8px;
 				margin: 8px;
-				min-width: 400px;
 				border: 1px solid  #333;
 				cursor: default;
 				user-select: none;
 				background: url('blank_console.png');
+				z-index: 2;
+			}
+
+			#bp {
+				position: absolute;
+				top: 0;
+				z-index: 1;
 			}
 
 		</style>
@@ -39,10 +45,15 @@
 
 			var cm = "";
 			var i = 0;
+			var state = 0;
 
 			function set_cons(msg) {
 				cm = msg;
 				write_cons();
+			};
+
+			function set_state(msg) {
+				state = msg;
 			};
 
 			function set_cons_now(msg) {
@@ -77,13 +88,17 @@
 			};
 
 			window.onload = function() {
-				setTimeout(movebg, 50);
-				NotifyByondOnload();
+				setTimeout(movebg, 250);
+				flicker();
 			};
 
 			var mp = 0;
 			function movebg() {
-				document.getElementById("pp").style.cssText = "background-position: " + mp + "px";
+				if(state) {
+					document.getElementById("pp").style.cssText = "background-position: " + mp + "px; width: 400px;";
+				} else {
+					document.getElementById("pp").style.cssText = "background-position: " + mp + "px; width: auto;";
+				}
 				mp++
 				if(mp == 32) mp = 0;
 				setTimeout(movebg, 50);
@@ -93,19 +108,27 @@
 				window.location.href = "byond://winset?command=Lobby-Ready";
 			};
 
-			document.onselectstart = function() {
-				window.getSelection().removeAllRanges();
-			};
+			var pt = 0;
+
+			function flicker() {
+				if(pt > 15) {
+					NotifyByondOnload();
+					return;
+				};
+				pt++;
+				if(pt % 2) {
+					document.getElementById("pp").style.display = "none";
+				} else {
+					document.getElementById("pp").style.display = "block";
+				}
+				setTimeout(flicker, 100);
+			}
 
 		</script>
 	</head>
 
 	<body>
-		<div id=pp>
-			----------------------------------------------------------</br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Загрузка, потерпите...</br>
-			----------------------------------------------------------</br>
-		</div>
+		<div id=pp>Загрузка....</div>
 		<img id=bg src='ts.png'>
 	</body>
 

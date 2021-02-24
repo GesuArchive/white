@@ -24,14 +24,11 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bseruin/shop)
 "bc" = (
-/obj/structure/table/wood,
-/obj/item/card/id/away/old/apc{
-	access = list(11,24);
-	pixel_y = 6
+/obj/effect/decal/cleanable/blood{
+	icon_state = "floor3-old"
 	},
-/obj/item/flashlight/lamp/green,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/bseruin/ntnet)
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/bseruin/shop)
 "bC" = (
 /obj/structure/bed/pod,
 /obj/item/bedsheet/black,
@@ -111,9 +108,13 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bseruin/backyard)
 "ht" = (
-/obj/structure/chair/wood,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/bseruin/ntnet)
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/glass/bottle/potion/flight{
+	pixel_x = -3;
+	pixel_y = 9
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/bseruin/shop)
 "hQ" = (
 /obj/structure/table/reinforced,
 /obj/machinery/atmospherics/pipe/simple/general/hidden{
@@ -123,9 +124,12 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/bseruin/shop)
 "hU" = (
-/obj/item/stack/sheet/mineral/sandstone/thirty,
-/turf/open/floor/plating/asteroid,
-/area/ruin/space/has_grav/bseruin/asteroid)
+/obj/item/paper/fluff/instruction_ecrys_bse,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "floor3-old"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/bseruin/shop)
 "ii" = (
 /obj/structure/cable,
 /obj/machinery/power/port_gen/pacman/ecrys{
@@ -170,17 +174,14 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bseruin/backyard)
 "kr" = (
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/bseruin/ntnet)
+/obj/structure/cable,
+/obj/structure/holosign/barrier/atmos,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/bseruin/asteroid)
 "ks" = (
 /obj/item/pickaxe,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bseruin/backyard)
-"kY" = (
-/obj/structure/cable,
-/obj/machinery/power/apc/highcap/ten_k,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/bseruin/ntnet)
 "lj" = (
 /obj/item/pickaxe/drill,
 /obj/item/shovel,
@@ -211,10 +212,6 @@
 	},
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle)
-"nY" = (
-/obj/machinery/light,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/bseruin/ntnet)
 "ou" = (
 /obj/item/stack/cable_coil,
 /obj/item/stack/rods/twentyfive,
@@ -306,12 +303,6 @@
 /obj/effect/turf_decal/mining/survival,
 /turf/closed/wall/mineral/titanium/survival/pod,
 /area/survivalpod)
-"vL" = (
-/obj/structure/table/wood,
-/obj/item/paper_bin,
-/obj/item/pen,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/bseruin/ntnet)
 "wr" = (
 /obj/machinery/power/port_gen/pacman/ecrys,
 /turf/open/floor/plating,
@@ -386,25 +377,17 @@
 /obj/machinery/computer/shuttle,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle)
-"CU" = (
-/obj/structure/table/wood,
-/obj/item/computer_hardware/printer/mini,
-/obj/item/computer_hardware/recharger/apc_recharger,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/bseruin/ntnet)
 "Dk" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/holosign/barrier/atmos,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/bseruin/shop)
 "Do" = (
 /obj/machinery/atmospherics/pipe/simple/general/hidden,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/bseruin/shop)
-"ED" = (
-/turf/closed/wall/mineral/sandstone,
-/area/ruin/space/has_grav/bseruin/ntnet)
 "EI" = (
 /obj/structure/fans/tiny,
 /obj/machinery/door/airlock/survival_pod/glass,
@@ -445,11 +428,6 @@
 /obj/machinery/microwave,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/bseruin/shop)
-"Gd" = (
-/obj/structure/cable,
-/obj/structure/mineral_door/sandstone,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/bseruin/ntnet)
 "Gg" = (
 /obj/machinery/light{
 	dir = 1
@@ -464,15 +442,6 @@
 /obj/effect/spawner/randomsnackvend,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/bseruin/shop)
-"Ha" = (
-/obj/machinery/ntnet_relay,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/bseruin/ntnet)
-"Hb" = (
-/obj/structure/table/wood,
-/obj/item/modular_computer/laptop/preset/civilian,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/bseruin/ntnet)
 "Hm" = (
 /obj/structure/cable,
 /turf/open/floor/plating/asteroid,
@@ -521,6 +490,10 @@
 /obj/structure/table/survival_pod,
 /obj/item/flashlight/seclite,
 /obj/item/crowbar,
+/obj/item/card/id/away/old/apc{
+	access = list(11,24);
+	pixel_y = 6
+	},
 /turf/open/floor/pod,
 /area/survivalpod)
 "Kg" = (
@@ -585,9 +558,6 @@
 /obj/machinery/atmospherics/pipe/simple/general/hidden,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bseruin/shop)
-"Rz" = (
-/turf/closed/mineral/random/low_chance,
-/area/ruin/space/has_grav/bseruin/ntnet)
 "RH" = (
 /obj/machinery/airalarm/directional/east,
 /turf/open/floor/plasteel,
@@ -676,13 +646,16 @@
 /area/ruin/space/has_grav/bseruin/shop)
 "Xe" = (
 /obj/structure/table/reinforced,
-/obj/item/modular_computer/laptop/preset/civilian,
+/obj/item/modular_computer/laptop/preset/bse,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/bseruin/shop)
 "XY" = (
 /obj/machinery/atmospherics/pipe/simple/general/hidden,
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "floor4-old"
 	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/bseruin/shop)
@@ -692,12 +665,9 @@
 	brightness = 3;
 	dir = 8
 	},
+/obj/structure/holosign/barrier/atmos,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bseruin/shop)
-"Ym" = (
-/obj/structure/cable,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/bseruin/ntnet)
 "Zn" = (
 /obj/effect/turf_decal/mining/survival{
 	dir = 8
@@ -1269,12 +1239,12 @@ CJ
 Cn
 Cn
 Cn
-Rz
-Rz
-ED
-ED
-ED
-ED
+Cn
+Cn
+Cn
+Wz
+Wz
+Wz
 Wz
 Wz
 Wz
@@ -1303,12 +1273,12 @@ Sp
 Cn
 Cn
 Cn
-Rz
-Rz
-CU
-kr
-kY
-ED
+Cn
+Cn
+Cn
+Cn
+Wz
+Wz
 Wz
 Wz
 Wz
@@ -1337,14 +1307,14 @@ Sp
 Sp
 Cn
 Cn
-Rz
-kr
-kr
-kr
-Ym
-Gd
-Hm
-Hm
+Cn
+Cn
+Cn
+Cn
+Wz
+Wz
+Wz
+Wz
 Wz
 Wz
 Hm
@@ -1371,14 +1341,14 @@ IO
 Sp
 Cn
 Cn
-Rz
-kr
-Ha
-kr
-nY
-ED
+Cn
+Cn
+Cn
+Cn
+Cn
 Wz
-Hm
+Wz
+Wz
 Wz
 Wz
 Hm
@@ -1405,16 +1375,16 @@ Sp
 Sp
 Sp
 Cn
-Rz
-kr
-kr
-kr
-vL
-ED
+Cn
+Cn
+Cn
+Cn
+Cn
+Cn
 Wz
-Hm
-Hm
-Hm
+Wz
+Wz
+Wz
 Hm
 Wz
 Wz
@@ -1439,16 +1409,16 @@ Sp
 Sp
 Sp
 Cn
-Rz
-Rz
-kr
-ht
-Hb
-ED
-Wz
-Wz
 Cn
 Cn
+Cn
+Cn
+Cn
+Cn
+Cn
+Cn
+Wz
+Wz
 Hm
 Wz
 Wz
@@ -1473,13 +1443,13 @@ Sp
 Sp
 Sp
 Sp
-Rz
-Rz
-Rz
-kr
-bc
-ED
-hU
+Cn
+Cn
+Cn
+Cn
+Cn
+Cn
+Cn
 Cn
 Cn
 Cn
@@ -1508,16 +1478,16 @@ Sp
 Sp
 Sp
 Sp
-Rz
-Rz
-Rz
-Rz
-Rz
 Cn
 Cn
 Cn
 Cn
-Hm
+Cn
+Cn
+Cn
+Cn
+Cn
+kr
 Cn
 Cn
 Cn
@@ -2052,7 +2022,7 @@ wr
 JD
 up
 Zt
-Zt
+bc
 pn
 Zt
 Zt
@@ -2088,7 +2058,7 @@ FX
 KS
 Xe
 hQ
-KS
+ht
 Zt
 sN
 JD
@@ -2156,7 +2126,7 @@ Do
 XY
 Do
 rA
-Zt
+hU
 RH
 LS
 JD

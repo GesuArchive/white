@@ -314,7 +314,7 @@
 /datum/crafting_recipe/hacker/head
 	name = "TK-Нанобролитовый Шлем X1845"
 	result = /obj/item/clothing/head/helmet/space/chronos/hacker
-	tools = list(/obj/item/weldingtool,
+	tool_behaviors = list(/obj/item/weldingtool,
 				 /obj/item/screwdriver,
 				 /obj/item/multitool/tricorder,
 				 /obj/item/wrench,
@@ -336,7 +336,7 @@
 /datum/crafting_recipe/hacker/suit
 	name = "AQ-Квантовый Экзоскелет Н4781"
 	result = /obj/item/clothing/suit/space/wzzzz/hacker_rig
-	tools = list(/obj/item/weldingtool,
+	tool_behaviors = list(/obj/item/weldingtool,
 				 /obj/item/screwdriver,
 				 /obj/item/multitool/tricorder,
 				 /obj/item/wrench,
@@ -358,7 +358,7 @@
 /datum/crafting_recipe/hacker/gloves
 	name = "DZ-Блюспластовые Перчатки U8621"
 	result = /obj/item/clothing/gloves/combat/wzzzz/guard
-	tools = list(/obj/item/weldingtool,
+	tool_behaviors = list(/obj/item/weldingtool,
 				 /obj/item/screwdriver,
 				 /obj/item/multitool/tricorder,
 				 /obj/item/wrench,

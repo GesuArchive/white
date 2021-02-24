@@ -4,7 +4,8 @@
 	icon = 'white/baldenysh/icons/turf/bluespace_openspace.dmi'
 	icon_state = "transparent"
 	smoothing_flags = SMOOTH_CORNERS | SMOOTH_BORDER
-	canSmoothWith = list(SMOOTH_GROUP_OPEN_FLOOR)
+	canSmoothWith = list(SMOOTH_GROUP_BLUESPACE_OPENSPACE)
+	smoothing_groups = list(SMOOTH_GROUP_BLUESPACE_OPENSPACE)
 	baseturfs = /turf/open/floor/plating
 	CanAtmosPassVertical = ATMOS_PASS_YES
 	can_cover_up = FALSE
@@ -60,6 +61,8 @@
 	below.above_override = src
 	below_override = below
 	if(istype(below, /turf/open))
+		if(isopenspace(below) || isspaceturf(below))
+			return FALSE
 		below_override.CanAtmosPassVertical = ATMOS_PASS_YES
 
 	return TRUE

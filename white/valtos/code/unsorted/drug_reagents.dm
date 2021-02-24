@@ -24,7 +24,6 @@
 	description = "Химическое соединение, которое способствует концентрированной выработке газа в области паха."
 	color = "#8A4B08" // rgb: 138, 75, 8
 	overdose_threshold = 30
-	addiction_threshold = 50
 
 /datum/reagent/drug/fartium/on_mob_life(mob/living/M)
 	if(ishuman(M))
@@ -37,34 +36,6 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(prob(9))
-			H.emote("poo")
-	return ..()
-
-/datum/reagent/drug/fartium/addiction_act_stage1(mob/living/M)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(prob(11))
-			H.emote("poo")
-	return ..()
-
-/datum/reagent/drug/fartium/addiction_act_stage2(mob/living/M)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(prob(13))
-			H.emote("poo")
-	return ..()
-
-/datum/reagent/drug/fartium/addiction_act_stage3(mob/living/M)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(prob(15))
-			H.emote("poo")
-	return ..()
-
-/datum/reagent/drug/fartium/addiction_act_stage4(mob/living/M)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(prob(15))
 			H.emote("poo")
 	return ..()
 
@@ -137,7 +108,6 @@
 	description = "Химическое соединение, вызывающее неконтролируемое и чрезвычайно сильное переворачивание."
 	color = "#ff33cc" // rgb: 255, 51, 204
 	overdose_threshold = 40
-	addiction_threshold = 30
 
 
 /datum/reagent/drug/flipout/on_mob_life(mob/living/M)
@@ -169,51 +139,6 @@
 	..()
 	return
 
-/datum/reagent/drug/flipout/addiction_act_stage1(mob/living/M)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(prob(85))
-			H.SpinAnimation(12,1)
-		else
-			H.Dizzy(16)
-	..()
-
-/datum/reagent/drug/flipout/addiction_act_stage2(mob/living/M)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(prob(90))
-			H.SpinAnimation(10,3)
-		else
-			H.Dizzy(20)
-			M.adjustStaminaLoss(25)
-	..()
-
-/datum/reagent/drug/flipout/addiction_act_stage3(mob/living/M)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(prob(95))
-			H.SpinAnimation(7,20)
-		else
-			H.Dizzy(30)
-			M.adjustStaminaLoss(40)
-	..()
-
-/datum/reagent/drug/flipout/addiction_act_stage4(mob/living/M)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		H.SpinAnimation(2,100)
-		if(prob(10))
-			to_chat(M, "<span class='danger'>Моё переворачивание стало настолько интенсивным, что я стал импровизированным генератором. </span>")
-			H.Dizzy(25)
-			M.electrocute_act(rand(1,5), 1, 1)
-			playsound(M, "sparks", 50, 1)
-			H.emote("scream")
-			H.Jitter(-100)
-
-		else
-			H.Dizzy(60)
-	..()
-
 /datum/reagent/drug/flipout/expose_obj(obj/O, reac_volume)
 	. = ..()
 	if(istype(O,/obj))
@@ -237,7 +162,6 @@
 	description = "Последняя надежда, которую часто пьют бродяги и бездельники. Высокие дозировки имеют... интересные эффекты."
 	color = "#602101" // rgb: 96, 33, 1
 	overdose_threshold = 100
-	addiction_threshold = 50 // doesn't do shit though
 
 /datum/reagent/drug/pupupipi/on_mob_life(mob/living/M)
 	if(prob(5))
@@ -774,7 +698,6 @@
 	description = "Боевое химическое соединение, используется для быстрого побега в мир фракталов."
 	color = "#AA4B18"
 	overdose_threshold = 30
-	addiction_threshold = 50
 
 /datum/reagent/drug/speedrun/on_mob_life(mob/living/M)
 

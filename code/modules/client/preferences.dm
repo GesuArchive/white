@@ -171,7 +171,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	random_character()		//let's create a random character then - rather than a fat, bald and naked man.
 	key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key) // give them default keybinds and update their movement keys
 	C?.set_macros()
-	real_name = pref_species.random_name(gender,1, en_lang = en_names)
+	real_name = pref_species.random_name(gender, 1, en_lang = en_names)
 	if(!loaded_preferences_successfully)
 		save_preferences()
 	save_character()		//let's save this new random character so it doesn't keep generating new ones.
@@ -191,7 +191,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/dat = list("<center>")
 
 	dat += "<a href='?_src_=prefs;preference=tab;tab=0' [current_tab == 0 ? "class='linkOn'" : ""]>Персонаж</a>"
-	dat += "<a href='?_src_=prefs;preference=tab;tab=1' [current_tab == 1 ? "class='linkOn'" : ""]>Мета-Магазин</a>"
+	dat += "<a href='?_src_=prefs;preference=tab;tab=1' [current_tab == 1 ? "class='linkOn'" : ""]>Магазин</a>"
 	dat += "<a href='?_src_=prefs;preference=tab;tab=2' [current_tab == 2 ? "class='linkOn'" : ""]>Игра</a>"
 	dat += "<a href='?_src_=prefs;preference=tab;tab=3' [current_tab == 3 ? "class='linkOn'" : ""]>OOC</a>"
 	dat += "<a href='?_src_=prefs;preference=tab;tab=4' [current_tab == 4 ? "class='linkOn'" : ""]>Хоткеи</a>"
@@ -508,19 +508,21 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				var/datum/gear/G = LC.gear[gear_name]
 				var/ticked = (G.id in equipped_gear)
 
-				dat += "<tr style='vertical-align:middle;' class='metaitem'><td width=300>"
+				dat += "<tr style='vertical-align:middle;' class='metaitem"
 				if(G.id in purchased_gear)
+					dat += " buyed'><td width=300>"
 					if(G.sort_category == "OOC")
-						dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.id]'>Купить ещё "
-					if(G.sort_category == "Роли")
-						dat += "<a style='white-space:normal;' href='#'>Куплено "
+						dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.id]'>Купить ещё</a>"
+					else if(G.sort_category == "Роли")
+						dat += "<a style='white-space:normal;' href='#'>Куплено</a>"
 					else
-						dat += "<img class='icon icon-misc' src='data:image/png;base64,[G.get_base64_icon()]'><a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[ticked ? "Экипировано" : "Экипировать"] "
+						dat += "[G.get_base64_icon_html()]<a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[ticked ? "Экипировано" : "Экипировать"]</a>"
 				else
+					dat += "'><td width=300>"
 					if(G.sort_category == "OOC" || G.sort_category == "Роли")
 						dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.id]'>Купить</a>"
 					else
-						dat += "<img class='icon icon-misc' src='data:image/png;base64,[G.get_base64_icon()]'><a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.id]'>Купить</a>"
+						dat += "[G.get_base64_icon_html()]<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.id]'>Купить</a>"
 				dat += " - [capitalize(G.display_name)]</td>"
 				dat += "<td width=5% style='vertical-align:middle' class='metaprice'>[G.cost]</td><td>"
 				if(G.allowed_roles)
@@ -1174,10 +1176,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		if(href_list["purchase_gear"])
 			var/datum/gear/TG = GLOB.gear_datums[href_list["purchase_gear"]]
 			if(TG.cost < user.client.get_metabalance())
-				purchased_gear += TG.id
-				TG.purchase(user.client)
-				inc_metabalance(user, (TG.cost * -1), TRUE, "Покупаю [TG.display_name].")
-				save_preferences()
+				if(TG.purchase(user.client))
+					purchased_gear += TG.id
+					inc_metabalance(user, (TG.cost * -1), TRUE, "Покупаю [TG.display_name].")
+					save_preferences()
 			else
 				to_chat(user, "<span class='warning'>У меня не хватает метакэша для покупки [TG.display_name]!</span>")
 		if(href_list["toggle_gear"])
@@ -1198,7 +1200,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(!(TG.subtype_path in type_blacklist) || !(TG.slot in slot_blacklist))
 						equipped_gear += TG.id
 					else
-						to_chat(user, "<span class='warning'>Некуда надевать [TG.display_name]. Что-то уже надето на этот слот.</span>")
+						to_chat(user, "<span class='warning'>Нет места для [TG.display_name]. Что-то уже есть в этом слоте.</span>")
 			save_preferences()
 
 		else if(href_list["select_category"])
@@ -1460,6 +1462,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("tail_human")
 					var/new_tail
 					new_tail = input(user, "Choose your character's tail:", "Character Preference") as null|anything in GLOB.tails_list_human
+					if((!user.client.holder && user.client.ckey != "felinemistress") && new_tail == "Fox")
+						to_chat(user, "<span class='danger'>Pedos not allowed? <big>ВАШЕ ДЕЙСТВИЕ БУДЕТ ЗАПИСАНО</big>.</span>")
+						message_admins("[ADMIN_LOOKUPFLW(user)] попытался выбрать фуррятину в виде хвоста.")
+						return
 					if(new_tail)
 						features["tail_human"] = new_tail
 
