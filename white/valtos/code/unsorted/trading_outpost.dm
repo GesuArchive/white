@@ -254,42 +254,61 @@
 	name = "Trader Transport Shuttle"
 	can_be_bought = FALSE
 
-/datum/supply_pack/trader
-	group = "Trader"
+/datum/supply_pack/innovations
+	group = "Инновации"
 
-/datum/supply_pack/trader/farmbox
-	name = "FarmBox"
-	desc = "Эта штука служит для выращивания денег. Полезна только для торговца."
-	hidden = TRUE
+/datum/supply_pack/innovations/farmbox
+	name = "Пиздюлегенератор"
+	desc = "Эта штука служит для выращивания денег в прогрессии."
 	cost = 10000
-	contains = list(/obj/structure/punching_bag/trader)
+	contains = list(/obj/structure/punching_bag/pizdul)
 	crate_name = "farmbox"
 	crate_type = /obj/structure/closet/crate/large
 	dangerous = TRUE
 
-/obj/structure/punching_bag/trader
-	name = "шубаг"
+/obj/structure/punching_bag/pizdul
+	name = "пиздюлегенератор"
 	desc = "Лучшее, что создало человечество. Работает на счёте древних шизов."
 	anchored = FALSE
 	var/tier = 1
 	var/exp = 0
+	var/datum/bank_account/linked_account
 
-/obj/structure/punching_bag/trader/examine(mob/user)
+/obj/structure/punching_bag/pizdul/Initialize()
+	. = ..()
+	linked_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
+
+/obj/structure/punching_bag/pizdul/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'>Производительность: <b>[tier]</b></span>"
 	. += "\n<span class='notice'>Опыт: <b>[exp]</b></span>"
+	. += "\n<span class='notice'>Привязанный аккаунт: <b>[linked_account.account_holder]</b>.</span>"
 
-/obj/structure/punching_bag/trader/attack_hand(mob/user as mob)
+/obj/structure/punching_bag/pizdul/attack_hand(mob/user as mob)
 	. = ..()
 	if(.)
 		return
-	var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_TRA)
-	D.adjust_money(tier)
+	linked_account?.adjust_money(tier)
 	exp++
 	if(exp >= 100 * tier)
 		tier++
 		exp = 0
 		say("Новый уровень! Теперь производим [tier] кредитов за удар.")
+
+/obj/structure/punching_bag/pizdul/attackby(obj/item/I, mob/living/user, params)
+	if(user.a_intent == INTENT_HARM)
+		return ..()
+
+	if(istype(I, /obj/item/card/id))
+		var/obj/item/card/id/acard = I
+		if(acard.registered_account)
+			linked_account = acard.registered_account
+			to_chat(user, "<span class='notice'>Привязываю карту к пиздюлегенератору.</span>")
+			return
+		to_chat(user, "<span class='warning'>На карте нет аккаунта!</span>")
+		return
+
+	. = ..()
 
 /obj/item/card/id/trader_ex
 	name = "Карта расширения"
