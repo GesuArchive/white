@@ -336,6 +336,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_STARGAZED			"stargazed"	//Affected by a stargazer
 ///Properly wielded two handed item
 #define TRAIT_WIELDED "wielded"
+/// Plants that were mutated as a result of passive instability, not a mutation threshold.
+#define TRAIT_PLANT_WILDMUTATE "wildmutation"
 
 //quirk traits
 #define TRAIT_ALCOHOL_TOLERANCE	"alcohol_tolerance"
