@@ -4286,6 +4286,10 @@
 /obj/effect/turf_decal/caution/stand_clear/red{
 	dir = 8
 	},
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/floor,
 /turf/open/floor/vault,
 /area/hallway/primary/tram/left)
 "ajZ" = (
@@ -10317,6 +10321,12 @@
 	dir = 8
 	},
 /obj/machinery/airalarm/directional/west,
+/obj/structure/fluff/tram_rail/end{
+	dir = 4
+	},
+/obj/structure/fluff/tram_rail/end{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/tram/left)
 "azx" = (
@@ -10324,6 +10334,10 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/stripes/corner,
+/obj/structure/fluff/tram_rail/anchor,
+/obj/structure/fluff/tram_rail/anchor{
+	dir = 1
+	},
 /turf/open/floor/vault,
 /area/hallway/primary/tram/left)
 "azy" = (
@@ -10356,9 +10370,11 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes,
-/turf/open/floor/partyhard/steel{
-	icon_state = "z-2"
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
 	},
+/obj/structure/fluff/tram_rail/floor,
+/turf/open/floor/vault,
 /area/hallway/primary/tram/left)
 "azC" = (
 /obj/effect/turf_decal/stripes/corner{
@@ -10367,6 +10383,10 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/floor,
 /turf/open/floor/vault,
 /area/hallway/primary/tram/left)
 "azG" = (
@@ -10469,9 +10489,11 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes,
-/turf/open/floor/partyhard/steel{
-	icon_state = "z-2"
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
 	},
+/obj/structure/fluff/tram_rail/floor,
+/turf/open/floor/vault,
 /area/hallway/primary/tram/center)
 "azU" = (
 /obj/structure/table,
@@ -10520,6 +10542,10 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/floor,
 /turf/open/floor/vault,
 /area/hallway/primary/tram/center)
 "aAb" = (
@@ -10628,6 +10654,10 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/floor,
 /turf/open/floor/vault,
 /area/hallway/primary/tram/center)
 "aAv" = (
@@ -10763,9 +10793,11 @@
 /obj/effect/turf_decal/stripes{
 	dir = 1
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "z-2"
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
 	},
+/obj/structure/fluff/tram_rail/floor,
+/turf/open/floor/vault,
 /area/hallway/primary/tram/right)
 "aAP" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
@@ -10779,9 +10811,11 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes,
-/turf/open/floor/partyhard/steel{
-	icon_state = "z-2"
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
 	},
+/obj/structure/fluff/tram_rail/floor,
+/turf/open/floor/vault,
 /area/hallway/primary/tram/right)
 "aAR" = (
 /obj/effect/turf_decal/stripes/corner{
@@ -10790,6 +10824,10 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
+/obj/structure/fluff/tram_rail/anchor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/anchor,
 /turf/open/floor/vault,
 /area/hallway/primary/tram/right)
 "aAS" = (
@@ -10798,6 +10836,10 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/airalarm/directional/east,
+/obj/structure/fluff/tram_rail/end,
+/obj/structure/fluff/tram_rail/end{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/tram/right)
 "aAT" = (
@@ -17976,9 +18018,11 @@
 /obj/structure/industrial_lift/tram{
 	icon_state = "titanium"
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "z-2"
+/obj/structure/fluff/tram_rail/floor,
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
 	},
+/turf/open/floor/vault,
 /area/hallway/primary/tram/center)
 "aYd" = (
 /obj/structure/toilet{
@@ -18695,6 +18739,10 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/stripes/corner,
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/floor,
 /turf/open/floor/vault,
 /area/hallway/primary/tram/right)
 "biz" = (
@@ -18892,9 +18940,11 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes,
-/turf/open/floor/partyhard/steel{
-	icon_state = "z-2"
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
 	},
+/obj/structure/fluff/tram_rail/floor,
+/turf/open/floor/vault,
 /area/hallway/primary/tram/right)
 "bnr" = (
 /obj/effect/turf_decal/tile/bar,
@@ -25574,9 +25624,11 @@
 /obj/effect/turf_decal/stripes{
 	dir = 1
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "z-2"
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
 	},
+/obj/structure/fluff/tram_rail/floor,
+/turf/open/floor/vault,
 /area/hallway/primary/tram/left)
 "eiX" = (
 /obj/machinery/atmospherics/pipe/manifold4w/yellow/visible,
@@ -26098,6 +26150,10 @@
 /obj/effect/turf_decal/caution/stand_clear/red{
 	dir = 8
 	},
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/floor,
 /turf/open/floor/vault,
 /area/hallway/primary/tram/right)
 "evn" = (
@@ -31597,6 +31653,10 @@
 /obj/effect/turf_decal/caution/stand_clear/red{
 	dir = 4
 	},
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/floor,
 /turf/open/floor/vault,
 /area/hallway/primary/tram/right)
 "gIW" = (
@@ -32381,6 +32441,10 @@
 /obj/effect/turf_decal/caution/stand_clear/red{
 	dir = 8
 	},
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/floor,
 /turf/open/floor/vault,
 /area/hallway/primary/tram/center)
 "hed" = (
@@ -35559,6 +35623,10 @@
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/floor,
 /turf/open/floor/vault,
 /area/hallway/primary/tram/center)
 "iBD" = (
@@ -38644,9 +38712,11 @@
 /obj/effect/turf_decal/stripes{
 	dir = 1
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "z-2"
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
 	},
+/obj/structure/fluff/tram_rail/floor,
+/turf/open/floor/vault,
 /area/hallway/primary/tram/center)
 "jXg" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -39440,9 +39510,11 @@
 /obj/structure/industrial_lift/tram{
 	icon_state = "titanium"
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "z-2"
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
 	},
+/obj/structure/fluff/tram_rail/floor,
+/turf/open/floor/vault,
 /area/hallway/primary/tram/center)
 "knO" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
@@ -43434,9 +43506,11 @@
 /obj/effect/turf_decal/stripes{
 	dir = 1
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "z-2"
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
 	},
+/obj/structure/fluff/tram_rail/floor,
+/turf/open/floor/vault,
 /area/hallway/primary/tram/left)
 "mjg" = (
 /obj/effect/turf_decal/trimline/yellow/filled/corner{
@@ -51425,6 +51499,10 @@
 /obj/effect/turf_decal/caution/stand_clear/red{
 	dir = 4
 	},
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/floor,
 /turf/open/floor/vault,
 /area/hallway/primary/tram/left)
 "pGY" = (
@@ -53738,6 +53816,10 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/floor,
 /turf/open/floor/vault,
 /area/hallway/primary/tram/right)
 "qHN" = (
@@ -53829,6 +53911,10 @@
 /obj/effect/turf_decal/caution/stand_clear/red{
 	dir = 4
 	},
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/floor,
 /turf/open/floor/vault,
 /area/hallway/primary/tram/center)
 "qLc" = (
@@ -55183,9 +55269,11 @@
 	},
 /obj/effect/turf_decal/stripes,
 /obj/effect/landmark/tram/right_part,
-/turf/open/floor/partyhard/steel{
-	icon_state = "z-2"
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
 	},
+/obj/structure/fluff/tram_rail/floor,
+/turf/open/floor/vault,
 /area/hallway/primary/tram/right)
 "rpj" = (
 /obj/effect/turf_decal/trimline/neutral/filled/corner,
@@ -55675,6 +55763,10 @@
 	},
 /obj/effect/turf_decal/stripes/corner,
 /obj/structure/disposalpipe/segment,
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/floor,
 /turf/open/floor/vault,
 /area/hallway/primary/tram/center)
 "rze" = (
@@ -56035,6 +56127,10 @@
 /obj/effect/turf_decal/caution/stand_clear/red{
 	dir = 8
 	},
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/floor,
 /turf/open/floor/vault,
 /area/hallway/primary/tram/center)
 "rIz" = (
@@ -57871,6 +57967,10 @@
 /obj/effect/turf_decal/caution/stand_clear/red{
 	dir = 4
 	},
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/floor,
 /turf/open/floor/vault,
 /area/hallway/primary/tram/center)
 "sAS" = (
@@ -58152,9 +58252,11 @@
 	},
 /obj/effect/turf_decal/stripes,
 /obj/effect/landmark/tram/left_part,
-/turf/open/floor/partyhard/steel{
-	icon_state = "z-2"
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
 	},
+/obj/structure/fluff/tram_rail/floor,
+/turf/open/floor/vault,
 /area/hallway/primary/tram/left)
 "sGn" = (
 /obj/item/clothing/head/sombrero/green{
@@ -60334,6 +60436,17 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge)
+"tCc" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/corner,
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/floor,
+/turf/open/floor/vault,
+/area/hallway/primary/tram/left)
 "tCf" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
@@ -61754,9 +61867,11 @@
 /obj/structure/industrial_lift/tram/console{
 	dir = 8
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "z-2"
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
 	},
+/obj/structure/fluff/tram_rail/floor,
+/turf/open/floor/vault,
 /area/hallway/primary/tram/center)
 "uht" = (
 /turf/closed/wall,
@@ -69693,9 +69808,11 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "z-2"
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
 	},
+/obj/structure/fluff/tram_rail/floor,
+/turf/open/floor/vault,
 /area/hallway/primary/tram/center)
 "xJB" = (
 /obj/structure/table,
@@ -160313,7 +160430,7 @@ avj
 nkY
 axZ
 axZ
-azx
+tCc
 axZ
 axZ
 crW

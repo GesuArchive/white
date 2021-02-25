@@ -159,3 +159,9 @@
 	desc = "Прошёл обучение химика с высоким показателем чистоты!"
 	database_id = MEDAL_CHEM_TUT
 	icon = "chem_tut"
+
+/datum/award/achievement/misc/tram_surfer
+	name = "Трамвайный сёрфер"
+	desc = "ПАРАВОЗИК ТОМАС В ПАРАВОЗИКЕ ТОМАСЕ!"
+	database_id = MEDAL_TRAM_SURFER
+	icon = "tram_surfer"

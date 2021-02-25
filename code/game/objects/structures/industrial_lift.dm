@@ -200,6 +200,8 @@ GLOBAL_LIST_EMPTY(lifts)
 		qdel(tram_part)
 
 /obj/structure/industrial_lift/proc/AddItemOnLift(datum/source, atom/movable/AM)
+	if(istype(AM, /obj/structure/fluff/tram_rail))
+		return
 	if(AM in lift_load)
 		return
 	LAZYADD(lift_load, AM)
