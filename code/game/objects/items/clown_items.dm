@@ -31,6 +31,8 @@
 /obj/item/soap/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/slippery, 80)
+	var/datum/component/slippery/slipper = GetComponent(/datum/component/slippery)
+	slipper.paralyze_time = 20
 
 /obj/item/soap/examine(mob/user)
 	. = ..()
