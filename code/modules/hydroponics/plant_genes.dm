@@ -410,10 +410,6 @@
 	// Makes plant reagents not react until squashed.
 	name = "Separated Chemicals"
 
-/datum/plant_gene/trait/noreact/on_new(obj/item/food/grown/G, newloc)
-	..()
-	addtimer(VARSET_CALLBACK(G?.reagents, flags, NO_REACT), 10)
-
 /datum/plant_gene/trait/noreact/on_squash(obj/item/food/grown/G, atom/target)
 	G?.reagents?.flags &= ~(NO_REACT)
 	G?.reagents?.handle_reactions()

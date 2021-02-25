@@ -263,6 +263,8 @@
 		reagent_max += reagents_add[rid]
 	if(IS_EDIBLE(T) || istype(T, /obj/item/grown))
 		var/obj/item/food/grown/grown_edible = T
+		if (get_gene(/datum/plant_gene/trait/noreact))
+			grown_edible.reagents.flags |= NO_REACT
 		for(var/rid in reagents_add)
 			var/reagent_overflow_mod = reagents_add[rid]
 			if(reagent_max > 1)
