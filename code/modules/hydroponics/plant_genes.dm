@@ -412,11 +412,11 @@
 
 /datum/plant_gene/trait/noreact/on_new(obj/item/food/grown/G, newloc)
 	..()
-	G.reagents.flags |= NO_REACT
+	addtimer(VARSET_CALLBACK(G?.reagents, flags, NO_REACT), 10)
 
 /datum/plant_gene/trait/noreact/on_squash(obj/item/food/grown/G, atom/target)
-	G.reagents.flags &= ~(NO_REACT)
-	G.reagents.handle_reactions()
+	G?.reagents?.flags &= ~(NO_REACT)
+	G?.reagents?.handle_reactions()
 
 /**
  * A plant trait that causes the plant's capacity to double.
