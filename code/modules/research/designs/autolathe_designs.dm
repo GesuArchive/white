@@ -1219,3 +1219,32 @@
 	materials = list(/datum/material/iron = 75)
 	build_path = /obj/item/chisel
 	category = list("initial","Инструменты")
+
+/datum/design/control
+	name = "Blast Door Controller"
+	id = "blast"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 100, /datum/material/glass = 50)
+	build_path = /obj/item/assembly/control
+	category = list("initial","Разное")
+
+
+/datum/design/holosign/restaurant
+	name = "Restaurant Seating Projector"
+	desc = "A holographic projector that creates seating designation for restaurants."
+	id = "holosignrestaurant"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
+	build_path = /obj/item/holosign_creator/robot_seat/restaurant
+	category = list("Снаряжение")
+	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
+
+/datum/design/holosign/bar
+	name = "Bar Seating Projector"
+	desc = "A holographic projector that creates seating designation for bars."
+	id = "holosignbar"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
+	build_path = /obj/item/holosign_creator/robot_seat/bar
+	category = list("Снаряжение")
+	departmental_flags = DEPARTMENTAL_FLAG_SERVICE

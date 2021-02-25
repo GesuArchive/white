@@ -199,3 +199,5 @@ GLOBAL_LIST_EMPTY(active_alternate_appearances)
 /datum/atom_hud/alternate_appearance/basic/heretics/mobShouldSee(mob/M)
 	return IS_HERETIC(M) || IS_HERETIC_MONSTER(M)
 
+
+/datum/atom_hud/alternate_appearance/basic/food_demands

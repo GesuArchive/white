@@ -109,6 +109,7 @@
 	tastes = list("картофель фри" = 3, "соль" = 1)
 	foodtypes = VEGETABLES | GRAIN | FRIED
 	w_class = WEIGHT_CLASS_SMALL
+	venue_value = FOOD_PRICE_CHEAP
 
 /obj/item/food/fries/Initialize()
 	. = ..()
@@ -146,6 +147,7 @@
 	tastes = list("картофель фри" = 3, "сыр" = 1)
 	foodtypes = VEGETABLES | GRAIN | DAIRY
 	w_class = WEIGHT_CLASS_SMALL
+	venue_value = FOOD_PRICE_CHEAP
 
 /obj/item/food/cheesyfries/Initialize()
 	. = ..()
@@ -751,6 +753,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	tastes = list("сливочный сыр" = 4, "краб" = 3, "хрупкость" = 2)
 	foodtypes = MEAT | DAIRY | GRAIN
+	venue_value = FOOD_PRICE_CHEAP
 
 /obj/item/food/cornchips
 	name = "boritos corn chips"
