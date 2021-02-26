@@ -119,7 +119,7 @@ export const ExperimentConfigure = (props, context) => {
       <Window.Content>
         <Flex direction="column" height="100%">
           <Flex.Item mb={1}>
-            <Section title="Servers">
+            <Section title="Серверы">
               <Box>
                 {webs.size > 0
                   ? "Выберите технологическую сеть..."

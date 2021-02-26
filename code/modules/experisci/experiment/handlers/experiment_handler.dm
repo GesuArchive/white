@@ -297,7 +297,9 @@
 	var/list/local_servers = list()
 	for (var/obj/machinery/rnd/server/server in SSresearch.servers)
 		var/turf/position_of_this_server_machine = get_turf(server)
-		if (turf_to_check_for_servers && position_of_this_server_machine && position_of_this_server_machine.z == turf_to_check_for_servers.z)
+		if(is_station_level(turf_to_check_for_servers.z) && is_station_level(position_of_this_server_machine.z))
+			local_servers += server
+		else if (turf_to_check_for_servers && position_of_this_server_machine && position_of_this_server_machine.z == turf_to_check_for_servers.z)
 			local_servers += server
 	return local_servers
 
