@@ -1136,6 +1136,8 @@
 	design_ids = list("ntx3090ti")
 	prereq_ids = list("ultra_cryptominer")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 500000)
+	required_experiments = list(/datum/experiment/explosion/medium)
+	discount_experiments = list(/datum/experiment/explosion/calibration = 200000)
 
 //Helpers for debugging/balancing the techweb in its entirety!
 /proc/total_techweb_points()

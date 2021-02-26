@@ -136,6 +136,8 @@
 	prereq_ids = list("bluespace_travel", "practical_bluespace", "bluespace_storage")
 	design_ids = list("noneuclid_matter_bin", "noneuclid_mani", "noneuclid_scanning", "noneuclid_capacitor", "noneuclid_micro_laser")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000000)
+	required_experiments = list(/datum/experiment/explosion/maxcap)
+	discount_experiments = list(/datum/experiment/explosion/medium = 500000)
 
 /datum/design/noneuclid_matter_bin
 	name = "Noneuclid Matter Bin"
