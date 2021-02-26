@@ -350,9 +350,14 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 
 /obj/machinery/power/supermatter_crystal/examine(mob/user)
 	. = ..()
-	var/immune = HAS_TRAIT(user, TRAIT_SUPERMATTER_MADNESS_IMMUNE) || HAS_TRAIT(user.mind, TRAIT_SUPERMATTER_MADNESS_IMMUNE)
+	var/immune = HAS_TRAIT(user, TRAIT_SUPERMATTER_MADNESS_IMMUNE) || (user.mind && HAS_TRAIT(user.mind, TRAIT_SUPERMATTER_MADNESS_IMMUNE))
 	if(isliving(user) && !immune && (get_dist(user, src) < HALLUCINATION_RANGE(power)))
 		. += "<hr><span class='danger'>Головные боли приходят ко мне от взгляда на это.</span>"
+	if(isobserver(user))
+		if(power > 5)
+			. += "\n<span class='notice'>Относительная энергетическая мощность равна: [power] MeV.</span>"
+		else
+			. += "\n<span class='notice'>Материя не активна или выдаёт мизерное количество энергии.</span>"
 
 /obj/machinery/power/supermatter_crystal/proc/get_status()
 	var/turf/T = get_turf(src)
