@@ -91,7 +91,7 @@ export const Techweb = (props, context) => {
     <Window
       width={640}
       height={735}>
-      <Window.Content scrollable>
+      <Window.Content>
         {!!locked && (
           <Modal width="15em" align="center" className="Techweb__LockedModal">
             <div><b>Консоль заблокирована</b></div>
@@ -301,7 +301,7 @@ const TechwebOverview = (props, context) => {
             <Input
               value={searchText}
               onInput={(e, value) => setSearchText(value)}
-              placeholder={"Search..."} />
+              placeholder={"Поиск..."} />
           </Flex.Item>
         </Flex>
       </Flex.Item>
@@ -642,7 +642,7 @@ const TechNode = (props, context) => {
         bad: [-Infinity, 0.25],
       }}
       value={techcompl / prereq_ids.length}>
-      Tech ({techcompl}/{prereq_ids.length})
+      Технология ({techcompl}/{prereq_ids.length})
     </ProgressBar>
   );
 
@@ -745,7 +745,7 @@ const TechNode = (props, context) => {
       {Object.keys(discount_experiments).length > 0 && (
         <Collapsible
           className="TechwebNodeExperimentsRequired"
-          title="Эксперименты по скидке">
+          title="Эксперименты для скидки">
           {Object.keys(discount_experiments).map(k => {
             const thisExp = experiments[k];
             if (thisExp === null || thisExp === undefined) {
