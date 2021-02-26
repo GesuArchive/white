@@ -306,8 +306,8 @@
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 
 /obj/item/clothing/suit/armor/vest/centcom_formal
-	name = "\improper CentCom Formal Coat"
-	desc = "A stylish coat given to CentCom Commanders. Perfect for sending ERTs to suicide missions with style!"
+	name = "пальто офицера ЦентКома"
+	desc = "Отлично подходит для суицидальных миссий!"
 	icon_state = "centcom_formal"
 	inhand_icon_state = "centcom"
 	body_parts_covered = CHEST|GROIN|ARMS
