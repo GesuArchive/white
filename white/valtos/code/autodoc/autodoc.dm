@@ -451,13 +451,13 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	return TRUE
 
 /datum/surgery_step/remove_object/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
-	if(L)
+	if(target)
 		if(ishuman(target))
 			var/mob/living/carbon/human/H = target
-			for(var/obj/item/I in L.embedded_objects)
+			for(var/obj/item/I in target.embedded_objects)
 				autodoc.visible_message("<span class='notice'><b>[autodoc]</b> выплёвывает <b>[I]</b>!</span>")
 				I.forceMove(get_turf(autodoc))
-				L.embedded_objects -= I
+				target.embedded_objects -= I
 			if(!H.has_embedded_objects())
 				H.clear_alert("embeddedobject")
 				SEND_SIGNAL(H, COMSIG_CLEAR_MOOD_EVENT, "embedded")
