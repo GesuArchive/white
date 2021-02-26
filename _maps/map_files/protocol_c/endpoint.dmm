@@ -1874,7 +1874,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/engine/zauker,
 /area/centcom/control)
 "gs" = (
 /obj/effect/turf_decal/bot,
@@ -1943,6 +1943,7 @@
 	name = "Gallery"
 	},
 /obj/effect/turf_decal/stripes/full,
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "gD" = (
@@ -4551,6 +4552,16 @@
 	icon_state = "alien13"
 	},
 /area/abductor_ship)
+"tr" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/machinery/camera/autoname,
+/obj/machinery/portable_atmospherics/scrubber,
+/obj/effect/turf_decal/box,
+/turf/open/floor/plasteel/white,
+/area/centcom/control)
 "ts" = (
 /obj/effect/landmark/abductor/scientist{
 	team_number = 3
@@ -4689,7 +4700,7 @@
 	id = "gal1";
 	name = "durable ladder"
 	},
-/turf/open/floor/holofloor/carpet,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/centcom/control)
 "ud" = (
 /obj/item/kirbyplants/random,
@@ -4905,6 +4916,13 @@
 "vg" = (
 /turf/open/floor/holofloor/snow,
 /area/holodeck/rec_center/winterwonderland)
+"vi" = (
+/obj/effect/turf_decal/trimline/red/filled/line,
+/obj/machinery/modular_computer/console/preset/civilian{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/centcom/control)
 "vj" = (
 /turf/closed/indestructible/abductor{
 	icon_state = "alien6"
@@ -5402,6 +5420,9 @@
 /area/holodeck/rec_center/court)
 "xf" = (
 /obj/effect/turf_decal/trimline/red/filled/line,
+/obj/structure/chair/comfy/black{
+	dir = 4
+	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "xh" = (
@@ -6054,7 +6075,6 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 1
 	},
-/obj/item/clothing/gloves/combat,
 /obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
@@ -7954,14 +7974,8 @@
 	dir = 9
 	},
 /obj/structure/table/reinforced,
-/obj/item/card/id/ert/security,
-/obj/item/card/id/ert/security,
-/obj/item/card/id/ert/security,
-/obj/item/card/id/ert/security,
-/obj/item/card/id/ert/security,
-/obj/item/card/id/ert/security,
-/obj/item/card/id/ert/security,
-/obj/item/card/id/ert/security,
+/obj/item/clothing/gloves/combat,
+/obj/item/pipe_dispenser,
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "Hw" = (
@@ -10186,10 +10200,17 @@
 /area/holodeck/rec_center/medical)
 "PN" = (
 /obj/structure/table/reinforced,
-/obj/item/toy/cards/deck/tarot,
+/obj/item/toy/cards/deck/tarot{
+	pixel_x = 4;
+	pixel_y = 3
+	},
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
+	},
+/obj/item/toy/cards/deck/wizoff{
+	pixel_x = -7;
+	pixel_y = 6
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/control)
@@ -10794,6 +10815,15 @@
 	},
 /turf/open/floor/holofloor,
 /area/holodeck/rec_center/dodgeball)
+"Te" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/pump,
+/obj/effect/turf_decal/box,
+/turf/open/floor/plasteel/white,
+/area/centcom/control)
 "Tf" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -11575,6 +11605,15 @@
 "WE" = (
 /turf/open/floor/holofloor/beach/water,
 /area/holodeck/rec_center/beach)
+"WF" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/scrubber,
+/obj/effect/turf_decal/box,
+/turf/open/floor/plasteel/white,
+/area/centcom/control)
 "WG" = (
 /turf/open/floor/partyhard/steel{
 	color = "#666666";
@@ -29684,9 +29723,9 @@ Gu
 Ac
 vN
 ZU
-oy
+WF
 RY
-oy
+Te
 ZU
 ZZ
 Py
@@ -29941,9 +29980,9 @@ YV
 XX
 su
 ZU
-oy
+WF
 RY
-oy
+Te
 ZU
 ZZ
 Py
@@ -30198,9 +30237,9 @@ XX
 XX
 qn
 ZU
-Nb
+tr
 tX
-oy
+Te
 ZU
 ZZ
 Py
@@ -30448,16 +30487,16 @@ oy
 ZU
 yJ
 RY
-xf
+vi
 ZU
 Wd
 jE
 jE
 FX
 ZU
-oy
+WF
 RY
-oy
+Te
 ZU
 ZZ
 Py
