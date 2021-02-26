@@ -14,7 +14,6 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	/datum/surgery_step/heal,
 	/datum/surgery_step/extract_implant,
 	/datum/surgery_step/remove_fat,
-	/datum/surgery_step/remove_object,
 	/datum/surgery_step/drill,
 	/datum/surgery_step/retract_skin,
 	/datum/surgery_step/fix_eyes,
@@ -448,19 +447,6 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	newmeat.reagents.add_reagent (/datum/reagent/consumable/nutriment, (removednutriment / 15)) //To balance with nutriment_factor of nutriment
 	newmeat.forceMove(get_turf(autodoc))
 	autodoc.visible_message("<span class='notice'><b>[autodoc]</b> выплёвывает <b>[newmeat]</b>!</span>")
-	return TRUE
-
-/datum/surgery_step/remove_object/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
-	if(target)
-		if(ishuman(target))
-			var/mob/living/carbon/human/H = target
-			for(var/obj/item/I in target.embedded_objects)
-				autodoc.visible_message("<span class='notice'><b>[autodoc]</b> выплёвывает <b>[I]</b>!</span>")
-				I.forceMove(get_turf(autodoc))
-				target.embedded_objects -= I
-			if(!H.has_embedded_objects())
-				H.clear_alert("embeddedobject")
-				SEND_SIGNAL(H, COMSIG_CLEAR_MOOD_EVENT, "embedded")
 	return TRUE
 
 /datum/surgery_step/fix_eyes/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
