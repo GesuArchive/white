@@ -1,5 +1,5 @@
 /mob/living/silicon/ai/examine(mob/user)
-	. = list("<span class='info'>Это же [icon2html(src, user)] <EM>[src]</EM>!<hr>")
+	. = list("")
 	if (stat == DEAD)
 		. += "<span class='deadsay'>Видимо он выключен полностью.</span>"
 	else

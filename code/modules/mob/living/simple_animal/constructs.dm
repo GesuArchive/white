@@ -74,14 +74,13 @@
 	to_chat(src, playstyle_string)
 
 /mob/living/simple_animal/hostile/construct/examine(mob/user)
-	var/t_He = ru_who(TRUE)
-	var/t_s = p_s()
-	. = list("<hr><span class='cult'>This is [icon2html(src, user)] \a <b>[src]</b>!\n[desc]")
+	var/t_on = ru_who(TRUE)
+	. = list("<hr><span class='cult'>Это же [icon2html(src, user)] <b>[src]</b>!\n[desc]")
 	if(health < maxHealth)
 		if(health >= maxHealth/2)
-			. += "\n<span class='warning'>[t_He] look[t_s] slightly dented.</span>"
+			. += "\n<span class='warning'>[t_on] немного повреждён.</span>"
 		else
-			. += "\n<span class='warning'><b>[t_He] look[t_s] severely dented!</b></span>"
+			. += "\n<span class='warning'><b>[t_on] сильно повреждён!</b></span>"
 	. += "</span>"
 
 /mob/living/simple_animal/hostile/construct/attack_animal(mob/living/simple_animal/M)
