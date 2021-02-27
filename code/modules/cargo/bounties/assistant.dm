@@ -1,19 +1,19 @@
 /datum/bounty/item/assistant/strange_object
 	name = "Странный обьект"
-	description = "Нанотрасен интересуется странными предметами. Найите один в исправности и сразу же отправьте его на ЦК."
+	description = "Нанотрейзен интересуется странными предметами. Найите один в исправности и сразу же отправьте его на ЦК."
 	reward = CARGO_CRATE_VALUE * 2.4
 	wanted_types = list(/obj/item/relic)
 
 /datum/bounty/item/assistant/scooter
 	name = "Скутер"
-	description = "Нанотразен решила что ходить бесполезно. Отправьте скутер на ЦК, чтобы ускорить работу."
+	description = "Нанотрейзен решила что ходить бесполезно. Отправьте скутер на ЦК, чтобы ускорить работу."
 	reward = CARGO_CRATE_VALUE * 2.16 // the mat hoffman
 	wanted_types = list(/obj/vehicle/ridden/scooter)
 	include_subtypes = FALSE
 
 /datum/bounty/item/assistant/skateboard
 	name = "Скейтборд"
-	description = "Нанотразен решила что ходить бесполезно. Отправьте скейтборд на ЦК, чтобы ускорить работу."
+	description = "Нанотрейзен решила что ходить бесполезно. Отправьте скейтборд на ЦК, чтобы ускорить работу."
 	reward = CARGO_CRATE_VALUE * 1.8 // the tony hawk
 	wanted_types = list(/obj/vehicle/ridden/scooter/skateboard, /obj/item/melee/skateboard)
 

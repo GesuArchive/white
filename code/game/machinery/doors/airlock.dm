@@ -1280,7 +1280,7 @@
 	add_fingerprint(user)
 	user.visible_message("<span class='warning'>[user] начинает открывать [src].</span>",\
 						"<span class='noticealien'>Впиваюсь своими когтями в [src] со всей своей мощью!</span>",\
-						"<span class='warning'>Слышу рёв метала...</span>")
+						"<span class='warning'>Слышу рёв металла...</span>")
 	var/time_to_open = 5 //half a second
 	if(hasPower())
 		time_to_open = 5 SECONDS //Powered airlocks take longer to open, and are loud.

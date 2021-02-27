@@ -93,7 +93,7 @@
 				return
 			if(P.tool_behaviour == TOOL_SCREWDRIVER && !anchored)
 				user.visible_message("<span class='warning'>[user] разбирает раму.</span>", \
-									"<span class='notice'>Начинаю разбирать раму...</span>", "<span class='hear'>Слышу лязг метала.</span>")
+									"<span class='notice'>Начинаю разбирать раму...</span>", "<span class='hear'>Слышу лязг металла.</span>")
 				if(P.use_tool(src, user, 40, volume=50))
 					if(state == 1)
 						to_chat(user, "<span class='notice'>Разбираю раму.</span>")

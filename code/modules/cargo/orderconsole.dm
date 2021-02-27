@@ -204,7 +204,7 @@
 				var/mob/living/L = usr
 				var/obj/item/card/id/id_card = L.get_idcard(TRUE)
 				if(!istype(id_card))
-					say("Не зачемено ИД карты.")
+					say("Не замечено ИД карты.")
 					return
 				if(istype(id_card, /obj/item/card/id/departmental_budget))
 					say("[src] отказывается от [id_card].")

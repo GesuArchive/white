@@ -383,7 +383,7 @@
 
 /obj/item/storage/belt/military
 	name = "разгрузка"
-	desc = "Набор тактических ременьев, которые носят осадные группы синдиката."
+	desc = "Набор тактических ремней, которые носят осадные группы синдиката."
 	icon_state = "militarywebbing"
 	inhand_icon_state = "militarywebbing"
 	worn_icon_state = "militarywebbing"

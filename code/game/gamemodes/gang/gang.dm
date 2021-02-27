@@ -1,5 +1,5 @@
 /datum/game_mode/gang
-	name = "Семьи"
+	name = "Families"
 	config_tag = "families"
 	antag_flag = ROLE_FAMILIES
 	false_report_weight = 5

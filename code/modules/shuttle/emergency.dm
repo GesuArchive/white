@@ -655,7 +655,7 @@
 	slowdown = 3
 
 /obj/item/pickaxe/emergency
-	name = "аварийный высадочный инструмент"
+	name = "аварийная кирка"
 	desc = "Для спасения от грубых приземлений."
 
 /obj/item/storage/pod
