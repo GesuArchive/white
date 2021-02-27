@@ -51,7 +51,7 @@
 	name = "integrated medical beamgun"
 	desc = "A cybernetic implant that allows the user to project a healing beam from their hand."
 	uses = 1
-	starting_organ = /obj/item/organ/cyberimp/arm/item_set/medibeam
+	starting_organ = /obj/item/organ/cyberimp/arm/medibeam
 
 /obj/item/autosurgeon/organ/arm/surgery
 	name = "surgical toolset implant"
