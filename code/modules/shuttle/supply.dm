@@ -4,7 +4,6 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		/obj/effect/rune,
 		/obj/structure/spider/spiderling,
 		/obj/item/disk/nuclear,
-		/obj/machinery/nuclearbomb,
 		/obj/item/beacon,
 		/obj/narsie,
 		/obj/tear_in_reality,
