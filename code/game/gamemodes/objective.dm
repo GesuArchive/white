@@ -523,7 +523,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 /datum/objective/limited
 	name = "time limit"
 	explanation_text = "Выполнить все задания за определённое время."
-	var/time_to_do = 3600 // 1 час на все дела вот эти
+	var/time_to_do = 36000 // 1 час на все дела вот эти
 	var/timerid
 
 /datum/objective/New(text)
@@ -532,15 +532,15 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 
 /datum/objective/limited/update_explanation_text()
 	..()
-	explanation_text = "Выполнить все задания за [DisplayTimeText(time_to_do, 1)]."
-	timerid = addtimer(CALLBACK(src, .proc/kill_agents, time_to_do * 10))
+	explanation_text = "Выполнить все задания за [DisplayTimeText(time_to_do)]."
+	timerid = addtimer(CALLBACK(src, .proc/kill_agents), time_to_do)
 
 	var/list/datum/mind/owners = get_owners()
 	for(var/datum/mind/M in owners)
 		if(M?.current)
 			if(isliving(M.current))
 				var/mob/living/H = M.current
-				to_chat(H, "<span class='warning'><big>В МОЁ ТЕЛО ВВЕДЕНО ВЕЩЕСТВО, КОТОРОЕ РАЗОРВЁТ МЕНЯ ЧЕРЕЗ [uppertext(DisplayTimeText(time_to_do, 1))]. НУЖНО ВЫПОЛНИТЬ ВСЕ ЗАДАНИЯ СРОЧНО!</big></span>")
+				to_chat(H, "<span class='warning'><big>В МОЁ ТЕЛО ВВЕДЕНО ВЕЩЕСТВО, КОТОРОЕ РАЗОРВЁТ МЕНЯ ЧЕРЕЗ [uppertext(DisplayTimeText(time_to_do))]. НУЖНО ВЫПОЛНИТЬ ВСЕ ЗАДАНИЯ СРОЧНО!</big></span>")
 				SEND_SOUND(H, 'white/valtos/sounds/timertick.ogg')
 
 /datum/objective/limited/proc/kill_agents()
@@ -555,12 +555,12 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 					H?.gib()
 
 /datum/objective/limited/admin_edit(mob/admin)
-	var/def_value = 3600
+	var/def_value = 36000
 	var/mob/new_timer = input(admin, "Какое время ставим в секундах?", "Таймер", def_value) as num|null
 	if (!new_timer)
 		return
 
-	time_to_do = new_timer
+	time_to_do = new_timer * 10
 
 	deltimer(timerid)
 	timerid = null
