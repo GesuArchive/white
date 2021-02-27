@@ -1574,19 +1574,6 @@
 	else
 		open()
 
-/obj/structure/door/airlock/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
-	switch(damage_type)
-		if(BRUTE)
-			if(damage_amount)
-				playsound(src, pick('white/valtos/sounds/metalblock1.wav', 'white/valtos/sounds/metalblock2.wav', \
-									'white/valtos/sounds/metalblock3.wav', 'white/valtos/sounds/metalblock4.wav', \
-									'white/valtos/sounds/metalblock5.wav', 'white/valtos/sounds/metalblock6.wav', \
-									'white/valtos/sounds/metalblock7.wav', 'white/valtos/sounds/metalblock8.wav'), 100, TRUE)
-			else
-				playsound(src, 'sound/weapons/tap.ogg', 50, TRUE)
-		if(BURN)
-			playsound(src, 'sound/items/welder.ogg', 80, TRUE)
-
 /**
  *	Generates the airlock's wire layout based on the current area the airlock resides in.
  *

@@ -271,7 +271,10 @@
 			if(glass)
 				playsound(loc, 'sound/effects/glasshit.ogg', 90, TRUE)
 			else if(damage_amount)
-				playsound(loc, 'sound/weapons/smash.ogg', 50, TRUE)
+				playsound(src, pick('white/valtos/sounds/metalblock1.wav', 'white/valtos/sounds/metalblock2.wav', \
+									'white/valtos/sounds/metalblock3.wav', 'white/valtos/sounds/metalblock4.wav', \
+									'white/valtos/sounds/metalblock5.wav', 'white/valtos/sounds/metalblock6.wav', \
+									'white/valtos/sounds/metalblock7.wav', 'white/valtos/sounds/metalblock8.wav'), 80, TRUE)
 			else
 				playsound(src, 'sound/weapons/tap.ogg', 50, TRUE)
 		if(BURN)
