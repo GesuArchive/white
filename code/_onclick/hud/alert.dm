@@ -347,8 +347,8 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 
 /// Gives the player the option to succumb while in critical condition
 /atom/movable/screen/alert/succumb
-	name = "Succumb"
-	desc = "Shuffle off this mortal coil."
+	name = "Сдаться"
+	desc = "Закончить череду событий и пропасть."
 	icon_state = "succumb"
 
 /atom/movable/screen/alert/succumb/Click()
@@ -356,14 +356,18 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 		return
 
 	var/mob/living/living_owner = owner
-	var/last_whisper = input("Do you have any last words?", "Final Words") as null | text
+	var/last_whisper = input("Последние слова есть хоть?", "Последние слова") as null | text
 	if (isnull(last_whisper) || !CAN_SUCCUMB(living_owner))
 		return
 
 	if (length(last_whisper))
 		living_owner.say("#[last_whisper]")
 
-	living_owner.succumb(whispered = length(last_whisper) > 0)
+	if(prob(10))
+		living_owner.succumb(whispered = length(last_whisper) > 0)
+		return
+
+	to_chat(usr, "<span class='boldnotice'>Не получилось сдаться.</span>")
 
 //ALIENS
 

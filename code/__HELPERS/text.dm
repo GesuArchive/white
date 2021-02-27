@@ -355,8 +355,8 @@
 /proc/capitalize(t)
 	. = t
 	if(t)
-		. = t[1]
-		return uppertext(.) + copytext(t, 1 + length(.))
+		. = copytext_char(t, 1, 2)
+		return uppertext(.) + copytext_char(t, 2)
 
 //Returns a string with the first element of the every word of the string capitalized.
 /proc/capitalize_words(text)
