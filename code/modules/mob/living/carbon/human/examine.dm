@@ -184,8 +184,6 @@
 	if(get_bodypart(BODY_ZONE_HEAD) && !getorgan(/obj/item/organ/brain))
 		. += "<span class='deadsay'>Похоже, что у н[t_ego] нет мозга...</span>\n"
 
-	var/temp = getBruteLoss() //no need to calculate each of these twice
-
 	. += "<hr>"
 
 	var/list/msg = list()
@@ -240,6 +238,11 @@
 		msg += "[t_on] выглядит как котлетка.\n"
 
 	if(!(user == src && src.hal_screwyhud == SCREWYHUD_HEALTHY)) //fake healthy
+		var/temp
+		if(user == src && src.hal_screwyhud == SCREWYHUD_CRIT)//fake damage
+			temp = 50
+		else
+			temp = getBruteLoss()
 		if(temp)
 			if(temp < 25)
 				msg += "[t_on] имеет незначительные ушибы.\n"

@@ -2615,6 +2615,10 @@
 /obj/machinery/nanite_chamber,
 /turf/open/floor/plasteel/dark,
 /area/science/nanite)
+"Nc" = (
+/obj/machinery/chem_recipe_debug,
+/turf/open/floor/iron,
+/area/medical/chemistry)
 "Ns" = (
 /obj/machinery/door/airlock/public/glass,
 /obj/structure/cable,
@@ -7445,7 +7449,7 @@ aj
 hD
 cj
 ct
-Ce
+Nc
 cF
 bE
 bE

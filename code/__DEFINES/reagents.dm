@@ -55,6 +55,9 @@
 ///Default pH for reagents datum
 #define CHEMICAL_NORMAL_PH 7.000
 
+///The default purity of all non reacted reagents
+#define REAGENT_STANDARD_PUIRTY 0.75
+
 //reagent bitflags, used for altering how they works
 ///allows on_mob_dead() if present in a dead body
 #define REAGENT_DEAD_PROCESS		(1<<0)
@@ -67,7 +70,7 @@
 ///Retains initial volume of chem when splitting for purity effects
 #define REAGENT_SPLITRETAINVOL      (1<<4)
 //Lets a given reagent be synthesized important for random reagents and things like the odysseus syringe gun(Replaces the old can_synth variable)
-#define REAGENT_CAN_BE_SYNTHESIZED  (1<<5)  
+#define REAGENT_CAN_BE_SYNTHESIZED  (1<<5)
 
 //Chemical reaction flags, for determining reaction specialties
 ///Convert into impure/pure on reaction completion
@@ -81,7 +84,11 @@
 ///Used to force reactions to create a specific amount of heat per 1u created. So if thermic_constant = 5, for 1u of reagent produced, the heat will be forced up arbitarily by 5 irresepective of other reagents. If you use this, keep in mind standard thermic_constant values are 100x what it should be with this enabled.
 #define REACTION_HEAT_ARBITARY      (1<<4)
 ///Used to bypass the chem_master transfer block (This is needed for competitive reactions unless you have an end state programmed). More stuff might be added later. When defining this, please add in the comments the associated reactions that it competes with
-#define REACTION_COMPETITIVE        (1<<5)
+#define REACTION_COMPETITIVE (1<<5)
+///Used to force pH changes to be constant regardless of volume
+#define REACTION_PH_VOL_CONSTANT (1<<6)
+///If a reaction will generate it's impure/inverse reagents in the middle of a reaction, as apposed to being determined on ingestion/on reaction completion
+#define REACTION_REAL_TIME_SPLIT (1<<7)
 
 ///Used to force an equlibrium to end a reaction in reaction_step() (i.e. in a reaction_step() proc return END_REACTION to end it)
 #define END_REACTION "end_reaction"
@@ -145,3 +152,8 @@
 #define REACTION_TAG_PLANT (1<<20)
 /// This reaction is produces a product that affects plants
 #define REACTION_TAG_COMPETITIVE (1<<21)
+
+/// Below are defines used for reagent associated machines only
+/// For the pH meter flashing method
+#define ENABLE_FLASHING -1
+#define DISABLE_FLASHING 14
