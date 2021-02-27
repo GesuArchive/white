@@ -87,6 +87,12 @@
 			martyr_compatibility = 0
 			break
 
+	if(prob(50))
+		var/datum/objective/limited/limited_time_obj = new
+		limited_time_obj.owner = owner
+		add_objective(limited_time_obj)
+		return
+
 	if(martyr_compatibility && martyr_chance)
 		var/datum/objective/martyr/martyr_objective = new
 		martyr_objective.owner = owner
