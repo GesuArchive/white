@@ -45,7 +45,7 @@
 	name = "integrated toolset implant"
 	desc = "A stripped-down version of the engineering cyborg toolset, designed to be installed on subject's arm. Contain advanced versions of every tool."
 	uses = 1
-	starting_organ = /obj/item/organ/cyberimp/arm/item_set/toolset
+	starting_organ = /obj/item/organ/cyberimp/arm/toolset
 
 /obj/item/autosurgeon/organ/arm/medibeam
 	name = "integrated medical beamgun"

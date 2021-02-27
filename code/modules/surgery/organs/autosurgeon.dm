@@ -106,10 +106,10 @@
 	starting_organ = /obj/item/organ/eyes/robotic/xray
 
 /obj/item/autosurgeon/organ/syndicate/anti_stun
-	starting_organ = /obj/item/organ/cyberimp/brain/anti_stun/syndicate
+	starting_organ = /obj/item/organ/cyberimp/brain/anti_stun
 
 /obj/item/autosurgeon/organ/syndicate/reviver
-	starting_organ = /obj/item/organ/cyberimp/chest/reviver/syndicate
+	starting_organ = /obj/item/organ/cyberimp/chest/reviver
 
 /obj/item/autosurgeon/organ/syndicate/esword
 	starting_organ = /obj/item/organ/cyberimp/arm/item_set/esword
