@@ -499,7 +499,7 @@ GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
 		if(sawn_off)
 			return
 		user.visible_message("<span class='notice'>[user] обзрезал <b>[src.name]</b>!</span>", "<span class='notice'>Обрезал <b>[src.name]</b>.</span>")
-		name = "обрезать [src.name]"
+		name = "обрезанный [src.name]"
 		desc = sawn_desc
 		w_class = WEIGHT_CLASS_NORMAL
 		inhand_icon_state = "gun"

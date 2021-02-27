@@ -3,7 +3,7 @@
 	var/list/datum/mind/traitors = list()
 
 /datum/game_mode/traitor
-	name = "предатель"
+	name = "traitor"
 	config_tag = "traitor"
 	report_type = "traitor"
 	antag_flag = ROLE_TRAITOR

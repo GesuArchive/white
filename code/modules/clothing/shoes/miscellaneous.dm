@@ -172,7 +172,7 @@
 
 /obj/item/clothing/shoes/workboots
 	name = "рабочие ботинки"
-	desc = "Нанотрасен выпускает инженерные шнуровочные рабочие ботинки для особо рабочих воротничков."
+	desc = "Нанотрейзен выпускает инженерные шнуровочные рабочие ботинки для особо рабочих воротничков."
 	icon_state = "workboots"
 	inhand_icon_state = "jackboots"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
@@ -363,7 +363,7 @@
 	custom_price = PAYCHECK_EASY * 5
 
 /obj/item/clothing/shoes/wheelys/skishoes
-	name = "лыжнае ботинки"
+	name = "лыжные ботинки"
 	desc = "Пара ботинок со складными лыжами! Очень удобна для передвижения по снежной местности."
 	icon_state = "skishoes"
 	worn_icon_state = "skishoes"

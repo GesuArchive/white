@@ -4,7 +4,7 @@ GLOBAL_LIST_INIT(slot2type, list("head" = /obj/item/clothing/head/changeling, "w
 
 
 /datum/game_mode/changeling
-	name = "генокрад"
+	name = "changeling"
 	config_tag = "changeling"
 	report_type = "changeling"
 	antag_flag = ROLE_CHANGELING

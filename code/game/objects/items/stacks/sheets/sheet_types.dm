@@ -433,9 +433,9 @@ GLOBAL_LIST_INIT(cardboard_recipes, list (																				 \
 		new /datum/stack_recipe("коробка для наггетсов", /obj/item/storage/fancy/nugget_box),							\
 		null,																											\
 
-		new /datum/stack_recipe("коробка для летальных патронов", /obj/item/storage/box/lethalshot),\
-		new /datum/stack_recipe("коробка для резиновых патронов", /obj/item/storage/box/rubbershot),\
-		new /datum/stack_recipe("коробка для бобового мешка", /obj/item/storage/box/beanbag),		\
+		new /datum/stack_recipe("коробка для летальных дробей", /obj/item/storage/box/lethalshot),\
+		new /datum/stack_recipe("коробка для резиновых дробей", /obj/item/storage/box/rubbershot),\
+		new /datum/stack_recipe("коробка для резиновых дробей", /obj/item/storage/box/beanbag),		\
 		new /datum/stack_recipe("коробка для светошумовых гранат", /obj/item/storage/box/flashbangs),\
 		new /datum/stack_recipe("flashes box", /obj/item/storage/box/flashes),						\
 		new /datum/stack_recipe("коробка для наручников", /obj/item/storage/box/handcuffs),			\
@@ -510,7 +510,7 @@ GLOBAL_LIST_INIT(cardboard_recipes, list (																				 \
 
 GLOBAL_LIST_INIT(runed_metal_recipes, list ( \
 	new /datum/stack_recipe("руническая дверь (не слишком прочная дверь, оглушает коснувшихся не культистов))", /obj/machinery/door/airlock/cult, 1, time = 5 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("руническая балка (не рекомендованное использование рунного метала)", /obj/structure/girder/cult, 1, time = 5 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new /datum/stack_recipe("руническая балка (не рекомендованное использование рунного металла)", /obj/structure/girder/cult, 1, time = 5 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new /datum/stack_recipe("пилон (лечит (и регенерирует кровь) находящихся поблизости кровавых культистов и конструктов, но также превращает полы поблизости в гравированные)", /obj/structure/destructible/cult/pylon, 4, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new /datum/stack_recipe("демоническая кузня (можно создать защищенные робы, робы флагелянтов и зеркальные щиты)", /obj/structure/destructible/cult/forge, 3, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new /datum/stack_recipe("архивы (можно создать глазные повязки фанатиков, сферы проклятия шатлов, и оборудование идущего по завесе)", /obj/structure/destructible/cult/tome, 3, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
@@ -519,8 +519,8 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list ( \
 
 /obj/item/stack/sheet/runed_metal
 	name = "рунический металл"
-	desc = "Листы холодного, покрытого меняющимися надписями, метала."
-	singular_name = "лист рунического метала"
+	desc = "Листы холодного, покрытого меняющимися надписями, металла."
+	singular_name = "лист рунического металла"
 	icon_state = "sheet-runed"
 	inhand_icon_state = "sheet-runed"
 	icon = 'icons/obj/stack_objects.dmi'

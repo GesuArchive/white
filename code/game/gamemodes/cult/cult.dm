@@ -31,7 +31,7 @@
 	return TRUE
 
 /datum/game_mode/cult
-	name = "культ"
+	name = "cult"
 	config_tag = "cult"
 	report_type = "cult"
 	antag_flag = ROLE_CULTIST

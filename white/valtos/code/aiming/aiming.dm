@@ -31,7 +31,7 @@
 			if(M == user || !isliving(M) || M.invisibility > 0 || !M.alpha)
 				continue
 			mobs += M
-		var/mob/living/A = input(user, "Целимся в [src.name]?", "[src]", null) as null|anything in mobs
+		var/mob/living/A = input(user, "Целимся в кого/что?", "[src]", null) as null|anything in mobs
 		if(isliving(A))
 			aiming.aim(user, A)
 		return

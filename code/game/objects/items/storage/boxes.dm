@@ -1243,7 +1243,7 @@
 		new skillchip(src)
 
 /obj/item/storage/box/skillchips/science
-	name = "коробка с чипасми для научных работ"
+	name = "коробка с чипами для научных работ"
 	desc = "Содержит запасные чипы для всех научных работ."
 
 /obj/item/storage/box/skillchips/science/PopulateContents()
