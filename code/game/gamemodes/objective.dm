@@ -522,8 +522,13 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 
 /datum/objective/limited
 	name = "time limit"
+	explanation_text = "Выполнить все задания за определённое время."
 	var/time_to_do = 3600 // 1 час на все дела вот эти
 	var/timerid
+
+/datum/objective/New(text)
+	..()
+	update_explanation_text()
 
 /datum/objective/limited/update_explanation_text()
 	..()
@@ -1001,6 +1006,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 		/datum/objective/hijack,
 		/datum/objective/escape,
 		/datum/objective/survive,
+		/datum/objective/limited,
 		/datum/objective/martyr,
 		/datum/objective/steal,
 		/datum/objective/download,
