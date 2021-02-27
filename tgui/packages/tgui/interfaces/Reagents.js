@@ -77,7 +77,7 @@ export const Reagents = (props, context) => {
                         onClick={() => act('recipe_click', {
                           id: null,
                         })} />
-                    </>
+                    </Fragment>
                   )}>
                   <RecipeLookup
                     recipe={reagent_mode_recipe}
