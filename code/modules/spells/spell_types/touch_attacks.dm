@@ -83,3 +83,17 @@
 
 	action_icon_state = "statue"
 	sound = 'sound/magic/fleshtostone.ogg'
+
+/obj/effect/proc_holder/spell/targeted/touch/midas
+	name = "Мидас"
+	desc = "Это заклинание на время превращает руку в руку Мидаса, которая способна превращать живых существ в золото."
+	hand_path = /obj/item/melee/touch_attack/fleshtostone/midas
+
+	school = "transmutation"
+	charge_max = 600
+	clothes_req = TRUE
+	cooldown_min = 200
+
+	action_icon = 'white/valtos/icons/actions.dmi'
+	action_icon_state = "midas"
+	sound = 'white/valtos/sounds/midas.ogg'

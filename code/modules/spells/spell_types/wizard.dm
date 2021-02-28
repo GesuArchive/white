@@ -375,3 +375,36 @@
 	if(ishuman(thrower))
 		var/mob/living/carbon/human/H = thrower
 		H.say("LIGHTNINGBOLT!!", forced = "spell")
+
+/obj/effect/proc_holder/spell/furion
+	name = "Забрать шекели"
+	desc = "У глупых гоев."
+	clothes_req = TRUE
+
+	charge_max = 180 SECONDS
+	cooldown_min = 60 SECONDS
+
+	action_icon = 'white/valtos/icons/actions.dmi'
+	action_icon_state = "ultimate"
+	sound = 'white/valtos/sounds/fcast.ogg'
+
+/obj/effect/proc_holder/spell/furion/cast(list/targets, mob/user = usr)
+	var/total_cash_looted = 0
+	for(var/B in SSeconomy.bank_accounts_by_id)
+		var/datum/bank_account/A = SSeconomy.bank_accounts_by_id[B]
+		if(A.account_balance < 10)
+			continue
+		var/credits_drawed = round(A.account_balance / 2)
+		A._adjust_money(-credits_drawed)
+		for(var/obj/BC in A.bank_cards)
+			var/mob/card_holder = recursive_loc_check(BC, /mob)
+			if(ismob(card_holder))
+				card_holder.playsound_local(get_turf(card_holder), 'white/valtos/sounds/fhit.ogg', 75, TRUE)
+				to_chat(card_holder, "<span class='warning'><b>Гильдия магов:</b> С вашего аккаунта было списано [credits_drawed] кредитов. Приятной смены!</span>")
+		total_cash_looted += credits_drawed
+		sleep(5)
+	var/obj/item/holochip/holochip = new (user.drop_location(), total_cash_looted)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		H.put_in_hands(holochip)
+	to_chat(user, "<span class='notice'>Удалось собрать с проклятых гоев целых [total_cash_looted] кредитов!</span>")

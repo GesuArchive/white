@@ -139,6 +139,16 @@
 	desc = "Charges your hand with an unholy energy that can be used to cause a touched victim to violently explode."
 	spell_type = /obj/effect/proc_holder/spell/targeted/touch/disintegrate
 
+/datum/spellbook_entry/midas
+	name = "Мидас"
+	desc = "Превращает руку мага в Мидас, который способен превращать живых существ в золото."
+	spell_type = /obj/effect/proc_holder/spell/targeted/touch/midas
+
+/datum/spellbook_entry/furion
+	name = "Еврейский гнев"
+	desc = "Отбирает у проклятых гоев половину всех денег на картах."
+	spell_type = /obj/effect/proc_holder/spell/furion
+
 /datum/spellbook_entry/disabletech
 	name = "Disable Tech"
 	desc = "Disables all weapons, cameras and most other technology in range."
