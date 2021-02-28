@@ -374,7 +374,7 @@ export const Spellbook = (props, context) => {
     entry => entry.cat === TAB2NAME[tabIndex].title) : null;
   return (
     <Window
-      title="Spellbook"
+      title="Книга заклинаний"
       theme="wizard"
       width={950}
       height={568}>
