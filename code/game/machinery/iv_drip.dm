@@ -185,14 +185,15 @@
 	else
 		toggle_mode()
 
-/obj/machinery/iv_drip/attack_hand_secondary(mob/user, modifiers)
+/obj/machinery/iv_drip/AltClick(mob/living/user)
+	if(!user.canUseTopic(src, be_close=TRUE))
+		return
 	if(dripfeed)
 		dripfeed = FALSE
 		to_chat(usr, "<span class='notice'>You loosen the valve to speed up the [src].</span>")
 	else
 		dripfeed = TRUE
 		to_chat(usr, "<span class='notice'>You tighten the valve to slowly drip-feed the contents of [src].</span>")
-	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 ///called when an IV is attached
 /obj/machinery/iv_drip/proc/attach_iv(mob/living/target, mob/user)
