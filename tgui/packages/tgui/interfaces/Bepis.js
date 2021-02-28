@@ -9,8 +9,8 @@ export const Bepis = (props, context) => {
   } = data;
   return (
     <Window
-      width={500}
-      height={520}>
+      width={550}
+      height={460}>
       <Window.Content>
         <Section title="Business Exploration Protocol Incubation Sink">
           <Section

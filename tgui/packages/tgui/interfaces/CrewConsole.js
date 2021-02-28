@@ -63,7 +63,7 @@ export const CrewConsole = () => {
   return (
     <Window
       title="Мониторинг персонала"
-      width={600}
+      width={700}
       height={600}>
       <Window.Content scrollable>
         <Section minHeight="540px">

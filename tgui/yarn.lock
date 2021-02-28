@@ -5773,7 +5773,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"marked@npm:^2.0.1":
+"marked@npm:^2.0.0":
   version: 2.0.1
   resolution: "marked@npm:2.0.1"
   bin:
@@ -7832,7 +7832,7 @@ __metadata:
     dompurify: ^2.2.6
     inferno: ^7.4.8
     inferno-vnode-flags: ^7.4.8
-    marked: ^2.0.1
+    marked: ^2.0.0
     tgui-dev-server: "workspace:*"
     tgui-polyfill: "workspace:*"
   languageName: unknown

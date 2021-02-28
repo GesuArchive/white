@@ -391,7 +391,7 @@ const PartLists = (props, context) => {
         </Section>
       </Stack.Item>
       <Stack.Item grow>
-        <Section fill scrollable>
+        <Section fill>
           {!!searchText && (
             <PartCategory
               name={"Результаты"}
