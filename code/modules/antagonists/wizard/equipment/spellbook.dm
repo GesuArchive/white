@@ -826,7 +826,12 @@
 		if(LOADOUT_SOULTAP) //(Soul Tap>1, Smite>2, Flesh to Stone>2, Mindswap>2, Knock>1, Teleport>2) = 10
 			wanted_spell_names = list("Soul Tap" = 1, "Smite" = 1, "Flesh to Stone" = 1, "Mindswap" = 1, "Knock" = 1, "Teleport" = 1)
 	var/failed = FALSE
-	while(wanted_spell_names.len && !failed)
+	var/crash_stop = 0
+	while(wanted_spell_names.len && !failed && crash_stop < 100)
+		crash_stop++
+		if(crash_stop > 100)
+			message_admins(" -!- [ADMIN_LOOKUPFLW(wizard)] аутфит визарда забаговало и хотело отправить в бесконечный луп -!- ")
+			return
 		for(var/datum/spellbook_entry/entry as anything in entries)
 			if(!(entry.name in wanted_spell_names))
 				continue
@@ -841,10 +846,10 @@
 				continue
 			if(wanted_spell_names.len)
 				failed = TRUE//we went through the entire loop without finding what we wanted, sound the alarm!
-		if(failed)
-			stack_trace("Wizard Loadout \"[loadout]\" could not find valid spells to buy in the spellbook. Either you input a name that doesn't exist, or you overspent")
-		if(uses)
-			stack_trace("Wizard Loadout \"[loadout]\" does not use 10 wizard spell slots. Stop scamming players out.")
+	if(failed)
+		stack_trace("Wizard Loadout \"[loadout]\" could not find valid spells to buy in the spellbook. Either you input a name that doesn't exist, or you overspent")
+	if(uses)
+		stack_trace("Wizard Loadout \"[loadout]\" does not use 10 wizard spell slots. Stop scamming players out.")
 
 /obj/item/spellbook/proc/semirandomize(mob/living/carbon/human/wizard)
 	var/list/needed_cats = list("Offensive", "Mobility")
