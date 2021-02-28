@@ -54,7 +54,7 @@
 			var/input = text2num(params["amount"])
 			if(input)
 				purity = input
-	update_appearance()
+	update_icon()
 
 /obj/machinery/chem_dispenser/chem_synthesizer/ui_data(mob/user)
 	. = ..()

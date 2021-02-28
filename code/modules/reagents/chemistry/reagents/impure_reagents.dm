@@ -20,7 +20,7 @@
 	if(!L)//Though, lets be safe
 		C.adjustToxLoss(1, FALSE)//Incase of no liver!
 		return ..()
-	C.adjustOrganLoss(ORGAN_SLOT_LIVER, liver_damage * REM * delta_time)
+	C.adjustOrganLoss(ORGAN_SLOT_LIVER, liver_damage * REM)
 	return ..()
 
 //Basically just so people don't forget to adjust metabolization_rate
@@ -37,8 +37,8 @@
 	var/tox_damage = 1
 
 
-/datum/reagent/inverse/on_mob_life(mob/living/carbon/C, delta_time, times_fired)
-	C.adjustToxLoss(tox_damage * REM * delta_time, FALSE)
+/datum/reagent/inverse/on_mob_life(mob/living/carbon/C)
+	C.adjustToxLoss(tox_damage * REM, FALSE)
 	return ..()
 
 //Failed chems - generally use inverse if you want to use a impure subtype for it
