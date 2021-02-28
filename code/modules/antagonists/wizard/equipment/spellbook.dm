@@ -841,10 +841,10 @@
 				continue
 			if(wanted_spell_names.len)
 				failed = TRUE//we went through the entire loop without finding what we wanted, sound the alarm!
-	if(failed)
-		stack_trace("Wizard Loadout \"[loadout]\" could not find valid spells to buy in the spellbook. Either you input a name that doesn't exist, or you overspent")
-	if(uses)
-		stack_trace("Wizard Loadout \"[loadout]\" does not use 10 wizard spell slots. Stop scamming players out.")
+		if(failed)
+			stack_trace("Wizard Loadout \"[loadout]\" could not find valid spells to buy in the spellbook. Either you input a name that doesn't exist, or you overspent")
+		if(uses)
+			stack_trace("Wizard Loadout \"[loadout]\" does not use 10 wizard spell slots. Stop scamming players out.")
 
 /obj/item/spellbook/proc/semirandomize(mob/living/carbon/human/wizard)
 	var/list/needed_cats = list("Offensive", "Mobility")
