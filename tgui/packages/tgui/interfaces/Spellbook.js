@@ -350,7 +350,7 @@ const Randomize = (props, context) => {
 };
 
 const widthSection = "466px";
-const heightSection = "456px";
+const heightSection = "480px";
 
 export const Spellbook = (props, context) => {
   const { act, data } = useBackend(context);
@@ -377,7 +377,7 @@ export const Spellbook = (props, context) => {
       title="Spellbook"
       theme="wizard"
       width={950}
-      height={540}>
+      height={568}>
       <Window.Content>
         <Stack vertical fill>
           <Stack.Item>

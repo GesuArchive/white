@@ -113,7 +113,6 @@ export const ExperimentConfigure = (props, context) => {
 
   return (
     <Window
-      resizable
       width={600}
       height={735}>
       <Window.Content>

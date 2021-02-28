@@ -11,8 +11,7 @@ export const CargoBountyConsole = (props, context) => {
   return (
     <Window
       width={750}
-      height={600}
-      resizable>
+      height={600}>
       <Window.Content scrollable>
         <Section
           title={<BountyHeader />}

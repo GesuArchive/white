@@ -20,8 +20,7 @@ export const BoomBox = (props, context) => {
     <Window
       width={490}
       height={650}
-      theme="ntos"
-      resizable>
+      theme="ntos">
       <Window.Content>
         <Section
           title="Текущий трек"

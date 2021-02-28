@@ -12,8 +12,7 @@ export const Autodoc = (props, context) => {
     return (
       <Window
         width={496}
-        height={440}
-        resizable>
+        height={440}>
         <Section
           title="Конечность">
           <Button
