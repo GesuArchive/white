@@ -149,6 +149,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_TESLA_SHOCKIMMUNE	"tesla_shock_immunity"
 #define TRAIT_STABLEHEART		"stable_heart"
 #define TRAIT_STABLELIVER		"stable_liver"
+/// Prevents you from leaving your corpse
+#define TRAIT_CORPSELOCKED 		"corpselocked"
 #define TRAIT_VATGROWN 			"vatgrown"
 #define TRAIT_RESISTHEAT		"resist_heat"
 #define TRAIT_RESISTHEATHANDS	"resist_heat_handsonly" //For when you want to be able to touch hot things, but still want fire to be an issue.
@@ -170,8 +172,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_EASYDISMEMBER		"easy_dismember"
 #define TRAIT_LIMBATTACHMENT 	"limb_attach"
 #define TRAIT_NOLIMBDISABLE		"no_limb_disable"
-#define TRAIT_EASILY_WOUNDED		"easy_limb_wound"
-#define TRAIT_HARDLY_WOUNDED		"hard_limb_wound"
+#define TRAIT_EASILY_WOUNDED	"easy_limb_wound"
+#define TRAIT_HARDLY_WOUNDED	"hard_limb_wound"
 #define TRAIT_NEVER_WOUNDED		"never_wounded"
 #define TRAIT_TOXINLOVER		"toxinlover"
 #define TRAIT_NOBREATH			"no_breath"

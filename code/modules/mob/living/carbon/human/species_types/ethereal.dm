@@ -1,5 +1,3 @@
-#define ETHEREAL_COLORS list("#00ffff", "#ffc0cb", "#9400D3", "#4B0082", "#0000FF", "#00FF00", "#FFFF00", "#FF7F00", "#FF0000")
-
 /datum/species/ethereal
 	name = "этериал"
 	id = "ethereal"
@@ -9,6 +7,7 @@
 	meat = /obj/item/food/meat/slab/human/mutant/ethereal
 	mutantstomach = /obj/item/organ/stomach/ethereal
 	mutanttongue = /obj/item/organ/tongue/ethereal
+	mutantheart = /obj/item/organ/heart/ethereal
 	exotic_blood = /datum/reagent/consumable/liquidelectricity //Liquid Electricity. fuck you think of something better gamer
 	siemens_coeff = 0.5 //They thrive on energy
 	brutemod = 1.25 //They're weak to punches
@@ -41,7 +40,6 @@
 	var/drain_time = 0 //used to keep ethereals from spam draining power sources
 	var/obj/effect/dummy/lighting_obj/ethereal_light
 
-
 /datum/species/ethereal/Destroy(force)
 	if(ethereal_light)
 		QDEL_NULL(ethereal_light)
@@ -62,6 +60,9 @@
 	ethereal_light = ethereal.mob_light()
 	spec_updatehealth(ethereal)
 	C.set_safe_hunger_level()
+
+	var/obj/item/organ/heart/ethereal/ethereal_heart = C.getorganslot(ORGAN_SLOT_HEART)
+	ethereal_heart.ethereal_color = default_color
 
 /datum/species/ethereal/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	UnregisterSignal(C, COMSIG_ATOM_EMAG_ACT)
@@ -111,7 +112,7 @@
 		to_chat(user, "<span class='notice'>Касаюсь картой по [H].</span>")
 	H.visible_message("<span class='danger'>[H] начинает мерцать множеством цветов!</span>")
 	handle_emag(H)
-	addtimer(CALLBACK(src, .proc/stop_emag, H), 30 SECONDS) //Disco mode for 30 seconds! This doesn't affect the ethereal at all besides either annoying some players, or making someone look badass.
+	addtimer(CALLBACK(src, .proc/stop_emag, H), 2 MINUTES) //Disco mode for 2 minutes! This doesn't affect the ethereal at all besides either annoying some players, or making someone look badass.
 
 
 /datum/species/ethereal/spec_life(mob/living/carbon/human/H)
@@ -128,7 +129,7 @@
 /datum/species/ethereal/proc/handle_emag(mob/living/carbon/human/H)
 	if(!emageffect)
 		return
-	current_color = pick(ETHEREAL_COLORS)
+	current_color = pick(GLOB.color_list_ethereal)
 	spec_updatehealth(H)
 	addtimer(CALLBACK(src, .proc/handle_emag, H), 5) //Call ourselves every 0.5 seconds to change color
 
@@ -193,3 +194,5 @@
 	if(istype(stomach))
 		return stomach.crystal_charge
 	return ETHEREAL_CHARGE_NONE
+
+
