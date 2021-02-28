@@ -686,9 +686,6 @@
 		missing -= body_part.body_zone
 		if(body_part.is_pseudopart) //don't show injury text for fake bodyparts; ie chainsaw arms or synthetic armblades
 			continue
-		var/self_aware = FALSE
-		if(HAS_TRAIT(src, TRAIT_SELF_AWARE))
-			self_aware = TRUE
 		var/limb_max_damage = body_part.max_damage
 		var/status = ""
 		var/brutedamage = body_part.brute_dam
