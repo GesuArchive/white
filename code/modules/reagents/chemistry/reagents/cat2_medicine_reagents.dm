@@ -168,7 +168,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/medicine/c2/lenturi/on_mob_life(mob/living/carbon/M)
-	M.adjustFireLoss(-3 * REM * normalise_creation_purity()
+	M.adjustFireLoss(-3 * REM * normalise_creation_purity())
 	M.adjustOrganLoss(ORGAN_SLOT_STOMACH, 0.4 * REM)
 	..()
 	return TRUE
