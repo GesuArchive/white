@@ -729,7 +729,9 @@
 /area/centcom/control)
 "cy" = (
 /obj/structure/chair/sofa/corp/right,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/chapel{
+	dir = 8
+	},
 /area/centcom/control)
 "cA" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
@@ -1628,7 +1630,7 @@
 /obj/structure/chair/sofa/corp/left{
 	dir = 1
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/chapel,
 /area/centcom/control)
 "fs" = (
 /obj/structure/railing/corner,
@@ -2051,6 +2053,11 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/control)
+"gR" = (
+/turf/open/floor/plasteel/chapel{
+	dir = 1
+	},
+/area/centcom/control)
 "gT" = (
 /obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/tile/green{
@@ -2090,7 +2097,7 @@
 /obj/structure/chair/sofa/corp/right{
 	dir = 1
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/chapel,
 /area/centcom/control)
 "hd" = (
 /obj/effect/mob_spawn/human/prison/prisoner/dclass,
@@ -3169,6 +3176,11 @@
 /obj/effect/turf_decal/tile/green,
 /turf/open/floor/holofloor,
 /area/holodeck/rec_center/basketball)
+"mJ" = (
+/turf/open/floor/dz/green{
+	icon_state = "green8"
+	},
+/area/centcom/control)
 "mK" = (
 /obj/item/reagent_containers/glass/bottle/romerol{
 	pixel_x = 1;
@@ -3550,7 +3562,9 @@
 /area/centcom/supplypod/loading/two)
 "on" = (
 /obj/structure/chair/sofa/corp/left,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/chapel{
+	dir = 8
+	},
 /area/centcom/control)
 "op" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -3842,6 +3856,11 @@
 "pG" = (
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/ert)
+"pJ" = (
+/turf/open/floor/plasteel/chapel{
+	dir = 4
+	},
+/area/centcom/control)
 "pK" = (
 /obj/effect/bump_teleporter{
 	id = "tt5";
@@ -4904,6 +4923,11 @@
 /obj/effect/turf_decal/trimline/neutral/line,
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"uJ" = (
+/turf/open/floor/plasteel/chapel{
+	dir = 8
+	},
+/area/centcom/control)
 "uL" = (
 /obj/structure/chair{
 	dir = 1
@@ -5599,7 +5623,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/open/floor/plating,
+/turf/open/floor/dz/green{
+	icon_state = "green8"
+	},
 /area/centcom/control)
 "xG" = (
 /obj/machinery/door/window{
@@ -6233,7 +6259,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/open/floor/plating,
+/turf/open/floor/dz/green{
+	icon_state = "green8"
+	},
 /area/centcom/control)
 "Ap" = (
 /obj/structure/table/wood/poker,
@@ -7711,7 +7739,9 @@
 /area/centcom/holding)
 "FW" = (
 /obj/structure/chair/sofa/corp,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/chapel{
+	dir = 4
+	},
 /area/centcom/control)
 "FX" = (
 /obj/effect/mob_spawn/human/prison/prisoner/scientist,
@@ -10040,6 +10070,15 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding)
+"On" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/centcom/control)
 "Oq" = (
 /obj/structure/rack,
 /obj/item/nullrod/scythe/vibro{
@@ -10265,6 +10304,9 @@
 "Py" = (
 /turf/closed/indestructible/syndicate,
 /area/centcom/supplypod)
+"PB" = (
+/turf/open/floor/plasteel/chapel,
+/area/centcom/control)
 "PD" = (
 /obj/structure/window,
 /obj/effect/turf_decal/tile/blue,
@@ -10845,7 +10887,9 @@
 /obj/structure/chair/sofa/corp{
 	dir = 1
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/chapel{
+	dir = 1
+	},
 /area/centcom/control)
 "SH" = (
 /obj/structure/chess/blackrook,
@@ -18821,11 +18865,11 @@ hA
 hA
 hA
 hA
-ZT
+hD
 ZU
 ik
 ZU
-ZT
+hD
 hA
 ow
 oL
@@ -19066,7 +19110,7 @@ ZT
 ZT
 ZT
 ZT
-ZT
+hA
 ZT
 ZT
 ZT
@@ -19323,8 +19367,8 @@ ZT
 ZT
 ZT
 ZT
-ZT
-ZT
+hA
+hA
 ZT
 ZT
 ZT
@@ -19335,11 +19379,11 @@ ZU
 Qm
 ZU
 KJ
-TO
-TO
+On
+On
 iC
-TO
-TO
+On
+On
 st
 ZU
 ZU
@@ -19578,12 +19622,12 @@ ZT
 hD
 ZT
 ZT
+hD
+hA
+hA
+hA
 ZT
-ZT
-ZT
-ZT
-ZT
-ZT
+hD
 ZT
 hA
 hA
@@ -19834,13 +19878,13 @@ ZT
 ZT
 ZU
 ZU
+Zw
+Zw
 ZU
 ZU
 ZU
-ZU
-ZU
-ZU
-ZU
+Zw
+Zw
 ZU
 ZU
 hA
@@ -20090,15 +20134,15 @@ ZT
 ZT
 ZT
 ZU
-TO
-TO
-TO
-TO
+mJ
+mJ
+mJ
+mJ
 Ao
-TO
-TO
-TO
-TO
+mJ
+mJ
+mJ
+mJ
 ZU
 ZU
 KJ
@@ -21378,13 +21422,13 @@ Zw
 pM
 Zw
 cy
-XX
-XX
-XX
-XX
-XX
-XX
-XX
+gR
+uJ
+pJ
+PB
+gR
+uJ
+pJ
 hb
 Zw
 yE
@@ -21635,13 +21679,13 @@ Zw
 uF
 Zw
 FW
-XX
-XX
-XX
-XX
-XX
-XX
-XX
+PB
+pJ
+uJ
+gR
+PB
+pJ
+uJ
 SG
 Zw
 el
@@ -21892,13 +21936,13 @@ Zw
 VR
 Zw
 on
-XX
-XX
-XX
-XX
-XX
-XX
-XX
+gR
+uJ
+pJ
+PB
+gR
+uJ
+pJ
 fr
 Zw
 SR
@@ -23174,15 +23218,15 @@ hD
 ZT
 ZT
 ZU
-TO
-TO
-TO
-TO
+mJ
+mJ
+mJ
+mJ
 xD
-TO
-TO
-TO
-TO
+mJ
+mJ
+mJ
+mJ
 ZU
 ZU
 KJ
@@ -23432,13 +23476,13 @@ ZT
 ZT
 ZU
 ZU
+Zw
+Zw
 ZU
 ZU
 ZU
-ZU
-ZU
-ZU
-ZU
+Zw
+Zw
 ZU
 ZU
 hA
@@ -23690,14 +23734,14 @@ ZT
 ZT
 ZT
 ZT
+hD
 ZT
 ZT
 ZT
 ZT
+hD
 ZT
 ZT
-ZT
-hA
 hA
 ZU
 dL
@@ -23954,7 +23998,7 @@ ZT
 ZT
 ZT
 ZT
-hA
+ZT
 hA
 ZU
 yE
@@ -24211,7 +24255,7 @@ ZT
 ZT
 ZT
 ZT
-hA
+ZT
 hA
 ZU
 rI
@@ -24468,7 +24512,7 @@ ZT
 ZT
 ZT
 ZT
-hA
+ZT
 hA
 ZU
 Zw
@@ -24724,8 +24768,8 @@ ZT
 ZT
 ZT
 ZT
-hD
-hA
+ZT
+ZT
 hA
 ZU
 pq
@@ -24982,7 +25026,7 @@ ZT
 ZT
 ZT
 ZT
-hA
+ZT
 hA
 Qm
 WY
@@ -25479,6 +25523,7 @@ ZT
 ZT
 ZT
 ZT
+hD
 ZT
 ZT
 ZT
@@ -25492,10 +25537,9 @@ ZT
 ZT
 ZT
 ZT
-ZT
-ZT
-ZT
-ZT
+hA
+hA
+hA
 hA
 ZU
 ZU
@@ -25748,15 +25792,15 @@ ZT
 ZT
 ZT
 ZT
-ZT
-ZT
-ZT
-ZT
 hA
 hA
-ZZ
+hA
+Co
+Co
+hA
+hA
 ZU
-ZZ
+hA
 ZU
 gr
 ZU
@@ -26004,16 +26048,16 @@ ZT
 ZT
 ZT
 ZT
-ZT
-ZT
-ZT
-ZT
 hA
 hA
 Co
-ZZ
-ZZ
-ZZ
+Co
+Co
+Co
+Co
+hA
+hA
+hA
 ZU
 ZU
 ZU
@@ -26260,12 +26304,12 @@ ZT
 ZT
 ZT
 ZT
-ZT
-ZT
-ZT
-ZT
-ZT
 hA
+hA
+Co
+Co
+Co
+Co
 Co
 Co
 Co
@@ -26494,19 +26538,19 @@ Co
 hA
 hA
 hA
-hA
-hA
-hA
-hA
-hA
-hA
-hA
-hA
-hA
-hA
-hA
-hA
-hA
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
 hA
 hA
 ZT
@@ -26517,12 +26561,12 @@ hD
 ZT
 ZT
 hA
-ZT
-ZT
-ZT
-ZT
 hA
-hA
+Co
+Co
+Co
+Co
+Co
 Co
 Co
 hA
@@ -26537,7 +26581,7 @@ ZT
 ZT
 ZT
 ol
-ZT
+hD
 ZT
 ZT
 ZT
@@ -26750,35 +26794,35 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
 hA
-hA
-hG
-hG
-hG
-hG
-hA
-hA
-hA
-hA
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
 ZT
 ZT
 hA
 hA
+hA
+hG
+hG
+hG
+hG
+hA
+hA
+hA
+Co
+Co
+Co
+Co
+Co
 Co
 Co
 hA
@@ -27007,21 +27051,21 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hA
+hA
+hA
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
+hA
+hA
+hA
 Co
 hA
 hG
@@ -27031,10 +27075,10 @@ hA
 hA
 Co
 Co
-hA
-hA
-hA
-hA
+Co
+Co
+Co
+Co
 Co
 Co
 Co
@@ -27268,15 +27312,15 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hA
+hA
+hA
+hA
+hA
+hA
+hA
 Co
 Co
 Co
