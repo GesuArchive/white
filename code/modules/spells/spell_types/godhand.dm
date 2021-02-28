@@ -115,8 +115,9 @@
 	desc = "Это то, что превратит существо в золото!"
 	catchphrase = "PO F'ARM'U CH'EMP'ION!!"
 	on_use_sound = 'white/valtos/sounds/midas.ogg'
-	icon_state = "midas"
-	inhand_icon_state = "midas"
+	icon_state = "fleshtostone"
+	inhand_icon_state = "fleshtostone"
+	color = "#ff9900"
 
 /obj/item/melee/touch_attack/fleshtostone/midas/afterattack(atom/target, mob/living/carbon/user, proximity)
 	. = ..()

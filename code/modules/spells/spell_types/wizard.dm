@@ -388,6 +388,12 @@
 	action_icon_state = "ultimate"
 	sound = 'white/valtos/sounds/fcast.ogg'
 
+/obj/effect/proc_holder/spell/furion/choose_targets(mob/user = usr)
+	if(!user)
+		revert_cast()
+		return
+	perform(null, user = user)
+
 /obj/effect/proc_holder/spell/furion/cast(list/targets, mob/user = usr)
 	var/total_cash_looted = 0
 	for(var/B in SSeconomy.bank_accounts_by_id)
@@ -400,9 +406,9 @@
 			var/mob/card_holder = recursive_loc_check(BC, /mob)
 			if(ismob(card_holder))
 				card_holder.playsound_local(get_turf(card_holder), 'white/valtos/sounds/fhit.ogg', 75, TRUE)
-				to_chat(card_holder, "<span class='warning'><b>Гильдия магов:</b> С вашего аккаунта было списано [credits_drawed] кредитов. Приятной смены!</span>")
+				to_chat(card_holder, "<span class='warning'><b>Федерация волшебников:</b> С вашего аккаунта было списано [credits_drawed] кредитов. Приятной смены!</span>")
 		total_cash_looted += credits_drawed
-		sleep(5)
+		sleep(1)
 	var/obj/item/holochip/holochip = new (user.drop_location(), total_cash_looted)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
