@@ -65,7 +65,7 @@
 			to_chat(user, "<span class='warning'>This spell cannot be strengthened any further!</span>")
 		//we'll need to update the cooldowns for the spellbook
 		GetInfo()
-		log_spellbook("[key_name(user)] improved their knowledge of [src] to level [aspell.spell_level] for [cost] points")
+		//log_spellbook("[key_name(user)] improved their knowledge of [src] to level [aspell.spell_level] for [cost] points")
 		SSblackbox.record_feedback("nested tally", "wizard_spell_improved", 1, list("[name]", "[aspell.spell_level]"))
 		return TRUE
 	//No same spell found - just learn it
@@ -97,7 +97,7 @@
 			spell_levels = aspell.spell_level
 			user.mind.spell_list.Remove(aspell)
 			name = initial(name)
-			log_spellbook("[key_name(user)] refunded [src] for [cost * (spell_levels+1)] points")
+			//log_spellbook("[key_name(user)] refunded [src] for [cost * (spell_levels+1)] points")
 			qdel(S)
 			return cost * (spell_levels+1)
 	return -1
