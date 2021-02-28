@@ -632,7 +632,7 @@
 
 /datum/spellbook_entry/summon/curse_of_madness/Buy(mob/living/carbon/human/user, obj/item/spellbook/book)
 	SSblackbox.record_feedback("tally", "wizard_spell_learned", 1, name)
-	active = TRUE
+	//active = TRUE
 	var/message = stripped_input(user, "Whisper a secret truth to drive your victims to madness.", "Whispers of Madness")
 	if(!message)
 		return FALSE
