@@ -530,6 +530,9 @@
 	name = "Friendly Wizard Scum"
 	desc = "A \"Friendly\" Wizard will protect the station, and try to kill you. They get a spellbook much like you, but will use it for \"GOOD\"."
 
+/// How much threat we need to let these rituals happen on dynamic
+#define MINIMUM_THREAT_FOR_RITUALS 100
+
 /datum/spellbook_entry/summon
 	name = "Summon Stuff"
 	category = "Rituals"
@@ -654,7 +657,7 @@
 	playsound(user, 'sound/magic/mandswap.ogg', 50, TRUE)
 	return TRUE
 
-hands_state
+#undef MINIMUM_THREAT_FOR_RITUALS
 
 #define LOADOUT_CLASSIC "loadout_classic"
 #define LOADOUT_MJOLNIR "loadout_hammer"
