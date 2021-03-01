@@ -75,3 +75,16 @@
 	path = /obj/item/instrument/guitar
 	cost = 100
 
+/datum/gear/cryokatana
+	display_name = "Криокатана"
+	description = "Криотехнологиченое устройство, которое замораживает преступников живьём. Удивительно!"
+	path = /obj/item/storage/belt/sheath/security
+	allowed_roles = list("Veteran", "Security Officer", "Russian Officer", "Head of Security")
+	cost = 150
+
+/datum/gear/cryokatana/master
+	display_name = "Криокатана мастера"
+	description = "Криотехнологиченое устройство, которое замораживает преступников живьём. Удивительно!"
+	path = /obj/item/storage/belt/sheath/security/hos
+	allowed_roles = list("Head of Security")
+	cost = 250

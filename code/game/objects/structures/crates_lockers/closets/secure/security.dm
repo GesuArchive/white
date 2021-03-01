@@ -100,7 +100,6 @@
 	new /obj/item/circuitboard/machine/techfab/department/security(src)
 	new /obj/item/storage/photo_album/hos(src)
 	new /obj/item/clothing/head/HoS/dermal(src)
-	new /obj/item/storage/belt/sheath/security/hos(src)
 
 /obj/structure/closet/secure_closet/warden
 	name = "шкаф надзирателя"
@@ -145,7 +144,7 @@
 
 /obj/structure/closet/secure_closet/security/sec/PopulateContents()
 	..()
-	new /obj/item/storage/belt/sheath/security(src)
+	new /obj/item/storage/belt/security/full(src)
 
 /obj/structure/closet/secure_closet/security/cargo
 
