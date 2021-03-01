@@ -1238,7 +1238,7 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "jp" = (
-/obj/machinery/computer/rdconsole/core,
+/obj/machinery/computer/rdconsole,
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
@@ -3165,7 +3165,7 @@
 /turf/open/floor/plating/airless,
 /area/maintenance/port/fore)
 "zx" = (
-/mob/living/carbon/monkey/punpun,
+/mob/living/carbon/human/species/monkey/punpun,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
@@ -4139,7 +4139,7 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "HL" = (
-/obj/machinery/computer/rdconsole/core{
+/obj/machinery/computer/rdconsole{
 	dir = 4
 	},
 /turf/open/floor/plasteel/white,

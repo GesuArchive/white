@@ -62,6 +62,7 @@
 	name = "Laser Room";
 	req_access_txt = "10"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
 "ca" = (
@@ -267,6 +268,7 @@
 	name = "Power Storage";
 	req_access_txt = "11"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark/side{
 	dir = 8
 	},
@@ -291,6 +293,7 @@
 	name = "Engineering Maintenance";
 	req_access_txt = "10"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/engine/engine_smes)
 "jw" = (
@@ -355,6 +358,7 @@
 	name = "Engineering Maintenance";
 	req_access_txt = "10"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "kt" = (
@@ -747,6 +751,10 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/engine/airless,
 /area/engine/supermatter)
+"xf" = (
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel/dark,
+/area/space)
 "xK" = (
 /obj/structure/table,
 /turf/open/floor/plasteel,
@@ -833,6 +841,7 @@
 	req_access_txt = "10"
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
 "Ai" = (
@@ -1068,6 +1077,7 @@
 	name = "Engineering Maintenance";
 	req_access_txt = "10"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "FL" = (
@@ -1470,6 +1480,7 @@
 	name = "Supermatter Engine Room";
 	req_access_txt = "10"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
 "TF" = (
@@ -1673,6 +1684,14 @@
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/plasteel/dark,
 /area/engine/engine_smes)
+"ZK" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Tech Storage";
+	req_access_txt = "23"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/engine/storage)
 "ZW" = (
 /obj/structure/toilet/greyscale{
 	dir = 8
@@ -3381,7 +3400,7 @@ zE
 yw
 yw
 yw
-yw
+ZK
 nR
 nR
 bG
@@ -5219,7 +5238,7 @@ Gz
 Gz
 Gz
 Gz
-ee
+xf
 YV
 GQ
 oh

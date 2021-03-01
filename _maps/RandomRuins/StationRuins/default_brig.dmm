@@ -6616,7 +6616,10 @@
 /obj/structure/table,
 /obj/item/stack/package_wrap,
 /obj/item/pen,
-/turf/open/floor/plasteel,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plating,
 /area/security/main)
 "Lf" = (
 /obj/machinery/door/firedoor,
