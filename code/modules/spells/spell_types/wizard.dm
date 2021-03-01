@@ -411,7 +411,8 @@
 				lastloc = card_holder
 				to_chat(card_holder, "<span class='warning'><b>Федерация волшебников:</b> С вашего аккаунта было списано [credits_drawed] кредитов. Приятной смены!</span>")
 		total_cash_looted += credits_drawed
-		sleep(1)
+		sleep(5)
+	lastloc.Beam(user, icon_state="lichbeam", time = 20)
 	var/obj/item/holochip/holochip = new (user.drop_location(), total_cash_looted)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
