@@ -60,6 +60,8 @@
 		var/mob/living/carbon/human/H = user
 		H.sec_hud_set_ID()
 
+	holder.update_slot_icon()
+
 	return TRUE
 
 
@@ -81,11 +83,16 @@
 		for(var/p in holder.idle_threads)
 			var/datum/computer_file/program/computer_program = p
 			computer_program.event_idremoved(1)
+
+		holder.update_slot_icon()
+
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_user = user
 		human_user.sec_hud_set_ID()
-	to_chat(user, "<span class='notice'>Я извлекаю карту из <b>[src.name]</b>.</span>")
+
+	to_chat(user, "<span class='notice'>Извлекаю карту из <b>[src.name]</b>.</span>")
 	playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
+
 	return TRUE
 
 /obj/item/computer_hardware/card_slot/attackby(obj/item/I, mob/living/user)
