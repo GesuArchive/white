@@ -396,6 +396,7 @@
 
 /obj/effect/proc_holder/spell/furion/cast(list/targets, mob/user = usr)
 	var/total_cash_looted = 0
+	var/atom/lastloc = user
 	for(var/B in SSeconomy.bank_accounts_by_id)
 		var/datum/bank_account/A = SSeconomy.bank_accounts_by_id[B]
 		if(A.account_balance < 10)
@@ -405,7 +406,9 @@
 		for(var/obj/BC in A.bank_cards)
 			var/mob/card_holder = recursive_loc_check(BC, /mob)
 			if(ismob(card_holder))
-				card_holder.playsound_local(get_turf(card_holder), 'white/valtos/sounds/fhit.ogg', 75, TRUE)
+				playsound(get_turf(card_holder), 'white/valtos/sounds/fhit.ogg', 75, TRUE)
+				card_holder.Beam(lastloc, icon_state="lichbeam", time = 20)
+				lastloc = card_holder
 				to_chat(card_holder, "<span class='warning'><b>Федерация волшебников:</b> С вашего аккаунта было списано [credits_drawed] кредитов. Приятной смены!</span>")
 		total_cash_looted += credits_drawed
 		sleep(1)
