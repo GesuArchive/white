@@ -153,7 +153,7 @@ export const CargoCatalog = (props, context) => {
         </>
       )}>
       <Flex>
-        <Flex.Item ml={-1} mr={1}>
+        <Flex.Item ml={-1} mr={2}>
           <Tabs vertical>
             {supplies.map(supply => (
               <Tabs.Tab

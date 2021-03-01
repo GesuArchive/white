@@ -16,8 +16,8 @@ export const CivCargoHoldTerminal = (props, context) => {
   const out_text = "Для начала работы вставьте вашу ID-карту в консоль.";
   return (
     <Window
-      width={500}
-      height={375}>
+      width={600}
+      height={300}>
       <Window.Content scrollable>
         <Flex>
           <Flex.Item>
@@ -105,9 +105,9 @@ const BountyPickBox = (props, context) => {
   } = data;
   return (
     <Section
-      title="Please Select a Bounty:"
+      title="Пожалуйста, выберите заказ:"
       textAlign="center">
-      <Flex width="100%" wrap>
+      <Flex wrap>
         <Flex.Item
           shrink={0}
           grow={0.5}>
@@ -118,7 +118,7 @@ const BountyPickBox = (props, context) => {
             content={id_bounty_names[0]}
             onClick={() => act('pick', { 'value': 1 })}>
             <Box fontSize="14px">
-              Payout: {id_bounty_values[0]}
+              Доля: {id_bounty_values[0]}
             </Box>
           </Button>
         </Flex.Item>
@@ -133,7 +133,7 @@ const BountyPickBox = (props, context) => {
             content={id_bounty_names[1]}
             onClick={() => act('pick', { 'value': 2 })}>
             <Box fontSize="14px">
-              Payout: {id_bounty_values[1]}
+              Доля: {id_bounty_values[1]}
             </Box>
           </Button>
         </Flex.Item>
@@ -147,7 +147,7 @@ const BountyPickBox = (props, context) => {
             content={id_bounty_names[2]}
             onClick={() => act('pick', { 'value': 3 })}>
             <Box fontSize="14px">
-              Payout: {id_bounty_values[2]}
+              Доля: {id_bounty_values[2]}
             </Box>
           </Button>
         </Flex.Item>
