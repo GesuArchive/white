@@ -51,7 +51,7 @@
 
 /area/ruin/unpowered/cultaltar
 	name = "Cult Altar"
-	flags_1 = CULT_PERMITTED_1
+	area_flags = CULT_PERMITTED
 	ambience_index = AMBIENCE_SPOOKY
 	ambientsounds = SPOOKY
 

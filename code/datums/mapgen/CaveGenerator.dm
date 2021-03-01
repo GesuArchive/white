@@ -57,7 +57,7 @@
 		var/closed = text2num(string_gen[world.maxx * (gen_turf.y - 1) + gen_turf.x])
 
 		var/stored_flags
-		if(gen_turf.flags_1 & NO_RUINS)
+		if(gen_turf.turf_flags & NO_RUINS)
 			stored_flags |= NO_RUINS
 
 		var/turf/new_turf = pickweight(closed ? closed_turf_types : open_turf_types)

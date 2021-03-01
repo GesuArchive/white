@@ -567,7 +567,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/library
 	name = "Зона отдыха: Библиотека"
 	icon_state = "library"
-	flags_1 = CULT_PERMITTED_1
+	mood_bonus = 5
+	mood_message = "<span class='nicegreen'>I love being in the library!</span>\n"
+	mood_trait = TRAIT_INTROVERT
+	area_flags = CULT_PERMITTED
 	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
 
 /area/library/lounge
@@ -594,7 +597,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/library/abandoned
 	name = "Зона отдыха: Заброшенная библиотека"
 	icon_state = "abandoned_library"
-	flags_1 = CULT_PERMITTED_1
+	area_flags = CULT_PERMITTED
 
 /area/chapel
 	icon_state = "chapel"
@@ -630,6 +633,34 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "law"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
+/area/service/janitor
+	name = "Custodial Closet"
+	icon_state = "janitor"
+	area_flags = CULT_PERMITTED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/service/hydroponics
+	name = "Hydroponics"
+	icon_state = "hydro"
+	airlock_wires = /datum/wires/airlock/service
+	sound_environment = SOUND_AREA_STANDARD_STATION
+
+/area/service/hydroponics/upper
+	name = "Upper Hydroponics"
+	icon_state = "hydro"
+
+/area/service/hydroponics/garden
+	name = "Garden"
+	icon_state = "garden"
+
+/area/service/hydroponics/garden/abandoned
+	name = "Abandoned Garden"
+	icon_state = "abandoned_garden"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/service/hydroponics/garden/monastery
+	name = "Monastery Garden"
+	icon_state = "hydro"
 
 //Engineering
 
@@ -650,7 +681,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/engine/atmos
 	name = "Инженерный: Атмосферный отдел"
 	icon_state = "atmos"
-	flags_1 = CULT_PERMITTED_1
+	area_flags = CULT_PERMITTED
 
 /area/engine/atmos/upper
 	name = "Инженерный: Верхний атмосферный отдел"
@@ -884,7 +915,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/medical/virology
 	name = "Медбей: Вирусология"
 	icon_state = "virology"
-	flags_1 = CULT_PERMITTED_1
+	area_flags = CULT_PERMITTED
 
 /area/medical/morgue
 	name = "Медбей: Морг"
