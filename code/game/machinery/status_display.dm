@@ -26,6 +26,8 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 10
 
+	layer = SIGN_LAYER
+
 	maptext_height = 26
 	maptext_width = 32
 	maptext_y = -1
