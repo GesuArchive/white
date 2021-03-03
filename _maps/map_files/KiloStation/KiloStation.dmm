@@ -64795,6 +64795,36 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/item/food/dough,
+/obj/item/food/dough,
+/obj/item/kitchen/rollingpin,
+/obj/item/kitchen/rollingpin,
+/obj/item/paper/crumpled{
+	info = "Hey whoever designed this shithole didn't give us space to install the produce computer so it's in maintenance near the theatre.";
+	name = "hastily written note"
+	},
+/turf/open/floor/iron/dark,
+/area/service/kitchen)
+"jAY" = (
+/obj/machinery/atmospherics/pipe/manifold/general/visible,
+/obj/machinery/meter,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/engine,
+/area/engineering/main)
+"jBA" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "Unit_1Privacy";
+	name = "Unit 1 Privacy Shutter"
+	},
+/turf/open/floor/plating,
+/area/commons/toilet/restrooms)
+"jBG" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/security/prison)
+"jBX" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
@@ -90713,22 +90743,21 @@
 	dir = 1;
 	network = list("ss13","medbay")
 	},
-/turf/open/floor/plasteel/showroomfloor,
-/area/medical/chemistry)
-"tpr" = (
-/turf/open/floor/plasteel,
-/area/security/brig)
-"trm" = (
+/turf/open/floor/iron/dark,
+/area/cargo/qm)
+"xwt" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/rack,
-/obj/effect/spawner/lootdrop/maintenance/three,
-/turf/open/floor/plating,
-/area/maintenance/port)
-"tyj" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/event_spawn,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 4
+/obj/machinery/computer/chef_order{
+	dir = 8
+	},
+/turf/open/floor/plating{
+	icon_state = "platingdmg3"
+	},
+/area/maintenance/central)
+"xww" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/machinery/newscaster{
+	pixel_x = 30
 	},
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
@@ -123911,13 +123940,13 @@ aox
 aox
 buB
 ajq
-akM
-ajt
-bwi
-aZq
-aZq
-ajt
-ajt
+xwt
+uuQ
+sox
+ref
+ref
+uuQ
+uuQ
 blq
 apX
 bgQ

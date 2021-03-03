@@ -51225,10 +51225,27 @@
 /turf/open/floor/plasteel/white/corner{
 	dir = 1
 	},
-/area/hallway/secondary/entry)
-"jVl" = (
-/obj/structure/disposalpipe/segment{
+/turf/open/floor/iron,
+/area/cargo/storage)
+"sTP" = (
+/obj/machinery/atmospherics/components/binary/pump{
+	name = "Mix to Port"
+	},
+/turf/open/floor/iron,
+/area/engineering/atmos)
+"sTS" = (
+/obj/machinery/computer/chef_order{
 	dir = 4
+	},
+/turf/open/floor/iron/cafeteria,
+/area/service/kitchen)
+"sUk" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/delivery,
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 1;
+	name = "External Gas to Loop"
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -94743,21 +94760,21 @@ aCv
 dJS
 xLr
 tve
-aIg
-aJH
-aKR
-aMB
-aJC
-aOP
-aJI
-aRA
-aVz
-aVz
-aVz
-aVz
-aYJ
-aJI
-bbz
+lRR
+mkm
+hYm
+nsh
+wXj
+dfW
+mjA
+rLD
+nUo
+sTS
+nUo
+nUo
+tIN
+mjA
+opx
 aYV
 bdr
 aYV

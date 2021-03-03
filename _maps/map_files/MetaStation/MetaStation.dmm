@@ -58794,7 +58794,10 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel,
+/obj/machinery/computer/chef_order{
+	dir = 1
+	},
+/turf/open/floor/iron,
 /area/hallway/secondary/service)
 "fDB" = (
 /obj/structure/cable,

@@ -80622,11 +80622,25 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
-/area/science/lab)
-"dcK" = (
-/obj/machinery/status_display/ai{
-	pixel_x = 32
+/turf/open/floor/iron,
+/area/commons/fitness/recreation)
+"khf" = (
+/obj/structure/table/reinforced,
+/obj/item/clipboard,
+/obj/item/toy/figure/chef,
+/obj/effect/turf_decal/bot,
+/obj/item/food/mint,
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_y = 5
+	},
+/turf/open/floor/iron,
+/area/service/kitchen)
+"khj" = (
+/obj/item/kirbyplants/random,
+/obj/machinery/light/small,
+/obj/machinery/light_switch{
+	pixel_x = 26;
+	pixel_y = -26
 	},
 /obj/machinery/light{
 	dir = 4
@@ -96226,19 +96240,24 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/turf/open/floor/plasteel,
-/area/science/research)
-"dMc" = (
-/obj/structure/table/wood,
-/obj/machinery/microwave{
-	desc = "Cooks and boils stuff, somehow.";
-	pixel_x = -3;
-	pixel_y = 5
+/obj/machinery/atmospherics/pipe/manifold/yellow/visible,
+/turf/open/floor/iron/dark,
+/area/engineering/atmos)
+"qhc" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -26
+/turf/open/floor/iron,
+/area/science/misc_lab/range)
+"qhn" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/computer/chef_order{
+	dir = 1
 	},
+/turf/open/floor/iron,
+/area/service/kitchen)
+"qhE" = (
+/obj/structure/weightmachine/stacklifter,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
