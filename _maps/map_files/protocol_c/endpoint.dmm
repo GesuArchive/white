@@ -11522,6 +11522,12 @@
 /obj/structure/cable,
 /turf/closed/indestructible/syndicate,
 /area/centcom/control)
+"Vs" = (
+/obj/machinery/camera/motion/thunderdome{
+	alpha = 0
+	},
+/turf/open/floor/white,
+/area/partyhard/surface)
 "Vv" = (
 /obj/structure/table/wood/poker,
 /obj/item/storage/pill_bottle/dice,
@@ -32999,7 +33005,7 @@ ps
 ps
 ps
 ps
-ps
+Vs
 ps
 ps
 ps
