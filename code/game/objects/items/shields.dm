@@ -88,7 +88,7 @@
 	slot_flags = NONE
 	force = 15
 	block_chance = 90
-	transparen = FALSE
+	transparent = FALSE
 	max_integrity = 400
 	custom_materials = list(/datum/material/titanium = 10000)
 	icon_state = "ops_shield"
