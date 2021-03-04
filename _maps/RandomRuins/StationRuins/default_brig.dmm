@@ -477,6 +477,8 @@
 /area/template_noop)
 "bC" = (
 /obj/structure/closet/bombcloset/security,
+/obj/item/shield/riot/military,
+/obj/item/shield/riot/military,
 /turf/open/floor/plasteel/showroomfloor,
 /area/security/main)
 "bD" = (

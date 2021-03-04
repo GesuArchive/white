@@ -8245,6 +8245,10 @@
 /obj/item/melee/baton/loaded/german,
 /obj/item/melee/baton/loaded/german,
 /obj/item/melee/baton/loaded/german,
+/obj/item/shield/riot/military,
+/obj/item/shield/riot/military,
+/obj/item/shield/riot/military,
+/obj/item/shield/riot/military,
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "HP" = (
