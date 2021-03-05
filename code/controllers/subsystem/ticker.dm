@@ -277,6 +277,13 @@ SUBSYSTEM_DEF(ticker)
 			message_admins("<span class='notice'>ДЕБАГ: Обходим стартовые проверки... <b>Не забудьте отключить режим Debug-Game после успешного старта!</b></span>")
 
 	CHECK_TICK
+
+	// There may be various config settings that have been set or modified by this point.
+	// This is the point of no return before spawning in new players, let's run over the
+	// job trim singletons and update them based on any config settings.
+	SSid_access.refresh_job_trim_singletons()
+
+	CHECK_TICK
 	if(hide_mode)
 		var/list/modes = new
 		for (var/datum/game_mode/M in runnable_modes)
