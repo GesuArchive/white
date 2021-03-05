@@ -6,6 +6,7 @@
 	icon_state = "fawkes"
 	inhand_icon_state = "fawkes"
 	armor = list("melee" = 10, "bullet" = 20, "laser" = 0,"energy" = 10, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	modifies_speech = TRUE
 	var/cursed = TRUE
 
 /obj/item/clothing/mask/gas/anonist/equipped(mob/living/carbon/human/user, slot)
