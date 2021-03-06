@@ -169,7 +169,7 @@
 		icon_state = "beacon"
 		return
 	if(enslaved_meteors.len < catch_power)
-		if(last_catch < world.time + 1200 / 5)
+		if(last_catch < world.time + 1200 / catch_power)
 			var/turf/T = pick(RANGE_TURFS(5, src.loc))
 			if((locate(/obj/effect/meteor) in T.contents) || (!isopenspace(T) && !isspaceturf(T)))
 				return
