@@ -34,7 +34,7 @@
 
 /obj/item/integrated_circuit_printer/Initialize()
 	. = ..()
-	AddComponent(/datum/component/material_container, list(/datum/material/iron), MINERAL_MATERIAL_AMOUNT * 50, MATCONTAINER_EXAMINE, list(/datum/material/iron), list(/obj/item/integrated_circuit, /obj/item/electronic_assembly))
+	AddComponent(/datum/component/material_container, list(/datum/material/iron), MINERAL_MATERIAL_AMOUNT * 50, MATCONTAINER_EXAMINE, list(/datum/material/iron), list(/obj/item/stack, /obj/item/integrated_circuit, /obj/item/electronic_assembly))
 
 /obj/item/integrated_circuit_printer/proc/print_program(mob/user)
 	if(!cloning)
