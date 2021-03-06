@@ -121,7 +121,6 @@
 	circuit = /obj/item/circuitboard/machine/meteor_catcher
 	var/catch_power = 5
 	var/last_catch = 0
-	var/ork_work = FALSE
 	var/list/enslaved_meteors = list()
 
 /obj/machinery/meteor_catcher/examine(mob/user)
@@ -150,20 +149,18 @@
 	. = ..()
 	if(anchored)
 		if(get_dist(src, user) <= 1)
-			if(!ork_work)
+			if(!(datum_flags & DF_ISPROCESSING))
 				user.visible_message("<span class='notice'><b>[user]</b> включает <b>[src.name]</b>.</span>", \
 							"<span class='notice'>Включаю <b>[src.name]</b>.</span>", \
 							"<span class='hear'>Слышу тяжёлое жужжание.</span>")
 				START_PROCESSING(SSobj, src)
 				icon_state = "beacon_on"
-				ork_work = TRUE
 			else
 				user.visible_message("<span class='notice'><b>[user]</b> выключает <b>[src.name]</b>.</span>", \
 							"<span class='notice'>Выключаю <b>[src.name]</b>.</span>", \
 							"<span class='hear'>Слышу утихающее жужжание.</span>")
 				STOP_PROCESSING(SSobj, src)
 				icon_state = "beacon_off"
-				ork_work = FALSE
 	else
 		to_chat(user, "<span class='warning'><b>[capitalize(src.name)]</b> должен быть закреплён на полу!</span>")
 
@@ -171,7 +168,6 @@
 	if(!anchored)
 		STOP_PROCESSING(SSobj, src)
 		icon_state = "beacon"
-		visible_message("<span class='notice'><b>[capitalize(src.name)]</b> выключается.</span>")
 		return
 	if(enslaved_meteors.len < catch_power)
 		if(last_catch < world.time + 600 / 5)
