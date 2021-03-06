@@ -165,23 +165,24 @@
 				icon_state = "beacon_off"
 				ork_work = FALSE
 	else
-		to_chat(user, "<span class='warning'><b>[src]</b> должен быть закреплён на полу!</span>")
+		to_chat(user, "<span class='warning'><b>[capitalize(src.name)]</b> должен быть закреплён на полу!</span>")
 
 /obj/machinery/meteor_catcher/process()
 	if(!anchored)
 		STOP_PROCESSING(SSobj, src)
 		icon_state = "beacon"
+		visible_message("<span class='notice'><b>[capitalize(src.name)]</b> выключается.</span>")
 		return
 	if(enslaved_meteors.len < catch_power)
 		if(last_catch < world.time + 600 / 5)
-			var/turf/T = pick(RANGE_TURFS(4, src.loc))
+			var/turf/T = pick(RANGE_TURFS(5, src.loc))
 			if((locate(/obj/effect/meteor) in T.contents) || (!isopenspace(T) && !isspaceturf(T)))
 				return
 			var/obj/effect/meteor/M = pick(typesof(/obj/effect/meteor) - /obj/effect/meteor/pumpkin - /obj/effect/meteor/meaty - /obj/effect/meteor/meaty/xeno)
 			new M(T)
 			last_catch = world.time
 			enslaved_meteors += M
-			visible_message("<span class='notice'><b>[src.name]</b> лови в захват <b>[M]</b>.</span>")
+			visible_message("<span class='notice'><b>[capitalize(src.name)]</b> лови в захват <b>[M]</b>.</span>")
 			Beam(M, icon_state = "nzcrentrs_power", time = 3 SECONDS)
 			return
 	else
