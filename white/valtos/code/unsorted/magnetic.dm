@@ -111,7 +111,7 @@
 
 /obj/machinery/meteor_catcher
 	name = "сборщик метеоритов"
-	desc = "Создаёт небольшое гравитационное поле вокруг себя, которое позволяет притягивать метеоры. Работает в радиусе пяти метров."
+	desc = "Создаёт небольшое гравитационное поле вокруг себя, которое позволяет притягивать метеоры. Работает в радиусе пяти метров. Мультитул для смены режима."
 	icon = 'white/valtos/icons/power.dmi'
 	icon_state = "beacon_on"
 
@@ -122,10 +122,26 @@
 	var/catch_power = 5
 	var/last_catch = 0
 	var/list/enslaved_meteors = list()
+	var/asteroid_mode = FALSE
+	var/asteroid_catched = FALSE
+	var/asteroid_catching = FALSE
+	var/asteroid_catch_time = 600 SECONDS
+	var/list/valid_turfs = list()
+	var/list/ripples = list()
 
 /obj/machinery/meteor_catcher/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>Ловит максимум <b>[catch_power]</b> метеоров.</span>"
+	. += "<hr><span class='notice'><b>Режим:</b> [asteroid_mode ? "АСТЕРОИДЫ" : "МЕТЕОРЫ"].</span>"
+	if(asteroid_mode)
+		. += "\n<span class='notice'>Ловит объекты размером максимум <b>[catch_power] метров</b>.</span>"
+		if(asteroid_catching)
+			if(!asteroid_catched)
+				. += "\n<span class='notice'>Время до прилёта объекта <b>[DisplayTimeText(asteroid_catch_time / catch_power)]</b>.</span>"
+			else
+				. += "\n<span class='notice'>Время до отправки объекта <b>[DisplayTimeText(asteroid_catch_time / catch_power)]</b>.</span>"
+	else
+		. += "\n<span class='notice'>Ловит максимум <b>[catch_power] метеоров</b>.</span>"
+
 
 /obj/machinery/meteor_catcher/RefreshParts()
 	var/t = 0
@@ -134,6 +150,9 @@
 	catch_power = t
 
 /obj/machinery/meteor_catcher/attackby(obj/item/I, mob/living/user, params)
+	if(asteroid_catching)
+		to_chat(user, "<span class='warning'><b>[capitalize(src.name)]</b> занят!</span>")
+		return FALSE
 	if(I.tool_behaviour == TOOL_WRENCH)
 		if(default_unfasten_wrench(user, I, time = 20) == SUCCESSFUL_UNFASTEN)
 			if(anchored)
@@ -141,6 +160,10 @@
 			else
 				icon_state = "beacon"
 				STOP_PROCESSING(SSobj, src)
+	if(I.tool_behaviour == TOOL_MULTITOOL)
+		to_chat(user, "<span class='warning'>Меняю режим.</span>")
+		STOP_PROCESSING(SSobj, src)
+		asteroid_mode = !asteroid_mode
 	else
 		. = ..()
 
@@ -148,6 +171,16 @@
 	. = ..()
 	if(anchored)
 		if(get_dist(src, user) <= 1)
+			if(asteroid_catching)
+				to_chat(user, "<span class='warning'><b>[capitalize(src.name)]</b> занят!</span>")
+				return
+			if(asteroid_catched)
+				user.visible_message("<span class='notice'><b>[user]</b> включает <b>[src.name]</b>.</span>", \
+							"<span class='notice'>Включаю <b>[src.name]</b>.</span>", \
+							"<span class='hear'>Слышу тяжёлое жужжание.</span>")
+				START_PROCESSING(SSobj, src)
+				icon_state = "beacon_on"
+				return
 			if(!(datum_flags & DF_ISPROCESSING))
 				user.visible_message("<span class='notice'><b>[user]</b> включает <b>[src.name]</b>.</span>", \
 							"<span class='notice'>Включаю <b>[src.name]</b>.</span>", \
@@ -169,22 +202,100 @@
 		icon_state = "beacon"
 		return
 
-	for(var/obj/O in enslaved_meteors)
-		if(QDELETED(O))
-			enslaved_meteors -= O
-
-	if(enslaved_meteors.len < catch_power)
-		if(last_catch < world.time + 1200 / catch_power)
-			var/turf/T = pick(RANGE_TURFS(5, src.loc))
-			if((locate(/obj/effect/meteor) in T.contents) || (!isopenspace(T) && !isspaceturf(T)))
-				return
-			var/obj/meteor_to = pick(typesof(/obj/effect/meteor) - /obj/effect/meteor/pumpkin - /obj/effect/meteor/meaty - /obj/effect/meteor/meaty/xeno)
-			var/obj/effect/meteor/M = new meteor_to(T)
-			last_catch = world.time
-			enslaved_meteors += M
-			visible_message("<span class='notice'><b>[capitalize(src.name)]</b> ловит в захват <b>[M]</b>.</span>")
-			Beam(get_turf(M), icon_state = "nzcrentrs_power", time = 5 SECONDS)
+	if(asteroid_mode)
+		if(asteroid_catched)
+			if(!asteroid_catching)
+				for(var/T in valid_turfs)
+					ripples += new /obj/effect/abstract/ripple(T, asteroid_catch_time / catch_power)
+				asteroid_catching = TRUE
+			asteroid_catch_time -= 10 * catch_power
+			if(asteroid_catch_time <= 0)
+				for(var/turf/T in valid_turfs)
+					if(T.z == 2)
+						T.ChangeTurf(/turf/open/space/basic)
+					else
+						T.ChangeTurf(/turf/open/openspace/airless)
+					for(var/atom/A in T)
+						qdel(A)
+				asteroid_catched = FALSE
+				asteroid_catch_time = 600 SECONDS
+				asteroid_catching = FALSE
+				STOP_PROCESSING(SSobj, src)
+				icon_state = "beacon_off"
+				QDEL_LIST(ripples)
 			return
+		if(!asteroid_catching)
+			var/turf/point
+			var/turf/target
+			var/atom/movable/blocker
+			switch(dir)
+				if(WEST)
+					target = locate(1,y,z)
+					point = locate(x - 7,y,z)
+				if(EAST)
+					target = locate(world.maxx,y,z)
+					point = locate(x + 7,y,z)
+				if(NORTH)
+					target = locate(x,world.maxy,z)
+					point = locate(x,y + 7,z)
+				if(SOUTH)
+					target = locate(x,1,z)
+					point = locate(x,y - 7,z)
+			for(var/T in getline(get_step(point, dir), target))
+				var/turf/tile = T
+				if(isclosedturf(T))
+					point.Beam(T, icon_state = "nzcrentrs_power", time = 5 SECONDS)
+					STOP_PROCESSING(SSobj, src)
+					icon_state = "beacon_off"
+					return
+			QDEL_LIST(valid_turfs)
+			for(var/T in spiral_range_turfs(catch_power, src, TRUE))
+				if(isopenspace(T) && isspaceturf(T))
+					valid_turfs += T
+				else
+					new /obj/effect/particle_effect/sparks/quantum(T)
+					STOP_PROCESSING(SSobj, src)
+					icon_state = "beacon_off"
+					return
+			for(var/T in valid_turfs)
+				ripples += new /obj/effect/abstract/ripple(T, asteroid_catch_time / catch_power)
+			Beam(target, icon_state = "nzcrentrs_power", time = asteroid_catch_time / catch_power, maxdistance = world.maxx)
+			asteroid_catching = TRUE
+			icon_state = "beacon_on"
+		if(!asteroid_catched)
+			asteroid_catch_time -= 10 * catch_power
+			if(asteroid_catch_time <= 0)
+				for(var/turf/T in valid_turfs)
+					if(prob(90))
+						T.ChangeTurf(/turf/closed/mineral/random)
+					else
+						T.ChangeTurf(/turf/open/floor/plating/asteroid)
+				asteroid_catched = TRUE
+				QDEL_LIST(ripples)
+		else
+			asteroid_catch_time = 600 SECONDS
+			asteroid_catching = FALSE
+			STOP_PROCESSING(SSobj, src)
+			icon_state = "beacon_off"
+			return
+
 	else
-		icon_state = "beacon_off"
-		return
+		for(var/obj/O in enslaved_meteors)
+			if(QDELETED(O))
+				enslaved_meteors -= O
+
+		if(enslaved_meteors.len < catch_power)
+			if(last_catch < world.time + 1200 / catch_power)
+				var/turf/T = pick(RANGE_TURFS(5, src.loc))
+				if((locate(/obj/effect/meteor) in T.contents) || (!isopenspace(T) && !isspaceturf(T)))
+					return
+				var/obj/meteor_to = pick(typesof(/obj/effect/meteor) - /obj/effect/meteor/pumpkin - /obj/effect/meteor/meaty - /obj/effect/meteor/meaty/xeno)
+				var/obj/effect/meteor/M = new meteor_to(T)
+				last_catch = world.time
+				enslaved_meteors += M
+				visible_message("<span class='notice'><b>[capitalize(src.name)]</b> ловит в захват <b>[M]</b>.</span>")
+				Beam(get_turf(M), icon_state = "nzcrentrs_power", time = 5 SECONDS)
+				return
+		else
+			icon_state = "beacon_off"
+			return
