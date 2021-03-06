@@ -168,6 +168,11 @@
 		STOP_PROCESSING(SSobj, src)
 		icon_state = "beacon"
 		return
+
+	for(var/obj/O in enslaved_meteors)
+		if(QDELETED(O))
+			enslaved_meteors -= O
+
 	if(enslaved_meteors.len < catch_power)
 		if(last_catch < world.time + 1200 / catch_power)
 			var/turf/T = pick(RANGE_TURFS(5, src.loc))
