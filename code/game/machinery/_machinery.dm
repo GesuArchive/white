@@ -568,21 +568,21 @@
 		if(anchorables)
 			excluded_objects += anchorables
 		if(!anchored && ground.is_blocked_turf(exclude_mobs = TRUE, excluded_objects = excluded_objects))
-			to_chat(user, "<span class='notice'>You fail to secure [src].</span>")
+			to_chat(user, "<span class='notice'>Не вышло прикрутить <b>[src.name]</b>.</span>")
 			return CANT_UNFASTEN
 		var/can_be_unfasten = can_be_unfasten_wrench(user)
 		if(!can_be_unfasten || can_be_unfasten == FAILED_UNFASTEN)
 			return can_be_unfasten
 		if(time)
-			to_chat(user, "<span class='notice'>You begin [anchored ? "un" : ""]securing [src]...</span>")
+			to_chat(user, "<span class='notice'>Начинаю [anchored ? "от" : "при"]кручивать <b>[src.name]</b>...</span>")
 		I.play_tool_sound(src, 50)
 		var/prev_anchored = anchored
 		//as long as we're the same anchored state and we're either on a floor or are anchored, toggle our anchored state
 		if(I.use_tool(src, user, time, extra_checks = CALLBACK(src, .proc/unfasten_wrench_check, prev_anchored, user)))
 			if(!anchored && ground.is_blocked_turf(exclude_mobs = TRUE, excluded_objects = excluded_objects))//i know what you tryin to sneak in
-				to_chat(user, "<span class='notice'>You fail to secure [src].</span>")
+				to_chat(user, "<span class='notice'>Не вышло прикрутить <b>[src.name]</b>.</span>")
 				return CANT_UNFASTEN
-			to_chat(user, "<span class='notice'>You [anchored ? "un" : ""]secure [src].</span>")
+			to_chat(user, "<span class='notice'>[anchored ? "От" : "При"]кручиваю <b>[src.name]</b>.</span>")
 			set_anchored(!anchored)
 			playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
 			SEND_SIGNAL(src, COMSIG_OBJ_DEFAULT_UNFASTEN_WRENCH, anchored)

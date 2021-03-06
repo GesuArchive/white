@@ -87,7 +87,7 @@ no power level overlay is currently in the overlays list.
 
 				add_fingerprint(user)
 	else
-		to_chat(user, "<span class='warning'><b>[src]</b> должен быть надёждно закреплён на полу!</span>")
+		to_chat(user, "<span class='warning'><b>[src]</b> должен быть надёжно закреплён на полу!</span>")
 
 /obj/machinery/field/generator/set_anchored(anchorvalue)
 	. = ..()

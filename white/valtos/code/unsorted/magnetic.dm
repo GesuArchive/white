@@ -101,3 +101,81 @@
 			hooked_singulo.be_free()
 			hooked_singulo.alpha = 255
 			hooked_singulo = null
+
+/obj/item/circuitboard/machine/meteor_catcher
+	name = "Сборщик метеоритов (Оборудование)"
+	build_path = /obj/machinery/meteor_catcher
+	req_components = list(/obj/item/stock_parts/micro_laser = 2,
+		/obj/item/stock_parts/capacitor = 2,
+		/obj/item/stock_parts/electrolite = 1)
+
+/obj/machinery/meteor_catcher
+	name = "сборщик метеоритов"
+	desc = "Создаёт небольшое гравитационное поле вокруг себя, которое позволяет притягивать метеоры. Работает в радиусе пяти метров."
+	icon = 'white/valtos/icons/power.dmi'
+	icon_state = "beacon"
+
+	density = TRUE
+	anchored = TRUE
+
+	circuit = /obj/item/circuitboard/machine/meteor_catcher
+	var/catch_power = 5
+	var/last_catch = 0
+	var/list/enslaved_meteors = list()
+
+/obj/machinery/meteor_catcher/examine(mob/user)
+	. = ..()
+	. += "<hr><span class='notice'>Ловит максимум <b>[catch_power]</b> метеоров.</span>"
+
+/obj/machinery/meteor_catcher/RefreshParts()
+	var/t = 0
+	for(var/obj/item/stock_parts/L in component_parts)
+		t += L.rating
+	catch_power = t
+
+/obj/machinery/meteor_catcher/attackby(obj/item/I, mob/living/user, params)
+	if(I.tool_behaviour == TOOL_WRENCH)
+		if(default_unfasten_wrench(user, I, time = 20) == SUCCESSFUL_UNFASTEN)
+			if(anchored)
+				icon_state = "beacon_on"
+				START_PROCESSING(SSobj, src)
+			else
+				icon_state = "beacon"
+				STOP_PROCESSING(SSobj, src)
+	else
+		. = ..()
+
+/obj/machinery/meteor_catcher/interact(mob/living/user)
+	. = ..()
+	if(anchored)
+		if(get_dist(src, user) <= 1)
+			user.visible_message("<span class='notice'><b>[user]</b> включает <b>[src.name]</b>.</span>", \
+						"<span class='notice'>Включаю <b>[src.name]</b>.</span>", \
+						"<span class='hear'>Слышу тяжёлое жужжание.</span>")
+			START_PROCESSING(SSobj, src)
+			icon_state = "beacon_on"
+	else
+		to_chat(user, "<span class='warning'><b>[src]</b> должен быть закреплён на полу!</span>")
+
+/obj/machinery/meteor_catcher/process()
+	if(!anchored)
+		STOP_PROCESSING(SSobj, src)
+		icon_state = "beacon"
+		return
+	if(enslaved_meteors.len < catch_power)
+		if(last_catch < world.time + 600 / 5)
+			var/turf/T = pick(RANGE_TURFS(5, src.loc))
+			if((locate(/obj/effect/meteor) in T.contents) || (!isopenspace(T) && !isspaceturf(T)))
+				return
+			var/obj/effect/meteor/M = pick(typesof(/obj/effect/meteor))
+			new M(T)
+			last_catch = world.time
+			M.anchored = TRUE
+			M.density = TRUE
+			enslaved_meteors.Add(M)
+			visible_message("<span class='notice'><b>[src.name]</b> лови в захват <b>[M]</b>.</span>")
+			Beam(M, icon_state = "nzcrentrs_power", time = 3 SECONDS)
+			return
+	else
+		icon_state = "beacon_off"
+		return
