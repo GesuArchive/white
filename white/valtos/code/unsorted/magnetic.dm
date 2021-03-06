@@ -243,13 +243,13 @@
 			for(var/T in getline(get_step(point, dir), target))
 				var/turf/tile = T
 				if(isclosedturf(tile))
-					point.Beam(tile, icon_state = "nzcrentrs_power", time = 5 SECONDS)
+					Beam(tile, icon_state = "nzcrentrs_power", time = 5 SECONDS)
 					STOP_PROCESSING(SSobj, src)
 					icon_state = "beacon_off"
 					return
 			QDEL_LIST(valid_turfs)
-			for(var/T in spiral_range_turfs(catch_power, src, TRUE))
-				if(isopenspace(T) && isspaceturf(T))
+			for(var/T in spiral_range_turfs(catch_power, point, TRUE))
+				if(isopenspace(T) || isspaceturf(T))
 					valid_turfs += T
 				else
 					new /obj/effect/particle_effect/sparks/quantum(T)
