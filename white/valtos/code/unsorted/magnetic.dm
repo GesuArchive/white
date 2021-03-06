@@ -169,7 +169,7 @@
 		icon_state = "beacon"
 		return
 	if(enslaved_meteors.len < catch_power)
-		if(last_catch < world.time + 600 / 5)
+		if(last_catch < world.time + 1200 / 5)
 			var/turf/T = pick(RANGE_TURFS(5, src.loc))
 			if((locate(/obj/effect/meteor) in T.contents) || (!isopenspace(T) && !isspaceturf(T)))
 				return
@@ -178,7 +178,7 @@
 			last_catch = world.time
 			enslaved_meteors += M
 			visible_message("<span class='notice'><b>[capitalize(src.name)]</b> лови в захват <b>[M]</b>.</span>")
-			Beam(M, icon_state = "nzcrentrs_power", time = 3 SECONDS)
+			Beam(get_turf(M), icon_state = "nzcrentrs_power", time = 5 SECONDS)
 			return
 	else
 		icon_state = "beacon_off"
