@@ -177,7 +177,7 @@
 			var/obj/effect/meteor/M = new meteor_to(T)
 			last_catch = world.time
 			enslaved_meteors += M
-			visible_message("<span class='notice'><b>[capitalize(src.name)]</b> лови в захват <b>[M]</b>.</span>")
+			visible_message("<span class='notice'><b>[capitalize(src.name)]</b> ловит в захват <b>[M]</b>.</span>")
 			Beam(get_turf(M), icon_state = "nzcrentrs_power", time = 5 SECONDS)
 			return
 	else
