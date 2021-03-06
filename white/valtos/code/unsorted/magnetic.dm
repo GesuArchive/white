@@ -173,7 +173,8 @@
 			var/turf/T = pick(RANGE_TURFS(5, src.loc))
 			if((locate(/obj/effect/meteor) in T.contents) || (!isopenspace(T) && !isspaceturf(T)))
 				return
-			var/obj/effect/meteor/M = new pick(typesof(/obj/effect/meteor) - /obj/effect/meteor/pumpkin - /obj/effect/meteor/meaty - /obj/effect/meteor/meaty/xeno)(T)
+			var/obj/meteor_to = pick(typesof(/obj/effect/meteor) - /obj/effect/meteor/pumpkin - /obj/effect/meteor/meaty - /obj/effect/meteor/meaty/xeno)
+			var/obj/effect/meteor/M = new meteor_to(T)
 			last_catch = world.time
 			enslaved_meteors += M
 			visible_message("<span class='notice'><b>[capitalize(src.name)]</b> лови в захват <b>[M]</b>.</span>")
