@@ -137,8 +137,7 @@
 	if(I.tool_behaviour == TOOL_WRENCH)
 		if(default_unfasten_wrench(user, I, time = 20) == SUCCESSFUL_UNFASTEN)
 			if(anchored)
-				icon_state = "beacon_on"
-				START_PROCESSING(SSobj, src)
+				icon_state = "beacon_off"
 			else
 				icon_state = "beacon"
 				STOP_PROCESSING(SSobj, src)
