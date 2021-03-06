@@ -227,7 +227,6 @@
 		if(!asteroid_catching)
 			var/turf/point
 			var/turf/target
-			var/atom/movable/blocker
 			switch(dir)
 				if(WEST)
 					target = locate(1,y,z)
@@ -243,8 +242,8 @@
 					point = locate(x,y - 7,z)
 			for(var/T in getline(get_step(point, dir), target))
 				var/turf/tile = T
-				if(isclosedturf(T))
-					point.Beam(T, icon_state = "nzcrentrs_power", time = 5 SECONDS)
+				if(isclosedturf(tile))
+					point.Beam(tile, icon_state = "nzcrentrs_power", time = 5 SECONDS)
 					STOP_PROCESSING(SSobj, src)
 					icon_state = "beacon_off"
 					return
