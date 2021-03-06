@@ -113,7 +113,7 @@
 	name = "сборщик метеоритов"
 	desc = "Создаёт небольшое гравитационное поле вокруг себя, которое позволяет притягивать метеоры. Работает в радиусе пяти метров."
 	icon = 'white/valtos/icons/power.dmi'
-	icon_state = "beacon"
+	icon_state = "beacon_on"
 
 	density = TRUE
 	anchored = TRUE
@@ -180,7 +180,7 @@
 			var/obj/effect/meteor/M = pick(typesof(/obj/effect/meteor) - /obj/effect/meteor/pumpkin - /obj/effect/meteor/meaty - /obj/effect/meteor/meaty/xeno)
 			new M(T)
 			last_catch = world.time
-			enslaved_meteors.Add(M)
+			enslaved_meteors += M
 			visible_message("<span class='notice'><b>[src.name]</b> лови в захват <b>[M]</b>.</span>")
 			Beam(M, icon_state = "nzcrentrs_power", time = 3 SECONDS)
 			return
