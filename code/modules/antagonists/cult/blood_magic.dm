@@ -603,7 +603,7 @@
 				candidate.color = "black"
 				if(do_after(user, 90, target = candidate))
 					candidate.emp_act(EMP_HEAVY)
-					var/static/list/constructs = list(
+					var/list/constructs = list(
 						"Juggernaut" = image(icon = 'icons/mob/cult.dmi', icon_state = "juggernaut"),
 						"Wraith" = image(icon = 'icons/mob/cult.dmi', icon_state = "wraith"),
 						"Artificer" = image(icon = 'icons/mob/cult.dmi', icon_state = "artificer")
@@ -661,7 +661,7 @@
 
 /obj/item/melee/blood_magic/construction/proc/check_menu(mob/user)
 	if(!istype(user))
-		CRASH("The cult construct selection radial menu was accessed by something other than a valid user.")
+		return FALSE
 	if(user.incapacitated() || !user.Adjacent(src))
 		return FALSE
 	return TRUE
@@ -695,7 +695,7 @@
 
 /obj/item/melee/blood_magic/manipulator/examine(mob/user)
 	. = ..()
-	. += "<hr>Bloody halberd, blood bolt barrage, and blood beam cost [BLOOD_HALBERD_COST], [BLOOD_BARRAGE_COST], and [BLOOD_BEAM_COST] charges respectively."
+	. += "<hr>Blood spear, blood bolt barrage, and blood beam cost [BLOOD_SPEAR_COST], [BLOOD_BARRAGE_COST], and [BLOOD_BEAM_COST] charges respectively."
 
 /obj/item/melee/blood_magic/manipulator/afterattack(atom/target, mob/living/carbon/human/user, proximity)
 	if(proximity)
@@ -803,27 +803,23 @@
 
 /obj/item/melee/blood_magic/manipulator/attack_self(mob/living/user)
 	if(iscultist(user))
-		var/static/list/spells = list(
-			"Bloody Halberd (150)" = image(icon = 'icons/obj/items_and_weapons.dmi', icon_state = "occultpoleaxe0"),
-			"Blood Bolt Barrage (300)" = image(icon = 'icons/obj/guns/projectile.dmi', icon_state = "arcane_barrage"),
-			"Blood Beam (500)" = image(icon = 'icons/obj/items_and_weapons.dmi', icon_state = "disintegrate")
-			)
-		var/choice = show_radial_menu(user, src, spells, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE)
-		if(!check_menu(user))
+		var/list/options = list("Blood Spear (150)", "Blood Bolt Barrage (300)", "Blood Beam (500)")
+		var/choice = input(user, "Choose a greater blood rite...", "Greater Blood Rites") as null|anything in options
+		if(!choice)
 			to_chat(user, "<span class='cultitalic'>You decide against conducting a greater blood rite.</span>")
 			return
 		switch(choice)
-			if("Bloody Halberd (150)")
-				if(uses < BLOOD_HALBERD_COST)
-					to_chat(user, "<span class='cultitalic'>You need [BLOOD_HALBERD_COST] charges to perform this rite.</span>")
+			if("Blood Spear (150)")
+				if(uses < BLOOD_SPEAR_COST)
+					to_chat(user, "<span class='cultitalic'>You need [BLOOD_SPEAR_COST] charges to perform this rite.</span>")
 				else
-					uses -= BLOOD_HALBERD_COST
-					var/turf/current_position = get_turf(user)
+					uses -= BLOOD_SPEAR_COST
+					var/turf/T = get_turf(user)
 					qdel(src)
-					var/datum/action/innate/cult/halberd/halberd_act_granted = new(user)
-					var/obj/item/melee/cultblade/halberd/rite = new(current_position)
-					halberd_act_granted.Grant(user, rite)
-					rite.halberd_act = halberd_act_granted
+					var/datum/action/innate/cult/spear/S = new(user)
+					var/obj/item/cult_spear/rite = new(T)
+					S.Grant(user, rite)
+					rite.spear_act = S
 					if(user.put_in_hands(rite))
 						to_chat(user, "<span class='cultitalic'>A [rite.name] appears in your hand!</span>")
 					else
@@ -853,10 +849,3 @@
 					else
 						to_chat(user, "<span class='cultitalic'>You need a free hand for this rite!</span>")
 						qdel(rite)
-
-/obj/item/melee/blood_magic/manipulator/proc/check_menu(mob/living/user)
-	if(!istype(user))
-		CRASH("The Blood Rites manipulator radial menu was accessed by something other than a valid user.")
-	if(user.incapacitated() || !user.Adjacent(src))
-		return FALSE
-	return TRUE
