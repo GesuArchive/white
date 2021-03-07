@@ -128,6 +128,7 @@
 	var/asteroid_catched = FALSE
 	var/asteroid_catching = FALSE
 	var/asteroid_catch_time = 600 SECONDS
+	var/last_err = "ГОТОВ К РАБОТЕ"
 	var/list/valid_turfs = list()
 	var/list/ripples = list()
 
@@ -141,6 +142,7 @@
 				. += "\n<span class='notice'>Время до прилёта объекта <b>[DisplayTimeText(asteroid_catch_time / catch_power)]</b>.</span>"
 			else
 				. += "\n<span class='notice'>Время до отправки объекта <b>[DisplayTimeText(asteroid_catch_time / catch_power)]</b>.</span>"
+		. += "\n<span class='notice'><b>Последняя ошибка:</b> [last_err].</span>"
 	else
 		. += "\n<span class='notice'>Ловит максимум <b>[catch_power] метеоров</b>.</span>"
 
@@ -162,10 +164,12 @@
 			else
 				icon_state = "beacon"
 				STOP_PROCESSING(SSobj, src)
+			return
 	if(I.tool_behaviour == TOOL_MULTITOOL)
 		to_chat(user, "<span class='warning'>Меняю режим.</span>")
 		STOP_PROCESSING(SSobj, src)
 		asteroid_mode = !asteroid_mode
+		return
 
 	if(user.a_intent != INTENT_HARM && !(I.item_flags & NOBLUDGEON))
 		return attack_hand(user)
@@ -203,6 +207,7 @@
 /obj/machinery/meteor_catcher/process()
 	if(!anchored)
 		icon_state = "beacon"
+		last_err = "НЕТ ОПОРЫ"
 		return PROCESS_KILL
 
 	if(asteroid_mode)
@@ -211,13 +216,13 @@
 				for(var/T in valid_turfs)
 					ripples += new /obj/effect/abstract/ripple(T, asteroid_catch_time / catch_power)
 				asteroid_catching = TRUE
-			asteroid_catch_time -= 10 * catch_power
+			asteroid_catch_time -= (10 * catch_power) * 2
 			if(asteroid_catch_time <= 0)
 				for(var/turf/T in valid_turfs)
 					if(T.z == 2)
-						T.ChangeTurf(/turf/open/space/basic)
+						T.ChangeTurf(/turf/open/space/basic, /turf/open/space/basic)
 					else
-						T.ChangeTurf(/turf/open/openspace/airless)
+						T.ChangeTurf(/turf/open/openspace/airless, /turf/open/openspace/airless)
 					for(var/atom/A in T)
 						qdel(A)
 				asteroid_catched = FALSE
@@ -225,6 +230,7 @@
 				asteroid_catching = FALSE
 				icon_state = "beacon_off"
 				QDEL_LIST(ripples)
+				last_err = "ГОТОВ К РАБОТЕ"
 				return PROCESS_KILL
 			return
 		if(!asteroid_catching)
@@ -248,14 +254,16 @@
 				if(isclosedturf(tile))
 					Beam(tile, icon_state = "nzcrentrs_power", time = 5 SECONDS)
 					icon_state = "beacon_off"
+					last_err = "ЧТО-ТО МАССИВНОЕ НА ПУТИ. ОТМЕНА"
 					return PROCESS_KILL
 			valid_turfs.Cut()
-			for(var/T in circleviewturfs(point, catch_power))
+			for(var/T in circleviewturfs(point, round(catch_power * 0.75)))
 				if(isopenspace(T) || isspaceturf(T))
 					valid_turfs += T
 				else
 					new /obj/effect/particle_effect/sparks/quantum(T)
 					icon_state = "beacon_off"
+					last_err = "НЕДОСТАТОЧНО МЕСТА ДЛЯ АКТИВАЦИИ ЗАХВАТА. ОТМЕНА"
 					return PROCESS_KILL
 			for(var/T in valid_turfs)
 				ripples += new /obj/effect/abstract/ripple(T, asteroid_catch_time / catch_power)
@@ -264,18 +272,19 @@
 			icon_state = "beacon_on"
 			return
 		if(!asteroid_catched)
-			asteroid_catch_time -= 10 * catch_power
+			asteroid_catch_time -= (10 * catch_power) * 2
 			if(asteroid_catch_time <= 0)
 				for(var/turf/T in valid_turfs)
 					if(prob(90))
-						T.ChangeTurf(/turf/closed/mineral/random)
+						T.ChangeTurf(/turf/closed/mineral/random, /turf/open/floor/plating/asteroid)
 					else
-						T.ChangeTurf(/turf/open/floor/plating/asteroid)
+						T.ChangeTurf(/turf/open/floor/plating/asteroid, /turf/open/floor/plating/asteroid)
 				asteroid_catched = TRUE
 				asteroid_catch_time = 600 SECONDS
 				asteroid_catching = FALSE
 				icon_state = "beacon_off"
 				QDEL_LIST(ripples)
+				last_err = "ГОТОВ К РАБОТЕ"
 				return PROCESS_KILL
 		return
 	else
