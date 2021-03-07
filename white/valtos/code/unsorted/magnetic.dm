@@ -250,7 +250,7 @@
 					icon_state = "beacon_off"
 					return PROCESS_KILL
 			valid_turfs.Cut()
-			for(var/T in circlerange(point, catch_power))
+			for(var/T in circleviewturfs(point, catch_power))
 				if(isopenspace(T) || isspaceturf(T))
 					valid_turfs += T
 				else
