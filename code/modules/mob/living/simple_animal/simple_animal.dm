@@ -250,8 +250,9 @@
 /mob/living/simple_animal/examine(mob/user)
 	. = ..()
 	if(stat == DEAD)
-		. += "<hr><span class='deadsay'>Эта тварь больше не шевелится и похоже мертва.</span>"
-
+		. += "<span class='deadsay'Эта тварь больше не шевелится.</span>"
+	if(access_card)
+		. += "Кто-то прикрепил [icon2html(access_card, user)] [access_card] к этой твари."
 
 /mob/living/simple_animal/update_stat()
 	if(status_flags & GODMODE)
