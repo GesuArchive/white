@@ -115,6 +115,8 @@
 	icon = 'white/valtos/icons/power.dmi'
 	icon_state = "beacon_on"
 
+	processing_flags = START_PROCESSING_MANUALLY
+
 	density = TRUE
 	anchored = TRUE
 
@@ -170,40 +172,38 @@
 	else
 		return ..()
 
-/obj/machinery/meteor_catcher/interact(mob/living/user)
+/obj/machinery/meteor_catcher/attack_hand(mob/living/user)
 	. = ..()
 	if(anchored)
-		if(get_dist(src, user) <= 1)
-			if(asteroid_catching)
-				to_chat(user, "<span class='warning'><b>[capitalize(src.name)]</b> занят!</span>")
-				return
-			if(asteroid_catched)
-				user.visible_message("<span class='notice'><b>[user]</b> включает <b>[src.name]</b>.</span>", \
-							"<span class='notice'>Включаю <b>[src.name]</b>.</span>", \
-							"<span class='hear'>Слышу тяжёлое жужжание.</span>")
-				START_PROCESSING(SSobj, src)
-				icon_state = "beacon_on"
-				return
-			if(!(datum_flags & DF_ISPROCESSING))
-				user.visible_message("<span class='notice'><b>[user]</b> включает <b>[src.name]</b>.</span>", \
-							"<span class='notice'>Включаю <b>[src.name]</b>.</span>", \
-							"<span class='hear'>Слышу тяжёлое жужжание.</span>")
-				START_PROCESSING(SSobj, src)
-				icon_state = "beacon_on"
-			else
-				user.visible_message("<span class='notice'><b>[user]</b> выключает <b>[src.name]</b>.</span>", \
-							"<span class='notice'>Выключаю <b>[src.name]</b>.</span>", \
-							"<span class='hear'>Слышу утихающее жужжание.</span>")
-				STOP_PROCESSING(SSobj, src)
-				icon_state = "beacon_off"
+		if(asteroid_catching)
+			to_chat(user, "<span class='warning'><b>[capitalize(src.name)]</b> занят!</span>")
+			return
+		if(asteroid_catched)
+			user.visible_message("<span class='notice'><b>[user]</b> включает <b>[src.name]</b>.</span>", \
+						"<span class='notice'>Включаю <b>[src.name]</b>.</span>", \
+						"<span class='hear'>Слышу тяжёлое жужжание.</span>")
+			START_PROCESSING(SSobj, src)
+			icon_state = "beacon_on"
+			return
+		if(!(datum_flags & DF_ISPROCESSING))
+			user.visible_message("<span class='notice'><b>[user]</b> включает <b>[src.name]</b>.</span>", \
+						"<span class='notice'>Включаю <b>[src.name]</b>.</span>", \
+						"<span class='hear'>Слышу тяжёлое жужжание.</span>")
+			START_PROCESSING(SSobj, src)
+			icon_state = "beacon_on"
+		else
+			user.visible_message("<span class='notice'><b>[user]</b> выключает <b>[src.name]</b>.</span>", \
+						"<span class='notice'>Выключаю <b>[src.name]</b>.</span>", \
+						"<span class='hear'>Слышу утихающее жужжание.</span>")
+			STOP_PROCESSING(SSobj, src)
+			icon_state = "beacon_off"
 	else
 		to_chat(user, "<span class='warning'><b>[capitalize(src.name)]</b> должен быть закреплён на полу!</span>")
 
 /obj/machinery/meteor_catcher/process()
 	if(!anchored)
-		STOP_PROCESSING(SSobj, src)
 		icon_state = "beacon"
-		return
+		return PROCESS_KILL
 
 	if(asteroid_mode)
 		if(asteroid_catched)
@@ -223,9 +223,9 @@
 				asteroid_catched = FALSE
 				asteroid_catch_time = 600 SECONDS
 				asteroid_catching = FALSE
-				STOP_PROCESSING(SSobj, src)
 				icon_state = "beacon_off"
 				QDEL_LIST(ripples)
+				return PROCESS_KILL
 			return
 		if(!asteroid_catching)
 			var/turf/point
@@ -247,23 +247,22 @@
 				var/turf/tile = T
 				if(isclosedturf(tile))
 					Beam(tile, icon_state = "nzcrentrs_power", time = 5 SECONDS)
-					STOP_PROCESSING(SSobj, src)
 					icon_state = "beacon_off"
-					return
+					return PROCESS_KILL
 			valid_turfs.Cut()
-			for(var/T in spiral_range_turfs(catch_power, point))
+			for(var/T in circlerange(point, catch_power))
 				if(isopenspace(T) || isspaceturf(T))
 					valid_turfs += T
 				else
 					new /obj/effect/particle_effect/sparks/quantum(T)
-					STOP_PROCESSING(SSobj, src)
 					icon_state = "beacon_off"
-					return
+					return PROCESS_KILL
 			for(var/T in valid_turfs)
 				ripples += new /obj/effect/abstract/ripple(T, asteroid_catch_time / catch_power)
 			Beam(target, icon_state = "nzcrentrs_power", time = asteroid_catch_time / catch_power, maxdistance = world.maxx)
 			asteroid_catching = TRUE
 			icon_state = "beacon_on"
+			return
 		if(!asteroid_catched)
 			asteroid_catch_time -= 10 * catch_power
 			if(asteroid_catch_time <= 0)
@@ -275,10 +274,9 @@
 				asteroid_catched = TRUE
 				asteroid_catch_time = 600 SECONDS
 				asteroid_catching = FALSE
-				STOP_PROCESSING(SSobj, src)
 				icon_state = "beacon_off"
 				QDEL_LIST(ripples)
-				return
+				return PROCESS_KILL
 		return
 	else
 		for(var/obj/O in enslaved_meteors)
