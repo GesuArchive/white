@@ -113,7 +113,7 @@
 	name = "сборщик метеоритов"
 	desc = "Создаёт небольшое гравитационное поле вокруг себя, которое позволяет притягивать метеоры. Работает в радиусе пяти метров. Мультитул для смены режима."
 	icon = 'white/valtos/icons/power.dmi'
-	icon_state = "beacon_on"
+	icon_state = "beacon_off"
 
 	processing_flags = START_PROCESSING_MANUALLY
 
