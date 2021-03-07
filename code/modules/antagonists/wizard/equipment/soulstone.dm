@@ -9,15 +9,11 @@
 	desc = "A fragment of the legendary treasure known simply as the 'Soul Stone'. The shard still flickers with a fraction of the full artefact's power."
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_BELT
+	var/usability = FALSE
+
 	var/old_shard = FALSE
 	var/spent = FALSE
-	/// This controls the color of the soulstone as well as restrictions for who can use it. THEME_CULT is red and is the default of cultist THEME_WIZARD is purple and is the default of wizard and THEME_HOLY is for purified soul stone
-	var/theme = THEME_CULT
-	/// Role check, if any needed
-	var/required_role = /datum/antagonist/cult
-
-/obj/item/soulstone/proc/role_check(mob/who)
-	return required_role ? (who.mind && who.mind.has_antag_datum(required_role, TRUE)) : TRUE
+	var/purified = FALSE
 
 /obj/item/soulstone/proc/was_used()
 	if(old_shard)
@@ -28,17 +24,13 @@
 			whatever spark it once held long extinguished."
 
 /obj/item/soulstone/anybody
-	required_role = null
-
-/obj/item/soulstone/mystic
-	icon_state = "mystic_soulstone"
-	theme = THEME_WIZARD
-	required_role = /datum/antagonist/wizard
+	usability = TRUE
 
 /obj/item/soulstone/anybody/revolver
 	old_shard = TRUE
 
 /obj/item/soulstone/anybody/purified
+	icon = 'icons/obj/wizard.dmi'
 	icon_state = "purified_soulstone"
 	purified = TRUE
 
@@ -48,12 +40,12 @@
 
 /obj/item/soulstone/pickup(mob/living/user)
 	..()
-	if(!role_check(user))
+	if(!iscultist(user) && !iswizard(user) && !usability)
 		to_chat(user, "<span class='danger'>An overwhelming feeling of dread comes over you as you pick up [src]. It would be wise to be rid of this quickly.</span>")
 
 /obj/item/soulstone/examine(mob/user)
 	. = ..()
-	if(role_check(user) || isobserver(user))
+	if(usability || iscultist(user) || iswizard(user) || isobserver(user))
 		if (old_shard)
 			. += "<hr><span class='cult'>A soulstone, used to capture a soul, either from dead humans or from freed shades.</span>"
 		else
@@ -78,7 +70,7 @@
 //////////////////////////////Capturing////////////////////////////////////////////////////////
 
 /obj/item/soulstone/attack(mob/living/carbon/human/M, mob/living/user)
-	if(!role_check(user))
+	if(!iscultist(user) && !iswizard(user) && !usability)
 		user.Unconscious(100)
 		to_chat(user, "<span class='userdanger'>Your body is wracked with debilitating pain!</span>")
 		return
@@ -87,10 +79,11 @@
 		return
 	if(!ishuman(M))//If target is not a human.
 		return ..()
-	if(iscultist(M) && iscultist(user))
-		to_chat(user, "<span class='cultlarge'>\"Come now, do not capture your bretheren's soul.\"</span>")
-		return
-	if(theme == THEME_HOLY && iscultist(user))
+	if(iscultist(M))
+		if(iscultist(user))
+			to_chat(user, "<span class='cultlarge'>\"Come now, do not capture your bretheren's soul.\"</span>")
+			return
+	if(purified && iscultist(user))
 		hot_potato(user)
 		return
 	log_combat(user, M, "captured [M.name] soul", src)
@@ -101,7 +94,7 @@
 /obj/item/soulstone/attack_self(mob/living/user)
 	if(!in_range(src, user))
 		return
-	if(!role_check(user))
+	if(!iscultist(user) && !iswizard(user) && !usability)
 		user.Unconscious(100)
 		to_chat(user, "<span class='userdanger'>Your body is wracked with debilitating pain!</span>")
 		return
@@ -114,24 +107,18 @@
 	for(var/mob/living/simple_animal/shade/A in src)
 		A.forceMove(get_turf(user))
 		A.cancel_camera()
-		switch(theme)
-			if(THEME_HOLY)
-				icon_state = "purified_soulstone"
-				A.icon_state = "shade_holy"
-				A.name = "Purified [initial(A.name)]"
-				A.loot = list(/obj/item/ectoplasm/angelic)
-			if(THEME_WIZARD)
-				icon_state = "mystic_soulstone"
-				A.icon_state = "shade_wizard"
-				A.loot = list(/obj/item/ectoplasm/mystic)
-			if(THEME_CULT)
-				icon_state = "soulstone"
+		if(purified)
+			icon_state = "purified_soulstone"
+			A.icon_state = "shade_angelic"
+			A.name = "Purified [initial(A.name)]"
+		else
+			icon_state = "soulstone"
 		name = initial(name)
 		if(!silent)
-			if(iscultist(user))
+			if(iswizard(user) || usability)
+				to_chat(A, "<b>You have been released from your prison, but you are still bound to [user.real_name] will. Help [user.p_them()] succeed in [user.p_their()] goals at all costs.</b>")
+			else if(iscultist(user))
 				to_chat(A, "<b>You have been released from your prison, but you are still bound to the cult's will. Help them succeed in their goals at all costs.</b>")
-			else if(role_check(user))
-				to_chat(A, "<b>You have been released from your prison, but you are still bound to [user.real_name]'s will. Help [user.p_them()] succeed in [user.p_their()] goals at all costs.</b>")
 		was_used()
 
 /obj/item/soulstone/pre_attack(atom/A, mob/living/user, params)
@@ -143,7 +130,7 @@
 	if(purified && iscultist(user))
 		hot_potato(user)
 		return
-	if(!role_check(user))
+	if(!iscultist(user) && !iswizard(user) && !usability)
 		user.Unconscious(10 SECONDS)
 		to_chat(user, "<span class='userdanger'>Your body is wracked with debilitating pain!</span>")
 		return
@@ -259,7 +246,7 @@
 			var/obj/structure/constructshell/T = target
 			var/mob/living/simple_animal/shade/A = locate() in src
 			if(A)
-				var/static/list/constructs = list(
+				var/list/constructs = list(
 					"Juggernaut" = image(icon = 'icons/mob/cult.dmi', icon_state = "juggernaut"),
 					"Wraith" = image(icon = 'icons/mob/cult.dmi', icon_state = "wraith"),
 					"Artificer" = image(icon = 'icons/mob/cult.dmi', icon_state = "artificer")
@@ -269,38 +256,29 @@
 					return
 				switch(construct_class)
 					if("Juggernaut")
-						if(iscultist(user))
-							makeNewConstruct(/mob/living/simple_animal/hostile/construct/juggernaut, A, user, FALSE, T.loc)
+						if(iscultist(user) || iswizard(user))
+							makeNewConstruct(/mob/living/simple_animal/hostile/construct/juggernaut, A, user, 0, T.loc)
 						else
-							switch(theme)
-								if(THEME_WIZARD)
-									makeNewConstruct(/mob/living/simple_animal/hostile/construct/juggernaut/mystic, A, user, FALSE, T.loc)
-								if(THEME_HOLY)
-									makeNewConstruct(/mob/living/simple_animal/hostile/construct/juggernaut/angelic, A, user, FALSE, T.loc)
-								if(THEME_CULT)
-									makeNewConstruct(/mob/living/simple_animal/hostile/construct/juggernaut/noncult, A, user, FALSE, T.loc)
+							if(purified)
+								makeNewConstruct(/mob/living/simple_animal/hostile/construct/juggernaut/angelic, A, user, 0, T.loc)
+							else
+								makeNewConstruct(/mob/living/simple_animal/hostile/construct/juggernaut/noncult, A, user, 0, T.loc)
 					if("Wraith")
-						if(iscultist(user))
-							makeNewConstruct(/mob/living/simple_animal/hostile/construct/juggernaut, A, user, FALSE, T.loc)
+						if(iscultist(user) || iswizard(user))
+							makeNewConstruct(/mob/living/simple_animal/hostile/construct/wraith, A, user, 0, T.loc)
 						else
-							switch(theme)
-								if(THEME_WIZARD)
-									makeNewConstruct(/mob/living/simple_animal/hostile/construct/wraith/mystic, A, user, FALSE, T.loc)
-								if(THEME_HOLY)
-									makeNewConstruct(/mob/living/simple_animal/hostile/construct/wraith/angelic, A, user, FALSE, T.loc)
-								if(THEME_CULT)
-									makeNewConstruct(/mob/living/simple_animal/hostile/construct/wraith/noncult, A, user, FALSE, T.loc)
+							if(purified)
+								makeNewConstruct(/mob/living/simple_animal/hostile/construct/wraith/angelic, A, user, 0, T.loc)
+							else
+								makeNewConstruct(/mob/living/simple_animal/hostile/construct/wraith/noncult, A, user, 0, T.loc)
 					if("Artificer")
-						if(iscultist(user))
-							makeNewConstruct(/mob/living/simple_animal/hostile/construct/artificer, A, user, FALSE, T.loc)
+						if(iscultist(user) || iswizard(user))
+							makeNewConstruct(/mob/living/simple_animal/hostile/construct/artificer, A, user, 0, T.loc)
 						else
-							switch(theme)
-								if(THEME_WIZARD)
-									makeNewConstruct(/mob/living/simple_animal/hostile/construct/artificer/mystic, A, user, FALSE, T.loc)
-								if(THEME_HOLY)
-									makeNewConstruct(/mob/living/simple_animal/hostile/construct/artificer/angelic, A, user, FALSE, T.loc)
-								if(THEME_CULT)
-									makeNewConstruct(/mob/living/simple_animal/hostile/construct/artificer/noncult, A, user, FALSE, T.loc)
+							if(purified)
+								makeNewConstruct(/mob/living/simple_animal/hostile/construct/artificer/angelic, A, user, 0, T.loc)
+							else
+								makeNewConstruct(/mob/living/simple_animal/hostile/construct/artificer/noncult, A, user, 0, T.loc)
 					else
 						return
 				for(var/datum/mind/B in SSticker.mode.cult)
@@ -318,13 +296,13 @@
 		return FALSE
 	return TRUE
 
-/proc/makeNewConstruct(mob/living/simple_animal/hostile/construct/ctype, mob/target, mob/stoner = null, cultoverride = FALSE, loc_override = null)
+/proc/makeNewConstruct(mob/living/simple_animal/hostile/construct/ctype, mob/target, mob/stoner = null, cultoverride = 0, loc_override = null)
 	if(QDELETED(target))
 		return
 	var/mob/living/simple_animal/hostile/construct/newstruct = new ctype((loc_override) ? (loc_override) : (get_turf(target)))
 	var/makeicon = newstruct.icon_state
-	var/theme = newstruct.theme
-	flick("make_[makeicon][theme]", newstruct)
+	var/holyness = newstruct.holy
+	flick("make_[makeicon][holyness]", newstruct)
 	playsound(newstruct, 'sound/effects/constructform.ogg', 50)
 	if(stoner)
 		newstruct.faction |= "[REF(stoner)]"
@@ -369,20 +347,16 @@
 		SSticker.mode.add_cultist(S.mind, 0)
 	S.cancel_camera()
 	name = "soulstone: Shade of [T.real_name]"
-	switch(theme)
-		if(THEME_HOLY)
-			icon_state = "purified_soulstone2"
-		if(THEME_WIZARD)
-			icon_state = "mystic_soulstone2"
-		if(THEME_CULT)
-			icon_state = "soulstone2"
-	if(user)
-		if(iscultist(user))
-			to_chat(S, "Your soul has been captured! You are now bound to the cult's will. Help them succeed in their goals at all costs.")
-		else if(role_check(user))
-			to_chat(S, "Your soul has been captured! You are now bound to [user.real_name]'s will. Help [user.p_them()] succeed in [user.p_their()] goals at all costs.")
-		if(message_user)
-			to_chat(user, "<span class='info'><b>Capture successful!</b>:</span> [T.real_name]'s soul has been ripped from [T.p_their()] body and stored within [src].")
+	if(purified)
+		icon_state = "purified_soulstone2"
+	else
+		icon_state = "soulstone2"
+	if(user && (iswizard(user) || usability))
+		to_chat(S, "Your soul has been captured! You are now bound to [user.real_name] will. Help [user.ru_na()] succeed in [user.ru_ego()] goals at all costs.")
+	else if(user && iscultist(user))
+		to_chat(S, "Your soul has been captured! You are now bound to the cult's will. Help them succeed in their goals at all costs.")
+	if(message_user && user)
+		to_chat(user, "<span class='info'><b>Capture successful!</b>:</span> [T.real_name] soul has been ripped from [T.ru_ego()] body and stored within [src].")
 
 
 /obj/item/soulstone/proc/getCultGhost(mob/living/carbon/human/T, mob/user)
