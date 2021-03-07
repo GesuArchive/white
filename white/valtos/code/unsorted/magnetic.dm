@@ -165,7 +165,7 @@
 		STOP_PROCESSING(SSobj, src)
 		asteroid_mode = !asteroid_mode
 
-	if(user.a_intent != INTENT_HARM && !(W.item_flags & NOBLUDGEON))
+	if(user.a_intent != INTENT_HARM && !(I.item_flags & NOBLUDGEON))
 		return attack_hand(user)
 	else
 		return ..()
