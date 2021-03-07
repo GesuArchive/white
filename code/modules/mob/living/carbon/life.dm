@@ -9,7 +9,7 @@
 
 	if(IS_IN_STASIS(src))
 		. = ..()
-		reagents.handle_stasis_chems(src, delta_time, times_fired)
+		reagents.handle_stasis_chems(src)
 	else
 		//Reagent processing needs to come before breathing, to prevent edge cases.
 		handle_organs()
@@ -24,9 +24,6 @@
 
 		if(stat != DEAD)
 			handle_brain_damage()
-
-	else
-		. = ..()
 
 	if(stat == DEAD)
 		stop_sound_channel(CHANNEL_HEARTBEAT)
