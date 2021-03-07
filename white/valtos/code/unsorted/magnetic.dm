@@ -164,8 +164,11 @@
 		to_chat(user, "<span class='warning'>Меняю режим.</span>")
 		STOP_PROCESSING(SSobj, src)
 		asteroid_mode = !asteroid_mode
+
+	if(user.a_intent != INTENT_HARM && !(W.item_flags & NOBLUDGEON))
+		return attack_hand(user)
 	else
-		. = ..()
+		return ..()
 
 /obj/machinery/meteor_catcher/interact(mob/living/user)
 	. = ..()
@@ -230,16 +233,16 @@
 			switch(dir)
 				if(WEST)
 					target = locate(1,y,z)
-					point = locate(x - 7,y,z)
+					point = locate(x - (catch_power + 1),y,z)
 				if(EAST)
 					target = locate(world.maxx,y,z)
-					point = locate(x + 7,y,z)
+					point = locate(x + (catch_power + 1),y,z)
 				if(NORTH)
 					target = locate(x,world.maxy,z)
-					point = locate(x,y + 7,z)
+					point = locate(x,y + (catch_power + 1),z)
 				if(SOUTH)
 					target = locate(x,1,z)
-					point = locate(x,y - 7,z)
+					point = locate(x,y - (catch_power + 1),z)
 			for(var/T in getline(get_step(point, dir), target))
 				var/turf/tile = T
 				if(isclosedturf(tile))
@@ -247,8 +250,8 @@
 					STOP_PROCESSING(SSobj, src)
 					icon_state = "beacon_off"
 					return
-			QDEL_LIST(valid_turfs)
-			for(var/T in spiral_range_turfs(catch_power, point, TRUE))
+			valid_turfs.Cut()
+			for(var/T in spiral_range_turfs(catch_power, point))
 				if(isopenspace(T) || isspaceturf(T))
 					valid_turfs += T
 				else
@@ -270,14 +273,13 @@
 					else
 						T.ChangeTurf(/turf/open/floor/plating/asteroid)
 				asteroid_catched = TRUE
+				asteroid_catch_time = 600 SECONDS
+				asteroid_catching = FALSE
+				STOP_PROCESSING(SSobj, src)
+				icon_state = "beacon_off"
 				QDEL_LIST(ripples)
-		else
-			asteroid_catch_time = 600 SECONDS
-			asteroid_catching = FALSE
-			STOP_PROCESSING(SSobj, src)
-			icon_state = "beacon_off"
-			return
-
+				return
+		return
 	else
 		for(var/obj/O in enslaved_meteors)
 			if(QDELETED(O))
