@@ -68,9 +68,8 @@
 	add_overlay(icon_state + "_alert")
 	addtimer(CALLBACK(src, /atom/.proc/cut_overlay, icon_state + "_alert"), 20)
 
-/obj/machinery/plumbing/buffer/attack_hand_secondary(mob/user, modifiers)
+/obj/machinery/plumbing/buffer/AltClick(mob/user)
 	. = ..()
-
 	var/new_volume = input(user, "Enter new activation threshold", "Beepityboop", activation_volume) as num|null
 	if(!new_volume)
 		return
