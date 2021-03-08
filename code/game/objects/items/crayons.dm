@@ -353,9 +353,9 @@
 	var/clickx
 	var/clicky
 
-	if(click_params && click_params["icon-x"] && click_params["icon-y"])
-		clickx = clamp(text2num(click_params["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)
-		clicky = clamp(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)
+	if(modifiers && modifiers["icon-x"] && modifiers["icon-y"])
+		clickx = clamp(text2num(modifiers["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)
+		clicky = clamp(text2num(modifiers["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)
 
 	if(!instant)
 		to_chat(user, "<span class='notice'>You start drawing a [temp] on the [target.name]...</span>")
