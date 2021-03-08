@@ -186,7 +186,7 @@
 
 /obj/item/clothing/head/helmet/space/plasmaman/chief_medical_officer
 	name = "chief medical officer's plasma envirosuit helmet"
-	desc = "A special containment helmet designed for the Chief Medical Officer. A light grey design is applied to differentiate them from other medical staff."
+	desc = "A special containment helmet designed for the Chief Medical Officer. A gold stripe applied to differentiate them from other medical staff."
 	icon_state = "cmo_envirohelm"
 	inhand_icon_state = "cmo_envirohelm"
 
@@ -230,7 +230,7 @@
 
 /obj/item/clothing/head/helmet/space/plasmaman/chief_engineer
 	name = "chief engineer's plasma envirosuit helmet"
-	desc = "A special containment helmet designed for the Chief Engineer. An expensive, element resistant white and green carapace design is applied to protect the plasmaman inside."
+	desc = "A special containment helmet designed for the Chief Engineer, the usual purple stripes being replaced by the chief's green."
 	icon_state = "ce_envirohelm"
 	inhand_icon_state = "ce_envirohelm"
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 10, FIRE = 100, ACID = 75)
