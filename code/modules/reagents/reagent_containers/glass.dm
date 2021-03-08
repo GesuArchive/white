@@ -50,10 +50,6 @@
 				to_chat(user, "<span class='notice'>Делаю глоток из [src].</span>")
 
 			for(var/datum/reagent/R in reagents.reagent_list)
-				if(!R.special_sound)
-					continue
-				else if(R.special_sound in M.known_reagent_sounds)
-					continue
 				M.known_reagent_sounds += R.special_sound
 				SEND_SOUND(M, R.special_sound)
 
