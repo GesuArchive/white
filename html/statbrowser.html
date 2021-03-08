@@ -41,6 +41,7 @@
 		background-color: #F0F0F0;
 		position: fixed;
 		width: 100%;
+		z-index: 100;
 	}
 
 	.dark #menu, .dark #menu {
@@ -177,30 +178,56 @@
 	}
 
 	.grid-container {
-		display: inline-flex;
-		flex-wrap: wrap;
-		justify-content: flex-start;
-		align-items: flex-start;
-		min-width: 0;
-		min-height: 0;
-		white-space: pre-wrap;
+		margin: -2px;
+		margin-right: -15px;
 	}
 
 	.grid-item {
-		color: black;
-		width: 195px;
+		position: relative;
+		display: inline-block;
+		width: 140px;
 		font-size: 11px;
-		line-height: 22px;
-		text-align: left;
-		min-width: 0;
-		min-height: 0;
 		white-space: pre-wrap;
-		margin-top: 3px;
-		margin-right: 3px;
-		padding-left: 2px;
-		padding-right: 0;
+		padding: 3px 3px;
+		margin: 1px;
+		text-decoration: none;
+		overflow: visible;
 		border: 1px solid rgba(0, 0, 0, 0.7);
 		border-radius: 3px;
+	}
+
+	@media only screen and (min-width: 620px) {
+		.grid-item {
+			width: 195px;
+		}
+	}
+
+	.grid-item:hover {
+		z-index: 1;
+	}
+
+	.grid-item:hover .grid-item-text {
+		background: #000;
+		width: auto;
+	}
+
+	.dark .grid-item:hover .grid-item-text {
+		background: #ff9956;
+	}
+
+	.cyber .grid-item:hover .grid-item-text {
+		background: #abc6ec;
+	}
+
+	.grid-item-text {
+		display: inline-block;
+		width: 100%;
+		margin: 0 -6px;
+		padding: 0 6px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		pointer-events: none;
 	}
 
 	.grid-item:hover {
@@ -1131,8 +1158,11 @@ function draw_verbs(cat){
 
 			var a = document.createElement("a");
 			a.href = "byond://winset?command=" + command.replace(/\s/g, "-");
-			a[textContentKey] = command;
 			a.className = "grid-item";
+			var t = document.createElement("span");
+			t[textContentKey] = command;
+			t.className = "grid-item-text";
+			a.appendChild(t);
 			(subCat ? additions[subCat] : table).appendChild(a);
 		}
 	}

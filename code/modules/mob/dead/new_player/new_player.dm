@@ -64,6 +64,9 @@
 		output += "<p><a href='byond://?src=[REF(src)];late_join=1'>Присоединиться!</a></p>"
 		output += "<p>[LINKIFY_READY("Наблюдать", PLAYER_READY_TO_OBSERVE)]</p>"
 
+	if(!IsGuestKey(src.key))
+		output += playerpolls()
+
 	output += "</center>"
 
 	var/datum/browser/popup = new(src, "playersetup", "<div align='center'>New White Dream</div>", 265, 265) // 新しい白い夢
@@ -98,9 +101,9 @@
 			qdel(query_get_new_polls)
 			return
 		if(query_get_new_polls.NextRow())
-			output += "<p><b><a href='byond://?src=[rs];showpoll=1'>Show Player Polls</A> (NEW!)</b></p>"
+			output += "<p><b><a href='byond://?src=[rs];showpoll=1'>НОВЫЙ ОПРОС!</A></b></p>"
 		else
-			output += "<p><a href='byond://?src=[rs];showpoll=1'>Show Player Polls</A></p>"
+			output += "<p><a href='byond://?src=[rs];showpoll=1'>Опросы</A></p>"
 		qdel(query_get_new_polls)
 		if(QDELETED(src))
 			return

@@ -1,3 +1,4 @@
+
 /mob/living/simple_animal/hostile/construct
 	name = "Construct"
 	real_name = "Construct"
@@ -42,7 +43,8 @@
 	var/can_repair_constructs = FALSE
 	var/can_repair_self = FALSE
 	var/runetype
-	var/holy = FALSE
+	/// Theme controls color. THEME_CULT is red THEME_WIZARD is purple and THEME_HOLY is blue
+	var/theme = THEME_CULT
 
 /mob/living/simple_animal/hostile/construct/Initialize()
 	. = ..()
@@ -65,7 +67,7 @@
 		var/pos = 2+spellnum*31
 		CR.button.screen_loc = "6:[pos],4:-2"
 		CR.button.moved = "6:[pos],4:-2"
-	add_overlay("glow_[icon_state][holy]")
+	add_overlay("glow_[icon_state]_[theme]")
 
 /mob/living/simple_animal/hostile/construct/Login()
 	. = ..()
@@ -88,7 +90,7 @@
 		var/mob/living/simple_animal/hostile/construct/C = M
 		if(!C.can_repair_constructs || (C == src && !C.can_repair_self))
 			return ..()
-		if(holy != C.holy)
+		if(theme != C.theme)
 			return ..()
 		if(health < maxHealth)
 			adjustHealth(-5)
@@ -141,8 +143,10 @@
 	status_flags = 0
 	mob_size = MOB_SIZE_LARGE
 	force_threshold = 10
-	construct_spells = list(/obj/effect/proc_holder/spell/targeted/forcewall/cult,
-							/obj/effect/proc_holder/spell/targeted/projectile/dumbfire/juggernaut)
+	construct_spells = list(
+						/obj/effect/proc_holder/spell/targeted/forcewall/cult,
+						/obj/effect/proc_holder/spell/targeted/projectile/dumbfire/juggernaut
+						)
 	runetype = /datum/action/innate/cult/create_rune/wall
 	playstyle_string = "<b>You are a Juggernaut. Though slow, your shell can withstand heavy punishment, \
 						create shield walls, rip apart enemies and walls alike, and even deflect energy weapons.</b>"
@@ -180,10 +184,14 @@
 
 	return ..()
 
-//////////////////////////Angelic-Juggernaut////////////////////////////
+//////////////////////////Juggernaut-alts////////////////////////////
 /mob/living/simple_animal/hostile/construct/juggernaut/angelic
-	holy = TRUE
+	theme = THEME_HOLY
 	loot = list(/obj/item/ectoplasm/angelic)
+
+/mob/living/simple_animal/hostile/construct/juggernaut/mystic
+	theme = THEME_WIZARD
+	loot = list(/obj/item/ectoplasm/mystic)
 
 /mob/living/simple_animal/hostile/construct/juggernaut/noncult
 
@@ -233,11 +241,16 @@
 /mob/living/simple_animal/hostile/construct/wraith/hostile //actually hostile, will move around, hit things
 	AIStatus = AI_ON
 
-//////////////////////////Angelic-Wraith////////////////////////////
+//////////////////////////Wraith-alts////////////////////////////
 /mob/living/simple_animal/hostile/construct/wraith/angelic
-	holy = TRUE
+	theme = THEME_HOLY
 	construct_spells = list(/obj/effect/proc_holder/spell/targeted/ethereal_jaunt/shift/angelic)
 	loot = list(/obj/item/ectoplasm/angelic)
+
+/mob/living/simple_animal/hostile/construct/wraith/mystic
+	theme = THEME_WIZARD
+	construct_spells = list(/obj/effect/proc_holder/spell/targeted/ethereal_jaunt/shift/mystic)
+	loot = list(/obj/item/ectoplasm/mystic)
 
 /mob/living/simple_animal/hostile/construct/wraith/noncult
 
@@ -262,11 +275,13 @@
 	attack_verb_simple = "стукает"
 	environment_smash = ENVIRONMENT_SMASH_WALLS
 	attack_sound = 'sound/weapons/punch2.ogg'
-	construct_spells = list(/obj/effect/proc_holder/spell/aoe_turf/conjure/wall,
-							/obj/effect/proc_holder/spell/aoe_turf/conjure/floor,
-							/obj/effect/proc_holder/spell/aoe_turf/conjure/soulstone,
-							/obj/effect/proc_holder/spell/aoe_turf/conjure/construct/lesser,
-							/obj/effect/proc_holder/spell/targeted/projectile/magic_missile/lesser)
+	construct_spells = list(
+						/obj/effect/proc_holder/spell/aoe_turf/conjure/wall,
+						/obj/effect/proc_holder/spell/aoe_turf/conjure/floor,
+						/obj/effect/proc_holder/spell/aoe_turf/conjure/soulstone,
+						/obj/effect/proc_holder/spell/aoe_turf/conjure/construct/lesser,
+						/obj/effect/proc_holder/spell/targeted/projectile/magic_missile/lesser
+						)
 	runetype = /datum/action/innate/cult/create_rune/revive
 	playstyle_string = "<b>You are an Artificer. You are incredibly weak and fragile, but you are able to construct fortifications, \
 
@@ -323,21 +338,36 @@
 	AIStatus = AI_ON
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES //only token destruction, don't smash the cult wall NO STOP
 
-/////////////////////////////Angelic Artificer/////////////////////////
+/////////////////////////////Artificer-alts/////////////////////////
 /mob/living/simple_animal/hostile/construct/artificer/angelic
 	desc = "A bulbous construct dedicated to building and maintaining holy armies."
-	holy = TRUE
+	theme = THEME_HOLY
 	loot = list(/obj/item/ectoplasm/angelic)
-	construct_spells = list(/obj/effect/proc_holder/spell/aoe_turf/conjure/soulstone/noncult/purified,
-							/obj/effect/proc_holder/spell/aoe_turf/conjure/construct/lesser,
-							/obj/effect/proc_holder/spell/targeted/projectile/magic_missile/lesser)
+	construct_spells = list(
+						/obj/effect/proc_holder/spell/aoe_turf/conjure/soulstone/purified,
+						/obj/effect/proc_holder/spell/aoe_turf/conjure/construct/lesser,
+						/obj/effect/proc_holder/spell/targeted/projectile/magic_missile/lesser
+						)
+
+/mob/living/simple_animal/hostile/construct/artificer/mystic
+	theme = THEME_WIZARD
+	loot = list(/obj/item/ectoplasm/mystic)
+	construct_spells = list(
+						/obj/effect/proc_holder/spell/aoe_turf/conjure/wall,
+						/obj/effect/proc_holder/spell/aoe_turf/conjure/floor,
+						/obj/effect/proc_holder/spell/aoe_turf/conjure/soulstone/mystic,
+						/obj/effect/proc_holder/spell/aoe_turf/conjure/construct/lesser,
+						/obj/effect/proc_holder/spell/targeted/projectile/magic_missile/lesser
+						)
 
 /mob/living/simple_animal/hostile/construct/artificer/noncult
-	construct_spells = list(/obj/effect/proc_holder/spell/aoe_turf/conjure/wall,
-							/obj/effect/proc_holder/spell/aoe_turf/conjure/floor,
-							/obj/effect/proc_holder/spell/aoe_turf/conjure/soulstone/noncult,
-							/obj/effect/proc_holder/spell/aoe_turf/conjure/construct/lesser,
-							/obj/effect/proc_holder/spell/targeted/projectile/magic_missile/lesser)
+	construct_spells = list(
+						/obj/effect/proc_holder/spell/aoe_turf/conjure/wall,
+						/obj/effect/proc_holder/spell/aoe_turf/conjure/floor,
+						/obj/effect/proc_holder/spell/aoe_turf/conjure/soulstone/noncult,
+						/obj/effect/proc_holder/spell/aoe_turf/conjure/construct/lesser,
+						/obj/effect/proc_holder/spell/targeted/projectile/magic_missile/lesser
+						)
 
 /////////////////////////////Harvester/////////////////////////
 /mob/living/simple_animal/hostile/construct/harvester

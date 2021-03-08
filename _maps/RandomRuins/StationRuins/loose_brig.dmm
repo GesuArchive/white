@@ -1087,6 +1087,8 @@
 "cn" = (
 /obj/structure/closet/secure_closet,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/shield/riot/military,
+/obj/item/shield/riot/military,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "co" = (

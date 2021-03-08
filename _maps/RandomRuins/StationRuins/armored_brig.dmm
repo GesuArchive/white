@@ -1281,6 +1281,8 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/item/shield/riot/military,
+/obj/item/shield/riot/military,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "de" = (

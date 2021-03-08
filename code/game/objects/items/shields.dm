@@ -82,6 +82,36 @@
 	take_damage(damage)
 	return ..()
 
+/obj/item/shield/riot/military
+	name = "титановый щит"
+	desc = "Очень крепкий и очень тяжёлый. Используется для самых тактичных тактических операций."
+	slot_flags = NONE
+	force = 15
+	block_chance = 90
+	transparent = FALSE
+	max_integrity = 400
+	custom_materials = list(/datum/material/titanium = 10000)
+	icon_state = "ops_shield"
+	inhand_icon_state = "ops_shield"
+	icon = 'white/valtos/icons/objects.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
+
+/obj/item/shield/riot/military/pickup(mob/user)
+	. = ..()
+	if(isliving(user))
+		var/mob/living/L = user
+		L.add_movespeed_modifier(/datum/movespeed_modifier/heavy_shield)
+
+/obj/item/shield/riot/military/dropped(mob/user, silent)
+	. = ..()
+	if(isliving(user))
+		var/mob/living/L = user
+		L.remove_movespeed_modifier(/datum/movespeed_modifier/heavy_shield)
+
+/datum/movespeed_modifier/heavy_shield
+	multiplicative_slowdown = 1
+
 /obj/item/shield/riot/roman
 	name = "Римский щит"
 	desc = "На внутренней стороне надпись: <i>\"Romanes venio domus\"</i>."
