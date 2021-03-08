@@ -2,10 +2,10 @@
 #define SAVEFILE_VERSION_MIN	48
 
 //This is the current version, anything below this will attempt to update (if it's not obsolete)
-//	You do not need to raise this if you are adding new values that have sane defaults.
-//	Only raise this value when changing the meaning/format/name/layout of an existing value
-//	where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX	49
+// You do not need to raise this if you are adding new values that have sane defaults.
+// Only raise this value when changing the meaning/format/name/layout of an existing value
+// where you would want the updater procs below to run
+#define SAVEFILE_VERSION_MAX 50
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -55,6 +55,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 					break
 			if(n_gear)
 				purchased_gear += n_gear
+
+	if (current_version < 50)
+		LAZYADD(key_bindings["Space"], "hold_throw_mode")
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
 	return
