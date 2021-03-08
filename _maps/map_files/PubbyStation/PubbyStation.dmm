@@ -48268,10 +48268,6 @@
 	},
 /turf/closed/wall,
 /area/maintenance/disposal)
-"gRx" = (
-/obj/machinery/rnd/bepis,
-/turf/open/floor/plasteel,
-/area/quartermaster/storage)
 "gRU" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/engine_waste{
 	dir = 1
@@ -102624,7 +102620,7 @@ aQo
 aXC
 bcT
 cCB
-gRx
+cCB
 aTs
 aUz
 vrX
