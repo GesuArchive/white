@@ -208,7 +208,9 @@
 	var/obj/machinery/copytech/ct = null
 	var/working = FALSE
 	var/atom/movable/active_item = null
-	var/list/blacklisted_items = list(/obj/item/stack/telecrystal)
+	var/list/blacklisted_items = list(/obj/item/stack/telecrystal,
+			/obj/item/stack/telecrystal/five,
+			/obj/item/stack/telecrystal/twenty)
 	var/obj/structure/cable/attached_cable
 	var/siphoned_power = 0
 	var/siphon_max = 1e7
