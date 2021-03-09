@@ -151,7 +151,7 @@
 
 	var/median_temperature = (selected_recipe.max_temp - selected_recipe.min_temp) * 0.5
 	if(internal.return_temperature() >= (median_temperature * MIN_DEVIATION_RATE) && internal.return_temperature() <= (median_temperature * MAX_DEVIATION_RATE))
-		quality_loss = max(quality_loss - 5.5, 100)
+		quality_loss = max(quality_loss - 5.5, -100)
 
 	if(selected_recipe.reaction_type == "endothermic")
 		internal.set_temperature(max(internal.return_temperature() - (selected_recipe.energy_release / internal.heat_capacity()), TCMB))
