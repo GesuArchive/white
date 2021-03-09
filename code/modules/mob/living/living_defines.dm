@@ -177,3 +177,6 @@
 	var/body_position_pixel_y_offset = 0
 
 	var/list/known_reagent_sounds = list()
+
+	var/ice_cream_mob_time = 0
+	var/ice_cream_mob = FALSE

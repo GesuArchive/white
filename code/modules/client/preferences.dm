@@ -568,7 +568,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<tr><td><B>Орбита:</B></td><td align='right'><a href='?_src_=prefs;task=input;preference=ghostorbit'>[ghost_orbit]</a></td></tr>"
 			dat += "<tr><td><b>Передача тела:</b></td><td align='right'><a href='?_src_=prefs;preference=ice_cream'>[(ice_cream) ? "Вкл" : "Выкл"]</a></td></tr>"
 			if(ice_cream)
-				dat += "<tr><td><b>Таймер до передачи:</b></td><td align='right'><a href='?_src_=prefs;preference=ice_cream_time;task=input'>[ice_cream_time/600] м.</a></td></tr>"
+				dat += "<tr><td><b>Таймер до передачи:</b></td><td align='right'><a href='?_src_=prefs;preference=ice_cream_time;task=input'>[ice_cream_time/600] минут</a></td></tr>"
 
 			var/button_name = "If you see this something went wrong."
 			switch(ghost_accs)
@@ -1635,6 +1635,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if (!isnull(desiredlength))
 						max_chat_length = clamp(desiredlength, 1, CHAT_MESSAGE_MAX_LENGTH)
 
+				if("ice_cream_time")
+					var/new_time = input(user, "Какая задержка будет перед передачей тела призракам? (в минутах)", "Ice Cream") as num|null
+					if(new_time)
+						ice_cream_time = min(new_time MINUTES, 60 MINUTES)
+
 		else
 			switch(href_list["preference"])
 				if("publicity")
@@ -1738,10 +1743,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("see_rc_emotes")
 					see_rc_emotes = !see_rc_emotes
 
-				if("ice_cream_time")
-					var/new_time = input(user, "Какая задержка будет перед передачей тела призракам? (в минутах)", "Ice Cream") as num|null
-					if(new_time)
-						ice_cream_time = min(new_time MINUTES, 60 MINUTES)
 				if("ice_cream")
 					ice_cream = !ice_cream
 
