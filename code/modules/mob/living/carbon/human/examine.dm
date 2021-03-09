@@ -94,7 +94,7 @@
 
 	//mask
 	if(wear_mask && !(obscured & ITEM_SLOT_MASK)  && !(wear_mask.item_flags & EXAMINE_SKIP))
-		. += "На лице у [t_ego] [wear_mask.get_examine_string(user)].\n"
+		. += "На лице у н[t_ego] [wear_mask.get_examine_string(user)].\n"
 
 	if(wear_neck && !(obscured & ITEM_SLOT_NECK)  && !(wear_neck.item_flags & EXAMINE_SKIP))
 		. += "На шее у н[t_ego] [wear_neck.get_examine_string(user)].\n"
@@ -472,6 +472,9 @@
 					"<a href='?src=[REF(src)];hud=s;add_comment=1'>\[Добавить комментарий\]</a> "), "")
 	else if(isobserver(user))
 		. += "<hr><span class='info'><b>Черты:</b> [get_quirk_string()]</span>"
+		if(HAS_TRAIT(src, TRAIT_CLIENT_LEAVED))
+			. += "<hr><span class='boldnotice'>Это тело можно занять!</span>"
+
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 
 /mob/living/proc/status_effect_examines(pronoun_replacement) //You can include this in any mob's examine() to show the examine texts of status effects!

@@ -93,6 +93,9 @@
 	SEND_SIGNAL(src, COMSIG_MOB_CLIENT_LOGIN, client)
 	client.init_verbs()
 
+	if(HAS_TRAIT(src, TRAIT_CLIENT_LEAVED))
+		REMOVE_TRAIT(src, TRAIT_CLIENT_LEAVED, "ice_cream")
+
 	return TRUE
 
 

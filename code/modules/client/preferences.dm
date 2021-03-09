@@ -38,6 +38,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	///Whether emotes will be displayed on runechat. Requires chat_on_map to have effect. Boolean.
 	var/see_rc_emotes = TRUE
 
+	var/ice_cream_time = 10 MINUTES
+	var/ice_cream = TRUE
+
 	// Custom Keybindings
 	var/list/key_bindings = list()
 
@@ -563,6 +566,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<tr><td><b>Законы ИИ:</b></td><td align='right'><a href='?_src_=prefs;preference=ghost_laws'>[(chat_toggles & CHAT_GHOSTLAWS) ? "Все изменения" : "Не слушать"]</a></td></tr>"
 			dat += "<tr><td><b>Форма:</b></td><td align='right'><a href='?_src_=prefs;task=input;preference=ghostform'>[ghost_form]</a></td></tr>"
 			dat += "<tr><td><B>Орбита:</B></td><td align='right'><a href='?_src_=prefs;task=input;preference=ghostorbit'>[ghost_orbit]</a></td></tr>"
+			dat += "<tr><td><b>Передача тела:</b></td><td align='right'><a href='?_src_=prefs;preference=ice_cream'>[(ice_cream) ? "Вкл" : "Выкл"]</a></td></tr>"
+			if(ice_cream)
+				dat += "<tr><td><b>Таймер до передачи:</b></td><td align='right'><a href='?_src_=prefs;preference=ice_cream_time;task=input'>[ice_cream_time/600] м.</a></td></tr>"
 
 			var/button_name = "If you see this something went wrong."
 			switch(ghost_accs)
@@ -1731,6 +1737,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					see_chat_non_mob = !see_chat_non_mob
 				if("see_rc_emotes")
 					see_rc_emotes = !see_rc_emotes
+
+				if("ice_cream_time")
+					var/new_time = input(user, "Какая задержка будет перед передачей тела призракам? (в минутах)", "Ice Cream") as num|null
+					if(new_time)
+						ice_cream_time = min(new_time MINUTES, 60 MINUTES)
+				if("ice_cream")
+					ice_cream = !ice_cream
 
 				if("action_buttons")
 					buttons_locked = !buttons_locked
