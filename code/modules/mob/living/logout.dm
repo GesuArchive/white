@@ -9,10 +9,10 @@
 		addtimer(CALLBACK(src, .proc/ice_cream_check), ice_cream_mob_time)
 
 /mob/living/proc/ice_cream_check()
-	if(!src || client)
+	if(!src || client || stat == DEAD)
 		return
 	ADD_TRAIT(src, TRAIT_CLIENT_LEAVED, "ice_cream")
 	var/area/A = get_area(src)
 	if(A)
-		notify_ghosts("Здесь есть свободное тело персонажа [real_name] в зоне [A.name].", source = src, action=NOTIFY_JUMP, flashwindow = FALSE, ignore_key = POLL_IGNORE_SPLITPERSONALITY, notify_suiciders = FALSE)
+		notify_ghosts("Здесь есть свободное тело персонажа [real_name] в зоне [A.name].", source = src, action=NOTIFY_ORBIT, flashwindow = FALSE, ignore_key = POLL_IGNORE_SPLITPERSONALITY, notify_suiciders = FALSE)
 	AddElement(/datum/element/point_of_interest)
