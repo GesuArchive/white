@@ -195,6 +195,7 @@
 	meat = /obj/item/stack/ore/iron
 	info_text = "Будучи <span class='danger'>пласталевым големом </span> я медленнее, но меня сложнее оглушить, и я очень сильно бью. также я магическим способом примагничиваюсь к поверхностям, поэтому можно ходить без гравитации, и со мной никто не может меняться местами."
 	attack_verb = "ломает"
+	attack_effect = ATTACK_EFFECT_SMASH
 	attack_sound = 'sound/effects/meteorimpact.ogg' //hits pretty hard
 	prefix = "Пласталевый"
 	special_names = null

@@ -23,6 +23,7 @@
 	attack_verb_continuous = "кусает"
 	attack_verb_simple = "кусает"
 	attack_sound = 'sound/weapons/bite.ogg'
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	faction = list("mushroom")
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	stat_attack = DEAD

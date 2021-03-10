@@ -84,6 +84,7 @@
 	///Attacking verb in present simple tense.
 	var/attack_verb_simple = "атакует"
 	var/attack_sound = null
+	var/attack_vis_effect
 	///Attacking, but without damage, verb in present continuous tense.
 	var/friendly_verb_continuous = "тычет"
 	///Attacking, but without damage, verb in present simple tense.

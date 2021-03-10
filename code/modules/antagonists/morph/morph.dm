@@ -29,6 +29,7 @@
 	attack_verb_continuous = "кушает"
 	attack_verb_simple = "кушает"
 	attack_sound = 'sound/effects/blobattack.ogg'
+	attack_vis_effect = ATTACK_EFFECT_BITE //nom nom nom
 	butcher_results = list(/obj/item/food/meat/slab = 2)
 
 	var/morphed = FALSE

@@ -60,6 +60,7 @@
 	a_intent = INTENT_HARM //parrots now start "aggressive" since only player parrots will nuzzle.
 	attack_verb_continuous = "грызёт"
 	attack_verb_simple = "кусает"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	friendly_verb_continuous = "ворсится"
 	friendly_verb_simple = "ворсится"
 	mob_size = MOB_SIZE_SMALL

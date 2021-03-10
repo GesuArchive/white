@@ -19,6 +19,7 @@
 	attack_verb_continuous = "разрывает когтями"
 	attack_verb_simple = "разрывает когтями"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
+	attack_vis_effect = ATTACK_EFFECT_CLAW
 	projectilesound = 'sound/weapons/gun/pistol/shot.ogg'
 	projectiletype = /obj/projectile/hivebotbullet
 	faction = list("hivebot")
