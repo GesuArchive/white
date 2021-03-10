@@ -78,7 +78,11 @@
 				state = msg;
 				smooth_loader();
 				if(state) {
-					document.getElementById("pp").style.visibility = "visible"; 
+					document.getElementById("pp").style.visibility = "visible";
+					document.getElementById("ld").style.visibility = "hidden";
+				} else {
+					document.getElementById("pp").style.visibility = "hidden";
+					document.getElementById("ld").style.visibility = "visible";
 				}
 			};
 
@@ -117,7 +121,7 @@
 
 			window.onload = function() {
 				setTimeout(movebg, 250);
-				document.getElementById("pp").style.visibility = "hidden"; 
+				document.getElementById("pp").style.visibility = "hidden";
 				set_loader_pos(0, "Инициализация");
 			};
 
