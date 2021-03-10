@@ -32,7 +32,7 @@
 	. = ..()
 	. += "<hr><span class='notice'>Здесь есть <b>небольшая щель</b> с краю.</span>"
 	. += "\n<span class='notice'>Мультитулом можно изменить цвет, надо не забыть.</span>"
-	. += "\n<span class='notice'>Отвёрткой я могу отключить или включить эту плитку.</span>"
+	. += "\n<span class='notice'>Отвёрткой можно отключить или включить эту плитку.</span>"
 	if(state) ///check if broken
 		. += "<hr><span class='danger'>Похоже лампочка перегорела!</span>"
 

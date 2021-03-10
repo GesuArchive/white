@@ -7,7 +7,7 @@
 	value = 0
 	mob_trait = TRAIT_AGEUSIA
 	gain_text = "<span class='notice'>Я больше не чувствую вкус еды!</span>"
-	lose_text = "<span class='notice'>Теперь я могу почувствовать вкус еды!</span>"
+	lose_text = "<span class='notice'>Теперь можно почувствовать вкус еды!</span>"
 	medical_record_text = "Пациент страдает от агавзии и неспособен чувствовать вкус еды или жидкости."
 
 /datum/quirk/foreigner

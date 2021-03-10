@@ -353,7 +353,7 @@
 	value = -8
 	mob_trait = TRAIT_PACIFISM
 	gain_text = "<span class='danger'>Я чувствую себя жутко, подумав о насилии!</span>"
-	lose_text = "<span class='notice'>Я чувствую, что я могу защитить себя вновь.</span>"
+	lose_text = "<span class='notice'>Я чувствую, что можно защитить себя вновь.</span>"
 	medical_record_text = "Пациент является пацифистом и не может заставить себя причинить вред кому-либо."
 	hardcore_value = 6
 

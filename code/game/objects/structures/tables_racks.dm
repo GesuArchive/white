@@ -303,7 +303,7 @@
  */
 /obj/structure/table/glass
 	name = "стеклянный стол"
-	desc = "Что я могу сказать залезая на стеклянные столы? Теперь мне нужно к хирургу."
+	desc = "Что можно сказать залезая на стеклянные столы? Теперь мне нужно к хирургу."
 	icon = 'icons/obj/smooth_structures/glass_table.dmi'
 	icon_state = "glass_table-0"
 	base_icon_state = "glass_table"

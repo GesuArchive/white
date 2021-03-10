@@ -145,7 +145,7 @@
 	desc = "Пациент чувствует себя больным и расстроенным, когда его нет рядом с другими людьми, что приводит к потенциально смертельному стрессу."
 	scan_desc = "монофобия"
 	gain_text = ""
-	lose_text = "<span class='notice'>Похоже я могу побыть и в одиночестве.</span>"
+	lose_text = "<span class='notice'>Похоже можно побыть и в одиночестве.</span>"
 	var/stress = 0
 
 /datum/brain_trauma/severe/monophobia/on_gain()

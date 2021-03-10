@@ -13,7 +13,7 @@
 
 	var/obj/item/I = usr.get_active_held_item()
 	if(!I)
-		to_chat(usr,"<span class='warning'>А у меня в руке ничего и нет, что я могу дать <b>[src]</b>.</span>")
+		to_chat(usr,"<span class='warning'>А у меня в руке ничего и нет, что можно дать <b>[src]</b>.</span>")
 		return
 
 	if(!usr.canUnEquip(I))

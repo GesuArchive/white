@@ -80,7 +80,7 @@
 				switch(++hole_size)
 					if(MEDIUM_HOLE)
 						visible_message("<span class='notice'>[user] врезается <b>[src.name]</b> еще немного.</span>")
-						to_chat(user, "<span class='info'>Я могу пролезть в дыру уже сейчас. Но я пролезу быстрее если сделать дыру побольше.</span>")
+						to_chat(user, "<span class='info'>Можно пролезть в дыру уже сейчас. Но я пролезу быстрее если сделать дыру побольше.</span>")
 						climbable = TRUE
 					if(LARGE_HOLE)
 						visible_message("<span class='notice'> [user] полностью разрезает <b>[src.name]</b>.</span>")

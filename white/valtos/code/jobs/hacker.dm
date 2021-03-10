@@ -198,7 +198,7 @@
 
 /obj/effect/proc_holder/spell/targeted/remove_retard
 	name = "Стереть"
-	desc = "При помощи этого я могу уничтожать тех, кто портит систему."
+	desc = "При помощи этого можно уничтожать тех, кто портит систему."
 	school = "destruction"
 	charge_type = "recharge"
 	charge_max	= 6000

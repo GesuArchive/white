@@ -231,7 +231,7 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 
 /obj/item/stack/sheet/animalhide/goliath_hide/polar_bear_hide
 	name = "шкура полярного медведя"
-	desc = "Кусочки меха белого медведя могут сделать ваш костюм более стойким к атакам местной фауны."
+	desc = "Кусочки меха белого медведможнот сделать ваш костюм более стойким к атакам местной фауны."
 	icon_state = "polar_bear_hide"
 	singular_name = "шкура медведя"
 	merge_type = /obj/item/stack/sheet/animalhide/goliath_hide/polar_bear_hide

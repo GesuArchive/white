@@ -170,7 +170,7 @@
 	fixed_mut_color = "ddd"
 	punchstunthreshold = 9 //60% chance, from 40%
 	meat = /obj/item/stack/ore/silver
-	info_text = "Будучи <span class='danger'>серебряным големом</span>, мои атаки чаще оглушают. Так как моё тело состоит из серебра, большая часть магии не действует на меня." 
+	info_text = "Будучи <span class='danger'>серебряным големом</span>, мои атаки чаще оглушают. Так как моё тело состоит из серебра, большая часть магии не действует на меня."
 	prefix = "Серебрянный"
 	special_names = list("Surfer", "Chariot", "Lining")
 
@@ -193,7 +193,7 @@
 	punchstunthreshold = 18 //still 40% stun chance
 	speedmod = 4 //pretty fucking slow
 	meat = /obj/item/stack/ore/iron
-	info_text = "Будучи <span class='danger'>пласталевым големом </span> я медленнее, но меня сложнее оглушить, и я очень сильно бью. также я магическим способом примагничиваюсь к поверхностям, поэтому я могу ходить без гравитации, и со мной никто не может меняться местами."
+	info_text = "Будучи <span class='danger'>пласталевым големом </span> я медленнее, но меня сложнее оглушить, и я очень сильно бью. также я магическим способом примагничиваюсь к поверхностям, поэтому можно ходить без гравитации, и со мной никто не может меняться местами."
 	attack_verb = "ломает"
 	attack_sound = 'sound/effects/meteorimpact.ogg' //hits pretty hard
 	prefix = "Пласталевый"
@@ -235,7 +235,7 @@
 	id = "plastitanium golem"
 	fixed_mut_color = "888"
 	meat = /obj/item/stack/ore/titanium
-	info_text = "Будучи <span class='danger'>пластитановым големом</span> мне не страшны пыльные бури и лавовые реки, и я более стойкий к урону от ожогов." 
+	info_text = "Будучи <span class='danger'>пластитановым големом</span> мне не страшны пыльные бури и лавовые реки, и я более стойкий к урону от ожогов."
 	burnmod = 0.8
 	prefix = "Пластитановый"
 	special_names = null
@@ -258,7 +258,7 @@
 	meat = /obj/item/stack/sheet/mineral/abductor
 	mutanttongue = /obj/item/organ/tongue/abductor
 	speedmod = 1 //faster
-	info_text = "Будучи <span class='danger'>големом из инопланетного сплава</span> я быстрее и могу регенерировать со временем. Однако, я могу только слышать големов, сделанных из такого-же сплава, что и я."
+	info_text = "Будучи <span class='danger'>големом из инопланетного сплава</span> я быстрее и могу регенерировать со временем. Однако, можно только слышать големов, сделанных из такого-же сплава, что и я."
 	prefix = "Чужеродный"
 	special_names = list("Outsider", "Technology", "Watcher", "Stranger") //ominous and unknown
 
@@ -688,7 +688,7 @@
 	id = "cloth golem"
 	limbs_id = "clothgolem"
 	sexes = FALSE
-	info_text = "Будучи <span class='danger'>тканевым големом</span> после смерти я могу преобразовать своё тело и заново возродиться, если мои остатки не сгорели или не уничтожены. Также меня легко воспламенить. \
+	info_text = "Будучи <span class='danger'>тканевым големом</span> после смерти можно преобразовать своё тело и заново возродиться, если мои остатки не сгорели или не уничтожены. Также меня легко воспламенить. \
 	Так как я сделан из ткани, моё тело игнорирует магию и быстрее, чем у других големов, но оно слабее."
 	species_traits = list(NOBLOOD,NO_UNDERWEAR) //no mutcolors, and can burn
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_RESISTCOLD,TRAIT_NOBREATH,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_RADIMMUNE,TRAIT_GENELESS,TRAIT_PIERCEIMMUNE,TRAIT_NODISMEMBER,TRAIT_CHUNKYFINGERS)
@@ -938,7 +938,7 @@
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_NOBREATH, TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_CHUNKYFINGERS,TRAIT_RADIMMUNE,TRAIT_GENELESS,TRAIT_PIERCEIMMUNE,TRAIT_NODISMEMBER, TRAIT_STRONG_GRABBER)
 	prefix = "Кожаный"
 	fixed_mut_color = "624a2e"
-	info_text = "Будучи <span class='danger'>кожаным големом</span> меня легко воспламенить, но я могу брать вещи с невероятной лёгкостью, позволяя сразу хватать крепче."
+	info_text = "Будучи <span class='danger'>кожаным големом</span> меня легко воспламенить, но можно брать вещи с невероятной лёгкостью, позволяя сразу хватать крепче."
 	grab_sound = 'sound/weapons/whipgrab.ogg'
 	attack_sound = 'sound/weapons/whip.ogg'
 

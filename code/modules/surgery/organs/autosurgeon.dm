@@ -73,7 +73,7 @@
 	if(..())
 		return TRUE
 	if(!storedorgan)
-		to_chat(user, "<span class='warning'>Внутри [src] нет импланта который я могу извлечь!</span>")
+		to_chat(user, "<span class='warning'>Внутри [src] нет импланта который можно извлечь!</span>")
 	else
 		var/atom/drop_loc = user.drop_location()
 		for(var/J in src)
@@ -205,7 +205,7 @@
 		return
 
 	if(!stored_skillchip)
-		to_chat(user, "<span class='warning'>Внутри [src] нет чипа который я могу извлечь!</span>")
+		to_chat(user, "<span class='warning'>Внутри [src] нет чипа который можно извлечь!</span>")
 		return TRUE
 
 	var/atom/drop_loc = user.drop_location()
