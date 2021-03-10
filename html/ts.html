@@ -165,12 +165,11 @@
 					return;
 				} else {
 					document.getElementById("ld").style.visibility = "visible";
-					return;
 				};
 				if (clp != amt) {
-					clp += 0.25;
+					clp += 0.5;
 					document.getElementById("li").style.cssText = "width: " + clp + "%;";
-					setTimeout(smooth_loader, 20);
+					setTimeout(smooth_loader, 40);
 				} else {
 					return;
 				};
