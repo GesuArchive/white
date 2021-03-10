@@ -122,6 +122,7 @@
 			window.onload = function() {
 				setTimeout(movebg, 250);
 				document.getElementById("pp").style.visibility = "hidden";
+				document.getElementById("ld").style.visibility = "hidden";
 				set_loader_pos(0, "Инициализация");
 			};
 
@@ -162,12 +163,17 @@
 				if (state == "1") {
 					document.getElementById("ld").style.visibility = "hidden";
 					return;
+				} else {
+					document.getElementById("ld").style.visibility = "visible";
+					return;
 				};
 				if (clp != amt) {
 					clp += 0.25;
 					document.getElementById("li").style.cssText = "width: " + clp + "%;";
 					setTimeout(smooth_loader, 20);
-				}
+				} else {
+					return;
+				};
 			}
 
 			function set_loader_pos(val, text) {
