@@ -192,7 +192,7 @@
 	var/dat = {"
 	<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /><style>
 		body{background:#090909;color:#a2acb7;font-family:Tahoma}
-		.manifest {border-collapse:collapse;font-size:14px;text-align:center}
+		.manifest {border-collapse:collapse;border-right:1px solid #666;font-size:14px;text-align:center}
 		.manifest td,th{border:1px solid #666;background-color:#050505;color:#aaa;padding:.25em}
 		.manifest th{height:1em;background-color:#090909;color:#fff}
 		.manifest tr.head th{background-color:#111}
