@@ -67,7 +67,7 @@
 
 			var cm = "";
 			var i = 0;
-			var state = "0";
+			var state = 0;
 
 			function set_cons(msg) {
 				cm = msg;
@@ -77,7 +77,7 @@
 			function set_state(msg) {
 				state = msg;
 				smooth_loader();
-				if(state == "1") {
+				if(state == 1) {
 					document.getElementById("pp").style.visibility = "visible";
 					document.getElementById("ld").style.visibility = "hidden";
 				} else {
@@ -123,12 +123,11 @@
 				setTimeout(movebg, 250);
 				document.getElementById("pp").style.visibility = "hidden";
 				document.getElementById("ld").style.visibility = "hidden";
-				set_loader_pos(0, "Инициализация");
 			};
 
 			var mp = 0;
 			function movebg() {
-				if(state == "1") {
+				if(state == 1) {
 					document.getElementById("pp").style.cssText = "background-position: " + mp + "px;";
 					mp++
 					if(mp == 32) mp = 0;
@@ -160,7 +159,7 @@
 			var amt = 0;
 
 			function smooth_loader() {
-				if (state == "1") {
+				if (state == 1) {
 					document.getElementById("ld").style.visibility = "hidden";
 					return;
 				} else {

@@ -6,7 +6,7 @@
 	spawn(50)
 		C << output(SStitle.game_loaded, 			 "lobbyprotoc:set_state")
 		C << output(SStitle.ctt, 					 "lobbyprotoc:set_cons_now")
-		C << output("[SStitle.loader_pos];...;", "lobbyprotoc:set_loader_pos")
+		C << output("[SStitle.loader_pos];...;", 	 "lobbyprotoc:set_loader_pos")
 
 /datum/lobbyscreen/proc/hide_titlescreen(client/C)
 	if(C?.mob)
@@ -22,7 +22,7 @@
 	spawn(50)
 		C << output(SStitle.game_loaded, 			 "lobbyprotoc:set_state")
 		C << output(SStitle.ctt, 					 "lobbyprotoc:set_cons_now")
-		C << output("[SStitle.loader_pos];...;", "lobbyprotoc:set_loader_pos")
+		C << output("[SStitle.loader_pos];...;", 	 "lobbyprotoc:set_loader_pos")
 
 /client/proc/send_to_lobby_console(msg)
 	src << output(msg, "lobbyprotoc:set_cons")
