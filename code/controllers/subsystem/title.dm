@@ -42,7 +42,7 @@ SUBSYSTEM_DEF(title)
 		loader_pos += val_to
 		for(var/mob/dead/new_player/D in GLOB.new_player_list)
 			if(D?.client?.lobbyscreen_image)
-				D.client.send_to_lobby_load_pos(val_to, text_to)
+				D.client.send_to_lobby_load_pos(loader_pos, text_to)
 
 /datum/controller/subsystem/title/proc/sm(msg, newline = TRUE)
 	if(enabled_shit)
