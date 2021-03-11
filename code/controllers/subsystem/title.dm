@@ -105,7 +105,7 @@ SUBSYSTEM_DEF(title)
 				D.client.send_to_lobby_console_now(ctt)
 
 /datum/controller/subsystem/title/proc/afterload()
-	// do nothing
+	cls()
 
 /datum/controller/subsystem/title/Shutdown()
 
