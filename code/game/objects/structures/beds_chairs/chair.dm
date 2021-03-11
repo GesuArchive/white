@@ -27,6 +27,8 @@
 	. = ..()
 	if(!anchored)	//why would you put these on the shuttle?
 		addtimer(CALLBACK(src, .proc/RemoveFromLatejoin), 0)
+	if(prob(0.2))
+		name = "тактический [name]"
 
 /obj/structure/chair/ComponentInitialize()
 	. = ..()
@@ -74,7 +76,7 @@
 	qdel(src)
 
 /obj/structure/chair/attackby(obj/item/W, mob/user, params)
-	if(flags_1 & NODECONSTRUCT_1)
+	if((flags_1 & NODECONSTRUCT_1) || I.tool_behaviour != TOOL_WRENCH)
 		return . = ..()
 	if(istype(W, /obj/item/assembly/shock_kit) && !HAS_TRAIT(src, TRAIT_ELECTRIFIED_BUCKLE))
 		electrify_self(W, user)
