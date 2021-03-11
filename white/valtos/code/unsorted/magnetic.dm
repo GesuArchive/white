@@ -68,7 +68,7 @@
 
 /obj/machinery/magnetic_concentrator/process()
 	if(!hooked_singulo && magpower > 1)
-		for(var/obj/singularity/S in orange(1, src))
+		for(var/obj/singularity/S in orange(6, src))
 			hooked_singulo = S
 			hooked_singulo.forceMove(get_turf(src))
 			hooked_singulo.alpha = 200

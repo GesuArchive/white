@@ -94,25 +94,6 @@
 	if(ismob(orbiter))
 		var/mob/orbiter_mob = orbiter
 		orbiter_mob.updating_glide_size = FALSE
-		if(isobserver(orbiter) && isliving(parent))
-			var/mob/dead/observer/O = orbiter
-			var/mob/living/L = parent
-			if(HAS_TRAIT(L, TRAIT_CLIENT_LEAVED))
-				var/ghost_role = alert(O, "Точно хочешь занять это тело? (внимание, текущее тело будет покинуто)",,"Да","Нет")
-				if(ghost_role == "Нет" || !orbiter.loc || QDELETED(orbiter))
-					return
-				if(is_banned_from(O.key, ROLE_LAVALAND))
-					to_chat(O, "<span class='warning'>А хуй тебе!</span>")
-					return
-				if(QDELETED(O) || QDELETED(L))
-					return
-				to_chat(L, "<span class='warning'>Моё тело забрали?! Срочно нажми F1 и опиши проблему.</span>")
-				log_game("[key_name(O)] became [L]")
-				message_admins("[key_name_admin(O)] забирает тело апатика ([ADMIN_LOOKUPFLW(L)]) себе")
-				L.ghostize(0)
-				L.key = O.key
-				L.client?.init_verbs()
-				return
 	if(ismovable(parent))
 		var/atom/movable/movable_parent = parent
 		orbiter.glide_size = movable_parent.glide_size
