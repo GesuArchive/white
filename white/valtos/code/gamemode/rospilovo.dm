@@ -99,35 +99,35 @@
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/beton
-	name = "стена"
+	name = "бетонная стена"
 	desc = null
 	icon = 'white/valtos/icons/rospilovo/beton_tg.dmi'
 	icon_state = "beton_tg-0"
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/bricks
-	name = "стена"
+	name = "кирпичная стена"
 	desc = null
 	icon = 'white/valtos/icons/rospilovo/bricks_tg.dmi'
 	icon_state = "bricks_tg-0"
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/bricks_yellow
-	name = "стена"
+	name = "кирпичная стена"
 	desc = null
 	icon = 'white/valtos/icons/rospilovo/bricks_tg_yellow.dmi'
 	icon_state = "bricks_tg_yellow-0"
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/bricks_white
-	name = "стена"
+	name = "кирпичная стена"
 	desc = null
 	icon = 'white/valtos/icons/rospilovo/bricks_tg_white.dmi'
 	icon_state = "bricks_tg_white-0"
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/beton_agro
-	name = "стена"
+	name = "кирпичная стена"
 	desc = null
 	icon = 'white/valtos/icons/rospilovo/beton_w_tg.dmi'
 	icon_state = "beton_w_tg-0"

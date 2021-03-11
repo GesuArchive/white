@@ -2,6 +2,7 @@
 	name = "Дикие джунгли"
 	icon_state = "unexplored"
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	map_generator = /datum/map_generator/jungle_generator
 	ambientsounds = AWAY_MISSION
 	enabled_area_tension = FALSE
 
@@ -18,7 +19,7 @@
 	implants = list(/obj/item/implant/exile)
 
 /obj/effect/mob_spawn/human/vietcong
-	name = "шконка"
+	name = "пещера гуков"
 	desc = "Джонни... Тут кто-то затаился под шконкой..."
 	icon = 'white/valtos/icons/prison/prison.dmi'
 	icon_state = "spwn"
@@ -35,6 +36,37 @@
 	L.real_name = "[pick(fn)] [pick(ln)]"
 	L.name = L.real_name
 	ADD_TRAIT(L, TRAIT_ASIAT, type)
+
+/obj/effect/mob_spawn/human/milikanes
+	name = "шконка миликанса"
+	desc = "Джонни... Тут кто-то затаился под шконкой?"
+	icon = 'white/valtos/icons/prison/prison.dmi'
+	icon_state = "spwn"
+	roundstart = FALSE
+	death = FALSE
+	short_desc = "ПОРА ПРЕПОДАТЬ УРОК ПИЗДОГЛАЗЫМ!"
+	flavour_text = "Вырезать всех гуков к хуям во славу демократии!"
+	outfit = /datum/outfit/milikanes
+	assignedrole = "Milikanes"
+
+/obj/effect/mob_spawn/human/milikanes/special(mob/living/L)
+	var/list/fn = list("PVT", "PFC", "CPL", "SGT", "SFC", "MSG", "1SG", "SGM", "CSM")
+	var/list/ln = list("Логан", "Лиам", "Мэйсон", "Джейкоб", "Этан", "Митчел", "Джейден", "Дэниэль", "Айден", "Мэттью", "Джеймс", "Энтони", "Бенджамин", "Эндрю", "Джозеф", "Дэвид", "Сэм")
+	L.real_name = "[pick(fn)] [pick(ln)]"
+	L.name = L.real_name
+
+/datum/outfit/milikanes
+	name = "Миликанес"
+
+	mask = /obj/item/clothing/mask/bandana/green
+	glasses = /obj/item/clothing/glasses/sunglasses
+	suit = /obj/item/clothing/suit/toggle/wzzzz/hawaii
+	uniform = /obj/item/clothing/under/syndicate/camo
+	shoes = /obj/item/clothing/shoes/jackboots/wzzzz/jungle
+	l_pocket = /obj/item/flashlight/seclite
+	r_pocket = /obj/item/radio
+
+	implants = list(/obj/item/implant/exile)
 
 /mob/living/simple_animal/hostile/russian/bydlo
 	name = "Гопник"
