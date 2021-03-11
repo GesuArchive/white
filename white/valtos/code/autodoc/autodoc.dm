@@ -42,8 +42,8 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	anchored = TRUE
 	layer = ABOVE_WINDOW_LAYER
 	use_power = IDLE_POWER_USE
-	idle_power_usage = 50
-	active_power_usage = 300
+	idle_power_usage = 500
+	active_power_usage = 3000
 	pixel_x = -16
 	var/speed_mult = 1
 	var/list/valid_surgeries = list()

@@ -3,6 +3,8 @@
 	name = "chemical synthesizer"
 	desc = "Produces a single chemical at a given volume. Must be plumbed. Most effective when working in unison with other chemical synthesizers, heaters and filters."
 
+	active_power_usage = 1000
+
 	icon_state = "synthesizer"
 	icon = 'icons/obj/plumbing/plumbers.dmi'
 
