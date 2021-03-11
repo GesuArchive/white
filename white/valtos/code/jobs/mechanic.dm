@@ -99,7 +99,7 @@
 		icon_state = "apparatus"
 
 /obj/machinery/copytech/attacked_by(obj/item/I, mob/living/user)
-	if(istype(I, /obj/item/stack/ore/bluespace_crystal))
+	if(istype(I, /obj/item/stack/ore/bluespace_crystal) || istype(I, /obj/item/stack/sheet/bluespace_crystal))
 		if(crystals >= max_crystals)
 			to_chat(user, "<span class='warning'>Перебор!</span>")
 			return

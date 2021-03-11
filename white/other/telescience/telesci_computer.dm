@@ -55,11 +55,11 @@
 	return
 
 /obj/machinery/computer/telescience/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/stack/ore/bluespace_crystal))
+	if(istype(W, /obj/item/stack/ore/bluespace_crystal) || istype(W, /obj/item/stack/sheet/bluespace_crystal))
 		if(crystals >= max_crystals)
 			to_chat(user, "<span class='warning'>There are not enough crystal slots.</span>")
 			return
-		var/obj/item/stack/BC = I
+		var/obj/item/stack/BC = W
 		if(!BC.amount)
 			to_chat(user, "<span class='warning'>БЛЯТЬ!</span>")
 			return
