@@ -56,8 +56,6 @@ SUBSYSTEM_DEF(icon_smooth)
 		var/turf/item_loc = movable_item.loc
 		item_loc.add_blueprints(movable_item)
 
-	SStitle.set_load_state("smoothing")
-
 	return ..()
 
 

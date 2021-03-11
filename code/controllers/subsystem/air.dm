@@ -72,7 +72,6 @@ SUBSYSTEM_DEF(air)
 	setup_atmos_machinery()
 	setup_pipenets()
 	gas_reactions = init_gas_reactions()
-	SStitle.set_load_state("air")
 
 	return ..()
 

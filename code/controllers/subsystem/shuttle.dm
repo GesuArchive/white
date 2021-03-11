@@ -90,8 +90,6 @@ SUBSYSTEM_DEF(shuttle)
 	if(!supply)
 		WARNING("No /obj/docking_port/mobile/supply placed on the map!")
 
-	SStitle.set_load_state("shuttle")
-
 	return ..()
 
 /datum/controller/subsystem/shuttle/proc/initial_load()

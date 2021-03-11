@@ -5,7 +5,7 @@ SUBSYSTEM_DEF(title)
 
 	var/file_path
 	var/ctt = ""
-	var/loader_pos = 25
+	var/loader_pos = 15
 	var/enabled_shit = TRUE
 	var/game_loaded = FALSE
 	var/current_lobby_screen = 'icons/ts.png'
@@ -35,44 +35,11 @@ SUBSYSTEM_DEF(title)
 
 	update_lobby_screen()
 
-	if(enabled_shit)
-		set_load_state("init1")
-
 	return ..()
 
-/datum/controller/subsystem/title/proc/set_load_state(state)
+/datum/controller/subsystem/title/proc/adjust_load_pos(val_to, text_to)
 	if(enabled_shit)
-		switch(state)
-			if("init1")
-				set_load_pos(5, "инициализация")
-			if("init2")
-				set_load_pos(10, "инициализация?")
-			if("atoms1")
-				set_load_pos(20, "атомы")
-			if("atoms2")
-				set_load_pos(30, "атомы обработаны")
-			if("diseases")
-				set_load_pos(40, "система болезней")
-			if("air")
-				set_load_pos(50, "атмосфера")
-			if("assets")
-				set_load_pos(60, "ассеты")
-			if("smoothing")
-				set_load_pos(70, "сглаживание")
-			if("overlays")
-				set_load_pos(80, "оверлеи")
-			if("light")
-				set_load_pos(95, "свет")
-			if("shuttle")
-				set_load_pos(97, "шаттлы")
-			if("end")
-				set_load_pos(100, "готово")
-				sleep(10)
-				cls()
-
-/datum/controller/subsystem/title/proc/set_load_pos(val_to, text_to)
-	if(enabled_shit)
-		loader_pos = val_to
+		loader_pos += val_to
 		for(var/mob/dead/new_player/D in GLOB.new_player_list)
 			if(D?.client?.lobbyscreen_image)
 				D.client.send_to_lobby_load_pos(val_to, text_to)

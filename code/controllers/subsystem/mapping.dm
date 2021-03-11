@@ -58,7 +58,6 @@ SUBSYSTEM_DEF(mapping)
 #endif
 
 /datum/controller/subsystem/mapping/Initialize(timeofday)
-	SStitle.set_load_state("blank")
 	HACK_LoadMapConfig()
 	if(initialized)
 		return
@@ -313,7 +312,6 @@ Used by the AI doomsday and the self-destruct nuke.
 		fdel("_maps/custom/[config.map_file]")
 		// And as the file is now removed set the next map to default.
 		next_map_config = load_map_config(default_to_box = TRUE)
-	SStitle.set_load_state("init2")
 
 GLOBAL_LIST_EMPTY(the_station_areas)
 

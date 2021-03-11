@@ -202,7 +202,6 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 
 	var/msg = "Мир создан за <b>[time]</b> секунд!"
-	SStitle.set_load_state("end")
 	spawn(10)
 		SStitle.afterload()
 	to_chat(world, "<span class='green'>[msg]</span>")
@@ -312,7 +311,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	var/error_level = 0
 	var/sleep_delta = 1
 	var/list/subsystems_to_check
-	
+
 	//setup the stack overflow detector
 	stack_end_detector = new()
 	var/datum/stack_canary/canary = stack_end_detector.prime_canary()

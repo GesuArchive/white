@@ -30,6 +30,4 @@ SUBSYSTEM_DEF(assets)
 
 	transport.Initialize(cache)
 
-	SStitle.set_load_state("assets")
-
 	..()

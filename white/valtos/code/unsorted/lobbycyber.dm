@@ -3,10 +3,6 @@
 	C << browse(SStitle.current_lobby_screen, 	 	 "file=ts.png;display=0")
 	C << browse(file('icons/blank_console.png'),     "file=blank_console.png;display=0")
 	C << browse(file('html/ts.html'),     			 "window=lobbyprotoc")
-	spawn(50)
-		C << output(SStitle.game_loaded, 			 "lobbyprotoc:set_state")
-		C << output(SStitle.ctt, 					 "lobbyprotoc:set_cons_now")
-		C << output("[SStitle.loader_pos];...;", 	 "lobbyprotoc:set_loader_pos")
 
 /datum/lobbyscreen/proc/hide_titlescreen(client/C)
 	if(C?.mob)
@@ -19,10 +15,6 @@
 	C << browse(SStitle.current_lobby_screen, 	 	 "file=ts.png;display=0")
 	C << browse(file('icons/blank_console.png'),     "file=blank_console.png;display=0")
 	C << browse(file('html/ts.html'),     			 "window=lobbyprotoc")
-	spawn(50)
-		C << output(SStitle.game_loaded, 			 "lobbyprotoc:set_state")
-		C << output(SStitle.ctt, 					 "lobbyprotoc:set_cons_now")
-		C << output("[SStitle.loader_pos];...;", 	 "lobbyprotoc:set_loader_pos")
 
 /client/proc/send_to_lobby_console(msg)
 	src << output(msg, "lobbyprotoc:set_cons")
@@ -43,8 +35,9 @@
 /client/verb/lobby_ready()
 	set hidden = TRUE
 
-	src << output(SStitle.game_loaded, "lobbyprotoc:set_state")
-	src << output(SStitle.ctt, "lobbyprotoc:set_cons_now")
+	src << output(SStitle.game_loaded,		   "lobbyprotoc:set_state")
+	src << output(SStitle.ctt, 				   "lobbyprotoc:set_cons_now")
+	src << output("[SStitle.loader_pos];...;", "lobbyprotoc:set_loader_pos")
 
 /client/proc/reload_lobby()
 	lobbyscreen_image.reload_titlescreen(src)
