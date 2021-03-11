@@ -27,7 +27,7 @@
 	var/teleporting = 0
 	var/starting_crystals = 3
 	var/max_crystals = 4
-	var/list/crystals = list()
+	var/crystals = 0
 	var/obj/item/gps/inserted_gps
 
 /obj/machinery/computer/telescience/Initialize()
@@ -43,13 +43,12 @@
 
 /obj/machinery/computer/telescience/examine(mob/user)
 	..()
-	to_chat(user, "There are [crystals.len ? crystals.len : "no"] bluespace crystal\s in the crystal slots.")
+	to_chat(user, "There are [crystals ? crystals : "no"] bluespace crystal\s in the crystal slots.")
 
 /obj/machinery/computer/telescience/Initialize(mapload)
 	. = ..()
 	if(mapload)
-		for(var/i = 1; i <= starting_crystals; i++)
-			crystals += new /obj/item/stack/ore/bluespace_crystal/artificial(null) // starting crystals
+		crystals = starting_crystals
 
 /obj/machinery/computer/telescience/attack_paw(mob/user)
 	to_chat(user, "<span class='warning'>You are too primitive to use this computer!</span>")
@@ -57,13 +56,15 @@
 
 /obj/machinery/computer/telescience/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stack/ore/bluespace_crystal))
-		if(crystals.len >= max_crystals)
+		if(crystals >= max_crystals)
 			to_chat(user, "<span class='warning'>There are not enough crystal slots.</span>")
 			return
-		if(!user.transferItemToLoc(W, null))
+		var/obj/item/stack/BC = I
+		if(!BC.amount)
+			to_chat(user, "<span class='warning'>БЛЯТЬ!</span>")
 			return
-		crystals += W
-		W.loc = null
+		crystals++
+		BC.use(1)
 		user.visible_message("[user] inserts [W] into <b>[src.name]</b>'s crystal slot.", "<span class='notice'>You insert [W] into <b>[src.name]</b>'s crystal slot.</span>")
 		updateDialog()
 	else if(istype(W, /obj/item/gps))
@@ -110,7 +111,7 @@
 		t += "<div class='statusDisplay'>"
 
 		for(var/i = 1; i <= power_options.len; i++)
-			if(crystals.len + telepad.efficiency  < i)
+			if(crystals + telepad.efficiency  < i)
 				t += "<span class='linkOff'>[power_options[i]]</span>"
 				continue
 			if(power == power_options[i])
@@ -285,9 +286,9 @@
 	return
 
 /obj/machinery/computer/telescience/proc/eject()
-	for(var/obj/item/I in crystals)
-		I.loc = src.loc
-		crystals -= I
+	for(var/i in 1 to crystals)
+		new /obj/item/stack/ore/bluespace_crystal(drop_location())
+	crystals = 0
 	power = 0
 
 /obj/machinery/computer/telescience/Topic(href, href_list)
@@ -316,7 +317,7 @@
 		var/index = href_list["setpower"]
 		index = text2num(index)
 		if(index != null && power_options[index])
-			if(crystals.len + telepad.efficiency >= index)
+			if(crystals + telepad.efficiency >= index)
 				power = power_options[index]
 
 	if(href_list["setz"])

@@ -83,8 +83,8 @@
 /obj/machinery/copytech/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='info'>Примерное время создания объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>\n"
-	. += "<span class='info'>Внутри запасено <b>[crystals]/[max_crystals] блюспейс-кристаллов</b>.</span>\n"
-	. += "<span class='info'>Накоплено энергии <b>[DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.</span>"
+	. += "<span class='info'>Внутри запасено: <b>[crystals]/[max_crystals] блюспейс-кристаллов</b>.</span>\n"
+	. += "<span class='info'>Накоплено энергии: <b>[DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.</span>"
 	. += "<hr><span class='notice'>Похоже, ему требуется подключение к энергосети через кабель.</span>"
 
 /obj/machinery/copytech/Initialize()
@@ -103,9 +103,14 @@
 		if(crystals >= max_crystals)
 			to_chat(user, "<span class='warning'>Перебор!</span>")
 			return
+		var/obj/item/stack/BC = I
+		if(!BC.amount)
+			to_chat(user, "<span class='warning'>БЛЯТЬ!</span>")
+			return
 		crystals++
 		user.visible_message("[user] вставляет [I.name] в [src.name].", "<span class='notice'>Вставляю [I.name] в [src.name].</span>")
-		qdel(I)
+		BC.use(1)
+		return
 	else
 		return ..()
 
@@ -259,7 +264,7 @@
 /obj/machinery/copytech_platform/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='info'>Примерное время для уничтожения объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>\n"
-	. += "<span class='info'>Накоплено энергии <b>[DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.</span>"
+	. += "<span class='info'>Накоплено энергии: <b>[DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.</span>"
 	. += "<hr><span class='notice'>Похоже, ему требуется подключение к энергосети через кабель.</span>"
 
 /obj/machinery/copytech_platform/Initialize()
