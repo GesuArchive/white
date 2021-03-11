@@ -244,6 +244,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_ANTICONVULSANT "anticonvulsant"
 #define TRAIT_NOBLEED "nobleed" //This carbon doesn't bleed
 #define TRAIT_CLIENT_LEAVED "client_leaved" //this guy is braindead
+/// This atom can ignore the "is on a turf" check for simple AI datum attacks, allowing them to attack from bags or lockers as long as any other conditions are met
+#define TRAIT_AI_BAGATTACK "bagattack"
 
 // You can stare into the abyss, but it does not stare back.
 // You're immune to the hallucination effect of the supermatter, either
