@@ -63,6 +63,8 @@
 	suit = /obj/item/clothing/suit/toggle/wzzzz/hawaii
 	uniform = /obj/item/clothing/under/syndicate/camo
 	shoes = /obj/item/clothing/shoes/jackboots/wzzzz/jungle
+	back = /obj/item/storage/backpack/satchel/leather/withwallet
+
 	l_pocket = /obj/item/flashlight/seclite
 	r_pocket = /obj/item/radio
 
