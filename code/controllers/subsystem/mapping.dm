@@ -333,6 +333,11 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 	for(var/area/A in world)
 		A.RunGeneration()
 
+/datum/controller/subsystem/mapping/proc/run_map_generation_in_z(desired_z_level)
+	for(var/ar in SSmapping.areas_in_z["[desired_z_level]"])
+		var/area/A = ar
+		A.RunGeneration()
+
 /datum/controller/subsystem/mapping/proc/maprotate()
 	if(map_voted || SSmapping.next_map_config) //If voted or set by other means.
 		return

@@ -54,14 +54,24 @@
 	name = "трава джунглей"
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
+	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	baseturfs = /turf/open/floor/plating/dirt
 	desc = "Зелёная как тот ассистент."
 	icon_state = "junglegrass"
 	base_icon_state = "junglegrass"
 	smooth_icon = 'icons/turf/floors/junglegrass.dmi'
 
+/turf/open/floor/plating/grass/jungle/Initialize()
+	. = ..()
+	if(smoothing_flags & SMOOTH_BITMASK)
+		var/matrix/M = new
+		M.Translate(-4, -4)
+		transform = M
+		icon = smooth_icon
+		icon_state = "[icon_state]-[smoothing_junction]"
+
 /turf/open/floor/plating/grass/jungle/setup_broken_states()
-	return list("junglegrass")
+	return list("damaged")
 
 /turf/closed/mineral/random/jungle
 	mineralSpawnChanceList = list(/obj/item/stack/ore/uranium = 5, /obj/item/stack/ore/diamond = 1, /obj/item/stack/ore/gold = 10,
