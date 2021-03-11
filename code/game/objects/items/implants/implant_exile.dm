@@ -12,6 +12,9 @@
 				<b>Implant Details:</b> The onboard gateway system has been modified to reject entry by individuals containing this implant.<BR>"}
 	return dat
 
+/obj/item/implant/exile/removed(mob/living/target, silent = FALSE, special = FALSE)
+	. = ..()
+	ADD_TRAIT(target, TRAIT_PACIFISM, "sosi")
 
 ///Used to help the staff of the space hotel resist the urge to use the space hotel's incredibly alluring roundstart teleporter to ignore their flavor/greeting text and come to the station.
 /obj/item/implant/exile/noteleport
