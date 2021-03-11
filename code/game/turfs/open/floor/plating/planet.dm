@@ -65,7 +65,7 @@
 	. = ..()
 	if(smoothing_flags & SMOOTH_BITMASK)
 		var/matrix/M = new
-		M.Translate(-4, -4)
+		M.Translate(-8, -8)
 		transform = M
 		icon = smooth_icon
 		icon_state = "[icon_state]-[smoothing_junction]"
