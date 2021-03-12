@@ -1,6 +1,6 @@
 /obj/effect/decal/cleanable/blood
-	name = "blood"
-	desc = "It's red and gooey. Perhaps it's the chef's cooking?"
+	name = "кровь"
+	desc = "Красная и довольно густая. Это же наш повар готовил так?"
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "floor1"
 	random_icon_states = list("floor1", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7")
@@ -8,6 +8,42 @@
 	bloodiness = BLOOD_AMOUNT_PER_DECAL
 	beauty = -100
 	clean_type = CLEAN_TYPE_BLOOD
+	var/dryname = "засохшая кровь" //when the blood lasts long enough, it becomes dry and gets a new name
+	var/drydesc = "Омерзительное зрелище. Фу." //as above
+	var/drytime = 0
+
+/obj/effect/decal/cleanable/blood/Initialize()
+	. = ..()
+	if(bloodiness)
+		start_drying()
+	else
+		dry()
+
+/obj/effect/decal/cleanable/blood/process()
+	if(world.time > drytime)
+		dry()
+
+/obj/effect/decal/cleanable/blood/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	return ..()
+
+/obj/effect/decal/cleanable/blood/proc/get_timer()
+	drytime = world.time + 3 MINUTES
+
+/obj/effect/decal/cleanable/blood/proc/start_drying()
+	get_timer()
+	START_PROCESSING(SSobj, src)
+
+/obj/effect/decal/cleanable/blood/proc/dry()
+	if(bloodiness > 20)
+		bloodiness -= BLOOD_AMOUNT_PER_DECAL
+		get_timer()
+	else
+		name = dryname
+		desc = drydesc
+		bloodiness = 0
+		color =  COLOR_GRAY //not all blood splatters have their own sprites... It still looks pretty nice
+		STOP_PROCESSING(SSobj, src)
 
 /obj/effect/decal/cleanable/blood/replace_decal(obj/effect/decal/cleanable/blood/C)
 	C.add_blood_DNA(return_blood_DNA())
@@ -16,30 +52,30 @@
 	return ..()
 
 /obj/effect/decal/cleanable/blood/old
-	name = "dried blood"
-	desc = "Looks like it's been here a while.  Eew."
 	bloodiness = 0
 	icon_state = "floor1-old"
 
 /obj/effect/decal/cleanable/blood/old/Initialize(mapload, list/datum/disease/diseases)
 	add_blood_DNA(list("Non-human DNA" = random_blood_type())) // Needs to happen before ..()
 	. = ..()
-	icon_state = "[icon_state]-old" //change from the normal blood icon selected from random_icon_states in the parent's Initialize to the old dried up blood.
 
 /obj/effect/decal/cleanable/blood/splatter
 	icon_state = "gibbl1"
 	random_icon_states = list("gibbl1", "gibbl2", "gibbl3", "gibbl4", "gibbl5")
 
 /obj/effect/decal/cleanable/blood/tracks
+	name = "следы"
+	desc = "Следы от колёс в виде крови."
 	icon_state = "tracks"
-	desc = "They look like tracks left by wheels."
 	random_icon_states = null
 	beauty = -50
+	dryname = "высохшие следы"
+	drydesc = "Следы от колёс в виде крови. Машины очень злы, наверное."
 
 /obj/effect/decal/cleanable/trail_holder //not a child of blood on purpose
-	name = "blood"
+	name = "кровь"
 	icon = 'icons/effects/blood.dmi'
-	desc = "Your instincts say you shouldn't be following these."
+	desc = "Мои инстинкты говорят мне, что не стоит идти по этому следу."
 	beauty = -50
 	var/list/existing_dirs = list()
 
@@ -47,15 +83,15 @@
 	return TRUE
 
 /obj/effect/decal/cleanable/blood/gibs
-	name = "gibs"
-	desc = "They look bloody and gruesome."
+	name = "куча ошмёток"
+	desc = "Выглядят довольно вкусно, если бы это была карамель."
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "gib1"
 	layer = LOW_OBJ_LAYER
 	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6")
 	mergeable_decal = FALSE
-
-	var/already_rotting = FALSE
+	dryname = "гниющие ошмётки"
+	drydesc = "Выглядят довольно вкусно, если бы это была карамель и не было бы этого тошнотворного запаха."
 
 /obj/effect/decal/cleanable/blood/gibs/Initialize(mapload, list/datum/disease/diseases)
 	. = ..()
@@ -63,15 +99,9 @@
 	RegisterSignal(src, COMSIG_MOVABLE_PIPE_EJECTING, .proc/on_pipe_eject)
 	if(mapload) //Don't rot at roundstart for the love of god
 		return
-	if(already_rotting)
-		start_rotting(rename=FALSE)
-	else
-		addtimer(CALLBACK(src, .proc/start_rotting), 2 MINUTES)
 
-/obj/effect/decal/cleanable/blood/gibs/proc/start_rotting(rename=TRUE)
-	if(rename)
-		name = "rotting [initial(name)]"
-		desc += " They smell terrible."
+/obj/effect/decal/cleanable/blood/gibs/dry()
+	. = ..()
 	AddComponent(/datum/component/rot/gibs)
 
 /obj/effect/decal/cleanable/blood/gibs/ex_act(severity, target)
@@ -131,25 +161,28 @@
 	random_icon_states = list("gibmid1", "gibmid2", "gibmid3")
 
 /obj/effect/decal/cleanable/blood/gibs/old
-	name = "old rotting gibs"
-	desc = "Space Jesus, why didn't anyone clean this up? They smell terrible."
+	name = "засохшие гнилые ошмётки"
+	desc = "Почему это никто не убрал до сих пор? Пахнет довольно неприятно."
+	icon_state = "gib1-old"
 	bloodiness = 0
-	already_rotting = TRUE
+	dryname = "засохшие гнилые ошмётки"
+	drydesc = "Почему это никто не убрал до сих пор? Пахнет довольно неприятно."
 
 /obj/effect/decal/cleanable/blood/gibs/old/Initialize(mapload, list/datum/disease/diseases)
 	. = ..()
 	setDir(pick(1,2,4,8))
-	icon_state += "-old"
 	add_blood_DNA(list("Non-human DNA" = random_blood_type()))
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_SLUDGE, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 10)
 
 /obj/effect/decal/cleanable/blood/drip
-	name = "drips of blood"
-	desc = "It's red."
+	name = "капельки крови"
+	desc = "Красненькие."
 	icon_state = "drip5" //using drip5 since the others tend to blend in with pipes & wires.
 	random_icon_states = list("drip1","drip2","drip3","drip4","drip5")
 	bloodiness = 0
 	var/drips = 1
+	dryname = "капельки крови"
+	drydesc = "Красненькие."
 
 /obj/effect/decal/cleanable/blood/drip/can_bloodcrawl_in()
 	return TRUE
@@ -157,8 +190,8 @@
 
 //BLOODY FOOTPRINTS
 /obj/effect/decal/cleanable/blood/footprints
-	name = "footprints"
-	desc = "WHOSE FOOTPRINTS ARE THESE?"
+	name = "кровавые следы"
+	desc = "ЧЬИ ЖЕ ЭТО СЛЕДЫ?"
 	icon = 'icons/effects/footprints.dmi'
 	icon_state = "blood1"
 	random_icon_states = null
@@ -171,6 +204,8 @@
 
 	/// List of species that have made footprints here.
 	var/list/species_types = list()
+	dryname = "засохшие кровавые следы"
+	drydesc = "ХММ... КТО-ТО ТОЧНО ЗДЕСЬ ЕСТЬ!"
 
 /obj/effect/decal/cleanable/blood/footprints/Initialize(mapload)
 	. = ..()
@@ -220,21 +255,20 @@
 /obj/effect/decal/cleanable/blood/footprints/examine(mob/user)
 	. = ..()
 	if((shoe_types.len + species_types.len) > 0)
-		. += "You recognise the footprints as belonging to:"
+		. += "<hr>Хм, вероятно эти следы принадлежат:"
 		for(var/sole in shoe_types)
 			var/obj/item/clothing/item = sole
-			var/article = initial(item.gender) == PLURAL ? "Some" : "A"
-			. += "[icon2html(initial(item.icon), user, initial(item.icon_state))] [article] <B>[initial(item.name)]</B>."
+			. += "\n[icon2html(initial(item.icon), user, initial(item.icon_state))] <B>[initial(item.name)]</B> "
 		for(var/species in species_types)
 			// god help me
 			if(species == "unknown")
-				. += "Some <B>feet</B>."
+				. += "<B>кому-то</B>."
 			else if(species == "monkey")
-				. += "[icon2html('icons/mob/monkey.dmi', user, "monkey1")] Some <B>monkey feet</B>."
+				. += "[icon2html('icons/mob/monkey.dmi', user, "monkey1")] <B>мартышке</B>."
 			else if(species == "human")
-				. += "[icon2html('icons/mob/human_parts.dmi', user, "default_human_l_leg")] Some <B>human feet</B>."
+				. += "[icon2html('icons/mob/human_parts.dmi', user, "default_human_l_leg")] <B>человеку</B>."
 			else
-				. += "[icon2html('icons/mob/human_parts.dmi', user, "[species]_l_leg")] Some <B>[species] feet</B>."
+				. += "[icon2html('icons/mob/human_parts.dmi', user, "[species]_l_leg")] <B>мутанту типа [species]</B>."
 
 /obj/effect/decal/cleanable/blood/footprints/replace_decal(obj/effect/decal/cleanable/C)
 	if(blood_state != C.blood_state) //We only replace footprints of the same type as us
