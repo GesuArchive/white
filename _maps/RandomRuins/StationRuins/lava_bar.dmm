@@ -67,6 +67,14 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/crew_quarters/kitchen)
+"ct" = (
+/obj/structure/chair/stool{
+	dir = 1
+	},
+/turf/open/floor/plasteel/white/corner{
+	dir = 1
+	},
+/area/hallway/primary/starboard)
 "cv" = (
 /obj/structure/table,
 /obj/effect/spawner/lootdrop/donkpockets,
@@ -101,6 +109,7 @@
 	},
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/shaker,
+/obj/item/holosign_creator/robot_seat/bar,
 /turf/open/floor/mineral/plastitanium/red,
 /area/crew_quarters/bar)
 "dO" = (
@@ -550,8 +559,10 @@
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/crew_quarters/kitchen)
 "tf" = (
-/obj/structure/chair/stool/bar,
 /obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/chair/stool/bar{
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -601,6 +612,7 @@
 /area/crew_quarters/bar)
 "uj" = (
 /obj/structure/table,
+/obj/item/holosign_creator/robot_seat/restaurant,
 /turf/open/floor/plasteel/showroomfloor,
 /area/crew_quarters/kitchen)
 "ul" = (
@@ -691,6 +703,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/restaurant_portal/bar,
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
 "xo" = (
@@ -752,11 +765,19 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
+"yX" = (
+/obj/machinery/grill,
+/obj/item/stack/sheet/mineral/coal/ten{
+	pixel_x = 11;
+	pixel_y = -16
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/crew_quarters/kitchen)
 "zF" = (
 /turf/open/floor/mineral/plastitanium/red,
 /area/crew_quarters/bar)
 "zQ" = (
-/obj/machinery/griddle,
+/obj/machinery/restaurant_portal/restaurant,
 /turf/open/floor/mineral/plastitanium/red,
 /area/crew_quarters/kitchen)
 "zU" = (
@@ -924,8 +945,10 @@
 /area/crew_quarters/bar)
 "Kf" = (
 /obj/effect/landmark/start/assistant,
-/obj/structure/chair/stool/bar,
 /obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/chair/stool/bar{
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -1748,7 +1771,7 @@ kB
 JI
 xv
 OA
-hX
+ct
 "}
 (20,1,1) = {"
 Nr
@@ -1765,7 +1788,7 @@ cv
 mF
 xv
 NE
-hX
+ct
 "}
 (21,1,1) = {"
 Nr
@@ -1782,7 +1805,7 @@ kX
 JI
 nL
 NE
-hX
+ct
 "}
 (22,1,1) = {"
 Nr
@@ -1795,11 +1818,11 @@ sG
 UW
 Nd
 Kx
-kX
+yX
 JI
 xv
 Ei
-hX
+ct
 "}
 (23,1,1) = {"
 Nr

@@ -180,6 +180,7 @@
 /area/crew_quarters/bar)
 "az" = (
 /obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/holosign_creator/robot_seat/restaurant,
 /turf/open/floor/plasteel/showroomfloor,
 /area/crew_quarters/kitchen)
 "aA" = (
@@ -586,6 +587,7 @@
 	pixel_y = 25
 	},
 /obj/structure/table,
+/obj/item/holosign_creator/robot_seat/bar,
 /turf/open/floor/carpet/royalblack,
 /area/crew_quarters/bar)
 "bB" = (
@@ -601,9 +603,11 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/chair/stool,
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
+	dir = 1
+	},
+/obj/structure/chair/stool{
 	dir = 1
 	},
 /turf/open/floor/plasteel,
@@ -622,10 +626,12 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
 "bG" = (
-/obj/structure/chair/stool/bar,
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
+	},
+/obj/structure/chair/stool/bar{
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/bar)
@@ -700,7 +706,7 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
 "bR" = (
-/obj/machinery/griddle,
+/obj/machinery/restaurant_portal/restaurant,
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
 "bS" = (
@@ -768,7 +774,9 @@
 /turf/open/floor/plasteel,
 /area/crew_quarters/bar)
 "ca" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/stool{
+	dir = 4
+	},
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
@@ -1389,6 +1397,16 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/crew_quarters/bar)
+"mE" = (
+/obj/structure/chair/stool{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/bar,
+/obj/effect/turf_decal/tile/bar{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/crew_quarters/bar)
 "qM" = (
 /obj/machinery/firealarm{
 	pixel_y = 24
@@ -1409,6 +1427,24 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/carpet/royalblack,
 /area/crew_quarters/bar)
+"xf" = (
+/obj/effect/turf_decal/tile/bar,
+/obj/effect/turf_decal/tile/bar{
+	dir = 1
+	},
+/obj/structure/chair/stool{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/crew_quarters/bar)
+"yW" = (
+/obj/structure/chair/stool{
+	dir = 1
+	},
+/turf/open/floor/plasteel/white/corner{
+	dir = 1
+	},
+/area/hallway/primary/starboard)
 "zd" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
@@ -1426,6 +1462,14 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/turf/open/floor/plasteel/cafeteria,
+/area/crew_quarters/kitchen)
+"BW" = (
+/obj/item/stack/sheet/mineral/coal/ten{
+	pixel_x = 11;
+	pixel_y = -16
+	},
+/obj/machinery/grill,
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
 "Dt" = (
@@ -1447,6 +1491,29 @@
 	name = "bar shutters"
 	},
 /turf/open/floor/light/colour_cycle/dancefloor_a,
+/area/crew_quarters/bar)
+"JY" = (
+/obj/effect/turf_decal/tile/bar,
+/obj/effect/turf_decal/tile/bar{
+	dir = 1
+	},
+/obj/structure/chair/stool{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/crew_quarters/bar)
+"Ok" = (
+/obj/structure/chair/stool{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/bar,
+/obj/effect/turf_decal/tile/bar{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
 /area/crew_quarters/bar)
 "Rf" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -1487,6 +1554,16 @@
 	},
 /turf/open/floor/light/colour_cycle/dancefloor_a,
 /area/crew_quarters/bar)
+"Rp" = (
+/obj/effect/turf_decal/tile/bar,
+/obj/effect/turf_decal/tile/bar{
+	dir = 1
+	},
+/obj/structure/chair/stool{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/crew_quarters/bar)
 "UU" = (
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
@@ -1506,6 +1583,14 @@
 	},
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
+"ZO" = (
+/obj/effect/turf_decal/tile/bar,
+/obj/effect/turf_decal/tile/bar{
+	dir = 1
+	},
+/obj/machinery/restaurant_portal/bar,
+/turf/open/floor/plasteel,
+/area/crew_quarters/bar)
 
 (1,1,1) = {"
 aa
@@ -1548,12 +1633,12 @@ aa
 aF
 ao
 bj
-bu
+JY
 bv
 bU
 bv
 bv
-bu
+Rp
 bv
 cV
 af
@@ -1571,7 +1656,7 @@ bV
 cn
 bu
 cG
-bu
+xf
 cW
 af
 "}
@@ -1587,7 +1672,7 @@ bv
 bW
 bv
 bv
-bu
+JY
 bv
 cX
 af
@@ -1636,7 +1721,7 @@ bk
 bv
 bu
 bZ
-bu
+mE
 cz
 cH
 cL
@@ -1646,13 +1731,13 @@ lf
 (9,1,1) = {"
 aa
 af
-bv
+ZO
 aI
 aY
 bv
 bv
 bv
-ca
+Ok
 bv
 bv
 bW
@@ -1828,7 +1913,7 @@ cB
 ce
 YX
 de
-dl
+yW
 "}
 (20,1,1) = {"
 aa
@@ -1845,7 +1930,7 @@ cC
 cJ
 YX
 df
-dl
+yW
 "}
 (21,1,1) = {"
 aa
@@ -1862,7 +1947,7 @@ cD
 ce
 cR
 df
-dl
+yW
 "}
 (22,1,1) = {"
 aa
@@ -1875,11 +1960,11 @@ ak
 bQ
 cj
 cv
-cD
+BW
 ce
 YX
 zd
-dl
+yW
 "}
 (23,1,1) = {"
 aa

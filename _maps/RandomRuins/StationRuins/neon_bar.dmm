@@ -150,7 +150,9 @@
 /turf/open/floor/light,
 /area/crew_quarters/bar)
 "av" = (
-/obj/structure/chair/stool/bar,
+/obj/structure/chair/stool/bar{
+	dir = 4
+	},
 /turf/open/floor/light,
 /area/crew_quarters/bar)
 "aw" = (
@@ -193,6 +195,7 @@
 /area/crew_quarters/bar)
 "aC" = (
 /obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/holosign_creator/robot_seat/restaurant,
 /turf/open/floor/plasteel/showroomfloor,
 /area/crew_quarters/kitchen)
 "aD" = (
@@ -534,8 +537,10 @@
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/theatre)
 "bH" = (
-/obj/structure/chair/stool/bar,
 /obj/effect/landmark/start/assistant,
+/obj/structure/chair/stool/bar{
+	dir = 4
+	},
 /turf/open/floor/light,
 /area/crew_quarters/bar)
 "bJ" = (
@@ -617,7 +622,7 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
 "bU" = (
-/obj/machinery/griddle,
+/obj/machinery/restaurant_portal/restaurant,
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
 "bV" = (
@@ -1017,8 +1022,12 @@
 	},
 /obj/machinery/light,
 /obj/structure/table,
-/obj/item/storage/toolbox/artistic,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2,
+/obj/item/holosign_creator/robot_seat/bar{
+	pixel_x = 10;
+	pixel_y = 9
+	},
+/obj/item/storage/toolbox/artistic,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/bar)
 "df" = (
@@ -1144,6 +1153,14 @@
 	},
 /turf/open/floor/light,
 /area/crew_quarters/bar)
+"hR" = (
+/obj/structure/chair/stool{
+	dir = 1
+	},
+/turf/open/floor/plasteel/white/corner{
+	dir = 1
+	},
+/area/hallway/primary/starboard)
 "oT" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
@@ -1209,6 +1226,14 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/bar)
+"xY" = (
+/obj/machinery/grill,
+/obj/item/stack/sheet/mineral/coal/ten{
+	pixel_x = 11;
+	pixel_y = -16
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/crew_quarters/kitchen)
 "Az" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/public/glass{
@@ -1286,6 +1311,10 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
+"Si" = (
+/obj/machinery/restaurant_portal/bar,
+/turf/open/floor/plasteel/vaporwave,
+/area/crew_quarters/theatre)
 "Sy" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 4
@@ -1478,7 +1507,7 @@ aG
 ax
 aN
 bd
-aN
+Si
 bJ
 bH
 av
@@ -1623,7 +1652,7 @@ cE
 ch
 sZ
 dh
-dl
+hR
 "}
 (20,1,1) = {"
 aa
@@ -1640,7 +1669,7 @@ cF
 cM
 sZ
 di
-dl
+hR
 "}
 (21,1,1) = {"
 aa
@@ -1657,7 +1686,7 @@ cG
 ch
 cU
 di
-dl
+hR
 "}
 (22,1,1) = {"
 aa
@@ -1670,11 +1699,11 @@ am
 bT
 cm
 cy
-cG
+xY
 ch
 sZ
 Mo
-dl
+hR
 "}
 (23,1,1) = {"
 aa
