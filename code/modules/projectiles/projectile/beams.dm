@@ -89,6 +89,12 @@
 	name = "останавливающий луч"
 	icon_state = "omnilaser"
 	damage = 50
+
+	ricochets_max = 20
+	ricochet_chance = 90
+	ricochet_auto_aim_angle = 20
+	ricochet_auto_aim_range = 7
+
 	damage_type = STAMINA
 	flag = ENERGY
 	hitsound = 'sound/weapons/tap.ogg'
