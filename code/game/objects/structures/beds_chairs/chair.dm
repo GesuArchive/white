@@ -76,8 +76,10 @@
 	qdel(src)
 
 /obj/structure/chair/attackby(obj/item/W, mob/user, params)
-	if((flags_1 & NODECONSTRUCT_1) || W.tool_behaviour != TOOL_WRENCH)
+	if((flags_1 & NODECONSTRUCT_1))
 		return . = ..()
+	if(W.tool_behaviour == TOOL_WRENCH)
+		return
 	if(istype(W, /obj/item/assembly/shock_kit) && !HAS_TRAIT(src, TRAIT_ELECTRIFIED_BUCKLE))
 		electrify_self(W, user)
 		return
