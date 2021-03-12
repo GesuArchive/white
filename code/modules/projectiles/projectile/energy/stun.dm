@@ -6,12 +6,6 @@
 	paralyze = 100
 	damage = 40
 	damage_type = STAMINA
-
-	ricochets_max = 20
-	ricochet_chance = 90
-	ricochet_auto_aim_angle = 20
-	ricochet_auto_aim_range = 7
-
 	stutter = 5
 	jitter = 20
 	hitsound = 'sound/weapons/taserhit.ogg'
