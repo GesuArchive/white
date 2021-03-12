@@ -119,5 +119,5 @@
 	if(used_id && (attending_venue.req_access in used_id?.GetAccess()))
 		return
 
-	if(living_hitter.a_intent = INTENT_HARM)
+	if(living_hitter.a_intent == INTENT_HARM)
 		INVOKE_ASYNC(src, .proc/warn_greytider, living_hitter)
