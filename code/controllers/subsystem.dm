@@ -216,7 +216,7 @@
 	initialized = TRUE
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 	var/msg = "Инициализация <b>[name]</b> за <b>[time]</b> секунд!"
-	SStitle.adjust_load_pos(1.5, name)
+	SStitle.adjust_load_pos(time, name)
 	var/log_msg = "Init [name] for [time]s!"
 	to_chat(world, "<span class='green'>[msg]</span>")
 	log_world(log_msg)
