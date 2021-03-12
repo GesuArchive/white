@@ -8146,10 +8146,8 @@
 /turf/open/floor/plasteel,
 /area/gateway)
 "aHK" = (
-/obj/machinery/newscaster{
-	pixel_y = 32
-	},
-/turf/open/floor/wood,
+/obj/machinery/computer/chef_order,
+/turf/open/floor/plasteel/showroomfloor,
 /area/hallway/secondary/service)
 "aHL" = (
 /obj/machinery/airalarm{
@@ -8646,6 +8644,9 @@
 /obj/machinery/light{
 	dir = 1;
 	pixel_y = 0
+	},
+/obj/machinery/newscaster{
+	pixel_y = 32
 	},
 /turf/open/floor/wood,
 /area/hallway/secondary/service)
@@ -78154,8 +78155,8 @@ aro
 aro
 aro
 aCw
-aDV
 aHK
+aDW
 bIK
 aaa
 aaa
