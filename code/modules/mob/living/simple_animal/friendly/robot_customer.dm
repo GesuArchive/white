@@ -1,9 +1,9 @@
 ///Robot customers
 /mob/living/simple_animal/robot_customer
-	name = "space-tourist bot"
+	name = "космотурист"
 	maxHealth = 150
 	health = 150
-	desc = "I wonder what they'll order..."
+	desc = "Что же он закажет..."
 	icon = 'icons/mob/tourists.dmi'
 	icon_state = "amerifat"
 	icon_living = "amerifat"
@@ -34,7 +34,7 @@
 	ai_controller.blackboard[BB_CUSTOMER_ATTENDING_VENUE] = attending_venue
 	ai_controller.blackboard[BB_CUSTOMER_PATIENCE] = customer_info.total_patience
 	icon_state = customer_info.base_icon
-	name = "[pick(customer_info.name_prefixes)]-bot ([customer_info.nationality])"
+	name = "[pick(customer_info.name_prefixes)]-бот ([customer_info.nationality])"
 	color = rgb(rand(80,255), rand(80,255), rand(80,255))
 	update_icon()
 
@@ -79,4 +79,4 @@
 	. = ..()
 	if(ai_controller.blackboard[BB_CUSTOMER_CURRENT_ORDER])
 		var/datum/venue/attending_venue = ai_controller.blackboard[BB_CUSTOMER_ATTENDING_VENUE]
-		. += "<span class='notice'>Their order was: \"[attending_venue.order_food_line(ai_controller.blackboard[BB_CUSTOMER_CURRENT_ORDER])].\"</span>"
+		. += "<hr><span class='notice'>Заказ: \"[attending_venue.order_food_line(ai_controller.blackboard[BB_CUSTOMER_CURRENT_ORDER])].\"</span>"

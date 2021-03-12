@@ -36,12 +36,12 @@
 	return object_used.type == wanted_item
 
 /datum/venue/restaurant/order_food_line(obj/item/order)
-	return "I'll take \a [initial(order.name)]"
+	return "Я бы хотел [initial(order.name)]"
 
 /datum/venue/restaurant/on_get_order(mob/living/simple_animal/robot_customer/customer_pawn, obj/item/order_item)
 	. = ..()
 	var/obj/item/food/ordered_food = order_item
-	customer_pawn.visible_message("<span class='danger'>[customer_pawn] pushes [ordered_food] into their mouth-shaped hole!</span>", "<span class='danger'>You push [ordered_food] into your mouth-shaped hole.</span>")
+	customer_pawn.visible_message("<span class='danger'>[customer_pawn] затакливает [ordered_food] в своё подобие ротовой полости!</span>", "<span class='danger'>Запихиваю [ordered_food] в своё подобие ротовой полости.</span>")
 	playsound(get_turf(customer_pawn),'sound/items/eatfood.ogg', rand(10,50), TRUE)
 	total_income += ordered_food.venue_value
 	customers_served += 1
@@ -94,7 +94,7 @@
 	return reagent_to_order
 
 /datum/venue/bar/order_food_line(datum/reagent/order)
-	return "I'll take a glass of [initial(order.name)]"
+	return "Налейте мне полный стакан [initial(order.name)]"
 
 /datum/venue/bar/on_get_order(mob/living/simple_animal/robot_customer/customer_pawn, obj/item/order_item)
 	var/datum/reagent/consumable/ordered_reagent_type = customer_pawn.ai_controller.blackboard[BB_CUSTOMER_CURRENT_ORDER]
@@ -104,7 +104,7 @@
 			continue
 		SEND_SIGNAL(reagent, COMSIG_ITEM_SOLD_TO_CUSTOMER, customer_pawn, order_item)
 
-	customer_pawn.visible_message("<span class='danger'>[customer_pawn] slurps up [order_item] in one go!</span>", "<span class='danger'>You slurp up [order_item] in one go.</span>")
+	customer_pawn.visible_message("<span class='danger'>[customer_pawn] выпивает [order_item] залпом!</span>", "<span class='danger'>Выпиваю [order_item] залпом.</span>")
 	playsound(get_turf(customer_pawn), 'sound/items/drink.ogg', 50, TRUE)
 	customers_served += 1
 	order_item.reagents.clear_reagents()

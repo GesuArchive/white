@@ -622,7 +622,7 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
 "bU" = (
-/obj/machinery/restaurant_portal/restaurant,
+/obj/machinery/griddle,
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
 "bV" = (
@@ -1082,6 +1082,7 @@
 /turf/closed/wall,
 /area/crew_quarters/bar)
 "dl" = (
+/obj/machinery/restaurant_portal/restaurant,
 /turf/open/floor/plasteel/white/corner{
 	dir = 1
 	},

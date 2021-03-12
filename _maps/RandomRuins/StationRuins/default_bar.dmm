@@ -706,7 +706,7 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
 "bR" = (
-/obj/machinery/restaurant_portal/restaurant,
+/obj/machinery/griddle,
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
 "bS" = (
@@ -1355,6 +1355,7 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/hallway/secondary/service)
 "dl" = (
+/obj/machinery/restaurant_portal/restaurant,
 /turf/open/floor/plasteel/white/corner{
 	dir = 1
 	},
