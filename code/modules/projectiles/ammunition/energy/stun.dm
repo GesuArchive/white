@@ -3,6 +3,8 @@
 	select_name = "stun"
 	fire_sound = 'sound/weapons/taser.ogg'
 	e_cost = 200
+	pellets = 3
+	variance = 20
 	harmful = FALSE
 
 /obj/item/ammo_casing/energy/electrode/spec
