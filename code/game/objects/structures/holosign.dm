@@ -29,9 +29,9 @@
 	. = ..()
 	if(.)
 		return
-	attack_holosign(user, modifiers)
+	attack_holosign(user)
 
-/obj/structure/holosign/proc/attack_holosign(mob/living/user, list/modifiers)
+/obj/structure/holosign/proc/attack_holosign(mob/living/user)
 	user.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
 	user.changeNext_move(CLICK_CD_MELEE)
 	take_damage(5 , BRUTE, MELEE, 1)

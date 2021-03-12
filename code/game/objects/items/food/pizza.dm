@@ -91,7 +91,6 @@
 	tastes = list("корка" = 1, "томаты" = 2, "сыр" = 1, "морковь" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/vegetable
-	boxtag = "Gourmet Vegetable"
 	venue_value = FOOD_PRICE_NORMAL
 
 /obj/item/food/pizzaslice/vegetable
