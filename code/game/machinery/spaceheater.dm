@@ -22,7 +22,7 @@
 	var/mode = HEATER_MODE_STANDBY
 	var/setMode = HEATER_MODE_AUTO // Anything other than "heat" or "cool" is considered auto.
 	var/targetTemperature = T20C
-	var/heatingPower = 20000
+	var/heatingPower = 40000
 	var/efficiency = 20000
 	var/temperatureTolerance = 1
 	var/settableTemperatureMedian = 30 + T0C
