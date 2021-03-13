@@ -119,7 +119,7 @@
 		return FALSE
 
 	var/list/f_types = list()
-	for(var/path in GLOB.meta_gas_list)
+	for(var/path in GLOB.meta_gas_ids)
 		f_types += list(list("gas_id" = GLOB.meta_gas_names[path], "gas_name" = GLOB.meta_gas_ids[path], "enabled" = (path in filter_types)))
 	var/datum/signal/signal = new(list(
 		"tag" = id_tag,
