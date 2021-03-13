@@ -6,28 +6,6 @@
 	Initializing any other modules also initializes this so it shouldn't be necessary to call this.
 */
 
-#ifndef EXTOOLS
-// Default automatic EXTOOLS detection.
-// On Windows, looks in the standard places for `byond-extools.dll`.
-// On Linux, looks in the standard places for`libbyond-extools.so`.
-
-/* This comment bypasses grep checks */ /var/__extools
-
-/proc/__detect_extools()
-	if (world.system_type == UNIX)
-		if (fexists("./libbyond-extools.so"))
-			// No need for LD_LIBRARY_PATH badness.
-			return __extools = "./libbyond-extools.so"
-		else
-			// It's not in the current directory, so try others
-			return __extools = "libbyond-extools.so"
-	else
-		return __extools = "byond-extools.dll"
-
-#define EXTOOLS (__extools || __detect_extools())
-#endif
-
-
 /proc/extools_initialize()
 	return call(EXTOOLS, "core_initialize")() == EXTOOLS_SUCCESS
 

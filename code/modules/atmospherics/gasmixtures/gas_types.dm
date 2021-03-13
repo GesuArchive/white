@@ -1,65 +1,35 @@
 GLOBAL_LIST_INIT(hardcoded_gases, list(/datum/gas/oxygen, /datum/gas/nitrogen, /datum/gas/carbon_dioxide, /datum/gas/plasma)) //the main four gases, which were at one time hardcoded
+//Now this is what I call history
 GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/gas/nitrogen, /datum/gas/carbon_dioxide, /datum/gas/pluoxium, /datum/gas/stimulum, /datum/gas/nitryl))) //unable to react amongst themselves
 
+/proc/meta_gas_list()
+	. = subtypesof(/datum/gas)
+	for(var/gas_path in .)
+		var/list/gas_info = new(7)
+		var/datum/gas/gas = gas_path
+
+		gas_info[META_GAS_SPECIFIC_HEAT] = initial(gas.specific_heat)
+		gas_info[META_GAS_NAME] = initial(gas.name)
+
+		gas_info[META_GAS_MOLES_VISIBLE] = initial(gas.moles_visible)
+		if(initial(gas.moles_visible) != null)
+			gas_info[META_GAS_OVERLAY] = new /list(TOTAL_VISIBLE_STATES)
+			for(var/i in 1 to TOTAL_VISIBLE_STATES)
+				gas_info[META_GAS_OVERLAY][i] = new /obj/effect/overlay/gas(initial(gas.gas_overlay), log(4, (i+0.4*TOTAL_VISIBLE_STATES) / (0.35*TOTAL_VISIBLE_STATES)) * 255)
+
+		gas_info[META_GAS_FUSION_POWER] = initial(gas.fusion_power)
+		gas_info[META_GAS_DANGER] = initial(gas.dangerous)
+		gas_info[META_GAS_ID] = initial(gas.id)
+		.[gas_path] = gas_info
+
 /proc/gas_id2path(id)
-	var/list/meta_gas = GLOB.meta_gas_ids
+	var/list/meta_gas = GLOB.meta_gas_info
 	if(id in meta_gas)
 		return id
 	for(var/path in meta_gas)
-		if(meta_gas[path] == id)
+		if(meta_gas[path][META_GAS_ID] == id)
 			return path
 	return ""
-
-//Unomos - oh god oh fuck oh shit oh lord have mercy this is messy as fuck oh god
-//my addiction to seeing better performance numbers isn't healthy, kids
-//you see this shit, children?
-//i am not a good idol. don't take after me.
-//this is literally worse than my alcohol addiction
-/proc/meta_gas_heat_list()
-	. = subtypesof(/datum/gas)
-	for(var/gas_path in .)
-		var/datum/gas/gas = gas_path
-		.[gas_path] = initial(gas.specific_heat)
-
-/proc/meta_gas_name_list()
-	. = subtypesof(/datum/gas)
-	for(var/gas_path in .)
-		var/datum/gas/gas = gas_path
-		.[gas_path] = initial(gas.name)
-
-/proc/meta_gas_visibility_list()
-	. = subtypesof(/datum/gas)
-	for(var/gas_path in .)
-		var/datum/gas/gas = gas_path
-		.[gas_path] = initial(gas.moles_visible)
-
-/proc/meta_gas_overlay_list()
-	. = subtypesof(/datum/gas)
-	for(var/gas_path in .)
-		var/datum/gas/gas = gas_path
-		.[gas_path] = 0 //gotta make sure if(GLOB.meta_gas_overlays[gaspath]) doesn't break
-		if(initial(gas.moles_visible) != null)
-			.[gas_path] = new /list(FACTOR_GAS_VISIBLE_MAX)
-			for(var/i in 1 to FACTOR_GAS_VISIBLE_MAX)
-				.[gas_path][i] = new /obj/effect/overlay/gas(initial(gas.gas_overlay), i * 255 / FACTOR_GAS_VISIBLE_MAX)
-
-/proc/meta_gas_danger_list()
-	. = subtypesof(/datum/gas)
-	for(var/gas_path in .)
-		var/datum/gas/gas = gas_path
-		.[gas_path] = initial(gas.dangerous)
-
-/proc/meta_gas_id_list()
-	. = subtypesof(/datum/gas)
-	for(var/gas_path in .)
-		var/datum/gas/gas = gas_path
-		.[gas_path] = initial(gas.id)
-
-/proc/meta_gas_fusion_list()
-	. = subtypesof(/datum/gas)
-	for(var/gas_path in .)
-		var/datum/gas/gas = gas_path
-		.[gas_path] = initial(gas.fusion_power)
 
 /*||||||||||||||/----------\||||||||||||||*\
 ||||||||||||||||[GAS DATUMS]||||||||||||||||
@@ -79,6 +49,8 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 	var/dangerous = FALSE //currently used by canisters
 	var/fusion_power = 0 //How much the gas accelerates a fusion reaction
 	var/rarity = 0 // relative rarity compared to other gases, used when setting up the reactions list.
+
+// If you add or remove gases, update TOTAL_NUM_GASES in the extools code to match! Extools currently expects 21 gas types to exist.
 
 /datum/gas/oxygen
 	id = "o2"

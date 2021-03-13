@@ -459,7 +459,7 @@
 		var/turf/T = get_turf(src)
 		var/datum/gas_mixture/target_air = holding ? holding.air_contents : T.return_air()
 
-		if(release_gas_to(air_contents, target_air, release_pressure) && !holding)
+		if(air_contents.release_gas_to(target_air, release_pressure) && !holding)
 			air_update_turf(FALSE, FALSE)
 
 	var/our_pressure = air_contents.return_pressure()
@@ -570,10 +570,10 @@
 				if(!holding)
 					var/list/danger = list()
 					for(var/id in air_contents.get_gases())
-						if(!GLOB.meta_gas_dangers[id])
+						if(!GLOB.meta_gas_info[id][META_GAS_DANGER])
 							continue
-						if(air_contents.get_moles(id) > (GLOB.meta_gas_visibility[id] || MOLES_GAS_VISIBLE)) //if moles_visible is undefined, default to default visibility
-							danger[GLOB.meta_gas_names[id]] = air_contents.get_moles(id) //ex. "plasma" = 20
+						if(air_contents.get_moles(id) > (GLOB.meta_gas_info[id][META_GAS_MOLES_VISIBLE] || MOLES_GAS_VISIBLE)) //if moles_visible is undefined, default to default visibility
+							danger[GLOB.meta_gas_info[id][META_GAS_NAME]] = air_contents.get_moles(id) //ex. "plasma" = 20
 
 					if(danger.len)
 						message_admins("[ADMIN_LOOKUPFLW(usr)] opened a canister that contains the following at [ADMIN_VERBOSEJMP(src)]:")

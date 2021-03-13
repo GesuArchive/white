@@ -58,7 +58,7 @@
 	var/datum/gas_mixture/air2 = airs[2]
 
 	if(air1.return_pressure() > target_pressure)
-		if(release_gas_to(air1, air2, air1.return_pressure()))
+		if(air1.release_gas_to(air2, air1.return_pressure()))
 			update_parents()
 			is_gas_flowing = TRUE
 	else
