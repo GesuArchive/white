@@ -35,6 +35,15 @@
 /area/centcom/debug
 	name = "ЦК: Дебаг"
 
+/area/centcom/scp
+	name = "ЦК: SCP"
+
+/area/centcom/brief
+	name = "ЦК: Брифинг"
+
+/area/centcom/that_zone
+	name = "ЦК: Эта зона"
+
 /area/centcom/outdoors
 	name = "ЦК: Поверхность"
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
