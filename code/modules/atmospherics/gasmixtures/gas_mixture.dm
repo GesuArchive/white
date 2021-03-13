@@ -17,20 +17,19 @@ This prevents race conditions that arise based on the order of tile processing.
  */
 #define QUANTIZE(variable) (round((variable), (MOLAR_ACCURACY)))
 GLOBAL_LIST_INIT(meta_gas_info, meta_gas_list()) //see ATMOSPHERICS/gas_types.dm
-GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 
-/proc/init_gaslist_cache()
-	. = list()
-	for(var/id in GLOB.meta_gas_info)
-		var/list/cached_gas = new(3)
-
-		.[id] = cached_gas
-
-		cached_gas[MOLES] = 0
-		cached_gas[ARCHIVE] = 0
-		cached_gas[GAS_META] = GLOB.meta_gas_info[id]
-
+//Unomos - global list inits for all of the meta gas lists.
+//This setup allows procs to only look at one list instead of trying to dig around in lists-within-lists
+GLOBAL_LIST_INIT(meta_gas_specific_heats, meta_gas_heat_list())
+GLOBAL_LIST_INIT(meta_gas_names, meta_gas_name_list())
+GLOBAL_LIST_INIT(meta_gas_visibility, meta_gas_visibility_list())
+GLOBAL_LIST_INIT(meta_gas_overlays, meta_gas_overlay_list())
+GLOBAL_LIST_INIT(meta_gas_dangers, meta_gas_danger_list())
+GLOBAL_LIST_INIT(meta_gas_ids, meta_gas_id_list())
+GLOBAL_LIST_INIT(meta_gas_fusions, meta_gas_fusion_list())
 /datum/gas_mixture
+	/// Never ever set this variable, hooked into vv_get_var for view variables viewing.
+	var/gas_list_view_only
 	var/initial_volume = CELL_VOLUME //liters
 	var/list/reaction_results
 	var/list/analyzer_results //used for analyzer feedback - not initialized until its used
@@ -44,9 +43,85 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 	reaction_results = new
 
 /datum/gas_mixture/vv_edit_var(var_name, var_value)
-	if(var_name == "_extools_pointer_gasmixture")
+	if(var_name == NAMEOF(src, _extools_pointer_gasmixture))
 		return FALSE // please no. segfaults bad.
+	if(var_name == NAMEOF(src, gas_list_view_only))
+		return FALSE
 	return ..()
+
+/datum/gas_mixture/vv_get_var(var_name)
+	. = ..()
+	if(var_name == NAMEOF(src, gas_list_view_only))
+		var/list/dummy = get_gases()
+		for(var/gas in dummy)
+			dummy[gas] = get_moles(gas)
+		dummy["TEMP"] = return_temperature()
+		dummy["PRESSURE"] = return_pressure()
+		dummy["HEAT CAPACITY"] = heat_capacity()
+		dummy["TOTAL MOLES"] = total_moles()
+		dummy["VOLUME"] = return_volume()
+		dummy["THERMAL ENERGY"] = thermal_energy()
+		return debug_variable("gases (READ ONLY)", dummy, 0, src)
+
+/datum/gas_mixture/vv_get_dropdown()
+	. = ..()
+	VV_DROPDOWN_OPTION("", "---")
+	VV_DROPDOWN_OPTION(VV_HK_PARSE_GASSTRING, "Parse Gas String")
+	VV_DROPDOWN_OPTION(VV_HK_EMPTY, "Empty")
+	VV_DROPDOWN_OPTION(VV_HK_SET_MOLES, "Set Moles")
+	VV_DROPDOWN_OPTION(VV_HK_SET_TEMPERATURE, "Set Temperature")
+	VV_DROPDOWN_OPTION(VV_HK_SET_VOLUME, "Set Volume")
+
+/datum/gas_mixture/vv_do_topic(list/href_list)
+	. = ..()
+	if(!.)
+		return
+	if(href_list[VV_HK_PARSE_GASSTRING])
+		var/gasstring = input(usr, "Input Gas String (WARNING: Advanced. Don't use this unless you know how these work.", "Gas String Parse") as text|null
+		if(!istext(gasstring))
+			return
+		log_admin("[key_name(usr)] modified gas mixture [REF(src)]: Set to gas string [gasstring].")
+		message_admins("[key_name(usr)] modified gas mixture [REF(src)]: Set to gas string [gasstring].")
+		parse_gas_string(gasstring)
+	if(href_list[VV_HK_EMPTY])
+		log_admin("[key_name(usr)] emptied gas mixture [REF(src)].")
+		message_admins("[key_name(usr)] emptied gas mixture [REF(src)].")
+		clear()
+	if(href_list[VV_HK_SET_MOLES])
+		var/list/gases = get_gases()
+		for(var/gas in gases)
+			gases[gas] = get_moles(gas)
+		var/gastype = input(usr, "What kind of gas?", "Set Gas") as null|anything in subtypesof(/datum/gas)
+		if(!ispath(gastype, /datum/gas))
+			return
+		var/amount = input(usr, "Input amount", "Set Gas", gases[gastype] || 0) as num|null
+		if(!isnum(amount))
+			return
+		amount = max(0, amount)
+		log_admin("[key_name(usr)] modified gas mixture [REF(src)]: Set gas type [gastype] to [amount] moles.")
+		message_admins("[key_name(usr)] modified gas mixture [REF(src)]: Set gas type [gastype] to [amount] moles.")
+		set_moles(gastype, amount)
+	if(href_list[VV_HK_SET_TEMPERATURE])
+		var/temp = input(usr, "Set the temperature of this mixture to?", "Set Temperature", return_temperature()) as num|null
+		if(!isnum(temp))
+			return
+		temp = max(2.7, temp)
+		log_admin("[key_name(usr)] modified gas mixture [REF(src)]: Changed temperature to [temp].")
+		message_admins("[key_name(usr)] modified gas mixture [REF(src)]: Changed temperature to [temp].")
+		set_temperature(temp)
+	if(href_list[VV_HK_SET_VOLUME])
+		var/volume = input(usr, "Set the volume of this mixture to?", "Set Volume", return_volume()) as num|null
+		if(!isnum(volume))
+			return
+		volume = max(0, volume)
+		log_admin("[key_name(usr)] modified gas mixture [REF(src)]: Changed volume to [volume].")
+		message_admins("[key_name(usr)] modified gas mixture [REF(src)]: Changed volume to [volume].")
+		set_volume(volume)
+
+/*
+/datum/gas_mixture/Del()
+	__gasmixture_unregister()
+	. = ..()*/
 
 /datum/gas_mixture/proc/__gasmixture_unregister()
 /datum/gas_mixture/proc/__gasmixture_register()
@@ -58,7 +133,7 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 		L[gt] = initial(G.specific_heat)
 	return L
 
-/datum/gas_mixture/proc/heat_capacity(data = MOLES) //joules per kelvin
+/datum/gas_mixture/proc/heat_capacity() //joules per kelvin
 
 /datum/gas_mixture/proc/total_moles()
 
@@ -71,6 +146,19 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 /datum/gas_mixture/proc/set_volume(new_volume)
 /datum/gas_mixture/proc/get_moles(gas_type)
 /datum/gas_mixture/proc/set_moles(gas_type, moles)
+
+// VV WRAPPERS - EXTOOLS HOOKED PROCS DO NOT TAKE ARGUMENTS FROM CALL() FOR SOME REASON.
+/datum/gas_mixture/proc/vv_set_moles(gas_type, moles)
+	return set_moles(gas_type, moles)
+/datum/gas_mixture/proc/vv_get_moles(gas_type)
+	return get_moles(gas_type)
+/datum/gas_mixture/proc/vv_set_temperature(new_temp)
+	return set_temperature(new_temp)
+/datum/gas_mixture/proc/vv_set_volume(new_volume)
+	return set_volume(new_volume)
+/datum/gas_mixture/proc/vv_react(datum/holder)
+	return react(holder)
+
 /datum/gas_mixture/proc/scrub_into(datum/gas_mixture/target, list/gases)
 /datum/gas_mixture/proc/mark_immutable()
 /datum/gas_mixture/proc/mark_vacuum()
@@ -93,11 +181,11 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 	//Returns: 1 in all cases
 
 /datum/gas_mixture/proc/merge(datum/gas_mixture/giver)
-	//Merges all air from giver into self. Deletes giver.
+	//Merges all air from giver into self. giver is untouched.
 	//Returns: 1 if we are mutable, 0 otherwise
 
 /datum/gas_mixture/proc/remove(amount)
-	//Proportionally removes amount of gas from the gas_mixture
+	//Removes amount of gas from the gas_mixture
 	//Returns: gas_mixture with the gases removed
 
 /datum/gas_mixture/proc/transfer_to(datum/gas_mixture/target, amount)
@@ -183,6 +271,7 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 		if(!ispath(path))
 			path = gas_id2path(path) //a lot of these strings can't have embedded expressions (especially for mappers), so support for IDs needs to stick around
 		set_moles(path, text2num(gas[id]))
+	archive()
 	return 1
 
 //Takes the amount of the gas you want to PP as an argument
@@ -252,9 +341,9 @@ get_true_breath_pressure(pp) --> gas_pp = pp/breath_pp*total_moles()
 	return FALSE
 
 /// Releases gas from src to output air. This means that it can not transfer air to gas mixture with higher pressure.
-/datum/gas_mixture/proc/release_gas_to(datum/gas_mixture/output_air, target_pressure)
+/proc/release_gas_to(datum/gas_mixture/input_air, datum/gas_mixture/output_air, target_pressure)
 	var/output_starting_pressure = output_air.return_pressure()
-	var/input_starting_pressure = return_pressure()
+	var/input_starting_pressure = input_air.return_pressure()
 
 	if(output_starting_pressure >= min(target_pressure,input_starting_pressure-10))
 		//No need to pump gas if target is already reached or input pressure is too low
@@ -262,14 +351,14 @@ get_true_breath_pressure(pp) --> gas_pp = pp/breath_pp*total_moles()
 		return FALSE
 
 	//Calculate necessary moles to transfer using PV = nRT
-	if((total_moles() > 0) && (return_temperature()>0))
+	if((input_air.total_moles() > 0) && (input_air.return_temperature()>0))
 		var/pressure_delta = min(target_pressure - output_starting_pressure, (input_starting_pressure - output_starting_pressure)/2)
 		//Can not have a pressure delta that would cause output_pressure > input_pressure
 
-		var/transfer_moles = pressure_delta*output_air.return_volume()/(return_temperature() * R_IDEAL_GAS_EQUATION)
+		var/transfer_moles = pressure_delta*output_air.return_volume()/(input_air.return_temperature() * R_IDEAL_GAS_EQUATION)
 
 		//Actually transfer the gas
-		var/datum/gas_mixture/removed = remove(transfer_moles)
+		var/datum/gas_mixture/removed = input_air.remove(transfer_moles)
 		output_air.merge(removed)
 
 		return TRUE

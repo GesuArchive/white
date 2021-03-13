@@ -2,6 +2,51 @@ GLOBAL_LIST_INIT(hardcoded_gases, list(/datum/gas/oxygen, /datum/gas/nitrogen, /
 //Now this is what I call history
 GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/gas/nitrogen, /datum/gas/carbon_dioxide, /datum/gas/pluoxium, /datum/gas/stimulum, /datum/gas/nitryl))) //unable to react amongst themselves
 
+/proc/meta_gas_heat_list()
+	. = subtypesof(/datum/gas)
+	for(var/gas_path in .)
+		var/datum/gas/gas = gas_path
+		.[gas_path] = initial(gas.specific_heat)
+
+/proc/meta_gas_name_list()
+	. = subtypesof(/datum/gas)
+	for(var/gas_path in .)
+		var/datum/gas/gas = gas_path
+		.[gas_path] = initial(gas.name)
+
+/proc/meta_gas_visibility_list()
+	. = subtypesof(/datum/gas)
+	for(var/gas_path in .)
+		var/datum/gas/gas = gas_path
+		.[gas_path] = initial(gas.moles_visible)
+
+/proc/meta_gas_overlay_list()
+	. = subtypesof(/datum/gas)
+	for(var/gas_path in .)
+		var/datum/gas/gas = gas_path
+		.[gas_path] = 0 //gotta make sure if(GLOB.meta_gas_overlays[gaspath]) doesn't break
+		if(initial(gas.moles_visible) != null)
+			.[gas_path] = new /list(FACTOR_GAS_VISIBLE_MAX)
+			for(var/i in 1 to FACTOR_GAS_VISIBLE_MAX)
+				.[gas_path][i] = new /obj/effect/overlay/gas(initial(gas.gas_overlay), i * 255 / FACTOR_GAS_VISIBLE_MAX)
+
+/proc/meta_gas_danger_list()
+	. = subtypesof(/datum/gas)
+	for(var/gas_path in .)
+		var/datum/gas/gas = gas_path
+		.[gas_path] = initial(gas.dangerous)
+
+/proc/meta_gas_id_list()
+	. = subtypesof(/datum/gas)
+	for(var/gas_path in .)
+		var/datum/gas/gas = gas_path
+		.[gas_path] = initial(gas.id)
+
+/proc/meta_gas_fusion_list()
+	. = subtypesof(/datum/gas)
+	for(var/gas_path in .)
+		var/datum/gas/gas = gas_path
+		.[gas_path] = initial(gas.fusion_power)
 /proc/meta_gas_list()
 	. = subtypesof(/datum/gas)
 	for(var/gas_path in .)
@@ -49,8 +94,6 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 	var/dangerous = FALSE //currently used by canisters
 	var/fusion_power = 0 //How much the gas accelerates a fusion reaction
 	var/rarity = 0 // relative rarity compared to other gases, used when setting up the reactions list.
-
-// If you add or remove gases, update TOTAL_NUM_GASES in the extools code to match! Extools currently expects 21 gas types to exist.
 
 /datum/gas/oxygen
 	id = "o2"
