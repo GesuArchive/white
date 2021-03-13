@@ -68,7 +68,7 @@
 		var/ghost_role = alert(user, "Точно хочешь занять это тело? (внимание, текущее тело будет покинуто)",,"Да","Нет")
 		if(ghost_role == "Нет" || !user.loc || QDELETED(user))
 			return
-		if(is_banned_from(user.key, ROLE_ICECREAM) || "slime" in src.faction)
+		if(is_banned_from(user.key, ROLE_ICECREAM) || isslimeperson(src))
 			to_chat(user, "<span class='warning'>А хуй тебе!</span>")
 			return
 		if(QDELETED(src) || QDELETED(user))
