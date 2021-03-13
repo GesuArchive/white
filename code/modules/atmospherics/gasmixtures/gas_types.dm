@@ -2,6 +2,20 @@ GLOBAL_LIST_INIT(hardcoded_gases, list(/datum/gas/oxygen, /datum/gas/nitrogen, /
 //Now this is what I call history
 GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/gas/nitrogen, /datum/gas/carbon_dioxide, /datum/gas/pluoxium, /datum/gas/stimulum, /datum/gas/nitryl))) //unable to react amongst themselves
 
+/proc/gas_id2path(id)
+	var/list/meta_gas = GLOB.meta_gas_ids
+	if(id in meta_gas)
+		return id
+	for(var/path in meta_gas)
+		if(meta_gas[path] == id)
+			return path
+	return ""
+
+//Unomos - oh god oh fuck oh shit oh lord have mercy this is messy as fuck oh god
+//my addiction to seeing better performance numbers isn't healthy, kids
+//you see this shit, children?
+//i am not a good idol. don't take after me.
+//this is literally worse than my alcohol addiction
 /proc/meta_gas_heat_list()
 	. = subtypesof(/datum/gas)
 	for(var/gas_path in .)
