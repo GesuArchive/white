@@ -75,14 +75,14 @@ GLOBAL_LIST_INIT(nonhuman_positions, list(
 
 // job categories for rendering the late join menu
 GLOBAL_LIST_INIT(position_categories, list(
-	EXP_TYPE_COMMAND = list("jobs" = command_positions, "color" = "#ccccff"),
-	EXP_TYPE_ENGINEERING = list("jobs" = engineering_positions, "color" = "#ffeeaa"),
-	EXP_TYPE_SUPPLY = list("jobs" = supply_positions, "color" = "#ddddff"),
-	EXP_TYPE_SILICON = list("jobs" = nonhuman_positions - "pAI", "color" = "#ccffcc"),
-	EXP_TYPE_SERVICE = list("jobs" = service_positions, "color" = "#bbe291"),
-	EXP_TYPE_MEDICAL = list("jobs" = medical_positions, "color" = "#ffddf0"),
-	EXP_TYPE_SCIENCE = list("jobs" = science_positions, "color" = "#ffddff"),
-	EXP_TYPE_SECURITY = list("jobs" = security_positions, "color" = "#ffdddd")
+	EXP_TYPE_COMMAND = list("jobs" = command_positions, "color" = "#5555ff", "runame" = "Командование"),
+	EXP_TYPE_ENGINEERING = list("jobs" = engineering_positions, "color" = "#ff9944", "runame" = "Инженерный"),
+	EXP_TYPE_SUPPLY = list("jobs" = supply_positions, "color" = "#9999ff", "runame" = "Снабжение"),
+	EXP_TYPE_SILICON = list("jobs" = nonhuman_positions - "pAI", "color" = "#44ff44", "runame" = "Синтетики"),
+	EXP_TYPE_SERVICE = list("jobs" = service_positions, "color" = "#449291", "runame" = "Обслуга"),
+	EXP_TYPE_MEDICAL = list("jobs" = medical_positions, "color" = "#ff44a0", "runame" = "Медицинский"),
+	EXP_TYPE_SCIENCE = list("jobs" = science_positions, "color" = "#ff44ff", "runame" = "Научный"),
+	EXP_TYPE_SECURITY = list("jobs" = security_positions, "color" = "#ff4444", "runame" = "Охрана")
 ))
 
 GLOBAL_LIST_INIT(exp_jobsmap, list(
