@@ -808,9 +808,9 @@
 	//Calculation of the gas power, only for theoretical instability calculations
 	var/gas_power = 0
 	for (var/gas_id in internal_fusion.get_gases())
-		gas_power += (GLOB.meta_gas_info[gas_id][META_GAS_FUSION_POWER] * internal_fusion.get_moles(gas_id))
+		gas_power += (GLOB.meta_gas_fusions[gas_id] * internal_fusion.get_moles(gas_id))
 	for (var/gas_id in moderator_internal.get_gases())
-		gas_power += (GLOB.meta_gas_info[gas_id][META_GAS_FUSION_POWER] * moderator_internal.get_moles(gas_id) * 0.75)
+		gas_power += (GLOB.meta_gas_fusions[gas_id] * moderator_internal.get_moles(gas_id) * 0.75)
 
 	instability = MODULUS((gas_power * INSTABILITY_GAS_POWER_FACTOR)**2, toroidal_size) + (current_damper * 0.01) - iron_content * 0.05
 	//Effective reaction instability (determines if the energy is used/released)
@@ -1170,13 +1170,13 @@
 	if(connected_core.internal_fusion.total_moles())
 		for(var/gasid in connected_core.internal_fusion.get_gases())
 			fusion_gasdata.Add(list(list(
-			"name"= GLOB.meta_gas_info[gasid][META_GAS_NAME],
+			"name"= GLOB.meta_gas_names[gasid],
 			"amount" = round(connected_core.internal_fusion.get_moles(gasid), 0.01),
 			)))
 	else
 		for(var/gasid in connected_core.internal_fusion.get_gases())
 			fusion_gasdata.Add(list(list(
-				"name"= GLOB.meta_gas_info[gasid][META_GAS_NAME],
+				"name"= GLOB.meta_gas_names[gasid],
 				"amount" = 0,
 				)))
 	//Moderator gases
@@ -1184,13 +1184,13 @@
 	if(connected_core.moderator_internal.total_moles())
 		for(var/gasid in connected_core.moderator_internal.get_gases())
 			moderator_gasdata.Add(list(list(
-			"name"= GLOB.meta_gas_info[gasid][META_GAS_NAME],
+			"name"= GLOB.meta_gas_names[gasid],
 			"amount" = round(connected_core.moderator_internal.get_moles(gasid), 0.01),
 			)))
 	else
 		for(var/gasid in connected_core.moderator_internal.get_gases())
 			moderator_gasdata.Add(list(list(
-				"name"= GLOB.meta_gas_info[gasid][META_GAS_NAME],
+				"name"= GLOB.meta_gas_names[gasid],
 				"amount" = 0,
 				)))
 
@@ -1224,9 +1224,8 @@
 	data["waste_remove"] = connected_core.waste_remove
 	data["filter_types"] = list()
 	data["filter_types"] += list(list("name" = "Nothing", "path" = "", "selected" = !connected_core.filter_type))
-	for(var/path in GLOB.meta_gas_info)
-		var/list/gas = GLOB.meta_gas_info[path]
-		data["filter_types"] += list(list("name" = gas[META_GAS_NAME], "id" = gas[META_GAS_ID], "selected" = (path == gas_id2path(connected_core.filter_type))))
+	for(var/path in GLOB.meta_gas_ids)
+		data["filter_types"] += list(list("name" = GLOB.meta_gas_names[path], "id" = GLOB.meta_gas_ids[path], "selected" = (path == gas_id2path(connected_core.filter_type))))
 
 	return data
 
@@ -1287,9 +1286,9 @@
 			connected_core.filter_type = null
 			var/filter_name = "nothing"
 			var/gas = gas_id2path(params["mode"])
-			if(gas in GLOB.meta_gas_info)
+			if(gas in GLOB.meta_gas_ids)
 				connected_core.filter_type = gas
-				filter_name	= GLOB.meta_gas_info[gas][META_GAS_NAME]
+				filter_name	= GLOB.meta_gas_names[gas]
 			investigate_log("was set to filter [filter_name] by [key_name(usr)]", INVESTIGATE_ATMOS)
 			. = TRUE
 
