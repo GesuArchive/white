@@ -38,8 +38,8 @@
 	typepath = /datum/round_event/scav_invasion
 	weight = 20
 	min_players = 2
-	earliest_start = 5 MINUTES
-	max_occurrences = 6
+	earliest_start = 25 MINUTES
+	max_occurrences = 1
 
 /datum/round_event/scav_invasion
 	announceWhen = 3
@@ -50,12 +50,13 @@
 	startWhen = rand(40, 60)
 
 /datum/round_event/scav_invasion/announce(fake)
-	priority_announce("Обнаружен рой харвестеров, рекомендуем держать их подальше от обшивки [station_name()].", "Вторжение на борт", 'sound/ai/announcer/assault.ogg')
+	priority_announce("Обнаружен рой харвестеров, рекомендуем держать их подальше от обшивки станции [station_name()].", "Вторжение на борт", 'sound/ai/announcer/assault.ogg')
 
 /datum/round_event/scav_invasion/start()
 	var/mob/living/simple_animal/hostile/scavenger/scav
 	for(var/obj/effect/landmark/carpspawn/C in GLOB.landmarks_list)
-		scav = new (C.loc)
+		if(prob(25))
+			scav = new (C.loc)
 	scavannounce(scav)
 
 /datum/round_event/scav_invasion/proc/scavannounce(atom/scav)
