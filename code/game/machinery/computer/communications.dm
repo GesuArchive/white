@@ -207,7 +207,7 @@
 			SSshuttle.existing_shuttle = SSshuttle.emergency
 			SSshuttle.action_load(shuttle, replace = TRUE)
 			bank_account.adjust_money(-shuttle.credit_cost)
-			minor_announce("[usr.real_name] покупает [shuttle.name] за [shuttle.credit_cost] кредитов.[shuttle.extra_desc ? " [shuttle.extra_desc]" : ""]" , "Покупка шаттла")
+			minor_announce("[usr.real_name] покупает [shuttle.name] за [shuttle.credit_cost] кредит[get_num_string(shuttle.credit_cost)].[shuttle.extra_desc ? " [shuttle.extra_desc]" : ""]" , "Покупка шаттла")
 			message_admins("[ADMIN_LOOKUPFLW(usr)] purchased [shuttle.name].")
 			log_shuttle("[key_name(usr)] has purchased [shuttle.name].")
 			SSblackbox.record_feedback("text", "shuttle_purchase", 1, shuttle.name)

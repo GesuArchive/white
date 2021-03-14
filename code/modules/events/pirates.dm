@@ -34,7 +34,7 @@
 	if(D)
 		payoff = max(payoff_min, FLOOR(D.account_balance * 0.80, 1000))
 	threat.title = "Бизнес-предложение"
-	threat.content = "Это [ship_name]. Выплатите [payoff] кредитов или вы пройдётесь по доске."
+	threat.content = "Это [ship_name]. Выплатите [payoff] кредит[get_num_string(payoff)] или вы пройдётесь по доске."
 	threat.possible_answers = list("Мы заплатим.","Нет.")
 	threat.answer_callback = CALLBACK(src,.proc/answered)
 	SScommunications.send_message(threat,unique = TRUE)

@@ -247,7 +247,7 @@
 		var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_SCI)
 		if(D)
 			D.adjust_money(cash_gain)
-			say("Детали взрыва и смесь были проанализированы, теперь они проданы за [cash_gain] кредитов.")
+			say("Детали взрыва и смесь были проанализированы, теперь они проданы за [cash_gain] кредит[get_num_string(cash_gain)].")
 	else //you've made smaller bombs
 		say("Данные уже собраны. Отмена.")
 		return

@@ -142,13 +142,13 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		if(D)
 			if(!D.adjust_money(-price))
 				if(SO.paying_account)
-					D.bank_card_talk("Заказ на груз № [SO.id] отклонен из-за нехватки средств. Требуются кредиты: [price]")
+					D.bank_card_talk("Заказ на груз №[SO.id] отклонен из-за нехватки средств. Требуются кредиты: [price]")
 				continue
 
 		if(SO.paying_account)
 			if(SO.pack.goody)
 				LAZYADD(goodies_by_buyer[SO.paying_account], SO)
-			D.bank_card_talk("Заказ на груз № [SO.id] отправлен. [price] кредиты были зачислены на ваш банковский счет.")
+			D.bank_card_talk("Заказ на груз №[SO.id] отправлен. [price] кредит[get_num_string(price)] были зачислены на ваш банковский счет.")
 			var/datum/bank_account/department/cargo = SSeconomy.get_dep_account(ACCOUNT_CAR)
 			cargo.adjust_money(price - SO.pack.cost) //Cargo gets the handling fee
 		value += SO.pack.cost
@@ -197,7 +197,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		qdel(SO)
 
 	var/datum/bank_account/cargo_budget = SSeconomy.get_dep_account(ACCOUNT_CAR)
-	investigate_log("[purchases] заказы в этой поставке на сумму кредита [value]. Осталось [cargo_budget.account_balance] кредитов.", INVESTIGATE_CARGO)
+	investigate_log("[purchases] заказы в этой поставке на сумму кредита [value]. Осталось [cargo_budget.account_balance] кредит[get_num_string(cargo_budget.account_balance)].", INVESTIGATE_CARGO)
 
 /obj/docking_port/mobile/supply/proc/sell()
 	var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
@@ -236,7 +236,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		D.adjust_money(ex.total_value[E])
 
 	SSshuttle.centcom_message = msg
-	investigate_log("Содержимое шаттла продается за кредиты [D.account_balance - presale_points]. Содержит: [ex.exported_atoms? ex.exported_atoms.Join (",") + "." : "none."] Сообщение: [SSshuttle.centcom_message || "none."]", INVESTIGATE_CARGO)
+	investigate_log("Содержимое шаттла продается за [D.account_balance - presale_points] кредит[get_num_string(D.account_balance - presale_points)]. Содержит: [ex.exported_atoms? ex.exported_atoms.Join (",") + "." : "none."] Сообщение: [SSshuttle.centcom_message || "none."]", INVESTIGATE_CARGO)
 
 #undef GOODY_FREE_SHIPPING_MAX
 #undef CRATE_TAX

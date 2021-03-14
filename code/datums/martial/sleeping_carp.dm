@@ -122,7 +122,6 @@
 		P.firer = A
 		P.setAngle(rand(0, 360))//SHING
 		return BULLET_ACT_FORCE_PIERCE
-	return BULLET_ACT_HIT
 
 /datum/martial_art/the_sleeping_carp/teach(mob/living/H, make_temporary = FALSE)
 	. = ..()

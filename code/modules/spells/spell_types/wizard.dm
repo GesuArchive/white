@@ -409,7 +409,7 @@
 				playsound(get_turf(card_holder), 'white/valtos/sounds/fhit.ogg', 75, TRUE)
 				card_holder.Beam(lastloc, icon_state="lichbeam", time = 20)
 				lastloc = card_holder
-				to_chat(card_holder, "<span class='warning'><b>Федерация волшебников:</b> С вашего аккаунта было списано [credits_drawed] кредитов. Приятной смены!</span>")
+				to_chat(card_holder, "<span class='warning'><b>Федерация волшебников:</b> С вашего аккаунта было списано [credits_drawed] кредит[get_num_string(credits_drawed)]. Приятной смены!</span>")
 		total_cash_looted += credits_drawed
 		sleep(5)
 	lastloc.Beam(user, icon_state="lichbeam", time = 20)
@@ -417,4 +417,4 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		H.put_in_hands(holochip)
-	to_chat(user, "<span class='notice'>Удалось собрать с проклятых гоев целых [total_cash_looted] кредитов!</span>")
+	to_chat(user, "<span class='notice'>Удалось собрать с проклятых гоев целых [total_cash_looted] кредит[get_num_string(total_cash_looted)]!</span>")

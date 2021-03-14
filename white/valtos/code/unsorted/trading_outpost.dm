@@ -293,7 +293,7 @@
 	if(exp >= 100 * tier)
 		tier++
 		exp = 0
-		say("Новый уровень! Теперь производим [tier] кредитов за удар.")
+		say("Новый уровень! Теперь производим [tier] кредит[get_num_string(tier)] за удар.")
 
 /obj/structure/punching_bag/pizdul/attackby(obj/item/I, mob/living/user, params)
 	if(user.a_intent == INTENT_HARM)

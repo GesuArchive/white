@@ -456,14 +456,14 @@
 				to_chat(usr, "<span class='notice'>[potential_acc] не имеет зарегистрированного аккаунта!</span>")
 				return
 			if(!account.has_money(sale_price))
-				to_chat(usr, "<span class='notice'>У вас нет средств, чтобы купить это. Нужно больше золота.</span>")
+				to_chat(usr, "<span class='notice'>У меня нет средств, чтобы купить это. Нужно больше золота.</span>")
 				return TRUE
 			else
 				account.adjust_money(-sale_price)
 				if(payments_acc)
 					payments_acc.adjust_money(sale_price)
 				usr.put_in_hands(showpiece)
-				to_chat(usr, "<span class='notice'>Я покупаю [showpiece] по цене в [sale_price] кредитов.</span>")
+				to_chat(usr, "<span class='notice'>Покупаю [showpiece] по цене в [sale_price] кредит[get_num_string(sale_price)].</span>")
 				playsound(src, 'sound/effects/cashregister.ogg', 40, TRUE)
 				flick("[initial(icon_state)]_vend", src)
 				showpiece = null
