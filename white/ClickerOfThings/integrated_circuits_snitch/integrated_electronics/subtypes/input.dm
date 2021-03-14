@@ -829,7 +829,7 @@
 	data.standard_format_data(message, text, key) // hippie end
 	ntnet_send(data)
 
-/obj/item/integrated_circuit/input/ntnet_packet/proc/ntnet_receive(datum/netdata/data)
+/obj/item/integrated_circuit/input/ntnet_packet/proc/ntnet_receive(datum/source, datum/netdata/data)
 	set_pin_data(IC_OUTPUT, 1, data.sender_id)
 	set_pin_data(IC_OUTPUT, 2, data.data["data"])
 	set_pin_data(IC_OUTPUT, 3, data.data["data_secondary"])
@@ -878,7 +878,7 @@
 	data.passkey = assembly.access_card.access
 	ntnet_send(data)
 
-/obj/item/integrated_circuit/input/ntnet_advanced/proc/ntnet_receive(datum/netdata/data)
+/obj/item/integrated_circuit/input/ntnet_advanced/proc/ntnet_receive(datum/source, datum/netdata/data)
 	set_pin_data(IC_OUTPUT, 1, data.data)
 	set_pin_data(IC_OUTPUT, 2, data.broadcast)
 	push_data()
