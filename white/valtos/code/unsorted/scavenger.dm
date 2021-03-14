@@ -83,29 +83,43 @@
 		death()
 
 /mob/living/simple_animal/hostile/scavenger/AttackingTarget()
-	if(!isliving(target))
-		return target.scavenger_act(src)
 	if(iscyborg(target))
 		var/mob/living/silicon/borg = target
 		borg.adjustFireLoss(melee_damage_lower)
+		return TRUE
+	if(target.scavenger_act(src))
+		add_type_to_wanted(target.type)
+		return TRUE
+	else
+		add_type_to_ignore(target.type)
+		return FALSE
 	return ..()
 
 /atom/proc/scavenger_act(mob/living/simple_animal/hostile/scavenger/actor)
 	actor.dis_integrate(src)
 	return TRUE
 
+/obj/scavenger_act(mob/living/simple_animal/hostile/scavenger/actor)
+	if(resistance_flags & INDESTRUCTIBLE)
+		return FALSE
+	return ..()
+
+/turf/open/scavenger_act()
+	return FALSE
+
 /mob/living/simple_animal/hostile/scavenger/proc/dis_integrate(atom/movable/target)
 	new /obj/effect/temp_visual/scavenger(get_turf(target))
 	do_attack_animation(target)
 	flick("scavenger_drill", src)
-	changeNext_move(CLICK_CD_MELEE)
+	changeNext_move(2 SECONDS)
 	SSexplosions.low_mov_atom += target
+	adjustHealth(-3)
 
 /obj/effect/temp_visual/scavenger
 	icon = 'white/valtos/icons/effects.dmi'
 	icon_state = "drone_drill"
 	layer = BELOW_MOB_LAYER
-	blend_mode = 3
+	blend_mode = 2
 	duration = 1 SECONDS
 
 /obj/effect/temp_visual/scavenger/Initialize()
@@ -113,12 +127,6 @@
 	playsound(loc, "white/valtos/sounds/laser[rand(1, 10)].ogg", 100, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 
 /mob/living/simple_animal/hostile/scavenger/CanAttack(atom/the_target)
-
-	if(istype(the_target, /obj/structure/grille))
-		for(var/obj/structure/window/rogueWindow in get_turf(the_target))
-			if(rogueWindow.fulltile)
-				the_target = rogueWindow
-				break
 
 	if(is_type_in_typecache(the_target, sharedIgnore))
 		return FALSE
@@ -130,7 +138,6 @@
 /mob/living/simple_animal/hostile/scavenger/proc/add_type_to_wanted(typepath)
 	if(!sharedWanted[typepath])
 		sharedWanted += typecacheof(typepath)
-
 
 /mob/living/simple_animal/hostile/scavenger/proc/add_type_to_ignore(typepath)
 	if(!sharedIgnore[typepath])
