@@ -47,14 +47,14 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////Panels
 
-/datum/admins/proc/show_player_panel(mob/M in GLOB.mob_list)
+/datum/admins/proc/show_player_panel()
 	set category = "Адм.Игра"
 	set name = "Show Player Panel"
 	set desc="Edit player (respawn, ban, heal, etc)"
 
 	if(!check_rights())
 		return
-
+	var/mob/M = tgui_input_list(usr, "Chosse mob", "Show player panel", GLOB.mob_list)
 	log_admin("[key_name(usr)] checked the individual player panel for [key_name(M)][isobserver(usr)?"":" while in game"].")
 
 	if(!M)
