@@ -142,6 +142,7 @@ SUBSYSTEM_DEF(networks)
 			var/list/receivers = splittext(current.receiver_id, ";")
 			if(!receivers?.len)
 				POP_PACKET(current)
+				continue
 			for(var/receiver_id in receivers)
 				_process_packet(receiver_id, current)
 			count_broadcasts_packets++

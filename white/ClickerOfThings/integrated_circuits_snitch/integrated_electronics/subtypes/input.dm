@@ -816,6 +816,7 @@
 	var/datum/component/ntnet_interface/net = LoadComponent(/datum/component/ntnet_interface)
 	address = net.hardware_id
 	desc += "<br>This circuit's NTNet hardware address is: [address]"
+	RegisterSignal(src, COMSIG_COMPONENT_NTNET_RECEIVE, .proc/ntnet_receive)
 
 /obj/item/integrated_circuit/input/ntnet_packet/do_work()
 	var/target_address = get_pin_data(IC_INPUT, 1)
@@ -827,6 +828,16 @@
 	var/key = get_pin_data(IC_INPUT, 4) // hippie start -- adds passkey back in
 	data.standard_format_data(message, text, key) // hippie end
 	ntnet_send(data)
+
+/obj/item/integrated_circuit/input/proc/ntnet_receive(datum/netdata/data)
+	set_pin_data(IC_OUTPUT, 1, data.sender_id)
+	set_pin_data(IC_OUTPUT, 2, data.data["data"])
+	set_pin_data(IC_OUTPUT, 3, data.data["data_secondary"])
+	set_pin_data(IC_OUTPUT, 4, data.data["encrypted_passkey"])
+	set_pin_data(IC_OUTPUT, 5, data.broadcast)
+
+	push_data()
+	activate_pin(2)
 
 /obj/item/integrated_circuit/input/ntnet_advanced
 	name = "Low level NTNet transreceiver"
@@ -854,6 +865,7 @@
 	var/datum/component/ntnet_interface/net = LoadComponent(/datum/component/ntnet_interface)
 	address = net.hardware_id
 	desc += "<br>This circuit's NTNet hardware address is: [address]"
+	RegisterSignal(src, COMSIG_COMPONENT_NTNET_RECEIVE, .proc/ntnet_receive)
 
 /obj/item/integrated_circuit/input/ntnet_advanced/do_work()
 	var/target_address = get_pin_data(IC_INPUT, 1)
@@ -865,6 +877,12 @@
 	data.data = message
 	data.passkey = assembly.access_card.access
 	ntnet_send(data)
+
+/obj/item/integrated_circuit/input/ntnet_advanced/proc/ntnet_receive(datum/netdata/data)
+	set_pin_data(IC_OUTPUT, 1, data.data)
+	set_pin_data(IC_OUTPUT, 2, data.broadcast)
+	push_data()
+	activate_pin(2)
 
 //This circuit gives information on where the machine is.
 /obj/item/integrated_circuit/input/gps
@@ -1142,7 +1160,7 @@
 		"Solid Plasma"			= IC_PINTYPE_NUMBER,
 		"Uranium"				= IC_PINTYPE_NUMBER,
 		"Bananium"				= IC_PINTYPE_NUMBER,
-		"Titanium"		= IC_PINTYPE_NUMBER,
+		"Titanium"				= IC_PINTYPE_NUMBER,
 		"Bluespace Mesh"		= IC_PINTYPE_NUMBER,
 		"Biomass"				= IC_PINTYPE_NUMBER,
 		)
