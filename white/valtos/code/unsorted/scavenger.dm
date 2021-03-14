@@ -48,7 +48,12 @@
 	attack_all_objects = TRUE
 	lose_patience_timeout = 150
 	var/static/list/sharedWanted = typecacheof(list(/turf/closed/mineral, /turf/closed/wall))
-	var/static/list/sharedIgnore = list()
+	var/static/list/sharedIgnore = typecacheof(list(/obj/structure/lattice))
+
+/mob/living/simple_animal/hostile/scavenger/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
+	update_health_hud()
 
 /mob/living/simple_animal/hostile/scavenger/Initialize()
 	. = ..()
@@ -100,6 +105,7 @@
 	icon = 'white/valtos/icons/effects.dmi'
 	icon_state = "drone_drill"
 	layer = BELOW_MOB_LAYER
+	blend_mode = 3
 	duration = 1 SECONDS
 
 /obj/effect/temp_visual/scavenger/Initialize()
