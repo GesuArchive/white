@@ -823,7 +823,7 @@
 	var/text = get_pin_data(IC_INPUT, 3)
 
 	var/datum/netdata/data = new
-	data.receiver_id = splittext(target_address, ";")
+	data.receiver_id = target_address
 	var/key = get_pin_data(IC_INPUT, 4) // hippie start -- adds passkey back in
 	data.standard_format_data(message, text, key) // hippie end
 	ntnet_send(data)
@@ -861,7 +861,7 @@
 	if(!islist(message))
 		message = list()
 	var/datum/netdata/data = new
-	data.receiver_id = splittext(target_address, ";")
+	data.receiver_id = target_address
 	data.data = message
 	data.passkey = assembly.access_card.access
 	ntnet_send(data)
