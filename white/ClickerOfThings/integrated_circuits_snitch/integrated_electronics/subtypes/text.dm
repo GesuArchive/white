@@ -129,8 +129,8 @@
 
 	var/split = min(index+1, length(text))
 
-	var/before_text = copytext(text, 1, split)
-	var/after_text = copytext(text, split, 0)
+	var/before_text = copytext_char(text, 1, split)
+	var/after_text = copytext_char(text, split, 0)
 
 	set_pin_data(IC_OUTPUT, 1, before_text)
 	set_pin_data(IC_OUTPUT, 2, after_text)
@@ -183,7 +183,7 @@
 
 
 /obj/item/integrated_circuit/text/findstring/do_work()
-	var/position = findtext(get_pin_data(IC_INPUT, 1),get_pin_data(IC_INPUT, 2))
+	var/position = findtext_char(get_pin_data(IC_INPUT, 1),get_pin_data(IC_INPUT, 2))
 
 	set_pin_data(IC_OUTPUT, 1, position)
 	push_data()
@@ -237,7 +237,7 @@
 	if(delimiter == null)
 		set_pin_data(IC_OUTPUT, 1, text2charlist(strin))
 	else
-		set_pin_data(IC_OUTPUT, 1, splittext(strin, delimiter))
+		set_pin_data(IC_OUTPUT, 1, splittext_char(strin, delimiter))
 	push_data()
 
 	activate_pin(2)
@@ -263,6 +263,6 @@
 	)
 
 /obj/item/integrated_circuit/text/text_replacer/do_work()
-	set_pin_data(IC_OUTPUT, 1,replacetext(get_pin_data(IC_INPUT, 1), get_pin_data(IC_INPUT, 2), get_pin_data(IC_INPUT, 3)))
+	set_pin_data(IC_OUTPUT, 1,replacetext_char(get_pin_data(IC_INPUT, 1), get_pin_data(IC_INPUT, 2), get_pin_data(IC_INPUT, 3)))
 	push_data()
 	activate_pin(2)

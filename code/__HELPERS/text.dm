@@ -650,9 +650,9 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 
 /proc/text2charlist(text)
 	var/char = ""
-	var/lentext = length(text)
+	var/lentext = length_char(text)
 	. = list()
-	for(var/i = 1, i <= lentext, i += length(char))
+	for(var/i = 1, i <= lentext, i += length_char(char))
 		char = text[i]
 		. += char
 

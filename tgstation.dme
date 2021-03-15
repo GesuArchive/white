@@ -3491,6 +3491,7 @@
 #include "white\ClickerOfThings\integrated_circuits_snitch\integrated_electronics\subtypes\logic.dm"
 #include "white\ClickerOfThings\integrated_circuits_snitch\integrated_electronics\subtypes\manipulation.dm"
 #include "white\ClickerOfThings\integrated_circuits_snitch\integrated_electronics\subtypes\memory.dm"
+#include "white\ClickerOfThings\integrated_circuits_snitch\integrated_electronics\subtypes\mining.dm"
 #include "white\ClickerOfThings\integrated_circuits_snitch\integrated_electronics\subtypes\output.dm"
 #include "white\ClickerOfThings\integrated_circuits_snitch\integrated_electronics\subtypes\power.dm"
 #include "white\ClickerOfThings\integrated_circuits_snitch\integrated_electronics\subtypes\reagents.dm"
