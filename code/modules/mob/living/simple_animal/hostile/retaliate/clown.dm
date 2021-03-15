@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/retaliate/clown
+/mob/living/simple_animal/hostile/clown
 	name = "Clown"
 	desc = "A denizen of clown planet."
 	icon = 'icons/mob/clown_mobs.dmi'
@@ -38,7 +38,23 @@
 	var/banana_type = /obj/item/grown/bananapeel
 	var/attack_reagent
 
-/mob/living/simple_animal/hostile/retaliate/clown/handle_temperature_damage()
+/mob/living/simple_animal/hostile/clown/proc/humanize_clown(mob/user)
+	var/pod_ask = alert("Become a clown?", "Honk?", "Yes", "No")
+	if(pod_ask == "No" || !src || QDELETED(src))
+		return
+	if(key)
+		to_chat(user, "<span class='warning'>Someone else already took this clown!</span>")
+		return
+	key = user.key
+	log_game("[key_name(src)] took control of [name].")
+
+/mob/living/simple_animal/hostile/clown/attack_ghost(mob/user)
+	. = ..()
+	if(.)
+		return
+	humanize_clown(user)
+
+/mob/living/simple_animal/hostile/clown/handle_temperature_damage()
 	if(bodytemperature < minbodytemp)
 		adjustBruteLoss(10)
 		throw_alert("temp", /atom/movable/screen/alert/cold, 2)
@@ -48,11 +64,11 @@
 	else
 		clear_alert("temp")
 
-/mob/living/simple_animal/hostile/retaliate/clown/attack_hand(mob/living/carbon/human/M)
+/mob/living/simple_animal/hostile/clown/attack_hand(mob/living/carbon/human/M)
 	..()
 	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, TRUE)
 
-/mob/living/simple_animal/hostile/retaliate/clown/Life()
+/mob/living/simple_animal/hostile/clown/Life()
 	. = ..()
 	if(banana_time && banana_time < world.time)
 		var/turf/T = get_turf(src)
@@ -60,14 +76,14 @@
 		new banana_type(pick(adjacent))
 		banana_time = world.time + rand(30,60)
 
-/mob/living/simple_animal/hostile/retaliate/clown/AttackingTarget()
+/mob/living/simple_animal/hostile/clown/AttackingTarget()
 	. = ..()
 	if(attack_reagent && . && isliving(target))
 		var/mob/living/L = target
 		if(L.reagents)
 			L.reagents.add_reagent(attack_reagent, rand(1,5))
 
-/mob/living/simple_animal/hostile/retaliate/clown/lube
+/mob/living/simple_animal/hostile/clown/lube
 	name = "Living Lube"
 	desc = "A puddle of lube brought to life by the honkmother."
 	icon_state = "lube"
@@ -80,11 +96,11 @@
 	emote_see = list("bubbles", "oozes")
 	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam)
 
-/mob/living/simple_animal/hostile/retaliate/clown/lube/Initialize()
+/mob/living/simple_animal/hostile/clown/lube/Initialize()
 	. = ..()
 	AddElement(/datum/element/snailcrawl)
 
-/mob/living/simple_animal/hostile/retaliate/clown/banana
+/mob/living/simple_animal/hostile/clown/banana
 	name = "Clownana"
 	desc = "A fusion of clown and banana DNA birthed from a botany experiment gone wrong."
 	icon_state = "banana tree"
@@ -102,7 +118,7 @@
 	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap, /obj/item/seeds/banana)
 	banana_time = 20
 
-/mob/living/simple_animal/hostile/retaliate/clown/honkling
+/mob/living/simple_animal/hostile/clown/honkling
 	name = "Honkling"
 	desc = "A divine being sent by the Honkmother to spread joy. It's not dangerous, but it's a bit of a nuisance."
 	icon_state = "honkling"
@@ -118,7 +134,7 @@
 	banana_type = /obj/item/grown/bananapeel
 	attack_reagent = /datum/reagent/consumable/laughter
 
-/mob/living/simple_animal/hostile/retaliate/clown/fleshclown
+/mob/living/simple_animal/hostile/clown/fleshclown
 	name = "Fleshclown"
 	desc = "A being forged out of the pure essence of pranking, cursed into existence by a cruel maker."
 	icon_state = "fleshclown"
@@ -143,7 +159,7 @@
 	obj_damage = 5
 	loot = list(/obj/item/clothing/suit/hooded/bloated_human, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap)
 
-/mob/living/simple_animal/hostile/retaliate/clown/longface
+/mob/living/simple_animal/hostile/clown/longface
 	name = "Longface"
 	desc = "Often found walking into the bar."
 	icon_state = "long face"
@@ -170,12 +186,11 @@
 	attack_verb_simple = "YA-HONK"
 	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap)
 
-/mob/living/simple_animal/hostile/retaliate/clown/clownhulk
+/mob/living/simple_animal/hostile/clown/clownhulk
 	name = "Honk Hulk"
 	desc = "A cruel and fearsome clown. Don't make him angry."
 	icon_state = "honkhulk"
 	icon_living = "honkhulk"
-	move_resist = INFINITY
 	response_help_continuous = "tries desperately to appease"
 	response_help_simple = "try desperately to appease"
 	response_disarm_continuous = "foolishly pushes"
@@ -199,7 +214,7 @@
 	environment_smash = ENVIRONMENT_SMASH_WALLS
 	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap)
 
-/mob/living/simple_animal/hostile/retaliate/clown/clownhulk/chlown
+/mob/living/simple_animal/hostile/clown/clownhulk/chlown
 	name = "Chlown"
 	desc = "A real lunkhead who somehow gets all the girls."
 	icon_state = "chlown"
@@ -221,7 +236,7 @@
 	attack_sound = 'sound/items/airhorn2.ogg'
 	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/effect/particle_effect/foam, /obj/item/soap)
 
-/mob/living/simple_animal/hostile/retaliate/clown/clownhulk/honcmunculus
+/mob/living/simple_animal/hostile/clown/clownhulk/honcmunculus
 	name = "Honkmunculus"
 	desc = "A slender wiry figure of alchemical origin."
 	icon_state = "honkmunculus"
@@ -245,7 +260,7 @@
 	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/xeno/bodypartless, /obj/effect/particle_effect/foam, /obj/item/soap)
 	attack_reagent = /datum/reagent/peaceborg/confuse
 
-/mob/living/simple_animal/hostile/retaliate/clown/clownhulk/destroyer
+/mob/living/simple_animal/hostile/clown/clownhulk/destroyer
 	name = "The Destroyer"
 	desc = "An ancient being born of arcane honking."
 	icon_state = "destroyer"
@@ -267,7 +282,7 @@
 	environment_smash = ENVIRONMENT_SMASH_RWALLS
 	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/effect/particle_effect/foam, /obj/item/soap)
 
-/mob/living/simple_animal/hostile/retaliate/clown/mutant
+/mob/living/simple_animal/hostile/clown/mutant
 	name = "Unknown"
 	desc = "Kill it for its own sake."
 	icon_state = "mutant"
@@ -295,11 +310,11 @@
 	attack_verb_simple = "awkwardly flail at"
 	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/xeno/bodypartless, /obj/item/soap, /obj/effect/gibspawner/generic, /obj/effect/gibspawner/generic/animal, /obj/effect/gibspawner/human/bodypartless, /obj/effect/gibspawner/human)
 
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/slow
+/mob/living/simple_animal/hostile/clown/mutant/slow
 	speed = 20
 	move_to_delay = 60
 
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton
+/mob/living/simple_animal/hostile/clown/mutant/glutton
 	name = "banana glutton"
 	desc = "Something that was once a clown"
 	icon_state = "glutton"
@@ -319,34 +334,50 @@
 	deathsound = 'sound/misc/sadtrombone.ogg'
 	food_type = list(/obj/item/food/cheesiehonkers, /obj/item/food/cornchips)
 	tame_chance = 30
+	var/humaneaten = FALSE
 	///This is the list of items we are ready to regurgitate,
 	var/list/prank_pouch = list()
 	///This ability lets you fire a single random item from your pouch.
 	var/obj/effect/proc_holder/regurgitate/my_regurgitate
 
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/Initialize()
+/mob/living/simple_animal/hostile/clown/mutant/glutton/Initialize()
 	. = ..()
 	my_regurgitate = new
 	AddAbility(my_regurgitate)
 	add_cell_sample()
 
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/attacked_by(obj/item/I, mob/living/user)
+/mob/living/simple_animal/hostile/clown/mutant/glutton/attacked_by(obj/item/I, mob/living/user)
 	if(!check_edible(I))
 		return ..()
 	eat_atom(I)
-
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/AttackingTarget(atom/attacked_target)
-	if(!check_edible(attacked_target))
-		return ..()
-	eat_atom(attacked_target)
-
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/UnarmedAttack(atom/A)
+/mob/living/simple_animal/hostile/clown/mutant/glutton/proc/eat(atom/movable/A)
+	if(A && A.loc != src)
+		playsound(src, 'sound/magic/demon_attack1.ogg', 100, TRUE)
+		visible_message("<span class='warning'>[capitalize(src.name)] swallows [A] whole!</span>")
+		A.forceMove(src)
+		return TRUE
+	return FALSE
+/mob/living/simple_animal/hostile/clown/mutant/glutton/AttackingTarget(atom/attacked_target)
+	if(isliving(target)) //Swallows corpses like a snake to regain health.
+		var/mob/living/L = target
+		if(L.stat == DEAD)
+			to_chat(src, "<span class='warning'>You begin to swallow [L] whole...</span>")
+			if(do_after(src, 30, target = L))
+				if(eat(L))
+					adjustHealth(-L.maxHealth * 0.5)
+					new /mob/living/simple_animal/hostile/clown(usr.loc)
+			return
+		else
+			. = ..()
+	else
+		. = ..()
+/mob/living/simple_animal/hostile/clown/mutant/glutton/UnarmedAttack(atom/A)
 	if(!check_edible(A))
 		return ..()
 	eat_atom(A)
 
 ///Returns whether or not the supplied movable atom is edible.
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/proc/check_edible(atom/movable/potential_food)
+/mob/living/simple_animal/hostile/clown/mutant/glutton/proc/check_edible(atom/movable/potential_food)
 	if(isliving(potential_food))
 		var/mob/living/living_morsel = potential_food
 		if(living_morsel.mob_size > MOB_SIZE_SMALL)
@@ -361,7 +392,7 @@
 		return TRUE
 
 ///This proc eats the atom, certain funny items are stored directly in the prank pouch while bananas grant a heal based on their potency and the peels are retained in the pouch.
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/proc/eat_atom(atom/movable/eaten_atom)
+/mob/living/simple_animal/hostile/clown/mutant/glutton/proc/eat_atom(atom/movable/eaten_atom)
 
 	var/static/funny_items = list(/obj/item/food/pie/cream,
 								/obj/item/food/grown/tomato,
@@ -382,16 +413,17 @@
 	playsound(loc,'sound/items/eatfood.ogg', rand(30,50), TRUE)
 	flick("glutton_mouth", src)
 
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/tamed()
+
+/mob/living/simple_animal/hostile/clown/mutant/glutton/tamed()
 	. = ..()
 	can_buckle = TRUE
 	buckle_lying = 0
 	AddElement(/datum/element/ridable, /datum/component/riding/creature/glutton)
 
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/add_cell_sample()
+/mob/living/simple_animal/hostile/clown/mutant/glutton/add_cell_sample()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_GLUTTON, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
 
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/Exited(atom/movable/AM, atom/newLoc)
+/mob/living/simple_animal/hostile/clown/mutant/glutton/Exited(atom/movable/AM, atom/newLoc)
 	. = ..()
 	prank_pouch -= AM
 
@@ -404,12 +436,14 @@
 	action_icon_state = "regurgitate"
 	active = FALSE
 
+
 /obj/effect/proc_holder/regurgitate/Click(location, control, params)
 	. = ..()
 	if(!isliving(usr))
 		return TRUE
 	var/mob/living/user = usr
-	fire(user)
+	if(isliving(usr))
+		fire(user)
 
 /obj/effect/proc_holder/regurgitate/fire(mob/living/carbon/user)
 	if(active)
@@ -417,7 +451,7 @@
 		remove_ranged_ability("<span class='notice'>Your throat muscles relax.</span>")
 	else
 		user.icon_state = "glutton_tongue"
-		add_ranged_ability(user, "<span class='notice'>Your throat muscles tense up. <B>Left-click to regurgitate a funny morsel!</B></span>", TRUE)
+		add_ranged_ability(user, "<span class='notice'>You flex with your tongue!</span>", TRUE)
 
 /obj/effect/proc_holder/regurgitate/InterceptClickOn(mob/living/caller, params, atom/target)
 	. = ..()
@@ -425,11 +459,11 @@
 	if(.)
 		return
 
-	if(!istype(ranged_ability_user, /mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton) || ranged_ability_user.stat)
+	if(!istype(ranged_ability_user, /mob/living/simple_animal/hostile/clown/mutant/glutton) || ranged_ability_user.stat)
 		remove_ranged_ability()
 		return
 
-	var/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/pouch_owner = ranged_ability_user
+	var/mob/living/simple_animal/hostile/clown/mutant/glutton/pouch_owner = ranged_ability_user
 	if(!pouch_owner.prank_pouch.len)
 		//active = FALSE
 		pouch_owner.icon_state = "glutton"
