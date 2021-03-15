@@ -220,6 +220,12 @@
 /obj/item/food/grown/grapes/make_dryable()
 	AddElement(/datum/element/dryable, /obj/item/food/no_raisin/healthy)
 
+/obj/item/food/grown/grapes/microwave_act(obj/machinery/microwave/M)
+	new /obj/item/stack/sheet/mineral/plasma(drop_location())
+	M.spark()
+	qdel(src)
+
+
 // Green Grapes
 /obj/item/seeds/grape/green
 	name = "pack of green grape seeds"
