@@ -93,6 +93,7 @@
 
 /turf/open/floor/grass/gensgrass/dirty/stone
 	name = "каменный пол"
+	desc = "Классика."
 	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
 	icon_state = "stone_floor"
 	footstep = FOOTSTEP_SAND
@@ -114,7 +115,7 @@
 
 /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	name = "уродливый камень"
-	desc = "хуй"
+	desc = "Ужас."
 	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
 	icon_state = "stone"
 	stoned = FALSE

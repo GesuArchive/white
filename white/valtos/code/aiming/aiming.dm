@@ -69,7 +69,6 @@
 	. = ..()
 	if(!istype(parent, /obj/item))
 		return COMPONENT_INCOMPATIBLE
-	new /datum/action/item_action/aim(parent)
 	RegisterSignal(parent, COMSIG_ITEM_DROPPED, .proc/stop_aiming)
 
 /datum/component/aiming/proc/aim(mob/user, mob/target)
@@ -95,16 +94,6 @@
 	src.target.aim_react()
 	show_ui(user, target, stage="start")
 
-//Helper procs to notify the aiming component of when a mob equips / drops any item.
-/*
-/obj/item/equipped(mob/equipper, slot)
-	. = ..()
-	SEND_SIGNAL(equipper, COMSIG_ITEM_EQUIPPED)
-
-/obj/item/dropped(mob/user)
-	. = ..()
-	SEND_SIGNAL(user, COMSIG_ITEM_DROPPED)
-*/
 /*
 Methods to alert the aimer about events, usually to signify that they're complying with the arrest or to warn them if the perp is trying something funny.
 */
@@ -200,6 +189,8 @@ There are two main branches, dictated by SOP. If the perp is armed, tell them to
 	if(HAS_TRAIT(src, TRAIT_DEATHCOMA))
 		return FALSE
 	var/obj/item/held = get_active_held_item()
+	if(!held)
+		return FALSE
 	var/datum/component/aiming/aiming = held?.GetComponent(/datum/component/aiming)
 	if(aiming && isliving(A))
 		aiming.aim(src, A)

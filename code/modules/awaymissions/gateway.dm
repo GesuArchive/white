@@ -367,4 +367,5 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 	var/turf/center_turf = our_destination.get_target_turf()
 
-	vis_contents += block(locate(center_turf.x - 1, center_turf.y - 1, center_turf.z), locate(center_turf.x + 1, center_turf.y + 1, center_turf.z))
+	if(center_turf)
+		vis_contents += block(locate(center_turf.x - 1, center_turf.y - 1, center_turf.z), locate(center_turf.x + 1, center_turf.y + 1, center_turf.z))
