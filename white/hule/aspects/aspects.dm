@@ -65,23 +65,15 @@
 		D.req_one_access_txt = "0"
 	..()
 
-/*
-/datum/round_aspect/terraformed
-	name = "Terraformed"
-	desc = "Продвинутые технологии терраформирования озеленили Лаваленд."
+/datum/round_aspect/weak_walls
+	name = "Weak Walls"
+	desc = "На стенах явно экономили."
 	weight = 18
 
-/datum/round_aspect/terraformed/run_aspect()
-	for(var/turf/open/floor/plating/asteroid/basalt/lava_land_surface/T in world)
-		T.ChangeTurf(/turf/open/floor/plating/grass, flags = CHANGETURF_DEFER_CHANGE)
-	for(var/turf/open/lava/T in world)
-		T.ChangeTurf(/turf/open/floor/plating/beach/water, flags = CHANGETURF_DEFER_CHANGE)
-	for(var/turf/closed/mineral/T in world)
-		T.turf_type = /turf/open/floor/plating/grass
-		T.baseturfs = /turf/open/floor/plating/grass
-		T.initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+/datum/round_aspect/weak_walls/run_aspect()
+	for(var/turf/closed/wall/r_wall/RW in world)
+		RW.ChangeTurf(/turf/closed/wall, flags = CHANGETURF_DEFER_CHANGE)
 	..()
-*/
 
 /datum/round_aspect/edison
 	name = "Edison"
@@ -331,6 +323,15 @@
 
 /datum/round_aspect/assistants/run_aspect()
 	SSjob.DisableJobsButThis(/datum/job/assistant)
+	..()
+
+/datum/round_aspect/clowns
+	name = "Clowns"
+	desc = "ХОНК!"
+	weight = 4
+
+/datum/round_aspect/clowns/run_aspect()
+	SSjob.DisableJobsButThis(/datum/job/clown)
 	..()
 
 /datum/round_aspect/meow
