@@ -93,7 +93,6 @@
 	else
 		add_type_to_ignore(target.type)
 		return FALSE
-	return ..()
 
 /atom/proc/scavenger_act(mob/living/simple_animal/hostile/scavenger/actor)
 	actor.dis_integrate(src)
