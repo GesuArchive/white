@@ -348,11 +348,11 @@
 
 /obj/item/organ/tongue/tied/Insert(mob/living/carbon/M)
 	. = ..()
-	M.verb_ask = "signs"
-	M.verb_exclaim = "signs"
-	M.verb_whisper = "subtly signs"
-	M.verb_sing = "rythmically signs"
-	M.verb_yell = "emphatically signs"
+	M.verb_ask = "воспевает"
+	M.verb_exclaim = "напевает"
+	M.verb_whisper = "поёт"
+	M.verb_sing = "ритмично поёт"
+	M.verb_yell = "эмпатично поёт"
 	ADD_TRAIT(M, TRAIT_SIGN_LANG, "tongue")
 	REMOVE_TRAIT(M, TRAIT_MUTE, "tongue")
 
