@@ -216,8 +216,8 @@
 	planetary_atmos = FALSE
 
 /turf/open/floor/plating/asteroid/snow/centcom
-	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	temperature = 293.15
+	initial_gas_mix = FROZEN_ATMOS
+	temperature = 180
 
 /turf/open/floor/plating/asteroid/snow/centcom/New()
 	return

@@ -18460,7 +18460,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/science/test_area)
 "bHy" = (
 /obj/structure/closet/crate,
@@ -19438,10 +19438,7 @@
 /obj/machinery/camera/preset/toxins{
 	dir = 8
 	},
-/turf/open/floor/plating{
-	initial_gas_mix = "o2=0.01;n2=0.01";
-	luminosity = 2
-	},
+/turf/open/floor/plating/airless,
 /area/science/test_area)
 "bLu" = (
 /obj/structure/rack,
@@ -20426,7 +20423,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/science/test_area)
 "bOK" = (
 /obj/structure/barricade/wooden,
@@ -32797,10 +32794,6 @@
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
-"hYW" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/space/basic,
-/area/maintenance/solars/port/aft)
 "hZh" = (
 /obj/machinery/rnd/production/protolathe/department/engineering,
 /obj/effect/turf_decal/stripes/line{
@@ -34319,12 +34312,6 @@
 /obj/structure/closet/toolcloset,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
-"lar" = (
-/turf/open/floor/plating{
-	initial_gas_mix = "o2=0.01;n2=0.01";
-	luminosity = 2
-	},
-/area/maintenance/port/aft)
 "lbE" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -35892,7 +35879,7 @@
 /area/vacant_room/commissary)
 "owD" = (
 /obj/machinery/meteor_catcher,
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/space/nearstation)
 "ozc" = (
 /obj/effect/turf_decal/stripes/line{
@@ -37919,9 +37906,6 @@
 /obj/machinery/atmospherics/pipe/simple/dark/visible/layer1,
 /turf/open/floor/plating,
 /area/maintenance/aft)
-"skh" = (
-/turf/open/floor/plating/airless,
-/area/maintenance/starboard/aft)
 "skX" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plating,
@@ -59974,7 +59958,7 @@ bCq
 bCq
 bCq
 cfw
-hYW
+usR
 cyK
 cfx
 cfx
@@ -61781,7 +61765,7 @@ pYD
 bCq
 oaV
 bCq
-nXv
+aaH
 gXs
 gXs
 aaa
@@ -62033,7 +62017,7 @@ tKl
 hHY
 bHE
 bHE
-lar
+bHE
 bHE
 dCG
 lWA
@@ -88251,7 +88235,7 @@ cNW
 cOe
 lSv
 cNW
-skh
+cOe
 pUz
 pUz
 cOT

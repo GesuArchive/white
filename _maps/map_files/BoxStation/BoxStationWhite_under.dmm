@@ -3441,12 +3441,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/hydroponics)
-"BF" = (
-/turf/open/floor/plating{
-	initial_gas_mix = "o2=0.01;n2=0.01";
-	luminosity = 2
-	},
-/area/maintenance/port)
 "BI" = (
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
@@ -21481,7 +21475,7 @@ fD
 fD
 fD
 sY
-BF
+fD
 fD
 kQ
 pf
@@ -21991,7 +21985,7 @@ Zm
 pf
 cz
 GW
-BF
+fD
 vV
 fD
 fu
