@@ -27,6 +27,7 @@
 	obj_damage = 0
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	del_on_death = 1
+	faction = list("clown")
 	loot = list(/obj/effect/mob_spawn/human/clown/corpse)
 
 	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 1, "min_co2" = 0, "max_co2" = 5, "min_n2" = 0, "max_n2" = 0)
@@ -180,8 +181,8 @@
 	pixel_x = -16
 	base_pixel_x = -16
 	speed = 10
-	harm_intent_damage = 5
-	melee_damage_lower = 5
+	harm_intent_damage = 15
+	melee_damage_lower = 15
 	attack_verb_continuous = "YA-HONKs"
 	attack_verb_simple = "YA-HONK"
 	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap)
@@ -252,8 +253,8 @@
 	health = 200
 	speed = -5
 	harm_intent_damage = 5
-	melee_damage_lower = 5
-	melee_damage_upper = 10
+	melee_damage_lower = 15
+	melee_damage_upper = 20
 	attack_verb_continuous = "ferociously mauls"
 	attack_verb_simple = "ferociously maul"
 	environment_smash = ENVIRONMENT_SMASH_NONE
@@ -298,14 +299,14 @@
 	speak = list("aaaaaahhhhuuhhhuhhhaaaaa", "AAAaaauuuaaAAAaauuhhh", "huuuuuh... hhhhuuuooooonnnnkk", "HuaUAAAnKKKK")
 	emote_see = list("squirms", "writhes", "pulsates", "froths", "oozes")
 	speak_chance = 10
-	maxHealth = 130
-	health = 130
+	maxHealth = 50
+	health = 50
 	pixel_x = -16
 	base_pixel_x = -16
 	speed = -5
 	harm_intent_damage = 10
-	melee_damage_lower = 10
-	melee_damage_upper = 20
+	melee_damage_lower = 30
+	melee_damage_upper = 30
 	attack_verb_continuous = "awkwardly flails at"
 	attack_verb_simple = "awkwardly flail at"
 	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/xeno/bodypartless, /obj/item/soap, /obj/effect/gibspawner/generic, /obj/effect/gibspawner/generic/animal, /obj/effect/gibspawner/human/bodypartless, /obj/effect/gibspawner/human)
@@ -321,11 +322,11 @@
 	icon_living = "glutton"
 	speak = list("hey, buddy", "HONK!!!", "H-h-h-H-HOOOOONK!!!!", "HONKHONKHONK!!!", "HEY, BUCKO, GET BACK HERE!!!", "HOOOOOOOONK!!!")
 	emote_see = list("jiggles", "wobbles")
-	health = 200
+	health = 400
 	mob_size = MOB_SIZE_LARGE
 	speed = 1
-	melee_damage_lower = 10
-	melee_damage_upper = 15
+	melee_damage_lower = 20
+	melee_damage_upper = 20
 	force_threshold = 10 //lots of fat to cushion blows.
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, CLONE = 2, STAMINA = 0, OXY = 1)
 	attack_verb_continuous = "slams"
@@ -353,12 +354,12 @@
 /mob/living/simple_animal/hostile/clown/mutant/glutton/proc/eat(atom/movable/A)
 	if(A && A.loc != src)
 		playsound(src, 'sound/magic/demon_attack1.ogg', 100, TRUE)
-		visible_message("<span class='warning'>[capitalize(src.name)] swallows [A] whole!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] swallows [A] whole and transforms him into a new horrible clown!</span>")
 		A.forceMove(src)
 		return TRUE
 	return FALSE
 /mob/living/simple_animal/hostile/clown/mutant/glutton/AttackingTarget(atom/attacked_target)
-	if(isliving(target)) //Swallows corpses like a snake to regain health.
+	if(isliving(target))
 		var/mob/living/L = target
 		if(L.stat == DEAD)
 			to_chat(src, "<span class='warning'>You begin to swallow [L] whole...</span>")
@@ -366,6 +367,7 @@
 				if(eat(L))
 					adjustHealth(-L.maxHealth * 0.5)
 					new /mob/living/simple_animal/hostile/clown(usr.loc)
+					notify_ghosts("A clown has been created in \the [get_area(src)].", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Honk!")
 			return
 		else
 			. = ..()
