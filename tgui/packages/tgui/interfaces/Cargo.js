@@ -101,7 +101,7 @@ const CargoStatus = (props, context) => {
             <Button
               color={grocery && "orange" || "green"}
               content={location}
-              tooltip={grocery && "The chef is waiting on their grocery supplies." || ""}
+              tooltip={grocery && "Повар сделал заказ и ожидает товар." || ""}
               tooltipPosition="right"
               onClick={() => act('send')} />
           ) || location}
@@ -205,7 +205,7 @@ export const CargoCatalog = (props, context) => {
                       {formatMoney((self_paid && !pack.goody) || app_cost
                         ? Math.round(pack.cost * 1.1)
                         : pack.cost)}
-                      {' cr'}
+                      {' кр'}
                     </Button>
                   </Table.Cell>
                 </Table.Row>

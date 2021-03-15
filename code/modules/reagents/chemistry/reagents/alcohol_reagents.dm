@@ -552,7 +552,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	color = "#585840" // rgb: 88, 88, 64
 	boozepwr = 60
 	quality = DRINK_VERYGOOD
-	taste_description = "дорогой метал"
+	taste_description = "дорогой металл"
 	glass_icon_state = "patronglass"
 	glass_name = "glass of patron"
 	glass_desc = "Drinking patron in the bar, with all the subpar ladies."

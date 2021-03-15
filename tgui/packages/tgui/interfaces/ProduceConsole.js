@@ -35,21 +35,21 @@ const ShoppingTab = (props, context) => {
               <Button
                 fluid
                 color="green"
-                content="Fruits and Veggies"
+                content="Фрукты и овощи"
                 onClick={() => setShopIndex(1)} />
             </Stack.Item>
             <Stack.Item grow>
               <Button
                 fluid
                 color="white"
-                content="Milk and Eggs"
+                content="Молоко и яйца"
                 onClick={() => setShopIndex(2)} />
             </Stack.Item>
             <Stack.Item grow>
               <Button
                 fluid
                 color="olive"
-                content="Sauces and Reagents"
+                content="Соусы и химия"
                 onClick={() => setShopIndex(3)} />
             </Stack.Item>
           </Stack>
@@ -69,7 +69,7 @@ const ShoppingTab = (props, context) => {
                     {"\""+item.desc+"\""}
                     <br />
                     <Box textAlign="right">
-                      {item.name+" costs "+item.cost+" per order."}
+                      {item.name+" - "+item.cost+" кредитов за лот"}
                     </Box>
                   </Stack.Item>
                   <Stack.Item mt={-0.5}>
@@ -110,17 +110,17 @@ const CheckoutTab = (props, context) => {
         <Section fill scrollable>
           <Stack vertical fill>
             <Stack.Item textAlign="center">
-              Checkout list:
+              Корзина:
             </Stack.Item>
             <Divider />
             {!checkout_list.length && (
               <>
                 <Box align="center" mt="15%" fontSize="40px">
-                  Nothing!
+                  Пусто!
                 </Box>
                 <br />
                 <Box align="center" mt={2} fontSize="15px">
-                  (Go order something, will ya?)
+                  (Что-то закажем, ага?)
                 </Box>
               </>
             )}
@@ -135,7 +135,7 @@ const CheckoutTab = (props, context) => {
                       {"\""+item.desc+"\""}
                       <br />
                       <Box textAlign="right">
-                        {item.name+" costs "+item.cost+" per order."}
+                        {item.name+" - "+item.cost+" кредитов за лот"}
                       </Box>
                     </Stack.Item>
                     <Stack.Item mt={-0.5}>
@@ -167,10 +167,10 @@ const CheckoutTab = (props, context) => {
               <Button
                 fluid
                 icon="plane-departure"
-                content="Purchase"
+                content="Заказать"
                 tooltip={multiline`
-                Your groceries will arrive at cargo,
-                and hopefully get delivered by them.
+                Товары будут доставлены в отдел снабжения
+                и возможно их доставят Вам.
                 `}
                 tooltipPosition="top"
                 onClick={() => act('purchase')} />
@@ -180,10 +180,10 @@ const CheckoutTab = (props, context) => {
                 fluid
                 icon="parachute-box"
                 color="yellow"
-                content="Express"
+                content="Экспресс"
                 tooltip={multiline`
-                Sends the ingredients instantly,
-                and locks the console longer. Doubles the price!
+                Отправляет ингридиенты мгновенно, но
+                блокирует консоль надолго. Двойная стоимость заказа!
                 `}
                 tooltipPosition="top-left"
                 onClick={() => act('express')} />
@@ -209,7 +209,7 @@ const OrderSent = (props, context) => {
           />
         </Stack.Item>
         <Stack.Item fontSize="18px" color="green">
-          Order sent! Machine on cooldown...
+          Заказ отправлен! Консоль перезагружается...
         </Stack.Item>
       </Stack>
     </Dimmer>
@@ -228,9 +228,9 @@ export const ProduceConsole = (props, context) => {
   const TabComponent = TAB2NAME[tabIndex-1].component();
   return (
     <Window
-      title="Produce Orders"
+      title="Поварские утехи"
       width={500}
-      height={400}>
+      height={500}>
       <Window.Content>
         {!off_cooldown && (
           <OrderSent />
@@ -245,7 +245,7 @@ export const ProduceConsole = (props, context) => {
                     color="green"
                     lineHeight={buttonWidth}
                     icon="cart-plus"
-                    content="Shopping"
+                    content="Магазин"
                     onClick={() => setTabIndex(1)} />
                 </Stack.Item>
                 <Stack.Item grow>
@@ -254,7 +254,7 @@ export const ProduceConsole = (props, context) => {
                     color="green"
                     lineHeight={buttonWidth}
                     icon="dollar-sign"
-                    content="Checkout"
+                    content="Корзина"
                     onClick={() => setTabIndex(2)} />
                 </Stack.Item>
               </Stack>

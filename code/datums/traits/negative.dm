@@ -526,7 +526,7 @@
 	if(prob(85) || (istype(mind_check) && mind_check.mind))
 		return
 
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, quirk_holder, "<span class='smallnotice'>You make eye contact with [A].</span>"), 3)
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, quirk_holder, "<span class='smallnotice'>[capitalize(A)] смотрит прямо на меня.</span>"), 3)
 
 /datum/quirk/social_anxiety/proc/eye_contact(datum/source, mob/living/other_mob, triggering_examiner)
 	SIGNAL_HANDLER
@@ -535,20 +535,20 @@
 		return
 	var/msg
 	if(triggering_examiner)
-		msg = "You make eye contact with [other_mob], "
+		msg = "[capitalize(other_mob)] смотрит прямо на меня, "
 	else
-		msg = "[other_mob] makes eye contact with you, "
+		msg = "[capitalize(other_mob)] смотрит прямо на меня, "
 
 	switch(rand(1,3))
 		if(1)
 			quirk_holder.Jitter(10)
-			msg += "causing you to start fidgeting!"
+			msg += "жуть!"
 		if(2)
 			quirk_holder.stuttering = max(3, quirk_holder.stuttering)
-			msg += "causing you to start stuttering!"
+			msg += "страшно!"
 		if(3)
 			quirk_holder.Stun(2 SECONDS)
-			msg += "causing you to freeze up!"
+			msg += "АХ!"
 
 	SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "anxiety_eyecontact", /datum/mood_event/anxiety_eyecontact)
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, quirk_holder, "<span class='userdanger'>[msg]</span>"), 3) // so the examine signal has time to fire and this will print after

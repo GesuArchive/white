@@ -522,8 +522,8 @@
 			if(iscarbon(user))
 				add_fingerprint(user)
 			locked = !locked
-			user.visible_message("<span class='notice'>[user] [locked ? null : "не "]открывает [src].</span>",
-							"<span class='notice'>Я [locked ? null : "не "]открываю [src].</span>")
+			user.visible_message("<span class='notice'>[user] [locked ? "от" : "за"]крывает [src].</span>",
+							"<span class='notice'>[locked ? "От" : "За"]крываю [src].</span>")
 			update_icon()
 		else if(!silent)
 			to_chat(user, "<span class='alert'>Доступ запрещён.</span>")
