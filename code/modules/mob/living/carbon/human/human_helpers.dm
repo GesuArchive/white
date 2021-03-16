@@ -226,10 +226,10 @@
 	var/mob/dead/observer/ghost = get_ghost(TRUE, TRUE)
 	var/t_on = ru_who(TRUE)
 	if(key || !getorgan(/obj/item/organ/brain))
-		return "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и души...</span>" //Default death message
+		return "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и души...</span>\n" //Default death message
 	//The death mob has a brain and no client/player that is assigned to the mob
 	if(!ghost?.can_reenter_corpse)  //And there is no ghost that could reenter the body
 		//There is no way this mob can in any normal way get a player, so they lost the will to live
-		return "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и желания души жить...</span>"
+		return "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и желания души жить...</span>\n"
 	//This mob has a ghost linked that could still reenter the body, so the soul only departed
-	return "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и души...</span>"
+	return "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и души...</span>\n"

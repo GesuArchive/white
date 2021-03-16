@@ -408,6 +408,10 @@
 			else if(!client)
 				msg += "[t_on] имеет пустой, рассеянный взгляд и кажется совершенно не реагирующим ни на что. [t_on] может выйти из этого в ближайшее время.\n"
 
+	var/trait_exam = common_trait_examine()
+	if (!isnull(trait_exam))
+		msg += trait_exam
+
 	var/scar_severity = 0
 	for(var/i in all_scars)
 		var/datum/scar/S = i
@@ -416,20 +420,16 @@
 
 	switch(scar_severity)
 		if(1 to 4)
-			msg += "\n<span class='smallnoticeital'>[t_on] похоже имеет шрамы... Стоит присмотреться, чтобы разглядеть ещё.</span>\n"
+			msg += "\n<span class='smallnoticeital'>[t_on] похоже имеет шрамы... Стоит присмотреться, чтобы разглядеть ещё.</span>"
 		if(5 to 8)
-			msg += "\n<span class='notice'><i>[t_on] имеет несколько серьёзных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></span>\n"
+			msg += "\n<span class='notice'><i>[t_on] имеет несколько серьёзных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></span>"
 		if(9 to 11)
-			msg += "\n<span class='notice'><b><i>[t_on] имеет множество ужасных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></b></span>\n"
+			msg += "\n<span class='notice'><b><i>[t_on] имеет множество ужасных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></b></span>"
 		if(12 to INFINITY)
-			msg += "\n<span class='notice'><b><i>[t_on] имеет разорванное в хлам тело состоящее из шрамов... Стоит присмотреться, чтобы разглядеть ещё?</i></b></span>\n"
+			msg += "\n<span class='notice'><b><i>[t_on] имеет разорванное в хлам тело состоящее из шрамов... Стоит присмотреться, чтобы разглядеть ещё?</i></b></span>"
 
 	if (length(msg))
 		. += "<span class='warning'>[msg.Join("")]</span>"
-
-	var/trait_exam = common_trait_examine()
-	if (!isnull(trait_exam))
-		. += trait_exam
 
 	var/perpname = get_face_name(get_id_name(""))
 	if(perpname && (HAS_TRAIT(user, TRAIT_SECURITY_HUD) || HAS_TRAIT(user, TRAIT_MEDICAL_HUD)))
