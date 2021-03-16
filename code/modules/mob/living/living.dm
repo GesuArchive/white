@@ -384,13 +384,12 @@
 	if(!..())
 		return FALSE
 	var/obj/item/held = get_active_held_item()
-	if(!held)
-		return FALSE
-	var/datum/component/aiming/aiming = held?.GetComponent(/datum/component/aiming)
-	if(aiming && isliving(A))
-		aiming.aim(src, A)
-	else
-		visible_message("<span class='name'>[capitalize(src.name)]</span> показывает на <b>[sklonenie(A.name, VINITELNI, A.gender)]</b>.", "<span class='notice'>Показываю на <b>[sklonenie(A.name, VINITELNI, A.gender)]</b>.</span>")
+	if(held)
+		var/datum/component/aiming/aiming = held?.GetComponent(/datum/component/aiming)
+		if(aiming && isliving(A))
+			aiming.aim(src, A)
+			return TRUE
+	visible_message("<span class='name'>[capitalize(src.name)]</span> показывает на <b>[sklonenie(A.name, VINITELNI, A.gender)]</b>.", "<span class='notice'>Показываю на <b>[sklonenie(A.name, VINITELNI, A.gender)]</b>.</span>")
 	return TRUE
 
 
