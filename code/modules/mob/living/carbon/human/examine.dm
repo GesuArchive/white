@@ -18,7 +18,7 @@
 	. = list("")
 
 	if(true_info)
-		if(!client || !client.holder)
+		if(!client?.holder)
 			. += "<span class='info'>ОБЪЕКТ: <EM>[name]</EM>.<hr>"
 			SEND_SOUND(user, sound('sound/ai/hacker/scanned.ogg'))
 			var/is_weapon = FALSE
@@ -58,7 +58,7 @@
 			hud_list[HACKER_HUD].add_overlay("node_na")
 	else
 		var/racetext = get_race_text()
-		. += "<span class='info'>Это же <EM>[!obscure_name ? name : "Unknown"]</EM>, [racetext ? "<big>[racetext]</big>" : "[get_age_text()]"]!<hr>"
+		. += "<span class='info'>Это же <EM>[!obscure_name ? name : "Unknown"]</EM>, [racetext ? "<big class='interface'>[racetext]</big>" : "[get_age_text()]"]!<hr>"
 
 	if(user.stat == CONSCIOUS && ishuman(user))
 		user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[!obscure_name ? name : "Unknown"]</b>.</span>", "<span class='small'>Смотрю на <b>[!obscure_name ? name : "Unknown"]</b>.</span>", null, COMBAT_MESSAGE_RANGE)

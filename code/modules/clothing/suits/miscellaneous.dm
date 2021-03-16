@@ -385,7 +385,7 @@
 
 /obj/item/clothing/suit/straight_jacket/proc/check_trip()
 	var/mob/living/carbon/human/H = straight_user
-	if(!istype(H) || H.wear_suit != src)
+	if(!istype(H) || H.wear_suit != src || H.IsKnockdown() || H.buckled)
 		return
 
 	if(prob(25))

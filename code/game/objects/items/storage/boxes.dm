@@ -789,6 +789,7 @@
 /obj/item/storage/box/hug
 	name = "коробка объятий"
 	desc = "Специальная коробка для чувствительных людей."
+	gender = FEMALE
 	icon_state = "hugbox"
 	illustration = "heart"
 	foldable = null
@@ -801,7 +802,7 @@
 	..()
 	user.changeNext_move(CLICK_CD_MELEE)
 	playsound(loc, "rustle", 50, TRUE, -5)
-	user.visible_message("<span class='notice'>[user] обнимает <b>[src.name]</b>.</span>","<span class='notice'>Обнимаю <b>[src.name]</b>.</span>")
+	user.visible_message("<span class='notice'>[user] обнимает <b>[sklonenie(name, VINITELNI, gender)]</b>.</span>","<span class='notice'>Обнимаю <b>[sklonenie(name, VINITELNI, gender)]</b>.</span>")
 
 /////clown box & honkbot assembly
 /obj/item/storage/box/clown

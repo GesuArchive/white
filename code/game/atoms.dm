@@ -624,7 +624,7 @@
 
 	if(ishuman(user))
 		if(user.stat == CONSCIOUS && !user.eye_blind)
-			user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[src.name]</b>.</span>", "<span class='small'>Смотрю на <b>[src.name]</b>.</span>", null, COMBAT_MESSAGE_RANGE)
+			user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[sklonenie(name, VINITELNI, gender)]</b>.</span>", "<span class='small'>Смотрю на <b>[src.name]</b>.</span>", null, COMBAT_MESSAGE_RANGE)
 		if(user.status_traits)
 			if(HAS_TRAIT(user, TRAIT_JEWISH))
 				var/datum/export_report/ex = export_item_and_contents(src, EXPORT_PIRATE | EXPORT_CARGO | EXPORT_CONTRABAND, dry_run=TRUE)

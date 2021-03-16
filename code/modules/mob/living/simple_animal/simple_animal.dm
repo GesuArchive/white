@@ -85,9 +85,9 @@
 	var/attack_verb_simple = "атакует"
 	var/attack_sound = null
 	///Attacking, but without damage, verb in present continuous tense.
-	var/friendly_verb_continuous = "трётся"
+	var/friendly_verb_continuous = "тычет"
 	///Attacking, but without damage, verb in present simple tense.
-	var/friendly_verb_simple = "трётся"
+	var/friendly_verb_simple = "тычет"
 	///Set to 1 to allow breaking of crates,lockers,racks,tables; 2 for walls; 3 for Rwalls.
 	var/environment_smash = ENVIRONMENT_SMASH_NONE
 
