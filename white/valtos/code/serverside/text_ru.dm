@@ -251,6 +251,16 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	lose_text = "<span class='danger'>Я забываю запах сала.</span>"
 	medical_record_text = "Пациент имеет страсть к салу."
 
+/datum/quirk/ukrainish/add()
+	var/mob/living/carbon/human/H = quirk_holder
+	if(ishumanbasic(H))
+		H.grant_language(/datum/language/xoxol)
+
+/datum/quirk/ukrainish/remove()
+	var/mob/living/carbon/human/H = quirk_holder
+	if(ishumanbasic(H))
+		H.remove_language(/datum/language/xoxol)
+
 /datum/quirk/asiat
 	name = "Азиат"
 	desc = "Долгое время работы в рисовых полях и жара палящего сверху солнца даровала вам этот прекрасный акцент."
