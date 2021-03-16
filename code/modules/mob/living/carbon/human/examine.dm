@@ -155,6 +155,8 @@
 	if(wear_id && !(wear_id.item_flags & EXAMINE_SKIP))
 		. += "И конечно же у н[t_ego] есть [wear_id.get_examine_string(user)].\n"
 
+	. += "<hr>"
+
 	//Status effects
 	var/list/status_examines = status_effect_examines()
 	if (length(status_examines))
@@ -183,8 +185,6 @@
 
 	if(get_bodypart(BODY_ZONE_HEAD) && !getorgan(/obj/item/organ/brain))
 		. += "<span class='deadsay'>Похоже, что у н[t_ego] нет мозга...</span>\n"
-
-	. += "<hr>"
 
 	var/list/msg = list()
 
@@ -482,8 +482,7 @@
 	for(var/V in status_effects)
 		var/datum/status_effect/E = V
 		if(E.examine_text)
-			var/new_text = replacetext(E.examine_text, "SUBJECTPRONOUN", pronoun_replacement)
-			new_text = replacetext(new_text, "[pronoun_replacement] ", "[pronoun_replacement] [p_are()]") //To make sure something become "They are" or "She is", not "They are" and "She are"
+			var/new_text = replacetext_char(E.examine_text, "SUBJECTPRONOUN", pronoun_replacement)
 			dat += "[new_text]\n" //dat.Join("\n") doesn't work here, for some reason
 	if(dat.len)
 		return dat.Join()

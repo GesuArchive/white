@@ -14,8 +14,8 @@
 	name = "Иностранец"
 	desc = "Вы не из этих земель. Вы не знаете основной галактический язык!"
 	value = 0
-	gain_text = "<span class='notice'>Вы не понимаете ни слова."
-	lose_text = "<span class='notice'>Вы научились понимать основной галактический язык.."
+	gain_text = "<span class='notice'>Вы не понимаете ни слова.</span>"
+	lose_text = "<span class='notice'>Вы научились понимать основной галактический язык.</span>"
 	medical_record_text = "Пациент не разговаривает на основном галактическом языке."
 
 /datum/quirk/foreigner/add()
