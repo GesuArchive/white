@@ -31,7 +31,6 @@ GLOBAL_VAR(restart_counter)
 /world/New()
 	if (fexists(EXTOOLS))
 		call(EXTOOLS, "maptick_initialize")()
-	enable_debugger()
 
 	log_world("World loaded at [time_stamp()]!")
 

@@ -172,7 +172,7 @@ SUBSYSTEM_DEF(garbage)
 		fail_counts[level]++
 		switch (level)
 			if (GC_QUEUE_CHECK)
-				#ifdef defined(LEGACY_REFERENCE_TRACKING)
+				#ifdef LEGACY_REFERENCE_TRACKING
 				if(reference_find_on_fail[refID])
 					D.find_references_legacy()
 				#ifdef GC_FAILURE_HARD_LOOKUP
