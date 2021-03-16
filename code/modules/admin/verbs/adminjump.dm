@@ -100,7 +100,7 @@
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Jump To Key") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/Getmob()
+/client/proc/Getmob(mob/M in world)
 	set category = "Адм.Игра"
 	set name = "Get Mob"
 	set desc = "Mob to teleport"
@@ -108,7 +108,7 @@
 		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
 		return
 
-	var/mob/M = tgui_input_list(usr, "Mob to teleport", "Get Mob", GLOB.mob_list - GLOB.dummy_mob_list)
+	// var/mob/M = tgui_input_list(usr, "Mob to teleport", "Get Mob", GLOB.mob_list - GLOB.dummy_mob_list)
 	var/atom/loc = get_turf(usr)
 	M.admin_teleport(loc)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Get Mob") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
