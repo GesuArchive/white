@@ -318,8 +318,8 @@
 /area/prisonv2)
 "bm" = (
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 10
+	dir = 10;
+	icon_state = "trubas"
 	},
 /turf/open/floor/trot,
 /area/prisonv2)
@@ -329,8 +329,8 @@
 /area/prisonv2)
 "bo" = (
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 6
+	dir = 6;
+	icon_state = "trubas"
 	},
 /turf/open/floor/trot,
 /area/prisonv2)
@@ -448,8 +448,8 @@
 	dir = 8
 	},
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 1
+	dir = 1;
+	icon_state = "trubas"
 	},
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
@@ -458,8 +458,8 @@
 	dir = 4
 	},
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 1
+	dir = 1;
+	icon_state = "trubas"
 	},
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
@@ -494,8 +494,8 @@
 /area/prisonv2)
 "bO" = (
 /obj/structure/chair/prison/wood{
-	icon_state = "chair";
-	dir = 1
+	dir = 1;
+	icon_state = "chair"
 	},
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
@@ -1221,16 +1221,16 @@
 /area/prisonv2)
 "ei" = (
 /obj/structure/prison/fence{
-	icon_state = "fence";
-	dir = 1
+	dir = 1;
+	icon_state = "fence"
 	},
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/open/floor/grass,
 /area/prisonv2)
 "ej" = (
 /obj/structure/prison/fence{
-	icon_state = "fence";
-	dir = 1
+	dir = 1;
+	icon_state = "fence"
 	},
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/grass,
@@ -1247,8 +1247,8 @@
 /area/prisonv2out)
 "em" = (
 /obj/structure/prison/fence{
-	icon_state = "fence";
-	dir = 1
+	dir = 1;
+	icon_state = "fence"
 	},
 /obj/structure/flora/ausbushes/reedbush,
 /turf/open/floor/grass,
@@ -1493,8 +1493,8 @@
 /area/prisonv2)
 "fd" = (
 /obj/structure/chair/prison/wood{
-	icon_state = "chair";
-	dir = 4
+	dir = 4;
+	icon_state = "chair"
 	},
 /turf/open/floor/carpet,
 /area/prisonv2)
@@ -1509,8 +1509,8 @@
 /area/prisonv2)
 "fg" = (
 /obj/structure/chair/prison/wood{
-	icon_state = "chair";
-	dir = 8
+	dir = 8;
+	icon_state = "chair"
 	},
 /turf/open/floor/carpet,
 /area/prisonv2)
@@ -1524,8 +1524,8 @@
 /area/prisonv2)
 "fj" = (
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 4
+	dir = 4;
+	icon_state = "trubas"
 	},
 /turf/open/floor/trot,
 /area/prisonv2)
@@ -1583,22 +1583,22 @@
 	dir = 4
 	},
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 4
+	dir = 4;
+	icon_state = "trubas"
 	},
 /turf/open/floor/beton,
 /area/prisonv2)
 "fs" = (
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 4
+	dir = 4;
+	icon_state = "trubas"
 	},
 /turf/open/floor/beton,
 /area/prisonv2)
 "ft" = (
 /obj/structure/holohoop{
-	icon_state = "hoop";
-	dir = 4
+	dir = 4;
+	icon_state = "hoop"
 	},
 /turf/open/floor/trot,
 /area/prisonv2)
@@ -1608,8 +1608,8 @@
 /area/prisonv2)
 "fw" = (
 /obj/structure/holohoop{
-	icon_state = "hoop";
-	dir = 8
+	dir = 8;
+	icon_state = "hoop"
 	},
 /turf/open/floor/trot,
 /area/prisonv2)
@@ -1727,8 +1727,8 @@
 /area/prisonv2)
 "fR" = (
 /obj/structure/chair/prison/wood{
-	icon_state = "chair";
-	dir = 1
+	dir = 1;
+	icon_state = "chair"
 	},
 /turf/open/floor/carpet,
 /area/prisonv2)
@@ -1747,10 +1747,6 @@
 	anchored = 1
 	},
 /turf/open/floor/trot,
-/area/prisonv2)
-"fV" = (
-/obj/structure/table/prison,
-/turf/open/floor/carpet,
 /area/prisonv2)
 "fW" = (
 /obj/structure/table/prison,
@@ -1839,8 +1835,8 @@
 /area/prisonv2)
 "gl" = (
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 4
+	dir = 4;
+	icon_state = "trubas"
 	},
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
@@ -1862,8 +1858,8 @@
 /area/prisonv2)
 "gp" = (
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 1
+	dir = 1;
+	icon_state = "trubas"
 	},
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
@@ -1874,8 +1870,8 @@
 /area/prisonv2)
 "gr" = (
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 5
+	dir = 5;
+	icon_state = "trubas"
 	},
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
@@ -2077,15 +2073,15 @@
 /area/prisonv2)
 "gQ" = (
 /obj/structure/chair/prison/wood{
-	icon_state = "chair";
-	dir = 4
+	dir = 4;
+	icon_state = "chair"
 	},
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
 "gR" = (
 /obj/structure/chair/prison/wood{
-	icon_state = "chair";
-	dir = 8
+	dir = 8;
+	icon_state = "chair"
 	},
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
@@ -2773,8 +2769,8 @@
 	dir = 4
 	},
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 6
+	dir = 6;
+	icon_state = "trubas"
 	},
 /turf/open/floor/vault,
 /area/prisonv2)
@@ -2859,8 +2855,8 @@
 	dir = 4
 	},
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 4
+	dir = 4;
+	icon_state = "trubas"
 	},
 /turf/open/floor/vault,
 /area/prisonv2)
@@ -2940,8 +2936,8 @@
 /area/prisonv2)
 "jP" = (
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 4
+	dir = 4;
+	icon_state = "trubas"
 	},
 /turf/open/floor/vault,
 /area/prisonv2)
@@ -3022,8 +3018,8 @@
 "kb" = (
 /obj/item/storage/box/rndboards,
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 4
+	dir = 4;
+	icon_state = "trubas"
 	},
 /turf/open/floor/trot,
 /area/prisonv2)
@@ -3128,8 +3124,8 @@
 	id_target = "down22"
 	},
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 10
+	dir = 10;
+	icon_state = "trubas"
 	},
 /turf/open/floor/trot,
 /area/prisonv2)
@@ -3140,8 +3136,8 @@
 	id_target = "down22"
 	},
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 1
+	dir = 1;
+	icon_state = "trubas"
 	},
 /turf/open/floor/trot,
 /area/prisonv2)
@@ -3152,8 +3148,8 @@
 	id_target = "down22"
 	},
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 1
+	dir = 1;
+	icon_state = "trubas"
 	},
 /obj/machinery/light/streetlight{
 	no_emergency = 1
@@ -3167,20 +3163,20 @@
 	id_target = "down22"
 	},
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 1
+	dir = 1;
+	icon_state = "trubas"
 	},
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 6
+	dir = 6;
+	icon_state = "trubas"
 	},
 /turf/open/floor/trot,
 /area/prisonv2)
 "kw" = (
 /obj/effect/decal/tuman,
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 1
+	dir = 1;
+	icon_state = "trubas"
 	},
 /turf/open/floor/beton,
 /area/prisonv2)
@@ -3188,8 +3184,8 @@
 /obj/item/trash/can,
 /obj/effect/decal/tuman,
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 1
+	dir = 1;
+	icon_state = "trubas"
 	},
 /turf/open/floor/beton,
 /area/prisonv2)
@@ -3200,8 +3196,8 @@
 	id_target = "down22"
 	},
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 6
+	dir = 6;
+	icon_state = "trubas"
 	},
 /turf/open/floor/trot,
 /area/prisonv2)
@@ -3257,8 +3253,8 @@
 /area/prisonv2)
 "kG" = (
 /obj/structure/chair/prison/wood{
-	icon_state = "chair";
-	dir = 4
+	dir = 4;
+	icon_state = "chair"
 	},
 /obj/effect/decal/prison/pipe/pipea,
 /turf/open/floor/rospilovo/plitka,
@@ -3271,8 +3267,8 @@
 /area/prisonv2)
 "kI" = (
 /obj/structure/chair/prison/wood{
-	icon_state = "chair";
-	dir = 8
+	dir = 8;
+	icon_state = "chair"
 	},
 /obj/effect/decal/prison/pipe/pipea,
 /turf/open/floor/rospilovo/plitka,
@@ -3286,8 +3282,8 @@
 "kK" = (
 /obj/structure/table/prison,
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 4
+	dir = 4;
+	icon_state = "trubas"
 	},
 /obj/effect/decal/prison/pipe/pipea,
 /obj/effect/spawner/bundle/costume/nyangirl,
@@ -3804,8 +3800,8 @@
 	id_target = "down22"
 	},
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 9
+	dir = 9;
+	icon_state = "trubas"
 	},
 /turf/open/floor/trot,
 /area/prisonv2)
@@ -3837,8 +3833,8 @@
 	id_target = "down22"
 	},
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 5
+	dir = 5;
+	icon_state = "trubas"
 	},
 /turf/open/floor/trot,
 /area/prisonv2)
@@ -3906,8 +3902,8 @@
 /area/prisonv2)
 "UV" = (
 /obj/structure/prison/pipe{
-	icon_state = "trubas";
-	dir = 4
+	dir = 4;
+	icon_state = "trubas"
 	},
 /obj/machinery/light,
 /turf/open/floor/rospilovo/plitka,
@@ -3929,8 +3925,8 @@
 /area/prisonv2)
 "WN" = (
 /obj/structure/chair/prison/wood{
-	icon_state = "chair";
-	dir = 8
+	dir = 8;
+	icon_state = "chair"
 	},
 /obj/machinery/light{
 	dir = 4
@@ -20439,7 +20435,7 @@ ak
 ff
 fA
 fK
-fV
+fW
 ak
 ie
 fi
