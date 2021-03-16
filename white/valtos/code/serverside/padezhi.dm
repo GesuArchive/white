@@ -52,7 +52,7 @@
 	var/to_ret = ""
 	for(var/word in splittext_char(msgfrom, " "))
 		to_ret += " [sklonenie_do(word, rule, gender)]"
-	return to_ret
+	return copytext_char(to_ret, 2)
 
 GLOBAL_LIST_INIT(PfemaleOneStop, 		list("б","в","г","д","ж","з","й","к","л","м","н","п","р","с","т","ф","х","ц","ч","ш","щ","ъ","ь"))
 GLOBAL_LIST_INIT(POneStop, 				list("о","е","ё","э","и","ы","у","ю"))
