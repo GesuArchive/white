@@ -46,15 +46,15 @@
 	faction = list("skeleton")
 
 /obj/structure/spawner/clown
-	name = "Laughing Larry"
-	desc = "A laughing, jovial figure. Something seems stuck in his throat."
+	name = "Смешной портал"
+	desc = "Дыра в реальности в форме смешного лица."
 	icon_state = "clownbeacon"
 	icon = 'icons/obj/device.dmi'
 	max_integrity = 200
-	max_mobs = 15
+	max_mobs = 10
 	spawn_time = 150
 	mob_types = list(/mob/living/simple_animal/hostile/clown, /mob/living/simple_animal/hostile/clown/fleshclown, /mob/living/simple_animal/hostile/clown/longface, /mob/living/simple_animal/hostile/clown/honkling, /mob/living/simple_animal/hostile/clown/lube)
-	spawn_text = "climbs out of"
+	spawn_text = "вылезает из"
 	faction = list("clown")
 
 /obj/structure/spawner/mining

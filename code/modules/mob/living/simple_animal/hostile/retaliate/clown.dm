@@ -54,11 +54,30 @@
 	key = user.key
 	log_game("[key_name(src)] took control of [name].")
 
+/mob/living/simple_animal/hostile/clown/proc/humanize_glutton(mob/user)
+	var/pod_ask = alert("Become a clown apostle?", "Honk?", "YES", "No")
+	if(pod_ask == "No" || !src || QDELETED(src))
+		return
+	if(key)
+		to_chat(user, "<span class='warning'>Someone else already took this clown!</span>")
+		return
+	key = user.key
+	to_chat(src, "<B><font size=3 color=pink>Ты - Апостол Хонкоматери.</font></B>")
+	to_chat(src, "<B><font size=2 color=blue>Ты можешь пожирать трупы, превращая их в новых боеспособных клоунов.</font></B>")
+	to_chat(src, "<B><font size=2 color=green>Ты можешь поглощать энергию из рабочих лампочек вокруг, залечивая свои раны и наполняя свое тело жуткой энергией.</font></B>")
+	to_chat(src, "<B><font size=2 color=red>Если твое тело наполнено жуткой энергией доверху, ты можешь открыть разлом в измерение клоунов или трансформировать следующий труп в сильного, опасного клоуна.</font></B>")
+	log_game("[key_name(src)] took control of [name].")
+
 /mob/living/simple_animal/hostile/clown/attack_ghost(mob/user)
 	. = ..()
 	if(.)
 		return
-	humanize_clown(user)
+	if (istype(src, /mob/living/simple_animal/hostile/clown/mutant/glutton))
+		humanize_glutton(user)
+	else
+		humanize_clown(user)
+
+
 
 /mob/living/simple_animal/hostile/clown/handle_temperature_damage()
 	if(bodytemperature < minbodytemp)
@@ -156,10 +175,10 @@
 	speak_chance = 5
 	dextrous = TRUE
 	ventcrawler = VENTCRAWLER_ALWAYS
-	maxHealth = 140
-	health = 140
+	maxHealth = 150
+	health = 150
 	speed = 2
-	melee_damage_upper = 8
+	melee_damage_upper = 5
 	attack_verb_continuous = "limply slaps"
 	attack_verb_simple = "limply slap"
 	obj_damage = 5
@@ -211,8 +230,7 @@
 	pixel_x = -16
 	base_pixel_x = -16
 	speed = 3
-	harm_intent_damage = 15
-	melee_damage_lower = 15
+	melee_damage_lower = 20
 	melee_damage_upper = 20
 	attack_verb_continuous = "pummels"
 	attack_verb_simple = "pummel"
@@ -260,8 +278,8 @@
 	health = 200
 	speed = 2
 	harm_intent_damage = 5
-	melee_damage_lower = 15
-	melee_damage_upper = 20
+	melee_damage_lower = 20
+	melee_damage_upper = 25
 	attack_verb_continuous = "ferociously mauls"
 	attack_verb_simple = "ferociously maul"
 	environment_smash = ENVIRONMENT_SMASH_NONE
@@ -348,7 +366,6 @@
 	var/datum/action/innate/glutton/open_portal/open_portal
 /mob/living/simple_animal/hostile/clown/mutant/glutton/get_status_tab_items()
 	. = ..()
-	. += "Здоровье: [round((health / maxHealth) * 100)]%"
 	. += "Энергия: [clownlight]/[maxClownlight]"
 
 
@@ -366,8 +383,7 @@
 /mob/living/simple_animal/hostile/clown/mutant/glutton/proc/eat(atom/movable/A)
 	if(A && A.loc != src)
 		playsound(src, 'sound/magic/demon_attack1.ogg', 100, TRUE)
-		visible_message("<span class='warning'>[capitalize(src.name)] пожирает [A] и превращает его тело в нечто более прекрасное!</span>")
-		A.forceMove(src)
+		qdel(A)
 		return TRUE
 	return FALSE
 /mob/living/simple_animal/hostile/clown/mutant/glutton/AttackingTarget(atom/attacked_target)
@@ -376,8 +392,16 @@
 		if(L.stat == DEAD)
 			to_chat(src, "<span class='warning'>Начинаю проглатывать [L]...</span>")
 			if(do_after(src, 30, target = L))
-				if(eat(L))
+				if(eat(L) && clownlight<200)
+					visible_message("<span class='warning'>[capitalize(src.name)] пожирает [L] и использует его плоть для создания нового клоуна!</span>")
 					new /mob/living/simple_animal/hostile/clown(usr.loc)
+					notify_ghosts("Тело клоуна доступно в [get_area(src)].", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Honk!")
+				else
+					visible_message("<span class='warning'>[capitalize(src.name)] пожирает [L] и наполняет его плоть жуткой энергией, порождая настоящего монстра!</span>")
+					var/moblist = list(/mob/living/simple_animal/hostile/clown/clownhulk, /mob/living/simple_animal/hostile/clown/clownhulk/chlown, /mob/living/simple_animal/hostile/clown/mutant, /mob/living/simple_animal/hostile/clown/clownhulk/honcmunculus)
+					var/spawnedmob = pick(moblist)
+					new spawnedmob(usr.loc)
+					clownlight = 0
 					notify_ghosts("Тело клоуна доступно в [get_area(src)].", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Honk!")
 			return
 		else
@@ -417,7 +441,7 @@
 		target.update_sight()
 
 
-//Жрет свет и лечит себя ++ атмосфэра
+//Жрет свет и лечит себя + атмосфэра
 /obj/effect/proc_holder/spell/aoe_turf/lighteater
 	name = "Поглотить свет"
 	desc = "Поглощает свет из ближайших лампочек."
@@ -431,11 +455,13 @@
 
 /obj/effect/proc_holder/spell/aoe_turf/lighteater/cast(list/targets, mob/living/simple_animal/hostile/clown/mutant/glutton/user = usr)
 	flick("glutton_tongue",usr)
-	for(var/obj/machinery/light/L in view(4, user))
+	for(var/obj/machinery/light/L in view(6, user))
+		if (L.icon_state != "tube-broken")
+			user.adjustHealth(-50)
+			if (user.clownlight<191)
+				user.clownlight+=10
 		L.on = 1
 		L.break_light_tube()
-		user.adjustHealth(-50)
-		user.clownlight+=10
 	for(var/mob/living/M in get_hearers_in_view(4, user))
 		SEND_SOUND(M, sound('sound/effects/screech.ogg'))
 	to_chat(user, "<span class='notice'>Издаю ужасающий визг, высасывая энергию из лампочек вокруг!</span>")
@@ -470,6 +496,7 @@
 		to_chat(glutton, "<span class ='notice'>Недостаточно энергии!</span>")
 		return FALSE
 	else
+		playsound(src, 'sound/magic/demon_attack1.ogg', 100, TRUE)
 		to_chat(glutton, "<span class='notice'>Использовав поглощенную энергию, я прорываю ткань реальности и создаю портал напрямую в измерение клоунов!</span>")
 		new /obj/structure/spawner/clown(glutton_turf)
 		glutton.clownlight -= 200
