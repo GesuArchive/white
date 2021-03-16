@@ -1,5 +1,5 @@
 /client/proc/cmd_select_equipment(mob/target in GLOB.mob_list)
-	set category = "Admin.Events"
+	set category = "Адм.События"
 	set name = "Select equipment"
 
 
@@ -96,7 +96,7 @@
 		return list("category" = category, "ref" = identifier, "name" = name, "priority" = priority)
 	return list("category" = category, "path" = identifier, "name" = name, "priority" = priority)
 
-/datum/select_equipment/proc/make_outfit_entries(category="General", list/outfit_list)
+/datum/select_equipment/proc/make_outfit_entries(category="Осн", list/outfit_list)
 	var/list/entries = list()
 	for(var/path as anything in outfit_list)
 		var/datum/outfit/outfit = path
@@ -135,10 +135,12 @@
 	var/list/data = list()
 	if(!cached_outfits)
 		cached_outfits = list()
-		cached_outfits += list(outfit_entry("General", /datum/outfit, "Naked", priority=TRUE))
-		cached_outfits += make_outfit_entries("General", subtypesof(/datum/outfit) - typesof(/datum/outfit/job) - typesof(/datum/outfit/plasmaman))
-		cached_outfits += make_outfit_entries("Jobs", typesof(/datum/outfit/job))
-		cached_outfits += make_outfit_entries("Plasmamen Outfits", typesof(/datum/outfit/plasmaman))
+		cached_outfits += list(outfit_entry("Осн", /datum/outfit, "Naked", priority=TRUE))
+		cached_outfits += make_outfit_entries("Осн", subtypesof(/datum/outfit) - typesof(/datum/outfit/job) - typesof(/datum/outfit/plasmaman) - typesof(/datum/outfit/wzzzz) - typesof(/datum/outfit/whiterobust))
+		cached_outfits += make_outfit_entries("Джоб", typesof(/datum/outfit/job))
+		cached_outfits += make_outfit_entries("Плазмамен", typesof(/datum/outfit/plasmaman))
+		cached_outfits += make_outfit_entries("Зерг", typesof(/datum/outfit/wzzzz))
+		cached_outfits += make_outfit_entries("Турнир", typesof(/datum/outfit/whiterobust))
 
 	data["outfits"] = cached_outfits
 	return data
