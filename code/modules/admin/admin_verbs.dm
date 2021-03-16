@@ -194,10 +194,6 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	#endif
 	/datum/admins/proc/create_or_modify_area,
 	/client/proc/clicker_panel,
-#ifdef REFERENCE_TRACKING
-	/datum/admins/proc/view_refs,
-	/datum/admins/proc/view_del_failures,
-#endif
 	/client/proc/check_timer_sources,
 	/client/proc/toggle_cdn
 	)

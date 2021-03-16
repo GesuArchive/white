@@ -172,9 +172,7 @@ SUBSYSTEM_DEF(garbage)
 		fail_counts[level]++
 		switch (level)
 			if (GC_QUEUE_CHECK)
-				#ifdef REFERENCE_TRACKING
-				D.find_references()
-				#elif defined(LEGACY_REFERENCE_TRACKING)
+				#ifdef defined(LEGACY_REFERENCE_TRACKING)
 				if(reference_find_on_fail[refID])
 					D.find_references_legacy()
 				#ifdef GC_FAILURE_HARD_LOOKUP
@@ -193,10 +191,6 @@ SUBSYSTEM_DEF(garbage)
 						continue
 					to_chat(admin, "## TESTING: GC: -- [ADMIN_VV(D)] | [type] was unable to be GC'd --")
 				testing("GC: -- \ref[src] | [type] was unable to be GC'd --")
-				#endif
-				#ifdef REFERENCE_TRACKING
-				GLOB.deletion_failures += D //It should no longer be bothered by the GC, manual deletion only.
-				continue
 				#endif
 				I.failures++
 			if (GC_QUEUE_HARDDELETE)
