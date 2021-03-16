@@ -182,16 +182,3 @@ There are two main branches, dictated by SOP. If the perp is armed, tell them to
 		UnregisterSignal(target, COMSIG_LIVING_STATUS_PARALYZE)
 	user = null
 	target = null
-
-/mob/living/pointed(atom/A as mob|obj|turf in view())
-	if(incapacitated())
-		return FALSE
-	if(HAS_TRAIT(src, TRAIT_DEATHCOMA))
-		return FALSE
-	var/obj/item/held = get_active_held_item()
-	if(!held)
-		return FALSE
-	var/datum/component/aiming/aiming = held?.GetComponent(/datum/component/aiming)
-	if(aiming && isliving(A))
-		aiming.aim(src, A)
-	. = ..()
