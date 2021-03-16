@@ -260,6 +260,19 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	lose_text = "<span class='danger'>Аниме говно.</span>"
 	medical_record_text = "Пациент - азиат."
 
+/mob/living/carbon/human/proc/get_race_text()
+	switch(skin_tone)
+		if("asian1", "asian2")
+			return pick("ускоглазый", "узкопленочный", "чалма", "чурка", "чучмек", "кырдым-бырдым", "самурай")
+		if("arab")
+			return pick("хач", "сарацин", "палестинец")
+		if("indian")
+			return pick("цыган", "индус")
+		if("african1", "african2")
+			return pick("негр", "черномазый", "уголёк", "черножопая гнида", "негативчик", "сникерс", "черный", "копченый", "негритос", "мумба-юмба", "трюфель")
+		else
+			return null
+
 /mob/living/carbon/human/proc/get_age_text()
 	switch(age)
 		if(-INFINITY to 16)

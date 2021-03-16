@@ -57,7 +57,8 @@
 			hud_list[HACKER_HUD].cut_overlay("node_na")
 			hud_list[HACKER_HUD].add_overlay("node_na")
 	else
-		. += "<span class='info'>Это же <EM>[!obscure_name ? name : "Unknown"]</EM>, [get_age_text()]!<hr>"
+		var/racetext = get_race_text()
+		. += "<span class='info'>Это же <EM>[!obscure_name ? name : "Unknown"]</EM>, [racetext ? "<big>[racetext]</big>" : "[get_age_text()]"]!<hr>"
 
 	if(user.stat == CONSCIOUS && ishuman(user))
 		user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[!obscure_name ? name : "Unknown"]</b>.</span>", "<span class='small'>Смотрю на <b>[!obscure_name ? name : "Unknown"]</b>.</span>", null, COMBAT_MESSAGE_RANGE)
@@ -72,7 +73,7 @@
 				. += "<span class='warning'>Не хватает [O.max_teeth - O.get_teeth()] зубов!</span>\n"
 
 	if(pooed)
-		. += "<big><b>Невероятно, но [t_ego] одежда <font color='red'>ВСЯ В ГОВНЕ</font>.</b></big>\n"
+		. += "<big><b>Невероятно, но [t_ego] одежда <font color='pink'>ВСЯ В ГОВНЕ</font>.</b></big>\n"
 
 	if(headstamp && !(obscured & ITEM_SLOT_HEAD))
 		. += "У н[t_ego] на лбу написано <b>[headstamp]</b>. Круто.\n"
