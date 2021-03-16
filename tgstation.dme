@@ -2271,6 +2271,7 @@
 #include "code\modules\language\uncommon.dm"
 #include "code\modules\language\voltaic.dm"
 #include "code\modules\language\xenocommon.dm"
+#include "code\modules\language\xoxol.dm"
 #include "code\modules\library\lib_codex_gigas.dm"
 #include "code\modules\library\lib_items.dm"
 #include "code\modules\library\lib_machines.dm"

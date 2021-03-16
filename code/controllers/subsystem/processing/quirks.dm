@@ -51,6 +51,8 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 		var/datum/quirk/Q = quirks[V]
 		if(Q)
 			user.add_quirk(Q, spawn_effects)
+			if (Q.mob_trait == TRAIT_UKRAINISH)
+				user.grant_language(/datum/language/xoxol, TRUE, TRUE, LANGUAGE_MIND)
 		else
 			to_chat(user, "Ваше качество \"[V]\" было убрано в связи с ребалансом. Просьба настроить их снова.")
 			stack_trace("Invalid quirk \"[V]\" in client [cli.ckey] preferences")
