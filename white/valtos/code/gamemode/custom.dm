@@ -76,11 +76,14 @@
 	defer_change = 1
 
 /turf/closed/indestructible/black
-	name = "nothing"
+	name = "пустота"
 	icon = 'white/valtos/icons/area.dmi'
 	icon_state = "black"
 	layer = FLY_LAYER
 	bullet_bounce_sound = null
+
+/turf/closed/indestructible/black/New()
+	return
 
 /area/partyhard
 	icon = 'white/valtos/icons/area.dmi'
