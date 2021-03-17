@@ -163,6 +163,8 @@
 /datum/round_aspect/rich/run_aspect()
 	SSeconomy.bonus_money = 10000
 	..()
+	for(var/datum/bank_account/B in SSeconomy.generated_accounts)
+		B.payday(1, TRUE)
 
 /datum/round_aspect/drunk
 	name = "Drunk"
