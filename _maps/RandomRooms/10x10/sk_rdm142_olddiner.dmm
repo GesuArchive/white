@@ -139,7 +139,7 @@
 "zm" = (
 /obj/structure/table_frame/wood,
 /obj/item/stack/sheet/mineral/wood,
-/turf/open/space/basic,
+/turf/open/floor/plating,
 /area/template_noop)
 "AN" = (
 /obj/machinery/door/airlock/wood,
@@ -260,7 +260,7 @@
 /obj/structure/window/reinforced/spawner/west,
 /obj/structure/table/wood,
 /obj/machinery/microwave,
-/turf/open/space/basic,
+/turf/open/floor/plating,
 /area/template_noop)
 "Wn" = (
 /obj/item/stack/sheet/mineral/wood,
@@ -287,7 +287,7 @@
 /obj/structure/table/wood,
 /obj/machinery/microwave,
 /obj/structure/window/reinforced/spawner/west,
-/turf/open/space/basic,
+/turf/open/floor/plating,
 /area/template_noop)
 "Yt" = (
 /obj/machinery/light/small,
