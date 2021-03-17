@@ -1108,7 +1108,7 @@
 	time = 6 SECONDS
 	reqs = list(/obj/item/stack/sheet/mineral/metal_hydrogen = 20,
 				/obj/item/stack/sheet/mineral/zaukerite = 15,
-				/obj/item/stack/sheet/iron = 30,
+				/obj/item/stack/sheet/metal = 30,
 				)
 	category = CAT_MISC
 
