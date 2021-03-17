@@ -68,6 +68,7 @@
 /datum/round_aspect/weak_walls/run_aspect()
 	for(var/turf/closed/wall/r_wall/RW in world)
 		RW.ChangeTurf(/turf/closed/wall, flags = CHANGETURF_DEFER_CHANGE)
+		CHECK_TICK
 	..()
 
 /datum/round_aspect/edison
@@ -80,6 +81,7 @@
 		L.idle_power_usage   = L.idle_power_usage   * 10
 		L.active_power_usage = L.active_power_usage * 10
 		L.power_change()
+		CHECK_TICK
 
 	SSresearch.mining_multiplier = 5
 	..()
