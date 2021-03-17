@@ -140,8 +140,8 @@
 			playsound(H, 'white/valtos/sounds/poo2.ogg', 25, 1) //silence hunter
 			var/obj/item/food/poo/P = new(get_turf(H))
 			H.put_in_hands(P)
-			if(!H.in_throw_mode)
-				H.throw_mode_on()
+			if(!H.throw_mode)
+				H.throw_mode_on(THROW_MODE_TOGGLE)
 			H.nutrition -= 50
 			SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 			return
