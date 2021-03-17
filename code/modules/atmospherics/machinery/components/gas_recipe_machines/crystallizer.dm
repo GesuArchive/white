@@ -103,14 +103,14 @@
 /obj/machinery/atmospherics/components/binary/crystallizer/proc/check_gas_requirements()
 	var/datum/gas_mixture/contents = airs[2]
 	for(var/gas_type in selected_recipe.requirements)
-		if(!contents.gases[gas_type] || !contents.gases[gas_type][MOLES])
+		if(contents.get_moles(gas_type) < 0.001)
 			return FALSE
 	return TRUE
 
 ///Checks if the reaction temperature is inside the range of temperature + a little deviation
 /obj/machinery/atmospherics/components/binary/crystallizer/proc/check_temp_requirements()
 	var/datum/gas_mixture/contents = airs[2]
-	if(contents.temperature >= selected_recipe.min_temp * MIN_DEVIATION_RATE && contents.temperature <= selected_recipe.max_temp * MAX_DEVIATION_RATE)
+	if(contents.return_temperature() >= selected_recipe.min_temp * MIN_DEVIATION_RATE && contents.return_temperature() <= selected_recipe.max_temp * MAX_DEVIATION_RATE)
 		return TRUE
 	return FALSE
 
@@ -118,13 +118,13 @@
 /obj/machinery/atmospherics/components/binary/crystallizer/proc/inject_gases(delta_time)
 	var/datum/gas_mixture/contents = airs[2]
 	for(var/gas_type in selected_recipe.requirements)
-		internal.merge(contents.remove_specific(gas_type, contents.gases[gas_type][MOLES] * (gas_input  * delta_time)))
+		internal.merge(contents.remove_specific(gas_type, contents.get_moles(gas_type) * (gas_input  * delta_time)))
 
 ///Checks if the gases required are all inside
 /obj/machinery/atmospherics/components/binary/crystallizer/proc/internal_check()
 	var/gas_check = 0
 	for(var/gas_type in selected_recipe.requirements)
-		if(internal.gases[gas_type][MOLES] >= selected_recipe.requirements[gas_type])
+		if(internal.get_moles(gas_type) >= selected_recipe.requirements[gas_type])
 			gas_check++
 	if(gas_check == selected_recipe.requirements.len)
 		return TRUE
@@ -137,26 +137,26 @@
 		var/datum/gas_mixture/cooling_remove = cooling_port.remove_ratio(0.25)
 
 		if(internal.total_moles() > 0)
-			var/coolant_temperature_delta = cooling_remove.temperature - internal.temperature
+			var/coolant_temperature_delta = cooling_remove.return_temperature() - internal.return_temperature()
 			var/cooling_heat_capacity = cooling_remove.heat_capacity()
 			var/internal_heat_capacity = internal.heat_capacity()
 			var/cooling_heat_amount = HIGH_CONDUCTIVITY_RATIO * coolant_temperature_delta * (cooling_heat_capacity * internal_heat_capacity / (cooling_heat_capacity + internal_heat_capacity))
-			cooling_remove.temperature = max(cooling_remove.temperature - cooling_heat_amount / cooling_heat_capacity, TCMB)
-			internal.temperature = max(internal.temperature + cooling_heat_amount / internal_heat_capacity, TCMB)
+			cooling_remove.set_temperature(max(cooling_remove.return_temperature() - cooling_heat_amount / cooling_heat_capacity, TCMB))
+			internal.set_temperature(max(internal.return_temperature() + cooling_heat_amount / internal_heat_capacity, TCMB))
 		cooling_port.merge(cooling_remove)
 
-	if(	(internal.temperature >= (selected_recipe.min_temp * MIN_DEVIATION_RATE) && internal.temperature <= selected_recipe.min_temp) || \
-		(internal.temperature >= selected_recipe.max_temp && internal.temperature <= (selected_recipe.max_temp * MAX_DEVIATION_RATE)))
+	if(	(internal.return_temperature() >= (selected_recipe.min_temp * MIN_DEVIATION_RATE) && internal.return_temperature() <= selected_recipe.min_temp) || \
+		(internal.return_temperature() >= selected_recipe.max_temp && internal.return_temperature() <= (selected_recipe.max_temp * MAX_DEVIATION_RATE)))
 		quality_loss = min(quality_loss + 1.5, 100)
 
 	var/median_temperature = (selected_recipe.max_temp - selected_recipe.min_temp) * 0.5
-	if(internal.temperature >= (median_temperature * MIN_DEVIATION_RATE) && internal.temperature <= (median_temperature * MAX_DEVIATION_RATE))
+	if(internal.return_temperature() >= (median_temperature * MIN_DEVIATION_RATE) && internal.return_temperature() <= (median_temperature * MAX_DEVIATION_RATE))
 		quality_loss = max(quality_loss - 5.5, 100)
 
 	if(selected_recipe.reaction_type == "endothermic")
-		internal.temperature = max(internal.temperature - (selected_recipe.energy_release / internal.heat_capacity()), TCMB)
+		internal.set_temperature(max(internal.return_temperature() - (selected_recipe.energy_release / internal.heat_capacity()), TCMB))
 	else if(selected_recipe.reaction_type == "exothermic")
-		internal.temperature = max(internal.temperature + (selected_recipe.energy_release / internal.heat_capacity()), TCMB)
+		internal.set_temperature(max(internal.return_temperature() + (selected_recipe.energy_release / internal.heat_capacity()), TCMB))
 
 ///Calculate the total moles needed for the recipe
 /obj/machinery/atmospherics/components/binary/crystallizer/proc/moles_calculations()
@@ -169,7 +169,6 @@
 /obj/machinery/atmospherics/components/binary/crystallizer/proc/dump_gases()
 	var/datum/gas_mixture/remove = internal.remove(internal.total_moles())
 	airs[2].merge(remove)
-	internal.garbage_collect()
 
 /obj/machinery/atmospherics/components/binary/crystallizer/process_atmos(delta_time)
 	if(!on || !is_operational || selected_recipe == null)
@@ -198,7 +197,7 @@
 
 	for(var/gas_type in selected_recipe.requirements)
 		var/amount_consumed = selected_recipe.requirements[gas_type] + quality_loss * 5
-		if(internal.gases[gas_type][MOLES] < amount_consumed)
+		if(internal.get_moles(gas_type) < amount_consumed)
 			quality_loss = min(quality_loss + 10, 100)
 		internal.remove_specific(gas_type, amount_consumed)
 
@@ -266,15 +265,15 @@
 
 	var/list/internal_gas_data = list()
 	if(internal.total_moles())
-		for(var/gasid in internal.gases)
+		for(var/gasid in internal.get_gases())
 			internal_gas_data.Add(list(list(
-			"name"= internal.gases[gasid][GAS_META][META_GAS_NAME],
-			"amount" = round(internal.gases[gasid][MOLES], 0.01),
+			"name"= GLOB.meta_gas_info[gasid][META_GAS_NAME],
+			"amount" = round(internal.get_moles(gasid), 0.01),
 			)))
 	else
-		for(var/gasid in internal.gases)
+		for(var/gasid in internal.get_gases())
 			internal_gas_data.Add(list(list(
-				"name"= internal.gases[gasid][GAS_META][META_GAS_NAME],
+				"name"= GLOB.meta_gas_info[gasid][META_GAS_NAME],
 				"amount" = 0,
 				)))
 	data["internal_gas_data"] = internal_gas_data
@@ -294,7 +293,7 @@
 
 	var/temperature
 	if(internal.total_moles())
-		temperature = internal.temperature
+		temperature = internal.return_temperature()
 	else
 		temperature = 0
 	data["internal_temperature"] = temperature
