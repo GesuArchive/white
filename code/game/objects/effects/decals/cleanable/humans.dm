@@ -90,6 +90,8 @@
 	layer = LOW_OBJ_LAYER
 	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6")
 	mergeable_decal = FALSE
+	turf_loc_check = FALSE
+
 	dryname = "гниющие ошмётки"
 	drydesc = "Выглядят довольно вкусно, если бы это была карамель и не было бы этого тошнотворного запаха."
 
@@ -99,6 +101,9 @@
 	RegisterSignal(src, COMSIG_MOVABLE_PIPE_EJECTING, .proc/on_pipe_eject)
 	if(mapload) //Don't rot at roundstart for the love of god
 		return
+
+/obj/effect/decal/cleanable/blood/gibs/replace_decal(obj/effect/decal/cleanable/C)
+	return FALSE //Never fail to place us
 
 /obj/effect/decal/cleanable/blood/gibs/dry()
 	. = ..()

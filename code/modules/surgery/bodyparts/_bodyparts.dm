@@ -11,7 +11,7 @@
 	layer = BELOW_MOB_LAYER //so it isn't hidden behind objects when on the floor
 	grind_results = list(/datum/reagent/bone_dust = 10, /datum/reagent/liquidgibs = 5) // robotic bodyparts and chests/heads cannot be ground
 	var/mob/living/carbon/owner = null
-	var/mob/living/carbon/original_owner = null
+	var/datum/weakref/original_owner = null
 	var/status = BODYPART_ORGANIC
 	var/needs_processing = FALSE
 
@@ -728,10 +728,10 @@
 	if(source)
 		C = source
 		if(!original_owner)
-			original_owner = source
+			original_owner = WEAKREF(source)
 	else
 		C = owner
-		if(original_owner && owner != original_owner) //Foreign limb
+		if(original_owner && !IS_WEAKREF_OF(owner, original_owner)) //Foreign limb
 			no_update = TRUE
 		else
 			no_update = FALSE
