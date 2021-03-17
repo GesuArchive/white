@@ -22,11 +22,10 @@
 	weight = 14
 
 /datum/round_aspect/bom_bass/run_aspect()
-	var/minecount = rand(1,4)
-
 	for(var/turf/X in GLOB.xeno_spawn)
 		if(istype(X.loc, /area/maintenance))
-			new /obj/effect/mine/explosive(X)
+			if(prob(1))
+				new /obj/effect/mine/explosive(X)
 	..()
 
 /datum/round_aspect/rpg_loot
