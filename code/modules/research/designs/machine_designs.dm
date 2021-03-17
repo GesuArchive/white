@@ -742,5 +742,5 @@
 	desc = "The circuit board for a crystallizer."
 	id = "crystallizer"
 	build_path = /obj/item/circuitboard/machine/crystallizer
-	category = list ("Engineering Machinery")
+	category = list ("Инженерное оборудование")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
