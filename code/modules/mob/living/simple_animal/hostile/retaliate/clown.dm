@@ -17,27 +17,32 @@
 	emote_see = list("honks", "squeaks")
 	speak_chance = 1
 	a_intent = INTENT_HARM
-	maxHealth = 75
-	health = 75
-	speed = 1
-	harm_intent_damage = 8
-	melee_damage_lower = 10
-	melee_damage_upper = 10
+	maxHealth = 50
+	health = 50
+	speed = 2
+	harm_intent_damage = 5
+	melee_damage_lower = 5
+	melee_damage_upper = 5
 	attack_sound = 'sound/items/bikehorn.ogg'
 	obj_damage = 0
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	del_on_death = 1
 	faction = list("clown")
 	loot = list(/obj/effect/mob_spawn/human/clown/corpse)
-
 	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 1, "min_co2" = 0, "max_co2" = 5, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 270
 	maxbodytemp = 370
 	unsuitable_atmos_damage = 10
 	footstep_type = FOOTSTEP_MOB_SHOE
+	see_in_dark = 8
+	lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
 	var/banana_time = 0 // If there's no time set it won't spawn.
 	var/banana_type = /obj/item/grown/bananapeel
 	var/attack_reagent
+
+/mob/living/simple_animal/hostile/clown/Initialize()
+	. = ..()
+	AddSpell(new /obj/effect/proc_holder/spell/targeted/night_vision)
 
 /mob/living/simple_animal/hostile/clown/proc/humanize_clown(mob/user)
 	var/pod_ask = alert("Become a clown?", "Honk?", "Yes", "No")
@@ -49,11 +54,30 @@
 	key = user.key
 	log_game("[key_name(src)] took control of [name].")
 
+/mob/living/simple_animal/hostile/clown/proc/humanize_glutton(mob/user)
+	var/pod_ask = alert("Become a clown apostle?", "Honk?", "YES", "No")
+	if(pod_ask == "No" || !src || QDELETED(src))
+		return
+	if(key)
+		to_chat(user, "<span class='warning'>Someone else already took this clown!</span>")
+		return
+	key = user.key
+	to_chat(src, "<B><font size=3 color=pink>Ты - Апостол Хонкоматери.</font></B>")
+	to_chat(src, "<B><font size=2 color=blue>Ты можешь пожирать трупы, превращая их в новых боеспособных клоунов.</font></B>")
+	to_chat(src, "<B><font size=2 color=green>Ты можешь поглощать энергию из рабочих лампочек вокруг, залечивая свои раны и наполняя свое тело жуткой энергией.</font></B>")
+	to_chat(src, "<B><font size=2 color=red>Если твое тело наполнено жуткой энергией доверху, ты можешь открыть разлом в измерение клоунов или трансформировать следующий труп в сильного, опасного клоуна.</font></B>")
+	log_game("[key_name(src)] took control of [name].")
+
 /mob/living/simple_animal/hostile/clown/attack_ghost(mob/user)
 	. = ..()
 	if(.)
 		return
-	humanize_clown(user)
+	if (istype(src, /mob/living/simple_animal/hostile/clown/mutant/glutton))
+		humanize_glutton(user)
+	else
+		humanize_clown(user)
+
+
 
 /mob/living/simple_animal/hostile/clown/handle_temperature_damage()
 	if(bodytemperature < minbodytemp)
@@ -115,7 +139,7 @@
 	emote_see = list("honks", "bites into the banana", "plucks a banana off its head", "photosynthesizes")
 	maxHealth = 120
 	health = 120
-	speed = -10
+	speed = -1
 	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap, /obj/item/seeds/banana)
 	banana_time = 20
 
@@ -125,7 +149,7 @@
 	icon_state = "honkling"
 	icon_living = "honkling"
 	turns_per_move = 1
-	speed = -10
+	speed = -1
 	harm_intent_damage = 1
 	melee_damage_lower = 1
 	melee_damage_upper = 1
@@ -151,10 +175,10 @@
 	speak_chance = 5
 	dextrous = TRUE
 	ventcrawler = VENTCRAWLER_ALWAYS
-	maxHealth = 140
-	health = 140
-	speed = -5
-	melee_damage_upper = 15
+	maxHealth = 150
+	health = 150
+	speed = 2
+	melee_damage_upper = 5
 	attack_verb_continuous = "limply slaps"
 	attack_verb_simple = "limply slap"
 	obj_damage = 5
@@ -176,13 +200,13 @@
 	speak = list("YA-HONK!!!")
 	emote_see = list("honks", "squeaks")
 	speak_chance = 60
-	maxHealth = 150
-	health = 150
+	maxHealth = 100
+	health = 100
 	pixel_x = -16
 	base_pixel_x = -16
-	speed = 10
-	harm_intent_damage = 15
-	melee_damage_lower = 15
+	speed = 1
+	harm_intent_damage = 8
+	melee_damage_lower = 10
 	attack_verb_continuous = "YA-HONKs"
 	attack_verb_simple = "YA-HONK"
 	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap)
@@ -205,9 +229,8 @@
 	health = 400
 	pixel_x = -16
 	base_pixel_x = -16
-	speed = 2
-	harm_intent_damage = 15
-	melee_damage_lower = 15
+	speed = 3
+	melee_damage_lower = 20
 	melee_damage_upper = 20
 	attack_verb_continuous = "pummels"
 	attack_verb_simple = "pummel"
@@ -228,10 +251,12 @@
 	response_harm_simple = "make a weak beta attack at"
 	speak = list("HONK", "Honk!", "Bruh", "cheeaaaahhh?")
 	emote_see = list("asserts his dominance", "emasculates everyone implicitly")
-	maxHealth = 500
-	health = 500
-	speed = -2
-	armour_penetration = 20
+	maxHealth = 200
+	health = 200
+	speed = 1
+	harm_intent_damage = 15
+	melee_damage_lower = 15
+	melee_damage_upper = 20
 	attack_verb_continuous = "steals the girlfriend of"
 	attack_verb_simple = "steal the girlfriend of"
 	attack_sound = 'sound/items/airhorn2.ogg'
@@ -251,10 +276,10 @@
 	speak_chance = 1
 	maxHealth = 200
 	health = 200
-	speed = -5
+	speed = 2
 	harm_intent_damage = 5
-	melee_damage_lower = 15
-	melee_damage_upper = 20
+	melee_damage_lower = 20
+	melee_damage_upper = 25
 	attack_verb_continuous = "ferociously mauls"
 	attack_verb_simple = "ferociously maul"
 	environment_smash = ENVIRONMENT_SMASH_NONE
@@ -303,7 +328,7 @@
 	health = 50
 	pixel_x = -16
 	base_pixel_x = -16
-	speed = -5
+	speed = 1
 	harm_intent_damage = 10
 	melee_damage_lower = 30
 	melee_damage_upper = 30
@@ -316,17 +341,18 @@
 	move_to_delay = 60
 
 /mob/living/simple_animal/hostile/clown/mutant/glutton
-	name = "banana glutton"
-	desc = "Something that was once a clown"
+	name = "Апостол Хонкоматери"
+	desc = "Одно из бесчисленных воплощений воли Хонкоматери"
 	icon_state = "glutton"
 	icon_living = "glutton"
 	speak = list("hey, buddy", "HONK!!!", "H-h-h-H-HOOOOONK!!!!", "HONKHONKHONK!!!", "HEY, BUCKO, GET BACK HERE!!!", "HOOOOOOOONK!!!")
 	emote_see = list("jiggles", "wobbles")
-	health = 400
+	maxHealth = 1000
+	health = 1000
 	mob_size = MOB_SIZE_LARGE
-	speed = 1
+	speed = 5
 	melee_damage_lower = 20
-	melee_damage_upper = 20
+	melee_damage_upper = 25
 	force_threshold = 10 //lots of fat to cushion blows.
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, CLONE = 2, STAMINA = 0, OXY = 1)
 	attack_verb_continuous = "slams"
@@ -334,148 +360,144 @@
 	loot = list(/obj/effect/gibspawner/xeno/bodypartless, /obj/effect/gibspawner/generic, /obj/effect/gibspawner/generic/animal, /obj/effect/gibspawner/human/bodypartless)
 	deathsound = 'sound/misc/sadtrombone.ogg'
 	food_type = list(/obj/item/food/cheesiehonkers, /obj/item/food/cornchips)
-	tame_chance = 30
-	var/humaneaten = FALSE
-	///This is the list of items we are ready to regurgitate,
-	var/list/prank_pouch = list()
-	///This ability lets you fire a single random item from your pouch.
-	var/obj/effect/proc_holder/regurgitate/my_regurgitate
+	var/obj/effect/proc_holder/spell/aoe_turf/Lighteater/my_regurgitate
+	var/clownlight = 0
+	var/maxClownlight = 200
+	var/datum/action/innate/glutton/open_portal/open_portal
+/mob/living/simple_animal/hostile/clown/mutant/glutton/get_status_tab_items()
+	. = ..()
+	. += "Энергия: [clownlight]/[maxClownlight]"
+
+
+
 
 /mob/living/simple_animal/hostile/clown/mutant/glutton/Initialize()
 	. = ..()
-	my_regurgitate = new
-	AddAbility(my_regurgitate)
-	add_cell_sample()
+	AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/lighteater)
+	open_portal = new
+	open_portal.Grant(src)
 
-/mob/living/simple_animal/hostile/clown/mutant/glutton/attacked_by(obj/item/I, mob/living/user)
-	if(!check_edible(I))
-		return ..()
-	eat_atom(I)
+
+
+//Жрет трупы и срет клоунами взамен
 /mob/living/simple_animal/hostile/clown/mutant/glutton/proc/eat(atom/movable/A)
 	if(A && A.loc != src)
 		playsound(src, 'sound/magic/demon_attack1.ogg', 100, TRUE)
-		visible_message("<span class='warning'>[capitalize(src.name)] swallows [A] whole and transforms him into a new horrible clown!</span>")
-		A.forceMove(src)
+		qdel(A)
 		return TRUE
 	return FALSE
 /mob/living/simple_animal/hostile/clown/mutant/glutton/AttackingTarget(atom/attacked_target)
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.stat == DEAD)
-			to_chat(src, "<span class='warning'>You begin to swallow [L] whole...</span>")
+			to_chat(src, "<span class='warning'>Начинаю проглатывать [L]...</span>")
 			if(do_after(src, 30, target = L))
-				if(eat(L))
-					adjustHealth(-L.maxHealth * 0.5)
+				if(eat(L) && clownlight<200)
+					visible_message("<span class='warning'>[capitalize(src.name)] пожирает [L] и использует его плоть для создания нового клоуна!</span>")
 					new /mob/living/simple_animal/hostile/clown(usr.loc)
-					notify_ghosts("A clown has been created in \the [get_area(src)].", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Honk!")
+					notify_ghosts("Тело клоуна доступно в [get_area(src)].", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Honk!")
+				else
+					visible_message("<span class='warning'>[capitalize(src.name)] пожирает [L] и наполняет его плоть жуткой энергией, порождая настоящего монстра!</span>")
+					var/moblist = list(/mob/living/simple_animal/hostile/clown/clownhulk, /mob/living/simple_animal/hostile/clown/clownhulk/chlown, /mob/living/simple_animal/hostile/clown/mutant, /mob/living/simple_animal/hostile/clown/clownhulk/honcmunculus)
+					var/spawnedmob = pick(moblist)
+					new spawnedmob(usr.loc)
+					clownlight = 0
+					notify_ghosts("Тело клоуна доступно в [get_area(src)].", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Honk!")
 			return
 		else
 			. = ..()
 	else
 		. = ..()
-/mob/living/simple_animal/hostile/clown/mutant/glutton/UnarmedAttack(atom/A)
-	if(!check_edible(A))
-		return ..()
-	eat_atom(A)
-
-///Returns whether or not the supplied movable atom is edible.
-/mob/living/simple_animal/hostile/clown/mutant/glutton/proc/check_edible(atom/movable/potential_food)
-	if(isliving(potential_food))
-		var/mob/living/living_morsel = potential_food
-		if(living_morsel.mob_size > MOB_SIZE_SMALL)
-			return FALSE
-		else
-			return TRUE
-
-	if(IS_EDIBLE(potential_food))
-		if(prank_pouch.len >= 8)
-			to_chat(src, "<span class='warning'>Your prank pouch is filled to the brim! You don't think you can swallow any more morsels right now.</span>")
-			return FALSE
-		return TRUE
-
-///This proc eats the atom, certain funny items are stored directly in the prank pouch while bananas grant a heal based on their potency and the peels are retained in the pouch.
-/mob/living/simple_animal/hostile/clown/mutant/glutton/proc/eat_atom(atom/movable/eaten_atom)
-
-	var/static/funny_items = list(/obj/item/food/pie/cream,
-								/obj/item/food/grown/tomato,
-								/obj/item/food/meatclown)
-
-	visible_message("<span class='warning>[src] eats [eaten_atom]!</span>", "<span class='notice'>You eat [eaten_atom].</span>")
-	if(is_type_in_list(eaten_atom, funny_items))
-		eaten_atom.forceMove(src)
-		prank_pouch += eaten_atom
-
-	else if(istype(eaten_atom, /obj/item/food/grown/banana))
-		var/obj/item/food/grown/banana/banana_morsel = eaten_atom
-		adjustBruteLoss(-banana_morsel.seed.potency * 0.25)
-		prank_pouch += banana_morsel.generate_trash(src)
-		qdel(eaten_atom)
-	else
-		qdel(eaten_atom)
-	playsound(loc,'sound/items/eatfood.ogg', rand(30,50), TRUE)
-	flick("glutton_mouth", src)
 
 
-/mob/living/simple_animal/hostile/clown/mutant/glutton/tamed()
-	. = ..()
-	can_buckle = TRUE
-	buckle_lying = 0
-	AddElement(/datum/element/ridable, /datum/component/riding/creature/glutton)
 
-/mob/living/simple_animal/hostile/clown/mutant/glutton/add_cell_sample()
-	AddElement(/datum/element/swabable, CELL_LINE_TABLE_GLUTTON, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
+/obj/effect/proc_holder/spell/targeted/night_vision
+	name = "Toggle Nightvision \[ON\]"
+	desc = "Toggle your nightvision mode."
+	charge_max = 10
+	clothes_req = 0
+	action_background_icon_state = "bg_changeling"
+	message = "<span class='notice'>You toggle your night vision!</span>"
+	range = -1
+	include_user = 1
 
-/mob/living/simple_animal/hostile/clown/mutant/glutton/Exited(atom/movable/AM, atom/newLoc)
-	. = ..()
-	prank_pouch -= AM
 
-///This ability will let you fire one random item from your pouch,
-/obj/effect/proc_holder/regurgitate
-	name = "Regurgitate"
-	desc = "Regurgitates a single item from the depths of your pouch."
+//Клоуны - ночные животные, поэтому должны видеть в темноте
+/obj/effect/proc_holder/spell/targeted/night_vision/cast(list/targets, mob/user = usr)
+	for(var/mob/living/target in targets)
+		switch(target.lighting_alpha)
+			if (LIGHTING_PLANE_ALPHA_VISIBLE)
+				target.lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
+				name = "Toggle Nightvision \[More]"
+			if (LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE)
+				target.lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+				name = "Toggle Nightvision \[Full]"
+			if (LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE)
+				target.lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
+				name = "Toggle Nightvision \[OFF]"
+			else
+				target.lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
+				name = "Toggle Nightvision \[ON]"
+		target.update_sight()
+
+
+//Жрет свет и лечит себя + атмосфэра
+/obj/effect/proc_holder/spell/aoe_turf/lighteater
+	name = "Поглотить свет"
+	desc = "Поглощает свет из ближайших лампочек."
 	action_background_icon_state = "bg_changeling"
 	action_icon = 'icons/mob/actions/actions_animal.dmi'
 	action_icon_state = "regurgitate"
-	active = FALSE
+	charge_max = 300
+	clothes_req = 0
+	range = 14
 
 
-/obj/effect/proc_holder/regurgitate/Click(location, control, params)
-	. = ..()
-	if(!isliving(usr))
-		return TRUE
-	var/mob/living/user = usr
-	if(isliving(usr))
-		fire(user)
+/obj/effect/proc_holder/spell/aoe_turf/lighteater/cast(list/targets, mob/living/simple_animal/hostile/clown/mutant/glutton/user = usr)
+	flick("glutton_tongue",usr)
+	for(var/obj/machinery/light/L in view(6, user))
+		if (L.icon_state != "tube-broken")
+			user.adjustHealth(-50)
+			if (user.clownlight<191)
+				user.clownlight+=10
+		L.on = 1
+		L.break_light_tube()
+	for(var/mob/living/M in get_hearers_in_view(4, user))
+		SEND_SOUND(M, sound('sound/effects/screech.ogg'))
+	to_chat(user, "<span class='notice'>Издаю ужасающий визг, высасывая энергию из лампочек вокруг!</span>")
+	return
 
-/obj/effect/proc_holder/regurgitate/fire(mob/living/carbon/user)
-	if(active)
-		user.icon_state = initial(user.icon_state)
-		remove_ranged_ability("<span class='notice'>Your throat muscles relax.</span>")
+
+
+/datum/action/innate/glutton/open_portal
+	name = "Открыть разлом"
+	desc = "Открыть разлом в измерение клоунов."
+	check_flags = AB_CHECK_CONSCIOUS
+	icon_icon = 'icons/mob/actions/actions_space_dragon.dmi'
+	button_icon_state = "carp_rift"
+	background_icon_state = "bg_changeling"
+
+
+/datum/action/innate/glutton/open_portal/Activate()
+	if(!istype(owner, /mob/living/simple_animal/hostile/clown/mutant/glutton))
+		return
+	var/mob/living/simple_animal/hostile/clown/mutant/glutton/glutton = owner
+
+	if(!isturf(glutton.loc))
+		return
+	var/turf/glutton_turf = get_turf(glutton)
+
+	var/obj/structure/spawner/clown/spawner = locate() in glutton_turf
+	if(spawner)
+		to_chat(glutton, "<span class='warning'>Здесь уже есть портал!</span>")
+		return
+
+	if (glutton.clownlight < 200)
+		to_chat(glutton, "<span class ='notice'>Недостаточно энергии!</span>")
+		return FALSE
 	else
-		user.icon_state = "glutton_tongue"
-		add_ranged_ability(user, "<span class='notice'>You flex with your tongue!</span>", TRUE)
-
-/obj/effect/proc_holder/regurgitate/InterceptClickOn(mob/living/caller, params, atom/target)
-	. = ..()
-
-	if(.)
-		return
-
-	if(!istype(ranged_ability_user, /mob/living/simple_animal/hostile/clown/mutant/glutton) || ranged_ability_user.stat)
-		remove_ranged_ability()
-		return
-
-	var/mob/living/simple_animal/hostile/clown/mutant/glutton/pouch_owner = ranged_ability_user
-	if(!pouch_owner.prank_pouch.len)
-		//active = FALSE
-		pouch_owner.icon_state = "glutton"
-		remove_ranged_ability("<span class='notice'>Your prank pouch is empty,.</span>")
-		return
-
-	var/obj/item/projected_morsel = pick(pouch_owner.prank_pouch)
-	projected_morsel.forceMove(pouch_owner.loc)
-	projected_morsel.throw_at(target, 8, 2, pouch_owner)
-	flick("glutton_mouth", pouch_owner)
-	playsound(pouch_owner, 'sound/misc/soggy.ogg', 75)
-
+		playsound(src, 'sound/magic/demon_attack1.ogg', 100, TRUE)
+		to_chat(glutton, "<span class='notice'>Использовав поглощенную энергию, я прорываю ткань реальности и создаю портал напрямую в измерение клоунов!</span>")
+		new /obj/structure/spawner/clown(glutton_turf)
+		glutton.clownlight -= 200
 
