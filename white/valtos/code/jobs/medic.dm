@@ -17,7 +17,7 @@
 	name = "Полевой медик"
 	jobtype = /datum/job/doctor/field_medic
 
-	head = /obj/item/clothing/head/helmet/wzzzz/medicalalt_helm
+	head = /obj/item/clothing/head/helmet/wzzzz/helmet_tac/helmet_allya1
 	belt = /obj/item/defibrillator/compact/combat/loaded/nanotrasen
 	ears = /obj/item/radio/headset/headset_medsec
 	uniform = /obj/item/clothing/under/rank/medical/doctor/wzzzz/brig_phys
