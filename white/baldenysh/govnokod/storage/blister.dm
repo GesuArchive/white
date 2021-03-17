@@ -127,3 +127,14 @@
 					list(pilltype = /obj/item/reagent_containers/pill/aspirin, pillstate = "round", posx = 2, posy = 8),
 					list(pilltype = /obj/item/reagent_containers/pill/aspirin, pillstate = "round", posx = 10, posy = 7)
 					)
+
+/obj/item/storage/blister/crafted
+	name = "блистерная упаковка"
+
+/obj/item/storage/blister/crafted/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_items = 5
+
+/obj/item/storage/blister/crafted/PopulateContents()
+	return
