@@ -387,17 +387,6 @@
 		J.total_positions = 750
 
 /*
-/datum/round_aspect/chatty
-	name = "Chatty"
-	desc = "В эту смену я не только слышу ваши голоса. Я их вижу."
-	weight = 16
-
-/datum/round_aspect/chatty/run_aspect()
-	GLOB.chat_bubbles = TRUE
-	..()
-*/
-
-/*
 /datum/round_aspect/power_failure
 	name = "Power Failure"
 	weight = 4

@@ -2,7 +2,7 @@ SUBSYSTEM_DEF(spm)
 	name = "Криптомайнинг"
 	wait = 25
 	var/list/miners	= list()
-	var/diff = 1.00001
+	var/diff = 1.0001
 	var/crypto = "BTC"
 
 /datum/controller/subsystem/spm/Initialize()
@@ -13,7 +13,7 @@ SUBSYSTEM_DEF(spm)
 	return ..()
 
 /datum/controller/subsystem/spm/fire()
-	diff += 0.00001
+	diff += 0.0001
 
 	for(var/obj/machinery/power/mining_rack/MC in miners)
 		if(!MC.powernet)
