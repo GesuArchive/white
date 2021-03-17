@@ -194,7 +194,7 @@
 				heirloom_type = /obj/item/storage/firstaid/ancient/heirloom
 			if("Medical Doctor")
 				heirloom_type = /obj/item/storage/firstaid/ancient/heirloom
-			if("Paramedic")
+			if("Paramedic" || "Field Medic")
 				heirloom_type = /obj/item/storage/firstaid/ancient/heirloom
 			if("Psychologist")
 				heirloom_type = /obj/item/storage/pill_bottle

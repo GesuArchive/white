@@ -65,7 +65,7 @@
 		return
 
 	user.set_machine(src)
-	var/dat = "<B>Мини-Компьютер Имплантера:</B><HR>"
+	var/dat = "<head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'></head><B>Мини-Компьютер Имплантера:</B><HR>"
 	if(case)
 		if(case.imp)
 			if(istype(case.imp, /obj/item/implant))

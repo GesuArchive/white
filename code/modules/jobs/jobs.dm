@@ -19,7 +19,8 @@ GLOBAL_LIST_INIT(medical_positions, list(
 	"Medical Doctor",
 	"Paramedic",
 	"Virologist",
-	"Chemist"))
+	"Chemist",
+	"Field Medic"))
 
 
 GLOBAL_LIST_INIT(science_positions, list(
@@ -66,7 +67,8 @@ GLOBAL_LIST_INIT(security_positions, list(
 	"Detective",
 	"Security Officer",
 	"Russian Officer",
-	"Veteran"))
+	"Veteran",
+	"Field Medic"))
 
 GLOBAL_LIST_INIT(nonhuman_positions, list(
 	"AI",

@@ -3728,6 +3728,7 @@
 #include "white\valtos\code\jobs\hacker.dm"
 #include "white\valtos\code\jobs\job_defines.dm"
 #include "white\valtos\code\jobs\mechanic.dm"
+#include "white\valtos\code\jobs\medic.dm"
 #include "white\valtos\code\jobs\russian.dm"
 #include "white\valtos\code\jobs\trader.dm"
 #include "white\valtos\code\lifeweb\turfs.dm"
