@@ -18,20 +18,15 @@
 
 /datum/round_aspect/bom_bass
 	name = "Bombass"
-	desc = "Инженеры схалтурили при строительстве станции и вместо обычного металлического покрытия решили использовать остатки снарядов от противотанковых винтовок, которые уже проявили себя."
+	desc = "Кто-то заложил мины на станции!"
 	weight = 14
 
 /datum/round_aspect/bom_bass/run_aspect()
-	var/expcount = rand(1,4)
+	var/minecount = rand(1,4)
 
-	var/list/possible_spawns = list()
 	for(var/turf/X in GLOB.xeno_spawn)
 		if(istype(X.loc, /area/maintenance))
-			possible_spawns += X
-
-	var/i
-	for(i=0, i<expcount, i++)
-		explosion(pick_n_take(possible_spawns), 7, 14, 21)
+			new /obj/effect/mine/explosive(X)
 	..()
 
 /datum/round_aspect/rpg_loot
