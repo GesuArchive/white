@@ -117,19 +117,19 @@ SUBSYSTEM_DEF(air)
 		timer = TICK_USAGE_REAL
 		process_turf_equalize(resumed)
 		cost_equalize = MC_AVERAGE(cost_equalize, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
-		if(state != SS_RUNNING)
-			return
 		resumed = 0
 		currentpart = SSAIR_ACTIVETURFS
+		if(state != SS_RUNNING)
+			return
 
 	if(currentpart == SSAIR_ACTIVETURFS)
 		timer = TICK_USAGE_REAL
 		process_active_turfs(resumed)
 		cost_turfs = MC_AVERAGE(cost_turfs, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
-		if(state != SS_RUNNING)
-			return
 		resumed = FALSE
 		currentpart = SSAIR_EXCITEDGROUPS
+		if(state != SS_RUNNING)
+			return
 
 	if(currentpart == SSAIR_EXCITEDGROUPS)
 		timer = TICK_USAGE_REAL
