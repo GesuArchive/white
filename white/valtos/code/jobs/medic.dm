@@ -34,6 +34,8 @@
 	r_pocket = /obj/item/storage/pill_bottle/wzzzz/soldier
 	l_pocket = /obj/item/pda/medical
 
+	implants = list(/obj/item/implant/mindshield)
+
 	skillchips = list(/obj/item/skillchip/entrails_reader)
 
 	chameleon_extras = /obj/item/gun/syringe
