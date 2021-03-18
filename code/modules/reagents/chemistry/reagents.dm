@@ -124,7 +124,7 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	if((methods & penetrates_skin) && exposed_mob.reagents) //smoke, foam, spray
 		var/amount = round(reac_volume*clamp((1 - touch_protection), 0, 1), 0.1)
 		if(amount >= 0.5)
-			exposed_mob.reagents.add_reagent(type, amount)
+			exposed_mob.reagents.add_reagent(type, amount, added_purity = purity)
 
 /datum/reagent/proc/FINISHONMOBLIFE(mob/living/M)
 	current_cycle++
