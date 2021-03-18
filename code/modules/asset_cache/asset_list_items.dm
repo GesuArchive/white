@@ -171,12 +171,12 @@
 	)
 	parents = list("font-awesome.css" = 'html/font-awesome/css/all.min.css')
 
-/datum/asset/simple/namespaced/chatfonts
+/datum/asset/simple/namespaced/tgfont
 	assets = list(
-		"retroville.eot"  = 'html/fontloader/fonts/retroville.eot',
-		"retroville.woff" = 'html/fontloader/fonts/retroville.woff'
+		"tgfont.eot" = 'tgui/packages/tgfont/dist/tgfont.eot',
+		"tgfont.woff2" = 'tgui/packages/tgfont/dist/tgfont.woff2',
 	)
-	parents = list("chatfonts.css" = 'html/fontloader/chatfonts.css')
+	parents = list("tgfont.css" = 'tgui/packages/tgfont/dist/tgfont.css')
 
 /datum/asset/spritesheet/chat
 	name = "chat"
