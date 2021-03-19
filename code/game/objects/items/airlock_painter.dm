@@ -253,7 +253,7 @@
 	name = "полокрас"
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "floor_sprayer"
-	desc = "Используется для покраски полов. Круто? Используй в руке для выбора режима и Ctrl-Клик для выбора режима рисования."
+	desc = "Используется для покраски полов. Круто?."
 
 	var/floor_icon
 	var/floor_state = "floor"

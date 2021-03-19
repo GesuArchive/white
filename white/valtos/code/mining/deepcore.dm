@@ -87,8 +87,8 @@ GLOBAL_DATUM(dcm_net_default, /datum/dcm_net)
 
 /obj/machinery/deepcore/hub/examine(mob/user)
 	. = ..()
-	. += "<span class='info'>Linked to [network.connected.len] machines.</span>"
-	. += "<span class='notice'>Deep core mining equipment can be linked to [src] with a multitool.</span>"
+	. += "<hr><span class='info'>Linked to [network.connected.len] machines.</span>"
+	. += "\n<span class='notice'>Deep core mining equipment can be linked to [src.name] with a multitool.</span>"
 
 /obj/machinery/deepcore/hub/RefreshParts()
 	//Matter bins = size of container
@@ -198,19 +198,19 @@ GLOBAL_DATUM(dcm_net_default, /datum/dcm_net)
 	//Check if we would like to add a network
 	if(istype(I.buffer, /datum/dcm_net))
 		if(network)
-			to_chat(user, "<span class='notice'>You move [src] onto the network saved in the multitool's buffer...</span>")
+			to_chat(user, "<span class='notice'>You move [src.name] onto the network saved in the multitool's buffer...</span>")
 			ClearNetwork()
 			SetNetwork(I.buffer)
 			return TRUE
 		else
-			to_chat(user, "<span class='notice'>You load the saved network data into [src] and test the connection...</span>")
+			to_chat(user, "<span class='notice'>You load the saved network data into [src.name] and test the connection...</span>")
 			SetNetwork(I.buffer)
 			return TRUE
 
 /obj/machinery/deepcore/examine(mob/user)
 	. = ..()
 	if(network)
-		. += "<span class='info'>This device is registered with a network connected to [length(network.connected)] devices.</span>"
+		. += "<hr><span class='info'>This device is registered with a network connected to [length(network.connected)] devices.</span>"
 
 /obj/machinery/deepcore/proc/SetNetwork(var/datum/dcm_net/net)
 	return net.AddMachine(src)
@@ -249,10 +249,10 @@ GLOBAL_DATUM(dcm_net_default, /datum/dcm_net)
 	if(deployed)
 		if(active)
 			active = FALSE
-			to_chat(user, "<span class='notice'>Деактивирую [src]</span>")
+			to_chat(user, "<span class='notice'>Деактивирую [src.name].</span>")
 		else
 			active = TRUE
-			to_chat(user, "<span class='notice'>Реактивирую [src]</span>")
+			to_chat(user, "<span class='notice'>Реактивирую [src.name].</span>")
 		update_icon_state()
 		update_overlays()
 		return TRUE
@@ -263,15 +263,15 @@ GLOBAL_DATUM(dcm_net_default, /datum/dcm_net)
 			playsound(src, 'sound/machines/windowdoor.ogg', 50)
 			flick("deep_core_drill-deploy", src)
 			addtimer(CALLBACK(src, .proc/Deploy), 14)
-			to_chat(user, "<span class='notice'>[capitalize(src)] обнаруживает [O.name] и начинает работу...</span>")
+			to_chat(user, "<span class='notice'>[capitalize(src.name)] обнаруживает [O.name] и начинает работу...</span>")
 			return TRUE
 		else
-			to_chat(user, "<span class='warning'>[capitalize(src)] не может найти руду в зоне!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] не может найти руду в зоне!</span>")
 
 /obj/machinery/deepcore/drill/AltClick(mob/user)
 	. = ..()
 	if(active)
-		to_chat(user, "<span class='warning'>Не могу выключить пока [src] активен!</span>")
+		to_chat(user, "<span class='warning'>Не могу выключить пока [src.name] активен!</span>")
 		return
 	else
 		playsound(src, 'sound/machines/windowdoor.ogg', 50)
@@ -362,7 +362,7 @@ GLOBAL_DATUM(dcm_net_default, /datum/dcm_net)
 		update_overlays()
 
 /obj/machinery/deepcore/drill/can_be_unfasten_wrench(mob/user, silent)
-	to_chat(user, "<span class='notice'>Мне потребуется гаечный ключ для установки [src]!</span>")
+	to_chat(user, "<span class='notice'>Мне потребуется гаечный ключ для установки [src.name]!</span>")
 	return CANT_UNFASTEN
 
 /obj/item/circuitboard/machine/deepcore/drill
@@ -404,7 +404,7 @@ GLOBAL_DATUM(dcm_net_default, /datum/dcm_net)
 	var/to_deploy = /obj/machinery/deepcore/drill
 
 /obj/item/deepcorecapsule/attack_self()
-	loc.visible_message("<span class='warning'>\The [src] begins to shake. Stand back!</span>")
+	loc.visible_message("<span class='warning'>[capitalize(src.name)] begins to shake. Stand back!</span>")
 	addtimer(CALLBACK(src, .proc/Deploy), 50)
 
 /obj/item/deepcorecapsule/proc/Deploy()
@@ -591,16 +591,16 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 	if(active)
 		active = FALSE
 		use_power = 1 //Use idle power
-		to_chat(user, "<span class='notice'>You deactiveate [src]</span>")
+		to_chat(user, "<span class='notice'>You deactiveate [src.name]</span>")
 	else
 		if(!network)
-			to_chat(user, "<span class='warning'>Unable to activate [src]! No ore located for processing.</span>")
+			to_chat(user, "<span class='warning'>Unable to activate [src.name]! No ore located for processing.</span>")
 		else if(!powered(power_channel))
-			to_chat(user, "<span class='warning'>Unable to activate [src]! Insufficient power.</span>")
+			to_chat(user, "<span class='warning'>Unable to activate [src.name]! Insufficient power.</span>")
 		else
 			active = TRUE
 			use_power = 2 //Use active power
-			to_chat(user, "<span class='notice'>You activeate \the [src]</span>")
+			to_chat(user, "<span class='notice'>You activeate \the [src.name]</span>")
 	update_icon_state()
 
 /obj/machinery/deepcore/hopper/process()
@@ -631,7 +631,7 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 
 /obj/machinery/deepcore/hopper/can_be_unfasten_wrench(mob/user, silent)
 	if(active)
-		to_chat(user, "<span class='warning'>Turn \the [src] off first!</span>")
+		to_chat(user, "<span class='warning'>Turn \the [src.name] off first!</span>")
 		return FAILED_UNFASTEN
 	return ..()
 
