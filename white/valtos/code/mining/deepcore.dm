@@ -137,8 +137,6 @@ GLOBAL_DATUM(dcm_net_default, /datum/dcm_net)
 	Crude Material Container - Subcomponent to support the transfer of unrefined ores
 	Assumes ores are the same material value as sheets, because at the time of writing they in fact are.
 \*/
-/datum/component/material_container/crude
-	var/ore_type
 
 //I know it still says sheets but bear with me here, it's ores now
 /datum/component/material_container/crude/retrieve_sheets(sheet_amt, datum/material/M, target)
@@ -150,18 +148,15 @@ GLOBAL_DATUM(dcm_net_default, /datum/dcm_net)
 		sheet_amt = round(materials[M] / MINERAL_MATERIAL_AMOUNT)
 	var/count = 0
 	while(sheet_amt > MAX_STACK_SIZE)
-		new M.ore_type(target, MAX_STACK_SIZE)
+		new M.sheet_type(target, MAX_STACK_SIZE)
 		count += MAX_STACK_SIZE
 		use_amount_mat(sheet_amt * MINERAL_MATERIAL_AMOUNT, M)
 		sheet_amt -= MAX_STACK_SIZE
 	if(sheet_amt >= 1)
-		new M.ore_type(target, sheet_amt)
+		new M.sheet_type(target, sheet_amt)
 		count += sheet_amt
 		use_amount_mat(sheet_amt * MINERAL_MATERIAL_AMOUNT, M)
 	return count
-
-/datum/component/material_container/crude/OnAttackBy(datum/source, obj/item/I, mob/living/user)
-	return //This container is specifically for ore, so no user filling.
 
 /*\
 	Deepcore machines:
