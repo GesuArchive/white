@@ -2283,6 +2283,10 @@
 	},
 /turf/open/floor/engine,
 /area/security/main)
+"fo" = (
+/obj/effect/landmark/start/field_medic,
+/turf/open/floor/engine,
+/area/security/brig)
 "fp" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
@@ -7811,7 +7815,7 @@ nw
 iz
 fY
 iS
-iS
+fo
 hy
 iz
 hT

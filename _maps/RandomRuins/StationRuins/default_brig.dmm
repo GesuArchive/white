@@ -6543,6 +6543,10 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/security/brig)
+"pO" = (
+/obj/effect/landmark/start/field_medic,
+/turf/open/floor/plasteel/white,
+/area/security/brig)
 "qL" = (
 /obj/structure/table/wood,
 /obj/machinery/requests_console{
@@ -7895,7 +7899,7 @@ nD
 ez
 fb
 fE
-fE
+pO
 gF
 ez
 hv

@@ -91,12 +91,12 @@
 			switch(length(ingredients))
 				if (2)
 					if (i == 1)
-						ending = " and "
+						ending = " и "
 				if (3 to INFINITY)
 					if (i == ingredients.len - 1)
-						ending = ", and "
-			ingredients_listed += "\a [ingredient.name][ending]"
-	examine_list += "It contains [LAZYLEN(ingredients) ? "[ingredients_listed]" : " no ingredients, "]making a [custom_adjective()]-sized [initial(atom_parent.name)]."
+						ending = ", "
+			ingredients_listed += "[ingredient?.name][ending]"
+	examine_list += "Содержит [LAZYLEN(ingredients) ? "[ingredients_listed]" : " ничего, "]размером с [custom_adjective()] [initial(atom_parent.name)]."
 
 
 ///Handles when the customizable food is attacked by something.
@@ -194,15 +194,15 @@
 /datum/component/customizable_reagent_holder/proc/custom_adjective()
 	switch(LAZYLEN(ingredients))
 		if (0 to 2)
-			return "small"
+			return "маленький"
 		if (3 to 5)
-			return "standard"
+			return "средний"
 		if (6 to 8)
-			return "big"
+			return "большой"
 		if (8 to 11)
-			return "ridiculous"
+			return "огромный"
 		if (12 to INFINITY)
-			return "monstrous"
+			return "монструозный"
 
 
 ///Gives the type of custom food (based on what the first ingredient was).

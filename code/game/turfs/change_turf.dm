@@ -132,7 +132,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		for(var/turf/open/space/S in RANGE_TURFS(1, src)) //RANGE_TURFS is in code\__HELPERS\game.dm
 			S.update_starlight()
 
-		for(var/turf/open/openspace/S in RANGE_TURFS(1, src))
+		for(var/turf/open/openspace/airless/S in RANGE_TURFS(1, src))
 			S.update_starlight()
 
 	QUEUE_SMOOTH_NEIGHBORS(src)

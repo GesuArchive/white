@@ -3717,6 +3717,11 @@
 	icon_state = "damaged3"
 	},
 /area/security/brig)
+"BQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/start/field_medic,
+/turf/open/floor/plasteel/white,
+/area/security/brig)
 "Mx" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 10
@@ -4955,7 +4960,7 @@ da
 eW
 fw
 aH
-aH
+BQ
 aH
 aH
 fw
