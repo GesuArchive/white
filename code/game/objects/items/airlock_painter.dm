@@ -259,7 +259,7 @@
 	var/floor_state = "floor"
 	var/floor_dir = SOUTH
 
-	item_state = "electronic"
+	worn_icon_state = "electronic"
 
 	var/static/list/star_directions = list("north", "northeast", "east", "southeast", "south", "southwest", "west", "northwest")
 	var/static/list/cardinal_directions = list("north", "east", "south", "west")
@@ -282,11 +282,11 @@
 		to_chat(user, "<span class='warning'>\The [src] can only be used on station flooring.</span>")
 		return
 
-	if(F.dir == floor_dir && F.icon_state == floor_state && F.icon_regular_floor == floor_state)
+	if(F.dir == floor_dir && F.icon_state == floor_state && F.base_icon_state == floor_state)
 		return //No point wasting ink
 
 	F.icon_state = floor_state
-	F.icon_regular_floor = floor_state
+	F.base_icon_state = floor_state
 	F.dir = floor_dir
 	playsound(src.loc, 'sound/effects/spray2.ogg', 50, TRUE)
 
@@ -306,15 +306,15 @@
 			<img style="-ms-interpolation-mode: nearest-neighbor;" src="floor.png" width=128 height=128 border=4>
 		</center>
 		<center>
-			<a href="?src=[UID()];cycleleft=1">&lt;-</a>
-			<a href="?src=[UID()];choose_state=1">Choose Style</a>
-			<a href="?src=[UID()];cycleright=1">-&gt;</a>
+			<a href="?src=[REF(src)];cycleleft=1">&lt;-</a>
+			<a href="?src=[REF(src)];choose_state=1">Choose Style</a>
+			<a href="?src=[REF(src)];cycleright=1">-&gt;</a>
 		</center>
 		<div class='statusDisplay'>Style: [floor_state]</div>
 		<center>
-			<a href="?src=[UID()];cycledirleft=1">&lt;-</a>
-			<a href="?src=[UID()];choose_dir=1">Choose Direction</a>
-			<a href="?src=[UID()];cycledirright=1">-&gt;</a>
+			<a href="?src=[REF(src)];cycledirleft=1">&lt;-</a>
+			<a href="?src=[REF(src)];choose_dir=1">Choose Direction</a>
+			<a href="?src=[REF(src)];cycledirright=1">-&gt;</a>
 		</center>
 		<div class='statusDisplay'>Direction: [dir2text(floor_dir)]</div>
 	"}

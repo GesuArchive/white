@@ -1125,6 +1125,16 @@
 	required_experiments = list(/datum/experiment/explosion/medium)
 	discount_experiments = list(/datum/experiment/explosion/calibration = 200000)
 
+////////////////////// Deepcore ///////////////////////
+
+/datum/techweb_node/deepcore
+	id = "deepcore"
+	display_name = "Deepcore Mining"
+	description = "Mining, but automated."
+	prereq_ids = list("basic_mining")
+	design_ids = list("deepcore_drill", "deepcore_hopper", "deepcore_hub")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
+
 //Helpers for debugging/balancing the techweb in its entirety!
 /proc/total_techweb_points()
 	var/list/datum/techweb_node/processing = list()
