@@ -166,15 +166,15 @@
 /datum/status_effect/incapacitating/sleeping/tick()
 	if(owner.maxHealth)
 		var/health_ratio = owner.health / owner.maxHealth
-		var/healing = -0.2
+		var/healing = -1
 		if((locate(/obj/structure/bed) in owner.loc))
-			healing -= 0.6
+			healing -= 2
 		else if((locate(/obj/structure/table) in owner.loc))
-			healing -= 0.2
+			healing -= 1
 		for(var/obj/item/bedsheet/bedsheet in range(owner.loc,0))
 			if(bedsheet.loc != owner.loc) //bedsheets in your backpack/neck don't give you comfort
 				continue
-			healing -= 0.2
+			healing -= 1
 			break //Only count the first bedsheet
 		if(health_ratio > 0.8)
 			owner.adjustBruteLoss(healing)

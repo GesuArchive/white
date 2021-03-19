@@ -446,9 +446,18 @@
 		to_chat(src, "<span class='warning'>Уже сплю!</span>")
 		return
 	else
-		if(alert(src, "Хочешь поспать?", "Спать", "Да", "Нет") == "Да")
-			SetSleeping(400) //Short nap
-
+		switch(tgui_alert(src, "Сколько будем спать?", "Мяу?", list("30 секунд", "45 секунд", "60 секунд"), timeout = 15 SECONDS))
+			if("30 секунд")
+				SetSleeping(30 SECONDS)
+				return
+			if("45 секунд")
+				SetSleeping(45 SECONDS)
+				return
+			if("60 секунд")
+				SetSleeping(60 SECONDS)
+				return
+			else
+				return
 
 /mob/proc/get_contents()
 
