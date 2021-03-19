@@ -25,11 +25,9 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	var/can_cover_up = TRUE
 	var/can_build_on = TRUE
 
-/turf/open/openspace/proc/update_starlight()
+/turf/open/openspace/airless/proc/update_starlight()
 	if(CONFIG_GET(flag/starlight))
 		for(var/t in RANGE_TURFS(1,src))
-			if(isstrictlytype(t, /turf/open/openspace))
-				continue
 			set_light(2)
 			return
 		set_light(0)
