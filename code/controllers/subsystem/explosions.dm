@@ -303,6 +303,7 @@ SUBSYSTEM_DEF(explosions)
 
 	var/list/affected_turfs = GatherSpiralTurfs(max_range, epicenter)
 
+	/*
 	var/turf/above_turf = SSmapping.get_turf_above(epicenter)
 	var/turf/below_turf = SSmapping.get_turf_below(epicenter)
 
@@ -310,6 +311,7 @@ SUBSYSTEM_DEF(explosions)
 		affected_turfs += GatherSpiralTurfs(round(max_range * 0.75), above_turf)
 	if(below_turf)
 		affected_turfs += GatherSpiralTurfs(round(max_range * 0.75), below_turf)
+	*/
 
 	var/reactionary = CONFIG_GET(flag/reactionary_explosions)
 	var/list/cached_exp_block
