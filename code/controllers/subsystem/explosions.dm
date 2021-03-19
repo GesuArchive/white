@@ -250,7 +250,9 @@ SUBSYSTEM_DEF(explosions)
 			var/mob/M = MN
 			// Double check for client
 			var/turf/M_turf = get_turf(M)
-			if(M_turf && M_turf.z == z0)
+			var/turf/above_turf = SSmapping.get_turf_above(M_turf)
+			var/turf/below_turf = SSmapping.get_turf_below(M_turf)
+			if((M_turf && M_turf.z == z0) || (above_turf && M_turf.z == above_turf.z) || (below_turf && M_turf.z == below_turf.z))
 				var/dist = get_dist(M_turf, epicenter)
 				var/baseshakeamount
 				if(orig_max_distance - dist > 0)
@@ -300,6 +302,14 @@ SUBSYSTEM_DEF(explosions)
 			L.flash_act()
 
 	var/list/affected_turfs = GatherSpiralTurfs(max_range, epicenter)
+
+	var/turf/above_turf = SSmapping.get_turf_above(epicenter)
+	var/turf/below_turf = SSmapping.get_turf_below(epicenter)
+
+	if(above_turf)
+		affected_turfs += GatherSpiralTurfs(round(max_range * 0.75), above_turf)
+	if(below_turf)
+		affected_turfs += GatherSpiralTurfs(round(max_range * 0.75), below_turf)
 
 	var/reactionary = CONFIG_GET(flag/reactionary_explosions)
 	var/list/cached_exp_block
