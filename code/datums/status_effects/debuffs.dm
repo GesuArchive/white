@@ -176,7 +176,7 @@
 				continue
 			healing -= 1
 			break //Only count the first bedsheet
-		if(health_ratio > 0.8)
+		if(health_ratio < 0.8)
 			owner.adjustBruteLoss(healing)
 			owner.adjustFireLoss(healing)
 			owner.adjustToxLoss(healing * 0.5, TRUE, TRUE)
