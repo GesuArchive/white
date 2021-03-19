@@ -10958,7 +10958,7 @@
 /obj/structure/lattice,
 /obj/effect/spawner/lootdrop/maintenance,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/maintenance/port/aft)
 "aVJ" = (
 /obj/machinery/light{
 	dir = 8
@@ -19991,7 +19991,7 @@
 /obj/structure/showcase/mecha/marauder,
 /obj/structure/lattice/catwalk,
 /turf/open/openspace/airless,
-/area/space/nearstation)
+/area/maintenance/port/fore)
 "bNc" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -20259,7 +20259,7 @@
 /area/engine/atmos)
 "bOi" = (
 /turf/open/openspace/airless,
-/area/space/nearstation)
+/area/maintenance/port/fore)
 "bOl" = (
 /obj/machinery/light{
 	dir = 1;
@@ -30161,7 +30161,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/openspace,
-/area/space)
+/area/maintenance/starboard/fore)
 "dam" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -31199,8 +31199,8 @@
 /area/maintenance/starboard/aft)
 "eXc" = (
 /obj/structure/lattice,
-/turf/open/openspace,
-/area/space/nearstation)
+/turf/open/openspace/airless,
+/area/maintenance/port/fore)
 "eXW" = (
 /obj/structure/sign/warning/nosmoking{
 	pixel_x = 25
@@ -39671,7 +39671,7 @@
 /area/science/genetics)
 "vGf" = (
 /turf/open/openspace,
-/area/space)
+/area/maintenance/starboard/fore)
 "vHt" = (
 /turf/open/floor/plasteel,
 /area/science/misc_lab)
@@ -56801,7 +56801,7 @@ aqP
 aol
 alU
 bOi
-gXs
+eXc
 bOi
 alU
 qQO
@@ -57057,9 +57057,9 @@ apP
 ogF
 aol
 alU
-gXs
+eXc
 bNb
-gXs
+eXc
 alU
 qQO
 azF
@@ -57315,7 +57315,7 @@ riP
 aol
 alU
 bOi
-gXs
+eXc
 bOi
 alU
 qQO
@@ -62530,7 +62530,7 @@ aaa
 aai
 cgG
 bCq
-eXc
+bwk
 bCq
 bHE
 bHE
@@ -62787,7 +62787,7 @@ aaa
 aaa
 cQm
 bLv
-vGf
+kli
 bLv
 bHE
 bHE
@@ -63044,7 +63044,7 @@ aaa
 aaa
 cQm
 bLv
-vGf
+kli
 bLv
 bHE
 bHE
@@ -63301,7 +63301,7 @@ aaa
 aaa
 cQm
 bLv
-vGf
+kli
 bLv
 cqH
 cqH
@@ -63558,7 +63558,7 @@ aaa
 aaa
 cQm
 bLv
-vGf
+kli
 bCq
 bLv
 wba
@@ -63815,8 +63815,8 @@ aaa
 aaa
 cQm
 bLv
-vGf
-eXc
+kli
+bwk
 kli
 wba
 gZq
@@ -64072,9 +64072,9 @@ aaa
 aaa
 cQm
 bLv
-eXc
+bwk
 aVC
-eXc
+bwk
 wba
 eQN
 cCs
@@ -64329,8 +64329,8 @@ aaa
 aaa
 cQm
 bLv
-vGf
-eXc
+kli
+bwk
 kli
 wba
 rZu
