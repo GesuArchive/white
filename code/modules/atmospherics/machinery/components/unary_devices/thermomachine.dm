@@ -10,6 +10,7 @@
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 100, BOMB = 0, BIO = 100, RAD = 100, FIRE = 80, ACID = 30)
 	layer = OBJ_LAYER
 	circuit = /obj/item/circuitboard/machine/thermomachine
+	idle_power_usage = 1000
 
 	pipe_flags = PIPING_ONE_PER_TURF
 
@@ -123,12 +124,13 @@
 
 	var/temperature_delta = abs(old_temperature - air_contents.return_temperature())
 	if(temperature_delta > 1)
-		active_power_usage = (heat_capacity * target_temperature + air_heat_capacity * air_contents.return_temperature()) / 100 + idle_power_usage
 		update_parents()
-		use_power(active_power_usage)
+		if(cooling)
+			use_power((heat_capacity * target_temperature + air_heat_capacity * air_contents.return_temperature()) / 1000)
+		else
+			use_power(idle_power_usage * 2)
 	else
-		active_power_usage = idle_power_usage
-		use_power(active_power_usage)
+		use_power(idle_power_usage)
 	return 1
 
 /obj/machinery/atmospherics/components/unary/thermomachine/attackby(obj/item/I, mob/user, params)
