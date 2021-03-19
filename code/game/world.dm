@@ -277,8 +277,12 @@ GLOBAL_VAR(restart_counter)
 	..()
 
 /world/Del()
-	if(fexists(EXTOOLS))
-		call(EXTOOLS, "cleanup")()
+	// memory leaks bad
+	var/num_deleted = 0
+	for(var/datum/gas_mixture/GM)
+		GM.__gasmixture_unregister()
+		num_deleted++
+	log_world("Deallocated [num_deleted] gas mixtures")
 	..()
 
 GLOBAL_VAR_INIT(hub_mimic, FALSE)

@@ -83,7 +83,7 @@ SUBSYSTEM_DEF(time_track)
 			SSair.cost_hotspots,
 			SSair.cost_superconductivity,
 			SSair.cost_pipenets,
-			length(SSair.get_active_turfs()),
+			length(SSair.active_turfs),
 			length(SSair.hotspots),
 			length(SSair.networks),
 			length(SSair.high_pressure_delta),
