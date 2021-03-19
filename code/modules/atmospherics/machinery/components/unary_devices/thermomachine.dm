@@ -109,7 +109,7 @@
 
 /obj/machinery/atmospherics/components/unary/thermomachine/process_atmos()
 	..()
-	if(!on || !nodes[1])
+	if(!is_operational || !on || !nodes[1])
 		return
 	var/datum/gas_mixture/air_contents = airs[1]
 
@@ -121,9 +121,9 @@
 		var/combined_energy = heat_capacity * target_temperature + air_heat_capacity * air_contents.return_temperature()
 		air_contents.set_temperature(combined_energy/combined_heat_capacity)
 
-	var/temperature_delta= abs(old_temperature - air_contents.return_temperature())
+	var/temperature_delta = abs(old_temperature - air_contents.return_temperature())
 	if(temperature_delta > 1)
-		active_power_usage = (heat_capacity * temperature_delta) / 100000 + idle_power_usage // лол
+		active_power_usage = (combined_energy / 100) + idle_power_usage
 		update_parents()
 		use_power(active_power_usage)
 	else

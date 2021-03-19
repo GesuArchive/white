@@ -127,7 +127,7 @@ SUBSYSTEM_DEF(spm)
 		recalculate_hashrate()
 
 	if(I.tool_behaviour == TOOL_WRENCH)
-		to_chat(user, "<span class='notice'>>Начинаю [anchored ? "от" : "при"]кручивать [src.name]...</span>")
+		to_chat(user, "<span class='notice'>Начинаю [anchored ? "от" : "при"]кручивать [src.name]...</span>")
 		if(I.use_tool(src, user, 40, volume=75))
 			to_chat(user, "<span class='notice'>[anchored ? "От" : "При"]кручиваю [src.name].</span>")
 			set_anchored(!anchored)
