@@ -207,7 +207,7 @@ SUBSYSTEM_DEF(traumas)
 	var/words_match = ""
 	for(var/word in words)
 		words_match += "[REGEX_QUOTE(word)]|"
-	words_match = copytext(words_match, 1, -1)
+	words_match = copytext_char(words_match, 1, -1)
 	return regex("(\\b|\\A)([words_match])('?s*)(\\b|\\|)", "ig")
 
 #undef PHOBIA_FILE
