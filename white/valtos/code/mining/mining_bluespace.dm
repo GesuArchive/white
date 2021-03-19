@@ -87,7 +87,7 @@
 	else if(materials?.on_hold())
 		. += "\n<span class='warning'>Доступ к рудным бункерам заблокирован, обратитесь к завхозу.</span>"
 
-/obj/machinery/biogenerator/attackby(obj/item/O, mob/user, params)
+/obj/machinery/bluespace_miner/attackby(obj/item/O, mob/user, params)
 	if(user.a_intent == INTENT_HARM)
 		return ..()
 
