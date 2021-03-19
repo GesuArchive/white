@@ -32,16 +32,25 @@
 /obj/machinery/mineral/bluespace_miner
 	name = "блюспейс майнер"
 	desc = "Машина, которая использует магию Bluespace для медленного создания материалов и добавления их в связанный бункер руды.."
-	icon = 'icons/obj/machines/mining_machines.dmi'
-	icon_state = "stacker"
+	icon = 'white/valtos/icons/power.dmi'
+	icon_state = "bsm_idle"
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/bluespace_miner
 	layer = BELOW_OBJ_LAYER
 	idle_power_usage = 2000
 	var/list/ores = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/plasma = 400,  /datum/material/silver = 400, /datum/material/gold = 250, /datum/material/titanium = 250, /datum/material/uranium = 250, /datum/material/bananium = 90, /datum/material/diamond = 90, /datum/material/bluespace = 90)
 	var/datum/component/remote_materials/materials
-	var/debugging = 0
 	var/mine_rate = 1
+
+/obj/machinery/mineral/bluespace_miner/update_icon_state()
+	if(panel_open)
+		icon_state = "bsm_t"
+	else if(!powered())
+		icon_state = "bsm_off"
+	else if(!materials?.silo || materials?.on_hold())
+		icon_state = "bsm_idle"
+	else
+		icon_state = "bsm_on"
 
 /obj/machinery/mineral/bluespace_miner/RefreshParts()
 	var/tot_rating = 0
@@ -78,13 +87,22 @@
 	else if(materials?.on_hold())
 		. += "\n<span class='warning'>Доступ к рудным бункерам заблокирован, обратитесь к завхозу.</span>"
 
+/obj/machinery/biogenerator/attackby(obj/item/O, mob/user, params)
+	if(user.a_intent == INTENT_HARM)
+		return ..()
+
+	if(default_deconstruction_screwdriver(user, "bsm_t", "bsm_off", O))
+		update_icon_state()
+		return
+
 /obj/machinery/mineral/bluespace_miner/process()
 	if(!materials?.silo || materials?.on_hold())
+		update_icon_state()
 		return
 	var/datum/component/material_container/mat_container = materials.mat_container
 	if(!mat_container || panel_open || !powered())
+		update_icon_state()
 		return
 	var/datum/material/ore = pick(ores)
 	materials.mat_container.insert_amount_mat(rand(5, 9) * mine_rate, ore)
-	if(debugging == 1)
-		materials.mat_container.insert_amount_mat(10000, /datum/material/iron)
+	update_icon_state()
