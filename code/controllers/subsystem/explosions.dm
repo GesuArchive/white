@@ -175,15 +175,15 @@ SUBSYSTEM_DEF(explosions)
 	// MultiZ?
 	var/turf/above_turf = SSmapping.get_turf_above(epicenter)
 	var/turf/below_turf = SSmapping.get_turf_below(epicenter)
-	args[devastation_range] = round(devastation_range * 0.75)
-	args[heavy_impact_range] = round(heavy_impact_range * 0.75)
-	args[light_impact_range] = round(light_impact_range * 0.75)
-	args[flash_range] = round(flash_range * 0.75)
+	devastation_range = round(devastation_range * 0.75)
+	heavy_impact_range = round(heavy_impact_range * 0.75)
+	light_impact_range = round(light_impact_range * 0.75)
+	flash_range = round(flash_range * 0.75)
 	if(above_turf)
-		args[epicenter] = above_turf
+		epicenter = above_turf
 		. = SSexplosions.explode(arglist(args))
 	if(below_turf)
-		args[epicenter] = below_turf
+		epicenter = below_turf
 		. = SSexplosions.explode(arglist(args))
 
 
