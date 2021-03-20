@@ -456,13 +456,12 @@ GLOBAL_LIST_INIT(abductor_recipes, list ( \
 
 /obj/item/stack/sheet/mineral/coal
 	name = "уголь"
-	desc = "Кто-то плохо себя вел в этом году."
-	icon = 'icons/obj/mining.dmi'
-	icon_state = "slag"
+	icon = 'white/valtos/icons/prison/prison.dmi'
+	desc = "Черный как негр."
+	icon_state = "coal"
 	singular_name = "кусок угля"
 	merge_type = /obj/item/stack/sheet/mineral/coal
 	grind_results = list(/datum/reagent/carbon = 20)
-	novariants = TRUE
 
 /obj/item/stack/sheet/mineral/coal/attackby(obj/item/W, mob/user, params)
 	if(W.get_temperature() > 300)//If the temperature of the object is over 300, then ignite
