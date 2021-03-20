@@ -412,7 +412,7 @@
 		icon_state = "pull0"
 
 /atom/movable/screen/resist
-	name = "resist"
+	name = "Сопротивляться"
 	icon = 'icons/hud/screen_midnight.dmi'
 	icon_state = "act_resist"
 	layer = HUD_LAYER

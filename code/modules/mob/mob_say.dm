@@ -2,7 +2,7 @@
 
 ///Say verb
 /mob/verb/say_verb(message as text)
-	set name = "Say"
+	set name = "Сказать"
 	set category = "IC"
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
@@ -15,7 +15,7 @@
 
 ///Whisper verb
 /mob/verb/whisper_verb(message as text)
-	set name = "Whisper"
+	set name = "Шептать"
 	set category = "IC"
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='danger'>Не могу шептать.</span>")
@@ -29,7 +29,7 @@
 
 ///The me emote verb
 /mob/verb/me_verb(message as text)
-	set name = "Me"
+	set name = "Действия"
 	set category = "IC"
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems

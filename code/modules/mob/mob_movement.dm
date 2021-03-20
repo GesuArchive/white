@@ -485,6 +485,7 @@
 /mob/verb/up()
 	set name = "Выше"
 	set category = "IC"
+	set hidden = TRUE
 
 	var/turf/current_turf = get_turf(src)
 	var/turf/above_turf = SSmapping.get_turf_above(current_turf)
@@ -500,6 +501,7 @@
 /mob/verb/down()
 	set name = "Ниже"
 	set category = "IC"
+	set hidden = TRUE
 
 	if(zMove(DOWN, TRUE))
 		to_chat(src, "<span class='notice'>Спускаюсь вниз.</span>")

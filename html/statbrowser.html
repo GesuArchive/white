@@ -637,8 +637,6 @@ function TakeTabFromByond(tab) {
 
 function update(global_data, other_entries) {
 	status_tab_parts = [" "];
-	var parsed = JSON.parse(global_data);
-	for(var i = 0; i < parsed.length; i++) if(parsed[i] != null) status_tab_parts.push(parsed[i]);
 	parsed = JSON.parse(other_entries);
 	for(var i = 0; i < parsed.length; i++) if(parsed[i] != null) status_tab_parts.push(parsed[i]);
 	if(current_tab == "Состояние")
@@ -815,7 +813,7 @@ function draw_status() {
 		current_tab = "Состояние";
 	}
 	statcontentdiv[textContentKey] = '';
-	for(var i = 0; i < status_tab_parts.length; i++) {
+	for(var i = 1; i < status_tab_parts.length; i++) {
 		if(status_tab_parts[i].trim() == "") {
 			document.getElementById("statcontent").appendChild(document.createElement("br"));
 		} else {

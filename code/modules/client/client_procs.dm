@@ -977,11 +977,11 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 					movement_keys[key] = WEST
 				if("South")
 					movement_keys[key] = SOUTH
-				if("Say")
+				if("Сказать")
 					winset(src, "default-[REF(key)]", "parent=default;name=[key];command=say")
 				if("OOC")
 					winset(src, "default-[REF(key)]", "parent=default;name=[key];command=ooc")
-				if("Me")
+				if("Действия")
 					winset(src, "default-[REF(key)]", "parent=default;name=[key];command=me")
 
 /client/proc/change_view(new_size, forced = FALSE)

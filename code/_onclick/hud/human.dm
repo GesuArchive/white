@@ -445,6 +445,7 @@
 	set category = "OOC"
 	set name = " 🔄 Toggle hotkey buttons"
 	set desc = "This disables or enables the user interface buttons which can be used with hotkeys."
+	set hidden = TRUE
 
 	if(hud_used.hotkey_ui_hidden)
 		client.screen += hud_used.hotkeybuttons

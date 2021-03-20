@@ -438,7 +438,7 @@
  */
 /mob/verb/examinate(atom/A as mob|obj|turf in view()) //It used to be oview(12), but I can't really say why
 	set name = "Осмотреть"
-	set category = "IC"
+	set category = null
 
 	if(isturf(A) && !(sight & SEE_TURFS) && !(A in view(client ? client.view : world.view, src)))
 		// shift-click catcher may issue examinate() calls for out-of-sight turfs
@@ -569,7 +569,7 @@
  */
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Показать на..."
-	set category = "IC"
+	set category = null
 
 	if(client && !(A in view(client.view, src)))
 		return FALSE
@@ -1286,6 +1286,7 @@
 /mob/verb/open_language_menu()
 	set name = "Мои языки"
 	set category = "IC"
+	set hidden = TRUE
 
 	var/datum/language_holder/H = get_language_holder()
 	H.open_language_menu(usr)
