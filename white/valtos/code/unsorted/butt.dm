@@ -150,7 +150,7 @@
 				if(!STR)
 					return FALSE
 				user.visible_message("<span class='warning'>[user] начинает прятать [I] в [user == src ? "свою задницу" : "задницу [src]"].</span>", "<span class='warning'>Начинаю прятать [I] в [user == src ? "свою задницу" : "задницу [src]"].</span>")
-				if(do_mob(user, src, 20) && STR.can_be_inserted(I, 0, user))
+				if(STR.can_be_inserted(I, 0, user) && do_mob(user, src, 20))
 					STR.handle_item_insertion(I, 0, user)
 					user.visible_message("<span class='warning'>[user] прячет [I] внутри [user == src ? "своей задницы" : "задницы [src]"].</span>", "<span class='warning'>Прячу [I] внутри [user == src ? "своей задницы" : "задницы [src]"].</span>")
 				return TRUE
