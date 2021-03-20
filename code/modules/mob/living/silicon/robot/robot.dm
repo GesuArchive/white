@@ -248,8 +248,15 @@
 	if(!CONFIG_GET(flag/disable_secborg))
 		modulelist["Security"] = /obj/item/robot_module/security
 
-	var/input_module = input("Please, select a module!", "Robot", null, null) as null|anything in sortList(modulelist)
-	if(!input_module || module.type != /obj/item/robot_module)
+	// Create radial menu for choosing borg model
+	var/list/model_icons = list()
+	for(var/option in model_list)
+		var/obj/item/robot_model/model = model_list[option]
+		var/model_icon = initial(model.cyborg_base_icon)
+		model_icons[option] = image(icon = 'icons/mob/robots.dmi', icon_state = model_icon)
+
+	var/input_model = show_radial_menu(src, src, model_icons, radius = 42)
+	if(!input_model || model.type != /obj/item/robot_model)
 		return
 
 	module.transform_to(modulelist[input_module])
