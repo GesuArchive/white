@@ -11,7 +11,7 @@
 	throw_speed = 4
 	force = 5
 	embedding = list("embed_chance" = 5) // This is a joke
-	hitsound = 'white/fogmann/fart.ogg'
+	hitsound = 'white/valtos/sounds/poo2.ogg'
 	body_parts_covered = HEAD
 	slot_flags = ITEM_SLOT_HEAD
 	var/loose = 0
@@ -89,7 +89,7 @@
 
 /obj/item/organ/butt/throw_impact(atom/hit_atom)
 	..()
-	playsound(src, 'white/fogmann/fart.ogg', 50, 1, 5)
+	playsound(src, 'white/valtos/sounds/poo2.ogg', 50, 1, 5)
 
 /mob/living/carbon/proc/regeneratebutt()
 	if(!getorganslot("butt"))
@@ -330,7 +330,7 @@
 
 /obj/item/clothing/shoes/buttshoes/Initialize()
 	. = ..()
-	AddComponent(/datum/component/squeak, list('white/fogmann/fart.ogg'), 50)
+	AddComponent(/datum/component/squeak, list('white/valtos/sounds/poo2.ogg'), 50)
 
 /datum/design/bluebutt
 	name = "Butt Of Holding"
