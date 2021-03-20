@@ -50,10 +50,9 @@
 		. += "<a href=\"[CONFIG_GET(string/githuburl)]/pull/[tm.number]\">#[tm.number][details]</a><br>"
 
 /client/verb/showrevinfo()
-	set category = "OOC"
 	set name = "📘 Информация о сервере"
 	set desc = "Check the current server code revision"
-	set hidden = TRUE
+	set category = null
 
 	var/list/msg = list("")
 	// Round ID

@@ -484,8 +484,7 @@
 ///Moves a mob upwards in z level
 /mob/verb/up()
 	set name = "Выше"
-	set category = "IC"
-	set hidden = TRUE
+	set category = null
 
 	var/turf/current_turf = get_turf(src)
 	var/turf/above_turf = SSmapping.get_turf_above(current_turf)
@@ -500,8 +499,7 @@
 ///Moves a mob down a z level
 /mob/verb/down()
 	set name = "Ниже"
-	set category = "IC"
-	set hidden = TRUE
+	set category = null
 
 	if(zMove(DOWN, TRUE))
 		to_chat(src, "<span class='notice'>Спускаюсь вниз.</span>")

@@ -193,9 +193,8 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 //Checks admin notice
 /client/verb/admin_notice()
 	set name = "📘 Заметки раунда"
-	set category = "Адм"
+	set category = null
 	set desc ="Check the admin notice if it has been set"
-	set hidden = TRUE
 
 	if(GLOB.admin_notice)
 		to_chat(src, "<span class='boldnotice'>Заметка:</span>\n \t [GLOB.admin_notice]")

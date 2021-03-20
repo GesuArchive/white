@@ -1286,7 +1286,7 @@
 /mob/verb/open_language_menu()
 	set name = "Мои языки"
 	set category = "IC"
-	set hidden = TRUE
+	set category = null
 
 	var/datum/language_holder/H = get_language_holder()
 	H.open_language_menu(usr)

@@ -33,7 +33,7 @@
 	src << output("", "lobbyprotoc:cls")
 
 /client/verb/lobby_ready()
-	set hidden = TRUE
+	set category = null
 
 	src << output(SStitle.game_loaded, 		   "lobbyprotoc:set_state")
 	src << output(SStitle.ctt, 				   "lobbyprotoc:set_cons_now")
