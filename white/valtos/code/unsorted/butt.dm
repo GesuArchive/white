@@ -130,6 +130,11 @@
 				to_chat(src, "<span class='userdanger'>Мой зад кто-то схватил!</span>")
 			return TRUE
 
+/mob/living/carbon/human/grabbedby(mob/living/user, supress_message = FALSE)
+	if (checkbuttinspect(user))
+		return FALSE
+	return ..()
+
 /mob/living/carbon/proc/checkbuttinsert(obj/item/I, mob/living/carbon/user)
 	if(user.zone_selected == "groin")
 		if(user.a_intent == INTENT_GRAB)
