@@ -172,6 +172,21 @@ SUBSYSTEM_DEF(explosions)
 /proc/explosion(atom/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = TRUE, ignorecap = FALSE, flame_range = 0, silent = FALSE, smoke = FALSE)
 	. = SSexplosions.explode(arglist(args))
 
+	// MultiZ?
+	var/turf/above_turf = SSmapping.get_turf_above(epicenter)
+	var/turf/below_turf = SSmapping.get_turf_below(epicenter)
+	args[devastation_range] = round(devastation_range * 0.75)
+	args[heavy_impact_range] = round(heavy_impact_range * 0.75)
+	args[light_impact_range] = round(light_impact_range * 0.75)
+	args[flash_range] = round(flash_range * 0.75)
+	if(above_turf)
+		args[epicenter] = above_turf
+		. = SSexplosions.explode(arglist(args))
+	if(below_turf)
+		args[epicenter] = below_turf
+		. = SSexplosions.explode(arglist(args))
+
+
 #define CREAK_DELAY 5 SECONDS //Time taken for the creak to play after explosion, if applicable.
 #define DEVASTATION_PROB 30 //The probability modifier for devistation, maths!
 #define HEAVY_IMPACT_PROB 5 //ditto
@@ -302,16 +317,6 @@ SUBSYSTEM_DEF(explosions)
 			L.flash_act()
 
 	var/list/affected_turfs = GatherSpiralTurfs(max_range, epicenter)
-
-	/*
-	var/turf/above_turf = SSmapping.get_turf_above(epicenter)
-	var/turf/below_turf = SSmapping.get_turf_below(epicenter)
-
-	if(above_turf)
-		affected_turfs += GatherSpiralTurfs(round(max_range * 0.75), above_turf)
-	if(below_turf)
-		affected_turfs += GatherSpiralTurfs(round(max_range * 0.75), below_turf)
-	*/
 
 	var/reactionary = CONFIG_GET(flag/reactionary_explosions)
 	var/list/cached_exp_block
