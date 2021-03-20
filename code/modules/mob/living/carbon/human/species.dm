@@ -1542,7 +1542,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		switch(affecting.body_zone)
 			if(BODY_ZONE_HEAD)
 				if(!I.get_sharpness() && armor_block < 50)
-					if(prob(I.force))
+					if(prob(I.force * 2))
 						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, I.force * 0.5)
 						if(H.stat == CONSCIOUS)
 							H.visible_message("<span class='danger'>[H] беспорядочно шатается!</span>", \
@@ -1570,7 +1570,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					if(H.glasses && prob(33))
 						H.glasses.add_mob_blood(H)
 						H.update_inv_glasses()
-				punchouttooth(H,user,I.force,affecting) // hippie -- teethcode
+				if(!I.get_sharpness())
+					punchouttooth(H,user,I.force,affecting) // hippie -- teethcode
 
 			if(BODY_ZONE_CHEST)
 				if(H.stat == CONSCIOUS && !I.get_sharpness() && armor_block < 50)
