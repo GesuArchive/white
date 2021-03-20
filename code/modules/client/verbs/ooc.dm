@@ -111,7 +111,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 			return
 	else //otherwise just toggle it
 		GLOB.ooc_allowed = !GLOB.ooc_allowed
-	//to_chat(world, "<B>The OOC channel has been globally [GLOB.ooc_allowed ? "enabled" : "disabled"].</B>")
+	message_admins("<span class='bold'>OOC [GLOB.ooc_allowed ? "включен" : "выключен"].</span>")
 
 /proc/toggle_dooc(toggle = null)
 	if(toggle != null)
