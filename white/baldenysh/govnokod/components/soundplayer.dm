@@ -47,11 +47,11 @@
 			continue
 		var/datum/component/soundplayer_listener/SPL = M.AddComponent(/datum/component/soundplayer_listener, src)
 		listener_comps += SPL
-		SPL.update_sound()
+		INVOKE_ASYNC(SPL, /datum/component/soundplayer_listener.proc/update_sound)
 
 /datum/component/soundplayer/proc/update_sounds()
 	for(var/datum/component/soundplayer_listener/SPL in listener_comps)
-		SPL.update_sound()
+		INVOKE_ASYNC(SPL, /datum/component/soundplayer_listener.proc/update_sound)
 
 /datum/component/soundplayer/proc/stop_sounds()
 	active = FALSE

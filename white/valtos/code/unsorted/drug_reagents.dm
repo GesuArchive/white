@@ -676,7 +676,7 @@
 	..()
 
 /datum/client_colour/zvezdochka
-	colour = list(rgb(255,15,15), rgb(15,225,-15), rgb(15,-15,255), rgb(0,0,0))
+	colour = list(rgb(255,15,15), rgb(15,225,15), rgb(15,15,255), rgb(0,0,0))
 	priority = 6
 
 /obj/item/reagent_containers/pill/zvezdochka
