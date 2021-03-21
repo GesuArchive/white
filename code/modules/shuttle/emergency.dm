@@ -599,6 +599,7 @@
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
+	locked = FALSE
 	to_chat(user, "<span class='warning'>Сжигаю систему проверки уровня тревоги.</span>")
 
 /obj/machinery/computer/shuttle/pod/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
