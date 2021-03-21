@@ -30,6 +30,7 @@
 	var/buildstackamount = 1
 	var/framestackamount = 2
 	var/deconstruction_ready = 1
+	var/bashsound = 'sound/effects/tablebash.ogg'
 	custom_materials = list(/datum/material/iron = 2000)
 	max_integrity = 100
 	integrity_failure = 0.33
@@ -86,6 +87,11 @@
 				user.visible_message("<span class='notice'><b>[user]</b> кладёт <b>[user.pulling]</b> на <b>[src]</b>.</span>",
 					"<span class='notice'>Кладу на <b>[user.pulling]</b> на <b>[src]</b>.</span>")
 				user.stop_pulling()
+	if(user.a_intent == INTENT_HARM)
+		user.changeNext_move(CLICK_CD_MELEE)
+		src.visible_message("<span class='warning'>[user] долбит по столу!</span>", \
+			"<span class='warning'>Долблю по столу!</span>")
+		playsound(src, bashsound, 100, TRUE)
 	return ..()
 
 
