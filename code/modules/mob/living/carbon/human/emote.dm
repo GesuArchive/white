@@ -208,6 +208,7 @@
 	ru_name = "дурачиться"
 	key_third_person = "dabs"
 	message = "бьёт себя рукой по лбу!"
+	hands_use_check = TRUE
 
 /datum/emote/living/carbon/human/dab/run_emote(mob/living/carbon/user, params)
 	. = ..()
