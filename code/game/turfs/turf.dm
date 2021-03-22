@@ -629,6 +629,6 @@ GLOBAL_LIST_EMPTY(station_turfs)
 		var/turf/turf_to_check = get_step(src,iter_dir)
 		if(!turf_to_check || (simulated_only && space_type_cache[turf_to_check.type]))
 			continue
-		if(!bypass_density && (turf_to_check.density || LinkBlockedWithAccess(turf_to_check, caller, ID)))
+		if(turf_to_check.density || (!bypass_density && LinkBlockedWithAccess(turf_to_check, caller, ID)))
 			continue
 		. += turf_to_check
