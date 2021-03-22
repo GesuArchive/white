@@ -89,9 +89,17 @@
 				user.stop_pulling()
 	if(user.a_intent == INTENT_HARM)
 		user.changeNext_move(CLICK_CD_MELEE)
-		src.visible_message("<span class='warning'>[user] долбит по столу!</span>", \
-			"<span class='warning'>Долблю по столу!</span>")
-		playsound(src, bashsound, 100, TRUE)
+		user.visible_message("<span class='warning'>[user] долбит по столу!</span>", "<span class='warning'>Долблю по столу!</span>",
+			"<span class='danger'>Слышу звук удара.</span>")
+		playsound(src, bashsound, 80, TRUE)
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			if(!H.get_item_by_slot(ITEM_SLOT_GLOVES) && prob(25))
+				var/which_hand = BODY_ZONE_L_ARM
+				if(!(H.active_hand_index % 2))
+					which_hand = BODY_ZONE_R_ARM
+				var/obj/item/bodypart/ouchie = H.get_bodypart(which_hand)
+				ouchie?.receive_damage(rand(1, 5))
 	return ..()
 
 
