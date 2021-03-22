@@ -82,6 +82,8 @@
 		icon_state = "shotglass"
 		name = "shot glass"
 		desc = "A shot glass - the universal symbol for bad decisions."
+		cut_overlay(managed_overlays)
+		managed_overlays = null
 		return
 
 	var/datum/reagent/largest_reagent = reagents.get_master_reagent()
@@ -91,7 +93,7 @@
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/shotglass/update_overlays()
 	. = ..()
-	if(icon_state != "shotglassclear")
+	if(icon_state != "[initial(icon_state)]clear")
 		return
 
 	var/mutable_appearance/shot_overlay = mutable_appearance(icon, "shotglassoverlay")
