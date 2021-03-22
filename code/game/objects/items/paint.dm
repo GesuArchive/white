@@ -109,7 +109,7 @@
 	if(paintleft <= 0)
 		icon_state = "paint_empty"
 		return
-	if(!isturf(target) || isspaceturf(target))
+	if(!isturf(target) || isspaceturf(location) || isopenspace(location))
 		return
 	target.add_atom_colour(paint_color, WASHABLE_COLOUR_PRIORITY)
 

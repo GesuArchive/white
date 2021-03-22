@@ -619,8 +619,9 @@ GLOBAL_LIST_EMPTY(station_turfs)
  * * caller: The movable, if one exists, being used for mobility checks to see what tiles it can reach
  * * ID: An ID card that decides if we can gain access to doors that would otherwise block a turf
  * * simulated_only: Do we only worry about turfs with simulated atmos, most notably things that aren't space?
+ * * check_density: WE CAN PASS OBJECTS, aren't we?
 */
-/turf/proc/reachableAdjacentTurfs(caller, ID, simulated_only)
+/turf/proc/reachableAdjacentTurfs(caller, ID, simulated_only, bypass_density = FALSE)
 	var/static/space_type_cache = typecacheof(/turf/open/space)
 	. = list()
 
@@ -628,6 +629,6 @@ GLOBAL_LIST_EMPTY(station_turfs)
 		var/turf/turf_to_check = get_step(src,iter_dir)
 		if(!turf_to_check || (simulated_only && space_type_cache[turf_to_check.type]))
 			continue
-		if(turf_to_check.density || LinkBlockedWithAccess(turf_to_check, caller, ID))
+		if(!bypass_density && (turf_to_check.density || LinkBlockedWithAccess(turf_to_check, caller, ID)))
 			continue
 		. += turf_to_check
