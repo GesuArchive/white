@@ -134,7 +134,7 @@
 	return 1
 
 /obj/machinery/atmospherics/components/unary/thermomachine/attackby(obj/item/I, mob/user, params)
-	if(!on)
+	if(!on || (machine_stat & NOPOWER))
 		if(default_deconstruction_screwdriver(user, icon_state_open, icon_state_off, I))
 			return
 	if(default_change_direction_wrench(user, I))
