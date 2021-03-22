@@ -53,7 +53,7 @@
 	max_integrity = 200
 	max_mobs = 10
 	spawn_time = 150
-	mob_types = list(/mob/living/simple_animal/hostile/clown, /mob/living/simple_animal/hostile/clown/fleshclown, /mob/living/simple_animal/hostile/clown/longface, /mob/living/simple_animal/hostile/clown/honkling, /mob/living/simple_animal/hostile/clown/lube)
+	mob_types = list(/mob/living/simple_animal/hostile/clown, /mob/living/simple_animal/hostile/clown/mutant, /mob/living/simple_animal/hostile/clown/fleshclown, /mob/living/simple_animal/hostile/clown/longface, /mob/living/simple_animal/hostile/clown/honkling, /mob/living/simple_animal/hostile/clown/lube)
 	spawn_text = "вылезает из"
 	faction = list("clown")
 
