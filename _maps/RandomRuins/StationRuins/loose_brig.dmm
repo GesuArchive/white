@@ -430,6 +430,7 @@
 /area/template_noop)
 "bd" = (
 /obj/structure/grille,
+/obj/structure/lattice,
 /turf/template_noop,
 /area/template_noop)
 "be" = (
@@ -3694,7 +3695,7 @@
 /area/security/prison)
 "pH" = (
 /obj/structure/holosign/barrier/atmos,
-/turf/open/space/basic,
+/turf/open/floor/plasteel,
 /area/security/brig)
 "pQ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -6227,7 +6228,7 @@ ab
 ab
 ab
 ab
-ab
+ac
 cy
 cT
 dq
@@ -6271,7 +6272,7 @@ ab
 ab
 ab
 ab
-ab
+ac
 bf
 bf
 bf

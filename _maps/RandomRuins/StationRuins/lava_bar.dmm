@@ -1001,10 +1001,6 @@
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
 "KT" = (
-/obj/machinery/airalarm{
-	dir = 8;
-	pixel_x = 23
-	},
 /obj/machinery/vending/wardrobe/chef_wardrobe,
 /turf/open/floor/plasteel/showroomfloor,
 /area/crew_quarters/kitchen)
@@ -1433,10 +1429,6 @@
 /area/crew_quarters/bar)
 "ZE" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/machinery/airalarm{
-	dir = 8;
-	pixel_x = 23
-	},
 /turf/open/floor/plasteel/showroomfloor,
 /area/crew_quarters/kitchen)
 "ZU" = (

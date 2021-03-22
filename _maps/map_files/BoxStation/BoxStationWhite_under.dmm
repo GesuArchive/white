@@ -16,6 +16,10 @@
 "ap" = (
 /turf/closed/wall/r_wall,
 /area/ai_monitored/storage/eva)
+"aq" = (
+/obj/item/westposter,
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "ar" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -30,6 +34,12 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
+"au" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/north)
 "aI" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate/maint,
@@ -41,6 +51,17 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/ai_monitored/storage/eva)
+"aP" = (
+/obj/structure/punching_bag,
+/obj/effect/decal/cleanable/blood,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
+/turf/open/floor/wood{
+	icon_state = "wood-broken6"
+	},
+/area/crew_quarters/fitness/kachalka)
 "aQ" = (
 /turf/open/space/basic,
 /area/maintenance/bottom_station_maints/north)
@@ -110,6 +131,12 @@
 /obj/structure/grille,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"bj" = (
+/obj/structure/bed/maint,
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/crew_quarters/fitness/kachalka)
 "bl" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -994,6 +1021,12 @@
 /obj/effect/landmark/stationroom/maint/rdm5x4,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
+"iX" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "jb" = (
 /turf/closed/wall/r_wall,
 /area/space/nearstation)
@@ -1004,6 +1037,12 @@
 /obj/effect/turf_decal/stripes/white/box,
 /turf/open/floor/plating,
 /area/hydroponics)
+"jk" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 5
+	},
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "jl" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -1016,6 +1055,16 @@
 	},
 /turf/open/floor/engine,
 /area/engine/atmospherics_engine)
+"ju" = (
+/obj/item/food/fishmeat/carp/dry,
+/obj/item/food/fishmeat/carp/dry/donbas,
+/obj/item/food/fishmeat/carp/dry/donbas,
+/obj/item/food/fishmeat/carp/dry/donbas,
+/obj/effect/spawner/lootdrop/maint_drugs,
+/obj/effect/spawner/lootdrop/maint_drugs,
+/obj/structure/table/rospilovo,
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "jv" = (
 /obj/structure/sign/departments/xenobio{
 	pixel_x = -32
@@ -1115,6 +1164,10 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/engine/atmospherics_engine)
+"jO" = (
+/obj/structure/lattice,
+/turf/closed/wall/r_wall,
+/area/maintenance/bottom_station_maints/north)
 "jP" = (
 /obj/structure/sign/warning/electricshock,
 /turf/closed/wall/r_wall,
@@ -1449,6 +1502,14 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
+"lU" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 5
+	},
+/turf/open/floor/wood{
+	icon_state = "wood-broken6"
+	},
+/area/crew_quarters/fitness/kachalka)
 "lV" = (
 /obj/machinery/atmospherics/components/binary/circulator/flipped{
 	dir = 8
@@ -1475,6 +1536,16 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness)
+"mc" = (
+/obj/item/radio/intercom{
+	dir = 4;
+	pixel_x = 27
+	},
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "md" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -1555,6 +1626,12 @@
 /obj/structure/cable,
 /turf/open/floor/circuit,
 /area/tcommsat/server/upper)
+"mJ" = (
+/obj/structure/ladder,
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/crew_quarters/fitness/kachalka)
 "mP" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/bottom_station_maints/north)
@@ -1696,6 +1773,12 @@
 /obj/machinery/light/small,
 /turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints/north)
+"nx" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "nA" = (
 /obj/machinery/light/small,
 /turf/open/floor/plating,
@@ -1754,6 +1837,9 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
+"nK" = (
+/turf/closed/wall/r_wall,
+/area/crew_quarters/fitness/kachalka)
 "nM" = (
 /obj/effect/landmark/stationroom/maint/rdm3x3,
 /turf/open/floor/plating,
@@ -1901,6 +1987,12 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
 /area/quartermaster/warehouse)
+"pd" = (
+/obj/effect/spawner/lootdrop/maintenance/three,
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/crew_quarters/fitness/kachalka)
 "pe" = (
 /obj/structure/rospilovo/doski/doski2,
 /obj/structure/rospilovo/painting/stalin{
@@ -2219,6 +2311,15 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating/rust,
 /area/maintenance/bottom_station_maints)
+"rN" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	name = "Fitness Maintenance";
+	req_access_txt = "12"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/crew_quarters/fitness/kachalka)
 "rP" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
@@ -2327,6 +2428,11 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"sW" = (
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/crew_quarters/fitness/kachalka)
 "sX" = (
 /obj/structure/rack,
 /obj/effect/spawner/lootdrop/maintenance/two,
@@ -2346,6 +2452,12 @@
 /obj/machinery/smartfridge/drying_rack,
 /turf/open/floor/plasteel,
 /area/hydroponics)
+"te" = (
+/obj/machinery/light{
+	pixel_y = 0
+	},
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "tf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
@@ -2405,6 +2517,12 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
+"tw" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 9
+	},
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "tx" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -2689,6 +2807,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness)
+"vO" = (
+/obj/machinery/light,
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/north)
 "vR" = (
 /obj/effect/landmark/start/bomj,
 /obj/structure/chair/brevno/log2,
@@ -2864,6 +2986,10 @@
 	},
 /turf/open/floor/engine,
 /area/science/research/abandoned)
+"wU" = (
+/obj/machinery/effector,
+/turf/closed/wall/r_wall,
+/area/crew_quarters/fitness/kachalka)
 "wV" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -2947,6 +3073,9 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"xz" = (
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "xF" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access_txt = "12"
@@ -2994,6 +3123,11 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness)
+"yl" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/turf/open/floor/plating,
+/area/crew_quarters/fitness/kachalka)
 "ym" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -3039,6 +3173,12 @@
 "yL" = (
 /turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints/north)
+"yR" = (
+/obj/structure/weightmachine/stacklifter,
+/obj/effect/decal/cleanable/cum,
+/obj/structure/cable,
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "yS" = (
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
@@ -3096,6 +3236,9 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/science/xenobiology)
+"ze" = (
+/turf/closed/wall,
+/area/crew_quarters/fitness/kachalka)
 "zi" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -3104,6 +3247,12 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
+"zj" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/north)
 "zl" = (
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/plating/rust,
@@ -3284,6 +3433,11 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"Ak" = (
+/turf/open/floor/wood{
+	icon_state = "wood-broken5"
+	},
+/area/crew_quarters/fitness/kachalka)
 "Am" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 4
@@ -3447,6 +3601,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/hydroponics)
+"BE" = (
+/turf/open/floor/wood{
+	icon_state = "wood-broken7"
+	},
+/area/crew_quarters/fitness/kachalka)
 "BI" = (
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
@@ -3798,6 +3957,12 @@
 /obj/structure/grille,
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/east)
+"EW" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 6
+	},
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "EX" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
@@ -3869,6 +4034,13 @@
 /obj/machinery/lazylift_button,
 /turf/closed/wall/r_wall,
 /area/shuttle/turbolift/primary)
+"Fr" = (
+/obj/machinery/light{
+	pixel_y = 0
+	},
+/obj/structure/cable/multilayer/multiz,
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "Ft" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 4
@@ -3958,6 +4130,14 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
+"Ga" = (
+/obj/effect/spawner/lootdrop/maintenance/three,
+/obj/machinery/airalarm{
+	dir = 1;
+	pixel_y = -23
+	},
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "Gg" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/bot,
@@ -4232,6 +4412,13 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
+"HU" = (
+/obj/effect/decal/cleanable/molten_object/large,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "HV" = (
 /obj/structure/rospilovo/porog{
 	dir = 4
@@ -4321,6 +4508,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints/north)
+"IC" = (
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "IF" = (
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 1
@@ -4360,6 +4550,17 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
+"IV" = (
+/obj/structure/punching_bag,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/crew_quarters/fitness/kachalka)
 "IX" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -4514,6 +4715,14 @@
 /obj/structure/sign/warning/vacuum,
 /turf/closed/wall,
 /area/maintenance/bottom_station_maints/east)
+"Kf" = (
+/obj/structure/chair/sofa{
+	dir = 8
+	},
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/crew_quarters/fitness/kachalka)
 "Ki" = (
 /obj/structure/cable,
 /turf/open/floor/plating/rust,
@@ -4774,6 +4983,11 @@
 /obj/structure/sign/warning/electricshock,
 /turf/closed/wall/r_wall,
 /area/science/xenobiology)
+"LO" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/south,
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "LS" = (
 /obj/machinery/camera{
 	c_tag = "Xenobiology Pens - Port Fore";
@@ -4786,6 +5000,19 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/grass,
 /area/hydroponics)
+"LW" = (
+/obj/machinery/shower{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	pixel_y = 0
+	},
+/obj/effect/decal/cleanable/cum,
+/obj/effect/decal/cleanable/cum,
+/obj/effect/decal/cleanable/cum,
+/obj/item/blackmarket_uplink,
+/turf/open/floor/plasteel/freezer,
+/area/crew_quarters/fitness/kachalka)
 "Mc" = (
 /obj/structure/bed/prison/bed,
 /obj/item/reagent_containers/syringe,
@@ -4868,6 +5095,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints/north)
+"Mu" = (
+/obj/structure/lattice,
+/turf/closed/wall/r_wall,
+/area/crew_quarters/fitness/kachalka)
 "Mv" = (
 /obj/machinery/atmospherics/pipe/multiz/layer2{
 	color = "#ff0000";
@@ -4876,6 +5107,19 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
+"My" = (
+/obj/machinery/atmospherics/pipe/multiz/layer4{
+	color = "#0000ff";
+	name = "Supply multi deck pipe adapter"
+	},
+/obj/machinery/atmospherics/pipe/multiz/layer2{
+	color = "#ff0000";
+	name = "Scrubbers multi deck pipe adapter"
+	},
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/crew_quarters/fitness/kachalka)
 "MA" = (
 /obj/machinery/camera{
 	c_tag = "Xeno Test Chamber Enterance";
@@ -4950,10 +5194,20 @@
 /obj/structure/cable/multilayer/multiz,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
+"MR" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/crew_quarters/fitness/kachalka)
 "MS" = (
 /mob/living/simple_animal/slime,
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"MU" = (
+/obj/structure/cable,
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "MV" = (
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel/white,
@@ -5227,6 +5481,13 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"Po" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 9
+	},
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "Pp" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Cargo Bay Maintenance";
@@ -5350,6 +5611,10 @@
 /obj/structure/closet/decay,
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/east)
+"PT" = (
+/obj/effect/decal/cleanable/blood/xtracks,
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "PX" = (
 /obj/machinery/door/firedoor,
 /turf/open/genturf,
@@ -5451,6 +5716,13 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/xenobiology)
+"QK" = (
+/obj/structure/weightmachine/stacklifter,
+/obj/effect/decal/cleanable/insectguts,
+/obj/item/clothing/under/costume/jabroni,
+/obj/structure/cable,
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "QN" = (
 /obj/machinery/light/small,
 /turf/open/genturf,
@@ -5460,6 +5732,15 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/science/research/abandoned)
+"QX" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/crew_quarters/fitness/kachalka)
 "QY" = (
 /obj/structure/ladder,
 /obj/effect/turf_decal/box,
@@ -5782,6 +6063,13 @@
 /obj/item/storage/toolbox/mechanical/old,
 /turf/open/floor/plating/rust,
 /area/maintenance/space_hut/plasmaman)
+"Tb" = (
+/obj/structure/curtain{
+	color = "#ff0000";
+	open = 0
+	},
+/turf/open/floor/plasteel/freezer,
+/area/crew_quarters/fitness/kachalka)
 "Te" = (
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
@@ -5994,6 +6282,22 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/storage_shared)
+"UR" = (
+/obj/structure/bed/maint,
+/obj/structure/sign/plaques/robust{
+	pixel_x = 16;
+	pixel_y = 36
+	},
+/turf/open/floor/wood{
+	icon_state = "wood-broken6"
+	},
+/area/crew_quarters/fitness/kachalka)
+"UU" = (
+/obj/structure/weightmachine/weightlifter,
+/obj/effect/decal/cleanable/insectguts,
+/obj/item/clothing/under/costume/jabroni,
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "UV" = (
 /turf/open/floor/plating/rust,
 /area/maintenance/space_hut/plasmaman)
@@ -6172,9 +6476,18 @@
 /obj/effect/turf_decal/box,
 /turf/open/floor/plasteel/dark,
 /area/engine/atmospherics_engine)
+"VM" = (
+/obj/item/eastposter,
+/obj/machinery/turntable,
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "VN" = (
 /turf/open/floor/engine,
 /area/science/research/abandoned)
+"VT" = (
+/obj/effect/decal/cleanable/cum,
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "VW" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -6234,6 +6547,13 @@
 	},
 /turf/open/floor/engine,
 /area/science/research/abandoned)
+"WC" = (
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
+	},
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "WG" = (
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
@@ -6273,6 +6593,14 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
+"Xb" = (
+/obj/structure/chair/sofa/right{
+	dir = 8
+	},
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/crew_quarters/fitness/kachalka)
 "Xc" = (
 /turf/closed/wall,
 /area/maintenance/bottom_station_maints/north)
@@ -6373,6 +6701,12 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/science/xenobiology)
+"XV" = (
+/obj/structure/chair/sofa/left{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "XW" = (
 /obj/machinery/door/window/northleft{
 	base_state = "right";
@@ -6423,6 +6757,11 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"Yi" = (
+/obj/structure/weightmachine/weightlifter,
+/obj/effect/decal/cleanable/cum,
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "Yk" = (
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
@@ -6436,6 +6775,11 @@
 /obj/structure/sign/warning/electricshock,
 /turf/open/floor/plating,
 /area/science/xenobiology)
+"Ym" = (
+/obj/structure/fans/tiny,
+/obj/machinery/door/airlock/external,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/north)
 "Yn" = (
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
@@ -6555,6 +6899,12 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"Zb" = (
+/obj/item/device/flashlight/slamp,
+/turf/open/floor/wood{
+	icon_state = "wood-broken5"
+	},
+/area/crew_quarters/fitness/kachalka)
 "Zc" = (
 /obj/structure/cable,
 /obj/machinery/camera/autoname{
@@ -27069,11 +27419,11 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-PG
-Zm
-Zm
+jb
+yS
+yS
+yS
+jb
 Zm
 Zm
 Zm
@@ -27326,11 +27676,11 @@ Zm
 Zm
 Zm
 Zm
+yS
 Zm
 Zm
-PG
 Zm
-Zm
+yS
 Zm
 Zm
 Zm
@@ -27583,11 +27933,11 @@ Zm
 Zm
 Zm
 Zm
+yS
 Zm
 Zm
-PG
 Zm
-Zm
+yS
 Zm
 Zm
 Zm
@@ -27840,11 +28190,11 @@ Zm
 Zm
 Zm
 Zm
+yS
 Zm
 Zm
-PG
 Zm
-Zm
+yS
 Zm
 Zm
 Zm
@@ -28097,11 +28447,11 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-PG
-Zm
-Zm
+jb
+yS
+yS
+yS
+jb
 Zm
 Zm
 Zm
@@ -28866,7 +29216,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+nN
 Zm
 Zm
 Zm
@@ -31168,24 +31518,24 @@ Zm
 Zm
 Zm
 PG
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+nN
 Zm
 Zm
 Zm
 Zm
 PG
 Zm
+Zm
+Zm
+Zm
+Zm
+mP
+mP
+OL
+OL
+OL
+mP
+mP
 Zm
 Zm
 Zm
@@ -31436,13 +31786,13 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+mP
 Zm
 Zm
 Zm
@@ -31693,13 +32043,13 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+mP
 Zm
 Zm
 Zm
@@ -31948,15 +32298,15 @@ PG
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
+mP
+mP
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+mP
 Zm
 Zm
 Zm
@@ -32205,15 +32555,15 @@ PG
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+vO
+mP
 Zm
 Zm
 Zm
@@ -32460,17 +32810,17 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+jO
+mP
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+mP
 PG
 PG
 PG
@@ -32717,22 +33067,22 @@ Zm
 Zm
 PG
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+mP
+mP
+OL
+OL
+mP
+mP
 Zm
 Zm
 Zm
@@ -32974,26 +33324,26 @@ Zm
 Zm
 PG
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+OL
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+mP
+mP
+OL
+mP
+mP
 Zm
 Zm
 Zm
@@ -33231,26 +33581,26 @@ Zm
 Zm
 PG
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+OL
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Xc
+Bt
+Bt
+Bt
+mP
 Zm
 Zm
 Zm
@@ -33488,30 +33838,30 @@ Zm
 Zm
 PG
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+OL
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+IG
+Bt
+Bt
+Bt
+OL
 PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
+PG
+PG
 bw
 Zm
 Zm
@@ -33745,26 +34095,26 @@ Zm
 Zm
 PG
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+OL
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Xc
+Bt
+Bt
+Bt
+mP
 Zm
 Zm
 Zm
@@ -33990,18 +34340,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
+nN
 Zm
 Zm
 Zm
@@ -34013,17 +34352,28 @@ Zm
 Zm
 PG
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Xc
+Bt
+Bt
+Bt
+mP
+mP
+mP
 Zm
 Zm
 bw
@@ -34259,28 +34609,28 @@ Zm
 Zm
 PG
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+mP
+mP
+mP
+mP
+mP
+mP
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Xc
+Bt
+Bt
+Bt
+Bt
+Bt
+mP
 Zm
 Zm
 bw
@@ -34522,22 +34872,22 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Xc
+Bt
+Bt
+Bt
+Bt
+Bt
+OL
 Zm
 Zm
 bw
@@ -34776,25 +35126,25 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-nN
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+mP
+mP
+mP
+mP
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Bt
+Bt
+Bt
+Bt
+Bt
+mP
 Zm
 Zm
 bw
@@ -35033,31 +35383,31 @@ Zm
 Zm
 Zm
 Zm
-Zm
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-bw
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-bw
-PG
-PG
 mP
+Bt
+Bt
+Bt
+Xc
+fF
+fF
+fF
+fF
+kA
+Xc
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Ym
+PG
+PG
+PG
+PG
+PG
+Ym
 Bt
 Bt
 Bt
@@ -35290,25 +35640,25 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+mP
+Bt
+Bt
+Bt
+Xc
+fF
+fF
+fF
+fF
+fF
+Xc
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+mP
 Zm
 Zm
 bw
@@ -35547,25 +35897,25 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+OL
+Bt
+Bt
+Bt
+Xc
+fF
+fF
+fF
+fF
+fF
+IG
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+OL
 Zm
 Zm
 PG
@@ -35804,25 +36154,25 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+OL
+Bt
+Bt
+Bt
+Xc
+fF
+fF
+fF
+fF
+fF
+Xc
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+OL
 Zm
 Zm
 PG
@@ -36061,25 +36411,25 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+OL
+Bt
+Bt
+Bt
+Xc
+fF
+fF
+fF
+fF
+fF
+Xc
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+mP
 Zm
 Zm
 bw
@@ -36318,25 +36668,25 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+OL
+Bt
+Bt
+Bt
+Xc
+fF
+fF
+fF
+fF
+fF
+Xc
+Xc
+Xc
+IG
+Xc
+Xc
+mP
+mP
+mP
 Zm
 Zm
 bw
@@ -36575,23 +36925,23 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+mP
+Bt
+Bt
+Bt
+Xc
+fF
+fF
+fF
+fF
+fF
+Xc
+Bt
+Bt
+Bt
+Bt
+Bt
+mP
 Zm
 Zm
 Zm
@@ -36832,23 +37182,23 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-bw
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-bw
-PG
-PG
+mP
+Bt
+Bt
+Bt
+Xc
+fF
+fF
+fF
+fF
+fF
+Xc
+Bt
+Bt
+Bt
+Bt
+Bt
+OL
 PG
 PG
 PG
@@ -37087,25 +37437,25 @@ Zm
 PG
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-ah
-Zm
-Zm
-Zm
-Zm
-PG
+mP
+mP
+mP
+Bt
+Bt
+Bt
+Xc
+fF
+fF
+fF
+fF
+fF
+Xc
+Bt
+Bt
+Bt
+Bt
+Bt
+OL
 Zm
 Zm
 bw
@@ -37344,25 +37694,25 @@ Zm
 PG
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-bw
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+Xc
+fF
+fF
+fF
+fF
+fF
+Xc
+Bt
+Bt
+Bt
+Bt
+Bt
+OL
 Zm
 Zm
 bw
@@ -37601,25 +37951,25 @@ Zm
 PG
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-nN
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-bw
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Bt
+Bt
+Bt
+Bt
+Bt
+OL
 Zm
 Zm
 bw
@@ -37858,25 +38208,25 @@ Zm
 PG
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-bw
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Xc
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+OL
 Zm
 Zm
 bw
@@ -38115,25 +38465,25 @@ Zm
 PG
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-bw
+OL
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+IG
+Bt
+Bt
+Bt
+Bt
+au
+Bt
+Bt
+mP
 Zm
 Zm
 PG
@@ -38362,18 +38712,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
+nN
 Zm
 Zm
 Zm
@@ -38383,16 +38722,27 @@ Zm
 PG
 Zm
 Zm
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Xc
+Bt
+Bt
+mP
+mP
+mP
+mP
+mP
+mP
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-bw
-Zm
-PG
 PG
 PG
 PG
@@ -38629,20 +38979,20 @@ Zm
 PG
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
+mP
+Xc
+Xc
+IG
+IG
+IG
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+mP
 Zm
 Zm
 Zm
@@ -38886,20 +39236,20 @@ Zm
 PG
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Xc
+fF
+zj
+fF
+il
+mP
 Zm
 Zm
 Zm
@@ -39143,24 +39493,24 @@ Zm
 PG
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+OL
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Xc
+fF
+fF
+fF
+fF
+OL
+PG
+PG
+PG
+PG
 bw
 Zm
 Zm
@@ -39400,20 +39750,20 @@ Zm
 PG
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+IG
+fF
+fF
+fF
+fF
+OL
 Zm
 Zm
 Zm
@@ -39657,20 +40007,20 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Xc
+fF
+fF
+fF
+fF
+OL
 Zm
 Zm
 Zm
@@ -39914,20 +40264,20 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
-PG
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Xc
+fF
+fF
+fF
+fF
+mP
 PG
 PG
 PG
@@ -40171,25 +40521,25 @@ Zm
 Zm
 Zm
 Zm
+mP
+mP
+mP
+OL
+OL
+OL
+mP
+mP
+mP
+mP
+OL
+mP
+IG
+mP
+mP
+mP
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 PG
@@ -40424,29 +40774,29 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
 nN
 Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
 Zm
+Zm
+Zm
+mP
+Bt
+Bt
+Bt
+mP
+Zm
+Zm
+PG
 Zm
 Zm
 PG
@@ -40686,24 +41036,24 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
 Zm
 Zm
 Zm
+Ym
+Bt
+Bt
+Bt
+Ym
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 PG
@@ -40943,24 +41293,24 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
 Zm
 Zm
 Zm
+mP
+Bt
+Bt
+Bt
+mP
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 bw
@@ -41200,24 +41550,24 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
 Zm
 Zm
 Zm
+mP
+Bt
+Bt
+Bt
+mP
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 bw
@@ -41454,28 +41804,28 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+nK
+nK
+nK
+rN
+nK
+nK
+nK
+nK
+nK
 Zm
 bw
 Zm
@@ -41714,25 +42064,25 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+PG
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+nK
+aP
+aq
+xz
+mJ
+MU
+MU
+LO
+nK
 Zm
 bw
 Zm
@@ -41971,25 +42321,25 @@ Zm
 Zm
 Zm
 Zm
+PG
+Zm
+Zm
+PG
+Zm
+Zm
+PG
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+yl
+Ak
+BE
+sW
+xz
+yR
+IC
+UU
+Mu
 Zm
 bw
 Zm
@@ -42228,25 +42578,25 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+yl
+pd
+MR
+lU
+PT
+MU
+IC
+te
+wU
 Zm
 bw
 mP
@@ -42485,25 +42835,25 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
 PG
-PG
-PG
-PG
+Zm
+Zm
+nN
+Zm
+Zm
 bw
-PG
+Zm
+Zm
+Zm
+nK
+UR
+sW
+iX
+VT
+MU
+IC
+Ga
+nK
 PG
 bw
 mP
@@ -42742,18 +43092,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -42761,6 +43100,17 @@ Zm
 Zm
 bw
 Zm
+Zm
+Zm
+nK
+bj
+EW
+QX
+jk
+QK
+IC
+Yi
+nK
 Zm
 bw
 mP
@@ -43005,19 +43355,19 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-bw
-Zm
+yl
+Zb
+HU
+iX
+nx
+MU
+mc
+WC
+nK
 Zm
 bw
 mP
@@ -43262,20 +43612,20 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
 bw
 Zm
-bw
+Zm
+Zm
+yl
+My
+Po
+tw
+ju
+Fr
+ze
+Tb
+nK
+PG
 mP
 mP
 Do
@@ -43519,20 +43869,20 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-nN
-Zm
-ah
-Zm
-Zm
-Zm
 bw
 Zm
-bw
+Zm
+Zm
+nK
+IV
+VM
+Xb
+Kf
+XV
+ze
+LW
+nK
+PG
 mP
 gR
 Mc
@@ -43771,25 +44121,25 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
+PG
+PG
+PG
 PG
 bw
 PG
-bw
+PG
+PG
+nK
+nK
+nK
+yl
+yl
+yl
+nK
+nK
+nK
+PG
 mP
 ow
 hb
@@ -44033,11 +44383,11 @@ Zm
 Zm
 Zm
 Zm
+bw
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -44046,7 +44396,7 @@ Zm
 Zm
 bw
 Zm
-bw
+PG
 mP
 pe
 Et
@@ -44290,11 +44640,11 @@ Zm
 Zm
 Zm
 Zm
+bw
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -44303,7 +44653,7 @@ PG
 PG
 bw
 PG
-bw
+PG
 mP
 HW
 Sj
@@ -44547,11 +44897,11 @@ Zm
 Zm
 Zm
 Zm
+bw
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -44560,7 +44910,7 @@ Zm
 Zm
 bw
 Zm
-bw
+PG
 mP
 Py
 vR
@@ -44800,24 +45150,24 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-PG
 PG
 PG
 PG
 PG
 bw
-PG
 bw
+bw
+bw
+bw
+bw
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
 mP
 Vr
 Mt
@@ -45061,11 +45411,11 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -45318,11 +45668,11 @@ Zm
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -45579,7 +45929,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -45830,7 +46180,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+nN
 Zm
 Zm
 Zm
