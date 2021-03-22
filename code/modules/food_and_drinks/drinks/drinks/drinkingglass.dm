@@ -41,7 +41,7 @@
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/update_overlays()
 	. = ..()
-	if(icon_state != initial(icon_state))
+	if(icon_state != initial(icon_state) || icon_state == "shotglass")
 		return
 
 	var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "glassoverlay")

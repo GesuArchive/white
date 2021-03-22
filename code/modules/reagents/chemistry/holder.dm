@@ -297,6 +297,8 @@
 			current_list_element = 1
 
 		var/datum/reagent/R = cached_reagents[current_list_element]
+		if(!amount)
+			break
 		var/remove_amt = min(amount-total_removed,round(amount/rand(2,initial_list_length),round(amount/10,0.01))) //double round to keep it at a somewhat even spread relative to amount without getting funky numbers.
 		//min ensures we don't go over amount.
 		remove_reagent(R.type, remove_amt)

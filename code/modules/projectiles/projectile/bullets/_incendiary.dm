@@ -51,6 +51,10 @@
 		return
 	knockback_range--
 	var/turf/current_turf = get_turf(src)
+
+	if(!current_turf)
+		return
+
 	var/turf/throw_at_turf = get_turf_in_angle(Angle, current_turf, 7)
 	var/thrown_items = 0
 
