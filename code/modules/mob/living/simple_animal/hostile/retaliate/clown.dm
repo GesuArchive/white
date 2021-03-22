@@ -463,18 +463,19 @@
 /mob/living/simple_animal/hostile/clown/mutant/glutton/proc/eat(atom/movable/A)
 	if(A && A.loc != src)
 		playsound(src, 'sound/items/eatfood.ogg', 100, TRUE)
+		visible_message("<span class='warning'>[capitalize(src.name)] пожирает [A]!</span>")
+		biomass += 50
 		qdel(A)
 		return TRUE
 	return FALSE
+
 /mob/living/simple_animal/hostile/clown/mutant/glutton/AttackingTarget(atom/attacked_target)
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.stat == DEAD)
 			to_chat(src, "<span class='warning'>Начинаю проглатывать [L]...</span>")
-			if(do_after(src, 20, target = L))
-				if(eat(L))
-					visible_message("<span class='warning'>[capitalize(src.name)] пожирает [L]!</span>")
-					src.biomass += 50
+			if(do_after_mob(src, L, 2 SECONDS))
+				eat(L)
 			return
 		else
 			. = ..()
@@ -486,24 +487,24 @@
 	if(A && A.loc != src)
 		playsound(src, 'sound/effects/splat.ogg', 100, TRUE)
 		new /mob/living/simple_animal/hostile/clown/mutant(A.loc)
-		new /obj/effect/gibspawner/human
+		new /obj/effect/gibspawner/human(get_turf(A.loc))
+		visible_message("<span class='warning'>[capitalize(src.name)] заражает тело [A] хонкочервями!</span>")
 		qdel(A)
 		return TRUE
 	return FALSE
+
 /mob/living/simple_animal/hostile/clown/infestor/AttackingTarget(atom/attacked_target)
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.stat == DEAD)
 			to_chat(src, "<span class='warning'>Начинаю заражать труп [L]...</span>")
-			if(do_after(src, 60, target = L))
-				if(eat(L))
-					visible_message("<span class='warning'>[capitalize(src.name)] заражает тело [L] хонкочервями!</span>")
+			if(do_after_mob(src, L, 6 SECONDS))
+				eat(L)
 			return
 		else
 			. = ..()
 	else
 		. = ..()
-
 
 //Клоуны - ночные животные, поэтому должны видеть в темноте
 /obj/effect/proc_holder/spell/targeted/night_vision
