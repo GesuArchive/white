@@ -156,8 +156,8 @@
 	emote_see = list("хонкает", "вгрызается в банан", "берет банан с головы", "фотосинтезирует")
 	maxHealth = 120
 	health = 120
-	speed = -1
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap, /obj/item/seeds/banana)
+	speed = 1
+	loot = list(/obj/effect/mob_spawn/human/clown/corpse,/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap, /obj/item/seeds/banana)
 	banana_time = 20
 
 /mob/living/simple_animal/hostile/clown/honkling
@@ -199,7 +199,7 @@
 	attack_verb_continuous = "limply slaps"
 	attack_verb_simple = "limply slap"
 	obj_damage = 5
-	loot = list(/obj/item/clothing/suit/hooded/bloated_human, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap)
+	loot = list(/obj/effect/mob_spawn/human/clown/corpse, /obj/item/clothing/suit/hooded/bloated_human, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap)
 
 /mob/living/simple_animal/hostile/clown/longface
 	name = "Longface"
@@ -226,7 +226,7 @@
 	melee_damage_lower = 10
 	attack_verb_continuous = "YA-HONKs"
 	attack_verb_simple = "YA-HONK"
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap)
+	loot = list(/obj/effect/mob_spawn/human/clown/corpse, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap)
 
 /mob/living/simple_animal/hostile/clown/clownhulk
 	name = "Honk Hulk"
@@ -326,8 +326,8 @@
 	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/effect/particle_effect/foam, /obj/item/soap)
 
 /mob/living/simple_animal/hostile/clown/mutant
-	name = "Unknown"
-	desc = "Kill it for its own sake."
+	name = "Переполненный клоун"
+	desc = "Внутри него все движется и пульсирует!"
 	icon_state = "mutant"
 	icon_living = "mutant"
 	move_resist = INFINITY
@@ -341,17 +341,17 @@
 	speak = list("aaaaaahhhhuuhhhuhhhaaaaa", "AAAaaauuuaaAAAaauuhhh", "huuuuuh... hhhhuuuooooonnnnkk", "HuaUAAAnKKKK")
 	emote_see = list("squirms", "writhes", "pulsates", "froths", "oozes")
 	speak_chance = 10
-	maxHealth = 50
-	health = 50
+	maxHealth = 100
+	health = 100
 	pixel_x = -16
 	base_pixel_x = -16
-	speed = 1
-	harm_intent_damage = 10
-	melee_damage_lower = 30
-	melee_damage_upper = 30
+	speed = 2
+	harm_intent_damage = 8
+	melee_damage_lower = 8
+	melee_damage_upper = 8
 	attack_verb_continuous = "awkwardly flails at"
 	attack_verb_simple = "awkwardly flail at"
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/xeno/bodypartless, /obj/item/soap, /obj/effect/gibspawner/generic, /obj/effect/gibspawner/generic/animal, /obj/effect/gibspawner/human/bodypartless, /obj/effect/gibspawner/human)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /mob/living/simple_animal/hostile/clown/worm, /mob/living/simple_animal/hostile/clown/worm,  /mob/living/simple_animal/hostile/clown/worm, /obj/effect/gibspawner/generic, /obj/effect/gibspawner/generic/animal, /obj/effect/gibspawner/human/bodypartless, /obj/effect/gibspawner/human)
 
 // Основной производящий юнит армии клоунов, матка
 /mob/living/simple_animal/hostile/clown/mutant/glutton
@@ -385,6 +385,61 @@
 	. = ..()
 	. += "Плоть: [biomass]"
 
+/mob/living/simple_animal/hostile/clown/infestor
+	name = "Разносчик радости"
+	desc = "Не подпускай его к трупам своих друзей!."
+	icon_state = "clown_spider"
+	icon_living = "clown_spider"
+	icon_dead = "clown_spider_dead"
+	mob_biotypes = MOB_ORGANIC|MOB_BUG
+	speak_emote = list("chitters")
+	emote_hear = list("chitters")
+	speak_chance = 5
+	speed = 0
+	turns_per_move = 5
+	see_in_dark = 4
+	response_help_continuous = "pets"
+	response_help_simple = "pet"
+	response_disarm_continuous = "gently pushes aside"
+	response_disarm_simple = "gently push aside"
+	maxHealth = 250
+	health = 250
+	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, CLONE = 1, STAMINA = 1, OXY = 1)
+	melee_damage_lower = 25
+	melee_damage_upper = 25
+	pass_flags = PASSTABLE
+	move_to_delay = 6
+	attack_verb_continuous = "кусает"
+	attack_verb_simple = "кусает"
+	footstep_type = FOOTSTEP_MOB_CLAW
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human)
+
+/mob/living/simple_animal/hostile/clown/worm
+	name = "Хонкочервь"
+	desc = "Смешной червячок. Обычно ползает рядом с внутренностями."
+	icon_state = "clown_worm"
+	icon_living = "clown_worm"
+	speak_emote = list("hisses")
+	health = 20
+	maxHealth = 20
+	speed = 1
+	attack_verb_continuous = "кусает"
+	attack_verb_simple = "кусает"
+	melee_damage_lower = 5
+	melee_damage_upper = 6
+	response_help_continuous = "pets"
+	response_help_simple = "pet"
+	response_disarm_continuous = "shoos"
+	response_disarm_simple = "shoo"
+	response_harm_continuous = "steps on"
+	response_harm_simple = "step on"
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam)
+	ventcrawler = VENTCRAWLER_ALWAYS
+	density = FALSE
+	pass_flags = PASSTABLE | PASSMOB
+	mob_size = MOB_SIZE_SMALL
+	mob_biotypes = MOB_ORGANIC|MOB_BEAST|MOB_REPTILE
+	environment_smash = ENVIRONMENT_SMASH_NONE
 
 
 // Добавляем абилки матери
@@ -404,7 +459,7 @@
 
 
 
-//Жрет трупы и срет клоунами взамен
+//Пожирание трупов матерью
 /mob/living/simple_animal/hostile/clown/mutant/glutton/proc/eat(atom/movable/A)
 	if(A && A.loc != src)
 		playsound(src, 'sound/items/eatfood.ogg', 100, TRUE)
@@ -420,6 +475,29 @@
 				if(eat(L))
 					visible_message("<span class='warning'>[capitalize(src.name)] пожирает [L]!</span>")
 					src.biomass += 50
+			return
+		else
+			. = ..()
+	else
+		. = ..()
+
+//Превращение трупа в червивого пидора пауком
+/mob/living/simple_animal/hostile/clown/infestor/proc/eat(atom/movable/A)
+	if(A && A.loc != src)
+		playsound(src, 'sound/effects/splat.ogg', 100, TRUE)
+		new /mob/living/simple_animal/hostile/clown/mutant(A.loc)
+		new /obj/effect/gibspawner/human
+		qdel(A)
+		return TRUE
+	return FALSE
+/mob/living/simple_animal/hostile/clown/infestor/AttackingTarget(atom/attacked_target)
+	if(isliving(target))
+		var/mob/living/L = target
+		if(L.stat == DEAD)
+			to_chat(src, "<span class='warning'>Начинаю заражать труп [L]...</span>")
+			if(do_after(src, 60, target = L))
+				if(eat(L))
+					visible_message("<span class='warning'>[capitalize(src.name)] заражает тело [L] хонкочервями!</span>")
 			return
 		else
 			. = ..()
@@ -483,7 +561,7 @@
 
 // Создание спавнера
 /datum/action/innate/glutton/open_portal
-	name = "Открыть разлом(200)"
+	name = "Открыть разлом(300)"
 	desc = "Открыть разлом в измерение клоунов."
 	check_flags = AB_CHECK_CONSCIOUS
 	icon_icon = 'icons/obj/device.dmi'
@@ -536,7 +614,7 @@
 		to_chat(glutton, "<span class ='notice'>Недостаточно плоти!</span>")
 		return FALSE
 	else
-		playsound(src, 'sound/magic/demon_attack1.ogg', 100, TRUE)
+		playsound(src, 'sound/effects/splat.ogg', 100, TRUE)
 		to_chat(glutton, "<span class='notice'>Леплю из собранной плоти смешную голову клоуна!</span>")
 		new /obj/structure/spawner/clown(glutton_turf)
 		glutton.biomass -= 300
@@ -554,7 +632,7 @@
 		to_chat(glutton, "<span class ='notice'>Недостаточно плоти!</span>")
 		return FALSE
 	else
-		playsound(glutton, 'sound/magic/demon_attack1.ogg', 100, TRUE)
+		playsound(glutton, 'sound/effects/splat.ogg', 100, TRUE)
 		to_chat(glutton, "<span class='notice'>Создаю из собранной плоти нового клоуна!</span>")
 		new /mob/living/simple_animal/hostile/clown(glutton_turf)
 		glutton.biomass -= 50
@@ -572,9 +650,9 @@
 		to_chat(glutton, "<span class ='notice'>Недостаточно плоти!</span>")
 		return FALSE
 	else
-		playsound(glutton, 'sound/magic/demon_attack1.ogg', 100, TRUE)
+		playsound(glutton, 'sound/effects/splat.ogg', 100, TRUE)
 		to_chat(glutton, "<span class='notice'>Создаю из собранной плоти необычного клоуна!</span>")
-		var/moblist = list(/mob/living/simple_animal/hostile/clown/banana, /mob/living/simple_animal/hostile/clown/fleshclown, /mob/living/simple_animal/hostile/clown/longface, /mob/living/simple_animal/hostile/clown/honkling, /mob/living/simple_animal/hostile/clown/lube)
+		var/moblist = list(/mob/living/simple_animal/hostile/clown/banana, /mob/living/simple_animal/hostile/clown/mutant, /mob/living/simple_animal/hostile/clown/fleshclown, /mob/living/simple_animal/hostile/clown/longface, /mob/living/simple_animal/hostile/clown/honkling, /mob/living/simple_animal/hostile/clown/lube)
 		var/spawnedmob = pick(moblist)
 		new spawnedmob(glutton_turf)
 		glutton.biomass -= 75
@@ -592,9 +670,9 @@
 		to_chat(glutton, "<span class ='notice'>Недостаточно плоти!</span>")
 		return FALSE
 	else
-		playsound(glutton, 'sound/magic/demon_attack1.ogg', 100, TRUE)
+		playsound(glutton, 'sound/effects/splat.ogg', 100, TRUE)
 		to_chat(glutton, "<span class='notice'>Создаю из собранной плоти сильного клоуна!</span>")
-		var/moblist = list(/mob/living/simple_animal/hostile/clown/clownhulk, /mob/living/simple_animal/hostile/clown/clownhulk/chlown, /mob/living/simple_animal/hostile/clown/mutant, /mob/living/simple_animal/hostile/clown/clownhulk/honcmunculus)
+		var/moblist = list(/mob/living/simple_animal/hostile/clown/clownhulk,  /mob/living/simple_animal/hostile/clown/infestor,  /mob/living/simple_animal/hostile/clown/clownhulk/chlown, /mob/living/simple_animal/hostile/clown/clownhulk/honcmunculus)
 		var/spawnedmob = pick(moblist)
 		new spawnedmob(glutton_turf)
 		glutton.biomass -= 200
@@ -657,7 +735,6 @@
 	if(is_type_in_typecache(U, blacklisted_turfs))
 		qdel(src)
 		return FALSE
-
 	for(var/turf/T in U.GetAtmosAdjacentTurfs())
 		if(locate(/obj/structure/clownweeds/) in T)
 			continue
@@ -666,6 +743,12 @@
 			continue
 
 		new /obj/structure/clownweeds/(T)
+		for (var/turf/V in range(1,T))
+			if(istype(V, /turf/closed/wall))
+				new /obj/structure/alien/resin/wall/clown/(V)
+				qdel(V)
+				V = new /turf/open/floor/plating(V)
+
 	return TRUE
 
 /obj/structure/clownweeds/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
@@ -739,3 +822,12 @@
 
 
 
+/obj/structure/alien/resin/wall/clown
+	name = "Кожистая стена"
+	desc = "Эта стена покрыта кожей."
+	icon = 'icons/obj/smooth_structures/alien/clownwall.dmi'
+	icon_state = "resin_wall-0"
+	base_icon_state = "resin_wall"
+	resintype = "wall"
+	smoothing_groups = list(SMOOTH_GROUP_ALIEN_RESIN, SMOOTH_GROUP_ALIEN_WALLS)
+	canSmoothWith = list(SMOOTH_GROUP_ALIEN_WALLS)
