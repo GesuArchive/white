@@ -15,6 +15,15 @@
 /obj/item/implant/exile/removed(mob/living/target, silent = FALSE, special = FALSE)
 	. = ..()
 	ADD_TRAIT(target, TRAIT_PACIFISM, "sosi")
+	for(var/mob/living/carbon/human/H in view(1, get_turf(target)))
+		H.adjustBruteLoss(49)
+		H.adjustFireLoss(49)
+		for(var/_limb in H.bodyparts)
+			var/obj/item/bodypart/limb = _limb
+			var/type_wound = pick(list(/datum/wound/blunt/critical, /datum/wound/blunt/severe, /datum/wound/blunt/critical, /datum/wound/blunt/severe, /datum/wound/blunt/moderate))
+			limb.force_wound_upwards(type_wound, smited = TRUE)
+	target.visible_message("<span class='danger'>Имплант разрывается и испускает гигансткое облако из наном~- <big>ААААААААААААААААААААААААА!!!</big></span>", \
+		"<span class='userdanger'>$*$(*@%@!^&за мир во всём мире!</span>", vision_distance = 2)
 
 ///Used to help the staff of the space hotel resist the urge to use the space hotel's incredibly alluring roundstart teleporter to ignore their flavor/greeting text and come to the station.
 /obj/item/implant/exile/noteleport
