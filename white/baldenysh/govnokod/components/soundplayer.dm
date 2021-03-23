@@ -138,14 +138,13 @@
 	var/turf/MT = get_turf(myplayer.soundsource)
 	var/dist = cheap_hypotenuse(TT.x, TT.y, MT.x, MT.y)
 	if(dist <= myplayer.playing_range && TT.z == MT.z)
+		if(myplayer.environmental && MT && TT)
+			S.volume = myplayer.playing_volume - max(dist * 6, 0)
+		else
+			S.volume = myplayer.playing_volume
 		S.falloff = myplayer.playing_falloff
 		S.environment = myplayer.env_id
 	else
 		S.volume = 0
-
-	if(myplayer.environmental && MT && TT)
-		S.volume = myplayer.playing_volume - max(dist * 6, 0)
-	else
-		S.volume = myplayer.playing_volume
 	SEND_SOUND(listener, S)
 	S.volume = 0
