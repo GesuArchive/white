@@ -139,7 +139,7 @@
 	var/dist = cheap_hypotenuse(TT.x, TT.y, MT.x, MT.y)
 	if(dist <= myplayer.playing_range && TT.z == MT.z)
 		if(myplayer.environmental && MT && TT)
-			S.volume = myplayer.playing_volume - max(dist * round(playing_range/8), 0)
+			S.volume = myplayer.playing_volume - max(dist * round(myplayer.playing_range/8), 0)
 		else
 			S.volume = myplayer.playing_volume
 		S.falloff = myplayer.playing_falloff
