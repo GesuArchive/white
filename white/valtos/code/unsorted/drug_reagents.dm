@@ -39,16 +39,6 @@
 			H.emote("poo")
 	return ..()
 
-/datum/reagent/drug/nicotine
-	description = "Немного увеличивает регенерацию выносливости и уменьшает чувство голода. При передозировке он нанесет вред токсинам и кислороду."
-
-/datum/reagent/drug/nicotine/on_mob_life(mob/living/M)
-	if(prob(1))
-		var/smoke_message = pick("Я чувствую себя расслабленно.", "Я чувствую себя спокойно.","Я чувствую бдительность.","Я чувствую себя грубо.")
-		to_chat(M, "<span class='notice'>[smoke_message]</span>")
-	M.adjustStaminaLoss(-0.5*REM, 0)
-	return FINISHONMOBLIFE(M)
-
 /datum/reagent/drug/crank/on_mob_life(mob/living/M)
 	var/high_message = pick("You feel jittery.", "You feel like you gotta go fast.", "You feel like you need to step it up.")
 	if(prob(5))

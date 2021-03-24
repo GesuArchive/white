@@ -102,6 +102,10 @@
 						qdel(src)
 				return
 			if(P.tool_behaviour == TOOL_WRENCH)
+				var/turf/ground = get_turf(src)
+				if(!anchored && ground.is_blocked_turf(exclude_mobs = TRUE, source_atom = src))
+					to_chat(user, "<span class='notice'>Не вышло крутить [src.name]?</span>")
+					return
 				to_chat(user, "<span class='notice'>Начинаю [anchored ? "от" : "при"]кручивать [src.name]...</span>")
 				if(P.use_tool(src, user, 40, volume=75))
 					if(state == 1)
