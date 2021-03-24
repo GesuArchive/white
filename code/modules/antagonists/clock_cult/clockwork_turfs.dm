@@ -37,6 +37,12 @@
 /turf/closed/wall/clockwork
 	name = "clockwork wall"
 	desc = "A huge chunk of warm metal. The clanging of machinery emanates from within."
+	icon_state = "clockwork_wall"
+	base_icon_state = "clockwork_wall-0"
+	icon = 'icons/turf/walls/clockwork_wall.dmi'
+	smoothing_flags = SMOOTH_CORNERS
+	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_SILVER_WALLS)
+	canSmoothWith = list(SMOOTH_GROUP_SILVER_WALLS)
 	explosion_block = 2
 	hardness = 10
 	slicing_duration = 80
@@ -303,6 +309,7 @@
 
 /obj/structure/lattice/catwalk/clockwork
 	name = "clockwork catwalk"
+	icon_state = "catwalk"
 	icon = 'icons/obj/smooth_structures/catwalk_clockwork.dmi'
 	smoothing_groups = list(SMOOTH_GROUP_LATTICE, SMOOTH_GROUP_CATWALK, SMOOTH_GROUP_OPEN_FLOOR)
 	canSmoothWith = list(SMOOTH_GROUP_CATWALK)
@@ -468,7 +475,6 @@
 //=================================================
 
 /obj/structure/grille/ratvar
-	icon_state = "ratvargrille"
 	name = "cog grille"
 	desc = "A strangely-shaped grille."
 
@@ -545,7 +551,8 @@
 	anchored = FALSE
 
 /obj/structure/window/reinforced/clockwork/fulltile
-	icon_state = "clockwork_window"
+	base_icon_state = "clockwork_window"
+	icon_state = "clockwork_window-0"
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WINDOW_FULLTILE)
 	canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE)

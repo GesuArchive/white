@@ -83,8 +83,8 @@
 	name = "бронзовая стена"
 	desc = "Крупная бронзовая стена. Её украшивают также и бронзовые шестерни."
 	icon = 'icons/turf/walls/clockwork_wall.dmi'
-	icon_state = "clockwork_wall-0"
-	base_icon_state = "clockwork_wall"
+	icon_state = "clockwork_wall"
+	base_icon_state = "clockwork_wall-0"
 	smoothing_flags = SMOOTH_CORNERS
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_SILVER_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_SILVER_WALLS)
