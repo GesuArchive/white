@@ -51,7 +51,7 @@
 	desc = "Used by the servants of Ratvar to conduct operations on Nanotrasen property."
 	icon_screen = "ratvar1"
 	icon_keyboard = "ratvar_key1"
-	icon_state = "ratvarcomputer"
+	icon_state = "computer"
 	lock_override = CAMERA_LOCK_STATION
 	var/datum/action/innate/clockcult/warp/warp_action
 
