@@ -69,7 +69,7 @@
 	mybag.forceMove(get_turf(user))
 	user.put_in_hands(mybag)
 	mybag = null
-	update_appearance()
+	update_icon()
 
 /obj/vehicle/ridden/janicart/upgraded
 	floorbuffer = TRUE

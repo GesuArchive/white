@@ -179,7 +179,6 @@
 		internal_tank = new (src)
 		RegisterSignal(src, COMSIG_MOVABLE_PRE_MOVE , .proc/disconnect_air)
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/play_stepsound)
-	RegisterSignal(src, COMSIG_LIGHT_EATER_ACT, .proc/on_light_eater)
 
 	spark_system.set_up(2, 0, src)
 	spark_system.attach(src)
@@ -1057,7 +1056,7 @@
 			ejector.reset_perspective()
 			remove_occupant(ejector)
 		mmi.set_mecha(null)
-		mmi.update_appearance()
+		mmi.update_icon()
 	setDir(dir_in)
 	return ..()
 

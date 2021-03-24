@@ -447,5 +447,3 @@
 		teamsize--
 
 	return TRUE
-
-#undef ERT_EXPERIENCED_LEADER_CHOOSE_TOP

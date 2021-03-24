@@ -20,7 +20,7 @@
 		preview += item
 	images += preview
 	if(alert(src,"Confirm location.","Template Confirm","Yes","No") == "Yes")
-		if(template.load(T, centered = center))
+		if(template.load(T, centered = TRUE))
 			var/affected = template.get_affected_turfs(T, centered=TRUE)
 			for(var/AT in affected)
 				for(var/obj/docking_port/mobile/P in AT)
