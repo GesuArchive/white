@@ -57,7 +57,6 @@ export const ClockworkSlab = (props, context) => {
           <div className="ClockSlab__stats">
             <Section
               height="100%"
-              scrollable
               overflowY="scroll">
               <ClockworkOverview />
             </Section>
@@ -65,7 +64,6 @@ export const ClockworkSlab = (props, context) => {
           <div className="ClockSlab__current">
             <Section
               height="100%"
-              scrollable
               overflowY="scroll"
               title="Servants of the Cog vol.1">
               <ClockworkHelp />
@@ -396,7 +394,7 @@ export const ClockworkOverviewStat = (props, context) => {
     overrideText,
   } = props;
   return (
-    <Box height="22px" fontSize="16px">
+    <Box height="32px" fontSize="16px">
       <Grid>
         <Grid.Column>
           <Icon name={iconName} rotation={0} spin={0} />

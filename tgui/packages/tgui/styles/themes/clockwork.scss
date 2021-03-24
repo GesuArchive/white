@@ -2,10 +2,10 @@
 @use 'sass:meta';
 
 @use '../colors.scss' with (
-  $good: #CFBA47,
-  $primary: #B18B25,
-  $average: #896B19,
-  $bad: #5F380E,
+  $good: #ffdc17,
+  $primary: #ffc832,
+  $average: #ffedbc,
+  $bad: #ffe5c9,
 );
 @use '../base.scss' with (
   $color-bg: #5F380E,
