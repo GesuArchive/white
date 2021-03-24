@@ -3,7 +3,7 @@
 
 	var/sound/cursound
 	var/active = FALSE
-	var/playing_range = 15
+	var/playing_range = 32
 	var/list/listener_comps = list()
 
 	var/environmental = TRUE
@@ -139,7 +139,7 @@
 	var/dist = cheap_hypotenuse(TT.x, TT.y, MT.x, MT.y)
 	if(dist <= myplayer.playing_range && TT.z == MT.z)
 		if(myplayer.environmental && MT && TT)
-			S.volume = myplayer.playing_volume - max(dist * 6, 0)
+			S.volume = myplayer.playing_volume - max(dist * round(playing_range/8), 0)
 		else
 			S.volume = myplayer.playing_volume
 		S.falloff = myplayer.playing_falloff
