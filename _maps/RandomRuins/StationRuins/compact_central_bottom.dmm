@@ -725,6 +725,9 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
+"un" = (
+/turf/closed/wall,
+/area/maintenance/bottom_station_maints/north)
 "uF" = (
 /obj/machinery/firealarm{
 	dir = 4;
@@ -3187,8 +3190,8 @@ ab
 ab
 ab
 ab
-YS
-Ws
+ng
+un
 ng
 ng
 ng
@@ -3225,8 +3228,8 @@ ab
 ab
 ab
 ab
-YS
-Ws
+ng
+un
 ng
 ng
 ng
@@ -3263,8 +3266,8 @@ ab
 ab
 ab
 ab
-YS
-Ws
+ng
+un
 ng
 ng
 ng
