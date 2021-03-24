@@ -436,6 +436,15 @@
 	item_chair = null
 	var/turns = 0
 
+/obj/structure/chair/bronze/relaymove(mob/user, direction)
+	if(!direction)
+		return FALSE
+	if(direction == dir)
+		return
+	setDir(direction)
+	playsound(src, 'sound/effects/servostep.ogg', 50, FALSE)
+	return FALSE
+
 /obj/structure/chair/bronze/Destroy()
 	STOP_PROCESSING(SSfastprocess, src)
 	. = ..()

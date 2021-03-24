@@ -465,6 +465,11 @@ update_label()
 	access = list(ACCESS_MAINT_TUNNELS, ACCESS_SYNDICATE, ACCESS_SYNDICATE_LEADER)
 	sticky_access = list(ACCESS_SYNDICATE, ACCESS_SYNDICATE_LEADER)
 
+/obj/item/card/id/syndicate/ratvar
+	name = "servant ID card"
+	icon_state = "ratvar"
+	access = list(ACCESS_CLOCKCULT, ACCESS_MAINT_TUNNELS)
+
 /obj/item/card/id/syndicate_command
 	name = "ID-карта синдиката"
 	id_type_name = "ID-карта синдиката"

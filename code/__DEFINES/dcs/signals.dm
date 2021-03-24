@@ -129,6 +129,10 @@
 #define COMSIG_ATOM_RAD_ACT "atom_rad_act"
 ///from base of atom/narsie_act(): ()
 #define COMSIG_ATOM_NARSIE_ACT "atom_narsie_act"
+//from base of atom/ratvar_act(): ()
+#define COMSIG_ATOM_RATVAR_ACT "atom_ratvar_act"
+//from base of atom/eminence_act(): ()
+#define COMSIG_ATOM_EMINENCE_ACT "atom_eminence_act"
 ///from base of atom/rcd_act(): (/mob, /obj/item/construction/rcd, passed_mode)
 #define COMSIG_ATOM_RCD_ACT "atom_rcd_act"
 ///from base of atom/singularity_pull(): (/datum/component/singularity, current_size)
@@ -961,6 +965,9 @@
 // /datum/component/swabbing signals
 #define COMSIG_SWAB_FOR_SAMPLES "swab_for_samples"						///Called when you try to swab something using the swabable component, includes a mutable list of what has been swabbed so far so it can be modified.
 	#define COMPONENT_SWAB_FOUND (1<<0)
+
+// /datum/component/clockwork_trap signals
+#define COMSIG_CLOCKWORK_SIGNAL_RECEIVED "clock_recieved"			//! When anything the trap is attatched to is triggered
 
 // /datum/component/two_handed signals
 
