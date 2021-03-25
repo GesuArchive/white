@@ -71,6 +71,8 @@
 			continue
 		if(!L.toxloss && !L.staminaloss && !L.bruteloss && !L.fireloss)
 			continue
+		if(!L?.reagents?.reagent_list)
+			continue
 		if(use_power(2))
 			L.adjustToxLoss(-10)
 			L.adjustStaminaLoss(-10)

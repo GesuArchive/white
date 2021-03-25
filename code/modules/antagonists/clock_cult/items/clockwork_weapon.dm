@@ -115,9 +115,11 @@
 	if (chambered)
 		chambered = null
 		to_chat(user, "<span class='notice'>You dispell the arrow.</span>")
+		drawn = FALSE
 	else if (get_ammo())
 		var/obj/item/I = user.get_active_held_item()
 		if (do_mob(user,I,5))
+			drawn = TRUE
 			to_chat(user, "<span class='notice'>You draw back the bowstring.</span>")
 			playsound(src, 'sound/weapons/bowdraw.ogg', 75, 0) //gets way too high pitched if the freq varies
 			chamber_round()
@@ -130,7 +132,7 @@
 	magazine.give_round(CB)
 	update_icon()
 
-/obj/item/gun/ballistic/bow/clockbolt/attackby(obj/item/I, mob/user, params)
+/obj/item/gun/ballistic/bow/clockwork/attackby(obj/item/I, mob/user, params)
 	return
 
 /obj/item/ammo_box/magazine/internal/bow/clockcult

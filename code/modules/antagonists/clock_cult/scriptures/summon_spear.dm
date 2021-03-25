@@ -24,7 +24,7 @@
 	var/obj/item_to_retrieve = marked_item
 	var/infinite_recursion = 0
 
-	if(item_to_retrieve.loc)
+	if(item_to_retrieve?.loc)
 		while(!isturf(item_to_retrieve.loc) && infinite_recursion < 10) //if it's in something you get the whole thing.
 			if(isitem(item_to_retrieve.loc))
 				var/obj/item/I = item_to_retrieve.loc

@@ -1,6 +1,6 @@
 
 /obj/item/gun/ballistic/bow
-	name = "lдлинный лук"
+	name = "длинный лук"
 	desc = "Не смотря на хорошее качество вы, наверняка, найдете что-то более подходящее для современных реалий."
 	icon = 'icons/obj/guns/projectile.dmi'
 	icon_state = "bow"

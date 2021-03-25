@@ -38,8 +38,6 @@
 		var/list/mob/dead/observer/candidates = pollGhostCandidates("Do you want to play as the eminence?", ROLE_SERVANT_OF_RATVAR, null, null, 100, POLL_IGNORE_PYROSLIME)
 		if(LAZYLEN(candidates))
 			eminence = pick(candidates)
-	else
-		qdel(eminence)
 	if(!(eminence?.client))
 		hierophant_message("The Eminence remains in slumber, for now, try waking it again soon.")
 		used = FALSE
