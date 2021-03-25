@@ -655,7 +655,7 @@
 	var/turf/open/T = get_turf(our_tray)
 	if(T.air)
 		var/co2 = T.air.get_moles(/datum/gas/carbon_dioxide)
-		var/amt = min(co2, 9)
+		var/amt = max(co2, 9)
 		T.air.adjust_moles(/datum/gas/carbon_dioxide, -amt)
 		T.air.adjust_moles(/datum/gas/oxygen, amt * 2)
 
@@ -666,7 +666,7 @@
 	var/turf/open/T = get_turf(our_tray)
 	if(T.air)
 		var/oxy = T.air.get_moles(/datum/gas/oxygen)
-		var/amt = min(oxy, 9)
+		var/amt = max(oxy, 9)
 		T.air.adjust_moles(/datum/gas/carbon_dioxide, amt * 2)
 		T.air.adjust_moles(/datum/gas/oxygen, -amt)
 
