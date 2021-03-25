@@ -177,15 +177,15 @@ GLOBAL_LIST_EMPTY(station_turfs)
  * Arguments:
  * * exclude_mobs - If TRUE, ignores dense mobs on the turf.
  * * source_atom - If this is not null, will check whether any contents on the turf can block this atom specifically. Also ignores itself on the turf.
- * * excluded_objects - Check will ignore any atoms in this list. Useful to prevent an atom from blocking itself on the turf.
+ * * ignore_atoms - Check will ignore any atoms in this list. Useful to prevent an atom from blocking itself on the turf.
  */
-/turf/proc/is_blocked_turf(exclude_mobs = FALSE, source_atom = null, list/excluded_objects)
+/turf/proc/is_blocked_turf(exclude_mobs = FALSE, source_atom = null, list/ignore_atoms)
 	if(density)
 		return TRUE
 
 	for(var/content in contents)
 		// We don't want to block ourselves or consider any ignored atoms.
-		if((content == source_atom) || (content in excluded_objects))
+		if((content == source_atom) || (content in ignore_atoms))
 			continue
 		var/atom/atom_content = content
 		// If the thing is dense AND we're including mobs or the thing isn't a mob AND if there's a source atom and

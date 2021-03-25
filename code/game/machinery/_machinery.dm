@@ -335,38 +335,51 @@
 	if((machine_stat & (NOPOWER|BROKEN)) && !(interaction_flags_machine & INTERACT_MACHINE_OFFLINE)) // Check if the machine is broken, and if we can still interact with it if so
 		return FALSE
 
-	var/silicon = issilicon(user)
-	if(panel_open && !(interaction_flags_machine & INTERACT_MACHINE_OPEN)) // Check if we can interact with an open panel machine, if the panel is open
-		if(!silicon || !(interaction_flags_machine & INTERACT_MACHINE_OPEN_SILICON))
-			return FALSE
+	if(isAdminGhostAI(user))
+		return TRUE //if you're an admin, you probably know what you're doing (or at least have permission to do what you're doing)
 
-	if(silicon || isAdminGhostAI(user)) // If we are an AI or adminghsot, make sure the machine allows silicons to interact
+	if(!isliving(user))
+		return FALSE //no ghosts in the machine allowed, sorry
+
+	var/mob/living/living_user = user
+
+	var/is_dextrous = FALSE
+	if(isanimal(user))
+		var/mob/living/simple_animal/user_as_animal = user
+		if (user_as_animal.dextrous)
+			is_dextrous = TRUE
+
+	if(!issilicon(user) && !is_dextrous && !user.can_hold_items())
+		return FALSE //spiders gtfo
+
+	if(issilicon(user)) // If we are a silicon, make sure the machine allows silicons to interact with it
 		if(!(interaction_flags_machine & INTERACT_MACHINE_ALLOW_SILICON))
 			return FALSE
 
-	else if(isliving(user)) // If we are a living human
-		var/mob/living/L = user
-
-		if(interaction_flags_machine & INTERACT_MACHINE_REQUIRES_SILICON) // First make sure the machine doesn't require silicon interaction
+		if(panel_open && !(interaction_flags_machine & INTERACT_MACHINE_OPEN) && !(interaction_flags_machine & INTERACT_MACHINE_OPEN_SILICON))
 			return FALSE
 
-		if(interaction_flags_machine & INTERACT_MACHINE_REQUIRES_SIGHT)
-			if(user.is_blind())
-				to_chat(user, "<span class='warning'>This machine requires sight to use.</span>")
-				return FALSE
+		return TRUE //silicons don't care about petty mortal concerns like needing to be next to a machine to use it
 
-		if(!Adjacent(user)) // Next make sure we are next to the machine unless we have telekinesis
-			var/mob/living/carbon/H = L
-			if(!(istype(H) && H.has_dna() && H.dna.check_mutation(TK)))
-				return FALSE
-
-		if(L.incapacitated()) // Finally make sure we aren't incapacitated
-			return FALSE
-
-	else // If we aren't a silicon, living, or admin ghost, bad!
+	if(living_user.incapacitated()) //idk why silicons aren't supposed to care about incapacitation when interacting with machines, but it was apparently like this before
 		return FALSE
 
-	return TRUE // If we pass all these checks, woohoo! We can interact
+	if((interaction_flags_machine & INTERACT_MACHINE_REQUIRES_SIGHT) && user.is_blind())
+		to_chat(user, "<span class='warning'>This machine requires sight to use.</span>")
+		return FALSE
+
+	if(panel_open && !(interaction_flags_machine & INTERACT_MACHINE_OPEN))
+		return FALSE
+
+	if(interaction_flags_machine & INTERACT_MACHINE_REQUIRES_SILICON) //if the user was a silicon, we'd have returned out earlier, so the user must not be a silicon
+		return FALSE
+
+	if(!Adjacent(user)) // Next make sure we are next to the machine unless we have telekinesis
+		var/mob/living/carbon/carbon_user = living_user
+		if(!istype(carbon_user) || !carbon_user.has_dna() || !carbon_user.dna.check_mutation(TK))
+			return FALSE
+
+	return TRUE // If we passed all of those checks, woohoo! We can interact with this machine.
 
 /obj/machinery/proc/check_nap_violations()
 	if(!SSeconomy.full_ancap)
@@ -479,9 +492,9 @@
 		visible_message("<span class='notice'>[usr] pries open <b>[src.name]</b>.</span>", "<span class='notice'>You pry open <b>[src.name]</b>.</span>")
 		open_machine()
 
-/obj/machinery/proc/default_deconstruction_crowbar(obj/item/I, ignore_panel = 0)
+/obj/machinery/proc/default_deconstruction_crowbar(obj/item/I, ignore_panel = 0, custom_deconstruct = FALSE)
 	. = (panel_open || ignore_panel) && !(flags_1 & NODECONSTRUCT_1) && I.tool_behaviour == TOOL_CROWBAR
-	if(.)
+	if(. && !custom_deconstruct)
 		I.play_tool_sound(src, 50)
 		deconstruct(TRUE)
 
@@ -495,15 +508,34 @@
 			LAZYCLEARLIST(component_parts)
 	return ..()
 
+/**
+ * Spawns a frame where this machine is. If the machine was not disassmbled, the
+ * frame is spawned damaged. If the frame couldn't exist on this turf, it's smashed
+ * down to metal sheets.
+ *
+ * Arguments:
+ * * disassembled - If FALSE, the machine was destroyed instead of disassembled and the frame spawns at reduced integrity.
+ */
 /obj/machinery/proc/spawn_frame(disassembled)
-	var/obj/structure/frame/machine/M = new /obj/structure/frame/machine(loc)
-	. = M
-	M.set_anchored(anchored)
+	var/obj/structure/frame/machine/new_frame = new /obj/structure/frame/machine(loc)
+
+	new_frame.state = 2
+
+	// If the new frame shouldn't be able to fit here due to the turf being blocked, spawn the frame deconstructed.
+	if(isturf(loc))
+		var/turf/machine_turf = loc
+		// We're spawning a frame before this machine is qdeleted, so we want to ignore it. We've also just spawned a new frame, so ignore that too.
+		if(machine_turf.is_blocked_turf(TRUE, source_atom = new_frame, ignore_atoms = list(src)))
+			new_frame.deconstruct(disassembled)
+			return
+
+	new_frame.icon_state = "box_1"
+	. = new_frame
+	new_frame.set_anchored(anchored)
 	if(!disassembled)
-		M.obj_integrity = M.max_integrity * 0.5 //the frame is already half broken
-	transfer_fingerprints_to(M)
-	M.state = 2
-	M.icon_state = "box_1"
+		new_frame.obj_integrity = new_frame.max_integrity * 0.5 //the frame is already half broken
+	transfer_fingerprints_to(new_frame)
+
 
 /obj/machinery/obj_break(damage_flag)
 	SHOULD_CALL_PARENT(TRUE)
@@ -515,7 +547,16 @@
 		return TRUE
 
 /obj/machinery/contents_explosion(severity, target)
-	occupant?.ex_act(severity, target)
+	if(!occupant)
+		return
+
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			SSexplosions.high_mov_atom += occupant
+		if(EXPLODE_HEAVY)
+			SSexplosions.med_mov_atom += occupant
+		if(EXPLODE_LIGHT)
+			SSexplosions.low_mov_atom += occupant
 
 /obj/machinery/handle_atom_del(atom/A)
 	if(A == occupant)
@@ -564,10 +605,7 @@
 /obj/proc/default_unfasten_wrench(mob/user, obj/item/I, time = 20) //try to unwrench an object in a WONDERFUL DYNAMIC WAY
 	if(!(flags_1 & NODECONSTRUCT_1) && I.tool_behaviour == TOOL_WRENCH)
 		var/turf/ground = get_turf(src)
-		var/list/excluded_objects = list(type)
-		if(anchorables)
-			excluded_objects += anchorables
-		if(!anchored && ground.is_blocked_turf(exclude_mobs = TRUE, excluded_objects = excluded_objects))
+		if(!anchored && ground.is_blocked_turf(exclude_mobs = TRUE, source_atom = src))
 			to_chat(user, "<span class='notice'>Не вышло прикрутить <b>[src.name]</b>.</span>")
 			return CANT_UNFASTEN
 		var/can_be_unfasten = can_be_unfasten_wrench(user)
@@ -579,7 +617,7 @@
 		var/prev_anchored = anchored
 		//as long as we're the same anchored state and we're either on a floor or are anchored, toggle our anchored state
 		if(I.use_tool(src, user, time, extra_checks = CALLBACK(src, .proc/unfasten_wrench_check, prev_anchored, user)))
-			if(!anchored && ground.is_blocked_turf(exclude_mobs = TRUE, excluded_objects = excluded_objects))//i know what you tryin to sneak in
+			if(!anchored && ground.is_blocked_turf(exclude_mobs = TRUE, source_atom = src))
 				to_chat(user, "<span class='notice'>Не вышло прикрутить <b>[src.name]</b>.</span>")
 				return CANT_UNFASTEN
 			to_chat(user, "<span class='notice'>[anchored ? "От" : "При"]кручиваю <b>[src.name]</b>.</span>")
@@ -706,7 +744,7 @@
 		circuit = null
 
 /obj/machinery/proc/adjust_item_drop_location(atom/movable/AM)	// Adjust item drop location to a 3x3 grid inside the tile, returns slot id from 0 to 8
-	var/md5 = md5(AM.name)										// Oh, and it's deterministic too. A specific item will always drop from the same slot.
+	var/md5 = md5(AM.name)								// Oh, and it's deterministic too. A specific item will always drop from the same slot.
 	for (var/i in 1 to 32)
 		. += hex2num(md5[i])
 	. = . % 9
