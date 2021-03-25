@@ -34,12 +34,16 @@
 	shoes = /obj/item/clothing/shoes/sneakers/orange
 	id = /obj/item/card/id/prisoner
 
+	implants = list(/obj/item/implant/exile)
+
 /datum/outfit/scp_scientist
 	name = "SCP: Scientist"
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/wzzzz/morpheus
 	suit = /obj/item/clothing/suit/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	id = /obj/item/card/id/ert/security
+
+	implants = list(/obj/item/implant/exile)
 
 /obj/effect/mob_spawn/human/prison/prisoner/dclass/special(mob/living/L)
 	var/list/klikuhi = list("Борзый", "Дохляк", "Академик", "Акула", "Базарило", "Бродяга", "Валет", "Воровайка", "Гнедой", \
