@@ -14,7 +14,7 @@
 	growthstages = 3
 	growing_icon = 'icons/obj/hydroponics/growing_mushrooms.dmi'
 	icon_dead = "towercap-dead"
-	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism)
+	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/oxygenerator)
 	mutatelist = list(/obj/item/seeds/tower/steel)
 	reagents_add = list(/datum/reagent/cellulose = 0.05)
 	graft_gene = /datum/plant_gene/trait/plant_type/fungal_metabolism
@@ -26,6 +26,7 @@
 	species = "steelcap"
 	plantname = "Steel Caps"
 	product = /obj/item/grown/log/steel
+	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/cogenerator)
 	mutatelist = list()
 	reagents_add = list(/datum/reagent/cellulose = 0.05, /datum/reagent/iron = 0.05)
 	rarity = 20
@@ -118,7 +119,7 @@
 	growthstages = 2
 	growing_icon = 'icons/obj/hydroponics/growing.dmi'
 	icon_dead = "bamboo-dead"
-	genes = list(/datum/plant_gene/trait/repeated_harvest)
+	genes = list(/datum/plant_gene/trait/repeated_harvest, /datum/plant_gene/trait/oxygenerator)
 
 /obj/item/grown/log/bamboo
 	seed = /obj/item/seeds/bamboo

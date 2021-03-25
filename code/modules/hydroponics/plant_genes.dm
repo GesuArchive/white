@@ -648,6 +648,28 @@
 /datum/plant_gene/trait/plant_type/carnivory
 	name = "Obligate Carnivory"
 
+/datum/plant_gene/trait/oxygenerator
+	name = "Генерация кислорода"
+
+/datum/plant_gene/trait/oxygenerator/on_grow(obj/machinery/hydroponics/our_tray)
+	var/turf/open/T = get_turf(our_tray)
+	if(T.air)
+		var/co2 = T.air.get_moles(/datum/gas/carbon_dioxide)
+		var/amt = min(co2, 9)
+		T.air.adjust_moles(/datum/gas/carbon_dioxide, -amt)
+		T.air.adjust_moles(/datum/gas/oxygen, amt * 2)
+
+/datum/plant_gene/trait/cogenerator
+	name = "Генерация углекислого газа"
+
+/datum/plant_gene/trait/cogenerator/on_grow(obj/machinery/hydroponics/our_tray)
+	var/turf/open/T = get_turf(our_tray)
+	if(T.air)
+		var/oxy = T.air.get_moles(/datum/gas/oxygen)
+		var/amt = min(oxy, 9)
+		T.air.adjust_moles(/datum/gas/carbon_dioxide, amt * 2)
+		T.air.adjust_moles(/datum/gas/oxygen, -amt)
+
 #undef GLOW_ID
 #undef PLANT_TYPE_ID
 #undef TEMP_CHANGE_ID
