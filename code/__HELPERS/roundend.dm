@@ -537,7 +537,7 @@
 	for(var/venue_path in SSrestaurant.all_venues)
 		var/datum/venue/venue = SSrestaurant.all_venues[venue_path]
 		tourist_income += venue.total_income
-		parts += "[capitalize(venue)] обслужил [venue.customers_served] посетителей и получил [venue.total_income] кредитов в виде выручки.<br>"
+		parts += "[capitalize(venue.name)] обслужил [venue.customers_served] посетителей и получил [venue.total_income] кредитов в виде выручки.<br>"
 	parts += "В сумме они заработали [tourist_income] кредитов[tourist_income ? "!" : "..."]<br>"
 	log_econ("Roundend service income: [tourist_income] credits.")
 	switch(tourist_income)

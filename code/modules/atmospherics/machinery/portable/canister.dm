@@ -359,7 +359,7 @@
 		. += "can-open"
 	if(connected_port)
 		. += "can-connector"
-	var/pressure = air_contents.return_pressure()
+	var/pressure = air_contents?.return_pressure()
 	if(pressure >= 40 * ONE_ATMOSPHERE)
 		. += "can-3"
 	else if(pressure >= 10 * ONE_ATMOSPHERE)
