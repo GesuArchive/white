@@ -3512,17 +3512,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
-"akg" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/maintenance/starboard/fore)
 "aki" = (
 /turf/open/floor/plasteel/white/corner,
 /area/hallway/secondary/entry)
@@ -4569,15 +4558,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/checkpoint)
-"amy" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
-/turf/open/floor/plating,
-/area/maintenance/starboard/fore)
-"amz" = (
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/maintenance/starboard/fore)
 "amA" = (
 /obj/structure/girder,
 /obj/effect/decal/cleanable/dirt,
@@ -5979,37 +5959,6 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/lootdrop/gross_decal_spawner,
-/turf/open/floor/plating,
-/area/maintenance/disposal)
-"apC" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/machinery/conveyor{
-	dir = 5;
-	id = "garbage"
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 9
-	},
-/obj/effect/turf_decal/stripes/corner,
-/turf/open/floor/plating,
-/area/maintenance/disposal)
-"apD" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "garbage"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 10
-	},
-/obj/structure/sign/warning/vacuum{
-	pixel_y = 32
-	},
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
 /turf/open/floor/plating,
 /area/maintenance/disposal)
 "apE" = (
@@ -11198,6 +11147,20 @@
 	},
 /turf/open/floor/plasteel,
 /area/maintenance/port/fore)
+"aBu" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/camera{
+	c_tag = "Central Hallway - Security Hallway";
+	dir = 4;
+	name = "hallway camera"
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/hallway/primary/central/fore)
 "aBw" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -63591,7 +63554,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+/obj/effect/turf_decal/tile/brown{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -75940,7 +75903,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/neutral{
-	dir = 8
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -93334,7 +93297,10 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/neutral{
+/obj/item/kirbyplants{
+	icon_state = "plant-22"
+	},
+/obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -94103,8 +94069,9 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
+/obj/structure/sign/directions/security{
+	dir = 4;
+	pixel_y = 8
 	},
 /turf/open/floor/plasteel,
 /area/medical/morgue)
@@ -97044,7 +97011,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/effect/turf_decal/stripes/line{
+/obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -98732,9 +98699,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
 	},
@@ -103928,11 +103893,10 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/neutral{
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
@@ -155427,7 +155391,7 @@ aad
 aad
 aaO
 ajD
-hxG
+pXn
 akP
 akP
 amu
@@ -155686,12 +155650,12 @@ abf
 ajG
 ajY
 akP
-alz
+fnN
 amv
 anv
 aor
 app
-aqr
+rWt
 akP
 arS
 atp
@@ -156203,9 +156167,9 @@ akR
 alB
 amx
 anx
-aot
+ghg
 apr
-aqt
+wnz
 akP
 arU
 atr
@@ -156455,7 +156419,7 @@ aco
 aiT
 abZ
 ajI
-akk
+ndX
 akP
 akP
 akP
@@ -156709,10 +156673,10 @@ ahz
 adc
 abD
 abD
-aiU
+gsw
 aji
 aju
-akl
+mjG
 aig
 alC
 amy
@@ -157226,14 +157190,14 @@ aiC
 aiC
 aig
 ajK
-akn
+lyr
 aig
-alD
-amA
+oyX
+hVR
 aig
 aig
 aig
-aqw
+hHY
 aig
 aig
 aig
@@ -157479,20 +157443,20 @@ ahu
 ahE
 ahY
 aii
-aiD
-aiV
+vTL
+yic
 aig
 aig
 aig
 aig
-alF
-amB
+sFx
+sUX
 aig
-aow
-apt
-aqx
-apt
-arW
+kiP
+yeL
+iHq
+vsi
+bam
 aig
 auz
 avQ
@@ -157736,20 +157700,20 @@ ahv
 ahF
 abi
 aij
-aiE
-aiW
+tXN
+dQs
 ajj
 ajL
 ako
-akS
-alG
-amC
+rXP
+uTW
+dws
 aig
-aox
-apu
-aqy
-arb
-ter
+nwn
+nls
+vdp
+nZm
+ndK
 aig
 auA
 avW
@@ -157993,20 +157957,20 @@ adR
 adR
 abi
 aik
-aiF
-aiX
+aqv
+vIH
 ajk
 ajM
 akp
-aiX
-alH
-amD
+vIH
+pdB
+iTL
 aig
-aoy
-apv
-aqz
-apu
-arX
+mAX
+nls
+yiN
+nZm
+ndK
 aig
 auB
 avW
@@ -158249,21 +158213,21 @@ aeF
 aeF
 aeF
 abi
-ail
-aiG
-alb
-ail
 aig
-ail
-alb
-ail
+iVJ
 aig
 aig
-aoz
-apw
-aqz
-arc
-arY
+epJ
+aig
+aig
+iXK
+sFR
+aig
+cBF
+jOY
+nls
+nZm
+ndK
 aig
 auB
 avW
@@ -158506,10 +158470,12 @@ aeF
 aeF
 aeF
 abi
-aim
-aiH
+rsU
 aiZ
-ajl
+fyj
+taE
+xtX
+bMT
 aig
 aiC
 akU
@@ -158763,19 +158729,22 @@ aeF
 aeF
 aeF
 abi
-ain
-aiI
-aja
-ajm
-ajN
-aiC
-akV
-alJ
+wfL
+aiZ
+ajp
+pXA
+xtX
+rVC
 aig
-anA
-aoA
-apx
-aqB
+auv
+sFR
+aig
+lJi
+gKC
+jsq
+mwQ
+mMb
+aig
 apw
 arZ
 atv
@@ -159020,21 +158989,13 @@ aeF
 aeF
 aeF
 abi
-aio
-aiI
+rsU
 aiZ
-ajn
-ajO
-akq
-akW
-alK
+ajp
+pXA
+xtX
+nLO
 aig
-anB
-aiC
-apy
-apy
-apu
-gbb
 atw
 auD
 avW
@@ -159518,8 +159479,10 @@ aaa
 aaa
 aaa
 aaa
+aad
+aad
 acf
-acP
+acO
 acf
 aad
 aad
@@ -159528,25 +159491,22 @@ aeF
 aeF
 aeF
 aeF
-aeF
+lTo
 aeF
 aeF
 aeF
 aeF
 abi
-aiq
-aiI
-ajc
+rsU
+aiZ
 ajp
-ajQ
-akq
-akY
-alM
+fpS
+xtX
+lXe
 aig
-anD
-aoC
-aiH
-aqC
+auv
+plV
+apw
 apw
 asb
 atw
@@ -159791,7 +159751,7 @@ aeF
 aeF
 aeF
 abi
-air
+rsU
 aiI
 aiI
 ajp
@@ -160048,23 +160008,13 @@ aeF
 aeF
 aeF
 abi
-ais
+pYY
 aiI
-aiH
-ajq
-aig
-akt
-ala
-alO
-aig
-aig
-aig
-aiJ
-aiJ
-aig
+aiI
+fpS
 aoF
-atx
-auG
+aoF
+aoF
 aoF
 axj
 ayA
@@ -160309,19 +160259,6 @@ aig
 aiJ
 aiJ
 aig
-aig
-aig
-alb
-aig
-aig
-aad
-aad
-abj
-abj
-aad
-aoE
-aty
-auH
 aoF
 aci
 ayB
@@ -160562,23 +160499,10 @@ abi
 abi
 abi
 abi
-aad
-abj
-abj
-aad
-aig
-aku
-alc
-alP
-aig
-aad
-aoE
-aoE
-aoE
-aoF
-aoF
-atz
-auI
+qYo
+vVc
+vVc
+qYo
 aoF
 axl
 ayC
@@ -160819,23 +160743,12 @@ aad
 aaa
 aad
 aad
-aad
-aad
-aad
-aad
-aig
-akv
-ald
-alQ
-aig
-aad
+qYo
+qYo
+qYo
+qYo
 aoE
-apB
-aqD
-are
-asd
-atA
-auJ
+apE
 aoF
 axm
 ayD
@@ -161076,16 +160989,10 @@ aac
 aac
 aac
 aaa
-aad
+qYo
 aaa
 aaa
-aad
-aig
-akw
-ale
-alR
-aig
-aad
+qYo
 aoE
 apC
 aqE
@@ -161333,24 +161240,24 @@ aad
 aad
 abj
 aad
-aad
+qYo
 aaa
 aaa
-aad
-aig
-aig
-aig
-aig
-aig
-aad
-aoF
-apD
-aoF
-aoF
-asf
-atC
-auL
-aoF
+qYo
+aoE
+apE
+aqG
+arg
+asg
+atE
+auM
+aoE
+aaa
+aaa
+qYo
+aaa
+aaa
+jxH
 aad
 aad
 aad
@@ -161594,20 +161501,20 @@ aad
 aaa
 aaa
 aad
-aad
-aad
-aad
-aad
-aad
-aad
-aoE
-apE
-aqF
-arf
-asf
-atD
-auM
 aoF
+apE
+aqH
+arh
+ash
+atF
+auN
+aoE
+aaa
+aaa
+qYo
+aaa
+aaa
+qYo
 aaa
 aaa
 aaa
@@ -161850,21 +161757,21 @@ aad
 aad
 aad
 aac
-aac
 aad
-aaa
-aac
-aac
-aac
-aad
-aoE
-apE
-aqG
-arg
-asg
-atE
-auM
-aoE
+aoF
+apF
+aqI
+ari
+asi
+atG
+auO
+aoF
+qYo
+xTK
+qYo
+xTK
+xTK
+qYo
 aaa
 aaa
 aaa
@@ -162106,22 +162013,22 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aac
 aad
 aoF
-apE
-aqH
-arh
-ash
-atF
-auN
+apG
+aoF
+aoF
 aoE
+aoE
+aoF
+aoF
+aaa
+aaa
+qYo
+aaa
+aaa
+qYo
 aaa
 aaa
 aaa
@@ -162365,20 +162272,20 @@ aaa
 aaa
 aaa
 aaa
+abj
 aaa
-aaa
-aaa
-aaa
-aaa
+abj
 aad
-aoF
-apF
-aqI
-ari
-asi
-atG
-auO
-aoF
+aad
+aad
+aad
+qYo
+aaa
+aaa
+qYo
+aaa
+aaa
+qYo
 aaa
 aaa
 aaa
@@ -162622,20 +162529,20 @@ aaa
 aaa
 aaa
 aaa
+aad
 aaa
-aaa
-aaa
+aad
 aaa
 aac
-aad
-aoF
-apG
-aoF
-aoF
-aoE
-aoE
-aoF
-aoF
+aac
+aaa
+bkq
+aaa
+aaa
+qYo
+aaa
+aaa
+bkq
 aaa
 aaa
 aaa
@@ -162879,19 +162786,19 @@ aaa
 aaa
 aaa
 aaa
+xwD
+aaa
+xwD
 aaa
 aaa
 aaa
 aaa
 aaa
-aad
-abj
 aaa
-abj
-aad
-aad
-aad
-aad
+aaa
+qYo
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -163142,12 +163049,12 @@ aaa
 aaa
 aaa
 aaa
-aad
 aaa
-aad
 aaa
-aac
-aac
+aaa
+aaa
+lbw
+aaa
 aaa
 aaa
 aaa
@@ -163399,9 +163306,9 @@ aaa
 aaa
 aaa
 aaa
-abj
 aaa
-abj
+aaa
+aaa
 aaa
 aaa
 aaa
