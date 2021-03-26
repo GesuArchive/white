@@ -256,6 +256,7 @@
 #include "code\_onclick\hud\blob_overmind.dm"
 #include "code\_onclick\hud\blobbernauthud.dm"
 #include "code\_onclick\hud\constructs.dm"
+#include "code\_onclick\hud\blobbernaut.dm"
 #include "code\_onclick\hud\credits.dm"
 #include "code\_onclick\hud\devil.dm"
 #include "code\_onclick\hud\drones.dm"
