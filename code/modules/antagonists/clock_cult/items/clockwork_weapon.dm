@@ -113,16 +113,14 @@
 
 /obj/item/gun/ballistic/bow/clockwork/attack_self(mob/living/user)
 	if (chambered)
-		chambered = null
+		qdel(chambered)
 		to_chat(user, "<span class='notice'>You dispell the arrow.</span>")
 		drawn = FALSE
-	else if (get_ammo())
-		var/obj/item/I = user.get_active_held_item()
-		if (do_mob(user,I,5))
-			drawn = TRUE
-			to_chat(user, "<span class='notice'>You draw back the bowstring.</span>")
-			playsound(src, 'sound/weapons/bowdraw.ogg', 75, 0) //gets way too high pitched if the freq varies
-			chamber_round()
+		recharge_bolt()
+	else
+		recharge_bolt()
+		drawn = TRUE
+		chamber_round()
 	update_icon()
 
 /obj/item/gun/ballistic/bow/clockwork/proc/recharge_bolt()
@@ -145,9 +143,13 @@
 	icon_state = "arrow_redlight"
 	projectile_type = /obj/projectile/energy/clockbolt
 
+/obj/item/ammo_casing/caseless/arrow/clockbolt/dropped()
+	if(isturf(loc))
+		qdel(src)
+
 /obj/projectile/energy/clockbolt
 	name = "energy bolt"
 	icon_state = "arrow_energy"
-	damage = 24
+	damage = 4
 	damage_type = BURN
 	nodamage = FALSE

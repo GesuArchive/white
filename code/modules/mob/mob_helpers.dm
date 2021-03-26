@@ -168,8 +168,8 @@
 	. = ""
 	var/rawchar = ""
 	var/letter = ""
-	var/lentext = length(text)
-	for(var/i = 1, i <= lentext, i += length(rawchar))
+	var/lentext = length_char(text)
+	for(var/i = 1, i <= lentext, i += length_char(rawchar))
 		rawchar = letter = text[i]
 		if(prob(chance))
 			if(replace_characters)
@@ -211,7 +211,7 @@
 			n_letter = text("[n_letter]")
 		t = text("[t][n_letter]")
 		p=p+n_mod
-	return copytext(sanitize(t),1,MAX_MESSAGE_LEN * length(ascii2text(text2ascii(t))))
+	return copytext_char(sanitize(t),1,MAX_MESSAGE_LEN * length(ascii2text(text2ascii(t))))
 
 ///Shake the camera of the person viewing the mob SO REAL!
 /proc/shake_camera(mob/M, duration, strength=1)
