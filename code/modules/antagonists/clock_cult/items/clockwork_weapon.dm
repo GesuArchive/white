@@ -144,6 +144,7 @@
 	projectile_type = /obj/projectile/energy/clockbolt
 
 /obj/item/ammo_casing/caseless/arrow/clockbolt/dropped()
+	. = ..()
 	if(isturf(loc))
 		qdel(src)
 

@@ -1,3 +1,5 @@
+// ONLY FOR DEBUG PURPOSES
+
 #define PROFILER_FILENAME "profiler.json"
 
 SUBSYSTEM_DEF(profiler)
