@@ -10801,7 +10801,6 @@
 	name = "Brig Lockdown Control";
 	pixel_x = 6;
 	pixel_y = 7;
-	req_access = null;
 	req_access_txt = "63"
 	},
 /obj/machinery/button/door{
