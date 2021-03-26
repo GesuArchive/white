@@ -61,7 +61,7 @@
 		to_chat(usr, "<span class='warning'>You seem to be selecting a mob that doesn't exist anymore.</span>", confidential = TRUE)
 		return
 
-	var/body = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>Панель [M.key]</title></head>"
+	var/list/body = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>Панель [M.key]</title></head>"
 	body += "<body>Опции для: <b>[M]</b>"
 	if(M.client)
 		body += " с сикеем <b>[M.client]</b> "
