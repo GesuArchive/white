@@ -107,16 +107,11 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/bow/clockcult
 	var/recharge_time = 15
 
-/obj/item/gun/ballistic/bow/clockwork/shoot_live_shot(mob/living/user, pointblank, atom/pbtarget, message)
-	. = ..()
-	addtimer(CALLBACK(src, .proc/recharge_bolt), recharge_time)
-
 /obj/item/gun/ballistic/bow/clockwork/attack_self(mob/living/user)
+	if(!drawn)
+		to_chat(user, "<span class='notice'>Натягиваю тетиву.</span>")
 	if (chambered)
-		qdel(chambered)
-		to_chat(user, "<span class='notice'>You dispell the arrow.</span>")
-		drawn = FALSE
-		recharge_bolt()
+		drawn = TRUE
 	else
 		recharge_bolt()
 		drawn = TRUE
@@ -129,9 +124,6 @@
 	var/obj/item/ammo_casing/caseless/arrow/clockbolt/CB = new
 	magazine.give_round(CB)
 	update_icon()
-
-/obj/item/gun/ballistic/bow/clockwork/attackby(obj/item/I, mob/user, params)
-	return
 
 /obj/item/ammo_box/magazine/internal/bow/clockcult
 	ammo_type = /obj/item/ammo_casing/caseless/arrow/clockbolt
