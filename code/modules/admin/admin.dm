@@ -61,7 +61,7 @@
 		to_chat(usr, "<span class='warning'>You seem to be selecting a mob that doesn't exist anymore.</span>", confidential = TRUE)
 		return
 
-	var/list/body = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>Панель [M.key]</title></head>"
+	var/body = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>Панель [M.key]</title></head>"
 	body += "<body>Опции для: <b>[M]</b>"
 	if(M.client)
 		body += " с сикеем <b>[M.client]</b> "
@@ -242,7 +242,7 @@
 	body += "</body></html>"
 
 	var/datum/browser/popup = new(usr, "adminplayeropts-[REF(M)]", "Player Panel", 550, 515)
-	popup.set_content(body.Join())
+	popup.set_content(body)
 	popup.open()
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Player Panel") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
