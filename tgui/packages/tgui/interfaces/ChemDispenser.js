@@ -48,12 +48,12 @@ export const ChemDispenser = (props, context) => {
                 disabled={!data.isBeakerLoaded}
                 content={"Поиск реакций"}
                 tooltip={data.isBeakerLoaded ? "Look up recipes and reagents!" : "Please insert a beaker!"}
-                tooltipPosition="bottom-left"
+                tooltipPosition="bottom-start"
                 onClick={() => act('reaction_lookup')} />
               <Button
                 icon="cog"
                 tooltip="Цвета pH"
-                tooltipPosition="bottom-left"
+                tooltipPosition="bottom-start"
                 selected={hasCol}
                 onClick={() => setHasCol(!hasCol)} />
             </Fragment>

@@ -185,7 +185,7 @@ const CheckoutTab = (props, context) => {
                 Отправляет ингридиенты мгновенно, но
                 блокирует консоль надолго. Двойная стоимость заказа!
                 `}
-                tooltipPosition="top-left"
+                tooltipPosition="top-start"
                 onClick={() => act('express')} />
             </Stack.Item>
           </Stack>
