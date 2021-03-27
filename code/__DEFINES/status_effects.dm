@@ -9,6 +9,12 @@
 
 #define STATUS_EFFECT_REFRESH 3 // if it only allows one, and new instances just instead refresh the timer
 
+///Processing flags - used to define the speed at which the status will work
+///This is fast - 0.2s between ticks (I believe!)
+#define STATUS_EFFECT_FAST_PROCESS 0
+///This is slower and better for more intensive status effects - 1s between ticks
+#define STATUS_EFFECT_NORMAL_PROCESS 1
+
 ///////////
 // BUFFS //
 ///////////
@@ -123,6 +129,8 @@
 #define STATUS_EFFECT_HOLDUP /datum/status_effect/holdup // you are currently pointing a gun at someone
 
 #define STATUS_EFFECT_HIGHFIVE /datum/status_effect/high_fiving // you are angling for a high five
+
+#define STATUS_EFFECT_EIGEN /datum/status_effect/eigenstasium
 /////////////
 //  SLIME  //
 /////////////
