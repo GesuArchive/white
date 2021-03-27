@@ -1,15 +1,16 @@
 {
+	"version": 1,
     "map_name": "Bashenka",
     "map_path": "map_files/Bashenka",
     "map_file": "bashenka.dmm",
-    "space_ruin_levels":0,
-    "space_empty_levels":0,
     "shuttles": {
 	    "cargo": "cargo_box",
 	    "ferry": "ferry_fancy",
 	    "whiteship": "whiteship_meta",
 	    "emergency": "emergency_meta"
     },
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
     "traits":[
        {"Up" : 1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "turf/open/lava/plasma/mafia"},
        {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Weather_Snowstorm":true,"Baseturf" : "/turf/open/openspace"},
