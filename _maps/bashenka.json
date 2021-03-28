@@ -12,15 +12,15 @@
 	"space_ruin_levels": 0,
 	"space_empty_levels": 0,
     "traits":[
-       {"Up" : 1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "turf/open/lava/plasma/mafia"},
-       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Weather_Snowstorm":true,"Baseturf" : "/turf/open/openspace"},
-       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace"},
-       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace"},
-       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace"},
-       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace"},
-       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace"},
-       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace"},
-       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace"},
-       {"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace"}
+       {"Up" : 1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/lava/plasma"},
+       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Weather_Snowstorm":true,"Baseturf" : "/turf/open/openspace/airless"},
+       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace/airless"},
+       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace/airless"},
+       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace/airless"},
+       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace/airless"},
+       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace/airless"},
+       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace/airless"},
+       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace/airless"},
+       {"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace/airless"}
     ]
 }

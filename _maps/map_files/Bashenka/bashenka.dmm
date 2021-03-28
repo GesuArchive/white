@@ -1439,7 +1439,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/lava,
-/turf/open/lava/plasma/mafia,
+/turf/open/lava/plasma,
 /area/icemoon/surface/outdoors)
 "aYy" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
@@ -2430,7 +2430,7 @@
 "bSe" = (
 /obj/structure/railing,
 /obj/structure/lattice/lava,
-/turf/open/lava/plasma/mafia,
+/turf/open/lava/plasma,
 /area/icemoon/surface/outdoors)
 "bSo" = (
 /obj/effect/turf_decal/stripes/line{
@@ -3470,7 +3470,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/lava,
-/turf/open/lava/plasma/mafia,
+/turf/open/lava/plasma,
 /area/hallway/primary/aft)
 "cJr" = (
 /obj/machinery/nanite_chamber,
@@ -6632,7 +6632,7 @@
 /turf/open/floor/plasteel,
 /area/security/brig)
 "fyh" = (
-/turf/open/lava/plasma/mafia,
+/turf/open/lava/plasma,
 /area/icemoon/surface/outdoors)
 "fyy" = (
 /obj/structure/cable,
@@ -10980,7 +10980,7 @@
 "iHP" = (
 /obj/structure/railing,
 /obj/structure/lattice/lava,
-/turf/open/lava/plasma/mafia,
+/turf/open/lava/plasma,
 /area/hallway/primary/aft)
 "iHS" = (
 /turf/closed/wall/r_wall,
@@ -13773,7 +13773,7 @@
 "leJ" = (
 /obj/structure/lattice/lava,
 /obj/structure/railing,
-/turf/open/lava/plasma/mafia,
+/turf/open/lava/plasma,
 /area/hallway/primary/aft)
 "leO" = (
 /obj/effect/turf_decal/trimline/yellow/line{
@@ -14442,7 +14442,7 @@
 /obj/structure/railing{
 	dir = 1
 	},
-/turf/open/lava/plasma/mafia,
+/turf/open/lava/plasma,
 /area/hallway/primary/aft)
 "lCR" = (
 /obj/structure/table/wood,
@@ -18759,7 +18759,7 @@
 /area/engine/atmos)
 "pdf" = (
 /obj/structure/lattice/lava,
-/turf/open/lava/plasma/mafia,
+/turf/open/lava/plasma,
 /area/icemoon/surface/outdoors)
 "pds" = (
 /obj/structure/bookcase/random,
@@ -24611,7 +24611,7 @@
 /obj/structure/railing{
 	dir = 1
 	},
-/turf/open/lava/plasma/mafia,
+/turf/open/lava/plasma,
 /area/icemoon/surface/outdoors)
 "tPr" = (
 /turf/open/floor/plasteel/dark,
@@ -27945,7 +27945,7 @@
 /area/hallway/secondary/exit/departure_lounge)
 "wkW" = (
 /obj/structure/lattice/lava,
-/turf/open/lava/plasma/mafia,
+/turf/open/lava/plasma,
 /area/hallway/primary/aft)
 "wlE" = (
 /obj/machinery/telecomms/relay/preset/station,
@@ -29446,7 +29446,7 @@
 "xmw" = (
 /obj/structure/lattice/lava,
 /obj/structure/railing,
-/turf/open/lava/plasma/mafia,
+/turf/open/lava/plasma,
 /area/icemoon/surface/outdoors)
 "xmD" = (
 /obj/machinery/rnd/production/circuit_imprinter,
