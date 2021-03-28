@@ -43,6 +43,7 @@
 		return FALSE
 	var/mob/living/living_target = target
 	ADD_TRAIT(living_target, TRAIT_NO_TELEPORT, "implant")
+	START_PROCESSING(SSobj, src)
 	return TRUE
 
 /obj/item/implant/exile/noteleport/removed(mob/target, silent = FALSE, special = FALSE)
@@ -51,7 +52,16 @@
 		return FALSE
 	var/mob/living/living_target = target
 	REMOVE_TRAIT(living_target, TRAIT_NO_TELEPORT, "implant")
+	STOP_PROCESSING(SSobj, src)
 	return TRUE
+
+/obj/item/implant/exile/noteleport/process(delta_time)
+	. = ..()
+	if(is_station_level(imp_in.z))
+		if(imp_in.mind && (imp_in.mind.assigned_role == "Hotel Staff" || imp_in.mind.assigned_role == ROLE_SYNDICATE_CYBERSUN || imp_in.mind.assigned_role == ROLE_SYNDICATE_CYBERSUN_CAPTAIN))
+			inc_metabalance(imp_in, METACOIN_CHASM_REWARD, reason="Ого, а куда это мы собрались...")
+			spawn(1 SECONDS)
+				imp_in.gib(TRUE, TRUE, TRUE)
 
 /obj/item/implanter/exile
 	name = "implanter (exile)"

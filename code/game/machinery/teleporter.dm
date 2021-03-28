@@ -72,12 +72,6 @@
 		visible_message("<span class='alert'>Cannot authenticate locked on coordinates. Please reinstate coordinate matrix.</span>")
 		return
 
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(H.mind && H.mind.assigned_role == "Hotel Staff")
-			to_chat(H, "<span class='danger'>Your soul belongs to the hotel. While your body moves to station, your soul stays here.</span>")
-			H.ghostize(0)
-
 	if (ismovable(M))
 		if(do_teleport(M, com.target, channel = TELEPORT_CHANNEL_BLUESPACE))
 			use_power(50000)
