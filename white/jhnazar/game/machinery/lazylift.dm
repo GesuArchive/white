@@ -305,15 +305,15 @@ That's it, ok bye!
 	var/list/path = list()
 	if(target_deck > startDeck)
 		if(play_voice_lines)
-			playsound(platform_location, 'white/jhnazar/sound/effects/lift/goingdown.ogg', 100, FALSE)
-			platform_location.say("ЭЛЕВАТОР ИДЁТ ВНИЗ!!!")
+			playsound(platform_location, 'white/jhnazar/sound/effects/lift/goingup.ogg', 100, FALSE)
+			platform_location.say("ЭЛЕВАТОР ИДЁТ ВВЕРХ!!!")
 		for(var/I = ++startDeck; I <= target_deck; I++){
 			path += I
 		}
 	else
 		if(play_voice_lines)
-			playsound(platform_location, 'white/jhnazar/sound/effects/lift/goingup.ogg', 100, FALSE)
-			platform_location.say("ЭЛЕВАТОР ИДЁТ ВВЕРХ!!!")
+			playsound(platform_location, 'white/jhnazar/sound/effects/lift/goingdown.ogg', 100, FALSE)
+			platform_location.say("ЭЛЕВАТОР ИДЁТ ВНИЗ!!!")
 		for(var/I = --startDeck; I >= target_deck; I--){
 			path += I
 		}
