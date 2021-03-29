@@ -43,7 +43,7 @@
 		return FALSE
 	var/mob/living/living_target = target
 	ADD_TRAIT(living_target, TRAIT_NO_TELEPORT, "implant")
-	START_PROCESSING(SSobj, src)
+	START_PROCESSING(SSprocessing, src)
 	return TRUE
 
 /obj/item/implant/exile/noteleport/removed(mob/target, silent = FALSE, special = FALSE)
@@ -52,7 +52,7 @@
 		return FALSE
 	var/mob/living/living_target = target
 	REMOVE_TRAIT(living_target, TRAIT_NO_TELEPORT, "implant")
-	STOP_PROCESSING(SSobj, src)
+	STOP_PROCESSING(SSprocessing, src)
 	return TRUE
 
 /obj/item/implant/exile/noteleport/process(delta_time)
