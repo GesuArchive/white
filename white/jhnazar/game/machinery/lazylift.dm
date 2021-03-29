@@ -249,10 +249,10 @@ That's it, ok bye!
 		decks += slave
 	}
 	//We use the Star Trek naming convention for decks. Deck 1 is actually at the top, so we count from the top.
-	var/count = decks.len
+	var/count = 0
 	for(var/obj/machinery/lazylift/LL in decks){
-		LL.deck = count
-		count --
+		LL.deck = "[count] этаж"
+		count++
 	}
 	spawn(0)
 		close_all_doors() //Start off by closing all the doors.
