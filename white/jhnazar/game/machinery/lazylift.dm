@@ -251,7 +251,7 @@ That's it, ok bye!
 	//We use the Star Trek naming convention for decks. Deck 1 is actually at the top, so we count from the top.
 	var/count = 0
 	for(var/obj/machinery/lazylift/LL in decks){
-		LL.deck = "[count] этаж"
+		LL.deck = count
 		count++
 	}
 	spawn(0)
