@@ -38,9 +38,6 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/open/openspace/fastload/New()
 	return
 
-/turf/open/openspace/fastload/update_starlight()
-	return
-
 /turf/open/openspace/fastload/airless
 	initial_gas_mix = AIRLESS_ATMOS
 
