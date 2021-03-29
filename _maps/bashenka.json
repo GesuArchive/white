@@ -12,15 +12,15 @@
 	"space_ruin_levels": 0,
 	"space_empty_levels": 0,
     "traits":[
-       {"Up" : 1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/lava/plasma/ice_moon"},
-       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Weather_Snowstorm":true,"Baseturf" : "/turf/open/openspace/fastload/planetmos"},
-       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace/fastload/planetmos"},
-       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace/fastload/planetmos"},
-       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace/fastload/planetmos"},
-       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace/fastload/planetmos"},
-       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace/fastload/planetmos"},
-       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace/fastload/planetmos"},
-       {"Up" : 1,"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace/fastload/planetmos"},
-       {"Down" : -1,"Linkage" : "Cross","Gravity" : true,"Baseturf" : "/turf/open/openspace/fastload/planetmos"}
+       {"Up": 1,			 "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/lava/plasma/ice_moon"},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace/fastload/planetmos"},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace/fastload/planetmos"},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace/fastload/planetmos"},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace/fastload/planetmos"},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace/fastload/planetmos"},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace/fastload/planetmos"},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace/fastload/planetmos"},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace/fastload/planetmos"},
+       {"Down": -1,			 "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace/fastload/planetmos"}
     ]
 }

@@ -249,7 +249,7 @@ That's it, ok bye!
 		decks += slave
 	}
 	//We use the Star Trek naming convention for decks. Deck 1 is actually at the top, so we count from the top.
-	var/count = 0
+	var/count = 1
 	for(var/obj/machinery/lazylift/LL in decks){
 		LL.deck = count
 		count++
