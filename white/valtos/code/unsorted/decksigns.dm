@@ -12,16 +12,16 @@
 
 /obj/structure/sign/decksign/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_MULTITOOL)
-		if(icon_state = "sign")
+		if(icon_state == "sign")
 			icon_state = "sign-off"
 			set_light(0)
 			cut_overlays()
 			playsound(get_turf(src), I.usesound, 60)
 		else
-			var/in = input(user, "Какой этаж это тогда?", "Ммм?", "0") as num|null
-			if(!in)
+			var/inset = input(user, "Какой этаж это тогда?", "Ммм?", "0") as num|null
+			if(!inset)
 				return
-			cur_deck = in
+			cur_deck = inset
 			icon_state = "sign"
 			set_light(1)
 			add_overlay("deck-[cur_deck]")
