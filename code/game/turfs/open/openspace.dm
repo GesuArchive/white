@@ -38,6 +38,15 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/open/openspace/fastload/New()
 	return
 
+/turf/open/openspace/fastload/Initialize()
+	var/turf/T = SSmapping.get_turf_below(src)
+	if(T)
+		vis_contents += T
+	flags_1 |= INITIALIZED_1
+	directional_opacity = ALL_CARDINALS
+	vis_contents += GLOB.openspace_backdrop_one_for_all
+	return INITIALIZE_HINT_LATELOAD
+
 /turf/open/openspace/fastload/airless
 	initial_gas_mix = AIRLESS_ATMOS
 

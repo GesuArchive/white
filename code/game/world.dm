@@ -292,9 +292,9 @@ GLOBAL_VAR_INIT(hub_mimic, FALSE)
 	var/s = ""
 
 	if(!GLOB.hub_mimic)
-		s += "<big><b>White Dream: RU SCP13</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/9uJ7dmM\">DISCORD</a>\n\n"
+		s += "<big><b>White Dream: RU</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/9uJ7dmM\">DISCORD</a>\n\n"
 		s += "<img src='https://assets.station13.ru/l/w[rand(1, 2)].gif'>\n\n"
-		s += "\[<big>CK&Lcy;A&Dcy; &Gcy;P&YAcy;&Zcy;&Icy;</big>"
+		s += "\[<big>GO! GO! GO!</big>"
 	else
 		s += "<a href=\"https://discord.gg/9uJ7dmM\" rel=\"nofollow\"><b>SS13-CM - RU EDITION NO LAGS USS Almayer</b><br>\n<img src=\"https://cm-ss13.com//byond_hub_logo.jpg\"></a>"
 		s += "\nMap: <b>Kutjevo Refinery</b>"
