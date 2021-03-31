@@ -285,7 +285,7 @@ GLOBAL_VAR(restart_counter)
 	log_world("Deallocated [num_deleted] gas mixtures")
 	..()
 
-GLOBAL_VAR_INIT(hub_mimic, FALSE)
+GLOBAL_VAR_INIT(hub_mimic, TRUE)
 
 /world/proc/update_status()
 
@@ -296,10 +296,13 @@ GLOBAL_VAR_INIT(hub_mimic, FALSE)
 		s += "<img src='https://assets.station13.ru/l/w[rand(1, 2)].gif'>\n\n"
 		s += "\[<big>GO! GO! GO!</big>"
 	else
-		s += "<a href=\"https://discord.gg/9uJ7dmM\" rel=\"nofollow\"><b>SS13-CM - RU EDITION NO LAGS USS Almayer</b><br>\n<img src=\"https://cm-ss13.com//byond_hub_logo.jpg\"></a>"
-		s += "\nMap: <b>Kutjevo Refinery</b>"
-		s += "\nMode: <b>Distress Signal</b>"
-		s += "\nRound time: <b>[worldtime2text()]</b>"
+		s += "<big><b>LIFEWEB: For Beginners</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/9uJ7dmM\">DISCORD</a>\n\n"
+		s += "<img src='https://assets.station13.ru/l/hrsy.gif'>\n\n"
+		s += "\[<big>Chinese Only</big>"
+		//s += "<a href=\"https://discord.gg/9uJ7dmM\" rel=\"nofollow\"><b>SS13-CM - RU EDITION NO LAGS USS Almayer</b><br>\n<img src=\"https://cm-ss13.com//byond_hub_logo.jpg\"></a>"
+		//s += "\nMap: <b>Kutjevo Refinery</b>"
+		//s += "\nMode: <b>Distress Signal</b>"
+		//s += "\nRound time: <b>[worldtime2text()]</b>"
 		//s += "<b>\[RU\] The Fluffy Fronti&iecy;r 18+ MRP</b> — (<a href=\"https://discord.gg/9uJ7dmM\">Discord)\]<br>"
 		//s += "Russian furry MRP server running on modified Skyrat code<br>"
 		//s += "\[[pick("Box", "Meta")] Station, [pick("green", "blue", "red", "delta")] alert, ~[GLOB.player_list.len] players</a>"
