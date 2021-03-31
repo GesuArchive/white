@@ -39,7 +39,10 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	return
 
 /turf/open/openspace/fastload/Initialize()
-	var/turf/T = SSmapping.get_turf_below(src)
+	air = new
+	air.copy_from_turf(src)
+	update_air_ref()
+	var/turf/T = SSmapping.get_turf_below_not_openspace(src)
 	if(T)
 		vis_contents += T
 	flags_1 |= INITIALIZED_1

@@ -71,6 +71,19 @@
 		return
 	return locate(T.x, T.y, T.z + offset)
 
+// Attempt to get the turf below the provided one according to Z traits
+/datum/controller/subsystem/mapping/proc/get_turf_below_not_openspace(turf/T)
+	if (!T)
+		return
+	var/offset = level_trait(T.z, ZTRAIT_DOWN)
+	if (!offset)
+		return
+	var/turf/located_turf = locate(T.x, T.y, T.z + offset)
+	while(istype(located_turf, /turf/open/openspace))
+		located_turf = locate(T.x, T.y, T.z + offset)
+		offset++
+	return located_turf
+
 // Prefer not to use this one too often
 /datum/controller/subsystem/mapping/proc/get_station_center()
 	var/station_z = levels_by_trait(ZTRAIT_STATION)[1]
