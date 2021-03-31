@@ -81,7 +81,7 @@
 	var/turf/located_turf = locate(T.x, T.y, T.z + offset)
 	while(istype(located_turf, /turf/open/openspace))
 		located_turf = locate(T.x, T.y, T.z + offset)
-		offset++
+		offset--
 	return located_turf
 
 // Prefer not to use this one too often
