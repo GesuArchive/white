@@ -48,7 +48,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	flags_1 |= INITIALIZED_1
 	directional_opacity = ALL_CARDINALS
 	vis_contents += GLOB.openspace_backdrop_one_for_all
-	return INITIALIZE_HINT_LATELOAD
+	return INITIALIZE_HINT_NORMAL
 
 /turf/open/openspace/fastload/airless
 	initial_gas_mix = AIRLESS_ATMOS
@@ -56,8 +56,11 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/open/openspace/fastload/planetmos
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 
+/turf/open/openspace/fastload/LateInitialize()
+	return
+
 /turf/open/openspace/airless/planetary
-		planetary_atmos = TRUE
+	planetary_atmos = TRUE
 
 /turf/open/openspace/Initialize() // handle plane and layer here so that they don't cover other obs/turfs in Dream Maker
 	. = ..()
