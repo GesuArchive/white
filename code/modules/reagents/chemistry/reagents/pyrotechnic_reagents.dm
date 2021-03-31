@@ -221,7 +221,7 @@
 	ph = 8.6
 	metabolization_rate = 0.05 * REAGENTS_METABOLISM
 	taste_description = "ледяная горечь"
-	purity = REAGENT_STANDARD_PUIRTY
+	purity = REAGENT_STANDARD_PURITY
 	self_consuming = TRUE
 	impure_chem = /datum/reagent/consumable/ice
 	inverse_chem_val = 0.5
