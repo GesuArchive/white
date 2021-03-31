@@ -351,7 +351,7 @@ const PageMain = (props, context) => {
                 "У Вас недостаточно привилегий."
               )
             )}
-            tooltipPosition="bottom-end"
+            tooltipPosition="bottom-right"
             onClick={() => act("recallShuttle")}
           />
         ) || (
@@ -364,7 +364,7 @@ const PageMain = (props, context) => {
                 ? shuttleCanEvacOrFailReason
                 : undefined
             }
-            tooltipPosition="bottom-end"
+            tooltipPosition="bottom-right"
             onClick={() => setCallingShuttle(true)}
           />
         )}
