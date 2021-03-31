@@ -101,8 +101,8 @@
 			qdel(query_get_new_polls)
 			return
 		if(query_get_new_polls.NextRow())
-			output += "<p><b><a href='byond://?src=[rs];showpoll=1'>НОВЫЙ ОПРОС!</A></b></p>"
-		else
+			output += "<p><a href='byond://?src=[rs];showpoll=1'><b>НОВЫЙ ОПРОС!</b></A></p>"
+		else if(isadmin)
 			output += "<p><a href='byond://?src=[rs];showpoll=1'>Опросы</A></p>"
 		qdel(query_get_new_polls)
 		if(QDELETED(src))
