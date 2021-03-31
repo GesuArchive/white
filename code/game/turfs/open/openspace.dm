@@ -46,7 +46,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	air = new
 	air.copy_from_turf(src)
 	update_air_ref()
-	var/turf/T = SSmapping.get_turf_below_not_openspace(src)
+	var/turf/T = locate(x, y, z - 1)
 	if(T)
 		vis_contents += T
 	flags_1 |= INITIALIZED_1
