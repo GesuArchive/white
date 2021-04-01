@@ -71,7 +71,7 @@
 	damage = 5
 
 /obj/projectile/beam/xray
-	name = "\improper X-ray луч"
+	name = "X-ray луч"
 	icon_state = "xray"
 	flag = RAD
 	damage = 15
