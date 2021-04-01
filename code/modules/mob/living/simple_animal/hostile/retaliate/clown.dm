@@ -49,7 +49,7 @@
 // Прок заселения госта во всех клоунов, кроме мамки
 /mob/living/simple_animal/hostile/clown/proc/humanize_clown(mob/user)
 	var/pod_ask = alert("Стать клоуном?", "Хонк?", "Да", "Нет")
-	if(pod_ask == "No" || !src || QDELETED(src))
+	if(pod_ask == "Нет" || !src || QDELETED(src))
 		return
 	if(key)
 		to_chat(user, "<span class='warning'>Кто-то уже занял этого клоуна!</span>")
@@ -60,7 +60,7 @@
 // Прок заселения госта в матку
 /mob/living/simple_animal/hostile/clown/proc/humanize_glutton(mob/user)
 	var/pod_ask = alert("Стать Апостолом клоунов?", "Хонк?", "Да", "Нет")
-	if(pod_ask == "No" || !src || QDELETED(src))
+	if(pod_ask == "Нет" || !src || QDELETED(src))
 		return
 	if(key)
 		to_chat(user, "<span class='warning'>Кто-то уже занял этого клоуна!</span>")
@@ -72,12 +72,14 @@
 	to_chat(src, "<B><font size=2 color=red>Также ты можешь высасывать энергию из лампочек, залечивая свои раны.</font></B>")
 	log_game("[key_name(src)] took control of [name].")
 
+
+
 //Тык госта по клоуну активирует прок заселения
 /mob/living/simple_animal/hostile/clown/attack_ghost(mob/user)
 	. = ..()
 	if(.)
 		return
-	if(key)      // ПРОБУЕМ ПОФИКСИТЬ БЕССМЫСЛЕННЫЕ ОКОШКИ
+	if(key)
 		return
 	if (istype(src, /mob/living/simple_animal/hostile/clown/mutant/glutton))
 		humanize_glutton(user)
@@ -157,7 +159,7 @@
 	maxHealth = 120
 	health = 120
 	speed = 1
-	loot = list(/obj/effect/mob_spawn/human/clown/corpse,/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap, /obj/item/seeds/banana)
+	loot = list(/obj/effect/mob_spawn/human/clown/corpse,/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap, /obj/item/seeds/banana)
 	banana_time = 20
 
 /mob/living/simple_animal/hostile/clown/honkling
@@ -172,7 +174,7 @@
 	melee_damage_upper = 1
 	attack_verb_continuous = "cheers"
 	attack_verb_simple = "cheers"
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap, /obj/item/seeds/banana/bluespace)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap, /obj/item/seeds/banana/bluespace)
 	banana_type = /obj/item/grown/bananapeel
 	attack_reagent = /datum/reagent/consumable/laughter
 
@@ -199,14 +201,13 @@
 	attack_verb_continuous = "limply slaps"
 	attack_verb_simple = "limply slap"
 	obj_damage = 5
-	loot = list(/obj/effect/mob_spawn/human/clown/corpse, /obj/item/clothing/suit/hooded/bloated_human, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap)
+	loot = list(/obj/effect/mob_spawn/human/clown/corpse, /obj/item/clothing/suit/hooded/bloated_human, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
 
 /mob/living/simple_animal/hostile/clown/longface
 	name = "Longface"
 	desc = "Often found walking into the bar."
 	icon_state = "long face"
 	icon_living = "long face"
-	move_resist = INFINITY
 	turns_per_move = 10
 	response_help_continuous = "tries to awkwardly hug"
 	response_help_simple = "try to awkwardly hug"
@@ -226,7 +227,7 @@
 	melee_damage_lower = 10
 	attack_verb_continuous = "YA-HONKs"
 	attack_verb_simple = "YA-HONK"
-	loot = list(/obj/effect/mob_spawn/human/clown/corpse, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap)
+	loot = list(/obj/effect/mob_spawn/human/clown/corpse, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
 
 /mob/living/simple_animal/hostile/clown/clownhulk
 	name = "Honk Hulk"
@@ -253,7 +254,7 @@
 	attack_verb_simple = "pummel"
 	obj_damage = 30
 	environment_smash = ENVIRONMENT_SMASH_WALLS
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
 
 /mob/living/simple_animal/hostile/clown/clownhulk/chlown
 	name = "Chlown"
@@ -277,7 +278,7 @@
 	attack_verb_continuous = "steals the girlfriend of"
 	attack_verb_simple = "steal the girlfriend of"
 	attack_sound = 'sound/items/airhorn2.ogg'
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/effect/particle_effect/foam, /obj/item/soap)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/effect/particle_effect/foam, /obj/item/soap)
 
 /mob/living/simple_animal/hostile/clown/clownhulk/honcmunculus
 	name = "Honkmunculus"
@@ -300,7 +301,7 @@
 	attack_verb_continuous = "ferociously mauls"
 	attack_verb_simple = "ferociously maul"
 	environment_smash = ENVIRONMENT_SMASH_NONE
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/xeno/bodypartless, /obj/effect/particle_effect/foam, /obj/item/soap)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
 	attack_reagent = /datum/reagent/peaceborg/confuse
 
 /mob/living/simple_animal/hostile/clown/clownhulk/destroyer
@@ -323,14 +324,13 @@
 	attack_verb_simple = "act out divine vengeance on"
 	obj_damage = 50
 	environment_smash = ENVIRONMENT_SMASH_RWALLS
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/effect/particle_effect/foam, /obj/item/soap)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
 
 /mob/living/simple_animal/hostile/clown/mutant
 	name = "Переполненный клоун"
 	desc = "Внутри него все движется и пульсирует!"
 	icon_state = "mutant"
 	icon_living = "mutant"
-	move_resist = INFINITY
 	turns_per_move = 10
 	response_help_continuous = "reluctantly sinks a finger into"
 	response_help_simple = "reluctantly sink a finger into"
@@ -351,7 +351,7 @@
 	melee_damage_upper = 8
 	attack_verb_continuous = "awkwardly flails at"
 	attack_verb_simple = "awkwardly flail at"
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /mob/living/simple_animal/hostile/clown/worm, /mob/living/simple_animal/hostile/clown/worm,  /mob/living/simple_animal/hostile/clown/worm, /obj/effect/gibspawner/generic, /obj/effect/gibspawner/generic/animal, /obj/effect/gibspawner/human/bodypartless, /obj/effect/gibspawner/human)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /mob/living/simple_animal/hostile/clown/worm, /mob/living/simple_animal/hostile/clown/worm, /obj/effect/particle_effect/foam)
 
 // Основной производящий юнит армии клоунов, матка
 /mob/living/simple_animal/hostile/clown/mutant/glutton
@@ -412,7 +412,7 @@
 	attack_verb_continuous = "кусает"
 	attack_verb_simple = "кусает"
 	footstep_type = FOOTSTEP_MOB_CLAW
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam)
 
 /mob/living/simple_animal/hostile/clown/worm
 	name = "Хонкочервь"
@@ -487,7 +487,7 @@
 	if(A && A.loc != src)
 		playsound(src, 'sound/effects/splat.ogg', 100, TRUE)
 		new /mob/living/simple_animal/hostile/clown/mutant(A.loc)
-		new /obj/effect/gibspawner/human(get_turf(A.loc))
+		new /obj/effect/particle_effect/foam(get_turf(A.loc))
 		visible_message("<span class='warning'>[capitalize(src.name)] заражает тело [A] хонкочервями!</span>")
 		qdel(A)
 		return TRUE
@@ -678,6 +678,32 @@
 		new spawnedmob(glutton_turf)
 		glutton.biomass -= 200
 
+//Направление клоунов в точку матерью
+
+/mob/living/simple_animal/hostile/clown/mutant/glutton/MiddleClickOn(atom/A)
+	. = ..()
+	var/turf/T = get_turf(A)
+	if(T)
+		rally_clowns(T)
+
+/mob/living/simple_animal/hostile/clown/mutant/glutton/verb/rally_clowns_power()
+	set category = "Blob"
+	set name = "Rally Clowns"
+	set desc = "Rally your clowns to move to a target location."
+	var/turf/T = get_turf(src)
+	rally_clowns(T)
+
+/mob/living/simple_animal/hostile/clown/mutant/glutton/proc/rally_clowns(turf/T)
+	to_chat(src, "Приказываю клоунам идти.")
+	var/list/surrounding_turfs = block(locate(T.x - 1, T.y - 1, T.z), locate(T.x + 1, T.y + 1, T.z))
+	if(!surrounding_turfs.len)
+		return
+	for(var/mob/living/simple_animal/hostile/clown/BS in range(15, T))
+		if(!BS.key)
+			if(isturf(BS.loc) && get_dist(BS, T) <= 35 && !BS.key)
+				BS.LoseTarget()
+				BS.Goto(pick(surrounding_turfs), BS.move_to_delay)
+
 
 // Кожистый пол
 #define NODERANGE 6
@@ -746,9 +772,7 @@
 		new /obj/structure/clownweeds/(T)
 		for (var/turf/V in range(1,T))
 			if(istype(V, /turf/closed/wall))
-				new /obj/structure/alien/resin/wall/clown/(V)
-				qdel(V)
-				V = new /turf/open/floor/plating(V)
+				V.ChangeTurf(/turf/closed/wall/clown)
 
 	return TRUE
 
@@ -823,12 +847,12 @@
 
 
 
-/obj/structure/alien/resin/wall/clown
+/turf/closed/wall/clown
 	name = "Кожистая стена"
 	desc = "Эта стена покрыта кожей."
 	icon = 'icons/obj/smooth_structures/alien/clownwall.dmi'
 	icon_state = "resin_wall-0"
 	base_icon_state = "resin_wall"
-	resintype = "wall"
 	smoothing_groups = list(SMOOTH_GROUP_ALIEN_RESIN, SMOOTH_GROUP_ALIEN_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_ALIEN_WALLS)
+
