@@ -31,7 +31,7 @@
 	emagged = TRUE
 	return TRUE
 
-/datum/computer_file/program/borg_monitor/tap(atom/A, mob/living/user, params)
+/datum/computer_file/program/borg_monitor/tap(atom/A, mob/living/user)
 	var/mob/living/silicon/robot/borgo = A
 	if(!istype(borgo) || !borgo.modularInterface)
 		return FALSE
