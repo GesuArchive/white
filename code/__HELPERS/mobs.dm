@@ -621,7 +621,7 @@ GLOBAL_LIST_EMPTY(species_list)
 		if(check_mind)
 			if(!A.mind)
 				continue
-		if(z && !(z == A.z) && (!is_station_level(z) || !is_station_level(A.z))) //if a Z level was specified, AND the AI is not on the same level, AND either is off the station...
+		if(z && (!is_station_level(z) || !is_station_level(A.z))) //if a Z level was specified, AND the AI is not on the same level, AND either is off the station...
 			continue
 		. += A
 	return .
