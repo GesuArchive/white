@@ -164,7 +164,7 @@
 	name = "Syndicate Sleeper Agent"
 	antag_datum = /datum/antagonist/traitor
 	antag_flag = ROLE_TRAITOR
-	protected_roles = list("Prisoner", "Russian Officer", "Trader", "Hacker", "Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain")
+	protected_roles = list("Prisoner", "Russian Officer", "Trader", "Hacker", "Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Field Medic")
 	restricted_roles = list("Cyborg", "AI", "Позитронный мозг")
 	required_candidates = 1
 	weight = 7
@@ -216,7 +216,7 @@
 	persistent = TRUE
 	antag_flag = ROLE_FAMILIES
 	protected_roles = list("Prisoner", "Head of Personnel")
-	restricted_roles = list("Cyborg", "AI", "Security Officer", "Russian Officer", "Veteran", "Warden", "Detective", "Head of Security", "Captain")
+	restricted_roles = list("Cyborg", "AI", "Security Officer", "Russian Officer", "Veteran", "Warden", "Detective", "Head of Security", "Captain", "Field Medic")
 	required_candidates = 6 // gotta have 'em ALL
 	weight = 1
 	cost = 25
@@ -284,7 +284,7 @@
 	name = "Malfunctioning AI"
 	antag_datum = /datum/antagonist/traitor
 	antag_flag = ROLE_MALF
-	enemy_roles = list("Russian Officer", "Hacker","Veteran", "Security Officer", "Warden","Detective","Head of Security", "Captain", "Scientist", "Chemist", "Research Director", "Chief Engineer")
+	enemy_roles = list("Russian Officer", "Hacker","Veteran", "Security Officer", "Warden","Detective","Head of Security", "Captain", "Scientist", "Chemist", "Research Director", "Chief Engineer", "Field Medic")
 	exclusive_roles = list("AI")
 	required_enemies = list(4,4,4,4,4,4,2,2,2,0)
 	required_candidates = 1
@@ -332,7 +332,7 @@
 	name = "Волшебник"
 	antag_datum = /datum/antagonist/wizard
 	antag_flag = ROLE_WIZARD
-	enemy_roles = list("Russian Officer", "Hacker","Veteran", "Security Officer", "Detective","Head of Security", "Captain")
+	enemy_roles = list("Russian Officer", "Hacker","Veteran", "Security Officer", "Detective","Head of Security", "Captain", "Field Medic")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
 	weight = 1
@@ -364,7 +364,7 @@
 	name = "Nuclear Assault"
 	antag_flag = ROLE_OPERATIVE
 	antag_datum = /datum/antagonist/nukeop
-	enemy_roles = list("AI", "Cyborg", "Russian Officer", "Hacker","Veteran", "Security Officer", "Warden","Detective","Head of Security", "Captain")
+	enemy_roles = list("AI", "Cyborg", "Russian Officer", "Hacker","Veteran", "Security Officer", "Warden","Detective","Head of Security", "Captain", "Field Medic")
 	required_enemies = list(3,3,3,3,3,2,1,1,0,0)
 	required_candidates = 5
 	weight = 5
@@ -406,7 +406,7 @@
 	name = "Блоб"
 	antag_datum = /datum/antagonist/blob
 	antag_flag = ROLE_BLOB
-	enemy_roles = list("Russian Officer", "Hacker","Veteran", "Security Officer", "Detective", "Head of Security", "Captain")
+	enemy_roles = list("Russian Officer", "Hacker","Veteran", "Security Officer", "Detective", "Head of Security", "Captain", "Field Medic")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
 	weight = 4
@@ -428,7 +428,7 @@
 	name = "Alien Infestation"
 	antag_datum = /datum/antagonist/xeno
 	antag_flag = ROLE_ALIEN
-	enemy_roles = list("Russian Officer", "Hacker","Veteran", "Security Officer", "Detective", "Head of Security", "Captain")
+	enemy_roles = list("Russian Officer", "Hacker","Veteran", "Security Officer", "Detective", "Head of Security", "Captain", "Field Medic")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
 	weight = 3
@@ -474,7 +474,7 @@
 	antag_datum = /datum/antagonist/nightmare
 	antag_flag = "Nightmare"
 	antag_flag_override = ROLE_ALIEN
-	enemy_roles = list("Russian Officer", "Hacker","Veteran", "Security Officer", "Detective", "Head of Security", "Captain")
+	enemy_roles = list("Russian Officer", "Hacker","Veteran", "Security Officer", "Detective", "Head of Security", "Captain", "Field Medic")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
 	weight = 3
@@ -520,7 +520,7 @@
 	antag_datum = /datum/antagonist/space_dragon
 	antag_flag = "Space Dragon"
 	antag_flag_override = ROLE_SPACE_DRAGON
-	enemy_roles = list("Security Officer", "Russian Officer", "Hacker", "Veteran", "Detective", "Head of Security", "Captain")
+	enemy_roles = list("Security Officer", "Russian Officer", "Hacker", "Veteran", "Detective", "Head of Security", "Captain", "Field Medic")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
 	weight = 4
@@ -564,7 +564,7 @@
 	name = "Abductors"
 	antag_flag = "Abductor"
 	antag_flag_override = ROLE_ABDUCTOR
-	enemy_roles = list("Security Officer", "Russian Officer", "Hacker", "Veteran", "Detective", "Head of Security", "Captain")
+	enemy_roles = list("Security Officer", "Russian Officer", "Hacker", "Veteran", "Detective", "Head of Security", "Captain", "Field Medic")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 2
 	weight = 4
@@ -603,7 +603,7 @@
 	antag_flag = "Swarmer"
 	antag_flag_override = ROLE_ALIEN
 	required_type = /mob/dead/observer
-	enemy_roles = list("Security Officer", "Russian Officer", "Hacker", "Veteran", "Detective", "Head of Security", "Captain")
+	enemy_roles = list("Security Officer", "Russian Officer", "Hacker", "Veteran", "Detective", "Head of Security", "Captain", "Field Medic")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 0
 	weight = 3
@@ -637,7 +637,7 @@
 	antag_datum = /datum/antagonist/ninja
 	antag_flag = "Space Ninja"
 	antag_flag_override = ROLE_NINJA
-	enemy_roles = list("Security Officer", "Russian Officer", "Hacker", "Veteran", "Detective", "Head of Security", "Captain")
+	enemy_roles = list("Security Officer", "Russian Officer", "Hacker", "Veteran", "Detective", "Head of Security", "Captain", "Field Medic")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
 	weight = 4
@@ -677,7 +677,7 @@
 	antag_flag = "Spider"
 	antag_flag_override = ROLE_ALIEN
 	required_type = /mob/dead/observer
-	enemy_roles = list("Security Officer", "Russian Officer", "Hacker", "Veteran", "Detective", "Head of Security", "Captain")
+	enemy_roles = list("Security Officer", "Russian Officer", "Hacker", "Veteran", "Detective", "Head of Security", "Captain", "Field Medic")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 0
 	weight = 3

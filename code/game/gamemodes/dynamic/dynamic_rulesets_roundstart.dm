@@ -11,7 +11,7 @@
 	antag_flag = ROLE_TRAITOR
 	antag_datum = /datum/antagonist/traitor/
 	minimum_required_age = 0
-	protected_roles = list("Prisoner", "Russian Officer", "Trader", "Hacker", "Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain")
+	protected_roles = list("Prisoner", "Russian Officer", "Trader", "Hacker", "Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Field Medic")
 	restricted_roles = list("Cyborg")
 	required_candidates = 1
 	weight = 5
@@ -102,7 +102,7 @@
 	name = "Changelings"
 	antag_flag = ROLE_CHANGELING
 	antag_datum = /datum/antagonist/changeling
-	protected_roles = list("Prisoner", "Russian Officer", "Trader", "Hacker", "Veteran", "Security Officer","Warden", "Detective", "Head of Security", "Captain")
+	protected_roles = list("Prisoner", "Russian Officer", "Trader", "Hacker", "Veteran", "Security Officer","Warden", "Detective", "Head of Security", "Captain", "Field Medic")
 	restricted_roles = list("AI", "Cyborg")
 	required_candidates = 1
 	weight = 3
@@ -140,7 +140,7 @@
 	name = "Heretics"
 	antag_flag = ROLE_HERETIC
 	antag_datum = /datum/antagonist/heretic
-	protected_roles = list("Prisoner","Security Officer", "Russian Officer", "Veteran", "Warden", "Detective", "Head of Security", "Captain")
+	protected_roles = list("Prisoner","Security Officer", "Russian Officer", "Veteran", "Warden", "Detective", "Head of Security", "Captain", "Field Medic")
 	restricted_roles = list("AI", "Cyborg")
 	required_candidates = 1
 	weight = 3
@@ -230,7 +230,7 @@
 	antag_flag = ROLE_CULTIST
 	antag_datum = /datum/antagonist/cult
 	minimum_required_age = 14
-	restricted_roles = list("AI", "Cyborg", "Prisoner", "Trader", "Russian Officer", "Hacker", "Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Chaplain", "Head of Personnel")
+	restricted_roles = list("AI", "Cyborg", "Prisoner", "Trader", "Russian Officer", "Hacker", "Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Chaplain", "Head of Personnel", "Field Medic")
 	required_candidates = 2
 	weight = 3
 	cost = 35
@@ -373,7 +373,7 @@
 	antag_flag_override = ROLE_REV
 	antag_datum = /datum/antagonist/rev/head
 	minimum_required_age = 14
-	restricted_roles = list("AI", "Cyborg", "Prisoner", "Trader", "Russian Officer", "Hacker","Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Head of Personnel", "Chief Engineer", "Chief Medical Officer", "Research Director")
+	restricted_roles = list("AI", "Cyborg", "Prisoner", "Trader", "Russian Officer", "Hacker","Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Head of Personnel", "Chief Engineer", "Chief Medical Officer", "Research Director", "Field Medic")
 	required_candidates = 3
 	weight = 2
 	delay = 7 MINUTES
@@ -456,7 +456,7 @@
 	persistent = TRUE
 	antag_flag = ROLE_FAMILIES
 	protected_roles = list("Prisoner", "Head of Personnel")
-	restricted_roles = list("Cyborg", "AI", "Security Officer", "Russian Officer", "Veteran", "Warden", "Detective", "Head of Security", "Captain")
+	restricted_roles = list("Cyborg", "AI", "Security Officer", "Russian Officer", "Veteran", "Warden", "Detective", "Head of Security", "Captain", "Field Medic")
 	required_candidates = 6 // gotta have 'em ALL
 	weight = 2
 	cost = 30
