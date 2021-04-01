@@ -712,7 +712,7 @@
 	r_pocket = /obj/item/kitchen/knife/combat/survival
 	belt = /obj/item/storage/belt/military/assault
 	id = /obj/item/card/id/syndicate_command/crew_id
-	implants = list(/obj/item/implant/weapons_auth)
+	implants = list(/obj/item/implant/weapons_auth, /obj/item/implant/exile/noteleport)
 
 /datum/outfit/syndicatespace/syndicaptain
 	name = "Syndicate Ship Captain"
@@ -729,7 +729,7 @@
 	belt = /obj/item/storage/belt/military/assault
 	id = /obj/item/card/id/syndicate_command/captain_id
 	implants = list(/obj/item/implant/weapons_auth)
-	backpack_contents = list(/obj/item/documents/syndicate/red, /obj/item/paper/fluff/ruins/forgottenship/password, /obj/item/gun/ballistic/automatic/pistol/aps)
+	backpack_contents = list(/obj/item/documents/syndicate/red, /obj/item/paper/fluff/ruins/forgottenship/password, /obj/item/gun/ballistic/automatic/pistol/aps, /obj/item/implant/exile/noteleport)
 
 /obj/effect/mob_spawn/human/beach/alive
 	death = FALSE
