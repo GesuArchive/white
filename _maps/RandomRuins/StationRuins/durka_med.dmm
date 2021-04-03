@@ -134,10 +134,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/chair/office/light{
-	dir = 8
-	},
-/obj/effect/landmark/start/chief_medical_officer,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/heads/cmo)
 "bi" = (
@@ -797,6 +793,10 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 10
 	},
+/obj/structure/table/glass,
+/obj/item/folder/white,
+/obj/item/stamp/cmo,
+/obj/item/clothing/neck/stethoscope,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/heads/cmo)
 "eA" = (
@@ -983,7 +983,7 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/obj/item/kirbyplants/random,
+/obj/machinery/suit_storage_unit/cmo,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/heads/cmo)
 "gM" = (
@@ -2134,11 +2134,9 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
-/obj/structure/table/glass,
 /obj/structure/cable,
-/obj/item/folder/white,
-/obj/item/stamp/cmo,
-/obj/item/clothing/neck/stethoscope,
+/obj/effect/landmark/start/chief_medical_officer,
+/obj/structure/chair/office/light,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/heads/cmo)
 "uR" = (
@@ -2970,6 +2968,12 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/structure/table/glass,
+/obj/item/paper_bin{
+	pixel_x = -2;
+	pixel_y = 5
+	},
+/obj/item/pen,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/heads/cmo)
 "EG" = (
@@ -3526,7 +3530,6 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/obj/structure/table/glass,
 /obj/machinery/power/apc{
 	areastring = "/area/crew_quarters/heads/cmo";
 	dir = 1;
@@ -3534,11 +3537,7 @@
 	pixel_y = 23
 	},
 /obj/structure/cable,
-/obj/item/paper_bin{
-	pixel_x = -2;
-	pixel_y = 5
-	},
-/obj/item/pen,
+/obj/item/kirbyplants/random,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/heads/cmo)
 "Kj" = (
@@ -4469,6 +4468,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
 "Sk" = (

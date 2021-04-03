@@ -1966,6 +1966,15 @@
 /obj/structure/closet/emcloset,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
+"oU" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/machinery/light{
+	pixel_y = 0
+	},
+/turf/open/floor/plasteel/dark,
+/area/engine/atmospherics_engine)
 "oV" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -2891,6 +2900,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
+/obj/structure/closet/secure_closet/engineering_electrical,
 /turf/open/floor/plasteel/dark,
 /area/engine/atmospherics_engine)
 "wu" = (
@@ -5769,7 +5779,14 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/holosign_creator/atmos,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/obj/item/holosign_creator/atmos{
+	pixel_x = -1;
+	pixel_y = -14
+	},
 /turf/open/floor/plasteel/dark,
 /area/engine/atmospherics_engine)
 "Rn" = (
@@ -43439,7 +43456,7 @@ ig
 xn
 AB
 lz
-OB
+oU
 EB
 wP
 rm

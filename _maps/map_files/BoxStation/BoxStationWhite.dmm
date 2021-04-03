@@ -16452,11 +16452,11 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
-/obj/machinery/door/airlock/mining/glass{
-	name = "Cargo Bay";
-	req_access_txt = "31"
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/mining/glass{
+	name = "Mining Dock";
+	req_access_txt = "48"
+	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/miningdock)
 "byH" = (
@@ -20015,11 +20015,13 @@
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door/airlock/research/glass/incinerator/toxmix_exterior,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/door/firedoor/heavy,
 /turf/open/floor/engine,
 /area/science/mixing/chamber)
 "bNv" = (
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door/airlock/research/glass/incinerator/toxmix_interior,
+/obj/machinery/door/firedoor/heavy,
 /turf/open/floor/engine,
 /area/science/mixing/chamber)
 "bNw" = (

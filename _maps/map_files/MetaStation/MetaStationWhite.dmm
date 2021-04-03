@@ -27173,6 +27173,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 10
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/aisat)
 "bpE" = (
@@ -27978,6 +27979,25 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/starboard)
+"brv" = (
+/obj/structure/table/glass,
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/item/reagent_containers/glass/bottle/morphine,
+/obj/item/reagent_containers/glass/bottle/morphine{
+	pixel_x = 8;
+	pixel_y = -3
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/sleeper)
 "brw" = (
 /obj/machinery/door/airlock{
 	name = "Theatre Stage";
@@ -43889,6 +43909,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
+/obj/item/storage/backpack/duffelbag/med/surgery,
 /turf/open/floor/plasteel/white,
 /area/medical/sleeper)
 "cjC" = (
@@ -43922,7 +43943,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/machinery/iv_drip,
+/obj/machinery/computer/operating,
 /turf/open/floor/plasteel/white,
 /area/medical/sleeper)
 "cjE" = (
@@ -46314,10 +46335,7 @@
 	pixel_y = -32
 	},
 /obj/machinery/light,
-/obj/structure/bed/pod{
-	desc = "An old medical bed, just waiting for replacement with something up to date.";
-	name = "medical bed"
-	},
+/obj/structure/table/optable,
 /turf/open/floor/plasteel/white,
 /area/medical/sleeper)
 "csr" = (
@@ -56564,6 +56582,25 @@
 /obj/item/clothing/mask/surgical,
 /turf/open/floor/plasteel/dark,
 /area/medical/morgue)
+"dKy" = (
+/obj/structure/table/glass,
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/item/reagent_containers/glass/bottle/multiver,
+/obj/item/reagent_containers/glass/bottle/epinephrine{
+	pixel_x = -4;
+	pixel_y = 12
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/sleeper)
 "dKN" = (
 /obj/structure/table,
 /obj/item/storage/box/bodybags{
@@ -57517,9 +57554,12 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/machinery/iv_drip,
 /obj/machinery/light_switch{
 	pixel_y = -25
+	},
+/obj/machinery/computer/operating{
+	dir = 1;
+	name = "Robotics Operating Computer"
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/sleeper)
@@ -66753,6 +66793,21 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
+"lOj" = (
+/obj/structure/table/glass,
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/item/reagent_containers/glass/bottle/syriniver,
+/turf/open/floor/plasteel/white,
+/area/medical/sleeper)
 "lOn" = (
 /obj/effect/turf_decal/tile/purple,
 /obj/effect/turf_decal/tile/purple{
@@ -68020,6 +68075,23 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/security/prison)
+"mNK" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/machinery/computer/operating{
+	dir = 1;
+	name = "Robotics Operating Computer"
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/sleeper)
 "mNW" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/dark,
@@ -68784,6 +68856,25 @@
 	},
 /turf/open/floor/plating,
 /area/medical/chemistry)
+"nBU" = (
+/obj/structure/table/glass,
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/item/reagent_containers/glass/bottle/epinephrine{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/reagent_containers/glass/bottle/multiver,
+/turf/open/floor/plasteel/white,
+/area/medical/sleeper)
 "nCo" = (
 /obj/structure/bed,
 /obj/item/bedsheet/red,
@@ -78758,10 +78849,10 @@
 /turf/open/floor/wood,
 /area/maintenance/port/aft)
 "uZe" = (
-/obj/machinery/modular_computer/console/preset/civilian,
 /obj/effect/turf_decal/siding{
 	dir = 1
 	},
+/obj/machinery/computer/rdconsole,
 /turf/open/floor/plasteel/dark,
 /area/science/lab)
 "uZY" = (
@@ -102935,12 +103026,12 @@ gnT
 cgL
 cev
 cjB
-cjB
+lOj
 gHf
 cnr
 coD
 uiO
-cjB
+dKy
 cjB
 cev
 gmp
@@ -103455,7 +103546,7 @@ cnt
 coF
 xhc
 uiO
-cjD
+mNK
 cev
 mla
 nMe
@@ -104991,12 +105082,12 @@ cfK
 cgT
 cev
 cjB
-cjB
+brv
 jxb
 cny
 coL
 cqg
-cjB
+nBU
 cjB
 pqM
 cum
