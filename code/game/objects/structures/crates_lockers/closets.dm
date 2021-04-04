@@ -655,4 +655,4 @@
 /obj/structure/closet/return_temperature()
 	if(air_contents)
 		return air_contents.return_temperature()
->>>>>>> 0500771072... [Ready] Fermichem part 2.3 Adds a new reagent: Eigenstasium (#56918)
+
