@@ -13,7 +13,7 @@ export const Vote = (props, context) => {
   }
 
   return (
-    <Window resizable title={windowTitle} width={400} height={500}>
+    <Window resizable title={windowTitle} width={400} height={550}>
       <Window.Content>
         <Stack fill vertical>
           {!!lower_admin && (
@@ -75,7 +75,7 @@ const VoteOptions = (props, context) => {
                 <Button
                   disabled={!upper_admin || !allow_vote_restart}
                   onClick={() => act("restart")}>
-                  Restart
+                  Перезапуск
                 </Button>
               </Stack.Item>
               <Stack.Item>
@@ -132,7 +132,7 @@ const ChoicesPanel = (props, context) => {
 
   return (
     <Stack.Item grow>
-      <Section fill scrollable title="Choices">
+      <Section fill scrollable title="Выбирай!">
         {choices.length !== 0 ? (
           <LabeledList>
             {choices.map((choice, i) => (
@@ -180,7 +180,7 @@ const TimePanel = (props, context) => {
       <Section>
         <Stack justify="space-between">
           <Box fontSize={1.5}>
-            Времени осталось: {time_remaining || 0}s
+            Времени осталось: {time_remaining || 0}с
           </Box>
           {!!upper_admin && (
             <Button color="red" onClick={() => act('cancel')}>

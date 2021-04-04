@@ -711,7 +711,7 @@ export const CommunicationsConsole = (props, context) => {
   return (
     <Window
       width={400}
-      height={650}
+      height={authenticated ? 525 : 120}
       theme={emagged ? "syndicate" : undefined}>
       <Window.Content scrollable>
         {!hasConnection && <NoConnectionModal />}

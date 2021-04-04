@@ -7,7 +7,7 @@
 	desc = {"This machine can separate reagents based on charge, meaning it can clean reagents of some of their impurities, unlike the Chem Master 3000.
 By selecting a range in the mass spectrograph certain reagents will be transferred from one beaker to another, which will clean it of any impurities up to a certain amount.
 This will not clean any inverted reagents. Inverted reagents will still be correctly detected and displayed on the scanner, however.
-\nLeft click with a beaker to add it to the input slot. CTRL+Click can let you quickly remove the corrisponding beaker too."}
+\nLeft click with a beaker to add it to the input slot. GRAB+Click can let you quickly remove the corrisponding beaker too."}
 	density = TRUE
 	layer = BELOW_OBJ_LAYER
 	icon = 'icons/obj/chemical.dmi'
@@ -48,9 +48,12 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 ///Adds beaker 1
 /obj/machinery/chem_mass_spec/attackby(obj/item/item, mob/user, params)
 	if(processing_reagents)
-		to_chat(user, "<span class='notice'> The [src] is currently processing a batch!")
+		to_chat(user, "<span class='notice'>The [src] is currently processing a batch!")
 		return ..()
-	if(istype(item, /obj/item/reagent_containers) && !(item.item_flags & ABSTRACT) && item.is_open_container())
+	if(user.a_intent == INTENT_GRAB && can_interact(user) && user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
+		replace_beaker(user, BEAKER2)
+		updateUsrDialog()
+	else if(istype(item, /obj/item/reagent_containers) && !(item.item_flags & ABSTRACT) && item.is_open_container())
 		var/obj/item/reagent_containers/beaker = item
 		. = TRUE //no afterattack
 		if(!user.transferItemToLoc(beaker, src))
@@ -64,20 +67,11 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 /obj/machinery/chem_mass_spec/AltClick(mob/living/user)
 	. = ..()
 	if(processing_reagents)
-		to_chat(user, "<span class='notice'> The [src] is currently processing a batch!")
+		to_chat(user, "<span class='notice'>The [src] is currently processing a batch!")
 		return
 	if(!can_interact(user) || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return ..()
 	replace_beaker(user, BEAKER1)
-
-/obj/machinery/chem_mass_spec/CtrlClick(mob/living/user)
-	. = ..()
-	if(processing_reagents)
-		to_chat(user, "<span class='notice'> The [src] is currently processing a batch!")
-		return
-	if(!can_interact(user) || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
-		return
-	replace_beaker(user, BEAKER2)
 
 ///Gee how come you get two beakers?
 /*

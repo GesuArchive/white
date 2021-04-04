@@ -187,7 +187,7 @@ SUBSYSTEM_DEF(vote)
 				choices.Add("Заканчиваем","Продолжаем")
 			if("режим")
 				choices.Add(config.votable_modes)
-			if("map")
+			if("карту")
 				if(!lower_admin && SSmapping.map_voted)
 					to_chat(usr, "<span class='warning'>Следующая карта уже была выбрана.</span>")
 					return FALSE

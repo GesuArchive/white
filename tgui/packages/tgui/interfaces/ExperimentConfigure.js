@@ -67,7 +67,8 @@ export const TechwebServer = (props, context) => {
               ? act("clear_server")
               : act("select_server", { "ref": servers[0].ref })}
             content={servers[0].selected ? "Отключить" : "Подключить"}
-            backgroundColor={servers[0].selected ? "good" : "rgba(0, 0, 0, 0.4)"}
+            backgroundColor={servers[0].selected ? "red" : "green"}
+            color={servers[0].selected ? "black" : "white"}
             className="ExperimentTechwebServer__ConnectButton" />
         </Flex.Item>
       </Flex>
@@ -194,7 +195,7 @@ export const Experiment = (props, context) => {
         onClick={() => controllable && (selected
           ? act("clear_experiment")
           : act("select_experiment", { "ref": ref }))}
-        backgroundColor={selected ? "good" : "#40628a"}
+        backgroundColor={selected ? "good" : "#111111"}
         className="ExperimentConfigure__ExperimentName"
         disabled={controllable && !selectable}>
         <Flex align="center" justify="space-between">
