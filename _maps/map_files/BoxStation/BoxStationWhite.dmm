@@ -11174,9 +11174,6 @@
 /turf/open/floor/plating,
 /area/maintenance/port)
 "aWy" = (
-/obj/effect/turf_decal/tile/brown{
-	dir = 4
-	},
 /obj/effect/turf_decal/tile/brown,
 /obj/structure/table,
 /obj/item/clipboard,
@@ -12051,11 +12048,20 @@
 /turf/open/floor/plasteel,
 /area/crew_quarters/locker)
 "bbt" = (
-/obj/machinery/light_switch{
-	pixel_y = -25
+/obj/item/radio/intercom{
+	pixel_x = 29
 	},
-/turf/closed/wall,
-/area/quartermaster/office)
+/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet/quartermaster,
+/obj/item/storage/firstaid/regular,
+/turf/open/floor/plasteel,
+/area/quartermaster/qm)
 "bbv" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
@@ -12400,8 +12406,17 @@
 /turf/open/floor/plasteel/freezer,
 /area/crew_quarters/toilet/locker)
 "bcS" = (
-/obj/effect/turf_decal/tile/brown,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
@@ -12598,6 +12613,10 @@
 /obj/item/stamp/qm{
 	pixel_x = 8
 	},
+/obj/machinery/light_switch{
+	pixel_x = -27;
+	pixel_y = 4
+	},
 /turf/open/floor/plasteel,
 /area/quartermaster/qm)
 "bdT" = (
@@ -12627,9 +12646,11 @@
 /turf/open/floor/plasteel,
 /area/quartermaster/qm)
 "bdW" = (
-/obj/machinery/disposal/bin,
-/obj/structure/disposalpipe/trunk,
-/turf/open/floor/wood,
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/computer/security/telescreen/entertainment{
+	pixel_x = -31
+	},
+/turf/open/floor/plating,
 /area/quartermaster/office)
 "bdZ" = (
 /obj/structure/disposalpipe/segment,
@@ -13167,9 +13188,9 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "bgz" = (
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/wood,
-/area/quartermaster/office)
+/obj/structure/ladder,
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/storage)
 "bgA" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -13499,7 +13520,11 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/turf/open/floor/wood,
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/office)
 "biA" = (
 /obj/structure/disposalpipe/segment{
@@ -13540,7 +13565,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 6
 	},
-/turf/open/floor/wood,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/office)
 "biG" = (
 /obj/machinery/mech_bay_recharge_port{
@@ -13646,9 +13671,9 @@
 /area/science/research)
 "biT" = (
 /obj/structure/disposalpipe/segment{
-	dir = 5
+	dir = 4
 	},
-/turf/open/floor/wood,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/office)
 "biU" = (
 /obj/effect/turf_decal/tile/purple{
@@ -13815,7 +13840,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
-/obj/effect/turf_decal/siding/wood{
+/obj/effect/turf_decal/siding/thinplating{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
@@ -13838,7 +13863,7 @@
 	dir = 10
 	},
 /obj/structure/cable,
-/turf/open/floor/wood,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/office)
 "bjv" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
@@ -13915,7 +13940,7 @@
 	name = "Quartermaster";
 	req_access_txt = "41"
 	},
-/obj/effect/turf_decal/siding/wood{
+/obj/effect/turf_decal/siding/thinplating{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -13993,9 +14018,8 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/obj/machinery/computer/exodrone_control_console{
-	dir = 4
-	},
+/obj/structure/table,
+/obj/item/hand_labeler,
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/storage)
 "bkv" = (
@@ -14016,7 +14040,7 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
 	dir = 4
 	},
-/turf/open/floor/wood,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/office)
 "bkx" = (
 /obj/machinery/status_display/supply{
@@ -14406,7 +14430,7 @@
 	pixel_x = -32
 	},
 /obj/machinery/vending/coffee,
-/turf/open/floor/wood,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/office)
 "bmi" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -14606,9 +14630,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/effect/turf_decal/siding/thinplating,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/office)
 "bnG" = (
@@ -16009,18 +16030,10 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/brown,
-/obj/effect/turf_decal/tile/brown{
-	dir = 8
-	},
-/obj/structure/closet/secure_closet/quartermaster,
-/obj/item/radio/intercom{
-	pixel_y = -35
-	},
 /obj/machinery/firealarm{
 	dir = 8;
 	pixel_x = 24
 	},
-/obj/item/storage/firstaid/regular,
 /turf/open/floor/plasteel,
 /area/quartermaster/qm)
 "bwS" = (
@@ -16398,8 +16411,6 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 4
 	},
-/obj/structure/table,
-/obj/machinery/cell_charger,
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/storage)
 "byp" = (
@@ -32238,10 +32249,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/office)
-"gYX" = (
-/obj/machinery/exoscanner,
-/turf/open/floor/plasteel/dark,
-/area/quartermaster/storage)
 "gZd" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -32423,9 +32430,6 @@
 /area/engine/atmos)
 "huy" = (
 /obj/effect/turf_decal/siding/thinplating,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/office)
 "hvj" = (
@@ -32666,9 +32670,8 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/machinery/computer/exoscanner_control{
-	dir = 4
-	},
+/obj/structure/table,
+/obj/machinery/cell_charger,
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/storage)
 "hOv" = (
@@ -32901,11 +32904,9 @@
 /turf/open/floor/plating,
 /area/engine/manufactory)
 "igQ" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/computer/security/telescreen/entertainment{
-	pixel_x = 32
-	},
-/turf/open/floor/wood,
+/obj/structure/cable,
+/obj/machinery/computer/mech_bay_power_console,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/office)
 "iiu" = (
 /obj/effect/spawner/lootdrop/maintenance,
@@ -32996,7 +32997,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/turf/open/floor/wood,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/office)
 "iqh" = (
 /turf/closed/wall/r_wall,
@@ -33536,10 +33537,8 @@
 /turf/open/floor/engine/plasma,
 /area/engine/atmos)
 "jAX" = (
-/obj/structure/chair/sofa/right{
-	dir = 4
-	},
-/turf/open/floor/wood,
+/obj/vehicle/sealed/mecha/working/ripley/cargo,
+/turf/open/floor/mech_bay_recharge_floor,
 /area/quartermaster/office)
 "jAY" = (
 /obj/structure/chair,
@@ -36343,10 +36342,6 @@
 /obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/crew_quarters/dorms)
-"pxg" = (
-/obj/machinery/exodrone_launcher,
-/turf/open/floor/plasteel/dark,
-/area/quartermaster/storage)
 "pxz" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -37489,7 +37484,6 @@
 	dir = 8
 	},
 /obj/structure/table,
-/obj/item/hand_labeler,
 /obj/item/storage/box/shipping,
 /obj/item/clothing/head/soft,
 /obj/item/clothing/head/soft,
@@ -38106,13 +38100,14 @@
 /obj/item/radio/intercom{
 	pixel_y = 20
 	},
-/obj/structure/chair/sofa/left{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/open/floor/wood,
+/obj/machinery/mech_bay_recharge_port{
+	dir = 2
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
 /area/quartermaster/office)
 "sMK" = (
 /obj/machinery/power/apc{
@@ -38630,10 +38625,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
-"tAm" = (
-/obj/item/exodrone,
-/turf/open/floor/plasteel/dark,
-/area/quartermaster/storage)
 "tCA" = (
 /obj/structure/holosign/barrier/atmos,
 /obj/effect/decal/cleanable/oil/slippery,
@@ -59609,9 +59600,9 @@ arC
 arC
 bvV
 vlB
-tAm
-pxg
-gYX
+bjr
+bjr
+bjr
 blW
 gXs
 aaa
@@ -59866,7 +59857,7 @@ uqv
 sSZ
 sSZ
 des
-bjr
+bgz
 dci
 dgB
 aZE
@@ -62422,9 +62413,9 @@ cBi
 bcJ
 bcS
 aWy
-sdX
-bbt
-sdX
+gjl
+gjl
+gjl
 bkj
 sdX
 sdX
@@ -62678,14 +62669,14 @@ gjl
 bvU
 bvX
 bwQ
-sdX
-sdX
+bbt
+gjl
 sLJ
 jAX
 bju
 biv
 bmf
-bfm
+bdW
 boN
 bqo
 brO
@@ -62935,11 +62926,11 @@ gjl
 gjl
 gjl
 gjl
-sdX
-bdW
+gjl
+gjl
 igQ
-bgz
-bgz
+eVL
+eVL
 biT
 ioQ
 huy
