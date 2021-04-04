@@ -5309,10 +5309,7 @@
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "aoh" = (
-/obj/structure/rack,
-/obj/item/clothing/under/misc/mailman,
-/obj/item/clothing/under/misc/vice_officer,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/item/exodrone,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "aoi" = (
@@ -5837,7 +5834,6 @@
 /turf/open/floor/plasteel/dark,
 /area/storage/tech)
 "apy" = (
-/obj/effect/landmark/xeno_spawn,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
@@ -6364,6 +6360,7 @@
 /area/maintenance/port/fore)
 "aqS" = (
 /obj/item/cigbutt,
+/obj/machinery/exodrone_launcher,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "aqT" = (
@@ -78858,6 +78855,13 @@
 	},
 /turf/open/floor/wood,
 /area/maintenance/port/aft)
+"uYR" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/fore)
 "uZe" = (
 /obj/effect/turf_decal/siding{
 	dir = 1
@@ -82236,6 +82240,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/aft)
+"xIx" = (
+/obj/machinery/computer/exodrone_control_console{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/fore)
 "xJp" = (
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
@@ -104251,7 +104261,7 @@ aeJ
 aaa
 aaa
 dne
-dnu
+aoh
 apy
 aqS
 dnZ
@@ -104508,9 +104518,9 @@ aeJ
 lMJ
 lMJ
 aip
-aoh
+aRG
 dnP
-doe
+uYR
 asl
 atG
 atP
@@ -104765,7 +104775,7 @@ aeJ
 aaa
 aaa
 dne
-dnd
+xIx
 aog
 dne
 dne

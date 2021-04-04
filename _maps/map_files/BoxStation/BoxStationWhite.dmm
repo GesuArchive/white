@@ -13993,7 +13993,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/obj/machinery/computer/bounty{
+/obj/machinery/computer/exodrone_control_console{
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
@@ -30194,7 +30194,7 @@
 /turf/open/openspace,
 /area/maintenance/space_hut/plasmaman)
 "dci" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
@@ -36337,9 +36337,7 @@
 /turf/open/floor/wood,
 /area/crew_quarters/dorms)
 "pxg" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
+/obj/machinery/exodrone_launcher,
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/storage)
 "pxz" = (
@@ -38625,6 +38623,10 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
+"tAm" = (
+/obj/item/exodrone,
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/storage)
 "tCA" = (
 /obj/structure/holosign/barrier/atmos,
 /obj/effect/decal/cleanable/oil/slippery,
@@ -59600,7 +59602,7 @@ arC
 arC
 bvV
 vlB
-bjr
+tAm
 pxg
 bjr
 blW
