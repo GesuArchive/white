@@ -60,7 +60,7 @@
 	if(HAS_TRAIT(target, DO_NOT_SPLASH))
 		return ..()
 	if (try_splash(user, target))
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+		return ..()
 
 	return ..()
 
