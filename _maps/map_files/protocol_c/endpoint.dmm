@@ -2279,9 +2279,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
-"hO" = (
-/turf/open/space/transit,
-/area/space)
 "hP" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green{
@@ -24411,9 +24408,9 @@ XF
 XF
 XF
 XF
-hO
-hO
-hO
+vC
+vC
+vC
 vC
 vC
 vC

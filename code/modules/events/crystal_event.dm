@@ -276,7 +276,7 @@ This section is for the event controller
 	name = "Кристальный пол."
 	desc = "Кристаллизованный пол."
 	icon_state = "noslip-damaged1"
-	baseturfs = /turf/open/space
+	baseturfs = /turf/open/space/basic
 
 /turf/open/indestructible/crystal_floor/examine(mob/user)
 	. += ..()
@@ -298,7 +298,7 @@ This section is for the event controller
 	desc = "Кристаллизованная стена."
 	icon = 'icons/turf/mining.dmi'
 	icon_state = "rock_highchance"
-	baseturfs = /turf/open/space
+	baseturfs = /turf/open/space/basic
 
 /turf/closed/indestructible/crystal_wall/examine(mob/user)
 	. += ..()
