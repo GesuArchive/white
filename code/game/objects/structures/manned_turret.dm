@@ -45,6 +45,8 @@
 			buckled_mob.client.view_size.resetToDefault()
 	anchored = FALSE
 	. = ..()
+
+/obj/machinery/manned_turret/post_unbuckle_mob(mob/living/M)
 	STOP_PROCESSING(SSfastprocess, src)
 
 /obj/machinery/manned_turret/user_buckle_mob(mob/living/M, mob/user, check_loc = TRUE)
@@ -52,8 +54,8 @@
 		return
 	M.forceMove(get_turf(src))
 	. = ..()
-	if(!.)
-		return
+
+/obj/machinery/manned_turret/post_buckle_mob(mob/living/M)
 	for(var/V in M.held_items)
 		var/obj/item/I = V
 		if(istype(I))

@@ -98,6 +98,8 @@
 	var/override_alerts = FALSE //If it is overriding other alerts of the same type
 	var/mob/owner //Alert owner
 
+	/// Boolean. If TRUE, the Click() proc will attempt to Click() on the master first if there is a master.
+	var/click_master = TRUE
 
 /atom/movable/screen/alert/MouseEntered(location,control,params)
 	if(!QDELETED(src))
@@ -680,7 +682,7 @@ so as to remain in compliance with the most up-to-date laws."
 
 //OBJECT-BASED
 
-/atom/movable/screen/alert/restrained/buckled
+/atom/movable/screen/alert/buckled
 	name = "Пристегнут"
 	desc = "Я пристегнут к чему-то или сижу. Клик, чтобы встать."
 	icon_state = "buckled"
@@ -688,10 +690,12 @@ so as to remain in compliance with the most up-to-date laws."
 /atom/movable/screen/alert/restrained/handcuffed
 	name = "Закован"
 	desc = "На мне наручники и я ничего не могу делать. Не смогу двигаться если меня схватят. Клик, чтобы попробовать освободиться."
+	click_master = FALSE
 
 /atom/movable/screen/alert/restrained/legcuffed
 	name = "Ноги связаны"
 	desc = "Мои ноги связаны и это меня замедляет. Клик, чтобы попробовать освободиться."
+	click_master = FALSE
 
 /atom/movable/screen/alert/restrained/Click()
 	var/mob/living/L = usr
@@ -701,7 +705,7 @@ so as to remain in compliance with the most up-to-date laws."
 	if((L.mobility_flags & MOBILITY_MOVE) && (L.last_special <= world.time))
 		return L.resist_restraints()
 
-/atom/movable/screen/alert/restrained/buckled/Click()
+/atom/movable/screen/alert/buckled/Click()
 	var/mob/living/L = usr
 	if(!istype(L) || !L.can_resist() || L != owner)
 		return
@@ -771,7 +775,7 @@ so as to remain in compliance with the most up-to-date laws."
 		return
 	if(usr != owner)
 		return
-	if(master)
+	if(master && click_master)
 		return usr.client.Click(master, location, control, params)
 
 /atom/movable/screen/alert/Destroy()
