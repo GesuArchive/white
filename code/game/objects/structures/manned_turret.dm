@@ -11,7 +11,7 @@
 	max_integrity = 100
 	buckle_lying = 0
 	layer = ABOVE_MOB_LAYER
-	var/view_range = 2.5
+	var/view_range = 1
 	var/cooldown = 0
 	var/projectile_type = /obj/projectile/bullet/manned_turret
 	var/rate_of_fire = 1
@@ -171,7 +171,7 @@
 
 /obj/machinery/manned_turret/ultimate  // Admin-only proof of concept for autoclicker automatics
 	name = "Ультратурель"
-	view_range = 12
+	view_range = 5
 	projectile_type = /obj/projectile/bullet/manned_turret
 
 /obj/machinery/manned_turret/ultimate/checkfire(atom/targeted_atom, mob/user)
