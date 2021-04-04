@@ -16398,6 +16398,8 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 4
 	},
+/obj/structure/table,
+/obj/machinery/cell_charger,
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/storage)
 "byp" = (
@@ -32236,6 +32238,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/office)
+"gYX" = (
+/obj/machinery/exoscanner,
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/storage)
 "gZd" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -32660,8 +32666,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/structure/table,
-/obj/machinery/cell_charger,
+/obj/machinery/computer/exoscanner_control{
+	dir = 4
+	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/storage)
 "hOv" = (
@@ -59604,7 +59611,7 @@ bvV
 vlB
 tAm
 pxg
-bjr
+gYX
 blW
 gXs
 aaa
