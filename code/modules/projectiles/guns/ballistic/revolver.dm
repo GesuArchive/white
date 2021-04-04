@@ -15,6 +15,11 @@
 	tac_reloads = FALSE
 	var/spin_delay = 10
 	var/recent_spin = 0
+	var/last_fire = 0
+
+/obj/item/gun/ballistic/revolver/process_fire(atom/target, mob/living/user, message, params, zone_override, bonus_spread)
+	..()
+	last_fire = world.time
 
 /obj/item/gun/ballistic/revolver/chamber_round(keep_bullet, spin_cylinder = TRUE, replace_new_round)
 	if(!magazine) //if it mag was qdel'd somehow.
@@ -73,6 +78,10 @@
 	. += "<hr>[live_ammo ? live_ammo : "Нет"] живых патронов."
 	if (current_skin)
 		. += "\nЕго можно покрутить используя <b>Alt+клик</b>"
+
+/obj/item/gun/ballistic/revolver/ignition_effect(atom/A, mob/user)
+	if(last_fire && last_fire + 15 SECONDS > world.time)
+		. = "<span class='notice'>[user] притрагивается раскалённым концом [src.name] к [A.name].</span>"
 
 /obj/item/gun/ballistic/revolver/detective
 	name = "\improper специальный кольт детектива"
