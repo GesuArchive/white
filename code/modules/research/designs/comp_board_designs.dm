@@ -304,6 +304,14 @@
 	category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
+/datum/design/board/price_controller
+	name = "Дизайн консоли (Контроллер цен)"
+	desc = "Используется для искусственных манипуляций внутренним рынком."
+	id = "price_controller"
+	build_path = /obj/item/circuitboard/computer/price_controller
+	category = list("Консоли")
+	departmental_flags = DEPARTMENTAL_FLAG_CARGO
+
 /datum/design/board/bountypad_control
 	name = "Дизайн консоли (Civilian Bounty Pad Control)"
 	desc = "Allows for the construction of circuit boards used to build a new civilian bounty pad console."
