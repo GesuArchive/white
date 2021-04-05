@@ -418,7 +418,7 @@ const PageMain = (props, context) => {
 
           {!!aprilFools && !!canMakeAnnouncement && <Button
             icon="bullhorn"
-            content="Call Emergency Meeting"
+            content="СРОЧНОЕ СОБРАНИЕ"
             onClick={() => act("emergency_meeting")}
           />}
 
