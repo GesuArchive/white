@@ -50,16 +50,16 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 	if(processing_reagents)
 		to_chat(user, "<span class='notice'>The [src] is currently processing a batch!")
 		return ..()
-	if(user.a_intent == INTENT_GRAB && can_interact(user) && user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
-		replace_beaker(user, BEAKER2)
-		updateUsrDialog()
-	else if(istype(item, /obj/item/reagent_containers) && !(item.item_flags & ABSTRACT) && item.is_open_container())
+	if(istype(item, /obj/item/reagent_containers) && !(item.item_flags & ABSTRACT) && item.is_open_container())
 		var/obj/item/reagent_containers/beaker = item
-		. = TRUE //no afterattack
+		. = TRUE
 		if(!user.transferItemToLoc(beaker, src))
 			return
-		replace_beaker(user, BEAKER1, beaker)
-		to_chat(user, "<span class='notice'>You add [beaker] to [src].</span>")
+		if(user.a_intent == INTENT_GRAB)
+			replace_beaker(user, BEAKER2, beaker)
+		else
+			replace_beaker(user, BEAKER1, beaker)
+		to_chat(user, "<span class='notice'>Добавляю [beaker] в [src].</span>")
 		updateUsrDialog()
 	update_icon()
 	..()
