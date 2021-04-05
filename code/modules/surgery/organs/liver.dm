@@ -105,7 +105,7 @@
 	if(damage > maxHealth)//cap liver damage
 		damage = maxHealth
 
-/obj/item/organ/liver/handle_failing_organs(delta_time)
+/obj/item/organ/liver/handle_failing_organs()
 	if(HAS_TRAIT(src, TRAIT_STABLELIVER) || HAS_TRAIT(src, TRAIT_NOMETABOLISM))
 		return
 	return ..()

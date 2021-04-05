@@ -104,7 +104,7 @@
 
 /obj/item/organ/proc/on_life()	//repair organ damage if the organ is not failing
 	if(organ_flags & ORGAN_FAILING)
-		handle_failing_organs(delta_time)
+		handle_failing_organs()
 		return
 
 	if(failure_time > 0)
