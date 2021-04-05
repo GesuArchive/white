@@ -81,7 +81,7 @@
 	icon_state = "black"
 	layer = FLY_LAYER
 	bullet_bounce_sound = null
-	baseturfs = null
+	baseturfs = /turf/closed/indestructible/black
 
 /turf/closed/indestructible/black/New()
 	return
