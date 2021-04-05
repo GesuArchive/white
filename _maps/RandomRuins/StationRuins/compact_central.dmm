@@ -175,6 +175,11 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
+"aD" = (
+/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/maintenance/central)
 "aE" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -829,6 +834,10 @@
 	pixel_y = 0
 	},
 /obj/machinery/camera/autoname,
+/obj/item/storage/pod{
+	pixel_x = 8;
+	pixel_y = 32
+	},
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "cD" = (
@@ -1416,6 +1425,7 @@
 	name = "Central Maintenance APC";
 	pixel_y = 23
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "eh" = (
@@ -5134,10 +5144,10 @@ lL
 lL
 el
 lL
-Zw
-Zw
-xu
-Zw
+lL
+lL
+aD
+lL
 dT
 dy
 dy
@@ -5175,7 +5185,7 @@ zb
 dC
 dC
 PC
-xu
+aD
 Zw
 hk
 dy

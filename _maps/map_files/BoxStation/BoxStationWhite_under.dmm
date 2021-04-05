@@ -6836,6 +6836,7 @@
 	},
 /obj/machinery/power/apc/auto_name/north,
 /obj/structure/cable,
+/obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/qm/perch)
 "Xs" = (
@@ -6852,6 +6853,10 @@
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = -24
+	},
+/obj/item/storage/pod{
+	pixel_x = 32;
+	pixel_y = -32
 	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/qm/perch)

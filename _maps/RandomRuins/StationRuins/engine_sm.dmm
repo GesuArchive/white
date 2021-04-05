@@ -27,7 +27,7 @@
 /area/engine/engineering)
 "aq" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "as" = (
 /obj/structure/cable,
@@ -63,7 +63,6 @@
 	name = "Supermatter Engine Room";
 	req_access_txt = "10"
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/engine,
 /area/engine/engineering)
@@ -80,7 +79,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "aH" = (
 /obj/machinery/door/firedoor,
@@ -118,7 +117,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "aQ" = (
 /obj/machinery/light{
@@ -128,7 +127,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "aR" = (
 /obj/structure/railing{
@@ -137,11 +136,11 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "aV" = (
 /obj/structure/cable,
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "aX" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
@@ -173,7 +172,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bb" = (
 /turf/closed/wall,
@@ -247,7 +246,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bB" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -272,7 +271,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bD" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -286,7 +285,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bF" = (
 /obj/effect/turf_decal/stripes/line{
@@ -298,13 +297,13 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bI" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bJ" = (
 /obj/effect/turf_decal/stripes/line{
@@ -316,7 +315,7 @@
 /obj/structure/railing{
 	dir = 4
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bN" = (
 /obj/machinery/atmospherics/pipe/multiz/layer4{
@@ -345,7 +344,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bQ" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -362,7 +361,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bS" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -370,10 +369,10 @@
 	},
 /obj/structure/railing,
 /obj/effect/turf_decal/stripes/line,
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "cf" = (
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "cj" = (
 /obj/machinery/atmospherics/pipe/multiz/layer2{
@@ -471,7 +470,7 @@
 "cQ" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/railing,
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "cV" = (
 /obj/structure/lattice/catwalk,
@@ -490,7 +489,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "dk" = (
 /obj/structure/lattice/catwalk,
@@ -503,7 +502,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "dz" = (
 /obj/structure/lattice/catwalk,
@@ -528,7 +527,7 @@
 	},
 /obj/structure/railing/corner,
 /obj/effect/turf_decal/stripes/corner,
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "dL" = (
 /obj/structure/lattice/catwalk,
@@ -546,7 +545,7 @@
 	},
 /obj/structure/railing,
 /obj/effect/turf_decal/stripes/line,
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "dQ" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -560,7 +559,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "dR" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -577,7 +576,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "dS" = (
 /obj/effect/turf_decal/stripes/line{
@@ -586,7 +585,7 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "dU" = (
 /obj/effect/turf_decal/stripes/line{
@@ -595,7 +594,7 @@
 /obj/structure/railing{
 	dir = 4
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "dX" = (
 /obj/machinery/light,
@@ -731,7 +730,7 @@
 /obj/structure/railing{
 	dir = 10
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "eT" = (
 /obj/effect/turf_decal/stripes/line{
@@ -743,7 +742,7 @@
 /obj/structure/railing{
 	dir = 6
 	},
-/turf/open/floor/engine/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "eU" = (
 /obj/effect/turf_decal/stripes/line{
@@ -780,6 +779,12 @@
 "gP" = (
 /turf/open/floor/engine/airless,
 /area/space/nearstation)
+"lP" = (
+/obj/machinery/airalarm{
+	pixel_y = 23
+	},
+/turf/open/floor/engine,
+/area/engine/engineering)
 "oi" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
@@ -823,6 +828,19 @@
 	},
 /turf/open/floor/engine/airless,
 /area/space/nearstation)
+"Cn" = (
+/obj/structure/lattice,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/open/openspace,
+/area/engine/engineering)
+"DB" = (
+/obj/machinery/firealarm{
+	pixel_y = 24
+	},
+/turf/open/floor/engine,
+/area/engine/engineering)
 "LF" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
@@ -1334,7 +1352,7 @@ ab
 "}
 (19,1,1) = {"
 ad
-cf
+lP
 bS
 fl
 bk
@@ -1348,7 +1366,7 @@ fO
 eO
 fO
 fO
-fO
+Cn
 ad
 gP
 gP
@@ -1446,7 +1464,7 @@ ab
 "}
 (23,1,1) = {"
 ad
-cf
+DB
 dN
 fl
 ec
