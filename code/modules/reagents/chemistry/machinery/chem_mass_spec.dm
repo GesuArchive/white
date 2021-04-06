@@ -7,7 +7,7 @@
 	desc = {"This machine can separate reagents based on charge, meaning it can clean reagents of some of their impurities, unlike the Chem Master 3000.
 By selecting a range in the mass spectrograph certain reagents will be transferred from one beaker to another, which will clean it of any impurities up to a certain amount.
 This will not clean any inverted reagents. Inverted reagents will still be correctly detected and displayed on the scanner, however.
-\nLeft click with a beaker to add it to the input slot. GRAB+Click can let you quickly remove the corrisponding beaker too."}
+\nLeft click with a beaker to add it to the input slot. GRAB+Click can let you quickly insert the corrisponding beaker too."}
 	density = TRUE
 	layer = BELOW_OBJ_LAYER
 	icon = 'icons/obj/chemical.dmi'
