@@ -95,12 +95,14 @@
 	data["crystals"] = crystals
 	data["z_co"] = z_co
 	data["angle"] = angle
+	data["rotation"] = rotation
+	data["power"] = power
 	data["temp_msg"] = temp_msg
 	data["inserted_gps"] = inserted_gps
 	data["teleporting"] = teleporting
 	data["last_tele_data"] = last_tele_data
-	data["src_x"] = last_tele_data.src_x
-	data["src_y"] = last_tele_data.src_y
+	data["src_x"] = last_tele_data?.src_x
+	data["src_y"] = last_tele_data?.src_y
 	data["timedata"] = round(last_tele_data.time, 0.1)
 	return data
 
