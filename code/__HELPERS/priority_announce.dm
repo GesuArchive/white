@@ -46,7 +46,7 @@
  * * user - Mob who called the meeting
  * * button_zone - Area where the meeting was called and where everyone will get teleported to
  */
-/proc/call_emergency_meeting(mob/living/user, area/button_zone)
+/proc/call_emergency_meeting(user, area/button_zone)
 	var/meeting_sound = sound('sound/misc/emergency_meeting.ogg')
 	var/announcement
 	announcement += "<h1 class='alert'>ТРЕВОГА!</h1>"

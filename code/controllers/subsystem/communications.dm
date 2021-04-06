@@ -58,7 +58,7 @@ SUBSYSTEM_DEF(communications)
 /datum/controller/subsystem/communications/proc/emergency_meeting(mob/living/user)
 	if(!can_make_emergency_meeting(user))
 		return FALSE
-	call_emergency_meeting(user, get_area(user))
+	call_emergency_meeting(user.real_name, get_area(user))
 	COOLDOWN_START(src, emergency_meeting_cooldown, COMMUNICATION_COOLDOWN_MEETING)
 	message_admins("[ADMIN_LOOKUPFLW(user)] has called an emergency meeting.")
 
