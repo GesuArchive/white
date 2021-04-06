@@ -75,11 +75,11 @@
 	color: This set the text color: #ff00ff
 */
 /obj/structure/sign/poster/wanted/proc/print_across_top(icon/poster_icon, text, color)
-	var/textLen = min(length(text), 7)
+	var/textLen = min(length_char(text), 7)
 	var/startX = 16 - (2*textLen)
 	var/i
 	for(i=1; i <= textLen, i++)
-		var/letter = uppertext(text[i])
+		var/letter = uppertext(copytext_char(text, i, i + 1))
 		var/icon/letter_icon = icon("icon" = 'icons/Font_Minimal.dmi', "icon_state" = letter)
 		letter_icon.Shift(EAST, startX) //16 - (2*n)
 		letter_icon.Shift(SOUTH, 2)
