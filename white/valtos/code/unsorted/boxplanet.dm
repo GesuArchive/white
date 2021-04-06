@@ -135,7 +135,7 @@
 	invisibility = SEE_INVISIBLE_OBSERVER
 	icon = 'white/valtos/icons/mineflora.dmi'
 	icon_state = "kartoshmel"
-	maptext = "GENERATOR"
+	maptext = "GEN"
 	var/generating_type = /obj/structure/flora/tree/boxplanet/kartoshmel
 	var/list/planted_things = list()
 	var/cooldown = 0
@@ -146,7 +146,7 @@
 		if(prob(100 - (planted_things.len * 10)))
 			var/list/possible_turfs = list()
 			for(var/turf/T in RANGE_TURFS(7, src))
-				if(istype(T, /turf/open/floor/grass/gensgrass/dirty/stone/raw))
+				if(istype(T, /turf/open/floor/grass/gensgrass/dirty/stone/raw) || istype(T, /turf/open/floor/plating/asteroid/boxplanet/caves))
 					possible_turfs += T
 			planted_things += new generating_type(pick(possible_turfs))
 			if(prob(20))
