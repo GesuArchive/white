@@ -47,7 +47,7 @@ export const Aquarium = (props, context) => {
                 ))}
               </Flex>
             </LabeledControls.Item>
-            <LabeledControls.Item label="Размножение рыбок">
+            <LabeledControls.Item label="Запрет на размножение">
               <Button
                 content={allow_breeding ? "Выкл" : "Вкл"}
                 selected={!allow_breeding}
