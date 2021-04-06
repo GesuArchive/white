@@ -468,6 +468,13 @@
 		return
 	if(!req_defib && !combat)
 		return
+	if(prob(25))
+		M.visible_message("<span class='danger'>[capitalize(src.name)] взрывается в руках [user]!</span>")
+		var/turf/T = get_turf(user)
+		explosion(T, 0, 1, 2, 7)
+		qdel(src)
+		qdel(defib)
+		return
 	busy = TRUE
 	M.visible_message("<span class='danger'>[user] touches [M] with [src]!</span>", \
 			"<span class='userdanger'>[user] touches [M] with [src]!</span>")
