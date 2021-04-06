@@ -41,8 +41,8 @@
 	return ..()
 
 /obj/machinery/computer/telescience/examine(mob/user)
-	..()
-	. += "Внутри [crystals ? crystals : "нет"] блюспейс кристаллов."
+	. = ..()
+	. += "<hr>Внутри [crystals ? crystals : "нет"] блюспейс кристаллов."
 
 /obj/machinery/computer/telescience/Initialize(mapload)
 	. = ..()
@@ -103,7 +103,7 @@
 	data["last_tele_data"] = last_tele_data
 	data["src_x"] = last_tele_data?.src_x
 	data["src_y"] = last_tele_data?.src_y
-	data["timedata"] = round(last_tele_data.time, 0.1)
+	data["timedata"] = round(last_tele_data?.time, 0.1)
 	return data
 
 /obj/machinery/computer/telescience/ui_act(action, list/params)
@@ -121,10 +121,8 @@
 			angle = clamp(round(new_angle, 0.1), 1, 9999)
 			. = TRUE
 		if("setpower")
-			var/index = text2num(params["newpower"])
-			if(index != null && power_options[index])
-				if(crystals + telepad.efficiency >= index)
-					power = power_options[index]
+			var/new_power = text2num(params["newpower"])
+			power = new_power
 			. = TRUE
 		if("setz")
 			var/new_z = text2num(params["newz"])
@@ -218,9 +216,9 @@
 
 			temp_msg = "Телепортация успешна."
 			if(teles_left < 10)
-				temp_msg += "Потребуется калибрация."
+				temp_msg += " Потребуется калибрация."
 			else
-				temp_msg += "Данные выводятся."
+				temp_msg += " Данные выводятся."
 
 			do_sparks(5, TRUE, get_turf(target))
 
