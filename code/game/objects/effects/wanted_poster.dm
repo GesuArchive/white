@@ -9,7 +9,7 @@
 
 /obj/item/poster/wanted
 	icon_state = "rolled_poster"
-	var/postHeaderText = "WANTED" // MAX 7 Characters
+	var/postHeaderText = "РОЗЫСК" // MAX 7 Characters
 	var/postHeaderColor = "#FF0000"
 	var/background = "wanted_background"
 	var/postName = "wanted poster"
@@ -18,7 +18,7 @@
 /obj/item/poster/wanted/missing
 	postName = "missing poster"
 	postDesc = "A missing poster for"
-	postHeaderText = "MISSING" // MAX 7 Characters
+	postHeaderText = "ПРОПАЛ" // MAX 7 Characters
 	postHeaderColor = "#0000FF"
 
 /obj/item/poster/wanted/Initialize(mapload, icon/person_icon, wanted_name, description, headerText)
