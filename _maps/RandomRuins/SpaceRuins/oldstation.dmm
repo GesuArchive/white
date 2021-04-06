@@ -4665,7 +4665,7 @@
 /area/ruin/space/has_grav/ancientstation/betacorridor)
 "kW" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible{
 	dir = 5
 	},
 /turf/open/floor/plasteel,
@@ -4737,7 +4737,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/ancientstation/deltaai)
 "le" = (
-/obj/machinery/atmospherics/pipe/manifold/yellow/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible{
 	dir = 1
 	},
 /turf/open/floor/plasteel,

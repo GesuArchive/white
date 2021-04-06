@@ -469,9 +469,21 @@
 /// can only exist at PIPING_LAYER_DEFAULT
 #define PIPING_DEFAULT_LAYER_ONLY		(1<<2)
 /// north/south east/west doesn't matter, auto normalize on build.
-#define PIPING_CARDINAL_AUTONORMALIZE	(1<<3)
+#define PIPING_CARDINAL_AUTONORMALIZE (1<<3)
+/// intended to connect with everything, both layers and colors
+#define PIPING_ALL_COLORS (1<<4)
+/// can bridge over pipenets
+#define PIPING_BRIDGE (1<<5)
 
-//HELPERS
+// Ventcrawling bitflags, handled in var/vent_movement
+///Allows for ventcrawling to occur. All atmospheric machines have this flag on by default. Cryo is the exception
+#define VENTCRAWL_ALLOWED	(1<<0)
+///Allows mobs to enter or leave from atmospheric machines. On for passive, unary, and scrubber vents.
+#define VENTCRAWL_ENTRANCE_ALLOWED (1<<1)
+///Used to check if a machinery is visible. Called by update_pipe_vision(). On by default for all except cryo.
+#define VENTCRAWL_CAN_SEE	(1<<2)
+
+//Helpers
 #define PIPING_LAYER_SHIFT(T, PipingLayer) \
 	if(T.dir & (NORTH|SOUTH)) {									\
 		T.pixel_x = (PipingLayer - PIPING_LAYER_DEFAULT) * PIPING_LAYER_P_X;\

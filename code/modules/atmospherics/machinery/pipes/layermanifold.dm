@@ -5,13 +5,13 @@
 	desc = "Специальная труба для соединения разных слоёв труб."
 	dir = SOUTH
 	initialize_directions = NORTH|SOUTH
-	pipe_flags = PIPING_ALL_LAYER | PIPING_DEFAULT_LAYER_ONLY | PIPING_CARDINAL_AUTONORMALIZE
+	pipe_flags = PIPING_ALL_LAYER | PIPING_DEFAULT_LAYER_ONLY | PIPING_CARDINAL_AUTONORMALIZE | PIPING_BRIDGE
 	piping_layer = PIPING_LAYER_DEFAULT
 	device_type = 0
 	volume = 260
 	construction_type = /obj/item/pipe/binary
 	pipe_state = "manifoldlayer"
-	paintable = FALSE
+	paintable = TRUE
 
 	var/list/front_nodes
 	var/list/back_nodes
@@ -50,15 +50,16 @@
 /obj/machinery/atmospherics/pipe/layer_manifold/proc/add_attached_images(obj/machinery/atmospherics/A)
 	if(!A)
 		return
+
+	. = list()
+
 	if(istype(A, /obj/machinery/atmospherics/pipe/layer_manifold))
 		for(var/i in PIPING_LAYER_MIN to PIPING_LAYER_MAX)
-			add_attached_image(get_dir(src, A), i)
-			return
-	add_attached_image(get_dir(src, A), A.piping_layer, A.pipe_color)
+			. += get_attached_image(get_dir(src, A), i, COLOR_VERY_LIGHT_GRAY)
+		return
+	. += get_attached_image(get_dir(src, A), A.piping_layer, A.pipe_color)
 
-/obj/machinery/atmospherics/pipe/layer_manifold/proc/add_attached_image(p_dir, p_layer, p_color = null)
-	var/image/I
-
+/obj/machinery/atmospherics/pipe/layer_manifold/proc/get_attached_image(p_dir, p_layer, p_color)
 	// Uses pipe-3 because we don't want the vertical shifting
 	if(p_color)
 		I = getpipeimage(icon, "pipe-3", p_dir, p_color, piping_layer = p_layer)
@@ -74,11 +75,6 @@
 			initialize_directions = NORTH|SOUTH
 		if(EAST, WEST)
 			initialize_directions = EAST|WEST
-
-/obj/machinery/atmospherics/pipe/layer_manifold/isConnectable(obj/machinery/atmospherics/target, given_layer)
-	if(!given_layer)
-		return TRUE
-	. = ..()
 
 /obj/machinery/atmospherics/pipe/layer_manifold/proc/findAllConnections()
 	front_nodes = list()
