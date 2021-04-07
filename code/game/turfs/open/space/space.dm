@@ -261,3 +261,8 @@
 	destination_x = dest_x
 	destination_y = dest_y
 	destination_z = dest_z
+
+/turf/open/space/mirage
+	blocks_air = TRUE
+	light_power = 0
+	dynamic_lighting = DYNAMIC_LIGHTING_ENABLED

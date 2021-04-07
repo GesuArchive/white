@@ -514,6 +514,10 @@
 	integrity_failure = 0.25
 	armor = list(MELEE = 10, BULLET = 30, LASER = 30, ENERGY = 100, BOMB = 20, BIO = 0, RAD = 0, FIRE = 80, ACID = 70)
 
+/obj/structure/table/reinforced/Initialize()
+	. = ..()
+	AddElement(/datum/element/liquids_height, 20)
+
 /obj/structure/table/reinforced/deconstruction_hints(mob/user)
 	if(deconstruction_ready)
 		return "<hr><span class='notice'>Верхушка <i>отварена</i> и <b>болты</b> видны.</span>"
