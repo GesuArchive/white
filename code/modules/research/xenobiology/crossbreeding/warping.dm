@@ -320,9 +320,9 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	icon = 'icons/obj/slimecrossing.dmi'
 	icon_state = "rune_dark_purple"
 	desc = "To gain something you must sacrifice something else in return."
-	var/static/list/materials = list(/obj/item/stack/sheet/iron, /obj/item/stack/sheet/glass, /obj/item/stack/sheet/mineral/silver,
+	var/static/list/materials = list(/obj/item/stack/sheet/metal, /obj/item/stack/sheet/glass, /obj/item/stack/sheet/mineral/silver,
 									/obj/item/stack/sheet/mineral/gold, /obj/item/stack/sheet/mineral/diamond, /obj/item/stack/sheet/mineral/uranium,
-									/obj/item/stack/sheet/mineral/titanium, /obj/item/stack/sheet/mineral/copper, /obj/item/stack/sheet/mineral/uranium,
+									/obj/item/stack/sheet/mineral/titanium, /obj/item/stack/sheet/mineral/coal, /obj/item/stack/sheet/mineral/uranium,
 									/obj/item/stack/sheet/bluespace_crystal)
 
 /obj/effect/warped_rune/darkpurplespace/do_effect(mob/user)
@@ -572,7 +572,7 @@ GLOBAL_DATUM(blue_storage, /obj/item/storage/backpack/holding/bluespace)
 	var/static/list/common_items = list(
 		/obj/item/toy/plush/carpplushie,
 		/obj/item/toy/plush/bubbleplush,
-		/obj/item/toy/plush/plushvar,
+		/obj/item/toy/plush/ratplush,
 		/obj/item/toy/plush/narplush,
 		/obj/item/toy/plush/lizardplushie,
 		/obj/item/toy/plush/snakeplushie,
@@ -585,18 +585,16 @@ GLOBAL_DATUM(blue_storage, /obj/item/storage/backpack/holding/bluespace)
 		/obj/item/toy/foamblade,
 		/obj/item/toy/katana,
 		/obj/item/toy/snappop/phoenix,
-		/obj/item/toy/cards/deck/unum,
 		/obj/item/toy/redbutton,
 		/obj/item/toy/toy_xeno,
-		/obj/item/toy/reality_pierce,
 		/obj/item/toy/xmas_cracker,
 		/obj/item/gun/ballistic/automatic/c20r/toy/unrestricted,
 		/obj/item/gun/ballistic/automatic/l6_saw/toy/unrestricted,
-		/obj/item/gun/ballistic/automatic/toy/pistol/unrestricted,
+		/obj/item/gun/ballistic/automatic/toy/pistol,
 		/obj/item/gun/ballistic/shotgun/toy/unrestricted,
 		/obj/item/gun/ballistic/shotgun/toy/crossbow,
 		/obj/item/clothing/mask/facehugger/toy,
-		/obj/item/twohanded/dualsaber/toy,
+		/obj/item/dualsaber/toy,
 		/obj/item/clothing/under/costume/roman,
 		/obj/item/clothing/under/costume/pirate,
 		/obj/item/clothing/under/costume/kilt/highlander,
@@ -608,12 +606,10 @@ GLOBAL_DATUM(blue_storage, /obj/item/storage/backpack/holding/bluespace)
 	)
 
 	var/static/list/uncommon_items = list(
-		/obj/item/clothing/head/speedwagon/cursed,
 		/obj/item/clothing/suit/space/hardsuit/ancient,
 		/obj/item/gun/energy/laser/retro/old,
 		/obj/item/storage/toolbox/mechanical/old,
 		/obj/item/storage/toolbox/emergency/old,
-		/obj/effect/mob_spawn/teratomamonkey,
 		/obj/effect/mob_spawn/human/ash_walker,
 		/obj/effect/spawner/lootdrop/three_course_meal,
 		/mob/living/simple_animal/pet/dog/corgi/puppy/void,
@@ -624,7 +620,7 @@ GLOBAL_DATUM(blue_storage, /obj/item/storage/backpack/holding/bluespace)
 		/obj/item/flashlight/flashdark,
 		/mob/living/simple_animal/slime/rainbow,
 		/obj/item/storage/belt/sabre,
-		/obj/item/drone_shell,
+		/obj/effect/mob_spawn/drone,
 		/obj/item/sharpener,
 		/mob/living/simple_animal/hostile/cat_butcherer
 	)
@@ -632,8 +628,7 @@ GLOBAL_DATUM(blue_storage, /obj/item/storage/backpack/holding/bluespace)
 	var/static/list/rare_items = list(
 		/obj/effect/mob_spawn/human/syndicate/battlecruiser/captain,
 		/obj/structure/spawner/skeleton,
-		/obj/effect/spawner/lootdrop/armory_contraband,
-		/obj/effect/spawner/lootdrop/teratoma/major
+		/obj/effect/spawner/lootdrop/armory_contraband
 	)
 
 
