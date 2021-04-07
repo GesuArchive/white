@@ -1,6 +1,6 @@
 //Right now it's a structure that works off of magic, as it'd require an internal power source for what its supposed to do
 /obj/structure/liquid_pump
-	name = "portable liquid pump"
+	name = "портативная жидкостная помпа"
 	desc = "An industrial grade pump, capable of either siphoning or spewing liquids. Needs to be anchored first to work. Has a limited capacity internal storage."
 	icon = 'white/valtos/icons/liquid/liquid_pump.dmi'
 	icon_state = "liquid_pump"
@@ -42,10 +42,10 @@
 
 /obj/structure/liquid_pump/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>It's anchor bolts are [anchored ? "down and secured" : "up"].</span>"
-	. += "<span class='notice'>It's currently [turned_on ? "ON" : "OFF"].</span>"
-	. += "<span class='notice'>It's mode currently is set to [spewing_mode ? "SPEWING" : "SIPHONING"].</span> (Alt-click to switch)"
-	. += "<span class='notice'>The pressure gauge shows [reagents.total_volume]/[reagents.maximum_volume].</span>"
+	. += "<hr><span class='notice'>It's anchor bolts are [anchored ? "down and secured" : "up"].</span>"
+	. += "\n<span class='notice'>It's currently [turned_on ? "ON" : "OFF"].</span>"
+	. += "\n<span class='notice'>It's mode currently is set to [spewing_mode ? "SPEWING" : "SIPHONING"].</span> (Alt-click to switch)"
+	. += "\n<span class='notice'>The pressure gauge shows [reagents.total_volume]/[reagents.maximum_volume].</span>"
 
 /obj/structure/liquid_pump/process()
 	if(!isturf(loc))

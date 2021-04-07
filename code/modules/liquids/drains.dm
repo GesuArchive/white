@@ -1,9 +1,9 @@
 //Structure as this doesn't need any power to work
 /obj/structure/drain
-	name = "drain"
+	name = "дренаж"
 	icon = 'white/valtos/icons/liquid/drains.dmi'
 	icon_state = "drain"
-	desc = "Drainage inlet embedded in the floor to prevent flooding."
+	desc = "Убирает лишнюю жидкость при необходимости."
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	density = FALSE
 	plane = FLOOR_PLANE
@@ -27,9 +27,9 @@
 		return TRUE
 
 	playsound(src, 'sound/items/welder2.ogg', 50, TRUE)
-	to_chat(user, "<span class='notice'>You start [welded ? "unwelding" : "welding"] [src]...</span>")
+	to_chat(user, "<span class='notice'>Начинаю [welded ? "разваривать" : "заваривать"] [src.name]...</span>")
 	if(I.use_tool(src, user, 20))
-		to_chat(user, "<span class='notice'>You [welded ? "unweld" : "weld"] [src].</span>")
+		to_chat(user, "<span class='notice'>[welded ? "Развариваю" : "Завариваю"] [src.name].</span>")
 		welded = !welded
 		update_icon()
 		if(welded)
@@ -73,7 +73,6 @@
 	return ..()
 
 /obj/structure/drain/big
-	desc = "Drainage inlet embedded in the floor to prevent flooding. This one seems large."
 	icon_state = "bigdrain"
 	drain_percent = 0.3
 	drain_flat = 15

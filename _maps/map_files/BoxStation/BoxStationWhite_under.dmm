@@ -21,6 +21,7 @@
 /area/maintenance/bottom_station_maints)
 "ao" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "ap" = (
@@ -30,13 +31,6 @@
 /obj/item/westposter,
 /turf/open/floor/wood,
 /area/crew_quarters/fitness/kachalka)
-"ar" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/north)
 "as" = (
 /obj/structure/cable,
 /obj/machinery/light/small{
@@ -787,6 +781,11 @@
 	dir = 1;
 	name = "Scrubbers multi deck pipe adapter"
 	},
+/obj/machinery/atmospherics/pipe/multiz/layer4{
+	color = "#0000ff";
+	dir = 1;
+	name = "Supply multi deck pipe adapter"
+	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "gl" = (
@@ -1061,14 +1060,6 @@
 /area/maintenance/bottom_station_maints/east)
 "il" = (
 /obj/effect/landmark/stationroom/maint/rdm5x4,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/north)
-"in" = (
-/obj/machinery/atmospherics/pipe/multiz/layer4{
-	color = "#0000ff";
-	dir = 1;
-	name = "Supply multi deck pipe adapter"
-	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "ip" = (
@@ -2518,10 +2509,6 @@
 "rm" = (
 /turf/closed/wall,
 /area/maintenance/bottom_station_maints)
-"rC" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/north)
 "rD" = (
 /obj/machinery/seed_extractor,
 /turf/open/floor/plasteel/dark,
@@ -2754,6 +2741,9 @@
 /area/storage/tech)
 "tj" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 6
 	},
 /turf/open/floor/plating,
@@ -4308,11 +4298,11 @@
 /area/hydroponics)
 "DW" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 6
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
@@ -33887,7 +33877,7 @@ mP
 Bt
 Bt
 Bt
-ar
+DW
 oF
 oF
 MO
@@ -34145,9 +34135,9 @@ Bt
 Bt
 Bt
 DW
-rC
-rC
-in
+fF
+fF
+fF
 RB
 qz
 iE

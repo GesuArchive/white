@@ -1,20 +1,20 @@
 /obj/item/stack/tile/plasteel/elevated
-	name = "elevated floor tile"
-	singular_name = "elevated floor tile"
-	turf_type = /turf/open/floor/iron/elevated
+	name = "высокая плитка"
+	singular_name = "высокая плитка"
+	turf_type = /turf/open/floor/plasteel/elevated
 
 /obj/item/stack/tile/plasteel/lowered
-	name = "lowered floor tile"
-	singular_name = "lowered floor tile"
-	turf_type = /turf/open/floor/iron/lowered
+	name = "низкая плитка"
+	singular_name = "низкая плитка"
+	turf_type = /turf/open/floor/plasteel/lowered
 
 /obj/item/stack/tile/plasteel/pool
-	name = "pool floor tile"
-	singular_name = "pool floor tile"
-	turf_type = /turf/open/floor/iron/pool
+	name = "плитка бассейна"
+	singular_name = "плитка бассейна"
+	turf_type = /turf/open/floor/plasteel/pool
 
-/turf/open/floor/iron/pool
-	name = "pool floor"
+/turf/open/floor/plasteel/pool
+	name = "бассейн"
 	floor_tile = /obj/item/stack/tile/plasteel/pool
 	icon = 'white/valtos/icons/liquid/pool_tile.dmi'
 	base_icon_state = "pool_tile"
@@ -22,17 +22,17 @@
 	liquid_height = -30
 	turf_height = -30
 
-/turf/open/floor/iron/pool/setup_broken_states()
+/turf/open/floor/plasteel/pool/setup_broken_states()
 	return list("pool_tile")
 
-/turf/open/floor/iron/pool/setup_burnt_states()
+/turf/open/floor/plasteel/pool/setup_burnt_states()
 	return list("pool_tile")
 
-/turf/open/floor/iron/pool/rust_heretic_act()
+/turf/open/floor/plasteel/pool/rust_heretic_act()
 	return
 
-/turf/open/floor/iron/elevated
-	name = "elevated floor"
+/turf/open/floor/plasteel/elevated
+	name = "высокий пол"
 	floor_tile = /obj/item/stack/tile/plasteel/elevated
 	icon = 'white/valtos/icons/liquid/elevated_plasteel.dmi'
 	icon_state = "elevated_plasteel-0"
@@ -43,17 +43,17 @@
 	liquid_height = 30
 	turf_height = 30
 
-/turf/open/floor/iron/elevated/setup_broken_states()
+/turf/open/floor/plasteel/elevated/setup_broken_states()
 	return list("elevated_plasteel")
 
-/turf/open/floor/iron/elevated/setup_burnt_states()
+/turf/open/floor/plasteel/elevated/setup_burnt_states()
 	return list("elevated_plasteel")
 
-/turf/open/floor/iron/elevated/rust_heretic_act()
+/turf/open/floor/plasteel/elevated/rust_heretic_act()
 	return
 
-/turf/open/floor/iron/lowered
-	name = "lowered floor"
+/turf/open/floor/plasteel/lowered
+	name = "низкий пол"
 	floor_tile = /obj/item/stack/tile/plasteel/lowered
 	icon = 'white/valtos/icons/liquid/lowered_plasteel.dmi'
 	icon_state = "lowered_plasteel-0"
@@ -64,11 +64,11 @@
 	liquid_height = -30
 	turf_height = -30
 
-/turf/open/floor/iron/lowered/setup_broken_states()
+/turf/open/floor/plasteel/lowered/setup_broken_states()
 	return list("lowered_plasteel")
 
-/turf/open/floor/iron/lowered/setup_burnt_states()
+/turf/open/floor/plasteel/lowered/setup_burnt_states()
 	return list("lowered_plasteel")
 
-/turf/open/floor/iron/lowered/rust_heretic_act()
+/turf/open/floor/plasteel/lowered/rust_heretic_act()
 	return
