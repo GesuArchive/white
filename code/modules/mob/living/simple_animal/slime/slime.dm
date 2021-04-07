@@ -506,3 +506,6 @@
 
 /mob/living/simple_animal/slime/add_cell_sample()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_SLIME, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
+
+/mob/living/simple_animal/slime/rainbow/Initialize(mapload, new_colour="rainbow", new_is_adult)
+	. = ..(mapload, new_colour, new_is_adult)

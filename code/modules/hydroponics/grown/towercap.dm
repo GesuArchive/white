@@ -167,6 +167,9 @@
 	var/grill = FALSE
 	var/fire_stack_strength = 5
 
+/obj/structure/bonfire/bluespace
+	name = "блюспейс костёр"
+
 /obj/structure/bonfire/dense
 	density = TRUE
 
