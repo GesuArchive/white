@@ -590,7 +590,6 @@ GLOBAL_DATUM(blue_storage, /obj/item/storage/backpack/holding/bluespace)
 		/obj/item/toy/xmas_cracker,
 		/obj/item/gun/ballistic/automatic/c20r/toy/unrestricted,
 		/obj/item/gun/ballistic/automatic/l6_saw/toy/unrestricted,
-		/obj/item/gun/ballistic/automatic/toy/pistol,
 		/obj/item/gun/ballistic/shotgun/toy/unrestricted,
 		/obj/item/gun/ballistic/shotgun/toy/crossbow,
 		/obj/item/clothing/mask/facehugger/toy,
