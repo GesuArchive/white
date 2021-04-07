@@ -1191,7 +1191,7 @@ GLOBAL_VAR_INIT(liquid_debug_colors, FALSE)
 	blacklisted_movetypes = (FLYING|FLOATING)
 
 /client/proc/toggle_liquid_debug()
-	set category = "Debug"
+	set category = "Дбг"
 	set name = "Liquid Groups Color Debug"
 	set desc = "Liquid Groups Color Debug."
 	if(!holder)
