@@ -33,17 +33,17 @@ export const MassSpec = (props, context) => {
         {!!processing && (
           <Dimmer fontSize="32px">
             <Icon name="cog" spin={1} />
-            {' Purifying... '+round(eta)+"s"}
+            {' Очищаем... '+round(eta)+"с"}
           </Dimmer>
         )}
         <Section
-          title="Mass Spectroscopy"
+          title="Спектроскопия"
           buttons={
             <Button
               icon="power-off"
-              content="Start"
+              content="Запуск"
               disabled={!!processing || !beaker1Contents.length || !beaker2}
-              tooltip={!beaker1Contents.length ? "Missing input reagents!" : !beaker2 ? "Missing an output beaker!" : "Begin purifying"}
+              tooltip={!beaker1Contents.length ? "Нет входной пробирки!" : !beaker2 ? "Нет выходной пробирки!" : "Начинаем очистку"}
               tooltipPosition="left"
               onClick={() => act('activate')} />
           }>
@@ -58,23 +58,23 @@ export const MassSpec = (props, context) => {
               reagentPeaks={beaker1Contents} />
           ) || (
             <Box>
-              Please insert an input beaker with reagents!
+              Вставьте пробирку с реагентами!
             </Box>
           )}
         </Section>
 
         <Section
-          title="Input beaker"
+          title="Вход"
           buttons={!!beaker1Contents && (
             <>
               {!!beaker1MaxVolume && (
                 <Box inline color="label" mr={2}>
-                  {beaker1CurrentVolume} / {beaker1MaxVolume} units
+                  {beaker1CurrentVolume} / {beaker1MaxVolume} единиц
                 </Box>
               )}
               <Button
                 icon="eject"
-                content="Eject"
+                content="Изъять"
                 disabled={!beaker1}
                 onClick={() => act('eject1')} />
             </>
@@ -84,22 +84,22 @@ export const MassSpec = (props, context) => {
             beaker={beaker1Contents} />
           {!!beaker1Contents.length && (
             <Box>
-              {"Eta of selection: " + round(eta) + " seconds"}
+              {"Выборка: " + round(eta) + " секунд"}
             </Box>
           )}
         </Section>
         <Section
-          title="Output beaker"
+          title="Выход"
           buttons={!!beaker2Contents && (
             <>
               {!!beaker2MaxVolume && (
                 <Box inline color="label" mr={2}>
-                  {beaker2CurrentVolume} / {beaker2MaxVolume} units
+                  {beaker2CurrentVolume} / {beaker2MaxVolume} единиц
                 </Box>
               )}
               <Button
                 icon="eject"
-                content="Eject"
+                content="Изъять"
                 disabled={!beaker2}
                 onClick={() => act('eject2')} />
             </>
@@ -126,30 +126,30 @@ const BeakerMassProfile = props => {
     <Box>
       {!loaded && (
         <Box color="label">
-          No beaker loaded.
+          Внутри нет пробирки.
         </Box>
       ) || beaker.length === 0 && (
         <Box color="label">
-          Beaker is empty.
+          Пробирка пустая.
         </Box>
       ) || (
         <Table className="candystripe">
           <Table.Row>
             <Table.Cell bold collapsing color="label">
-              Reagent
+              Химикат
             </Table.Cell>
             <Table.Cell bold collapsing color="label">
-              Volume
+              Объём
             </Table.Cell>
             <Table.Cell bold collapsing color="label">
-              Mass
+              Масса
             </Table.Cell>
             <Table.Cell bold collapsing color="label">
-              Type
+              Тип
             </Table.Cell>
             {!!details && (
               <Table.Cell bold collapsing color="label">
-                Results
+                Результат
               </Table.Cell>
             )}
           </Table.Row>
@@ -202,7 +202,7 @@ const MassSpectroscopy = (props, context) => {
         <svg background-size="200px" width="200" height="400">
           <text x="0" y="250" text-anchor="middle" fill="white" font-size="16" transform="translate(0,0) scale(0.8 0.8)">
             {/* x axis*/}
-            <tspan x="250" y="318" font-weight="bold" font-size="1.4em">Mass (g)</tspan>
+            <tspan x="250" y="318" font-weight="bold" font-size="1.4em">Масса (г)</tspan>
             <tspan x="0" y="283">{graphLowerRange}</tspan>
             <tspan x="100" y="283">{round(graphLowerRange + (graphIncrement), 1)}</tspan>
             <tspan x="200" y="283">{round(graphLowerRange + (graphIncrement * 2), 1)}</tspan>
@@ -218,7 +218,7 @@ const MassSpectroscopy = (props, context) => {
             <tspan x="520" y="250" dy="6">0</tspan>
           </text>
           <text text-anchor="middle" transform="translate(430,100) rotate(90) scale(0.8 0.8)" fill="white" font-size="16">
-            <tspan font-weight="bold" font-size="1.4em">Absorbance (AU)</tspan>
+            <tspan font-weight="bold" font-size="1.4em">Оп. плотность (AU)</tspan>
           </text>
           <g transform="translate(0, 0) scale(0.8 0.8)">
             {reagentPeaks.map(peak => (
@@ -233,7 +233,7 @@ const MassSpectroscopy = (props, context) => {
       </Box>
       <Box>
         <Slider
-          name={"Left slider"}
+          name={"Левый слайдер"}
           position="relative"
           step={graphUpperRange/400}
           height={17.2}
@@ -249,7 +249,7 @@ const MassSpectroscopy = (props, context) => {
           {" "}
         </Slider>
         <Slider
-          name={"Right slider"}
+          name={"Правый слайдер"}
           position="absolute"
           height={17.2}
           format={value => round(value)}
@@ -266,7 +266,7 @@ const MassSpectroscopy = (props, context) => {
         </Slider>
         <Box>
           <Slider
-            name={"Center slider"}
+            name={"Центральный слайдер"}
             position="relative"
             step={graphUpperRange/400}
             mt={0.3}

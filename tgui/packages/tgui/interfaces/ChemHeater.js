@@ -61,7 +61,7 @@ export const ChemHeater = (props, context) => {
               <Table.Cell>
                 <NumberInput
                   width="45px"
-                  unit="u"
+                  unit="е"
                   step={1}
                   stepPixelSize={3}
                   value={dispenseVolume}
@@ -90,7 +90,7 @@ export const ChemHeater = (props, context) => {
                   })} />
               </Table.Cell>
               <Table.Cell collapsing color="label">
-                Кислотность:
+                Кислотный:
               </Table.Cell>
               <Table.Cell>
                 <Button
@@ -132,7 +132,7 @@ export const ChemHeater = (props, context) => {
                 </Box>
               </Table.Cell>
               <Table.Cell collapsing color="label">
-                Базовое:
+                Базовый:
               </Table.Cell>
               <Table.Cell>
                 <Button
@@ -292,7 +292,7 @@ export const ChemHeater = (props, context) => {
           buttons={!!isBeakerLoaded && (
             <>
               <Box inline color="label" mr={2}>
-                {beakerCurrentVolume} / {beakerMaxVolume} units
+                {beakerCurrentVolume} / {beakerMaxVolume} единиц
               </Box>
               <Button
                 icon="eject"
