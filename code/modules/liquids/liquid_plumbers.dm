@@ -42,8 +42,8 @@
 
 /obj/machinery/plumbing/liquid_input_pump/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>It's currently [turned_on ? "ON" : "OFF"].</span>"
-	. += "<span class='notice'>It's height regulator [height_regulator ? "points at [height_regulator]" : "is disabled"]. (Ctrl-click to change)</span>"
+	. += "<hr><span class='notice'>It's currently [turned_on ? "ON" : "OFF"].</span>"
+	. += "\n<span class='notice'>It's height regulator [height_regulator ? "points at [height_regulator]" : "is disabled"]. (Ctrl-click to change)</span>"
 
 /obj/machinery/plumbing/liquid_input_pump/Initialize(mapload, bolt)
 	. = ..()
@@ -135,8 +135,8 @@
 
 /obj/machinery/plumbing/liquid_output_pump/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>It's currently [turned_on ? "ON" : "OFF"].</span>"
-	. += "<span class='notice'>It's height regulator [height_regulator ? "points at [height_regulator]" : "is disabled"]. (Ctrl-click to change)</span>"
+	. += "<hr><span class='notice'>It's currently [turned_on ? "ON" : "OFF"].</span>"
+	. += "\n<span class='notice'>It's height regulator [height_regulator ? "points at [height_regulator]" : "is disabled"]. (Ctrl-click to change)</span>"
 
 /obj/machinery/plumbing/liquid_output_pump/proc/can_pump()
 	if(!turned_on || !anchored || panel_open || !isturf(loc) || reagents.total_volume == 0)

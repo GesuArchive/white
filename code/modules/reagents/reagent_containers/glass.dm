@@ -259,8 +259,8 @@
 	custom_materials = list(/datum/material/iron=200)
 	w_class = WEIGHT_CLASS_NORMAL
 	amount_per_transfer_from_this = 20
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,70)
-	volume = 70
+	possible_transfer_amounts = list(5,10,15,20,25,30,50,100)
+	volume = 100
 	flags_inv = HIDEHAIR
 	slot_flags = ITEM_SLOT_HEAD
 	resistance_flags = NONE
@@ -284,21 +284,37 @@
 	armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 50)
 	resistance_flags = FLAMMABLE
 
-/obj/item/reagent_containers/glass/bucket/attackby(obj/O, mob/user, params)
+#define SQUEEZING_DISPERSAL_PERCENT 0.75
+
+/obj/item/reagent_containers/glass/bucket/attackby(obj/O, mob/living/user, params)
 	if(istype(O, /obj/item/mop))
-		if(reagents.total_volume < 1)
-			to_chat(user, "<span class='warning'>Внутри [capitalize(src.name)] закончилась вода!</span>")
+		var/is_right_clicking = LAZYACCESS(params2list(params), RIGHT_CLICK)
+		if(is_right_clicking)
+			if(O.reagents.total_volume == 0)
+				to_chat(user, "<span class='warning'>[capitalize(O.name)] сухая!</span>")
+				return
+			if(reagents.total_volume == reagents.maximum_volume)
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] переполнено!</span>")
+				return
+			O.reagents.remove_any(O.reagents.total_volume*SQUEEZING_DISPERSAL_PERCENT)
+			O.reagents.trans_to(src, O.reagents.total_volume, transfered_by = user)
+			to_chat(user, "<span class='notice'>Выживаю [O.name] в [src.name].</span>")
 		else
-			reagents.trans_to(O, 5, transfered_by = user)
-			to_chat(user, "<span class='notice'>Намочил [O] в [src].</span>")
-			playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
+			if(reagents.total_volume < 1)
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] пустое!</span>")
+			else
+				reagents.trans_to(O, 5, transfered_by = user)
+				to_chat(user, "<span class='notice'>Окунаю [O.name] в [src.name].</span>")
+				playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
 	else if(isprox(O)) //This works with wooden buckets for now. Somewhat unintended, but maybe someone will add sprites for it soon(TM)
-		to_chat(user, "<span class='notice'>Добавил [O] в [src].</span>")
+		to_chat(user, "<span class='notice'>Добавил [O.name] в [src.name].</span>")
 		qdel(O)
 		qdel(src)
 		user.put_in_hands(new /obj/item/bot_assembly/cleanbot)
 	else
 		..()
+
+#undef SQUEEZING_DISPERSAL_PERCENT
 
 /obj/item/reagent_containers/glass/bucket/equipped(mob/user, slot)
 	..()
