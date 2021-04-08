@@ -61,7 +61,7 @@ const HolopadContent = (props, context) => {
   return (
     <>
       <Section
-        title="Holopad"
+        title="Голопад"
         buttons={(
           <Button
             icon="bell"
@@ -75,7 +75,7 @@ const HolopadContent = (props, context) => {
           <LabeledList.Item label="Коммуникатор">
             <Button
               icon="phone-alt"
-              content={allowed ? "Подключиться к Holopad" : "Вызвать Holopad"}
+              content={allowed ? "Подключиться к голопаду" : "Вызвать голопад"}
               disabled={!on_network}
               onClick={() => act('holocall', { headcall: allowed })} />
           </LabeledList.Item>
@@ -102,7 +102,7 @@ const HolopadContent = (props, context) => {
         </LabeledList>
       </Section>
       <Section
-        title="Holo-диск"
+        title="Голо-диск"
         buttons={
           <Button
             icon="eject"
@@ -112,7 +112,7 @@ const HolopadContent = (props, context) => {
         }>
         {!disk && (
           <NoticeBox>
-            Нет Holo-диска
+            Нет Голо-диска
           </NoticeBox>
         ) || (
           <LabeledList>
