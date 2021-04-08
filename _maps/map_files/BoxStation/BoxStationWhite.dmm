@@ -705,6 +705,9 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/structure/sign/flags/che{
+	pixel_y = 32
+	},
 /turf/open/floor/plasteel,
 /area/security/courtroom)
 "ajm" = (
@@ -5104,7 +5107,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "ayG" = (
 /turf/closed/wall/r_wall,
@@ -5117,7 +5120,6 @@
 /area/maintenance/fore)
 "ayO" = (
 /obj/effect/turf_decal/siding/white/corner,
-/obj/structure/drain/big,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
@@ -5127,7 +5129,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "ayP" = (
 /obj/structure/cable,
@@ -5158,7 +5160,6 @@
 /obj/effect/turf_decal/siding/white/corner{
 	dir = 8
 	},
-/obj/structure/drain/big,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -5166,7 +5167,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "ayY" = (
 /obj/effect/turf_decal/tile/blue{
@@ -6119,7 +6120,6 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/structure/fluff/beach_umbrella,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -6127,7 +6127,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "aCd" = (
 /obj/structure/bed,
@@ -6177,7 +6177,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "aCl" = (
 /obj/machinery/power/apc{
@@ -6535,6 +6535,9 @@
 /area/storage/primary)
 "aDp" = (
 /obj/structure/displaycase/winner/robust,
+/obj/structure/sign/flags/russia{
+	pixel_y = 32
+	},
 /turf/open/floor/plasteel,
 /area/storage/primary)
 "aDq" = (
@@ -6637,6 +6640,7 @@
 	req_access_txt = "12"
 	},
 /obj/structure/cable,
+/obj/structure/drain/big,
 /turf/open/floor/plating,
 /area/maintenance/fore/upper)
 "aDD" = (
@@ -6662,22 +6666,10 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
-/area/crew_quarters/fitness/recreation)
-"aDF" = (
-/obj/effect/turf_decal/siding/white{
-	dir = 4
-	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "aDG" = (
 /obj/effect/turf_decal/tile/neutral,
@@ -6710,7 +6702,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "aDK" = (
 /obj/machinery/door/airlock{
@@ -7671,12 +7663,6 @@
 /area/crew_quarters/toilet)
 "aGo" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 4
-	},
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -7687,7 +7673,13 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "aGp" = (
 /obj/machinery/light/small{
@@ -7708,7 +7700,7 @@
 	dir = 8
 	},
 /obj/structure/closet/athletic_mixed,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "aGr" = (
 /obj/structure/chair/stool,
@@ -8185,24 +8177,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/gateway)
-"aHN" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 10
-	},
-/obj/effect/turf_decal/siding/white{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 10
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/turf/open/floor/plasteel,
-/area/crew_quarters/fitness/recreation)
 "aHO" = (
 /turf/open/floor/plating,
 /area/maintenance/fore/upper)
@@ -8675,7 +8649,7 @@
 /area/hallway/secondary/service)
 "aJl" = (
 /obj/structure/reagent_dispensers/watertank/high,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "aJw" = (
 /obj/structure/railing{
@@ -14708,6 +14682,9 @@
 "bnG" = (
 /obj/machinery/computer/cargo,
 /obj/effect/turf_decal/siding/thinplating,
+/obj/structure/sign/flags/ua{
+	pixel_y = 32
+	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/office)
 "bnI" = (
@@ -27225,7 +27202,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "csN" = (
 /obj/structure/transit_tube/horizontal,
@@ -30171,7 +30148,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "dpw" = (
 /obj/effect/turf_decal/tile/green,
@@ -31274,7 +31251,6 @@
 /obj/machinery/light_switch{
 	pixel_y = -25
 	},
-/obj/structure/drain/big,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -31282,7 +31258,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "fva" = (
 /obj/machinery/firealarm{
@@ -31493,7 +31469,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "fMU" = (
 /obj/structure/sign/warning/electricshock{
@@ -32884,7 +32860,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "izk" = (
 /obj/structure/closet/l3closet/scientist,
@@ -34572,20 +34548,16 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "mbK" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
 /obj/effect/turf_decal/siding/white{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "mcm" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -35913,7 +35885,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "oQK" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -36757,6 +36729,7 @@
 /obj/machinery/door/airlock/public/glass{
 	name = "Pool"
 	},
+/obj/structure/drain/big,
 /turf/open/floor/plasteel,
 /area/crew_quarters/fitness/recreation)
 "qod" = (
@@ -36904,7 +36877,6 @@
 /obj/effect/turf_decal/siding/white/corner{
 	dir = 4
 	},
-/obj/structure/drain/big,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -36912,7 +36884,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "qEv" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -36931,7 +36903,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "qGG" = (
 /obj/effect/turf_decal/stripes/line{
@@ -37100,7 +37072,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "qYI" = (
 /obj/effect/turf_decal/stripes/line{
@@ -37357,6 +37329,9 @@
 	pixel_y = 0
 	},
 /obj/structure/table,
+/obj/structure/sign/flags/kazakh{
+	pixel_y = 32
+	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "rEs" = (
@@ -37838,7 +37813,11 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "ssM" = (
 /obj/structure/cable,
@@ -40188,7 +40167,8 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/turf/open/floor/plasteel/elevated,
 /area/crew_quarters/fitness/recreation)
 "wNL" = (
 /obj/structure/lattice/catwalk,
@@ -67749,10 +67729,10 @@ vDJ
 awh
 aCb
 ayO
-aHN
+mbK
 mbK
 aCc
-aDF
+mbK
 csM
 qDx
 oPy

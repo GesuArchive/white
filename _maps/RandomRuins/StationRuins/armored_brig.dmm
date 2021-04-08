@@ -2975,6 +2975,7 @@
 "gM" = (
 /obj/structure/closet/secure_closet/warden,
 /obj/structure/cable,
+/obj/item/shield/riot/kevlar,
 /turf/open/floor/engine,
 /area/security/warden)
 "gN" = (

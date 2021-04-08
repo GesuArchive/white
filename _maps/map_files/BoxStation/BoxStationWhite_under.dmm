@@ -4938,7 +4938,10 @@
 /obj/structure/rospilovo/truba,
 /obj/item/reagent_containers/food/drinks/boyarka{
 	pixel_x = 4;
-	pixel_y = 14
+	pixel_y = 10
+	},
+/obj/structure/sign/flags/soviet{
+	pixel_y = 32
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)

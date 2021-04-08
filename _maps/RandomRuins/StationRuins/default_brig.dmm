@@ -478,8 +478,6 @@
 /area/template_noop)
 "bC" = (
 /obj/structure/closet/bombcloset/security,
-/obj/item/shield/riot/military,
-/obj/item/shield/riot/military,
 /turf/open/floor/plasteel/showroomfloor,
 /area/security/main)
 "bD" = (
@@ -752,6 +750,9 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "ca" = (
+/obj/item/shield/riot/military,
+/obj/item/shield/riot/military,
+/obj/structure/closet/ammunitionlocker,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "cb" = (
@@ -2524,6 +2525,7 @@
 "gb" = (
 /obj/structure/closet/secure_closet/warden,
 /obj/structure/cable,
+/obj/item/shield/riot/kevlar,
 /turf/open/floor/plasteel/showroomfloor,
 /area/security/warden)
 "gc" = (
