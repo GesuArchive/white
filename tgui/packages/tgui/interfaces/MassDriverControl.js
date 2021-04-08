@@ -15,7 +15,7 @@ export const MassDriverControl = (props, context) => {
   return (
     <Window
       width={300}
-      height={connected ? 215 : 107}>
+      height={connected ? 225 : 107}>
       <Window.Content>
         {!!connected && (
           <Section
@@ -23,7 +23,7 @@ export const MassDriverControl = (props, context) => {
             buttons={(
               <Button
                 icon={"clock-o"}
-                content={timing ? 'Stop' : 'Start'}
+                content={timing ? 'Стоп' : 'Старт'}
                 selected={timing}
                 onClick={() => act('time')} />
             )}>
@@ -54,7 +54,7 @@ export const MassDriverControl = (props, context) => {
           buttons={(
             <Button
               icon={"toggle-on"}
-              content="Переключить внешнюю дверь"
+              content="Внешний шлюз"
               disabled={timing || !poddoor}
               onClick={() => act('door')} />
           )}>
