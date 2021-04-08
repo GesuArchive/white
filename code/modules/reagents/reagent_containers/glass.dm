@@ -288,8 +288,7 @@
 
 /obj/item/reagent_containers/glass/bucket/attackby(obj/O, mob/living/user, params)
 	if(istype(O, /obj/item/mop))
-		var/is_right_clicking = LAZYACCESS(params2list(params), RIGHT_CLICK)
-		if(is_right_clicking)
+		if(user.a_intent == INTENT_HARM)
 			if(O.reagents.total_volume == 0)
 				to_chat(user, "<span class='warning'>[capitalize(O.name)] сухая!</span>")
 				return
