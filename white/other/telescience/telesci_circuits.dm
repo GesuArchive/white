@@ -1,13 +1,13 @@
 /datum/design/board/telepad
-	name = "Оборудование (Telepad Board)"
-	desc = "The circuit board for a telescience telepad."
+	name = "Оборудование (Плата Телепада)"
+	desc = "Плата космической катапульты."
 	id = "telepad"
 	build_path = /obj/item/circuitboard/machine/telesci_pad
 	category = list ("Телепортация")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /obj/item/circuitboard/machine/telesci_pad
-	name = "Telepad (Оборудование)"
+	name = "Телепад (Оборудование)"
 	build_path = /obj/machinery/telepad
 	req_components = list(
 							/obj/item/stack/ore/bluespace_crystal = 2,
@@ -19,23 +19,23 @@
 //////////////////////////////////////////////////////////
 
 /datum/design/board/telesci_console
-	name = "Дизайн консоли (Telepad Control Console Board)"
-	desc = "Allows for the construction of circuit boards used to build a telescience console."
+	name = "Дизайн консоли (Плата Консоли Управления Телепадом)"
+	desc = "Позволяет построить консоль для управления космической катапультой."
 	id = "telesci_console"
 	build_path = /obj/item/circuitboard/computer/telesci_console
 	category = list("Телепортация")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /obj/item/circuitboard/computer/telesci_console
-	name = "Telescience Console (Консоль)"
+	name = "Консоль теленауки (Консоль)"
 	build_path = /obj/machinery/computer/telescience
 
 //////////////////////////////////////////////////////////
 
 /datum/techweb_node/telesci
 	id = "telesci"
-	display_name = "Prikol/Time Manipulation"
-	description = "Allows for advanced prikol construction."
+	display_name = "Прикол/Временные манипуляции"
+	description = "Позволяет строить продвинутые прикольные сооружения."
 	prereq_ids = list("adv_datatheory")
 	design_ids = list("telepad", "telesci_console")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
