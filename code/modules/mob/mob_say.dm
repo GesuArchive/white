@@ -9,9 +9,8 @@
 		to_chat(usr, "<span class='danger'>Не могу говорить.</span>")
 		return
 
-	if(message)
+	if(message && proverka_na_detey(message, src))
 		say(message)
-		proverka_na_detey(message, src)
 
 ///Whisper verb
 /mob/verb/whisper_verb(message as text)
@@ -20,8 +19,8 @@
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='danger'>Не могу шептать.</span>")
 		return
-	whisper(message)
-	proverka_na_detey(message, src)
+	if(proverka_na_detey(message, src))
+		whisper(message)
 
 ///whisper a message
 /mob/proc/whisper(message, datum/language/language=null)
@@ -40,9 +39,8 @@
 	var/ckeyname = "[usr.ckey]/[usr.name]"
 	webhook_send_me(ckeyname, message)
 
-	proverka_na_detey(message, src)
-
-	usr.emote("me",1,message,TRUE)
+	if(proverka_na_detey(message, src))
+		usr.emote("me",1,message,TRUE)
 
 ///Speak as a dead person (ghost etc)
 /mob/proc/say_dead(message)
