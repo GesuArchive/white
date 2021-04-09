@@ -55,9 +55,9 @@
 			var/stored_name = stored_card.registered_name
 			var/stored_title = stored_card.assignment
 			if(!stored_name)
-				stored_name = "Unknown"
+				stored_name = "Неизвестный"
 			if(!stored_title)
-				stored_title = "Unknown"
+				stored_title = "Неизвестный"
 			data["login"] = list(
 				IDName = stored_name,
 				IDJob = stored_title,

@@ -326,7 +326,7 @@
 			if (obj_flags & EMAGGED)
 				authenticated = TRUE
 				authorize_access = get_all_accesses()
-				authorize_name = "Unknown"
+				authorize_name = "Неизвестный"
 				to_chat(usr, "<span class='warning'>[capitalize(src.name)] выстреливает несколько искр.</span>")
 				playsound(src, 'sound/machines/terminal_alert.ogg', 25, FALSE)
 			else if(isliving(usr))

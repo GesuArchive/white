@@ -137,7 +137,7 @@
 
 	real_name = C.real_name
 	if(HAS_TRAIT(C, TRAIT_HUSK))
-		real_name = "Unknown"
+		real_name = "Неизвестный"
 		hairstyle = "Bald"
 		facial_hairstyle = "Shaved"
 		lip_style = null
