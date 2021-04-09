@@ -105,3 +105,8 @@
 	id = "durka_med"
 	suffix = "durka_med.dmm"
 	name = "Durka Medbay"
+
+/datum/map_template/ruin/station/med/old
+	id = "old_med"
+	suffix = "old_med.dmm"
+	name = "Old Medbay"
