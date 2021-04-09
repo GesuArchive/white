@@ -42,7 +42,7 @@
 "an" = (
 /obj/machinery/light/small,
 /obj/structure/lattice,
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/security/brig)
 "ap" = (
 /obj/machinery/computer/security/telescreen/prison{
@@ -3781,9 +3781,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/prison)
+"Zw" = (
+/turf/open/openspace,
+/area/security/brig)
 "ZQ" = (
 /obj/structure/lattice,
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/security/brig)
 
 (1,1,1) = {"
@@ -5101,7 +5104,7 @@ aW
 bw
 cf
 fw
-ZQ
+Zw
 xN
 iz
 ab

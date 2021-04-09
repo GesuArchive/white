@@ -3900,7 +3900,6 @@
 /area/medical/virology)
 "CQ" = (
 /obj/structure/cable,
-/obj/structure/closet/crate/freezer/surplus_limbs,
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -3919,6 +3918,7 @@
 	name = "Cryo APC";
 	pixel_y = -23
 	},
+/obj/machinery/limbgrower,
 /turf/open/floor/plasteel/white,
 /area/medical/cryo)
 "CR" = (
