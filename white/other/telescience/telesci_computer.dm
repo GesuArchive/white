@@ -6,7 +6,7 @@
 	circuit = /obj/item/circuitboard/computer/telesci_console
 	var/sending = 1
 	var/obj/machinery/telepad/telepad = null
-	var/temp_msg = "Консоль инициализирована, здравствуйте!"
+	var/temp_msg = "Здравствуйте! Консоль инициализирована, подключите телепад."
 
 	// VARIABLES //
 	var/teles_left	// How many teleports left until it becomes uncalibrated
@@ -24,7 +24,7 @@
 	var/teleport_cooldown = 0 // every index requires a bluespace crystal
 	var/list/power_options = list(5, 10, 20, 25, 30, 40, 50, 80, 100)
 	var/teleporting = 0
-	var/starting_crystals = 3
+	var/starting_crystals = 4
 	var/max_crystals = 4
 	var/crystals = 0
 	var/obj/item/gps/inserted_gps
@@ -295,11 +295,11 @@
 		return
 	if(teles_left > 0)
 		doteleport(user)
+		return
 	else
 		telefail()
 		temp_msg = "ОШИБКА! Требуется калибрация."
 		return
-	return
 
 /obj/machinery/computer/telescience/proc/eject()
 	for(var/i in 1 to crystals)
