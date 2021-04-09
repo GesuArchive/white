@@ -100,7 +100,7 @@
 
 /client/verb/changelog()
 	set name = "📘 Последние изменения /tg/"
-	set category = "OOC"
+	set category = null
 	var/datum/asset/simple/namespaced/changelog = get_asset_datum(/datum/asset/simple/namespaced/changelog)
 	changelog.send(src)
 	src << browse(changelog.get_htmlloader("changelog.html"), "window=changes;size=675x650")

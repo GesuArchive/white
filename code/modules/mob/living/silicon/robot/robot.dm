@@ -496,7 +496,7 @@
 
 /mob/living/silicon/robot/mode()
 	set name = "Использовать предмет в руке"
-	set category = "IC"
+	set category = null
 	set src = usr
 
 	if(incapacitated())

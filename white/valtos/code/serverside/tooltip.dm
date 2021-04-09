@@ -19,6 +19,8 @@
 	layer = 23
 	plane = 23
 
+/*
+
 TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, toggle_tooltip_up)()
 	set name = "🔄 Название предметов"
 	set category = null
@@ -73,3 +75,5 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, toggle_tooltip_retro)()
 
 /datum/verbs/menu/Settings/toggle_tooltip_retro/Get_checked(client/C)
 	return C.prefs.w_toggles & TOOLTIP_USER_RETRO
+
+*/

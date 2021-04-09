@@ -628,7 +628,7 @@
  */
 /mob/verb/mode()
 	set name = "Использовать предмет в руке"
-	set category = "Объект"
+	set category = null
 	set src = usr
 
 	if(ismecha(loc))

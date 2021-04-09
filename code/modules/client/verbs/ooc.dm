@@ -165,7 +165,7 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 
 /client/verb/colorooc()
 	set name = "Свой цвет OOC"
-	set category = "Настройки"
+	set category = null
 
 	if(!holder || !check_rights_for(src, R_ADMIN))
 		if(!check_donations(ckey) >= 100)
@@ -184,7 +184,7 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 /client/verb/resetcolorooc()
 	set name = "❌ Сбросить свой цвет OOC"
 	set desc = "Returns your OOC Color to default"
-	set category = "Настройки"
+	set category = null
 
 	if(!holder || !check_rights_for(src, R_ADMIN))
 		if(!check_donations(ckey) >= 100)
@@ -228,7 +228,7 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 	browse_messages(null, usr.ckey, null, TRUE)
 
 /client/proc/self_playtime()
-	set name = "📘 Показать моё время игры"
+	set name = "📘 Моё время игры"
 	set category = "OOC"
 	set desc = "View the amount of playtime for roles the server has tracked."
 
