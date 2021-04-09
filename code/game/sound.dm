@@ -212,7 +212,7 @@ distance_multiplier - Can be used to multiply the distance at which the sound is
 				to_chat(src, "\n<center><b>Сейчас играет: <i>[tmusic]</i></b></center>\n")
 			SEND_SOUND(src, sound(SSticker.login_music, repeat = TRUE, wait = 0, volume = vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
 		else
-			SEND_SOUND(src, sound('sound/ambience/dd.ogg', repeat = TRUE, wait = 0, volume = 50, channel = CHANNEL_LOBBYMUSIC))
+			SEND_SOUND(src, sound('sound/ambience/ddrone.ogg', repeat = TRUE, wait = 0, volume = 50, channel = CHANNEL_LOBBYMUSIC))
 
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
