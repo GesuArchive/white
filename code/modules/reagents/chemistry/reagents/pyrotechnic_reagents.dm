@@ -6,8 +6,6 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	color = "#550000"
 	taste_description = "сладкий вкус металла"
-	liquid_fire_power = 20
-	liquid_fire_burnrate = 0.1
 
 /datum/reagent/thermite/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
@@ -49,8 +47,6 @@
 	taste_description = "горение"
 	penetrates_skin = NONE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-	liquid_fire_power = 30
-	liquid_fire_burnrate = 0.1
 
 /datum/reagent/clf3/on_mob_life(mob/living/carbon/M)
 	M.adjust_fire_stacks(2)
@@ -172,8 +168,6 @@
 	taste_description = "горение"
 	self_consuming = TRUE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-	liquid_fire_power = 20
-	liquid_fire_burnrate = 0.1
 
 /datum/reagent/phlogiston/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
 	. = ..()
@@ -198,8 +192,6 @@
 	self_consuming = TRUE
 	penetrates_skin = NONE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-	liquid_fire_power = 30
-	liquid_fire_burnrate = 0.1
 
 	// why, just why
 /datum/reagent/napalm/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)

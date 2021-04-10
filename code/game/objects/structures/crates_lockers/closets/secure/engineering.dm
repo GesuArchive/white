@@ -26,7 +26,6 @@
 	new /obj/item/extinguisher/advanced(src)
 	new /obj/item/storage/photo_album/ce(src)
 	new /obj/item/storage/box/skillchips/engineering(src)
-	new /obj/item/construction/plumbing/engineering(src)
 
 /obj/structure/closet/secure_closet/engineering_electrical
 	name = "шкафчик с электроприборами"
@@ -72,7 +71,6 @@
 	new /obj/item/clothing/glasses/meson/engine(src)
 	new /obj/item/storage/box/emptysandbags(src)
 	new /obj/item/storage/bag/construction(src)
-	new /obj/item/construction/plumbing/engineering(src)
 
 
 /obj/structure/closet/secure_closet/atmospherics

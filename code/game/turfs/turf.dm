@@ -539,7 +539,6 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	return
 
 /turf/handle_fall(mob/faller)
-	SEND_SIGNAL(src, COMSIG_TURF_MOB_FALL, faller)
 	if(has_gravity(src))
 		playsound(src, "bodyfall", 50, TRUE)
 	faller.drop_all_held_items()

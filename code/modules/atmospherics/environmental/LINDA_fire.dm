@@ -10,10 +10,6 @@
 
 
 /turf/open/hotspot_expose(exposed_temperature, exposed_volume, soh)
-
-	if(liquids && !liquids.fire_state && liquids.check_fire(TRUE))
-		SSliquids.processing_fire[src] = TRUE
-
 	//If the air doesn't exist we just return false
 	if(!air)
 		return
