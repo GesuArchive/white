@@ -50,10 +50,9 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 /// Should this object be unpaintable?
 #define UNPAINTABLE_1 (1 << 20)
 /// Is the thing currently spinning?
-#define IS_SPINNING_1 (1 << 21)
-#define IS_ONTOP_1 (1 << 22)
-#define SUPERMATTER_IGNORES_1 (1 << 23)
-
+#define IS_SPINNING_1 (1 << 17)
+#define IS_ONTOP_1 (1 << 18)
+#define SUPERMATTER_IGNORES_1 (1 << 19)
 
 /// If the thing can reflect light (lasers/energy)
 #define RICOCHET_SHINY			(1<<0)

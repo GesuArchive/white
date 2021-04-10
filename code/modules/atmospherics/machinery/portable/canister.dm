@@ -8,9 +8,11 @@
 /obj/machinery/portable_atmospherics/canister
 	name = "канистра"
 	desc = "Канистра для хранения газа."
-	icon_state = "yellow"
+	icon = 'icons/obj/atmospherics/canisters.dmi'
+	icon_state = "#mapme"
+	greyscale_config = /datum/greyscale_config/canister/hazard
+	greyscale_colors = "#ffff00#000000"
 	density = TRUE
-	base_icon_state = "yellow" //Used to make dealing with breaking the canister less hellish.
 	volume = 1000
 	armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 100, BOMB = 10, BIO = 100, RAD = 100, FIRE = 80, ACID = 50)
 	max_integrity = 250
@@ -18,6 +20,9 @@
 	pressure_resistance = 7 * ONE_ATMOSPHERE
 	req_access = list()
 
+	var/icon/canister_overlay_file = 'icons/obj/atmospherics/canisters.dmi'
+
+	///Is the valve open?
 	var/valve_open = FALSE
 	var/release_log = ""
 
@@ -89,168 +94,173 @@
 	if(mode)
 		. += "<hr><span class='notice'>Эта канистра имеет класс точности [mode].\nСтикер сбоку сообщает <b>МАКСИМАЛЬНОЕ ДАВЛЕНИЕ: [siunit_pressure(pressure_limit, 0)]</b>.</span>"
 
-/obj/machinery/portable_atmospherics/canister/nitrogen
-	name = "канистра с азотом"
-	desc = "Газообразный азот. Якобы полезно для чего-то."
-	icon_state = "red"
-	base_icon_state = "red"
-	gas_type = /datum/gas/nitrogen
-
-/obj/machinery/portable_atmospherics/canister/oxygen
-	name = "канистра с кислородом"
-	desc = "Кислород. Необходим для жизни человека."
-	icon_state = "blue"
-	base_icon_state = "blue"
-	gas_type = /datum/gas/oxygen
-
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide
-	name = "канистра с угарным газом"
-	desc = "Углекислый газ. Что за хрень этот углекислый газ?"
-	icon_state = "black"
-	base_icon_state = "black"
-	gas_type = /datum/gas/carbon_dioxide
-
-/obj/machinery/portable_atmospherics/canister/toxins
-	name = "канистра с плазмой"
-	desc = "Плазменный газ. Причина, по которой ТЫ здесь. Сильно токсичен."
-	icon_state = "orange"
-	base_icon_state = "orange"
-	gas_type = /datum/gas/plasma
-
-/obj/machinery/portable_atmospherics/canister/bz
-	name = "канистра с БЗ"
-	desc = "БЗ, сильнодействующее галлюциногенное нервно-паралитическое средство."
-	icon_state = "purple"
-	base_icon_state = "purple"
-	gas_type = /datum/gas/bz
-
-/obj/machinery/portable_atmospherics/canister/nitrous_oxide
-	name = "канистра с закисью азота"
-	desc = "Закись азота. Вызывает сонливость."
-	icon_state = "redws"
-	base_icon_state = "redws"
-	gas_type = /datum/gas/nitrous_oxide
+// Please keep the canister types sorted
+// Basic canister per gas below here
 
 /obj/machinery/portable_atmospherics/canister/air
 	name = "канистра с воздухом"
 	desc = "То, чем ты сейчас дышишь."
-	icon_state = "grey"
-	base_icon_state = "grey"
-
-/obj/machinery/portable_atmospherics/canister/tritium
-	name = "канистра с тритием"
-	desc = "Тритий. Вдыхание может вызвать облучение."
-	icon_state = "green"
-	base_icon_state = "green"
-	gas_type = /datum/gas/tritium
-
-/obj/machinery/portable_atmospherics/canister/nob
-	name = "канистра с гипер-ноблием"
-	desc = "Гипер-Ноблий. Благороднее всех остальных газов."
-	icon_state = "nob"
-	base_icon_state = "nob"
-	gas_type = /datum/gas/hypernoblium
-
-/obj/machinery/portable_atmospherics/canister/nitryl
-	name = "канистра с нитрилом"
-	desc = "Нитрил-газ. Чувствуй себя прекрасно, пока кислота не съест твои легкие."
-	icon_state = "brown"
-	base_icon_state = "brown"
-	gas_type = /datum/gas/nitryl
-
-/obj/machinery/portable_atmospherics/canister/stimulum
-	name = "канистра со стимулумом"
-	desc = "Стимул. Газ высокой энергии, люди высокой энергии."
-	icon_state = "darkpurple"
-	base_icon_state = "darkpurple"
-	gas_type = /datum/gas/stimulum
-
-/obj/machinery/portable_atmospherics/canister/pluoxium
-	name = "канистра с плюоксием"
-	desc = "Плюоксий. Как кислород, но с большей отдачей."
-	icon_state = "darkblue"
-	base_icon_state = "darkblue"
-	gas_type = /datum/gas/pluoxium
-
-/obj/machinery/portable_atmospherics/canister/water_vapor
-	name = "канистра с паром"
-	desc = "Водяной пар. Мы поняли, ты вейпер."
-	icon_state = "water_vapor"
-	base_icon_state = "water_vapor"
-	gas_type = /datum/gas/water_vapor
-	filled = 1
-
-/obj/machinery/portable_atmospherics/canister/miasma
-	name = "канистра с миазмой"
-	desc = "Миазма. Вызывает желание отрезать нос."
-	icon_state = "miasma"
-	base_icon_state = "miasma"
-	gas_type = /datum/gas/miasma
-	filled = 1
-
-/obj/machinery/portable_atmospherics/canister/freon
-	name = "канистра с фреоном"
-	desc = "Фреон. Может поглощать тепло."
-	icon_state = "freon"
-	base_icon_state = "freon"
-	gas_type = /datum/gas/freon
-	filled = 1
-
-/obj/machinery/portable_atmospherics/canister/hydrogen
-	name = "канистра с водородом"
-	desc = "Водород, легковоспламеняющийся."
-	icon_state = "h2"
-	base_icon_state = "h2"
-	gas_type = /datum/gas/hydrogen
-	filled = 1
-
-/obj/machinery/portable_atmospherics/canister/healium
-	name = "канистра с хилиумом"
-	desc = "Хилиум, вызывает глубокий сон"
-	icon_state = "healium"
-	base_icon_state = "healium"
-	gas_type = /datum/gas/healium
-	filled = 1
-
-/obj/machinery/portable_atmospherics/canister/proto_nitrate
-	name = "канистра с протонитратом"
-	desc = "Протонитрат, по-разному реагирует с различными газами."
-	icon_state = "proto_nitrate"
-	base_icon_state = "proto_nitrate"
-	gas_type = /datum/gas/proto_nitrate
-	filled = 1
-
-/obj/machinery/portable_atmospherics/canister/zauker
-	name = "канистра с циклоном Б"
-	desc = "Невероятно токсичный газ, лучше не вдыхать."
-	icon_state = "zauker"
-	base_icon_state = "zauker"
-	gas_type = /datum/gas/zauker
-	filled = 1
-
-/obj/machinery/portable_atmospherics/canister/halon
-	name = "канистра с галоном"
-	desc = "Галон, удаляет кислород из высокотемпературных пожаров и охлаждает помещение."
-	icon_state = "halon"
-	base_icon_state = "halon"
-	gas_type = /datum/gas/halon
-	filled = 1
-
-/obj/machinery/portable_atmospherics/canister/helium
-	name = "канистра с гелием"
-	desc = "Гелий, инертный газ."
-	icon_state = "halon"
-	base_icon_state = "halon"
-	gas_type = /datum/gas/helium
-	filled = 1
+	greyscale_config = /datum/greyscale_config/canister
+	greyscale_colors = "#c6c0b5"
 
 /obj/machinery/portable_atmospherics/canister/antinoblium
 	name = "канистра с антиноблием"
 	desc = "Антиноблий, мы до сих пор не знаем, что он делает, но он очень дорого продается"
-	icon_state = "halon"
-	base_icon_state = "halon"
 	gas_type = /datum/gas/antinoblium
 	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#9b5d7f#368bff"
+
+/obj/machinery/portable_atmospherics/canister/bz
+	name = "канистра с БЗ"
+	desc = "БЗ, сильнодействующее галлюциногенное нервно-паралитическое средство."
+	gas_type = /datum/gas/bz
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#9b5d7f#d0d2a0"
+
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide
+	name = "канистра с угарным газом"
+	desc = "Углекислый газ. Что за хрень этот углекислый газ?"
+	gas_type = /datum/gas/carbon_dioxide
+	greyscale_config = /datum/greyscale_config/canister
+	greyscale_colors = "#4e4c48"
+
+/obj/machinery/portable_atmospherics/canister/freon
+	name = "канистра с фреоном"
+	desc = "Фреон. Может поглощать тепло."
+	gas_type = /datum/gas/freon
+	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#6696ee#fefb30"
+
+/obj/machinery/portable_atmospherics/canister/halon
+	name = "канистра с галоном"
+	desc = "Галон, удаляет кислород из высокотемпературных пожаров и охлаждает помещение."
+	gas_type = /datum/gas/halon
+	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#9b5d7f#368bff"
+
+/obj/machinery/portable_atmospherics/canister/healium
+	name = "канистра с хилиумом"
+	desc = "Хилиум, вызывает глубокий сон. Не путать с гелием."
+	gas_type = /datum/gas/healium
+	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#009823#ff0e00"
+
+/obj/machinery/portable_atmospherics/canister/helium
+	name = "канистра с гелием"
+	desc = "Гелий, инертный газ."
+	gas_type = /datum/gas/helium
+	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#9b5d7f#368bff"
+
+/obj/machinery/portable_atmospherics/canister/hydrogen
+	name = "канистра с водородом"
+	desc = "Водород, легковоспламеняющийся."
+	gas_type = /datum/gas/hydrogen
+	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/stripe
+	greyscale_colors = "#bdc2c0#ffffff"
+
+/obj/machinery/portable_atmospherics/canister/miasma
+	name = "канистра с миазмой"
+	desc = "Миазма. Вызывает желание отрезать нос."
+	gas_type = /datum/gas/miasma
+	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#009823#f7d5d3"
+
+/obj/machinery/portable_atmospherics/canister/nitrogen
+	name = "канистра с азотом"
+	desc = "Газообразный азот. Якобы полезно для чего-то."
+	gas_type = /datum/gas/nitrogen
+	greyscale_config = /datum/greyscale_config/canister
+	greyscale_colors = "#d41010"
+
+/obj/machinery/portable_atmospherics/canister/nitrous_oxide
+	name = "канистра с закисью азота"
+	desc = "Закись азота. Вызывает сонливость."
+	gas_type = /datum/gas/nitrous_oxide
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#c63e3b#f7d5d3"
+
+/obj/machinery/portable_atmospherics/canister/nitryl
+	name = "канистра с нитрилом"
+	desc = "Нитрил-газ. Чувствуй себя прекрасно, пока кислота не съест твои легкие."
+	gas_type = /datum/gas/nitryl
+	greyscale_config = /datum/greyscale_config/canister
+	greyscale_colors = "#7b4732"
+
+/obj/machinery/portable_atmospherics/canister/nob
+	name = "канистра с гипер-ноблием"
+	desc = "Гипер-Ноблий. Благороднее всех остальных газов."
+	gas_type = /datum/gas/hypernoblium
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#6399fc#b2b2b2"
+
+/obj/machinery/portable_atmospherics/canister/oxygen
+	name = "канистра с кислородом"
+	desc = "Кислород. Необходим для жизни человека."
+	gas_type = /datum/gas/oxygen
+	greyscale_config = /datum/greyscale_config/canister/stripe
+	greyscale_colors = "#2786e5#e8fefe"
+
+/obj/machinery/portable_atmospherics/canister/pluoxium
+	name = "канистра с плюоксием"
+	desc = "Плюоксий. Как кислород, но с большей отдачей."
+	gas_type = /datum/gas/pluoxium
+	greyscale_config = /datum/greyscale_config/canister
+	greyscale_colors = "#2786e5"
+
+/obj/machinery/portable_atmospherics/canister/proto_nitrate
+	name = "канистра с протонитратом"
+	desc = "Протонитрат, по-разному реагирует с различными газами."
+	gas_type = /datum/gas/proto_nitrate
+	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#008200#33cc33"
+
+/obj/machinery/portable_atmospherics/canister/stimulum
+	name = "канистра со стимулумом"
+	desc = "Стимул. Газ высокой энергии, люди высокой энергии."
+	gas_type = /datum/gas/stimulum
+	greyscale_config = /datum/greyscale_config/canister
+	greyscale_colors = "#9b5d7f"
+
+/obj/machinery/portable_atmospherics/canister/toxins
+	name = "канистра с плазмой"
+	desc = "Плазменный газ. Причина, по которой ТЫ здесь. Сильно токсичен."
+	gas_type = /datum/gas/plasma
+	greyscale_config = /datum/greyscale_config/canister/hazard
+	greyscale_colors = "#f62800#000000"
+
+/obj/machinery/portable_atmospherics/canister/tritium
+	name = "канистра с тритием"
+	desc = "Тритий. Вдыхание может вызвать облучение."
+	gas_type = /datum/gas/tritium
+	greyscale_config = /datum/greyscale_config/canister/hazard
+	greyscale_colors = "#3fcd40#000000"
+
+/obj/machinery/portable_atmospherics/canister/water_vapor
+	name = "канистра с паром"
+	desc = "Водяной пар. Мы поняли, ты вейпер."
+	gas_type = /datum/gas/water_vapor
+	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#4c4e4d#f7d5d3"
+
+/obj/machinery/portable_atmospherics/canister/zauker
+	name = "канистра с циклоном Б"
+	desc = "Невероятно токсичный газ, лучше не вдыхать."
+	gas_type = /datum/gas/zauker
+	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#009a00#006600"
+
+// Special canisters below here
 
 /obj/machinery/portable_atmospherics/canister/fusion_test
 	name = "пиздец, а не канистра"
@@ -277,14 +287,15 @@
 	update_icon()
 
 /obj/machinery/portable_atmospherics/canister/proto
-	name = "прототип канистры"
+	name = "prototype canister"
+	greyscale_config = /datum/greyscale_config/prototype_canister
+	greyscale_colors = "#ffffff#a50021#ffffff"
+	mode = NONE
 
 
 /obj/machinery/portable_atmospherics/canister/proto/default
 	name = "прототип канистры"
 	desc = "Лучший способ исправить атмосферную аварию... или лучший способ создать ее."
-	icon_state = "proto"
-	base_icon_state = "proto"
 	volume = 5000
 	max_integrity = 300
 	temperature_resistance = 2000 + T0C
@@ -295,7 +306,7 @@
 
 /obj/machinery/portable_atmospherics/canister/proto/default/oxygen
 	name = "прототип канистры"
-	desc = "Канистра любителя изобретать велосипеды, что может пойти не так?"
+	desc = "Канистра любителя изобретать велосипеды, что может пойти не тка?"
 	gas_type = /datum/gas/oxygen
 	filled = 1
 	release_pressure = ONE_ATMOSPHERE*2
@@ -352,22 +363,24 @@
 	. = ..()
 	var/isBroken = machine_stat & BROKEN
 	///Function is used to actually set the overlays
-	. += "tier [mode]-[isBroken]"
+	if(mode)
+		. += icon(canister_overlay_file, "tier[mode]")
 	if(isBroken)
-		return
+		. += icon(canister_overlay_file, "broken")
 	if(holding)
-		. += "can-open"
+		. += icon(canister_overlay_file, "can-open")
 	if(connected_port)
-		. += "can-connector"
-	var/pressure = air_contents?.return_pressure()
-	if(pressure >= 40 * ONE_ATMOSPHERE)
-		. += "can-3"
-	else if(pressure >= 10 * ONE_ATMOSPHERE)
-		. += "can-2"
-	else if(pressure >= 5 * ONE_ATMOSPHERE)
-		. += "can-1"
-	else if(pressure >= 10)
-		. += "can-0"
+		. += icon(canister_overlay_file, "can-connector")
+
+	switch(air_contents.return_pressure())
+		if((40 * ONE_ATMOSPHERE) to INFINITY)
+			. += icon(canister_overlay_file, "can-3")
+		if((10 * ONE_ATMOSPHERE) to (40 * ONE_ATMOSPHERE))
+			. += icon(canister_overlay_file, "can-2")
+		if((5 * ONE_ATMOSPHERE) to (10 * ONE_ATMOSPHERE))
+			. += icon(canister_overlay_file, "can-1")
+		if((10) to (5 * ONE_ATMOSPHERE))
+			. += icon(canister_overlay_file, "can-0")
 
 
 /obj/machinery/portable_atmospherics/canister/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
@@ -436,15 +449,18 @@
 		holding.forceMove(T)
 		holding = null
 
+	animate(src, 0.5 SECONDS, transform=turn(transform, rand(-179, 180)), easing=BOUNCE_EASING)
+
 /obj/machinery/portable_atmospherics/canister/replace_tank(mob/living/user, close_valve)
 	. = ..()
-	if(.)
-		if(close_valve)
-			valve_open = FALSE
-			update_icon()
-			investigate_log("Valve was <b>closed</b> by [key_name(user)].", INVESTIGATE_ATMOS)
-		else if(valve_open && holding)
-			investigate_log("[key_name(user)] started a transfer into [holding].", INVESTIGATE_ATMOS)
+	if(!.)
+		return
+	if(close_valve)
+		valve_open = FALSE
+		update_icon()
+		investigate_log("Valve was <b>closed</b> by [key_name(user)].", INVESTIGATE_ATMOS)
+	else if(valve_open && holding)
+		investigate_log("[key_name(user)] started a transfer into [holding].", INVESTIGATE_ATMOS)
 
 /obj/machinery/portable_atmospherics/canister/process_atmos(delta_time)
 	..()
