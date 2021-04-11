@@ -39,8 +39,8 @@
 	SSradio.remove_object(src,frequency)
 	return ..()
 
-/obj/machinery/atmospherics/components/trinary/filter/update_icon()
-	cut_overlays()
+/obj/machinery/atmospherics/components/trinary/filter/update_overlays()
+	. = ..()
 	for(var/direction in GLOB.cardinals)
 		if(!(direction & initialize_directions))
 			continue

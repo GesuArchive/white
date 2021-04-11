@@ -31,8 +31,8 @@
 		update_icon()
 	return ..()
 
-/obj/machinery/atmospherics/components/trinary/mixer/update_icon()
-	cut_overlays()
+/obj/machinery/atmospherics/components/trinary/mixer/update_overlays()
+	. = ..()
 	for(var/direction in GLOB.cardinals)
 		if(!(direction & initialize_directions))
 			continue
