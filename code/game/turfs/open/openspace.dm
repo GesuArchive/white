@@ -35,6 +35,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/open/openspace/airless
 	initial_gas_mix = AIRLESS_ATMOS
 
+/*
 /turf/open/openspace/fastload
 	plane = OPENSPACE_PLANE
 	layer = OPENSPACE_LAYER
@@ -62,6 +63,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 
 /turf/open/openspace/fastload/LateInitialize()
 	return
+*/
 
 /turf/open/openspace/airless/planetary
 	planetary_atmos = TRUE
