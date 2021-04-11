@@ -59,6 +59,10 @@
 	///Store the smart pipes connections, used for pipe construction
 	var/connection_num = 0
 
+/obj/machinery/atmospherics/LateInitialize()
+	. = ..()
+	name = "[GLOB.pipe_color_name[pipe_color]] [name]"
+
 /obj/machinery/atmospherics/examine(mob/user)
 	. = ..()
 	if(is_type_in_list(src, GLOB.ventcrawl_machinery) && isliving(user))
@@ -239,7 +243,7 @@
  * * given_layer - the piping_layer we are connecting to
  */
 /obj/machinery/atmospherics/proc/check_connectable_layer(obj/machinery/atmospherics/target, given_layer)
-	if(target.piping_layer == given_layer || (target.pipe_flags | pipe_flags) & PIPING_ALL_LAYER)
+	if(target.piping_layer == given_layer || target.pipe_flags & PIPING_ALL_LAYER)
 		return TRUE
 	return FALSE
 
@@ -250,7 +254,7 @@
  * * obj/machinery/atmospherics/target - the machinery we want to connect to
  */
 /obj/machinery/atmospherics/proc/check_connectable_color(obj/machinery/atmospherics/target)
-	if(lowertext(target.pipe_color) == lowertext(pipe_color) || ((target.pipe_flags | pipe_flags) & PIPING_ALL_COLORS) || lowertext(target.pipe_color) == lowertext(COLOR_VERY_LIGHT_GRAY) || lowertext(pipe_color == COLOR_VERY_LIGHT_GRAY))
+	if(lowertext(target.pipe_color) == lowertext(pipe_color) || (target.pipe_flags & PIPING_ALL_COLORS) || lowertext(target.pipe_color) == lowertext(COLOR_VERY_LIGHT_GRAY) || lowertext(pipe_color) == lowertext(COLOR_VERY_LIGHT_GRAY))
 		return TRUE
 	return FALSE
 
@@ -462,6 +466,7 @@
 
 #define VENT_SOUND_DELAY 30
 
+// Handles mob movement inside a pipenet
 /obj/machinery/atmospherics/relaymove(mob/living/user, direction)
 	direction &= initialize_directions
 	if(!direction || !(direction in GLOB.cardinals)) //cant go this way.

@@ -2,8 +2,8 @@
 	icon = 'icons/obj/atmospherics/pipes/bridge_pipe.dmi'
 	icon_state = "bridge_center"
 
-	name = "bridge pipe"
-	desc = "A one meter section of regular pipe used to connect pipenets over pipes."
+	name = "мостовая труба"
+	desc = "Однометровый отрезок обычной трубы, используемый для соединения труб над трубами."
 
 	dir = SOUTH
 	initialize_directions = NORTH | SOUTH
@@ -41,7 +41,7 @@
 	for(var/i in 1 to device_type)
 		if(!nodes[i])
 			continue
-		var/image/pipe = getpipeimage('icons/obj/atmospherics/pipes/manifold.dmi', "pipe-[piping_layer]", get_dir(src, nodes[i]))
+		var/image/pipe = getpipeimage('icons/obj/atmospherics/pipes/manifold.dmi', "pipe-3", get_dir(src, nodes[i]))
 		PIPING_LAYER_DOUBLE_SHIFT(pipe, piping_layer)
 		pipe.layer = layer + 0.01
 		. += pipe

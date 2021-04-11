@@ -2,8 +2,8 @@
 	icon = 'icons/obj/atmospherics/pipes/color_adapter.dmi'
 	icon_state = "adapter_map-3"
 
-	name = "color adapter"
-	desc = "A one meter section of regular pipe used to connect different colored pipes."
+	name = "цветной адаптер"
+	desc = "Однометровый отрезок обычной трубы, используемый для соединения труб разного цвета."
 
 	dir = SOUTH
 	initialize_directions = NORTH | SOUTH
@@ -44,7 +44,7 @@
 	for(var/i in 1 to device_type)
 		if(!nodes[i])
 			continue
-		var/image/pipe = getpipeimage('icons/obj/atmospherics/pipes/manifold.dmi', "pipe-[piping_layer]", get_dir(src, nodes[i]), nodes[i].pipe_color)
+		var/image/pipe = getpipeimage('icons/obj/atmospherics/pipes/manifold.dmi', "pipe-3", get_dir(src, nodes[i]), nodes[i].pipe_color)
 		PIPING_LAYER_DOUBLE_SHIFT(pipe, piping_layer)
 		pipe.layer = layer + 0.01
 		. += pipe
