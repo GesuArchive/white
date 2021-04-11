@@ -552,9 +552,9 @@
 			else
 				to_chat(user, "<span class='notice'>Я установил защиту на [src].</span>")
 			set_anchored(!anchored)
-			return
+			return TRUE
 	else if(!open && user.a_intent == INTENT_HELP)
-		to_chat(user, "<span class='notice'>[capitalize(src.name)] должен быть открыт, чтобы переместить его.</span>")
+		to_chat(user, "<span class='notice'>[src] must be open to move it.</span>")
 		return
 
 /obj/structure/displaycase/forsale/emag_act(mob/user)

@@ -60,6 +60,7 @@
 /obj/item/gun/magic/wand/death
 	name = "палочка смерти"
 	desc = "Эта смертельная палочка наполняеи тело жертвы чистой энергией, гарантированно убивая её."
+	school = SCHOOL_NECROMANCY
 	fire_sound = 'sound/magic/wandodeath.ogg'
 	ammo_type = /obj/item/ammo_casing/magic/death
 	icon_state = "deathwand"
@@ -97,6 +98,7 @@
 /obj/item/gun/magic/wand/resurrection
 	name = "палочка исцеления"
 	desc = "Эта палочка использует исцеляющую магию для лечения и воскрешения. По какой-то причине их редко используют в Федерации Волшебников."
+	school = SCHOOL_RESTORATION
 	ammo_type = /obj/item/ammo_casing/magic/heal
 	fire_sound = 'sound/magic/staff_healing.ogg'
 	icon_state = "revivewand"
@@ -133,6 +135,7 @@
 /obj/item/gun/magic/wand/polymorph
 	name = "палочка полиморфа"
 	desc = "Эта палочка заточена под хаос и радикально изменит форму жертвы."
+	school = SCHOOL_TRANSMUTATION
 	ammo_type = /obj/item/ammo_casing/magic/change
 	icon_state = "polywand"
 	fire_sound = 'sound/magic/staff_change.ogg'
@@ -151,6 +154,7 @@
 /obj/item/gun/magic/wand/teleport
 	name = "палочка телепортации"
 	desc = "Эта палочка переместит цели через пространство и время, отправив их куда-то."
+	school = SCHOOL_TRANSLOCATION
 	ammo_type = /obj/item/ammo_casing/magic/teleport
 	fire_sound = 'sound/magic/wand_teleport.ogg'
 	icon_state = "telewand"
@@ -168,6 +172,7 @@
 /obj/item/gun/magic/wand/safety
 	name = "палочка безопасности"
 	desc = "This wand will use the lightest of bluespace currents to gently place the target somewhere safe."
+	school = SCHOOL_TRANSLOCATION
 	ammo_type = /obj/item/ammo_casing/magic/safety
 	fire_sound = 'sound/magic/wand_teleport.ogg'
 	icon_state = "telewand"
@@ -200,6 +205,7 @@
 /obj/item/gun/magic/wand/door
 	name = "палочка создания дверей"
 	desc = "Эта палочка может создавать двери на любых стенах. Полезно для недобросовестных волшебников, избегающих магии телепортации."
+	school = SCHOOL_TRANSMUTATION
 	ammo_type = /obj/item/ammo_casing/magic/door
 	icon_state = "doorwand"
 	fire_sound = 'sound/magic/staff_door.ogg'
@@ -218,6 +224,7 @@
 /obj/item/gun/magic/wand/fireball
 	name = "палочка огненного шара"
 	desc = "Эта палочка запускает раскаленные огненные шары, взрывающиеся разрушительным пламенем."
+	school = SCHOOL_EVOCATION
 	fire_sound = 'sound/magic/fireball.ogg'
 	ammo_type = /obj/item/ammo_casing/magic/fireball
 	icon_state = "firewand"
