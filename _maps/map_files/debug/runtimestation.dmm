@@ -2217,7 +2217,7 @@
 "mE" = (
 /obj/structure/cable,
 /obj/machinery/chem_mass_spec,
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/medical/chemistry)
 "nn" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
@@ -2622,7 +2622,7 @@
 /area/science/nanite)
 "Nc" = (
 /obj/machinery/chem_recipe_debug,
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/medical/chemistry)
 "Ns" = (
 /obj/machinery/door/airlock/public/glass,

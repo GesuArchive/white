@@ -64797,7 +64797,7 @@
 	info = "Hey whoever designed this shithole didn't give us space to install the produce computer so it's in maintenance near the theatre.";
 	name = "hastily written note"
 	},
-/turf/open/floor/iron/dark,
+/turf/open/floor/plasteel/dark,
 /area/service/kitchen)
 "jAY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
@@ -90738,7 +90738,7 @@
 	dir = 1;
 	network = list("ss13","medbay")
 	},
-/turf/open/floor/iron/dark,
+/turf/open/floor/plasteel/dark,
 /area/cargo/qm)
 "xwt" = (
 /obj/effect/decal/cleanable/dirt,

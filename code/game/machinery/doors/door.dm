@@ -103,7 +103,7 @@
 	return FALSE
 
 /obj/machinery/door/proc/is_holding_pressure()
-	var/turf/open/T = loc
+	var/turf/open/T = get_turf(src)
 	if(!T)
 		return FALSE
 	if(!density)

@@ -51217,19 +51217,19 @@
 /turf/open/floor/plasteel/white/corner{
 	dir = 1
 	},
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/cargo/storage)
 "sTP" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	name = "Mix to Port"
 	},
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/engineering/atmos)
 "sTS" = (
 /obj/machinery/computer/chef_order{
 	dir = 4
 	},
-/turf/open/floor/iron/cafeteria,
+/turf/open/floor/plasteel/cafeteria,
 /area/service/kitchen)
 "sUk" = (
 /obj/effect/decal/cleanable/dirt,
@@ -56653,7 +56653,7 @@
 "xlf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/brown/visible,
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/maintenance/disposal/incinerator)
 "xmh" = (
 /obj/structure/extinguisher_cabinet{

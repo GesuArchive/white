@@ -275,8 +275,9 @@
 		return
 	. += "<hr>"
 	. += "Отвечает за зону: <i>[get_area_name(area, TRUE)]</i>"
-	. += "<hr>"
-	. += "Заряд: [cell.percent()]%"
+	if(cell)
+		. += "<hr>"
+		. += "Заряд: [cell.percent()]%"
 	if(opened)
 		if(has_electronics && terminal)
 			. += "</br>Крышка [opened==APC_COVER_REMOVED?"снята":"открыта"] и батарея [ cell ? "установлена" : "отсутствует"]."

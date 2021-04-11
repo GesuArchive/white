@@ -376,6 +376,8 @@
 
 /obj/machinery/chem_dispenser/emp_act(severity)
 	. = ..()
+	if(!cell)
+		return
 	if(. & EMP_PROTECT_SELF)
 		return
 	var/list/datum/reagents/R = list()

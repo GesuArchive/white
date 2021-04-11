@@ -2822,7 +2822,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 1
 	},
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/hallway/primary/central/fore)
 "aiQ" = (
 /obj/effect/turf_decal/stripes/line{
@@ -80574,7 +80574,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/commons/fitness/recreation)
 "khf" = (
 /obj/structure/table/reinforced,
@@ -80585,7 +80585,7 @@
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_y = 5
 	},
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/service/kitchen)
 "khj" = (
 /obj/item/kirbyplants/random,
@@ -87486,7 +87486,7 @@
 	dir = 8
 	},
 /obj/machinery/firealarm/directional/west,
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/hallway/primary/central/fore)
 "oZQ" = (
 /obj/structure/disposalpipe/segment{
@@ -96206,20 +96206,20 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
-/turf/open/floor/iron/dark,
+/turf/open/floor/plasteel/dark,
 /area/engineering/atmos)
 "qhc" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/science/misc_lab/range)
 "qhn" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/computer/chef_order{
 	dir = 1
 	},
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/service/kitchen)
 "qhE" = (
 /obj/structure/weightmachine/stacklifter,
@@ -110712,7 +110712,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible,
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/engineering/atmos)
 "wIx" = (
 /obj/effect/turf_decal/stripes/line{
