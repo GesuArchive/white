@@ -5031,6 +5031,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 9
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
 "ayr" = (
@@ -6430,6 +6433,9 @@
 /area/storage/primary)
 "aDe" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 9
+	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/locker)
 "aDf" = (
@@ -9426,6 +9432,9 @@
 /area/hallway/primary/port)
 "aNl" = (
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 9
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
 "aNP" = (
@@ -9572,6 +9581,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 9
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
@@ -9887,6 +9899,9 @@
 "aPC" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 9
+	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/locker)
 "aPD" = (
@@ -10739,6 +10754,9 @@
 "aUt" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 9
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/locker)
@@ -17427,6 +17445,12 @@
 "bDe" = (
 /obj/effect/landmark/event_spawn,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 9
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
 "bDf" = (
@@ -23479,8 +23503,8 @@
 	},
 /area/engine/atmos)
 "bZH" = (
-/obj/machinery/atmospherics/pipe/layer_manifold,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/visible,
 /turf/open/floor/plasteel,
 /area/maintenance/disposal/incinerator)
 "bZI" = (
@@ -24367,12 +24391,15 @@
 /turf/open/floor/plasteel/dark/side,
 /area/engine/atmospherics_engine)
 "ccC" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
-	dir = 5
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 9
 	},
 /turf/open/floor/plasteel,
-/area/maintenance/disposal/incinerator)
+/area/hallway/primary/port)
 "ccD" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
@@ -24665,9 +24692,7 @@
 "cdD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
-	dir = 10
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /turf/open/floor/plasteel,
 /area/maintenance/disposal/incinerator)
 "cdE" = (
@@ -24850,9 +24875,6 @@
 /obj/structure/extinguisher_cabinet{
 	dir = 4;
 	pixel_x = 24
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
-	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
@@ -25140,7 +25162,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/obj/machinery/atmospherics/pipe/bridge_pipe/yellow/visible,
 /turf/open/floor/plasteel,
 /area/maintenance/disposal/incinerator)
 "cfX" = (
@@ -25165,16 +25187,11 @@
 	pixel_x = -6;
 	pixel_y = -24
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
-	dir = 6
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /turf/open/floor/plasteel,
 /area/maintenance/disposal/incinerator)
 "cga" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
-	dir = 9
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/closet/emcloset,
 /turf/open/floor/plasteel,
@@ -25481,9 +25498,9 @@
 /area/maintenance/disposal/incinerator)
 "chm" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
-	dir = 4
+/obj/machinery/atmospherics/pipe/bridge_pipe/scrubbers/visible,
+/obj/machinery/atmospherics/pipe/bridge_pipe/scrubbers/visible{
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/maintenance/disposal/incinerator)
@@ -25745,9 +25762,11 @@
 /turf/open/floor/plating,
 /area/engine/atmos)
 "ciz" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
-/turf/closed/wall/r_wall,
-/area/maintenance/disposal/incinerator)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 9
+	},
+/turf/open/floor/plasteel,
+/area/crew_quarters/locker)
 "ciL" = (
 /obj/effect/spawner/structure/window/reinforced/tinted,
 /turf/open/floor/plating,
@@ -26158,7 +26177,7 @@
 /turf/open/floor/plating/airless,
 /area/engine/atmos)
 "ckd" = (
-/obj/machinery/atmospherics/pipe/layer_manifold,
+/obj/machinery/atmospherics/pipe/layer_manifold/supply/visible,
 /turf/closed/wall/r_wall,
 /area/maintenance/disposal/incinerator)
 "ckf" = (
@@ -33218,6 +33237,12 @@
 "joy" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 9
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
 "jrH" = (
@@ -34057,6 +34082,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
+"kWY" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 9
+	},
+/turf/open/floor/plasteel,
+/area/crew_quarters/locker)
 "kXf" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -40256,6 +40290,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 9
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
 "wXs" = (
@@ -40437,6 +40474,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 9
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
 "xqP" = (
@@ -40454,6 +40494,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 9
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
@@ -57997,9 +58040,9 @@ gFX
 faQ
 aPA
 uea
-aQN
-aQN
-aQN
+ciz
+ciz
+ciz
 aQN
 aXQ
 aYe
@@ -58511,7 +58554,7 @@ xsJ
 aOt
 aPA
 aQP
-aCO
+kWY
 aTx
 aTB
 aWo
@@ -58768,7 +58811,7 @@ xsJ
 aOp
 aPA
 aQR
-aCO
+kWY
 aTz
 aTz
 aWq
@@ -60563,7 +60606,7 @@ aBR
 aBR
 aBR
 aLJ
-aNl
+ccC
 aOl
 aPA
 aQW
@@ -61334,7 +61377,7 @@ aBa
 aaa
 aJd
 aLN
-aNl
+ccC
 qoQ
 aPH
 aRa
@@ -61591,7 +61634,7 @@ aHF
 aJd
 aJd
 aLN
-aNl
+ccC
 aOl
 aPF
 aQZ
@@ -82732,7 +82775,7 @@ xQt
 twQ
 czY
 bUU
-bYS
+ice
 odj
 bYS
 bYS
@@ -83764,7 +83807,7 @@ bVY
 bXW
 bZL
 cbE
-ccC
+bZL
 cfk
 cit
 ckg
@@ -84023,9 +84066,9 @@ bZM
 cbF
 cdD
 cfU
-ciz
+bUO
 ckj
-ciz
+bUO
 cmd
 bUU
 bUU
@@ -84537,9 +84580,9 @@ caF
 cbI
 cdI
 cfZ
-ciz
+bUO
 ckZ
-ciz
+bUO
 cna
 bUU
 bUU
