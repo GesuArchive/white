@@ -103,7 +103,7 @@
 /turf/open/space/proc/update_starlight()
 	if(CONFIG_GET(flag/starlight))
 		for(var/t in RANGE_TURFS(1,src)) //RANGE_TURFS is in code\__HELPERS\game.dm
-			if(isspaceturf(t))
+			if(isspaceturf(t) || isopenspace(t))
 				//let's NOT update this that much pls
 				continue
 			set_light(2)
