@@ -2687,7 +2687,7 @@
 /turf/open/floor/beton,
 /area/prisonv2)
 "iY" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/open/floor/beton,
 /area/prisonv2)
 "iZ" = (
@@ -2737,7 +2737,7 @@
 /area/prisonv2)
 "ji" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/atmospherics/pipe/simple/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/open/floor/trot,
 /area/prisonv2)
 "jj" = (
@@ -2813,7 +2813,7 @@
 /turf/open/floor/circuit/red/telecomms,
 /area/prisonv2)
 "jw" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
 	dir = 6
 	},
 /turf/open/floor/circuit/red/telecomms,
@@ -2822,7 +2822,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
 	dir = 9
 	},
 /turf/open/floor/circuit/red/telecomms,
@@ -2883,7 +2883,7 @@
 /turf/open/floor/circuit/red/telecomms,
 /area/prisonv2)
 "jH" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/open/floor/circuit/red/telecomms,
 /area/prisonv2)
 "jI" = (

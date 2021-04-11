@@ -5616,7 +5616,7 @@
 /turf/open/floor/plasteel/dark,
 /area/awaymission/snowdin/post/custodials)
 "mF" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/snowdin/post/custodials)
 "mG" = (

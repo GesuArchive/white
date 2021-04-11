@@ -184,13 +184,13 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/gasthelizard)
 "u" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/gasthelizard)
 "v" = (
-/obj/machinery/atmospherics/pipe/manifold/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/gasthelizard)
 "w" = (

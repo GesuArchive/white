@@ -732,13 +732,13 @@
 	},
 /area/awaymission/undergroundoutpost45/central)
 "bL" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
 /area/awaymission/undergroundoutpost45/central)
 "bM" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -777,7 +777,7 @@
 /turf/closed/wall,
 /area/awaymission/undergroundoutpost45/central)
 "bS" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -786,7 +786,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -899,7 +899,7 @@
 	},
 /area/awaymission/undergroundoutpost45/central)
 "ci" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -3044,7 +3044,7 @@
 	},
 /area/awaymission/undergroundoutpost45/central)
 "gl" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -3906,7 +3906,7 @@
 	},
 /area/awaymission/undergroundoutpost45/research)
 "ij" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/plasteel/white{
 	heat_capacity = 1e+006
 	},
@@ -4352,7 +4352,7 @@
 	},
 /area/awaymission/undergroundoutpost45/research)
 "ja" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -4486,7 +4486,7 @@
 	},
 /area/awaymission/undergroundoutpost45/gateway)
 "jm" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/dark{
 	heat_capacity = 1e+006
 	},
@@ -4541,7 +4541,7 @@
 /area/awaymission/undergroundoutpost45/research)
 "js" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/white{
 	heat_capacity = 1e+006
 	},
@@ -4956,13 +4956,13 @@
 	},
 /area/awaymission/undergroundoutpost45/gateway)
 "kf" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/white{
 	heat_capacity = 1e+006
 	},
 /area/awaymission/undergroundoutpost45/gateway)
 "kg" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/plasteel/white{
 	heat_capacity = 1e+006
 	},
@@ -5226,7 +5226,7 @@
 	},
 /area/awaymission/undergroundoutpost45/gateway)
 "kE" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/plasteel/white{
 	heat_capacity = 1e+006
 	},
@@ -5332,7 +5332,7 @@
 	},
 /area/awaymission/undergroundoutpost45/research)
 "kN" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/plasteel/white{
 	heat_capacity = 1e+006
 	},
@@ -6486,14 +6486,14 @@
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/cafeteria{
 	dir = 5;
 	heat_capacity = 1e+006
 	},
 /area/awaymission/undergroundoutpost45/research)
 "mO" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/plasteel/cafeteria{
 	dir = 5;
 	heat_capacity = 1e+006
@@ -6993,7 +6993,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -7574,7 +7574,7 @@
 	dir = 1;
 	pixel_y = 3
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/plasteel/cafeteria{
 	dir = 5;
 	heat_capacity = 1e+006
@@ -7612,7 +7612,7 @@
 	},
 /area/awaymission/undergroundoutpost45/research)
 "oD" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -8436,7 +8436,7 @@
 /turf/open/floor/circuit/telecomms/server,
 /area/awaymission/undergroundoutpost45/research)
 "qi" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/{
+/obj/machinery/atmospherics/pipe/smart/manifold4w
 	dir = 10
 	},
 /turf/open/floor/plasteel/dark/telecomms,
@@ -8809,7 +8809,7 @@
 /turf/open/floor/plasteel/dark/telecomms,
 /area/awaymission/undergroundoutpost45/research)
 "qR" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/{
+/obj/machinery/atmospherics/pipe/smart/manifold4w
 	dir = 4
 	},
 /obj/machinery/door/airlock/command/glass{
@@ -8821,7 +8821,7 @@
 	},
 /area/awaymission/undergroundoutpost45/research)
 "qS" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/{
+/obj/machinery/atmospherics/pipe/smart/manifold4w
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark{
@@ -8832,7 +8832,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/{
+/obj/machinery/atmospherics/pipe/smart/manifold4w
 	dir = 9
 	},
 /obj/structure/chair/office/light,
@@ -9207,7 +9207,7 @@
 	},
 /area/awaymission/undergroundoutpost45/research)
 "rz" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/{
+/obj/machinery/atmospherics/pipe/smart/manifold4w
 	dir = 9
 	},
 /turf/open/floor/plasteel/dark/telecomms,
@@ -9698,7 +9698,7 @@
 	},
 /area/awaymission/undergroundoutpost45/engineering)
 "sm" = (
-/obj/machinery/atmospherics/pipe/manifold/yellow/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -9793,7 +9793,7 @@
 /area/awaymission/undergroundoutpost45/research)
 "sw" = (
 /obj/structure/closet/l3closet,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/plasteel/white/side{
 	dir = 1;
 	heat_capacity = 1e+006
@@ -10046,7 +10046,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -10101,7 +10101,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -10139,7 +10139,7 @@
 	},
 /area/awaymission/undergroundoutpost45/engineering)
 "tb" = (
-/obj/machinery/atmospherics/pipe/simple/cyan/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -10311,7 +10311,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -10409,7 +10409,7 @@
 	},
 /area/awaymission/undergroundoutpost45/engineering)
 "tA" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -10451,7 +10451,7 @@
 	},
 /area/awaymission/undergroundoutpost45/engineering)
 "tE" = (
-/obj/machinery/atmospherics/pipe/simple/supply/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -10964,7 +10964,7 @@
 	},
 /area/awaymission/undergroundoutpost45/engineering)
 "uB" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -10997,7 +10997,7 @@
 	name = "Security Office";
 	req_access_txt = "201"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -11886,7 +11886,7 @@
 	},
 /area/awaymission/undergroundoutpost45/mining)
 "wt" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
 /turf/open/floor/plasteel{
@@ -12531,7 +12531,7 @@
 	},
 /area/awaymission/undergroundoutpost45/mining)
 "xo" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},

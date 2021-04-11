@@ -733,7 +733,7 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/caravan/freighter3)
 "ia" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/airless{
 	icon_state = "damaged2"
 	},
@@ -935,7 +935,7 @@
 /area/shuttle/caravan/freighter2)
 "iU" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/airless,
 /area/shuttle/caravan/freighter2)
 "iV" = (
@@ -1036,7 +1036,7 @@
 /area/shuttle/caravan/freighter2)
 "js" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/airless/dark,
 /area/shuttle/caravan/freighter2)
 "jt" = (
@@ -1090,7 +1090,7 @@
 "jI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/airless,
 /area/shuttle/caravan/freighter2)
 "jJ" = (
@@ -1101,7 +1101,7 @@
 /turf/open/floor/plasteel/airless,
 /area/shuttle/caravan/freighter2)
 "jK" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/airless{
 	icon_state = "floorscorched1"
 	},

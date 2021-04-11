@@ -1431,7 +1431,7 @@
 /area/ruin/powered/beach)
 "UZ" = (
 /obj/item/stack/sheet/metal/fifty,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating{

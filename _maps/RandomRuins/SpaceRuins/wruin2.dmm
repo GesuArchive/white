@@ -1254,7 +1254,7 @@
 	id = "rdxeno";
 	name = "Xenobiology Containment Door"
 	},
-/obj/machinery/atmospherics/pipe/simple/general/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/austation)
 "cK" = (
@@ -1482,7 +1482,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/austation)
 "de" = (
-/obj/machinery/atmospherics/pipe/simple/general/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -1583,13 +1583,13 @@
 /area/ruin/space/has_grav/austation)
 "dm" = (
 /obj/machinery/rnd/server,
-/obj/machinery/atmospherics/pipe/manifold/general/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
 	dir = 8
 	},
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/ruin/space/has_grav/austation)
 "dn" = (
-/obj/machinery/atmospherics/pipe/simple/general/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/neutral{
@@ -1606,7 +1606,7 @@
 /area/ruin/space/has_grav/austation)
 "do" = (
 /obj/machinery/rnd/server,
-/obj/machinery/atmospherics/pipe/simple/general/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden{
 	dir = 9
 	},
 /turf/open/floor/circuit/green/telecomms/mainframe,
@@ -1872,7 +1872,7 @@
 /area/ruin/space/has_grav/austation)
 "dQ" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
-/obj/machinery/atmospherics/pipe/simple/supply/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -2255,7 +2255,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation)
 "ew" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
 	dir = 5
 	},
 /obj/effect/turf_decal/stripes/line{
@@ -2264,7 +2264,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation)
 "ex" = (
-/obj/machinery/atmospherics/pipe/manifold/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /obj/effect/turf_decal/stripes/line,
 /obj/item/wrench/medical,
 /turf/open/floor/plasteel,
@@ -2273,7 +2273,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
 	dir = 9
 	},
 /obj/structure/table,
@@ -2360,7 +2360,7 @@
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/austation)
 "eG" = (
-/obj/machinery/atmospherics/pipe/simple/supply/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/yellow{
@@ -2762,7 +2762,7 @@
 /area/ruin/space/has_grav/austation)
 "fz" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -2802,7 +2802,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/austation)
 "fJ" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/yellow,
@@ -4351,7 +4351,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/austation)
 "jx" = (
-/obj/machinery/atmospherics/pipe/simple/general/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden{
 	dir = 6
 	},
 /obj/effect/turf_decal/delivery,
@@ -4362,7 +4362,7 @@
 	name = "Xenobiology Kill Room";
 	req_access_txt = "47"
 	},
-/obj/machinery/atmospherics/pipe/simple/general/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden{
 	dir = 4
 	},
 /obj/effect/turf_decal/stripes/line{
@@ -4374,7 +4374,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation)
 "jz" = (
-/obj/machinery/atmospherics/pipe/manifold/general/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -4388,7 +4388,7 @@
 /turf/open/floor/plasteel/dark/telecomms,
 /area/ruin/space/has_grav/austation)
 "jA" = (
-/obj/machinery/atmospherics/pipe/simple/general/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden{
 	dir = 9
 	},
 /obj/effect/turf_decal/tile/neutral{

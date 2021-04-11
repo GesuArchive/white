@@ -64,7 +64,7 @@
 	},
 /area/space)
 "ao" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
 	icon_state = "manifold-2";
 	dir = 8
 	},
@@ -73,7 +73,7 @@
 	},
 /area/space)
 "ap" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
 	icon_state = "pipe11-2";
 	dir = 8
 	},
@@ -82,13 +82,13 @@
 	},
 /area/space)
 "aq" = (
-/obj/machinery/atmospherics/pipe/manifold4w/scrubbers/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/partyhard/steel{
 	icon_state = "d-2"
 	},
 /area/space)
 "ar" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
 	icon_state = "pipe11-2";
 	dir = 10
 	},
@@ -97,7 +97,7 @@
 	},
 /area/space)
 "as" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
 	icon_state = "pipe11-2";
 	dir = 8
 	},
@@ -107,7 +107,7 @@
 	},
 /area/space)
 "at" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
 	icon_state = "pipe11-2";
 	dir = 9
 	},
@@ -125,7 +125,7 @@
 	},
 /area/space)
 "av" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/partyhard/steel{
 	icon_state = "d-2"
 	},
@@ -149,7 +149,7 @@
 	},
 /area/space)
 "ay" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/partyhard/steel{
 	icon_state = "d-2"
 	},
@@ -510,7 +510,7 @@
 	},
 /area/space)
 "bm" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
 	icon_state = "pipe11-2";
 	dir = 1
 	},
@@ -639,7 +639,7 @@
 /turf/closed/wall/partyhard,
 /area/space)
 "bC" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
 	icon_state = "pipe11-2";
 	dir = 5
 	},
@@ -717,7 +717,7 @@
 	},
 /area/space)
 "bN" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
 	icon_state = "pipe11-2";
 	dir = 1
 	},
@@ -726,7 +726,7 @@
 	},
 /area/space)
 "bO" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
 	icon_state = "pipe11-2";
 	dir = 1
 	},
@@ -740,7 +740,7 @@
 	icon_state = "b-1";
 	pixel_y = 32
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
 	icon_state = "pipe11-2";
 	dir = 1
 	},
