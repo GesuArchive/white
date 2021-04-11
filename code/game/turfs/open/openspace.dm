@@ -28,6 +28,8 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/open/openspace/airless/proc/update_starlight()
 	if(CONFIG_GET(flag/starlight))
 		for(var/t in RANGE_TURFS(1,src))
+			if(isopenspace(t))
+				continue
 			set_light(2)
 			return
 		set_light(0)
@@ -35,7 +37,6 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/open/openspace/airless
 	initial_gas_mix = AIRLESS_ATMOS
 
-/*
 /turf/open/openspace/fastload
 	plane = OPENSPACE_PLANE
 	layer = OPENSPACE_LAYER
@@ -63,7 +64,6 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 
 /turf/open/openspace/fastload/LateInitialize()
 	return
-*/
 
 /turf/open/openspace/airless/planetary
 	planetary_atmos = TRUE
