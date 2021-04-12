@@ -531,5 +531,5 @@ GLOBAL_VAR(atmos_extools_initialized) // this must be an uninitialized (null) on
 	}\
 }
 
-#define MIASMA_CORPSE_MOLES 0.2
-#define MIASMA_GIBS_MOLES 0.5
+#define MIASMA_CORPSE_MOLES 0.02
+#define MIASMA_GIBS_MOLES 0.005
