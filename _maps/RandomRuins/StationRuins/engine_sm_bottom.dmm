@@ -377,6 +377,10 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 8;
+	name = "Atmos to Loop"
+	},
 /turf/open/floor/engine,
 /area/engine/engineering)
 "bS" = (
@@ -434,9 +438,9 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "ch" = (
-/obj/machinery/atmospherics/components/binary/pump{
-	dir = 8;
-	name = "Atmos to Loop"
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
+	dir = 1
 	},
 /turf/open/floor/engine,
 /area/engine/engineering)
@@ -467,9 +471,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible{
-	dir = 10
-	},
+/obj/machinery/atmospherics/pipe/layer_manifold/orange/visible,
 /turf/open/floor/engine,
 /area/engine/engineering)
 "cv" = (
@@ -542,7 +544,7 @@
 	pixel_x = 24
 	},
 /obj/effect/turf_decal/stripes/box,
-/obj/machinery/atmospherics/pipe/multiz{
+/obj/machinery/atmospherics/pipe/multiz/orange/visible/layer1{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -2259,7 +2261,7 @@ ab
 (26,1,1) = {"
 ad
 as
-bD
+ch
 cg
 cC
 cC
@@ -2288,7 +2290,7 @@ ab
 ad
 bc
 bP
-ch
+cA
 cA
 cA
 cA
@@ -2315,7 +2317,7 @@ ab
 (28,1,1) = {"
 ad
 ad
-bc
+dd
 cm
 cD
 aL
