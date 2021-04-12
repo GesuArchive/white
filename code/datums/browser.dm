@@ -74,8 +74,8 @@
 	</head>
 	<body scroll=auto>
 		<div class='uiWrapper'>
-			[title ? "<div class='uiTitleWrapper'><div class='uiTitle'><tt>[title]</tt></div></div>" : ""]
-			<div class='uiContent'>
+			[title ? "<div class='uiTitleWrapper'><div class='uiTitle'>[title]</div></div>" : ""]
+			<div class='uiContent lobbymenu'>
 	"}
 //" This is here because else the rest of the file looks like a string in notepad++.
 /datum/browser/proc/get_footer()
