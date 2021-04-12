@@ -18370,13 +18370,6 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/fore)
-"bGW" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/turf/closed/wall/r_wall,
-/area/science/mixing/chamber)
 "bGY" = (
 /obj/structure/table,
 /obj/item/cartridge/signal/toxins{
@@ -19038,9 +19031,11 @@
 /turf/open/openspace,
 /area/maintenance/aft)
 "bJB" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/turf/closed/wall/r_wall,
-/area/science/mixing/chamber)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 6
+	},
+/turf/open/floor/plasteel/white,
+/area/science/mixing)
 "bJC" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -19098,7 +19093,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/layer_manifold,
+/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/hidden,
 /turf/open/floor/plasteel/white,
 /area/science/mixing)
 "bJT" = (
@@ -19429,6 +19424,9 @@
 /area/crew_quarters/heads/hor)
 "bLi" = (
 /obj/machinery/door/firedoor/heavy,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 6
+	},
 /turf/open/floor/plasteel/white,
 /area/science/mixing)
 "bLj" = (
@@ -19796,9 +19794,7 @@
 /turf/open/floor/engine/vacuum,
 /area/science/mixing/chamber)
 "bMv" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /turf/closed/wall/r_wall,
 /area/science/mixing/chamber)
 "bMw" = (
@@ -19811,10 +19807,10 @@
 /obj/machinery/airlock_sensor/incinerator_toxmix{
 	pixel_y = 24
 	},
-/obj/machinery/atmospherics/components/binary/pump/on{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/obj/machinery/atmospherics/components/binary/pump/on/orange{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/engine,
 /area/science/mixing/chamber)
 "bMy" = (
@@ -19836,8 +19832,9 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
-	dir = 4
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 6
 	},
 /turf/open/floor/plasteel/white,
 /area/science/mixing/chamber)
@@ -20083,7 +20080,6 @@
 "bNu" = (
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door/airlock/research/glass/incinerator/toxmix_exterior,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/machinery/door/firedoor/heavy,
 /turf/open/floor/engine,
 /area/science/mixing/chamber)
@@ -20107,6 +20103,9 @@
 "bNy" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 6
 	},
 /turf/open/floor/plasteel/white,
 /area/science/mixing/chamber)
@@ -20425,10 +20424,10 @@
 /obj/structure/sign/warning/fire{
 	pixel_y = -32
 	},
-/obj/machinery/atmospherics/components/binary/pump/on{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
+/obj/machinery/atmospherics/components/binary/pump/on/orange{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/engine,
 /area/science/mixing/chamber)
 "bOG" = (
@@ -20455,8 +20454,9 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
-	dir = 4
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 6
 	},
 /turf/open/floor/plasteel/white,
 /area/science/mixing/chamber)
@@ -21018,7 +21018,7 @@
 /area/engine/atmos)
 "bQy" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
 /turf/open/floor/plating,
 /area/engine/atmos)
 "bQA" = (
@@ -21394,6 +21394,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/layer_manifold/supply/hidden,
 /turf/open/floor/plasteel/white,
 /area/science/mixing)
 "bSm" = (
@@ -22812,7 +22813,7 @@
 	name = "External Access";
 	req_access_txt = "13"
 	},
-/obj/machinery/atmospherics/pipe/layer_manifold{
+/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/visible{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -23492,11 +23493,6 @@
 	dir = 8
 	},
 /area/engine/atmos)
-"bZH" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/visible,
-/turf/open/floor/plasteel,
-/area/maintenance/disposal/incinerator)
 "bZI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -23631,7 +23627,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/layer_manifold/visible{
+/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/visible{
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
@@ -23788,10 +23784,6 @@
 	dir = 10
 	},
 /turf/open/floor/plasteel,
-/area/maintenance/disposal/incinerator)
-"caH" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
-/turf/closed/wall/r_wall,
 /area/maintenance/disposal/incinerator)
 "caI" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -25485,16 +25477,12 @@
 /obj/structure/grille,
 /turf/open/floor/plating,
 /area/maintenance/starboard)
-"chl" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
-	dir = 4
-	},
-/turf/closed/wall/r_wall,
-/area/maintenance/disposal/incinerator)
 "chm" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/atmospherics/pipe/bridge_pipe/scrubbers/visible,
-/obj/machinery/atmospherics/pipe/bridge_pipe/scrubbers/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -25740,12 +25728,6 @@
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/chief)
-"cit" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
-	dir = 10
-	},
-/turf/closed/wall/r_wall,
-/area/maintenance/disposal/incinerator)
 "ciu" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
@@ -26171,10 +26153,6 @@
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /turf/open/floor/plating/airless,
 /area/engine/atmos)
-"ckd" = (
-/obj/machinery/atmospherics/pipe/layer_manifold/supply/visible,
-/turf/closed/wall/r_wall,
-/area/maintenance/disposal/incinerator)
 "ckf" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
 	name = "Incinerator Output Pump";
@@ -26183,8 +26161,8 @@
 /turf/open/floor/plating/airless,
 /area/maintenance/disposal/incinerator)
 "ckg" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
-	dir = 5
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 6
 	},
 /turf/closed/wall/r_wall,
 /area/maintenance/disposal/incinerator)
@@ -26200,7 +26178,7 @@
 	pixel_y = 24
 	},
 /obj/machinery/atmospherics/components/binary/pump/on,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
+/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/visible{
 	dir = 4
 	},
 /turf/open/floor/engine,
@@ -26404,7 +26382,7 @@
 /obj/machinery/atmospherics/components/binary/pump/on{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+/obj/machinery/atmospherics/pipe/layer_manifold/supply/visible{
 	dir = 4
 	},
 /turf/open/floor/engine,
@@ -26426,9 +26404,7 @@
 /turf/open/openspace/airless,
 /area/engine/atmos)
 "cld" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
-	dir = 9
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/closed/wall/r_wall,
 /area/maintenance/disposal/incinerator)
 "clf" = (
@@ -26924,8 +26900,8 @@
 /area/maintenance/disposal/incinerator)
 "cpP" = (
 /obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
 /turf/open/openspace/airless,
 /area/space/nearstation)
 "cpQ" = (
@@ -32987,12 +32963,12 @@
 /area/science/xenobiology)
 "iPh" = (
 /obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/machinery/light/small{
 	dir = 1;
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
 /turf/open/openspace/airless,
 /area/engine/atmos)
 "iQF" = (
@@ -33919,6 +33895,9 @@
 /area/engine/atmos)
 "kOw" = (
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 6
+	},
 /turf/open/floor/plasteel/white,
 /area/science/mixing)
 "kOy" = (
@@ -35194,7 +35173,6 @@
 	dir = 1;
 	pixel_y = 0
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/white,
 /area/science/mixing)
 "nFd" = (
@@ -36834,11 +36812,6 @@
 "qvP" = (
 /turf/closed/wall/rust,
 /area/maintenance/space_hut/plasmaman)
-"qyE" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel,
-/area/maintenance/disposal/incinerator)
 "qyX" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -83003,10 +82976,10 @@ aAY
 bUU
 ice
 gcP
-bZH
-qyE
-caH
-caH
+gcP
+gcP
+ckg
+ckg
 ckg
 gXs
 gXs
@@ -83264,7 +83237,7 @@ bZI
 bYS
 bYS
 ceD
-chl
+ckg
 aaa
 aaa
 gXs
@@ -83778,7 +83751,7 @@ bZL
 cbE
 bZL
 cfk
-cit
+ckg
 ckg
 bUU
 cmb
@@ -84806,7 +84779,7 @@ caG
 cbL
 ceB
 cga
-ckd
+cld
 cld
 bUU
 bUU
@@ -88882,13 +88855,13 @@ bzM
 bzL
 bxZ
 bCi
-bGQ
-bGW
+dGF
+bMv
 bNu
-bGW
-bJB
+bMv
+dGF
 nEP
-bJR
+mPh
 bLP
 bSh
 kwA
@@ -89396,7 +89369,7 @@ vTF
 bvK
 bvK
 bvK
-dGF
+bGQ
 bMv
 bNv
 bMv
@@ -89658,7 +89631,7 @@ bMz
 bNy
 bOH
 bLi
-bFU
+bJB
 vzp
 bNc
 bUn
