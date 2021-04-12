@@ -23,7 +23,7 @@ hr
 
 a, button, a:link, a:visited, a:active, .linkOn, .linkOff
 {
-	color: #f2711c;
+	color: #f4f4ff;
 	font-weight: 100;
 	text-decoration: none;
 	background: #090909;
@@ -37,14 +37,14 @@ a, button, a:link, a:visited, a:active, .linkOn, .linkOff
 a:hover
 {
 	color: #000000;
-	background: #f2711c;
+	background: #f4f4ff;
 }
 
 a.white, a.white:link, a.white:visited, a.white:active
 {
 	color: #000000;
 	text-decoration: none;
-	background: #f2711c;
+	background: #f4f4ff;
 	border: 1px solid rgba(55, 55, 55, 0.5);
 	padding: 1px 4px 1px 4px;
 	margin: 0 2px 0 0;
@@ -54,15 +54,15 @@ a.white, a.white:link, a.white:visited, a.white:active
 a.white:hover
 {
 	color: #000000;
-	background: #f2711c;
+	background: #f4f4ff;
 }
 
 .linkOn, a.linkOn:link, a.linkOn:visited, a.linkOn:active, a.linkOn:hover
 {
 	color: #000000;
 	font-weight: bold;
-	background: #f2711c;
-	border-color: #f2711c;
+	background: #f4f4ff;
+	border-color: #f4f4ff;
 }
 
 .linkOff, a.linkOff:link, a.linkOff:visited, a.linkOff:active, a.linkOff:hover
@@ -143,7 +143,7 @@ h4
 	padding: 6px 8px 6px 8px;
 	border-bottom: 2px solid #121212;
 	background: #050505;
-	color: #f2711c;
+	color: #f4f4ff;
 	font-size: 20px;
 }
 
@@ -189,12 +189,12 @@ h4
 .notice
 {
 	position: relative;
-	background: #f2711c;
+	background: #f4f4ff;
 	color: #000000;
 	font-weight: bold;
 	font-size: 12px;
 	font-style: italic;
-	border: 1px solid #f2711c;
+	border: 1px solid #f4f4ff;
 	border-radius: 3px;
 	padding: 3px 6px 4px 6px;
 	margin: 4px;
@@ -269,7 +269,7 @@ div.notice
 {
 	width: 100%;
 	height: 100%;
-	background: #f2711c;
+	background: #f4f4ff;
 	overflow: hidden;
 }
 
@@ -360,7 +360,7 @@ div.notice
 }
 
 input:checked + .slider {
-  background-color: #f2711c;
+  background-color: #f4f4ff;
 }
 
 input:checked + .slider.red {
@@ -415,7 +415,7 @@ ul.sparse {
 	padding: 1px 8px 1px 8px;
 	border-radius: 25px;
 	border: 1px solid #161616;
-	background: #f2711c;
+	background: #f4f4ff;
 	color: #aaaaaa;
 }
 

@@ -131,8 +131,8 @@ $bg-map: colors.$bg-map !default;
 }
 
 .Button--disabled {
-  background-color: $color-disabled !important;
-  color: $color-disabled-text !important;
+  background-color: $color-disabled-text !important;
+  color: $color-disabled !important;
   border: 1px solid $color-disabled  !important;
 }
 
