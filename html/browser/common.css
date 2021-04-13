@@ -140,11 +140,13 @@ h4
 .uiTitle
 {
 	clear: both;
-	padding: 6px 8px 6px 8px;
-	border-bottom: 2px solid #121212;
+	padding: 4px 8px 6px 8px;
+	border-bottom: 1px solid #121212;
 	background: #050505;
 	color: #f4f4ff;
 	font-size: 20px;
+	font-family: Tahoma, sans-serif;
+	text-shadow: 1px 0 0 #ff0000, -1px 0 0 #00ffff;
 }
 
 .uiTitle.icon
@@ -465,4 +467,8 @@ a.rs_butt:hover
 	border-bottom: 3px solid #222222;
 	border-radius: 1px;
 	margin: 0;
+}
+
+.lobbymenu a {
+	padding: 6px;
 }

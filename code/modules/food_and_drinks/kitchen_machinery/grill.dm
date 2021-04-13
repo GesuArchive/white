@@ -12,7 +12,7 @@
 	layer = BELOW_OBJ_LAYER
 	use_power = NO_POWER_USE
 	var/grill_fuel = 0
-	var/obj/item/reagent_containers/food/grilled_item
+	var/obj/item/food/grilled_item
 	var/grill_time = 0
 	var/datum/looping_sound/grill/grill_loop
 
@@ -134,15 +134,15 @@
 		if(30 to 80)
 			grilled_item.name = "жареный [grilled_item.name]"
 			grilled_item.desc = "[grilled_item.desc] Это было на гриле."
-			grilled_item.foodtype |= FRIED
+			grilled_item.foodtypes |= FRIED
 		if(80 to 100)
 			grilled_item.name = "сильно жареный [grilled_item.name]"
 			grilled_item.desc = "[grilled_item.desc] Это было сильно обжарено."
-			grilled_item.foodtype |= FRIED
+			grilled_item.foodtypes |= FRIED
 		if(100 to INFINITY) //grill marks reach max alpha
 			grilled_item.name = "Сильно Жареный [grilled_item.name]"
 			grilled_item.desc = "A [grilled_item.name]. Напоминает тебе о твоей жене, подожди, нет, это красивее!"
-			grilled_item.foodtype |= FRIED
+			grilled_item.foodtypes |= FRIED
 	grill_time = 0
 	UnregisterSignal(grilled_item, COMSIG_GRILL_COMPLETED, .proc/GrillCompleted)
 	grill_loop.stop()

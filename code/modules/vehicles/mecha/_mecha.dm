@@ -586,7 +586,7 @@
 
 	var/atom/movable/backup = get_spacemove_backup()
 	if(backup)
-		if(movement_dir && !backup.anchored)
+		if(movement_dir && (!isturf(backup) && !backup.anchored))
 			if(backup.newtonian_move(turn(movement_dir, 180)))
 				step_silent = TRUE
 				if(return_drivers())
