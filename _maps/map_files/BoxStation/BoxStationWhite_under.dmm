@@ -791,7 +791,7 @@
 	dir = 1;
 	name = "Scrubbers multi deck pipe adapter"
 	},
-/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer2{
+/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4{
 	color = "#0000ff";
 	dir = 1;
 	name = "Supply multi deck pipe adapter"
@@ -1308,7 +1308,7 @@
 /turf/open/floor/plating,
 /area/science/research/abandoned)
 "jM" = (
-/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer2{
+/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4{
 	color = "#0000ff";
 	dir = 4;
 	name = "Supply multi deck pipe adapter"
@@ -4348,10 +4348,7 @@
 /turf/open/floor/plating,
 /area/science/xenobiology)
 "Em" = (
-/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer2{
-	color = "#0000ff";
-	name = "Supply multi deck pipe adapter"
-	},
+/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
 "Ep" = (
@@ -5675,14 +5672,11 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "My" = (
-/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer2{
-	color = "#0000ff";
-	name = "Supply multi deck pipe adapter"
-	},
 /obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2{
 	color = "#ff0000";
 	name = "Scrubbers multi deck pipe adapter"
 	},
+/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4,
 /turf/open/floor/wood{
 	icon_state = "wood-broken"
 	},
@@ -6511,15 +6505,12 @@
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
 "RX" = (
-/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer2{
-	color = "#0000ff";
-	name = "Supply multi deck pipe adapter"
-	},
 /obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2{
 	color = "#ff0000";
 	name = "Scrubbers multi deck pipe adapter"
 	},
 /obj/effect/turf_decal/stripes/box,
+/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4,
 /turf/open/floor/plating,
 /area/engine/atmospherics_engine)
 "RY" = (
@@ -7586,7 +7577,7 @@
 /turf/open/floor/plating,
 /area/science/xenobiology)
 "Yp" = (
-/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer2{
+/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4{
 	color = "#0000ff";
 	dir = 4;
 	name = "Supply multi deck pipe adapter"
