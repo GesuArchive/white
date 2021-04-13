@@ -30,6 +30,7 @@ a, button, a:link, a:visited, a:active, .linkOn, .linkOff
 	border: 1px solid rgba(55, 55, 55, 0.5);
 	border-radius: 3px;
 	padding: 2px 6px 2px 6px;
+	line-height: 1.9;
 	margin: 0 2px 0 0;
 	cursor:default;
 }
@@ -467,8 +468,4 @@ a.rs_butt:hover
 	border-bottom: 3px solid #222222;
 	border-radius: 1px;
 	margin: 0;
-}
-
-.lobbymenu a {
-	padding: 6px;
 }

@@ -182,6 +182,7 @@ export const CargoCatalog = (props, context) => {
               return (
                 <Table.Row
                   key={pack.name}
+                  minHeight="24px"
                   className="candystripe">
                   <Table.Cell>
                     {pack.name}

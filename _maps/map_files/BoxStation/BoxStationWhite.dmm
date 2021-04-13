@@ -132,8 +132,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 8
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
+	dir = 9
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -22970,9 +22970,6 @@
 /area/engine/atmos)
 "bXR" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -22995,9 +22992,6 @@
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "bXV" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
-	dir = 4
-	},
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 1
 	},
@@ -23293,9 +23287,6 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/bot_red,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 8
-	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "bYU" = (
@@ -23507,6 +23498,9 @@
 "bZK" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
+	dir = 9
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -24654,18 +24648,12 @@
 /turf/open/floor/plasteel/dark,
 /area/engine/atmos)
 "cdx" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
-	dir = 4
-	},
 /obj/machinery/atmospherics/components/unary/thermomachine/heater,
 /turf/open/floor/plasteel/dark/side{
 	dir = 1
 	},
 /area/engine/atmos)
 "cdA" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
-	dir = 4
-	},
 /obj/structure/reagent_dispensers/watertank/high,
 /turf/open/floor/plasteel/dark/side{
 	dir = 1
@@ -25418,9 +25406,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 10
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /turf/open/floor/plasteel/cafeteria,
 /area/engine/atmos)
 "chd" = (
@@ -26351,7 +26337,7 @@
 /obj/machinery/light{
 	pixel_y = 0
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /turf/open/floor/plasteel/white/corner,
 /area/engine/atmos)
 "ckW" = (
@@ -26901,7 +26887,7 @@
 "cpP" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /turf/open/openspace/airless,
 /area/space/nearstation)
 "cpQ" = (
@@ -28303,8 +28289,9 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "cAa" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
-	dir = 9
+/obj/machinery/atmospherics/components/binary/pump/on{
+	name = "Waste In";
+	target_pressure = 4500
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -28790,9 +28777,6 @@
 /obj/structure/fireaxecabinet{
 	pixel_y = 32
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
-	dir = 4
-	},
 /obj/structure/reagent_dispensers/fueltank/large,
 /turf/open/floor/plasteel/dark/corner{
 	dir = 4
@@ -28980,11 +28964,11 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "cDY" = (
-/obj/machinery/atmospherics/pipe/smart,
 /obj/machinery/meter{
 	name = "Mixed Air Tank In"
 	},
 /obj/structure/grille,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /turf/closed/wall/r_wall,
 /area/engine/atmos)
 "cDZ" = (
@@ -29512,9 +29496,6 @@
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "cQQ" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
-	dir = 4
-	},
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer,
 /turf/open/floor/plasteel/dark/side{
 	dir = 1
@@ -30257,9 +30238,6 @@
 /turf/open/floor/plasteel,
 /area/maintenance/port/fore)
 "dAx" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 1;
 	pixel_y = 0
@@ -30287,9 +30265,6 @@
 	},
 /obj/machinery/airalarm{
 	pixel_y = 23
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
-	dir = 4
 	},
 /turf/open/floor/plasteel/dark/corner{
 	dir = 1
@@ -30377,6 +30352,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -32866,13 +32844,11 @@
 /turf/open/floor/plating,
 /area/maintenance/solars/starboard/aft)
 "iDG" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 5
-	},
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 8
 	},
 /obj/effect/turf_decal/bot,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "iEJ" = (
@@ -33009,6 +32985,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
+	dir = 9
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -33649,6 +33628,9 @@
 /area/maintenance/space_hut/plasmaman)
 "kjF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "kki" = (
@@ -33704,6 +33686,9 @@
 "ksH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
+	dir = 9
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -34005,6 +33990,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -35313,6 +35301,9 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
+	dir = 8
+	},
 /turf/open/floor/plasteel/dark/side{
 	dir = 4
 	},
@@ -35743,9 +35734,6 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/fore)
 "oGr" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
-	dir = 4
-	},
 /obj/machinery/atmospherics/components/binary/pump,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -37257,8 +37245,8 @@
 /turf/open/floor/plating,
 /area/maintenance/department/medical/morgue)
 "rAf" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 10
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
+	dir = 9
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -37302,9 +37290,6 @@
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "rDO" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 1;
 	pixel_y = 0
@@ -37540,10 +37525,9 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "rVk" = (
-/obj/machinery/atmospherics/components/binary/pump/on{
-	dir = 8;
-	name = "Waste In";
-	target_pressure = 4500
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -38922,7 +38906,7 @@
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "uyy" = (
@@ -39799,6 +39783,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/components/binary/pump{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark/side{
@@ -73190,8 +73177,8 @@ bOd
 bTP
 bUV
 iup
-jdl
-bWU
+bOd
+bOd
 cfT
 bWU
 bWU
@@ -73704,7 +73691,7 @@ bOd
 bOd
 ccy
 bMQ
-bRA
+bOd
 bTP
 dJF
 bOd
@@ -73961,9 +73948,9 @@ bOd
 bOd
 nye
 bMQ
-bRA
+bOd
 bTP
-dJF
+aaE
 bOd
 bQp
 bTO
@@ -74220,7 +74207,7 @@ ccy
 bMK
 cBV
 bTP
-dJF
+aaE
 bOd
 bQp
 cBJ
@@ -74477,7 +74464,7 @@ cCD
 bMQ
 cQQ
 bUS
-dJF
+aaE
 bOd
 qiq
 bTO
@@ -74734,12 +74721,12 @@ cCE
 bMQ
 cdx
 bUS
-dJF
+aaE
 bOd
 bQp
 bTO
 bOd
-rAf
+psC
 uyj
 iDG
 chb
@@ -74991,7 +74978,7 @@ cbG
 bMQ
 cdA
 ceA
-dJF
+aaE
 bOd
 bQp
 bTO
@@ -75000,7 +74987,7 @@ uNM
 tpr
 bOd
 ckV
-bQy
+civ
 cpP
 cDY
 gju
@@ -75247,7 +75234,7 @@ rFU
 bWb
 cMN
 dBB
-mNE
+bOd
 aaE
 mNE
 awk
@@ -75503,10 +75490,10 @@ jnZ
 xaK
 bVV
 hit
-bRA
-mNE
+bOd
+bOd
 iTX
-bOX
+rVk
 nMr
 wrS
 bOX
@@ -75763,7 +75750,7 @@ tdH
 bXV
 bYT
 bZK
-bOd
+mNE
 bQp
 ccA
 psC
@@ -76017,10 +76004,10 @@ wNL
 hWx
 cCF
 hit
-bRA
-mNE
-bZK
 bOd
+bOd
+bZK
+mNE
 bQp
 bTO
 bOd
@@ -76275,9 +76262,9 @@ bWR
 ccB
 cMN
 rDO
-mNE
-bZK
 bOd
+bZK
+mNE
 bQp
 bTO
 bOd
@@ -76531,8 +76518,8 @@ wNL
 qhs
 cCG
 hit
-bRA
-mNE
+bOd
+bOd
 ksH
 kjF
 jQO
@@ -76790,8 +76777,8 @@ uyy
 bft
 bXV
 bYT
-bOd
-bOd
+rAf
+mNE
 bQp
 bTO
 bOd
@@ -77047,8 +77034,8 @@ uyy
 bft
 oGr
 bYT
-bOd
-bOd
+rAf
+mNE
 bQp
 bTO
 bOd
@@ -77303,9 +77290,9 @@ hWx
 cCB
 cMN
 dAx
+bOd
+rAf
 mNE
-bOd
-bOd
 qLU
 hhN
 psC
@@ -77561,8 +77548,8 @@ uyy
 bft
 oGr
 bYT
-bOd
-bOd
+rAf
+mNE
 bOd
 bTO
 bOd
@@ -77816,10 +77803,10 @@ pkM
 hWx
 cdE
 hit
-bRA
+bOd
+bOd
+rAf
 mNE
-bOd
-bOd
 bOd
 bTO
 bOd
@@ -78073,10 +78060,10 @@ iqh
 iqh
 iqh
 iqh
-rVk
+bOd
+bOd
+rAf
 mNE
-bOd
-bOd
 bOd
 bTO
 bOd
@@ -78331,9 +78318,9 @@ ccI
 rNm
 jdl
 cAa
+rAf
+rAf
 mNE
-bOd
-bOd
 bOd
 bTO
 bOd
@@ -78588,9 +78575,9 @@ dSI
 rwo
 tSp
 bOd
-mNE
-rZs
 bOd
+rZs
+mNE
 bOd
 bTO
 bOd
