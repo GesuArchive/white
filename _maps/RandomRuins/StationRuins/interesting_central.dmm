@@ -1195,6 +1195,9 @@
 /area/teleporter)
 "cH" = (
 /obj/effect/landmark/event_spawn,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/teleporter)
 "cI" = (
@@ -2535,9 +2538,14 @@
 /turf/open/floor/plasteel,
 /area/engine/gravity_generator)
 "lD" = (
+/obj/structure/chair/comfy/brown{
+	dir = 4
+	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on,
-/turf/open/floor/wood,
+/obj/machinery/atmospherics/components/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "lE" = (
 /obj/structure/cable,
@@ -3078,9 +3086,7 @@
 /area/hallway/primary/central)
 "om" = (
 /obj/machinery/bluespace_beacon,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/plasteel,
 /area/teleporter)
 "on" = (
@@ -4667,9 +4673,7 @@
 /area/hallway/primary/central)
 "CQ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/vent_pump/on{
-	dir = 4
-	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on,
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "CY" = (
@@ -6070,9 +6074,9 @@ Gr
 iy
 cb
 cg
-cg
-CQ
 lD
+CQ
+mF
 Qs
 mF
 gG
