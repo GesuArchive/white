@@ -1,8 +1,15 @@
 /obj/item/clothing/gloves/color
 	dying_key = DYE_REGISTRY_GLOVES
 
+/obj/item/clothing/gloves/color/chief_engineer
+	desc = "These gloves provide protection against electric shock. They are so thin you can barely feel them."
+	name = "advanced insulated gloves"
+	icon_state = "ce_insuls"
+	inhand_icon_state = "lgloves"
+	siemens_coefficient = 0
+
 /obj/item/clothing/gloves/color/yellow
-	desc = "Эти перчатки защитят пользователя от поражения электрическим током."
+	desc = "Эти перчатки защитят пользователя от поражения электрическим током. Очень толстые, скорее всего из таких будет невозможно стрелять."
 	name = "резиновые перчатки"
 	icon_state = "yellow"
 	inhand_icon_state = "ygloves"
@@ -12,6 +19,7 @@
 	custom_price = PAYCHECK_MEDIUM * 10
 	custom_premium_price = PAYCHECK_COMMAND * 6
 	cut_type = /obj/item/clothing/gloves/cut
+	clothing_traits = list(TRAIT_CHUNKYFINGERS)
 
 /obj/item/toy/sprayoncan
 	name = "распылитель изолирующего спрея"
