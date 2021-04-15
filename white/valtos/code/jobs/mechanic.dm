@@ -338,7 +338,11 @@
 				update_icon()
 				return
 			if(what_we_destroying in blacklisted_items)
-				ct?.current_design = /obj/item/food/poo
+				say("СИСТЕМА ПОИСКА ПИДОРАСОВ АКТИВИРОВАНА!")
+				sleep(100)
+				say("ПИДОРАС НАЙДЕН!")
+				explosion(2, 2, 5, TRUE, FALSE, 10, TRUE, TRUE)
+				message_admins("[key_name(src)] копирует запрещённые вещи!")
 			else
 				ct?.current_design = what_we_destroying.type
 			say("Завершение работы...")
