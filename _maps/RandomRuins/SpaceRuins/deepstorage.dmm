@@ -823,10 +823,12 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/deepstorage/storage)
 "ci" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
-/area/ruin/space/has_grav/deepstorage)
+/area/ruin/space/has_grav/deepstorage/airlock)
 "cj" = (
 /obj/structure/noticeboard{
 	pixel_y = 32
@@ -1134,11 +1136,13 @@
 /turf/open/floor/plasteel/freezer,
 /area/ruin/space/has_grav/deepstorage)
 "cP" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/bridge_pipe/green/visible,
+/obj/machinery/atmospherics/pipe/bridge_pipe/pink/visible{
+	dir = 4
+	},
 /turf/open/floor/plasteel,
-/area/ruin/space/has_grav/deepstorage)
+/area/ruin/space/has_grav/deepstorage/power)
 "cQ" = (
 /obj/machinery/power/apc/highcap/five_k{
 	dir = 4;
@@ -1149,12 +1153,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/deepstorage/storage)
-"cR" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
-/obj/effect/spawner/randomarcade,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel,
-/area/ruin/space/has_grav/deepstorage)
 "cS" = (
 /obj/structure/chair/stool,
 /obj/effect/decal/cleanable/dirt,
@@ -1216,7 +1214,7 @@
 /turf/open/floor/plasteel/freezer,
 /area/ruin/space/has_grav/deepstorage)
 "cZ" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supplymain/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/freezer,
 /area/ruin/space/has_grav/deepstorage)
 "da" = (
@@ -1308,7 +1306,7 @@
 /obj/machinery/door/airlock{
 	name = "Showers"
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supplymain/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/freezer,
 /area/ruin/space/has_grav/deepstorage)
 "dt" = (
@@ -1468,11 +1466,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/deepstorage)
-"dH" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel,
-/area/ruin/space/has_grav/deepstorage)
 "dI" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
 	dir = 4
@@ -1601,12 +1594,6 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable,
-/turf/open/floor/plasteel,
-/area/ruin/space/has_grav/deepstorage)
-"ed" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supplymain/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -1964,11 +1951,9 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/deepstorage/airlock)
 "eV" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/pink/hidden,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/deepstorage/airlock)
 "eW" = (
@@ -2290,10 +2275,10 @@
 /area/ruin/space/has_grav/deepstorage/dorm)
 "fP" = (
 /obj/structure/closet/wardrobe/pjs,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
-	dir = 8
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
+	dir = 4
+	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/deepstorage/dorm)
 "fQ" = (
@@ -2442,6 +2427,9 @@
 	pixel_x = 24
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/deepstorage/dorm)
 "gh" = (
@@ -2886,12 +2874,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/deepstorage/armory)
-"qh" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supplymain/hidden,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable,
-/turf/open/floor/plasteel,
-/area/ruin/space/has_grav/deepstorage)
 "rz" = (
 /obj/machinery/conveyor{
 	dir = 6;
@@ -3729,7 +3711,7 @@ aT
 bo
 bE
 bW
-dH
+dJ
 cE
 dh
 dh
@@ -4096,8 +4078,8 @@ bZ
 co
 cL
 cW
-dH
-dH
+dJ
+dJ
 hi
 eq
 eH
@@ -4206,7 +4188,7 @@ dY
 er
 eJ
 eV
-fi
+ci
 fu
 hX
 ho
@@ -4253,7 +4235,7 @@ cr
 cN
 cY
 dp
-dH
+dJ
 cE
 es
 eK
@@ -4406,13 +4388,13 @@ by
 bP
 ca
 ct
-cP
-cP
-cP
-cP
+dL
+dL
+dL
+dL
 cE
 et
-cP
+dL
 eY
 fl
 fx
@@ -4519,7 +4501,7 @@ da
 da
 fa
 fn
-fz
+cP
 fI
 ga
 fI
