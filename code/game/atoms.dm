@@ -214,6 +214,8 @@
 	if(loc)
 		SEND_SIGNAL(loc, COMSIG_ATOM_CREATED, src) /// Sends a signal that the new atom `src`, has been created at `loc`
 
+	update_greyscale()
+
 	//atom color stuff
 	if(color)
 		add_atom_colour(color, FIXED_COLOUR_PRIORITY)
@@ -667,13 +669,6 @@
 		update_icon_state()
 		. = TRUE
 
-	if(greyscale_colors)
-		var/list/colors = update_greyscale()
-		// Updating the greyscale config in update_greyscale() is fine or we would check this earlier
-		if(greyscale_config)
-			icon = SSgreyscale.GetColoredIconByType(greyscale_config, colors)
-		. |= TRUE
-
 	if(!(signalOut & COMSIG_ATOM_NO_UPDATE_OVERLAYS))
 		var/list/new_overlays = update_overlays()
 		if(managed_overlays)
@@ -689,19 +684,34 @@
 /// Updates the icon state of the atom
 /atom/proc/update_icon_state()
 
-/atom/proc/update_greyscale()
-	SHOULD_CALL_PARENT(TRUE)
-	. = list()
-	var/list/raw_rgb = splittext(greyscale_colors, "#")
-	for(var/i in 2 to length(raw_rgb))
-		. += "#[raw_rgb[i]]"
-	SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_GREYSCALE, .)
-
 /// Updates the overlays of the atom
 /atom/proc/update_overlays()
 	SHOULD_CALL_PARENT(TRUE)
 	. = list()
 	SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_OVERLAYS, .)
+
+/// Checks if the colors given are different and if so causes a greyscale icon update
+/atom/proc/set_greyscale_colors(list/colors)
+	SHOULD_CALL_PARENT(TRUE)
+	var/new_colors = colors.Join("")
+	if(greyscale_colors == new_colors)
+		return
+	greyscale_colors = new_colors
+	if(!greyscale_config)
+		return
+	update_greyscale()
+
+/// Checks if the greyscale config given is different and if so causes a greyscale icon update
+/atom/proc/set_greyscale_config(new_config)
+	if(greyscale_config == new_config)
+		return
+	greyscale_config = new_config
+	update_greyscale()
+
+/// Checks if this atom uses the GAS system and if so updates the icon
+/atom/proc/update_greyscale()
+	if(greyscale_config && greyscale_colors)
+		icon = SSgreyscale.GetColoredIconByType(greyscale_config, greyscale_colors)
 
 /**
  * An atom we are buckled or is contained within us has tried to move
