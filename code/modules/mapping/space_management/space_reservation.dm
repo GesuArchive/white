@@ -7,7 +7,7 @@
 	var/bottom_left_coords[3]
 	var/top_right_coords[3]
 	var/wipe_reservation_on_release = TRUE
-	var/turf_type = /turf/open/space/basic
+	var/turf_type = /turf/open/space
 
 /datum/turf_reservation/transit
 	turf_type = /turf/open/space/transit
