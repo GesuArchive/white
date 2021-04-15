@@ -10,12 +10,12 @@
 	"traits": [
 		{
 			"Up": 1,
-			"Baseturf": "/turf/open/space/basic",
+			"Baseturf": "/turf/open/space",
 			"Linkage": "Cross"
 		},
 		{
 			"Down": -1,
-			"Baseturf": "/turf/open/openspace/airless",
+			"Baseturf": "/turf/open/openspace",
 			"Linkage": "Cross"
 		}
 	],
