@@ -1400,7 +1400,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/hotel/dock)
 "eW" = (
@@ -1540,8 +1540,8 @@
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/hotel/dock)
 "ft" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
-	dir = 8
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
+	dir = 4
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/hotel/dock)
@@ -4469,6 +4469,25 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/hotel/power)
+"Jd" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/hotel/dock)
+"Po" = (
+/obj/structure/chair/comfy/brown{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on,
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/hotel/dock)
+"QO" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
+	dir = 4
+	},
+/turf/open/floor/carpet,
+/area/ruin/space/has_grav/hotel/dock)
 
 (1,1,1) = {"
 aa
@@ -7648,7 +7667,7 @@ di
 dV
 dV
 di
-eW
+Jd
 ft
 fu
 fu
@@ -7718,8 +7737,8 @@ di
 dV
 eB
 di
-eX
-fu
+Po
+QO
 fu
 fu
 fu
