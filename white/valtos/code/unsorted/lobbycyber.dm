@@ -6,6 +6,7 @@
 
 /datum/lobbyscreen/proc/hide_titlescreen(client/C)
 	if(C?.mob)
+		C << output(TRUE, "lobbyprotoc:set_fuk")
 		C << browse(null, "window=lobbyprotoc")
 		winset(C, "lobbyprotoc", "is-disabled=true;is-visible=false")
 
