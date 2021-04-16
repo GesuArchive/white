@@ -337,7 +337,7 @@
 				working = FALSE
 				update_icon()
 				return
-			if(what_we_destroying in blacklisted_items)
+			if(active_item == blacklisted_items)
 				say("СИСТЕМА ПОИСКА ПИДОРАСОВ АКТИВИРОВАНА!")
 				sleep(100)
 				say("ПИДОРАС НАЙДЕН!")
