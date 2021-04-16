@@ -39,25 +39,17 @@
 "ag" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light,
+/obj/machinery/airalarm/directional/south,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4;
 	icon_state = "scrub_map_on-2"
 	},
-/obj/machinery/airalarm/directional/south,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/bridge)
 "ah" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 10;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 6;
-	icon_state = "pipe11-4"
-	},
 /turf/open/floor/plasteel,
-/area/shuttle/bearcat/bridge)
+/area/shuttle/bearcat/dockingbay)
 "ai" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light,
@@ -199,35 +191,22 @@
 	icon_state = "comfychair";
 	tag = "icon-comfychair (WEST)"
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 5;
-	icon_state = "pipe11-4"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 6;
-	icon_state = "pipe11-2"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/bridge)
 "aC" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/shuttle/bearcat/bridge)
+/area/shuttle/bearcat/saloon)
 "aD" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Brdige";
 	req_access_txt = "203"
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/bridge)
 "aE" = (
@@ -236,10 +215,8 @@
 	req_access_txt = "203"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/captain)
 "aF" = (
@@ -250,14 +227,8 @@
 /turf/open/floor/wood,
 /area/shuttle/bearcat/captain)
 "aG" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/bridge)
 "aH" = (
@@ -282,18 +253,6 @@
 /obj/structure/window/plasma/reinforced/spawner/north,
 /obj/item/kitchen/knife/combat,
 /obj/item/gun/ballistic/shotgun/automatic/combat,
-/turf/open/floor/wood,
-/area/shuttle/bearcat/captain)
-"aK" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 9;
-	icon_state = "pipe11-4"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 10;
-	icon_state = "pipe11-2"
-	},
 /turf/open/floor/wood,
 /area/shuttle/bearcat/captain)
 "aL" = (
@@ -322,39 +281,24 @@
 /turf/open/floor/plating,
 /area/shuttle/bearcat/dockingbay)
 "aQ" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Hatch";
+	req_access_txt = "205"
+	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "manifold-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "manifold-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/shuttle/bearcat/dockingbay)
+/area/shuttle/bearcat/saloon)
 "aR" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
 /area/shuttle/bearcat/captain)
 "aS" = (
 /obj/item/bikehorn/rubberducky,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 6;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 5;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/bathroom)
 "aT" = (
@@ -374,15 +318,19 @@
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/bearcat/dockingbay)
 "aW" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/shuttle/bearcat/dockingbay)
+/area/shuttle/bearcat/cargo)
 "aX" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Hatch";
 	req_access_txt = "205"
 	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/shuttle/bearcat/dockingbay)
+/area/shuttle/bearcat/cargo)
 "aY" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Brdige";
@@ -444,24 +392,18 @@
 	req_access_txt = "205"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/dockingbay)
 "bg" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 6;
-	icon_state = "pipe11-2"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/shuttle/bearcat/dockingbay)
+/area/shuttle/bearcat/cargo)
 "bh" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8;
-	icon_state = "scrub_map_on-1"
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/dockingbay)
@@ -489,18 +431,14 @@
 /obj/structure/window/reinforced/spawner/east,
 /obj/structure/window/reinforced/spawner/west,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/dockingbay)
 "bm" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 6;
-	icon_state = "pipe11-4"
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
 	},
-/turf/open/floor/plasteel,
-/area/shuttle/bearcat/dockingbay)
+/turf/open/floor/plating,
+/area/shuttle/bearcat/engineering)
 "bn" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Hatch";
@@ -508,21 +446,6 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plasteel,
-/area/shuttle/bearcat/dockingbay)
-"bo" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 10;
-	icon_state = "pipe11-4"
-	},
-/turf/open/floor/plasteel,
-/area/shuttle/bearcat/dockingbay)
-"bp" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 10;
-	icon_state = "pipe11-2"
-	},
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/dockingbay)
 "bq" = (
@@ -551,8 +474,6 @@
 /obj/structure/window/reinforced/spawner/east,
 /obj/structure/window/reinforced/spawner/west,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/stairs/old,
 /area/shuttle/bearcat/dockingbay)
 "bu" = (
@@ -572,34 +493,9 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/shuttle/bearcat/dockingbay)
-"bx" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "manifold-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4;
-	icon_state = "manifold-4"
-	},
-/turf/open/floor/plasteel,
-/area/shuttle/bearcat/hallway)
-"by" = (
-/obj/machinery/light,
-/obj/structure/lattice,
-/turf/template_noop,
-/area/shuttle/bearcat/engines)
 "bz" = (
 /obj/structure/table,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "manifold-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "manifold-4"
-	},
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/saloon)
 "bA" = (
@@ -630,14 +526,8 @@
 /area/shuttle/bearcat/saloon)
 "bG" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/bathroom)
 "bH" = (
@@ -689,14 +579,8 @@
 /area/shuttle/bearcat/bathroom)
 "bO" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/dorms)
 "bP" = (
@@ -707,14 +591,8 @@
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/saloon)
 "bR" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 9;
-	icon_state = "pipe11-4"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 10;
-	icon_state = "pipe11-2"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/dorms)
 "bS" = (
@@ -772,25 +650,13 @@
 	req_access_txt = "205"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/bathroom)
 "cb" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 6;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 5;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/kitchen)
 "cc" = (
@@ -807,8 +673,6 @@
 	},
 /obj/structure/chair/stool,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/saloon)
 "ce" = (
@@ -817,17 +681,18 @@
 	req_access_txt = "205"
 	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/saloon)
 "cf" = (
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/saloon)
 "cg" = (
 /obj/structure/chair/stool,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 4;
-	icon_state = "scrub_map_on-2"
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/saloon)
@@ -853,8 +718,6 @@
 	req_access_txt = "205"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/cargo)
 "ck" = (
@@ -873,8 +736,6 @@
 	view_range = 0
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/cargo)
 "cm" = (
@@ -883,10 +744,8 @@
 	req_access_txt = "205"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/dorms)
 "cn" = (
@@ -912,12 +771,6 @@
 /obj/machinery/airalarm/directional/east,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/bathroom)
-"cq" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plasteel,
-/area/shuttle/bearcat/cargo)
 "cr" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -949,14 +802,8 @@
 	req_access_txt = "205"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/medbay)
 "cv" = (
@@ -973,18 +820,6 @@
 /obj/machinery/disposal/bin,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/saloon)
-"cx" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8;
-	icon_state = "manifold-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "manifold-4"
-	},
-/turf/open/floor/plasteel,
-/area/shuttle/bearcat/hallway)
 "cy" = (
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -1000,14 +835,8 @@
 /area/shuttle/bearcat/kitchen)
 "cC" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 10;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 9;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/white,
 /area/shuttle/bearcat/medbay)
 "cD" = (
@@ -1018,14 +847,8 @@
 	dir = 6
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/kitchen)
 "cF" = (
@@ -1050,12 +873,12 @@
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/dorms)
 "cH" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/airalarm/directional/north,
 /obj/structure/table,
 /obj/item/clothing/neck/stethoscope,
 /obj/item/storage/box/syringes,
 /obj/item/storage/pill_bottle/multiver,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plasteel/white,
 /area/shuttle/bearcat/medbay)
 "cI" = (
@@ -1093,8 +916,7 @@
 "cO" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 4;
-	icon_state = "scrub_map_on-2"
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/cargo)
@@ -1162,14 +984,8 @@
 	req_access_txt = "205"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/kitchen)
 "dd" = (
@@ -1207,29 +1023,14 @@
 /turf/open/floor/plating,
 /area/shuttle/bearcat/engines)
 "dj" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 6;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/washroom)
-"dk" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/turf/open/floor/plasteel,
-/area/shuttle/bearcat/hallway)
 "dl" = (
 /obj/structure/disposalpipe/junction,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "manifold-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4;
-	icon_state = "manifold-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/hallway)
 "dm" = (
@@ -1238,10 +1039,12 @@
 	req_access_txt = "205"
 	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/cargo)
 "dn" = (
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/cargo)
 "do" = (
@@ -1259,8 +1062,7 @@
 /obj/structure/chair/stool,
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8;
-	icon_state = "vent_map_on-4"
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/saloon)
@@ -1274,14 +1076,8 @@
 "dr" = (
 /obj/structure/cable,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "manifold-4"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8;
-	icon_state = "manifold-2"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/hallway)
 "ds" = (
@@ -1354,14 +1150,8 @@
 	req_access_txt = "205"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/maint2)
 "dD" = (
@@ -1387,14 +1177,8 @@
 /area/shuttle/bearcat/cargo)
 "dI" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/shuttle/bearcat/maint2)
 "dJ" = (
@@ -1421,50 +1205,21 @@
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
-/turf/open/floor/plasteel,
-/area/shuttle/bearcat/hallway)
-"dO" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/hallway)
 "dP" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/south,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/hallway)
 "dQ" = (
 /obj/machinery/light/small,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/hallway)
 "dR" = (
@@ -1480,23 +1235,17 @@
 /area/shuttle/bearcat/cargo)
 "dS" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 6;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/washroom)
 "dT" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/hallway)
 "dV" = (
@@ -1525,14 +1274,8 @@
 	req_access_txt = "205"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/washroom)
 "dZ" = (
@@ -1559,8 +1302,7 @@
 /area/shuttle/bearcat/engineering)
 "eb" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8;
-	icon_state = "vent_map_on-4"
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/cargo)
@@ -1569,6 +1311,7 @@
 	name = "Hatch";
 	req_access_txt = "205"
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/cargo)
 "ed" = (
@@ -1601,14 +1344,6 @@
 /area/shuttle/bearcat/cargo)
 "eg" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "manifold-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "manifold-4"
-	},
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/cargo)
 "eh" = (
@@ -1629,19 +1364,6 @@
 /obj/machinery/power/apc/auto_name/south,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/washroom)
-"ek" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "manifold-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4;
-	icon_state = "manifold-4"
-	},
-/turf/open/floor/plasteel,
-/area/shuttle/bearcat/hallway)
 "el" = (
 /obj/machinery/light/small,
 /obj/structure/tank_dispenser,
@@ -1658,9 +1380,7 @@
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/cargo)
 "en" = (
-/obj/machinery/atmospherics/components/unary/tank/air{
-	dir = 4
-	},
+/obj/machinery/atmospherics/components/unary/tank/air,
 /turf/open/floor/plating,
 /area/shuttle/bearcat/engineering)
 "eo" = (
@@ -1671,10 +1391,6 @@
 /area/shuttle/bearcat/maint1)
 "eq" = (
 /obj/machinery/airalarm/directional/north,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 10;
-	icon_state = "pipe11-2"
-	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8;
 	icon_state = "vent_map_on-4"
@@ -1690,16 +1406,16 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/machinery/airalarm/directional/east,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1;
 	icon_state = "scrub_map_on-2"
 	},
-/obj/machinery/airalarm/directional/east,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/washroom)
 "et" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/airalarm/directional/north,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/maint1)
 "eu" = (
@@ -1728,10 +1444,7 @@
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/maint1)
 "ey" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 6;
-	icon_state = "pipe11-2"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/open/floor/plating,
 /area/shuttle/bearcat/engineering)
 "ez" = (
@@ -1744,11 +1457,8 @@
 	},
 /obj/item/pipe_dispenser,
 /obj/structure/table,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 10;
-	icon_state = "pipe11-4"
-	},
 /obj/machinery/airalarm/directional/north,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/shuttle/bearcat/engineering)
 "eB" = (
@@ -1780,18 +1490,6 @@
 /obj/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating,
 /area/shuttle/bearcat/maint1)
-"eH" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 6;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 5;
-	icon_state = "pipe11-4"
-	},
-/turf/open/floor/plasteel,
-/area/shuttle/bearcat/maint1)
 "eI" = (
 /obj/structure/table,
 /obj/item/multitool,
@@ -1802,14 +1500,8 @@
 	name = "Hatch";
 	req_access_txt = "205"
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/engineering)
 "eK" = (
@@ -1826,74 +1518,37 @@
 /area/shuttle/bearcat/maint1)
 "eO" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/engineering)
 "eP" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/engineering)
 "eQ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 5;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 5;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/hallway)
-"eR" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 9;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 9;
-	icon_state = "pipe11-4"
-	},
-/turf/open/floor/plasteel,
-/area/shuttle/bearcat/engineering)
 "eS" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/shuttle/bearcat/engineering)
 "eT" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
+/obj/machinery/atmospherics/pipe/layer_manifold/supply/visible{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/shuttle/bearcat/engineering)
 "eU" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 5;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/shuttle/bearcat/engineering)
 "eW" = (
@@ -1914,14 +1569,8 @@
 /area/shuttle/bearcat/engineering)
 "fb" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/maint1)
 "fc" = (
@@ -1936,21 +1585,14 @@
 	req_access_txt = "205"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "pipe11-4"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/maint1)
 "ff" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8;
-	icon_state = "vent_map_on-4"
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/cargo)
@@ -1979,15 +1621,6 @@
 	icon_state = "scrub_map_on-2"
 	},
 /turf/open/floor/plasteel,
-/area/shuttle/bearcat/engineering)
-"fk" = (
-/obj/structure/grille,
-/obj/machinery/door/poddoor/preopen{
-	id = "bearcat_windows"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/window/plasma/reinforced/plastitanium,
-/turf/open/floor/plating,
 /area/shuttle/bearcat/engineering)
 "fl" = (
 /obj/structure/table,
@@ -2045,6 +1678,7 @@
 /area/shuttle/bearcat/saloon)
 "fu" = (
 /obj/machinery/portable_atmospherics/scrubber,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/shuttle/bearcat/engineering)
 "fv" = (
@@ -2059,32 +1693,15 @@
 "fw" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/hallway)
 "fx" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8;
-	icon_state = "manifold-4"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4;
-	icon_state = "manifold-2"
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/engineering)
-"fy" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 9;
-	icon_state = "pipe11-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 9;
-	icon_state = "pipe11-4"
-	},
-/turf/open/floor/plasteel,
-/area/shuttle/bearcat/hallway)
 "fz" = (
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/engineering)
@@ -2119,8 +1736,6 @@
 	req_access_txt = "205"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/saloon)
 "fF" = (
@@ -2128,6 +1743,7 @@
 	dir = 6
 	},
 /obj/machinery/portable_atmospherics/pump,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/shuttle/bearcat/engineering)
 "fG" = (
@@ -2216,8 +1832,6 @@
 "fS" = (
 /obj/structure/chair/stool,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/saloon)
 "fT" = (
@@ -2305,6 +1919,7 @@
 "gm" = (
 /obj/machinery/power/apc/auto_name/west,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/shuttle/bearcat/maint2)
 
@@ -2663,7 +2278,7 @@ ed
 cP
 ep
 et
-eH
+fb
 fv
 eY
 en
@@ -2712,10 +2327,10 @@ ex
 fb
 eN
 eY
-fO
+bm
 eT
 fu
-fk
+fr
 fU
 aa
 aa
@@ -2781,14 +2396,14 @@ aI
 am
 aa
 aP
-aW
-bg
-bm
+fK
+fK
+fK
 bn
 bv
 fK
 fV
-bx
+fw
 cc
 ch
 ck
@@ -2796,12 +2411,12 @@ ck
 dl
 ck
 ch
-ek
+dq
 dq
 dq
 dq
 dB
-ek
+dq
 eQ
 eY
 eY
@@ -2827,7 +2442,7 @@ at
 ab
 aa
 aP
-aW
+fK
 bh
 ci
 aV
@@ -2873,11 +2488,11 @@ au
 aj
 aM
 aM
-aX
+bn
 aV
 aV
 bs
-by
+bA
 bF
 bQ
 cf
@@ -2894,7 +2509,7 @@ dR
 dn
 ee
 cD
-dO
+gf
 fa
 fi
 eP
@@ -2919,7 +2534,7 @@ am
 aj
 aM
 bd
-aW
+fK
 fY
 aV
 bu
@@ -2940,7 +2555,7 @@ db
 cO
 ef
 cD
-dO
+gf
 fa
 fj
 eP
@@ -2956,17 +2571,17 @@ ge
 ab
 ac
 ae
-ah
+an
 ak
 an
 av
-aC
+an
 av
 an
 aY
-aQ
 aZ
 aZ
+ah
 bf
 bl
 bt
@@ -2976,20 +2591,20 @@ bz
 cd
 cj
 cl
-cq
 eg
-cq
-cq
-cq
-cq
-cq
 eg
-cq
+eg
+eg
+eg
+eg
+eg
+eg
+eg
 cj
 fw
 ea
 fx
-eR
+fx
 fD
 eY
 di
@@ -3011,7 +2626,7 @@ aq
 ao
 aM
 bX
-aW
+fK
 aN
 aV
 bw
@@ -3057,28 +2672,28 @@ aJ
 ao
 aM
 aM
-aX
+bn
 aV
 aV
 bs
 bA
 bF
 bU
-cf
+aC
 cw
 cD
 cQ
 dd
-dn
+aW
 dA
 dJ
 do
 dH
 db
-db
+bg
 em
 cD
-dO
+gf
 fa
 fm
 fz
@@ -3098,24 +2713,24 @@ aa
 aa
 ap
 aA
-aK
+aR
 aF
 ap
 aa
 aP
-aW
+fK
 bL
 ew
 aV
 bu
 bF
 bP
-ce
+aQ
 bP
 cD
 cD
 cD
-dm
+aX
 cD
 cD
 cD
@@ -3149,20 +2764,20 @@ aL
 aq
 aa
 aP
-aW
-bp
-bo
+fK
+fK
+fK
 bn
 bv
 fK
 fV
-cx
+fw
 gf
 gg
 gf
 gf
-cx
-dk
+fw
+fw
 dT
 dr
 gf
@@ -3170,7 +2785,7 @@ gf
 gf
 gg
 gf
-fy
+gf
 eY
 eY
 fB
