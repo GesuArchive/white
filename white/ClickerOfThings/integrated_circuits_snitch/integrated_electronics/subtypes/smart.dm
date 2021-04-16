@@ -96,7 +96,7 @@
 	//idc.access = assembly.access_card.access // hippie start -- readded xor decryption
 	hippie_xor_decrypt() // hippie end
 	var/turf/a_loc = get_turf(assembly)
-	var/list/P = get_path_to(assembly, locate(get_pin_data(IC_INPUT, 1),get_pin_data(IC_INPUT, 2),a_loc.z), id=idc, exclude=get_turf(get_pin_data_as_type(IC_INPUT,3, /atom)), simulated_only = FALSE)
+	var/list/P = get_path_to(assembly, locate(get_pin_data(IC_INPUT, 1),get_pin_data(IC_INPUT, 2),a_loc.z), 300, id=idc, exclude=get_turf(get_pin_data_as_type(IC_INPUT,3, /atom)), simulated_only = FALSE)
 
 	if(!P)
 		activate_pin(3)
