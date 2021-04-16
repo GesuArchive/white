@@ -35,25 +35,6 @@
 		path = list()
 	return path
 
-
-/proc/cir_get_path_to(caller, end, max_distance = 30, mintargetdist, id=null, simulated_only = TRUE, turf/exclude)
-	if(!caller || !get_turf(end))
-		return
-
-	var/l = SSpathfinder.circuits.getfree(caller)
-	while(!l)
-		stoplag(3)
-		l = SSpathfinder.circuits.getfree(caller)
-	var/list/path
-	var/datum/pathfind/pathfind_datum = new(caller, end, id, max_distance, mintargetdist, simulated_only, exclude)
-	path = pathfind_datum.search()
-	qdel(pathfind_datum)
-
-	SSpathfinder.circuits.found(l)
-	if(!path)
-		path = list()
-	return path
-
 /**
  * A helper macro to see if it's possible to step from the first turf into the second one, minding things like door access and directional windows.
  * Note that this can only be used inside the [datum/pathfind][pathfind datum] since it uses variables from said datum
@@ -156,7 +137,7 @@
 	if(start.z != end.z || start == end ) //no pathfinding between z levels
 		return FALSE
 	if(max_distance && (max_distance < get_dist(start, end))) //if start turf is farther than max_distance from end turf, no need to do anything
-		return FALSE
+		return list()
 
 	//initialization
 	var/datum/jps_node/current_processed_node = new (start, -1, 0, end)
@@ -184,6 +165,8 @@
 	if(path)
 		for(var/i = 1 to round(0.5 * length(path)))
 			path.Swap(i, length(path) - i + 1)
+	else
+		path = new()
 	sources = null
 	qdel(open)
 	return path
