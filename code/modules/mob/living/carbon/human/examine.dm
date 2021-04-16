@@ -368,7 +368,7 @@
 					msg += "[t_on] в говно!\n"
 
 		if(src != user)
-			if(HAS_TRAIT(user, TRAIT_EMPATH))
+			if(user && HAS_TRAIT(user, TRAIT_EMPATH))
 				if (a_intent != INTENT_HELP)
 					msg += "[t_on] выглядит на готове.\n"
 				if (getOxyLoss() >= 10)
