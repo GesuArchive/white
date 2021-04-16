@@ -1,14 +1,14 @@
-#ifdef LEGACY_REFERENCE_TRACKING
+#ifdef REFERENCE_TRACKING
 
-/datum/verb/legacy_find_refs()
+/datum/verb/find_refs()
 	set category = "Debug"
 	set name = "Find References"
 	set src in world
 
-	find_references_legacy(FALSE)
+	find_references(FALSE)
 
 
-/datum/proc/find_references_legacy(skip_alert)
+/datum/proc/find_references(skip_alert)
 	running_find_references = type
 	if(usr?.client)
 		if(usr.client.running_find_references)
@@ -60,7 +60,7 @@
 
 	qdel(src, TRUE) //force a qdel
 	if(!running_find_references)
-		find_references_legacy(TRUE)
+		find_references(TRUE)
 
 
 /datum/verb/qdel_then_if_fail_find_references()
@@ -92,7 +92,7 @@
 			var/variable = vars_list[varname]
 
 			if(variable == src)
-				testing("Found [type] \ref[src] in [datum_container.type] [varname] var. [container_name]")
+				testing("Found [type] \ref[src] in [datum_container.type]'s [varname] var. [container_name]")
 
 			else if(islist(variable))
 				DoSearchVar(variable, "[container_name] -> list", recursive_limit - 1)

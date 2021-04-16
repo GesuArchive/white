@@ -32,6 +32,8 @@ GLOBAL_VAR(restart_counter)
 	if (fexists(EXTOOLS))
 		call(EXTOOLS, "maptick_initialize")()
 
+	enable_debugger()
+
 	log_world("World loaded at [time_stamp()]!")
 
 	make_datum_references_lists()	//initialises global lists for referencing frequently used datums (so that we only ever do it once)
