@@ -78,7 +78,6 @@
 	and pathing around any instances of said input. The passkey provided from a card reader is used to calculate a valid path through airlocks."
 	icon_state = "numberpad"
 	complexity = 40
-	cooldown_per_use = 50
 	inputs = list("X target" = IC_PINTYPE_NUMBER,"Y target" = IC_PINTYPE_NUMBER,"obstacle" = IC_PINTYPE_REF,"access" = IC_PINTYPE_STRING)
 	outputs = list("X" = IC_PINTYPE_LIST,"Y" = IC_PINTYPE_LIST)
 	activators = list("calculate path" = IC_PINTYPE_PULSE_IN, "on calculated" = IC_PINTYPE_PULSE_OUT,"not calculated" = IC_PINTYPE_PULSE_OUT)
