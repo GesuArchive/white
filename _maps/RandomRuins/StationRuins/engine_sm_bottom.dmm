@@ -471,7 +471,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/layer_manifold/orange/visible,
+/obj/machinery/atmospherics/pipe/layer_manifold/general/hidden,
 /turf/open/floor/engine,
 /area/engine/engineering)
 "cv" = (
@@ -694,12 +694,8 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "de" = (
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = 24
-	},
-/turf/open/floor/plasteel/dark,
-/area/engine/engineering)
+/turf/closed/wall/r_wall,
+/area/maintenance/aft/upper)
 "df" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -1516,6 +1512,14 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
+"lI" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Engineering Maintenance";
+	req_access_txt = "10"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/engine/engineering)
 "oi" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
@@ -1526,6 +1530,13 @@
 "tB" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /turf/open/floor/plating,
+/area/engine/engineering)
+"vJ" = (
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = 24
+	},
+/turf/open/floor/plasteel/dark,
 /area/engine/engineering)
 "wC" = (
 /obj/structure/lattice/catwalk,
@@ -1553,6 +1564,11 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/engine/engineering)
+"FO" = (
+/obj/effect/turf_decal/stripes/box,
+/obj/structure/ladder,
+/turf/open/floor/plating,
+/area/maintenance/aft/upper)
 "LF" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
@@ -2304,8 +2320,8 @@ fa
 ad
 ea
 bN
-de
 bN
+vJ
 ex
 ad
 ab
@@ -2332,7 +2348,7 @@ fb
 ad
 ad
 ad
-ad
+lI
 ad
 ad
 ad
@@ -2359,9 +2375,9 @@ dy
 dN
 dQ
 eb
-dR
-ab
-ab
+de
+FO
+de
 ab
 ab
 ab
@@ -2387,9 +2403,9 @@ dz
 ad
 dR
 dR
-dR
-ab
-ab
+de
+de
+de
 ab
 ab
 ab
