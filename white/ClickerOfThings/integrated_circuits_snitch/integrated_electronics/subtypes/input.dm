@@ -809,6 +809,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	action_flags = IC_ACTION_LONG_RANGE
 	power_draw_per_use = 50
+	network_id = NETWORK_CARDS
 	var/address
 
 /obj/item/integrated_circuit/input/ntnet_packet/Initialize()

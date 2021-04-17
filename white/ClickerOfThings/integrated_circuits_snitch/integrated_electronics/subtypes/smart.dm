@@ -239,7 +239,7 @@
 	var/Ps = get_pin_data(IC_INPUT, 4)
 	if(!Ps)
 		return
-	var/list/Pl = json_decode(XorEncrypt(hextostr(Ps, TRUE), SScircuit.cipherkey))
+	var/list/Pl = XorEncrypt(hextostr(Ps, TRUE), SScircuit.cipherkey)
 	if(Pl&&islist(Pl))
 		idc.access = Pl
 
