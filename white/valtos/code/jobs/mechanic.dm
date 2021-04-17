@@ -355,7 +355,8 @@
 					L?.gib()
 				say("ПИДОРАС НАЙДЕН!")
 				message_admins("[key_name(src)] копирует запрещённые вещи!")
-				explosion(3, 5, 7, TRUE, FALSE, 10, TRUE, TRUE)
+				var/turf/T = get_turf(src)
+				explosion(T, 3, 5, 7)
 				qdel(src)
 				return
 			else
