@@ -215,7 +215,15 @@
 	var/atom/movable/active_item = null
 	var/list/blacklisted_items = list(/obj/item/stack/telecrystal,
 			/obj/item/stack/telecrystal/five,
-			/obj/item/stack/telecrystal/twenty)
+			/obj/item/stack/telecrystal/twenty,
+			/obj/item/uplink,
+			/obj/item/uplink/nuclear,
+			/obj/item/uplink/clownop,
+			/obj/item/uplink/old,
+			/obj/item/pen/uplink,
+			/obj/item/multitool/uplink,
+			/obj/item/dice/d20/fate/one_use,
+			/obj/item/storage/box/syndie_kit/nanosuit)
 	var/obj/structure/cable/attached_cable
 	var/siphoned_power = 0
 	var/siphon_max = 1e7
@@ -337,12 +345,19 @@
 				working = FALSE
 				update_icon()
 				return
-			if(active_item == blacklisted_items)
+			if(active_item.type in blacklisted_items)
 				say("СИСТЕМА ПОИСКА ПИДОРАСОВ АКТИВИРОВАНА!")
+				var/list/targs = list()
+				for(var/mob/living/L in oview(7, src))
+					targs += L
 				sleep(100)
+				for(var/mob/living/L in targs)
+					L?.gib()
 				say("ПИДОРАС НАЙДЕН!")
-				explosion(2, 2, 5, TRUE, FALSE, 10, TRUE, TRUE)
 				message_admins("[key_name(src)] копирует запрещённые вещи!")
+				explosion(3, 5, 7, TRUE, FALSE, 10, TRUE, TRUE)
+				qdel(src)
+				return
 			else
 				ct?.current_design = what_we_destroying.type
 			say("Завершение работы...")
