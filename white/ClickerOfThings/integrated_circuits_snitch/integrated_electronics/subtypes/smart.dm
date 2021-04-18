@@ -239,7 +239,7 @@
 	var/Ps = get_pin_data(IC_INPUT, 4)
 	if(!Ps)
 		return
-	var/list/Pl = rot13(hextostr(Ps, TRUE))
+	var/list/Pl = text2access(rot13(hextostr(Ps, TRUE)))
 	if(Pl&&islist(Pl))
 		idc.access = Pl
 
