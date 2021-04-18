@@ -853,6 +853,7 @@
 	inputs = list(
 		"target NTNet addresses"= IC_PINTYPE_STRING,
 		"data"					= IC_PINTYPE_LIST,
+		"network_id"			= IC_PINTYPE_STRING,
 		)
 	outputs = list("received data" = IC_PINTYPE_LIST, "is_broadcast" = IC_PINTYPE_BOOLEAN)
 	activators = list("send data" = IC_PINTYPE_PULSE_IN, "on data received" = IC_PINTYPE_PULSE_OUT)
@@ -871,10 +872,12 @@
 /obj/item/integrated_circuit/input/ntnet_advanced/do_work()
 	var/target_address = get_pin_data(IC_INPUT, 1)
 	var/list/message = get_pin_data(IC_INPUT, 2)
+	var/target_network = get_pin_data(IC_INPUT, 3)
 	if(!islist(message))
 		message = list()
 	var/datum/netdata/data = new
 	data.receiver_id = target_address
+	data.network_id = target_network
 	data.data = message
 	data.passkey = assembly.access_card.access
 	ntnet_send(data)
