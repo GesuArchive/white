@@ -80,7 +80,7 @@
 	pull_data()
 	var/atom/A = get_pin_data(IC_INPUT, 1)
 	if(A && istype(A))
-		result = strtohex(XorEncrypt(REF(A), SScircuit.cipherkey))
+		result = strtohex(rot13(REF(A)))
 
 	set_pin_data(IC_OUTPUT, 1, result)
 	push_data()
@@ -97,7 +97,7 @@
 
 /obj/item/integrated_circuit/converter/refdecode/do_work()
 	pull_data()
-	dec = XorEncrypt(hextostr(get_pin_data(IC_INPUT, 1), TRUE), SScircuit.cipherkey)
+	dec = rot13(hextostr(get_pin_data(IC_INPUT, 1), TRUE))
 	set_pin_data(IC_OUTPUT, 1, WEAKREF(locate(dec)))
 	push_data()
 	activate_pin(2)
@@ -319,7 +319,7 @@
 		set_pin_data(IC_OUTPUT, 3, 0)
 	else
 		var/list/RGB = ReadRGB(HSVtoRGB(hsv(hue,sat,val)))
-	
+
 		set_pin_data(IC_OUTPUT, 1, RGB[1])
 		set_pin_data(IC_OUTPUT, 2, RGB[2])
 		set_pin_data(IC_OUTPUT, 3, RGB[3])
@@ -355,7 +355,7 @@
 		set_pin_data(IC_OUTPUT, 3, 0)
 	else
 		var/list/HSV = ReadHSV(RGBtoHSV(rgb(red,blue,green)))
-	
+
 		set_pin_data(IC_OUTPUT, 1, HSV[1])
 		set_pin_data(IC_OUTPUT, 2, HSV[2])
 		set_pin_data(IC_OUTPUT, 3, HSV[3])
@@ -416,7 +416,7 @@
 		set_pin_data(IC_OUTPUT, 3, 0)
 	else
 		var/list/RGB = ReadRGB(rgb)
-	
+
 		set_pin_data(IC_OUTPUT, 1, RGB[1])
 		set_pin_data(IC_OUTPUT, 2, RGB[2])
 		set_pin_data(IC_OUTPUT, 3, RGB[3])
