@@ -28,6 +28,7 @@
 	can_flashlight = FALSE
 	can_charge = FALSE
 	use_cyborg_cell = TRUE
+	fire_delay = 4
 
 /obj/item/gun/energy/disabler
 	name = "усмиритель"
