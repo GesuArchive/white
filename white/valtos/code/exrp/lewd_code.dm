@@ -134,7 +134,7 @@
 		if ("do_oral")
 			lust_increase = 10
 			c_target = CUM_TARGET_MOUTH
-			lust_which = ACTOR_TARD
+			lust_which = VICTIM_TARD
 			stp = "white/valtos/sounds/exrp/interactions/bj[rand(1, 11)].ogg"
 			if(partner.is_fucking(src, CUM_TARGET_MOUTH))
 				if(prob(partner.sexual_potency))

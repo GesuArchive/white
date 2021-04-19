@@ -11,9 +11,6 @@
 
 /mob/proc/do_fucking_animation(var/fuckdir)
 
-	if(!fuckdir)
-		fuckdir = SOUTH
-
 	dir = fuckdir
 
 	var/pixel_x_diff = 0
