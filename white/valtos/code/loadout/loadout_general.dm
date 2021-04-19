@@ -56,6 +56,12 @@
 	allowed_roles = list("Veteran", "Security Officer", "Russian Officer", "Head of Security")
 	cost = 500
 
+/datum/gear/triser
+	display_name = "Тризер"
+	path = /obj/item/gun/energy/taser/triser
+	allowed_roles = list("Veteran")
+	cost = 2500
+
 /datum/gear/assault_rifle
 	display_name = "Штурмовой карабин"
 	path = /obj/item/gun/ballistic/automatic/wzzzz/assault_rifle

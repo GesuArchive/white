@@ -51,9 +51,13 @@
 	name = "тризер"
 	desc = "Энергетический электрошокер средней мощности, используемый группами безопасности для подавления целей на расстоянии. Этот должен работать наверняка."
 	icon = 'white/valtos/icons/objects.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
+	fire_sound = 'white/valtos/sounds/rapidslice.ogg'
 	icon_state = "taser"
 	inhand_icon_state = null
 	ammo_type = list(/obj/item/ammo_casing/energy/electrode)
+	cell_type = "/obj/item/stock_parts/cell/pulse/pistol"
 	ammo_x_offset = 3
-	fire_delay = 0.5
+	fire_delay = 2
 	burst_size = 3
