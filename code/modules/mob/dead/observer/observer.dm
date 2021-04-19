@@ -895,6 +895,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	mafia_signup()
 
+/mob/dead/observer/verb/show_coords()
+	set category = "Призрак"
+	set name = "Показать координаты"
+	set desc = "Пишет тебе координаты под тобой"
+
+	to_chat(usr, "X: [usr.x]\nY: [usr.y]\nZ: [usr.z]")
+
 /mob/dead/observer/proc/mafia_signup()
 	if(!client)
 		return
