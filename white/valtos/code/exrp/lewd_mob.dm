@@ -12,7 +12,7 @@
 /mob/proc/do_fucking_animation(var/fuckdir)
 
 	if(!fuckdir)
-		return
+		fuckdir = SOUTH
 
 	dir = fuckdir
 

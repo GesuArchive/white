@@ -117,12 +117,16 @@
 	last_partner = partner
 	last_orifice = orifice
 
+#define ACTOR_TARD (1<<0)
+#define VICTIM_TARD (1<<1)
+
 /mob/living/proc/do_sex(var/mob/living/partner, var/action_to_do) // собак ебать будете в другом билде
 
 	if(stat != CONSCIOUS) return
 
 	var/message
 	var/lust_increase = 0
+	var/lust_which = ACTOR_TARD | VICTIM_TARD
 	var/c_target = null
 	var/stp
 
@@ -130,6 +134,7 @@
 		if ("do_oral")
 			lust_increase = 10
 			c_target = CUM_TARGET_MOUTH
+			lust_which = ACTOR_TARD
 			stp = "white/valtos/sounds/exrp/interactions/bj[rand(1, 11)].ogg"
 			if(partner.is_fucking(src, CUM_TARGET_MOUTH))
 				if(prob(partner.sexual_potency))
@@ -154,6 +159,7 @@
 		if ("do_facefuck")
 			lust_increase = 10
 			c_target = CUM_TARGET_MOUTH
+			lust_which = ACTOR_TARD
 			stp = "white/valtos/sounds/exrp/interactions/oral[rand(1, 2)].ogg"
 			if(is_fucking(partner, CUM_TARGET_MOUTH))
 				if(has_vagina())
@@ -175,6 +181,7 @@
 		if ("do_throatfuck")
 			lust_increase = 10
 			c_target = CUM_TARGET_MOUTH
+			lust_which = ACTOR_TARD
 			stp = "white/valtos/sounds/exrp/interactions/oral[rand(1, 2)].ogg"
 			if(is_fucking(partner, CUM_TARGET_THROAT))
 				message = pick(list("невероятно сильно ловит клёв в проруби [partner].", "топит карпика в проруби [partner]."))
@@ -225,30 +232,34 @@
 			if(partner.is_fucking(src, CUM_TARGET_ANUS))
 				message = "скачет на стан-батоне [partner]."
 			else
-				message = "опускает свой зад на стан-батон [partner]."
+				message = "опускает свой шоколадный завод на стан-батон [partner]."
 				partner.set_is_fucking(src, CUM_TARGET_ANUS)
 
 		if ("do_fingering")
 			lust_increase = 10
 			c_target = null
+			lust_which = VICTIM_TARD
 			stp = "white/valtos/sounds/exrp/interactions/champ_fingering.ogg"
 			message = pick(list("анализирует пельмешек [partner].", "измеряет глубину пельмешка [partner].", "проверяет на прочность пельмешек [partner]."))
 
 		if ("do_fingerass")
 			lust_increase = 10
 			c_target = null
+			lust_which = VICTIM_TARD
 			stp = "white/valtos/sounds/exrp/interactions/champ_fingering.ogg"
 			message = pick(list("анализирует шоколадницу [partner].", "измеряет глубину скважины [partner].", "проверяет на прочность задний привод [partner]."))
 
 		if ("do_rimjob")
 			lust_increase = 10
 			c_target = null
+			lust_which = VICTIM_TARD
 			stp = "white/valtos/sounds/exrp/interactions/champ_fingering.ogg"
 			message = "<b>[src]<b> вынюхивает след на заднем дворе [partner].</span>"
 
 		if ("do_handjob")
 			lust_increase = 10
 			c_target = CUM_TARGET_HAND
+			lust_which = VICTIM_TARD
 			stp = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
 			if(partner.is_fucking(src, CUM_TARGET_HAND))
 				message = pick(list("шакалит [partner].", "работает рукой с головкой стан-батона [partner].", "включает и выключает стан-батон [partner] быстрее."))
@@ -259,6 +270,7 @@
 		if ("do_breastfuck")
 			lust_increase = 10
 			c_target = CUM_TARGET_BREASTS
+			lust_which = ACTOR_TARD
 			stp = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
 			if(is_fucking(partner, CUM_TARGET_BREASTS))
 				message = pick(list("исследует [partner] между горок.", "прокатывается у [partner] между горок."))
@@ -269,6 +281,7 @@
 		if ("do_mountface")
 			lust_increase = 1
 			c_target = null
+			lust_which = ACTOR_TARD
 			stp = "white/valtos/sounds/exrp/interactions/squelch[rand(1, 3)].ogg"
 			if(is_fucking(partner, GRINDING_FACE_WITH_ANUS))
 				message = pick(list("кормит булочками [partner]", "даёт покушать булочек [partner]."))
@@ -279,6 +292,7 @@
 		if ("do_grindface")
 			lust_increase = 1
 			c_target = null
+			lust_which = ACTOR_TARD
 			stp = "white/valtos/sounds/exrp/interactions/foot_dry[rand(1, 4)].ogg"
 			if(src.get_item_by_slot(ITEM_SLOT_FEET) != null)
 				message = pick(list("поставил [get_shoes()] подошвой на лицо [partner].", "опускает свои [get_shoes()] на лицо [partner] и надавливает ими.", "грубо давит [get_shoes()] на лицо [partner]."))
@@ -289,6 +303,7 @@
 		if ("do_grindmouth")
 			lust_increase = 1
 			c_target = null
+			lust_which = ACTOR_TARD
 			stp = "white/valtos/sounds/exrp/interactions/foot_wet[rand(1, 3)].ogg"
 			if(src.get_item_by_slot(ITEM_SLOT_FEET) != null)
 				message = pick(list("заставляет [partner] попробовать [get_shoes()].", "даёт слизать грязь с [get_shoes()] [partner]."))
@@ -299,6 +314,7 @@
 		if ("do_nuts")
 			lust_increase = 1
 			c_target = CUM_TARGET_MOUTH
+			lust_which = ACTOR_TARD
 			stp = "white/valtos/sounds/exrp/interactions/nuts[rand(1, 4)].ogg"
 			if(is_fucking(partner, NUTS_TO_FACE))
 				message = pick(list("хватает [partner] за голову и принуждает вкусить яишницы.", "умоляет [partner] попробовать ещё больше божественной яишенки.", "нещадно принимается кормить [partner] яишницей.", "вытаскивает всё то, что [partner] не скушал и ждёт пока тот проглотит остатки."))
@@ -325,10 +341,15 @@
 
 	visible_message("<span class='notice purple small'><b>[capitalize(src.name)]</b> [message]</span>")
 	playsound(get_turf(src), stp, 50, 1, -1)
-	handle_post_sex(lust_increase, c_target, partner)
-	partner.handle_post_sex(lust_increase, c_target, src)
+	if(lust_which & ACTOR_TARD)
+		handle_post_sex(lust_increase, c_target, partner)
+	if(lust_which & VICTIM_TARD)
+		partner.handle_post_sex(lust_increase, c_target, src)
 	partner.dir = get_dir(partner,src)
 	do_fucking_animation(get_dir(src, partner))
+
+#undef ACTOR_TARD
+#undef VICTIM_TARD
 
 /mob/proc/get_shoes()
 	var/obj/A = get_item_by_slot(ITEM_SLOT_FEET)
