@@ -46,3 +46,14 @@
 	desc = "Встроенный блокировщик, который питается от силовой ячейки киборга. Это оружие содержит ограничитель для предотвращения перегрева силовой ячейки киборга."
 	can_charge = FALSE
 	use_cyborg_cell = TRUE
+
+/obj/item/gun/energy/taser/triser
+	name = "тризер"
+	desc = "Энергетический электрошокер средней мощности, используемый группами безопасности для подавления целей на расстоянии. Этот должен работать наверняка."
+	icon = 'white/valtos/icons/objects.dmi'
+	icon_state = "taser"
+	inhand_icon_state = null
+	ammo_type = list(/obj/item/ammo_casing/energy/electrode)
+	ammo_x_offset = 3
+	fire_delay = 0.5
+	burst_size = 3
