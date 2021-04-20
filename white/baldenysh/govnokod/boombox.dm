@@ -14,10 +14,10 @@
 	var/playing = FALSE
 
 /proc/open_sound_channel_for_boombox()
-	var/static/next_channel = CHANNEL_HIGHEST_AVAILABLE + 1
+	var/static/next_channel = CHANNEL_WIND_AVAILABLE + 1
 	. = ++next_channel
 	if(next_channel > CHANNEL_BOOMBOX_AVAILABLE)
-		next_channel = CHANNEL_HIGHEST_AVAILABLE + 1
+		next_channel = CHANNEL_WIND_AVAILABLE + 1
 
 /obj/item/boombox/single
 	desc = "Единственная и неповторимая."
