@@ -127,8 +127,8 @@ Arrow&bow
  */
 
 /obj/item/gun/ballistic/stabba_taser
-	name = "Taser"
-	desc = "updated taser."
+	name = "Стабба тазер"
+	desc = "Улучшеная версия тазера"
 	icon = 'white/qwaszx000/sprites/stabba_taser.dmi'
 	icon_state = "taser_gun"
 	inhand_icon_state = "stabba_taser"
@@ -139,7 +139,7 @@ Arrow&bow
 	internal_magazine = TRUE
 
 /obj/item/ammo_box/magazine/internal/stabba_taser_magazine
-	name = "stabba taser magazine"
+	name = "Магазин стабба тазера"
 	icon = null
 	icon_state = null
 	ammo_type = /obj/item/ammo_casing/caseless/stabba_taser_projectile_casing
@@ -151,7 +151,7 @@ Arrow&bow
 	return FALSE
 
 /obj/item/ammo_casing/caseless/stabba_taser_projectile_casing
-	name = "taser bullet"
+	name = "Патрон стабба тазера"
 	desc = "Bzzzt"
 	icon = 'white/qwaszx000/sprites/stabba_taser.dmi'
 	icon_state = "taser_projectile"
@@ -162,7 +162,7 @@ Arrow&bow
 	heavy_metal = FALSE
 
 /obj/projectile/bullet/stabba_taser_projectile
-	name = "taser projectile"
+	name = "Пуля стабба тазера"
 	desc = "Bzzt"
 	icon = 'white/qwaszx000/sprites/stabba_taser.dmi'
 	icon_state = "taser_projectile"
