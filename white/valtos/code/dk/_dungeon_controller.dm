@@ -1,6 +1,7 @@
 SUBSYSTEM_DEF(dungeon_keeper)
 	name = "Хранители Подземелий"
 	init_order = INIT_ORDER_DUNGEONS
+	flags = SS_NO_FIRE
 
 	wait = 1 SECONDS
 

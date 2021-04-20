@@ -71,6 +71,9 @@ SUBSYSTEM_DEF(shuttle)
 
 	var/shuttle_loading
 
+	var/last_integrity_check = 0
+	var/cached_station_integrity = 100
+
 /datum/controller/subsystem/shuttle/Initialize(timeofday)
 	ordernum = rand(1, 9000)
 
@@ -214,9 +217,15 @@ SUBSYSTEM_DEF(shuttle)
 		return TRUE
 
 	if(check_integrity)
-		var/datum/station_state/end_state = new /datum/station_state()
-		end_state.count()
-		var/station_integrity = min(PERCENT(GLOB.start_state.score(end_state)), 100)
+		var/station_integrity = 100
+		if(last_integrity_check > world.time - 1 MINUTES)
+			station_integrity = cached_station_integrity
+		else
+			var/datum/station_state/end_state = new /datum/station_state()
+			end_state.count()
+			station_integrity = min(PERCENT(GLOB.start_state.score(end_state)), 100)
+			last_integrity_check = world.time
+			cached_station_integrity = station_integrity
 		if(station_integrity > 98)
 			return "Состояние станции удовлетворительное. Улетать пока нет смысла."
 
