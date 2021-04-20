@@ -846,10 +846,11 @@
 					continue
 				to_chat(L, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
 				to_chat(L, "<span class='info'>[message]</span>")
-				var/turf/G = locate(83, 99, src.z)
-				L.forceMove(G)
 				for(var/area/awaymission/rospilovo/deathtrap/A in world)
 					A.fuckplayer()
+					for(var/turf/X in A)
+						L.forceMove(A)
+						break
 		qdel(src)
 
 /area/awaymission/rospilovo
