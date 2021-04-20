@@ -494,7 +494,7 @@
 		owner.adjustToxLoss(-0.2, forced = TRUE) //Slimepeople should also get healed.
 		is_healing = TRUE
 	if(is_healing)
-		examine_text = "<span class='warning'>SUBJECTPRONOUN is regenerating slowly, purplish goo filling in small injuries!</span>"
+		examine_text = "<span class='warning'>SUBJECTPRONOUN медленно регенерирует, раны покрыты фиолетовой жижей!</span>"
 		new /obj/effect/temp_visual/heal(get_turf(owner), "#FF0000")
 	else
 		examine_text = null
@@ -539,7 +539,7 @@
 	colour = "yellow"
 	var/cooldown = 10
 	var/max_cooldown = 10
-	examine_text = "<span class='warning'>Nearby electronics seem just a little more charged wherever SUBJECTPRONOUN goes.</span>"
+	examine_text = "<span class='warning'>Вся электроника заряжается, когда рядом проходит SUBJECTPRONOUN.</span>"
 
 /datum/status_effect/stabilized/yellow/tick()
 	if(cooldown > 0)
@@ -775,7 +775,7 @@
 
 /datum/status_effect/stabilized/green/tick() //Only occasionally give examiners a warning.
 	if(prob(50))
-		examine_text = "<span class='warning'>SUBJECTPRONOUN looks a bit green and gooey...</span>"
+		examine_text = "<span class='warning'>SUBJECTPRONOUN зеленеет на глазах...</span>"
 	else
 		examine_text = null
 	return ..()
@@ -854,7 +854,7 @@
 /datum/status_effect/stabilized/oil
 	id = "stabilizedoil"
 	colour = "oil"
-	examine_text = "<span class='warning'>SUBJECTPRONOUN smells of sulfer and oil!</span>"
+	examine_text = "<span class='warning'>SUBJECTPRONOUN пахнет серой и маслом!</span>"
 
 /datum/status_effect/stabilized/oil/tick()
 	if(owner.stat == DEAD)
@@ -876,7 +876,7 @@
 			to_chat(owner,"<span class='notice'>You feel your hands melt around [M] neck and start to drain [M.ru_na()] of life.</span>")
 			to_chat(owner.pulling, "<span class='userdanger'>[owner] hands melt around your neck, and you can feel your life starting to drain away!</span>")
 			messagedelivered = TRUE
-		examine_text = "<span class='warning'>SUBJECTPRONOUN is draining health from [owner.pulling]!</span>"
+		examine_text = "<span class='warning'>SUBJECTPRONOUN вытягивает силы из [owner.pulling]!</span>"
 		var/list/healing_types = list()
 		if(owner.getBruteLoss() > 0)
 			healing_types += BRUTE
@@ -916,7 +916,7 @@
 /datum/status_effect/stabilized/adamantine
 	id = "stabilizedadamantine"
 	colour = "adamantine"
-	examine_text = "<span class='warning'>SUBJECTPRONOUN has a strange metallic coating on their skin.</span>"
+	examine_text = "<span class='warning'>SUBJECTPRONOUN имеет странный металлический блеск.</span>"
 
 /datum/status_effect/stabilized/gold
 	id = "stabilizedgold"

@@ -242,6 +242,7 @@
 		occupant.reagents.add_reagent(chem_buttons[chem], 10) //emag effect kicks in here so that the "intended" chem is used for all checks, for extra FUUU
 		if(user)
 			log_combat(user, occupant, "injected [chem] into", addition = "via [src]")
+		use_power(100)
 		return TRUE
 
 /obj/machinery/sleeper/proc/chem_allowed(chem)
@@ -320,6 +321,7 @@
 		playsound(src.loc, 'sound/effects/spray2.ogg', 50, TRUE, -6)
 		if(user)
 			log_combat(user, occupant, "sprayed [chem] into", addition = "via [src]")
+		use_power(100)
 		return TRUE
 	..()
 

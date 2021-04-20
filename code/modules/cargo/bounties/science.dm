@@ -24,7 +24,7 @@
 
 /datum/bounty/item/science/nightvision_goggles
 	name = "Очки ночного видения"
-	description = "Электрический шторм сломал все лампы на ЦК. Пока руководство ожидает замены, возможно, несколько очков ночного видения могут быть отправлены?"
+	description = "Электрический шторм сломал все лампы на ЦК. Пока руководство ожидает замены, возможно, несколько очков ночного видениможнот быть отправлены?"
 	reward = 10000
 	wanted_types = list(/obj/item/clothing/glasses/night, /obj/item/clothing/glasses/meson/night, /obj/item/clothing/glasses/hud/health/night, /obj/item/clothing/glasses/hud/security/night, /obj/item/clothing/glasses/hud/diagnostic/night)
 

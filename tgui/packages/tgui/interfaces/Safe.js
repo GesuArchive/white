@@ -65,7 +65,7 @@ const Dialer = (properties, context) => {
       <Button
         disabled={open || (right && !locked) || broken}
         icon={"arrow-" + (right ? "right" : "left")}
-        content={(right ? "Направо" : "Налево") + " " + amount}
+        content={(right ? "Прав" : "Лево") + " " + amount}
         iconPosition={right ? "right" : "left"}
         onClick={() => act(!right ? "turnright" : "turnleft", {
           num: amount,
@@ -133,7 +133,7 @@ const Help = (properties, context) => {
   return (
     <Section
       className="Safe__help"
-      title="Инструкция по открытию сейфа (потому что знать надо)">
+      title="Инструкция по открытию сейфа (потому что забываете)">
       <Box>
         1. Крути налево до первого числа.<br />
         2. Крути направо до второго числа.<br />

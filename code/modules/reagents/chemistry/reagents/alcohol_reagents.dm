@@ -97,6 +97,8 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_desc = "A freezing pint of beer."
 	ph = 4
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	fallback_icon_state = "beer"
+	glass_price = DRINK_PRICE_STOCK
 
 
 	// Beer is a chemical composition of alcohol and various other things. It's a garbage nutrient but hey, it's still one. Also alcohol is bad, mmmkay?
@@ -115,6 +117,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_desc = "A freezing pint of watery light beer."
 	ph = 5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	fallback_icon_state = "beer"
 
 /datum/reagent/consumable/ethanol/beer/maltliquor
 	name = "Солодовый Ликер"
@@ -179,6 +182,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	shot_glass_icon_state = "shotglassbrown"
 	ph = 4.5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_STOCK
 
 /datum/reagent/consumable/ethanol/whiskey/kong
 	name = "Конг"
@@ -356,6 +360,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	shot_glass_icon_state = "shotglassgold"
 	ph = 4
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_STOCK
 
 /datum/reagent/consumable/ethanol/vermouth
 	name = "Вермут"
@@ -547,13 +552,14 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	color = "#585840" // rgb: 88, 88, 64
 	boozepwr = 60
 	quality = DRINK_VERYGOOD
-	taste_description = "дорогой метал"
+	taste_description = "дорогой металл"
 	glass_icon_state = "patronglass"
 	glass_name = "glass of patron"
 	glass_desc = "Drinking patron in the bar, with all the subpar ladies."
 	shot_glass_icon_state = "shotglassclear"
 	ph = 4.5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_HIGH
 
 /datum/reagent/consumable/ethanol/gintonic
 	name = "Джин Тоник"
@@ -712,6 +718,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_desc = "Tequila and Coffee liqueur, brought together in a mouthwatering mixture. Drink up."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	var/tough_text
+	glass_price = DRINK_PRICE_EASY
 
 /datum/reagent/consumable/ethanol/brave_bull/on_mob_metabolize(mob/living/M)
 	tough_text = pick("brawny", "tenacious", "tough", "hardy", "sturdy") //Tuff stuff
@@ -737,6 +744,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_desc = "Oh great, now you feel nostalgic about sunrises back on Terra..."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	var/obj/effect/light_holder
+	glass_price = DRINK_PRICE_MEDIUM
 
 /datum/reagent/consumable/ethanol/tequila_sunrise/on_mob_metabolize(mob/living/M)
 	to_chat(M, "<span class='notice'>Чувствую как по моему телу расползается приятное тепло!</span>")
@@ -901,6 +909,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_desc = "Kahlua, Irish Cream, and cognac. You will get bombed."
 	shot_glass_icon_state = "b52glass"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_EASY
 
 /datum/reagent/consumable/ethanol/b52/on_mob_metabolize(mob/living/M)
 	playsound(M, 'sound/effects/explosion_distant.ogg', 100, FALSE)
@@ -929,6 +938,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_name = "Margarita"
 	glass_desc = "On the rocks with salt on the rim. Arriba~!"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_MEDIUM
 
 /datum/reagent/consumable/ethanol/black_russian
 	name = "Черный Русский"
@@ -954,6 +964,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_name = "Manhattan"
 	glass_desc = "The Detective's undercover drink of choice. He never could stomach gin..."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_EASY
 
 
 /datum/reagent/consumable/ethanol/manhattan_proj
@@ -1187,6 +1198,8 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_name = "Aloe"
 	glass_desc = "Very, very, very good."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	//somewhat annoying mix
+	glass_price = DRINK_PRICE_MEDIUM
 
 /datum/reagent/consumable/ethanol/andalusia
 	name = "Андалузия"
@@ -1471,6 +1484,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_name = "Atomic Bomb"
 	glass_desc = "Nanotrasen cannot take legal responsibility for your actions after imbibing."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_HIGH
 
 /datum/reagent/consumable/ethanol/atomicbomb/on_mob_life(mob/living/carbon/M)
 	M.set_drugginess(50)
@@ -1771,6 +1785,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	shot_glass_icon_state = "shotglassgreen"
 	ph = 4
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_HIGH
 
 /datum/reagent/consumable/ethanol/bastion_bourbon/on_mob_metabolize(mob/living/L)
 	var/heal_points = 10
@@ -1872,6 +1887,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_name = "cup of sake"
 	glass_desc = "A traditional cup of sake."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_STOCK
 
 /datum/reagent/consumable/ethanol/peppermint_patty
 	name = "Пепперминт Пэтти"
@@ -1947,6 +1963,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_name = "Sidecar"
 	glass_desc = "The one ride you'll gladly give up the wheel for."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_MEDIUM
 
 /datum/reagent/consumable/ethanol/between_the_sheets
 	name = "Между Простынями"
@@ -1959,6 +1976,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_name = "Between the Sheets"
 	glass_desc = "The only drink that comes with a label reminding you of Nanotrasen's zero-tolerance promiscuity policy."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_MEDIUM
 
 /datum/reagent/consumable/ethanol/between_the_sheets/on_mob_life(mob/living/L)
 	..()
@@ -1996,6 +2014,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_name = "Mojito"
 	glass_desc = "A drink that looks as refreshing as it tastes."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_MEDIUM
 
 /datum/reagent/consumable/ethanol/moscow_mule
 	name = "Московский Мул"
@@ -2057,6 +2076,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_name = "glass of fanciulli"
 	glass_desc = "A glass of Fanciulli. It's just Manhattan with Fernet."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_HIGH
 
 /datum/reagent/consumable/ethanol/fanciulli/on_mob_life(mob/living/carbon/M)
 	M.adjust_nutrition(-5)
@@ -2081,6 +2101,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_name = "glass of branca menta"
 	glass_desc = "A glass of Branca Menta, perfect for those lazy and hot Sunday summer afternoons." //Get lazy literally by drinking this
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_MEDIUM
 
 
 /datum/reagent/consumable/ethanol/branca_menta/on_mob_life(mob/living/carbon/M)
@@ -2227,6 +2248,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_name = "Champagne"
 	glass_desc = "The flute clearly displays the slowly rising bubbles."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_EASY
 
 
 /datum/reagent/consumable/ethanol/wizz_fizz
@@ -2515,6 +2537,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_name = "Godfather"
 	glass_desc = "A classic from old Italy and enjoyed by gangsters, pray the orange peel doesnt end up in your mouth."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_MEDIUM
 
 /datum/reagent/consumable/ethanol/godmother
 	name = "Крестная Мать"

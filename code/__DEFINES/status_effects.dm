@@ -9,6 +9,12 @@
 
 #define STATUS_EFFECT_REFRESH 3 // if it only allows one, and new instances just instead refresh the timer
 
+///Processing flags - used to define the speed at which the status will work
+///This is fast - 0.2s between ticks (I believe!)
+#define STATUS_EFFECT_FAST_PROCESS 0
+///This is slower and better for more intensive status effects - 1s between ticks
+#define STATUS_EFFECT_NORMAL_PROCESS 1
+
 ///////////
 // BUFFS //
 ///////////
@@ -52,6 +58,8 @@
 #define STATUS_EFFECT_SLEEPING /datum/status_effect/incapacitating/sleeping //the affected is asleep
 
 #define STATUS_EFFECT_PACIFY /datum/status_effect/pacify //the affected is pacified, preventing direct hostile actions
+
+#define STATUS_EFFECT_INTERDICTION /datum/status_effect/interdiction //! The affected is inside the range of an interdiction lens
 
 #define STATUS_EFFECT_CHOKINGSTRAND /datum/status_effect/strandling //Choking Strand
 
@@ -121,6 +129,8 @@
 #define STATUS_EFFECT_HOLDUP /datum/status_effect/holdup // you are currently pointing a gun at someone
 
 #define STATUS_EFFECT_HIGHFIVE /datum/status_effect/high_fiving // you are angling for a high five
+
+#define STATUS_EFFECT_EIGEN /datum/status_effect/eigenstasium
 /////////////
 //  SLIME  //
 /////////////
@@ -131,6 +141,8 @@
 // Grouped effect sources, see also code/__DEFINES/traits.dm
 
 #define STASIS_MACHINE_EFFECT "stasis_machine"
+
+#define STASIS_CHEMICAL_EFFECT "stasis_chemical"
 
 #define STASIS_ASCENSION_EFFECT "heretic_ascension"
 

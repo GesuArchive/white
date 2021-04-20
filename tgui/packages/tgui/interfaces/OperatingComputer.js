@@ -26,19 +26,18 @@ export const OperatingComputer = (props, context) => {
   return (
     <Window
       width={350}
-      height={470}
-      resizable>
+      height={470}>
       <Window.Content scrollable>
         <Tabs>
           <Tabs.Tab
             selected={tab === 1}
             onClick={() => setTab(1)}>
-            Patient State
+            Пациент
           </Tabs.Tab>
           <Tabs.Tab
             selected={tab === 2}
             onClick={() => setTab(2)}>
-            Surgery Procedures
+            Процедуры
           </Tabs.Tab>
         </Tabs>
         {tab === 1 && (

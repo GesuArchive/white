@@ -3,6 +3,7 @@
 	id = "monkey"
 	say_mod = "выкрикивает"
 	attack_verb = "bite"
+	attack_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bite.ogg'
 	miss_sound = 'sound/weapons/bite.ogg'
 	mutant_organs = list(/obj/item/organ/tail/monkey)
@@ -91,6 +92,11 @@
 	target.attack_paw(user)
 	return TRUE
 
+/datum/species/monkey/handle_mutations_and_radiation(mob/living/carbon/human/H)
+	. = ..()
+	if(H.radiation > RAD_MOB_MUTATE * 2 && prob(50))
+		H.gorillize()
+		return
 
 /datum/species/monkey/check_roundstart_eligible()
 	if(SSevents.holidays && SSevents.holidays[MONKEYDAY])

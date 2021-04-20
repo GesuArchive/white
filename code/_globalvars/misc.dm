@@ -33,3 +33,4 @@ GLOBAL_VAR_INIT(internal_tick_usage, 0.2 * world.tick_lag)
 //shitcode goes here
 GLOBAL_VAR_INIT(remote_control, TRUE)
 
+GLOBAL_VAR_INIT(glowshrooms, 0)

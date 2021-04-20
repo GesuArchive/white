@@ -423,6 +423,9 @@
 	if(iscultist(creator))
 		SSticker.mode.add_cultist(src)
 
+	else if(is_servant_of_ratvar(creator))
+		add_servant_of_ratvar(src)
+
 	else if(is_revolutionary(creator))
 		var/datum/antagonist/rev/converter = creator.mind.has_antag_datum(/datum/antagonist/rev,TRUE)
 		converter.add_revolutionary(src,FALSE)
@@ -450,7 +453,7 @@
 	var/output = ""
 	if(window)
 		output += "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head>"
-	output += "<B>Воспоминания[current.real_name]:</B><br>"
+	output += "<B>Воспоминания [current.real_name]:</B><br>"
 	output += memory
 
 

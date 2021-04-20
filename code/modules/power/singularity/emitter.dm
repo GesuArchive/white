@@ -10,8 +10,8 @@
 	circuit = /obj/item/circuitboard/machine/emitter
 
 	use_power = NO_POWER_USE
-	idle_power_usage = 10
-	active_power_usage = 300
+	idle_power_usage = 100
+	active_power_usage = 3000
 
 	var/icon_state_on = "emitter_+a"
 	var/icon_state_underpowered = "emitter_+u"
@@ -96,11 +96,11 @@
 	. = ..()
 	. += "<hr>"
 	if(welded)
-		. += "<span class='info'>Он прочно пришвартован к полу. Я могу <b>отварить</b> его от пола.</span>"
+		. += "<span class='info'>Он прочно пришвартован к полу. Можно <b>отварить</b> его от пола.</span>"
 	else if(anchored)
-		. += "<span class='info'>В настоящее время он прикреплен к полу. Я могу <b>приварить</b> его к полу или же <b>открутить</b> от пола.</span>"
+		. += "<span class='info'>В настоящее время он прикреплен к полу. Можно <b>приварить</b> его к полу или же <b>открутить</b> от пола.</span>"
 	else
-		. += "<span class='info'>Он не прикручен к полу. Я могу закрепить его на месте с помощью <b>ключа</b>.</span>"
+		. += "<span class='info'>Он не прикручен к полу. Можно закрепить его на месте с помощью <b>ключа</b>.</span>"
 
 	if(in_range(user, src) || isobserver(user))
 		if(!active)

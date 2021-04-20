@@ -35,6 +35,15 @@
 /area/centcom/debug
 	name = "ЦК: Дебаг"
 
+/area/centcom/scp
+	name = "ЦК: SCP"
+
+/area/centcom/brief
+	name = "ЦК: Брифинг"
+
+/area/centcom/that_zone
+	name = "ЦК: Эта зона"
+
 /area/centcom/outdoors
 	name = "ЦК: Поверхность"
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
@@ -202,3 +211,39 @@
 
 /area/ctf/flag_room2
 	name = "Захват флага: Флаг B"
+
+// REEBE
+
+/area/reebe
+	name = "Reebe"
+	icon_state = "yellow"
+	requires_power = FALSE
+	has_gravity = STANDARD_GRAVITY
+	area_flags = HIDDEN_AREA | NOTELEPORT
+	ambientsounds = REEBE
+
+/area/reebe/city_of_cogs
+	name = "Reebe - City of Cogs"
+	icon_state = "purple"
+	area_flags = NOTELEPORT
+	var/playing_ambience = FALSE
+
+/area/reebe/city_of_cogs/Entered(atom/movable/AM)
+	. = ..()
+	if(ismob(AM))
+		var/mob/M = AM
+		if(M.client)
+			addtimer(CALLBACK(M.client, /client/proc/play_reebe_ambience), 900)
+
+//Reebe ambience replay
+
+/client/proc/play_reebe_ambience()
+	var/area/A = get_area(mob)
+	if(!istype(A, /area/reebe/city_of_cogs))
+		return
+	var/sound = pick(REEBE)
+	if(!played)
+		SEND_SOUND(src, sound(sound, repeat = 0, wait = 0, volume = 25, channel = CHANNEL_AMBIENCE))
+		played = TRUE
+		addtimer(CALLBACK(src, /client/proc/ResetAmbiencePlayed), 600)
+	addtimer(CALLBACK(src, /client/proc/play_reebe_ambience), 900)

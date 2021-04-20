@@ -145,6 +145,12 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	icon_state = "med_headset"
 	keyslot = new /obj/item/encryptionkey/headset_med
 
+/obj/item/radio/headset/headset_medsec
+	name = "гарнитура полевого медика"
+	desc = "Гарнитура для обученного персонала медотсека. С доступом к каналу охраны."
+	icon_state = "med_headset"
+	keyslot = new /obj/item/encryptionkey/headset_medsec
+
 /obj/item/radio/headset/headset_sci
 	name = "научная гарнитура"
 	desc = "Научная гарнитура. Как обычно."

@@ -21,6 +21,6 @@
 	for(var/x in ex.total_amount)
 		price += ex.total_value[x]
 	if(price)
-		to_chat(user, "<span class='notice'>Сканировано [O], цена: <b>[price]</b> кредитов[O.contents.len ? " (contents included)" : ""].</span>")
+		to_chat(user, "<span class='notice'>Сканировано [O], цена: <b>[price]</b> кредит[get_num_string(price)][O.contents.len ? " (contents included)" : ""].</span>")
 	else
 		to_chat(user, "<span class='warning'>Сканировано [O], нет цены.</span>")

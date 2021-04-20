@@ -1,5 +1,3 @@
-#define ENABLE_FLASHING -1
-
 ///Tutorial states
 #define TUT_NO_BUFFER 50
 #define TUT_START 1
@@ -25,7 +23,6 @@
 	var/heater_coefficient = 0.05
 	var/on = FALSE
 	var/dispense_volume = 1
-
 	//The list of active clients using this heater, so that we can update the UI on a reaction_step. I assume there are multiple clients possible.
 	var/list/ui_client_list
 	///If the user has the tutorial enabled
@@ -109,7 +106,6 @@
 					return
 				if(beaker?.reagents.has_reagent(/datum/reagent/mercury, 10) || beaker?.reagents.has_reagent(/datum/reagent/chlorine, 10))
 					tutorial_state = TUT_HAS_REAGENTS
-
 			if(TUT_HAS_REAGENTS)
 				if(!(beaker?.reagents.has_reagent(/datum/reagent/mercury, 9)) || !(beaker?.reagents.has_reagent(/datum/reagent/chlorine, 9)))
 					tutorial_state = TUT_MISSING
@@ -177,7 +173,6 @@
 			var/obj/item/reagent_containers/syringe/S = I
 			S.afterattack(beaker, user, 1)
 			return
-
 	return ..()
 
 /obj/machinery/chem_heater/on_deconstruction()
@@ -255,7 +250,7 @@
 	data["beakerContents"] = beaker_contents
 
 	var/list/active_reactions = list()
-	var/flashing = 14 //for use with alertAfter - since there is no alertBefore, I set the after to 0 if true, or to the max value if false
+	var/flashing = DISABLE_FLASHING //for use with alertAfter - since there is no alertBefore, I set the after to 0 if true, or to the max value if false
 	for(var/_reaction in beaker?.reagents.reaction_list)
 		var/datum/equilibrium/equilibrium = _reaction
 		if(!length(beaker.reagents.reaction_list))//I'm not sure why when it explodes it causes the gui to fail (it's missing danger (?) )
@@ -277,7 +272,7 @@
 			if(equilibrium.reaction.optimal_ph_min > beaker?.reagents.ph || equilibrium.reaction.optimal_ph_max < beaker?.reagents.ph)
 				flashing = ENABLE_FLASHING
 		if(equilibrium.reaction.is_cold_recipe)
-			if(equilibrium.reaction.overheat_temp > beaker?.reagents.chem_temp)
+			if(equilibrium.reaction.overheat_temp > beaker?.reagents.chem_temp && equilibrium.reaction.overheat_temp != NO_OVERHEAT)
 				danger = TRUE
 				overheat = TRUE
 		else
@@ -341,17 +336,17 @@
 					return
 				switch(calo.purity)
 					if(-INFINITY to 0.25)
-						data["tutorialMessage"] = "Вы сделали это! Поздравляю! Я могу сказать вам, что ваша последняя чистота была [calo.purity]. Это довольно близко к чистоте отказа 0,15, что часто может вызвать взрыв некоторых реакций. Этот химикат превращается в токсичный осадок при проглатывании другим человеком и не вызывает нормальных эффектов каломели. Подлый, а?"
+						data["tutorialMessage"] = "Вы сделали это! Поздравляю! Можно сказать вам, что ваша последняя чистота была [calo.purity]. Это довольно близко к чистоте отказа 0,15, что часто может вызвать взрыв некоторых реакций. Этот химикат превращается в токсичный осадок при проглатывании другим человеком и не вызывает нормальных эффектов каломели. Подлый, а?"
 					if(0.25 to 0.6)
-						data["tutorialMessage"] = "Вы сделали это! Поздравляю! Я могу сказать вам, что ваша последняя чистота была [calo.purity]. Обычно эта реакция разрешается выше 0,7 без вмешательства. Вы восхваляете нечистые реакции? Чем ниже вы опускаетесь, тем выше вероятность получения опасных эффектов во время реакции. В некоторых более опасных реакциях вы находитесь на тонкой грани между смертью и обратной химией, не забывайте, что вы всегда можете охладить свою реакцию, чтобы дать себе больше времени, чтобы справиться с ней!"
+						data["tutorialMessage"] = "Вы сделали это! Поздравляю! Можно сказать вам, что ваша последняя чистота была [calo.purity]. Обычно эта реакция разрешается выше 0,7 без вмешательства. Вы восхваляете нечистые реакции? Чем ниже вы опускаетесь, тем выше вероятность получения опасных эффектов во время реакции. В некоторых более опасных реакциях вы находитесь на тонкой грани между смертью и обратной химией, не забывайте, что вы всегда можете охладить свою реакцию, чтобы дать себе больше времени, чтобы справиться с ней!"
 					if(0.6 to 0.75)
-						data["tutorialMessage"] = "Вы сделали это! Поздравляю! Я могу сказать вам, что ваша последняя чистота была [calo.purity]. Обычно эта реакция разрешается выше 0,7 без вмешательства. Возможно, вы добавили слишком много базового буфера и перешли через 9? Если хотите - можете попробовать еще раз. Просто дважды нажмите кнопку справки!"
+						data["tutorialMessage"] = "Вы сделали это! Поздравляю! Можно сказать вам, что ваша последняя чистота была [calo.purity]. Обычно эта реакция разрешается выше 0,7 без вмешательства. Возможно, вы добавили слишком много базового буфера и перешли через 9? Если хотите - можете попробовать еще раз. Просто дважды нажмите кнопку справки!"
 					if(0.75 to 0.85)
-						data["tutorialMessage"] = "Вы сделали это! Поздравляю! Я могу сказать вам, что ваша последняя чистота была [calo.purity]. Вы очень близки к оптимальному! Если хотите, попробуйте еще раз, дважды нажав кнопку справки."
+						data["tutorialMessage"] = "Вы сделали это! Поздравляю! Можно сказать вам, что ваша последняя чистота была [calo.purity]. Вы очень близки к оптимальному! Если хотите, попробуйте еще раз, дважды нажав кнопку справки."
 					if(0.75 to 0.99)
-						data["tutorialMessage"] = "Вы сделали это! Поздравляю! Я могу сказать вам, что ваша последняя чистота была [calo.purity]. Вы очень близки к оптимальному! Не стесняйтесь попробовать еще раз, если хотите, дважды нажав кнопку справки, но это респектабельная чистота."
+						data["tutorialMessage"] = "Вы сделали это! Поздравляю! Можно сказать вам, что ваша последняя чистота была [calo.purity]. Вы очень близки к оптимальному! Не стесняйтесь попробовать еще раз, если хотите, дважды нажав кнопку справки, но это респектабельная чистота."
 					if(0.99 to 1)
-						data["tutorialMessage"] = "Вы сделали это! Поздравляю! Я могу сказать вам, что ваша последняя чистота была [calo.purity]. Ваша каломель такая же чистая, как и приходит! Вы освоили основы химии, но впереди еще много испытаний. Удачи!"
+						data["tutorialMessage"] = "Вы сделали это! Поздравляю! Можно сказать вам, что ваша последняя чистота была [calo.purity]. Ваша каломель такая же чистая, как и приходит! Вы освоили основы химии, но впереди еще много испытаний. Удачи!"
 						user.client?.give_award(/datum/award/achievement/misc/chemistry_tut, user)
 				data["tutorialMessage"] += "\n\nВы заметили, что ваша температура поднялась выше 390K, пока была реакция? Это потому, что эта реакция экзотермическая (с тепловыделением), поэтому для некоторых реакций вам, возможно, придется скорректировать цель, чтобы компенсировать это. Да, и вы можете проверить свою чистоту, исследуя и распечатав химический анализатор на медлисте (пока)!"
 			if(TUT_MISSING) //Missing
@@ -475,3 +470,21 @@
 	reagents.add_reagent(/datum/reagent/reaction_agent/basic_buffer, 980)
 	reagents.add_reagent(/datum/reagent/reaction_agent/acidic_buffer, 980)
 	heater_coefficient = 0.4 //hack way to upgrade
+
+//map load types
+/obj/machinery/chem_heater/withbuffer
+	desc = "This Reaction Chamber comes with a bit of buffer to help get you started."
+
+/obj/machinery/chem_heater/withbuffer/Initialize()
+	. = ..()
+	reagents.add_reagent(/datum/reagent/reaction_agent/basic_buffer, 20)
+	reagents.add_reagent(/datum/reagent/reaction_agent/acidic_buffer, 20)
+
+#undef TUT_NO_BUFFER
+#undef TUT_START
+#undef TUT_HAS_REAGENTS
+#undef TUT_IS_ACTIVE
+#undef TUT_IS_REACTING
+#undef TUT_FAIL
+#undef TUT_COMPLETE
+#undef TUT_MISSING

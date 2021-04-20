@@ -41,6 +41,7 @@
 		background-color: #F0F0F0;
 		position: fixed;
 		width: 100%;
+		z-index: 100;
 	}
 
 	.dark #menu, .dark #menu {
@@ -61,7 +62,7 @@
 	}
 
 	.dark a {
-		color: #ff9956;
+		color: #d6d6d6;
 	}
 
 	.cyber a {
@@ -125,7 +126,7 @@
 	.dark button {
 		background-color: #000000;
 		border-color: #343434;
-		color: #ff9956;
+		color: #d6d6d6;
 	}
 
 	.cyber button {
@@ -136,10 +137,11 @@
 
 	.button:hover {
 		background-color: #ececec;
+		transition-duration: 0;
 	}
 
 	.dark button:hover {
-		background-color:  #ff9956;
+		background-color:  #d6d6d6;
 		color: #080808;
 	}
 
@@ -160,7 +162,7 @@
 
 	.dark .button:active, .dark .button.active {
 		background-color: #080808;
-		color: #ff9956;
+		color: #d6d6d6;
 		border-top: 1px solid #343434;
 		border-left: 1px solid #343434;
 		border-right: 1px solid #343434;
@@ -177,30 +179,56 @@
 	}
 
 	.grid-container {
-		display: inline-flex;
-		flex-wrap: wrap;
-		justify-content: flex-start;
-		align-items: flex-start;
-		min-width: 0;
-		min-height: 0;
-		white-space: pre-wrap;
+		margin: -2px;
+		margin-right: -15px;
 	}
 
 	.grid-item {
-		color: black;
-		width: 195px;
+		position: relative;
+		display: inline-block;
+		width: 140px;
 		font-size: 11px;
-		line-height: 22px;
-		text-align: left;
-		min-width: 0;
-		min-height: 0;
 		white-space: pre-wrap;
-		margin-top: 3px;
-		margin-right: 3px;
-		padding-left: 2px;
-		padding-right: 0;
+		padding: 3px 3px;
+		margin: 1px;
+		text-decoration: none;
+		overflow: visible;
 		border: 1px solid rgba(0, 0, 0, 0.7);
 		border-radius: 3px;
+	}
+
+	@media only screen and (min-width: 620px) {
+		.grid-item {
+			width: 195px;
+		}
+	}
+
+	.grid-item:hover {
+		z-index: 1;
+	}
+
+	.grid-item:hover .grid-item-text {
+		background: #000;
+		width: auto;
+	}
+
+	.dark .grid-item:hover .grid-item-text {
+		background: #d6d6d6;
+	}
+
+	.cyber .grid-item:hover .grid-item-text {
+		background: #abc6ec;
+	}
+
+	.grid-item-text {
+		display: inline-block;
+		width: 100%;
+		margin: 0 -6px;
+		padding: 0 6px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		pointer-events: none;
 	}
 
 	.grid-item:hover {
@@ -215,7 +243,7 @@
 	}
 
 	.dark .grid-item:hover {
-		background: #ff9956;
+		background: #d6d6d6;
 		color: #080808;
 		text-decoration: none;
 	}
@@ -244,7 +272,7 @@
 	}
 
 	.dark .link {
-		color: #ff9956;
+		color: #d6d6d6;
 	}
 
 	.cyber .link {
@@ -332,53 +360,6 @@ if (!String.prototype.trim) {
   }, 0, 'test');
 }())
 
-// Browser passthrough code ---------------------------------------------------
-if (window.location) {
-	var anti_spam = []; // wow I wish I could use e.repeat but IE is dumb and doesn't have it.
-	document[addEventListenerKey]("keydown", function(e) {
-		if(e.target && (e.target.localName == "input" || e.target.localName == "textarea"))
-			return;
-		if(e.defaultPrevented)
-			return; // do e.preventDefault() to prevent this behavior.
-		if(e.which) {
-			if(!anti_spam[e.which]) {
-				anti_spam[e.which] = true;
-				var key = String.fromCharCode(e.which);
-				var x = event.x || event.clientX;
-				var y = event.y || event.clientY;
-				if(x || y ) // if either of these exist this is happening after a click
-					return;
-				window.location.href = "byond://winset?command=keyDown " + e.key;
-			}
-		}
-	});
-	document[addEventListenerKey]("keyup", function(e) {
-		if(e.target && (e.target.localName == "input" || e.target.localName == "textarea"))
-			return;
-		if(e.defaultPrevented)
-			return;
-		if(e.which) {
-			anti_spam[e.which] = false;
-			var key = String.fromCharCode(e.which);
-			var x = event.x || event.clientX;
-			var y = event.y || event.clientY;
-			if( x || y ) // if either of these exist this is happening after a click
-				return;
-
-			window.location.href = "byond://winset?command=keyUp " + e.key;
-		}
-	});
-}
-/* document.addEventListener("mousedown", function(e){
- var shiftPressed=0;
- var evt = e?e:window.event;
- shiftPressed=evt.shiftKey;
-  if (shiftPressed) {
-   return false;
-  }
- return true;
-}); */
-
 // Status panel implementation ------------------------------------------------
 var status_tab_parts = ["Загрузка..."];
 var current_tab = null;
@@ -400,6 +381,15 @@ var menu = document.querySelector('#menu');
 var under_menu = document.querySelector('#under_menu');
 var statcontentdiv = document.querySelector('#statcontent');
 var storedimages = [];
+
+// Any BYOND commands that could result in the client's focus changing go through this
+// to ensure that when we relinquish our focus, we don't do it after the result of
+// a command has already taken focus for itself.
+function send_byond_focus_command(url) {
+	setTimeout(function() {
+		window.location.href = url;
+	}, 0);
+}
 
 function createStatusTab(name) {
 	if (name.indexOf(".") != -1)
@@ -608,7 +598,8 @@ function TakeTabFromByond(tab) {
 	window.location.href = "byond://winset?command=Remove-Tabs " + tab;
 }
 
-function update(global_data, other_entries) {
+function update(global_data, ping_entry, other_entries) {
+	status_tab_parts = [ping_entry];
 	var parsed = JSON.parse(global_data);
 	for(var i = 0; i < parsed.length; i++) if(parsed[i] != null) status_tab_parts.push(parsed[i]);
 	parsed = JSON.parse(other_entries);
@@ -1108,6 +1099,12 @@ function draw_spells(cat) {
 	document.getElementById("statcontent").appendChild(table);
 }
 
+function make_verb_onclick(command) {
+	return function() {
+		send_byond_focus_command("byond://winset?command=" + command);
+	};
+}
+
 function draw_verbs(cat){
 	statcontentdiv[textContentKey] = "";
 	var table = document.createElement("div");
@@ -1129,9 +1126,13 @@ function draw_verbs(cat){
 			}
 
 			var a = document.createElement("a");
-			a.href = "byond://winset?command=" + command.replace(/\s/g, "-");
-			a[textContentKey] = command;
+			a.href = "#"
+			a.onclick = make_verb_onclick(command.replace(/\s/g, "-"));
 			a.className = "grid-item";
+			var t = document.createElement("span");
+			t[textContentKey] = command;
+			t.className = "grid-item-text";
+			a.appendChild(t);
 			(subCat ? additions[subCat] : table).appendChild(a);
 		}
 	}
@@ -1180,9 +1181,12 @@ function set_style_sheet(sheet) {
 	head.appendChild(sheetElement);
 }
 
-document[addEventListenerKey]("click", function(e) {
-	window.location.href = "byond://winset?map.focus=true";
-});
+function restoreFocus() {
+	send_byond_focus_command("byond://winset?map.focus=true")
+}
+
+document[addEventListenerKey]("mouseup", restoreFocus);
+document[addEventListenerKey]("keyup", restoreFocus);
 
 if(!current_tab) {
 	addPermanentTab("Состояние");
@@ -1191,7 +1195,7 @@ if(!current_tab) {
 
 window.onload = function() {
 	NotifyByondOnload();
-	};
+};
 
 function NotifyByondOnload() {
 	window.location.href = "byond://winset?command=Panel-Ready";

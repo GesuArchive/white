@@ -21,6 +21,7 @@
 	attack_verb_continuous = list("ударяет", "бьёт", "колотит")
 	attack_verb_simple = list("ударяет", "бьёт", "колотит")
 
+	var/gun_flags = NONE
 	var/fire_sound = 'sound/weapons/gun/pistol/shot.ogg'
 	var/vary_fire_sound = TRUE
 	var/fire_sound_volume = 50
@@ -126,25 +127,25 @@
 	. = ..()
 	. += "<hr>"
 	if(pin)
-		. += "<span class='smalldanger'>Внутри установлен [pin.name].</span>"
+		. += "<span class='smalldanger'>Внутри установлен [pin].</span>"
 		. += "</br><span class='small info'>Похоже [pin] можно вытащить при помощи <b>инструментов</b>.</span>"
 	else
 		. += "Внутри отсутствует <b>ударник</b>, поэтому огонь вести невозможно."
 
 	if(gun_light)
 		. += "<hr>"
-		. += "На нём установлен [gun_light.name], который [can_flashlight ? "" : "надёжно "]прикручен к нему."
+		. += "На нём установлен [gun_light], который [can_flashlight ? "" : "надёжно "]прикручен к нему."
 		if(can_flashlight) //if it has a light and this is false, the light is permanent.
-			. += "</br><span class='info'>Похоже [gun_light.name] может быть <b>откручен</b> от [src.name].</span>"
+			. += "</br><span class='info'>Похоже [gun_light] может быть <b>откручен</b> от [src].</span>"
 	else if(can_flashlight)
 		. += "<hr>"
 		. += "Здесь присутствует посадочное место для <b>фонарика</b>."
 
 	if(bayonet)
 		. += "<hr>"
-		. += "На нём установлен [bayonet.name], который [can_bayonet ? "" : "надёжно "]прикреплён к нему."
+		. += "На нём установлен [bayonet], который [can_bayonet ? "" : "надёжно "]прикреплён к нему."
 		if(can_bayonet) //if it has a bayonet and this is false, the bayonet is permanent.
-			. += "</br><span class='info'>Похоже [bayonet.name] может быть <b>откручен</b> от [src.name].</span>"
+			. += "</br><span class='info'>Похоже [bayonet] может быть <b>откручен</b> от [src].</span>"
 	else if(can_bayonet)
 		. += "<hr>"
 		. += "Сюда можно прикрепить <b>штык</b>."

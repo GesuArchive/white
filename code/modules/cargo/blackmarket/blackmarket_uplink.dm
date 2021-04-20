@@ -40,7 +40,7 @@
 		if(!worth)
 			to_chat(user, "<span class='warning'>[I] кажется, ничего не стоит!</span>")
 		money += worth
-		to_chat(user, "<span class='notice'>Вкладываю [I] в [src] и оно показывают сумму в [money] кредитов на счету аплинка.</span>")
+		to_chat(user, "<span class='notice'>Вкладываю [I] в [src] и оно показывают сумму в [money] кредит[get_num_string(money)] на счету аплинка.</span>")
 		qdel(I)
 		return
 	. = ..()
@@ -56,14 +56,14 @@
 	if(!amount_to_remove || amount_to_remove < 0)
 		return
 	if(amount_to_remove > money)
-		to_chat(user, "<span class='warning'>На данный момент [money] кредитов в [src]</span>")
+		to_chat(user, "<span class='warning'>На данный момент [money] кредит[get_num_string(money)] в [src]</span>")
 		return
 
 	var/obj/item/holochip/holochip = new (user.drop_location(), amount_to_remove)
 	money -= amount_to_remove
 	holochip.name = "отмытые " + holochip.name
 	user.put_in_hands(holochip)
-	to_chat(user, "<span class='notice'>Снимаю [amount_to_remove] кредитов в виде голочипа.</span>")
+	to_chat(user, "<span class='notice'>Снимаю [amount_to_remove] кредит[get_num_string(amount_to_remove)] в виде голочипа.</span>")
 
 /obj/item/blackmarket_uplink/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

@@ -104,7 +104,7 @@
 		reward.bounty_value = curr_bounty.reward
 		reward.bounty_name = curr_bounty.name
 		reward.bounty_holder = inserted_scan_id.registered_name
-		reward.name = "[reward.name] [reward.bounty_value] кредитов "
+		reward.name = "[reward.name] [reward.bounty_value] кредит[get_num_string(reward.bounty_value)] "
 		reward.desc += " Бирка указывает, что этот куб принадлежит [reward.bounty_holder] за выполнение заказа <i>[reward.bounty_name]</i> которые было принято в [station_time_timestamp(format = "hh:mm")]."
 		reward.AddComponent(/datum/component/pricetag, inserted_scan_id.registered_account, CIV_BOUNTY_SPLIT)
 		if(curr_bounty.reward <= 10000)

@@ -45,11 +45,15 @@
 @include meta.load-css('./interfaces/ListInput.scss');
 @include meta.load-css('./interfaces/AlertModal.scss');
 @include meta.load-css('./interfaces/CameraConsole.scss');
+@include meta.load-css('./interfaces/ExperimentConfigure.scss');
 @include meta.load-css('./interfaces/NuclearBomb.scss');
 @include meta.load-css('./interfaces/Paper.scss');
 @include meta.load-css('./interfaces/Roulette.scss');
+@include meta.load-css('./interfaces/ClockworkSlab.scss');
 @include meta.load-css('./interfaces/Cellphone.scss');
 @include meta.load-css('./interfaces/Safe.scss');
+@include meta.load-css('./interfaces/TachyonArray.scss');
+@include meta.load-css('./interfaces/Techweb.scss');
 
 // Layouts
 @include meta.load-css('./layouts/Layout.scss');
@@ -60,8 +64,9 @@
 
 // NT Theme
 .Layout__content {
-  background-image: url('../assets/bg-nanotrasen.svg');
-  background-size: 70%;
-  background-position: center;
+  background-image: url('../assets/logo-scarlet.png');
+  background-size: 65%;
+  background-position-y: center;
+  background-position-x: right 16px;
   background-repeat: no-repeat;
 }

@@ -18,11 +18,11 @@
 	var/datum/map_template/shuttle/new_shuttle
 
 /datum/round_event/shuttle_catastrophe/announce(fake)
-	var/cause = pick("was attacked by [syndicate_name()] Operatives", "mysteriously teleported away", "had its refuelling crew mutiny",
-		"was found with its engines stolen", "\[REDACTED\]", "flew into the sunset, and melted", "learned something from a very wise cow, and left on its own",
-		"had cloning devices on it", "had its shuttle inspector put the shuttle in reverse instead of park, causing the shuttle to crash into the hangar")
+	var/cause = pick("был атакован оперативниками [syndicate_name()]", "таинственным образом телепортировался", "был заблокирован, так как взбунтовалась его дозаправочная бригада",
+		"был найден с украденными двигателями", "\[ЗАСЕКРЕЧЕНО\]", "улетел в закат и растаял", "чему-то научился у очень мудрой коровы и ушел сам по себе",
+		"был с клонирующими устройствами на нём", "увидел инспектор шаттлов и припарковал шаттл задним ходом, в результате чего шаттл врезался в ангар")
 
-	priority_announce("Your emergency shuttle [cause]. Your replacement shuttle will be the [new_shuttle.name] until further notice.", "CentCom Spacecraft Engineering")
+	priority_announce("Ваш эвакуационный шаттл [cause]. Ваш шаттл на замену будет [new_shuttle.name] до дальнейшего уведомления.", "Кораблестроение Центрального Командования")
 
 /datum/round_event/shuttle_catastrophe/setup()
 	var/list/valid_shuttle_templates = list()

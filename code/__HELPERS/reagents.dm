@@ -191,7 +191,7 @@
 /proc/get_chem_id(chem_name)
 	for(var/X in GLOB.chemical_reagents_list)
 		var/datum/reagent/R = GLOB.chemical_reagents_list[X]
-		if(ckey(chem_name) == ckey(lowertext(R.name)))
+		if(lowertext(chem_name) == lowertext(R.name))
 			return X
 
 ///Takes a type in and returns a list of associated recipes

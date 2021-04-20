@@ -7,11 +7,12 @@
 	height = 15
 	dir = WEST
 	port_direction = SOUTH
+	preferred_direction = WEST
 
 	callTime = INFINITY
 	ignitionTime = 50
 
-	movement_force = list("KNOCKDOWN" = 3, "THROW" = 5)
+	movement_force = list("KNOCKDOWN" = 3, "THROW" = 0)
 
 	var/sound_played
 	var/damaged	//too damaged to undock?

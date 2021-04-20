@@ -71,8 +71,8 @@
 /area/awaymission/rospilovo)
 "ar" = (
 /obj/structure/rospilovo/porog{
-	icon_state = "porog1";
-	dir = 1
+	dir = 1;
+	icon_state = "porog1"
 	},
 /turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/rospilovo)
@@ -100,15 +100,15 @@
 /area/awaymission/rospilovo)
 "ay" = (
 /obj/structure/chair/wood{
-	icon_state = "wooden_chair";
-	dir = 1
+	dir = 1;
+	icon_state = "wooden_chair"
 	},
 /turf/open/floor/rospilovo/wood,
 /area/awaymission/rospilovo)
 "az" = (
 /obj/structure/rospilovo/battery{
-	icon_state = "gazovaya_truba";
-	dir = 4
+	dir = 4;
+	icon_state = "gazovaya_truba"
 	},
 /turf/open/floor/rospilovo/wood,
 /area/awaymission/rospilovo)
@@ -118,16 +118,16 @@
 /area/awaymission/rospilovo)
 "aB" = (
 /obj/machinery/shower{
-	icon_state = "shower";
-	dir = 1
+	dir = 1;
+	icon_state = "shower"
 	},
 /obj/structure/curtain,
 /turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/rospilovo)
 "aC" = (
 /obj/structure/rospilovo/polka{
-	icon_state = "polka";
-	dir = 8
+	dir = 8;
+	icon_state = "polka"
 	},
 /turf/open/floor/rospilovo/wood,
 /area/awaymission/rospilovo)
@@ -184,15 +184,15 @@
 /area/awaymission/rospilovo)
 "aO" = (
 /obj/structure/rospilovo/battery{
-	icon_state = "gazovaya_truba";
-	dir = 8
+	dir = 8;
+	icon_state = "gazovaya_truba"
 	},
 /turf/open/floor/rospilovo/wood,
 /area/awaymission/rospilovo)
 "aP" = (
 /obj/structure/chair/wood{
-	icon_state = "wooden_chair";
-	dir = 4
+	dir = 4;
+	icon_state = "wooden_chair"
 	},
 /turf/open/floor/rospilovo/wood,
 /area/awaymission/rospilovo)
@@ -254,8 +254,8 @@
 /area/awaymission/rospilovo/deathtrap)
 "bd" = (
 /obj/structure/rospilovo/polka{
-	icon_state = "polka";
-	dir = 4
+	dir = 4;
+	icon_state = "polka"
 	},
 /turf/open/floor/rospilovo/wood,
 /area/awaymission/rospilovo)
@@ -282,8 +282,8 @@
 "bj" = (
 /obj/structure/rospilovo/doski,
 /obj/structure/rospilovo/polka{
-	icon_state = "polka";
-	dir = 4
+	dir = 4;
+	icon_state = "polka"
 	},
 /turf/open/floor/rospilovo/wood,
 /area/awaymission/rospilovo)
@@ -522,31 +522,31 @@
 /area/awaymission/rospilovo)
 "cc" = (
 /obj/effect/turf_decal/trimline/white/line{
-	icon_state = "trimline";
-	dir = 8
+	dir = 8;
+	icon_state = "trimline"
 	},
 /obj/effect/turf_decal/trimline/white/line{
-	icon_state = "trimline";
-	dir = 4
+	dir = 4;
+	icon_state = "trimline"
 	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "cd" = (
 /obj/effect/turf_decal/trimline/white/line{
-	icon_state = "trimline";
-	dir = 4
+	dir = 4;
+	icon_state = "trimline"
 	},
 /obj/effect/turf_decal/trimline/white/line{
-	icon_state = "trimline";
-	dir = 8
+	dir = 8;
+	icon_state = "trimline"
 	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "ce" = (
 /obj/effect/turf_decal/trimline/white/line,
 /obj/effect/turf_decal/trimline/white/line{
-	icon_state = "trimline";
-	dir = 1
+	dir = 1;
+	icon_state = "trimline"
 	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
@@ -602,12 +602,12 @@
 /area/awaymission/rospilovo)
 "co" = (
 /obj/effect/turf_decal/trimline/white/line{
-	icon_state = "trimline";
-	dir = 4
+	dir = 4;
+	icon_state = "trimline"
 	},
 /obj/effect/turf_decal/trimline/white/line{
-	icon_state = "trimline";
-	dir = 8
+	dir = 8;
+	icon_state = "trimline"
 	},
 /obj/structure/grille/rospilovo/beton,
 /turf/open/floor/rospilovo,
@@ -623,8 +623,8 @@
 "cq" = (
 /obj/effect/turf_decal/trimline/white/line,
 /obj/effect/turf_decal/trimline/white/line{
-	icon_state = "trimline";
-	dir = 1
+	dir = 1;
+	icon_state = "trimline"
 	},
 /obj/structure/grille/rospilovo/beton{
 	icon_state = "|6"
@@ -765,22 +765,22 @@
 /area/awaymission/rospilovo)
 "cQ" = (
 /obj/structure/rospilovo/trubas{
-	icon_state = "trubas";
-	dir = 10
+	dir = 10;
+	icon_state = "trubas"
 	},
 /turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "cR" = (
 /obj/structure/rospilovo/trubas{
-	icon_state = "trubas";
-	dir = 8
+	dir = 8;
+	icon_state = "trubas"
 	},
 /turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "cS" = (
 /obj/structure/rospilovo/trubas{
-	icon_state = "trubas";
-	dir = 9
+	dir = 9;
+	icon_state = "trubas"
 	},
 /turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
@@ -1028,12 +1028,12 @@
 /area/awaymission/rospilovo)
 "dS" = (
 /obj/effect/turf_decal/trimline/white/line{
-	icon_state = "trimline";
-	dir = 8
+	dir = 8;
+	icon_state = "trimline"
 	},
 /obj/effect/turf_decal/trimline/white/line{
-	icon_state = "trimline";
-	dir = 4
+	dir = 4;
+	icon_state = "trimline"
 	},
 /obj/structure/rospilovo/shina3,
 /turf/open/floor/rospilovo,

@@ -9,8 +9,7 @@ export const EmoteMenu = (props, context) => {
     <Window
       theme="abductor"
       width={490}
-      height={385}
-      resizable>
+      height={385}>
       <Window.Content scrollable>
         {emotes
           .map((thing, index) => (

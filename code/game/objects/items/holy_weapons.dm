@@ -718,7 +718,7 @@
 	force = 15
 	block_chance = 40
 	slot_flags = ITEM_SLOT_BACK
-	sharpness = SHARP_NONE
+	sharpness = NONE
 	hitsound = "swing_hit"
 	attack_verb_continuous = list("сносит", "бьёт", "колотит", "стучит")
 	attack_verb_simple = list("сносит", "бьёт", "колотит", "стучит")

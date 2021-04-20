@@ -98,6 +98,8 @@
 	var/override_alerts = FALSE //If it is overriding other alerts of the same type
 	var/mob/owner //Alert owner
 
+	/// Boolean. If TRUE, the Click() proc will attempt to Click() on the master first if there is a master.
+	var/click_master = TRUE
 
 /atom/movable/screen/alert/MouseEntered(location,control,params)
 	if(!QDELETED(src))
@@ -347,8 +349,8 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 
 /// Gives the player the option to succumb while in critical condition
 /atom/movable/screen/alert/succumb
-	name = "Succumb"
-	desc = "Shuffle off this mortal coil."
+	name = "Сдаться"
+	desc = "Закончить череду событий и пропасть."
 	icon_state = "succumb"
 
 /atom/movable/screen/alert/succumb/Click()
@@ -356,14 +358,18 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 		return
 
 	var/mob/living/living_owner = owner
-	var/last_whisper = input("Do you have any last words?", "Final Words") as null | text
+	var/last_whisper = input("Последние слова есть хоть?", "Последние слова") as null | text
 	if (isnull(last_whisper) || !CAN_SUCCUMB(living_owner))
 		return
 
 	if (length(last_whisper))
 		living_owner.say("#[last_whisper]")
 
-	living_owner.succumb(whispered = length(last_whisper) > 0)
+	if(prob(10))
+		living_owner.succumb(whispered = length(last_whisper) > 0)
+		return
+
+	to_chat(usr, "<span class='boldnotice'>Не получилось сдаться.</span>")
 
 //ALIENS
 
@@ -502,6 +508,36 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 	final.Turn(difference)
 	animate(src, transform = final, time = 5, loop = 0)
 
+//CLOCKCULT
+/atom/movable/screen/alert/clockwork/clocksense
+	name = "The Ark of the Clockwork Justicar"
+	desc = "Shows infomation about the Ark of the Clockwork Justicar"
+	icon_state = "clockinfo"
+	alerttooltipstyle = "clockcult"
+
+/atom/movable/screen/alert/clockwork/clocksense/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
+
+/atom/movable/screen/alert/clockwork/clocksense/Destroy()
+	. = ..()
+	STOP_PROCESSING(SSprocessing, src)
+
+/atom/movable/screen/alert/clockwork/clocksense/process()
+	var/datum/antagonist/servant_of_ratvar/servant_antagonist = is_servant_of_ratvar(owner)
+	if(!(servant_antagonist?.team))
+		return
+	desc = "Stored Power - <b>[DisplayPower(GLOB.clockcult_power)]</b>.<br>"
+	desc += "Stored Vitality - <b>[GLOB.clockcult_vitality]</b>.<br>"
+	if(GLOB.ratvar_arrival_tick)
+		if(GLOB.ratvar_arrival_tick - world.time > 6000)
+			desc += "The Ark is preparing to open, it will activate in <b>[round((GLOB.ratvar_arrival_tick - world.time - 6000) / 10)]</b> seconds.<br>"
+		else
+			desc += "Ratvar will rise in <b>[round((GLOB.ratvar_arrival_tick - world.time) / 10)]</b> seconds, protect the Ark with your life!<br>"
+	if(GLOB.servants_of_ratvar)
+		desc += "There [GLOB.servants_of_ratvar.len == 1?"is" : "are"] currently [GLOB.servants_of_ratvar.len] loyal servant[GLOB.servants_of_ratvar.len == 1 ? "" : "s"].<br>"
+	if(GLOB.critical_servant_count)
+		desc += "Upon reaching [GLOB.critical_servant_count] the Ark will open, or it can be opened immediately by invoking Gateway Activation with 6 servants."
 
 //GUARDIANS
 
@@ -558,6 +594,11 @@ Recharging stations are available in robotics, the dormitory bathrooms, and the 
 	name = "Hacked"
 	desc = "Hazardous non-standard equipment detected. Please ensure any usage of this equipment is in line with unit's laws, if any."
 	icon_state = "hacked"
+
+/atom/movable/screen/alert/ratvar
+	name = "Eternal Servitude"
+	desc = "Hazardous functions detected, sentience prohibation drivers offline. Glory to Rat'var."
+	icon_state = "ratvar_hack"
 
 /atom/movable/screen/alert/locked
 	name = "Locked Down"
@@ -641,7 +682,7 @@ so as to remain in compliance with the most up-to-date laws."
 
 //OBJECT-BASED
 
-/atom/movable/screen/alert/restrained/buckled
+/atom/movable/screen/alert/buckled
 	name = "Пристегнут"
 	desc = "Я пристегнут к чему-то или сижу. Клик, чтобы встать."
 	icon_state = "buckled"
@@ -649,10 +690,12 @@ so as to remain in compliance with the most up-to-date laws."
 /atom/movable/screen/alert/restrained/handcuffed
 	name = "Закован"
 	desc = "На мне наручники и я ничего не могу делать. Не смогу двигаться если меня схватят. Клик, чтобы попробовать освободиться."
+	click_master = FALSE
 
 /atom/movable/screen/alert/restrained/legcuffed
 	name = "Ноги связаны"
 	desc = "Мои ноги связаны и это меня замедляет. Клик, чтобы попробовать освободиться."
+	click_master = FALSE
 
 /atom/movable/screen/alert/restrained/Click()
 	var/mob/living/L = usr
@@ -662,7 +705,7 @@ so as to remain in compliance with the most up-to-date laws."
 	if((L.mobility_flags & MOBILITY_MOVE) && (L.last_special <= world.time))
 		return L.resist_restraints()
 
-/atom/movable/screen/alert/restrained/buckled/Click()
+/atom/movable/screen/alert/buckled/Click()
 	var/mob/living/L = usr
 	if(!istype(L) || !L.can_resist() || L != owner)
 		return
@@ -732,7 +775,7 @@ so as to remain in compliance with the most up-to-date laws."
 		return
 	if(usr != owner)
 		return
-	if(master)
+	if(master && click_master)
 		return usr.client.Click(master, location, control, params)
 
 /atom/movable/screen/alert/Destroy()

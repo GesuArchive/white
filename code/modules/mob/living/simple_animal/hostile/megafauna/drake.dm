@@ -42,6 +42,7 @@
 	attack_verb_continuous = "грызёт"
 	attack_verb_simple = "грызёт"
 	attack_sound = 'sound/magic/demon_attack1.ogg'
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	icon = 'icons/mob/lavaland/64x64megafauna.dmi'
 	icon_state = "dragon"
 	icon_living = "dragon"

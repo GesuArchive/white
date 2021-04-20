@@ -22,6 +22,7 @@
 	attack_verb_continuous = "куает"
 	attack_verb_simple = "куает"
 	attack_sound = 'sound/weapons/bite.ogg'
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	vision_range = 7
 	aggro_vision_range = 7
 	move_force = MOVE_FORCE_WEAK

@@ -1081,7 +1081,7 @@
 /area/ruin/powered/clownplanet)
 "Mv" = (
 /obj/effect/mapping_helpers/no_lava,
-/mob/living/simple_animal/hostile/retaliate/clown,
+/mob/living/simple_animal/hostile/clown,
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors/explored)
 "MR" = (
@@ -1093,7 +1093,7 @@
 /area/ruin/powered/clownplanet)
 "RW" = (
 /obj/effect/mapping_helpers/no_lava,
-/mob/living/simple_animal/hostile/retaliate/clown,
+/mob/living/simple_animal/hostile/clown,
 /turf/open/floor/noslip{
 	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
 	},
@@ -1129,7 +1129,7 @@
 "YI" = (
 /obj/machinery/light/small,
 /obj/effect/mapping_helpers/no_lava,
-/mob/living/simple_animal/hostile/retaliate/clown,
+/mob/living/simple_animal/hostile/clown,
 /turf/open/floor/noslip{
 	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
 	},

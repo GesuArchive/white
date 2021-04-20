@@ -16,8 +16,7 @@ export const OreRedemptionMachine = (props, context) => {
     <Window
       title="Ore Redemption Machine"
       width={440}
-      height={550}
-      resizable>
+      height={550}>
       <Window.Content scrollable>
         <Section>
           <BlockQuote mb={1}>
@@ -31,7 +30,7 @@ export const OreRedemptionMachine = (props, context) => {
             {unclaimedPoints}
             <Button
               ml={2}
-              content="Claim"
+              content="Забрать"
               disabled={unclaimedPoints === 0}
               onClick={() => act('Claim')} />
           </Box>
@@ -112,7 +111,7 @@ const MaterialRow = (props, context) => {
 
   const amountAvailable = Math.floor(material.amount);
   return (
-    <Table.Row>
+    <Table.Row minHeight="24px">
       <Table.Cell>
         {capitalize(material.name)}
       </Table.Cell>

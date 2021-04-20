@@ -41,9 +41,20 @@
 	icon_state = "spawners"
 	icon = 'white/baldenysh/icons/ui/midnight_extended.dmi'
 
+/atom/movable/screen/ghost/spawners/Initialize(mapload)
+	. = ..()
+	update_count()
+
 /atom/movable/screen/ghost/spawners/Click()
 	var/mob/dead/observer/G = usr
 	G.open_spawners_menu()
+
+/atom/movable/screen/ghost/spawners/MouseEntered()
+	. = ..()
+	update_count()
+
+/atom/movable/screen/ghost/spawners/proc/update_count()
+	maptext = "<span class='maptext big'>[LAZYLEN(GLOB.mob_spawners)]</span>"
 
 /atom/movable/screen/ghost/pai
 	name = "Кандидат в пИИ"

@@ -18,26 +18,25 @@ export const Intellicard = (props, context) => {
   return (
     <Window
       width={500}
-      height={500}
-      resizable>
+      height={500}>
       <Window.Content scrollable>
         <Section
-          title={name || "Empty Card"}
+          title={name || "Пустая карта"}
           buttons={!!name && (
             <Button
               icon="trash"
-              content={wiping ? 'Stop Wiping' : 'Wipe'}
+              content={wiping ? 'СТОП' : 'Стереть'}
               disabled={isDead}
               onClick={() => act('wipe')} />
           )}>
           {!!name && (
             <LabeledList>
               <LabeledList.Item
-                label="Status"
+                label="Состояние"
                 color={offline ? 'bad' : 'good'}>
-                {offline ? 'Offline' : 'Operation'}
+                {offline ? 'Оффлайн' : 'Операбельно'}
               </LabeledList.Item>
-              <LabeledList.Item label="Software Integrity">
+              <LabeledList.Item label="Целостность прошивки">
                 <ProgressBar
                   value={health}
                   minValue={0}
@@ -49,19 +48,19 @@ export const Intellicard = (props, context) => {
                   }}
                 />
               </LabeledList.Item>
-              <LabeledList.Item label="Settings">
+              <LabeledList.Item label="Настройки">
                 <Button
                   icon="signal"
-                  content="Wireless Activity"
+                  content="Беспроводная активность"
                   selected={wireless}
                   onClick={() => act('wireless')} />
                 <Button
                   icon="microphone"
-                  content="Subspace Radio"
+                  content="Подпростраственное радио"
                   selected={radio}
                   onClick={() => act('radio')} />
               </LabeledList.Item>
-              <LabeledList.Item label="Laws">
+              <LabeledList.Item label="Законы">
                 {laws.map(law => (
                   <BlockQuote key={law}>
                     {law}

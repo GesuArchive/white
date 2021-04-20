@@ -256,6 +256,25 @@
 
 				L.forceMove(stepTurf)
 			L.setDir(direct)
+		if(INCORPOREAL_MOVE_EMINENCE)
+			var/turf/open/floor/stepTurf = get_step(L, direct)
+			if(stepTurf)
+				for(var/obj/effect/decal/cleanable/food/salt/S in stepTurf)
+					to_chat(L, "<span class='warning'>[capitalize(S)] не даёт пройти!</span>")
+					if(isrevenant(L))
+						var/mob/living/simple_animal/revenant/R = L
+						R.reveal(20)
+						R.stun(20)
+					return
+				if((stepTurf.flags_1 & NOJAUNT_1) && !istype(stepTurf, /turf/closed/wall/clockwork))
+					to_chat(L, "<span class='warning'>Странная аура блокирует путь.</span>")
+					return
+				if (locate(/obj/effect/blessing, stepTurf))
+					to_chat(L, "<span class='warning'>Святая энергия блокирует мой путь!</span>")
+					return
+
+				L.forceMove(stepTurf)
+			L.setDir(direct)
 	return TRUE
 
 
@@ -289,7 +308,7 @@
 			continue
 		else if(isturf(A))
 			var/turf/turf = A
-			if(isspaceturf(turf))
+			if(isspaceturf(turf) || isopenspace(turf))
 				continue
 			if(!turf.density && !mob_negates_gravity())
 				continue
@@ -484,7 +503,7 @@
 ///Moves a mob upwards in z level
 /mob/verb/up()
 	set name = "Выше"
-	set category = "IC"
+	set category = null
 
 	var/turf/current_turf = get_turf(src)
 	var/turf/above_turf = SSmapping.get_turf_above(current_turf)
@@ -499,7 +518,7 @@
 ///Moves a mob down a z level
 /mob/verb/down()
 	set name = "Ниже"
-	set category = "IC"
+	set category = null
 
 	if(zMove(DOWN, TRUE))
 		to_chat(src, "<span class='notice'>Спускаюсь вниз.</span>")

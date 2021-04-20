@@ -11,10 +11,9 @@ export const Uplink = (props, context) => {
   const { telecrystals } = data;
   return (
     <Window
-      width={620}
+      width={650}
       height={580}
-      theme="syndicate"
-      resizable>
+      theme="syndicate">
       <Window.Content scrollable>
         <GenericUplink
           currencyAmount={telecrystals}
@@ -89,7 +88,7 @@ export const GenericUplink = (props, context) => {
       )}>
       <Flex>
         {searchText.length === 0 && (
-          <Flex.Item>
+          <Flex.Item mr={2}>
             <Tabs vertical>
               {categories.map(category => (
                 <Tabs.Tab

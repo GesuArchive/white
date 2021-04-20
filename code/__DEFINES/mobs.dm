@@ -133,6 +133,14 @@
 #define SCREWYHUD_DEAD 2
 #define SCREWYHUD_HEALTHY 3
 
+//Health doll screws for human mobs
+#define SCREWYDOLL_HEAD /obj/item/bodypart/head
+#define SCREWYDOLL_CHEST /obj/item/bodypart/chest
+#define SCREWYDOLL_L_ARM /obj/item/bodypart/l_arm
+#define SCREWYDOLL_R_ARM /obj/item/bodypart/r_arm
+#define SCREWYDOLL_L_LEG /obj/item/bodypart/l_leg
+#define SCREWYDOLL_R_LEG /obj/item/bodypart/r_leg
+
 //Threshold levels for beauty for humans
 #define BEAUTY_LEVEL_HORRID -66
 #define BEAUTY_LEVEL_BAD -33
@@ -188,6 +196,18 @@
 #define ETHEREAL_CHARGE_FULL 2000
 #define ETHEREAL_CHARGE_OVERLOAD 2500
 #define ETHEREAL_CHARGE_DANGEROUS 3000
+
+
+#define CRYSTALIZE_COOLDOWN_LENGTH 120 SECONDS
+#define CRYSTALIZE_PRE_WAIT_TIME 40 SECONDS
+#define CRYSTALIZE_DISARM_WAIT_TIME 120 SECONDS
+#define CRYSTALIZE_HEAL_TIME 60 SECONDS
+
+#define BRUTE_DAMAGE_REQUIRED_TO_STOP_CRYSTALIZATION 30
+
+#define CRYSTALIZE_STAGE_ENGULFING 100 //Cant use second defines
+#define CRYSTALIZE_STAGE_ENCROACHING 300 //In switches
+#define CRYSTALIZE_STAGE_SMALL 600 //Because they're not static
 
 //Slime evolution threshold. Controls how fast slimes can split/grow
 #define SLIME_EVOLUTION_THRESHOLD 10
@@ -255,6 +275,7 @@
 #define INCORPOREAL_MOVE_BASIC 1 /// normal movement, see: [/mob/living/var/incorporeal_move]
 #define INCORPOREAL_MOVE_SHADOW 2 /// leaves a trail of shadows
 #define INCORPOREAL_MOVE_JAUNT 3 /// is blocked by holy water/salt
+#define INCORPOREAL_MOVE_EMINENCE 4 //! same as jaunt, but lets eminence pass clockwalls
 
 //Secbot and ED209 judgement criteria bitflag values
 #define JUDGE_EMAGGED		(1<<0)
@@ -293,8 +314,8 @@
 #define APPRENTICE_AGE_MIN	29	//youngest an apprentice can be
 #define SHOES_SLOWDOWN		0	//How much shoes slow you down by default. Negative values speed you up
 #define SHOES_SPEED_SLIGHT  SHOES_SLOWDOWN - 1 // slightest speed boost to movement
-#define POCKET_STRIP_DELAY			40	//time taken (in deciseconds) to search somebody's pockets
-#define DOOR_CRUSH_DAMAGE	15	//the amount of damage that airlocks deal when they crush you
+#define POCKET_STRIP_DELAY (4 SECONDS) //time taken to search somebody's pockets
+#define DOOR_CRUSH_DAMAGE 15 //the amount of damage that airlocks deal when they crush you
 
 #define	HUNGER_FACTOR		0.1	//factor at which mob nutrition decreases
 #define	ETHEREAL_CHARGE_FACTOR	1.6 //factor at which ethereal's charge decreases
@@ -400,3 +421,8 @@
 #define SQUASHED_SHOULD_BE_DOWN (1<<0)
 ///Whether or not to gib when the squashed mob is moved over
 #define SQUASHED_SHOULD_BE_GIBBED (1<<0)
+
+/// Throw modes, defines whether or not to turn off throw mode after
+#define THROW_MODE_DISABLED 0
+#define THROW_MODE_TOGGLE 1
+#define THROW_MODE_HOLD 2

@@ -89,10 +89,10 @@ All the important duct code:
 	if(istype(AM, /obj/machinery/duct))
 		return connect_duct(AM, direction, ignore_color)
 
-	var/plumber = AM.GetComponent(/datum/component/plumbing)
-	if(!plumber)
-		return
-	return connect_plumber(plumber, direction)
+	for(var/plumber in AM.GetComponents(/datum/component/plumbing))
+		if(!plumber) //apparently yes it will be null hahahaasahsdvashufv
+			return
+		. += connect_plumber(plumber, direction) //so that if one is true, all is true. beautiful.
 
 ///connect to a duct
 /obj/machinery/duct/proc/connect_duct(obj/machinery/duct/D, direction, ignore_color)
@@ -405,8 +405,7 @@ All the important duct code:
 	///Default layer of our duct
 	var/duct_layer = "Default Layer"
 	///Assoc index with all the available layers. yes five might be a bit much. Colors uses a global by the way
-	var/list/layers = list("First Layer" = FIRST_DUCT_LAYER, "Second Layer" = SECOND_DUCT_LAYER, "Default Layer" = DUCT_LAYER_DEFAULT,
-		"Fourth Layer" = FOURTH_DUCT_LAYER, "Fifth Layer" = FIFTH_DUCT_LAYER)
+	var/list/layers = list("Alternate Layer" = SECOND_DUCT_LAYER, "Default Layer" = DUCT_LAYER_DEFAULT)
 
 /obj/item/stack/ducts/examine(mob/user)
 	. = ..()
@@ -421,18 +420,21 @@ All the important duct code:
 		duct_color = new_color
 		add_atom_colour(GLOB.pipe_paint_colors[new_color], FIXED_COLOUR_PRIORITY)
 
-/obj/item/stack/ducts/afterattack(atom/A, user, proximity)
+/obj/item/stack/ducts/afterattack(atom/target, user, proximity)
 	. = ..()
 	if(!proximity)
 		return
-	if(istype(A, /obj/machinery/duct))
-		var/obj/machinery/duct/D = A
+	if(istype(target, /obj/machinery/duct))
+		var/obj/machinery/duct/D = target
 		if(!D.anchored)
 			add(1)
 			qdel(D)
-	if(istype(A, /turf/open) && use(1))
-		var/turf/open/OT = A
-		new /obj/machinery/duct(OT, FALSE, GLOB.pipe_paint_colors[duct_color], layers[duct_layer])
+	check_attach_turf(target)
+
+/obj/item/stack/ducts/proc/check_attach_turf(atom/target)
+	if(istype(target, /turf/open) && use(1))
+		var/turf/open/open_turf = target
+		new /obj/machinery/duct(open_turf, FALSE, GLOB.pipe_paint_colors[duct_color], layers[duct_layer])
 		playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
 
 /obj/item/stack/ducts/fifty

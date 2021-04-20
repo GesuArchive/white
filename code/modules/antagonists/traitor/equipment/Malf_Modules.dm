@@ -13,7 +13,30 @@ GLOBAL_LIST_INIT(blacklisted_malf_machines, typecacheof(list(
 		/obj/machinery/syndicatebomb/badmin/clown,
 		/obj/machinery/syndicatebomb/empty,
 		/obj/machinery/syndicatebomb/self_destruct,
-		/obj/machinery/syndicatebomb/training
+		/obj/machinery/syndicatebomb/training,
+		/obj/machinery/atmospherics/pipe/layer_manifold,
+		/obj/machinery/atmospherics/pipe/multiz,
+		/obj/machinery/atmospherics/pipe/smart,
+		/obj/machinery/atmospherics/pipe/smart/manifold, //mapped one
+		/obj/machinery/atmospherics/pipe/smart/manifold4w, //mapped one
+		/obj/machinery/atmospherics/pipe/color_adapter,
+		/obj/machinery/atmospherics/pipe/bridge_pipe,
+		/obj/machinery/atmospherics/pipe/heat_exchanging/simple,
+		/obj/machinery/atmospherics/pipe/heat_exchanging/junction,
+		/obj/machinery/atmospherics/pipe/heat_exchanging/manifold,
+		/obj/machinery/atmospherics/pipe/heat_exchanging/manifold4w,
+		/obj/machinery/atmospherics/components/unary/tank,
+		/obj/machinery/atmospherics/components/unary/portables_connector,
+		/obj/machinery/atmospherics/components/unary/passive_vent,
+		/obj/machinery/atmospherics/components/unary/heat_exchanger,
+		/obj/machinery/atmospherics/components/unary/hypertorus/core,
+		/obj/machinery/atmospherics/components/unary/hypertorus/waste_output,
+		/obj/machinery/atmospherics/components/unary/hypertorus/moderator_input,
+		/obj/machinery/atmospherics/components/unary/hypertorus/fuel_input,
+		/obj/machinery/hypertorus/interface,
+		/obj/machinery/hypertorus/corner,
+		/obj/machinery/atmospherics/components/binary/valve,
+		/obj/machinery/portable_atmospherics/canister,
 	)))
 
 GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
@@ -243,7 +266,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	if(!owner || QDELETED(owner))
 		return
 	if (owner_AI.stat != DEAD)
-		priority_announce("Hostile runtimes detected in all station systems, please deactivate your AI to prevent possible damage to its morality core.", "Anomaly Alert", 'sound/ai/aimalf.ogg')
+		priority_announce("Во всех системах станций обнаружены враждебные элементы, пожалуйста, отключите свой ИИ, чтобы предотвратить возможное повреждение его морального ядра.", "Аномальная тревога", 'sound/ai/aimalf.ogg')
 		set_security_level("delta")
 		var/obj/machinery/doomsday_device/DOOM = new(owner_AI)
 		owner_AI.nuking = TRUE
@@ -311,7 +334,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 /obj/machinery/doomsday_device/process()
 	var/turf/T = get_turf(src)
 	if(!T || !is_station_level(T.z))
-		minor_announce("DOOMSDAY DEVICE OUT OF STATION RANGE, ABORTING", "ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4", TRUE)
+		minor_announce("УСТРОЙСТВО СУДНОГО ДНЯ ВНЕ ДИАПАЗОНА СТАНЦИИ, ПРЕРЫВАНИЕ", "ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4", TRUE)
 		owner.ShutOffDoomsdayDevice()
 		return
 	if(!timing)
@@ -322,7 +345,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 		timing = FALSE
 		detonate()
 	else if(world.time >= next_announce)
-		minor_announce("[sec_left] SECONDS UNTIL DOOMSDAY DEVICE ACTIVATION!", "ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4", TRUE)
+		minor_announce("[sec_left] СЕКУНД ДО АКТИВАЦИИ УСТРОЙСТВА СУДНОГО ДНЯ!", "ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4", TRUE)
 		next_announce += DOOMSDAY_ANNOUNCE_INTERVAL
 
 /obj/machinery/doomsday_device/proc/detonate()
@@ -368,7 +391,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	if(C)
 		C.post_status("alert", "lockdown")
 
-	minor_announce("Hostile runtime detected in door controllers. Isolation lockdown protocols are now in effect. Please remain calm.","Network Alert:", TRUE)
+	minor_announce("В контроллерах шлюзов обнаружена вредоносная среда выполнения. Теперь действуют протоколы изоляции. Пожалуйста, сохраняйте спокойствие.","Сетевая угроза", TRUE)
 	to_chat(owner, "<span class='danger'>Lockdown initiated. Network reset in 90 seconds.</span>")
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/minor_announce,
 		"Automatic system reboot complete. Have a secure day.",

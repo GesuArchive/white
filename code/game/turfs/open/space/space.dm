@@ -25,6 +25,18 @@
 	//This is used to optimize the map loader
 	return
 
+/turf/open/space/basic/Initialize()
+	icon_state = SPACE_ICON_STATE
+	air = space_gas
+	update_air_ref()
+	vis_contents.Cut()
+	visibilityChanged()
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+	add_overlay(/obj/effect/fullbright)
+	return INITIALIZE_HINT_NORMAL
+
 /**
  * Space Initialize
  *
@@ -103,7 +115,7 @@
 /turf/open/space/proc/update_starlight()
 	if(CONFIG_GET(flag/starlight))
 		for(var/t in RANGE_TURFS(1,src)) //RANGE_TURFS is in code\__HELPERS\game.dm
-			if(isspaceturf(t))
+			if(isspaceturf(t) || isopenspace(t))
 				//let's NOT update this that much pls
 				continue
 			set_light(2)
@@ -248,7 +260,7 @@
 /turf/open/space/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
 		if(RCD_FLOORWALL)
-			to_chat(user, "<span class='notice'>You build a floor.</span>")
+			to_chat(user, "<span class='notice'>Строю пол.</span>")
 			PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
 			return TRUE
 	return FALSE

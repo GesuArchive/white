@@ -433,9 +433,9 @@ GLOBAL_LIST_INIT(cardboard_recipes, list (																				 \
 		new /datum/stack_recipe("коробка для наггетсов", /obj/item/storage/fancy/nugget_box),							\
 		null,																											\
 
-		new /datum/stack_recipe("коробка для летальных патронов", /obj/item/storage/box/lethalshot),\
-		new /datum/stack_recipe("коробка для резиновых патронов", /obj/item/storage/box/rubbershot),\
-		new /datum/stack_recipe("коробка для бобового мешка", /obj/item/storage/box/beanbag),		\
+		new /datum/stack_recipe("коробка для летальных дробей", /obj/item/storage/box/lethalshot),\
+		new /datum/stack_recipe("коробка для резиновых дробей", /obj/item/storage/box/rubbershot),\
+		new /datum/stack_recipe("коробка для резиновых дробей", /obj/item/storage/box/beanbag),		\
 		new /datum/stack_recipe("коробка для светошумовых гранат", /obj/item/storage/box/flashbangs),\
 		new /datum/stack_recipe("flashes box", /obj/item/storage/box/flashes),						\
 		new /datum/stack_recipe("коробка для наручников", /obj/item/storage/box/handcuffs),			\
@@ -510,7 +510,7 @@ GLOBAL_LIST_INIT(cardboard_recipes, list (																				 \
 
 GLOBAL_LIST_INIT(runed_metal_recipes, list ( \
 	new /datum/stack_recipe("руническая дверь (не слишком прочная дверь, оглушает коснувшихся не культистов))", /obj/machinery/door/airlock/cult, 1, time = 5 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("руническая балка (не рекомендованное использование рунного метала)", /obj/structure/girder/cult, 1, time = 5 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new /datum/stack_recipe("руническая балка (не рекомендованное использование рунного металла)", /obj/structure/girder/cult, 1, time = 5 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new /datum/stack_recipe("пилон (лечит (и регенерирует кровь) находящихся поблизости кровавых культистов и конструктов, но также превращает полы поблизости в гравированные)", /obj/structure/destructible/cult/pylon, 4, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new /datum/stack_recipe("демоническая кузня (можно создать защищенные робы, робы флагелянтов и зеркальные щиты)", /obj/structure/destructible/cult/forge, 3, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new /datum/stack_recipe("архивы (можно создать глазные повязки фанатиков, сферы проклятия шатлов, и оборудование идущего по завесе)", /obj/structure/destructible/cult/tome, 3, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
@@ -519,8 +519,8 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list ( \
 
 /obj/item/stack/sheet/runed_metal
 	name = "рунический металл"
-	desc = "Листы холодного, покрытого меняющимися надписями, метала."
-	singular_name = "лист рунического метала"
+	desc = "Листы холодного, покрытого меняющимися надписями, металла."
+	singular_name = "лист рунического металла"
 	icon_state = "sheet-runed"
 	inhand_icon_state = "sheet-runed"
 	icon = 'icons/obj/stack_objects.dmi'
@@ -571,6 +571,17 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 	new/datum/stack_recipe("бронзовые ботинки", /obj/item/clothing/shoes/bronze), \
 	null,
 	new/datum/stack_recipe("Бронзовый стул", /obj/structure/chair/bronze, 1, time = 0, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("wall gear", /obj/structure/destructible/clockwork/wall_gear, 2, time = 20, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("brass grille", /obj/structure/grille/ratvar, 2, time=20, one_per_turf = TRUE, on_floor = TRUE), \
+	null, \
+	new/datum/stack_recipe("brass windoor", /obj/machinery/door/window/clockwork, 5, time=40, on_floor = TRUE, window_checks=TRUE), \
+	null, \
+	new/datum/stack_recipe("lever", /obj/item/wallframe/clocktrap/lever, 1, time=40, one_per_turf = FALSE, on_floor = FALSE), \
+	new/datum/stack_recipe("timer", /obj/item/wallframe/clocktrap/delay, 1, time=40, one_per_turf = FALSE, on_floor = FALSE), \
+	new/datum/stack_recipe("pressure sensor", /obj/structure/destructible/clockwork/trap/pressure_sensor, 4, time=40, one_per_turf = TRUE, on_floor = TRUE), \
+	null, \
+	new/datum/stack_recipe("brass skewer", /obj/structure/destructible/clockwork/trap/skewer, 12, time=40, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("brass flipper", /obj/structure/destructible/clockwork/trap/flipper, 10, time=40, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/tile/bronze
@@ -596,6 +607,12 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 	tableVariant = /obj/structure/table/bronze
 	material_type = /datum/material/bronze
 
+/obj/item/stack/tile/bronze/attack_self(mob/living/user)
+	if(!is_servant_of_ratvar(user))
+		to_chat(user, "<span class='danger'>[src] seems far too brittle to build with.</span>") //haha that's because it's actually replicant alloy you DUMMY << WOAH TOOO FAR!
+	else
+		return ..()
+
 /obj/item/stack/tile/bronze/get_main_recipes()
 	. = ..()
 	. += GLOB.bronze_recipes
@@ -608,12 +625,17 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 /obj/item/stack/tile/bronze/thirty
 	amount = 30
 
+/obj/item/stack/tile/bronze/cyborg
+	custom_materials = list()
+	is_cyborg = 1
+	cost = 500
+
 /*
  * Lesser and Greater gems - unused
  */
 /obj/item/stack/sheet/lessergem
 	name = "самоцветы поменьше"
-	desc = "Редкий вид самоцветов, которые можно получить только путем кровавых жертвоприношений младшим богам. Они нужны для создания могущественных объектов."
+	desc = "Редкий вид самоцветов, которые можно получить только путем кровавых жертвоприношений младшим богам. Они нужны для созданиможнощественных объектов."
 	singular_name = "самоцвет поменьше"
 	icon_state = "sheet-lessergem"
 	inhand_icon_state = "sheet-lessergem"
@@ -622,7 +644,7 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 
 /obj/item/stack/sheet/greatergem
 	name = "самоцветы побольше"
-	desc = "Редкий вид самоцветов, которые можно получить только путем кровавых жертвоприношений младшим богам. Они нужны для создания могущественных объектов."
+	desc = "Редкий вид самоцветов, которые можно получить только путем кровавых жертвоприношений младшим богам. Они нужны для созданиможнощественных объектов."
 	singular_name = "самоцвет побольше"
 	icon_state = "sheet-greatergem"
 	inhand_icon_state = "sheet-greatergem"
@@ -659,7 +681,8 @@ GLOBAL_LIST_INIT(plastic_recipes, list(
 	new /datum/stack_recipe("пластиковый стакан", /obj/item/reagent_containers/food/drinks/colocup, 1), \
 	new /datum/stack_recipe("знак мокрый пол", /obj/item/clothing/suit/caution, 2), \
 	new /datum/stack_recipe("пустой настенный знак", /obj/item/sign, 1), \
-	new /datum/stack_recipe("блистерная упаковка", /obj/item/storage/blister, 1)))
+	new /datum/stack_recipe("конус", /obj/item/clothing/head/cone, 2), \
+	new /datum/stack_recipe("блистерная упаковка", /obj/item/storage/blister/crafted, 1)))
 
 /obj/item/stack/sheet/plastic
 	name = "пластик"
@@ -759,4 +782,23 @@ new /datum/stack_recipe("paper frame door", /obj/structure/mineral_door/paperfra
 /obj/item/stack/sheet/sandblock/twenty
 	amount = 20
 /obj/item/stack/sheet/sandblock/five
+	amount = 5
+
+
+/obj/item/stack/sheet/hauntium
+	name = "haunted sheets"
+	desc = "These sheets seem cursed."
+	singular_name = "haunted sheet"
+	icon_state = "sheet-meat"
+	material_flags = MATERIAL_COLOR
+	mats_per_unit = list(/datum/material/hauntium = MINERAL_MATERIAL_AMOUNT)
+	merge_type = /obj/item/stack/sheet/hauntium
+	material_type = /datum/material/hauntium
+	material_modifier = 1 //None of that wussy stuff
+
+/obj/item/stack/sheet/hauntium/fifty
+	amount = 50
+/obj/item/stack/sheet/hauntium/twenty
+	amount = 20
+/obj/item/stack/sheet/hauntium/five
 	amount = 5

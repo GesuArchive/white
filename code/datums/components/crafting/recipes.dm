@@ -136,6 +136,7 @@
 	result = /obj/item/tailclub
 	reqs = list(/obj/item/organ/tail/lizard = 1,
 				/obj/item/stack/sheet/metal = 1)
+	blacklist = list(/obj/item/organ/tail/lizard/fake)
 	time = 40
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
@@ -145,6 +146,7 @@
 	result = /obj/item/melee/chainofcommand/tailwhip
 	reqs = list(/obj/item/organ/tail/lizard = 1,
 				/obj/item/stack/cable_coil = 1)
+	blacklist = list(/obj/item/organ/tail/lizard/fake)
 	time = 40
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
@@ -1106,10 +1108,18 @@
 	name = "Elder Atmosian Statue"
 	result = /obj/structure/statue/elder_atmosian
 	time = 6 SECONDS
-	reqs = list(/obj/item/stack/sheet/mineral/metal_hydrogen = 10,
-				/obj/item/grenade/gas_crystal/healium_crystal = 1,
-				/obj/item/grenade/gas_crystal/proto_nitrate_crystal = 1,
-				/obj/item/grenade/gas_crystal/zauker_crystal = 1
+	reqs = list(/obj/item/stack/sheet/mineral/metal_hydrogen = 20,
+				/obj/item/stack/sheet/mineral/zaukerite = 15,
+				/obj/item/stack/sheet/metal = 30,
+				)
+	category = CAT_MISC
+
+/datum/crafting_recipe/elder_atmosian_fireaxe
+	name = "Elder Axe"
+	result = /obj/item/fireaxe/elder_atmosian_fireaxe
+	time = 6 SECONDS
+	reqs = list(/obj/item/fireaxe/metal_h2_axe = 1,
+				/obj/item/stack/sheet/mineral/zaukerite = 10,
 				)
 	category = CAT_MISC
 

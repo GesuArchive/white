@@ -118,5 +118,11 @@
 	return src
 
 /proc/toggle_looc(toggle = null)
-	GLOB.looc_allowed = (toggle || !GLOB.looc_allowed)
-	message_admins("<span class='bold'>LOOC [GLOB.looc_allowed ? "выключен" : "включен"].</span>")
+	if(toggle != null) //if we're specifically en/disabling ooc
+		if(toggle != GLOB.looc_allowed)
+			GLOB.looc_allowed = toggle
+		else
+			return
+	else //otherwise just toggle it
+		GLOB.looc_allowed = !GLOB.looc_allowed
+	message_admins("<span class='bold'>LOOC [GLOB.looc_allowed ? "включен" : "выключен"].</span>")

@@ -9,10 +9,12 @@
 #define DRAINABLE		(1<<3)	// Makes it possible to remove reagents through any reagent container.
 #define DUNKABLE		(1<<4)	// Allows items to be dunked into this container for transfering reagents. Used in conjunction with the dunkable component.
 
-#define TRANSPARENT		(1<<5)	// Used on containers which you want to be able to see the reagents off.
-#define AMOUNT_VISIBLE	(1<<6)	// For non-transparent containers that still have the general amount of reagents in them visible.
-#define NO_REACT		(1<<7)	// Applied to a reagent holder, the contents will not react with each other.
-#define REAGENT_HOLDER_INSTANT_REACT   (1<<8)  // Applied to a reagent holder, all of the reactions in the reagents datum will be instant. Meant to be used for things like smoke effects where reactions aren't meant to occur
+#define TRANSPARENT (1<<5) // Used on containers which you want to be able to see the reagents off.
+#define AMOUNT_VISIBLE (1<<6) // For non-transparent containers that still have the general amount of reagents in them visible.
+#define NO_REACT (1<<7) // Applied to a reagent holder, the contents will not react with each other.
+#define REAGENT_HOLDER_INSTANT_REACT (1<<8)  // Applied to a reagent holder, all of the reactions in the reagents datum will be instant. Meant to be used for things like smoke effects where reactions aren't meant to occur
+///If the holder is "alive" (i.e. mobs and organs) - If this flag is applied to a holder it will cause reagents to split upon addition to the object
+#define REAGENT_HOLDER_ALIVE (1<<9)
 
 // Is an open container for all intents and purposes.
 #define OPENCONTAINER 	(REFILLABLE | DRAINABLE | TRANSPARENT)
@@ -45,6 +47,9 @@
 
 #define ALLERGIC_REMOVAL_SKIP "Allergy"
 
+/// the default temperature at which chemicals are added to reagent holders at
+#define DEFAULT_REAGENT_TEMPERATURE 300
+
 //Used in holder.dm/equlibrium.dm to set values and volume limits
 ///stops floating point errors causing issues with checking reagent amounts
 #define CHEMICAL_QUANTISATION_LEVEL 0.0001
@@ -54,6 +59,11 @@
 #define CHEMICAL_VOLUME_ROUNDING 0.01
 ///Default pH for reagents datum
 #define CHEMICAL_NORMAL_PH 7.000
+///The maximum temperature a reagent holder can attain
+#define CHEMICAL_MAXIMUM_TEMPERATURE 99999
+
+///The default purity of all non reacted reagents
+#define REAGENT_STANDARD_PURITY 0.75
 
 //reagent bitflags, used for altering how they works
 ///allows on_mob_dead() if present in a dead body
@@ -65,9 +75,11 @@
 ///When inverted, the inverted chem uses the name of the original chem
 #define REAGENT_SNEAKYNAME          (1<<3)
 ///Retains initial volume of chem when splitting for purity effects
-#define REAGENT_SPLITRETAINVOL      (1<<4)
-//Lets a given reagent be synthesized important for random reagents and things like the odysseus syringe gun(Replaces the old can_synth variable)
-#define REAGENT_CAN_BE_SYNTHESIZED  (1<<5)  
+#define REAGENT_SPLITRETAINVOL (1<<4)
+///Lets a given reagent be synthesized important for random reagents and things like the odysseus syringe gun(Replaces the old can_synth variable)
+#define REAGENT_CAN_BE_SYNTHESIZED (1<<5)
+///Allows a reagent to work on a mob regardless of stasis
+#define REAGENT_IGNORE_STASIS (1<<6)
 
 //Chemical reaction flags, for determining reaction specialties
 ///Convert into impure/pure on reaction completion
@@ -81,17 +93,23 @@
 ///Used to force reactions to create a specific amount of heat per 1u created. So if thermic_constant = 5, for 1u of reagent produced, the heat will be forced up arbitarily by 5 irresepective of other reagents. If you use this, keep in mind standard thermic_constant values are 100x what it should be with this enabled.
 #define REACTION_HEAT_ARBITARY      (1<<4)
 ///Used to bypass the chem_master transfer block (This is needed for competitive reactions unless you have an end state programmed). More stuff might be added later. When defining this, please add in the comments the associated reactions that it competes with
-#define REACTION_COMPETITIVE        (1<<5)
+#define REACTION_COMPETITIVE (1<<5)
+///Used to force pH changes to be constant regardless of volume
+#define REACTION_PH_VOL_CONSTANT (1<<6)
+///If a reaction will generate it's impure/inverse reagents in the middle of a reaction, as apposed to being determined on ingestion/on reaction completion
+#define REACTION_REAL_TIME_SPLIT (1<<7)
 
 ///Used to force an equlibrium to end a reaction in reaction_step() (i.e. in a reaction_step() proc return END_REACTION to end it)
 #define END_REACTION "end_reaction"
 
 ///Minimum requirement for addiction buzz to be met
 #define MIN_ADDICTION_REAGENT_AMOUNT 2
+///Nicotine requires much less in your system to be happy
+#define MIN_NICOTINE_ADDICTION_REAGENT_AMOUNT 0.1
 #define MAX_ADDICTION_POINTS 1000
 
 ///Addiction start/ends
-#define WITHDRAWAL_STAGE1_START_CYCLE 1
+#define WITHDRAWAL_STAGE1_START_CYCLE 15
 #define WITHDRAWAL_STAGE1_END_CYCLE 60
 #define WITHDRAWAL_STAGE2_START_CYCLE 61
 #define WITHDRAWAL_STAGE2_END_CYCLE 120
@@ -145,3 +163,8 @@
 #define REACTION_TAG_PLANT (1<<20)
 /// This reaction is produces a product that affects plants
 #define REACTION_TAG_COMPETITIVE (1<<21)
+
+/// Below are defines used for reagent associated machines only
+/// For the pH meter flashing method
+#define ENABLE_FLASHING -1
+#define DISABLE_FLASHING 14

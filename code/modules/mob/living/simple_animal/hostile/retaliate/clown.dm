@@ -1,6 +1,6 @@
-/mob/living/simple_animal/hostile/retaliate/clown
-	name = "Clown"
-	desc = "A denizen of clown planet."
+/mob/living/simple_animal/hostile/clown
+	name = "Клоун"
+	desc = "Житель измерения клоунов."
 	icon = 'icons/mob/clown_mobs.dmi'
 	icon_state = "clown"
 	icon_living = "clown"
@@ -13,32 +13,82 @@
 	response_disarm_simple = "gently push aside"
 	response_harm_continuous = "robusts"
 	response_harm_simple = "robust"
-	speak = list("HONK", "Honk!", "Welcome to clown planet!")
-	emote_see = list("honks", "squeaks")
+	speak = list("ХОНК", "Хонк!")
+	emote_see = list("хонкает", "пищит")
 	speak_chance = 1
 	a_intent = INTENT_HARM
-	maxHealth = 75
-	health = 75
-	speed = 1
-	harm_intent_damage = 8
-	melee_damage_lower = 10
-	melee_damage_upper = 10
+	maxHealth = 50
+	health = 50
+	speed = 2
+	harm_intent_damage = 5
+	melee_damage_lower = 5
+	melee_damage_upper = 5
 	attack_sound = 'sound/items/bikehorn.ogg'
 	obj_damage = 0
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	del_on_death = 1
+	faction = list("clown")
 	loot = list(/obj/effect/mob_spawn/human/clown/corpse)
-
 	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 1, "min_co2" = 0, "max_co2" = 5, "min_n2" = 0, "max_n2" = 0)
-	minbodytemp = 270
-	maxbodytemp = 370
+	minbodytemp = 100
+	maxbodytemp = 600
 	unsuitable_atmos_damage = 10
 	footstep_type = FOOTSTEP_MOB_SHOE
+	see_in_dark = 8
+	lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
 	var/banana_time = 0 // If there's no time set it won't spawn.
 	var/banana_type = /obj/item/grown/bananapeel
 	var/attack_reagent
+	var/heal_time = 0
 
-/mob/living/simple_animal/hostile/retaliate/clown/handle_temperature_damage()
+//Добавляем переключение найтвижна всем клоунам
+/mob/living/simple_animal/hostile/clown/Initialize()
+	. = ..()
+	AddSpell(new /obj/effect/proc_holder/spell/targeted/night_vision)
+
+// Прок заселения госта во всех клоунов, кроме мамки
+/mob/living/simple_animal/hostile/clown/proc/humanize_clown(mob/user)
+	var/pod_ask = alert("Стать клоуном?", "Хонк?", "Да", "Нет")
+	if(pod_ask == "Нет" || !src || QDELETED(src))
+		return
+	if(key)
+		to_chat(user, "<span class='warning'>Кто-то уже занял этого клоуна!</span>")
+		return
+	key = user.key
+	log_game("[key_name(src)] took control of [name].")
+
+// Прок заселения госта в матку
+/mob/living/simple_animal/hostile/clown/proc/humanize_glutton(mob/user)
+	var/pod_ask = alert("Стать Апостолом клоунов?", "Хонк?", "Да", "Нет")
+	if(pod_ask == "Нет" || !src || QDELETED(src))
+		return
+	if(key)
+		to_chat(user, "<span class='warning'>Кто-то уже занял этого клоуна!</span>")
+		return
+	key = user.key
+	to_chat(src, "<B><font size=3 color=pink>Ты - Апостол Хонкоматери.</font></B>")
+	to_chat(src, "<B><font size=2 color=blue>Ты можешь пожирать трупы и перемалывать их в плоть внутри себя.</font></B>")
+	to_chat(src, "<B><font size=2 color=green>Плоть ты можешь использовать чтобы выращивать ее на полу или порождать клоунов.</font></B>")
+	to_chat(src, "<B><font size=2 color=red>Также ты можешь высасывать энергию из лампочек, залечивая свои раны.</font></B>")
+	log_game("[key_name(src)] took control of [name].")
+
+
+
+//Тык госта по клоуну активирует прок заселения
+/mob/living/simple_animal/hostile/clown/attack_ghost(mob/user)
+	. = ..()
+	if(.)
+		return
+	if(key)
+		return
+	if (istype(src, /mob/living/simple_animal/hostile/clown/mutant/glutton))
+		humanize_glutton(user)
+	else
+		humanize_clown(user)
+
+
+
+/mob/living/simple_animal/hostile/clown/handle_temperature_damage()
 	if(bodytemperature < minbodytemp)
 		adjustBruteLoss(10)
 		throw_alert("temp", /atom/movable/screen/alert/cold, 2)
@@ -48,28 +98,38 @@
 	else
 		clear_alert("temp")
 
-/mob/living/simple_animal/hostile/retaliate/clown/attack_hand(mob/living/carbon/human/M)
+/mob/living/simple_animal/hostile/clown/attack_hand(mob/living/carbon/human/M)
 	..()
 	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, TRUE)
 
-/mob/living/simple_animal/hostile/retaliate/clown/Life()
+/mob/living/simple_animal/hostile/clown/Life()
 	. = ..()
 	if(banana_time && banana_time < world.time)
 		var/turf/T = get_turf(src)
 		var/list/adjacent =  T.GetAtmosAdjacentTurfs(1)
 		new banana_type(pick(adjacent))
 		banana_time = world.time + rand(30,60)
+	if ((locate(/obj/structure/clownweeds) in src.loc))
+		if(heal_time < world.time)
+			if (src.health < src.maxHealth)
+				adjustHealth(-1)
+			heal_time = world.time + 10
+			if (istype(src, /mob/living/simple_animal/hostile/clown/mutant/glutton))
+				var/mob/living/simple_animal/hostile/clown/mutant/glutton/glutton = src
+				glutton.biomass += 1
 
-/mob/living/simple_animal/hostile/retaliate/clown/AttackingTarget()
+
+
+/mob/living/simple_animal/hostile/clown/AttackingTarget()
 	. = ..()
 	if(attack_reagent && . && isliving(target))
 		var/mob/living/L = target
 		if(L.reagents)
 			L.reagents.add_reagent(attack_reagent, rand(1,5))
 
-/mob/living/simple_animal/hostile/retaliate/clown/lube
-	name = "Living Lube"
-	desc = "A puddle of lube brought to life by the honkmother."
+/mob/living/simple_animal/hostile/clown/lube
+	name = "Склизкий клоун"
+	desc = "Желеподобное создание, посланное сюда Хонкоматерью."
 	icon_state = "lube"
 	icon_living = "lube"
 	turns_per_move = 1
@@ -77,16 +137,16 @@
 	response_help_simple = "dip a finger into"
 	response_disarm_continuous = "gently scoops and pours aside"
 	response_disarm_simple = "gently scoop and pour aside"
-	emote_see = list("bubbles", "oozes")
+	emote_see = list("булькает", "пузырится")
 	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam)
 
-/mob/living/simple_animal/hostile/retaliate/clown/lube/Initialize()
+/mob/living/simple_animal/hostile/clown/lube/Initialize()
 	. = ..()
 	AddElement(/datum/element/snailcrawl)
 
-/mob/living/simple_animal/hostile/retaliate/clown/banana
-	name = "Clownana"
-	desc = "A fusion of clown and banana DNA birthed from a botany experiment gone wrong."
+/mob/living/simple_animal/hostile/clown/banana
+	name = "Бананка"
+	desc = "Страшное слияние худших черт банана и клоуна."
 	icon_state = "banana tree"
 	icon_living = "banana tree"
 	response_disarm_continuous = "peels"
@@ -94,33 +154,33 @@
 	response_harm_continuous = "peels"
 	response_harm_simple = "peel"
 	turns_per_move = 1
-	speak = list("HONK", "Honk!", "YA-HONK!!!")
-	emote_see = list("honks", "bites into the banana", "plucks a banana off its head", "photosynthesizes")
+	speak = list("ХОНК", "Хонк!")
+	emote_see = list("хонкает", "вгрызается в банан", "берет банан с головы", "фотосинтезирует")
 	maxHealth = 120
 	health = 120
-	speed = -10
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap, /obj/item/seeds/banana)
+	speed = 1
+	loot = list(/obj/effect/mob_spawn/human/clown/corpse,/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap, /obj/item/seeds/banana)
 	banana_time = 20
 
-/mob/living/simple_animal/hostile/retaliate/clown/honkling
-	name = "Honkling"
-	desc = "A divine being sent by the Honkmother to spread joy. It's not dangerous, but it's a bit of a nuisance."
+/mob/living/simple_animal/hostile/clown/honkling
+	name = "Хонклинг"
+	desc = "Существо, посланное Хонкоматерью чтобы разносить веселье. Оно не опасно, но как-то напрягает..."
 	icon_state = "honkling"
 	icon_living = "honkling"
 	turns_per_move = 1
-	speed = -10
+	speed = -1
 	harm_intent_damage = 1
 	melee_damage_lower = 1
 	melee_damage_upper = 1
-	attack_verb_continuous = "cheers up"
-	attack_verb_simple = "cheer up"
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap, /obj/item/seeds/banana/bluespace)
+	attack_verb_continuous = "cheers"
+	attack_verb_simple = "cheers"
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap, /obj/item/seeds/banana/bluespace)
 	banana_type = /obj/item/grown/bananapeel
 	attack_reagent = /datum/reagent/consumable/laughter
 
-/mob/living/simple_animal/hostile/retaliate/clown/fleshclown
-	name = "Fleshclown"
-	desc = "A being forged out of the pure essence of pranking, cursed into existence by a cruel maker."
+/mob/living/simple_animal/hostile/clown/fleshclown
+	name = "Кожистый клоун"
+	desc = "На этом клоуне очень много кожи."
 	icon_state = "fleshclown"
 	icon_living = "fleshclown"
 	response_help_continuous = "reluctantly pokes"
@@ -134,21 +194,20 @@
 	speak_chance = 5
 	dextrous = TRUE
 	ventcrawler = VENTCRAWLER_ALWAYS
-	maxHealth = 140
-	health = 140
-	speed = -5
-	melee_damage_upper = 15
+	maxHealth = 150
+	health = 150
+	speed = 2
+	melee_damage_upper = 5
 	attack_verb_continuous = "limply slaps"
 	attack_verb_simple = "limply slap"
 	obj_damage = 5
-	loot = list(/obj/item/clothing/suit/hooded/bloated_human, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap)
+	loot = list(/obj/effect/mob_spawn/human/clown/corpse, /obj/item/clothing/suit/hooded/bloated_human, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
 
-/mob/living/simple_animal/hostile/retaliate/clown/longface
+/mob/living/simple_animal/hostile/clown/longface
 	name = "Longface"
 	desc = "Often found walking into the bar."
 	icon_state = "long face"
 	icon_living = "long face"
-	move_resist = INFINITY
 	turns_per_move = 10
 	response_help_continuous = "tries to awkwardly hug"
 	response_help_simple = "try to awkwardly hug"
@@ -159,23 +218,22 @@
 	speak = list("YA-HONK!!!")
 	emote_see = list("honks", "squeaks")
 	speak_chance = 60
-	maxHealth = 150
-	health = 150
+	maxHealth = 100
+	health = 100
 	pixel_x = -16
 	base_pixel_x = -16
-	speed = 10
-	harm_intent_damage = 5
-	melee_damage_lower = 5
+	speed = 1
+	harm_intent_damage = 8
+	melee_damage_lower = 10
 	attack_verb_continuous = "YA-HONKs"
 	attack_verb_simple = "YA-HONK"
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap)
+	loot = list(/obj/effect/mob_spawn/human/clown/corpse, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
 
-/mob/living/simple_animal/hostile/retaliate/clown/clownhulk
+/mob/living/simple_animal/hostile/clown/clownhulk
 	name = "Honk Hulk"
 	desc = "A cruel and fearsome clown. Don't make him angry."
 	icon_state = "honkhulk"
 	icon_living = "honkhulk"
-	move_resist = INFINITY
 	response_help_continuous = "tries desperately to appease"
 	response_help_simple = "try desperately to appease"
 	response_disarm_continuous = "foolishly pushes"
@@ -189,17 +247,16 @@
 	health = 400
 	pixel_x = -16
 	base_pixel_x = -16
-	speed = 2
-	harm_intent_damage = 15
-	melee_damage_lower = 15
+	speed = 3
+	melee_damage_lower = 20
 	melee_damage_upper = 20
 	attack_verb_continuous = "pummels"
 	attack_verb_simple = "pummel"
 	obj_damage = 30
 	environment_smash = ENVIRONMENT_SMASH_WALLS
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/item/soap)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
 
-/mob/living/simple_animal/hostile/retaliate/clown/clownhulk/chlown
+/mob/living/simple_animal/hostile/clown/clownhulk/chlown
 	name = "Chlown"
 	desc = "A real lunkhead who somehow gets all the girls."
 	icon_state = "chlown"
@@ -212,16 +269,18 @@
 	response_harm_simple = "make a weak beta attack at"
 	speak = list("HONK", "Honk!", "Bruh", "cheeaaaahhh?")
 	emote_see = list("asserts his dominance", "emasculates everyone implicitly")
-	maxHealth = 500
-	health = 500
-	speed = -2
-	armour_penetration = 20
+	maxHealth = 200
+	health = 200
+	speed = 1
+	harm_intent_damage = 15
+	melee_damage_lower = 15
+	melee_damage_upper = 20
 	attack_verb_continuous = "steals the girlfriend of"
 	attack_verb_simple = "steal the girlfriend of"
 	attack_sound = 'sound/items/airhorn2.ogg'
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/effect/particle_effect/foam, /obj/item/soap)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/effect/particle_effect/foam, /obj/item/soap)
 
-/mob/living/simple_animal/hostile/retaliate/clown/clownhulk/honcmunculus
+/mob/living/simple_animal/hostile/clown/clownhulk/honcmunculus
 	name = "Honkmunculus"
 	desc = "A slender wiry figure of alchemical origin."
 	icon_state = "honkmunculus"
@@ -235,17 +294,17 @@
 	speak_chance = 1
 	maxHealth = 200
 	health = 200
-	speed = -5
+	speed = 2
 	harm_intent_damage = 5
-	melee_damage_lower = 5
-	melee_damage_upper = 10
+	melee_damage_lower = 20
+	melee_damage_upper = 25
 	attack_verb_continuous = "ferociously mauls"
 	attack_verb_simple = "ferociously maul"
 	environment_smash = ENVIRONMENT_SMASH_NONE
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/xeno/bodypartless, /obj/effect/particle_effect/foam, /obj/item/soap)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
 	attack_reagent = /datum/reagent/peaceborg/confuse
 
-/mob/living/simple_animal/hostile/retaliate/clown/clownhulk/destroyer
+/mob/living/simple_animal/hostile/clown/clownhulk/destroyer
 	name = "The Destroyer"
 	desc = "An ancient being born of arcane honking."
 	icon_state = "destroyer"
@@ -265,14 +324,13 @@
 	attack_verb_simple = "act out divine vengeance on"
 	obj_damage = 50
 	environment_smash = ENVIRONMENT_SMASH_RWALLS
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/human, /obj/effect/particle_effect/foam, /obj/item/soap)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
 
-/mob/living/simple_animal/hostile/retaliate/clown/mutant
-	name = "Unknown"
-	desc = "Kill it for its own sake."
+/mob/living/simple_animal/hostile/clown/mutant
+	name = "Переполненный клоун"
+	desc = "Внутри него все движется и пульсирует!"
 	icon_state = "mutant"
 	icon_living = "mutant"
-	move_resist = INFINITY
 	turns_per_move = 10
 	response_help_continuous = "reluctantly sinks a finger into"
 	response_help_simple = "reluctantly sink a finger into"
@@ -283,34 +341,32 @@
 	speak = list("aaaaaahhhhuuhhhuhhhaaaaa", "AAAaaauuuaaAAAaauuhhh", "huuuuuh... hhhhuuuooooonnnnkk", "HuaUAAAnKKKK")
 	emote_see = list("squirms", "writhes", "pulsates", "froths", "oozes")
 	speak_chance = 10
-	maxHealth = 130
-	health = 130
+	maxHealth = 100
+	health = 100
 	pixel_x = -16
 	base_pixel_x = -16
-	speed = -5
-	harm_intent_damage = 10
-	melee_damage_lower = 10
-	melee_damage_upper = 20
+	speed = 2
+	harm_intent_damage = 8
+	melee_damage_lower = 8
+	melee_damage_upper = 8
 	attack_verb_continuous = "awkwardly flails at"
 	attack_verb_simple = "awkwardly flail at"
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/gibspawner/xeno/bodypartless, /obj/item/soap, /obj/effect/gibspawner/generic, /obj/effect/gibspawner/generic/animal, /obj/effect/gibspawner/human/bodypartless, /obj/effect/gibspawner/human)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /mob/living/simple_animal/hostile/clown/worm, /mob/living/simple_animal/hostile/clown/worm, /obj/effect/particle_effect/foam)
 
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/slow
-	speed = 20
-	move_to_delay = 60
-
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton
-	name = "banana glutton"
-	desc = "Something that was once a clown"
+// Основной производящий юнит армии клоунов, матка
+/mob/living/simple_animal/hostile/clown/mutant/glutton
+	name = "Апостол Хонкоматери"
+	desc = "Одно из бесчисленных воплощений воли Хонкоматери"
 	icon_state = "glutton"
 	icon_living = "glutton"
 	speak = list("hey, buddy", "HONK!!!", "H-h-h-H-HOOOOONK!!!!", "HONKHONKHONK!!!", "HEY, BUCKO, GET BACK HERE!!!", "HOOOOOOOONK!!!")
 	emote_see = list("jiggles", "wobbles")
-	health = 200
+	maxHealth = 1800
+	health = 1800
 	mob_size = MOB_SIZE_LARGE
-	speed = 1
-	melee_damage_lower = 10
-	melee_damage_upper = 15
+	speed = 5
+	melee_damage_lower = 20
+	melee_damage_upper = 25
 	force_threshold = 10 //lots of fat to cushion blows.
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, CLONE = 2, STAMINA = 0, OXY = 1)
 	attack_verb_continuous = "slams"
@@ -318,128 +374,485 @@
 	loot = list(/obj/effect/gibspawner/xeno/bodypartless, /obj/effect/gibspawner/generic, /obj/effect/gibspawner/generic/animal, /obj/effect/gibspawner/human/bodypartless)
 	deathsound = 'sound/misc/sadtrombone.ogg'
 	food_type = list(/obj/item/food/cheesiehonkers, /obj/item/food/cornchips)
-	tame_chance = 30
-	///This is the list of items we are ready to regurgitate,
-	var/list/prank_pouch = list()
-	///This ability lets you fire a single random item from your pouch.
-	var/obj/effect/proc_holder/regurgitate/my_regurgitate
-
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/Initialize()
+	var/obj/effect/proc_holder/spell/aoe_turf/Lighteater/my_regurgitate
+	var/biomass = 70
+	var/datum/action/innate/glutton/open_portal/open_portal
+	var/datum/action/innate/glutton/clown1/clown1
+	var/datum/action/innate/glutton/clown2/clown2
+	var/datum/action/innate/glutton/clown3/clown3
+	var/datum/action/innate/glutton/plantSkin/plantSkin
+/mob/living/simple_animal/hostile/clown/mutant/glutton/get_status_tab_items()
 	. = ..()
-	my_regurgitate = new
-	AddAbility(my_regurgitate)
-	add_cell_sample()
+	. += "Плоть: [biomass]"
 
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/attacked_by(obj/item/I, mob/living/user)
-	if(!check_edible(I))
-		return ..()
-	eat_atom(I)
+/mob/living/simple_animal/hostile/clown/infestor
+	name = "Разносчик радости"
+	desc = "Не подпускай его к трупам своих друзей!."
+	icon_state = "clown_spider"
+	icon_living = "clown_spider"
+	icon_dead = "clown_spider_dead"
+	mob_biotypes = MOB_ORGANIC|MOB_BUG
+	speak_emote = list("chitters")
+	emote_hear = list("chitters")
+	speak_chance = 5
+	speed = 0
+	turns_per_move = 5
+	see_in_dark = 4
+	response_help_continuous = "pets"
+	response_help_simple = "pet"
+	response_disarm_continuous = "gently pushes aside"
+	response_disarm_simple = "gently push aside"
+	maxHealth = 250
+	health = 250
+	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, CLONE = 1, STAMINA = 1, OXY = 1)
+	melee_damage_lower = 25
+	melee_damage_upper = 25
+	pass_flags = PASSTABLE
+	move_to_delay = 6
+	attack_verb_continuous = "кусает"
+	attack_verb_simple = "кусает"
+	footstep_type = FOOTSTEP_MOB_CLAW
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam)
 
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/AttackingTarget(atom/attacked_target)
-	if(!check_edible(attacked_target))
-		return ..()
-	eat_atom(attacked_target)
+/mob/living/simple_animal/hostile/clown/worm
+	name = "Хонкочервь"
+	desc = "Смешной червячок. Обычно ползает рядом с внутренностями."
+	icon_state = "clown_worm"
+	icon_living = "clown_worm"
+	speak_emote = list("hisses")
+	health = 20
+	maxHealth = 20
+	speed = 1
+	attack_verb_continuous = "кусает"
+	attack_verb_simple = "кусает"
+	melee_damage_lower = 5
+	melee_damage_upper = 6
+	response_help_continuous = "pets"
+	response_help_simple = "pet"
+	response_disarm_continuous = "shoos"
+	response_disarm_simple = "shoo"
+	response_harm_continuous = "steps on"
+	response_harm_simple = "step on"
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam)
+	ventcrawler = VENTCRAWLER_ALWAYS
+	density = FALSE
+	pass_flags = PASSTABLE | PASSMOB
+	mob_size = MOB_SIZE_SMALL
+	mob_biotypes = MOB_ORGANIC|MOB_BEAST|MOB_REPTILE
+	environment_smash = ENVIRONMENT_SMASH_NONE
 
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/UnarmedAttack(atom/A)
-	if(!check_edible(A))
-		return ..()
-	eat_atom(A)
 
-///Returns whether or not the supplied movable atom is edible.
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/proc/check_edible(atom/movable/potential_food)
-	if(isliving(potential_food))
-		var/mob/living/living_morsel = potential_food
-		if(living_morsel.mob_size > MOB_SIZE_SMALL)
-			return FALSE
-		else
-			return TRUE
+// Добавляем абилки матери
+/mob/living/simple_animal/hostile/clown/mutant/glutton/Initialize()
+	. = ..()
+	AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/lighteater)
+	open_portal = new
+	open_portal.Grant(src)
+	plantSkin = new
+	plantSkin.Grant(src)
+	clown1 = new
+	clown1.Grant(src)
+	clown2 = new
+	clown2.Grant(src)
+	clown3 = new
+	clown3.Grant(src)
 
-	if(IS_EDIBLE(potential_food))
-		if(prank_pouch.len >= 8)
-			to_chat(src, "<span class='warning'>Your prank pouch is filled to the brim! You don't think you can swallow any more morsels right now.</span>")
-			return FALSE
+
+
+//Пожирание трупов матерью
+/mob/living/simple_animal/hostile/clown/mutant/glutton/proc/eat(atom/movable/A)
+	if(A && A.loc != src)
+		playsound(src, 'sound/items/eatfood.ogg', 100, TRUE)
+		visible_message("<span class='warning'>[capitalize(src.name)] пожирает [A]!</span>")
+		biomass += 50
+		qdel(A)
 		return TRUE
+	return FALSE
 
-///This proc eats the atom, certain funny items are stored directly in the prank pouch while bananas grant a heal based on their potency and the peels are retained in the pouch.
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/proc/eat_atom(atom/movable/eaten_atom)
-
-	var/static/funny_items = list(/obj/item/food/pie/cream,
-								/obj/item/food/grown/tomato,
-								/obj/item/food/meatclown)
-
-	visible_message("<span class='warning>[src] eats [eaten_atom]!</span>", "<span class='notice'>You eat [eaten_atom].</span>")
-	if(is_type_in_list(eaten_atom, funny_items))
-		eaten_atom.forceMove(src)
-		prank_pouch += eaten_atom
-
-	else if(istype(eaten_atom, /obj/item/food/grown/banana))
-		var/obj/item/food/grown/banana/banana_morsel = eaten_atom
-		adjustBruteLoss(-banana_morsel.seed.potency * 0.25)
-		prank_pouch += banana_morsel.generate_trash(src)
-		qdel(eaten_atom)
+/mob/living/simple_animal/hostile/clown/mutant/glutton/AttackingTarget(atom/attacked_target)
+	if(isliving(target))
+		var/mob/living/L = target
+		if(L.stat == DEAD)
+			to_chat(src, "<span class='warning'>Начинаю проглатывать [L]...</span>")
+			if(do_after_mob(src, L, 2 SECONDS))
+				eat(L)
+			return
+		else
+			. = ..()
 	else
-		qdel(eaten_atom)
-	playsound(loc,'sound/items/eatfood.ogg', rand(30,50), TRUE)
-	flick("glutton_mouth", src)
+		. = ..()
 
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/tamed()
-	. = ..()
-	can_buckle = TRUE
-	buckle_lying = 0
-	AddElement(/datum/element/ridable, /datum/component/riding/creature/glutton)
+//Превращение трупа в червивого пидора пауком
+/mob/living/simple_animal/hostile/clown/infestor/proc/eat(atom/movable/A)
+	if(A && A.loc != src)
+		playsound(src, 'sound/effects/splat.ogg', 100, TRUE)
+		new /mob/living/simple_animal/hostile/clown/mutant(A.loc)
+		new /obj/effect/particle_effect/foam(get_turf(A.loc))
+		visible_message("<span class='warning'>[capitalize(src.name)] заражает тело [A] хонкочервями!</span>")
+		qdel(A)
+		return TRUE
+	return FALSE
 
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/add_cell_sample()
-	AddElement(/datum/element/swabable, CELL_LINE_TABLE_GLUTTON, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
+/mob/living/simple_animal/hostile/clown/infestor/AttackingTarget(atom/attacked_target)
+	if(isliving(target))
+		var/mob/living/L = target
+		if(L.stat == DEAD)
+			to_chat(src, "<span class='warning'>Начинаю заражать труп [L]...</span>")
+			if(do_after_mob(src, L, 6 SECONDS))
+				eat(L)
+			return
+		else
+			. = ..()
+	else
+		. = ..()
 
-/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/Exited(atom/movable/AM, atom/newLoc)
-	. = ..()
-	prank_pouch -= AM
+//Клоуны - ночные животные, поэтому должны видеть в темноте
+/obj/effect/proc_holder/spell/targeted/night_vision
+	name = "Toggle Nightvision \[ON\]"
+	desc = "Toggle your nightvision mode."
+	charge_max = 10
+	clothes_req = 0
+	action_background_icon_state = "bg_changeling"
+	message = "<span class='notice'>You toggle your night vision!</span>"
+	range = -1
+	include_user = 1
 
-///This ability will let you fire one random item from your pouch,
-/obj/effect/proc_holder/regurgitate
-	name = "Regurgitate"
-	desc = "Regurgitates a single item from the depths of your pouch."
+/obj/effect/proc_holder/spell/targeted/night_vision/cast(list/targets, mob/user = usr)
+	for(var/mob/living/target in targets)
+		switch(target.lighting_alpha)
+			if (LIGHTING_PLANE_ALPHA_VISIBLE)
+				target.lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
+				name = "Toggle Nightvision \[More]"
+			if (LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE)
+				target.lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+				name = "Toggle Nightvision \[Full]"
+			if (LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE)
+				target.lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
+				name = "Toggle Nightvision \[OFF]"
+			else
+				target.lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
+				name = "Toggle Nightvision \[ON]"
+		target.update_sight()
+
+
+//Жрет свет и лечит себя + атмосфэра
+/obj/effect/proc_holder/spell/aoe_turf/lighteater
+	name = "Поглотить свет"
+	desc = "Поглощает свет из ближайших лампочек."
 	action_background_icon_state = "bg_changeling"
 	action_icon = 'icons/mob/actions/actions_animal.dmi'
 	action_icon_state = "regurgitate"
-	active = FALSE
+	charge_max = 300
+	clothes_req = 0
+	range = 14
 
-/obj/effect/proc_holder/regurgitate/Click(location, control, params)
-	. = ..()
-	if(!isliving(usr))
-		return TRUE
-	var/mob/living/user = usr
-	fire(user)
 
-/obj/effect/proc_holder/regurgitate/fire(mob/living/carbon/user)
-	if(active)
-		user.icon_state = initial(user.icon_state)
-		remove_ranged_ability("<span class='notice'>Your throat muscles relax.</span>")
+/obj/effect/proc_holder/spell/aoe_turf/lighteater/cast(list/targets, mob/living/simple_animal/hostile/clown/mutant/glutton/user = usr)
+	flick("glutton_tongue",usr)
+	for(var/obj/machinery/light/L in view(6, user))
+		if (L.icon_state != "tube-broken")
+			user.adjustHealth(-50)
+		L.on = 1
+		L.break_light_tube()
+	for(var/mob/living/M in get_hearers_in_view(4, user))
+		SEND_SOUND(M, sound('sound/effects/screech.ogg'))
+	to_chat(user, "<span class='notice'>Издаю ужасающий визг, высасывая энергию из лампочек вокруг!</span>")
+	return
+
+
+// Создание спавнера
+/datum/action/innate/glutton/open_portal
+	name = "Открыть разлом(300)"
+	desc = "Открыть разлом в измерение клоунов."
+	check_flags = AB_CHECK_CONSCIOUS
+	icon_icon = 'icons/obj/device.dmi'
+	button_icon_state = "clownbeacon"
+	background_icon_state = "bg_changeling"
+
+//Создание обычного клоуна
+/datum/action/innate/glutton/clown1
+	name = "Слепить клоуна(50)"
+	desc = "Слепить обычного клоуна из плоти."
+	check_flags = AB_CHECK_CONSCIOUS
+	icon_icon = 'icons/mob/actions/actions_clown.dmi'
+	button_icon_state = "clown1"
+	background_icon_state = "bg_changeling"
+
+//Создание среднего клоуна
+/datum/action/innate/glutton/clown2
+	name = "Слепить необычного клоуна(75)"
+	desc = "Взять немного больше плоти и сделать необычного клоуна."
+	check_flags = AB_CHECK_CONSCIOUS
+	icon_icon = 'icons/mob/actions/actions_clown.dmi'
+	button_icon_state = "clown2"
+	background_icon_state = "bg_changeling"
+
+//Создание большого клоуна
+/datum/action/innate/glutton/clown3
+	name = "Слепить клоуна-чудовище(200)"
+	desc = "Взять плоть, набранную из многих тел и создать монстра."
+	check_flags = AB_CHECK_CONSCIOUS
+	icon_icon = 'icons/mob/actions/actions_clown.dmi'
+	button_icon_state = "clown3"
+	background_icon_state = "bg_changeling"
+
+
+/datum/action/innate/glutton/open_portal/Activate()
+	if(!istype(owner, /mob/living/simple_animal/hostile/clown/mutant/glutton))
+		return
+	var/mob/living/simple_animal/hostile/clown/mutant/glutton/glutton = owner
+
+	if(!isturf(glutton.loc))
+		return
+	var/turf/glutton_turf = get_turf(glutton)
+
+	var/obj/structure/spawner/clown/spawner = locate() in glutton_turf
+	if(spawner)
+		to_chat(glutton, "<span class='warning'>Здесь уже есть портал!</span>")
+		return
+
+	if (glutton.biomass < 300)
+		to_chat(glutton, "<span class ='notice'>Недостаточно плоти!</span>")
+		return FALSE
 	else
-		user.icon_state = "glutton_tongue"
-		add_ranged_ability(user, "<span class='notice'>Your throat muscles tense up. <B>Left-click to regurgitate a funny morsel!</B></span>", TRUE)
+		playsound(src, 'sound/effects/splat.ogg', 100, TRUE)
+		to_chat(glutton, "<span class='notice'>Леплю из собранной плоти смешную голову клоуна!</span>")
+		new /obj/structure/spawner/clown(glutton_turf)
+		glutton.biomass -= 300
 
-/obj/effect/proc_holder/regurgitate/InterceptClickOn(mob/living/caller, params, atom/target)
+/datum/action/innate/glutton/clown1/Activate()
+	if(!istype(owner, /mob/living/simple_animal/hostile/clown/mutant/glutton))
+		return
+	var/mob/living/simple_animal/hostile/clown/mutant/glutton/glutton = owner
+
+	if(!isturf(glutton.loc))
+		return
+	var/turf/glutton_turf = get_turf(glutton)
+
+	if (glutton.biomass < 50)
+		to_chat(glutton, "<span class ='notice'>Недостаточно плоти!</span>")
+		return FALSE
+	else
+		playsound(glutton, 'sound/effects/splat.ogg', 100, TRUE)
+		to_chat(glutton, "<span class='notice'>Создаю из собранной плоти нового клоуна!</span>")
+		new /mob/living/simple_animal/hostile/clown(glutton_turf)
+		glutton.biomass -= 50
+
+/datum/action/innate/glutton/clown2/Activate()
+	if(!istype(owner, /mob/living/simple_animal/hostile/clown/mutant/glutton))
+		return
+	var/mob/living/simple_animal/hostile/clown/mutant/glutton/glutton = owner
+
+	if(!isturf(glutton.loc))
+		return
+	var/turf/glutton_turf = get_turf(glutton)
+
+	if (glutton.biomass < 75)
+		to_chat(glutton, "<span class ='notice'>Недостаточно плоти!</span>")
+		return FALSE
+	else
+		playsound(glutton, 'sound/effects/splat.ogg', 100, TRUE)
+		to_chat(glutton, "<span class='notice'>Создаю из собранной плоти необычного клоуна!</span>")
+		var/moblist = list(/mob/living/simple_animal/hostile/clown/banana, /mob/living/simple_animal/hostile/clown/mutant, /mob/living/simple_animal/hostile/clown/fleshclown, /mob/living/simple_animal/hostile/clown/longface, /mob/living/simple_animal/hostile/clown/honkling, /mob/living/simple_animal/hostile/clown/lube)
+		var/spawnedmob = pick(moblist)
+		new spawnedmob(glutton_turf)
+		glutton.biomass -= 75
+
+/datum/action/innate/glutton/clown3/Activate()
+	if(!istype(owner, /mob/living/simple_animal/hostile/clown/mutant/glutton))
+		return
+	var/mob/living/simple_animal/hostile/clown/mutant/glutton/glutton = owner
+
+	if(!isturf(glutton.loc))
+		return
+	var/turf/glutton_turf = get_turf(glutton)
+
+	if (glutton.biomass < 200)
+		to_chat(glutton, "<span class ='notice'>Недостаточно плоти!</span>")
+		return FALSE
+	else
+		playsound(glutton, 'sound/effects/splat.ogg', 100, TRUE)
+		to_chat(glutton, "<span class='notice'>Создаю из собранной плоти сильного клоуна!</span>")
+		var/moblist = list(/mob/living/simple_animal/hostile/clown/clownhulk,  /mob/living/simple_animal/hostile/clown/infestor,  /mob/living/simple_animal/hostile/clown/clownhulk/chlown, /mob/living/simple_animal/hostile/clown/clownhulk/honcmunculus)
+		var/spawnedmob = pick(moblist)
+		new spawnedmob(glutton_turf)
+		glutton.biomass -= 200
+
+//Направление клоунов в точку матерью
+
+/mob/living/simple_animal/hostile/clown/mutant/glutton/MiddleClickOn(atom/A)
+	. = ..()
+	var/turf/T = get_turf(A)
+	if(T)
+		rally_clowns(T)
+
+/mob/living/simple_animal/hostile/clown/mutant/glutton/verb/rally_clowns_power()
+	set category = "Blob"
+	set name = "Rally Clowns"
+	set desc = "Rally your clowns to move to a target location."
+	var/turf/T = get_turf(src)
+	rally_clowns(T)
+
+/mob/living/simple_animal/hostile/clown/mutant/glutton/proc/rally_clowns(turf/T)
+	to_chat(src, "Приказываю клоунам идти.")
+	var/list/surrounding_turfs = block(locate(T.x - 1, T.y - 1, T.z), locate(T.x + 1, T.y + 1, T.z))
+	if(!surrounding_turfs.len)
+		return
+	for(var/mob/living/simple_animal/hostile/clown/BS in range(15, T))
+		if(!BS.key)
+			if(isturf(BS.loc) && get_dist(BS, T) <= 35 && !BS.key)
+				BS.LoseTarget()
+				BS.Goto(pick(surrounding_turfs), BS.move_to_delay)
+
+
+// Кожистый пол
+#define NODERANGE 6
+/obj/structure/clownweeds
+	gender = PLURAL
+	name = "кожистый пол"
+	desc = "Толстый слой кожи и мяса, покрывающий пол."
+	anchored = TRUE
+	density = FALSE
+	layer = TURF_LAYER
+	plane = FLOOR_PLANE
+	icon = 'icons/obj/smooth_structures/alien/weeds1.dmi'
+	icon_state = "weeds1-0"
+	base_icon_state = "weeds1"
+	max_integrity = 15
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_ALIEN_RESIN, SMOOTH_GROUP_ALIEN_WEEDS)
+	canSmoothWith = list(SMOOTH_GROUP_ALIEN_WEEDS, SMOOTH_GROUP_WALLS)
+	var/last_expand = 0 //last world.time this weed expanded
+	var/growth_cooldown_low = 150
+	var/growth_cooldown_high = 200
+	var/static/list/blacklisted_turfs
+
+/obj/structure/clownweeds/Initialize()
+	pixel_x = -4
+	pixel_y = -4 //so the sprites line up right in the map editor
+
 	. = ..()
 
-	if(.)
+	if(!blacklisted_turfs)
+		blacklisted_turfs = typecacheof(list(
+			/turf/open/space,
+			/turf/open/chasm,
+			/turf/open/lava,
+			/turf/open/openspace))
+
+	set_base_icon()
+
+	last_expand = world.time + rand(growth_cooldown_low, growth_cooldown_high)
+
+
+///Randomizes the weeds' starting icon, gets redefined by children for them not to share the behavior.
+/obj/structure/clownweeds/proc/set_base_icon()
+	. = base_icon_state
+	icon = 'icons/obj/smooth_structures/alien/clownweeds1.dmi'
+	base_icon_state = "weeds1"
+	set_smoothed_icon_state(smoothing_junction)
+
+
+/obj/structure/clownweeds/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/atmos_sensitive)
+
+/obj/structure/clownweeds/proc/expand()
+	var/turf/U = get_turf(src)
+	if(is_type_in_typecache(U, blacklisted_turfs))
+		qdel(src)
+		return FALSE
+	for(var/turf/T in U.GetAtmosAdjacentTurfs())
+		if(locate(/obj/structure/clownweeds/) in T)
+			continue
+
+		if(is_type_in_typecache(T, blacklisted_turfs))
+			continue
+
+		new /obj/structure/clownweeds/(T)
+		for (var/turf/V in range(1,T))
+			if(istype(V, /turf/closed/wall))
+				V.ChangeTurf(/turf/closed/wall/clown)
+
+	return TRUE
+
+/obj/structure/clownweeds/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
+	return exposed_temperature > 300
+
+/obj/structure/clownweeds/atmos_expose(datum/gas_mixture/air, exposed_temperature)
+	take_damage(5, BURN, 0, 0)
+
+//Weed nodes
+/obj/structure/clownweeds/node
+	name = "рассадник кожи"
+	desc = "На этом участке кожи много странных розовых прыщей."
+	icon = 'icons/obj/smooth_structures/alien/clownnode.dmi'
+	icon_state = "weednode-0"
+	base_icon_state = "weednode"
+	var/lon_range = 4
+	var/node_range = NODERANGE
+
+
+/obj/structure/clownweeds/node/Initialize()
+	. = ..()
+	var/obj/structure/clownweeds/W = locate(/obj/structure/clownweeds/) in loc
+	if(W && W != src)
+		qdel(W)
+	START_PROCESSING(SSobj, src)
+
+
+/obj/structure/clownweeds/node/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	return ..()
+
+
+/obj/structure/clownweeds/node/process()
+	for(var/obj/structure/clownweeds/W in range(node_range, src))
+		if(W.last_expand <= world.time)
+			if(W.expand())
+				W.last_expand = world.time + rand(growth_cooldown_low, growth_cooldown_high)
+
+
+/obj/structure/clownweeds/node/set_base_icon()
+	return //No icon randomization at init. The node's icon is already well defined.
+
+// посадка кожи
+/datum/action/innate/glutton/plantSkin
+	name = "Вырастить кожу(25)"
+	desc = "Выращивает на полу рассадник кожи."
+	icon_icon = 'icons/mob/actions/actions_clown.dmi'
+	button_icon_state = "alien_plant"
+	background_icon_state = "bg_changeling"
+
+
+/datum/action/innate/glutton/plantSkin/Activate()
+	if(!istype(owner, /mob/living/simple_animal/hostile/clown/mutant/glutton))
 		return
+	var/mob/living/simple_animal/hostile/clown/mutant/glutton/glutton = owner
 
-	if(!istype(ranged_ability_user, /mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton) || ranged_ability_user.stat)
-		remove_ranged_ability()
+	if(!isturf(glutton.loc))
 		return
+	var/turf/glutton_turf = get_turf(glutton)
 
-	var/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton/pouch_owner = ranged_ability_user
-	if(!pouch_owner.prank_pouch.len)
-		//active = FALSE
-		pouch_owner.icon_state = "glutton"
-		remove_ranged_ability("<span class='notice'>Your prank pouch is empty,.</span>")
-		return
+	if (glutton.biomass < 25)
+		to_chat(glutton, "<span class='warning'>Недостаточно плоти!</span>")
+		return FALSE
+	if(locate(/obj/structure/clownweeds/node/) in glutton_turf)
+		to_chat(glutton, "<span class='warning'>Здесь уже есть рассадник кожи!</span>")
+		return FALSE
+	glutton.visible_message("<span class='alertalien'>[glutton] выращивает на полу рассадник кожи!</span>")
+	new/obj/structure/clownweeds/node/(glutton.loc)
+	glutton.biomass = glutton.biomass - 25
+	return TRUE
 
-	var/obj/item/projected_morsel = pick(pouch_owner.prank_pouch)
-	projected_morsel.forceMove(pouch_owner.loc)
-	projected_morsel.throw_at(target, 8, 2, pouch_owner)
-	flick("glutton_mouth", pouch_owner)
-	playsound(pouch_owner, 'sound/misc/soggy.ogg', 75)
 
+
+/turf/closed/wall/clown
+	name = "Кожистая стена"
+	desc = "Эта стена покрыта кожей."
+	icon = 'icons/obj/smooth_structures/alien/clownwall.dmi'
+	icon_state = "resin_wall-0"
+	base_icon_state = "resin_wall"
+	smoothing_groups = list(SMOOTH_GROUP_ALIEN_RESIN, SMOOTH_GROUP_ALIEN_WALLS)
+	canSmoothWith = list(SMOOTH_GROUP_ALIEN_WALLS)
 

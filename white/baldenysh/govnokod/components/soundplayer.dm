@@ -3,7 +3,7 @@
 
 	var/sound/cursound
 	var/active = FALSE
-	var/playing_range = 15
+	var/playing_range = 32
 	var/list/listener_comps = list()
 
 	var/environmental = TRUE
@@ -47,11 +47,11 @@
 			continue
 		var/datum/component/soundplayer_listener/SPL = M.AddComponent(/datum/component/soundplayer_listener, src)
 		listener_comps += SPL
-		SPL.update_sound()
+		INVOKE_ASYNC(SPL, /datum/component/soundplayer_listener.proc/update_sound)
 
 /datum/component/soundplayer/proc/update_sounds()
 	for(var/datum/component/soundplayer_listener/SPL in listener_comps)
-		SPL.update_sound()
+		INVOKE_ASYNC(SPL, /datum/component/soundplayer_listener.proc/update_sound)
 
 /datum/component/soundplayer/proc/stop_sounds()
 	active = FALSE
@@ -136,20 +136,17 @@
 	S.channel = myplayer.playing_channel
 	var/turf/TT = get_turf(listener)
 	var/turf/MT = get_turf(myplayer.soundsource)
-	var/dist = get_dist(TT, MT)
+	if(!TT || !MT)
+		return
+	var/dist = cheap_hypotenuse(TT.x, TT.y, MT.x, MT.y)
 	if(dist <= myplayer.playing_range && TT.z == MT.z)
-		var/vol = myplayer.playing_volume - max((dist - myplayer.playing_range * 2), 0)
-		S.volume = vol
+		if(myplayer.environmental && MT && TT)
+			S.volume = myplayer.playing_volume - max(dist * round(myplayer.playing_range/8), 0)
+		else
+			S.volume = myplayer.playing_volume
 		S.falloff = myplayer.playing_falloff
 		S.environment = myplayer.env_id
 	else
 		S.volume = 0
-
-	if(myplayer.environmental && MT && TT)
-		S.x = MT.x - TT.x
-		S.z = MT.y - TT.y
-	else
-		S.x = 0
-		S.z = 1
 	SEND_SOUND(listener, S)
 	S.volume = 0

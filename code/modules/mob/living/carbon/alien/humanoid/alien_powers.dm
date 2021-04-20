@@ -17,10 +17,6 @@ Doesn't work on other aliens/AI.*/
 	action_icon_state = "spell_default"
 	action_background_icon_state = "bg_alien"
 
-/obj/effect/proc_holder/alien/Initialize()
-	. = ..()
-	action = new(src)
-
 /obj/effect/proc_holder/alien/Click()
 	if(!iscarbon(usr))
 		return 1
@@ -92,7 +88,7 @@ Doesn't work on other aliens/AI.*/
 	var/list/options = list()
 	for(var/mob/living/Ms in oview(user))
 		options += Ms
-	var/mob/living/M = input("Select who to whisper to:","Whisper to?",null) as null|mob in sortNames(options)
+	var/mob/living/M = tgui_input_list(user, "Select who to whisper to:","Whisper to?", sortNames(options))
 	if(!M)
 		return FALSE
 	if(M.anti_magic_check(FALSE, FALSE, TRUE, 0))
@@ -127,7 +123,7 @@ Doesn't work on other aliens/AI.*/
 	for(var/mob/living/carbon/A  in oview(user))
 		if(A.getorgan(/obj/item/organ/alien/plasmavessel))
 			aliens_around.Add(A)
-	var/mob/living/carbon/M = input("Select who to transfer to:","Transfer plasma to?",null) as mob in sortNames(aliens_around)
+	var/mob/living/carbon/M = tgui_input_list(user, "Select who to transfer to:","Transfer plasma to?", sortNames(aliens_around))
 	if(!M)
 		return
 	var/amount = input("Amount:", "Transfer Plasma to [M]") as num|null
@@ -168,7 +164,11 @@ Doesn't work on other aliens/AI.*/
 
 
 /obj/effect/proc_holder/alien/acid/fire(mob/living/carbon/alien/user)
-	var/O = input("Select what to dissolve:","Dissolve",null) as obj|turf in oview(1,user)
+	var/list/L = list()
+	for (var/atom/i in oview(1, user))
+		if (istype(i, /turf) || istype(i, /obj))
+			L+=i
+	var/O = tgui_input_list(user, "Select what to dissolve:","Dissolve", L)
 	if(!O || user.incapacitated())
 		return FALSE
 	else
@@ -272,7 +272,7 @@ Doesn't work on other aliens/AI.*/
 	if(!check_vent_block(user))
 		return FALSE
 
-	var/choice = input("Choose what you wish to shape.","Resin building") as null|anything in structures
+	var/choice = tgui_input_list(user, "Choose what you wish to shape.","Resin building", structures)
 	if(!choice)
 		return FALSE
 	if (!cost_check(check_turf,user))

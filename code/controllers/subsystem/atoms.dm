@@ -17,13 +17,11 @@ SUBSYSTEM_DEF(atoms)
 	initialized = INITIALIZATION_INSSATOMS
 
 /datum/controller/subsystem/atoms/Initialize(timeofday)
-	SStitle.set_load_state("atoms1")
 	GLOB.fire_overlay.appearance_flags = RESET_COLOR
 	setupGenetics() //to set the mutations' sequence
 
 	initialized = INITIALIZATION_INNEW_MAPLOAD
 	InitializeAtoms()
-	SStitle.set_load_state("atoms2")
 	initialized = INITIALIZATION_INNEW_REGULAR
 	return ..()
 

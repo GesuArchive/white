@@ -22,7 +22,7 @@
 	if(istype(wear_mask, /obj/item/clothing/mask/infiltrator))
 		var/obj/item/clothing/mask/infiltrator/V = wear_mask
 		if(V.voice_unknown)
-			return ("Unknown")
+			return ("Неизвестный")
 		else
 			return real_name
 	if(mind)
@@ -83,4 +83,4 @@
 
 /mob/living/carbon/human/get_alt_name()
 	if(name != GetVoice())
-		return " (как [get_id_name("Unknown")])"\
+		return " (как [get_id_name("Неизвестный")])"\

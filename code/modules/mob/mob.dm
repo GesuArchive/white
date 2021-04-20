@@ -424,11 +424,6 @@
 				client.eye = loc
 		return 1
 
-/// Show the mob's inventory to another mob
-/mob/proc/show_inv(mob/user)
-	return
-
-
 /**
  * Examine a mob
  *
@@ -438,7 +433,7 @@
  */
 /mob/verb/examinate(atom/A as mob|obj|turf in view()) //It used to be oview(12), but I can't really say why
 	set name = "Осмотреть"
-	set category = "IC"
+	set category = null
 
 	if(isturf(A) && !(sight & SEE_TURFS) && !(A in view(client ? client.view : world.view, src)))
 		// shift-click catcher may issue examinate() calls for out-of-sight turfs
@@ -547,11 +542,11 @@
 
 	// check to see if their face is blocked or, if not, a signal blocks it
 	if(examined_mob.is_face_visible() && SEND_SIGNAL(src, COMSIG_MOB_EYECONTACT, examined_mob, TRUE) != COMSIG_BLOCK_EYECONTACT)
-		var/msg = "<span class='smallnotice'>You make eye contact with [examined_mob].</span>"
+		var/msg = "<span class='smallnotice'>[capitalize(examined_mob)] смотрит прямо на меня.</span>"
 		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, src, msg), 3) // so the examine signal has time to fire and this will print after
 
 	if(is_face_visible() && SEND_SIGNAL(examined_mob, COMSIG_MOB_EYECONTACT, src, FALSE) != COMSIG_BLOCK_EYECONTACT)
-		var/msg = "<span class='smallnotice'>[capitalize(src.name)] makes eye contact with you.</span>"
+		var/msg = "<span class='smallnotice'>[capitalize(src.name)] смотрит прямо на меня.</span>"
 		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, examined_mob, msg), 3)
 
 /**
@@ -569,7 +564,7 @@
  */
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Показать на..."
-	set category = "IC"
+	set category = null
 
 	if(client && !(A in view(client.view, src)))
 		return FALSE
@@ -578,6 +573,7 @@
 
 	point_at(A)
 
+	SEND_SIGNAL(src, COMSIG_MOB_POINTED, A)
 	return TRUE
 
 /**
@@ -632,7 +628,7 @@
  */
 /mob/verb/mode()
 	set name = "Использовать предмет в руке"
-	set category = "Объект"
+	set category = null
 	set src = usr
 
 	if(ismecha(loc))
@@ -783,13 +779,7 @@
 			else
 				user.stripPanelEquip(what,src,slot)
 
-		if(user.machine == src)
-			if(Adjacent(user))
-				show_inv(user)
-			else
-				user << browse(null,"window=mob[REF(src)]")
-
-// The src mob пытается strip an item from someone
+// The src mob is trying to strip an item from someone
 // Defined in living.dm
 /mob/proc/stripPanelUnequip(obj/item/what, mob/who)
 	return
@@ -812,24 +802,6 @@
 		return
 	if(isAI(M))
 		return
-/**
- * Handle the result of a click drag onto this mob
- *
- * For mobs this just shows the inventory
- */
-/mob/MouseDrop_T(atom/dropping, atom/user)
-	. = ..()
-
-	// Our mouse drop has already been handled by something else. Most likely buckling code.
-	// Since it has already been handled, we don't need to show inventory.
-	if(.)
-		return
-
-	if(ismob(dropping) && src == user && dropping != user)
-		var/mob/M = dropping
-		var/mob/U = user
-		if(!iscyborg(U) || U.a_intent == INTENT_HARM)
-			M.show_inv(U)
 
 ///Is the mob muzzled (default false)
 /mob/proc/is_muzzled()
@@ -1285,6 +1257,7 @@
 /mob/verb/open_language_menu()
 	set name = "Мои языки"
 	set category = "IC"
+	set category = null
 
 	var/datum/language_holder/H = get_language_holder()
 	H.open_language_menu(usr)

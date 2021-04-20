@@ -165,8 +165,8 @@
 		var/admin_attachment_message
 		var/attachment_message
 		if(attachment)
-			admin_attachment_message = "The bomb had [attachment], which was attached by [attacher ? ADMIN_LOOKUPFLW(attacher) : "Unknown"]"
-			attachment_message = " with [attachment] attached by [attacher ? key_name_admin(attacher) : "Unknown"]"
+			admin_attachment_message = "The bomb had [attachment], which was attached by [attacher ? ADMIN_LOOKUPFLW(attacher) : "Неизвестный"]"
+			attachment_message = " with [attachment] attached by [attacher ? key_name_admin(attacher) : "Неизвестный"]"
 
 		var/mob/bomber = get_mob_by_key(fingerprintslast)
 		var/admin_bomber_message

@@ -93,7 +93,7 @@
 				return
 			if(P.tool_behaviour == TOOL_SCREWDRIVER && !anchored)
 				user.visible_message("<span class='warning'>[user] разбирает раму.</span>", \
-									"<span class='notice'>Начинаю разбирать раму...</span>", "<span class='hear'>Слышу лязг метала.</span>")
+									"<span class='notice'>Начинаю разбирать раму...</span>", "<span class='hear'>Слышу лязг металла.</span>")
 				if(P.use_tool(src, user, 40, volume=50))
 					if(state == 1)
 						to_chat(user, "<span class='notice'>Разбираю раму.</span>")
@@ -102,6 +102,10 @@
 						qdel(src)
 				return
 			if(P.tool_behaviour == TOOL_WRENCH)
+				var/turf/ground = get_turf(src)
+				if(!anchored && ground.is_blocked_turf(exclude_mobs = TRUE, source_atom = src))
+					to_chat(user, "<span class='notice'>Не вышло крутить [src.name]?</span>")
+					return
 				to_chat(user, "<span class='notice'>Начинаю [anchored ? "от" : "при"]кручивать [src.name]...</span>")
 				if(P.use_tool(src, user, 40, volume=75))
 					if(state == 1)
@@ -111,7 +115,7 @@
 
 		if(2)
 			if(P.tool_behaviour == TOOL_WRENCH)
-				to_chat(user, "<span class='notice'>>Начинаю [anchored ? "от" : "при"]кручивать [src.name]...</span>")
+				to_chat(user, "<span class='notice'>Начинаю [anchored ? "от" : "при"]кручивать [src.name]...</span>")
 				if(P.use_tool(src, user, 40, volume=75))
 					to_chat(user, "<span class='notice'>[anchored ? "От" : "При"]кручиваю [src.name].</span>")
 					set_anchored(!anchored)

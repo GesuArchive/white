@@ -337,7 +337,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/attack_alien(mob/user)
 	if(!welded || !(do_after(user, 20, target = src)))
 		return
-	user.visible_message("<span class='warning'>[user] яростно разрывает вентиляцию!</span>", "<span class='notice'>Удалось разблокировать доступ к вентиляции.</span>", "<span class='hear'>Слышу громкий лязг метала.</span>")
+	user.visible_message("<span class='warning'>[user] яростно разрывает вентиляцию!</span>", "<span class='notice'>Удалось разблокировать доступ к вентиляции.</span>", "<span class='hear'>Слышу громкий лязг металла.</span>")
 	welded = FALSE
 	update_icon()
 	pipe_vision_img = image(src, loc, layer = ABOVE_HUD_LAYER, dir = dir)

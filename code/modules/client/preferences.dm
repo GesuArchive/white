@@ -38,6 +38,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	///Whether emotes will be displayed on runechat. Requires chat_on_map to have effect. Boolean.
 	var/see_rc_emotes = TRUE
 
+	var/ice_cream_time = 10 MINUTES
+	var/ice_cream = TRUE
+
 	// Custom Keybindings
 	var/list/key_bindings = list()
 
@@ -152,6 +155,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/disabled_autocap = FALSE
 	///If we want to broadcast deadchat connect/disconnect messages
 	var/broadcast_login_logout = TRUE
+	///What outfit typepaths we've favorited in the SelectEquipment menu
+	var/list/favorite_outfits = list()
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -526,10 +531,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += " - [capitalize(G.display_name)]</td>"
 				dat += "<td width=5% style='vertical-align:middle' class='metaprice'>[G.cost]</td><td>"
 				if(G.allowed_roles)
-					dat += "<font size=2>"
-					for(var/role in G.allowed_roles)
-						dat += role + " "
-					dat += "</font>"
+					dat += "<font size=2>[english_list(G.allowed_roles)]</font>"
 				else
 					dat += "<font size=2>Все</font>"
 				dat += "</td><td><font size=2><i>[G.description]</i></font></td></tr>"
@@ -563,6 +565,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<tr><td><b>Законы ИИ:</b></td><td align='right'><a href='?_src_=prefs;preference=ghost_laws'>[(chat_toggles & CHAT_GHOSTLAWS) ? "Все изменения" : "Не слушать"]</a></td></tr>"
 			dat += "<tr><td><b>Форма:</b></td><td align='right'><a href='?_src_=prefs;task=input;preference=ghostform'>[ghost_form]</a></td></tr>"
 			dat += "<tr><td><B>Орбита:</B></td><td align='right'><a href='?_src_=prefs;task=input;preference=ghostorbit'>[ghost_orbit]</a></td></tr>"
+			dat += "<tr><td><b>Передача тела:</b></td><td align='right'><a href='?_src_=prefs;preference=ice_cream'>[(ice_cream) ? "Вкл" : "Выкл"]</a></td></tr>"
+			if(ice_cream)
+				dat += "<tr><td><b>Таймер до передачи:</b></td><td align='right'><a href='?_src_=prefs;preference=ice_cream_time;task=input'>[ice_cream_time/600] минут</a></td></tr>"
 
 			var/button_name = "If you see this something went wrong."
 			switch(ghost_accs)
@@ -825,11 +830,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	popup.open(FALSE)
 	onclose(user, "capturekeypress", src)
 
-/datum/preferences/proc/SetChoices(mob/user, limit = 17, list/splitJobs = list("Chief Engineer"), widthPerColumn = 295, height = 620)
+/datum/preferences/proc/SetChoices(mob/user, limit = 18, list/splitJobs = list("Chief Engineer"), widthPerColumn = 295, height = 620)
 	if(!SSjob)
 		return
 
-	//limit - The amount of jobs allowed per column. Defaults to 17 to make it look nice.
+	//limit - The amount of jobs allowed per column. Defaults to 18 to make it look nice.
 	//splitJobs - Allows you split the table by job. You can make different tables for each department by including their heads. Defaults to CE to make it look nice.
 	//widthPerColumn - Screen's width for every column.
 	//height - Screen's height.
@@ -862,11 +867,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					//If the cells were broken up by a job in the splitJob list then it will fill in the rest of the cells with
 					//the last job's selection color. Creating a rather nice effect.
 					for(var/i = 0, i < (limit - index), i += 1)
-						HTML += "<tr bgcolor='[lastJob.selection_color]'><td width='60%' align='right'>&nbsp</td><td>&nbsp</td></tr>"
+						HTML += "<tr style='color: [lastJob.selection_color]'><td width='60%' align='right'>&nbsp</td><td>&nbsp</td></tr>"
 				HTML += "</table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>"
 				index = 0
 
-			HTML += "<tr bgcolor='[job.selection_color]'><td width='60%' align='right'>"
+			HTML += "<tr style='color: [job.selection_color]'><td width='60%' align='right'>"
 			var/rank = job.title
 			lastJob = job
 			if(is_banned_from(user.ckey, rank))
@@ -874,22 +879,22 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				continue
 			var/required_playtime_remaining = job.required_playtime_remaining(user.client)
 			if(required_playtime_remaining)
-				HTML += "<font color=red>[rank]</font></td><td><font color=red> \[ [get_exp_format(required_playtime_remaining)] as [job.get_exp_req_type()] \] </font></td></tr>"
+				HTML += "<font color=red>[rank]</font></td><td><font color=red> \[ [get_exp_format(required_playtime_remaining)] как [job.get_exp_req_type()] \] </font></td></tr>"
 				continue
 			if(job.metalocked && !(job.type in jobs_buyed))
 				HTML += "<font color=red>[rank]</font></td><td><font color=red> \[ $$$ \] </font></td></tr>"
 				continue
 			if(!job.player_old_enough(user.client))
 				var/available_in_days = job.available_in_days(user.client)
-				HTML += "<font color=red>[rank]</font></td><td><font color=red> \[IN [(available_in_days)] DAYS\]</font></td></tr>"
+				HTML += "<font color=red>[rank]</font></td><td><font color=red> \[ЧЕРЕЗ [(available_in_days)] ДНЕЙ\]</font></td></tr>"
 				continue
 			if((job_preferences[SSjob.overflow_role] == JP_LOW) && (rank != SSjob.overflow_role) && !is_banned_from(user.ckey, SSjob.overflow_role))
 				HTML += "<font color=orange>[rank]</font></td><td></td></tr>"
 				continue
 			if((rank in GLOB.command_positions) || (rank == "AI"))//Bold head jobs
-				HTML += "<b><span class='dark'>[rank]</span></b>"
+				HTML += "<b><span>[rank]</span></b>"
 			else
-				HTML += "<span class='dark'>[rank]</span>"
+				HTML += "<span>[rank]</span>"
 
 			HTML += "</td><td width='40%'>"
 
@@ -934,7 +939,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			HTML += "</a></td></tr>"
 
 		for(var/i = 1, i < (limit - index), i += 1) // Finish the column so it is even
-			HTML += "<tr bgcolor='[lastJob.selection_color]'><td width='60%' align='right'>&nbsp</td><td>&nbsp</td></tr>"
+			HTML += "<tr style='color: [lastJob.selection_color]><td width='60%' align='right'>&nbsp;</td><td>&nbsp;</td></tr>"
 
 		HTML += "</td'></tr></table>"
 		HTML += "</center></table>"
@@ -1462,7 +1467,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("tail_human")
 					var/new_tail
 					new_tail = input(user, "Choose your character's tail:", "Character Preference") as null|anything in GLOB.tails_list_human
-					if((!user.client.holder && user.client.ckey != "felinemistress") && new_tail == "Fox")
+					if((!user.client.holder && user.client.ckey != "felinemistress" && user.client.ckey != "chilipila") && new_tail == "Fox")
 						to_chat(user, "<span class='danger'>Pedos not allowed? <big>ВАШЕ ДЕЙСТВИЕ БУДЕТ ЗАПИСАНО</big>.</span>")
 						message_admins("[ADMIN_LOOKUPFLW(user)] попытался выбрать фуррятину в виде хвоста.")
 						return
@@ -1629,6 +1634,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if (!isnull(desiredlength))
 						max_chat_length = clamp(desiredlength, 1, CHAT_MESSAGE_MAX_LENGTH)
 
+				if("ice_cream_time")
+					var/new_time = input(user, "Какая задержка будет перед передачей тела призракам? (в минутах)", "Ice Cream") as num|null
+					if(new_time)
+						ice_cream_time = min(new_time MINUTES, 60 MINUTES)
+
 		else
 			switch(href_list["preference"])
 				if("publicity")
@@ -1731,6 +1741,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					see_chat_non_mob = !see_chat_non_mob
 				if("see_rc_emotes")
 					see_rc_emotes = !see_rc_emotes
+
+				if("ice_cream")
+					ice_cream = !ice_cream
 
 				if("action_buttons")
 					buttons_locked = !buttons_locked

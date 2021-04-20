@@ -23,6 +23,10 @@
 	/turf/open/chasm,
 	/turf/open/lava))
 	var/slippery_foam = TRUE
+	var/can_bypass_density = FALSE
+
+/obj/effect/particle_effect/foam/smart
+	can_bypass_density = TRUE
 
 /obj/effect/particle_effect/foam/firefighting
 	name = "firefighting foam"
@@ -124,7 +128,7 @@
 	STOP_PROCESSING(SSfastprocess, src)
 	if(metal)
 		var/turf/T = get_turf(src)
-		if(isspaceturf(T)) //Block up any exposed space
+		if(isspaceturf(T) || isopenspace(T)) //Block up any exposed space
 			T.PlaceOnTop(/turf/open/floor/plating/foam, flags = CHANGETURF_INHERIT_AIR)
 		for(var/direction in GLOB.cardinals)
 			var/turf/cardinal_turf = get_step(T, direction)
@@ -176,7 +180,7 @@
 
 /obj/effect/particle_effect/foam/proc/spread_foam()
 	var/turf/t_loc = get_turf(src)
-	for(var/turf/T in t_loc.reachableAdjacentTurfs())
+	for(var/turf/T in t_loc.reachableAdjacentTurfs(bypass_density = can_bypass_density))
 		var/obj/effect/particle_effect/foam/foundfoam = locate() in T //Don't spread foam where there's already foam!
 		if(foundfoam)
 			continue

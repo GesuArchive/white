@@ -249,10 +249,10 @@ That's it, ok bye!
 		decks += slave
 	}
 	//We use the Star Trek naming convention for decks. Deck 1 is actually at the top, so we count from the top.
-	var/count = decks.len
+	var/count = 1
 	for(var/obj/machinery/lazylift/LL in decks){
 		LL.deck = count
-		count --
+		count++
 	}
 	spawn(0)
 		close_all_doors() //Start off by closing all the doors.
@@ -305,15 +305,15 @@ That's it, ok bye!
 	var/list/path = list()
 	if(target_deck > startDeck)
 		if(play_voice_lines)
-			playsound(platform_location, 'white/jhnazar/sound/effects/lift/goingdown.ogg', 100, FALSE)
-			platform_location.say("ЭЛЕВАТОР ИДЁТ ВНИЗ!!!")
+			playsound(platform_location, 'white/jhnazar/sound/effects/lift/goingup.ogg', 100, FALSE)
+			platform_location.say("ЭЛЕВАТОР ИДЁТ ВВЕРХ!!!")
 		for(var/I = ++startDeck; I <= target_deck; I++){
 			path += I
 		}
 	else
 		if(play_voice_lines)
-			playsound(platform_location, 'white/jhnazar/sound/effects/lift/goingup.ogg', 100, FALSE)
-			platform_location.say("ЭЛЕВАТОР ИДЁТ ВВЕРХ!!!")
+			playsound(platform_location, 'white/jhnazar/sound/effects/lift/goingdown.ogg', 100, FALSE)
+			platform_location.say("ЭЛЕВАТОР ИДЁТ ВНИЗ!!!")
 		for(var/I = --startDeck; I >= target_deck; I--){
 			path += I
 		}

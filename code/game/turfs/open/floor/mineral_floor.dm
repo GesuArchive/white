@@ -38,6 +38,7 @@
 	icon_state = "plasma"
 	floor_tile = /obj/item/stack/tile/mineral/plasma
 	icons = list("plasma","plasma_dam")
+	custom_materials = list(/datum/material/plasma = 500)
 
 /turf/open/floor/mineral/plasma/temperature_expose(datum/gas_mixture/air, exposed_temperature)
 	if(exposed_temperature > 300)
@@ -72,6 +73,7 @@
 	icon_state = "gold"
 	floor_tile = /obj/item/stack/tile/mineral/gold
 	icons = list("gold","gold_dam")
+	custom_materials = list(/datum/material/gold = 500)
 
 //SILVER
 
@@ -80,6 +82,7 @@
 	icon_state = "silver"
 	floor_tile = /obj/item/stack/tile/mineral/silver
 	icons = list("silver","silver_dam")
+	custom_materials = list(/datum/material/silver = 500)
 
 //TITANIUM (shuttle)
 
@@ -87,6 +90,7 @@
 	name = "титановое покрытие"
 	icon_state = "titanium"
 	floor_tile = /obj/item/stack/tile/mineral/titanium
+	custom_materials = list(/datum/material/titanium = 500)
 
 /turf/open/floor/mineral/titanium/setup_broken_states()
 	return list("titanium_dam1","titanium_dam2","titanium_dam3","titanium_dam4","titanium_dam5")
@@ -170,6 +174,7 @@
 	name = "пластитановое покрытие"
 	icon_state = "plastitanium"
 	floor_tile = /obj/item/stack/tile/mineral/plastitanium
+	custom_materials = list(/datum/material/alloy/plastitanium = 500)
 
 /turf/open/floor/mineral/plastitanium/setup_broken_states()
 	return list("plastitanium_dam1","plastitanium_dam2","plastitanium_dam3","plastitanium_dam4","plastitanium_dam5")
@@ -196,6 +201,7 @@
 	icon_state = "bananium"
 	floor_tile = /obj/item/stack/tile/mineral/bananium
 	icons = list("bananium","bananium_dam")
+	custom_materials = list(/datum/material/bananium = 500)
 	var/sound_cooldown = 0
 
 /turf/open/floor/mineral/bananium/Entered(atom/movable/AM)
@@ -239,6 +245,7 @@
 	icon_state = "diamond"
 	floor_tile = /obj/item/stack/tile/mineral/diamond
 	icons = list("diamond","diamond_dam")
+	custom_materials = list(/datum/material/diamond = 500)
 
 //URANIUM
 
@@ -247,6 +254,7 @@
 	icon_state = "uranium"
 	floor_tile = /obj/item/stack/tile/mineral/uranium
 	icons = list("uranium","uranium_dam")
+	custom_materials = list(/datum/material/uranium = 500)
 	var/last_event = 0
 	var/active = null
 
@@ -289,6 +297,7 @@
 	floor_tile = /obj/item/stack/tile/mineral/abductor
 	icons = list("alienpod1", "alienpod2", "alienpod3", "alienpod4", "alienpod5", "alienpod6", "alienpod7", "alienpod8", "alienpod9")
 	baseturfs = /turf/open/floor/plating/abductor2
+	custom_materials = list(/datum/material/alloy/alien = 500)
 
 /turf/open/floor/mineral/abductor/Initialize()
 	. = ..()

@@ -120,7 +120,7 @@
 		if("Shaft Miner")
 			O = new /datum/outfit/plasmaman/mining
 
-		if("Medical Doctor")
+		if("Medical Doctor" || "Field Medic")
 			O = new /datum/outfit/plasmaman/medical
 
 		if("Paramedic")

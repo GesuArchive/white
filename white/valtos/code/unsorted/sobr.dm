@@ -37,6 +37,8 @@
 	belt = /obj/item/melee/classic_baton
 	id = /obj/item/card/id/centcom
 
+	implants = list(/obj/item/implant/sound_implant)
+
 /datum/outfit/sobr/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)
 		return
@@ -61,6 +63,8 @@
 	belt = /obj/item/storage/belt/military/army/wzzzz/sobr
 	back = /obj/item/gun/ballistic/automatic/ak47
 	id = /obj/item/card/id/centcom
+
+	implants = list(/obj/item/implant/sound_implant)
 
 /obj/item/storage/belt/military/army/wzzzz/sobr
 
@@ -137,3 +141,28 @@
 		return TRUE
 	else
 		return FALSE
+
+/obj/item/implant/sound_implant
+	name = "звуковой имплант"
+	activated = 0
+	var/sound/cur_sound = 'white/valtos/sounds/polnomochiya.ogg'
+
+/obj/item/implant/sound_implant/get_data()
+	var/dat = {"<b>Имплант:</b><BR>
+				<b>Название:</b> Пиздец?<BR>
+				<b>Триггер:</b> Сдохнуть.<BR>
+				"}
+	return dat
+
+/obj/item/implant/sound_implant/trigger(emote, mob/source)
+	if(emote == "deathgasp")
+		playsound(loc, cur_sound, 50, FALSE)
+
+/obj/item/implanter/sound_implant
+	name = "имплантер (звуковой имплант)"
+	imp_type = /obj/item/implant/sound_implant
+
+/obj/item/implantcase/sound_implant
+	name = "имплант - 'звуковой имплант'"
+	desc = "Прикол."
+	imp_type = /obj/item/implant/sound_implant

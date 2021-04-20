@@ -65,17 +65,17 @@ falloff_distance - Distance at which falloff begins. Sound is at peak volume (in
 	if(!ignore_walls) //these sounds don't carry through walls
 		listeners = listeners & hearers(maxdistance,turf_source)
 
-		if(above_turf && istransparentturf(above_turf))
+		if(above_turf)
 			listeners += hearers(maxdistance,above_turf)
 
-		if(below_turf && istransparentturf(turf_source))
+		if(below_turf)
 			listeners += hearers(maxdistance,below_turf)
 
 	else
-		if(above_turf && istransparentturf(above_turf))
+		if(above_turf)
 			listeners += SSmobs.clients_by_zlevel[above_turf.z]
 
-		if(below_turf && istransparentturf(turf_source))
+		if(below_turf)
 			listeners += SSmobs.clients_by_zlevel[below_turf.z]
 
 	for(var/P in listeners)
@@ -212,7 +212,7 @@ distance_multiplier - Can be used to multiply the distance at which the sound is
 				to_chat(src, "\n<center><b>Сейчас играет: <i>[tmusic]</i></b></center>\n")
 			SEND_SOUND(src, sound(SSticker.login_music, repeat = TRUE, wait = 0, volume = vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
 		else
-			SEND_SOUND(src, sound('sound/ambience/dd.ogg', repeat = TRUE, wait = 0, volume = 50, channel = CHANNEL_LOBBYMUSIC))
+			SEND_SOUND(src, sound('sound/ambience/ddrone.ogg', repeat = TRUE, wait = 0, volume = 50, channel = CHANNEL_LOBBYMUSIC))
 
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.

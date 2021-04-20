@@ -153,6 +153,8 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	flags_1 &= ~INITIALIZED_1
 	requires_activation = FALSE
 	..()
+	
+	vis_contents.Cut()
 
 /turf/attack_hand(mob/user)
 	. = ..()
@@ -166,17 +168,33 @@ GLOBAL_LIST_EMPTY(station_turfs)
 /turf/proc/multiz_turf_new(turf/T, dir)
 	SEND_SIGNAL(src, COMSIG_TURF_MULTIZ_NEW, T, dir)
 
-///returns if the turf has something dense inside it. if exclude_mobs is true, skips dense mobs like fat yoshi. if exclude_object is true, it will exclude the excluded_object you sent through
-/turf/proc/is_blocked_turf(exclude_mobs, list/excluded_objects = list())
+/**
+ * Check whether the specified turf is blocked by something dense inside it with respect to a specific atom.
+ *
+ * Returns truthy value TURF_BLOCKED_TURF_DENSE if the turf is blocked because the turf itself is dense.
+ * Returns truthy value TURF_BLOCKED_CONTENT_DENSE if one of the turf's contents is dense and would block
+ * a source atom's movement.
+ * Returns falsey value TURF_NOT_BLOCKED if the turf is not blocked.
+ *
+ * Arguments:
+ * * exclude_mobs - If TRUE, ignores dense mobs on the turf.
+ * * source_atom - If this is not null, will check whether any contents on the turf can block this atom specifically. Also ignores itself on the turf.
+ * * ignore_atoms - Check will ignore any atoms in this list. Useful to prevent an atom from blocking itself on the turf.
+ */
+/turf/proc/is_blocked_turf(exclude_mobs = FALSE, source_atom = null, list/ignore_atoms)
 	if(density)
 		return TRUE
-	for(var/i in contents)
-		var/atom/movable/thing = i
-		var/excuded = FALSE
-		for(var/excluded in excluded_objects)
-			if(istype(thing, excluded))
-				excuded = TRUE
-		if(!excuded && thing.density && (!exclude_mobs || !ismob(thing)))
+
+	for(var/content in contents)
+		// We don't want to block ourselves or consider any ignored atoms.
+		if((content == source_atom) || (content in ignore_atoms))
+			continue
+		var/atom/atom_content = content
+		// If the thing is dense AND we're including mobs or the thing isn't a mob AND if there's a source atom and
+		// it cannot pass through the thing on the turf,  we consider the turf blocked.
+		if(atom_content.density && (!exclude_mobs || !ismob(atom_content)))
+			if(source_atom && atom_content.CanPass(source_atom, src))
+				continue
 			return TRUE
 	return FALSE
 
@@ -611,3 +629,24 @@ GLOBAL_LIST_EMPTY(station_turfs)
 		if(!ismopable(movable_content))
 			continue
 		movable_content.wash(clean_types)
+
+/**
+ * Returns adjacent turfs to this turf that are reachable, in all cardinal directions
+ *
+ * Arguments:
+ * * caller: The movable, if one exists, being used for mobility checks to see what tiles it can reach
+ * * ID: An ID card that decides if we can gain access to doors that would otherwise block a turf
+ * * simulated_only: Do we only worry about turfs with simulated atmos, most notably things that aren't space?
+ * * check_density: WE CAN PASS OBJECTS, aren't we?
+*/
+/turf/proc/reachableAdjacentTurfs(caller, ID, simulated_only, bypass_density = FALSE)
+	var/static/space_type_cache = typecacheof(/turf/open/space)
+	. = list()
+
+	for(var/iter_dir in GLOB.cardinals)
+		var/turf/turf_to_check = get_step(src,iter_dir)
+		if(!turf_to_check || (simulated_only && space_type_cache[turf_to_check.type]))
+			continue
+		if(turf_to_check.density || (!bypass_density && LinkBlockedWithAccess(turf_to_check, caller, ID)))
+			continue
+		. += turf_to_check

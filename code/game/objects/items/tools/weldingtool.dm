@@ -286,7 +286,7 @@
 		to_chat(user, "<span class='notice'>Собираю обратно [sklonenie(src.name, VINITELNI, src.gender)].</span>")
 		reagents.flags &= ~(OPENCONTAINER)
 	else
-		to_chat(user, "<span class='notice'>Теперь я могу модифицировать [sklonenie(src.name, VINITELNI, src.gender)].</span>")
+		to_chat(user, "<span class='notice'>Теперь можно модифицировать [sklonenie(src.name, VINITELNI, src.gender)].</span>")
 		reagents.flags |= OPENCONTAINER
 	add_fingerprint(user)
 

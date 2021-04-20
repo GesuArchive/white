@@ -243,7 +243,7 @@
 	if(last_char_group == SPACES_DETECTED)
 		t_out = copytext_char(t_out, 1, -1) //removes the last character (in this case a space)
 
-	for(var/bad_name in list("space","floor","wall","r-wall","monkey","unknown","inactive ai"))	//prevents these common metagamey names
+	for(var/bad_name in list("space","floor","wall","r-wall","monkey","неизвестный","inactive ai"))	//prevents these common metagamey names
 		if(cmptext(t_out,bad_name))
 			return	//(not case sensitive)
 
@@ -355,8 +355,8 @@
 /proc/capitalize(t)
 	. = t
 	if(t)
-		. = t[1]
-		return uppertext(.) + copytext(t, 1 + length(.))
+		. = copytext_char(t, 1, 2)
+		return uppertext(.) + copytext_char(t, 2)
 
 //Returns a string with the first element of the every word of the string capitalized.
 /proc/capitalize_words(text)

@@ -26,10 +26,10 @@
 	desc = "Изначально эти стены были белого цвета, но со временем люди стали их красить. Собой."
 	icon = 'white/valtos/icons/prison/brick_wall.dmi'
 	icon_state = "brick_wall-0"
+	base_icon_state = "brick_wall"
 	hardness = 4500
 	explosion_block = 5
 	slicing_duration = 20000
-	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /**********************Turf Minerals************************/
 
@@ -120,12 +120,14 @@
 	name = "бетон"
 	desc = "Падать на него не самый лучший вариант."
 	icon_state = "beton-0"
+	base_icon_state = "beton"
 	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
 	icon = 'white/valtos/icons/prison/beton.dmi'
 	floor_tile = /obj/item/stack/tile/beton
 	broken_states = list("damaged")
-	smoothing_flags = SMOOTH_CORNERS
-	canSmoothWith = list(SMOOTH_GROUP_WALLS)
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_CARPET_DONK)
+	canSmoothWith = list(SMOOTH_GROUP_CARPET_DONK)
 	flags_1 = NONE
 	baseturfs = /turf/open/floor/plating/beach/sand
 
@@ -567,17 +569,6 @@
 	ammo_type = /obj/item/ammo_casing/a762
 	caliber = "a762"
 	max_ammo = 30
-
-/*****************Mineral Sheets**********************/
-
-/obj/item/stack/sheet/mineral/coal
-	name = "уголь"
-	icon = 'white/valtos/icons/prison/prison.dmi'
-	desc = "Черный как тот зек."
-	singular_name = "coal"
-	icon_state = "coal"
-	throw_speed = 3
-	throw_range = 5
 
 /*********************ID system*************************/
 

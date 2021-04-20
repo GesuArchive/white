@@ -163,11 +163,6 @@
 	icon_state = "ceplasma"
 	inhand_icon_state = "ceplasma"
 
-/obj/item/clothing/gloves/color/plasmaman/chief_medical_officer
-	name = "герметичные перчатки главного врача"
-	icon_state = "cmoplasma"
-	inhand_icon_state = "cmoplasma"
-
 /obj/item/clothing/gloves/color/plasmaman/research_director
 	name = "герметичные перчатки руководителя исследований"
 	icon_state = "rdplasma"

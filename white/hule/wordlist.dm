@@ -8,7 +8,7 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.f
 
 /proc/proverka_na_detey(var/msg, var/mob/target)
 	if(!target.client)
-		return
+		return TRUE
 	msg = lowertext(msg)
 	for(var/W in GLOB.bad_words)
 		W = lowertext(W)
@@ -18,41 +18,22 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.f
 			if(W in GLOB.exc_start)
 				for(var/WA in ML)
 					if(findtext_char(WA, "[W]") < findtext_char(WA, regex("^[W]")))
-						return
+						return TRUE
 
 			if(W in GLOB.exc_end)
 				for(var/WB in ML)
 					if(findtext_char(WB, "[W]") > findtext_char(WB, regex("^[W]")))
-						return
+						return TRUE
 
 			if(W in GLOB.exc_full)
 				for(var/WC in ML)
 					if(findtext_char(WC, W) && (WC != W))
-						return
+						return TRUE
 
-			//inc_metabalance(target, METACOIN_BADWORDS_REWARD, reason="[uppertext(W)]...")
+			to_chat(target, "<span class='notice'><big>[uppertext(W)]...</big></span>")
+
+			SEND_SOUND(target, sound('white/hule/SFX/rjach.ogg'))
 
 			message_admins("Дружок [target.ckey] насрал на ИС словом \"[W]\". ([msg]) [ADMIN_COORDJMP(target)] [ADMIN_SMITE(target)]")
-
-			//playsound(target.loc,'white/hule/SFX/rjach.ogg', 200, 7, pressure_affected = FALSE)
-/*
-			if(ishuman(target))
-				var/mob/living/carbon/human/H = target
-				if(target.ckey in GLOB.neobuchaemie_debili)
-					inc_metabalance(target, METACOIN_BADWORDS_REWARD * 9, reason="Необучаемый долбоёб...")
-					H.gib(FALSE, FALSE, FALSE)
-					return
-				var/obj/item/organ/O = H.getorganslot(ORGAN_SLOT_TONGUE)
-				if(O)
-					var/turf/T = get_turf(H)
-					O.Remove(H)
-					O.forceMove(T)
-					var/atom/throw_target = get_edge_target_turf(O, H.dir)
-					O.throw_at(throw_target, 3, 4, H)
-					H.vomit(10, TRUE, TRUE, 4)
-			else
-				target.client.prefs.muted |= MUTE_IC
-
-			GLOB.neobuchaemie_debili += target.ckey
-*/
-			return
+			return FALSE
+	return TRUE

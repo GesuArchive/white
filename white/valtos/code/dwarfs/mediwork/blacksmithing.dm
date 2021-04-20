@@ -139,7 +139,7 @@
 				if(!prob(H.mind.get_skill_modifier(/datum/skill/smithing, SKILL_PROBS_MODIFIER) - current_ingot.mod_grade))
 					current_ingot.durability--
 					if(current_ingot.durability == 0)
-						to_chat(user, "<span class='warning'>Болванка раскалывается на множество бесполезных кусочков метала...</span>")
+						to_chat(user, "<span class='warning'>Болванка раскалывается на множество бесполезных кусочков металла...</span>")
 						current_ingot = null
 						LAZYCLEARLIST(contents)
 						icon_state = "[initial(icon_state)]"

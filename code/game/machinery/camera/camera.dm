@@ -101,15 +101,15 @@
 	if(can_use())
 		toggle_cam(null, 0) //kick anyone viewing out and remove from the camera chunks
 	GLOB.cameranet.cameras -= src
+	cancelCameraAlarm()
 	if(isarea(myarea))
-		LAZYREMOVE(myarea.cameras, src)
+		myarea.clear_camera(src)
 	QDEL_NULL(assembly)
 	if(bug)
-		bug.bugged_cameras -= src.c_tag
+		bug.bugged_cameras -= c_tag
 		if(bug.current == src)
 			bug.current = null
 		bug = null
-	cancelCameraAlarm()
 	return ..()
 
 /obj/machinery/camera/examine(mob/user)
@@ -121,7 +121,7 @@
 	if(isXRay(TRUE)) //don't reveal it's upgraded if was done via MALF AI Upgrade Camera Network ability
 		. += "<hr>Похоже тут установлен X-ray фотодиод."
 	else
-		. += "<hr><span class='info'>Она может быть улучшена X-ray фотодиодом при помощи <b>аналайзера</b>.</span>"
+		. += "<hr><span class='info'>Она может быть улучшена X-ray фотодиодом при помощи <b>анализатора</b>.</span>"
 	if(isMotion())
 		. += "<hr>Здесь установлен датчик движения."
 	else
@@ -321,7 +321,7 @@
 				var/mob/living/silicon/ai/AI = O
 				if(AI.control_disabled || (AI.stat == DEAD))
 					continue
-				if(U.name == "Unknown")
+				if(U.name == "Неизвестный")
 					to_chat(AI, "<span class='name'>[U]</span> holds <a href='?_src_=usr;show_paper=1;'>\a [itemname]</a> up to one of your cameras ...")
 				else
 					to_chat(AI, "<b><a href='?src=[REF(AI)];track=[html_encode(U.name)]'>[U]</a></b> holds <a href='?_src_=usr;show_paper=1;'>\a [itemname]</a> up to one of your cameras ...")

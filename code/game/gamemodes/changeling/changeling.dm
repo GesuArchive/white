@@ -4,13 +4,13 @@ GLOBAL_LIST_INIT(slot2type, list("head" = /obj/item/clothing/head/changeling, "w
 
 
 /datum/game_mode/changeling
-	name = "генокрад"
+	name = "changeling"
 	config_tag = "changeling"
 	report_type = "changeling"
 	antag_flag = ROLE_CHANGELING
 	false_report_weight = 10
 	restricted_jobs = list("AI", "Cyborg")
-	protected_jobs = list("Prisoner", "Russian Officer", "Hacker", "Trader", "Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain")
+	protected_jobs = list("Prisoner", "Russian Officer", "Hacker", "Trader", "Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Field Medic")
 	required_players = 15
 	required_enemies = 1
 	recommended_enemies = 3

@@ -12,6 +12,7 @@
 	attack_verb_continuous = "режет"
 	attack_verb_simple = "режет"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
+	attack_vis_effect = ATTACK_EFFECT_SLASH // I always thought they bit. Guess I was wrong.
 	faction = list("nether")
 	speak_emote = list("screams")
 	gold_core_spawnable = HOSTILE_SPAWN

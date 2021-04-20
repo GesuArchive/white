@@ -3,12 +3,10 @@
 	C << browse(SStitle.current_lobby_screen, 	 	 "file=ts.png;display=0")
 	C << browse(file('icons/blank_console.png'),     "file=blank_console.png;display=0")
 	C << browse(file('html/ts.html'),     			 "window=lobbyprotoc")
-	spawn(50)
-		C << output(SStitle.game_loaded, 			 "lobbyprotoc:set_state")
-		C << output(SStitle.ctt, 					 "lobbyprotoc:set_cons_now")
 
 /datum/lobbyscreen/proc/hide_titlescreen(client/C)
 	if(C?.mob)
+		C << output(TRUE, "lobbyprotoc:set_fuk")
 		C << browse(null, "window=lobbyprotoc")
 		winset(C, "lobbyprotoc", "is-disabled=true;is-visible=false")
 
@@ -18,15 +16,15 @@
 	C << browse(SStitle.current_lobby_screen, 	 	 "file=ts.png;display=0")
 	C << browse(file('icons/blank_console.png'),     "file=blank_console.png;display=0")
 	C << browse(file('html/ts.html'),     			 "window=lobbyprotoc")
-	spawn(50)
-		C << output(SStitle.game_loaded, 			 "lobbyprotoc:set_state")
-		C << output(SStitle.ctt, 					 "lobbyprotoc:set_cons_now")
 
 /client/proc/send_to_lobby_console(msg)
 	src << output(msg, "lobbyprotoc:set_cons")
 
 /client/proc/send_to_lobby_console_now(msg)
 	src << output(msg, "lobbyprotoc:set_cons_now")
+
+/client/proc/send_to_lobby_load_pos(val, msg)
+	src << output("[val];[msg];", "lobbyprotoc:set_loader_pos")
 
 /client/proc/show_lobby()
 	lobbyscreen_image.show_titlescreen(src)
@@ -36,10 +34,11 @@
 	src << output("", "lobbyprotoc:cls")
 
 /client/verb/lobby_ready()
-	set hidden = TRUE
+	set category = null
 
-	src << output(SStitle.game_loaded, "lobbyprotoc:set_state")
-	src << output(SStitle.ctt, "lobbyprotoc:set_cons_now")
+	src << output(SStitle.game_loaded, 		   "lobbyprotoc:set_state")
+	src << output(SStitle.ctt, 				   "lobbyprotoc:set_cons_now")
+	src << output("[SStitle.loader_pos];...;", "lobbyprotoc:set_loader_pos")
 
 /client/proc/reload_lobby()
 	lobbyscreen_image.reload_titlescreen(src)

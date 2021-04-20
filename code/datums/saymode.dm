@@ -1,5 +1,6 @@
 /datum/saymode
 	var/key
+	var/ru_key
 	var/mode
 
 //Return FALSE if you have handled the message. Otherwise, return TRUE and saycode will continue doing saycode things.
@@ -11,6 +12,7 @@
 
 /datum/saymode/xeno
 	key = "a"
+	ru_key = "ф"
 	mode = MODE_ALIEN
 
 /datum/saymode/xeno/handle_message(mob/living/user, message, datum/language/language)
@@ -21,6 +23,7 @@
 
 /datum/saymode/vocalcords
 	key = MODE_KEY_VOCALCORDS
+	ru_key = "ч"
 	mode = MODE_VOCALCORDS
 
 /datum/saymode/vocalcords/handle_message(mob/living/user, message, datum/language/language)
@@ -35,6 +38,7 @@
 
 /datum/saymode/binary //everything that uses .b (silicons, drones, swarmers)
 	key = MODE_KEY_BINARY
+	ru_key = "и"
 	mode = MODE_BINARY
 
 /datum/saymode/binary/handle_message(mob/living/user, message, datum/language/language)
@@ -54,6 +58,7 @@
 
 /datum/saymode/holopad
 	key = "h"
+	ru_key = "р"
 	mode = MODE_HOLOPAD
 
 /datum/saymode/holopad/handle_message(mob/living/user, message, datum/language/language)
@@ -65,6 +70,7 @@
 
 /datum/saymode/monkey
 	key = "k"
+	ru_key = "л"
 	mode = MODE_MONKEY
 
 /datum/saymode/monkey/handle_message(mob/living/user, message, datum/language/language)
@@ -87,6 +93,7 @@
 
 /datum/saymode/mafia
 	key = "j"
+	ru_key = "о"
 	mode = MODE_MAFIA
 
 /datum/saymode/mafia/handle_message(mob/living/user, message, datum/language/language)

@@ -4962,7 +4962,7 @@
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 1
 	STR.max_w_class = WEIGHT_CLASS_BULKY
-	STR.set_holdable(list(/obj/item/gun/energy/pulse/pistol,/obj/item/gun/ballistic/revolver,/obj/item/gun/ballistic/automatic/toy/pistol,/obj/item/gun/ballistic/automatic/pistol))
+	STR.set_holdable(list(/obj/item/gun/energy/pulse/pistol,/obj/item/gun/ballistic/revolver,/obj/item/gun/ballistic/automatic/pistol/toy,/obj/item/gun/ballistic/automatic/pistol))
 
 /obj/item/storage/belt/medical/wzzzz
 	icon_state = "medicalbelt"

@@ -166,17 +166,17 @@
 /datum/status_effect/incapacitating/sleeping/tick()
 	if(owner.maxHealth)
 		var/health_ratio = owner.health / owner.maxHealth
-		var/healing = -0.2
+		var/healing = -1
 		if((locate(/obj/structure/bed) in owner.loc))
-			healing -= 0.6
+			healing -= 2
 		else if((locate(/obj/structure/table) in owner.loc))
-			healing -= 0.2
+			healing -= 1
 		for(var/obj/item/bedsheet/bedsheet in range(owner.loc,0))
 			if(bedsheet.loc != owner.loc) //bedsheets in your backpack/neck don't give you comfort
 				continue
-			healing -= 0.2
+			healing -= 1
 			break //Only count the first bedsheet
-		if(health_ratio > 0.8)
+		if(health_ratio < 0.8)
 			owner.adjustBruteLoss(healing)
 			owner.adjustFireLoss(healing)
 			owner.adjustToxLoss(healing * 0.5, TRUE, TRUE)
@@ -241,7 +241,7 @@
 
 /atom/movable/screen/alert/status_effect/stasis
 	name = "Стазис"
-	desc = "Мои биологические функции остановились. Я могу так жить вечно, но это довольно скучно."
+	desc = "Мои биологические функции остановились. Можно так жить вечно, но это довольно скучно."
 	icon_state = "stasis"
 
 //GOLEM GANG
@@ -657,7 +657,7 @@
 
 /atom/movable/screen/alert/status_effect/trance
 	name = "Транс"
-	desc = "Все кажется таким отдаленным, и я могу почувствовать, как мои мысли образуют петли в голове...."
+	desc = "Все кажется таким отдаленным, и можно почувствовать, как мои мысли образуют петли в голове...."
 	icon_state = "high"
 
 /datum/status_effect/trance/tick()
@@ -824,6 +824,36 @@
 	name = "К ЗВЕЗДАМ И ДАЛЬШЕ!"
 	desc = "Мне надо идти, меня ждут мои люди!"
 	icon_state = "high"
+
+//Clock cult
+/datum/status_effect/interdiction
+	id = "interdicted"
+	duration = 25
+	status_type = STATUS_EFFECT_REFRESH
+	tick_interval = 1
+	alert_type = /atom/movable/screen/alert/status_effect/interdiction
+	var/running_toggled = FALSE
+
+/datum/status_effect/interdiction/tick()
+	if(owner.m_intent == MOVE_INTENT_RUN)
+		owner.toggle_move_intent(owner)
+		running_toggled = TRUE
+		to_chat(owner, "<span class='warning'>You know you shouldn't be running here...</span>")
+	owner.add_movespeed_modifier(/datum/movespeed_modifier/interdiction)
+
+/datum/movespeed_modifier/interdiction
+	multiplicative_slowdown = 1.5
+	movetypes = GROUND
+
+/datum/status_effect/interdiction/on_remove()
+	owner.remove_movespeed_modifier(MOVESPEED_ID_INTERDICTION)
+	if(running_toggled && owner.m_intent == MOVE_INTENT_WALK)
+		owner.toggle_move_intent(owner)
+
+/atom/movable/screen/alert/status_effect/interdiction
+	name = "Interdicted"
+	desc = "I don't think I am meant to go this way..."
+	icon_state = "inathneqs_endowment"
 
 /datum/status_effect/fake_virus
 	id = "fake_virus"

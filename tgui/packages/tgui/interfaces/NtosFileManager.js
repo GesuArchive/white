@@ -13,7 +13,7 @@ export const NtosFileManager = (props, context) => {
   const [openedFile, setOpenedFile] = useSharedState(
     context, "opened_file", null);
   return (
-    <NtosWindow resizable theme={PC_device_theme}>
+    <NtosWindow theme={PC_device_theme}>
       <NtosWindow.Content scrollable>
         <Section>
           <FileTable

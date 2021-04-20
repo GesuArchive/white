@@ -19,7 +19,7 @@ export const NtosNetMonitor = (props, context) => {
     ntnetlogs = [],
   } = data;
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         <NoticeBox>
           ВНИМАНИЕ: Отключение беспроводной передачи данных через

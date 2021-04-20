@@ -48,8 +48,7 @@ export const SeedExtractor = (props, context) => {
   return (
     <Window
       width={1000}
-      height={400}
-      resizable>
+      height={400}>
       <Window.Content scrollable>
         <Section title="Семена:">
           <Table cellpadding="3" textAlign="center">

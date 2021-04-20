@@ -15,6 +15,19 @@
 	/obj/item/borg/upgrade/modkit/tracer,
 	/obj/item/borg/upgrade/modkit/tracer/adjustable)
 
+/obj/item/gun/energy/kinetic_accelerator/super_kinetic_accelerator/attack_obj(obj/I, mob/user)
+	if(istype(I, /obj/item/borg/upgrade/modkit))
+		var/list/mods_can_be_added = src.accept_mods
+		for(var/counter = 1; counter <= mods_can_be_added.len; counter++)
+			if(istype(I, mods_can_be_added[counter]) && ispath(mods_can_be_added[counter], I))
+				var/obj/item/borg/upgrade/modkit/MK = I
+				MK.install(src, user)
+				return
+		to_chat(user, "<span class='warning'>Nigger?!</span>")
+		return
+	else
+		..()
+
 /obj/item/gun/energy/kinetic_accelerator/super_kinetic_accelerator/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/borg/upgrade/modkit))
 		var/list/mods_can_be_added = src.accept_mods

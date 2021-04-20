@@ -19,6 +19,7 @@
 	var/sharpened_increase = 0						/// The amount of increase recived from sharpening the item
 
 /**
+
  * Two Handed component
  *
  * vars:
@@ -44,6 +45,9 @@
 	src.force_wielded = force_wielded
 	src.force_unwielded = force_unwielded
 	src.icon_wielded = icon_wielded
+
+	if(require_twohands)
+		ADD_TRAIT(parent, TRAIT_NEEDS_TWO_HANDS, ABSTRACT_ITEM_TRAIT)
 
 // Inherit the new values passed to the component
 /datum/component/two_handed/InheritComponent(datum/component/two_handed/new_comp, original, require_twohands, wieldsound, unwieldsound, \
@@ -126,7 +130,11 @@
 	if(wielded)
 		return
 	if(ismonkey(user))
-		to_chat(user, "<span class='warning'>It's too heavy for you to wield fully.</span>")
+		if(require_twohands)
+			to_chat(user, "<span class='notice'>[parent] is too heavy and cumbersome for you to carry!</span>")
+			user.dropItemToGround(parent, force=TRUE)
+		else
+			to_chat(user, "<span class='notice'>It's too heavy for you to wield fully.</span>")
 		return
 	if(user.get_inactive_held_item())
 		if(require_twohands)
@@ -145,6 +153,7 @@
 	if(SEND_SIGNAL(parent, COMSIG_TWOHANDED_WIELD, user) & COMPONENT_TWOHANDED_BLOCK_WIELD)
 		return // blocked wield from item
 	wielded = TRUE
+	ADD_TRAIT(parent,TRAIT_WIELDED,src)
 	RegisterSignal(user, COMSIG_MOB_SWAP_HANDS, .proc/on_swap_hands)
 
 	// update item stats and name
@@ -155,7 +164,7 @@
 		parent_item.force = force_wielded
 	if(sharpened_increase)
 		parent_item.force += sharpened_increase
-	parent_item.name = "[parent_item.name] (Wielded)"
+	parent_item.name = "[parent_item.name] (Двуручн.)"
 	parent_item.update_icon()
 
 	if(iscyborg(user))
@@ -190,6 +199,7 @@
 	wielded = FALSE
 	UnregisterSignal(user, COMSIG_MOB_SWAP_HANDS)
 	SEND_SIGNAL(parent, COMSIG_TWOHANDED_UNWIELD, user)
+	REMOVE_TRAIT(parent,TRAIT_WIELDED,src)
 
 	// update item stats
 	var/obj/item/parent_item = parent
@@ -201,9 +211,9 @@
 		parent_item.force = force_unwielded
 
 	// update the items name to remove the wielded status
-	var/sf = findtext(parent_item.name, " (Wielded)", -10) // 10 == length(" (Wielded)")
+	var/sf = findtext_char(parent_item.name, " (Двуручн.)", -11) // 10 == length(" (Wielded)")
 	if(sf)
-		parent_item.name = copytext(parent_item.name, 1, sf)
+		parent_item.name = copytext_char(parent_item.name, 1, sf)
 	else
 		parent_item.name = "[initial(parent_item.name)]"
 

@@ -35,7 +35,7 @@
 	var/anim_flags = ANIMATION_PARALLEL
 
 	var/hitproc_debug = TRUE
-	var/hitproc_obj = /obj/item/wrench
+	var/hitproc_obj = /obj/effect/temp_visual/combat_aoe
 
 /datum/component/aoe_melee/swing/proc/prepare_img(atom/target, mob/user)
 	anim_img = image(icon = master, loc = master.loc, layer = user.layer + 0.1)
@@ -80,17 +80,17 @@
 	cur_angle += half_cone
 
 	animate(anim_img, transform = matrix(anim_img.transform), time = time_per_action, 1, flags = anim_flags)
-	hitproc(get_step(master, angle2dir(cur_angle)))
+	hitproc(get_step(master, angle2dir(cur_angle)), user)
 
 	for(var/i in 1 to rotations)
 		rotate(deg_between_hits)
 		var/local_angle = cur_angle
 		spawn(time_per_action*segments_per_action*i)
-			hitproc(get_step(master, angle2dir(local_angle)))
+			hitproc(get_step(master, angle2dir(local_angle)), user)
 
-/datum/component/aoe_melee/swing/proc/hitproc(turf/loc)
+/datum/component/aoe_melee/swing/proc/hitproc(turf/loc, mob/living/user)
 	if(hitproc_debug)
-		new hitproc_obj(loc)
+		new hitproc_obj(loc, master, user)
 		return
 	return
 
@@ -115,23 +115,31 @@
 
 	return matrices
 
+/obj/effect/temp_visual/combat_aoe
+	name = "удар"
+	var/mob/living/attacker = null
 
-
-
+/obj/effect/temp_visual/combat_aoe/Initialize(mapload, obj/item/attack_item, mob/living/attack_mob)
+	. = ..()
+	for(var/mob/living/L in loc)
+		if(QDELETED(attack_item) || !attack_mob)
+			continue
+		visible_message("<span class='danger'>[capitalize(attack_item.name)] попадает в [L]!</span>")
+		L.attacked_by(attack_item, attack_mob)
 
 /obj/item/claymore/aoetest
-	name = "anime sord"
+	name = "аниме меч"
 
 /obj/item/claymore/aoetest/Initialize()
 	. = ..()
 	var/datum/component/aoe_melee/swing/SW = AddComponent(/datum/component/aoe_melee/swing)
 	SW.init_img_turn = -45
 
-/obj/item/fireaxe/ayetest
-	name = "anime tonop"
+/obj/item/fireaxe/aoetest
+	name = "аниме топор"
 	var/datum/component/aoe_melee/swing/SW = null
 
-/obj/item/fireaxe/ayetest/Initialize()
+/obj/item/fireaxe/aoetest/Initialize()
 	. = ..()
 	var/datum/component/aoe_melee/swing/SW = AddComponent(/datum/component/aoe_melee/swing)
 	SW.init_img_turn = 90

@@ -6,7 +6,7 @@
 	icon = 'white/valtos/icons/autodoc.dmi'
 	icon_state = "autodoc_machine"
 	verb_say = "states"
-	idle_power_usage = 50
+	idle_power_usage = 500
 	circuit = /obj/item/circuitboard/machine/organdoc
 	var/obj/item/organ/storedorgan
 	var/organ_type = /obj/item/organ
@@ -81,6 +81,7 @@
 		occupant.visible_message("<span class='notice'>Органдок завершает хирургическую процедуру</span>", "<span class='notice'>Органдок вставляет орган в моё тело.</span>")
 	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, 0)
 	processing = FALSE
+	use_power(5000)
 	open_machine()
 
 /obj/machinery/organdoc/open_machine(mob/user)

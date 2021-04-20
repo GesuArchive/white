@@ -14,8 +14,7 @@ export const DonationsMenu = (props, context) => {
     <Window
       width={620}
       height={580}
-      theme="malfunction"
-      resizable>
+      theme="malfunction">
       <Window.Content scrollable>
         <GenericUplink
           currencyAmount={money}

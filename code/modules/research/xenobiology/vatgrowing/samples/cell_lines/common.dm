@@ -416,7 +416,7 @@
 	vat.visible_message("<span class='warning'>The biological sample in [vat] seems to have created something horrific!</span>")
 	QDEL_NULL(vat.biological_sample) //Kill off the sample, we're done
 
-	var/mob/selected_mob = pick(list(/mob/living/simple_animal/hostile/retaliate/clown/mutant/slow, /mob/living/simple_animal/hostile/retaliate/clown/fleshclown))
+	var/mob/selected_mob = pick(list(/mob/living/simple_animal/hostile/clown/mutant, /mob/living/simple_animal/hostile/clown/fleshclown))
 
 	new selected_mob(get_turf(vat))
 
@@ -442,7 +442,7 @@
 							/datum/reagent/fuel/oil = -1)
 
 
-	resulting_atoms = list(/mob/living/simple_animal/hostile/retaliate/clown/banana = 1)
+	resulting_atoms = list(/mob/living/simple_animal/hostile/clown/banana = 1)
 
 /datum/micro_organism/cell_line/clown/glutton
 	desc = "hyperadipogenic clown stem cells"
@@ -470,7 +470,7 @@
 							/datum/reagent/toxin/bad_food = -1)
 
 
-	resulting_atoms = list(/mob/living/simple_animal/hostile/retaliate/clown/mutant/glutton = 1)
+	resulting_atoms = list(/mob/living/simple_animal/hostile/clown/mutant/glutton = 1)
 
 /datum/micro_organism/cell_line/clown/longclown
 	desc = "long clown bits"
@@ -493,6 +493,6 @@
 						/datum/reagent/consumable/nothing = -2,
 						/datum/reagent/sulfur = -1)
 
-	resulting_atoms = list(/mob/living/simple_animal/hostile/retaliate/clown/longface = 1)
+	resulting_atoms = list(/mob/living/simple_animal/hostile/clown/longface = 1)
 
 #undef VAT_GROWTH_RATE

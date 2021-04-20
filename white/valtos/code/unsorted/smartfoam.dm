@@ -31,7 +31,7 @@
 	var/obj/item/grenade/smf = new /obj/item/grenade/clusterbuster/metalfoam/smart(loc)
 	smf.arm_grenade()
 	uses--
-	cooldown = world.time + cooldown_time
+	cooldown_time = world.time + cooldown_time
 	power_change()
 	addtimer(CALLBACK(src, .proc/power_change), cooldown_time)
 
@@ -49,4 +49,4 @@
 
 /obj/item/grenade/clusterbuster/metalfoam/smart
 	name = "Instant Smart Foam"
-	payload = /obj/item/grenade/chem_grenade/smart_metal_foam
+	payload = /obj/item/grenade/chem_grenade/smart_metal_foam/bigshot

@@ -536,7 +536,7 @@
 						nap_violation(target)
 						return FALSE
 					var/datum/bank_account/D = SSeconomy.get_dep_account(payment_department)
-					say("Спасибо за согласие. С вашего аккаунта списано [fair_market_price] кредитов.")
+					say("Спасибо за согласие. С вашего аккаунта списано [fair_market_price] кредит[get_num_string(fair_market_price)].")
 					if(D)
 						D.adjust_money(fair_market_price)
 			else

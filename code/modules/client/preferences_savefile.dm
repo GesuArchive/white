@@ -2,10 +2,10 @@
 #define SAVEFILE_VERSION_MIN	48
 
 //This is the current version, anything below this will attempt to update (if it's not obsolete)
-//	You do not need to raise this if you are adding new values that have sane defaults.
-//	Only raise this value when changing the meaning/format/name/layout of an existing value
-//	where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX	49
+// You do not need to raise this if you are adding new values that have sane defaults.
+// Only raise this value when changing the meaning/format/name/layout of an existing value
+// where you would want the updater procs below to run
+#define SAVEFILE_VERSION_MAX 50
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -55,6 +55,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 					break
 			if(n_gear)
 				purchased_gear += n_gear
+
+	if (current_version < 50)
+		LAZYADD(key_bindings["Space"], "hold_throw_mode")
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
 	return
@@ -140,6 +143,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	READ_FILE(S["buttons_locked"], buttons_locked)
 	READ_FILE(S["windowflash"], windowflashing)
 	READ_FILE(S["be_special"] , be_special)
+	READ_FILE(S["ice_cream_time"], ice_cream_time)
+	READ_FILE(S["ice_cream"], ice_cream)
 
 	if(parent.ckey in GLOB.pidorlist)
 		be_special = list()
@@ -186,6 +191,15 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	READ_FILE(S["hearted_until"], hearted_until)
 	if(hearted_until > world.realtime)
 		hearted = TRUE
+	//favorite outfits
+	READ_FILE(S["favorite_outfits"], favorite_outfits)
+
+	var/list/parsed_favs = list()
+	for(var/typetext in favorite_outfits)
+		var/datum/outfit/path = text2path(typetext)
+		if(ispath(path)) //whatever typepath fails this check probably doesn't exist anymore
+			parsed_favs += path
+	favorite_outfits = uniqueList(parsed_favs)
 
 	//try to fix any outdated data if necessary
 	if(needs_update >= 0)
@@ -207,6 +221,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	max_chat_length = sanitize_integer(max_chat_length, 1, CHAT_MESSAGE_MAX_LENGTH, initial(max_chat_length))
 	see_chat_non_mob	= sanitize_integer(see_chat_non_mob, FALSE, TRUE, initial(see_chat_non_mob))
 	see_rc_emotes	= sanitize_integer(see_rc_emotes, FALSE, TRUE, initial(see_rc_emotes))
+	ice_cream_time	= sanitize_integer(ice_cream_time, 0, 60 MINUTES, 10 MINUTES)
+	ice_cream		= sanitize_integer(ice_cream, FALSE, TRUE, initial(ice_cream))
 	broadcast_login_logout = sanitize_integer(broadcast_login_logout, FALSE, TRUE, initial(broadcast_login_logout))
 	tgui_fancy		= sanitize_integer(tgui_fancy, FALSE, TRUE, initial(tgui_fancy))
 	tgui_lock		= sanitize_integer(tgui_lock, FALSE, TRUE, initial(tgui_lock))
@@ -234,6 +250,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	pda_style		= sanitize_inlist(pda_style, GLOB.pda_styles, initial(pda_style))
 	pda_color		= sanitize_hexcolor(pda_color, 6, 1, initial(pda_color))
 	key_bindings 	= sanitize_keybindings(key_bindings)
+	favorite_outfits = SANITIZE_LIST(favorite_outfits)
 
 	if(!purchased_gear)
 		purchased_gear = list()
@@ -323,6 +340,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["jobs_buyed"], jobs_buyed)
 	WRITE_FILE(S["hearted_until"], (hearted_until > world.realtime ? hearted_until : null))
 	WRITE_FILE(S["disabled_autocap"], disabled_autocap)
+	WRITE_FILE(S["ice_cream_time"], ice_cream_time)
+	WRITE_FILE(S["ice_cream"], ice_cream)
+	WRITE_FILE(S["favorite_outfits"], favorite_outfits)
 	return TRUE
 
 /datum/preferences/proc/load_character(slot)

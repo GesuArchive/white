@@ -10,6 +10,7 @@
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 100, BOMB = 0, BIO = 100, RAD = 100, FIRE = 80, ACID = 30)
 	layer = OBJ_LAYER
 	circuit = /obj/item/circuitboard/machine/thermomachine
+	idle_power_usage = 1000
 
 	pipe_flags = PIPING_ONE_PER_TURF
 
@@ -109,7 +110,7 @@
 
 /obj/machinery/atmospherics/components/unary/thermomachine/process_atmos()
 	..()
-	if(!on || !nodes[1])
+	if(!is_operational || !on || !nodes[1])
 		return
 	var/datum/gas_mixture/air_contents = airs[1]
 
@@ -121,18 +122,19 @@
 		var/combined_energy = heat_capacity * target_temperature + air_heat_capacity * air_contents.return_temperature()
 		air_contents.set_temperature(combined_energy/combined_heat_capacity)
 
-	var/temperature_delta= abs(old_temperature - air_contents.return_temperature())
+	var/temperature_delta = abs(old_temperature - air_contents.return_temperature())
 	if(temperature_delta > 1)
-		active_power_usage = (heat_capacity * temperature_delta) / 100000 + idle_power_usage // лол
 		update_parents()
-		use_power(active_power_usage)
+		if(cooling)
+			use_power((heat_capacity * target_temperature + air_heat_capacity * air_contents.return_temperature()) / 1000)
+		else
+			use_power(idle_power_usage * 2)
 	else
-		active_power_usage = idle_power_usage
-		use_power(active_power_usage)
+		use_power(idle_power_usage)
 	return 1
 
 /obj/machinery/atmospherics/components/unary/thermomachine/attackby(obj/item/I, mob/user, params)
-	if(!on)
+	if(!on || (machine_stat & NOPOWER))
 		if(default_deconstruction_screwdriver(user, icon_state_open, icon_state_off, I))
 			return
 	if(default_change_direction_wrench(user, I))

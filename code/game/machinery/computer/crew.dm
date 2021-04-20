@@ -41,6 +41,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		"Detective" = 13,
 		"Russian Officer" = 14,
 		"Veteran" = 15,
+		"Field Medic" = 16,
 		// 20-29: Medbay
 		"Chief Medical Officer" = 20,
 		"Chemist" = 21,
@@ -143,7 +144,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		// The entry for this human
 		var/list/entry = list(
 			"ref" = REF(H),
-			"name" = "Unknown",
+			"name" = "Неизвестный",
 			"ijob" = UNKNOWN_JOB_ID
 		)
 

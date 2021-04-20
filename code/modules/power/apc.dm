@@ -106,6 +106,9 @@
 	var/icon_update_needed = FALSE
 	var/obj/machinery/computer/apc_control/remote_control = null
 
+	var/clock_cog_rewarded = FALSE	//Clockcult - Has the reward for converting an APC been given?
+	var/integration_cog = null		//Clockcult - The integration cog inserted inside of us
+
 /obj/machinery/power/apc/unlocked
 	locked = FALSE
 
@@ -203,6 +206,7 @@
 	area.power_equip = FALSE
 	area.power_environ = FALSE
 	area.power_change()
+	area.poweralert(FALSE, src)
 	if(occupier)
 		malfvacate(1)
 	qdel(wires)
@@ -272,14 +276,17 @@
 		return
 	. += "<hr>"
 	. += "Отвечает за зону: <i>[get_area_name(area, TRUE)]</i>"
-	. += "<hr>"
-	. += "Заряд: [cell.percent()]%"
+	if(cell)
+		. += "<hr>"
+		. += "Заряд: [cell.percent()]%"
 	if(opened)
 		if(has_electronics && terminal)
 			. += "</br>Крышка [opened==APC_COVER_REMOVED?"снята":"открыта"] и батарея [ cell ? "установлена" : "отсутствует"]."
 		else
 			. += {"</br>Это [ !terminal ? "не" : "" ] соединено кабелями.\n
 			Микросхема [!has_electronics?"не":""] установлена."}
+		if(integration_cog || (user.hallucinating() && prob(20)))
+			. += "Небольшая шестерёнка виднеется внутри."
 	else
 		if (machine_stat & MAINT)
 			. += "</br>Крышка закрыта. Что-то не так с этим. Не работает"
@@ -441,7 +448,13 @@
 /obj/machinery/power/apc/crowbar_act(mob/user, obj/item/W)
 	. = TRUE
 	if (opened)
-		if (has_electronics == APC_ELECTRONICS_INSTALLED)
+		if(integration_cog)
+			to_chat(user, "<span class='notice'>Начинаю вырывать шестерёнку...</span>")
+			W.play_tool_sound(src)
+			if(W.use_tool(src, user, 50))
+				to_chat(user, "<span class='warning'>Вырываю мусор из энергощитка!</span>")
+				QDEL_NULL(integration_cog)
+		else if (has_electronics == APC_ELECTRONICS_INSTALLED)
 			if (terminal)
 				to_chat(user, "<span class='warning'>Надо бы провода отсоединить!</span>")
 				return
@@ -1316,6 +1329,12 @@
 		else // chargemode off
 			charging = 0
 			chargecount = 0
+
+		//=====Clock Cult=====
+		if(integration_cog && cell.charge >= cell.maxcharge/2)
+			var/power_delta = clamp(cell.charge - 20, 0, 20)
+			GLOB.clockcult_power += power_delta
+			cell.charge -= power_delta
 
 	else // no cell, switch everything off
 

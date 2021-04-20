@@ -3,13 +3,13 @@
 	var/list/datum/mind/traitors = list()
 
 /datum/game_mode/traitor
-	name = "предатель"
+	name = "traitor"
 	config_tag = "traitor"
 	report_type = "traitor"
 	antag_flag = ROLE_TRAITOR
 	false_report_weight = 20 //Reports of traitors are pretty common.
 	restricted_jobs = list("Cyborg")//They are part of the AI if he is traitor so are they, they use to get double chances
-	protected_jobs = list("Prisoner", "Russian Officer", "Trader", "Hacker","Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain")
+	protected_jobs = list("Prisoner", "Russian Officer", "Trader", "Hacker","Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Field Medic")
 	required_players = 0
 	required_enemies = 1
 	recommended_enemies = 4

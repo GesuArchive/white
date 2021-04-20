@@ -18,20 +18,14 @@
 
 /datum/round_aspect/bom_bass
 	name = "Bombass"
-	desc = "Инженеры схалтурили при строительстве станции и вместо обычного металлического покрытия решили использовать остатки снарядов от противотанковых винтовок, которые уже проявили себя."
+	desc = "Кто-то заложил мины на станции!"
 	weight = 14
 
 /datum/round_aspect/bom_bass/run_aspect()
-	var/expcount = rand(1,4)
-
-	var/list/possible_spawns = list()
 	for(var/turf/X in GLOB.xeno_spawn)
 		if(istype(X.loc, /area/maintenance))
-			possible_spawns += X
-
-	var/i
-	for(i=0, i<expcount, i++)
-		explosion(pick_n_take(possible_spawns), 7, 14, 21)
+			if(prob(1))
+				new /obj/effect/mine/explosive(X)
 	..()
 
 /datum/round_aspect/rpg_loot
@@ -65,23 +59,16 @@
 		D.req_one_access_txt = "0"
 	..()
 
-/*
-/datum/round_aspect/terraformed
-	name = "Terraformed"
-	desc = "Продвинутые технологии терраформирования озеленили Лаваленд."
+/datum/round_aspect/weak_walls
+	name = "Weak Walls"
+	desc = "На стенах явно экономили."
 	weight = 18
 
-/datum/round_aspect/terraformed/run_aspect()
-	for(var/turf/open/floor/plating/asteroid/basalt/lava_land_surface/T in world)
-		T.ChangeTurf(/turf/open/floor/plating/grass, flags = CHANGETURF_DEFER_CHANGE)
-	for(var/turf/open/lava/T in world)
-		T.ChangeTurf(/turf/open/floor/plating/beach/water, flags = CHANGETURF_DEFER_CHANGE)
-	for(var/turf/closed/mineral/T in world)
-		T.turf_type = /turf/open/floor/plating/grass
-		T.baseturfs = /turf/open/floor/plating/grass
-		T.initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+/datum/round_aspect/weak_walls/run_aspect()
+	for(var/turf/closed/wall/r_wall/RW in world)
+		RW.ChangeTurf(/turf/closed/wall, flags = CHANGETURF_DEFER_CHANGE)
+		CHECK_TICK
 	..()
-*/
 
 /datum/round_aspect/edison
 	name = "Edison"
@@ -93,6 +80,7 @@
 		L.idle_power_usage   = L.idle_power_usage   * 10
 		L.active_power_usage = L.active_power_usage * 10
 		L.power_change()
+		CHECK_TICK
 
 	SSresearch.mining_multiplier = 5
 	..()
@@ -176,6 +164,8 @@
 /datum/round_aspect/rich/run_aspect()
 	SSeconomy.bonus_money = 10000
 	..()
+	for(var/datum/bank_account/B in SSeconomy.generated_accounts)
+		B.payday(1, TRUE)
 
 /datum/round_aspect/drunk
 	name = "Drunk"
@@ -333,6 +323,15 @@
 	SSjob.DisableJobsButThis(/datum/job/assistant)
 	..()
 
+/datum/round_aspect/clowns
+	name = "Clowns"
+	desc = "ХОНК!"
+	weight = 4
+
+/datum/round_aspect/clowns/run_aspect()
+	SSjob.DisableJobsButThis(/datum/job/clown)
+	..()
+
 /datum/round_aspect/meow
 	name = "Cats"
 	desc = "Сбой в системе клонирования и очистки памяти на ЦК сделал всех членов экипажа фелинидами."
@@ -388,52 +387,12 @@
 		var/datum/job/J = I
 		J.total_positions = 750
 
-/*
-/datum/round_aspect/chatty
-	name = "Chatty"
-	desc = "В эту смену я не только слышу ваши голоса. Я их вижу."
-	weight = 16
+/datum/round_aspect/emergency_meeting
+	name = "Emergency Meeting"
+	desc = "ЭКСТРЕННЫЙ СБОР!"
+	weight = 25
 
-/datum/round_aspect/chatty/run_aspect()
-	GLOB.chat_bubbles = TRUE
+/datum/round_aspect/emergency_meeting/run_aspect()
+	spawn(5 SECONDS)
+		call_emergency_meeting("Центральное Командование", GLOB.areas_by_type[/area/bridge/meeting_room])
 	..()
-*/
-
-/*
-/datum/round_aspect/power_failure
-	name = "Power Failure"
-	weight = 4
-
-/datum/round_aspect/power_failure/run_aspect()
-	for(var/obj/machinery/power/smes/S in GLOB.machines)
-		if(istype(get_area(S), /area/ai_monitored/turret_protected) || !is_station_level(S.z) || istype(get_area(S), /area/tcommsat/server))
-			continue
-		S.charge = 0
-		S.output_level = 0
-		S.output_attempt = FALSE
-		S.update_icon()
-		S.power_change()
-
-	for(var/area/A in GLOB.the_station_areas)
-		if(!A.requires_power || A.always_unpowered || istype(A, /area/tcommsat/server))
-			continue
-		if(GLOB.typecache_powerfailure_safe_areas[A.type])
-			continue
-
-		A.power_light = FALSE
-		A.power_equip = FALSE
-		A.power_environ = FALSE
-		A.power_change()
-
-	for(var/obj/machinery/power/apc/C in GLOB.apcs_list)
-		if(istype(get_area(C), /area/ai_monitored/turret_protected) || istype(get_area(C), /area/tcommsat/server))
-			continue
-		if(C.cell && is_station_level(C.z))
-			var/area/A = C.area
-			if(GLOB.typecache_powerfailure_safe_areas[A.type])
-				continue
-
-			C.cell.charge = 0
-
-	..()
-*/

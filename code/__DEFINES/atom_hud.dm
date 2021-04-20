@@ -83,6 +83,7 @@
 #define ANTAG_HUD_SPACECOP		24
 #define ANTAG_HUD_HERETIC		25
 #define ANTAG_HUD_BLOODSUCKER	26
+#define ANTAG_HUD_CLOCKWORK		27
 
 // Notification action types
 #define NOTIFY_JUMP "jump"

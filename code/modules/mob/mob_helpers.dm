@@ -168,8 +168,8 @@
 	. = ""
 	var/rawchar = ""
 	var/letter = ""
-	var/lentext = length(text)
-	for(var/i = 1, i <= lentext, i += length(rawchar))
+	var/lentext = length_char(text)
+	for(var/i = 1, i <= lentext, i += length_char(rawchar))
 		rawchar = letter = text[i]
 		if(prob(chance))
 			if(replace_characters)
@@ -211,7 +211,7 @@
 			n_letter = text("[n_letter]")
 		t = text("[t][n_letter]")
 		p=p+n_mod
-	return copytext(sanitize(t),1,MAX_MESSAGE_LEN * length(ascii2text(text2ascii(t))))
+	return copytext_char(sanitize(t),1,MAX_MESSAGE_LEN * length(ascii2text(text2ascii(t))))
 
 ///Shake the camera of the person viewing the mob SO REAL!
 /proc/shake_camera(mob/M, duration, strength=1)
@@ -519,7 +519,7 @@
 			dissectionmsg = " via Thorough Dissection"
 		. += "<span class='notice'>This body has been dissected and analyzed[dissectionmsg].</span><br>"
 	if(HAS_TRAIT(src,TRAIT_HUSK))
-		. += "<span class='warning'>This body has been reduced to a grotesque husk.</span>"
+		. += "<span class='warning'>Это тело деградировало до состояния хаска.</span>"
 
 /**
  * Get the list of keywords for policy config

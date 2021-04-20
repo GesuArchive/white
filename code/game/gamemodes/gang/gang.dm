@@ -1,5 +1,5 @@
 /datum/game_mode/gang
-	name = "Семьи"
+	name = "Families"
 	config_tag = "families"
 	antag_flag = ROLE_FAMILIES
 	false_report_weight = 5
@@ -9,7 +9,7 @@
 	announce_span = "danger"
 	announce_text = "Grove For Lyfe!"
 	reroll_friendly = FALSE
-	restricted_jobs = list("Cyborg", "AI", "Prisoner", "Security Officer", "Russian Officer", "Hacker", "Veteran", "Warden", "Detective", "Head of Security", "Captain", "Head of Personnel")//N O
+	restricted_jobs = list("Cyborg", "AI", "Prisoner", "Security Officer", "Russian Officer", "Hacker", "Veteran", "Warden", "Detective", "Head of Security", "Captain", "Head of Personnel", "Field Medic")//N O
 	protected_jobs = list()
 
 	/// A reference to the handler that is used to run pre_setup(), post_setup(), etc..

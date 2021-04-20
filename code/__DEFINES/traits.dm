@@ -149,6 +149,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_TESLA_SHOCKIMMUNE	"tesla_shock_immunity"
 #define TRAIT_STABLEHEART		"stable_heart"
 #define TRAIT_STABLELIVER		"stable_liver"
+/// Prevents you from leaving your corpse
+#define TRAIT_CORPSELOCKED 		"corpselocked"
+#define TRAIT_VATGROWN 			"vatgrown"
 #define TRAIT_RESISTHEAT		"resist_heat"
 #define TRAIT_RESISTHEATHANDS	"resist_heat_handsonly" //For when you want to be able to touch hot things, but still want fire to be an issue.
 #define TRAIT_RESISTCOLD		"resist_cold"
@@ -169,8 +172,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_EASYDISMEMBER		"easy_dismember"
 #define TRAIT_LIMBATTACHMENT 	"limb_attach"
 #define TRAIT_NOLIMBDISABLE		"no_limb_disable"
-#define TRAIT_EASILY_WOUNDED		"easy_limb_wound"
-#define TRAIT_HARDLY_WOUNDED		"hard_limb_wound"
+#define TRAIT_EASILY_WOUNDED	"easy_limb_wound"
+#define TRAIT_HARDLY_WOUNDED	"hard_limb_wound"
 #define TRAIT_NEVER_WOUNDED		"never_wounded"
 #define TRAIT_TOXINLOVER		"toxinlover"
 #define TRAIT_NOBREATH			"no_breath"
@@ -241,7 +244,13 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_COAGULATING		"coagulating" //from coagulant reagents, this doesn't affect the bleeding itself but does affect the bleed warning messages
 /// From anti-convulsant medication against seizures.
 #define TRAIT_ANTICONVULSANT "anticonvulsant"
+/// This mob should never close UI even if it doesn't have a client
+#define TRAIT_PRESERVE_UI_WITHOUT_CLIENT "preserve_ui_without_client"
+
 #define TRAIT_NOBLEED "nobleed" //This carbon doesn't bleed
+#define TRAIT_CLIENT_LEAVED "client_leaved" //this guy is braindead
+/// This atom can ignore the "is on a turf" check for simple AI datum attacks, allowing them to attack from bags or lockers as long as any other conditions are met
+#define TRAIT_AI_BAGATTACK "bagattack"
 
 // You can stare into the abyss, but it does not stare back.
 // You're immune to the hallucination effect of the supermatter, either
@@ -311,18 +320,25 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 ///Marks the item as having been transmuted. Functionally blacklists the item from being recycled or sold for materials.
 #define TRAIT_MAT_TRANSMUTED	"transmuted"
 
+///If the item will block the cargo shuttle from flying to centcom
+#define TRAIT_BANNED_FROM_CARGO_SHUTTLE "banned_from_cargo_shuttle"
+
 // item traits
 #define TRAIT_NODROP			"nodrop"
 #define TRAIT_NO_STORAGE_INSERT	"no_storage_insert" //cannot be inserted in a storage.
 #define TRAIT_T_RAY_VISIBLE		"t-ray-visible" // Visible on t-ray scanners if the atom/var/level == 1
 #define TRAIT_NO_TELEPORT		"no-teleport" //you just can't
 #define TRAIT_FOOD_GRILLED 		"food_grilled"
+#define TRAIT_NEEDS_TWO_HANDS	"needstwohands" //The items needs two hands to be carried
 #define TRAIT_FISH_SAFE_STORAGE "fish_case" //Fish in this won't die
 #define TRAIT_FISH_CASE_COMPATIBILE "fish_case_compatibile" //Stuff that can go inside fish cases
+#define TRAIT_STARGAZED			"stargazed"	//Affected by a stargazer
+///Properly wielded two handed item
+#define TRAIT_WIELDED "wielded"
 
 //quirk traits
 #define TRAIT_ALCOHOL_TOLERANCE	"alcohol_tolerance"
-#define TRAIT_AGEUSIA			"ageusia"
+#define TRAIT_AGEUSIA 			"ageusia"
 #define TRAIT_HEAVY_SLEEPER		"heavy_sleeper"
 #define TRAIT_NIGHT_VISION		"night_vision"
 #define TRAIT_LIGHT_STEP		"light_step"
@@ -404,6 +420,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Trait associated to lacking electrical power.
 #define POWER_LACK_TRAIT "power-lack"
 
+///generic atom traits
+#define DO_NOT_SPLASH "do_not_splash"
+
 // unique trait sources, still defines
 #define CLONING_POD_TRAIT "cloning-pod"
 #define STATUE_MUTE "statue"
@@ -442,6 +461,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define SLEEPING_CARP_TRAIT "sleeping_carp"
 #define MADE_UNCLONEABLE "made-uncloneable"
 #define TIMESTOP_TRAIT "timestop"
+#define HOLYWATER_TRAIT "holywater"
+#define VANGUARD_TRAIT "vanguard"
+#define STARGAZER_TRAIT "stargazer"
 
 //white traits
 #define TRAIT_KARTAVII		"kartavii"

@@ -492,14 +492,15 @@ GLOBAL_LIST_INIT(modulo_angle_to_dir, list(NORTH,NORTHEAST,EAST,SOUTHEAST,SOUTH,
 		else //regex everything else (works for /proc too)
 			return lowertext(replacetext("[the_type]", "[type2parent(the_type)]/", ""))
 
+/// Encodes a string to hex
 /proc/strtohex(str)
 	if(!istext(str)||!str)
 		return
 	var/r
 	var/c
 	for(var/i = 1 to length(str))
-		c= text2ascii(str,i)
-		r+= num2hex(c, -1)
+		c = text2ascii(str,i)
+		r += num2hex(c, 2)
 	return r
 
 // Decodes hex to raw byte string.

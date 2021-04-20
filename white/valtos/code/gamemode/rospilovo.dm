@@ -84,52 +84,59 @@
 	slicing_duration = 100000
 	explosion_block = 100
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
-	smoothing_flags = SMOOTH_CORNERS
+	smoothing_flags = SMOOTH_BITMASK
 
 /turf/closed/wall/rospilovo/cyberwall
 	name = "стена"
 	desc = null
 	icon = 'white/valtos/icons/rospilovo/cyberwall.dmi'
+	base_icon_state = "cyberwall"
 	icon_state = "cyberwall-0"
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/cyberwall/not
 	icon = 'white/valtos/icons/rospilovo/notacyberwall.dmi'
+	base_icon_state = "notacyberwall"
 	icon_state = "notacyberwall-0"
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/beton
-	name = "стена"
+	name = "бетонная стена"
 	desc = null
 	icon = 'white/valtos/icons/rospilovo/beton_tg.dmi'
+	base_icon_state = "beton_tg"
 	icon_state = "beton_tg-0"
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/bricks
-	name = "стена"
+	name = "кирпичная стена"
 	desc = null
 	icon = 'white/valtos/icons/rospilovo/bricks_tg.dmi'
+	base_icon_state = "bricks_tg"
 	icon_state = "bricks_tg-0"
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/bricks_yellow
-	name = "стена"
+	name = "кирпичная стена"
 	desc = null
 	icon = 'white/valtos/icons/rospilovo/bricks_tg_yellow.dmi'
+	base_icon_state = "bricks_tg_yellow"
 	icon_state = "bricks_tg_yellow-0"
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/bricks_white
-	name = "стена"
+	name = "кирпичная стена"
 	desc = null
 	icon = 'white/valtos/icons/rospilovo/bricks_tg_white.dmi'
+	base_icon_state = "bricks_tg_white"
 	icon_state = "bricks_tg_white-0"
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/beton_agro
-	name = "стена"
+	name = "кирпичная стена"
 	desc = null
 	icon = 'white/valtos/icons/rospilovo/beton_w_tg.dmi'
+	base_icon_state = "beton_w_tg"
 	icon_state = "beton_w_tg-0"
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
@@ -269,6 +276,7 @@
 	name = "стол"
 	desc = "Обычный деревянный слегка пошарпанный стол."
 	icon = 'white/valtos/icons/rospilovo/stol_stalker.dmi'
+	base_icon_state = "stol_stalker"
 	icon_state = "stol_stalker-0"
 
 /obj/structure/rospilovo/okno
@@ -723,6 +731,7 @@
 	anchored = 1
 	flags_1 = CONDUCT_1
 	layer = CLOSED_DOOR_LAYER
+	smoothing_flags = NONE
 	max_integrity = 10000000
 
 /obj/structure/grille/rospilovo/ex_act(severity, target)

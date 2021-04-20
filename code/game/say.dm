@@ -58,7 +58,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	//Radio freq/name display
 	var/freqpart = radio_freq ? "\[[get_radio_name(radio_freq)]\] " : ""
 	//Speaker name
-	var/namepart = "[speaker.GetVoice()][speaker.get_alt_name()]"
+	var/namepart = "[speaker.GetVoice()]"
 	if(face_name && ishuman(speaker))
 		var/mob/living/carbon/human/H = speaker
 		namepart = "[H.get_face_name()]" //So "fake" speaking like in hallucinations does not give the speaker away if disguised
@@ -192,7 +192,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/virtualspeaker)
 	radio = _radio
 	source = M
 	if(istype(M))
-		name = radio.anonymize ? "Unknown" : M.GetVoice()
+		name = radio.anonymize ? "Неизвестный" : M.GetVoice()
 		verb_say = M.verb_say
 		verb_ask = M.verb_ask
 		verb_exclaim = M.verb_exclaim
@@ -206,7 +206,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/virtualspeaker)
 		if(findjob)
 			job = findjob.fields["rank"]
 		else
-			job = "Unknown"
+			job = "Неизвестный"
 	else if(iscarbon(M))  // Carbon nonhuman
 		job = "No ID"
 	else if(isAI(M))  // AI
@@ -219,7 +219,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/virtualspeaker)
 	else if(isobj(M))  // Cold, emotionless machines
 		job = "Machine"
 	else  // Unidentifiable mob
-		job = "Unknown"
+		job = "Неизвестный"
 
 /atom/movable/virtualspeaker/GetJob()
 	return job

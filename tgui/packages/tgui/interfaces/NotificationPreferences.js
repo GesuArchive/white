@@ -20,8 +20,7 @@ export const NotificationPreferences = (props, context) => {
     <Window
       title="Настройка уведомлений"
       width={270}
-      height={660}
-      resizable>
+      height={660}>
       <Window.Content scrollable>
         <Section title="Настройка уведомлений призрака">
           {ignores.map(ignore => (

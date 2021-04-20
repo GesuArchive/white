@@ -20,8 +20,7 @@ export const SoundPanelSettings = (props, context) => {
     <Window
       width={250}
       height={430}
-      title="Настройки звука"
-      resizable>
+      title="Настройки звука">
       <Window.Content>
         <Section title="Основное">
           <Button

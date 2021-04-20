@@ -7,6 +7,7 @@
 	id = MARTIALART_SLEEPINGCARP
 	allow_temp_override = FALSE
 	help_verb = /mob/living/proc/sleeping_carp_help
+	var/old_grab_state = null
 
 /datum/martial_art/the_sleeping_carp/proc/check_streak(mob/living/A, mob/living/D)
 	if(findtext(streak,STRONG_PUNCH_COMBO))
@@ -69,11 +70,22 @@
 	return
 
 /datum/martial_art/the_sleeping_carp/grab_act(mob/living/A, mob/living/D)
-	add_to_streak("G",D)
-	if(check_streak(A,D))
+	if(A.a_intent == INTENT_GRAB && A!=D && can_use(A)) // A!=D prevents grabbing yourself
+		add_to_streak("G",D)
+		if(check_streak(A,D)) //if a combo is made no grab upgrade is done
+			return TRUE
+		old_grab_state = A.grab_state
+		D.grabbedby(A, 1)
+		if(old_grab_state == GRAB_PASSIVE)
+			D.drop_all_held_items()
+			A.setGrabState(GRAB_AGGRESSIVE) //Instant agressive grab if on grab intent
+			log_combat(A, D, "grabbed", addition="aggressively")
+			D.visible_message("<span class='warning'>[A] violently grabs [D]!</span>", \
+							"<span class='userdanger'>You're grabbed violently by [A]!</span>", "<span class='hear'>You hear sounds of aggressive fondling!</span>", COMBAT_MESSAGE_RANGE, A)
+			to_chat(A, "<span class='danger'>Я крепко хватаю [D]!</span>")
 		return TRUE
-	log_combat(A, D, "grabbed (Sleeping Carp)")
-	return ..()
+	else
+		return FALSE
 
 /datum/martial_art/the_sleeping_carp/harm_act(mob/living/A, mob/living/D)
 	add_to_streak("H",D)
@@ -99,22 +111,17 @@
 
 /datum/martial_art/the_sleeping_carp/on_projectile_hit(mob/living/A, obj/projectile/P, def_zone)
 	. = ..()
-	if(A.incapacitated(FALSE, TRUE)) //NO STUN
-		return BULLET_ACT_HIT
-	if(!(A.mobility_flags & MOBILITY_USE)) //NO UNABLE TO USE
-		return BULLET_ACT_HIT
 	var/datum/dna/dna = A.has_dna()
 	if(dna?.check_mutation(HULK)) //NO HULK
 		return BULLET_ACT_HIT
 	if(!isturf(A.loc)) //NO MOTHERFLIPPIN MECHS!
 		return BULLET_ACT_HIT
-	if(A.in_throw_mode)
+	else
 		A.visible_message("<span class='danger'><b>[A]</b> отражает снаряд рукой!</span>", "<span class='userdanger'>Отражаю снаряд!</span>")
 		playsound(get_turf(A), pick('sound/weapons/bulletflyby.ogg', 'sound/weapons/bulletflyby2.ogg', 'sound/weapons/bulletflyby3.ogg'), 75, TRUE)
 		P.firer = A
 		P.setAngle(rand(0, 360))//SHING
 		return BULLET_ACT_FORCE_PIERCE
-	return BULLET_ACT_HIT
 
 /datum/martial_art/the_sleeping_carp/teach(mob/living/H, make_temporary = FALSE)
 	. = ..()

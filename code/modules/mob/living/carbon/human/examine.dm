@@ -18,7 +18,7 @@
 	. = list("")
 
 	if(true_info)
-		if(!client || !client.holder)
+		if(!client?.holder)
 			. += "<span class='info'>ОБЪЕКТ: <EM>[name]</EM>.<hr>"
 			SEND_SOUND(user, sound('sound/ai/hacker/scanned.ogg'))
 			var/is_weapon = FALSE
@@ -57,10 +57,11 @@
 			hud_list[HACKER_HUD].cut_overlay("node_na")
 			hud_list[HACKER_HUD].add_overlay("node_na")
 	else
-		. += "<span class='info'>Это же <EM>[!obscure_name ? name : "Unknown"]</EM>, [get_age_text()]!<hr>"
+		var/racetext = get_race_text()
+		. += "<span class='info'>Это же <EM>[!obscure_name ? name : "Неизвестный"]</EM>, [racetext ? "<big class='interface'>[racetext]</big>" : "[get_age_text()]"]!<hr>"
 
-	if(user.stat == CONSCIOUS && ishuman(user))
-		user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[!obscure_name ? name : "Unknown"]</b>.</span>", "<span class='small'>Смотрю на <b>[!obscure_name ? name : "Unknown"]</b>.</span>", null, COMBAT_MESSAGE_RANGE)
+	if(user?.stat == CONSCIOUS && ishuman(user))
+		user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[!obscure_name ? name : "Неизвестный"]</b>.</span>", "<span class='small'>Смотрю на <b>[!obscure_name ? name : "Неизвестный"]</b>.</span>", null, COMBAT_MESSAGE_RANGE)
 
 	var/obscured = check_obscured_slots()
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
@@ -72,7 +73,7 @@
 				. += "<span class='warning'>Не хватает [O.max_teeth - O.get_teeth()] зубов!</span>\n"
 
 	if(pooed)
-		. += "<big><b>Невероятно, но [t_ego] одежда <font color='red'>ВСЯ В ГОВНЕ</font>.</b></big>\n"
+		. += "<big><b>Невероятно, но [t_ego] одежда <font color='pink'>ВСЯ В ГОВНЕ</font>.</b></big>\n"
 
 	if(headstamp && !(obscured & ITEM_SLOT_HEAD))
 		. += "У н[t_ego] на лбу написано <b>[headstamp]</b>. Круто.\n"
@@ -94,7 +95,7 @@
 
 	//mask
 	if(wear_mask && !(obscured & ITEM_SLOT_MASK)  && !(wear_mask.item_flags & EXAMINE_SKIP))
-		. += "На лице у [t_ego] [wear_mask.get_examine_string(user)].\n"
+		. += "На лице у н[t_ego] [wear_mask.get_examine_string(user)].\n"
 
 	if(wear_neck && !(obscured & ITEM_SLOT_NECK)  && !(wear_neck.item_flags & EXAMINE_SKIP))
 		. += "На шее у н[t_ego] [wear_neck.get_examine_string(user)].\n"
@@ -155,6 +156,8 @@
 	if(wear_id && !(wear_id.item_flags & EXAMINE_SKIP))
 		. += "И конечно же у н[t_ego] есть [wear_id.get_examine_string(user)].\n"
 
+	. += "<hr>"
+
 	//Status effects
 	var/list/status_examines = status_effect_examines()
 	if (length(status_examines))
@@ -183,10 +186,6 @@
 
 	if(get_bodypart(BODY_ZONE_HEAD) && !getorgan(/obj/item/organ/brain))
 		. += "<span class='deadsay'>Похоже, что у н[t_ego] нет мозга...</span>\n"
-
-	var/temp = getBruteLoss() //no need to calculate each of these twice
-
-	. += "<hr>"
 
 	var/list/msg = list()
 
@@ -223,14 +222,14 @@
 	var/r_limbs_missing = 0
 	for(var/t in missing)
 		if(t==BODY_ZONE_HEAD)
-			msg += "<span class='deadsay'><B>[ru_ego(TRUE)] [ru_exam_parse_zone(parse_zone(t))] отсутствует!</B><span class='warning'>\n"
+			msg += "<span class='deadsay'><B>[ru_ego(TRUE)] [ru_exam_parse_zone(parse_zone(t))] отсутствует!</B></span>\n"
 			continue
 		if(t == BODY_ZONE_L_ARM || t == BODY_ZONE_L_LEG)
 			l_limbs_missing++
 		else if(t == BODY_ZONE_R_ARM || t == BODY_ZONE_R_LEG)
 			r_limbs_missing++
 
-		msg += "<B>[ru_ego(TRUE)] [ru_exam_parse_zone(parse_zone(t))] отсутствует!</B>\n"
+		msg += "<span class='warning'><B>[ru_ego(TRUE)] [ru_exam_parse_zone(parse_zone(t))] отсутствует!</B></span>\n"
 
 	if(l_limbs_missing >= 2 && r_limbs_missing == 0)
 		msg += "[t_on] стоит на правой части.\n"
@@ -240,6 +239,11 @@
 		msg += "[t_on] выглядит как котлетка.\n"
 
 	if(!(user == src && src.hal_screwyhud == SCREWYHUD_HEALTHY)) //fake healthy
+		var/temp
+		if(user == src && src.hal_screwyhud == SCREWYHUD_CRIT)//fake damage
+			temp = 50
+		else
+			temp = getBruteLoss()
 		if(temp)
 			if(temp < 25)
 				msg += "[t_on] имеет незначительные ушибы.\n"
@@ -262,7 +266,7 @@
 			if(temp < 25)
 				msg += "[t_on] имеет незначительные подтёки на теле.\n"
 			else if(temp < 50)
-				msg += "[t_on] имеет <b>обвисшую</b> кожу в на большей части тела!\n"
+				msg += "[t_on] имеет <b>обвисшую</b> кожу на большей части тела!\n"
 			else
 				msg += "<b>[t_on] имеет тело состоящее из кусков свисающей плоти!</b>\n"
 
@@ -323,7 +327,7 @@
 				bleed_text += " и [ru_otkuda_zone(bleeding_limbs[num_bleeds].name)]"
 
 		if(appears_dead)
-			bleed_text += ", но похоже уже замедляется.</span></B>\n"
+			bleed_text += ", но очень медленно.</span></B>\n"
 		else
 			if(reagents.has_reagent(/datum/reagent/toxin/heparin, needs_metabolizing = TRUE))
 				bleed_text += " невероятно быстро"
@@ -363,6 +367,9 @@
 				if(91.01 to INFINITY)
 					msg += "[t_on] в говно!\n"
 
+		if(!user)
+			return
+
 		if(src != user)
 			if(HAS_TRAIT(user, TRAIT_EMPATH))
 				if (a_intent != INTENT_HELP)
@@ -384,8 +391,6 @@
 				if (bodytemperature < dna.species.bodytemp_cold_damage_limit)
 					msg += "[t_on] дрожит.\n"
 
-			msg += "</span>"
-
 			if(HAS_TRAIT(user, TRAIT_SPIRITUAL) && mind?.holy_role)
 				msg += "От н[t_ego] веет святым духом.\n"
 				SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "religious_comfort", /datum/mood_event/religiously_comforted)
@@ -406,6 +411,10 @@
 			else if(!client)
 				msg += "[t_on] имеет пустой, рассеянный взгляд и кажется совершенно не реагирующим ни на что. [t_on] может выйти из этого в ближайшее время.\n"
 
+	var/trait_exam = common_trait_examine()
+	if (!isnull(trait_exam))
+		msg += trait_exam
+
 	var/scar_severity = 0
 	for(var/i in all_scars)
 		var/datum/scar/S = i
@@ -414,20 +423,16 @@
 
 	switch(scar_severity)
 		if(1 to 4)
-			msg += "\n<span class='smallnoticeital'>[t_on] похоже имеет шрамы... Стоит присмотреться, чтобы разглядеть ещё.</span>\n"
+			msg += "\n<span class='smallnoticeital'>[t_on] похоже имеет шрамы... Стоит присмотреться, чтобы разглядеть ещё.</span>"
 		if(5 to 8)
-			msg += "\n<span class='notice'><i>[t_on] имеет несколько серьёзных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></span>\n"
+			msg += "\n<span class='notice'><i>[t_on] имеет несколько серьёзных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></span>"
 		if(9 to 11)
-			msg += "\n<span class='notice'><b><i>[t_on] имеет множество ужасных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></b></span>\n"
+			msg += "\n<span class='notice'><b><i>[t_on] имеет множество ужасных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></b></span>"
 		if(12 to INFINITY)
-			msg += "\n<span class='notice'><b><i>[t_on] имеет разорванное в хлам тело состоящее из шрамов... Стоит присмотреться, чтобы разглядеть ещё?</i></b></span>\n"
+			msg += "\n<span class='notice'><b><i>[t_on] имеет разорванное в хлам тело состоящее из шрамов... Стоит присмотреться, чтобы разглядеть ещё?</i></b></span>"
 
 	if (length(msg))
-		. += "\n<span class='warning'>[msg.Join("")]</span>"
-
-	var/trait_exam = common_trait_examine()
-	if (!isnull(trait_exam))
-		. += trait_exam
+		. += "<span class='warning'>[msg.Join("")]</span>"
 
 	var/perpname = get_face_name(get_id_name(""))
 	if(perpname && (HAS_TRAIT(user, TRAIT_SECURITY_HUD) || HAS_TRAIT(user, TRAIT_MEDICAL_HUD)))
@@ -469,6 +474,9 @@
 					"<a href='?src=[REF(src)];hud=s;add_comment=1'>\[Добавить комментарий\]</a> "), "")
 	else if(isobserver(user))
 		. += "<hr><span class='info'><b>Черты:</b> [get_quirk_string()]</span>"
+		if(HAS_TRAIT(src, TRAIT_CLIENT_LEAVED))
+			. += "<hr><span class='boldnotice'>Это тело можно занять!</span>"
+
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 
 /mob/living/proc/status_effect_examines(pronoun_replacement) //You can include this in any mob's examine() to show the examine texts of status effects!
@@ -478,8 +486,7 @@
 	for(var/V in status_effects)
 		var/datum/status_effect/E = V
 		if(E.examine_text)
-			var/new_text = replacetext(E.examine_text, "SUBJECTPRONOUN", pronoun_replacement)
-			new_text = replacetext(new_text, "[pronoun_replacement] ", "[pronoun_replacement] [p_are()]") //To make sure something become "They are" or "She is", not "They are" and "She are"
+			var/new_text = replacetext_char(E.examine_text, "SUBJECTPRONOUN", pronoun_replacement)
 			dat += "[new_text]\n" //dat.Join("\n") doesn't work here, for some reason
 	if(dat.len)
 		return dat.Join()

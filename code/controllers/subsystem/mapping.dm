@@ -58,7 +58,6 @@ SUBSYSTEM_DEF(mapping)
 #endif
 
 /datum/controller/subsystem/mapping/Initialize(timeofday)
-	SStitle.set_load_state("blank")
 	HACK_LoadMapConfig()
 	if(initialized)
 		return
@@ -168,7 +167,7 @@ SUBSYSTEM_DEF(mapping)
 
 /datum/controller/subsystem/mapping/proc/safety_clear_transit_dock(obj/docking_port/stationary/transit/T, obj/docking_port/mobile/M, list/returning)
 	M.setTimer(0)
-	var/error = M.initiate_docking(M.destination, M.preferred_direction)
+	var/error = M.initiate_docking(M.destination)
 	if(!error)
 		returning += M
 		qdel(T, TRUE)
@@ -313,7 +312,6 @@ Used by the AI doomsday and the self-destruct nuke.
 		fdel("_maps/custom/[config.map_file]")
 		// And as the file is now removed set the next map to default.
 		next_map_config = load_map_config(default_to_box = TRUE)
-	SStitle.set_load_state("init2")
 
 GLOBAL_LIST_EMPTY(the_station_areas)
 
@@ -333,6 +331,11 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 
 /datum/controller/subsystem/mapping/proc/run_map_generation()
 	for(var/area/A in world)
+		A.RunGeneration()
+
+/datum/controller/subsystem/mapping/proc/run_map_generation_in_z(desired_z_level)
+	for(var/ar in SSmapping.areas_in_z["[desired_z_level]"])
+		var/area/A = ar
 		A.RunGeneration()
 
 /datum/controller/subsystem/mapping/proc/maprotate()
