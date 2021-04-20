@@ -73,7 +73,7 @@
 			charging = TRUE
 			playsound(user, draw_sound, 50, 1)
 
-			if (do_after(user, charge_time, 0/*, user*/) && charging)
+			if (do_after(user, charge_time, 0) && charging)
 				charge = charge + 1
 				charging = FALSE
 				var/draw = "a little"
