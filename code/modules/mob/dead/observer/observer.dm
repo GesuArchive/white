@@ -355,6 +355,12 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	Moved(oldloc, direct)
 
+/mob/dead/observer/get_status_tab_items()
+	. = ..()
+	. += ""
+	//Add coords to status panel
+	. += "X:[src.x] Y:[src.y] Z:[src.z]"
+
 /mob/dead/observer/verb/reenter_corpse()
 	set category = null
 	set name = "❗ Вернуться в тело"
@@ -894,13 +900,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set name = "Записаться в Мафию"
 
 	mafia_signup()
-
-/mob/dead/observer/verb/show_coords()
-	set category = "Призрак"
-	set name = "Показать координаты"
-	set desc = "Пишет тебе координаты под тобой"
-
-	to_chat(usr, "X: [usr.x]\nY: [usr.y]\nZ: [usr.z]")
 
 /mob/dead/observer/proc/mafia_signup()
 	if(!client)
