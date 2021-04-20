@@ -21,6 +21,7 @@
 	death = FALSE
 	roundstart = FALSE
 	///Type of drone that will be spawned
+	banType = ROLE_DRONE
 	mob_type = /mob/living/simple_animal/drone
 
 /obj/effect/mob_spawn/drone/Initialize()

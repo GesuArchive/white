@@ -300,8 +300,8 @@
 		augment_list = list()
 		var/list/templist = list(
 		/obj/item/organ/cyberimp/brain/anti_drop,
-		/obj/item/organ/cyberimp/arm/item_set/toolset,
-		/obj/item/organ/cyberimp/arm/item_set/surgery,
+		/obj/item/organ/cyberimp/arm/toolset,
+		/obj/item/organ/cyberimp/arm/surgery,
 		/obj/item/organ/cyberimp/chest/thrusters,
 		/obj/item/organ/lungs/cybernetic/tier3,
 		/obj/item/organ/liver/cybernetic/tier3) //cyberimplants range from a nice bonus to fucking broken bullshit so no subtypesof
@@ -364,13 +364,13 @@
 
 	to_chat(joe, "<span class='notice'>As you burn the picture, a nickname comes to mind...</span>")
 	var/nickname = stripped_input(joe, "Pick a nickname", "Mafioso Nicknames", null, NICKNAME_CAP, TRUE)
-	nickname = reject_bad_name(nickname, allow_numbers = FALSE, max_length = NICKNAME_CAP, ascii_only = TRUE)
+	nickname = reject_bad_name(nickname, allow_numbers = FALSE, max_length = NICKNAME_CAP, ascii_only = FALSE)
 	if(!nickname)
 		return
 	var/new_name
-	var/space_position = findtext(joe.real_name, " ")
+	var/space_position = findtext_char(joe.real_name, " ")
 	if(space_position)//Can we find a space?
-		new_name = "[copytext(joe.real_name, 1, space_position)] \"[nickname]\" [copytext(joe.real_name, space_position)]"
+		new_name = "[copytext_char(joe.real_name, 1, space_position)] \"[nickname]\" [copytext_char(joe.real_name, space_position)]"
 	else //Append otherwise
 		new_name = "[joe.real_name] \"[nickname]\""
 	joe.real_name = new_name

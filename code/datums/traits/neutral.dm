@@ -7,26 +7,26 @@
 	value = 0
 	mob_trait = TRAIT_AGEUSIA
 	gain_text = "<span class='notice'>Я больше не чувствую вкус еды!</span>"
-	lose_text = "<span class='notice'>Теперь я могу почувствовать вкус еды!</span>"
+	lose_text = "<span class='notice'>Теперь можно почувствовать вкус еды!</span>"
 	medical_record_text = "Пациент страдает от агавзии и неспособен чувствовать вкус еды или жидкости."
 
 /datum/quirk/foreigner
 	name = "Иностранец"
 	desc = "Вы не из этих земель. Вы не знаете основной галактический язык!"
 	value = 0
-	gain_text = "<span class='notice'>Вы не понимаете ни слова."
-	lose_text = "<span class='notice'>Вы научились понимать основной галактический язык.."
+	gain_text = "<span class='notice'>Вы не понимаете ни слова.</span>"
+	lose_text = "<span class='notice'>Вы научились понимать основной галактический язык.</span>"
 	medical_record_text = "Пациент не разговаривает на основном галактическом языке."
 
 /datum/quirk/foreigner/add()
 	var/mob/living/carbon/human/H = quirk_holder
-	H.add_blocked_language(/datum/language/common)
+	H?.add_blocked_language(/datum/language/common)
 	if(ishumanbasic(H))
 		H.grant_language(/datum/language/uncommon)
 
 /datum/quirk/foreigner/remove()
 	var/mob/living/carbon/human/H = quirk_holder
-	H.remove_blocked_language(/datum/language/common)
+	H?.remove_blocked_language(/datum/language/common)
 	if(ishumanbasic(H))
 		H.remove_language(/datum/language/uncommon)
 

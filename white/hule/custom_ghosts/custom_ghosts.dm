@@ -51,9 +51,8 @@
 			swap_icons()
 
 /mob/dead/observer/verb/custom_ghost_form()
-	set name = "Кастомный Спрайт Призрака"
-	set category = "Настройки"
-	set desc = "Customize your ghastly appearance."
+	set name = "Кастомный спрайт"
+	set category = "Призрак"
 
 	if(fexists("data/custom_ghosts/[ckey].dmi"))
 		swap_icons()

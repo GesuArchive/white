@@ -2,21 +2,21 @@ macro "default"
 
 
 menu "menu"
-	elem 
+	elem
 		name = "&Меню"
 		command = ""
 		saved-params = "is-checked"
-	elem 
+	elem
 		name = "&Скриншот\tF2"
 		command = ".screenshot auto"
 		category = "&Меню"
 		saved-params = "is-checked"
-	elem 
+	elem
 		name = "&Сделать скриншот...\tShift+F2"
 		command = ".screenshot"
 		category = "&Меню"
 		saved-params = "is-checked"
-	elem 
+	elem
 		name = ""
 		command = ""
 		category = "&Меню"
@@ -26,7 +26,7 @@ menu "menu"
 		command = ".reconnect"
 		category = "&Меню"
 		saved-params = "is-checked"
-	elem 
+	elem
 		name = "&Выход\tAlt-F4"
 		command = ".quit"
 		category = "&Меню"
@@ -147,7 +147,7 @@ window "outputwindow"
 		anchor2 = none
 		saved-params = "is-checked"
 		text = "Сказать"
-		command = ".winset \"saybutton.is-checked=true ? input.command=\"!say \\\"\" : input.command=\"\"saybutton.is-checked=true ? mebutton.is-checked=false\"\"saybutton.is-checked=true ? oocbutton.is-checked=false\""
+		command = ".winset \"saybutton.is-checked=true ? input.command=\"!Сказать \\\"\" : input.command=\"\"saybutton.is-checked=true ? mebutton.is-checked=false\"\"saybutton.is-checked=true ? oocbutton.is-checked=false\""
 		button-type = pushbox
 	elem "input"
 		type = INPUT
@@ -206,16 +206,16 @@ window "preferences_window"
 	elem "preferences_browser_new"
 		type = BROWSER
 		pos = 0,0
-		size = 960x640
+		size = 1050x640
 		anchor1 = 0,0
-		anchor2 = 80,100
+		anchor2 = 85,100
 		saved-params = ""
 		can-scroll = vertical
 	elem "character_preview_map"
 		type = MAP
-		pos = 960,0
-		size = 240x640
-		anchor1 = 80,0
+		pos = 1050,0
+		size = 150x640
+		anchor1 = 85,0
 		anchor2 = 100,100
 		right-click = true
 		saved-params = "zoom;letterbox;zoom-mode"

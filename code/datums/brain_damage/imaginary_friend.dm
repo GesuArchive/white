@@ -86,7 +86,7 @@
 /mob/camera/imaginary_friend/proc/greet()
 		to_chat(src, "<span class='notice'><b>Я воображаемый друг [owner]!</b></span>")
 		to_chat(src, "<span class='notice'>Я абсолютно верен своему другу, несмотря ни на что.</span>")
-		to_chat(src, "<span class='notice'>Я не могу напрямую влиять на мир вокруг меня, но я могу видеть, чего [owner] не может.</span>")
+		to_chat(src, "<span class='notice'>Я не могу напрямую влиять на мир вокруг меня, но можно видеть, чего [owner] не может.</span>")
 
 /mob/camera/imaginary_friend/Initialize(mapload, _trauma)
 	. = ..()
@@ -266,7 +266,7 @@
 
 /mob/camera/imaginary_friend/trapped/greet()
 	to_chat(src, "<span class='notice'><b>Мне удалось удержаться как плод воображения нового хозяина!</b></span>")
-	to_chat(src, "<span class='notice'>Вся надежда потеряна для меня, но, по крайней мере, я могу взаимодействовать с хозяином. Я могу быть не верен ему.</span>")
+	to_chat(src, "<span class='notice'>Вся надежда потеряна для меня, но, по крайней мере, можно взаимодействовать с хозяином. Можно быть не верен ему.</span>")
 	to_chat(src, "<span class='notice'>Я не могу напрямую влиять на мир вокруг меня, но вы могу видеть то, что хозяин не может.</span>")
 
 /mob/camera/imaginary_friend/trapped/setup_friend()

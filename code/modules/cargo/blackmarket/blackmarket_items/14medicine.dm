@@ -118,7 +118,7 @@
 	return new pillbottle(loc)
 
 /datum/blackmarket_item/medicine/floor_pill
-	name = "Страннная таблетка"
+	name = "Странная таблетка"
 	desc = "Таблетка с технических тоннелей"
 	item = /obj/item/reagent_containers/pill/maintenance
 

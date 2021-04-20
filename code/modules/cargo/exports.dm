@@ -170,7 +170,7 @@ Then the player gets the profit from selling his own wasted time.
 	var/total_value = ex.total_value[src]
 	var/total_amount = ex.total_amount[src]
 
-	var/msg = "[total_value] кредитов: Возвращено [total_amount] "
+	var/msg = "[total_value] кредит[get_num_string(total_value)]: Возвращено [total_amount] "
 	if(total_value > 0)
 		msg = "+" + msg
 

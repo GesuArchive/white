@@ -33,6 +33,7 @@
 	attack_verb_continuous = "разрывает когтями"
 	attack_verb_simple = "разрывает когтями"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
+	attack_vis_effect = ATTACK_EFFECT_CLAW
 	friendly_verb_continuous = "bear hugs"
 	friendly_verb_simple = "bear hug"
 
@@ -143,6 +144,7 @@
 	butcher_results = list(/obj/item/food/butter = 6, /obj/item/food/meat/slab = 3, /obj/item/organ/brain = 1, /obj/item/organ/heart = 1)
 	attack_sound = 'sound/weapons/slap.ogg'
 	attack_verb_continuous = "шлёпает"
+	attack_vis_effect = ATTACK_EFFECT_DISARM
 
 /mob/living/simple_animal/hostile/bear/butter/add_cell_sample()
 	return //You cannot grow a real bear from butter.

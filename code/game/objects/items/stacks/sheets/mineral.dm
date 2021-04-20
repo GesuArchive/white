@@ -109,7 +109,7 @@ GLOBAL_LIST_INIT(sandbag_recipes, list ( \
 
 GLOBAL_LIST_INIT(diamond_recipes, list ( \
 	new/datum/stack_recipe("Алмазная дверь", /obj/structure/mineral_door/transparent/diamond, 10, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("алмазная плитка", /obj/item/stack/tile/mineral/diamond, 1, 4, 20),  \
+	new/datum/stack_recipe("Алмазная плитка", /obj/item/stack/tile/mineral/diamond, 1, 4, 20),  \
 	new/datum/stack_recipe("Статуя Капитана", /obj/structure/statue/diamond/captain, 5, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("Статуя с Голограммой ИИ", /obj/structure/statue/diamond/ai1, 5, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("Статуя Ядра ИИ", /obj/structure/statue/diamond/ai2, 5, one_per_turf = 1, on_floor = 1), \
@@ -139,7 +139,7 @@ GLOBAL_LIST_INIT(diamond_recipes, list ( \
 
 GLOBAL_LIST_INIT(uranium_recipes, list ( \
 	new/datum/stack_recipe("Урановая дверь", /obj/structure/mineral_door/uranium, 10, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("урановая плитка", /obj/item/stack/tile/mineral/uranium, 1, 4, 20), \
+	new/datum/stack_recipe("Урановая плитка", /obj/item/stack/tile/mineral/uranium, 1, 4, 20), \
 	new/datum/stack_recipe("Статуя Ядерной Бомбы", /obj/structure/statue/uranium/nuke, 5, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("Статуя Инженера", /obj/structure/statue/uranium/eng, 5, one_per_turf = 1, on_floor = 1), \
 	))
@@ -172,7 +172,7 @@ GLOBAL_LIST_INIT(uranium_recipes, list ( \
 
 GLOBAL_LIST_INIT(plasma_recipes, list ( \
 	new/datum/stack_recipe("Плазменная дверь", /obj/structure/mineral_door/transparent/plasma, 10, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("плазменная плитка", /obj/item/stack/tile/mineral/plasma, 1, 4, 20), \
+	new/datum/stack_recipe("Плазменная плитка", /obj/item/stack/tile/mineral/plasma, 1, 4, 20), \
 	new/datum/stack_recipe("Статуя Ученого", /obj/structure/statue/plasma/scientist, 5, one_per_turf = 1, on_floor = 1), \
 	))
 
@@ -211,8 +211,8 @@ GLOBAL_LIST_INIT(plasma_recipes, list ( \
 
 GLOBAL_LIST_INIT(gold_recipes, list ( \
 	new/datum/stack_recipe("Золотая дверь", /obj/structure/mineral_door/gold, 10, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("золотая плитка", /obj/item/stack/tile/mineral/gold, 1, 4, 20), \
-	new/datum/stack_recipe("пустая табличка", /obj/item/plaque, 1), \
+	new/datum/stack_recipe("Золотая плитка", /obj/item/stack/tile/mineral/gold, 1, 4, 20), \
+	new/datum/stack_recipe("Пустая табличка", /obj/item/plaque, 1), \
 	new/datum/stack_recipe("Статуя Главы Службы Безопасности", /obj/structure/statue/gold/hos, 5, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("Статуя Главы Персонала", /obj/structure/statue/gold/hop, 5, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("Статуя Главного Инженера", /obj/structure/statue/gold/ce, 5, one_per_turf = 1, on_floor = 1), \
@@ -243,8 +243,8 @@ GLOBAL_LIST_INIT(gold_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/silver
 
 GLOBAL_LIST_INIT(silver_recipes, list ( \
-	new/datum/stack_recipe("серебряная дверь", /obj/structure/mineral_door/silver, 10, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("серебряная плитка", /obj/item/stack/tile/mineral/silver, 1, 4, 20), \
+	new/datum/stack_recipe("Серебряная дверь", /obj/structure/mineral_door/silver, 10, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("Серебряная плитка", /obj/item/stack/tile/mineral/silver, 1, 4, 20), \
 	new/datum/stack_recipe("Статуя Доктора", /obj/structure/statue/silver/md, 5, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("Статуя Уборщика", /obj/structure/statue/silver/janitor, 5, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("Статуя Офицера Безопасности", /obj/structure/statue/silver/sec, 5, one_per_turf = 1, on_floor = 1), \
@@ -274,7 +274,7 @@ GLOBAL_LIST_INIT(silver_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/bananium
 
 GLOBAL_LIST_INIT(bananium_recipes, list ( \
-	new/datum/stack_recipe("бананиевая плитка", /obj/item/stack/tile/mineral/bananium, 1, 4, 20), \
+	new/datum/stack_recipe("Бананиевая плитка", /obj/item/stack/tile/mineral/bananium, 1, 4, 20), \
 	new/datum/stack_recipe("Статуя Клоуна", /obj/structure/statue/bananium/clown, 5, one_per_turf = 1, on_floor = 1), \
 	))
 
@@ -303,8 +303,8 @@ GLOBAL_LIST_INIT(bananium_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/titanium
 
 GLOBAL_LIST_INIT(titanium_recipes, list ( \
-	new/datum/stack_recipe("титановая плитка", /obj/item/stack/tile/mineral/titanium, 1, 4, 20), \
-	new/datum/stack_recipe("сиденье для шатла", /obj/structure/chair/comfy/shuttle, 2, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("Титановая плитка", /obj/item/stack/tile/mineral/titanium, 1, 4, 20), \
+	new/datum/stack_recipe("Сиденье для шатла", /obj/structure/chair/comfy/shuttle, 2, one_per_turf = TRUE, on_floor = TRUE), \
 	))
 
 /obj/item/stack/sheet/mineral/titanium/get_main_recipes()
@@ -336,7 +336,7 @@ GLOBAL_LIST_INIT(titanium_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/plastitanium
 
 GLOBAL_LIST_INIT(plastitanium_recipes, list ( \
-	new/datum/stack_recipe("пластитановая плитка", /obj/item/stack/tile/mineral/plastitanium, 1, 4, 20), \
+	new/datum/stack_recipe("Пластитановая плитка", /obj/item/stack/tile/mineral/plastitanium, 1, 4, 20), \
 	))
 
 /obj/item/stack/sheet/mineral/plastitanium/get_main_recipes()
@@ -456,13 +456,12 @@ GLOBAL_LIST_INIT(abductor_recipes, list ( \
 
 /obj/item/stack/sheet/mineral/coal
 	name = "уголь"
-	desc = "Кто-то плохо себя вел в этом году."
-	icon = 'icons/obj/mining.dmi'
-	icon_state = "slag"
+	icon = 'white/valtos/icons/prison/prison.dmi'
+	desc = "Черный как негр."
+	icon_state = "coal"
 	singular_name = "кусок угля"
 	merge_type = /obj/item/stack/sheet/mineral/coal
 	grind_results = list(/datum/reagent/carbon = 20)
-	novariants = TRUE
 
 /obj/item/stack/sheet/mineral/coal/attackby(obj/item/W, mob/user, params)
 	if(W.get_temperature() > 300)//If the temperature of the object is over 300, then ignite
@@ -506,3 +505,14 @@ GLOBAL_LIST_INIT(metalhydrogen_recipes, list(
 /obj/item/stack/sheet/mineral/metal_hydrogen/get_main_recipes()
 	. = ..()
 	. += GLOB.metalhydrogen_recipes
+
+/obj/item/stack/sheet/mineral/zaukerite
+	name = "zaukerite"
+	icon_state = "zaukerite"
+	inhand_icon_state = "sheet-zaukerite"
+	singular_name = "zaukerite crystal"
+	w_class = WEIGHT_CLASS_NORMAL
+	point_value = 120
+	mats_per_unit = list(/datum/material/zaukerite = MINERAL_MATERIAL_AMOUNT)
+	merge_type = /obj/item/stack/sheet/mineral/zaukerite
+	material_type = /datum/material/zaukerite

@@ -172,6 +172,21 @@ SUBSYSTEM_DEF(explosions)
 /proc/explosion(atom/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = TRUE, ignorecap = FALSE, flame_range = 0, silent = FALSE, smoke = FALSE)
 	. = SSexplosions.explode(arglist(args))
 
+	// MultiZ?
+	var/turf/above_turf = SSmapping.get_turf_above(epicenter)
+	var/turf/below_turf = SSmapping.get_turf_below(epicenter)
+	devastation_range = round(devastation_range * 0.75)
+	heavy_impact_range = round(heavy_impact_range * 0.75)
+	light_impact_range = round(light_impact_range * 0.75)
+	flash_range = round(flash_range * 0.75)
+	if(above_turf)
+		epicenter = above_turf
+		. = SSexplosions.explode(arglist(args))
+	if(below_turf)
+		epicenter = below_turf
+		. = SSexplosions.explode(arglist(args))
+
+
 #define CREAK_DELAY 5 SECONDS //Time taken for the creak to play after explosion, if applicable.
 #define DEVASTATION_PROB 30 //The probability modifier for devistation, maths!
 #define HEAVY_IMPACT_PROB 5 //ditto
@@ -250,7 +265,9 @@ SUBSYSTEM_DEF(explosions)
 			var/mob/M = MN
 			// Double check for client
 			var/turf/M_turf = get_turf(M)
-			if(M_turf && M_turf.z == z0)
+			var/turf/above_turf = SSmapping.get_turf_above(M_turf)
+			var/turf/below_turf = SSmapping.get_turf_below(M_turf)
+			if((M_turf && M_turf.z == z0) || (above_turf && M_turf.z == above_turf.z) || (below_turf && M_turf.z == below_turf.z))
 				var/dist = get_dist(M_turf, epicenter)
 				var/baseshakeamount
 				if(orig_max_distance - dist > 0)

@@ -431,7 +431,7 @@
 			destination = SSshuttle.getDock("emergency_home")
 		else if(mode == SHUTTLE_ESCAPE)
 			destination = SSshuttle.getDock("emergency_away")
-		create_ripples(destination)
+		create_ripples(destination, time_left)
 
 	switch(mode)
 		if(SHUTTLE_RECALL)
@@ -465,6 +465,11 @@
 
 		if(SHUTTLE_IGNITING)
 			var/success = TRUE
+			//Check if the gamemode is clockcult and the clockies are utter failures
+			if(GLOB.celestial_gateway && !GLOB.gateway_opening)
+				SSshuttle.registerHostileEnvironment(GLOB.celestial_gateway)
+				var/obj/structure/destructible/clockwork/massive/celestial_gateway/gateway = GLOB.celestial_gateway
+				gateway.open_gateway()
 			SSshuttle.checkHostileEnvironment()
 			if(mode == SHUTTLE_STRANDED)
 				return
@@ -599,6 +604,7 @@
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
+	locked = FALSE
 	to_chat(user, "<span class='warning'>Сжигаю систему проверки уровня тревоги.</span>")
 
 /obj/machinery/computer/shuttle/pod/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
@@ -655,7 +661,7 @@
 	slowdown = 3
 
 /obj/item/pickaxe/emergency
-	name = "аварийный высадочный инструмент"
+	name = "аварийная кирка"
 	desc = "Для спасения от грубых приземлений."
 
 /obj/item/storage/pod

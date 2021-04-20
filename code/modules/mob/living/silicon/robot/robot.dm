@@ -26,6 +26,9 @@
 	var/mob/living/silicon/ai/mainframe = null
 	var/datum/action/innate/undeployment/undeployment_action = new
 
+	var/obj/item/clockwork/clockwork_slab/internal_clock_slab = null
+	var/ratvar = FALSE
+
 	/// the last health before updating - to check net change in health
 	var/previous_health
 //Hud stuff
@@ -248,7 +251,14 @@
 	if(!CONFIG_GET(flag/disable_secborg))
 		modulelist["Security"] = /obj/item/robot_module/security
 
-	var/input_module = input("Please, select a module!", "Robot", null, null) as null|anything in sortList(modulelist)
+	// Create radial menu for choosing borg model
+	var/list/model_icons = list()
+	for(var/option in modulelist)
+		var/obj/item/robot_module/module = modulelist[option]
+		var/model_icon = initial(module.cyborg_base_icon)
+		model_icons[option] = image(icon = 'icons/mob/robots.dmi', icon_state = model_icon)
+
+	var/input_module = show_radial_menu(src, src, model_icons, radius = 42)
 	if(!input_module || module.type != /obj/item/robot_module)
 		return
 
@@ -340,30 +350,46 @@
 		. += "Master AI: [connected_ai.name]"
 
 
-/mob/living/silicon/robot/triggerAlarm(class, area/A, O, obj/alarmsource)
-	if(alarmsource.z != z)
+/mob/living/silicon/robot/triggerAlarm(class, area/home, cameras, obj/source)
+	if(source.z != z)
 		return
 	if(stat == DEAD)
 		return TRUE
-	var/list/L = alarms[class]
-	for (var/I in L)
-		if (I == A.name)
-			var/list/alarm = L[I]
+	var/list/our_sort = alarms[class]
+	for(var/areaname in our_sort)
+		if (areaname == home.name)
+			var/list/alarm = our_sort[areaname]
 			var/list/sources = alarm[3]
-			if (!(alarmsource in sources))
-				sources += alarmsource
+			if (!(source in sources))
+				sources += source
 			return TRUE
-	var/obj/machinery/camera/C = null
-	var/list/CL = null
-	if (O && istype(O, /list))
-		CL = O
-		if (CL.len == 1)
-			C = CL[1]
-	else if (O && istype(O, /obj/machinery/camera))
-		C = O
-	L[A.name] = list(A, (C) ? C : O, list(alarmsource))
-	queueAlarm(text("--- [class] alarm detected in [A.name]!"), class)
+
+	var/obj/machinery/camera/cam = null
+	var/list/our_cams = null
+	if(cameras && islist(cameras))
+		our_cams = cameras
+		if (our_cams.len == 1)
+			cam = our_cams[1]
+	else if(cameras && istype(cameras, /obj/machinery/camera))
+		cam = cameras
+	our_sort[home.name] = list(home, (cam ? cam : cameras), list(source))
+	queueAlarm(text("--- [class] alarm detected in [home.name]!"), class)
 	return TRUE
+
+/mob/living/silicon/robot/freeCamera(area/home, obj/machinery/camera/cam)
+	for(var/class in alarms)
+		var/our_area = alarms[class][home.name]
+		if(!our_area)
+			continue
+		var/cams = our_area[2] //Get the cameras
+		if(!cams)
+			continue
+		if(islist(cams))
+			cams -= cam
+			if(length(cams) == 1)
+				our_area[2] = cams[1]
+		else
+			our_area[2] = null
 
 /mob/living/silicon/robot/cancelAlarm(class, area/A, obj/origin)
 	var/list/L = alarms[class]
@@ -444,7 +470,7 @@
 			eye_lights.color = lamp_doom? COLOR_RED : lamp_color
 			eye_lights.plane = 19 //glowy eyes
 		else
-			eye_lights.icon_state = "[module.special_light_key ? "[module.special_light_key]":"[module.cyborg_base_icon]"]_e"
+			eye_lights.icon_state = "[module.special_light_key ? "[module.special_light_key]":"[module.cyborg_base_icon]"]_e[ratvar ? "_r" : ""]"
 			eye_lights.color = COLOR_WHITE
 			eye_lights.plane = -1
 		eye_lights.icon = icon
@@ -486,7 +512,7 @@
 
 /mob/living/silicon/robot/mode()
 	set name = "Использовать предмет в руке"
-	set category = "IC"
+	set category = null
 	set src = usr
 
 	if(incapacitated())
@@ -529,6 +555,18 @@
 		throw_alert("hacked", /atom/movable/screen/alert/hacked)
 	else
 		clear_alert("hacked")
+
+/mob/living/silicon/robot/proc/SetRatvar(new_state, rebuild=TRUE)
+	ratvar = new_state
+	if(rebuild)
+		module.rebuild_modules()
+	update_icons()
+	if(ratvar)
+		internal_clock_slab = new(src)
+		throw_alert("ratvar", /atom/movable/screen/alert/ratvar)
+	else
+		qdel(internal_clock_slab)
+		clear_alert("ratvar")
 
 /**
  * Handles headlamp smashing

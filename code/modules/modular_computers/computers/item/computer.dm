@@ -78,6 +78,22 @@
 	physical = null
 	return ..()
 
+/obj/item/modular_computer/attack(mob/living/M, mob/living/user)
+	if(active_program?.tap(M, user))
+		playsound(loc, 'sound/weapons/tap.ogg', get_clamped_volume(), TRUE, -1) //Likewise for the tap sound
+		addtimer(CALLBACK(src, .proc/play_ping), 0.5 SECONDS, TIMER_UNIQUE) //Slightly delayed ping to indicate success
+		return TRUE
+	return ..()
+
+
+/**
+ * Plays a ping sound.
+ *
+ * Timers runtime if you try to make them call playsound. Yep.
+ */
+/obj/item/modular_computer/proc/play_ping()
+	playsound(loc, 'sound/machines/ping.ogg', get_clamped_volume(), FALSE, -1)
+
 /obj/item/modular_computer/AltClick(mob/user)
 	..()
 	if(issilicon(user))

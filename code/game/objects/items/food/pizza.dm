@@ -6,6 +6,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 28, /datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1)
 	foodtypes = GRAIN | DAIRY | VEGETABLES
+	venue_value = FOOD_PRICE_CHEAP
 	/// type is spawned 6 at a time and replaces this pizza when processed by cutting tool
 	var/obj/item/food/pizzaslice/slice_type
 
@@ -90,6 +91,7 @@
 	tastes = list("корка" = 1, "томаты" = 2, "сыр" = 1, "морковь" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/vegetable
+	venue_value = FOOD_PRICE_NORMAL
 
 /obj/item/food/pizzaslice/vegetable
 	name = "vegetable pizza slice"

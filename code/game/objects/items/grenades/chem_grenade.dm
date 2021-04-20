@@ -343,6 +343,21 @@
 	beakers += B1
 	beakers += B2
 
+/obj/item/grenade/chem_grenade/smart_metal_foam/bigshot
+	name = "big shot smart metal foam grenade"
+
+/obj/item/grenade/chem_grenade/smart_metal_foam/bigshot/Initialize()
+	. = ..()
+	var/obj/item/reagent_containers/glass/beaker/bluespace/B1 = new(src)
+	var/obj/item/reagent_containers/glass/beaker/bluespace/B2 = new(src)
+
+	B1.reagents.add_reagent(/datum/reagent/aluminium, 300)
+	B2.reagents.add_reagent(/datum/reagent/smart_foaming_agent, 100)
+	B2.reagents.add_reagent(/datum/reagent/toxin/acid/fluacid, 100)
+
+	beakers += B1
+	beakers += B2
+
 
 /obj/item/grenade/chem_grenade/incendiary
 	name = "incendiary grenade"

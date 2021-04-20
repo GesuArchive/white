@@ -43,11 +43,9 @@
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "k" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
+/obj/structure/chess/blackpawn,
 /obj/machinery/light/floor,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/white,
 /area/maintenance/port/aft)
 "m" = (
 /obj/machinery/light{
@@ -71,11 +69,9 @@
 /turf/open/floor/plasteel/dark,
 /area/maintenance/port/aft)
 "r" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
+/obj/structure/chess/blackpawn,
 /obj/machinery/light/floor,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/dark,
 /area/maintenance/port/aft)
 "s" = (
 /obj/effect/turf_decal/stripes/line{
@@ -122,6 +118,11 @@
 /obj/structure/chess/blackknight,
 /turf/open/floor/plasteel/dark,
 /area/maintenance/port/aft)
+"E" = (
+/obj/structure/chess/whitepawn,
+/obj/machinery/light/floor,
+/turf/open/floor/plasteel/dark,
+/area/maintenance/port/aft)
 "F" = (
 /obj/structure/table/wood,
 /turf/open/floor/plating,
@@ -143,7 +144,7 @@
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "J" = (
-/obj/structure/chess/blackking,
+/obj/structure/chess/blackqueen,
 /turf/open/floor/plasteel/dark,
 /area/maintenance/port/aft)
 "L" = (
@@ -173,7 +174,12 @@
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "S" = (
-/obj/structure/chess/blackqueen,
+/obj/structure/chess/blackking,
+/turf/open/floor/plasteel/white,
+/area/maintenance/port/aft)
+"U" = (
+/obj/structure/chess/whitepawn,
+/obj/machinery/light/floor,
 /turf/open/floor/plasteel/white,
 /area/maintenance/port/aft)
 "V" = (
@@ -216,12 +222,12 @@ a
 G
 I
 s
-k
 s
 s
 s
 s
-k
+s
+s
 s
 H
 G
@@ -248,12 +254,12 @@ C
 G
 P
 D
-x
+k
 n
 N
 n
 N
-d
+E
 A
 Y
 G
@@ -328,12 +334,12 @@ o
 G
 P
 v
-w
+r
 N
 n
 N
 n
-Q
+U
 u
 Y
 G
@@ -360,12 +366,12 @@ a
 G
 O
 f
-r
 f
 f
 f
 f
-r
+f
+f
 f
 i
 G

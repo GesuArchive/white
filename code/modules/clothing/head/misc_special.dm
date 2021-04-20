@@ -221,8 +221,8 @@
 /obj/item/clothing/head/wig
 	name = "парик"
 	desc = "Куча волос без головы."
-	icon = 'icons/obj/clothing/hats.dmi'
-	icon_state = "blackwizard"
+	icon = 'icons/mob/human_face.dmi'	  // default icon for all hairs
+	icon_state = "hair_vlong"
 	inhand_icon_state = "pwig"
 	worn_icon_state = "wig"
 	flags_inv = HIDEHAIR | HIDEHEADGEAR

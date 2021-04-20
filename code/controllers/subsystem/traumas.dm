@@ -131,7 +131,7 @@ SUBSYSTEM_DEF(traumas)
 			/obj/item/restraints/legcuffs/bola/cult, /obj/item/clothing/suit/space/hardsuit/cult,
 			/obj/item/clothing/suit/hooded/cultrobes, /obj/item/clothing/head/hooded/cult_hoodie, /obj/effect/rune,
 			/obj/item/stack/sheet/runed_metal, /obj/machinery/door/airlock/cult, /obj/narsie,
-			/obj/item/soulstone,
+			/obj/item/soulstone, /obj/item/clockwork,
 			/obj/item/clothing/suit/wizrobe, /obj/item/clothing/head/wizard, /obj/item/spellbook, /obj/item/staff,
 			/obj/item/clothing/suit/space/hardsuit/shielded/wizard, /obj/item/clothing/suit/space/hardsuit/wizard,
 			/obj/item/gun/magic/staff, /obj/item/gun/magic/wand,
@@ -207,7 +207,7 @@ SUBSYSTEM_DEF(traumas)
 	var/words_match = ""
 	for(var/word in words)
 		words_match += "[REGEX_QUOTE(word)]|"
-	words_match = copytext(words_match, 1, -1)
+	words_match = copytext_char(words_match, 1, -1)
 	return regex("(\\b|\\A)([words_match])('?s*)(\\b|\\|)", "ig")
 
 #undef PHOBIA_FILE

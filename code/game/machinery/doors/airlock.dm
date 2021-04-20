@@ -308,6 +308,28 @@
 		A = new /obj/machinery/door/airlock/cult/weak(T)
 	qdel(src)
 
+/obj/machinery/door/airlock/ratvar_act() //Airlocks become pinion airlocks that only allow servants
+	var/obj/machinery/door/airlock/clockwork/A
+	if(glass)
+		A = new/obj/machinery/door/airlock/clockwork/glass(get_turf(src))
+	else
+		A = new/obj/machinery/door/airlock/clockwork(get_turf(src))
+	A.name = name
+	qdel(src)
+
+/obj/machinery/door/airlock/eminence_act(mob/living/simple_animal/eminence/eminence)
+	..()
+	to_chat(usr, "<span class='brass'>You begin manipulating [src]!</span>")
+	if(do_after(eminence, 20, target=get_turf(eminence)))
+		if(welded)
+			to_chat(eminence, text("The airlock has been welded shut!"))
+		else if(locked)
+			to_chat(eminence, text("The door bolts are down!"))
+		else if(!density)
+			close()
+		else
+			open()
+
 /obj/machinery/door/airlock/Destroy()
 	QDEL_NULL(wires)
 	QDEL_NULL(electronics)
@@ -1244,8 +1266,8 @@
 	assemblytype = initial(airlock.assemblytype)
 	update_icon()
 
-/obj/machinery/door/airlock/CanAStarPass(obj/item/card/id/ID)
-//Airlock is passable if it is open (!density), bot has access, and is not bolted shut or powered off)
+/obj/machinery/door/airlock/CanAStarPass(obj/item/card/id/ID, to_dir, atom/movable/caller)
+	//Airlock is passable if it is open (!density), bot has access, and is not bolted shut or powered off)
 	return !density || (check_access(ID) && !locked && hasPower())
 
 /obj/machinery/door/airlock/emag_act(mob/user, obj/item/card/emag/doorjack/D)
@@ -1280,7 +1302,7 @@
 	add_fingerprint(user)
 	user.visible_message("<span class='warning'>[user] начинает открывать [src].</span>",\
 						"<span class='noticealien'>Впиваюсь своими когтями в [src] со всей своей мощью!</span>",\
-						"<span class='warning'>Слышу рёв метала...</span>")
+						"<span class='warning'>Слышу рёв металла...</span>")
 	var/time_to_open = 5 //half a second
 	if(hasPower())
 		time_to_open = 5 SECONDS //Powered airlocks take longer to open, and are loud.

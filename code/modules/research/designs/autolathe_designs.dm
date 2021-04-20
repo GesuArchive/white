@@ -164,7 +164,7 @@
 	name = "Toolbox"
 	id = "tool_box"
 	build_type = AUTOLATHE
-	materials = list(MAT_CATEGORY_RIGID = 500)
+	materials = list(MAT_CATEGORY_ITEM_MATERIAL = 500)
 	build_path = /obj/item/storage/toolbox
 	category = list("initial","Инструменты")
 
@@ -1219,3 +1219,41 @@
 	materials = list(/datum/material/iron = 75)
 	build_path = /obj/item/chisel
 	category = list("initial","Инструменты")
+
+/datum/design/control
+	name = "Blast Door Controller"
+	id = "blast"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 100, /datum/material/glass = 50)
+	build_path = /obj/item/assembly/control
+	category = list("initial","Разное")
+
+
+/datum/design/holosign/restaurant
+	name = "Restaurant Seating Projector"
+	desc = "A holographic projector that creates seating designation for restaurants."
+	id = "holosignrestaurant"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
+	build_path = /obj/item/holosign_creator/robot_seat/restaurant
+	category = list("Снаряжение")
+	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
+
+/datum/design/holosign/bar
+	name = "Bar Seating Projector"
+	desc = "A holographic projector that creates seating designation for bars."
+	id = "holosignbar"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
+	build_path = /obj/item/holosign_creator/robot_seat/bar
+	category = list("Снаряжение")
+	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
+
+/datum/design/floor_painter
+	name = "Floor Painter"
+	id = "floor_painter"
+	build_type = AUTOLATHE | PROTOLATHE
+	materials = list(/datum/material/iron = 300, /datum/material/glass = 100)
+	build_path = /obj/item/floor_painter
+	category = list("initial","Инструменты","Рабочие инструменты")
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SERVICE

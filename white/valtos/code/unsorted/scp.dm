@@ -32,13 +32,28 @@
 	name = "SCP: Prisoner D"
 	uniform = /obj/item/clothing/under/prison/dclass
 	shoes = /obj/item/clothing/shoes/sneakers/orange
+	id = /obj/item/card/id/prisoner
+
+	implants = list(/obj/item/implant/exile)
 
 /datum/outfit/scp_scientist
 	name = "SCP: Scientist"
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/wzzzz/morpheus
+	suit = /obj/item/clothing/suit/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/sneakers/brown
+	id = /obj/item/card/id/ert/security
+
+	implants = list(/obj/item/implant/exile)
+
+/obj/effect/mob_spawn/human/prison/prisoner/dclass/special(mob/living/L)
+	var/list/klikuhi = list("Борзый", "Дохляк", "Академик", "Акула", "Базарило", "Бродяга", "Валет", "Воровайка", "Гнедой", \
+	"Гребень", "Дельфин", "Дырявый", "Игловой", "Карась", "Каторжанин", "Лабух", "Мазурик", "Мокрушник", "Понтовитый", \
+	"Ржавый", "Седой", "Сявка", "Темнила", "Чайка", "Чепушило", "Шакал", "Шерстяной", "Шмаровоз", "Шпилевой", "Олька", "Машка", \
+	"Щипач", "Якорник", "Сладкий", "Семьянин", "Порученец", "Блатной", "Арап", "Артист", "Апельсин", "Афер", "Анимешник", \
+	"Онанист", "Рэкетир")
+	L.fully_replace_character_name(L.real_name, "[pick(klikuhi)]")
 
 /obj/effect/mob_spawn/human/prison/prisoner/scientist/special(mob/living/L)
-	var/list/imena = list("Петренко", "Гаврилов", "Смирнов", "Гмызенко", "Юлия", "Сафронов", "Павлов", "Пердюк", "Золотарев", "Михалыч", "Попов", "Лштшфум Ащьф")
-	L.real_name = "Профессор [pick(imena)]"
-	L.name = L.real_name
+	var/list/imena = list("Петренко", "Гаврилов", "Смирнов", "Гмызенко", "Юлия", "Сафронов", "Павлов", "Пердюк", "Золотарев", \
+	"Михалыч", "Попов", "Астоль", "Меместофель", "Шепард", "Шруман", "Залупов")
+	L.fully_replace_character_name(L.real_name, "Профессор [pick(imena)]")

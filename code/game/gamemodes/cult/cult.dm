@@ -20,6 +20,8 @@
 			return FALSE
 		if(specific_cult?.is_sacrifice_target(M.mind))
 			return FALSE
+		if(is_servant_of_ratvar(M))
+			return FALSE
 		if(M.mind.enslaved_to && !iscultist(M.mind.enslaved_to))
 			return FALSE
 		if(M.mind.unconvertable)
@@ -31,12 +33,12 @@
 	return TRUE
 
 /datum/game_mode/cult
-	name = "культ"
+	name = "cult"
 	config_tag = "cult"
 	report_type = "cult"
 	antag_flag = ROLE_CULTIST
 	false_report_weight = 10
-	restricted_jobs = list("Prisoner", "Chaplain","AI", "Cyborg", "Russian Officer", "Trader", "Hacker","Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Head of Personnel")
+	restricted_jobs = list("Prisoner", "Chaplain","AI", "Cyborg", "Russian Officer", "Trader", "Hacker","Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Head of Personnel", "Field Medic")
 	protected_jobs = list()
 	required_players = 29
 	required_enemies = 4

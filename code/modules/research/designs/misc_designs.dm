@@ -365,7 +365,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/plastic = 2000)
 	build_path = /obj/item/storage/bag/trash
-	category = list("Equipment")
+	category = list("Снаряжение")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/blutrash
@@ -385,7 +385,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 1500, /datum/material/silver = 150, /datum/material/glass = 3000)
 	build_path = /obj/item/lightreplacer
-	category = list("Equipment")
+	category = list("Снаряжение")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/buffer
@@ -406,7 +406,7 @@
 	materials = list(/datum/material/iron = 1000)
 	reagents_list = list(/datum/reagent/acetone = 60)
 	build_path = /obj/item/paint/paint_remover
-	category = list("Equipment")
+	category = list("Снаряжение")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/spraybottle
@@ -513,7 +513,7 @@
 	desc = "A royal knight's favorite garments. Can be trimmed by any friendly person."
 	id = "knight_armour"
 	build_type = AUTOLATHE
-	materials = list(MAT_CATEGORY_RIGID = 10000)
+	materials = list(MAT_CATEGORY_ITEM_MATERIAL = 10000)
 	build_path = /obj/item/clothing/suit/armor/riot/knight/greyscale
 	category = list("Импорт")
 
@@ -522,7 +522,7 @@
 	desc = "A royal knight's favorite hat. If you hold it upside down it's actually a bucket."
 	id = "knight_helmet"
 	build_type = AUTOLATHE
-	materials = list(MAT_CATEGORY_RIGID = 5000)
+	materials = list(MAT_CATEGORY_ITEM_MATERIAL = 5000)
 	build_path = /obj/item/clothing/head/helmet/knight/greyscale
 	category = list("Импорт")
 

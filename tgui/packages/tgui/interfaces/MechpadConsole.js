@@ -14,7 +14,7 @@ export const MechpadControl = (props, context) => {
       title={(
         <Input
           value={pad_name}
-          width="170px"
+          width="240px"
           onChange={(e, value) => act('rename', {
             name: value,
           })} />
@@ -51,9 +51,8 @@ export const MechpadConsole = (props, context) => {
   } = data;
   return (
     <Window
-      width={475}
-      height={130}
-      resizable>
+      width={555}
+      height={130}>
       <Window.Content>
         {mechpads.length === 0 && (
           <NoticeBox>
@@ -62,7 +61,7 @@ export const MechpadConsole = (props, context) => {
         ) || (
           <Section>
             <Flex minHeight="70px">
-              <Flex.Item width="140px" minHeight="70px">
+              <Flex.Item width="190px" minHeight="70px">
                 {mechpads.map(mechpad => (
                   <Button
                     fluid

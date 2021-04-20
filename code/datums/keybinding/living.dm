@@ -7,8 +7,8 @@
 
 /datum/keybinding/living/resist
 	hotkey_keys = list("B")
-	name = "resist"
-	full_name = "Resist"
+	name = "Сопротивляться"
+	full_name = "Сопротивляться"
 	description = "Break free of your current state. Handcuffed? on fire? Resist!"
 	keybind_signal = COMSIG_KB_LIVING_RESIST_DOWN
 

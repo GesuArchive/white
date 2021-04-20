@@ -44,7 +44,10 @@
 	switch(damage_type)
 		if(BRUTE)
 			if(damage_amount)
-				playsound(src, 'sound/weapons/smash.ogg', 50, TRUE)
+				playsound(src, pick('white/valtos/sounds/metalblock1.wav', 'white/valtos/sounds/metalblock2.wav', \
+									'white/valtos/sounds/metalblock3.wav', 'white/valtos/sounds/metalblock4.wav', \
+									'white/valtos/sounds/metalblock5.wav', 'white/valtos/sounds/metalblock6.wav', \
+									'white/valtos/sounds/metalblock7.wav', 'white/valtos/sounds/metalblock8.wav'), 50, TRUE)
 			else
 				playsound(src, 'sound/weapons/tap.ogg', 50, TRUE)
 		if(BURN)

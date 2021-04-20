@@ -38,7 +38,7 @@ export const ThermoMachine = (props, context) => {
           <LabeledList>
             <LabeledList.Item label="Настройка">
               <Button
-                icon={data.cooling ? 'cooling' : 'heating'}
+                icon={data.cooling ? 'arrow-down' : 'arrow-up'}
                 content={data.cooling ? 'Охлаждение' : 'Нагрев'}
                 selected={data.cooling}
                 onClick={() => act('cooling')} />

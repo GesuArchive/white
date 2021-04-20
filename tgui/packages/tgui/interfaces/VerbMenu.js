@@ -13,8 +13,7 @@ export const VerbMenu = (props, context) => {
   return (
     <Window
       width={450}
-      height={400}
-      resizable>
+      height={400}>
       <Window.Content scrollable>
         {!(keys.length > 1) || (
           <Tabs>

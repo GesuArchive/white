@@ -30,6 +30,7 @@
 	var/buildstackamount = 1
 	var/framestackamount = 2
 	var/deconstruction_ready = 1
+	var/bashsound = 'sound/effects/tablebash.ogg'
 	custom_materials = list(/datum/material/iron = 2000)
 	max_integrity = 100
 	integrity_failure = 0.33
@@ -86,6 +87,19 @@
 				user.visible_message("<span class='notice'><b>[user]</b> кладёт <b>[user.pulling]</b> на <b>[src]</b>.</span>",
 					"<span class='notice'>Кладу на <b>[user.pulling]</b> на <b>[src]</b>.</span>")
 				user.stop_pulling()
+	if(user.a_intent == INTENT_HARM)
+		user.changeNext_move(CLICK_CD_MELEE)
+		user.visible_message("<span class='warning'>[user] долбит по столу!</span>", "<span class='warning'>Долблю по столу!</span>",
+			"<span class='danger'>Слышу звук удара.</span>")
+		playsound(src, bashsound, 80, TRUE)
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			if(!H.get_item_by_slot(ITEM_SLOT_GLOVES) && prob(25))
+				var/which_hand = BODY_ZONE_L_ARM
+				if(!(H.active_hand_index % 2))
+					which_hand = BODY_ZONE_R_ARM
+				var/obj/item/bodypart/ouchie = H.get_bodypart(which_hand)
+				ouchie?.receive_damage(rand(1, 5))
 	return ..()
 
 
@@ -102,11 +116,10 @@
 	if(locate(/obj/structure/table) in get_turf(mover))
 		return TRUE
 
-/obj/structure/table/CanAStarPass(ID, dir, caller)
+/obj/structure/table/CanAStarPass(obj/item/card/id/ID, to_dir, atom/movable/caller)
 	. = !density
-	if(ismovable(caller))
-		var/atom/movable/mover = caller
-		. = . || (mover.pass_flags & PASSTABLE)
+	if(istype(caller))
+		. = . || (caller.pass_flags & PASSTABLE)
 
 /obj/structure/table/proc/tableplace(mob/living/user, mob/living/pushed_mob)
 	pushed_mob.forceMove(loc)
@@ -303,10 +316,11 @@
  */
 /obj/structure/table/glass
 	name = "стеклянный стол"
-	desc = "Что я могу сказать залезая на стеклянные столы? Теперь мне нужно к хирургу."
+	desc = "Что можно сказать залезая на стеклянные столы? Теперь мне нужно к хирургу."
 	icon = 'icons/obj/smooth_structures/glass_table.dmi'
 	icon_state = "glass_table-0"
 	base_icon_state = "glass_table"
+	custom_materials = list(/datum/material/glass = 2000)
 	buildstack = /obj/item/stack/sheet/glass
 	smoothing_groups = list(SMOOTH_GROUP_GLASS_TABLES)
 	canSmoothWith = list(SMOOTH_GROUP_GLASS_TABLES)
@@ -555,6 +569,7 @@
 	can_buckle = 1
 	buckle_lying = NO_BUCKLE_LYING
 	buckle_requires_restraints = TRUE
+	custom_materials = list(/datum/material/silver = 2000)
 	var/mob/living/carbon/human/patient = null
 	var/obj/machinery/computer/operating/computer = null
 

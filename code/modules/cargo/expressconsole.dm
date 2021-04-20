@@ -115,7 +115,7 @@
 	data["beaconError"] = usingBeacon && !canBeacon ? "(BEACON ERROR)" : ""//changes button text to include an error alert if necessary
 	data["hasBeacon"] = beacon != null//is there a linked beacon?
 	data["beaconName"] = beacon ? beacon.name : "Маячок не найден"
-	data["printMsg"] = cooldown > 0 ? "Напечать маяк за [BEACON_COST] кредитов ([cooldown])" : "Напечатать маяк за [BEACON_COST] кредитов"//buttontext for printing beacons
+	data["printMsg"] = cooldown > 0 ? "Напечать маяк за [BEACON_COST] кредит[get_num_string(BEACON_COST)] ([cooldown])" : "Напечатать маяк за [BEACON_COST] кредит[get_num_string(BEACON_COST)]"//buttontext for printing beacons
 	data["supplies"] = list()
 	message = "Продажи практически мгновенные - пожалуйста, выбирайте внимательно."
 	if(SSshuttle.supplyBlocked)

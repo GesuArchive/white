@@ -130,7 +130,7 @@
 		if(!trackable(H))
 			continue
 
-		var/crewmember_name = "Unknown"
+		var/crewmember_name = "Неизвестный"
 		if(H.wear_id)
 			var/obj/item/card/id/I = H.wear_id.GetID()
 			if(I?.registered_name)

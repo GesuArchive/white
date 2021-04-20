@@ -624,7 +624,7 @@
 
 	if(ishuman(user))
 		if(user.stat == CONSCIOUS && !user.eye_blind)
-			user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[src.name]</b>.</span>", "<span class='small'>Смотрю на <b>[src.name]</b>.</span>", null, COMBAT_MESSAGE_RANGE)
+			user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[sklonenie(name, VINITELNI, gender)]</b>.</span>", "<span class='small'>Смотрю на <b>[src.name]</b>.</span>", null, COMBAT_MESSAGE_RANGE)
 		if(user.status_traits)
 			if(HAS_TRAIT(user, TRAIT_JEWISH))
 				var/datum/export_report/ex = export_item_and_contents(src, EXPORT_PIRATE | EXPORT_CARGO | EXPORT_CONTRABAND, dry_run=TRUE)
@@ -861,6 +861,21 @@
 /atom/proc/narsie_act()
 	SEND_SIGNAL(src, COMSIG_ATOM_NARSIE_ACT)
 
+/**
+  * Respond to ratvar eating our atom
+  *
+  * Default behaviour is to send COMSIG_ATOM_RATVAR_ACT and return
+  */
+/atom/proc/ratvar_act()
+	SEND_SIGNAL(src, COMSIG_ATOM_RATVAR_ACT)
+
+/**
+  * Respond to the eminence clicking on our atom
+  *
+  * Default behaviour is to send COMSIG_ATOM_EMAG_ACT and return
+  */
+/atom/proc/eminence_act(mob/living/simple_animal/eminence/eminence)
+	SEND_SIGNAL(src, COMSIG_ATOM_EMINENCE_ACT, eminence)
 
 ///Return the values you get when an RCD eats you?
 /atom/proc/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
@@ -1333,7 +1348,7 @@
 			created_atom.pixel_y = rand(-8, 8)
 			SEND_SIGNAL(created_atom, COMSIG_ATOM_CREATEDBY_PROCESSING, src, chosen_option)
 			created_atom.OnCreatedFromProcessing(user, I, chosen_option, src)
-			to_chat(user, "<span class='notice'>You manage to create [chosen_option[TOOL_PROCESSING_AMOUNT]] [initial(atom_to_create.name)]\s from [src].</span>")
+			to_chat(user, "<span class='notice'>You manage to create [chosen_option[TOOL_PROCESSING_AMOUNT]] [initial(atom_to_create.name)] from [src].</span>")
 			created_atoms.Add(created_atom)
 		SEND_SIGNAL(src, COMSIG_ATOM_PROCESSED, user, I, created_atoms)
 		UsedforProcessing(user, I, chosen_option)
@@ -1487,6 +1502,7 @@
 	var/postfix = "[sobject][saddition][hp]"
 
 	var/message = "has [what_done] [starget][postfix]"
+
 	user.log_message(message, LOG_ATTACK, color="red")
 
 	if(user != target)
@@ -1860,7 +1876,7 @@
 
 +*/
 /atom/proc/InitializeAIController()
-	if(ai_controller)
+	if(ispath(ai_controller))
 		ai_controller = new ai_controller(src)
 
 /**

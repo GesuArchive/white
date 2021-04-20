@@ -263,6 +263,8 @@
 
 /turf/open/rad_act(strength)
 	. = ..()
+	if(!air)
+		return FALSE
 	if (air.get_moles(/datum/gas/carbon_dioxide) && air.get_moles(/datum/gas/oxygen))
 		strength = min(strength,air.get_moles(/datum/gas/carbon_dioxide)*1000,air.get_moles(/datum/gas/oxygen)*2000) //Ensures matter is conserved properly
 		air.set_moles(/datum/gas/carbon_dioxide, max(air.get_moles(/datum/gas/carbon_dioxide)-(strength * 0.001),0))

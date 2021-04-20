@@ -807,7 +807,7 @@
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/terrorship)
 "da" = (
-/obj/machinery/atmospherics/pipe/simple/dark{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark{
 	dir = 4;
 	icon_state = "pipe11-2"
 	},
@@ -815,7 +815,7 @@
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "db" = (
-/obj/machinery/atmospherics/pipe/simple/dark{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark{
 	dir = 4;
 	icon_state = "pipe11-2"
 	},
@@ -884,14 +884,14 @@
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/terrorship)
 "dw" = (
-/obj/machinery/atmospherics/pipe/simple/dark{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark{
 	dir = 10;
 	icon_state = "pipe11-2"
 	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "dy" = (
-/obj/machinery/atmospherics/pipe/manifold4w/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "dz" = (
@@ -912,7 +912,7 @@
 /area/ruin/space/has_grav/terrorship)
 "dI" = (
 /obj/structure/shuttle/engine/heater,
-/obj/machinery/atmospherics/pipe/simple/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "dJ" = (
@@ -1174,7 +1174,7 @@
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "fy" = (
-/obj/machinery/atmospherics/pipe/simple/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "fz" = (
@@ -1206,7 +1206,7 @@
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "fF" = (
-/obj/machinery/atmospherics/pipe/manifold4w/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark,
 /obj/item/beacon,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -1253,7 +1253,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "iv" = (
-/obj/machinery/atmospherics/pipe/simple/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark,
 /obj/effect/spawner/structure/window/reinforced/partyhard,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
@@ -1282,7 +1282,7 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/terrorship)
 "kP" = (
-/obj/machinery/atmospherics/pipe/manifold/dark{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark{
 	dir = 1;
 	icon_state = "manifold-2"
 	},
@@ -1341,7 +1341,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "pr" = (
-/obj/machinery/atmospherics/pipe/simple/dark{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark{
 	dir = 4;
 	icon_state = "pipe11-2"
 	},
@@ -1453,7 +1453,7 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/terrorship)
 "xZ" = (
-/obj/machinery/atmospherics/pipe/simple/dark{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark{
 	dir = 6;
 	icon_state = "pipe11-2"
 	},
@@ -1482,7 +1482,7 @@
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/ruin/space/has_grav/terrorship)
 "An" = (
-/obj/machinery/atmospherics/pipe/simple/dark{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark{
 	dir = 4;
 	icon_state = "pipe11-2"
 	},
@@ -1492,7 +1492,7 @@
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "AC" = (
-/obj/machinery/atmospherics/pipe/simple/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark,
 /mob/living/simple_animal/hostile/syndicate/melee/sword,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
@@ -1502,7 +1502,7 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/ruin/space/has_grav/terrorship)
 "BB" = (
-/obj/machinery/atmospherics/pipe/simple/dark{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark{
 	dir = 10;
 	icon_state = "pipe11-2"
 	},
@@ -1539,7 +1539,7 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/terrorship)
 "Ei" = (
-/obj/machinery/atmospherics/pipe/simple/dark{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark{
 	dir = 6;
 	icon_state = "pipe11-2"
 	},
@@ -1586,7 +1586,7 @@
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/terrorship)
 "Gs" = (
-/obj/machinery/atmospherics/pipe/simple/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark,
 /mob/living/simple_animal/hostile/syndicate/civilian,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
@@ -1597,7 +1597,7 @@
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "HU" = (
-/obj/machinery/atmospherics/pipe/simple/dark{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark{
 	dir = 6;
 	icon_state = "pipe11-2"
 	},

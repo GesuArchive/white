@@ -84,10 +84,11 @@
 	///Attacking verb in present simple tense.
 	var/attack_verb_simple = "атакует"
 	var/attack_sound = null
+	var/attack_vis_effect
 	///Attacking, but without damage, verb in present continuous tense.
-	var/friendly_verb_continuous = "трётся"
+	var/friendly_verb_continuous = "тычет"
 	///Attacking, but without damage, verb in present simple tense.
-	var/friendly_verb_simple = "трётся"
+	var/friendly_verb_simple = "тычет"
 	///Set to 1 to allow breaking of crates,lockers,racks,tables; 2 for walls; 3 for Rwalls.
 	var/environment_smash = ENVIRONMENT_SMASH_NONE
 
@@ -158,7 +159,7 @@
 	///How much bare wounding power it has
 	var/bare_wound_bonus = 0
 	///If the attacks from this are sharp
-	var/sharpness = SHARP_NONE
+	var/sharpness = NONE
 	///Generic flags
 	var/simple_mob_flags = NONE
 
@@ -168,7 +169,7 @@
 	var/pet_bonus_emote = ""
 
 
-/mob/living/simple_animal/Initialize()
+/mob/living/simple_animal/Initialize(mapload)
 	. = ..()
 	GLOB.simple_animals[AIStatus] += src
 	if(gender == PLURAL)
@@ -250,8 +251,9 @@
 /mob/living/simple_animal/examine(mob/user)
 	. = ..()
 	if(stat == DEAD)
-		. += "<hr><span class='deadsay'>Эта тварь больше не шевелится и похоже мертва.</span>"
-
+		. += "<hr><span class='deadsay'Эта тварь больше не шевелится.</span>"
+	if(access_card)
+		. += "<hr>Кто-то прикрепил [icon2html(access_card, user)] [access_card] к этой твари."
 
 /mob/living/simple_animal/update_stat()
 	if(status_flags & GODMODE)

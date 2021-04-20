@@ -144,7 +144,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	///Punch-specific attack verb.
 	var/attack_verb = "бьёт"
-	///
+	/// The visual effect of the attack.
+	var/attack_effect = ATTACK_EFFECT_PUNCH
 	var/sound/attack_sound = 'sound/weapons/punch1.ogg'
 	var/sound/miss_sound = 'sound/weapons/punchmiss.ogg'
 
@@ -974,6 +975,17 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(BODY_FRONT_LAYER)
 			return "FRONT"
 
+///Proc that will randomise the hair, or primary appearance element (i.e. for moths wings) of a species' associated mob
+/datum/species/proc/randomize_main_appearance_element(mob/living/carbon/human/human_mob)
+	human_mob.hairstyle = random_hairstyle(human_mob.gender)
+	human_mob.update_hair()
+
+///Proc that will randomise the underwear (i.e. top, pants and socks) of a species' associated mob
+/datum/species/proc/randomize_active_underwear(mob/living/carbon/human/human_mob)
+	human_mob.undershirt = random_undershirt(human_mob.gender)
+	human_mob.underwear = random_underwear(human_mob.gender)
+	human_mob.socks = random_socks(human_mob.gender)
+	human_mob.update_body()
 
 /datum/species/proc/spec_life(mob/living/carbon/human/H)
 	if(HAS_TRAIT(H, TRAIT_NOBREATH))
@@ -1349,29 +1361,16 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	else
 
 		var/atk_verb = user.dna.species.attack_verb
+		var/atk_effect = user.dna.species.attack_effect
 		if(target.body_position == LYING_DOWN)
-			atk_verb = ATTACK_EFFECT_KICK
+			atk_verb = "пинает"
+			atk_effect = ATTACK_EFFECT_KICK
 
-		var/atk_verb_ru = "бьёт"
-		switch(atk_verb)//this code is really stupid but some genius apparently made "claw" and "slash" two attack types but also the same one so it's needed i guess
-			if(ATTACK_EFFECT_KICK)
-				user.do_attack_animation(target, ATTACK_EFFECT_KICK)
-				atk_verb_ru = "пинает"
-			if(ATTACK_EFFECT_SLASH || ATTACK_EFFECT_CLAW)//smh
-				user.do_attack_animation(target, ATTACK_EFFECT_CLAW)
-				atk_verb_ru = "разрывает"
-			if(ATTACK_EFFECT_SMASH)
-				user.do_attack_animation(target, ATTACK_EFFECT_SMASH)
-			if(ATTACK_EFFECT_BITE)
-				if(user.is_mouth_covered(FALSE, TRUE))
-					to_chat(user, "<span class='warning'>Рот закрыт!</span>")
-					return FALSE
-				user.do_attack_animation(target, ATTACK_EFFECT_BITE)
-			else
-				user.do_attack_animation(target, ATTACK_EFFECT_PUNCH)
-				atk_verb_ru = "бьёт"
-
-		//var/dam_dice_rolled = roll_stat_dice(user.current_fate[MOB_STR] + user.current_fate[MOB_DEX])
+		if(atk_effect == ATTACK_EFFECT_BITE)
+			if(user.is_mouth_covered(mask_only = TRUE))
+				to_chat(user, "<span class='warning'>Рот закрыт!</span>")
+				return FALSE
+		user.do_attack_animation(target, atk_effect)
 
 		var/damage = rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh)
 
@@ -1381,7 +1380,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		var/miss_chance = 100//calculate the odds that a punch misses entirely. considers stamina and brute damage of the puncher. punches miss by default to prevent weird cases
 		if(user.dna.species.punchdamagelow)
-			if(atk_verb == ATTACK_EFFECT_KICK || HAS_TRAIT(user, TRAIT_PERFECT_ATTACKER)) //kicks never miss (provided your species deals more than 0 damage)
+			if(atk_effect == ATTACK_EFFECT_KICK || HAS_TRAIT(user, TRAIT_PERFECT_ATTACKER)) //kicks never miss (provided your species deals more than 0 damage)
 				miss_chance = 0
 			else
 				miss_chance = min((user.dna.species.punchdamagehigh/user.dna.species.punchdamagelow) + user.getStaminaLoss() + (user.getBruteLoss()*0.5), 100) //old base chance for a miss + various damage. capped at 100 to prevent weirdness in prob()
@@ -1392,8 +1391,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		if(!damage || !affecting || prob(miss_chance))//future-proofing for species that have 0 damage/weird cases where no zone is targeted
 			playsound(target.loc, user.dna.species.miss_sound, 25, TRUE, -1)
-			target.visible_message("<span class='danger'>[user] [atk_verb_ru] мимо [target]!</span>",\
-							"<span class='userdanger'>[user] [atk_verb_ru] мимо меня!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, user)
+			target.visible_message("<span class='danger'>[user] [atk_verb] мимо [target]!</span>",\
+							"<span class='userdanger'>[user] [atk_verb] мимо меня!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, user)
 			to_chat(user, "<span class='warning'>Промахиваюсь пытаясь ударить [target]!</span>")
 
 			//target.visible_message("<span class='danger'>[user][return_miss_string(mis_dice_rolled)] [atk_verb] мимо [target]!</span>",
@@ -1409,8 +1408,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		playsound(target.loc, user.dna.species.attack_sound, 25, TRUE, -1)
 
-		target.visible_message("<span class='danger'>[user] [atk_verb_ru] [target]!</span>", \
-					"<span class='userdanger'>[user] [atk_verb_ru] меня!</span>", "<span class='hear'>Слышу как что-то бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, user)
+		target.visible_message("<span class='danger'>[user] [atk_verb] [target]!</span>", \
+					"<span class='userdanger'>[user] [atk_verb] меня!</span>", "<span class='hear'>Слышу как что-то бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, "<span class='danger'>Бью [target]!</span>")
 
 		//target.visible_message("<span class='danger'>[user][return_damage_string(dam_dice_rolled)] [atk_verb] [target]!</span>",
@@ -1424,7 +1423,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(user.limb_destroyer)
 			target.dismembering_strike(user, affecting.body_zone, TRUE)
 
-		if(atk_verb == ATTACK_EFFECT_KICK)//kicks deal 1.5x raw damage
+		if(atk_effect == ATTACK_EFFECT_KICK)//kicks deal 1.5x raw damage
 			target.apply_damage(damage*1.5, user.dna.species.attack_type, affecting, armor_block)
 			log_combat(user, target, "kicked")
 		else//other attacks deal full raw damage + 1.5x in stamina damage
@@ -1495,6 +1494,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 /datum/species/proc/spec_attacked_by(obj/item/I, mob/living/user, obj/item/bodypart/affecting, intent, mob/living/carbon/human/H)
 	// Allows you to put in item-specific reactions based on species
+	if(H.checkbuttinsert(I, user)) //hippie edit -- adds butt check
+		return FALSE //hippie edit -- adds butt check
 	if(user != H)
 		if(H.check_shields(I, I.force, "[I.name]", MELEE_ATTACK, I.armour_penetration))
 			return FALSE
@@ -1542,7 +1543,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		switch(affecting.body_zone)
 			if(BODY_ZONE_HEAD)
 				if(!I.get_sharpness() && armor_block < 50)
-					if(prob(I.force))
+					if(prob(I.force * 2))
 						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, I.force * 0.5)
 						if(H.stat == CONSCIOUS)
 							H.visible_message("<span class='danger'>[H] беспорядочно шатается!</span>", \
@@ -1570,7 +1571,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					if(H.glasses && prob(33))
 						H.glasses.add_mob_blood(H)
 						H.update_inv_glasses()
-				punchouttooth(H,user,I.force,affecting) // hippie -- teethcode
+				if(!I.get_sharpness())
+					punchouttooth(H,user,I.force,affecting) // hippie -- teethcode
 
 			if(BODY_ZONE_CHEST)
 				if(H.stat == CONSCIOUS && !I.get_sharpness() && armor_block < 50)
@@ -1589,7 +1591,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	return TRUE
 
-/datum/species/proc/apply_damage(damage, damagetype = BRUTE, def_zone = null, blocked, mob/living/carbon/human/H, forced = FALSE, spread_damage = FALSE, wound_bonus = 0, bare_wound_bonus = 0, sharpness = SHARP_NONE)
+/datum/species/proc/apply_damage(damage, damagetype = BRUTE, def_zone = null, blocked, mob/living/carbon/human/H, forced = FALSE, spread_damage = FALSE, wound_bonus = 0, bare_wound_bonus = 0, sharpness = NONE)
 	SEND_SIGNAL(H, COMSIG_MOB_APPLY_DAMGE, damage, damagetype, def_zone, wound_bonus, bare_wound_bonus, sharpness) // make sure putting wound_bonus here doesn't screw up other signals or uses for this signal
 	var/hit_percent = (100-(blocked+armor))/100
 	hit_percent = (hit_percent * (100-H.physiology.damage_resistance))/100

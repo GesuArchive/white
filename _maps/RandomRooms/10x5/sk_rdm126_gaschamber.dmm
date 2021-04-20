@@ -67,7 +67,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
 	dir = 6
 	},
 /turf/open/floor/plasteel/dark,
@@ -76,7 +76,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/anifold4w/general/visible{
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -107,7 +107,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/anifold4w/general/visible,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "n" = (
@@ -127,7 +127,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/anifold4w/general/visible,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "r" = (
@@ -196,7 +196,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/anifold4w/general/visible,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
@@ -294,7 +294,7 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "M" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/anifold4w/general/visible{
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -306,7 +306,7 @@
 /area/template_noop)
 "N" = (
 /obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/anifold4w/general/visible{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red{
@@ -316,7 +316,7 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "O" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/anifold4w/general/visible{
 	dir = 9
 	},
 /obj/effect/turf_decal/tile/red{
@@ -347,7 +347,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/atmospherics/pipe/simple/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/anifold4w/general/visible,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)

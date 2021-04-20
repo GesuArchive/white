@@ -13,8 +13,7 @@ export const NtosMinnet = (props, context) => {
     <NtosWindow
       theme={PC_device_theme}
       width={520}
-      height={630}
-      resizable>
+      height={630}>
       <NtosWindow.Content scrollable>
         <Section
           title="Криптомайнеры"

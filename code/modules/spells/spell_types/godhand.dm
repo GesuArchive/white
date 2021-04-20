@@ -109,3 +109,21 @@
 	M.Stun(40)
 	M.petrify()
 	return ..()
+
+/obj/item/melee/touch_attack/fleshtostone/midas
+	name = "рука мидаса"
+	desc = "Это то, что превратит существо в золото!"
+	catchphrase = "PO F'ARM'U CH'EMP'ION!!"
+	on_use_sound = 'white/valtos/sounds/midas.ogg'
+	icon_state = "fleshtostone"
+	inhand_icon_state = "fleshtostone"
+	color = "#ff9900"
+
+/obj/item/melee/touch_attack/fleshtostone/midas/afterattack(atom/target, mob/living/carbon/user, proximity)
+	. = ..()
+	if(target)
+		var/obj/O = locate(/obj/structure/statue/petrified) in get_turf(target)
+		if(O)
+			O.color = "#ff9900"
+			O.desc = "Невероятно реалистичное золотое сечение."
+			custom_materials = list(/datum/material/gold = 10000)

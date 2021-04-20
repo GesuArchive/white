@@ -31,11 +31,9 @@ GLOBAL_VAR(restart_counter)
 /world/New()
 	if (fexists(EXTOOLS))
 		call(EXTOOLS, "maptick_initialize")()
+#ifdef retard_shit_cum
 	enable_debugger()
-#ifdef REFERENCE_TRACKING
-	enable_reference_tracking()
 #endif
-
 	log_world("World loaded at [time_stamp()]!")
 
 	make_datum_references_lists()	//initialises global lists for referencing frequently used datums (so that we only ever do it once)
@@ -273,11 +271,10 @@ GLOBAL_VAR(restart_counter)
 			TgsEndProcess()
 
 	log_world("World rebooted at [time_stamp()]")
-	
+
 	TgsReboot()
 	shutdown_logging() // Past this point, no logging procs can be used, at risk of data loss.
-	if(CONFIG_GET(flag/this_shit_is_stable))
-		shelleo("curl -X POST http://localhost:3636/reboot-white")
+	shelleo("curl -X POST http://localhost:3636/hard-reboot-white")
 	..()
 
 /world/Del()
@@ -296,14 +293,17 @@ GLOBAL_VAR_INIT(hub_mimic, FALSE)
 	var/s = ""
 
 	if(!GLOB.hub_mimic)
-		s += "<big><b>White Dream: /tg/</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/9uJ7dmM\">DISCORD</a>\n\n"
+		s += "<big><b>White Dream: RU</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/9uJ7dmM\">DISCORD</a>\n\n"
 		s += "<img src='https://assets.station13.ru/l/w[rand(1, 2)].gif'>\n\n"
-		s += "\[<big>CK&Lcy;A&Dcy; &Gcy;P&YAcy;&Zcy;&Icy;</big>"
+		s += "\[<big>GO! GO! GO!</big>"
 	else
-		s += "<a href=\"https://discord.gg/9uJ7dmM\" rel=\"nofollow\"><b>SS13-CM - RU EDITION NO LAGS USS Almayer</b><br>\n<img src=\"https://cm-ss13.com//byond_hub_logo.jpg\"></a>"
-		s += "\nMap: <b>Kutjevo Refinery</b>"
-		s += "\nMode: <b>Distress Signal</b>"
-		s += "\nRound time: <b>[worldtime2text()]</b>"
+		s += "<big><b>LifeWeb: For Beginners</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/9uJ7dmM\">DISCORD</a>\n\n"
+		s += "<img src='https://assets.station13.ru/l/hrsy.gif'>\n\n"
+		s += "\[<big>Chinese Only</big>"
+		//s += "<a href=\"https://discord.gg/9uJ7dmM\" rel=\"nofollow\"><b>SS13-CM - RU EDITION NO LAGS USS Almayer</b><br>\n<img src=\"https://cm-ss13.com//byond_hub_logo.jpg\"></a>"
+		//s += "\nMap: <b>Kutjevo Refinery</b>"
+		//s += "\nMode: <b>Distress Signal</b>"
+		//s += "\nRound time: <b>[worldtime2text()]</b>"
 		//s += "<b>\[RU\] The Fluffy Fronti&iecy;r 18+ MRP</b> — (<a href=\"https://discord.gg/9uJ7dmM\">Discord)\]<br>"
 		//s += "Russian furry MRP server running on modified Skyrat code<br>"
 		//s += "\[[pick("Box", "Meta")] Station, [pick("green", "blue", "red", "delta")] alert, ~[GLOB.player_list.len] players</a>"

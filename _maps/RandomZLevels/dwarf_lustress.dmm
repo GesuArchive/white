@@ -573,10 +573,6 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/vietnam/dwarf)
-"GG" = (
-/mob/living/simple_animal/hostile/megafauna/sans,
-/turf/open/floor/grass/gensgrass/dirty/stone/raw,
-/area/awaymission/vietnam/dwarf)
 "GJ" = (
 /mob/living/simple_animal/hostile/asteroid/goliath/beast/ancient,
 /turf/open/lava/smooth,
@@ -13703,7 +13699,7 @@ ha
 ha
 Kc
 ha
-GG
+ha
 ha
 ha
 Nl

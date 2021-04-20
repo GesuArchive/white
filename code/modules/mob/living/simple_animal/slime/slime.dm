@@ -435,32 +435,32 @@
 	return
 
 /mob/living/simple_animal/slime/examine(mob/user)
-	. = list("<span class='info'>This is [icon2html(src, user)] \a <EM>[src]</EM>!<hr>")
+	. = list("<span class='info'>Это же [icon2html(src, user)] <EM>[src]</EM>!<hr>")
 	if (stat == DEAD)
-		. += "<span class='deadsay'>It is limp and unresponsive.</span>\n"
+		. += "<span class='deadsay'>Он лежит неподвижно.</span>\n"
 	else
 		if (stat == UNCONSCIOUS || stat == HARD_CRIT) // Slime stasis
-			. += "<span class='deadsay'>It appears to be alive but unresponsive.</span>\n"
+			. += "<span class='deadsay'>Он лежит и елё шевелится.</span>\n"
 		if (getBruteLoss())
 			. += "<span class='warning'>"
 			if (getBruteLoss() < 40)
-				. += "It has some punctures in its flesh!\n"
+				. += "Имеет небольшие отверстия в его теле!\n"
 			else
-				. += "<B>It has severe punctures and tears in its flesh!</B>\n"
+				. += "<B>Его оболочка жутко разорвана!</B>\n"
 			. += "</span>\n"
 
 		switch(powerlevel)
 			if(2 to 3)
-				. += "It is flickering gently with a little electrical activity.\n"
+				. += "Он слегка искрится.\n"
 
 			if(4 to 5)
-				. += "It is glowing gently with moderate levels of electrical activity.\n"
+				. += "Он искрится.\n"
 
 			if(6 to 9)
-				. += "<span class='warning'>It is glowing brightly with high levels of electrical activity.</span>\n"
+				. += "<span class='warning'>Он ярко искрится.</span>\n"
 
 			if(10)
-				. += "<span class='warning'><B>It is radiating with massive levels of electrical activity!</B></span>\n"
+				. += "<span class='warning'><B>Он очень сильно искрится, будто сейчас взорвётся!</B></span>\n"
 
 	. += "</span>"
 
@@ -506,3 +506,6 @@
 
 /mob/living/simple_animal/slime/add_cell_sample()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_SLIME, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
+
+/mob/living/simple_animal/slime/rainbow/Initialize(mapload, new_colour="rainbow", new_is_adult)
+	. = ..(mapload, new_colour, new_is_adult)

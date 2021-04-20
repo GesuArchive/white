@@ -28,6 +28,7 @@
 	can_flashlight = FALSE
 	can_charge = FALSE
 	use_cyborg_cell = TRUE
+	fire_delay = 4
 
 /obj/item/gun/energy/disabler
 	name = "усмиритель"
@@ -46,3 +47,18 @@
 	desc = "Встроенный блокировщик, который питается от силовой ячейки киборга. Это оружие содержит ограничитель для предотвращения перегрева силовой ячейки киборга."
 	can_charge = FALSE
 	use_cyborg_cell = TRUE
+
+/obj/item/gun/energy/taser/triser
+	name = "тризер"
+	desc = "Энергетический электрошокер средней мощности, используемый группами безопасности для подавления целей на расстоянии. Этот должен работать наверняка."
+	icon = 'white/valtos/icons/objects.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
+	fire_sound = 'white/valtos/sounds/rapidslice.ogg'
+	icon_state = "taser"
+	inhand_icon_state = null
+	ammo_type = list(/obj/item/ammo_casing/energy/electrode)
+	cell_type = "/obj/item/stock_parts/cell/pulse/pistol"
+	ammo_x_offset = 3
+	fire_delay = 2
+	burst_size = 3

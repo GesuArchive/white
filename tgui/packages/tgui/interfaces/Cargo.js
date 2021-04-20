@@ -8,8 +8,7 @@ export const Cargo = (props, context) => {
   return (
     <Window
       width={780}
-      height={750}
-      resizable>
+      height={750}>
       <Window.Content scrollable>
         <CargoContent />
       </Window.Content>
@@ -74,6 +73,7 @@ export const CargoContent = (props, context) => {
 const CargoStatus = (props, context) => {
   const { act, data } = useBackend(context);
   const {
+    grocery,
     away,
     docked,
     loan,
@@ -99,7 +99,10 @@ const CargoStatus = (props, context) => {
         <LabeledList.Item label="Шаттл">
           {docked && !requestonly && can_send &&(
             <Button
+              color={grocery && "orange" || "green"}
               content={location}
+              tooltip={grocery && "Повар сделал заказ и ожидает товар." || ""}
+              tooltipPosition="right"
               onClick={() => act('send')} />
           ) || location}
         </LabeledList.Item>
@@ -154,7 +157,7 @@ export const CargoCatalog = (props, context) => {
         </>
       )}>
       <Flex>
-        <Flex.Item ml={-1} mr={1}>
+        <Flex.Item ml={-1} mr={2}>
           <Tabs vertical>
             {supplies.map(supply => (
               <Tabs.Tab
@@ -179,6 +182,7 @@ export const CargoCatalog = (props, context) => {
               return (
                 <Table.Row
                   key={pack.name}
+                  minHeight="24px"
                   className="candystripe">
                   <Table.Cell>
                     {pack.name}
@@ -202,7 +206,7 @@ export const CargoCatalog = (props, context) => {
                       {formatMoney((self_paid && !pack.goody) || app_cost
                         ? Math.round(pack.cost * 1.1)
                         : pack.cost)}
-                      {' cr'}
+                      {' кр'}
                     </Button>
                   </Table.Cell>
                 </Table.Row>

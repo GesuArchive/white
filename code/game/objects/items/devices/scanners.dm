@@ -170,6 +170,8 @@ GENE SCANNER
 		var/mob/living/carbon/human/H = M
 		if(H.undergoing_cardiac_arrest() && H.stat != DEAD)
 			render_list += "<span class='alert'>У пациента сердечный приступ: срочно требуется дефибриллирование или удар током!</span>\n"
+		if(H.has_reagent(/datum/reagent/inverse/technetium))
+			advanced = TRUE
 
 	render_list += "<span class='info'>Результаты анализа [M]:</span>\n<span class='info ml-1'>Общий статус: [mob_status]</span>\n"
 
@@ -324,9 +326,16 @@ GENE SCANNER
 
 			for(var/obj/item/organ/organ in H.internal_organs)
 				var/status = ""
-				if (organ.organ_flags & ORGAN_FAILING) status = "<font color='#E42426'>Не работает</font>"
-				else if (organ.damage > organ.high_threshold) status = "<font color='#EC6224'>Сильно повреждён</font>"
-				else if (organ.damage > organ.low_threshold) status = "<font color='#F28F1F'>Повреждён</font>"
+				if(H.has_reagent(/datum/reagent/inverse/technetium))
+					if(organ.damage)
+						status = "<font color='#E42426'> Повреждён на [round((organ.damage/organ.maxHealth)*100, 1)]%.</font>"
+				else
+					if (organ.organ_flags & ORGAN_FAILING)
+						status = "<font color='#cc3333'>Не работает</font>"
+					else if (organ.damage > organ.high_threshold)
+						status = "<font color='#ff9933'>Сильно повреждён</font>"
+					else if (organ.damage > organ.low_threshold)
+						status = "<font color='#ffcc33'>Повреждён</font>"
 				if (status != "")
 					render = TRUE
 					toReport += "<tr><td><font color='#7777CC'>[organ.name]</font></td>\
@@ -455,9 +464,12 @@ GENE SCANNER
 		if(LAZYLEN(M.mind.active_addictions))
 			render_list += "<span class='boldannounce ml-1'>У пациента есть зависимость от следующих химикатов:</span>\n"
 			for(var/datum/addiction/addiction_type as anything in M.mind.active_addictions)
-				render_list += "<span class='alert ml-2'>[addiction_type.name]</span>\n"
+				render_list += "<span class='alert ml-2'>[initial(addiction_type.name)]</span>\n"
 		else
 			render_list += "<span class='notice ml-1'>У пациента нет зависимостей от химикатов.</span>\n"
+
+		if(M.has_status_effect(/datum/status_effect/eigenstasium))
+			render_list += "<span class='notice ml-1'>Subject is temporally unstable. Stabilising agent is recommended to reduce disturbances.</span>\n"
 
 		to_chat(user, jointext(render_list, ""), trailing_newline = FALSE) // we handled the last <br> so we don't need handholding
 

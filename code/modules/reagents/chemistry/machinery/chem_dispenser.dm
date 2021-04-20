@@ -9,7 +9,7 @@
 		if ("mine_salve")
 			return "minerssalve"
 		else
-			return ckey(id)
+			return lowertext(id)
 
 /obj/machinery/chem_dispenser
 	name = "раздатчик химикатов"
@@ -29,6 +29,7 @@
 	var/amount = 30
 	var/recharge_amount = 10
 	var/recharge_counter = 0
+	var/dispensed_temperature = DEFAULT_REAGENT_TEMPERATURE
 	///If the UI has the pH meter shown
 	var/show_ph = TRUE
 	var/mutable_appearance/beaker_overlay
@@ -225,7 +226,7 @@
 			var/chemname = temp.name
 			if(is_hallucinating && prob(5))
 				chemname = "[pick_list_replacements("hallucination.json", "chemicals")]"
-			chemicals.Add(list(list("title" = chemname, "id" = ckey(temp.name), "pH" = temp.ph, "pHCol" = convert_ph_to_readable_color(temp.ph))))
+			chemicals.Add(list(list("title" = chemname, "id" = lowertext(temp.name), "pH" = temp.ph, "pHCol" = convert_ph_to_readable_color(temp.ph))))
 	data["chemicals"] = chemicals
 	data["recipes"] = saved_recipes
 
@@ -235,7 +236,7 @@
 		var/datum/chemical_reaction/reaction = get_chemical_reaction(beaker.reagents.ui_reaction_id)
 		for(var/_reagent in reaction.required_reagents)
 			var/datum/reagent/reagent = find_reagent_object_from_type(_reagent)
-			data["recipeReagents"] += ckey(reagent.name)
+			data["recipeReagents"] += lowertext(reagent.name)
 	return data
 
 /obj/machinery/chem_dispenser/ui_act(action, params)
@@ -265,7 +266,7 @@
 					if(!cell.use(actual / powerefficiency))
 						say("Not enough energy to complete operation!")
 						return
-					R.add_reagent(reagent, actual)
+					R.add_reagent(reagent, actual, reagtemp = dispensed_temperature)
 
 					work_animation()
 			else
@@ -303,7 +304,7 @@
 						if(!cell.use(actual / powerefficiency))
 							say("Not enough energy to complete operation!")
 							return
-						R.add_reagent(reagent, actual)
+						R.add_reagent(reagent, actual, reagtemp = dispensed_temperature)
 						work_animation()
 				else
 					recording_recipe[key] += dispense_amount
@@ -375,6 +376,8 @@
 
 /obj/machinery/chem_dispenser/emp_act(severity)
 	. = ..()
+	if(!cell)
+		return
 	if(. & EMP_PROTECT_SELF)
 		return
 	var/list/datum/reagents/R = list()
@@ -383,7 +386,7 @@
 	if(beaker?.reagents)
 		R += beaker.reagents
 	for(var/i in 1 to total)
-		Q.add_reagent(pick(dispensable_reagents), 10)
+		Q.add_reagent(pick(dispensable_reagents), 10, reagtemp = dispensed_temperature)
 	R += Q
 	chem_splash(get_turf(src), 3, R)
 	if(beaker?.reagents)
@@ -464,6 +467,7 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "soda_dispenser"
 	has_panel_overlay = FALSE
+	dispensed_temperature = (T0C + 0.85) // cold enough that ice won't melt
 	amount = 10
 	pixel_y = 6
 	layer = WALL_OBJ_LAYER
@@ -509,26 +513,11 @@
 	desc = "Содержит большой резервуар с безалкогольными напитками. Предохранители данного аппарата закорочены."
 	obj_flags = CAN_BE_HIT | EMAGGED
 	flags_1 = NODECONSTRUCT_1
+	circuit = /obj/item/circuitboard/machine/chem_dispenser/drinks/fullupgrade
 
 /obj/machinery/chem_dispenser/drinks/fullupgrade/Initialize()
 	. = ..()
 	dispensable_reagents |= emagged_reagents //adds emagged reagents
-
-	// Cache the old_parts first, we'll delete it after we've changed component_parts to a new list.
-	// This stops handle_atom_del being called on every part when not necessary.
-	var/list/old_parts = component_parts.Copy()
-
-	component_parts = list()
-	component_parts += new /obj/item/circuitboard/machine/chem_dispenser/drinks(src)
-	component_parts += new /obj/item/stock_parts/matter_bin/bluespace(src)
-	component_parts += new /obj/item/stock_parts/matter_bin/bluespace(src)
-	component_parts += new /obj/item/stock_parts/capacitor/quadratic(src)
-	component_parts += new /obj/item/stock_parts/manipulator/femto(src)
-	component_parts += new /obj/item/stack/sheet/glass(src, 1)
-	component_parts += new /obj/item/stock_parts/cell/bluespace(src)
-
-	QDEL_LIST(old_parts)
-	RefreshParts()
 
 /obj/machinery/chem_dispenser/drinks/beer
 	name = "раздатчик бухлишка"
@@ -570,26 +559,11 @@
 	desc = "Содержит большой резервуар с ништяками. Предохранители данного аппарата закорочены."
 	obj_flags = CAN_BE_HIT | EMAGGED
 	flags_1 = NODECONSTRUCT_1
+	circuit = /obj/item/circuitboard/machine/chem_dispenser/drinks/beer/fullupgrade
 
 /obj/machinery/chem_dispenser/drinks/beer/fullupgrade/Initialize()
 	. = ..()
 	dispensable_reagents |= emagged_reagents //adds emagged reagents
-
-	// Cache the old_parts first, we'll delete it after we've changed component_parts to a new list.
-	// This stops handle_atom_del being called on every part when not necessary.
-	var/list/old_parts = component_parts.Copy()
-
-	component_parts = list()
-	component_parts += new /obj/item/circuitboard/machine/chem_dispenser/drinks/beer(src)
-	component_parts += new /obj/item/stock_parts/matter_bin/bluespace(src)
-	component_parts += new /obj/item/stock_parts/matter_bin/bluespace(src)
-	component_parts += new /obj/item/stock_parts/capacitor/quadratic(src)
-	component_parts += new /obj/item/stock_parts/manipulator/femto(src)
-	component_parts += new /obj/item/stack/sheet/glass(src, 1)
-	component_parts += new /obj/item/stock_parts/cell/bluespace(src)
-
-	QDEL_LIST(old_parts)
-	RefreshParts()
 
 /obj/machinery/chem_dispenser/mutagen
 	name = "раздатчик мутагенов"
@@ -603,6 +577,8 @@
 	name = "раздатчик ботанических химикатов"
 	desc = "Производит и раздает химикаты, используемые в ботанике."
 	flags_1 = NODECONSTRUCT_1
+
+	circuit = /obj/item/circuitboard/machine/chem_dispenser/mutagensaltpeter
 
 	dispensable_reagents = list(
 		/datum/reagent/toxin/mutagen,
@@ -620,49 +596,15 @@
 		/datum/reagent/diethylamine)
 	upgrade_reagents = null
 
-/obj/machinery/chem_dispenser/mutagensaltpeter/Initialize()
-	. = ..()
-
-	// Cache the old_parts first, we'll delete it after we've changed component_parts to a new list.
-	// This stops handle_atom_del being called on every part when not necessary.
-	var/list/old_parts = component_parts.Copy()
-
-	component_parts = list()
-	component_parts += new /obj/item/circuitboard/machine/chem_dispenser(src)
-	component_parts += new /obj/item/stock_parts/matter_bin/bluespace(src)
-	component_parts += new /obj/item/stock_parts/matter_bin/bluespace(src)
-	component_parts += new /obj/item/stock_parts/capacitor/quadratic(src)
-	component_parts += new /obj/item/stock_parts/manipulator/femto(src)
-	component_parts += new /obj/item/stack/sheet/glass(src, 1)
-	component_parts += new /obj/item/stock_parts/cell/bluespace(src)
-
-	QDEL_LIST(old_parts)
-	RefreshParts()
-
 /obj/machinery/chem_dispenser/fullupgrade //fully ugpraded stock parts, emagged
 	desc = "Производит и раздает химикаты. Предохранители данного аппарата закорочены."
 	obj_flags = CAN_BE_HIT | EMAGGED
 	flags_1 = NODECONSTRUCT_1
+	circuit = /obj/item/circuitboard/machine/chem_dispenser/fullupgrade
 
 /obj/machinery/chem_dispenser/fullupgrade/Initialize()
 	. = ..()
 	dispensable_reagents |= emagged_reagents //adds emagged reagents
-
-	// Cache the old_parts first, we'll delete it after we've changed component_parts to a new list.
-	// This stops handle_atom_del being called on every part when not necessary.
-	var/list/old_parts = component_parts.Copy()
-
-	component_parts = list()
-	component_parts += new /obj/item/circuitboard/machine/chem_dispenser(src)
-	component_parts += new /obj/item/stock_parts/matter_bin/bluespace(src)
-	component_parts += new /obj/item/stock_parts/matter_bin/bluespace(src)
-	component_parts += new /obj/item/stock_parts/capacitor/quadratic(src)
-	component_parts += new /obj/item/stock_parts/manipulator/femto(src)
-	component_parts += new /obj/item/stack/sheet/glass(src, 1)
-	component_parts += new /obj/item/stock_parts/cell/bluespace(src)
-
-	QDEL_LIST(old_parts)
-	RefreshParts()
 
 /obj/machinery/chem_dispenser/abductor
 	name = "синтезатор реагентов"
@@ -713,22 +655,3 @@
 		/datum/reagent/toxin/plasma,
 		/datum/reagent/uranium
 	)
-
-/obj/machinery/chem_dispenser/abductor/Initialize()
-	. = ..()
-
-	// Cache the old_parts first, we'll delete it after we've changed component_parts to a new list.
-	// This stops handle_atom_del being called on every part when not necessary.
-	var/list/old_parts = component_parts.Copy()
-
-	component_parts = list()
-	component_parts += new /obj/item/circuitboard/machine/chem_dispenser(src)
-	component_parts += new /obj/item/stock_parts/matter_bin/bluespace(src)
-	component_parts += new /obj/item/stock_parts/matter_bin/bluespace(src)
-	component_parts += new /obj/item/stock_parts/capacitor/quadratic(src)
-	component_parts += new /obj/item/stock_parts/manipulator/femto(src)
-	component_parts += new /obj/item/stack/sheet/glass(src, 1)
-	component_parts += new /obj/item/stock_parts/cell/bluespace(src)
-
-	QDEL_LIST(old_parts)
-	RefreshParts()

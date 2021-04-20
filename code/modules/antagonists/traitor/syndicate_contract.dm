@@ -25,7 +25,7 @@
 	if (record)
 		target_rank = record.fields["rank"]
 	else
-		target_rank = "Unknown"
+		target_rank = "Неизвестный"
 
 	if (payout_type == CONTRACT_PAYOUT_LARGE)
 		contract.payout_bonus = rand(9,13)
@@ -145,7 +145,7 @@
 				if(C?.registered_account)
 					C.registered_account.adjust_money(ransom * 0.35)
 
-					C.registered_account.bank_card_talk("Мы обработали выкуп, агент. Вот ваша доля в размере [C.registered_account.account_balance] кредитов.", TRUE)
+					C.registered_account.bank_card_talk("Мы обработали выкуп, агент. Вот ваша доля в размере [C.registered_account.account_balance] кредит[get_num_string(C.registered_account.account_balance)].", TRUE)
 
 // They're off to holding - handle the return timer and give some text about what's going on.
 /datum/syndicate_contract/proc/handleVictimExperience(mob/living/M)

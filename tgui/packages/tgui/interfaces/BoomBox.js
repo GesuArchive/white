@@ -18,11 +18,10 @@ export const BoomBox = (props, context) => {
   });
   return (
     <Window
-      width={490}
+      width={525}
       height={650}
-      theme="ntos"
-      resizable>
-      <Window.Content>
+      theme="ntos">
+      <Window.Content scrollable>
         <Section
           title="Текущий трек"
           buttons={(
@@ -82,7 +81,7 @@ export const BoomBox = (props, context) => {
                 ))}
               </Tabs>
             </Flex.Item>
-            <Flex.Item grow={1} basis={0}>
+            <Flex.Item grow={1} ml={1} basis={0}>
               <Table>
                 {selectedCategorySel?.tracks.map(track => {
                   return (

@@ -28,24 +28,11 @@
 	explosion_block = INFINITY
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 
-/turf/open/space/basic/planet/Initialize()
-	. = ..()
-	icon_state = "void"
-	temperature = TCRYO
-	air = new
-
 /turf/open/space/basic/planet/cliffs
 	name = "обрыв"
 	icon_state = "cliff1"
 	var/aaaa = ""
 	plane = FLOOR_PLANE
-
-/turf/open/space/basic/planet/cliffs/Initialize()
-	aaaa = icon_state
-	. = ..()
-	icon_state = aaaa
-	temperature = TCRYO
-	air = new
 
 /area/centcom/outdoors/Initialize()
 	. = ..()

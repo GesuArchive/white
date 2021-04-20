@@ -8,7 +8,7 @@
 
 //Suits
 /obj/item/clothing/suit/chaplainsuit/holidaypriest
-	name = "праздничный священник"
+	name = "парадная роба священника"
 	desc = "Это праздник, мой сын."
 	icon_state = "holidaypriest"
 	inhand_icon_state = "w_suit"

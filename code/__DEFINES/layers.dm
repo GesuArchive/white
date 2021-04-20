@@ -13,6 +13,8 @@
 #define OPENSPACE_PLANE -4 //Openspace plane below all turfs
 #define OPENSPACE_BACKDROP_PLANE -3 //Black square just over openspace plane to guaranteed cover all in openspace turf
 
+#define LOWER_SHUTTLE_MOVEMENT_PLANE -5
+#define LOWER_SHUTTLE_MOVEMENT_RENDER_TARGET "LOWER_SHUTTLE_MOVEMENT_PLANE"
 
 #define FLOOR_PLANE -2
 #define FLOOR_PLANE_RENDER_TARGET "FLOOR_PLANE"
@@ -22,6 +24,7 @@
 #define BLACKNESS_PLANE_RENDER_TARGET "BLACKNESS_PLANE"
 
 #define SPACE_LAYER 1.8
+#define LOWER_SHUTTLE_MOVEMENT_LAYER 1.9
 //#define TURF_LAYER 2 //For easy recordkeeping; this is a byond define
 #define CULT_OVERLAY_LAYER 2.01
 #define MID_TURF_LAYER 2.02
@@ -42,9 +45,11 @@
 #define GAS_PIPE_VISIBLE_LAYER 2.47 //layer = initial(layer) + piping_layer / 1000 in atmospherics/update_icon() to determine order of pipe overlap
 #define GAS_FILTER_LAYER 2.48
 #define GAS_PUMP_LAYER 2.49
+#define PRESSURE_PLATE_LAYER 2.49
 #define LOW_OBJ_LAYER 2.5
 #define LOW_SIGIL_LAYER 2.52
 #define SIGIL_LAYER 2.54
+#define HIGH_PIPE_LAYER 2.55
 #define HIGH_SIGIL_LAYER 2.56
 
 #define BELOW_OPEN_DOOR_LAYER 2.6

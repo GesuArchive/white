@@ -104,8 +104,7 @@ export const ListInput = (props, context) => {
     <Window
       title={title}
       width={325}
-      height={325}
-      resizable>
+      height={525}>
       {timeout !== undefined && <Loader value={timeout} />}
       <Window.Content>
         <Stack fill vertical>

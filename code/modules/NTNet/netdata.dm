@@ -66,6 +66,7 @@
 	var/receiver_id
 	var/network_id
 	var/passkey = null // sends auth data used to check if we can connect or send data to a device
+	var/broadcast = FALSE
 	var/list/data = list()
 	// Used for packet queuing
 	var/datum/netdata/next = null

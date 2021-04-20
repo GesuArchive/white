@@ -142,7 +142,7 @@
 	mood_change = -4
 
 /datum/mood_event/healsbadman
-	description = "<span class='warning'>Меня держит тонкая нить, и у меня ощущение, что я могу развалиться в любой момент!</span>\n"
+	description = "<span class='warning'>Меня держит тонкая нить, и у меня ощущение, что можно развалиться в любой момент!</span>\n"
 	mood_change = -4
 	timeout = 2 MINUTES
 

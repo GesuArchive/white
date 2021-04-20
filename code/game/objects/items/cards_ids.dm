@@ -139,7 +139,7 @@
 		var/money_added = mass_insert_money(money_contained, user)
 
 		if (money_added)
-			to_chat(user, "<span class='notice'>Прикладываю деньги к карте. Они исчезают в клубах дыма, добавляя [money_added] кредитов на мой аккаунт.</span>")
+			to_chat(user, "<span class='notice'>Прикладываю деньги к карте. Они исчезают в клубах дыма, добавляя [money_added] кредит[get_num_string(money_added)] на мой аккаунт.</span>")
 		return
 	else
 		return ..()
@@ -156,11 +156,11 @@
 	SSblackbox.record_feedback("amount", "credits_inserted", cash_money)
 	log_econ("[cash_money] credits were inserted into [src] owned by [src.registered_name]")
 	if(physical_currency)
-		to_chat(user, "<span class='notice'>Вставляю <b>[I.name]</b> в <b>[src.name]</b>. Они исчезают в клубах дыма, добавляя [cash_money] кредитов на мой аккаунт.</span>")
+		to_chat(user, "<span class='notice'>Вставляю <b>[I.name]</b> в <b>[src.name]</b>. Они исчезают в клубах дыма, добавляя [cash_money] кредит[get_num_string(cash_money)] на мой аккаунт.</span>")
 	else
-		to_chat(user, "<span class='notice'>Вставляю <b>[I.name]</b> в <b>[src.name]</b> добавляя [cash_money] кредитов на мой аккаунт.</span>")
+		to_chat(user, "<span class='notice'>Вставляю <b>[I.name]</b> в <b>[src.name]</b> добавляя [cash_money] кредит[get_num_string(cash_money)] на мой аккаунт.</span>")
 
-	to_chat(user, "<span class='notice'>Привязанный аккаунт сообщает о балансе в размере [registered_account.account_balance] кредитов.</span>")
+	to_chat(user, "<span class='notice'>Привязанный аккаунт сообщает о балансе в размере [registered_account.account_balance] кредит[get_num_string(registered_account.account_balance)].</span>")
 	qdel(I)
 
 /obj/item/card/id/proc/mass_insert_money(list/money, mob/user)
@@ -246,18 +246,18 @@
 	if(registered_account.adjust_money(-amount_to_remove))
 		var/obj/item/holochip/holochip = new (user.drop_location(), amount_to_remove)
 		user.put_in_hands(holochip)
-		to_chat(user, "<span class='notice'>Снимаю [amount_to_remove] кредитов формируя голо-чип.</span>")
+		to_chat(user, "<span class='notice'>Снимаю [amount_to_remove] кредит[get_num_string(amount_to_remove)] формируя голо-чип.</span>")
 		SSblackbox.record_feedback("amount", "credits_removed", amount_to_remove)
 		log_econ("[amount_to_remove] credits were removed from [src] owned by [src.registered_name]")
 		return
 	else
 		var/difference = amount_to_remove - registered_account.account_balance
-		registered_account.bank_card_talk("<span class='warning'>ОШИБКА: Привязанный аккаунт имеет недостаток в размере [difference] кредитов для снятия суммы.</span>", TRUE)
+		registered_account.bank_card_talk("<span class='warning'>ОШИБКА: Привязанный аккаунт имеет недостаток в размере [difference] кредит[get_num_string(difference)] для снятия суммы.</span>", TRUE)
 
 /obj/item/card/id/examine(mob/user)
 	. = ..()
 	if(registered_account)
-		. += "<hr>Привязанный аккаунт принадлежит '<b>[registered_account.account_holder]</b>' и сообщает о балансе <b>[registered_account.account_balance]</b> кредитов."
+		. += "<hr>Привязанный аккаунт принадлежит '<b>[registered_account.account_holder]</b>' и сообщает о балансе <b>[registered_account.account_balance]</b> кредит[get_num_string(registered_account.account_balance)]."
 	. += "<hr><span class='notice'><i>Здесь ещё какая-то информация, стоит всмотреться...</i></span>"
 
 /obj/item/card/id/examine_more(mob/user)
@@ -268,11 +268,11 @@
 	if(mining_points)
 		msg += "\nВау, здесь же есть [mining_points] шахтёрских очков на разные штуки из шахтёрского инвентаря."
 	if(registered_account)
-		msg += "\nПривязанный аккаунт принадлежит '[registered_account.account_holder]' и сообщает о балансе в размере <b>[registered_account.account_balance] кредитов</b>."
+		msg += "\nПривязанный аккаунт принадлежит '[registered_account.account_holder]' и сообщает о балансе в размере <b>[registered_account.account_balance] кредит[get_num_string(registered_account.account_balance)]</b>."
 		if(registered_account.account_job)
 			var/datum/bank_account/D = SSeconomy.get_dep_account(registered_account.account_job.paycheck_department)
 			if(D)
-				msg += "\nБаланс [D.account_holder] составляет <b>[D.account_balance] кредитов."
+				msg += "\nБаланс [D.account_holder] составляет <b>[D.account_balance] кредит[get_num_string(D.account_balance)]."
 		msg += "\n<span class='info'>Alt-клик на ID-карте для снятия денег.</span>"
 		msg += "\n<span class='info'>Похоже сюда можно вставлять голо-чипы, монетки и прочую валюту.</span>"
 		if(registered_account.civilian_bounty)
@@ -464,6 +464,11 @@ update_label()
 	name = "ID-карта лидера"
 	access = list(ACCESS_MAINT_TUNNELS, ACCESS_SYNDICATE, ACCESS_SYNDICATE_LEADER)
 	sticky_access = list(ACCESS_SYNDICATE, ACCESS_SYNDICATE_LEADER)
+
+/obj/item/card/id/syndicate/ratvar
+	name = "servant ID card"
+	icon_state = "ratvar"
+	access = list(ACCESS_CLOCKCULT, ACCESS_MAINT_TUNNELS)
 
 /obj/item/card/id/syndicate_command
 	name = "ID-карта синдиката"

@@ -1,7 +1,7 @@
 /turf
 	//used for temperature calculations
-	var/thermal_conductivity = 0.05
-	var/heat_capacity = INFINITY //This should be opt in rather then opt out
+	var/thermal_conductivity = 0.005
+	var/heat_capacity = 1
 	var/temperature_archived
 
 	///list of turfs adjacent to us that air can flow onto
@@ -53,12 +53,13 @@
 		SSair.add_to_active(T)
 	return ..()
 
+/// Function for Extools Atmos
 /turf/proc/update_air_ref()
 
 /////////////////GAS MIXTURE PROCS///////////////////
 
 /turf/open/assume_air(datum/gas_mixture/giver) //use this for machines to adjust air
-	if(!giver)
+	if(!giver || !air)
 		return FALSE
 	air.merge(giver)
 	update_visuals()
@@ -66,7 +67,7 @@
 
 /turf/open/remove_air(amount)
 	var/datum/gas_mixture/ours = return_air()
-	var/datum/gas_mixture/removed = ours.remove(amount)
+	var/datum/gas_mixture/removed = ours?.remove(amount)
 	update_visuals()
 	return removed
 
@@ -130,7 +131,8 @@
 	temperature_archived = temperature
 
 /turf/open/archive()
-	air.archive()
+	if(air)
+		air.archive()
 	archived_cycle = SSair.times_fired
 	temperature_archived = temperature
 
@@ -195,43 +197,6 @@
 		var/datum/gas/gasvar = gastype
 		if (!initial(gasvar.gas_overlay))
 			.[gastype] = TRUE
-
-/////////////////////////////SIMULATION///////////////////////////////////
-
-/*#define LAST_SHARE_CHECK \
-	var/last_share = our_air.get_last_share();\
-	if(last_share > MINIMUM_AIR_TO_SUSPEND){\
-		our_excited_group.reset_cooldowns();\
-		cached_ticker = 0;\
-		enemy_tile.significant_share_ticker = 0;\
-	} else if(last_share > MINIMUM_MOLES_DELTA_TO_MOVE) {\
-		our_excited_group.dismantle_cooldown = 0;\
-		cached_ticker = 0;\
-		enemy_tile.significant_share_ticker = 0;\
-	}
-#endif
-#ifdef TRACK_MAX_SHARE
-#define PLANET_SHARE_CHECK \
-	var/last_share = our_air.last_share;\
-	max_share = max(last_share, max_share);\
-	if(last_share > MINIMUM_AIR_TO_SUSPEND){\
-		our_excited_group.reset_cooldowns();\
-		cached_ticker = 0;\
-	} else if(last_share > MINIMUM_MOLES_DELTA_TO_MOVE) {\
-		our_excited_group.dismantle_cooldown = 0;\
-		cached_ticker = 0;\
-	}
-#else
-#define PLANET_SHARE_CHECK \
-	var/last_share = our_air.last_share;\
-	if(last_share > MINIMUM_AIR_TO_SUSPEND){\
-		our_excited_group.reset_cooldowns();\
-		cached_ticker = 0;\
-	} else if(last_share > MINIMUM_MOLES_DELTA_TO_MOVE) {\
-		our_excited_group.dismantle_cooldown = 0;\
-		cached_ticker = 0;\
-	}
-*/
 
 /turf/proc/process_cell(fire_count)
 	SSair.remove_from_active(src)
@@ -409,6 +374,8 @@ Then we space some of our heat, and think about if we should stop conducting.
 	return TRUE
 
 /turf/open/consider_superconductivity(starting)
+	if(planetary_atmos)
+		return FALSE
 	if(air.return_temperature() < (starting?MINIMUM_TEMPERATURE_START_SUPERCONDUCTION:MINIMUM_TEMPERATURE_FOR_SUPERCONDUCTION))
 		return FALSE
 	if(air.heat_capacity() < M_CELL_WITH_RATIO) // Was: MOLES_CELLSTANDARD*0.1*0.05 Since there are no variables here we can make this a constant.

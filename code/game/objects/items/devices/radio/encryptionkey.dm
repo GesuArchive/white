@@ -54,6 +54,11 @@
 	icon_state = "med_cypherkey"
 	channels = list(RADIO_CHANNEL_MEDICAL = 1)
 
+/obj/item/encryptionkey/headset_medsec
+	name = "ключ шифрования медбея и охраны"
+	icon_state = "med_cypherkey"
+	channels = list(RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_SECURITY = 1)
+
 /obj/item/encryptionkey/headset_sci
 	name = "ключ шифрования научного отдела"
 	icon_state = "sci_cypherkey"

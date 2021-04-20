@@ -11,8 +11,7 @@ export const NtosBountyConsole = (props, context) => {
   return (
     <NtosWindow
       width={750}
-      height={600}
-      resizable>
+      height={600}>
       <NtosWindow.Content scrollable>
         <Section
           title={<BountyHeader />}

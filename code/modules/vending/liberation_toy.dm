@@ -7,7 +7,7 @@
 	vend_reply = "Вернись для большего!"
 	circuit = /obj/item/circuitboard/machine/vending/syndicatedonksofttoyvendor
 	products = list(/obj/item/gun/ballistic/automatic/toy/unrestricted = 10,
-					/obj/item/gun/ballistic/automatic/toy/pistol/unrestricted = 10,
+					/obj/item/gun/ballistic/automatic/pistol/toy = 10,
 					/obj/item/gun/ballistic/shotgun/toy/unrestricted = 10,
 					/obj/item/toy/sword = 10,
 					/obj/item/ammo_box/foambox = 20,

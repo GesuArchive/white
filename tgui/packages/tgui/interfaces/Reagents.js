@@ -1,5 +1,5 @@
 import { useBackend, useLocalState } from '../backend';
-import { Button, Icon, LabeledList, Section, Stack, Table } from '../components';
+import { Button, Icon, LabeledList, NumberInput, Section, Stack, Table } from '../components';
 import { Window } from '../layouts';
 import { ReagentLookup } from './common/ReagentLookup';
 import { RecipeLookup } from './common/RecipeLookup';
@@ -42,9 +42,11 @@ export const Reagents = (props, context) => {
     { flag: bitflags.COMPETITIVE, icon: "recycle" },
   ];
 
+  const [page, setPage] = useLocalState(context, "page", 1);
+
   return (
     <Window
-      width={720}
+      width={830}
       height={850}>
       <Window.Content>
         <Stack fill vertical>
@@ -52,21 +54,29 @@ export const Reagents = (props, context) => {
             <Stack fill>
               <Stack.Item grow basis={0}>
                 <Section
-                  title="Recipe lookup"
+                  title="Рецепт"
                   minWidth="353px"
                   buttons={(
                     <Fragment>
                       <Button
-                        content="Beaker Sync"
+                        content="Синх. с пробиркой"
                         icon="atom"
                         color={beakerSync ? "green" : "red"}
-                        tooltip="When enabled the displayed reaction will automatically display ongoing reactions in the associated beaker."
+                        tooltip="Когда включено, будет подсвечивать подходящие реагенты."
                         onClick={() => act('beaker_sync')} />
                       <Button
-                        content="Search recipes"
+                        content="Поиск"
                         icon="search"
                         color="purple"
+                        tooltip="Искать рецепт по имени."
                         onClick={() => act('search_recipe')} />
+                      <Button
+                        icon="times"
+                        color="red"
+                        disabled={!reagent_mode_recipe}
+                        onClick={() => act('recipe_click', {
+                          id: null,
+                        })} />
                     </Fragment>
                   )}>
                   <RecipeLookup
@@ -76,13 +86,24 @@ export const Reagents = (props, context) => {
               </Stack.Item>
               <Stack.Item grow basis={0}>
                 <Section
-                  title="Reagent lookup"
+                  title="Химикат"
                   minWidth="300px"
                   buttons={(
-                    <Button
-                      content="Search reagents"
-                      icon="search"
-                      onClick={() => act('search_reagents')} />
+                    <>
+                      <Button
+                        content="Поиск"
+                        icon="search"
+                        tooltip="Искать химикат по имени"
+                        tooltipPosition="left"
+                        onClick={() => act('search_reagents')} />
+                      <Button
+                        icon="times"
+                        color="red"
+                        disabled={!reagent_mode_reagent}
+                        onClick={() => act('reagent_click', {
+                          id: null,
+                        })} />
+                    </>
                   )}>
                   <ReagentLookup reagent={reagent_mode_reagent} />
                 </Section>
@@ -90,7 +111,7 @@ export const Reagents = (props, context) => {
             </Stack>
           </Stack.Item>
           <Stack.Item>
-            <Section title="Tags">
+            <Section title="Тэги">
               <TagBox
                 bitflags={bitflags} />
             </Section>
@@ -108,146 +129,213 @@ export const Reagents = (props, context) => {
 
 const TagBox = (props, context) => {
   const { act, data } = useBackend(context);
+  const [page, setPage] = useLocalState(context, "page", 1);
   const { bitflags } = props;
   const { selectedBitflags } = data;
   return (
     <LabeledList>
-      <LabeledList.Item label="Affects">
+      <LabeledList.Item label="Влияет на">
         <Button
           color={selectedBitflags & bitflags.BRUTE ? "green" : "red"}
           icon="gavel"
-          onClick={() => act('toggle_tag_brute')}>
-          Brute
+          onClick={() => {
+            act('toggle_tag_brute');
+            setPage(1);
+          }}>
+          Травмы
         </Button>
         <Button
           color={selectedBitflags & bitflags.BURN ? "green" : "red"}
           icon="burn"
-          onClick={() => act('toggle_tag_burn')}>
-          Burn
+          onClick={() => {
+            act('toggle_tag_burn');
+            setPage(1);
+          }}>
+          Ожоги
         </Button>
         <Button
           color={selectedBitflags & bitflags.TOXIN ? "green" : "red"}
           icon="biohazard"
-          onClick={() => act('toggle_tag_toxin')}>
-          Toxin
+          onClick={() => {
+            act('toggle_tag_toxin');
+            setPage(1);
+          }}>
+          Токсины
         </Button>
         <Button
           color={selectedBitflags & bitflags.OXY ? "green" : "red"}
           icon="wind"
-          onClick={() => act('toggle_tag_oxy')}>
-          Suffocation
+          onClick={() => {
+            act('toggle_tag_oxy');
+            setPage(1);
+          }}>
+          Удушье
         </Button>
         <Button
           color={selectedBitflags & bitflags.CLONE ? "green" : "red"}
           icon="male"
-          onClick={() => act('toggle_tag_clone')}>
-          Clone
+          onClick={() => {
+            act('toggle_tag_clone');
+            setPage(1);
+          }}>
+          Клеточки
         </Button>
         <Button
           color={selectedBitflags & bitflags.ORGAN ? "green" : "red"}
           icon="brain"
-          onClick={() => act('toggle_tag_organ')}>
-          Organ
+          onClick={() => {
+            act('toggle_tag_organ');
+            setPage(1);
+          }}>
+          Органы
         </Button>
         <Button
           icon="flask"
           color={selectedBitflags & bitflags.CHEMICAL ? "green" : "red"}
-          onClick={() => act('toggle_tag_chemical')}>
-          Chemical
+          onClick={() => {
+            act('toggle_tag_chemical');
+            setPage(1);
+          }}>
+          Химию
         </Button>
         <Button
           icon="seedling"
           color={selectedBitflags & bitflags.PLANT ? "green" : "red"}
-          onClick={() => act('toggle_tag_plant')}>
-          Plants
+          onClick={() => {
+            act('toggle_tag_plant');
+            setPage(1);
+          }}>
+          Растения
         </Button>
         <Button
           icon="question"
           color={selectedBitflags & bitflags.OTHER ? "green" : "red"}
-          onClick={() => act('toggle_tag_other')}>
-          Other
+          onClick={() => {
+            act('toggle_tag_other');
+            setPage(1);
+          }}>
+          Другое
         </Button>
       </LabeledList.Item>
-      <LabeledList.Item label="Type">
+      <LabeledList.Item label="Тип">
         <Button
           color={selectedBitflags & bitflags.DRINK ? "green" : "red"}
           icon="cocktail"
-          onClick={() => act('toggle_tag_drink')}>
-          Drink
+          onClick={() => {
+            act('toggle_tag_drink');
+            setPage(1);
+          }}>
+          Напиток
         </Button>
         <Button
           color={selectedBitflags & bitflags.FOOD ? "green" : "red"}
           icon="drumstick-bite"
-          onClick={() => act('toggle_tag_food')}>
-          Food
+          onClick={() => {
+            act('toggle_tag_food');
+            setPage(1);
+          }}>
+          Еда
         </Button>
         <Button
           color={selectedBitflags & bitflags.HEALING ? "green" : "red"}
           icon="medkit"
-          onClick={() => act('toggle_tag_healing')}>
-          Healing
+          onClick={() => {
+            act('toggle_tag_healing');
+            setPage(1);
+          }}>
+          Лечебный
         </Button>
         <Button
           icon="skull-crossbones"
           color={selectedBitflags & bitflags.DAMAGING ? "green" : "red"}
-          onClick={() => act('toggle_tag_damaging')}>
-          Toxic
+          onClick={() => {
+            act('toggle_tag_damaging');
+            setPage(1);
+          }}>
+          Токсины
         </Button>
         <Button
           icon="pills"
           color={selectedBitflags & bitflags.DRUG ? "green" : "red"}
-          onClick={() => act('toggle_tag_drug')}>
-          Drugs
+          onClick={() => {
+            act('toggle_tag_drug');
+            setPage(1);
+          }}>
+          Наркотик
         </Button>
         <Button
           icon="microscope"
           color={selectedBitflags & bitflags.SLIME ? "green" : "red"}
-          onClick={() => act('toggle_tag_slime')}>
-          Slime
+          onClick={() => {
+            act('toggle_tag_slime');
+            setPage(1);
+          }}>
+          Слаймы
         </Button>
         <Button
           icon="bomb"
           color={selectedBitflags & bitflags.EXPLOSIVE ? "green" : "red"}
-          onClick={() => act('toggle_tag_explosive')}>
-          Explosive
+          onClick={() => {
+            act('toggle_tag_explosive');
+            setPage(1);
+          }}>
+          Взрывчатка
         </Button>
         <Button
           icon="puzzle-piece"
           color={selectedBitflags & bitflags.UNIQUE ? "green" : "red"}
-          onClick={() => act('toggle_tag_unique')}>
-          Unique
+          onClick={() => {
+            act('toggle_tag_unique');
+            setPage(1);
+          }}>
+          Уникальный
         </Button>
       </LabeledList.Item>
-      <LabeledList.Item label="Difficulty">
+      <LabeledList.Item label="Сложность">
         <Button
           icon="chess-pawn"
           color={selectedBitflags & bitflags.EASY ? "green" : "red"}
-          onClick={() => act('toggle_tag_easy')}>
-          Easy
+          onClick={() => {
+            act('toggle_tag_easy');
+            setPage(1);
+          }}>
+          Легко
         </Button>
         <Button
           icon="chess-knight"
           color={selectedBitflags & bitflags.MODERATE ? "green" : "red"}
-          onClick={() => act('toggle_tag_moderate')}>
-          Moderate
+          onClick={() => {
+            act('toggle_tag_moderate');
+            setPage(1);
+          }}>
+          Средне
         </Button>
         <Button
           icon="chess-queen"
           color={selectedBitflags & bitflags.HARD ? "green" : "red"}
-          onClick={() => act('toggle_tag_hard')}>
-          Hard
+          onClick={() => {
+            act('toggle_tag_hard');
+            setPage(1);
+          }}>
+          Сложно
         </Button>
         <Button
           icon="exclamation-triangle"
           color={selectedBitflags & bitflags.DANGEROUS ? "green" : "red"}
-          onClick={() => act('toggle_tag_dangerous')}>
-          Dangerous
+          onClick={() => {
+            act('toggle_tag_dangerous');
+            setPage(1);
+          }}>
+          Опасно
         </Button>
         <Button
           icon="recycle"
           color={selectedBitflags & bitflags.COMPETITIVE ? "green" : "red"}
-          onClick={() => act('toggle_tag_competitive')}>
-          Competitive
+          onClick={() => {
+            act('toggle_tag_competitive');
+            setPage(1);
+          }}>
+          Поехавший
         </Button>
       </LabeledList.Item>
     </LabeledList>
@@ -256,6 +344,7 @@ const TagBox = (props, context) => {
 
 const RecipeLibrary = (props, context) => {
   const { act, data } = useBackend(context);
+  const [page, setPage] = useLocalState(context, "page", 1);
   const { flagIcons } = props;
   const {
     selectedBitflags,
@@ -281,6 +370,10 @@ const RecipeLibrary = (props, context) => {
 
   const bookmarkArray = Array.from(bookmarkedReactions);
 
+  const startIndex = 50 * (page-1);
+
+  const endIndex = 50 * page;
+
   const visibleReactions = bookmarkMode
     ? bookmarkArray
     : master_reaction_list.filter(reaction => (
@@ -289,6 +382,8 @@ const RecipeLibrary = (props, context) => {
         : true)
       && matchReagents(reaction)
     ));
+
+  const pageIndexMax = Math.ceil(visibleReactions.length/50);
 
   const addBookmark = bookmark => {
     bookmarkedReactions.add(bookmark);
@@ -302,90 +397,115 @@ const RecipeLibrary = (props, context) => {
     <Section
       fill
       scrollable
-      title={bookmarkMode ? "Bookmarked recipes" : "Possible recipes"}
+      title={bookmarkMode ? "Рецепты в закладках" : "Возможные рецепты"}
       buttons={(
-        <Fragment>
-          Linked beaker: {linkedBeaker+"  "}
+        <>
+          Пробирка: {linkedBeaker+"  "}
           <Button
-            content="Filter by reagents in beaker"
+            content="Фильтр по реагентам в пробирке"
             icon="search"
             disabled={bookmarkMode}
             color={reagentFilter ? "green" : "red"}
-            onClick={() => setReagentFilter(!reagentFilter)} />
+            onClick={() => {
+              setReagentFilter(!reagentFilter);
+              setPage(1);
+            }} />
           <Button
-            content="Bookmarks"
+            content="Закладки"
             icon="book"
             color={bookmarkMode ? "green" : "red"}
-            onClick={() => setBookmarkMode(!bookmarkMode)} />
-        </Fragment>
+            onClick={() => {
+              setBookmarkMode(!bookmarkMode);
+              setPage(1);
+            }} />
+          <Button
+            icon="minus"
+            disabled={page === 1}
+            onClick={() => setPage(Math.max(page - 1, 1))} />
+          <NumberInput
+            width="25px"
+            step={1}
+            stepPixelSize={3}
+            value={page}
+            minValue={1}
+            maxValue={pageIndexMax}
+            onDrag={(e, value) => setPage(value)} />
+          <Button
+            icon="plus"
+            disabled={page === pageIndexMax}
+            onClick={() => setPage(Math.min(page + 1, pageIndexMax))} />
+        </>
       )}>
       <Table>
         <Table.Row>
           <Table.Cell bold color="label">
-            Reaction
+            Реакция
           </Table.Cell>
           <Table.Cell bold color="label">
-            Required reagents
+            Химикаты
           </Table.Cell>
           <Table.Cell bold color="label">
-            Tags
+            Тэги
           </Table.Cell>
           <Table.Cell bold color="label" width="20px">
-            {!bookmarkMode ? "Save" : "Del"}
+            {!bookmarkMode ? "YAY" : "NON"}
           </Table.Cell>
         </Table.Row>
-        {visibleReactions.map(reaction => (
-          <Table.Row key={reaction.id} className="candystripe">
-            <Fragment>
-              <Table.Cell bold color="label">
+        {visibleReactions.slice(startIndex, endIndex).map(reaction => (
+          <Table.Row
+            key={reaction.id}
+            className="candystripe">
+            <Table.Cell bold color="label">
+              <Button
+                mt={0.5}
+                icon="flask"
+                color="purple"
+                content={reaction.name}
+                onClick={() => act('recipe_click', {
+                  id: reaction.id,
+                })} />
+            </Table.Cell>
+            <Table.Cell>
+              {reaction.reactants.map(reactant => (
                 <Button
-                  mt={0.5}
-                  icon="flask"
-                  color="purple"
-                  content={reaction.name}
-                  onClick={() => act('recipe_click', {
-                    id: reaction.id,
+                  key={reactant.id}
+                  mt={0.1}
+                  icon="vial"
+                  textColor="white"
+                  color={currentReagents?.includes(reactant.id) && "green"} // check here
+                  content={reactant.name}
+                  onClick={() => act('reagent_click', {
+                    id: reactant.id,
                   })} />
-              </Table.Cell>
-              <Table.Cell>
-                {reaction.reactants.map(reactant => (
-                  <Button
-                    key={reactant.id}
-                    mt={0.1}
-                    icon="vial"
-                    textColor="white"
-                    color={currentReagents?.includes(reactant.id) && "green"} // check here
-                    content={reactant.name}
-                    onClick={() => act('reagent_click', {
-                      id: reactant.id,
-                    })} />
+              ))}
+            </Table.Cell>
+            <Table.Cell width="60px">
+              {flagIcons
+                .filter(meta => reaction.bitflags & meta.flag)
+                .map(meta => (
+                  <Icon
+                    key={meta.flag}
+                    name={meta.icon}
+                    mr={1} />
                 ))}
-              </Table.Cell>
-              <Table.Cell width="60px">
-                {flagIcons
-                  .filter(meta => reaction.bitflags & meta.flag)
-                  .map(meta => (
-                    <Icon key={meta.flag} name={meta.icon} mr={1} />
-                  ))}
-              </Table.Cell>
-              <Table.Cell width="20px">
-                {!bookmarkMode && (
-                  <Button
-                    icon="book"
-                    color="green"
-                    disabled={bookmarkedReactions.has(reaction)}
-                    onClick={() => {
-                      addBookmark(reaction);
-                      act('update_ui');
-                    }} />
-                ) || (
-                  <Button
-                    icon="trash"
-                    color="red"
-                    onClick={() => removeBookmark(reaction)} />
-                )}
-              </Table.Cell>
-            </Fragment>
+            </Table.Cell>
+            <Table.Cell width="20px">
+              {!bookmarkMode && (
+                <Button
+                  icon="book"
+                  color="green"
+                  disabled={bookmarkedReactions.has(reaction)}
+                  onClick={() => {
+                    addBookmark(reaction);
+                    act('update_ui');
+                  }} />
+              ) || (
+                <Button
+                  icon="trash"
+                  color="red"
+                  onClick={() => removeBookmark(reaction)} />
+              )}
+            </Table.Cell>
           </Table.Row>
         ))}
       </Table>

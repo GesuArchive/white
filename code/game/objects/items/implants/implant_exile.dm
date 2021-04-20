@@ -12,6 +12,19 @@
 				<b>Implant Details:</b> The onboard gateway system has been modified to reject entry by individuals containing this implant.<BR>"}
 	return dat
 
+/obj/item/implant/exile/removed(mob/living/target, silent = FALSE, special = FALSE)
+	. = ..()
+	ADD_TRAIT(target, TRAIT_PACIFISM, "sosi")
+	target.visible_message("<span class='danger'>Имплант разрывается и испускает гигансткое облако из наном~- <big>ААААААААААААААААААААААААА!!!</big></span>", \
+		"<span class='userdanger'>$*$(*@%@!^&за мир во всём мире!</span>", vision_distance = 2)
+	for(var/mob/living/carbon/human/H in view(1, get_turf(target)))
+		H.adjustBruteLoss(49)
+		H.adjustFireLoss(49)
+		for(var/_limb in H.bodyparts)
+			var/obj/item/bodypart/limb = _limb
+			var/type_wound = pick(list(/datum/wound/blunt/critical, /datum/wound/blunt/severe, /datum/wound/blunt/critical, /datum/wound/blunt/severe, /datum/wound/blunt/moderate))
+			limb.force_wound_upwards(type_wound, smited = TRUE)
+			sleep(1)
 
 ///Used to help the staff of the space hotel resist the urge to use the space hotel's incredibly alluring roundstart teleporter to ignore their flavor/greeting text and come to the station.
 /obj/item/implant/exile/noteleport
@@ -30,6 +43,7 @@
 		return FALSE
 	var/mob/living/living_target = target
 	ADD_TRAIT(living_target, TRAIT_NO_TELEPORT, "implant")
+	START_PROCESSING(SSprocessing, src)
 	return TRUE
 
 /obj/item/implant/exile/noteleport/removed(mob/target, silent = FALSE, special = FALSE)
@@ -38,7 +52,16 @@
 		return FALSE
 	var/mob/living/living_target = target
 	REMOVE_TRAIT(living_target, TRAIT_NO_TELEPORT, "implant")
+	STOP_PROCESSING(SSprocessing, src)
 	return TRUE
+
+/obj/item/implant/exile/noteleport/process(delta_time)
+	. = ..()
+	if(is_station_level(imp_in.z))
+		if(imp_in.mind && (imp_in.mind.assigned_role == "Hotel Staff" || imp_in.mind.assigned_role == ROLE_SYNDICATE_CYBERSUN || imp_in.mind.assigned_role == ROLE_SYNDICATE_CYBERSUN_CAPTAIN))
+			inc_metabalance(imp_in, METACOIN_CHASM_REWARD, reason="Ого, а куда это мы собрались...")
+			spawn(1 SECONDS)
+				imp_in.gib(TRUE, TRUE, TRUE)
 
 /obj/item/implanter/exile
 	name = "implanter (exile)"

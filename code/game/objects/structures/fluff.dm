@@ -273,3 +273,22 @@
 
 /obj/structure/fluff/hedge/opaque //useful for mazes and such
 	opacity = TRUE
+
+/obj/structure/fluff/tram_rail
+	name = "трамвайные рельсы"
+	desc = "Отлично подходят для трамваев."
+	icon = 'icons/obj/tram_railing.dmi'
+	icon_state = "rail"
+	layer = MID_TURF_LAYER
+	plane = FLOOR_PLANE
+	deconstructible = TRUE
+
+/obj/structure/fluff/tram_rail/floor
+	icon_state = "rail_floor"
+
+/obj/structure/fluff/tram_rail/end
+	icon_state = "railend"
+
+/obj/structure/fluff/tram_rail/anchor
+	name = "удерживающие рельсы"
+	icon_state = "anchor"

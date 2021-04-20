@@ -59,7 +59,7 @@
 		/obj/item/storage/mrebag/protein,
 		/obj/item/storage/mrebag/protein,
 		/obj/item/storage/mrebag/dessert,
-		/obj/item/food/grilledcheese,
+		/obj/item/food/grilled_cheese_sandwich,
 		/obj/item/reagent_containers/food/condiment/pack/bbqsauce,
 		/obj/item/reagent_containers/food/drinks/soda_cans/random)
 

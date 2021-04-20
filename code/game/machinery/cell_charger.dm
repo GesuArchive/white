@@ -1,11 +1,11 @@
 /obj/machinery/cell_charger
-	name = "cell charger"
-	desc = "It charges power cells."
+	name = "зарядник батареек"
+	desc = "Заряжает, ага?"
 	icon = 'white/valtos/icons/power.dmi'
 	icon_state = "ccharger"
 	use_power = IDLE_POWER_USE
-	idle_power_usage = 5
-	active_power_usage = 60
+	idle_power_usage = 50
+	active_power_usage = 600
 	power_channel = AREA_USAGE_EQUIP
 	circuit = /obj/item/circuitboard/machine/cell_charger
 	pass_flags = PASSTABLE
@@ -13,23 +13,19 @@
 	var/obj/item/stock_parts/cell/charging = null
 	var/charge_rate = 250
 
-/obj/machinery/cell_charger/update_overlays()
-	. = ..()
-
-	if(!charging)
-		return
-
-	. += image(charging.icon, charging.icon_state)
-	. += "ccharger-on"
-	if(!(machine_stat & (BROKEN|NOPOWER)))
-		var/newlevel = 	round(charging.percent() * 4 / 100)
-		. += "ccharger-o[newlevel]"
+/obj/machinery/cell_charger/update_icon()
+	cut_overlays()
+	if(charging)
+		add_overlay("ccharger-on")
+		if(!(machine_stat & (BROKEN|NOPOWER)))
+			var/newlevel = 	round(charging.percent() * 4 / 100)
+			add_overlay("ccharger-o[newlevel]")
 
 /obj/machinery/cell_charger/examine(mob/user)
 	. = ..()
-	. += "<hr>There's [charging ? "a" : "no"] cell in the charger."
+	. += "<hr>Внутри [charging ? "батарейка" : "нет батарейки"] в заряднике."
 	if(charging)
-		. += "Current charge: [round(charging.percent(), 1)]%."
+		. += "<hr><b>Заряд:</b> [round(charging.percent(), 1)]%."
 	if(in_range(user, src) || isobserver(user))
 		. += "<hr><span class='notice'>Дисплей: Мощность зарядки <b>[charge_rate]W</b>.</span>"
 
@@ -39,23 +35,23 @@
 			to_chat(user, "<span class='warning'>[capitalize(src.name)] сломан!</span>")
 			return
 		if(!anchored)
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] isn't attached to the ground!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] не прикручен!</span>")
 			return
 		if(charging)
-			to_chat(user, "<span class='warning'>There is already a cell in the charger!</span>")
+			to_chat(user, "<span class='warning'>Здесь уже есть батарейка!</span>")
 			return
 		else
 			var/area/a = loc.loc // Gets our locations location, like a dream within a dream
 			if(!isarea(a))
 				return
 			if(a.power_equip == 0) // There's no APC in this area, don't try to cheat power!
-				to_chat(user, "<span class='warning'>[capitalize(src.name)] blinks red as you try to insert the cell!</span>")
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] мигает красным диодом!</span>")
 				return
 			if(!user.transferItemToLoc(W,src))
 				return
 
 			charging = W
-			user.visible_message("<span class='notice'>[user] inserts a cell into [src].</span>", "<span class='notice'>You insert a cell into [src].</span>")
+			user.visible_message("<span class='notice'>[user] вставляет батарейку в [src].</span>", "<span class='notice'>Вставляю батарейку в [src].</span>")
 			update_icon()
 	else
 		if(!charging && default_deconstruction_screwdriver(user, icon_state, icon_state, W))
@@ -90,7 +86,7 @@
 	user.put_in_hands(charging)
 	charging.add_fingerprint(user)
 
-	user.visible_message("<span class='notice'>[user] removes [charging] from [src].</span>", "<span class='notice'>You remove [charging] from [src].</span>")
+	user.visible_message("<span class='notice'>[user] достаёт [charging] из [src].</span>", "<span class='notice'>Достаю [charging] из [src].</span>")
 
 	removecell()
 
@@ -100,7 +96,7 @@
 		return
 
 	charging.forceMove(loc)
-	to_chat(user, "<span class='notice'>You telekinetically remove [charging] from [src].</span>")
+	to_chat(user, "<span class='notice'>Телекинетически достаю [charging] из [src].</span>")
 
 	removecell()
 	return COMPONENT_CANCEL_ATTACK_CHAIN

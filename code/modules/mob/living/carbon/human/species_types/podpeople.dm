@@ -6,6 +6,7 @@
 	species_traits = list(MUTCOLORS,EYECOLOR, HAS_FLESH, HAS_BONE)
 	inherent_factions = list("plants", "vines")
 	attack_verb = "цапает"
+	attack_effect = ATTACK_EFFECT_CLAW
 	attack_sound = 'sound/weapons/slice.ogg'
 	miss_sound = 'sound/weapons/slashmiss.ogg'
 	burnmod = 1.25

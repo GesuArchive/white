@@ -22,7 +22,7 @@
 
 //gets name from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers
-/mob/living/carbon/human/proc/get_authentification_name(if_no_id = "Unknown")
+/mob/living/carbon/human/proc/get_authentification_name(if_no_id = "Неизвестный")
 	var/obj/item/card/id/id = get_idcard(FALSE)
 	if(id)
 		return id.registered_name
@@ -38,15 +38,15 @@
 	if(name_override)
 		return name_override
 	if(face_name)
-		if(id_name && (id_name != face_name))
-			return "[face_name] (as [id_name])"
+		//if(id_name && (id_name != face_name))
+		//	return "[face_name] (as [id_name])"
 		return face_name
 	if(id_name)
 		return id_name
-	return "Unknown"
+	return "Неизвестный"
 
 //Returns "Unknown" if facially disfigured and real_name if not. Useful for setting name when Fluacided or when updating a human's name variable
-/mob/living/carbon/human/proc/get_face_name(if_no_face="Unknown")
+/mob/living/carbon/human/proc/get_face_name(if_no_face="Неизвестный")
 	if( wear_mask && (wear_mask.flags_inv&HIDEFACE) )	//Wearing a mask which hides our face, use id-name if possible
 		return if_no_face
 	if( head && (head.flags_inv&HIDEFACE) )
@@ -58,7 +58,7 @@
 
 //gets name from ID or PDA itself, ID inside PDA doesn't matter
 //Useful when player is being seen by other mobs
-/mob/living/carbon/human/proc/get_id_name(if_no_id = "Unknown")
+/mob/living/carbon/human/proc/get_id_name(if_no_id = "Неизвестный")
 	var/obj/item/storage/wallet/wallet = wear_id
 	var/obj/item/pda/pda = wear_id
 	var/obj/item/card/id/id = wear_id
@@ -226,10 +226,10 @@
 	var/mob/dead/observer/ghost = get_ghost(TRUE, TRUE)
 	var/t_on = ru_who(TRUE)
 	if(key || !getorgan(/obj/item/organ/brain))
-		return "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и души...</span>" //Default death message
+		return "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и души...</span>\n" //Default death message
 	//The death mob has a brain and no client/player that is assigned to the mob
 	if(!ghost?.can_reenter_corpse)  //And there is no ghost that could reenter the body
 		//There is no way this mob can in any normal way get a player, so they lost the will to live
-		return "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и желания души жить...</span>"
+		return "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и желания души жить...</span>\n"
 	//This mob has a ghost linked that could still reenter the body, so the soul only departed
-	return "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и души...</span>"
+	return "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и души...</span>\n"

@@ -16,8 +16,7 @@ export const Aquarium = (props, context) => {
   return (
     <Window
       width={500}
-      height={400}
-      resizable>
+      height={400}>
       <Window.Content>
         <Section title="Управление аквариумом">
           <LabeledControls>
@@ -48,7 +47,7 @@ export const Aquarium = (props, context) => {
                 ))}
               </Flex>
             </LabeledControls.Item>
-            <LabeledControls.Item label="Размножение рыбок">
+            <LabeledControls.Item label="Запрет на размножение">
               <Button
                 content={allow_breeding ? "Выкл" : "Вкл"}
                 selected={!allow_breeding}

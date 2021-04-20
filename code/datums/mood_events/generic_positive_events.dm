@@ -40,7 +40,7 @@
 	timeout = 5 MINUTES
 
 /datum/mood_event/exercise
-	description = "<span class='nicegreen'>Работа в спортзале выпускает энедорфины!</span>\n"
+	description = "<span class='nicegreen'>Работа в спортзале выпускает эндорфины!</span>\n"
 	mood_change = 2
 	timeout = 5 MINUTES
 

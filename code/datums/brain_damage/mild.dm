@@ -208,14 +208,14 @@
 					break
 
 			if(suffix_foundon)
-				word = copytext(word, 1, suffix_foundon)
+				word = copytext_char(word, 1, suffix_foundon)
 			word = html_decode(word)
 
 			if(lowertext(word) in common_words)
 				new_message += word + suffix
 			else
 				if(prob(30) && message_split.len > 2)
-					new_message += pick("uh","erm")
+					new_message += pick("ых","хех")
 					break
 				else
 					var/list/charlist = text2charlist(word)

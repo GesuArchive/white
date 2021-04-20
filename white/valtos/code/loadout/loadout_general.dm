@@ -56,6 +56,12 @@
 	allowed_roles = list("Veteran", "Security Officer", "Russian Officer", "Head of Security")
 	cost = 500
 
+/datum/gear/triser
+	display_name = "Тризер"
+	path = /obj/item/gun/energy/taser/triser
+	allowed_roles = list("Veteran")
+	cost = 2500
+
 /datum/gear/assault_rifle
 	display_name = "Штурмовой карабин"
 	path = /obj/item/gun/ballistic/automatic/wzzzz/assault_rifle
@@ -75,3 +81,16 @@
 	path = /obj/item/instrument/guitar
 	cost = 100
 
+/datum/gear/cryokatana
+	display_name = "Криокатана"
+	description = "Криотехнологиченое устройство, которое замораживает преступников живьём. Удивительно!"
+	path = /obj/item/storage/belt/sheath/security
+	allowed_roles = list("Veteran", "Security Officer", "Russian Officer", "Head of Security")
+	cost = 150
+
+/datum/gear/cryokatana/master
+	display_name = "Криокатана мастера"
+	description = "Криотехнологиченое устройство, которое замораживает преступников живьём. Удивительно!"
+	path = /obj/item/storage/belt/sheath/security/hos
+	allowed_roles = list("Head of Security")
+	cost = 250

@@ -25,10 +25,10 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	var/can_cover_up = TRUE
 	var/can_build_on = TRUE
 
-/turf/open/openspace/proc/update_starlight()
+/turf/open/openspace/airless/proc/update_starlight()
 	if(CONFIG_GET(flag/starlight))
 		for(var/t in RANGE_TURFS(1,src))
-			if(isstrictlytype(t, /turf/open/openspace))
+			if(isopenspace(t) || isspaceturf(t))
 				continue
 			set_light(2)
 			return
@@ -37,8 +37,36 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/open/openspace/airless
 	initial_gas_mix = AIRLESS_ATMOS
 
+/turf/open/openspace/fastload
+	plane = OPENSPACE_PLANE
+	layer = OPENSPACE_LAYER
+
+/turf/open/openspace/fastload/New()
+	return
+
+/turf/open/openspace/fastload/Initialize()
+	air = new
+	air.copy_from_turf(src)
+	update_air_ref()
+	var/turf/T = locate(x, y, z - 1)
+	if(T)
+		vis_contents += T
+	flags_1 |= INITIALIZED_1
+	directional_opacity = ALL_CARDINALS
+	vis_contents += GLOB.openspace_backdrop_one_for_all
+	return INITIALIZE_HINT_NORMAL
+
+/turf/open/openspace/fastload/airless
+	initial_gas_mix = AIRLESS_ATMOS
+
+/turf/open/openspace/fastload/planetmos
+	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
+
+/turf/open/openspace/fastload/LateInitialize()
+	return
+
 /turf/open/openspace/airless/planetary
-		planetary_atmos = TRUE
+	planetary_atmos = TRUE
 
 /turf/open/openspace/Initialize() // handle plane and layer here so that they don't cover other obs/turfs in Dream Maker
 	. = ..()
@@ -107,6 +135,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 			return
 		if(L)
 			if(R.use(1))
+				qdel(L)
 				to_chat(user, "<span class='notice'>Строю мостик.</span>")
 				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 				new/obj/structure/lattice/catwalk(src)

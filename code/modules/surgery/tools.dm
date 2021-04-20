@@ -57,6 +57,9 @@
 	tool_behaviour = TOOL_CAUTERY
 	toolspeed = 1
 
+/obj/item/cautery/ignition_effect(atom/A, mob/user)
+	. = "<span class='notice'>[user] притрагивается раскалённым концом [src.name] к [A.name].</span>"
+
 /obj/item/cautery/augment
 	desc = "Нагревательный элемент, который прижигает раны."
 	toolspeed = 0.5

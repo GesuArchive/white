@@ -637,11 +637,12 @@
 		if(!stop_messages)
 			to_chat(M, "<span class='warning'>[capitalize(I.name)] не помещается в [host]!</span>")
 		return FALSE
-	var/datum/component/storage/biggerfish = real_location.loc.GetComponent(/datum/component/storage)
-	if(biggerfish && biggerfish.max_w_class < max_w_class) //return false if we are inside of another container, and that container has a smaller max_w_class than us (like if we're a bag in a box)
-		if(!stop_messages)
-			to_chat(M, "<span class='warning'>[I] не может хранить [host] пока мешает [real_location.loc]!</span>")
-		return FALSE
+	if(real_location.loc)
+		var/datum/component/storage/biggerfish = real_location.loc.GetComponent(/datum/component/storage)
+		if(biggerfish && biggerfish.max_w_class < max_w_class) //return false if we are inside of another container, and that container has a smaller max_w_class than us (like if we're a bag in a box)
+			if(!stop_messages)
+				to_chat(M, "<span class='warning'>[I] не может хранить [host] пока мешает [real_location.loc]!</span>")
+			return FALSE
 	var/sum_w_class = I.w_class
 	for(var/obj/item/_I in real_location)
 		sum_w_class += _I.w_class //Adds up the combined w_classes which will be in the storage item if the item is added to it.

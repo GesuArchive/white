@@ -1,4 +1,18 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ai" = (
+/turf/open/floor/plating,
+/area/engine/engineering)
+"am" = (
+/obj/structure/table/wood,
+/obj/item/taperecorder{
+	pixel_x = -4
+	},
+/obj/item/radio/off{
+	pixel_y = 3
+	},
+/obj/item/storage/box/deputy,
+/turf/open/floor/carpet,
+/area/security/brig)
 "bl" = (
 /obj/machinery/computer/message_monitor{
 	dir = 8
@@ -12,6 +26,22 @@
 	},
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
+"bm" = (
+/obj/structure/cable,
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/security/glass{
+	id_tag = null;
+	name = "Brig";
+	req_access_txt = "63"
+	},
+/turf/open/floor/plasteel,
+/area/security/brig)
 "bu" = (
 /obj/structure/chair/office{
 	dir = 4
@@ -26,6 +56,12 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/tcommsat/computer)
+"cF" = (
+/obj/structure/table,
+/obj/item/restraints/handcuffs,
+/obj/item/assembly/flash/handheld,
+/turf/open/floor/plasteel,
+/area/security/brig)
 "cT" = (
 /obj/machinery/telecomms/bus/preset_one,
 /turf/open/floor/plasteel/dark/telecomms,
@@ -37,6 +73,14 @@
 "dm" = (
 /turf/closed/wall/r_wall/syndicate,
 /area/space)
+"dK" = (
+/obj/structure/table,
+/obj/item/radio/off,
+/obj/item/screwdriver{
+	pixel_y = 10
+	},
+/turf/open/floor/plasteel,
+/area/security/brig)
 "dP" = (
 /obj/machinery/ntnet_relay,
 /turf/open/floor/plasteel/dark/telecomms,
@@ -46,42 +90,85 @@
 /obj/machinery/light,
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
+"er" = (
+/obj/structure/table/wood,
+/obj/machinery/computer/med_data/laptop,
+/turf/open/floor/plasteel/dark,
+/area/security/brig)
 "fa" = (
 /obj/effect/turf_decal/tile/yellow,
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
+"fy" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Engineering Maintenance";
+	req_access_txt = "10"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/engine/engineering)
 "fH" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
 /turf/open/floor/plasteel,
-/area/space)
+/area/engine/engineering)
+"gt" = (
+/obj/structure/chair,
+/obj/effect/landmark/start/security_officer,
+/turf/open/floor/plasteel,
+/area/security/brig)
+"gX" = (
+/obj/structure/table,
+/obj/machinery/recharger,
+/turf/open/floor/plasteel,
+/area/security/brig)
 "hE" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/engineering/glass{
 	name = "Server Room";
 	req_access_txt = "61"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/tcommsat/computer)
+"hM" = (
+/obj/machinery/rnd/production/techfab/department/security,
+/turf/open/floor/plasteel/dark,
+/area/security/brig)
+"ih" = (
+/obj/structure/table,
+/obj/item/folder/red,
+/obj/item/pen,
+/turf/open/floor/plasteel,
+/area/security/brig)
 "ii" = (
 /obj/structure/cable/multilayer/multiz,
 /turf/open/floor/plasteel,
-/area/space)
+/area/engine/engineering)
+"ix" = (
+/obj/machinery/computer/prisoner/management,
+/turf/open/floor/plasteel/dark,
+/area/security/brig)
 "iC" = (
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
-/area/space)
+/area/engine/engineering)
 "iF" = (
 /obj/machinery/telecomms/server/presets/science,
 /turf/open/floor/plasteel/dark/telecomms,
 /area/tcommsat/server)
+"iH" = (
+/obj/structure/table/wood,
+/obj/machinery/recharger,
+/turf/open/floor/carpet,
+/area/security/brig)
 "iL" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
 /turf/open/floor/plasteel,
-/area/space)
+/area/engine/engineering)
 "jc" = (
 /obj/machinery/telecomms/receiver/preset_left,
 /turf/open/floor/plasteel/dark/telecomms,
@@ -98,7 +185,15 @@
 	dir = 10
 	},
 /turf/open/floor/plasteel,
-/area/space)
+/area/engine/engineering)
+"kU" = (
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/security/brig)
+"kX" = (
+/obj/structure/closet/secure_closet/hos,
+/turf/open/floor/plasteel/dark,
+/area/security/brig)
 "mD" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/engineering{
@@ -108,10 +203,22 @@
 /obj/structure/sign/warning/securearea{
 	pixel_x = -32
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
+"mE" = (
+/obj/machinery/door/window/southleft{
+	base_state = "right";
+	dir = 4;
+	icon_state = "right";
+	name = "Armory";
+	req_access_txt = "3"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel,
+/area/security/brig)
 "mG" = (
-/turf/open/transparent/openspace/airless,
+/turf/open/openspace/airless,
 /area/engine/supermatter)
 "np" = (
 /obj/machinery/blackbox_recorder,
@@ -119,8 +226,8 @@
 /area/tcommsat/server)
 "nq" = (
 /obj/structure/lattice/catwalk,
-/turf/open/transparent/openspace/airless,
-/area/space)
+/turf/open/openspace/airless,
+/area/engine/engineering)
 "nG" = (
 /obj/machinery/light{
 	dir = 4;
@@ -128,26 +235,61 @@
 	},
 /turf/open/floor/plasteel/dark/telecomms,
 /area/tcommsat/server)
+"nX" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/effect/landmark/start/security_officer,
+/turf/open/floor/plasteel,
+/area/security/brig)
 "oD" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel,
-/area/space)
+/area/engine/engineering)
+"oV" = (
+/obj/machinery/computer/secure_data,
+/turf/open/floor/plasteel/dark,
+/area/security/brig)
 "oW" = (
 /turf/open/floor/plasteel,
 /area/space)
+"oX" = (
+/obj/structure/cable,
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/obj/structure/railing/corner,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/security/glass{
+	id_tag = null;
+	name = "Brig";
+	req_access_txt = "63"
+	},
+/turf/open/floor/plasteel,
+/area/security/brig)
 "pi" = (
-/turf/open/transparent/openspace/airless,
+/turf/open/openspace/airless,
 /area/space)
 "pq" = (
 /obj/machinery/holopad,
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
+"qy" = (
+/obj/structure/cable,
+/obj/structure/table/wood,
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/folder/red,
+/turf/open/floor/carpet,
+/area/security/brig)
 "qG" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/space)
+/area/engine/engineering)
 "ri" = (
 /obj/machinery/telecomms/processor/preset_one,
 /turf/open/floor/plasteel/dark/telecomms,
@@ -156,6 +298,10 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
+"rP" = (
+/obj/structure/cable,
+/turf/open/floor/plasteel/showroomfloor,
+/area/security/brig)
 "rR" = (
 /obj/machinery/telecomms/server/presets/command,
 /turf/open/floor/plasteel/dark/telecomms,
@@ -169,16 +315,37 @@
 "sp" = (
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/tcommsat/server)
+"sE" = (
+/obj/machinery/vending/wardrobe/sec_wardrobe,
+/turf/open/floor/plasteel,
+/area/security/brig)
 "sV" = (
 /obj/machinery/telecomms/bus/preset_four,
 /turf/open/floor/plasteel/dark/telecomms,
 /area/tcommsat/server)
+"td" = (
+/turf/open/floor/plasteel,
+/area/security/brig)
 "tr" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/space)
+/area/engine/engineering)
+"ug" = (
+/obj/structure/table/wood,
+/obj/item/stamp/hos,
+/turf/open/floor/carpet,
+/area/security/brig)
+"up" = (
+/obj/machinery/computer/security/hos,
+/turf/open/floor/plasteel/dark,
+/area/security/brig)
+"uB" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/engine/engineering)
 "uD" = (
 /obj/machinery/computer/telecomms/monitor{
 	dir = 8
@@ -204,6 +371,37 @@
 /obj/machinery/navbeacon/wayfinding/tcomms,
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
+"vh" = (
+/obj/structure/cable,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/security/glass{
+	name = "Brig Lobby"
+	},
+/turf/open/floor/plasteel,
+/area/security/brig)
+"vy" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/brigdoor{
+	dir = 1;
+	name = "Armory Desk";
+	req_access_txt = "3"
+	},
+/obj/machinery/door/window/southleft{
+	name = "Reception Desk";
+	req_access_txt = "63"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel,
+/area/security/brig)
+"wE" = (
+/obj/structure/cable,
+/turf/open/floor/carpet,
+/area/security/brig)
+"wI" = (
+/obj/structure/chair/comfy/black,
+/obj/effect/landmark/start/head_of_security,
+/turf/open/floor/plasteel/dark,
+/area/security/brig)
 "xe" = (
 /obj/machinery/power/terminal,
 /obj/structure/cable,
@@ -216,6 +414,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
+"yI" = (
+/turf/open/floor/plasteel/dark,
+/area/engine/engineering)
 "zu" = (
 /obj/machinery/telecomms/message_server/preset,
 /turf/open/floor/plasteel/dark/telecomms,
@@ -238,10 +439,25 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
+"zZ" = (
+/obj/structure/filingcabinet,
+/turf/open/floor/plasteel/dark,
+/area/security/brig)
 "Ah" = (
 /obj/machinery/telecomms/server/presets/common,
 /turf/open/floor/plasteel/dark/telecomms,
 /area/tcommsat/server)
+"Ay" = (
+/turf/open/floor/plasteel/dark,
+/area/security/brig)
+"BL" = (
+/obj/structure/table,
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/turf/open/floor/plasteel,
+/area/security/brig)
 "BR" = (
 /obj/machinery/power/apc/highcap/five_k{
 	areastring = "/area/tcommsat/server";
@@ -263,18 +479,62 @@
 /obj/machinery/telecomms/processor/preset_two,
 /turf/open/floor/plasteel/dark/telecomms,
 /area/tcommsat/server)
+"Ei" = (
+/obj/machinery/door/airlock/engineering/glass{
+	name = "Engineering Foyer"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel/dark,
+/area/engine/engineering)
+"EI" = (
+/obj/structure/table,
+/obj/item/assembly/timer,
+/turf/open/floor/plasteel,
+/area/security/brig)
 "Fc" = (
 /obj/machinery/telecomms/broadcaster/preset_right,
 /turf/open/floor/plasteel/dark/telecomms,
 /area/tcommsat/server)
+"Fi" = (
+/obj/machinery/computer/secure_data{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/security/brig)
 "Fq" = (
 /obj/machinery/telecomms/broadcaster/preset_left,
 /turf/open/floor/plasteel/dark/telecomms,
 /area/tcommsat/server)
+"FP" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/security/glass{
+	name = "Brig Control";
+	req_access_txt = "3"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel,
+/area/security/brig)
 "FS" = (
 /obj/structure/cable,
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/tcommsat/server)
+"Gj" = (
+/obj/item/phone{
+	desc = "Supposedly a direct line to Nanotrasen Central Command. It's not even plugged in.";
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/cigbutt/cigarbutt{
+	pixel_x = 5;
+	pixel_y = -1
+	},
+/obj/structure/table/wood,
+/turf/open/floor/carpet,
+/area/security/brig)
+"GO" = (
+/obj/structure/rack,
+/turf/open/floor/plasteel,
+/area/security/brig)
 "Hu" = (
 /obj/machinery/light{
 	dir = 8
@@ -285,6 +545,12 @@
 /obj/machinery/telecomms/server/presets/service,
 /turf/open/floor/plasteel/dark/telecomms,
 /area/tcommsat/server)
+"IO" = (
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_x = 30
+	},
+/turf/open/floor/plasteel,
+/area/security/brig)
 "IP" = (
 /obj/machinery/telecomms/hub/preset,
 /obj/machinery/camera{
@@ -301,10 +567,39 @@
 "JB" = (
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
+"JC" = (
+/turf/open/floor/carpet,
+/area/security/brig)
+"JQ" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Engine Room";
+	req_access_txt = "10"
+	},
+/obj/structure/cable,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel/dark,
+/area/engine/engineering)
 "Lb" = (
 /obj/structure/shuttle/engine/huge,
 /turf/closed/wall/r_wall,
-/area/space)
+/area/engine/engineering)
+"Lh" = (
+/obj/machinery/door/window/southleft{
+	dir = 4;
+	name = "Armory";
+	req_access_txt = "3"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel,
+/area/security/brig)
+"Ll" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Engine Room";
+	req_access_txt = "10"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel/dark,
+/area/engine/engineering)
 "Lv" = (
 /obj/machinery/announcement_system,
 /obj/item/radio/intercom{
@@ -318,19 +613,44 @@
 "LH" = (
 /turf/closed/wall/r_wall,
 /area/space)
+"LZ" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/command{
+	name = "Head of Security's Office";
+	req_access_txt = "58"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel,
+/area/security/brig)
 "Mf" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/space)
+/area/engine/engineering)
+"Mk" = (
+/obj/structure/table/wood,
+/obj/item/storage/secure/briefcase{
+	pixel_x = -2
+	},
+/obj/item/book/manual/wiki/security_space_law,
+/obj/item/cartridge/detective,
+/turf/open/floor/carpet,
+/area/security/brig)
 "Mq" = (
 /obj/machinery/telecomms/processor/preset_three,
 /turf/open/floor/plasteel/dark/telecomms,
 /area/tcommsat/server)
+"MB" = (
+/turf/closed/wall/r_wall,
+/area/engine/engineering)
+"MO" = (
+/turf/open/openspace,
+/area/space)
 "Nd" = (
-/turf/open/floor/plasteel/dark,
+/obj/structure/cable,
+/turf/open/floor/plasteel,
 /area/space)
 "Nz" = (
 /obj/machinery/telecomms/server/presets/supply,
@@ -342,10 +662,16 @@
 "Oc" = (
 /obj/structure/shuttle/engine/heater,
 /turf/open/floor/plating,
-/area/space)
+/area/engine/engineering)
 "Oo" = (
 /turf/open/floor/engine/hull/reinforced,
 /area/space)
+"Ow" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/turf/open/floor/carpet,
+/area/security/brig)
 "OC" = (
 /turf/closed/wall/r_wall,
 /area/tcommsat/computer)
@@ -360,6 +686,10 @@
 "PN" = (
 /turf/closed/wall/r_wall,
 /area/engine/supermatter)
+"QB" = (
+/obj/machinery/vending/security,
+/turf/open/floor/plasteel,
+/area/security/brig)
 "RD" = (
 /obj/machinery/telecomms/processor/preset_four,
 /obj/structure/sign/warning/nosmoking{
@@ -367,22 +697,83 @@
 	},
 /turf/open/floor/plasteel/dark/telecomms,
 /area/tcommsat/server)
+"RP" = (
+/obj/machinery/suit_storage_unit/hos,
+/turf/open/floor/carpet,
+/area/security/brig)
+"Si" = (
+/obj/structure/closet/secure_closet/warden,
+/turf/open/floor/plasteel,
+/area/security/brig)
+"TB" = (
+/obj/structure/table,
+/obj/item/storage/fancy/donut_box,
+/turf/open/floor/plasteel,
+/area/security/brig)
+"Ui" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp,
+/turf/open/floor/carpet,
+/area/security/brig)
+"Ut" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/obj/machinery/door/firedoor/window,
+/turf/open/floor/plating,
+/area/security/brig)
 "Uw" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
 /turf/open/floor/plasteel,
-/area/space)
+/area/engine/engineering)
+"UO" = (
+/turf/open/floor/plasteel/showroomfloor,
+/area/security/brig)
 "Vi" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/space)
+/area/engine/engineering)
 "VU" = (
 /obj/structure/closet/emcloset,
 /turf/open/floor/plasteel/dark,
-/area/tcommsat/computer)
+/area/engine/engineering)
+"Wl" = (
+/obj/machinery/computer/security{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/security/brig)
+"Wv" = (
+/obj/structure/table,
+/obj/item/book/manual/wiki/security_space_law,
+/turf/open/floor/plasteel,
+/area/security/brig)
+"WT" = (
+/obj/structure/cable,
+/obj/structure/railing,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/security/brig)
+"WX" = (
+/obj/structure/closet/secure_closet/security/sec,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plasteel,
+/area/security/brig)
+"Xc" = (
+/turf/closed/wall/r_wall,
+/area/security/brig)
+"Xj" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Engineering Maintenance";
+	req_access_txt = "10"
+	},
+/turf/open/floor/plating,
+/area/engine/engineering)
 "Xp" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /turf/open/floor/plating,
@@ -393,7 +784,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/space)
+/area/engine/engineering)
 "XV" = (
 /obj/structure/cable,
 /obj/effect/spawner/structure/window/reinforced,
@@ -1891,10 +2282,10 @@ jY
 jY
 jY
 jY
-LH
-LH
-LH
-LH
+jY
+jY
+jY
+jY
 Zr
 Zr
 Zr
@@ -1910,18 +2301,18 @@ Lv
 OC
 OC
 OC
-LH
-LH
-LH
-LH
-jY
-LH
-LH
-LH
-LH
-LH
-LH
-LH
+MB
+MB
+MB
+MB
+fy
+MB
+MB
+MB
+MB
+MB
+MB
+MB
 dm
 Oo
 pi
@@ -1990,13 +2381,13 @@ jY
 jY
 jY
 jY
-LH
-LH
-LH
-LH
-oW
-oW
-oW
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
 Zr
 sV
 NC
@@ -2012,18 +2403,18 @@ rz
 xe
 si
 OC
-Nd
-Nd
-Nd
-Nd
-Nd
+yI
+yI
+yI
+yI
+yI
 iL
 Vi
 km
 nq
 nq
 nq
-LH
+MB
 dm
 Oo
 pi
@@ -2086,19 +2477,19 @@ Oo
 Oo
 dm
 jY
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-oW
-oW
-oW
-oW
-oW
-oW
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+WX
+WX
+WX
+WX
+WX
+WX
 Zr
 RD
 NC
@@ -2114,17 +2505,17 @@ JB
 JB
 dV
 OC
-Nd
-Nd
-Nd
-Nd
-Nd
+yI
+yI
+yI
+yI
+yI
 qG
 Xz
 oD
 Oc
-jY
-jY
+ai
+ai
 Lb
 dm
 Oo
@@ -2188,19 +2579,19 @@ dm
 dm
 dm
 jY
-LH
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
+Xc
+GO
+GO
+GO
+GO
+GO
+Xc
+td
+UO
+UO
+UO
+UO
+td
 Zr
 BR
 FS
@@ -2225,9 +2616,9 @@ Mf
 ii
 oD
 Oc
-jY
-jY
-LH
+ai
+ai
+MB
 dm
 Oo
 pi
@@ -2290,19 +2681,19 @@ jY
 jY
 jY
 jY
-LH
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
+Xc
+td
+td
+td
+td
+td
+Xc
+td
+UO
+UO
+UO
+UO
+td
 Zr
 Mq
 NC
@@ -2318,18 +2709,18 @@ bu
 fa
 zV
 OC
-Nd
-Nd
-Nd
-Nd
-Nd
+yI
+iC
+yI
+yI
+yI
 qG
 Xz
 oD
 Oc
-jY
-jY
-LH
+ai
+ai
+MB
 dm
 Oo
 pi
@@ -2392,19 +2783,19 @@ LH
 LH
 LH
 jY
-LH
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
+Xc
+Xc
+td
+td
+td
+td
+Xc
+td
+UO
+UO
+UO
+UO
+sE
 Zr
 jp
 NC
@@ -2420,18 +2811,18 @@ bl
 uD
 OC
 OC
-Nd
-Nd
-Nd
-Nd
-Nd
+yI
+iC
+yI
+yI
+yI
 Uw
 tr
 fH
 nq
 nq
 nq
-LH
+MB
 dm
 Oo
 pi
@@ -2494,19 +2885,19 @@ oW
 oW
 oW
 oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
+td
+Xc
+Xc
+Lh
+mE
+Xc
+Xc
+td
+UO
+UO
+UO
+UO
+gX
 Zr
 Zr
 Zr
@@ -2522,18 +2913,18 @@ Xp
 PN
 PN
 VU
-Nd
-Nd
-Nd
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
+yI
+iC
+yI
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+MB
 dm
 Oo
 pi
@@ -2596,23 +2987,23 @@ oW
 oW
 oW
 oW
+td
+Xc
+Si
+td
+td
+kU
+FP
+kU
+rP
+rP
+UO
+UO
+gX
+Xc
 oW
 oW
 oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-LH
-Nd
-Nd
-Nd
 PN
 PN
 mG
@@ -2624,10 +3015,10 @@ mG
 mG
 PN
 PN
-Nd
-Nd
-LH
-LH
+yI
+iC
+MB
+MB
 dm
 dm
 dm
@@ -2698,23 +3089,23 @@ jY
 jY
 jY
 jY
-LH
-LH
-LH
+Xc
+Xc
+Xc
+td
+td
+kU
+vy
+kU
+IO
+kU
+td
+td
+QB
+Xc
 oW
 oW
 oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-LH
-Nd
-Nd
-Nd
 PN
 mG
 mG
@@ -2726,9 +3117,9 @@ mG
 mG
 mG
 PN
-Nd
-Nd
-LH
+yI
+iC
+MB
 dm
 dm
 Oo
@@ -2789,34 +3180,34 @@ LH
 LH
 LH
 LH
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-Nd
-Nd
-Nd
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+Xc
+Ut
+Ut
+Ut
+Xc
+oX
+Xc
+Ut
+Ut
+Ut
+Xc
+Xc
+oW
+oW
+oW
 Xp
 mG
 mG
@@ -2828,9 +3219,9 @@ PN
 mG
 mG
 Xp
-Nd
-Nd
-LH
+yI
+iC
+MB
 dm
 Oo
 Oo
@@ -2887,38 +3278,38 @@ oW
 oW
 LH
 LH
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-LH
-LH
-Nd
-Nd
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+WT
+MO
+MO
+MO
+MO
+MO
+Xc
+Xc
+oW
+oW
 Xp
 mG
 mG
@@ -2930,9 +3321,9 @@ Xp
 mG
 mG
 Xp
-Nd
-Nd
-LH
+yI
+iC
+MB
 dm
 Oo
 Oo
@@ -2988,39 +3379,39 @@ oW
 oW
 oW
 LH
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-LH
-Nd
-Nd
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+WT
+MO
+MO
+MO
+MO
+MO
+MO
+Xc
+oW
+oW
 PN
 mG
 mG
@@ -3032,9 +3423,9 @@ Xp
 mG
 mG
 PN
-Nd
-Nd
-LH
+yI
+iC
+MB
 dm
 Oo
 Oo
@@ -3091,38 +3482,38 @@ oW
 oW
 LH
 LH
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-LH
-LH
-Nd
-Nd
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+WT
+MO
+MO
+MO
+MO
+MO
+Xc
+Xc
+oW
+oW
 Xp
 mG
 mG
@@ -3134,9 +3525,9 @@ Xp
 mG
 mG
 Xp
-Nd
-Nd
-LH
+yI
+iC
+MB
 dm
 Oo
 Oo
@@ -3197,34 +3588,34 @@ LH
 LH
 LH
 LH
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-pi
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-Nd
-Nd
-Nd
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+Xc
+Ut
+Ut
+Ut
+Xc
+bm
+Xc
+Ut
+Ut
+Ut
+Xc
+Xc
+oW
+oW
+oW
 Xp
 mG
 mG
@@ -3236,9 +3627,9 @@ PN
 mG
 mG
 Xp
-Nd
-Nd
-LH
+yI
+iC
+MB
 dm
 Oo
 Oo
@@ -3310,23 +3701,23 @@ jY
 jY
 jY
 jY
-LH
-LH
-LH
+Xc
+Xc
+Xc
+Mk
+iH
+qy
+Xc
+kU
+td
+kU
+td
+td
+td
+Xc
 oW
 oW
 oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-LH
-Nd
-Nd
-Nd
 PN
 mG
 mG
@@ -3338,9 +3729,9 @@ mG
 mG
 mG
 PN
-Nd
-Nd
-LH
+yI
+iC
+MB
 dm
 dm
 Oo
@@ -3412,23 +3803,23 @@ oW
 oW
 oW
 oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-LH
+Xc
+kX
+Ay
+JC
+JC
+wE
+LZ
+kU
+kU
+kU
+kU
+kU
+kU
+vh
 Nd
 Nd
-Nd
+oW
 PN
 PN
 mG
@@ -3440,10 +3831,10 @@ mG
 mG
 PN
 PN
-Nd
-Nd
-LH
-LH
+Ll
+JQ
+MB
+MB
 dm
 dm
 dm
@@ -3514,24 +3905,24 @@ oW
 oW
 oW
 oW
+Xc
+ix
+Ay
+Ui
+JC
+JC
+Xc
+td
+gt
+cF
+EI
+nX
+td
+Xc
 oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-LH
 Nd
-Nd
-Nd
-Nd
+oW
+oW
 PN
 PN
 Xp
@@ -3541,19 +3932,19 @@ Xp
 Xp
 PN
 PN
-Nd
-Nd
-Nd
-Nd
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
+yI
+yI
+iC
+yI
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+MB
 dm
 Oo
 pi
@@ -3616,46 +4007,46 @@ LH
 LH
 LH
 jY
-LH
+Xc
+up
+wI
+ug
+Ow
+JC
+Ut
+td
+gt
+TB
+Wv
+nX
+td
+Xc
+oW
+Nd
 oW
 oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-LH
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
+uB
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+iC
+yI
+yI
+yI
+yI
+yI
+yI
 nq
 nq
 nq
-LH
+MB
 dm
 Oo
 pi
@@ -3718,45 +4109,45 @@ jY
 jY
 jY
 jY
-LH
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-LH
-LH
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
+Xc
+oV
+Ay
+Gj
+JC
+am
+Ut
+td
+gt
+dK
+ih
+nX
+td
+Xc
+MB
+uB
+Ei
+uB
+uB
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+yI
+yI
+yI
+yI
+yI
+yI
 Oc
-jY
-jY
+ai
+ai
 Lb
 dm
 Oo
@@ -3820,46 +4211,46 @@ dm
 dm
 dm
 jY
-LH
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
+Xc
+er
+Ay
+JC
+JC
+RP
+Xc
+td
+gt
+BL
+Wv
+nX
+td
+td
+MB
+iC
+iC
+iC
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
 Oc
-jY
-jY
-LH
+ai
+ai
+MB
 dm
 Oo
 pi
@@ -3922,46 +4313,46 @@ Oo
 Oo
 dm
 jY
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-LH
-LH
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+td
+td
+td
+td
+td
+td
+td
+MB
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
 Oc
-jY
-jY
-LH
+ai
+ai
+MB
 dm
 Oo
 pi
@@ -4030,40 +4421,40 @@ jY
 jY
 jY
 jY
-LH
-LH
-LH
-LH
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-LH
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
-Nd
+Xc
+Xc
+Xc
+Xc
+hM
+Fi
+Wl
+zZ
+MB
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
 nq
 nq
 nq
-LH
+MB
 dm
 Oo
 pi
@@ -4135,37 +4526,37 @@ jY
 jY
 jY
 jY
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-oW
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-jY
-LH
-LH
-LH
-LH
-LH
-LH
-LH
+Xc
+Xc
+Xc
+Xc
+Xc
+MB
+MB
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+yI
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+Xj
+MB
+MB
+MB
+MB
+MB
+MB
+MB
 dm
 Oo
 pi
@@ -4243,17 +4634,17 @@ jY
 jY
 jY
 jY
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+MB
 jY
 jY
 jY

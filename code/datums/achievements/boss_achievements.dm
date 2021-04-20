@@ -39,7 +39,7 @@
 
 /datum/award/achievement/boss/drake_kill
 	name = "Drake Killer"
-	desc = "Теперь я могу носить Рунные Пластины!"
+	desc = "Теперь можно носить Рунные Пластины!"
 	database_id = BOSS_MEDAL_DRAKE
 	icon = "drake"
 
@@ -91,7 +91,7 @@
 
 /datum/award/achievement/boss/drake_crusher
 	name = "Drake Crusher"
-	desc = "Теперь я могу носить Рунные Пластины!"
+	desc = "Теперь можно носить Рунные Пластины!"
 	database_id = BOSS_MEDAL_DRAKE_CRUSHER
 	icon = "drake"
 

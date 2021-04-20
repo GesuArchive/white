@@ -112,10 +112,13 @@
 #define INIT_ORDER_INSTRUMENTS		82
 #define INIT_ORDER_VIS				80
 #define INIT_ORDER_ACHIEVEMENTS		77
+#define INIT_ORDER_DUNGEONS			76
 #define INIT_ORDER_RESEARCH			75
 #define INIT_ORDER_EVENTS			70
 #define INIT_ORDER_JOBS				65
 #define INIT_ORDER_QUIRKS			60
+#define INIT_ORDER_AI_MOVEMENT 		56 //We need the movement setup
+#define INIT_ORDER_AI_CONTROLLERS 	55 //So the controller can get the ref
 #define INIT_ORDER_TICKER			55
 #define INIT_ORDER_TCG				55
 #define INIT_ORDER_REAGENTS 		55 //HAS to be before mapping - mapping creates objects, which creates reagents, which relies on lists made in this subsystem
@@ -124,11 +127,12 @@
 #define INIT_ORDER_NETWORKS			45
 #define INIT_ORDER_ECONOMY			40
 #define INIT_ORDER_OUTPUTS			35
+#define INIT_ORDER_RESTAURANT 		34
 #define INIT_ORDER_ATOMS			30
 #define INIT_ORDER_LANGUAGE			25
 #define INIT_ORDER_MACHINES			20
 #define INIT_ORDER_SKILLS			15
-#define INIT_ORDER_CIRCUIT 6
+#define INIT_ORDER_CIRCUIT 			6
 #define INIT_ORDER_TIMER			1
 #define INIT_ORDER_DEFAULT			0
 #define INIT_ORDER_AIR				-1
@@ -158,7 +162,8 @@
 #define FIRE_PRIORITY_GARBAGE		15
 #define FIRE_PRIORITY_WET_FLOORS	20
 #define FIRE_PRIORITY_AIR			20
-#define FIRE_PRIORITY_NPC			20
+#define FIRE_PRIORITY_NPC 			20
+#define FIRE_PRIORITY_NPC_MOVEMENT 	21
 #define FIRE_PRIORITY_PROCESS		25
 #define FIRE_PRIORITY_THROWING		25
 #define FIRE_PRIORITY_REAGENTS		26

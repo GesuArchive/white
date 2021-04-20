@@ -47,7 +47,7 @@ export const ChemDispenser = (props, context) => {
                 icon="book"
                 disabled={!data.isBeakerLoaded}
                 content={"Поиск реакций"}
-                tooltip={data.isBeakerLoaded ? "Look up recipes and reagents!" : "Please insert a beaker!"}
+                tooltip={data.isBeakerLoaded ? "Поищем же рецепты и реагенты!" : "Вставьте пробирку!"}
                 tooltipPosition="bottom-left"
                 onClick={() => act('reaction_lookup')} />
               <Button
@@ -144,7 +144,7 @@ export const ChemDispenser = (props, context) => {
                 lineHeight={1.75}
                 content={chemical.title}
                 tooltip={"pH: " + chemical.pH}
-                backgroundColor={recipeReagents.includes(chemical.id)
+                color={recipeReagents.includes(chemical.id)
                   ? hasCol ? "black" : "green"
                   : hasCol ? chemical.pHCol : "default"}
                 onClick={() => act('dispense', {
@@ -189,10 +189,10 @@ export const ChemDispenser = (props, context) => {
                 || 'Нет ёмкости'}
             </LabeledList.Item>
             <LabeledList.Item
-              label="Contents">
+              label="Содержимое">
               <Box color="label">
                 {(!data.isBeakerLoaded && !recording) && 'N/A'
-                  || beakerContents.length === 0 && 'Nothing'}
+                  || beakerContents.length === 0 && 'Ничего'}
               </Box>
               {beakerContents.map(chemical => (
                 <Box
@@ -202,7 +202,7 @@ export const ChemDispenser = (props, context) => {
                     initial={0}
                     value={chemical.volume} />
                   {' '}
-                  единиц {chemical.name}
+                  ед. {chemical.name}
                 </Box>
               ))}
               {((beakerContents.length > 0 && !!data.showpH) && (

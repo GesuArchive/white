@@ -7,7 +7,7 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	for (var/t in subtypesof(/datum/reagent))
 		var/datum/reagent/R = t
 		if (length(initial(R.name)))
-			.[ckey(initial(R.name))] = t
+			.[lowertext(initial(R.name))] = t
 
 
 //Various reagents
@@ -34,6 +34,8 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	var/glass_icon_state = null
 	/// used for shot glasses, mostly for alcohol
 	var/shot_glass_icon_state = null
+	/// fallback icon if  the reagent has no glass or shot glass icon state. Used for restaurants.
+	var/fallback_icon_state = null
 	/// reagent holder this belongs to
 	var/datum/reagents/holder = null
 	/// LIQUID, SOLID, GAS
@@ -50,6 +52,8 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	var/purity = 1
 	///the purity of the reagent on creation (i.e. when it's added to a mob and it's purity split it into 2 chems; the purity of the resultant chems are kept as 1, this tracks what the purity was before that)
 	var/creation_purity = 1
+	///The molar mass of the reagent - if you're adding a reagent that doesn't have a recipe, just add a random number between 10 - 800. Higher numbers are "harder" but it's mostly arbitary.
+	var/mass
 	/// color it looks in containers etc
 	var/color = "#000000" // rgb: 0, 0, 0
 	///how fast the reagent is metabolized by the mob
@@ -82,7 +86,7 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	/// If the impurity is below 0.5, replace ALL of the chem with inverse_chem upon metabolising
 	var/inverse_chem_val = 0.25
 	/// What chem is metabolised when purity is below inverse_chem_val
-	var/inverse_chem = /datum/reagent/impurity/toxic
+	var/inverse_chem = /datum/reagent/inverse
 	///what chem is made at the end of a reaction IF the purity is below the recipies purity_min at the END of a reaction only
 	var/failed_chem = /datum/reagent/consumable/failed_reaction
 	///Thermodynamic vars
@@ -95,12 +99,15 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	///A sound. Yes.
 	var/sound/special_sound = null
 
+
 /datum/reagent/New()
 	SHOULD_CALL_PARENT(TRUE)
 	. = ..()
 
 	if(material)
 		material = GET_MATERIAL_REF(material)
+	if(!mass)
+		mass = rand(10, 800)
 
 /datum/reagent/Destroy() // This should only be called by the holder, so it's already handled clearing its references
 	. = ..()
@@ -122,7 +129,7 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	if((methods & penetrates_skin) && exposed_mob.reagents) //smoke, foam, spray
 		var/amount = round(reac_volume*clamp((1 - touch_protection), 0, 1), 0.1)
 		if(amount >= 0.5)
-			exposed_mob.reagents.add_reagent(type, amount)
+			exposed_mob.reagents.add_reagent(type, amount, added_purity = purity)
 
 /datum/reagent/proc/FINISHONMOBLIFE(mob/living/M)
 	current_cycle++
@@ -166,6 +173,7 @@ Primarily used in reagents/reaction_agents
 
 /// Called when this reagent is first added to a mob
 /datum/reagent/proc/on_mob_add(mob/living/L, amount)
+	overdose_threshold /= max(normalise_creation_purity(), 1) //Maybe??? Seems like it would help pure chems be even better but, if I normalised this to 1, then everything would take a 25% reduction
 	return
 
 /// Called when this reagent is removed while inside a mob
@@ -233,6 +241,20 @@ Primarily used in reagents/reaction_agents
 /datum/reagent/proc/get_taste_description(mob/living/taster)
 	return list("[taste_description]" = 1)
 
+/**
+ * Used when you want the default reagents purity to be equal to the normal effects
+ * (i.e. if default purity is 0.75, and your reacted purity is 1, then it will return 1.33)
+ *
+ * Arguments
+ * * normalise_num_to - what number/purity value you're normalising to. If blank it will default to the compile value of purity for this chem
+ * * creation_purity - creation_purity override, if desired. This is the purity of the reagent that you're normalising from.
+ */
+/datum/reagent/proc/normalise_creation_purity(normalise_num_to, creation_purity)
+	if(!normalise_num_to)
+		normalise_num_to = initial(purity)
+	if(!creation_purity)
+		creation_purity = src.creation_purity
+	return creation_purity / normalise_num_to
 
 /proc/pretty_string_from_reagent_list(list/reagent_list)
 	//Convert reagent list to a printable string for logging etc
@@ -241,3 +263,5 @@ Primarily used in reagents/reaction_agents
 		rs += "[R.name], [R.volume]"
 
 	return rs.Join(" | ")
+
+

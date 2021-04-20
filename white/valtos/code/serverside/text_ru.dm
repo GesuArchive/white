@@ -251,6 +251,16 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	lose_text = "<span class='danger'>Я забываю запах сала.</span>"
 	medical_record_text = "Пациент имеет страсть к салу."
 
+/datum/quirk/ukrainish/add()
+	var/mob/living/carbon/human/H = quirk_holder
+	if(ishumanbasic(H))
+		H.grant_language(/datum/language/xoxol)
+
+/datum/quirk/ukrainish/remove()
+	var/mob/living/carbon/human/H = quirk_holder
+	if(ishumanbasic(H))
+		H.remove_language(/datum/language/xoxol)
+
 /datum/quirk/asiat
 	name = "Азиат"
 	desc = "Долгое время работы в рисовых полях и жара палящего сверху солнца даровала вам этот прекрасный акцент."
@@ -259,6 +269,19 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	gain_text = "<span class='notice'>Чиньг-чоньг!.</span>"
 	lose_text = "<span class='danger'>Аниме говно.</span>"
 	medical_record_text = "Пациент - азиат."
+
+/mob/living/carbon/human/proc/get_race_text()
+	switch(skin_tone)
+		if("asian1", "asian2")
+			return pick("ускоглазый", "узкопленочный", "чалма", "чурка", "чучмек", "кырдым-бырдым", "самурай")
+		if("arab")
+			return pick("хач", "сарацин", "палестинец")
+		if("indian")
+			return pick("цыган", "индус")
+		if("african1", "african2")
+			return pick("негр", "черномазый", "уголёк", "черножопая гнида", "негативчик", "сникерс", "черный", "копченый", "негритос", "мумба-юмба", "трюфель")
+		else
+			return null
 
 /mob/living/carbon/human/proc/get_age_text()
 	switch(age)

@@ -110,6 +110,7 @@
 
 	//initialize things that are normally initialized after map load
 	parsed.initTemplateBounds(src)
+	SSmapping.run_map_generation_in_z(world.maxz)
 	smooth_zlevel(world.maxz)
 	log_game("Z-level [name] loaded at [x],[y],[world.maxz]")
 

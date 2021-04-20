@@ -64,9 +64,12 @@
 		output += "<p><a href='byond://?src=[REF(src)];late_join=1'>Присоединиться!</a></p>"
 		output += "<p>[LINKIFY_READY("Наблюдать", PLAYER_READY_TO_OBSERVE)]</p>"
 
+	if(!IsGuestKey(src.key))
+		output += playerpolls()
+
 	output += "</center>"
 
-	var/datum/browser/popup = new(src, "playersetup", "<div align='center'>New White Dream</div>", 265, 265) // 新しい白い夢
+	var/datum/browser/popup = new(src, "playersetup", "<div align='center'>White Dream</div>", 265, 265) // 新しい白い夢
 	popup.set_window_options("can_close=0")
 	popup.set_content(output.Join())
 	popup.open(FALSE)
@@ -98,9 +101,9 @@
 			qdel(query_get_new_polls)
 			return
 		if(query_get_new_polls.NextRow())
-			output += "<p><b><a href='byond://?src=[rs];showpoll=1'>Show Player Polls</A> (NEW!)</b></p>"
-		else
-			output += "<p><a href='byond://?src=[rs];showpoll=1'>Show Player Polls</A></p>"
+			output += "<p><a href='byond://?src=[rs];showpoll=1'><b>НОВЫЙ ОПРОС!</b></A></p>"
+		else if(isadmin)
+			output += "<p><a href='byond://?src=[rs];showpoll=1'>Опросы</A></p>"
 		qdel(query_get_new_polls)
 		if(QDELETED(src))
 			return
@@ -378,7 +381,7 @@
 		SSquirks.AssignQuirks(humanc, humanc.client, TRUE)
 
 	if(humanc && SSaspects.current_aspect)
-		to_chat(humanc, "\n<span class='notice'><BR><B>[gvorno(TRUE)]:</B> [SSaspects.current_aspect.desc]</span>\n")
+		to_chat(humanc, "\n<span class='notice'><B>[gvorno(TRUE)]:</B> [SSaspects.current_aspect.desc]</span><BR> ")
 
 	log_manifest(character.mind.key,character.mind,character,latejoin = TRUE)
 
@@ -409,7 +412,7 @@
 		// position_categories contains category names mapped to available jobs and an appropriate color
 		var/cat_color = GLOB.position_categories[category]["color"]
 		dat += "<fieldset style='width: 185px; border: 2px solid [cat_color]; display: inline'>"
-		dat += "<legend align='center' style='color: [cat_color]'>[category]</legend>"
+		dat += "<legend align='center' style='color: #ffffff;'>[GLOB.position_categories[category]["runame"]]</legend>"
 		var/list/dept_dat = list()
 		for(var/job in GLOB.position_categories[category]["jobs"])
 			var/datum/job/job_datum = SSjob.name_occupations[job]

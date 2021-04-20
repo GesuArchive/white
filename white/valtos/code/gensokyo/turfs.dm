@@ -3,7 +3,6 @@
 	name = "трава"
 	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
 	icon_state = "grass1"
-	broken_states = list("dirt")
 	footstep = FOOTSTEP_GRASS
 	barefootstep = FOOTSTEP_GRASS
 	clawfootstep = FOOTSTEP_GRASS
@@ -15,9 +14,13 @@
 	baseturfs = /turf/open/floor/grass/gensgrass/dirty
 	slowdown = 1
 
+/turf/open/floor/grass/gensgrass/setup_broken_states()
+	return list("dirt")
+
 /turf/open/floor/grass/gensgrass/dirty
 	gender = FEMALE
 	name = "грязь"
+	desc = "Прям как ты."
 	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
 	icon_state = "dirt"
 	nospawn = TRUE

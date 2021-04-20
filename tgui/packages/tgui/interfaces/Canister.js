@@ -37,7 +37,7 @@ export const Canister = (props, context) => {
         <Flex direction="column" height="100%">
           <Flex.Item mb={1}>
             <Section
-              title="Бак"
+              title="Канистра"
               buttons={(
                 <>
                   {!!isPrototype && (
@@ -45,9 +45,6 @@ export const Canister = (props, context) => {
                       mr={1}
                       icon={restricted ? 'lock' : 'unlock'}
                       color="caution"
-                      content={restricted
-                        ? 'Инженерный'
-                        : 'Публичный'}
                       onClick={() => act('restricted')} />
                   )}
                   <Button
@@ -93,7 +90,7 @@ export const Canister = (props, context) => {
                       fluid
                       position="absolute"
                       top="-2px"
-                      right="-20px"
+                      right="-24px"
                       color="transparent"
                       icon="fast-forward"
                       onClick={() => act('pressure', {
@@ -102,8 +99,8 @@ export const Canister = (props, context) => {
                     <Button
                       fluid
                       position="absolute"
-                      top="16px"
-                      right="-20px"
+                      top="20px"
+                      right="-24px"
                       color="transparent"
                       icon="undo"
                       onClick={() => act('pressure', {
@@ -114,7 +111,7 @@ export const Canister = (props, context) => {
                 <LabeledControls.Item label="Вентиль">
                   <Button
                     my={0.5}
-                    width="50px"
+                    width="55px"
                     lineHeight={2}
                     fontSize="11px"
                     color={valveOpen
@@ -133,8 +130,8 @@ export const Canister = (props, context) => {
                       color={portConnected ? 'good' : 'bad'} />
                     <Tooltip
                       content={portConnected
-                        ? 'Подключён'
-                        : 'Отключён'}
+                        ? 'Подключен'
+                        : 'Отключен'}
                       position="top" />
                   </Box>
                 </LabeledControls.Item>

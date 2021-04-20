@@ -10,8 +10,7 @@ export const ClickerPanel = (props, context) => {
   return (
     <Window
       width={300}
-      height={600}
-      resizable>
+      height={600}>
       <Window.Content>
         <Table>
           <Table.Row header>

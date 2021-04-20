@@ -1,0 +1,26 @@
+{
+	"version": 1,
+    "map_name": "Bashenka",
+    "map_path": "map_files/Bashenka",
+    "map_file": "bashenka.dmm",
+    "shuttles": {
+	    "cargo": "cargo_box",
+	    "ferry": "ferry_fancy",
+	    "whiteship": "whiteship_meta",
+	    "emergency": "emergency_meta"
+    },
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+    "traits":[
+       {"Up": 1,			 "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/lava/plasma/ice_moon"},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace/fastload/planetmos"},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace/fastload/planetmos"},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace/fastload/planetmos"},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace/fastload/planetmos"},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace/fastload/planetmos"},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace/fastload/planetmos"},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace/fastload/planetmos"},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace/fastload/planetmos"},
+       {"Down": -1,			 "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace/fastload/planetmos"}
+    ]
+}

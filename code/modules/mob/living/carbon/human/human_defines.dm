@@ -1,7 +1,7 @@
 /// Any humanoid (non-Xeno) mob, such as humans, plasmamen, lizards.
 /mob/living/carbon/human
 	name = "Неизвестный"
-	real_name = "Unknown"
+	real_name = "Неизвестный"
 	icon = 'icons/mob/human.dmi'
 	icon_state = "human_basic"
 	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE|LONG_GLIDE
@@ -79,3 +79,6 @@
 
 	///Exposure to damaging heat levels increases stacks, stacks clean over time when temperatures are lower. Stack is consumed to add a wound.
 	var/heat_exposure_stacks = 0
+
+	///human specific screwyhuds from hallucinations (define key (bodypart) to int value (severity)) - see /datum/hallucination/fake_health_doll
+	var/hal_screwydoll

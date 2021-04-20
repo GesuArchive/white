@@ -17,8 +17,7 @@ export const EconomyController = (props, context) => {
   return (
     <Window
       width={900}
-      height={600}
-      resizable>
+      height={600}>
       <Window.Content>
         <Flex
           height="250px"

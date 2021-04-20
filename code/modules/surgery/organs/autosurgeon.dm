@@ -73,7 +73,7 @@
 	if(..())
 		return TRUE
 	if(!storedorgan)
-		to_chat(user, "<span class='warning'>Внутри [src] нет импланта который я могу извлечь!</span>")
+		to_chat(user, "<span class='warning'>Внутри [src] нет импланта который можно извлечь!</span>")
 	else
 		var/atom/drop_loc = user.drop_location()
 		for(var/J in src)
@@ -97,7 +97,7 @@
 /obj/item/autosurgeon/organ/syndicate/laser_arm
 	desc = "Одноразовый автохирург с имплантом боевого лазера. Из него можно вытащить импланты отвёрткой, но обратно их уже не вставить"
 	uses = 1
-	starting_organ = /obj/item/organ/cyberimp/arm/item_set/gun/laser
+	starting_organ = /obj/item/organ/cyberimp/arm/gun/laser
 
 /obj/item/autosurgeon/organ/syndicate/thermal_eyes
 	starting_organ = /obj/item/organ/eyes/robotic/thermals
@@ -106,13 +106,13 @@
 	starting_organ = /obj/item/organ/eyes/robotic/xray
 
 /obj/item/autosurgeon/organ/syndicate/anti_stun
-	starting_organ = /obj/item/organ/cyberimp/brain/anti_stun/syndicate
+	starting_organ = /obj/item/organ/cyberimp/brain/anti_stun
 
 /obj/item/autosurgeon/organ/syndicate/reviver
-	starting_organ = /obj/item/organ/cyberimp/chest/reviver/syndicate
+	starting_organ = /obj/item/organ/cyberimp/chest/reviver
 
 /obj/item/autosurgeon/organ/syndicate/esword
-	starting_organ = /obj/item/organ/cyberimp/arm/item_set/esword
+	starting_organ = /obj/item/organ/cyberimp/arm/esword
 /obj/item/autosurgeon/skillchip
 	name = "автохирург чипов навыков"
 	desc = "Устройство которое автоматически вживляет чипы умений в мозг цели, без необходимости проводить операцию. \
@@ -205,7 +205,7 @@
 		return
 
 	if(!stored_skillchip)
-		to_chat(user, "<span class='warning'>Внутри [src] нет чипа который я могу извлечь!</span>")
+		to_chat(user, "<span class='warning'>Внутри [src] нет чипа который можно извлечь!</span>")
 		return TRUE
 
 	var/atom/drop_loc = user.drop_location()

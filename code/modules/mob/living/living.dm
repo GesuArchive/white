@@ -12,7 +12,11 @@
 	killcounter = new /datum/cs_killcounter
 	killcounter.owner = src
 
-	overlay_fullscreen("noise", /atom/movable/screen/fullscreen/noisescreen)
+	spawn(5 SECONDS)
+		if(ckey in GLOB.pacifist_list)
+			ADD_TRAIT(src, TRAIT_PACIFISM, "sosi")
+
+	//overlay_fullscreen("noise", /atom/movable/screen/fullscreen/noisescreen)
 	add_client_colour(/datum/client_colour/correction)
 
 	AddComponent(/datum/component/battletension)
@@ -383,7 +387,13 @@
 		return FALSE
 	if(!..())
 		return FALSE
-	visible_message("<span class='name'>[capitalize(src.name)]</span> показывает на <b>[A]</b>.", "<span class='notice'>Показываю на <b>[A]</b>.</span>")
+	var/obj/item/held = get_active_held_item()
+	if(held)
+		var/datum/component/aiming/aiming = held?.GetComponent(/datum/component/aiming)
+		if(aiming && isliving(A))
+			aiming.aim(src, A)
+			return TRUE
+	visible_message("<span class='name'>[capitalize(src.name)]</span> показывает на <b>[sklonenie(A.name, VINITELNI, A.gender)]</b>.", "<span class='notice'>Показываю на <b>[sklonenie(A.name, VINITELNI, A.gender)]</b>.</span>")
 	return TRUE
 
 
@@ -436,9 +446,18 @@
 		to_chat(src, "<span class='warning'>Уже сплю!</span>")
 		return
 	else
-		if(alert(src, "Хочешь поспать?", "Спать", "Да", "Нет") == "Да")
-			SetSleeping(400) //Short nap
-
+		switch(tgui_alert(src, "Сколько будем спать?", "Мяу?", list("30 секунд", "45 секунд", "60 секунд"), timeout = 15 SECONDS))
+			if("30 секунд")
+				SetSleeping(30 SECONDS)
+				return
+			if("45 секунд")
+				SetSleeping(45 SECONDS)
+				return
+			if("60 секунд")
+				SetSleeping(60 SECONDS)
+				return
+			else
+				return
 
 /mob/proc/get_contents()
 
@@ -725,6 +744,7 @@
 	slurring = 0
 	jitteriness = 0
 	stop_sound_channel(CHANNEL_HEARTBEAT)
+	SEND_SIGNAL(src, COMSIG_LIVING_POST_FULLY_HEAL, admin_revive)
 
 
 //proc called by revive(), to check if we can actually ressuscitate the mob (we don't want to revive him and have him instantly die again)
@@ -865,7 +885,7 @@
 	return !((next_move > world.time) || incapacitated(ignore_restraints = TRUE, ignore_stasis = TRUE))
 
 /mob/living/verb/resist()
-	set name = "Resist"
+	set name = "Сопротивляться"
 	set category = "IC"
 
 	if(!can_resist())
@@ -980,14 +1000,7 @@
 					who.log_message("[key_name(who)] has been stripped of [what] by [key_name(src)]", LOG_ATTACK, color="red")
 					log_message("[key_name(who)] has been stripped of [what] by [key_name(src)]", LOG_ATTACK, color="red", log_globally=FALSE)
 
-	if(Adjacent(who)) //update inventory window
-		who.show_inv(src)
-	else
-		src << browse(null,"window=mob[REF(who)]")
-
-	who.update_equipment_speed_mods() // Updates speed in case stripped speed affecting item
-
-// The src mob пытается place an item on someone
+// The src mob is trying to place an item on someone
 // Override if a certain mob should be behave differently when placing items (can't, for example)
 /mob/living/stripPanelEquip(obj/item/what, mob/who, where)
 	what = src.get_active_held_item()
@@ -1028,11 +1041,6 @@
 						who.equip_to_slot(what, where, TRUE)
 					who.log_message("[key_name(who)] had [what] put on them by [key_name(src)]", LOG_ATTACK, color="red")
 					log_message("[key_name(who)] had [what] put on them by [key_name(src)]", LOG_ATTACK, color="red", log_globally=FALSE)
-
-		if(Adjacent(who)) //update inventory window
-			who.show_inv(src)
-		else
-			src << browse(null,"window=mob[REF(who)]")
 
 /mob/living/singularity_pull(S, current_size)
 	..()
@@ -1267,12 +1275,12 @@
 /mob/living/proc/knockOver(mob/living/carbon/C)
 	if(C.key) //save us from monkey hordes
 		C.visible_message("<span class='warning'>[pick( \
-						"[C] спотыкается об [src]!", \
-						"[C] перепрыгивает через [src]!", \
-						"[C] сальтует через [src]!", \
-						"[C] делает тактический кувырок через [src] и падает!", \
-						"[C] стукается об [src]!", \
-						"[C] резко отскакивает от [src]!")]</span>")
+						"[C] спотыкается об [sklonenie(name, VINITELNI, gender)]!", \
+						"[C] перепрыгивает через [sklonenie(name, VINITELNI, gender)]!", \
+						"[C] сальтует через [sklonenie(name, VINITELNI, gender)]!", \
+						"[C] делает тактический кувырок через [sklonenie(name, VINITELNI, gender)] и падает!", \
+						"[C] стукается об [sklonenie(name, VINITELNI, gender)]!", \
+						"[C] резко отскакивает от [sklonenie(name, VINITELNI, gender)]!")]</span>")
 	C.Paralyze(40)
 
 /mob/living/can_be_pulled()

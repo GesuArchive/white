@@ -14,6 +14,7 @@
 	attack_verb_continuous = "кусает"
 	attack_verb_simple = "кусает"
 	attack_sound = 'sound/weapons/bite.ogg'
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	faction = list("creature")
 	robust_searching = 1
 	stat_attack = DEAD

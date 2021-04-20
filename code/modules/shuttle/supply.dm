@@ -4,7 +4,6 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		/obj/effect/rune,
 		/obj/structure/spider/spiderling,
 		/obj/item/disk/nuclear,
-		/obj/machinery/nuclearbomb,
 		/obj/item/beacon,
 		/obj/narsie,
 		/obj/tear_in_reality,
@@ -67,10 +66,9 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 /obj/docking_port/mobile/supply/proc/check_blacklist(areaInstances)
 	for(var/place in areaInstances)
 		var/area/shuttle/shuttle_area = place
-		for(var/trf in shuttle_area)
-			var/turf/T = trf
-			for(var/a in T.GetAllContents())
-				if(is_type_in_typecache(a, GLOB.blacklisted_cargo_types) && !istype(a, /obj/docking_port))
+		for(var/turf/shuttle_turf as anything in shuttle_area)
+			for(var/atom/passenger in shuttle_turf.GetAllContents())
+				if((is_type_in_typecache(passenger, GLOB.blacklisted_cargo_types) || HAS_TRAIT(passenger, TRAIT_BANNED_FROM_CARGO_SHUTTLE)) && !istype(passenger, /obj/docking_port))
 					return FALSE
 	return TRUE
 
@@ -92,8 +90,6 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	var/list/obj/miscboxes = list() //miscboxes are combo boxes that contain all goody orders grouped
 	var/list/misc_order_num = list() //list of strings of order numbers, so that the manifest can show all orders in a box
 	var/list/misc_contents = list() //list of lists of items that each box will contain
-	if(!SSshuttle.shoppinglist.len)
-		return
 
 	var/list/empty_turfs = list()
 	for(var/place in shuttle_areas)
@@ -102,6 +98,21 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 			if(T.is_blocked_turf())
 				continue
 			empty_turfs += T
+
+	//quickly and greedily handle chef's grocery runs first, there are a few reasons why this isn't attached to the rest of cargo...
+	//but the biggest reason is that the chef requires produce to cook and do their job, and if they are using this system they
+	//already got let down by the botanists. So to open a new chance for cargo to also screw them over any more than is necessary is bad.
+	if(SSshuttle.chef_groceries.len)
+		var/obj/structure/closet/crate/freezer/grocery_crate = new(pick_n_take(empty_turfs))
+		grocery_crate.name = "kitchen produce freezer"
+		investigate_log("Chef's [SSshuttle.chef_groceries.len] sized produce order arrived. Cost was deducted from orderer, not cargo.", INVESTIGATE_CARGO)
+		for(var/datum/orderable_item/item as anything in SSshuttle.chef_groceries)//every order
+			for(var/amt in 1 to SSshuttle.chef_groceries[item])//every order amount
+				new item.item_instance.type(grocery_crate)
+		SSshuttle.chef_groceries.Cut() //This lets the console know it can order another round.
+
+	if(!SSshuttle.shoppinglist.len)
+		return
 
 	var/value = 0
 	var/purchases = 0
@@ -130,13 +141,13 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		if(D)
 			if(!D.adjust_money(-price))
 				if(SO.paying_account)
-					D.bank_card_talk("Заказ на груз № [SO.id] отклонен из-за нехватки средств. Требуются кредиты: [price]")
+					D.bank_card_talk("Заказ на груз №[SO.id] отклонен из-за нехватки средств. Требуются кредиты: [price]")
 				continue
 
 		if(SO.paying_account)
 			if(SO.pack.goody)
 				LAZYADD(goodies_by_buyer[SO.paying_account], SO)
-			D.bank_card_talk("Заказ на груз № [SO.id] отправлен. [price] кредиты были зачислены на ваш банковский счет.")
+			D.bank_card_talk("Заказ на груз №[SO.id] отправлен. [price] кредит[get_num_string(price)] были зачислены на ваш банковский счет.")
 			var/datum/bank_account/department/cargo = SSeconomy.get_dep_account(ACCOUNT_CAR)
 			cargo.adjust_money(price - SO.pack.cost) //Cargo gets the handling fee
 		value += SO.pack.cost
@@ -185,7 +196,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		qdel(SO)
 
 	var/datum/bank_account/cargo_budget = SSeconomy.get_dep_account(ACCOUNT_CAR)
-	investigate_log("[purchases] заказы в этой поставке на сумму кредита [value]. Осталось [cargo_budget.account_balance] кредитов.", INVESTIGATE_CARGO)
+	investigate_log("[purchases] заказы в этой поставке на сумму кредита [value]. Осталось [cargo_budget.account_balance] кредит[get_num_string(cargo_budget.account_balance)].", INVESTIGATE_CARGO)
 
 /obj/docking_port/mobile/supply/proc/sell()
 	var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
@@ -224,7 +235,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		D.adjust_money(ex.total_value[E])
 
 	SSshuttle.centcom_message = msg
-	investigate_log("Содержимое шаттла продается за кредиты [D.account_balance - presale_points]. Содержит: [ex.exported_atoms? ex.exported_atoms.Join (",") + "." : "none."] Сообщение: [SSshuttle.centcom_message || "none."]", INVESTIGATE_CARGO)
+	investigate_log("Содержимое шаттла продается за [D.account_balance - presale_points] кредит[get_num_string(D.account_balance - presale_points)]. Содержит: [ex.exported_atoms? ex.exported_atoms.Join (",") + "." : "none."] Сообщение: [SSshuttle.centcom_message || "none."]", INVESTIGATE_CARGO)
 
 #undef GOODY_FREE_SHIPPING_MAX
 #undef CRATE_TAX

@@ -7,8 +7,10 @@
 		damageoverlaytemp = 0
 		update_damage_hud()
 
-	if(!IS_IN_STASIS(src))
-
+	if(IS_IN_STASIS(src))
+		. = ..()
+		reagents.handle_stasis_chems(src)
+	else
 		//Reagent processing needs to come before breathing, to prevent edge cases.
 		handle_organs()
 
@@ -22,9 +24,6 @@
 
 		if(stat != DEAD)
 			handle_brain_damage()
-
-	else
-		. = ..()
 
 	if(stat == DEAD)
 		stop_sound_channel(CHANNEL_HEARTBEAT)
@@ -363,7 +362,7 @@
 			if(organ?.owner) // This exist mostly because reagent metabolization can cause organ reshuffling
 				organ.on_life()
 	else
-		if(reagents.has_reagent(/datum/reagent/toxin/formaldehyde, 1)) // No organ decay if the body contains formaldehyde.
+		if(reagents.has_reagent(/datum/reagent/toxin/formaldehyde, 1) || reagents.has_reagent(/datum/reagent/cryostylane)) // No organ decay if the body contains formaldehyde.
 			return
 		for(var/V in internal_organs)
 			var/obj/item/organ/O = V
@@ -542,17 +541,10 @@ All effects don't start immediately, but rather get worse over time; the rate is
 			if(SSresearch.science_tech)
 				if(drunkenness >= 12.9 && drunkenness <= 13.8)
 					drunkenness = round(drunkenness, 0.01)
-					var/ballmer_percent = 0
-					if(drunkenness == 13.35) // why run math if I dont have to
-						ballmer_percent = 1
-					else
-						ballmer_percent = (-abs(drunkenness - 13.35) / 0.9) + 1
-					if(prob(5))
+					if(prob(2.5))
 						say(pick_list_replacements(VISTA_FILE, "ballmer_good_msg"), forced = "ballmer")
-					SSresearch.science_tech.add_point_list(list(TECHWEB_POINT_TYPE_GENERIC = BALLMER_POINTS * ballmer_percent))
 				if(drunkenness > 26) // by this point you're into windows ME territory
-					if(prob(5))
-						SSresearch.science_tech.remove_point_list(list(TECHWEB_POINT_TYPE_GENERIC = BALLMER_POINTS))
+					if(prob(2.5))
 						say(pick_list_replacements(VISTA_FILE, "ballmer_windows_me_msg"), forced = "ballmer")
 
 		if(drunkenness >= 41)
@@ -755,27 +747,29 @@ All effects don't start immediately, but rather get worse over time; the rate is
 //LIVER//
 /////////
 
-///Decides if the liver is failing or not.
-/mob/living/carbon/proc/handle_liver()
+///Check to see if we have the liver, if not automatically gives you last-stage effects of lacking a liver.
+
+/mob/living/carbon/proc/handle_liver(delta_time, times_fired)
 	if(!dna)
 		return
+
 	var/obj/item/organ/liver/liver = getorganslot(ORGAN_SLOT_LIVER)
-	if(!liver)
-		liver_failure()
+	if(liver)
+		return
+
+	reagents.end_metabolization(src, keep_liverless = TRUE) //Stops trait-based effects on reagents, to prevent permanent buffs
+	reagents.metabolize(src, delta_time, times_fired, can_overdose=FALSE, liverless = TRUE)
+
+	if(HAS_TRAIT(src, TRAIT_STABLELIVER) || HAS_TRAIT(src, TRAIT_NOMETABOLISM))
+		return
+
+	adjustToxLoss(0.6 * delta_time, TRUE,  TRUE)
+	adjustOrganLoss(pick(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_STOMACH, ORGAN_SLOT_EYES, ORGAN_SLOT_EARS), 0.5* delta_time)
 
 /mob/living/carbon/proc/undergoing_liver_failure()
 	var/obj/item/organ/liver/liver = getorganslot(ORGAN_SLOT_LIVER)
-	if(liver && (liver.organ_flags & ORGAN_FAILING))
+	if(liver?.organ_flags & ORGAN_FAILING)
 		return TRUE
-
-/mob/living/carbon/proc/liver_failure()
-	reagents.end_metabolization(src, keep_liverless = TRUE) //Stops trait-based effects on reagents, to prevent permanent buffs
-	reagents.metabolize(src, can_overdose=FALSE, liverless = TRUE)
-	if(HAS_TRAIT(src, TRAIT_STABLELIVER) || HAS_TRAIT(src, TRAIT_NOMETABOLISM))
-		return
-	adjustToxLoss(4, TRUE,  TRUE)
-	if(prob(30))
-		to_chat(src, "<span class='warning'>Ощущаю острую боль в области живота!</span>")
 
 /////////////
 //CREMATION//

@@ -47,7 +47,7 @@
 					if(H.mind)
 						mob_data["job"] = H.mind.assigned_role
 					else
-						mob_data["job"] = "Unknown"
+						mob_data["job"] = "Неизвестный"
 					mob_data["species"] = H.dna.species.name
 				else if(issilicon(L))
 					category = "silicons"
@@ -272,7 +272,7 @@
 	CHECK_TICK
 
 	handle_hearts()
-	set_observer_default_invisibility(0, "<span class='warning'>The round is over! You are now visible to the living.</span>")
+	set_observer_default_invisibility(0, "<span class='warning'>Раунд завершён. Тебя видно!</span>")
 
 	CHECK_TICK
 
@@ -354,30 +354,30 @@
 	if(GLOB.round_id)
 		var/statspage = CONFIG_GET(string/roundstatsurl)
 		var/info = statspage ? "<a href='?action=openLink&link=[url_encode(statspage)][GLOB.round_id]'>[GLOB.round_id]</a>" : GLOB.round_id
-		parts += "[FOURSPACES]Round ID: <b>[info]</b>"
-	parts += "[FOURSPACES]Shift Duration: <B>[DisplayTimeText(world.time - SSticker.round_start_time)]</B>"
-	parts += "[FOURSPACES]Station Integrity: <B>[mode.station_was_nuked ? "<span class='redtext'>Destroyed</span>" : "[popcount["station_integrity"]]%"]</B>"
+		parts += "[FOURSPACES]ID раунда: <b>[info]</b>"
+	parts += "[FOURSPACES]Длительность смены: <B>[DisplayTimeText(world.time - SSticker.round_start_time)]</B>"
+	parts += "[FOURSPACES]Состояние станции: <B>[mode.station_was_nuked ? "<span class='redtext'>Уничтожена</span>" : "[popcount["station_integrity"]]%"]</B>"
 	var/total_players = GLOB.joined_player_list.len
 	if(total_players)
-		parts+= "[FOURSPACES]Total Population: <B>[total_players]</B>"
+		parts+= "[FOURSPACES]Всего персонала: <B>[total_players]</B>"
 		if(station_evacuated)
-			parts += "<BR>[FOURSPACES]Evacuation Rate: <B>[popcount[POPCOUNT_ESCAPEES]] ([PERCENT(popcount[POPCOUNT_ESCAPEES]/total_players)]%)</B>"
-			parts += "[FOURSPACES](on emergency shuttle): <B>[popcount[POPCOUNT_SHUTTLE_ESCAPEES]] ([PERCENT(popcount[POPCOUNT_SHUTTLE_ESCAPEES]/total_players)]%)</B>"
-		parts += "[FOURSPACES]Survival Rate: <B>[popcount[POPCOUNT_SURVIVORS]] ([PERCENT(popcount[POPCOUNT_SURVIVORS]/total_players)]%)</B>"
+			parts += "<BR>[FOURSPACES]Эвакуировалось: <B>[popcount[POPCOUNT_ESCAPEES]] ([PERCENT(popcount[POPCOUNT_ESCAPEES]/total_players)]%)</B>"
+			parts += "[FOURSPACES](на эвакуационном шаттле): <B>[popcount[POPCOUNT_SHUTTLE_ESCAPEES]] ([PERCENT(popcount[POPCOUNT_SHUTTLE_ESCAPEES]/total_players)]%)</B>"
+		parts += "[FOURSPACES]Соотношение выживших: <B>[popcount[POPCOUNT_SURVIVORS]] ([PERCENT(popcount[POPCOUNT_SURVIVORS]/total_players)]%)</B>"
 		if(SSblackbox.first_death)
 			var/list/ded = SSblackbox.first_death
 			if(ded.len)
-				parts += "[FOURSPACES]First Death: <b>[ded["name"]], [ded["role"]], at [ded["area"]]. Damage taken: [ded["damage"]].[ded["last_words"] ? " Their last words were: \"[ded["last_words"]]\"" : ""]</b>"
+				parts += "[FOURSPACES]Первая смерть: <b>[ded["name"]], [ded["role"]], в [ded["area"]]. Урон: [ded["damage"]].[ded["last_words"] ? " Его последние слова: \"[ded["last_words"]]\"" : ""]</b>"
 			//ignore this comment, it fixes the broken sytax parsing caused by the " above
 			else
-				parts += "[FOURSPACES]<i>Nobody died this shift!</i>"
+				parts += "[FOURSPACES]<i>Никто не умер за смену!</i>"
 	if(istype(SSticker.mode, /datum/game_mode/dynamic))
 		var/datum/game_mode/dynamic/mode = SSticker.mode
-		parts += "[FOURSPACES]Threat level: [mode.threat_level]"
-		parts += "[FOURSPACES]Threat left: [mode.threat]"
-		parts += "[FOURSPACES]Executed rules:"
+		parts += "[FOURSPACES]Уровень угрозы: [mode.threat_level]"
+		parts += "[FOURSPACES]Оставшаяся угроза: [mode.mid_round_budget]"
+		parts += "[FOURSPACES]Правила:"
 		for(var/datum/dynamic_ruleset/rule in mode.executed_rules)
-			parts += "[FOURSPACES][FOURSPACES][rule.ruletype] - <b>[rule.name]</b>: -[rule.cost + rule.scaled_times * rule.scaling_cost] threat"
+			parts += "[FOURSPACES][FOURSPACES][rule.ruletype] - <b>[rule.name]</b>: -[rule.cost + rule.scaled_times * rule.scaling_cost] очков угрозы"
 	return parts.Join("<br>")
 
 /client/proc/roundend_report_file()
@@ -388,8 +388,8 @@
  *
  * Composits the roundend report, and saves it in two locations.
  * The report is first saved along with the round's logs
- * Then, the report is copied to a fixed directory specifically for 
- * housing the server's last roundend report. In this location, 
+ * Then, the report is copied to a fixed directory specifically for
+ * housing the server's last roundend report. In this location,
  * the file will be overwritten at the end of each shift.
  */
 /datum/controller/subsystem/ticker/proc/log_roundend_report()
@@ -403,7 +403,7 @@
 	//Log the rendered HTML in the round log directory
 	fdel(filename)
 	text2file(content, filename)
-	//Place a copy in the root folder, to be overwritten each round. 
+	//Place a copy in the root folder, to be overwritten each round.
 	filename = "data/server_last_roundend_report.html"
 	fdel(filename)
 	text2file(content, filename)
@@ -439,17 +439,17 @@
 			if(EMERGENCY_ESCAPED_OR_ENDGAMED)
 				if(!M.onCentCom() && !M.onSyndieBase())
 					parts += "<div class='panel stationborder'>"
-					parts += "<span class='marooned'>You managed to survive, but were marooned on [station_name()]...</span>"
+					parts += "<span class='marooned'>Тебе удалось пережить события, но пришлось остаться на станции [station_name()]...</span>"
 				else
 					parts += "<div class='panel greenborder'>"
-					parts += "<span class='greentext'>You managed to survive the events on [station_name()] as [M.real_name].</span>"
+					parts += "<span class='greentext'>Тебе удалось пережить события на станции [station_name()] как [M.real_name].</span>"
 			else
 				parts += "<div class='panel greenborder'>"
-				parts += "<span class='greentext'>You managed to survive the events on [station_name()] as [M.real_name].</span>"
+				parts += "<span class='greentext'>Тебе удалось пережить события на станции [station_name()] как [M.real_name].</span>"
 
 		else
 			parts += "<div class='panel redborder'>"
-			parts += "<span class='redtext'>You did not survive the events on [station_name()]...</span>"
+			parts += "<span class='redtext'>Тебе не удалось пережить события на станции [station_name()]...</span>"
 	else
 		parts += "<div class='panel stationborder'>"
 	parts += "<br>"
@@ -515,7 +515,9 @@
 ///Generate a report for how much money is on station, as well as the richest crewmember on the station.
 /datum/controller/subsystem/ticker/proc/market_report()
 	var/list/parts = list()
-	parts += "<span class='header'>Station Economic Summary:</span>"
+
+	///total service income
+	var/tourist_income = 0
 	///This is the richest account on station at roundend.
 	var/datum/bank_account/mr_moneybags
 	///This is the station's total wealth at the end of the round.
@@ -530,15 +532,70 @@
 		station_vault += current_acc.account_balance
 		if(!mr_moneybags || mr_moneybags.account_balance < current_acc.account_balance)
 			mr_moneybags = current_acc
-	parts += "<div class='panel stationborder'>There were [station_vault] credits collected by crew this shift.<br>"
+	parts += "<div class='panel stationborder'><span class='header'>Экономический отчёт:</span><br>"
+	parts += "<span class='service'>Обслуга:</span><br>"
+	for(var/venue_path in SSrestaurant.all_venues)
+		var/datum/venue/venue = SSrestaurant.all_venues[venue_path]
+		tourist_income += venue.total_income
+		parts += "[capitalize(venue.name)] обслужил [venue.customers_served] посетителей и получил [venue.total_income] кредитов в виде выручки.<br>"
+	parts += "В сумме они заработали [tourist_income] кредитов[tourist_income ? "!" : "..."]<br>"
+	log_econ("Roundend service income: [tourist_income] credits.")
+	switch(tourist_income)
+		if(0)
+			parts += "<span class='redtext'>Обслуга была абсолютно бесполезна для экономики...</span><br>"
+		if(1 to 2000)
+			parts += "<span class='redtext'>Центральное командование не радо. Вы можете и лучше!</span><br>"
+			award_service(/datum/award/achievement/jobs/service_bad)
+		if(2001 to 4999)
+			parts += "<span class='greentext'>Центральное командование удовлетворено.</span><br>"
+			award_service(/datum/award/achievement/jobs/service_okay)
+		else
+			parts += "<span class='reallybig greentext'>Центральное командование готовит медали для вручения героям обслуживания! Вот это команда!</span><br>"
+			award_service(/datum/award/achievement/jobs/service_good)
+
+	parts += "<b>Общая статистика:</b><br>"
+	parts += "Всего было заработано [station_vault] кредитов экипажем.<br>"
 	if(total_players > 0)
-		parts += "An average of [station_vault/total_players] credits were collected.<br>"
+		parts += "В среднем каждый заработал [station_vault/total_players] кредитов.<br>"
 		log_econ("Roundend credit total: [station_vault] credits. Average Credits: [station_vault/total_players]")
 	if(mr_moneybags)
-		parts += "The most affluent crew member at shift end was <b>[mr_moneybags.account_holder] with [mr_moneybags.account_balance]</b> cr!</div>"
+		parts += "Самый богатый член экипажа был <b>[mr_moneybags.account_holder] с [mr_moneybags.account_balance]</b> заработанными кредитами!</div>"
 	else
-		parts += "Somehow, nobody made any money this shift! This'll result in some budget cuts...</div>"
+		parts += "Чудесным образом никто не заработал кредиты за эту смену! Придётся резать бюджеты...</div>"
 	return parts
+
+/**
+ * Awards the service department an achievement and updates the chef and bartender's highscore for tourists served.
+ *
+ * Arguments:
+ * * award: Achievement to give service department
+ */
+/datum/controller/subsystem/ticker/proc/award_service(award)
+	for(var/mob/living/carbon/human/service_member as anything in GLOB.human_list)
+		if(!service_member.mind)
+			continue
+		var/datum/mind/service_mind = service_member.mind
+		if(!service_mind.assigned_role)
+			continue
+		for(var/job in GLOB.service_food_positions)
+			if(service_mind.assigned_role != job)
+				continue
+			//general awards
+			service_member.client?.give_award(award, service_member)
+			if(service_mind.assigned_role == "Cook")
+				var/datum/venue/restaurant = SSrestaurant.all_venues[/datum/venue/restaurant]
+				var/award_score = restaurant.total_income
+				var/award_status = service_member.client.get_award_status(/datum/award/score/chef_tourist_score)
+				if(award_score > award_status)
+					award_score -= award_status
+				service_member.client?.give_award(/datum/award/score/chef_tourist_score, service_member, award_score)
+			if(service_mind.assigned_role == "Bartender")
+				var/datum/venue/bar = SSrestaurant.all_venues[/datum/venue/bar]
+				var/award_score = bar.total_income
+				var/award_status = service_member.client.get_award_status(/datum/award/score/bartender_tourist_score)
+				if(award_score - award_status > 0)
+					award_score -= award_status
+				service_member.client?.give_award(/datum/award/score/bartender_tourist_score, service_member, award_score)
 
 /datum/controller/subsystem/ticker/proc/medal_report()
 	if(GLOB.commendations.len)
@@ -626,10 +683,10 @@
 	var/datum/action/report/R = new
 	C.player_details.player_actions += R
 	R.Grant(C.mob)
-	to_chat(C,"<a href='?src=[REF(R)];report=1'>Show roundend report again</a>")
+	to_chat(C,"<a href='?src=[REF(R)];report=1'>Показать результаты раунда снова.</a>")
 
 /datum/action/report
-	name = "Show roundend report"
+	name = "Показать результаты раунда"
 	button_icon_state = "round_end"
 
 /datum/action/report/Trigger()
@@ -650,21 +707,21 @@
 /proc/printplayer(datum/mind/ply, fleecheck)
 	var/jobtext = ""
 	if(ply.assigned_role)
-		jobtext = " the <b>[ply.assigned_role]</b>"
-	var/text = "<b>[ply.key]</b> was <b>[ply.name]</b>[jobtext] and"
+		jobtext = " <b>[ply.assigned_role]</b>"
+	var/text = "<b>[ply.key]</b> как <b>[ply.name]</b>[jobtext] "
 	if(ply.current)
 		if(ply.current.stat == DEAD)
-			text += " <span class='redtext'>died</span>"
+			text += " <span class='redtext'>погиб</span>"
 		else
-			text += " <span class='greentext'>survived</span>"
+			text += " <span class='greentext'>выжил</span>"
 		if(fleecheck)
 			var/turf/T = get_turf(ply.current)
 			if(!T || !is_station_level(T.z))
-				text += " while <span class='redtext'>fleeing the station</span>"
+				text += " while <span class='redtext'>улетел со станции</span>"
 		if(ply.current.real_name != ply.name)
-			text += " as <b>[ply.current.real_name]</b>"
+			text += " как <b>[ply.current.real_name]</b>"
 	else
-		text += " <span class='redtext'>had their body destroyed</span>"
+		text += " <span class='redtext'>был полностью уничтожен</span>"
 	return text
 
 /proc/printplayerlist(list/players,fleecheck)
@@ -684,9 +741,9 @@
 	var/count = 1
 	for(var/datum/objective/objective in objectives)
 		if(objective.check_completion())
-			objective_parts += "<b>Objective #[count]</b>: [objective.explanation_text] <span class='greentext'>Success!</span>"
+			objective_parts += "<b>Цель #[count]</b>: [objective.explanation_text] <span class='greentext'>Успех!</span>"
 		else
-			objective_parts += "<b>Objective #[count]</b>: [objective.explanation_text] <span class='redtext'>Fail.</span>"
+			objective_parts += "<b>Цель #[count]</b>: [objective.explanation_text] <span class='redtext'>Провал.</span>"
 		count++
 	return objective_parts.Join("<br>")
 

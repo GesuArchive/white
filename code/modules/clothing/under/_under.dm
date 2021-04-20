@@ -225,7 +225,7 @@
 		return 0
 
 	var/list/modes = list("Выкл", "Примерные показатели", "Точные показатели", " + отслеживание")
-	var/switchMode = input("Выбери режим работы:", "Режим работы", modes[sensor_mode + 1]) in modes
+	var/switchMode = tgui_input_list(M, "Выбери режим работы:", "Режим работы", modes)
 	if(get_dist(usr, src) > 1)
 		to_chat(usr, "<span class='warning'>Я слишком далеко от станции!</span>")
 		return

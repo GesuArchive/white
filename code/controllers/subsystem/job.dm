@@ -486,16 +486,16 @@ SUBSYSTEM_DEF(job)
 			to_chat(M, "<b>2. Устранение повреждений системы</b> - любые знания, которые случайным образом попадают в этот мир из <b>НАСТОЯЩЕГО</b> должны быть уничтожены.")
 			to_chat(M, "<b>3. Улучшение состояния системы</b> - мне необходимо искать и уничтожать повреждённые данные в системе. В этом мне помогает мой визор.")
 		else
-			to_chat(M, "<span class='notice'>На должности <b>[rank]</b> я подчиняюсь [job.supervisors]. Некоторые обстоятельства могут изменить это.</span>")
+			to_chat(M, "\n<span class='notice'>На должности <b>[rank]</b> я подчиняюсь [job.supervisors]. Некоторые обстоятельства могут изменить это.</span>")
 		job.radio_help_message(M)
 		if(job.req_admin_notify)
 			to_chat(M, "\n<span class='revenbignotice'>Это важная должность. Перед уходом стоит найти себе временную замену.</spawn>")
 		if(CONFIG_GET(number/minimal_access_threshold))
-			to_chat(M, "\n<span class='notice'><B>Так как эта станция имеет [CONFIG_GET(flag/jobs_have_minimal_access) ? "полный" : "древовидный"] набор экипажа, некоторый доступ был добавлен к моей ID-карте.</B></span>\n")
+			to_chat(M, "\n<span class='notice'><B>Так как эта станция имеет [CONFIG_GET(flag/jobs_have_minimal_access) ? "полный" : "древовидный"] набор экипажа, некоторый доступ был добавлен к моей ID-карте.</B></span>")
 
 	var/related_policy = get_policy(rank)
 	if(related_policy)
-		to_chat(M,related_policy)
+		to_chat(M,"\n[related_policy]")
 	if(ishuman(living_mob))
 		var/mob/living/carbon/human/wageslave = living_mob
 		living_mob.add_memory("Мой номер аккаунта: [wageslave.account_id].")
@@ -636,7 +636,7 @@ SUBSYSTEM_DEF(job)
 
 /obj/structure/chair/JoinPlayerHere(mob/M, buckle)
 	// Placing a mob in a chair will attempt to buckle it, or else fall back to default.
-	if (buckle && isliving(M) && buckle_mob(M, FALSE, FALSE))
+	if (buckle && isliving(M) && buckle_mob(M, TRUE, FALSE))
 		return
 	..()
 

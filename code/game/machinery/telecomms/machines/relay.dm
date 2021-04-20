@@ -76,3 +76,11 @@
 /obj/machinery/telecomms/relay/preset/auto
 	hide = TRUE
 	autolinkers = list("autorelay")
+
+/obj/machinery/telecomms/relay/preset/reebe
+	id = "Hierophant Relay"
+	hide = 1
+	autolinkers = list("h_relay")
+	icon = 'icons/obj/clockwork_objects.dmi'
+	icon_state = "relay"
+	broadcasting = FALSE	//It only receives

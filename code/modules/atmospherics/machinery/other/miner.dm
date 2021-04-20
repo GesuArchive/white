@@ -21,13 +21,13 @@
 	var/overlay_color = "#FFFFFF"
 	var/active = TRUE
 	var/power_draw = 0
-	var/power_draw_static = 2000
+	var/power_draw_static = 9000
 	var/power_draw_dynamic_mol_coeff = 5	//DO NOT USE DYNAMIC SETTINGS UNTIL SOMEONE MAKES A USER INTERFACE/CONTROLLER FOR THIS!
 	var/power_draw_dynamic_kpa_coeff = 0.5
 	var/broken = FALSE
 	var/broken_message = "АШЫПКА"
 	idle_power_usage = 150
-	active_power_usage = 2000
+	active_power_usage = 9000
 
 /obj/machinery/atmospherics/miner/Initialize()
 	. = ..()

@@ -72,11 +72,12 @@ SUBSYSTEM_DEF(air)
 	setup_atmos_machinery()
 	setup_pipenets()
 	gas_reactions = init_gas_reactions()
-	SStitle.set_load_state("air")
+	extools_update_reactions()
 
 	return ..()
 
 /datum/controller/subsystem/air/proc/extools_update_ssair()
+/datum/controller/subsystem/air/proc/extools_update_reactions()
 
 /datum/controller/subsystem/air/fire(resumed = FALSE)
 	var/timer = TICK_USAGE_REAL

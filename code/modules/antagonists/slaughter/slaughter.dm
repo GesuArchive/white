@@ -22,6 +22,7 @@
 	stop_automated_movement = TRUE
 	status_flags = CANPUSH
 	attack_sound = 'sound/magic/demon_attack1.ogg'
+	attack_vis_effect = ATTACK_EFFECT_CLAW
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 250 //Weak to cold
 	maxbodytemp = INFINITY
@@ -115,6 +116,9 @@
 	if(slam_cooldown + slam_cooldown_time > world.time)
 		to_chat(src, "<span class='warning'>Your slam ability is still on cooldown!</span>")
 		return
+	if(istype(loc, /obj/effect/dummy/phased_mob))
+		to_chat(src, "<span class='warning'>Не могу бить, пока я нахожусь в крови!</span>")
+		return
 
 	face_atom(A)
 	var/mob/living/victim = A
@@ -205,6 +209,7 @@
 	attack_verb_simple = "яростно зажимает"
 
 	attack_sound = 'sound/items/bikehorn.ogg'
+	attack_vis_effect = null
 	feast_sound = 'sound/spookoween/scary_horn2.ogg'
 	deathsound = 'sound/misc/sadtrombone.ogg'
 

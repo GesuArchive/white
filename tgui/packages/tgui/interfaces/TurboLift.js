@@ -14,7 +14,7 @@ export const TurboLift = (props, context) => {
   }
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <NoticeBox>
           {data.online && (

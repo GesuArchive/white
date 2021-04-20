@@ -200,42 +200,42 @@
 	dust()
 
 /mob/living/simple_animal/drone/examine(mob/user)
-	. = list("<span class='info'>This is [icon2html(src, user)] \a <b>[src]</b>!<hr>")
+	. = list("<span class='info'>Это же [icon2html(src, user)] <b>[src]</b>!<hr>")
 
 	//Hands
 	for(var/obj/item/I in held_items)
 		if(!(I.item_flags & ABSTRACT))
-			. += "It has [I.get_examine_string(user)] in its [get_held_index_name(get_held_index_of_item(I))].\n"
+			. += "Он держит [I.get_examine_string(user)] в его [get_held_index_name(get_held_index_of_item(I))].\n"
 
 	//Internal storage
 	if(internal_storage && !(internal_storage.item_flags & ABSTRACT))
-		. += "It is holding [internal_storage.get_examine_string(user)] in its internal storage.\n"
+		. += "У него есть [internal_storage.get_examine_string(user)] во внутреннем хранилище.\n"
 
 	//Cosmetic hat - provides no function other than looks
 	if(head && !(head.item_flags & ABSTRACT))
-		. += "It is wearing [head.get_examine_string(user)] on its head.\n"
+		. += "А ещё у него есть [head.get_examine_string(user)] на голове.\n"
 
 	//Braindead
 	if(!client && stat != DEAD)
-		. += "Its status LED is blinking at a steady rate.\n"
+		. += "Его индикатор стоит в режиме ожидания.\n"
 
 	//Hacked
 	if(hacked)
-		. += "<span class='warning'>Its display is glowing red!</span>\n"
+		. += "<span class='warning'>Его индикатор ярко красный!</span>\n"
 
 	//Damaged
 	if(health != maxHealth)
 		if(health > maxHealth * 0.33) //Between maxHealth and about a third of maxHealth, between 30 and 10 for normal drones
-			. += "<span class='warning'>Its screws are slightly loose.</span>\n"
+			. += "<span class='warning'>Он немножечко повреждён.</span>\n"
 		else //otherwise, below about 33%
-			. += "<span class='boldwarning'>Its screws are very loose!</span>\n"
+			. += "<span class='boldwarning'>Он невероятно сильно повреждён!</span>\n"
 
 	//Dead
 	if(stat == DEAD)
 		if(client)
-			. += "<span class='deadsay'>A message repeatedly flashes on its display: \"REBOOT -- REQUIRED\".</span>\n"
+			. += "<span class='deadsay'>Индикатор сообщает: \"ПЕРЕЗАГРУЗКА -- ТРЕБУЕТСЯ\".</span>\n"
 		else
-			. += "<span class='deadsay'>A message repeatedly flashes on its display: \"ERROR -- OFFLINE\".</span>\n"
+			. += "<span class='deadsay'>Индикатор сообщает: \"ОШИБКА -- ОФФЛАЙН\".</span>\n"
 	. += "</span>"
 
 
@@ -263,20 +263,26 @@
  * * O - unused argument, see [/mob/living/silicon/robot/triggerAlarm]
  * * alarmsource - [/atom] source of the alarm
  */
-/mob/living/simple_animal/drone/proc/triggerAlarm(class, area/A, O, obj/alarmsource)
-	if(alarmsource.z != z)
+/mob/living/simple_animal/drone/proc/triggerAlarm(class, area/home, cameras, obj/source)
+	if(source.z != z)
 		return
-	if(stat != DEAD)
-		var/list/L = src.alarms[class]
-		for (var/I in L)
-			if (I == A.name)
-				var/list/alarm = L[I]
-				var/list/sources = alarm[2]
-				if (!(alarmsource in sources))
-					sources += alarmsource
-				return
-		L[A.name] = list(A, list(alarmsource))
-		to_chat(src, "--- [class] alarm detected in [A.name]!")
+	if(stat == DEAD)
+		return
+	var/list/our_sort = alarms[class]
+	for(var/areaname in our_sort)
+		if (areaname == home.name)
+			var/list/alarm = our_sort[areaname]
+			var/list/sources = alarm[3]
+			if (!(source in sources))
+				sources += source
+			return TRUE
+
+	our_sort[home.name] = list(home, list(source))
+	to_chat(src, "--- [class] тревога замечена в [home.name]!")
+
+///This isn't currently needed since drones do jack shit with cameras. I hate this code so much
+/mob/living/simple_animal/drone/proc/freeCamera(area/home, obj/machinery/camera/cam)
+	return
 
 /**
  * Clears alarm and alerts drones
@@ -302,10 +308,7 @@
 		if(cleared)
 			to_chat(src, "--- [class] alarm in [A.name] has been cleared.")
 
-/mob/living/simple_animal/drone/handle_temperature_damage()
-	return
-
-/mob/living/simple_animal/drone/flash_act(intensity = 1, override_blindness_check = 0, affect_silicon = 0)
+/mob/living/simple_animal/drone/flash_act(intensity = 1, override_blindness_check = 0, affect_silicon = 0, visual = 0, type = /atom/movable/screen/fullscreen/flash, length = 25)
 	if(affect_silicon)
 		return ..()
 

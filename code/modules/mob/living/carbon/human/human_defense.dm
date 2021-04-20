@@ -144,7 +144,7 @@
 	//	playsound(src, 'white/valtos/sounds/block_hand.ogg', 100)
 	//	return TRUE
 	if(mind)
-		if(mind.martial_art && prob(mind.martial_art.block_chance) && mind.martial_art.can_use(src) && in_throw_mode && !incapacitated(FALSE, TRUE))
+		if(mind.martial_art && prob(mind.martial_art.block_chance) && mind.martial_art.can_use(src) && throw_mode && !incapacitated(FALSE, TRUE))
 			return TRUE
 	return FALSE
 
@@ -682,15 +682,14 @@
 
 	combined_msg += "<div class='examine_block'><span class='info'>Моё состояние примерно такое:</span><table>"
 
-	for(var/X in bodyparts)
-		var/obj/item/bodypart/LB = X
-		missing -= LB.body_zone
-		if(LB.is_pseudopart) //don't show injury text for fake bodyparts; ie chainsaw arms or synthetic armblades
+	for(var/obj/item/bodypart/body_part as anything in bodyparts)
+		missing -= body_part.body_zone
+		if(body_part.is_pseudopart) //don't show injury text for fake bodyparts; ie chainsaw arms or synthetic armblades
 			continue
-		var/limb_max_damage = LB.max_damage
+		var/limb_max_damage = body_part.max_damage
 		var/status = ""
-		var/brutedamage = LB.brute_dam
-		var/burndamage = LB.burn_dam
+		var/brutedamage = body_part.brute_dam
+		var/burndamage = body_part.burn_dam
 		if(hallucination)
 			if(prob(30))
 				brutedamage += rand(30,40)
@@ -703,21 +702,24 @@
 				status = "НЕТ УРОНА"
 
 		else
+			if(body_part.type in hal_screwydoll)//Are we halucinating?
+				brutedamage = (hal_screwydoll[body_part.type] * 0.2)*limb_max_damage
+
 			if(brutedamage > 0)
-				status = LB.light_brute_msg
+				status = body_part.light_brute_msg
 			if(brutedamage > (limb_max_damage*0.4))
-				status = LB.medium_brute_msg
+				status = body_part.medium_brute_msg
 			if(brutedamage > (limb_max_damage*0.8))
-				status = LB.heavy_brute_msg
+				status = body_part.heavy_brute_msg
 			if(brutedamage > 0 && burndamage > 0)
 				status += "</span>\] И \[<span class='warning'>"
 
 			if(burndamage > (limb_max_damage*0.8))
-				status += LB.heavy_burn_msg
+				status += body_part.heavy_burn_msg
 			else if(burndamage > (limb_max_damage*0.2))
-				status += LB.medium_burn_msg
+				status += body_part.medium_burn_msg
 			else if(burndamage > 0)
-				status += LB.light_burn_msg
+				status += body_part.light_burn_msg
 
 			if(status == "")
 				status = "НОРМАЛЬНО"
@@ -725,33 +727,33 @@
 		if(status == "НОРМАЛЬНО" || status == "НЕТ УРОНА")
 			no_damage = TRUE
 		var/isdisabled = ""
-		if(LB.bodypart_disabled)
+		if(body_part.bodypart_disabled)
 			isdisabled = "\[ПАРАЛИЧ\]"
 			if(no_damage)
 				isdisabled += " но "
 			else
 				isdisabled += " и "
-		combined_msg += "<tr><td><b>[uppertext(LB.name)]:</b></td><td>[isdisabled] \[<span class='[no_damage ? "info" : "warning"]'>[uppertext(status)]</span>\]</td></tr>"
+		combined_msg += "<tr><td><b>[uppertext(body_part.name)]:</b></td><td>[isdisabled] \[<span class='[no_damage ? "info" : "warning"]'>[uppertext(status)]</span>\]</td></tr>"
 
-		for(var/thing in LB.wounds)
+		for(var/thing in body_part.wounds)
 			var/datum/wound/W = thing
 			var/msg
 			switch(W.severity)
 				if(WOUND_SEVERITY_TRIVIAL)
-					msg = "<tr><td><span class='danger'>[capitalize(LB.name)] страдает от [lowertext(W.skloname)].</span></td></tr>"
+					msg = "<tr><td><span class='danger'>[capitalize(body_part.name)] страдает от [lowertext(W.skloname)].</span></td></tr>"
 				if(WOUND_SEVERITY_MODERATE)
-					msg = "<tr><td><span class='warning'>[capitalize(LB.name)] страдает от [lowertext(W.skloname)]!</span></td></tr>"
+					msg = "<tr><td><span class='warning'>[capitalize(body_part.name)] страдает от [lowertext(W.skloname)]!</span></td></tr>"
 				if(WOUND_SEVERITY_SEVERE)
-					msg = "<tr><td><span class='warning'><b>[capitalize(LB.name)] страдает от [lowertext(W.skloname)]!</b></span></td></tr>"
+					msg = "<tr><td><span class='warning'><b>[capitalize(body_part.name)] страдает от [lowertext(W.skloname)]!</b></span></td></tr>"
 				if(WOUND_SEVERITY_CRITICAL)
-					msg = "<tr><td><span class='warning'><b>[capitalize(LB.name)] страдает от [lowertext(W.skloname)]!!</b></span></td></tr>"
+					msg = "<tr><td><span class='warning'><b>[capitalize(body_part.name)] страдает от [lowertext(W.skloname)]!!</b></span></td></tr>"
 			combined_msg += msg
 
-		for(var/obj/item/I in LB.embedded_objects)
+		for(var/obj/item/I in body_part.embedded_objects)
 			if(I.isEmbedHarmless())
-				combined_msg += "<tr><td><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] прицепился к [ru_gde_zone(LB.name)]!</a></td></tr>"
+				combined_msg += "<tr><td><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(body_part)]' class='warning'>Похоже [I] прицепился к [ru_gde_zone(body_part.name)]!</a></td></tr>"
 			else
-				combined_msg += "<tr><td><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] торчит из моей [ru_otkuda_zone(LB.name)]!</a></td></tr>"
+				combined_msg += "<tr><td><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(body_part)]' class='warning'>Похоже [I] торчит из моей [ru_otkuda_zone(body_part.name)]!</a></td></tr>"
 
 	for(var/t in missing)
 		combined_msg += "<tr><td>\t <b>[uppertext(ru_exam_parse_zone(parse_zone(t)))]:</b></td><td>\[<span class='boldannounce'>ОТСУТСТВУЕТ</span>\]</td></tr>"

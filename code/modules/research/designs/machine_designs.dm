@@ -328,6 +328,22 @@
 	build_path = /obj/item/circuitboard/machine/dnascanner
 	category = list("Исследовательское оборудование")
 
+/datum/design/board/destructive_scanner
+	name = "Machine Design (Destructive Scanner Board)"
+	desc = "The circuit board for an experimental destructive scanner."
+	id = "destructive_scanner"
+	build_path = /obj/item/circuitboard/machine/destructive_scanner
+	category = list("Исследовательское оборудование")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/board/doppler_array
+	name = "Machine Design (Tachyon-Doppler Research Array Board)"
+	desc = "The circuit board for a tachyon-doppler research array"
+	id = "doppler_array"
+	build_path = /obj/item/circuitboard/machine/doppler_array
+	category = list("Исследовательское оборудование")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+
 /datum/design/board/microwave
 	name = "Оборудование (Microwave Board)"
 	desc = "The circuit board for a microwave."
@@ -633,6 +649,14 @@
 	build_path = /obj/item/circuitboard/machine/sheetifier
 	category = list ("Различное оборудование")
 
+
+/datum/design/board/restaurant_portal
+	name = "Machine Design (Restaurant Portal)"
+	desc = "The circuit board for a restaurant portal"
+	id = "restaurant_portal"
+	build_path = /obj/item/circuitboard/machine/restaurant_portal
+	category = list ("Misc. Machinery")
+
 /datum/design/board/vendatray
 	name = "Оборудование (Vend-a-Tray)"
 	desc = "The circuit board for a Vend-a-Tray."
@@ -712,3 +736,27 @@
 	build_path = /obj/item/circuitboard/machine/HFR_interface
 	category = list ("Инженерное оборудование")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
+
+/datum/design/board/crystallizer
+	name = "Machine Design (Crystallizer)"
+	desc = "The circuit board for a crystallizer."
+	id = "crystallizer"
+	build_path = /obj/item/circuitboard/machine/crystallizer
+	category = list ("Инженерное оборудование")
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
+
+/datum/design/board/exoscanner
+	name = "Machine Design (Scanner Array)"
+	desc = "The circuit board for scanner array."
+	id = "exoscanner"
+	build_path = /obj/item/circuitboard/machine/exoscanner
+	category = list ("Engineering Machinery")
+	departmental_flags = DEPARTMENTAL_FLAG_CARGO
+
+/datum/design/board/exodrone_launcher
+	name = "Machine Design (Exploration Drone Launcher)"
+	desc = "The circuit board for exodrone launcher."
+	id = "exodrone_launcher"
+	build_path = /obj/item/circuitboard/machine/exodrone_launcher
+	category = list ("Engineering Machinery")
+	departmental_flags = DEPARTMENTAL_FLAG_CARGO

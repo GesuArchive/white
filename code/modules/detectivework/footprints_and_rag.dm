@@ -1,8 +1,3 @@
-
-/obj/item/clothing/gloves
-	var/transfer_blood = 0
-
-
 /obj/item/reagent_containers/glass/rag
 	name = "влажная тряпка"
 	desc = "Предположительно для устраненя беспорядка."

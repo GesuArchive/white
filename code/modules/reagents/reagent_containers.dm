@@ -54,9 +54,53 @@
 				to_chat(user, "<span class='notice'>[capitalize(src.name)] transfer amount is now [amount_per_transfer_from_this] units.</span>")
 				return
 
-/obj/item/reagent_containers/attack(mob/M, mob/user, def_zone)
+/obj/item/reagent_containers/attack(atom/target, mob/living/user, def_zone)
 	if(user.a_intent == INTENT_HARM)
 		return ..()
+	if(HAS_TRAIT(target, DO_NOT_SPLASH))
+		return ..()
+	if (try_splash(user, target))
+		return ..()
+
+	return ..()
+
+/// Tries to splash the target. Used on both right-click and normal click when in combat mode.
+/obj/item/reagent_containers/proc/try_splash(mob/user, atom/target)
+	if (!spillable)
+		return FALSE
+
+	if (!reagents?.total_volume)
+		return FALSE
+
+	var/punctuation = ismob(target) ? "!" : "."
+
+	var/reagent_text
+	user.visible_message(
+		"<span class='danger'>[user] splashes the contents of [src] onto [target][punctuation]</span>",
+		"<span class='danger'>You splash the contents of [src] onto [target][punctuation]</span>",
+		ignored_mobs = target,
+	)
+
+	if (ismob(target))
+		var/mob/target_mob = target
+		target_mob.show_message(
+			"<span class='userdanger'>[user] splash the contents of [src] onto you!</span>",
+			MSG_VISUAL,
+			"<span class='userdanger'>You feel drenched!</span>",
+		)
+
+	for(var/datum/reagent/reagent as anything in reagents.reagent_list)
+		reagent_text += "[reagent] ([num2text(reagent.volume)]),"
+
+	if(isturf(target) && reagents.reagent_list.len && thrownby)
+		log_combat(thrownby, target, "splashed (thrown) [english_list(reagents.reagent_list)]")
+		message_admins("[ADMIN_LOOKUPFLW(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] at [ADMIN_VERBOSEJMP(target)].")
+
+	reagents.expose(target, TOUCH)
+	log_combat(user, target, "splashed", reagent_text)
+	reagents.clear_reagents()
+
+	return TRUE
 
 /obj/item/reagent_containers/proc/canconsume(mob/eater, mob/user)
 	if(!iscarbon(eater))
@@ -104,8 +148,8 @@
 	if(target.CanPass(src, get_turf(src)) && thrownby && HAS_TRAIT(thrownby, TRAIT_BOOZE_SLIDER))
 		. = TRUE
 
-/obj/item/reagent_containers/proc/SplashReagents(atom/target, thrown = FALSE)
-	if(!reagents || !reagents.total_volume || !spillable)
+/obj/item/reagent_containers/proc/SplashReagents(atom/target, thrown = FALSE, override_spillable = FALSE)
+	if(!reagents || !reagents.total_volume || (!spillable && !override_spillable))
 		return
 
 	if(ismob(target) && target.reagents)
@@ -155,16 +199,18 @@
 	. = ..()
 	if(!fill_icon_thresholds)
 		return
-	if(reagents.total_volume)
-		var/fill_name = fill_icon_state? fill_icon_state : icon_state
-		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[fill_name][fill_icon_thresholds[1]]")
+	if(!reagents.total_volume)
+		return
 
-		var/percent = round((reagents.total_volume / volume) * 100)
-		for(var/i in 1 to fill_icon_thresholds.len)
-			var/threshold = fill_icon_thresholds[i]
-			var/threshold_end = (i == fill_icon_thresholds.len)? INFINITY : fill_icon_thresholds[i+1]
-			if(threshold <= percent && percent < threshold_end)
-				filling.icon_state = "[fill_name][fill_icon_thresholds[i]]"
+	var/fill_name = fill_icon_state? fill_icon_state : icon_state
+	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[fill_name][fill_icon_thresholds[1]]")
 
-		filling.color = mix_color_from_reagents(reagents.reagent_list)
-		. += filling
+	var/percent = round((reagents.total_volume / volume) * 100)
+	for(var/i in 1 to fill_icon_thresholds.len)
+		var/threshold = fill_icon_thresholds[i]
+		var/threshold_end = (i == fill_icon_thresholds.len)? INFINITY : fill_icon_thresholds[i+1]
+		if(threshold <= percent && percent < threshold_end)
+			filling.icon_state = "[fill_name][fill_icon_thresholds[i]]"
+
+	filling.color = mix_color_from_reagents(reagents.reagent_list)
+	. += filling

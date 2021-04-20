@@ -14,7 +14,7 @@
 	can_be_asked_input = 1
 	inputs = list()
 	outputs = list()
-	activators = list("on pressed" = IC_PINTYPE_PULSE_IN)
+	activators = list("on pressed" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit/input/button/ask_for_input(mob/user) //Bit misleading name for this specific use.
@@ -29,7 +29,7 @@
 	can_be_asked_input = 1
 	inputs = list()
 	outputs = list("on" = IC_PINTYPE_BOOLEAN)
-	activators = list("on toggle" = IC_PINTYPE_PULSE_IN)
+	activators = list("on toggle" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit/input/toggle_button/ask_for_input(mob/user) // Ditto.
@@ -46,7 +46,7 @@
 	can_be_asked_input = 1
 	inputs = list()
 	outputs = list("number entered" = IC_PINTYPE_NUMBER)
-	activators = list("on entered" = IC_PINTYPE_PULSE_IN)
+	activators = list("on entered" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 4
 
@@ -65,7 +65,7 @@
 	can_be_asked_input = 1
 	inputs = list()
 	outputs = list("string entered" = IC_PINTYPE_STRING)
-	activators = list("on entered" = IC_PINTYPE_PULSE_IN)
+	activators = list("on entered" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 4
 
@@ -84,7 +84,7 @@
 	can_be_asked_input = 1
 	inputs = list()
 	outputs = list("color entered" = IC_PINTYPE_STRING)
-	activators = list("on entered" = IC_PINTYPE_PULSE_IN)
+	activators = list("on entered" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 4
 
@@ -809,6 +809,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	action_flags = IC_ACTION_LONG_RANGE
 	power_draw_per_use = 50
+	network_id = NETWORK_CARDS
 	var/address
 
 /obj/item/integrated_circuit/input/ntnet_packet/Initialize()
@@ -816,6 +817,7 @@
 	var/datum/component/ntnet_interface/net = LoadComponent(/datum/component/ntnet_interface)
 	address = net.hardware_id
 	desc += "<br>This circuit's NTNet hardware address is: [address]"
+	RegisterSignal(src, COMSIG_COMPONENT_NTNET_RECEIVE, .proc/ntnet_receive)
 
 /obj/item/integrated_circuit/input/ntnet_packet/do_work()
 	var/target_address = get_pin_data(IC_INPUT, 1)
@@ -823,10 +825,20 @@
 	var/text = get_pin_data(IC_INPUT, 3)
 
 	var/datum/netdata/data = new
-	data.receiver_id = splittext(target_address, ";")
+	data.receiver_id = target_address
 	var/key = get_pin_data(IC_INPUT, 4) // hippie start -- adds passkey back in
 	data.standard_format_data(message, text, key) // hippie end
 	ntnet_send(data)
+
+/obj/item/integrated_circuit/input/ntnet_packet/proc/ntnet_receive(datum/source, datum/netdata/data)
+	set_pin_data(IC_OUTPUT, 1, data.sender_id)
+	set_pin_data(IC_OUTPUT, 2, data.data["data"])
+	set_pin_data(IC_OUTPUT, 3, data.data["data_secondary"])
+	set_pin_data(IC_OUTPUT, 4, data.data["encrypted_passkey"])
+	set_pin_data(IC_OUTPUT, 5, data.broadcast)
+
+	push_data()
+	activate_pin(2)
 
 /obj/item/integrated_circuit/input/ntnet_advanced
 	name = "Low level NTNet transreceiver"
@@ -841,6 +853,7 @@
 	inputs = list(
 		"target NTNet addresses"= IC_PINTYPE_STRING,
 		"data"					= IC_PINTYPE_LIST,
+		"network_id"			= IC_PINTYPE_STRING,
 		)
 	outputs = list("received data" = IC_PINTYPE_LIST, "is_broadcast" = IC_PINTYPE_BOOLEAN)
 	activators = list("send data" = IC_PINTYPE_PULSE_IN, "on data received" = IC_PINTYPE_PULSE_OUT)
@@ -854,17 +867,26 @@
 	var/datum/component/ntnet_interface/net = LoadComponent(/datum/component/ntnet_interface)
 	address = net.hardware_id
 	desc += "<br>This circuit's NTNet hardware address is: [address]"
+	RegisterSignal(src, COMSIG_COMPONENT_NTNET_RECEIVE, .proc/ntnet_receive)
 
 /obj/item/integrated_circuit/input/ntnet_advanced/do_work()
 	var/target_address = get_pin_data(IC_INPUT, 1)
 	var/list/message = get_pin_data(IC_INPUT, 2)
+	var/target_network = get_pin_data(IC_INPUT, 3)
 	if(!islist(message))
 		message = list()
 	var/datum/netdata/data = new
-	data.receiver_id = splittext(target_address, ";")
+	data.receiver_id = target_address
+	data.network_id = target_network
 	data.data = message
 	data.passkey = assembly.access_card.access
 	ntnet_send(data)
+
+/obj/item/integrated_circuit/input/ntnet_advanced/proc/ntnet_receive(datum/source, datum/netdata/data)
+	set_pin_data(IC_OUTPUT, 1, data.data)
+	set_pin_data(IC_OUTPUT, 2, data.broadcast)
+	push_data()
+	activate_pin(2)
 
 //This circuit gives information on where the machine is.
 /obj/item/integrated_circuit/input/gps
@@ -1142,7 +1164,7 @@
 		"Solid Plasma"			= IC_PINTYPE_NUMBER,
 		"Uranium"				= IC_PINTYPE_NUMBER,
 		"Bananium"				= IC_PINTYPE_NUMBER,
-		"Titanium"		= IC_PINTYPE_NUMBER,
+		"Titanium"				= IC_PINTYPE_NUMBER,
 		"Bluespace Mesh"		= IC_PINTYPE_NUMBER,
 		"Biomass"				= IC_PINTYPE_NUMBER,
 		)

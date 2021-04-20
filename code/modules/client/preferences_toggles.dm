@@ -85,8 +85,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/verb/pick_ghost_customization()
 	set name = "Настройка призрака"
-	set category = "Настройки"
-	set desc = "Customize your ghastly appearance."
+	set category = "Призрак"
 	switch(alert("Что хотим сменить?",,"Форма","Тип орбиты","Побрякушки"))
 		if("Форма")
 			pick_form()
@@ -97,7 +96,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/verb/pick_ghost_others()
 	set name = "Вид других призраков"
-	set category = "Настройки"
+	set category = null
 	set desc = "Change display settings for the ghosts of other players."
 	var/new_ghost_others = alert("Хочешь изменить других призраков или же просто убрать их побрякушки?",,"Их настройки", "Стандартные спрайты", "Белые призраки")
 	if(new_ghost_others)
@@ -115,7 +114,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/verb/toggle_intent_style()
 	set name = "🔄 Метод выбора интентов"
-	set category = "Настройки"
+	set category = null
 	set desc = "Toggle between directly clicking the desired intent or clicking to rotate through."
 	prefs.toggles ^= INTENT_STYLE
 	to_chat(src, "[(prefs.toggles & INTENT_STYLE) ? "Нажатие на тип взаимодействия теперь выбирает его." : "Нажатие на любой тип взаимодействия будет сменять их по часовой стрелке."]")
@@ -124,8 +123,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/verb/toggle_ghost_hud_pref()
 	set name = "🔄 HUD призрака"
-	set category = "Настройки"
-	set desc = "Hide/Show Ghost HUD"
+	set category = "Призрак"
 
 	prefs.ghost_hud = !prefs.ghost_hud
 	to_chat(src, "Призрачный HUD теперь [prefs.ghost_hud ? "виден" : "не виден"].")
@@ -136,8 +134,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/verb/toggle_inquisition() // warning: unexpected inquisition
 	set name = "🔄 Изучение при клике"
-	set desc = "Sets whether your ghost examines everything on click by default"
-	set category = "Настройки"
+	set category = "Призрак"
 
 	prefs.inquisitive_ghost = !prefs.inquisitive_ghost
 	prefs.save_preferences()

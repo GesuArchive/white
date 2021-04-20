@@ -131,8 +131,8 @@
 	desc = "It's made of wood and has bronze strings."
 	icon_state = "guitar"
 	inhand_icon_state = "guitar"
-	attack_verb_continuous = list("играет метал", "серенадирует", "инструментирует", "применяет по делу")
-	attack_verb_simple = list("играет метал", "серенадирует", "инструментирует", "применяет по делу")
+	attack_verb_continuous = list("играет металл", "серенадирует", "инструментирует", "применяет по делу")
+	attack_verb_simple = list("играет металл", "серенадирует", "инструментирует", "применяет по делу")
 	hitsound = 'sound/weapons/stringsmash.ogg'
 	allowed_instrument_ids = list("guitar","csteelgt","cnylongt", "ccleangt", "cmutedgt")
 
@@ -142,8 +142,8 @@
 	icon_state = "eguitar"
 	inhand_icon_state = "eguitar"
 	force = 12
-	attack_verb_continuous = list("играет метал", "серенадирует", "инструментирует", "применяет по делу")
-	attack_verb_simple = list("играет метал", "серенадирует", "инструментирует", "применяет по делу")
+	attack_verb_continuous = list("играет металл", "серенадирует", "инструментирует", "применяет по делу")
+	attack_verb_simple = list("играет металл", "серенадирует", "инструментирует", "применяет по делу")
 	hitsound = 'sound/weapons/stringsmash.ogg'
 	allowed_instrument_ids = "eguitar"
 

@@ -14,7 +14,7 @@ export const Photocopier = (props, context) => {
     <Window
       title="Копировальщик"
       width={240}
-      height={isAI ? 309 : 234}>
+      height={isAI ? 309 : 226}>
       <Window.Content>
         {has_toner ? (
           <Toner />

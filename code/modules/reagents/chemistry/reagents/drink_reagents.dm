@@ -279,6 +279,7 @@
 	glass_name = "glass of coffee"
 	glass_desc = "Don't drop it, or you'll send scalding liquid and glass shards everywhere."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_STOCK
 
 /datum/reagent/consumable/coffee/overdose_process(mob/living/M)
 	M.Jitter(5)
@@ -305,6 +306,7 @@
 	glass_name = "glass of tea"
 	glass_desc = "Drinking it from here would not seem right."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_STOCK
 
 /datum/reagent/consumable/tea/on_mob_life(mob/living/carbon/M)
 	M.dizziness = max(0,M.dizziness-2)
@@ -327,6 +329,7 @@
 	glass_name = "pitcher of lemonade"
 	glass_desc = "This drink leaves you feeling nostalgic for some reason."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_EASY
 
 /datum/reagent/consumable/tea/arnold_palmer
 	name = "Арнольд Палмер"
@@ -413,7 +416,7 @@
 	description = "A refreshing beverage."
 	color = "#100800" // rgb: 16, 8, 0
 	taste_description = "кола"
-	glass_icon_state  = "glass_brown"
+	glass_icon_state  = "spacecola"
 	glass_name = "glass of Space Cola"
 	glass_desc = "A glass of refreshing Space Cola."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -533,7 +536,7 @@
 	description = "A tangy substance made of 0.5% natural citrus!"
 	color = "#8CFF00" // rgb: 135, 255, 0
 	taste_description = "острый лайм и лимонная сода"
-	glass_icon_state = "glass_yellow"
+	glass_icon_state = "lemonlime"
 	glass_name = "glass of lemon-lime"
 	glass_desc = "You're pretty certain a real fruit has never actually touched this."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -549,7 +552,7 @@
 	description = "The only drink with the PWR that true gamers crave."
 	color = "#9385bf" // rgb: 58, 52, 75
 	taste_description = "сладкий и соленый запах"
-	glass_icon_state = "glass_red"
+	glass_icon_state = "pwrggame"
 	glass_name = "glass of Pwr Game"
 	glass_desc = "Goes well with a Vlad's salad."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -572,7 +575,7 @@
 	description = "~Shake me up some of that Shambler's Juice!~"
 	color = "#f00060" // rgb: 94, 0, 38
 	taste_description = "газированная металлическая сода"
-	glass_icon_state = "glass_red"
+	glass_icon_state = "shamblerjuice"
 	glass_name = "glass of Shambler's juice"
 	glass_desc = "Mmm mm, shambly."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -585,7 +588,7 @@
 	description = "A can of club soda. Why not make a scotch and soda?"
 	color = "#619494" // rgb: 97, 148, 148
 	taste_description = "газировка"
-	glass_icon_state = "glass_clear"
+	glass_icon_state = "glass_clearcarb"
 	glass_name = "glass of soda water"
 	glass_desc = "Soda water. Why not make a scotch and soda?"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -610,7 +613,7 @@
 	description = "It tastes strange but at least the quinine keeps the Space Malaria at bay."
 	color = "#0064C8" // rgb: 0, 100, 200
 	taste_description = "терпкий и свежий"
-	glass_icon_state = "glass_clear"
+	glass_icon_state = "glass_clearcarb"
 	glass_name = "glass of tonic water"
 	glass_desc = "Quinine tastes funny, but at least it'll keep that Space Malaria away."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -681,6 +684,7 @@
 	glass_name = "soy latte"
 	glass_desc = "A nice and refreshing beverage while you're reading."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_EASY
 
 /datum/reagent/consumable/soy_latte/on_mob_life(mob/living/carbon/M)
 	M.dizziness = max(0,M.dizziness-5)
@@ -703,6 +707,7 @@
 	glass_name = "cafe latte"
 	glass_desc = "A nice, strong and refreshing beverage while you're reading."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_EASY
 
 /datum/reagent/consumable/cafe_latte/on_mob_life(mob/living/carbon/M)
 	M.dizziness = max(0,M.dizziness-5)
@@ -750,6 +755,7 @@
 	glass_name = "cherry shake"
 	glass_desc = "A cherry flavored milkshake."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_MEDIUM
 
 /datum/reagent/consumable/bluecherryshake
 	name = "Шейк с синей вишней"

@@ -2,8 +2,6 @@
 
 /proc/init_gas_reactions()
 	. = list()
-	for(var/type in subtypesof(/datum/gas))
-		.[type] = list()
 
 	for(var/r in subtypesof(/datum/gas_reaction))
 		var/datum/gas_reaction/reaction = r
@@ -16,21 +14,12 @@
 				var/datum/gas/req_gas = req
 				if (!reaction_key || initial(reaction_key.rarity) > initial(req_gas.rarity))
 					reaction_key = req_gas
-		.[reaction_key] += list(reaction)
-		sortTim(., /proc/cmp_gas_reactions, TRUE)
+		reaction.major_gas = reaction_key
+		. += reaction
+	sortTim(., /proc/cmp_gas_reaction)
 
-/proc/cmp_gas_reactions(list/datum/gas_reaction/a, list/datum/gas_reaction/b) // compares lists of reactions by the maximum priority contained within the list
-	if (!length(a) || !length(b))
-		return length(b) - length(a)
-	var/maxa
-	var/maxb
-	for (var/datum/gas_reaction/R in a)
-		if (R.priority > maxa)
-			maxa = R.priority
-	for (var/datum/gas_reaction/R in b)
-		if (R.priority > maxb)
-			maxb = R.priority
-	return maxb - maxa
+/proc/cmp_gas_reaction(datum/gas_reaction/a, datum/gas_reaction/b) // compares lists of reactions by the maximum priority contained within the list
+	return b.priority - a.priority
 
 /datum/gas_reaction
 	//regarding the requirements lists: the minimum or maximum requirements must be non-zero.
@@ -469,51 +458,10 @@
 	air.adjust_moles(/datum/gas/nitrous_oxide, -reaction_efficency)
 	air.adjust_moles(/datum/gas/plasma, -2 * reaction_efficency)
 
-	SSresearch.science_tech.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = min((reaction_efficency**2) * BZ_RESEARCH_SCALE), BZ_RESEARCH_MAX_AMOUNT))
-
 	if(energy_released > 0)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
 			air.set_temperature(max(((temperature * old_heat_capacity + energy_released) / new_heat_capacity),TCMB))
-		return REACTING
-
-/datum/gas_reaction/metalhydrogen
-	priority = 20
-	name = "Metal Hydrogen formation"
-	id = "metalhydrogen"
-
-/datum/gas_reaction/metalhydrogen/init_reqs()
-	min_requirements = list(
-		/datum/gas/hydrogen = 100,
-		/datum/gas/bz		= 5,
-		"TEMP" = METAL_HYDROGEN_MINIMUM_HEAT
-		)
-
-/datum/gas_reaction/metalhydrogen/react(datum/gas_mixture/air, datum/holder)
-	var/temperature = air.return_temperature()
-	var/old_heat_capacity = air.heat_capacity()
-	if(!isturf(holder))
-		return NO_REACTION
-	var/turf/open/location = holder
-	///the more heat you use the higher is this factor
-	var/increase_factor = min((temperature / METAL_HYDROGEN_MINIMUM_HEAT), 5)
-	///the more moles you use and the higher the heat, the higher is the efficiency
-	var/heat_efficency = air.get_moles(/datum/gas/hydrogen) * 0.01 * increase_factor
-	var/pressure = air.return_pressure()
-	var/energy_used = heat_efficency * METAL_HYDROGEN_FORMATION_ENERGY
-
-	if(pressure >= METAL_HYDROGEN_MINIMUM_PRESSURE && temperature >= METAL_HYDROGEN_MINIMUM_HEAT)
-		air.adjust_moles(/datum/gas/bz, -heat_efficency * 0.01)
-		if (prob(20 * increase_factor))
-			air.adjust_moles(/datum/gas/hydrogen, -heat_efficency * 3.5)
-			if (prob(100 / increase_factor))
-				new /obj/item/stack/sheet/mineral/metal_hydrogen(location)
-				SSresearch.science_tech.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = min((heat_efficency * increase_factor * 0.5), METAL_HYDROGEN_RESEARCH_MAX_AMOUNT)))
-
-	if(energy_used > 0)
-		var/new_heat_capacity = air.heat_capacity()
-		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature(max(((temperature * old_heat_capacity - energy_used) / new_heat_capacity),TCMB))
 		return REACTING
 
 /datum/gas_reaction/freonformation
@@ -569,7 +517,6 @@
 	air.adjust_moles(/datum/gas/stimulum, heat_scale * 0.75)
 	air.adjust_moles(/datum/gas/tritium, -heat_scale)
 	air.adjust_moles(/datum/gas/nitryl, -heat_scale)
-	SSresearch.science_tech.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = STIMULUM_RESEARCH_AMOUNT*max(stim_energy_change,0)))
 	if(stim_energy_change)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
@@ -598,8 +545,6 @@
 	air.adjust_moles(/datum/gas/tritium, -nob_formed * 5)
 	air.adjust_moles(/datum/gas/nitrogen, -nob_formed * 10)
 	air.adjust_moles(/datum/gas/hypernoblium, nob_formed)
-	SSresearch.science_tech.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = nob_formed * NOBLIUM_RESEARCH_AMOUNT))
-
 	if (nob_formed)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)

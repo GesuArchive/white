@@ -14,6 +14,12 @@
 	cost = 500
 	job_path = /datum/job/engineer/mechanic
 
+/datum/gear/roles/field_medic
+	display_name = "Полевой медик"
+	description = "Имеет имплантер для слежки за заключёнными/офицерами и набор инструментов. Он обязательно их спасёт."
+	cost = 750
+	job_path = /datum/job/doctor/field_medic
+
 /datum/gear/roles/bomj
 	display_name = "Бомж"
 	description = "Просто бомж."

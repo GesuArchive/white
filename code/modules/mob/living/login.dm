@@ -35,3 +35,9 @@
 	if(BT)
 		BT.pick_sound()
 	med_hud_set_status()
+
+	if(HAS_TRAIT(src, TRAIT_CLIENT_LEAVED))
+		REMOVE_TRAIT(src, TRAIT_CLIENT_LEAVED, "ice_cream")
+	else
+		ice_cream_mob_time = client?.prefs?.ice_cream_time
+		ice_cream_mob = client?.prefs?.ice_cream

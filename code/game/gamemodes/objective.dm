@@ -520,6 +520,60 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 			return FALSE
 	return TRUE
 
+/datum/objective/limited
+	name = "time limit"
+	explanation_text = "Выполнить все задания за определённое время."
+	var/time_to_do = 36000 // 1 час на все дела вот эти
+	var/timerid
+
+/datum/objective/New(text)
+	..()
+	update_explanation_text()
+
+/datum/objective/limited/update_explanation_text()
+	..()
+	explanation_text = "Выполнить все задания за [DisplayTimeText(time_to_do)]."
+	timerid = addtimer(CALLBACK(src, .proc/kill_agents), time_to_do)
+
+	var/list/datum/mind/owners = get_owners()
+	for(var/datum/mind/M in owners)
+		if(M?.current)
+			if(isliving(M.current))
+				var/mob/living/H = M.current
+				to_chat(H, "<span class='warning'><big>В МОЁ ТЕЛО ВВЕДЕНО ВЕЩЕСТВО, КОТОРОЕ РАЗОРВЁТ МЕНЯ ЧЕРЕЗ [uppertext(DisplayTimeText(time_to_do))]. НУЖНО ВЫПОЛНИТЬ ВСЕ ЗАДАНИЯ СРОЧНО!</big></span>")
+				SEND_SOUND(H, 'white/valtos/sounds/timertick.ogg')
+
+/datum/objective/limited/proc/kill_agents()
+	var/list/datum/mind/owners = get_owners()
+	for(var/datum/mind/M in owners)
+		if(M?.current)
+			if(isliving(M.current))
+				var/mob/living/H = M.current
+				to_chat(H, "<span class='warning'><big>ВРЕМЯ ВЫШЛО!</big></span>")
+				SEND_SOUND(H, 'white/valtos/sounds/timerring.ogg')
+				spawn(50)
+					H?.gib()
+
+/datum/objective/limited/admin_edit(mob/admin)
+	var/def_value = 36000
+	var/mob/new_timer = input(admin, "Какое время ставим в секундах?", "Таймер", def_value) as num|null
+	if (!new_timer)
+		return
+
+	time_to_do = new_timer * 10
+
+	deltimer(timerid)
+	timerid = null
+
+	update_explanation_text()
+
+/datum/objective/limited/check_completion()
+	var/list/datum/mind/owners = get_owners()
+	for(var/datum/mind/M in owners)
+		if(!considered_alive(M))
+			return FALSE
+	return TRUE
+
 /datum/objective/survive/malf //Like survive, but for Malf AIs
 	name = "survive AI"
 	explanation_text = "Prevent your own deactivation."
@@ -664,7 +718,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 
 /datum/objective/download/update_explanation_text()
 	..()
-	explanation_text = "Download [target_amount] research node\s."
+	explanation_text = "Скачать [target_amount] исследований на диск."
 
 /datum/objective/download/check_completion()
 	var/datum/techweb/checking = new
@@ -952,6 +1006,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 		/datum/objective/hijack,
 		/datum/objective/escape,
 		/datum/objective/survive,
+		/datum/objective/limited,
 		/datum/objective/martyr,
 		/datum/objective/steal,
 		/datum/objective/download,

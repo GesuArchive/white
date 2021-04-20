@@ -47,7 +47,7 @@
 		return
 	if(!isturf(user.loc))
 		return
-	if(!AStar(user, target.loc, /turf/proc/Distance, changeling.sting_range, simulated_only = FALSE))
+	if(!get_path_to(user, target, max_distance = changeling.sting_range, simulated_only = FALSE))
 		return
 	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/changeling))
 		sting_feedback(user, target)
@@ -116,7 +116,7 @@
 	dna_cost = 1
 
 /obj/item/melee/arm_blade/false
-	desc = "Гротескная масса плоти, которая была моей рукой. Хотя поначалу это выглядит опасно, я могу сказать, что на самом деле оно довольно тупое и бесполезное."
+	desc = "Гротескная масса плоти, которая была моей рукой. Хотя поначалу это выглядит опасно, можно сказать, что на самом деле оно довольно тупое и бесполезное."
 	force = 5 //Basically as strong as a punch
 	fake = TRUE
 

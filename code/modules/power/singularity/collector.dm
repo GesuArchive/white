@@ -132,7 +132,7 @@
 
 /obj/machinery/power/rad_collector/analyzer_act(mob/living/user, obj/item/I)
 	if(stored_research >= 1)
-		new /obj/item/research_notes(user.loc, stored_research, "engineering")
+		//new /obj/item/research_notes(user.loc, stored_research, "engineering")
 		stored_research = 0
 		return TRUE
 	return ..()

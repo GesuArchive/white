@@ -4,13 +4,21 @@
 	zone = BODY_ZONE_R_ARM
 	icon_state = "implant-toolkit"
 	w_class = WEIGHT_CLASS_SMALL
-	encode_info = AUGMENT_NT_LOWLEVEL
+	actions_types = list(/datum/action/item_action/organ_action/toggle)
+	///A ref for the arm we're taking up. Mostly for the unregister signal upon removal
+	var/obj/hand
+	/// Used to store a list of all items inside, for multi-item implants.
+	var/list/items_list = list()// I would use contents, but they shuffle on every activation/deactivation leading to interface inconsistencies.
+	/// You can use this var for item path, it would be converted into an item on New().
+	var/obj/item/active_item
 
 /obj/item/organ/cyberimp/arm/Initialize()
 	. = ..()
-
+	if(ispath(active_item))
+		active_item = new active_item(src)
 	update_icon()
 	SetSlotFromZone()
+	items_list = contents.Copy()
 
 /obj/item/organ/cyberimp/arm/proc/SetSlotFromZone()
 	switch(zone)
@@ -44,27 +52,7 @@
 	to_chat(user, "<span class='notice'>Я изменил положение [src] и пересобрал его в [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] руке.</span>")
 	update_icon()
 
-/obj/item/organ/cyberimp/arm/item_set
-	actions_types = list(/datum/action/item_action/organ_action/toggle)
-
-	///A ref for the arm we're taking up. Mostly for the unregister signal upon removal
-	var/obj/hand
-	/// Used to store a list of all items inside, for multi-item implants.
-	var/list/items_list = list()// I would use contents, but they shuffle on every activation/deactivation leading to interface inconsistencies.
-	/// You can use this var for item path, it would be converted into an item on New().
-	var/obj/item/active_item
-
-/obj/item/organ/cyberimp/arm/item_set/Initialize()
-	. = ..()
-	if(ispath(active_item))
-		active_item = new active_item(src)
-	items_list = contents.Copy()
-
-/obj/item/organ/cyberimp/arm/item_set/update_implants()
-	if(!check_compatibility())
-		Retract()
-
-/obj/item/organ/cyberimp/arm/item_set/Insert(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)
+/obj/item/organ/cyberimp/arm/Insert(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)
 	. = ..()
 	var/side = zone == BODY_ZONE_R_ARM? RIGHT_HANDS : LEFT_HANDS
 	hand = owner.hand_bodyparts[side]
@@ -72,14 +60,14 @@
 		RegisterSignal(hand, COMSIG_ITEM_ATTACK_SELF, .proc/ui_action_click) //If the limb gets an attack-self, open the menu. Only happens when hand is empty
 		RegisterSignal(M, COMSIG_KB_MOB_DROPITEM_DOWN, .proc/dropkey) //We're nodrop, but we'll watch for the drop hotkey anyway and then stow if possible.
 
-/obj/item/organ/cyberimp/arm/item_set/Remove(mob/living/carbon/M, special = 0)
+/obj/item/organ/cyberimp/arm/Remove(mob/living/carbon/M, special = 0)
 	Retract()
 	if(hand)
 		UnregisterSignal(hand, COMSIG_ITEM_ATTACK_SELF)
 		UnregisterSignal(M, COMSIG_KB_MOB_DROPITEM_DOWN)
 	..()
 
-/obj/item/organ/cyberimp/arm/item_set/emp_act(severity)
+/obj/item/organ/cyberimp/arm/emp_act(severity)
 	. = ..()
 	if(. & EMP_PROTECT_SELF)
 		return
@@ -95,14 +83,14 @@
  * quick way to store implant items. In this case, we check to make sure the user has the correct arm
  * selected, and that the item is actually owned by us, and then we'll hand off the rest to Retract()
 **/
-/obj/item/organ/cyberimp/arm/item_set/proc/dropkey(mob/living/carbon/host)
+/obj/item/organ/cyberimp/arm/proc/dropkey(mob/living/carbon/host)
 	if(!host)
 		return //How did we even get here
 	if(hand != host.hand_bodyparts[host.active_hand_index])
 		return //wrong hand
 	Retract()
 
-/obj/item/organ/cyberimp/arm/item_set/proc/Retract()
+/obj/item/organ/cyberimp/arm/proc/Retract()
 	if(!active_item || (active_item in src))
 		return
 
@@ -114,9 +102,7 @@
 	active_item = null
 	playsound(get_turf(owner), 'sound/mecha/mechmove03.ogg', 50, TRUE)
 
-/obj/item/organ/cyberimp/arm/item_set/proc/Extend(obj/item/item)
-	if(!check_compatibility())
-		return
+/obj/item/organ/cyberimp/arm/proc/Extend(obj/item/item)
 
 	if(!(item in src))
 		return
@@ -153,11 +139,7 @@
 		"<span class='hear'>Слышу короткий механический шелчок.</span>")
 	playsound(get_turf(owner), 'sound/mecha/mechmove03.ogg', 50, TRUE)
 
-/obj/item/organ/cyberimp/arm/item_set/ui_action_click()
-	if(!check_compatibility())
-		to_chat(owner, "<span class='warning'>НЕЙРОЛИНК: ERR01 НЕСОВМЕСТИМЫЙ ИМПЛАНТ</span>")
-		return
-
+/obj/item/organ/cyberimp/arm/ui_action_click()
 	if((organ_flags & ORGAN_FAILING) || (!active_item && !contents.len))
 		to_chat(owner, "<span class='warning'>Имплант не отвечает. Похоже что он сломался...</span>")
 		return
@@ -178,7 +160,7 @@
 		Retract()
 
 
-/obj/item/organ/cyberimp/arm/item_set/gun/emp_act(severity)
+/obj/item/organ/cyberimp/arm/gun/emp_act(severity)
 	. = ..()
 	if(. & EMP_PROTECT_SELF)
 		return
@@ -193,103 +175,94 @@
 		organ_flags |= ORGAN_FAILING
 
 
-/obj/item/organ/cyberimp/arm/item_set/gun/laser
+/obj/item/organ/cyberimp/arm/gun/laser
 	name = "встроенный в руку лазерный имплант"
 	desc = "Вариация импланта ручной пушки которая стреляет смертоносными лазернами лучами. Если не используется то пушка остается внутри руки, при стрельбе высовывается из неё."
 	icon_state = "arm_laser"
-	encode_info = AUGMENT_TG_LEVEL
 	contents = newlist(/obj/item/gun/energy/laser/mounted)
 
-/obj/item/organ/cyberimp/arm/item_set/gun/laser/l
+/obj/item/organ/cyberimp/arm/gun/laser/l
 	zone = BODY_ZONE_L_ARM
 
-/obj/item/organ/cyberimp/arm/item_set/gun/laser/Initialize()
+/obj/item/organ/cyberimp/arm/gun/laser/Initialize()
 	. = ..()
-	var/obj/item/organ/cyberimp/arm/item_set/gun/laser/laserphasergun = locate(/obj/item/gun/energy/laser/mounted) in contents
+	var/obj/item/organ/cyberimp/arm/gun/laser/laserphasergun = locate(/obj/item/gun/energy/laser/mounted) in contents
 	laserphasergun.icon = icon //No invisible laser guns kthx
 	laserphasergun.icon_state = icon_state
 
-/obj/item/organ/cyberimp/arm/item_set/gun/taser
+/obj/item/organ/cyberimp/arm/gun/taser
 	name = "встроенный в руку тазер"
 	desc = "Вариация импланта ручной пушки, которая стреляет электродами и вырубающими снарядами. Если не используется то пушка остается внутри руки, при стрельбе высовывается из неё."
 	icon_state = "arm_taser"
-	encode_info = AUGMENT_TG_LEVEL
 	contents = newlist(/obj/item/gun/energy/e_gun/advtaser/mounted)
 
-/obj/item/organ/cyberimp/arm/item_set/gun/taser/l
+/obj/item/organ/cyberimp/arm/gun/taser/l
 	zone = BODY_ZONE_L_ARM
 
-/obj/item/organ/cyberimp/arm/item_set/toolset
+/obj/item/organ/cyberimp/arm/toolset
 	name = "имплант встроенного набора инструментов"
 	desc = "Урезанная версия набора инструментов инженерного киборга, сконструированная для установки в руку. Содержит улучшенные версии всех инструментов."
-	encode_info = AUGMENT_NT_HIGHLEVEL
 	contents = newlist(/obj/item/screwdriver/cyborg, /obj/item/wrench/cyborg, /obj/item/weldingtool/largetank/cyborg,
 		/obj/item/crowbar/cyborg, /obj/item/wirecutters/cyborg, /obj/item/multitool/cyborg)
 
-/obj/item/organ/cyberimp/arm/item_set/toolset/l
+/obj/item/organ/cyberimp/arm/toolset/l
 	zone = BODY_ZONE_L_ARM
 
-/obj/item/organ/cyberimp/arm/item_set/toolset/emag_act(mob/user)
+/obj/item/organ/cyberimp/arm/toolset/emag_act(mob/user)
 	if(!(locate(/obj/item/kitchen/knife/combat/cyborg) in items_list))
 		to_chat(user, "<span class='notice'>Разблокирую интегрированный нож [src]!</span>")
 		items_list += new /obj/item/kitchen/knife/combat/cyborg(src)
 		return 1
 	return 0
 
-/obj/item/organ/cyberimp/arm/item_set/esword
+/obj/item/organ/cyberimp/arm/esword
 	name = "встроенный в руку энергетический клинок"
 	desc = "Незаконный и крайне опасный кибернетический имплант способный выпустить смертоносный клинок из концетрированной энергии."
-	encode_info = AUGMENT_SYNDICATE_LEVEL
 	contents = newlist(/obj/item/melee/transforming/energy/blade/hardlight)
 
-/obj/item/organ/cyberimp/arm/item_set/medibeam
+/obj/item/organ/cyberimp/arm/medibeam
 	name = "встроенная медицинская лучевая пушка"
 	desc = "Кибернетический имплант позволяющий пользователю излучать исцеляющие лучи из своей руки."
-	encode_info = AUGMENT_TG_LEVEL
 	contents = newlist(/obj/item/gun/medbeam)
 
 
-/obj/item/organ/cyberimp/arm/item_set/flash
+/obj/item/organ/cyberimp/arm/flash
 	name = "встроенный проектор фотонов высокой интенсивности" //Why not
 	desc = "Встроенный в руку пользователя проектор способный создавать мощную вспышку."
-	encode_info = AUGMENT_NT_HIGHLEVEL
 	contents = newlist(/obj/item/assembly/flash/armimplant)
 
-/obj/item/organ/cyberimp/arm/item_set/flash/Initialize()
+/obj/item/organ/cyberimp/arm/flash/Initialize()
 	. = ..()
 	if(locate(/obj/item/assembly/flash/armimplant) in items_list)
 		var/obj/item/assembly/flash/armimplant/F = locate(/obj/item/assembly/flash/armimplant) in items_list
 		F.I = src
 
-/obj/item/organ/cyberimp/arm/item_set/flash/Extend()
+/obj/item/organ/cyberimp/arm/flash/Extend()
 	. = ..()
 	active_item.set_light_range(7)
 	active_item.set_light_on(TRUE)
 
-/obj/item/organ/cyberimp/arm/item_set/flash/Retract()
+/obj/item/organ/cyberimp/arm/flash/Retract()
 	active_item.set_light_on(FALSE)
 	return ..()
 
-/obj/item/organ/cyberimp/arm/item_set/baton
+/obj/item/organ/cyberimp/arm/baton
 	name = "имплант электрификации руки"
 	desc = "Незаконный боевой имплант позволяющий пользователю контролировать обезвреживающие электричество из своей руки."
-	encode_info = AUGMENT_TG_LEVEL
 	contents = newlist(/obj/item/borg/stun)
 
-/obj/item/organ/cyberimp/arm/item_set/combat
+/obj/item/organ/cyberimp/arm/combat
 	name = "боевой кибернетический имплант"
 	desc = "Мощный кибернетический имплант встроенный в руку пользователя и содержащий боевые модули."
-	encode_info = AUGMENT_TG_LEVEL
 	contents = newlist(/obj/item/melee/transforming/energy/blade/hardlight, /obj/item/gun/medbeam, /obj/item/borg/stun, /obj/item/assembly/flash/armimplant)
 
-/obj/item/organ/cyberimp/arm/item_set/combat/Initialize()
+/obj/item/organ/cyberimp/arm/combat/Initialize()
 	. = ..()
 	if(locate(/obj/item/assembly/flash/armimplant) in items_list)
 		var/obj/item/assembly/flash/armimplant/F = locate(/obj/item/assembly/flash/armimplant) in items_list
 		F.I = src
 
-/obj/item/organ/cyberimp/arm/item_set/surgery
+/obj/item/organ/cyberimp/arm/surgery
 	name = "имплант хирургических инструментов"
 	desc = "Набор хирургических инструментов скрывающийся за скрытой панелью на руке пользователя."
-	encode_info = AUGMENT_NT_HIGHLEVEL
 	contents = newlist(/obj/item/retractor/augment, /obj/item/hemostat/augment, /obj/item/cautery/augment, /obj/item/surgicaldrill/augment, /obj/item/scalpel/augment, /obj/item/circular_saw/augment, /obj/item/surgical_drapes)

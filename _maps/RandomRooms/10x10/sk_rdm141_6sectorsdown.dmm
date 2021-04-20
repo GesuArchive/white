@@ -186,7 +186,7 @@
 /area/template_noop)
 "GN" = (
 /obj/structure/closet,
-/obj/item/storage/pill_bottle/floorpill,
+/obj/item/storage/pill_bottle/labebium,
 /obj/structure/window/reinforced/tinted/frosted,
 /obj/structure/window/reinforced/tinted/frosted{
 	dir = 4

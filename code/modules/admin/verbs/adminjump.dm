@@ -1,10 +1,12 @@
-/client/proc/jumptoarea(area/A in GLOB.sortedAreas)
+/client/proc/jumptoarea()
 	set name = "Jump to Area"
 	set desc = "Area to jump to"
 	set category = "Адм.Игра"
 	if(!src.holder)
 		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
 		return
+
+	var/area/A = tgui_input_list(usr, "Area to jump to", "Jump to Area", GLOB.sortedAreas)
 
 	if(!A)
 		return
@@ -39,13 +41,15 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Jump To Turf") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
 
-/client/proc/jumptomob(mob/M in GLOB.mob_list)
+/client/proc/jumptomob()
 	set category = "Адм.Игра"
 	set name = "Jump to Mob"
 
 	if(!src.holder)
 		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
 		return
+
+	var/mob/M = tgui_input_list(usr, "Mob to jump to", "Jump to mob", GLOB.mob_list)
 
 	log_admin("[key_name(usr)] jumped to [key_name(M)]")
 	message_admins("[key_name_admin(usr)] jumped to [ADMIN_LOOKUPFLW(M)] at [AREACOORD(M)]")
@@ -84,7 +88,7 @@
 	var/list/keys = list()
 	for(var/mob/M in GLOB.player_list)
 		keys += M.client
-	var/client/selection = input("Please, select a player!", "Admin Jumping", null, null) as null|anything in sortKey(keys)
+	var/client/selection = tgui_input_list(usr, "Please, select a player!", "Admin Jumping", sortKey(keys))
 	if(!selection)
 		to_chat(src, "No keys found.", confidential = TRUE)
 		return
@@ -96,7 +100,7 @@
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Jump To Key") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/Getmob(mob/M in GLOB.mob_list - GLOB.dummy_mob_list)
+/client/proc/Getmob(mob/M in world)
 	set category = "Адм.Игра"
 	set name = "Get Mob"
 	set desc = "Mob to teleport"
@@ -104,6 +108,7 @@
 		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
 		return
 
+	// var/mob/M = tgui_input_list(usr, "Mob to teleport", "Get Mob", GLOB.mob_list - GLOB.dummy_mob_list)
 	var/atom/loc = get_turf(usr)
 	M.admin_teleport(loc)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Get Mob") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

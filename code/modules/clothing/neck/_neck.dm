@@ -76,7 +76,7 @@
 					if(!(M.failed_last_breath || M.losebreath))
 						lung_strength = "здоровый звук"
 
-			var/diagnosis = (body_part == BODY_ZONE_CHEST ? "Слышу [heart_strength] пульса и [lung_strength] дыхания." : "Я еле слышу [heart_strength] пульс.")
+			var/diagnosis = (body_part == BODY_ZONE_CHEST ? "Слышу [heart_strength] пульса и [lung_strength] дыхания." : "Я еле слышу [heart_strength] пульса.")
 			user.visible_message("<span class='notice'>[user] пристраивает [src] в [ru_exam_parse_zone(body_part)] [M] и слушает внимательно.</span>", "<span class='notice'>Прикладываю [src] к [ru_exam_parse_zone(body_part)] [M]. [diagnosis]</span>")
 			return
 	return ..(M,user)

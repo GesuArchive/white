@@ -10,7 +10,7 @@
 	layer = OPEN_DOOR_LAYER
 	power_channel = AREA_USAGE_ENVIRON
 	max_integrity = 350
-	armor = list(MELEE = 30, BULLET = 30, LASER = 20, ENERGY = 20, BOMB = 10, BIO = 100, RAD = 100, FIRE = 80, ACID = 70)
+	armor = list(MELEE = 20, BULLET = 30, LASER = 20, ENERGY = 20, BOMB = 10, BIO = 100, RAD = 100, FIRE = 80, ACID = 70)
 	CanAtmosPass = ATMOS_PASS_DENSITY
 	flags_1 = PREVENT_CLICK_UNDER_1
 	receive_ricochet_chance_mod = 0.8
@@ -103,7 +103,7 @@
 	return FALSE
 
 /obj/machinery/door/proc/is_holding_pressure()
-	var/turf/open/T = loc
+	var/turf/open/T = get_turf(src)
 	if(!T)
 		return FALSE
 	if(!density)
@@ -271,7 +271,10 @@
 			if(glass)
 				playsound(loc, 'sound/effects/glasshit.ogg', 90, TRUE)
 			else if(damage_amount)
-				playsound(loc, 'sound/weapons/smash.ogg', 50, TRUE)
+				playsound(src, pick('white/valtos/sounds/metalblock1.wav', 'white/valtos/sounds/metalblock2.wav', \
+									'white/valtos/sounds/metalblock3.wav', 'white/valtos/sounds/metalblock4.wav', \
+									'white/valtos/sounds/metalblock5.wav', 'white/valtos/sounds/metalblock6.wav', \
+									'white/valtos/sounds/metalblock7.wav', 'white/valtos/sounds/metalblock8.wav'), 80, TRUE)
 			else
 				playsound(src, 'sound/weapons/tap.ogg', 50, TRUE)
 		if(BURN)

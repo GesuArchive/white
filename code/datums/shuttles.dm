@@ -197,7 +197,7 @@
 
 /datum/map_template/shuttle/emergency/asteroid
 	suffix = "asteroid"
-	name = "Эвакуационный Шатл Астеройдной Станции"
+	name = "Эвакуационный Шатл Астероидной Станции"
 	description = "Респектабельный шатл среднего размера, который впервые заступил на службу доставляя экипаж Нанотрансена на их внутренные объекты в поясе астероидов и обратно."
 	credit_cost = CARGO_CRATE_VALUE * 6
 
@@ -225,8 +225,8 @@
 
 /datum/map_template/shuttle/emergency/meteor
 	suffix = "meteor"
-	name = "Астеройд С Привязанными К Нему Двигателями"
-	description = "Опустошенный астеройд с привязанными к нему двигателями, процедура опустошения делает его очень сложной целью для угона, но и весьма ценной. Этот шатл ввиду своих размеров и сложностей с управлением может повредить зону стыковки."
+	name = "Астероид С Привязанными К Нему Двигателями"
+	description = "Опустошенный астероид с привязанными к нему двигателями, процедура опустошения делает его очень сложной целью для угона, но и весьма ценной. Этот шатл ввиду своих размеров и сложностей с управлением может повредить зону стыковки."
 	admin_notes = "This shuttle will likely crush escape, killing anyone there."
 	credit_cost = CARGO_CRATE_VALUE * 30
 	movement_force = list("KNOCKDOWN" = 3, "THROW" = 2)
@@ -653,6 +653,14 @@
 /datum/map_template/shuttle/pirate/default
 	suffix = "default"
 	name = "pirate ship (Default)"
+
+/datum/map_template/shuttle/pirate/silverscale
+	suffix = "silverscale"
+	name = "pirate ship (Silver Scales)"
+
+/datum/map_template/shuttle/pirate/dutchman
+	suffix = "dutchman"
+	name = "pirate ship (Flying Dutchman)"
 
 /datum/map_template/shuttle/hunter/space_cop
 	suffix = "space_cop"

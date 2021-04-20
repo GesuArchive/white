@@ -259,7 +259,7 @@
 
 	if(reels[1][2] + reels[2][2] + reels[3][2] + reels[4][2] + reels[5][2] == "[SEVEN][SEVEN][SEVEN][SEVEN][SEVEN]")
 		visible_message("<b>[capitalize(src.name)]</b> says, 'JACKPOT! You win [money] credits!'")
-		priority_announce("Congratulations to [user ? user.real_name : usrname] for winning the jackpot at the slot machine in [get_area(src)]!")
+		priority_announce("Поздравляем [user ? user.real_name : usrname] за выигрыш джекпота на игровом автомате в [get_area(src)]!")
 		jackpots += 1
 		balance += money - give_payout(JACKPOT)
 		money = 0
