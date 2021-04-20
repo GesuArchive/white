@@ -172,13 +172,15 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	return copytext_char(sanitize(t),1,MAX_MESSAGE_LEN * length(ascii2text(text2ascii(t))))
 
 /proc/kartavo(message)
-	message = replacetext_char(message, "р", "л")
+	message = replacetextEx(message, "р", "л")
+	message = replacetextEx(message, "Р", "Л")
 	return message
 
 /proc/difilexish(message)
 	if(prob(25))
 		message = "Таки... [message]"
-	message = replacetext_char(message, "р", "г'")
+	message = replacetextEx(message, "р", "г'")
+	message = replacetextEx(message, "Р", "Г'")
 	return message
 
 /proc/ukrainish(message)
@@ -201,8 +203,10 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	message = replacetext_char(message, "не", "нэ")
 	message = replacetext_char(message, "тебя", "тэбе")
 	message = replacetext_char(message, "люблю", "кохаю")
-	message = replacetext_char(message, "и", "i")
-	message = replacetext_char(message, "ы", "и")
+	message = replacetextEx(message, "и", "i")
+	message = replacetextEx(message, "ы", "и")
+	message = replacetextEx(message, "И", "I")
+	message = replacetextEx(message, "Ы", "И")
 	return message
 
 /proc/asiatish(message)
@@ -217,11 +221,16 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	message = replacetext_char(message, "же", "се")
 	message = replacetext_char(message, "хо", "ха")
 	message = replacetext_char(message, "гд", "кт")
-	message = replacetext_char(message, "д", "т")
-	message = replacetext_char(message, "ч", "с")
-	message = replacetext_char(message, "з", "с")
-	message = replacetext_char(message, "р", "л")
-	message = replacetext_char(message, "ы", "и")
+	message = replacetextEx(message, "д", "т")
+	message = replacetextEx(message, "ч", "с")
+	message = replacetextEx(message, "з", "с")
+	message = replacetextEx(message, "р", "л")
+	message = replacetextEx(message, "ы", "и")
+	message = replacetextEx(message, "Д", "Т")
+	message = replacetextEx(message, "Ч", "С")
+	message = replacetextEx(message, "З", "С")
+	message = replacetextEx(message, "Р", "Л")
+	message = replacetextEx(message, "Ы", "И")
 	return message
 
 /datum/quirk/kartavii
