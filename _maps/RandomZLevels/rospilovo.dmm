@@ -1027,25 +1027,17 @@
 	},
 /area/awaymission/rospilovo)
 "dQ" = (
-/obj/structure/rospilovo/plita,
-/turf/open/floor/rospilovo,
+/obj/effect/baseturf_helper/beach/raw_stone,
+/turf/closed/dz/normal/cyber,
 /area/awaymission/rospilovo)
 "dR" = (
 /obj/structure/rospilovo/shina,
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "dS" = (
-/obj/effect/turf_decal/trimline/white/line{
-	dir = 8;
-	icon_state = "trimline"
-	},
-/obj/effect/turf_decal/trimline/white/line{
-	dir = 4;
-	icon_state = "trimline"
-	},
-/obj/structure/rospilovo/shina3,
-/turf/open/floor/rospilovo,
-/area/awaymission/rospilovo)
+/obj/effect/baseturf_helper/beach/raw_stone,
+/turf/open/floor/dz/cyber,
+/area/awaymission/rospilovo/deathtrap)
 "es" = (
 /obj/structure/rospilovo/musor_yashik/green,
 /obj/item/storage/firstaid/brute,
@@ -1100,7 +1092,9 @@
 /turf/open/floor/dz/cyber,
 /area/awaymission/rospilovo/deathtrap)
 "jE" = (
-/obj/machinery/gateway,
+/obj/machinery/gateway/away{
+	calibrated = 0
+	},
 /turf/open/floor/dz/exit,
 /area/awaymission/rospilovo)
 "kE" = (
@@ -1164,6 +1158,10 @@
 /turf/open/floor/rospilovo/cyber{
 	icon_state = "bfloor-2"
 	},
+/area/awaymission/rospilovo)
+"yO" = (
+/obj/item/storage/firstaid/emergency,
+/turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "zp" = (
 /mob/living/carbon/human/combat_ai/shotgun,
@@ -1250,6 +1248,14 @@
 /mob/living/carbon/human/combat_ai/pistol,
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
+"Lh" = (
+/obj/item/melee/baseball_bat/ablative,
+/obj/item/melee/baseball_bat/ablative{
+	pixel_x = -8;
+	pixel_y = -1
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
 "LS" = (
 /mob/living/carbon/human/combat_ai/smg,
 /turf/open/floor/rospilovo,
@@ -1292,7 +1298,15 @@
 	},
 /area/awaymission/rospilovo)
 "RN" = (
-/obj/effect/landmark/awaystart,
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 8;
+	icon_state = "trimline"
+	},
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 4;
+	icon_state = "trimline"
+	},
+/obj/structure/rospilovo/shina3,
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "RR" = (
@@ -1356,6 +1370,16 @@
 /obj/item/storage/firstaid/advanced,
 /turf/open/floor/rospilovo/plitka/full,
 /area/awaymission/rospilovo)
+"YV" = (
+/obj/item/shield/riot/kevlar{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/shield/riot/kevlar{
+	pixel_x = -2
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
 "ZM" = (
 /obj/structure/rospilovo/lift{
 	pixel_x = 32
@@ -1375,7 +1399,7 @@
 /area/awaymission/rospilovo)
 
 (1,1,1) = {"
-ab
+dQ
 ab
 ab
 ab
@@ -1723,7 +1747,7 @@ ab
 ab
 ab
 ab
-bc
+dS
 bc
 bc
 bc
@@ -12278,7 +12302,7 @@ bM
 bM
 dR
 bM
-bM
+YV
 cD
 bM
 bM
@@ -12402,13 +12426,13 @@ bM
 bM
 bM
 bM
-dQ
+bM
 bM
 cz
+Lh
+yO
 bM
 bM
-RN
-RN
 dk
 bM
 bM
@@ -12525,17 +12549,17 @@ cc
 cc
 cc
 cc
+RN
 cc
 cc
 cc
 cc
 cc
-dS
 cc
 cc
 cc
 fb
-fb
+cd
 cd
 cd
 cd
@@ -12661,8 +12685,8 @@ bM
 bM
 bM
 bM
-RN
-RN
+bM
+bM
 bM
 bM
 bM
