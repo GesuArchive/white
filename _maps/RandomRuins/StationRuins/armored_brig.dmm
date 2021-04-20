@@ -952,12 +952,6 @@
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "co" = (
-/obj/machinery/turretid{
-	lethal = 1;
-	name = "Armory Turret Control";
-	pixel_x = 27;
-	req_one_access_txt = "3"
-	},
 /obj/machinery/porta_turret/armory,
 /obj/effect/turf_decal/stripes/box,
 /turf/open/floor/engine,
@@ -1147,6 +1141,13 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/machinery/turretid{
+	lethal = 1;
+	name = "Armory Turret Control";
+	pixel_x = 27;
+	pixel_y = 32;
+	req_one_access_txt = "3"
+	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "cN" = (

@@ -832,15 +832,22 @@
 
 /obj/effect/step_trigger/r3b0lut10n/deathtrap/Trigger(mob/M)
 	if(M.client)
-		var/turf/T = get_turf(M)
-		M.playsound_local(T, 'white/valtos/sounds/wrongdoorbuddy.ogg', 100, 0)
-		spawn(400)
-			to_chat(M, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-			to_chat(M, "<span class='info'>[message]</span>")
-			var/turf/G = locate(83, 99, M.z)
-			M.forceMove(G)
-			var/area/awaymission/rospilovo/deathtrap/A = get_area(G)
-			A.fuckplayer()
+		for(var/mob/living/L in GLOB.player_list)
+			if(L.z != src.z)
+				continue
+			if(!L.client)
+				continue
+			if(L?.hud_used)
+				ADD_TRAIT(L, TRAIT_HACKER, "rospilovo")
+				L.hud_used.update_parallax_pref(L, TRUE)
+			SEND_SOUND(L, sound('white/valtos/sounds/wrongdoorreally.ogg'))
+			spawn(900)
+				to_chat(L, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+				to_chat(L, "<span class='info'>[message]</span>")
+				var/turf/G = locate(83, 99, src.z)
+				L.forceMove(G)
+				var/area/awaymission/rospilovo/deathtrap/A = get_area(G)
+				A.fuckplayer()
 		qdel(src)
 
 /area/awaymission/rospilovo
@@ -856,11 +863,13 @@
 	icon_state = "awaycontent5"
 	mood_bonus = -250000
 	mood_message = "<span class='nicegreen'>Ӧ̶̖̦̹́Ш̶͓̆́͋И̵̺̫͍̇̐̐Б̵̭̭̱͑К̵̪̣͋́͠А̵͔̃̇ ̴̧̳̊͆О̷̢̟̼͊Ш̴̞́И̷͎̩̮̅͋̿Б̷͉͊̆К̴̮̄А̸̪̰̺̕ ̸͙͓̈́̈̊О̷̝̭̣̀̾͊Ш̸̛͖И̶̫̬̬̾Б̷̮͔͋͛̐К̴̺͓͎̋А̶͓͑̓̚ ̸̙̼̗͊̽С̷̤̈В̷͇̤̏̕Я̵̪̥̀͑Ж̷͙͌̓̚Ӥ̷̲͕̖́Т̶̘̳̠͂Е̶̢͚̺̓С̵͖͓̳͛͗̿Ь̶̳̀̈́ ̸̘̹͙̉͑̌С̴͎́ ̴̛̪̇Р̶̛̹͉̄̈͜А̶͖̑͠З̴̹͕̏͠Р̵̙̪̌̀͜А̶̮̉̔̂Б̴̱͝ͅО̶̧͐͂̑Т̶̬͚̉͠Ч̵̮̥͊͂И̷̢͊̂̚К̵̩͓̟̌͆̚О̵͖͘М̴̹͚͚͌̈́ ̵̡̰̫̋О̵͎͙́͘Ш̷̢͆̓̂Ӥ̶͉̖̙́Б̴͎̄́̍К̴̰͋̒Ӓ̵̞́ ̷̪̊О̸̟͒̉Ш̸̲͕͒̿͊И̷̨̫̖́̊Б̷̗͈̱̅̍̓К̶̼̞̈́́А̴̩̑ ̸͙͈̽̋̅О̴̙͊͝Ш̵̯̒̍́Ӥ̴͓͚͕́Б̴̯̉К̵̢̩̐͛́А̶̖͕̙̓̑</span>"
+	var/fucked_shit = FALSE
 
 /area/awaymission/rospilovo/deathtrap/proc/fuckplayer()
+	if(fucked_shit)
+		return
+	fucked_shit = TRUE
 	for (var/turf/fuck in src)
-		if (prob(10))
-			continue
 		var/matrix/M = matrix()
 		M.Translate(0, rand(-7, 7))
 		animate(fuck, transform = M, time = rand(15, 35), loop = -1, easing = SINE_EASING)
@@ -868,17 +877,34 @@
 
 	sleep(100)
 
-	for(var/mob/M in src)
-		animate(M.client, pixel_x=rand(-64,64), pixel_y=rand(-64,64), time=100)
-
-	for (var/turf/fuck in src)
-		fuck.icon_state = "ohshit"
+	for(var/mob/living/M in src)
+		if(M.client)
+			animate(M.client, pixel_x=rand(-64,64), pixel_y=rand(-64,64), time=100)
 
 	sleep(100)
 
-	for(var/mob/M in src)
-		animate(M.client, pixel_x=rand(-64,64), pixel_y=rand(-64,64), time=100)
+	for(var/mob/living/M in src)
+		if(M.client)
+			animate(M.client, pixel_x=rand(-64,64), pixel_y=rand(-64,64), time=100)
 
-	for (var/turf/fuck in src)
-		fuck.icon_state = "ohshit"
-		fuck.color = "#000000"
+	sleep(100)
+
+	for(var/mob/living/M in src)
+		if(M.client)
+			to_chat(M, "<span class='boldwarning'><center> -!- АВАРИЙНАЯ ОСТАНОВКА -!- </center></span>")
+			to_chat(M, "<span class='boldwarning'><center> -- ДАМП СИСТЕМНОЙ ПАМЯТИ -- </center></span>")
+			to_chat(M, "<span class='boldwarning'><center> -!- АВАРИЙНАЯ ОСТАНОВКА -!- </center></span>")
+			to_chat(M, "<span class='boldwarning'><center> -?- ПРОНИКНОВЕНИЕ В \[0xD*AD*0*3\] -?- </center></span>")
+			to_chat(M, "<span class='boldwarning'><center> -!- АВАРИЙНАЯ ОСТАНОВКА -!- </center></span>")
+			to_chat(M, "<span class='boldwarning'><center> -- ПЕРЕПОДКЛЮЧИТЕСЬ К ИНТЕРФЕЙСУ -- </center></span>")
+			to_chat(M, "<span class='boldwarning'><center> -!- АВАРИЙНАЯ ОСТАНОВКА -!- </center></span>")
+			to_chat(M, "\n\n\n\n\n\n\n")
+			qdel(M.client)
+
+	for(var/area/awaymission/rospilovo/A in world)
+		for(var/turf/open/T in A)
+			T.ChangeTurf(/turf/open/floor/dz/normal)
+		for(var/turf/closed/T in A)
+			T.ChangeTurf(/turf/closed/dz/normal)
+		for(var/obj/structure/rospilovo/O)
+			qdel(O)
