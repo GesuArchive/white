@@ -30,6 +30,7 @@ Arrow&bow
 	desc = "A high-power spring that throws arrows."
 	projectile_type = /obj/projectile/bullet/dart/syringe/bow
 	firing_effect_type = null
+
 /obj/item/gun/syringe/bow//Bow
 	name = "Bow"
 	desc = "Bow"
@@ -120,3 +121,55 @@ Arrow&bow
 		icon_state = "ammo_e"
 	else
 		icon_state = "ammo"
+
+/*
+ * New taser
+ */
+
+/obj/item/gun/ballistic/stabba_taser
+	name = "Стабба тазер"
+	desc = "Улучшеная версия тазера"
+	icon = 'white/qwaszx000/sprites/stabba_taser.dmi'
+	icon_state = "taser_gun"
+	inhand_icon_state = "stabba_taser"
+	lefthand_file = 'white/qwaszx000/sprites/stabba_taser_left.dmi'
+	righthand_file = 'white/qwaszx000/sprites/stabba_taser_right.dmi'
+	pin = /obj/item/firing_pin
+	mag_type = /obj/item/ammo_box/magazine/internal/stabba_taser_magazine
+	internal_magazine = TRUE
+
+/obj/item/ammo_box/magazine/internal/stabba_taser_magazine
+	name = "Магазин стабба тазера"
+	icon = null
+	icon_state = null
+	ammo_type = /obj/item/ammo_casing/caseless/stabba_taser_projectile_casing
+	caliber = "taser"
+	max_ammo = 3
+	start_empty = FALSE
+
+/obj/item/ammo_box/magazine/internal/stabba_taser_magazine/give_round(obj/item/ammo_casing/R, replace_spent = 0)
+	return FALSE
+
+/obj/item/ammo_casing/caseless/stabba_taser_projectile_casing
+	name = "Патрон стабба тазера"
+	desc = "Bzzzt"
+	icon = 'white/qwaszx000/sprites/stabba_taser.dmi'
+	icon_state = "taser_projectile"
+	throwforce = 1
+	projectile_type = /obj/projectile/bullet/stabba_taser_projectile
+	firing_effect_type = null
+	caliber = "taser"
+	heavy_metal = FALSE
+
+/obj/projectile/bullet/stabba_taser_projectile
+	name = "Пуля стабба тазера"
+	desc = "Bzzt"
+	icon = 'white/qwaszx000/sprites/stabba_taser.dmi'
+	icon_state = "taser_projectile"
+	damage = 0
+	nodamage = TRUE
+	stamina = 10
+	speed = 1
+	range = 25
+	embedding = list(embed_chance=100, fall_chance=7, pain_stam_pct=10, pain_mult=1, pain_chance=80)
+

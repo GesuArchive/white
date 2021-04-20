@@ -355,6 +355,12 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	Moved(oldloc, direct)
 
+/mob/dead/observer/get_status_tab_items()
+	. = ..()
+	. += ""
+	//Add coords to status panel
+	. += "X:[src.x] Y:[src.y] Z:[src.z]"
+
 /mob/dead/observer/verb/reenter_corpse()
 	set category = null
 	set name = "❗ Вернуться в тело"
