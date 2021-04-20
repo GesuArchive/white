@@ -842,12 +842,12 @@
 				L.hud_used.update_parallax_pref(L, TRUE)
 			SEND_SOUND(L, sound('white/valtos/sounds/wrongdoorreally.ogg'))
 			spawn(900)
-				if(!L)
+				if(!L?.client)
 					continue
 				to_chat(L, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
 				to_chat(L, "<span class='info'>[message]</span>")
 				for(var/area/awaymission/rospilovo/deathtrap/A in world)
-					A.fuckplayer()
+					INVOKE_ASYNC(A, .proc/fuckplayer)
 					for(var/turf/X in A)
 						L.forceMove(A)
 						break
@@ -872,7 +872,7 @@
 	if(fucked_shit)
 		return
 	fucked_shit = TRUE
-	for (var/turf/fuck in src)
+	for (var/turf/open/floor/dz/fuck in world)
 		var/matrix/M = matrix()
 		M.Translate(0, rand(-7, 7))
 		animate(fuck, transform = M, time = rand(15, 35), loop = -1, easing = SINE_EASING)
@@ -911,4 +911,5 @@
 				to_chat(M, "<span class='boldwarning'>0x6 -- ПЕРЕПОДКЛЮЧИТЕСЬ К ИНТЕРФЕЙСУ -- </span>")
 				to_chat(M, "<span class='boldwarning'>0x7 -!- АВАРИЙНАЯ ОСТАНОВКА -!- </span>")
 				to_chat(M, "\n\n\n\n\n\n\n")
-				qdel(M.client)
+				spawn(5)
+					qdel(M.client)
