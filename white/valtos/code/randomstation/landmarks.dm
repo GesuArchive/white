@@ -2,6 +2,7 @@
 	icon = 'white/valtos/icons/map_icon_templates.dmi'
 	var/list/template_names = list()
 	layer = BULLET_HOLE_LAYER
+	invisibility = 0
 
 /obj/effect/landmark/stationroom/New()
 	..()
