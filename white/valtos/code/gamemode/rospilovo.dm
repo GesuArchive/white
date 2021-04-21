@@ -872,11 +872,6 @@
 	if(fucked_shit)
 		return
 	fucked_shit = TRUE
-	for (var/turf/open/floor/dz/fuck in world)
-		var/matrix/M = matrix()
-		M.Translate(0, rand(-7, 7))
-		animate(fuck, transform = M, time = rand(15, 35), loop = -1, easing = SINE_EASING)
-		animate(transform = null, time = rand(15, 35), easing = SINE_EASING)
 
 	spawn(100) // ПОХУЮ
 
@@ -895,8 +890,13 @@
 				for(var/area/awaymission/rospilovo/A in world)
 					for(var/turf/open/T in A)
 						T.ChangeTurf(/turf/open/floor/dz/normal)
+					for(var/turf/open/floor/dz/fuck in world)
+						var/matrix/M = matrix()
+						M.Translate(0, rand(-7, 7))
+						animate(fuck, transform = M, time = rand(15, 35), loop = -1, easing = SINE_EASING)
+						animate(transform = null, time = rand(15, 35), easing = SINE_EASING)
 					for(var/turf/closed/T in A)
-						T.ChangeTurf(/turf/closed/dz/normal)
+						T.ChangeTurf(/turf/closed/dz/normal/cyber)
 					for(var/obj/structure/rospilovo/O in A)
 						qdel(O)
 					for(var/obj/structure/flora/O in A)

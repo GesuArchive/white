@@ -40,7 +40,7 @@
 		air.copy_from_turf(src)
 		update_air_ref()
 
-	SSvis_overlays.add_vis_overlay(src, icon, icon_state, EMISSIVE_LAYER, TURF_LAYER)
+	SSvis_overlays.add_vis_overlay(src, icon, icon_state, EMISSIVE_LAYER, PLANE_SPACE)
 
 	return INITIALIZE_HINT_NORMAL
 
