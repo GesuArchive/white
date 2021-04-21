@@ -155,18 +155,6 @@
 			"length_t" 	 = S.song_length ? "[add_leading(num2text(((S.song_length / S.song_beat) / 60) % 60), 2, "0")]:[add_leading(num2text((S.song_length / S.song_beat) % 60), 2, "0")]" : "0:00"
 		))
 
-	return data
-
-/obj/item/boombox/ui_data(mob/user)
-	var/list/data = list()
-	var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
-	data["name"] = name
-	data["active"] = playing
-	data["volume"] = SP.playing_volume
-	data["curtrack"] = selection && selection.short_name ? selection.short_name : FALSE
-	data["curlength"] = selection && selection.song_length ? "[add_leading(num2text(((selection.song_length / selection.song_beat) / 60) % 60), 2, "0")]:[add_leading(num2text((selection.song_length / selection.song_beat) % 60), 2, "0")]" : "0:00"
-	data["env"] = SP.environmental
-
 	if(disk)
 		data["songs"]["DISC"] = list (
 			"name" 	 = "ДИСК",
@@ -181,6 +169,17 @@
 	data["disk"] = disk ? TRUE : FALSE
 	data["disktrack"] = disk && disk.track ? disk.track.song_name : FALSE
 
+	return data
+
+/obj/item/boombox/ui_data(mob/user)
+	var/list/data = list()
+	var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
+	data["name"] = name
+	data["active"] = playing
+	data["volume"] = SP.playing_volume
+	data["curtrack"] = selection && selection.short_name ? selection.short_name : FALSE
+	data["curlength"] = selection && selection.song_length ? "[add_leading(num2text(((selection.song_length / selection.song_beat) / 60) % 60), 2, "0")]:[add_leading(num2text((selection.song_length / selection.song_beat) % 60), 2, "0")]" : "0:00"
+	data["env"] = SP.environmental
 	return data
 
 /obj/item/boombox/ui_act(action, params)
