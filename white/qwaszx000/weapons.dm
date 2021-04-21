@@ -235,7 +235,7 @@ Arrow&bow
 		return
 	..()
 
-/obj/item/gun/ballistic/attackby(obj/item/A, mob/user, params)
+/obj/item/gun/ballistic/xviii_rifle/attackby(obj/item/A, mob/user, params)
 	//Loading from ammo box is forbidden
 	if(istype(A, /obj/item/ammo_box))
 		return FALSE
