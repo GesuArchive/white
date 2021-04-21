@@ -169,7 +169,7 @@
 	var/rawchar = ""
 	var/letter = ""
 	var/lentext = length(text)
-	for(var/i = 1, i <= lentext, i += length_char(rawchar))
+	for(var/i = 1, i <= lentext, i += length(rawchar))
 		rawchar = letter = text[i]
 		if(prob(chance))
 			if(replace_characters)
