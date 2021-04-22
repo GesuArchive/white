@@ -204,17 +204,19 @@
 	desc = "Ценные стерильные перчатки толще латекса. Передача интимных знаний парамедиков пользователю через наночипы."
 	icon_state = "nitrile"
 	inhand_icon_state = "nitrilegloves"
-	clothing_traits = list(TRAIT_QUICKER_CARRY)
+	clothing_traits = list(TRAIT_QUICKER_CARRY, TRAIT_FASTMED)
 	transfer_prints = FALSE
 
-/obj/item/clothing/gloves/color/latex/nitrile/infiltrator
+/obj/item/clothing/gloves/color/infiltrator
 	name = "перчатки лазутчика"
 	desc = "Заточенные под столкновения перчатки для переноса людей. Благодаря наночипам передают носителю тактическую информацию о похищениях."
 	icon_state = "infiltrator"
 	inhand_icon_state = "infiltrator"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.3
+	clothing_traits = list(TRAIT_QUICKER_CARRY)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
+	transfer_prints = FALSE
 
 /obj/item/clothing/gloves/color/latex/engineering
 	name = "перчатки мастера"
