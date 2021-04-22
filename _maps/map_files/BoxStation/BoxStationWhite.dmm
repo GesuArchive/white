@@ -32184,6 +32184,9 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
+"gLN" = (
+/turf/open/openspace/airless,
+/area/space/nearstation)
 "gMJ" = (
 /obj/structure/sign/warning/securearea,
 /turf/closed/wall/r_wall,
@@ -34519,6 +34522,9 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
+"lkE" = (
+/turf/open/floor/plating,
+/area/space/nearstation)
 "lmG" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -67857,7 +67863,7 @@ aaa
 aaa
 aaa
 aaa
-eRz
+gLN
 ctv
 eRz
 aaa
@@ -68114,9 +68120,9 @@ aaa
 aaa
 aaa
 aaa
-eRz
-ctv
-eRz
+gLN
+lkE
+gXs
 aaa
 aaa
 aaa
@@ -68371,7 +68377,7 @@ aaa
 aaa
 aaa
 aaa
-eRz
+gLN
 ctv
 eRz
 aaa
@@ -69399,7 +69405,7 @@ aaa
 aaa
 aaa
 gXs
-eRz
+gXs
 ctv
 eRz
 gXs
@@ -72483,7 +72489,7 @@ gXs
 aaa
 aaa
 aaa
-eRz
+gXs
 ctv
 eRz
 aaa
@@ -72740,9 +72746,9 @@ gXs
 gXs
 gXs
 gXs
-eRz
-eRz
-eRz
+gXs
+gXs
+gXs
 gXs
 aaa
 aaa
@@ -72995,9 +73001,9 @@ gXs
 aaa
 gXs
 ctv
-eRz
+gXs
 aaa
-eRz
+gXs
 ctv
 eRz
 aaa
@@ -73252,7 +73258,7 @@ gXs
 gXs
 gXs
 ctv
-eRz
+gXs
 aaa
 eRz
 ctv
