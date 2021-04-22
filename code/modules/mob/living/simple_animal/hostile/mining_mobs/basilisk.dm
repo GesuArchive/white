@@ -128,8 +128,10 @@
 		consume_bait()
 
 /mob/living/simple_animal/hostile/asteroid/basilisk/watcher/proc/consume_bait()
-	var/obj/item/stack/ore/diamond/diamonds = locate(/obj/item/stack/ore/diamond) in oview(src, 9)
-	var/obj/item/pen/survival/bait = locate(/obj/item/pen/survival) in oview(src, 9)
+	if(prob(80)) // OPTIMIZED
+		return
+	var/obj/item/stack/ore/diamond/diamonds = locate(/obj/item/stack/ore/diamond) in oview(src, 4)
+	var/obj/item/pen/survival/bait = locate(/obj/item/pen/survival) in oview(src, 4)
 	if(!diamonds && !bait)
 		return
 	if(diamonds)
