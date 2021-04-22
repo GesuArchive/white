@@ -890,6 +890,7 @@
 				for(var/area/awaymission/rospilovo/A in world)
 					for(var/turf/open/T in A)
 						T.ChangeTurf(/turf/open/floor/dz/normal)
+						CHECK_TICK
 					for(var/turf/open/floor/dz/fuck in world)
 						var/matrix/M = matrix()
 						M.Translate(0, rand(-7, 7))
@@ -897,10 +898,13 @@
 						animate(transform = null, time = rand(15, 35), easing = SINE_EASING)
 					for(var/turf/closed/T in A)
 						T.ChangeTurf(/turf/closed/dz/normal/cyber)
+						CHECK_TICK
 					for(var/obj/structure/rospilovo/O in A)
 						qdel(O)
+						CHECK_TICK
 					for(var/obj/structure/flora/O in A)
 						qdel(O)
+						CHECK_TICK
 					for(var/mob/living/M in A)
 						if(M.client)
 							to_chat(M, "<span class='boldwarning'>0x1 -!- АВАРИЙНАЯ ОСТАНОВКА -!- </span>")
@@ -912,4 +916,4 @@
 							to_chat(M, "<span class='boldwarning'>0x7 -!- АВАРИЙНАЯ ОСТАНОВКА -!- </span>")
 							to_chat(M, "\n\n\n\n\n\n\n")
 							spawn(5)
-								qdel(M.client)
+								winset(M.client, null, "command=.reconnect")

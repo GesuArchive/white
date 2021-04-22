@@ -40,7 +40,7 @@
 		air.copy_from_turf(src)
 		update_air_ref()
 
-	SSvis_overlays.add_vis_overlay(src, icon, icon_state, EMISSIVE_LAYER, PLANE_SPACE)
+	SSvis_overlays.add_vis_overlay(src, icon, "fucked", EMISSIVE_LAYER, PLANE_SPACE)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -83,6 +83,12 @@
 /turf/closed/dz/normal/cyber
 	name = "си-блок"
 	icon_state = "c_wall1"
+
+/turf/closed/dz/normal/cyber/Initialize()
+	. = ..()
+	if(prob(0.1))
+		icon_state = "c_wall2"
+		density = 0
 
 /turf/closed/dz/lab
 	name = "сверхкрепкая стена"
