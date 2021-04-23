@@ -1247,7 +1247,7 @@
 
 		if(excess > lastused_total)		// if power excess recharge the cell
 										// by the same amount just used
-			cell.give(cellused)
+			cell?.give(cellused)
 			add_load(cellused/GLOB.CELLRATE)		// add the load used to recharge the cell
 
 
