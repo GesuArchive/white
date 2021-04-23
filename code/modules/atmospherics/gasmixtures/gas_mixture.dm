@@ -33,7 +33,7 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 /datum/gas_mixture
 	var/initial_volume = CELL_VOLUME //liters
 	var/list/reaction_results
-	var/list/analyzer_results //used for analyzer feedback - not initialized until its used
+	var/list/analyzer_results //used for analyzer feedback - not initialized until its usedd
 	var/_extools_pointer_gasmixture = 0 // Contains the memory address of the shared_ptr object for this gas mixture in c++ land. Don't. Touch. This. Var.
 
 /datum/gas_mixture/New(volume)
