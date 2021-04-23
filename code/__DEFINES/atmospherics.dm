@@ -520,9 +520,9 @@ GLOBAL_LIST_INIT(atmos_adjacent_savings, list(0,0))
 //Use this to see if a turf is fully blocked or not, think windows or firelocks. Fails with 1x1 non full tile windows, but it's not worth the cost.
 #define TURF_SHARES(T) (LAZYLEN(T.atmos_adjacent_turfs))
 
-GLOBAL_VAR(atmos_extools_initialized) // this must be an uninitialized (null) one or init_monstermos will be called twice because reasons
-#define ATMOS_EXTOOLS_CHECK if(!GLOB.atmos_extools_initialized){\
-	GLOB.atmos_extools_initialized=TRUE;\
+var/atmos_extools_initialized = FALSE // this must be an uninitialized (null) one or init_monstermos will be called twice because reasons
+#define ATMOS_EXTOOLS_CHECK if(!atmos_extools_initialized){\
+	atmos_extools_initialized=TRUE;\
 	if(fexists(EXTOOLS)){\
 		var/result = call(EXTOOLS,"init_monstermos")();\
 		if(result != "ok") {CRASH(result);}\
