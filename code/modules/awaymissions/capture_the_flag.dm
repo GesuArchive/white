@@ -78,7 +78,7 @@
 	for(var/mob/M in GLOB.player_list)
 		var/area/mob_area = get_area(M)
 		if(istype(mob_area, game_area))
-			to_chat(M, "<span class='userdanger'>\[initial(src.name)] взят!</span>")
+			to_chat(M, "<span class='userdanger'>[initial(src.name)] взят!</span>")
 	STOP_PROCESSING(SSobj, src)
 	anchored = FALSE //normal checks need this to be FALSE to pass
 	. = ..() //this is the actual normal item checks
