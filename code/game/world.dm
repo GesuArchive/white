@@ -31,7 +31,9 @@ GLOBAL_VAR(restart_counter)
 /world/New()
 	if (fexists(EXTOOLS))
 		call(EXTOOLS, "maptick_initialize")()
-
+#ifdef retard_shit_cum
+	enable_debugger()
+#endif
 	log_world("World loaded at [time_stamp()]!")
 
 	make_datum_references_lists()	//initialises global lists for referencing frequently used datums (so that we only ever do it once)
@@ -272,8 +274,7 @@ GLOBAL_VAR(restart_counter)
 
 	TgsReboot()
 	shutdown_logging() // Past this point, no logging procs can be used, at risk of data loss.
-	if(CONFIG_GET(flag/this_shit_is_stable))
-		shelleo("curl -X POST http://localhost:3636/hard-reboot-white")
+	shelleo("curl -X POST http://localhost:3636/hard-reboot-white")
 	..()
 
 /world/Del()
@@ -285,7 +286,7 @@ GLOBAL_VAR(restart_counter)
 	log_world("Deallocated [num_deleted] gas mixtures")
 	..()
 
-GLOBAL_VAR_INIT(hub_mimic, TRUE)
+GLOBAL_VAR_INIT(hub_mimic, FALSE)
 
 /world/proc/update_status()
 

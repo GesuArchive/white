@@ -14,10 +14,10 @@
 	var/playing = FALSE
 
 /proc/open_sound_channel_for_boombox()
-	var/static/next_channel = CHANNEL_HIGHEST_AVAILABLE + 1
+	var/static/next_channel = CHANNEL_WIND_AVAILABLE + 1
 	. = ++next_channel
 	if(next_channel > CHANNEL_BOOMBOX_AVAILABLE)
-		next_channel = CHANNEL_HIGHEST_AVAILABLE + 1
+		next_channel = CHANNEL_WIND_AVAILABLE + 1
 
 /obj/item/boombox/single
 	desc = "Единственная и неповторимая."
@@ -139,15 +139,8 @@
 	else
 		return UI_CLOSE
 
-/obj/item/boombox/ui_data(mob/user)
+/obj/item/boombox/ui_static_data(mob/user)
 	var/list/data = list()
-	var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
-	data["name"] = name
-	data["active"] = playing
-	data["volume"] = SP.playing_volume
-	data["curtrack"] = selection && selection.short_name ? selection.short_name : FALSE
-	data["curlength"] = selection && selection.song_length ? "[add_leading(num2text(((selection.song_length / selection.song_beat) / 60) % 60), 2, "0")]:[add_leading(num2text((selection.song_length / selection.song_beat) % 60), 2, "0")]" : "0:00"
-	data["env"] = SP.environmental
 
 	data["songs"] = list()
 	for(var/datum/track/S in songs)
@@ -176,6 +169,17 @@
 	data["disk"] = disk ? TRUE : FALSE
 	data["disktrack"] = disk && disk.track ? disk.track.song_name : FALSE
 
+	return data
+
+/obj/item/boombox/ui_data(mob/user)
+	var/list/data = list()
+	var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
+	data["name"] = name
+	data["active"] = playing
+	data["volume"] = SP.playing_volume
+	data["curtrack"] = selection && selection.short_name ? selection.short_name : FALSE
+	data["curlength"] = selection && selection.song_length ? "[add_leading(num2text(((selection.song_length / selection.song_beat) / 60) % 60), 2, "0")]:[add_leading(num2text((selection.song_length / selection.song_beat) % 60), 2, "0")]" : "0:00"
+	data["env"] = SP.environmental
 	return data
 
 /obj/item/boombox/ui_act(action, params)

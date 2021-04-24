@@ -48,17 +48,21 @@ const GatewayContent = (props, context) => {
       </Section>
     );
   }
+  if (!gateway_found) {
+    return (
+      <Section>
+        <Button
+          fluid
+          onClick={() => act("find_new")}>
+          Найти новые врата
+        </Button>
+      </Section>
+    );
+  }
   if (!destinations.length) {
     return (
       <Section>
         Не обнаружено других врат.
-        {!gateway_found && (
-          <Button
-            fluid
-            onClick={() => act("find_new")}>
-            Найти новые врата
-          </Button>
-        )}
       </Section>
     );
   }

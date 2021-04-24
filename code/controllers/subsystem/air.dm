@@ -270,10 +270,8 @@ SUBSYSTEM_DEF(air)
 	while(currentrun.len)
 		var/turf/open/T = currentrun[currentrun.len]
 		currentrun.len--
-		if (T)
-			if(istype(T))
-				T.equalize_pressure_in_zone(fire_count)
-			//equalize_pressure_in_zone(T, fire_count)
+		if (istype(T))
+			T.equalize_pressure_in_zone(fire_count)
 		if (MC_TICK_CHECK)
 			return
 

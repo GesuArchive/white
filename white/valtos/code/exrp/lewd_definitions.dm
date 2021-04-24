@@ -49,7 +49,7 @@
 	interaction_sound = null
 	user_not_tired = 1
 	require_target_naked = 1
-	max_distance = 0
+	max_distance = 1
 	write_log_user = "sucked"
 	write_log_target = "was sucked by"
 
@@ -107,7 +107,7 @@
 	interaction_sound = null
 	user_not_tired = 1
 	require_target_naked = 1
-	max_distance = 0
+	max_distance = 1
 	write_log_user = "fingered"
 	write_log_target = "was fingered by"
 
@@ -123,7 +123,7 @@
 	require_target_anus = 1
 	user_not_tired = 1
 	require_target_naked = 1
-	max_distance = 0
+	max_distance = 1
 	write_log_user = "fingered"
 	write_log_target = "was fingered by"
 

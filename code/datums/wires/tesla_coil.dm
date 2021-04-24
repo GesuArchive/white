@@ -9,5 +9,5 @@
 
 /datum/wires/tesla_coil/on_pulse(wire)
 	var/obj/machinery/power/tesla_coil/C = holder
-	C.zap()
+	C?.zap()
 	..()

@@ -387,41 +387,12 @@
 		var/datum/job/J = I
 		J.total_positions = 750
 
-/*
-/datum/round_aspect/power_failure
-	name = "Power Failure"
-	weight = 4
+/datum/round_aspect/emergency_meeting
+	name = "Emergency Meeting"
+	desc = "ЭКСТРЕННЫЙ СБОР!"
+	weight = 25
 
-/datum/round_aspect/power_failure/run_aspect()
-	for(var/obj/machinery/power/smes/S in GLOB.machines)
-		if(istype(get_area(S), /area/ai_monitored/turret_protected) || !is_station_level(S.z) || istype(get_area(S), /area/tcommsat/server))
-			continue
-		S.charge = 0
-		S.output_level = 0
-		S.output_attempt = FALSE
-		S.update_icon()
-		S.power_change()
-
-	for(var/area/A in GLOB.the_station_areas)
-		if(!A.requires_power || A.always_unpowered || istype(A, /area/tcommsat/server))
-			continue
-		if(GLOB.typecache_powerfailure_safe_areas[A.type])
-			continue
-
-		A.power_light = FALSE
-		A.power_equip = FALSE
-		A.power_environ = FALSE
-		A.power_change()
-
-	for(var/obj/machinery/power/apc/C in GLOB.apcs_list)
-		if(istype(get_area(C), /area/ai_monitored/turret_protected) || istype(get_area(C), /area/tcommsat/server))
-			continue
-		if(C.cell && is_station_level(C.z))
-			var/area/A = C.area
-			if(GLOB.typecache_powerfailure_safe_areas[A.type])
-				continue
-
-			C.cell.charge = 0
-
+/datum/round_aspect/emergency_meeting/run_aspect()
+	spawn(5 SECONDS)
+		call_emergency_meeting("Центральное Командование", GLOB.areas_by_type[/area/bridge/meeting_room])
 	..()
-*/

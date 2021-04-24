@@ -99,7 +99,8 @@
 	new /obj/item/pinpointer/nuke(src)
 	new /obj/item/circuitboard/machine/techfab/department/security(src)
 	new /obj/item/storage/photo_album/hos(src)
-	new /obj/item/clothing/head/HoS/dermal(src)
+	new /obj/item/clothing/head/hos/dermal(src)
+	new /obj/item/inspector(src)
 
 /obj/structure/closet/secure_closet/warden
 	name = "шкаф надзирателя"
@@ -196,6 +197,7 @@
 	new /obj/item/pinpointer/crew(src)
 	new /obj/item/binoculars(src)
 	new /obj/item/storage/box/rxglasses/spyglasskit(src)
+	new /obj/item/inspector(src)
 
 /obj/structure/closet/secure_closet/injection
 	name = "летальные инъекции"

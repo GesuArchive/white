@@ -145,7 +145,7 @@
 /obj/item/implant/sound_implant
 	name = "звуковой имплант"
 	activated = 0
-	var/sound/cur_sound = 'white/valtos/sounds/povezlo-povezlo.ogg'
+	var/sound/cur_sound = 'white/valtos/sounds/polnomochiya.ogg'
 
 /obj/item/implant/sound_implant/get_data()
 	var/dat = {"<b>Имплант:</b><BR>

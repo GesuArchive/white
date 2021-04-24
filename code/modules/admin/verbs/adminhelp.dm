@@ -663,7 +663,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 /proc/keywords_lookup(msg,external)
 
 	//This is a list of words which are ignored by the parser when comparing message contents for names. MUST BE IN LOWER CASE!
-	var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","alien","as", "i")
+	var/list/adminhelp_ignored_words = list("неизвестный","the","a","an","of","monkey","alien","as", "i")
 
 	//explode the input msg into a list
 	var/list/msglist = splittext(msg, " ")
@@ -733,7 +733,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 
 /proc/get_mob_by_name(msg)
 	//This is a list of words which are ignored by the parser when comparing message contents for names. MUST BE IN LOWER CASE!
-	var/list/ignored_words = list("unknown","the","a","an","of","мартышка","alien","as", "i")
+	var/list/ignored_words = list("неизвестный","the","a","an","of","мартышка","alien","as", "i")
 
 	//explode the input msg into a list
 	var/list/msglist = splittext_char(msg, " ")

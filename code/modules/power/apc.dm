@@ -206,6 +206,7 @@
 	area.power_equip = FALSE
 	area.power_environ = FALSE
 	area.power_change()
+	area.poweralert(FALSE, src)
 	if(occupier)
 		malfvacate(1)
 	qdel(wires)
@@ -275,8 +276,9 @@
 		return
 	. += "<hr>"
 	. += "Отвечает за зону: <i>[get_area_name(area, TRUE)]</i>"
-	. += "<hr>"
-	. += "Заряд: [cell.percent()]%"
+	if(cell)
+		. += "<hr>"
+		. += "Заряд: [cell.percent()]%"
 	if(opened)
 		if(has_electronics && terminal)
 			. += "</br>Крышка [opened==APC_COVER_REMOVED?"снята":"открыта"] и батарея [ cell ? "установлена" : "отсутствует"]."
@@ -1245,7 +1247,7 @@
 
 		if(excess > lastused_total)		// if power excess recharge the cell
 										// by the same amount just used
-			cell.give(cellused)
+			cell?.give(cellused)
 			add_load(cellused/GLOB.CELLRATE)		// add the load used to recharge the cell
 
 

@@ -10,7 +10,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "c" = (
-/obj/machinery/atmospherics/pipe/simple/general{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general{
 	dir = 8;
 	icon_state = "pipe11-2"
 	},
@@ -32,7 +32,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "f" = (
-/obj/machinery/atmospherics/pipe/simple/general{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/anifold4w/general{
 	dir = 5;
 	icon_state = "pipe11-2"
 	},

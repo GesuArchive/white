@@ -304,6 +304,14 @@
 	category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
+/datum/design/board/price_controller
+	name = "Дизайн консоли (Контроллер цен)"
+	desc = "Используется для искусственных манипуляций внутренним рынком."
+	id = "price_controller"
+	build_path = /obj/item/circuitboard/computer/price_controller
+	category = list("Консоли")
+	departmental_flags = DEPARTMENTAL_FLAG_CARGO
+
 /datum/design/board/bountypad_control
 	name = "Дизайн консоли (Civilian Bounty Pad Control)"
 	desc = "Allows for the construction of circuit boards used to build a new civilian bounty pad console."
@@ -311,10 +319,18 @@
 	build_path = /obj/item/circuitboard/computer/bountypad
 	category = list("Консоли")
 
-/datum/design/board/price_controller
-	name = "Дизайн консоли (Контроллер цен)"
-	desc = "Позволяет манипулировать ценами на станции."
-	id = "price_controller"
-	build_path = /obj/item/circuitboard/computer/price_controller
+/datum/design/board/exoscanner_console
+	name = "Дизайн консоли (Scanner Array Control Console)"
+	desc = "Allows for the construction of circuit boards used to build a new scanner array control console."
+	id = "exoscanner_console"
+	build_type = IMPRINTER
+	build_path = /obj/item/circuitboard/computer/exoscanner_console
 	category = list("Консоли")
-	departmental_flags = DEPARTMENTAL_FLAG_CARGO
+
+/datum/design/board/exodrone_console
+	name = "Дизайн консоли (Exploration Drone Control Console)"
+	desc = "Allows for the construction of circuit boards used to build a new exploration drone control console."
+	id = "exodrone_console"
+	build_type = IMPRINTER
+	build_path = /obj/item/circuitboard/computer/exodrone_console
+	category = list("Консоли")

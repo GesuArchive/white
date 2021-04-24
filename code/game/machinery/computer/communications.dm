@@ -161,6 +161,12 @@
 			if (!message_index)
 				return
 			LAZYREMOVE(messages, LAZYACCESS(messages, message_index))
+		if ("emergency_meeting")
+			if(!(SSevents.holidays && SSevents.holidays[APRIL_FOOLS]))
+				return
+			if (!authenticated_as_silicon_or_captain(usr))
+				return
+			emergency_meeting(usr)
 		if ("makePriorityAnnouncement")
 			if (!authenticated_as_silicon_or_captain(usr))
 				return
@@ -320,7 +326,7 @@
 			if (obj_flags & EMAGGED)
 				authenticated = TRUE
 				authorize_access = get_all_accesses()
-				authorize_name = "Unknown"
+				authorize_name = "Неизвестный"
 				to_chat(usr, "<span class='warning'>[capitalize(src.name)] выстреливает несколько искр.</span>")
 				playsound(src, 'sound/machines/terminal_alert.ogg', 25, FALSE)
 			else if(isliving(usr))
@@ -377,7 +383,7 @@
 				data["importantActionReady"] = COOLDOWN_FINISHED(src, important_action_cooldown)
 				data["shuttleCalled"] = FALSE
 				data["shuttleLastCalled"] = FALSE
-
+				data["aprilFools"] = SSevents.holidays && SSevents.holidays[APRIL_FOOLS]
 				data["alertLevel"] = get_security_level()
 				data["authorizeName"] = authorize_name
 				data["canLogOut"] = !issilicon(user)
@@ -497,6 +503,23 @@
 		return
 
 	return length(CONFIG_GET(keyed_list/cross_server)) > 0
+
+/**
+ * Call an emergency meeting
+ *
+ * Comm Console wrapper for the Communications subsystem wrapper for the call_emergency_meeting world proc.
+ * Checks to make sure the proc can be called, and handles relevant feedback, logging and timing.
+ * See the SScommunications proc definition for more detail, in short, teleports the entire crew to
+ * the bridge for a meetup. Should only really happen during april fools.
+ * Arguments:
+ * * user - Mob who called the meeting
+ */
+/obj/machinery/computer/communications/proc/emergency_meeting(mob/living/user)
+	if(!SScommunications.can_make_emergency_meeting(user))
+		to_chat(user, "<span class='alert'>Сбор не хочет проводиться. Может стоит подождать?</span>")
+		return
+	SScommunications.emergency_meeting(user)
+	deadchat_broadcast(" делает экстренный сбор в локации <span class='name'>[get_area_name(usr, TRUE)]</span>.", "<span class='name'>[user.real_name]</span>", user, message_type=DEADCHAT_ANNOUNCEMENT)
 
 /obj/machinery/computer/communications/proc/make_announcement(mob/living/user)
 	var/is_ai = issilicon(user)

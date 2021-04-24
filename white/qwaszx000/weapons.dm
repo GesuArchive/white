@@ -30,6 +30,7 @@ Arrow&bow
 	desc = "A high-power spring that throws arrows."
 	projectile_type = /obj/projectile/bullet/dart/syringe/bow
 	firing_effect_type = null
+
 /obj/item/gun/syringe/bow//Bow
 	name = "Bow"
 	desc = "Bow"
@@ -120,3 +121,198 @@ Arrow&bow
 		icon_state = "ammo_e"
 	else
 		icon_state = "ammo"
+
+/*
+ * New taser
+ */
+
+/obj/item/gun/ballistic/stabba_taser
+	name = "Стабба тазер"
+	desc = "Двухзарядный одноразовый тазер, стреляющий застревающими в теле электродами."
+	icon = 'white/qwaszx000/sprites/stabba_taser.dmi'
+	icon_state = "taser_gun"
+	inhand_icon_state = "stabba_taser"
+	lefthand_file = 'white/qwaszx000/sprites/stabba_taser_left.dmi'
+	righthand_file = 'white/qwaszx000/sprites/stabba_taser_right.dmi'
+	pin = /obj/item/firing_pin
+	mag_type = /obj/item/ammo_box/magazine/internal/stabba_taser_magazine
+	fire_delay = 5
+	internal_magazine = TRUE
+
+/obj/item/ammo_box/magazine/internal/stabba_taser_magazine
+	name = "Магазин стабба тазера. Если вы видите это, сообщите администратору."
+	icon = null
+	icon_state = null
+	ammo_type = /obj/item/ammo_casing/caseless/stabba_taser_projectile_casing
+	caliber = "taser"
+	max_ammo = 2
+	start_empty = FALSE
+
+/obj/item/ammo_box/magazine/internal/stabba_taser_magazine/give_round(obj/item/ammo_casing/R, replace_spent = 0)
+	return FALSE
+
+/obj/item/ammo_casing/caseless/stabba_taser_projectile_casing
+	name = "Патрон стабба тазера"
+	desc = "Bzzzt"
+	icon = 'white/qwaszx000/sprites/stabba_taser.dmi'
+	icon_state = "taser_projectile"
+	throwforce = 1
+	projectile_type = /obj/projectile/bullet/stabba_taser_projectile
+	firing_effect_type = null
+	caliber = "taser"
+	heavy_metal = FALSE
+
+/obj/projectile/bullet/stabba_taser_projectile
+	name = "Электродик Стаббы"
+	desc = "Выглядит остро"
+	icon = 'white/qwaszx000/sprites/stabba_taser.dmi'
+	icon_state = "taser_projectile"
+	damage = 0
+	nodamage = TRUE
+	stamina = 8
+	speed = 2 // Летит в 2 раза быстрее чем другие прожектайлы
+	range = 12
+	embedding = list(embed_chance=95, fall_chance=10, pain_stam_pct=8, pain_mult=1, pain_chance=85)
+
+/*
+ * XVII-XVIII rifle
+ */
+
+/obj/item/gun/ballistic/xviii_rifle
+	name = "Винтовка 18 века"
+	desc = "Vive la france"
+	icon = 'white/qwaszx000/sprites/xvii_xviii_weapons.dmi'
+	icon_state = "rifle_france"
+	spread = 25
+	recoil = 1
+	fire_sound = 'white/qwaszx000/sounds/xviii_rifle_fire.ogg'
+	/*inhand_icon_state = "stabba_taser"
+	lefthand_file = 'white/qwaszx000/sprites/stabba_taser_left.dmi'
+	righthand_file = 'white/qwaszx000/sprites/stabba_taser_right.dmi'*/
+	//pin = /obj/item/firing_pin
+	mag_type = null
+	internal_magazine = TRUE
+	can_bayonet = TRUE
+
+	var/is_ready_to_fire = FALSE
+	var/is_cartrige_prepared = FALSE
+	var/is_preparing_action = FALSE
+	var/cartrige_type = /obj/item/ammo_casing/caseless/xviii_rifle_cartrige
+
+
+
+/obj/item/gun/ballistic/xviii_rifle/Initialize()
+	..()
+	magazine = null
+	chambered = new cartrige_type
+
+
+/obj/item/gun/ballistic/xviii_rifle/examine(mob/user)
+	. = ..()
+	. += "<hr>"
+	if(chambered)
+		. += "Бумажный патрон заряжен " + (is_cartrige_prepared ? "<b>и протолкнут</b>" : "<b>но не протолкнут</b></br>")
+	if(is_ready_to_fire)
+		. += "Курок взведен"
+
+/obj/item/gun/ballistic/xviii_rifle/attack_self(mob/living/user)
+	if(is_preparing_action)
+		return
+
+	//cartrige is loaded, but not pushed down
+	if(!is_cartrige_prepared && chambered)
+		is_preparing_action = TRUE
+		if (do_after(user, 3 SECONDS, 0) && is_preparing_action)
+			is_preparing_action = FALSE
+			to_chat(user, "Вы проталкиваете бумажный патрон с помощью шомпола")
+			is_cartrige_prepared = TRUE
+		return
+
+	if(!is_ready_to_fire)
+		to_chat(user, "Вы взводите курок винтовки 18 века")
+		icon_state = "rifle_france_ready"
+		is_ready_to_fire = TRUE
+		update_icon()
+		return
+	..()
+
+/obj/item/gun/ballistic/xviii_rifle/attackby(obj/item/A, mob/user, params)
+	//Loading from ammo box is forbidden
+	if(istype(A, /obj/item/ammo_box))
+		return FALSE
+
+	if (istype(A, /obj/item/ammo_casing))
+		//only paper cartriges is allowed
+		if(istype(A, /obj/item/ammo_casing/caseless/xviii_rifle_cartrige) && !chambered)
+			A.forceMove(src)
+			user.transferItemToLoc(A, src, TRUE)
+			chambered = A
+			return
+		return FALSE
+
+	if(istype(A, /obj/item/kitchen/knife) && !istype(A, /obj/item/kitchen/knife/xviii_rifle_bayonet))
+		return FALSE
+
+	..()
+
+/obj/item/gun/ballistic/xviii_rifle/can_shoot()
+	return is_cartrige_prepared && is_ready_to_fire && chambered
+
+/obj/item/gun/ballistic/xviii_rifle/shoot_live_shot(mob/living/user, pointblank = 0, atom/pbtarget = null, message = 1)
+	..()
+	var/datum/effect_system/smoke_spread/smoke = new
+	smoke.set_up(0, loc)
+	smoke.start()
+	is_cartrige_prepared = FALSE
+	is_ready_to_fire = FALSE
+	icon_state = "rifle_france"
+
+/obj/item/gun/ballistic/xviii_rifle/shoot_with_empty_chamber(mob/living/user as mob|obj)
+	if(!is_ready_to_fire)
+		return
+	. = ..()
+	is_ready_to_fire = FALSE
+	icon_state = "rifle_france"
+
+/obj/item/ammo_casing/caseless/xviii_rifle_cartrige
+	name = "Бумажный патрон винтовки 18 века"
+	desc = "Будет больно"
+	icon = 'white/qwaszx000/sprites/xvii_xviii_weapons.dmi'
+	icon_state = "paper_cartrige"
+	throwforce = 1
+	projectile_type = /obj/projectile/bullet/xviii_rifle_bullet
+	firing_effect_type = null
+	caliber = "taser"
+	heavy_metal = FALSE
+
+/obj/projectile/bullet/xviii_rifle_bullet
+	name = "Пуля 18 века"
+	desc = "Обычный стальной шар... До тех пор, пока он не летит в тебя"
+	icon = 'white/qwaszx000/sprites/xvii_xviii_weapons.dmi'
+	icon_state = "bullet"
+	damage = 70
+	stamina = 10
+	speed = 1
+	range = 40
+	embedding = list(embed_chance=50, fall_chance=25, pain_mult=1, pain_chance=30)
+
+
+/obj/projectile/bullet/xviii_rifle_bullet/on_hit(atom/target, blocked = FALSE, pierce_hit)
+	if(istype(target, /mob/living/carbon/))
+		var/mob/living/carbon/C = target
+		var/obj/item/bodypart/hit_limb
+		hit_limb = C.get_bodypart(C.check_limb_hit(def_zone))
+		hit_limb.force_wound_upwards(/datum/wound/blunt/critical)
+	..()
+
+
+/*
+ * Bayonet for XVIII rifle
+ */
+/obj/item/kitchen/knife/xviii_rifle_bayonet
+	name = "XVIII rifle bayonet"
+	desc = "Штык для винтовки 18 века"
+	icon = 'white/qwaszx000/sprites/xvii_xviii_weapons.dmi'
+	icon_state = "rifle_france_bayonet"
+	bayonet = TRUE
+	force = 20

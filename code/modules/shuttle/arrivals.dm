@@ -12,7 +12,7 @@
 	callTime = INFINITY
 	ignitionTime = 50
 
-	movement_force = list("KNOCKDOWN" = 3, "THROW" = 5)
+	movement_force = list("KNOCKDOWN" = 3, "THROW" = 0)
 
 	var/sound_played
 	var/damaged	//too damaged to undock?

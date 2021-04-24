@@ -354,7 +354,7 @@
 	var/launch_status = NOLAUNCH
 
 	///Whether or not you want your ship to knock people down, and also whether it will throw them several tiles upon launching.
-	var/list/movement_force = list("KNOCKDOWN" = 3, "THROW" = 10)
+	var/list/movement_force = list("KNOCKDOWN" = 3, "THROW" = 0)
 
 	var/list/ripples = list()
 	/// The shuttle projector we create with ripples and should be deleted with ripples

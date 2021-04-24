@@ -175,3 +175,48 @@
 	desc = "A sign labelling the courtroom, where the ever sacred Space Law is upheld."
 	icon_state = "court"
 	is_editable = TRUE
+
+/obj/structure/sign/flags/che
+	name = "Флаг Чечни"
+	sign_change_name = "Флаг - Чечня"
+	desc = "Круто!"
+	icon_state = "court"
+	is_editable = TRUE
+
+/obj/structure/sign/flags
+	icon = 'white/valtos/icons/flags.dmi'
+
+/obj/structure/sign/flags/che
+	name = "Флаг Чечни"
+	sign_change_name = "Флаг - Чечня"
+	desc = "Круто!"
+	icon_state = "flag_chechen"
+	is_editable = TRUE
+
+/obj/structure/sign/flags/soviet
+	name = "Флаг Совка"
+	sign_change_name = "Флаг - Совок"
+	desc = "+15 социальный рейтинг!"
+	icon_state = "flag_soviet"
+	is_editable = TRUE
+
+/obj/structure/sign/flags/russia
+	name = "Флаг России"
+	sign_change_name = "Флаг - Россия"
+	desc = "Выебет вас!"
+	icon_state = "flag_russia"
+	is_editable = TRUE
+
+/obj/structure/sign/flags/kazakh
+	name = "Флаг Казахстана"
+	sign_change_name = "Флаг - Казахстан"
+	desc = "Жумайсынба!"
+	icon_state = "flag_kazakh"
+	is_editable = TRUE
+
+/obj/structure/sign/flags/ua
+	name = "Флаг Украины"
+	sign_change_name = "Флаг - Украина"
+	desc = "Героям Слава!"
+	icon_state = "flag_ua"
+	is_editable = TRUE

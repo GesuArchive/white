@@ -191,6 +191,8 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/print_cards,
 	#ifdef TESTING
 	/client/proc/check_missing_sprites,
+	/client/proc/export_dynamic_json,
+	/client/proc/run_dynamic_simulations,
 	#endif
 	/datum/admins/proc/create_or_modify_area,
 	/client/proc/clicker_panel,

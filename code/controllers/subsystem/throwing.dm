@@ -85,6 +85,8 @@ SUBSYSTEM_DEF(throwing)
 
 /datum/thrownthing/Destroy()
 	SSthrowing.processing -= thrownthing
+	if(SSticker.current_state != GAME_STATE_STARTUP)
+		SSthrowing.currentrun -= thrownthing
 	thrownthing.throwing = null
 	thrownthing = null
 	target = null

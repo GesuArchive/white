@@ -782,7 +782,7 @@
 	},
 /area/science/server)
 "cs" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
 	dir = 6
 	},
 /turf/open/floor/partyhard/steel{
@@ -831,7 +831,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/open/floor/partyhard/steel{
 	icon_state = "st-6"
 	},
@@ -960,7 +960,7 @@
 	},
 /area/science/research)
 "cO" = (
-/obj/machinery/atmospherics/pipe/manifold/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/open/floor/partyhard/steel{
 	icon_state = "cx-9"
 	},
@@ -1244,7 +1244,7 @@
 /area/science/research)
 "dw" = (
 /obj/effect/spawner/structure/window/reinforced/partyhard,
-/obj/machinery/atmospherics/pipe/simple/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/open/floor/partyhard/steel{
 	icon_state = "st-6"
 	},
@@ -1328,7 +1328,7 @@
 /turf/open/floor/circuit/telecomms,
 /area/science/xenobiology)
 "dF" = (
-/obj/machinery/atmospherics/pipe/manifold/general/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
 	dir = 4
 	},
 /turf/open/floor/circuit/telecomms,
@@ -1337,7 +1337,7 @@
 /turf/open/floor/circuit/telecomms,
 /area/science/xenobiology)
 "dH" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/open/floor/circuit/telecomms,
 /area/science/xenobiology)
 "dI" = (
@@ -1350,7 +1350,7 @@
 /turf/open/floor/circuit/telecomms,
 /area/science/xenobiology)
 "dJ" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
 	dir = 9
 	},
 /turf/open/floor/circuit/telecomms,
@@ -3898,7 +3898,7 @@
 	},
 /area/science/xenobiology)
 "jd" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /obj/structure/table,
 /obj/item/storage/box/gloves,
 /obj/effect/turf_decal/partyhard/lines{
@@ -5348,7 +5348,7 @@
 	},
 /area/partyhard/chetyre)
 "mk" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /obj/machinery/light{
 	dir = 4
 	},

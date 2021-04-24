@@ -52,6 +52,8 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	var/purity = 1
 	///the purity of the reagent on creation (i.e. when it's added to a mob and it's purity split it into 2 chems; the purity of the resultant chems are kept as 1, this tracks what the purity was before that)
 	var/creation_purity = 1
+	///The molar mass of the reagent - if you're adding a reagent that doesn't have a recipe, just add a random number between 10 - 800. Higher numbers are "harder" but it's mostly arbitary.
+	var/mass
 	/// color it looks in containers etc
 	var/color = "#000000" // rgb: 0, 0, 0
 	///how fast the reagent is metabolized by the mob
@@ -97,12 +99,15 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	///A sound. Yes.
 	var/sound/special_sound = null
 
+
 /datum/reagent/New()
 	SHOULD_CALL_PARENT(TRUE)
 	. = ..()
 
 	if(material)
 		material = GET_MATERIAL_REF(material)
+	if(!mass)
+		mass = rand(10, 800)
 
 /datum/reagent/Destroy() // This should only be called by the holder, so it's already handled clearing its references
 	. = ..()
@@ -124,7 +129,7 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	if((methods & penetrates_skin) && exposed_mob.reagents) //smoke, foam, spray
 		var/amount = round(reac_volume*clamp((1 - touch_protection), 0, 1), 0.1)
 		if(amount >= 0.5)
-			exposed_mob.reagents.add_reagent(type, amount)
+			exposed_mob.reagents.add_reagent(type, amount, added_purity = purity)
 
 /datum/reagent/proc/FINISHONMOBLIFE(mob/living/M)
 	current_cycle++

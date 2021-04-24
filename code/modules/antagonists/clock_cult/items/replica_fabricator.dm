@@ -3,6 +3,8 @@
 /obj/item/clockwork/replica_fabricator
 	name = "replica fabricator"
 	icon = 'icons/obj/clockwork_objects.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	icon_state = "replica_fabricator"
 	desc = "A strange, brass device with many twisting cogs and vents."
 	clockwork_desc = "A device used to rapidly fabricate brass."

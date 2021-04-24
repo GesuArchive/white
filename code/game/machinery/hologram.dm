@@ -597,7 +597,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(!record_mode)
 		return
 	//make this command so you can have multiple languages in single record
-	if((!disk.record.caller_name || disk.record.caller_name == "Unknown") && istype(speaker))
+	if((!disk.record.caller_name || disk.record.caller_name == "Неизвестный") && istype(speaker))
 		disk.record.caller_name = speaker.name
 	if(!disk.record.language)
 		disk.record.language = language

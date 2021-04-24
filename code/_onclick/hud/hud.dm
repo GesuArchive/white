@@ -6,8 +6,8 @@
 
 // The default UI style is the first one in the list
 GLOBAL_LIST_INIT(available_ui_styles, list(
-	"Tetramon" = 'icons/hud/screen_tetramon.dmi',
 	"Cyberspess" = 'icons/hud/screen_cyberspess.dmi',
+	"Tetramon" = 'icons/hud/screen_tetramon.dmi',
 	"Bassboosted" = 'icons/hud/screen_bassboosted.dmi',
 	"Midnight" = 'icons/hud/screen_midnight.dmi',
 	"Retro" = 'icons/hud/screen_retro.dmi',
@@ -215,7 +215,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	screenmob.update_action_buttons(1)
 	reorganize_alerts(screenmob)
 	screenmob.reload_fullscreen()
-	update_parallax_pref(screenmob)
+	update_parallax_pref(screenmob, HAS_TRAIT(screenmob, TRAIT_HACKER))
 
 	// ensure observers get an accurate and up-to-date view
 	if (!viewmob)

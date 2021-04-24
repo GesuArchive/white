@@ -46,7 +46,7 @@ export const Reagents = (props, context) => {
 
   return (
     <Window
-      width={720}
+      width={830}
       height={850}>
       <Window.Content>
         <Stack fill vertical>
@@ -54,21 +54,21 @@ export const Reagents = (props, context) => {
             <Stack fill>
               <Stack.Item grow basis={0}>
                 <Section
-                  title="Recipe lookup"
+                  title="Рецепт"
                   minWidth="353px"
                   buttons={(
                     <Fragment>
                       <Button
-                        content="Beaker Sync"
+                        content="Синх. с пробиркой"
                         icon="atom"
                         color={beakerSync ? "green" : "red"}
-                        tooltip="When enabled the displayed reaction will automatically display ongoing reactions in the associated beaker."
+                        tooltip="Когда включено, будет подсвечивать подходящие реагенты."
                         onClick={() => act('beaker_sync')} />
                       <Button
-                        content="Search"
+                        content="Поиск"
                         icon="search"
                         color="purple"
-                        tooltip="Search for a recipe by product name"
+                        tooltip="Искать рецепт по имени."
                         onClick={() => act('search_recipe')} />
                       <Button
                         icon="times"
@@ -86,14 +86,14 @@ export const Reagents = (props, context) => {
               </Stack.Item>
               <Stack.Item grow basis={0}>
                 <Section
-                  title="Reagent lookup"
+                  title="Химикат"
                   minWidth="300px"
                   buttons={(
                     <>
                       <Button
-                        content="Search"
+                        content="Поиск"
                         icon="search"
-                        tooltip="Search for a reagent by name"
+                        tooltip="Искать химикат по имени"
                         tooltipPosition="left"
                         onClick={() => act('search_reagents')} />
                       <Button
@@ -111,7 +111,7 @@ export const Reagents = (props, context) => {
             </Stack>
           </Stack.Item>
           <Stack.Item>
-            <Section title="Tags">
+            <Section title="Тэги">
               <TagBox
                 bitflags={bitflags} />
             </Section>
@@ -134,7 +134,7 @@ const TagBox = (props, context) => {
   const { selectedBitflags } = data;
   return (
     <LabeledList>
-      <LabeledList.Item label="Affects">
+      <LabeledList.Item label="Влияет на">
         <Button
           color={selectedBitflags & bitflags.BRUTE ? "green" : "red"}
           icon="gavel"
@@ -142,7 +142,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_brute');
             setPage(1);
           }}>
-          Brute
+          Травмы
         </Button>
         <Button
           color={selectedBitflags & bitflags.BURN ? "green" : "red"}
@@ -151,7 +151,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_burn');
             setPage(1);
           }}>
-          Burn
+          Ожоги
         </Button>
         <Button
           color={selectedBitflags & bitflags.TOXIN ? "green" : "red"}
@@ -160,7 +160,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_toxin');
             setPage(1);
           }}>
-          Toxin
+          Токсины
         </Button>
         <Button
           color={selectedBitflags & bitflags.OXY ? "green" : "red"}
@@ -169,7 +169,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_oxy');
             setPage(1);
           }}>
-          Suffocation
+          Удушье
         </Button>
         <Button
           color={selectedBitflags & bitflags.CLONE ? "green" : "red"}
@@ -178,7 +178,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_clone');
             setPage(1);
           }}>
-          Clone
+          Клеточки
         </Button>
         <Button
           color={selectedBitflags & bitflags.ORGAN ? "green" : "red"}
@@ -187,7 +187,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_organ');
             setPage(1);
           }}>
-          Organ
+          Органы
         </Button>
         <Button
           icon="flask"
@@ -196,7 +196,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_chemical');
             setPage(1);
           }}>
-          Chemical
+          Химию
         </Button>
         <Button
           icon="seedling"
@@ -205,7 +205,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_plant');
             setPage(1);
           }}>
-          Plants
+          Растения
         </Button>
         <Button
           icon="question"
@@ -214,10 +214,10 @@ const TagBox = (props, context) => {
             act('toggle_tag_other');
             setPage(1);
           }}>
-          Other
+          Другое
         </Button>
       </LabeledList.Item>
-      <LabeledList.Item label="Type">
+      <LabeledList.Item label="Тип">
         <Button
           color={selectedBitflags & bitflags.DRINK ? "green" : "red"}
           icon="cocktail"
@@ -225,7 +225,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_drink');
             setPage(1);
           }}>
-          Drink
+          Напиток
         </Button>
         <Button
           color={selectedBitflags & bitflags.FOOD ? "green" : "red"}
@@ -234,7 +234,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_food');
             setPage(1);
           }}>
-          Food
+          Еда
         </Button>
         <Button
           color={selectedBitflags & bitflags.HEALING ? "green" : "red"}
@@ -243,7 +243,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_healing');
             setPage(1);
           }}>
-          Healing
+          Лечебный
         </Button>
         <Button
           icon="skull-crossbones"
@@ -252,7 +252,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_damaging');
             setPage(1);
           }}>
-          Toxic
+          Токсины
         </Button>
         <Button
           icon="pills"
@@ -261,7 +261,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_drug');
             setPage(1);
           }}>
-          Drugs
+          Наркотик
         </Button>
         <Button
           icon="microscope"
@@ -270,7 +270,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_slime');
             setPage(1);
           }}>
-          Slime
+          Слаймы
         </Button>
         <Button
           icon="bomb"
@@ -279,7 +279,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_explosive');
             setPage(1);
           }}>
-          Explosive
+          Взрывчатка
         </Button>
         <Button
           icon="puzzle-piece"
@@ -288,10 +288,10 @@ const TagBox = (props, context) => {
             act('toggle_tag_unique');
             setPage(1);
           }}>
-          Unique
+          Уникальный
         </Button>
       </LabeledList.Item>
-      <LabeledList.Item label="Difficulty">
+      <LabeledList.Item label="Сложность">
         <Button
           icon="chess-pawn"
           color={selectedBitflags & bitflags.EASY ? "green" : "red"}
@@ -299,7 +299,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_easy');
             setPage(1);
           }}>
-          Easy
+          Легко
         </Button>
         <Button
           icon="chess-knight"
@@ -308,7 +308,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_moderate');
             setPage(1);
           }}>
-          Moderate
+          Средне
         </Button>
         <Button
           icon="chess-queen"
@@ -317,7 +317,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_hard');
             setPage(1);
           }}>
-          Hard
+          Сложно
         </Button>
         <Button
           icon="exclamation-triangle"
@@ -326,7 +326,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_dangerous');
             setPage(1);
           }}>
-          Dangerous
+          Опасно
         </Button>
         <Button
           icon="recycle"
@@ -335,7 +335,7 @@ const TagBox = (props, context) => {
             act('toggle_tag_competitive');
             setPage(1);
           }}>
-          Competitive
+          Поехавший
         </Button>
       </LabeledList.Item>
     </LabeledList>
@@ -397,12 +397,12 @@ const RecipeLibrary = (props, context) => {
     <Section
       fill
       scrollable
-      title={bookmarkMode ? "Bookmarked recipes" : "Possible recipes"}
+      title={bookmarkMode ? "Рецепты в закладках" : "Возможные рецепты"}
       buttons={(
         <>
           Пробирка: {linkedBeaker+"  "}
           <Button
-            content="Filter by reagents in beaker"
+            content="Фильтр по реагентам в пробирке"
             icon="search"
             disabled={bookmarkMode}
             color={reagentFilter ? "green" : "red"}
@@ -411,7 +411,7 @@ const RecipeLibrary = (props, context) => {
               setPage(1);
             }} />
           <Button
-            content="Bookmarks"
+            content="Закладки"
             icon="book"
             color={bookmarkMode ? "green" : "red"}
             onClick={() => {
@@ -439,16 +439,16 @@ const RecipeLibrary = (props, context) => {
       <Table>
         <Table.Row>
           <Table.Cell bold color="label">
-            Reaction
+            Реакция
           </Table.Cell>
           <Table.Cell bold color="label">
-            Required reagents
+            Химикаты
           </Table.Cell>
           <Table.Cell bold color="label">
-            Tags
+            Тэги
           </Table.Cell>
           <Table.Cell bold color="label" width="20px">
-            {!bookmarkMode ? "Save" : "Del"}
+            {!bookmarkMode ? "YAY" : "NON"}
           </Table.Cell>
         </Table.Row>
         {visibleReactions.slice(startIndex, endIndex).map(reaction => (

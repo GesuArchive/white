@@ -206,16 +206,16 @@ window "preferences_window"
 	elem "preferences_browser_new"
 		type = BROWSER
 		pos = 0,0
-		size = 960x640
+		size = 1050x640
 		anchor1 = 0,0
-		anchor2 = 80,100
+		anchor2 = 85,100
 		saved-params = ""
 		can-scroll = vertical
 	elem "character_preview_map"
 		type = MAP
-		pos = 960,0
-		size = 240x640
-		anchor1 = 80,0
+		pos = 1050,0
+		size = 150x640
+		anchor1 = 85,0
 		anchor2 = 100,100
 		right-click = true
 		saved-params = "zoom;letterbox;zoom-mode"

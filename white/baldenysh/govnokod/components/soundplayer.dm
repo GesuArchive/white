@@ -136,6 +136,8 @@
 	S.channel = myplayer.playing_channel
 	var/turf/TT = get_turf(listener)
 	var/turf/MT = get_turf(myplayer.soundsource)
+	if(!TT || !MT)
+		return
 	var/dist = cheap_hypotenuse(TT.x, TT.y, MT.x, MT.y)
 	if(dist <= myplayer.playing_range && TT.z == MT.z)
 		if(myplayer.environmental && MT && TT)

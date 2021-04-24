@@ -30,7 +30,7 @@ export const OreRedemptionMachine = (props, context) => {
             {unclaimedPoints}
             <Button
               ml={2}
-              content="Claim"
+              content="Забрать"
               disabled={unclaimedPoints === 0}
               onClick={() => act('Claim')} />
           </Box>
@@ -111,7 +111,7 @@ const MaterialRow = (props, context) => {
 
   const amountAvailable = Math.floor(material.amount);
   return (
-    <Table.Row>
+    <Table.Row minHeight="24px">
       <Table.Cell>
         {capitalize(material.name)}
       </Table.Cell>

@@ -1,6 +1,6 @@
 /client/verb/roundstatus()
 	set name = "Статус раунда"
-	set category = "OOC"
+	set category = null
 
 	var/round_time = world.time - SSticker.round_start_time
 

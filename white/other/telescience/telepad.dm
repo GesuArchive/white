@@ -1,7 +1,7 @@
 ///SCI TELEPAD///
 /obj/machinery/telepad
-	name = "telepad"
-	desc = "A bluespace telepad used for teleporting objects to and from a location."
+	name = "телепад"
+	desc = "Блюспейс катапульта в масштабах космоса. Как тебе такое описание?"
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "pad-idle"
 	anchored = 1
@@ -25,7 +25,7 @@
 		if(istype(I, /obj/item/multitool))
 			var/obj/item/multitool/M = I
 			M.buffer = src
-			to_chat(user, "<span class='caution'>You save the data in the [I.name] buffer.</span>")
+			to_chat(user, "<span class='caution'>Сохраняю данные в буфере [I.name].</span>")
 			return 1
 
 	if(exchange_parts(user, I))

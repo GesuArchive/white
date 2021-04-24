@@ -47,7 +47,7 @@
 					if(H.mind)
 						mob_data["job"] = H.mind.assigned_role
 					else
-						mob_data["job"] = "Unknown"
+						mob_data["job"] = "Неизвестный"
 					mob_data["species"] = H.dna.species.name
 				else if(issilicon(L))
 					category = "silicons"
@@ -374,7 +374,7 @@
 	if(istype(SSticker.mode, /datum/game_mode/dynamic))
 		var/datum/game_mode/dynamic/mode = SSticker.mode
 		parts += "[FOURSPACES]Уровень угрозы: [mode.threat_level]"
-		parts += "[FOURSPACES]Оставшаяся угроза: [mode.threat]"
+		parts += "[FOURSPACES]Оставшаяся угроза: [mode.mid_round_budget]"
 		parts += "[FOURSPACES]Правила:"
 		for(var/datum/dynamic_ruleset/rule in mode.executed_rules)
 			parts += "[FOURSPACES][FOURSPACES][rule.ruletype] - <b>[rule.name]</b>: -[rule.cost + rule.scaled_times * rule.scaling_cost] очков угрозы"

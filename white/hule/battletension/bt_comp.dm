@@ -125,7 +125,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		BT.create_tension(I.force * 1.2)
 
 /datum/component/battletension/proc/is_enabled()
-	if(!owner || !owner.client || !owner.client.prefs.btprefsnew)
+	if((!owner || !owner.client || !owner.client.prefs.btprefsnew) && !SSbtension.forced_tension)
 		return FALSE
 	return TRUE
 

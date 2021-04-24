@@ -112,6 +112,22 @@
 /datum/movespeed_modifier/heavy_shield
 	multiplicative_slowdown = 1
 
+/obj/item/shield/riot/kevlar
+	name = "кевларовый щит"
+	desc = "Крепкий и достаточно лёгкий."
+	force = 8
+	block_chance = 70
+	transparent = FALSE
+	max_integrity = 250
+	icon_state = "kevlarshield"
+	inhand_icon_state = "kevlarshield"
+	worn_icon_state = "kevlarshield"
+	custom_materials = list(/datum/material/iron = 7500, /datum/material/plastic = 2500)
+	icon = 'white/valtos/icons/objects.dmi'
+	worn_icon = 'white/valtos/icons/back.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
+
 /obj/item/shield/riot/roman
 	name = "Римский щит"
 	desc = "На внутренней стороне надпись: <i>\"Romanes venio domus\"</i>."

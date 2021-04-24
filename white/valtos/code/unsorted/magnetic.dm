@@ -220,7 +220,7 @@
 			if(asteroid_catch_time <= 0)
 				for(var/turf/T in valid_turfs)
 					if(T.z == 2)
-						T.ChangeTurf(/turf/open/space/basic, /turf/open/space/basic)
+						T.ChangeTurf(/turf/open/space, /turf/open/space)
 					else
 						T.ChangeTurf(/turf/open/openspace/airless, /turf/open/openspace/airless)
 					for(var/atom/A in T)

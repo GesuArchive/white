@@ -8,17 +8,17 @@ import { selectBackend } from './backend';
 import { selectDebug } from './debug/selectors';
 import { Window } from './layouts';
 
-const requireInterface = require.context('./interfaces', false, /\.js$/);
+const requireInterface = require.context('./interfaces');
 
 const routingError = (type, name) => () => {
   return (
     <Window>
       <Window.Content scrollable>
         {type === 'notFound' && (
-          <div>Интерфейс <b>{name}</b> сломался...</div>
+          <div>Интерфейс <b>{name}</b> потеряли.</div>
         )}
         {type === 'missingExport' && (
-          <div>Интерфейс <b>{name}</b> чудом сломался!</div>
+          <div>Интерфейс <b>{name}</b> ПРОЕБАЛИ.</div>
         )}
       </Window.Content>
     </Window>
@@ -47,15 +47,27 @@ export const getRoutedComponent = store => {
     }
   }
   const name = config?.interface;
+  const interfacePathBuilders = [
+    name => `./${name}.tsx`,
+    name => `./${name}.js`,
+    name => `./${name}/index.tsx`,
+    name => `./${name}/index.js`,
+  ];
   let esModule;
-  try {
-    esModule = requireInterface(`./${name}.js`);
-  }
-  catch (err) {
-    if (err.code === 'MODULE_NOT_FOUND') {
-      return routingError('notFound', name);
+  while (!esModule && interfacePathBuilders.length > 0) {
+    const interfacePathBuilder = interfacePathBuilders.shift();
+    const interfacePath = interfacePathBuilder(name);
+    try {
+      esModule = requireInterface(interfacePath);
     }
-    throw err;
+    catch (err) {
+      if (err.code !== 'MODULE_NOT_FOUND') {
+        throw err;
+      }
+    }
+  }
+  if (!esModule) {
+    return routingError('notFound', name);
   }
   const Component = esModule[name];
   if (!Component) {

@@ -1,5 +1,5 @@
 /turf/open/floor/partyhard
-	name = "floor"
+	name = "пол"
 	icon = 'white/valtos/icons/turfs.dmi'
 	baseturfs = /turf/open/openspace
 	icon_state = "b-1"
@@ -37,8 +37,8 @@
 	return
 
 /turf/closed/wall/partyhard
-	name = "durawall"
-	desc = "Durable metal wall."
+	name = "стена"
+	desc = "Очень крепкая."
 	icon = 'white/valtos/icons/walls.dmi'
 	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_WINDOW_FULLTILE)
@@ -63,7 +63,7 @@
 	spawn_list = list(/obj/structure/grille, /obj/structure/window/reinforced/fulltile/partyhard)
 
 /turf/closed/mineral/partyhard
-	name = "rock"
+	name = "камень"
 	icon = 'icons/turf/mining.dmi'
 	smooth_icon = 'icons/turf/walls/rock_wall.dmi'
 	icon_state = "rock2"
@@ -81,6 +81,7 @@
 	icon_state = "black"
 	layer = FLY_LAYER
 	bullet_bounce_sound = null
+	baseturfs = /turf/closed/indestructible/black
 
 /turf/closed/indestructible/black/New()
 	return

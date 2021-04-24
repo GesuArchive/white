@@ -122,7 +122,7 @@
 		return
 	. = COMPONENT_NO_AFTERATTACK
 	var/datum/callback/pc = precondition
-	if(pc && !pc.Invoke(user))
+	if(pc && istype(pc) && !pc.Invoke(user))
 		return
 	var/material_amount = get_item_material_amount(I, mat_container_flags)
 	if(!material_amount)

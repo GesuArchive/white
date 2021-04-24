@@ -45,8 +45,6 @@
 	description = "Подержать за руку."
 	require_user_hands = 1
 	simple_message = "USER держит TARGET за руку."
-	max_distance = 25
 	needs_physical_contact = 1
-	max_distance = 25
 	whitelisted = FALSE
 

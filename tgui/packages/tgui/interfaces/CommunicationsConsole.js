@@ -299,6 +299,7 @@ const PageMain = (props, context) => {
   const {
     alertLevel,
     alertLevelTick,
+    aprilFools,
     callShuttleReasonMinLength,
     canBuyShuttles,
     canMakeAnnouncement,
@@ -413,6 +414,12 @@ const PageMain = (props, context) => {
             icon="bullhorn"
             content="Создать срочное объявление"
             onClick={() => act("makePriorityAnnouncement")}
+          />}
+
+          {!!aprilFools && !!canMakeAnnouncement && <Button
+            icon="bullhorn"
+            content="СРОЧНОЕ СОБРАНИЕ"
+            onClick={() => act("emergency_meeting")}
           />}
 
           {!!canToggleEmergencyAccess && <Button.Confirm
@@ -711,7 +718,7 @@ export const CommunicationsConsole = (props, context) => {
   return (
     <Window
       width={400}
-      height={650}
+      height={authenticated ? 525 : 120}
       theme={emagged ? "syndicate" : undefined}>
       <Window.Content scrollable>
         {!hasConnection && <NoConnectionModal />}

@@ -195,7 +195,10 @@ GLOBAL_LIST_INIT(donations_list, list(
 	if(D)
 		D.ui_interact(src.mob)
 	else
-		to_chat(src,"<span class='warning'>Ты не донатил, извини.</span>")
+		D = GLOB.donators["FREEBIE"]
+		if(!D)
+			D = new /datum/donator("FREEBIE", 0)
+	D.ui_interact(src.mob)
 
 GLOBAL_LIST_EMPTY(donate_icon_cache)
 GLOBAL_LIST_EMPTY(donators)

@@ -30,6 +30,20 @@
 		mytape = new starting_tape_type(src)
 	update_icon()
 
+/obj/item/taperecorder/Destroy()
+	QDEL_NULL(mytape)
+	return ..()
+
+/obj/item/taperecorder/proc/readout()
+	if(mytape)
+		if(playing)
+			return "<span class='notice'><b>PLAYING</b></span>"
+		else
+			var/time = mytape.used_capacity / 10 //deciseconds / 10 = seconds
+			var/mins = round(time / 60)
+			var/secs = time - mins * 60
+			return "<span class='notice'><b>[mins]</b>m <b>[secs]</b>s</span>"
+	return "<span class='notice'><b>NO TAPE INSERTED</b></span>"
 
 /obj/item/taperecorder/examine(mob/user)
 	. = ..()

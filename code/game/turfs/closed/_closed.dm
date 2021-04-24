@@ -60,7 +60,7 @@
 
 /turf/closed/indestructible/splashscreen
 	name = "White Dream"
-	desc = "Многогранная шизофрения."
+	desc = "Прогрессирующая болезь."
 	icon = 'icons/protocol_c.dmi'
 	icon_state = "blank"
 	layer = SPLASHSCREEN_LAYER

@@ -212,7 +212,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 	var/unit_no = 0
 	var/alert_delay = 500
 	var/alert = FALSE
-	var/scanned_user = "Unknown"
+	var/scanned_user = "Неизвестный"
 	var/msg = ""
 	var/datum/picture/picture
 	var/channel_name = ""
@@ -334,7 +334,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 				dat+="<B><FONT COLOR='maroon'>ОШИБКА: Невозможно отправить новость в сеть.</B></FONT><HR><BR>"
 				if(channel_name=="")
 					dat+="<FONT COLOR='maroon'>Неправильное имя канала.</FONT><BR>"
-				if(scanned_user=="Unknown")
+				if(scanned_user=="Неизвестный")
 					dat+="<FONT COLOR='maroon'>Неизвестный автор.</FONT><BR>"
 				if(msg == "" || msg == "\[REDACTED\]")
 					dat+="<FONT COLOR='maroon'>Нет сообщения.</FONT><BR>"
@@ -358,7 +358,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 						break
 				if(check)
 					dat+="<FONT COLOR='maroon'>Канал уже используется.</FONT><BR>"
-				if(scanned_user=="Unknown")
+				if(scanned_user=="Неизвестный")
 					dat+="<FONT COLOR='maroon'>Автор канала не подтверждён.</FONT><BR>"
 				dat+="<BR><A href='?src=[REF(src)];setScreen=[2]'>Вернуться</A><BR>"
 			if(8)
@@ -479,7 +479,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 				dat+="<B><FONT COLOR='maroon'>ОШИБКА: Объявление о розыске было отклонено сетью.</B></FONT><HR><BR>"
 				if(channel_name=="" || channel_name == "\[REDACTED\]")
 					dat+="<FONT COLOR='maroon'>Неправильное имя разыскиваемого.</FONT><BR>"
-				if(scanned_user=="Unknown")
+				if(scanned_user=="Неизвестный")
 					dat+="<FONT COLOR='maroon'>Автор не подтверждён.</FONT><BR>"
 				if(msg == "" || msg == "\[REDACTED\]")
 					dat+="<FONT COLOR='maroon'>Неправильное описание.</FONT><BR>"
@@ -538,7 +538,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 				if(FC.channel_name == channel_name)
 					check = TRUE
 					break
-			if(channel_name == "" || channel_name == "\[REDACTED\]" || scanned_user == "Unknown" || check || (scanned_user in existing_authors) )
+			if(channel_name == "" || channel_name == "\[REDACTED\]" || scanned_user == "Неизвестный" || check || (scanned_user in existing_authors) )
 				screen=7
 			else
 				var/choice = alert("Подтвердить бы создание","Общая сеть","Подтвердить","Отменить")
@@ -564,7 +564,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 			AttachPhoto(usr)
 			updateUsrDialog()
 		else if(href_list["submit_new_message"])
-			if(msg =="" || msg=="\[REDACTED\]" || scanned_user == "Unknown" || channel_name == "" )
+			if(msg =="" || msg=="\[REDACTED\]" || scanned_user == "Неизвестный" || channel_name == "" )
 				screen=6
 			else
 				GLOB.news_network.SubmitArticle("<font face=\"[PEN_FONT]\">[parsemarkdown(msg, usr)]</font>", scanned_user, channel_name, picture, 0, allow_comments)
@@ -608,7 +608,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 			updateUsrDialog()
 		else if(href_list["submit_wanted"])
 			var/input_param = text2num(href_list["submit_wanted"])
-			if(msg == "" || channel_name == "" || scanned_user == "Unknown")
+			if(msg == "" || channel_name == "" || scanned_user == "Неизвестный")
 				screen = 16
 			else
 				var/choice = alert("Подтвердить объявление о [(input_param==1) ? ("создании") : ("редактировании")] объявления о розыске.","Служба безопасности","Подтвердить","Отменить")
@@ -675,7 +675,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 		else if(href_list["setScreen"])
 			screen = text2num(href_list["setScreen"])
 			if (screen == 0)
-				scanned_user = "Unknown";
+				scanned_user = "Неизвестный";
 				msg = "";
 				c_locked=0;
 				channel_name="";
@@ -816,7 +816,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 		var/mob/living/carbon/human/human_user = user
 		var/obj/item/card/id/id_card = human_user.get_idcard()
 		if(!id_card)
-			scanned_user ="Unknown"
+			scanned_user ="Неизвестный"
 			return
 		scanned_user = "[id_card.registered_name] ([id_card.assignment])"
 	else if(issilicon(user))

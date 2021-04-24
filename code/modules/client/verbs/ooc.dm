@@ -1,5 +1,6 @@
 GLOBAL_VAR_INIT(OOC_COLOR, null)//If this is null, use the CSS for OOC. Otherwise, use a custom colour.
 GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
+GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД ЕБУТ", "оникс" = "говно", "опух" = "говнище", "валтос" = ":ai:"))
 
 /client/verb/ooc(msg as text)
 	set name = "OOC" //Gave this shit a shorter name so you only have to time out "ooc" rather than "ooc message" to use it --NeoFite
@@ -30,6 +31,9 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 	if(!msg)
 		return
+
+	for(var/word in GLOB.retard_words)
+		msg = replacetext_char(msg, word, GLOB.retard_words[word])
 
 	msg = emoji_parse(msg)
 
@@ -161,7 +165,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 /client/verb/colorooc()
 	set name = "Свой цвет OOC"
-	set category = "Настройки"
+	set category = null
 
 	if(!holder || !check_rights_for(src, R_ADMIN))
 		if(!check_donations(ckey) >= 100)
@@ -180,7 +184,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 /client/verb/resetcolorooc()
 	set name = "❌ Сбросить свой цвет OOC"
 	set desc = "Returns your OOC Color to default"
-	set category = "Настройки"
+	set category = null
 
 	if(!holder || !check_rights_for(src, R_ADMIN))
 		if(!check_donations(ckey) >= 100)
@@ -224,7 +228,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	browse_messages(null, usr.ckey, null, TRUE)
 
 /client/proc/self_playtime()
-	set name = "📘 Показать моё время игры"
+	set name = "📘 Моё время игры"
 	set category = "OOC"
 	set desc = "View the amount of playtime for roles the server has tracked."
 

@@ -1,3 +1,5 @@
+#define LOCKER_FULL -1
+
 /obj/structure/closet
 	name = "шкаф"
 	desc = "Это наиболее распространенный вид хранилища."
@@ -42,7 +44,6 @@
 	var/datum/gas_mixture/air_contents
 	var/airtight_when_welded = TRUE
 	var/airtight_when_closed = FALSE
-
 
 /obj/structure/closet/Initialize(mapload)
 	if(mapload && !opened)		// if closed, any item at the crate's loc is put in the contents
@@ -154,7 +155,7 @@
 /obj/structure/closet/proc/take_contents()
 	var/atom/L = drop_location()
 	for(var/atom/movable/AM in L)
-		if(AM != src && insert(AM) == -1) // limit reached
+		if(AM != src && insert(AM) == LOCKER_FULL) // limit reached
 			break
 	for(var/i in reverseRange(L.GetAllContents()))
 		var/atom/movable/thing = i
@@ -177,14 +178,19 @@
 	update_airtightness()
 	return TRUE
 
-/obj/structure/closet/proc/insert(atom/movable/AM)
-	if(contents.len >= storage_capacity)
-		return -1
-	if(insertion_allowed(AM))
-		AM.forceMove(src)
-		return TRUE
-	else
+///Proc to override for effects after opening a door
+/obj/structure/closet/proc/after_open(mob/living/user, force = FALSE)
+	return
+
+/obj/structure/closet/proc/insert(atom/movable/inserted)
+	if(length(contents) >= storage_capacity)
+		return LOCKER_FULL
+	if(!insertion_allowed(inserted))
 		return FALSE
+	if(SEND_SIGNAL(src, COMSIG_CLOSET_INSERT, inserted) & COMPONENT_CLOSET_INSERT_INTERRUPT)
+		return TRUE
+	inserted.forceMove(src)
+	return TRUE
 
 /obj/structure/closet/proc/insertion_allowed(atom/movable/AM)
 	if(ismob(AM))
@@ -495,6 +501,7 @@
 			to_chat(user, "<span class='warning'>Я не могу вырваться из захвата [src]!</span>")
 
 /obj/structure/closet/proc/bust_open()
+	SIGNAL_HANDLER
 	welded = FALSE //applies to all lockers
 	locked = FALSE //applies to critter crates and secure lockers only
 	broken = TRUE //applies to secure lockers only
@@ -580,10 +587,10 @@
 /obj/structure/closet/AllowDrop()
 	return TRUE
 
-
 /obj/structure/closet/return_temperature()
 	return
 
+#undef LOCKER_FULL
 /obj/structure/closet/proc/dive_into(mob/living/user)
 	var/turf/T1 = get_turf(user)
 	var/turf/T2 = get_turf(src)
@@ -648,4 +655,4 @@
 /obj/structure/closet/return_temperature()
 	if(air_contents)
 		return air_contents.return_temperature()
-	return ..()
+

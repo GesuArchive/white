@@ -19,8 +19,11 @@
 	var/list/shouts
 
 /datum/ai_behavior/battle_shout/perform(delta_time, datum/ai_controller/controller)
+	. = ..()
 	var/mob/living/living_pawn = controller.pawn
 	living_pawn.say(uppertext(pick(shouts)))
+	finish_action(controller, TRUE)
+
 ///Moves to target then finishes
 /datum/ai_behavior/move_to_target
 	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT

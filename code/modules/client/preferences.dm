@@ -531,10 +531,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += " - [capitalize(G.display_name)]</td>"
 				dat += "<td width=5% style='vertical-align:middle' class='metaprice'>[G.cost]</td><td>"
 				if(G.allowed_roles)
-					dat += "<font size=2>"
-					for(var/role in G.allowed_roles)
-						dat += role + " "
-					dat += "</font>"
+					dat += "<font size=2>[english_list(G.allowed_roles)]</font>"
 				else
 					dat += "<font size=2>Все</font>"
 				dat += "</td><td><font size=2><i>[G.description]</i></font></td></tr>"
@@ -1470,7 +1467,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("tail_human")
 					var/new_tail
 					new_tail = input(user, "Choose your character's tail:", "Character Preference") as null|anything in GLOB.tails_list_human
-					if((!user.client.holder && user.client.ckey != "felinemistress") && new_tail == "Fox")
+					if((!user.client.holder && user.client.ckey != "felinemistress" && user.client.ckey != "chilipila") && new_tail == "Fox")
 						to_chat(user, "<span class='danger'>Pedos not allowed? <big>ВАШЕ ДЕЙСТВИЕ БУДЕТ ЗАПИСАНО</big>.</span>")
 						message_admins("[ADMIN_LOOKUPFLW(user)] попытался выбрать фуррятину в виде хвоста.")
 						return

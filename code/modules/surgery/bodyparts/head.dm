@@ -16,6 +16,7 @@
 	wound_resistance = 5
 	disabled_wound_penalty = 25
 	scars_covered_by_clothes = FALSE
+	grind_results = null
 
 	var/mob/living/brain/brainmob = null //The current occupant.
 	var/obj/item/organ/brain/brain = null //The brain organ
@@ -136,7 +137,7 @@
 
 	real_name = C.real_name
 	if(HAS_TRAIT(C, TRAIT_HUSK))
-		real_name = "Unknown"
+		real_name = "Неизвестный"
 		hairstyle = "Bald"
 		facial_hairstyle = "Shaved"
 		lip_style = null

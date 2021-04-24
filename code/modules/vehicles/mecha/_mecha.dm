@@ -222,6 +222,7 @@
 		for(var/obj/item/mecha_parts/mecha_equipment/equip as anything in equipment)
 			equip.detach(loc)
 			qdel(equip)
+	radio = null
 
 	STOP_PROCESSING(SSobj, src)
 	LAZYCLEARLIST(equipment)
@@ -235,6 +236,8 @@
 	QDEL_NULL(smoke_system)
 
 	GLOB.mechas_list -= src //global mech list
+	for(var/datum/atom_hud/data/diagnostic/diag_hud in GLOB.huds)
+		diag_hud.remove_from_hud(src) //YEET
 	return ..()
 
 /obj/vehicle/sealed/mecha/obj_destruction()
@@ -586,7 +589,7 @@
 
 	var/atom/movable/backup = get_spacemove_backup()
 	if(backup)
-		if(movement_dir && !backup.anchored)
+		if(movement_dir && (!isturf(backup) && !backup.anchored))
 			if(backup.newtonian_move(turn(movement_dir, 180)))
 				step_silent = TRUE
 				if(return_drivers())

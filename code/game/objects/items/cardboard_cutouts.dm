@@ -129,15 +129,15 @@
 			desc = "...(A cardboard cutout of a mime.)"
 			icon_state = "cutout_mime"
 		if("Traitor")
-			name = "[pick("Unknown", "Captain")]"
+			name = "[pick("Неизвестный", "Captain")]"
 			desc = "A cardboard cutout of a traitor."
 			icon_state = "cutout_traitor"
 		if("Nuke Op")
-			name = "[pick("Unknown", "COMMS", "Telecomms", "AI", "stealthy op", "STEALTH", "sneakybeaky", "MEDIC", "Medic")]"
+			name = "[pick("Неизвестный", "COMMS", "Telecomms", "AI", "stealthy op", "STEALTH", "sneakybeaky", "MEDIC", "Medic")]"
 			desc = "A cardboard cutout of a nuclear operative."
 			icon_state = "cutout_fluke"
 		if("Cultist")
-			name = "Unknown"
+			name = "Неизвестный"
 			desc = "A cardboard cutout of a cultist."
 			icon_state = "cutout_cultist"
 		if("Clockwork Cultist")
@@ -145,7 +145,7 @@
 			desc = "A cardboard cutout of a servant of Ratvar."
 			icon_state = "cutout_servant"
 		if("Revolutionary")
-			name = "Unknown"
+			name = "Неизвестный"
 			desc = "A cardboard cutout of a revolutionary."
 			icon_state = "cutout_viva"
 		if("Wizard")
@@ -153,7 +153,7 @@
 			desc = "A cardboard cutout of a wizard."
 			icon_state = "cutout_wizard"
 		if("Shadowling")
-			name = "Unknown"
+			name = "Неизвестный"
 			desc = "A cardboard cutout of a shadowling."
 			icon_state = "cutout_shadowling"
 		if("Xenomorph")

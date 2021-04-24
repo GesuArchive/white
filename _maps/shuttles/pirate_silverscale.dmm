@@ -5,7 +5,7 @@
 "au" = (
 /obj/machinery/door/airlock/silver/glass,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
@@ -33,7 +33,7 @@
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "bZ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/pirate)
 "cE" = (
@@ -48,14 +48,14 @@
 "cH" = (
 /obj/machinery/door/airlock/silver,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "de" = (
 /obj/machinery/door/airlock/external/glass{
 	id_tag = "pirateportexternal"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
 /turf/open/floor/pod/dark,
@@ -104,7 +104,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/shuttle/pirate)
 "fT" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
@@ -117,7 +117,7 @@
 /area/shuttle/pirate)
 "ht" = (
 /obj/machinery/door/airlock/silver,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "hu" = (
@@ -126,7 +126,7 @@
 /area/shuttle/pirate)
 "hW" = (
 /obj/machinery/piratepad,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 8
 	},
 /turf/open/floor/pod/dark,
@@ -164,7 +164,7 @@
 /area/shuttle/pirate)
 "jo" = (
 /obj/effect/spawner/structure/window/shuttle,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plating,
 /area/shuttle/pirate)
 "jG" = (
@@ -174,7 +174,7 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/pirate)
 "jQ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
 /obj/machinery/light/small,
@@ -243,7 +243,7 @@
 /turf/open/space/basic,
 /area/shuttle/pirate)
 "mI" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 5
 	},
 /turf/open/floor/carpet/royalblack,
@@ -283,7 +283,7 @@
 "pU" = (
 /obj/machinery/door/airlock/silver,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblack,
@@ -300,12 +300,8 @@
 "rB" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/pirate)
-"te" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/turf/open/floor/pod/dark,
-/area/shuttle/pirate)
 "ue" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
@@ -345,7 +341,7 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/pirate)
 "wa" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "xe" = (
@@ -401,7 +397,7 @@
 /turf/open/floor/plasteel/dark,
 /area/shuttle/pirate)
 "zN" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
 /obj/machinery/light/small{
@@ -413,7 +409,7 @@
 /obj/machinery/door/airlock/external/glass{
 	id_tag = "piratestarboardexternal"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
 /turf/open/floor/pod/dark,
@@ -429,7 +425,7 @@
 /obj/structure/chair/sofa/corp/right{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/pirate)
 "AE" = (
@@ -456,7 +452,7 @@
 /turf/open/floor/plasteel/dark,
 /area/shuttle/pirate)
 "BK" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 1
 	},
 /turf/open/floor/carpet/royalblack,
@@ -471,7 +467,7 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/pirate)
 "Ch" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/pirate)
 "CH" = (
@@ -492,12 +488,6 @@
 	onstation = 0
 	},
 /turf/open/floor/plasteel/dark,
-/area/shuttle/pirate)
-"Df" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden{
-	dir = 4
-	},
-/turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "Dt" = (
 /obj/structure/chair/comfy/shuttle{
@@ -585,7 +575,7 @@
 /turf/open/floor/plasteel/dark,
 /area/shuttle/pirate)
 "Jq" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 6
 	},
 /turf/open/floor/carpet/royalblack,
@@ -595,7 +585,7 @@
 /turf/open/floor/plasteel/dark,
 /area/shuttle/pirate)
 "JV" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/carpet/royalblack,
 /area/shuttle/pirate)
 "Kq" = (
@@ -609,7 +599,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 6
 	},
 /turf/open/floor/pod/dark,
@@ -644,7 +634,7 @@
 /area/shuttle/pirate)
 "NI" = (
 /obj/machinery/door/airlock/silver,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
@@ -692,7 +682,7 @@
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "Pg" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 1
 	},
 /turf/open/floor/pod/dark,
@@ -707,7 +697,7 @@
 "QO" = (
 /obj/structure/bed/pod,
 /obj/item/bedsheet/black,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 10
 	},
 /turf/open/floor/carpet/royalblack,
@@ -733,7 +723,7 @@
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "RE" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 9
 	},
 /obj/effect/mob_spawn/human/pirate/silverscale/gunner{
@@ -779,7 +769,7 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/pirate)
 "Si" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
 /turf/open/floor/pod/dark,
@@ -792,7 +782,7 @@
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "Sv" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblack,
@@ -1009,17 +999,17 @@ rB
 rB
 CP
 Lk
-Df
+Si
 ht
-te
-te
-te
+wa
+wa
+wa
 hW
-te
-te
-te
+wa
+wa
+wa
 cH
-Df
+Si
 wa
 ko
 rB
@@ -1133,7 +1123,7 @@ am
 am
 ei
 jo
-bZ
+Ch
 Ch
 zB
 HD

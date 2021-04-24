@@ -81,8 +81,8 @@
 		update_icon()
 	else if(istype(I, /obj/item/jobanyj_rot))
 		var/obj/item/jobanyj_rot = I
-		del(jobanyj_rot)
 		playsound(src, 'white/ClickerOfThings/shitspawn_deck/sluchai_v_kazino_full.ogg', 50, 1)
 		user.visible_message("[user] zamechaet, chto koloda raspolozhena v drugom poryadke. Yobaniy rot etogo kazino blyat!")
+		qdel(jobanyj_rot)
 	else
 		return ..()

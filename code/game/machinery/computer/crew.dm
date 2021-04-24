@@ -144,7 +144,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		// The entry for this human
 		var/list/entry = list(
 			"ref" = REF(H),
-			"name" = "Unknown",
+			"name" = "Неизвестный",
 			"ijob" = UNKNOWN_JOB_ID
 		)
 
