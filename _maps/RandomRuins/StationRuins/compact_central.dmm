@@ -1696,10 +1696,15 @@
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
 "eU" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plasteel,
-/area/hallway/primary/central)
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/shutters{
+	dir = 4;
+	id = "aquaprivacy";
+	name = "Privacy Shutters"
+	},
+/turf/open/floor/plating,
+/area/crew_quarters/fitness/recreation)
 "eV" = (
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "hop";
@@ -3125,11 +3130,14 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "nd" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/turf/open/floor/plasteel,
-/area/hallway/primary/central)
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/shutters{
+	id = "aquaprivacy";
+	name = "Privacy Shutters"
+	},
+/turf/open/floor/plating,
+/area/crew_quarters/fitness/recreation)
 "nf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
@@ -3303,15 +3311,8 @@
 /turf/open/floor/plasteel/grimy,
 /area/crew_quarters/heads/captain)
 "uH" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/plasteel,
-/area/hallway/primary/central)
+/turf/closed/wall/r_wall,
+/area/crew_quarters/fitness/recreation)
 "uQ" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -3497,14 +3498,6 @@
 "Bl" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/plasteel,
-/area/hallway/primary/central)
-"Bq" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -4411,25 +4404,25 @@ fS
 Uz
 Zo
 Oi
-nd
-nd
+yU
+yU
 bc
-nd
-nd
+yU
+yU
 QC
-nd
+yU
 hN
-nd
-nd
+yU
+yU
 nf
 RK
-nd
-uH
+yU
+Gm
 xb
-nd
-nd
+yU
+yU
 QC
-nd
+yU
 jP
 Kd
 ab
@@ -4778,8 +4771,8 @@ ia
 "}
 (13,1,1) = {"
 ab
-bT
-xG
+ab
+nd
 az
 fS
 cZ
@@ -4816,8 +4809,8 @@ ia
 "}
 (14,1,1) = {"
 ab
-bT
-xG
+ab
+nd
 az
 fS
 cZ
@@ -4854,8 +4847,8 @@ ia
 "}
 (15,1,1) = {"
 ab
-xG
-xG
+eU
+uH
 az
 fS
 hr
@@ -5028,16 +5021,16 @@ ep
 ep
 Kx
 IV
-nd
+yU
 QC
 Xk
-nd
+yU
 df
-nd
-nd
+yU
+yU
 QC
-nd
-nd
+yU
+yU
 Tf
 GN
 JO
@@ -5266,7 +5259,7 @@ hJ
 xu
 dy
 gG
-Bq
+Xk
 cW
 ab
 "}
@@ -5388,7 +5381,7 @@ ab
 ab
 aq
 au
-eU
+yl
 gU
 bj
 bz
@@ -5618,8 +5611,8 @@ ab
 ab
 aQ
 bd
-nd
-nd
+yU
+yU
 Rr
 Uj
 fS
@@ -5631,21 +5624,21 @@ fS
 ew
 PV
 ff
-nd
-nd
-nd
+yU
+yU
+yU
 rb
-nd
+yU
 Xk
-nd
-nd
+yU
+yU
 QC
-nd
-nd
-nd
-nd
-nd
-nd
+yU
+yU
+yU
+yU
+yU
+yU
 jU
 aj
 at

@@ -4645,6 +4645,16 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
+"zp" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/shutters{
+	dir = 4;
+	id = "aquaprivacy";
+	name = "Privacy Shutters"
+	},
+/turf/open/floor/plating,
+/area/crew_quarters/fitness/recreation)
 "zC" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/layer_manifold/supply/hidden,
@@ -4664,6 +4674,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
+"BK" = (
+/turf/closed/wall/r_wall,
+/area/crew_quarters/fitness/recreation)
 "CL" = (
 /obj/effect/landmark/event_spawn,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
@@ -4833,6 +4846,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
+"QJ" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/shutters{
+	id = "aquaprivacy";
+	name = "Privacy Shutters"
+	},
+/turf/open/floor/plating,
+/area/crew_quarters/fitness/recreation)
 "QT" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
@@ -5405,7 +5427,7 @@ ax
 (13,1,1) = {"
 ab
 ab
-an
+BK
 jd
 eR
 rQ
@@ -5443,7 +5465,7 @@ ax
 (14,1,1) = {"
 ab
 ab
-mB
+QJ
 aj
 aj
 nF
@@ -5480,8 +5502,8 @@ ax
 "}
 (15,1,1) = {"
 ab
-mB
-mB
+zp
+BK
 aj
 aj
 MF

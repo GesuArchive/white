@@ -2,9 +2,6 @@
 "ab" = (
 /turf/template_noop,
 /area/template_noop)
-"aD" = (
-/turf/closed/wall,
-/area/maintenance/bottom_station_maints/north)
 "gf" = (
 /obj/structure/closet/crate/solarpanel_small,
 /turf/open/floor/plating,
@@ -1004,7 +1001,7 @@ ab
 ab
 ab
 ab
-aD
+Ws
 Zl
 YS
 YS
@@ -1042,7 +1039,7 @@ ab
 ab
 ab
 ab
-aD
+Ws
 Zl
 YS
 YS
@@ -1080,7 +1077,7 @@ ab
 ab
 ab
 ab
-aD
+Ws
 Zl
 YS
 YS
@@ -1118,7 +1115,7 @@ ab
 ab
 ab
 ab
-aD
+Ws
 Zl
 YS
 YS
@@ -1156,7 +1153,7 @@ ab
 ab
 ab
 ab
-aD
+Ws
 Zl
 YS
 YS
@@ -1194,7 +1191,7 @@ ab
 ab
 ab
 ab
-aD
+Ws
 Zl
 YS
 YS
@@ -1232,7 +1229,7 @@ ab
 ab
 ab
 ab
-aD
+Ws
 jH
 jH
 jH
@@ -1270,7 +1267,7 @@ ab
 ab
 ab
 ab
-aD
+Ws
 lr
 lr
 lr
