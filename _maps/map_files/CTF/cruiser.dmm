@@ -195,10 +195,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ctf)
-"kU" = (
-/obj/effect/powerup/ammo,
-/turf/open/floor/circuit/red/anim,
-/area/ctf)
 "lB" = (
 /obj/effect/turf_decal/siding/white/corner{
 	color = "#121212";
@@ -242,7 +238,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/ctf)
 "mb" = (
 /obj/effect/mob_spawn/human/abductor,
@@ -474,7 +470,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/ctf)
 "zx" = (
 /turf/open/floor/plating/abductor2,
@@ -513,10 +509,6 @@
 	},
 /turf/open/floor/mineral/titanium/blue,
 /area/ctf)
-"Cq" = (
-/obj/effect/powerup/ammo,
-/turf/open/floor/circuit,
-/area/ctf)
 "CU" = (
 /obj/structure/window/reinforced{
 	dir = 4;
@@ -535,7 +527,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/ctf)
 "Fc" = (
 /obj/effect/turf_decal/siding/yellow{
@@ -589,7 +581,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/ctf)
 "GH" = (
 /obj/structure/window/reinforced{
@@ -618,7 +610,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red,
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/ctf)
 "HM" = (
 /obj/effect/turf_decal/tile/green,
@@ -644,12 +636,6 @@
 	},
 /obj/structure/flora/ausbushes/fernybush,
 /turf/open/floor/grass,
-/area/ctf)
-"HZ" = (
-/obj/effect/powerup/speed{
-	respawn_time = 600
-	},
-/turf/open/floor/circuit,
 /area/ctf)
 "Iq" = (
 /obj/effect/turf_decal/tile/red{
@@ -732,10 +718,6 @@
 	},
 /turf/closed/wall/mineral/titanium,
 /area/ctf)
-"KZ" = (
-/obj/effect/powerup/ammo,
-/turf/open/floor/circuit/green/anim,
-/area/ctf)
 "LQ" = (
 /turf/open/floor/circuit/green/anim,
 /area/ctf)
@@ -755,7 +737,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/ctf)
 "MH" = (
 /obj/structure/table/reinforced/ctf,
@@ -824,7 +806,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/ctf)
 "PU" = (
 /obj/effect/turf_decal/siding/white/corner{
@@ -869,7 +851,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/ctf)
 "Rl" = (
 /obj/effect/turf_decal/siding/white/corner{
@@ -971,7 +953,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red,
-/turf/open/floor/iron,
+/turf/open/floor/plasteel,
 /area/ctf)
 "VR" = (
 /obj/effect/turf_decal/siding/purple/corner{
@@ -1525,7 +1507,7 @@ hc
 ck
 ck
 ho
-kU
+Ju
 ho
 ck
 ck
@@ -2892,7 +2874,7 @@ Qt
 jR
 mr
 mW
-HZ
+mW
 mW
 mr
 jR
@@ -2904,7 +2886,7 @@ Ss
 Ss
 fU
 ho
-Cq
+mW
 ho
 fU
 KO
@@ -4253,7 +4235,7 @@ hc
 ck
 ck
 ho
-KZ
+LQ
 ho
 ck
 ck
