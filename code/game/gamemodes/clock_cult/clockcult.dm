@@ -54,8 +54,6 @@ GLOBAL_VAR(clockcult_eminence)
 		message_admins("Reebe failed to load")
 		log_game("Reebe failed to load")
 		return FALSE
-	for(var/datum/parsed_map/map in reebe)
-		map.initTemplateBounds()
 	//Generate cultists
 	for(var/i in 1 to clock_cultists)
 		if(!antag_candidates.len)
