@@ -5,7 +5,7 @@
 	default_color = "59CE00"
 	species_traits = list(MUTCOLORS,EYECOLOR, HAS_FLESH, HAS_BONE)
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER, TRAIT_PLANT_SAFE)
-	inherent_biotypes = MOB_ORGANIC | MOB_HUMANOID | MOB_PLANT
+	inherent_biotypes = MOB_ORGANIC | MOB_HUMANOID
 	inherent_factions = list("plants", "vines")
 	attack_verb = "цапает"
 	attack_effect = ATTACK_EFFECT_CLAW
