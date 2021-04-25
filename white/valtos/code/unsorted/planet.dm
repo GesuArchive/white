@@ -34,15 +34,6 @@
 	var/aaaa = ""
 	plane = FLOOR_PLANE
 
-/area/centcom/outdoors/Initialize()
-	. = ..()
-	icon = 'white/valtos/icons/cliffs.dmi'
-	icon_state = "snow_storm"
-	layer = OPENSPACE_LAYER
-
-/area/centcom/outdoors/update_icon_state()
-	return
-
 /turf/open/space/basic/planet/Entered(atom/movable/AM, atom/OldLoc)
 	..()
 	if(!locate(/obj/structure/lattice) in src)
