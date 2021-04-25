@@ -6417,19 +6417,11 @@
 	},
 /obj/item/stock_parts/micro_laser{
 	pixel_x = -2;
-	pixel_y = 2
 	},
 /obj/item/stock_parts/micro_laser{
 	pixel_x = 2
 	},
-/obj/item/stock_parts/micro_laser{
-	pixel_x = 6;
-	pixel_y = -2
-	},
-/turf/open/floor/plasteel,
-/area/maintenance/port/fore)
-"aTk" = (
-/obj/effect/spawner/structure/window/reinforced/tinted,
+/obj/item/stock_part(i
 /turf/open/floor/plating,
 /area/security/courtroom)
 "aTl" = (
@@ -13761,7 +13753,6 @@
 	name = "Pharmacy shutters"
 	},
 /turf/open/floor/plating,
-/area/medical/pharmacy)
 "cfY" = (
 /obj/machinery/smartfridge/chemistry/preloaded,
 /turf/closed/wall,
@@ -13786,28 +13777,7 @@
 	id = "pharmacy_shutters";
 	name = "pharmacy shutters"
 	},
-/obj/effect/turf_decal/tile/yellow{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/yellow,
-/obj/effect/turf_decal/tile/yellow{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/yellow{
-	dir = 8
-	},
-/turf/open/floor/plasteel/white,
-/area/medical/pharmacy)
-"cgc" = (
-/obj/machinery/airalarm{
-	dir = 8;
-	pixel_x = 24
-	},
-/obj/effect/turf_decal/tile/neutral,
-/turf/open/floor/plasteel,
-/area/hallway/primary/aft)
-"cgd" = (
-/turf/closed/wall/r_wall,
+/obj/effect/
 /area/science/lab)
 "cgo" = (
 /turf/closed/wall/r_wall,
@@ -43349,22 +43319,9 @@
 "lyP" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/firedoor,
-/turf/open/floor/plasteel,
-/area/hallway/primary/aft)
-"lyV" = (
-/obj/effect/landmark/start/head_of_security,
-/obj/structure/chair/comfy/black,
-/turf/open/floor/plasteel/dark,
-/area/space)
-"lyY" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+/obj/machinery
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,

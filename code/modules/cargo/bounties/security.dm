@@ -24,7 +24,7 @@
 	description = "ТерраГов не смогли получить новую форму для заключенных, поэтому, если у вас есть запасная форма, мы её заберем."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 4
-	wanted_types = list(/obj/item/clothing/under/rank/prisoner)
+	wanted_types = list(/obj/item/clothing/under/color/prisoner)
 
 /datum/bounty/item/security/plates
 	name = "Номерные знаки"

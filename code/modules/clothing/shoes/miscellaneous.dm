@@ -1,6 +1,6 @@
 /obj/item/clothing/shoes/sneakers/mime
-	name = "обувь мима"
-	icon_state = "mime"
+	name = "обутки мима"
+	greyscale_colors = "#ffffff"
 
 /obj/item/clothing/shoes/combat //basic syndicate combat boots for nuke ops and mob corpses
 	name = "боевые ботинки"
@@ -212,10 +212,10 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CULT_TRAIT)
 
-/obj/item/clothing/shoes/cyborg
+/obj/item/clothing/shoes/sneakers/cyborg
 	name = "обутки киборка"
 	desc = "Обувь для киборгского костюма."
-	icon_state = "boots"
+	greyscale_colors = "#4e4e4e#4e4e4e"
 
 /obj/item/clothing/shoes/laceup
 	name = "шнуровочные туфли"
@@ -271,7 +271,7 @@
 		user.visible_message("<span class='warning'>[usr] взлетает в воздух!</span>")
 		recharging_time = world.time + recharging_rate
 	else
-		to_chat(user, "<span class='warning'>Что-то мешает мне взлететь!</span>")
+		to_chat(user, "<span class='warning'>SЧто-то мешает мне взлететь!</span>")
 
 /obj/item/clothing/shoes/bhop/rocket
 	name = "rocket boots"
@@ -305,11 +305,13 @@
 	. = ..()
 	AddComponent(/datum/component/squeak, list('sound/machines/clockcult/integration_cog_install.ogg' = 1, 'sound/magic/clockwork/fellowship_armory.ogg' = 1), 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
-/obj/item/clothing/shoes/wheelys
+/obj/item/clothing/shoes/sneakers/wheelys
 	name = "Вилли-Хилс"
 	desc = "Использует запатентованную технологию выдвижных колес. Никогда не жертвуйте скоростью ради стиля - не то, чтобы это давало много и того, и другого." //Thanks Fel
-	icon_state = "wheelys"
 	worn_icon_state = "wheelys"
+	greyscale_colors = "#545454#ffffff"
+	greyscale_config = /datum/greyscale_config/sneakers_wheelys
+	greyscale_config_worn = null
 	inhand_icon_state = "wheelys"
 	worn_icon = 'icons/mob/large-worn-icons/64x64/feet.dmi'
 	worn_x_dimension = 64
@@ -321,17 +323,17 @@
 	///The vehicle associated with the shoes
 	var/obj/vehicle/ridden/scooter/skateboard/wheelys/wheels = /obj/vehicle/ridden/scooter/skateboard/wheelys
 
-/obj/item/clothing/shoes/wheelys/Initialize()
+/obj/item/clothing/shoes/sneakers/wheelys/Initialize()
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
 	wheels = new wheels(null)
 	wheels.link_shoes(src)
 
-/obj/item/clothing/shoes/wheelys/ui_action_click(mob/user, action)
+/obj/item/clothing/shoes/sneakers/wheelys/ui_action_click(mob/user, action)
 	if(!isliving(user))
 		return
-	if(!istype(user.get_item_by_slot(ITEM_SLOT_FEET), /obj/item/clothing/shoes/wheelys))
-		to_chat(user, "<span class='warning'>Я должен надеть вилли-хилс чтобы их использовать!</span>")
+	if(!istype(user.get_item_by_slot(ITEM_SLOT_FEET), /obj/item/clothing/shoes/sneakers/wheelys))
+		to_chat(user, "<span class='warning'>Стоит надеть вилли-хилс чтобы их использовать!</span>")
 		return
 	if(!(wheels.is_occupant(user)))
 		wheelToggle = FALSE
@@ -343,38 +345,42 @@
 	wheels.buckle_mob(user)
 	wheelToggle = TRUE
 
-/obj/item/clothing/shoes/wheelys/dropped(mob/user)
+/obj/item/clothing/shoes/sneakers/wheelys/dropped(mob/user)
 	if(wheelToggle)
 		wheels.unbuckle_mob(user)
 		wheelToggle = FALSE
 	..()
 
-/obj/item/clothing/shoes/wheelys/proc/toggle_wheels(status)
+/obj/item/clothing/shoes/sneakers/wheelys/proc/toggle_wheels(status)
 	if (status)
-		worn_icon_state = "[initial(icon_state)]-on"
+		worn_icon_state = "[initial(worn_icon_state)]-on"
 	else
-		worn_icon_state = "[initial(icon_state)]"
+		worn_icon_state = "[initial(worn_icon_state)]"
 	playsound(src, 'sound/weapons/tap.ogg', 10, TRUE)
 	update_icon()
 
-/obj/item/clothing/shoes/wheelys/Destroy()
+/obj/item/clothing/shoes/sneakers/wheelys/Destroy()
 	QDEL_NULL(wheels)
 	. = ..()
 
-/obj/item/clothing/shoes/wheelys/rollerskates
+/obj/item/clothing/shoes/sneakers/wheelys/rollerskates
 	name = "роликовые коньки"
 	desc = "Пара роликовых коньков марки EightO. Колеса убираются, но слишком громоздкие чтобы ходить."
 	icon_state = "rollerskates"
+	greyscale_colors = null
+	greyscale_config = null
 	worn_icon_state = "rollerskates"
 	slowdown = SHOES_SLOWDOWN+1
 	wheels = /obj/vehicle/ridden/scooter/skateboard/wheelys/rollerskates
 	custom_premium_price = PAYCHECK_EASY * 5
 	custom_price = PAYCHECK_EASY * 5
 
-/obj/item/clothing/shoes/wheelys/skishoes
+/obj/item/clothing/shoes/sneakers/wheelys/skishoes
 	name = "лыжные ботинки"
 	desc = "Пара ботинок со складными лыжами! Очень удобна для передвижения по снежной местности."
 	icon_state = "skishoes"
+	greyscale_colors = null
+	greyscale_config = null
 	worn_icon_state = "skishoes"
 	slowdown = SHOES_SLOWDOWN+1
 	wheels = /obj/vehicle/ridden/scooter/skateboard/wheelys/skishoes

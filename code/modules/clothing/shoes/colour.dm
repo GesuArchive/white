@@ -1,10 +1,18 @@
 /obj/item/clothing/shoes/sneakers
 	dying_key = DYE_REGISTRY_SNEAKERS
+	icon_state = "sneakers"
+	greyscale_config = /datum/greyscale_config/sneakers
+	var/datum/greyscale_config/greyscale_config_worn = /datum/greyscale_config/sneakers_worn
+
+/obj/item/clothing/shoes/sneakers/Initialize()
+	. = ..()
+	if(greyscale_config_worn && greyscale_colors)
+		worn_icon = SSgreyscale.GetColoredIconByType(greyscale_config_worn, greyscale_colors)
 
 /obj/item/clothing/shoes/sneakers/black
 	name = "чёрные ботинки"
-	icon_state = "black"
 	desc = "Парочка чёрных ботинок."
+	greyscale_colors = "#545454#ffffff"
 	custom_price = PAYCHECK_ASSISTANT
 
 	cold_protection = FEET
@@ -15,49 +23,53 @@
 /obj/item/clothing/shoes/sneakers/brown
 	name = "коричневые ботинки"
 	desc = "Парочка коричневых ботинок."
-	icon_state = "brown"
+	greyscale_colors = "#814112#ffffff"
 
 /obj/item/clothing/shoes/sneakers/blue
 	name = "синие ботинки"
-	icon_state = "blue"
+	greyscale_colors = "#16a9eb#ffffff"
 
 /obj/item/clothing/shoes/sneakers/green
 	name = "зелёные ботинки"
-	icon_state = "green"
+	greyscale_colors = "#54eb16#ffffff"
 
 /obj/item/clothing/shoes/sneakers/yellow
 	name = "жёлтые ботинки"
-	icon_state = "yellow"
+	greyscale_colors = "#ebe216#ffffff"
 
 /obj/item/clothing/shoes/sneakers/purple
 	name = "фиолетовые ботинки"
-	icon_state = "purple"
+	greyscale_colors = "#ad16eb#ffffff"
 
 /obj/item/clothing/shoes/sneakers/red
 	name = "красные ботинки"
 	desc = "Стильные красные ботинки."
-	icon_state = "red"
+	greyscale_colors = "#ff2626#ffffff"
 
 /obj/item/clothing/shoes/sneakers/white
 	name = "белые ботинки"
-	icon_state = "white"
+	greyscale_colors = "#ffffff#ffffff"
 	permeability_coefficient = 0.01
 
 /obj/item/clothing/shoes/sneakers/rainbow
 	name = "радужные ботинки"
 	desc = "Очень гейская обувь."
 	icon_state = "rain_bow"
+	greyscale_colors = null
+	greyscale_config = null
 
 /obj/item/clothing/shoes/sneakers/orange
 	name = "оранжевые ботинки"
-	icon_state = "orange"
+	greyscale_colors = "#eb7016#ffffff"
+	greyscale_config = /datum/greyscale_config/sneakers_orange
+	greyscale_config_worn = /datum/greyscale_config/sneakers_orange_worn
 
 /obj/item/clothing/shoes/sneakers/orange/attack_self(mob/user)
 	if (src.chained)
 		src.chained = null
 		src.slowdown = SHOES_SLOWDOWN
 		new /obj/item/restraints/handcuffs( user.loc )
-		src.icon_state = "orange"
+		src.icon_state = ""
 	return
 
 /obj/item/clothing/shoes/sneakers/orange/attackby(obj/H, loc, params)
@@ -67,7 +79,7 @@
 		qdel(H)
 		src.chained = 1
 		src.slowdown = 15
-		src.icon_state = "orange1"
+		src.icon_state = "sneakers_chained"
 	return
 
 /obj/item/clothing/shoes/sneakers/orange/allow_attack_hand_drop(mob/user)
