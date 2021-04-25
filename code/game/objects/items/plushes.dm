@@ -611,3 +611,27 @@
 	attack_verb_continuous = list("hugs", "squeezes")
 	attack_verb_simple = list("hug", "squeeze")
 	squeak_override = list('sound/weapons/thudswoosh.ogg'=1)
+
+/obj/item/toy/plush/marfumoplushie
+	name = "марфумо"
+	desc = "Ммм?"
+	icon = 'white/valtos/icons/fumo.dmi'
+	icon_state = "marfumoplushie"
+	inhand_icon_state = "mousetrap"
+	squeak_override = list('white/valtos/sounds/exrp/interactions/champ_fingering.ogg'=1)
+
+/obj/item/toy/plush/asfumoplushie
+	name = "асфумо"
+	desc = "Ммм!"
+	icon = 'white/valtos/icons/fumo.dmi'
+	icon_state = "asfumoplushie"
+	inhand_icon_state = "mousetrap"
+	squeak_override = list('white/valtos/sounds/exrp/interactions/champ_fingering.ogg'=1)
+
+/obj/item/toy/plush/cirfumoplushie
+	name = "цирфумо"
+	desc = "Ммм?!"
+	icon = 'white/valtos/icons/fumo.dmi'
+	icon_state = "cirfumoplushie"
+	inhand_icon_state = "mousetrap"
+	squeak_override = list('white/valtos/sounds/exrp/interactions/champ_fingering.ogg'=1)
