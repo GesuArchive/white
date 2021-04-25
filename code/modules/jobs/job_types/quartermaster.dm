@@ -19,6 +19,10 @@
 	display_order = JOB_DISPLAY_ORDER_QUARTERMASTER
 	bounty_types = CIV_JOB_RANDOM
 
+	mail_goodies = list(
+		/obj/item/circuitboard/machine/emitter = 3
+	)
+
 /datum/job/quartermaster/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	..()
 	if(announce_captaincy)

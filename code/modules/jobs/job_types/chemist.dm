@@ -20,6 +20,13 @@
 	display_order = JOB_DISPLAY_ORDER_CHEMIST
 	bounty_types = CIV_JOB_CHEM
 
+	mail_goodies = list(
+		/datum/reagent/flash_powder = 15,
+		/datum/reagent/exotic_stabilizer = 5,
+		/datum/reagent/toxin/leadacetate = 5,
+		/obj/item/paper/secretrecipe = 1
+	)
+
 /datum/outfit/job/chemist
 	name = "Chemist"
 	jobtype = /datum/job/chemist
