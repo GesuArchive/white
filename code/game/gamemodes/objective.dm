@@ -313,7 +313,11 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	if(human_check)
 		brain_target = target.current.getorganslot(ORGAN_SLOT_BRAIN)
 	//Protect will always suceed when someone suicides
-	return !target || considered_alive(target, enforce_human = human_check) || (human_check == TRUE && brain_target) ? brain_target.suicided : FALSE
+	if(!target)
+		return FALSE
+	if((human_check && brain_target) && brain_target?.suicided)
+		return FALSE
+	return considered_alive(target, enforce_human = human_check)
 
 /datum/objective/protect/update_explanation_text()
 	..()

@@ -3481,6 +3481,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+/obj/structure/closet/secure_closet/chief_medical,
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/heads/cmo)
 "KC" = (
