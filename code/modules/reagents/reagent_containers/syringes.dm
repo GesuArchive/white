@@ -78,6 +78,8 @@
 				return
 			living_target.visible_message("<span class='danger'>[user] injects [living_target] with the syringe!</span>", \
 										"<span class='userdanger'>[user] injects you with the syringe!</span>")
+		reagents.trans_to(target, amount_per_transfer_from_this, transfered_by = user, methods = INJECT)
+		to_chat(user, "<span class='notice'>You inject [amount_per_transfer_from_this] units of the solution. The syringe now contains [reagents.total_volume] units.</span>")
 
 	// chance of monkey retaliation
 	SEND_SIGNAL(target, COMSIG_LIVING_TRY_SYRINGE, user)
@@ -133,13 +135,9 @@
 				to_chat(user, "<span class='notice'>[target] is full.</span>")
 				return
 
-			reagents.trans_to(target, amount_per_transfer_from_this, transfered_by = user, methods = INJECT)
-			to_chat(user, "<span class='notice'>You inject [amount_per_transfer_from_this] units of the solution. The syringe now contains [reagents.total_volume] units.</span>")
 			if (reagents.total_volume <= 0 && mode==SYRINGE_INJECT)
 				mode = SYRINGE_DRAW
 				update_icon()
-
-
 /*
  * On accidental consumption, inject the eater with 2/3rd of the syringe and reveal it
  */
