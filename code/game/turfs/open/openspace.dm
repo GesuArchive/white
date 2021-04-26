@@ -221,6 +221,8 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 			below_override = locate(x, y + offset_to, z)
 		if(SOUTH)
 			below_override = locate(x, y - offset_to, z)
+	if(below_override)
+		below_override.above_override = src
 	. = ..()
 
 /turf/open/openspace/fakez/west
