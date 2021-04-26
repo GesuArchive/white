@@ -224,13 +224,13 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	. = ..()
 
 /turf/open/openspace/fakez/west
-	var/dir_to = WEST
+	dir_to = WEST
 
 /turf/open/openspace/fakez/east
-	var/dir_to = EAST
+	dir_to = EAST
 
 /turf/open/openspace/fakez/north
-	var/dir_to = NORTH
+	dir_to = NORTH
 
 /turf/open/openspace/fakez/south
-	var/dir_to = SOUTH
+	dir_to = SOUTH
