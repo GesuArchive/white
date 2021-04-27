@@ -1,8 +1,15 @@
 /obj/item/clothing/gloves/color
 	dying_key = DYE_REGISTRY_GLOVES
 
+/obj/item/clothing/gloves/color/chief_engineer
+	desc = "These gloves provide protection against electric shock. They are so thin you can barely feel them."
+	name = "advanced insulated gloves"
+	icon_state = "ce_insuls"
+	inhand_icon_state = "lgloves"
+	siemens_coefficient = 0
+
 /obj/item/clothing/gloves/color/yellow
-	desc = "Эти перчатки защитят пользователя от поражения электрическим током."
+	desc = "Эти перчатки защитят пользователя от поражения электрическим током. Очень толстые, скорее всего из таких будет невозможно стрелять."
 	name = "резиновые перчатки"
 	icon_state = "yellow"
 	inhand_icon_state = "ygloves"
@@ -12,6 +19,7 @@
 	custom_price = PAYCHECK_MEDIUM * 10
 	custom_premium_price = PAYCHECK_COMMAND * 6
 	cut_type = /obj/item/clothing/gloves/cut
+	clothing_traits = list(TRAIT_CHUNKYFINGERS)
 
 /obj/item/toy/sprayoncan
 	name = "распылитель изолирующего спрея"
@@ -196,17 +204,19 @@
 	desc = "Ценные стерильные перчатки толще латекса. Передача интимных знаний парамедиков пользователю через наночипы."
 	icon_state = "nitrile"
 	inhand_icon_state = "nitrilegloves"
-	clothing_traits = list(TRAIT_QUICKER_CARRY)
+	clothing_traits = list(TRAIT_QUICKER_CARRY, TRAIT_FASTMED)
 	transfer_prints = FALSE
 
-/obj/item/clothing/gloves/color/latex/nitrile/infiltrator
+/obj/item/clothing/gloves/color/infiltrator
 	name = "перчатки лазутчика"
 	desc = "Заточенные под столкновения перчатки для переноса людей. Благодаря наночипам передают носителю тактическую информацию о похищениях."
 	icon_state = "infiltrator"
 	inhand_icon_state = "infiltrator"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.3
+	clothing_traits = list(TRAIT_QUICKER_CARRY)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
+	transfer_prints = FALSE
 
 /obj/item/clothing/gloves/color/latex/engineering
 	name = "перчатки мастера"

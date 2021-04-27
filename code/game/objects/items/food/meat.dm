@@ -904,7 +904,6 @@
 	tastes = list("цыплёнок" = 1)
 
 /obj/item/food/meat/slab/chicken/MakeProcessable()
-	. = ..()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/chicken, 3, 30)
 
 /obj/item/food/meat/slab/chicken/MakeGrillable()

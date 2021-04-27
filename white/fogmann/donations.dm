@@ -145,6 +145,9 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("Toy dualsaber",				/obj/item/dualsaber/toy,				280),
 		new /datum/donate_info("Toy katana",				/obj/item/toy/katana,							215),
 		new /datum/donate_info("Rainbow crayon",			/obj/item/toy/crayon/rainbow,					250),
+		new /datum/donate_info("Марфумо",					/obj/item/toy/plush/marfumoplushie,				300),
+		new /datum/donate_info("Асфумо",					/obj/item/toy/plush/asfumoplushie,				300),
+		new /datum/donate_info("Цирфумо",					/obj/item/toy/plush/cirfumoplushie,				300),
 	),
 	"Special Stuff" = list(
 		new /datum/donate_info("Santa Bag",					/obj/item/storage/backpack/santabag,			450),

@@ -109,7 +109,7 @@ Borg Hypospray
 		return
 	if(!istype(M))
 		return
-	if(R.total_volume && M.can_inject(user, 1, user.zone_selected,bypass_protection))
+	if(R.total_volume && M.try_inject(user, user.zone_selected, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE | (bypass_protection ? INJECT_CHECK_PENETRATE_THICK : 0)))
 		to_chat(M, "<span class='warning'>Чувствую небольшое покалывание!</span>")
 		to_chat(user, "<span class='notice'>Я ввожу [M] используя инжектор.</span>")
 		if(M.reagents)

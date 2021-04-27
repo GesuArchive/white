@@ -180,25 +180,22 @@
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "gd" = (
-/obj/machinery/vending/boozeomat,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/turf/open/floor/plasteel/dark,
+/obj/structure/table/wood,
+/obj/machinery/recharger,
+/turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "gw" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4
+/obj/structure/table/wood,
+/obj/item/food/candy{
+	pixel_x = 5
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
+/obj/item/food/candy{
+	pixel_x = -4;
+	pixel_y = 9
+	},
+/obj/item/food/candy{
+	pixel_x = -2;
+	pixel_y = 4
 	},
 /turf/open/floor/plasteel/grimy,
 /area/crew_quarters/heads/captain)
@@ -297,7 +294,7 @@
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "iC" = (
-/obj/machinery/vending/cigarette,
+/obj/machinery/vending/boozeomat,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
@@ -321,10 +318,11 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "jF" = (
-/obj/structure/table/wood,
-/obj/item/paper_bin,
 /obj/item/radio/intercom{
 	pixel_y = -26
+	},
+/obj/machinery/computer/card{
+	dir = 1
 	},
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
@@ -491,6 +489,9 @@
 	dir = 1
 	},
 /obj/machinery/camera/autoname,
+/obj/machinery/light_switch{
+	pixel_y = 28
+	},
 /turf/open/floor/plasteel/grimy,
 /area/crew_quarters/heads/captain)
 "oA" = (
@@ -546,12 +547,12 @@
 /turf/open/floor/plasteel/grimy,
 /area/crew_quarters/heads/captain)
 "qw" = (
-/obj/machinery/computer/card{
-	dir = 4
-	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen/fourcolor,
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "qC" = (
@@ -771,9 +772,6 @@
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "vW" = (
-/obj/machinery/light_switch{
-	pixel_y = 28
-	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
@@ -790,9 +788,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
 "wU" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
+/obj/machinery/vending/cigarette,
 /turf/open/floor/plasteel/grimy,
 /area/crew_quarters/heads/captain)
 "wX" = (
@@ -1024,8 +1020,6 @@
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "Bw" = (
-/obj/structure/table/wood,
-/obj/machinery/recharger,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -1579,10 +1573,10 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/computer/communications{
-	dir = 4
-	},
 /obj/machinery/light,
+/obj/structure/table/wood,
+/obj/item/folder/blue,
+/obj/item/stamp/captain,
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "PH" = (
@@ -1838,6 +1832,7 @@
 "YB" = (
 /obj/item/kirbyplants/random,
 /obj/item/grenade/barrier,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/plasteel/grimy,
 /area/crew_quarters/heads/captain)
 "YJ" = (
@@ -1848,10 +1843,7 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "YK" = (
-/obj/structure/table/wood,
-/obj/item/folder/blue,
-/obj/item/pen/fourcolor,
-/obj/item/stamp/captain,
+/obj/machinery/computer/communications,
 /turf/open/floor/plasteel/grimy,
 /area/crew_quarters/heads/captain)
 "YR" = (
@@ -2922,7 +2914,7 @@ qK
 AD
 xu
 HB
-HB
+gw
 vW
 ma
 Se
@@ -2959,10 +2951,10 @@ Bw
 Nn
 Dz
 Wu
-gd
+HB
 HB
 ox
-gw
+XI
 Fh
 aD
 zR
@@ -2994,13 +2986,13 @@ ab
 ab
 aD
 hB
-Nn
+gd
 Bv
 Wu
 iC
 HB
 DU
-gw
+XI
 sh
 nx
 XF
@@ -3072,7 +3064,7 @@ aD
 SQ
 ru
 HB
-gw
+XI
 rZ
 Gp
 YB
@@ -3229,7 +3221,7 @@ ab
 ab
 ab
 ng
-un
+ug
 ng
 ng
 ng

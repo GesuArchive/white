@@ -267,12 +267,15 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "bl" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/shutters{
+	dir = 4;
+	id = "aquaprivacy";
+	name = "Privacy Shutters"
 	},
-/turf/open/floor/plasteel,
-/area/hallway/primary/central)
+/turf/open/floor/plating,
+/area/crew_quarters/fitness/recreation)
 "bm" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -341,14 +344,8 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "bw" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/turf/open/floor/plasteel,
-/area/hallway/primary/central)
+/turf/closed/wall/r_wall,
+/area/crew_quarters/fitness/recreation)
 "bx" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -3052,16 +3049,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/maintenance/central/secondary)
-"ic" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/turf/open/floor/plasteel,
-/area/hallway/primary/central)
 "id" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -3340,11 +3327,6 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
-"iK" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/wood,
-/area/crew_quarters/heads/captain)
 "iL" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Teleporter Maintenance";
@@ -4326,12 +4308,6 @@
 	},
 /turf/closed/wall/r_wall,
 /area/engine/gravity_generator)
-"ml" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plasteel,
-/area/hallway/primary/central)
 "mw" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -4547,9 +4523,12 @@
 "Oe" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
-/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/shutters{
+	id = "aquaprivacy";
+	name = "Privacy Shutters"
+	},
 /turf/open/floor/plating,
-/area/hallway/primary/central)
+/area/crew_quarters/fitness/recreation)
 "OY" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -4665,7 +4644,7 @@ ab
 ab
 ab
 aY
-bw
+jB
 bJ
 bQ
 aH
@@ -4722,16 +4701,16 @@ gp
 iJ
 gV
 hf
-ml
-ml
+qp
+qp
 kW
-ml
-ic
-ml
-ml
-ml
+qp
+CT
+qp
+qp
+qp
 kq
-ml
+qp
 kL
 aH
 ab
@@ -5081,7 +5060,7 @@ ad
 (13,1,1) = {"
 ab
 ab
-aD
+Oe
 bd
 bd
 bN
@@ -5156,8 +5135,8 @@ ad
 "}
 (15,1,1) = {"
 ab
-aD
-Oe
+bl
+bw
 aH
 zl
 eC
@@ -5708,7 +5687,7 @@ fJ
 gj
 pH
 pH
-iK
+pH
 ek
 hH
 hD
@@ -5729,7 +5708,7 @@ ab
 ab
 ab
 bp
-bw
+jB
 eC
 aD
 ab
@@ -5767,7 +5746,7 @@ ab
 ab
 ab
 bq
-bl
+bx
 eC
 aD
 ab
@@ -5805,7 +5784,7 @@ ab
 ab
 ab
 br
-bw
+jB
 eC
 aD
 ab
@@ -5843,7 +5822,7 @@ ab
 ab
 ab
 bs
-bw
+jB
 eC
 aD
 aD
@@ -5881,7 +5860,7 @@ ab
 ab
 ab
 aH
-bw
+jB
 aH
 aG
 aG
@@ -5926,23 +5905,23 @@ fZ
 fZ
 fZ
 fZ
-ic
-ml
+CT
+qp
 VB
-ml
+qp
 fe
 ex
 fN
-ml
+qp
 hf
-ml
-ml
-ml
+qp
+qp
+qp
 qz
-ml
-ml
+qp
+qp
 VB
-ml
+qp
 jB
 qn
 fZ

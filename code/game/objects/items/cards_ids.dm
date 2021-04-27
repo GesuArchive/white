@@ -811,3 +811,24 @@ update_label()
 
 /obj/item/card/id/departmental_budget/AltClick(mob/living/user)
 	registered_account.bank_card_talk("<span class='warning'>Снятие денег не подходит для этого типа карт.</span>", TRUE) //prevents the vault bank machine being useless and putting money from the budget to your card to go over personal crates
+
+/obj/item/card/id/red
+	name = "Red Team identification card"
+	desc = "A card used to identify members of the red team for CTF"
+	icon_state = "ctf_red"
+
+/obj/item/card/id/blue
+	name = "Blue Team identification card"
+	desc = "A card used to identify members of the blue team for CTF"
+	icon_state = "ctf_blue"
+
+/obj/item/card/id/yellow
+	name = "Yellow Team identification card"
+	desc = "A card used to identify members of the yellow team for CTF"
+	icon_state = "ctf_yellow"
+
+/obj/item/card/id/green
+	name = "Green Team identification card"
+	desc = "A card used to identify members of the green team for CTF"
+	icon_state = "ctf_green"
+

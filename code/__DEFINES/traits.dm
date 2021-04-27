@@ -176,6 +176,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_HARDLY_WOUNDED	"hard_limb_wound"
 #define TRAIT_NEVER_WOUNDED		"never_wounded"
 #define TRAIT_TOXINLOVER		"toxinlover"
+#define TRAIT_FASTMED 			"fast_med_use"
 #define TRAIT_NOBREATH			"no_breath"
 #define TRAIT_ANTIMAGIC			"anti_magic"
 #define TRAIT_HOLY				"holy"
@@ -211,6 +212,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_QUICK_CARRY		"quick-carry"
 #define TRAIT_QUICKER_CARRY		"quicker-carry"
 #define TRAIT_QUICK_BUILD		"quick-build"
+#define TRAIT_PLANT_SAFE 		"plant_safe"
 #define TRAIT_UNINTELLIGIBLE_SPEECH "unintelligible-speech"
 #define TRAIT_UNSTABLE			"unstable"
 #define TRAIT_OIL_FRIED			"oil_fried"
@@ -335,6 +337,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_STARGAZED			"stargazed"	//Affected by a stargazer
 ///Properly wielded two handed item
 #define TRAIT_WIELDED "wielded"
+/// Plants that were mutated as a result of passive instability, not a mutation threshold.
+#define TRAIT_PLANT_WILDMUTATE "wildmutation"
 
 //quirk traits
 #define TRAIT_ALCOHOL_TOLERANCE	"alcohol_tolerance"
