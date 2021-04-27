@@ -314,6 +314,8 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 			return TRUE
 		if("find_new")
 			if(!GLOB.isGatewayLoaded)
+				message_admins("[ADMIN_LOOKUPFLW(usr)] активирует врата.")
+				log_game("[key_name(usr)] активирует врата.")
 				priority_announce("Началась операция по поиску новых врат в отдалённых секторах. Это займёт некоторое время.", "Звёздные врата", 'sound/misc/announce_dig.ogg')
 				GLOB.isGatewayLoaded = TRUE
 				createRandomZlevel()

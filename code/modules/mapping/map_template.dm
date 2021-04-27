@@ -119,7 +119,7 @@
 	//initialize things that are normally initialized after map load
 	initTemplateBounds(bounds)
 	smooth_zlevel(world.maxz)
-	log_game("Z-level [name] loaded at [x],[y],[world.maxz]")
+	log_game("Z-level [name] ([mappath]) loaded at [x],[y],[world.maxz]")
 
 	return level
 
