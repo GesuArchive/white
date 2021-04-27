@@ -567,6 +567,16 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	//If we aren't an admin, and the flag is set
 	if(CONFIG_GET(flag/panic_bunker) && !holder && !GLOB.deadmins[ckey])
+		if(CONFIG_GET(number/panic_bunker_cap) < GLOB.player_list.len)
+			var/list/panic_addr = CONFIG_GET(string/panic_server_address)
+			if(panic_addr)
+				var/panic_name = CONFIG_GET(string/panic_server_name)
+				to_chat(src, "<span class='notice'>Отправляем вас в [panic_name ? panic_name : panic_addr].</span>")
+				winset(src, null, "command=.options")
+				src << link("[panic_addr]?redirect=1")
+			qdel(query_client_in_db)
+			qdel(src)
+			return
 		var/living_recs = CONFIG_GET(number/panic_bunker_living)
 		//Relies on pref existing, but this proc is only called after that occurs, so we're fine.
 		var/minutes = get_exp_living(pure_numeric = TRUE)
@@ -581,7 +591,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			var/list/panic_addr = CONFIG_GET(string/panic_server_address)
 			if(panic_addr && !connectiontopic_a["redirect"])
 				var/panic_name = CONFIG_GET(string/panic_server_name)
-				to_chat(src, "<span class='notice'>Sending you to [panic_name ? panic_name : panic_addr].</span>")
+				to_chat(src, "<span class='notice'>Отправляем вас в [panic_name ? panic_name : panic_addr].</span>")
 				winset(src, null, "command=.options")
 				src << link("[panic_addr]?redirect=1")
 			qdel(query_client_in_db)
