@@ -128,13 +128,14 @@ Arrow&bow
 
 /obj/item/gun/ballistic/stabba_taser
 	name = "Стабба тазер"
-	desc = "Двухзарядный одноразовый тазер, стреляющий застревающими в теле электродами."
+	desc = "Двухзарядный тазер, стреляющий застревающими в теле электродами."
 	icon = 'white/qwaszx000/sprites/stabba_taser.dmi'
 	icon_state = "taser_gun"
 	inhand_icon_state = "stabba_taser"
 	lefthand_file = 'white/qwaszx000/sprites/stabba_taser_left.dmi'
 	righthand_file = 'white/qwaszx000/sprites/stabba_taser_right.dmi'
 	pin = /obj/item/firing_pin
+	bolt_type = BOLT_TYPE_NO_BOLT
 	mag_type = /obj/item/ammo_box/magazine/internal/stabba_taser_magazine
 	fire_delay = 5
 	internal_magazine = TRUE
@@ -148,12 +149,12 @@ Arrow&bow
 	max_ammo = 2
 	start_empty = FALSE
 
-/obj/item/ammo_box/magazine/internal/stabba_taser_magazine/give_round(obj/item/ammo_casing/R, replace_spent = 0)
-	return FALSE
+/obj/item/ammo_box/magazine/internal/stabba_taser_magazine/give_round(obj/item/ammo_casing/R, replace_spent = 1)
+	return ..(R,1)
 
 /obj/item/ammo_casing/caseless/stabba_taser_projectile_casing
-	name = "Патрон стабба тазера"
-	desc = "Bzzzt"
+	name = "картридж стабба тазера"
+	desc = "Одноразовый картридж"
 	icon = 'white/qwaszx000/sprites/stabba_taser.dmi'
 	icon_state = "taser_projectile"
 	throwforce = 1
@@ -172,7 +173,7 @@ Arrow&bow
 	stamina = 8
 	speed = 2 // Летит в 2 раза быстрее чем другие прожектайлы
 	range = 12
-	embedding = list(embed_chance=95, fall_chance=10, pain_stam_pct=8, pain_mult=1, pain_chance=85)
+	embedding = list(embed_chance=95, fall_chance=10, pain_stam_pct=8, pain_mult=1, pain_chance=75)
 
 /*
  * XVII-XVIII rifle
