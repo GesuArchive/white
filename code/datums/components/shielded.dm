@@ -157,3 +157,4 @@
 
 	current_charges += recharge_rune.restored_charges
 	to_chat(user, "<span class='notice'>Заряжаю [parent]. Теперь она может поглотить [current_charges] ударов.</span>")
+	qdel(recharge_rune)
