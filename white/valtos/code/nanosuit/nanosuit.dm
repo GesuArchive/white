@@ -302,6 +302,10 @@
 		msg_time_react -= 1
 	if(cell.charge != energy)
 		set_nano_energy(cell.charge - energy) //now set our current energy to the variable we modified
+	if(Wearer.health < 100 && current_charges)
+		addtimer(CALLBACK(src, .proc/addmedicalcharge), medical_delay,TIMER_UNIQUE|TIMER_OVERRIDE)
+		current_charges--
+		heal_nano(Wearer)
 
 /obj/item/clothing/suit/space/hardsuit/nano/proc/set_nano_energy(var/amount, var/delay = 0)
 	if(delay > recharge_cooldown)
@@ -349,10 +353,6 @@
 				s.start()
 			return FALSE
 	kill_cloak()
-	if(user.health < 100 && current_charges)
-		addtimer(CALLBACK(src, .proc/addmedicalcharge), medical_delay,TIMER_UNIQUE|TIMER_OVERRIDE)
-		current_charges--
-		heal_nano(user)
 	for(var/X in Wearer.bodyparts)
 		var/obj/item/bodypart/BP = X
 		if(!msg_time_react)
@@ -688,6 +688,7 @@
 		Wearer.unequip_everything()
 		Wearer.equipOutfit(outfit)
 		ADD_TRAIT(Wearer, TRAIT_NODISMEMBER, "Nanosuit")
+		ADD_TRAIT(Wearer, TRAIT_NEVER_WOUNDED, "Nanosuit")
 		RegisterSignal(Wearer, list(COMSIG_MOB_ITEM_ATTACK,COMSIG_MOB_ITEM_AFTERATTACK,COMSIG_MOB_THROW,COMSIG_MOB_ATTACK_HAND), .proc/kill_cloak,TRUE)
 		if(is_station_level(T.z))
 			priority_announce("[user] использовал[user.ru_a()] запрещённый нанокостюм в [A.name]!","Экстренное сообщение!", sound = 'white/valtos/sounds/nanosuitengage.ogg')
