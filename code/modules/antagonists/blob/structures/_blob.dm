@@ -18,7 +18,7 @@
 	var/heal_timestamp = 0 //we got healed when?
 	var/brute_resist = 0.5 //multiplies brute damage by this
 	var/fire_resist = 1 //multiplies burn damage by this
-	var/atmosblock = FALSE //if the blob blocks atmos and heat spread
+	var/atmosblock = TRUE //if the blob blocks atmos and heat spread
 	var/mob/camera/blob/overmind
 
 /obj/structure/blob/Initialize(mapload, owner_overmind)
@@ -77,6 +77,16 @@
 		add_atom_colour(overmind.blobstrain.color, FIXED_COLOUR_PRIORITY)
 	else
 		remove_atom_colour(FIXED_COLOUR_PRIORITY)
+	if(obj_integrity < max_integrity * 0.5)
+		name = "пробитый [initial(name)]"
+		desc = "[damaged_desc]"
+		atmosblock = FALSE
+		air_update_turf(TRUE, FALSE)
+	else
+		name = initial(name)
+		desc = initial(desc)
+		atmosblock = TRUE
+		air_update_turf(TRUE, TRUE)
 
 /obj/structure/blob/proc/Pulse_Area(mob/camera/blob/pulsing_overmind, claim_range = 10, pulse_range = 3, expand_range = 2)
 	if(QDELETED(pulsing_overmind))
@@ -334,6 +344,8 @@
 /obj/structure/blob/normal/scannerreport()
 	if(obj_integrity <= 15)
 		return "Currently weak to brute damage."
+	if(atmosblock)
+		return "Will prevent the spread of atmospheric changes."
 	return "N/A"
 
 /obj/structure/blob/normal/update_icon()
