@@ -3,7 +3,6 @@
 	icon = 'icons/mob/blob.dmi'
 	icon_state = "blob_shield"
 	desc = "A solid wall of slightly twitching tendrils."
-	var/damaged_desc = "A wall of twitching tendrils."
 	max_integrity = 250
 	brute_resist = 0.25
 	explosion_block = 3

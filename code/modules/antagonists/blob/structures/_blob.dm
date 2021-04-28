@@ -79,12 +79,10 @@
 		remove_atom_colour(FIXED_COLOUR_PRIORITY)
 	if(obj_integrity < max_integrity * 0.5)
 		name = "пробитый [initial(name)]"
-		desc = "[damaged_desc]"
 		atmosblock = FALSE
 		air_update_turf(TRUE, FALSE)
 	else
 		name = initial(name)
-		desc = initial(desc)
 		atmosblock = TRUE
 		air_update_turf(TRUE, TRUE)
 
