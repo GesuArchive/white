@@ -105,11 +105,20 @@
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	item_flags = DROPDEL
+	var/datum/component/tackler
+	var/tackle_stam_cost = 30
+	var/base_knockdown = 1.25 SECONDS
+	var/tackle_range = 4
+	var/min_distance = 2
+	var/tackle_speed = 2
+	var/skill_mod = 2
 
 /obj/item/clothing/gloves/combat/nano/equipped(mob/user, slot)
 	..()
 	if(slot == ITEM_SLOT_GLOVES)
 		ADD_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
+		var/mob/living/carbon/human/H = user
+		tackler = H.AddComponent(/datum/component/tackler, stamina_cost=tackle_stam_cost, base_knockdown = base_knockdown, range = tackle_range, speed = tackle_speed, skill_mod = skill_mod, min_distance = min_distance)
 
 /obj/item/radio/headset/syndicate/alt/nano
 	name = "\proper the nanosuit's bowman headset"
@@ -201,7 +210,7 @@
 	inhand_icon_state = "nanosuit"
 	name = "nanosuit"
 	desc = "Some sort of alien future suit. It looks very robust. Property of CryNet Systems."
-	armor = list("melee" = 40, "bullet" = 40, "laser" = 40, "energy" = 45, "bomb" = 70, "bio" = 100, "rad" = 70, "fire" = 100, "acid" = 100)
+	armor = list("melee" = 40, "bullet" = 40, "laser" = 40, "energy" = 45, "bomb" = 70, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	allowed = list(/obj/item/tank/internals)
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS					//Uncomment to enable firesuit protection
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
@@ -218,8 +227,11 @@
 	var/current_charges = 3
 	var/max_charges = 3 //How many charges total the shielding has
 	var/medical_delay = 200 //How long after we've been shot before we can start recharging. 20 seconds here
+	var/medical_timer = null
 	var/temp_cooldown = 0
 	var/restore_delay = 80
+	var/injection_delay = 25
+	var/injection_timer = null //Delay between injection of healing nanites
 	var/defrosted = FALSE
 	var/detecting = FALSE
 	var/help_verb = /mob/living/carbon/human/proc/Nanosuit_help
@@ -302,6 +314,12 @@
 		msg_time_react -= 1
 	if(cell.charge != energy)
 		set_nano_energy(cell.charge - energy) //now set our current energy to the variable we modified
+	if(world.time  > medical_timer)
+		addmedicalcharge()
+		medical_timer = world.time + medical_delay
+	if((Wearer.health < 100 && current_charges) && world.time > injection_timer)
+		current_charges--
+		heal_nano(Wearer)
 
 /obj/item/clothing/suit/space/hardsuit/nano/proc/set_nano_energy(var/amount, var/delay = 0)
 	if(delay > recharge_cooldown)
@@ -319,9 +337,7 @@
 	cell.charge = max(0,(cell.charge - amount))
 
 /obj/item/clothing/suit/space/hardsuit/nano/proc/addmedicalcharge()
-	if(current_charges < max_charges)
-		current_charges = min(max_charges, current_charges + 1)
-
+	current_charges = min(max_charges, current_charges + 1)
 /obj/item/clothing/suit/space/hardsuit/nano/proc/onmove()
 	if(mode == NANO_CLOAK)
 		set_nano_energy(cloak_use_rate,NANO_CHARGE_DELAY)
@@ -342,6 +358,7 @@
 				set_nano_energy(35,NANO_CHARGE_DELAY)
 			return TRUE
 		else
+			medical_timer = world.time + medical_delay
 			user.visible_message("<span class='warning'>Защита [user] не смогла отразить [attack_text].</span>")
 			if(damage && attack_type == PROJECTILE_ATTACK && P.damage_type != STAMINA && prob(50))
 				var/datum/effect_system/spark_spread/s = new
@@ -349,10 +366,6 @@
 				s.start()
 			return FALSE
 	kill_cloak()
-	if(user.health < 100 && current_charges)
-		addtimer(CALLBACK(src, .proc/addmedicalcharge), medical_delay,TIMER_UNIQUE|TIMER_OVERRIDE)
-		current_charges--
-		heal_nano(user)
 	for(var/X in Wearer.bodyparts)
 		var/obj/item/bodypart/BP = X
 		if(!msg_time_react)
@@ -377,7 +390,7 @@
 				else if(BP.burn_dam > trauma_threshold)
 					helmet.display_visor_message("Обнаружены критические ожоги тела!")
 					msg_time_react = 300
-
+	medical_timer = world.time + medical_delay
 	if(attack_type == LEAP_ATTACK)
 		final_block_chance = 75
 	SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, args)
@@ -385,8 +398,9 @@
 
 /obj/item/clothing/suit/space/hardsuit/nano/proc/heal_nano(mob/living/carbon/human/user)
 	helmet.display_visor_message("Включены экстренные медицинские протоколы.")
-	user.reagents.add_reagent(/datum/reagent/medicine/syndicate_nanites, 7)
-
+	user.reagents.add_reagent(/datum/reagent/medicine/syndicate_nanites, 5)
+	user.reagents.add_reagent(/datum/reagent/medicine/omnizine, 1)
+	injection_timer = world.time + injection_delay
 /obj/item/clothing/suit/space/hardsuit/nano/ui_action_click(mob/user, action)
 	if(istype(action, /datum/action/item_action/nanosuit/armor))
 		toggle_mode(NANO_ARMOR)
@@ -410,8 +424,8 @@
 				helmet.display_visor_message("Максимум Брони!")
 				block_chance = 50
 				slowdown = initial(slowdown)
-				armor = armor.setRating(melee = 50, bullet = 50, laser = 50, energy = 55, bomb = 90, rad = 90)
-				helmet.armor = helmet.armor.setRating(melee = 50, bullet = 50, laser = 50, energy = 55, bomb = 90, rad = 90)
+				armor = armor.setRating(melee = 50, bullet = 50, laser = 50, energy = 55, bomb = 90, rad = 100)
+				helmet.armor = helmet.armor.setRating(melee = 50, bullet = 50, laser = 50, energy = 55, bomb = 90, rad = 100)
 				Wearer.filters = list()
 				animate(Wearer, alpha = 255, time = 5)
 				Wearer.remove_movespeed_modifier(NANO_SPEED)
@@ -426,8 +440,8 @@
 				helmet.display_visor_message("Маскировка включена!")
 				block_chance = initial(block_chance)
 				slowdown = 0.4 //cloaking makes us move slightly faster
-				armor = armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 70)
-				helmet.armor = helmet.armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 70)
+				armor = armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 100)
+				helmet.armor = helmet.armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 100)
 				Wearer.filters = filter(type="blur",size=1)
 				animate(Wearer, alpha = 40, time = 2)
 				Wearer.remove_movespeed_modifier(NANO_SPEED)
@@ -442,8 +456,8 @@
 				helmet.display_visor_message("Максимум скорости!")
 				block_chance = initial(block_chance)
 				slowdown = initial(slowdown)
-				armor = armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 70)
-				helmet.armor = helmet.armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 70)
+				armor = armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 100)
+				helmet.armor = helmet.armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 100)
 				Wearer.adjustOxyLoss(-5, 0)
 				Wearer.adjustStaminaLoss(-20)
 				Wearer.filters = filter(type="outline", size=0.1, color=rgb(255,255,224))
@@ -461,8 +475,8 @@
 				block_chance = initial(block_chance)
 				style.teach(Wearer,1)
 				slowdown = initial(slowdown)
-				armor = armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 70)
-				helmet.armor = helmet.armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 70)
+				armor = armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 100)
+				helmet.armor = helmet.armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 100)
 				Wearer.filters = filter(type="outline", size=0.1, color=rgb(255,0,0))
 				animate(Wearer, alpha = 255, time = 5)
 				ADD_TRAIT(Wearer, TRAIT_PUSHIMMUNE, NANO_STRENGTH)
@@ -476,8 +490,8 @@
 				block_chance = initial(block_chance)
 				style.remove(Wearer)
 				slowdown = initial(slowdown)
-				armor = armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 70)
-				helmet.armor = helmet.armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 70)
+				armor = armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 100)
+				helmet.armor = helmet.armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 100)
 				Wearer.filters = list()
 				animate(Wearer, alpha = 255, time = 5)
 				REMOVE_TRAIT(Wearer, TRAIT_PUSHIMMUNE, NANO_STRENGTH)
@@ -607,7 +621,7 @@
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | FREEZE_PROOF //No longer shall our kind be foiled by lone chemists with spray bottles!
-	armor = list("melee" = 40, "bullet" = 40, "laser" = 40, "energy" = 45, "bomb" = 70, "bio" = 100, "rad" = 70, "fire" = 100, "acid" = 100)
+	armor = list("melee" = 40, "bullet" = 40, "laser" = 40, "energy" = 45, "bomb" = 70, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	heat_protection = HEAD
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	var/list/datahuds = list(DATA_HUD_SECURITY_ADVANCED, DATA_HUD_MEDICAL_ADVANCED, DATA_HUD_DIAGNOSTIC_BASIC)
@@ -688,6 +702,7 @@
 		Wearer.unequip_everything()
 		Wearer.equipOutfit(outfit)
 		ADD_TRAIT(Wearer, TRAIT_NODISMEMBER, "Nanosuit")
+		ADD_TRAIT(Wearer, TRAIT_NEVER_WOUNDED, "Nanosuit")
 		RegisterSignal(Wearer, list(COMSIG_MOB_ITEM_ATTACK,COMSIG_MOB_ITEM_AFTERATTACK,COMSIG_MOB_THROW,COMSIG_MOB_ATTACK_HAND), .proc/kill_cloak,TRUE)
 		if(is_station_level(T.z))
 			priority_announce("[user] использовал[user.ru_a()] запрещённый нанокостюм в [A.name]!","Экстренное сообщение!", sound = 'white/valtos/sounds/nanosuitengage.ogg')
@@ -1180,5 +1195,5 @@
 	item = /obj/item/storage/box/syndie_kit/nanosuit
 	cost = 30
 	surplus = 20
-	cant_discount = TRUE
+	cant_discount = FALSE
 	exclude_modes = list(/datum/game_mode/nuclear)
