@@ -21,7 +21,6 @@
 /obj/structure/blob/shield/reflective
 	name = "reflective blob"
 	desc = "A solid wall of slightly twitching tendrils with a reflective glow."
-	damaged_desc = "A wall of twitching tendrils with a reflective glow."
 	icon_state = "blob_glow"
 	flags_ricochet = RICOCHET_SHINY
 	point_return = 8
