@@ -94,4 +94,4 @@
 	general_ert_request(input, "СОБР", "СОБР", new /datum/antagonist/ert/sobr/leader, new /datum/antagonist/ert/sobr, usr)
 
 /proc/engineer_ert_request(input, usr)
-	general_ert_request(input, "Ремонтная бригада", "ремонтную бригаду", new /datum/outfit/centcom/ert/engineer/alert, new /datum/outfit/centcom/ert/engineer, usr)
+	general_ert_request(input, "Ремонтная бригада", "ремонтную бригаду", new /datum/antagonist/ert/engineer/red, new /datum/antagonist/ert/engineer, usr)
