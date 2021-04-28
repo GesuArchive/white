@@ -3,8 +3,7 @@
 	icon = 'icons/mob/blob.dmi'
 	icon_state = "blob_shield"
 	desc = "A solid wall of slightly twitching tendrils."
-	var/damaged_desc = "A wall of twitching tendrils."
-	max_integrity = 150
+	max_integrity = 250
 	brute_resist = 0.25
 	explosion_block = 3
 	point_return = 4
@@ -19,25 +18,9 @@
 /obj/structure/blob/shield/core
 	point_return = 0
 
-/obj/structure/blob/shield/update_icon()
-	..()
-	if(obj_integrity < max_integrity * 0.5)
-		icon_state = "[initial(icon_state)]_damaged"
-		name = "weakened [initial(name)]"
-		desc = "[damaged_desc]"
-		atmosblock = FALSE
-		air_update_turf(TRUE, FALSE)
-	else
-		icon_state = initial(icon_state)
-		name = initial(name)
-		desc = initial(desc)
-		atmosblock = TRUE
-		air_update_turf(TRUE, TRUE)
-
 /obj/structure/blob/shield/reflective
 	name = "reflective blob"
 	desc = "A solid wall of slightly twitching tendrils with a reflective glow."
-	damaged_desc = "A wall of twitching tendrils with a reflective glow."
 	icon_state = "blob_glow"
 	flags_ricochet = RICOCHET_SHINY
 	point_return = 8
