@@ -1,4 +1,4 @@
-#define PROGRESSBAR_HEIGHT 2
+#define PROGRESSBAR_HEIGHT 4
 #define PROGRESSBAR_ANIMATION_TIME 5
 
 /datum/progressbar
