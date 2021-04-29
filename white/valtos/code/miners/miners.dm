@@ -370,7 +370,7 @@ SUBSYSTEM_DEF(spm)
 			continue
 		all_entries.Add(list(list(
 			"name" = MC.name,
-			"hashrate" = MC.hashrate_total + MC.overclock,
+			"hashrate" = MC.hashrate_total,
 			"mining" = MC.mining,
 			"temp" = MC.get_env_temp(),
 			"powerusage" = MC.hashrate_total * 10
