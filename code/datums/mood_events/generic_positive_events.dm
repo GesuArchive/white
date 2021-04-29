@@ -53,7 +53,7 @@
 	description = "<span class='nicegreen'>[animal.name] [animal.gender == MALE ? "такой милый" : "такая милая"]! Я не могу перестать гладить [animal.ru_ego()]!</span>\n"
 
 /datum/mood_event/honk
-	description = "<span class='nicegreen'>Меня ХОНКнули!/span>\n"
+	description = "<span class='nicegreen'>Меня ХОНКнули!</span>\n"
 	mood_change = 2
 	timeout = 4 MINUTES
 	special_screen_obj = "honked_nose"
