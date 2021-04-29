@@ -236,7 +236,7 @@ SUBSYSTEM_DEF(spm)
 				qdel(src)
 				return
 			overclock += rand(5, 10)
-			to_chat(user, "<span class='notice'>Успешно разгоняю [src.name]! Новый прирост: [overclock]</span>")
+			to_chat(user, "<span class='notice'>Успешно разгоняю [src.name]! Новый прирост: [overclock].</span>")
 
 /obj/item/mining_thing/examine(mob/user)
 	. = ..()
