@@ -187,6 +187,10 @@
 		drifting_dir = get_dir(parent, target)
 
 	if(prob(10))
+		var/turf/T = get_turf(parent)
+		if(locate(/obj/effect/shield) in T.contents)
+			step(parent, drifting_dir)
+			return
 		if(SSmapping.get_turf_above(get_turf(parent)))
 			step(parent, UP)
 		else if (SSmapping.get_turf_below(get_turf(parent)))
