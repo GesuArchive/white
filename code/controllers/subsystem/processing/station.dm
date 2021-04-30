@@ -10,7 +10,7 @@ PROCESSING_SUBSYSTEM_DEF(station)
 
 /datum/controller/subsystem/processing/station/Initialize(timeofday)
 
-	if(prob(50))
+	if(prob(80))
 		announcer = new /datum/centcom_announcer/default
 	else
 		announcer = new /datum/centcom_announcer/intern
