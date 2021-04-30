@@ -10,16 +10,12 @@ PROCESSING_SUBSYSTEM_DEF(station)
 
 /datum/controller/subsystem/processing/station/Initialize(timeofday)
 
-	announcer = new /datum/centcom_announcer/default
+	announcer = new /datum/centcom_announcer/ru_default
 /*
 	if(prob(80))
 		announcer = new /datum/centcom_announcer/default
 	else
-		announcer = new /datum/centcom_announcer/intern
-*/
-/*
-	announcer = pick(list(/datum/centcom_announcer/default,
-						/datum/centcom_announcer/intern)) //Initialize the station's announcer datum
+		announcer = new /datum/centcom_announcer/intern //слишком ебёт игроков, не врубать
 */
 	return ..()
 
