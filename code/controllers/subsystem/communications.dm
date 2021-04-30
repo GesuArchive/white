@@ -25,7 +25,7 @@ SUBSYSTEM_DEF(communications)
 		minor_announce(html_decode(input),"[user.name] делает объявление.")
 		COOLDOWN_START(src, silicon_message_cooldown, COMMUNICATION_COOLDOWN_AI)
 	else
-		priority_announce(html_decode(user.treat_message(input)), null, 'sound/misc/announce.ogg', "Капитан Объявляет")
+		priority_announce(user.treat_message(html_decode(input)), null, 'sound/misc/announce.ogg', "Captain")
 		COOLDOWN_START(src, nonsilicon_message_cooldown, COMMUNICATION_COOLDOWN)
 	user.log_talk(input, LOG_SAY, tag="priority announcement")
 	message_admins("[ADMIN_LOOKUPFLW(user)] has made a priority announcement.")
