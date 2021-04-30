@@ -566,7 +566,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	var/announce_command_report = TRUE
 	switch(confirm)
 		if("Yes")
-			priority_announce(input, null, 'sound/ai/announcer/alert.ogg')
+			priority_announce(input, null, SSstation.announcer.get_rand_report_sound())
 			announce_command_report = FALSE
 		if("Cancel")
 			return

@@ -1,8 +1,10 @@
-/proc/priority_announce(text, title = "", sound = 'sound/ai/announcer/alert.ogg', type, sender_override)
+/proc/priority_announce(text, title = "", sound, type , sender_override, has_important_message)
 	if(!text)
 		return
 
 	var/announcement
+	if(!istype(sound, /sound))
+		sound = SSstation.announcer.event_sounds[sound] || SSstation.announcer.get_rand_alert_sound()
 
 	//announcement += "<hr class='veryalert'>"
 
@@ -28,7 +30,11 @@
 			else
 				GLOB.news_network.SubmitArticle(title + "\n" + text, "Центральное Командование", "Станционные Объявления", null)
 
-	announcement += "<span class='alert'><big>[html_encode(text)]</big></span>"
+	///If the announcer overrides alert messages, use that message.
+	if(SSstation.announcer.custom_alert_message && !has_important_message)
+		announcement +=  SSstation.announcer.custom_alert_message
+	else
+		announcement += "<span class='alert'><big>[html_encode(text)]</big></span>"
 	announcement += "\n\n"
 
 	var/s = sound(sound)
@@ -76,7 +82,7 @@
 		title = "Секретно: [command_name()]"
 
 	if(announce)
-		priority_announce("Отчет был загружен и распечатан на всех коммуникационных консолях.", "Входящее Секретное Сообщение", 'sound/ai/announcer/alert.ogg')
+		priority_announce("Отчет был загружен и распечатан на всех коммуникационных консолях.", "Входящее Секретное Сообщение", SSstation.announcer.get_rand_report_sound(), has_important_message = TRUE)
 
 	var/datum/comm_message/M  = new
 	M.title = title
