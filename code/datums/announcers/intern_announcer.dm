@@ -41,4 +41,3 @@
 						ANNOUNCER_SHUTTLEDOCK = 'sound/ai/intern/shuttledock.ogg',
 						ANNOUNCER_SHUTTLERECALLED = 'sound/ai/intern/shuttlerecalled.ogg',
 						ANNOUNCER_SPANOMALIES = 'sound/ai/intern/spanomalies.ogg')
-
