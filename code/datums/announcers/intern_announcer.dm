@@ -42,4 +42,4 @@
 						ANNOUNCER_SHUTTLERECALLED = 'sound/ai/intern/shuttlerecalled.ogg',
 						ANNOUNCER_SPANOMALIES = 'sound/ai/intern/spanomalies.ogg')
 
-	custom_alert_message = "<br><span class='alert'>Please stand by for an important message from our new intern.</span><br>"
+	custom_alert_message = "<br><span class='alert'>Пожалуйста, прослушайте сообщение от одного из наших интернов.</span><br>"

@@ -260,15 +260,15 @@ SUBSYSTEM_DEF(ticker)
 
 	if(retrycap >= 4)
 		hide_mode = FALSE
-		mode = config.pick_mode("teaparty")
-		to_chat(world, "<span class='notice big'>Время пить чай!</span>")
+		mode = config.pick_mode("extended")
+		to_chat(world, "<span class='notice big'>Время отдыхать!</span>")
 	else
 		if(!GLOB.Debug2)
 			if(!can_continue)
 				log_game("[mode.name] failed pre_setup, cause: [mode.setup_error]")
 				QDEL_NULL(mode)
-				to_chat(world, "<span class='notice'>Станция не сможет работать без <B>Капитана</B>. [retrycap]/5 до чаепития.</span>")
 				retrycap++
+				to_chat(world, "<span class='notice'>Станция не сможет работать без <B>Капитана</B>. [retrycap]/5 до отдыха.</span>")
 				SSjob.ResetOccupations()
 				return FALSE
 		else
