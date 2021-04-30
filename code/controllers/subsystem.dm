@@ -214,7 +214,6 @@
 //used to initialize the subsystem AFTER the map has loaded
 /datum/controller/subsystem/Initialize(start_timeofday)
 	initialized = TRUE
-	SEND_SIGNAL(src, COMSIG_SUBSYSTEM_POST_INITIALIZE, start_timeofday)
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 	var/msg = "Инициализация <b>[name]</b> за <b>[time]</b> секунд!"
 	SStitle.adjust_load_pos(round(time, 1), "[name] ГОТОВО")
