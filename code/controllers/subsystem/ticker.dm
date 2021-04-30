@@ -194,7 +194,7 @@ SUBSYSTEM_DEF(ticker)
 			if(!setup())
 				//setup failed
 				current_state = GAME_STATE_STARTUP
-				start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 10)
+				start_at = world.time + (60 SECONDS)
 				timeLeft = null
 				Master.SetRunLevel(RUNLEVEL_LOBBY)
 			else
@@ -261,7 +261,7 @@ SUBSYSTEM_DEF(ticker)
 		if(!can_continue)
 			log_game("[mode.name] failed pre_setup, cause: [mode.setup_error]")
 			QDEL_NULL(mode)
-			to_chat(world, "<B>Нет готовых людей [GLOB.master_mode].</B> Откатываем таймер.")
+			to_chat(world, "<span class='notice'>Станция не сможет работать без <B>Капитана</B>. Подождём ещё 60 секунд.</span>")
 			SSjob.ResetOccupations()
 			return FALSE
 	else
