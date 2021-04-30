@@ -121,7 +121,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	for(var/datum/supply_order/SO in SSshuttle.shoppinglist)
 		if(!empty_turfs.len)
 			break
-		var/price = SO.pack.get_cost()
+		var/price = SO.pack.cost
 		if(SO.applied_coupon)
 			price *= (1 - SO.applied_coupon.discount_pct_off)
 
@@ -149,8 +149,8 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 				LAZYADD(goodies_by_buyer[SO.paying_account], SO)
 			D.bank_card_talk("Заказ на груз №[SO.id] отправлен. [price] кредит[get_num_string(price)] были зачислены на ваш банковский счет.")
 			var/datum/bank_account/department/cargo = SSeconomy.get_dep_account(ACCOUNT_CAR)
-			cargo.adjust_money(price - SO.pack.get_cost()) //Cargo gets the handling fee
-		value += SO.pack.get_cost()
+			cargo.adjust_money(price - SO.pack.cost) //Cargo gets the handling fee
+		value += SO.pack.cost
 		SSshuttle.shoppinglist -= SO
 		SSshuttle.orderhistory += SO
 		QDEL_NULL(SO.applied_coupon)

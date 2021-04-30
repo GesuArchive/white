@@ -1,5 +1,5 @@
 /proc/power_failure()
-	priority_announce("Аномальная активность обнаружена энергосетях [station_name()]. В качестве меры предосторожности энергия будет отключена на неопределенный срок.", "Критический сбой питания", ANNOUNCER_POWEROFF)
+	priority_announce("Аномальная активность обнаружена энергосетях [station_name()]. В качестве меры предосторожности энергия будет отключена на неопределенный срок.", "Критический сбой питания", 'sound/ai/poweroff.ogg')
 	for(var/obj/machinery/power/smes/S in GLOB.machines)
 		if(istype(get_area(S), /area/ai_monitored/turret_protected) || !is_station_level(S.z))
 			continue
@@ -30,7 +30,7 @@
 
 /proc/power_restore()
 
-	priority_announce("Электроэнергия восстановлена на [station_name()]. Приносим свои извинения за доставленные неудобства.", "Электропитание стабилизировано", ANNOUNCER_POWEROFF)
+	priority_announce("Электроэнергия восстановлена на [station_name()]. Приносим свои извинения за доставленные неудобства.", "Электропитание стабилизировано", 'sound/ai/poweron.ogg')
 	for(var/obj/machinery/power/apc/C in GLOB.machines)
 		if(C.cell && is_station_level(C.z))
 			C.cell.charge = C.cell.maxcharge
@@ -54,7 +54,7 @@
 
 /proc/power_restore_quick()
 
-	priority_announce("Все СНМЭ на станции [station_name()] были заряжены нашей электромагнитной установкой. Приносим свои извинения за доставленные неудобства.", "Электропитание стабилизировано", ANNOUNCER_POWERON)
+	priority_announce("Все СНМЭ на станции [station_name()] были заряжены нашей электромагнитной установкой. Приносим свои извинения за доставленные неудобства.", "Электропитание стабилизировано", 'sound/ai/poweron.ogg')
 	for(var/obj/machinery/power/smes/S in GLOB.machines)
 		if(!is_station_level(S.z))
 			continue

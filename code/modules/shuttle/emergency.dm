@@ -343,7 +343,7 @@
 	else
 		SSshuttle.emergencyLastCallLoc = null
 
-	priority_announce("Вызван эвакуационный шаттл. [redAlert ? "Подтверждён \"Красный код\": отправляем приоритетный шаттл. " : "" ]Он прибудет через [timeLeft(600)] минут.[reason][SSshuttle.emergencyLastCallLoc ? "\n\nИсточник сигнала идентифицирован, данные о его местоположении доступны с любой коммуникационной консоли." : "" ]", null, ANNOUNCER_SHUTTLECALLED, "Priority")
+	priority_announce("Вызван эвакуационный шаттл. [redAlert ? "Подтверждён \"Красный код\": отправляем приоритетный шаттл. " : "" ]Он прибудет через [timeLeft(600)] минут.[reason][SSshuttle.emergencyLastCallLoc ? "\n\nИсточник сигнала идентифицирован, данные о его местоположении доступны с любой коммуникационной консоли." : "" ]", null, 'sound/ai/shuttlecalled.ogg', "Priority")
 
 /obj/docking_port/mobile/emergency/cancel(area/signalOrigin)
 	if(mode != SHUTTLE_CALL)
@@ -358,7 +358,7 @@
 		SSshuttle.emergencyLastCallLoc = signalOrigin
 	else
 		SSshuttle.emergencyLastCallLoc = null
-	priority_announce("Эвакуационный шаттл был отозван. [SSshuttle.emergencyLastCallLoc ? " Источник сигнала идентифицирован, данные о его местоположении доступны с любой коммуникационной консоли." : "" ]", null, ANNOUNCER_SHUTTLERECALLED, "Priority")
+	priority_announce("Эвакуационный шаттл был отозван. [SSshuttle.emergencyLastCallLoc ? " Источник сигнала идентифицирован, данные о его местоположении доступны с любой коммуникационной консоли." : "" ]", null, 'sound/ai/shuttlerecalled.ogg', "Priority")
 
 	SSticker.emergency_reason = null
 
@@ -448,7 +448,7 @@
 				webhook_send_roundstatus("shuttle docked")
 				setTimer(SSshuttle.emergencyDockTime)
 				send2adminchat("Server", "The Emergency Shuttle has docked with the station.")
-				priority_announce("[SSshuttle.emergency] был пристыкован к станции. В вашем распоряжении [timeLeft(600)] минуты на посадку.", null, ANNOUNCER_SHUTTLEDOCK, "Priority")
+				priority_announce("Эвакуационный шаттл был пристыкован к станции. В вашем распоряжении [timeLeft(600)] минуты на посадку.", null, 'sound/ai/shuttledock.ogg', "Priority")
 				ShuttleDBStuff()
 
 

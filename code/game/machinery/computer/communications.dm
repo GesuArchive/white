@@ -232,7 +232,7 @@
 			nuke_request(reason, usr)
 			to_chat(usr, "<span class='notice'>Запрос отправлен.</span>")
 			usr.log_message("has requested the nuclear codes from CentCom with reason \"[reason]\"", LOG_SAY)
-			priority_announce("Коды ядерной авторизации для самоуничтожения станции были запрошены [usr]. Подтверждение или отклонение данного запроса возможно в скором времени.", "Запрос кодов ядерной авторизации", SSstation.announcer.get_rand_report_sound())
+			priority_announce("Коды ядерной авторизации для самоуничтожения станции были запрошены [usr]. Подтверждение или отклонение данного запроса возможно в скором времени.", "Запрос кодов ядерной авторизации", 'sound/ai/commandreport.ogg')
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
 			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)
 		if("callSobr")
