@@ -339,6 +339,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("оладья" = 1)
 	foodtypes = GRAIN | SUGAR | BREAKFAST
+	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/muffin/berry
@@ -419,6 +420,7 @@
 	microwaved_type = /obj/item/food/donkpocket/warm
 	tastes = list("мясо" = 2, "тесто" = 2, "лень" = 1)
 	foodtypes = GRAIN
+	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/donkpocket/warm
@@ -549,6 +551,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	tastes = list("печенька" = 1)
 	foodtypes = GRAIN | SUGAR
+	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/cookie/Initialize()
@@ -565,6 +568,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5)
 	tastes = list("печенька" = 1)
 	foodtypes = GRAIN | SUGAR
+	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/poppypretzel
@@ -574,6 +578,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("крендель" = 1)
 	foodtypes = GRAIN | SUGAR
+	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/plumphelmetbiscuit
@@ -583,6 +588,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("грибы" = 1, "бисквит" = 1)
 	foodtypes = GRAIN | VEGETABLES
+	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/plumphelmetbiscuit/Initialize()
@@ -603,6 +609,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	tastes = list("крэкер" = 1)
 	foodtypes = GRAIN
+	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/hotdog
@@ -685,6 +692,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("торт" = 3, "вишня" = 1)
 	foodtypes = GRAIN | FRUIT | SUGAR
+	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/cherrycupcake/blue
