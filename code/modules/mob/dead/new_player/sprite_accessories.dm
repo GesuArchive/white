@@ -782,784 +782,580 @@
 
 /datum/sprite_accessory/hair/white
 	icon = 'white/valtos/icons/ohairs.dmi'
-	icon_state = "hair_bedhead"
-	name = "Onyx: Bedhead"
-
-/datum/sprite_accessory/hair/white/bedhead
-	name = "Onyx: Bedhead"
-	icon_state = "hair_bedhead"
-
-/datum/sprite_accessory/hair/white/dreads
-	name = "Onyx: Dreads"
-	icon_state = "hair_dreads"
-
-/datum/sprite_accessory/hair/white/vlong
-	name = "Onyx: Vlong"
-	icon_state = "hair_vlong"
-
-/datum/sprite_accessory/hair/white/jensen
-	name = "Onyx: Jensen"
-	icon_state = "hair_jensen"
-
-/datum/sprite_accessory/hair/white/skinhead
-	name = "Onyx: Skinhead"
-	icon_state = "hair_skinhead"
-
-/datum/sprite_accessory/hair/white/halfbang
-	name = "Onyx: Halfbang"
-	icon_state = "hair_halfbang"
-
-/datum/sprite_accessory/hair/white/ponytail
-	name = "Onyx: Ponytail"
-	icon_state = "hair_ponytail"
+	icon_state = "hair_pa"
+	name = "EX: Pa"
 
 /datum/sprite_accessory/hair/white/pa
-	name = "Onyx: Pa"
-	icon_state = "hair_pa"
-
-/datum/sprite_accessory/hair/white/ponytail3
-	name = "Onyx: Ponytail3"
-	icon_state = "hair_ponytail3"
+	name = "EX: Pa"
+	icon_state = "pa"
 
 /datum/sprite_accessory/hair/white/halfbang_alt
-	name = "Onyx: Halfbang_alt"
-	icon_state = "hair_halfbang_alt"
-
-/datum/sprite_accessory/hair/white/bedheadv2
-	name = "Onyx: Bedheadv2"
-	icon_state = "hair_bedheadv2"
-
-/datum/sprite_accessory/hair/white/longfringe
-	name = "Onyx: Longfringe"
-	icon_state = "hair_longfringe"
-
-/datum/sprite_accessory/hair/white/flair
-	name = "Onyx: Flair"
-	icon_state = "hair_flair"
-
-/datum/sprite_accessory/hair/white/himecut
-	name = "Onyx: Himecut"
-	icon_state = "hair_himecut"
-
-/datum/sprite_accessory/hair/white/shorthime
-	name = "Onyx: Shorthime"
-	icon_state = "hair_shorthime"
-
-/datum/sprite_accessory/hair/white/bedheadv3
-	name = "Onyx: Bedheadv3"
-	icon_state = "hair_bedheadv3"
-
-/datum/sprite_accessory/hair/white/vlongfringe
-	name = "Onyx: Vlongfringe"
-	icon_state = "hair_vlongfringe"
-
-/datum/sprite_accessory/hair/white/longest
-	name = "Onyx: Longest"
-	icon_state = "hair_longest"
-
-/datum/sprite_accessory/hair/white/spikey
-	name = "Onyx: Spikey"
-	icon_state = "hair_spikey"
-
-/datum/sprite_accessory/hair/white/bigafro
-	name = "Onyx: Bigafro"
-	icon_state = "hair_bigafro"
-
-/datum/sprite_accessory/hair/white/afro
-	name = "Onyx: Afro"
-	icon_state = "hair_afro"
-
-/datum/sprite_accessory/hair/white/braid
-	name = "Onyx: Braid"
-	icon_state = "hair_braid"
-
-/datum/sprite_accessory/hair/white/gelled
-	name = "Onyx: Gelled"
-	icon_state = "hair_gelled"
-
-/datum/sprite_accessory/hair/white/sargeant
-	name = "Onyx: Sargeant"
-	icon_state = "hair_sargeant"
-
-/datum/sprite_accessory/hair/white/kagami
-	name = "Onyx: Kagami"
-	icon_state = "hair_kagami"
-
-/datum/sprite_accessory/hair/white/gentle
-	name = "Onyx: Gentle"
-	icon_state = "hair_gentle"
-
-/datum/sprite_accessory/hair/white/hbraid
-	name = "Onyx: Hbraid"
-	icon_state = "hair_hbraid"
-
-/datum/sprite_accessory/hair/white/stail
-	name = "Onyx: Stail"
-	icon_state = "hair_stail"
-
-/datum/sprite_accessory/hair/white/afro2
-	name = "Onyx: Afro2"
-	icon_state = "hair_afro2"
-
-/datum/sprite_accessory/hair/white/beehive
-	name = "Onyx: Beehive"
-	icon_state = "hair_beehive"
-
-/datum/sprite_accessory/hair/white/bobcurl
-	name = "Onyx: Bobcurl"
-	icon_state = "hair_bobcurl"
-
-/datum/sprite_accessory/hair/white/bobcut
-	name = "Onyx: Bobcut"
-	icon_state = "hair_bobcut"
-
-/datum/sprite_accessory/hair/white/bowlcut
-	name = "Onyx: Bowlcut"
-	icon_state = "hair_bowlcut"
-
-/datum/sprite_accessory/hair/white/buzzcut
-	name = "Onyx: Buzzcut"
-	icon_state = "hair_buzzcut"
-
-/datum/sprite_accessory/hair/white/combover
-	name = "Onyx: Combover"
-	icon_state = "hair_combover"
-
-/datum/sprite_accessory/hair/white/crewcut
-	name = "Onyx: Crewcut"
-	icon_state = "hair_crewcut"
-
-/datum/sprite_accessory/hair/white/devilock
-	name = "Onyx: Devilock"
-	icon_state = "hair_devilock"
-
-/datum/sprite_accessory/hair/white/emo
-	name = "Onyx: Emo"
-	icon_state = "hair_emo"
-
-/datum/sprite_accessory/hair/white/feather
-	name = "Onyx: Feather"
-	icon_state = "hair_feather"
-
-/datum/sprite_accessory/hair/white/hitop
-	name = "Onyx: Hitop"
-	icon_state = "hair_hitop"
-
-/datum/sprite_accessory/hair/white/odango
-	name = "Onyx: Odango"
-	icon_state = "hair_odango"
-
-/datum/sprite_accessory/hair/white/ombre
-	name = "Onyx: Ombre"
-	icon_state = "hair_ombre"
-
-/datum/sprite_accessory/hair/white/parted
-	name = "Onyx: Parted"
-	icon_state = "hair_parted"
-
-/datum/sprite_accessory/hair/white/pompadour
-	name = "Onyx: Pompadour"
-	icon_state = "hair_pompadour"
-
-/datum/sprite_accessory/hair/white/quiff
-	name = "Onyx: Quiff"
-	icon_state = "hair_quiff"
-
-/datum/sprite_accessory/hair/white/updo
-	name = "Onyx: Updo"
-	icon_state = "hair_updo"
-
-/datum/sprite_accessory/hair/white/longovereye
-	name = "Onyx: Longovereye"
-	icon_state = "hair_longovereye"
-
-/datum/sprite_accessory/hair/white/shortovereye
-	name = "Onyx: Shortovereye"
-	icon_state = "hair_shortovereye"
+	name = "EX: Halfbang_alt"
+	icon_state = "halfbang_alt"
 
 /datum/sprite_accessory/hair/white/thefamilyman
-	name = "Onyx: Thefamilyman"
-	icon_state = "hair_thefamilyman"
-
-/datum/sprite_accessory/hair/white/drillruru
-	name = "Onyx: Drillruru"
-	icon_state = "hair_drillruru"
-
-/datum/sprite_accessory/hair/white/dandypompadour
-	name = "Onyx: Dandypompadour"
-	icon_state = "hair_dandypompadour"
-
-/datum/sprite_accessory/hair/white/poofy
-	name = "Onyx: Poofy"
-	icon_state = "hair_poofy"
+	name = "EX: Thefamilyman"
+	icon_state = "thefamilyman"
 
 /datum/sprite_accessory/hair/white/toriyama
-	name = "Onyx: Toriyama"
-	icon_state = "hair_toriyama"
+	name = "EX: Toriyama"
+	icon_state = "toriyama"
 
 /datum/sprite_accessory/hair/white/toriyama2
-	name = "Onyx: Toriyama2"
-	icon_state = "hair_toriyama2"
-
-/datum/sprite_accessory/hair/white/cia
-	name = "Onyx: Cia"
-	icon_state = "hair_cia"
-
-/datum/sprite_accessory/hair/white/mulder
-	name = "Onyx: Mulder"
-	icon_state = "hair_mulder"
+	name = "EX: Toriyama2"
+	icon_state = "toriyama2"
 
 /datum/sprite_accessory/hair/white/scully
-	name = "Onyx: Scully"
-	icon_state = "hair_scully"
-
-/datum/sprite_accessory/hair/white/nitori
-	name = "Onyx: Nitori"
-	icon_state = "hair_nitori"
-
-/datum/sprite_accessory/hair/white/joestar
-	name = "Onyx: Joestar"
-	icon_state = "hair_joestar"
-
-/datum/sprite_accessory/hair/white/ponytail4
-	name = "Onyx: Ponytail4"
-	icon_state = "hair_ponytail4"
-
-/datum/sprite_accessory/hair/white/ponytail5
-	name = "Onyx: Ponytail5"
-	icon_state = "hair_ponytail5"
-
-/datum/sprite_accessory/hair/white/ponytail6
-	name = "Onyx: Ponytail6"
-	icon_state = "hair_ponytail6"
+	name = "EX: Scully"
+	icon_state = "scully"
 
 /datum/sprite_accessory/hair/white/beehive2
-	name = "Onyx: Beehive2"
-	icon_state = "hair_beehive2"
-
-/datum/sprite_accessory/hair/white/shortbraid
-	name = "Onyx: Shortbraid"
-	icon_state = "hair_shortbraid"
-
-/datum/sprite_accessory/hair/white/reversemohawk
-	name = "Onyx: Reversemohawk"
-	icon_state = "hair_reversemohawk"
-
-/datum/sprite_accessory/hair/white/father
-	name = "Onyx: Father"
-	icon_state = "hair_father"
+	name = "EX: Beehive2"
+	icon_state = "beehive2"
 
 /datum/sprite_accessory/hair/white/emolong
-	name = "Onyx: Emolong"
-	icon_state = "hair_emolong"
-
-/datum/sprite_accessory/hair/white/shorthair3
-	name = "Onyx: Shorthair3"
-	icon_state = "hair_shorthair3"
-
-/datum/sprite_accessory/hair/white/volaju
-	name = "Onyx: Volaju"
-	icon_state = "hair_volaju"
+	name = "EX: Emolong"
+	icon_state = "emolong"
 
 /datum/sprite_accessory/hair/white/bun2
-	name = "Onyx: Bun2"
-	icon_state = "hair_bun2"
-
-/datum/sprite_accessory/hair/white/shortbangs
-	name = "Onyx: Shortbangs"
-	icon_state = "hair_shortbangs"
+	name = "EX: Bun2"
+	icon_state = "bun2"
 
 /datum/sprite_accessory/hair/white/shavedbun
-	name = "Onyx: Shavedbun"
-	icon_state = "hair_shavedbun"
-
-/datum/sprite_accessory/hair/white/halfshaved
-	name = "Onyx: Halfshaved"
-	icon_state = "hair_halfshaved"
+	name = "EX: Shavedbun"
+	icon_state = "shavedbun"
 
 /datum/sprite_accessory/hair/white/halfshavedemo
-	name = "Onyx: Halfshavedemo"
-	icon_state = "hair_halfshavedemo"
+	name = "EX: Halfshavedemo"
+	icon_state = "halfshavedemo"
 
 /datum/sprite_accessory/hair/white/longsideemo
-	name = "Onyx: Longsideemo"
-	icon_state = "hair_longsideemo"
+	name = "EX: Longsideemo"
+	icon_state = "longsideemo"
 
 /datum/sprite_accessory/hair/white/longeralt2
-	name = "Onyx: Longeralt2"
-	icon_state = "hair_longeralt2"
-
-/datum/sprite_accessory/hair/white/bun
-	name = "Onyx: Bun"
-	icon_state = "hair_bun"
-
-/datum/sprite_accessory/hair/white/doublebun
-	name = "Onyx: Doublebun"
-	icon_state = "hair_doublebun"
+	name = "EX: Longeralt2"
+	icon_state = "longeralt2"
 
 /datum/sprite_accessory/hair/white/sleeze
-	name = "Onyx: Sleeze"
-	icon_state = "hair_sleeze"
+	name = "EX: Sleeze"
+	icon_state = "sleeze"
 
 /datum/sprite_accessory/hair/white/rows1
-	name = "Onyx: Rows1"
-	icon_state = "hair_rows1"
+	name = "EX: Rows1"
+	icon_state = "rows1"
 
 /datum/sprite_accessory/hair/white/rows2
-	name = "Onyx: Rows2"
-	icon_state = "hair_rows2"
-
-/datum/sprite_accessory/hair/white/twintail
-	name = "Onyx: Twintail"
-	icon_state = "hair_twintail"
-
-/datum/sprite_accessory/hair/white/emo2
-	name = "Onyx: Emo2"
-	icon_state = "hair_emo2"
-
-/datum/sprite_accessory/hair/white/lowfade
-	name = "Onyx: Lowfade"
-	icon_state = "hair_lowfade"
-
-/datum/sprite_accessory/hair/white/medfade
-	name = "Onyx: Medfade"
-	icon_state = "hair_medfade"
-
-/datum/sprite_accessory/hair/white/highfade
-	name = "Onyx: Highfade"
-	icon_state = "hair_highfade"
-
-/datum/sprite_accessory/hair/white/baldfade
-	name = "Onyx: Baldfade"
-	icon_state = "hair_baldfade"
-
-/datum/sprite_accessory/hair/white/nofade
-	name = "Onyx: Nofade"
-	icon_state = "hair_nofade"
-
-/datum/sprite_accessory/hair/white/trimflat
-	name = "Onyx: Trimflat"
-	icon_state = "hair_trimflat"
-
-/datum/sprite_accessory/hair/white/shaved
-	name = "Onyx: Shaved"
-	icon_state = "hair_shaved"
-
-/datum/sprite_accessory/hair/white/trimmed
-	name = "Onyx: Trimmed"
-	icon_state = "hair_trimmed"
-
-/datum/sprite_accessory/hair/white/tightbun
-	name = "Onyx: Tightbun"
-	icon_state = "hair_tightbun"
-
-/datum/sprite_accessory/hair/white/coffeehouse
-	name = "Onyx: Coffeehouse"
-	icon_state = "hair_coffeehouse"
-
-/datum/sprite_accessory/hair/white/shavedpart
-	name = "Onyx: Shavedpart"
-	icon_state = "hair_shavedpart"
-
-/datum/sprite_accessory/hair/white/undercut
-	name = "Onyx: Undercut"
-	icon_state = "hair_undercut"
+	name = "EX: Rows2"
+	icon_state = "rows2"
 
 /datum/sprite_accessory/hair/white/bobcutalt
-	name = "Onyx: Bobcutalt"
-	icon_state = "hair_bobcutalt"
+	name = "EX: Bobcutalt"
+	icon_state = "bobcutalt"
 
 /datum/sprite_accessory/hair/white/hightight
-	name = "Onyx: Hightight"
-	icon_state = "hair_hightight"
+	name = "EX: Hightight"
+	icon_state = "hightight"
 
 /datum/sprite_accessory/hair/white/grande
-	name = "Onyx: Grande"
-	icon_state = "hair_grande"
-
-/datum/sprite_accessory/hair/white/fringetail
-	name = "Onyx: Fringetail"
-	icon_state = "hair_fringetail"
+	name = "EX: Grande"
+	icon_state = "grande"
 
 /datum/sprite_accessory/hair/white/rowbun
-	name = "Onyx: Rowbun"
-	icon_state = "hair_rowbun"
+	name = "EX: Rowbun"
+	icon_state = "rowbun"
 
 /datum/sprite_accessory/hair/white/rowdualtail
-	name = "Onyx: Rowdualtail"
-	icon_state = "hair_rowdualtail"
+	name = "EX: Rowdualtail"
+	icon_state = "rowdualtail"
 
 /datum/sprite_accessory/hair/white/rowbraid
-	name = "Onyx: Rowbraid"
-	icon_state = "hair_rowbraid"
-
-/datum/sprite_accessory/hair/white/shavedmohawk
-	name = "Onyx: Shavedmohawk"
-	icon_state = "hair_shavedmohawk"
-
-/datum/sprite_accessory/hair/white/topknot
-	name = "Onyx: Topknot"
-	icon_state = "hair_topknot"
-
-/datum/sprite_accessory/hair/white/ronin
-	name = "Onyx: Ronin"
-	icon_state = "hair_ronin"
-
-/datum/sprite_accessory/hair/white/bowlcut2
-	name = "Onyx: Bowlcut2"
-	icon_state = "hair_bowlcut2"
-
-/datum/sprite_accessory/hair/white/thinningrear
-	name = "Onyx: Thinningrear"
-	icon_state = "hair_thinningrear"
-
-/datum/sprite_accessory/hair/white/thinningfront
-	name = "Onyx: Thinningfront"
-	icon_state = "hair_thinningfront"
-
-/datum/sprite_accessory/hair/white/thinning
-	name = "Onyx: Thinning"
-	icon_state = "hair_thinning"
-
-/datum/sprite_accessory/hair/white/manbun
-	name = "Onyx: Manbun"
-	icon_state = "hair_manbun"
+	name = "EX: Rowbraid"
+	icon_state = "rowbraid"
 
 /datum/sprite_accessory/hair/white/curly
-	name = "Onyx: Curly"
-	icon_state = "hair_curly"
+	name = "EX: Curly"
+	icon_state = "curly"
 
 /datum/sprite_accessory/hair/white/wife
-	name = "Onyx: Wife"
-	icon_state = "hair_wife"
+	name = "EX: Wife"
+	icon_state = "wife"
 
 /datum/sprite_accessory/hair/white/victory
-	name = "Onyx: Victory"
-	icon_state = "hair_victory"
+	name = "EX: Victory"
+	icon_state = "victory"
 
 /datum/sprite_accessory/hair/white/tbob
-	name = "Onyx: Tbob"
-	icon_state = "hair_tbob"
+	name = "EX: Tbob"
+	icon_state = "tbob"
 
 /datum/sprite_accessory/hair/white/fingerwave
-	name = "Onyx: Fingerwave"
-	icon_state = "hair_fingerwave"
+	name = "EX: Fingerwave"
+	icon_state = "fingerwave"
 
 /datum/sprite_accessory/hair/white/leftside
-	name = "Onyx: Leftside"
-	icon_state = "hair_leftside"
+	name = "EX: Leftside"
+	icon_state = "leftside"
 
 /datum/sprite_accessory/hair/white/rightside
-	name = "Onyx: Rightside"
-	icon_state = "hair_rightside"
+	name = "EX: Rightside"
+	icon_state = "rightside"
 
 /datum/sprite_accessory/hair/white/slick
-	name = "Onyx: Slick"
-	icon_state = "hair_slick"
+	name = "EX: Slick"
+	icon_state = "slick"
 
 /datum/sprite_accessory/hair/white/messyhair
-	name = "Onyx: Messyhair"
-	icon_state = "hair_messyhair"
+	name = "EX: Messyhair"
+	icon_state = "messyhair"
 
 /datum/sprite_accessory/hair/white/averagejoe
-	name = "Onyx: Averagejoe"
-	icon_state = "hair_averagejoe"
+	name = "EX: Averagejoe"
+	icon_state = "averagejoe"
 
 /datum/sprite_accessory/hair/white/sideswept
-	name = "Onyx: Sideswept"
-	icon_state = "hair_sideswept"
+	name = "EX: Sideswept"
+	icon_state = "sideswept"
 
 /datum/sprite_accessory/hair/white/mohawkshaved
-	name = "Onyx: Mohawkshaved"
-	icon_state = "hair_mohawkshaved"
+	name = "EX: Mohawkshaved"
+	icon_state = "mohawkshaved"
 
 /datum/sprite_accessory/hair/white/mohawkshavednaomi
-	name = "Onyx: Mohawkshavednaomi"
-	icon_state = "hair_mohawkshavednaomi"
+	name = "EX: Mohawkshavednaomi"
+	icon_state = "mohawkshavednaomi"
 
 /datum/sprite_accessory/hair/white/mohawkshaved2
-	name = "Onyx: Mohawkshaved2"
-	icon_state = "hair_mohawkshaved2"
+	name = "EX: Mohawkshaved2"
+	icon_state = "mohawkshaved2"
 
 /datum/sprite_accessory/hair/white/amazon
-	name = "Onyx: Amazon"
-	icon_state = "hair_amazon"
+	name = "EX: Amazon"
+	icon_state = "amazon"
 
 /datum/sprite_accessory/hair/white/straightlong
-	name = "Onyx: Straightlong"
-	icon_state = "hair_straightlong"
+	name = "EX: Straightlong"
+	icon_state = "straightlong"
 
 /datum/sprite_accessory/hair/white/marysue
-	name = "Onyx: Marysue"
-	icon_state = "hair_marysue"
+	name = "EX: Marysue"
+	icon_state = "marysue"
 
 /datum/sprite_accessory/hair/white/messyhair2
-	name = "Onyx: Messyhair2"
-	icon_state = "hair_messyhair2"
+	name = "EX: Messyhair2"
+	icon_state = "messyhair2"
 
 /datum/sprite_accessory/hair/white/buzzcut2
-	name = "Onyx: Buzzcut2"
-	icon_state = "hair_buzzcut2"
+	name = "EX: Buzzcut2"
+	icon_state = "buzzcut2"
 
 /datum/sprite_accessory/hair/white/asymmbob
-	name = "Onyx: Asymmbob"
-	icon_state = "hair_asymmbob"
+	name = "EX: Asymmbob"
+	icon_state = "asymmbob"
 
 /datum/sprite_accessory/hair/white/balding
-	name = "Onyx: Balding"
-	icon_state = "hair_balding"
+	name = "EX: Balding"
+	icon_state = "balding"
 
 /datum/sprite_accessory/hair/white/blackswordsman
-	name = "Onyx: Blackswordsman"
-	icon_state = "hair_blackswordsman"
-
-/datum/sprite_accessory/hair/white/business
-	name = "Onyx: Business"
-	icon_state = "hair_business"
-
-/datum/sprite_accessory/hair/white/business2
-	name = "Onyx: Business2"
-	icon_state = "hair_business2"
-
-/datum/sprite_accessory/hair/white/business3
-	name = "Onyx: Business3"
-	icon_state = "hair_business3"
-
-/datum/sprite_accessory/hair/white/business4
-	name = "Onyx: Business4"
-	icon_state = "hair_business4"
-
-/datum/sprite_accessory/hair/white/bun3
-	name = "Onyx: Bun3"
-	icon_state = "hair_bun3"
+	name = "EX: Blackswordsman"
+	icon_state = "blackswordsman"
 
 /datum/sprite_accessory/hair/white/birdnest
-	name = "Onyx: Birdnest"
-	icon_state = "hair_birdnest"
+	name = "EX: Birdnest"
+	icon_state = "birdnest"
 
 /datum/sprite_accessory/hair/white/chop
-	name = "Onyx: Chop"
-	icon_state = "hair_chop"
-
-/datum/sprite_accessory/hair/white/curls
-	name = "Onyx: Curls"
-	icon_state = "hair_curls"
-
-/datum/sprite_accessory/hair/white/eights
-	name = "Onyx: 80s"
-	icon_state = "hair_80s"
+	name = "EX: Chop"
+	icon_state = "chop"
 
 /datum/sprite_accessory/hair/white/flowhair
-	name = "Onyx: Flowhair"
-	icon_state = "hair_flowhair"
+	name = "EX: Flowhair"
+	icon_state = "flowhair"
 
 /datum/sprite_accessory/hair/white/femc
-	name = "Onyx: Femc"
-	icon_state = "hair_femc"
-
-/datum/sprite_accessory/hair/white/emofringe
-	name = "Onyx: Emofringe"
-	icon_state = "hair_emofringe"
+	name = "EX: Femc"
+	icon_state = "femc"
 
 /datum/sprite_accessory/hair/white/hamasaki
-	name = "Onyx: Hamasaki"
-	icon_state = "hair_hamasaki"
+	name = "EX: Hamasaki"
+	icon_state = "hamasaki"
 
 /datum/sprite_accessory/hair/white/hbangs
-	name = "Onyx: Hbangs"
-	icon_state = "hair_hbangs"
+	name = "EX: Hbangs"
+	icon_state = "hbangs"
 
 /datum/sprite_accessory/hair/white/hbangs_alt
-	name = "Onyx: Hbangs_alt"
-	icon_state = "hair_hbangs_alt"
-
-/datum/sprite_accessory/hair/white/highponytail
-	name = "Onyx: Highponytail"
-	icon_state = "hair_highponytail"
-
-/datum/sprite_accessory/hair/white/kusanagi
-	name = "Onyx: Kusanagi"
-	icon_state = "hair_kusanagi"
+	name = "EX: Hbangs_alt"
+	icon_state = "hbangs_alt"
 
 /datum/sprite_accessory/hair/white/ladylike
-	name = "Onyx: Ladylike"
-	icon_state = "hair_ladylike"
+	name = "EX: Ladylike"
+	icon_state = "ladylike"
 
 /datum/sprite_accessory/hair/white/ladylike2
-	name = "Onyx: Ladylike2"
-	icon_state = "hair_ladylike2"
+	name = "EX: Ladylike2"
+	icon_state = "ladylike2"
 
 /datum/sprite_accessory/hair/white/mediumbraid
-	name = "Onyx: Mediumbraid"
-	icon_state = "hair_mediumbraid"
+	name = "EX: Mediumbraid"
+	icon_state = "mediumbraid"
 
 /datum/sprite_accessory/hair/white/messybun
-	name = "Onyx: Messybun"
-	icon_state = "hair_messybun"
-
-/datum/sprite_accessory/hair/white/modern
-	name = "Onyx: Modern"
-	icon_state = "hair_modern"
+	name = "EX: Messybun"
+	icon_state = "messybun"
 
 /datum/sprite_accessory/hair/white/nia
-	name = "Onyx: Nia"
-	icon_state = "hair_nia"
-
-/datum/sprite_accessory/hair/white/oxton
-	name = "Onyx: Oxton"
-	icon_state = "hair_oxton"
-
-/datum/sprite_accessory/hair/white/pixie
-	name = "Onyx: Pixie"
-	icon_state = "hair_pixie"
-
-/datum/sprite_accessory/hair/white/pompadour
-	name = "Onyx: Pompadour"
-	icon_state = "hair_pompadour"
-
-/datum/sprite_accessory/hair/white/ponytail7
-	name = "Onyx: Ponytail7"
-	icon_state = "hair_ponytail7"
+	name = "EX: Nia"
+	icon_state = "nia"
 
 /datum/sprite_accessory/hair/white/ramona
-	name = "Onyx: Ramona"
-	icon_state = "hair_ramona"
+	name = "EX: Ramona"
+	icon_state = "ramona"
 
 /datum/sprite_accessory/hair/white/short2
-	name = "Onyx: Short2"
-	icon_state = "hair_short2"
+	name = "EX: Short2"
+	icon_state = "short2"
 
 /datum/sprite_accessory/hair/white/sidepart
-	name = "Onyx: Sidepart"
-	icon_state = "hair_sidepart"
-
-/datum/sprite_accessory/hair/white/oneshoulder
-	name = "Onyx: Oneshoulder"
-	icon_state = "hair_oneshoulder"
-
-/datum/sprite_accessory/hair/white/tressshoulder
-	name = "Onyx: Tressshoulder"
-	icon_state = "hair_tressshoulder"
+	name = "EX: Sidepart"
+	icon_state = "sidepart"
 
 /datum/sprite_accessory/hair/white/smessy
-	name = "Onyx: Smessy"
-	icon_state = "hair_smessy"
+	name = "EX: Smessy"
+	icon_state = "smessy"
 
 /datum/sprite_accessory/hair/white/stylo
-	name = "Onyx: Stylo"
-	icon_state = "hair_stylo"
-
-/datum/sprite_accessory/hair/white/unkept
-	name = "Onyx: Unkept"
-	icon_state = "hair_unkept"
-
-/datum/sprite_accessory/hair/white/spikyponytail
-	name = "Onyx: Spikyponytail"
-	icon_state = "hair_spikyponytail"
+	name = "EX: Stylo"
+	icon_state = "stylo"
 
 /datum/sprite_accessory/hair/white/veryshortovereye
-	name = "Onyx: Veryshortovereye"
-	icon_state = "hair_veryshortovereye"
-
-/datum/sprite_accessory/hair/white/veryshortovereyealternate
-	name = "Onyx: Veryshortovereyealternate"
-	icon_state = "hair_veryshortovereyealternate"
+	name = "EX: Veryshortovereye"
+	icon_state = "veryshortovereye"
 
 /datum/sprite_accessory/hair/white/ziegler
-	name = "Onyx: Ziegler"
-	icon_state = "hair_ziegler"
+	name = "EX: Ziegler"
+	icon_state = "ziegler"
 
 /datum/sprite_accessory/hair/white/zone
-	name = "Onyx: Zone"
-	icon_state = "hair_zone"
+	name = "EX: Zone"
+	icon_state = "zone"
 
 /datum/sprite_accessory/hair/white/viking_swtgr2
-	name = "Onyx: Viking_swtgr2"
-	icon_state = "hair_viking_swtgr2"
-
-/datum/sprite_accessory/hair/white/antenna
-	name = "Onyx: Antenna"
-	icon_state = "hair_antenna"
+	name = "EX: Viking_swtgr2"
+	icon_state = "viking_swtgr2"
 
 /datum/sprite_accessory/hair/white/ming_dynasty_swtgr
-	name = "Onyx: Ming_dynasty_swtgr"
-	icon_state = "hair_ming_dynasty_swtgr"
+	name = "EX: Ming_dynasty_swtgr"
+	icon_state = "ming_dynasty_swtgr"
 
 /datum/sprite_accessory/hair/white/qing_dynasty_swtgr
-	name = "Onyx: Qing_dynasty_swtgr"
-	icon_state = "hair_qing_dynasty_swtgr"
+	name = "EX: Qing_dynasty_swtgr"
+	icon_state = "qing_dynasty_swtgr"
 
 /datum/sprite_accessory/hair/white/cossack_swtgr
-	name = "Onyx: Cossack_swtgr"
-	icon_state = "hair_cossack_swtgr"
+	name = "EX: Cossack_swtgr"
+	icon_state = "cossack_swtgr"
 
 /datum/sprite_accessory/hair/white/cossack_swtgr2
-	name = "Onyx: Cossack_swtgr2"
-	icon_state = "hair_cossack_swtgr2"
+	name = "EX: Cossack_swtgr2"
+	icon_state = "cossack_swtgr2"
 
 /datum/sprite_accessory/hair/white/longstraightponytail
-	name = "Onyx: Longstraightponytail"
-	icon_state = "hair_longstraightponytail"
+	name = "EX: Longstraightponytail"
+	icon_state = "longstraightponytail"
 
 /datum/sprite_accessory/hair/white/samurai_swtgr
-	name = "Onyx: Samurai_swtgr"
-	icon_state = "hair_samurai_swtgr"
+	name = "EX: Samurai_swtgr"
+	icon_state = "samurai_swtgr"
 
 /datum/sprite_accessory/hair/white/protagonist_hair
-	name = "Onyx: Protagonist_hair"
-	icon_state = "hair_protagonist_hair"
+	name = "EX: Protagonist_hair"
+	icon_state = "protagonist_hair"
 
 /datum/sprite_accessory/hair/white/viking_swtgr
-	name = "Onyx: Viking_swtgr"
-	icon_state = "hair_viking_swtgr"
+	name = "EX: Viking_swtgr"
+	icon_state = "viking_swtgr"
 
 /datum/sprite_accessory/hair/white/monk_tonsure_by_swtgr
-	name = "Onyx: Monk_tonsure_by_swtgr"
-	icon_state = "hair_monk_tonsure_by_swtgr"
+	name = "EX: Monk_tonsure_by_swtgr"
+	icon_state = "monk_tonsure_by_swtgr"
 
 /datum/sprite_accessory/hair/white/dreadtail1
-	name = "Onyx: Dreadtail1"
-	icon_state = "hair_dreadtail1"
+	name = "EX: Dreadtail1"
+	icon_state = "dreadtail1"
 
 /datum/sprite_accessory/hair/white/dreadtail2
-	name = "Onyx: Dreadtail2"
-	icon_state = "hair_dreadtail2"
+	name = "EX: Dreadtail2"
+	icon_state = "dreadtail2"
 
 /datum/sprite_accessory/hair/white/leon
-	name = "Onyx: Leon"
-	icon_state = "hair_leon"
+	name = "EX: Leon"
+	icon_state = "leon"
 
 /datum/sprite_accessory/hair/white/wong
-	name = "Onyx: Wong"
-	icon_state = "hair_wong"
+	name = "EX: Wong"
+	icon_state = "wong"
 
 /datum/sprite_accessory/hair/white/backswept
-	name = "Onyx: Backswept"
-	icon_state = "hair_backswept"
+	name = "EX: Backswept"
+	icon_state = "backswept"
 
 /datum/sprite_accessory/hair/white/wolfmane
-	name = "Onyx: Wolfmane"
-	icon_state = "hair_wolfmane"
+	name = "EX: Wolfmane"
+	icon_state = "wolfmane"
 
 /datum/sprite_accessory/hair/white/undercut1
-	name = "Onyx: Undercut1"
-	icon_state = "hair_undercut1"
+	name = "EX: Undercut1"
+	icon_state = "undercut1"
 
 /datum/sprite_accessory/hair/white/undercut2
-	name = "Onyx: Undercut2"
-	icon_state = "hair_undercut2"
+	name = "EX: Undercut2"
+	icon_state = "undercut2"
 
 /datum/sprite_accessory/hair/white/undercut3
-	name = "Onyx: Undercut3"
-	icon_state = "hair_undercut3"
+	name = "EX: Undercut3"
+	icon_state = "undercut3"
 
 /datum/sprite_accessory/hair/white/bowie
-	name = "Onyx: Bowie"
-	icon_state = "hair_bowie"
+	name = "EX: Bowie"
+	icon_state = "bowie"
 
 /datum/sprite_accessory/hair/white/sickboy
-	name = "Onyx: Sickboy"
-	icon_state = "hair_sickboy"
+	name = "EX: Sickboy"
+	icon_state = "sickboy"
+
+/datum/sprite_accessory/hair/white/akari
+	name = "EX: Akari"
+	icon_state = "akari"
+
+/datum/sprite_accessory/hair/white/applejack
+	name = "EX: Applejack"
+	icon_state = "applejack"
+
+/datum/sprite_accessory/hair/white/aradia
+	name = "EX: Aradia"
+	icon_state = "aradia"
+
+/datum/sprite_accessory/hair/white/crono
+	name = "EX: Crono"
+	icon_state = "crono"
+
+/datum/sprite_accessory/hair/white/dave
+	name = "EX: Dave"
+	icon_state = "dave"
+
+/datum/sprite_accessory/hair/white/dirk
+	name = "EX: Dirk"
+	icon_state = "dirk"
+
+/datum/sprite_accessory/hair/white/drillhair
+	name = "EX: Drillhair"
+	icon_state = "drillhair"
+
+/datum/sprite_accessory/hair/white/dubs
+	name = "EX: Dubs"
+	icon_state = "dubs"
+
+/datum/sprite_accessory/hair/white/duelist
+	name = "EX: Duelist"
+	icon_state = "duelist"
+
+/datum/sprite_accessory/hair/white/edgeworth
+	name = "EX: Edgeworth"
+	icon_state = "edgeworth"
+
+/datum/sprite_accessory/hair/white/elize
+	name = "EX: Elize"
+	icon_state = "elize"
+
+/datum/sprite_accessory/hair/white/elize_2
+	name = "EX: Elize_2"
+	icon_state = "elize_2"
+
+/datum/sprite_accessory/hair/white/emo_r
+	name = "EX: Emo_r"
+	icon_state = "emo_r"
+
+/datum/sprite_accessory/hair/white/equius
+	name = "EX: Equius"
+	icon_state = "equius"
+
+/datum/sprite_accessory/hair/white/fastline
+	name = "EX: Fastline"
+	icon_state = "fastline"
+
+/datum/sprite_accessory/hair/white/feferi
+	name = "EX: Feferi"
+	icon_state = "feferi"
+
+/datum/sprite_accessory/hair/white/fluttershy
+	name = "EX: Fluttershy"
+	icon_state = "fluttershy"
+
+/datum/sprite_accessory/hair/white/fujisaki
+	name = "EX: Fujisaki"
+	icon_state = "fujisaki"
+
+/datum/sprite_accessory/hair/white/fujiyabashi
+	name = "EX: Fujiyabashi"
+	icon_state = "fujiyabashi"
+
+/datum/sprite_accessory/hair/white/gamzee
+	name = "EX: Gamzee"
+	icon_state = "gamzee"
+
+/datum/sprite_accessory/hair/white/himecut3
+	name = "EX: Himecut3"
+	icon_state = "himecut3"
+
+/datum/sprite_accessory/hair/white/judge
+	name = "EX: Judge"
+	icon_state = "judge"
+
+/datum/sprite_accessory/hair/white/kanaya
+	name = "EX: Kanaya"
+	icon_state = "kanaya"
+
+/datum/sprite_accessory/hair/white/long_braid
+	name = "EX: Long_braid"
+	icon_state = "long_braid"
+
+/datum/sprite_accessory/hair/white/long_d_tails
+	name = "EX: Long_d_tails"
+	icon_state = "long_d_tails"
+
+/datum/sprite_accessory/hair/white/longstraightponytail
+	name = "EX: Longstraightponytail"
+	icon_state = "longstraightponytail"
+
+/datum/sprite_accessory/hair/white/mentalist
+	name = "EX: Mentalist"
+	icon_state = "mentalist"
+
+/datum/sprite_accessory/hair/white/nepeta
+	name = "EX: Nepeta"
+	icon_state = "nepeta"
+
+/datum/sprite_accessory/hair/white/objection
+	name = "EX: Objection"
+	icon_state = "objection"
+
+/datum/sprite_accessory/hair/white/pigtails3
+	name = "EX: Pigtails3"
+	icon_state = "pigtails3"
+
+/datum/sprite_accessory/hair/white/quadcurls
+	name = "EX: Quadcurls"
+	icon_state = "quadcurls"
+
+/datum/sprite_accessory/hair/white/rapunzel
+	name = "EX: Rapunzel"
+	icon_state = "rapunzel"
+
+/datum/sprite_accessory/hair/white/rose
+	name = "EX: Rose"
+	icon_state = "rose"
+
+/datum/sprite_accessory/hair/white/roxy
+	name = "EX: Roxy"
+	icon_state = "roxy"
+
+/datum/sprite_accessory/hair/white/schierke
+	name = "EX: Schierke"
+	icon_state = "schierke"
+
+/datum/sprite_accessory/hair/white/shinobu
+	name = "EX: Shinobu"
+	icon_state = "shinobu"
+
+/datum/sprite_accessory/hair/white/sparta
+	name = "EX: Sparta"
+	icon_state = "sparta"
+
+/datum/sprite_accessory/hair/white/terezi
+	name = "EX: Terezi"
+	icon_state = "terezi"
+
+/datum/sprite_accessory/hair/white/twincurl
+	name = "EX: Twincurl"
+	icon_state = "twincurl"
+
+/datum/sprite_accessory/hair/white/twincurl2
+	name = "EX: Twincurl2"
+	icon_state = "twincurl2"
+
+/datum/sprite_accessory/hair/white/undercut_fem
+	name = "EX: Undercut_fem"
+	icon_state = "undercut_fem"
+
+/datum/sprite_accessory/hair/white/vegeta
+	name = "EX: Vegeta"
+	icon_state = "vegeta"
+
+/datum/sprite_accessory/hair/white/vriska
+	name = "EX: Vriska"
+	icon_state = "vriska"
+
+/datum/sprite_accessory/hair/white/combed
+	name = "EX: Combed"
+	icon_state = "combed"
+
+/datum/sprite_accessory/hair/white/longsidepartstraight
+	name = "EX: Longsidepartstraight"
+	icon_state = "longsidepartstraight"
+
+/datum/sprite_accessory/hair/white/bluntbangs
+	name = "EX: Bluntbangs"
+	icon_state = "bluntbangs"
+
+/datum/sprite_accessory/hair/white/combedbob
+	name = "EX: Combedbob"
+	icon_state = "combedbob"
+
+/datum/sprite_accessory/hair/white/slightlymessy
+	name = "EX: Slightlymessy"
+	icon_state = "slightlymessy"
+
+/datum/sprite_accessory/hair/white/gipsy
+	name = "EX: Gipsy"
+	icon_state = "gipsy"
+
+/datum/sprite_accessory/hair/white/geisha
+	name = "EX: Geisha"
+	icon_state = "geisha"
+
+/datum/sprite_accessory/hair/white/baum
+	name = "EX: Baum"
+	icon_state = "baum"
+
+/datum/sprite_accessory/hair/white/chub
+	name = "EX: Chub"
+	icon_state = "chub"
+
+/datum/sprite_accessory/hair/white/ponytailf
+	name = "EX: Ponytailf"
+	icon_state = "ponytailf"
+
+/datum/sprite_accessory/hair/white/halfshaved2
+	name = "EX: Halfshaved2"
+	icon_state = "halfshaved2"
+
+/datum/sprite_accessory/hair/white/bun4
+	name = "EX: Bun4"
+	icon_state = "bun4"
+
+/datum/sprite_accessory/hair/white/poofy2
+	name = "EX: Poofy2"
+	icon_state = "poofy2"
+
+/datum/sprite_accessory/hair/white/ougi
+	name = "EX: Ougi"
+	icon_state = "ougi"
+
+/datum/sprite_accessory/hair/white/square
+	name = "EX: Square"
+	icon_state = "square"
 
 /////////////////////////////
 // Facial Hair Definitions //
