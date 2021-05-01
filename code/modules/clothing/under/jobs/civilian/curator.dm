@@ -28,12 +28,14 @@
 	worn_icon = 'icons/mob/clothing/under/civilian.dmi'
 
 /obj/item/clothing/under/rank/civilian/curator/nasa
-	name = "\improper Комбинезон NASA"
+	name = "Комбинезон NASA"
 	desc = "На нем есть логотип NASA и он сделан из космоустойчивых материалов."
-	icon = 'icons/obj/clothing/under/color.dmi'
-	icon_state = "black"
-	inhand_icon_state = "bl_suit"
-	worn_icon = 'icons/mob/clothing/under/color.dmi'
+	icon_state = "jumpsuit"
+	greyscale_colors = "#3f3f3f"
+	greyscale_config = /datum/greyscale_config/jumpsuit
+	greyscale_config_inhand_left = /datum/greyscale_config/jumpsuit_inhand_left
+	greyscale_config_inhand_right = /datum/greyscale_config/jumpsuit_inhand_right
+	greyscale_config_worn = /datum/greyscale_config/jumpsuit_worn
 	w_class = WEIGHT_CLASS_BULKY
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02

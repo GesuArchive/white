@@ -221,16 +221,26 @@
 	target.icon_state = initial(picked_item.icon_state)
 	if(isitem(target))
 		var/obj/item/clothing/I = target
+		I.worn_icon = initial(picked_item.worn_icon)
 		I.lefthand_file = initial(picked_item.lefthand_file)
 		I.righthand_file = initial(picked_item.righthand_file)
-		I.inhand_icon_state = initial(picked_item.inhand_icon_state)
-		I.worn_icon = initial(picked_item.worn_icon)
+		if(initial(picked_item.greyscale_colors))
+			if(initial(picked_item.greyscale_config_worn))
+				I.worn_icon = SSgreyscale.GetColoredIconByType(initial(picked_item.greyscale_config_worn), initial(picked_item.greyscale_colors))
+			if(initial(picked_item.greyscale_config_inhand_left))
+				I.lefthand_file = SSgreyscale.GetColoredIconByType(initial(picked_item.greyscale_config_inhand_left), initial(picked_item.greyscale_colors))
+			if(initial(picked_item.greyscale_config_inhand_right))
+				I.righthand_file = SSgreyscale.GetColoredIconByType(initial(picked_item.greyscale_config_inhand_right), initial(picked_item.greyscale_colors))
 		I.worn_icon_state = initial(picked_item.worn_icon_state)
+		I.inhand_icon_state = initial(picked_item.inhand_icon_state)
 		if(istype(I, /obj/item/clothing) && istype(initial(picked_item), /obj/item/clothing))
 			var/obj/item/clothing/CL = I
 			var/obj/item/clothing/PCL = picked_item
 			CL.flags_cover = initial(PCL.flags_cover)
-	target.icon = initial(picked_item.icon)
+	if(initial(picked_item.greyscale_config) && initial(picked_item.greyscale_colors))
+		target.icon = SSgreyscale.GetColoredIconByType(initial(picked_item.greyscale_config), initial(picked_item.greyscale_colors))
+	else
+		target.icon = initial(picked_item.icon)
 
 /datum/action/item_action/chameleon/change/Trigger()
 	if(!IsAvailable())
@@ -293,11 +303,13 @@
 
 /obj/item/clothing/under/chameleon
 //starts off as black
-	name = "чёрный jumpsuit"
-	icon = 'icons/obj/clothing/under/color.dmi'
-	icon_state = "black"
-	inhand_icon_state = "bl_suit"
-	worn_icon = 'icons/mob/clothing/under/color.dmi'
+	name = "чёрный комбинезон"
+	icon_state = "jumpsuit"
+	greyscale_colors = "#3f3f3f"
+	greyscale_config = /datum/greyscale_config/jumpsuit
+	greyscale_config_inhand_left = /datum/greyscale_config/jumpsuit_inhand_left
+	greyscale_config_inhand_right = /datum/greyscale_config/jumpsuit_inhand_right
+	greyscale_config_worn = /datum/greyscale_config/jumpsuit_worn
 	desc = "Это простой комбинезон. На запястье у него есть небольшой циферблат."
 	sensor_mode = SENSOR_OFF //Hey who's this guy on the Syndicate Shuttle??
 	random_sensor = FALSE
@@ -513,8 +525,11 @@
 	to_chat(user, "<span class='notice'>[capitalize(src.name)] не имеет синтезатора голоса.</span>")
 
 /obj/item/clothing/shoes/chameleon
-	name = "чёрный shoes"
-	icon_state = "black"
+	name = "чёрные ботинки"
+	icon_state = "sneakers"
+	greyscale_colors = "#545454#ffffff"
+	greyscale_config = /datum/greyscale_config/sneakers
+	greyscale_config_worn = /datum/greyscale_config/sneakers_worn
 	desc = "Пара чёрных ботинок."
 	permeability_coefficient = 0.05
 	resistance_flags = NONE
@@ -538,9 +553,6 @@
 	chameleon_action.emp_randomise()
 
 /obj/item/clothing/shoes/chameleon/noslip
-	name = "чёрный shoes"
-	icon_state = "black"
-	desc = "Пара чёрных ботинок."
 	clothing_flags = NOSLIP
 	can_be_bloody = FALSE
 

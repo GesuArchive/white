@@ -210,9 +210,10 @@
 	inhand_icon_state = "spacepol"
 	can_adjust = FALSE
 
-/obj/item/clothing/under/color/prisoner
+/obj/item/clothing/under/rank/prisoner
 	name = "тюремный комбинезон"
 	desc = "Это унифицированная тюремная одежда Нанотрейзен. Его датчики костюма застряли в положении \"Полностью Вкл\"."
+	icon_state = "jumpsuit"
 	greyscale_colors = "#ff8300"
 	greyscale_config = /datum/greyscale_config/jumpsuit_prison
 	greyscale_config_inhand_left = /datum/greyscale_config/jumpsuit_prison_inhand_left
@@ -222,9 +223,10 @@
 	sensor_mode = SENSOR_COORDS
 	random_sensor = FALSE
 
-/obj/item/clothing/under/color/jumpskirt/prisoner
+/obj/item/clothing/under/rank/prisoner/skirt
 	name = "тюремный юбкомбез"
 	desc = "Это унифицированная тюремная одежда Нанотрейзен. Его датчики костюма застряли в положении \"Полностью Вкл\"."
+	icon_state = "jumpskirt"
 	greyscale_colors = "#ff8300"
 	greyscale_config = /datum/greyscale_config/jumpsuit_prison
 	greyscale_config_inhand_left = /datum/greyscale_config/jumpsuit_prison_inhand_left

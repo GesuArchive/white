@@ -46,7 +46,6 @@
 /obj/item/clothing/shoes/sandal/marisa
 	desc = "Пара волшебных чёрных туфель."
 	name = "магические туфли"
-	icon_state = "black"
 	resistance_flags = FIRE_PROOF |  ACID_PROOF
 	species_exception = null
 
@@ -305,13 +304,13 @@
 	. = ..()
 	AddComponent(/datum/component/squeak, list('sound/machines/clockcult/integration_cog_install.ogg' = 1, 'sound/magic/clockwork/fellowship_armory.ogg' = 1), 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
-/obj/item/clothing/shoes/sneakers/wheelys
+/obj/item/clothing/shoes/wheelys
 	name = "Вилли-Хилс"
 	desc = "Использует запатентованную технологию выдвижных колес. Никогда не жертвуйте скоростью ради стиля - не то, чтобы это давало много и того, и другого." //Thanks Fel
 	worn_icon_state = "wheelys"
 	greyscale_colors = "#545454#ffffff"
+	icon_state = "sneakers"
 	greyscale_config = /datum/greyscale_config/sneakers_wheelys
-	greyscale_config_worn = null
 	inhand_icon_state = "wheelys"
 	worn_icon = 'icons/mob/large-worn-icons/64x64/feet.dmi'
 	worn_x_dimension = 64
@@ -323,16 +322,16 @@
 	///The vehicle associated with the shoes
 	var/obj/vehicle/ridden/scooter/skateboard/wheelys/wheels = /obj/vehicle/ridden/scooter/skateboard/wheelys
 
-/obj/item/clothing/shoes/sneakers/wheelys/Initialize()
+/obj/item/clothing/shoes/wheelys/Initialize()
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
 	wheels = new wheels(null)
 	wheels.link_shoes(src)
 
-/obj/item/clothing/shoes/sneakers/wheelys/ui_action_click(mob/user, action)
+/obj/item/clothing/shoes/wheelys/ui_action_click(mob/user, action)
 	if(!isliving(user))
 		return
-	if(!istype(user.get_item_by_slot(ITEM_SLOT_FEET), /obj/item/clothing/shoes/sneakers/wheelys))
+	if(!istype(user.get_item_by_slot(ITEM_SLOT_FEET), /obj/item/clothing/shoes/wheelys))
 		to_chat(user, "<span class='warning'>Стоит надеть вилли-хилс чтобы их использовать!</span>")
 		return
 	if(!(wheels.is_occupant(user)))
@@ -345,13 +344,13 @@
 	wheels.buckle_mob(user)
 	wheelToggle = TRUE
 
-/obj/item/clothing/shoes/sneakers/wheelys/dropped(mob/user)
+/obj/item/clothing/shoes/wheelys/dropped(mob/user)
 	if(wheelToggle)
 		wheels.unbuckle_mob(user)
 		wheelToggle = FALSE
 	..()
 
-/obj/item/clothing/shoes/sneakers/wheelys/proc/toggle_wheels(status)
+/obj/item/clothing/shoes/wheelys/proc/toggle_wheels(status)
 	if (status)
 		worn_icon_state = "[initial(worn_icon_state)]-on"
 	else
@@ -359,11 +358,11 @@
 	playsound(src, 'sound/weapons/tap.ogg', 10, TRUE)
 	update_icon()
 
-/obj/item/clothing/shoes/sneakers/wheelys/Destroy()
+/obj/item/clothing/shoes/wheelys/Destroy()
 	QDEL_NULL(wheels)
 	. = ..()
 
-/obj/item/clothing/shoes/sneakers/wheelys/rollerskates
+/obj/item/clothing/shoes/wheelys/rollerskates
 	name = "роликовые коньки"
 	desc = "Пара роликовых коньков марки EightO. Колеса убираются, но слишком громоздкие чтобы ходить."
 	icon_state = "rollerskates"
@@ -375,7 +374,7 @@
 	custom_premium_price = PAYCHECK_EASY * 5
 	custom_price = PAYCHECK_EASY * 5
 
-/obj/item/clothing/shoes/sneakers/wheelys/skishoes
+/obj/item/clothing/shoes/wheelys/skishoes
 	name = "лыжные ботинки"
 	desc = "Пара ботинок со складными лыжами! Очень удобна для передвижения по снежной местности."
 	icon_state = "skishoes"
