@@ -195,10 +195,7 @@
 			floor.add_atom_colour(("#00B7EF"), WASHABLE_COLOUR_PRIORITY)
 	..()
 
-
-//Майнкрафт удалили.
-/*
-datum/round_aspect/minecraft
+/datum/round_aspect/minecraft
 	name = "Minecraft"
 	desc = "Сегодня поиграю я в Майнкрафт</br>С рассвета до глубокой ночи.</br>Наружу выходить мне лень, пусть даже там - отличный день."
 	weight = 1
@@ -272,8 +269,6 @@ datum/round_aspect/minecraft
 		p.icon = I
 		p.icon_state = "plank"
 	..()
-
-*/
 
 /datum/round_aspect/fast_and_furious
 	name = "Fast and Furious"
