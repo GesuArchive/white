@@ -153,7 +153,7 @@
 /obj/item/pamk/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'><b>ЗАРЯД:</b></span> [charge_left]/100.</span>"
-	. += "<span class='notice'><b>РЕЖИМ:</b></span> [uppertext(current_mode)].</span>"
+	. += "\n<span class='notice'><b>РЕЖИМ:</b></span> [uppertext(current_mode)].</span>"
 
 /obj/item/pamk/attack_self(mob/user)
 	. = ..()
