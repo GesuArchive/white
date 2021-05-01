@@ -13,7 +13,8 @@
 	maxHealth = 9999
 	speed = 0
 	see_in_dark = 8
-	see_invisible = SEE_INVISIBLE_MINIMUM
+	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+	see_invisible = SEE_INVISIBLE_OBSERVER
 	harm_intent_damage = 0
 	melee_damage_lower = 160 //Was 60, buffed
 	melee_damage_upper = 160

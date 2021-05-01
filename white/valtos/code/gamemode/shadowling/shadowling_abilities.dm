@@ -78,7 +78,7 @@
 	if (distance <= 2)
 		target.visible_message("<span class='danger'>[target] suddendly collapses...</span>")
 		to_chat(target, "<span class='userdanger'>A purple light flashes across your vision, and you lose control of your movements!</span>")
-		target.Paralyze(100)
+		target.Paralyze(200)
 		M.silent += 10
 	else //Distant glare
 		var/loss = 100 - (distance * 10)
@@ -104,74 +104,63 @@
 	action_icon = 'white/valtos/icons/sling.dmi'
 	var/admin_override = FALSE //Requested by Shadowlight213. Allows anyone to cast the spell, not just shadowlings.
 
-/obj/effect/proc_holder/spell/aoe_turf/proc/extinguishItem(obj/item/I, cold = FALSE) //Does not darken items held by mobs due to mobs having separate luminosity, use extinguishMob() or write your own proc.
-	var/blacklisted_lights = list(/obj/item/flashlight/flare, /obj/item/flashlight/slime)
-	if(istype(I, /obj/item/flashlight))
-		var/obj/item/flashlight/F = I
-		if(F.on)
-			if(cold)
-				if(is_type_in_list(F, blacklisted_lights))
-					F.visible_message("<span class='warning'>The sheer cold shatters [F]!</span>")
-					qdel(F)
-				else
-					return
-			if(is_type_in_list(I, blacklisted_lights))
-				I.visible_message("<span class='danger'>[I] dims slightly before scattering the shadows around it.</span>")
-				return F.light_on //Necessary because flashlights become 0-luminosity when held.  I don't make the rules of lightcode.
-			F.on = FALSE
-			F.update_brightness()
-	else if(istype(I, /obj/item/pda))
-		var/obj/item/pda/P = I
-		P.light_on = FALSE
-	I.set_light(0)
-	return I.luminosity
-
-/obj/effect/proc_holder/spell/aoe_turf/proc/extinguishMob(mob/living/H, cold = FALSE)
-	for(var/obj/item/F in H)
-		if(cold)
-			extinguishItem(F, TRUE)
-		extinguishItem(F)
-
 /obj/effect/proc_holder/spell/aoe_turf/veil/cast(list/targets,mob/user = usr)
 	if(!shadowling_check(user) && !admin_override)
 		revert_cast()
 		return
 	to_chat(user, "<span class='shadowling'>You silently disable all nearby lights.</span>")
-	var/turf/T = get_turf(user)
-	for(var/datum/light_source/LS in T.affecting_lights)
-		var/atom/LO = LS.source_atom
-		if(isitem(LO))
-			extinguishItem(LO)
-			continue
-		if(istype(LO, /obj/machinery/light))
-			var/obj/machinery/light/L = LO
-			L.on = FALSE
-			L.visible_message("<span class='warning'>[L] flickers and falls dark.</span>")
-			L.update(0)
-			L.set_light(0)
-			continue
-		if(istype(LO, /obj/machinery/computer) || istype(LO, /obj/machinery/power/apc))
-			LO.set_light(0)
-			LO.visible_message("<span class='warning'>[LO] grows dim, its screen barely readable.</span>")
-			continue
-		if(ismob(LO))
-			extinguishMob(LO)
-		if(istype(LO, /mob/living/silicon/robot))
-			var/mob/living/silicon/robot/borg = LO
-			if(!borg.lamp_enabled)
-				borg.smash_headlamp()
-				to_chat(borg, "<span class='userdanger'>The lightbulb in your headlamp is fried! You'll need a human to help replace it.</span>")
-		if(istype(LO, /obj/machinery/camera))
-			LO.set_light(0)
-			if(prob(10))
-				LO.emp_act(2)
-			continue
-	for(var/obj/structure/glowshroom/G in orange(7, user)) //High radius because glowshroom spam wrecks shadowlings
-		if(!istype(G, /obj/structure/glowshroom/shadowshroom))
-			var/obj/structure/glowshroom/shadowshroom/S = new /obj/structure/glowshroom/shadowshroom(G.loc) //I CAN FEEL THE WARP OVERTAKING ME! IT IS A GOOD PAIN!
-			S.generation = G.generation
-			G.visible_message("<span class='warning'>[G] suddenly turns dark!</span>")
-			qdel(G)
+	for(var/var/mob/living/AM in range(10))
+		if(isliving(AM))
+			var/mob/living/L = AM
+			if(isethereal(L))
+				AM.emp_act(EMP_LIGHT)
+
+			else if(iscyborg(AM))
+				var/mob/living/silicon/robot/borg = AM
+				if(borg.lamp_enabled)
+					borg.smash_headlamp()
+			else if(ishuman(AM))
+				var/mob/living/carbon/human/H = AM
+				for(var/obj/item/O in H.get_all_gear()) //less expensive than getallcontents
+					light_item_check(O, H)
+			else
+				for(var/obj/item/O in L.GetAllContents())
+					light_item_check(O, L)
+			if(L.pulling)
+				light_item_check(L.pulling, L.pulling)
+
+	for(var/obj/item/AM in range(10))
+		light_item_check(AM, AM)
+
+	for(var/obj/machinery/light/L in range(10))
+		L.on = 1
+		L.break_light_tube()
+
+/obj/effect/proc_holder/spell/proc/light_item_check(obj/item/I, atom/A)
+	if(!isitem(I))
+		return
+	if(I.light_range && I.light_power)
+		disintegrate(I, A)
+	else if(istype(I, /obj/item/gun))
+		var/obj/item/gun/G = I
+		if(G.gun_light?.on)
+			disintegrate(G.gun_light, A)
+	else if(istype(I, /obj/item/clothing/head/helmet))
+		var/obj/item/clothing/head/helmet/H = I
+		if(H.attached_light?.on)
+			disintegrate(H.attached_light, A)
+
+/obj/effect/proc_holder/spell/proc/disintegrate(obj/item/O, atom/A)
+	if(istype(O, /obj/item/pda))
+		var/obj/item/pda/PDA = O
+		PDA.set_light_on(FALSE)
+		PDA.set_light_range(0) //It won't be turning on again.
+		PDA.update_icon()
+		A.visible_message("<span class='danger'>The light in [PDA] shorts out!</span>")
+	else
+		A.visible_message("<span class='danger'>[O] is disintegrated by [src]!</span>")
+		O.burn()
+	playsound(src, 'sound/items/welder.ogg', 50, TRUE)
 
 /obj/effect/proc_holder/spell/aoe_turf/flashfreeze //Stuns and freezes nearby people - a bit more effective than a changeling's cryosting
 	name = "Icy Veins"
@@ -206,9 +195,7 @@
 				M.adjust_bodytemperature(-200, 50)
 			if(M.reagents)
 				M.reagents.add_reagent(/datum/reagent/consumable/frostoil, 15) //Half of a cryosting
-			extinguishMob(M, TRUE)
-		for(var/obj/item/F in T.contents)
-			extinguishItem(F, TRUE)
+
 
 /obj/effect/proc_holder/spell/targeted/enthrall //Turns a target into the shadowling's slave. This overrides all previous loyalties
 	name = "Enthrall"
@@ -450,7 +437,7 @@
 	target_apc.visible_message("<span class='warning'>The [target_apc] flickers and begins to grow dark.</span>")
 
 	to_chat(user, "<span class='shadowling'>You dim the APC's screen and carefully begin siphoning its power into the void.</span>")
-	if(!do_after(user, 200, target=target_apc))
+	if(!do_after(user, 100, target=target_apc))
 		//Whoops!  The APC's light turns back on
 		to_chat(user, "<span class='shadowling'>Your concentration breaks and the APC suddenly repowers!</span>")
 		target_apc.set_light(2)
@@ -540,7 +527,7 @@
 			if(iscarbon(target))
 				var/mob/living/carbon/M = target
 				to_chat(M, "<span class='danger'><b>A spike of pain drives into your head and scrambles your thoughts!</b></span>")
-				M.set_confusion(M.get_confusion() + 10)
+				M.set_confusion(M.get_confusion() + 50)
 				var/obj/item/organ/ears/ears = M.getorganslot(ORGAN_SLOT_EARS)
 				if(ears)
 					ears.adjustEarDamage(0, 30)//as bad as a changeling shriek
