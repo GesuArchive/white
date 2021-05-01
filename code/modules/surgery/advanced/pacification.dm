@@ -36,7 +36,7 @@
 	return ..()
 
 /datum/surgery_step/pacify/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>Я облажался, перепутав часть мозга [target]...</span>",
+	display_results(user, target, "<span class='notice'>[gvorno(TRUE)], но я облажался, перепутав часть мозга [target]...</span>",
 			"<span class='warning'>[user] облажался, повредив мозг!</span>",
 			"<span class='notice'>[user] завершает операцию на мозге [target].</span>")
 	target.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_LOBOTOMY)

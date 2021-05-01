@@ -134,7 +134,7 @@
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
 		var/turf/T = get_turf(src)
-		if(H.pooition >= 10)
+		if(H.pooition >= 25)
 			if(HAS_TRAIT(H, TRAIT_LIGHT_POOER))
 				H.visible_message("<span class='notice'><b>[H]</b> [prob(25) ? pick(random_poo) : uppertext(pick(random_poo))] себе прямо в руку!</span>", \
 					"<span class='notice'>Выдавливаю какаху из своего тела.</span>")
@@ -143,7 +143,7 @@
 				H.put_in_hands(P)
 				if(!H.throw_mode)
 					H.throw_mode_on(THROW_MODE_TOGGLE)
-				H.pooition -= 10
+				H.pooition -= 25
 				SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 				return
 			else
@@ -151,7 +151,7 @@
 					H.visible_message("<span class='notice'><b>[H]</b> [prob(25) ? pick(random_poo) : uppertext(pick(random_poo))] себе в штаны!</span>", \
 						"<span class='notice'>Сру себе в штаны.</span>")
 					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
-					H.pooition -= 10
+					H.pooition -= 25
 					if(!H.pooed)
 						var/mutable_appearance/pooverlay = mutable_appearance('white/valtos/icons/poo.dmi')
 						pooverlay.icon_state = "uniformpoo"
@@ -166,8 +166,7 @@
 					H.visible_message("<span class='notice'><b>[H]</b> [prob(5) ? pick(random_poo) : uppertext(pick(random_poo))] в туалет!</span>", \
 						"<span class='notice'>Выдавливаю какаху прямиком в туалет.</span>")
 					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
-					new /obj/item/food/poo(T)
-					H.pooition -= 10
+					H.pooition -= 25
 					SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 					return
 				else
@@ -175,7 +174,7 @@
 						"<span class='notice'>Выдавливаю какаху из своего тела.</span>")
 					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
 					new /obj/item/food/poo(T)
-					H.pooition -= 10
+					H.pooition -= 25
 					SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 					return
 		else if(H.stat == CONSCIOUS)

@@ -45,7 +45,7 @@
 	return ..()
 
 /datum/surgery_step/reshape_face/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='warning'>Я облажался, изуродовав внешность [target]!</span>",
+	display_results(user, target, "<span class='warning'>[gvorno(TRUE)], но я облажался, изуродовав внешность [target]!</span>",
 		"<span class='notice'>[user] облажался, изуродовав внешность [target]!</span>",
 		"<span class='notice'>[user] заверщил операцию на лице [target].</span>")
 	ADD_TRAIT(target, TRAIT_DISFIGURED, TRAIT_GENERIC)

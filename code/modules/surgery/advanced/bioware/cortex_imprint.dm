@@ -37,7 +37,7 @@
 
 /datum/surgery_step/imprint_cortex/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(target.getorganslot(ORGAN_SLOT_BRAIN))
-		display_results(user, target, "<span class='warning'>Я облажался, повредив мозг!</span>",
+		display_results(user, target, "<span class='warning'>[gvorno(TRUE)], но я облажался, повредив мозг!</span>",
 			"<span class='warning'>[user] облажался, повредив мозг!</span>",
 			"<span class='notice'>[user] завершил операцию на мозге [target]</span>")
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 60)
