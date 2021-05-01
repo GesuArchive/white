@@ -3953,6 +3953,7 @@
 #include "white\valtos\code\unsorted\winds.dm"
 #include "white\valtos\code\unsorted\wizgirl.dm"
 #include "white\valtos\code\wzvendor\izanvend.dm"
+#include "white\valtos\code\yohei\yohei.dm"
 #include "white\Wzzzz\Arrigami.dm"
 #include "white\Wzzzz\Bealirigan.dm"
 #include "white\Wzzzz\fetizzz.dm"
