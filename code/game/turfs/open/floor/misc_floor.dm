@@ -186,17 +186,26 @@
 	return list("plastic-damaged1","plastic-damaged2")
 
 /turf/open/floor/eighties
-	name = "retro floor"
-	desc = "This one takes you back."
+	name = "ретро-пол"
+	desc = "Этот вернёт тебя назад."
 	icon_state = "eighties"
 	floor_tile = /obj/item/stack/tile/eighties
 
 /turf/open/floor/eighties/setup_broken_states()
 	return list("eighties_damaged")
 
+/turf/open/floor/eighties/red
+	name = "красный ретро-пол"
+	desc = "Totally RED-ICAL!"
+	icon_state = "eightiesred"
+	floor_tile = /obj/item/stack/tile/eighties/red
+
+/turf/open/floor/eighties/red/setup_broken_states()
+	return list("eightiesred_damaged")
+
 /turf/open/floor/plating/rust
-	name = "rusted plating"
-	desc = "Corrupted steel."
+	name = "ржавая обшивка"
+	desc = "НЕ безопасна."
 	icon_state = "plating_rust"
 
 /turf/open/floor/plating/rust/plasma
