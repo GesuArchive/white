@@ -5,6 +5,8 @@
 	false_report_weight = 5
 	required_players = 0
 
+	required_jobs = list()
+
 	announce_span = "notice"
 	announce_text = "Just have fun and enjoy the game!"
 
@@ -26,4 +28,4 @@
 		G.on_report()
 
 /datum/game_mode/extended/announced/send_intercept(report = 0)
-	priority_announce("Благодаря неустанным усилиям наших подразделений безопасности и разведки, в настоящее время нет никаких реальных угроз для [station_name()]. Все проекты строительства на станции были утверждены. Удачной смены!", "Отчёт отдела безопасности", 'sound/ai/announcer/alert.ogg')
+	priority_announce("Благодаря неустанным усилиям наших подразделений безопасности и разведки, в настоящее время нет никаких реальных угроз для [station_name()]. Все проекты строительства на станции были утверждены. Удачной смены!", "Отчёт отдела безопасности", SSstation.announcer.get_rand_report_sound())

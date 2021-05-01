@@ -2,6 +2,7 @@
 	var/name = "Nothing"
 	var/desc = "Ничего."
 	var/weight = 150
+	var/forbidden = FALSE
 
 /datum/round_aspect/proc/run_aspect()
 	SSblackbox.record_feedback("tally", "aspect", 1, name) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -201,6 +202,7 @@ datum/round_aspect/minecraft
 	name = "Minecraft"
 	desc = "Сегодня поиграю я в Майнкрафт</br>С рассвета до глубокой ночи.</br>Наружу выходить мне лень, пусть даже там - отличный день."
 	weight = 1
+	forbidden = TRUE
 
 /datum/round_aspect/minecraft/run_aspect()
 	var/icon/I = new('white/valtos/icons/minecraft.dmi')
@@ -295,6 +297,7 @@ datum/round_aspect/minecraft
 	name = "Immortality"
 	desc = "Шахтёры притащили неизвестный артефакт дарующий бессмертие и активировали его на станции. Никто не сможет получить достаточных травм, чтобы погибнуть. Наверное."
 	weight = 1
+	forbidden = TRUE
 
 /datum/round_aspect/immortality/run_aspect()
 	CONFIG_SET(number/damage_multiplier, 0)
@@ -313,6 +316,7 @@ datum/round_aspect/minecraft
 	name = "Assistants"
 	desc = "Критическая масса ассистентов увеличивается с каждой минутой. ЦК решило перенаправить эту нагрузку и на вашу станцию."
 	weight = 9
+	forbidden = TRUE
 
 /datum/controller/subsystem/job/proc/DisableJobsButThis(job_path)
 	for(var/I in occupations)
@@ -332,6 +336,7 @@ datum/round_aspect/minecraft
 	name = "Clowns"
 	desc = "ХОНК!"
 	weight = 4
+	forbidden = TRUE
 
 /datum/round_aspect/clowns/run_aspect()
 	SSjob.DisableJobsButThis(/datum/job/clown)
@@ -341,6 +346,7 @@ datum/round_aspect/minecraft
 	name = "Cats"
 	desc = "Сбой в системе клонирования и очистки памяти на ЦК сделал всех членов экипажа фелинидами."
 	weight = 1
+	forbidden = TRUE
 
 /datum/round_aspect/meow/run_aspect()
 	for(var/M in GLOB.mob_list)
@@ -395,7 +401,8 @@ datum/round_aspect/minecraft
 /datum/round_aspect/emergency_meeting
 	name = "Emergency Meeting"
 	desc = "ЭКСТРЕННЫЙ СБОР!"
-	weight = 25
+	weight = 1
+	forbidden = TRUE
 
 /datum/round_aspect/emergency_meeting/run_aspect()
 	spawn(5 SECONDS)

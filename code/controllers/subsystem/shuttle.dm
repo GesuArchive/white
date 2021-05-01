@@ -418,7 +418,7 @@ SUBSYSTEM_DEF(shuttle)
 		emergency.setTimer(emergencyDockTime)
 		priority_announce("Враждебные элементы устранены. \
 			У вас есть 3 минуты, чтобы сесть на эвакуационный шаттл.",
-			null, 'sound/ai/shuttledock.ogg', "Срочное сообщение")
+			null, ANNOUNCER_SHUTTLEDOCK, "Срочное сообщение")
 
 //try to move/request to dockHome if possible, otherwise dockAway. Mainly used for admin buttons
 /datum/controller/subsystem/shuttle/proc/toggleShuttle(shuttleId, dockHome, dockAway, timed)

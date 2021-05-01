@@ -88,7 +88,7 @@
 	return ..()
 
 /datum/surgery_step/heal/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='warning'>Я облажался!</span>",
+	display_results(user, target, "<span class='warning'>[gvorno(TRUE)], но я облажался!</span>",
 		"<span class='warning'>[user] облажался!</span>",
 		"<span class='notice'>[user] залатал некоторые раны [target].</span>", TRUE)
 	var/urdamageamt_burn = brutehealing * 0.8
@@ -219,7 +219,7 @@
 	missinghpbonus = 2.5
 
 /datum/surgery_step/heal/combo/upgraded/femto/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='warning'>Я облажался!</span>",
+	display_results(user, target, "<span class='warning'>[gvorno(TRUE)], но я облажался!</span>",
 		"<span class='warning'>[user] облажался!</span>",
 		"<span class='notice'>[user] залатал некоторые раны [target].</span>", TRUE)
 	target.take_bodypart_damage(5,5)

@@ -79,7 +79,7 @@ SUBSYSTEM_DEF(spm)
 	if(contents.len)
 		. += "<hr><span class='notice'>Внутри можно заметить:</span>"
 		for(var/obj/item/mining_thing/MT in contents)
-			. += "\n<span class='notice'>[icon2html(MT, user)] [MT.tech_name] \[[MT.hashrate] Sols/s]</span>"
+			. += "\n<span class='notice'>[icon2html(MT, user)] [MT.tech_name] \[[MT.hashrate + MT.overclock] Sols/s]</span>"
 	. += "<hr><span class='notice'>Общая скорость: <b>[hashrate_total] Sols/s</b>.</span>"
 	. += "\n<span class='notice'>Сложность сети: <b>[SSspm.diff]</b>.</span>"
 	. += "\n<span class='notice'>Привязанный аккаунт: <b>[linked_account.account_holder]</b>.</span>"
@@ -93,7 +93,7 @@ SUBSYSTEM_DEF(spm)
 	hashrate_total = 0
 
 	for(var/obj/item/mining_thing/MT in contents)
-		hashrate_total += MT.hashrate
+		hashrate_total += MT.hashrate + MT.overclock
 
 /obj/machinery/power/mining_rack/attackby(obj/item/I, mob/living/user, params)
 
@@ -220,6 +220,23 @@ SUBSYSTEM_DEF(spm)
 	var/maintainer = "кандидат на анпедал"
 	var/tech_name = "NTX-2228 Plasma"
 	var/hashrate = 1 // debug
+	var/overclock = 0
+
+/obj/item/mining_thing/attackby(obj/item/I, mob/living/user, params)
+
+	if(user.a_intent == INTENT_HARM)
+		return ..()
+
+	if(I.tool_behaviour == TOOL_MULTITOOL)
+		to_chat(user, "<span class='notice'>Пытаюсь разогнать [src.name]...</span>")
+		if(I.use_tool(src, user, 40, volume=75))
+			if(prob(overclock))
+				to_chat(user, "<span class='warning'>Успешно не разгоняю [src.name]?!</span>")
+				new /obj/item/mining_thing/burned(drop_location())
+				qdel(src)
+				return
+			overclock += rand(5, 10)
+			to_chat(user, "<span class='notice'>Успешно разгоняю [src.name]! Новый прирост: [overclock].</span>")
 
 /obj/item/mining_thing/examine(mob/user)
 	. = ..()
@@ -233,7 +250,7 @@ SUBSYSTEM_DEF(spm)
 
 /obj/item/mining_thing/burned/Initialize()
 	. = ..()
-	hashrate = rand(1, 10000)
+	hashrate = rand(-10000, 1)
 
 /obj/item/mining_thing/nvidia
 	tech_name = "GT9600"

@@ -266,7 +266,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	if(!owner || QDELETED(owner))
 		return
 	if (owner_AI.stat != DEAD)
-		priority_announce("Во всех системах станций обнаружены враждебные элементы, пожалуйста, отключите свой ИИ, чтобы предотвратить возможное повреждение его морального ядра.", "Аномальная тревога", 'sound/ai/aimalf.ogg')
+		priority_announce("Во всех системах станций обнаружены враждебные элементы, пожалуйста, отключите свой ИИ, чтобы предотвратить возможное повреждение его морального ядра.", "Аномальная тревога", ANNOUNCER_AIMALF)
 		set_security_level("delta")
 		var/obj/machinery/doomsday_device/DOOM = new(owner_AI)
 		owner_AI.nuking = TRUE

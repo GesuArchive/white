@@ -780,6 +780,583 @@
 	name = "Wisp"
 	icon_state = "hair_wisp"
 
+/datum/sprite_accessory/hair/white
+	icon = 'white/valtos/icons/ohairs.dmi'
+	icon_state = null
+	name = null
+
+/datum/sprite_accessory/hair/white/pa
+	name = "EX: Pa"
+	icon_state = "hair_pa"
+
+/datum/sprite_accessory/hair/white/halfbang_alt
+	name = "EX: Halfbang_alt"
+	icon_state = "hair_halfbang_alt"
+
+/datum/sprite_accessory/hair/white/thefamilyman
+	name = "EX: Thefamilyman"
+	icon_state = "hair_thefamilyman"
+
+/datum/sprite_accessory/hair/white/toriyama
+	name = "EX: Toriyama"
+	icon_state = "hair_toriyama"
+
+/datum/sprite_accessory/hair/white/toriyama2
+	name = "EX: Toriyama2"
+	icon_state = "hair_toriyama2"
+
+/datum/sprite_accessory/hair/white/scully
+	name = "EX: Scully"
+	icon_state = "hair_scully"
+
+/datum/sprite_accessory/hair/white/beehive2
+	name = "EX: Beehive2"
+	icon_state = "hair_beehive2"
+
+/datum/sprite_accessory/hair/white/emolong
+	name = "EX: Emolong"
+	icon_state = "hair_emolong"
+
+/datum/sprite_accessory/hair/white/bun2
+	name = "EX: Bun2"
+	icon_state = "hair_bun2"
+
+/datum/sprite_accessory/hair/white/shavedbun
+	name = "EX: Shavedbun"
+	icon_state = "hair_shavedbun"
+
+/datum/sprite_accessory/hair/white/halfshavedemo
+	name = "EX: Halfshavedemo"
+	icon_state = "hair_halfshavedemo"
+
+/datum/sprite_accessory/hair/white/longsideemo
+	name = "EX: Longsideemo"
+	icon_state = "hair_longsideemo"
+
+/datum/sprite_accessory/hair/white/longeralt2
+	name = "EX: Longeralt2"
+	icon_state = "hair_longeralt2"
+
+/datum/sprite_accessory/hair/white/sleeze
+	name = "EX: Sleeze"
+	icon_state = "hair_sleeze"
+
+/datum/sprite_accessory/hair/white/rows1
+	name = "EX: Rows1"
+	icon_state = "hair_rows1"
+
+/datum/sprite_accessory/hair/white/rows2
+	name = "EX: Rows2"
+	icon_state = "hair_rows2"
+
+/datum/sprite_accessory/hair/white/bobcutalt
+	name = "EX: Bobcutalt"
+	icon_state = "hair_bobcutalt"
+
+/datum/sprite_accessory/hair/white/hightight
+	name = "EX: Hightight"
+	icon_state = "hair_hightight"
+
+/datum/sprite_accessory/hair/white/grande
+	name = "EX: Grande"
+	icon_state = "hair_grande"
+
+/datum/sprite_accessory/hair/white/rowbun
+	name = "EX: Rowbun"
+	icon_state = "hair_rowbun"
+
+/datum/sprite_accessory/hair/white/rowdualtail
+	name = "EX: Rowdualtail"
+	icon_state = "hair_rowdualtail"
+
+/datum/sprite_accessory/hair/white/rowbraid
+	name = "EX: Rowbraid"
+	icon_state = "hair_rowbraid"
+
+/datum/sprite_accessory/hair/white/curly
+	name = "EX: Curly"
+	icon_state = "hair_curly"
+
+/datum/sprite_accessory/hair/white/wife
+	name = "EX: Wife"
+	icon_state = "hair_wife"
+
+/datum/sprite_accessory/hair/white/victory
+	name = "EX: Victory"
+	icon_state = "hair_victory"
+
+/datum/sprite_accessory/hair/white/tbob
+	name = "EX: Tbob"
+	icon_state = "hair_tbob"
+
+/datum/sprite_accessory/hair/white/fingerwave
+	name = "EX: Fingerwave"
+	icon_state = "hair_fingerwave"
+
+/datum/sprite_accessory/hair/white/leftside
+	name = "EX: Leftside"
+	icon_state = "hair_leftside"
+
+/datum/sprite_accessory/hair/white/rightside
+	name = "EX: Rightside"
+	icon_state = "hair_rightside"
+
+/datum/sprite_accessory/hair/white/slick
+	name = "EX: Slick"
+	icon_state = "hair_slick"
+
+/datum/sprite_accessory/hair/white/messyhair
+	name = "EX: Messyhair"
+	icon_state = "hair_messyhair"
+
+/datum/sprite_accessory/hair/white/averagejoe
+	name = "EX: Averagejoe"
+	icon_state = "hair_averagejoe"
+
+/datum/sprite_accessory/hair/white/sideswept
+	name = "EX: Sideswept"
+	icon_state = "hair_sideswept"
+
+/datum/sprite_accessory/hair/white/mohawkshaved
+	name = "EX: Mohawkshaved"
+	icon_state = "hair_mohawkshaved"
+
+/datum/sprite_accessory/hair/white/mohawkshavednaomi
+	name = "EX: Mohawkshavednaomi"
+	icon_state = "hair_mohawkshavednaomi"
+
+/datum/sprite_accessory/hair/white/mohawkshaved2
+	name = "EX: Mohawkshaved2"
+	icon_state = "hair_mohawkshaved2"
+
+/datum/sprite_accessory/hair/white/amazon
+	name = "EX: Amazon"
+	icon_state = "hair_amazon"
+
+/datum/sprite_accessory/hair/white/straightlong
+	name = "EX: Straightlong"
+	icon_state = "hair_straightlong"
+
+/datum/sprite_accessory/hair/white/marysue
+	name = "EX: Marysue"
+	icon_state = "hair_marysue"
+
+/datum/sprite_accessory/hair/white/messyhair2
+	name = "EX: Messyhair2"
+	icon_state = "hair_messyhair2"
+
+/datum/sprite_accessory/hair/white/buzzcut2
+	name = "EX: Buzzcut2"
+	icon_state = "hair_buzzcut2"
+
+/datum/sprite_accessory/hair/white/asymmbob
+	name = "EX: Asymmbob"
+	icon_state = "hair_asymmbob"
+
+/datum/sprite_accessory/hair/white/balding
+	name = "EX: Balding"
+	icon_state = "hair_balding"
+
+/datum/sprite_accessory/hair/white/blackswordsman
+	name = "EX: Blackswordsman"
+	icon_state = "hair_blackswordsman"
+
+/datum/sprite_accessory/hair/white/birdnest
+	name = "EX: Birdnest"
+	icon_state = "hair_birdnest"
+
+/datum/sprite_accessory/hair/white/chop
+	name = "EX: Chop"
+	icon_state = "hair_chop"
+
+/datum/sprite_accessory/hair/white/flowhair
+	name = "EX: Flowhair"
+	icon_state = "hair_flowhair"
+
+/datum/sprite_accessory/hair/white/femc
+	name = "EX: Femc"
+	icon_state = "hair_femc"
+
+/datum/sprite_accessory/hair/white/hamasaki
+	name = "EX: Hamasaki"
+	icon_state = "hair_hamasaki"
+
+/datum/sprite_accessory/hair/white/hbangs
+	name = "EX: Hbangs"
+	icon_state = "hair_hbangs"
+
+/datum/sprite_accessory/hair/white/hbangs_alt
+	name = "EX: Hbangs_alt"
+	icon_state = "hair_hbangs_alt"
+
+/datum/sprite_accessory/hair/white/ladylike
+	name = "EX: Ladylike"
+	icon_state = "hair_ladylike"
+
+/datum/sprite_accessory/hair/white/ladylike2
+	name = "EX: Ladylike2"
+	icon_state = "hair_ladylike2"
+
+/datum/sprite_accessory/hair/white/mediumbraid
+	name = "EX: Mediumbraid"
+	icon_state = "hair_mediumbraid"
+
+/datum/sprite_accessory/hair/white/messybun
+	name = "EX: Messybun"
+	icon_state = "hair_messybun"
+
+/datum/sprite_accessory/hair/white/nia
+	name = "EX: Nia"
+	icon_state = "hair_nia"
+
+/datum/sprite_accessory/hair/white/ramona
+	name = "EX: Ramona"
+	icon_state = "hair_ramona"
+
+/datum/sprite_accessory/hair/white/short2
+	name = "EX: Short2"
+	icon_state = "hair_short2"
+
+/datum/sprite_accessory/hair/white/sidepart
+	name = "EX: Sidepart"
+	icon_state = "hair_sidepart"
+
+/datum/sprite_accessory/hair/white/smessy
+	name = "EX: Smessy"
+	icon_state = "hair_smessy"
+
+/datum/sprite_accessory/hair/white/stylo
+	name = "EX: Stylo"
+	icon_state = "hair_stylo"
+
+/datum/sprite_accessory/hair/white/veryshortovereye
+	name = "EX: Veryshortovereye"
+	icon_state = "hair_veryshortovereye"
+
+/datum/sprite_accessory/hair/white/ziegler
+	name = "EX: Ziegler"
+	icon_state = "hair_ziegler"
+
+/datum/sprite_accessory/hair/white/zone
+	name = "EX: Zone"
+	icon_state = "hair_zone"
+
+/datum/sprite_accessory/hair/white/viking_swtgr2
+	name = "EX: Viking_swtgr2"
+	icon_state = "hair_viking_swtgr2"
+
+/datum/sprite_accessory/hair/white/ming_dynasty_swtgr
+	name = "EX: Ming_dynasty_swtgr"
+	icon_state = "hair_ming_dynasty_swtgr"
+
+/datum/sprite_accessory/hair/white/qing_dynasty_swtgr
+	name = "EX: Qing_dynasty_swtgr"
+	icon_state = "hair_qing_dynasty_swtgr"
+
+/datum/sprite_accessory/hair/white/cossack_swtgr
+	name = "EX: Cossack_swtgr"
+	icon_state = "hair_cossack_swtgr"
+
+/datum/sprite_accessory/hair/white/cossack_swtgr2
+	name = "EX: Cossack_swtgr2"
+	icon_state = "hair_cossack_swtgr2"
+
+/datum/sprite_accessory/hair/white/longstraightponytail
+	name = "EX: Longstraightponytail"
+	icon_state = "hair_longstraightponytail"
+
+/datum/sprite_accessory/hair/white/samurai_swtgr
+	name = "EX: Samurai_swtgr"
+	icon_state = "hair_samurai_swtgr"
+
+/datum/sprite_accessory/hair/white/protagonist_hair
+	name = "EX: Protagonist_hair"
+	icon_state = "hair_protagonist_hair"
+
+/datum/sprite_accessory/hair/white/viking_swtgr
+	name = "EX: Viking_swtgr"
+	icon_state = "hair_viking_swtgr"
+
+/datum/sprite_accessory/hair/white/monk_tonsure_by_swtgr
+	name = "EX: Monk_tonsure_by_swtgr"
+	icon_state = "hair_monk_tonsure_by_swtgr"
+
+/datum/sprite_accessory/hair/white/dreadtail1
+	name = "EX: Dreadtail1"
+	icon_state = "hair_dreadtail1"
+
+/datum/sprite_accessory/hair/white/dreadtail2
+	name = "EX: Dreadtail2"
+	icon_state = "hair_dreadtail2"
+
+/datum/sprite_accessory/hair/white/leon
+	name = "EX: Leon"
+	icon_state = "hair_leon"
+
+/datum/sprite_accessory/hair/white/wong
+	name = "EX: Wong"
+	icon_state = "hair_wong"
+
+/datum/sprite_accessory/hair/white/backswept
+	name = "EX: Backswept"
+	icon_state = "hair_backswept"
+
+/datum/sprite_accessory/hair/white/wolfmane
+	name = "EX: Wolfmane"
+	icon_state = "hair_wolfmane"
+
+/datum/sprite_accessory/hair/white/undercut1
+	name = "EX: Undercut1"
+	icon_state = "hair_undercut1"
+
+/datum/sprite_accessory/hair/white/undercut2
+	name = "EX: Undercut2"
+	icon_state = "hair_undercut2"
+
+/datum/sprite_accessory/hair/white/undercut3
+	name = "EX: Undercut3"
+	icon_state = "hair_undercut3"
+
+/datum/sprite_accessory/hair/white/bowie
+	name = "EX: Bowie"
+	icon_state = "hair_bowie"
+
+/datum/sprite_accessory/hair/white/sickboy
+	name = "EX: Sickboy"
+	icon_state = "hair_sickboy"
+
+/datum/sprite_accessory/hair/white/akari
+	name = "EX: Akari"
+	icon_state = "hair_akari"
+
+/datum/sprite_accessory/hair/white/applejack
+	name = "EX: Applejack"
+	icon_state = "hair_applejack"
+
+/datum/sprite_accessory/hair/white/aradia
+	name = "EX: Aradia"
+	icon_state = "hair_aradia"
+
+/datum/sprite_accessory/hair/white/crono
+	name = "EX: Crono"
+	icon_state = "hair_crono"
+
+/datum/sprite_accessory/hair/white/dave
+	name = "EX: Dave"
+	icon_state = "hair_dave"
+
+/datum/sprite_accessory/hair/white/dirk
+	name = "EX: Dirk"
+	icon_state = "hair_dirk"
+
+/datum/sprite_accessory/hair/white/drillhair
+	name = "EX: Drillhair"
+	icon_state = "hair_drillhair"
+
+/datum/sprite_accessory/hair/white/dubs
+	name = "EX: Dubs"
+	icon_state = "hair_dubs"
+
+/datum/sprite_accessory/hair/white/duelist
+	name = "EX: Duelist"
+	icon_state = "hair_duelist"
+
+/datum/sprite_accessory/hair/white/edgeworth
+	name = "EX: Edgeworth"
+	icon_state = "hair_edgeworth"
+
+/datum/sprite_accessory/hair/white/elize
+	name = "EX: Elize"
+	icon_state = "hair_elize"
+
+/datum/sprite_accessory/hair/white/elize_2
+	name = "EX: Elize_2"
+	icon_state = "hair_elize_2"
+
+/datum/sprite_accessory/hair/white/emo_r
+	name = "EX: Emo_r"
+	icon_state = "hair_emo_r"
+
+/datum/sprite_accessory/hair/white/equius
+	name = "EX: Equius"
+	icon_state = "hair_equius"
+
+/datum/sprite_accessory/hair/white/fastline
+	name = "EX: Fastline"
+	icon_state = "hair_fastline"
+
+/datum/sprite_accessory/hair/white/feferi
+	name = "EX: Feferi"
+	icon_state = "hair_feferi"
+
+/datum/sprite_accessory/hair/white/fluttershy
+	name = "EX: Fluttershy"
+	icon_state = "hair_fluttershy"
+
+/datum/sprite_accessory/hair/white/fujisaki
+	name = "EX: Fujisaki"
+	icon_state = "hair_fujisaki"
+
+/datum/sprite_accessory/hair/white/fujiyabashi
+	name = "EX: Fujiyabashi"
+	icon_state = "hair_fujiyabashi"
+
+/datum/sprite_accessory/hair/white/gamzee
+	name = "EX: Gamzee"
+	icon_state = "hair_gamzee"
+
+/datum/sprite_accessory/hair/white/himecut3
+	name = "EX: Himecut3"
+	icon_state = "hair_himecut3"
+
+/datum/sprite_accessory/hair/white/judge
+	name = "EX: Judge"
+	icon_state = "hair_judge"
+
+/datum/sprite_accessory/hair/white/kanaya
+	name = "EX: Kanaya"
+	icon_state = "hair_kanaya"
+
+/datum/sprite_accessory/hair/white/long_braid
+	name = "EX: Long_braid"
+	icon_state = "hair_long_braid"
+
+/datum/sprite_accessory/hair/white/long_d_tails
+	name = "EX: Long_d_tails"
+	icon_state = "hair_long_d_tails"
+
+/datum/sprite_accessory/hair/white/longstraightponytail
+	name = "EX: Longstraightponytail"
+	icon_state = "hair_longstraightponytail"
+
+/datum/sprite_accessory/hair/white/mentalist
+	name = "EX: Mentalist"
+	icon_state = "hair_mentalist"
+
+/datum/sprite_accessory/hair/white/nepeta
+	name = "EX: Nepeta"
+	icon_state = "hair_nepeta"
+
+/datum/sprite_accessory/hair/white/objection
+	name = "EX: Objection"
+	icon_state = "hair_objection"
+
+/datum/sprite_accessory/hair/white/pigtails3
+	name = "EX: Pigtails3"
+	icon_state = "hair_pigtails3"
+
+/datum/sprite_accessory/hair/white/quadcurls
+	name = "EX: Quadcurls"
+	icon_state = "hair_quadcurls"
+
+/datum/sprite_accessory/hair/white/rapunzel
+	name = "EX: Rapunzel"
+	icon_state = "hair_rapunzel"
+
+/datum/sprite_accessory/hair/white/rose
+	name = "EX: Rose"
+	icon_state = "hair_rose"
+
+/datum/sprite_accessory/hair/white/roxy
+	name = "EX: Roxy"
+	icon_state = "hair_roxy"
+
+/datum/sprite_accessory/hair/white/schierke
+	name = "EX: Schierke"
+	icon_state = "hair_schierke"
+
+/datum/sprite_accessory/hair/white/shinobu
+	name = "EX: Shinobu"
+	icon_state = "hair_shinobu"
+
+/datum/sprite_accessory/hair/white/sparta
+	name = "EX: Sparta"
+	icon_state = "hair_sparta"
+
+/datum/sprite_accessory/hair/white/terezi
+	name = "EX: Terezi"
+	icon_state = "hair_terezi"
+
+/datum/sprite_accessory/hair/white/twincurl
+	name = "EX: Twincurl"
+	icon_state = "hair_twincurl"
+
+/datum/sprite_accessory/hair/white/twincurl2
+	name = "EX: Twincurl2"
+	icon_state = "hair_twincurl2"
+
+/datum/sprite_accessory/hair/white/undercut_fem
+	name = "EX: Undercut_fem"
+	icon_state = "hair_undercut_fem"
+
+/datum/sprite_accessory/hair/white/vegeta
+	name = "EX: Vegeta"
+	icon_state = "hair_vegeta"
+
+/datum/sprite_accessory/hair/white/vriska
+	name = "EX: Vriska"
+	icon_state = "hair_vriska"
+
+/datum/sprite_accessory/hair/white/combed
+	name = "EX: Combed"
+	icon_state = "hair_combed"
+
+/datum/sprite_accessory/hair/white/longsidepartstraight
+	name = "EX: Longsidepartstraight"
+	icon_state = "hair_longsidepartstraight"
+
+/datum/sprite_accessory/hair/white/bluntbangs
+	name = "EX: Bluntbangs"
+	icon_state = "hair_bluntbangs"
+
+/datum/sprite_accessory/hair/white/combedbob
+	name = "EX: Combedbob"
+	icon_state = "hair_combedbob"
+
+/datum/sprite_accessory/hair/white/slightlymessy
+	name = "EX: Slightlymessy"
+	icon_state = "hair_slightlymessy"
+
+/datum/sprite_accessory/hair/white/gipsy
+	name = "EX: Gipsy"
+	icon_state = "hair_gipsy"
+
+/datum/sprite_accessory/hair/white/geisha
+	name = "EX: Geisha"
+	icon_state = "hair_geisha"
+
+/datum/sprite_accessory/hair/white/baum
+	name = "EX: Baum"
+	icon_state = "hair_baum"
+
+/datum/sprite_accessory/hair/white/chub
+	name = "EX: Chub"
+	icon_state = "hair_chub"
+
+/datum/sprite_accessory/hair/white/ponytailf
+	name = "EX: Ponytailf"
+	icon_state = "hair_ponytailf"
+
+/datum/sprite_accessory/hair/white/halfshaved2
+	name = "EX: Halfshaved2"
+	icon_state = "hair_halfshaved2"
+
+/datum/sprite_accessory/hair/white/bun4
+	name = "EX: Bun4"
+	icon_state = "hair_bun4"
+
+/datum/sprite_accessory/hair/white/poofy2
+	name = "EX: Poofy2"
+	icon_state = "hair_poofy2"
+
+/datum/sprite_accessory/hair/white/ougi
+	name = "EX: Ougi"
+	icon_state = "hair_ougi"
+
+/datum/sprite_accessory/hair/white/square
+	name = "EX: Square"
+	icon_state = "hair_square"
+
 /////////////////////////////
 // Facial Hair Definitions //
 /////////////////////////////

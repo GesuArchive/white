@@ -7,6 +7,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/protein = 7, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("мясо" = 2, "сыр" = 1, "хлеб" = 2, "салат" = 1)
 	foodtypes = GRAIN | VEGETABLES
+	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/grilled_cheese_sandwich
@@ -18,6 +19,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/carbon = 4)
 	tastes = list("тост" = 2, "сыр" = 3, "масло" = 1)
 	foodtypes = GRAIN
+	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 	burns_on_grill = TRUE
 
@@ -30,6 +32,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 7, /datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("хлеб" = 1, "сыр" = 1)
 	foodtypes = GRAIN | DAIRY
+	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/cheese_sandwich/MakeGrillable()
@@ -44,6 +47,7 @@
 	bite_consumption = 3
 	tastes = list("хлеб" = 1, "желе" =1)
 	foodtypes = GRAIN
+	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/jellysandwich/slime
@@ -63,6 +67,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 10)
 	tastes = list("ничего подозрительного" = 1)
 	foodtypes = GRAIN | GROSS
+	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/jelliedtoast
@@ -74,6 +79,7 @@
 	bite_consumption = 3
 	tastes = list("тост" = 1, "желе" =1)
 	foodtypes = GRAIN | BREAKFAST
+	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/jelliedtoast/cherry
@@ -93,6 +99,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("масло" = 1, "тост" = 1)
 	foodtypes = GRAIN | BREAKFAST
+	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/twobread
@@ -103,4 +110,5 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("хлеб" = 2)
 	foodtypes = GRAIN
+	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL

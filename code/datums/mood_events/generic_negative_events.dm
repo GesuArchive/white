@@ -7,7 +7,7 @@
 	mood_change = -8
 
 /datum/mood_event/on_fire
-	description = "<span class='boldwarning'>Я ГОРЮ!!!/span>\n"
+	description = "<span class='boldwarning'>Я ГОРЮ!!!</span>\n"
 	mood_change = -12
 
 /datum/mood_event/suffocation

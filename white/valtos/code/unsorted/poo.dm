@@ -33,7 +33,6 @@
 	taste_description = "говно"
 
 /datum/reagent/toxin/poo/on_mob_life(mob/living/carbon/C)
-	C.adjustPlasma(1)
 	SSblackbox.record_feedback("tally", "poo", 1, "Poo Eaten")
 	return ..()
 
@@ -134,41 +133,50 @@
 	var/list/random_poo = list("покакунькивает", "срёт", "какает", "производит акт дефекации", "обсирается", "выдавливает какулину")
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
-		if(HAS_TRAIT(H, TRAIT_LIGHT_POOER) && H.nutrition >= NUTRITION_LEVEL_WELL_FED)
-			H.visible_message("<span class='notice'><b>[H]</b> [prob(25) ? pick(random_poo) : uppertext(pick(random_poo))] себе прямо в руку!</span>", \
+		var/turf/T = get_turf(src)
+		if(H.pooition >= 25)
+			if(HAS_TRAIT(H, TRAIT_LIGHT_POOER))
+				H.visible_message("<span class='notice'><b>[H]</b> [prob(25) ? pick(random_poo) : uppertext(pick(random_poo))] себе прямо в руку!</span>", \
 					"<span class='notice'>Выдавливаю какаху из своего тела.</span>")
-			playsound(H, 'white/valtos/sounds/poo2.ogg', 25, 1) //silence hunter
-			var/obj/item/food/poo/P = new(get_turf(H))
-			H.put_in_hands(P)
-			if(!H.throw_mode)
-				H.throw_mode_on(THROW_MODE_TOGGLE)
-			H.nutrition -= 50
-			SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
-			return
-		else if (H.nutrition >= NUTRITION_LEVEL_FULL)
-			if(H.get_item_by_slot(ITEM_SLOT_ICLOTHING))
-				H.visible_message("<span class='notice'><b>[H]</b> [prob(25) ? pick(random_poo) : uppertext(pick(random_poo))] себе в штаны!</span>", \
-						"<span class='notice'>Сру себе в штаны.</span>")
-				playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
-				H.nutrition -= 75
-				if(!H.pooed)
-					var/mutable_appearance/pooverlay = mutable_appearance('white/valtos/icons/poo.dmi')
-					pooverlay.icon_state = "uniformpoo"
-					H.add_overlay(pooverlay)
-					pooverlay.icon_state = "suitpoo"
-					H.add_overlay(pooverlay)
-					H.pooed = TRUE
-					SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "pooed", /datum/mood_event/pooed)
-				SSblackbox.record_feedback("tally", "poo", 1, "Poo Self")
-				return
-			else
-				H.visible_message("<span class='notice'><b>[H]</b> [prob(25) ? pick(random_poo) : uppertext(pick(random_poo))] на пол!</span>", \
-						"<span class='notice'>Выдавливаю какаху из своего тела.</span>")
-				playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
-				new /obj/item/food/poo(H.loc)
-				H.nutrition -= 75
+				playsound(H, 'white/valtos/sounds/poo2.ogg', 25, 1) //silence hunter
+				var/obj/item/food/poo/P = new(T)
+				H.put_in_hands(P)
+				if(!H.throw_mode)
+					H.throw_mode_on(THROW_MODE_TOGGLE)
+				H.pooition -= 25
 				SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 				return
+			else
+				if(H.get_item_by_slot(ITEM_SLOT_ICLOTHING))
+					H.visible_message("<span class='notice'><b>[H]</b> [prob(25) ? pick(random_poo) : uppertext(pick(random_poo))] себе в штаны!</span>", \
+						"<span class='notice'>Сру себе в штаны.</span>")
+					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
+					H.pooition -= 25
+					if(!H.pooed)
+						var/mutable_appearance/pooverlay = mutable_appearance('white/valtos/icons/poo.dmi')
+						pooverlay.icon_state = "uniformpoo"
+						H.add_overlay(pooverlay)
+						pooverlay.icon_state = "suitpoo"
+						H.add_overlay(pooverlay)
+						H.pooed = TRUE
+						SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "pooed", /datum/mood_event/pooed)
+					SSblackbox.record_feedback("tally", "poo", 1, "Poo Self")
+					return
+				else if(locate(/obj/structure/toilet) in T || locate(/obj/structure/toilet/greyscale) in T)
+					H.visible_message("<span class='notice'><b>[H]</b> [prob(5) ? pick(random_poo) : uppertext(pick(random_poo))] в туалет!</span>", \
+						"<span class='notice'>Выдавливаю какаху прямиком в туалет.</span>")
+					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
+					H.pooition -= 25
+					SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
+					return
+				else
+					H.visible_message("<span class='notice'><b>[H]</b> [prob(25) ? pick(random_poo) : uppertext(pick(random_poo))] на пол!</span>", \
+						"<span class='notice'>Выдавливаю какаху из своего тела.</span>")
+					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
+					new /obj/item/food/poo(T)
+					H.pooition -= 25
+					SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
+					return
 		else if(H.stat == CONSCIOUS)
 			H.visible_message("<span class='notice'><b>[H]</b> тужится!</span>", \
 					"<span class='notice'>Вам нечем какать.</span>")

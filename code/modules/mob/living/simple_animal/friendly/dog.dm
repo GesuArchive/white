@@ -601,6 +601,13 @@ GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 		return
 	..()
 
+//PUPPY IAN! SQUEEEEEEEEE~
+/mob/living/simple_animal/pet/dog/corgi/puppy/ian
+	name = "Ian"
+	real_name = "Ian"
+	gender = MALE
+	desc = "It's the HoP's beloved corgi puppy."
+
 
 /mob/living/simple_animal/pet/dog/corgi/puppy/void		//Tribute to the corgis born in nullspace
 	name = "Пустотный щеник"

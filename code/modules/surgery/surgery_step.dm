@@ -72,7 +72,7 @@
 		return FALSE
 
 	if(tool)
-		speed_mod = tool.toolspeed - SURGERY_SPEED_INTERACT(NITRILE_GLOVES_SURGERY_MULTIPLIER, user)
+		speed_mod = tool.toolspeed
 
 	var/implement_speed_mod = 1
 	if(implement_type)	//this means it isn't a require hand or any item step.
