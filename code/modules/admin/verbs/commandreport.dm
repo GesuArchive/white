@@ -2,10 +2,10 @@
 #define DEFAULT_ANNOUNCEMENT_SOUND "default_announcement"
 
 /// Preset central command names to chose from for centcom reports.
-#define CENTCOM_PRESET "Central Command"
-#define SYNDICATE_PRESET "The Syndicate"
-#define WIZARD_PRESET "The Wizard Federation"
-#define CUSTOM_PRESET "Custom Command Name"
+#define CENTCOM_PRESET "Центральное Командование"
+#define SYNDICATE_PRESET "Синдикат"
+#define WIZARD_PRESET "Федерация Магов"
+#define CUSTOM_PRESET "Общество по правам негров"
 
 /// Verb to change the global command name.
 /client/proc/cmd_change_command_name()

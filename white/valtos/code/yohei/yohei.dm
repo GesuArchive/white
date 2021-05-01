@@ -103,7 +103,7 @@
 	inhand_icon_state = "assaultbelt"
 	worn_icon_state = "cloak"
 
-/obj/item/gun/ballistic/automatic/pistol/yohei9mm
+/obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm
 	name = "пистолет Тиберия"
 	desc = "Пистолет малой мощности и не сбывшихся надежд. Возможно последний экземпляр."
 	icon_state = "gosling"
@@ -125,6 +125,7 @@
 	desc = "Полевой Автоматический Медицинский Комплект. Инструкция сообщает: воткните в конечность и она исцелится."
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "pamk_100"
+	w_class = WEIGHT_CLASS_SMALL
 	var/charge_left = 100
 	var/current_mode = MODE_PAINKILLER
 
@@ -191,7 +192,7 @@
 				to_chat(user, "<span class='warning'>Не обнаружено повреждений, либо они незначительны.</span>")
 		if(MODE_OXYLOSS)
 			if(M.getOxyLoss() > 5)
-				if(use_charge(10))
+				if(use_charge(25))
 					M.setOxyLoss(0)
 				else
 					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 10 единиц.</span>")
@@ -209,7 +210,7 @@
 			else
 				to_chat(user, "<span class='warning'>Не обнаружено травм в этой конечности.</span>")
 		if(MODE_BLOOD_INJECTOR)
-			if(M.blood_volume >= initial(M.blood_volume) - 50)
+			if(M.blood_volume <= initial(M.blood_volume) - 50)
 				if(use_charge(25))
 					M.restore_blood()
 					to_chat(user, "<span class='notice'>Кровь восстановлена.</span>")
@@ -222,3 +223,19 @@
 #undef MODE_OXYLOSS
 #undef MODE_FRACTURE
 #undef MODE_BLOOD_INJECTOR
+
+/datum/outfit/yohei
+	name = "Йохей: Дженерик"
+
+	uniform = /obj/item/clothing/under/syndicate/yohei
+	mask = /obj/item/clothing/mask/breath/yohei
+	shoes = /obj/item/clothing/shoes/jackboots/yohei
+	gloves = /obj/item/clothing/gloves/combat/yohei
+	suit = /obj/item/clothing/suit/hooded/yohei
+	suit_store = /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm
+	belt = /obj/item/shadowcloak/yohei
+	r_pocket = /obj/item/ammo_box/magazine/fallout/m9mm
+	l_pocket = /obj/item/pamk
+
+	back = /obj/item/storage/backpack/satchel/leather
+	backpack_contents = list(/obj/item/ammo_box/magazine/fallout/m9mm = 2)
