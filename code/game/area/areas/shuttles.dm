@@ -100,6 +100,7 @@
 	name = "Гиперпространство"
 	desc = "Уииииииииииии"
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	area_flags = NO_ALERTS | HIDDEN_AREA
 
 /area/shuttle/arrival
 	name = "Шаттл прибытия"
