@@ -65,17 +65,20 @@
 	if(user.client && user.chem_scan)
 		chemscan(user, src)
 	if(HAS_TRAIT(src, TRAIT_CLIENT_LEAVED))
-		var/ghost_role = alert(user, "Точно хочешь занять это тело? (внимание, текущее тело будет покинуто)",,"Да","Нет")
+		var/ghost_role = alert(user, "Точно хочешь занять это тело? (Вы больше не сможете вернуться в своё прошлое тело!)",,"Да","Нет")
 		if(ghost_role == "Нет" || !user.loc || QDELETED(user))
 			return
 		if(is_banned_from(user.key, ROLE_ICECREAM) || isslimeperson(src))
-			to_chat(user, "<span class='warning'>А хуй тебе!</span>")
+			to_chat(user, "<span class='warning'>[prob(10)? "А хуй тебе!" : "Упс, у вас джоббан на данную роль. Проконсультируйтесь с педаляцией."]</span>")
 			return
 		if(QDELETED(src) || QDELETED(user))
 			return
-		to_chat(src, "<span class='warning'>Моё тело забрали?! Срочно нажми F1 и опиши проблему.</span>")
-		log_game("[key_name(user)] Ice Creamed and became [src]")
-		message_admins("[key_name_admin(user)] забирает тело апатика ([ADMIN_LOOKUPFLW(src)]) себе")
+		if(mind.active)
+			to_chat(user, "<span class='warning'>Тело уже занято! [prob(10) ? "Лошара." : "В следующий раз повезёт."]</span>")
+			return
+		to_chat(src, "<span class='warning'>Моё тело забрали?! Срочно нажми F1 и опиши проблему.</span>") //такой хуйни быть не должно.
+		log_game("[key_name(user)] Ice Creamed and became [src].")
+		message_admins("[key_name_admin(user)] забирает тело апатика ([ADMIN_LOOKUPFLW(src)]) себе.")
 		ghostize(0)
 		key = user.key
 		client?.init_verbs()
