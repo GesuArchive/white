@@ -68,12 +68,15 @@
 		var/ghost_role = alert(user, "Точно хочешь занять это тело? (Вы больше не сможете вернуться в своё прошлое тело!)",,"Да","Нет")
 		if(ghost_role == "Нет" || !user.loc || QDELETED(user))
 			return
-		if(is_banned_from(user.key, ROLE_ICECREAM) || isslimeperson(src))
+		if(is_banned_from(user.key, ROLE_ICECREAM))
 			to_chat(user, "<span class='warning'>[prob(10)? "А хуй тебе!" : "Упс, у вас джоббан на данную роль. Проконсультируйтесь с педаляцией."]</span>")
+			return
+		if(isslimeperson(src))
+			to_chat(user, "<span class='warning'>Слаймолюдей занимать нельзя. Смирись.</span>")
 			return
 		if(QDELETED(src) || QDELETED(user))
 			return
-		if(mind.active)
+		if(src.client)
 			to_chat(user, "<span class='warning'>Тело уже занято! [prob(10) ? "Лошара." : "В следующий раз повезёт."]</span>")
 			return
 		to_chat(src, "<span class='warning'>Моё тело забрали?! Срочно нажми F1 и опиши проблему.</span>") //такой хуйни быть не должно.
