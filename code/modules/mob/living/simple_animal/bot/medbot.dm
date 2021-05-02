@@ -29,7 +29,7 @@
 	model = "Medibot"
 	bot_core_type = /obj/machinery/bot_core/medbot
 	window_id = "automed"
-	window_name = "Автоматическая медицинская установка v1.1"
+	window_name = "Автоматический медицинский юнит v1.1"
 	data_hud_type = DATA_HUD_MEDICAL_ADVANCED
 	path_image_color = "#DDDDFF"
 /// drop determining variable
@@ -72,7 +72,7 @@
 
 /mob/living/simple_animal/bot/medbot/mysterious
 	name = "Загадочный Медбот"
-	desc = "Ух."
+	desc = "Не горбатый, не рогатый."
 	skin = "bezerk"
 	damagetype_healer = "all"
 	heal_amount = 10
@@ -135,9 +135,9 @@
 
 /mob/living/simple_animal/bot/medbot/set_custom_texts()
 
-	text_hack = "Взламываю процессор лечения [name]."
-	text_dehack = "Сбрасываю процессор лечения [name]."
-	text_dehack_fail = "[capitalize(name)] поврежден и не реагирует на перепрограммирование!"
+	text_hack = "Отключаю протоколы безопасности [name]."
+	text_dehack = "Включаю протоколы безопасности [name]."
+	text_dehack_fail = "[capitalize(name)] не реагирует на команду перезагрузки!"
 
 /mob/living/simple_animal/bot/medbot/attack_paw(mob/user)
 	return attack_hand(user)
@@ -146,7 +146,7 @@
 	var/dat
 	dat += hack(user)
 	dat += showpai(user)
-	dat += "<TT><B>Управление Медботом v1.1</B></TT><BR><BR>"
+	dat += "<TT><B>Автоматический медицинский юнит v1.1</B></TT><BR><BR>"
 	dat += "Состояние: <A href='?src=[REF(src)];power=1'>[on ? "Вкл" : "Выкл"]</A><BR>"
 	dat += "Техническая панель [open ? "открыта" : "закрыта"]<BR>"
 	dat += "<br>Управление поведением [locked ? "заблокировано" : "разблокировано"]<hr>"
@@ -200,7 +200,7 @@
 		if(tech_boosters)
 			heal_amount = (round(tech_boosters/2,0.1)*initial(heal_amount))+initial(heal_amount) //every 2 tend wounds tech gives you an extra 100% healing, adjusting for unique branches (combo is bonus)
 			if(oldheal_amount < heal_amount)
-				speak("Обнаружены новые знания! Хирургическая эффективность повышена на [round(heal_amount/initial(heal_amount)*100)]%!")
+				speak("Обнаружены новые технологии! Хирургическая эффективность повышена на [round(heal_amount/initial(heal_amount)*100)]%!")
 	update_controls()
 	return
 
@@ -232,7 +232,7 @@
 	if(assess_patient(H))
 		last_found = world.time
 		if((last_newpatient_speak + 300) < world.time) //Don't spam these messages!
-			var/list/messagevoice = list("Эй, [H.name]! Подожди, я иду." = 'sound/voice/medbot/coming.ogg',"Постой, [H.name]! Я хочу помочь!" = 'sound/voice/medbot/help.ogg',"[H.name], у тебя раны!" = 'sound/voice/medbot/injured.ogg')
+			var/list/messagevoice = list("Эй, [H.name]! Подожди, я иду." = 'sound/voice/medbot/coming.ogg',"Постой, [H.name]! Я хочу помочь!" = 'sound/voice/medbot/help.ogg',"[H.name], вы ранены!" = 'sound/voice/medbot/injured.ogg')
 			var/message = pick(messagevoice)
 			speak(message)
 			playsound(src, messagevoice[message], 50, FALSE)
@@ -259,10 +259,10 @@
 		if(user.name == tipper_name)
 			messagevoice = list("Я тебя прощаю." = 'sound/voice/medbot/forgive.ogg')
 		else
-			messagevoice = list("Спасибо!" = 'sound/voice/medbot/thank_you.ogg', "Ты неплохой человек." = 'sound/voice/medbot/youre_good.ogg')
+			messagevoice = list("Спасибо!" = 'sound/voice/medbot/thank_you.ogg', "Ты хороший человек." = 'sound/voice/medbot/youre_good.ogg')
 	else
 		visible_message("<span class='notice'>[capitalize(src.name)] умудряется встать на колёсики сам.</span>")
-		messagevoice = list("Пошёл на хуй." = 'sound/voice/medbot/fuck_you.ogg', "Ваше поведение было записано, прекрасного дня." = 'sound/voice/medbot/reported.ogg')
+		messagevoice = list("Пошёл нахуй." = 'sound/voice/medbot/fuck_you.ogg', "Ваше поведение было записано, прекрасного вам[prob(10)?", блять,":""] дня." = 'sound/voice/medbot/reported.ogg')
 	tipper_name = null
 	if(world.time > last_tipping_action_voice + 15 SECONDS)
 		last_tipping_action_voice = world.time
@@ -290,7 +290,7 @@
 		if(MEDBOT_PANIC_ENDING)
 			messagevoice = list("Это конец?" = 'sound/voice/medbot/is_this_the_end.ogg', "Нееет!" = 'sound/voice/medbot/nooo.ogg')
 		if(MEDBOT_PANIC_END)
-			speak("ПСИХИЧЕСКАЯ ТРЕВОГА: Член экипажа [tipper_name] был записан как поборник антиобщественных тенденций, пытающих ботов в [get_area(src)]. Требуется экстренная изоляция пациента в виду явных психических отклонений.", radio_channel)
+			speak("ПСИХИЧЕСКАЯ ТРЕВОГА: Член экипажа [tipper_name] был записан как поборник антиобщественных тенденций, пытающий ботов в [get_area(src)]. Рекомендуется провести полное психиатрическое обследование.", radio_channel)
 			set_right() // strong independent medbot
 
 	if(prob(tipped_status))
@@ -310,15 +310,15 @@
 
 	switch(tipped_status)
 		if(MEDBOT_PANIC_NONE to MEDBOT_PANIC_LOW)
-			. += "<hr>Кажется, он опрокинут и спокойно ждет, пока кто-нибудь его поставит на место."
+			. += "<hr>Он опрокинут и спокойно ждет, пока кто-нибудь его поставит на место."
 		if(MEDBOT_PANIC_LOW to MEDBOT_PANIC_MED)
-			. += "<hr>Он опрокинут и просит помощи."
+			. += "<hr>Он опрокинут и просит у вас помощи."
 		if(MEDBOT_PANIC_MED to MEDBOT_PANIC_HIGH)
-			. += "<hr>Он опрокинут и выглядят обеспокоенными." // now we humanize the medbot as a they, not an it
+			. += "<hr>Он опрокинут и выглядит обеспокоенными." // now we humanize the medbot as a they, not an it //я ебал эту русификацию, если честно.
 		if(MEDBOT_PANIC_HIGH to MEDBOT_PANIC_FUCK)
-			. += "<hr><span class='warning'>Он опрокинут и явно в панике!</span>"
+			. += "<hr><span class='warning'>Он опрокинут и начинает паниковать!</span>"
 		if(MEDBOT_PANIC_FUCK to INFINITY)
-			. += "<hr><span class='warning'><b>Он в ужасе от того, что его опрокинули!</b></span>"
+			. += "<hr><span class='warning'><b>Он в состоянии ужасной паники!</b></span>"
 
 /mob/living/simple_animal/bot/medbot/handle_automated_action()
 	if(!..())
@@ -347,7 +347,7 @@
 				var/list/i_need_scissors = list('sound/voice/medbot/fuck_you.ogg', 'sound/voice/medbot/turn_off.ogg', 'sound/voice/medbot/im_different.ogg', 'sound/voice/medbot/close.ogg', 'sound/voice/medbot/shindemashou.ogg')
 				playsound(src, pick(i_need_scissors), 70)
 			else
-				var/list/messagevoice = list("Радар, надень маску!" = 'sound/voice/medbot/radar.ogg',"Всегда есть подвох, и я лучший из них." = 'sound/voice/medbot/catch.ogg',"Я знал это, я должен был стать пластическим хирургом." = 'sound/voice/medbot/surgeon.ogg',"Что это за медотсек? Все дохнут как мухи." = 'sound/voice/medbot/flies.ogg',"Delicious!" = 'sound/voice/medbot/delicious.ogg', "Почему мы все еще здесь? Просто страдать?" = 'sound/voice/medbot/why.ogg')
+				var/list/messagevoice = list(/*"Радар, надень маску!" = 'sound/voice/medbot/radar.ogg',"Всегда есть подвох, и я лучший из них." = 'sound/voice/medbot/catch.ogg',*/"Я так и знал, лучше бы я стал пластическим хирургом." = 'sound/voice/medbot/surgeon.ogg',"Что это за медотсек? Все вокруг дохнут как мухи." = 'sound/voice/medbot/flies.ogg',"Delicious!" = 'sound/voice/medbot/delicious.ogg', "Почему мы все еще здесь? Просто, чтобы страдать?" = 'sound/voice/medbot/why.ogg') //Непереводимая игра слов непереводима. Хотя это даже не игра слов, это какая-то стрёмная цитата из какого-то там стрёмного сериала. Никто отсылку не поймёт, и звучит убого - выпиливаем. 
 				var/message = pick(messagevoice)
 				speak(message)
 				playsound(src, messagevoice[message], 50)
@@ -455,11 +455,11 @@
 		return
 
 	if(H.a_intent == INTENT_DISARM && mode != BOT_TIPPED)
-		H.visible_message("<span class='danger'>[H] начинает опрокидывать [src.name]а.</span>", "<span class='warning'>Начинаю опрокидывать [src.name]а...</span>")
+		H.visible_message("<span class='danger'>[H] пытается опрокинуть [src.name]а.</span>", "<span class='warning'>Пытаюсь опрокинуть [src.name]а...</span>")
 
 		if(world.time > last_tipping_action_voice + 15 SECONDS)
 			last_tipping_action_voice = world.time // message for tipping happens when we start interacting, message for righting comes after finishing
-			var/list/messagevoice = list("Эй, подожди..." = 'sound/voice/medbot/hey_wait.ogg',"Пожалуйста, не надо..." = 'sound/voice/medbot/please_dont.ogg',"Я доверял тебе..." = 'sound/voice/medbot/i_trusted_you.ogg', "Нееет..." = 'sound/voice/medbot/nooo.ogg', "Ох, бля-" = 'sound/voice/medbot/oh_fuck.ogg')
+			var/list/messagevoice = list("Эй, подожди..." = 'sound/voice/medbot/hey_wait.ogg',"Пожалуйста, не надо..." = 'sound/voice/medbot/please_dont.ogg',"Я доверял тебе..." = 'sound/voice/medbot/i_trusted_you.ogg', "Не-е-ет..." = 'sound/voice/medbot/nooo.ogg', "Ох, бля-" = 'sound/voice/medbot/oh_fuck.ogg')
 			var/message = pick(messagevoice)
 			speak(message)
 			playsound(src, messagevoice[message], 70, FALSE)
@@ -468,7 +468,7 @@
 			tip_over(H)
 
 	else if(H.a_intent == INTENT_HELP && mode == BOT_TIPPED)
-		H.visible_message("<span class='notice'>[H] начинает ставить на место [src.name]а.</span>", "<span class='notice'>Начинаю ставить на место [src.name]а...</span>")
+		H.visible_message("<span class='notice'>[H] пытается поставить [src.name]а на место.</span>", "<span class='notice'>Пытаюсь поставить [src.name]а на место...</span>")
 		if(do_after(H, 3 SECONDS, target=src))
 			set_right(H)
 	else
@@ -502,7 +502,7 @@
 		return
 
 	if(C.stat == DEAD || (HAS_TRAIT(C, TRAIT_FAKEDEATH)))
-		var/list/messagevoice = list("Нет! Оставайся со мной!" = 'sound/voice/medbot/no.ogg',"Живть, мать твою! ЖИВИ!" = 'sound/voice/medbot/live.ogg',"Я... Я никогда не терял пациентов. Не сегодня, имею в виду." = 'sound/voice/medbot/lost.ogg')
+		var/list/messagevoice = list("Нет! Останься со мной!" = 'sound/voice/medbot/no.ogg',"Живи, мать твою! Живи!" = 'sound/voice/medbot/live.ogg',"Я никогда не терял пациентов... Не сегодня, имею в виду." = 'sound/voice/medbot/lost.ogg')
 		var/message = pick(messagevoice)
 		speak(message)
 		playsound(src, messagevoice[message], 50)
@@ -537,9 +537,9 @@
 
 		if(!treatment_method && emagged != 2) //If they don't need any of that they're probably cured!
 			if(C.maxHealth - C.get_organic_health() < heal_threshold)
-				to_chat(src, "<span class='notice'>[C] здоров! Программа не позволяет лечить чьи-либо раны без хотя бы [heal_threshold] урона любого типа ([heal_threshold + 5] для кислородного урона.)</span>")
+				to_chat(src, "<span class='notice'>[C] здоров! Программа не позволяет лечить чьи-либо раны без хотя бы [heal_threshold] урона любого типа ([heal_threshold + 5] для кислородного урона.)</span>") //ёбаный в рот этого казино блять
 
-			var/list/messagevoice = list("Все исправлено!" = 'sound/voice/medbot/patchedup.ogg',"Кто яблоко в день съедает, у того я не бываю." = 'sound/voice/medbot/apple.ogg',"Поправляйся!" = 'sound/voice/medbot/feelbetter.ogg')
+			var/list/messagevoice = list("Все исправлено!" = 'sound/voice/medbot/patchedup.ogg',/*"Кто яблоко в день съедает, у того я не бываю." = 'sound/voice/medbot/apple.ogg'*/,"Поправляйся!" = 'sound/voice/medbot/feelbetter.ogg')
 			var/message = pick(messagevoice)
 			speak(message)
 			playsound(src, messagevoice[message], 50)

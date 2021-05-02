@@ -1,7 +1,7 @@
 //Cleanbot
 /mob/living/simple_animal/bot/hygienebot
 	name = "Гигиенобот"
-	desc = "Летающий робот-уборщик, он будет преследовать людей, которые не умеют принимать душ!"
+	desc = "Летающий робот-уборщик, преследующий людей, которые не умеют принимать душ."
 	icon = 'icons/mob/aibots.dmi'
 	icon_state = "hygienebot"
 	density = FALSE
@@ -46,7 +46,7 @@
 
 /mob/living/simple_animal/bot/hygienebot/explode()
 	walk_to(src,0)
-	visible_message("<span class='boldannounce'>[capitalize(src.name)] взрывается и разбрызгивает пену вокруг!</span>")
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] взрывается и разбрызгивает вокруг пену!</span>")
 	do_sparks(3, TRUE, src)
 	on = FALSE
 	new /obj/effect/particle_effect/foam(loc)
@@ -115,7 +115,7 @@
 
 		if(BOT_HUNT)		// hunting for stinkman
 			if(emagged) //lol fuck em up
-				currentspeed = 3.5
+				currentspeed = frustration + 1 //Что могло пойти не так?
 				start_washing()
 				mad = TRUE
 			else
@@ -124,13 +124,13 @@
 						currentspeed = 5
 						mad = FALSE
 					if(5 to INFINITY)
-						currentspeed = 2.5
+						currentspeed = 6.5
 						mad = TRUE
 			if(target && !check_purity(target))
 				if(target.loc == loc && isturf(target.loc)) //LADIES AND GENTLEMAN WE GOTEM PREPARE TO DUMP
 					start_washing()
 					if(mad)
-						speak("На тебя ушло много времени, ебучий дегенерат.", "Неужели блять.", "Спасибо боже, ты наконец остановился.")
+						speak("На тебя ушло много времени, ебучий дегенерат.", "Неужели блять.", "Спасибо боже, ты наконец остановился, пидорас.")
 						playsound(loc, 'sound/effects/hygienebot_angry.ogg', 60, 1)
 						mad = FALSE
 					mode = BOT_SHOWERSTANCE
@@ -143,7 +143,7 @@
 					walk_to(src, target,0, currentspeed)
 					if(mad && prob(min(frustration * 2, 60)))
 						playsound(loc, 'sound/effects/hygienebot_angry.ogg', 60, 1)
-						speak(pick("Вернись обратно, вонючий педик.", "ПРЕКРАТИ БЕЖАТЬ ИЛИ Я ПОРВУ ТВОИ АРТЕРИИ!", "Дай мне просто помыть тебя, ублюдок!", "ХВАТИТ. БЕГАТЬ.", "Если ты не перестанешь убегать от меня, то я выкину тебя в космос.", "Я просто хочу помыть тебя, ебучий троглодит.", "Если ты сейчас же не подойдёшь ко мне, то я пущу в тебя зелёный дым."))
+						speak(pick("Вернись обратно, вонючий педик!", "ПРЕКРАТИ БЕЖАТЬ ИЛИ Я ВСКРОЮ ТЕБЕ БЕДРЕННУЮ АРТЕРИЮ!", "Дай же мне просто помыть тебя, ублюдок!", "ХВАТИТ. УБЕГАТЬ.", "Если ты сейчас же не перестанешь убегать от меня, то я выкину тебя в космос, блять.", "Я просто хочу помыть тебя, ебучий троглодит.", "Если ты сейчас же не подойдёшь ко мне, то я пущу в тебя зелёный дым."))
 					if((get_dist(src, target)) >= olddist)
 						frustration++
 					else
@@ -153,7 +153,7 @@
 
 		if(BOT_SHOWERSTANCE)
 			if(check_purity(target))
-				speak("Наслаждайтесь чистым и аккуратным днем!")
+				speak("Наслаждайтесь чистым и опрятным днем!")
 				playsound(loc, 'sound/effects/hygienebot_happy.ogg', 60, 1)
 				back_to_idle()
 				return
@@ -192,7 +192,7 @@
 		if(!check_purity(H)) //Theyre impure
 			target = H
 			oldtarget_name = H.name
-			speak("Обнаружен антисанитарный клиент. Пожалуйста, стой спокойно, чтобы я мог очистить вас.")
+			speak("Обнаружен антисанитарный клиент. Пожалуйста, стойте спокойно.")
 			playsound(loc, 'sound/effects/hygienebot_happy.ogg', 60, 1)
 			visible_message("<b>[capitalize(src.name)]</b> направляется к [H.name]!")
 			mode = BOT_HUNT
@@ -216,7 +216,7 @@
 	dat += hack(user)
 	dat += showpai(user)
 	dat += {"
-<TT><B>Автоматический очиститель персонала X2</B></TT><BR><BR>
+<TT><B>Автоматический санитарный юнит X2</B></TT><BR><BR>
 Состояние: ["<A href='?src=[REF(src)];power=[TRUE]'>[on ? "Вкл" : "Выкл"]</A>"]<BR>
 Управление поведением [locked ? "заблокировано" : "разблокировано"]<BR>
 Техническая панель [open ? "открыта" : "закрыта"]"}

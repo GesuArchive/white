@@ -20,7 +20,7 @@
 	model = "Firebot"
 	bot_core = /obj/machinery/bot_core/firebot
 	window_id = "autoextinguisher"
-	window_name = "Мобильный тушитель пожаров v1.0"
+	window_name = "Автоматизированная противопожарная система J0-2"
 	path_image_color = "#FFA500"
 
 	var/atom/target_fire
@@ -113,7 +113,7 @@
 	var/dat
 	dat += hack(user)
 	dat += showpai(user)
-	dat += "<TT><B>Мобильный тушитель пожаров v1.0</B></TT><BR><BR>"
+	dat += "<TT><B>Автоматизированная противопожарная система J0-2</B></TT><BR><BR>"
 	dat += "Состояние: <A href='?src=[REF(src)];power=1'>[on ? "Вкл" : "Выкл"]</A><BR>"
 	dat += "Техническая панель [open ? "открыта" : "закрыта"]<BR>"
 
@@ -185,10 +185,10 @@
 		return
 
 	if(prob(1) && target_fire == null)
-		var/list/messagevoice = list("Не обнаружено пожаров." = 'sound/voice/firebot/nofires.ogg',
+		var/list/messagevoice = list("Пожаров не обнаружено." = 'sound/voice/firebot/nofires.ogg',
 		"Только ты можешь предотвратить пожары на станции." = 'sound/voice/firebot/onlyyou.ogg',
-		"Температура номинальна." = 'sound/voice/firebot/tempnominal.ogg',
-		"Сохраняйте это прохладным." = 'sound/voice/firebot/keepitcool.ogg')
+		"Температура номинальна." = 'sound/voice/firebot/tempnominal.ogg'/*,
+		"Сохраняйте это прохладным." = 'sound/voice/firebot/keepitcool.ogg'*/) //непереводимая игра слов.
 		var/message = pick(messagevoice)
 		speak(message)
 		playsound(src, messagevoice[message], 50)
@@ -215,7 +215,7 @@
 	if(target_fire && (get_dist(src, target_fire) <= (emagged == 2 ? 1 : 2))) // Make the bot spray water from afar when not emagged
 		if((speech_cooldown + SPEECH_INTERVAL) < world.time)
 			if(ishuman(target_fire))
-				speak("Остановись, падай и катись!")
+				speak("Падай и катись!")//падение подразумевает остановку. На английском полная фраза Stop, drop and roll звучит лаконичней из-за краткости всех слов.
 				playsound(src, 'sound/voice/firebot/stopdropnroll.ogg', 50, FALSE)
 			else
 				speak("Тушу!")
@@ -271,7 +271,7 @@
 
 	if(is_burning(scan_target))
 		if((detected_cooldown + DETECTED_VOICE_INTERVAL) < world.time)
-			speak("Обнаружен огонь!")
+			speak("Обнаружен открытый огонь!")
 			playsound(src, 'sound/voice/firebot/detected.ogg', 50, FALSE)
 			detected_cooldown = world.time
 		result = scan_target
