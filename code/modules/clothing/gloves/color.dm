@@ -175,7 +175,7 @@
 
 /obj/item/clothing/gloves/color/captain
 	desc = "Царственно-синие перчатки с красивой золотой отделкой, алмазным противоударным покрытием и встроенным тепловым барьером. Шикарно."
-	name = "капитанские перчатки"	
+	name = "капитанские перчатки"
 	icon_state = "captain"
 	inhand_icon_state = "egloves"
 	siemens_coefficient = 0
@@ -218,7 +218,7 @@
 	transfer_prints = FALSE
 
 /obj/item/clothing/gloves/color/latex/engineering
-	name = "перчатки [prob(50) ? "мастера" : "прораба"]"
+	name = "перчатки мастера"
 	desc = "Переработанные инженерные перчатки. Корректируют движения пользователя посредством второсортных наночипов с заложенными программами для инженерных работ."
 	icon = 'icons/obj/clothing/clockwork_garb.dmi'
 	icon_state = "clockwork_gauntlets"
@@ -228,12 +228,20 @@
 	clothing_traits = list(TRAIT_QUICK_BUILD)
 	custom_materials = list(/datum/material/iron=2000, /datum/material/silver=1500, /datum/material/gold = 1000)
 
+/obj/item/clothing/gloves/color/latex/engineering/Initialize()
+	. = ..()
+	name = "перчатки [prob(50) ? "мастера" : "прораба"]"
+
 /obj/item/clothing/gloves/color/white
 	name = "белые перчатки"
-	desc = "Выглядят довольно причудливо. [prob(30) ? "Смотря на них, у меня появляется такое чувство, будто я что-то забыл. [prob(50)?"Что-то очень, очень важное...":""]" : "" ]"
+	desc = "Выглядят довольно причудливо."
 	icon_state = "white"
 	inhand_icon_state = "wgloves"
 	custom_price = PAYCHECK_MINIMAL
+
+/obj/item/clothing/gloves/color/white/Initialize()
+	. = ..()
+	desc = "Выглядят довольно причудливо. [prob(30) ? "Смотря на них, у меня появляется такое чувство, будто я что-то забыл. [prob(50)?"Что-то очень, очень важное...":""]" : "" ]"
 
 /obj/effect/spawner/lootdrop/gloves
 	name = "случайные перчатки"

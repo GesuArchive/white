@@ -1,5 +1,5 @@
 /obj/item/boombox
-	name = "Взрыв [pick("каробка",50;"каропка",25;"коропка",10;"коробка")]"
+	name = "Взрыв каробка"
 	desc = "Магнитола, разыскиваемая в одном из соседних секторов. Почему-то пахнет малиной."
 	icon = 'white/baldenysh/icons/obj/boombox.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
@@ -12,6 +12,10 @@
 	var/datum/track/selection = null
 	var/obj/item/card/data/music/disk
 	var/playing = FALSE
+
+/obj/item/boombox/Initialize()
+	. = ..()
+	name = "Взрыв [pick("каробка",50;"каропка",25;"коропка",10;"коробка")]"
 
 /proc/open_sound_channel_for_boombox()
 	var/static/next_channel = CHANNEL_WIND_AVAILABLE + 1
