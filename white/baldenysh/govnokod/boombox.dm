@@ -1,6 +1,6 @@
 /obj/item/boombox
-	name = "Взрыв каробка"
-	desc = "Магнитола, разыскиваемая в одном из смежных секторов. Почему-то пахнет малиной."
+	name = "Взрыв [pick("каробка",50;"каропка",25;"коропка",10;"коробка")]"
+	desc = "Магнитола, разыскиваемая в одном из соседних секторов. Почему-то пахнет малиной."
 	icon = 'white/baldenysh/icons/obj/boombox.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'

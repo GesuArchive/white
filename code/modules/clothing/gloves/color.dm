@@ -1,9 +1,11 @@
 /obj/item/clothing/gloves/color
 	dying_key = DYE_REGISTRY_GLOVES
-
+	desc = "Пара обычных, ничем не выделяющихся перчаток."
 /obj/item/clothing/gloves/color/chief_engineer
-	desc = "These gloves provide excellent heat and electric insulation. They are so thin you can barely feel them."
-	name = "advanced insulated gloves"
+	desc = "Резиновые перчатки с прекрасной электро- и теплоизоляцией. Настолько тонкие, что я едва чувствую их."
+	//desc = "These gloves provide excellent heat and electric insulation. They are so thin you can barely feel them."
+	name = "резиновые перчатки старшего инженера"
+	//name = "advanced insulated gloves"
 	icon_state = "ce_insuls"
 	inhand_icon_state = "lgloves"
 	siemens_coefficient = 0
@@ -13,7 +15,7 @@
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 
 /obj/item/clothing/gloves/color/yellow
-	desc = "Эти перчатки защитят пользователя от поражения электрическим током. Очень толстые, скорее всего из таких будет невозможно стрелять."
+	desc = "Эти перчатки защитят пользователя от поражения электрическим током. Очень толстые, пострелять с такими не получится."
 	name = "резиновые перчатки"
 	icon_state = "yellow"
 	inhand_icon_state = "ygloves"
@@ -73,7 +75,7 @@
 		qdel(src)
 
 /obj/item/clothing/gloves/color/fyellow                             //Cheap Chinese Crap
-	desc = "Эти перчатки являются дешевыми подделками желанных перчаток - это может плохо кончиться."
+	desc = "Эти перчатки являются дешевыми подделками желанных перчаток. Что может пойти не так?"
 	name = "бюджетные резиновые перчатки"
 	icon_state = "yellow"
 	inhand_icon_state = "ygloves"
@@ -87,7 +89,7 @@
 	siemens_coefficient = pick(0,0.5,0.5,0.5,0.5,0.75,1.5)
 
 /obj/item/clothing/gloves/color/fyellow/old
-	desc = "Эти перчатки защитят пользователя от поражения электрическим током. Староватые."
+	desc = "Эти потрёпанные временем перчатки <i>возможно</i> защитят пользователя от поражения электрическим током. Только один способ проверить, так ли это..."
 	name = "старенькие резиновые перчатки"
 
 /obj/item/clothing/gloves/color/fyellow/old/Initialize()
@@ -95,18 +97,20 @@
 	siemens_coefficient = pick(0,0,0,0.5,0.5,0.5,0.75)
 
 /obj/item/clothing/gloves/cut
-	desc = "These gloves would protect the wearer from electric shock... if the fingers were covered."
+	desc = "Эти перчатки защитили бы от поражения электрическим током, если бы один умник не отрезал у них пальцы."
+	//desc = "These gloves would protect the wearer from electric shock... if the fingers were covered."
 	name = "fingerless insulated gloves"
 	icon_state = "yellowcut"
 	inhand_icon_state = "ygloves"
 	transfer_prints = TRUE
 
 /obj/item/clothing/gloves/cut/heirloom
-	desc = "The old gloves your great grandfather stole from Engineering, many moons ago. They've seen some tough times recently."
+	desc = "Старые перчатки, украденные у инженеров ещё вашим дедом, много лунных циклов тому назад." //Лунная призма, дай мне сил блять.
+	//desc = "The old gloves your great grandfather stole from Engineering, many moons ago. They've seen some tough times recently."
 
 /obj/item/clothing/gloves/color/black
-	desc = "Эти перчатки огнеупорные."
 	name = "чёрные перчатки"
+	desc = "Огнеупорные перчатки."
 	icon_state = "black"
 	inhand_icon_state = "blackgloves"
 	cold_protection = HANDS
@@ -118,13 +122,11 @@
 
 /obj/item/clothing/gloves/color/orange
 	name = "оранжевые перчатки"
-	desc = "Пара перчаток, они ни в коем случае не выглядят особенными."
 	icon_state = "orange"
 	inhand_icon_state = "orangegloves"
 
 /obj/item/clothing/gloves/color/red
 	name = "красные перчатки"
-	desc = "Пара перчаток, они ни в коем случае не выглядят особенными."
 	icon_state = "red"
 	inhand_icon_state = "redgloves"
 
@@ -138,49 +140,42 @@
 
 /obj/item/clothing/gloves/color/rainbow
 	name = "радужные перчатки"
-	desc = "Пара перчаток, они ни в коем случае не выглядят особенными."
 	icon_state = "rainbow"
 	inhand_icon_state = "rainbowgloves"
 
 /obj/item/clothing/gloves/color/blue
 	name = "синие перчатки"
-	desc = "Пара перчаток, они ни в коем случае не выглядят особенными."
 	icon_state = "blue"
 	inhand_icon_state = "bluegloves"
 
 /obj/item/clothing/gloves/color/purple
 	name = "фиолетовые перчатки"
-	desc = "Пара перчаток, они ни в коем случае не выглядят особенными."
 	icon_state = "purple"
 	inhand_icon_state = "purplegloves"
 
 /obj/item/clothing/gloves/color/green
 	name = "зелёные перчатки"
-	desc = "Пара перчаток, они ни в коем случае не выглядят особенными."
 	icon_state = "green"
 	inhand_icon_state = "greengloves"
 
 /obj/item/clothing/gloves/color/grey
 	name = "серые перчатки"
-	desc = "Пара перчаток, они ни в коем случае не выглядят особенными."
 	icon_state = "gray"
 	inhand_icon_state = "graygloves"
 
 /obj/item/clothing/gloves/color/light_brown
 	name = "светло-коричневые перчатки"
-	desc = "Пара перчаток, они ни в коем случае не выглядят особенными."
 	icon_state = "lightbrown"
 	inhand_icon_state = "lightbrowngloves"
 
 /obj/item/clothing/gloves/color/brown
 	name = "коричневые перчатки"
-	desc = "Пара перчаток, они ни в коем случае не выглядят особенными."
 	icon_state = "brown"
 	inhand_icon_state = "browngloves"
 
 /obj/item/clothing/gloves/color/captain
 	desc = "Царственно-синие перчатки с красивой золотой отделкой, алмазным противоударным покрытием и встроенным тепловым барьером. Шикарно."
-	name = "капитанские перчатки"
+	name = "капитанские перчатки"	
 	icon_state = "captain"
 	inhand_icon_state = "egloves"
 	siemens_coefficient = 0
@@ -194,7 +189,7 @@
 
 /obj/item/clothing/gloves/color/latex
 	name = "латексные перчатки"
-	desc = "Дешевые стерильные перчатки из латекса. Передает второстепенные парамедицинские знания пользователю через бюджетные наночипы."
+	desc = "Дешевые стерильные перчатки из латекса. Передают парамедицинские знания пользователю через бюджетные наночипы."
 	icon_state = "latex"
 	inhand_icon_state = "latex"
 	siemens_coefficient = 0.3
@@ -205,7 +200,7 @@
 
 /obj/item/clothing/gloves/color/latex/nitrile
 	name = "нитриловые перчатки"
-	desc = "Ценные стерильные перчатки толще латекса. Передача интимных знаний парамедиков пользователю через наночипы."
+	desc = "Дорогие стерильные перчатки из нитрила. Передаёт через наночипы знания, эквивалентные нескольким годам обучения в передовой медицинской академии."
 	icon_state = "nitrile"
 	inhand_icon_state = "nitrilegloves"
 	clothing_traits = list(TRAIT_QUICKER_CARRY, TRAIT_FASTMED)
@@ -213,7 +208,7 @@
 
 /obj/item/clothing/gloves/color/infiltrator
 	name = "перчатки лазутчика"
-	desc = "Заточенные под столкновения перчатки для переноса людей. Благодаря наночипам передают носителю тактическую информацию о похищениях."
+	desc = "Заточенные под боевые столкновения перчатки для \"добровольно-принудительной передислокации\" людей. Передают носителю полезный в быту навык похищения людей."
 	icon_state = "infiltrator"
 	inhand_icon_state = "infiltrator"
 	siemens_coefficient = 0
@@ -223,8 +218,8 @@
 	transfer_prints = FALSE
 
 /obj/item/clothing/gloves/color/latex/engineering
-	name = "перчатки мастера"
-	desc = "Переработанные инженерные перчатки, внутри которых задействованы строительные подпрограммамы, позволяющие носящему значительно ускорить строительство."
+	name = "перчатки [prob(50) ? "мастера" : "прораба"]"
+	desc = "Переработанные инженерные перчатки. Корректируют движения пользователя посредством второсортных наночипов с заложенными программами для инженерных работ."
 	icon = 'icons/obj/clothing/clockwork_garb.dmi'
 	icon_state = "clockwork_gauntlets"
 	inhand_icon_state = "clockwork_gauntlets"
@@ -235,14 +230,14 @@
 
 /obj/item/clothing/gloves/color/white
 	name = "белые перчатки"
-	desc = "Выглядят довольно причудливо."
+	desc = "Выглядят довольно причудливо. [prob(30) ? "Смотря на них, у меня появляется такое чувство, будто я что-то забыл. [prob(50)?"Что-то очень, очень важное...":""]" : "" ]"
 	icon_state = "white"
 	inhand_icon_state = "wgloves"
 	custom_price = PAYCHECK_MINIMAL
 
 /obj/effect/spawner/lootdrop/gloves
 	name = "случайные перчатки"
-	desc = "Эти перчатки должны быть случайного цвета..."
+	desc = "Эти перчатки должны быть случайного цвета." //Нахуй описание спавнеру?
 	icon = 'icons/obj/clothing/gloves.dmi'
 	icon_state = "random_gloves"
 	loot = list(

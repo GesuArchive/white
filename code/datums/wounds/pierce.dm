@@ -62,7 +62,7 @@
 	if(victim.bodytemperature < (BODYTEMP_NORMAL -  10))
 		blood_flow -= 0.2
 		if(prob(5))
-			to_chat(victim, "<span class='notice'>Ощущаю как кровь в моей [ru_gde_zone(limb.name)] начинает загущаться от холода!</span>")
+			to_chat(victim, "<span class='notice'>Ощущаю как кровь в моей [ru_gde_zone(limb.name)] начинает сгущаться от холода!</span>")
 
 	if(HAS_TRAIT(victim, TRAIT_BLOODY_MESS))
 		blood_flow += 0.5 // old heparin used to just add +2 bleed stacks per tick, this adds 0.5 bleed flow to all open cuts which is probably even stronger as long as you can cut them first
@@ -103,7 +103,7 @@
 	user.visible_message("<span class='notice'><b>[user]</b> начинает зашивать [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I.name]...</span>", "<span class='notice'>Начинаю зашивать [ru_parse_zone(limb.name)] [user == victim ? "" : "<b>[victim]</b> "]используя [I.name]...</span>")
 	if(!do_after(user, base_treat_time * self_penalty_mult, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
-	user.visible_message("<span class='green'><b>[user]</b> успешно зашивает некоторые кровотечения <b>[victim]</b>.</span>", "<span class='green'>Успешно зашиваю некоторые кровотечения на [ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"].</span>")
+	user.visible_message("<span class='green'><b>[user]</b> успешно замедляет кровотечение <b>[victim]</b>.</span>", "<span class='green'>Успешно зашиваю некоторые кровотечения на [ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"].</span>")
 	var/blood_sutured = I.stop_bleeding / self_penalty_mult
 	blood_flow -= blood_sutured
 	limb.heal_damage(I.heal_brute, I.heal_burn)
@@ -134,10 +134,10 @@
 		try_treating(I, user)
 
 /datum/wound/pierce/moderate
-	name = "Незначительное проникновение"
-	desc = "Кожа пациента была разорвана, что вызвало сильные кровоподтеки и незначительное внутреннее кровотечение в пораженной области."
-	treat_text = "Обработать пораженный участок перевязкой или воздействием сильного холода. В тяжелых случаях кратковременного воздействия вакуума может быть достаточно." // space is cold in ss13, so it's like an ice pack!
-	examine_desc = "имеет маленькое круглое отверстие, слегка кровоточащее"
+	name = "Незначительная колотая рана"
+	desc = "Кожный покров пациента был проткнут, приводя к сильным кровоподтекам и незначительному внутреннему кровотечению в данной области."
+	treat_text = "Приложить холод к поражённому участку либо наложение бинта. В случае дефицита медикаментов достаточно кратковременного воздействия вакуума." // space is cold in ss13, so it's like an ice pack!
+	examine_desc = "имеет маленькое, слегка кровоточащее круглое отверстие,"
 	occur_text = "выплескивает небольшой поток крови"
 	sound_effect = 'sound/effects/wounds/pierce1.ogg'
 	severity = WOUND_SEVERITY_MODERATE
@@ -151,9 +151,9 @@
 	scar_keyword = "piercemoderate"
 
 /datum/wound/pierce/severe
-	name = "Открытый прокол"
-	desc = "Внутренняя ткань пациента пробита, вызывая значительное внутреннее кровотечение и сниженную стабильность конечностей."
-	treat_text = "Исправьте проколы на коже с помощью шва или прижигания, также можно заморозить раны."
+	name = "открытая колотая рана"
+	desc = "Пациент получил глубокую колотую рану, сопровождающуюся значительным кровотечением и сниженную целостность конечностей."
+	treat_text = "Наложение шва на рану или прижигания, либо временная заморозка раны."
 	examine_desc = "пробита насквозь, куски кожи закрывают отверстие"
 	occur_text = "начинает сильно брызгать кровью, открывая колотую рану"
 	sound_effect = 'sound/effects/wounds/pierce2.ogg'
@@ -168,9 +168,9 @@
 	scar_keyword = "piercesevere"
 
 /datum/wound/pierce/critical
-	name = "Разорванная полость"
-	desc = "Внутренние ткани и система кровообращения пациента разрываются, вызывая значительное внутреннее кровотечение и повреждение внутренних органов."
-	treat_text = "Хирургическое восстановление пункционной раны с последующим контролируемым обескровливанием."
+	name = "Полостная рана"
+	desc = "Внутренние ткани и система кровообращения пациента разорваны, что сопровождается значительным внутренним кровотечением. Высок риск повреждения внутренних органов."
+	treat_text = "Срочное хирургическое вмешательство с последующим переливанием крови при тяжёлой потери крови."
 	examine_desc = "разорвана насквозь, едва удерживаясь костями"
 	occur_text = "разрывается на куски мяса, летящие во всех направлениях"
 	sound_effect = 'sound/effects/wounds/pierce3.ogg'

@@ -81,22 +81,22 @@
 			if(prob(30))
 				victim.adjustToxLoss(0.2)
 				if(prob(6))
-					to_chat(victim, "<span class='warning'>Волдыри на моей [ru_gde_zone(limb.name)] источают странный гной...</span>")
+					to_chat(victim, "<span class='warning'>Волдыри на моей [ru_gde_zone(limb.name)] источают гной...</span>")
 		if(WOUND_INFECTION_SEVERE to WOUND_INFECTION_CRITICAL)
 			if(!disabling && prob(2))
-				to_chat(victim, "<span class='warning'><b>Моя [limb.name] полностью блокируется, пока я пытаюсь бороться с инфекцией!</b></span>")
+				to_chat(victim, "<span class='warning'><b>Моя [limb.name] немеет от инфекциии!</b></span>")
 				set_disabling(TRUE)
 			else if(disabling && prob(8))
-				to_chat(victim, "<span class='notice'>Восстанавливаю ощущения в своей [ru_gde_zone(limb.name)], но она все еще в ужасной форме!</span>")
+				to_chat(victim, "<span class='notice'>Я снова чувствую [ru_parse_zone(limb.name)], но она все еще в ужасном состоянии!</span>")
 				set_disabling(FALSE)
 			else if(prob(20))
 				victim.adjustToxLoss(0.5)
 		if(WOUND_INFECTION_CRITICAL to WOUND_INFECTION_SEPTIC)
 			if(!disabling && prob(3))
-				to_chat(victim, "<span class='warning'><b>Внезапно теряю ощущение гнойной инфекции в моей [ru_gde_zone(limb.name)]!</b></span>")
+				to_chat(victim, "<span class='warning'><b>Перестаю чувствовать гнойную инфекцию в своей [ru_gde_zone(limb.name)]!</b></span>")
 				set_disabling(TRUE)
 			else if(disabling && prob(3))
-				to_chat(victim, "<span class='notice'>Едва чувствую [limb.name] снова, надо постараться, чтобы заставить её двигаться снова!</span>")
+				to_chat(victim, "<span class='notice'>Едва чувствую свою [ru_parse_zone(limb.name)]!</span>")
 				set_disabling(FALSE)
 			else if(prob(1))
 				to_chat(victim, "<span class='warning'>Продумаю жизнь без своей [ru_gde_zone(limb.name)]...</span>")
@@ -107,13 +107,13 @@
 			if(prob(infestation))
 				switch(strikes_to_lose_limb)
 					if(3 to INFINITY)
-						to_chat(victim, "<span class='deadsay'>Кожа на моей [ru_gde_zone(limb.name)] просто стекает вниз, ужасно!</span>")
+						to_chat(victim, "<span class='deadsay'>Кожа на моей [ru_gde_zone(limb.name)] просто стекает вниз, это ужасно!</span>")
 					if(2)
-						to_chat(victim, "<span class='deadsay'><b>Инфекция из моей [ru_gde_zone(limb.name)] просто вытекает вниз, ужасно!</b></span>")
+						to_chat(victim, "<span class='deadsay'><b>Инфекция из моей [ru_gde_zone(limb.name)] просто стекает вниз, это ужасно!</b></span>")
 					if(1)
 						to_chat(victim, "<span class='deadsay'><b>Инфекция почти полностью завладела [ru_gde_zone(limb.name)]!</b></span>")
 					if(0)
-						to_chat(victim, "<span class='deadsay'><b>Последний из нервных окончаний в моей [ru_gde_zone(limb.name)] отсох, как и инфекция полностью парализует мой сустав.</b></span>")
+						to_chat(victim, "<span class='deadsay'><b>Последний из нервных окончаний в моей [ru_gde_zone(limb.name)] отмер...</b></span>")
 						threshold_penalty = 120 // piss easy to destroy
 						var/datum/brain_trauma/severe/paralysis/sepsis = new (limb.body_zone)
 						victim.gain_trauma(sepsis)
@@ -172,12 +172,12 @@
 			if(WOUND_INFECTION_CRITICAL to WOUND_INFECTION_SEPTIC)
 				. += "Инфекция: <span class='deadsay'>КРИТИЧЕСКАЯ</span>\n"
 			if(WOUND_INFECTION_SEPTIC to INFINITY)
-				. += "Инфекция: <span class='deadsay'>УГРОЗА ПОТЕРИ</span>\n"
+				. += "Инфекция: <span class='deadsay'>УГРОЗА ПОТЕРИ КОНЕЧНОСТИ</span>\n"
 		if(infestation > sanitization)
-			. += "\tХирургическая обработка, антибиотики/стерилизаторы или регенеративная сетка помогут избавиться от заразы. Ультрафиолетовый фонарик Парамедика также эффективен.\n"
+			. += "\tХирургическая обработка, антибиотики/стерилизаторы, регенеративная сетка или ультрафиолетовый фонарик парамедика помогут избавиться от заразы.\n"
 
 		if(flesh_damage > 0)
-			. += "Обнаружено повреждение плоти: Пожалуйста, примените мазь или регенеративную сетку, чтобы позволить восстановление.\n"
+			. += "Обнаружены термические повреждения тканей: Пожалуйста, примените мазь или регенеративную сетку, чтобы восстановить ткани.\n"
 	. += "</div>"
 
 /*
@@ -243,10 +243,10 @@
 
 // we don't even care about first degree burns, straight to second
 /datum/wound/burn/moderate
-	name = "Ожоги Второй Степени"
+	name = "Ожоги второй степени"
 	skloname = "ожогов второй степени"
-	desc = "Пациент страдает от значительных ожогов со слабым проникновением в кожу, нарушением целостности конечностей и повышенными ощущениями жжения."
-	treat_text = "Рекомендуемое применение мази для местного применения или регенеративной сетки для пораженной области."
+	desc = "Пациент страдает от значительных ожогов со слабым проникновением в кожу, нарушением целостности конечностей и повышенным ощущением жжения."
+	treat_text = "Рекомендуется применение заживляющей мази или регенеративной сетки на пораженной области."
 	examine_desc = "сильно обгорела и покрыта волдырями"
 	occur_text = "вспыхивает с сильными красными ожогами"
 	severity = WOUND_SEVERITY_MODERATE
@@ -258,10 +258,10 @@
 	scar_keyword = "burnmoderate"
 
 /datum/wound/burn/severe
-	name = "Ожоги Третьей Степени"
+	name = "Ожоги третьей степени"
 	skloname = "ожогов третьей степени"
-	desc = "Пациент страдает от сильных ожогов с полным проникновением в кожу, что создает серьезный риск инфекции и значительно снижает целостность конечностей."
-	treat_text = "Рекомендуется немедленная дезинфекция и удаление любой зараженной кожи с последующей перевязкой и мазью."
+	desc = "Пациент страдает от сильных ожогов с глубоким проникновением в кожу, что создает серьезный риск инфекции."
+	treat_text = "Рекомендуется немедленная дезинфекция и удаление зараженной ткани, если таковая присутствует, с последующей перевязкой и применением заживляющей мази."
 	examine_desc = "кажется серьезно обугленной, с агрессивными красными пятнами"
 	occur_text = "быстро обугливается, обнажая разрушенную ткань и покрывается красными ожогами"
 	severity = WOUND_SEVERITY_SEVERE
@@ -275,10 +275,10 @@
 	scar_keyword = "burnsevere"
 
 /datum/wound/burn/critical
-	name = "Катастрофические Ожоги"
+	name = "Катастрофические ожоги"
 	skloname = "катастрофических ожогов"
-	desc = "Пациент страдает от почти полной потери ткани и значительного обугливания мышц и костей, создавая опасный для жизни риск инфекции и незначительную целостность конечностей."
-	treat_text = "Немедленное хирургическое удаление любой инфицированной кожи с последующей мощной формулой регенерации тканей и перевязкой."
+	desc = "Пациент страдает от крайне глубоких ожогов, доходящих до костей. Опасный для жизни риск инфекции."
+	treat_text = "Немедленное хирургическое удаление любой инфицированной ткани с последующей перевязкой и применеием противоожоговых препаратов."
 	examine_desc = "это испорченный беспорядок из бланшированной кости, расплавленного жира и обугленной ткани"
 	occur_text = "испаряется, как плоть, кости и жир тают вместе в ужасном беспорядке"
 	severity = WOUND_SEVERITY_CRITICAL
