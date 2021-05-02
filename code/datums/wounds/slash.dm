@@ -185,7 +185,7 @@
 	if(blood_flow > minimum_flow)
 		try_handling(user)
 	else if(demotes_to)
-		to_chat(user, "<span class='green'>Успешно понижаю силу кровотечения порезов [victim].</span>")
+		to_chat(user, "<span class='green'>Успешно ослабляю кровотечение у [victim].</span>")
 
 /datum/wound/slash/on_xadone(power)
 	. = ..()
@@ -229,7 +229,7 @@
 	if(blood_flow > minimum_flow)
 		try_treating(I, user)
 	else if(demotes_to)
-		to_chat(user, "<span class='green'>Успешно уменьшаю кровотечение от [user == victim ? "моих порезов" : "порезов [victim]"].</span>")
+		to_chat(user, "<span class='green'>Успешно ослабляю кровотечение из [user == victim ? "моих порезов" : "порезов [victim]"].</span>")
 
 /// If someone is using a suture to close this cut
 /datum/wound/slash/proc/suture(obj/item/stack/medical/suture/I, mob/user)
@@ -246,14 +246,14 @@
 	if(blood_flow > minimum_flow)
 		try_treating(I, user)
 	else if(demotes_to)
-		to_chat(user, "<span class='green'>Успешно уменьшаю кровотечение от [user == victim ? "моих порезов" : "порезов [victim]"].</span>")
+		to_chat(user, "<span class='green'>Успешно ослабляю кровотечение из [user == victim ? "моих порезов" : "порезов [victim]"].</span>")
 
 
 /datum/wound/slash/moderate
-	name = "Глубокие Порезы"
+	name = "Глубокие порезы"
 	skloname = "глубоких порезов"
-	desc = "Кожа пациента была сильно соскоблена, что привело к умеренной кровопотере."
-	treat_text = "Наложение чистых повязок или швов для оказания первой медицинской помощи, затем еда и отдых."
+	desc = "Кожный покров пациента была сильно повреждён, приводя к умеренной кровопотере."
+	treat_text = "Наложение чистых повязок или швов для прекращения кровотечения, еда и отдых для восстановления."
 	examine_desc = "имеет открытый порез"
 	occur_text = "вскрыта, медленно источая кровь"
 	sound_effect = 'sound/effects/wounds/blood1.ogg'
@@ -267,10 +267,10 @@
 	scar_keyword = "slashmoderate"
 
 /datum/wound/slash/severe
-	name = "Открытая Рана"
+	name = "Открытая рана"
 	skloname = "открытой раны"
-	desc = "Кожа пациента разорвана, что приводит к значительной потере крови."
-	treat_text = "Быстрое наложение швов первой помощи и чистых повязок с последующим мониторингом жизненно важных функций для обеспечения восстановления."
+	desc = "Кожный покров пациента серьёзно повреждён, приводя к значительной кровопотере."
+	treat_text = "Быстрое наложение швов и чистых повязок с последующим мониторингом жизненно важных функций для обеспечения полного восстановления."
 	examine_desc = "имеет серьёзный порез"
 	occur_text = "вскрыта, вены брызгают кровью"
 	sound_effect = 'sound/effects/wounds/blood2.ogg'
@@ -285,11 +285,11 @@
 	scar_keyword = "slashsevere"
 
 /datum/wound/slash/critical
-	name = "Открытая Артерия"
+	name = "Открытая артерия"
 	skloname = "открытой артерии"
-	desc = "Кожа пациента полностью разорвана, что сопровождается значительным повреждением тканей. Чрезвычайная потеря крови приведет к быстрой смерти без вмешательства."
-	treat_text = "Немедленная перевязка и либо ушивание, либо прижигание, а затем повторная регенерация."
-	examine_desc = "брызгает кровью с угрожающей скоростью"
+	desc = "Нарушена целостность артерии. Серьёзный риск смерти пациента без медицинского вмешательства."
+	treat_text = "Немедленное закрытие раны хирургическими нитками, прижигание и восстановление повреждённых тканей." //на уроках ОБЖ в школе нас учили 
+	examine_desc = "брызжет кровью с угрожающей скоростью"
 	occur_text = "разрывается, дико брызгая кровью"
 	sound_effect = 'sound/effects/wounds/blood3.ogg'
 	severity = WOUND_SEVERITY_CRITICAL

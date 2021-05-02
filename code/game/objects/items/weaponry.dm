@@ -102,8 +102,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	slot_flags = null
 	block_chance = 0 //RNG WON'T HELP YOU NOW, PANSY
 	light_range = 3
-	attack_verb_continuous = list("бруталлирует", "потрошит", "уничтожает", "проламывает", "унижает", "разрубает") //ONLY THE MOST VISCERAL ATTACK VERBS
-	attack_verb_simple = list("бруталлирует", "потрошит", "уничтожает", "проламывает", "унижает", "разрубает")
+	attack_verb_continuous = list("потрошит", "уничтожает", "проламывает", "унижает", "разрубает") //ONLY THE MOST VISCERAL ATTACK VERBS
+	attack_verb_simple = list("потрошит", "уничтожает", "проламывает", "унижает", "разрубает") //Я БРУТАЛЛИРОВАЛ ПЕРЕПОДЧИКОВ ЭТОГО ГОВНА
 	var/notches = 0 //HOW MANY PEOPLE HAVE BEEN SLAIN WITH THIS BLADE
 	var/obj/item/disk/nuclear/nuke_disk //OUR STORED NUKE DISK
 

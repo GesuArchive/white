@@ -20,7 +20,7 @@
 	victim = dismembered_part.owner
 
 	if(dismembered_part.body_zone == BODY_ZONE_CHEST)
-		occur_text = "была разорвана, внутренние органы вылетают с вкусным звуком!"
+		occur_text = "была разорвана, внутренние органы вылетают с [prob(35) ? "вкусным" : "неприятным"] звуком!" //[prob(35) ? "вкусно"] жрал?
 	else if(outright)
 		switch(wounding_type)
 			if(WOUND_BLUNT)
