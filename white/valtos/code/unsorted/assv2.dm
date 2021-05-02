@@ -378,15 +378,15 @@ in their list
 	use_corner_selection = TRUE
 	var/use_json = TRUE
 
-/datum/buildmode_mode/save/show_help(mob/user)
+/datum/buildmode_mode/save/show_help(client/user)
 	to_chat(user, "<span class='notice'>***********************************************************</span>")
 	to_chat(user, "<span class='notice'>Left Mouse Button on turf/obj/mob      = Select corner</span>")
 	to_chat(user, "<span class='notice'>***********************************************************</span>")
 
-/datum/buildmode_mode/save/change_settings(mob/user)
+/datum/buildmode_mode/save/change_settings(client/user)
 	use_json = (alert("Would you like to use json (Default is \"Yes\")?",,"Yes","No") == "Yes")
 
-/datum/buildmode_mode/save/handle_selected_region(mob/user, params)
+/datum/buildmode_mode/save/handle_selected_area(client/user, params)
 	var/list/pa = params2list(params)
 	var/left_click = pa.Find("left")
 	if(left_click)
