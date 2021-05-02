@@ -112,7 +112,7 @@
 	name = "Ascend"
 	desc = "Enters your true form."
 	panel = "Shadowling Evolution"
-	charge_max = 3000
+	charge_max = 300
 	clothes_req = FALSE
 	action_icon = 'white/valtos/icons/sling.dmi'
 	action_icon_state = "ascend"
@@ -183,7 +183,7 @@
 			H.forceMove(A)
 			if(!SSticker.mode.shadowling_ascended)
 				set_security_level(SEC_LEVEL_DELTA)
-				SSshuttle.emergencyCallTime = 1800
+				SSshuttle.emergencyCallTime = 2800
 				SSshuttle.emergency.request(null, 0.3)
 				SSshuttle.emergencyNoRecall = TRUE
 				SSticker.mode.shadowling_ascended = TRUE

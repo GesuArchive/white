@@ -155,9 +155,6 @@ Made by Xhuis
 	var/shadow_charges = 3
 	var/last_charge = 0
 
-/datum/species/shadow/ling/negates_gravity(mob/living/carbon/human/H)
-	return TRUE
-
 /datum/species/shadow/ling/on_species_gain(mob/living/carbon/human/C)
 	C.draw_yogs_parts(TRUE)
 	eyes_overlay = mutable_appearance('white/valtos/icons/sling.dmi', "eyes", 25)
