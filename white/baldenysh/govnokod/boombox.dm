@@ -13,10 +13,6 @@
 	var/obj/item/card/data/music/disk
 	var/playing = FALSE
 
-/obj/item/boombox/Initialize()
-	. = ..()
-	name = "Взрыв [pick("каробка",50;"каропка",25;"коропка",10;"коробка")]"
-
 /proc/open_sound_channel_for_boombox()
 	var/static/next_channel = CHANNEL_WIND_AVAILABLE + 1
 	. = ++next_channel
@@ -31,6 +27,7 @@
 	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
 	SP.set_channel(open_sound_channel_for_boombox())
 	load_tracks()
+	name = "Взрыв [pick("каробка",50;"каропка",25;"коропка",10;"коробка")]"
 	color = color_matrix_rotate_hue(rand(0, 360))
 
 /obj/item/boombox/update_icon()
