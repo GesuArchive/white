@@ -310,13 +310,13 @@
 	text2file(map_text, file_name)
 	to_chat(src, "Finished saving [file_name]")
 
-/client/proc/write_map()
+/client/proc/write_map(zlevel_to as num)
 	set category = "Маппинг"
 	set name = "? WRITE MAP"
 	var/datum/dmm_suite/suite = new()
 	var/map_text = suite.write_map(
-		locate(1, 1, 1),
-		locate(world.maxx, world.maxy, world.maxz),
+		locate(1, 1, zlevel_to),
+		locate(world.maxx, world.maxy, zlevel_to),
 		DMM_IGNORE_PLAYERS
 	)
 	usr << browse("<pre>[map_text]</pre>")
