@@ -1,5 +1,5 @@
 /obj/item/boombox
-	name = "Взрыв [pick("каробка",50;"каропка",25;"коропка",10;"коробка")]"
+	name = "взрыв каробка" //я мнительный, оставлю, если каким-то образом имя не поменяется в ините.
 	desc = "Магнитола, разыскиваемая в одном из соседних секторов. Почему-то пахнет малиной."
 	icon = 'white/baldenysh/icons/obj/boombox.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
@@ -24,6 +24,7 @@
 
 /obj/item/boombox/Initialize()
 	. = ..()
+	name = "взрыв [pick("каробка",50;"каропка",25;"коропка",10;"коробка")]"
 	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
 	SP.set_channel(open_sound_channel_for_boombox())
 	load_tracks()
