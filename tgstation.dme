@@ -3892,7 +3892,7 @@
 #include "white\valtos\code\uniforms\hohol.dm"
 #include "white\valtos\code\uniforms\russian.dm"
 #include "white\valtos\code\unsorted\antimatter.dm"
-#include "white\valtos\code\unsorted\ass.dm"
+#include "white\valtos\code\unsorted\assv2.dm"
 #include "white\valtos\code\unsorted\boxplanet.dm"
 #include "white\valtos\code\unsorted\butt.dm"
 #include "white\valtos\code\unsorted\cancer.dm"
