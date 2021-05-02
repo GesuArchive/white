@@ -1,6 +1,6 @@
 /mob/living/simple_animal/bot/secbot/ed209
 	name = "ED-209 Боевой Робот"
-	desc = "Робот-охранник. Он не выглядит взволнованным."
+	desc = "Робот-охранник. Он выглядит спокойным."
 	icon_state = "ed209"
 	density = TRUE
 	health = 100

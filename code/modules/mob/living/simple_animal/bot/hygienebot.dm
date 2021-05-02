@@ -115,7 +115,7 @@
 
 		if(BOT_HUNT)		// hunting for stinkman
 			if(emagged) //lol fuck em up
-				currentspeed = frustration + 1 //Что могло пойти не так?
+				currentspeed = 3.5
 				start_washing()
 				mad = TRUE
 			else
@@ -124,7 +124,7 @@
 						currentspeed = 5
 						mad = FALSE
 					if(5 to INFINITY)
-						currentspeed = 6.5
+						currentspeed = 2.5
 						mad = TRUE
 			if(target && !check_purity(target))
 				if(target.loc == loc && isturf(target.loc)) //LADIES AND GENTLEMAN WE GOTEM PREPARE TO DUMP
