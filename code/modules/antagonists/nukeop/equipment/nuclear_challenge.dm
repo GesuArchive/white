@@ -50,7 +50,7 @@ GLOBAL_LIST_EMPTY(jam_on_wardec)
 	if(!check_allowed(user) || !war_declaration)
 		return
 
-	priority_announce(war_declaration, title = "Объявление войны", sound = 'sound/machines/alarm.ogg',  has_important_message = TRUE)
+	priority_announce(war_declaration, title = "Объявление войны", ANNOUNCER_WAR,  has_important_message = TRUE)
 
 	to_chat(user, "You've attracted the attention of powerful forces within the syndicate. A bonus bundle of telecrystals has been granted to your team. Great things await you if you complete the mission.")
 

@@ -1,9 +1,5 @@
 /obj/item/boombox
-<<<<<<< HEAD
 	name = "взрыв каробка" //я мнительный, оставлю, если каким-то образом имя не поменяется в ините.
-=======
-	name = "Взрыв каробка"
->>>>>>> c535f1b447e511c6cf04fa35dbf78f6d9ae8a6c5
 	desc = "Магнитола, разыскиваемая в одном из соседних секторов. Почему-то пахнет малиной."
 	icon = 'white/baldenysh/icons/obj/boombox.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
