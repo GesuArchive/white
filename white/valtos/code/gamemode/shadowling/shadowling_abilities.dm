@@ -109,11 +109,11 @@
 		revert_cast()
 		return
 	to_chat(user, "<span class='shadowling'>You silently disable all nearby lights.</span>")
-	for(var/var/mob/living/AM in range(10))
+	for(var/atom/movable/AM in range(10))
 		if(isliving(AM))
 			var/mob/living/L = AM
 			if(isethereal(L))
-				AM.emp_act(EMP_LIGHT)
+				L.emp_act(EMP_LIGHT)
 
 			else if(iscyborg(AM))
 				var/mob/living/silicon/robot/borg = AM
