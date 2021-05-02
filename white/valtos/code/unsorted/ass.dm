@@ -307,5 +307,5 @@
 		locate(world.maxx, world.maxy, zlevel_to),
 		DMM_IGNORE_PLAYERS
 	)
-	usr << browse("<head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'></head><pre>[map_text]</pre>", "window=assmap")
+	usr << browse("<head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'></head>	<pre>[map_text]</pre>", "window=assmap")
 	to_chat(world, "<span class='boldannounce'>Мир сохранён, приятной игры!</span>")
