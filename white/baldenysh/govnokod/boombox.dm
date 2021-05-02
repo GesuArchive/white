@@ -1,5 +1,9 @@
 /obj/item/boombox
+<<<<<<< HEAD
 	name = "взрыв каробка" //я мнительный, оставлю, если каким-то образом имя не поменяется в ините.
+=======
+	name = "Взрыв каробка"
+>>>>>>> c535f1b447e511c6cf04fa35dbf78f6d9ae8a6c5
 	desc = "Магнитола, разыскиваемая в одном из соседних секторов. Почему-то пахнет малиной."
 	icon = 'white/baldenysh/icons/obj/boombox.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
@@ -28,6 +32,7 @@
 	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
 	SP.set_channel(open_sound_channel_for_boombox())
 	load_tracks()
+	name = "Взрыв [pick("каробка",50;"каропка",25;"коропка",10;"коробка")]"
 	color = color_matrix_rotate_hue(rand(0, 360))
 
 /obj/item/boombox/update_icon()

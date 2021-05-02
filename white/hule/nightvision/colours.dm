@@ -23,10 +23,6 @@
 	colour = list(rgb(77,77,77), rgb(77,77,77), rgb(77,77,77), rgb(0,0,0))
 	priority = 5
 
-/datum/client_colour/correction
-	colour = list(rgb(255,15,15), rgb(5,225,5), rgb(5,5,225), rgb(0,0,0))
-	priority = 1
-
 /datum/client_colour/retardation
 	colour = list(rgb(125,55,125), rgb(55,155,55), rgb(55,55,255), rgb(0,0,0))
 	priority = 2
