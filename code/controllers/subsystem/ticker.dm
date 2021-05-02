@@ -311,7 +311,6 @@ SUBSYSTEM_DEF(ticker)
 
 	to_chat(world, "<span class='notice'>Приветствуем вас на <B>[station_name()]</B>, приятного пребывания!</span>")
 	SEND_SOUND(world, sound(SSstation.announcer.get_rand_welcome_sound()))
-	//SEND_SOUND(world, sound('sound/ai/sheptun.ogg'))
 
 	current_state = GAME_STATE_PLAYING
 	Master.SetRunLevel(RUNLEVEL_GAME)
