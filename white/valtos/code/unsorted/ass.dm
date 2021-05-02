@@ -297,19 +297,6 @@
 	"Z"
 	)
 
-/client/proc/save_world_map(file_name as text)
-	set category = "Маппинг"
-	set name = "? SAVE MAP"
-	var/datum/dmm_suite/suite = new()
-	var/map_text = suite.write_cube(
-		1, 1, 1,
-		world.maxx-1, world.maxy-1, world.maxz,
-		DMM_IGNORE_PLAYERS
-	)
-	file_name = "[file_name].dmm"
-	text2file(map_text, file_name)
-	to_chat(src, "Finished saving [file_name]")
-
 /client/proc/write_map(zlevel_to as num)
 	set category = "Маппинг"
 	set name = "? WRITE MAP"
@@ -319,4 +306,4 @@
 		locate(world.maxx, world.maxy, zlevel_to),
 		DMM_IGNORE_PLAYERS
 	)
-	usr << browse("<pre>[map_text]</pre>")
+	usr << browse("<pre>[map_text]</pre>", "window=assmap")
