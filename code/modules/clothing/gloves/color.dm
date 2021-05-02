@@ -228,10 +228,6 @@
 	clothing_traits = list(TRAIT_QUICK_BUILD)
 	custom_materials = list(/datum/material/iron=2000, /datum/material/silver=1500, /datum/material/gold = 1000)
 
-/obj/item/clothing/gloves/color/latex/engineering/Initialize()
-	. = ..()
-	name = "перчатки [prob(50) ? "мастера" : "прораба"]"
-
 /obj/item/clothing/gloves/color/white
 	name = "белые перчатки"
 	desc = "Выглядят довольно причудливо."

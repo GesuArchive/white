@@ -307,7 +307,7 @@ Made by Xhuis
 
 /datum/movespeed_modifier/shadowling
 	priority = 100
-	multiplicative_slowdown = -2
+	multiplicative_slowdown = -1.5
 	blacklisted_movetypes = (FLYING|FLOATING)
 
 /obj/item/bodypart
