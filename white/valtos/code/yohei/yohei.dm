@@ -267,8 +267,12 @@
 
 /obj/lab_monitor/yohei/Initialize()
 	. = ..()
-	for(var/datum/yohei_task/T in subtypesof(/datum/yohei_task))
+	for(var/path in subtypesof(/datum/yohei_task))
+		var/datum/yohei_task/T = path
 		possible_tasks += T
+
+	var/datum/yohei_task/new_task = pick(possible_tasks)
+	current_task = new new_task()
 
 /datum/yohei_task
 	var/desc = null
@@ -295,7 +299,7 @@
 	var/list/possible_targets = list()
 	for(var/datum/mind/possible_target in get_crewmember_minds())
 		if(ishuman(possible_target.current) && (possible_target.current.stat != DEAD))
-			possible_targets += possible_target
+			possible_targets += possible_target.current
 	if(possible_targets.len > 0)
 		return pick(possible_targets)
 	return FALSE
@@ -307,7 +311,7 @@
 
 /datum/yohei_task/kill/generate_task()
 	target = find_target()
-	desc = "Убить [target.real_name]."
+	desc = "Убить [target.name]."
 	prize = max(rand(prize - 3, prize + 3), 1)
 
 /datum/yohei_task/kill/check_task()
