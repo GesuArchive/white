@@ -310,6 +310,11 @@
 	desc = "Убить [target.real_name]."
 	prize = max(rand(prize - 3, prize + 3), 1)
 
+/datum/yohei_task/kill/check_task()
+	if(target && target.stat != DEAD)
+		return FALSE
+	return TRUE
+
 /datum/map_template/ruin/lavaland/yohei_base
 	name = "База Йохеев"
 	id = "yohei_base"
