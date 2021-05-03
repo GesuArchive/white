@@ -8,7 +8,7 @@
 	cold_protection = FULL_BODY
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
 	flags_inv = HIDEGLOVES | HIDESHOES | HIDEJUMPSUIT
-	slowdown = 0
+	slowdown = -0.5
 	heat_protection = null //You didn't expect a light-sensitive creature to have heat resistance, did you?
 	max_heat_protection_temperature = null
 	armor = list("melee" = 25, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 25, "bio" = 100, "rad" = 100)

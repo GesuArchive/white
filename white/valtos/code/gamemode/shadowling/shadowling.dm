@@ -163,7 +163,6 @@ Made by Xhuis
 
 /datum/species/shadow/ling/on_species_loss(mob/living/carbon/human/C)
 	C.draw_yogs_parts(FALSE)
-	C.remove_movespeed_modifier(id)
 	if(eyes_overlay)
 		C.cut_overlay(eyes_overlay)
 		QDEL_NULL(eyes_overlay)
@@ -176,7 +175,6 @@ Made by Xhuis
 		var/light_amount = T.get_lumcount()
 		if(light_amount > LIGHT_DAM_THRESHOLD) //Can survive in very small light levels. Also doesn't take damage while incorporeal, for shadow walk purposes
 			H.take_overall_damage(0, LIGHT_DAMAGE_TAKEN)
-			H.remove_movespeed_modifier(id)
 			if(H.stat != DEAD)
 				to_chat(H, "<span class='userdanger'>The light burns you!</span>") //Message spam to say "GET THE FUCK OUT"
 				H.playsound_local(get_turf(H), 'sound/weapons/sear.ogg', 150, 1, pressure_affected = FALSE)
@@ -188,7 +186,6 @@ Made by Xhuis
 			H.SetKnockdown(0)
 			H.SetStun(0)
 			H.SetParalyzed(0)
-			H.add_movespeed_modifier(/datum/movespeed_modifier/shadowling)
 	var/charge_time = 400 - ((SSticker.mode.thralls && SSticker.mode.thralls.len) || 0)*10
 	if(world.time >= charge_time+last_charge)
 		shadow_charges = min(shadow_charges + 1, 3)
@@ -305,10 +302,7 @@ Made by Xhuis
 /datum/species/proc/spec_AltClickOn(atom/A,mob/living/carbon/human/H)
 	return FALSE
 
-/datum/movespeed_modifier/shadowling
-	priority = 100
-	multiplicative_slowdown = -1.5
-	blacklisted_movetypes = (FLYING|FLOATING)
+
 
 /obj/item/bodypart
 	var/yogs_draw_robot_hair = FALSE
