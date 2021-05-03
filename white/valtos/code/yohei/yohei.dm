@@ -249,7 +249,7 @@
 
 /obj/lab_monitor/yohei/attack_hand(mob/living/user)
 	. = ..()
-	if(current_task && current_task.check_completion())
+	if(current_task && current_task.check_task())
 		say("Задание выполнено. Награда в размере [current_task.prize] выдана. Получение следующего задания...")
 		balance += current_task.prize
 		qdel(current_task)
