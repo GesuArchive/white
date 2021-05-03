@@ -1,6 +1,6 @@
 /mob/living/simple_animal/bot/honkbot
 	name = "Хонкбот"
-	desc = "Маленький робот. Он выглядит довольным со своим гудком."
+	desc = "Маленький робот. Он выглядит весьма довольным своим гудком."
 	icon = 'icons/mob/aibots.dmi'
 	icon_state = "honkbot"
 	density = FALSE
@@ -16,7 +16,7 @@
 	model = "Honkbot"
 	bot_core_type = /obj/machinery/bot_core/honkbot
 	window_id = "autohonk"
-	window_name = "Хонк-о-матиковая единица веселья v1.0.7"
+	window_name = "Автоматизированный развлекательный юнит для повышения морали v1.0.7"
 	data_hud_type = DATA_HUD_SECURITY_BASIC // show jobs
 	path_image_color = "#FF69B4"
 
@@ -75,15 +75,15 @@
 /mob/living/simple_animal/bot/honkbot/set_custom_texts()
 
 	text_hack = "Перегружаю звуковую систему [name]."
-	text_dehack = "Перезагружаю и восстаналиваю звуковую систему [name]."
-	text_dehack_fail = "[name] отказывается принимать меня!"
+	text_dehack = "Восстаналиваю звуковую систему [name]."
+	text_dehack_fail = "Звуковая система [name] не реагирует на команду перезагрузки!"
 
 /mob/living/simple_animal/bot/honkbot/get_controls(mob/user)
 	var/dat
 	dat += hack(user)
 	dat += showpai(user)
 	dat += text({"
-<TT><B>Хонк-о-матиковая единица веселья v1.0.7</B></TT><BR><BR>
+<TT><B>Автоматизированный развлекательный юнит для повышения морали v1.0.7</B></TT><BR><BR>
 Status: []<BR>
 Управление поведением [locked ? "заблокировано" : "разблокировано"]<BR>
 Техническая панель [open ? "открыта" : "закрыта"]"},
@@ -129,7 +129,7 @@ Status: []<BR>
 	..()
 	if(emagged == 2)
 		if(user)
-			to_chat(user, "<span class='danger'>Взламываю звуковую систему [src.name]. Он начинает злобно смеяться!!</span>")
+			to_chat(user, "<span class='danger'>Взламываю звуковую систему [src.name]. Он начинает злобно смеяться.</span>")
 			oldtarget_name = user.name
 		audible_message("<span class='danger'>[capitalize(src.name)] смётся по-злодейски!</span>")
 		playsound(src, 'sound/machines/honkbot_evil_laugh.ogg', 75, TRUE, -1) // evil laughter
@@ -317,7 +317,7 @@ Status: []<BR>
 				oldtarget_name = C.name
 				bike_horn()
 				speak("Honk!")
-				visible_message("<b>[capitalize(src.name)]</b> начинает гнаться за [C.name]!")
+				visible_message("<b>[capitalize(src.name)]</b> бросается в погоню за [C.name]!")
 				mode = BOT_HUNT
 				INVOKE_ASYNC(src, .proc/handle_automated_action)
 				break
@@ -360,7 +360,7 @@ Status: []<BR>
 						  	"[C] перепрыгивает [src.name]а!", \
 						  	"[C] спотыкается о [src.name]а и падает!", \
 						  	"[C] спотыкается о [src.name]а!", \
-						  	"[C] перепрыгивает [src.name]а глупо!")]</span>")
+						  	"[C] глупо перепрыгивает [src.name]а!")]</span>")
 			C.Paralyze(10)
 			playsound(loc, 'sound/misc/sadtrombone.ogg', 50, TRUE, -1)
 			if(!client)

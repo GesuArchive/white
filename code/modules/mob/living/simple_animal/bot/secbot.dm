@@ -1,6 +1,6 @@
 /mob/living/simple_animal/bot/secbot
 	name = "Секьюритрон"
-	desc = "Маленький охранный робот. Он выглядит менее чем взволнованным."
+	desc = "Маленький охранный робот. Он выглядит уставшим."
 	icon = 'icons/mob/aibots.dmi'
 	icon_state = "secbot"
 	density = FALSE
@@ -45,7 +45,7 @@
 
 /mob/living/simple_animal/bot/secbot/beepsky
 	name = "Командир Бипски"
-	desc = "Это командир Бипски! Официально начальник всех ботов на станции, Бипски остается таким же скромным и преданным закону, как и в тот день, когда его впервые сфабриковали."
+	desc = "Это командир Бипски! Официально начальник всех ботов на станции, Бипски остается таким же скромным и преданным закону, как и в тот день, когда его сфабриковали."
 	idcheck = FALSE
 	weaponscheck = FALSE
 	auto_patrol = TRUE
@@ -71,7 +71,7 @@
 
 /mob/living/simple_animal/bot/secbot/pingsky
 	name = "Офицер Пингски"
-	desc = "Это офицер Пингски! Ему поручено охранять спутник за укрывательство античеловеческих настроений."
+	desc = "Это офицер Пингски! Ему поручено охранять спутник за укрывательство античеловеческих настроений." //"It's Officer Pingsky! Delegated to satellite guard duty for harbouring anti-human sentiment." - как это блять переводить?
 	radio_channel = RADIO_CHANNEL_AI_PRIVATE
 
 /mob/living/simple_animal/bot/secbot/Initialize()
@@ -116,9 +116,9 @@
 		visible_message("<span class='warning'>[capitalize(src.name)] пошатывается и ускоряется!</span>")
 
 /mob/living/simple_animal/bot/secbot/set_custom_texts()
-	text_hack = "Перегружаю систему ID [name]."
-	text_dehack = "Перезагружаю и восстанавливаю систему ID [name]."
-	text_dehack_fail = "[name] не хочет воспринимать меня!"
+	text_hack = "Перегружаю систему идентификации [name]."
+	text_dehack = "Перезагружаю и восстанавливаю систему идентификации [name]."
+	text_dehack_fail = "[name] не воспринимает мои команды на перезапуск!"
 
 /mob/living/simple_animal/bot/secbot/get_controls(mob/user)
 	var/dat
@@ -204,8 +204,8 @@
 
 		// Turns an oversight into a feature. Beepsky will now announce when pacifists taunt him over sec comms.
 		if(HAS_TRAIT(H, TRAIT_PACIFISM))
-			H.visible_message("<span class='notice'>[H] насмехается над [src.name], принуждая его улыбнуться!</span>", \
-				"<span class='notice'>Насмехаюсь над [src.name], принуждая его улыбнуться!</span>", "<span class='hear'>Слышу как кто-то кричит дерзкую насмешку!</span>", DEFAULT_MESSAGE_RANGE, H)
+			H.visible_message("<span class='notice'>[H] насмехается над [src.name], провоцируя его на погоню!</span>", \
+				"<span class='notice'>Насмехаюсь над [src.name], провоцируя его на погоню!</span>", "<span class='hear'>Слышу, как кто-то насмехается надо мной!</span>", DEFAULT_MESSAGE_RANGE, H)
 			speak("Пацифистский отморозок <b>[H]</b> насмехается надо мной в [get_area(src)].", radio_channel)
 
 			// Interrupt the attack chain. We've already handled this scenario for pacifists.
@@ -226,7 +226,7 @@
 	..()
 	if(emagged == 2)
 		if(user)
-			to_chat(user, "<span class='danger'>Взламываю схемы наведения [src.name].</span>")
+			to_chat(user, "<span class='danger'>Перепрограммирую систему идентификации преступников [src.name].</span>")
 			oldtarget_name = user.name
 		audible_message("<span class='danger'>[capitalize(src.name)] громко жужжит!</span>")
 		declare_arrests = FALSE
@@ -284,7 +284,7 @@
 
 	if(prob(35))
 		C.visible_message("<span class='danger'><b>[capitalize(src.name)]</b> промахивается, пытаясь ударить <b>[C]</b>!</span>",\
-								"<span class='userdanger'>[capitalize(src.name)] промахивается пытаясь ударить меня!</span>")
+								"<span class='userdanger'>[capitalize(src.name)] промахивается, пытаясь ударить меня!</span>")
 		return FALSE
 
 	var/judgement_criteria = judgement_criteria()

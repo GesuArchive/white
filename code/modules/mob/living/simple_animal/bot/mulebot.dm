@@ -11,7 +11,7 @@
 
 /mob/living/simple_animal/bot/mulebot
 	name = "MULE-бот"
-	desc = "\"Multiple Utility Load Effector\", если точнее."
+	desc = "Расшифровывается как \"Multiple Utility Load Effector\"."
 	icon_state = "mulebot0"
 	density = TRUE
 	move_resist = MOVE_FORCE_STRONG
@@ -96,9 +96,9 @@
 			. += "<hr><span class='notice'>Внутри установлена [cell].</span>"
 			. += "\n<span class='info'>Можно использовать <b>ломик</b> для изъятия.</span>"
 		else
-			. += "<hr><span class='notice'>Похоже, что <b>батарейка</b> не установлена.</span>"
+			. += "<hr><span class='notice'>Внутри отсутствует <b>батарейка</b>.</span>"
 	if(load) //observer check is so we don't show the name of the ghost that's sitting on it to prevent metagaming who's ded.
-		. += "<hr><span class='notice'>Здесь есть [isobserver(load) ? "призрачная фигура" : load] на него платформе.</span>"
+		. += "<hr><span class='notice'>На его платформе [isobserver(load) ? "какая-то призрачная фигура.." : load].</span>"
 
 
 /mob/living/simple_animal/bot/mulebot/Destroy()
@@ -214,7 +214,7 @@
 		if(prob(50) && !isnull(load))
 			unload(0)
 		if(prob(25))
-			visible_message("<span class='danger'>Что-то коротнуло внутри [src.name]!</span>")
+			visible_message("<span class='danger'>Что-то закоротило внутри [src.name]!</span>")
 			wires.cut_random()
 
 /mob/living/simple_animal/bot/mulebot/interact(mob/user)
