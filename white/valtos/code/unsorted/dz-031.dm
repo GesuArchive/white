@@ -160,6 +160,11 @@
 	plane = -2
 	var/what_pic = "anonist"
 
+/obj/lab_monitor/attacked_by(obj/item/I, mob/living/user)
+	if(. && I.force > 5)
+		icon_state = "monitor_cracked"
+	return ..()
+
 /obj/lab_monitor/Initialize()
 	. = ..()
 	add_overlay(what_pic)

@@ -136,6 +136,9 @@
 #define ACCESS_TRADER 209
 #define ACCESS_TRADER_EX 210
 
+// Yohei access
+#define ACCESS_YOHEI 220
+
 	//Special, for anything that's basically internal
 #define ACCESS_BLOODCULT 250
 #define ACCESS_CLOCKCULT 251

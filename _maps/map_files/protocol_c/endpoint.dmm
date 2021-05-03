@@ -1081,6 +1081,9 @@
 	},
 /turf/closed/indestructible/syndicate,
 /area/centcom/control)
+"fV" = (
+/turf/closed/indestructible/syndicate,
+/area/ruin/powered/yohei_base)
 "fX" = (
 /obj/machinery/light{
 	dir = 4
@@ -1700,6 +1703,10 @@
 	dir = 8
 	},
 /area/centcom/control)
+"kh" = (
+/obj/effect/baseturf_helper/asteroid/basalt,
+/turf/closed/indestructible/syndicate,
+/area/ruin/powered/yohei_base)
 "kj" = (
 /obj/machinery/hydroponics/constructable,
 /obj/machinery/light{
@@ -1894,6 +1901,12 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
+"mf" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "mj" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -2066,6 +2079,17 @@
 /obj/structure/sign/nanotrasen,
 /turf/closed/indestructible/syndicate,
 /area/centcom/control)
+"nw" = (
+/obj/structure/table,
+/obj/item/paper_bin/carbon{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/pen/edagger{
+	pixel_y = 5
+	},
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "nz" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -2125,6 +2149,22 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"ob" = (
+/obj/structure/ladder/unbreakable{
+	height = 1;
+	id = "yohei_base"
+	},
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
+"oc" = (
+/obj/structure/table,
+/obj/item/restraints/handcuffs/cable,
+/obj/item/restraints/handcuffs/cable,
+/obj/item/restraints/handcuffs/cable,
+/obj/item/restraints/handcuffs/cable,
+/obj/item/restraints/handcuffs/cable,
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "oe" = (
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/trimline/neutral/line{
@@ -2558,6 +2598,12 @@
 /obj/machinery/chem_dispenser/drinks/beer,
 /turf/closed/indestructible/wood,
 /area/centcom/holding)
+"rX" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "sj" = (
 /obj/structure/table/wood,
 /obj/machinery/recharger,
@@ -3037,6 +3083,10 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/control)
+"xs" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "xt" = (
 /obj/structure/flora/ausbushes/fernybush,
 /turf/open/floor/plating/grass,
@@ -3077,6 +3127,13 @@
 /obj/structure/flora/junglebush/c,
 /turf/open/floor/plating/grass/jungle,
 /area/centcom/outdoors)
+"xK" = (
+/obj/structure/table,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 10
+	},
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "xO" = (
 /obj/structure/window/reinforced,
 /turf/open/floor/carpet/black,
@@ -3177,6 +3234,14 @@
 /obj/structure/closet/crate/bin,
 /turf/open/floor/wood,
 /area/centcom/holding)
+"ze" = (
+/obj/structure/bed/abductor,
+/obj/item/bedsheet/random,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "zl" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -3361,6 +3426,10 @@
 	},
 /turf/open/floor/plating/abductor,
 /area/abductor_ship)
+"Ay" = (
+/obj/structure/chair/comfy/arm,
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "AB" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 32
@@ -3506,6 +3575,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"BF" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 5
+	},
+/obj/machinery/turntable,
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "BI" = (
 /obj/structure/table/wood,
 /obj/item/clothing/suit/wizrobe/magusred,
@@ -4269,6 +4345,9 @@
 /obj/effect/turf_decal/tile/brown,
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/three)
+"Ho" = (
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "Hr" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
@@ -4397,6 +4476,13 @@
 	},
 /turf/open/floor/plating/airless,
 /area/syndicate_mothership/control)
+"Js" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/structure/table,
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "Jt" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -4761,6 +4847,26 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding)
+"Mr" = (
+/obj/structure/table,
+/obj/item/storage/fancy/donut_box,
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
+"Ms" = (
+/obj/item/bedsheet/random,
+/obj/structure/bed/abductor,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
+"Mt" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 9
+	},
+/obj/structure/table,
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "Mv" = (
 /obj/machinery/computer/card/centcom{
 	dir = 1
@@ -4919,6 +5025,13 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/plating/grass,
 /area/syndicate_mothership)
+"Np" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/obj/structure/chair/comfy/arm{
+	dir = 1
+	},
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "Nr" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -5488,6 +5601,12 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
+"Sp" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 6
+	},
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "Sr" = (
 /obj/structure/table/wood,
 /obj/item/gun/magic/wand{
@@ -20728,17 +20847,17 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co
@@ -20985,17 +21104,17 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+kh
+fV
+fV
+fV
+fV
+fV
+fV
+fV
+fV
+XF
 Co
 Co
 Co
@@ -21242,17 +21361,17 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+fV
+Mt
+Ms
+ze
+Js
+ze
+Ms
+xK
+fV
+XF
 Co
 Co
 Co
@@ -21499,17 +21618,17 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+fV
+mf
+Ho
+Ho
+Ho
+Ho
+Ho
+xs
+fV
+XF
 Co
 Co
 Co
@@ -21756,17 +21875,17 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+fV
+mf
+Ho
+Ho
+Ho
+Ho
+nw
+Np
+fV
+XF
 Co
 Co
 Co
@@ -22013,17 +22132,17 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+fV
+mf
+Ho
+Ho
+ob
+Ay
+Mr
+Np
+fV
+XF
 Co
 Co
 Co
@@ -22270,17 +22389,17 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+fV
+mf
+Ho
+Ho
+Ho
+Ho
+oc
+Np
+fV
+XF
 Co
 Co
 Co
@@ -22527,17 +22646,17 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+fV
+mf
+Ho
+Ho
+Ho
+Ho
+Ho
+xs
+fV
+XF
 Co
 Co
 Co
@@ -22784,17 +22903,17 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+fV
+BF
+rX
+rX
+rX
+rX
+rX
+Sp
+fV
+XF
 Co
 Co
 Co
@@ -23041,17 +23160,17 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+fV
+fV
+fV
+fV
+fV
+fV
+fV
+fV
+fV
+XF
 Co
 Co
 Co
@@ -23298,17 +23417,17 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co

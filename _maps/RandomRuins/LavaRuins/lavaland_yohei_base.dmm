@@ -1,0 +1,163 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/baseturf_helper/asteroid/basalt,
+/turf/closed/dz/lab{
+	icon_state = "labwall-r-l"
+	},
+/area/ruin/powered/yohei_base)
+"k" = (
+/turf/open/indestructible/labfloor,
+/area/ruin/powered/yohei_base)
+"n" = (
+/turf/closed/dz/lab,
+/area/ruin/powered/yohei_base)
+"u" = (
+/obj/machinery/door/veryblastdoor{
+	id = "yohei"
+	},
+/turf/open/indestructible/labfloor,
+/area/ruin/powered/yohei_base)
+"w" = (
+/obj/machinery/card_button{
+	id = "yohei";
+	req_access = list(220)
+	},
+/turf/closed/dz/lab,
+/area/ruin/powered/yohei_base)
+"B" = (
+/turf/closed/dz/lab{
+	icon_state = "labwall-d-l"
+	},
+/area/ruin/powered/yohei_base)
+"D" = (
+/turf/closed/dz/lab{
+	icon_state = "labwall-r-r"
+	},
+/area/ruin/powered/yohei_base)
+"L" = (
+/turf/closed/dz/lab{
+	icon_state = "labwall-v-l"
+	},
+/area/ruin/powered/yohei_base)
+"M" = (
+/obj/structure/ladder/unbreakable{
+	id = "yohei_base"
+	},
+/turf/open/indestructible/labfloor,
+/area/ruin/powered/yohei_base)
+"P" = (
+/turf/closed/dz/lab{
+	icon_state = "labwall-d-r"
+	},
+/area/ruin/powered/yohei_base)
+"T" = (
+/obj/lab_monitor/yohei{
+	pixel_y = 32
+	},
+/turf/open/indestructible/labfloor,
+/area/ruin/powered/yohei_base)
+"W" = (
+/turf/closed/dz/lab{
+	icon_state = "labwall-v-r"
+	},
+/area/ruin/powered/yohei_base)
+
+(1,1,1) = {"
+a
+L
+L
+L
+L
+L
+L
+L
+B
+"}
+(2,1,1) = {"
+n
+k
+k
+k
+k
+k
+k
+k
+n
+"}
+(3,1,1) = {"
+n
+k
+k
+k
+k
+k
+k
+k
+n
+"}
+(4,1,1) = {"
+n
+k
+k
+k
+k
+k
+k
+k
+w
+"}
+(5,1,1) = {"
+n
+T
+k
+k
+M
+k
+k
+k
+u
+"}
+(6,1,1) = {"
+n
+k
+k
+k
+k
+k
+k
+k
+n
+"}
+(7,1,1) = {"
+n
+k
+k
+k
+k
+k
+k
+k
+n
+"}
+(8,1,1) = {"
+n
+k
+k
+k
+k
+k
+k
+k
+n
+"}
+(9,1,1) = {"
+D
+W
+W
+W
+W
+W
+W
+W
+P
+"}
