@@ -39343,10 +39343,15 @@
 /turf/closed/wall/r_wall,
 /area/crew_quarters/heads/hor)
 "tLJ" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	name = "Security Maintenance";
+	req_access_txt = "1"
+	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/security/prison)
 "tOc" = (
@@ -66765,7 +66770,7 @@ aaa
 aaa
 aaa
 aaa
-eRz
+gXs
 eRz
 pUF
 pUF
@@ -67021,14 +67026,14 @@ aaa
 aaa
 aaa
 aaa
+aaa
+gXs
 eRz
-eRz
-eRz
-eRz
-eRz
-eRz
-eRz
-eRz
+pUF
+pUF
+pUF
+pUF
+pUF
 pUF
 pUF
 pUF
@@ -67277,15 +67282,15 @@ aaa
 aaa
 aaa
 aaa
-eRz
-eRz
 aaa
-gXs
-gXs
 aaa
 gXs
 eRz
-gXs
+pUF
+pUF
+pUF
+pUF
+pUF
 fdN
 ekE
 ekE
@@ -67533,16 +67538,16 @@ aaa
 aaa
 aaa
 aaa
-gXs
+aaa
+aaa
+aaa
 eRz
-aaa
-aaa
-gXs
-gXs
-aaa
-gXs
 eRz
-aaa
+pUF
+pUF
+pUF
+pUF
+pUF
 ekE
 lIp
 ndM
@@ -67791,9 +67796,9 @@ gXs
 gXs
 gXs
 gXs
+gXs
+gXs
 eRz
-gXs
-gXs
 fdN
 fdN
 fdN
@@ -68048,9 +68053,9 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
 eRz
-aaa
-aaa
 fdN
 dFB
 dFB
@@ -68305,9 +68310,9 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
 eRz
-aaa
-aaa
 fdN
 dFB
 vZo
@@ -68562,9 +68567,9 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
 eRz
-aaa
-aaa
 fdN
 dFB
 vZo
@@ -68819,9 +68824,9 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
 eRz
-aaa
-aaa
 fdN
 dFB
 vZo
@@ -69076,9 +69081,9 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
 eRz
-aaa
-aaa
 fdN
 dFB
 vZo
@@ -69333,9 +69338,9 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
 eRz
-aaa
-aaa
 fdN
 dFB
 vZo
@@ -69590,9 +69595,9 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
 eRz
-aaa
-aaa
 fdN
 dFB
 dFB
@@ -69847,9 +69852,9 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
 eRz
-aaa
-aaa
 fdN
 fdN
 fdN
@@ -70104,9 +70109,9 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
 eRz
-aaa
-aaa
 pUF
 pUF
 pUF
@@ -70361,9 +70366,9 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
 eRz
-aaa
-aaa
 pUF
 pUF
 pUF

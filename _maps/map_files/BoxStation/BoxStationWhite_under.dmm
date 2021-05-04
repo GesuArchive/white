@@ -1,12 +1,12 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ag" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/poddoor/preopen{
-	id = "Prison Gate";
-	name = "prison blast door"
-	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	name = "Security Maintenance";
+	req_access_txt = "1"
+	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/security/prison)
 "ah" = (
@@ -167,6 +167,14 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/security/execution/transfer)
+"aO" = (
+/obj/structure/table,
+/obj/item/stack/sheet/metal/fifty{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/turf/open/floor/plating,
+/area/security/prison)
 "aP" = (
 /obj/structure/punching_bag,
 /obj/effect/decal/cleanable/blood,
@@ -369,6 +377,10 @@
 /obj/structure/chair/stool,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
+	},
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = 24
 	},
 /turf/open/floor/plasteel,
 /area/security/prison)
@@ -962,6 +974,23 @@
 /obj/item/fuel_pellet,
 /turf/open/floor/plating,
 /area/quartermaster/qm/perch)
+"ep" = (
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/firealarm{
+	pixel_y = 24
+	},
+/turf/open/floor/plasteel,
+/area/security/prison)
 "et" = (
 /obj/structure/table,
 /obj/item/storage/box/hug{
@@ -988,7 +1017,6 @@
 	dir = 10
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "ew" = (
@@ -1052,6 +1080,10 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/red,
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = -24
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "eP" = (
@@ -1228,6 +1260,19 @@
 "fV" = (
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
+"fY" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	name = "Security Maintenance";
+	req_access_txt = "1"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/security/prison)
 "gb" = (
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/trimline/green/filled/end{
@@ -1537,10 +1582,6 @@
 /area/ai_monitored/turret_protected/ai)
 "hA" = (
 /obj/structure/cable/multilayer/multiz,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/security/prison)
 "hB" = (
@@ -2141,16 +2182,8 @@
 /turf/closed/wall/r_wall,
 /area/storage/tech)
 "jW" = (
-/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4{
-	color = "#0000ff";
-	dir = 1;
-	name = "Supply multi deck pipe adapter"
-	},
-/obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2{
-	color = "#ff0000";
-	dir = 1;
-	name = "Scrubbers multi deck pipe adapter"
-	},
+/obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2,
+/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4,
 /turf/open/floor/plating,
 /area/security/prison)
 "jX" = (
@@ -3176,6 +3209,12 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/science/research/abandoned)
+"oe" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 30
+	},
+/turf/open/floor/plasteel,
+/area/security/prison)
 "og" = (
 /obj/structure/table,
 /obj/item/clothing/under/rank/prisoner{
@@ -3217,7 +3256,6 @@
 	req_access_txt = "2"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "om" = (
@@ -3691,7 +3729,6 @@
 /turf/open/floor/plating,
 /area/ai_monitored/turret_protected/ai)
 "qt" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 9
 	},
@@ -3758,8 +3795,11 @@
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
 "qD" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 30
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/security/prison)
@@ -4096,6 +4136,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 9
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/security/execution/transfer)
 "sb" = (
@@ -4297,6 +4338,10 @@
 	},
 /obj/effect/turf_decal/tile/red{
 	dir = 8
+	},
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = -24
 	},
 /turf/open/floor/plasteel,
 /area/security/prison)
@@ -4569,6 +4614,10 @@
 /obj/machinery/light,
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
+"tX" = (
+/obj/item/stack/rods/fifty,
+/turf/open/floor/plating,
+/area/security/prison)
 "tZ" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -4843,6 +4892,10 @@
 /area/maintenance/starboard/aft)
 "vw" = (
 /obj/structure/bookcase/random,
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = -24
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "vF" = (
@@ -5079,6 +5132,9 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/firealarm{
+	pixel_y = 24
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "wu" = (
@@ -5443,6 +5499,10 @@
 "ye" = (
 /turf/closed/wall,
 /area/maintenance/bottom_station_maints/south)
+"yf" = (
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/security/prison)
 "yg" = (
 /obj/structure/table/reinforced,
 /obj/item/food/energybar,
@@ -5748,6 +5808,9 @@
 	dir = 8
 	},
 /area/science/xenobiology)
+"zw" = (
+/turf/open/floor/plating,
+/area/security/prison)
 "zy" = (
 /turf/closed/wall/r_wall,
 /area/science/research/abandoned)
@@ -6570,6 +6633,10 @@
 "Du" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
+	},
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = 24
 	},
 /turf/open/floor/plasteel,
 /area/security/prison)
@@ -7684,6 +7751,13 @@
 	},
 /turf/open/floor/engine,
 /area/science/research/abandoned)
+"Ii" = (
+/obj/machinery/light/small{
+	brightness = 3;
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/security/prison)
 "Ik" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
@@ -7951,6 +8025,15 @@
 /obj/structure/railing,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
+"Jo" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = -2;
+	pixel_y = 11
+	},
+/obj/item/storage/toolbox/emergency,
+/turf/open/floor/plating,
+/area/security/prison)
 "Jp" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -9615,6 +9698,13 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/xenobiology)
+"QJ" = (
+/obj/item/stack/sheet/glass/fifty{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/turf/open/floor/plating,
+/area/security/prison)
 "QK" = (
 /obj/structure/weightmachine/stacklifter,
 /obj/effect/decal/cleanable/insectguts,
@@ -10410,7 +10500,6 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "Uo" = (
@@ -10446,11 +10535,8 @@
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness)
 "Ux" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 10
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/table,
+/obj/effect/spawner/lootdrop/maintenance/four,
 /turf/open/floor/plating,
 /area/security/prison)
 "Uz" = (
@@ -10803,6 +10889,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
+/obj/item/modular_computer/tablet/preset/cheap,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "Wb" = (
@@ -10945,6 +11032,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = 24
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "WP" = (
@@ -10998,6 +11089,22 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/security/prison)
+"WZ" = (
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = 24
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "Xb" = (
@@ -11191,6 +11298,17 @@
 	},
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/south)
+"XJ" = (
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = 24
+	},
+/turf/open/floor/plasteel,
+/area/security/prison)
 "XK" = (
 /obj/machinery/camera/motion{
 	c_tag = "MiniSat AI Chamber North Bottom";
@@ -11253,6 +11371,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/machinery/firealarm{
+	pixel_y = 24
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "XV" = (
@@ -36931,11 +37052,11 @@ Zm
 bw
 Zm
 Zm
-Zm
-PG
-Zm
-PG
-Zm
+II
+Ux
+Ii
+zw
+zw
 Uu
 pK
 rV
@@ -37188,11 +37309,11 @@ Zm
 bw
 Zm
 Zm
-Zm
-PG
-Zm
-PG
-Zm
+II
+Jo
+QJ
+zw
+zw
 Uu
 qt
 rW
@@ -37445,11 +37566,11 @@ Zm
 bw
 Zm
 Zm
-Zm
-PG
-Zm
-PG
-Zm
+II
+aO
+tX
+zw
+zw
 Uu
 qz
 rZ
@@ -37703,10 +37824,10 @@ bw
 PG
 II
 II
-II
-II
-II
-II
+Ie
+Ie
+yf
+Ie
 Uu
 Uu
 sM
@@ -37959,12 +38080,12 @@ Zm
 bw
 Zm
 II
-Ux
-Ux
-Ux
+Vp
+Vp
+Vp
 hA
 jW
-II
+fY
 qD
 sf
 II
@@ -38216,13 +38337,13 @@ Zm
 bw
 Zm
 II
-Ux
+Vp
 bC
 bC
 bC
 bC
 bC
-jO
+oe
 st
 rx
 II
@@ -38473,7 +38594,7 @@ Zm
 bw
 Zm
 II
-Ux
+Vp
 bC
 dR
 ie
@@ -38730,7 +38851,7 @@ Zm
 bw
 Zm
 II
-Ux
+Vp
 bC
 eh
 dR
@@ -38747,7 +38868,7 @@ GD
 Rg
 LH
 kW
-Gf
+XJ
 Pk
 yj
 Zm
@@ -38987,7 +39108,7 @@ Zm
 bw
 Zm
 II
-Ux
+Vp
 bC
 dR
 iv
@@ -39758,7 +39879,7 @@ PG
 bw
 PG
 II
-jO
+qE
 vO
 gW
 FT
@@ -42598,7 +42719,7 @@ BJ
 BJ
 BJ
 BJ
-HX
+ep
 Lo
 BJ
 BJ
@@ -43874,7 +43995,7 @@ aF
 cN
 Uf
 Uf
-Uf
+WZ
 Uf
 Uf
 Uf
