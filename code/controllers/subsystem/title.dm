@@ -87,7 +87,7 @@ SUBSYSTEM_DEF(title)
 				var/role_thing = "Неизвестно"
 				for(var/j in player.client.prefs.job_preferences)
 					if(player.client.prefs.job_preferences[j] == JP_HIGH)
-						role_thing = player.client.prefs.job_preferences[j]
+						role_thing = j
 						break
 				caa += "[role_thing] - <b>[player.key]</b>"
 			else
