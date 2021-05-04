@@ -22,10 +22,11 @@
 			current = null
 			return
 		var/turf/currentloc = get_turf(current)
-		if(currentloc && user.z != currentloc.z)
-			to_chat(user, "<span class='alert'>Upload failed! Unable to establish a connection to [current.name]. You're too far away!</span>")
-			current = null
-			return
+		if(!is_station_level(currentloc.z) || !is_station_level(user.z))
+			if(currentloc && user.z != currentloc.z)
+				to_chat(user, "<span class='alert'>Upload failed! Unable to establish a connection to [current.name]. You're too far away!</span>")
+				current = null
+				return
 		M.install(current.laws, user)
 	else
 		return ..()
