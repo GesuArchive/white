@@ -1568,6 +1568,15 @@
 /obj/structure/bed/maint,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
+"hI" = (
+/obj/machinery/shower{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plasteel/freezer,
+/area/space)
 "hJ" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -1921,6 +1930,9 @@
 	},
 /obj/machinery/camera/autoname{
 	dir = 5
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/security/prison)
@@ -3714,7 +3726,6 @@
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
 "qz" = (
-/obj/structure/closet/secure_closet/injection,
 /obj/machinery/power/apc{
 	areastring = "/area/security/execution/transfer";
 	dir = 4;
@@ -3984,6 +3995,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/neutral,
+/obj/structure/closet/secure_closet/injection,
 /turf/open/floor/plasteel/dark,
 /area/security/execution/transfer)
 "rK" = (
@@ -4557,6 +4569,14 @@
 /obj/machinery/light,
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
+"tZ" = (
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/machinery/light,
+/turf/open/floor/plasteel,
+/area/security/prison)
 "ub" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research/glass{
@@ -5009,6 +5029,10 @@
 	dir = 1
 	},
 /obj/machinery/camera/autoname,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "wn" = (
@@ -7729,6 +7753,10 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+/obj/machinery/light/small{
+	brightness = 3;
+	dir = 8
+	},
 /turf/open/floor/plasteel/dark,
 /area/security/prison/safe)
 "IB" = (
@@ -8984,6 +9012,10 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+/obj/machinery/light/small{
+	brightness = 3;
+	dir = 8
+	},
 /turf/open/floor/plasteel/dark,
 /area/security/prison/safe)
 "Oq" = (
@@ -9405,13 +9437,10 @@
 /turf/open/floor/plasteel,
 /area/science/research/abandoned)
 "Qa" = (
-/obj/machinery/light{
-	dir = 4
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
 	},
-/obj/effect/turf_decal/tile/red,
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
+/obj/machinery/light,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "Qb" = (
@@ -9715,6 +9744,10 @@
 /obj/structure/rack,
 /obj/item/tank/internals/emergency_oxygen,
 /obj/item/clothing/mask/breath,
+/obj/machinery/light/small{
+	brightness = 3;
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/security/prison)
 "Rs" = (
@@ -9908,6 +9941,18 @@
 /obj/machinery/smartfridge/disks,
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
+"Sq" = (
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/security/prison)
 "Ss" = (
 /turf/open/floor/plating/rust{
 	initial_gas_mix = "TEMP=2.7"
@@ -10892,6 +10937,16 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/science/xenobiology)
+"WI" = (
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/security/prison)
 "WP" = (
 /obj/structure/ladder,
 /turf/open/floor/plasteel/dark,
@@ -10919,6 +10974,7 @@
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
+/obj/machinery/light,
 /turf/open/floor/plasteel/cafeteria,
 /area/security/prison)
 "WT" = (
@@ -35085,21 +35141,21 @@ bw
 bw
 bw
 bw
+PG
+PG
 bw
 bw
 bw
 bw
+bw
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bw
+bw
+bw
+bw
+bw
+bw
 PG
 PG
 PG
@@ -35344,14 +35400,14 @@ Zm
 PG
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -35601,14 +35657,14 @@ NT
 Uu
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -35858,14 +35914,14 @@ rv
 Uu
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
-Zm
-Zm
-Zm
+PG
 ah
 Zm
 Zm
@@ -36115,14 +36171,14 @@ GM
 xh
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -36372,14 +36428,14 @@ rJ
 Uu
 Zm
 Zm
+PG
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -36629,14 +36685,14 @@ rN
 Uu
 NT
 Uu
+PG
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
-Zm
-Zm
-Zm
+PG
 Zm
 PG
 PG
@@ -36886,14 +36942,14 @@ rV
 xD
 Bm
 Uu
+PG
 Zm
 Zm
 Zm
+PG
 Zm
 Zm
-Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -37143,14 +37199,14 @@ rW
 xE
 Bv
 Uu
-Zm
+PG
 Zm
 nN
 Zm
+PG
 Zm
 Zm
-Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -37412,13 +37468,13 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bw
+bw
+bw
+bw
+bw
+bw
+bw
 mP
 mP
 Bt
@@ -37668,8 +37724,8 @@ II
 Zm
 Zm
 Zm
-Zm
 PG
+Zm
 Zm
 Zm
 PG
@@ -37925,8 +37981,8 @@ II
 II
 Zm
 Zm
-Zm
 PG
+Zm
 Zm
 Zm
 PG
@@ -38182,8 +38238,8 @@ lE
 yj
 Zm
 Zm
-Zm
 bw
+Zm
 Zm
 Zm
 PG
@@ -38439,8 +38495,8 @@ wX
 yj
 PG
 PG
-PG
 bw
+Zm
 Zm
 Zm
 mP
@@ -38696,8 +38752,8 @@ Pk
 yj
 Zm
 Zm
-Zm
 bw
+Zm
 Zm
 Zm
 mP
@@ -38953,8 +39009,8 @@ II
 II
 II
 Zm
-Zm
 bw
+Zm
 Zm
 Zm
 mP
@@ -39210,8 +39266,8 @@ IM
 Vs
 II
 Zm
-Zm
 bw
+Zm
 Zm
 Zm
 mP
@@ -39467,8 +39523,8 @@ Mb
 VZ
 II
 Zm
-Zm
 bw
+Zm
 Zm
 Zm
 mP
@@ -39724,8 +39780,8 @@ Tp
 Xm
 II
 Zm
-Zm
 bw
+Zm
 Zm
 Zm
 mP
@@ -40236,10 +40292,10 @@ wB
 qI
 gz
 QG
-gz
+Sq
 Wa
 II
-bw
+Zm
 Zm
 Zm
 mP
@@ -40496,7 +40552,7 @@ Fo
 Fo
 Wg
 aF
-PG
+Zm
 Zm
 Zm
 mP
@@ -40745,15 +40801,15 @@ vX
 Ie
 HF
 Gf
-Gf
 Fp
-Qa
+WI
+Gf
 Qn
 Gf
 GD
 Wh
 aF
-PG
+Zm
 Zm
 Zm
 mP
@@ -41010,7 +41066,7 @@ Ie
 RP
 Ie
 II
-bw
+Zm
 Zm
 Zm
 mP
@@ -41267,7 +41323,7 @@ QV
 Sv
 Wl
 II
-bw
+Zm
 Zm
 Zm
 OL
@@ -41524,7 +41580,7 @@ Rf
 Sv
 WD
 aF
-bw
+Zm
 Zm
 Zm
 OL
@@ -41754,8 +41810,8 @@ PG
 PG
 PG
 PG
-bw
 PG
+bw
 PG
 II
 aA
@@ -42012,7 +42068,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+bw
 Zm
 II
 II
@@ -42269,7 +42325,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+bw
 Zm
 Zm
 II
@@ -42526,7 +42582,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+bw
 Zm
 Zm
 II
@@ -42783,7 +42839,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+bw
 Zm
 Zm
 II
@@ -43040,7 +43096,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+bw
 Zm
 Zm
 II
@@ -43297,7 +43353,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+bw
 Zm
 Zm
 II
@@ -43554,7 +43610,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+bw
 Zm
 Zm
 aF
@@ -43811,7 +43867,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+bw
 Zm
 Zm
 aF
@@ -44057,20 +44113,20 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
 PG
-Zm
-Zm
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+bw
+PG
+PG
 II
 Ie
 Ie
@@ -44325,7 +44381,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+bw
 Zm
 Zm
 aF
@@ -44582,7 +44638,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+bw
 Zm
 Zm
 aF
@@ -44839,7 +44895,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+bw
 Zm
 Zm
 aF
@@ -44856,7 +44912,7 @@ Ie
 Ie
 Ie
 HX
-Lo
+tZ
 BJ
 BJ
 BJ
@@ -45096,7 +45152,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+bw
 Zm
 Zm
 II
@@ -45353,7 +45409,7 @@ Zm
 Zm
 Zm
 nN
-Zm
+bw
 Zm
 Zm
 Zm
@@ -45367,7 +45423,7 @@ wl
 zY
 CY
 jO
-Ek
+Qa
 Ie
 cN
 Mn
@@ -45610,7 +45666,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+bw
 Zm
 Zm
 Zm
@@ -45867,7 +45923,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+bw
 Zm
 Zm
 Zm
@@ -46124,8 +46180,8 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+bw
+bw
 Zm
 Zm
 PG
@@ -46144,7 +46200,7 @@ Jl
 Ny
 Ie
 OU
-Qd
+hI
 Qw
 Zm
 Zm
@@ -46382,13 +46438,13 @@ Zm
 Zm
 Zm
 Zm
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bw
+bw
+bw
+bw
+bw
+bw
+bw
 PG
 II
 II
@@ -46645,7 +46701,7 @@ Zm
 PG
 Zm
 Zm
-PG
+bw
 Zm
 Zm
 PG
@@ -46902,10 +46958,10 @@ Zm
 PG
 Zm
 Zm
-PG
-Zm
-Zm
-PG
+bw
+bw
+bw
+bw
 Zm
 Zm
 Zm
@@ -49739,9 +49795,9 @@ bw
 bw
 bw
 PG
-PG
-PG
-PG
+bw
+bw
+bw
 PG
 PG
 PG
