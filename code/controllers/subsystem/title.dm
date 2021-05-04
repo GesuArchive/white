@@ -84,7 +84,10 @@ SUBSYSTEM_DEF(title)
 		for(var/i in GLOB.new_player_list)
 			var/mob/dead/new_player/player = i
 			if(player.ready == PLAYER_READY_TO_PLAY)
-				caa += "<b>[player.key]</b>"
+				var/role_thing = "Неизвестно"
+				if(player.client.prefs.job_preferences.len)
+					role_thing = player.client.prefs.job_preferences[1]
+				caa += "[role_thing] - <b>[player.key]</b>"
 			else
 				cum += "[player.key]"
 		for(var/line in GLOB.whitelist)

@@ -414,7 +414,7 @@ SUBSYSTEM_DEF(ticker)
 		for(var/i in GLOB.new_player_list)
 			var/mob/dead/new_player/N = i
 			if(N.new_character)
-				to_chat(N, "<span class='notice'>НЕТ КАПИТАНА!</span>")
+				to_chat(N, "<span class='notice big'>НЕТ КАПИТАНА!</span>")
 			CHECK_TICK
 
 /datum/controller/subsystem/ticker/proc/transfer_characters()
