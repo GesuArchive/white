@@ -85,8 +85,10 @@ SUBSYSTEM_DEF(title)
 			var/mob/dead/new_player/player = i
 			if(player.ready == PLAYER_READY_TO_PLAY)
 				var/role_thing = "Неизвестно"
-				if(player.client.prefs.job_preferences.len)
-					role_thing = player.client.prefs.job_preferences[1]
+				for(var/j in player.client.prefs.job_preferences)
+					if(player.client.prefs.job_preferences[j] == JP_HIGH)
+						role_thing = player.client.prefs.job_preferences[j]
+						break
 				caa += "[role_thing] - <b>[player.key]</b>"
 			else
 				cum += "[player.key]"
