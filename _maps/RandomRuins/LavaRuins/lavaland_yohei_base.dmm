@@ -41,6 +41,7 @@
 /area/ruin/powered/yohei_base)
 "M" = (
 /obj/structure/ladder/unbreakable{
+	height = 1;
 	id = "yohei_base"
 	},
 /turf/open/indestructible/labfloor,
@@ -52,6 +53,7 @@
 /area/ruin/powered/yohei_base)
 "T" = (
 /obj/lab_monitor/yohei{
+	anchored = 1;
 	pixel_y = 32
 	},
 /turf/open/indestructible/labfloor,
