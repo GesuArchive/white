@@ -1,7 +1,7 @@
 //Please use mob or src (not usr) in these procs. This way they can be called in the same fashion as procs.
 /client/verb/wiki(query as text)
 	set name = "wiki"
-	set desc = "Type what you want to know about.  This will open the wiki in your web browser. Type nothing to go to the main page."
+	set desc = "Пиши то, что хочешь узнать. Можешь ничего не писать, тогда откроется главная страница."
 	set category = null
 	var/wikiurl = CONFIG_GET(string/wikiurl)
 	if(wikiurl)
@@ -20,11 +20,16 @@
 	set category = null
 	var/forumurl = CONFIG_GET(string/forumurl)
 	if(forumurl)
-		if(alert("This will open the forum in your browser. Are you sure?",,"Yes","No")!="Yes")
-			return
 		src << link(forumurl)
 	else
 		to_chat(src, "<span class='danger'>The forum URL is not set in the server configuration.</span>")
+	return
+
+/client/verb/donate()
+	set name = "donate"
+	set desc = "Задонатить, хех."
+	set category = null
+	src << link("https://station13.ru/ru/donate")
 	return
 
 /client/verb/rules()

@@ -42,6 +42,33 @@ export const Panel = (props, context) => {
                 <ChatTabs />
               </Stack.Item>
               <Stack.Item>
+                <Button
+                  color="green"
+                  tooltip="Ваш путеводитель."
+                  tooltipPosition="bottom"
+                  onClick={() => Byond.command('wiki')}>
+                  Wiki
+                </Button>
+              </Stack.Item>
+              <Stack.Item>
+                <Button
+                  color="teal"
+                  tooltip="Наша конференция."
+                  tooltipPosition="bottom"
+                  onClick={() => Byond.command('forum')}>
+                  Discord
+                </Button>
+              </Stack.Item>
+              <Stack.Item>
+                <Button
+                  color="yellow"
+                  tooltip=":^)"
+                  tooltipPosition="bottom"
+                  onClick={() => Byond.command('donate')}>
+                  Донат
+                </Button>
+              </Stack.Item>
+              <Stack.Item>
                 <PingIndicator />
               </Stack.Item>
               <Stack.Item>
