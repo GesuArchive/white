@@ -108,6 +108,7 @@
 	user.visible_message(\
 		"<span class='warning'>[user] не может накинуть вешалку на шею [M]!</span>",\
 		"<span class='warning'>Не получается накинуть вешалку на шею [M]!</span>")
+		log_combat(user, M, "tried to hang", src)
 	return FALSE
 
 
