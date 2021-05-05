@@ -89,7 +89,9 @@ SUBSYSTEM_DEF(title)
 					if(player.client.prefs.job_preferences[j] == JP_HIGH)
 						role_thing = j
 						break
-				caa += "[role_thing] - <b>[player.key]</b>"
+				if(!caa[role_thing])
+					caa[role_thing] = list(player.key)
+				caa[role_thing] += "[player.key]"
 			else
 				cum += "[player.key]"
 		for(var/line in GLOB.whitelist)
@@ -97,7 +99,7 @@ SUBSYSTEM_DEF(title)
 		if(SSticker.current_state == GAME_STATE_PREGAME)
 			tcc += "<big>Готовы:</big></br>"
 			for(var/line in sortList(caa))
-				tcc += " - [line]</br>"
+				tcc += "[line] - [english_list(caa[line])]</br>"
 			tcc += "</br></br><big>Не готовы:</big></br>"
 		else
 			tcc += "</br></br><big>Чат-боты:</big></br>"
