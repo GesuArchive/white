@@ -91,7 +91,8 @@ SUBSYSTEM_DEF(title)
 						break
 				if(!caa[role_thing])
 					caa[role_thing] = list(player.key)
-				caa[role_thing] += "[player.key]"
+				else
+					caa[role_thing] += "[player.key]"
 			else
 				cum += "[player.key]"
 		for(var/line in GLOB.whitelist)
@@ -99,7 +100,7 @@ SUBSYSTEM_DEF(title)
 		if(SSticker.current_state == GAME_STATE_PREGAME)
 			tcc += "<big>Готовы:</big></br>"
 			for(var/line in sortList(caa))
-				tcc += "[line] - [english_list(caa[line])]</br>"
+				tcc += " - <big>[line]</big> - [english_list(caa[line])]</br>"
 			tcc += "</br></br><big>Не готовы:</big></br>"
 		else
 			tcc += "</br></br><big>Чат-боты:</big></br>"
