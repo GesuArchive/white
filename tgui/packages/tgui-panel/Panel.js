@@ -64,7 +64,7 @@ export const Panel = (props, context) => {
                   color="yellow"
                   tooltip=":^)"
                   tooltipPosition="bottom"
-                  onClick={() => Byond.command('donate')}>
+                  onClick={() => Byond.command('Панель-благотворца')}>
                   Донат
                 </Button>
               </Stack.Item>

@@ -29,7 +29,7 @@
 	set name = "donate"
 	set desc = "Задонатить, хех."
 	set category = null
-	src << link("https://station13.ru/ru/donate")
+	src << link("https://hub.station13.ru/pp/")
 	return
 
 /client/verb/rules()

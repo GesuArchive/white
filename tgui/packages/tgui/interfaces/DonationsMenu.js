@@ -14,7 +14,7 @@ export const DonationsMenu = (props, context) => {
     <Window
       width={620}
       height={580}
-      theme="malfunction">
+      theme="hackerman">
       <Window.Content scrollable>
         <GenericUplink
           currencyAmount={money}
@@ -63,11 +63,19 @@ export const GenericUplink = (props, context) => {
         <Box
           inline
           color={currencyAmount > 0 ? 'good' : 'bad'}>
-          {formatMoney(currencyAmount)} {currencySymbol}
+          Баланс: {formatMoney(currencyAmount)} {currencySymbol}
         </Box>
       )}
       buttons={(
         <Fragment>
+          <Button
+            icon="plus"
+            tooltip="Откроет страницу пополнения"
+            mr={1}
+            tooltipPosition="right"
+            onClick={() => Byond.command('donate')}>
+            Пополнить счёт
+          </Button>
           Поиск
           <Input
             autoFocus
@@ -83,7 +91,9 @@ export const GenericUplink = (props, context) => {
       <Flex>
         {searchText.length === 0 && (
           <Flex.Item>
-            <Tabs vertical>
+            <Tabs
+              vertical
+              mr={1}>
               {categories.map(category => (
                 <Tabs.Tab
                   key={category.name}
