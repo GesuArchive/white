@@ -249,6 +249,13 @@
 
 /obj/lab_monitor/yohei/attack_hand(mob/living/user)
 	. = ..()
+
+	if(!current_task)
+		say("Загружаю новое задание...")
+		var/datum/yohei_task/new_task = pick(possible_tasks)
+		current_task = new new_task()
+		return
+
 	if(current_task && current_task.check_task())
 		say("Задание выполнено. Награда в размере [current_task.prize] выдана. Получение следующего задания...")
 		balance += current_task.prize
@@ -270,9 +277,6 @@
 	for(var/path in subtypesof(/datum/yohei_task))
 		var/datum/yohei_task/T = path
 		possible_tasks += T
-
-	var/datum/yohei_task/new_task = pick(possible_tasks)
-	current_task = new new_task()
 
 /datum/yohei_task
 	var/desc = null
