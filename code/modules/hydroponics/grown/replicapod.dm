@@ -1,8 +1,8 @@
 // A very special plant, deserving it's own file.
 
 /obj/item/seeds/replicapod
-	name = "pack of replica pod seeds"
-	desc = "These seeds grow into replica pods. They say these are used to harvest humans."
+	name = "Пачка семян реплики"
+	desc = "Эти семена вырастают в реплику. Говорят, что можно собрать человека."
 	icon_state = "seed-replicapod"
 	species = "replicapod"
 	plantname = "Replica Pod"
@@ -61,10 +61,10 @@
 		quirks = B.data["quirks"]
 		sampleDNA = B.data["blood_DNA"]
 		contains_sample = TRUE
-		visible_message("<span class='notice'>The [src] is injected with a fresh blood sample.</span>")
+		visible_message("<span class='notice'> В [src] ввели кровь.</span>")
 		log_cloning("[key_name(mind)] cloning record was added to [src] at [AREACOORD(src)].")
 	else
-		visible_message("<span class='warning'>The [src] rejects the sample!</span>")
+		visible_message("<span class='warning'> Не получается ввести кровь в [src]!</span>")
 	return NONE
 
 /// Handles reagents being deleted from these seeds.
@@ -129,12 +129,12 @@
 		// If this plant has already been harvested, return early.
 		// parent.update_tray() qdels this seed.
 		if(QDELETED(src))
-			to_chat(user, text = "This pod has already had its seeds harvested!", type = MESSAGE_TYPE_INFO)
+			to_chat(user, text = "У этого растения уже собрали семена!", type = MESSAGE_TYPE_INFO)
 			return result
 
 		// Make sure they can still interact with the parent hydroponics tray.
 		if(!user.canUseTopic(parent, BE_CLOSE))
-			to_chat(user, text = "You are no longer able to harvest the seeds from [parent]!", type = MESSAGE_TYPE_INFO)
+			to_chat(user, text = "Вы больше не можете собрать семена с [parent]!", type = MESSAGE_TYPE_INFO)
 			return result
 
 		var/seed_count = 1

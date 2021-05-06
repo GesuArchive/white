@@ -57,8 +57,8 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 	clothing_flags = NONE //force animal sounds to always on.
 	if(flags_inv == initial(flags_inv))
 		flags_inv = HIDEFACIALHAIR
-	name = "[animal_type] face"
-	desc = "It looks like a [animal_type] mask, but closer inspection reveals it's melded onto this person's face!"
+	name = "Морда [animal_type] "
+	desc = "Оно выглядит как маска [animal_type], но если приглядеться получше, то видно, что оно вплавилось в лицо этого человека!"
 	if(curse_spawn_sound)
 		playsound(src, curse_spawn_sound, 50, TRUE)
 	var/update_speech_mod = !modifies_speech && LAZYLEN(animal_sounds)
@@ -69,7 +69,7 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 		if(M.get_item_by_slot(ITEM_SLOT_MASK) == src)
 			if(update_speech_mod)
 				RegisterSignal(M, COMSIG_MOB_SAY, .proc/handle_speech)
-			to_chat(M, "<span class='userdanger'>[capitalize(src.name)] was cursed!</span>")
+			to_chat(M, "<span class='userdanger'>[capitalize(src.name)] был проклят!</span>")
 			M.update_inv_wear_mask()
 
 /obj/item/clothing/mask/animal/proc/clear_curse()
@@ -84,7 +84,7 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 	if(ismob(loc))
 		var/mob/M = loc
 		if(M.get_item_by_slot(ITEM_SLOT_MASK) == src)
-			to_chat(M, "<span class='notice'>[capitalize(src.name)] curse has been lifted!</span>")
+			to_chat(M, "<span class='notice'>Проклятье было снято с [capitalize(src.name)]!</span>")
 			if(update_speech_mod)
 				UnregisterSignal(M, COMSIG_MOB_SAY)
 			M.update_inv_wear_mask()
@@ -100,7 +100,7 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 	if(!iscarbon(user))
 		return ..()
 	if(slot == ITEM_SLOT_MASK && HAS_TRAIT_FROM(src, TRAIT_NODROP, CURSED_MASK_TRAIT))
-		to_chat(user, "<span class='userdanger'>[capitalize(src.name)] was cursed!</span>")
+		to_chat(user, "<span class='userdanger'>[capitalize(src.name)] был проклят!</span>")
 	return ..()
 
 

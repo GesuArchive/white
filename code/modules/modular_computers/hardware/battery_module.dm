@@ -1,6 +1,6 @@
 /obj/item/computer_hardware/battery
-	name = "power cell controller"
-	desc = "A charge controller for standard power cells, used in all kinds of modular computers."
+	name = "Контроллер батареи"
+	desc = "Контроллер заряда для стандартных ячеек питания, используемых во всех типах модульных компьютеров."
 	icon_state = "cell_con"
 	critical = 1
 	malfunction_probability = 1
@@ -36,28 +36,28 @@
 		return FALSE
 
 	if(I.w_class > holder.max_hardware_size)
-		to_chat(user, "<span class='warning'>This power cell is too large for \the [holder]!</span>")
+		to_chat(user, "<span class='warning'>Эта батарея слишком велика для \[holder]!</span>")
 		return FALSE
 
 	if(user && !user.transferItemToLoc(I, src))
 		return FALSE
 
 	battery = I
-	to_chat(user, "<span class='notice'>You connect \the [I] to <b>[src.name]</b>.</span>")
+	to_chat(user, "<span class='notice'>Я подключаю \[I] к <b>[src.name]</b>.</span>")
 
 	return TRUE
 
 
 /obj/item/computer_hardware/battery/try_eject(mob/living/user = null, forced = FALSE)
 	if(!battery)
-		to_chat(user, "<span class='warning'>There is no power cell connected to <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='warning'>Батарея не подключена к <b>[src.name]</b>.</span>")
 		return FALSE
 	else
 		if(user)
 			user.put_in_hands(battery)
 		else
 			battery.forceMove(drop_location())
-		to_chat(user, "<span class='notice'>You detach \the [battery] from <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>Я отсоединяю \[battery] от <b>[src.name]</b>.</span>")
 		battery = null
 
 		if(holder)
@@ -73,8 +73,8 @@
 
 
 /obj/item/stock_parts/cell/computer
-	name = "standard battery"
-	desc = "A standard power cell, commonly seen in high-end portable microcomputers or low-end laptops."
+	name = "Стандартная батарея"
+	desc = "Стандартный элемент питания, обычно встречающийся в портативных микрокомпьютерах высокого класса или ноутбуках младших моделей."
 	icon = 'icons/obj/module.dmi'
 	icon_state = "cell_mini"
 	w_class = WEIGHT_CLASS_TINY
@@ -82,27 +82,27 @@
 
 
 /obj/item/stock_parts/cell/computer/advanced
-	name = "advanced battery"
-	desc = "An advanced power cell, often used in most laptops. It is too large to be fitted into smaller devices."
+	name = "Усовершенствованная батарея"
+	desc = "Усовершенствованная батарея, часто используемая в большинстве ноутбуков. Она слишком велика для установки в устройства меньшего размера."
 	icon_state = "cell"
 	w_class = WEIGHT_CLASS_SMALL
 	maxcharge = 1500
 
 /obj/item/stock_parts/cell/computer/super
-	name = "super battery"
-	desc = "An advanced power cell, often used in high-end laptops."
+	name = "Супербаттарея"
+	desc = "Усовершенствованная батарея, часто используемая в ноутбуках высокого класса"
 	icon_state = "cell"
 	w_class = WEIGHT_CLASS_SMALL
 	maxcharge = 2000
 
 /obj/item/stock_parts/cell/computer/micro
-	name = "micro battery"
-	desc = "A small power cell, commonly seen in most portable microcomputers."
+	name = "Микробатарея"
+	desc = "Маленькая батарея, обычно используемая в большинстве портативных микрокомпьютеров."
 	icon_state = "cell_micro"
 	maxcharge = 500
 
 /obj/item/stock_parts/cell/computer/nano
-	name = "nano battery"
-	desc = "A tiny power cell, commonly seen in low-end portable microcomputers."
+	name = "Нанобатарея"
+	desc = "Крошечная батарея, обычно встречающаяся в портативных микрокомпьютерах младших моделей."
 	icon_state = "cell_micro"
 	maxcharge = 300

@@ -106,8 +106,8 @@
 	var/cost // Cost of the item in contract rep.
 
 /datum/contractor_item/contract_reroll
-	name = "Contract Reroll"
-	desc = "Request a reroll of your current contract list. Will generate a new target, payment, and dropoff for the contracts you currently have available."
+	name = "Изменение Контракта"
+	desc = "Запросить изменение текущего контрактного списка. Сгенерирует новую цель, оплату и снижение рисков текущих доступных контрактов."
 	item_icon = "dice"
 	limited = 2
 	cost = 0
@@ -152,8 +152,8 @@
 	cost = 1
 
 /datum/contractor_item/contractor_partner
-	name = "Reinforcements"
-	desc = "Upon purchase we'll contact available units in the area. Should there be an agent free, we'll send them down to assist you immediately. If no units are free, we give a full refund."
+	name = "Подкрепления"
+	desc = "После покупки мы свяжемся с доступными оперативниками в вашей области и немедленно отправим их к вам. Если доступных оперативников не окажется, то мы предоставим полный возврат средств."
 	item_icon = "user-friends"
 	limited = 1
 	cost = 2
@@ -163,7 +163,7 @@
 	. = ..()
 
 	if (.)
-		to_chat(user, "<span class='notice'>The uplink vibrates quietly, connecting to nearby agents...</span>")
+		to_chat(user, "<span class='notice'>Мой аплинк тихо вибрирует, подключаясь к ближайшим оперативникам...</span>")
 
 		var/list/mob/dead/observer/candidates = pollGhostCandidates("Do you want to play as the Contractor Support Unit for [user.real_name]?", ROLE_PAI, null, FALSE, 100, POLL_IGNORE_CONTRACTOR_SUPPORT)
 
@@ -171,7 +171,7 @@
 			var/mob/dead/observer/C = pick(candidates)
 			spawn_contractor_partner(user, C.key)
 		else
-			to_chat(user, "<span class='notice'>No available agents at this time, please try again later.</span>")
+			to_chat(user, "<span class='notice'>На данный момент нет свободных оперативников. Пожалуйста, попробуйте позже.</span>")
 
 			// refund and add the limit back.
 			limited += 1
@@ -232,8 +232,8 @@
 	new /obj/effect/pod_landingzone(free_location, arrival_pod)
 
 /datum/contractor_item/blackout
-	name = "Blackout"
-	desc = "Request Syndicate Command to distrupt the station's powernet. Disables power across the station for a short duration."
+	name = "Блэкаут"
+	desc = "Запросить вмешательство в энергосеть станции у Командования Синдиката. Отключает питание станции на короткий промежуток времени."
 	item_icon = "bolt"
 	limited = 2
 	cost = 3
@@ -266,9 +266,9 @@
 		var/atom/item_to_create = new item(get_turf(user))
 
 		if(user.put_in_hands(item_to_create))
-			to_chat(user, "<span class='notice'>Your purchase materializes into your hands!</span>")
+			to_chat(user, "<span class='notice'>Моя покупка материализуется в моих руках!</span>")
 		else
-			to_chat(user, "<span class='notice'>Your purchase materializes onto the floor.</span>")
+			to_chat(user, "<span class='notice'>Моя покупка материализуется на полу.</span>")
 
 		return item_to_create
 	return TRUE
@@ -282,7 +282,7 @@
 	ignore_suit_sensor_level = TRUE
 
 /obj/item/storage/box/contractor/fulton_extraction
-	name = "Fulton Extraction Kit"
+	name = "Фуллтон"
 	icon_state = "syndiebox"
 	illustration = "writing_syndie"
 

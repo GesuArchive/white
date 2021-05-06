@@ -177,7 +177,7 @@
 	timeout = 3 MINUTES
 
 /datum/mood_event/hope_lavaland
-	description = "<span class='nicegreen'>What a peculiar emblem.  It makes me feel hopeful for my future.</span>\n"
+	description = "<span class='nicegreen'>What a peculiar emblem. It makes me feel hopeful for my future.</span>\n"
 	mood_change = 10
 
 /datum/mood_event/nanite_happiness

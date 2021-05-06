@@ -1,5 +1,5 @@
 /obj/item/clipboard
-	name = "clipboard"
+	name = "Буфер обмена"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "clipboard"
 	inhand_icon_state = "clipboard"
@@ -14,7 +14,7 @@
 	resistance_flags = FLAMMABLE
 
 /obj/item/clipboard/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins putting [user.ru_ego()] head into the clip of <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] начинает класть [user.ru_ego()] засовывать голову в зажим <b>[src.name]</b>! Судя по всему, [user.p_theyre()] пытается совершить суицид!</span>")
 	return BRUTELOSS//the clipboard's clip is very strong. industrial duty. can kill a man easily.
 
 /obj/item/clipboard/Initialize()
@@ -40,7 +40,7 @@
 		if(!user.transferItemToLoc(W, src))
 			return
 		toppaper = W
-		to_chat(user, "<span class='notice'>You clip the paper onto <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>Я зажимаю бумагу на <b>[src.name]</b>.</span>")
 		update_icon()
 	else if(toppaper)
 		toppaper.attackby(user.get_active_held_item(), user)
@@ -89,7 +89,7 @@
 					if(!usr.transferItemToLoc(W, src))
 						return
 					haspen = W
-					to_chat(usr, "<span class='notice'>You slot [W] into [src].</span>")
+					to_chat(usr, "<span class='notice'>Я вставляю [W] в [src].</span>")
 
 		if(href_list["write"])
 			var/obj/item/P = locate(href_list["write"]) in src
@@ -119,7 +119,7 @@
 			var/obj/item/P = locate(href_list["top"]) in src
 			if(istype(P))
 				toppaper = P
-				to_chat(usr, "<span class='notice'>You move [P.name] to the top.</span>")
+				to_chat(usr, "<span class='notice'>Я перемещаю [P.name] наверх.</span>")
 
 		//Update everything
 		attack_self(usr)

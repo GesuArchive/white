@@ -1,6 +1,6 @@
 /obj/item/seeds/rainbow_bunch
-	name = "pack of rainbow bunch seeds"
-	desc = "A pack of seeds that'll grow into a beautiful bush of various colored flowers."
+	name = "Пачка семян радужной грозди"
+	desc = "Эти семена вырастут в красивый разноцветный куст."
 	icon_state = "seed-rainbowbunch"
 	species = "rainbowbunch"
 	plantname = "Rainbow Flowers"
@@ -21,8 +21,8 @@
 
 /obj/item/food/grown/rainbow_flower
 	seed = /obj/item/seeds/rainbow_bunch
-	name = "rainbow flower"
-	desc = "A beautiful flower capable of being used for most dyeing processes."
+	name = "Радужный цветок"
+	desc = "Этот красивый цветочек используют, чтобы разукрашивать различные вещи."
 	icon_state = "rainbow_flower"
 	worn_icon_state = "rainbow"
 	slot_flags = ITEM_SLOT_HEAD

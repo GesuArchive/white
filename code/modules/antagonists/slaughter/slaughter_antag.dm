@@ -1,5 +1,5 @@
 /datum/antagonist/slaughter
-	name = "Slaughter demon"
+	name = "Демон бойни"
 	show_name_in_check_antagonists = TRUE
 	var/objective_verb = "Kill"
 	var/datum/mind/summoner
@@ -14,7 +14,7 @@
 /datum/antagonist/slaughter/greet()
 	. = ..()
 	owner.announce_objectives()
-	to_chat(owner, "<span class='warning'>You have a powerful alt-attack that slams people backwards that you can activate by shift+ctrl+clicking your target!</span>")
+	to_chat(owner, "<span class='warning'>У тебя есть мощная альтернативная атака, которая отбрасывает людей. Ты можешь активировать её используя shift+ctrl+лкм по цели!</span>")
 
 /datum/antagonist/slaughter/proc/forge_objectives()
 	if(summoner)
@@ -29,5 +29,5 @@
 	objectives += new_objective2
 
 /datum/antagonist/slaughter/laughter
-	name = "Laughter demon"
+	name = "Демон смеха"
 	objective_verb = "Hug and Tickle"

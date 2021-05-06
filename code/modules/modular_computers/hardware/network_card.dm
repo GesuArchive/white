@@ -1,6 +1,6 @@
 /obj/item/computer_hardware/network_card
-	name = "network card"
-	desc = "A basic wireless network card for usage with standard NTNet frequencies."
+	name = "Сетевая карта"
+	desc = "Базовая беспроводная сетевая карта для использования со стандартными частотами NTNet."
 	power_usage = 50
 	icon_state = "radio_mini"
 	network_id = NETWORK_CARDS	// Network we are on
@@ -16,12 +16,12 @@
 	..()
 	to_chat(user, "NIX Unique ID: [hardware_id]")
 	to_chat(user, "NIX User Tag: [identification_string]")
-	to_chat(user, "Supported protocols:")
-	to_chat(user, "511.m SFS (Subspace) - Standard Frequency Spread")
+	to_chat(user, "Поддерживаемые протоколы:")
+	to_chat(user, "511.m SFS (Subspace) — Стандартный диапазон частот")
 	if(long_range)
-		to_chat(user, "511.n WFS/HB (Subspace) - Wide Frequency Spread/High Bandiwdth")
+		to_chat(user, "511.n WFS/HB (Subspace) — Широкий диапазон частот / широкая полоса пропускания")
 	if(ethernet)
-		to_chat(user, "OpenEth (Physical Connection) - Physical network connection port")
+		to_chat(user, "OpenEth (Physical Connection) — Физический порт сетевого подключения")
 
 
 // Returns a string identifier of this network card
@@ -59,8 +59,8 @@
 
 
 /obj/item/computer_hardware/network_card/advanced
-	name = "advanced network card"
-	desc = "An advanced network card for usage with standard NTNet frequencies. Its transmitter is strong enough to connect even off-station."
+	name = "Усовершенствованная сетевая карта"
+	desc = "Усовершенствованная сетевая карта для использования со стандартными частотами NTNet. Её передатчик достаточно силен, чтобы подключиться даже за пределами станции."
 	long_range = 1
 	power_usage = 100 // Better range but higher power usage.
 	icon_state = "radio"
@@ -69,15 +69,15 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/computer_hardware/network_card/wired
-	name = "wired network card"
-	desc = "An advanced network card for usage with standard NTNet frequencies. This one also supports wired connection."
+	name = "Проводная сетевая карта"
+	desc = "Усовершенствованная сетевая карта для использования со стандартными частотами NTNet. Она также поддерживает проводное соединение. "
 	ethernet = 1
 	power_usage = 100 // Better range but higher power usage.
 	icon_state = "net_wired"
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/computer_hardware/network_card/integrated //Borg tablet version, only works while the borg has power and is not locked
-	name = "cyborg data link"
+	name = "Канал передачи данных киборга"
 
 /obj/item/computer_hardware/network_card/integrated/get_signal(specific_action = 0)
 	var/obj/item/modular_computer/tablet/integrated/modularInterface = holder

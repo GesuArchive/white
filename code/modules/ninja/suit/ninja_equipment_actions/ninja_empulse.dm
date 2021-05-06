@@ -1,8 +1,8 @@
 //Disables nearby tech equipment.
 
 /datum/action/item_action/ninjapulse
-	name = "EM Burst (50E)"
-	desc = "Disable any nearby technology with an electro-magnetic pulse."
+	name = "Электромагнитный синтезатор (50E)"
+	desc = "Отключите любую ближайшую технологию с помощью электромагнитного импульса."
 	button_icon_state = "emp"
 	icon_icon = 'icons/mob/actions/actions_spells.dmi'
 

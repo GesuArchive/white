@@ -10,8 +10,8 @@
  *
  */
 /obj/item/energy_katana
-	name = "energy katana"
-	desc = "A katana infused with strong energy."
+	name = "Энергетическая катана"
+	desc = "Катана, наполненная сильной энергией."
 	icon_state = "energy_katana"
 	inhand_icon_state = "energy_katana"
 	worn_icon_state = "energy_katana"
@@ -42,7 +42,7 @@
 
 /obj/item/energy_katana/attack_self(mob/user)
 	dash_toggled = !dash_toggled
-	to_chat(user, "<span class='notice'>You [dash_toggled ? "enable" : "disable"] the dash function on [src].</span>")
+	to_chat(user, "<span class='notice'>Я [dash_toggled ? "enable" : "disable"] функцию рывка на [src].</span>")
 
 /obj/item/energy_katana/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()

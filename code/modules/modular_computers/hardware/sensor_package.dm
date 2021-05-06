@@ -1,7 +1,7 @@
 //This item doesn't do much on its own, but is required by apps such as AtmoZphere.
 /obj/item/computer_hardware/sensorpackage
-	name = "sensor package"
-	desc = "An integrated sensor package allowing a computer to take readings from the environment. Required by certain programs."
+	name = "Сенсорный пакет"
+	desc = "Интегрированный пакет датчиков, позволяющий компьютеру снимать показания с окружающей среды. Требуется некоторыми программами."
 	icon_state = "servo"
 	w_class = WEIGHT_CLASS_TINY
 	device_type = MC_SENSORS

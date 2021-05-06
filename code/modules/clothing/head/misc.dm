@@ -183,7 +183,7 @@
 
 /obj/item/clothing/head/witchwig
 	name = "ведьмин парик"
-	desc = "Eeeee~heheheheheheh!"
+	desc = "Ииии~хихихихихи!"
 	icon_state = "witch"
 	inhand_icon_state = "witch"
 	flags_inv = HIDEHAIR
@@ -325,7 +325,7 @@
 
 /obj/item/clothing/head/rice_hat
 	name = "рисовая шапка"
-	desc = "Welcome to the rice fields, motherfucker."
+	desc = "Добро пожаловать на рисовые поля, ублюдок."
 	icon_state = "rice_hat"
 
 /obj/item/clothing/head/lizard

@@ -1,6 +1,6 @@
 /obj/item/clothing/mask/muzzle
-	name = "muzzle"
-	desc = "To stop that awful noise."
+	name = "кляп"
+	desc = "Чтобы прекратить этот мерзкий звук."
 	icon_state = "muzzle"
 	inhand_icon_state = "blindfold"
 	flags_cover = MASKCOVERSMOUTH
@@ -92,7 +92,7 @@
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		if((C.get_item_by_slot(ITEM_SLOT_HEAD == src)) || (C.get_item_by_slot(ITEM_SLOT_MASK) == src))
-			to_chat(user, "<span class='warning'>You can't tie [src] while wearing it!</span>")
+			to_chat(user, "<span class='warning'>Ты не можешь завязать [src] пока носишь его!</span>")
 			return
 	if(slot_flags & ITEM_SLOT_HEAD)
 		to_chat(user, "<span class='warning'>You must undo [src] before you can tie it into a neckerchief!</span>")

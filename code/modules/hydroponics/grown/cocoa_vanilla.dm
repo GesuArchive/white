@@ -1,7 +1,7 @@
 // Cocoa Pod
 /obj/item/seeds/cocoapod
-	name = "pack of cocoa pod seeds"
-	desc = "These seeds grow into cacao trees. They look fattening." //SIC: cocoa is the seeds. The trees are spelled cacao.
+	name = "Пачка семян какао-бобов"
+	desc = "Эти семена вырастают в полноценные деревья. Кажется, они набухают.
 	icon_state = "seed-cocoapod"
 	species = "cocoapod"
 	plantname = "Cocao Tree"
@@ -21,8 +21,8 @@
 
 /obj/item/food/grown/cocoapod
 	seed = /obj/item/seeds/cocoapod
-	name = "cocoa pod"
-	desc = "Fattening... Mmmmm... chucklate."
+	name = "Какао-бобы"
+	desc = "Сладенько... Мммммм... шоколад."
 	icon_state = "cocoapod"
 	bite_consumption_mod = 2
 	foodtypes = FRUIT
@@ -31,8 +31,8 @@
 
 // Vanilla Pod
 /obj/item/seeds/cocoapod/vanillapod
-	name = "pack of vanilla pod seeds"
-	desc = "These seeds grow into vanilla trees. They look fattening."
+	name = "Пачка семян ванили"
+	desc = "Эти семена вырастают в деревья. Они выглядят толстеющими."
 	icon_state = "seed-vanillapod"
 	species = "vanillapod"
 	plantname = "Vanilla Tree"
@@ -43,16 +43,16 @@
 
 /obj/item/food/grown/vanillapod
 	seed = /obj/item/seeds/cocoapod/vanillapod
-	name = "vanilla pod"
-	desc = "Fattening... Mmmmm... vanilla."
+	name = "Ваниль"
+	desc = "Пряно... Вкуснятина... ваниль."
 	icon_state = "vanillapod"
 	foodtypes = FRUIT
 	tastes = list("ваниль" = 1)
 	distill_reagent = /datum/reagent/consumable/vanilla //Takes longer, but you can get even more vanilla from it.
 
 /obj/item/seeds/cocoapod/bungotree
-	name = "pack of bungo tree seeds"
-	desc = "These seeds grow into bungo trees. They appear to be heavy and almost perfectly spherical."
+	name = "Пачка семян банго"
+	desc = "Эти семена вырастают в деревья. Они кажутся тяжёлыми и практически идеально сферическими."
 	icon_state = "seed-bungotree"
 	species = "bungotree"
 	plantname = "Bungo Tree"
@@ -72,8 +72,8 @@
 
 /obj/item/food/grown/bungofruit
 	seed = /obj/item/seeds/cocoapod/bungotree
-	name = "bungo fruit"
-	desc = "A strange fruit, tough leathery skin protects its juicy flesh and large poisonous seed."
+	name = "Банго"
+	desc = "Странный фрукт, жёсткая и упругая кожура, которая защищает сочную мякоть и ядовитое семечко."
 	icon_state = "bungo"
 	trash_type = /obj/item/food/grown/bungopit
 	foodtypes = FRUIT
@@ -83,9 +83,9 @@
 
 /obj/item/food/grown/bungopit
 	seed = /obj/item/seeds/cocoapod/bungotree
-	name = "bungo pit"
+	name = "Семечко банго"
 	icon_state = "bungopit"
-	desc = "A large seed, it is said to be potent enough to be able to stop a mans heart."
+	desc = "Большое семечко, способное остановить сердце взрослого человека."
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 5
 	throw_speed = 3

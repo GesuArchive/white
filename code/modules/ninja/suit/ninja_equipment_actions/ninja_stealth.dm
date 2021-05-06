@@ -1,6 +1,6 @@
 /datum/action/item_action/ninja_stealth
-	name = "Toggle Stealth"
-	desc = "Toggles stealth mode on and off."
+	name = "Переключение скрытности"
+	desc = "Включает и выключает скрытый режим."
 	button_icon_state = "ninja_cloak"
 	icon_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 
@@ -18,12 +18,12 @@
 		cancel_stealth()
 	else
 		if(cell.charge <= 0)
-			to_chat(ninja, "<span class='warning'>You don't have enough power to enable Stealth!</span>")
+			to_chat(ninja, "<span class='warning'>У вас недостаточно энергии, чтобы включить скрытность!</span>")
 			return
 		stealth = !stealth
 		animate(ninja, alpha = 20,time = 12)
-		ninja.visible_message("<span class='warning'>[ninja.name] vanishes into thin air!</span>", \
-						"<span class='notice'>You are now mostly invisible to normal detection.</span>")
+		ninja.visible_message("<span class='warning'>[ninja.name] исчезает в воздухе!</span>", \
+						"<span class='notice'>Теперь я в основном невидим для обычного обнаружения.</span>")
 
 /**
  * Proc called to cancel stealth.
@@ -40,7 +40,7 @@
 	if(stealth)
 		stealth = !stealth
 		animate(ninja, alpha = 255, time = 12)
-		ninja.visible_message("<span class='warning'>[ninja.name] appears from thin air!</span>", \
-						"<span class='notice'>You are now visible.</span>")
+		ninja.visible_message("<span class='warning'>[ninja.name] появляется из ниоткуда!</span>", \
+						"<span class='notice'>Теперь я видим.</span>")
 		return TRUE
 	return FALSE

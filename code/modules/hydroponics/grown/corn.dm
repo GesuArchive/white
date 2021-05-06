@@ -1,7 +1,7 @@
 // Corn
 /obj/item/seeds/corn
-	name = "pack of corn seeds"
-	desc = "I don't mean to sound corny..."
+	name = "Пачка семян кукурузы"
+	desc = "Жёлтые, но не золото"
 	icon_state = "seed-corn"
 	species = "corn"
 	plantname = "Corn Stalks"
@@ -18,8 +18,8 @@
 
 /obj/item/food/grown/corn
 	seed = /obj/item/seeds/corn
-	name = "ear of corn"
-	desc = "Needs some butter!"
+	name = "початок кукурузы"
+	desc = "Сейчас бы маслица..."
 	icon_state = "corn"
 	microwaved_type = /obj/item/food/popcorn
 	trash_type = /obj/item/grown/corncob
@@ -30,8 +30,8 @@
 	distill_reagent = /datum/reagent/consumable/ethanol/whiskey
 
 /obj/item/grown/corncob
-	name = "corn cob"
-	desc = "A reminder of meals gone by."
+	name = "Огрызок кукурузы"
+	desc = "Напоминает о былом вкусе."
 	icon_state = "corncob"
 	inhand_icon_state = "corncob"
 	w_class = WEIGHT_CLASS_TINY
@@ -42,7 +42,7 @@
 
 /obj/item/grown/corncob/attackby(obj/item/grown/W, mob/user, params)
 	if(W.get_sharpness())
-		to_chat(user, "<span class='notice'>You use [W] to fashion a pipe out of the corn cob!</span>")
+		to_chat(user, "<span class='notice'>Использую [W], чтобы сделать трубу из початка кукурузы!</span>")
 		new /obj/item/clothing/mask/cigarette/pipe/cobpipe (user.loc)
 		qdel(src)
 	else
@@ -50,8 +50,8 @@
 
 // Snapcorn
 /obj/item/seeds/corn/snapcorn
-	name = "pack of snapcorn seeds"
-	desc = "Oh snap!"
+	name = "Пачка семян хруструзы"
+	desc = "Очень громко хрустит!"
 	icon_state = "seed-snapcorn"
 	species = "snapcorn"
 	plantname = "Snapcorn Stalks"
@@ -61,8 +61,8 @@
 
 /obj/item/grown/snapcorn
 	seed = /obj/item/seeds/corn/snapcorn
-	name = "snap corn"
-	desc = "A cob with snap pops."
+	name = "Хрусткорн"
+	desc = "Початок с хрустящими семенами."
 	icon_state = "snapcorn"
 	inhand_icon_state = "corncob"
 	w_class = WEIGHT_CLASS_TINY
@@ -77,7 +77,7 @@
 
 /obj/item/grown/snapcorn/attack_self(mob/user)
 	..()
-	to_chat(user, "<span class='notice'>You pick a snap pop from the cob.</span>")
+	to_chat(user, "<span class='notice'>Достаю хрустяшки из початка.</span>")
 	var/obj/item/toy/snappop/S = new /obj/item/toy/snappop(user.loc)
 	if(ishuman(user))
 		user.put_in_hands(S)

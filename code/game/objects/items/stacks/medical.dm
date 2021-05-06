@@ -61,22 +61,22 @@
 /// Apply the actual effects of the healing if it's a simple animal, goes to [/obj/item/stack/medical/proc/heal_carbon] if it's a carbon, returns TRUE if it works, FALSE if it doesn't
 /obj/item/stack/medical/proc/heal(mob/living/patient, mob/user)
 	if(patient.stat == DEAD)
-		to_chat(user, "<span class='warning'>[patient] is dead! You can not help [patient.ru_na()].</span>")
+		to_chat(user, "<span class='warning'>[patient] мертв! Ничем не могу помочь [patient.ru_na()].</span>")
 		return
 	if(isanimal(patient) && heal_brute) // only brute can heal
 		var/mob/living/simple_animal/critter = patient
 		if (!critter.healable)
-			to_chat(user, "<span class='warning'>You cannot use [src] on [patient]!</span>")
+			to_chat(user, "<span class='warning'>Не могу использовать [src] на [patient]!</span>")
 			return FALSE
 		else if (critter.health == critter.maxHealth)
-			to_chat(user, "<span class='notice'>[patient] is at full health.</span>")
+			to_chat(user, "<span class='notice'>[patient] полностью здоров.</span>")
 			return FALSE
-		user.visible_message("<span class='green'>[user] applies [src] on [patient].</span>", "<span class='green'>You apply [src] on [patient].</span>")
+		user.visible_message("<span class='green'>[user] использует [src] на [patient].</span>", "<span class='green'>Использую [src] на [patient].</span>")
 		patient.heal_bodypart_damage((heal_brute * 0.5))
 		return TRUE
 	if(iscarbon(patient))
 		return heal_carbon(patient, user, heal_brute, heal_burn)
-	to_chat(user, "<span class='warning'>You can't heal [patient] with [src]!</span>")
+	to_chat(user, "<span class='warning'>Не могу вылечить [patient] с помощью [src]!</span>")
 
 /// The healing effects on a carbon patient. Since we have extra details for dealing with bodyparts, we get our own fancy proc. Still returns TRUE on success and FALSE on fail
 /obj/item/stack/medical/proc/heal_carbon(mob/living/carbon/C, mob/user, brute, burn)
@@ -116,7 +116,7 @@
 	merge_type = /obj/item/stack/medical/bruise_pack
 
 /obj/item/stack/medical/bruise_pack/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is bludgeoning [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] избивает [user.ru_na()]себя с помощью [src]! Это выглядит будто [user.p_theyre()] пытается совершить самоубийство!</span>")
 	return (BRUTELOSS)
 
 /obj/item/stack/medical/gauze
@@ -186,7 +186,7 @@
 		return ..()
 
 /obj/item/stack/medical/gauze/suicide_act(mob/living/user)
-	user.visible_message("<span class='suicide'>[user] begins tightening [src] around [user.ru_ego()] neck! It looks like [user.ru_who()] forgot how to use medical supplies!</span>")
+	user.visible_message("<span class='suicide'>[user] начинает затягивать [src] на шее [user.ru_ego()]! Это выглядит как будто [user.ru_who()] забыл как оказывать медицинскую помощь!</span>")
 	return OXYLOSS
 
 /obj/item/stack/medical/gauze/improvised
@@ -226,8 +226,8 @@
 	merge_type = /obj/item/stack/medical/suture
 
 /obj/item/stack/medical/suture/emergency
-	name = "emergency suture"
-	desc = "A value pack of cheap sutures, not very good at repairing damage, but still decent at stopping bleeding."
+	name = "экстренный шов"
+	desc = "Набор дешевых швов, не очень хорош для исцеления урона, но хорош для остановки кровотечения."
 	heal_brute = 5
 	amount = 5
 	max_amount = 5
@@ -363,9 +363,9 @@
 	merge_type = /obj/item/stack/medical/aloe
 
 /obj/item/stack/medical/bone_gel
-	name = "bone gel"
+	name = "Костный гель"
 	singular_name = "bone gel"
-	desc = "A potent medical gel that, when applied to a damaged bone in a proper surgical setting, triggers an intense melding reaction to repair the wound. Can be directly applied alongside surgical sticky tape to a broken bone in dire circumstances, though this is very harmful to the patient and not recommended."
+	desc = "Мощный медицинский гель, который при нанесении на поврежденную кость в надлежащих хирургических условиях вызывает сращивание кости. Может применяться вместе с хирургической липкой лентой к сломанной кости в чрезвычайных ситуациях, хотя это и не рекомендуется ведь это вредно для пациента."
 
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "bone-gel"
@@ -379,16 +379,16 @@
 	merge_type = /obj/item/stack/medical/bone_gel
 
 /obj/item/stack/medical/bone_gel/attack(mob/living/M, mob/user)
-	to_chat(user, "<span class='warning'>Bone gel can only be used on fractured limbs!</span>")
+	to_chat(user, "<span class='warning'>Костный гель можно использовать только на сломанных конечностях!</span>")
 	return
 
 /obj/item/stack/medical/bone_gel/suicide_act(mob/user)
 	if(!iscarbon(user))
 		return
 	var/mob/living/carbon/C = user
-	C.visible_message("<span class='suicide'>[C] is squirting all of [src] into [C.ru_ego()] mouth! That's not proper procedure! It looks like [C.p_theyre()] trying to commit suicide!</span>")
+	C.visible_message("<span class='suicide'>[C] впрыскивает весь [src] в рот [C.ru_ego ()]! Это неправильная процедура! Похоже, [C.p_theyre ()] пытается покончить жизнь самоубийством!</span>")
 	if(!do_after(C, 2 SECONDS))
-		C.visible_message("<span class='suicide'>[C] screws up like an idiot and still dies anyway!</span>")
+		C.visible_message("<span class='suicide'>[C] облажался и все равно умирает!</span>")
 		return (BRUTELOSS)
 
 	C.emote("scream")
@@ -409,9 +409,9 @@
 	amount = 4
 
 /obj/item/stack/medical/poultice
-	name = "mourning poultices"
+	name = "поминальные припарки"
 	singular_name = "mourning poultice"
-	desc = "A type of primitive herbal poultice.\nWhile traditionally used to prepare corpses for the mourning feast, it can also treat scrapes and burns on the living, however, it is liable to cause shortness of breath when employed in this manner.\nIt is imbued with ancient wisdom."
+	desc = "Тип примитивной травяной припарки. \nХотя она традиционно используется для подготовки покойника к прощанию, ей также можно лечить царапины и ожоги у живых, однако при таком применении может вызвать сбивчивое дыхание. \nМудрость предков."
 	icon_state = "poultice"
 	amount = 15
 	max_amount = 15

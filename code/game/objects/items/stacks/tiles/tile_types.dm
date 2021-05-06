@@ -1,7 +1,7 @@
 /obj/item/stack/tile
-	name = "broken tile"
+	name = "сломанная плитка"
 	singular_name = "broken tile"
-	desc = "A broken tile. This should not exist."
+	desc = "Сломанная плитка. Её не должно быть."
 	lefthand_file = 'icons/mob/inhands/misc/tiles_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/tiles_righthand.dmi'
 	icon = 'icons/obj/tiles.dmi'
@@ -46,32 +46,32 @@
 				verb = "mediocre"
 		if(!verb)
 			return
-		. += "<span class='notice'>Those could work as a [verb] throwing weapon.</span>"
+		. += "<span class='notice'>Они могут работать как [verb] метательное оружие.</span>"
 
 
 /obj/item/stack/tile/attackby(obj/item/W, mob/user, params)
 
 	if (W.tool_behaviour == TOOL_WELDER)
 		if(get_amount() < 4)
-			to_chat(user, "<span class='warning'>You need at least four tiles to do this!</span>")
+			to_chat(user, "<span class='warning'>Мне нужно минимум четыре плитки для этого!</span>")
 			return
 
 		if(!mineralType)
-			to_chat(user, "<span class='warning'>You can not reform this!</span>")
+			to_chat(user, "<span class='warning'>Не могу исправить это!</span>")
 			return
 
 		if(W.use_tool(src, user, 0, volume=40))
 			if(mineralType == "plasma")
 				atmos_spawn_air("plasma=5;TEMP=1000")
-				user.visible_message("<span class='warning'>[user.name] sets the plasma tiles on fire!</span>", \
-									"<span class='warning'>You set the plasma tiles on fire!</span>")
+				user.visible_message("<span class='warning'>[user.name] поджигает плазменные плитки!</span>", \
+									"<span class='warning'>Поджигаю плазменные плитки!</span>")
 				qdel(src)
 				return
 
 			if (mineralType == "metal")
 				var/obj/item/stack/sheet/metal/new_item = new(user.loc)
-				user.visible_message("<span class='notice'>[user.name] shaped [src] into metal with the welding tool.</span>", \
-					"<span class='notice'>You shaped [src] into metal with the welding tool.</span>", \
+				user.visible_message("<span class='notice'>[user.name] переплавляет [src] в металл с помощью сварочного аппарата.</span>", \
+					"<span class='notice'>Переплавляю [src] в металл с помощью сварочного аппарата.</span>", \
 					"<span class='hear'>Слышу сварку.</span>")
 				var/obj/item/stack/rods/R = src
 				src = null
@@ -83,8 +83,8 @@
 			else
 				var/sheet_type = text2path("/obj/item/stack/sheet/mineral/[mineralType]")
 				var/obj/item/stack/sheet/mineral/new_item = new sheet_type(user.loc)
-				user.visible_message("<span class='notice'>[user.name] shaped [src] into a sheet with the welding tool.</span>", \
-					"<span class='notice'>You shaped [src] into a sheet with the welding tool.</span>", \
+				user.visible_message("<span class='notice'>[user.name] переплавляет [src] в листы метала с помощью сварочного аппарата.</span>", \
+					"<span class='notice'>Переплавляю [src] в листы металла с помощью сварочного аппарата.</span>", \
 					"<span class='hear'>Слышу сварку.</span>")
 				var/obj/item/stack/rods/R = src
 				src = null
@@ -102,9 +102,9 @@
 
 //Grass
 /obj/item/stack/tile/grass
-	name = "grass tile"
+	name = "травяная плитка"
 	singular_name = "grass floor tile"
-	desc = "A patch of grass like they use on space golf courses."
+	desc = "Клочок травы, прямо как на полях для космического гольфа.."
 	icon_state = "tile_grass"
 	inhand_icon_state = "tile-grass"
 	turf_type = /turf/open/floor/grass
@@ -113,9 +113,9 @@
 
 //Fairygrass
 /obj/item/stack/tile/fairygrass
-	name = "fairygrass tile"
+	name = "Плитка из сказочной травы"
 	singular_name = "fairygrass floor tile"
-	desc = "A patch of odd, glowing blue grass."
+	desc = "Клок странной светящейся голубой травы."
 	icon_state = "tile_fairygrass"
 	inhand_icon_state = "tile-fairygrass"
 	turf_type = /turf/open/floor/grass/fairy
@@ -124,9 +124,9 @@
 
 //Wood
 /obj/item/stack/tile/wood
-	name = "wood floor tile"
+	name = "деревянная напольная плитка"
 	singular_name = "wood floor tile"
-	desc = "An easy to fit wood floor tile."
+	desc = "легко укладываемая деревянная напольная плитка."
 	icon_state = "tile-wood"
 	inhand_icon_state = "tile-wood"
 	turf_type = /turf/open/floor/wood
@@ -135,9 +135,9 @@
 
 //Basalt
 /obj/item/stack/tile/basalt
-	name = "basalt tile"
+	name = "базальтовая плитка"
 	singular_name = "basalt floor tile"
-	desc = "Artificially made ashy soil themed on a hostile environment."
+	desc = "Искусственно созданный пепельный грунт будто из враждебных мест."
 	icon_state = "tile_basalt"
 	inhand_icon_state = "tile-basalt"
 	turf_type = /turf/open/floor/grass/fakebasalt
@@ -145,9 +145,9 @@
 
 //Carpets
 /obj/item/stack/tile/carpet
-	name = "carpet"
+	name = "ковер"
 	singular_name = "carpet tile"
-	desc = "A piece of carpet. It is the same size as a floor tile."
+	desc = "Кусок ковра. Он такого же размера, как напольная плитка."
 	icon_state = "tile-carpet"
 	inhand_icon_state = "tile-carpet"
 	turf_type = /turf/open/floor/carpet
@@ -212,7 +212,7 @@
 	merge_type = /obj/item/stack/tile/carpet/red
 
 /obj/item/stack/tile/carpet/royalblack
-	name = "royal black carpet"
+	name = "чёрный королевский ковер"
 	icon_state = "tile-carpet-royalblack"
 	inhand_icon_state = "tile-carpet-royalblack"
 	turf_type = /turf/open/floor/carpet/royalblack
@@ -220,7 +220,7 @@
 	merge_type = /obj/item/stack/tile/carpet/royalblack
 
 /obj/item/stack/tile/carpet/royalblue
-	name = "royal blue carpet"
+	name = "синий королевский ковер"
 	icon_state = "tile-carpet-royalblue"
 	inhand_icon_state = "tile-carpet-royalblue"
 	turf_type = /turf/open/floor/carpet/royalblue
@@ -228,21 +228,21 @@
 	merge_type = /obj/item/stack/tile/carpet/royalblue
 
 /obj/item/stack/tile/carpet/executive
-	name = "executive carpet"
+	name = "ковер администрации"
 	icon_state = "tile_carpet_executive"
 	inhand_icon_state = "tile-carpet-royalblue"
 	turf_type = /turf/open/floor/carpet/executive
 	merge_type = /obj/item/stack/tile/carpet/executive
 
 /obj/item/stack/tile/carpet/stellar
-	name = "stellar carpet"
+	name = "звездный ковер"
 	icon_state = "tile_carpet_stellar"
 	inhand_icon_state = "tile-carpet-royalblue"
 	turf_type = /turf/open/floor/carpet/stellar
 	merge_type = /obj/item/stack/tile/carpet/stellar
 
 /obj/item/stack/tile/carpet/donk
-	name = "donk co promotional carpet"
+	name = "рекламный ковер donk co"
 	icon_state = "tile_carpet_donk"
 	inhand_icon_state = "tile-carpet-orange"
 	turf_type = /turf/open/floor/carpet/donk
@@ -288,9 +288,9 @@
 	amount = 30
 
 /obj/item/stack/tile/fakespace
-	name = "astral carpet"
+	name = "астральный ковер"
 	singular_name = "astral carpet tile"
-	desc = "A piece of carpet with a convincing star pattern."
+	desc = "Кусок ковра с звездным узором."
 	icon_state = "tile_space"
 	inhand_icon_state = "tile-space"
 	turf_type = /turf/open/floor/fakespace
@@ -301,9 +301,9 @@
 	amount = 30
 
 /obj/item/stack/tile/fakepit
-	name = "fake pits"
+	name = "поддельные ямы"
 	singular_name = "fake pit"
-	desc = "A piece of carpet with a forced perspective illusion of a pit. No way this could fool anyone!"
+	desc = "Кусок ковра с нарисованной ямой. Этим никого не обмануть!"
 	icon_state = "tile_pit"
 	inhand_icon_state = "tile-basalt"
 	turf_type = /turf/open/floor/fakepit
@@ -315,9 +315,9 @@
 
 //High-traction
 /obj/item/stack/tile/noslip
-	name = "high-traction floor tile"
+	name = "противоскользящая напольная плитка"
 	singular_name = "high-traction floor tile"
-	desc = "A high-traction floor tile. It feels rubbery in your hand."
+	desc = "Противоскользящая напольная плитка. В руке она кажется резиновой."
 	icon_state = "tile_noslip"
 	inhand_icon_state = "tile-noslip"
 	turf_type = /turf/open/floor/noslip
@@ -352,7 +352,7 @@
 /obj/item/stack/tile/circuit/red
 	name = "красный circuit tile"
 	singular_name = "красный circuit tile"
-	desc = "A red circuit tile."
+	desc = "Красная плитка схем."
 	icon_state = "tile_rcircuit"
 	inhand_icon_state = "tile-rcircuit"
 	turf_type = /turf/open/floor/circuit/red
@@ -364,35 +364,35 @@
 
 //Pod floor
 /obj/item/stack/tile/pod
-	name = "pod floor tile"
+	name = "плитка капсулы"
 	singular_name = "pod floor tile"
-	desc = "A grooved floor tile."
+	desc = "Рифленая напольная плитка."
 	icon_state = "tile_pod"
 	inhand_icon_state = "tile-pod"
 	turf_type = /turf/open/floor/pod
 	merge_type = /obj/item/stack/tile/pod
 
 /obj/item/stack/tile/pod/light
-	name = "light pod floor tile"
+	name = "светлая плитка капсулы"
 	singular_name = "light pod floor tile"
-	desc = "A lightly colored grooved floor tile."
+	desc = "Рифленая напольная плитка светлого цвета."
 	icon_state = "tile_podlight"
 	turf_type = /turf/open/floor/pod/light
 	merge_type = /obj/item/stack/tile/pod/light
 
 /obj/item/stack/tile/pod/dark
-	name = "dark pod floor tile"
+	name = "тёмная плитка капсулы"
 	singular_name = "dark pod floor tile"
-	desc = "A darkly colored grooved floor tile."
+	desc = "Рифленая напольная плитка темного цвета."
 	icon_state = "tile_poddark"
 	turf_type = /turf/open/floor/pod/dark
 	merge_type = /obj/item/stack/tile/pod/dark
 
 //Plasteel (normal)
 /obj/item/stack/tile/plasteel
-	name = "floor tile"
+	name = "плитка пола"
 	singular_name = "floor tile"
-	desc = "The ground you walk on."
+	desc = "Поверхность по которой ты ходишь."
 	icon_state = "tile"
 	inhand_icon_state = "tile"
 	force = 6
@@ -409,18 +409,18 @@
 	merge_type = /obj/item/stack/tile/plasteel
 
 /obj/item/stack/tile/plastic
-	name = "plastic tile"
+	name = "пластиковая плитка"
 	singular_name = "plastic floor tile"
-	desc = "A tile of cheap, flimsy plastic flooring."
+	desc = "Плитка из дешевого хлипкого пластика."
 	icon_state = "tile_plastic"
 	mats_per_unit = list(/datum/material/plastic=500)
 	turf_type = /turf/open/floor/plastic
 	merge_type = /obj/item/stack/tile/plastic
 
 /obj/item/stack/tile/material
-	name = "floor tile"
+	name = "плитка пола"
 	singular_name = "floor tile"
-	desc = "The ground you walk on."
+	desc = "Поверхность по которой ты ходишь."
 	throwforce = 10
 	icon_state = "material_tile"
 	turf_type = /turf/open/floor/material
@@ -433,9 +433,9 @@
 	F?.set_custom_materials(mats_per_unit)
 
 /obj/item/stack/tile/eighties
-	name = "retro tile"
+	name = "плитка в стиле ретро"
 	singular_name = "retro floor tile"
-	desc = "A stack of floor tiles that remind you of an age of funk."
+	desc = "Стопка напольной плитки, напоминающая эпоху фанка."
 	icon_state = "tile_eighties"
 	turf_type = /turf/open/floor/eighties
 	merge_type = /obj/item/stack/tile/eighties

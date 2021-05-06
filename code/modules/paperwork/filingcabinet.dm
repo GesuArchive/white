@@ -11,8 +11,8 @@
  * Filing Cabinets
  */
 /obj/structure/filingcabinet
-	name = "filing cabinet"
-	desc = "A large cabinet with drawers."
+	name = "Картотека"
+	desc = "Большой шкаф с ящиками."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "filingcabinet"
 	density = TRUE
@@ -20,12 +20,12 @@
 
 
 /obj/structure/filingcabinet/chestdrawer
-	name = "chest drawer"
+	name = "Комод"
 	icon_state = "chestdrawer"
 
 /obj/structure/filingcabinet/chestdrawer/wheeled
-	name = "rolling chest drawer"
-	desc = "A small cabinet with drawers. This one has wheels!"
+	name = "Комод на колёсиках"
+	desc = "Небольшой шкаф с ящиками. У этого есть колёсики!"
 	anchored = FALSE
 
 /obj/structure/filingcabinet/filingcabinet	//not changing the path to avoid unnecessary map issues, but please don't name stuff like this in the future -Pete
@@ -48,20 +48,20 @@
 
 /obj/structure/filingcabinet/attackby(obj/item/P, mob/user, params)
 	if(P.tool_behaviour == TOOL_WRENCH && user.a_intent != INTENT_HELP)
-		to_chat(user, "<span class='notice'>You begin to [anchored ? "unwrench" : "wrench"] [src].</span>")
+		to_chat(user, "<span class='notice'>Я начинаю [anchored ? "unwrench" : "wrench"] [src].</span>")
 		if(P.use_tool(src, user, 20, volume=50))
-			to_chat(user, "<span class='notice'>You successfully [anchored ? "unwrench" : "wrench"] [src].</span>")
+			to_chat(user, "<span class='notice'>Я успешно [anchored ? "unwrench" : "wrench"] [src].</span>")
 			set_anchored(!anchored)
 	else if(P.w_class < WEIGHT_CLASS_NORMAL)
 		if(!user.transferItemToLoc(P, src))
 			return
-		to_chat(user, "<span class='notice'>You put [P] in [src].</span>")
+		to_chat(user, "<span class='notice'>Я кладу [P] в [src].</span>")
 		icon_state = "[initial(icon_state)]-open"
 		sleep(5)
 		icon_state = initial(icon_state)
 		updateUsrDialog()
 	else if(user.a_intent != INTENT_HARM)
-		to_chat(user, "<span class='warning'>You can't put [P] in [src]!</span>")
+		to_chat(user, "<span class='warning'>Я не могу положить [P] в [src]!</span>")
 	else
 		return ..()
 
@@ -69,7 +69,7 @@
 /obj/structure/filingcabinet/ui_interact(mob/user)
 	. = ..()
 	if(contents.len <= 0)
-		to_chat(user, "<span class='notice'>[capitalize(src.name)] is empty.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] пуст.</span>")
 		return
 
 	var/dat = "<center><table>"
@@ -95,9 +95,9 @@
 			I.forceMove(loc)
 			if(prob(25))
 				step_rand(I)
-			to_chat(user, "<span class='notice'>You pull \a [I] out of [src] at random.</span>")
+			to_chat(user, "<span class='notice'>Я случайно вытаскиваю \a [I] из [src].</span>")
 			return
-	to_chat(user, "<span class='notice'>You find nothing in [src].</span>")
+	to_chat(user, "<span class='notice'>Я ничего не нахожу в [src].</span>")
 
 
 /obj/structure/filingcabinet/Topic(href, href_list)

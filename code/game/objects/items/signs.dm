@@ -1,7 +1,7 @@
 /obj/item/picket_sign
 	icon_state = "picket"
-	name = "blank picket sign"
-	desc = "It's blank."
+	name = "пустой транспарант"
+	desc = "он пустой."
 	force = 5
 	w_class = WEIGHT_CLASS_BULKY
 	attack_verb_continuous = list("призывает на митинг", "оппозиционирует", "либерализует")
@@ -12,20 +12,20 @@
 	COOLDOWN_DECLARE(picket_sign_cooldown)
 
 /obj/item/picket_sign/cyborg
-	name = "metallic nano-sign"
-	desc = "A high tech picket sign used by silicons that can reprogram its surface at will. Probably hurts to get hit by, too."
+	name = "металлический нано транспарант"
+	desc = "Высокотехнологичный транспарант, используемый роботами, которые могут по желанию перепрограммировать его поверхность. Наверное, будет больно, если им ударить."
 	force = 13
 	resistance_flags = NONE
 	actions_types = list(/datum/action/item_action/nano_picket_sign)
 
 /obj/item/picket_sign/proc/retext(mob/user)
 	if(!user.is_literate())
-		to_chat(user, "<span class='notice'>You scribble illegibly on [src]!</span>")
+		to_chat(user, "<span class='notice'>Карябаю неразборчивые символы [src]!</span>")
 		return
 	var/txt = stripped_input(user, "What would you like to write on the sign?", "Sign Label", null , 30)
 	if(txt && user.canUseTopic(src, BE_CLOSE))
 		label = txt
-		name = "[label] sign"
+		name = "[label] знак"
 		desc =	"It reads: [label]"
 
 /obj/item/picket_sign/attackby(obj/item/W, mob/user, params)
@@ -58,7 +58,7 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 
 /datum/crafting_recipe/picket_sign
-	name = "Picket Sign"
+	name = "Транспарант для пикетов"
 	result = /obj/item/picket_sign
 	reqs = list(/obj/item/stack/rods = 1,
 				/obj/item/stack/sheet/cardboard = 2)

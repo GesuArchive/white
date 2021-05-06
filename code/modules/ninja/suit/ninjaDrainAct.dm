@@ -114,14 +114,14 @@
 
 	. = DRAIN_RD_HACK_FAILED
 
-	to_chat(ninja, "<span class='notice'>Hacking <b>[src.name]</b>...</span>")
+	to_chat(ninja, "<span class='notice'>Взлом <b>[src.name]</b>...</span>")
 	AI_notify_hack()
 
 	if(stored_research)
-		to_chat(ninja, "<span class='notice'>Copying files...</span>")
+		to_chat(ninja, "<span class='notice'>Копирование файлов...</span>")
 		if(do_after(ninja, ninja_suit.s_delay, target = src) && ninja_gloves.candrain && src)
 			stored_research.copy_research_to(ninja_suit.stored_research)
-	to_chat(ninja, "<span class='notice'>Data analyzed. Process finished.</span>")
+	to_chat(ninja, "<span class='notice'>Данные проанализированы. Процесс завершен.</span>")
 
 //RD SERVER//
 /obj/machinery/rnd/server/ninjadrain_act(obj/item/clothing/suit/space/space_ninja/ninja_suit, mob/living/carbon/human/ninja, obj/item/clothing/gloves/space_ninja/ninja_gloves)
@@ -130,14 +130,14 @@
 
 	. = DRAIN_RD_HACK_FAILED
 
-	to_chat(ninja, "<span class='notice'>Hacking <b>[src.name]</b>...</span>")
+	to_chat(ninja, "<span class='notice'>Взлом <b>[src.name]</b>...</span>")
 	AI_notify_hack()
 
 	if(stored_research)
-		to_chat(ninja, "<span class='notice'>Copying files...</span>")
+		to_chat(ninja, "<span class='notice'>Копирование файлов...</span>")
 		if(do_after(ninja, ninja_suit.s_delay, target = src) && ninja_gloves.candrain && src)
 			stored_research.copy_research_to(ninja_suit.stored_research)
-	to_chat(ninja, "<span class='notice'>Data analyzed. Process finished.</span>")
+	to_chat(ninja, "<span class='notice'>Данные проанализированы. Процесс завершен.</span>")
 
 //SECURITY CONSOLE//
 /obj/machinery/computer/secure_data/ninjadrain_act(obj/item/clothing/suit/space/space_ninja/ninja_suit, mob/living/carbon/human/ninja, obj/item/clothing/gloves/space_ninja/ninja_gloves)
@@ -243,7 +243,7 @@
 	var/drain = 0 //Drain amount
 	var/drain_total = 0
 
-	to_chat(occupants, "[icon2html(src, occupants)]<span class='danger'>Warning: Unauthorized access through sub-route 4, block H, detected.</span>")
+	to_chat(occupants, "[icon2html(src, occupants)]<span class='danger'>Предупреждение: обнаружен несанкционированный доступ через подмаршрут 4, блок H.</span>")
 	if(get_charge())
 		while(ninja_gloves.candrain && cell.charge > 0 && !maxcapacity)
 			drain = rand(ninja_gloves.mindrain, ninja_gloves.maxdrain)
@@ -268,11 +268,11 @@
 	if(!ninja_suit || !ninja || !ninja_gloves || (ROLE_NINJA in faction))
 		return INVALID_DRAIN
 
-	to_chat(src, "<span class='danger'>Warni-***BZZZZZZZZZRT*** UPLOADING SPYDERPATCHER VERSION 9.5.2...</span>")
+	to_chat(src, "<span class='danger'>Предупреж-***БЗЗЗЗЗЗРТ*** ЗАГРУЗКА SPYDERPATCHER ВЕРСИИ 9.5.2...</span>")
 	if (do_after(ninja, 60, target = src))
 		spark_system.start()
 		playsound(loc, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-		to_chat(src, "<span class='danger'>UPLOAD COMPLETE. NEW CYBORG MODULE DETECTED. INSTALLING...</span>")
+		to_chat(src, "<span class='danger'>ЗАГРУЗКА ЗАВЕРШЕНА. ОБНАРУЖЕН НОВЫЙ МОДУЛЬ CYBORG. УСТАНОВКА ...</span>")
 		faction = list(ROLE_NINJA)
 		bubble_icon = "syndibot"
 		UnlinkSelf()
@@ -301,5 +301,5 @@
 		var/datum/effect_system/spark_spread/spark_system = new /datum/effect_system/spark_spread()
 		spark_system.set_up(5, 0, loc)
 		playsound(src, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-		visible_message("<span class='danger'>[ninja] electrocutes [src] with [ninja.ru_ego()] touch!</span>", "<span class='userdanger'>[ninja] electrocutes you with [ninja.ru_ego()] touch!</span>")
+		visible_message("<span class='danger'>[ninja] казнит [src] электрокасанием [ninja.ru_ego()]!</span>", "<span class='userdanger'>[ninja] казним вас электрокасанием[ninja.ru_ego()]!</span>")
 		Knockdown(3 SECONDS)

@@ -15,7 +15,7 @@
 	resistance_flags = NONE
 
 /obj/item/clothing/mask/breath/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] is wrapping \the [src.name] tube around [user.ru_ego()] neck! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] затягивает трубки [src.name] вокруг [user.ru_ego()] шеи! Похоже, что [user.p_theyre()] пытается убить себя!</span>")
 	return OXYLOSS
 
 /obj/item/clothing/mask/breath/attack_self(mob/user)

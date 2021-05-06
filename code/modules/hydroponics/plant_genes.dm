@@ -56,7 +56,7 @@
 	return S.get_gene(src.type)
 
 /datum/plant_gene/core/lifespan
-	name = "Lifespan"
+	name = "Продолжительность жизни"
 	value = 25
 
 /datum/plant_gene/core/lifespan/apply_stat(obj/item/seeds/S)
@@ -64,7 +64,7 @@
 
 
 /datum/plant_gene/core/endurance
-	name = "Endurance"
+	name = "Выносливость"
 	value = 15
 
 /datum/plant_gene/core/endurance/apply_stat(obj/item/seeds/S)
@@ -72,7 +72,7 @@
 
 
 /datum/plant_gene/core/production
-	name = "Production Speed"
+	name = "Скорость созревания"
 	value = 6
 
 /datum/plant_gene/core/production/apply_stat(obj/item/seeds/S)
@@ -80,7 +80,7 @@
 
 
 /datum/plant_gene/core/yield
-	name = "Yield"
+	name = "Урожайность"
 	value = 3
 
 /datum/plant_gene/core/yield/apply_stat(obj/item/seeds/S)
@@ -88,21 +88,21 @@
 
 
 /datum/plant_gene/core/potency
-	name = "Potency"
+	name = "Потенция"
 	value = 10
 
 /datum/plant_gene/core/potency/apply_stat(obj/item/seeds/S)
 	S.potency = value
 
 /datum/plant_gene/core/instability
-	name = "Stability"
+	name = "Стабильность"
 	value = 10
 
 /datum/plant_gene/core/instability/apply_stat(obj/item/seeds/S)
 	S.instability = value
 
 /datum/plant_gene/core/weed_rate
-	name = "Weed Growth Rate"
+	name = "Скорость роста сорняков"
 	value = 1
 
 /datum/plant_gene/core/weed_rate/apply_stat(obj/item/seeds/S)
@@ -110,7 +110,7 @@
 
 
 /datum/plant_gene/core/weed_chance
-	name = "Weed Vulnerability"
+	name = "Уязвимость сорняков"
 	value = 5
 
 /datum/plant_gene/core/weed_chance/apply_stat(obj/item/seeds/S)
@@ -119,7 +119,7 @@
 
 // Reagent genes store reagent ID and reagent ratio. Amount of reagent in the plant = 1 + (potency * rate)
 /datum/plant_gene/reagent
-	name = "Nutriment"
+	name = "Питание"
 	var/reagent_id = /datum/reagent/consumable/nutriment
 	var/rate = 0.04
 
@@ -137,7 +137,7 @@
 
 /datum/plant_gene/reagent/proc/set_reagent(reag_id)
 	reagent_id = reag_id
-	name = "UNKNOWN"
+	name = "НЕИЗВЕСТНО"
 
 	var/datum/reagent/R = GLOB.chemical_reagents_list[reag_id]
 	if(R && R.type == reagent_id)
@@ -179,17 +179,17 @@
 	return FALSE
 
 /datum/plant_gene/reagent/polypyr
-	name = "Polypyrylium Oligomers"
+	name = "Олигомеры полипирилия"
 	reagent_id = /datum/reagent/medicine/polypyr
 	rate = 0.15
 
 /datum/plant_gene/reagent/liquidelectricity
-	name = "Liquid Electricity"
+	name = "Жидкое электричество"
 	reagent_id = /datum/reagent/consumable/liquidelectricity
 	rate = 0.1
 
 /datum/plant_gene/reagent/carbon
-	name = "Carbon"
+	name = "Углерод"
 	reagent_id = /datum/reagent/carbon
 	rate = 0.1
 
@@ -244,8 +244,8 @@
 	// Allows the plant to be squashed when thrown or slipped on, leaving a colored mess and trash type item behind.
 	// Also splashes everything in target turf with reagents and applies other trait effects (teleporting, etc) to the target by on_squash.
 	// For code, see grown.dm
-	name = "Liquid Contents"
-	examine_line = "<span class='info'>It has a lot of liquid contents inside.</span>"
+	name = "Жидкое содержимое"
+	examine_line = "<span class='info'>Внутри много жидкости.</span>"
 
 /datum/plant_gene/trait/squash/can_add(obj/item/seeds/S)
 	if(S.get_gene(/datum/plant_gene/trait/sticky))
@@ -259,9 +259,9 @@
 /datum/plant_gene/trait/slip
 	// Makes plant slippery, unless it has a grown-type trash. Then the trash gets slippery.
 	// Applies other trait effects (teleporting, etc) to the target by on_slip.
-	name = "Slippery Skin"
+	name = "Скользкая кожица"
 	rate = 1.6
-	examine_line = "<span class='info'>It has a very slippery skin.</span>"
+	examine_line = "<span class='info'>У него очень скользкая кожица.</span>"
 
 /datum/plant_gene/trait/slip/on_new(obj/item/food/grown/G, newloc)
 	..()
@@ -284,7 +284,7 @@
 	// Generates sparks on squash.
 	// Small (potency*rate*5) chance to shock squish or slip target for (potency*rate*5) damage.
 	// Also affects plant batteries see capatative cell production datum
-	name = "Electrical Activity"
+	name = "Электрическая активность"
 	rate = 0.2
 
 /datum/plant_gene/trait/cell_charge/on_slip(obj/item/food/grown/G, mob/living/carbon/C)
@@ -312,16 +312,16 @@
 				C.update_icon()
 				batteries_recharged = 1
 		if(batteries_recharged)
-			to_chat(target, "<span class='notice'>Your batteries are recharged!</span>")
+			to_chat(target, "<span class='notice'>Моя батарейка заряжена!</span>")
 
 
 
 /datum/plant_gene/trait/glow
 	// Makes plant glow. Makes plant in tray glow too.
 	// Adds 1 + potency*rate light range and potency*(rate + 0.01) light_power to products.
-	name = "Bioluminescence"
+	name = "Биолюминесценция"
 	rate = 0.03
-	examine_line = "<span class='info'>It emits a soft glow.</span>"
+	examine_line = "<span class='info'>Издаёт мягкое свечение.</span>"
 	trait_id = GLOW_ID
 	var/glow_color = "#C3E381"
 
@@ -339,7 +339,7 @@
 /datum/plant_gene/trait/glow/shadow
 	//makes plant emit slightly purple shadows
 	//adds -potency*(rate*0.2) light power to products
-	name = "Shadow Emission"
+	name = "Теневое излучение"
 	rate = 0.2
 	glow_color = "#AAD84B"
 
@@ -347,37 +347,37 @@
 	return -max(S.potency*(rate*0.2), 0.2)
 
 /datum/plant_gene/trait/glow/white
-	name = "White Bioluminescence"
+	name = "Белая биолюминесценция"
 	glow_color = "#FFFFFF"
 
 /datum/plant_gene/trait/glow/red
 	//Colored versions of bioluminescence.
-	name = "Red Bioluminescence"
+	name = "Красная биолюминесценция"
 	glow_color = "#FF3333"
 
 /datum/plant_gene/trait/glow/yellow
 	//not the disgusting glowshroom yellow hopefully
-	name = "Yellow Bioluminescence"
+	name = "Жёлтая биолюминесценция"
 	glow_color = "#FFFF66"
 
 /datum/plant_gene/trait/glow/green
 	//oh no, now i'm radioactive
-	name = "Green Bioluminescence"
+	name = "Зелёная биолюминесценция"
 	glow_color = "#99FF99"
 
 /datum/plant_gene/trait/glow/blue
 	//the best one
-	name = "Blue Bioluminescence"
+	name = "Синяя биолюминесценция"
 	glow_color = "#6699FF"
 
 /datum/plant_gene/trait/glow/purple
 	//did you know that notepad++ doesnt think bioluminescence is a word
-	name = "Purple Bioluminescence"
+	name = "Фиолетовая биолюминесценция"
 	glow_color = "#D966FF"
 
 /datum/plant_gene/trait/glow/pink
 	//gay tide station pride
-	name = "Pink Bioluminescence"
+	name = "Розовая биолюминесценция"
 	glow_color = "#FFB3DA"
 
 
@@ -385,7 +385,7 @@
 /datum/plant_gene/trait/teleport
 	// Makes plant teleport people when squashed or slipped on.
 	// Teleport radius is calculated as max(round(potency*rate), 1)
-	name = "Bluespace Activity"
+	name = "Блюспейс активность"
 	rate = 0.1
 
 /datum/plant_gene/trait/teleport/on_squash(obj/item/food/grown/G, atom/target)
@@ -398,7 +398,7 @@
 /datum/plant_gene/trait/teleport/on_slip(obj/item/food/grown/G, mob/living/carbon/C)
 	var/teleport_radius = max(round(G.seed.potency / 10), 1)
 	var/turf/T = get_turf(C)
-	to_chat(C, "<span class='warning'>You slip through spacetime!</span>")
+	to_chat(C, "<span class='warning'>Проскальзываю через временное пространство!</span>")
 	do_teleport(C, T, teleport_radius, channel = TELEPORT_CHANNEL_BLUESPACE)
 	if(prob(50))
 		do_teleport(G, T, teleport_radius, channel = TELEPORT_CHANNEL_BLUESPACE)
@@ -408,7 +408,7 @@
 
 /datum/plant_gene/trait/noreact
 	// Makes plant reagents not react until squashed.
-	name = "Separated Chemicals"
+	name = "Отделённые химикаты"
 
 /datum/plant_gene/trait/noreact/on_squash(obj/item/food/grown/G, atom/target)
 	G?.reagents?.flags &= ~(NO_REACT)
@@ -422,7 +422,7 @@
  */
 /datum/plant_gene/trait/maxchem
 	// 2x to max reagents volume.
-	name = "Densified Chemicals"
+	name = "Уплотнённые химикаты"
 	rate = 2
 	trait_flags = TRAIT_HALVES_YIELD
 
@@ -431,7 +431,7 @@
 	G.max_volume *= rate
 
 /datum/plant_gene/trait/repeated_harvest
-	name = "Perennial Growth"
+	name = "Многолетние растение"
 
 /datum/plant_gene/trait/repeated_harvest/can_add(obj/item/seeds/S)
 	if(!..())
@@ -441,13 +441,13 @@
 	return TRUE
 
 /datum/plant_gene/trait/battery
-	name = "Capacitive Cell Production"
+	name = "Производство батареек"
 
 /datum/plant_gene/trait/battery/on_attackby(obj/item/food/grown/G, obj/item/I, mob/user)
 	if(istype(I, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/C = I
 		if(C.use(5))
-			to_chat(user, "<span class='notice'>You add some cable to [G] and slide it inside the battery encasing.</span>")
+			to_chat(user, "<span class='notice'>Добавляю провода в [G] и вставляю его в корпус батарейки.</span>")
 			var/obj/item/stock_parts/cell/potato/pocell = new /obj/item/stock_parts/cell/potato(user.loc)
 			pocell.icon_state = G.icon_state
 			pocell.maxcharge = G.seed.potency * 20
@@ -465,11 +465,11 @@
 
 			qdel(G)
 		else
-			to_chat(user, "<span class='warning'>You need five lengths of cable to make a [G] battery!</span>")
+			to_chat(user, "<span class='warning'>Нужно минимум пять мотков кабеля, чтобы сделать [G] батарейку!</span>")
 
 
 /datum/plant_gene/trait/stinging
-	name = "Hypodermic Prickles"
+	name = "Подкожные колючки"
 
 /datum/plant_gene/trait/stinging/on_slip(obj/item/food/grown/G, atom/target)
 	on_throw_impact(G, target)
@@ -480,11 +480,11 @@
 		if(L.reagents && L.can_inject(null, 0))
 			var/injecting_amount = max(1, G.seed.potency*0.2) // Minimum of 1, max of 20
 			G.reagents.trans_to(L, injecting_amount, methods = INJECT)
-			to_chat(target, "<span class='danger'>You are pricked by [G]!</span>")
+			to_chat(target, "<span class='danger'>Укололся [G]!</span>")
 			log_combat(G, L, "pricked and attempted to inject reagents from [G] to [L]. Last touched by: [G.fingerprintslast].")
 
 /datum/plant_gene/trait/smoke
-	name = "Gaseous Decomposition"
+	name = "Газообразное разложение"
 
 /datum/plant_gene/trait/smoke/on_squash(obj/item/food/grown/G, atom/target)
 	var/datum/effect_system/smoke_spread/chem/S = new
@@ -496,7 +496,7 @@
 	G.reagents.clear_reagents()
 
 /datum/plant_gene/trait/fire_resistance // Lavaland
-	name = "Fire Resistance"
+	name = "Огнестойкость"
 
 /datum/plant_gene/trait/fire_resistance/apply_vars(obj/item/seeds/S)
 	if(!(S.resistance_flags & FIRE_PROOF))
@@ -508,7 +508,7 @@
 
 ///Invasive spreading lets the plant jump to other trays, the spreading plant won't replace plants of the same type.
 /datum/plant_gene/trait/invasive
-	name = "Invasive Spreading"
+	name = "Агрессивное распространение"
 
 /datum/plant_gene/trait/invasive/on_grow(obj/machinery/hydroponics/our_tray)
 	for(var/step_dir in GLOB.alldirs)
@@ -520,7 +520,7 @@
 			if(spread_tray.myseed) // Check if there's another seed in the next tray.
 				if(spread_tray.myseed.type == our_tray.myseed.type && !spread_tray.dead)
 					continue // It should not destroy its own kind.
-				spread_tray.visible_message("<span class='warning'>The [spread_tray.myseed.plantname] is overtaken by [our_tray.myseed.plantname]!</span>")
+				spread_tray.visible_message("<span class='warning'> [spread_tray.myseed.plantname] был постигнут [our_tray.myseed.plantname]!</span>")
 				QDEL_NULL(spread_tray.myseed)
 			spread_tray.myseed = our_tray.myseed.Copy()
 			spread_tray.age = 0
@@ -531,7 +531,7 @@
 			spread_tray.weedlevel = 0 // Reset
 			spread_tray.pestlevel = 0 // Reset
 			spread_tray.update_icon()
-			spread_tray.visible_message("<span class='warning'>The [our_tray.myseed.plantname] spreads!</span>")
+			spread_tray.visible_message("<span class='warning'> [our_tray.myseed.plantname] распространяется!</span>")
 			if(spread_tray.myseed)
 				spread_tray.name = "[initial(spread_tray.name)] ([spread_tray.myseed.plantname])"
 			else
@@ -546,7 +546,7 @@
  * Incompatible with auto-juicing composition.
  */
 /datum/plant_gene/trait/brewing
-	name = "Auto-Distilling Composition"
+	name = "Автоматическая очистка"
 	trait_id = CONTENTS_CHANGE_ID
 
 /**
@@ -555,7 +555,7 @@
  * Incompatible with auto-distilling composition.
  */
 /datum/plant_gene/trait/juicing
-	name = "Auto-Juicing Composition"
+	name = "Автоматическое выжимание сока"
 	trait_id = CONTENTS_CHANGE_ID
 
 /**
@@ -564,7 +564,7 @@
  * Just like slippery skin, if we have a trash type this only functions on that. (Banana peels)
  */
 /datum/plant_gene/trait/plant_laughter
-	name = "Hallucinatory Feedback"
+	name = "Отклик галлюцинации"
 	/// Sounds that play when this trait triggers
 	var/list/sounds = list('sound/items/SitcomLaugh1.ogg', 'sound/items/SitcomLaugh2.ogg', 'sound/items/SitcomLaugh3.ogg')
 	/// Whether or not we can trigger. (If we have a trash type it'll trigger on that instead)
@@ -579,7 +579,7 @@
 	if(!can_trigger)
 		return
 
-	G.audible_message("<span_class='notice'>[G] lets out burst of laughter.</span>")
+	G.audible_message("<span_class='notice'>[G] очень выразительно смеётся.</span>")
 	playsound(G, pick(sounds), 100, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 /**
@@ -588,7 +588,7 @@
  * Has no functional purpose outside of causing japes, adds eyes over the plant's sprite, which are adjusted for size by potency.
  */
 /datum/plant_gene/trait/eyes
-	name = "Oculary Mimicry"
+	name = "Глазная мимикрия"
 	var/mutable_appearance/googly
 
 /datum/plant_gene/trait/eyes/on_new(obj/item/food/grown/G, newloc)
@@ -598,7 +598,7 @@
 	G.add_overlay(googly)
 
 /datum/plant_gene/trait/sticky
-	name = "Prickly Adhesion"
+	name = "Колючая клейкость"
 
 /datum/plant_gene/trait/sticky/on_new(obj/item/food/grown/G, newloc)
 	. = ..()
@@ -619,7 +619,7 @@
  * This requires nutriment to fuel. 1u nutriment = 25 K.
  */
 /datum/plant_gene/trait/chem_heating
-	name = "Exothermic Activity"
+	name = "Экзотермическая активность"
 	trait_id = TEMP_CHANGE_ID
 	trait_flags = TRAIT_HALVES_YIELD
 
@@ -628,25 +628,25 @@
  * This requires nutriment to fuel. 1u nutriment = -5 K.
  */
 /datum/plant_gene/trait/chem_cooling
-	name = "Endothermic Activity"
+	name = "Эндотермическая активность"
 	trait_id = TEMP_CHANGE_ID
 	trait_flags = TRAIT_HALVES_YIELD
 
 /datum/plant_gene/trait/plant_type // Parent type
-	name = "you shouldn't see this"
+	name = "Ты не должен этого видеть"
 	trait_id = PLANT_TYPE_ID
 
 /datum/plant_gene/trait/plant_type/weed_hardy
-	name = "Weed Adaptation"
+	name = "Адаптация к сорнякам"
 
 /datum/plant_gene/trait/plant_type/fungal_metabolism
-	name = "Fungal Vitality"
+	name = "Способ жизни грибов"
 
 /datum/plant_gene/trait/plant_type/alien_properties
 	name ="?????"
 
 /datum/plant_gene/trait/plant_type/carnivory
-	name = "Obligate Carnivory"
+	name = "Обязательная плотоядность"
 
 /datum/plant_gene/trait/oxygenerator
 	name = "Генерация кислорода"

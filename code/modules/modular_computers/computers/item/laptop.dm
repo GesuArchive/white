@@ -1,6 +1,6 @@
 /obj/item/modular_computer/laptop
-	name = "laptop"
-	desc = "A portable laptop computer."
+	name = "Ноутбук"
+	desc = "Портативный ноутбук"
 
 	icon = 'icons/obj/modular_laptop.dmi'
 	icon_state = "laptop-closed"
@@ -26,7 +26,7 @@
 /obj/item/modular_computer/laptop/examine(mob/user)
 	. = ..()
 	if(screen_on)
-		. += "<hr><span class='notice'>Alt-click to close it.</span>"
+		. += "<hr><span class='notice'>Нажмите на "Alt", чтобы закрыть это.</span>"
 
 /obj/item/modular_computer/laptop/Initialize()
 	. = ..()
@@ -101,11 +101,11 @@
 
 /obj/item/modular_computer/laptop/proc/toggle_open(mob/living/user=null)
 	if(screen_on)
-		to_chat(user, "<span class='notice'>You close <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>Я закрываю <b>[src.name]</b>.</span>")
 		slowdown = initial(slowdown)
 		w_class = initial(w_class)
 	else
-		to_chat(user, "<span class='notice'>You open <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>Я открываю <b>[src.name]</b>.</span>")
 		slowdown = slowdown_open
 		w_class = w_class_open
 

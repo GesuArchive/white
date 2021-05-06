@@ -3,8 +3,8 @@
 
 /datum/action/item_action/ninjaboost
 	check_flags = NONE
-	name = "Adrenaline Boost"
-	desc = "Inject a secret chemical that will counteract all movement-impairing effect."
+	name = "Инъекция адреналина"
+	desc = "Введите секретное химическое вещество, которое нейтрализует все эффекты, затрудняющие движение."
 	button_icon_state = "repulse"
 	icon_icon = 'icons/mob/actions/actions_spells.dmi'
 
@@ -29,7 +29,7 @@
 	ninja.reagents.add_reagent(/datum/reagent/medicine/stimulants, 5)
 	ninja.say(pick("A CORNERED FOX IS MORE DANGEROUS THAN A JACKAL!","HURT ME MOOORRREEE!","IMPRESSIVE!"), forced = "ninjaboost")
 	a_boost = FALSE
-	to_chat(ninja, "<span class='notice'>You have used the adrenaline boost.</span>")
+	to_chat(ninja, "<span class='notice'>Я ввёл себе инъекцию адреналина.</span>")
 	s_coold = 6
 	addtimer(CALLBACK(src, .proc/ninjaboost_after), 70)
 
@@ -42,4 +42,4 @@
 /obj/item/clothing/suit/space/space_ninja/proc/ninjaboost_after()
 	var/mob/living/carbon/human/ninja = affecting
 	ninja.reagents.add_reagent(/datum/reagent/uranium/radium, a_transfer * 0.25)
-	to_chat(ninja, "<span class='danger'>You are beginning to feel the after-effect of the injection.</span>")
+	to_chat(ninja, "<span class='danger'>Я начинаю ощущать последствия инъекции.</span>")

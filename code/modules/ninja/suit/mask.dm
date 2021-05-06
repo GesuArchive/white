@@ -7,8 +7,8 @@
  *
  */
 /obj/item/clothing/mask/gas/space_ninja
-	name = "ninja mask"
-	desc = "A close-fitting mask that acts both as an air filter and a post-modern fashion statement."
+	name = "Маска ниндзя"
+	desc = "Плотно прилегающая маска, которая действует как воздушный фильтр и является образцом постмодернистской моды."
 	icon_state = "s-ninja"
 	inhand_icon_state = "s-ninja_mask"
 	strip_delay = 120

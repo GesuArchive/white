@@ -306,7 +306,7 @@
 
 /datum/blackmarket_item/clothing/monkeymask
 	name = "Маска обезьяны"
-	desc = "Become a bartender’s hand-made monkey or the goal of experiments of doctors and scientists "
+	desc = "Become a bartenderвЂ™s hand-made monkey or the goal of experiments of doctors and scientists "
 	item = /obj/item/clothing/mask/gas/monkeymask
 
 	price_min = 100

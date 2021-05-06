@@ -35,7 +35,7 @@ GLOBAL_LIST_INIT(glass_recipes, list ( \
 	source = /datum/robot_energy_storage/glass
 
 /obj/item/stack/sheet/glass/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins to slice [user.ru_ego()] neck with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] начинает разрезать шею [user.ru_ego ()] с помощью <b> [src.name] </b>! Похоже, [user.p_theyre ()] пытается совершить самоубийство!</span>")
 	return BRUTELOSS
 
 /obj/item/stack/sheet/glass/five
@@ -271,7 +271,7 @@ GLOBAL_LIST_INIT(plastitaniumglass_recipes, list(
 
 
 /obj/item/shard/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is slitting [user.ru_ego()] [pick("wrists", "throat")] with the shard of glass! It looks like [user.p_theyre()] trying to commit suicide.</span>")
+	user.visible_message("<span class='suicide'>[user] режет [user.ru_ego()] [pick("wrists", "throat")] осколком стекла! Похоже, [user.p_theyre()] пытается совершить самоубийство.</span>")
 	return (BRUTELOSS)
 
 

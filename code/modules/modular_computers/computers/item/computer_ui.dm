@@ -30,7 +30,7 @@
 	// This screen simply lists available programs and user may select them.
 	var/obj/item/computer_hardware/hard_drive/hard_drive = all_components[MC_HDD]
 	if(!hard_drive || !hard_drive.stored_files || !hard_drive.stored_files.len)
-		to_chat(user, "<span class='danger'><b>[src.name]</b> beeps three times, it's screen displaying a \"DISK ERROR\" warning.</span>")
+		to_chat(user, "<span class='danger'><b>[src.name]</b>издает три звуковых сигнала, на экране отображается предупреждение \"ОШИБКА ДИСКА\".</span>")
 		return // No HDD, No HDD files list or no stored files. Something is very broken.
 
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -126,7 +126,7 @@
 				return
 
 			P.kill_program(forced = TRUE)
-			to_chat(user, "<span class='notice'>Program [P.filename].[P.filetype] with PID [rand(100,999)] has been killed.</span>")
+			to_chat(user, "<span class='notice'>Программа [P.filename].[P.filetype] с PID [rand(100,999)] была уничтожена.</span>")
 
 		if("PC_runprogram")
 			var/prog = params["name"]
@@ -136,7 +136,7 @@
 				P = hard_drive.find_file_by_name(prog)
 
 			if(!P || !istype(P)) // Program not found or it's not executable program.
-				to_chat(user, "<span class='danger'><b>[src.name]</b>'s screen shows \"I/O ERROR - Unable to run program\" warning.</span>")
+				to_chat(user, "<span class='danger'><b>[src.name]</b>'s экран показывает предупреждение \"I/O ОШИБКА — невозможно запустить программу\".</span>")
 				return
 
 			P.computer = src
@@ -156,11 +156,11 @@
 			var/obj/item/computer_hardware/processor_unit/PU = all_components[MC_CPU]
 
 			if(idle_threads.len > PU.max_idle_programs)
-				to_chat(user, "<span class='danger'><b>[src.name]</b> displays a \"Maximal CPU load reached. Unable to run another program.\" error.</span>")
+				to_chat(user, "<span class='danger'><b>[src.name]</b> отображает ошибку \"Достигнута максимальная загрузка процессора. Невозможно запустить другую программу.\".</span>")
 				return
 
 			if(P.requires_ntnet && !get_ntnet_status(P.requires_ntnet_feature)) // The program requires NTNet connection, but we are not connected to NTNet.
-				to_chat(user, "<span class='danger'><b>[src.name]</b>'s screen shows \"Unable to connect to NTNet. Please retry. If problem persists contact your system administrator.\" warning.</span>")
+				to_chat(user, "<span class='danger'><b>[src.name]</b>'s экран отображает \"Невозможно подсоединиться к NTNet. Попробуйте заново. Если проблема не исчезнет, обратитесь к системному администратору.\" предупреждение.</span>")
 				return
 			if(P.run_program(user))
 				active_program = P
@@ -179,7 +179,7 @@
 				if(!new_color)
 					return
 				if(color_hex2num(new_color) < 200) //Colors too dark are rejected
-					to_chat(user, "<span class='warning'>That color is too dark! Choose a lighter one.</span>")
+					to_chat(user, "<span class='warning'>Этот цвет слишком темный! Выберите какой-то посветлее..</span>")
 					new_color = null
 			return set_flashlight_color(new_color)
 

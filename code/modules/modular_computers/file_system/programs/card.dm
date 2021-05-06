@@ -131,7 +131,7 @@
 				return
 			if(!authenticated)
 				return
-			var/contents = {"<h4>Access Report</h4>
+			var/contents = {"<h4>Отчёт о доступе</h4>
 						<u>Prepared By:</u> [user_id_card?.registered_name ? user_id_card.registered_name : "Неизвестный"]<br>
 						<u>For:</u> [target_id_card.registered_name ? target_id_card.registered_name : "Unregistered"]<br>
 						<hr>
@@ -145,11 +145,11 @@
 					contents += "  [get_access_desc(A)]"
 
 			if(!printer.print_text(contents,"access report"))
-				to_chat(usr, "<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
+				to_chat(usr, "<span class='notice'>Аппаратная ошибка: принтеру не удалось распечатать файл. Возможно, закончилась бумага.</span>")
 				return
 			else
 				playsound(computer, 'sound/machines/terminal_on.ogg', 50, FALSE)
-				computer.visible_message("<span class='notice'>\The [computer] prints out a paper.</span>")
+				computer.visible_message("<span class='notice'>\[computer] печатает бумагу.</span>")
 			return TRUE
 		if("PRG_eject")
 			if(!computer || !card_slot2)
@@ -210,7 +210,7 @@
 							job = J
 							break
 					if(!job)
-						to_chat(user, "<span class='warning'>No class exists for this job: [target]</span>")
+						to_chat(user, "<span class='warning'>Для этой роли не существует класса: [target]</span>")
 						return
 					new_access = job.get_access()
 					for(var/logged_access in ACCESS_ALERT_ADMINS)

@@ -218,7 +218,7 @@
 
 /obj/item/clothing/head/helmet/thunderdome
 	name = "Thunderdome шлем"
-	desc = "<i>'Let the battle commence!'</i>"
+	desc = "<i>'Да начнется битва!'</i>"
 	flags_inv = HIDEEARS|HIDEHAIR
 	icon_state = "thunderdome"
 	inhand_icon_state = "thunderdome"
@@ -258,7 +258,7 @@
 
 /obj/item/clothing/head/helmet/gladiator
 	name = "шлем гладиатора"
-	desc = "Ave, Imperator, morituri te salutant."
+	desc = "Славься, Император, идущие на смерть приветствуют тебя!"
 	icon_state = "gladiator"
 	inhand_icon_state = "gladiator"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEHAIR
@@ -372,8 +372,8 @@
 	strip_delay = 80
 
 /obj/item/clothing/head/helmet/elder_atmosian
-	name = "\improper Elder Atmosian Helmet"
-	desc = "A superb helmet made with the toughest and rarest materials available to man."
+	name = "Древний Атмосианский Шлем"
+	desc = "Превосходный шлем, созданный из самых крепких и редких материалов, доступных людям."
 	icon_state = "h2helmet"
 	inhand_icon_state = "h2helmet"
 	armor = list(MELEE = 15, BULLET = 10, LASER = 30, ENERGY = 30, BOMB = 10, BIO = 10, RAD = 20, FIRE = 65, ACID = 40, WOUND = 15)

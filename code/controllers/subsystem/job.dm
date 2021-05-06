@@ -610,7 +610,7 @@ SUBSYSTEM_DEF(job)
 	if(PopcapReached())
 		JobDebug("Popcap overflow Check observer located, Player: [player]")
 	JobDebug("Player rejected :[player]")
-	to_chat(player, "<b>You have failed to qualify for any job you desired.</b>")
+	to_chat(player, "<b>Вас не приняли ни на одну должность, которую вы хотели занять.</b>")
 	unassigned -= player
 	player.ready = PLAYER_NOT_READY
 

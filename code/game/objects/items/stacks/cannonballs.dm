@@ -1,6 +1,6 @@
 /obj/item/stack/cannonball
-	name = "cannonballs"
-	desc = "A stack of heavy plasteel cannonballs. Gunnery for the space age!"
+	name = "пушечные ядра"
+	desc = "Куча тяжелых ядер из пластали. Артиллерия космической эры!"
 	icon_state = "cannonballs"
 	max_amount = 14
 	singular_name = "cannonball"
@@ -25,9 +25,9 @@
 	amount = 14
 
 /obj/item/stack/cannonball/shellball
-	name = "explosive shellballs"
+	name = "разрывные снаряды"
 	singular_name = "explosive shellball"
-	desc = "An explosive anti-materiel and counter-battery projectile cannonball. Makes great work out of any wall, for easy entrances."
+	desc = "Пушечное ядро с анти-материальными и зенитными снарядами. Отлично справляется с стенами, создавая проходы."
 	color = "#FF0000"
 	merge_type = /obj/item/stack/cannonball/shellball
 	projectile_type = /obj/projectile/bullet/cannonball/explosive
@@ -39,18 +39,18 @@
 	amount = 14
 
 /obj/item/stack/cannonball/emp
-	name = "malfunction shots"
+	name = "ЭМИ снаряды"
 	singular_name = "malfunction shot"
 	icon_state = "emp_cannonballs"
-	desc = "A shot filled with two chambers that combine on impact, creating a chemical EMP. What does any of that mean? Who knows. Modern piracy really lost its soul with these newfangled things."
+	desc = "Снаряд внутри которого две камеры, которые объединяются при ударе, создавая химический электромагнитный импульс. Что все это значит? Кто знает. Современное пиратство действительно лишилось души с этими новомодными девайсами."
 	max_amount = 4
 	merge_type = /obj/item/stack/cannonball/emp
 	projectile_type = /obj/projectile/bullet/cannonball/emp
 
 /obj/item/stack/cannonball/the_big_one
-	name = "\"The Biggest Ones\""
+	name = "\"Здоровяк\""
 	singular_name = "\"The Biggest One\""
-	desc = "An insane amount of explosives jammed into a massive cannonball. The last cannonball you'll ever fire in a fight, mostly because there'll be nothing left to shoot at afterwards."
+	desc = "Безумное количество взрывчатки в огромном пушечном ядре. Последнее пушечное ядро, которое вы выстрелите в бою, в основном потому, что после этого стрелять будет не в кого.."
 	max_amount = 5
 	icon_state = "biggest_cannonballs"
 	merge_type = /obj/item/stack/cannonball/the_big_one

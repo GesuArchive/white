@@ -1,6 +1,6 @@
 /obj/item/computer_hardware/hard_drive
-	name = "hard disk drive"
-	desc = "A small HDD, for use in basic computers where power efficiency is desired."
+	name = "Привод жесткого диска"
+	desc = "Небольшой жесткий диск для использования в базовых компьютерах, где требуется энергоэффективность."
 	power_usage = 25
 	icon_state = "harddisk_mini"
 	critical = 1
@@ -20,13 +20,13 @@
 
 /obj/item/computer_hardware/hard_drive/examine(user)
 	. = ..()
-	. += "<hr><span class='notice'>It has [max_capacity] GQ of storage capacity.</span>"
+	. += "<hr><span class='notice'>Он имеет [max_capacity] GQ ёмкость хранения.</span>"
 
 /obj/item/computer_hardware/hard_drive/diagnostics(mob/user)
 	..()
 	// 999 is a byond limit that is in place. It's unlikely someone will reach that many files anyway, since you would sooner run out of space.
-	to_chat(user, "NT-NFS File Table Status: [stored_files.len]/999")
-	to_chat(user, "Storage capacity: [used_capacity]/[max_capacity]GQ")
+	to_chat(user, "Статус файловой таблицы NT-NFS: [stored_files.len]/999")
+	to_chat(user, "Ёмкость накопителя: [used_capacity]/[max_capacity]GQ")
 
 // Use this proc to add file to the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
 /obj/item/computer_hardware/hard_drive/proc/store_file(datum/computer_file/F)
@@ -126,24 +126,24 @@
 
 
 /obj/item/computer_hardware/hard_drive/advanced
-	name = "advanced hard disk drive"
-	desc = "A hybrid HDD, for use in higher grade computers where balance between power efficiency and capacity is desired."
+	name = "Усовершенствованный привод жёсткого диска"
+	desc = "Гибридный жёсткий диск для использования в компьютерах более высокого класса, где требуется баланс между энергоэффективностью и ёмкостью."
 	max_capacity = 256
 	power_usage = 50 					// Hybrid, medium capacity and medium power storage
 	icon_state = "harddisk_mini"
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/computer_hardware/hard_drive/super
-	name = "super hard disk drive"
-	desc = "A high capacity HDD, for use in cluster storage solutions where capacity is more important than power efficiency."
+	name = "Суперпривод жёсткого диска"
+	desc = "Жёсткий диск большой емкости, используемый для кластерного хранения, где ёмкость важнее энергоэффективности."
 	max_capacity = 512
 	power_usage = 100					// High-capacity but uses lots of power, shortening battery life. Best used with APC link.
 	icon_state = "harddisk_mini"
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/computer_hardware/hard_drive/cluster
-	name = "cluster hard disk drive"
-	desc = "A large storage cluster consisting of multiple HDDs for usage in dedicated storage systems."
+	name = "Кластерный привод жёсткого диска"
+	desc = "Большой кластер хранения, состоящий из нескольких жёстких дисков для использования в выделенных системах хранения."
 	power_usage = 500
 	max_capacity = 2048
 	icon_state = "harddisk"
@@ -151,8 +151,8 @@
 
 // For tablets, etc. - highly power efficient.
 /obj/item/computer_hardware/hard_drive/small
-	name = "solid state drive"
-	desc = "An efficient SSD for portable devices."
+	name = "Твердотельный накопитель"
+	desc = "Эффективный твердотельный накопитель для портативных устройств."
 	power_usage = 10
 	max_capacity = 64
 	icon_state = "ssd_mini"
@@ -168,7 +168,7 @@
 
 // Syndicate variant - very slight better
 /obj/item/computer_hardware/hard_drive/small/syndicate
-	desc = "An efficient SSD for portable devices developed by a rival organisation."
+	desc = "Эффективный твердотельный накопитель для портативных устройств, разработанный конкурирующей организацией."
 	power_usage = 8
 	max_capacity = 70
 	var/datum/antagonist/traitor/traitor_data // Syndicate hard drive has the user's data baked directly into it on creation
@@ -185,8 +185,8 @@
 	store_file(new/datum/computer_file/program/radar/fission360(src)) //I am legitimately afraid if I don't do this, Ops players will think they just don't get a pinpointer anymore.
 
 /obj/item/computer_hardware/hard_drive/micro
-	name = "micro solid state drive"
-	desc = "A highly efficient SSD chip for portable devices."
+	name = "Микротвердотельный накопитель"
+	desc = "Высокоэффективный SSD-чип для портативных устройств."
 	power_usage = 2
 	max_capacity = 32
 	icon_state = "ssd_micro"

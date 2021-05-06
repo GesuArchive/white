@@ -1,5 +1,5 @@
 /datum/team/swarmer
-	name = "Swarmers"
+	name = "Свармеры"
 
 //Simply lists them.
 /datum/team/swarmer/roundend_report()
@@ -9,7 +9,7 @@
 	return "<div class='panel redborder'>[parts.Join("<br>")]</div>"
 
 /datum/antagonist/swarmer
-	name = "Swarmer"
+	name = "Свармер"
 	job_rank = ROLE_ALIEN
 	show_to_ghosts = TRUE
 	show_in_antagpanel = FALSE

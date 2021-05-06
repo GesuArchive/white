@@ -20,7 +20,7 @@ SUBSYSTEM_DEF(eigenstates)
 		if(!already_linked)
 			continue
 		if(length(eigen_targets[already_linked]) > 1) //Eigenstates are notorious for having cliques!
-			target.visible_message("[target] fizzes, it's already linked to something else!")
+			target.visible_message("[target] искрит: Цель уже к чему-то присоединена!")
 			targets -= target
 			continue
 		target.visible_message("[target] fizzes, collapsing it's unique wavefunction into the others!") //If we're in a eigenlink all on our own and are open to new friends
@@ -30,7 +30,7 @@ SUBSYSTEM_DEF(eigenstates)
 		return FALSE
 	var/atom/visible_atom = targets[1] //The object that'll handle the messages
 	if(length(targets) == 1)
-		visible_atom.visible_message("[targets[1]] fizzes, there's nothing it can link to!")
+		visible_atom.visible_message("[targets[1]] искрит: Не к чему присоединять-то!")
 		return FALSE
 
 	eigen_targets["[id_counter]"] = list() //Add to the master list
@@ -48,7 +48,7 @@ SUBSYSTEM_DEF(eigenstates)
 			item.alpha = 200
 			do_sparks(3, FALSE, item)
 
-	visible_atom.visible_message("The items shimmer and fizzle, turning a shade of violet blue.")
+	visible_atom.visible_message("Предметы мерцают и шипят, приобретая фиолетово-синий оттенок.")
 	id_counter++
 	return TRUE
 
@@ -110,5 +110,5 @@ SUBSYSTEM_DEF(eigenstates)
 
 ///Prevents tool use on the item
 /datum/controller/subsystem/eigenstates/proc/tool_interact(atom/source, mob/user, obj/item/item)
-	to_chat(user, "<span class='notice'>The unstable nature of [source] makes it impossible to use [item] on [source.p_them()]!</span>")
+	to_chat(user, "<span class='notice'>Особые природные свойства [source] не позволяют использовать [item] на [source.p_them()]!</span>")
 	return COMPONENT_BLOCK_TOOL_ATTACK

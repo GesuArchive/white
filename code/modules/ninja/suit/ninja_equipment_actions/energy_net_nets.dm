@@ -8,8 +8,8 @@
  * been removed.
  */
 /obj/structure/energy_net
-	name = "energy net"
-	desc = "It's a net made of green energy."
+	name = "Энергетическая сеть"
+	desc = "Это сеть из зеленой энергии."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "energynet"
 
@@ -31,7 +31,7 @@
 
 /obj/structure/energy_net/Destroy()
 	if(!QDELETED(affecting))
-		affecting.visible_message("<span class='notice'>[affecting.name] is recovered from the energy net!</span>", "<span class='notice'>You are recovered from the energy net!</span>", "<span class='hear'>You hear a grunt.</span>")
+		affecting.visible_message("<span class='notice'>[affecting.name] восстанавливается из энергосети!</span>", "<span class='notice'>Я восстанавливаюсь за счёт энергосети!</span>", "<span class='hear'>Вы слышите ворчание.</span>")
 	affecting = null
 	return ..()
 

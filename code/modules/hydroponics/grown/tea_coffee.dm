@@ -1,7 +1,7 @@
 // Tea
 /obj/item/seeds/tea
-	name = "pack of tea aspera seeds"
-	desc = "These seeds grow into tea plants."
+	name = "Пачка семян чая асперы"
+	desc = "Эти семена вырастают в чай."
 	icon_state = "seed-teaaspera"
 	species = "teaaspera"
 	plantname = "Tea Aspera Plant"
@@ -18,8 +18,8 @@
 
 /obj/item/food/grown/tea
 	seed = /obj/item/seeds/tea
-	name = "Tea Aspera tips"
-	desc = "These aromatic tips of the tea plant can be dried to make tea."
+	name = "Листочки чая асперы"
+	desc = "Ароматные листочки чая могут быть высушены, чтобы заварить чай."
 	icon_state = "tea_aspera_leaves"
 	grind_results = list(/datum/reagent/toxin/teapowder = 0)
 	dry_grind = TRUE
@@ -27,7 +27,7 @@
 
 // Tea Astra
 /obj/item/seeds/tea/astra
-	name = "pack of tea astra seeds"
+	name = "Пачка семян чая астры"
 	icon_state = "seed-teaastra"
 	species = "teaastra"
 	plantname = "Tea Astra Plant"
@@ -38,15 +38,15 @@
 
 /obj/item/food/grown/tea/astra
 	seed = /obj/item/seeds/tea/astra
-	name = "Tea Astra tips"
+	name = "Листочки чая астры"
 	icon_state = "tea_astra_leaves"
 	grind_results = list(/datum/reagent/toxin/teapowder = 0, /datum/reagent/medicine/salglu_solution = 0)
 
 
 // Coffee
 /obj/item/seeds/coffee
-	name = "pack of coffee arabica seeds"
-	desc = "These seeds grow into coffee arabica bushes."
+	name = "Пачка семян кофе арабики"
+	desc = "Эти семена вырастают в кусты кофе арабики."
 	icon_state = "seed-coffeea"
 	species = "coffeea"
 	plantname = "Coffee Arabica Bush"
@@ -65,8 +65,8 @@
 
 /obj/item/food/grown/coffee
 	seed = /obj/item/seeds/coffee
-	name = "coffee arabica beans"
-	desc = "Dry them out to make coffee."
+	name = "Кофе арабика в зёрнах"
+	desc = "Засуши их, чтобы сделать кофе."
 	icon_state = "coffee_arabica"
 	bite_consumption_mod = 2
 	dry_grind = TRUE
@@ -75,8 +75,8 @@
 
 // Coffee Robusta
 /obj/item/seeds/coffee/robusta
-	name = "pack of coffee robusta seeds"
-	desc = "These seeds grow into coffee robusta bushes."
+	name = "Пачка семян кофе робуста"
+	desc = "Эти семена вырастают в кусты кофе робуста."
 	icon_state = "seed-coffeer"
 	species = "coffeer"
 	plantname = "Coffee Robusta Bush"
@@ -87,7 +87,7 @@
 
 /obj/item/food/grown/coffee/robusta
 	seed = /obj/item/seeds/coffee/robusta
-	name = "coffee robusta beans"
-	desc = "Increases robustness by 37 percent!"
+	name = "Кофе робуста в зёрнах"
+	desc = "Повышает бодрость на 37 процентов!!"
 	icon_state = "coffee_robusta"
 	grind_results = list(/datum/reagent/toxin/coffeepowder = 0, /datum/reagent/medicine/morphine = 0)
