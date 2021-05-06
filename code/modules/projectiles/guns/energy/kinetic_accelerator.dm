@@ -253,11 +253,15 @@
 	. = ..()
 	. += "<hr><span class='notice'>Занимает <b>[cost]%</b> от общей вместимости модификаций.</span>"
 
+
+//фикс суперакселей с апгрейдами на дамаг.
+/*
 /obj/item/borg/upgrade/modkit/attackby(obj/item/A, mob/user)
 	if(istype(A, /obj/item/gun/energy/kinetic_accelerator) && !issilicon(user))
 		install(A, user)
 	else
 		..()
+*/
 
 /obj/item/borg/upgrade/modkit/action(mob/living/silicon/robot/R)
 	. = ..()
