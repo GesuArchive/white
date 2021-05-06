@@ -192,13 +192,13 @@
 		if(!msg)
 			return
 
-	var/rawmsg = msg
+	var/rawmsg = msg //FUCKING RAW
 
 	if(holder)
 		msg = emoji_parse(msg)
 
 	var/keywordparsedmsg = keywords_lookup(msg)
-
+	rawmsg = html_decode(rawmsg) //finally, some good fucking PMs
 	if(external)
 		to_chat(src,
 			type = MESSAGE_TYPE_ADMINPM,
