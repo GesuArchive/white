@@ -39,7 +39,7 @@
 				. += "<hr>It has a slot installed for an intelliCard which contains: [ai_slot.stored_card.name]"
 			else
 				. += "<hr>It has a slot installed for an intelliCard, which appears to be occupied."
-			. += "<hr><span class='info'>Нажмите "Alt" для извлечения intelliCard.</span>"
+			. += "<hr><span class='info'>Нажмите \"Alt\" для извлечения intelliCard.</span>"
 		else
 			. += "<hr>It has a slot installed for an intelliCard."
 
@@ -55,7 +55,7 @@
 				. += "It has [multiple_slots ? "two slots" : "a slot"] for identification cards installed[multiple_cards ? " which contain [first_ID] and [second_ID]" : ", one of which contains [first_ID ? first_ID : second_ID]"]."
 			else
 				. += "It has [multiple_slots ? "two slots" : "a slot"] for identification cards installed, [multiple_cards ? "both of which appear" : "and one of them appears"] to be occupied."
-			. += "<span class='info'>Нажмите "Alt" [src] для извлечения карты идентификации[multiple_cards ? "s":""].</span>"
+			. += "<span class='info'>Нажмите \"Alt\" [src] для извлечения карты идентификации[multiple_cards ? "s":""].</span>"
 		else
 			. += "It has [multiple_slots ? "two slots" : "a slot"] installed for identification cards."
 

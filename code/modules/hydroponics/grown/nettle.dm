@@ -96,7 +96,7 @@
 	. = ..()
 	if(prob(50))
 		user.Paralyze(100)
-			to_chat(user, "<span class='userdanger'>[capitalize(src.name)] обжигает мою руку, когда я пытаюсь дотронуться до неё!</span>")
+		to_chat(user, "<span class='userdanger'>[capitalize(src.name)] обжигает мою руку, когда я пытаюсь дотронуться до неё!</span>")
 
 /obj/item/food/grown/nettle/death/attack(mob/living/carbon/M, mob/user)
 	if(!..())

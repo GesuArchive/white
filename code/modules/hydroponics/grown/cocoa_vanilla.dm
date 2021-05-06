@@ -1,7 +1,7 @@
 // Cocoa Pod
 /obj/item/seeds/cocoapod
 	name = "Пачка семян какао-бобов"
-	desc = "Эти семена вырастают в полноценные деревья. Кажется, они набухают.
+	desc = "Эти семена вырастают в полноценные деревья. Кажется, они набухают."
 	icon_state = "seed-cocoapod"
 	species = "cocoapod"
 	plantname = "Cocao Tree"

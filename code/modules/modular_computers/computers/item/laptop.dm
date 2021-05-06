@@ -26,7 +26,7 @@
 /obj/item/modular_computer/laptop/examine(mob/user)
 	. = ..()
 	if(screen_on)
-		. += "<hr><span class='notice'>Нажмите на "Alt", чтобы закрыть это.</span>"
+		. += "<hr><span class='notice'>Нажмите на \"Alt\", чтобы закрыть это.</span>"
 
 /obj/item/modular_computer/laptop/Initialize()
 	. = ..()
