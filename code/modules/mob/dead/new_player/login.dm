@@ -15,9 +15,9 @@
 
 	var/list/locinfo = client.get_loc_info()
 
-	var/crsc = client.crawler_sanity_check()
-
-	to_chat(src, "<div class='examine_block'><span class='greenannounce'><center>WHITE DREAM UAC</center><hr>ПОЛЬЗОВАТЕЛЬ: [capitalize(client.ckey)]\nСТРАНА: [capitalize(locinfo["country"])]\nИГРОВОЕ ВРЕМЯ: [capitalize(client.get_exp_living())]</span><span class='[crsc ? "greenannounce" : "boldwarning"]'>\nВХОД [crsc ? "РАЗРЕШЁН" : "БЫЛ ЗАПИСАН НАШЕЙ СИСТЕМОЙ \[<a href='https://crawler.station13.ru/?ckey=[ckey]'>?</a>\] \[<a href='https://station13.ru/ru/purgatory'>ЧТО ЭТО?</a>\]"]</span><hr></div>")
+	spawn(-1)
+		var/crsc = client.crawler_sanity_check()
+		to_chat(src, "<div class='examine_block'><span class='greenannounce'><center>WHITE DREAM UAC</center><hr>ПОЛЬЗОВАТЕЛЬ: [capitalize(client.ckey)]\nСТРАНА: [capitalize(locinfo["country"])]\nИГРОВОЕ ВРЕМЯ: [capitalize(client.get_exp_living())]</span><span class='[crsc ? "greenannounce" : "boldwarning"]'>\nВХОД [crsc ? "РАЗРЕШЁН" : "БЫЛ ЗАПИСАН НАШЕЙ СИСТЕМОЙ \[<a href='https://crawler.station13.ru/?ckey=[ckey]'>?</a>\] \[<a href='https://station13.ru/ru/purgatory'>ЧТО ЭТО?</a>\]"]</span><hr></div>")
 
 	var/motd = global.config.motd
 	if(motd)

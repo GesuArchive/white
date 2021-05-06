@@ -330,6 +330,10 @@ const PageMain = (props, context) => {
     context, "requesting_nuke_codes", false);
   const [requestingSobr, setRequestingSobr] = useLocalState(
     context, "requesting_sobr", false);
+  const [requestingJanitors, setRequestingJanitors] = useLocalState(
+    context, "requesting_janitors", false);
+  const [requestingEngineers, setRequestingEngineers] = useLocalState(
+    context, "requesting_engineers", false);
 
   const [
     [showAlertLevelConfirm, confirmingAlertLevelTick],
@@ -473,6 +477,18 @@ const PageMain = (props, context) => {
             onClick={() => setRequestingSobr(true)}
           />}
 
+          {!!canRequestNuke && <Button
+            icon="bullhorn"
+            content="Запросить бригаду уборщиков"
+            disabled={!importantActionReady}
+            onClick={() => setRequestingJanitors(true)}
+          />}
+          {!!canRequestNuke && <Button
+            icon="bullhorn"
+            content="Запросить ремонтную бригаду"
+            disabled={!importantActionReady}
+            onClick={() => setRequestingEngineers(true)}
+          />}
           {!!emagged && <Button
             icon="undo"
             content="Восстановить стандартные каналы связи"
@@ -510,7 +526,7 @@ const PageMain = (props, context) => {
       />}
 
       {!!canRequestNuke && requestingSobr && <MessageModal
-        label="Вызов отрядя СОБРа"
+        label="Вызов отряда СОБРа"
         notice="Назовите причину по которой вы собираетесь вызвать специальный отряд быстрого реагирования на станцию."
         icon="bomb"
         buttonText="Вызвать СОБР"
@@ -523,6 +539,33 @@ const PageMain = (props, context) => {
         }}
       />}
 
+      {!!canRequestNuke && requestingJanitors && <MessageModal
+        label="Вызов бригады уборщиков"
+        notice="Назовите причину по которой вы собираетесь вызвать специальный отряд быстрого реагирования на станцию."
+        icon="bomb"
+        buttonText="Вызвать уборщиков"
+        onBack={() => setRequestingJanitors(false)}
+        onSubmit={reason => {
+          setRequestingJanitors(false);
+          act("callJanitors", {
+            reason,
+          });
+        }}
+      />}
+
+      {!!canRequestNuke && requestingEngineers && <MessageModal
+        label="Вызов бригады уборщиков"
+        notice="Назовите причину по которой вы собираетесь вызвать специальный отряд быстрого реагирования на станцию."
+        icon="bomb"
+        buttonText="Вызвать уборщиков"
+        onBack={() => setRequestingEngineers(false)}
+        onSubmit={reason => {
+          setRequestingEngineers(false);
+          act("callEngineers", {
+            reason,
+          });
+        }}
+      />}
       {!!callingShuttle && <MessageModal
         label="Эвакуация как есть"
         icon="space-shuttle"

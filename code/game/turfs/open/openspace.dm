@@ -206,3 +206,33 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	M.gets_drilled()
 	baseturfs = /turf/open/openspace/icemoon //This is to ensure that IF random turf generation produces a openturf, there won't be other turfs assigned other than openspace.
 
+/turf/open/openspace/fakez
+	planetary_atmos = TRUE
+	var/dir_to = SOUTH
+	var/offset_to = 30
+
+/turf/open/openspace/fakez/LateInitialize()
+	switch(dir_to)
+		if(WEST)
+			below_override = locate(x - offset_to, y, z)
+		if(EAST)
+			below_override = locate(x + offset_to, y, z)
+		if(NORTH)
+			below_override = locate(x, y + offset_to, z)
+		if(SOUTH)
+			below_override = locate(x, y - offset_to, z)
+	if(below_override)
+		below_override.above_override = src
+	. = ..()
+
+/turf/open/openspace/fakez/west
+	dir_to = WEST
+
+/turf/open/openspace/fakez/east
+	dir_to = EAST
+
+/turf/open/openspace/fakez/north
+	dir_to = NORTH
+
+/turf/open/openspace/fakez/south
+	dir_to = SOUTH

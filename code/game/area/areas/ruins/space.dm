@@ -2,7 +2,7 @@
 
 /area/ruin/space
 	has_gravity = FALSE
-	area_flags = UNIQUE_AREA
+	area_flags = UNIQUE_AREA | HIDDEN_AREA
 
 /area/ruin/space/has_grav
 	has_gravity = STANDARD_GRAVITY
@@ -168,6 +168,7 @@
 /area/ruin/space/has_grav/deepstorage
 	name = "Deep Storage"
 	icon_state = "storage"
+	area_flags = UNIQUE_AREA | HIDDEN_AREA
 
 /area/ruin/space/has_grav/deepstorage/airlock
 	name = "Deep Storage Airlock"
@@ -296,6 +297,7 @@
 /area/ruin/space/derelict
 	name = "Derelict Station"
 	icon_state = "storage"
+	area_flags = UNIQUE_AREA | HIDDEN_AREA
 
 /area/ruin/space/derelict/hallway/primary
 	name = "Derelict Primary Hallway"
@@ -347,10 +349,12 @@
 /area/solar/derelict_starboard
 	name = "Derelict Starboard Solar Array"
 	icon_state = "panelsS"
+	area_flags = UNIQUE_AREA | HIDDEN_AREA
 
 /area/solar/derelict_aft
 	name = "Derelict Aft Solar Array"
 	icon_state = "yellow"
+	area_flags = UNIQUE_AREA | HIDDEN_AREA
 
 /area/ruin/space/derelict/singularity_engine
 	name = "Derelict Singularity Engine"

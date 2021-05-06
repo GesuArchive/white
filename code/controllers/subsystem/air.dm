@@ -89,7 +89,8 @@ SUBSYSTEM_DEF(air)
 		var/list/pipenet_rebuilds = pipenets_needing_rebuilt
 		for(var/thing in pipenet_rebuilds)
 			var/obj/machinery/atmospherics/AT = thing
-			AT.build_network()
+			if(AT)
+				AT.build_network()
 		pipenets_needing_rebuilt.Cut()
 		if(state != SS_RUNNING)
 			return
@@ -270,10 +271,8 @@ SUBSYSTEM_DEF(air)
 	while(currentrun.len)
 		var/turf/open/T = currentrun[currentrun.len]
 		currentrun.len--
-		if (T)
-			if(istype(T))
-				T.equalize_pressure_in_zone(fire_count)
-			//equalize_pressure_in_zone(T, fire_count)
+		if (istype(T))
+			T.equalize_pressure_in_zone(fire_count)
 		if (MC_TICK_CHECK)
 			return
 

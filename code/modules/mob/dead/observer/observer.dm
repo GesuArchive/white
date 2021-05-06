@@ -313,7 +313,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(stat != DEAD)
 		succumb()
 		if(incapacitated())
-			var/response = alert(src, "Преждевременный выход из тела отбирает у меня право на донос.\nОно тебе нужно?", "Ты УВЕРЕН?", "Да", "Нет")
+			var/response = alert(src, "Преждевременный выход из тела отбирает у меня право на донос.\nОно мне нужно?", "Ты УВЕРЕН?", "Да", "Нет")
 			if(response == "Да")
 				ghostize(FALSE)
 				return
@@ -354,6 +354,12 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			x--
 
 	Moved(oldloc, direct)
+
+/mob/dead/observer/get_status_tab_items()
+	. = ..()
+	. += ""
+	//Add coords to status panel
+	. += "X:[src.x] Y:[src.y] Z:[src.z]"
 
 /mob/dead/observer/verb/reenter_corpse()
 	set category = null
@@ -431,7 +437,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		var/area/A = V
 		if(!(A.area_flags & HIDDEN_AREA))
 			filtered += A
-	var/area/thearea  = tgui_input_list(usr, "Area to jump to", "BOOYEA", filtered)
+	var/area/thearea  = tgui_input_list(usr, "Куда прыгаем?", "БУ!", filtered)
 
 	if(!thearea)
 		return

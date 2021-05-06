@@ -84,12 +84,9 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 
 			to_chat(usr, "Map: [config.map_name]")
 
-			var/list/maps = SSmapping.LoadGroup(list(), config.map_name, config.map_path, config.map_file, config.traits)
+			SSmapping.LoadGroup(list(), config.map_name, config.map_path, config.map_file, config.traits)
 
 			repopulate_sorted_areas()
-
-			for(var/datum/parsed_map/parsed in maps)
-				parsed.initTemplateBounds()
 
 /client/proc/proverka_na_obemky()
 	if(ckey in GLOB.obembalist)

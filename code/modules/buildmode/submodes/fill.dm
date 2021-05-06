@@ -1,8 +1,8 @@
 /datum/buildmode_mode/fill
 	key = "fill"
-	
+
 	use_corner_selection = TRUE
-	var/objholder = null
+	var/atom/objholder = null
 
 /datum/buildmode_mode/fill/show_help(client/c)
 	to_chat(c, "<span class='notice'>***********************************************************</span>")
@@ -55,7 +55,10 @@
 		else
 			for(var/turf/T in block(get_turf(cornerA),get_turf(cornerB)))
 				if(ispath(objholder,/turf))
-					T.PlaceOnTop(objholder)
+					T = T.ChangeTurf(objholder)
+					T.setDir(BM.build_dir)
+				else if(ispath(objholder, /obj/effect/turf_decal))
+					T.AddElement(/datum/element/decal, initial(objholder.icon), initial(objholder.icon_state), BM.build_dir, FALSE, initial(objholder.color), null, null, initial(objholder.alpha))
 				else
 					var/obj/A = new objholder(T)
 					A.setDir(BM.build_dir)

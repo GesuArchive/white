@@ -310,10 +310,7 @@
 /proc/considered_alive(datum/mind/M, enforce_human = TRUE)
 	if(M?.current)
 		if(enforce_human)
-			var/mob/living/carbon/human/H
-			if(ishuman(M.current))
-				H = M.current
-			return M.current.stat != DEAD && !issilicon(M.current) && !isbrain(M.current) && (!H || H.dna.species.id != "memezombies")
+			return M.current.stat != DEAD && !issilicon(M.current) && !isbrain(M.current)
 		else if(isliving(M.current))
 			return M.current.stat != DEAD
 	return FALSE

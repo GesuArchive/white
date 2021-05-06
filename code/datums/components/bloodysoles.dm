@@ -166,6 +166,10 @@
 
 	// Create new footprints
 	if(half_our_blood >= BLOOD_FOOTPRINTS_MIN)
+		var/turf/oldLocTurf = get_turf(parent_atom)
+		var/obj/effect/decal/cleanable/blood/footprints/oldLocFP = find_pool_by_blood_state(oldLocTurf, /obj/effect/decal/cleanable/blood/footprints)
+		if(oldLocFP)
+			qdel(oldLocFP)
 		bloody_shoes[last_blood_state] -= half_our_blood
 		update_icon()
 

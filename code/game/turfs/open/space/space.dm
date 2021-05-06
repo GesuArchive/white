@@ -25,18 +25,6 @@
 	//This is used to optimize the map loader
 	return
 
-/turf/open/space/basic/Initialize()
-	icon_state = SPACE_ICON_STATE
-	air = space_gas
-	update_air_ref()
-	vis_contents.Cut()
-	visibilityChanged()
-	if(flags_1 & INITIALIZED_1)
-		stack_trace("Warning: [src]([type]) initialized multiple times!")
-	flags_1 |= INITIALIZED_1
-	add_overlay(/obj/effect/fullbright)
-	return INITIALIZE_HINT_NORMAL
-
 /**
  * Space Initialize
  *

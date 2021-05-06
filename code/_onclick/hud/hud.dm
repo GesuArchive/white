@@ -215,7 +215,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	screenmob.update_action_buttons(1)
 	reorganize_alerts(screenmob)
 	screenmob.reload_fullscreen()
-	update_parallax_pref(screenmob)
+	update_parallax_pref(screenmob, HAS_TRAIT(screenmob, TRAIT_HACKER))
 
 	// ensure observers get an accurate and up-to-date view
 	if (!viewmob)

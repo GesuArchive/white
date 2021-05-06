@@ -97,6 +97,20 @@
 	distill_reagent = null
 	wine_power = 80
 
+/obj/item/food/grown/tomato/blue/bluespace/Initialize(mapload, obj/item/seeds/new_seed)
+	. = ..()
+	AddElement(/datum/element/plant_backfire, /obj/item/food/grown/tomato/blue/bluespace.proc/splat_user, extra_genes = list(/datum/plant_gene/trait/squash))
+
+/*
+ * Splat our tomato on our user. Called from [/datum/element/plant_backfire]
+ *
+ * user - the mob handling the bluespace tomato
+ */
+/obj/item/food/grown/tomato/blue/bluespace/proc/splat_user(mob/living/carbon/user)
+	if(prob(50))
+		to_chat(user, "<span class='danger'>[src] slips out of your hand!</span>")
+		attack_self(user)
+
 // Killer Tomato
 /obj/item/seeds/tomato/killer
 	name = "Пачка семян томата-убийцы"
@@ -122,6 +136,10 @@
 	var/awakening = 0
 	distill_reagent = /datum/reagent/consumable/ethanol/demonsblood
 
+/obj/item/food/grown/tomato/killer/Initialize(mapload, obj/item/seeds/new_seed)
+	. = ..()
+	AddElement(/datum/element/plant_backfire, /obj/item/food/grown/tomato/killer.proc/early_awaken, extra_genes = list(/datum/plant_gene/trait/squash))
+
 /obj/item/food/grown/tomato/killer/attack(mob/M, mob/user, def_zone)
 	if(awakening)
 		to_chat(user, "<span class='warning'>Помидор дёргается и виляет, не давая его съесть.</span>")
@@ -132,10 +150,21 @@
 	if(awakening || isspaceturf(user.loc))
 		return
 	to_chat(user, "<span class='notice'>Пробуждаю томата-убийцу...</span>")
-	awakening = TRUE
-	addtimer(CALLBACK(src, .proc/awaken), 3 SECONDS)
+	begin_awaken(3 SECONDS)
 	log_game("[key_name(user)] awakened a killer tomato at [AREACOORD(user)].")
 
+/*
+ * Begin the process of awakening the killer tomato.
+ *
+ * awaken_time - the time, in seconds, it will take for the tomato to spawn.
+ */
+/obj/item/food/grown/tomato/killer/proc/begin_awaken(awaken_time)
+	awakening = TRUE
+	addtimer(CALLBACK(src, .proc/awaken), awaken_time)
+
+/*
+ * Actually awaken the killer tomato, spawning the killer tomato mob.
+ */
 /obj/item/food/grown/tomato/killer/proc/awaken()
 	if(QDELETED(src))
 		return
@@ -147,3 +176,13 @@
 	K.health = K.maxHealth
 	K.visible_message("<span class='notice'>Томат-убийца дико рычит и внезапно пробуждается.</span>")
 	qdel(src)
+
+/*
+ * Wakes up our tomato early. Called from [/datum/element/plant_backfire]
+ *
+ * user - the mob handling the killer tomato
+ */
+/obj/item/food/grown/tomato/killer/proc/early_awaken(mob/living/carbon/user)
+	if(!awakening && prob(25))
+		to_chat(user, "<span class='danger'>[src] begins to growl and shake!</span>")
+		begin_awaken(1 SECONDS)

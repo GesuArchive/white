@@ -164,6 +164,9 @@
 	// We dim italicized text to make it more distinguishable from regular text
 	var/tgt_color = target.chat_color
 
+	if(!owned_by)
+		return
+
 	// Approximate text height
 	var/complete_text = "<span class='center [extra_classes.Join(" ")]' style='color: [tgt_color]'>[text]</span>"
 	var/mheight = WXH_TO_HEIGHT(owned_by.MeasureText(complete_text, null, CHAT_MESSAGE_WIDTH))

@@ -1,7 +1,7 @@
 //Floorbot
 /mob/living/simple_animal/bot/floorbot
 	name = "Флурбот"
-	desc = "Маленький робот, ремонтирующий пол, он выглядит таким взволнованным!"
+	desc = "Маленький робот, ремонтирующий пол, он выглядит таким воодушевлённым!"
 	icon = 'icons/mob/aibots.dmi'
 	icon_state = "floorbot0"
 	density = FALSE
@@ -14,7 +14,7 @@
 	model = "Floorbot"
 	bot_core = /obj/machinery/bot_core/floorbot
 	window_id = "autofloor"
-	window_name = "Автоматический станционный чинитель полов v1.1"
+	window_name = "Автоматический станционный ремонтный юнит v1.1"
 	path_image_color = "#FFA500"
 
 	var/process_type //Determines what to do when process_scan() receives a target. See process_scan() for details.
@@ -78,15 +78,15 @@
 	toggle_magnet(FALSE)
 
 /mob/living/simple_animal/bot/floorbot/set_custom_texts()
-	text_hack = "Нарушаю протоколы безопасности строительства [name]."
-	text_dehack = "Замечаю ошибки в коде [name] и убираю их."
-	text_dehack_fail = "[name] не отвечает на команды сброса!"
+	text_hack = "Отключаю протоколы безопасности [name]."
+	text_dehack = "Включаю протоколы безопасности [name]."
+	text_dehack_fail = "[name] не реагирует на команду сброса!"
 
 /mob/living/simple_animal/bot/floorbot/get_controls(mob/user)
 	var/dat
 	dat += hack(user)
 	dat += showpai(user)
-	dat += "<TT><B>Автоматический станционный чинитель полов v1.1</B></TT><BR><BR>"
+	dat += "<TT><B>Автоматический станционный ремонтный юнит v1.1</B></TT><BR><BR>" //чинитель полов это сильно.
 	dat += "Состояние: <A href='?src=[REF(src)];power=1'>[on ? "Вкл" : "Выкл"]</A><BR>"
 	dat += "Техническая панель [open ? "открыта" : "закрыта"]<BR>"
 	dat += "Special tiles: "
@@ -114,14 +114,14 @@
 
 /mob/living/simple_animal/bot/floorbot/attackby(obj/item/W , mob/user, params)
 	if(istype(W, /obj/item/stack/tile/plasteel))
-		to_chat(user, "<span class='notice'>Флурбот сам по себе воспроизводит обычную плитку.</span>")
+		to_chat(user, "<span class='notice'>[name] способен самостоятельно воспроизводить обычную плитку и не нуждается в её пополнении.</span>")
 		return
 	if(istype(W, /obj/item/stack/tile))
 		var/old_amount = tilestack ? tilestack.amount : 0
 		var/obj/item/stack/tile/tiles = W
 		if(tilestack)
 			if(!tiles.can_merge(tilestack))
-				to_chat(user, "<span class='warning'>Плитка отличается от той, что есть.</span>")
+				to_chat(user, "<span class='warning'>В флурбота уже вставлен другой вид плитки.</span>")
 				return
 			if(tilestack.amount >= maxtiles)
 				to_chat(user, "<span class='warning'>Флурбот переполнен.</span>")
@@ -133,7 +133,7 @@
 			else
 				tilestack = W
 			tilestack.forceMove(src)
-		to_chat(user, "<span class='notice'>Загружаю [tilestack.amount - old_amount] плиточек во флурбота. Теперь он содержит [tilestack.amount] плиточек.</span>")
+		to_chat(user, "<span class='notice'>Загружаю [tilestack.amount - old_amount] плиток во флурбота. Теперь он содержит [tilestack.amount] плиток.</span>")
 		return
 	else
 		..()
@@ -142,7 +142,7 @@
 	..()
 	if(emagged == 2)
 		if(user)
-			to_chat(user, "<span class='danger'>[capitalize(src.name)] жужжит и бипает.</span>")
+			to_chat(user, "<span class='danger'>[capitalize(src.name)] жужжит.</span>")
 
 ///mobs should use move_resist instead of anchored.
 /mob/living/simple_animal/bot/floorbot/proc/toggle_magnet(engage = TRUE, change_icon = TRUE)
@@ -199,7 +199,7 @@
 		return
 
 	if(prob(5))
-		audible_message("[src] издает возбужденный писк!")
+		audible_message("[src] издает возбужденный писк!") //шруман не сжимай
 
 	//Normal scanning procedure. We have tiles loaded, are not emagged.
 	if(!target && emagged < 2)
@@ -258,7 +258,7 @@
 					F.ReplaceWithLattice()
 				else
 					F.ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
-				audible_message("<span class='danger'>[capitalize(src.name)] издает возбужденный писк.</span>")
+				audible_message("<span class='danger'>[capitalize(src.name)] издает возбужденный писк.</span>") //шруман не сжимай
 				addtimer(CALLBACK(src, .proc/go_idle), 0.5 SECONDS)
 			path = list()
 			return
@@ -351,7 +351,7 @@
 				if(replacetiles && tilestack)
 					tilestack.place_tile(target_turf)
 					if(!tilestack)
-						speak("Requesting refill of custom floor tiles to continue replacing.")
+						speak("Запрашиваю пополнение запасов нестандартной плитки для продолжения строительства.")
 				else
 					target_turf.PlaceOnTop(/turf/open/floor/plasteel, flags = CHANGETURF_INHERIT_AIR)
 			else //Build a hull plating without a floor tile.
@@ -381,7 +381,7 @@
 			if(was_replacing && tilestack)
 				tilestack.place_tile(F)
 				if(!tilestack)
-					speak("Запрос на повторную замену плитки для продолжения работы.")
+					speak("Запрашиваю пополнение запасов нестандартной плитки для продолжения строительства.")
 			else
 				F.PlaceOnTop(/turf/open/floor/plasteel, flags = CHANGETURF_INHERIT_AIR)
 

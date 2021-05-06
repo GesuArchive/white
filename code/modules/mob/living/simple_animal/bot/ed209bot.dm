@@ -1,6 +1,6 @@
 /mob/living/simple_animal/bot/secbot/ed209
 	name = "ED-209 Боевой Робот"
-	desc = "Робот-охранник. Он выглядит менее чем взволнованным."
+	desc = "Робот-охранник. Он выглядит спокойным."
 	icon_state = "ed209"
 	density = TRUE
 	health = 100
@@ -11,7 +11,7 @@
 
 	model = "ED-209"
 	window_id = "autoed209"
-	window_name = "Автоматическая охранная единица v2.6"
+	window_name = "Автоматизированный охранный юнит v2.6"
 	ranged = TRUE
 	var/lastfired = 0
 	var/shot_delay = 15
@@ -30,7 +30,7 @@
 /mob/living/simple_animal/bot/secbot/ed209/set_custom_texts()
 	text_hack = "Отключаю боевой ингибитор [name]."
 	text_dehack = "Восстанавливаю боевой ингибитор [name]."
-	text_dehack_fail = "[name] игнорирует попытки ограничить его!"
+	text_dehack_fail = "[name] игнорирует попытки восстановления ингибитора!" //rip
 
 /mob/living/simple_animal/bot/secbot/ed209/emag_act(mob/user)
 	..()

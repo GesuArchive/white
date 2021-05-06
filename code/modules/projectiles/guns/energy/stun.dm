@@ -21,6 +21,7 @@
 	icon_state = "advtaser"
 	ammo_type = list(/obj/item/ammo_casing/energy/electrode, /obj/item/ammo_casing/energy/disabler)
 	ammo_x_offset = 2
+	fire_delay = 10
 
 /obj/item/gun/energy/e_gun/advtaser/cyborg
 	name = "тазер киборга"
@@ -28,7 +29,7 @@
 	can_flashlight = FALSE
 	can_charge = FALSE
 	use_cyborg_cell = TRUE
-	fire_delay = 4
+
 
 /obj/item/gun/energy/disabler
 	name = "усмиритель"

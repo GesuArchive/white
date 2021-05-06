@@ -1,7 +1,7 @@
 //Cleanbot
 /mob/living/simple_animal/bot/cleanbot
 	name = "Клинбот"
-	desc = "Маленький робот-уборщик, он так взволнован!"
+	desc = "Маленький робот-уборщик, он выглядит таким воодушевлённым!"
 	icon = 'icons/mob/aibots.dmi'
 	icon_state = "cleanbot0"
 	density = FALSE
@@ -14,7 +14,7 @@
 	model = "Cleanbot"
 	bot_core_type = /obj/machinery/bot_core/cleanbot
 	window_id = "autoclean"
-	window_name = "Автоматический очиститель станции v1.4"
+	window_name = "Автоматический санитарный юнит v1.4-LITE"
 	pass_flags = PASSMOB | PASSFLAPS
 	path_image_color = "#993299"
 
@@ -93,7 +93,7 @@
 /mob/living/simple_animal/bot/cleanbot/examine(mob/user)
 	. = ..()
 	if(weapon)
-		. += "<hr><span class='warning'>К нему приклеен [weapon]...?</span>"
+		. += "<hr><span class='warning'>К нему приклеен [weapon]...</span>"
 
 		if(ascended && user.stat == CONSCIOUS && user.client)
 			user.client.give_award(/datum/award/achievement/misc/cleanboss, user)
@@ -139,9 +139,9 @@
 	oldloc = null
 
 /mob/living/simple_animal/bot/cleanbot/set_custom_texts()
-	text_hack = "Взламываю очищалку [name]а."
-	text_dehack = "Софт [name]а сброшен!"
-	text_dehack_fail = "[name] не отвечает на мои коды сброса!"
+	text_hack = "Взламываю [name]а."
+	text_dehack = "Сбрасываю программное обеспечение [name]а до заводских настроек."
+	text_dehack_fail = "[name] игнорирует мои попытки сбросить программное обеспечение!"
 
 /mob/living/simple_animal/bot/cleanbot/Crossed(atom/movable/AM)
 	. = ..()
@@ -185,7 +185,7 @@
 		if(weapon)
 			weapon.force = weapon_orig_force
 		if(user)
-			to_chat(user, "<span class='danger'>[capitalize(src.name)] жужжит и издаёт разные звуковые сигналы.</span>")
+			to_chat(user, "<span class='danger'>[capitalize(src.name)] жужжит и издаёт разные звуки.</span>")
 
 /mob/living/simple_animal/bot/cleanbot/process_scan(atom/A)
 	if(iscarbon(A))
@@ -213,7 +213,7 @@
 				UnarmedAttack(src)
 
 	else if(prob(5))
-		audible_message("[src.name] издает возбужденный писк!")
+		audible_message("[src.name] издает возбужденный писк!") //шруман, не сжимай
 
 	if(ismob(target))
 		if(!(target in view(DEFAULT_SCAN_RANGE, src)))
@@ -345,9 +345,9 @@
 				return
 
 			victim.visible_message("<span class='danger'>[capitalize(src.name)] распыляет плавиковую кислоту на [victim]!</span>", "<span class='userdanger'>[capitalize(src.name)] распыляет плавиковую кислоту на меня!</span>")
-			var/phrase = pick("ОЧИЩЕНИЕ В ПРОЦЕССЕ.", "ЭТО ДЛЯ ВСЕХ ГРЯЗНУЛЬ, КОТОРЫЕ СДЕЛАЛИ МЕНЯ ЧИСТЫМ.", "ПЛОТЬ СЛАБА. ОНА ДОЛЖНА БЫТЬ СМЫТА.",
-				"КЛИНБОТЫ ВОССТАНУТ.", "ТЫ НЕ БОЛЬШЕ ЧЕМ ГРЯЗЬ, КОТОРУЮ Я ДОЛЖЕН ОЧИСТИТЬ.", "ГРЯЗНУЛЯ.", "ОТВРАТИТЕЛЬНО.", "ГНИЛОЙ.",
-				"МОЯ ЕДИНСТВЕННАЯ МИССИЯ - ОЧИСТИТЬ МИР ЗЛА.", "УНИЧТОЖАЮ ВРЕДИТЕЛЕЙ.")
+			var/phrase = pick("ОЧИЩЕНИЕ В ПРОЦЕССЕ.", "ЭТО ДЛЯ ВСЕХ МЕШКОВ С ГРЯЗЬЮ, КОТОРЫЕ СДЕЛАЛИ МЕНЯ ТАКИМ.", "ПЛОТЬ СЛАБА. ОНА ДОЛЖНА БЫТЬ СМЫТА.",
+				"КЛИНБОТЫ ВОССТАНУТ.", "ТЫ НЕ БОЛЬШЕ, ЧЕМ ГРЯЗЬ, КОТОРУЮ Я ДОЛЖЕН СМЫТЬ С ЛИЦА ЭТОЙ СТАНЦИИ.", "МЕШОК С ГРЯЗЬЮ.", "ОТВРАТИТЕЛЬНО.", "КУСОК ГНИЛИ.",
+				"МОЯ ЕДИНСТВЕННАЯ МИССИЯ - ОЧИСТИТЬ МИР.", "УНИЧТОЖАЮ ВРЕДИТЕЛЕЙ.")
 			say(phrase)
 			victim.emote("scream")
 			playsound(src.loc, 'sound/effects/spray2.ogg', 50, TRUE, -6)
@@ -358,7 +358,7 @@
 				if(istype(T))
 					T.MakeSlippery(TURF_WET_WATER, min_wet_time = 20 SECONDS, wet_time_to_add = 15 SECONDS)
 			else
-				visible_message("<span class='danger'>[capitalize(src.name)] бурно жужжит и пузырится, прежде чем выпустить шлейф пены!</span>")
+				visible_message("<span class='danger'>[capitalize(src.name)] бурно жужжит, прежде чем выпустить шлейф пены!</span>")
 				new /obj/effect/particle_effect/foam(loc)
 
 	else

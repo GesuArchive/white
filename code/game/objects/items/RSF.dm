@@ -10,6 +10,8 @@ RSF
 	desc = "A device used to rapidly deploy service items."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rsf"
+	inhand_icon_state = "rsf"
+	base_icon_state = "rsf"
 	///The icon state to revert to when the tool is empty
 	var/spent_icon_state = "rsf_empty"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'

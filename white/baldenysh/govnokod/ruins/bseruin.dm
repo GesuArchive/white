@@ -10,6 +10,7 @@
 /area/ruin/space/has_grav/bseruin
 	name = "BSE"
 	icon_state = "yellow"
+	area_flags = UNIQUE_AREA | HIDDEN_AREA
 
 /area/ruin/space/has_grav/bseruin/asteroid
 	name = "BSE: Астероид"

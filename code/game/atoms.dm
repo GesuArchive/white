@@ -161,7 +161,7 @@
 	var/do_initialize = SSatoms.initialized
 	if(do_initialize != INITIALIZATION_INSSATOMS)
 		args[1] = do_initialize == INITIALIZATION_INNEW_MAPLOAD
-		if(SSatoms.InitAtom(src, args))
+		if(SSatoms.InitAtom(src, FALSE, args))
 			//we were deleted
 			return
 
@@ -1503,7 +1503,7 @@
 
 	var/message = "has [what_done] [starget][postfix]"
 
-	user.log_message(message, LOG_ATTACK, color="red")
+	user?.log_message(message, LOG_ATTACK, color="red")
 
 	if(user != target)
 		var/reverse_message = "has been [what_done] by [ssource][postfix]"

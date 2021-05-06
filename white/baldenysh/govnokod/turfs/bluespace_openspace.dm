@@ -15,9 +15,6 @@
 	var/list/fall_proctected = list()
 	var/instability = 0
 
-/turf/open/openspace/bluespace/LateInitialize()
-	return
-
 /turf/open/openspace/bluespace/process()
 	instability++
 
@@ -28,18 +25,6 @@
 /turf/open/openspace/bluespace/Destroy()
 	close_rift()
 	return ..()
-
-/*
-/turf/open/openspace/bluespace/update_multiz(reset = FALSE)
-	var/turf/T = below()
-
-	if(reset)
-		vis_contents.len = 0
-		return FALSE
-	else
-		vis_contents += T
-		return TRUE
-*/
 
 /turf/open/openspace/bluespace/proc/start_collapse()
 	START_PROCESSING(SSobj, src)
@@ -92,8 +77,6 @@
 /turf/open/openspace/bluespace/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	return TRUE
 
-
-
 /turf/open/openspace/bluespace/debug
 	name = "прикольное голубое пространство"
 
@@ -102,7 +85,6 @@
 
 	var/turf/below = get_turf(get_step(get_step(src, NORTH), NORTH))
 	rift(below)
-
 
 /turf/open/openspace/bluespace/reverse
 	name = "реверсивное прикольное голубое пространство"

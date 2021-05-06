@@ -9,8 +9,16 @@ GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
 
 	GLOB.is_tournament_rules = !GLOB.is_tournament_rules
 
-	for(var/mob/M in GLOB.player_list)
-		SEND_SOUND(M, sound('white/valtos/sounds/impact.ogg'))
+	if(GLOB.is_tournament_rules)
+		for(var/turf/open/floor/dz/fuck in world)
+			var/matrix/M = matrix()
+			M.Translate(0, rand(-7, 7))
+			animate(fuck, transform = M, time = rand(15, 35), loop = -1, easing = SINE_EASING)
+			animate(transform = null, time = rand(15, 35), easing = SINE_EASING)
+
+		for(var/mob/M in GLOB.player_list)
+			M.hud_used.update_parallax_pref(M, TRUE)
+			SEND_SOUND(M, sound('white/valtos/sounds/impact.ogg'))
 
 	to_chat(world, "\n\n<span class='revenbignotice'><center>Турнирный режим теперь <b>[GLOB.is_tournament_rules ? "ВКЛЮЧЕН" : "ОТКЛЮЧЕН"]</b>.</center></span>\n\n")
 	message_admins("[ADMIN_LOOKUPFLW(usr)] переключает режимммм турнира в положение [GLOB.is_tournament_rules ? "ВКЛ" : "ВЫКЛ"].")

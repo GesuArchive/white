@@ -255,6 +255,10 @@ proc/rhtml_decode(var/t)
 		return "Советы"
 	else if (freq == "Blue Team")
 		return "Фашисты"
+	else if (freq == "Yellow Team")
+		return "Хохлы"
+	else if (freq == "Green Team")
+		return "Чечня"
 	else
 		return freq
 

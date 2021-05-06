@@ -543,7 +543,7 @@ update_label()
 	. = ..()
 	if(.)
 		return
-	if(iscarbon(user) && first_try && !HAS_TRAIT(user.mind, TRAIT_DISK_VERIFIER))
+	if(iscarbon(user) && first_try && !HAS_TRAIT(user, TRAIT_DISK_VERIFIER))
 		var/mob/living/carbon/C = user
 		to_chat(C, "<span class='warning'>Пытаюсь подобрать карту... Что может пойти не тка~</span>")
 		if(do_after(C, 10, target = src) && first_try)
@@ -558,7 +558,7 @@ update_label()
 			C.gain_trauma(/datum/brain_trauma/magic/stalker)
 			first_try = FALSE
 			anchored = FALSE
-	else if (HAS_TRAIT(user.mind, TRAIT_DISK_VERIFIER))
+	else if (HAS_TRAIT(user, TRAIT_DISK_VERIFIER))
 		to_chat(user, "<span class='notice'>Карта разминирована.</span>")
 		first_try = FALSE
 		anchored = FALSE
@@ -811,3 +811,24 @@ update_label()
 
 /obj/item/card/id/departmental_budget/AltClick(mob/living/user)
 	registered_account.bank_card_talk("<span class='warning'>Снятие денег не подходит для этого типа карт.</span>", TRUE) //prevents the vault bank machine being useless and putting money from the budget to your card to go over personal crates
+
+/obj/item/card/id/red
+	name = "Red Team identification card"
+	desc = "A card used to identify members of the red team for CTF"
+	icon_state = "ctf_red"
+
+/obj/item/card/id/blue
+	name = "Blue Team identification card"
+	desc = "A card used to identify members of the blue team for CTF"
+	icon_state = "ctf_blue"
+
+/obj/item/card/id/yellow
+	name = "Yellow Team identification card"
+	desc = "A card used to identify members of the yellow team for CTF"
+	icon_state = "ctf_yellow"
+
+/obj/item/card/id/green
+	name = "Green Team identification card"
+	desc = "A card used to identify members of the green team for CTF"
+	icon_state = "ctf_green"
+

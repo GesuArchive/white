@@ -224,6 +224,7 @@
 					t_prod.seed.genes += trait
 			t_prod.transform = initial(t_prod.transform)
 			t_prod.transform *= TRANSFORM_USING_VARIABLE(t_prod.seed.potency, 100) + 0.5
+			ADD_TRAIT(t_prod, TRAIT_PLANT_WILDMUTATE, user)
 			t_amount++
 			if(t_prod.seed)
 				t_prod.seed.set_instability(round(instability * 0.5))
@@ -302,7 +303,7 @@
 			T.reagents.remove_all_type(/datum/reagent/consumable/nutriment, num_nutriment, strict = TRUE)
 			T.reagents.chem_temp = max(3, (T.reagents.chem_temp + num_nutriment * -5))
 			T.reagents.handle_reactions()
-			playsound(T.loc, 'sound/effects/space_wind.ogg', 50)
+			playsound(T.loc, 'sound/effects/space_wind.ogg', 50, channel = open_sound_channel_for_wind())
 
 /// Setters procs ///
 
@@ -649,3 +650,21 @@
 	reagents_from_genes()
 
 	return TRUE
+
+/*
+ * Both `/item/food/grown` and `/item/grown` implement a seed variable which tracks
+ * plant statistics, genes, traits, etc. This proc gets the seed for either grown food or
+ * grown inedibles and returns it, or returns null if it's not a plant.
+ *
+ * Returns an `/obj/item/seeds` ref for grown foods or grown inedibles.
+ *  - returned seed CAN be null in weird cases but in all applications it SHOULD NOT be.
+ * Returns null if it is not a plant.
+ */
+/obj/item/proc/get_plant_seed()
+	return null
+
+/obj/item/food/grown/get_plant_seed()
+	return seed
+
+/obj/item/grown/get_plant_seed()
+	return seed

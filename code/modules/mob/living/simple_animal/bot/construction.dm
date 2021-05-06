@@ -42,8 +42,8 @@
 
 //Cleanbot assembly
 /obj/item/bot_assembly/cleanbot
-	desc = "Это ведёрко с сенсором движения."
 	name = "неполная сборка клинбота"
+	desc = "Простое ведёрко с сенсором движения."
 	icon_state = "bucket_proxy"
 	throwforce = 5
 	created_name = "Клинбот"
@@ -63,8 +63,8 @@
 
 //Edbot Assembly
 /obj/item/bot_assembly/ed209
-	name = "неполная сборка ED-209"
-	desc = "Какая-то причудливая сборка."
+	name = "Эндоскелет ED-209"
+	desc = "Какая-то причудливая конструкция."
 	icon_state = "ed209_frame"
 	inhand_icon_state = "ed209_frame"
 	created_name = "ED-209 Боевой Робот" //To preserve the name if it's a unique securitron I guess
@@ -80,7 +80,7 @@
 					return
 				to_chat(user, "<span class='notice'>Добавляю [W] к [src.name].</span>")
 				qdel(W)
-				name = "ноги/рама сборка"
+				name = "эндоскелет ED-209"
 				if(build_step == ASSEMBLY_FIRST_STEP)
 					inhand_icon_state = "ed209_leg"
 					icon_state = "ed209_leg"
@@ -95,7 +95,7 @@
 					return
 				to_chat(user, "<span class='notice'>Добавляю [W] к [src.name].</span>")
 				qdel(W)
-				name = "жилет/ноги/рама сборка"
+				name = "эндоскелет ED-209 c бронежилетом"
 				inhand_icon_state = "ed209_shell"
 				icon_state = "ed209_shell"
 				build_step++
@@ -103,7 +103,7 @@
 		if(ASSEMBLY_FOURTH_STEP)
 			if(W.tool_behaviour == TOOL_WELDER)
 				if(W.use_tool(src, user, 0, volume=40))
-					name = "почти готовая сборка"
+					name = "эндоскелет ED-209 c приваренным бронежилетом"
 					to_chat(user, "<span class='notice'>Привариваю бронежилет к [src.name].</span>")
 					build_step++
 
@@ -113,7 +113,7 @@
 					return
 				to_chat(user, "<span class='notice'>Добавляю [W] к [src.name].</span>")
 				qdel(W)
-				name = "защищённая и почти готовая сборка"
+				name = "эндоскелет ED-209 с приваренным бронежилетом и шлемом"
 				inhand_icon_state = "ed209_hat"
 				icon_state = "ed209_hat"
 				build_step++
@@ -125,7 +125,7 @@
 				build_step++
 				to_chat(user, "<span class='notice'>Добавляю [W] к [src.name].</span>")
 				qdel(W)
-				name = "закрытая, защищённая, с сенсорами и почти готовая сборка"
+				name = "Почти готовый ED-209"
 				inhand_icon_state = "ed209_prox"
 				icon_state = "ed209_prox"
 
@@ -135,19 +135,19 @@
 				if(coil.get_amount() < 1)
 					to_chat(user, "<span class='warning'>Мне потребуется кабель для сборки ED-209!</span>")
 					return
-				to_chat(user, "<span class='notice'>Начинаю делать проводку [src.name]...</span>")
+				to_chat(user, "<span class='notice'>Подключаю сенсоры ED-209...</span>")
 				if(do_after(user, 40, target = src))
 					if(coil.get_amount() >= 1 && build_step == 6)
 						coil.use(1)
-						to_chat(user, "<span class='notice'>Добавляю проводку в [src.name].</span>")
-						name = "совершенно точно почти готовая сборка ED-209"
+						to_chat(user, "<span class='notice'>Подключил сенсоры ED-209.</span>")
+						name = "Собранный ED-209 без оружия"
 						build_step++
 
 		if(7)
 			if(istype(W, /obj/item/gun/energy/disabler))
 				if(!user.temporarilyRemoveItemFromInventory(W))
 					return
-				name = "[W.name] ED-209 сборка"
+				name = "ED-209 с неприкрученным [W.name]"
 				to_chat(user, "<span class='notice'>Добавляю [W] к [src.name].</span>")
 				inhand_icon_state = "ed209_taser"
 				icon_state = "ed209_taser"
@@ -156,7 +156,7 @@
 
 		if(8)
 			if(W.tool_behaviour == TOOL_SCREWDRIVER)
-				to_chat(user, "<span class='notice'>Начинаю прикреплять пушку к роботу...</span>")
+				to_chat(user, "<span class='notice'>Начинаю прикручивать дизейблер к роботу...</span>")
 				if(W.use_tool(src, user, 40, volume=100))
 					var/mob/living/simple_animal/bot/secbot/ed209/B = new(drop_location())
 					B.name = created_name
@@ -165,8 +165,8 @@
 
 //Floorbot assemblies
 /obj/item/bot_assembly/floorbot
-	desc = "Это ящик для инструментов с торчащими сверху плитками."
-	name = "плитка и ящик с инструментами"
+	name = "плитка в ящике с инструментами"
+	desc = "Ящик для инструментов с торчащими сверху плитками."
 	icon_state = "toolbox_tiles"
 	throwforce = 10
 	created_name = "Флурбот"
@@ -186,8 +186,8 @@
 			icon_state = "[toolbox_color]toolbox_tiles"
 
 		if(ASSEMBLY_SECOND_STEP)
-			desc = "Это ящик для инструментов с торчащими сверху плитками и прикрепленным датчиком."
-			name = "неполная сборка флурбота"
+			name = "ящик для инструментов с плиткой и датчиком"
+			desc = "Странная конструкция из ящика для инструментов, плитки и универсального датчика."
 			icon_state = "[toolbox_color]toolbox_tiles_sensor"
 
 /obj/item/bot_assembly/floorbot/attackby(obj/item/W, mob/user, params)
@@ -217,8 +217,8 @@
 
 //Medbot Assembly
 /obj/item/bot_assembly/medbot
-	name = "неполная сборка медбота"
-	desc = "Аптечка с привитой рукой робота."
+	name = "разобранный медбот"
+	desc = "Аптечка с прикреплённой рукой робота."
 	icon_state = "firstaid_arm"
 	created_name = "Медбот" //To preserve the name if it's a unique medbot I guess
 	var/skin = null //Same as medbot, set to tox or ointment for the respective kits.
@@ -240,7 +240,7 @@
 				healthanalyzer = W.type
 				to_chat(user, "<span class='notice'>Добавляю [W] к [src.name].</span>")
 				qdel(W)
-				name = "аптечка/рука/анализатор сборка"
+				name = "аптечка с прикреплённой рукой робота и медицинским анализатором "
 				add_overlay("na_scanner")
 				build_step++
 
@@ -262,8 +262,8 @@
 
 //Honkbot Assembly
 /obj/item/bot_assembly/honkbot
-	name = "неполная сборка хонкбота"
-	desc = "Клоун снова не смог пошутить. Поможет ли эта штука?"
+	name = "разобранный хонкбот"
+	desc = "Преступление против человечества в процессе..."
 	icon_state = "honkbot_arm"
 	created_name = "Хонкбот"
 
@@ -276,7 +276,7 @@
 					return
 				to_chat(user, "<span class='notice'>Добавляю [I] к [src.name]!</span>")
 				icon_state = "honkbot_proxy"
-				name = "неполная сборка хонкбота"
+				name = "разобранный хонкбот"
 				qdel(I)
 				build_step++
 
@@ -296,8 +296,8 @@
 
 //Secbot Assembly
 /obj/item/bot_assembly/secbot
-	name = "неполная сборка секьюритрона"
-	desc = "Какая-то причудливая сборка из датчика приближения, шлема и сигнализатора."
+	name = "каркас секьюритрона"
+	desc = "Gричудливая сборка из датчика движения, шлема и сигналлера."
 	icon_state = "helmet_signaler"
 	inhand_icon_state = "helmet"
 	created_name = "Секьюритрон" //To preserve the name if it's a unique securitron I guess
@@ -318,7 +318,7 @@
 			else if(I.tool_behaviour == TOOL_SCREWDRIVER) //deconstruct
 				new /obj/item/assembly/signaler(Tsec)
 				new /obj/item/clothing/head/helmet/sec(Tsec)
-				to_chat(user, "<span class='notice'>Отключаю радио от шлема.</span>")
+				to_chat(user, "<span class='notice'>Отключаю радио.</span>")
 				qdel(src)
 
 		if(ASSEMBLY_SECOND_STEP)
@@ -327,14 +327,14 @@
 					return
 				to_chat(user, "<span class='notice'>Добавляю [I] к [src.name]!</span>")
 				add_overlay("hs_eye")
-				name = "шлем/сигналлер/сенсор сборка"
+				name = "каркас секьюритрона с сигналлером и сенсором"
 				qdel(I)
 				build_step++
 
 			else if(I.tool_behaviour == TOOL_WELDER) //deconstruct
 				if(I.use_tool(src, user, 0, volume=40))
 					cut_overlay("hs_hole")
-					to_chat(user, "<span class='notice'>Завариваю дырку в [src.name] полностью!</span>")
+					to_chat(user, "<span class='notice'>Завариваю дырку в [src.name]!</span>")
 					build_step--
 
 		if(ASSEMBLY_THIRD_STEP)
@@ -342,7 +342,7 @@
 				if(!user.temporarilyRemoveItemFromInventory(I))
 					return
 				to_chat(user, "<span class='notice'>Добавляю [I] к [src.name]!</span>")
-				name = "шлем/сигналлер/сенсор/рука робота сборка"
+				name = "каркас секьюритрона с сигналлером, сенсором и рукой робота"
 				add_overlay("hs_arm")
 				robot_arm = I.type
 				qdel(I)
@@ -351,14 +351,14 @@
 			else if(I.tool_behaviour == TOOL_SCREWDRIVER) //deconstruct
 				cut_overlay("hs_eye")
 				new /obj/item/assembly/prox_sensor(Tsec)
-				to_chat(user, "<span class='notice'>Отсоединяю сенсор движения от [src.name].</span>")
+				to_chat(user, "<span class='notice'>Отсоединяю датчик движения от [src.name].</span>")
 				build_step--
 
 		if(ASSEMBLY_FOURTH_STEP)
 			if(istype(I, /obj/item/melee/baton))
 				if(!can_finish_build(I, user))
 					return
-				to_chat(user, "<span class='notice'>Завершаю сборку Секьюритрона! Бип буп.</span>")
+				to_chat(user, "<span class='notice'>Завершаю сборку секьюритрона! Бип буп.</span>")
 				var/mob/living/simple_animal/bot/secbot/S = new(Tsec)
 				S.name = created_name
 				S.baton_type = I.type
@@ -366,7 +366,7 @@
 				qdel(I)
 				qdel(src)
 			if(I.tool_behaviour == TOOL_WRENCH)
-				to_chat(user, "<span class='notice'>Настраиваю руку [src.name], для возможности носить оружие.</span>")
+				to_chat(user, "<span class='notice'>Перепрограммирую руку [src.name] на использование оружия.</span>")
 				build_step ++
 				return
 			if(istype(I, /obj/item/toy/sword))
@@ -374,15 +374,15 @@
 					if(!user.temporarilyRemoveItemFromInventory(I))
 						return
 					created_name = "Генерал Бипскай"
-					name = "шлем/сигналлер/сенсор/рука робота/игрушечный меч сборка"
+					name = "каркас секьюритрона с сигналлером, сенсором, рукой робота и игрушечным мечом"
 					icon_state = "grievous_assembly"
-					to_chat(user, "<span class='notice'>Приклеиваю [I] к одной из рук [src.name].</span>")
+					to_chat(user, "<span class='notice'>Прикрепляю [I] к одной из рук [src.name].</span>")
 					qdel(I)
 					toyswordamt ++
 				else
 					if(!can_finish_build(I, user))
 						return
-					to_chat(user, "<span class='notice'>Завершаю сборку Секьюритрона!...Что-то с ним не так..?</span>")
+					to_chat(user, "<span class='notice'>Завершаю сборку секьюритрона... Кажется, что-то пошло не так...</span>")
 					var/mob/living/simple_animal/bot/secbot/grievous/toy/S = new(Tsec)
 					S.name = created_name
 					S.robot_arm = robot_arm
@@ -408,15 +408,15 @@
 					if(!user.temporarilyRemoveItemFromInventory(I))
 						return
 					created_name = "Генерал Бипскай"
-					name = "шлем/сигналлер/сенсор/рука робота/энергомеч сборка"
+					name = "каркас секьюритрона с сигналлером, сенсором, рукой робота и энергомечом" //не нашёл места, куда можно было бы вклеить шутку про тобi пiзда
 					icon_state = "grievous_assembly"
-					to_chat(user, "<span class='notice'>Прикручиваю [I] к одной из рук [src.name].</span>")
+					to_chat(user, "<span class='notice'>Прикрепляю [I] к одной из рук [src.name].</span>")
 					qdel(I)
 					swordamt ++
 				else
 					if(!can_finish_build(I, user))
 						return
-					to_chat(user, "<span class='notice'>Завершаю сборку Секьюритрона!...Что-то с ним не так..?</span>")
+					to_chat(user, "<span class='notice'>Завершаю сборку Секьюритрона!... Возможно, стоит отойти подальше.</span>")
 					var/mob/living/simple_animal/bot/secbot/grievous/S = new(Tsec)
 					S.name = created_name
 					S.robot_arm = robot_arm
@@ -433,8 +433,8 @@
 
 //Firebot Assembly
 /obj/item/bot_assembly/firebot
-	name = "неполная сборка файрбота"
-	desc = "Огнетушитель с прикрепленной к нему рукой."
+	name = "каркас файрбота"
+	desc = "Огнетушитель с прикрепленной к нему рукой. Интересно."
 	icon_state = "firebot_arm"
 	created_name = "Файрбот"
 
@@ -447,7 +447,7 @@
 					return
 				to_chat(user,"<span class='notice'>Добавляю [I] к [src.name]!</span>")
 				icon_state = "firebot_helmet"
-				desc = "Неполная сборка файрбота с пожарным шлемом."
+				desc = "Огнетушитель с робо-рукой и пожарным шлемом."
 				qdel(I)
 				build_step++
 
@@ -455,7 +455,7 @@
 			if(isprox(I))
 				if(!can_finish_build(I, user))
 					return
-				to_chat(user, "<span class='notice'>Добавляю [I] к [src.name]! Бип буп!</span>")
+				to_chat(user, "<span class='notice'>Добавляю [I] к [src.name], завершая сборку файрбота.</span>")
 				var/mob/living/simple_animal/bot/firebot/F = new(drop_location())
 				F.name = created_name
 				qdel(I)
@@ -463,8 +463,8 @@
 
 //Get cleaned
 /obj/item/bot_assembly/hygienebot
-	name = "неполная сборка гигиенобота"
-	desc = "Очистить болото раз и навсегда"
+	name = "каркас гигиенобота"
+	desc = "Очистить болото раз и навсегда."
 	icon_state = "hygienebot"
 	created_name = "Гигиенобот"
 
@@ -475,13 +475,13 @@
 		if(ASSEMBLY_FIRST_STEP)
 			if(I.tool_behaviour == TOOL_WELDER) //Construct
 				if(I.use_tool(src, user, 0, volume=40))
-					to_chat(user, "<span class='notice'>Вывариваю отверстие для воды в [src.name]!</span>")
+					to_chat(user, "<span class='notice'>Проделываю отверстие для воды в [src.name]!</span>")
 					build_step++
 					return
 			if(I.tool_behaviour == TOOL_WRENCH) //Deconstruct
 				if(I.use_tool(src, user, 0, volume=40))
 					new /obj/item/stack/sheet/metal(Tsec, 2)
-					to_chat(user, "<span class='notice'>Разбираю сборку гигиенобота.</span>")
+					to_chat(user, "<span class='notice'>Разбираю каркас гигиенобота.</span>")
 					qdel(src)
 
 		if(ASSEMBLY_SECOND_STEP)
@@ -503,15 +503,15 @@
 			if(istype(I, /obj/item/stack/ducts)) //Construct
 				var/obj/item/stack/ducts/D = I
 				if(D.get_amount() < 1)
-					to_chat(user, "<span class='warning'>Мне нужна одна труба для жидкости, чтобы завершить [src.name]</span>")
+					to_chat(user, "<span class='warning'>Мне нужна один кусок трубы, чтобы завершить сборку [src.name]</span>")
 					return
-				to_chat(user, "<span class='notice'>Начинаю добавлять трубу к [src.name]...</span>")
+				to_chat(user, "<span class='notice'>Начинаю подключать систему орошения [src.name]...</span>")
 				if(do_after(user, 40, target = src) && D.use(1))
-					to_chat(user, "<span class='notice'>Добавляю трубу к [src.name].</span>")
+					to_chat(user, "<span class='notice'>Подключаю систему орошения [src.name].</span>")
 					var/mob/living/simple_animal/bot/hygienebot/H = new(drop_location())
 					H.name = created_name
 					qdel(src)
 			if(I.tool_behaviour == TOOL_SCREWDRIVER) //deconstruct
 				new /obj/item/assembly/prox_sensor(Tsec)
-				to_chat(user, "<span class='notice'>Отсоединяю сенсор движения от [src.name].</span>")
+				to_chat(user, "<span class='notice'>Отключаю датчик движения от [src.name].</span>")
 				build_step--

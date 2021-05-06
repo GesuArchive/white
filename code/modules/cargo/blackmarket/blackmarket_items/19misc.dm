@@ -59,6 +59,20 @@
 	stock_max = 1
 	availability_prob = 10
 
+/datum/blackmarket_item/misc/amude
+	name = "видеокарта"
+	desc = "Случайная видеокарта со склада NTS."
+	item = /obj/item/mining_thing/amd
+
+	price_min = 2000
+	price_max = 10000
+	stock_max = 5
+	availability_prob = 25
+
+/datum/blackmarket_item/misc/amude/spawn_item(loc)
+	var/obj/item/mining_thing/amd/A = pick(subtypesof(/obj/item/mining_thing/amd))
+	return new A(loc)
+
 /datum/blackmarket_item/misc/rjaca
 	name = "Е-МАГ"
 	desc = "Е-маг"

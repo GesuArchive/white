@@ -15,6 +15,7 @@
 	var/mob/living/carbon/human/S = owner.current
 	owner.AddSpell(new /obj/effect/proc_holder/spell/self/shadowling_hatch(null))
 	owner.AddSpell(new /obj/effect/proc_holder/spell/self/shadowling_hivemind(null))
+	owner.AddSpell(new /obj/effect/proc_holder/spell/targeted/enthrall(null))
 	if(owner.assigned_role == "Clown")
 		to_chat(S, "<span class='notice'>Your alien nature has allowed you to overcome your clownishness.</span>")
 		S.dna.remove_mutation(CLOWNMUT)

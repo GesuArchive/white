@@ -47,7 +47,7 @@
 			kill()
 
 /datum/round_event/meteor_wave/announce(fake)
-	priority_announce("Метеоры были обнаружены на пути столкновения со станцией.", "Метеоритная тревога", 'sound/ai/announcer/meteors.ogg')
+	priority_announce("Метеоры были обнаружены на пути столкновения со станцией.", "Метеоритная тревога", ANNOUNCER_METEORS)
 
 /datum/round_event/meteor_wave/tick()
 	if(ISMULTIPLE(activeFor, 3))

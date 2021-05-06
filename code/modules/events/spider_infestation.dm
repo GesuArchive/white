@@ -13,7 +13,7 @@
 	announceWhen = rand(announceWhen, announceWhen + 50)
 
 /datum/round_event/spider_infestation/announce(fake)
-	priority_announce("Неизвестные признаки жизни обнаружены на борту [station_name()]. Заблокируйте любой внешний доступ, включая воздуховоды и вентиляцию.", "Вторжение на борт", 'sound/ai/announcer/assault.ogg')
+	priority_announce("Неизвестные признаки жизни обнаружены на борту [station_name()]. Заблокируйте любой внешний доступ, включая воздуховоды и вентиляцию.", "Вторжение на борт", ANNOUNCER_ALIENS)
 
 /datum/round_event/spider_infestation/start()
 	create_midwife_eggs(spawncount)

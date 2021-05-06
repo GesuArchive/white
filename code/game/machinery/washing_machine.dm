@@ -63,7 +63,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 		DYE_CAPTAIN = /obj/item/clothing/gloves/color/captain,
 		DYE_HOP = /obj/item/clothing/gloves/color/grey,
 		DYE_HOS = /obj/item/clothing/gloves/color/black,
-		DYE_CE = /obj/item/clothing/gloves/color/black,
+		DYE_CE = /obj/item/clothing/gloves/color/chief_engineer,
 		DYE_RD = /obj/item/clothing/gloves/color/grey,
 		DYE_CMO = /obj/item/clothing/gloves/color/latex/nitrile,
 		DYE_REDCOAT = /obj/item/clothing/gloves/color/white,
@@ -349,7 +349,8 @@ GLOBAL_LIST_INIT(dye_registry, list(
 		update_icon()
 
 /obj/machinery/washing_machine/deconstruct(disassembled = TRUE)
-	new /obj/item/stack/sheet/metal(drop_location(), 2)
+	if (!(flags_1 & NODECONSTRUCT_1))
+		new /obj/item/stack/sheet/metal(drop_location(), 2)
 	qdel(src)
 
 /obj/machinery/washing_machine/open_machine(drop = 1)

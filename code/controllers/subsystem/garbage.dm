@@ -223,6 +223,7 @@ SUBSYSTEM_DEF(garbage)
 
 //this is mainly to separate things profile wise.
 /datum/controller/subsystem/garbage/proc/HardDelete(datum/D)
+	del(D)
 	return
 /*
 	var/time = world.timeofday
@@ -255,7 +256,6 @@ SUBSYSTEM_DEF(garbage)
 		message_admins("Error: [type]([refID]) took longer than 1 second to delete (took [time/10] seconds to delete).")
 		postpone(time)
 */
-
 /datum/controller/subsystem/garbage/Recover()
 	if (istype(SSgarbage.queues))
 		for (var/i in 1 to SSgarbage.queues.len)

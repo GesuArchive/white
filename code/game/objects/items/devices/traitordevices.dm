@@ -214,14 +214,14 @@ effective or pretty fucking useless.
 /obj/item/shadowcloak/proc/Activate(mob/living/carbon/human/user)
 	if(!user)
 		return
-	to_chat(user, "<span class='notice'>You activate [src].</span>")
+	to_chat(user, "<span class='notice'>Активирую [src.name].</span>")
 	src.user = user
 	START_PROCESSING(SSobj, src)
 	old_alpha = user.alpha
 	on = TRUE
 
 /obj/item/shadowcloak/proc/Deactivate()
-	to_chat(user, "<span class='notice'>You deactivate [src].</span>")
+	to_chat(user, "<span class='notice'>Деактивирую [src.name].</span>")
 	STOP_PROCESSING(SSobj, src)
 	if(user)
 		user.alpha = old_alpha

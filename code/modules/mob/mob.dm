@@ -1266,6 +1266,12 @@
 /mob/proc/adjust_nutrition(change) //Honestly FUCK the oldcoders for putting nutrition on /mob someone else can move it up because holy hell I'd have to fix SO many typechecks
 	nutrition = max(0, nutrition + change)
 
+/mob/proc/adjust_pooition(change)
+	pooition = max(0, pooition + change)
+
+/mob/proc/set_pooition(change)
+	pooition = max(0, change)
+
 ///Force set the mob nutrition
 /mob/proc/set_nutrition(change) //Seriously fuck you oldcoders.
 	nutrition = max(0, change)

@@ -1,6 +1,6 @@
 /obj/item/boombox
-	name = "Взрыв каробка"
-	desc = "Магнитола, разыскиваемая в одном из смежных секторов. Почему-то пахнет малиной."
+	name = "взрыв каробка"
+	desc = "Магнитола, разыскиваемая в одном из соседних секторов. Почему-то пахнет малиной."
 	icon = 'white/baldenysh/icons/obj/boombox.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
@@ -14,10 +14,10 @@
 	var/playing = FALSE
 
 /proc/open_sound_channel_for_boombox()
-	var/static/next_channel = CHANNEL_HIGHEST_AVAILABLE + 1
+	var/static/next_channel = CHANNEL_WIND_AVAILABLE + 1
 	. = ++next_channel
 	if(next_channel > CHANNEL_BOOMBOX_AVAILABLE)
-		next_channel = CHANNEL_HIGHEST_AVAILABLE + 1
+		next_channel = CHANNEL_WIND_AVAILABLE + 1
 
 /obj/item/boombox/single
 	desc = "Единственная и неповторимая."
@@ -27,6 +27,7 @@
 	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
 	SP.set_channel(open_sound_channel_for_boombox())
 	load_tracks()
+	name = "Взрыв [pick("каробка",50;"каропка",25;"коропка",10;"коробка")]"
 	color = color_matrix_rotate_hue(rand(0, 360))
 
 /obj/item/boombox/update_icon()
@@ -155,18 +156,6 @@
 			"length_t" 	 = S.song_length ? "[add_leading(num2text(((S.song_length / S.song_beat) / 60) % 60), 2, "0")]:[add_leading(num2text((S.song_length / S.song_beat) % 60), 2, "0")]" : "0:00"
 		))
 
-	return data
-
-/obj/item/boombox/ui_data(mob/user)
-	var/list/data = list()
-	var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
-	data["name"] = name
-	data["active"] = playing
-	data["volume"] = SP.playing_volume
-	data["curtrack"] = selection && selection.short_name ? selection.short_name : FALSE
-	data["curlength"] = selection && selection.song_length ? "[add_leading(num2text(((selection.song_length / selection.song_beat) / 60) % 60), 2, "0")]:[add_leading(num2text((selection.song_length / selection.song_beat) % 60), 2, "0")]" : "0:00"
-	data["env"] = SP.environmental
-
 	if(disk)
 		data["songs"]["DISC"] = list (
 			"name" 	 = "ДИСК",
@@ -181,6 +170,17 @@
 	data["disk"] = disk ? TRUE : FALSE
 	data["disktrack"] = disk && disk.track ? disk.track.song_name : FALSE
 
+	return data
+
+/obj/item/boombox/ui_data(mob/user)
+	var/list/data = list()
+	var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
+	data["name"] = name
+	data["active"] = playing
+	data["volume"] = SP.playing_volume
+	data["curtrack"] = selection && selection.short_name ? selection.short_name : FALSE
+	data["curlength"] = selection && selection.song_length ? "[add_leading(num2text(((selection.song_length / selection.song_beat) / 60) % 60), 2, "0")]:[add_leading(num2text((selection.song_length / selection.song_beat) % 60), 2, "0")]" : "0:00"
+	data["env"] = SP.environmental
 	return data
 
 /obj/item/boombox/ui_act(action, params)

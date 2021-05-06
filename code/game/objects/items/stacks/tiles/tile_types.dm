@@ -126,12 +126,39 @@
 /obj/item/stack/tile/wood
 	name = "деревянная напольная плитка"
 	singular_name = "wood floor tile"
-	desc = "легко укладываемая деревянная напольная плитка."
+	desc = "Легко укладываемая деревянная напольная плитка. Используй в руке для изменения шаблона."
 	icon_state = "tile-wood"
 	inhand_icon_state = "tile-wood"
 	turf_type = /turf/open/floor/wood
 	resistance_flags = FLAMMABLE
 	merge_type = /obj/item/stack/tile/wood
+	tile_reskin_types = list(
+		/obj/item/stack/tile/wood,
+		/obj/item/stack/tile/wood/large,
+		/obj/item/stack/tile/wood/tile,
+		/obj/item/stack/tile/wood/parquet,
+	)
+
+/obj/item/stack/tile/wood/parquet
+	name = "parquet wood floor tile"
+	singular_name = "parquet wood floor tile"
+	icon_state = "tile-wood_parquet"
+	turf_type = /turf/open/floor/wood/parquet
+	merge_type = /obj/item/stack/tile/wood/parquet
+
+/obj/item/stack/tile/wood/large
+	name = "large wood floor tile"
+	singular_name = "large wood floor tile"
+	icon_state = "tile-wood_large"
+	turf_type = /turf/open/floor/wood/large
+	merge_type = /obj/item/stack/tile/wood/large
+
+/obj/item/stack/tile/wood/tile
+	name = "tiled wood floor tile"
+	singular_name = "tiled wood floor tile"
+	icon_state = "tile-wood_tile"
+	turf_type = /turf/open/floor/wood/tile
+	merge_type = /obj/item/stack/tile/wood/tile
 
 //Basalt
 /obj/item/stack/tile/basalt
@@ -433,12 +460,24 @@
 	F?.set_custom_materials(mats_per_unit)
 
 /obj/item/stack/tile/eighties
-	name = "плитка в стиле ретро"
-	singular_name = "retro floor tile"
-	desc = "Стопка напольной плитки, напоминающая эпоху фанка."
+	name = "ретро-плитка"
+	singular_name = "ретро-плитка"
+	desc = "Стопка напольной плитки, напоминающая эпоху фанка. Используй в руке для изменения шаблона."
 	icon_state = "tile_eighties"
 	turf_type = /turf/open/floor/eighties
 	merge_type = /obj/item/stack/tile/eighties
+	tile_reskin_types = list(
+		/obj/item/stack/tile/eighties,
+		/obj/item/stack/tile/eighties/red,
+	)
 
 /obj/item/stack/tile/eighties/loaded
 	amount = 15
+
+/obj/item/stack/tile/eighties/red
+	name = "красная ретро-плитка"
+	singular_name = "красная ретро-плитка"
+	desc = "A stack of REDICAL floor tiles! Use in your hand to pick between a black or red pattern!" //i am so sorry
+	icon_state = "tile_eightiesred"
+	turf_type = /turf/open/floor/eighties/red
+	merge_type = /obj/item/stack/tile/eighties/red

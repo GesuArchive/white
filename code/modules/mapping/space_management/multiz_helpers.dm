@@ -28,9 +28,13 @@
 		return (dir | get_dir(us, them))
 
 /turf/proc/above()
+	if(above_override)
+		return above_override
 	return get_step_multiz(src, UP)
 
 /turf/proc/below()
+	if(below_override)
+		return below_override
 	return get_step_multiz(src, DOWN)
 
 /proc/dir_inverse_multiz(dir)

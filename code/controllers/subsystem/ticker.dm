@@ -64,6 +64,7 @@ SUBSYSTEM_DEF(ticker)
 
 	/// Why an emergency shuttle was called
 	var/emergency_reason
+	var/retrycap = 0
 
 /datum/controller/subsystem/ticker/Initialize(timeofday)
 	load_mode()
@@ -194,7 +195,7 @@ SUBSYSTEM_DEF(ticker)
 			if(!setup())
 				//setup failed
 				current_state = GAME_STATE_STARTUP
-				start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 10)
+				start_at = world.time + (60 SECONDS)
 				timeLeft = null
 				Master.SetRunLevel(RUNLEVEL_LOBBY)
 			else
@@ -257,15 +258,21 @@ SUBSYSTEM_DEF(ticker)
 	can_continue = can_continue && SSjob.DivideOccupations(mode.required_jobs) 				//Distribute jobs
 	CHECK_TICK
 
-	if(!GLOB.Debug2)
-		if(!can_continue)
-			log_game("[mode.name] failed pre_setup, cause: [mode.setup_error]")
-			QDEL_NULL(mode)
-			to_chat(world, "<B>Нет готовых людей [GLOB.master_mode].</B> Откатываем таймер.")
-			SSjob.ResetOccupations()
-			return FALSE
+	if(retrycap >= 4)
+		hide_mode = FALSE
+		mode = config.pick_mode("extended")
+		to_chat(world, "<span class='notice big'>Время отдыхать!</span>")
 	else
-		message_admins("<span class='notice'>ДЕБАГ: Обходим стартовые проверки... <b>Не забудьте отключить режим Debug-Game после успешного старта!</b></span>")
+		if(!GLOB.Debug2)
+			if(!can_continue)
+				log_game("[mode.name] failed pre_setup, cause: [mode.setup_error]")
+				QDEL_NULL(mode)
+				retrycap++
+				to_chat(world, "<span class='notice'>Станция не сможет работать без <B>Капитана</B>. [retrycap]/5 до отдыха.</span>")
+				SSjob.ResetOccupations()
+				return FALSE
+		else
+			message_admins("<span class='notice'>ДЕБАГ: Обходим стартовые проверки... <b>Не забудьте отключить режим Debug-Game после успешного старта!</b></span>")
 
 	CHECK_TICK
 	if(hide_mode)
@@ -303,7 +310,7 @@ SUBSYSTEM_DEF(ticker)
 	SSdbcore.SetRoundStart()
 
 	to_chat(world, "<span class='notice'>Приветствуем вас на <B>[station_name()]</B>, приятного пребывания!</span>")
-	SEND_SOUND(world, sound('sound/ai/sheptun.ogg'))
+	SEND_SOUND(world, sound(SSstation.announcer.get_rand_welcome_sound()))
 
 	current_state = GAME_STATE_PLAYING
 	Master.SetRunLevel(RUNLEVEL_GAME)
@@ -407,7 +414,7 @@ SUBSYSTEM_DEF(ticker)
 		for(var/i in GLOB.new_player_list)
 			var/mob/dead/new_player/N = i
 			if(N.new_character)
-				to_chat(N, "<span class='notice'>НЕТ КАПИТАНА!</span>")
+				to_chat(N, "<span class='notice big'>НЕТ КАПИТАНА!</span>")
 			CHECK_TICK
 
 /datum/controller/subsystem/ticker/proc/transfer_characters()

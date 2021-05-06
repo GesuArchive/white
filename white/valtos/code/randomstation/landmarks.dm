@@ -1,6 +1,8 @@
 /obj/effect/landmark/stationroom
+	icon = 'white/valtos/icons/map_icon_templates.dmi'
 	var/list/template_names = list()
 	layer = BULLET_HOLE_LAYER
+	invisibility = 0
 
 /obj/effect/landmark/stationroom/New()
 	..()
@@ -44,21 +46,27 @@
 
 /obj/effect/landmark/stationroom/brig
 	template_names = list("Default Brig" = 10, "Loose Brig" = 4, "Armored Brig" = 3)
+	icon_state = "brig"
 
 /obj/effect/landmark/stationroom/bar
 	template_names = list("Default Bar" = 10, "Neon Bar" = 4, "Lava Bar" = 3)
+	icon_state = "bar"
 
 /obj/effect/landmark/stationroom/bridge
 	template_names = list("Default Central" = 10, "Compact Central" = 4, "Interesting Central" = 3)
+	icon_state = "central"
 
 /obj/effect/landmark/stationroom/engine
 	template_names = list("Supermatter" = 8, "Singulo or Tesla" = 10)
+	icon_state = "engine"
 
 /obj/effect/landmark/stationroom/maint_sw
 	template_names = list("Default Maint SW" = 10, "Arena Maint SW" = 4, "Chess Maint SW" = 3)
+	icon_state = "maint"
 
 /obj/effect/landmark/stationroom/medbay
 	template_names = list("Default Medbay" = 10, "Old Medbay" = 7, "Durka Medbay" = 2)
+	icon_state = "med"
 
 /obj/effect/landmark/stationroom/maint/rdm3x3
 	template_names = list("Random 3x3: 9storage" = 1, "Random 3x3: shrine" = 1, "Random 3x3: plasma" = 1, "Random 3x3: tanning" = 1, "Random 3x3: wash" = 1, "Random 3x3: gibs" = 1, "Random 3x3: radspill" = 1, "Random 3x3: 2storage" = 1, "Random 3x3: airstation" = 1, "Random 3x3: hazmat" = 1, "Random 3x3: boxwindow" = 1, "Random 3x3: boxclutter2" = 1, "Random 3x3: boxclutter3" = 1, "Random 3x3: boxclutter4" = 1, "Random 3x3: boxclutter5" = 1, "Random 3x3: boxclutter6" = 1, "Random 3x3: boxchemcloset" = 1, "Random 3x3: boxbedroom" = 1, "Random 3x3: boxclutter8" = 1, "Random 3x3: hullbreach" = 1, "Random 3x3: tranquility" = 1, "Random 3x3: owloffice" = 1, "Random 3x3: deltajanniecloset" = 1, "Random 3x3: deltaorgantrade" = 1, "Random 3x3: medicloset" = 1, "Random 3x3: metagamergear" = 1, "Random 3x3: metaclutter2" = 1, "Random 3x3: metaclutter4" = 1, "Random 3x3: pubbyclutter1" = 1, "Random 3x3: pubbyclutter2" = 1, "Random 3x3: pubbyclutter3" = 1, "Random 3x3: pubbyartism" = 1, "Random 3x3: donutcapgun" = 1, "Random 3x3: kilomechcharger" = 1, "Random 3x3: kilotheatre" = 1, "Random 3x3: kilolustymaid" = 1, "Random 3x3: biohazard" = 1, "Random 3x3: hobohut" = 1, "Random 3x3: bubblegumaltar" = 1, "Random 3x3: banana" = 1, "Random 3x3: communism" = 1, "Random 3x3: hardclown" = 1, "Random 3x3: lipidchamber" = 1, "Random 3x3: naughtyroom" = 1, "Random 3x3: containmentcell" = 1)

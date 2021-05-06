@@ -550,6 +550,27 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	while (query_get_related_cid.NextRow())
 		related_accounts_cid += "[query_get_related_cid.item[1]], "
 	qdel(query_get_related_cid)
+
+	if(CONFIG_GET(flag/panic_bunker) && CONFIG_GET(number/panic_bunker_cap) < GLOB.player_list.len && !holder && !GLOB.deadmins[ckey])
+		var/living_recs = CONFIG_GET(number/panic_bunker_living)
+		//Relies on pref existing, but this proc is only called after that occurs, so we're fine.
+		var/minutes = get_exp_living(pure_numeric = TRUE)
+		if(minutes <= living_recs && !CONFIG_GET(flag/panic_bunker_interview))
+			var/reject_message = "PBv2: [key] перенаправлен по причине: [minutes]/[living_recs]."
+			log_access(reject_message)
+			message_admins("<span class='adminnotice'>[reject_message]</span>")
+			var/message = CONFIG_GET(string/panic_bunker_message)
+			message = replacetext(message, "%minutes%", living_recs)
+			to_chat(src, message)
+			var/list/panic_addr = CONFIG_GET(string/panic_server_address)
+			if(panic_addr)
+				var/panic_name = CONFIG_GET(string/panic_server_name)
+				to_chat(src, "<span class='notice'>Отправляем вас в [panic_name ? panic_name : panic_addr].</span>")
+				winset(src, null, "command=.options")
+				src << link("[panic_addr]?redirect=1")
+			qdel(src)
+			return
+
 	var/admin_rank = "Player"
 	if (src.holder && src.holder.rank)
 		admin_rank = src.holder.rank.name
@@ -564,29 +585,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(!query_client_in_db.Execute())
 		qdel(query_client_in_db)
 		return
-
-	//If we aren't an admin, and the flag is set
-	if(CONFIG_GET(flag/panic_bunker) && !holder && !GLOB.deadmins[ckey])
-		var/living_recs = CONFIG_GET(number/panic_bunker_living)
-		//Relies on pref existing, but this proc is only called after that occurs, so we're fine.
-		var/minutes = get_exp_living(pure_numeric = TRUE)
-		if(minutes <= living_recs && !CONFIG_GET(flag/panic_bunker_interview))
-			var/reject_message = "Failed Login: [key] - Account attempting to connect during panic bunker, but they do not have the required living time [minutes]/[living_recs]"
-			log_access(reject_message)
-			message_admins("<span class='adminnotice'>[reject_message]</span>")
-			var/message = CONFIG_GET(string/panic_bunker_message)
-			message = replacetext(message, "%minutes%", living_recs)
-			to_chat(src, message)
-			var/list/connectiontopic_a = params2list(connectiontopic)
-			var/list/panic_addr = CONFIG_GET(string/panic_server_address)
-			if(panic_addr && !connectiontopic_a["redirect"])
-				var/panic_name = CONFIG_GET(string/panic_server_name)
-				to_chat(src, "<span class='notice'>Sending you to [panic_name ? panic_name : panic_addr].</span>")
-				winset(src, null, "command=.options")
-				src << link("[panic_addr]?redirect=1")
-			qdel(query_client_in_db)
-			qdel(src)
-			return
 
 	if(!query_client_in_db.NextRow())
 		new_player = 1
@@ -628,6 +626,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 					)
 					if(!query_datediff.Execute())
 						qdel(query_datediff)
+						qdel(query_get_client_age)
 						return
 					if(query_datediff.NextRow())
 						account_age = text2num(query_datediff.item[1])
@@ -784,7 +783,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	var/url = winget(src, null, "url")
 	//special javascript to make them reconnect under a new window.
 	src << browse({"<a id='link' href="byond://[url]?token=[token]">byond://[url]?token=[token]</a><script type="text/javascript">document.getElementById("link").click();window.location="byond://winset?command=.quit"</script>"}, "border=0;titlebar=0;size=1x1;window=redirect")
-	to_chat(src, {"<a href="byond://[url]?token=[token]">You will be automatically taken to the game, if not, click here to be taken manually</a>"})
+	to_chat(src, {"<a href="byond://[url]?token=[token]">Тебя должно переподключить автоматически. Если это не так, то нажми на меня.</a>"})
 
 /client/proc/note_randomizer_user()
 	add_system_note("CID-Error", "Detected as using a cid randomizer.")

@@ -52,7 +52,7 @@
 	desc = "Used by the servants of Ratvar to conduct operations on Nanotrasen property."
 	icon_screen = "ratvar1"
 	icon_keyboard = "ratvar_key1"
-	icon_state = "computer"
+	icon_state = "ratvarcomputer1"
 	lock_override = CAMERA_LOCK_STATION
 	var/datum/action/innate/clockcult/warp/warp_action
 
@@ -60,6 +60,7 @@
 	. = ..()
 	START_PROCESSING(SSobj, src)
 	warp_action = new
+	icon_state = "ratvarcomputer[rand(1,4)]"
 
 /obj/machinery/computer/camera_advanced/ratvar/Destroy()
 	STOP_PROCESSING(SSobj, src)

@@ -39,7 +39,7 @@
 			ship_name = "Flying Dutchman"
 
 /datum/round_event/pirates/announce(fake)
-	priority_announce("Входящая подпространственная передача данных. Открыт защищенный канал связи на всех коммуникационных консолях.", "Входящее сообщение", 'sound/ai/announcer/incoming.ogg')
+	priority_announce("Входящая подпространственная передача данных. Открыт защищенный канал связи на всех коммуникационных консолях.", "Входящее сообщение", SSstation.announcer.get_rand_report_sound())
 	if(fake)
 		return
 	threat = new
@@ -191,10 +191,8 @@
 	STOP_PROCESSING(SSobj,src)
 
 /obj/machinery/shuttle_scrambler/update_icon_state()
-	if(active)
-		icon_state = "dominator-blue"
-	else
-		icon_state = "dominator"
+	icon_state = active ? "dominator-Blue" : "dominator"
+	return ..()
 
 /obj/machinery/shuttle_scrambler/Destroy()
 	toggle_off()

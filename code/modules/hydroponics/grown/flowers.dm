@@ -246,9 +246,10 @@
 	attack_verb_simple = list("жарит", "поджигает", "выжигает")
 	grind_results = list(/datum/reagent/consumable/capsaicin = 0, /datum/reagent/consumable/condensedcapsaicin = 0)
 
-/obj/item/grown/novaflower/add_juice()
-	..()
+/obj/item/grown/novaflower/Initialize(mapload, obj/item/seeds/new_seed)
+	. = ..()
 	force = round((5 + seed.potency / 5), 1)
+	AddElement(/datum/element/plant_backfire, /obj/item/grown/novaflower.proc/singe_holder)
 
 /obj/item/grown/novaflower/attack(mob/living/carbon/M, mob/user)
 	if(!..())
@@ -267,17 +268,18 @@
 	if(force > 0)
 		force -= rand(1, (force / 3) + 1)
 	else
-		to_chat(usr, "<span class='warning'>Все лепестки отвалились от сильного удара [name] !</span>")
+		to_chat(usr, "<span class='warning'>Все лепестки отвалились от сильного удара [name]!</span>")
 		qdel(src)
 
-/obj/item/grown/novaflower/pickup(mob/living/carbon/human/user)
-	..()
-	if(user.gloves)
-		return
-
-	to_chat(user, "<span class='danger'> [name] обжигает мою голую руку!</span>")
+/*
+ * Burn the person holding the novaflower's hand. Their active hand takes burn = the novaflower's force.
+ *
+ * user - the carbon who is holding the flower.
+ */
+/obj/item/grown/novaflower/proc/singe_holder(mob/living/carbon/user)
+	to_chat(user, "<span class='danger'>[src] обжигает мою голую руку!</span>")
 	var/obj/item/bodypart/affecting = user.get_active_hand()
-	if(affecting?.receive_damage(0, 5))
+	if(affecting?.receive_damage(0, force, wound_bonus = CANT_WOUND))
 		user.update_damage_overlays()
 
 // Rose
@@ -312,11 +314,11 @@
 	bite_consumption_mod = 3
 	foodtypes = VEGETABLES | GROSS
 
-/obj/item/food/grown/rose/pickup(mob/living/carbon/human/user)
-	..()
-	if(user.gloves)
-		return
+/obj/item/food/grown/rose/Initialize(mapload, obj/item/seeds/new_seed)
+	. = ..()
+	AddElement(/datum/element/plant_backfire, /obj/item/food/grown/rose.proc/prick_holder, list(TRAIT_PIERCEIMMUNE))
 
+/obj/item/food/grown/rose/proc/prick_holder(mob/living/carbon/user)
 	if(!seed.get_gene(/datum/plant_gene/trait/sticky) && prob(66))
 		return
 

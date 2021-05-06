@@ -5,7 +5,7 @@
 ////////////////////////////////
 
 GLOBAL_LIST_INIT(donations_list, list(
-	"Hats" = list(
+	"Шапки" = list(
 		new /datum/donate_info("Collectable Pete hat",		/obj/item/clothing/head/collectable/petehat, 	150),
 		new /datum/donate_info("Collectable Xeno hat",		/obj/item/clothing/head/collectable/xenom,		110),
 		new /datum/donate_info("Collectable Top hat",		/obj/item/clothing/head/collectable/tophat,		120),
@@ -30,7 +30,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("Pickelhelm",				/obj/item/clothing/head/helmet/izanhelm/helmet/pickelhelm,200),
 		new /datum/donate_info("Richard's Head",			/obj/item/clothing/head/helmet/richard,			250),
 	),
-	"Masks" = list(
+	"Маски" = list(
 		new /datum/donate_info("Fake Moustache",			/obj/item/clothing/mask/fakemoustache,			100),
 		new /datum/donate_info("Pig Mask",					/obj/item/clothing/mask/animal/pig,				150),
 		new /datum/donate_info("Cow Mask",					/obj/item/clothing/mask/animal/cowmask,			150),
@@ -47,7 +47,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("Balaclava",					/obj/item/clothing/mask/izanclava,				110),
 		new /datum/donate_info("Swatclava",					/obj/item/clothing/mask/izanclava/swat,			120),
 	),
-	"Personal Stuff" = list(
+	"Личное" = list(
 		new /datum/donate_info("Eye patch",					/obj/item/clothing/glasses/eyepatch,			130),
 		new /datum/donate_info("Orange glasses",			/obj/item/clothing/glasses/orange,				130),
 		new /datum/donate_info("Heat goggles",				/obj/item/clothing/glasses/heat,				130),
@@ -66,7 +66,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("Donut Box",					/obj/item/storage/fancy/donut_box,				450),
 		new /datum/donate_info("Red Armband",				/obj/item/clothing/accessory/armband,			100),
 	),
-	"Shoes" = list(
+	"Обувь" = list(
 		new /datum/donate_info("Clown Shoes",				/obj/item/clothing/shoes/clown_shoes,			120),
 		new /datum/donate_info("Cyborg Shoes",				/obj/item/clothing/shoes/cyborg,				120),
 		new /datum/donate_info("Laceups Shoes",				/obj/item/clothing/shoes/laceup,				120),
@@ -75,7 +75,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("Jackboots",					/obj/item/clothing/shoes/jackboots,				130),
 		new /datum/donate_info("Arbiter Boots",				/obj/item/clothing/shoes/jackboots/arbiter,		150),
 	),
-	"Coats" = list(
+	"Плащи" = list(
 		new /datum/donate_info("Leather Coat",				/obj/item/clothing/suit/jacket/leather/overcoat,160),
 		new /datum/donate_info("Pirate Coat",				/obj/item/clothing/suit/pirate,					120),
 		new /datum/donate_info("Red poncho",				/obj/item/clothing/suit/poncho/red,				140),
@@ -91,7 +91,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("m35 Elite Coat",			/obj/item/clothing/suit/armor/vest/izan/elite_army_coat,135),
 		new /datum/donate_info("m35 Super Elite Coat",		/obj/item/clothing/suit/armor/vest/izan/super_elite_army_coat,165),
 	),
-	"Jumpsuits" = list(
+	"Униформы" = list(
 		new /datum/donate_info("Vice Policeman",			/obj/item/clothing/under/misc/vice_officer,		180),
 		new /datum/donate_info("Pirate outfit",				/obj/item/clothing/under/costume/pirate,		130),
 		new /datum/donate_info("Waiter outfit",				/obj/item/clothing/under/suit/waiter,			120),
@@ -120,7 +120,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("Jabroni Outfit",			/obj/item/clothing/under/costume/jabroni, 		100),
 		new /datum/donate_info("Спортивный Костюм",			/obj/item/clothing/under/switer/tracksuit, 		228),
 	),
-	"Gloves" = list(
+	"Перчатки" = list(
 		new /datum/donate_info("White Gloves",				/obj/item/clothing/gloves/color/white,			125),
 		new /datum/donate_info("Rainbow Gloves",			/obj/item/clothing/gloves/color/rainbow,		200),
 		new /datum/donate_info("Black Gloves",				/obj/item/clothing/gloves/color/black,			130),
@@ -131,26 +131,29 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("Arbiter Gloves",			/obj/item/clothing/gloves/arbiter,				125),
 		new /datum/donate_info("Undertaker Gloves",			/obj/item/clothing/gloves/arbiter/undertaker,	125),
 	),
-	"Bedsheets" = list(
+	"Покрывала" = list(
 		new /datum/donate_info("Clown Bedsheet",			/obj/item/bedsheet/clown,						100),
 		new /datum/donate_info("Mime Bedsheet",				/obj/item/bedsheet/mime,						100),
 		new /datum/donate_info("Rainbow Bedsheet",			/obj/item/bedsheet/rainbow,						100),
 		new /datum/donate_info("Captain Bedsheet",			/obj/item/bedsheet/captain,						120),
 		new /datum/donate_info("Cosmos Bedsheet",			/obj/item/bedsheet/cosmos,						150),
 	),
-	"Toys" = list(
+	"Игрушки" = list(
 		new /datum/donate_info("Rubber Duck",				/obj/item/bikehorn/rubberducky,					200),
 		new /datum/donate_info("Champion Belt",				/obj/item/storage/belt/champion,				200),
 		new /datum/donate_info("Toy pistol",				/obj/item/toy/gun,								150),
 		new /datum/donate_info("Toy dualsaber",				/obj/item/dualsaber/toy,				280),
 		new /datum/donate_info("Toy katana",				/obj/item/toy/katana,							215),
 		new /datum/donate_info("Rainbow crayon",			/obj/item/toy/crayon/rainbow,					250),
+		new /datum/donate_info("Марфумо",					/obj/item/toy/plush/marfumoplushie,				300),
+		new /datum/donate_info("Асфумо",					/obj/item/toy/plush/asfumoplushie,				300),
+		new /datum/donate_info("Цирфумо",					/obj/item/toy/plush/cirfumoplushie,				300),
 	),
-	"Special Stuff" = list(
+	"Специальное" = list(
 		new /datum/donate_info("Santa Bag",					/obj/item/storage/backpack/santabag,			450),
 		new /datum/donate_info("Bible",						/obj/item/storage/book/bible,					100),
 	),
-	"Inovations" = list(
+	"Инновации" = list(
 		new /datum/donate_info("Game Kit",					/obj/item/game_kit,								100),
 		new /datum/donate_info("Checkers Kit",				/obj/item/checkers_kit,							150),
 		new /datum/donate_info("Casino Cards",				/obj/item/toy/cards/deck/shitspawn_deck,		450),
@@ -160,8 +163,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("TTS ears",					/obj/item/organ/ears/cat/tts,                   500),
 		new /datum/donate_info("DIY Shuttle capsule",		/obj/item/shuttlespawner/diyshuttle,			500),
 		new /datum/donate_info("Anonist Mask",				/obj/item/clothing/mask/gas/anonist,			100),
-		new /datum/donate_info("Glitch Gun",				/obj/item/gun/magic/glitch,						300),
-		new /datum/donate_info("Love Gun", 					/obj/item/gun/energy/lovegun, 					0,	"vanotyan", 1)
+		new /datum/donate_info("Glitch Gun",				/obj/item/gun/magic/glitch,						300)
 	)
 ))
 
@@ -195,7 +197,10 @@ GLOBAL_LIST_INIT(donations_list, list(
 	if(D)
 		D.ui_interact(src.mob)
 	else
-		to_chat(src,"<span class='warning'>Ты не донатил, извини.</span>")
+		D = GLOB.donators["FREEBIE"]
+		if(!D)
+			D = new /datum/donator("FREEBIE", 0)
+	D.ui_interact(src.mob)
 
 GLOBAL_LIST_EMPTY(donate_icon_cache)
 GLOBAL_LIST_EMPTY(donators)
@@ -227,8 +232,6 @@ GLOBAL_LIST_EMPTY(donators)
 	return UI_INTERACTIVE
 
 /datum/donator/ui_data(mob/user)
-	if(!user.mind)
-		return
 	var/list/data = list()
 	data["money"] = money
 	data["compactMode"] = compact_mode

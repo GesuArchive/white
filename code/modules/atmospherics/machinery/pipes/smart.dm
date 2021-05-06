@@ -7,8 +7,6 @@ GLOBAL_LIST_INIT(atmos_components, typecacheof(list(/obj/machinery/atmospherics)
 	name = "труба"
 	desc = "Однометровый отрезок обычной трубы."
 
-	vis_flags = VIS_INHERIT_ICON | VIS_INHERIT_ICON_STATE | VIS_INHERIT_ID | VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
-
 	device_type = QUATERNARY
 	construction_type = /obj/item/pipe/quaternary
 	pipe_state = "manifold4w"

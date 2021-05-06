@@ -300,6 +300,10 @@
 
 /datum/config_entry/flag/maprotation
 
+/datum/config_entry/number/panic_bunker_cap
+	config_entry_value = 75
+	min_val = 0
+
 /datum/config_entry/number/soft_popcap
 	config_entry_value = null
 	min_val = 0

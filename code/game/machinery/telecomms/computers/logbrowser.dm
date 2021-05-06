@@ -121,9 +121,10 @@
 
 			dat += "</ol>"
 
+	var/datum/browser/popup = new(usr, "comm_monitor", "Player Panel", 575, 400)
+	popup.set_content(dat)
+	popup.open()
 
-
-	user << browse(dat, "window=comm_monitor;size=575x400")
 	onclose(user, "server_control")
 
 	temp = ""

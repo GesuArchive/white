@@ -1525,7 +1525,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	apply_damage(I.force * weakness, I.damtype, def_zone, armor_block, H, wound_bonus = Iwound_bonus, bare_wound_bonus = I.bare_wound_bonus, sharpness = I.get_sharpness())
 
-	if(!I.force)
+	if(!I.force || GLOB.is_tournament_rules)
 		return FALSE //item force is zero
 
 	var/bloody = FALSE

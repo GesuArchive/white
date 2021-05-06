@@ -23,8 +23,8 @@
 	random = TRUE
 	mob_species = /datum/species/human
 	short_desc = "Я аутистовец"
-	flavour_text = "Мне повезло проснуться непонятно где. Надо бы понять что тут стряслось и выжить."
-	important_info = "Скоро закончится свет."
+	flavour_text = "Все эти ублюдки с основной станции настолько нам надоели, что мы решили отпилить кусок станции, что сделали почти успешно, однако назад пути теперь НЕТ. Пусть хоть какой-то паразит попробует сюда сунуться - сразу разберём на биомассу и следов не останется!"
+	important_info = "За наши головы готовы неплохо так заплатить, так что эта станция - единственное безопасное место для нас, пока мы не попадёмся кому-то на глаза. Ах, да! Скоро закончится свет."
 	uniform = /datum/outfit/job/assistant
 	shoes = null
 	assignedrole = "Autism Crew"
@@ -36,6 +36,28 @@
 /area/ruin/space/has_grav/austation
 	name = "Аутизм"
 
+/area/ruin/space/has_grav/austation/med
+	name = "Аутизм: Медбей"
+
+/area/ruin/space/has_grav/austation/vault
+	name = "Аутизм: Хранилище"
+
+/area/ruin/space/has_grav/austation/rnd
+	name = "Аутизм: Исследования"
+
+/area/ruin/space/has_grav/austation/xeno
+	name = "Аутизм: Ксено"
+
+/area/ruin/space/has_grav/austation/station
+	name = "Аутизм: Станция"
+
+/area/ruin/space/has_grav/austation/eng
+	name = "Аутизм: Инженерный"
+
+/area/ruin/space/has_grav/austation/maint
+	name = "Аутизм: Техи"
+	ambience_index = AMBIENCE_MAINT
+
 /datum/map_template/ruin/space/austation
 	id = "austation"
 	suffix = "wruin2.dmm"
@@ -45,7 +67,7 @@
 
 /area/shuttle/explorer_mini
 	requires_power = TRUE
-	name = "Auto-Explorer Mini"
+	name = "Авто-Исследователь Мини"
 
 /datum/map_template/shuttle/ruin/explorer_mini
 	suffix = "explorer_mini"
@@ -55,15 +77,15 @@
 	build_path = /obj/machinery/computer/shuttle/explorer_mini
 
 /obj/machinery/computer/shuttle/explorer_mini
-	name = "Auto-Explorer Mini Shuttle Console"
-	desc = "Used to control the Auto-Explorer Mini."
+	name = "консоль Авто-Исследователя Мини"
+	desc = "Для самых отбитых. Гарантированно ведёт в никуда."
 	circuit = /obj/item/circuitboard/computer/explorer_mini
 	shuttleId = "explorer_mini"
 	possible_destinations = "explorer_mini_custom;explorer_mini_station"
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/explorer_mini
-	name = "Auto-Explorer Mini Navigation Computer"
-	desc = "Used to designate a precise transit location for the Auto-Explorer Mini."
+	name = "навигация Авто-Исследователя Мини"
+	desc = "Используется для точной настройки места стыковки."
 	shuttleId = "explorer_mini"
 	shuttlePortId = "explorer_mini_custom"
 	jumpto_ports = list("explorer_mini_station" = 1)
