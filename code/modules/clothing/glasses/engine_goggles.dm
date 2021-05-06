@@ -144,10 +144,10 @@
 	modes = list(MODE_NONE = MODE_TRAY, MODE_TRAY = MODE_NONE)
 
 /obj/item/clothing/glasses/meson/engine/shuttle
-	name = "shuttle region scanner"
+	name = "сканер зоны для шаттла"
 	icon_state = "trayson-shuttle"
 	inhand_icon_state = "trayson-shuttle"
-	desc = "Used to see the boundaries of shuttle regions."
+	desc = "Используется для определения границ зоны прилета шаттла."
 
 	modes = list(MODE_NONE = MODE_SHUTTLE, MODE_SHUTTLE = MODE_NONE)
 

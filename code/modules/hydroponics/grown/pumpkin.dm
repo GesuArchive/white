@@ -1,7 +1,7 @@
 // Pumpkin
 /obj/item/seeds/pumpkin
-	name = "pack of pumpkin seeds"
-	desc = "These seeds grow into pumpkin vines."
+	name = "Пачка семян тыквы"
+	desc = "Эти семена вырастают в тыковки."
 	icon_state = "seed-pumpkin"
 	species = "pumpkin"
 	plantname = "Pumpkin Vines"
@@ -18,8 +18,8 @@
 
 /obj/item/food/grown/pumpkin
 	seed = /obj/item/seeds/pumpkin
-	name = "pumpkin"
-	desc = "It's large and scary."
+	name = "Тыква"
+	desc = "Успей до полуночи!"
 	icon_state = "pumpkin"
 	bite_consumption_mod = 2
 	foodtypes = FRUIT
@@ -28,7 +28,7 @@
 
 /obj/item/food/grown/pumpkin/attackby(obj/item/W as obj, mob/user as mob, params)
 	if(W.get_sharpness())
-		user.show_message("<span class='notice'>You carve a face into [src]!</span>", MSG_VISUAL)
+		user.show_message("<span class='notice'>Вырезаю рожицу в [src]!</span>", MSG_VISUAL)
 		new /obj/item/clothing/head/hardhat/pumpkinhead(user.loc)
 		qdel(src)
 		return
@@ -37,8 +37,8 @@
 
 // Blumpkin
 /obj/item/seeds/pumpkin/blumpkin
-	name = "pack of blumpkin seeds"
-	desc = "These seeds grow into blumpkin vines."
+	name = "Пачка семян синквы"
+	desc = "Эти семена вырастают в синкву."
 	icon_state = "seed-blumpkin"
 	species = "blumpkin"
 	plantname = "Blumpkin Vines"
@@ -49,8 +49,8 @@
 
 /obj/item/food/grown/blumpkin
 	seed = /obj/item/seeds/pumpkin/blumpkin
-	name = "blumpkin"
-	desc = "The pumpkin's toxic sibling."
+	name = "Синква"
+	desc = "Токсины в этой тыкве просто УБИЙСТВЕННЫЕ."
 	icon_state = "blumpkin"
 	bite_consumption_mod = 2
 	foodtypes = FRUIT

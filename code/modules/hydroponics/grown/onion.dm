@@ -1,6 +1,6 @@
 /obj/item/seeds/onion
-	name = "pack of onion seeds"
-	desc = "These seeds grow into onions."
+	name = "Пачка семян лука"
+	desc = "Эти семена вырастают в луковицы."
 	icon_state = "seed-onion"
 	species = "onion"
 	plantname = "Onion Sprouts"
@@ -19,8 +19,8 @@
 
 /obj/item/food/grown/onion
 	seed = /obj/item/seeds/onion
-	name = "onion"
-	desc = "Nothing to cry over."
+	name = "Лук"
+	desc = "Не для стрельбы."
 	icon_state = "onion"
 	bite_consumption_mod = 2
 	tastes = list("лук" = 1)
@@ -30,8 +30,8 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/onion_slice, 2, 15)
 
 /obj/item/seeds/onion/red
-	name = "pack of red onion seeds"
-	desc = "For growing exceptionally potent onions."
+	name = "Пачка семян красного лука"
+	desc = "Для выращивания очень мощного лука."
 	icon_state = "seed-onionred"
 	species = "onion_red"
 	plantname = "Red Onion Sprouts"
@@ -42,7 +42,7 @@
 /obj/item/food/grown/onion/red
 	seed = /obj/item/seeds/onion/red
 	name = "красный onion"
-	desc = "Purple despite the name."
+	desc = "Фиолетовый, несмотря на название."
 	icon_state = "onion_red"
 	wine_power = 60
 
@@ -59,8 +59,8 @@
 	return ..()
 
 /obj/item/food/onion_slice
-	name = "onion slices"
-	desc = "Rings, not for wearing."
+	name = "Луковые кольца"
+	desc = "Кольца, не бижутерия."
 	icon_state = "onionslice"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 2)
 	gender = PLURAL
@@ -68,7 +68,7 @@
 	microwaved_type = /obj/item/food/onionrings
 
 /obj/item/food/onion_slice/red
-	name = "red onion slices"
-	desc = "They shine like exceptionally low quality amethyst."
+	name = "Кольца красного лука"
+	desc = "Они сияют, будто низкокачественный аметист."
 	icon_state = "onionslice_red"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/tearjuice = 2.5)

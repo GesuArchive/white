@@ -130,8 +130,8 @@
 	if(confirm == "Yes")
 		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		set_suicide(TRUE)
-		visible_message("<span class='danger'>[capitalize(src.name)] brain is growing dull and lifeless. [ru_who(TRUE)] look[p_s()] like [p_theyve()] lost the will to live.</span>", \
-						"<span class='userdanger'>[capitalize(src.name)] brain is growing dull and lifeless. [ru_who(TRUE)] look[p_s()] like [p_theyve()] lost the will to live.</span>")
+		visible_message("<span class='danger'>Мозг [capitalize(src.name)] начинает размякать и расслабляться. Похоже, что [ru_who(TRUE)] потерял желание жить.</span>", \
+						"<span class='userdanger'>Мозг [capitalize(src.name)] начинает размякать и расслабляться. Похоже, что [ru_who(TRUE)] потерял желание жить..</span>")
 
 		suicide_log()
 
@@ -148,8 +148,8 @@
 	if(confirm == "Yes")
 		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		set_suicide(TRUE)
-		visible_message("<span class='danger'>[capitalize(src.name)] is powering down. It looks like [p_theyre()] trying to commit suicide.</span>", \
-				"<span class='userdanger'>[capitalize(src.name)] is powering down. It looks like [p_theyre()] trying to commit suicide.</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] отключается. Похоже, что [p_theyre()] пытается покончить с собой.</span>", \
+				"<span class='userdanger'>[capitalize(src.name)] отключается. Похоже, что [p_theyre()] пытается покончить с собой.</span>")
 
 		suicide_log()
 
@@ -168,8 +168,8 @@
 	if(confirm == "Yes")
 		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		set_suicide(TRUE)
-		visible_message("<span class='danger'>[capitalize(src.name)] is powering down. It looks like [p_theyre()] trying to commit suicide.</span>", \
-				"<span class='userdanger'>[capitalize(src.name)] is powering down. It looks like [p_theyre()] trying to commit suicide.</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] отключается. Похоже, что [p_theyre()] пытается покончить с собой.</span>", \
+				"<span class='userdanger'>[capitalize(src.name)] отключается. Похоже, что [p_theyre()] пытается покончить с собой.</span>")
 
 		suicide_log()
 
@@ -184,15 +184,15 @@
 	if(confirm == "Yes")
 		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		var/turf/T = get_turf(src.loc)
-		T.visible_message("<span class='notice'>[capitalize(src.name)] flashes a message across its screen, \"Wiping core files. Please acquire a new personality to continue using pAI device functions.\"</span>", null, \
-			"<span class='notice'>[capitalize(src.name)] bleeps electronically.</span>")
+		T.visible_message("<span class='notice'>[capitalize(src.name)] высвечивает сообщение на весь экран: \"Удаление файлов ядра личности. Пожалуйста, загрузите новую личность чтобы продолжить использовать персональный ИИ.\"</span>", null, \
+			"<span class='notice'>[capitalize(src.name)] бипает.</span>")
 
 		suicide_log()
 
 		death(FALSE)
 		ghostize(FALSE)	// Disallows reentering body and disassociates mind
 	else
-		to_chat(src, "Aborting suicide attempt.")
+		to_chat(src, "Отмена попытки самоубийства.")
 
 /mob/living/carbon/alien/humanoid/verb/suicide()
 	set hidden = TRUE
@@ -225,8 +225,8 @@
 	if(confirm == "Yes")
 		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		set_suicide(TRUE)
-		visible_message("<span class='danger'>[capitalize(src.name)] begins to fall down. It looks like [p_theyve()] lost the will to live.</span>", \
-						"<span class='userdanger'>[capitalize(src.name)] begins to fall down. It looks like [p_theyve()] lost the will to live.</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] начинает падать. Похоже, что [p_theyve()] потерял желание жить.</span>", \
+						"<span class='userdanger'>[capitalize(src.name)] начинает падать. Похоже, что [p_theyve()] потерял желание жить.</span>")
 
 		suicide_log()
 
@@ -242,23 +242,23 @@
 /mob/living/proc/canSuicide()
 	var/area/A = get_area(src)
 	if(A.area_flags & BLOCK_SUICIDE)
-		to_chat(src, "<span class='warning'>You can't commit suicide here! You can ghost if you'd like.</span>")
+		to_chat(src, "<span class='warning'>Нельзя убить себя здесь! Если хочется, то можно стать призраком.</span>")
 		return
 	switch(stat)
 		if(CONSCIOUS)
 			return TRUE
 		if(SOFT_CRIT)
-			to_chat(src, "<span class='warning'>You can't commit suicide while in a critical condition!</span>")
+			to_chat(src, "<span class='warning'>Нельзя убить себя, находясь в критическом состоянии!</span>")
 		if(UNCONSCIOUS, HARD_CRIT)
-			to_chat(src, "<span class='warning'>You need to be conscious to commit suicide!</span>")
+			to_chat(src, "<span class='warning'>Нужно быть в сознании, чтобы убить себя!</span>")
 		if(DEAD)
-			to_chat(src, "<span class='warning'>You're already dead!</span>")
+			to_chat(src, "<span class='warning'>Ты уже мёртв!</span>")
 	return
 
 /mob/living/carbon/canSuicide()
 	if(!..())
 		return
 	if(!(mobility_flags & MOBILITY_USE))	//just while I finish up the new 'fun' suiciding verb. This is to prevent metagaming via suicide
-		to_chat(src, "<span class='warning'>You can't commit suicide whilst immobile! ((You can type Ghost instead however.))</span>")
+		to_chat(src, "<span class='warning'>Нельзя убить себя, пока ты обездвижен! ((Однако вместо этого можно написать Ghost.))</span>")
 		return
 	return TRUE

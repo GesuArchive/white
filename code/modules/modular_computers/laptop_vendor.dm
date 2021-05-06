@@ -1,8 +1,8 @@
 // A vendor machine for modular computer portable devices - Laptops and Tablets
 
 /obj/machinery/lapvend
-	name = "computer vendor"
-	desc = "A vending machine with microfabricator capable of dispensing various NT-branded computers."
+	name = "Торговый автомат компьютеров"
+	desc = "Торговый автомат с микрофабрикатором, способным продавать различные компьютеры марки NT."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "robotics"
 	layer = 2.9
@@ -241,13 +241,13 @@
 		if(!user.temporarilyRemoveItemFromInventory(c))
 			return
 		credits += c.value
-		visible_message("<span class='info'><span class='name'>[user]</span> inserts [c.value] cr into [src].</span>")
+		visible_message("<span class='info'><span class='name'>[user]</span> вставляет [c.value] cr в [src].</span>")
 		qdel(c)
 		return
 	else if(istype(I, /obj/item/holochip))
 		var/obj/item/holochip/HC = I
 		credits += HC.credits
-		visible_message("<span class='info'>[user] inserts a [HC.credits] cr holocredit chip into [src].</span>")
+		visible_message("<span class='info'>[user] вставляет [HC.credits] cr чип голокредитов в [src].</span>")
 		qdel(HC)
 		return
 	else if(istype(I, /obj/item/card/id))

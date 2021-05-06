@@ -113,7 +113,7 @@
 				return .(cameras)
 		if(BUGMODE_TRACK)
 			if(tracking)
-				html = "Tracking '[tracked_name]'  <a href='?[REF(src)];mode=0'>\[Cancel Tracking\]</a>  <a href='?src=[REF(src)];view'>\[Cancel camera view\]</a><br>"
+				html = "Tracking '[tracked_name]' <a href='?[REF(src)];mode=0'>\[Cancel Tracking\]</a> <a href='?src=[REF(src)];view'>\[Cancel camera view\]</a><br>"
 				if(last_found)
 					var/time_diff = round((world.time - last_seen) / 150)
 					var/obj/machinery/camera/C = bugged_cameras[last_found]

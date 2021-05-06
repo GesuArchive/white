@@ -6,8 +6,8 @@ Slimecrossing Armor
 
 //Rebreather mask - Chilling Blue
 /obj/item/clothing/mask/nobreath
-	name = "rebreather mask"
-	desc = "A transparent mask, resembling a conventional breath mask, but made of bluish slime. Seems to lack any air supply tube, though."
+	name = "маска-ребризер"
+	desc = "Прозрачная маска, напоминающая обычную дыхательную маску, но сделанная из голубоватой слизи. Кажется, что не имеет трубки для подачи воздуха."
 	icon_state = "slime"
 	inhand_icon_state = "slime"
 	body_parts_covered = NONE
@@ -30,8 +30,8 @@ Slimecrossing Armor
 	user.remove_status_effect(/datum/status_effect/rebreathing)
 
 /obj/item/clothing/glasses/prism_glasses
-	name = "prism glasses"
-	desc = "The lenses seem to glow slightly, and reflect light into dazzling colors."
+	name = "призматические очки"
+	desc = "Похоже что линзы слегка светятся и отражают свет ослепляющими цветами."
 	icon = 'icons/obj/slimecrossing.dmi'
 	icon_state = "prismglasses"
 	actions_types = list(/datum/action/item_action/change_prism_colour, /datum/action/item_action/place_light_prism)
@@ -42,8 +42,8 @@ Slimecrossing Armor
 		return TRUE
 
 /obj/structure/light_prism
-	name = "light prism"
-	desc = "A shining crystal of semi-solid light. Looks fragile."
+	name = "световая призма"
+	desc = "Сияющий полупрозрачный кристалл. Выглядит хрупким."
 	icon = 'icons/obj/slimecrossing.dmi'
 	icon_state = "lightprism"
 	density = FALSE
@@ -57,11 +57,11 @@ Slimecrossing Armor
 	set_light(5)
 
 /obj/structure/light_prism/attack_hand(mob/user)
-	to_chat(user, "<span class='notice'>You dispel [src].</span>")
+	to_chat(user, "<span class='notice'>Рассеиваю [src].</span>")
 	qdel(src)
 
 /datum/action/item_action/change_prism_colour
-	name = "Adjust Prismatic Lens"
+	name = "Отрегулировать Призматическую Линзу"
 	icon_icon = 'icons/obj/slimecrossing.dmi'
 	button_icon_state = "prismcolor"
 
@@ -75,7 +75,7 @@ Slimecrossing Armor
 	glasses.glasses_color = new_color
 
 /datum/action/item_action/place_light_prism
-	name = "Fabricate Light Prism"
+	name = "Изготовить Световую Призму"
 	icon_icon = 'icons/obj/slimecrossing.dmi'
 	button_icon_state = "lightprism"
 
@@ -84,18 +84,18 @@ Slimecrossing Armor
 		return
 	var/obj/item/clothing/glasses/prism_glasses/glasses = target
 	if(locate(/obj/structure/light_prism) in get_turf(owner))
-		to_chat(owner, "<span class='warning'>There isn't enough ambient energy to fabricate another light prism here.</span>")
+		to_chat(owner, "<span class='warning'>Не хватает окружающей энергии для изготовления еще одной световой призмы.</span>")
 		return
 	if(istype(glasses))
 		if(!glasses.glasses_color)
-			to_chat(owner, "<span class='warning'>The lens is oddly opaque...</span>")
+			to_chat(owner, "<span class='warning'>Линза на удивление непрозрачная...</span>")
 			return
-		to_chat(owner, "<span class='notice'>You channel nearby light into a glowing, ethereal prism.</span>")
+		to_chat(owner, "<span class='notice'>Направляю ближайший свет в сияющую эфирную призму.</span>")
 		new /obj/structure/light_prism(get_turf(owner), glasses.glasses_color)
 
 /obj/item/clothing/head/peaceflower
-	name = "heroine bud"
-	desc = "An extremely addictive flower, full of peace magic."
+	name = "бутон героина"
+	desc = "Цветок, вызывающий чрезвычайное привыкание, наполненный магией мира."
 	icon = 'icons/obj/slimecrossing.dmi'
 	icon_state = "peaceflower"
 	inhand_icon_state = "peaceflower"
@@ -113,13 +113,13 @@ Slimecrossing Armor
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		if(src == C.head)
-			to_chat(user, "<span class='warning'>You feel at peace. <b style='color:pink'>Why would you want anything else?</b></span>")
+			to_chat(user, "<span class='warning'>Чувствую себя спокойно. <b style='color:pink'>Зачем нужно что-нибудь ещё?</b></span>")
 			return
 	return ..()
 
 /obj/item/clothing/suit/armor/heavy/adamantine
-	name = "adamantine armor"
-	desc = "A full suit of adamantine plate armor. Impressively resistant to damage, but weighs about as much as you do."
+	name = "адамантиновая броня"
+	desc = "Полный комплект адамантиновых пластинчатых доспехов. Впечатляюще устойчив к урону, но весит примерно столько же, сколько и ты."
 	icon_state = "adamsuit"
 	inhand_icon_state = "adamsuit"
 	flags_inv = NONE

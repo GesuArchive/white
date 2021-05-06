@@ -1,7 +1,7 @@
 // Potato
 /obj/item/seeds/potato
-	name = "pack of potato seeds"
-	desc = "Boil 'em! Mash 'em! Stick 'em in a stew!"
+	name = "Пачка семян картофеля"
+	desc = "Свари, пожарь, приготовь пюре!"
 	icon_state = "seed-potato"
 	species = "potato"
 	plantname = "Potato Plants"
@@ -21,8 +21,8 @@
 
 /obj/item/food/grown/potato
 	seed = /obj/item/seeds/potato
-	name = "potato"
-	desc = "Boil 'em! Mash 'em! Stick 'em in a stew!"
+	name = "Картофель"
+	desc = "Антошка! Антошка! Пошли копать картошку!"
 	icon_state = "potato"
 	bite_consumption = 100
 	foodtypes = VEGETABLES
@@ -30,15 +30,15 @@
 	distill_reagent = /datum/reagent/consumable/ethanol/vodka
 
 /obj/item/food/grown/potato/wedges
-	name = "potato wedges"
-	desc = "Slices of neatly cut potato."
+	name = "Картофельные дольки"
+	desc = "Почти чипсы."
 	icon_state = "potato_wedges"
 	bite_consumption = 100
 
 
 /obj/item/food/grown/potato/attackby(obj/item/W, mob/user, params)
 	if(W.get_sharpness())
-		to_chat(user, "<span class='notice'>You cut the potato into wedges with [W].</span>")
+		to_chat(user, "<span class='notice'>Нарезаю картофель на мелкие дольки, используя [W].</span>")
 		var/obj/item/food/grown/potato/wedges/Wedges = new /obj/item/food/grown/potato/wedges
 		remove_item_from_storage(user)
 		qdel(src)
@@ -49,8 +49,8 @@
 
 // Sweet Potato
 /obj/item/seeds/potato/sweet
-	name = "pack of sweet potato seeds"
-	desc = "These seeds grow into sweet potato plants."
+	name = "Пачка семян батата"
+	desc = "Эти семена вырастают в батат."
 	icon_state = "seed-sweetpotato"
 	species = "sweetpotato"
 	plantname = "Sweet Potato Plants"
@@ -60,7 +60,7 @@
 
 /obj/item/food/grown/potato/sweet
 	seed = /obj/item/seeds/potato/sweet
-	name = "sweet potato"
-	desc = "It's sweet."
+	name = "Батат"
+	desc = "Как картошка, но слаще."
 	icon_state = "sweetpotato"
 	distill_reagent = /datum/reagent/consumable/ethanol/sbiten

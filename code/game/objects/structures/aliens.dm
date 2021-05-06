@@ -244,7 +244,7 @@
 
 /obj/structure/alien/weeds/creature
 	name = "gelatinous floor"
-	desc = "A thick gelatinous surface covers the floor.  Someone get the golashes."
+	desc = "A thick gelatinous surface covers the floor. Someone get the golashes."
 	color = "#4BAE56"
 
 

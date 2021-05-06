@@ -58,16 +58,16 @@
 			percent_cut = potential_cut ? clamp(round(potential_cut, 1), 1, 50) : 20
 		if("print")
 			if(!printer)
-				to_chat(usr, "<span class='notice'>Hardware error: A printer is required to print barcodes.</span>")
+				to_chat(usr, "<span class='notice'>Аппаратная ошибка: для печати штрих-кодов требуется принтер.</span>")
 				return
 			if(printer.stored_paper <= 0)
-				to_chat(usr, "<span class='notice'>Hardware error: Printer is out of paper.</span>")
+				to_chat(usr, "<span class='notice'>Аппаратная ошибка: в принтере закончилась бумага.</span>")
 				return
 			if(!payments_acc)
-				to_chat(usr, "<span class='notice'>Software error: Please set a current user first.</span>")
+				to_chat(usr, "<span class='notice'>Ошибка программного обеспечения: сначала установите текущего пользователя.</span>")
 				return
 			var/obj/item/barcode/barcode = new /obj/item/barcode(get_turf(ui_host()))
 			barcode.payments_acc = payments_acc
 			barcode.percent_cut = percent_cut
 			printer.stored_paper--
-			to_chat(usr, "<span class='notice'>The computer prints out a barcode.</span>")
+			to_chat(usr, "<span class='notice'>Компьютер распечатывает штрих-код.</span>")

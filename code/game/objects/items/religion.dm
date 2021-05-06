@@ -247,7 +247,7 @@
 
 /obj/item/storage/backpack/bannerpack
 	name = "\improper Nanotrasen banner backpack"
-	desc = "It's a backpack with lots of extra room.  A banner with Nanotrasen's logo is attached, that can't be removed."
+	desc = "It's a backpack with lots of extra room. A banner with Nanotrasen's logo is attached, that can't be removed."
 	icon_state = "bannerpack"
 
 /obj/item/storage/backpack/bannerpack/Initialize()
@@ -257,12 +257,12 @@
 
 /obj/item/storage/backpack/bannerpack/red
 	name = "красный banner backpack"
-	desc = "It's a backpack with lots of extra room.  A red banner is attached, that can't be removed."
+	desc = "It's a backpack with lots of extra room. A red banner is attached, that can't be removed."
 	icon_state = "bannerpack-red"
 
 /obj/item/storage/backpack/bannerpack/blue
 	name = "синий banner backpack"
-	desc = "It's a backpack with lots of extra room.  A blue banner is attached, that can't be removed."
+	desc = "It's a backpack with lots of extra room. A blue banner is attached, that can't be removed."
 	icon_state = "bannerpack-blue"
 
 //this is all part of one item set
@@ -380,7 +380,7 @@
 
 /obj/item/storage/box/itemset/crusader
 	name = "Crusader's Armour Set" //i can't into ck2 references
-	desc = "This armour is said to be based on the armor of kings on another world thousands of years ago, who tended to assassinate, conspire, and plot against everyone who tried to do the same to them.  Some things never change."
+	desc = "This armour is said to be based on the armor of kings on another world thousands of years ago, who tended to assassinate, conspire, and plot against everyone who tried to do the same to them. Some things never change."
 
 
 /obj/item/storage/box/itemset/crusader/blue/PopulateContents()

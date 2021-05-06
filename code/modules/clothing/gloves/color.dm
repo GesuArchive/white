@@ -71,7 +71,7 @@
 	charges_remaining--
 	if(charges_remaining <= 0)
 		var/turf/location = get_turf(src)
-		location.visible_message("<span class='warning'>[src] crumble[p_s()] away into nothing.</span>") // just like my dreams after working with .dm
+		location.visible_message("<span class='warning'>[src] рассыпается в пыль.</span>") // прямо как мои сны после перевода 
 		qdel(src)
 
 /obj/item/clothing/gloves/color/fyellow                             //Cheap Chinese Crap
@@ -98,15 +98,13 @@
 
 /obj/item/clothing/gloves/cut
 	desc = "Эти перчатки защитили бы от поражения электрическим током, если бы один умник не отрезал у них пальцы."
-	//desc = "These gloves would protect the wearer from electric shock... if the fingers were covered."
-	name = "fingerless insulated gloves"
+	name = "резиновые перчатки без пальцев"
 	icon_state = "yellowcut"
 	inhand_icon_state = "ygloves"
 	transfer_prints = TRUE
 
 /obj/item/clothing/gloves/cut/heirloom
-	desc = "Старые перчатки, украденные у инженеров ещё вашим дедом, много лунных циклов тому назад." //Лунная призма, дай мне сил блять.
-	//desc = "The old gloves your great grandfather stole from Engineering, many moons ago. They've seen some tough times recently."
+	desc = "Старые перчатки, которые твой великий дед украл в инженерном отсеке много лун назад. Их потрепало за последнее время."
 
 /obj/item/clothing/gloves/color/black
 	name = "чёрные перчатки"

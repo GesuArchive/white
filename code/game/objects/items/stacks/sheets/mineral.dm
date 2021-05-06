@@ -81,7 +81,7 @@ GLOBAL_LIST_INIT(sandbag_recipes, list ( \
 /obj/item/emptysandbag/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stack/ore/glass))
 		var/obj/item/stack/ore/glass/G = W
-		to_chat(user, "<span class='notice'>You fill the sandbag.</span>")
+		to_chat(user, "<span class='notice'>Наполняю мешок с песком.</span>")
 		var/obj/item/stack/sheet/mineral/sandbags/I = new /obj/item/stack/sheet/mineral/sandbags(drop_location())
 		qdel(src)
 		if (Adjacent(user) && !issilicon(user))
@@ -167,7 +167,7 @@ GLOBAL_LIST_INIT(uranium_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/plasma
 
 /obj/item/stack/sheet/mineral/plasma/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins licking <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] начинает облизывать <b>[src.name]</b>! Похоже [user.p_theyre()] пытается совершить самоубийство!</span>")
 	return TOXLOSS//dont you kids know that stuff is toxic?
 
 GLOBAL_LIST_INIT(plasma_recipes, list ( \
@@ -507,7 +507,7 @@ GLOBAL_LIST_INIT(metalhydrogen_recipes, list(
 	. += GLOB.metalhydrogen_recipes
 
 /obj/item/stack/sheet/mineral/zaukerite
-	name = "zaukerite"
+	name = "Заукерит"
 	icon_state = "zaukerite"
 	inhand_icon_state = "sheet-zaukerite"
 	singular_name = "zaukerite crystal"

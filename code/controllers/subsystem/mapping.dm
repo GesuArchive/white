@@ -66,7 +66,7 @@ SUBSYSTEM_DEF(mapping)
 		var/old_config = config
 		config = global.config.defaultmap
 		if(!config || config.defaulted)
-			to_chat(world, "<span class='boldannounce'>Unable to load next or default map config, defaulting to Meta Station</span>")
+			to_chat(world, "<span class='boldannounce'>Не могу загрузить следующий или стандартный конфиг карты, ставлю Meta Station.</span>")
 			config = old_config
 	initialize_biomes()
 	loadWorld()
@@ -91,9 +91,9 @@ SUBSYSTEM_DEF(mapping)
 
 	// Load the virtual reality hub
 	if(CONFIG_GET(flag/virtual_reality))
-		to_chat(world, "<span class='boldannounce'>Loading virtual reality...</span>")
+		to_chat(world, "<span class='boldannounce'>Загружается виртуальная реальность...</span>")
 		load_new_z_level("_maps/RandomZLevels/VR/vrhub.dmm", "Virtual Reality Hub")
-		to_chat(world, "<span class='boldannounce'>Virtual reality loaded.</span>")
+		to_chat(world, "<span class='boldannounce'>Виртуальная реальность загружена.</span>")
 
 	// Generate mining ruins
 	loading_ruins = TRUE

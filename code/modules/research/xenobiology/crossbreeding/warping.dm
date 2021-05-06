@@ -775,19 +775,19 @@ GLOBAL_DATUM(warped_room, /datum/map_template/warped_room)
 	name = "warped_rune"
 	icon = 'icons/obj/slimecrossing.dmi'
 	icon_state = "rune_rainbow"
-	desc = "Use this rune if you want to leave this place. You will have to leave eventually."
+	desc = "Используй эту руну, если хочешь покинуть это место. Однажды всё равно придётся."
 	move_resist = INFINITY
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 /datum/map_template/warped_room
-	name = "Warped room"
+	name = "Комната искривления"
 	mappath = '_maps/templates/warped_room.dmm'
 	var/obj/effect/warped_room_exit/exit_rune
 	var/list/rainbow_runes = list()
 
 /area/warped_room
-	name = "warped room"
+	name = "комната искривления"
 	icon_state = "yellow"
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	requires_power = FALSE

@@ -25,7 +25,7 @@ GLOBAL_LIST_INIT(ninja_deinitialize_messages, list(
 ))
 
 /datum/action/item_action/initialize_ninja_suit
-	name = "Toggle Ninja Suit"
+	name = "Активировать костюм ниндзя"
 
 /**
  * Toggles the ninja suit on/off
@@ -35,7 +35,7 @@ GLOBAL_LIST_INIT(ninja_deinitialize_messages, list(
 /obj/item/clothing/suit/space/space_ninja/proc/toggle_on_off()
 	. = TRUE
 	if(s_busy)
-		to_chat(loc, "<span class='warning'>ERROR</span>: You cannot use this function at this time.")
+		to_chat(loc, "<span class='warning'>ОШИБКА</span>: Я не могу использовать эту функцию в настоящее время.")
 		return FALSE
 	s_busy = TRUE
 	if(s_initialized)
@@ -104,7 +104,7 @@ GLOBAL_LIST_INIT(ninja_deinitialize_messages, list(
 	var/message = GLOB.ninja_deinitialize_messages[phase + 1]
 	switch(phase)
 		if(NINJA_DEINIT_LOGOFF_PHASE)
-			message = "Logging off, [ninja.real_name]. " + message
+			message = "Выхожу, [ninja.real_name]. " + message
 		if(NINJA_DEINIT_STEALTH_PHASE)
 			cancel_stealth()
 	to_chat(ninja, "<span class='notice'>[message]</span>")

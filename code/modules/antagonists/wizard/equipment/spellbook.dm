@@ -37,7 +37,7 @@
 		if(initial(S.name) != initial(aspell.name)) // Not using directly in case it was learned from one spellbook then upgraded in another
 			continue
 		if(aspell.spell_level >= aspell.level_max)
-			to_chat(user,  "<span class='warning'>This spell cannot be improved further!</span>")
+			to_chat(user, "<span class='warning'>This spell cannot be improved further!</span>")
 			return FALSE
 
 		aspell.name = initial(aspell.name)

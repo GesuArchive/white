@@ -1,8 +1,8 @@
 // A very special plant, deserving it's own file.
 
 /obj/item/seeds/kudzu
-	name = "pack of kudzu seeds"
-	desc = "These seeds grow into a weed that grows incredibly fast."
+	name = "Пачка семян кудзу "
+	desc = "Эти семена невероятно быстро вырастают в сорняк, который также молниеносно распространяется."
 	icon_state = "seed-kudzu"
 	species = "kudzu"
 	plantname = "Kudzu"
@@ -24,7 +24,7 @@
 	return S
 
 /obj/item/seeds/kudzu/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] swallows the pack of kudzu seeds! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] съедает пачку кудзу семян! Похоже [user.p_theyre()] пытается покончить с собой!</span>")
 	plant(user)
 	return (BRUTELOSS)
 
@@ -32,22 +32,22 @@
 	if(isspaceturf(user.loc))
 		return
 	if(!isturf(user.loc))
-		to_chat(user, "<span class='warning'>You need more space to plant [src].</span>")
+		to_chat(user, "<span class='warning'>Нужно больше места, чтобы посадить росток [src].</span>")
 		return FALSE
 	if(locate(/obj/structure/spacevine) in user.loc)
-		to_chat(user, "<span class='warning'>There is too much kudzu here to plant [src].</span>")
+		to_chat(user, "<span class='warning'>Здесь слишком много кудзу, чтобы посадить [src].</span>")
 		return FALSE
-	to_chat(user, "<span class='notice'>You plant [src].</span>")
+	to_chat(user, "<span class='notice'>Сажаю [src].</span>")
 	message_admins("Kudzu planted by [ADMIN_LOOKUPFLW(user)] at [ADMIN_VERBOSEJMP(user)]")
 	investigate_log("was planted by [key_name(user)] at [AREACOORD(user)]", INVESTIGATE_BOTANY)
 	new /datum/spacevine_controller(get_turf(user), mutations, potency, production)
 	qdel(src)
 
 /obj/item/seeds/kudzu/attack_self(mob/user)
-	user.visible_message("<span class='danger'>[user] begins throwing seeds on the ground...</span>")
+	user.visible_message("<span class='danger'>[user] начинает выбрасывать семена на пол...</span>")
 	if(do_after(user, 5 SECONDS, target = user.drop_location(), progress = TRUE))
 		plant(user)
-		to_chat(user, "<span class='notice'>You plant the kudzu. You monster.</span>")
+		to_chat(user, "<span class='notice'>Вы посадили кудзу. Вы - монстр.</span>")
 
 /obj/item/seeds/kudzu/get_unique_analyzer_text()
 	var/kudzu_mutations = ""
@@ -99,8 +99,8 @@
 
 /obj/item/food/grown/kudzupod
 	seed = /obj/item/seeds/kudzu
-	name = "kudzu pod"
-	desc = "<I>Pueraria Virallis</I>: An invasive species with vines that rapidly creep and wrap around whatever they contact."
+	name = "Стручок кудзу"
+	desc = "<I>Пуэрария Вираллис</I>: Инвазивный вид с виноградными лозами, которые быстро ползают и обвивают все, с чем они соприкасаются."
 	icon_state = "kudzupod"
 	bite_consumption_mod = 2
 	foodtypes = VEGETABLES | GROSS

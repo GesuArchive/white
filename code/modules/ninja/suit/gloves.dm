@@ -9,8 +9,8 @@
  *
  */
 /obj/item/clothing/gloves/space_ninja
-	desc = "These nano-enhanced gloves insulate from electricity and provide fire resistance."
-	name = "ninja gloves"
+	desc = "Эти наноусиленные перчатки изолируют вас от электричества и обеспечат огнестойкость.
+	name = "Перчатки ниндзя"
 	icon_state = "black"
 	inhand_icon_state = "s-ninjan"
 	siemens_coefficient = 0
@@ -60,9 +60,9 @@
 
 	if(isnum(.)) //Numerical values of drained handle their feedback here, Alpha values handle it themselves (Research hacking)
 		if(.)
-			to_chat(wearer, "<span class='notice'>Gained <B>[DisplayEnergy(.)]</B> of energy from [A].</span>")
+			to_chat(wearer, "<span class='notice'>Получена <B>[DisplayEnergy(.)]</B> энергии из [A].</span>")
 		else
-			to_chat(wearer, "<span class='danger'>\The [A] has run dry of energy, you must find another source!</span>")
+			to_chat(wearer, "<span class='danger'>В [A] иссякла энергия, я должен найти другой источник!</span>")
 	else
 		. = FALSE	//as to not cancel attack_hand()
 

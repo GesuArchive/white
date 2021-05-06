@@ -6,7 +6,7 @@
 // Base type. Subtypes are found in /grown dir. Lavaland-based subtypes can be found in mining/ash_flora.dm
 /obj/item/food/grown
 	icon = 'icons/obj/hydroponics/harvest.dmi'
-	name = "fresh produce" // so recipe text doesn't say 'snack'
+	name = "Свежая продукция" // поэтому в рецепте не говорят 'закусон'
 	max_volume = 100
 	w_class = WEIGHT_CLASS_SMALL
 	/// type path, gets converted to item on New(). It's safe to assume it's always a seed item.
@@ -119,7 +119,7 @@
 	else if(splat_type)
 		new splat_type(T)
 
-	visible_message("<span class='warning'>[src] is squashed.</span>","<span class='hear'>You hear a smack.</span>")
+	visible_message("<span class='warning'>[src] раздавлен.</span>","<span class='hear'>Слышу шлепок.</span>")
 	if(seed)
 		for(var/datum/plant_gene/trait/trait in seed.genes)
 			trait.on_squash(src, target)
@@ -152,7 +152,7 @@
 
 /obj/item/food/grown/grind_requirements()
 	if(dry_grind && !HAS_TRAIT(src, TRAIT_DRIED))
-		to_chat(usr, "<span class='warning'>[capitalize(src.name)] needs to be dry before it can be ground up!</span>")
+		to_chat(usr, "<span class='warning'>[capitalize(src.name)] должен быть высушен, чтобы его измельчить!</span>")
 		return
 	return TRUE
 

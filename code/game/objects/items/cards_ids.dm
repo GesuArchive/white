@@ -234,7 +234,7 @@
 		return
 
 	if (registered_account.being_dumped)
-		registered_account.bank_card_talk("<span class='warning'>内部服务器错误</span>", TRUE)
+		registered_account.bank_card_talk("<span class='warning'>е†…йѓЁжњЌеЉЎе™Ёй”™иЇЇ</span>", TRUE)
 		return
 
 	var/amount_to_remove =  FLOOR(input(user, "Сколько извлекаем? Баланс: [registered_account.account_balance]", "Вывод бабла", 5) as num|null, 1)

@@ -1,6 +1,6 @@
 /datum/action/item_action/toggle_glove
 	name = "Toggle interaction"
-	desc = "Switch between normal interaction and drain mode."
+	desc = "Переключение между обычным взаимодействием и режимом слива."
 	button_icon_state = "s-ninjan"
 	icon_icon = 'icons/obj/clothing/gloves.dmi'
 
@@ -11,5 +11,5 @@
  */
 /obj/item/clothing/gloves/space_ninja/proc/toggledrain()
 	var/mob/living/carbon/human/ninja = loc
-	to_chat(ninja, "<span class='notice'>You [candrain?"disable":"enable"] special interaction.</span>")
+	to_chat(ninja, "<span class='notice'>Я [candrain?"disable":"enable"] особое взаимодействие.</span>")
 	candrain=!candrain

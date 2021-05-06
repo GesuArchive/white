@@ -2,8 +2,8 @@
  * Simple admin tool that enables players to be assigned to a VERY SHITTY, very visually distinct team, quickly and affordably.
  */
 /obj/machinery/teambuilder
-	name = "Teambuilding Machine"
-	desc = "A machine that, when passed, colors you based on the color of your team. Lead free!"
+	name = "машина выбора команды"
+	desc = "Машина, которая красит тебя в цвет команды, при проходе через неё. Эта машина красит в цвет нейтральной команды."
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "lpad-idle"
 	density = FALSE
@@ -20,7 +20,7 @@
 
 /obj/machinery/teambuilder/examine_more(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>You see a hastily written note on the side, it says '1215-1217, PICK A SIDE'.</span>"
+	. += "<hr><span class='notice'>Замечаю написанную на скорую руку записку, она гласит '1215-1217, ВЫБЕРИ СТОРОНУ'.</span>"
 
 /obj/machinery/teambuilder/Crossed(atom/movable/AM, oldloc)
 	. = ..()
@@ -36,13 +36,13 @@
 		Radio.set_frequency(team_radio)
 
 /obj/machinery/teambuilder/red
-	name = "Teambuilding Machine (Red)"
-	desc = "A machine that, when passed, colors you based on the color of your team. Go red team!"
+	name = "машина выбора команды (Красная команда)"
+	desc = "Машина, которая красит тебя в цвет команды, при проходе через неё. Эта машина красит в цвет красной команды."
 	team_color = COLOR_RED
 	team_radio = FREQ_CTF_RED
 
 /obj/machinery/teambuilder/blue
-	name = "Teambuilding Machine (Blue)"
-	desc = "A machine that, when passed, colors you based on the color of your team. Go blue team!"
+	name = "машина выбора команды (Синяя команда)"
+	desc = "Машина, которая красит тебя в цвет команды, при проходе через неё. Эта машина красит в цвет синей команды."
 	team_color = COLOR_BLUE
 	team_radio = FREQ_CTF_BLUE

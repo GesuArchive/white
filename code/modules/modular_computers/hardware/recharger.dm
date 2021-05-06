@@ -24,8 +24,8 @@
 
 
 /obj/item/computer_hardware/recharger/apc_recharger
-	name = "area power connector"
-	desc = "A device that wirelessly recharges connected device from nearby APC."
+	name = "Автоматический контроллер питания"
+	desc = "Устройство, которое заряжает подключенное устройство по беспроводной сети от ближайшего АКП."
 	icon_state = "charger_APC"
 	w_class = WEIGHT_CLASS_SMALL // Can't be installed into tablets/PDAs
 
@@ -47,15 +47,15 @@
 	return FALSE
 
 /obj/item/computer_hardware/recharger/wired
-	name = "wired power connector"
-	desc = "A power connector that recharges connected device from nearby power wire. Incompatible with portable computers."
+	name = "Проводной разъем питания"
+	desc = "Разъем питания, который заряжает подключенное устройство от ближайшего провода питания. Несовместимо с портативными компьютерами."
 	icon_state = "charger_wire"
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/computer_hardware/recharger/wired/can_install(obj/item/modular_computer/M, mob/living/user = null)
 	if(ismachinery(M.physical) && M.physical.anchored)
 		return ..()
-	to_chat(user, "<span class='warning'><b>[src.name]</b> is incompatible with portable computers!</span>")
+	to_chat(user, "<span class='warning'><b>[src.name]</b> несовместимо с портативными компьютерами!</span>")
 	return FALSE
 
 /obj/item/computer_hardware/recharger/wired/use_power(amount, charging=0)
@@ -79,8 +79,8 @@
 /// This recharger exists only in borg built-in tablets. I would have tied it to the borg's cell but
 /// the program that displays laws should always be usable, and the exceptions were starting to pile.
 /obj/item/computer_hardware/recharger/cyborg
-	name = "modular interface power harness"
-	desc = "A standard connection to power a small computer device from a cyborg's chassis."
+	name = "Модульный интерфейсный жгут питания"
+	desc = "Стандартное подключение для питания небольшого компьютерного устройства от корпуса киборга."
 
 /obj/item/computer_hardware/recharger/cyborg/use_power(amount, charging=0)
 	return TRUE
@@ -88,8 +88,8 @@
 
 // This is not intended to be obtainable in-game. Intended for adminbus and debugging purposes.
 /obj/item/computer_hardware/recharger/lambda
-	name = "lambda coil"
-	desc = "A very complex device that draws power from its own bluespace dimension."
+	name = "Лямбда-катушка"
+	desc = "Очень сложное устройство, которое черпает энергию из собственного голубого пространства."
 	icon_state = "charger_lambda"
 	w_class = WEIGHT_CLASS_TINY
 	charge_rate = 100000

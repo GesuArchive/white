@@ -1,6 +1,6 @@
 /obj/item/computer_hardware/printer
-	name = "printer"
-	desc = "Computer-integrated printer with paper recycling module."
+	name = "Принтер"
+	desc = "Компьютерный принтер с модулем переработки бумаги."
 	power_usage = 100
 	icon_state = "printer"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -11,11 +11,11 @@
 
 /obj/item/computer_hardware/printer/diagnostics(mob/living/user)
 	..()
-	to_chat(user, "<span class='notice'>Paper level: [stored_paper]/[max_paper].</span>")
+	to_chat(user, "<span class='notice'>Уровень бумаги: [stored_paper]/[max_paper].</span>")
 
 /obj/item/computer_hardware/printer/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>Paper level: [stored_paper]/[max_paper].</span>"
+	. += "<hr><span class='notice'>Уровень бумаги: [stored_paper]/[max_paper].</span>"
 
 
 /obj/item/computer_hardware/printer/proc/print_text(text_to_print, paper_title = "")
@@ -46,15 +46,15 @@
 
 		if(user && !user.temporarilyRemoveItemFromInventory(I))
 			return FALSE
-		to_chat(user, "<span class='notice'>You insert \the [I] into [src] paper recycler.</span>")
+		to_chat(user, "<span class='notice'>Я вставляю \[I] в [src] переработчик бумаги.</span>")
 		qdel(I)
 		stored_paper++
 		return TRUE
 	return FALSE
 
 /obj/item/computer_hardware/printer/mini
-	name = "miniprinter"
-	desc = "A small printer with paper recycling module."
+	name = "Минипринтер"
+	desc = "Маленький принтер с модулем переработки бумаги."
 	power_usage = 50
 	icon_state = "printer_mini"
 	w_class = WEIGHT_CLASS_TINY
