@@ -386,11 +386,11 @@
 		if((brute_heal > 0 && affecting.brute_dam > 0) || (burn_heal > 0 && affecting.burn_dam > 0))
 			if(affecting.heal_damage(brute_heal, burn_heal, 0, BODYPART_ROBOTIC))
 				H.update_damage_overlays()
-			user.visible_message("<span class='notice'>[user] fixes some of the [dam ? "dents on" : "burnt wires in"] [H] [affecting.name].</span>", \
-			"<span class='notice'>You fix some of the [dam ? "dents on" : "burnt wires in"] [H == user ? "your" : "[H]"] [affecting.name].</span>")
+			user.visible_message("<span class='notice'>[user] чинит несколько [dam ? "dents on" : "burnt wires in"] [H] [affecting.name].</span>", \
+			"<span class='notice'>Я чиню несколько [dam ? "dents on" : "burnt wires in"] [H == user ? "your" : "[H]"] [affecting.name].</span>")
 			return 1 //successful heal
 		else
-			to_chat(user, "<span class='warning'>[affecting] is already in good condition!</span>")
+			to_chat(user, "<span class='warning'>[affecting] уже в хорошем состоянии!</span>")
 
 ///Is the passed in mob a ghost with admin powers, doesn't check for AI interact like isAdminGhost() used to
 /proc/isAdminObserver(mob/user)
@@ -418,31 +418,31 @@
  * Automatic logging and uses pollCandidatesForMob, how convenient
  */
 /proc/offer_control(mob/M)
-	to_chat(M, "Control of your mob has been offered to dead players.")
+	to_chat(M, "Мертвым игрокам предложен контроль над моим мобом.")
 	if(usr)
 		log_admin("[key_name(usr)] has offered control of ([key_name(M)]) to ghosts.")
 		message_admins("[key_name_admin(usr)] has offered control of ([ADMIN_LOOKUPFLW(M)]) to ghosts")
 	var/poll_message = "Do you want to play as [M.real_name]?"
 	if(M.mind && M.mind.assigned_role)
-		poll_message = "[poll_message] Job:[M.mind.assigned_role]."
+		poll_message = "[poll_message] Роль:[M.mind.assigned_role]."
 	if(M.mind && M.mind.special_role)
-		poll_message = "[poll_message] Status:[M.mind.special_role]."
+		poll_message = "[poll_message] Статус:[M.mind.special_role]."
 	else if(M.mind)
 		var/datum/antagonist/A = M.mind.has_antag_datum(/datum/antagonist/)
 		if(A)
-			poll_message = "[poll_message] Status:[A.name]."
+			poll_message = "[poll_message] Статус:[A.name]."
 	var/list/mob/dead/observer/candidates = pollCandidatesForMob(poll_message, ROLE_PAI, null, FALSE, 100, M)
 
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/C = pick(candidates)
-		to_chat(M, "Your mob has been taken over by a ghost!")
+		to_chat(M, "Моего моба захватил призрак!")
 		message_admins("[key_name_admin(C)] has taken control of ([ADMIN_LOOKUPFLW(M)])")
 		M.ghostize(0)
 		M.key = C.key
 		M.client?.init_verbs()
 		return TRUE
 	else
-		to_chat(M, "There were no ghosts willing to take control.")
+		to_chat(M, "Призраков, готовых взять кого-либо под контроль, не было.")
 		message_admins("No ghosts were willing to take control of [ADMIN_LOOKUPFLW(M)])")
 		return FALSE
 
@@ -517,7 +517,7 @@
 			dissectionmsg = " via Experimental Dissection"
 		else if(HAS_TRAIT_FROM(src, TRAIT_DISSECTED,"Thorough Dissection"))
 			dissectionmsg = " via Thorough Dissection"
-		. += "<span class='notice'>This body has been dissected and analyzed[dissectionmsg].</span><br>"
+		. += "<span class='notice'>Это тело было рассечено и проанализировано[dissectionmsg].</span><br>"
 	if(HAS_TRAIT(src,TRAIT_HUSK))
 		. += "<span class='warning'>Это тело деградировало до состояния хаска.</span>"
 

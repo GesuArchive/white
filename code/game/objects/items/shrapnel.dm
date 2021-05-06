@@ -1,5 +1,5 @@
 /obj/item/shrapnel // frag grenades
-	name = "shrapnel shard"
+	name = "осколок шрапнели"
 	custom_materials = list(/datum/material/iron=50)
 	armour_penetration = -20
 	icon = 'icons/obj/shards.dmi'
@@ -9,19 +9,19 @@
 	sharpness = SHARP_EDGED
 
 /obj/item/shrapnel/stingball // stingbang grenades
-	name = "stingball"
+	name = "резиновая шрапнель"
 	icon_state = "tiny"
 	sharpness = NONE
 
 /obj/item/shrapnel/bullet // bullets
-	name = "bullet"
+	name = "пуля"
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "s-casing"
 	embedding = null // embedding vars are taken from the projectile itself
 
 
 /obj/projectile/bullet/shrapnel
-	name = "flying shrapnel shard"
+	name = "летающий осколок шрапнели"
 	damage = 14
 	range = 20
 	armour_penetration = -20
@@ -36,7 +36,7 @@
 	embedding = list(embed_chance=70, ignore_throwspeed_threshold=TRUE, fall_chance=1)
 
 /obj/projectile/bullet/shrapnel/mega
-	name = "flying shrapnel hunk"
+	name = "летящий ОСКОЛОК шрапнели"
 	range = 45
 	dismemberment = 15
 	ricochets_max = 6
@@ -45,7 +45,7 @@
 	ricochet_decay_chance = 0.9
 
 /obj/projectile/bullet/pellet/stingball
-	name = "stingball pellet"
+	name = "снаряд с резиновой шрапнелью"
 	damage = 3
 	stamina = 8
 	ricochets_max = 4
@@ -60,7 +60,7 @@
 	embedding = list(embed_chance=55, fall_chance=2, jostle_chance=7, ignore_throwspeed_threshold=TRUE, pain_stam_pct=0.7, pain_mult=3, jostle_pain_mult=3, rip_time=15)
 
 /obj/projectile/bullet/pellet/stingball/mega
-	name = "megastingball pellet"
+	name = "снаряд с крупной резиновой шрапнелью"
 	ricochets_max = 6
 	ricochet_chance = 110
 
@@ -70,7 +70,7 @@
 
 
 /obj/projectile/bullet/pellet/capmine
-	name = "\improper AP shrapnel shard"
+	name = "бронебойный осколок шрапнели"
 	range = 7
 	damage = 8
 	stamina = 8
@@ -85,7 +85,7 @@
 	embed_falloff_tile = 0
 
 /obj/item/shrapnel/capmine
-	name = "\improper AP shrapnel shard"
+	name = "бронебойный осколок шрапнели"
 	custom_materials = list(/datum/material/iron=50)
 	armour_penetration = -30
 

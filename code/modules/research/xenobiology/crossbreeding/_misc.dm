@@ -6,8 +6,8 @@ Slimecrossing Items
 
 //Rewind camera - I'm already Burning Sepia
 /obj/item/camera/rewind
-	name = "sepia-tinted camera"
-	desc = "They say a picture is like a moment stopped in time."
+	name = "старинная камера"
+	desc = "Говорят, что фотография это момент, остановленный во времени."
 	pictures_left = 1
 	pictures_max = 1
 	can_customise = FALSE
@@ -60,11 +60,11 @@ Slimecrossing Items
 		return
 	if(!used)//selfie time
 		if(user == target)
-			to_chat(user, "<span class=notice>You take a selfie!</span>")
+			to_chat(user, "<span class=notice>Делаю селфи!</span>")
 		else
-			to_chat(user, "<span class=notice>You take a photo with [target]!</span>")
-			to_chat(target, "<span class=notice>[user] takes a photo with you!</span>")
-		to_chat(target, "<span class=notice>You'll remember this moment forever!</span>")
+			to_chat(user, "<span class=notice>Сфоткался с [target]!</span>")
+			to_chat(target, "<span class=notice>[user] сфоткался с тобой!</span>")
+		to_chat(target, "<span class=notice>Я запомню этот миг навсегда!</span>")
 
 		used = TRUE
 		target.AddComponent(/datum/component/dejavu, 2)
@@ -74,8 +74,8 @@ Slimecrossing Items
 
 //Timefreeze camera - Old Burning Sepia result. Kept in case admins want to spawn it
 /obj/item/camera/timefreeze
-	name = "sepia-tinted camera"
-	desc = "They say a picture is like a moment stopped in time."
+	name = "старинная камера"
+	desc = "Говорят, что фотография похожа на момент, остановленный во времени."
 	pictures_left = 1
 	pictures_max = 1
 	var/used = FALSE
@@ -86,13 +86,13 @@ Slimecrossing Items
 	if(!used) //refilling the film does not refill the timestop
 		new /obj/effect/timestop(get_turf(target), 2, 50, list(user))
 		used = TRUE
-		desc = "This camera has seen better days."
+		desc = "Эта камера видала лучшие дни."
 	. = ..()
 
 //Hypercharged slime cell - Charged Yellow
 /obj/item/stock_parts/cell/high/slime_hypercharged
-	name = "hypercharged slime core"
-	desc = "A charged yellow slime extract, infused with plasma. It almost hurts to touch."
+	name = "сверхзаряженное ядро ??слизи"
+	desc = "Заряженный экстракт желтой слизи, наполненный плазмой. К этому больно прикасаться."
 	icon = 'icons/mob/slimes.dmi'
 	icon_state = "yellow slime extract"
 	rating = 7
@@ -102,25 +102,25 @@ Slimecrossing Items
 
 //Barrier cube - Chilling Grey
 /obj/item/barriercube
-	name = "barrier cube"
-	desc = "A compressed cube of slime. When squeezed, it grows to massive size!"
+	name = "барьерный куб"
+	desc = "Сжатый куб слизи. Когда выжимается, вырастает до огромных размеров!"
 	icon = 'icons/obj/slimecrossing.dmi'
 	icon_state = "barriercube"
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/barriercube/attack_self(mob/user)
 	if(locate(/obj/structure/barricade/slime) in get_turf(loc))
-		to_chat(user, "<span class='warning'>You can't fit more than one barrier in the same space!</span>")
+		to_chat(user, "<span class='warning'>Нельзя разместить более одного барьера в одном месте!</span>")
 		return
-	to_chat(user, "<span class='notice'>You squeeze [src].</span>")
+	to_chat(user, "<span class='notice'>Сжимаю [src].</span>")
 	var/obj/B = new /obj/structure/barricade/slime(get_turf(loc))
-	B.visible_message("<span class='warning'>[capitalize(src.name)] suddenly grows into a large, gelatinous barrier!</span>")
+	B.visible_message("<span class='warning'>[capitalize(src.name)] внезапно разрастается в огромный желейный барьер!</span>")
 	qdel(src)
 
 //Slime barricade - Chilling Grey
 /obj/structure/barricade/slime
-	name = "gelatinous barrier"
-	desc = "A huge chunk of grey slime. Bullets might get stuck in it."
+	name = "желейный барьер"
+	desc = "Огромный кусок серой слизи. В нём могут застрять пули."
 	icon = 'icons/obj/slimecrossing.dmi'
 	icon_state = "slimebarrier"
 	proj_pass_rate = 40
@@ -128,8 +128,8 @@ Slimecrossing Items
 
 //Melting Gel Wall - Chilling Metal
 /obj/effect/forcefield/slimewall
-	name = "solidified gel"
-	desc = "A mass of solidified slime gel - completely impenetrable, but it's melting away!"
+	name = "затвердевший гель"
+	desc = "Масса затвердевшей слизи - совершенно непроницаемая, но она тает!"
 	icon = 'icons/obj/slimecrossing.dmi'
 	icon_state = "slimebarrier_thick"
 	CanAtmosPass = ATMOS_PASS_NO
@@ -138,14 +138,14 @@ Slimecrossing Items
 
 //Rainbow barrier - Chilling Rainbow
 /obj/effect/forcefield/slimewall/rainbow
-	name = "rainbow barrier"
-	desc = "Despite others' urgings, you probably shouldn't taste this."
+	name = "радужный барьер"
+	desc = "Несмотря на призывы других, вам, вероятно, не стоит пробовать это."
 	icon_state = "rainbowbarrier"
 
 //Ice stasis block - Chilling Dark Blue
 /obj/structure/ice_stasis
-	name = "ice block"
-	desc = "A massive block of ice. You can see something vaguely humanoid inside."
+	name = "глыба льда"
+	desc = "Массивная глыба льда. Вы можете увидеть что-то похожее на человека внутри."
 	icon = 'icons/obj/slimecrossing.dmi'
 	icon_state = "frozen"
 	density = TRUE
@@ -164,45 +164,45 @@ Slimecrossing Items
 
 //Gold capture device - Chilling Gold
 /obj/item/capturedevice
-	name = "gold capture device"
-	desc = "Bluespace technology packed into a roughly egg-shaped device, used to store nonhuman creatures. Can't catch them all, though - it only fits one."
+	name = "золотое устройство захвата"
+	desc = "Устройство яйцевидной формы использующее технологию блюспейс. Используется для хранения нечеловеческих существ. Не может поймать их всех - помещается только одно существо."
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/slimecrossing.dmi'
 	icon_state = "capturedevice"
 
 /obj/item/capturedevice/attack(mob/living/M, mob/user)
 	if(length(contents))
-		to_chat(user, "<span class='warning'>The device already has something inside.</span>")
+		to_chat(user, "<span class='warning'>Внутри устройства уже что-то есть.</span>")
 		return
 	if(!isanimal(M))
-		to_chat(user, "<span class='warning'>The capture device only works on simple creatures.</span>")
+		to_chat(user, "<span class='warning'>Устройство захвата работает только на простых существ.</span>")
 		return
 	if(M.mind)
-		to_chat(user, "<span class='notice'>You offer the device to [M].</span>")
+		to_chat(user, "<span class='notice'>Предлагаю устройство [M].</span>")
 		if(alert(M, "Would you like to enter [user] capture device?", "Gold Capture Device", "Yes", "No") == "Yes")
 			if(user.canUseTopic(src, BE_CLOSE) && user.canUseTopic(M, BE_CLOSE))
-				to_chat(user, "<span class='notice'>You store [M] in the capture device.</span>")
-				to_chat(M, "<span class='notice'>The world warps around you, and you're suddenly in an endless void, with a window to the outside floating in front of you.</span>")
+				to_chat(user, "<span class='notice'>Помещаю [M] в устройство захвата.</span>")
+				to_chat(M, "<span class='notice'>Мир вокруг тебя искривляется и внезапно ты оказываешься в бесконечной пустоте с летающим окном наружу перед тобой.</span>")
 				store(M, user)
 			else
-				to_chat(user, "<span class='warning'>You were too far away from [M].</span>")
-				to_chat(M, "<span class='warning'>You were too far away from [user].</span>")
+				to_chat(user, "<span class='warning'>Я был слишком далеко от [M].</span>")
+				to_chat(M, "<span class='warning'>Я был слишком далеко от [user].</span>")
 		else
-			to_chat(user, "<span class='warning'>[M] refused to enter the device.</span>")
+			to_chat(user, "<span class='warning'>[M] отказался заходить в устройство.</span>")
 			return
 	else
 		if(istype(M, /mob/living/simple_animal/hostile) && !("neutral" in M.faction))
-			to_chat(user, "<span class='warning'>This creature is too aggressive to capture.</span>")
+			to_chat(user, "<span class='warning'>Это существо слишком агрессивное, чтобы быть пойманным.</span>")
 			return
-	to_chat(user, "<span class='notice'>You store [M] in the capture device.</span>")
+	to_chat(user, "<span class='notice'>Поместил [M] в устройство захвата.</span>")
 	store(M)
 
 /obj/item/capturedevice/attack_self(mob/user)
 	if(contents.len)
-		to_chat(user, "<span class='notice'>You open the capture device!</span>")
+		to_chat(user, "<span class='notice'>Открыл устройство захвата!</span>")
 		release()
 	else
-		to_chat(user, "<span class='warning'>The device is empty...</span>")
+		to_chat(user, "<span class='warning'>Устройство пустое...</span>")
 
 /obj/item/capturedevice/proc/store(mob/living/M)
 	M.forceMove(src)

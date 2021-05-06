@@ -1,6 +1,6 @@
 /datum/action/item_action/ninja_sword_recall
-	name = "Recall Energy Katana (Variable Cost)"
-	desc = "Teleports the Energy Katana linked to this suit to its wearer, cost based on distance."
+	name = "Вызов энергетической катаны (различная стоимость)"
+	desc = "Телепортирует энергетическую катану, связанную с этим костюмом, к её владельцу, стоимость зависит от расстояния."
 	button_icon_state = "energy_katana"
 	icon_icon = 'icons/obj/items_and_weapons.dmi'
 
@@ -17,7 +17,7 @@
 	var/inview = TRUE
 
 	if(!energyKatana)
-		to_chat(ninja, "<span class='warning'>Could not locate Energy Katana!</span>")
+		to_chat(ninja, "<span class='warning'>Не удалось обнаружить энергетическую катану!</span>")
 		return
 
 	if(energyKatana in ninja)
@@ -40,7 +40,7 @@
 		if(inview) //If we can see the katana, throw it towards ourselves, damaging people as we go.
 			energyKatana.spark_system.start()
 			playsound(ninja, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-			ninja.visible_message("<span class='danger'>\the [energyKatana] flies towards [ninja]!</span>","<span class='warning'>You hold out your hand and \the [energyKatana] flies towards you!</span>")
+			ninja.visible_message("<span class='danger'>\[energyKatana] летит в сторону [ninja]!</span>","<span class='warning'>Я вытягиваю руку, и \the [energyKatana] летит ко мне!</span>")
 			energyKatana.throw_at(ninja, distance+1, energyKatana.throw_speed, ninja)
 
 		else //Else just TP it to us.

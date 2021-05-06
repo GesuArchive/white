@@ -1,7 +1,7 @@
 // Carrot
 /obj/item/seeds/carrot
-	name = "pack of carrot seeds"
-	desc = "These seeds grow into carrots."
+	name = "Пачка семян моркови"
+	desc = "Эти семена вырастают в морковь."
 	icon_state = "seed-carrot"
 	species = "carrot"
 	plantname = "Carrots"
@@ -17,8 +17,8 @@
 
 /obj/item/food/grown/carrot
 	seed = /obj/item/seeds/carrot
-	name = "carrot"
-	desc = "It's good for the eyes!"
+	name = "Морковь"
+	desc = "Разве ты кролик?!"
 	icon_state = "carrot"
 	bite_consumption_mod = 2
 	foodtypes = VEGETABLES
@@ -27,7 +27,7 @@
 
 /obj/item/food/grown/carrot/attackby(obj/item/I, mob/user, params)
 	if(I.get_sharpness())
-		to_chat(user, "<span class='notice'>You sharpen the carrot into a shiv with [I].</span>")
+		to_chat(user, "<span class='notice'>Затачиваю морковь в заточку при помощи[I].</span>")
 		var/obj/item/kitchen/knife/shiv/carrot/Shiv = new /obj/item/kitchen/knife/shiv/carrot
 		remove_item_from_storage(user)
 		qdel(src)
@@ -37,8 +37,8 @@
 
 // Parsnip
 /obj/item/seeds/carrot/parsnip
-	name = "pack of parsnip seeds"
-	desc = "These seeds grow into parsnips."
+	name = "Пачка семян пастернака"
+	desc = "Эти семена вырастают в пастернак."
 	icon_state = "seed-parsnip"
 	species = "parsnip"
 	plantname = "Parsnip"
@@ -49,8 +49,8 @@
 
 /obj/item/food/grown/parsnip
 	seed = /obj/item/seeds/carrot/parsnip
-	name = "parsnip"
-	desc = "Closely related to carrots."
+	name = "Пастернак"
+	desc = "Очень тесно связан с морковью."
 	icon_state = "parsnip"
 	bite_consumption_mod = 2
 	foodtypes = VEGETABLES
@@ -60,8 +60,8 @@
 
 // White-Beet
 /obj/item/seeds/whitebeet
-	name = "pack of white-beet seeds"
-	desc = "These seeds grow into sugary beet producing plants."
+	name = "Упаковка семян сахарной свёклы"
+	desc = "Эти семена вырастают в сахарную свёклу."
 	icon_state = "seed-whitebeet"
 	species = "whitebeet"
 	plantname = "White-Beet Plants"
@@ -77,8 +77,8 @@
 
 /obj/item/food/grown/whitebeet
 	seed = /obj/item/seeds/whitebeet
-	name = "white-beet"
-	desc = "You can't beat white-beet."
+	name = "Сахарная свёкла"
+	desc = "Свекла или свёкла?"
 	icon_state = "whitebeet"
 	bite_consumption_mod = 2
 	foodtypes = VEGETABLES
@@ -86,8 +86,8 @@
 
 // Red Beet
 /obj/item/seeds/redbeet
-	name = "pack of redbeet seeds"
-	desc = "These seeds grow into red beet producing plants."
+	name = "Пачка семян свёклы"
+	desc = "Эти семена вырастают в свёклу."
 	icon_state = "seed-redbeet"
 	species = "redbeet"
 	plantname = "Red-Beet Plants"
@@ -105,7 +105,7 @@
 /obj/item/food/grown/redbeet
 	seed = /obj/item/seeds/redbeet
 	name = "красный beet"
-	desc = "You can't beat red beet."
+	desc = "Красненькая, но не такая сладкая."
 	icon_state = "redbeet"
 	bite_consumption_mod = 2
 	foodtypes = VEGETABLES

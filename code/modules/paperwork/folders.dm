@@ -1,6 +1,6 @@
 /obj/item/folder
-	name = "folder"
-	desc = "A folder."
+	name = "Папка"
+	desc = "Просто папка"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "folder"
 	w_class = WEIGHT_CLASS_SMALL
@@ -8,23 +8,23 @@
 	resistance_flags = FLAMMABLE
 
 /obj/item/folder/suicide_act(mob/living/user)
-	user.visible_message("<span class='suicide'>[user] begins filing an imaginary death warrant! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] начинает оформление мнимого смертного приговора! Судя по всему, [user.p_theyre()] пытается совершить суицид!</span>")
 	return OXYLOSS
 
 /obj/item/folder/blue
-	desc = "A blue folder."
+	desc = "Просто голубая папка."
 	icon_state = "folder_blue"
 
 /obj/item/folder/red
-	desc = "A red folder."
+	desc = "Просто красная папка."
 	icon_state = "folder_red"
 
 /obj/item/folder/yellow
-	desc = "A yellow folder."
+	desc = "Просто жёлтая папка."
 	icon_state = "folder_yellow"
 
 /obj/item/folder/white
-	desc = "A white folder."
+	desc = "Просто белая папка."
 	icon_state = "folder_white"
 
 
@@ -40,11 +40,11 @@
 	if(istype(W, /obj/item/paper) || istype(W, /obj/item/photo) || istype(W, /obj/item/documents))
 		if(!user.transferItemToLoc(W, src))
 			return
-		to_chat(user, "<span class='notice'>You put [W] into [src].</span>")
+		to_chat(user, "<span class='notice'>Я кладу [W] в [src].</span>")
 		update_icon()
 	else if(istype(W, /obj/item/pen))
 		if(!user.is_literate())
-			to_chat(user, "<span class='notice'>You scribble illegibly on the cover of [src]!</span>")
+			to_chat(user, "<span class='notice'>Я неразборчиво калякаю на обложке [src]!</span>")
 			return
 
 		var/inputvalue = stripped_input(user, "What would you like to label the folder?", "Folder Labelling", "", MAX_NAME_LEN)
@@ -97,8 +97,8 @@
 		update_icon()
 
 /obj/item/folder/documents
-	name = "folder- 'TOP SECRET'"
-	desc = "A folder stamped \"Top Secret - Property of Nanotrasen Corporation. Unauthorized distribution is punishable by death.\""
+	name = "folder- 'СОВЕРШЕННО СЕКРЕТНО'"
+	desc = "Папка со штампом \"Совершенно секретно — собственность корпорации Нанотразен. Несанкционированное распространение карается смертью.\""
 
 /obj/item/folder/documents/Initialize()
 	. = ..()
@@ -107,8 +107,8 @@
 
 /obj/item/folder/syndicate
 	icon_state = "folder_syndie"
-	name = "folder- 'TOP SECRET'"
-	desc = "A folder stamped \"Top Secret - Property of The Syndicate.\""
+	name = "Папка — 'СОВЕРШЕННО СЕКРЕТНО'"
+	desc = "Папка со штампом \"Совершенно секретно — собственность Синдиката.\""
 
 /obj/item/folder/syndicate/red
 	icon_state = "folder_sred"

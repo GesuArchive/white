@@ -1,8 +1,8 @@
 // Modular Computer - device that runs various programs and operates with hardware
 // DO NOT SPAWN THIS TYPE. Use /laptop/ or /console/ instead.
 /obj/machinery/modular_computer
-	name = "modular computer"
-	desc = "An advanced computer."
+	name = "Модульный компьютер"
+	desc = "Усовершенствованный компьютер"
 
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 5
@@ -49,7 +49,7 @@
 
 /obj/machinery/modular_computer/emag_act(mob/user)
 	if(!cpu)
-		to_chat(user, "<span class='warning'>You'd need to turn the [src] on first.</span>")
+		to_chat(user, "<span class='warning'>Сначала мне следует включить [src].</span>")
 		return FALSE
 	return (cpu.emag_act(user))
 
@@ -97,7 +97,7 @@
 /obj/machinery/modular_computer/proc/power_failure(malfunction = 0)
 	var/obj/item/computer_hardware/battery/battery_module = cpu.all_components[MC_CELL]
 	if(cpu?.enabled) // Shut down the computer
-		visible_message("<span class='danger'><b>[src.name]</b>'s screen flickers [battery_module ? "\"BATTERY [malfunction ? "MALFUNCTION" : "CRITICAL"]\"" : "\"EXTERNAL POWER LOSS\""] warning as it shuts down unexpectedly.</span>")
+		visible_message("<span class='danger'><b>[src.name]</b>'s экран мерцает предупреждением [battery_module ? "\"БАТТЕРИЯ [malfunction ? "НЕИСПРАВНОСТЬ" : "КРИТИЧЕСКАЯ"]\"" : "\"ВНЕШНЯЯ ПОТЕРЯ МОЩНОСТИ\""], после чего неожиданно выключается.</span>")
 		if(cpu)
 			cpu.shutdown_computer(0)
 	set_machine_stat(machine_stat | NOPOWER)

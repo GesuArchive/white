@@ -33,7 +33,7 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 	merge_type = /obj/item/stack/rods
 
 /obj/item/stack/rods/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins to stuff <b>[src.name]</b> down [user.ru_ego()] throat! It looks like [user.p_theyre()] trying to commit suicide!</span>")//it looks like theyre ur mum
+	user.visible_message("<span class='suicide'>[user] начинает набивать <b>[src.name]</b> [user.ru_ego ()] в глотку! Похоже, [user.p_theyre ()] пытается совершить самоубийство!</span>")//it looks like theyre ur mum
 	return BRUTELOSS
 
 /obj/item/stack/rods/Initialize(mapload, new_amount, merge = TRUE, list/mat_override=null, mat_amt=1)

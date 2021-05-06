@@ -1,5 +1,5 @@
 /datum/antagonist/ninja
-	name = "Space Ninja"
+	name = "Космический Ниндзя"
 	antagpanel_category = "Space Ninja"
 	job_rank = ROLE_NINJA
 	antag_hud_type = ANTAG_HUD_NINJA
@@ -37,7 +37,7 @@
  * Proc that adds the ninja starting memories to the owner of the antagonist datum.
  */
 /datum/antagonist/ninja/proc/addMemories()
-	antag_memory += "I am an elite mercenary of the mighty Spider Clan. A <font color='red'><B>SPACE NINJA</B></font>!<br>"
+	antag_memory += "Я элитный наемник могущественного Клана Паук.<font color='red'><B>КОСМИЧЕСКИЙ НИНДЗЯ</B></font>!<br>"
 	antag_memory += "Surprise is my weapon. Shadows are my armor. Without them, I am nothing. (//initialize your suit by clicking the initialize UI button, to use abilities like stealth)!<br>"
 
 /datum/objective/cyborg_hijack
@@ -105,8 +105,8 @@
 
 /datum/antagonist/ninja/greet()
 	SEND_SOUND(owner.current, sound('sound/effects/ninja_greeting.ogg'))
-	to_chat(owner.current, "I am an elite mercenary of the mighty Spider Clan. A <font color='red'><B>SPACE NINJA</B></font>!")
-	to_chat(owner.current, "Surprise is my weapon. Shadows are my armor. Without them, I am nothing. (//initialize your suit by right clicking on it, to use abilities like stealth)!")
+	to_chat(owner.current, "Я элитный наемник могущественного Клана Паук. <font color='red'><B>КОСМИЧЕСКИЙ НИНДЗЯ</B></font>!")
+	to_chat(owner.current, "Внезапность — моё оружие. Тени — моя броня. Без них я ничего не стою. (//активируйте свой костюм, нажав на него ПКМ, для того чтобы использовать способности типа скрытности)!")
 	owner.announce_objectives()
 
 /datum/antagonist/ninja/on_gain()

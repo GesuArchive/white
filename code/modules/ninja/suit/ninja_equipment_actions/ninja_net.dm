@@ -1,6 +1,6 @@
 /datum/action/item_action/ninjanet
-	name = "Energy Net (40E)"
-	desc = "Captures a fallen opponent in a net of energy."
+	name = "Энергетическая сеть (40E)"
+	desc = "Захватывает упавшего противника энергетической сетью."
 	button_icon_state = "energynet"
 	icon_icon = 'icons/effects/effects.dmi'
 
@@ -18,18 +18,18 @@
 		return
 
 	if(locate(/obj/structure/energy_net) in get_turf(net_target))//Check if they are already being affected by an energy net.
-		to_chat(ninja, "<span class='warning'>[net_target.ru_who(TRUE)] are already trapped inside an energy net!</span>")
+		to_chat(ninja, "<span class='warning'>[net_target.ru_who(TRUE)] уже заперты внутри энергетической сети!</span>")
 		return
 	for(var/turf/between_turf in getline(get_turf(ninja), get_turf(net_target)))
 		if(between_turf.density)//Don't want them shooting nets through walls. It's kind of cheesy.
-			to_chat(ninja, "<span class='warning'>You may not use an energy net through solid obstacles!</span>")
+			to_chat(ninja, "<span class='warning'>Я не могу использовать энергетическую сеть через твёрдые препятствия!</span>")
 			return
 	if(!ninjacost(400,N_STEALTH_CANCEL))
 		ninja.Beam(net_target, "n_beam", time = 15)
 		ninja.say("Get over here!", forced = "ninja net")
 		var/obj/structure/energy_net/net = new /obj/structure/energy_net(net_target.drop_location())
 		net.affecting = net_target
-		ninja.visible_message("<span class='danger'>[ninja] caught [net_target] with an energy net!</span>","<span class='notice'>You caught [net_target] with an energy net!</span>")
+		ninja.visible_message("<span class='danger'>[ninja] пойман [net_target] с помощью электрической сети!</span>","<span class='notice'>Я пойман [net_target] с помощью электрической сети!</span>")
 
 		if(net_target.buckled)
 			net_target.buckled.unbuckle_mob(affecting,TRUE)

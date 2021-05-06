@@ -1,5 +1,5 @@
 /datum/antagonist/santa
-	name = "Santa"
+	name = "Санта"
 	show_in_antagpanel = FALSE
 	show_name_in_check_antagonists = TRUE
 	show_to_ghosts = TRUE
@@ -14,7 +14,7 @@
 
 /datum/antagonist/santa/greet()
 	. = ..()
-	to_chat(owner, "<span class='boldannounce'>You are Santa! Your objective is to bring joy to the people on this station. You have a magical bag, which generates presents as long as you have it! You can examine the presents to take a peek inside, to make sure that you give the right gift to the right person.</span>")
+	to_chat(owner, "<span class='boldannounce'>Ты Санта! Твоя задача заключается в том, чтобы радовать население станции. В твоём наличии волшебный мешок, который создает подарки пока он в твоём распоряжении! Ты можешь изучить подарки, чтобы посмотреть что внутри для того чтобы убедиться в том, что ты отдаешь подарок в верные руки.</span>")
 
 /datum/antagonist/santa/proc/give_equipment()
 	var/mob/living/carbon/human/H = owner.current

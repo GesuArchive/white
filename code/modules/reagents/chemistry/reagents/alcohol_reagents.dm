@@ -8,7 +8,7 @@
 
 /datum/reagent/consumable/ethanol
 	name = "Этанол"
-	description = "A well-known alcohol with a variety of applications."
+	description = "Известный алкоголь с множеством применений."
 	color = "#404030" // rgb: 64, 64, 48
 	nutriment_factor = 0
 	taste_description = "алкоголь"
@@ -88,13 +88,13 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/beer
 	name = "Пиво"
-	description = "An alcoholic beverage brewed since ancient times on Old Earth. Still popular today."
+	description = "Алкогольный напиток, который варили с дневних времен еще на старой земле. Всё еще популярен."
 	color = "#664300" // rgb: 102, 67, 0
 	nutriment_factor = 1 * REAGENTS_METABOLISM
 	boozepwr = 25
 	taste_description = "моча"
-	glass_name = "glass of beer"
-	glass_desc = "A freezing pint of beer."
+	glass_name = "стакан пива"
+	glass_desc = "Освежающая пинта пива."
 	ph = 4
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	fallback_icon_state = "beer"
@@ -110,33 +110,33 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/beer/light
 	name = "Светлое Пиво"
-	description = "An alcoholic beverage brewed since ancient times on Old Earth. This variety has reduced calorie and alcohol content."
+	description = "Алкогольный напиток, который варили с дневних времен еще на старой земле. Этот сорт отличается меньшим количеством калорий и алкоголя."
 	boozepwr = 5 //Space Europeans hate it
 	taste_description = "стекломойка"
-	glass_name = "glass of light beer"
-	glass_desc = "A freezing pint of watery light beer."
+	glass_name = "стакан светлого пива"
+	glass_desc = "Освежающая пинта водянистого светлого пива."
 	ph = 5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	fallback_icon_state = "beer"
 
 /datum/reagent/consumable/ethanol/beer/maltliquor
 	name = "Солодовый Ликер"
-	description = "An alcoholic beverage brewed since ancient times on Old Earth. This variety is stronger than usual, super cheap, and super terrible."
+	description = "Алкогольный напиток, который варили с дневних времен еще на старой земле. Этот сорт сильнее обычного, крайне дешевый и крайне ужасный."
 	boozepwr = 35
-	taste_description = "sweet corn beer and the hood life"
-	glass_name = "glass of malt liquor"
-	glass_desc = "A freezing pint of malt liquor."
+	taste_description = "сладкое кукурузное пиво с нотками черного гетто"
+	glass_name = "стакан солодового ликера"
+	glass_desc = "Освежающая пинта солодового ликера."
 	ph = 4.8
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/beer/green
 	name = "Зеленое Пиво"
-	description = "An alcoholic beverage brewed since ancient times on Old Earth. This variety is dyed a festive green."
+	description = "Алкогольный напиток, который варили с дневних времен еще на старой земле. Этот сорт окрашен в зеленый цвет."
 	color = "#A8E61D"
 	taste_description = "зелёная моча"
 	glass_icon_state = "greenbeerglass"
-	glass_name = "glass of green beer"
-	glass_desc = "A freezing pint of green beer. Festive."
+	glass_name = "стакан зеленого пива"
+	glass_desc = "Освежающая пинта зеленого пива. Праздничная!"
 	ph = 6
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -151,12 +151,12 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/kahlua
 	name = "Калуа"
-	description = "A widely known, Mexican coffee-flavoured liqueur. In production since 1936!"
+	description = "Широко известный мексиканский ликер со вкусом кофе. Выпускается с 1936-го года!"
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 45
 	glass_icon_state = "kahluaglass"
-	glass_name = "glass of RR coffee liquor"
-	glass_desc = "DAMN, THIS THING LOOKS ROBUST!"
+	glass_name = "Стакан калуа"
+	glass_desc = "БЛЯ ЭТА ШТУКА ВЫГЛЯДИТ КРЕПКО!"
 	shot_glass_icon_state = "shotglasscream"
 	ph = 6
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED

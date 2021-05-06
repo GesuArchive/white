@@ -1,6 +1,6 @@
 /obj/item/paper_bin
-	name = "paper bin"
-	desc = "Contains all the paper you'll never need."
+	name = "Корзина для бумаги"
+	desc = "Содержит всю бумагу, которая вам никогда не понадобится."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper_bin1"
 	inhand_icon_state = "sheet-metal"
@@ -70,7 +70,7 @@
 		P.add_fingerprint(user)
 		P.forceMove(user.loc)
 		user.put_in_hands(P)
-		to_chat(user, "<span class='notice'>You take [P] out of <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>Я беру [P] из <b>[src.name]</b>.</span>")
 		bin_pen = null
 		update_icon()
 	else if(total_paper >= 1)
@@ -85,15 +85,15 @@
 			P = new papertype(src)
 			if(SSevents.holidays && SSevents.holidays[APRIL_FOOLS])
 				if(prob(30))
-					P.info = "<font face=\"[CRAYON_FONT]\" color=\"red\"><b>HONK HONK HONK HONK HONK HONK HONK<br>HOOOOOOOOOOOOOOOOOOOOOONK<br>APRIL FOOLS</b></font>"
+					P.info = "<font face=\"[CRAYON_FONT]\" color=\"red\"><b>HONK HONK HONK HONK HONK HONK HONK<br>HOOOOOOOOOOOOOOOOOOOOOONK<br>ДЕНЬ ДУРАКА</b></font>"
 					P.AddComponent(/datum/component/honkspam)
 
 		P.add_fingerprint(user)
 		P.forceMove(user.loc)
 		user.put_in_hands(P)
-		to_chat(user, "<span class='notice'>You take [P] out of <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>Я беру [P] из <b>[src.name]</b>.</span>")
 	else
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] is empty!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] пуст!</span>")
 	add_fingerprint(user)
 	return ..()
 
@@ -102,7 +102,7 @@
 		var/obj/item/paper/P = I
 		if(!user.transferItemToLoc(P, src))
 			return
-		to_chat(user, "<span class='notice'>You put [P] in [src].</span>")
+		to_chat(user, "<span class='notice'>Я кладу [P] в [src].</span>")
 		papers.Add(P)
 		total_paper++
 		update_icon()
@@ -110,7 +110,7 @@
 		var/obj/item/pen/P = I
 		if(!user.transferItemToLoc(P, src))
 			return
-		to_chat(user, "<span class='notice'>You put [P] in [src].</span>")
+		to_chat(user, "<span class='notice'>Я кладу [P] в [src].</span>")
 		bin_pen = P
 		update_icon()
 	else

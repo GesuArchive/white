@@ -235,7 +235,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 	dat += "<br>"
 
 	if (!owner)
-		dat += "Warning: No owner information entered.  Please swipe card.<br><br>"
+		dat += "Warning: No owner information entered. Please swipe card.<br><br>"
 		dat += "<a href='byond://?src=[REF(src)];choice=Refresh'>[PDAIMG(refresh)]Retry</a>"
 	else
 		switch (mode)
@@ -361,7 +361,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 				else if(cartridge?.spam_enabled)
 					dat += "<a href='byond://?src=[REF(src)];choice=MessageAll'>Send To All</a>"
 			if(6)
-				dat += "<h4>[PDAIMG(mail)] ExperTrak® Skill Tracker V4.26.2</h4>"
+				dat += "<h4>[PDAIMG(mail)] ExperTrakВ® Skill Tracker V4.26.2</h4>"
 				dat += "<i>Thank you for choosing ExperTrak® brand software! ExperTrak® inc. is proud to be a Nanotrasen employee expertise and effectiveness department subsidary!</i>"
 				dat += "<br><br>This software is designed to track and monitor your skill development as a Nanotrasen employee. Your job performance across different fields has been quantified and categorized below.<br>"
 				var/datum/mind/targetmind = user.mind

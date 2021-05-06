@@ -1,6 +1,6 @@
 /obj/item/seeds/tower
-	name = "pack of tower-cap mycelium"
-	desc = "This mycelium grows into tower-cap mushrooms."
+	name = "Пачка мицелия древошляпника"
+	desc = "Этот мицелий вырастает в древошляпника."
 	icon_state = "mycelium-tower"
 	species = "towercap"
 	plantname = "Tower Caps"
@@ -20,8 +20,8 @@
 	graft_gene = /datum/plant_gene/trait/plant_type/fungal_metabolism
 
 /obj/item/seeds/tower/steel
-	name = "pack of steel-cap mycelium"
-	desc = "This mycelium grows into steel logs."
+	name = "Пачка мицелия металлошляпника"
+	desc = "Этот мицелий вырастает в металлические брёвна."
 	icon_state = "mycelium-steelcap"
 	species = "steelcap"
 	plantname = "Steel Caps"
@@ -36,8 +36,8 @@
 
 /obj/item/grown/log
 	seed = /obj/item/seeds/tower
-	name = "tower-cap log"
-	desc = "It's better than bad, it's good!"
+	name = "Бревно древошляпника"
+	desc = "Это лучше, чем плохо, это хорошо!"
 	icon_state = "logs"
 	force = 5
 	throwforce = 5
@@ -56,7 +56,7 @@
 
 /obj/item/grown/log/attackby(obj/item/W, mob/user, params)
 	if(W.get_sharpness())
-		user.show_message("<span class='notice'>You make [plank_name] out of <b>[src.name]</b>!</span>", MSG_VISUAL)
+		user.show_message("<span class='notice'>Заготавливаю [plank_name] из <b>[src.name]</b>!</span>", MSG_VISUAL)
 		var/seed_modifier = 0
 		if(seed)
 			seed_modifier = round(seed.potency / 25)
@@ -66,13 +66,13 @@
 			if(ST != plank && istype(ST, plank_type) && ST.amount < ST.max_amount)
 				ST.attackby(plank, user) //we try to transfer all old unfinished stacks to the new stack we created.
 		if(plank.amount > old_plank_amount)
-			to_chat(user, "<span class='notice'>You add the newly-formed [plank_name] to the stack. It now contains [plank.amount] [plank_name].</span>")
+			to_chat(user, "<span class='notice'>Добавляю новую [plank_name] в кучу. Теперь тут [plank.amount] [plank_name].</span>")
 		qdel(src)
 
 	if(CheckAccepted(W))
 		var/obj/item/food/grown/leaf = W
 		if(HAS_TRAIT(leaf, TRAIT_DRIED))
-			user.show_message("<span class='notice'>You wrap \the [W] around the log, turning it into a torch!</span>")
+			user.show_message("<span class='notice'>Оборачиваю [W] вокруг бревна и получаю факел!</span>")
 			var/obj/item/flashlight/flare/torch/T = new /obj/item/flashlight/flare/torch(user.loc)
 			usr.dropItemToGround(W)
 			usr.put_in_active_hand(T)
@@ -80,7 +80,7 @@
 			qdel(src)
 			return
 		else
-			to_chat(usr, "<span class='warning'>You must dry this first!</span>")
+			to_chat(usr, "<span class='warning'>Сначала надо высушить!</span>")
 	else
 		return ..()
 
@@ -89,13 +89,13 @@
 
 /obj/item/grown/log/tree
 	seed = null
-	name = "wood log"
-	desc = "TIMMMMM-BERRRRRRRRRRR!"
+	name = "Деревянное бревно"
+	desc = "ДЕ-РЕ-ВО!"
 
 /obj/item/grown/log/steel
 	seed = /obj/item/seeds/tower/steel
-	name = "steel-cap log"
-	desc = "It's made of metal."
+	name = "Металлическое бревно"
+	desc = "Это сделано из металла."
 	icon_state = "steellogs"
 	plank_type = /obj/item/stack/rods
 	plank_name = "rods"
@@ -104,8 +104,8 @@
 	return FALSE
 
 /obj/item/seeds/bamboo
-	name = "pack of bamboo seeds"
-	desc = "A plant known for its flexible and resistant logs."
+	name = "Пачка семян бамбука"
+	desc = "Растение, знаменитое его быстрым ростом и ассоциацией с пандами."
 	icon_state = "seed-bamboo"
 	species = "bamboo"
 	plantname = "Bamboo"
@@ -123,8 +123,8 @@
 
 /obj/item/grown/log/bamboo
 	seed = /obj/item/seeds/bamboo
-	name = "bamboo log"
-	desc = "A long and resistant bamboo log."
+	name = "Бревно бамбука"
+	desc = "Длинное и прочное бамбуковое бревно."
 	icon_state = "bamboo"
 	plank_type = /obj/item/stack/sheet/mineral/bamboo
 	plank_name = "bamboo sticks"
@@ -133,8 +133,8 @@
 	return FALSE
 
 /obj/structure/punji_sticks
-	name = "punji sticks"
-	desc = "Don't step on this."
+	name = "Ловушка пунджи"
+	desc = "Сраные гуки..."
 	icon = 'icons/obj/hydroponics/equipment.dmi'
 	icon_state = "punji"
 	resistance_flags = FLAMMABLE
@@ -147,14 +147,14 @@
 	AddElement(/datum/element/caltrop, min_damage = 20, max_damage = 30, flags = CALTROP_BYPASS_SHOES)
 
 /obj/structure/punji_sticks/spikes
-	name = "wooden spikes"
+	name = "Деревянные шипы"
 	icon_state = "woodspike"
 
 /////////BONFIRES//////////
 
 /obj/structure/bonfire
-	name = "bonfire"
-	desc = "For grilling, broiling, charring, smoking, heating, roasting, toasting, simmering, searing, melting, and occasionally burning things."
+	name = "Костёр"
+	desc = "Для гриля, жарки, обугливания, копчения, нагрева, поджаривания, кипения, обжигания, плавления и иногда сжигания вещей."
 	icon = 'icons/obj/hydroponics/equipment.dmi'
 	icon_state = "bonfire"
 	light_color = LIGHT_COLOR_FIRE
@@ -186,14 +186,14 @@
 				R.use(1)
 				can_buckle = TRUE
 				buckle_requires_restraints = TRUE
-				to_chat(user, "<span class='notice'>You add a rod to <b>[src.name]</b>.</span>")
+				to_chat(user, "<span class='notice'>Добавляю прутик в <b>[src.name]</b>.</span>")
 				var/mutable_appearance/rod_underlay = mutable_appearance('icons/obj/hydroponics/equipment.dmi', "bonfire_rod")
 				rod_underlay.pixel_y = 16
 				underlays += rod_underlay
 			if("Grill")
 				R.use(1)
 				grill = TRUE
-				to_chat(user, "<span class='notice'>You add a grill to <b>[src.name]</b>.</span>")
+				to_chat(user, "<span class='notice'>Добавляю гриль в <b>[src.name]</b>.</span>")
 				add_overlay("bonfire_grill")
 			else
 				return ..()
@@ -219,7 +219,7 @@
 	if(.)
 		return
 	if(burning)
-		to_chat(user, "<span class='warning'>You need to extinguish [src] before removing the logs!</span>")
+		to_chat(user, "<span class='warning'>Нужно потушить [src], чтобы достать брёвна!</span>")
 		return
 	if(!has_buckled_mobs() && do_after(user, 50, target = src))
 		for(var/obj/item/grown/log/L in contents)

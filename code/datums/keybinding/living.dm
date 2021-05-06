@@ -24,7 +24,7 @@
 	hotkey_keys = list("L")
 	name = "look up"
 	full_name = "Look Up"
-	description = "Look up at the next z-level.  Only works if directly below open space."
+	description = "Look up at the next z-level. Only works if directly below open space."
 	keybind_signal = COMSIG_KB_LIVING_LOOKUP_DOWN
 
 /datum/keybinding/living/look_up/down(client/user)
@@ -44,7 +44,7 @@
 	hotkey_keys = list(";")
 	name = "look down"
 	full_name = "Look Down"
-	description = "Look down at the previous z-level.  Only works if directly above open space."
+	description = "Look down at the previous z-level. Only works if directly above open space."
 	keybind_signal = COMSIG_KB_LIVING_LOOKDOWN_DOWN
 
 /datum/keybinding/living/look_down/down(client/user)

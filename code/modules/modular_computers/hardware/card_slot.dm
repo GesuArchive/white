@@ -1,6 +1,6 @@
 /obj/item/computer_hardware/card_slot
-	name = "primary RFID card module"	// \improper breaks the find_hardware_by_name proc
-	desc = "A module allowing this computer to read or write data on ID cards. Necessary for some programs to run properly."
+	name = "Основной модуль RFID-карты"	// \improper breaks the find_hardware_by_name proc
+	desc = "Модуль, позволяющий этому компьютеру считывать или записывать данные на идентификационные карты. Необходимо для правильной работы некоторых программ."
 	power_usage = 10 //W
 	icon_state = "card_mini"
 	w_class = WEIGHT_CLASS_TINY
@@ -54,7 +54,7 @@
 		I.forceMove(src)
 
 	stored_card = I
-	to_chat(user, "<span class='notice'>You insert \the [I] into \the [expansion_hw ? "secondary":"primary"] [src].</span>")
+	to_chat(user, "<span class='notice'>Я вставляю \[I] в \the [expansion_hw ? "secondary":"primary"] [src].</span>")
 	playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -65,7 +65,7 @@
 
 /obj/item/computer_hardware/card_slot/try_eject(mob/living/user = null, forced = FALSE)
 	if(!stored_card)
-		to_chat(user, "<span class='warning'>There are no cards in <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='warning'>В <b>[src.name]</b> нет карт.</span>")
 		return FALSE
 
 	if(user)
@@ -84,7 +84,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_user = user
 		human_user.sec_hud_set_ID()
-	to_chat(user, "<span class='notice'>You remove the card from <b>[src.name]</b>.</span>")
+	to_chat(user, "<span class='notice'>Я извлекаю карту из <b>[src.name]</b>.</span>")
 	playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 	return TRUE
 
@@ -93,11 +93,11 @@
 		return
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		if(stored_card)
-			to_chat(user, "<span class='notice'>You press down on the manual eject button with \the [I].</span>")
+			to_chat(user, "<span class='notice'>Я нажимаю кнопку ручного извлечения с \ [I].</span>")
 			try_eject(user)
 			return
 		swap_slot()
-		to_chat(user, "<span class='notice'>You adjust the connecter to fit into [expansion_hw ? "an expansion bay" : "the primary ID bay"].</span>")
+		to_chat(user, "<span class='notice'>Я настраиваю разъем, чтобы он соответствовал [expansion_hw ? "an expansion bay" : "the primary ID bay"].</span>")
 
 /**
  *Swaps the card_slot hardware between using the dedicated card slot bay on a computer, and using an expansion bay.
@@ -106,10 +106,10 @@
 	expansion_hw = !expansion_hw
 	if(expansion_hw)
 		device_type = MC_CARD2
-		name = "secondary RFID card module"
+		name = "Второстепенный модуль RFID-карты"
 	else
 		device_type = MC_CARD
-		name = "primary RFID card module"
+		name = "Основной модуль RFID-карты"
 
 /obj/item/computer_hardware/card_slot/examine(mob/user)
 	. = ..()
@@ -118,6 +118,6 @@
 		. += "<hr>There appears to be something loaded in the card slots."
 
 /obj/item/computer_hardware/card_slot/secondary
-	name = "secondary RFID card module"
+	name = "Второстепенный модуль RFID-карты"
 	device_type = MC_CARD2
 	expansion_hw = TRUE

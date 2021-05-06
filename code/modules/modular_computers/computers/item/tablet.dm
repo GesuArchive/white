@@ -1,5 +1,5 @@
 /obj/item/modular_computer/tablet  //Its called tablet for theme of 90ies but actually its a "big smartphone" sized
-	name = "tablet computer"
+	name = "Компьютер-планшет"
 	icon = 'icons/obj/modular_tablet.dmi'
 	icon_state = "tablet-red"
 	icon_state_unpowered = "tablet"
@@ -25,7 +25,7 @@
 		icon_state = icon_state_powered = icon_state_unpowered = "tablet-[finish_color]"
 
 /obj/item/modular_computer/tablet/syndicate_contract_uplink
-	name = "contractor tablet"
+	name = "Планшет поставщика"
 	icon = 'icons/obj/contractor_tablet.dmi'
 	icon_state = "tablet"
 	icon_state_unpowered = "tablet"
@@ -46,14 +46,14 @@
 
 /obj/item/modular_computer/tablet/nukeops/emag_act(mob/user)
 	if(!enabled)
-		to_chat(user, "<span class='warning'>You'd need to turn the [src] on first.</span>")
+		to_chat(user, "<span class='warning'>Сначала мне нужно повернуть [src].</span>")
 		return FALSE
-	to_chat(user, "<span class='notice'>You swipe <b>[src.name]</b>. It's screen briefly shows a message reading \"MEMORY CODE INJECTION DETECTED AND SUCCESSFULLY QUARANTINED\".</span>")
+	to_chat(user, "<span class='notice'>Я провожу <b>[src.name]</b>. На экране на короткое время отображается следующее сообщение: \"ИНЪЕКЦИЯ КОДА ПАМЯТИ ОБНАРУЖЕНА И УСПЕШНО ПОМЕЩЕНА В КАРАНТИН\".</span>")
 	return FALSE
 
 /// Borg Built-in tablet interface
 /obj/item/modular_computer/tablet/integrated
-	name = "modular interface"
+	name = "Модульный интерфейс"
 	icon_state = "tablet-silicon"
 	has_light = FALSE //tablet light button actually enables/disables the borg lamp
 	comp_light_luminosity = 0
@@ -134,7 +134,7 @@
 	if(!caller || !caller.alert_able || caller.alert_silenced || !alerttext) //Yeah, we're checking alert_able. No, you don't get to make alerts that the user can't silence.
 		return
 	borgo.playsound_local(src, sound, 50, TRUE)
-	to_chat(borgo, "<span class='notice'>The [src] displays a [caller.filedesc] notification: [alerttext]</span>")
+	to_chat(borgo, "<span class='notice'>[src] отображает [caller.filedesc] уведомление: [alerttext]</span>")
 
 
 /obj/item/modular_computer/tablet/integrated/syndicate

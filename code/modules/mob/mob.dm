@@ -116,8 +116,8 @@
 
 	var/datum/gas_mixture/environment = loc.return_air()
 
-	var/t =	"<span class='notice'>Coordinates: [x],[y] \n</span>"
-	t +=	"<span class='danger'>Temperature: [environment.return_temperature()] \n</span>"
+	var/t =	"<span class='notice'>Координаты: [x],[y] \n</span>"
+	t +=	"<span class='danger'>Температура: [environment.return_temperature()] \n</span>"
 	for(var/id in environment.get_gases())
 		if(environment.get_moles(id))
 			t+="<span class='notice'>[GLOB.meta_gas_info[id][META_GAS_NAME]]: [environment.get_moles(id)] \n</span>"
@@ -328,7 +328,7 @@
 		if(qdel_on_fail)
 			qdel(W)
 		else if(!disable_warning)
-			to_chat(src, "<span class='warning'>You are unable to equip that!</span>")
+			to_chat(src, "<span class='warning'>Я не могу себя снарядить этим!</span>")
 		return FALSE
 	equip_to_slot(W, slot, initial, redraw_mob) //This proc should not ever fail.
 	return TRUE
@@ -658,7 +658,7 @@
 	if(mind)
 		mind.show_memory(src)
 	else
-		to_chat(src, "You don't have a mind datum for some reason, so you can't look at your notes, if you had any.")
+		to_chat(src, "По какой-то причине у вас нет данных разума, поэтому вы не можете смотреть свои записи, если они у вас были.")
 
 /**
  * Add a note to the mind datum
@@ -683,7 +683,7 @@
 
 		mind.store_memory(msg)
 	else
-		to_chat(src, "You don't have a mind datum for some reason, so you can't add a note to it.")
+		to_chat(src, "По какой-то причине у вас нет данных разума, поэтому вы не можете добавить к нему ещё записи.")
 
 /**
  * Allows you to respawn, abandoning your current mob
@@ -910,7 +910,7 @@
 /mob/proc/swap_hand()
 	var/obj/item/held_item = get_active_held_item()
 	if(SEND_SIGNAL(src, COMSIG_MOB_SWAP_HANDS, held_item) & COMPONENT_BLOCK_SWAP)
-		to_chat(src, "<span class='warning'>Your other hand is too busy holding [held_item].</span>")
+		to_chat(src, "<span class='warning'>Другая рука слишком занята тем, чтобы держать [held_item].</span>")
 		return FALSE
 	return TRUE
 
@@ -1163,7 +1163,7 @@
 ///Can this mob read (is literate and not blind)
 /mob/proc/can_read(obj/O)
 	if(is_blind())
-		to_chat(src, "<span class='warning'>As you are trying to read [O], you suddenly feel very stupid!</span>")
+		to_chat(src, "<span class='warning'>Пытаясь прочитать [O], внезапно вы чувствуете себя слишком тупым!</span>")
 		return
 	if(!is_literate())
 		to_chat(src, "<span class='notice'>Пытаюсь read [O], but can't comprehend any of it.</span>")

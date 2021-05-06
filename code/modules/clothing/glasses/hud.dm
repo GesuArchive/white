@@ -1,5 +1,5 @@
 /obj/item/clothing/glasses/hud
-	name = "HUD"
+	name = "интерфейс"
 	desc = "Главный экран, который предоставляет важную информацию в (почти) реальном времени."
 	flags_1 = null //doesn't protect eyes because it's a monocle, duh
 	var/hud_type = null
@@ -38,7 +38,7 @@
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
-	to_chat(user, "<span class='warning'>PZZTTPFFFT</span>")
+	to_chat(user, "<span class='warning'>ПЗЗЗЗЗТ</span>")
 	desc = "[desc] Дисплей слегка мигает."
 
 /obj/item/clothing/glasses/hud/health
@@ -78,7 +78,7 @@
 
 /obj/item/clothing/glasses/hud/diagnostic/night
 	name = "диагностический HUD с ПНВ"
-	desc = "A robotics diagnostic HUD fitted with a light amplifier."
+	desc = "Диагностический интерфейс робототехника со встроенной подсветкой."
 	icon_state = "diagnostichudnight"
 	inhand_icon_state = "glasses"
 	darkness_view = 8
@@ -171,8 +171,8 @@
 	throwforce = 12
 
 /obj/item/clothing/glasses/hud/toggle
-	name = "Toggle HUD"
-	desc = "A hud with multiple functions."
+	name = "Многофункциональный интерфейс"
+	desc = "Интерфейс с несколькими функциями."
 	actions_types = list(/datum/action/item_action/switch_hud)
 
 /obj/item/clothing/glasses/hud/toggle/attack_self(mob/user)

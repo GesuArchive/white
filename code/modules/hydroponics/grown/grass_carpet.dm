@@ -1,7 +1,7 @@
 // Grass
 /obj/item/seeds/grass
-	name = "pack of grass seeds"
-	desc = "These seeds grow into grass. Yummy!"
+	name = "Пачка семян травы"
+	desc = "Эти семена вырастают в траву. Вкусно!"
 	icon_state = "seed-grass"
 	species = "grass"
 	plantname = "Grass"
@@ -21,8 +21,8 @@
 
 /obj/item/food/grown/grass
 	seed = /obj/item/seeds/grass
-	name = "grass"
-	desc = "Green and lush."
+	name = "Трава"
+	desc = "Зелёная и пышная."
 	icon_state = "grassclump"
 	bite_consumption_mod = 2
 	var/stacktype = /obj/item/stack/tile/grass
@@ -30,7 +30,7 @@
 	wine_power = 15
 
 /obj/item/food/grown/grass/attack_self(mob/user)
-	to_chat(user, "<span class='notice'>You prepare the astroturf.</span>")
+	to_chat(user, "<span class='notice'>Заготавливаю искусственный газон.</span>")
 	var/grassAmt = 1 + round(seed.potency * tile_coefficient) // The grass we're holding
 	for(var/obj/item/food/grown/grass/G in user.loc) // The grass on the floor
 		if(G.type != type)
@@ -42,8 +42,8 @@
 
 //Fairygrass
 /obj/item/seeds/grass/fairy
-	name = "pack of fairygrass seeds"
-	desc = "These seeds grow into a more mystical grass."
+	name = "Пачка семянволшебной травы"
+	desc = "Эти семена вырастают в загадочную траву."
 	icon_state = "seed-fairygrass"
 	species = "fairygrass"
 	plantname = "Fairygrass"
@@ -56,15 +56,15 @@
 
 /obj/item/food/grown/grass/fairy
 	seed = /obj/item/seeds/grass/fairy
-	name = "fairygrass"
-	desc = "Blue, glowing, and smells fainly of mushrooms."
+	name = "Волшебная трава"
+	desc = "Синяя, светится, слегка пахнет грибами."
 	icon_state = "fairygrassclump"
 	stacktype = /obj/item/stack/tile/fairygrass
 
 // Carpet
 /obj/item/seeds/grass/carpet
-	name = "pack of carpet seeds"
-	desc = "These seeds grow into stylish carpet samples."
+	name = "Пачка семян ковра"
+	desc = "Эти семена вырастают в элитный ковёр, который можно положить вместо плитки."
 	icon_state = "seed-carpet"
 	species = "carpet"
 	plantname = "Carpet"
@@ -74,8 +74,8 @@
 
 /obj/item/food/grown/grass/carpet
 	seed = /obj/item/seeds/grass/carpet
-	name = "carpet"
-	desc = "The textile industry's dark secret."
+	name = "Ковёр"
+	desc = "Чёрная магия текстильной промышленности."
 	icon_state = "carpetclump"
 	stacktype = /obj/item/stack/tile/carpet
 	can_distill = FALSE

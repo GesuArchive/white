@@ -1,7 +1,7 @@
 // Eggplant
 /obj/item/seeds/eggplant
-	name = "pack of eggplant seeds"
-	desc = "These seeds grow to produce berries that look nothing like eggs."
+	name = "Пачка семян баклажана"
+	desc = "Эти семена вырастают в фиолетовые плоды, не перепутайте с кабачками."
 	icon_state = "seed-eggplant"
 	species = "eggplant"
 	plantname = "Eggplants"
@@ -17,8 +17,8 @@
 
 /obj/item/food/grown/eggplant
 	seed = /obj/item/seeds/eggplant
-	name = "eggplant"
-	desc = "Maybe there's a chicken inside?"
+	name = "Баклажан"
+	desc = "Нихуя ты баклажан блять!"
 	icon_state = "eggplant"
 	bite_consumption_mod = 2
 	foodtypes = FRUIT
@@ -26,8 +26,8 @@
 
 // Egg-Plant
 /obj/item/seeds/eggplant/eggy
-	name = "pack of egg-plant seeds"
-	desc = "These seeds grow to produce berries that look a lot like eggs."
+	name = "Пачка семян яйцеплода"
+	desc = "Эти семена вырастают в плоды, которые очень похожи на яйца."
 	icon_state = "seed-eggy"
 	species = "eggy"
 	plantname = "Egg-Plants"
@@ -39,8 +39,8 @@
 
 /obj/item/food/grown/shell/eggy
 	seed = /obj/item/seeds/eggplant/eggy
-	name = "egg-plant"
-	desc = "There MUST be a chicken inside."
+	name = "Яйцеплод"
+	desc = "Внутри ДОЛЖНА быть курица."
 	icon_state = "eggyplant"
 	trash_type = /obj/item/food/egg
 	bite_consumption_mod = 2

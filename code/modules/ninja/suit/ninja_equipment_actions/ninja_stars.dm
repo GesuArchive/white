@@ -1,6 +1,6 @@
 /datum/action/item_action/ninjastar
-	name = "Create Throwing Stars (1E)"
-	desc = "Creates a throwing star in your hand, if possible."
+	name = "Создать метательной звезды (1E)"
+	desc = "Если возможно, создаёт в руке метательную звезду."
 	button_icon_state = "throwingstar"
 	icon_icon = 'icons/obj/items_and_weapons.dmi'
 
@@ -17,10 +17,10 @@
 	var/mob/living/carbon/human/ninja = affecting
 	var/obj/item/throwing_star/stamina/ninja/ninja_star = new(ninja)
 	if(ninja.put_in_hands(ninja_star))
-		to_chat(ninja, "<span class='notice'>A throwing star has been created in your hand!</span>")
+		to_chat(ninja, "<span class='notice'>В моей руке создана метательная звезда!</span>")
 	else
 		qdel(ninja_star)
-		to_chat(ninja, "<span class='notice'>You can't create a throwing star, your hands are full!</span>")
+		to_chat(ninja, "<span class='notice'>Я не могу создать метательную звезду, мои руки заняты!</span>")
 
 /**
  * # Ninja Throwing Star
@@ -38,5 +38,5 @@
  * you go through the proper channels, lest you get permabanned.  Do I make myself clear?
  */
 /obj/item/throwing_star/stamina/ninja
-	name = "ninja throwing star"
+	name = "Метательная звезда ниндзя"
 	throwforce = 10

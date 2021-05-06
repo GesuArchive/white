@@ -307,7 +307,7 @@ GLOBAL_VAR_INIT(hub_mimic, FALSE)
 		//s += "\nMap: <b>Kutjevo Refinery</b>"
 		//s += "\nMode: <b>Distress Signal</b>"
 		//s += "\nRound time: <b>[worldtime2text()]</b>"
-		//s += "<b>\[RU\] The Fluffy Fronti&iecy;r 18+ MRP</b> — (<a href=\"https://discord.gg/9uJ7dmM\">Discord)\]<br>"
+		//s += "<b>\[RU\] The Fluffy Fronti&iecy;r 18+ MRP</b> вЂ” (<a href=\"https://discord.gg/9uJ7dmM\">Discord)\]<br>"
 		//s += "Russian furry MRP server running on modified Skyrat code<br>"
 		//s += "\[[pick("Box", "Meta")] Station, [pick("green", "blue", "red", "delta")] alert, ~[GLOB.player_list.len] players</a>"
 

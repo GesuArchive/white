@@ -1,7 +1,7 @@
 // Pineapple!
 /obj/item/seeds/pineapple
-	name = "pack of pineapple seeds"
-	desc = "Oooooooooooooh!"
+	name = "Пачка семян ананаса"
+	desc = "Вырастут в сладенький плод!"
 	icon_state = "seed-pineapple"
 	species = "pineapple"
 	plantname = "Pineapple Plant"
@@ -17,8 +17,8 @@
 
 /obj/item/food/grown/pineapple
 	seed = /obj/item/seeds/pineapple
-	name = "pineapples"
-	desc = "Blorble."
+	name = "Ананас"
+	desc = "Смешной по форме фрукт."
 	icon_state = "pineapple"
 	force = 4
 	throwforce = 8

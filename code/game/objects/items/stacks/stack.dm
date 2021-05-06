@@ -105,7 +105,7 @@
 
 /obj/item/stack/grind_requirements()
 	if(is_cyborg)
-		to_chat(usr, "<span class='warning'>[src] is electronically synthesized in your chassis and can't be ground up!</span>")
+		to_chat(usr, "<span class='warning'>[src] синтезируется в электронном виде в вашем шасси и не может быть измельчен!</span>")
 		return
 	return TRUE
 

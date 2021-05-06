@@ -31,7 +31,7 @@
 // Ice Chili
 /obj/item/seeds/chili/ice
 	name = "pack of chilly pepper seeds"
-	desc = "These seeds grow into chilly pepper plants."
+	desc = "Семена выросли в перец чили."
 	icon_state = "seed-icepepper"
 	species = "chiliice"
 	plantname = "Chilly Pepper Plants"
@@ -47,8 +47,8 @@
 
 /obj/item/food/grown/icepepper
 	seed = /obj/item/seeds/chili/ice
-	name = "chilly pepper"
-	desc = "It's a mutant strain of chili."
+	name = "перец чили"
+	desc = "Это мутировавший сорт чили."
 	icon_state = "icepepper"
 	bite_consumption_mod = 2
 	foodtypes = FRUIT
@@ -56,8 +56,8 @@
 
 // Ghost Chili
 /obj/item/seeds/chili/ghost
-	name = "pack of ghost chili seeds"
-	desc = "These seeds grow into a chili said to be the hottest in the galaxy."
+	name = "Пачка семян призрачного чили"
+	desc = "Эти семена вырастают в перец чили, который считается самым острым в этой галактике."
 	icon_state = "seed-chilighost"
 	species = "chilighost"
 	plantname = "Ghost Chili Plants"
@@ -74,8 +74,8 @@
 
 /obj/item/food/grown/ghost_chili
 	seed = /obj/item/seeds/chili/ghost
-	name = "ghost chili"
-	desc = "It seems to be vibrating gently."
+	name = "призрачный чили"
+	desc = "Кажется, он немного вибрирует"
 	icon_state = "ghostchilipepper"
 	var/mob/living/carbon/human/held_mob
 	bite_consumption_mod = 4
@@ -97,7 +97,7 @@
 				return
 			held_mob.adjust_bodytemperature(7.5 * TEMPERATURE_DAMAGE_COEFFICIENT * delta_time)
 			if(DT_PROB(5, delta_time))
-				to_chat(held_mob, "<span class='warning'>Your hand holding [src] burns!</span>")
+				to_chat(held_mob, "<span class='warning'>Моя рука, держащая [src], обожглась!</span>")
 	else
 		held_mob = null
 		..()

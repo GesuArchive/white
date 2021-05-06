@@ -63,9 +63,9 @@
 				if(src == H.glasses)
 					H.client.prefs.uses_glasses_colour = !H.client.prefs.uses_glasses_colour
 					if(H.client.prefs.uses_glasses_colour)
-						to_chat(H, "<span class='notice'>You will now see glasses colors.</span>")
+						to_chat(H, "<span class='notice'>Теперь вижу цвет очков.</span>")
 					else
-						to_chat(H, "<span class='notice'>You will no longer see glasses colors.</span>")
+						to_chat(H, "<span class='notice'>Теперь не вижу цвет очков.</span>")
 					H.update_glasses_color(src, 1)
 	else
 		return ..()
@@ -100,7 +100,7 @@
 	glass_colour_type = /datum/client_colour/glass_colour/lightgreen
 
 /obj/item/clothing/glasses/meson/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] is putting <b>[src.name]</b> to [user.ru_ego()] eyes and overloading the brightness! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] приближает <b>[src.name]</b> к [user.ru_ego()] глазам и выкручивает яркость на полную! Похоже, что [user.p_theyre()] пытается убить себя!</span>")
 	return BRUTELOSS
 
 /obj/item/clothing/glasses/meson/night
@@ -152,7 +152,7 @@
 	glass_colour_type = /datum/client_colour/glass_colour/green
 
 /obj/item/clothing/glasses/science/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] is tightening <b>[src.name]</b>'s straps around [user.ru_ego()] neck! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] затягивает ремешки <b>[src.name]</b> вокруг [user.ru_ego()] шеи! Похоже, что [user.p_theyre()] пытается убить себя!</span>")
 	return OXYLOSS
 
 /obj/item/clothing/glasses/eyepatch
@@ -198,7 +198,7 @@
 
 /obj/item/clothing/glasses/regular
 	name = "очки по рецепту"
-	desc = "Made by Nerd. Co."
+	desc = "Было изготовлено, собрано, доставлено и продано корп. Зануда."
 	icon_state = "glasses"
 	inhand_icon_state = "glasses"
 	vision_correction = TRUE //corrects nearsightedness
