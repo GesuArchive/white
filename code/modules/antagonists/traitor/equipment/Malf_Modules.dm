@@ -493,7 +493,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 
 /datum/action/innate/ai/ranged/overload_machine/New()
 	..()
-	desc = "[desc] Осталось [uses] заряд\ов."
+	desc = "[desc] Осталось [uses] зарядов."
 	button.desc = desc
 
 /datum/action/innate/ai/ranged/overload_machine/proc/detonate_machine(obj/machinery/M)
@@ -551,7 +551,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 
 /datum/action/innate/ai/blackout/New()
 	..()
-	desc = "[desc] Осталось [uses] заряд\ов."
+	desc = "[desc] Осталось [uses] зарядов."
 	button.desc = desc
 
 /datum/action/innate/ai/blackout/Activate()
@@ -564,7 +564,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	owner.playsound_local(owner, "sparks", 50, 0)
 	adjust_uses(-1)
 	if(src && uses) //Not sure if not having src here would cause a runtime, so it's here to be safe
-		desc = "[initial(desc)] доступно [uses] заряд\ов."
+		desc = "[initial(desc)] доступно [uses] зарядов."
 		UpdateButtonIcon()
 
 /// Robotic Factory: Places a large machine that converts humans that go through it into cyborgs. Unlocking this ability removes shunting.

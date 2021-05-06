@@ -34,13 +34,13 @@
 		computer.take_damage(25, BRUTE, 0, 0)
 		if(battery_module && prob(25))
 			qdel(battery_module)
-			computer.visible_message("<span class='notice'>\Батарея [computer] взрывается дождём из искр.</span>")
+			computer.visible_message("<span class='notice'>Батарея [computer] взрывается дождём из искр.</span>")
 			var/datum/effect_system/spark_spread/spark_system = new /datum/effect_system/spark_spread
 			spark_system.start()
 
 		if(recharger && prob(50))
 			qdel(recharger)
-			computer.visible_message("<span class='notice'>\Зарядное устройство [computer] взрывается дождём из искр.</span>")
+			computer.visible_message("<span class='notice'>Зарядное устройство [computer] взрывается дождём из искр.</span>")
 			var/datum/effect_system/spark_spread/spark_system = new /datum/effect_system/spark_spread
 			spark_system.start()
 

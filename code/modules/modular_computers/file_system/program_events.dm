@@ -13,6 +13,6 @@
 /datum/computer_file/program/proc/event_networkfailure(background)
 	kill_program(forced = TRUE)
 	if(background)
-		computer.visible_message("<span class='danger'>\Экран [computer] отображает ошибку: \"Процесс [filename].[filetype] (PID [rand(100,999)]) завершён — ошибка сети\"</span>")
+		computer.visible_message("<span class='danger'>Экран [computer] отображает ошибку: \"Процесс [filename].[filetype] (PID [rand(100,999)]) завершён — ошибка сети\"</span>")
 	else
-		computer.visible_message("<span class='danger'>\Экран [computer] ненадолго застыл, затем отобразил ошибку: \"ОШИБКА СЕТИ — потеряно соединение с NTNet. Пожалуйста, попробуйте еще раз. Если проблема не исчезнет, обратитесь к системному администратору.\".</span>")
+		computer.visible_message("<span class='danger'>Экран [computer] ненадолго застыл, затем отобразил ошибку: \"ОШИБКА СЕТИ — потеряно соединение с NTNet. Пожалуйста, попробуйте еще раз. Если проблема не исчезнет, обратитесь к системному администратору.\".</span>")
