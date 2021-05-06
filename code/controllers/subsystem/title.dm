@@ -98,14 +98,12 @@ SUBSYSTEM_DEF(title)
 		for(var/line in GLOB.whitelist)
 			cum += "[line]"
 		if(SSticker.current_state == GAME_STATE_PREGAME)
-			tcc += "<big>Готовы:</big></br>"
 			for(var/line in sortList(caa))
-				tcc += "<big>[line]</big></br>[english_list(caa[line])]</br>"
-			tcc += "</br></br><big>Не готовы:</big></br>"
+				tcc += "<div class='role'>[line]</div><div class='victims'>[english_list(caa[line])]</div>"
+			tcc += "</br><big>Не готовы:</big></br>"
 		else
-			tcc += "</br></br><big>Чат-боты:</big></br>"
-		for(var/line in sortList(cum))
-			tcc += " - [line]</br>"
+			tcc += "</br><big>Чат-боты:</big></br>"
+		tcc += " - [english_list(cum)]</br>"
 		ctt = tcc
 		for(var/mob/dead/new_player/D in GLOB.new_player_list)
 			if(D?.client?.lobbyscreen_image)
