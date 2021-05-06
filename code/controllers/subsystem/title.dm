@@ -100,7 +100,7 @@ SUBSYSTEM_DEF(title)
 		if(SSticker.current_state == GAME_STATE_PREGAME)
 			tcc += "<big>Готовы:</big></br>"
 			for(var/line in sortList(caa))
-				tcc += " - <big>[line]</big> - [english_list(caa[line])]</br>"
+				tcc += "<big>[line]</big></br>[english_list(caa[line])]</br>"
 			tcc += "</br></br><big>Не готовы:</big></br>"
 		else
 			tcc += "</br></br><big>Чат-боты:</big></br>"
