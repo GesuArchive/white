@@ -1,6 +1,6 @@
 /obj/item/target
-	name = "shooting target"
-	desc = "A shooting target."
+	name = "Мишень для стрельбы"
+	desc = "Это мишень. Для стрельбы."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "target_h"
 	density = FALSE
@@ -17,17 +17,17 @@
 		for (var/bullethole in bullethole_overlays)
 			cut_overlay(bullethole)
 		bullethole_overlays = null
-		to_chat(user, "<span class='notice'>You slice off [src] uneven chunks of aluminium and scorch marks.</span>")
+		to_chat(user, "<span class='notice'>Отрезаю от [src] неровные куски алюминия и оставляю следы ожогов.</span>")
 	return TRUE
 
 /obj/item/target/syndicate
 	icon_state = "target_s"
-	desc = "A shooting target that looks like syndicate scum."
+	desc = "Мишень выглядит как ублюдок из синдиката."
 	hp = 2600
 
 /obj/item/target/alien
 	icon_state = "target_q"
-	desc = "A shooting target that looks like a xenomorphic alien."
+	desc = "Мишень выглядит как инопланетный ксеноморф"
 	hp = 2350
 
 /obj/item/target/alien/anchored
@@ -35,7 +35,7 @@
 
 /obj/item/target/clown
 	icon_state = "target_c"
-	desc = "A shooting target that looks like a useless clown."
+	desc = "Мишень выглядит как бесполезный клоун."
 	hp = 2000
 
 #define DECALTYPE_SCORCH 1
@@ -57,7 +57,7 @@
 	if(C.GetPixel(p_x, p_y) && P.original == src && overlays.len <= 35) // if the located pixel isn't blank (null)
 		hp -= P.damage
 		if(hp <= 0)
-			visible_message("<span class='danger'>[capitalize(src.name)] breaks into tiny pieces and collapses!</span>")
+			visible_message("<span class='danger'>[capitalize(src.name)] разваливается на мелкие кусочки и разрушается!</span>")
 			qdel(src)
 		var/image/bullet_hole = image('icons/effects/effects.dmi', "scorch", OBJ_LAYER + 0.5)
 		bullet_hole.pixel_x = p_x - 1 //offset correction

@@ -24,28 +24,46 @@
 /datum/antagonist/ert/sobr/leader/update_name()
 	owner.current.fully_replace_character_name(owner.current.real_name,"Лейтенант [pick(name_source)]")
 
+
 /datum/outfit/sobr
 	name = "СОБР"
 
 	uniform = /obj/item/clothing/under/rank/sobr
 	suit = /obj/item/clothing/suit/armor/bulletproof/omon
+	suit_store = /obj/item/melee/classic_baton
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/fingerless
-	ears = /obj/item/radio/headset/headset_cent
+	ears = /obj/item/radio/headset/headset_cent/alt
 	head = /obj/item/clothing/head/beret/durathread
 	glasses = /obj/item/clothing/glasses/sunglasses
-	belt = /obj/item/melee/classic_baton
+	belt = /obj/item/storage/belt/security/sobr
 	id = /obj/item/card/id/centcom
 
 	implants = list(/obj/item/implant/sound_implant)
+/datum/outfit/sobr/pre_equip(mob/living/carbon/human/H)
+	if (prob(10))
+		back = /obj/item/shield/riot/flash
+	else
+		back = /obj/item/storage/backpack
+		backpack_contents = list(/obj/item/storage/box/survival/engineer=1)
+	if (prob(1))
+		r_hand = /obj/item/gun/ballistic/rocketlauncher/unrestricted //I'm just a SOBR with a rocket launcher
+		l_hand = /obj/item/ammo_casing/caseless/rocket/weak
+
 
 /datum/outfit/sobr/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)
 		return
 
+	var/obj/item/radio/R = H.ears
+	R.keyslot = new /obj/item/encryptionkey/headset_sec
+	R.recalculateChannels()
+
 	var/obj/item/card/id/W = H.wear_id
 	W.access = get_centcom_access(name)
 	W.access += ACCESS_WEAPONS
+	W.access += ACCESS_MAINT_TUNNELS
+	W.access += get_region_accesses(2)
 	W.assignment = name
 	W.registered_name = H.real_name
 	W.update_label()
@@ -57,14 +75,30 @@
 	suit = /obj/item/clothing/suit/armor/bulletproof/omon
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/fingerless
-	ears = /obj/item/radio/headset/headset_cent
+	ears = /obj/item/radio/headset/headset_cent/alt
 	head = /obj/item/clothing/head/beret/durathread
 	glasses = /obj/item/clothing/glasses/sunglasses
 	belt = /obj/item/storage/belt/military/army/wzzzz/sobr
-	back = /obj/item/gun/ballistic/automatic/ak47
 	id = /obj/item/card/id/centcom
 
 	implants = list(/obj/item/implant/sound_implant)
+/datum/outfit/sobr/leader/pre_equip(mob/living/carbon/human/H)
+	back = /obj/item/gun/ballistic/automatic/ak47
+
+
+
+/datum/outfit/sobr/leader/post_equip(mob/living/carbon/human/H, visualsOnly)
+	var/obj/item/radio/R = H.ears
+	R.keyslot = new /obj/item/encryptionkey/heads/hos
+	R.recalculateChannels()
+	var/obj/item/card/id/W = H.wear_id
+	W.access = get_centcom_access(name)
+	W.access += ACCESS_WEAPONS
+	W.access += ACCESS_MAINT_TUNNELS
+	W.access += get_region_accesses(2)
+	W.assignment = name
+	W.registered_name = H.real_name
+	W.update_label()
 
 /obj/item/storage/belt/military/army/wzzzz/sobr
 
@@ -75,12 +109,19 @@
 		new /obj/item/ammo_box/magazine/ak47mag(src)
 	if(prob(20))
 		new /obj/item/ammo_box/magazine/ak47mag(src)
-	if(prob(33))
-		new /obj/item/reagent_containers/hypospray/medipen/survival(src)
-	if(prob(20))
-		new /obj/item/grenade/syndieminibomb/concussion(src)
+	if(prob(40))
+		new /obj/item/reagent_containers/hypospray/medipen/salacid(src)
+	if(prob(80))
+		new /obj/item/grenade/flashbang(src)
 	if(prob(30))
 		new /obj/item/grenade/syndieminibomb/concussion(src)
+/obj/item/storage/belt/security/sobr
+
+/obj/item/storage/belt/security/sobr/PopulateContents()
+	new /obj/item/grenade/flashbang(src)
+	new	/obj/item/grenade/stingbang(src)
+	new /obj/item/restraints/handcuffs/cable/zipties(src)
+	new /obj/item/restraints/handcuffs(src)
 
 /proc/sobr_request(text, mob/Sender)
 	var/msg = copytext_char(sanitize(text), 1, MAX_MESSAGE_LEN)

@@ -287,6 +287,6 @@
 	var/obj/item/disk/nuclear/disk = locate() in GLOB.poi_list
 	var/list/nukeinfo = list(
 		ref = REF(disk),
-		name = "Nuke Auth. Disk",
+		name = "Диск авторизации ядерного устройства",
 		)
 	objects += list(nukeinfo)

@@ -1,10 +1,10 @@
 //////////////////Imp
 
 /mob/living/simple_animal/hostile/imp
-	name = "imp"
+	name = "бес"
 	real_name = "imp"
 	unique_name = TRUE
-	desc = "A large, menacing creature covered in armored black scales."
+	desc = "Большое ужасающее существо, покрытое бронированной черной чешуей."
 	speak_emote = list("cackles")
 	emote_hear = list("cackles","screeches")
 	response_help_continuous = "thinks better of touching"
@@ -38,14 +38,14 @@
 	see_in_dark = 8
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	del_on_death = TRUE
-	deathmessage = "screams in agony as it sublimates into a sulfurous smoke."
+	deathmessage = "кричит от боли, превращаясь в серный дым."
 	deathsound = 'sound/magic/demon_dies.ogg'
-	var/playstyle_string = "<span class='big bold'>You are an imp,</span><B> a mischievous creature from hell. You are the lowest rank on the hellish totem pole \
-							Though you are not obligated to help, perhaps by aiding a higher ranking devil, you might just get a promotion. However, you are incapable	\
-							of intentionally harming a fellow devil.</B>"
+	var/playstyle_string = "<span class='big bold'>Ты бес,</span><B> вредное существо из ада. У тебя самый низкий ранг среди адских существ \
+							Не смотря на то что ты не обязан помогать вышестоящим дьяволам, если ты согласишься то, возможно, получишь повышение. Однако, ты не способен	\
+							намеренно навредить другому дьяволу.</B>"
 
 /datum/antagonist/imp
-	name = "Imp"
+	name = "бес"
 	antagpanel_category = "Other"
 	show_in_roundend = FALSE
 
@@ -62,7 +62,7 @@
 //////////////////The Man Behind The Slaughter
 
 /mob/living/simple_animal/hostile/imp/slaughter
-	name = "slaughter demon"
+	name = "демон бойни"
 	real_name = "slaughter demon"
 	unique_name = FALSE
 	speak_emote = list("gurgles")
@@ -76,12 +76,12 @@
 	wound_bonus = -10
 	bare_wound_bonus = 0
 	sharpness = SHARP_EDGED
-	playstyle_string = "<span class='big bold'>You are a slaughter demon,</span><B> a terrible creature from another realm. You have a single desire: To kill. \
-							You may use the \"Blood Crawl\" ability near blood pools to travel through them, appearing and disappearing from the station at will. \
-							Pulling a dead or unconscious mob while you enter a pool will pull them in with you, allowing you to feast and regain your health. \
-							You move quickly upon leaving a pool of blood, but the material world will soon sap your strength and leave you sluggish. \
-							You gain strength the more attacks you land on live humanoids, though this resets when you return to the blood zone. You can also \
-							launch a devastating slam attack with ctrl+shift+click, capable of smashing bones in one strike.</B>"
+	playstyle_string = "<span class='big bold'>Ты демон бойни,</span><B> ужасное создание из другого измерения. У тебя есть единственное желание — убивать. \
+							Ты можешь использовать способность \"Ползанье в крови\" неподалеку от луж крови для того чтобы перемещаться между ними, появляясь и исчезая по собственному желанию. \
+							Если ты тащишь труп или бессознательного моба входя в лужу, то это переместит его с вами, позволяя сожрать его и восстановить здоровье. \
+							Ты ускоряешься выходя из кровавой лужи, однако материальный мир со временем истощит твои силы и ты скоро станешь довольно медлительным. \
+							Ты набираешь силу с каждой атакой, нанесенной по живым гуманоидам, однако, эта сила оставит тебя, когда ты вернешься в кровь. Ты также можешь \
+							провести сокрушительную отбрасывающую атаку, нажав ctrl+shift+ЛКМ, которая способна переломать кости за один удар.</B>"
 
 	loot = list(/obj/effect/decal/cleanable/blood, \
 				/obj/effect/decal/cleanable/blood/innards, \
@@ -114,7 +114,7 @@
 	if(!isliving(A))
 		return ..()
 	if(slam_cooldown + slam_cooldown_time > world.time)
-		to_chat(src, "<span class='warning'>Your slam ability is still on cooldown!</span>")
+		to_chat(src, "<span class='warning'>Отбрасывающая атака всё еще восстанавливается!</span>")
 		return
 	if(istype(loc, /obj/effect/dummy/phased_mob))
 		to_chat(src, "<span class='warning'>Не могу бить, пока я нахожусь в крови!</span>")
@@ -123,8 +123,8 @@
 	face_atom(A)
 	var/mob/living/victim = A
 	victim.take_bodypart_damage(brute=20, wound_bonus=wound_bonus) // don't worry, there's more punishment when they hit something
-	visible_message("<span class='danger'>[capitalize(src.name)] slams into [victim] with monstrous strength!</span>", "<span class='danger'>You slam into [victim] with monstrous strength!</span>", ignored_mobs=victim)
-	to_chat(victim, "<span class='userdanger'>[capitalize(src.name)] slams into you with monstrous strength, sending you flying like a ragdoll!</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] отбрасывает [victim] с монструозной силой!</span>", "<span class='danger'>Я отбрасываю [victim] с монструозной силой!</span>", ignored_mobs=victim)
+	to_chat(victim, "<span class='userdanger'>[capitalize(src.name)] отбрасывает меня с монструозной силой, как обычную тряпичную куклу!</span>")
 	var/turf/yeet_target = get_edge_target_turf(victim, dir)
 	victim.throw_at(yeet_target, 10, 5, src)
 	slam_cooldown = world.time
@@ -143,8 +143,8 @@
 	return ..()
 
 /obj/effect/decal/cleanable/blood/innards
-	name = "pile of viscera"
-	desc = "A repulsive pile of guts and gore."
+	name = "куча внутренностей"
+	desc = "Отвратительная куча из кишок и крови."
 	gender = NEUTER
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "innards"
@@ -157,8 +157,8 @@
 
 //The loot from killing a slaughter demon - can be consumed to allow the user to blood crawl
 /obj/item/organ/heart/demon
-	name = "demon heart"
-	desc = "Still it beats furiously, emanating an aura of utter hate."
+	name = "демоническое сердце"
+	desc = "Всё еще яростно бьется, излучая ауру абсолютной ненависти."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "demon_heart-on"
 	decay_factor = 0
@@ -170,16 +170,16 @@
 /obj/item/organ/heart/demon/attack(mob/M, mob/living/carbon/user, obj/target)
 	if(M != user)
 		return ..()
-	user.visible_message("<span class='warning'>[user] raises [src] to [user.ru_ego()] mouth and tears into it with [user.ru_ego()] teeth!</span>", \
-		"<span class='danger'>An unnatural hunger consumes you. You raise [src] your mouth and devour it!</span>")
+	user.visible_message("<span class='warning'>[user] поднимает [src] к [user.ru_ego()] рту и вгрызается в него при помощи [user.ru_ego()] зубов!</span>", \
+		"<span class='danger'>Неестественный голод поглощает меня. Я поднимаю [src] к своему рту и пожираю!</span>")
 	playsound(user, 'sound/magic/demon_consume.ogg', 50, TRUE)
 	for(var/obj/effect/proc_holder/spell/knownspell in user.mind.spell_list)
 		if(knownspell.type == /obj/effect/proc_holder/spell/bloodcrawl)
-			to_chat(user, "<span class='warning'>...and you don't feel any different.</span>")
+			to_chat(user, "<span class='warning'>...и не ощущаю никакой разницы.</span>")
 			qdel(src)
 			return
-	user.visible_message("<span class='warning'>[user] eyes flare a deep crimson!</span>", \
-		"<span class='userdanger'>You feel a strange power seep into your body... you have absorbed the demon's blood-travelling powers!</span>")
+	user.visible_message("<span class='warning'>Глаза [user] вспыхивают темно-красным!</span>", \
+		"<span class='userdanger'>Чувствую как странная сила растекается по моему телу... я поглотил способность демона путешествовать по крови!</span>")
 	user.temporarilyRemoveItemFromInventory(src, TRUE)
 	src.Insert(user) //Consuming the heart literally replaces your heart with a demon heart. H A R D C O R E
 
@@ -199,9 +199,9 @@
 /mob/living/simple_animal/hostile/imp/slaughter/laughter
 	// The laughter demon! It's everyone's best friend! It just wants to hug
 	// them so much, it wants to hug everyone at once!
-	name = "laughter demon"
+	name = "демон смеха"
 	real_name = "laughter demon"
-	desc = "A large, adorable creature covered in armor with pink bows."
+	desc = "Большое, милое существо, облаченное в доспехи с розовыми бантиками."
 	speak_emote = list("giggles","titters","chuckles")
 	emote_hear = list("guffaws","laughs")
 	response_help_continuous = "hugs"
@@ -215,26 +215,26 @@
 
 	icon_state = "bowmon"
 	icon_living = "bowmon"
-	deathmessage = "fades out, as all of its friends are released from its \
-		prison of hugs."
+	deathmessage = "исчезает, так как все его друзья освободились из его \
+		тюрьмы объятий."
 	loot = list(/mob/living/simple_animal/pet/cat/kitten{name = "Laughter"})
 
 	// Keep the people we hug!
 	var/list/consumed_mobs = list()
 
-	playstyle_string = "<span class='big bold'>You are a laughter \
-	demon,</span><B> a wonderful creature from another realm. You have a single \
-	desire: <span class='clown'>To hug and tickle.</span><BR>\
-	You may use the \"Blood Crawl\" ability near blood pools to travel \
-	through them, appearing and disappearing from the station at will. \
-	Pulling a dead or unconscious mob while you enter a pool will pull \
-	them in with you, allowing you to hug them and regain your health.<BR> \
-	You move quickly upon leaving a pool of blood, but the material world \
-	will soon sap your strength and leave you sluggish.<BR>\
-	What makes you a little sad is that people seem to die when you tickle \
-	them; but don't worry! When you die, everyone you hugged will be \
-	released and fully healed, because in the end it's just a jape, \
-	sibling!</B>"
+	playstyle_string = "<span class='big bold'>Ты демон \
+	смеха,</span><B> замечательное существо из другого измерения. У тебя лишь одно \
+	желание: <span class='clown'>Обнимать и щекотать.</span><BR>\
+	Ты можешь использовать способность \"Ползанье в крови\" неподалеку от кровавых луж для того чтобы перемещаться \
+	между ними, появляясь и исчезая по собственному желанию. \
+	Если ты тащишь труп или бессознательного моба входя в лужу, то это переместит \
+	его с вами, позволяя обнять их и восстановить здоровье.<BR> \
+	Ты ускоряешься выходя из кровавой лужи, однако материальный мир \
+	со временем истощит твои силы и ты станешь довольно медлительным.<BR>\
+	Тебя немного огорчает то, что, видимо, люди умирают от того как ты их \
+	щекочешь, но не переживай! Когда ты умрешь, то все кого ты обнял будут \
+	освобождены и полностью исцелены, ведь, в конце концов, это всего лишь шутка, \
+	братан!</B>"
 
 /mob/living/simple_animal/hostile/imp/slaughter/laughter/Initialize()
 	. = ..()
@@ -271,7 +271,7 @@
 		if(M.revive(full_heal = TRUE, admin_revive = TRUE))
 			M.grab_ghost(force = TRUE)
 			playsound(T, feast_sound, 50, TRUE, -1)
-			to_chat(M, "<span class='clown'>You leave [src] warm embrace,	and feel ready to take on the world.</span>")
+			to_chat(M, "<span class='clown'>Оставляю [src] теплые объятия,	 и чувствую силу покорять мир.</span>")
 
 /mob/living/simple_animal/hostile/imp/slaughter/laughter/bloodcrawl_swallow(mob/living/victim)
 	// Keep their corpse so rescue is possible
@@ -292,10 +292,10 @@
 	// Someone we've eaten has spontaneously revived; maybe nanites, maybe a changeling
 	victim.forceMove(get_turf(src))
 	victim.exit_blood_effect()
-	victim.visible_message("<span class='warning'>[victim] falls out of the air, covered in blood, with a confused look on their face.</span>")
+	victim.visible_message("<span class='warning'>Покрытый кровью [victim] возникает из воздуха, с озадаченным выражением лица.</span>")
 	consumed_mobs -= victim
 	UnregisterSignal(victim, COMSIG_MOB_STATCHANGE)
 
 /mob/living/simple_animal/hostile/imp/slaughter/engine_demon
-	name = "engine demon"
+	name = "демон двигателя"
 	faction = list("hell", "neutral")

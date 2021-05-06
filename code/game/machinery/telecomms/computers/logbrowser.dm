@@ -1,9 +1,9 @@
 
 
 /obj/machinery/computer/telecomms/server
-	name = "telecommunications server monitoring console"
+	name = "консоль контроля телекоммуникационных серверов"
 	icon_screen = "comm_logs"
-	desc = "Has full access to all details and record of the telecommunications network it's monitoring."
+	desc = "Содержит полный доступ ко всем данным и записям телекоммуникационной сети, которую контролирует эта консоль."
 
 	var/screen = 0				// the screen number:
 	var/list/servers = list()	// the servers located by the computer
@@ -28,28 +28,28 @@
 
 		if(0)
 			dat += "<br>[temp]<br>"
-			dat += "<br>Current Network: <a href='?src=[REF(src)];network=1'>[network]</a><br>"
+			dat += "<br>Текущая сеть: <a href='?src=[REF(src)];network=1'>[network]</a><br>"
 			if(servers.len)
-				dat += "<br>Detected Telecommunication Servers:<ul>"
+				dat += "<br>Найденные телекоммуникационные сервера:<ul>"
 				for(var/obj/machinery/telecomms/T in servers)
 					dat += "<li><a href='?src=[REF(src)];viewserver=[T.id]'>[REF(T)] [T.name]</a> ([T.id])</li>"
 				dat += "</ul>"
-				dat += "<br><a href='?src=[REF(src)];operation=release'>\[Flush Buffer\]</a>"
+				dat += "<br><a href='?src=[REF(src)];operation=release'>\[Сброс Буфера\]</a>"
 
 			else
-				dat += "<br>No servers detected. Scan for servers: <a href='?src=[REF(src)];operation=scan'>\[Scan\]</a>"
+				dat += "<br>No servers detected. Scan for servers: <a href='?src=[REF(src)];operation=scan'>\[Сканировать\]</a>"
 
 
 	  // --- Viewing Server ---
 
 		if(1)
 			dat += "<br>[temp]<br>"
-			dat += "<center><a href='?src=[REF(src)];operation=mainmenu'>\[Main Menu\]</a>     <a href='?src=[REF(src)];operation=refresh'>\[Refresh\]</a></center>"
+			dat += "<center><a href='?src=[REF(src)];operation=mainmenu'>\[Главное Меню\]</a> <a href='?src=[REF(src)];operation=refresh'>\[Обновить\]</a></center>"
 			dat += "<br>Current Network: [network]"
 			dat += "<br>Selected Server: [SelectedServer.id]"
 
 			if(SelectedServer.totaltraffic >= 1024)
-				dat += "<br>Total recorded traffic: [round(SelectedServer.totaltraffic / 1024)] Terrabytes<br><br>"
+				dat += "<br>Общее число записанных данных: [round(SelectedServer.totaltraffic / 1024)] Террабайт<br><br>" 
 			else
 				dat += "<br>Total recorded traffic: [SelectedServer.totaltraffic] Gigabytes<br><br>"
 
@@ -62,7 +62,7 @@
 
 				// If the log is a speech file
 				if(C.input_type == "Speech File")
-					dat += "<li><font color = #008F00>[C.name]</font>  <font color = #FF0000><a href='?src=[REF(src)];delete=[i]'>\[X\]</a></font><br>"
+					dat += "<li><font color = #008F00>[C.name]</font> <font color = #FF0000><a href='?src=[REF(src)];delete=[i]'>\[X\]</a></font><br>"
 
 					// -- Determine race of orator --
 
@@ -89,9 +89,9 @@
 					else
 						race = "<i>Unidentifiable</i>"
 
-					dat += "<u><font color = #18743E>Data type</font></u>: [C.input_type]<br>"
-					dat += "<u><font color = #18743E>Source</font></u>: [C.parameters["name"]] (Job: [C.parameters["job"]])<br>"
-					dat += "<u><font color = #18743E>Class</font></u>: [race]<br>"
+					dat += "<u><font color = #18743E>Тип Данных</font></u>: [C.input_type]<br>"
+					dat += "<u><font color = #18743E>Источник</font></u>: [C.parameters["name"]] (Job: [C.parameters["job"]])<br>"
+					dat += "<u><font color = #18743E>Категория</font></u>: [race]<br>"
 					var/message = C.parameters["message"]
 					var/language = C.parameters["language"]
 
@@ -104,18 +104,18 @@
 					else if (language)
 						message = "<i>(unintelligible)</i>"
 
-					dat += "<u><font color = #18743E>Contents</font></u>: [message]<br>"
+					dat += "<u><font color = #18743E>Содержимое</font></u>: [message]<br>"
 					dat += "</li><br>"
 
 				else if(C.input_type == "Execution Error")
-					dat += "<li><font color = #990000>[C.name]</font>  <a href='?src=[REF(src)];delete=[i]'>\[X\]</a><br>"
-					dat += "<u><font color = #787700>Error</font></u>: \"[C.parameters["message"]]\"<br>"
+					dat += "<li><font color = #990000>[C.name]</font> <a href='?src=[REF(src)];delete=[i]'>\[X\]</a><br>"
+					dat += "<u><font color = #787700>Ошибка</font></u>: \"[C.parameters["message"]]\"<br>"
 					dat += "</li><br>"
 
 				else
-					dat += "<li><font color = #000099>[C.name]</font>  <a href='?src=[REF(src)];delete=[i]'>\[X\]</a><br>"
-					dat += "<u><font color = #18743E>Data type</font></u>: [C.input_type]<br>"
-					dat += "<u><font color = #18743E>Contents</font></u>: <i>(unintelligible)</i><br>"
+					dat += "<li><font color = #000099>[C.name]</font> <a href='?src=[REF(src)];delete=[i]'>\[X\]</a><br>"
+					dat += "<u><font color = #18743E>Тип Данных</font></u>: [C.input_type]<br>"
+					dat += "<u><font color = #18743E>Содержимое</font></u>: <i>(unintelligible)</i><br>"
 					dat += "</li><br>"
 
 
@@ -158,7 +158,7 @@
 
 			if("scan")
 				if(servers.len > 0)
-					temp = "<font color = #D70B00>- FAILED: CANNOT PROBE WHEN BUFFER FULL -</font color>"
+					temp = "<font color = #D70B00>- ОШИБКА: НЕЛЬЗЯ СКАНИРОВАТЬ СЕТЬ, ПОКА БУФЕР ЗАПОЛНЕН -</font color>"
 
 				else
 					for(var/obj/machinery/telecomms/server/T in urange(25, src))
@@ -166,9 +166,9 @@
 							servers.Add(T)
 
 					if(!servers.len)
-						temp = "<font color = #D70B00>- FAILED: UNABLE TO LOCATE SERVERS IN \[[network]\] -</font color>"
+						temp = "<font color = #D70B00>- ОШИБКА: НЕ УДАЛОСЬ НАЙТИ СЕРВЕРА В \[[network]\] -</font color>"
 					else
-						temp = "<font color = #336699>- [servers.len] SERVERS PROBED & BUFFERED -</font color>"
+						temp = "<font color = #336699>- [servers.len] СЕРВЕРА ПРОСКАНИРОВАНЫ И БУФФЕРИЗОВАНЫ-</font color>"
 
 					screen = 0
 
@@ -182,13 +182,13 @@
 
 			var/datum/comm_log_entry/D = SelectedServer.log_entries[text2num(href_list["delete"])]
 
-			temp = "<font color = #336699>- DELETED ENTRY: [D.name] -</font color>"
+			temp = "<font color = #336699>- УДАЛЁН ЭЛЕМЕНТ: [D.name] -</font color>"
 
 			SelectedServer.log_entries.Remove(D)
 			qdel(D)
 
 		else
-			temp = "<font color = #D70B00>- FAILED: NO SELECTED MACHINE -</font color>"
+			temp = "<font color = #D70B00>- ОШИБКА: НЕ ВЫБРАНА МАШИНА -</font color>"
 
 	if(href_list["network"])
 
@@ -196,14 +196,14 @@
 
 		if(newnet && ((usr in range(1, src)) || issilicon(usr)))
 			if(length(newnet) > 15)
-				temp = "<font color = #D70B00>- FAILED: NETWORK TAG STRING TOO LENGHTLY -</font color>"
+				temp = "<font color = #D70B00>- ОШИБКА: ТЭГ СЕТИ СЛИШКОМ ДЛИННЫЙ -</font color>"
 
 			else
 
 				network = newnet
 				screen = 0
 				servers = list()
-				temp = "<font color = #336699>- NEW NETWORK TAG SET IN ADDRESS \[[network]\] -</font color>"
+				temp = "<font color = #336699>- НОВЫЙ ТЭГ СЕТИ ЗАРЕГЕСТРИРОВАН В \[[network]\] -</font color>"
 
 	updateUsrDialog()
 	return

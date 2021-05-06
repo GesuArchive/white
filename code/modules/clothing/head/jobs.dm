@@ -23,10 +23,10 @@
 	mouse_control_probability = 100
 
 /obj/item/clothing/head/chefhat/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is donning [src]! It looks like [user.p_theyre()] trying to become a chef.</span>")
+	user.visible_message("<span class='suicide'>[user] надевает [src]! Похоже, что [user.p_theyre()] пытается стать шеф-поваром.</span>")
 	user.say("Bork Bork Bork!", forced = "chef hat suicide")
 	sleep(20)
-	user.visible_message("<span class='suicide'>[user] climbs into an imaginary oven!</span>")
+	user.visible_message("<span class='suicide'>[user] залезает в воображаемую печку!</span>")
 	user.say("BOOORK!", forced = "chef hat suicide")
 	playsound(user, 'sound/machines/ding.ogg', 50, TRUE)
 	return(FIRELOSS)
@@ -277,8 +277,8 @@
 //Science
 
 /obj/item/clothing/head/beret/science
-	name = "science beret"
-	desc = "A science-themed beret for our hardworking scientists."
+	name = "научный берет"
+	desc = "Берет, раскраска которого посвящена нашим усердно работающим учёным."
 	icon_state = "sciberet"
 
 //Curator

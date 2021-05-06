@@ -1,7 +1,7 @@
 #define MOTH_EATING_CLOTHING_DAMAGE 15
 
 /obj/item/clothing
-	name = "clothing"
+	name = "кусок ткани"
 	resistance_flags = FLAMMABLE
 	max_integrity = 200
 	integrity_failure = 0.4
@@ -228,11 +228,11 @@
 
 	switch(zones_disabled)
 		if(1)
-			name = "damaged [initial(name)]"
+			name = "поврежденный [initial(name)]"
 		if(2)
-			name = "mangy [initial(name)]"
+			name = "облезший [initial(name)]"
 		if(3 to INFINITY) // take better care of your shit, dude
-			name = "tattered [initial(name)]"
+			name = "рваный [initial(name)]"
 
 	update_clothes_damaged_state(CLOTHING_DAMAGED)
 
@@ -500,7 +500,7 @@ BLIND     // can't see anything
 				M.dropItemToGround(src)
 			else
 				M.visible_message("<span class='danger'>[capitalize(src.name)] fall[p_s()] apart, completely shredded!</span>", vision_distance = COMBAT_MESSAGE_RANGE)
-		name = "shredded [initial(name)]" // change the name -after- the message, not before.
+		name = "изорванный [initial(name)]" // change the name -after- the message, not before.
 	else
 		..()
 

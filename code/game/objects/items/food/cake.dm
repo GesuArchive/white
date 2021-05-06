@@ -313,7 +313,7 @@
 
 /obj/item/food/cakeslice/bsvc
 	name = "blackberry and strawberry vanilla cake slice"
-	desc = "Just a slice of cake  filled with assortment of blackberries and strawberries!"
+	desc = "Just a slice of cake filled with assortment of blackberries and strawberries!"
 	icon_state = "blackbarry_strawberries_cake_vanilla_slice"
 	tastes = list("ежевика" = 2, "клубника" = 2, "ваниль" = 2, "сладость" = 2,"торт" = 3)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
@@ -331,7 +331,7 @@
 
 /obj/item/food/cakeslice/bscc
 	name = "blackberry and strawberry chocolate cake slice"
-	desc = "Just a slice of cake  filled with assortment of blackberries and strawberries!"
+	desc = "Just a slice of cake filled with assortment of blackberries and strawberries!"
 	icon_state = "blackbarry_strawberries_cake_coco_slice"
 	tastes = list("ежевика" = 2, "клубника" = 2, "шоколад" = 2, "сладость" = 2,"торт" = 3)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR

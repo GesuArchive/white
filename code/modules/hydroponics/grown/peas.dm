@@ -1,7 +1,7 @@
 // Finally, peas. Base plant.
 /obj/item/seeds/peas
-	name = "pack of pea pods"
-	desc = "These seeds grows into vitamin rich peas!"
+	name = "Пачка семян стручкового гороха"
+	desc = "Из этих семян вырастает богатый витаминами горох!"
 	icon_state = "seed-peas"
 	species = "peas"
 	plantname = "Pea Vines"
@@ -19,8 +19,8 @@
 
 /obj/item/food/grown/peas
 	seed = /obj/item/seeds/peas
-	name = "peapod"
-	desc = "Finally... peas."
+	name = "Горох"
+	desc = "Что-то меня пучит..."
 	icon_state = "peas"
 	bite_consumption_mod = 1
 	foodtypes = VEGETABLES
@@ -30,8 +30,8 @@
 
 // Laughin' Peas
 /obj/item/seeds/peas/laugh
-	name = "pack of laughin' peas"
-	desc = "These seeds give off a very soft purple glow.. they should grow into Laughin' Peas."
+	name = "Пачка семян смехороха"
+	desc = "Эти семена издают мягкое фиолетовое свечение и пахнут ржомбой... скоро они вырастут в смехорох."
 	icon_state = "seed-laughpeas"
 	species = "laughpeas"
 	plantname = "Laughin' Peas"
@@ -51,8 +51,8 @@
 
 /obj/item/food/grown/laugh
 	seed = /obj/item/seeds/peas/laugh
-	name = "pod of laughin' peas"
-	desc = "Ridens Cicer, guaranteed to improve your mood dramatically upon consumption!"
+	name = "Стручок смехороха"
+	desc = "Вот это смешинка! Эта штука умеет поднять настроение!"
 	icon_state = "laughpeas"
 	bite_consumption_mod = 2
 	foodtypes = VEGETABLES
@@ -63,8 +63,8 @@
 
 // World Peas - Peace at last, peace at last...
 /obj/item/seeds/peas/laugh/peace
-	name = "pack of world peas"
-	desc = "These rather large seeds give off a soothing blue glow..."
+	name = "Пачка семян мирового гороха"
+	desc = "Эти крупные семена испускают успокаивающее голубое свечение..."
 	icon_state = "seed-worldpeas"
 	species = "worldpeas"
 	plantname = "World Peas"
@@ -84,8 +84,8 @@
 
 /obj/item/food/grown/peace
 	seed = /obj/item/seeds/peas/laugh/peace
-	name = "cluster of world peas"
-	desc = "A plant discovered through extensive genetic engineering, and iterative graft work. It's rumored to bring peace to any who consume it. In the wider AgSci community, it's attained the nickname of 'Pax Mundi'." //at last... world peas. I'm not sorry.
+	name = "Гроздь мировых горошин"
+	desc = "Растение, выведенное благодаря продвинутой генной инженерии. Поговаривают, что он приносит мир любому, кто его употребляет. Учёные называют его 'Мир Во Всем Мире'." //напоследок... мировой горох.
 	icon_state = "worldpeas"
 	bite_consumption_mod = 4
 	foodtypes = VEGETABLES

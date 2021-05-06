@@ -139,7 +139,7 @@
 
 /obj/item/clothing/head/collectable/thunderdome
 	name = "коллекционный шлем 'купола грома'"
-	desc = "Go Red! I mean Green! I mean Red! No Green!"
+	desc = "НА КРАСНУЮ! Я ИМЕЛ В ВИДУ ЗЕЛЁНУЮ! Я ИМЕЛ В ВИДУ КРАСНУЮ! НЕ ЗЕЛЕНУЮ!"
 	icon_state = "thunderdome"
 	inhand_icon_state = "thunderdome"
 	clothing_flags = SNUG_FIT

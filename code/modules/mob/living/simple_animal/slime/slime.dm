@@ -319,21 +319,21 @@
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 
 			else
-				M.visible_message("<span class='warning'>[M] manages to wrestle \the [name] off!</span>", \
-					"<span class='notice'>You manage to wrestle \the [name] off!</span>")
+				M.visible_message("<span class='warning'>[M] удаётся побороть \ [name]!</span>", \
+					"<span class='notice'>Мне удаётся побороть \[name]!</span>")
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 
 				discipline_slime(M)
 
 		else
 			if(prob(30))
-				buckled.visible_message("<span class='warning'>[M] attempts to wrestle \the [name] off of [buckled]!</span>", \
-					"<span class='warning'>[M] attempts to wrestle \the [name] off of you!</span>")
+				buckled.visible_message("<span class='warning'>[M] пытается побороть \[name] [buckled]!</span>", \
+					"<span class='warning'>[M] пытается побороть мой \the [name]!</span>")
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 
 			else
-				buckled.visible_message("<span class='warning'>[M] manages to wrestle \the [name] off of [buckled]!</span>", \
-					"<span class='notice'>[M] manage to wrestle \the [name] off of you!</span>")
+				buckled.visible_message("<span class='warning'>[M] удаётся побороть \the [name] [buckled]!</span>", \
+					"<span class='notice'>[M] удаётся побороть мой \the [name]!</span>")
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 
 				discipline_slime(M)
@@ -363,7 +363,7 @@
 			++Friends[user]
 		else
 			Friends[user] = 1
-		to_chat(user, "<span class='notice'>You feed the slime the plasma. It chirps happily.</span>")
+		to_chat(user, "<span class='notice'>Я кормлю слизь плазмой. Он весело верещит.</span>")
 		var/obj/item/stack/sheet/mineral/plasma/S = W
 		S.use(1)
 		return
@@ -372,7 +372,7 @@
 		if(prob(25))
 			user.do_attack_animation(src)
 			user.changeNext_move(CLICK_CD_MELEE)
-			to_chat(user, "<span class='danger'>[W] passes right through [src]!</span>")
+			to_chat(user, "<span class='danger'>[W] проходит сквозь [src]!</span>")
 			return
 		if(Discipline && prob(50)) // wow, buddy, why am I getting attacked??
 			Discipline = 0
@@ -385,7 +385,7 @@
 	if(istype(W, /obj/item/storage/bag/bio))
 		var/obj/item/storage/P = W
 		if(!effectmod)
-			to_chat(user, "<span class='warning'>The slime is not currently being mutated.</span>")
+			to_chat(user, "<span class='warning'>Слайм в настоящее время не мутирует.</span>")
 			return
 		var/hasOutput = FALSE //Have we outputted text?
 		var/hasFound = FALSE //Have we found an extract to be added?
@@ -396,23 +396,23 @@
 				applied++
 				hasFound = TRUE
 			if(applied >= SLIME_EXTRACT_CROSSING_REQUIRED)
-				to_chat(user, "<span class='notice'>You feed the slime as many of the extracts from the bag as you can, and it mutates!</span>")
+				to_chat(user, "<span class='notice'>Я кормлю слайма как можно большим количеством экстрактов из мешка, и он мутирует!</span>")
 				playsound(src, 'sound/effects/attackblob.ogg', 50, TRUE)
 				spawn_corecross()
 				hasOutput = TRUE
 				break
 		if(!hasOutput)
 			if(!hasFound)
-				to_chat(user, "<span class='warning'>There are no extracts in the bag that this slime will accept!</span>")
+				to_chat(user, "<span class='warning'>В сумке нет экстрактов, которые примет этот слайм!</span>")
 			else
-				to_chat(user, "<span class='notice'>You feed the slime some extracts from the bag.</span>")
+				to_chat(user, "<span class='notice'>Я кормлю слайма экстрактами из мешка.</span>")
 				playsound(src, 'sound/effects/attackblob.ogg', 50, TRUE)
 		return
 	..()
 
 /mob/living/simple_animal/slime/proc/spawn_corecross()
 	var/static/list/crossbreeds = subtypesof(/obj/item/slimecross)
-	visible_message("<span class='danger'>[capitalize(src.name)] shudders, its mutated core consuming the rest of its body!</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] вздрагивает, его мутировавшее ядро поглощает остальную часть его тела!</span>")
 	playsound(src, 'sound/magic/smoke.ogg', 50, TRUE)
 	var/crosspath
 	for(var/X in crossbreeds)
@@ -423,7 +423,7 @@
 	if(crosspath)
 		new crosspath(loc)
 	else
-		visible_message("<span class='warning'>The mutated core shudders, and collapses into a puddle, unable to maintain its form.</span>")
+		visible_message("<span class='warning'>Мутировавшее ядро вздрагивает и падает в лужу, не в силах сохранить свою форму.</span>")
 	qdel(src)
 
 /mob/living/simple_animal/slime/proc/apply_water()

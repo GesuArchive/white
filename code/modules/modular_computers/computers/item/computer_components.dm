@@ -3,19 +3,19 @@
 		return FALSE
 
 	if(H.w_class > max_hardware_size)
-		to_chat(user, "<span class='warning'>This component is too large for <b>[src.name]</b>!</span>")
+		to_chat(user, "<span class='warning'>Этот компонент слишком велик для <b>[src.name]</b>!</span>")
 		return FALSE
 
 	if(H.expansion_hw)
 		if(LAZYLEN(expansion_bays) >= max_bays)
-			to_chat(user, "<span class='warning'>All of the computer's expansion bays are filled.</span>")
+			to_chat(user, "<span class='warning'>Все отсеки расширения компьютера заполнены.</span>")
 			return FALSE
 		if(LAZYACCESS(expansion_bays, H.device_type))
-			to_chat(user, "<span class='warning'>The computer immediately ejects /the [H] and flashes an error: \"Hardware Address Conflict\".</span>")
+			to_chat(user, "<span class='warning'>Компьютер сразу отторгает /[H] и отображает ошибку: \"Конфликт адресов оборудования\".</span>")
 			return FALSE
 
 	if(all_components[H.device_type])
-		to_chat(user, "<span class='warning'>This computer's hardware slot is already occupied by \the [all_components[H.device_type]].</span>")
+		to_chat(user, "<span class='warning'>Слот оборудования этого компьютера уже занят \[all_components[H.device_type]].</span>")
 		return FALSE
 	return TRUE
 
@@ -32,7 +32,7 @@
 		LAZYSET(expansion_bays, H.device_type, H)
 	all_components[H.device_type] = H
 
-	to_chat(user, "<span class='notice'>You install \the [H] into <b>[src.name]</b>.</span>")
+	to_chat(user, "<span class='notice'>Я устанавливаю \[H] в <b>[src.name]</b>.</span>")
 	H.holder = src
 	H.forceMove(src)
 	H.on_install(src, user)
@@ -47,7 +47,7 @@
 		LAZYREMOVE(expansion_bays, H.device_type)
 	all_components.Remove(H.device_type)
 
-	to_chat(user, "<span class='notice'>You remove \the [H] from <b>[src.name]</b>.</span>")
+	to_chat(user, "<span class='notice'>Я извлекаю \[H] из <b>[src.name]</b>.</span>")
 
 	H.forceMove(get_turf(src))
 	H.holder = null

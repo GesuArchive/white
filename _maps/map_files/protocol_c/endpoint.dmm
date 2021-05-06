@@ -1081,6 +1081,9 @@
 	},
 /turf/closed/indestructible/syndicate,
 /area/centcom/control)
+"fV" = (
+/turf/closed/indestructible/syndicate,
+/area/ruin/powered/yohei_base)
 "fX" = (
 /obj/machinery/light{
 	dir = 4
@@ -2066,6 +2069,10 @@
 /obj/structure/sign/nanotrasen,
 /turf/closed/indestructible/syndicate,
 /area/centcom/control)
+"nw" = (
+/obj/effect/baseturf_helper/asteroid/basalt,
+/turf/closed/indestructible/syndicate,
+/area/ruin/powered/yohei_base)
 "nz" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -2125,6 +2132,18 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"ob" = (
+/obj/structure/bed/abductor,
+/obj/item/bedsheet/random,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
+"oc" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "oe" = (
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/trimline/neutral/line{
@@ -2132,6 +2151,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"ol" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/structure/table,
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "om" = (
 /obj/machinery/light,
 /obj/effect/turf_decal/trimline/neutral/line{
@@ -2194,6 +2220,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/syndicate_mothership/control)
+"oN" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/obj/structure/chair/comfy/arm{
+	dir = 1
+	},
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "oP" = (
 /obj/structure/mineral_door/paperframe{
 	name = "Arcade"
@@ -2558,6 +2591,12 @@
 /obj/machinery/chem_dispenser/drinks/beer,
 /turf/closed/indestructible/wood,
 /area/centcom/holding)
+"rX" = (
+/obj/structure/ladder/unbreakable{
+	id = "yohei_base"
+	},
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "sj" = (
 /obj/structure/table/wood,
 /obj/machinery/recharger,
@@ -2610,6 +2649,12 @@
 	smoothing_flags = 1
 	},
 /area/centcom/holding)
+"sA" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "sB" = (
 /obj/item/clothing/under/costume/jabroni,
 /obj/item/clothing/under/costume/geisha,
@@ -3361,6 +3406,14 @@
 	},
 /turf/open/floor/plating/abductor,
 /area/abductor_ship)
+"Ay" = (
+/obj/item/bedsheet/random,
+/obj/structure/bed/abductor,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "AB" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 32
@@ -3506,6 +3559,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"BF" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 9
+	},
+/obj/structure/table,
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "BI" = (
 /obj/structure/table/wood,
 /obj/item/clothing/suit/wizrobe/magusred,
@@ -4269,6 +4329,9 @@
 /obj/effect/turf_decal/tile/brown,
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/three)
+"Ho" = (
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "Hr" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
@@ -4761,6 +4824,16 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding)
+"Mr" = (
+/obj/structure/table,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 10
+	},
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
+"Mt" = (
+/turf/closed/indestructible/rock,
+/area/space)
 "Mv" = (
 /obj/machinery/computer/card/centcom{
 	dir = 1
@@ -4919,6 +4992,12 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/plating/grass,
 /area/syndicate_mothership)
+"Np" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "Nr" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -4934,6 +5013,17 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"NO" = (
+/obj/structure/table,
+/obj/item/paper_bin/carbon{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/pen/edagger{
+	pixel_y = 5
+	},
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "NT" = (
 /obj/machinery/camera/motion/thunderdome{
 	alpha = 0
@@ -5488,6 +5578,13 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
+"Sp" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 5
+	},
+/obj/machinery/turntable,
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "Sr" = (
 /obj/structure/table/wood,
 /obj/item/gun/magic/wand{
@@ -5501,6 +5598,12 @@
 /obj/machinery/light,
 /turf/open/floor/wood,
 /area/centcom/holding)
+"Sz" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 6
+	},
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "SB" = (
 /obj/machinery/light{
 	dir = 4
@@ -5979,6 +6082,10 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding)
+"Wq" = (
+/obj/structure/chair/comfy/arm,
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "Wy" = (
 /obj/effect/baseturf_helper/beach/sand,
 /turf/closed/indestructible/syndicate,
@@ -6244,6 +6351,11 @@
 	},
 /turf/open/floor/plating/airless,
 /area/syndicate_mothership/control)
+"YD" = (
+/obj/structure/table,
+/obj/item/storage/fancy/donut_box,
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "YI" = (
 /obj/structure/closet/cardboard,
 /obj/item/banhammer,
@@ -6308,6 +6420,15 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding)
+"Zq" = (
+/obj/structure/table,
+/obj/item/restraints/handcuffs/cable,
+/obj/item/restraints/handcuffs/cable,
+/obj/item/restraints/handcuffs/cable,
+/obj/item/restraints/handcuffs/cable,
+/obj/item/restraints/handcuffs/cable,
+/turf/open/floor/plasteel/checker,
+/area/ruin/powered/yohei_base)
 "Zt" = (
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/two)
@@ -20209,25 +20330,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (55,1,1) = {"
@@ -20466,25 +20587,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (56,1,1) = {"
@@ -20723,25 +20844,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (57,1,1) = {"
@@ -20980,25 +21101,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (58,1,1) = {"
@@ -21237,25 +21358,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (59,1,1) = {"
@@ -21494,25 +21615,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (60,1,1) = {"
@@ -21751,25 +21872,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+nw
+fV
+fV
+fV
+fV
+fV
+fV
+fV
+fV
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (61,1,1) = {"
@@ -22008,25 +22129,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+fV
+BF
+Ay
+ob
+ol
+ob
+Ay
+Mr
+fV
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (62,1,1) = {"
@@ -22265,25 +22386,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+fV
+Np
+Ho
+Ho
+Ho
+Ho
+Ho
+oc
+fV
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (63,1,1) = {"
@@ -22522,25 +22643,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+fV
+Np
+Ho
+Ho
+Ho
+Ho
+NO
+oN
+fV
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (64,1,1) = {"
@@ -22779,25 +22900,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+fV
+Np
+Ho
+Ho
+rX
+Wq
+YD
+oN
+fV
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (65,1,1) = {"
@@ -23036,25 +23157,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+fV
+Np
+Ho
+Ho
+Ho
+Ho
+Zq
+oN
+fV
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (66,1,1) = {"
@@ -23293,25 +23414,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+fV
+Np
+Ho
+Ho
+Ho
+Ho
+Ho
+oc
+fV
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (67,1,1) = {"
@@ -23550,25 +23671,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+fV
+Sp
+sA
+sA
+sA
+sA
+sA
+Sz
+fV
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (68,1,1) = {"
@@ -23807,25 +23928,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+fV
+fV
+fV
+fV
+fV
+fV
+fV
+fV
+fV
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (69,1,1) = {"
@@ -24064,25 +24185,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (70,1,1) = {"
@@ -24321,25 +24442,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (71,1,1) = {"
@@ -24578,25 +24699,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (72,1,1) = {"
@@ -24835,25 +24956,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (73,1,1) = {"
@@ -25092,25 +25213,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (74,1,1) = {"
@@ -25349,25 +25470,25 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
 Co
 "}
 (75,1,1) = {"

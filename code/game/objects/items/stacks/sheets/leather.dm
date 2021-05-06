@@ -1,6 +1,6 @@
 /obj/item/stack/sheet/animalhide
 	name = "кожа"
-	desc = "Something went wrong."
+	desc = "Что-то пошло не так."
 	icon_state = "sheet-hide"
 	inhand_icon_state = "sheet-hide"
 	novariants = TRUE

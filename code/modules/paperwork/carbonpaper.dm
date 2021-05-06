@@ -1,5 +1,5 @@
 /obj/item/paper/carbon
-	name = "sheet of carbon"
+	name = "Лист углерода"
 	icon_state = "paper_stack"
 	inhand_icon_state = "paper"
 	show_written_words = FALSE
@@ -28,14 +28,14 @@
 			Copy.info += copycontents
 			Copy.info += "</font>"
 			Copy.name = "Copy - [C.name]"
-		to_chat(user, "<span class='notice'>You tear off the carbon-copy!</span>")
+		to_chat(user, "<span class='notice'>Я оторвал образец лист углерода!</span>")
 		C.copied = TRUE
 		Copy.iscopy = TRUE
 		Copy.update_icon_state()
 		C.update_icon_state()
 		user.put_in_hands(Copy)
 	else
-		to_chat(user, "<span class='notice'>There are no more carbon copies attached to this paper!</span>")
+		to_chat(user, "<span class='notice'>К этой бумаге более не приложены никакие образцы углерода</span>")
 
 /obj/item/paper/carbon/attack_hand(mob/living/user)
 	if(loc == user && user.is_holding(src))

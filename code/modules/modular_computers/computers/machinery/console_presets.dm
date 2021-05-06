@@ -31,8 +31,8 @@
 // ===== ENGINEERING CONSOLE =====
 /obj/machinery/modular_computer/console/preset/engineering
 	console_department = "Engineering"
-	name = "engineering console"
-	desc = "A stationary computer. This one comes preloaded with engineering programs."
+	name = "Инженерная консоль"
+	desc = "Стационарный компьютер. Он поставляется с предустановленными инженерными программами.."
 
 /obj/machinery/modular_computer/console/preset/engineering/install_programs()
 	var/obj/item/computer_hardware/hard_drive/hard_drive = cpu.all_components[MC_HDD]
@@ -43,8 +43,8 @@
 // ===== RESEARCH CONSOLE =====
 /obj/machinery/modular_computer/console/preset/research
 	console_department = "Research"
-	name = "research director's console"
-	desc = "A stationary computer. This one comes preloaded with research programs."
+	name = "Консоль директора по исследованиям"
+	desc = "Стационарный компьютер. Он поставляется с предустановленными исследовательскими программами."
 	_has_ai = TRUE
 
 /obj/machinery/modular_computer/console/preset/research/install_programs()
@@ -58,8 +58,8 @@
 // ===== COMMAND CONSOLE =====
 /obj/machinery/modular_computer/console/preset/command
 	console_department = "Command"
-	name = "command console"
-	desc = "A stationary computer. This one comes preloaded with command programs."
+	name = "Командная консоль"
+	desc = "Стационарный компьютер. Он поставляется с предустановленными командными программами."
 	_has_second_id_slot = TRUE
 	_has_printer = TRUE
 
@@ -72,8 +72,8 @@
 // ===== IDENTIFICATION CONSOLE =====
 /obj/machinery/modular_computer/console/preset/id
 	console_department = "Identification"
-	name = "identification console"
-	desc = "A stationary computer. This one comes preloaded with identification modification programs."
+	name = "Идентификационная консоль"
+	desc = "Стационарный компьютер. Он поставляется с предустановленными программами модификации идентификации."
 	_has_second_id_slot = TRUE
 	_has_printer = TRUE
 
@@ -87,8 +87,8 @@
 // ===== CIVILIAN CONSOLE =====
 /obj/machinery/modular_computer/console/preset/civilian
 	console_department = "Civilian"
-	name = "civilian console"
-	desc = "A stationary computer. This one comes preloaded with generic programs."
+	name = "Гражданская консоль"
+	desc = "Стационарный компьютер. Он поставляется с предустановленными общими программами."
 
 /obj/machinery/modular_computer/console/preset/civilian/install_programs()
 	var/obj/item/computer_hardware/hard_drive/hard_drive = cpu.all_components[MC_HDD]

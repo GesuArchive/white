@@ -1,6 +1,6 @@
 /obj/item/seeds/nettle
-	name = "pack of nettle seeds"
-	desc = "These seeds grow into nettles."
+	name = "Пачка семян крапивы"
+	desc = "Эти семена вырастают в крапиву."
 	icon_state = "seed-nettle"
 	species = "nettle"
 	plantname = "Nettles"
@@ -16,8 +16,8 @@
 	graft_gene = /datum/plant_gene/trait/plant_type/weed_hardy
 
 /obj/item/seeds/nettle/death
-	name = "pack of death-nettle seeds"
-	desc = "These seeds grow into death-nettles."
+	name = "Пачка семян смертельной крапивы"
+	desc = "Эти семена вырастают в смертельную крапиву."
 	icon_state = "seed-deathnettle"
 	species = "deathnettle"
 	plantname = "Death Nettles"
@@ -33,8 +33,8 @@
 
 /obj/item/food/grown/nettle // "snack"
 	seed = /obj/item/seeds/nettle
-	name = "\improper nettle"
-	desc = "It's probably <B>not</B> wise to touch it with bare hands..."
+	name = "Крапива"
+	desc = "Явно <B>НЕ</B> стоит касаться голыми руками..."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "nettle"
 	lefthand_file = 'icons/mob/inhands/weapons/plants_lefthand.dmi'
@@ -55,7 +55,7 @@
 	AddElement(/datum/element/plant_backfire, /obj/item/food/grown/nettle.proc/burn_holder, list(TRAIT_PIERCEIMMUNE))
 
 /obj/item/food/grown/nettle/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is eating some of [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] ест [src]! Кажется, [user.p_theyre()] пытается покончить с собой!</span>")
 	return (BRUTELOSS|TOXLOSS)
 
 /*
@@ -64,7 +64,7 @@
  * user - the carbon who is holding the nettle.
  */
 /obj/item/food/grown/nettle/proc/burn_holder(mob/living/carbon/user)
-	to_chat(user, "<span class='danger'>[src] burns your bare hand!</span>")
+	to_chat(user, "<span class='danger'>[src] жжёт мою руку!</span>")
 	var/obj/item/bodypart/affecting = user.get_active_hand()
 	if(affecting?.receive_damage(0, force, wound_bonus = CANT_WOUND))
 		user.update_damage_overlays()
@@ -76,13 +76,13 @@
 	if(force > 0)
 		force -= rand(1, (force / 3) + 1) // When you whack someone with it, leaves fall off
 	else
-		to_chat(usr, "<span class='warning'>All the leaves have fallen off [src] from violent whacking.</span>")
+		to_chat(usr, "<span class='warning'>Все листья опали с [src] после сильного удара.</span>")
 		qdel(src)
 
 /obj/item/food/grown/nettle/death
 	seed = /obj/item/seeds/nettle/death
-	name = "\improper deathnettle"
-	desc = "The <span class='danger'>glowing</span> nettle incites <span class='boldannounce'>rage</span> in you just from looking at it!"
+	name = "Смертельная крапива"
+	desc = "<span class='danger'>Крапива</span> сильно <span class='boldannounce'>раздражает</span> тебя от одного лишь взгляда!"
 	icon_state = "deathnettle"
 	force = 30
 	wound_bonus = CANT_WOUND
@@ -96,13 +96,13 @@
 	. = ..()
 	if(prob(50))
 		user.Paralyze(100)
-		to_chat(user, "<span class='userdanger'>You are stunned by the powerful acids of [src]!</span>")
+		to_chat(user, "<span class='userdanger'>[capitalize(src.name)] обжигает мою руку, когда я пытаюсь дотронуться до неё!</span>")
 
 /obj/item/food/grown/nettle/death/attack(mob/living/carbon/M, mob/user)
 	if(!..())
 		return
 	if(isliving(M))
-		to_chat(M, "<span class='danger'>You are stunned by the powerful acid of [src]!</span>")
+		to_chat(M, "<span class='danger'>Кислота сочится из [src], когда я пытаюсь дотронуться до неё и очень сильно обжигает мою руку!</span>")
 		log_combat(user, M, "attacked", src)
 
 		M.adjust_blurriness(force/7)

@@ -39,12 +39,12 @@
 	switch(action)
 		if("PRG_print")
 			if(computer && printer) //This option should never be called if there is no printer
-				var/contents = {"<h4>Crew Manifest</h4>
+				var/contents = {"<h4>Декларация экипажа</h4>
 								<br>
 								[GLOB.data_core ? GLOB.data_core.get_manifest_html(0) : ""]
 								"}
 				if(!printer.print_text(contents,text("crew manifest ([])", station_time_timestamp())))
-					to_chat(usr, "<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
+					to_chat(usr, "<span class='notice'>Аппаратная ошибка: принтеру не удалось распечатать файл. Возможно, закончилась бумага.</span>")
 					return
 				else
-					computer.visible_message("<span class='notice'>\The [computer] prints out a paper.</span>")
+					computer.visible_message("<span class='notice'>\[computer] распечатывает бумагу.</span>")

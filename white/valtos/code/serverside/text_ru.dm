@@ -146,6 +146,10 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 		return "Советы"
 	else if (freq == "Blue Team")
 		return "Нацисты"
+	else if (freq == "Green Team")
+		return "Чечня"
+	else if (freq == "Yellow Team")
+		return "Хохлы"
 	else
 		return freq
 

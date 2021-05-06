@@ -445,7 +445,7 @@
  */
 /obj/item/dualsaber/toy
 	name = "double-bladed toy sword"
-	desc = "A cheap, plastic replica of TWO energy swords.  Double the fun!"
+	desc = "A cheap, plastic replica of TWO energy swords. Double the fun!"
 	force = 0
 	throwforce = 0
 	throw_speed = 3

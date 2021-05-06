@@ -1,8 +1,8 @@
 // Citrus - base type
 /obj/item/food/grown/citrus
 	seed = /obj/item/seeds/lime
-	name = "citrus"
-	desc = "It's so sour, your face will twist."
+	name = "цитрус"
+	desc = "Настолько кислый, что тебе скривит еблет."
 	icon_state = "lime"
 	bite_consumption_mod = 2
 	foodtypes = FRUIT
@@ -10,8 +10,8 @@
 
 // Lime
 /obj/item/seeds/lime
-	name = "pack of lime seeds"
-	desc = "These are very sour seeds."
+	name = "Пачка семян лайма"
+	desc = "Это очень кислые семена."
 	icon_state = "seed-lime"
 	species = "lime"
 	plantname = "Lime Tree"
@@ -27,15 +27,15 @@
 
 /obj/item/food/grown/citrus/lime
 	seed = /obj/item/seeds/lime
-	name = "lime"
-	desc = "It's so sour, your face will twist."
+	name = "лайм"
+	desc = "Настолько кислый, что у тебя скривится лицо"
 	icon_state = "lime"
 	juice_results = list(/datum/reagent/consumable/limejuice = 0)
 
 // Orange
 /obj/item/seeds/orange
-	name = "pack of orange seeds"
-	desc = "Sour seeds."
+	name = "Пачка семян апельсина"
+	desc = "Кислые семена"
 	icon_state = "seed-orange"
 	species = "orange"
 	plantname = "Orange Tree"
@@ -53,16 +53,16 @@
 
 /obj/item/food/grown/citrus/orange
 	seed = /obj/item/seeds/orange
-	name = "orange"
-	desc = "It's a tangy fruit."
+	name = "апельсин"
+	desc = "Это острый фрукт."
 	icon_state = "orange"
 	juice_results = list(/datum/reagent/consumable/orangejuice = 0)
 	distill_reagent = /datum/reagent/consumable/ethanol/triple_sec
 
 // Lemon
 /obj/item/seeds/lemon
-	name = "pack of lemon seeds"
-	desc = "These are sour seeds."
+	name = "Пачка семян лимона"
+	desc = "Эти семена довольно кислые."
 	icon_state = "seed-lemon"
 	species = "lemon"
 	plantname = "Lemon Tree"
@@ -79,15 +79,15 @@
 
 /obj/item/food/grown/citrus/lemon
 	seed = /obj/item/seeds/lemon
-	name = "lemon"
-	desc = "When life gives you lemons, make lemonade."
+	name = "лимон"
+	desc = "Если жизнь даёт тебе лимон, сделай лимонад"
 	icon_state = "lemon"
 	juice_results = list(/datum/reagent/consumable/lemonjuice = 0)
 
 // Combustible lemon
 /obj/item/seeds/firelemon //combustible lemon is too long so firelemon
-	name = "pack of combustible lemon seeds"
-	desc = "When life gives you lemons, don't make lemonade. Make life take the lemons back! Get mad! I don't want your damn lemons!"
+	name = "Пачка семян горючего лимона"
+	desc = "Если жизнь даёт лимон, то не делай лимонад. Заставь жизнь забрать сраные лимоны! СУКА! Я НЕ ХОЧУ ТВОИ ЧЕРТОВЫ ЛИМОНЫ!!!"
 	icon_state = "seed-firelemon"
 	species = "firelemon"
 	plantname = "Combustible Lemon Tree"
@@ -103,15 +103,15 @@
 
 /obj/item/food/grown/firelemon
 	seed = /obj/item/seeds/firelemon
-	name = "Combustible Lemon"
-	desc = "Made for burning houses down."
+	name = "Горючий лимон"
+	desc = "Создан, чтобы сжигать дома."
 	icon_state = "firelemon"
 	bite_consumption_mod = 2
 	foodtypes = FRUIT
 	wine_power = 70
 
 /obj/item/food/grown/firelemon/attack_self(mob/living/user)
-	user.visible_message("<span class='warning'>[user] primes [src]!</span>", "<span class='userdanger'>You prime [src]!</span>")
+	user.visible_message("<span class='warning'>[user] активирует [src]!</span>", "<span class='userdanger'>Ты активировал [src]!</span>")
 	log_bomber(user, "primed a", src, "for detonation")
 	icon_state = "firelemon_active"
 	playsound(loc, 'sound/weapons/armbomb.ogg', 75, TRUE, -3)
@@ -154,8 +154,8 @@
 
 //3D Orange
 /obj/item/seeds/orange_3d
-	name = "pack of extradimensional orange seeds"
-	desc = "Polygonal seeds."
+	name = "Пачка внепространственных апельсинов"
+	desc = "Полигональные семена."
 	icon_state = "seed-orange"
 	species = "orange"
 	plantname = "Extradimensional Orange Tree"
@@ -173,8 +173,8 @@
 
 /obj/item/food/grown/citrus/orange_3d
 	seed = /obj/item/seeds/orange_3d
-	name = "extradimensional orange"
-	desc = "You can hardly wrap your head around this thing."
+	name = "внепространственный апельсин"
+	desc = "Вряд ли у тебя получится обернуть его своей головой."
 	icon_state = "orang"
 	juice_results = list(/datum/reagent/consumable/orangejuice = 0)
 	distill_reagent = /datum/reagent/toxin/mindbreaker

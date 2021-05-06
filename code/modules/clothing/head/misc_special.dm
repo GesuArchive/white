@@ -108,12 +108,12 @@
 
 /obj/item/clothing/head/hardhat/cakehat/energycake/turn_on(mob/living/user)
 	playsound(user, 'sound/weapons/saberon.ogg', 5, TRUE)
-	to_chat(user, "<span class='warning'>You turn on <b>[src.name]</b>.</span>")
+	to_chat(user, "<span class='warning'>Ты включаешь <b>[src.name]</b>.</span>")
 	..()
 
 /obj/item/clothing/head/hardhat/cakehat/energycake/turn_off(mob/living/user)
 	playsound(user, 'sound/weapons/saberoff.ogg', 5, TRUE)
-	to_chat(user, "<span class='warning'>You turn off <b>[src.name]</b>.</span>")
+	to_chat(user, "<span class='warning'>Ты выключаешь <b>[src.name]</b>.</span>")
 	..()
 
 /*

@@ -137,7 +137,7 @@
 	var/datum/component/mood/insaneinthemembrane = jedi.GetComponent(/datum/component/mood)
 	if(insaneinthemembrane.sanity < 15)
 		return //they've already seen it and are about to die, or are just too insane to care
-	to_chat(jedi, "<span class='userdanger'>OH GOD! NONE OF IT IS REAL! NONE OF IT IS REEEEEEEEEEEEEEEEEEEEEEEEAL!</span>")
+	to_chat(jedi, "<span class='userdanger'>БОЖЕ! ЭТО НЕ ПРАВДА! ЭТО ВСЁ НЕ ПРААААААААВДАААААААА!</span>")
 	insaneinthemembrane.sanity = 0
 	for(var/lore in typesof(/datum/brain_trauma/severe))
 		jedi.gain_trauma(lore)
@@ -477,8 +477,8 @@
 /obj/effect/temp_visual/tornado
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "tornado"
-	name = "tornado"
-	desc = "This thing sucks!"
+	name = "торнадо"
+	desc = "Говно полное!"
 	layer = FLY_LAYER
 	randomdir = 0
 	duration = 40

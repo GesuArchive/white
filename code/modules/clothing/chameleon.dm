@@ -1,7 +1,7 @@
 #define EMP_RANDOMISE_TIME 300
 
 /datum/action/item_action/chameleon/drone/randomise
-	name = "Randomise Headgear"
+	name = "Случайный головной убор"
 	icon_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "random"
 
@@ -21,7 +21,7 @@
 
 
 /datum/action/item_action/chameleon/drone/togglehatmask
-	name = "Toggle Headgear Mode"
+	name = "Переключить режим головного убора"
 	icon_icon = 'icons/mob/actions/actions_silicon.dmi'
 
 /datum/action/item_action/chameleon/drone/togglehatmask/New()
@@ -57,7 +57,7 @@
 	else if(istype(old_headgear, /obj/item/clothing/mask/chameleon/drone))
 		new_headgear = new /obj/item/clothing/head/chameleon/drone()
 	else
-		to_chat(owner, "<span class='warning'>You shouldn't be able to toggle a camogear helmetmask if you're not wearing it.</span>")
+		to_chat(owner, "<span class='warning'>Нельзя переключить камуфляжную шлем-маску если она не надета.</span>")
 	if(new_headgear)
 		// Force drop the item in the headslot, even though
 		// it's has TRAIT_NODROP
@@ -69,7 +69,7 @@
 
 
 /datum/action/chameleon_outfit
-	name = "Select Chameleon Outfit"
+	name = "Выбрать маскировочную экипировку"
 	button_icon_state = "chameleon_outfit"
 	var/list/outfit_options //By default, this list is shared between all instances. It is not static because if it were, subtypes would not be able to have their own. If you ever want to edit it, copy it first.
 
@@ -139,7 +139,7 @@
 
 
 /datum/action/item_action/chameleon/change
-	name = "Chameleon Change"
+	name = "Сменить маскировку"
 	var/list/chameleon_blacklist = list() //This is a typecache
 	var/list/chameleon_list = list()
 	var/chameleon_type = null
@@ -298,7 +298,7 @@
 	icon_state = "black"
 	inhand_icon_state = "bl_suit"
 	worn_icon = 'icons/mob/clothing/under/color.dmi'
-	desc = "It's a plain jumpsuit. It has a small dial on the wrist."
+	desc = "Это простой комбинезон. На запястье у него есть небольшой циферблат."
 	sensor_mode = SENSOR_OFF //Hey who's this guy on the Syndicate Shuttle??
 	random_sensor = FALSE
 	resistance_flags = NONE
@@ -326,8 +326,8 @@
 	chameleon_action.emp_randomise(INFINITY)
 
 /obj/item/clothing/suit/chameleon
-	name = "armor"
-	desc = "A slim armored vest that protects against most types of damage."
+	name = "бронежилет"
+	desc = "Тонкий бронированный жилет, защищающий от большей части видов урона."
 	icon_state = "armor"
 	inhand_icon_state = "armor"
 	blood_overlay_type = "armor"
@@ -355,8 +355,8 @@
 	chameleon_action.emp_randomise(INFINITY)
 
 /obj/item/clothing/glasses/chameleon
-	name = "Optical Meson Scanner"
-	desc = "Used by engineering and mining staff to see basic structural and terrain layouts through walls, regardless of lighting condition."
+	name = "Оптический Мезонный Сканер"
+	desc = "Используется инженерами и шахтерами чтобы видеть основную схему ландшафта и построек сквозь стены, вне зависимости от освещения."
 	icon_state = "meson"
 	inhand_icon_state = "meson"
 	resistance_flags = NONE
@@ -383,8 +383,8 @@
 	chameleon_action.emp_randomise(INFINITY)
 
 /obj/item/clothing/gloves/chameleon
-	desc = "These gloves provide protection against electric shock."
-	name = "insulated gloves"
+	desc = "Эти перчатки защищают от ударов током."
+	name = "резиновые перчатки"
 	icon_state = "yellow"
 	inhand_icon_state = "ygloves"
 
@@ -412,8 +412,8 @@
 	chameleon_action.emp_randomise(INFINITY)
 
 /obj/item/clothing/head/chameleon
-	name = "grey cap"
-	desc = "It's a baseball hat in a tasteful grey colour."
+	name = "серая кепка"
+	desc = "Это бейсболка приятного серого цвета."
 	icon_state = "greysoft"
 
 	resistance_flags = NONE
@@ -455,8 +455,8 @@
 	randomise_action.UpdateButtonIcon()
 
 /obj/item/clothing/mask/chameleon
-	name = "gas mask"
-	desc = "A face-covering mask that can be connected to an air supply. While good for concealing your identity, it isn't good for blocking gas flow." //More accurate
+	name = "противогаз"
+	desc = "Закрывающая лицо маска, к которой можно подключить подачу воздуха. Хороша, чтобы скрыть свою личность, но не очень хорошо защищает от газов." //More accurate
 	icon_state = "gas_alt"
 	inhand_icon_state = "gas_alt"
 	resistance_flags = NONE
@@ -491,7 +491,7 @@
 
 /obj/item/clothing/mask/chameleon/attack_self(mob/user)
 	voice_change = !voice_change
-	to_chat(user, "<span class='notice'>The voice changer is now [voice_change ? "on" : "off"]!</span>")
+	to_chat(user, "<span class='notice'>Синтезатор голоса теперь [voice_change ? "включен" : "отключен"]!</span>")
 
 
 /obj/item/clothing/mask/chameleon/drone
@@ -510,12 +510,12 @@
 	randomise_action.UpdateButtonIcon()
 
 /obj/item/clothing/mask/chameleon/drone/attack_self(mob/user)
-	to_chat(user, "<span class='notice'>[capitalize(src.name)] does not have a voice changer.</span>")
+	to_chat(user, "<span class='notice'>[capitalize(src.name)] не имеет синтезатора голоса.</span>")
 
 /obj/item/clothing/shoes/chameleon
 	name = "чёрный shoes"
 	icon_state = "black"
-	desc = "A pair of black shoes."
+	desc = "Пара чёрных ботинок."
 	permeability_coefficient = 0.05
 	resistance_flags = NONE
 	armor = list(MELEE = 10, BULLET = 10, LASER = 10, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 50)
@@ -540,7 +540,7 @@
 /obj/item/clothing/shoes/chameleon/noslip
 	name = "чёрный shoes"
 	icon_state = "black"
-	desc = "A pair of black shoes."
+	desc = "Пара чёрных ботинок."
 	clothing_flags = NOSLIP
 	can_be_bloody = FALSE
 
@@ -549,7 +549,7 @@
 	chameleon_action.emp_randomise(INFINITY)
 
 /obj/item/storage/backpack/chameleon
-	name = "backpack"
+	name = "рюкзак"
 	var/datum/action/item_action/chameleon/change/chameleon_action
 
 /obj/item/storage/backpack/chameleon/Initialize()
@@ -570,8 +570,8 @@
 	chameleon_action.emp_randomise(INFINITY)
 
 /obj/item/storage/belt/chameleon
-	name = "toolbelt"
-	desc = "Holds tools."
+	name = "пояс для инструментов"
+	desc = "Хранит инструменты."
 	var/datum/action/item_action/chameleon/change/chameleon_action
 
 /obj/item/storage/belt/chameleon/Initialize()
@@ -619,7 +619,7 @@
 	chameleon_action.emp_randomise(INFINITY)
 
 /obj/item/pda/chameleon
-	name = "PDA"
+	name = "ПДА"
 	var/datum/action/item_action/chameleon/change/pda/chameleon_action
 
 /obj/item/pda/chameleon/Initialize()
@@ -850,7 +850,7 @@
 		QDEL_NULL(skillchip_mimic)
 
 /obj/item/clothing/under/chameleon/ratvar
-	name = "ratvarian engineer's jumpsuit"
-	desc = "A tough jumpsuit woven from alloy threads. It can take on the appearance of other jumpsuits."
+	name = "комбинезон ратварского инженера"
+	desc = "Комбинезон, сотканных из металлических нитей. Может принимать вид других комбинезонов."
 	icon_state = "lightbrown"
 	inhand_icon_state = "lightbrown"

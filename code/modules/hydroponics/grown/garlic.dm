@@ -1,6 +1,6 @@
 /obj/item/seeds/garlic
-	name = "pack of garlic seeds"
-	desc = "A packet of extremely pungent seeds."
+	name = "Пачка семян чеснока"
+	desc = "Пакеты очень острых семян."
 	icon_state = "seed-garlic"
 	species = "garlic"
 	plantname = "Garlic Sprouts"
@@ -13,8 +13,8 @@
 
 /obj/item/food/grown/garlic
 	seed = /obj/item/seeds/garlic
-	name = "garlic"
-	desc = "Delicious, but with a potentially overwhelming odor."
+	name = "Чеснок"
+	desc = "Вкуснятина, но с очень вонючим запахом."
 	icon_state = "garlic"
 	bite_consumption_mod = 2
 	tastes = list("чеснок" = 1)

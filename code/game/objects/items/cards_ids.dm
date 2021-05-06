@@ -234,7 +234,7 @@
 		return
 
 	if (registered_account.being_dumped)
-		registered_account.bank_card_talk("<span class='warning'>内部服务器错误</span>", TRUE)
+		registered_account.bank_card_talk("<span class='warning'>е†…йѓЁжњЌеЉЎе™Ёй”™иЇЇ</span>", TRUE)
 		return
 
 	var/amount_to_remove =  FLOOR(input(user, "Сколько извлекаем? Баланс: [registered_account.account_balance]", "Вывод бабла", 5) as num|null, 1)
@@ -543,7 +543,7 @@ update_label()
 	. = ..()
 	if(.)
 		return
-	if(iscarbon(user) && first_try && !HAS_TRAIT(user.mind, TRAIT_DISK_VERIFIER))
+	if(iscarbon(user) && first_try && !HAS_TRAIT(user, TRAIT_DISK_VERIFIER))
 		var/mob/living/carbon/C = user
 		to_chat(C, "<span class='warning'>Пытаюсь подобрать карту... Что может пойти не тка~</span>")
 		if(do_after(C, 10, target = src) && first_try)
@@ -558,7 +558,7 @@ update_label()
 			C.gain_trauma(/datum/brain_trauma/magic/stalker)
 			first_try = FALSE
 			anchored = FALSE
-	else if (HAS_TRAIT(user.mind, TRAIT_DISK_VERIFIER))
+	else if (HAS_TRAIT(user, TRAIT_DISK_VERIFIER))
 		to_chat(user, "<span class='notice'>Карта разминирована.</span>")
 		first_try = FALSE
 		anchored = FALSE

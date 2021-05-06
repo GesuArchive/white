@@ -1,7 +1,7 @@
 /datum/action/item_action/ninjastatus
 	check_flags = NONE
-	name = "Status Readout"
-	desc = "Gives a detailed readout about your current status."
+	name = "Считывание статуса"
+	desc = "Даёт подробную информацию о вашем текущем статусе."
 	button_icon_state = "health"
 	icon_icon = 'icons/obj/device.dmi'
 
@@ -16,24 +16,24 @@
 /obj/item/clothing/suit/space/space_ninja/proc/ninjastatus()
 	var/mob/living/carbon/human/ninja = affecting
 	var/list/info_list = list()
-	info_list += "<span class='info'>SpiderOS Status: [s_initialized ? "Initialized" : "Disabled"]</span>\n"
-	info_list += "<span class='info'>Current Time: [station_time_timestamp()]</span>\n"
+	info_list += "<span class='info'>Статус SpiderOS: [s_initialized ? "Initialized" : "Disabled"]</span>\n"
+	info_list += "<span class='info'>Текущее время: [station_time_timestamp()]</span>\n"
 	//Ninja status
-	info_list += "<span class='info'>Fingerprints: [md5(ninja.dna.uni_identity)]</span>\n"
-	info_list += "<span class='info'>Unique Identity: [ninja.dna.unique_enzymes]</span>\n"
-	info_list += "<span class='info'>Overall Status: [ninja.stat > 1 ? "dead" : "[ninja.health]% healthy"]</span>\n"
-	info_list += "<span class='info'>Nutrition Status: [ninja.nutrition]</span>\n"
-	info_list += "<span class='info'>Oxygen Loss: [ninja.getOxyLoss()]</span>\n"
-	info_list += "<span class='info'>Toxin Levels: [ninja.getToxLoss()]</span>\n"
-	info_list += "<span class='info'>Burn Severity: [ninja.getFireLoss()]</span>\n"
-	info_list += "<span class='info'>Brute Trauma: [ninja.getBruteLoss()]</span>\n"
-	info_list += "<span class='info'>Radiation Levels: [ninja.radiation] rad</span>\n"
-	info_list += "<span class='info'>Body Temperature: [ninja.bodytemperature-T0C] degrees C ([ninja.bodytemperature*1.8-459.67] degrees F)</span>\n"
+	info_list += "<span class='info'>Отпечатки пальцев: [md5(ninja.dna.uni_identity)]</span>\n"
+	info_list += "<span class='info'>Уникальная идентичность: [ninja.dna.unique_enzymes]</span>\n"
+	info_list += "<span class='info'>Общий статус: [ninja.stat > 1 ? "dead" : "[ninja.health]% healthy"]</span>\n"
+	info_list += "<span class='info'>Статус питания: [ninja.nutrition]</span>\n"
+	info_list += "<span class='info'>Потеря кислорода: [ninja.getOxyLoss()]</span>\n"
+	info_list += "<span class='info'>Уровни токсинов: [ninja.getToxLoss()]</span>\n"
+	info_list += "<span class='info'>Тяжесть ожога: [ninja.getFireLoss()]</span>\n"
+	info_list += "<span class='info'>Величина физического урона: [ninja.getBruteLoss()]</span>\n"
+	info_list += "<span class='info'>Уровни радиации: [ninja.radiation] rad</span>\n"
+	info_list += "<span class='info'>Температура тела: [ninja.bodytemperature-T0C] degrees C ([ninja.bodytemperature*1.8-459.67] degrees F)</span>\n"
 
 	//Diseases
 	if(length(ninja.diseases))
 		info_list += "Viruses:"
 		for(var/datum/disease/ninja_disease in ninja.diseases)
-			info_list += "<span class='info'>* [ninja_disease.name], Type: [ninja_disease.spread_text], Stage: [ninja_disease.stage]/[ninja_disease.max_stages], Possible Cure: [ninja_disease.cure_text]</span>\n"
+			info_list += "<span class='info'>* [ninja_disease.name], Тип: [ninja_disease.spread_text], Стадия: [ninja_disease.stage]/[ninja_disease.max_stages], Возможное лекарство: [ninja_disease.cure_text]</span>\n"
 
 	to_chat(ninja, "[info_list.Join()]")

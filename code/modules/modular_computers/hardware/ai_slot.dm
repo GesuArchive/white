@@ -1,6 +1,6 @@
 /obj/item/computer_hardware/ai_slot
-	name = "intelliCard interface slot"
-	desc = "A module allowing this computer to interface with most common intelliCard modules. Necessary for some programs to run properly."
+	name = "Слот интерфейса intelliCard"
+	desc = "Модуль, позволяющий этому компьютеру взаимодействовать с наиболее распространенными модулями intelliCard. Необходимо для правильной работы некоторых программ."
 	power_usage = 100 //W
 	icon_state = "card_mini"
 	w_class = WEIGHT_CLASS_SMALL
@@ -34,22 +34,22 @@
 		return FALSE
 
 	stored_card = I
-	to_chat(user, "<span class='notice'>You insert \the [I] into <b>[src.name]</b>.</span>")
+	to_chat(user, "<span class='notice'>Я вставляю \ [I] в <b>[src.name]</b>.</span>")
 
 	return TRUE
 
 
 /obj/item/computer_hardware/ai_slot/try_eject(mob/living/user = null, forced = FALSE)
 	if(!stored_card)
-		to_chat(user, "<span class='warning'>There is no card in <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='warning'>В <b>[src.name]</b> нет карты.</span>")
 		return FALSE
 
 	if(locked && !forced)
-		to_chat(user, "<span class='warning'>Safeties prevent you from removing the card until reconstruction is complete...</span>")
+		to_chat(user, "<span class='warning'>Защитные меры не позволяют вынуть карту до завершения реконструкции...</span>")
 		return FALSE
 
 	if(stored_card)
-		to_chat(user, "<span class='notice'>You remove [stored_card] from [src].</span>")
+		to_chat(user, "<span class='notice'>Я вытаскивю [stored_card] из [src].</span>")
 		locked = FALSE
 		if(user)
 			user.put_in_hands(stored_card)
@@ -64,6 +64,6 @@
 	if(..())
 		return
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
-		to_chat(user, "<span class='notice'>You press down on the manual eject button with \the [I].</span>")
+		to_chat(user, "<span class='notice'>Я нажимаю кнопку ручного извлечения с \[I].</span>")
 		try_eject(user, TRUE)
 		return

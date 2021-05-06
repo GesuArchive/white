@@ -1,5 +1,5 @@
 /datum/antagonist/space_dragon
-	name = "Space Dragon"
+	name = "Космический Дракон"
 	roundend_category = "space dragons"
 	antagpanel_category = "Space Dragon"
 	job_rank = ROLE_SPACE_DRAGON
@@ -9,11 +9,11 @@
 	var/list/datum/mind/carp = list()
 
 /datum/antagonist/space_dragon/greet()
-	to_chat(owner, "<b>Through endless time and space we have moved. We do not remember from where we came, we do not know where we will go. All of space belongs to us.\n\
-					It is an empty void, of which our kind was the apex predator, and there was little to rival our claim to this title.\n\
-					But now, we find intruders spread out amongst our claim, willing to fight our teeth with magics unimaginable, their dens like lights flickering in the depths of space.\n\
-					Today, we will snuff out one of those lights.</b>")
-	to_chat(owner, "<span class='boldwarning'>You have five minutes to find a safe location to place down the first rift. If you take longer than five minutes to place a rift, you will be returned from whence you came.</span>")
+	to_chat(owner, "<b>Мы движемся через бесконечное время и пространство. Мы не помним откуда мы пришли и не знаем куда мы пойдем. Весь космос принадлежит нам.\n\
+					В этом пустом вакууме наш вид был высшим хищником и не было почти ничего, способного потягаться с нами.\n\
+					Но сейчас мы обнаружили чужаков, нарушивших наши границы, покусившихся на наши притязания и готовых биться с нашими клыками своей невообразимой магией. Их логова подобны фонарям, мерцающим в глубине космоса.\n\
+					Сегодня мы погасим один из них.</b>")
+	to_chat(owner, "<span class='boldwarning'>У вас есть пять минут для того чтобы найти безопасное место для размещения первого разрыва. Если вы не уложитесь в это время, то вы вернетесь в то место, откуда пришли.</span>")
 	owner.announce_objectives()
 	SEND_SOUND(owner.current, sound('sound/magic/demon_attack1.ogg'))
 
@@ -34,7 +34,7 @@
 	var/list/parts = list()
 	var/datum/objective/summon_carp/S = locate() in objectives
 	if(S.check_completion())
-		parts += "<span class='redtext big'>The [name] has succeeded! Station space has been reclaimed by the space carp!</span>"
+		parts += "<span class='redtext big'>[name] добился успеха! Пространство станции было возвращено космическим карпом!</span>"
 	parts += printplayer(owner)
 	var/objectives_complete = TRUE
 	if(objectives.len)
@@ -44,9 +44,9 @@
 				objectives_complete = FALSE
 				break
 	if(objectives_complete)
-		parts += "<span class='greentext big'>The [name] was successful!</span>"
+		parts += "<span class='greentext big'>[name] преуспел!</span>"
 	else
-		parts += "<span class='redtext big'>The [name] has failed!</span>"
-	parts += "<span class='header'>The [name] was assisted by:</span>"
+		parts += "<span class='redtext big'>[name] провалил задачу!</span>"
+	parts += "<span class='header'>[name] помогли:</span>"
 	parts += printplayerlist(carp)
 	return "<div class='panel redborder'>[parts.Join("<br>")]</div>"

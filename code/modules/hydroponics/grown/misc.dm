@@ -1,7 +1,7 @@
 // Starthistle
 /obj/item/seeds/starthistle
-	name = "pack of starthistle seeds"
-	desc = "A robust species of weed that often springs up in-between the cracks of spaceship parking lots."
+	name = "Пачка семян звездополоха"
+	desc = "Очень надоедливый и крепкий сорняк, часто появляется меж трещин стоящий кораблей."
 	icon_state = "seed-starthistle"
 	species = "starthistle"
 	plantname = "Starthistle"
@@ -32,8 +32,8 @@
 
 // Corpse flower
 /obj/item/seeds/starthistle/corpse_flower
-	name = "pack of corpse flower seeds"
-	desc = "A species of plant that emits a horrible odor. The odor stops being produced in difficult atmospheric conditions."
+	name = "Пачка семян трупоцвета"
+	desc = "Этот вид растения издаёт очень гнусный и вонючий запах. Запах перестаёт производится в проблемных атмосферных условиях."
 	icon_state = "seed-corpse-flower"
 	species = "corpse-flower"
 	plantname = "Corpse flower"
@@ -66,8 +66,8 @@
 
 //Galaxy Thistle
 /obj/item/seeds/galaxythistle
-	name = "pack of galaxythistle seeds"
-	desc = "An impressive species of weed that is thought to have evolved from the simple milk thistle. Contains flavolignans that can help repair a damaged liver."
+	name = "Пачка семян космополоха"
+	desc = "Необычный вид сорняков, который, как предполагают, мутировал из обычного чертополоха. Содержит вещества, который могут починить больную печень."
 	icon_state = "seed-galaxythistle"
 	species = "galaxythistle"
 	plantname = "Galaxythistle"
@@ -93,8 +93,8 @@
 
 /obj/item/food/grown/galaxythistle
 	seed = /obj/item/seeds/galaxythistle
-	name = "galaxythistle flower head"
-	desc = "This spiny cluster of florets reminds you of the highlands."
+	name = "Головка космополоха"
+	desc = "Это колючая гроздь цветов напоминает о высоких горах."
 	icon_state = "galaxythistle"
 	bite_consumption_mod = 3
 	foodtypes = VEGETABLES
@@ -103,8 +103,8 @@
 
 // Cabbage
 /obj/item/seeds/cabbage
-	name = "pack of cabbage seeds"
-	desc = "These seeds grow into cabbages."
+	name = "Пачка семян капусты"
+	desc = "Эти семена вырастают в кочан капусты."
 	icon_state = "seed-cabbage"
 	species = "cabbage"
 	plantname = "Cabbages"
@@ -124,8 +124,8 @@
 
 /obj/item/food/grown/cabbage
 	seed = /obj/item/seeds/cabbage
-	name = "cabbage"
-	desc = "Ewwwwwwwwww. Cabbage."
+	name = "Капуста"
+	desc = "А где заяц?"
 	icon_state = "cabbage"
 	bite_consumption_mod = 2
 	foodtypes = VEGETABLES
@@ -133,8 +133,8 @@
 
 // Sugarcane
 /obj/item/seeds/sugarcane
-	name = "pack of sugarcane seeds"
-	desc = "These seeds grow into sugarcane."
+	name = "Пачка семян сахарного тростника"
+	desc = "Эти семена вырастают в сахарный тростник."
 	icon_state = "seed-sugarcane"
 	species = "sugarcane"
 	plantname = "Sugarcane"
@@ -151,8 +151,8 @@
 
 /obj/item/food/grown/sugarcane
 	seed = /obj/item/seeds/sugarcane
-	name = "sugarcane"
-	desc = "Sickly sweet."
+	name = "Сахарный тростник"
+	desc = "Сахар в его натуральном проявлении."
 	icon_state = "sugarcane"
 	bite_consumption_mod = 2
 	foodtypes = VEGETABLES | SUGAR
@@ -160,8 +160,8 @@
 
 // Gatfruit
 /obj/item/seeds/gatfruit
-	name = "pack of gatfruit seeds"
-	desc = "These seeds grow into .357 revolvers."
+	name = "Пачка семян револыни"
+	desc = "Эти семена вырастают в револьвер .357 калибра."
 	icon_state = "seed-gatfruit"
 	species = "gatfruit"
 	plantname = "Gatfruit Tree"
@@ -180,8 +180,8 @@
 
 /obj/item/food/grown/shell/gatfruit
 	seed = /obj/item/seeds/gatfruit
-	name = "gatfruit"
-	desc = "It smells like burning."
+	name = "Револынь"
+	desc = "Пахнет свежим выстрелом."
 	icon_state = "gatfruit"
 	trash_type = /obj/item/gun/ballistic/revolver
 	bite_consumption_mod = 2
@@ -191,8 +191,8 @@
 
 //Cherry Bombs
 /obj/item/seeds/cherry/bomb
-	name = "pack of cherry bomb pits"
-	desc = "They give you vibes of dread and frustration."
+	name = "Пачка косточек бомбишни"
+	desc = "При их виде кровь в жилах стынет..."
 	icon_state = "seed-cherry_bomb"
 	species = "cherry_bomb"
 	plantname = "Cherry Bomb Tree"
@@ -202,8 +202,8 @@
 	rarity = 60 //See above
 
 /obj/item/food/grown/cherry_bomb
-	name = "cherry bombs"
-	desc = "You think you can hear the hissing of a tiny fuse."
+	name = "Бомбишня"
+	desc = "Кабум?."
 	icon_state = "cherry_bomb"
 	seed = /obj/item/seeds/cherry/bomb
 	bite_consumption_mod = 2
@@ -212,7 +212,7 @@
 	wine_power = 80
 
 /obj/item/food/grown/cherry_bomb/attack_self(mob/living/user)
-	user.visible_message("<span class='warning'>[user] plucks the stem from [src]!</span>", "<span class='userdanger'>You pluck the stem from [src], which begins to hiss loudly!</span>")
+	user.visible_message("<span class='warning'>[user] выдёргивает стебель [src]!</span>", "<span class='userdanger'>Выдираю стебель из [src], начинается громкое шипение!</span>")
 	log_bomber(user, "primed a", src, "for detonation")
 	detonate()
 
@@ -233,8 +233,8 @@
 
 // aloe
 /obj/item/seeds/aloe
-	name = "pack of aloe seeds"
-	desc = "These seeds grow into aloe."
+	name = "Пачка семян алоэ"
+	desc = "Эти семена вырастают в алоэ."
 	icon_state = "seed-aloe"
 	species = "aloe"
 	plantname = "Aloe"
@@ -250,8 +250,8 @@
 
 /obj/item/food/grown/aloe
 	seed = /obj/item/seeds/aloe
-	name = "aloe"
-	desc = "Cut leaves from the aloe plant."
+	name = "Алоэ"
+	desc = "Срежьте листики с самого растения."
 	icon_state = "aloe"
 	bite_consumption_mod = 5
 	foodtypes = VEGETABLES
@@ -263,8 +263,8 @@
 	qdel(src)
 
 /obj/item/seeds/shrub
-	name = "pack of shrub seeds"
-	desc = "These seeds grow into hedge shrubs."
+	name = "Пачка семян кустарника"
+	desc = "Эти семена вырастают в живую изгородь."
 	icon_state = "seed-shrub"
 	species = "shrub"
 	plantname = "Shrubbery"
@@ -280,16 +280,16 @@
 
 /obj/item/grown/shrub
 	seed = /obj/item/seeds/shrub
-	name = "shrub"
-	desc = "A shrubbery, it looks nice and it was only a few credits too. Plant it on the ground to grow a hedge, shrubbing skills not required."
+	name = "Кустарник"
+	desc = "Милый кустик, да и стоил он не так дорого. Посадите его на землю, чтобы получилась живая изгородь, к сожалению, она не говорит."
 	icon_state = "shrub"
 
 /obj/item/grown/shrub/attack_self(mob/user)
 	var/turf/player_turf = get_turf(user)
 	if(player_turf?.is_blocked_turf(TRUE))
 		return FALSE
-	user.visible_message("<span class='danger'>[user] begins to plant <b>[src.name]</b>...</span>")
+	user.visible_message("<span class='danger'>[user] начинает сажать <b>[src.name]</b>...</span>")
 	if(do_after(user, 8 SECONDS, target = user.drop_location(), progress = TRUE))
 		new /obj/structure/fluff/hedge/opaque(user.drop_location())
-		to_chat(user, "<span class='notice'>You plant <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>Сажаю <b>[src.name]</b>.</span>")
 		qdel(src)

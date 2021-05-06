@@ -155,7 +155,7 @@
 
 /obj/item/clothing/gloves/color/plasmaman/head_of_personnel
 	name = "герметичные перчатки Главы Персонала"
-	desc = "Covers up those scandalous, bony hands. Appears to be an attempt at making a replica of the captain's gloves."
+	desc = "Прикрывают эти тощенькие ручки. Скорее всего, являются попыткой создать копию перчаток капитана."
 	icon_state = "hopplasma"
 	inhand_icon_state = "hopplasma"
 

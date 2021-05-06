@@ -1,6 +1,6 @@
 /obj/item/computer_hardware
-	name = "hardware"
-	desc = "Unknown Hardware."
+	name = "Аппаратное обеспечение"
+	desc = "Неизвестное оборудование."
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_mod"
 
@@ -38,10 +38,10 @@
 	if(istype(I, /obj/item/stack/cable_coil))
 		var/obj/item/stack/S = I
 		if(obj_integrity == max_integrity)
-			to_chat(user, "<span class='warning'><b>[src.name]</b> doesn't seem to require repairs.</span>")
+			to_chat(user, "<span class='warning'><b>[src.name]</b>, кажется, не требуется починка.</span>")
 			return 1
 		if(S.use(1))
-			to_chat(user, "<span class='notice'>You patch up <b>[src.name]</b> with a bit of \the [I].</span>")
+			to_chat(user, "<span class='notice'>Ты починил <b>[src.name]</b> с небольшой долей \[I].</span>")
 			obj_integrity = min(obj_integrity + 10, max_integrity)
 		return 1
 
@@ -52,14 +52,14 @@
 
 /obj/item/computer_hardware/multitool_act(mob/living/user, obj/item/I)
 	..()
-	to_chat(user, "***** DIAGNOSTICS REPORT *****")
+	to_chat(user, "***** ОТЧЁТ О ДИАГНОСТИКЕ *****")
 	diagnostics(user)
 	to_chat(user, "******************************")
 	return TRUE
 
 // Called on multitool click, prints diagnostic information to the user.
 /obj/item/computer_hardware/proc/diagnostics(mob/user)
-	to_chat(user, "Hardware Integrity Test... (Corruption: [damage]/[max_damage]) [damage > damage_failure ? "FAIL" : damage > damage_malfunction ? "WARN" : "PASS"]")
+	to_chat(user, "Тест на целостность оборудования... (Повреждение: [damage]/[max_damage]) [damage > damage_failure ? "FAIL" : damage > damage_malfunction ? "WARN" : "PASS"]")
 
 // Handles damage checks
 /obj/item/computer_hardware/proc/check_functionality()
@@ -78,11 +78,11 @@
 /obj/item/computer_hardware/examine(mob/user)
 	. = ..()
 	if(damage > damage_failure)
-		. += "<hr><span class='danger'>It seems to be severely damaged!</span>"
+		. += "<hr><span class='danger'>Кажется, он серьёзно повреждён!</span>"
 	else if(damage > damage_malfunction)
-		. += "<hr><span class='warning'>It seems to be damaged!</span>"
+		. += "<hr><span class='warning'>Кажется, он повреждён!</span>"
 	else if(damage)
-		. += "<hr><span class='notice'>It seems to be slightly damaged.</span>"
+		. += "<hr><span class='notice'>Кажется, он слегка повреждён!</span>"
 
 // Component-side compatibility check.
 /obj/item/computer_hardware/proc/can_install(obj/item/modular_computer/M, mob/living/user = null)

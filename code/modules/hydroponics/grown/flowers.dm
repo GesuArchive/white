@@ -1,7 +1,7 @@
 // Poppy
 /obj/item/seeds/poppy
-	name = "pack of poppy seeds"
-	desc = "These seeds grow into poppies."
+	name = "Пачка семян мака"
+	desc = "Эти семена вырастают в мак."
 	icon_state = "seed-poppy"
 	species = "poppy"
 	plantname = "Poppy Plants"
@@ -20,8 +20,8 @@
 
 /obj/item/food/grown/poppy
 	seed = /obj/item/seeds/poppy
-	name = "poppy"
-	desc = "Long-used as a symbol of rest, peace, and death."
+	name = "Мак"
+	desc = "Древний символ спокойствия, мира и смерти."
 	icon_state = "poppy"
 	slot_flags = ITEM_SLOT_HEAD
 	bite_consumption_mod = 3
@@ -30,8 +30,8 @@
 
 // Lily
 /obj/item/seeds/poppy/lily
-	name = "pack of lily seeds"
-	desc = "These seeds grow into lilies."
+	name = "Пачка семян лилии"
+	desc = "Эти семена вырастут в красивые лилии."
 	icon_state = "seed-lily"
 	species = "lily"
 	plantname = "Lily Plants"
@@ -40,14 +40,14 @@
 
 /obj/item/food/grown/poppy/lily
 	seed = /obj/item/seeds/poppy/lily
-	name = "lily"
-	desc = "A beautiful orange flower."
+	name = "Лилия"
+	desc = "Красочный оранжевый цветок."
 	icon_state = "lily"
 
 	//Spacemans's Trumpet
 /obj/item/seeds/poppy/lily/trumpet
-	name = "pack of spaceman's trumpet seeds"
-	desc = "A plant sculped by extensive genetic engineering. The spaceman's trumpet is said to bear no resemblance to its wild ancestors. Inside NT AgriSci circles it is better known as NTPW-0372."
+	name = "Пачка семян космического дурмана"
+	desc = "Растение, созданное тяжёлой генной инженерией. Этот дурман даже отдалённо не напоминает его древних предков. Для научного отдела НТ более известно, как NTPW-0372."
 	icon_state = "seed-trumpet"
 	species = "spacemanstrumpet"
 	plantname = "Spaceman's Trumpet Plant"
@@ -77,16 +77,16 @@
 
 /obj/item/food/grown/trumpet
 	seed = /obj/item/seeds/poppy/lily/trumpet
-	name = "spaceman's trumpet"
-	desc = "A vivid flower that smells faintly of freshly cut grass. Touching the flower seems to stain the skin some time after contact, yet most other surfaces seem to be unaffected by this phenomenon."
+	name = "Космический дурман"
+	desc = "Яркий цветок, пахнущий свежескошенной травой. После касания этого цветка Ваша кожа окрашивается, через некоторое время после контакта, но большая часть других поверхностей не подвержена этому явлению."
 	icon_state = "spacemanstrumpet"
 	bite_consumption_mod = 3
 	foodtypes = VEGETABLES
 
 // Geranium
 /obj/item/seeds/poppy/geranium
-	name = "pack of geranium seeds"
-	desc = "These seeds grow into geranium."
+	name = "Пачка семян герани"
+	desc = "Эти семена вырастают в герань."
 	icon_state = "seed-geranium"
 	species = "geranium"
 	plantname = "Geranium Plants"
@@ -95,14 +95,14 @@
 
 /obj/item/food/grown/poppy/geranium
 	seed = /obj/item/seeds/poppy/geranium
-	name = "geranium"
-	desc = "A beautiful blue flower."
+	name = "Герань"
+	desc = "Красивый синий цветок."
 	icon_state = "geranium"
 
 ///Fraxinella seeds.
 /obj/item/seeds/poppy/geranium/fraxinella
-	name = "pack of fraxinella seeds"
-	desc = "These seeds grow into fraxinella."
+	name = "Пачка семян фраксинеллы"
+	desc = "Эти семена вырастают в фраксинеллу."
 	icon_state = "seed-fraxinella"
 	species = "fraxinella"
 	plantname = "Fraxinella Plants"
@@ -114,15 +114,15 @@
 ///Fraxinella Flowers.
 /obj/item/food/grown/poppy/geranium/fraxinella
 	seed = /obj/item/seeds/poppy/geranium/fraxinella
-	name = "fraxinella"
-	desc = "A beautiful light pink flower."
+	name = "Фраксинелла"
+	desc = "Красивый светло-розовый цветок."
 	icon_state = "fraxinella"
 	distill_reagent = /datum/reagent/ash
 
 // Harebell
 /obj/item/seeds/harebell
-	name = "pack of harebell seeds"
-	desc = "These seeds grow into pretty little flowers."
+	name = "Пачка семян колокольчиков"
+	desc = "Эти семена вырастают в красивые маленькие цветочки."
 	icon_state = "seed-harebell"
 	species = "harebell"
 	plantname = "Harebells"
@@ -142,8 +142,8 @@
 
 /obj/item/food/grown/harebell
 	seed = /obj/item/seeds/harebell
-	name = "harebell"
-	desc = "\"I'll sweeten thy sad grave: thou shalt not lack the flower that's like thy face, pale primrose, nor the azured hare-bell, like thy veins; no, nor the leaf of eglantine, whom not to slander, out-sweeten'd not thy breath.\""
+	name = "Колокольчики"
+	desc = "\"Я украшу твою могилу: этот цветок заменит все другие, он будет лежать в твоей могиле, подобно твоему лицу: бледному, бездыханному, подобно твоим венам, по которым больше не течёт кровь, такой же бледный, такой же блеклый.\""
 	icon_state = "harebell"
 	slot_flags = ITEM_SLOT_HEAD
 	bite_consumption_mod = 3
@@ -151,8 +151,8 @@
 
 // Sunflower
 /obj/item/seeds/sunflower
-	name = "pack of sunflower seeds"
-	desc = "These seeds grow into sunflowers."
+	name = "Пачка семян подсолнуха"
+	desc = "Эти семена вырастают в подсолнух."
 	icon_state = "seed-sunflower"
 	species = "sunflower"
 	plantname = "Sunflowers"
@@ -170,8 +170,8 @@
 
 /obj/item/grown/sunflower // FLOWER POWER!
 	seed = /obj/item/seeds/sunflower
-	name = "sunflower"
-	desc = "It's beautiful! A certain person might beat you to death if you trample these."
+	name = "Подсолнух"
+	desc = "Это прекрасно! Кое-кто может сделать с вами кое-что, если вы растопчете этот цветок."
 	icon_state = "sunflower"
 	lefthand_file = 'icons/mob/inhands/weapons/plants_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/plants_righthand.dmi'
@@ -184,13 +184,13 @@
 	throw_range = 3
 
 /obj/item/grown/sunflower/attack(mob/M, mob/user)
-	to_chat(M, "<font color='green'>[user] smacks you with a sunflower!<font color='orange'><b>FLOWER POWER!</b></font></font>")
-	to_chat(user, "<font color='green'>Your sunflower's <font color='orange'><b>FLOWER POWER</b></font> strikes [M]!</font>")
+	to_chat(M, "<font color='green'>[user] шлёпает меня подсолнухом!<font color='orange'><b>ЦВЕТОЧНАЯ СИЛА!</b></font></font>")
+	to_chat(user, "<font color='green'>Я шлёпаю подсолнухом <font color='orange'><b>ЦВЕТОЧНАЯ СИЛА</b></font> strikes [M]!</font>")
 
 // Moonflower
 /obj/item/seeds/sunflower/moonflower
-	name = "pack of moonflower seeds"
-	desc = "These seeds grow into moonflowers."
+	name = "Пачка семян лунного цветка"
+	desc = "Эти семена вырастут в лунный цветок."
 	icon_state = "seed-moonflower"
 	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
@@ -207,8 +207,8 @@
 
 /obj/item/food/grown/moonflower
 	seed = /obj/item/seeds/sunflower/moonflower
-	name = "moonflower"
-	desc = "Store in a location at least 50 yards away from werewolves."
+	name = "Лунный цветок"
+	desc = "Хранить как минимум в 50 метрах от оборотней."
 	icon_state = "moonflower"
 	slot_flags = ITEM_SLOT_HEAD
 	bite_consumption_mod = 2
@@ -216,8 +216,8 @@
 
 // Novaflower
 /obj/item/seeds/sunflower/novaflower
-	name = "pack of novaflower seeds"
-	desc = "These seeds grow into novaflowers."
+	name = "Пачка семян звездоцвета"
+	desc = "Эти семена вырастают в звездоцвет."
 	icon_state = "seed-novaflower"
 	species = "novaflower"
 	plantname = "Novaflowers"
@@ -230,8 +230,8 @@
 
 /obj/item/grown/novaflower
 	seed = /obj/item/seeds/sunflower/novaflower
-	name = "\improper novaflower"
-	desc = "These beautiful flowers have a crisp smokey scent, like a summer bonfire."
+	name = "Звездоцвет"
+	desc = "Эти прекрасные цветы имеют аромат дыма, напоминает летние шашлычки."
 	icon_state = "novaflower"
 	lefthand_file = 'icons/mob/inhands/weapons/plants_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/plants_righthand.dmi'
@@ -255,7 +255,7 @@
 	if(!..())
 		return
 	if(isliving(M))
-		to_chat(M, "<span class='danger'>You are lit on fire from the intense heat of [src]!</span>")
+		to_chat(M, "<span class='danger'>Горю, словно в огне от интенсивного жара [name]!</span>")
 		M.adjust_fire_stacks(seed.potency / 20)
 		if(M.IgniteMob())
 			message_admins("[ADMIN_LOOKUPFLW(user)] set [ADMIN_LOOKUPFLW(M)] on fire with [src] at [AREACOORD(user)]")
@@ -268,7 +268,7 @@
 	if(force > 0)
 		force -= rand(1, (force / 3) + 1)
 	else
-		to_chat(usr, "<span class='warning'>All the petals have fallen off [src] from violent whacking!</span>")
+		to_chat(usr, "<span class='warning'>Все лепестки отвалились от сильного удара [name]!</span>")
 		qdel(src)
 
 /*
@@ -277,15 +277,15 @@
  * user - the carbon who is holding the flower.
  */
 /obj/item/grown/novaflower/proc/singe_holder(mob/living/carbon/user)
-	to_chat(user, "<span class='danger'>[src] singes your bare hand!</span>")
+	to_chat(user, "<span class='danger'>[src] обжигает мою голую руку!</span>")
 	var/obj/item/bodypart/affecting = user.get_active_hand()
 	if(affecting?.receive_damage(0, force, wound_bonus = CANT_WOUND))
 		user.update_damage_overlays()
 
 // Rose
 /obj/item/seeds/rose
-	name = "pack of rose seeds"
-	desc = "These seeds grow into roses."
+	name = "Пачка семян розы"
+	desc = "Эти семена вырастают в розы."
 	icon_state = "seed-rose"
 	species = "rose"
 	plantname = "Rose Bush"
@@ -305,8 +305,8 @@
 
 /obj/item/food/grown/rose
 	seed = /obj/item/seeds/rose
-	name = "\improper rose"
-	desc = "The classic fleur d'amour - flower of love. Watch for its thorns!"
+	name = "Роза"
+	desc = "Классический цветок де романтик. Аккуратнее с колючками!"
 	icon_state = "rose"
 	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
@@ -322,15 +322,15 @@
 	if(!seed.get_gene(/datum/plant_gene/trait/sticky) && prob(66))
 		return
 
-	to_chat(user, "<span class='danger'>[src]'s thorns prick your hand. Ouch.</span>")
+	to_chat(user, "<span class='danger'>Вы укололи свою руку об колючку на розе [name]. Ауч.</span>")
 	var/obj/item/bodypart/affecting = user.get_active_hand()
 	if(affecting?.receive_damage(2))
 		user.update_damage_overlays()
 
 // Carbon Rose
 /obj/item/seeds/carbon_rose
-	name = "pack of carbon rose seeds"
-	desc = "These seeds grow into carbon roses."
+	name = "Пачка семян углеродной розы"
+	desc = "Эти семена вырастают в углеродную розу."
 	icon_state = "seed-carbonrose"
 	species = "carbonrose"
 	plantname = "Carbon Rose Flower"
@@ -356,8 +356,8 @@
 
 /obj/item/grown/carbon_rose
 	seed = /obj/item/seeds/carbon_rose
-	name = "carbon rose"
-	desc = "The all new fleur d'amour gris - the flower of love, modernized, with no harsh thorns."
+	name = "Углеродная роза"
+	desc = "Новый вид цветка де романтик, более совершенный, без колючек."
 	icon_state = "carbonrose"
 	lefthand_file = 'icons/mob/inhands/weapons/plants_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/plants_righthand.dmi'

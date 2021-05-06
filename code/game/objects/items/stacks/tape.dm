@@ -39,7 +39,7 @@
 			return
 
 		if(I.embedding && I.embedding == conferred_embed)
-			to_chat(user, "<span class='warning'>[I] is already coated in [src]!</span>")
+			to_chat(user, "<span class='warning'>[I] уже покрыт [src]!</span>")
 			return
 
 		I.embedding = conferred_embed

@@ -91,12 +91,12 @@
 	switch (action)
 		if ("toggleLock")
 			if(computer.obj_flags & EMAGGED)
-				to_chat(usr, "<span class='boldwarning'>Security protocol error: Unable to access locking protocols.</span>")
+				to_chat(usr, "<span class='boldwarning'>Ошибка протокола безопасности: невозможно получить доступ к протоколам блокировки.</span>")
 				return TRUE
 			if(ACCESS_RND in user_id_card?.access)
 				locked = !locked
 			else
-				to_chat(usr, "<span class='boldwarning'>Unauthorized Access. Please insert research ID card.</span>")
+				to_chat(usr, "<span class='boldwarning'>Несанкционированный доступ. Пожалуйста, вставьте исследовательскую идентификационную карту.</span>")
 			return TRUE
 		if ("researchNode")
 			if(!SSresearch.science_tech.available_nodes[params["node_id"]])

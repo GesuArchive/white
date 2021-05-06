@@ -32,7 +32,7 @@
 				user-select: none;
 				background: url('blank_console.png');
 				z-index: 2;
-				width: 400px;
+				width: 600px;
 			}
 
 			#bp {
@@ -60,6 +60,24 @@
 				text-transform: uppercase;
 				font-weight: bold;
 				overflow-x: hidden;
+			}
+
+			.role {
+				padding: 4px;
+				margin-right: 2px;
+				text-transform: uppercase;
+				text-align: center;
+				text-decoration: underline;
+				display: inline;
+				line-height: 28px;
+				font-size: 14px;
+			}
+
+			.victims {
+				border: 1px solid #222;
+				padding: 4px;
+				display: inline;
+				line-height: 28px;
 			}
 
 		</style>
@@ -99,7 +117,7 @@
 				if(msg) {
 					i = msg.length
 					var oD = document.getElementById("pp");
-					oD.innerHTML = msg.replace(/ /g, "&nbsp;");
+					oD.innerHTML = msg;
 				}
 			};
 

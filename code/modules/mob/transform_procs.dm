@@ -20,7 +20,7 @@
 
 /mob/living/carbon/proc/finish_monkeyize()
 	transformation_timer = null
-	to_chat(src, "<B>You are now a monkey.</B>")
+	to_chat(src, "<B>Теперь вы обезьяна.</B>")
 	notransform = FALSE
 	icon = initial(icon)
 	invisibility = 0
@@ -50,7 +50,7 @@
 
 /mob/living/carbon/proc/finish_humanize(species = /datum/species/human)
 	transformation_timer = null
-	to_chat(src, "<B>You are now a human.</B>")
+	to_chat(src, "<B>Теперь вы человек.</B>")
 	notransform = FALSE
 	icon = initial(icon)
 	invisibility = 0
@@ -92,7 +92,7 @@
 				break
 			landmark_loc += sloc.loc
 		if(!landmark_loc.len)
-			to_chat(src, "Oh god sorry we can't find an unoccupied AI spawn location, so we're spawning you on top of someone.")
+			to_chat(src, "Ради бога, простите, мы не можем найти вам незанятую точку появления ИИ, поэтому мы заспавним тебя над кем-то.")
 			for(var/obj/effect/landmark/start/ai/sloc in GLOB.landmarks_list)
 				landmark_loc += sloc.loc
 
@@ -189,7 +189,7 @@
 	new_xeno.key = key
 	update_atom_languages()
 
-	to_chat(new_xeno, "<B>You are now an alien.</B>")
+	to_chat(new_xeno, "<B>Теперь вы инопланетянин.</B>")
 	. = new_xeno
 	qdel(src)
 
@@ -222,7 +222,7 @@
 	new_slime.a_intent = INTENT_HARM
 	new_slime.key = key
 
-	to_chat(new_slime, "<B>You are now a slime. Skreee!</B>")
+	to_chat(new_slime, "<B>Теперь вы слайм. Скреее!</B>")
 	. = new_slime
 	qdel(src)
 
@@ -250,7 +250,7 @@
 	new_corgi.a_intent = INTENT_HARM
 	new_corgi.key = key
 
-	to_chat(new_corgi, "<B>You are now a Corgi. Yap Yap!</B>")
+	to_chat(new_corgi, "<B>Теперь вы Корги! Ура-ура!</B>")
 	. = new_corgi
 	qdel(src)
 
@@ -276,7 +276,7 @@
 		mind.transfer_to(new_gorilla)
 	else
 		new_gorilla.key = key
-	to_chat(new_gorilla, "<B>You are now a gorilla. Ooga ooga!</B>")
+	to_chat(new_gorilla, "<B>Теперь вы горилла! Ар-р!</B>")
 	. = new_gorilla
 	qdel(src)
 
@@ -286,7 +286,7 @@
 	var/mobpath = input("Which type of mob should [src] turn into?", "Choose a type") in sortList(mobtypes, /proc/cmp_typepaths_asc)
 
 	if(!safe_animal(mobpath))
-		to_chat(usr, "<span class='danger'>Sorry but this mob type is currently unavailable.</span>")
+		to_chat(usr, "<span class='danger'>Извините, но данный тип мода сейчас недоступен.</span>")
 		return
 
 	if(notransform)
@@ -310,7 +310,7 @@
 	new_mob.a_intent = INTENT_HARM
 
 
-	to_chat(new_mob, "<span class='boldnotice'>You suddenly feel more... animalistic.</span>")
+	to_chat(new_mob, "<span class='boldnotice'>Я внезапно чувствую себя более ... животным.</span>")
 	. = new_mob
 	qdel(src)
 
@@ -320,14 +320,14 @@
 	var/mobpath = input("Which type of mob should [src] turn into?", "Choose a type") in sortList(mobtypes, /proc/cmp_typepaths_asc)
 
 	if(!safe_animal(mobpath))
-		to_chat(usr, "<span class='danger'>Sorry but this mob type is currently unavailable.</span>")
+		to_chat(usr, "<span class='danger'>>Извините, но данный тип мода сейчас недоступен.</span>")
 		return
 
 	var/mob/new_mob = new mobpath(src.loc)
 
 	new_mob.key = key
 	new_mob.a_intent = INTENT_HARM
-	to_chat(new_mob, "<span class='boldnotice'>You feel more... animalistic.</span>")
+	to_chat(new_mob, "<span class='boldnotice'>Я чувствую себя более ... животным.</span>")
 
 	. = new_mob
 	qdel(src)

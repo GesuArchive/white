@@ -1,13 +1,13 @@
 /obj/item/food/grown/mushroom
-	name = "mushroom"
+	name = "Гриб"
 	bite_consumption_mod = 2
 	foodtypes = VEGETABLES
 	wine_power = 40
 
 // Reishi
 /obj/item/seeds/reishi
-	name = "pack of reishi mycelium"
-	desc = "This mycelium grows into something medicinal and relaxing."
+	name = "Пачка семян рейши"
+	desc = "Этот мицелий вырастает в что-то медицинское и расслабляющее."
 	icon_state = "mycelium-reishi"
 	species = "reishi"
 	plantname = "Reishi"
@@ -27,15 +27,15 @@
 
 /obj/item/food/grown/mushroom/reishi
 	seed = /obj/item/seeds/reishi
-	name = "reishi"
-	desc = "<I>Ganoderma lucidum</I>: A special fungus known for its medicinal and stress relieving properties."
+	name = "Рейши"
+	desc = "<I>Трутовик лакированный</I>: особый вид гриба, известный своими лечащими и снимающими стресс свойствами ."
 	icon_state = "reishi"
 
 
 // Fly Amanita
 /obj/item/seeds/amanita
-	name = "pack of fly amanita mycelium"
-	desc = "This mycelium grows into something horrible."
+	name = "Пачка мицелия мухомора"
+	desc = "Этот мицелий вырастает во что-то ужасное."
 	icon_state = "mycelium-amanita"
 	species = "amanita"
 	plantname = "Fly Amanitas"
@@ -55,14 +55,14 @@
 
 /obj/item/food/grown/mushroom/amanita
 	seed = /obj/item/seeds/amanita
-	name = "fly amanita"
-	desc = "<I>Amanita Muscaria</I>: Learn poisonous mushrooms by heart. Only pick mushrooms you know."
+	name = "Мухомор"
+	desc = "<I>Мухомор красный</I>: Дети, запомните все ядовитые грибы. Только дотронешься до гриба и всё, понимаешь?."
 	icon_state = "amanita"
 
 // Destroying Angel
 /obj/item/seeds/angel
-	name = "pack of destroying angel mycelium"
-	desc = "This mycelium grows into something devastating."
+	name = "Пачка мицелия ангелов смерти"
+	desc = "Этот мицелий вырастает во что-то уничтожающее."
 	icon_state = "mycelium-angel"
 	species = "angel"
 	plantname = "Destroying Angels"
@@ -82,15 +82,15 @@
 
 /obj/item/food/grown/mushroom/angel
 	seed = /obj/item/seeds/angel
-	name = "destroying angel"
-	desc = "<I>Amanita Virosa</I>: Deadly poisonous basidiomycete fungus filled with alpha amatoxins."
+	name = "Ангел смерти"
+	desc = "<I>Белая Поганка</I>: Гриб, содержащий летальные аматоксины."
 	icon_state = "angel"
 	wine_power = 60
 
 // Liberty Cap
 /obj/item/seeds/liberty
-	name = "pack of liberty-cap mycelium"
-	desc = "This mycelium grows into liberty-cap mushrooms."
+	name = "Пачка мицелия колпака свободы"
+	desc = "Этот мицелий вырастает в колпак свободы."
 	icon_state = "mycelium-liberty"
 	species = "liberty"
 	plantname = "Liberty-Caps"
@@ -108,15 +108,15 @@
 
 /obj/item/food/grown/mushroom/libertycap
 	seed = /obj/item/seeds/liberty
-	name = "liberty-cap"
-	desc = "<I>Psilocybe Semilanceata</I>: Liberate yourself!"
+	name = "Колпак свободы"
+	desc = "<I>Псилоцибе полуланцетовидная</I>: Освободи себя!"
 	icon_state = "libertycap"
 	wine_power = 80
 
 // Plump Helmet
 /obj/item/seeds/plump
-	name = "pack of plump-helmet mycelium"
-	desc = "This mycelium grows into helmets... maybe."
+	name = "Пачка мицелия толстошлемника"
+	desc = "Наверное, этот мицелий вырастет в шлемы.... наверное."
 	icon_state = "mycelium-plump"
 	species = "plump"
 	plantname = "Plump-Helmet Mushrooms"
@@ -134,15 +134,15 @@
 
 /obj/item/food/grown/mushroom/plumphelmet
 	seed = /obj/item/seeds/plump
-	name = "plump-helmet"
-	desc = "<I>Plumus Hellmus</I>: Plump, soft and s-so inviting~"
+	name = "Толстошлем"
+	desc = "<I>Плюмус Хельмус</I>: Пухленький и т-такой манящий~"
 	icon_state = "plumphelmet"
 	distill_reagent = /datum/reagent/consumable/ethanol/manly_dorf
 
 // Walking Mushroom
 /obj/item/seeds/plump/walkingmushroom
-	name = "pack of walking mushroom mycelium"
-	desc = "This mycelium will grow into huge stuff!"
+	name = "Пачка мицелия ходячего гриба"
+	desc = "Этот мицелий вырастет в огромную дребедень!"
 	icon_state = "mycelium-walkingmushroom"
 	species = "walkingmushroom"
 	plantname = "Walking Mushrooms"
@@ -159,8 +159,8 @@
 
 /obj/item/food/grown/mushroom/walkingmushroom
 	seed = /obj/item/seeds/plump/walkingmushroom
-	name = "walking mushroom"
-	desc = "<I>Plumus Locomotus</I>: The beginning of the great walk."
+	name = "Ходячий гриб"
+	desc = "<I>Плюмус Локомотус</I>: Это начало неплохой прогулки!"
 	icon_state = "walkingmushroom"
 	can_distill = FALSE
 
@@ -174,13 +174,13 @@
 	M.move_to_delay -= round(seed.production / 50)
 	M.health = M.maxHealth
 	qdel(src)
-	to_chat(user, "<span class='notice'>You plant the walking mushroom.</span>")
+	to_chat(user, "<span class='notice'>Сажаю ходячий гриб.</span>")
 
 
 // Chanterelle
 /obj/item/seeds/chanter
-	name = "pack of chanterelle mycelium"
-	desc = "This mycelium grows into chanterelle mushrooms."
+	name = "Пачка мицелия лисички"
+	desc = "Этот мицелий вырастает в лисичек."
 	icon_state = "mycelium-chanter"
 	species = "chanter"
 	plantname = "Chanterelle Mushrooms"
@@ -201,14 +201,14 @@
 
 /obj/item/food/grown/mushroom/chanterelle
 	seed = /obj/item/seeds/chanter
-	name = "chanterelle cluster"
-	desc = "<I>Cantharellus Cibarius</I>: These jolly yellow little shrooms sure look tasty!"
+	name = "Пучок лисичек"
+	desc = "<I>Лисичка обыкновенная</I>: Эти рыжие маленькие грибочки выглядят очень аппетитно!"
 	icon_state = "chanterelle"
 
 //Jupiter Cup
 /obj/item/seeds/chanter/jupitercup
-	name = "pack of jupiter cup mycelium"
-	desc = "This mycelium grows into jupiter cups. Zeus would be envious at the power at your fingertips."
+	name = "Пачка мицелия чашек юпитера"
+	desc = "Этот мицелий вырастает в чашки юпитера. Зевс позавидовал бы твоей силе."
 	icon_state = "mycelium-jupitercup"
 	species = "jupitercup"
 	plantname = "Jupiter Cups"
@@ -231,14 +231,14 @@
 
 /obj/item/food/grown/mushroom/jupitercup
 	seed = /obj/item/seeds/chanter/jupitercup
-	name = "jupiter cup"
-	desc = "A strange red mushroom, its surface is moist and slick. You wonder how many tiny worms have met their fate inside."
+	name = "Чашка юпитера"
+	desc = "Странный красный гриб, его поверхность влажная и скользкая. Интересно, сколько крошечных червей побывали там?"
 	icon_state = "jupitercup"
 
 // Glowshroom
 /obj/item/seeds/glowshroom
-	name = "pack of glowshroom mycelium"
-	desc = "This mycelium -glows- into mushrooms!"
+	name = "Пачка мицелия светогриба"
+	desc = "Этот мицелий высветает в грибы!"
 	icon_state = "mycelium-glowshroom"
 	species = "glowshroom"
 	plantname = "Glowshrooms"
@@ -260,8 +260,8 @@
 
 /obj/item/food/grown/mushroom/glowshroom
 	seed = /obj/item/seeds/glowshroom
-	name = "glowshroom cluster"
-	desc = "<I>Mycena Bregprox</I>: This species of mushroom glows in the dark."
+	name = "Светогриб"
+	desc = "<I>Мицена Брепрокс</I>: Этот вид цветов засветит всё!"
 	icon_state = "glowshroom"
 	var/effect_path = /obj/structure/glowshroom
 	wine_power = 50
@@ -270,7 +270,7 @@
 	if(isspaceturf(user.loc))
 		return FALSE
 	if(!isturf(user.loc))
-		to_chat(user, "<span class='warning'>You need more space to plant [src].</span>")
+		to_chat(user, "<span class='warning'>Нужно больше места, чтобы посадить [src].</span>")
 		return FALSE
 	var/count = 0
 	var/maxcount = 1
@@ -281,18 +281,18 @@
 	for(var/obj/structure/glowshroom/G in user.loc)
 		count++
 	if(count >= maxcount)
-		to_chat(user, "<span class='warning'>There are too many shrooms here to plant [src].</span>")
+		to_chat(user, "<span class='warning'>Здесь слишком много грибов, чтобы сажать [src].</span>")
 		return FALSE
 	new effect_path(user.loc, seed)
-	to_chat(user, "<span class='notice'>You plant [src].</span>")
+	to_chat(user, "<span class='notice'>Сажаю [src].</span>")
 	qdel(src)
 	return TRUE
 
 
 // Glowcap
 /obj/item/seeds/glowshroom/glowcap
-	name = "pack of glowcap mycelium"
-	desc = "This mycelium -powers- into mushrooms!"
+	name = "Пачка мицелия светошляпника"
+	desc = "Этот мицелий расСВЕТает в грибы!"
 	icon_state = "mycelium-glowcap"
 	species = "glowcap"
 	icon_harvest = "glowcap-harvest"
@@ -306,8 +306,8 @@
 
 /obj/item/food/grown/mushroom/glowshroom/glowcap
 	seed = /obj/item/seeds/glowshroom/glowcap
-	name = "glowcap cluster"
-	desc = "<I>Mycena Ruthenia</I>: This species of mushroom glows in the dark, but isn't actually bioluminescent. They're warm to the touch..."
+	name = "Светошляпник"
+	desc = "<I>Мицена Руфения</I>: Светятся в темноте, но на деле не биолюмисцентные. Тёплые на ощупь."
 	icon_state = "glowcap"
 	effect_path = /obj/structure/glowshroom/glowcap
 	tastes = list("glowcap" = 1)
@@ -315,8 +315,8 @@
 
 //Shadowshroom
 /obj/item/seeds/glowshroom/shadowshroom
-	name = "pack of shadowshroom mycelium"
-	desc = "This mycelium will grow into something shadowy."
+	name = "Пачка мицелия тенегриба"
+	desc = "Этот мицелий вырастет в что-то тёмное."
 	icon_state = "mycelium-shadowshroom"
 	species = "shadowshroom"
 	icon_grow = "shadowshroom-grow"
@@ -331,8 +331,8 @@
 
 /obj/item/food/grown/mushroom/glowshroom/shadowshroom
 	seed = /obj/item/seeds/glowshroom/shadowshroom
-	name = "shadowshroom cluster"
-	desc = "<I>Mycena Umbra</I>: This species of mushroom emits shadow instead of light."
+	name = "Гроздь тенегриба"
+	desc = "<I>Мицена Умбра</I>: Этот вид грибов поглощают свет, а не создают."
 	icon_state = "shadowshroom"
 	effect_path = /obj/structure/glowshroom/shadowshroom
 	tastes = list("shadow" = 1, "грибы" = 1)

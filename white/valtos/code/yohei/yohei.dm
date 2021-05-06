@@ -239,3 +239,100 @@
 
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(/obj/item/ammo_box/magazine/fallout/m9mm = 2)
+
+/obj/lab_monitor/yohei
+	name = "Монитор исполнения"
+	desc = "Здесь выводятся задания. Стекло всё ещё выглядит не очень крепким..."
+	var/datum/yohei_task/current_task = null
+	var/list/possible_tasks = list()
+	var/balance = 0
+
+/obj/lab_monitor/yohei/attack_hand(mob/living/user)
+	. = ..()
+
+	if(!current_task)
+		say("Загружаю новое задание...")
+		var/datum/yohei_task/new_task = pick(possible_tasks)
+		current_task = new new_task()
+		return
+
+	if(current_task && current_task.check_task())
+		say("Задание выполнено. Награда в размере [current_task.prize] выдана. Получение следующего задания...")
+		balance += current_task.prize
+		qdel(current_task)
+
+		var/datum/yohei_task/new_task = pick(possible_tasks)
+		current_task = new new_task()
+
+/obj/lab_monitor/yohei/examine(mob/user)
+	. = ..()
+	if(current_task)
+		. += "<hr>"
+		. += "<span class='notice'><b>Задание:</b> [current_task.desc]</span>"
+		. += "\n<span class='notice'><b>Награда:</b> [current_task.prize]</span>"
+		. += "\n\n<span class='notice'><b>Баланс:</b> [balance]</span>"
+
+/obj/lab_monitor/yohei/Initialize()
+	. = ..()
+	for(var/path in subtypesof(/datum/yohei_task))
+		var/datum/yohei_task/T = path
+		possible_tasks += T
+
+/datum/yohei_task
+	var/desc = null
+	var/prize = 0
+
+/datum/yohei_task/proc/generate_task()
+	return
+
+/datum/yohei_task/proc/check_task()
+	return FALSE
+
+/datum/yohei_task/New()
+	generate_task()
+
+/datum/yohei_task/proc/get_crewmember_minds()
+	. = list()
+	for(var/V in GLOB.data_core.locked)
+		var/datum/data/record/R = V
+		var/datum/mind/M = R.fields["mindref"]
+		if(M)
+			. += M
+
+/datum/yohei_task/proc/find_target()
+	var/list/possible_targets = list()
+	for(var/datum/mind/possible_target in get_crewmember_minds())
+		if(ishuman(possible_target.current) && (possible_target.current.stat != DEAD))
+			possible_targets += possible_target.current
+	if(possible_targets.len > 0)
+		return pick(possible_targets)
+	return FALSE
+
+/datum/yohei_task/kill
+	desc = "Убить цель."
+	prize = 5
+	var/mob/living/target
+
+/datum/yohei_task/kill/generate_task()
+	target = find_target()
+	desc = "Убить [target.name]."
+	prize = max(rand(prize - 3, prize + 3), 1)
+
+/datum/yohei_task/kill/check_task()
+	if(target && target.stat != DEAD)
+		return FALSE
+	return TRUE
+
+/datum/map_template/ruin/lavaland/yohei_base
+	name = "База Йохеев"
+	id = "yohei_base"
+	description = "Мяу..."
+	suffix = "lavaland_yohei_base.dmm"
+	allow_duplicates = FALSE
+	always_place = TRUE
+
+/area/ruin/powered/yohei_base
+	name = "Лаваленд: База Йохеев"
+	icon_state = "dk_yellow"
+	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | BLOCK_SUICIDE | NOTELEPORT
+	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED

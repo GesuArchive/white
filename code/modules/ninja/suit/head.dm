@@ -7,8 +7,8 @@
  *
  */
 /obj/item/clothing/head/helmet/space/space_ninja
-	desc = "What may appear to be a simple black garment is in fact a highly sophisticated nano-weave helmet. Standard issue ninja gear."
-	name = "ninja hood"
+	desc = "То, что может показаться простым чёрным предметом одежды, на самом деле является очень сложным шлемом из наноплетения. Стандартное снаряжение ниндзя."
+	name = "Капюшон ниндзя"
 	icon_state = "s-ninja"
 	inhand_icon_state = "s-ninja_mask"
 	armor = list(MELEE = 40, BULLET = 30, LASER = 20,ENERGY = 15, BOMB = 30, BIO = 30, RAD = 25, FIRE = 100, ACID = 100)

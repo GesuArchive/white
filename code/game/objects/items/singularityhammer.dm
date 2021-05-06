@@ -1,6 +1,6 @@
 /obj/item/singularityhammer
-	name = "singularity hammer"
-	desc = "The pinnacle of close combat technology, the hammer harnesses the power of a miniaturized singularity to deal crushing blows."
+	name = "молот сингулярности"
+	desc = "Вершина вооружения ближнего боя, этот молот использует силу миниатюрной сингулярности для нанесения сокрушительных ударов."
 	icon_state = "singularity_hammer0"
 	lefthand_file = 'icons/mob/inhands/weapons/hammers_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/hammers_righthand.dmi'
@@ -84,8 +84,8 @@
 			addtimer(CALLBACK(src, .proc/recharge), 100)
 
 /obj/item/mjollnir
-	name = "Mjolnir"
-	desc = "A weapon worthy of a god, able to strike with the force of a lightning bolt. It crackles with barely contained energy."
+	name = "Мьёльнир"
+	desc = "Оружие, достойное бога, способное поражать силой молнии. Молот потрескивает от едва сдерживаемой в нём энергии."
 	icon_state = "mjollnir0"
 	worn_icon_state = "mjolnir"
 	lefthand_file = 'icons/mob/inhands/weapons/hammers_lefthand.dmi'
@@ -124,9 +124,9 @@
 	var/datum/effect_system/lightning_spread/s = new /datum/effect_system/lightning_spread
 	s.set_up(5, 1, target.loc)
 	s.start()
-	target.visible_message("<span class='danger'>[target.name] is shocked by [src]!</span>", \
-		"<span class='userdanger'>You feel a powerful shock course through your body sending you flying!</span>", \
-		"<span class='hear'>You hear a heavy electrical crack!</span>")
+	target.visible_message("<span class='danger'>[target.name] поражен [src]!</span>", \
+		"<span class='userdanger'>Мощный удар отправляет меня в полет!</span>", \
+		"<span class='hear'>Слышу громкий электрический треск!</span>")
 	var/atom/throw_target = get_edge_target_turf(target, get_dir(src, get_step_away(target, src)))
 	target.throw_at(throw_target, 200, 4)
 	return

@@ -1,7 +1,7 @@
 
 // This is literally the worst possible cheap tablet
 /obj/item/modular_computer/tablet/preset/cheap
-	desc = "A low-end tablet often seen among low ranked station personnel."
+	desc = "Планшет младшей модели, который часто встречается среди персонала станции низшего звена."
 
 /obj/item/modular_computer/tablet/preset/cheap/Initialize()
 	. = ..()
@@ -38,15 +38,17 @@
 /obj/item/modular_computer/tablet/preset/advanced/engineering/Initialize()
 	. = ..()
 	var/obj/item/computer_hardware/hard_drive/small/hard_drive = find_hardware_by_name("solid state drive")
-	hard_drive.store_file(new /datum/computer_file/program/supermatter_monitor)
+	if(hard_drive)
+		hard_drive.store_file(new /datum/computer_file/program/supermatter_monitor)
 
 /obj/item/modular_computer/tablet/preset/advanced/command/Initialize()
 	. = ..()
 	var/obj/item/computer_hardware/hard_drive/small/hard_drive = find_hardware_by_name("solid state drive")
 	install_component(new /obj/item/computer_hardware/sensorpackage)
 	install_component(new /obj/item/computer_hardware/card_slot/secondary)
-	hard_drive.store_file(new /datum/computer_file/program/budgetorders)
-	hard_drive.store_file(new /datum/computer_file/program/science)
+	if(hard_drive)
+		hard_drive.store_file(new /datum/computer_file/program/budgetorders)
+		hard_drive.store_file(new /datum/computer_file/program/science)
 
 /obj/item/modular_computer/tablet/preset/advanced/command/engineering/Initialize()
 	. = ..()

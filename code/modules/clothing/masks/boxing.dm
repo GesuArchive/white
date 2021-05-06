@@ -1,6 +1,6 @@
 /obj/item/clothing/mask/balaclava
 	name = "балаклава"
-	desc = "LOADSAMONEY"
+	desc = "МНОГАДЕНЕГ"
 	icon_state = "balaclava"
 	inhand_icon_state = "balaclava"
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT

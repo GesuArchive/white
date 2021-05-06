@@ -848,7 +848,7 @@
 
 /datum/reagent/toxin/spewium
 	name = "Спьювиум"
-	description = "A powerful emetic, causes uncontrollable vomiting.  May result in vomiting organs at high doses."
+	description = "A powerful emetic, causes uncontrollable vomiting. May result in vomiting organs at high doses."
 	reagent_state = LIQUID
 	color = "#2f6617" //A sickly green color
 	metabolization_rate = REAGENTS_METABOLISM

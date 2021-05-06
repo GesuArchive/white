@@ -1,8 +1,8 @@
 // Held by /obj/machinery/modular_computer to reduce amount of copy-pasted code.
 //TODO: REFACTOR THIS SPAGHETTI CODE, MAKE IT A COMPUTER_HARDWARE COMPONENT OR REMOVE IT
 /obj/item/modular_computer/processor
-	name = "processing unit"
-	desc = "You shouldn't see this. If you do, report it."
+	name = "Блок обработки"
+	desc = "Вы не должны этого видеть. Если вы это видите, сообщите об этом."
 	icon = null
 	icon_state = null
 	icon_state_unpowered = null
@@ -57,4 +57,4 @@
 	if(!caller || !caller.alert_able || caller.alert_silenced || !alerttext)
 		return
 	playsound(src, 'sound/machines/twobeep_high.ogg', 50, TRUE)
-	machinery_computer.visible_message("<span class='notice'>The [src] displays a [caller.filedesc] notification: [alerttext]</span>")
+	machinery_computer.visible_message("<span class='notice'>[src] отображает [caller.filedesc] уведомление: [alerttext]</span>")

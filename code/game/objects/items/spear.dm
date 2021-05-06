@@ -35,7 +35,7 @@
 	icon_state = "[icon_prefix]0"
 
 /obj/item/spear/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins to sword-swallow <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] начинает глотать меч <b>[src.name]</b>! Это выглядит будто [user.p_theyre()] пытается совершить самоубийство!</span>")
 	return BRUTELOSS
 
 /obj/item/spear/CheckParts(list/parts_list)
@@ -105,7 +105,7 @@
 	..()
 
 /obj/item/spear/explosive/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins to sword-swallow <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] начинает глотать меч <b>[src.name]</b>! Это выглядит будто [user.p_theyre()] пытается совершить суицид!</span>")
 	user.say("[war_cry]", forced="spear warcry")
 	explosive.forceMove(user)
 	explosive.detonate()
@@ -137,8 +137,8 @@
 
 //GREY TIDE
 /obj/item/spear/grey_tide
-	name = "\improper Grey Tide"
-	desc = "Recovered from the aftermath of a revolt aboard Defense Outpost Theta Aegis, in which a seemingly endless tide of Assistants caused heavy casualities among Nanotrasen military forces."
+	name = "Grey Tide"
+	desc = "Оправившийся от последствий восстания на борту оборонительного поста Theta Aegis, в котором, казалось бы, нескончаемый поток ассистентов привел к большим потерям среди вооруженных сил НаноТрейсена."
 	attack_verb_continuous = list("gores")
 	attack_verb_simple = list("gore")
 	force=15

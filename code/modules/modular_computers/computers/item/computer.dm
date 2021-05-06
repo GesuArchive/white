@@ -2,8 +2,8 @@
 // Other types expand it - tablets use a direct subtypes, and
 // consoles and laptops use "procssor" item that is held inside machinery piece
 /obj/item/modular_computer
-	name = "modular microcomputer"
-	desc = "A small portable microcomputer."
+	name = "Модульный микрокомпьютер"
+	desc = "Маленький портативный микрокомпьютер."
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "laptop-open"
 	light_on = FALSE
@@ -158,7 +158,7 @@
 
 /obj/item/modular_computer/emag_act(mob/user)
 	if(!enabled)
-		to_chat(user, "<span class='warning'>You'd need to turn the [src] on first.</span>")
+		to_chat(user, "<span class='warning'>Сначала тебе следует включить [src].</span>")
 		return FALSE
 	obj_flags |= EMAGGED //Mostly for consistancy purposes; the programs will do their own emag handling
 	var/newemag = FALSE
@@ -169,17 +169,17 @@
 		if(app.run_emag())
 			newemag = TRUE
 	if(newemag)
-		to_chat(user, "<span class='notice'>You swipe <b>[src.name]</b>. A console window momentarily fills the screen, with white text rapidly scrolling past.</span>")
+		to_chat(user, "<span class='notice'>Я провожу <b>[src.name]</b>. Окно консоли немедленно заполняет экран, а белый текст быстро прокручивается.</span>")
 		return TRUE
-	to_chat(user, "<span class='notice'>You swipe <b>[src.name]</b>. A console window fills the screen, but it quickly closes itself after only a few lines are written to it.</span>")
+	to_chat(user, "<span class='notice'>Я провожу <b>[src.name]</b>. Окно консоли заполняет экран, но оно быстро закрывается после того, как в него записано всего несколько строк.</span>")
 	return FALSE
 
 /obj/item/modular_computer/examine(mob/user)
 	. = ..()
 	if(obj_integrity <= integrity_failure * max_integrity)
-		. += "<hr><span class='danger'>It is heavily damaged!</span>"
+		. += "<hr><span class='danger'>Оно сильно повреждено!</span>"
 	else if(obj_integrity < max_integrity)
-		. += "<hr><span class='warning'>It is damaged.</span>"
+		. += "<hr><span class='warning'>Оно повреждено.</span>"
 
 	. += get_modular_computer_parts_examine(user)
 
@@ -215,9 +215,9 @@
 	var/issynth = issilicon(user) // Robots and AIs get different activation messages.
 	if(obj_integrity <= integrity_failure * max_integrity)
 		if(issynth)
-			to_chat(user, "<span class='warning'>You send an activation signal to <b>[src.name]</b>, but it responds with an error code. It must be damaged.</span>")
+			to_chat(user, "<span class='warning'>Я посылаю сигнал активации <b>[src.name]</b>, но он отвечает кодом ошибки. Должно быть, что он повреждён.</span>")
 		else
-			to_chat(user, "<span class='warning'>You press the power button, but the computer fails to boot up, displaying variety of errors before shutting down again.</span>")
+			to_chat(user, "<span class='warning'>Я нажимаю кнопку питания, но компьютер не загружается, перед повторным выключением отображается множество ошибок.</span>")
 		return FALSE
 
 	// If we have a recharger, enable it automatically. Lets computer without a battery work.
@@ -227,9 +227,9 @@
 
 	if(all_components[MC_CPU] && use_power()) // use_power() checks if the PC is powered
 		if(issynth)
-			to_chat(user, "<span class='notice'>You send an activation signal to <b>[src.name]</b>, turning it on.</span>")
+			to_chat(user, "<span class='notice'>Я посылаю сигнал активации<b>[src.name]</b>, включая его.</span>")
 		else
-			to_chat(user, "<span class='notice'>You press the power button and start up <b>[src.name]</b>.</span>")
+			to_chat(user, "<span class='notice'>Я нажимаю кнопку питания и запускаете <b>[src.name]</b>.</span>")
 		if(looping_sound)
 			soundloop.start()
 		enabled = 1
@@ -238,9 +238,9 @@
 		return TRUE
 	else // Unpowered
 		if(issynth)
-			to_chat(user, "<span class='warning'>You send an activation signal to <b>[src.name]</b> but it does not respond.</span>")
+			to_chat(user, "<span class='warning'>Я посылаю сигнал активации<b>[src.name]</b>, но тот не отвечает.</span>")
 		else
-			to_chat(user, "<span class='warning'>You press the power button but <b>[src.name]</b> does not respond.</span>")
+			to_chat(user, "<span class='warning'>Я нажимаю кнопку питания <b>[src.name]</b>, но тот не отвечает..</span>")
 		return FALSE
 
 // Process currently calls handle_power(), may be expanded in future if more things are added.
@@ -296,10 +296,10 @@
 	if(!caller || !caller.alert_able || caller.alert_silenced || !alerttext) //Yeah, we're checking alert_able. No, you don't get to make alerts that the user can't silence.
 		return
 	playsound(src, sound, 50, TRUE)
-	visible_message("<span class='notice'>The [src] displays a [caller.filedesc] notification: [alerttext]</span>")
+	visible_message("<span class='notice'> [src] отображает [caller.filedesc] уведомление: [alerttext]</span>")
 	var/mob/living/holder = loc
 	if(istype(holder))
-		to_chat(holder, "[icon2html(src)] <span class='notice'>The [src] displays a [caller.filedesc] notification: [alerttext]</span>")
+		to_chat(holder, "[icon2html(src)] <span class='notice'> [src] отображает [caller.filedesc] уведомление: [alerttext]</span>")
 
 // Function used by NanoUI's to obtain data for header. All relevant entries begin with "PC_"
 /obj/item/modular_computer/proc/get_header_data()
@@ -394,7 +394,7 @@
 	if(looping_sound)
 		soundloop.stop()
 	if(loud)
-		physical.visible_message("<span class='notice'><b>[src.name]</b> shuts down.</span>")
+		physical.visible_message("<span class='notice'><b>[src.name]</b> выключается.</span>")
 	enabled = 0
 	update_icon()
 
@@ -432,7 +432,7 @@
 
 /obj/item/modular_computer/screwdriver_act(mob/user, obj/item/tool)
 	if(!all_components.len)
-		to_chat(user, "<span class='warning'>This device doesn't have any components installed.</span>")
+		to_chat(user, "<span class='warning'>На этом устройстве не установлены какие-либо компоненты.</span>")
 		return
 	var/list/component_names = list()
 	for(var/h in all_components)
@@ -474,26 +474,26 @@
 
 	if(W.tool_behaviour == TOOL_WRENCH)
 		if(all_components.len)
-			to_chat(user, "<span class='warning'>Remove all components from <b>[src.name]</b> before disassembling it.</span>")
+			to_chat(user, "<span class='warning'>Извлеките все компоненты из <b>[src.name]</b> перед его разборкой.</span>")
 			return
 		new /obj/item/stack/sheet/metal( get_turf(src.loc), steel_sheet_cost )
-		physical.visible_message("<span class='notice'><b>[src.name]</b> is disassembled by [user].</span>")
+		physical.visible_message("<span class='notice'><b>[src.name]</b> разобран [user].</span>")
 		relay_qdel()
 		qdel(src)
 		return
 
 	if(W.tool_behaviour == TOOL_WELDER)
 		if(obj_integrity == max_integrity)
-			to_chat(user, "<span class='warning'><b>[src.name]</b> does not require repairs.</span>")
+			to_chat(user, "<span class='warning'><b>[src.name]</b> не требуется ремонт.</span>")
 			return
 
 		if(!W.tool_start_check(user, amount=1))
 			return
 
-		to_chat(user, "<span class='notice'>You begin repairing damage to <b>[src.name]</b>...</span>")
+		to_chat(user, "<span class='notice'>Я начинаю ремонтировать повреждения <b>[src.name]</b>...</span>")
 		if(W.use_tool(src, user, 20, volume=50, amount=1))
 			obj_integrity = max_integrity
-			to_chat(user, "<span class='notice'>You repair <b>[src.name]</b>.</span>")
+			to_chat(user, "<span class='notice'>Я чиню<b>[src.name]</b>.</span>")
 		return
 
 	..()

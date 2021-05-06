@@ -382,7 +382,7 @@
 				user.dropItemToGround(src, TRUE)
 				return
 			flip_cooldown = (world.time + 30)
-			user.visible_message("<span class='notice'>[user] spins the [src] around their finger by the trigger. That’s pretty badass.</span>")
+			user.visible_message("<span class='notice'>[user] spins the [src] around their finger by the trigger. ThatвЂ™s pretty badass.</span>")
 			playsound(src, 'sound/items/handling/ammobox_pickup.ogg', 20, FALSE)
 	if(!internal_magazine && magazine)
 		if(!magazine.ammo_count())

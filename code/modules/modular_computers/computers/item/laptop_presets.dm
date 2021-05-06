@@ -14,7 +14,7 @@
 
 
 /obj/item/modular_computer/laptop/preset/civilian
-	desc = "A low-end laptop often used for personal recreation."
+	desc = "Ноутбук младшей модели, часто используемый для личного отдыха."
 
 
 /obj/item/modular_computer/laptop/preset/civilian/install_programs()
