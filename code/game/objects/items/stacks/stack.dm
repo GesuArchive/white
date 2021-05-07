@@ -81,12 +81,10 @@
 					recipes += temp
 	update_weight()
 	update_icon()
-	/*
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_movable_entered_occupied_turf,
+		COMSIG_ATOM_ENTERED = .proc/on_entered,
 	)
-	AddElement(/datum/element/connect_loc, loc_connections)
-	*/
+	AddElement(/datum/element/connect_loc, src, loc_connections)
 
 /** Sets the amount of materials per unit for this stack.
  *
@@ -469,31 +467,14 @@
 	target_stack.add(transfer)
 	return transfer
 
-/**
- * Merges as much of src into target_stack as possible. If present, the limit arg overrides target_stack.max_amount for transfer.
- *
- * This proc deletes src if the remaining amount after the transfer is 0.
- */
-/obj/item/stack/proc/merge(obj/item/stack/target_stack, limit)
-	. = merge_without_del(target_stack, limit)
-	is_zero_amount(delete_if_zero = TRUE)
-
-/obj/item/stack/Crossed(atom/movable/crossing)
-	if(!crossing.throwing && can_merge(crossing))
-		merge(crossing)
-	. = ..()
-/*
-/// Signal handler for connect_loc element. Called when a movable enters the turf we're currently occupying. Merges if possible.
-/obj/item/stack/proc/on_movable_entered_occupied_turf(datum/source, atom/movable/arrived)
+/obj/item/stack/proc/on_entered(datum/source, atom/movable/crossing)
 	SIGNAL_HANDLER
-
-	// Edge case. This signal will also be sent when src has entered the turf. Don't want to merge with ourselves.
-	if(arrived == src)
-		return
+	if(!crossing.throwing && can_merge(crossing))
+		INVOKE_ASYNC(src, .proc/merge, crossing)
 
 	if(!arrived.throwing && can_merge(arrived))
 		INVOKE_ASYNC(src, .proc/merge, arrived)
-*/
+
 /obj/item/stack/hitby(atom/movable/hitting, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(can_merge(hitting))
 		merge(hitting)

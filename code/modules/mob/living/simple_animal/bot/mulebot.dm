@@ -60,6 +60,14 @@
 
 /mob/living/simple_animal/bot/mulebot/Initialize(mapload)
 	. = ..()
+
+	RegisterSignal(src, COMSIG_MOB_BOT_PRE_STEP, .proc/check_pre_step)
+	RegisterSignal(src, COMSIG_MOB_CLIENT_PRE_MOVE, .proc/check_pre_step)
+	RegisterSignal(src, COMSIG_MOB_BOT_STEP, .proc/on_bot_step)
+	RegisterSignal(src, COMSIG_MOB_CLIENT_MOVED, .proc/on_bot_step)
+
+	ADD_TRAIT(src, TRAIT_NOMOBSWAP, INNATE_TRAIT)
+
 	if(prob(0.666) && mapload)
 		new /mob/living/simple_animal/bot/mulebot/paranormal(loc)
 		return INITIALIZE_HINT_QDEL
@@ -105,6 +113,7 @@
 
 
 /mob/living/simple_animal/bot/mulebot/Destroy()
+	UnregisterSignal(src, COMSIG_MOB_BOT_PRE_STEP, COMSIG_MOB_CLIENT_PRE_MOVE, COMSIG_MOB_BOT_STEP, COMSIG_MOB_CLIENT_MOVED)
 	unload(0)
 	QDEL_NULL(wires)
 	QDEL_NULL(cell)
@@ -536,14 +545,12 @@
 	B.setDir(direct)
 	bloodiness--
 
-/mob/living/simple_animal/bot/mulebot/Moved() //make sure we always use power after moving.
+/mob/living/simple_animal/bot/mulebot/Moved()
 	. = ..()
 
-	if(!cell)
-		return
-	cell.use(cell_move_power_usage)
-	if(cell.charge < cell_move_power_usage) //make sure we have enough power to move again, otherwise turn off.
-		turn_off()
+	for(var/mob/living/carbon/human/future_pancake in loc)
+		run_over(future_pancake)
+
 	diag_hud_set_mulebotcell()
 
 /mob/living/simple_animal/bot/mulebot/handle_automated_action()

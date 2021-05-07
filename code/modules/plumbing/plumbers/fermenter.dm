@@ -16,11 +16,7 @@
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = .proc/on_entered,
 	)
-	AddElement(/datum/element/connect_loc, loc_connections)
-
-/obj/machinery/plumbing/fermenter/proc/on_entered(datum/source, atom/movable/AM)
-	SIGNAL_HANDLER
-	ferment(AM)
+	AddElement(/datum/element/connect_loc, src, loc_connections)
 
 /obj/machinery/plumbing/grinder_chemical/can_be_rotated(mob/user, rotation_type)
 	if(anchored)
@@ -40,11 +36,10 @@
 	if(move_dir == eat_dir)
 		return TRUE
 
-/*
-/obj/machinery/plumbing/fermenter/Crossed(atom/movable/AM)
-	. = ..()
+/obj/machinery/plumbing/fermenter/proc/on_entered(datum/source, atom/movable/AM)
+	SIGNAL_HANDLER
 	ferment(AM)
-*/
+
 
 /// uses fermentation proc similar to fermentation barrels
 /obj/machinery/plumbing/fermenter/proc/ferment(atom/AM)

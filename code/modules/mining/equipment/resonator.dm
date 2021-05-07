@@ -59,8 +59,17 @@
 	var/creator
 	var/obj/item/resonator/res
 
-/obj/effect/temp_visual/resonance/Initialize(mapload, set_creator, set_resonator, set_duration)
-	duration = set_duration
+/obj/effect/temp_visual/resonance/Initialize(mapload, set_creator, set_resonator, mode)
+	if(mode == RESONATOR_MODE_AUTO)
+		duration = 2 SECONDS
+	if(mode == RESONATOR_MODE_MATRIX)
+		icon_state = "shield2"
+		name = "resonance matrix"
+		RegisterSignal(src, COMSIG_ATOM_ENTERED, .proc/burst)
+		var/static/list/loc_connections = list(
+			COMSIG_ATOM_ENTERED = .proc/burst,
+		)
+		AddElement(/datum/element/connect_loc, src, loc_connections)
 	. = ..()
 	creator = set_creator
 	res = set_resonator
