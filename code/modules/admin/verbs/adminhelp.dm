@@ -263,7 +263,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 //message from the initiator without a target, all admins will see this
 //won't bug irc/discord
 /datum/admin_help/proc/MessageNoRecipient(msg)
-	msg = sanitize(copytext_char(msg, 1, MAX_MESSAGE_LEN))
+	msg = html_decode(sanitize(copytext_char(msg, 1, MAX_MESSAGE_LEN)))
 	var/ref_src = "[REF(src)]"
 	//Message to be sent to all admins
 	var/admin_msg = "<span class='adminnotice'><span class='adminhelp'>Ticket [TicketHref("#[id]", ref_src)]</span><b>: [LinkedReplyName(ref_src)] [FullMonty(ref_src)]:</b> <span class='linkify'>[keywords_lookup(msg)]</span></span>"
@@ -434,7 +434,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		dat += "<b>DISCONNECTED</b>[FOURSPACES][ClosureLinks(ref_src)]<br>"
 	dat += "<br><b>Log:</b><br><br>"
 	for(var/I in _interactions)
-		dat += "[I]<br>"
+		dat += html_decode("[I]<br>")
 
 	usr << browse(dat.Join(), "window=ahelp[id];size=620x480")
 
@@ -527,7 +527,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	if(handle_spam_prevention(msg,MUTE_ADMINHELP))
 		return
 
-	msg = trim(msg)
+	msg = html_decode(trim(msg))
 
 	if(!msg)
 		return

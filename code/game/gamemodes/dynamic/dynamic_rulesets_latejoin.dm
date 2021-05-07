@@ -50,7 +50,7 @@
 //////////////////////////////////////////////
 
 /datum/dynamic_ruleset/latejoin/infiltrator
-	name = "Космо-десантный корабль Синдиката"
+	name = "Запоздавший предатель"
 	antag_datum = /datum/antagonist/traitor
 	antag_flag = ROLE_TRAITOR
 	protected_roles = list("Russian Officer", "Trader", "Hacker","Veteran", "Security Officer", "Warden", "Head of Personnel", "Detective", "Head of Security", "Captain", "Field Medic")
