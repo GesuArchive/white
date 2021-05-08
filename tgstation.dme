@@ -3619,7 +3619,7 @@
 #include "white\ClickerOfThings\shitFood\shaurma.dm"
 #include "white\ClickerOfThings\shitspawn_deck\shitspawn_deck.dm"
 #include "white\ClickerOfThings\steklotara\punkt_priema.dm"
-#include "white\ClickerOfThings\super_kinetic\super_kinetic_accelerator.dm"
+//#include "white\ClickerOfThings\super_kinetic\super_kinetic_accelerator.dm"
 #include "white\deda565\Huesoslist.dm"
 #include "white\fogmann\donations.dm"
 #include "white\fogmann\fogmann.dm"
