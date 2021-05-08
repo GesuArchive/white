@@ -391,7 +391,7 @@
 /area/ctf)
 "QE" = (
 /obj/effect/landmark/arena/end,
-/turf/open/floor/dz/normal,
+/turf/open/indestructible/binary,
 /area/ctf)
 "QQ" = (
 /obj/structure/railing/corner{
@@ -439,10 +439,10 @@
 /area/ctf)
 "Xc" = (
 /obj/effect/landmark/arena/start,
-/turf/open/floor/dz/normal,
+/turf/open/indestructible/binary,
 /area/ctf)
 "Yy" = (
-/turf/open/floor/dz/normal,
+/turf/open/indestructible/binary,
 /area/ctf)
 "Zw" = (
 /turf/open/floor/dz/cyber,
