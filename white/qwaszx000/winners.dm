@@ -1,5 +1,5 @@
 #define ENGINEER_WINER_CKEY "Laxesh"
-#define ROBUST_WINER_CKEY "moonmandoom" // 2020. Old winner is DarkKeeper072
+#define ROBUST_WINER_CKEY "Jzouz" // 2021. Old winner is Moonmandoom. 2020. Old winner is DarkKeeper072
 
 /obj/item/extinguisher/robust
 	name = "Robust fire extinguisher"
@@ -73,7 +73,7 @@
 		return ..()
 
 /obj/structure/displaycase/winner/attack_hand(mob/user)
-	if(lowertext(user.ckey) == lowertext(need_key) && !broken && openable)
+	if(ckey(user.ckey) == ckey(need_key) && !broken && openable)
 		to_chat(user,  "<span class='notice'>You [open ? "close":"open"] [src].</span>")
 		toggle_lock(user)
 	else
@@ -85,16 +85,17 @@
 		update_icon()
 
 /obj/structure/displaycase/winner/robust
+	need_key = "Jzouz"
 	start_showpieces = list(list("type" = /obj/item/extinguisher/robust, "trophy_message" = "Glory to <span class='boldnotice'>" + ROBUST_WINER_CKEY + "</span>!", "need_key" = ROBUST_WINER_CKEY))
 
 /obj/structure/displaycase/winner/engineer
 	start_showpieces = list(list("type" = /obj/item/clothing/neck/cloak/engineer_winer, "trophy_message" = "Glory to <span class='boldnotice'>" + ENGINEER_WINER_CKEY + "</span>!", "need_key" = ENGINEER_WINER_CKEY))
 
 /obj/structure/statue/gold/robust
-	name = "Статуя Solomon Mosser"
-	desc = "Победитель робаст-турнира 2020. Надпись снизу гласит: \"Хайпово\".<hr><b>Moonmandoom</b> - первое место!"
+	name = "Статуя Гуйсак Гуйсак"
+	desc = "Победитель робаст-турнира 2021. Надпись снизу гласит: \"Ну давай, посмотри на меня чтобы получить мудлет на поднятие настроения, сраное метагеймовое чмо\".<hr><b>Jzouz</b> - первое место!"
 	icon = 'white/valtos/icons/robust.dmi'
-	icon_state = "gold_2020"
+	icon_state = "gold_2021"
 	can_be_unanchored = FALSE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	layer = ABOVE_MOB_LAYER
