@@ -10574,10 +10574,6 @@
 /area/engine/storage_shared)
 "UR" = (
 /obj/structure/bed/maint,
-/obj/structure/sign/plaques/robust{
-	pixel_x = 16;
-	pixel_y = 36
-	},
 /turf/open/floor/wood{
 	icon_state = "wood-broken6"
 	},

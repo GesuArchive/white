@@ -4197,7 +4197,7 @@
 	dir = 4
 	},
 /obj/structure/sign/plaques/robust/bronze{
-	pixel_y = 36
+	pixel_y = 33
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/dorms)
