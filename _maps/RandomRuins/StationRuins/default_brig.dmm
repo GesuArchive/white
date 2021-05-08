@@ -3322,6 +3322,18 @@
 /obj/machinery/computer/secure_data,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/heads/hos)
+"Sg" = (
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/structure/sign/plaques/robust{
+	pixel_y = 32
+	},
+/turf/open/floor/plasteel,
+/area/security/main)
 "Vh" = (
 /obj/machinery/photocopier,
 /obj/machinery/power/apc{
@@ -5428,7 +5440,7 @@ cf
 cx
 dv
 dv
-eN
+Sg
 eQ
 eQ
 er

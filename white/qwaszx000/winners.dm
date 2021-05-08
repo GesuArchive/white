@@ -122,10 +122,10 @@
 		. += "<hr><b>Уважение проявили:</b> <i>[english_list(coomers)]</i>."
 
 /obj/structure/sign/plaques/robust
-	name = "Портрет Daniil Bassow"
-	desc = "Здесь изображён робастный мальчик. Твои трусики намокают...<hr><b>DANILCUS</b> - второе место!"
+	name = "Портрет Richard Jenkins"
+	desc = "Здесь изображён робастный мужчина. Просьба не показывать ему вёдра!<hr><b>MasterOfDmx</b> - второе место!"
 	icon = 'white/valtos/icons/robust.dmi'
-	icon_state = "silver_2020"
+	icon_state = "silver_2021"
 	can_be_unanchored = FALSE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	custom_materials = list(/datum/material/silver=MINERAL_MATERIAL_AMOUNT*2)
@@ -147,7 +147,7 @@
 
 /obj/structure/sign/plaques/robust/bronze
 	name = "Портрет"
-	desc = "Доктор Киара всех полечит и исцелит!<hr><b>Leviathan21</b> AKA <i>Masturbator</i> - третье место!"
-	icon_state = "bronze_2020"
+	desc = "Тут должен быть Devid Elander.<hr><b>Devid Elander</i> - третье место!"
+	icon_state = "bronze_2021"
 	custom_materials = list(/datum/material/bronze=MINERAL_MATERIAL_AMOUNT*2)
 	flags_1 = NODECONSTRUCT_1

@@ -1131,6 +1131,9 @@
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 8
 	},
+/obj/structure/sign/plaques/robust{
+	pixel_y = 32
+	},
 /turf/open/floor/engine,
 /area/security/main)
 "ex" = (
