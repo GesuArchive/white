@@ -622,8 +622,9 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	board_item_type = /obj/vehicle/ridden/scooter/skateboard/hoverboard/admin
 
 /obj/item/melee/baseball_bat
-	name = "baseball bat"
+	name = "бейсбольная бита"
 	desc = "There ain't a skull in the league that can withstand a swatter."
+	gender = FEMALE
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "baseball_bat"
 	inhand_icon_state = "baseball_bat"
@@ -684,21 +685,25 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		target.throw_at(throw_target, rand(1, 2), whack_speed, user) // sorry friends, 7 speed batting caused wounds to absolutely delete whoever you knocked your target into (and said target)
 
 /obj/item/melee/baseball_bat/ablative
-	name = "metal baseball bat"
-	desc = "This bat is made of highly reflective, highly armored material."
+	name = "стальная бейсбольная бита"
+	desc = "Высокопрочная бита из стали, которая неплохо отражает лазеры."
 	icon_state = "baseball_bat_metal"
 	inhand_icon_state = "baseball_bat_metal"
 	force = 12
 	throwforce = 15
 
 /obj/item/melee/baseball_bat/ablative/IsReflect()//some day this will reflect thrown items instead of lasers
+	obj_integrity -= rand(10, 50)
 	var/picksound = rand(1,2)
 	var/turf = get_turf(src)
 	if(picksound == 1)
 		playsound(turf, 'sound/weapons/effects/batreflect1.ogg', 50, TRUE)
 	if(picksound == 2)
 		playsound(turf, 'sound/weapons/effects/batreflect2.ogg', 50, TRUE)
-	return 1
+	if(obj_integrity <= 0)
+		visible_message("<span class='danger'>[capitalize(src.name)] ломается!</span>")
+		qdel(src)
+	return TRUE
 
 /obj/item/melee/flyswatter
 	name = "flyswatter"

@@ -14,6 +14,7 @@
 /obj/machinery/firealarm
 	name = "пожарная тревога"
 	desc = "<i>\"Потяните в случае чрезвычайной ситуации\"</i>. То есть тяните его постоянно."
+	gender = FEMALE
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "fire0"
 	max_integrity = 250

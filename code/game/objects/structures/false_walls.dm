@@ -4,6 +4,7 @@
 /obj/structure/falsewall
 	name = "стена"
 	desc = "Здоровенный кусок металла, который служит для разделения помещений."
+	gender = FEMALE
 	anchored = TRUE
 	icon = 'icons/turf/walls/baywall.dmi'
 	icon_state = "wall-0"

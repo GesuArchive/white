@@ -9,6 +9,7 @@
 	var/result_path
 	var/inverse = 0 // For inverse dir frames like light fixtures.
 	var/pixel_shift //The amount of pixels
+	gender = FEMALE
 
 /obj/item/wallframe/proc/try_build(turf/on_wall, mob/user)
 	if(get_dist(on_wall,user)>1)
@@ -112,6 +113,7 @@
 
 /obj/item/electronics
 	desc = "Looks like a circuit. Probably is."
+	gender = FEMALE
 	icon = 'icons/obj/module.dmi'
 	icon_state = "door_electronics"
 	inhand_icon_state = "electronic"
