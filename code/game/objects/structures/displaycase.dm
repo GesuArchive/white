@@ -380,7 +380,8 @@
 	icon_state = initial(I.icon_state)
 
 /obj/structure/displaycase/forsale
-	name = "Торговая витрина"
+	name = "торговая витрина"
+	gender = FEMALE
 	icon_state = "laserbox"
 	custom_glass_overlay = TRUE
 	desc = "Витрина со считывателем ID карты. Используйте свою ID карту для покупки содержимого."

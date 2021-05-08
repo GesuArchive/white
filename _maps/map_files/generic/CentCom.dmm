@@ -1469,10 +1469,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
-/area/tdome/arena_source)
-"ah" = (
-/obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -1658,7 +1654,7 @@
 /obj/item/restraints/handcuffs,
 /obj/item/assembly/flash/handheld,
 /obj/effect/turf_decal/stripes/line{
-	dir = 1
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
@@ -2676,6 +2672,9 @@
 /turf/closed/indestructible/riveted,
 /area/centcom/ferry)
 "nB" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 6
+	},
 /turf/open/floor/plasteel/white,
 /area/centcom/ferry)
 "nC" = (
@@ -2685,6 +2684,9 @@
 	},
 /obj/structure/mirror{
 	pixel_x = 28
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 9
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/ferry)
@@ -2905,6 +2907,7 @@
 /obj/machinery/door/airlock/silver{
 	name = "Bathroom"
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/white,
 /area/centcom/ferry)
 "nT" = (
@@ -3099,6 +3102,20 @@
 /obj/machinery/status_display/evac{
 	pixel_y = 32
 	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/centcom/ferry)
+"ok" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -3329,6 +3346,10 @@
 	},
 /turf/open/floor/plasteel/grimy,
 /area/centcom/ferry)
+"oF" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "oG" = (
 /obj/structure/table/wood,
 /obj/item/clipboard,
@@ -3340,10 +3361,28 @@
 /obj/item/stamp,
 /turf/open/floor/plasteel/grimy,
 /area/centcom/ferry)
+"oH" = (
+/obj/structure/chair/comfy/brown{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 6
+	},
+/turf/open/floor/plasteel/grimy,
+/area/centcom/ferry)
+"oI" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 4
+	},
+/turf/open/floor/plasteel/grimy,
+/area/centcom/ferry)
 "oJ" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Administrative Office";
 	req_access_txt = "109"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 4
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -3536,6 +3575,9 @@
 /obj/structure/chair/comfy/black{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 4
+	},
 /turf/open/floor/plasteel/grimy,
 /area/centcom/ferry)
 "pa" = (
@@ -3554,6 +3596,9 @@
 /obj/item/clothing/mask/cigarette/cigar{
 	pixel_x = 4.5
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 10
+	},
 /turf/open/floor/plasteel/grimy,
 /area/centcom/ferry)
 "pb" = (
@@ -3571,6 +3616,7 @@
 "pd" = (
 /obj/structure/table/wood,
 /obj/machinery/computer/security/wooden_tv,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/grimy,
 /area/centcom/ferry)
 "pe" = (
@@ -3926,6 +3972,18 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
+/area/centcom/ferry)
+"pI" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/centcom/ferry)
+"pJ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 4
+	},
+/turf/open/floor/wood,
 /area/centcom/ferry)
 "pM" = (
 /obj/machinery/firealarm{
@@ -4514,6 +4572,7 @@
 	name = "Administrative Office";
 	req_access_txt = "109"
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel,
 /area/centcom/ferry)
@@ -4822,6 +4881,10 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
+/area/centcom/ferry)
+"rx" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/turf/open/floor/plasteel/grimy,
 /area/centcom/ferry)
 "ry" = (
 /obj/machinery/computer/security/telescreen{
@@ -5335,12 +5398,26 @@
 /area/centcom/ferry)
 "sy" = (
 /obj/structure/chair/comfy/black,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/grimy,
+/area/centcom/ferry)
+"sz" = (
+/obj/structure/chair/office{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/wood,
 /area/centcom/ferry)
 "sA" = (
 /obj/item/clipboard,
 /obj/structure/table/reinforced,
 /obj/item/detective_scanner,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 4
+	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -5362,10 +5439,14 @@
 /obj/structure/chair/office{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/structure/cable,
 /turf/open/floor/plasteel/grimy,
 /area/centcom/ferry)
 "sC" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 4
+	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/grimy,
 /area/centcom/ferry)
@@ -5373,6 +5454,9 @@
 /obj/machinery/door/airlock/centcom{
 	name = "Administrative Storage";
 	req_access_txt = "106"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 4
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -5391,6 +5475,9 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible{
+	dir = 1
+	},
 /obj/machinery/meter,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
@@ -5406,6 +5493,9 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible{
+	dir = 1
+	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/centcom/ferry)
@@ -5420,10 +5510,16 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible{
+	dir = 1
+	},
 /obj/machinery/meter,
 /turf/open/floor/plasteel/dark,
 /area/centcom/ferry)
 "sH" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 4
+	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -5432,6 +5528,22 @@
 	},
 /obj/machinery/door/poddoor/shutters/indestructible,
 /turf/open/floor/plasteel,
+/area/centcom/ferry)
+"sI" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
 /area/centcom/ferry)
 "sJ" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
@@ -5757,6 +5869,7 @@
 "tB" = (
 /obj/item/storage/fancy/donut_box,
 /obj/structure/table/reinforced,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -52640,10 +52753,10 @@ mD
 oi
 oD
 pa
-oB
-oB
+pI
+oF
 qQ
-sw
+ok
 sy
 ty
 uq
@@ -52897,11 +53010,11 @@ mD
 oj
 oE
 pb
-oB
+pJ
 qe
 mD
 ru
-oB
+pJ
 oB
 oB
 uT
@@ -53151,14 +53264,14 @@ mE
 nj
 nB
 nS
-sw
-oB
-oB
-oB
+ok
+oF
+oF
+oF
 qf
 nU
 rv
-tz
+sz
 tz
 ur
 uU
@@ -53411,7 +53524,7 @@ mD
 ol
 oG
 pc
-pg
+oI
 qg
 mE
 rw
@@ -53666,12 +53779,12 @@ mD
 mD
 nT
 pg
-pb
+oH
 pd
-pg
-sw
+rx
+ok
 qQ
-pg
+rx
 sB
 tB
 us
@@ -53923,7 +54036,7 @@ aa
 aa
 nU
 on
-pg
+oI
 pe
 pM
 qi
@@ -54437,7 +54550,7 @@ jE
 iF
 mD
 oo
-pg
+oI
 pf
 pN
 qj
@@ -55471,7 +55584,7 @@ pP
 qm
 nU
 rC
-sw
+sI
 tG
 mD
 va
@@ -68136,198 +68249,6 @@ aa
 aa
 aa
 aa
-fZ
-fZ
-gm
-gm
-gm
-gh
-gC
-gE
-gk
-gi
-gk
-gX
-gF
-gh
-gh
-gh
-gh
-gh
-gh
-gh
-gh
-gh
-gh
-gh
-gh
-gh
-gh
-gh
-gh
-gh
-gB
-gB
-gB
-gQ
-fZ
-fZ
-fZ
-fZ
-gm
-gm
-gm
-fZ
-fZ
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-im
-is
-iC
-iJ
-iT
-iT
-jg
-iT
-iT
-jz
-iT
-iT
-jR
-iT
-iT
-kS
-ls
-iC
-kZ
-mR
-kW
-iL
-iT
-iT
-iT
-ls
-iu
-lN
-io
-io
-io
-tP
-UO
-io
-im
-yU
-mk
-yU
-im
-io
-iu
-iu
-io
-rK
-io
-iu
-im
-iC
-ip
-iu
-io
-Er
-ER
-Fv
-Fp
-Gp
-Ep
-GQ
-Hf
-Hu
-Gx
-GM
-HW
-HW
-Il
-Is
-IJ
-IY
-Jk
-Jk
-Jt
-IJ
-Is
-JI
-JP
-Kc
-JG
-Kn
-Iv
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(177,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -75808,48 +75729,6 @@ Yp
 Yp
 ac
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-aW
-aq
-ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
