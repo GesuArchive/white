@@ -116,11 +116,14 @@
 	STOP_PROCESSING(SSfastprocess, src)
 	switch(metal)
 		if(ALUMINUM_FOAM)
-			new /obj/structure/foamedmetal(get_turf(src))
+			if (!locate(/obj/structure/foamedmetal) in (get_turf(src)))
+				new /obj/structure/foamedmetal(get_turf(src))
 		if(IRON_FOAM)
-			new /obj/structure/foamedmetal/iron(get_turf(src))
+			if (!locate(/obj/structure/foamedmetal) in (get_turf(src)))
+				new /obj/structure/foamedmetal/iron(get_turf(src))
 		if(RESIN_FOAM)
-			new /obj/structure/foamedmetal/resin(get_turf(src))
+			if (!locate(/obj/structure/foamedmetal) in (get_turf(src)))
+				new /obj/structure/foamedmetal/resin(get_turf(src))
 	flick("[icon_state]-disolve", src)
 	QDEL_IN(src, 5)
 
@@ -133,7 +136,8 @@
 		for(var/direction in GLOB.cardinals)
 			var/turf/cardinal_turf = get_step(T, direction)
 			if(get_area(cardinal_turf) != get_area(T)) //We're at an area boundary, so let's block off this turf!
-				new/obj/structure/foamedmetal(T)
+				if (!locate(/obj/structure/foamedmetal) in (get_turf(src)))
+					new/obj/structure/foamedmetal(T)
 				break
 	flick("[icon_state]-disolve", src)
 	QDEL_IN(src, 5)
