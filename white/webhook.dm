@@ -18,7 +18,7 @@ GLOBAL_VAR_INIT(webhook_can_fire, 0)
 
 /proc/webhook_send_ooc(var/ckey, var/message)
 	var/list/query = list("ckey" = ckey, "message" = message)
-	webhook_send("oocmessage", query)
+	webhook_send_invst("oocmessage", query)
 
 /proc/webhook_send_me(var/ckey, var/message)
 	var/list/query = list("ckey" = ckey, "message" = message)
@@ -47,5 +47,13 @@ GLOBAL_VAR_INIT(webhook_can_fire, 0)
 		return
 
 	var/query = "[CONFIG_GET(string/webhook_address)]?key=[CONFIG_GET(string/webhook_key)]&method=[method]&data=[url_encode(json_encode(data))]"
+	spawn(-1)
+		world.Export(query)
+
+/proc/webhook_send_invst(var/method, var/data)
+	if (!CONFIG_GET(string/webhook_address_invst) || !CONFIG_GET(string/comms_key))
+		return
+
+	var/query = "[CONFIG_GET(string/webhook_address_invst)]?key=[CONFIG_GET(string/comms_key)]&method=[method]&data=[url_encode(json_encode(data))]"
 	spawn(-1)
 		world.Export(query)
