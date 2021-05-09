@@ -46,3 +46,19 @@
 
 /obj/item/ammo_casing/energy/kinetic/decreased_damage
 	projectile_type = /obj/projectile/kinetic
+
+
+/obj/item/gun/energy/kinetic_accelerator/super_kinetic_accelerator/shoot_live_shot(mob/living/user, pointblank = 0, atom/pbtarget = null, message = 1)
+	var/lmao = 0
+	for(var/m in modkits)
+		if(istype(m,/obj/item/borg/upgrade/modkit/damage))
+			lmao += 25
+		if(istype(m,/obj/item/borg/upgrade/modkit/lifesteal))
+			lmao += 15
+		if(istype(m,/obj/item/borg/upgrade/modkit/indoors)) //fuck off
+			lmao += 50
+
+		
+	if(prob(min(lmao,100)))
+		attempt_reload(21474836) //we do a little trolling
+	. = ..() // как бе вызывает attempt_reload дважды, но второй вызов нихуя не делает, так что похуй.
