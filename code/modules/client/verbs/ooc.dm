@@ -433,13 +433,6 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 		pct += delta
 		winset(src, "mainwindow.split", "splitter=[pct]")
 
-/client/verb/bot_token(token as text)
-	set name = "❗ Discord Bot token"
-	set category = "Особенное"
-	set desc = "Sends specific token to bot through webhook"
-
-	webhook_send_token(key, token)
-
 /client/verb/policy()
 	set name = "📘 Показать политику"
 	set desc = "Show special server rules related to your current character."
