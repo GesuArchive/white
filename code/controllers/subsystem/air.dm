@@ -310,7 +310,6 @@ SUBSYSTEM_DEF(air)
 			T.process_cell(fire_count)
 		if (MC_TICK_CHECK)
 			return
-
 /datum/controller/subsystem/air/proc/process_turf_equalize(resumed = 0)
 	//cache for sanic speed
 	var/fire_count = times_fired
@@ -325,7 +324,6 @@ SUBSYSTEM_DEF(air)
 			T.equalize_pressure_in_zone(fire_count)
 		if (MC_TICK_CHECK)
 			return
-
 /datum/controller/subsystem/air/proc/process_rebuilds()
 	//Yes this does mean rebuilding pipenets can freeze up the subsystem forever, but if we're in that situation something else is very wrong
 	var/list/currentrun = rebuild_queue
@@ -395,6 +393,8 @@ SUBSYSTEM_DEF(air)
 		if (MC_TICK_CHECK)
 			return
 
+
+
 /datum/controller/subsystem/air/proc/process_excited_groups(resumed = 0)
 	if(process_excited_groups_extools(resumed, (Master.current_ticklimit - TICK_USAGE) * 0.01 * world.tick_lag))
 		pause()
@@ -415,15 +415,18 @@ SUBSYSTEM_DEF(air)
 
 /datum/controller/subsystem/air/proc/add_to_active(turf/open/T, blockchanges = FALSE)
 	if(istype(T) && T.air)
-		T.set_excited(TRUE)
-		active_turfs |= T
-		if(currentpart == SSAIR_ACTIVETURFS)
-			currentrun |= T
+		T.significant_share_ticker = 0
 		if(blockchanges)
 			T.eg_garbage_collect()
+		if(T.get_excited()) //Don't keep doing it if there's no point
+			return
+		T.set_excited(TRUE)
+		active_turfs += T
+		if(currentpart == SSAIR_ACTIVETURFS)
+			currentrun += T
 	else if(T.flags_1 & INITIALIZED_1)
 		for(var/turf/S in T.atmos_adjacent_turfs)
-			add_to_active(S)
+			add_to_active(S, TRUE)
 	else if(map_loading)
 		if(queued_for_activation)
 			queued_for_activation[T] = T
