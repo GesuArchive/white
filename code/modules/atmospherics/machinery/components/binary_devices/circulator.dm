@@ -186,7 +186,7 @@
 		if(node2)
 			node2.atmosinit()
 			node2.addMember(src)
-		build_network()
+		SSair.add_to_rebuild_queue(src)
 
 	update_icon()
 
