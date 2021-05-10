@@ -551,7 +551,7 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 		if(node)
 			node.atmosinit()
 			node.addMember(src)
-		SSair.add_to_rebuild_queue(src)
+		build_network()
 
 #undef MAX_TEMPERATURE
 #undef CRYO_MULTIPLY_FACTOR
