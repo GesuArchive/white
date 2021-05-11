@@ -120,10 +120,10 @@
 	shoes = /obj/item/clothing/shoes/sneakers/red
 	head = /obj/item/clothing/head/fedora
 	belt = /obj/item/nullrod/claymore/multiverse
-	l_pocket = /obj/item/ammo_box/magazine/m9mm
-	r_pocket = /obj/item/ammo_box/magazine/m9mm
+	l_pocket = /obj/item/ammo_box/magazine/m9mm_aps
+	r_pocket = /obj/item/ammo_box/magazine/m9mm_aps
 	back = /obj/item/storage/backpack/duffelbag/drone
-	backpack_contents = list(/obj/item/gun/ballistic/automatic/m90/columbine = 1)
+	backpack_contents = list(/obj/item/gun/ballistic/automatic/columbine = 1)
 
 //fluff
 /obj/item/storage/belt/chameleon/bomb

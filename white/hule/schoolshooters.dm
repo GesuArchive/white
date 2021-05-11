@@ -6,37 +6,50 @@
 	glasses = /obj/item/clothing/glasses/sunglasses
 	gloves = /obj/item/clothing/gloves/fingerless
 	uniform = /obj/item/clothing/under/syndicate
-	suit = /obj/item/clothing/suit/armor/vest/leather
+	suit = /obj/item/clothing/suit/armor/vest/leather/wzzzz/tailcoat/black
 	shoes = /obj/item/clothing/shoes/combat
-	head = /obj/item/clothing/head/soft/black
+	head = /obj/item/clothing/head/soft/black/columbine
 	l_pocket = /obj/item/switchblade
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/duffelbag/syndie
 	belt = /obj/item/storage/belt/military
 
-/datum/outfit/schoolshooter/typeone
-	name = "Schoolshooter 1"
 
-	suit_store = /obj/item/gun/ballistic/automatic/m90/columbine
-	r_pocket = /obj/item/ammo_box/magazine/m9mm
+/datum/outfit/schoolshooter/typeone
+	name = "Schoolshooter HiPoint"
+
+	suit_store = /obj/item/gun/ballistic/automatic/columbine
+	r_pocket = /obj/item/ammo_box/magazine/m9mm_aps
 	backpack_contents = list(
-								/obj/item/ammo_box/c9mm = 1,
-								/obj/item/ammo_box/magazine/m9mm = 1,
+								/obj/item/storage/box/survival,
 								/obj/item/grenade/iedcasing = 3,
-								/obj/item/grenade/c4 = 2,
-								/obj/item/book/granter/martial/cqc = 1
-							)
+								/obj/item/ammo_box/c9mm = 1,
+								/obj/item/ammo_box/magazine/m9mm_aps = 1,
+								/obj/item/grenade/c4 = 7,
+
+								)
 
 /datum/outfit/schoolshooter/typetwo
-	name = "Schoolshooter 2"
+	name = "Schoolshooter Shotgun"
 
-	l_hand = /obj/item/gun/ballistic/shotgun/automatic/combat
+	l_hand = /obj/item/gun/ballistic/shotgun/fallout/huntingshot/columbine
 	backpack_contents = list(
+								/obj/item/storage/box/survival,
 								/obj/item/grenade/iedcasing = 3,
-								/obj/item/storage/box/lethalshot = 3,
-								/obj/item/grenade/c4 = 2
-							)
+								/obj/item/storage/box/lethalshot = 4,
+								/obj/item/storage/belt/bandolier,
+								/obj/item/crowbar/power/syndicate,
+								/obj/item/storage/fancy/cigarettes/cigpack_syndicate,
+								/obj/item/lighter/greyscale
+								)
 
+/*	А нужен ли третий тип скулшутера? У меня идея получше, но надо разобраться, как срать в динамик.
+/datum/outfit/schoolshooter/typethree
+	name = "Schoolshooter SKS"
 
+	l_hand = /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks
+	backpack_contents =
+
+*/
 //////////////////////////////////////TEAM//////////////////////////////////////
 
 /datum/team/schoolshooters
@@ -78,7 +91,7 @@
 /datum/antagonist/schoolshooter
 	name = "Schoolshooter"
 	roundend_category = "schoolshooters"
-	antagpanel_category = "Traitor"
+	antagpanel_category = "Schoolshooters"
 	show_in_antagpanel = FALSE
 	var/datum/team/schoolshooters/team
 
@@ -101,8 +114,9 @@
 	name = "Spawn Schoolshooters"
 	typepath = /datum/round_event/ghost_role/schoolshooters
 	max_occurrences = 10
+	weight = 25
 	min_players = 20
-	earliest_start = 30 MINUTES
+	earliest_start = 20 MINUTES
 	//gamemode_blacklist = list("nuclear")
 
 /datum/round_event/ghost_role/schoolshooters
@@ -111,7 +125,7 @@
 	fakeable = FALSE
 
 /datum/round_event/ghost_role/schoolshooters/spawn_role()
-	var/list/funny_names = list("Podjog Saraev", "Rulon Oboev", "Ushat Pomoev")
+	var/list/funny_names = list("Podjog Saraev", "Rulon Oboev", "Ushat Pomoev", "Barak Mongolov", "Ulov Nalimov", "Zabeg Debilov")
 
 	var/list/possible_spawns = list()
 	for(var/turf/X in GLOB.xeno_spawn)
@@ -150,6 +164,38 @@
 
 	return SUCCESSFUL_SPAWN
 
+/////////////////////ДИНАМИК ХУЙ ЖРАЛ, А ЕЩЕ Я НЕ ЕБУ, КАК С ЭТИМ РАБОТАТЬ/////////////////////////////////////
+/*
+datum/dynamic_ruleset/midround/from_ghosts/schoolshooters
+	weight = 4
+	name = "Команда скулшутеров"
+	antag_flag = "schoolshooter"
+	antag_flag_override = ROLE_TRAITOR
+	antag_datum = /datum/antagonist/schoolshooter
+	enemy_roles = list("Russian Officer", "Hacker","Veteran", "Security Officer", "Detective","Head of Security", "Captain", "Field Medic")
+	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
+	required_candidates = 2
+	requirements = list(101,101,101,80,60,50,30,20,10,10)
+	repeatable = TRUE
+	var/list/spawn_locs = list()
+
+/datum/dynamic_ruleset/midround/from_ghosts/schoolshooters/finish_setup(mob/new_character, index)
+
+datum/dynamic_ruleset/midround/from_ghosts/schoolshooters/execute()
+	for(var/turf/X in GLOB.xeno_spawn)
+		if(istype(X.loc, /area/maintenance))
+			spawn_locs += X
 
 
+*/
+////////////////////////////////////// ITEMS //////////////////////////////////////
+/obj/item/clothing/head/soft/black/columbine
+	armor = list(MELEE = 25, BULLET = 20, LASER = 20,ENERGY = 20, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0, WOUND = 10)
+	name = "cальная кепка"
+	desc = "Пропитанная затвердевшим потом и грязью кепка вполне способна сослужить в качестве брони"
 
+/obj/item/gun/ballistic/shotgun/fallout/huntingshot/columbine //Девятизарядный дробовик с ОХУЕННЫМ ЗВУКОМ.
+	force = 12
+
+// /obj/item/ammo_box/a762/sks
+//	max_ammo = 10

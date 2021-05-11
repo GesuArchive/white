@@ -1,4 +1,4 @@
-/obj/item/gun/ballistic/automatic/m90/columbine
+/obj/item/gun/ballistic/automatic/columbine
 	name = "Space Hipoint 995"
 	desc = "Brooks, I like you now. Get out of here. Go home now."
 	icon = 'white/hule/icons/obj/weapons.dmi'
@@ -7,10 +7,12 @@
 	lefthand_file = 'white/hule/icons/onmob/ballistic_l.dmi'
 	righthand_file = 'white/hule/icons/onmob/ballistic_r.dmi'
 	pin = /obj/item/firing_pin
-	mag_type = /obj/item/ammo_box/magazine/m9mm
-	burst_size = 1
-	fire_delay = 0.5
+	mag_type = /obj/item/ammo_box/magazine/m9mm_aps
+	burst_size = 2
+	fire_delay = 0.8
 	w_class = WEIGHT_CLASS_NORMAL
+	fire_sound = 'sound/weapons/gun/smg/shot_alt.ogg'
+	can_suppress = FALSE
 /*
 /datum/outfit/schoolshooter
 	name = "Schoolshooter"
