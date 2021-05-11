@@ -1432,6 +1432,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/main)
+"dF" = (
+/turf/open/floor/plasteel{
+	icon_state = "damaged5"
+	},
+/area/security/brig)
 "dG" = (
 /obj/structure/rack,
 /obj/item/storage/box/rubbershot{
@@ -3208,8 +3213,8 @@
 /turf/open/floor/plasteel,
 /area/security/brig)
 "xN" = (
-/turf/open/floor/plasteel/airless{
-	icon_state = "damaged3"
+/turf/open/floor/plasteel{
+	icon_state = "damaged1"
 	},
 /area/security/brig)
 "BQ" = (
@@ -3217,12 +3222,18 @@
 /obj/effect/landmark/start/field_medic,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
+"Xp" = (
+/turf/open/floor/plasteel{
+	icon_state = "damaged4"
+	},
+/area/security/brig)
 "Zw" = (
 /turf/open/openspace,
 /area/security/brig)
 "ZQ" = (
-/obj/structure/lattice,
-/turf/open/openspace,
+/turf/open/floor/plasteel{
+	icon_state = "damaged3"
+	},
 /area/security/brig)
 
 (1,1,1) = {"
@@ -4453,7 +4464,7 @@ bw
 cc
 fw
 ZQ
-ZQ
+Xp
 iz
 ab
 "}
@@ -4541,7 +4552,7 @@ bw
 cf
 fw
 Zw
-xN
+dF
 iz
 ab
 "}
