@@ -122,7 +122,7 @@
 		. += "<hr><b>Уважение проявили:</b> <i>[english_list(coomers)]</i>."
 
 /obj/structure/sign/plaques/robust
-	name = "Портрет Richard Jenkins"
+	name = "Портрет: Richard Jenkins"
 	desc = "Здесь изображён робастный мужчина. Просьба не показывать ему вёдра!<hr><b>MasterOfDmx</b> - второе место!"
 	icon = 'white/valtos/icons/robust.dmi'
 	icon_state = "silver_2021"
@@ -146,8 +146,8 @@
 			coomers += user.name
 
 /obj/structure/sign/plaques/robust/bronze
-	name = "Портрет"
-	desc = "Тут должен быть Devid Elander.<hr><b>Devid Elander</i> - третье место!"
+	name = "Портрет: Юстин Покровский"
+	desc = "<a href=\"https://youtu.be/Lrj2Hq7xqQ8\">Человек, который просто хотел первое место.</a><hr><b>Devid Elander</i> - третье место!"
 	icon_state = "bronze_2021"
 	custom_materials = list(/datum/material/bronze=MINERAL_MATERIAL_AMOUNT*2)
 	flags_1 = NODECONSTRUCT_1
