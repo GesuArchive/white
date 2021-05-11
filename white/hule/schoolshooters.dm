@@ -53,8 +53,8 @@
 //////////////////////////////////////TEAM//////////////////////////////////////
 
 /datum/team/schoolshooters
-	name = "Schoolshooters"
-	member_name = "schoolshooter"
+	name = "Террористы"
+	member_name = "Террорист"
 
 /datum/team/schoolshooters/New()
 	..()
@@ -90,8 +90,8 @@
 
 /datum/antagonist/schoolshooter
 	name = "Schoolshooter"
-	roundend_category = "schoolshooters"
-	antagpanel_category = "Schoolshooters"
+	roundend_category = "Terrorists"
+	antagpanel_category = "Terrorists"
 	show_in_antagpanel = FALSE
 	var/datum/team/schoolshooters/team
 
@@ -103,15 +103,15 @@
 	team = new_team
 
 /datum/antagonist/schoolshooter/on_gain()
-	owner.special_role = "Schoolshooter"
-	owner.assigned_role = "Schoolshooter"
+	owner.special_role = "Terrorist"
+	owner.assigned_role = "Terrorist"
 	objectives += team.objectives
 	return ..()
 
 //////////////////////////////////////ROUND EVENT//////////////////////////////////////
 
 /datum/round_event_control/schoolshooters
-	name = "Spawn Schoolshooters"
+	name = "Spawn Terrorists"
 	typepath = /datum/round_event/ghost_role/schoolshooters
 	max_occurrences = 10
 	weight = 25
@@ -121,7 +121,7 @@
 
 /datum/round_event/ghost_role/schoolshooters
 	minimum_required = 2
-	role_name = "schoolshooters"
+	role_name = "Terrorists"
 	fakeable = FALSE
 
 /datum/round_event/ghost_role/schoolshooters/spawn_role()
@@ -156,7 +156,7 @@
 	for(var/mob/living/carbon/human/M in spawned_mobs)
 		M.mind.add_antag_datum(/datum/antagonist/schoolshooter, T)
 		M.forceMove(landing_turf)
-		log_game("[key_name(M)] has been selected as Schoolshooter.")
+		log_game("[key_name(M)] has been selected as Terrorist.")
 		var/namae = pick(funny_names)
 		funny_names -= namae
 		M.real_name = namae
