@@ -128,14 +128,14 @@
 	description = "benis"
 	mappath = "_maps/templates/holodeck_thunderdome1218.dmm"
 	restricted = TRUE
-
+/*
 /datum/map_template/holodeck/burntest
 	name = "Голодек: Тест Атмоса"
 	template_id = "holodeck_burntest"
 	description = "benis"
 	mappath = "_maps/templates/holodeck_burntest.dmm"
 	restricted = TRUE
-
+*/
 /datum/map_template/holodeck/wildlifesim
 	name = "Голодек: Моделирование дикой природы"
 	template_id = "holodeck_wildlifesim"
