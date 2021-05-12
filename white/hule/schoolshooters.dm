@@ -153,7 +153,7 @@
 		return pick(possible_areas)
 
 /datum/round_event/ghost_role/schoolshooters/spawn_role()
-	var/list/funny_names = list("Podjog Saraev", "Rulon Oboev", "Ushat Pomoev", "Barak Mongolov", "Ulov Nalimov", "Zabeg Debilov")
+	var/list/funny_names = list("Podjog Saraev", "Rulon Oboev", "Ushat Pomoev", "Barak Mongolov", "Ulov Nalimov", "Zabeg Debilov", "Kompil Bildov", "Razriv Ochkov", "Anban Debilov", "Ali Rezun", "Obser Shtanov")
 
 	var/list/turf/valid_turfs = get_area_turfs(impact_area)
 		//Only target non-dense turfs to prevent wall-embedded pods
@@ -188,11 +188,15 @@
 		M.mind.add_antag_datum(/datum/antagonist/schoolshooter, T)
 		M.forceMove(columbine_pod)
 		log_game("[key_name(M)] has been selected as Terrorist.")
-		var/namae = pick(funny_names)
-		funny_names -= namae
+		var/namae
+		if(prob(99))
+			namae = pick(funny_names)
+			funny_names -= namae
+		else
+			namae = "Valtos" // ඞ //
 		M.real_name = namae
 	new /obj/effect/pod_landingzone(landing, columbine_pod)
-	priority_announce("Зафиксированна десантная капсула террористической группировки","ТРЕВОГА!", 'sound/ai/announcer/alert.ogg')
+	priority_announce("Зафиксированна десантная капсула неизвестной террористической группировки","ТРЕВОГА!", 'sound/ai/announcer/alert.ogg') //мне это так глаза резало, что я не мог не исправить этот viser
 
 	return SUCCESSFUL_SPAWN
 
