@@ -126,7 +126,7 @@
 	fakeable = FALSE
 	var/area/impact_area //Куда же упадут наши космодесантники?
 
-datum/round_event/ghost_role/schoolshooters/setup()
+/datum/round_event/ghost_role/schoolshooters/setup()
 	impact_area = find_event_area()
 	if(!impact_area)
 		CRASH("No valid areas for Terrorist drop found.")
