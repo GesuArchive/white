@@ -805,32 +805,10 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/suit/hooded/ablative,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "ck" = (
-/obj/structure/rack,
-/obj/item/clothing/suit/armor/bulletproof{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/suit/armor/bulletproof{
-	pixel_x = 3;
-	pixel_y = -3
-	},
-/obj/item/clothing/head/helmet/alt{
-	layer = 3.00001;
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/clothing/head/helmet/alt{
-	layer = 3.00001
-	},
-/obj/item/clothing/head/helmet/alt{
-	layer = 3.00001;
-	pixel_x = 3;
-	pixel_y = -3
-	},
 /obj/machinery/camera/motion{
 	c_tag = "Armory Motion Sensor"
 	},
@@ -845,40 +823,19 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/guncase/ecase{
+	anchored = 1;
+	can_be_unanchored = 1
+	},
+/obj/item/gun/energy/e_gun/mini,
+/obj/item/gun/energy/e_gun/mini,
+/obj/item/gun/energy/e_gun/mini,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "cl" = (
-/obj/structure/rack,
-/obj/item/clothing/suit/armor/riot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/clothing/suit/armor/riot,
-/obj/item/clothing/suit/armor/riot{
-	pixel_x = 3;
-	pixel_y = -3
-	},
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/clothing/head/helmet/riot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/clothing/head/helmet/riot,
-/obj/item/clothing/head/helmet/riot{
-	pixel_x = 3;
-	pixel_y = -3
-	},
-/obj/item/shield/riot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/shield/riot,
-/obj/item/shield/riot{
-	pixel_x = 3;
-	pixel_y = -3
-	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -890,15 +847,19 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/guncase/shotgun{
+	anchored = 1;
+	can_be_unanchored = 1
+	},
+/obj/item/gun/ballistic/shotgun/riot,
+/obj/item/gun/ballistic/shotgun/riot,
+/obj/item/gun/ballistic/shotgun/riot,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "cm" = (
-/obj/structure/rack,
 /obj/machinery/airalarm{
 	pixel_y = 23
 	},
-/obj/item/gun/energy/ionrifle,
-/obj/item/clothing/suit/hooded/ablative,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -910,6 +871,13 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/gun/energy/ionrifle,
+/obj/structure/guncase/ecase{
+	anchored = 1;
+	can_be_unanchored = 1
+	},
+/obj/item/gun/energy/e_gun/mini,
+/obj/item/gun/energy/e_gun/mini,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "cn" = (
@@ -1193,7 +1161,6 @@
 /turf/open/floor/plasteel,
 /area/ai_monitored/security/armory)
 "de" = (
-/obj/vehicle/sealed/mecha/makeshift,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/ai_monitored/security/armory)

@@ -720,42 +720,18 @@
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "de" = (
-/obj/structure/rack,
 /obj/effect/turf_decal/bot,
-/obj/structure/window/reinforced{
-	dir = 1;
-	layer = 2.9
+/obj/item/gun/ballistic/shotgun/sniper,
+/obj/structure/guncase/shotgun{
+	anchored = 1;
+	can_be_unanchored = 1
 	},
-/obj/machinery/door/window/southleft{
-	name = "Armory Rack";
-	req_access_txt = "3"
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/item/gun/ballistic/shotgun/sniper,
 /obj/item/gun/ballistic/shotgun/sniper,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "df" = (
-/obj/structure/rack,
 /obj/effect/turf_decal/bot,
-/obj/structure/window/reinforced{
-	dir = 1;
-	layer = 2.9
-	},
-/obj/machinery/door/window/southleft{
-	name = "Armory Rack";
-	req_access_txt = "3"
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/item/gun/energy/disabler{
 	pixel_x = -3;
 	pixel_y = 3
@@ -764,6 +740,10 @@
 /obj/item/gun/energy/disabler{
 	pixel_x = 3;
 	pixel_y = -3
+	},
+/obj/structure/guncase/ecase{
+	anchored = 1;
+	can_be_unanchored = 1
 	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)

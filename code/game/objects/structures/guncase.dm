@@ -1,7 +1,7 @@
 //GUNCASES//
 /obj/structure/guncase
-	name = "gun locker"
-	desc = "A locker that holds guns."
+	name = "шкаф с оружием"
+	desc = "Хранит ваши стволы в безопасности."
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "shotguncase"
 	anchored = FALSE
@@ -41,10 +41,10 @@
 		if(LAZYLEN(contents) < capacity)
 			if(!user.transferItemToLoc(I, src))
 				return
-			to_chat(user, "<span class='notice'>You place [I] in [src].</span>")
+			to_chat(user, "<span class='notice'>Убираю [I.name] в [src.name].</span>")
 			update_icon()
 		else
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] is full.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] переполнен.</span>")
 		return
 
 	else if(user.a_intent != INTENT_HARM)
@@ -126,14 +126,14 @@
 				SSexplosions.low_mov_atom += thing
 
 /obj/structure/guncase/shotgun
-	name = "shotgun locker"
-	desc = "A locker that holds shotguns."
+	name = "шкаф с дробовиками"
+	desc = "Шкаф, который хранит дробовики."
 	case_type = "shotgun"
 	gun_category = /obj/item/gun/ballistic/shotgun
 
 /obj/structure/guncase/ecase
-	name = "energy gun locker"
-	desc = "A locker that holds energy guns."
+	name = "шкаф с е-ганами"
+	desc = "Шкаф, который хранит энергетические винтовки."
 	icon_state = "ecase"
 	case_type = "egun"
 	gun_category = /obj/item/gun/energy/e_gun
