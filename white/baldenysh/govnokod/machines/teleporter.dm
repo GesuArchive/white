@@ -150,15 +150,15 @@
 		if(istype(BS, /turf/open/openspace/bluespace))
 			active_tiles += BS
 
-		var/tx = target_x + BS.x - x
-		var/ty = target_y + BS.y - y
+			var/tx = target_x + BS.x - x
+			var/ty = target_y + BS.y - y
 
-		if(tx < 0 || ty < 0)
-			BS.start_collapse()
-			stop_exp()
-			return
+			if(tx < 0 || ty < 0)
+				BS.start_collapse()
+				stop_exp()
+				return
 
-		BS.rift(locate(tx, ty, target_z))
+			BS.rift(locate(tx, ty, target_z))
 
 	if(!pointer_step())
 		stop_exp()
