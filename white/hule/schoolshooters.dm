@@ -93,6 +93,7 @@
 	roundend_category = "Terrorists"
 	antagpanel_category = "Terrorists"
 	show_in_antagpanel = FALSE
+	show_to_ghosts = TRUE
 	var/datum/team/schoolshooters/team
 
 /datum/antagonist/schoolshooter/create_team(datum/team/abductor_team/new_team)
@@ -123,21 +124,44 @@
 	minimum_required = 2
 	role_name = "Terrorists"
 	fakeable = FALSE
+	var/area/impact_area //Куда же упадут наши космодесантники?
+
+datum/round_event/ghost_role/schoolshooters/setup()
+	impact_area = find_event_area()
+	if(!impact_area)
+		CRASH("No valid areas for Terrorist drop found.")
+	var/list/turf_test = get_area_turfs(impact_area)
+	if(!turf_test.len)
+		CRASH("Spawn Terrorists : No valid turfs found for [impact_area] - [impact_area.type]")
+
+/datum/round_event/ghost_role/schoolshooters/proc/find_event_area()
+	var/static/list/allowed_areas
+	if(!allowed_areas)
+		///Places that shouldn't explode
+		var/list/safe_area_types = typecacheof(list(
+		/area/ai_monitored/turret_protected/ai,
+		/area/ai_monitored/turret_protected/ai_upload,
+		/area/engine,
+		/area/shuttle)
+		)
+
+		///Subtypes from the above that actually should explode.
+		var/list/unsafe_area_subtypes = typecacheof(list(/area/engine/break_room))
+		allowed_areas = make_associative(GLOB.the_station_areas) - safe_area_types + unsafe_area_subtypes
+	var/list/possible_areas = typecache_filter_list(GLOB.sortedAreas,allowed_areas)
+	if (length(possible_areas))
+		return pick(possible_areas)
 
 /datum/round_event/ghost_role/schoolshooters/spawn_role()
 	var/list/funny_names = list("Podjog Saraev", "Rulon Oboev", "Ushat Pomoev", "Barak Mongolov", "Ulov Nalimov", "Zabeg Debilov")
 
-	var/list/possible_spawns = list()
-	for(var/turf/X in GLOB.xeno_spawn)
-		if(istype(X.loc, /area/maintenance))
-			possible_spawns += X
-
-	if(!possible_spawns.len)
-		message_admins("No valid spawn locations found, aborting...")
-		return MAP_ERROR
-
-	var/turf/landing_turf = pick(possible_spawns)
-
+	var/list/turf/valid_turfs = get_area_turfs(impact_area)
+		//Only target non-dense turfs to prevent wall-embedded pods
+	for(var/i in valid_turfs)
+		var/turf/T = i
+		if(T.density)
+			valid_turfs -= T
+	var/turf/landing = pick(valid_turfs)
 	var/list/candidates = get_candidates(ROLE_TRAITOR, null, ROLE_TRAITOR)
 
 	if(candidates.len < 2)
@@ -153,14 +177,22 @@
 	first.equipOutfit(/datum/outfit/schoolshooter/typeone)
 	second.equipOutfit(/datum/outfit/schoolshooter/typetwo)
 
+	var/obj/structure/closet/supplypod/extractionpod/columbine_pod = new()
+	columbine_pod.bluespace = FALSE
+	columbine_pod.explosionSize = list(0,0,0,3)
+	columbine_pod.style = STYLE_SYNDICATE
+	columbine_pod.name = "Террористический дроппод"
+	columbine_pod.desc = "Прямиком из группировок, запрещенных на территории НТ "
+
 	for(var/mob/living/carbon/human/M in spawned_mobs)
 		M.mind.add_antag_datum(/datum/antagonist/schoolshooter, T)
-		M.forceMove(landing_turf)
+		M.forceMove(columbine_pod)
 		log_game("[key_name(M)] has been selected as Terrorist.")
 		var/namae = pick(funny_names)
 		funny_names -= namae
 		M.real_name = namae
-
+	new /obj/effect/pod_landingzone(landing, columbine_pod)
+	priority_announce("Зафиксированна десантная капсула террористической группировки","ТРЕВОГА!", 'sound/ai/announcer/alert.ogg')
 
 	return SUCCESSFUL_SPAWN
 
