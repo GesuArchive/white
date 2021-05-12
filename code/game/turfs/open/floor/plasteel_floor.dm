@@ -233,3 +233,24 @@
 /turf/open/floor/plasteel/sepia
 	icon_state = "sepia"
 	base_icon_state = "sepia"
+
+/turf/open/floor/plasteel/monofloor
+	icon_state = "monofloor"
+	base_icon_state = "monofloor"
+
+/turf/open/floor/plasteel/monofloor/airless
+	initial_gas_mix = AIRLESS_ATMOS
+
+/turf/open/floor/plasteel/monofloor/white
+	icon_state = "monowhite"
+	base_icon_state = "monowhite"
+
+/turf/open/floor/plasteel/monofloor/white/airless
+	initial_gas_mix = AIRLESS_ATMOS
+
+/turf/open/floor/plasteel/monofloor/dark
+	icon_state = "monodarkfull"
+	base_icon_state = "monodarkfull"
+
+/turf/open/floor/plasteel/monofloor/dark/airless
+	initial_gas_mix = AIRLESS_ATMOS
