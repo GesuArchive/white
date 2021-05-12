@@ -46,8 +46,8 @@
 	below.above_override = src
 	below_override = below
 	if(istype(below, /turf/open))
-		if(isopenspace(below) || isspaceturf(below))
-			return FALSE
+		//if(isopenspace(below) || isspaceturf(below))
+		//	return FALSE
 		below_override.CanAtmosPassVertical = ATMOS_PASS_YES
 
 	return TRUE

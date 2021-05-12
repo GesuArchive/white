@@ -24,7 +24,7 @@
 
 	var/target_x = 100
 	var/target_y = 100
-	var/target_z = 2
+	var/target_z = 3
 
 	var/icon_state_on = "teleporter_active"
 	var/icon_state_underpowered = "teleporter_underpowered"
