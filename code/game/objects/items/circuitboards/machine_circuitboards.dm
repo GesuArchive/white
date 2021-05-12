@@ -482,7 +482,7 @@
 	icon_state = "generic"
 	build_path = /obj/machinery/electrolyzer
 	req_components = list(
-		/obj/item/stock_parts/electrolite = 2,
+		/obj/item/stock_parts/manipulator = 2,
 		/obj/item/stock_parts/capacitor = 2,
 		/obj/item/stack/cable_coil = 5,
 		/obj/item/stack/sheet/glass = 1)
