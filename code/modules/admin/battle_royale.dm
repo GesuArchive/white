@@ -101,7 +101,7 @@ GLOBAL_DATUM(battle_royale, /datum/battle_royale_controller)
 
 /client/proc/battle_royale()
 	set name = "Battle Royale"
-	set category = "Fun"
+	set category = "Адм.Рояль"
 	if(!check_rights(R_FUN))
 		to_chat(src, "<span class='warning'>You do not have permission to do that!</span>")
 		return
@@ -118,7 +118,7 @@ GLOBAL_DATUM(battle_royale, /datum/battle_royale_controller)
 
 /client/proc/battle_royale_speed()
 	set name = "Battle Royale - Change wall speed"
-	set category = "Event"
+	set category = "Адм.Рояль"
 	if(!check_rights(R_FUN))
 		to_chat(src, "<span class='warning'>You do not have permission to do that!</span>")
 		return
@@ -133,7 +133,7 @@ GLOBAL_DATUM(battle_royale, /datum/battle_royale_controller)
 
 /client/proc/battle_royale_varedit()
 	set name = "Battle Royale - Variable Edit"
-	set category = "Event"
+	set category = "Адм.Рояль"
 	if(!check_rights(R_FUN))
 		to_chat(src, "<span class='warning'>You do not have permission to do that!</span>")
 		return
@@ -144,7 +144,7 @@ GLOBAL_DATUM(battle_royale, /datum/battle_royale_controller)
 
 /client/proc/battle_royale_spawn_loot()
 	set name = "Battle Royale - Spawn Loot Drop (Minor)"
-	set category = "Event"
+	set category = "Адм.Рояль"
 	if(!check_rights(R_FUN))
 		to_chat(src, "<span class='warning'>You do not have permission to do that!</span>")
 		return
@@ -157,7 +157,7 @@ GLOBAL_DATUM(battle_royale, /datum/battle_royale_controller)
 
 /client/proc/battle_royale_spawn_loot_good()
 	set name = "Battle Royale - Spawn Loot Drop (Major)"
-	set category = "Event"
+	set category = "Адм.Рояль"
 	if(!check_rights(R_FUN))
 		to_chat(src, "<span class='warning'>You do not have permission to do that!</span>")
 		return
