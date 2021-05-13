@@ -69,6 +69,41 @@ GLOBAL_LIST_INIT(battle_royale_good_loot, list(
 		/obj/item/gun/energy/laser/captain,
 		/obj/item/gun/ballistic/revolver/mateba,
 		/obj/item/gun/ballistic/automatic/c20r,
+		/obj/item/gun/ballistic/automatic/pistol/traumatic,
+		/obj/item/gun/ballistic/automatic/wzzzz/carbine,
+		/obj/item/gun/ballistic/automatic/wzzzz/stg,
+		/obj/item/gun/ballistic/automatic/M41A,
+		/obj/item/gun/ballistic/automatic/pistol/deagle,
+		/obj/item/gun/ballistic/automatic/pistol/deagle/gold,
+		/obj/item/gun/ballistic/automatic/ar,
+		/obj/item/gun/ballistic/automatic/wt550,
+		/obj/item/gun/ballistic/automatic/wzzzz/assault_rifle,
+		/obj/item/gun/ballistic/automatic/pistol/wzzzz/mauser,
+		/obj/item/gun/ballistic/automatic/pistol/m1911,
+		/obj/item/gun/ballistic/automatic/wzzzz/mp40,
+		/obj/item/gun/ballistic/automatic/ar/wzzzz/fg42,
+		/obj/item/gun/ballistic/automatic/pistol/wzzzz/luger,
+		/obj/item/gun/ballistic/automatic/fallout/smg45,
+		/obj/item/gun/ballistic/automatic/fallout/smg22,
+		/obj/item/gun/ballistic/automatic/fallout/smg9mm,
+		/obj/item/gun/ballistic/automatic/fallout/smg9mm/handmade,
+		/obj/item/gun/ballistic/automatic/fallout/smg10mm,
+		/obj/item/gun/ballistic/automatic/fallout/smg12mm,
+		/obj/item/gun/ballistic/automatic/fallout/marksman/service/survival,
+		/obj/item/gun/ballistic/automatic/fallout/marksman/service/police22,
+		/obj/item/gun/ballistic/automatic/fallout/marksman/service,
+		/obj/item/gun/ballistic/automatic/fallout/assaultrifle/chinese,
+		/obj/item/gun/ballistic/automatic/fallout/assaultrifle,
+		/obj/item/gun/ballistic/automatic/pistol/fallout/deagle,
+		/obj/item/gun/ballistic/automatic/pistol/fallout/m10mm,
+		/obj/item/gun/ballistic/automatic/pistol/fallout/m10mm/chinese,
+		/obj/item/gun/ballistic/automatic/pistol/fallout/m10mm/chinese/v420,
+		/obj/item/gun/ballistic/automatic/pistol/fallout/m10mm/military,
+		/obj/item/gun/ballistic/automatic/pistol/fallout/m12mm,
+		/obj/item/gun/ballistic/automatic/pistol/fallout/m12mm/devil,
+		/obj/item/gun/ballistic/automatic/pistol/fallout/m9mm,
+		/obj/item/gun/ballistic/automatic/pistol/fallout/m9mm/handmade,
+		/obj/item/gun/ballistic/automatic/pistol/fallout/m9mm/maria,
 		/obj/item/ammo_box/magazine/smgm45,
 		/obj/item/katana,
 		/obj/item/melee/transforming/energy/sword,
@@ -214,11 +249,13 @@ GLOBAL_DATUM(battle_royale, /datum/battle_royale_controller)
 		winner = M
 		CHECK_TICK
 	if(living_victims <= 1 && !debug_mode)
-		to_chat(world, "<span class='ratvar'><font size=18>ПОБЕДА!!! ПОБЕДА!!!</font></span>")
+		to_chat(world, "<span class='ratvar'><font size=14>ПОБЕДА!!!</font></span>")
 		if(winner)
 			winner.client?.process_greentext()
-			to_chat(world, "<span class='ratvar'><font size=18>[key_name(winner)] победитель!</font></span>")
+			to_chat(world, "<span class='ratvar'><font size=14>[key_name(winner)] победитель!</font></span>")
 			new /obj/item/melee/supermatter_sword(get_turf(winner))
+		else
+			to_chat(world, "<span class='ratvar'><font size=14>Победила дружба!</font></span>")
 		qdel(src)
 		return
 	//Once every 15 seconsd
@@ -243,7 +280,7 @@ GLOBAL_DATUM(battle_royale, /datum/battle_royale_controller)
 		if(check_rights_for(C, R_FUN))
 			C.verbs += BATTLE_ROYALE_AVERBS
 	toggle_ooc(FALSE)
-	to_chat(world, "<span class='ratvar'><font size=24>Боевой музыкальный инструмент начинается...</span></span>")
+	to_chat(world, "<span class='ratvar'><font size=14>Королевская Битва начинается...</span></span>")
 	//Stop new player joining
 	GLOB.enter_allowed = FALSE
 	world.update_status()
@@ -278,7 +315,7 @@ GLOBAL_DATUM(battle_royale, /datum/battle_royale_controller)
 	to_chat(world, "<span class='boldannounce'>КБ: НАЧАЛО ЧЕРЕЗ 5 СЕКУНД.</span>")
 	to_chat(world, "<span class='greenannounce'>Убедитесь, что нажали ДА, если собираетесь вступить в игру.</span>")
 	sleep(50)
-	to_chat(world, "<span class='boldannounce'>КБ: Игра начинается.</span>")
+	to_chat(world, "<span class='boldannounce'>КБ: Игра начинается...</span>")
 	titanfall()
 	death_wall = list()
 	var/z_level = SSmapping.station_start
@@ -374,6 +411,7 @@ GLOBAL_DATUM(battle_royale, /datum/battle_royale_controller)
 //==================================
 
 /obj/effect/death_wall
+	name = "НЕПРИЯТНАЯ СТЕНА"
 	var/current_radius = 118
 	var/turf/center_turf
 	icon = 'icons/effects/fields.dmi'
