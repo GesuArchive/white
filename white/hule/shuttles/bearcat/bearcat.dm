@@ -21,6 +21,7 @@
 /area/shuttle/bearcat
 	name = "CSV Bearcat"
 	requires_power = TRUE
+	area_flags = HIDDEN_AREA | UNIQUE_AREA
 
 /area/shuttle/bearcat/bridge
 	name = "Bridge"
