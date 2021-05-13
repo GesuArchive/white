@@ -52,7 +52,6 @@
 	SIGNAL_HANDLER
 
 	var/obj/item/weapon = honorbound.get_active_held_item()
-	var/list/modifiers = params2list(params)
 
 	if(!isliving(clickingon))
 		return
@@ -60,7 +59,7 @@
 		return
 	if(weapon.item_flags & NOBLUDGEON)
 		return
-	if(attacker.a_intent != INTENT_HARM && ((!weapon || !weapon.force)))
+	if(honorbound.a_intent != INTENT_HARM && ((!weapon || !weapon.force)))
 		return
 	var/mob/living/clickedmob = clickingon
 	if(!is_honorable(honorbound, clickedmob))
