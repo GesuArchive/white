@@ -147,13 +147,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/turf/open/floor/light,
+/turf/open/floor/light/colour_cycle/dancefloor_a,
 /area/crew_quarters/bar)
 "av" = (
 /obj/structure/chair/stool/bar{
 	dir = 4
 	},
-/turf/open/floor/light,
+/turf/open/floor/light/colour_cycle/dancefloor_b,
 /area/crew_quarters/bar)
 "aw" = (
 /obj/structure/disposalpipe/segment{
@@ -423,7 +423,7 @@
 /obj/machinery/chem_dispenser/drinks/beer{
 	dir = 8
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/bar)
 "bn" = (
 /obj/effect/turf_decal/stripes/line{
@@ -497,13 +497,13 @@
 	pixel_x = -6;
 	pixel_y = 28
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/bar)
 "bC" = (
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/bar)
 "bD" = (
 /obj/machinery/firealarm{
@@ -515,7 +515,7 @@
 	},
 /obj/structure/table,
 /obj/machinery/recharger,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/bar)
 "bE" = (
 /obj/machinery/door/airlock{
@@ -534,14 +534,14 @@
 	name = "Theatre Stage"
 	},
 /obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/theatre)
 "bH" = (
 /obj/effect/landmark/start/assistant,
 /obj/structure/chair/stool/bar{
 	dir = 4
 	},
-/turf/open/floor/light,
+/turf/open/floor/light/colour_cycle/dancefloor_a,
 /area/crew_quarters/bar)
 "bJ" = (
 /obj/effect/spawner/structure/window,
@@ -568,11 +568,11 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/bar)
 "bN" = (
 /obj/machinery/vending/boozeomat,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/bar)
 "bO" = (
 /obj/machinery/vending/dinnerware,
@@ -698,7 +698,7 @@
 /area/crew_quarters/bar)
 "cf" = (
 /mob/living/carbon/human/species/monkey/punpun,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/bar)
 "cg" = (
 /obj/machinery/airalarm{
@@ -749,17 +749,17 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/light,
+/turf/open/floor/light/colour_cycle/dancefloor_a,
 /area/crew_quarters/bar)
 "cs" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
-/turf/open/floor/light,
+/turf/open/floor/light/colour_cycle/dancefloor_a,
 /area/crew_quarters/bar)
 "ct" = (
 /obj/effect/landmark/start/bartender,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/bar)
 "cu" = (
 /obj/machinery/requests_console{
@@ -776,7 +776,7 @@
 /obj/machinery/chem_dispenser/drinks{
 	dir = 8
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/bar)
 "cv" = (
 /obj/structure/table,
@@ -889,14 +889,14 @@
 /obj/machinery/newscaster{
 	pixel_y = -28
 	},
-/turf/open/floor/light,
+/turf/open/floor/light/colour_cycle/dancefloor_b,
 /area/crew_quarters/bar)
 "cL" = (
 /obj/machinery/computer/security/telescreen/entertainment{
 	pixel_x = 32
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/bar)
 "cM" = (
 /obj/effect/landmark/start/cook,
@@ -929,7 +929,7 @@
 /turf/open/floor/glass/reinforced,
 /area/crew_quarters/bar)
 "cR" = (
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/bar)
 "cS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -938,7 +938,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 8
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/bar)
 "cT" = (
 /obj/machinery/light,
@@ -1014,7 +1014,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/bar)
 "de" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -1028,7 +1028,7 @@
 	pixel_y = 9
 	},
 /obj/item/storage/toolbox/artistic,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/bar)
 "df" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -1039,7 +1039,7 @@
 	},
 /obj/structure/table,
 /obj/item/storage/box/beakers,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/bar)
 "dg" = (
 /obj/machinery/door/airlock{
@@ -1075,7 +1075,7 @@
 	dir = 1;
 	pixel_y = -24
 	},
-/turf/open/floor/light,
+/turf/open/floor/light/colour_cycle/dancefloor_a,
 /area/crew_quarters/bar)
 "dk" = (
 /obj/structure/sign/barsign,
@@ -1106,7 +1106,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/light,
+/turf/open/floor/light/colour_cycle/dancefloor_b,
 /area/crew_quarters/bar)
 "dp" = (
 /obj/machinery/door/firedoor,
@@ -1128,7 +1128,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/turf/open/floor/light,
+/turf/open/floor/light/colour_cycle/dancefloor_a,
 /area/crew_quarters/bar)
 "dr" = (
 /obj/effect/spawner/structure/window,
@@ -1143,16 +1143,16 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/turf/open/floor/light,
+/turf/open/floor/light/colour_cycle/dancefloor_b,
 /area/crew_quarters/bar)
 "dy" = (
-/turf/open/floor/light,
+/turf/open/floor/light/colour_cycle/dancefloor_a,
 /area/crew_quarters/bar)
 "eP" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/turf/open/floor/light,
+/turf/open/floor/light/colour_cycle/dancefloor_b,
 /area/crew_quarters/bar)
 "hR" = (
 /obj/structure/chair/stool{
@@ -1162,24 +1162,38 @@
 	dir = 1
 	},
 /area/hallway/primary/starboard)
+"lO" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/light/colour_cycle/dancefloor_a,
+/area/crew_quarters/bar)
+"lW" = (
+/turf/open/floor/light/colour_cycle/dancefloor_b,
+/area/crew_quarters/bar)
+"og" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/light/colour_cycle/dancefloor_a,
+/area/crew_quarters/bar)
 "oT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/landmark/event_spawn,
-/turf/open/floor/light,
+/turf/open/floor/light/colour_cycle/dancefloor_b,
 /area/crew_quarters/bar)
 "qf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/bar)
 "qQ" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/bar)
 "rU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/light,
+/turf/open/floor/light/colour_cycle/dancefloor_b,
 /area/crew_quarters/bar)
 "sm" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -1282,7 +1296,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/turf/open/floor/light,
+/turf/open/floor/light/colour_cycle/dancefloor_a,
 /area/crew_quarters/bar)
 "JS" = (
 /turf/open/floor/plasteel/white/side{
@@ -1296,7 +1310,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 6
 	},
-/turf/open/floor/light,
+/turf/open/floor/light/colour_cycle/dancefloor_b,
 /area/crew_quarters/bar)
 "Mo" = (
 /obj/structure/table/reinforced,
@@ -1375,11 +1389,11 @@ ar
 ar
 bJ
 dy
+lW
 dy
+lW
 dy
-dy
-dy
-dy
+lW
 dy
 ah
 "}
@@ -1391,11 +1405,11 @@ ar
 ar
 ar
 bJ
+lW
 dy
+lW
 dy
-dy
-dy
-dy
+lW
 dy
 cJ
 ah
@@ -1409,11 +1423,11 @@ aX
 ar
 bJ
 dy
+lW
 dy
+lW
 dy
-dy
-dy
-dy
+lW
 dj
 ah
 "}
@@ -1425,13 +1439,13 @@ ar
 aY
 ar
 bJ
-dy
+lW
 cs
 bY
 wZ
 db
 dy
-dy
+lW
 dp
 "}
 (7,1,1) = {"
@@ -1447,7 +1461,7 @@ dv
 cZ
 cX
 dn
-dy
+lW
 dy
 dr
 "}
@@ -1459,8 +1473,8 @@ aL
 bb
 ar
 bJ
-dy
-dv
+lW
+lO
 bn
 Up
 vB
@@ -1479,7 +1493,7 @@ bJ
 dy
 dv
 dy
-dy
+lW
 dy
 eP
 dq
@@ -1496,7 +1510,7 @@ bG
 rU
 au
 rU
-rU
+og
 oT
 cq
 do
@@ -1515,7 +1529,7 @@ av
 bH
 av
 bH
-dy
+lW
 GL
 ah
 "}
