@@ -420,6 +420,10 @@ GLOBAL_LIST_EMPTY(lifts)
 	layer = 2.3
 	density = TRUE
 
+/obj/structure/industrial_lift/tram/console/Initialize(mapload)
+	. = ..()
+	SStramprocess.can_fire = TRUE
+
 /obj/structure/industrial_lift/tram/use(mob/user) //dont click the floor dingus we use computers now
 	return
 
