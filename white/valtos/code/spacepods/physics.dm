@@ -9,6 +9,10 @@
 	var/last_offset_y = offset_y
 	var/last_angle = angle
 	var/desired_angular_velocity = 0
+
+	if(pilot?.client && !pilot.incapacitated())
+		desired_angle = mouse_angle_from_client(pilot.client)
+
 	if(isnum(desired_angle))
 		// do some finagling to make sure that our angles end up rotating the short way
 		while(angle > desired_angle + 180)
@@ -85,8 +89,6 @@
 		thrust_y += forward_thrust * fy + right_thrust * sy;
 		last_thrust_forward = forward_thrust
 		last_thrust_right = right_thrust
-		if(pilot && pilot.client && !pilot.incapacitated())
-			desired_angle = mouse_angle_from_client(pilot.client)
 	else // want some sort of help piloting the ship? Haha no fuck you do it yourself
 		if(user_thrust_dir & NORTH)
 			thrust_x += fx * forward_maxthrust

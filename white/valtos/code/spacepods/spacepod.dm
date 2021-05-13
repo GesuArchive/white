@@ -662,11 +662,6 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		M.client.pixel_y = 0
 	return TRUE
 
-/obj/spacepod/MouseMove(object,location,control,params)
-	if(!pilot || !pilot.client || pilot.incapacitated() || usr != pilot)
-		return
-	desired_angle = mouse_angle_from_client(pilot.client)
-
 /obj/spacepod/relaymove(mob/user, direction)
 	if(user != pilot || pilot.incapacitated())
 		return
