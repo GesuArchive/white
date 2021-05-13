@@ -325,7 +325,6 @@
 				/obj/item/stack/sheet/mineral/diamond = 1,
 				/obj/item/stock_parts/matter_bin/bluespace = 2,
 				/obj/item/stock_parts/micro_laser/quadultra = 2,
-				/obj/item/stock_parts/electrolite/bluespace = 1,
 				/obj/item/stock_parts/manipulator/femto = 4,
 				/obj/item/stock_parts/scanning_module/triphasic = 16,
 				/obj/item/stock_parts/capacitor/quadratic = 2)
@@ -347,7 +346,6 @@
 				/obj/item/stack/sheet/bluespace_crystal = 7,
 				/obj/item/stock_parts/matter_bin/bluespace = 12,
 				/obj/item/stock_parts/micro_laser/quadultra = 12,
-				/obj/item/stock_parts/electrolite/bluespace = 12,
 				/obj/item/stock_parts/manipulator/femto = 25,
 				/obj/item/stock_parts/scanning_module/triphasic = 8,
 				/obj/item/stock_parts/capacitor/quadratic = 20)
@@ -369,7 +367,6 @@
 				/obj/item/stack/sheet/bluespace_crystal = 7,
 				/obj/item/stock_parts/matter_bin/bluespace = 2,
 				/obj/item/stock_parts/micro_laser/quadultra = 4,
-				/obj/item/stock_parts/electrolite/bluespace = 5,
 				/obj/item/stock_parts/manipulator/femto = 20,
 				/obj/item/stock_parts/scanning_module/triphasic = 3,
 				/obj/item/stock_parts/capacitor/quadratic = 40)

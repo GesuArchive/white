@@ -3,7 +3,7 @@
 	build_path = /obj/machinery/magnetic_concentrator
 	req_components = list(/obj/item/stock_parts/micro_laser = 1,
 		/obj/item/stock_parts/capacitor = 4,
-		/obj/item/stock_parts/electrolite = 1)
+		/obj/item/stock_parts/manipulator = 1)
 
 /obj/machinery/magnetic_concentrator
 	name = "магнитный концентратор"
@@ -107,7 +107,7 @@
 	build_path = /obj/machinery/meteor_catcher
 	req_components = list(/obj/item/stock_parts/micro_laser = 2,
 		/obj/item/stock_parts/capacitor = 2,
-		/obj/item/stock_parts/electrolite = 1)
+		/obj/item/stock_parts/manipulator = 1)
 
 /obj/machinery/meteor_catcher
 	name = "сборщик метеоритов"
