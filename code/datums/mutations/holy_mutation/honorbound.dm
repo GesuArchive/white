@@ -60,7 +60,7 @@
 		return
 	if(weapon.item_flags & NOBLUDGEON)
 		return
-	if(!honorbound.combat_mode && ((!weapon || !weapon.force) && !LAZYACCESS(modifiers, RIGHT_CLICK)))
+	if(attacker.a_intent != INTENT_HARM && ((!weapon || !weapon.force)))
 		return
 	var/mob/living/clickedmob = clickingon
 	if(!is_honorable(honorbound, clickedmob))
@@ -133,7 +133,7 @@
 
 /datum/mutation/human/honorbound/proc/hand_guilt(datum/source, mob/living/attacker)
 	SIGNAL_HANDLER
-	if(attacker.combat_mode)
+	if(attacker.a_intent == INTENT_HARM)
 		guilty(attacker)
 
 /datum/mutation/human/honorbound/proc/paw_guilt(datum/source, mob/living/attacker)
