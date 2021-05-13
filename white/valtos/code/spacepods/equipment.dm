@@ -48,11 +48,11 @@
 /obj/item/spacepod_equipment/weaponry/proc/fire_weapons(target)
 	if(spacepod.next_firetime > world.time)
 		to_chat(usr, "<span class='warning'>Your weapons are recharging.</span>")
-		playsound(src, 'sound/weapons/gun_dry_fire.ogg', 30, TRUE)
+		playsound(src, 'sound/weapons/gun/general/dry_fire.ogg', 30, TRUE)
 		return
 	if(!spacepod.cell || !spacepod.cell.use(shot_cost))
 		to_chat(usr, "<span class='warning'>Insufficient charge to fire the weapons</span>")
-		playsound(src, 'sound/weapons/gun_dry_fire.ogg', 30, TRUE)
+		playsound(src, 'sound/weapons/gun/general/dry_fire.ogg', 30, TRUE)
 		return
 	spacepod.next_firetime = world.time + fire_delay
 	for(var/I in 1 to shots_per)

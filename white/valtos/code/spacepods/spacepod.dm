@@ -67,10 +67,10 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 
 	var/lights = 0
 	var/lights_power = 6
-	var/static/list/icon_light_color = list("pod_civ" = LIGHT_COLOR_WHITE, \
+	var/static/list/icon_light_color = list("pod_civ" = COLOR_WHITE, \
 									 "pod_mil" = "#BBF093", \
-									 "pod_synd" = LIGHT_COLOR_RED, \
-									 "pod_gold" = LIGHT_COLOR_WHITE, \
+									 "pod_synd" = COLOR_RED, \
+									 "pod_gold" = COLOR_WHITE, \
 									 "pod_black" = "#3B8FE5", \
 									 "pod_industrial" = "#CCCC00")
 
@@ -662,8 +662,8 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		M.client.pixel_y = 0
 	return TRUE
 
-/obj/spacepod/onMouseMove(object,location,control,params)
-	if(!pilot || !pilot.client || pilot.incapacitated())
+/obj/spacepod/MouseMove(object,location,control,params)
+	if(!pilot || !pilot.client || pilot.incapacitated() || usr != pilot)
 		return // I don't know what's going on.
 	var/list/params_list = params2list(params)
 	var/sl_list = splittext(params_list["screen-loc"],",")
