@@ -500,6 +500,10 @@
 		var/obj/vehicle/sealed/mecha/M = the_target
 		if(LAZYLEN(M.occupants))
 			return FALSE
+	if(isspacepod(the_target))
+		var/obj/spacepod/SP = the_target
+		if(SP.pilot || SP.passengers.len)
+			return FALSE
 	return TRUE
 
 /mob/living/simple_animal/handle_fire()

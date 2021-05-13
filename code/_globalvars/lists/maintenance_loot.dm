@@ -146,6 +146,10 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/stack/spacecash/c10 = 1,
 		/obj/item/stack/sticky_tape = 1,
 
+		/obj/item/pod_parts/core = 1,
+		/obj/item/pod_parts/armor = 1,
+		/obj/item/circuitboard/mecha/pod = 1,
+
 		//light sources
 		/obj/item/flashlight = 1,
 		/obj/effect/spawner/lootdrop/glowstick = 1,

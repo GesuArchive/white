@@ -12,6 +12,10 @@
 		var/obj/vehicle/sealed/mecha/M = A
 		if(LAZYLEN(M.occupants))
 			return A
+	else if(istype(A, /obj/spacepod))
+		var/obj/spacepod/M = A
+		if(M.pilot || M.passengers.len)
+			return A
 
 /mob/living/simple_animal/hostile/retaliate/ListTargets()
 	if(!enemies.len)
