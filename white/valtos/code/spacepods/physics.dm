@@ -11,7 +11,7 @@
 	var/desired_angular_velocity = 0
 
 	if(pilot?.client && !pilot.incapacitated())
-		desired_angle = mouse_angle_from_client(pilot.client)
+		desired_angle = 90 - mouse_angle_from_client(pilot.client)
 
 	if(isnum(desired_angle))
 		// do some finagling to make sure that our angles end up rotating the short way
