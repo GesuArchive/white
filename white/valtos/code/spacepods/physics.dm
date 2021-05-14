@@ -1,5 +1,5 @@
 /obj/spacepod/process(time)
-	//time /= 10 // fuck off with your deciseconds
+	time /= 2 // fuck off with your deciseconds
 
 	if(world.time > last_slowprocess + 15)
 		last_slowprocess = world.time
@@ -9,6 +9,19 @@
 	var/last_offset_y = offset_y
 	var/last_angle = angle
 	var/desired_angular_velocity = 0
+
+	if(pilot?.client && !pilot.incapacitated())
+		var/list/params_list = params2list(pilot.client.mouseParams)
+		var/list/sl_list = splittext(params_list["screen-loc"],",")
+		var/list/sl_x_list = splittext(sl_list[1], ":")
+		var/list/sl_y_list = splittext(sl_list[2], ":")
+		var/list/view_list = isnum(pilot.client.view) ? list("[pilot.client.view*2+1]","[pilot.client.view*2+1]") : splittext(pilot.client.view, "x")
+		var/dx = text2num(sl_x_list[1]) + (text2num(sl_x_list[2]) / world.icon_size) - 1 - text2num(view_list[1]) / 2
+		var/dy = text2num(sl_y_list[1]) + (text2num(sl_y_list[2]) / world.icon_size) - 1 - text2num(view_list[2]) / 2
+		if(sqrt(dx*dx+dy*dy) > 1)
+			desired_angle = 90 - ATAN2(dx, dy)
+		else
+			desired_angle = null
 
 	if(isnum(desired_angle))
 		// do some finagling to make sure that our angles end up rotating the short way
