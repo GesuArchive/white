@@ -484,7 +484,7 @@
 		return FALSE
 	if(!ignore_source_check && firer)
 		var/mob/M = firer
-		if((target == firer) || ((target == firer.loc) && ismecha(firer.loc)) || (target in firer.buckled_mobs) || (istype(M) && (M.buckled == target)))
+		if((target == firer) || ((target == firer.loc) && (ismecha(firer.loc)) || isspacepod(firer.loc)) || (target in firer.buckled_mobs) || (istype(M) && (M.buckled == target)))
 			return FALSE
 	if(target.density || cross_failed)		//This thing blocks projectiles, hit it regardless of layer/mob stuns/etc.
 		return TRUE
