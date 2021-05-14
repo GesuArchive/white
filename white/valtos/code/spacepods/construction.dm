@@ -1,5 +1,6 @@
 /obj/spacepod/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	switch(construction_state) // more construction states than r-walls!
 		if(SPACEPOD_EMPTY)
 			. += "<span class='notice'>The struts holding it together can be <b>cut</b> and it is missing <i>wires</i>.</span>"

@@ -23,7 +23,7 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF // it floats above lava or something, I dunno
 
 	max_integrity = 50
-	integrity_failure = 50
+	integrity_failure = 0.1
 
 	var/list/equipment = list()
 	var/list/equipment_slot_limits = list(

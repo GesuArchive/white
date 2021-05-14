@@ -20,7 +20,7 @@
 	buckle_lying = TRUE
 	resistance_flags = FLAMMABLE
 	max_integrity = 25
-	integrity_failure = 1
+	integrity_failure = 0.5
 	var/obj/item/grenade/grenade
 	var/mob/owner
 
