@@ -11,7 +11,21 @@
 	var/desired_angular_velocity = 0
 
 	if(pilot?.client && !pilot.incapacitated())
-		desired_angle = mouse_angle_from_client(pilot.client)
+		var/list/mouse_control = params2list(pilot.client.mouseParams)
+		var/angle = 0
+		if(mouse_control["screen-loc"])
+			var/list/screen_loc_params = splittext(mouse_control["screen-loc"], ",")
+			var/list/screen_loc_X = splittext(screen_loc_params[1],":")
+			var/list/screen_loc_Y = splittext(screen_loc_params[2],":")
+			var/_xx = text2num(screen_loc_X[1]) * 32 + text2num(screen_loc_X[2]) - 32
+			var/_yy = text2num(screen_loc_Y[1]) * 32 + text2num(screen_loc_Y[2]) - 32
+			var/list/screenview = getviewsize(pilot.client.view)
+			var/screenviewX = screenview[1] * world.icon_size
+			var/screenviewY = screenview[2] * world.icon_size
+
+			var/ox = round(screenviewX/2) - pilot.client.pixel_x //"origin" x
+			var/oy = round(screenviewY/2) - pilot.client.pixel_y //"origin" y
+			desired_angle = ATAN2(_yy - oy, _xx - ox)
 
 	if(isnum(desired_angle))
 		// do some finagling to make sure that our angles end up rotating the short way
