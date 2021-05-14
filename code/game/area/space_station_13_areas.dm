@@ -54,6 +54,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 /area/testroom
 	requires_power = FALSE
+	has_gravity = STANDARD_GRAVITY
 	name = "Тестовая комната"
 	icon_state = "storage"
 	enabled_area_tension = FALSE

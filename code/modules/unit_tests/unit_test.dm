@@ -48,10 +48,12 @@ GLOBAL_VAR(test_log)
 	run_loc_top_right = locate(turf_reservation.top_right_coords[1], turf_reservation.top_right_coords[2], turf_reservation.top_right_coords[3])
 
 /datum/unit_test/Destroy()
-	//clear the test area
-	for(var/atom/movable/AM in block(run_loc_bottom_left, run_loc_top_right))
-		qdel(AM)
-	QDEL_LIST(allocated)
+	// clear the test area
+	for (var/turf/turf in block(locate(1, 1, run_loc_floor_bottom_left.z), locate(world.maxx, world.maxy, run_loc_floor_bottom_left.z)))
+		for (var/content in turf.contents)
+			if (istype(content, /obj/effect/landmark))
+				continue
+			qdel(content)
 	return ..()
 
 /datum/unit_test/proc/Run()
