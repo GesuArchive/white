@@ -246,7 +246,7 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		update_icon()
 
 
-/obj/spacepod/proc/dre(mob/user, params, atom/target)
+/obj/spacepod/proc/InterceptClickOn(mob/user, params, atom/target)
 	var/list/params_list = params2list(params)
 	if(target == src || istype(target, /atom/movable/screen) || (target && (target in user.GetAllContents())) || user != pilot || params_list["shift"] || params_list["alt"])
 		return FALSE
@@ -254,7 +254,6 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		weapon.fire_weapons(target)
 	else
 		if(pilot?.client && !pilot.incapacitated())
-			var/list/params_list = params2list(params)
 			var/list/sl_list = splittext(params_list["screen-loc"],",")
 			var/list/sl_x_list = splittext(sl_list[1], ":")
 			var/list/sl_y_list = splittext(sl_list[2], ":")
