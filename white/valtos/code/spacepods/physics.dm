@@ -1,5 +1,5 @@
 /obj/spacepod/process(time)
-	time /= 10 // fuck off with your deciseconds
+	//time /= 10 // fuck off with your deciseconds
 
 	if(world.time > last_slowprocess + 15)
 		last_slowprocess = world.time
