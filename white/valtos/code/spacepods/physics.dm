@@ -12,7 +12,6 @@
 
 	if(pilot?.client && !pilot.incapacitated())
 		var/list/mouse_control = params2list(pilot.client.mouseParams)
-		var/angle = 0
 		if(mouse_control["screen-loc"])
 			var/list/screen_loc_params = splittext(mouse_control["screen-loc"], ",")
 			var/list/screen_loc_X = splittext(screen_loc_params[1],":")
