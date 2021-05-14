@@ -246,12 +246,27 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		update_icon()
 
 
-/obj/spacepod/proc/InterceptClickOn(mob/user, params, atom/target)
+/obj/spacepod/proc/dre(mob/user, params, atom/target)
 	var/list/params_list = params2list(params)
-	if(target == src || istype(target, /atom/movable/screen) || (target && (target in user.GetAllContents())) || user != pilot || params_list["shift"] || params_list["alt"] || params_list["ctrl"])
+	if(target == src || istype(target, /atom/movable/screen) || (target && (target in user.GetAllContents())) || user != pilot || params_list["shift"] || params_list["alt"])
 		return FALSE
-	if(weapon)
+	if(weapon && params_list["ctrl"])
 		weapon.fire_weapons(target)
+	else
+		if(pilot?.client && !pilot.incapacitated())
+			var/list/params_list = params2list(params)
+			var/list/sl_list = splittext(params_list["screen-loc"],",")
+			var/list/sl_x_list = splittext(sl_list[1], ":")
+			var/list/sl_y_list = splittext(sl_list[2], ":")
+			var/list/view_list = isnum(pilot.client.view) ? list("[pilot.client.view*2+1]","[pilot.client.view*2+1]") : splittext(pilot.client.view, "x")
+			var/dx = text2num(sl_x_list[1]) + (text2num(sl_x_list[2]) / world.icon_size) - 1 - text2num(view_list[1]) / 2
+			var/dy = text2num(sl_y_list[1]) + (text2num(sl_y_list[2]) / world.icon_size) - 1 - text2num(view_list[2]) / 2
+			if(sqrt(dx*dx+dy*dy) > 1)
+				desired_angle = 90 - ATAN2(dx, dy)
+			else
+				desired_angle = null
+		else
+			return FALSE
 	return TRUE
 
 /obj/spacepod/take_damage()
