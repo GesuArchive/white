@@ -31,13 +31,13 @@
 /datum/major_mode/collect_items/generate_quest()
 	announce_text =  "<center><h1> -- СОВЕРШЕННО СЕКРЕТНО -- </h1></center>"
 	announce_text += "<center><h2>Центральное Командование</h2></center>"
-	announce_text += "<center><i>Капитану или любому другому доверенному лицу на стацнии.</i></center>"
+	announce_text += "<center><i>Капитану или любому другому доверенному лицу на станции.</i></center>"
 	announce_text += "<center><h3>Информация</h3></center>"
 	announce_text += "<br>Для борьбы с Синдикатом нам требуется ваша помощь. "
 	announce_text += "Необходимо собрать <b>следующие материалы</b> и отгрузить их на грузовой шаттл: "
 	for(var/i in 1 to rand(3, 6) step 1)
 		var/thing_to_collect = pick(possbile_things)
-		need_to_collect[thing_to_collect] = possbile_things[thing_to_collect]
+		need_to_collect[thing_to_collect] = rand(1, possbile_things[thing_to_collect])
 	var/list/text_reqs = list()
 	for(var/B in need_to_collect)
 		var/atom/A = B
@@ -49,7 +49,37 @@
 	return
 
 /datum/major_mode/collect_items/check_completion()
+	var/area/arr = GLOB.areas_by_type[/area/shuttle/supply]
+	if(!arr)
+		return FALSE
+	var/list/temp_list_to_collect = need_to_collect
+	for(var/obj/A in need_to_collect)
+		for(var/obj/B in arr.contents)
+			if(B?.contents?.len)
+				for(var/obj/C in B.contents)
+					if(C.type == A.type)
+						temp_list_to_collect[A.type] -= 1
+						qdel(C)
+			if(B.type == A.type)
+				temp_list_to_collect[A.type] -= 1
+				qdel(B)
+	for(var/i in temp_list_to_collect)
+		if(temp_list_to_collect[i] >= 1)
+			return FALSE
+	is_done = TRUE
+	var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
+	if(D)
+		D.adjust_money(125000)
+	for(var/mob/M in GLOB.joined_player_list)
+		if(isliving(M) && M.client)
+			inc_metabalance(M, 125, reason="Задание выполнено!")
+	priority_announce("Задание успешно выполнено, на счёт снабжения была переведена награда в размере 125000 кредитов. Можете вернуться к своим основным обязанностям.", "Центральное Командование", 'sound/ai/announcer/alert.ogg')
 	return TRUE
 
 /datum/major_mode/collect_items/fail_completion()
+	message_admins("<b>Задание провалено. Начинаем зачистку.</b>")
+	var/code = rand(10000, 99999)
+	for(var/obj/machinery/nuclearbomb/selfdestruct/SD in GLOB.nuke_list)
+		SD.r_code = code
+	deathsquad_request("Уничтожить станцию ядерным устройством. Код авторизации: [code]", "MAJOR MODE")
 	return

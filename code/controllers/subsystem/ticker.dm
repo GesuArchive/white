@@ -17,6 +17,8 @@ SUBSYSTEM_DEF(ticker)
 	var/hide_mode = FALSE
 	var/datum/game_mode/mode = null
 
+	var/datum/major_mode/maj_mode = null
+
 	var/login_music							//music played in pregame lobby
 	var/round_end_sound						//music/jingle played when the world reboots
 	var/round_end_sound_sent = TRUE			//If all clients have loaded it
@@ -325,6 +327,11 @@ SUBSYSTEM_DEF(ticker)
 
 	if(CONFIG_GET(flag/aspects))
 		SSaspects.run_aspect()
+
+	if(GLOB.major_mode_active)
+		var/datum/major_mode/mm = pick(subtypesof(/datum/major_mode))
+		maj_mode = new mm()
+		message_admins("<b>Основной режим определён как [maj_mode.name].</b>")
 
 	return TRUE
 

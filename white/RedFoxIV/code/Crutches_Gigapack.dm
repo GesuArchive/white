@@ -28,8 +28,8 @@
 	var/msg = copytext_char(sanitize(mission), 1, MAX_MESSAGE_LEN)
 	var/teamname_gc = copytext_char(sanitize(team_name_genitive_case), 1, MAX_MESSAGE_LEN)
 	var/teamname = copytext_char(sanitize(team_name), 1, MAX_MESSAGE_LEN)
-	
-	message_admins("[Sender.name] собирается вызвать [teamname_gc] с миссией: [msg]")
+
+	message_admins("[Sender] собирается вызвать [teamname_gc] с миссией: [msg]")
 	var/list/mob/dead/observer/candidates = pollGhostCandidates("Хотите быть в специальном отряде быстрого реагирования?", "deathsquad", null)
 	var/teamSpawned = FALSE
 
@@ -81,7 +81,7 @@
 			teamSpawned++
 
 		if (teamSpawned)
-			message_admins("[Sender.name] вызывает [teamname] с миссией: [msg]")
+			message_admins("[Sender] вызывает [teamname] с миссией: [msg]")
 
 		return TRUE
 	else
@@ -95,3 +95,6 @@
 
 /proc/engineer_ert_request(input, usr)
 	general_ert_request(input, "Ремонтная бригада", "ремонтную бригаду", new /datum/antagonist/ert/engineer/red, new /datum/antagonist/ert/engineer, usr)
+
+/proc/deathsquad_request(input, cumshit)
+	general_ert_request(input, "Отряд смерти", "отряд смерти", new /datum/antagonist/ert/deathsquad/leader, new /datum/antagonist/ert/deathsquad, cumshit)

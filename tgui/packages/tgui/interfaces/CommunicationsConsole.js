@@ -305,6 +305,7 @@ const PageMain = (props, context) => {
     canMakeAnnouncement,
     canMessageAssociates,
     canRecallShuttles,
+    isheremajormode,
     canRequestNuke,
     canSendToSectors,
     canSetAlertLevel,
@@ -418,6 +419,12 @@ const PageMain = (props, context) => {
             icon="bullhorn"
             content="Создать срочное объявление"
             onClick={() => act("makePriorityAnnouncement")}
+          />}
+
+          {!!isheremajormode && <Button
+            icon="rocket"
+            content="Проверить задание"
+            onClick={() => act("check_major_request")}
           />}
 
           {!!aprilFools && !!canMakeAnnouncement && <Button

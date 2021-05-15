@@ -223,6 +223,19 @@
 			if (!authenticated(usr) || issilicon(usr))
 				return
 			SSshuttle.cancelEvac(usr)
+		if ("check_major_request")
+			if (!authenticated(usr) || issilicon(usr))
+				return
+			if(SSticker.maj_mode)
+				if(!SSticker.maj_mode.is_done)
+					if(SSticker.maj_mode.check_completion())
+						to_chat(usr, "<span class='notice'>Успех!</span>")
+					else
+						to_chat(usr, "<span class='notice'>Чего-то не хватает. Проверьте точность выполнения задания.</span>")
+				else
+					to_chat(usr, "<span class='notice'>Задание уже выполнено. Вы молодцы.</span>")
+			else
+				to_chat(usr, "<span class='notice'>На эту смену особых поручений пока нет.</span>")
 		if ("requestNukeCodes")
 			if (!authenticated_as_non_silicon_captain(usr))
 				return
@@ -410,6 +423,7 @@
 				data["canMakeAnnouncement"] = FALSE
 				data["canMessageAssociates"] = FALSE
 				data["canRecallShuttles"] = !issilicon(user)
+				data["isheremajormode"] = GLOB.major_mode_active
 				data["canRequestNuke"] = FALSE
 				data["canSendToSectors"] = FALSE
 				data["canSetAlertLevel"] = FALSE
