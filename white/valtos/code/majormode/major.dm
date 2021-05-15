@@ -10,6 +10,7 @@ GLOBAL_VAR_INIT(major_mode_active, FALSE)
 	var/is_done 		 = FALSE
 
 /datum/major_mode/New()
+	generate_quest()
 	spawn(announce_after)
 		announce_mode()
 	spawn(fail_after + announce_after)
