@@ -53,19 +53,21 @@
 	if(!arr)
 		return FALSE
 	var/list/temp_list_to_collect = need_to_collect
-	for(var/obj/A in need_to_collect)
-		for(var/obj/B in arr.contents)
+	var/list/things_to_remove_after = list()
+	for(var/atom/A in need_to_collect)
+		for(var/atom/B in arr.contents)
 			if(B?.contents?.len)
-				for(var/obj/C in B.contents)
-					if(C.type == A.type)
+				for(var/atom/C in B.contents)
+					if(istype(C, A))
 						temp_list_to_collect[A.type] -= 1
-						qdel(C)
-			if(B.type == A.type)
+						things_to_remove_after += C
+			if(istype(B, A))
 				temp_list_to_collect[A.type] -= 1
-				qdel(B)
+				things_to_remove_after += B
 	for(var/i in temp_list_to_collect)
 		if(temp_list_to_collect[i] >= 1)
 			return FALSE
+	QDEL_LIST(things_to_remove_after)
 	is_done = TRUE
 	var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
 	if(D)
