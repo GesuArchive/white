@@ -34210,7 +34210,7 @@
 /obj/machinery/light/red{
 	dir = 4
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/engine/engine_room/external)
 "jAD" = (
 /obj/structure/grille,
@@ -39490,7 +39490,7 @@
 /obj/machinery/light/red{
 	dir = 8
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/engine/engine_room/external)
 "sSC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -39953,7 +39953,7 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "txJ" = (
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/engine/engine_room/external)
 "tAl" = (
 /obj/machinery/light/small{

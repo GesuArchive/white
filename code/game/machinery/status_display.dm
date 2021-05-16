@@ -171,6 +171,22 @@
 	var/friendc = FALSE      // track if Friend Computer mode
 	var/last_picture  // For when Friend Computer mode is undone
 
+obj/machinery/status_display/evac/directional/north
+	dir = SOUTH
+	pixel_y = 32
+
+/obj/machinery/status_display/evac/directional/south
+	dir = NORTH
+	pixel_y = -32
+
+/obj/machinery/status_display/evac/directional/east
+	dir = WEST
+	pixel_x = 32
+
+/obj/machinery/status_display/evac/directional/west
+	dir = EAST
+	pixel_x = -32
+
 /obj/machinery/status_display/evac/Initialize()
 	. = ..()
 	// register for radio system
@@ -323,6 +339,22 @@
 
 	var/mode = SD_TIME
 	var/emotion = "Neutral"
+
+/obj/machinery/status_display/ai/directional/north
+	dir = SOUTH
+	pixel_y = 32
+
+/obj/machinery/status_display/ai/directional/south
+	dir = NORTH
+	pixel_y = -32
+
+/obj/machinery/status_display/ai/directional/east
+	dir = WEST
+	pixel_x = 32
+
+/obj/machinery/status_display/ai/directional/west
+	dir = EAST
+	pixel_x = -32
 
 /obj/machinery/status_display/ai/Initialize()
 	. = ..()
