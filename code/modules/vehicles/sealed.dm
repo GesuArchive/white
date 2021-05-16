@@ -36,6 +36,7 @@
 
 /obj/vehicle/sealed/after_add_occupant(mob/M)
 	. = ..()
+	M.movement_type = GROUND
 	ADD_TRAIT(M, TRAIT_HANDS_BLOCKED, VEHICLE_TRAIT)
 
 

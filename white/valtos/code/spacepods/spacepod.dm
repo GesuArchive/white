@@ -649,6 +649,7 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		addverbs(M)
 		if(M.client)
 			M.client.view_size.setTo(6)
+			M.movement_type = GROUND
 	else if(passengers.len < max_passengers)
 		passengers += M
 	else
