@@ -171,7 +171,7 @@
 	var/friendc = FALSE      // track if Friend Computer mode
 	var/last_picture  // For when Friend Computer mode is undone
 
-obj/machinery/status_display/evac/directional/north
+/obj/machinery/status_display/evac/directional/north
 	dir = SOUTH
 	pixel_y = 32
 
