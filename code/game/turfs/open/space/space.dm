@@ -31,7 +31,6 @@
 	update_air_ref()
 	vis_contents.Cut()
 	visibilityChanged()
-	add_overlay(/obj/effect/fullbright)
 	return INITIALIZE_HINT_NORMAL
 
 /**
