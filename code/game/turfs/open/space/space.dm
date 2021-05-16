@@ -25,6 +25,15 @@
 	//This is used to optimize the map loader
 	return
 
+/turf/open/space/basic/Initialize() // test
+	icon_state = SPACE_ICON_STATE
+	air = space_gas
+	update_air_ref()
+	vis_contents.Cut()
+	visibilityChanged()
+	add_overlay(/obj/effect/fullbright)
+	return INITIALIZE_HINT_NORMAL
+
 /**
  * Space Initialize
  *
