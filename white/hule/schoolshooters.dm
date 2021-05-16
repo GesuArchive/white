@@ -142,7 +142,8 @@
 		/area/ai_monitored/turret_protected/ai,
 		/area/ai_monitored/turret_protected/ai_upload,
 		/area/engine,
-		/area/shuttle)
+		/area/shuttle,
+		/area/science/test_area)
 		)
 
 		///Subtypes from the above that actually should explode.
