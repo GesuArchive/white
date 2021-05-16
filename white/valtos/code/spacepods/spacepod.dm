@@ -647,6 +647,8 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		pilot = M
 		M.click_intercept = src
 		addverbs(M)
+		if(M.client)
+			M.client.view_size.setTo(6)
 	else if(passengers.len < max_passengers)
 		passengers += M
 	else
@@ -662,6 +664,8 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 	if(M == pilot)
 		pilot = null
 		removeverbs(M)
+		if(M.client)
+			M.client.view_size.resetToDefault()
 		if(M.click_intercept == src)
 			M.click_intercept = null
 		desired_angle = null // since there's no pilot there's no one aiming it.
