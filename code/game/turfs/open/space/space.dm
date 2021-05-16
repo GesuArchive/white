@@ -31,6 +31,7 @@
 	update_air_ref()
 	vis_contents.Cut()
 	visibilityChanged()
+	flags_1 |= INITIALIZED_1
 	return INITIALIZE_HINT_NORMAL
 
 /**
