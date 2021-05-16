@@ -1501,6 +1501,7 @@
 /obj/item/radio/intercom{
 	pixel_x = 29
 	},
+/obj/item/kirbyplants/random,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "kl" = (
@@ -2936,7 +2937,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
-/obj/item/kirbyplants/random,
+/obj/machinery/chem_mass_spec,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "vV" = (
@@ -6518,7 +6519,6 @@
 	c_tag = "Chemistry Lab North";
 	network = list("ss13","medbay")
 	},
-/obj/machinery/chem_mass_spec,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "VL" = (

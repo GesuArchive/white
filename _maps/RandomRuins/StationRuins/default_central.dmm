@@ -2861,9 +2861,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/engine/gravity_generator)
-"hD" = (
-/turf/closed/wall,
-/area/crew_quarters/heads/captain)
 "hE" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -3444,9 +3441,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/gravity_generator)
-"jb" = (
-/turf/closed/wall,
-/area/teleporter)
 "jc" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -27;
@@ -4885,10 +4879,10 @@ et
 et
 fS
 ef
-ef
+ec
 gY
 hj
-hx
+hA
 hA
 ih
 iy
@@ -4923,10 +4917,10 @@ fi
 fi
 fT
 gs
-ef
+ec
 gZ
 hk
-hx
+hA
 hO
 ii
 iz
@@ -4961,10 +4955,10 @@ fj
 fw
 fU
 gt
-ef
+ec
 ha
 hl
-hx
+hA
 hP
 ij
 iA
@@ -4999,10 +4993,10 @@ fk
 fx
 fV
 gu
-ef
-ef
-ef
-hx
+ec
+ec
+ec
+hA
 hQ
 ik
 iB
@@ -5572,14 +5566,14 @@ gB
 gQ
 ek
 ek
-hD
-hD
-hD
+ek
+ek
+ek
 iI
-jb
-jb
-jb
-jb
+iI
+iI
+iI
+iI
 iI
 aH
 CT
@@ -5725,8 +5719,8 @@ pH
 pH
 ek
 hH
-hD
-hD
+ek
+ek
 iI
 jf
 jx
@@ -5876,9 +5870,9 @@ ek
 ek
 ek
 ek
-hD
-hD
-hD
+ek
+ek
+ek
 iI
 iI
 jz
