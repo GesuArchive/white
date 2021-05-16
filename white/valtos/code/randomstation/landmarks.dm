@@ -57,7 +57,7 @@
 	icon_state = "central"
 
 /obj/effect/landmark/stationroom/engine
-	template_names = list("Supermatter" = 8, "Singulo or Tesla" = 10)
+	template_names = list("Supermatter" = 8, "Singulo or Tesla" = 10, "Antimatter" = 8, "Budget" = 1, "Teg" = 7)
 	icon_state = "engine"
 
 /obj/effect/landmark/stationroom/maint_sw

@@ -13,6 +13,22 @@
 	var/id = null
 	var/on = FALSE
 
+/obj/machinery/sparker/directional/north
+	dir = SOUTH
+	pixel_y = 26
+
+/obj/machinery/sparker/directional/south
+	dir = NORTH
+	pixel_y = -26
+
+/obj/machinery/sparker/directional/east
+	dir = WEST
+	pixel_x = 26
+
+/obj/machinery/sparker/directional/west
+	dir = EAST
+	pixel_x = -26
+
 /obj/machinery/igniter/incinerator_toxmix
 	id = INCINERATOR_TOXMIX_IGNITER
 

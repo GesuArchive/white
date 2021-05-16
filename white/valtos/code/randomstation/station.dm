@@ -74,12 +74,35 @@
 	id = "engine_singulo_tesla"
 	suffix = "engine_singulo_tesla.dmm"
 	name = "Singulo or Tesla"
+	always_spawn_with = list(/datum/map_template/ruin/station/engine/bottom/singulotesla = PLACE_BELOW)
+
+/datum/map_template/ruin/station/engine/antimatter
+	id = "engine_am"
+	suffix = "engine_am.dmm"
+	name = "Antimatter"
+	always_spawn_with = list(/datum/map_template/ruin/station/engine/bottom/default = PLACE_BELOW)
+
+/datum/map_template/ruin/station/engine/budget
+	id = "engine_budget"
+	suffix = "engine_budget.dmm"
+	name = "Budget"
+	always_spawn_with = list(/datum/map_template/ruin/station/engine/bottom/default = PLACE_BELOW)
+
+/datum/map_template/ruin/station/engine/teg
+	id = "engine_teg"
+	suffix = "engine_teg.dmm"
+	name = "Teg"
 	always_spawn_with = list(/datum/map_template/ruin/station/engine/bottom/default = PLACE_BELOW)
 
 /datum/map_template/ruin/station/engine/bottom/default
 	id = "engine_default_bottom"
 	suffix = "engine_default_bottom.dmm"
 	name = "Default Engine Bottom"
+
+/datum/map_template/ruin/station/engine/bottom/singulotesla
+	id = "engine_singulo_tesla_bottom"
+	suffix = "engine_singulo_tesla_bottom.dmm"
+	name = "Singulo or Tesla Bottom"
 
 /datum/map_template/ruin/station/maint_sw
 	id = "default_maint_sw"

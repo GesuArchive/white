@@ -35,8 +35,8 @@
 	SSshuttle.arrivals = src
 
 /obj/docking_port/mobile/arrivals/LateInitialize()
+	//destination = SSshuttle.getDock("arrivals_endpoint")
 	areas = list()
-
 	var/list/new_latejoin = list()
 	for(var/area/shuttle/arrival/A in GLOB.sortedAreas)
 		for(var/obj/structure/chair/C in A)

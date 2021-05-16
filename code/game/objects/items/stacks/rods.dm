@@ -6,10 +6,10 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 	new/datum/stack_recipe("перила", /obj/structure/railing, 3, time = 18, window_checks = TRUE), \
 	new/datum/stack_recipe("держатель баков", /obj/structure/tank_holder, 2, time = 5, one_per_turf = TRUE, on_floor = FALSE), \
 	new/datum/stack_recipe("лестница", /obj/structure/ladder/crafted, 15, time = 150, one_per_turf = TRUE, on_floor = FALSE), \
-	new/datum/stack_recipe("носовая рама спейспода", /obj/item/pod_parts/pod_frame/fore_port, 15, time = 30, one_per_turf = 0), \
-	new/datum/stack_recipe("рама борта спейспода", /obj/item/pod_parts/pod_frame/fore_starboard, 15, time = 30, one_per_turf = 0), \
-	new/datum/stack_recipe("кормовая рама спейспода", /obj/item/pod_parts/pod_frame/aft_port, 15, time = 30, one_per_turf = 0), \
-	new/datum/stack_recipe("кормовая рама борта спейспода", /obj/item/pod_parts/pod_frame/aft_starboard, 15, time = 30, one_per_turf = 0), \
+	new/datum/stack_recipe("спейспод: левый нос", /obj/item/pod_parts/pod_frame/fore_port, 15, time = 30, one_per_turf = 0), \
+	new/datum/stack_recipe("спейспод: правый нос", /obj/item/pod_parts/pod_frame/fore_starboard, 15, time = 30, one_per_turf = 0), \
+	new/datum/stack_recipe("спейспод: левая корма", /obj/item/pod_parts/pod_frame/aft_port, 15, time = 30, one_per_turf = 0), \
+	new/datum/stack_recipe("спейспод: правая корма", /obj/item/pod_parts/pod_frame/aft_starboard, 15, time = 30, one_per_turf = 0), \
 	))
 
 /obj/item/stack/rods
