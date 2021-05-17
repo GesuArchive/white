@@ -429,13 +429,13 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		icon = pod_armor.pod_icon
 		icon_state = pod_armor.pod_icon_state
 	else
-		icon = 'white/valtos/icons/spacepods/goon/2x2.dmi'
+		icon = initial(icon)
 		icon_state = initial(icon_state)
 
 	if(obj_integrity <= max_integrity / 2)
-		add_overlay(image(icon='white/valtos/icons/spacepods/goon/2x2.dmi', icon_state="pod_damage"))
+		add_overlay(image(icon = initial(icon), icon_state="pod_damage"))
 		if(obj_integrity <= max_integrity / 4)
-			add_overlay(image(icon='white/valtos/icons/spacepods/goon/2x2.dmi', icon_state="pod_fire"))
+			add_overlay(image(icon = initial(icon), icon_state="pod_fire"))
 
 	if(weapon && weapon.overlay_icon_state)
 		add_overlay(image(icon=weapon.overlay_icon,icon_state=weapon.overlay_icon_state))
@@ -705,17 +705,3 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 	remove_verb(user, /obj/spacepod/verb/toggle_brakes)
 	remove_verb(user, /obj/spacepod/verb/lock_pod)
 	remove_verb(user, /obj/spacepod/verb/exit_pod)
-
-/obj/spacepod/prebuilt/ship
-	name = "корабль"
-	desc = "Ох..."
-	icon = 'white/valtos/icons/spacepods/2x3.dmi'
-	icon_state = "ship_civ"
-	overlay_file = 'white/valtos/icons/spacepods/2x3.dmi'
-	bound_x = 64
-	bound_y = 96
-	armor_type = /obj/item/pod_parts/armor/ship
-	cell_type = /obj/item/stock_parts/cell/infinite
-	equipment_types = list(/obj/item/spacepod_equipment/weaponry/laser,
-		/obj/item/spacepod_equipment/cargo/chair,
-		/obj/item/spacepod_equipment/cargo/chair)
