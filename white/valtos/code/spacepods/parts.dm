@@ -162,6 +162,7 @@
 	pod_icon_state = "pod_mil"
 	pod_desc = "An armed security spacepod with reinforced armor plating brandishing the Nanotrasen Military insignia"
 	pod_integrity = 350
+
 /obj/item/pod_parts/armor/security/red
 	name = "security pod armor"
 	icon_state = "pod_armor_synd"
@@ -169,6 +170,14 @@
 	pod_icon_state = "pod_synd"
 	pod_desc = "An armed security spacepod with reinforced armor plating brandishing the Nanotrasen Military insignia"
 	pod_integrity = 350
+
+/obj/item/pod_parts/armor/ship
+	name = "корабль"
+	icon_state = "pod_armor_mil"
+	desc = "Ого..."
+	pod_icon_state = "ship_civ"
+	pod_desc = "Хых..."
+	pod_integrity = 650
 
 /obj/item/circuitboard/mecha/pod
 	name = "Circuit board (Space Pod Mainboard)"
