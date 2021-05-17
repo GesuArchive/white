@@ -1,9 +1,10 @@
 // Status display
 // (formerly Countdown timer display)
 
+GLOBAL_VAR_INIT(display_font_color, pick("#09f", "#f90", "#5f5", "#fff", "#f55", "#f5f"))
+
 #define CHARS_PER_LINE 5
 #define FONT_SIZE "5pt"
-#define FONT_COLOR "#09f"
 #define FONT_STYLE "Small Fonts"
 #define SCROLL_SPEED 2
 
@@ -56,7 +57,7 @@
 /obj/machinery/status_display/proc/update_display(line1, line2)
 	line1 = uppertext(line1)
 	line2 = uppertext(line2)
-	var/new_text = {"<div style="font-size:[FONT_SIZE];color:[FONT_COLOR];font:'[FONT_STYLE]';text-align:center;" valign="top">[line1]<br>[line2]</div>"}
+	var/new_text = {"<div style="font-size:[FONT_SIZE];color:[GLOB.display_font_color];font:'[FONT_STYLE]';text-align:center;" valign="top">[line1]<br>[line2]</div>"}
 	if(maptext != new_text)
 		maptext = new_text
 
@@ -416,6 +417,5 @@
 
 #undef CHARS_PER_LINE
 #undef FONT_SIZE
-#undef FONT_COLOR
 #undef FONT_STYLE
 #undef SCROLL_SPEED
