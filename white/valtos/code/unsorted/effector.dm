@@ -59,12 +59,12 @@
 		soundloop = new(list(src), TRUE)
 		soundloop.start()
 		workout = FALSE
-	var/obj/effect/vaper_smoke/S = new(get_turf(src))
-	switch(workdir)
-		if("up")
-			animate(S, pixel_y = 64, pixel_x = rand(-12, 12), transform = matrix()*2, alpha = 0, time = 40)
-		if("down")
-			animate(S, pixel_y = -64, pixel_x = rand(-12, 12), transform = matrix()*2, alpha = 0, time = 40)
+	//var/obj/effect/vaper_smoke/S = new(get_turf(src))
+	//switch(workdir)
+	//	if("up")
+	//		animate(S, pixel_y = 64, pixel_x = rand(-12, 12), transform = matrix()*2, alpha = 0, time = 40)
+	//	if("down")
+	//		animate(S, pixel_y = -64, pixel_x = rand(-12, 12), transform = matrix()*2, alpha = 0, time = 40)
 
 /obj/effect/vaper_smoke
 	name = "пар"

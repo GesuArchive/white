@@ -561,7 +561,7 @@ const PageMain = (props, context) => {
       />}
 
       {!!canRequestNuke && requestingEngineers && <MessageModal
-        label="Вызов бригады уборщиков"
+        label="Вызов ремонтной бригады"
         notice="Назовите причину по которой вы собираетесь вызвать специальный отряд быстрого реагирования на станцию."
         icon="bomb"
         buttonText="Вызвать уборщиков"
