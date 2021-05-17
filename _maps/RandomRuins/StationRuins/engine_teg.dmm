@@ -255,6 +255,10 @@
 /obj/item/stack/sheet/plasteel/twenty,
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
+"nR" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space/nearstation)
 "oz" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 4
@@ -627,6 +631,9 @@
 /obj/effect/turf_decal/box/white,
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
+"OY" = (
+/turf/closed/wall/r_wall,
+/area/space/nearstation)
 "Px" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
 /obj/machinery/light,
@@ -736,6 +743,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
+"Wp" = (
+/obj/structure/lattice,
+/obj/structure/grille,
+/turf/template_noop,
+/area/space/nearstation)
 "WN" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible{
 	dir = 4
@@ -840,9 +852,9 @@ fM
 fM
 fM
 fM
-fM
-fM
-fM
+Wp
+OY
+Wp
 fM
 "}
 (2,1,1) = {"
@@ -868,9 +880,9 @@ fM
 fM
 fM
 fM
-fM
-fM
-fM
+Wp
+Wp
+Wp
 fM
 "}
 (3,1,1) = {"
@@ -895,10 +907,10 @@ fM
 fM
 fM
 fM
-fM
-fM
-fM
-fM
+nR
+Wp
+OY
+Wp
 fM
 "}
 (4,1,1) = {"
@@ -910,23 +922,23 @@ fM
 fM
 fM
 Ix
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+OY
+Wp
 fM
 "}
 (5,1,1) = {"
@@ -938,23 +950,23 @@ fM
 fM
 fM
 Ix
+nR
+nR
 fM
 fM
 fM
 fM
 fM
+nR
 fM
 fM
 fM
 fM
 fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
+nR
+Wp
+OY
+Wp
 fM
 "}
 (6,1,1) = {"
@@ -967,22 +979,22 @@ fM
 fM
 Ix
 fM
+nR
+nR
+fM
+fM
+fM
+fM
+nR
 fM
 fM
 fM
 fM
 fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
+nR
+Wp
+Wp
+Wp
 fM
 "}
 (7,1,1) = {"
@@ -996,21 +1008,21 @@ fM
 Ix
 fM
 fM
+nR
+nR
+fM
+fM
+fM
+nR
 fM
 fM
 fM
 fM
 fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
+nR
+Wp
+OY
+Wp
 fM
 "}
 (8,1,1) = {"
@@ -1025,20 +1037,20 @@ Ix
 fM
 fM
 fM
+nR
+nR
+fM
+fM
+nR
 fM
 fM
 fM
 fM
 fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
+nR
+Wp
+OY
+Wp
 fM
 "}
 (9,1,1) = {"
@@ -1054,19 +1066,19 @@ fM
 fM
 fM
 fM
+nR
+nR
+fM
+nR
 fM
 fM
 fM
 fM
 fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
+nR
+Wp
+OY
+Wp
 fM
 "}
 (10,1,1) = {"
@@ -1083,18 +1095,18 @@ fM
 fM
 fM
 fM
+nR
+nR
+nR
 fM
 fM
 fM
 fM
 fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
+nR
+nR
+Wp
+nR
 fM
 "}
 (11,1,1) = {"
@@ -1112,17 +1124,17 @@ fM
 fM
 fM
 fM
+nR
+nR
 fM
 fM
 fM
 fM
 fM
-fM
-fM
-fM
-fM
-fM
-fM
+nR
+Wp
+OY
+Wp
 fM
 "}
 (12,1,1) = {"
@@ -1141,16 +1153,16 @@ Ix
 Ix
 Ix
 Ix
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+Wp
+Wp
+nR
 fM
 "}
 (13,1,1) = {"
@@ -1175,10 +1187,10 @@ fM
 fM
 fM
 fM
-fM
-fM
-fM
-fM
+nR
+nR
+OY
+Wp
 fM
 "}
 (14,1,1) = {"
@@ -1203,10 +1215,10 @@ fM
 fM
 fM
 fM
-fM
-fM
-fM
-fM
+nR
+nR
+Wp
+nR
 fM
 "}
 (15,1,1) = {"
@@ -1231,10 +1243,10 @@ fM
 fM
 fM
 fM
-fM
-fM
-fM
-fM
+nR
+Wp
+OY
+Wp
 fM
 "}
 (16,1,1) = {"
@@ -1253,16 +1265,16 @@ Jg
 jr
 lS
 Ix
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+Wp
+OY
+Wp
 fM
 "}
 (17,1,1) = {"
@@ -1285,12 +1297,12 @@ fM
 fM
 fM
 fM
+nR
 fM
 fM
-fM
-fM
-fM
-fM
+nR
+OY
+Wp
 fM
 "}
 (18,1,1) = {"
@@ -1313,12 +1325,12 @@ fM
 fM
 fM
 fM
+nR
 fM
 fM
-fM
-fM
-fM
-fM
+Wp
+Wp
+Wp
 fM
 "}
 (19,1,1) = {"
@@ -1341,12 +1353,12 @@ fM
 fM
 fM
 fM
+nR
 fM
 fM
-fM
-fM
-fM
-fM
+nR
+OY
+Wp
 fM
 "}
 (20,1,1) = {"
@@ -1369,12 +1381,12 @@ fM
 fM
 fM
 fM
+nR
 fM
 fM
-fM
-fM
-fM
-fM
+Wp
+OY
+Wp
 fM
 "}
 (21,1,1) = {"
@@ -1397,12 +1409,12 @@ fM
 fM
 fM
 fM
+nR
 fM
 fM
-fM
-fM
-fM
-fM
+Wp
+OY
+Wp
 fM
 "}
 (22,1,1) = {"
@@ -1421,16 +1433,16 @@ bM
 oz
 Fo
 Ix
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+Wp
+Wp
+Wp
 fM
 "}
 (23,1,1) = {"
@@ -1450,15 +1462,15 @@ ch
 Fo
 Ix
 fM
+nR
 fM
 fM
 fM
 fM
-fM
-fM
-fM
-fM
-fM
+nR
+Wp
+OY
+Wp
 fM
 "}
 (24,1,1) = {"
@@ -1478,15 +1490,15 @@ GD
 lS
 Ix
 fM
+nR
 fM
 fM
 fM
 fM
-fM
-fM
-fM
-fM
-fM
+nR
+Wp
+OY
+nR
 fM
 "}
 (25,1,1) = {"
@@ -1506,15 +1518,15 @@ hj
 lS
 Ix
 fM
+nR
 fM
 fM
 fM
 fM
-fM
-fM
-fM
-fM
-fM
+nR
+nR
+OY
+Wp
 fM
 "}
 (26,1,1) = {"
@@ -1534,15 +1546,15 @@ YG
 Fo
 Ix
 fM
+nR
 fM
 fM
 fM
 fM
-fM
-fM
-fM
-fM
-fM
+nR
+Wp
+Wp
+Wp
 fM
 "}
 (27,1,1) = {"
@@ -1562,15 +1574,15 @@ YG
 Fo
 Ix
 fM
+nR
 fM
 fM
 fM
 fM
-fM
-fM
-fM
-fM
-fM
+nR
+Wp
+OY
+Wp
 fM
 "}
 (28,1,1) = {"
@@ -1589,16 +1601,16 @@ WN
 YG
 lS
 Ix
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+Wp
+OY
+Wp
 fM
 "}
 (29,1,1) = {"
@@ -1622,11 +1634,11 @@ fM
 fM
 fM
 fM
+nR
 fM
-fM
-fM
-fM
-fM
+Wp
+OY
+Wp
 fM
 "}
 (30,1,1) = {"
@@ -1650,11 +1662,11 @@ fM
 fM
 fM
 fM
+nR
 fM
-fM
-fM
-fM
-fM
+Wp
+nR
+nR
 fM
 "}
 (31,1,1) = {"
@@ -1673,16 +1685,16 @@ yq
 KX
 lS
 Ix
+nR
+nR
+nR
+nR
+nR
+nR
 fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
-fM
+nR
+OY
+Wp
 fM
 "}
 (32,1,1) = {"
@@ -1708,8 +1720,8 @@ fM
 fM
 fM
 fM
-fM
-fM
-fM
+Wp
+OY
+Wp
 fM
 "}

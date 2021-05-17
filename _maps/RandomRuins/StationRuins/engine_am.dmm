@@ -116,9 +116,10 @@
 /turf/open/floor/plating,
 /area/engine/engineering)
 "fB" = (
+/obj/structure/lattice,
 /obj/structure/grille,
-/turf/open/floor/plating/airless,
-/area/engine/engineering)
+/turf/template_noop,
+/area/space/nearstation)
 "gc" = (
 /obj/item/am_shielding_container{
 	pixel_x = 4;
@@ -261,6 +262,9 @@
 /obj/item/am_containment,
 /turf/open/floor/engine,
 /area/engine/engineering)
+"oR" = (
+/turf/closed/wall/r_wall,
+/area/space/nearstation)
 "qO" = (
 /obj/machinery/camera/emp_proof{
 	c_tag = "Engineering Singularity Northeast";
@@ -433,7 +437,7 @@
 	dir = 1
 	},
 /obj/structure/fans/tiny,
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/engine/engineering)
 "DO" = (
 /obj/structure/grille,
@@ -859,9 +863,9 @@ Um
 Um
 Um
 Um
-Um
-Um
-Um
+fB
+oR
+fB
 Um
 "}
 (2,1,1) = {"
@@ -882,14 +886,14 @@ gF
 gF
 gF
 gF
-Um
-Um
-Um
-Um
-Um
-Um
-Um
-Um
+gF
+gF
+gF
+gF
+gF
+fB
+fB
+fB
 Um
 "}
 (3,1,1) = {"
@@ -915,9 +919,9 @@ Um
 Um
 Um
 Um
-Um
-Um
-Um
+fB
+oR
+fB
 Um
 "}
 (4,1,1) = {"
@@ -943,9 +947,9 @@ Um
 Um
 Um
 Um
-Um
-Um
-Um
+gF
+oR
+fB
 Um
 "}
 (5,1,1) = {"
@@ -971,9 +975,9 @@ Um
 Um
 Um
 Um
-Um
-Um
-Um
+fB
+oR
+fB
 Um
 "}
 (6,1,1) = {"
@@ -999,9 +1003,9 @@ Um
 Um
 Um
 Um
-Um
-Um
-Um
+fB
+fB
+fB
 Um
 "}
 (7,1,1) = {"
@@ -1017,19 +1021,19 @@ Um
 gF
 Um
 gF
-Um
 gF
-Um
-Um
 gF
-Um
-Um
-Um
-Um
-Um
-Um
-Um
-Um
+gF
+gF
+gF
+gF
+gF
+gF
+gF
+gF
+fB
+oR
+fB
 Um
 "}
 (8,1,1) = {"
@@ -1055,9 +1059,9 @@ Um
 Um
 Um
 Um
-Um
-Um
-Um
+fB
+oR
+fB
 Um
 "}
 (9,1,1) = {"
@@ -1083,9 +1087,9 @@ Um
 Um
 Um
 Um
-Um
-Um
-Um
+fB
+oR
+fB
 Um
 "}
 (10,1,1) = {"
@@ -1111,9 +1115,9 @@ ZF
 ZF
 sH
 Um
-Um
-Um
-Um
+gF
+fB
+gF
 Um
 "}
 (11,1,1) = {"
@@ -1139,9 +1143,9 @@ DO
 Qk
 ZF
 Um
-Um
-Um
-Um
+fB
+oR
+fB
 Um
 "}
 (12,1,1) = {"
@@ -1167,9 +1171,9 @@ Bv
 LL
 ZF
 Um
-Um
-Um
-Um
+fB
+fB
+gF
 Um
 "}
 (13,1,1) = {"
@@ -1195,9 +1199,9 @@ HQ
 wv
 ZF
 ZF
-Um
-Um
-Um
+gF
+oR
+fB
 Um
 "}
 (14,1,1) = {"
@@ -1223,9 +1227,9 @@ gp
 lC
 GQ
 ZF
+gF
 fB
-Um
-Um
+gF
 Um
 "}
 (15,1,1) = {"
@@ -1252,8 +1256,8 @@ Em
 No
 ZF
 fB
-Um
-Um
+oR
+fB
 Um
 "}
 (16,1,1) = {"
@@ -1280,8 +1284,8 @@ Em
 Xa
 ZF
 fB
-Um
-Um
+oR
+fB
 Um
 "}
 (17,1,1) = {"
@@ -1307,9 +1311,9 @@ Qk
 Em
 No
 ZF
-cB
-Um
-Um
+gF
+oR
+fB
 Um
 "}
 (18,1,1) = {"
@@ -1336,8 +1340,8 @@ Em
 No
 ZF
 fB
-Um
-Um
+fB
+fB
 Um
 "}
 (19,1,1) = {"
@@ -1363,9 +1367,9 @@ Qk
 Em
 No
 ZF
+gF
+oR
 fB
-Um
-Um
 Um
 "}
 (20,1,1) = {"
@@ -1392,8 +1396,8 @@ Em
 No
 ZF
 fB
-Um
-Um
+oR
+fB
 Um
 "}
 (21,1,1) = {"
@@ -1420,8 +1424,8 @@ Em
 Xa
 ZF
 fB
-Um
-Um
+oR
+fB
 Um
 "}
 (22,1,1) = {"
@@ -1448,8 +1452,8 @@ Em
 No
 ZF
 fB
-Um
-Um
+fB
+fB
 Um
 "}
 (23,1,1) = {"
@@ -1476,8 +1480,8 @@ Em
 No
 ZF
 fB
-Um
-Um
+oR
+fB
 Um
 "}
 (24,1,1) = {"
@@ -1504,8 +1508,8 @@ Em
 No
 ZF
 fB
-Um
-Um
+oR
+gF
 Um
 "}
 (25,1,1) = {"
@@ -1531,9 +1535,9 @@ Qk
 Em
 No
 ZF
-cB
-Um
-Um
+gF
+oR
+fB
 Um
 "}
 (26,1,1) = {"
@@ -1560,8 +1564,8 @@ Em
 Xa
 ZF
 fB
-Um
-Um
+fB
+fB
 Um
 "}
 (27,1,1) = {"
@@ -1588,8 +1592,8 @@ Em
 No
 ZF
 fB
-Um
-Um
+oR
+fB
 Um
 "}
 (28,1,1) = {"
@@ -1616,8 +1620,8 @@ Bl
 Mu
 ZF
 fB
-Um
-Um
+oR
+fB
 Um
 "}
 (29,1,1) = {"
@@ -1644,8 +1648,8 @@ Ml
 ZF
 ZF
 ZF
-Um
-Um
+oR
+fB
 Um
 "}
 (30,1,1) = {"
@@ -1672,8 +1676,8 @@ HQ
 lA
 ZT
 DM
-Um
-Um
+gF
+gF
 Um
 "}
 (31,1,1) = {"
@@ -1700,8 +1704,8 @@ DO
 ZF
 ZF
 ZF
-Um
-Um
+oR
+fB
 Um
 "}
 (32,1,1) = {"
@@ -1727,8 +1731,8 @@ iq
 ZF
 sH
 Um
-Um
-Um
-Um
+fB
+oR
+fB
 Um
 "}

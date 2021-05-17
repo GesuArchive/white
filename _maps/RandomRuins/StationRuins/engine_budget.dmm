@@ -72,6 +72,9 @@
 /obj/effect/turf_decal/tile/yellow,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
+"eF" = (
+/turf/closed/wall/r_wall,
+/area/space/nearstation)
 "gg" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/machinery/door/airlock/external{
@@ -617,9 +620,9 @@ ZT
 ZT
 ZT
 ZT
-ZT
-ZT
-ZT
+YZ
+eF
+YZ
 ZT
 "}
 (2,1,1) = {"
@@ -641,13 +644,13 @@ Rh
 ZT
 ZT
 ZT
+Rh
+Rh
+Rh
+Rh
 YZ
 YZ
 YZ
-ZT
-ZT
-ZT
-ZT
 ZT
 "}
 (3,1,1) = {"
@@ -673,9 +676,9 @@ YZ
 ZT
 YZ
 ZT
-ZT
-ZT
-ZT
+YZ
+eF
+YZ
 ZT
 "}
 (4,1,1) = {"
@@ -701,9 +704,9 @@ YZ
 ZT
 YZ
 ZT
-ZT
-ZT
-ZT
+Rh
+eF
+YZ
 ZT
 "}
 (5,1,1) = {"
@@ -729,9 +732,9 @@ YZ
 ZT
 YZ
 ZT
-ZT
-ZT
-ZT
+YZ
+eF
+YZ
 ZT
 "}
 (6,1,1) = {"
@@ -753,13 +756,13 @@ Rh
 Le
 Le
 Le
+Rh
+Rh
+Rh
+Rh
 YZ
-ZT
 YZ
-ZT
-ZT
-ZT
-ZT
+YZ
 ZT
 "}
 (7,1,1) = {"
@@ -785,9 +788,9 @@ YZ
 ZT
 YZ
 ZT
-ZT
-ZT
-ZT
+YZ
+eF
+YZ
 ZT
 "}
 (8,1,1) = {"
@@ -813,9 +816,9 @@ YZ
 ZT
 YZ
 ZT
-ZT
-ZT
-ZT
+YZ
+eF
+YZ
 ZT
 "}
 (9,1,1) = {"
@@ -841,9 +844,9 @@ YZ
 YZ
 YZ
 Rh
-ZT
-ZT
-ZT
+YZ
+eF
+YZ
 ZT
 "}
 (10,1,1) = {"
@@ -869,9 +872,9 @@ ZT
 Rh
 ZT
 ZT
-ZT
-ZT
-ZT
+Rh
+YZ
+Rh
 ZT
 "}
 (11,1,1) = {"
@@ -897,9 +900,9 @@ YZ
 YZ
 YZ
 ZT
-ZT
-ZT
-ZT
+YZ
+eF
+YZ
 ZT
 "}
 (12,1,1) = {"
@@ -925,9 +928,9 @@ YZ
 ZT
 YZ
 ZT
-ZT
-ZT
-ZT
+YZ
+YZ
+Rh
 ZT
 "}
 (13,1,1) = {"
@@ -953,9 +956,9 @@ YZ
 ZT
 YZ
 ZT
-ZT
-ZT
-ZT
+Rh
+eF
+YZ
 ZT
 "}
 (14,1,1) = {"
@@ -981,9 +984,9 @@ YZ
 ZT
 YZ
 Rh
-ZT
-ZT
-ZT
+Rh
+YZ
+Rh
 ZT
 "}
 (15,1,1) = {"
@@ -1009,9 +1012,9 @@ YZ
 ZT
 YZ
 ZT
-ZT
-ZT
-ZT
+YZ
+eF
+YZ
 ZT
 "}
 (16,1,1) = {"
@@ -1037,9 +1040,9 @@ YZ
 ZT
 YZ
 ZT
-ZT
-ZT
-ZT
+YZ
+eF
+YZ
 ZT
 "}
 (17,1,1) = {"
@@ -1065,9 +1068,9 @@ YZ
 ZT
 YZ
 ZT
-ZT
-ZT
-ZT
+Rh
+eF
+YZ
 ZT
 "}
 (18,1,1) = {"
@@ -1093,9 +1096,9 @@ YZ
 ZT
 YZ
 ZT
-ZT
-ZT
-ZT
+YZ
+YZ
+YZ
 ZT
 "}
 (19,1,1) = {"
@@ -1121,9 +1124,9 @@ YZ
 ZT
 YZ
 ZT
-ZT
-ZT
-ZT
+Rh
+eF
+YZ
 ZT
 "}
 (20,1,1) = {"
@@ -1149,9 +1152,9 @@ YZ
 ZT
 YZ
 ZT
-ZT
-ZT
-ZT
+YZ
+eF
+YZ
 ZT
 "}
 (21,1,1) = {"
@@ -1177,9 +1180,9 @@ YZ
 ZT
 YZ
 ZT
-ZT
-ZT
-ZT
+YZ
+eF
+YZ
 ZT
 "}
 (22,1,1) = {"
@@ -1205,9 +1208,9 @@ YZ
 ZT
 YZ
 Rh
-ZT
-ZT
-ZT
+YZ
+YZ
+YZ
 ZT
 "}
 (23,1,1) = {"
@@ -1233,9 +1236,9 @@ YZ
 ZT
 YZ
 ZT
-ZT
-ZT
-ZT
+YZ
+eF
+YZ
 ZT
 "}
 (24,1,1) = {"
@@ -1261,9 +1264,9 @@ YZ
 ZT
 YZ
 ZT
-ZT
-ZT
-ZT
+YZ
+eF
+Rh
 ZT
 "}
 (25,1,1) = {"
@@ -1289,9 +1292,9 @@ YZ
 YZ
 YZ
 ZT
-ZT
-ZT
-ZT
+Rh
+eF
+YZ
 ZT
 "}
 (26,1,1) = {"
@@ -1317,9 +1320,9 @@ ZT
 Rh
 ZT
 ZT
-ZT
-ZT
-ZT
+YZ
+YZ
+YZ
 ZT
 "}
 (27,1,1) = {"
@@ -1345,9 +1348,9 @@ Rh
 Rh
 Rh
 Rh
-ZT
-ZT
-ZT
+YZ
+eF
+YZ
 ZT
 "}
 (28,1,1) = {"
@@ -1373,9 +1376,9 @@ Rh
 ZT
 YZ
 ZT
-ZT
-ZT
-ZT
+YZ
+eF
+YZ
 ZT
 "}
 (29,1,1) = {"
@@ -1401,9 +1404,9 @@ Rh
 ZT
 YZ
 ZT
-ZT
-ZT
-ZT
+YZ
+eF
+YZ
 ZT
 "}
 (30,1,1) = {"
@@ -1429,9 +1432,9 @@ ZT
 ZT
 ZT
 ZT
-ZT
-ZT
-ZT
+YZ
+Rh
+Rh
 ZT
 "}
 (31,1,1) = {"
@@ -1457,9 +1460,9 @@ ZT
 ZT
 ZT
 ZT
-ZT
-ZT
-ZT
+Rh
+eF
+YZ
 ZT
 "}
 (32,1,1) = {"
@@ -1485,8 +1488,8 @@ ZT
 ZT
 ZT
 ZT
-ZT
-ZT
-ZT
+YZ
+eF
+YZ
 ZT
 "}

@@ -452,7 +452,7 @@
 "bu" = (
 /obj/structure/grille,
 /turf/open/floor/plating/airless,
-/area/engine/engineering)
+/area/space/nearstation)
 "bv" = (
 /obj/machinery/camera/emp_proof{
 	c_tag = "Engineering Singularity Southwest";
@@ -709,6 +709,10 @@
 /obj/structure/sign/warning/radiation/rad_area,
 /turf/closed/wall/r_wall,
 /area/engine/engineering)
+"dz" = (
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plating,
+/area/engine/engineering)
 "fe" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -773,6 +777,9 @@
 	},
 /turf/open/floor/plating,
 /area/engine/engineering)
+"mO" = (
+/turf/closed/wall/r_wall,
+/area/space/nearstation)
 "mY" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -964,6 +971,11 @@
 	},
 /turf/open/floor/plating,
 /area/engine/engineering)
+"IS" = (
+/obj/structure/lattice,
+/obj/structure/grille,
+/turf/template_noop,
+/area/space/nearstation)
 "Jm" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -1078,9 +1090,9 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
+IS
+mO
+IS
 ab
 "}
 (2,1,1) = {"
@@ -1101,14 +1113,14 @@ fe
 fe
 fe
 fe
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+fe
+fe
+fe
+fe
+fe
+IS
+IS
+IS
 ab
 "}
 (3,1,1) = {"
@@ -1134,9 +1146,9 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
+IS
+mO
+IS
 ab
 "}
 (4,1,1) = {"
@@ -1162,9 +1174,9 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
+IS
+mO
+IS
 ab
 "}
 (5,1,1) = {"
@@ -1185,14 +1197,14 @@ fe
 ab
 ab
 fe
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+fe
+fe
+fe
+fe
+fe
+IS
+mO
+IS
 ab
 "}
 (6,1,1) = {"
@@ -1218,9 +1230,9 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
+IS
+IS
+IS
 ab
 "}
 (7,1,1) = {"
@@ -1246,9 +1258,9 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
+IS
+mO
+IS
 ab
 "}
 (8,1,1) = {"
@@ -1274,9 +1286,9 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
+IS
+mO
+IS
 ab
 "}
 (9,1,1) = {"
@@ -1302,9 +1314,9 @@ ad
 md
 ad
 ab
-ab
-ab
-ab
+IS
+mO
+IS
 ab
 "}
 (10,1,1) = {"
@@ -1330,9 +1342,9 @@ ad
 YT
 WN
 ab
-ab
-ab
-ab
+fe
+IS
+fe
 ab
 "}
 (11,1,1) = {"
@@ -1359,8 +1371,8 @@ mC
 ad
 ad
 ad
-ab
-ab
+mO
+IS
 ab
 "}
 (12,1,1) = {"
@@ -1387,8 +1399,8 @@ BT
 Dp
 YT
 xH
-ab
-ab
+fe
+fe
 ab
 "}
 (13,1,1) = {"
@@ -1415,8 +1427,8 @@ wg
 ad
 ad
 ad
-ab
-ab
+mO
+IS
 ab
 "}
 (14,1,1) = {"
@@ -1443,8 +1455,8 @@ bj
 bv
 ad
 bu
-ab
-ab
+IS
+fe
 ab
 "}
 (15,1,1) = {"
@@ -1471,8 +1483,8 @@ Zf
 bZ
 ad
 bu
-ab
-ab
+mO
+IS
 ab
 "}
 (16,1,1) = {"
@@ -1499,8 +1511,8 @@ Zf
 bw
 ad
 bu
-ab
-ab
+mO
+IS
 ab
 "}
 (17,1,1) = {"
@@ -1514,21 +1526,21 @@ WL
 YT
 bE
 aT
-Is
-Is
+dz
+dz
 bQ
-YT
-YT
-YT
-YT
+dz
+dz
+dz
+dz
 aT
 YT
 Zf
 bZ
 ad
 du
-ab
-ab
+mO
+IS
 ab
 "}
 (18,1,1) = {"
@@ -1541,22 +1553,22 @@ WL
 WL
 OM
 bE
+dz
 YT
 YT
 YT
-YP
 YT
 YT
 YT
 bY
-YP
+dz
 YT
 Zf
 bZ
 ad
 bu
-ab
-ab
+IS
+IS
 ab
 "}
 (19,1,1) = {"
@@ -1569,22 +1581,22 @@ bd
 bf
 OM
 bE
+dz
 YT
 YT
 YT
-YP
 YT
 YT
 YT
 YT
-YP
+dz
 YT
 Zf
 bZ
 ad
 bu
-ab
-ab
+mO
+IS
 ab
 "}
 (20,1,1) = {"
@@ -1597,22 +1609,22 @@ bc
 bg
 OM
 bE
-YT
+dz
 YT
 YT
 JX
 Is
 xC
-Jm
-Jm
+YT
+YT
 bQ
 YT
 Zf
 bZ
 ad
 bu
-ab
-ab
+mO
+IS
 ab
 "}
 (21,1,1) = {"
@@ -1625,7 +1637,7 @@ bi
 bC
 OM
 bE
-YT
+dz
 YT
 bN
 Bx
@@ -1633,14 +1645,14 @@ GV
 YP
 YT
 YT
-YT
+dz
 YT
 Zf
 bw
 ad
 bu
-ab
-ab
+mO
+IS
 ab
 "}
 (22,1,1) = {"
@@ -1654,21 +1666,21 @@ bg
 OM
 bE
 bQ
-Is
-Is
+YT
+YT
 Qx
 Jm
 hM
 YT
 YT
-YT
+dz
 YT
 Zf
 bZ
 ad
 bu
-ab
-ab
+IS
+IS
 ab
 "}
 (23,1,1) = {"
@@ -1681,22 +1693,22 @@ th
 bh
 OM
 bE
-Bx
+dz
 YT
 YT
 YT
 YT
-Bx
+YT
 bX
 YT
-YT
+dz
 YT
 Zf
 bZ
 ad
 bu
-ab
-ab
+mO
+IS
 ab
 "}
 (24,1,1) = {"
@@ -1709,22 +1721,22 @@ io
 WL
 OM
 bE
-Bx
+dz
 YT
 YT
 bR
 YT
-Bx
 YT
 YT
 YT
+dz
 YT
 Zf
 bZ
 ad
 bu
-ab
-ab
+mO
+fe
 ab
 "}
 (25,1,1) = {"
@@ -1738,21 +1750,21 @@ WL
 YT
 bE
 aT
-YT
-YT
-YT
-YT
+dz
+dz
+dz
+dz
 bQ
-Jm
-Jm
+dz
+dz
 aT
 YT
 Zf
 bZ
 ad
 du
-ab
-ab
+mO
+IS
 ab
 "}
 (26,1,1) = {"
@@ -1779,8 +1791,8 @@ Zf
 bw
 ad
 bu
-ab
-ab
+IS
+IS
 ab
 "}
 (27,1,1) = {"
@@ -1807,8 +1819,8 @@ Zf
 bZ
 ad
 bu
-ab
-ab
+mO
+IS
 ab
 "}
 (28,1,1) = {"
@@ -1835,8 +1847,8 @@ rI
 by
 ad
 bu
-ab
-ab
+mO
+IS
 ab
 "}
 (29,1,1) = {"
@@ -1863,8 +1875,8 @@ AH
 ad
 ad
 ad
-ab
-ab
+mO
+IS
 ab
 "}
 (30,1,1) = {"
@@ -1891,8 +1903,8 @@ bZ
 Bp
 yi
 hm
-ab
-ab
+fe
+fe
 ab
 "}
 (31,1,1) = {"
@@ -1919,8 +1931,8 @@ bU
 ad
 ad
 ad
-ab
-ab
+mO
+IS
 ab
 "}
 (32,1,1) = {"
@@ -1947,7 +1959,7 @@ ad
 WN
 ab
 ab
-ab
-ab
+mO
+IS
 ab
 "}
