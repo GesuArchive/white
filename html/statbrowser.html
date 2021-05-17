@@ -40,9 +40,7 @@
 	#menu {
 		background-color: #F0F0F0;
 		position: fixed;
-		left: 0;
-		width: 70px;
-		height: 100vh;
+		width: 100%;
 		z-index: 100;
 	}
 
@@ -55,9 +53,6 @@
 	}
 
 	#statcontent {
-		position: absolute;
-		left: 75px;
-		top: 0;
 		padding: 2px 2px 2px 2px;
 	}
 
@@ -102,7 +97,10 @@
 	}
 
 	.button-container {
-		display: block;
+		display: inline-flex;
+		flex-wrap: wrap-reverse;
+		flex-direction: row;
+		align-items: flex-start;
 		overflow-x: hidden;
 		white-space: pre-wrap;
 		padding: 0 2px;
@@ -113,18 +111,16 @@
 		border-color: #cecece;
 		border-width: 1px;
 		border-style: solid;
-		border-top: 0;
 		color: rgba(0, 0, 0, 0.7);
-		padding: 0px 0px;
+		padding: 4px 3px;
 		text-align: center;
 		text-decoration: none;
 		font-size: 13px;
-		margin: 0 0;
+		margin: 0 1px;
 		cursor: pointer;
 		transition-duration: 0.25s;
 		order: 3;
-		width: 70px;
-		height: 20px;
+		min-width: 40px;
 	}
 
 	.dark button {
@@ -157,28 +153,29 @@
 	.button:active, .button.active {
 		background-color: #ffffff;
 		color: black;
+		font-weight: bold;
+		border-top: 1px solid #cecece;
 		border-left: 1px solid #cecece;
-		border-right: none;
+		border-right: 1px solid #cecece;
 		border-bottom: 1px solid #ffffff;
-		border-top: 1px solid #ffffff;
 	}
 
 	.dark .button:active, .dark .button.active {
 		background-color: #080808;
 		color: #d6d6d6;
+		border-top: 1px solid #343434;
 		border-left: 1px solid #343434;
-		border-right: none;
+		border-right: 1px solid #343434;
 		border-bottom: 1px solid #080808;
-		border-top: 1px solid #080808;
 	}
 
 	.cyber .button:active, .cyber .button.active {
 		background-color: #000306;
 		color: #abc6ec;
+		border-top: 1px solid #343434;
 		border-left: 1px solid #343434;
-		border-right: none;
+		border-right: 1px solid #343434;
 		border-bottom: 1px solid #080808;
-		border-top: 1px solid #080808;
 	}
 
 	.grid-container {
@@ -189,7 +186,7 @@
 	.grid-item {
 		position: relative;
 		display: inline-block;
-		width: 160px;
+		width: 140px;
 		font-size: 11px;
 		white-space: pre-wrap;
 		padding: 3px 3px;
