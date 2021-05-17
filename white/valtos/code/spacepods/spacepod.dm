@@ -11,6 +11,7 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 	desc = "A frame for a spacepod."
 	icon = 'white/valtos/icons/spacepods/goon/construction_2x2.dmi'
 	icon_state = "pod_1"
+	var/icon/overlay_file = 'white/valtos/icons/spacepods/2x2.dmi'
 	density = 1
 	opacity = 0
 	dir = NORTH // always points north because why not
@@ -470,11 +471,11 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		var/left_thrust = left_thrusts[cdir]
 		var/right_thrust = right_thrusts[cdir]
 		if(left_thrust)
-			add_overlay(image(icon = 'white/valtos/icons/spacepods/2x2.dmi', icon_state = "rcs_left", dir = cdir))
+			add_overlay(image(icon = overlay_file, icon_state = "rcs_left", dir = cdir))
 		if(right_thrust)
-			add_overlay(image(icon = 'white/valtos/icons/spacepods/2x2.dmi', icon_state = "rcs_right", dir = cdir))
+			add_overlay(image(icon = overlay_file, icon_state = "rcs_right", dir = cdir))
 	if(back_thrust)
-		var/image/I = image(icon = 'white/valtos/icons/spacepods/2x2.dmi', icon_state = "thrust")
+		var/image/I = image(icon = overlay_file, icon_state = "thrust")
 		I.transform = matrix(1, 0, 0, 0, 1, -32)
 		add_overlay(I)
 
@@ -648,7 +649,7 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		M.click_intercept = src
 		addverbs(M)
 		if(M.client)
-			M.client.view_size.setTo(6)
+			M.client.view_size.setTo(3)
 			M.movement_type = GROUND
 	else if(passengers.len < max_passengers)
 		passengers += M
@@ -704,3 +705,17 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 	remove_verb(user, /obj/spacepod/verb/toggle_brakes)
 	remove_verb(user, /obj/spacepod/verb/lock_pod)
 	remove_verb(user, /obj/spacepod/verb/exit_pod)
+
+/obj/spacepod/prebuilt/ship
+	name = "корабль"
+	desc = "Ох..."
+	icon = 'white/valtos/icons/spacepods/2x3.dmi'
+	icon_state = "ship_civ"
+	overlay_file = 'white/valtos/icons/spacepods/2x3.dmi'
+	bound_x = 64
+	bound_y = 96
+	armor_type = /obj/item/pod_parts/armor/security
+	cell_type = /obj/item/stock_parts/cell/infinite
+	equipment_types = list(/obj/item/spacepod_equipment/weaponry/laser,
+		/obj/item/spacepod_equipment/cargo/chair,
+		/obj/item/spacepod_equipment/cargo/chair)
