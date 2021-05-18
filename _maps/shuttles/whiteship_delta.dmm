@@ -30,6 +30,7 @@
 	preferred_direction = 4;
 	width = 27
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/crew)
 "ae" = (
@@ -2338,6 +2339,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/medbay)
 "iM" = (
