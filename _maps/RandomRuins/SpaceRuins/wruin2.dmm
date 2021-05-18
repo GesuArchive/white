@@ -5066,6 +5066,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/station)
+"vF" = (
+/obj/item/card/id/captains_spare,
+/turf/open/space/basic,
+/area/ruin/space/has_grav/austation/rnd)
 "vT" = (
 /obj/effect/turf_decal/tile/purple,
 /obj/structure/cable,
@@ -6692,7 +6696,7 @@ aa
 be
 bv
 bW
-cN
+vF
 cN
 di
 Az

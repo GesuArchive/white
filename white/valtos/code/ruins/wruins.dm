@@ -134,3 +134,17 @@
 	name = "Terrorship"
 	allow_duplicates = FALSE
 	description = "При попытке пристыковать артиллерию к основной части корабля Mothership при помощи блюспейс технологий эта часть корабля попала в наш сектор. Блюпупа получил <b>за лупу</b>."
+
+/datum/map_template/ruin/space/assteroid
+	id = "assteroid"
+	suffix = "wruin5.dmm"
+	name = "Assteroid"
+	allow_duplicates = FALSE
+	description = "Астероид имени Ассистента. Да."
+
+/datum/map_template/ruin/space/eighteensvault
+	id = "eighteensvault"
+	suffix = "wruin6.dmm"
+	name = "Eighteens Vault"
+	allow_duplicates = FALSE
+	description = "Эх, вот раньше на эти деньги можно было бы купить сто тыщ звездолётов..."
