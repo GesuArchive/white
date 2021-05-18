@@ -1,0 +1,285 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/template_noop)
+"d" = (
+/turf/closed/mineral/random,
+/area/ruin/space/has_grav/powered)
+"e" = (
+/turf/closed/mineral/random/high_chance,
+/area/ruin/space/has_grav/powered)
+"j" = (
+/mob/living/simple_animal/hostile/asteroid/ice_demon,
+/turf/open/floor/eighties/red,
+/area/ruin/space/has_grav/powered)
+"l" = (
+/obj/machinery/light/directional/south,
+/turf/open/floor/eighties/red,
+/area/ruin/space/has_grav/powered)
+"n" = (
+/obj/structure/table/wood/fancy/purple,
+/obj/item/stack/spacecash/c100,
+/turf/open/floor/eighties,
+/area/ruin/space/has_grav/powered)
+"C" = (
+/turf/open/floor/eighties/red,
+/area/ruin/space/has_grav/powered)
+"E" = (
+/obj/machinery/door/airlock/hatch,
+/obj/structure/fans/tiny,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/ruin/space/has_grav/powered)
+"F" = (
+/turf/closed/wall/partyhard,
+/area/ruin/space/has_grav/powered)
+"Q" = (
+/turf/open/floor/plating/asteroid/airless,
+/area/ruin/space/has_grav/powered)
+"U" = (
+/obj/machinery/light/directional/north,
+/obj/structure/table/wood/fancy/purple,
+/obj/item/stack/spacecash/c100,
+/turf/open/floor/eighties,
+/area/ruin/space/has_grav/powered)
+"W" = (
+/obj/machinery/light/directional/east,
+/obj/structure/table/wood/fancy/purple,
+/obj/item/stack/spacecash/c100,
+/turf/open/floor/eighties,
+/area/ruin/space/has_grav/powered)
+"Y" = (
+/obj/machinery/light/directional/west,
+/obj/structure/table/wood/fancy/purple,
+/obj/item/stack/spacecash/c100,
+/turf/open/floor/eighties,
+/area/ruin/space/has_grav/powered)
+"Z" = (
+/mob/living/simple_animal/hostile/asteroid/ice_whelp,
+/turf/open/floor/eighties/red,
+/area/ruin/space/has_grav/powered)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+e
+e
+d
+d
+d
+d
+a
+"}
+(2,1,1) = {"
+a
+a
+a
+Q
+Q
+e
+e
+e
+d
+d
+d
+d
+e
+"}
+(3,1,1) = {"
+a
+Q
+e
+d
+e
+e
+e
+d
+d
+d
+d
+e
+e
+"}
+(4,1,1) = {"
+a
+d
+d
+F
+F
+F
+F
+F
+F
+d
+d
+e
+e
+"}
+(5,1,1) = {"
+a
+d
+F
+F
+n
+n
+Y
+n
+F
+F
+d
+Q
+a
+"}
+(6,1,1) = {"
+d
+d
+F
+n
+C
+C
+C
+C
+C
+F
+d
+Q
+a
+"}
+(7,1,1) = {"
+d
+d
+F
+n
+C
+C
+Z
+C
+l
+F
+Q
+Q
+a
+"}
+(8,1,1) = {"
+d
+d
+F
+U
+C
+C
+j
+C
+C
+E
+Q
+Q
+a
+"}
+(9,1,1) = {"
+e
+d
+F
+n
+C
+C
+Z
+C
+l
+F
+Q
+Q
+a
+"}
+(10,1,1) = {"
+d
+d
+F
+n
+C
+C
+C
+C
+C
+F
+d
+a
+a
+"}
+(11,1,1) = {"
+d
+d
+F
+F
+n
+n
+W
+n
+F
+F
+d
+Q
+a
+"}
+(12,1,1) = {"
+d
+d
+d
+F
+F
+F
+F
+F
+F
+d
+d
+Q
+a
+"}
+(13,1,1) = {"
+a
+d
+d
+d
+d
+d
+d
+d
+d
+d
+Q
+a
+a
+"}
+(14,1,1) = {"
+d
+d
+d
+e
+d
+d
+d
+Q
+a
+a
+a
+a
+a
+"}
+(15,1,1) = {"
+a
+d
+d
+a
+d
+d
+a
+a
+a
+a
+a
+a
+a
+"}

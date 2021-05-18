@@ -890,10 +890,6 @@
 	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
-"dy" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/dark,
-/turf/open/floor/engine,
-/area/ruin/space/has_grav/terrorship)
 "dz" = (
 /obj/machinery/light,
 /turf/open/floor/engine,
@@ -1229,12 +1225,12 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/ruin/space/has_grav/terrorship)
 "fJ" = (
-/turf/open/space/basic,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "fK" = (
 /mob/living/simple_animal/hostile/syndicate/melee/sword/space,
-/turf/open/space/basic,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "hb" = (
 /obj/item/wirecutters,
 /turf/open/floor/engine,
@@ -2554,7 +2550,7 @@ Ti
 zL
 xZ
 fy
-dy
+fy
 fy
 dI
 dV
@@ -2824,7 +2820,7 @@ kP
 fy
 fy
 fy
-dy
+fy
 dI
 dV
 ac
@@ -2891,7 +2887,7 @@ kP
 Gs
 AC
 fy
-dy
+fy
 dI
 dV
 eg
@@ -3427,7 +3423,7 @@ kP
 fy
 fy
 fy
-dy
+fy
 dI
 dV
 ac
@@ -3494,7 +3490,7 @@ kP
 fy
 Gs
 fy
-dy
+fy
 dI
 dV
 eg
@@ -3760,7 +3756,7 @@ fu
 dk
 dw
 fy
-dy
+fy
 fy
 dI
 dV
