@@ -38,7 +38,7 @@
 	jobtype = /datum/job/hos
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/katana
+	belt = /obj/item/melee/baseball_bat/hos
 	ears = /obj/item/radio/headset/heads/hos/alt
 	uniform = /obj/item/clothing/under/rank/security/head_of_security
 	shoes = /obj/item/clothing/shoes/jackboots

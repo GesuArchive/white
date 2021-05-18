@@ -3714,6 +3714,7 @@
 #include "white\qwaszx000\winners.dm"
 #include "white\qwaszx000\loly\loly.dm"
 #include "white\RedFoxIV\code\Crutches_Gigapack.dm"
+#include "white\RedFoxIV\code\obj\weapons\melee\hosbat.dm"
 #include "white\RedFoxIV\guns\battery_gun_def\battery_gun.dm"
 #include "white\RedFoxIV\guns\energy_smg\energy_smg.dm"
 #include "white\RedFoxIV\guns\sonicgun\sonicgun.dm"
