@@ -13,7 +13,7 @@
 //austation
 
 /obj/effect/mob_spawn/human/austation
-	name = "пахнущая плохо капсула"
+	name = "интересная капсула"
 	desc = "Промёрзшая изнутри капсула. Если присмотреться, то внутри находится спящий человек."
 	mob_name = "ассистуха"
 	icon = 'icons/obj/machines/sleeper.dmi'

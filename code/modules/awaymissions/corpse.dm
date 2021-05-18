@@ -449,3 +449,30 @@
 	name = "Труп Похитителя"
 	uniform = /obj/item/clothing/under/color/grey
 	shoes = /obj/item/clothing/shoes/combat
+
+/obj/effect/mob_spawn/human/artist
+	name = "Артист"
+	flavour_text = "Вы - звезда. Создайте шоу, которое возможно смогут посмотреть в баре, если у них хватит желания, конечно."
+	icon = 'white/valtos/icons/prison/prison.dmi'
+	icon_state = "spwn"
+	roundstart = FALSE
+	death = FALSE
+	outfit = /datum/outfit/artist
+
+/obj/effect/mob_spawn/human/artist/create(ckey, newname)
+	if(ckey)
+		var/client/C = GLOB.directory[ckey]
+		if(C?.prefs)
+			hairstyle =  C.prefs.hairstyle
+			facial_hairstyle = C.prefs.facial_hairstyle
+			skin_tone = C.prefs.skin_tone
+	. = ..()
+
+/datum/outfit/artist
+	name = "Костюм Артиста"
+	uniform = /obj/item/clothing/under/color/grey
+	shoes = /obj/item/clothing/shoes/combat
+
+/obj/effect/mob_spawn/human/artist/special(mob/living/L)
+	L.real_name = "Артист #[uses]"
+	L.name = L.real_name
