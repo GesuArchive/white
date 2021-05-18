@@ -7,6 +7,7 @@
 	lefthand_file = 'white/RedFoxIV/icons/obj/weapons/melee/hosbat/hosbat_lefthand.dmi'
 	righthand_file = 'white/RedFoxIV/icons/obj/weapons/melee/hosbat/hosbat_righthand.dmi'
 	force = 25
+	block_chance = 25
 	worn_icon_state = "katana" //временное решение, пока я не найду силы заспрайтить в себе ещё 9 бит блять
 	unique_reskin = list("Ассбольная бита" = "falloutbat",
 						"Световая бита" = "laserbat",
