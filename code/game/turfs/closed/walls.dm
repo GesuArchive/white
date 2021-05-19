@@ -112,6 +112,7 @@
 
 
 /turf/closed/wall/blob_act(obj/structure/blob/B)
+	playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)
 	if(prob(50))
 		dismantle_wall()
 	else
