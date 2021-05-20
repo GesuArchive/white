@@ -254,6 +254,13 @@
 	volume = 1
 	list_reagents = list(/datum/reagent/gluttonytoxin = 1)
 
+/obj/item/reagent_containers/syringe/apostletoxin
+	name = "Вознесение"
+	desc = "Скользкий, сладкий шприц. Интересно, что будет если вколоть его в себя? Или в ДРУГИХ?"
+	amount_per_transfer_from_this = 1
+	volume = 1
+	list_reagents = list(/datum/reagent/apostletoxin = 1)
+
 /obj/item/reagent_containers/syringe/bluespace
 	name = "bluespace syringe"
 	desc = "An advanced syringe that can hold 60 units of chemicals."

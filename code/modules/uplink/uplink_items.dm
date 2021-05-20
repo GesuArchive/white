@@ -1933,6 +1933,13 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	item = /obj/item/storage/box/hug/reverse_revolver
 	restricted_roles = list("Clown")
 
+/datum/uplink_item/role_restricted/apostle_syringe
+	name = "Clown Apostle toxin"
+	desc = "This syringe will transform user into something very beautiful yet deadly."
+	cost = 20
+	item = /obj/item/reagent_containers/syringe/apostletoxin
+	restricted_roles = list("Clown")
+
 /datum/uplink_item/role_restricted/clownpin
 	name = "Ultra Hilarious Firing Pin"
 	desc = "A firing pin that, when inserted into a gun, makes that gun only usable by clowns and clumsy people and makes that gun honk whenever anyone tries to fire it."

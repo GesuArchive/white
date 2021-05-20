@@ -119,7 +119,6 @@
 				glutton.biomass += 1
 
 
-
 /mob/living/simple_animal/hostile/clown/AttackingTarget()
 	. = ..()
 	if(attack_reagent && . && isliving(target))

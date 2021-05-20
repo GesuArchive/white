@@ -358,3 +358,21 @@
 				if(held_item)
 					to_chat(affected_mob, "<span class='danger'>You let go of what you were holding.</span>")
 					affected_mob.dropItemToGround(held_item)
+
+
+/datum/disease/transformation/apostle
+	name = "Вознесение"
+	cure_text = "Nothing"
+	cures = list(/datum/reagent/consumable/nothing)
+	agent = "Вознесение"
+	desc = "Превращение в нечто более прекрасное!"
+	stage_prob = 20
+	severity = DISEASE_SEVERITY_BIOHAZARD
+	visibility_flags = NONE
+	stage1	= list("Живот урчит.")
+	stage2	= list("Слышу смех краем уха.")
+	stage3	= list("<span class='danger'>Моя кожа пахнет бананами.</span>", "<span class='danger'>Набираю вес.</span>")
+	stage4	= list("<span class='danger'>Так хочется есть...</span>")
+	stage5	= list("<span class='danger'>Теперь я Апостол.</span>")
+	new_form = /mob/living/simple_animal/hostile/clown/mutant/glutton/
+	infectable_biotypes = MOB_ORGANIC|MOB_MINERAL|MOB_UNDEAD //magic!

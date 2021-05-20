@@ -756,6 +756,17 @@
 	. = ..()
 	exposed_mob.ForceContractDisease(new /datum/disease/transformation/morph(), FALSE, TRUE)
 
+/datum/reagent/apostletoxin
+	name = "Вознесение"
+	description = "Как такие вещи попадают на космические станции?"
+	color = "#fcf807"
+	taste_description = "смех"
+	penetrates_skin = NONE
+
+/datum/reagent/apostletoxin/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message=TRUE, touch_protection=0)
+	. = ..()
+	exposed_mob.ForceContractDisease(new /datum/disease/transformation/apostle(), FALSE, TRUE)
+
 /datum/reagent/serotrotium
 	name = "Серотроций"
 	description = "A chemical compound that promotes concentrated production of the serotonin neurotransmitter in humans."
