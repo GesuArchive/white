@@ -93,7 +93,7 @@
 	hitsound = 'white/RedFoxIV/sounds/weapons/holy_mackerel.ogg'
 	force = 7
 
-/obj/item/melee/baseball_bat/hos/holymackerel/attack(mob/living/target, mob/living/user, )
+/obj/item/melee/baseball_bat/hos/holymackerel/attack(mob/living/target, mob/living/user)
 	/*
 	. = ..(target, user, FALSE) //do not throw people around
 	target.adjust_disgust(10)  //make them vomit instead
@@ -108,7 +108,7 @@
 	. = ..(target, user, knockback)
 	user.changeNext_move(5)
 	if(target.timeofdeath == world.time)
-		visible_message("<size = 32><span class = 'hypnophrase'>FISH KILL!!</span></size>")
+		visible_message("<span class = 'hypnophrase'>УБИЙСТВО РЫБОЙ!</span>")
 
 /obj/item/melee/baseball_bat/hos/holymackerel/attack_obj(obj/O, mob/living/user)
 	. = ..()
@@ -168,7 +168,7 @@
 	var/datum/component/two_handed/wieldcomp
 
 //Это отвечает за взятие кувалды в обе руки. По какой-то причине нихуя не работает. Позвоните 8(800)555-35-35, если знаете, как починить.
-//см. прок smash_with_hammer в walls.dm
+//так же см. прок smash_with_hammer в walls.dm
 /*
 /obj/item/melee/baseball_bat/hos/hammer/ComponentInitialize()
 	. = ..()
@@ -176,7 +176,7 @@
 
 
 /obj/item/melee/baseball_bat/hos/hammer/attack(mob/living/target, mob/living/user)
-	. = ..(target, user, FALSE)
+	. = ..(target, user, wielded)
 	if(wielded)
 		user.changeNext_move(CLICK_CD_MELEE*2)
 
@@ -185,29 +185,6 @@
 	if(wielded)
 		user.changeNext_move(CLICK_CD_MELEE*2)
 
-
-// .____. .____. .____. .____. .____. .____. .____. .____. .____.
-//  |  |   |  |   |  |   |  |   |  |   |  |   |  |   |  |   |  | 
-//  |__|   |__|   |__|   |__|   |__|   |__|   |__|   |__|   |__| 
-//  \  /   \  /   \  /   \  /   \  /   \  /   \  /   \  /   \  / 
-//   ||     ||     ||     ||     ||     ||     ||     ||     ||  
-//   ||     ||     ||     ||     ||     ||     ||     ||     ||  
-//   ()     ()     ()     ()     ()     ()     ()     ()     ()  
-
-/obj/item/melee/baseball_bat/hos/hammer/attack_self(obj/O, mob/living/user)
-	. = ..()
-	if(wielded)
-		wieldcomp.wield()
-	else
-		wieldcomp.unwield()
-
-// .____. .____. .____. .____. .____. .____. .____. .____. .____.
-//  |  |   |  |   |  |   |  |   |  |   |  |   |  |   |  |   |  | 
-//  |__|   |__|   |__|   |__|   |__|   |__|   |__|   |__|   |__| 
-//  \  /   \  /   \  /   \  /   \  /   \  /   \  /   \  /   \  / 
-//   ||     ||     ||     ||     ||     ||     ||     ||     ||  
-//   ||     ||     ||     ||     ||     ||     ||     ||     ||  
-//   ()     ()     ()     ()     ()     ()     ()     ()     ()  
 
 						//<stolen from fireaxe code>
 /obj/item/melee/baseball_bat/hos/hammer/Initialize()
@@ -230,7 +207,6 @@
 
 						//</stolen from fireaxe code>
 */
-
 
 
 //Хрюкни
