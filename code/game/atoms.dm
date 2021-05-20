@@ -214,7 +214,8 @@
 	if(loc)
 		SEND_SIGNAL(loc, COMSIG_ATOM_CREATED, src) /// Sends a signal that the new atom `src`, has been created at `loc`
 
-	update_greyscale()
+	if(greyscale_config && greyscale_colors)
+		update_greyscale()
 
 	//atom color stuff
 	if(color)
@@ -697,19 +698,25 @@
 	SHOULD_CALL_PARENT(TRUE)
 	if(istype(colors))
 		colors = colors.Join("")
-	if(!isnull(colors) && greyscale_colors != colors) // If you want to disable greyscale stuff then give a blank string
-		greyscale_colors = colors
+	if(greyscale_colors == colors)
+		return
+	greyscale_colors = colors
+	if(!greyscale_config)
+		return
+	if(update && greyscale_config && greyscale_colors)
+		update_greyscale()
 
-	if(!isnull(new_config) && greyscale_config != new_config)
-		greyscale_config = new_config
-
-	update_greyscale()
+/// Checks if the greyscale config given is different and if so causes a greyscale icon update
+/atom/proc/set_greyscale_config(new_config, update=TRUE)
+	if(greyscale_config == new_config)
+		return
+	greyscale_config = new_config
+	if(update && greyscale_config && greyscale_colors)
+		update_greyscale()
 
 /// Checks if this atom uses the GAGS system and if so updates the icon
 /atom/proc/update_greyscale()
-	SHOULD_CALL_PARENT(TRUE)
-	if(greyscale_colors && greyscale_config)
-		icon = SSgreyscale.GetColoredIconByType(greyscale_config, greyscale_colors)
+	icon = SSgreyscale.GetColoredIconByType(greyscale_config, greyscale_colors)
 
 /**
  * An atom we are buckled or is contained within us has tried to move
