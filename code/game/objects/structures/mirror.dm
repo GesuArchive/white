@@ -233,7 +233,7 @@
 			if(!(H.gender in list("male", "female"))) //blame the patriarchy
 				return
 			if(H.gender == "male")
-				if(alert(H, "Become a Witch?", "Confirmation", "Yes", "No") == "Yes")
+				if(tgui_alert(H, "Become a Witch?", "Confirmation", list("Yes", "No")) == "Yes")
 					if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 						return
 					H.gender = FEMALE
@@ -243,7 +243,7 @@
 					return
 
 			else
-				if(alert(H, "Become a Warlock?", "Confirmation", "Yes", "No") == "Yes")
+				if(tgui_alert(H, "Become a Warlock?", "Confirmation", list("Yes", "No")) == "Yes")
 					if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 						return
 					H.gender = MALE
@@ -256,7 +256,7 @@
 			H.update_mutations_overlay() //(hulk male/female)
 
 		if("hair")
-			var/hairchoice = tgui_alert(H, "Hairstyle or hair color?", "Change Hair", "Style", "Color")
+			var/hairchoice = tgui_alert(H, "Hairstyle or hair color?", "Change Hair", list("Style", "Color"))
 			if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 				return
 			if(hairchoice == "Style") //So you just want to use a mirror then?

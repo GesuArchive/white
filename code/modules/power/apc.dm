@@ -1189,8 +1189,8 @@
 	user.visible_message(span_notice("[user] slots [card] into <b>[src]</b>...") , span_notice("Transfer process initiated. Sending request for AI approval...") )
 	playsound(src, 'sound/machines/click.ogg', 50, TRUE)
 	SEND_SOUND(occupier, sound('sound/misc/notice2.ogg')) //To alert the AI that someone's trying to card them if they're tabbed out
-	if(alert(occupier, "[user] is attempting to transfer you to \a [card.name]. Do you consent to this?", "APC Transfer", "Yes - Transfer Me", "No - Keep Me Here") == "No - Keep Me Here")
-		to_chat(user, span_danger("AI denied transfer request. Process terminated.") )
+	if(tgui_alert(occupier, "[user] is attempting to transfer you to \a [card.name]. Do you consent to this?", "APC Transfer", list("Yes - Transfer Me", "No - Keep Me Here")) == "No - Keep Me Here")
+		to_chat(user, "<span class='danger'>AI denied transfer request. Process terminated.</span>")
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
 		transfer_in_progress = FALSE
 		return

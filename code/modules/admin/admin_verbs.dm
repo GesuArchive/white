@@ -538,8 +538,8 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 			var/flash_range = input("Flash range (in tiles):") as null|num
 			if(flash_range == null)
 				return
-			if(devastation_range > GLOB.MAX_EX_DEVESTATION_RANGE || heavy_impact_range > GLOB.MAX_EX_HEAVY_RANGE || light_impact_range > GLOB.MAX_EX_LIGHT_RANGE || flash_range > GLOB.MAX_EX_FLASH_RANGE)
-				if(alert("Bomb is bigger than the maxcap. Continue?",,"Yes","No") != "Yes")
+			if(range_devastation > GLOB.MAX_EX_DEVESTATION_RANGE || range_heavy > GLOB.MAX_EX_HEAVY_RANGE || range_light > GLOB.MAX_EX_LIGHT_RANGE || range_flash > GLOB.MAX_EX_FLASH_RANGE)
+				if(tgui_alert(usr, "Bomb is bigger than the maxcap. Continue?",,list("Yes","No")) != "Yes")
 					return
 			epicenter = mob.loc //We need to reupdate as they may have moved again
 			explosion(epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, TRUE, TRUE)
@@ -678,10 +678,22 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 	var/list/spell_list = list()
 	var/type_length = length_char("/obj/effect/proc_holder/spell") + 2
+	/*
 	for(var/A in GLOB.spells)
 		spell_list[copytext_char("[A]", type_length)] = A
 	var/obj/effect/proc_holder/spell/S = input("Choose the spell to give to that guy", "ABRAKADABRA") as null|anything in sortList(spell_list)
 	if(!S)
+	*/
+	for(var/spell in GLOB.spells)
+		spell_list[copytext_char("[spell]", type_length)] = spell
+	var/spell_desc = input("Choose the spell to give to that guy", "ABRAKADABRA") as null|anything in sortList(spell_list)
+	if(!spell_desc)
+		return
+
+	var/robeless = (tgui_alert(usr, "Would you like to force this spell to be robeless?", "Robeless Casting?", list("Force Robeless", "Use Spell Setting")) == "Force Robeless")
+
+	if(QDELETED(spell_recipient))
+		to_chat(usr, "<span class='warning'>The intended spell recipient no longer exists.</span>")
 		return
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Give Spell") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

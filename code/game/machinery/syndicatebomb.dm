@@ -199,8 +199,8 @@
 
 	if(in_range(src, user) && isliving(user)) //No running off and setting bombs from across the station
 		timer_set = clamp(new_timer, minimum_timer, maximum_timer)
-		loc.visible_message(span_notice("[icon2html(src, viewers(src))] таймер настроен на [timer_set] секунд.") )
-	if(alert(user,"Would you like to start the countdown now?",,"Yes","No") == "Yes" && in_range(src, user) && isliving(user))
+		loc.visible_message("<span class='notice'>[icon2html(src, viewers(src))] timer set for [timer_set] seconds.</span>")
+	if(tgui_alert(user,"Would you like to start the countdown now?",,list("Yes","No")) == "Yes" && in_range(src, user) && isliving(user))
 		if(!active)
 			visible_message(span_danger("[icon2html(src, viewers(loc))] [timer_set] секунд до детонации, пожалуйста, покиньте зону.") )
 			activate()

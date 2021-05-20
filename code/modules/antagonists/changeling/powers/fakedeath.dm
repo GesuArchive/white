@@ -58,7 +58,7 @@
 		to_chat(user, span_warning("Мы уже восстанавливаемся.") )
 		return
 	if(!user.stat && !revive_ready) //Confirmation for living changelings if they want to fake their death
-		switch(alert("Хотим ли мы устроить иммитацию нашей смерти?",,"Да", "Нет"))
+		switch(tgui_alert("Хотим ли мы устроить иммитацию нашей смерти?",,list("Да", "Нет")))
 			if("Нет")
 				return
 	return ..()

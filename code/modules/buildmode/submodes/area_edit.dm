@@ -71,7 +71,7 @@
 	var/left_click = pa.Find("left")
 
 	if(left_click)
-		var/choice = tgui_alert(usr, "Are you sure you want to fill area?", "Area Fill Confirmation", "Yes", "No")
+		var/choice = tgui_alert(usr, "Are you sure you want to fill area?", "Area Fill Confirmation", list("Yes", "No"))
 		if(choice != "Yes")
 			return
 		for(var/turf/T in block(get_turf(cornerA),get_turf(cornerB)))

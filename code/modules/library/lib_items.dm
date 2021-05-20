@@ -249,7 +249,7 @@
 		if(!literate)
 			to_chat(user, span_notice("Выцарапываю закорючки на обложке [src.name]!") )
 			return
-		var/choice = input("Что меняем?") in list("Название", "Содержимое", "Автора", "Отмена")
+		var/choice = tgui_input_list(usr, "Что меняем?",,list("Название", "Содержимое", "Автора", "Отмена"))
 		if(!user.canUseTopic(src, BE_CLOSE, literate))
 			return
 		switch(choice)

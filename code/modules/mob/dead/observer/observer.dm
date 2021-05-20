@@ -326,7 +326,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set name = "❗ Покинуть тело"
 	set desc = "Relinquish your life and enter the land of the dead."
 
-	var/response = tgui_alert(usr, "Are you -sure- you want to ghost?\n(You are alive. If you ghost whilst still alive you may not play again this round! You can't change your mind so choose wisely!!)","Are you sure you want to ghost?","Ghost","Stay in body")
+	var/response = tgui_alert(usr, "Are you -sure- you want to ghost?\n(You are alive. If you ghost whilst still alive you may not play again this round! You can't change your mind so choose wisely!!)","Are you sure you want to ghost?",list("Ghost","Stay in body"))
 	if(response != "Ghost")
 		return
 	ghostize(FALSE)
@@ -392,7 +392,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(usr, span_warning("Да я как бы уже!") )
 		return FALSE
 
-	var/response = tgui_alert(usr, "Отменяем возможность возраждаться? Это нельзя отменить и лишает тебя права голоса на этот раунда.","Умираем?","НХВ","Я передумал")
+	var/response = tgui_alert(usr, "Отменяем возможность возраждаться? Это нельзя отменить и лишает тебя права голоса на этот раунда.","Умираем?","НХВ",list("Я передумал"))
 	if(response != "НХВ")
 		return
 
@@ -659,7 +659,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return FALSE
 
 	if(can_reenter_corpse && mind?.current)
-		if(alert(src, "Your soul is still tied to your former life as [mind.current.name], if you go forward there is no going back to that life. Are you sure you wish to continue?", "Move On", "Yes", "No") == "No")
+		if(tgui_alert(usr, "Your soul is still tied to your former life as [mind.current.name], if you go forward there is no going back to that life. Are you sure you wish to continue?", "Move On", list("Yes", "No")) == "No")
 			return FALSE
 	if(target.key)
 		to_chat(src, span_warning("Someone has taken this body while you were choosing!") )

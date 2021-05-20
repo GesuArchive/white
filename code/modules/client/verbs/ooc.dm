@@ -42,7 +42,7 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 	msg = emoji_parse(msg)
 
 	if(SSticker.HasRoundStarted() && (msg[1] in list(".",";",":","#") || findtext_char(msg, "say", 1, 5)))
-		if(alert("Похоже \"[raw_msg]\" выглядит как внутриигровое сообщение, написать его в OOC?", "Для OOC?", "Да", "Нет") != "Да")
+		if(tgui_alert(usr, "Похоже \"[raw_msg]\" выглядит как внутриигровое сообщение, написать его в OOC?", "Для OOC?", list("Да", "Нет")) != "Да")
 			return
 
 	if(!holder)
@@ -152,7 +152,7 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 	set category = "Срв"
 	if(IsAdminAdvancedProcCall())
 		return
-	if(alert(usr, "Are you sure you want to reset the OOC color of all players?", "Reset Player OOC Color", "Yes", "No") != "Yes")
+	if(tgui_alert(usr, "Are you sure you want to reset the OOC color of all players?", "Reset Player OOC Color", list("Yes", "No")) != "Yes")
 		return
 	if(!check_rights(R_FUN))
 		message_admins("[usr.key] has attempted to use the Reset Player OOC Color verb!")

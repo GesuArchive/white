@@ -179,7 +179,7 @@ Slimecrossing Items
 		return
 	if(M.mind)
 		to_chat(user, span_notice("Предлагаю устройство [M].") )
-		if(alert(M, "Would you like to enter [user] capture device?", "Gold Capture Device", "Yes", "No") == "Yes")
+		if(tgui_alert(M, "Would you like to enter [user]'s capture device?", "Gold Capture Device", list("Yes", "No")) == "Yes")
 			if(user.canUseTopic(src, BE_CLOSE) && user.canUseTopic(M, BE_CLOSE))
 				to_chat(user, span_notice("Помещаю [M] в устройство захвата.") )
 				to_chat(M, span_notice("Мир вокруг тебя искривляется и внезапно ты оказываешься в бесконечной пустоте с летающим окном наружу перед тобой.") )

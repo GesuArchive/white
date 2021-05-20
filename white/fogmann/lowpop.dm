@@ -22,7 +22,7 @@
 		return
 
 	declaring_war_lowpop = TRUE
-	var/are_you_sure = tgui_alert(user, "Consult your team carefully before you declare war on [station_name()]]. Are you sure you want to alert the enemy crew? You have [DisplayTimeText(world.time-SSticker.round_start_time - CHALLENGE_TIME_LIMIT)] to decide", "Declare war?", "Yes", "No")
+	var/are_you_sure = tgui_alert(user, "Consult your team carefully before you declare war on [station_name()]]. Are you sure you want to alert the enemy crew? You have [DisplayTimeText(world.time-SSticker.round_start_time - CHALLENGE_TIME_LIMIT)] to decide", "Declare war?", list("Yes", "No"))
 	declaring_war_lowpop = FALSE
 
 	if(!check_allowed(user))
@@ -35,7 +35,7 @@
 	var/war_declaration = "[user.real_name] has declared [user.ru_ego()] intent to utterly destroy [station_name()] with a nuclear device, and dares the crew to try and stop [user.ru_na()]."
 
 	declaring_war_lowpop = TRUE
-	var/custom_threat = tgui_alert(user, "Do you want to customize your declaration?", "Customize?", "Yes", "No")
+	var/custom_threat = tgui_alert(user, "Do you want to customize your declaration?", "Customize?", list("Yes", "No"))
 	declaring_war_lowpop = FALSE
 
 	if(!check_allowed(user))

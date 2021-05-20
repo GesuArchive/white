@@ -9,7 +9,7 @@
 
 /datum/action/changeling/headcrab/sting_action(mob/living/user)
 	set waitfor = FALSE
-	if(alert("Мы уверены, что хотим покончить с собой и создать сосуд?",,"Да", "Нет") == "Нет")
+	if(tgui_alert("Мы уверены, что хотим покончить с собой и создать сосуд?",,list("Да", "Нет")) == "Нет")
 		return
 	..()
 	var/datum/mind/M = user.mind

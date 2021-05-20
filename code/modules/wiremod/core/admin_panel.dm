@@ -39,7 +39,7 @@
 
 	switch (action)
 		if ("duplicate_circuit")
-			if (alert(usr, "This will spawn the new circuit at where you are, are you sure?", "Confirm", "Yes", "No") != "Yes")
+			if (alert(usr, "This will spawn the new circuit at where you are, are you sure?", "Confirm", list("Yes", "No")) != "Yes")
 				return FALSE
 
 			var/list/errors = list()

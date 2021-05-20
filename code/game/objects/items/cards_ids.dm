@@ -1151,7 +1151,7 @@
 
 /obj/item/card/id/advanced/chameleon/attack_self(mob/user)
 	if(isliving(user) && user.mind)
-		var/popup_input = tgui_alert(user, "Выбрать бы действие", "ID-карта агента", "Показать", "СБРОСИТЬ", "Изменить ID-номер")
+		var/popup_input = tgui_alert(user, "Выбрать бы действие", "ID-карта агента", list("Показать", "СБРОСИТЬ", "Изменить ID-номер"))
 		if(user.incapacitated())
 			return
 		if(!user.is_holding(src))
@@ -1171,7 +1171,7 @@
 
 				registered_name = input_name
 
-				var/change_trim = tgui_alert(user, "Настроить карту?", "Модификация карты", "Да", "Нет")
+				var/change_trim = tgui_alert(user, "Настроить карту?", "Модификация карты", list("Да", "Нет"))
 				if(change_trim == "Да")
 					var/list/blacklist = typecacheof(type) + typecacheof(/obj/item/card/id/advanced/simple_bot)
 					var/list/trim_list = list()

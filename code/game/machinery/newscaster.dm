@@ -565,7 +565,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 			if(channel_name == "" || channel_name == "\[REDACTED\]" || scanned_user == "Неизвестный" || check || (scanned_user in existing_authors) )
 				screen=7
 			else
-				var/choice = tgui_alert(usr, "Подтвердить бы создание","Общая сеть","Подтвердить","Отменить")
+				var/choice = tgui_alert(usr, "Подтвердить бы создание","Общая сеть", list("Подтвердить","Отменить"))
 				if(choice=="Подтвердить")
 					scan_user(usr)
 					GLOB.news_network.CreateFeedChannel(channel_name, scanned_user, c_locked)
@@ -635,7 +635,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 			if(msg == "" || channel_name == "" || scanned_user == "Неизвестный")
 				screen = 16
 			else
-				var/choice = tgui_alert(usr, "Подтвердить объявление о [(input_param==1) ? ("создании") : ("редактировании")] объявления о розыске.","Служба безопасности","Подтвердить","Отменить")
+				var/choice = tgui_alert(usr, "Подтвердить объявление о [(input_param==1) ? ("создании") : ("редактировании")] объявления о розыске.","Служба безопасности",list("Подтвердить","Отменить"))
 				if(choice=="Подтвердить")
 					scan_user(usr)
 					if(input_param==1)          //If input_param == 1 we're submitting a new wanted issue. At 2 we're just editing an existing one.
@@ -643,16 +643,16 @@ GLOBAL_LIST_EMPTY(allCasters)
 						screen = 15
 					else
 						if(GLOB.news_network.wanted_issue.isAdminMsg)
-							alert("Объявление о розыске создано офицером Нанотрейзен. Я не могу это редактировать.","Лан")
+							tgui_alert(usr,"Объявление о розыске создано офицером Нанотрейзен. Я не могу это редактировать.","Лан")
 							return
 						GLOB.news_network.submitWanted(channel_name, msg, scanned_user, picture)
 						screen = 19
 			updateUsrDialog()
 		else if(href_list["cancel_wanted"])
 			if(GLOB.news_network.wanted_issue.isAdminMsg)
-				alert("Объявление о розыске создано офицером Нанотрейзен. Я не могу это снять","Лан")
+				tgui_alert(usr, "Объявление о розыске создано офицером Нанотрейзен. Я не могу это снять","Лан")
 				return
-			var/choice = tgui_alert(usr, "Подвердить бы удаление розыска","Служба безопасности","Подтвердить","Отменить")
+			var/choice = tgui_alert(usr, "Подвердить бы удаление розыска","Служба безопасности",list("Подтвердить","Отменить"))
 			if(choice=="Подтвердить")
 				GLOB.news_network.deleteWanted()
 				screen=17
@@ -663,21 +663,21 @@ GLOBAL_LIST_EMPTY(allCasters)
 		else if(href_list["censor_channel_author"])
 			var/datum/newscaster/feed_channel/FC = locate(href_list["censor_channel_author"]) in GLOB.news_network.network_channels
 			if(FC.is_admin_channel)
-				alert("Этот канал создан офицером Нанотрейзен. Я не могу зацензурить это.","Лан")
+				tgui_alert(usr, "Этот канал создан офицером Нанотрейзен. Я не могу зацензурить это.","Лан")
 				return
 			FC.toggleCensorAuthor()
 			updateUsrDialog()
 		else if(href_list["censor_channel_story_author"])
 			var/datum/newscaster/feed_message/MSG = locate(href_list["censor_channel_story_author"]) in viewing_channel.messages
 			if(MSG.is_admin_message)
-				alert("Это сообщение создано офицером Нанотрейзен. Я не могу зацензурить автора.","Лан")
+				tgui_alert(usr, "Это сообщение создано офицером Нанотрейзен. Я не могу зацензурить автора.","Лан")
 				return
 			MSG.toggleCensorAuthor()
 			updateUsrDialog()
 		else if(href_list["censor_channel_story_body"])
 			var/datum/newscaster/feed_message/MSG = locate(href_list["censor_channel_story_body"]) in viewing_channel.messages
 			if(MSG.is_admin_message)
-				alert("Этот канал создан офицером Нанотрейзен. Я не могу зацензурить это.","Лан")
+				tgui_alert(usr, "Этот канал создан офицером Нанотрейзен. Я не могу зацензурить это.","Лан")
 				return
 			MSG.toggleCensorBody()
 			updateUsrDialog()
@@ -689,7 +689,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 		else if(href_list["toggle_d_notice"])
 			var/datum/newscaster/feed_channel/FC = locate(href_list["toggle_d_notice"]) in GLOB.news_network.network_channels
 			if(FC.is_admin_channel)
-				alert("Этот канал создан офицером Нанотрейзен. Я не могу оставлять заметки тут.","Лан")
+				tgui_alert(usr, "Этот канал создан офицером Нанотрейзен. Я не могу оставлять заметки тут.","Лан")
 				return
 			FC.toggleCensorDclass()
 			updateUsrDialog()

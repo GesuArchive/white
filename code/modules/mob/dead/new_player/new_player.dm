@@ -217,7 +217,7 @@
 
 	var/this_is_like_playing_right = "Да"
 	if(!force_observe)
-		this_is_like_playing_right = tgui_alert(usr,"Действительно хочешь следить? У меня не будет возможности зайти в этот раунд (исключая частые ивенты и спаунеры)!","Player Setup","Да","Нет")
+		this_is_like_playing_right = tgui_alert(usr,"Действительно хочешь следить? У меня не будет возможности зайти в этот раунд (исключая частые ивенты и спаунеры)!","Player Setup",list("Да","Нет"))
 
 	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Да")
 		ready = PLAYER_NOT_READY
@@ -301,18 +301,18 @@
 /mob/dead/new_player/proc/AttemptLateSpawn(rank)
 	var/error = IsJobUnavailable(rank)
 	if(error != JOB_AVAILABLE)
-		alert(src, get_job_unavailable_error_message(error, rank))
+		tgui_alert(usr, get_job_unavailable_error_message(error, rank))
 		return FALSE
 
 	if(SSticker.late_join_disabled)
-		alert(src, "Нельзя!")
+		tgui_alert(usr, "Нельзя!")
 		return FALSE
 
 	var/arrivals_docked = TRUE
 	if(SSshuttle.arrivals)
 		close_spawn_windows()	//In case we get held up
 		if(SSshuttle.arrivals.damaged && CONFIG_GET(flag/arrivals_shuttle_require_safe_latejoin))
-			src << tgui_alert(usr, "Шаттл прибытия сломан! Ожидай, когда его починят.")
+			src << tgui_alert(usr,"Шаттл прибытия сломан! Ожидай, когда его починят.")
 			return FALSE
 
 		if(CONFIG_GET(flag/arrivals_shuttle_require_undocked))

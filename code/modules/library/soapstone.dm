@@ -266,7 +266,7 @@ but only permamently removed with the curator's soapstone.
 		if("delete")
 			if(!is_admin)
 				return
-			var/confirm = tgui_alert(user, "Удаляем точно?", "Волосатый анальный хуй", "Да", "Нет")
+			var/confirm = tgui_alert(user, "Удаляем точно?", "Волосатый анальный хуй", list("Да", "Нет"))
 			if(confirm == "Да")
 				persists = FALSE
 				qdel(src)
