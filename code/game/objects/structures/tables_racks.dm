@@ -133,7 +133,7 @@
 		to_chat(user, "<span class='danger'>Не хочу бросать [pushed_mob] на стол. Это может ему навредить!</span>")
 		return
 	var/added_passtable = FALSE
-	if(!pushed_mob.pass_flags & PASSTABLE)
+	if(!(pushed_mob.pass_flags & PASSTABLE))
 		added_passtable = TRUE
 		pushed_mob.pass_flags |= PASSTABLE
 	pushed_mob.Move(src.loc)

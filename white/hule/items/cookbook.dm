@@ -42,7 +42,8 @@
 									/datum/crafting_recipe/cookbook/mshotgunmag,
 									/datum/crafting_recipe/cookbook/npgrenade,
 									/datum/crafting_recipe/cookbook/grenadeprimer,
-									/datum/crafting_recipe/cookbook/poleaxe
+									/datum/crafting_recipe/cookbook/poleaxe,
+									/datum/crafting_recipe/cookbook/plastid
 								)
 
 /datum/uplink_item/cookbook
@@ -120,3 +121,12 @@
 				/obj/item/stack/cable_coil = 10)
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	time = 100
+/datum/crafting_recipe/cookbook/plastid
+	name = "Пластид из гексогена"
+	result = /obj/item/grenade/c4
+	reqs = list(/obj/item/grenade/chem_grenade = 1,
+				/datum/reagent/rdx = 4,
+				/obj/item/stack/cable_coil = 1)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	time = 40
+

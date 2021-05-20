@@ -43,11 +43,12 @@
 
 
 /obj/item/melee/baseball_bat/hos/attack_self(mob/user)
+	. = ..()
 	if((!user.mind || reskinned) && !debug_morph)
 		return
 	var/list/display_names = list()
 	var/list/bat_icons = list()
-	
+
 	for(var/bat in typesof(/obj/item/melee/baseball_bat/hos))
 		var/obj/item/melee/baseball_bat/hos/bat_type = bat
 		if(!initial(bat_type.selectable))
@@ -102,9 +103,9 @@
 	var/knockback = FALSE
 	if(istype(target,/mob/living/carbon))
 		var/mob/living/carbon/C = target
-		if(C.disgust > 70) //8 consecutive hits (counting disgust decay)
+		if(C.disgust > 70) //7 consecutive hits (counting disgust decay)
 			knockback = TRUE
-		target.adjust_disgust(10)
+		target.adjust_disgust(12)
 	. = ..(target, user, knockback)
 	user.changeNext_move(5)
 	if(target.timeofdeath == world.time)
@@ -131,7 +132,7 @@
 		L.Jitter(11)
 //STOP
 /obj/item/melee/baseball_bat/hos/stopsign
-	name = "дорожный знак" 
+	name = "дорожный знак"
 	desc = "Где ты его вообще достал? В космосе ведь нет дорог."
 	icon_state = "stopsign"
 	force = 17
@@ -153,7 +154,7 @@
 
 
 
-//The violence has escalated. 
+//The violence has escalated.
 /obj/item/melee/baseball_bat/hos/ak47
 	name = "AK-47"
 	desc = "Отрывает лицо с очереди. Использует противотанковый калибр 7.62."
@@ -169,10 +170,10 @@
 
 //Это отвечает за взятие кувалды в обе руки. По какой-то причине нихуя не работает. Позвоните 8(800)555-35-35, если знаете, как починить.
 //так же см. прок smash_with_hammer в walls.dm
-/*
+
 /obj/item/melee/baseball_bat/hos/hammer/ComponentInitialize()
 	. = ..()
-	wieldcomp = AddComponent(/datum/component/two_handed, force_unwielded=17, force_wielded=45)
+	AddComponent(/datum/component/two_handed, force_unwielded=17, force_wielded=30)
 
 
 /obj/item/melee/baseball_bat/hos/hammer/attack(mob/living/target, mob/living/user)
@@ -206,7 +207,6 @@
 	wielded = FALSE
 
 						//</stolen from fireaxe code>
-*/
 
 
 //Хрюкни

@@ -84,24 +84,27 @@ obj/item/gun/ballistic/shotgun/makeshift/update_icon()
 
 /obj/item/gun/ballistic/shotgun/makeshift/afterattack()
 	..()
+
 	if(prob(jamchance) && !jammed)
 		jammed = TRUE
 		time_to_unjam = rand(jamchance,50+jamchance) //низкий jamchance даёт меньшее минимальное время для починки
 		to_chat(usr, "<span class='warning'>[capitalize(src.name)] malfunctions!</span>")
+/obj/item/gun/ballistic/shotgun/makeshift/shoot_live_shot(mob/living/user)
+	..()
+	rack()
 
 /obj/item/gun/ballistic/shotgun/makeshift/can_shoot()
 	.=..()
 	if(jammed)
 		playsound(src, "gun_dry_fire", 30, 1)
-		to_chat(usr, "<span class='warning'>The [src] is jammed and won't shoot until fixed with a screwdriver.</span>")
+		to_chat(usr, "<span class='warning'>The [src] is jammed and won't shoot until fixed with a wrench.</span>")
 		return FALSE
 
 
 
 /obj/item/gun/ballistic/shotgun/makeshift/attackby(obj/item/A, mob/user, params)
-	..()
 
-	if(istype(A, /obj/item/screwdriver))
+	if(istype(A, /obj/item/wrench))
 		if(magazine)
 			to_chat(user, "<span class='warning'>Take out the magazine first!</span>")
 			return
@@ -137,6 +140,7 @@ obj/item/gun/ballistic/shotgun/makeshift/update_icon()
 				to_chat(usr, "<span class='[class]'>You manage to unjam the [src], [damage_desc] in the progress.</span>")
 			else
 				to_chat(usr, "<span class='notice'>You unjam the [src].</span>")
+	..()
 
 /obj/item/gun/ballistic/shotgun/makeshift/chad
 	debug = 1
