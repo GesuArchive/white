@@ -154,7 +154,7 @@
 		return pick(possible_areas)
 
 /datum/round_event/ghost_role/schoolshooters/spawn_role()
-	var/list/funny_names = list("Podjog Saraev", "Rulon Oboev", "Ushat Pomoev", "Barak Mongolov", "Ulov Nalimov", "Zabeg Debilov", "Kompil Bildov", "Razriv Ochkov", "Anban Debilov", "Ali Rezun", "Obser Shtanov")
+	var/list/funny_names = list("Podjog Saraev", "Rulon Oboev", "Ushat Pomoev", "Barak Mongolov", "Ulov Nalimov", "Zabeg Debilov", "Kompil Bildov", "Razriv Ochkov", "Anban Debilov", "Ali Rezun", "Obser Shtanov", "Krazha Donatov", "Nerf Debilov")
 
 	var/list/turf/valid_turfs = get_area_turfs(impact_area)
 		//Only target non-dense turfs to prevent wall-embedded pods
