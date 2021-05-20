@@ -43,6 +43,7 @@
 
 
 /obj/item/melee/baseball_bat/hos/attack_self(mob/user)
+	. = ..()
 	if((!user.mind || reskinned) && !debug_morph)
 		return
 	var/list/display_names = list()
@@ -169,10 +170,10 @@
 
 //Это отвечает за взятие кувалды в обе руки. По какой-то причине нихуя не работает. Позвоните 8(800)555-35-35, если знаете, как починить.
 //так же см. прок smash_with_hammer в walls.dm
-/*
+
 /obj/item/melee/baseball_bat/hos/hammer/ComponentInitialize()
 	. = ..()
-	wieldcomp = AddComponent(/datum/component/two_handed, force_unwielded=17, force_wielded=45)
+	AddComponent(/datum/component/two_handed, force_unwielded=17, force_wielded=45)
 
 
 /obj/item/melee/baseball_bat/hos/hammer/attack(mob/living/target, mob/living/user)
@@ -206,7 +207,6 @@
 	wielded = FALSE
 
 						//</stolen from fireaxe code>
-*/
 
 
 //Хрюкни

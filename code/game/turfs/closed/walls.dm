@@ -204,21 +204,22 @@
 	return ..()
 
 /turf/closed/wall/proc/smash_with_hammer(obj/item/melee/baseball_bat/hos/hammer/W, mob/user)
-	var/p = hardness*0.25
-	
-	//вилд молотка не работает.
-	/*
+	//unwielded - chance to breach a wall is  hardness/10
+	//wielded - chance to breach a wall is hardness / 4
+	var/p = hardness*0.1
 	if(W.wielded)
-		p = min(hardness * 1.2, 100)
+		p = hardness * 2.5
 		user.changeNext_move(CLICK_CD_MELEE*2)
-	*/
-
-	playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)
+	
+	
 	if(prob(p))
 		src.dismantle_wall(TRUE)
+		playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)
 	else
 		add_dent(WALL_DENT_HIT)
+		playsound(src, 'sound/effects/meteorimpact.ogg', 75, TRUE)
 	user.do_attack_animation(W)
+
 /turf/closed/wall/proc/try_clean(obj/item/W, mob/user, turf/T)
 	if((user.a_intent != INTENT_HELP) || !LAZYLEN(dent_decals))
 		return FALSE
