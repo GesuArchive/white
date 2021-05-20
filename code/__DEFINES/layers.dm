@@ -139,6 +139,8 @@
 
 #define ATMOS_GROUP_PLANE 21
 #define ATMOS_GROUP_LAYER 21
+/// Plane for balloon text (text that fades up)
+#define BALLOON_CHAT_PLANE 251
 
 //HUD layer defines
 

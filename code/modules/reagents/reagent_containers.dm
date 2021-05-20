@@ -51,7 +51,7 @@
 					amount_per_transfer_from_this = possible_transfer_amounts[i+1]
 				else
 					amount_per_transfer_from_this = possible_transfer_amounts[1]
-				to_chat(user, "<span class='notice'>[capitalize(src.name)] transfer amount is now [amount_per_transfer_from_this] units.</span>")
+				balloon_alert(user, "Перемещаю [amount_per_transfer_from_this]е")
 				return
 
 /obj/item/reagent_containers/attack(atom/target, mob/living/user, def_zone)

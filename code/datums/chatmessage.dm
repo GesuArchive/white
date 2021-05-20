@@ -13,7 +13,14 @@
 /// Max width of chat message in pixels
 #define CHAT_MESSAGE_WIDTH			96
 /// Max length of chat message in characters
-#define CHAT_MESSAGE_MAX_LENGTH		300
+#define CHAT_MESSAGE_MAX_LENGTH 300
+/// The dimensions of the chat message icons
+#define CHAT_MESSAGE_ICON_SIZE 9
+
+///Base layer of chat elements
+#define CHAT_LAYER 1
+///Highest possible layer of chat elements
+#define CHAT_LAYER_MAX 2
 /// Maximum precision of float before rounding errors occur (in this context)
 #define CHAT_LAYER_Z_STEP			0.0001
 /// The number of z-layer 'slices' usable by the chat message layering
@@ -343,4 +350,3 @@
 #undef CHAT_LAYER_Z_STEP
 #undef CHAT_LAYER_MAX_Z
 #undef CHAT_MESSAGE_ICON_SIZE
-#undef WXH_TO_HEIGHT
