@@ -8,6 +8,12 @@
 	icon = 'white/RedFoxIV/icons/obj/weapons/melee/hosbat/hosbat.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	icon_state = "falloutbat"
+	//тгбляди.
+	inhand_icon_state = null //судя по всему, где-то выше по коду эта переменная перезаписывается и ломает мне инхенды.
+	//Похожее я видел у сабли, где icon_state = "sabre", и на следующей строчке inhand_icon_state тоже приравнивался к сабле.
+	//Нахуя это сделано, если используется обычный icon_state при inhand_icon_state равном null, мне не ясно.
+
+
 	lefthand_file = 'white/RedFoxIV/icons/obj/weapons/melee/hosbat/hosbat_lefthand.dmi'
 	righthand_file = 'white/RedFoxIV/icons/obj/weapons/melee/hosbat/hosbat_righthand.dmi'
 	force = 25
@@ -17,17 +23,6 @@
 	var/debug_morph = FALSE //adminbus
 	var/selectable = TRUE //whether it can be selected.
 	var/list/allowed_ckey = null //the only ckey who is allowed to choose this skin. null for unrestricted access.
-	/*
-	unique_reskin = list("Ассбольная бита" = "falloutbat",
-						"Световая бита" = "laserbat",
-						"\"Поддай леща\"" = "holymackerel",
-						"Кирпич" = "brick",
-						"Дорожный знак" = "stopsign",
-						"Костяная бита" = "bonebat",
-						"AK-47" = "74ka",
-						"Молот" = "hammer" //, "Сранклин" = "hrunki"
-						)
-	*/
 	custom_materials = list(/datum/material/iron = MINERAL_MATERIAL_AMOUNT * 3.5)
 
 //<stolen from nullrod code>
@@ -168,13 +163,14 @@
 	var/wielded = FALSE
 	var/datum/component/two_handed/wieldcomp
 
-//Это отвечает за взятие кувалды в обе руки. По какой-то причине нихуя не работает. Позвоните 8(800)555-35-35, если знаете, как починить.
-//так же см. прок smash_with_hammer в walls.dm
-
 /obj/item/melee/baseball_bat/hos/hammer/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/two_handed, force_unwielded=17, force_wielded=30)
+	AddComponent(/datum/component/two_handed, force_unwielded=17, force_wielded=30, icon_wielded = "hammer_wielded")
 
+
+//зачем нахуй? почему тгшники обязательно должны жрать говно?..
+/obj/item/melee/baseball_bat/hos/hammer/update_icon_state()
+	icon_state = "hammer"
 
 /obj/item/melee/baseball_bat/hos/hammer/attack(mob/living/target, mob/living/user)
 	. = ..(target, user, wielded)

@@ -204,11 +204,11 @@
 	return ..()
 
 /turf/closed/wall/proc/smash_with_hammer(obj/item/melee/baseball_bat/hos/hammer/W, mob/user)
-	//unwielded - chance to breach a wall is  hardness/10
+	//unwielded - chance to breach a wall is  hardness / 10
 	//wielded - chance to breach a wall is hardness / 4
 	var/p = hardness*0.1
 	if(W.wielded)
-		p = hardness * 2.5
+		p = p * 2.5
 		user.changeNext_move(CLICK_CD_MELEE*2)
 	
 	
