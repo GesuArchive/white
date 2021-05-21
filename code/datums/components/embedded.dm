@@ -191,12 +191,11 @@
 		return
 	var/mob/living/carbon/victim = parent
 	var/time_taken = rip_time * weapon.w_class
-	victim.visible_message("<span class='warning'><b>[capitalize(victim)]</b> пытается вытащить <b>[weapon]</b> из [victim.ru_ego()] [ru_otkuda_zone(limb.name)].</span>","<span class='notice'>Пытаюсь вытащить <b>[weapon]</b> из моей [ru_otkuda_zone(limb.name)]... (Это займёт примерно [DisplayTimeText(time_taken)].)</span>")
 	INVOKE_ASYNC(src, .proc/complete_rip_out, victim, I, limb, time_taken)
 
 /// everything async that ripOut used to do
 /datum/component/embedded/proc/complete_rip_out(mob/living/carbon/victim, obj/item/I, obj/item/bodypart/limb, time_taken)
-	victim.visible_message(span_warning("[victim] attempts to remove [weapon] from [victim.p_their()] [limb.name]."),span_notice("You attempt to remove [weapon] from your [limb.name]... (It will take [DisplayTimeText(time_taken)].)"))
+	victim.visible_message("<span class='warning'><b>[capitalize(victim)]</b> пытается вытащить <b>[weapon]</b> из [victim.ru_ego()] [ru_otkuda_zone(limb.name)].</span>","<span class='notice'>Пытаюсь вытащить <b>[weapon]</b> из моей [ru_otkuda_zone(limb.name)]... (Это займёт примерно [DisplayTimeText(time_taken)].)</span>")
 	if(!do_after(victim, time_taken, target = victim))
 		return
 	if(!weapon || !limb || weapon.loc != victim || !(weapon in limb.embedded_objects))
