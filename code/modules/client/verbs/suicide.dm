@@ -259,6 +259,6 @@
 	if(!..())
 		return
 	if(!(mobility_flags & MOBILITY_USE))	//just while I finish up the new 'fun' suiciding verb. This is to prevent metagaming via suicide
-		to_chat(src, "<span class='warning'>Нельзя убить себя, пока ты обездвижен! ((Однако вместо этого можно написать Ghost.))</span>")
+		to_chat(src, "<span class='warning'>Говорят, что большая часть суицидов происходит под диким давлением. Да?</span>")
 		return
 	return TRUE
