@@ -84,7 +84,7 @@
 	if(!client)
 		return
 
-	to_chat(src, unintelligize(reverse_text(msg)), avoid_highlighting = avoid_highlighting)
+	to_chat(src, unintelligize(uppertext(msg)), avoid_highlighting = avoid_highlighting)
 
 /datum/smite/givexeno
 	name = "Xeno (ПИЗДЕЦ ДО КОНЦА РАУНДА)"
