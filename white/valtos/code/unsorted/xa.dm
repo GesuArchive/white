@@ -1,6 +1,9 @@
 /mob/living/simple_animal/xaxi
 	name = "oma-oma"
 	desc = "ninininininini"
+	icon = 'white/valtos/icons/dz-031.dmi'
+	icon_state = "taj"
+	icon_living = "taj"
 	maxHealth = INFINITY
 	health = INFINITY
 	var/namethings = list(
@@ -11,6 +14,9 @@
 		"хеи", "хуо", "суо", "ää", "тен", "я", "хеу", "сту", "ухр", "кöн", "ве", "хöн"
 	)
 	var/list/sounds = list()
+
+/mob/living/simple_animal/xaxi/emote(act, m_type, message, intentional)
+	return FALSE
 
 /mob/living/simple_animal/xaxi/Initialize()
 	. = ..()
