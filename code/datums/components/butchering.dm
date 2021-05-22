@@ -59,23 +59,24 @@
 		to_chat(user, "<span class='warning'>Уже взаимодействую с [H]!</span>")
 		return
 
-	user.visible_message("<span class='danger'>[user] is slitting [H] throat!</span>", \
-					"<span class='danger'>You start slicing [H] throat!</span>", \
-					"<span class='hear'>You hear a cutting noise!</span>", ignored_mobs = H)
-	H.show_message("<span class='userdanger'>Your throat is being slit by [user]!</span>", MSG_VISUAL, \
-					"<span class = 'userdanger'>Something is cutting into your neck!</span>", NONE)
+	user.visible_message("<span class='danger'>[user] начинает резать глотку [H]!</span>", \
+					"<span class='danger'>Начинаю резать глотку [H]!</span>", \
+					"<span class='hear'>Слышу звуки нарезки мяса!</span>", ignored_mobs = H)
+	H.show_message("<span class='userdanger'>[user] начинает перерезать мою глотку!</span>", MSG_VISUAL, \
+					"<span class = 'userdanger'>Что-то режет мою глотку!</span>", NONE)
 	log_combat(user, H, "starts slicing the throat of")
 
 	playsound(H.loc, butcher_sound, 50, TRUE, -1)
 	if(do_mob(user, H, clamp(500 / source.force, 30, 100)) && H.Adjacent(source))
 		if(H.has_status_effect(/datum/status_effect/neck_slice))
-			user.show_message("<span class='warning'>[H] neck has already been already cut, you can't make the bleeding any worse!</span>", MSG_VISUAL, \
-							"<span class='warning'>Their neck has already been already cut, you can't make the bleeding any worse!</span>")
+			user.show_message("<span class='warning'>[H] уже имеет второй рот на шее, куда больше?!</span>", MSG_VISUAL, \
+							"<span class='warning'>Здесь уже есть второй рот на шее, куда больше?!</span>")
 			return
 
-		H.visible_message("<span class='danger'>[user] slits [H] throat!</span>", \
-					"<span class='userdanger'>[user] slits your throat...</span>")
+		H.visible_message("<span class='danger'>[user] режет глотку [H]!</span>", \
+					"<span class='userdanger'>[user] режет мою глотку...</span>")
 		log_combat(user, H, "finishes slicing the throat of")
+		playsound(get_turf(H), 'sound/effects/wounds/crackandbleed.ogg', 40)
 		H.apply_damage(source.force, BRUTE, BODY_ZONE_HEAD, wound_bonus=CANT_WOUND) // easy tiger, we'll get to that in a sec
 		var/obj/item/bodypart/slit_throat = H.get_bodypart(BODY_ZONE_HEAD)
 		if(slit_throat)
