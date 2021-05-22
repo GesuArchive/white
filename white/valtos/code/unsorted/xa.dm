@@ -38,6 +38,7 @@
 			remove_verb(client, V)
 		SEND_SOUND(src, sound('white/valtos/sounds/xeno.ogg', repeat = TRUE, wait = 0, volume = 50))
 		roleplay_progress = 0
+		add_verb(src, /mob/living/simple_animal/xaxi/verb/roleplay)
 
 /mob/living/simple_animal/xaxi/Life()
 	..()
