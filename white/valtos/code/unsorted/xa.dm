@@ -75,6 +75,8 @@
 	set name = "RP"
 	set desc = "Really Prank"
 
+	roleplay_progress++
+
 	to_chat(src, "<span class='notice'>Прогресс отыгрыша ролевой ролеплейной игры: \[[roleplay_progress]/100\]</span>")
 	visible_message("<b>[src.name]</b> [pick("мило булькает", "машет хвостиком", "улыбается", "радостно смотрит куда-то")].", null, null)
 
