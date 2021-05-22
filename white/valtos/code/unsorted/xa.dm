@@ -73,7 +73,7 @@
 
 	speaker = prob(50) ? "???" : capitalize(pick(namethings))
 
-	message = unintelligize(reverse_text(message))
+	raw_message = unintelligize(reverse_text(raw_message))
 
 	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)
 
