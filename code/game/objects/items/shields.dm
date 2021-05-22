@@ -107,8 +107,11 @@
 	. = ..()
 	if(isliving(user))
 		var/mob/living/L = user
-		L.remove_movespeed_modifier(/datum/movespeed_modifier/heavy_shield)
-
+		//if we're not holding object of type /obj/item/shield/riot/military in any of our two available hands,
+		if(!istype(L.held_items[1], /obj/item/shield/riot/military) && !istype(L.held_items[2], /obj/item/shield/riot/military))
+			//remove the slowdown.
+			L.remove_movespeed_modifier(/datum/movespeed_modifier/heavy_shield)
+			//yes, this is a crutch. fite me
 /datum/movespeed_modifier/heavy_shield
 	multiplicative_slowdown = 1
 
