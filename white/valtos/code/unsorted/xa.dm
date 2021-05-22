@@ -1,6 +1,6 @@
 /mob/living/simple_animal/xaxi
 	name = "oma-oma"
-	desc = "ninininininini"
+	desc = "Прикольно."
 	icon = 'white/valtos/icons/dz-031.dmi'
 	icon_state = "taj"
 	icon_living = "taj"
@@ -31,8 +31,8 @@
 	to_chat(src, "<span class='alert'>Последние нотки мышления начинают покидать мой разум. Это конечная.</span>")
 
 	spawn(1 SECONDS)
-		for(var/V in client.verbs)
-			remove_verb(client, V)
+		for(var/V in verbs)
+			remove_verb(src, V)
 		SEND_SOUND(src, sound('white/valtos/sounds/xeno.ogg', repeat = TRUE, wait = 0, volume = 50))
 
 /mob/living/simple_animal/xaxi/Life()
@@ -43,7 +43,8 @@
 	if(prob(5))
 		blur_eyes(1)
 		SEND_SOUND(client, sound("white/valtos/sounds/halun/halun[rand(1,19)].ogg"))
-	if(prob(1))
+		step(src, pick(GLOB.cardinals))
+	if(prob(10))
 		for(var/atom/movable/screen/plane_master/whole_screen in screens)
 			if(prob(50))
 				var/rotation = max(min(round(60/4), 20),125)
@@ -72,7 +73,7 @@
 
 	speaker = prob(50) ? "???" : capitalize(pick(namethings))
 
-	raw_message = unintelligize(reverse_text(raw_message))
+	message = unintelligize(reverse_text(message))
 
 	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)
 
