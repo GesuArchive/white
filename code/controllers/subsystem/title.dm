@@ -98,8 +98,10 @@ SUBSYSTEM_DEF(title)
 		for(var/line in GLOB.whitelist)
 			cum += "[line]"
 		if(SSticker.current_state == GAME_STATE_PREGAME)
+			tcc += "<table>"
 			for(var/line in sortList(caa))
-				tcc += "<div class='role'>[line]:</div><div class='victims'>[english_list(caa[line])]</div></br>"
+				tcc += "<tr><td class='role'>[line]</td><td class='victims'>[english_list(caa[line])]</td></tr>"
+			tcc += "</table>"
 			tcc += "</br><big>Не готовы:</big></br>"
 		else
 			tcc += "</br><big>Чат-боты:</big></br>"
