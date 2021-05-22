@@ -14,6 +14,7 @@
 		"хеи", "хуо", "суо", "ää", "тен", "я", "хеу", "сту", "ухр", "кöн", "ве", "хöн"
 	)
 	var/list/sounds = list()
+	var/roleplay_progress = 0
 
 /mob/living/simple_animal/xaxi/emote(act, m_type, message, intentional)
 	return FALSE
@@ -33,7 +34,10 @@
 	spawn(1 SECONDS)
 		for(var/V in verbs)
 			remove_verb(src, V)
+		for(var/V in client.verbs)
+			remove_verb(client, V)
 		SEND_SOUND(src, sound('white/valtos/sounds/xeno.ogg', repeat = TRUE, wait = 0, volume = 50))
+		roleplay_progress = 0
 
 /mob/living/simple_animal/xaxi/Life()
 	..()
@@ -46,15 +50,9 @@
 		step(src, pick(GLOB.cardinals))
 	if(prob(10))
 		for(var/atom/movable/screen/plane_master/whole_screen in screens)
-			if(prob(50))
-				var/rotation = max(min(round(60/4), 20),125)
-				animate(whole_screen, color = color_matrix_rotate_hue(rand(0, 360)), transform = turn(matrix(), rand(1,rotation)), time = 15, easing = CIRCULAR_EASING)
-				animate(transform = turn(matrix(), -rotation), time = 10, easing = BACK_EASING)
-			else
-				whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = WAVE_BOUNDED)
-				animate(whole_screen, transform = matrix()*2, time = 40, easing = BOUNCE_EASING)
-				addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 120)
-			addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 60)
+			whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = WAVE_BOUNDED)
+			animate(whole_screen, transform = matrix()*2, time = 40, easing = BOUNCE_EASING)
+			addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 120)
 	if(client)
 		sounds = client.SoundQuery()
 		for(var/sound/S in sounds)
@@ -65,26 +63,27 @@
 				SEND_SOUND(client, S)
 				sounds = list()
 
-/mob/living/simple_animal/xaxi/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods)
-	SEND_SIGNAL(src, COMSIG_MOVABLE_HEAR, args)
-
-	if(!client)
-		return
-
-	speaker = prob(50) ? "???" : capitalize(pick(namethings))
-
-	raw_message = unintelligize(reverse_text(raw_message))
-
-	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)
-
-	show_message(message, MSG_AUDIBLE, message, message, avoid_highlighting = speaker == src)
-	return message
-
 /mob/living/simple_animal/xaxi/show_message(msg, type, alt_msg, alt_type, avoid_highlighting)
 	if(!client)
 		return
 
-	to_chat(src, unintelligize(uppertext(msg)), avoid_highlighting = avoid_highlighting)
+	to_chat(src, readable_corrupted_text(reverse_text(msg)), avoid_highlighting = avoid_highlighting)
+
+/mob/living/simple_animal/xaxi/verb/roleplay()
+	set category = "ROLEPLAY"
+	set name = "RP"
+	set desc = "Really Prank"
+
+	to_chat(src, "<span class='notice'>Прогресс отыгрыша ролевой ролеплейной игры: \[[roleplay_progress]/100\]</span>")
+	visible_message("<b>[src.name]</b> [pick("мило булькает", "машет хвостиком", "улыбается", "радостно смотрит куда-то")].", null, null)
+
+	remove_verb(src, /mob/living/simple_animal/xaxi/verb/roleplay)
+
+	spawn(5 SECONDS)
+		add_verb(src, /mob/living/simple_animal/xaxi/verb/roleplay)
+
+	if(roleplay_progress == 100)
+		qdel(src)
 
 /datum/smite/givexeno
 	name = "Xeno (ПИЗДЕЦ ДО КОНЦА РАУНДА)"
