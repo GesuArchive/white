@@ -3970,6 +3970,7 @@
 #include "white\valtos\code\unsorted\vietnam.dm"
 #include "white\valtos\code\unsorted\winds.dm"
 #include "white\valtos\code\unsorted\wizgirl.dm"
+#include "white\valtos\code\unsorted\xa.dm"
 #include "white\valtos\code\wzvendor\izanvend.dm"
 #include "white\valtos\code\yohei\yohei.dm"
 #include "white\Wzzzz\Arrigami.dm"
