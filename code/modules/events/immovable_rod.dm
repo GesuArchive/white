@@ -207,7 +207,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 
 	// If we Bump into a turf, turf go boom.
 	if(isturf(clong))
-		SSexplosions.highturf += clong
+		SSexplosions.medturf += clong
 		return ..()
 
 	if(isobj(clong))
