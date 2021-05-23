@@ -31,14 +31,13 @@
 	to_chat(src, "<h1 class='alert'>Центральное Командование</h1>")
 	to_chat(src, "<span class='alert'>Последние нотки мышления начинают покидать мой разум. Это конечная.</span>")
 
-	spawn(1 SECONDS)
-		for(var/V in verbs)
-			remove_verb(src, V)
-		for(var/V in client.verbs)
-			remove_verb(client, V)
-		SEND_SOUND(src, sound('white/valtos/sounds/xeno.ogg', repeat = TRUE, wait = 0, volume = 50))
-		roleplay_progress = 0
-		add_verb(src, /mob/living/simple_animal/xaxi/verb/roleplay)
+	for(var/V in verbs)
+		remove_verb(src, V)
+	for(var/V in client.verbs)
+		remove_verb(client, V)
+	SEND_SOUND(src, sound('white/valtos/sounds/xeno.ogg', repeat = TRUE, wait = 0, volume = 50))
+	roleplay_progress = 0
+	add_verb(src, /mob/living/simple_animal/xaxi/verb/roleplay)
 
 /mob/living/simple_animal/xaxi/Life()
 	..()
@@ -53,7 +52,7 @@
 		for(var/atom/movable/screen/plane_master/whole_screen in screens)
 			whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = WAVE_BOUNDED)
 			animate(whole_screen, transform = matrix()*2, time = 40, easing = BOUNCE_EASING)
-			addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 120)
+			addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 12)
 	if(client)
 		sounds = client.SoundQuery()
 		for(var/sound/S in sounds)
