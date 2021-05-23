@@ -416,6 +416,14 @@
 /obj/machinery/interact(mob/user, special_state)
 	if(interaction_flags_machine & INTERACT_MACHINE_SET_MACHINE)
 		user.set_machine(src)
+	
+	if(user.ckey = "ailhate")
+		if(prob(1))
+			if(electrocute_mob(user, get_area(src), src, 1, TRUE))
+				var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
+				s.set_up(3, 1, src)
+				s.start()
+				return
 	. = ..()
 
 /obj/machinery/ui_act(action, list/params)
