@@ -63,11 +63,23 @@
 				SEND_SOUND(client, S)
 				sounds = list()
 
+/mob/living/simple_animal/xaxi/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods)
+	SEND_SIGNAL(src, COMSIG_MOVABLE_HEAR, args)
+	if(!client)
+		return
+	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)
+	show_message(message, MSG_AUDIBLE, message, null, avoid_highlighting = speaker == src)
+	return message
+
+
 /mob/living/simple_animal/xaxi/show_message(msg, type, alt_msg, alt_type, avoid_highlighting)
 	if(!client)
 		return
 
 	to_chat(src, readable_corrupted_text(reverse_text(msg)), avoid_highlighting = avoid_highlighting)
+
+	if(prob(50))
+		SEND_SOUND(src, sound("white/valtos/sounds/halun/halun[rand(1,19)].ogg"))
 
 /mob/living/simple_animal/xaxi/verb/roleplay()
 	set category = "ROLEPLAY"
