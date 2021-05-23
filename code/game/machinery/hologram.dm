@@ -80,7 +80,7 @@ Possible to do for anyone motivated enough:
 	var/calling = FALSE
 
 /obj/machinery/holopad/secure
-	name = "безопасный голопад"
+	name = "голопад безопасного соединения"
 	desc = "Это напольное устройство для проецирования голографических изображений. Этот откажется автоматически принимать входящие звонки."
 	secure = TRUE
 

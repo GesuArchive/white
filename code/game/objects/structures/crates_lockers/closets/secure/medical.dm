@@ -67,7 +67,7 @@
 	new /obj/item/clothing/glasses/blindfold(src)
 
 /obj/structure/closet/secure_closet/chief_medical
-	name = "\proper шкаф главврача"
+	name = "шкаф главврача"
 	req_access = list(ACCESS_CMO)
 	icon_state = "cmo"
 

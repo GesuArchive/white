@@ -5,7 +5,7 @@
 #define FOAM_INTERVAL 50  // Time between deployment of fire fighting foam
 
 /mob/living/simple_animal/bot/firebot
-	name = "Файрбот"
+	name = "пожарный бот"
 	desc = "Маленький бот для тушения пожаров. Он выглядит довольно встревоженным."
 	icon = 'icons/mob/aibots.dmi'
 	icon_state = "firebot"

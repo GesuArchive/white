@@ -146,13 +146,13 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/under/costume/singer/yellow
-	name = "жёлтый наряд исполнителя"
+	name = "жёлтый наряд артиста"
 	icon_state = "ysing"
 	inhand_icon_state = "ysing"
 	fitted = NO_FEMALE_UNIFORM
 
 /obj/item/clothing/under/costume/singer/blue
-	name = "синий наряд исполнителя"
+	name = "синий наряд артиста"
 	icon_state = "bsing"
 	inhand_icon_state = "bsing"
 	fitted = FEMALE_UNIFORM_TOP
