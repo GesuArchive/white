@@ -2,7 +2,8 @@
 	name = "умный пеномёт"
 	desc = "На самом деле не очень. Активируется автоматически. Спасает зону от разгерметизации."
 	uses = 3
-	cooldown_time = 30 SECONDS
+	cooldown = 30 SECONDS
+	cooldown_time = 0
 	req_access = list(ACCESS_AI_UPLOAD, ACCESS_ENGINE)
 
 /obj/machinery/ai_slipper/smartfoam/process()
@@ -31,9 +32,9 @@
 	var/obj/item/grenade/smf = new /obj/item/grenade/clusterbuster/metalfoam/smart(loc)
 	smf.arm_grenade()
 	uses--
-	cooldown_time = world.time + cooldown_time
+	cooldown_time = world.time + cooldown
 	power_change()
-	addtimer(CALLBACK(src, .proc/power_change), cooldown_time)
+	addtimer(CALLBACK(src, .proc/power_change), cooldown)
 
 /obj/machinery/ai_slipper/smartfoam/interact(mob/user)
 	if(!allowed(user))
