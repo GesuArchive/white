@@ -285,12 +285,13 @@
 	switch(state)
 		if(AIRLOCK_ASSEMBLY_NEEDS_WIRES)
 			if(anchored)
-				name = "закреплен "
+				name = "закрепленная "
 		if(AIRLOCK_ASSEMBLY_NEEDS_ELECTRONICS)
-			name = "проводка смонтирована "
+			name += "со смонтированной проводкой "		
 		if(AIRLOCK_ASSEMBLY_NEEDS_SCREWDRIVER)
-			name = "почти закончен "
+			name = "почти законченная "
 	name += "[heat_proof_finished ? "heat-proofed " : ""][glass ? "window " : ""][base_name] assembly"
+		
 
 /obj/structure/door_assembly/proc/transfer_assembly_vars(obj/structure/door_assembly/source, obj/structure/door_assembly/target, previous = FALSE)
 	target.glass = source.glass

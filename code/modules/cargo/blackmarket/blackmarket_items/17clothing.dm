@@ -52,7 +52,7 @@
 
 /datum/blackmarket_item/clothing/wzzzz/null
 	name = "Скафандр"
-	desc = "Улучшенная версия обыного скафандра"
+	desc = "Улучшенная версия обычного скафандра"
 	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/null
 
 	price_min = 10000
@@ -63,7 +63,7 @@
 
 /datum/blackmarket_item/clothing/wzzzz/void_explorer
 	name = "Скафандр исследователя космоса"
-	desc = "Улучшенная версия обыного скафандра"
+	desc = "Улучшенная версия обычного скафандра"
 	item = /obj/item/clothing/suit/space/hardsuit/wzzzz/void_explorer
 
 	price_min = 15000

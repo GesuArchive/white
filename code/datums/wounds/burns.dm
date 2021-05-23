@@ -99,7 +99,7 @@
 				to_chat(victim, "<span class='notice'>Едва чувствую свою [ru_parse_zone(limb.name)]!</span>")
 				set_disabling(FALSE)
 			else if(prob(1))
-				to_chat(victim, "<span class='warning'>Продумаю жизнь без своей [ru_gde_zone(limb.name)]...</span>")
+				to_chat(victim, "<span class='warning'>Обдумываю жизнь без своей [ru_gde_zone(limb.name)]...</span>")
 				victim.adjustToxLoss(0.75)
 			else if(prob(4))
 				victim.adjustToxLoss(1)

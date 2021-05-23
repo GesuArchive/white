@@ -57,7 +57,7 @@
 //Detective
 /obj/item/clothing/suit/det_suit
 	name = "плащ"
-	desc = "Многоцелевой плащ 18-го века. Тот, кто носит это, означает серьезный бизнес."
+	desc = "Многоцелевой плащ 18-го века. Тот, кто носит это, значит что он серьёзный бизнесмен."
 	icon_state = "detective"
 	inhand_icon_state = "det_suit"
 	blood_overlay_type = "coat"

@@ -433,10 +433,10 @@
 
 //Firebot Assembly
 /obj/item/bot_assembly/firebot
-	name = "каркас файрбота"
+	name = "каркас пожарного бота"
 	desc = "Огнетушитель с прикрепленной к нему рукой. Интересно."
 	icon_state = "firebot_arm"
-	created_name = "Файрбот"
+	created_name = "пожарный бот"
 
 /obj/item/bot_assembly/firebot/attackby(obj/item/I, mob/user, params)
 	..()
@@ -455,7 +455,7 @@
 			if(isprox(I))
 				if(!can_finish_build(I, user))
 					return
-				to_chat(user, "<span class='notice'>Добавляю [I] к [src.name], завершая сборку файрбота.</span>")
+				to_chat(user, "<span class='notice'>Добавляю [I] к [src.name], завершая сборку пожарный бота.</span>")
 				var/mob/living/simple_animal/bot/firebot/F = new(drop_location())
 				F.name = created_name
 				qdel(I)

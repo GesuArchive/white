@@ -61,7 +61,7 @@
 	if(!foldable || (flags_1 & HOLOGRAM_1))
 		return
 	if(contents.len)
-		to_chat(user, "<span class='warning'>Могу сложить эту коробку с предметами внутри!</span>")
+		to_chat(user, "<span class='warning'>Не могу сложить коробку с предметами внутри!</span>")
 		return
 	if(!ispath(foldable))
 		return
