@@ -1115,7 +1115,7 @@
 #define COMSIG_EXOSCAN_INTERRUPTED "exoscan_interrupted"
 
 
-// ---- MechComp signals - Content signals - Use these in you MechComp compatible devices ----
+// ---- MechComp signals - Content signals - Use these in your MechComp compatible devices ----
 
 
 /// Add an input chanel for a device to send into

@@ -1,14 +1,26 @@
+/*
+/obj/item/mechcomp/debugspawn
+/obj/item/mechcomp/debugspawn/Initialize()
+	. = ..()
+	for(var/i in typesof(/obj/item/mechcomp))
+		if(istype(i, /obj/item/mechcomp/debugspawn) || istype(i, /obj/item/mechcomp))
+			continue
+		new i(src.loc)
+	qdel(src)
+*/
+
+
 //copypaste of a goon component, thankfully it somehow just works.
 //Still probably should be at least reviewed. 
 /obj/item/mechcomp/math
 	name = "Arithmetic Component"
 	desc = "Do number things! Component list<br/>rng: Generates a random number from A to B<br/>add: Adds A + B<br/>sub: Subtracts A - B<br/>mul: Multiplies A * B<br/>div: Divides A / B<br/>pow: Power of A ^ B<br/>mod: Modulos A % B<br/>eq|neq|gt|lt|gte|lte: Equal/NotEqual/GreaterThan/LessThan/GreaterEqual/LessEqual -- will output 1 if true. Example: A GT B = 1 if A is larger than B"
 	part_icon_state = "comp_arith"
-	has_compact_icon_state = TRUE
+	has_anchored_icon_state = TRUE
 	var/A = 1
 	var/B = 1
 
-	var/mode = "rng"
+	var/mode = "add"
 
 /obj/item/mechcomp/math/examine(mob/user)
 		. = ..() // Please don't remove this again, thanks. //i have no fucking idea why gooncoders would do this lol
@@ -20,8 +32,8 @@
 		SEND_SIGNAL(src,COMSIG_MECHCOMP_ADD_INPUT,"Set A", "setA")
 		SEND_SIGNAL(src,COMSIG_MECHCOMP_ADD_INPUT,"Set B", "setB")
 		SEND_SIGNAL(src,COMSIG_MECHCOMP_ADD_INPUT,"Evaluate", "evaluate")
-		SEND_SIGNAL(src,COMSIG_MECHCOMP_ADD_CONFIG,"Set A","setAManually")
-		SEND_SIGNAL(src,COMSIG_MECHCOMP_ADD_CONFIG,"Set B","setBManually")
+		SEND_SIGNAL(src,COMSIG_MECHCOMP_ADD_CONFIG,"Set A Manually","setAManually")
+		SEND_SIGNAL(src,COMSIG_MECHCOMP_ADD_CONFIG,"Set B Manually","setBManually")
 		SEND_SIGNAL(src,COMSIG_MECHCOMP_ADD_CONFIG,"Set Mode","setMode")
 
 /obj/item/mechcomp/math/proc/setAManually(obj/item/W as obj, mob/user as mob)
@@ -88,7 +100,7 @@
 			. = A != B
 		else
 			return
-	if(. == .)
+	if(. == .) //wtf???
 		SEND_SIGNAL(src,COMSIG_MECHCOMP_TRANSMIT_SIGNAL,"[.]")
 
 
@@ -100,13 +112,14 @@
 	name = "Test LED"
 	desc = "Lights up if anything other than zero or an empty string is passed."
 	part_icon_state = "comp_led"
+	has_anchored_icon_state = TRUE
 
 /obj/item/mechcomp/test_led/Initialize()
 		. = ..()
 
-		SEND_SIGNAL(src,COMSIG_MECHCOMP_ADD_INPUT,"Activate", "activate")
+		SEND_SIGNAL(src,COMSIG_MECHCOMP_ADD_INPUT,"Activate", "activateproc")
 
-/obj/item/mechcomp/test_led/proc/activate(var/datum/mechcompMessage/msg)
+/obj/item/mechcomp/test_led/proc/activateproc(var/datum/mechcompMessage/msg)
 	if(msg.isTrue())
 		update_icon_state("comp_led_on")
 	else
@@ -118,7 +131,7 @@
 
 
 /obj/item/mechcomp/button
-	name = "mechcorp Button"
+	name = "mechcomp Button"
 	desc = "What does it do? Only one way to find out!"
 	part_icon_state = "comp_button"
 
@@ -127,6 +140,9 @@
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ALLOW_MANUAL_SIGNAL)
 
 /obj/item/mechcomp/button/interact_by_hand()
+	if(active)
+		return
+	activate_for(1 SECONDS)
 	update_icon_state("comp_button1")
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_TRANSMIT_DEFAULT_MSG)
 	spawn(1 SECONDS)
@@ -140,9 +156,10 @@
 
 //Changes it's description to whatever is passed to it's speak input. SHOULD ACTUALLY SAY IT INSTEAD OF THIS SHITE
 /obj/item/mechcomp/speaker
-	name = "mechcorp speaker"
+	name = "mechcomp speaker"
 	desc = "Speaks whatever it is told to speak."
 	part_icon_state = "comp_synth"
+	active_icon_state = "comp_synth1"
 
 /obj/item/mechcomp/speaker/Initialize()
 	. = ..()
@@ -151,9 +168,198 @@
 /obj/item/mechcomp/speaker/proc/activateproc(var/datum/mechcompMessage/msg)
 	if(active)
 		return
+	activate_for(3 SECONDS)
+	say(msg.signal)
+
+
+
+
+//probably useless
+/obj/item/mechcomp/numpad
+	name = "mechcomp numpad"
+	desc = "Enter numbers in infinitely different ways! Infinitely inferior to the chad textpanel."
+	part_icon_state = "comp_buttpanel"
+	active_icon_state = "comp_buttpanel1"
+
+/obj/item/mechcomp/numpad/interact_by_hand() 
+	var/inp = text2num(input("What number would you like to input?", "Oh, the possibilities!", null))
+	if(isnull(inp))
+		return
+	
+	SEND_SIGNAL(src,COMSIG_MECHCOMP_TRANSMIT_SIGNAL,"[inp]")
+	activate_for(0.1 SECONDS)
+
+
+
+
+/obj/item/mechcomp/textpad
+	name = "mechcomp textpad"
+	desc = "Text goes here. Strangely similiar to a numpad, while also being better than a numpad."
+	part_icon_state = "comp_buttpanel"
+	active_icon_state = "comp_buttpanel1"
+
+/obj/item/mechcomp/textpad/interact_by_hand() 
+	var/inp = input("What text would you like to input?", "Oh, the possibilities!", null)
+	if(isnull(inp))
+		return
+	
+	SEND_SIGNAL(src,COMSIG_MECHCOMP_TRANSMIT_SIGNAL,"[inp]")
+	activate_for(0.1 SECONDS)
+
+
+
+
+/obj/item/mechcomp/pressurepad
+	name = "mechcomp pressure pad"
+	desc = "Senses people walking over it."
+	part_icon_state = "comp_pressure"
+	has_anchored_icon_state = TRUE
+	var/sensitive = FALSE
+
+/obj/item/mechcomp/pressurepad/Initialize()
+	. = ..()
+	RegisterSignal(src, COMSIG_MOVABLE_CROSSED, .proc/pad_triggered)
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ALLOW_MANUAL_SIGNAL)
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Fine tuning", "finetune")
+
+/obj/item/mechcomp/pressurepad/proc/pad_triggered(datum/self, atom/movable/AM)
+	SIGNAL_HANDLER
+	if(anchored)
+		if( sensitive || isliving(AM))
+			SEND_SIGNAL(src, COMSIG_MECHCOMP_TRANSMIT_DEFAULT_MSG)
+
+
+
+/obj/item/mechcomp/pressurepad/proc/finetune(obj/item/W, mob/user)
+	sensitive = !sensitive
+	if(sensitive)
+		to_chat(user, "<span class='alert'>You tune the [src.name] to be more sensitive, allowing it to sense not just living creatures, but objects passing by.</span>")
+	else
+		to_chat(user, "<span class='alert'>You tune the [src.name] to be less sensitive, so it can only sense creatures passing by.</span>")
+
+/obj/item/mechcomp/delay
+	name = "mechcomp timer"
+	desc = "Relays signals with a configurable delay from 0 to 10 seconds."
+	part_icon_state = "comp_wait"
+	active_icon_state = "comp_wait1"
+	has_anchored_icon_state = TRUE
+	var/delay = 10
+	var/list/pending_messages = list()
+
+/obj/item/mechcomp/delay/examine(mob/user)
+	. = ..()
+	. += "It is currently set to delay incoming messages by [delay] deciseconds."
+
+
+/obj/item/mechcomp/delay/Initialize()
+	. = ..()
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set Delay" , "setdelaymanually")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Incoming", "incoming")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Delay", "setdelay")
+
+/obj/item/mechcomp/delay/proc/setdelaymanually(obj/item/W, mob/user)
+	var/input = input("Enter new time in deciseconds Current delay is [delay]ds.", "Delay", null) as num
+	if(!in_range(src, user) || user.stat || isnull(input))
+		to_chat(user, "<span class='notice'>You leave the delay on [src.name] alone.</span>")
+		return FALSE
+	delay = clamp(input, 0, 100)
+	to_chat(user, "<span class='notice'>You change the delay on [src.name] to [delay] deciseconds.</span>")
+	return TRUE
+
+
+/obj/item/mechcomp/delay/proc/setdelay(var/datum/mechcompMessage/msg)
+	var/t = text2num(msg.signal)
+	if (!isnull(t) && t > 0 && t<100)
+		delay = t
+		
+
+
+//This mechcomp component handles active flag by itself because it can have several different messages waiting to be sent,
+//and active flag should not be set to FALSE untill all of the messages were sent. 
+//This is probably not good and stuff regarting active-inactive states should be rewritten to be more flexible. 
+/obj/item/mechcomp/delay/proc/incoming(var/datum/mechcompMessage/msg)
+	pending_messages += list(addtimer(CALLBACK(src, .proc/sendmessage, msg), delay))
 	active = TRUE
-	update_icon_state("comp_synth1")
-	desc = msg.signal //i have brain damage
-	spawn(3 SECONDS)
-		update_icon_state("comp_synth")
+	update_icon_state(active_icon_state)
+
+
+
+/obj/item/mechcomp/delay/proc/sendmessage(var/datum/mechcompMessage/msg)
+	SEND_SIGNAL(src,COMSIG_MECHCOMP_TRANSMIT_MSG, msg)
+	if(!pending_messages.len)
 		active = FALSE
+		update_icon_state(part_icon_state)
+
+/obj/item/mechcomp/delay/unanchor()
+	remove_all_pending_messages()
+	return TRUE
+
+/obj/item/mechcomp/delay/proc/remove_all_pending_messages()
+	for(var/timer in pending_messages)
+		deltimer(timer)
+	pending_messages = list()
+
+
+/obj/item/mechcomp/grav_accelerator
+	name = "mechcomp graviton accelerator"
+	desc = "The bread and butter of any self-respecting mechanic, able to launch anyone willing (and unwilling!) in a fixed direction."
+	part_icon_state = "comp_accel"
+	active_icon_state = "comp_accel1"
+	var/power = 3
+	has_anchored_icon_state = TRUE
+
+/obj/item/mechcomp/grav_accelerator/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/simple_rotation, ROTATION_ALTCLICK | ROTATION_CLOCKWISE, CALLBACK(src, .proc/can_user_rotate),CALLBACK(src, .proc/can_be_rotated),null)
+
+/obj/item/mechcomp/grav_accelerator/Initialize()
+	. = ..()
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Activate", "activateproc")
+	//SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Power", "setpower") //maybe later
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set power Manually", "setpowermanually")
+
+/obj/item/mechcomp/grav_accelerator/proc/can_be_rotated(mob/user)
+	return !anchored
+
+//stolen from chair code
+/obj/item/mechcomp/grav_accelerator/proc/can_user_rotate(mob/user)
+	var/mob/living/L = user
+
+	if(istype(L))
+		if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
+			return FALSE
+		else
+			return TRUE
+	else if(isobserver(user) && CONFIG_GET(flag/ghost_interaction))
+		return TRUE
+	return FALSE
+/obj/item/mechcomp/grav_accelerator/proc/activateproc(datum/mechanicsMessage/msg)
+	if(active)
+		return
+
+	for(var/atom/movable/AM in range(0, src))
+		if(AM.anchored || AM == src)
+			continue
+		var/throwtarget = get_edge_target_turf(AM, src.dir)
+		AM.safe_throw_at(throwtarget, power, 1, force = MOVE_FORCE_STRONG, spin = TRUE)
+	activate_for((power*2+1) SECONDS)
+
+/obj/item/mechcomp/grav_accelerator/anchor(mob/living/user)
+	//no idea how to correctly check if another object of same type exists on the same tile
+	//fuck it//foreach loop
+	for(var/obj/item/mechcomp/grav_accelerator/i in range(0, src))
+		if(i.anchored)
+			to_chat(user, "<span class='alert'>Cannot wrench two graviton accelerators on the same space!.</span>")
+			return FALSE
+	return TRUE
+
+
+/obj/item/mechcomp/grav_accelerator/proc/setpowermanually(obj/item/W, mob/user)
+	var/input = input("Enter new power setting.", "Power", null) as num
+	if(!in_range(src, user) || user.stat || isnull(input))
+		to_chat(user, "<span class='notice'>You leave the power setting on [src.name] alone.</span>")
+		return FALSE
+	
+	power = clamp(round(input), 1, 7)
+	to_chat(user, "<span class='notice'>You change the power setting on [src.name] to [power].</span>")
+	return TRUE
