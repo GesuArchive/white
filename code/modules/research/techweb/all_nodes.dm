@@ -1137,7 +1137,7 @@
 
 /datum/techweb_node/noneuclid_cryptominer
 	id = "noneuclid_cryptominer"
-	display_name = "Неэвклидовый криптомайнинг"
+	display_name = "Неевклидовый криптомайнинг"
 	description = "Нарушение законов физики как основа."
 	design_ids = list("ntx3090ti")
 	prereq_ids = list("ultra_cryptominer")
