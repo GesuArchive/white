@@ -431,7 +431,7 @@
 	G.max_volume *= rate
 
 /datum/plant_gene/trait/repeated_harvest
-	name = "Многолетние растение"
+	name = "Многолетнее растение"
 
 /datum/plant_gene/trait/repeated_harvest/can_add(obj/item/seeds/S)
 	if(!..())

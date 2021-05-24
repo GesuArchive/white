@@ -246,14 +246,14 @@
 
 /obj/item/storage/backpack/satchel/eng
 	name = "промышленная сумка"
-	desc = "Прочный сумка с дополнительными карманами."
+	desc = "Прочная сумка с дополнительными карманами."
 	icon_state = "satchel-eng"
 	inhand_icon_state = "satchel-eng"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/storage/backpack/satchel/med
 	name = "медицинская сумка"
-	desc = "Стерильный сумка, используемый в медицинских отделениях."
+	desc = "Стерильная сумка, используемый в медицинских отделениях."
 	icon_state = "satchel-med"
 	inhand_icon_state = "satchel-med"
 

@@ -136,7 +136,7 @@
 		var/turf/T = get_turf(src)
 		if(H.pooition >= 25)
 			if(HAS_TRAIT(H, TRAIT_LIGHT_POOER))
-				H.visible_message("<span class='notice'><b>[H]</b> [prob(25) ? pick(random_poo) : uppertext(pick(random_poo))] себе прямо в руку!</span>", \
+				H.visible_message("<span class='notice'><b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] себе прямо в руку!</span>", \
 					"<span class='notice'>Выдавливаю какаху из своего тела.</span>")
 				playsound(H, 'white/valtos/sounds/poo2.ogg', 25, 1) //silence hunter
 				var/obj/item/food/poo/P = new(T)
@@ -148,7 +148,7 @@
 				return
 			else
 				if(H.get_item_by_slot(ITEM_SLOT_ICLOTHING))
-					H.visible_message("<span class='notice'><b>[H]</b> [prob(25) ? pick(random_poo) : uppertext(pick(random_poo))] себе в штаны!</span>", \
+					H.visible_message("<span class='notice'><b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] себе в штаны!</span>", \
 						"<span class='notice'>Сру себе в штаны.</span>")
 					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
 					H.pooition -= 25
@@ -163,14 +163,14 @@
 					SSblackbox.record_feedback("tally", "poo", 1, "Poo Self")
 					return
 				else if(locate(/obj/structure/toilet) in T || locate(/obj/structure/toilet/greyscale) in T)
-					H.visible_message("<span class='notice'><b>[H]</b> [prob(5) ? pick(random_poo) : uppertext(pick(random_poo))] в туалет!</span>", \
+					H.visible_message("<span class='notice'><b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] в туалет!</span>", \
 						"<span class='notice'>Выдавливаю какаху прямиком в туалет.</span>")
 					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
 					H.pooition -= 25
 					SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 					return
 				else
-					H.visible_message("<span class='notice'><b>[H]</b> [prob(25) ? pick(random_poo) : uppertext(pick(random_poo))] на пол!</span>", \
+					H.visible_message("<span class='notice'><b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] на пол!</span>", \
 						"<span class='notice'>Выдавливаю какаху из своего тела.</span>")
 					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
 					new /obj/item/food/poo(T)

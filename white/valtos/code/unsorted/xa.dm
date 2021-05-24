@@ -31,14 +31,13 @@
 	to_chat(src, "<h1 class='alert'>Центральное Командование</h1>")
 	to_chat(src, "<span class='alert'>Последние нотки мышления начинают покидать мой разум. Это конечная.</span>")
 
-	spawn(1 SECONDS)
-		for(var/V in verbs)
-			remove_verb(src, V)
-		for(var/V in client.verbs)
-			remove_verb(client, V)
-		SEND_SOUND(src, sound('white/valtos/sounds/xeno.ogg', repeat = TRUE, wait = 0, volume = 50))
-		roleplay_progress = 0
-		add_verb(src, /mob/living/simple_animal/xaxi/verb/roleplay)
+	for(var/V in verbs)
+		remove_verb(src, V)
+	for(var/V in client.verbs)
+		remove_verb(client, V)
+	SEND_SOUND(src, sound('white/valtos/sounds/xeno.ogg', repeat = TRUE, wait = 0, volume = 50))
+	roleplay_progress = 0
+	add_verb(src, /mob/living/simple_animal/xaxi/verb/roleplay)
 
 /mob/living/simple_animal/xaxi/Life()
 	..()
@@ -52,8 +51,8 @@
 	if(prob(10))
 		for(var/atom/movable/screen/plane_master/whole_screen in screens)
 			whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = WAVE_BOUNDED)
-			animate(whole_screen, transform = matrix()*2, time = 40, easing = BOUNCE_EASING)
-			addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 120)
+			animate(whole_screen, transform = matrix()*rand(1, 3), time = 400, easing = BOUNCE_EASING)
+			addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 1200)
 	if(client)
 		sounds = client.SoundQuery()
 		for(var/sound/S in sounds)
@@ -64,11 +63,23 @@
 				SEND_SOUND(client, S)
 				sounds = list()
 
+/mob/living/simple_animal/xaxi/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods)
+	SEND_SIGNAL(src, COMSIG_MOVABLE_HEAR, args)
+	if(!client)
+		return
+	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)
+	show_message(message, MSG_AUDIBLE, message, null, avoid_highlighting = speaker == src)
+	return message
+
+
 /mob/living/simple_animal/xaxi/show_message(msg, type, alt_msg, alt_type, avoid_highlighting)
 	if(!client)
 		return
 
 	to_chat(src, readable_corrupted_text(reverse_text(msg)), avoid_highlighting = avoid_highlighting)
+
+	if(prob(50))
+		SEND_SOUND(src, sound("white/valtos/sounds/halun/halun[rand(1,19)].ogg"))
 
 /mob/living/simple_animal/xaxi/verb/roleplay()
 	set category = "ROLEPLAY"

@@ -95,7 +95,7 @@ export const PortableTurret = (props, context) => {
               <Button.Checkbox
                 fluid
                 checked={neutralize_cyborgs}
-                content="Кибоги"
+                content="Киборги"
                 disabled={locked}
                 onClick={() => act('shootborgs')} />
             </Section>

@@ -893,11 +893,11 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 	var/list/corruption_options = list("..", "£%", "~~\"", "!!", "*", "^", "$!", "-", "}", "?")
 	var/corrupted_text = ""
 
-	var/lentext = length_char(text)
+	var/lentext = length(text)
 	var/letter = ""
 	// Have every letter have a chance of creating corruption on either side
 	// Small chance of letters being removed in place of corruption - still overall readable
-	for(var/letter_index = 1, letter_index <= lentext, letter_index += length_char(letter))
+	for(var/letter_index = 1, letter_index <= lentext, letter_index += length(letter))
 		letter = text[letter_index]
 
 		if (prob(15))

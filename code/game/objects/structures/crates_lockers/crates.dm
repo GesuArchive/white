@@ -235,6 +235,7 @@
 
 /obj/structure/closet/crate/goldcrate
 	name = "золотой ящик"
+	desc = "Прямоугольный золотой ящик."
 
 /obj/structure/closet/crate/goldcrate/PopulateContents()
 	..()
@@ -244,6 +245,7 @@
 
 /obj/structure/closet/crate/silvercrate
 	name = "серебряный ящик"
+	desc = "Прямоугольный серебрянный ящик."
 
 /obj/structure/closet/crate/silvercrate/PopulateContents()
 	..()

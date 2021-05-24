@@ -305,7 +305,7 @@
 				"<span class='notice'>[user] поднмает меня с [src].</span>",\
 				"<span class='hear'>Слышу лязг металла.</span>")
 		else
-			M.visible_message("<span class='notice'>[M] встаёт с [src].</span>",\
+			M.visible_message("<span class='notice'>[M] встаёт со [src].</span>",\
 				"<span class='notice'>Встаю с [src].</span>",\
 				"<span class='hear'>Слышу лязг металла.</span>")
 		add_fingerprint(user)
