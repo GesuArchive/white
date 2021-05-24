@@ -81,7 +81,7 @@
 	name = "неевклидный конденсатор"
 	desc = "Емкостной конденсатор используется в конструкции самых разных устройств."
 	icon_state = "quadratic_capacitor"
-	rating = 8
+	rating = 5
 	custom_materials = list(/datum/material/iron=1, /datum/material/glass=1)
 	color = "#ff3333"
 
@@ -89,7 +89,7 @@
 	name = "неевклидный сканирующий модуль"
 	desc = "Компактный неевклидный сканирующий модуль сверхвысокого разрешения, используемый в конструкции некоторых устройств."
 	icon_state = "triphasic_scan_module"
-	rating = 8
+	rating = 5
 	custom_materials = list(/datum/material/iron=1, /datum/material/glass=1)
 	color = "#ff3333"
 
@@ -97,7 +97,7 @@
 	name = "неевклидовый-манипулятор"
 	desc = "Крошечный манипулятор, используемый при создании некоторых устройств."
 	icon_state = "femto_mani"
-	rating = 8
+	rating = 5
 	custom_materials = list(/datum/material/iron=1)
 	color = "#ff3333"
 
@@ -105,7 +105,7 @@
 	name = "неевклидный микролазер"
 	icon_state = "quadultra_micro_laser"
 	desc = "Крошечный лазер, используемый в некоторых устройствах."
-	rating = 8
+	rating = 5
 	custom_materials = list(/datum/material/iron=1, /datum/material/glass=1)
 	color = "#ff3333"
 
@@ -113,15 +113,15 @@
 	name = "неевклидовый контейнер материалов"
 	desc = "Контейнер, предназначенный для хранения неевклидного вещества, ожидающего реконструкции."
 	icon_state = "bluespace_matter_bin"
-	rating = 8
+	rating = 5
 	custom_materials = list(/datum/material/iron=1)
 	color = "#ff3333"
 
-/obj/item/storage/part_replacer/bluespace/tier8
+/obj/item/storage/part_replacer/bluespace/tier5
 	color = "#ff3333"
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/storage/part_replacer/bluespace/tier8/PopulateContents()
+/obj/item/storage/part_replacer/bluespace/tier5/PopulateContents()
 	for(var/i in 1 to 50)
 		new /obj/item/stock_parts/capacitor/noneuclid(src)
 		new /obj/item/stock_parts/scanning_module/noneuclid(src)
@@ -135,7 +135,7 @@
 	description = "Experiments in the field of bluespace technologies led to the discovery of non-Euclidean spaces."
 	prereq_ids = list("bluespace_travel", "practical_bluespace", "bluespace_storage")
 	design_ids = list("noneuclid_matter_bin", "noneuclid_mani", "noneuclid_scanning", "noneuclid_capacitor", "noneuclid_micro_laser")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000000)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 250000)
 	required_experiments = list(/datum/experiment/explosion/maxcap)
 	discount_experiments = list(/datum/experiment/explosion/medium = 500000)
 

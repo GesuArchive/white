@@ -483,7 +483,7 @@
 	internals_slot = ITEM_SLOT_SUITSTORE
 	backpack_contents = list(
 		/obj/item/melee/transforming/energy/axe=1,\
-		/obj/item/storage/part_replacer/bluespace/tier8=1,\
+		/obj/item/storage/part_replacer/bluespace/tier5=1,\
 		/obj/item/gun/magic/wand/resurrection/debug=1,\
 		/obj/item/gun/magic/wand/death/debug=1,\
 		/obj/item/debug/human_spawner=1,\

@@ -127,7 +127,7 @@
 			new /obj/item/reagent_containers/food/drinks/bottle/whiskey(src)
 			new /obj/item/reagent_containers/food/drinks/bottle/whiskey(src)
 			new /obj/item/lighter(src)
-			new /obj/item/storage/part_replacer/bluespace/tier8(src)
+			new /obj/item/storage/part_replacer/bluespace/tier5(src)
 			new /obj/item/reagent_containers/food/drinks/bottle/absinthe/premium(src)
 			for(var/i in 1 to 3)
 				new /obj/item/clothing/mask/cigarette/rollie(src)
