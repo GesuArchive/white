@@ -126,7 +126,7 @@
 	name = "CentCom Intern"
 	outfit = /datum/outfit/centcom/centcom_intern
 	plasmaman_outfit = /datum/outfit/plasmaman/centcom_intern
-	random_names = FALSE
+	random_names = TRUE
 	role = "Intern"
 
 /datum/antagonist/ert/intern/leader
