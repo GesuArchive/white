@@ -16,7 +16,8 @@
 								"Аммуниция",
 								"Бойки",
 								"Компьютерные запчасти",
-								"Спейсподы"
+								"Спейсподы",
+								"Схемотехника"
 								)
 	production_animation = "protolathe_n"
 	allowed_buildtypes = PROTOLATHE

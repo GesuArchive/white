@@ -42,7 +42,13 @@
 #define BIOGENERATOR	(1<<5) 	//Uses biomass
 #define LIMBGROWER		(1<<6) 	//Uses synthetic flesh
 #define SMELTER			(1<<7) 	//uses various minerals
-#define NANITE_COMPILER  (1<<8) //Prints nanite disks
+#define NANITE_COMPILER (1<<8) //Prints nanite disks
+/// Protolathes for offstation roles. More limited tech tree.
+#define AWAY_LATHE 		(1<<9)
+/// Imprinters for offstation roles. More limited tech tree.
+#define AWAY_IMPRINTER 	(1<<10)
+/// For wiremod/integrated circuits. Uses various minerals.
+#define COMPONENT_PRINTER (1<<11)
 //Note: More than one of these can be added to a design but imprinter and lathe designs are incompatable.
 
 //Modular computer/NTNet defines
