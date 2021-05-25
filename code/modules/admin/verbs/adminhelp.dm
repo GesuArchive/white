@@ -232,10 +232,17 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	initiator.adminhelptimerid = addtimer(CALLBACK(initiator, /client/proc/giveadminhelpverb), 1200, TIMER_STOPPABLE) //2 minute cooldown of admin helps
 
 //private
-/datum/admin_help/proc/FullMonty(ref_src)
+/datum/admin_help/proc/FullMontyNobracket(ref_src)
 	if(!ref_src)
 		ref_src = "[REF(src)]"
 	. = ADMIN_FULLMONTY_NONAME_NOBRACKET(initiator.mob)
+	if(state == AHELP_ACTIVE)
+		. += ClosureLinks(ref_src)
+
+/datum/admin_help/proc/FullMonty(ref_src)
+	if(!ref_src)
+		ref_src = "[REF(src)]"
+	. = ADMIN_FULLMONTY_NONAME(initiator.mob)
 	if(state == AHELP_ACTIVE)
 		. += ClosureLinks(ref_src)
 
@@ -266,7 +273,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	msg = html_decode(sanitize(copytext_char(msg, 1, MAX_MESSAGE_LEN)))
 	var/ref_src = "[REF(src)]"
 	//Message to be sent to all admins
-	var/admin_msg = "<span class='adminnotice'><span class='adminhelp'>Ticket [TicketHref("#[id]", ref_src)]</span><b>: [LinkedReplyName(ref_src)] [FullMonty(ref_src)]:</b> <span class='linkify'>[keywords_lookup(msg)]</span></span>"
+	var/admin_msg = "<span class='adminnotice'><span class='adminhelp'>Тикет [TicketHref("#[id]", ref_src)]</span><b>: [LinkedReplyName(ref_src)] [FullMonty(ref_src)]:</b> <span class='linkify'>[keywords_lookup(msg)]</span></span>"
 
 	AddInteraction("<font color='red'>[LinkedReplyName(ref_src)]: [msg]</font>")
 	log_admin_private("Ticket #[id]: [key_name(initiator)]: [msg]")
@@ -429,7 +436,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		dat += "<br>Открыт в: [gameTimestamp(wtime = closed_at)] (Приблизительно [DisplayTimeText(world.time - closed_at)] назад)"
 	dat += "<br><br>"
 	if(initiator)
-		dat += "<b>Действия:</b> [FullMonty(ref_src)]<br>"
+		dat += "<b>Действия:</b> [FullMontyNobracket(ref_src)]<br>"
 	else
 		dat += "<b>ОТКЛЮЧИЛСЯ</b>[FOURSPACES][ClosureLinks(ref_src)]<br>"
 	dat += "<br><b>Журнал:</b><br><br>"
