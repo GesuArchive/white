@@ -97,9 +97,9 @@
 		body += "<a href='?_src_=holder;[HrefToken()];modantagrep=set;mob=[REF(M)]'>=</a> "
 		body += "<a href='?_src_=holder;[HrefToken()];modantagrep=zero;mob=[REF(M)]'>0</a>"
 		var/metabalance = M.client.get_metabalance()
-		body += "<br><b>Метакэш</b>: [metabalance]"
 		if(check_donations(M.client.ckey))
 			body += "<br><b>Донатер:</b> [check_donations(M.client.ckey)] р."
+		body += "<br><b>Метакэш</b>: [metabalance]"
 		if(check_rights(R_PERMISSIONS, show_msg = FALSE))
 			body += " <a href='?_src_=holder;[HrefToken()];changemetacash=[REF(M)]'>\[???\]</a>"
 		var/full_version = "Unknown"
