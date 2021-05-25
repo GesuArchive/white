@@ -237,7 +237,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		ref_src = "[REF(src)]"
 	. = ADMIN_FULLMONTY_NONAME_NOBRACKET(initiator.mob)
 	if(state == AHELP_ACTIVE)
-		. += ClosureLinks(ref_src)
+		. += ClosureLinksNobracket(ref_src)
 
 /datum/admin_help/proc/FullMonty(ref_src)
 	if(!ref_src)
@@ -247,13 +247,22 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		. += ClosureLinks(ref_src)
 
 //private
-/datum/admin_help/proc/ClosureLinks(ref_src)
+/datum/admin_help/proc/ClosureLinksNobracket(ref_src)
 	if(!ref_src)
 		ref_src = "[REF(src)]"
 	. = " <A HREF='?_src_=holder;[HrefToken(TRUE)];ahelp=[ref_src];ahelp_action=reject'>REJT</A>"
 	. += " <A HREF='?_src_=holder;[HrefToken(TRUE)];ahelp=[ref_src];ahelp_action=icissue'>IC</A>"
 	. += " <A HREF='?_src_=holder;[HrefToken(TRUE)];ahelp=[ref_src];ahelp_action=close'>CLOSE</A>"
 	. += " <A HREF='?_src_=holder;[HrefToken(TRUE)];ahelp=[ref_src];ahelp_action=resolve'>RSLVE</A>"
+
+//private
+/datum/admin_help/proc/ClosureLinks(ref_src)
+	if(!ref_src)
+		ref_src = "[REF(src)]"
+	. = " (<A HREF='?_src_=holder;[HrefToken(TRUE)];ahelp=[ref_src];ahelp_action=reject'>REJT</A>)"
+	. += " (<A HREF='?_src_=holder;[HrefToken(TRUE)];ahelp=[ref_src];ahelp_action=icissue'>IC</A>)"
+	. += " (<A HREF='?_src_=holder;[HrefToken(TRUE)];ahelp=[ref_src];ahelp_action=close'>CLOSE</A>)"
+	. += " (<A HREF='?_src_=holder;[HrefToken(TRUE)];ahelp=[ref_src];ahelp_action=resolve'>RSLVE</A>)"
 
 //private
 /datum/admin_help/proc/LinkedReplyName(ref_src)
@@ -291,7 +300,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	//show it to the person adminhelping too
 	to_chat(initiator,
 		type = MESSAGE_TYPE_ADMINPM,
-		html = "<span class='adminnotice'>Сообщение для <b>администраторов</b>: <span class='linkify'>[msg]</span></span>",
+		html = "<span class='adminnotice'>Сообщение <b>администраторам</b>: <span class='linkify'>[msg]</span></span>",
 		confidential = TRUE)
 	SSblackbox.LogAhelp(id, "Ticket Opened", msg, null, initiator.ckey)
 
@@ -430,9 +439,9 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	dat += "</b>[FOURSPACES][TicketHref("Обновить", ref_src)][FOURSPACES][TicketHref("Изменить", ref_src, "retitle")]"
 	if(state != AHELP_ACTIVE)
 		dat += "[FOURSPACES][TicketHref("Переоткрыть", ref_src, "reopen")]"
-	dat += "<br><br>Закрыт в: [gameTimestamp(wtime = opened_at)] (Приблизительно [DisplayTimeText(world.time - opened_at)] назад)"
+	dat += "<br><br>Открыт в: [gameTimestamp(wtime = opened_at)] (Приблизительно [DisplayTimeText(world.time - opened_at)] назад)"
 	if(closed_at)
-		dat += "<br>Открыт в: [gameTimestamp(wtime = closed_at)] (Приблизительно [DisplayTimeText(world.time - closed_at)] назад)"
+		dat += "<br>Закрыт в: [gameTimestamp(wtime = closed_at)] (Приблизительно [DisplayTimeText(world.time - closed_at)] назад)"
 	dat += "<br><br>"
 	if(initiator)
 		dat += "<b>Действия:</b> [FullMontyNobracket(ref_src)]<br>"
@@ -674,7 +683,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	var/list/adminhelp_ignored_words = list("неизвестный","the","a","an","of","monkey","alien","as", "i")
 
 	//explode the input msg into a list
-	var/list/msglist = splittext(msg, " ")
+	var/list/msglist = splittext_char(msg, " ")
 
 	//generate keywords lookup
 	var/list/surnames = list()
@@ -687,7 +696,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 			indexing += M.mind.name
 
 		for(var/string in indexing)
-			var/list/L = splittext(string, " ")
+			var/list/L = splittext_char(string, " ")
 			var/surname_found = 0
 			//surnames
 			for(var/i=L.len, i>=1, i--)
