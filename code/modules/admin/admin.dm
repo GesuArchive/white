@@ -169,19 +169,19 @@
 			if(ishuman(M) && !ismonkey(M))
 				body += "<B>Хуман</B>"
 			else
-				body += "<A href='?_src_=holder;[HrefToken()];humanone=[REF(M)]'>Очеловечить</A>"
+				body += "<A href='?_src_=holder;[HrefToken()];humanone=[REF(M)]'>Человек</A>"
 
 			//Monkey
 			if(ismonkey(M))
 				body += "<B>Мартыха</B>"
 			else
-				body += "<A href='?_src_=holder;[HrefToken()];monkeyone=[REF(M)]'>Макакофицировать</A>"
+				body += "<A href='?_src_=holder;[HrefToken()];monkeyone=[REF(M)]'>Манки</A>"
 
 			//Corgi
 			if(iscorgi(M))
 				body += "<B>Корги</B>"
 			else
-				body += "<A href='?_src_=holder;[HrefToken()];corgione=[REF(M)]'>Коргизировать</A>"
+				body += "<A href='?_src_=holder;[HrefToken()];corgione=[REF(M)]'>Корги</A>"
 
 			//AI / Cyborg
 			if(isAI(M))

@@ -417,7 +417,6 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 /datum/admin_help/proc/TicketPanel()
 	var/list/dat = list("<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><title>Тикет #[id]</title></head>")
 	var/ref_src = "[REF(src)]"
-	dat += "<h4>Тикет #[id]: [LinkedReplyName(ref_src)]</h4>"
 	dat += "<b>Состояние: "
 	switch(state)
 		if(AHELP_ACTIVE)
@@ -443,7 +442,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	for(var/I in _interactions)
 		dat += html_decode("[I]<br>")
 
-	var/datum/browser/popup = new(usr, "ahelp[id]", "Player Panel", 620, 480)
+	var/datum/browser/popup = new(usr, "ahelp[id]", "Тикет #[id]: [LinkedReplyName(ref_src)]", 620, 480)
 	popup.set_content(dat.Join())
 	popup.open()
 

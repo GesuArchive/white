@@ -12,19 +12,13 @@
 	if(M.client)
 		dat += "<center><p>Клиент</p></center>"
 		dat += "<center>"
-		dat += individual_logging_panel_link(M, INDIVIDUAL_ATTACK_LOG, LOGSRC_CLIENT, "Attack Log", source, ntype)
-		dat += " | "
-		dat += individual_logging_panel_link(M, INDIVIDUAL_SAY_LOG, LOGSRC_CLIENT, "Say Log", source, ntype)
-		dat += " | "
-		dat += individual_logging_panel_link(M, INDIVIDUAL_EMOTE_LOG, LOGSRC_CLIENT, "Emote Log", source, ntype)
-		dat += " | "
-		dat += individual_logging_panel_link(M, INDIVIDUAL_COMMS_LOG, LOGSRC_CLIENT, "Comms Log", source, ntype)
-		dat += " | "
-		dat += individual_logging_panel_link(M, INDIVIDUAL_OOC_LOG, LOGSRC_CLIENT, "OOC Log", source, ntype)
-		dat += " | "
-		dat += individual_logging_panel_link(M, INDIVIDUAL_LOOC_LOG, LOGSRC_CLIENT, "LOOC Log", source, ntype)
-		dat += " | "
-		dat += individual_logging_panel_link(M, INDIVIDUAL_SHOW_ALL_LOG, LOGSRC_CLIENT, "Show All", source, ntype)
+		dat += individual_logging_panel_link(M, INDIVIDUAL_ATTACK_LOG, LOGSRC_CLIENT, "Attack", source, ntype)
+		dat += individual_logging_panel_link(M, INDIVIDUAL_SAY_LOG, LOGSRC_CLIENT, "Say", source, ntype)
+		dat += individual_logging_panel_link(M, INDIVIDUAL_EMOTE_LOG, LOGSRC_CLIENT, "Emote", source, ntype)
+		dat += individual_logging_panel_link(M, INDIVIDUAL_COMMS_LOG, LOGSRC_CLIENT, "Comms", source, ntype)
+		dat += individual_logging_panel_link(M, INDIVIDUAL_OOC_LOG, LOGSRC_CLIENT, "OOC", source, ntype)
+		dat += individual_logging_panel_link(M, INDIVIDUAL_LOOC_LOG, LOGSRC_CLIENT, "LOOC", source, ntype)
+		dat += individual_logging_panel_link(M, INDIVIDUAL_SHOW_ALL_LOG, LOGSRC_CLIENT, "ВСЕ", source, ntype)
 		dat += "</center>"
 	else
 		dat += "<p> У моба нет клиента </p>"
@@ -33,19 +27,13 @@
 	dat += "<center><p>Моб</p></center>"
 	//Add the links for the mob specific log
 	dat += "<center>"
-	dat += individual_logging_panel_link(M, INDIVIDUAL_ATTACK_LOG, LOGSRC_MOB, "Attack Log", source, ntype)
-	dat += " | "
-	dat += individual_logging_panel_link(M, INDIVIDUAL_SAY_LOG, LOGSRC_MOB, "Say Log", source, ntype)
-	dat += " | "
-	dat += individual_logging_panel_link(M, INDIVIDUAL_EMOTE_LOG, LOGSRC_MOB, "Emote Log", source, ntype)
-	dat += " | "
-	dat += individual_logging_panel_link(M, INDIVIDUAL_COMMS_LOG, LOGSRC_MOB, "Comms Log", source, ntype)
-	dat += " | "
-	dat += individual_logging_panel_link(M, INDIVIDUAL_OOC_LOG, LOGSRC_MOB, "OOC Log", source, ntype)
-	dat += " | "
-	dat += individual_logging_panel_link(M, INDIVIDUAL_LOOC_LOG, LOGSRC_CLIENT, "LOOC Log", source, ntype)
-	dat += " | "
-	dat += individual_logging_panel_link(M, INDIVIDUAL_SHOW_ALL_LOG, LOGSRC_MOB, "Show All", source, ntype)
+	dat += individual_logging_panel_link(M, INDIVIDUAL_ATTACK_LOG, LOGSRC_MOB, "Attack", source, ntype)
+	dat += individual_logging_panel_link(M, INDIVIDUAL_SAY_LOG, LOGSRC_MOB, "Say", source, ntype)
+	dat += individual_logging_panel_link(M, INDIVIDUAL_EMOTE_LOG, LOGSRC_MOB, "Emote", source, ntype)
+	dat += individual_logging_panel_link(M, INDIVIDUAL_COMMS_LOG, LOGSRC_MOB, "Comms", source, ntype)
+	dat += individual_logging_panel_link(M, INDIVIDUAL_OOC_LOG, LOGSRC_MOB, "OOC", source, ntype)
+	dat += individual_logging_panel_link(M, INDIVIDUAL_LOOC_LOG, LOGSRC_CLIENT, "LOOC", source, ntype)
+	dat += individual_logging_panel_link(M, INDIVIDUAL_SHOW_ALL_LOG, LOGSRC_MOB, "ВСЕ", source, ntype)
 	dat += "</center>"
 
 	dat += "<hr style='background:#000000; border:0; height:1px'>"
@@ -59,14 +47,14 @@
 		if(nlog_type & ntype)
 			var/list/all_the_entrys = log_source[log_type]
 			for(var/entry in all_the_entrys)
-				concatenated_logs += "<b>[entry]</b><br>[all_the_entrys[entry]]"
+				concatenated_logs += "<b>[entry]</b> [all_the_entrys[entry]]"
 	if(length(concatenated_logs))
 		sortTim(concatenated_logs, cmp = /proc/cmp_text_dsc) //Sort by timestamp.
-		dat += "<font size=2px>"
+		dat += "<font size=8>"
 		dat += concatenated_logs.Join("<br>")
 		dat += "</font>"
 
-	var/datum/browser/popup = new(usr, "invidual_logging_[key_name(M)]", "Individual Logs", 600, 600)
+	var/datum/browser/popup = new(usr, "invidual_logging_[key_name(M)]", "КТО СЛИЛ ЛОГИ???", 900, 600)
 	popup.set_content(dat.Join())
 	popup.open()
 
