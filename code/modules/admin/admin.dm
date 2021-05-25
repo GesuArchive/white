@@ -73,7 +73,7 @@
 	if(isnewplayer(M))
 		body += " <B>В лобби.</B> "
 	else
-		body += " <A href='?_src_=holder;[HrefToken()];revive=[REF(M)]'>Лечить</A>"
+		body += "<A href='?_src_=holder;[HrefToken()];revive=[REF(M)]'>Лечить</A>"
 
 	if(M.client)
 		body += "<br><b>Наша база:</b> [M.client.player_join_date] "
@@ -139,7 +139,7 @@
 		// body += "<A href='?_src_=holder;[HrefToken()];sendtoprison=[REF(M)]'>Prison</A>"
 		body += "\ <A href='?_src_=holder;[HrefToken()];sendbacktolobby=[REF(M)]'>Кинуть в лобби</A>"
 		var/muted = M.client.prefs.muted
-		body += "<br><br><b>Заглушить: </b> "
+		body += "<br><b>Заглушить: </b> "
 		body += "<A href='?_src_=holder;[HrefToken()];mute=[M.ckey];mute_type=[MUTE_IC]'><font color='[(muted & MUTE_IC)?"red":"white"]'>IC</font></a>"
 		body += "<A href='?_src_=holder;[HrefToken()];mute=[M.ckey];mute_type=[MUTE_OOC]'><font color='[(muted & MUTE_OOC)?"red":"white"]'>OOC</font></a>"
 		body += "<A href='?_src_=holder;[HrefToken()];mute=[M.ckey];mute_type=[MUTE_LOOC]'><font color='[(muted & MUTE_LOOC)?"red":"white"]'>LOOC</font></a>"
@@ -199,17 +199,17 @@
 
 			body += "<br><br>"
 			body += "<b>ПЛОХАЯ ТРАНСФОРМАЦИЯ:</b><br>Использовать только когда знаете че делаете.<br>"
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=observer;mob=[REF(M)]'>Гост</A>"
+			body += "<b>Трахоёбля:</b> <A href='?_src_=holder;[HrefToken()];simplemake=observer;mob=[REF(M)]'>Гост</A>"
 			body += "<A href='?_src_=holder;[HrefToken()];simplemake=human;mob=[REF(M)]'>Хуман</A>"
-			body += "<br>Алень: <A href='?_src_=holder;[HrefToken()];simplemake=drone;mob=[REF(M)]'>Дрон</A>"
+			body += "<br><b>Алень:</b> <A href='?_src_=holder;[HrefToken()];simplemake=drone;mob=[REF(M)]'>Дрон</A>"
 			body += "<A href='?_src_=holder;[HrefToken()];simplemake=hunter;mob=[REF(M)]'>Охотник</A>"
 			body += "<A href='?_src_=holder;[HrefToken()];simplemake=sentinel;mob=[REF(M)]'>Страж</A>"
 			body += "<A href='?_src_=holder;[HrefToken()];simplemake=praetorian;mob=[REF(M)]'>Претор</A>"
 			body += "<A href='?_src_=holder;[HrefToken()];simplemake=queen;mob=[REF(M)]'>Королева</A>"
 			body += "<A href='?_src_=holder;[HrefToken()];simplemake=larva;mob=[REF(M)]'>Лярва</A>"
-			body += "<br>Слайм: <A href='?_src_=holder;[HrefToken()];simplemake=slime;mob=[REF(M)]'>Молодой</A>"
+			body += "<br><b>Слайм:</b> <A href='?_src_=holder;[HrefToken()];simplemake=slime;mob=[REF(M)]'>Молодой</A>"
 			body += "<A href='?_src_=holder;[HrefToken()];simplemake=adultslime;mob=[REF(M)]'>Взрослый</A>"
-			body += "<br>Другое: <A href='?_src_=holder;[HrefToken()];simplemake=monkey;mob=[REF(M)]'>Мартыха</A>"
+			body += "<br><b>Другое:</b> <A href='?_src_=holder;[HrefToken()];simplemake=monkey;mob=[REF(M)]'>Мартыха</A>"
 			body += "<A href='?_src_=holder;[HrefToken()];simplemake=robot;mob=[REF(M)]'>Киборг</A>"
 			body += "<A href='?_src_=holder;[HrefToken()];simplemake=cat;mob=[REF(M)]'>Кот</A>"
 			body += "<A href='?_src_=holder;[HrefToken()];simplemake=runtime;mob=[REF(M)]'>Рантайм</A>"
@@ -217,14 +217,13 @@
 			body += "<A href='?_src_=holder;[HrefToken()];simplemake=ian;mob=[REF(M)]'>Ян</A>"
 			body += "<A href='?_src_=holder;[HrefToken()];simplemake=crab;mob=[REF(M)]'>Краб</A>"
 			body += "<A href='?_src_=holder;[HrefToken()];simplemake=coffee;mob=[REF(M)]'>Кофий</A>"
-			body += "<br>Констракты: <A href='?_src_=holder;[HrefToken()];simplemake=constructarmored;mob=[REF(M)]'>Джаггернаут</A>"
+			body += "<br><b>Констракты:</b> <A href='?_src_=holder;[HrefToken()];simplemake=constructarmored;mob=[REF(M)]'>Джаггернаут</A>"
 			body += "<A href='?_src_=holder;[HrefToken()];simplemake=constructbuilder;mob=[REF(M)]'>Ремесленник</A>"
 			body += "<A href='?_src_=holder;[HrefToken()];simplemake=constructwraith;mob=[REF(M)]'>Жнец</A>"
 			body += "<A href='?_src_=holder;[HrefToken()];simplemake=shade;mob=[REF(M)]'>Душка</A>"
 			body += "<br>"
 
 	if (M.client)
-		body += "<br><br>"
 		body += "<b>Другое:</b>"
 		body += "<A href='?_src_=holder;[HrefToken()];forcespeech=[REF(M)]'>Форс-сей</A>"
 		//body += "<A href='?_src_=holder;[HrefToken()];tdome1=[REF(M)]'>Thunderdome 1</A>"
@@ -236,7 +235,7 @@
 	body += "<br><br><br>"
 	body += "</body></html>"
 
-	var/datum/browser/popup = new(usr, "adminplayeropts-[REF(M)]", "Player Panel", 575, 515)
+	var/datum/browser/popup = new(usr, "adminplayeropts-[REF(M)]", "Player Panel", 550, 515)
 	popup.set_content(body)
 	popup.open()
 
