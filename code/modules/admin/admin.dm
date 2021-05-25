@@ -115,7 +115,7 @@
 		body += "<a href='?_src_=holder;[HrefToken()];initmind=[REF(M)]'>Init Mind</a>"
 	if (iscyborg(M))
 		body += "<a href='?_src_=holder;[HrefToken()];borgpanel=[REF(M)]'>BP</a>"
-	body += "<a href='?priv_msg=[M.ckey]'>PM</a> - "
+	body += "<a href='?priv_msg=[M.ckey]'>PM</a>"
 	body += "<a href='?_src_=holder;[HrefToken()];subtlemessage=[REF(M)]'>SM</a>"
 	if (ishuman(M) && M.mind)
 		body += "<a href='?_src_=holder;[HrefToken()];HeadsetMessage=[REF(M)]'>HM</a>"
@@ -163,29 +163,27 @@
 	if (M.client)
 		if(!isnewplayer(M))
 			body += "<br>"
-			body += "<b>Трансформация:</b> "
-
 			//Human
 			if(ishuman(M) && !ismonkey(M))
-				body += "<B>Хуман</B>"
+				body += "<B>Человек</B>: "
 			else
 				body += "<A href='?_src_=holder;[HrefToken()];humanone=[REF(M)]'>Человек</A>"
 
 			//Monkey
 			if(ismonkey(M))
-				body += "<B>Мартыха</B>"
+				body += "<B>Манки</B>: "
 			else
 				body += "<A href='?_src_=holder;[HrefToken()];monkeyone=[REF(M)]'>Манки</A>"
 
 			//Corgi
 			if(iscorgi(M))
-				body += "<B>Корги</B>"
+				body += "<B>Корги</B>: "
 			else
 				body += "<A href='?_src_=holder;[HrefToken()];corgione=[REF(M)]'>Корги</A>"
 
 			//AI / Cyborg
 			if(isAI(M))
-				body += "<B>Является ИИ</B> "
+				body += "<B>ИИ</B>: "
 			else if(ishuman(M))
 				body += "<A href='?_src_=holder;[HrefToken()];makeai=[REF(M)]'>ИИ</A>"
 				body += "<A href='?_src_=holder;[HrefToken()];makerobot=[REF(M)]'>Робот</A>"
@@ -228,17 +226,17 @@
 	if (M.client)
 		body += "<br><br>"
 		body += "<b>Другое:</b>"
-		body += "<A href='?_src_=holder;[HrefToken()];forcespeech=[REF(M)]'>Forcesay</A>"
-		body += "<A href='?_src_=holder;[HrefToken()];tdome1=[REF(M)]'>Thunderdome 1</A>"
-		body += "<A href='?_src_=holder;[HrefToken()];tdome2=[REF(M)]'>Thunderdome 2</A>"
-		body += "<A href='?_src_=holder;[HrefToken()];tdomeadmin=[REF(M)]'>Thunderdome Admin</A>"
-		body += "<A href='?_src_=holder;[HrefToken()];tdomeobserve=[REF(M)]'>Thunderdome Observer</A>"
-		body += "<A href='?_src_=holder;[HrefToken()];admincommend=[REF(M)]'>Commend Behavior</A>"
+		body += "<A href='?_src_=holder;[HrefToken()];forcespeech=[REF(M)]'>Форс-сей</A>"
+		//body += "<A href='?_src_=holder;[HrefToken()];tdome1=[REF(M)]'>Thunderdome 1</A>"
+		//body += "<A href='?_src_=holder;[HrefToken()];tdome2=[REF(M)]'>Thunderdome 2</A>"
+		//body += "<A href='?_src_=holder;[HrefToken()];tdomeadmin=[REF(M)]'>Thunderdome Admin</A>"
+		//body += "<A href='?_src_=holder;[HrefToken()];tdomeobserve=[REF(M)]'>Thunderdome Observer</A>"
+		body += "<A href='?_src_=holder;[HrefToken()];admincommend=[REF(M)]'>Зарекомендовать</A>"
 
 	body += "<br><br><br>"
 	body += "</body></html>"
 
-	var/datum/browser/popup = new(usr, "adminplayeropts-[REF(M)]", "Player Panel", 550, 515)
+	var/datum/browser/popup = new(usr, "adminplayeropts-[REF(M)]", "Player Panel", 575, 515)
 	popup.set_content(body)
 	popup.open()
 
