@@ -292,7 +292,7 @@
 
 /obj/item/mechcomp/delay/unanchor()
 	remove_all_pending_messages()
-	return TRUE
+	..()
 
 /obj/item/mechcomp/delay/proc/remove_all_pending_messages()
 	for(var/timer in pending_messages)

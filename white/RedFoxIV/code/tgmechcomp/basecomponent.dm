@@ -115,6 +115,7 @@
 	return TRUE
 ///Returns true if unanchoring is allowed, returns false if not.
 /obj/item/mechcomp/proc/unanchor(mob/living/user)
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_RM_ALL_CONNECTIONS)
 	return TRUE
 
 /**
