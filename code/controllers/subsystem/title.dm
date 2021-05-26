@@ -5,7 +5,7 @@ SUBSYSTEM_DEF(title)
 
 	var/file_path
 	var/ctt = ""
-	var/loader_pos = 15
+	var/loader_pos = 0
 	var/enabled_shit = TRUE
 	var/game_loaded = FALSE
 	var/current_lobby_screen = 'icons/ts.png'
