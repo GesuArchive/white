@@ -5,7 +5,7 @@ SUBSYSTEM_DEF(title)
 
 	var/file_path
 	var/ctt = ""
-	var/loader_pos = 15
+	var/loader_pos = 0
 	var/enabled_shit = TRUE
 	var/game_loaded = FALSE
 	var/current_lobby_screen = 'icons/ts.png'
@@ -85,10 +85,13 @@ SUBSYSTEM_DEF(title)
 			var/mob/dead/new_player/player = i
 			if(player.ready == PLAYER_READY_TO_PLAY)
 				var/role_thing = "Неизвестно"
-				for(var/j in player.client.prefs.job_preferences)
-					if(player.client.prefs.job_preferences[j] == JP_HIGH)
-						role_thing = j
-						break
+				if(player.client.prefs.job_preferences["Assistant"])
+					role_thing = "Ассистент"
+				else
+					for(var/j in player.client.prefs.job_preferences)
+						if(player.client.prefs.job_preferences[j] == JP_HIGH)
+							role_thing = j
+							break
 				if(!caa[role_thing])
 					caa[role_thing] = list(player.key)
 				else
@@ -97,16 +100,15 @@ SUBSYSTEM_DEF(title)
 				cum += "[player.key]"
 		for(var/line in GLOB.whitelist)
 			cum += "[line]"
+		tcc += "<table>"
 		if(SSticker.current_state == GAME_STATE_PREGAME)
-			tcc += "<table>"
 			for(var/line in sortList(caa))
 				tcc += "<tr><td class='role'>[line]</td><td class='victims'>[english_list(caa[line])]</td></tr>"
-			tcc += "</table>"
-			tcc += "</br><big>Не готовы:</big></br>"
+			tcc += "<tr><td class='role'>Не готовы:</td><td class='victims'>"
 		else
-			tcc += "</br><big>Чат-боты:</big></br>"
-		for(var/line in sortList(cum))
-			tcc += " - [line]</br>"
+			tcc += "<tr><td class='role'>Чат-боты:</td><td class='victims'>"
+		tcc += "[english_list(cum)]"
+		tcc += "</td></tr></table>"
 		ctt = tcc
 		for(var/mob/dead/new_player/D in GLOB.new_player_list)
 			if(D?.client?.lobbyscreen_image)

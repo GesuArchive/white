@@ -37,7 +37,7 @@
 	pass_flags = PASSTABLE
 	mob_size = MOB_SIZE_TINY
 	ranged = FALSE
-	loot = list(/obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/metal)
+	loot = list(/obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/metal, /obj/item/gun/energy/laser)
 	del_on_death = TRUE
 	deathmessage = "разваливается!"
 	light_system = MOVABLE_LIGHT

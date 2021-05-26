@@ -57,6 +57,8 @@ GLOBAL_LIST_INIT(disposal_pipe_recipes, list(
 		new /datum/pipe_info/disposal("Bin",			/obj/machinery/disposal/bin, PIPE_ONEDIR),
 		new /datum/pipe_info/disposal("Outlet",			/obj/structure/disposaloutlet),
 		new /datum/pipe_info/disposal("Chute",			/obj/machinery/disposal/delivery_chute),
+		new /datum/pipe_info/disposal("Multi-Deck Up",	/obj/structure/disposalpipe/trunk/multiz, PIPE_ONEDIR),
+		new /datum/pipe_info/disposal("Multi-Deck Down",/obj/structure/disposalpipe/trunk/multiz/down, PIPE_ONEDIR),
 	)
 ))
 
@@ -431,7 +433,7 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 
 	. = TRUE
 
-	if((mode & DESTROY_MODE) && istype(attack_target, /obj/item/pipe) || istype(attack_target, /obj/structure/disposalconstruct) || istype(attack_target, /obj/structure/c_transit_tube) || istype(attack_target, /obj/structure/c_transit_tube_pod) || istype(attack_target, /obj/item/pipe_meter))
+	if((mode & DESTROY_MODE) && istype(attack_target, /obj/item/pipe) || istype(attack_target, /obj/structure/disposalconstruct) || istype(attack_target, /obj/structure/c_transit_tube) || istype(attack_target, /obj/structure/c_transit_tube_pod) || istype(attack_target, /obj/item/pipe_meter) || istype(attack_target, /obj/structure/disposalpipe/broken))
 		to_chat(user, "<span class='notice'>You start destroying a pipe...</span>")
 		playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
 		if(do_after(user, destroy_speed, target = attack_target))

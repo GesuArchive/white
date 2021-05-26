@@ -14,6 +14,7 @@
 	to_chat(user, "<span class='notice'>Мы ощущаем прилив энергии.</span>")
 	user.SetKnockdown(0)
 	user.set_resting(FALSE)
+	user.adjustStaminaLoss(-75)
 	user.reagents.add_reagent(/datum/reagent/medicine/changelingadrenaline, 4) //20 seconds
 	user.reagents.add_reagent(/datum/reagent/medicine/changelinghaste, 3) //6 seconds, for a really quick burst of speed
 	return TRUE

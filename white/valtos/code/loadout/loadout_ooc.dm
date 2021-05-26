@@ -27,7 +27,7 @@
 		to_chat(C, "<span class='notice'>Не выбран аспект.</span>")
 		return FALSE
 	else
-		if(sel_aspect.forbidden)
+		if(sel_aspect.forbidden && !C.holder)
 			to_chat(C, "<span class='notice'>Этот аспект запрещён.</span>")
 			return FALSE
 		message_admins("[key_name(C)] покупает аспект [sel_aspect].")
