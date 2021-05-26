@@ -403,3 +403,15 @@
 	spawn(5 SECONDS)
 		call_emergency_meeting("Центральное Командование", GLOB.areas_by_type[/area/bridge/meeting_room])
 	..()
+
+/datum/round_aspect/emp_ass
+	name = "EMP"
+	desc = "БЗ-З*/!?*!-"
+	weight = 3
+	forbidden = TRUE
+
+/datum/round_aspect/emp_ass/run_aspect()
+	var/obj/effect/landmark/observer_start/O = locate(/obj/effect/landmark/observer_start) in GLOB.landmarks_list
+	if(O)
+		empulse(O, 50, 125)
+	..()
