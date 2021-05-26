@@ -107,8 +107,7 @@ SUBSYSTEM_DEF(title)
 			tcc += "<tr><td class='role'>Не готовы:</td><td class='victims'>"
 		else
 			tcc += "<tr><td class='role'>Чат-боты:</td><td class='victims'>"
-		for(var/line in sortList(cum))
-			tcc += " - [line]"
+		tcc += "[english_list(cum)]"
 		tcc += "</td></tr></table>"
 		ctt = tcc
 		for(var/mob/dead/new_player/D in GLOB.new_player_list)
