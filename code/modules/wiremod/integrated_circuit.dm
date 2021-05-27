@@ -5,7 +5,7 @@
  *
  * Has a limited amount of power.
  */
-/obj/item/integrated_circuit_wiremod_wiremod
+/obj/item/integrated_circuit_wiremod
 	name = "integrated circuit"
 	icon = 'icons/obj/module.dmi'
 	icon_state = "integrated_circuit_wiremod"
