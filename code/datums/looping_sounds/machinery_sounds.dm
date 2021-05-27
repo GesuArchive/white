@@ -119,3 +119,11 @@
 	volume = 10
 	falloff_distance = 2
 	falloff_exponent = 20
+
+/datum/looping_sound/enernet_coil
+	mid_sounds = list('white/valtos/sounds/eloop.ogg'=1)
+	mid_length = 16 SECONDS
+	extra_range = 7
+	volume = 50
+	falloff_distance = 5
+	falloff_exponent = 10

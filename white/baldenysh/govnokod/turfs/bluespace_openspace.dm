@@ -15,9 +15,6 @@
 	var/list/fall_proctected = list()
 	var/instability = 0
 
-/turf/open/openspace/bluespace/LateInitialize()
-	return
-
 /turf/open/openspace/bluespace/process()
 	instability++
 
