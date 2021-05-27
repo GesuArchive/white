@@ -2953,13 +2953,16 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
 "mT" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
-	dir = 4
+/obj/machinery/light_switch{
+	pixel_x = 27
 	},
-/obj/effect/turf_decal/tile/yellow{
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 8
 	},
-/obj/effect/turf_decal/bot,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/effect/turf_decal/box,
 /turf/open/floor/plasteel/dark,
 /area/engine/atmospherics_engine)
 "mZ" = (
@@ -7461,16 +7464,6 @@
 	icon_state = "panelscorched"
 	},
 /area/maintenance/port)
-"GZ" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/heater{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/yellow{
-	dir = 4
-	},
-/obj/effect/turf_decal/bot,
-/turf/open/floor/plasteel/dark,
-/area/engine/atmospherics_engine)
 "Ha" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/violet/visible{
 	dir = 1
@@ -10861,9 +10854,6 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/xenobiology)
 "VL" = (
-/obj/machinery/light_switch{
-	pixel_x = 27
-	},
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 8
 	},
@@ -46690,8 +46680,8 @@ ln
 ln
 EB
 hW
-mT
-mT
+Am
+Am
 Am
 Tf
 tB
@@ -48746,8 +48736,8 @@ dP
 dP
 EB
 zs
-GZ
-GZ
+VL
+mT
 VL
 ws
 Rk
