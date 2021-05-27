@@ -46,7 +46,7 @@
 	if(wearer)
 		shield_icon = "broken"
 		UnregisterSignal(wearer, COMSIG_ATOM_UPDATE_OVERLAYS)
-		wearer.update_appearance(UPDATE_ICON)
+		wearer.update_icon()
 		wearer = null
 	QDEL_NULL(on_hit_effects)
 	return ..()
@@ -75,7 +75,7 @@
 	COOLDOWN_START(src, charge_add_cd, charge_increment_delay)
 	current_charges++
 	if(wearer && current_charges == 1)
-		wearer.update_appearance(UPDATE_ICON)
+		wearer.update_icon()
 	playsound(item_parent, 'sound/magic/charge.ogg', 50, TRUE)
 	if(current_charges == max_charges)
 		playsound(item_parent, 'sound/machines/ding.ogg', 50, TRUE)
@@ -92,7 +92,7 @@
 	RegisterSignal(wearer, COMSIG_ATOM_UPDATE_OVERLAYS, .proc/on_update_overlays)
 	RegisterSignal(wearer, COMSIG_PARENT_QDELETING, .proc/lost_wearer)
 	if(current_charges)
-		wearer.update_appearance(UPDATE_ICON)
+		wearer.update_icon()
 
 /// Either we've been dropped or our wearer has been QDEL'd. Either way, they're no longer our problem
 /datum/component/shielded/proc/lost_wearer(datum/source, mob/user)
@@ -100,7 +100,7 @@
 
 	if(wearer)
 		UnregisterSignal(wearer, list(COMSIG_ATOM_UPDATE_OVERLAYS, COMSIG_PARENT_QDELETING))
-		wearer.update_appearance(UPDATE_ICON)
+		wearer.update_icon()
 		wearer = null
 
 /// Used to draw the shield overlay on the wearer
@@ -131,7 +131,7 @@
 		return
 
 	if(!current_charges)
-		wearer.update_appearance(UPDATE_ICON)
+		wearer.update_icon()
 	START_PROCESSING(SSdcs, src) // if we DO recharge, start processing so we can do that
 
 /// The wrapper to invoke the on_hit callback, so we don't have to worry about blocking in the signal handler

@@ -1,8 +1,8 @@
-/datum/design/integrated_circuit
+/datum/design/integrated_circuit_wiremod
 	name = "Integrated Circuit"
 	desc = "The foundation of all circuits. All Circuitry go onto this."
 	id = "integrated_circuit"
-	build_path = /obj/item/integrated_circuit
+	build_path = /obj/item/integrated_circuit_wiremod
 	build_type = IMPRINTER | COMPONENT_PRINTER
 	category = list("Схемотехника", "Core")
 	materials = list(/datum/material/glass = 1000, /datum/material/iron = 1000)

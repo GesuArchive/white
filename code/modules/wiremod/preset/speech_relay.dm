@@ -3,9 +3,9 @@
  *
  * Acts like poly. Says whatever it hears.
  */
-/obj/item/integrated_circuit/loaded/speech_relay
+/obj/item/integrated_circuit_wiremod/loaded/speech_relay
 
-/obj/item/integrated_circuit/loaded/speech_relay/Initialize()
+/obj/item/integrated_circuit_wiremod/loaded/speech_relay/Initialize()
 	. = ..()
 	var/obj/item/circuit_component/hear/hear = new()
 	add_component(hear)

@@ -17,7 +17,7 @@
 	var/display_name = "Generic"
 
 	/// The integrated_circuit that this component is attached to.
-	var/obj/item/integrated_circuit/parent
+	var/obj/item/integrated_circuit_wiremod/parent
 
 	/// A list that contains the outpurt ports on this component
 	/// Used to connect between the ports

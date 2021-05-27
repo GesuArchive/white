@@ -3,7 +3,7 @@
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 
 	/// The circuitboard attached to this shell
-	var/obj/item/integrated_circuit/attached_circuit
+	var/obj/item/integrated_circuit_wiremod/attached_circuit
 
 	/// Flags containing what this shell can do
 	var/shell_flags = 0
@@ -85,9 +85,9 @@
 		source.balloon_alert(attacker, "can't pull cell in directly!")
 		return
 
-	if(!istype(item, /obj/item/integrated_circuit))
+	if(!istype(item, /obj/item/integrated_circuit_wiremod))
 		return
-	var/obj/item/integrated_circuit/logic_board = item
+	var/obj/item/integrated_circuit_wiremod/logic_board = item
 	. = COMPONENT_NO_AFTERATTACK
 
 	if(logic_board.shell) // I'll be surprised if this ever happens
@@ -127,7 +127,7 @@
 /**
  * Checks for when the circuitboard moves. If it moves, removes it from the component.
  */
-/datum/component/shell/proc/on_circuit_moved(obj/item/integrated_circuit/circuit, atom/new_loc)
+/datum/component/shell/proc/on_circuit_moved(obj/item/integrated_circuit_wiremod/circuit, atom/new_loc)
 	SIGNAL_HANDLER
 	if(new_loc != parent)
 		remove_circuit()
@@ -146,7 +146,7 @@
 /**
  * Attaches a circuit to the parent. Doesn't do any checks to see for any existing circuits so that should be done beforehand.
  */
-/datum/component/shell/proc/attach_circuit(obj/item/integrated_circuit/circuitboard, mob/living/user)
+/datum/component/shell/proc/attach_circuit(obj/item/integrated_circuit_wiremod/circuitboard, mob/living/user)
 	if(!user.transferItemToLoc(circuitboard, parent))
 		return
 	attached_circuit = circuitboard

@@ -5,10 +5,10 @@
  *
  * Has a limited amount of power.
  */
-/obj/item/integrated_circuit
+/obj/item/integrated_circuit_wiremod_wiremod
 	name = "integrated circuit"
 	icon = 'icons/obj/module.dmi'
-	icon_state = "integrated_circuit"
+	icon_state = "integrated_circuit_wiremod"
 	inhand_icon_state = "electronic"
 
 	/// The power of the integrated circuit
@@ -23,11 +23,11 @@
 	/// Whether the integrated circuit is on or not. Handled by the shell.
 	var/on = FALSE
 
-/obj/item/integrated_circuit/loaded/Initialize()
+/obj/item/integrated_circuit_wiremod/loaded/Initialize()
 	. = ..()
 	cell = new /obj/item/stock_parts/cell/high(src)
 
-/obj/item/integrated_circuit/Destroy()
+/obj/item/integrated_circuit_wiremod/Destroy()
 	for(var/obj/item/circuit_component/to_delete in attached_components)
 		remove_component(to_delete)
 		qdel(to_delete)
@@ -35,14 +35,14 @@
 	QDEL_NULL(cell)
 	return ..()
 
-/obj/item/integrated_circuit/examine(mob/user)
+/obj/item/integrated_circuit_wiremod/examine(mob/user)
 	. = ..()
 	if(cell)
 		. += "<span class='notice'>The charge meter reads [cell ? round(cell.percent(), 1) : 0]%.</span>"
 	else
 		. += "<span class='notice'>There is no power cell installed.</span>"
 
-/obj/item/integrated_circuit/attackby(obj/item/I, mob/living/user, params)
+/obj/item/integrated_circuit_wiremod/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
 	if(istype(I, /obj/item/circuit_component))
 		add_component(I, user)
@@ -76,7 +76,7 @@
  * Arguments:
  * * new_shell - The new shell to register.
  */
-/obj/item/integrated_circuit/proc/set_shell(atom/movable/new_shell)
+/obj/item/integrated_circuit_wiremod/proc/set_shell(atom/movable/new_shell)
 	remove_current_shell()
 	on = TRUE
 	shell = new_shell
@@ -90,7 +90,7 @@
 /**
  * Unregisters the current shell attached to this circuit.
  */
-/obj/item/integrated_circuit/proc/remove_current_shell()
+/obj/item/integrated_circuit_wiremod/proc/remove_current_shell()
 	SIGNAL_HANDLER
 	if(!shell)
 		return
@@ -105,7 +105,7 @@
  *
  * Once the component is added, the ports can be attached to other components
  */
-/obj/item/integrated_circuit/proc/add_component(obj/item/circuit_component/to_add, mob/living/user)
+/obj/item/integrated_circuit_wiremod/proc/add_component(obj/item/circuit_component/to_add, mob/living/user)
 	if(to_add.parent)
 		return
 
@@ -131,7 +131,7 @@
 	if(shell)
 		to_add.register_shell(shell)
 
-/obj/item/integrated_circuit/proc/component_move_handler(obj/item/circuit_component/source)
+/obj/item/integrated_circuit_wiremod/proc/component_move_handler(obj/item/circuit_component/source)
 	SIGNAL_HANDLER
 	if(source.loc != src)
 		remove_component(source)
@@ -141,7 +141,7 @@
  *
  * This removes all connects between the ports
  */
-/obj/item/integrated_circuit/proc/remove_component(obj/item/circuit_component/to_remove)
+/obj/item/integrated_circuit_wiremod/proc/remove_component(obj/item/circuit_component/to_remove)
 	if(shell)
 		to_remove.unregister_shell(shell)
 
@@ -151,15 +151,15 @@
 	to_remove.parent = null
 	SStgui.update_uis(src)
 
-/obj/item/integrated_circuit/get_cell()
+/obj/item/integrated_circuit_wiremod/get_cell()
 	return cell
 
-/obj/item/integrated_circuit/ui_assets(mob/user)
+/obj/item/integrated_circuit_wiremod/ui_assets(mob/user)
 	return list(
 		get_asset_datum(/datum/asset/simple/circuit_assets)
 	)
 
-/obj/item/integrated_circuit/ui_data(mob/user)
+/obj/item/integrated_circuit_wiremod/ui_data(mob/user)
 	. = list()
 	.["components"] = list()
 	for(var/obj/item/circuit_component/component as anything in attached_components)
@@ -194,17 +194,17 @@
 		component_data["removable"] = component.removable
 		.["components"] += list(component_data)
 
-/obj/item/integrated_circuit/ui_host(mob/user)
+/obj/item/integrated_circuit_wiremod/ui_host(mob/user)
 	if(shell)
 		return shell
 	return ..()
 
-/obj/item/integrated_circuit/ui_state(mob/user)
+/obj/item/integrated_circuit_wiremod/ui_state(mob/user)
 	if(!shell)
 		return GLOB.hands_state
 	return GLOB.physical_obscured_state
 
-/obj/item/integrated_circuit/ui_interact(mob/user, datum/tgui/ui)
+/obj/item/integrated_circuit_wiremod/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "IntegratedCircuit", name)
@@ -213,7 +213,7 @@
 
 #define WITHIN_RANGE(id, table) (id >= 1 && id <= length(table))
 
-/obj/item/integrated_circuit/ui_act(action, list/params)
+/obj/item/integrated_circuit_wiremod/ui_act(action, list/params)
 	. = ..()
 	if(.)
 		return

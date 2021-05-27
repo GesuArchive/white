@@ -124,8 +124,7 @@
 	return data
 
 /obj/item/circuitboard/machine/component_printer
-	name = "\improper Component Printer (Machine Board)"
-	greyscale_colors = CIRCUIT_COLOR_SCIENCE
+	name = "Component Printer (Machine Board)"
 	build_path = /obj/machinery/component_printer
 	req_components = list(
 		/obj/item/stock_parts/matter_bin = 2,
