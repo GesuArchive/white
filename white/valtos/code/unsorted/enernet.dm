@@ -10,6 +10,8 @@
 	icon_state = "econs"
 	icon_keyboard = null
 	icon_screen = null
+	pixel_x = 8
+	pixel_y = -2
 	circuit = /obj/item/circuitboard/computer/enernet_control
 	var/datum/bank_account/attached_account
 	var/list/attached_coils = list()
@@ -38,6 +40,7 @@
 	if(autosell && attached_coils.len && attached_account)
 		var/total_selled = 0
 		for(var/obj/machinery/enernet_coil/E in attached_coils)
+			E.update()
 			if(E.cur_acc >= autosell_amount)
 				E.cur_acc -= autosell_amount
 				E.Beam(src, "ebeam", 'white/valtos/icons/projectiles.dmi', 1 SECONDS)
@@ -90,6 +93,7 @@
 /obj/machinery/enernet_coil/Initialize()
 	. = ..()
 	soundloop = new(list(src), TRUE)
+	soundloop.stop()
 
 /obj/machinery/enernet_coil/Destroy()
 	QDEL_NULL(soundloop)
