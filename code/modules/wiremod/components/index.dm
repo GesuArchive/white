@@ -4,7 +4,7 @@
  * Return the index of a list
  */
 /obj/item/circuit_component/index
-	display_name = "Index List"
+	display_name = "Список указателей"
 
 	/// The input port
 	var/datum/port/input/list_port
@@ -16,10 +16,10 @@
 
 /obj/item/circuit_component/index/Initialize()
 	. = ..()
-	index_port = add_input_port("Index", PORT_TYPE_ANY)
-	list_port = add_input_port("List", PORT_TYPE_LIST)
+	index_port = add_input_port("Указатель", PORT_TYPE_ANY)
+	list_port = add_input_port("Список", PORT_TYPE_LIST)
 
-	output = add_output_port("Value", PORT_TYPE_ANY)
+	output = add_output_port("Значение", PORT_TYPE_ANY)
 
 /obj/item/circuit_component/index/Destroy()
 	list_port = null

@@ -4,7 +4,7 @@
  * General logic unit with AND OR capabilities
  */
 /obj/item/circuit_component/compare/logic
-	display_name = "Logic"
+	display_name = "Логика"
 
 
 GLOBAL_LIST_INIT(comp_logic_options, list(

@@ -1,7 +1,7 @@
 /obj/item/multitool/circuit
-	name = "circuit multitool"
-	desc = "A circuit multitool. Used to mark entities which can then be uploaded to components by pressing the upload button on a port. \
-	Acts as a normal multitool otherwise. Use in hand to clear marked entity so that you can mark another entity."
+	name = "схемотул"
+	desc = "Мультитул для схем. Используется для отметки объектов, которые затем могут быть загружены в компоненты, нажав кнопку загрузки на порту. \
+	В остальном действует как обычный мультитул. Используйте в руке, чтобы очистить отмеченный объект, чтобы вы могли отметить другой объект."
 
 	/// The marked atom of this multitool
 	var/atom/marked_atom
@@ -12,7 +12,7 @@
 
 /obj/item/multitool/circuit/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>It has [marked_atom? "a" : "no"] marked entity registered.</span>"
+	. += "<hr><span class='notice'>Он [marked_atom? "имеет" : "не имеет"] отмеченную цель.</span>"
 
 /obj/item/multitool/circuit/attack_self(mob/user, modifiers)
 	. = ..()
@@ -21,7 +21,7 @@
 	if(!marked_atom)
 		return
 
-	say("Cleared marked targets.")
+	say("Очищаем метки.")
 	clear_marked_atom()
 	return TRUE
 
@@ -29,7 +29,7 @@
 	if(marked_atom || !user.Adjacent(target))
 		return ..()
 
-	say("Marked [target].")
+	say("Отмечено [target].")
 	marked_atom = target
 	RegisterSignal(marked_atom, COMSIG_PARENT_QDELETING, .proc/cleanup_marked_atom)
 	return TRUE

@@ -4,7 +4,7 @@
  * Converts any value into a string
  */
 /obj/item/circuit_component/tostring
-	display_name = "To String"
+	display_name = "В строку"
 
 	/// The input port
 	var/datum/port/input/input_port
@@ -18,9 +18,9 @@
 
 /obj/item/circuit_component/tostring/Initialize()
 	. = ..()
-	input_port = add_input_port("Input", PORT_TYPE_ANY)
+	input_port = add_input_port("Вход", PORT_TYPE_ANY)
 
-	output = add_output_port("Output", PORT_TYPE_STRING)
+	output = add_output_port("Выход", PORT_TYPE_STRING)
 
 /obj/item/circuit_component/tostring/Destroy()
 	input_port = null

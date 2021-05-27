@@ -4,7 +4,7 @@
  * Checks the type of a value
  */
 /obj/item/circuit_component/compare/typecheck
-	display_name = "Typecheck"
+	display_name = "Проверка типа"
 
 	input_port_amount = 1
 

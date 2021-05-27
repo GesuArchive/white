@@ -5,7 +5,7 @@
  * This one only works with numbers.
  */
 /obj/item/circuit_component/arithmetic
-	display_name = "Arithmetic"
+	display_name = "Арифметика"
 
 	/// The amount of input ports to have
 	var/input_port_amount = 4
@@ -31,7 +31,7 @@ GLOBAL_LIST_INIT(comp_arithmetic_options, list(
 		var/letter = ascii2text(text2ascii("A") + (port_id-1))
 		add_input_port(letter, PORT_TYPE_NUMBER)
 
-	output = add_output_port("Output", PORT_TYPE_NUMBER)
+	output = add_output_port("Выход", PORT_TYPE_NUMBER)
 
 /obj/item/circuit_component/arithmetic/Destroy()
 	output = null

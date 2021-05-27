@@ -4,7 +4,7 @@
  * A movable mob that can be fed inputs on which direction to travel.
  */
 /mob/living/circuit_drone
-	name = "drone"
+	name = "дрон"
 	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "setup_medium_med"
 	living_flags = 0
@@ -26,7 +26,7 @@
 	new /obj/effect/gibspawner/robot(drop_location(), src, get_static_viruses())
 
 /obj/item/circuit_component/bot_circuit
-	display_name = "Drone"
+	display_name = "Дрон"
 
 	/// The inputs to allow for the drone to move
 	var/datum/port/input/north
@@ -36,10 +36,10 @@
 
 /obj/item/circuit_component/bot_circuit/Initialize()
 	. = ..()
-	north = add_input_port("Move North", PORT_TYPE_SIGNAL)
-	east = add_input_port("Move East", PORT_TYPE_SIGNAL)
-	south = add_input_port("Move South", PORT_TYPE_SIGNAL)
-	west = add_input_port("Move West", PORT_TYPE_SIGNAL)
+	north = add_input_port("Север", PORT_TYPE_SIGNAL)
+	east = add_input_port("Восток", PORT_TYPE_SIGNAL)
+	south = add_input_port("Юг", PORT_TYPE_SIGNAL)
+	west = add_input_port("Запад", PORT_TYPE_SIGNAL)
 
 /obj/item/circuit_component/bot_circuit/input_received(datum/port/input/port)
 	. = ..()

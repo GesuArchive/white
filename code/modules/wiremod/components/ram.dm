@@ -20,11 +20,11 @@
 
 /obj/item/circuit_component/ram/Initialize()
 	. = ..()
-	input_port = add_input_port("Input", PORT_TYPE_ANY)
-	trigger = add_input_port("Store", PORT_TYPE_SIGNAL)
-	clear = add_input_port("Clear", PORT_TYPE_SIGNAL)
+	input_port = add_input_port("Вход", PORT_TYPE_ANY)
+	trigger = add_input_port("Сохранить", PORT_TYPE_SIGNAL)
+	clear = add_input_port("Очистить", PORT_TYPE_SIGNAL)
 
-	output = add_output_port("Stored Value", PORT_TYPE_ANY)
+	output = add_output_port("Память", PORT_TYPE_ANY)
 
 /obj/item/circuit_component/ram/Destroy()
 	input_port = null

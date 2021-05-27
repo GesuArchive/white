@@ -6,7 +6,7 @@
  * Has two input and output ports that do nothing
  */
 /obj/item/circuit_component/dummy
-	display_name = "Dummy Component"
+	display_name = "Болванка"
 
 	/// The input ports of the dummy component
 	var/datum/port/input/receive1
@@ -18,11 +18,11 @@
 
 /obj/item/circuit_component/dummy/Initialize()
 	. = ..()
-	receive1 = add_input_port("Receive 1", PORT_TYPE_ANY)
-	receive2 = add_input_port("Receive 2", PORT_TYPE_ANY)
+	receive1 = add_input_port("Вход 1", PORT_TYPE_ANY)
+	receive2 = add_input_port("Вход 2", PORT_TYPE_ANY)
 
-	output1 = add_output_port("Output 1", PORT_TYPE_NUMBER)
-	output2 = add_output_port("Output 2", PORT_TYPE_NUMBER)
+	output1 = add_output_port("Выход 1", PORT_TYPE_NUMBER)
+	output2 = add_output_port("Выход 2", PORT_TYPE_NUMBER)
 
 /obj/item/circuit_component/dummy/Destroy()
 	// Cleaned up in parent proc

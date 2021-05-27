@@ -4,7 +4,7 @@
  * General string concatenation component. Puts strings together.
  */
 /obj/item/circuit_component/concat
-	display_name = "Concatenate"
+	display_name = "Объединение"
 
 	/// The amount of input ports to have
 	var/input_port_amount = 4
@@ -19,7 +19,7 @@
 		var/letter = ascii2text(text2ascii("A") + (port_id-1))
 		add_input_port(letter, PORT_TYPE_STRING)
 
-	output = add_output_port("Output", PORT_TYPE_STRING)
+	output = add_output_port("Выход", PORT_TYPE_STRING)
 
 /obj/item/circuit_component/concat/Destroy()
 	output = null

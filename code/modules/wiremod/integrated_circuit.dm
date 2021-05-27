@@ -6,7 +6,7 @@
  * Has a limited amount of power.
  */
 /obj/item/integrated_circuit_wiremod
-	name = "integrated circuit"
+	name = "интегральная схема"
 	icon = 'icons/obj/module.dmi'
 	icon_state = "integrated_circuit"
 	inhand_icon_state = "electronic"
@@ -37,10 +37,11 @@
 
 /obj/item/integrated_circuit_wiremod/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(cell)
-		. += "<span class='notice'>The charge meter reads [cell ? round(cell.percent(), 1) : 0]%.</span>"
+		. += "<span class='notice'>Заряд батарейки: [cell ? round(cell.percent(), 1) : 0]%.</span>"
 	else
-		. += "<span class='notice'>There is no power cell installed.</span>"
+		. += "<span class='notice'>Внутри нет батарейки.</span>"
 
 /obj/item/integrated_circuit_wiremod/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
@@ -50,20 +51,20 @@
 
 	if(istype(I, /obj/item/stock_parts/cell))
 		if(cell)
-			balloon_alert(user, "<span class='warning'>There already is a cell inside!</span>")
+			balloon_alert(user, "<span class='warning'>Здесь уже есть батарейка!</span>")
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 		cell = I
 		I.add_fingerprint(user)
-		user.visible_message("<span class='notice'>[user] inserts a power cell into [src].</span>", "<span class='notice'>You insert the power cell into [src].</span>")
+		user.visible_message("<span class='notice'>[user] вставляет батарейку в [src.name].</span>", "<span class='notice'>Устанавливаю батарейку в [src.name].</span>")
 		return
 
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!cell)
 			return
 		I.play_tool_sound(src)
-		user.visible_message("<span class='notice'>[user] unscrews the power cell from [src].</span>", "<span class='notice'>You unscrew the power cell from [src].</span>")
+		user.visible_message("<span class='notice'>[user] вытаскивает батарейку из [src.name].</span>", "<span class='notice'>Выкручиваю батарейку из [src.name].</span>")
 		cell.forceMove(drop_location())
 		cell = null
 		return
@@ -314,9 +315,9 @@
 					return TRUE
 				if(!marker.marked_atom)
 					port.set_input(null)
-					marker.say("Cleared port ('[port.name]')'s value.")
+					marker.say("Сброс значения порта ('[port.name]').")
 					return TRUE
-				marker.say("Updated port ('[port.name]')'s value to the marked entity.")
+				marker.say("Обновления значения порта ('[port.name]') до значения метки.")
 				port.set_input(marker.marked_atom)
 				return TRUE
 
@@ -345,7 +346,7 @@
 				value = port.convert_value(port.output_value)
 			else if(isnull(value))
 				value = "null"
-			balloon_alert(usr, "[port.name] value: [value]")
+			balloon_alert(usr, "[port.name] значение: [value]")
 			. = TRUE
 
 #undef WITHIN_RANGE

@@ -4,7 +4,7 @@
  * Sends a message. Requires a shell.
  */
 /obj/item/circuit_component/speech
-	display_name = "Speech"
+	display_name = "Говорилка"
 
 	/// The message to send
 	var/datum/port/input/message
@@ -18,9 +18,9 @@
 
 /obj/item/circuit_component/speech/Initialize()
 	. = ..()
-	message = add_input_port("Message", PORT_TYPE_STRING, FALSE)
+	message = add_input_port("Сообщение", PORT_TYPE_STRING, FALSE)
 
-	trigger = add_input_port("Trigger", PORT_TYPE_SIGNAL)
+	trigger = add_input_port("Активация", PORT_TYPE_SIGNAL)
 
 
 /obj/item/circuit_component/speech/Destroy()

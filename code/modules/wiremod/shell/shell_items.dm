@@ -4,18 +4,18 @@
  * Printed out by protolathes. Screwdriver to complete the shell.
  */
 /obj/item/shell
-	name = "assembly"
-	desc = "A shell assembly that can be completed by screwdrivering it."
+	name = "оболочка"
+	desc = "Оболочка. Отвёртка для завершения сборки."
 	icon = 'icons/obj/wiremod.dmi'
 	var/shell_to_spawn
 	var/screw_delay = 3 SECONDS
 
 /obj/item/shell/screwdriver_act(mob/living/user, obj/item/tool)
-	user.visible_message("<span class='notice'>[user] begins finishing [src].</span>", "<span class='notice'>You begin finishing [src].</span>")
+	user.visible_message("<span class='notice'>[user] начинает заканчивать сборку [src.name].</span>", "<span class='notice'>Начинаю заканчивать сборку [src.name].</span>")
 	tool.play_tool_sound(src)
 	if(!do_after(user, screw_delay, src))
 		return
-	user.visible_message("<span class='notice'>[user] finishes [src].</span>", "<span class='notice'>You finish [src].</span>")
+	user.visible_message("<span class='notice'>[user] завершает сборку [src.name].</span>", "<span class='notice'>Завершаю сборку [src.name].</span>")
 
 	var/turf/drop_loc = drop_location()
 
@@ -26,17 +26,17 @@
 	return TRUE
 
 /obj/item/shell/bot
-	name = "bot assembly"
+	name = "сборка бота"
 	icon_state = "setup_medium_box-open"
 	shell_to_spawn = /obj/structure/bot
 
 /obj/item/shell/drone
-	name = "drone assembly"
+	name = "сборка дрона"
 	icon_state = "setup_medium_med-open"
 	shell_to_spawn = /mob/living/circuit_drone
 
 /obj/item/shell/server
-	name = "server assembly"
+	name = "сборка сервера"
 	icon_state = "setup_stationary-open"
 	shell_to_spawn = /obj/structure/server
 	screw_delay = 10 SECONDS

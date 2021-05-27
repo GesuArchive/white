@@ -4,7 +4,7 @@
  * Generates a random number between specific values
  */
 /obj/item/circuit_component/random
-	display_name = "Random"
+	display_name = "Случайность"
 
 	/// The minimum value that the random number can be
 	var/datum/port/input/minimum
@@ -18,10 +18,10 @@
 
 /obj/item/circuit_component/random/Initialize()
 	. = ..()
-	minimum = add_input_port("Minimum", PORT_TYPE_NUMBER, FALSE)
-	maximum = add_input_port("Maximum", PORT_TYPE_NUMBER, FALSE)
+	minimum = add_input_port("Минимум", PORT_TYPE_NUMBER, FALSE)
+	maximum = add_input_port("Максимум", PORT_TYPE_NUMBER, FALSE)
 
-	output = add_output_port("Output", PORT_TYPE_NUMBER)
+	output = add_output_port("Выход", PORT_TYPE_NUMBER)
 
 /obj/item/circuit_component/random/Destroy()
 	minimum = null

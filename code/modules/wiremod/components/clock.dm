@@ -4,7 +4,7 @@
  * Fires every tick of the circuit timer SS
  */
 /obj/item/circuit_component/clock
-	display_name = "Clock"
+	display_name = "Тикер"
 
 	/// Whether the clock is on or not
 	var/datum/port/input/on
@@ -14,9 +14,9 @@
 
 /obj/item/circuit_component/clock/Initialize()
 	. = ..()
-	on = add_input_port("On", PORT_TYPE_NUMBER)
+	on = add_input_port("Включено", PORT_TYPE_NUMBER)
 
-	signal = add_output_port("Signal", PORT_TYPE_SIGNAL)
+	signal = add_output_port("Сигнал", PORT_TYPE_SIGNAL)
 
 /obj/item/circuit_component/clock/input_received(datum/port/input/port)
 	. = ..()

@@ -1,7 +1,7 @@
 /// Component printer, creates components for integrated circuits.
 /obj/machinery/component_printer
-	name = "component printer"
-	desc = "Produces components for the creation of integrated circuits."
+	name = "схемопринтер"
+	desc = "Печатает различные штуки для нового типа DIY-электроники."
 	icon = 'icons/obj/wiremod_fab.dmi'
 	icon_state = "fab-idle"
 	circuit = /obj/item/circuitboard/machine/component_printer
@@ -53,14 +53,14 @@
 				return TRUE
 
 			if (materials.on_hold())
-				say("Mineral access is on hold, please contact the quartermaster.")
+				say("Доступ к материалам ограничен. Свяжитесь с завхозом.")
 				return TRUE
 
 			if (!materials.mat_container?.has_materials(design.materials))
-				say("Not enough materials.")
+				say("Недостаточно материалов.")
 				return TRUE
 
-			balloon_alert_to_viewers("printed [design.name]")
+			balloon_alert_to_viewers("печатает [design.name]")
 			materials.mat_container?.use_materials(design.materials)
 			materials.silo_log(src, "printed", -1, design.name, design.materials)
 			var/atom/printed_design = new design.build_path(drop_location())
@@ -124,7 +124,7 @@
 	return data
 
 /obj/item/circuitboard/machine/component_printer
-	name = "Component Printer (Machine Board)"
+	name = "Схемопринтер (Machine Board)"
 	build_path = /obj/machinery/component_printer
 	req_components = list(
 		/obj/item/stock_parts/matter_bin = 2,

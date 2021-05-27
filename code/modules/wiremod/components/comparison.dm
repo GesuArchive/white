@@ -4,7 +4,7 @@
  * Compares two objects
  */
 /obj/item/circuit_component/compare/comparison
-	display_name = "Comparison"
+	display_name = "Сравнение"
 
 	input_port_amount = 2
 

@@ -4,7 +4,7 @@
  * Either makes the text upper case or lower case.
  */
 /obj/item/circuit_component/textcase
-	display_name = "Text Case"
+	display_name = "Текстовый регистр"
 
 	/// The input port
 	var/datum/port/input/input_port
@@ -22,8 +22,8 @@ GLOBAL_LIST_INIT(comp_text_operations, list(
 /obj/item/circuit_component/textcase/Initialize()
 	options = GLOB.comp_text_operations
 	. = ..()
-	input_port = add_input_port("Input", PORT_TYPE_STRING)
-	output = add_output_port("Output", PORT_TYPE_STRING)
+	input_port = add_input_port("Вход", PORT_TYPE_STRING)
+	output = add_output_port("Выход", PORT_TYPE_STRING)
 
 /obj/item/circuit_component/textcase/Destroy()
 	input_port = null

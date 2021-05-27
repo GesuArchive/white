@@ -4,14 +4,14 @@
  * Return the current shell.
  */
 /obj/item/circuit_component/self
-	display_name = "Self"
+	display_name = "Оболочка"
 
 	/// The shell this component is attached to.
 	var/datum/port/output/output
 
 /obj/item/circuit_component/self/Initialize()
 	. = ..()
-	output = add_output_port("Self", PORT_TYPE_ATOM)
+	output = add_output_port("Оболочка", PORT_TYPE_ATOM)
 
 /obj/item/circuit_component/self/Destroy()
 	output = null
