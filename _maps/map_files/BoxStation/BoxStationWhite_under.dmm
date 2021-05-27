@@ -1618,7 +1618,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/freezer,
-/area/space)
+/area/security/prison)
 "hJ" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -9152,7 +9152,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/freezer,
-/area/space)
+/area/security/prison)
 "Os" = (
 /obj/machinery/door/window/northleft{
 	dir = 4;
@@ -9202,7 +9202,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/plasteel/freezer,
-/area/space)
+/area/security/prison)
 "OB" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -9262,7 +9262,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/plasteel/freezer,
-/area/space)
+/area/security/prison)
 "OO" = (
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
@@ -9290,7 +9290,7 @@
 /obj/structure/cable,
 /obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/freezer,
-/area/space)
+/area/security/prison)
 "OT" = (
 /obj/machinery/space_heater,
 /turf/open/genturf,
@@ -9301,7 +9301,7 @@
 	},
 /obj/item/soap/nanotrasen,
 /turf/open/floor/plasteel/freezer,
-/area/space)
+/area/security/prison)
 "OV" = (
 /obj/structure/rospilovo/water/luzha,
 /turf/open/floor/plating,
@@ -9593,7 +9593,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/freezer,
-/area/space)
+/area/security/prison)
 "Qe" = (
 /obj/machinery/light{
 	dir = 1
@@ -9616,7 +9616,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/freezer,
-/area/space)
+/area/security/prison)
 "Qk" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -9662,11 +9662,6 @@
 "Qv" = (
 /turf/closed/wall/r_wall,
 /area/science/xenobiology)
-"Qw" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/space/nearstation)
 "Qy" = (
 /turf/closed/wall,
 /area/quartermaster/qm/perch)
@@ -45344,7 +45339,7 @@ Lo
 Ie
 Oq
 Qd
-Qw
+aF
 Zm
 Zm
 PG
@@ -45601,7 +45596,7 @@ Mn
 Oc
 OA
 Qh
-Qw
+aF
 Zm
 Zm
 PG
@@ -45858,7 +45853,7 @@ Nn
 Ie
 ON
 Qd
-jb
+II
 Zm
 Zm
 PG
@@ -46115,7 +46110,7 @@ Nx
 Ie
 OS
 Qh
-Qw
+aF
 Zm
 Zm
 PG
@@ -46372,7 +46367,7 @@ Ny
 Ie
 OU
 hI
-Qw
+aF
 Zm
 Zm
 PG
