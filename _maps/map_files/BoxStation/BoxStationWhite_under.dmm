@@ -6093,11 +6093,15 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/science/research/abandoned)
 "Ax" = (
-/obj/structure/frame/machine,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
+/obj/structure/table,
+/obj/item/screwdriver{
+	pixel_y = 10
+	},
+/obj/item/screwdriver,
 /turf/open/floor/plasteel,
 /area/science/research/abandoned)
 "AA" = (
@@ -8457,12 +8461,28 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/table,
+/obj/item/controller{
+	pixel_y = 4
+	},
 /turf/open/floor/plasteel,
 /area/science/research/abandoned)
 "Ll" = (
 /obj/structure/closet/firecloset,
 /turf/open/floor/plating,
 /area/maintenance/port)
+"Ln" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table,
+/obj/item/multitool/circuit{
+	pixel_x = 5;
+	pixel_y = 11
+	},
+/obj/item/multitool/circuit{
+	pixel_y = 5
+	},
+/turf/open/floor/plasteel,
+/area/science/research/abandoned)
 "Lo" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -10329,6 +10349,7 @@
 	pixel_y = -23
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/component_printer,
 /turf/open/floor/plasteel/monofloor,
 /area/science/research/abandoned)
 "To" = (
@@ -60545,7 +60566,7 @@ fg
 Wk
 Tx
 Ax
-Wk
+Ln
 zy
 PG
 PG

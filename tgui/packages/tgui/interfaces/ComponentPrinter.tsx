@@ -4,7 +4,7 @@ import { Material, MaterialAmount, MaterialFormatting, Materials, MATERIAL_KEYS 
 import { Window } from '../layouts';
 import { Button, Input, Section, Stack, Tabs } from '../components';
 
-const CATEGORY_ALL = "All";
+const CATEGORY_ALL = "Всё";
 
 const searchFor = searchText => createSearch(
   searchText,
@@ -12,7 +12,7 @@ const searchFor = searchText => createSearch(
 );
 
 const getCategory = (category: string[]) => {
-  return category[0] === "Circuitry" ? category[1] : category[0];
+  return category[0] === "Схемотехника" ? category[1] : category[0];
 };
 
 type Design = {
@@ -73,11 +73,11 @@ export const ComponentPrinter = (props, context) => {
   const [searchText, setSearchText] = useLocalState(context, "searchText", "");
 
   return (
-    <Window title="Component Printer" width={900} height={700}>
+    <Window title="Схемопринтер" width={900} height={700}>
       <Window.Content scrollable>
         <Stack fill vertical>
           <Stack.Item grow>
-            <Section title="Materials">
+            <Section title="Материалы">
               <Materials
                 materials={data.materials || []}
                 onEject={(ref, amount) => {
@@ -91,7 +91,7 @@ export const ComponentPrinter = (props, context) => {
 
             <Stack fill>
               <Stack.Item>
-                <Section fill title="Categories">
+                <Section fill title="Категории">
                   <Tabs vertical>
                     {Object.values(data.designs)
                       .reduce<string[]>((categories, design) => {
@@ -117,11 +117,11 @@ export const ComponentPrinter = (props, context) => {
               </Stack.Item>
 
               <Stack.Item fill grow>
-                <Section fill title="Parts">
+                <Section fill title="Запчасти">
                   <Stack fill vertical>
                     <Stack.Item>
                       <Input
-                        placeholder="Search..."
+                        placeholder="Поиск..."
                         autoFocus
                         fluid
                         value={searchText}
