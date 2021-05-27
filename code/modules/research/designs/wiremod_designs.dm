@@ -4,7 +4,7 @@
 	id = "integrated_circuit"
 	build_path = /obj/item/integrated_circuit
 	build_type = IMPRINTER | COMPONENT_PRINTER
-	category = list("Circuitry", "Core")
+	category = list("Схемотехника", "Core")
 	materials = list(/datum/material/glass = 1000, /datum/material/iron = 1000)
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -14,7 +14,7 @@
 	id = "circuit_multitool"
 	build_path = /obj/item/multitool/circuit
 	build_type = PROTOLATHE | COMPONENT_PRINTER
-	category = list("Circuitry", "Core")
+	category = list("Схемотехника", "Core")
 	materials = list(/datum/material/glass = 1000, /datum/material/iron = 1000)
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -25,7 +25,7 @@
 	build_type = IMPRINTER | COMPONENT_PRINTER
 	materials = list(/datum/material/glass = 1000)
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
-	category = list("Circuitry", "Components")
+	category = list("Схемотехника", "Components")
 
 /datum/design/component/arithmetic
 	name = "Arithmetic Component"
@@ -161,7 +161,7 @@
 	build_path = /obj/item/compact_remote
 	materials = list(/datum/material/glass = 2000, /datum/material/iron = 5000)
 	build_type = PROTOLATHE | COMPONENT_PRINTER
-	category = list("Circuitry", "Shells")
+	category = list("Схемотехника", "Shells")
 
 /datum/design/controller_shell
 	name = "Controller Shell"
@@ -170,7 +170,7 @@
 	build_path = /obj/item/controller
 	build_type = PROTOLATHE | COMPONENT_PRINTER
 	materials = list(/datum/material/glass = 2000, /datum/material/iron = 7000)
-	category = list("Circuitry", "Shells")
+	category = list("Схемотехника", "Shells")
 
 /datum/design/bot_shell
 	name = "Bot Shell"
@@ -179,7 +179,7 @@
 	build_path = /obj/item/shell/bot
 	build_type = PROTOLATHE | COMPONENT_PRINTER
 	materials = list(/datum/material/glass = 2000, /datum/material/iron = 10000)
-	category = list("Circuitry", "Shells")
+	category = list("Схемотехника", "Shells")
 
 /datum/design/drone_shell
 	name = "Drone Shell"
@@ -192,7 +192,7 @@
 		/datum/material/iron = 11000,
 		/datum/material/gold = 500,
 	)
-	category = list("Circuitry", "Shells")
+	category = list("Схемотехника", "Shells")
 
 /datum/design/server_shell
 	name = "Server Shell"
@@ -205,4 +205,4 @@
 	)
 	build_path = /obj/item/shell/server
 	build_type = PROTOLATHE | COMPONENT_PRINTER
-	category = list("Circuitry", "Shells")
+	category = list("Схемотехника", "Shells")
