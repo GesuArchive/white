@@ -10,7 +10,7 @@
 	icon_state = "econs"
 	icon_keyboard = null
 	icon_screen = null
-	circuit = /obj/item/circuitboard/machine/enernet_control
+	circuit = /obj/item/circuitboard/computer/enernet_control
 	var/datum/bank_account/attached_account
 	var/list/attached_coils = list()
 	var/autosell = FALSE
@@ -28,7 +28,7 @@
 	data["coils"] = list()
 	var/n = 1
 	for(var/obj/machinery/enernet_coil/E in attached_coils)
-		data["coils"] = list(list("acc" = E.cur_acc, "max" = E.acc_max, "suc" = E.acc_suc))
+		data["coils"] = list(list("acc" = E.cur_acc, "max" = E.max_acc, "suc" = E.suck_rate))
 		n++
 	data["autosell"] 	     = autosell
 	data["autosell_amount"]  = autosell_amount
@@ -56,7 +56,7 @@
 	for(var/obj/machinery/enernet_coil/E in view(5))
 		attached_coils += E
 		playsound(get_turf(E), 'white/valtos/sounds/estart.ogg', 80)
-		soundloop.start()
+		E.soundloop.start()
 	return TRUE
 
 /obj/machinery/computer/enernet_control/proc/start_selling()
