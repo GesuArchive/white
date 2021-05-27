@@ -26,10 +26,8 @@
 /obj/machinery/computer/enernet_control/ui_data(mob/user)
 	var/list/data = list()
 	data["coils"] = list()
-	var/n = 1
 	for(var/obj/machinery/enernet_coil/E in attached_coils)
 		data["coils"] = list(list("acc" = E.cur_acc, "max" = E.max_acc, "suc" = E.suck_rate))
-		n++
 	data["autosell"] 	     = autosell
 	data["autosell_amount"]  = autosell_amount
 	data["price_for_one_kw"] = price_for_one_kw
