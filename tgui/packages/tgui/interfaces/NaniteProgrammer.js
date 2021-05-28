@@ -254,7 +254,7 @@ export const NaniteProgrammerContent = (props, context) => {
   if (!has_disk) {
     return (
       <NoticeBox textAlign="center">
-        Insert a nanite program disk
+        Вставьте диск
       </NoticeBox>
     );
   }

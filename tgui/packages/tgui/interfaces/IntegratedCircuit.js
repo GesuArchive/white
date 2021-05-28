@@ -382,6 +382,7 @@ export class ObjectComponent extends Component {
       >
         <Box
           backgroundColor={color}
+          color="white"
           py={1}
           px={1}
           className="ObjectComponent__Titlebar"
