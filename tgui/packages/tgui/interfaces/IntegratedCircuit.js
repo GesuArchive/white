@@ -173,8 +173,8 @@ export class IntegratedCircuit extends Component {
 
     return (
       <Window
-        width={600}
-        height={600}
+        width={800}
+        height={800}
       >
         <Window.Content
           style={{
