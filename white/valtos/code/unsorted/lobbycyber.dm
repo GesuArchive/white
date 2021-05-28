@@ -2,6 +2,8 @@
 	winset(C, "lobbyprotoc", 		      			 "is-disabled=true;is-visible=true")
 	C << browse(SStitle.current_lobby_screen, 	 	 "file=ts.png;display=0")
 	C << browse(file('icons/blank_console.png'),     "file=blank_console.png;display=0")
+	C << browse(file('icons/gray.png'),     		 "file=gray.png;display=0")
+	C << browse(file('icons/black.png'),     		 "file=black.png;display=0")
 	C << browse(file('html/ts.html'),     			 "window=lobbyprotoc")
 
 /datum/lobbyscreen/proc/hide_titlescreen(client/C)
@@ -15,6 +17,8 @@
 	winset(C, "lobbyprotoc", 		      			 "is-disabled=true;is-visible=true")
 	C << browse(SStitle.current_lobby_screen, 	 	 "file=ts.png;display=0")
 	C << browse(file('icons/blank_console.png'),     "file=blank_console.png;display=0")
+	C << browse(file('icons/gray.png'),     		 "file=gray.png;display=0")
+	C << browse(file('icons/black.png'),     		 "file=black.png;display=0")
 	C << browse(file('html/ts.html'),     			 "window=lobbyprotoc")
 
 /client/proc/send_to_lobby_console(msg)
