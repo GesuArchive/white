@@ -493,7 +493,19 @@
 
 /obj/machinery/nuclearbomb/proc/really_actually_explode(off_station)
 	Cinematic(get_cinematic_type(off_station),world,CALLBACK(SSticker,/datum/controller/subsystem/ticker/proc/station_explosion_detonation,src))
-	INVOKE_ASYNC(GLOBAL_PROC,.proc/KillEveryoneOnZLevel, z)
+	//INVOKE_ASYNC(GLOBAL_PROC,.proc/KillEveryoneOnZLevel, z) //Эта хуйня не работает, меняю на свое.
+	GrabDatFence(z) //https://youtu.be/xjatJ36cJvM?t=112
+
+/obj/machinery/nuclearbomb/proc/GrabDatFence()
+	for(var/i in GLOB.mob_living_list)
+		var/mob/living/L = i
+		var/turf/T = get_turf(L)
+		if(T.z == !z)
+			continue
+		to_chat(L, "<span class='userdanger'>Сгораю в огне ядерного пламени, БЛЯДЬ!</span>")
+		L.adjustFireLoss(500)
+		L.set_species(/datum/species/skeleton)
+
 
 /obj/machinery/nuclearbomb/proc/get_cinematic_type(off_station)
 	if(off_station < 2)
@@ -581,7 +593,7 @@
 	disarm()
 	stationwide_foam()
 
-/proc/KillEveryoneOnZLevel(z)
+/* /proc/KillEveryoneOnZLevel(z)
 	if(!z)
 		return
 	for(var/_victim in GLOB.mob_living_list)
@@ -589,6 +601,7 @@
 		if(victim.stat != DEAD && victim.z == z)
 			victim.gib()
 
+*/
 /*
 This is here to make the tiles around the station mininuke change when it's armed.
 */
