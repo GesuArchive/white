@@ -635,3 +635,50 @@
 	var/ramp_up_final = clamp(round(meteorminutes/rampupdelta), 1, 10)
 
 	spawn_meteors(ramp_up_final, wavetype)
+
+//////////////////////////////////////////////
+//                                          //
+//              SHADOWLINGS                 //
+//                                          //
+//////////////////////////////////////////////
+
+/datum/dynamic_ruleset/roundstart/shadowlings
+	name = "Shadowlings"
+	antag_flag = ROLE_SHADOWLING
+	antag_datum = /datum/antagonist/shadowling
+	protected_roles = list("Prisoner","Security Officer", "Russian Officer", "Veteran", "Warden", "Detective", "Head of Security", "Captain", "Field Medic")
+	restricted_roles = list("AI", "Cyborg")
+	required_candidates = 1
+	weight = 3
+	cost = 20
+	scaling_cost = 9
+	requirements = list(50,45,45,40,35,20,20,15,10,10)
+	antag_cap = list("denominator" = 24)
+
+/datum/dynamic_ruleset/roundstart/shadowlings/ready(population, forced = FALSE)
+	required_candidates = get_antag_cap(population)
+	. = ..()
+
+/datum/dynamic_ruleset/roundstart/shadowlings/pre_execute(population)
+	. = ..()
+	var/slings = get_antag_cap(population)
+	for(var/slings_number = 1 to slings)
+		if(candidates.len <= 0)
+			break
+		var/mob/M = pick_n_take(candidates)
+		assigned += M.mind
+		M.mind.special_role = ROLE_SHADOWLING
+		M.mind.restricted_roles = restricted_roles
+		GLOB.pre_setup_antags += M.mind
+	return TRUE
+
+/datum/dynamic_ruleset/roundstart/shadowlings/execute()
+
+	for(var/c in assigned)
+		var/datum/mind/slinge = c
+		var/datum/antagonist/shadowling/new_antag = new antag_datum()
+		slinge.add_antag_datum(new_antag)
+		GLOB.pre_setup_antags -= slinge
+
+	return TRUE
+

@@ -696,3 +696,39 @@
 /datum/dynamic_ruleset/midround/spiders/execute()
 	create_midwife_eggs(spawncount)
 	return ..()
+
+//////////////////////////////////////////////
+//                                          //
+//            CLOWN APOSTLE (GHOST)           //
+//                                          //
+//////////////////////////////////////////////
+
+/datum/dynamic_ruleset/midround/from_ghosts/clown_apostle
+	name = "Апостол Хонкоматери"
+	enemy_roles = list("Security Officer", "Russian Officer", "Hacker", "Veteran", "Detective", "Head of Security", "Captain", "Field Medic")
+	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
+	required_candidates = 1
+	weight = 4
+	cost = 10
+	requirements = list(101,101,101,80,60,50,30,20,10,10)
+	repeatable = TRUE
+	var/list/spawn_locs = list()
+
+/datum/dynamic_ruleset/midround/from_ghosts/clown_apostle/execute()
+	for(var/X in GLOB.xeno_spawn)
+		var/turf/T = X
+		var/light_amount = T.get_lumcount()
+		if(light_amount < SHADOW_SPECIES_LIGHT_THRESHOLD)
+			spawn_locs += T
+	if(!spawn_locs.len)
+		message_admins("No valid spawn locations found, aborting...")
+		return MAP_ERROR
+	return ..()
+
+/datum/dynamic_ruleset/midround/from_ghosts/clown_apostle/generate_ruleset_body(mob/applicant)
+	var/mob/living/simple_animal/hostile/clown/mutant/glutton/apostle = new(pick(spawn_locs))
+	apostle.key = applicant.key
+
+	message_admins("[ADMIN_LOOKUPFLW(apostle)] has been made into a Clown Apostle by the midround ruleset.")
+	log_game("DYNAMIC: [key_name(apostle)] was spawned as a Clown Apostle by the midround ruleset.")
+	return apostle
