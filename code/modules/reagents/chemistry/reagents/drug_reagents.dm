@@ -1,5 +1,6 @@
 /datum/reagent/drug
 	name = "Наркотик"
+	enname = "Drugs"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
 	taste_description = "горечь"
 	var/trippy = TRUE //Does this drug make you trip?
@@ -10,6 +11,7 @@
 
 /datum/reagent/drug/space_drugs
 	name = "Космо-наркотики"
+	enname = "Space drugs"
 	description = "An illegal chemical compound used as drug."
 	color = "#60A584" // rgb: 96, 165, 132
 	overdose_threshold = 30
@@ -38,6 +40,7 @@
 
 /datum/reagent/drug/nicotine
 	name = "Никотин"
+	enname = "Nicotine"
 	description = "Slightly reduces stun times. If overdosed it will deal toxin and oxygen damage."
 	reagent_state = LIQUID
 	color = "#60A584" // rgb: 96, 165, 132
@@ -77,6 +80,7 @@
 
 /datum/reagent/drug/crank
 	name = "Крэнк"
+	enname = "Crank"
 	description = "Reduces stun times by about 200%. If overdosed or addicted it will deal significant Toxin, Brute and Brain damage."
 	reagent_state = LIQUID
 	color = "#FA00C8"
@@ -99,6 +103,7 @@
 	. = 1
 /datum/reagent/drug/krokodil
 	name = "Крокодил"
+	enname = "krokodil"
 	description = "Cools and calms you down. If overdosed it will deal significant Brain and Toxin damage. If addicted it will begin to deal fatal amounts of Brute damage as the subject's skin falls off."
 	reagent_state = LIQUID
 	color = "#0064B4"
@@ -130,6 +135,7 @@
 
 /datum/reagent/drug/methamphetamine
 	name = "Метамфетамин"
+	enname = "Methamphetamine"
 	description = "Reduces stun times by about 300%, speeds the user up, and allows the user to quickly recover stamina while dealing a small amount of Brain damage. If overdosed the subject will move randomly, laugh randomly, drop items and suffer from Toxin and Brain damage. If addicted the subject will constantly jitter and drool, before becoming dizzy and losing motor control and eventually suffer heavy toxin damage."
 	reagent_state = LIQUID
 	color = "#FAFAFA"
@@ -180,6 +186,7 @@
 	. = 1
 /datum/reagent/drug/bath_salts
 	name = "Соли для Ванны"
+	enname = "Bath salts"
 	description = "Makes you impervious to stuns and grants a stamina regeneration buff, but you will be a nearly uncontrollable tramp-bearded raving lunatic."
 	reagent_state = LIQUID
 	color = "#FAFAFA"
@@ -233,6 +240,7 @@
 
 /datum/reagent/drug/aranesp
 	name = "Аранесп"
+	enname = "Anaresm"
 	description = "Amps you up, gets you going, and rapidly restores stamina damage. Side effects include breathlessness and toxicity."
 	reagent_state = LIQUID
 	color = "#78FFF0"
@@ -253,6 +261,7 @@
 
 /datum/reagent/drug/happiness
 	name = "Счастье"
+	enname = "Happiness"
 	description = "Fills you with ecstasic numbness and causes minor brain damage. Highly addictive. If overdosed causes sudden mood swings."
 	reagent_state = LIQUID
 	color = "#EE35FF"
@@ -298,6 +307,7 @@
 
 /datum/reagent/drug/pumpup
 	name = "Подкачка"
+	enname = "Pump-up"
 	description = "Take on the world! A fast acting, hard hitting drug that pushes the limit on what you can handle."
 	reagent_state = LIQUID
 	color = "#e38e44"
@@ -343,10 +353,12 @@
 
 /datum/reagent/drug/maint
 	name = "Туннельные Наркотики"
+	enname = "Maintenance Drugs"
 	chemical_flags = NONE
 
 /datum/reagent/drug/maint/powder
-	name = "Туннельная Пыль"
+	name = "Туннельный порошок"
+	enname = "Maintenance Powder"
 	description = "An unknown powder that you most likely gotten from an assistant, a bored chemist... or cooked yourself. It is a refined form of tar that enhances your mental ability, making you learn stuff a lot faster."
 	reagent_state = SOLID
 	color = "#ffffff"
@@ -375,6 +387,7 @@
 
 /datum/reagent/drug/maint/sludge
 	name = "Туннельный Шлам"
+	enname = "Maintenance Sludge"
 	description = "An unknown sludge that you most likely gotten from an assistant, a bored chemist... or cooked yourself. Half refined, it fills your body with itself, making it more resistant to wounds, but causes toxins to accumulate."
 	reagent_state = LIQUID
 	color = "#203d2c"
@@ -409,6 +422,7 @@
 
 /datum/reagent/drug/maint/tar
 	name = "Туннельная Смола"
+	enname = "Maintenance Tar"
 	description = "An unknown tar that you most likely gotten from an assistant, a bored chemist... or cooked yourself. Raw tar, straight from the floor. It can help you with escaping bad situations at the cost of liver damage."
 	reagent_state = LIQUID
 	color = "#000000"

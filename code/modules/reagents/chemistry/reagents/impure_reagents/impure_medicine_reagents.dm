@@ -7,14 +7,16 @@
 
 //We don't want these to hide - they're helpful!
 /datum/reagent/impurity/healing
-	name = "Healing impure reagent"
+	name = "Healing impure reagent" 
+	enname = "Healing impure reagent"
 	description = "Not all impure reagents are bad! Sometimes you might want to specifically make these!"
 	chemical_flags = REAGENT_DONOTSPLIT
 	addiction_types = list(/datum/addiction/medicine = 3.5)
 	liver_damage = 0
 
 /datum/reagent/inverse/healing
-	name = "Healing inverse reagent"
+	name = "Healing inverse reagent" 
+	enname = "Healing inverse reagent"
 	description = "Not all impure reagents are bad! Sometimes you might want to specifically make these!"
 	chemical_flags = REAGENT_DONOTSPLIT
 	addiction_types = list(/datum/addiction/medicine = 3)
@@ -26,7 +28,8 @@
 
 //Catch all failed reaction for medicines - supposed to be non punishing
 /datum/reagent/impurity/healing/medicine_failure
-	name = "Insolvent medicinal precipitate"
+	name = "Insolvent medicinal precipitate" 
+	enname = "Insolvent medicinal precipitate"
 	description = "A viscous mess of various medicines. Will heal a damage type at random"
 	metabolization_rate = 1 * REM//This is fast
 	addiction_types = list(/datum/addiction/medicine = 7.5)
@@ -50,7 +53,8 @@
 // Helbital
 //Inverse:
 /datum/reagent/inverse/helgrasp
-	name = "Helgrasp"
+	name = "Helgrasp" 
+	enname = "Helgrasp"
 	description = "This rare and forbidden concoction is thought to bring you closer to the grasp of the Norse goddess Hel."
 	metabolization_rate = 1*REM //This is fast
 	tox_damage = 0.25
@@ -97,7 +101,8 @@
 //Impure
 //Simply reduces your alcohol tolerance, kinda simular to prohol
 /datum/reagent/impurity/libitoil
-	name = "Libitoil"
+	name = "Libitoil" 
+	enname = "Libitoil"
 	description = "Temporarilly interferes a patient's ability to process alcohol."
 	chemical_flags = REAGENT_DONOTSPLIT
 	ph = 13.5
@@ -139,7 +144,8 @@
 
 //probital
 /datum/reagent/impurity/probital_failed//Basically crashed out failed metafactor
-	name = "Metabolic Inhibition Factor"
+	name = "Metabolic Inhibition Factor" 
+	enname = "Metabolic Inhibition Factor"
 	description = "This enzyme catalyzes crashes the conversion of nutricious food into healing peptides."
 	metabolization_rate = 0.0625  * REAGENTS_METABOLISM //slow metabolism rate so the patient can self heal with food even after the troph has metabolized away for amazing reagent efficency.
 	reagent_state = SOLID
@@ -154,7 +160,8 @@
 	..()
 
 /datum/reagent/peptides_failed
-	name = "Prion peptides"
+	name = "Prion peptides" 
+	enname = "Prion peptides"
 	taste_description = "spearmint frosting"
 	description = "These inhibitory peptides cause cellular damage and cost nutrition to the patient!"
 	ph = 2.1
@@ -167,7 +174,8 @@
 //Lenturi
 //impure
 /datum/reagent/impurity/lentslurri //Okay maybe I should outsource names for these
-	name = "Lentslurri"//This is a really bad name please replace
+	name = "Lentslurri" 
+	enname = "Lentslurri"//This is a really bad name please replace
 	description = "A highly addicitive muscle relaxant that is made when Lenturi reactions go wrong."
 	addiction_types = list(/datum/addiction/medicine = 8)
 	liver_damage = 0
@@ -182,7 +190,8 @@
 
 //failed
 /datum/reagent/inverse/ichiyuri
-	name = "Ichiyuri"
+	name = "Ichiyuri" 
+	enname = "Ichiyuri"
 	description = "Prolonged exposure to this chemical can cause an overwhelming urge to itch oneself."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
@@ -211,7 +220,8 @@
 //Aiuri
 //impure
 /datum/reagent/impurity/aiuri
-	name = "Aivime"
+	name = "Aivime" 
+	enname = "Aivime"
 	description = "This reagent is known to interfere with the eyesight of a patient."
 	ph = 3.1
 	addiction_types = list(/datum/addiction/medicine = 1.5)
@@ -233,7 +243,8 @@
 //Hercuri
 //inverse
 /datum/reagent/inverse/hercuri
-	name = "Herignis"
+	name = "Herignis" 
+	enname = "Herignis"
 	description = "This reagent causes a dramatic raise in a patient's body temperature."
 	ph = 0.8
 	tox_damage = 0
@@ -269,7 +280,8 @@
 	..()
 
 /datum/reagent/inverse/healing/tirimol
-	name = "Super Melatonin"//It's melatonin, but super!
+	name = "Super Melatonin" 
+	enname = "Super Melatonin"//It's melatonin, but super!
 	description = "This will send the patient to sleep, adding a bonus to the efficacy of all reagents administered."
 	ph = 12.5 //sleeping is a basic need of all lifeformsa
 	self_consuming = TRUE //No pesky liver shenanigans
@@ -316,7 +328,8 @@
 //convermol
 //inverse
 /datum/reagent/inverse/healing/convermol
-	name = "Coveroli"
+	name = "Coveroli" 
+	enname = "Coveroli"
 	description = "This reagent is known to coat the inside of a patient's lungs, providing greater protection against hot or cold air."
 	ph = 3.82
 	tox_damage = 0
@@ -403,7 +416,8 @@
 
 //Kind of a healing effect, Presumably you're using syrinver to purge so this helps that
 /datum/reagent/inverse/healing/syriniver
-	name = "Syrinifergus"
+	name = "Syrinifergus" 
+	enname = "Syrinifergus"
 	description = "This reagent reduces the impurity of all non medicines within the patient, reducing their negative effects."
 	self_consuming = TRUE //No pesky liver shenanigans
 	chemical_flags = REAGENT_DONOTSPLIT | REAGENT_DEAD_PROCESS
@@ -440,7 +454,8 @@
 //Inverse
 //Reaction product when between 0.2 and 0.35 purity.
 /datum/reagent/inverse/healing/monover
-	name = "Monover"
+	name = "Monover" 
+	enname = "Monover"
 	description = "A toxin treating reagent, that only is effective if it's the only reagent present in the patient."
 	ph = 0.5
 	addiction_types = list(/datum/addiction/medicine = 3.5)
@@ -460,7 +475,8 @@
 ///If they're past fullcrit, their movement is slowed by half
 ///If they OD, their heart explodes (if they were brought back from the dead)
 /datum/reagent/inverse/penthrite
-	name = "Nooartrium"
+	name = "Nooartrium" 
+	enname = "Nooartrium"
 	description = "A reagent that is known to stimulate the heart in a dead patient, temporarily bringing back recently dead patients at great cost to their heart."
 	ph = 14
 	metabolization_rate = 0.05 * REM

@@ -3,6 +3,7 @@
 
 /datum/reagent/toxin
 	name = "Токсин"
+	enname = "toxin"
 	description = "A toxic chemical."
 	color = "#CF3600" // rgb: 207, 54, 0
 	taste_description = "горечь"
@@ -26,6 +27,7 @@
 
 /datum/reagent/toxin/amatoxin
 	name = "Аматоксин"
+	enname = "amatoxin"
 	description = "A powerful poison derived from certain species of mushroom."
 	color = "#792300" // rgb: 121, 35, 0
 	toxpwr = 2.5
@@ -35,6 +37,7 @@
 
 /datum/reagent/toxin/mutagen
 	name = "Нестабильный мутаген"
+	enname = "unstable mutagen"
 	description = "Might cause unpredictable mutations. Keep away from children."
 	color = "#00FF00"
 	creation_purity = REAGENT_STANDARD_PURITY
@@ -71,6 +74,7 @@
 
 /datum/reagent/toxin/plasma
 	name = "Плазма"
+	enname = "plasma"
 	description = "Plasma in its liquid form."
 	taste_description = "горечь"
 	specific_heat = SPECIFIC_HEAT_PLASMA
@@ -126,6 +130,7 @@
 
 /datum/reagent/toxin/hot_ice
 	name = "Пылкая Слякоть"
+	enname = "hot ice"
 	description = "Frozen plasma, worth its weight in gold, to the right people"
 	reagent_state = SOLID
 	color = "#724cb8" // rgb: 114, 76, 184
@@ -147,6 +152,7 @@
 
 /datum/reagent/toxin/lexorin
 	name = "Лексорин"
+	enname = "lexorin"
 	description = "A powerful poison used to stop respiration."
 	color = "#7DC3A0"
 	creation_purity = REAGENT_STANDARD_PURITY
@@ -171,6 +177,7 @@
 
 /datum/reagent/toxin/slimejelly
 	name = "Желе Слайма"
+	enname = "slime jelly"
 	description = "A gooey semi-liquid produced from one of the deadliest lifeforms in existence. SO REAL."
 	color = "#801E28" // rgb: 128, 30, 40
 	toxpwr = 0
@@ -191,6 +198,7 @@
 
 /datum/reagent/toxin/minttoxin
 	name = "Мятный Токсин"
+	enname = "mint toxin"
 	description = "Useful for dealing with undesirable customers."
 	color = "#CF3600" // rgb: 207, 54, 0
 	toxpwr = 0
@@ -205,6 +213,7 @@
 
 /datum/reagent/toxin/carpotoxin
 	name = "Карпотоксин"
+	enname = "carpotoxin"
 	description = "A deadly neurotoxin produced by the dreaded spess carp."
 	silent_toxin = TRUE
 	color = "#003333" // rgb: 0, 51, 51
@@ -220,6 +229,7 @@
 
 /datum/reagent/toxin/zombiepowder
 	name = "Зомби-Порошок"
+	enname = "zombie powder"
 	description = "A strong neurotoxin that puts the subject into a death-like state."
 	silent_toxin = TRUE
 	reagent_state = SOLID
@@ -268,6 +278,7 @@
 
 /datum/reagent/toxin/ghoulpowder
 	name = "Гуле-порошок"
+	enname = "ghoul powder"
 	description = "A strong neurotoxin that slows metabolism to a death-like state, while keeping the patient fully active. Causes toxin buildup if used too long."
 	reagent_state = SOLID
 	color = "#664700" // rgb: 102, 71, 0
@@ -293,6 +304,7 @@
 
 /datum/reagent/toxin/mindbreaker
 	name = "Разрушающий Разум Токсин"
+	enname = "mindbreaker toxin"
 	description = "A powerful hallucinogen. Not a thing to be messed with. For some mental patients. it counteracts their symptoms and anchors them to reality."
 	color = "#B31008" // rgb: 139, 166, 233
 	toxpwr = 0
@@ -311,6 +323,7 @@
 
 /datum/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"
+	enname = "Plant-B-Gone"
 	description = "A harmful toxic mixture to kill plantlife. Do not ingest!"
 	color = "#49002E" // rgb: 73, 0, 46
 	toxpwr = 1
@@ -348,6 +361,7 @@
 
 /datum/reagent/toxin/plantbgone/weedkiller
 	name = "Убийца Травы"
+	enname = "Weed Killer"
 	description = "A harmful toxic mixture to kill weeds. Do not ingest!"
 	color = "#4B004B" // rgb: 75, 0, 75
 	ph = 3
@@ -363,6 +377,7 @@
 
 /datum/reagent/toxin/pestkiller
 	name = "Убийца Вредителей"
+	enname = "Pest Killer"
 	description = "A harmful toxic mixture to kill pests. Do not ingest!"
 	color = "#4B004B" // rgb: 75, 0, 75
 	toxpwr = 1
@@ -385,6 +400,7 @@
 
 /datum/reagent/toxin/pestkiller/organic
 	name = "Убийца Вредителей из Натуральных Веществ"
+	enname = "Natural Pest Killer"
 	description = "An organic mixture used to kill pests, with less of the side effects. Do not ingest!"
 	color = "#4b2400" // rgb: 75, 0, 75
 	toxpwr = 1
@@ -400,6 +416,7 @@
 
 /datum/reagent/toxin/spore
 	name = "Споровой Токсин"
+	enname = "Spore Toxin"
 	description = "A natural toxin produced by blob spores that inhibits vision when ingested."
 	color = "#9ACD32"
 	toxpwr = 1
@@ -414,6 +431,7 @@
 
 /datum/reagent/toxin/spore_burning
 	name = "Горящий Споровой Токсин"
+	enname = "Burning Spore Toxin"
 	description = "A natural toxin produced by blob spores that induces combustion in its victim."
 	color = "#9ACD32"
 	toxpwr = 0.5
@@ -428,6 +446,7 @@
 
 /datum/reagent/toxin/chloralhydrate
 	name = "Хлоралгидрат"
+	enname = "Chloral Hydrate"
 	description = "A powerful sedative that induces confusion and drowsiness before putting its target to sleep."
 	silent_toxin = TRUE
 	reagent_state = SOLID
@@ -456,6 +475,7 @@
 
 /datum/reagent/toxin/fakebeer	//disguised as normal beer for use by emagged brobots
 	name = "Пиво"
+	enname = "beer"
 	description = "A specially-engineered sedative disguised as beer. It induces instant sleep in its target."
 	color = "#664300" // rgb: 102, 67, 0
 	metabolization_rate = 1.5 * REAGENTS_METABOLISM
@@ -477,6 +497,7 @@
 
 /datum/reagent/toxin/coffeepowder
 	name = "Кофейная Гуща"
+	enname = "Coffee Powder"
 	description = "Finely ground coffee beans, used to make coffee."
 	reagent_state = SOLID
 	color = "#5B2E0D" // rgb: 91, 46, 13
@@ -486,6 +507,7 @@
 
 /datum/reagent/toxin/teapowder
 	name = "Молотые Чайные Листья"
+	enname = "Tea Powder"
 	description = "Finely shredded tea leaves, used for making tea."
 	reagent_state = SOLID
 	color = "#7F8400" // rgb: 127, 132, 0
@@ -496,6 +518,7 @@
 
 /datum/reagent/toxin/mutetoxin //the new zombie powder.
 	name = "Токсин Онемения"
+	enname = "Mute Toxin"
 	description = "A nonlethal poison that inhibits speech in its victim."
 	silent_toxin = TRUE
 	creation_purity = REAGENT_STANDARD_PURITY
@@ -512,6 +535,7 @@
 
 /datum/reagent/toxin/staminatoxin
 	name = "Тиризен"
+	enname = "Tirizene"
 	description = "A nonlethal poison that causes extreme fatigue and weakness in its victim."
 	silent_toxin = TRUE
 	color = "#6E2828"
@@ -527,6 +551,7 @@
 
 /datum/reagent/toxin/polonium
 	name = "Полоний"
+	enname = "Polonium"
 	description = "An extremely radioactive material in liquid form. Ingestion results in fatal irradiation."
 	reagent_state = LIQUID
 	color = "#787878"
@@ -540,6 +565,7 @@
 
 /datum/reagent/toxin/histamine
 	name = "Гистамин"
+	enname = "Histamine"
 	description = "Histamine's effects become more dangerous depending on the dosage amount. They range from mildly annoying to incredibly lethal."
 	silent_toxin = TRUE
 	reagent_state = LIQUID
@@ -575,6 +601,7 @@
 
 /datum/reagent/toxin/formaldehyde
 	name = "Формальдегид"
+	enname = "Formaldehyde"
 	description = "Formaldehyde, on its own, is a fairly weak toxin. It contains trace amounts of Histamine, very rarely making it decay into Histamine."
 	silent_toxin = TRUE
 	reagent_state = LIQUID
@@ -596,6 +623,7 @@
 
 /datum/reagent/toxin/venom
 	name = "Отрава"
+	enname = "Venom"
 	description = "An exotic poison extracted from highly toxic fauna. Causes scaling amounts of toxin damage and bruising depending and dosage. Often decays into Histamine."
 	reagent_state = LIQUID
 	color = "#F0FFF0"
@@ -615,6 +643,7 @@
 
 /datum/reagent/toxin/fentanyl
 	name = "Фентанил"
+	enname = "Fentanyl"
 	description = "Fentanyl will inhibit brain function and cause toxin damage before eventually knocking out its victim."
 	reagent_state = LIQUID
 	color = "#64916E"
@@ -639,6 +668,7 @@
 
 /datum/reagent/toxin/cyanide
 	name = "Цианид"
+	enname = "Cyanide"
 	description = "An infamous poison known for its use in assassination. Causes small amounts of toxin damage with a small chance of oxygen damage or a stun."
 	reagent_state = LIQUID
 	color = "#00B4FF"
@@ -660,6 +690,7 @@
 
 /datum/reagent/toxin/bad_food
 	name = "Плохая Еда"
+	enname = "Bad food"
 	description = "The result of some abomination of cookery, food so bad it's toxic."
 	reagent_state = LIQUID
 	color = "#d6d6d8"
@@ -670,6 +701,7 @@
 
 /datum/reagent/toxin/itching_powder
 	name = "Чесоточный Порошок"
+	enname = "Itching Powder"
 	description = "A powder that induces itching upon contact with the skin. Causes the victim to scratch at their itches and has a very low chance to decay into Histamine."
 	silent_toxin = TRUE
 	reagent_state = LIQUID
@@ -703,6 +735,7 @@
 
 /datum/reagent/toxin/initropidril
 	name = "Инитропидрил"
+	enname = "Initropidril"
 	description = "A powerful poison with insidious effects. It can cause stuns, lethal breathing failure, and cardiac arrest."
 	silent_toxin = TRUE
 	reagent_state = LIQUID
@@ -735,6 +768,7 @@
 
 /datum/reagent/toxin/pancuronium
 	name = "Панкуроний"
+	enname = "Pancuronium"
 	description = "An undetectable toxin that swiftly incapacitates its victim. May also cause breathing failure."
 	silent_toxin = TRUE
 	reagent_state = LIQUID
@@ -754,6 +788,7 @@
 
 /datum/reagent/toxin/sodium_thiopental
 	name = "Тиопентал Натрия"
+	enname = "Sodium Thiopental"
 	description = "Sodium Thiopental induces heavy weakness in its target as well as unconsciousness."
 	silent_toxin = TRUE
 	reagent_state = LIQUID
@@ -779,6 +814,7 @@
 
 /datum/reagent/toxin/sulfonal
 	name = "Сульфонал"
+	enname = "Sulfonal"
 	description = "A stealthy poison that deals minor toxin damage and eventually puts the target to sleep."
 	silent_toxin = TRUE
 	reagent_state = LIQUID
@@ -797,6 +833,7 @@
 
 /datum/reagent/toxin/amanitin
 	name = "Аманитин"
+	enname = "Amanitin"
 	description = "A very powerful delayed toxin. Upon full metabolization, a massive amount of toxin damage will be dealt depending on how long it has been in the victim's bloodstream."
 	silent_toxin = TRUE
 	reagent_state = LIQUID
@@ -813,6 +850,7 @@
 
 /datum/reagent/toxin/lipolicide
 	name = "Липолицид"
+	enname = "Lipolicide"
 	description = "A powerful toxin that will destroy fat cells, massively reducing body weight in a short time. Deadly to those without nutriment in their body."
 	silent_toxin = TRUE
 	taste_description = "нафталин"
@@ -835,6 +873,7 @@
 
 /datum/reagent/toxin/coniine
 	name = "Кониин"
+	enname = "Coniine"
 	description = "Coniine metabolizes extremely slowly, but deals high amounts of toxin damage and stops breathing."
 	reagent_state = LIQUID
 	color = "#7DC3A0"
@@ -848,6 +887,7 @@
 
 /datum/reagent/toxin/spewium
 	name = "Спьювиум"
+	enname = "Spewium"
 	description = "A powerful emetic, causes uncontrollable vomiting. May result in vomiting organs at high doses."
 	reagent_state = LIQUID
 	color = "#2f6617" //A sickly green color
@@ -874,6 +914,7 @@
 
 /datum/reagent/toxin/curare
 	name = "Кураре"
+	enname = "Curare"
 	description = "Causes slight toxin damage followed by chain-stunning and oxygen damage."
 	reagent_state = LIQUID
 	color = "#191919"
@@ -890,6 +931,7 @@
 
 /datum/reagent/toxin/heparin //Based on a real-life anticoagulant. I'm not a doctor, so this won't be realistic.
 	name = "Гепарин"
+	enname = "Heparin"
 	description = "A powerful anticoagulant. All open cut wounds on the victim will open up and bleed much faster"
 	silent_toxin = TRUE
 	reagent_state = LIQUID
@@ -911,6 +953,7 @@
 
 /datum/reagent/toxin/rotatium //Rotatium. Fucks up your rotation and is hilarious
 	name = "Вращаний"
+	enname = "Rotatium"
 	description = "A constantly swirling, oddly colourful fluid. Causes the consumer's sense of direction and hand-eye coordination to become wild."
 	silent_toxin = TRUE
 	reagent_state = LIQUID
@@ -943,6 +986,7 @@
 
 /datum/reagent/toxin/anacea
 	name = "Анацея"
+	enname = "Anacea"
 	description = "A toxin that quickly purges medicines and metabolizes very slowly."
 	reagent_state = LIQUID
 	color = "#3C5133"
@@ -966,6 +1010,7 @@
 
 /datum/reagent/toxin/acid
 	name = "Серная кислота"
+	enname = "Sulphuric acid"
 	description = "A strong mineral acid with the molecular formula H2SO4."
 	color = "#00FF32"
 	toxpwr = 1
@@ -1012,6 +1057,7 @@
 
 /datum/reagent/toxin/acid/fluacid
 	name = "Фтористоводородная кислота"
+	enname = "Fluorosulfuric acid"
 	description = "Fluorosulfuric acid is an extremely corrosive chemical substance."
 	color = "#5050FF"
 	creation_purity = REAGENT_STANDARD_PURITY
@@ -1036,6 +1082,7 @@
 
 /datum/reagent/toxin/acid/nitracid
 	name = "Азотная кислота"
+	enname = "Nitric acid"
 	description = "Nitric acid is an extremely corrosive chemical substance that violently reacts with living organic tissue."
 	color = "#5050FF"
 	creation_purity = REAGENT_STANDARD_PURITY
@@ -1052,6 +1099,7 @@
 
 /datum/reagent/toxin/delayed
 	name = "Микрокапсулы Токсина"
+	enname = "Toxin Microcapsules"
 	description = "Causes heavy toxin damage after a brief time of inactivity."
 	reagent_state = LIQUID
 	metabolization_rate = 0 //stays in the system until active.
@@ -1072,6 +1120,7 @@
 
 /datum/reagent/toxin/mimesbane
 	name = "Отрава Мима"
+	enname = "Mime's Bane"
 	description = "A nonlethal neurotoxin that interferes with the victim's ability to gesture."
 	silent_toxin = TRUE
 	color = "#F0F8FF" // rgb: 240, 248, 255
@@ -1090,6 +1139,7 @@
 
 /datum/reagent/toxin/bonehurtingjuice //oof ouch
 	name = "Ранящий Кости Сок"
+	enname = "Bone Hurting Juice"
 	description = "A strange substance that looks a lot like water. Drinking it is oddly tempting. Oof ouch."
 	silent_toxin = TRUE //no point spamming them even more.
 	color = "#AAAAAA77" //RGBA: 170, 170, 170, 77
@@ -1102,7 +1152,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/toxin/bonehurtingjuice/on_mob_add(mob/living/carbon/M)
-	M.say("ОООХ! КОСТОЧКИ!", forced = /datum/reagent/toxin/bonehurtingjuice)
+	M.say("oof ouch my bones", forced = /datum/reagent/toxin/bonehurtingjuice) // stop translating memes you fucking shitboots
 	return ..()
 
 /datum/reagent/toxin/bonehurtingjuice/on_mob_life(mob/living/carbon/M)
@@ -1133,6 +1183,7 @@
 
 /datum/reagent/toxin/bungotoxin
 	name = "Bungotoxin"
+	enname = "Bungotoxin"
 	description = "A horrible cardiotoxin that protects the humble bungo pit."
 	silent_toxin = TRUE
 	color = "#EBFF8E"
@@ -1152,6 +1203,7 @@
 
 /datum/reagent/toxin/skewium
 	name = "Скевий"
+	enname = "Skewium"
 	description = "A strange, dull coloured liquid that appears to warp back and forth inside its container. Causes any consumer to experience a visual phenomena similar to said warping."
 	silent_toxin = TRUE
 	reagent_state = LIQUID
@@ -1188,6 +1240,7 @@
 
 /datum/reagent/toxin/leadacetate
 	name = "Ацетат Свинца"
+	enname = "Lead Acetate"
 	description = "Used hundreds of years ago as a sweetener, before it was realized that it's incredibly poisonous."
 	reagent_state = SOLID
 	color = "#2b2b2b" // rgb: 127, 132, 0

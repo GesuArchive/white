@@ -10,6 +10,17 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 			.[lowertext(initial(R.name))] = t
 
 
+GLOBAL_LIST_INIT(enname2reagent, build_enname2reagent())
+
+/proc/build_enname2reagent()
+	. = list()
+	for (var/t in subtypesof(/datum/reagent))
+		var/datum/reagent/R = t
+		if (length(initial(R.enname)))
+			.[lowertext(initial(R.enname))] = t
+
+
+
 //Various reagents
 //Toxin & acid reagents
 //Hydroponics stuff
@@ -18,6 +29,8 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 /datum/reagent
 	/// datums don't have names by default
 	var/name = "Reagent"
+	///для возможности поиска реагентов по их оригинальному, ПИНДОССКОМУ названию. Не трогать своими грязным гуглотранслейтом, блять. Только для поиска реагентов, не для показа игрокам, иначе они испугаются непонятных буковок и умрут.
+	var/enname = ""
 	/// nor do they have descriptions
 	var/description = ""
 	///J/(K*mol)

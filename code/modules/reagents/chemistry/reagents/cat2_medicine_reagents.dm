@@ -16,6 +16,7 @@
 
 /datum/reagent/medicine/c2/helbital //kinda a C2 only if you're not in hardcrit.
 	name = "Хэллбитал"
+	enname = "Helbital"
 	description = "Named after the norse goddess Hel, this medicine heals the patient's bruises the closer they are to death. Patients will find the medicine 'aids' their healing if not near death by causing asphyxiation."
 	color = "#9400D3"
 	taste_description = "холод и безжизненность"
@@ -93,6 +94,7 @@
 
 /datum/reagent/medicine/c2/libital //messes with your liber
 	name = "Либитал"
+	enname = "Libital"
 	description = "A bruise reliever. Does minor liver damage."
 	color = "#ECEC8D" // rgb: 236 236 141
 	ph = 8.2
@@ -109,6 +111,7 @@
 
 /datum/reagent/medicine/c2/probital
 	name = "Пробитал"
+	enname = "Probital"
 	description = "Originally developed as a prototype-gym supliment for those looking for quick workout turnover, this oral medication quickly repairs broken muscle tissue but causes lactic acid buildup, tiring the patient. Overdosing can cause extreme drowsiness. An Influx of nutrients promotes the muscle repair even further."
 	reagent_state = SOLID
 	color = "#FFFF6B"
@@ -157,6 +160,7 @@
 /*Suffix: -uri*/
 /datum/reagent/medicine/c2/lenturi
 	name = "Лентури"
+	enname = "Lenturi"
 	description = "Used to treat burns. Makes you move slower while it is in your system. Applies stomach damage when it leaves your system."
 	reagent_state = LIQUID
 	color = "#6171FF"
@@ -175,6 +179,7 @@
 
 /datum/reagent/medicine/c2/aiuri
 	name = "Айурин"
+	enname = "Aiuri"
 	description = "Used to treat burns. Does minor eye damage."
 	reagent_state = LIQUID
 	color = "#8C93FF"
@@ -192,6 +197,7 @@
 
 /datum/reagent/medicine/c2/hercuri
 	name = "Херкурин"
+	enname = "Hercuri"
 	description = "Not to be confused with element Mercury, this medicine excels in reverting effects of dangerous high-temperature environments. Prolonged exposure can cause hypothermia."
 	reagent_state = LIQUID
 	color = "#F7FFA5"
@@ -240,6 +246,7 @@
 
 /datum/reagent/medicine/c2/convermol
 	name = "Конвермол"
+	enname = "Convermol"
 	description = "Restores oxygen deprivation while producing a lesser amount of toxic byproducts. Both scale with exposure to the drug and current amount of oxygen deprivation. Overdose causes toxic byproducts regardless of oxygen deprivation."
 	reagent_state = LIQUID
 	color = "#FF6464"
@@ -268,7 +275,8 @@
 #undef	CONVERMOL_RATIO
 
 /datum/reagent/medicine/c2/tirimol
-	name = "Тримол"
+	name = "Тиримол"
+	enname = "Tirimol"
 	description = "An oxygen deprivation medication that causes fatigue. Prolonged exposure causes the patient to fall asleep once the medicine metabolizes."
 	color = "#FF6464"
 	ph = 5.6
@@ -299,7 +307,8 @@
 /*Suffix: -iver*/
 
 /datum/reagent/medicine/c2/seiver //a bit of a gray joke
-	name = "Сэйвер"
+	name = "Сэивер"
+	enname = "Seiver"
 	description = "A medicine that shifts functionality based on temperature. Colder temperatures incurs radiation removal while hotter temperatures promote antitoxicity. Damages the heart." //CHEM HOLDER TEMPS, NOT AIR TEMPS
 	var/radbonustemp = (T0C - 100) //being below this number gives you 10% off rads.
 	inverse_chem_val = 0.3
@@ -343,6 +352,7 @@
 
 /datum/reagent/medicine/c2/multiver //enhanced with MULTIple medicines
 	name = "Мультивер"
+	enname = "Multiver"
 	description = "A chem-purger that becomes more effective the more unique medicines present. Slightly heals toxicity but causes lung damage (mitigatable by unique medicines)."
 	inverse_chem = /datum/reagent/inverse/healing/monover
 	inverse_chem_val = 0.35
@@ -380,6 +390,7 @@
 
 /datum/reagent/medicine/c2/syriniver //Inject >> SYRINge
 	name = "Сиринивир"
+	enname = "Syriniver"
 	description = "A potent antidote for intravenous use with a narrow therapeutic index, it is considered an active prodrug of musiver."
 	reagent_state = LIQUID
 	color = "#8CDF24" // heavy saturation to make the color blend better
@@ -424,6 +435,7 @@
 
 /datum/reagent/medicine/c2/musiver //MUScles
 	name = "Мюзивер"
+	enname = "Musiver"
 	description = "The active metabolite of syriniver. Causes muscle weakness on overdose"
 	reagent_state = LIQUID
 	color = "#DFD54E"
@@ -464,6 +476,7 @@
 /*Suffix: Combo of healing, prob gonna get wack REAL fast*/
 /datum/reagent/medicine/c2/synthflesh
 	name = "Синтеплоть"
+	enname = "Synthflesh"
 	description = "Heals brute and burn damage at the cost of toxicity (66% of damage healed). 100u or more can restore corpses husked by burns. Touch application only."
 	reagent_state = LIQUID
 	color = "#FFEBEB"
@@ -506,6 +519,7 @@
 */
 /datum/reagent/medicine/c2/penthrite
 	name = "Пентрит"
+	enname = "Penthrite"
 	description = "An expensive medicine that aids with pumping blood around the body even without a heart, and prevents the heart from slowing down. Mixing it with epinephrine or atropine will cause an explosion."
 	color = "#F5F5F5"
 	overdose_threshold = 50

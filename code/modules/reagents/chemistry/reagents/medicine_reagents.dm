@@ -8,6 +8,7 @@
 
 /datum/reagent/medicine
 	name = "медикамент"
+	enname = "Medicine"
 	taste_description = "горечь"
 
 /datum/reagent/medicine/on_mob_life(mob/living/carbon/M)
@@ -18,6 +19,7 @@
 
 /datum/reagent/medicine/leporazine
 	name = "Лепоразин"
+	enname = "Leporazine"
 	description = "Leporazine will effectively regulate a patient's body temperature, ensuring it never leaves safe levels."
 	ph = 8.4
 	color = "#DB90C6"
@@ -38,6 +40,7 @@
 
 /datum/reagent/medicine/adminordrazine //An OP chemical for admins
 	name = "Админордразин"
+	enname = "Adminordrazine"
 	description = "It's magic. We don't have to explain it."
 	color = "#E0BB00" //golden for the gods
 	taste_description = "badmins"
@@ -103,11 +106,13 @@
 
 /datum/reagent/medicine/adminordrazine/quantum_heal
 	name = "Квантовая медицина"
+	enname = "Quantum Medicine"
 	description = "Rare and experimental particles, that apparently swap the user's body with one from an alternate dimension where it's completely healthy."
 	taste_description = "наука"
 
 /datum/reagent/medicine/synaptizine
 	name = "Синаптизин"
+	enname = "Synaptizine"
 	description = "Increases resistance to stuns as well as reducing drowsiness and hallucinations."
 	color = "#FF00FF"
 	ph = 4
@@ -130,6 +135,7 @@
 
 /datum/reagent/medicine/synaphydramine
 	name = "Дифен-Синаптизин"
+	enname = "Diphen-Synaptizine"
 	description = "Reduces drowsiness, hallucinations, and Histamine from body."
 	color = "#EC536D" // rgb: 236, 83, 109
 	ph = 5.2
@@ -149,6 +155,7 @@
 
 /datum/reagent/medicine/cryoxadone
 	name = "Криоксадон"
+	enname = "Cryoxadone"
 	description = "A chemical mixture with almost magical healing powers. Its main limitation is that the patient's body temperature must be under 270K for it to metabolise correctly."
 	color = "#0000C8"
 	taste_description = "отстой"
@@ -181,6 +188,7 @@
 
 /datum/reagent/medicine/clonexadone
 	name = "Клоноксадон"
+	enname = "Clonexadone"
 	description = "A chemical that derives from Cryoxadone. It specializes in healing clone damage, but nothing else. Requires very cold temperatures to properly metabolize, and metabolizes quicker than cryoxadone."
 	color = "#3D3DC6"
 	taste_description = "мускулы"
@@ -197,6 +205,7 @@
 
 /datum/reagent/medicine/pyroxadone
 	name = "Пироксадон"
+	enname = "Pyroxadone"
 	description = "A mixture of cryoxadone and slime jelly, that apparently inverses the requirement for its activation."
 	color = "#f7832a"
 	taste_description = "острое желе"
@@ -230,6 +239,7 @@
 
 /datum/reagent/medicine/rezadone
 	name = "Резадон"
+	enname = "Rezadone"
 	description = "A powder derived from fish toxin, Rezadone can effectively treat genetic damage as well as restoring minor wounds and restoring corpses husked by burns. Overdose will cause intense nausea and minor toxin damage."
 	reagent_state = SOLID
 	color = "#669900" // rgb: 102, 153, 0
@@ -263,7 +273,8 @@
 		patient.visible_message("<span class='nicegreen'>Тело [patient] быстро впитывает влагу из окружающей среды, принимая более здоровый вид.</span>")
 
 /datum/reagent/medicine/spaceacillin
-	name = "Космоцилин"
+	name = "Космоацилин"
+	enname = "Spaceacillin"
 	description = "Spaceacillin will prevent a patient from conventionally spreading any diseases they are currently infected with. Also reduces infection in serious burns."
 	color = "#E1F2E6"
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM
@@ -274,6 +285,7 @@
 
 /datum/reagent/medicine/oxandrolone
 	name = "Оксандролон"
+	enname = "Oxandrolone"
 	description = "Stimulates the healing of severe burns. Extremely rapidly heals severe burns and slowly heals minor ones. Overdose will worsen existing burns."
 	reagent_state = LIQUID
 	color = "#1E8BFF"
@@ -298,6 +310,7 @@
 
 /datum/reagent/medicine/salglu_solution
 	name = "Солевой Раствор Глюкозы"
+	enname = "Saline-Glucose Solution"
 	description = "Has a 33% chance per metabolism cycle to heal brute and burn damage. Can be used as a temporary blood substitute, as well as slowly speeding blood regeneration."
 	reagent_state = LIQUID
 	color = "#DCDCDC"
@@ -342,6 +355,7 @@
 
 /datum/reagent/medicine/mine_salve
 	name = "Шахтерская Мазь"
+	enname = "Miner's Salve"
 	description = "A powerful painkiller. Restores bruising and burns in addition to making the patient believe they are fully healed. Also great for treating severe burn wounds in a pinch."
 	reagent_state = LIQUID
 	color = "#6D6374"
@@ -383,6 +397,7 @@
 
 /datum/reagent/medicine/omnizine
 	name = "Омнизин"
+	enname = "Omnizine"
 	description = "Slowly heals all damage types. Overdose will cause damage in all types instead."
 	reagent_state = LIQUID
 	color = "#DCDCDC"
@@ -410,6 +425,7 @@
 
 /datum/reagent/medicine/omnizine/protozine
 	name = "Протозин"
+	enname = "Protozine"
 	description = "A less environmentally friendly and somewhat weaker variant of omnizine."
 	color = "#d8c7b7"
 	healing = 0.2
@@ -417,6 +433,7 @@
 
 /datum/reagent/medicine/calomel
 	name = "Каломел"
+	enname = "Potassium Iodide"
 	description = "Quickly purges the body of all chemicals. Toxin damage is dealt if the patient is in good condition."
 	reagent_state = LIQUID
 	color = "#19C832"
@@ -435,6 +452,7 @@
 
 /datum/reagent/medicine/potass_iodide
 	name = "Йодид Калия"
+	enname = "Potassium Iodide"
 	description = "Efficiently restores low radiation damage."
 	reagent_state = LIQUID
 	color = "#BAA15D"
@@ -449,6 +467,7 @@
 
 /datum/reagent/medicine/pen_acid
 	name = "Диэтилентриаминпентауксусная кислота"
+	enname = "Pentetic Acid"
 	description = "Reduces massive amounts of radiation and toxin damage while purging other chemicals from the body."
 	reagent_state = LIQUID
 	color = "#E6FFF0"
@@ -467,6 +486,7 @@
 
 /datum/reagent/medicine/sal_acid
 	name = "Салициловая Кислота"
+	enname = "Salicylic Acid"
 	description = "Stimulates the healing of severe bruises. Extremely rapidly heals severe bruising and slowly heals minor ones. Overdose will worsen existing bruising."
 	reagent_state = LIQUID
 	color = "#D2D2D2"
@@ -491,6 +511,7 @@
 
 /datum/reagent/medicine/salbutamol
 	name = "Сальбутамол"
+	enname = "Salbutamol"
 	description = "Rapidly restores oxygen deprivation as well as preventing more of it to an extent."
 	reagent_state = LIQUID
 	color = "#00FFFF"
@@ -507,6 +528,7 @@
 
 /datum/reagent/medicine/ephedrine
 	name = "Эфедрин"
+	enname = "Ephedrine"
 	description = "Increases stun resistance and movement speed, giving you hand cramps. Overdose deals toxin damage and inhibits breathing."
 	reagent_state = LIQUID
 	color = "#D2FFFA"
@@ -557,6 +579,7 @@
 
 /datum/reagent/medicine/diphenhydramine
 	name = "Дифенгидрамин"
+	enname = "Diphenhydramine"
 	description = "Rapidly purges the body of Histamine and reduces jitteriness. Slight chance of causing drowsiness."
 	reagent_state = LIQUID
 	color = "#64FFE6"
@@ -573,6 +596,7 @@
 
 /datum/reagent/medicine/morphine
 	name = "Морфий"
+	enname = "Morphine"
 	description = "A painkiller that allows the patient to move at full speed even when injured. Causes drowsiness and eventually unconsciousness in high doses. Overdose will cause a variety of effects, ranging from minor to lethal."
 	reagent_state = LIQUID
 	color = "#A9FBFB"
@@ -613,6 +637,7 @@
 
 /datum/reagent/medicine/oculine
 	name = "Окулин"
+	enname = "Oculine"
 	description = "Quickly restores eye damage, cures nearsightedness, and has a chance to restore vision to the blind."
 	reagent_state = LIQUID
 	color = "#404040" //oculine is dark grey, inacusiate is light grey
@@ -642,6 +667,7 @@
 
 /datum/reagent/medicine/inacusiate
 	name = "Инакусиат"
+	enname = "Inacusiate"
 	description = "Rapidly repairs damage to the patient's ears to cure deafness, assuming the source of said deafness isn't from genetic mutations, chronic deafness, or a total defecit of ears." //by "chronic" deafness, we mean people with the "deaf" quirk
 	color = "#606060" // ditto
 	ph = 2
@@ -654,6 +680,7 @@
 
 /datum/reagent/medicine/atropine
 	name = "Атропин"
+	enname = "Atropine"
 	description = "If a patient is in critical condition, rapidly heals all damage types as well as regulating oxygen in the body. Excellent for stabilizing wounded patients."
 	reagent_state = LIQUID
 	color = "#1D3535" //slightly more blue, like epinephrine
@@ -684,6 +711,7 @@
 
 /datum/reagent/medicine/epinephrine
 	name = "Эпинефрин"
+	enname = "Epinephrine"
 	description = "Very minor boost to stun resistance. Slowly heals damage if a patient is in critical condition, as well as regulating oxygen loss. Overdose causes weakness and toxin damage."
 	reagent_state = LIQUID
 	color = "#D2FFFA"
@@ -733,6 +761,7 @@
 
 /datum/reagent/medicine/strange_reagent
 	name = "Странный Реагент"
+	enname = "Strange Reagent"
 	description = "A miracle drug capable of bringing the dead back to life. Works topically unless anotamically complex, in which case works orally. Only works if the target has less than 200 total brute and burn damage and hasn't been husked and requires more reagent depending on damage inflicted. Causes damage to the living."
 	reagent_state = LIQUID
 	color = "#A0E85E"
@@ -780,6 +809,7 @@
 
 /datum/reagent/medicine/mannitol
 	name = "Маннитол"
+	enname = "Mannitol"
 	description = "Efficiently restores brain damage."
 	color = "#A0A0A0" //mannitol is light grey, neurine is lighter grey
 	ph = 10.4
@@ -800,6 +830,7 @@
 
 /datum/reagent/medicine/neurine
 	name = "Нейрин"
+	enname = "Neurine"
 	description = "Reacts with neural tissue, helping reform damaged connections. Can cure minor traumas."
 	color = "#C0C0C0" //ditto
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -822,6 +853,7 @@
 
 /datum/reagent/medicine/mutadone
 	name = "Мутадон"
+	enname = "Mutadone"
 	description = "Removes jitteriness and restores genetic defects."
 	color = "#5096C8"
 	taste_description = "кислота"
@@ -836,7 +868,8 @@
 		..()
 
 /datum/reagent/medicine/antihol
-	name = "Опохмелин"
+	name = "Антиголь"
+	enname = "Antihol"
 	description = "Purges alcoholic substance from the patient's body and eliminates its side effects."
 	color = "#00B4C8"
 	taste_description = "сырые яйца"
@@ -858,6 +891,7 @@
 
 /datum/reagent/medicine/stimulants
 	name = "Стимуляторы"
+	enname = "Stimulants"
 	description = "Increases stun resistance and movement speed in addition to restoring minor damage and weakness. Overdose causes weakness and toxin damage."
 	color = "#78008C"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
@@ -897,6 +931,7 @@
 
 /datum/reagent/medicine/insulin
 	name = "Инсулин"
+	enname = "Insulin"
 	description = "Increases sugar depletion rates."
 	reagent_state = LIQUID
 	color = "#FFFFF0"
@@ -914,6 +949,7 @@
 
 /datum/reagent/medicine/inaprovaline //is this used anywhere?
 	name = "Инапровалин"
+	enname = "Inaprovaline"
 	description = "Stabilizes the breathing of patients. Good for those in critical condition."
 	reagent_state = LIQUID
 	color = "#A4D8D8"
@@ -927,6 +963,7 @@
 
 /datum/reagent/medicine/regen_jelly
 	name = "Регенеративное Желе"
+	enname = "Regenerative Jelly"
 	description = "Gradually regenerates all types of damage, without harming slime anatomy."
 	reagent_state = LIQUID
 	color = "#CC23FF"
@@ -953,6 +990,7 @@
 
 /datum/reagent/medicine/syndicate_nanites //Used exclusively by Syndicate medical cyborgs
 	name = "Восстанавливающие Наниты"
+	enname = "Restorative Nanites"
 	description = "Miniature medical robots that swiftly restore bodily damage."
 	reagent_state = SOLID
 	color = "#555555"
@@ -979,6 +1017,7 @@
 
 /datum/reagent/medicine/earthsblood //Created by ambrosia gaia plants
 	name = "Кровь Земли"
+	enname = "Earthsblood"
 	description = "Ichor from an extremely powerful plant. Great for restoring wounds, but it's a little heavy on the brain. For some strange reason, it also induces temporary pacifism in those who imbibe it and semi-permanent pacifism in those who overdose on it."
 	color = "#FFAF00"
 	metabolization_rate = 0.4 //Math is based on specific metab rate so we want this to be static AKA if define or medicine metab rate changes, we want this to stay until we can rework calculations.
@@ -1033,6 +1072,7 @@
 
 /datum/reagent/medicine/haloperidol
 	name = "Галоперидол"
+	enname = "Haloperidol"
 	description = "Increases depletion rates for most stimulating/hallucinogenic drugs. Reduces druggy effects and jitteriness. Severe stamina regeneration penalty, causes drowsiness. Small chance of brain damage."
 	reagent_state = LIQUID
 	color = "#27870a"
@@ -1057,6 +1097,7 @@
 //used for changeling's adrenaline power
 /datum/reagent/medicine/changelingadrenaline
 	name = "Адреналин Генокрада"
+	enname = "Changeling Adrenaline"
 	description = "Reduces the duration of unconciousness, knockdown and stuns. Restores stamina, but deals toxin damage when overdosed."
 	color = "#C1151D"
 	overdose_threshold = 30
@@ -1091,6 +1132,7 @@
 
 /datum/reagent/medicine/changelinghaste
 	name = "Стимулятор Генокрада"
+	enname = "Changeling Haste"
 	description = "Drastically increases movement speed, but deals toxin damage."
 	color = "#AE151D"
 	metabolization_rate = 1
@@ -1111,6 +1153,7 @@
 
 /datum/reagent/medicine/higadrite
 	name = "Хигадрит"
+	enname = "Higadrite"
 	description = "A medication utilized to treat ailing livers."
 	color = "#FF3542"
 	self_consuming = TRUE
@@ -1126,6 +1169,7 @@
 
 /datum/reagent/medicine/cordiolis_hepatico
 	name = "Печеночный Кориолис"
+	enname = "Cordiolis Hepatico"
 	description = "A strange, pitch-black reagent that seems to absorb all light. Effects unknown."
 	color = "#000000"
 	self_consuming = TRUE
@@ -1143,6 +1187,7 @@
 
 /datum/reagent/medicine/muscle_stimulant
 	name = "Мышечный Стимулятор"
+	enname = "Muscle Stimulant"
 	description = "A potent chemical that allows someone under its influence to be at full physical ability even when under massive amounts of pain."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -1156,6 +1201,7 @@
 
 /datum/reagent/medicine/modafinil
 	name = "Модафинил"
+	enname = "Modafinil"
 	description = "Long-lasting sleep suppressant that very slightly reduces stun and knockdown times. Overdosing has horrendous side effects and deals lethal oxygen damage, will knock you unconscious if not dealt with."
 	reagent_state = LIQUID
 	color = "#BEF7D8" // palish blue white
@@ -1221,7 +1267,8 @@
 	return TRUE
 
 /datum/reagent/medicine/psicodine
-	name = "Псицодин"
+	name = "Псикодин"
+	enname = "Psicodine"
 	description = "Suppresses anxiety and other various forms of mental distress. Overdose causes hallucinations and minor toxin damage."
 	reagent_state = LIQUID
 	color = "#07E79E"
@@ -1257,6 +1304,7 @@
 
 /datum/reagent/medicine/metafactor
 	name = "Фактор Метобализма Митогенов"
+	enname = "Mitogen Metabolism Factor"
 	description = "This enzyme catalyzes the conversion of nutricious food into healing peptides."
 	metabolization_rate = 0.0625  * REAGENTS_METABOLISM //slow metabolism rate so the patient can self heal with food even after the troph has metabolized away for amazing reagent efficency.
 	reagent_state = SOLID
@@ -1276,6 +1324,7 @@
 
 /datum/reagent/medicine/silibinin
 	name = "Силбинин"
+	enname = "Silibinin"
 	description = "A thistle derrived hepatoprotective flavolignan mixture that help reverse damage to the liver."
 	reagent_state = SOLID
 	color = "#FFFFD0"
@@ -1289,6 +1338,7 @@
 
 /datum/reagent/medicine/polypyr  //This is intended to be an ingredient in advanced chems.
 	name = "Полипирилиевые олигомеры"
+	enname = "Polypyrylium Oligomers"
 	description = "A purple mixture of short polyelectrolyte chains not easily synthesized in the laboratory. It is valued as an intermediate in the synthesis of the cutting edge pharmaceuticals."
 	reagent_state = SOLID
 	color = "#9423FF"
@@ -1318,6 +1368,7 @@
 
 /datum/reagent/medicine/granibitaluri
 	name = "Гранибитарал" //achieve "GRANular" amounts of C2
+	enname = "Granibitaluri"
 	description = "A mild painkiller useful as an additive alongside more potent medicines. Speeds up the healing of small wounds and burns, but is ineffective at treating severe injuries. Extremely large doses are toxic, and may eventually cause liver failure."
 	color = "#E0E0E0"
 	reagent_state = LIQUID
@@ -1340,6 +1391,7 @@
 
 /datum/reagent/medicine/badstims  //These are bad for combat on purpose. Used in adrenal implant.
 	name = "Экспериментальные Стимуляторы"
+	enname = "bad stimulant"
 	description = "Experimental Stimulants designed to get you away from trouble."
 	reagent_state = LIQUID
 	color = "#F5F5F5"
@@ -1373,6 +1425,7 @@
 // helps bleeding wounds clot faster
 /datum/reagent/medicine/coagulant
 	name = "Сангурит"
+	enname = "Sanguirite"
 	description = "A proprietary coagulant used to help bleeding wounds clot faster."
 	reagent_state = LIQUID
 	color = "#bb2424"
@@ -1455,6 +1508,7 @@
 // i googled "natural coagulant" and a couple of results came up for banana peels, so after precisely 30 more seconds of research, i now dub grinding banana peels good for your blood
 /datum/reagent/medicine/coagulant/banana_peel
 	name = "Очищенная Банановая Кожура"
+	enname = "Pulped Banana Peel"
 	description = "Ancient Clown Lore says that pulped banana peels are good for your blood, but are you really going to take medical advice from a clown about bananas?"
 	color = "#50531a" // rgb: 175, 175, 0
 	taste_description = "horribly stringy, bitter pulp"

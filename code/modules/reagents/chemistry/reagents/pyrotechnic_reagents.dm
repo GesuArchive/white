@@ -1,6 +1,7 @@
 
 /datum/reagent/thermite
 	name = "Термит"
+	enname = "Thermite"
 	description = "Thermite produces an aluminothermic reaction known as a thermite reaction. Can be used to melt walls."
 	reagent_state = SOLID
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -19,6 +20,7 @@
 
 /datum/reagent/nitroglycerin
 	name = "Нитроглицерин"
+	enname = "Nitroglycerin"
 	description = "Nitroglycerin is a heavy, colorless, oily, explosive liquid obtained by nitrating glycerol."
 	color = "#808080" // rgb: 128, 128, 128
 	taste_description = "масло"
@@ -26,6 +28,7 @@
 
 /datum/reagent/stabilizing_agent
 	name = "Стабилизирующее Вещество"
+	enname = "Stabilizing Agent"
 	description = "Keeps unstable chemicals stable. This does not work on everything."
 	reagent_state = LIQUID
 	color = "#FFFF00"
@@ -40,6 +43,7 @@
 
 /datum/reagent/clf3
 	name = "Трифторид Хлора"
+	enname = "Chlorine Trifluoride"
 	description = "Makes a temporary 3x3 fireball when it comes into existence, so be careful when mixing. ClF3 applied to a surface burns things that wouldn't otherwise burn, sometimes through the very floors of the station and exposing it to the vacuum of space."
 	reagent_state = LIQUID
 	color = "#FFC8C8"
@@ -81,6 +85,7 @@
 
 /datum/reagent/sorium
 	name = "Сориум"
+	enname = "Sorium"
 	description = "Sends everything flying from the detonation point."
 	reagent_state = LIQUID
 	color = "#5A64C8"
@@ -89,6 +94,7 @@
 
 /datum/reagent/liquid_dark_matter
 	name = "Жидкая Тёмная Материя"
+	enname = "Liquid Dark Matter"
 	description = "Sucks everything into the detonation point."
 	reagent_state = LIQUID
 	color = "#210021"
@@ -97,6 +103,7 @@
 
 /datum/reagent/gunpowder
 	name = "Оружейный Порох"
+	enname = "Gunpowder"
 	description = "Explodes. Violently."
 	reagent_state = LIQUID
 	color = "#000000"
@@ -122,6 +129,7 @@
 
 /datum/reagent/rdx
 	name = "Гексоген"
+	enname = "RDX"
 	description = "Military grade explosive"
 	reagent_state = SOLID
 	color = "#FFFFFF"
@@ -130,6 +138,7 @@
 
 /datum/reagent/tatp
 	name = "TaTP"
+	enname = "TaTP"
 	description = "Suicide grade explosive"
 	reagent_state = SOLID
 	color = "#FFFFFF"
@@ -138,6 +147,7 @@
 
 /datum/reagent/flash_powder
 	name = "Светошумовой Порох"
+	enname = "Flash Powder"
 	description = "Makes a very bright flash."
 	reagent_state = LIQUID
 	color = "#C8C8C8"
@@ -146,6 +156,7 @@
 
 /datum/reagent/smoke_powder
 	name = "Дымный Порох"
+	enname = "Smoke Powder"
 	description = "Makes a large cloud of smoke that can carry reagents."
 	reagent_state = LIQUID
 	color = "#C8C8C8"
@@ -154,6 +165,7 @@
 
 /datum/reagent/sonic_powder
 	name = "Звуковой Порох"
+	enname = "Sonic Powder"
 	description = "Makes a deafening noise."
 	reagent_state = LIQUID
 	color = "#C8C8C8"
@@ -162,6 +174,7 @@
 
 /datum/reagent/phlogiston
 	name = "Флогистон"
+	enname = "Phlogiston"
 	description = "Catches you on fire and makes you ignite."
 	reagent_state = LIQUID
 	color = "#FA00AF"
@@ -185,6 +198,7 @@
 
 /datum/reagent/napalm
 	name = "Напалм"
+	enname = "Napalm"
 	description = "Very flammable."
 	reagent_state = LIQUID
 	color = "#FA00AF"
@@ -216,6 +230,7 @@
 
 /datum/reagent/cryostylane
 	name = "Криостилан"
+	enname = "Cryostylane"
 	description = "Induces a cryostasis like state in a patient's organs, preventing them from decaying while dead. Slows down surgery while in a patient however. When reacted with oxygen, it will slowly consume it and reduce a container's temperature to 0K. Also damages slime simplemobs when 5u is sprayed."
 	color = "#0000DC"
 	ph = 8.6
@@ -273,6 +288,7 @@
 
 /datum/reagent/pyrosium
 	name = "Пирозий"
+	enname = "Pyrosium"
 	description = "Comes into existence at 20K. As long as there is sufficient oxygen for it to react with, Pyrosium slowly heats all other reagents in the container."
 	color = "#64FAC8"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
@@ -299,6 +315,7 @@
 
 /datum/reagent/teslium //Teslium. Causes periodic shocks, and makes shocks against the target much more effective.
 	name = "Теслий"
+	enname = "Teslium"
 	description = "An unstable, electrically-charged metallic slurry. Periodically electrocutes its victim, and makes electrocutions against them more deadly. Excessively heating teslium results in dangerous destabilization. Do not allow to come into contact with water."
 	reagent_state = LIQUID
 	color = "#20324D" //RGB: 32, 50, 77
@@ -330,6 +347,7 @@
 
 /datum/reagent/teslium/energized_jelly
 	name = "Заряженный Желатин"
+	enname = "Energized Jelly"
 	description = "Electrically-charged jelly. Boosts jellypeople's nervous system, but only shocks other lifeforms."
 	reagent_state = LIQUID
 	color = "#CAFF43"
@@ -349,6 +367,7 @@
 
 /datum/reagent/firefighting_foam
 	name = "Пена для Пожаротушения"
+	enname = "Firefighting Foam"
 	description = "A historical fire suppressant. Originally believed to simply displace oxygen to starve fires, it actually interferes with the combustion reaction itself. Vastly superior to the cheap water-based extinguishers found on NT vessels."
 	reagent_state = LIQUID
 	color = "#A6FAFF55"

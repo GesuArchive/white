@@ -11,6 +11,7 @@
 */
 /datum/reagent/eigenstate
 	name = "Eigenstasium"
+	enname = "Eigenstasium"
 	description = "A strange mixture formed from a controlled reaction of bluespace with plasma, that causes localised eigenstate fluxuations within the patient"
 	taste_description = "wiggly cosmic dust."
 	color = "#5020F4"

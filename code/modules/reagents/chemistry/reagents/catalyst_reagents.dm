@@ -1,6 +1,7 @@
 ///These alter reaction conditions while they're in the beaker
 /datum/reagent/catalyst_agent
 	name ="Catalyst agent"
+	enname ="Catalyst agent"
 	///The typepath of the reagent they that they affect
 	var/target_reagent_type
 	///The minimumvolume required in the beaker for them to have an effect
@@ -16,6 +17,7 @@
 
 /datum/reagent/catalyst_agent/speed
 	name ="Speed catalyst agent"
+	enname ="Speed catalyst agent"
 
 /datum/reagent/catalyst_agent/speed/consider_catalyst(datum/equilibrium/equilibrium)
 	. = ..()
@@ -25,6 +27,7 @@
 
 /datum/reagent/catalyst_agent/ph
 	name ="pH catalyst agent"
+	enname ="pH catalyst agent"
 
 /datum/reagent/catalyst_agent/ph/consider_catalyst(datum/equilibrium/equilibrium)
 	. = ..()
@@ -33,6 +36,7 @@
 
 /datum/reagent/catalyst_agent/temperature
 	name = "Temperature catalyst agent"
+	enname = "Temperature catalyst agent"
 
 /datum/reagent/catalyst_agent/temperature/consider_catalyst(datum/equilibrium/equilibrium)
 	. = ..()
@@ -42,6 +46,7 @@
 ///These affect medicines
 /datum/reagent/catalyst_agent/speed/medicine
 	name = "Palladium synthate catalyst"
+	enname = "Palladium synthate catalyst"
 	description = "This catalyst reagent will speed up all medicine reactions that it shares a beaker with by a dramatic amount."
 	target_reagent_type = /datum/reagent/medicine
 	modifier = 2

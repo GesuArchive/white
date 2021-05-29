@@ -1,6 +1,7 @@
 /datum/reagent/blood
 	data = list("donor"=null,"viruses"=null,"blood_DNA"=null,"blood_type"=null,"resistances"=null,"trace_chem"=null,"mind"=null,"ckey"=null,"gender"=null,"real_name"=null,"cloneable"=null,"factions"=null,"quirks"=null)
 	name = "Кровь"
+	enname = "Blood"
 	color = "#C80000" // rgb: 200, 0, 0
 	metabolization_rate = 5 //fast rate so it disappears fast.
 	taste_description = "железо"
@@ -97,6 +98,7 @@
 
 /datum/reagent/liquidgibs
 	name = "Жидкие Внутренности"
+	enname = "Liquid gibs"
 	color = "#CC4633"
 	description = "You don't even want to think about what's in here."
 	taste_description = "жирное железо"
@@ -107,6 +109,7 @@
 
 /datum/reagent/bone_dust
 	name = "bone dust"
+	enname = "bone dust"
 	color = "#dbcdcb"
 	description = "Ground up bones, gross!"
 	taste_description = "the most disgusting grain in existence"
@@ -114,6 +117,7 @@
 /datum/reagent/vaccine
 	//data must contain virus type
 	name = "Вакцина"
+	enname = "Vaccine"
 	color = "#C81040" // rgb: 200, 16, 64
 	taste_description = "слайм"
 	penetrates_skin = NONE
@@ -147,6 +151,7 @@
 
 /datum/reagent/water
 	name = "Вода"
+	enname = "Water"
 	description = "An ubiquitous chemical substance that is composed of hydrogen and oxygen."
 	color = "#AAAAAA77" // rgb: 170, 170, 170, 77 (alpha)
 	taste_description = "вода"
@@ -227,6 +232,7 @@
 
 /datum/reagent/water/holywater
 	name = "Святая Вода"
+	enname = "Holy Water"
 	description = "Water blessed by some deity."
 	special_sound = 'white/valtos/sounds/drink/hallelujah.ogg'
 	color = "#E0E8EF" // rgb: 224, 232, 239
@@ -321,6 +327,7 @@
 
 /datum/reagent/water/hollowwater
 	name = "Полая Вода"
+	enname = "Hollow Water"
 	description = "An ubiquitous chemical substance that is composed of hydrogen and oxygen, but it looks kinda hollow."
 	color = "#88878777"
 	taste_description = "пустота"
@@ -328,6 +335,7 @@
 
 /datum/reagent/hydrogen_peroxide
 	name = "Перекись Водорода"
+	enname = "Hydrogen peroxide"
 	description = "An ubiquitous chemical substance that is composed of hydrogen and oxygen and oxygen." //intended intended
 	color = "#AAAAAA77" // rgb: 170, 170, 170, 77 (alpha)
 	taste_description = "горящая вода"
@@ -360,6 +368,7 @@
 
 /datum/reagent/fuel/unholywater		//if you somehow managed to extract this from someone, dont splash it on yourself and have a smoke
 	name = "Нечистивая Вода"
+	enname = "Unholy Water"
 	description = "Something that shouldn't exist on this plane of existence."
 	taste_description = "страдания"
 	metabolization_rate = 2.5 * REAGENTS_METABOLISM  //1u/tick
@@ -388,6 +397,7 @@
 
 /datum/reagent/hellwater			//if someone has this in their system they've really pissed off an eldrich god
 	name = "Адская Вода"
+	enname = "Hell Water"
 	description = "YOUR FLESH! IT BURNS!"
 	taste_description = "сжигание"
 	ph = 0.1
@@ -403,6 +413,7 @@
 
 /datum/reagent/medicine/omnizine/godblood
 	name = "Кровь Бога"
+	enname = "Godblood"
 	description = "Slowly heals all damage types. Has a rather high overdose threshold. Glows with mysterious power."
 	overdose_threshold = 150
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -410,6 +421,7 @@
 ///Used for clownery
 /datum/reagent/lube
 	name = "Космическая Смазка"
+	enname = "Space Lube"
 	description = "Lubricant is a substance introduced between two moving surfaces to reduce the friction and wear between them. giggity."
 	color = "#009CA8" // rgb: 0, 156, 168
 	taste_description = "вишня" // by popular demand
@@ -426,12 +438,14 @@
 ///Stronger kind of lube. Applies TURF_WET_SUPERLUBE.
 /datum/reagent/lube/superlube
 	name = "Супер-Дупер Смазка"
+	enname = "Super Duper Lube"
 	description = "This \[REDACTED\] has been outlawed after the incident on \[DATA EXPUNGED\]."
 	lube_kind = TURF_WET_SUPERLUBE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/spraytan
 	name = "Спрей для Загара"
+	enname = "Spray Tan"
 	description = "A substance applied to the skin to darken the skin."
 	color = "#FFC080" // rgb: 255, 196, 128  Bright orange
 	metabolization_rate = 10 * REAGENTS_METABOLISM // very fast, so it can be applied rapidly.  But this changes on an overdose
@@ -535,6 +549,7 @@
 
 /datum/reagent/mutationtoxin
 	name = "Токсин Стабильной Мутации"
+	enname = "Stable Mutation Toxin"
 	description = "A humanizing toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	metabolization_rate = 0.2 //metabolizes to prevent micro-dosage
@@ -579,6 +594,7 @@
 
 /datum/reagent/mutationtoxin/classic //The one from plasma on green slimes
 	name = "Токсин Мутации"
+	enname = "Mutation Toxin"
 	description = "A corruptive toxin."
 	color = "#13BC5E" // rgb: 19, 188, 94
 	race = /datum/species/jelly/slime
@@ -586,6 +602,7 @@
 
 /datum/reagent/mutationtoxin/felinid
 	name = "Токсин Мутации в Фелинида"
+	enname = "Felinid Mutation Toxin"
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/human/felinid
 	taste_description = "что-то мяукающее"
@@ -593,6 +610,7 @@
 
 /datum/reagent/mutationtoxin/lizard
 	name = "Токсин Мутации в Ящера"
+	enname = "Lizard Mutation Toxin"
 	description = "A lizarding toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/lizard
@@ -601,6 +619,7 @@
 
 /datum/reagent/mutationtoxin/fly
 	name = "Токсин Мутации в Муху"
+	enname = "Fly Mutation Toxin"
 	description = "An insectifying toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/fly
@@ -609,6 +628,7 @@
 
 /datum/reagent/mutationtoxin/moth
 	name = "Токсин Мутации в Мотылька"
+	enname = "Moth Mutation Toxin"
 	description = "A glowing toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/moth
@@ -617,6 +637,7 @@
 
 /datum/reagent/mutationtoxin/pod
 	name = "Токсин Мутации в Дендроида"
+	enname = "Podperson Mutation Toxin"
 	description = "A vegetalizing toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/pod
@@ -625,6 +646,7 @@
 
 /datum/reagent/mutationtoxin/jelly
 	name = "Дефектный Токсин Мутации"
+	enname = "Imperfect Mutation Toxin"
 	description = "A jellyfying toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/jelly
@@ -648,6 +670,7 @@
 
 /datum/reagent/mutationtoxin/golem
 	name = "Токсин Мутации в Голема"
+	enname = "Golem Mutation Toxin"
 	description = "A crystal toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/golem/random
@@ -656,6 +679,7 @@
 
 /datum/reagent/mutationtoxin/abductor
 	name = "Токсин Мутации в Похитителя"
+	enname = "Abductor Mutation Toxin"
 	description = "An alien toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/abductor
@@ -664,6 +688,7 @@
 
 /datum/reagent/mutationtoxin/android
 	name = "Токсин Мутации в Андроида"
+	enname = "Android Mutation Toxin"
 	description = "A robotic toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/android
@@ -673,6 +698,7 @@
 //BLACKLISTED RACES
 /datum/reagent/mutationtoxin/skeleton
 	name = "Токсин Мутации в Скелета"
+	enname = "Skeleton Mutation Toxin"
 	description = "A scary toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/skeleton
@@ -681,6 +707,7 @@
 
 /datum/reagent/mutationtoxin/zombie
 	name = "Токсин Мутации в Зомби"
+	enname = "Zombie Mutation Toxin"
 	description = "An undead toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/zombie //Not the infectious kind. The days of xenobio zombie outbreaks are long past.
@@ -689,6 +716,7 @@
 
 /datum/reagent/mutationtoxin/ash
 	name = "Токсин Мутации в Пепельника"
+	enname = "Ash Mutation Toxin"
 	description = "An ashen toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/lizard/ashwalker
@@ -698,6 +726,7 @@
 //DANGEROUS RACES
 /datum/reagent/mutationtoxin/shadow
 	name = "Токсин Мутации в Тень"
+	enname = "Shadow Mutation Toxin"
 	description = "A dark toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/shadow
@@ -706,6 +735,7 @@
 
 /datum/reagent/mutationtoxin/plasma
 	name = "Токсин Мутации в Плазмалюда"
+	enname = "Plasma Mutation Toxin"
 	description = "A plasma-based toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/plasmaman
@@ -718,6 +748,7 @@
 
 /datum/reagent/mulligan
 	name = "Токсин Муллигана"
+	enname = "Mulligan Toxin"
 	description = "This toxin will rapidly change the DNA of human beings. Commonly used by Syndicate spies and assassins in need of an emergency ID change."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	metabolization_rate = INFINITY
@@ -734,6 +765,7 @@
 
 /datum/reagent/aslimetoxin
 	name = "Токсин Расширенной Мутации"
+	enname = "Advanced Mutation Toxin"
 	description = "An advanced corruptive toxin produced by slimes."
 	color = "#13BC5E" // rgb: 19, 188, 94
 	taste_description = "слайм"
@@ -747,6 +779,7 @@
 
 /datum/reagent/gluttonytoxin
 	name = "Благословение Обжорства"
+	enname = "Gluttony's Blessing"
 	description = "An advanced corruptive toxin produced by something terrible."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	taste_description = "распад"
@@ -758,6 +791,7 @@
 
 /datum/reagent/apostletoxin
 	name = "Вознесение"
+	enname = "Apostle Mutation Toxin"
 	description = "Как такие вещи попадают на космические станции?"
 	color = "#fcf807"
 	taste_description = "смех"
@@ -769,6 +803,7 @@
 
 /datum/reagent/serotrotium
 	name = "Серотроций"
+	enname = "Serotrotium"
 	description = "A chemical compound that promotes concentrated production of the serotonin neurotransmitter in humans."
 	color = "#202040" // rgb: 20, 20, 40
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
@@ -784,6 +819,7 @@
 
 /datum/reagent/oxygen
 	name = "Кислород"
+	enname = "Oxygen"
 	description = "A colorless, odorless gas. Grows on trees but is still pretty valuable."
 	reagent_state = GAS
 	color = "#808080" // rgb: 128, 128, 128
@@ -801,6 +837,7 @@
 
 /datum/reagent/copper
 	name = "Медь"
+	enname = "Copper"
 	description = "A highly ductile metal. Things made out of copper aren't very durable, but it makes a decent material for electrical wiring."
 	reagent_state = SOLID
 	color = "#6E3B08" // rgb: 110, 59, 8
@@ -820,6 +857,7 @@
 
 /datum/reagent/nitrogen
 	name = "Азот"
+	enname = "Nitrogen"
 	description = "A colorless, odorless, tasteless gas. A simple asphyxiant that can silently displace vital oxygen."
 	reagent_state = GAS
 	color = "#808080" // rgb: 128, 128, 128
@@ -834,6 +872,7 @@
 
 /datum/reagent/hydrogen
 	name = "Водород"
+	enname = "Hydrogen"
 	description = "A colorless, odorless, nonmetallic, tasteless, highly combustible diatomic gas."
 	reagent_state = GAS
 	color = "#808080" // rgb: 128, 128, 128
@@ -843,6 +882,7 @@
 
 /datum/reagent/potassium
 	name = "Калий"
+	enname = "Potassium"
 	description = "A soft, low-melting solid that can easily be cut with a knife. Reacts violently with water."
 	reagent_state = SOLID
 	color = "#A0A0A0" // rgb: 160, 160, 160
@@ -851,6 +891,7 @@
 
 /datum/reagent/mercury
 	name = "Ртуть"
+	enname = "Mercury"
 	description = "A curious metal that's a liquid at room temperature. Neurodegenerative and very bad for the mind."
 	color = "#484848" // rgb: 72, 72, 72A
 	taste_mult = 0 // apparently tasteless.
@@ -866,6 +907,7 @@
 
 /datum/reagent/sulfur
 	name = "Сера"
+	enname = "Sulfur"
 	description = "A sickly yellow solid mostly known for its nasty smell. It's actually much more helpful than it looks in biochemisty."
 	reagent_state = SOLID
 	color = "#BF8C00" // rgb: 191, 140, 0
@@ -875,6 +917,7 @@
 
 /datum/reagent/carbon
 	name = "Углерод"
+	enname = "Carbon"
 	description = "A crumbly black solid that, while unexciting on a physical level, forms the base of all known life. Kind of a big deal."
 	reagent_state = SOLID
 	color = "#1C1300" // rgb: 30, 20, 0
@@ -893,6 +936,7 @@
 
 /datum/reagent/chlorine
 	name = "Хлор"
+	enname = "Chlorine"
 	description = "A pale yellow gas that's well known as an oxidizer. While it forms many harmless molecules in its elemental form it is far from harmless."
 	reagent_state = GAS
 	color = "#FFFB89" //pale yellow? let's make it light gray
@@ -919,6 +963,7 @@
 
 /datum/reagent/fluorine
 	name = "Фтор"
+	enname = "Fluorine"
 	description = "A comically-reactive chemical element. The universe does not want this stuff to exist in this form in the slightest."
 	reagent_state = GAS
 	color = "#808080" // rgb: 128, 128, 128
@@ -942,6 +987,7 @@
 
 /datum/reagent/sodium
 	name = "Натрий"
+	enname = "Sodium"
 	description = "A soft silver metal that can easily be cut with a knife. It's not salt just yet, so refrain from putting it on your chips."
 	reagent_state = SOLID
 	color = "#808080" // rgb: 128, 128, 128
@@ -951,6 +997,7 @@
 
 /datum/reagent/phosphorus
 	name = "Фосфор"
+	enname = "Phosphorus"
 	description = "A ruddy red powder that burns readily. Though it comes in many colors, the general theme is always the same."
 	reagent_state = SOLID
 	color = "#832828" // rgb: 131, 40, 40
@@ -968,6 +1015,7 @@
 
 /datum/reagent/lithium
 	name = "Литий"
+	enname = "Lithium"
 	description = "A silver metal, its claim to fame is its remarkably low density. Using it is a bit too effective in calming oneself down."
 	reagent_state = SOLID
 	color = "#808080" // rgb: 128, 128, 128
@@ -984,6 +1032,7 @@
 
 /datum/reagent/glycerol
 	name = "Глицерин"
+	enname = "Glycerol"
 	description = "Glycerol is a simple polyol compound. Glycerol is sweet-tasting and of low toxicity."
 	color = "#D3B913"
 	taste_description = "сладость"
@@ -992,6 +1041,7 @@
 
 /datum/reagent/space_cleaner/sterilizine
 	name = "Антисептик"
+	enname = "Sterilizine"
 	description = "Sterilizes wounds in preparation for surgery."
 	color = "#D0EFEE" // space cleaner but lighter
 	taste_description = "горечь"
@@ -1009,6 +1059,7 @@
 
 /datum/reagent/iron
 	name = "Железо"
+	enname = "Iron"
 	description = "Pure iron is a metal."
 	reagent_state = SOLID
 	taste_description = "железо"
@@ -1024,6 +1075,7 @@
 
 /datum/reagent/gold
 	name = "Золото"
+	enname = "Gold"
 	description = "Gold is a dense, soft, shiny metal and the most malleable and ductile metal known."
 	reagent_state = SOLID
 	color = "#F7C430" // rgb: 247, 196, 48
@@ -1033,6 +1085,7 @@
 
 /datum/reagent/silver
 	name = "Серебро"
+	enname = "Silver"
 	description = "A soft, white, lustrous transition metal, it has the highest electrical conductivity of any element and the highest thermal conductivity of any metal."
 	reagent_state = SOLID
 	color = "#D0D0D0" // rgb: 208, 208, 208
@@ -1042,6 +1095,7 @@
 
 /datum/reagent/uranium
 	name ="Uranium"
+	enname ="Uranium"
 	description = "A jade-green metallic chemical element in the actinide series, weakly radioactive."
 	reagent_state = SOLID
 	color = "#5E9964" //this used to be silver, but liquid uranium can still be green and it's more easily noticeable as uranium like this so why bother?
@@ -1076,6 +1130,7 @@
 
 /datum/reagent/uranium/radium
 	name = "Радий"
+	enname = "Radium"
 	description = "Radium is an alkaline earth metal. It is extremely radioactive."
 	reagent_state = SOLID
 	color = "#00CC00" // ditto
@@ -1093,6 +1148,7 @@
 
 /datum/reagent/bluespace
 	name = "Bluespace Пыль"
+	enname = "Bluespace Dust"
 	description = "A dust composed of microscopic bluespace crystals, with minor space-warping properties."
 	reagent_state = SOLID
 	color = "#0000CC"
@@ -1119,6 +1175,7 @@
 
 /datum/reagent/aluminium
 	name = "Алюминий"
+	enname = "Aluminium"
 	description = "A silvery white and ductile member of the boron group of chemical elements."
 	reagent_state = SOLID
 	color = "#A8A8A8" // rgb: 168, 168, 168
@@ -1127,6 +1184,7 @@
 
 /datum/reagent/silicon
 	name = "Кремний"
+	enname = "Silicon"
 	description = "A tetravalent metalloid, silicon is less reactive than its chemical analog carbon."
 	reagent_state = SOLID
 	color = "#A8A8A8" // rgb: 168, 168, 168
@@ -1137,6 +1195,7 @@
 
 /datum/reagent/fuel
 	name = "Сварочное топливо"
+	enname = "Welding fuel"
 	description = "Required for welders. Flammable."
 	color = "#660000" // rgb: 102, 0, 0
 	taste_description = "валовой металл"
@@ -1162,6 +1221,7 @@
 
 /datum/reagent/space_cleaner
 	name = "Космочист"
+	enname = "Space cleaner"
 	description = "A compound used to clean things. Now with 50% more sodium hypochlorite!"
 	color = "#A5F0EE" // rgb: 165, 240, 238
 	taste_description = "кислотность"
@@ -1199,6 +1259,7 @@
 
 /datum/reagent/space_cleaner/ez_clean
 	name = "Очиститель «EZ»"
+	enname = "EZ Clean"
 	description = "A powerful, acidic cleaner sold by Waffle Co. Affects organic matter while leaving other objects unaffected."
 	metabolization_rate = 1.5 * REAGENTS_METABOLISM
 	taste_description = "кислота"
@@ -1220,6 +1281,7 @@
 
 /datum/reagent/cryptobiolin
 	name = "Криптобиолин"
+	enname = "Cryptobiolin"
 	description = "Cryptobiolin causes confusion and dizziness."
 	color = "#ADB5DB" //i hate default violets and 'crypto' keeps making me think of cryo so it's light blue now
 	metabolization_rate = 1.5 * REAGENTS_METABOLISM
@@ -1234,6 +1296,7 @@
 
 /datum/reagent/impedrezene
 	name = "Импедрезин"
+	enname = "Impedrezene"
 	description = "Impedrezene is a narcotic that impedes one's ability by slowing down the higher brain cell functions."
 	color = "#E07DDD" // pink = happy = dumb
 	taste_description = "онемение"
@@ -1253,6 +1316,7 @@
 
 /datum/reagent/nanomachines
 	name = "Наномашины"
+	enname = "Nanomachines"
 	description = "Microscopic construction robots."
 	color = "#535E66" // rgb: 83, 94, 102
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -1266,6 +1330,7 @@
 
 /datum/reagent/xenomicrobes
 	name = "Ксеномикробы"
+	enname = "Xenomicrobes"
 	description = "Microbes with an entirely alien cellular structure."
 	color = "#535E66" // rgb: 83, 94, 102
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -1279,6 +1344,7 @@
 
 /datum/reagent/fungalspores
 	name = "Микробы Tubercle bacillus Cosmosis"
+	enname = "Tubercle bacillus Cosmosis microbes"
 	description = "Active fungal spores."
 	color = "#92D17D" // rgb: 146, 209, 125
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -1293,6 +1359,7 @@
 
 /datum/reagent/snail
 	name = "Агент-С"
+	enname = "Agent-S"
 	description = "Virological agent that infects the subject with Gastrolosis."
 	color = "#003300" // rgb(0, 51, 0)
 	taste_description = "жижа"
@@ -1306,6 +1373,7 @@
 
 /datum/reagent/fluorosurfactant//foam precursor
 	name = "Фторовая Пена"
+	enname = "Fluorosurfactant"
 	description = "A perfluoronated sulfonic acid that forms a foam when mixed with water."
 	color = "#9E6B38" // rgb: 158, 107, 56
 	taste_description = "металл"
@@ -1314,6 +1382,7 @@
 
 /datum/reagent/foaming_agent// Metal foaming agent. This is lithium hydride. Add other recipes (e.g. LiH + H2O -> LiOH + H2) eventually.
 	name = "Пенный реагент"
+	enname = "Foaming agent"
 	description = "An agent that yields metallic foam when mixed with light metal and a strong acid."
 	reagent_state = SOLID
 	color = "#664B63" // rgb: 102, 75, 99
@@ -1323,6 +1392,7 @@
 
 /datum/reagent/smart_foaming_agent //Smart foaming agent. Functions similarly to metal foam, but conforms to walls.
 	name = "Реагент умной пены"
+	enname = "Smart foaming agent"
 	description = "An agent that yields metallic foam which conforms to area boundaries when mixed with light metal and a strong acid."
 	reagent_state = SOLID
 	color = "#664B63" // rgb: 102, 75, 99
@@ -1332,6 +1402,7 @@
 
 /datum/reagent/ammonia
 	name = "Аммиак"
+	enname = "Ammonia"
 	description = "A caustic substance commonly used in fertilizer or household cleaners."
 	reagent_state = GAS
 	color = "#404030" // rgb: 64, 64, 48
@@ -1350,6 +1421,7 @@
 
 /datum/reagent/diethylamine
 	name = "Диэтиламин"
+	enname = "Diethylamine"
 	description = "A secondary amine, mildly corrosive."
 	color = "#604030" // rgb: 96, 64, 48
 	taste_description = "железо"
@@ -1368,6 +1440,7 @@
 
 /datum/reagent/carbondioxide
 	name = "Диоксид Углерода"
+	enname = "Carbon Dioxide"
 	reagent_state = GAS
 	description = "A gas commonly produced by burning carbon fuels. You're constantly producing this in your lungs."
 	color = "#B0B0B0" // rgb : 192, 192, 192
@@ -1383,6 +1456,7 @@
 
 /datum/reagent/nitrous_oxide
 	name = "Оксид Азота"
+	enname = "Nitrous Oxide"
 	description = "A potent oxidizer used as fuel in rockets and as an anaesthetic during surgery."
 	reagent_state = LIQUID
 	metabolization_rate = 1.5 * REAGENTS_METABOLISM
@@ -1414,6 +1488,7 @@
 
 /datum/reagent/stimulum
 	name = "Stimulum"
+	enname = "Stimulum"
 	description = "An unstable experimental gas that greatly increases the energy of those that inhale it, while dealing increasing toxin damage over time."
 	reagent_state = GAS
 	metabolization_rate = REAGENTS_METABOLISM * 0.5 // Because stimulum/nitryl/freon/hypernoblium are handled through gas breathing, metabolism must be lower for breathcode to keep up
@@ -1440,6 +1515,7 @@
 
 /datum/reagent/nitryl
 	name = "Нитрил"
+	enname = "Nitryl"
 	description = "A highly reactive gas that makes you feel faster."
 	reagent_state = GAS
 	metabolization_rate = REAGENTS_METABOLISM * 0.5 // Because stimulum/nitryl/freon/hypernoblium are handled through gas breathing, metabolism must be lower for breathcode to keep up
@@ -1458,6 +1534,7 @@
 
 /datum/reagent/freon
 	name = "Фреон"
+	enname = "Freon"
 	description = "A powerful heat absorbent."
 	reagent_state = GAS
 	metabolization_rate = REAGENTS_METABOLISM * 0.5 // Because stimulum/nitryl/freon/hypernoblium are handled through gas breathing, metabolism must be lower for breathcode to keep up
@@ -1475,6 +1552,7 @@
 
 /datum/reagent/hypernoblium
 	name = "Гипер-Ноблиум"
+	enname = "Hyper-Noblium"
 	description = "A suppressive gas that stops gas reactions on those who inhale it."
 	reagent_state = GAS
 	metabolization_rate = REAGENTS_METABOLISM * 0.5 // Because stimulum/nitryl/freon/hyper-nob are handled through gas breathing, metabolism must be lower for breathcode to keep up
@@ -1494,6 +1572,7 @@
 
 /datum/reagent/healium
 	name = "Хилиум"
+	enname = "Healium"
 	description = "A powerful sleeping agent with healing properties"
 	reagent_state = GAS
 	metabolization_rate = REAGENTS_METABOLISM * 0.5
@@ -1517,6 +1596,7 @@
 
 /datum/reagent/halon
 	name = "Халон"
+	enname = "Halon"
 	description = "A fire suppression gas that removes oxygen and cools down the area"
 	reagent_state = GAS
 	metabolization_rate = REAGENTS_METABOLISM * 0.5
@@ -1538,7 +1618,8 @@
 //For colouring in /proc/mix_color_from_reagents
 
 /datum/reagent/colorful_reagent/powder
-	name = "Земной порошок" //the name's a bit similar to the name of colorful reagent, but hey, they're practically the same chem anyway
+	name = "Ничем не примечательный порошок" //the name's a bit similar to the name of colorful reagent, but hey, they're practically the same chem anyway
+	enname = "Mundane Powder"
 	var/colorname = "none"
 	description = "A powder that is used for coloring things."
 	reagent_state = SOLID
@@ -1556,6 +1637,7 @@
 
 /datum/reagent/colorful_reagent/powder/red
 	name = "Красный Порошок"
+	enname = "Red Powder"
 	colorname = "red"
 	color = "#DA0000" // red
 	random_color_list = list("#FC7474")
@@ -1564,6 +1646,7 @@
 
 /datum/reagent/colorful_reagent/powder/orange
 	name = "Оранжевый Порошок"
+	enname = "Orange Powder"
 	colorname = "orange"
 	color = "#FF9300" // orange
 	random_color_list = list("#FF9300")
@@ -1571,6 +1654,7 @@
 
 /datum/reagent/colorful_reagent/powder/yellow
 	name = "Желтый Порошок"
+	enname = "Yellow Powder"
 	colorname = "yellow"
 	color = "#FFF200" // yellow
 	random_color_list = list("#FFF200")
@@ -1579,6 +1663,7 @@
 
 /datum/reagent/colorful_reagent/powder/green
 	name = "Зеленый Порошок"
+	enname = "Green Powder"
 	colorname = "green"
 	color = "#A8E61D" // green
 	random_color_list = list("#A8E61D")
@@ -1586,6 +1671,7 @@
 
 /datum/reagent/colorful_reagent/powder/blue
 	name = "Синий Порошок"
+	enname = "Blue Powder"
 	colorname = "blue"
 	color = "#00B7EF" // blue
 	random_color_list = list("#71CAE5")
@@ -1594,6 +1680,7 @@
 
 /datum/reagent/colorful_reagent/powder/purple
 	name = "Фиолетовый Порошок"
+	enname = "Purple Powder"
 	colorname = "purple"
 	color = "#DA00FF" // purple
 	random_color_list = list("#BD8FC4")
@@ -1602,6 +1689,7 @@
 
 /datum/reagent/colorful_reagent/powder/invisible
 	name = "Невидимый Порошок"
+	enname = "Invisible Powder"
 	colorname = "invisible"
 	color = "#FFFFFF00" // white + no alpha
 	random_color_list = list(null)	//because using the powder color turns things invisible
@@ -1609,6 +1697,7 @@
 
 /datum/reagent/colorful_reagent/powder/black
 	name = "Черный Порошок"
+	enname = "Black Powder"
 	colorname = "black"
 	color = "#1C1C1C" // not quite black
 	random_color_list = list("#8D8D8D")	//more grey than black, not enough to hide your true colors
@@ -1616,6 +1705,7 @@
 
 /datum/reagent/colorful_reagent/powder/white
 	name = "Белый Порошок"
+	enname = "White Powder"
 	colorname = "white"
 	color = "#FFFFFF" // white
 	random_color_list = list("#FFFFFF") //doesn't actually change appearance at all
@@ -1625,31 +1715,37 @@
 
 /datum/reagent/colorful_reagent/powder/red/crayon
 	name = "Красный Порошковый Мел"
+	enname = "Red Crayon Powder"
 	can_colour_mobs = FALSE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/orange/crayon
 	name = "Оранжевый Порошковый Мел"
+	enname = "Orange Crayon Powder"
 	can_colour_mobs = FALSE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/yellow/crayon
 	name = "Желтый Порошковый Мел"
+	enname = "Yellow Crayon Powder"
 	can_colour_mobs = FALSE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/green/crayon
 	name = "Зеленый Порошковый Мел"
+	enname = "Green Crayon Powder"
 	can_colour_mobs = FALSE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/blue/crayon
 	name = "Синий Порошковый Мел"
+	enname = "Blue Crayon Powder"
 	can_colour_mobs = FALSE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/purple/crayon
 	name = "Фиолетовый Порошковый Мел"
+	enname = "Purple Crayon Powder"
 	can_colour_mobs = FALSE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -1657,11 +1753,13 @@
 
 /datum/reagent/colorful_reagent/powder/black/crayon
 	name = "Черный Порошковый Мел"
+	enname = "Black Crayon Powder"
 	can_colour_mobs = FALSE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/colorful_reagent/powder/white/crayon
 	name = "Белый Порошковый Мел"
+	enname = "White Crayon Powder"
 	can_colour_mobs = FALSE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -1669,6 +1767,7 @@
 
 /datum/reagent/plantnutriment
 	name = "Generic nutriment"
+	enname = "Generic nutriment"
 	description = "Some kind of nutriment. You can't really tell what it is. You should probably report it, along with how you obtained it."
 	color = "#000000" // RBG: 0, 0, 0
 	var/tox_prob = 0
@@ -1683,6 +1782,7 @@
 
 /datum/reagent/plantnutriment/eznutriment
 	name = "E-Z-Nutrient"
+	enname = "E-Z-Nutrient"
 	description = "Contains electrolytes. It's what plants crave."
 	color = "#376400" // RBG: 50, 100, 0
 	tox_prob = 10
@@ -1697,6 +1797,7 @@
 
 /datum/reagent/plantnutriment/left4zednutriment
 	name = "Left 4 Zed"
+	enname = "Robust Harvest"
 	description = "Unstable nutriment that makes plants mutate more often than usual."
 	color = "#1A1E4D" // RBG: 26, 30, 77
 	tox_prob = 25
@@ -1710,6 +1811,7 @@
 
 /datum/reagent/plantnutriment/robustharvestnutriment
 	name = "Надежный Урожай"
+	enname = "Robust Harvest"
 	description = "Very potent nutriment that slows plants from mutating."
 	color = "#9D9D00" // RBG: 157, 157, 0
 	tox_prob = 15
@@ -1723,7 +1825,8 @@
 		myseed.adjust_yield(round(chems.get_reagent_amount(src.type) * 0.2))
 
 /datum/reagent/plantnutriment/endurogrow
-	name = "Рост на Скорость"
+	name = "Эндуро-рост" //я трахать столб дом твой
+	enname = "Enduro Grow"
 	description = "A specialized nutriment, which decreases product quantity and potency, but strengthens the plants endurance."
 	color = "#a06fa7" // RBG: 160, 111, 167
 	tox_prob = 15
@@ -1738,6 +1841,7 @@
 
 /datum/reagent/plantnutriment/liquidearthquake
 	name = "Жидкая Встряска"
+	enname = "Liquid Earthquake"
 	description = "A specialized nutriment, which increases the plant's production speed, as well as it's susceptibility to weeds."
 	color = "#912e00" // RBG: 145, 46, 0
 	tox_prob = 25
@@ -1756,6 +1860,7 @@
 
 /datum/reagent/fuel/oil
 	name = "Масло"
+	enname = "Oil"
 	description = "Burns in a small smoky fire, can be used to get Ash."
 	reagent_state = LIQUID
 	color = "#2D2D2D"
@@ -1767,6 +1872,7 @@
 
 /datum/reagent/stable_plasma
 	name = "Стабильная Плазма"
+	enname = "Stable Plasma"
 	description = "Non-flammable plasma locked into a liquid form that cannot ignite or become gaseous/solid."
 	reagent_state = LIQUID
 	color = "#2D2D2D"
@@ -1781,6 +1887,7 @@
 
 /datum/reagent/iodine
 	name = "Йод"
+	enname = "Iodine"
 	description = "Commonly added to table salt as a nutrient. On its own it tastes far less pleasing."
 	reagent_state = LIQUID
 	color = "#BC8A00"
@@ -1790,6 +1897,7 @@
 
 /datum/reagent/carpet
 	name = "Ковёр"
+	enname = "Carpet"
 	description = "For those that need a more creative way to roll out a red carpet."
 	reagent_state = LIQUID
 	color = "#771100"
@@ -1805,6 +1913,7 @@
 
 /datum/reagent/carpet/black
 	name = "Черный Ковёр"
+	enname = "Black Carpet"
 	description = "The carpet also comes in... BLAPCK" //yes, the typo is intentional
 	color = "#1E1E1E"
 	taste_description = "лакрица"
@@ -1821,6 +1930,7 @@
 
 /datum/reagent/carpet/cyan
 	name = "Голубой Ковёр"
+	enname = "Blue Carpet"
 	description = "For those that need a throwback to the years of using poison as a construction material. Smells like asbestos."
 	color = "#00B4FF"
 	taste_description = "асбест"
@@ -1829,6 +1939,7 @@
 
 /datum/reagent/carpet/green
 	name = "Зеленый Ковёр"
+	enname = "Green Carpet"
 	description = "For those that need the perfect flourish for green eggs and ham."
 	color = "#A8E61D"
 	taste_description = "зеленый ковёр" //the caps is intentional
@@ -1837,6 +1948,7 @@
 
 /datum/reagent/carpet/orange
 	name = "Оранжевый Ковёр"
+	enname = "Orange Carpet"
 	description = "For those that prefer a healthy carpet to go along with their healthy diet."
 	color = "#E78108"
 	taste_description = "апельсиновый сок"
@@ -1845,6 +1957,7 @@
 
 /datum/reagent/carpet/purple
 	name = "Фиолетовый Ковёр"
+	enname = "Purple Carpet"
 	description = "For those that need to waste copious amounts of healing jelly in order to look fancy."
 	color = "#91D865"
 	taste_description = "желе"
@@ -1853,6 +1966,7 @@
 
 /datum/reagent/carpet/red
 	name = "Красный Ковёр"
+	enname = "Red Carpet"
 	description = "For those that need an even redder carpet."
 	color = "#731008"
 	taste_description = "кровь и кишки"
@@ -1861,6 +1975,7 @@
 
 /datum/reagent/carpet/royal
 	name = "Королевский Ковёр?"
+	enname = "Royal Carpet?"
 	description = "For those that break the game and need to make an issue report."
 
 /datum/reagent/carpet/royal/on_mob_life(mob/living/carbon/M)
@@ -1881,6 +1996,7 @@
 
 /datum/reagent/carpet/royal/black
 	name = "Черный Королевский Ковёр"
+	enname = "Royal Black Carpet"
 	description = "For those that feel the need to show off their timewasting skills."
 	color = "#000000"
 	taste_description = "царственность"
@@ -1889,6 +2005,7 @@
 
 /datum/reagent/carpet/royal/blue
 	name = "Синий Королевский Ковёр"
+	enname = "Royal Blue Carpet"
 	description = "For those that feel the need to show off their timewasting skills.. in BLUE."
 	color = "#5A64C8"
 	taste_description = "голубая кровь" //also intentional
@@ -1897,6 +2014,7 @@
 
 /datum/reagent/bromine
 	name = "Бром"
+	enname = "Bromine"
 	description = "A brownish liquid that's highly reactive. Useful for stopping free radicals, but not intended for human consumption."
 	reagent_state = LIQUID
 	color = "#D35415"
@@ -1906,6 +2024,7 @@
 
 /datum/reagent/pentaerythritol
 	name = "Пентаэритхритол"
+	enname = "Pentaerythritol"
 	description = "Slow down, it ain't no spelling bee!"
 	reagent_state = SOLID
 	color = "#E66FFF"
@@ -1914,6 +2033,7 @@
 
 /datum/reagent/acetaldehyde
 	name = "Ацетальдегид"
+	enname = "Acetaldehyde"
 	description = "Similar to plastic. Tastes like dead people."
 	reagent_state = SOLID
 	color = "#EEEEEF"
@@ -1922,6 +2042,7 @@
 
 /datum/reagent/acetone_oxide
 	name = "Оксид Ацетона"
+	enname = "Acetone oxide"
 	description = "Enslaved oxygen"
 	reagent_state = LIQUID
 	color = "#C8A5DC"
@@ -1939,6 +2060,7 @@
 
 /datum/reagent/phenol
 	name = "Фенол"
+	enname = "Phenol"
 	description = "An aromatic ring of carbon with a hydroxyl group. A useful precursor to some medicines, but has no healing properties on its own."
 	reagent_state = LIQUID
 	color = "#E7EA91"
@@ -1948,6 +2070,7 @@
 
 /datum/reagent/ash
 	name = "Пепел"
+	enname = "Ash"
 	description = "Supposedly phoenixes rise from these, but you've never seen it."
 	reagent_state = LIQUID
 	color = "#515151"
@@ -1964,6 +2087,7 @@
 
 /datum/reagent/acetone
 	name = "Ацетон"
+	enname = "Acetone"
 	description = "A slick, slightly carcinogenic liquid. Has a multitude of mundane uses in everyday life."
 	reagent_state = LIQUID
 	color = "#AF14B7"
@@ -1972,6 +2096,7 @@
 
 /datum/reagent/colorful_reagent
 	name = "Цветной Реагент"
+	enname = "Colorful Reagent"
 	description = "Thoroughly sample the rainbow."
 	reagent_state = LIQUID
 	var/list/random_color_list = list("#00aedb","#a200ff","#f47835","#d41243","#d11141","#00b159","#00aedb","#f37735","#ffc425","#008744","#0057e7","#d62d20","#ffa700")
@@ -2000,6 +2125,7 @@
 
 /datum/reagent/hair_dye
 	name = "Квантовая Краска для Волос"
+	enname = "Quantum Hair Dye"
 	description = "Has a high chance of making you look like a mad scientist."
 	reagent_state = LIQUID
 	var/list/potential_colors = list("0ad","a0f","f73","d14","d14","0b5","0ad","f73","fc2","084","05e","d22","fa0") // fucking hair code
@@ -2027,6 +2153,7 @@
 
 /datum/reagent/barbers_aid
 	name = "Парикмахерская Аптечка"
+	enname = "Barber's Aid"
 	description = "A solution to hair loss across the world."
 	reagent_state = LIQUID
 	color = "#A86B45" //hair is brown
@@ -2048,7 +2175,8 @@
 	exposed_human.update_hair()
 
 /datum/reagent/concentrated_barbers_aid
-	name = "Парикмахерская Аптечка Ультра"
+	name = "Концентрированная Парикмахерская Аптечка"
+	enname = "Concentrated Barber's Aid"
 	description = "A concentrated solution to hair loss across the world."
 	reagent_state = LIQUID
 	color = "#7A4E33" //hair is dark browmn
@@ -2069,6 +2197,7 @@
 
 /datum/reagent/baldium
 	name = "Балдий"
+	enname = "Baldium"
 	description = "A major cause of hair loss across the world."
 	reagent_state = LIQUID
 	color = "#ecb2cf"
@@ -2089,6 +2218,7 @@
 
 /datum/reagent/saltpetre
 	name = "Селитра"
+	enname = "Saltpetre"
 	description = "Volatile. Controversial. Third Thing."
 	reagent_state = LIQUID
 	color = "#60A584" // rgb: 96, 165, 132
@@ -2108,6 +2238,7 @@
 
 /datum/reagent/lye
 	name = "Щелочь"
+	enname = "Lye"
 	description = "Also known as sodium hydroxide. As a profession making this is somewhat underwhelming."
 	reagent_state = LIQUID
 	color = "#FFFFD6" // very very light yellow
@@ -2117,6 +2248,7 @@
 
 /datum/reagent/drying_agent
 	name = "Иссушающее вещество"
+	enname = "Drying agent"
 	description = "A desiccant. Can be used to dry things."
 	reagent_state = LIQUID
 	color = "#A70FFF"
@@ -2142,24 +2274,28 @@
 
 /datum/reagent/toxin/mutagen/mutagenvirusfood
 	name = "мутагенный агар"
+	enname = "mutagenic agar"
 	color = "#A3C00F" // rgb: 163,192,15
 	taste_description = "кислотность"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/toxin/mutagen/mutagenvirusfood/sugar
 	name = "сахарозный агар"
+	enname = "sucrose agar"
 	color = "#41B0C0" // rgb: 65,176,192
 	taste_description = "сладость"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/medicine/synaptizine/synaptizinevirusfood
 	name = "вирусный рацион"
+	enname = "virus rations"
 	color = "#D18AA5" // rgb: 209,138,165
 	taste_description = "горечь"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/toxin/plasma/plasmavirusfood
 	name = "вирусная плазма"
+	enname = "virus plasma"
 	color = "#A270A8" // rgb: 166,157,169
 	taste_description = "горечь"
 	taste_mult = 1.5
@@ -2167,6 +2303,7 @@
 
 /datum/reagent/toxin/plasma/plasmavirusfood/weak
 	name = "ослабленная вирусная плазма"
+	enname = "weakened virus plasma"
 	color = "#A28CA5" // rgb: 206,195,198
 	taste_description = "горечь"
 	taste_mult = 1.5
@@ -2174,18 +2311,21 @@
 
 /datum/reagent/uranium/uraniumvirusfood
 	name = "распадающийся урановый гель"
+	enname = "decaying uranium gel"
 	color = "#67ADBA" // rgb: 103,173,186
 	taste_description = "внутренности реактора"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/uranium/uraniumvirusfood/unstable
 	name = "нестабильный урановый гель"
+	enname = "unstable uranium gel"
 	color = "#2FF2CB" // rgb: 47,242,203
 	taste_description = "внутренности реактора"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/uranium/uraniumvirusfood/stable
 	name = "стабильный урановый гель"
+	enname = "stable uranium gel"
 	color = "#04506C" // rgb: 4,80,108
 	taste_description = "внутренности реактора"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2193,7 +2333,8 @@
 // Bee chemicals
 
 /datum/reagent/royal_bee_jelly
-	name = "маточное пчелиное молочко"
+	name = "Королевское пчелиное желе"
+	enname = "royal bee jelly"
 	description = "Royal Bee Jelly, if injected into a Queen Space Bee said bee will split into two bees."
 	color = "#00ff80"
 	taste_description = "странный мёд"
@@ -2209,6 +2350,7 @@
 
 /datum/reagent/romerol
 	name = "Ромерол"
+	enname = "Romerol"
 	// the REAL zombie powder
 	description = "Romerol is a highly experimental bioterror agent \
 		which causes dormant nodules to be etched into the grey matter of \
@@ -2229,6 +2371,7 @@
 
 /datum/reagent/magillitis
 	name = "Магиллитис"
+	enname = "Magillitis"
 	description = "An experimental serum which causes rapid muscular growth in Hominidae. Side-affects may include hypertrichosis, violent outbursts, and an unending affinity for bananas."
 	reagent_state = LIQUID
 	color = "#00f041"
@@ -2241,6 +2384,7 @@
 
 /datum/reagent/growthserum
 	name = "Сыворотка Роста"
+	enname = "Growth Serum"
 	description = "A commercial chemical designed to help older men in the bedroom."//not really it just makes you a giant
 	color = "#ff0000"//strong red. rgb 255, 0, 0
 	var/current_size = RESIZE_DEFAULT_SIZE
@@ -2274,6 +2418,7 @@
 
 /datum/reagent/plastic_polymers
 	name = "пластиковые полимеры"
+	enname = "plastic polymers"
 	description = "the petroleum based components of plastic."
 	color = "#f7eded"
 	taste_description = "пластик"
@@ -2281,7 +2426,8 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/glitter
-	name = "дженерик блестки"
+	name = "блятьстки"
+	enname = "generic glitter"
 	description = "if you can see this description, contact a coder."
 	color = "#FFFFFF" //pure white
 	taste_description = "пластик"
@@ -2296,27 +2442,31 @@
 	new glitter_type(exposed_turf)
 
 /datum/reagent/glitter/pink
-	name = "розовые блестки"
+	name = "розовые блёстки"
+	enname = "pink glitter"
 	description = "pink sparkles that get everywhere"
 	color = "#ff8080" //A light pink color
 	glitter_type = /obj/effect/decal/cleanable/glitter/pink
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/glitter/white
-	name = "белые блестки"
-	description = "белый sparkles that get everywhere"
+	name = "белые блёстки"
+	enname = "white glitter"
+	description = "white sparkles that get everywhere"
 	glitter_type = /obj/effect/decal/cleanable/glitter/white
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/glitter/blue
-	name = "синие блестки"
-	description = "синий sparkles that get everywhere"
+	name = "синие блёстки"
+	enname = "blue glitter"
+	description = "blue sparkles that get everywhere"
 	color = "#4040FF" //A blueish color
 	glitter_type = /obj/effect/decal/cleanable/glitter/blue
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/pax
 	name = "Пакс"
+	enname = "Pax"
 	description = "A colorless liquid that suppresses violence in its subjects."
 	color = "#AAAAAA55"
 	taste_description = "вода"
@@ -2334,6 +2484,7 @@
 
 /datum/reagent/bz_metabolites
 	name = "Метаболиты BZ"
+	enname = "BZ metabolites"
 	description = "A harmless metabolite of BZ gas."
 	color = "#FAFF00"
 	taste_description = "едкая корица"
@@ -2357,12 +2508,14 @@
 
 /datum/reagent/pax/peaceborg
 	name = "синтепакс"
+	enname = "synthpax"
 	description = "A colorless liquid that suppresses violence in its subjects. Cheaper to synthesize than normal Pax, but wears off faster."
 	metabolization_rate = 1.5 * REAGENTS_METABOLISM
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/peaceborg/confuse
 	name = "Оглушающий Раствор"
+	enname = "Dizzying Solution"
 	description = "Makes the target off balance and dizzy"
 	metabolization_rate = 1.5 * REAGENTS_METABOLISM
 	taste_description = "головокружение"
@@ -2379,6 +2532,7 @@
 
 /datum/reagent/peaceborg/tire
 	name = "Изматывающий Раствор"
+	enname = "Tiring Solution"
 	description = "An extremely weak stamina-toxin that tires out the target. Completely harmless."
 	metabolization_rate = 1.5 * REAGENTS_METABOLISM
 	taste_description = "усталость"
@@ -2394,6 +2548,7 @@
 
 /datum/reagent/tranquility
 	name = "Спокойствие"
+	enname = "Tranquility"
 	description = "A highly mutative liquid of unknown origin."
 	color = "#9A6750" //RGB: 154, 103, 80
 	taste_description = "внутреннее спокойствие"
@@ -2408,6 +2563,7 @@
 
 /datum/reagent/spider_extract
 	name = "Экстракт Паука"
+	enname = "Spider Extract"
 	description = "A highly specialized extract coming from the Australicus sector, used to create broodmother spiders."
 	color = "#ED2939"
 	taste_description = "вверх ногами"
@@ -2415,6 +2571,7 @@
 /// Improvised reagent that induces vomiting. Created by dipping a dead mouse in welder fluid.
 /datum/reagent/yuck
 	name = "Органическая Жижа"
+	enname = "Organic Slurry"
 	description = "A mixture of various colors of fluid. Induces vomiting."
 	glass_name = "glass of ...yuck!"
 	glass_desc = "It smells like a carcass, and doesn't look much better."
@@ -2467,6 +2624,7 @@
 //monkey powder heehoo
 /datum/reagent/monkey_powder
 	name = "Мартышечный порошок"
+	enname = "Monkey Powder"
 	description = "Just add water!"
 	color = "#9C5A19"
 	taste_description = "бананы"
@@ -2474,6 +2632,7 @@
 
 /datum/reagent/plasma_oxide
 	name = "Гипер-Плазменная Окись"
+	enname = "Hyper-Plasmium Oxide"
 	description = "Compound created deep in the cores of demon-class planets. Commonly found through deep geysers."
 	color = "#470750" // rgb: 255, 255, 255
 	taste_description = "hell"
@@ -2481,6 +2640,7 @@
 
 /datum/reagent/exotic_stabilizer
 	name = "Экзотический Стабилизатор"
+	enname = "Exotic Stabilizer"
 	description = "Advanced compound created by mixing stabilizing agent and hyper-plasmium oxide."
 	color = "#180000" // rgb: 255, 255, 255
 	taste_description = "blood"
@@ -2488,6 +2648,7 @@
 
 /datum/reagent/wittel
 	name = "Виттель"
+	enname = "Wittel"
 	description = "An extremely rare metallic-white substance only found on demon-class planets."
 	color = "#FFFFFF" // rgb: 255, 255, 255
 	taste_mult = 0 // oderless and tasteless
@@ -2495,6 +2656,7 @@
 
 /datum/reagent/metalgen
 	name = "Металген"
+	enname = "Metalgen"
 	data = list("material"=null)
 	description = "A purple metal morphic liquid, said to impose it's metallic properties on whatever it touches."
 	color = "#b000aa"
@@ -2534,6 +2696,7 @@
 
 /datum/reagent/gravitum
 	name = "Гравитум"
+	enname = "Gravitum"
 	description = "A rare kind of null fluid, capable of temporalily removing all weight of whatever it touches." //i dont even
 	color = "#050096" // rgb: 5, 0, 150
 	taste_mult = 0 // oderless and tasteless
@@ -2555,6 +2718,7 @@
 
 /datum/reagent/cellulose
 	name = "Волокна Целлюлозы"
+	enname = "Cellulose Fibers"
 	description = "A crystaline polydextrose polymer, plants swear by this stuff."
 	reagent_state = SOLID
 	color = "#E6E6DA"
@@ -2564,6 +2728,7 @@
 // "Second wind" reagent generated when someone suffers a wound. Epinephrine, adrenaline, and stimulants are all already taken so here we are
 /datum/reagent/determination
 	name = "Решимость"
+	enname = "Determination"
 	description = "For when you need to push on a little more. Do NOT allow near plants."
 	reagent_state = LIQUID
 	color = "#D2FFFA"
@@ -2599,6 +2764,7 @@
 
 /datum/reagent/eldritch //unholy water, but for eldritch cultists. why couldn't they have both just used the same reagent? who knows. maybe nar'sie is considered to be too "mainstream" of a god to worship in the cultist community.
 	name = "Жуткая Эссенция"
+	enname = "Eldritch Essence"
 	description = "A strange liquid that defies the laws of physics. It re-energizes and heals those who can see beyond this fragile reality, but is incredibly harmful to the closed-minded. It metabolizes very quickly."
 	taste_description = "Ag'hsj'saje'sh"
 	color = "#1f8016"
@@ -2626,6 +2792,7 @@
 
 /datum/reagent/universal_indicator
 	name = "Universal indicator"
+	enname = "Universal indicator"
 	description = "A solution that can be used to create pH paper booklets, or sprayed on things to colour them by their pH."
 	taste_description = "a strong chemical taste"
 	color = "#1f8016"
