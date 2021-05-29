@@ -248,9 +248,9 @@
 		if("select_colour")
 			. = can_change_colour && select_colour(usr)
 		if("enter_text")
-			var/txt = stripped_input(usr,"Choose what to write.",
-				"Scribbles",default = text_buffer)
-			text_buffer = crayon_text_strip(txt)
+			var/txt = stripped_input(usr,"Что же мы напишем?",
+				"Писюльки",default = text_buffer)
+			text_buffer = txt //crayon_text_strip(txt)
 			. = TRUE
 			paint_mode = PAINT_NORMAL
 			drawtype = "a"
