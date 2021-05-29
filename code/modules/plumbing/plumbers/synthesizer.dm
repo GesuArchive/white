@@ -118,10 +118,10 @@
 
 /obj/machinery/plumbing/synthesizer/proc/mechcomp_update_chems(var/datum/mechcompMessage/msg)
 	var/err = 0
-	var/list/signal = splittext(msg.signal, ";")
+	var/list/signal = splittext(msg.signal, "&")
 
 	if(length(signal) == 0 || length(signal) > 2)
-		say("Invalid signal syntax! Proper signal syntax is: \[CHEM_NAME];\[DISPENSE_AMOUNT(from 0 to 5 inclusive!)].")
+		say("Invalid signal syntax! Proper signal syntax is: \[CHEM_NAME]&\[DISPENSE_AMOUNT(from 0 to 5 inclusive!)].")
 		return
 	
 	
@@ -161,4 +161,4 @@
 			err += 1
 
 	if(err)
-		say("Invalid [err == 1 ? "chemical name!" : "[err == 2 ? "dispense amount!" : "chemical name and dispense amount!" ]" ] Proper signal syntax is: \[CHEM_NAME];\[DISPENSE_AMOUNT(from 0 to 5 inclusive!)].")
+		say("Invalid [err == 1 ? "chemical name!" : "[err == 2 ? "dispense amount!" : "chemical name and dispense amount!" ]" ] Proper signal syntax is: \[CHEM_NAME]&\[DISPENSE_AMOUNT(from 0 to 5 inclusive!)].")
