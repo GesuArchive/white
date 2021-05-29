@@ -651,6 +651,7 @@
 #define COMSIG_ITEM_HIT_REACT "item_hit_react"
 ///called on item when crossed by something (): (/atom/movable, mob/living/crossed)
 #define COMSIG_ITEM_WEARERCROSSED "wearer_crossed"
+	#define COMPONENT_HIT_REACTION_BLOCK (1<<0)
 ///called on item when microwaved (): (obj/machinery/microwave/M)
 #define COMSIG_ITEM_MICROWAVE_ACT "microwave_act"
 	#define COMPONENT_SUCCESFUL_MICROWAVE (1<<0)
@@ -1159,3 +1160,17 @@
 #define _COMSIG_MECHCOMP_DISPATCH_RM_OUTGOING "_mechcomp_dispatch_remove_filter"
 /// Test a signal to be sent to a connection
 #define _COMSIG_MECHCOMP_DISPATCH_VALIDATE "_mechcomp_dispatch_run_filter"
+// Component signals
+/// From /datum/port/output/set_output: (output_value)
+#define COMSIG_PORT_SET_OUTPUT "port_set_output"
+/// From /datum/port/input/set_input: (input_value)
+#define COMSIG_PORT_SET_INPUT "port_set_input"
+/// Sent when a port calls disconnect(). From /datum/port/disconnect: ()
+#define COMSIG_PORT_DISCONNECT "port_disconnect"
+/// Sent on the output port when an input port registers on it: (datum/port/input/registered_port)
+#define COMSIG_PORT_OUTPUT_CONNECT "port_output_connect"
+
+/// Sent when a [/obj/item/circuit_component] is added to a circuit.
+#define COMSIG_CIRCUIT_ADD_COMPONENT "circuit_add_component"
+	/// Cancels adding the component to the circuit.
+	#define COMPONENT_CANCEL_ADD_COMPONENT (1<<0)

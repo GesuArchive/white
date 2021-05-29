@@ -16,7 +16,8 @@
 	var/instability = 0
 
 /turf/open/openspace/bluespace/LateInitialize()
-	return
+	spawn(5 SECONDS)
+		AddElement(/datum/element/turf_z_transparency, TRUE)
 
 /turf/open/openspace/bluespace/process()
 	instability++

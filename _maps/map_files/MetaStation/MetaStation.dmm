@@ -4204,6 +4204,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/brig)
+"azM" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/cyan/visible{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/engineering/atmos)
 "azP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/chair,
@@ -24018,6 +24024,14 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/mixing)
+"eAF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/white,
+/area/science/misc_lab)
 "eAP" = (
 /obj/machinery/holopad,
 /obj/structure/cable,
@@ -26091,6 +26105,14 @@
 	},
 /turf/open/floor/plating/airless,
 /area/maintenance/space_hut)
+"fiB" = (
+/obj/structure/table,
+/obj/structure/cable,
+/obj/item/controller,
+/obj/item/compact_remote,
+/obj/item/compact_remote,
+/turf/open/floor/iron/white,
+/area/science/misc_lab)
 "fiJ" = (
 /obj/structure/table,
 /obj/machinery/recharger,
@@ -38577,15 +38599,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/maintenance/port)
-"jNE" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 4
-	},
-/turf/open/floor/engine,
-/area/science/misc_lab/range)
 "jNH" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 8
@@ -61556,6 +61569,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
+"rHp" = (
+/obj/machinery/door/window/northright{
+	dir = 8;
+	name = "Research Test Chamber";
+	req_access_txt = "7"
+	},
+/turf/open/floor/engine,
+/area/science/misc_lab/range)
 "rHI" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -65875,6 +65896,14 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
+"tbP" = (
+/obj/structure/table,
+/obj/machinery/airalarm/directional/south,
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 5
+	},
+/turf/open/floor/iron,
+/area/science/misc_lab)
 "tbR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -114352,11 +114381,11 @@ xUV
 yfL
 ooL
 yeb
-ibT
+kcX
 cYl
 iPj
 eCd
-xtp
+brK
 nhL
 xfP
 hUy
@@ -115123,11 +115152,11 @@ ocw
 yfL
 sUf
 yeb
-vns
-jPj
-nfX
-wVM
-nXH
+vQQ
+fiB
+jHt
+kJS
+dCg
 nhL
 iYn
 nGU
@@ -115639,8 +115668,8 @@ ooL
 cuZ
 uzH
 cwZ
-gIA
-qDm
+cFB
+jXY
 dGP
 vEJ
 dVv
@@ -115897,7 +115926,7 @@ cuZ
 pcn
 oxa
 cFB
-rpH
+pcn
 vNS
 vEJ
 lLB
@@ -121267,7 +121296,7 @@ bqZ
 wgC
 lNR
 nsB
-iNB
+atX
 icJ
 gZN
 uvW
@@ -125131,7 +125160,7 @@ qJm
 rAm
 hjv
 hjv
-owa
+ncQ
 cwM
 hjv
 hjv
@@ -126164,7 +126193,7 @@ bMx
 aaf
 cQi
 aaf
-jVY
+kPm
 aaf
 cQi
 aaf

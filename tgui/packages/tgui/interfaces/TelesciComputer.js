@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Box, Button, Divider, Flex, Grid, Icon, NoticeBox, Slider, Dimmer, NumberInput, Section, LabeledList } from '../components';
+import { Box, Button, Icon, NoticeBox, Slider, Dimmer, NumberInput, Section, LabeledList } from '../components';
 import { Window } from '../layouts';
 
 export const TelesciComputer = (props, context) => {

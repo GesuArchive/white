@@ -187,11 +187,9 @@
 	desc = "Не все волшебники боятся сокращения дистанции."
 	icon_state = "battlemage"
 	inhand_icon_state = "battlemage"
-	recharge_rate = 0
-	current_charges = 15
-	recharge_cooldown = INFINITY
-	shield_state = "shield-red"
-	shield_on = "shield-red"
+	recharge_delay = 0 // no auto-recharge
+	max_charges = 15
+	shield_icon = "shield-red"
 	min_cold_protection_temperature = ARMOR_MIN_TEMP_PROTECT
 	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/shielded/wizard
@@ -213,19 +211,11 @@
 /obj/item/clothing/head/helmet/space/hardsuit/shielded/wizard/attack_self(mob/user)
 	return
 
+// The actual code for this is handled in the shielded component, see [/datum/component/shielded/proc/check_recharge_rune]
 /obj/item/wizard_armour_charge
 	name = "заряды щита боевого мага"
 	desc = "Мощная руна которая увеличит количество ударов, которое может выдержать броня боевого мага, перед тем как сломаться.."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "electricity2"
-
-/obj/item/wizard_armour_charge/afterattack(obj/item/clothing/suit/space/hardsuit/shielded/wizard/W, mob/user, proximity)
-	. = ..()
-	if(!proximity)
-		return
-	if(!istype(W))
-		to_chat(user, "<span class='warning'>Руна может быть использована только на броне боевого мага!</span>")
-		return
-	W.current_charges += 8
-	to_chat(user, "<span class='notice'>Я зарядил \the [W]. Теперь она может поглотить [W.current_charges] ударов.</span>")
-	qdel(src)
+	/// How many charges get restored
+	var/restored_charges = 8

@@ -1,6 +1,6 @@
 /obj/machinery/computer/nanite_chamber_control
-	name = "nanite chamber control console"
-	desc = "Controls a connected nanite chamber. Can inoculate nanites, load programs, and analyze existing nanite swarms."
+	name = "консоль управления камерой нанитов"
+	desc = "Управляет нанитовой камерой. Может вводить наниты, загружать программы и анализировать существующие наниты."
 	var/obj/machinery/nanite_chamber/chamber
 	var/obj/item/disk/nanite_program/disk
 	icon_screen = "nanite_chamber_control"
@@ -33,17 +33,17 @@
 	var/list/data = list()
 
 	if(!chamber)
-		data["status_msg"] = "No chamber detected."
+		data["status_msg"] = "Не обнаружена камера."
 		return data
 
 	if(!chamber.occupant)
-		data["status_msg"] = "No occupant detected."
+		data["status_msg"] = "Внутри никого нет."
 		return data
 
 	var/mob/living/L = chamber.occupant
 
 	if(!(L.mob_biotypes & (MOB_ORGANIC|MOB_UNDEAD)))
-		data["status_msg"] = "Occupant not compatible with nanites."
+		data["status_msg"] = "Пациент не подходит."
 		return data
 
 	if(chamber.busy)
