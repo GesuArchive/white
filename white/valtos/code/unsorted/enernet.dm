@@ -126,12 +126,16 @@
 	switch(cur_acc)
 		if(0 to max_acc/4)
 			add_overlay("ebal_low")
+			return
 		if((max_acc/4) + 1 to max_acc/2)
 			add_overlay("ebal_mid")
+			return
 		if((max_acc/2) + 1 to max_acc - 1000000)
 			add_overlay("eball_near")
+			return
 		if(max_acc - 1000001 to max_acc)
 			add_overlay("eball_fuck")
+			return
 		else
 			playsound(get_turf(src), 'white/valtos/sounds/explo.ogg', 80)
 			spawn(1 SECONDS)

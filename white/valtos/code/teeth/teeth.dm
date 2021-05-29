@@ -3,12 +3,29 @@
 	singular_name = "зуб"
 	w_class = 1
 	throwforce = 2
-	max_amount = 32
-	// gender = PLURAL
+	max_amount = 5
 	desc = "Кто-то потерял зуб. Класс."
 	icon = 'white/valtos/icons/teeth.dmi'
 	icon_state = "teeth"
 	merge_type = /obj/item/stack/teeth
+
+/obj/item/stack/teeth/update_icon_state()
+	switch(amount)
+		if(1)
+			icon_state = initial(icon_state)
+			return
+		if(2 to 5)
+			icon_state = "[initial(icon_state)]_[amount]"
+			return
+		else
+			icon_state = "[initial(icon_state)]_[max_amount]"
+			return
+
+/obj/item/stack/teeth/Initialize()
+	. = ..()
+	var/matrix/M = matrix()
+	M.Turn(rand(0, 360))
+	transform = M
 
 /obj/item/stack/teeth/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] jams [src] into \his eyes! It looks like \he's trying to commit suicide.</span>")
@@ -18,10 +35,6 @@
 	name = "человеческие зубы"
 	singular_name = "человеческие зубы"
 	merge_type = /obj/item/stack/teeth/human
-
-/obj/item/stack/teeth/human/Initialize()
-	. = ..()
-	transform *= TRANSFORM_USING_VARIABLE(0.25, 1) + 0.5 //Half-size the teeth
 
 /obj/item/stack/teeth/human/gold //Special traitor objective maybe?
 	name = "золотые зубы"
@@ -41,57 +54,14 @@
 	name = "зуб"
 	merge_type = /obj/item/stack/teeth/generic
 
-/obj/item/stack/teeth/generic/Initialize()
-	. = ..()
-	transform *= TRANSFORM_USING_VARIABLE(0.25, 1) + 0.5 //Half-size the teeth
-
 /obj/item/stack/teeth/replacement
 	name = "искуственные зубы"
 	singular_name = "искуственный зуб"
-	// gender = PLURAL
 	desc = "Вау, искуственные зубы?"
 	icon_state = "dentals"
 	custom_materials = list(/datum/material/iron = 250)
 	material_flags = MATERIAL_ADD_PREFIX | MATERIAL_COLOR | MATERIAL_AFFECT_STATISTICS//Can change color and add prefix
 	merge_type = /obj/item/stack/teeth/replacement
-
-/obj/item/stack/teeth/replacement/Initialize()
-	. = ..()
-	transform *= TRANSFORM_USING_VARIABLE(0.25, 1) + 0.5 //Half-size the teeth
-
-/obj/item/stack/teeth/cat
-	name = "зубы таяры"
-	singular_name = "зуб таяры"
-	desc = "Трофейный."
-	sharpness = SHARP_EDGED
-	icon_state = "teeth_cat"
-	merge_type = /obj/item/stack/teeth/cat
-
-/obj/item/stack/teeth/cat/Initialize()
-	. = ..()
-	transform *= TRANSFORM_USING_VARIABLE(0.35, 1) + 0.5 //resize the teeth
-
-/obj/item/stack/teeth/lizard
-	name = "зубы ящера"
-	singular_name = "зуб ящера"
-	desc = "Достаточно острый."
-	sharpness = SHARP_EDGED
-	icon_state = "teeth_cat"
-	merge_type = /obj/item/stack/teeth/lizard
-
-/obj/item/stack/teeth/lizard/Initialize()
-	. = ..()
-	transform *= TRANSFORM_USING_VARIABLE(0.30, 1) + 0.5 //resize the teeth
-
-/obj/item/stack/teeth/xeno
-	name = "зубы ксеноса"
-	singular_name = "зуб ксеноса"
-	desc = "Единственный способ получить это - захватить ксеноморфа и хирургически удалить их зубы."
-	throwforce = 4
-	sharpness = SHARP_EDGED
-	icon_state = "teeth_xeno"
-	max_amount = 48
-	merge_type = /obj/item/stack/teeth/xeno
 
 /datum/design/replacement_teeth
 	name = "Искуственный зуб"
