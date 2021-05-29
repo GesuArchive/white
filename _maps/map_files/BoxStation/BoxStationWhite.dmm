@@ -1570,7 +1570,7 @@
 /area/maintenance/port/aft)
 "amK" = (
 /obj/structure/sign/warning/docking,
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/security/processing)
 "amM" = (
 /obj/machinery/door/airlock/security/glass{
@@ -27077,7 +27077,8 @@
 /obj/machinery/button/door{
 	id = "spbrig";
 	name = "Blast Door Control";
-	pixel_x = -28
+	pixel_x = -28;
+	req_access_txt = "2"
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -34747,7 +34748,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable/multilayer/multiz,
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/security/brig/upper)
 "kFd" = (
@@ -42192,6 +42192,9 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/port)
+"xtj" = (
+/turf/closed/wall/r_wall,
+/area/lawoffice)
 "xtF" = (
 /obj/structure/cable,
 /obj/effect/spawner/structure/window/reinforced,
@@ -65013,8 +65016,8 @@ dKO
 pxC
 sRa
 lBE
-eRz
-eRz
+gXs
+gXs
 aaa
 aaa
 aaa
@@ -65270,7 +65273,7 @@ uOg
 fDQ
 txJ
 txJ
-aaa
+gXs
 aaa
 aaa
 aaa
@@ -65527,7 +65530,7 @@ uOg
 fDQ
 txJ
 txJ
-aaa
+gXs
 aaa
 aaa
 aaa
@@ -66438,8 +66441,8 @@ eRz
 gXs
 gXs
 gXs
-aiT
-aiT
+aiV
+aiV
 aiV
 akG
 cxJ
@@ -66695,17 +66698,17 @@ eRz
 aaa
 aaa
 aaa
-aiT
+aiV
 ajs
 akb
 akI
 akI
 amc
-aiT
+aiV
 ant
 akI
 aos
-aiT
+aiV
 apR
 cCh
 arP
@@ -67219,7 +67222,7 @@ amM
 anv
 jog
 aou
-aiT
+aiV
 aiT
 aiT
 arP
@@ -67732,8 +67735,8 @@ aaa
 aaa
 aiV
 anP
-aiT
-aph
+aiV
+xtj
 aph
 aph
 aph
