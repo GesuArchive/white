@@ -82,6 +82,48 @@
 	icon_state = "tank"
 	buffer = 400
 
+	//mechcomp interaction related stuff
+	var/pairs_glue = ";"
+	var/list_glue = "&"
+	var/use_enname_for_list = TRUE //fuck off
+
 /obj/machinery/plumbing/tank/Initialize(mapload, bolt)
 	. = ..()
 	AddComponent(/datum/component/plumbing/tank, bolt)
+	AddComponent(/datum/component/mechanics_holder)
+
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Send out contents data", "sendout")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set pairs glue", "setpairsglue")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set list glue", "setlistglue")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Toggle usage of english names", "toggleenname")
+
+/obj/machinery/plumbing/tank/proc/sendout(var/datum/mechcompMessage/msg)
+	var/list/l = list()
+	for(var/datum/reagent/r in reagents.reagent_list)
+		l.Add("[use_enname_for_list ? "[r.enname ? "[r.enname]" : "[r.name]"]" : "[r.name]"][pairs_glue][r.volume]")
+	if(length(l))
+		SEND_SIGNAL(src, COMSIG_MECHCOMP_TRANSMIT_SIGNAL, jointext(l, list_glue))
+
+
+/obj/machinery/plumbing/tank/proc/setpairsglue(obj/item/I, mob/user)
+	var/input = prompt("pairs glue",pairs_glue)
+	if(!isnull(input))
+		pairs_glue = input
+		to_chat(user, "<span class='notice'>You set the pairs glue to [pairs_glue].</span>")
+
+/obj/machinery/plumbing/tank/proc/setlistglue(obj/item/I, mob/user)
+	var/input = prompt("list glue",list_glue)
+	if(!isnull(input))
+		list_glue = input
+		to_chat(user, "<span class='notice'>You set the list glue to [list_glue].</span>")
+
+/obj/machinery/plumbing/tank/proc/toggleenname(obj/item/I, mob/user)
+	use_enname_for_list = !use_enname_for_list
+	if(use_enname_for_list)
+		to_chat(user, "<span class='notice'>Now the [src.name] will use english reagent names for output list, if they're available.</span>")
+	else
+		to_chat(user, "<span class='notice'>Now the [src.name] will use russian reagent names for output list.</span>")
+
+/obj/machinery/plumbing/tank/proc/prompt(var/varname, var/v)
+	var/input = input("Set [varname] to what? Make sure to select a unique symbol like \"&\", otherwise extracting from list will be very problematic! (Groups of symbols are also accepted!)", "[varname]", v) as null|num
+	return input

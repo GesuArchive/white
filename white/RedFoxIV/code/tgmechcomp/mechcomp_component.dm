@@ -154,8 +154,7 @@
 	RegisterSignal(parent, _COMSIG_MECHCOMP_LINK, .proc/link_devices)
 	RegisterSignal(parent, COMSIG_MECHCOMP_ADD_CONFIG, .proc/addConfig)
 	RegisterSignal(parent, COMSIG_MECHCOMP_ALLOW_MANUAL_SIGNAL, .proc/allowManualSingalSetting) //Only use this when also using COMSIG_MECHCOMP_TRANSMIT_DEFAULT_MSG
-	//original line:
-	//RegisterSignal(parent, list(COMSIG_ATTACKBY), .proc/attackby)
+	
 	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, .proc/attackby)
 	RegisterSignal(parent, _COMSIG_MECHCOMP_COMPATIBLE, .proc/compatible)//Better that checking GetComponent()?
 
@@ -404,7 +403,7 @@
 		img.maptext = "<text align=center valign=bottom>[MAPTEXT("[i]")]"
 		choices.Add("[i]")
 		choices["[i]"] = img
-	var/selected_input = show_radial_menu(user, parent, choices, tooltips = TRUE)
+	var/selected_input = show_radial_menu(user, parent, choices, tooltips = TRUE, radius = 48)
 	//var/selected_input = input(user, "Select \"[receiver.name]\" Input", "Input Selection") in inputs + "*CANCEL*"
 	if(!selected_input)
 		to_chat(user,"<span class='notice'>You decide against connecting [trigger.name] and [receiver.name].</span>")
@@ -457,12 +456,12 @@
 			img.maptext = "<text align=center valign=bottom>[MAPTEXT("[i]")]"
 			choices.Add("[i]")
 			choices["[i]"] = img
-		var/selected_config = show_radial_menu(user, parent, choices, tooltips = TRUE, require_near = TRUE)
+		var/selected_config = show_radial_menu(user, parent, choices, tooltips = TRUE, require_near = TRUE, radius = 48)
 		//var/selected_config = input("Select a config to modify!", "Config", null) as null|anything in src.configs
 		if(selected_config && in_range(parent, user))
 			switch(selected_config)
 				if(SET_SEND)
-					var/inp = input(user,"Please enter Signal:","Signal setting","1") as text
+					var/inp = input(user,"Please enter Signal:","Signal setting", "[defaultSignal]") as text
 					
 					if(!in_range(parent, user) || user.stat)
 						return

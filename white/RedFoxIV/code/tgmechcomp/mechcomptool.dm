@@ -4,7 +4,8 @@
 	icon = 'white/RedFoxIV/icons/mechcomp/connection.dmi'
 	icon_state = "linker_multitool"
 	var/mechcomp_enabled = FALSE
-
+	//so we don't beat the shite out of some poor plumbing synthesizer or whatnot
+	item_flags = NOBLUDGEON
 
 /obj/item/multitool/mechcomp/attack_self(mob/user)
 	. = ..()
@@ -20,3 +21,5 @@
 	//So, apparently tool behaviours are not bitflags and are instead just plain strings with some #defines sprinkled over.
 	//So, yeah, this is fucking cringe
 	//at least i got to make "cool" sprites
+
+
