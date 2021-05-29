@@ -8,6 +8,7 @@
 
 /datum/reagent/consumable/ethanol
 	name = "Этанол"
+	enname = "Ehtanol"
 	description = "Известный алкоголь с множеством применений."
 	color = "#404030" // rgb: 64, 64, 48
 	nutriment_factor = 0
@@ -88,6 +89,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/beer
 	name = "Пиво"
+	enname = "Beer"
 	description = "Алкогольный напиток, который варили с дневних времен еще на старой земле. Всё еще популярен."
 	color = "#664300" // rgb: 102, 67, 0
 	nutriment_factor = 1 * REAGENTS_METABOLISM
@@ -110,6 +112,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/beer/light
 	name = "Светлое Пиво"
+	enname = "Light Beer"
 	description = "Алкогольный напиток, который варили с дневних времен еще на старой земле. Этот сорт отличается меньшим количеством калорий и алкоголя."
 	boozepwr = 5 //Space Europeans hate it
 	taste_description = "стекломойка"
@@ -121,6 +124,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/beer/maltliquor
 	name = "Солодовый Ликер"
+	enname = "Malt Liquor"
 	description = "Алкогольный напиток, который варили с дневних времен еще на старой земле. Этот сорт сильнее обычного, крайне дешевый и крайне ужасный."
 	boozepwr = 35
 	taste_description = "сладкое кукурузное пиво с нотками черного гетто"
@@ -131,6 +135,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/beer/green
 	name = "Зеленое Пиво"
+	enname = "Green Beer"
 	description = "Алкогольный напиток, который варили с дневних времен еще на старой земле. Этот сорт окрашен в зеленый цвет."
 	color = "#A8E61D"
 	taste_description = "зелёная моча"
@@ -151,6 +156,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/kahlua
 	name = "Калуа"
+	enname = "Kahlua"
 	description = "Широко известный мексиканский ликер со вкусом кофе. Выпускается с 1936-го года!"
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 45
@@ -172,6 +178,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/whiskey
 	name = "Виски"
+	enname = "Whiskey"
 	description = "A superb and well-aged single-malt whiskey. Damn."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 75

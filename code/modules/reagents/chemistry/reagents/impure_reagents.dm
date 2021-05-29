@@ -5,6 +5,7 @@
 //Causes slight liver damage, and that's it.
 /datum/reagent/impurity
 	name = "Chemical Isomers"
+	enname = "Chemical Isomers"
 	description = "Impure chemical isomers made from inoptimal reactions. Causes mild liver damage"
 	//by default, it will stay hidden on splitting, but take the name of the source on inverting. Cannot be fractioned down either if the reagent is somehow isolated.
 	chemical_flags = REAGENT_SNEAKYNAME | REAGENT_DONOTSPLIT | REAGENT_CAN_BE_SYNTHESIZED //impure can be synthed, and is one of the only ways to get almost pure impure
@@ -27,6 +28,7 @@
 //Basically just so people don't forget to adjust metabolization_rate
 /datum/reagent/inverse
 	name = "Toxic monomers"
+	enname = "Toxic monomers"
 	description = "Inverse reagents are created when a reagent's purity is below it's inverse threshold. The are created either during ingestion - which will then replace their associated reagent, or some can be created during the reaction process."
 	ph = 2
 	chemical_flags = REAGENT_SNEAKYNAME | REAGENT_DONOTSPLIT //Inverse generally cannot be synthed - they're difficult to get
@@ -46,6 +48,7 @@
 //technically not a impure chem, but it's here because it can only be made with a failed impure reaction
 /datum/reagent/consumable/failed_reaction
 	name = "Viscous sludge"
+	enname = "Viscous sludge"
 	description = "A off smelling sludge that's created when a reaction gets too impure."
 	nutriment_factor = -1
 	quality = -1
@@ -57,6 +60,7 @@
 
 /datum/reagent/impurity/eigenswap
 	name = "Eigenswap"
+	enname = "Eigenswap"
 	description = "This reagent is known to swap the handedness of a patient."
 	ph = 3.3
 	chemical_flags = REAGENT_DONOTSPLIT
@@ -85,6 +89,7 @@
 
 /datum/reagent/inverse/cryostylane
 	name = "Cyrogelidia"
+	enname = "Cyrogelidia"
 	description = "Freezes the live or dead patient in an incuded cyrostasis ice block."
 	reagent_state = LIQUID
 	color = "#03dbfc"

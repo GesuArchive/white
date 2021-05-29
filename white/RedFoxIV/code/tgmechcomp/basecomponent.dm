@@ -6,6 +6,8 @@
 	icon = 'white/RedFoxIV/icons/obj/mechcomp.dmi'
 
 
+	var/datum/component/mechanics_holder/compdatum
+
 	/**
 	 * A crutch to use the goon mechcomp sprites, because goon iconstate 
 	 * format for mechcomp is [compname] for unanchored and u[compname] for anchored components.
@@ -14,21 +16,31 @@
 	 * it also handles all the logic regarding anchored/unanchored sprites.
 	 **/
 	var/part_icon_state = "generic"
+
+	/**
+	 * Icon state for when the component is active. If you do not have a sprite for this, keep it null.
+	 **/
+	var/active_icon_state = null
+	
 	/**
 	 * if the component has a smaller sprite for when it's anchored to the floor.
 	 **/ 
-	var/has_compact_icon_state = FALSE
-	/**
-	 * icon state for when the component is active.
-	 * Currently unused. Too bad!
-	 **/
-	var/active_icon_state
+	var/has_anchored_icon_state = FALSE
+
 
 	/**
 	 * If the current component is active, i.e. performing some work.
 	 **/
 	var/active = FALSE
 
+	///cringe
+	var/deactivatecb = CALLBACK()
+
+	/**
+	 * If only a single instance of a component is allowed to be anchored onto a tile.part_icon_state = 
+	 * Also resets it's own pixel_x and pixel_y vars when anchored so that it stays centered.part_icon_state = 
+	 **/
+	var/only_one_per_tile = FALSE
 
 	/**
 	 * DO NOT FUCKING TOUCH THIS REEEE! use update_icon_state("compname") instead.
@@ -42,7 +54,7 @@
  **/
 /obj/item/mechcomp/update_icon_state(var/part_icon_state)
 	. = ..()
-	icon_state = "[src.anchored && src.has_compact_icon_state ? "u" : ""][part_icon_state]"
+	icon_state = "[src.anchored && src.has_anchored_icon_state ? "u" : ""][part_icon_state]"
 
 
 /obj/item/mechcomp/Initialize()
@@ -51,44 +63,34 @@
 
 /obj/item/mechcomp/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/mechanics_holder)
+	compdatum = AddComponent(/datum/component/mechanics_holder)
 
 
 /**
  * Called when a user clicks the component with an empty hand.
  * Moved to a separate proc for easier handling of active/inactive states.
- * ---DO NOT FUCKING FORGET to set active var to FALSE before returning.
  **/
 /obj/item/mechcomp/proc/interact_by_hand(mob/user)
-	active = FALSE
 	return
 
 
 /**
  * Called when a user clicks the component with an item while not on harm intent.
  * Moved to a separate proc for easier handling of active/inactive states.
- * ---DO NOT FUCKING FORGET to set active var to FALSE before returning.
  **/
-/obj/item/mechcomp/proc/interact_by_item(mob/user)
-	active = FALSE
+/obj/item/mechcomp/proc/interact_by_item(obj/item/I, mob/user)
 	return
 
 
 /**
- * If you don't care for preventing activation whilre your component before your component stops being active 
- * AND you really hate the activate_by_hand proc, you can override this one, i guess. ¯\_(ツ)_/¯
- * Not recommended for consistency's sake just throw a ..() or active = FALSE at the very beginning of the interact_by_hand.
+ * please no touch, use interact_by_hand instead!
  **/
 /obj/item/mechcomp/attack_hand(mob/user)
 	. = ..()
-	if(!active)
-		active = TRUE
-		interact_by_hand(user)
+	interact_by_hand(user)
 
 /**
- * If you don't care for preventing activation whilre your component before your component stops being active 
- * AND you really hate the activate_by_item proc, you can override this one too, i guess. ¯\_(ツ)_/¯
- * Still not recommended for consistency's sake - just throw a ..() or active = FALSE at the very beginning of the interact_by_item.
+ * please no touch, use interact_by_item instead!
  **/
 /obj/item/mechcomp/attackby(obj/item/I, mob/living/user, params)
 	//can't attack an /obj/item/ anyway, so might as well use harm intent for this stuff.
@@ -97,23 +99,68 @@
 		//i want to fucking die btw
 		//this should probably be moved to another proc.
 		if(I.tool_behaviour == TOOL_WRENCH)
-			I.play_tool_sound(src, 100)
-			set_anchored(!anchored)
-			user.visible_message("<span class='notice'>[user] [anchored ? "прикручивает" : "откручивает"] [src.name].</span>", \
-				"<span class='notice'>Я [anchored ? "прикручиваю [src.name] к полу" : "откручиваю [src.name] от пола"].</span>")
-			update_icon_state(part_icon_state)
+			
+			var/a
+			if(anchored)
+				a = unanchor(user)
+			else
+				a = anchor(user)
+			if(a)
+				set_anchored(!anchored)
+				I.play_tool_sound(src, 100)
+				user.visible_message("<span class='notice'>[user] [anchored ? "прикручивает" : "откручивает"] [src.name].</span>", \
+					"<span class='notice'>Я [anchored ? "прикручиваю [src.name] к полу" : "откручиваю [src.name] от пола"].</span>")
+				update_icon_state(part_icon_state)
 
 		return
 	
-	//should no go through if the user's intent is harm
+	//shouldn't get to this point if the user's intent is harm
 	//this way stuff like item scanners can accept all items (like a fucking wrench) on the first 3 intents
 	//AND still be wrenched (bypassing the scan) if on harm intent.
-	if(!active)
-		active = TRUE
-		interact_by_item(I, user)
+	interact_by_item(I, user)
 
 
-///no touchy
+///Returns true if anchoring is allowed, returns false if not.
+/obj/item/mechcomp/proc/anchor(mob/living/user)
+	if(only_one_per_tile)
+		for(var/obj/item/mechcomp/i in get_turf(src))
+			if(istype(i, src) && i.anchored)
+				to_chat(user, "<span class='alert'>Cannot wrench two [src.name]s in one place! Pick a different spot for this one!</span>")
+				return FALSE
+		src.pixel_x = 0
+		src.pixel_y = 0
+	return TRUE
+
+///Returns true if unanchoring is allowed, returns false if not.
+/obj/item/mechcomp/proc/unanchor(mob/living/user)
+	to_chat(user,"incoming - [length(compdatum.connected_incoming)] // outgoing - [length(compdatum.connected_outgoing)]")
+	to_chat(user,"[length(compdatum.connected_incoming)] [length(compdatum.connected_outgoing)]")
+	if (length(compdatum.connected_incoming) || length(compdatum.connected_outgoing))
+		to_chat(user, "<span class='alert'>The locking bolts of [src.name] are locked in and do not budge! Disconnect all first!</span>")
+		return FALSE
+	//just in case we /somehow/ fucked up with the check
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_RM_ALL_CONNECTIONS)
+	return TRUE
+
+/**
+ * Change the active var to TRUE and current icon to active_icon_state, it it's not null.area
+ * If you want your mechcomp component to have a mandatory cooldown between activations, use a
+ * if(active)
+ *		return
+ * construction in the beginning of your interact proc or signal handling proc.
+ **/
+/obj/item/mechcomp/proc/activate_for(var/time)
+	active = TRUE
+	if(active_icon_state)
+		update_icon_state(active_icon_state)
+	addtimer(CALLBACK(src, .proc/_deactivate), time)
+
+///internal, for callback stuff.
+/obj/item/mechcomp/proc/_deactivate()
+	active = FALSE
+	update_icon_state(part_icon_state)
+
+/*
 /obj/item/mechcomp/MouseDrop_T(atom/_drop, mob/living/user)
 	. = ..()
 
@@ -125,6 +172,7 @@
 		return
 
 	SEND_SIGNAL(src,_COMSIG_MECHCOMP_DROPCONNECT, drop, user)
+*/
 
 
 /**

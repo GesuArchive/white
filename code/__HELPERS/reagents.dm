@@ -151,7 +151,8 @@
 
 ///Returns a list of chemical_reaction datums that have the input STRING as a product
 /proc/get_reagent_type_from_product_string(string)
-	var/input_reagent = replacetext(lowertext(string), " ", "") //95% of the time, the reagent id is a lowercase/no spaces version of the name
+	var/input = lowertext(string)//all search is case - insensitive
+	var/input_reagent = replacetext(input, " ", "") //95% of the time, the reagent id is a lowercase/no spaces version of the name
 	if (isnull(input_reagent))
 		return
 
@@ -159,7 +160,7 @@
 	if(shortcuts[input_reagent])
 		input_reagent = shortcuts[input_reagent]
 	else
-		input_reagent = find_reagent(input_reagent)
+		input_reagent = find_reagent(input)
 	return input_reagent
 
 ///Returns reagent datum from typepath
@@ -189,9 +190,23 @@
 
 ///Returns reagent datum from reagent name string
 /proc/get_chem_id(chem_name)
+	chem_name = lowertext(chem_name)
+	
+	//fucks up plumbing filter's interface, so i'm putting this for later
+	//2:56 in the morning please end my fucking misery
+	/*
+	var/id = GLOB.name2reagent[chem_name]
+	if(!isnull(id))
+		return id
+	id = GLOB.enname2reagent[chem_name]
+	if(!isnull(id))
+		return id
+	*/
+
+	//this genuinely hurts to look at
 	for(var/X in GLOB.chemical_reagents_list)
 		var/datum/reagent/R = GLOB.chemical_reagents_list[X]
-		if(lowertext(chem_name) == lowertext(R.name))
+		if(chem_name == lowertext(R.name) || chem_name == lowertext(R.enname))
 			return X
 
 ///Takes a type in and returns a list of associated recipes

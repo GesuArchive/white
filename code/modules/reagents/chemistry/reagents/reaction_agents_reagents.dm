@@ -18,6 +18,7 @@
 
 /datum/reagent/reaction_agent/acidic_buffer
 	name = "Strong acidic buffer"
+	enname = "Strong acidic buffer"
 	description = "This reagent will consume itself and move the pH of a beaker towards acidity when added to another."
 	color = "#fbc314"
 	ph = 0
@@ -45,6 +46,7 @@
 
 /datum/reagent/reaction_agent/basic_buffer
 	name = "Strong basic buffer"
+	enname = "Strong basic buffer"
 	description = "This reagent will consume itself and move the pH of a beaker towards alkalinity when added to another."
 	color = "#3853a4"
 	ph = 14
@@ -73,16 +75,19 @@
 
 /datum/reagent/prefactor_a
 	name = "Interim product alpha"
+	enname = "Interim product alpha"
 	description = "This reagent is a prefactor to the purity tester reagent, and will react with stable plasma to create it"
 	color = "#bafa69"
 
 /datum/reagent/prefactor_b
 	name = "Interim product beta"
+	enname = "Interim product beta"
 	description = "This reagent is a prefactor to the reaction speed agent reagent, and will react with stable plasma to create it"
 	color = "#8a3aa9"
 
 /datum/reagent/reaction_agent/purity_tester
 	name = "Purity tester"
+	enname = "Purity tester"
 	description = "This reagent will consume itself and violently react if there is a highly impure reagent in the beaker."
 	ph = 3
 	color = "#ffffff"
@@ -105,6 +110,7 @@
 
 /datum/reagent/reaction_agent/speed_agent
 	name = "Tempomyocin"
+	enname = "Tempomyocin"
 	description = "This reagent will consume itself and speed up an ongoing reaction, modifying the current reaction's purity by it's own."
 	ph = 10
 	color = "#e61f82"

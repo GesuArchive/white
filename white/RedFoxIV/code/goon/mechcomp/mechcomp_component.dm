@@ -6,9 +6,10 @@
 #define DC_ALL "Disconnect All"
 #define SET_SEND "Set Send-Signal"
 #define TOGGLE_MATCH "Toggle Exact Match"
-#define MECHFAILSTRING "You must be holding a special linking tool to change connections or configuration."
+#define MECHFAILSTRING "You must be holding a Multitool to change Connections or Options."
 
-#define MECHCORP_RADMENU_ICONFILE 'white/RedFoxIV/icons/mechcomp/connection.dmi'
+///this file has all the icons for radial menus for making them f a n c i e r
+#define ICONFILE 'white/RedFoxIV/icons/mechcomp/connection.dmi'
 
 #define _MECHCOMP_VALIDATE_RESPONSE_GOOD 0
 #define _MECHCOMP_VALIDATE_RESPONSE_BAD 1
@@ -30,7 +31,7 @@
 	var/signal = "1" 
 	///i dunno lol
 	var/list/nodes = list()
-	///additional data stuff that is separate from signals
+	///additional data stuff that (i think) is hard to modify or spoof for players
 	var/data = null
 
 /*
@@ -148,8 +149,7 @@
 	RegisterSignal(parent, _COMSIG_MECHCOMP_GET_OUTGOING, .proc/getOutgoing)
 	RegisterSignal(parent, _COMSIG_MECHCOMP_GET_INCOMING, .proc/getIncoming)
 
-	//zloebuchiy kostil
-	RegisterSignal(parent, COMSIG_MOUSEDROP_ONTO, .proc/dropm)
+	//RegisterSignal(parent, COMSIG_MOUSEDROPPED_ONTO, .proc/dropConnect)
 	RegisterSignal(parent, _COMSIG_MECHCOMP_DROPCONNECT, .proc/dropConnect)
 	RegisterSignal(parent, _COMSIG_MECHCOMP_LINK, .proc/link_devices)
 	RegisterSignal(parent, COMSIG_MECHCOMP_ADD_CONFIG, .proc/addConfig)
@@ -277,13 +277,6 @@
 		return 0
 	msg.addNode(parent)
 
-
-	//Cannot fire a message if unanchored. It's a subject to change.
-	if(ismovable(parent))
-		var/atom/movable/AMparent = parent
-		if (!AMparent.anchored)
-			return
-
 	var/fired = 0
 	for(var/atom/A in src.connected_outgoing)
 		//Note: a target not handling a signal returns 0.
@@ -317,23 +310,20 @@
 	ret.data = _data
 	return ret
 
-/datum/component/mechanics_holder/proc/dropm(var/comsig_target, obj/over, mob/user)
-	SEND_SIGNAL(over, _COMSIG_MECHCOMP_DROPCONNECT, parent, user)
-
 //Called when a component is dragged onto another one.
 // /datum/component/mechanics_holder/proc/dropConnect(atom/comsig_target, atom/A, mob/user)
 
 /datum/component/mechanics_holder/proc/dropConnect(var/comsig_target, obj/over, mob/user)
 	SIGNAL_HANDLER
 
+	to_chat(user,"over.name = [over.name], user.name = [user.name]")
 	if(!over || over == parent || user.stat || !isliving(user) || (SEND_SIGNAL(over,_COMSIG_MECHCOMP_COMPATIBLE) != 1))  //ZeWaka: Fix for null.mechanics
 		return
 	
 	//сука?
 	//if (!user.find_tool_in_hand(TOOL_PULSING))
-	if (user.held_items[user.active_hand_index].tool_behaviour != TOOL_MECHCOMP)
-		if(istype(parent, /obj/item/mechcomp)) //to avoid outputting error messages where their origin is not obvious.
-			to_chat(user, "<span class='alert'>[MECHFAILSTRING]</span>")
+	if (user.held_items[user.active_hand_index].tool_behaviour != TOOL_MULTITOOL)
+		to_chat(user, "<span class='alert'>[MECHFAILSTRING]</span>")
 		return
 
 	//что-то про кабинеты для мехкомпа. нахуй.
@@ -352,23 +342,20 @@
 	*/
 
 	if(get_dist(parent, over) > 15)
-		to_chat(user, "<span class='alert'>Components need to be within a range of 14 meters to connect!</span>")
+		to_chat(user, "<span class='alert'>Components need to be within a range of 14 meters to connect.</span>")
 		return
+
+	to_chat(user, "assblast")
+	
+	var/typesel 
+	typesel += list("Trigger") = image(icon = ICONFILE, icon_state = "trigger")
+	typesel += list("Receiver") = image(icon = ICONFILE, icon_state = "receiver")
+	
+	var/input_choice = show_radial_menu(user, parent, list/choices)
+	to_chat(user, "chosen [input_choice]")
 	
 
-	
-	var/typecon = list("Trigger", "Receiver")
-	typecon["Trigger"] = image(icon = MECHCORP_RADMENU_ICONFILE, icon_state = "trigger")
-	typecon["Receiver"] = image(icon = MECHCORP_RADMENU_ICONFILE, icon_state = "receiver")
-	
-	//typesel += list("Trigger") = image(icon = 'white/RedFoxIV/icons/mechcomp/connection.dmi', icon_state = "trigger")
-	//typesel += list("Receiver") = image(icon = 'white/RedFoxIV/icons/mechcomp/connection.dmi', icon_state = "receiver")
-	
-	var/typesel = show_radial_menu(user, parent, typecon)
-
-	
-
-	//typesel = input(user, "Use [parent] as:", "Connection Type") in list("Trigger", "Receiver", "*CANCEL*")
+	typesel = input(user, "Use [parent] as:", "Connection Type") in list("Trigger", "Receiver", "*CANCEL*")
 	switch(typesel)
 		if("Trigger")
 			SEND_SIGNAL(over, _COMSIG_MECHCOMP_LINK, parent, user)
@@ -395,20 +382,8 @@
 	var/pointer_container[1] //A list of size 1, to store the address of the list we want
 	SEND_SIGNAL(trigger, _COMSIG_MECHCOMP_GET_OUTGOING, pointer_container)
 	var/list/trg_outgoing = pointer_container[1]
-	
-	var/list/choices = list()
-	for(var/i in inputs)
-		var/image/img = image(icon = MECHCORP_RADMENU_ICONFILE, icon_state = "io")
-		img.maptext_width = 64
-		img.maptext_x = -16
-		img.maptext = "<text align=center valign=bottom>[MAPTEXT("[i]")]"
-		choices.Add("[i]")
-		choices["[i]"] = img
-	var/selected_input = show_radial_menu(user, parent, choices, tooltips = TRUE)
-	//var/selected_input = input(user, "Select \"[receiver.name]\" Input", "Input Selection") in inputs + "*CANCEL*"
-	if(!selected_input)
-		to_chat(user,"<span class='notice'>You decide against connecting [trigger.name] and [receiver.name].</span>")
-		return
+	var/selected_input = input(user, "Select \"[receiver.name]\" Input", "Input Selection") in inputs + "*CANCEL*"
+	if(selected_input == "*CANCEL*") return
 
 	trg_outgoing |= receiver //Let's not allow making many of the same connection.
 	trg_outgoing[receiver] = selected_input
@@ -438,26 +413,15 @@
 /datum/component/mechanics_holder/proc/attackby(var/comsig_target, obj/item/W /*as obj*/ /*НАХУЯ???*/, mob/user)
 	SIGNAL_HANDLER
 
-	if(W.tool_behaviour != TOOL_MECHCOMP || !isliving(user) || user.stat)
+	if(W.tool_behaviour != TOOL_MULTITOOL || !isliving(user) || user.stat)
 		return FALSE
 
 	if(length(src.configs))
 		var/list/choices = list()
 		for(var/i in src.configs)
-			var/image/img
-			switch(i)
-				if(SET_SEND)
-					img = image(icon = 'white/RedFoxIV/icons/mechcomp/connection.dmi', icon_state = "signal")
-				if(DC_ALL)
-					img = image(icon = 'white/RedFoxIV/icons/mechcomp/connection.dmi', icon_state = "disconnect")
-				else
-					img = image(icon = 'white/RedFoxIV/icons/mechcomp/connection.dmi', icon_state = "config")
-			img.maptext_width = 64
-			img.maptext_x = -16
-			img.maptext = "<text align=center valign=bottom>[MAPTEXT("[i]")]"
-			choices.Add("[i]")
-			choices["[i]"] = img
-		var/selected_config = show_radial_menu(user, parent, choices, tooltips = TRUE, require_near = TRUE)
+			choices += list("[i]") = image(icon = ICONFILE, icon_state = 'config')
+
+		var/selected_config = show_radial_menu(user, parent, choices, tooltip = TRUE)
 		//var/selected_config = input("Select a config to modify!", "Config", null) as null|anything in src.configs
 		if(selected_config && in_range(parent, user))
 			switch(selected_config)
