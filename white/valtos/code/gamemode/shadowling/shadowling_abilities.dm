@@ -96,7 +96,7 @@
 	name = "Veil"
 	desc = "Extinguishes most nearby light sources."
 	panel = "Shadowling Abilities"
-	charge_max = 150 //Short cooldown because people can just turn the lights back on
+	charge_max = 300 //Short cooldown because people can just turn the lights back on
 	human_req = TRUE
 	clothes_req = FALSE
 	range = 5
