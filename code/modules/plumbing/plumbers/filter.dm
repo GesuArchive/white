@@ -38,31 +38,31 @@
 	switch(action)
 		if("add")
 			var/new_chem_name = params["name"]
-			var/chem_id = get_chem_id(new_chem_name)
+			var/datum/reagent/chem_id = get_chem_id(new_chem_name)
 			if(chem_id)
 				switch(params["which"])
 					if("left")
 						if(!left.Find(chem_id))
-							english_left += new_chem_name
+							english_left += initial(chem_id.name)
 							left += chem_id
 					if("right")
 						if(!right.Find(chem_id))
-							english_right += new_chem_name
+							english_right += initial(chem_id.name)
 							right += chem_id
 			else
 				to_chat(usr, "<span class='warning'>No such known reagent exists!</span>")
 
 		if("remove")
 			var/chem_name = params["reagent"]
-			var/chem_id = get_chem_id(chem_name)
+			var/datum/reagent/chem_id = get_chem_id(chem_name)
 			switch(params["which"])
 				if("left")
 					if(english_left.Find(chem_name))
-						english_left -= chem_name
+						english_left -= initial(chem_id.name)
 						left -= chem_id
 				if("right")
 					if(english_right.Find(chem_name))
-						english_right -= chem_name
+						english_right -= initial(chem_id.name)
 						right -= chem_id
 
 
