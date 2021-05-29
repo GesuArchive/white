@@ -307,6 +307,7 @@
 	active_icon_state = "comp_accel1"
 	var/power = 3
 	has_anchored_icon_state = TRUE
+	only_one_per_tile = TRUE
 
 /obj/item/mechcomp/grav_accelerator/ComponentInitialize()
 	. = ..()
@@ -342,17 +343,7 @@
 			continue
 		var/throwtarget = get_edge_target_turf(AM, src.dir)
 		AM.safe_throw_at(throwtarget, power, 1, force = MOVE_FORCE_STRONG, spin = TRUE)
-	activate_for((power*2+1) SECONDS)
-
-/obj/item/mechcomp/grav_accelerator/anchor(mob/living/user)
-	//no idea how to correctly check if another object of same type exists on the same tile
-	//fuck it//foreach loop
-	for(var/obj/item/mechcomp/grav_accelerator/i in range(0, src))
-		if(i.anchored)
-			to_chat(user, "<span class='alert'>Cannot wrench two graviton accelerators on the same space!.</span>")
-			return FALSE
-	return TRUE
-
+	activate_for((power+2) SECONDS)
 
 /obj/item/mechcomp/grav_accelerator/proc/setpowermanually(obj/item/W, mob/user)
 	var/input = input("Enter new power setting.", "Power", null) as num
@@ -363,3 +354,89 @@
 	power = clamp(round(input), 1, 7)
 	to_chat(user, "<span class='notice'>You change the power setting on [src.name] to [power].</span>")
 	return TRUE
+
+/obj/item/mechcomp/egunholder
+	name = "mechcomp energy gun fixture"
+	desc = "Warcrimes, warcrimes!"
+	part_icon_state = "comp_egun"
+	only_one_per_tile = TRUE
+	///from 0 to 360
+	var/angle = 0
+	var/obj/item/gun/energy/gun
+
+
+/obj/item/mechcomp/egunholder/Initialize()
+	. = ..()
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Fire!", "fire")
+	//SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Angle", "rotate") //Would this make the gun component too OP? :thinking:
+
+/obj/item/mechcomp/egunholder/proc/fire(var/datum/mechcompMessage/msg)
+	if(isnull(gun))
+		playsound(src, 'white/RedFoxIV/sounds/mechcomp/generic_energy_dryfire.ogg', 75, FALSE)
+		activate_for(0.5 SECONDS)
+		return
+
+	var/obj/item/stock_parts/cell/gun_cell = gun.cell
+	var/obj/item/ammo_casing/energy/casing = gun.ammo_type[gun.select]
+	
+	if(gun_cell.use(casing.e_cost))
+		var/obj/projectile/proj = new casing.projectile_type(get_turf(src))
+		proj.fire(angle, null)
+		playsound(src, casing.fire_sound, 50, TRUE, -1)
+		//probably should implement an override for flick() in obj/item/mechcomp
+		//to handle different states correctly.
+		flick("comp_egun_firing",src)
+		activate_for(1 SECONDS)
+	else
+		playsound(src, gun.dry_fire_sound, 50, TRUE)
+
+
+	activate_for(1 SECONDS)
+
+
+/obj/item/mechcomp/egunholder/interact_by_item(obj/item/I, mob/user)
+	. = ..()
+	if(!istype(I,/obj/item/gun/energy) && istype(I,/obj/item/gun/))
+		to_chat(user, "<span class='notice'>[src.name] accepts only energy-based weaponry!.</span>")
+		return
+
+	if(istype(I,/obj/item/gun/energy))
+		if(isnull(gun))
+			user.transferItemToLoc(I,src)
+			gun = I
+			to_chat(user, "<span class='notice'>You slide \the [gun] into the [src.name].</span>")
+			playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
+			return
+		else
+			to_chat(user, "<span class='notice'>There's already a weapon installed in [src.name]!.</span>")
+			return
+
+	if(I.tool_behaviour == TOOL_CROWBAR && !isnull(gun))
+		gun.forceMove(drop_location())
+		gun = null
+		playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
+		to_chat(user, "<span class='notice'>You pop \the [gun] out of the [src.name].</span>")
+		return
+
+//recycled from reflector code
+/obj/item/mechcomp/egunholder/proc/rotate(mob/user)
+	var/new_angle = input(user, "Input a new angle for [src.name].", "[src.name]'s angle", angle) as null|num
+	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
+		return
+	if(!isnull(new_angle))
+		src.transform = matrix()
+		src.transform = turn(src.transform, new_angle)
+		angle = SIMPLIFY_DEGREES(new_angle)
+	return TRUE
+
+/obj/item/mechcomp/egunholder/proc/debugrotate(var/new_angle)
+	if(new_angle>0 && new_angle < 360)
+		src.transform = matrix()
+		src.transform = turn(src.transform, new_angle)
+		angle = SIMPLIFY_DEGREES(new_angle)
+		addtimer(src, CALLBACK(src, .proc/debugrotate, angle+1), 1)
+
+/obj/item/mechcomp/egunholder/AltClick(mob/user)
+	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
+		return
+	rotate(user)

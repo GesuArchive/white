@@ -6,7 +6,7 @@
 #define DC_ALL "Disconnect All"
 #define SET_SEND "Set Send-Signal"
 #define TOGGLE_MATCH "Toggle Exact Match"
-#define MECHFAILSTRING "You must be holding a Multitool to change Connections or Options."
+#define MECHFAILSTRING "You must be holding a special linking tool to change connections or configuration."
 
 #define MECHCORP_RADMENU_ICONFILE 'white/RedFoxIV/icons/mechcomp/connection.dmi'
 
@@ -277,6 +277,13 @@
 		return 0
 	msg.addNode(parent)
 
+
+	//Cannot fire a message if unanchored. It's a subject to change.
+	if(ismovable(parent))
+		var/atom/movable/AMparent = parent
+		if (!AMparent.anchored)
+			return
+
 	var/fired = 0
 	for(var/atom/A in src.connected_outgoing)
 		//Note: a target not handling a signal returns 0.
@@ -324,8 +331,9 @@
 	
 	//сука?
 	//if (!user.find_tool_in_hand(TOOL_PULSING))
-	if (user.held_items[user.active_hand_index].tool_behaviour != TOOL_MULTITOOL)
-		to_chat(user, "<span class='alert'>[MECHFAILSTRING]</span>")
+	if (user.held_items[user.active_hand_index].tool_behaviour != TOOL_MECHCOMP)
+		if(istype(parent, /obj/item/mechcomp)) //to avoid outputting error messages where their origin is not obvious.
+			to_chat(user, "<span class='alert'>[MECHFAILSTRING]</span>")
 		return
 
 	//что-то про кабинеты для мехкомпа. нахуй.
@@ -430,7 +438,7 @@
 /datum/component/mechanics_holder/proc/attackby(var/comsig_target, obj/item/W /*as obj*/ /*НАХУЯ???*/, mob/user)
 	SIGNAL_HANDLER
 
-	if(W.tool_behaviour != TOOL_MULTITOOL || !isliving(user) || user.stat)
+	if(W.tool_behaviour != TOOL_MECHCOMP || !isliving(user) || user.stat)
 		return FALSE
 
 	if(length(src.configs))

@@ -6,6 +6,8 @@
 	icon = 'white/RedFoxIV/icons/obj/mechcomp.dmi'
 
 
+	var/datum/component/mechanics_holder/compdatum
+
 	/**
 	 * A crutch to use the goon mechcomp sprites, because goon iconstate 
 	 * format for mechcomp is [compname] for unanchored and u[compname] for anchored components.
@@ -31,7 +33,15 @@
 	 **/
 	var/active = FALSE
 
+	///cringe
 	var/deactivatecb = CALLBACK()
+
+	/**
+	 * If only a single instance of a component is allowed to be anchored onto a tile.part_icon_state = 
+	 * Also resets it's own pixel_x and pixel_y vars when anchored so that it stays centered.part_icon_state = 
+	 **/
+	var/only_one_per_tile = FALSE
+
 	/**
 	 * DO NOT FUCKING TOUCH THIS REEEE! use update_icon_state("compname") instead.
 	 * Yes, even if you want your component to chance icon when it's active. 
@@ -53,7 +63,7 @@
 
 /obj/item/mechcomp/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/mechanics_holder)
+	compdatum = AddComponent(/datum/component/mechanics_holder)
 
 
 /**
@@ -68,7 +78,7 @@
  * Called when a user clicks the component with an item while not on harm intent.
  * Moved to a separate proc for easier handling of active/inactive states.
  **/
-/obj/item/mechcomp/proc/interact_by_item(mob/user)
+/obj/item/mechcomp/proc/interact_by_item(obj/item/I, mob/user)
 	return
 
 
@@ -112,9 +122,23 @@
 
 ///Returns true if anchoring is allowed, returns false if not.
 /obj/item/mechcomp/proc/anchor(mob/living/user)
+	if(only_one_per_tile)
+		for(var/obj/item/mechcomp/i in get_turf(src))
+			if(istype(i, src) && i.anchored)
+				to_chat(user, "<span class='alert'>Cannot wrench two [src.name]s in one place! Pick a different spot for this one!</span>")
+				return FALSE
+		src.pixel_x = 0
+		src.pixel_y = 0
 	return TRUE
+
 ///Returns true if unanchoring is allowed, returns false if not.
 /obj/item/mechcomp/proc/unanchor(mob/living/user)
+	to_chat(user,"incoming - [length(compdatum.connected_incoming)] // outgoing - [length(compdatum.connected_outgoing)]")
+	to_chat(user,"[length(compdatum.connected_incoming)] [length(compdatum.connected_outgoing)]")
+	if (length(compdatum.connected_incoming) || length(compdatum.connected_outgoing))
+		to_chat(user, "<span class='alert'>The locking bolts of [src.name] are locked in and do not budge! Disconnect all first!</span>")
+		return FALSE
+	//just in case we /somehow/ fucked up with the check
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_RM_ALL_CONNECTIONS)
 	return TRUE
 
