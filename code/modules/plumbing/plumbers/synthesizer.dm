@@ -46,6 +46,10 @@
 /obj/machinery/plumbing/synthesizer/Initialize(mapload, bolt)
 	. = ..()
 	AddComponent(/datum/component/plumbing/simple_supply, bolt)
+	//lololol
+	AddComponent(/datum/component/mechanics_holder)
+	
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Chemical to dispense", "mechcomp_update_chems")
 
 /obj/machinery/plumbing/synthesizer/process(delta_time)
 	if(machine_stat & NOPOWER || !reagent_id || !amount)
@@ -53,6 +57,10 @@
 	if(reagents.total_volume >= amount*delta_time*0.5) //otherwise we get leftovers, and we need this to be precise
 		return
 	reagents.add_reagent(reagent_id, amount*delta_time*0.5)
+	
+	var/datum/mechcompMessage/msg = new
+	msg.signal = "[reagent_id.name];[amount]"
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_TRANSMIT_MSG,)
 
 /obj/machinery/plumbing/synthesizer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -107,3 +115,50 @@
 	else
 		r_overlay.color = "#FFFFFF"
 	. += r_overlay
+
+/obj/machinery/plumbing/synthesizer/proc/mechcomp_update_chems(var/datum/mechcompMessage/msg)
+	var/err = 0
+	var/list/signal = splittext(msg.signal, ";")
+
+	if(length(signal) == 0 || length(signal) > 2)
+		say("Invalid signal syntax! Proper signal syntax is: \[CHEM_NAME];\[DISPENSE_AMOUNT(from 0 to 5 inclusive!)].")
+		return
+	
+	
+	//the following code is ugly af, so i am going to comment it because ladder ifs (like these) kinda suck ass.
+	if(length(signal == 1))
+		//only the chemical or amount has been passed, let's figure out which one.
+		var/t2n = text2num(signal[1])
+		//is it a number?
+		if(!isnull(t2n))
+			//oh, it's a number!
+			if(t2n in possible_amounts)
+				amount = t2n
+			else
+				//wait, it's an invalid number!
+				err = 2
+		else
+			//it's not a number, therefore it must be a reagent name.
+			var/new_chem =  GLOB.name2reagent[signal[1]]
+			if(new_chem in dispensable_reagents)
+				reagent_id = new_chem
+			else
+				//that chemical doesn't exist. Too bad!
+				err = 2
+
+	else
+		//this part only executes if there are 2 parts in the signal, separated by a ";".
+		var/new_reagent = get_chem_id(signal[1])
+		if(new_reagent in dispensable_reagents)
+			reagent_id = new_reagent
+		else
+			err += 2
+
+		var/new_amount = text2num(signal[2])
+		if(new_amount in possible_amounts)
+			amount = new_amount
+		else
+			err += 1
+
+	if(err)
+		say("Invalid [err == 1 ? "chemical name!" : "[err == 2 ? "dispense amount!" : "chemical name and dispense amount!" ]" ] Proper signal syntax is: \[CHEM_NAME];\[DISPENSE_AMOUNT(from 0 to 5 inclusive!)].")
