@@ -12,7 +12,7 @@
 	if(mechcomp_enabled)
 		to_chat(user, "<span class='notice'>You slide out the mechcomp control panel on the \"C.U.M.\", allowing you to connect, disconnect mechcomp parts and configure them.<span>") // haha funni
 		icon_state = "linker_mechcomp"
-		tool_behaviour = TOOL_MECHCOMP
+		tool_behaviour = TOOL_MULTITOOL
 	else
 		to_chat(user, "<span class='notice'>You slide in the mechcomp control panel on the \"C.U.M.\", making it function like a regular multitool.</span>")
 		icon_state = "linker_multitool"

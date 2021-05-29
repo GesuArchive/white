@@ -26,8 +26,8 @@
 
 
 /datum/mechcompMessage
-	///the main data stuff to pass around 
-	var/signal = "1" 
+	///the main data stuff to pass around
+	var/signal = "1"
 	///i dunno lol
 	var/list/nodes = list()
 	///additional data stuff that is separate from signals
@@ -160,7 +160,7 @@
 	RegisterSignal(parent, _COMSIG_MECHCOMP_COMPATIBLE, .proc/compatible)//Better that checking GetComponent()?
 
 	RegisterSignal(parent, COMSIG_MECHCOMP_ASSBLAST, .proc/assblast)
-	
+
 	return  //No need to ..()
 
 /datum/component/mechanics_holder/UnregisterFromParent()
@@ -230,7 +230,7 @@
 //Fire the stored default signal.
 /datum/component/mechanics_holder/proc/fireDefault(var/comsig_target, var/datum/mechcompMessage/msg = null)
 	SIGNAL_HANDLER
-	
+
 	if(isnull(msg))
 		msg = newSignal(defaultSignal, null)
 	else
@@ -328,10 +328,10 @@
 
 	if(!over || over == parent || user.stat || !isliving(user) || (SEND_SIGNAL(over,_COMSIG_MECHCOMP_COMPATIBLE) != 1))  //ZeWaka: Fix for null.mechanics
 		return
-	
+
 	//сука?
 	//if (!user.find_tool_in_hand(TOOL_PULSING))
-	if (user.held_items[user.active_hand_index].tool_behaviour != TOOL_MECHCOMP)
+	if (user.held_items[user.active_hand_index].tool_behaviour != TOOL_MULTITOOL)
 		if(istype(parent, /obj/item/mechcomp)) //to avoid outputting error messages where their origin is not obvious.
 			to_chat(user, "<span class='alert'>[MECHFAILSTRING]</span>")
 		return
@@ -354,19 +354,19 @@
 	if(get_dist(parent, over) > 15)
 		to_chat(user, "<span class='alert'>Components need to be within a range of 14 meters to connect!</span>")
 		return
-	
 
-	
+
+
 	var/typecon = list("Trigger", "Receiver")
 	typecon["Trigger"] = image(icon = MECHCORP_RADMENU_ICONFILE, icon_state = "trigger")
 	typecon["Receiver"] = image(icon = MECHCORP_RADMENU_ICONFILE, icon_state = "receiver")
-	
+
 	//typesel += list("Trigger") = image(icon = 'white/RedFoxIV/icons/mechcomp/connection.dmi', icon_state = "trigger")
 	//typesel += list("Receiver") = image(icon = 'white/RedFoxIV/icons/mechcomp/connection.dmi', icon_state = "receiver")
-	
+
 	var/typesel = show_radial_menu(user, parent, typecon)
 
-	
+
 
 	//typesel = input(user, "Use [parent] as:", "Connection Type") in list("Trigger", "Receiver", "*CANCEL*")
 	switch(typesel)
@@ -383,7 +383,7 @@
 //This feels weird/backwards, but it results in fewer SEND_SIGNALS & var/lists
 /datum/component/mechanics_holder/proc/link_devices(var/comsig_target, atom/trigger, mob/user)
 	SIGNAL_HANDLER
-	
+
 	var/atom/receiver = parent
 	if(trigger in src.connected_outgoing)
 		to_chat(user, "<span class='alert'>Can not create a direct loop between 2 components.</span>")
@@ -395,7 +395,7 @@
 	var/pointer_container[1] //A list of size 1, to store the address of the list we want
 	SEND_SIGNAL(trigger, _COMSIG_MECHCOMP_GET_OUTGOING, pointer_container)
 	var/list/trg_outgoing = pointer_container[1]
-	
+
 	var/list/choices = list()
 	for(var/i in inputs)
 		var/image/img = image(icon = MECHCORP_RADMENU_ICONFILE, icon_state = "io")
@@ -438,7 +438,7 @@
 /datum/component/mechanics_holder/proc/attackby(var/comsig_target, obj/item/W /*as obj*/ /*НАХУЯ???*/, mob/user)
 	SIGNAL_HANDLER
 
-	if(W.tool_behaviour != TOOL_MECHCOMP || !isliving(user) || user.stat)
+	if(W.tool_behaviour != TOOL_MULTITOOL || !isliving(user) || user.stat)
 		return FALSE
 
 	if(length(src.configs))
@@ -463,10 +463,10 @@
 			switch(selected_config)
 				if(SET_SEND)
 					var/inp = input(user,"Please enter Signal:","Signal setting","1") as text
-					
+
 					if(!in_range(parent, user) || user.stat)
 						return
-					
+
 					inp = trim(strip_html(inp))
 					if(length(inp))
 						defaultSignal = inp
@@ -484,7 +484,7 @@
 //If it's a multi-tool, let the user configure the device.
 /datum/component/mechanics_holder/proc/compatible()
 	SIGNAL_HANDLER
-	
+
 	return 1
 
 /datum/component/mechanics_holder/proc/assblast(obj/over, mob/user)
