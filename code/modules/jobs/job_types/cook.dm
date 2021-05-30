@@ -1,6 +1,6 @@
 /datum/job/cook
 	title = "Cook"
-	ru_title = "Кок"
+	ru_title = "Повар"
 	department_head = list("Head of Personnel")
 	faction = "Station"
 	total_positions = 2
