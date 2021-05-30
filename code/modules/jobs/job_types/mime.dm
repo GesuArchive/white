@@ -1,5 +1,6 @@
 /datum/job/mime
 	title = "Mime"
+	ru_title = "Мим"
 	department_head = list("Head of Personnel")
 	faction = "Station"
 	total_positions = 1

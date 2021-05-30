@@ -1,5 +1,6 @@
 /datum/job/roboticist
 	title = "Roboticist"
+	ru_title = "Робототехник"
 	department_head = list("Research Director")
 	faction = "Station"
 	total_positions = 2

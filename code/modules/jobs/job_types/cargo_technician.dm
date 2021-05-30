@@ -1,5 +1,6 @@
 /datum/job/cargo_tech
 	title = "Cargo Technician"
+	ru_title = "Грузчик"
 	department_head = list("Head of Personnel")
 	faction = "Station"
 	total_positions = 3

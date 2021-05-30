@@ -1,5 +1,6 @@
 /datum/job/chaplain
 	title = "Chaplain"
+	ru_title = "Капеллан"
 	department_head = list("Head of Personnel")
 	faction = "Station"
 	total_positions = 1

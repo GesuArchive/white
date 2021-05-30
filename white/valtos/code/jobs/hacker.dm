@@ -1,5 +1,6 @@
 /datum/job/hacker
 	title = "Hacker"
+	ru_title = "Взломщик"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	department_head = list("Research Director")
 	faction = "Scarlet"

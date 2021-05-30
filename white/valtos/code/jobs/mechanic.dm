@@ -1,5 +1,6 @@
 /datum/job/engineer/mechanic
 	title = "Механик"
+	ru_title = "Механик"
 	total_positions = 1
 	spawn_positions = 1
 	exp_requirements = 0

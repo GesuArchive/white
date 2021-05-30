@@ -1,5 +1,6 @@
 /datum/job/trader
 	title = "Trader"
+	ru_title = "Торговец"
 	supervisors = "торговой ассоциации и ордену Алого Рассвета"
 	faction = "Scarlet"
 	total_positions = 0

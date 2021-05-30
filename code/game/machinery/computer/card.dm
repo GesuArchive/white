@@ -200,7 +200,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 			dat += "<tr>"
 			if(job.title in blacklisted)
 				continue
-			dat += {"<td>[job.title]</td>
+			dat += {"<td>[job.ru_title]</td>
 				<td>[job.current_positions]/[job.total_positions]</td>
 				<td>"}
 			switch(can_open_job(job))

@@ -674,6 +674,92 @@ Turf and target are separate in case you want to teleport some distance from a t
 	else
 		return zone
 
+// FUCK?
+/proc/ru_job_parse(job)
+	if (job == "Assistant")
+		return "Ассистент"
+	else if (job == "Captain")
+		return "Капитан"
+	else if (job == "Chief Engineer")
+		return "Старший Инженер"
+	else if (job == "Station Engineer")
+		return "Инженер"
+	else if (job == "Механик")
+		return "Механик"
+	else if (job == "Atmospheric Technician")
+		return "Атмостех"
+	else if (job == "Chief Medical Officer")
+		return "Главный Врач"
+	else if (job == "Medical Doctor")
+		return "Врач"
+	else if (job == "Paramedic")
+		return "Парамедик"
+	else if (job == "Virologist")
+		return "Вирусолог"
+	else if (job == "Chemist")
+		return "Химик"
+	else if (job == "Field Medic")
+		return "Полевой Врач"
+	else if (job == "Research Director")
+		return "Научный Руководитель"
+	else if (job == "Scientist")
+		return "Учёный"
+	else if (job == "Geneticist")
+		return "Генетик"
+	else if (job == "Roboticist")
+		return "Робототехник"
+	else if (job == "Hacker")
+		return "Взломщик"
+	else if (job == "Head of Security")
+		return "Начальник Охраны"
+	else if (job == "Warden")
+		return "Надзиратель"
+	else if (job == "Detective")
+		return "Детектив"
+	else if (job == "Security Officer")
+		return "Офицер"
+	else if (job == "Russian Officer")
+		return "Русский Офицер"
+	else if (job == "Veteran")
+		return "Ветеран"
+	else if (job == "Quartermaster")
+		return "Квартирмейстер"
+	else if (job == "Cargo Technician")
+		return "Грузчик"
+	else if (job == "Shaft Miner")
+		return "Шахтёр"
+	else if (job == "Trader")
+		return "Торговец"
+	else if (job == "Head of Personnel")
+		return "Глава Персонала"
+	else if (job == "Bartender")
+		return "Бармен"
+	else if (job == "Botanist")
+		return "Ботаник"
+	else if (job == "Cook")
+		return "Кок"
+	else if (job == "Janitor")
+		return "Уборщик"
+	else if (job == "Curator")
+		return "Куратор"
+	else if (job == "Psychologist")
+		return "Психолог"
+	else if (job == "Lawyer")
+		return "Адвокат"
+	else if (job == "Chaplain")
+		return "Капеллан"
+	else if (job == "Clown")
+		return "Клоун"
+	else if (job == "Mime")
+		return "Мим"
+	else if (job == "Prisoner")
+		return "Заключённый"
+	else if (job == "Бомж")
+		return "Бомж"
+	else
+		return job
+
+
 /*
 
 Lets the turf this atom's *ICON* appears to inhabit
