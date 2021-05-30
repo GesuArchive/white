@@ -1,8 +1,10 @@
 /obj/item/integrated_circuit/smart
 	category_text = "Smart"
 
-/obj/item/integrated_circuit/smart/Initialize()
+/obj/item/integrated_circuit/smart/Initialize(mapload)
 	. = ..()
+	if(mapload)
+		return
 	var/list/maybe = list()
 	for(var/mob/living/L in view(1))
 		maybe += ADMIN_LOOKUPFLW(L)
