@@ -5,7 +5,7 @@
 // You do not need to raise this if you are adding new values that have sane defaults.
 // Only raise this value when changing the meaning/format/name/layout of an existing value
 // where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX 50
+#define SAVEFILE_VERSION_MAX 51
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -58,6 +58,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	if (current_version < 50)
 		LAZYADD(key_bindings["Space"], "hold_throw_mode")
+
+	if (current_version < 51)
+		equipped_gear.Cut() // FUCK YOU
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
 	return
