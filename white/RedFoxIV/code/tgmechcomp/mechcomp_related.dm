@@ -23,3 +23,36 @@
 	//at least i got to make "cool" sprites
 
 
+
+
+/obj/machinery/vending/tool
+	name = "MechComp vending machine"
+	desc = "."
+	icon = 'white/RedFoxIV/icons/mechcomp/connection.dmi'
+	icon_state = "vending"
+	icon_deny = "vending-deny"
+	light_mask = "vending-light-mask"
+	products = list(/obj/item/mechcomp/button = 15,
+					/obj/item/mechcomp/delay = 20,
+					/obj/item/mechcomp/speaker = 6,
+					/obj/item/mechcomp/textpad = 10,
+					/obj/item/mechcomp/pressurepad = 5,
+					/obj/item/mechcomp/grav_accelerator = 2,
+					/obj/item/mechcomp/math = 35,
+					/obj/item/mechcomp/list_packer = 21,
+					/obj/item/mechcomp/list_extractor = 21,
+					/obj/item/mechcomp/find_regex = 7,
+					/obj/item/mechcomp/timer = 2,
+					/obj/item/mechcomp/microphone = 7)
+	contraband = list(
+						/obj/item/mechcomp/egunholder = 3,
+						/obj/item/mechcomp/grav_accelerator = 5)
+	premium = list(/obj/item/multitool/mechcomp = 1)
+	armor = list(MELEE = 30, BULLET = 30, LASER = 40, ENERGY = 40, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 40)
+	resistance_flags = FIRE_PROOF
+	default_price = PAYCHECK_ASSISTANT
+	extra_price = PAYCHECK_COMMAND * 1.5
+	payment_department = ACCOUNT_ENG
+
+
+
