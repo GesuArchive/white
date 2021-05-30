@@ -1295,7 +1295,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("name")
 					var/new_name = input(user, "Choose your character's name:", "Character Preference")  as text|null
 					if(new_name)
-						new_name = reject_bad_name(new_name)
+						if(pref_species.mutant_bodyparts["ipc_screen"])
+							new_name = reject_bad_name(new_name, TRUE)
+						else
+							new_name = reject_bad_name(new_name)
 						if(new_name)
 							real_name = new_name
 						else

@@ -3,7 +3,7 @@
 	id = "ipc"
 	say_mod = "бип-бупает" //inherited from a user's real species
 	sexes = 0
-	species_traits = list(NOTRANSSTING,NOBLOOD,TRAIT_EASYDISMEMBER,TRAIT_NOFLASH) //all of these + whatever we inherit from the real species
+	species_traits = list(NOTRANSSTING, NOBLOOD, TRAIT_EASYDISMEMBER, TRAIT_NOFLASH, NOEYESPRITES) //all of these + whatever we inherit from the real species
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_VIRUSIMMUNE,TRAIT_NOLIMBDISABLE,TRAIT_NOHUNGER,TRAIT_NOBREATH,TRAIT_RADIMMUNE,TRAIT_LIMBATTACHMENT)
 	inherent_biotypes = list(MOB_ROBOTIC, MOB_HUMANOID)
 	meat = null
@@ -16,6 +16,12 @@
 	brutemod = 1.2
 	var/list/initial_species_traits //for getting these values back for assume_disguise()
 	var/list/initial_inherent_traits
+	mutantbrain = /obj/item/organ/brain/xyz
+	mutanttongue = /obj/item/organ/tongue/robot
+	mutanteyes = /obj/item/organ/eyes/robotic
+	mutantears = /obj/item/organ/ears/cybernetic
+	mutantliver = /obj/item/organ/liver/cybernetic
+	mutantstomach = /obj/item/organ/stomach/cybernetic
 	changesource_flags = MIRROR_BADMIN | WABBAJACK
 
 	var/datum/action/innate/monitor_change/screen
