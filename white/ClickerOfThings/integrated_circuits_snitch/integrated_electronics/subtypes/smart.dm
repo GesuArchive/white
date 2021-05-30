@@ -1,11 +1,11 @@
 /obj/item/integrated_circuit/smart
 	category_text = "Smart"
 
-/obj/item/integrated_circuit/Initialize()
+/obj/item/integrated_circuit/smart/Initialize()
 	. = ..()
 	var/list/maybe = list()
 	for(var/mob/living/L in view(1))
-		maybe += ADMIN_FLW(L)
+		maybe += ADMIN_LOOKUPFLW(L)
 	message_admins("[capitalize(src.name)] был создан в [get_area_name(src)]. Возможные пользователи: [english_list(maybe)]")
 
 /obj/item/integrated_circuit/smart/basic_pathfinder
