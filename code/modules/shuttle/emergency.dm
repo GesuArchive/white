@@ -664,14 +664,26 @@
 	name = "аварийная кирка"
 	desc = "Для спасения от грубых приземлений."
 
+GLOBAL_LIST_EMPTY(emergency_storages, list())
+
 /obj/item/storage/pod
-	name = "аварийные скафандры"
+	name = "шкаф с аварийными скафандрами"
 	desc = "Настенный сейф со скафандрами. Открывается только в экстренных случаях."
 	anchored = TRUE
 	density = FALSE
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "safe"
 	var/unlocked = FALSE
+
+/obj/item/storage/pod/Initialize()
+	. = ..()
+	GLOB.emergency_storages += src
+
+/obj/item/storage/pod/proc/dump_shit()
+	var/turf/T = get_turf(src)
+	for(var/obj/item/I in src)
+		I.forceMove(T)
+	visible_message("<span class='warning'>[capitalize(src.name)] вываливает содержимое наружу.")
 
 /obj/item/storage/pod/PopulateContents()
 	new /obj/item/clothing/head/helmet/space/orange(src)
