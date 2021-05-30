@@ -35,6 +35,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 		set_light(0)
 
 /turf/open/openspace/airless
+	heat_capacity = 700000
 	initial_gas_mix = AIRLESS_ATMOS
 
 /turf/open/openspace/fastload
