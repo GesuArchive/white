@@ -122,7 +122,7 @@
 		return
 	var/mob/living/carbon/human/human = H
 	var/list/gear_leftovers = list()
-	if(M.client && (M.client.prefs.equipped_gear && M.client.prefs.equipped_gear.len))
+	if(M.client && LAZYLEN(M.client.prefs.equipped_gear))
 		for(var/gear in M.client.prefs.equipped_gear)
 			var/datum/gear/G = GLOB.gear_datums[gear]
 			if(G)
@@ -147,7 +147,7 @@
 
 				if(G.slot)
 					if(H.equip_to_slot_or_del(G.spawn_item(H), G.slot))
-						to_chat(M, "<span class='notice'>Экипируемся в [G.display_name]!</span>")
+						to_chat(M, "<span class='notice'>Экипируем [G.display_name]!</span>")
 					else
 						gear_leftovers += G
 				else
@@ -158,7 +158,7 @@
 	if(gear_leftovers.len)
 		for(var/datum/gear/G in gear_leftovers)
 			var/metadata = M.client.prefs.equipped_gear[G.id]
-			var/item = G.spawn_item(null, metadata)
+			var/obj/item = G.spawn_item(null, metadata)
 			var/atom/placed_in = human.equip_or_collect(item)
 
 			if(istype(placed_in))
@@ -177,7 +177,7 @@
 
 			var/obj/item/storage/B = (locate() in H)
 			if(B)
-				G.spawn_item(B, metadata)
+				item.forceMove(B)
 				to_chat(M, "<span class='notice'>[capitalize(G.display_name)] в [B.name]!</span>")
 				continue
 
