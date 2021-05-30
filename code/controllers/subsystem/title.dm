@@ -88,9 +88,10 @@ SUBSYSTEM_DEF(title)
 				if(player.client.prefs.job_preferences["Assistant"])
 					role_thing = "Ассистент"
 				else
-					for(var/datum/job/j in player.client.prefs.job_preferences)
+					for(var/j in player.client.prefs.job_preferences)
 						if(player.client.prefs.job_preferences[j] == JP_HIGH)
-							role_thing = j.ru_title
+							var/datum/job/jobdatum = SSjob.GetJob(j)
+							role_thing = jobdatum.ru_title
 							break
 				if(!caa[role_thing])
 					caa[role_thing] = list(player.key)

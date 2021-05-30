@@ -664,7 +664,7 @@
 	name = "аварийная кирка"
 	desc = "Для спасения от грубых приземлений."
 
-GLOBAL_LIST_EMPTY(emergency_storages, list())
+GLOBAL_LIST_EMPTY(emergency_storages)
 
 /obj/item/storage/pod
 	name = "шкаф с аварийными скафандрами"
