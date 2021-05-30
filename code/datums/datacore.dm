@@ -208,7 +208,7 @@
 		var/even = FALSE
 		for(var/entry in entries)
 			var/list/entry_list = entry
-			dat += "<tr[even ? " class='alt'" : ""]><td>[entry_list["name"]]</td><td>[entry_list["rank"]]</td></tr>"
+			dat += "<tr[even ? " class='alt'" : ""]><td>[entry_list["name"]]</td><td>[ru_job_parse(entry_list["rank"])]</td></tr>"
 			even = !even
 
 	dat += "</table>"
