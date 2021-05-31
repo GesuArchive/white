@@ -4869,7 +4869,7 @@
 	name = "External Access";
 	req_access_txt = "13"
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "uJ" = (
