@@ -23019,6 +23019,19 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/plasteel/monofloor,
 /area/engine/atmos)
+"bWV" = (
+/obj/structure/table,
+/obj/item/stock_parts/capacitor/adv,
+/obj/item/stock_parts/micro_laser/high{
+	pixel_x = 20;
+	pixel_y = 5
+	},
+/obj/item/stock_parts/matter_bin/adv{
+	pixel_x = -16;
+	pixel_y = 4
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/engine/manufactory)
 "bXe" = (
 /obj/machinery/camera{
 	c_tag = "Xenobiology Pens Observation - Port Fore";
@@ -31526,20 +31539,6 @@
 /obj/item/storage/fancy/cigarettes,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
-"fiE" = (
-/obj/structure/sign/warning/pods{
-	pixel_x = 32
-	},
-/obj/structure/table,
-/obj/item/stock_parts/scanning_module/adv{
-	pixel_x = -7
-	},
-/obj/item/stock_parts/manipulator/nano{
-	pixel_x = 4;
-	pixel_y = 8
-	},
-/turf/open/floor/plasteel,
-/area/engine/manufactory)
 "fja" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -32950,7 +32949,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 5
 	},
-/turf/open/space/basic,
+/turf/open/floor/plating,
 /area/engine/manufactory)
 "hvP" = (
 /obj/effect/turf_decal/stripes/line{
@@ -34087,6 +34086,20 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/security/brig/upper)
+"jrh" = (
+/obj/structure/sign/warning/pods{
+	pixel_x = 32
+	},
+/obj/structure/table,
+/obj/item/stock_parts/scanning_module/adv{
+	pixel_x = -7
+	},
+/obj/item/stock_parts/manipulator/nano{
+	pixel_x = 4;
+	pixel_y = 8
+	},
+/turf/open/floor/plasteel,
+/area/engine/manufactory)
 "jrH" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -34540,11 +34553,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/port)
-"kcO" = (
-/obj/structure/table,
-/obj/item/stock_parts/cell/high/plus,
-/turf/open/floor/plating,
-/area/engine/manufactory)
 "kdH" = (
 /obj/machinery/computer/warrant{
 	dir = 8
@@ -37620,6 +37628,11 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/quartermaster/office)
+"pGp" = (
+/obj/structure/table,
+/obj/item/stock_parts/cell/high/plus,
+/turf/open/floor/plating,
+/area/engine/manufactory)
 "pGt" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 9
@@ -38649,19 +38662,6 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/engine/manufactory)
-"rrE" = (
-/obj/structure/table,
-/obj/item/stock_parts/capacitor/adv,
-/obj/item/stock_parts/micro_laser/high{
-	pixel_x = 20;
-	pixel_y = 5
-	},
-/obj/item/stock_parts/matter_bin/adv{
-	pixel_x = -16;
-	pixel_y = 4
-	},
-/turf/open/floor/plasteel/monofloor,
 /area/engine/manufactory)
 "rtc" = (
 /obj/structure/railing/corner{
@@ -76860,7 +76860,7 @@ tJL
 tJL
 bqs
 bqs
-rrE
+bWV
 jBm
 gXs
 gXs
@@ -77117,7 +77117,7 @@ kOd
 icX
 tJL
 tJL
-kcO
+pGp
 jBm
 gXs
 aaa
@@ -77374,7 +77374,7 @@ tJL
 tJL
 tJL
 tJL
-fiE
+jrh
 jBm
 gXs
 aaa
