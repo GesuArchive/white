@@ -2944,9 +2944,9 @@
 	},
 /area/crew_quarters/fitness/kachalka)
 "mL" = (
-/obj/effect/spawner/lootdrop/maintenance,
-/obj/structure/rack,
-/turf/open/floor/plating,
+/obj/machinery/camera/autoname,
+/obj/structure/tank_holder/oxygen/red,
+/turf/open/genturf,
 /area/maintenance/bottom_station_maints)
 "mP" = (
 /turf/closed/wall/r_wall,
@@ -2984,13 +2984,8 @@
 /turf/open/floor/plasteel/dark,
 /area/engine/atmospherics_engine)
 "mX" = (
-/obj/machinery/door/airlock/external{
-	name = "External Access";
-	req_access_txt = "13"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
+/obj/structure/rack,
+/obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "mZ" = (
@@ -4870,7 +4865,11 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/storage/eva)
 "uF" = (
-/obj/structure/tank_holder/oxygen/red,
+/obj/machinery/door/airlock/external{
+	name = "External Access";
+	req_access_txt = "13"
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "uJ" = (
@@ -7748,14 +7747,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/security/prison)
-"HT" = (
-/obj/machinery/door/airlock/external{
-	name = "External Access";
-	req_access_txt = "13"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints)
 "HU" = (
 /obj/effect/decal/cleanable/molten_object/large,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -43697,11 +43688,11 @@ CJ
 CJ
 nS
 nS
+Zm
+Zm
+Zm
 EN
-EN
-nS
-nS
-nS
+dP
 dP
 dP
 dP
@@ -43954,10 +43945,10 @@ ln
 ln
 ln
 rm
-dP
-dP
-dP
-gQ
+EN
+EN
+EN
+nS
 nS
 dP
 dP
@@ -44214,7 +44205,7 @@ rm
 dP
 dP
 dP
-dP
+gQ
 nS
 rm
 rm
@@ -45010,7 +45001,7 @@ vG
 rm
 dP
 nS
-Zm
+PG
 PG
 PG
 PG
@@ -45239,10 +45230,10 @@ ln
 ln
 ln
 rm
-rm
-rm
-rm
-rm
+dP
+dP
+dP
+dP
 rm
 ln
 ln
@@ -45496,10 +45487,10 @@ rm
 rm
 rm
 rm
-ln
-gn
-ln
-ln
+rm
+rm
+rm
+rm
 rm
 rm
 rm
@@ -45754,7 +45745,7 @@ ln
 ln
 dP
 dP
-dP
+nb
 dP
 dP
 zi
@@ -45781,11 +45772,11 @@ ln
 rm
 dP
 nS
-Zm
-Zm
 PG
-Zm
-Zm
+PG
+PG
+PG
+PG
 Zm
 Zm
 Zm
@@ -46038,7 +46029,7 @@ ln
 rm
 dP
 nS
-Zm
+PG
 Zm
 bw
 Zm
@@ -46291,11 +46282,11 @@ ei
 rm
 ln
 ln
-ln
+rm
 rm
 dP
 nS
-Zm
+PG
 Zm
 bw
 Zm
@@ -46549,15 +46540,15 @@ rm
 rm
 rm
 rm
-rm
+mX
 dP
 nS
-nS
+PG
 Zm
-Zm
-Zm
-Zm
-Zm
+bw
+PG
+PG
+PG
 PG
 PG
 PG
@@ -46806,12 +46797,12 @@ CJ
 ln
 ln
 ln
-rm
 dP
-mL
+dP
 nS
-EN
-nS
+PG
+PG
+bw
 Zm
 Zm
 Zm
@@ -47063,18 +47054,18 @@ rm
 ln
 ln
 ln
-ln
 dP
 dP
-HT
-dP
-mX
+uF
+PG
+PG
+bw
 Zm
 Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 PG
 Zm
@@ -47318,20 +47309,20 @@ CJ
 rm
 rm
 rm
-KL
-ln
+mL
 ln
 dP
-uF
+dP
 nS
-EN
-nS
+PG
+PG
+bw
 Zm
 Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 PG
 Zm
@@ -47575,20 +47566,20 @@ ln
 ln
 ln
 rm
-rm
-rm
-rm
+ln
+ln
+dP
 dP
 nS
-nS
+PG
+Zm
+bw
 Zm
 Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
+PG
 Zm
 PG
 Zm
@@ -47837,15 +47828,15 @@ Hq
 Hq
 dP
 nS
-Zm
+PG
 Zm
 bw
 Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
+PG
 Zm
 PG
 Zm
@@ -48094,14 +48085,14 @@ rm
 rm
 zi
 nS
-Zm
+PG
 Zm
 bw
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
+PG
 Zm
 Zm
 PG
@@ -48356,8 +48347,8 @@ PG
 bw
 PG
 PG
-Zm
-Zm
+PG
+PG
 Zm
 Zm
 Zm
@@ -48608,7 +48599,7 @@ dP
 ln
 al
 nS
-Zm
+PG
 Zm
 bw
 Zm

@@ -9,9 +9,9 @@
 	var/datum/component/mechanics_holder/compdatum
 
 	/**
-	 * A crutch to use the goon mechcomp sprites, because goon iconstate 
+	 * A crutch to use the goon mechcomp sprites, because goon iconstate
 	 * format for mechcomp is [compname] for unanchored and u[compname] for anchored components.
-	 * 
+	 *
 	 * Avoid editing it in runtime as it should (?) hold the "initial" value at all times. Use update_icon_state instead,
 	 * it also handles all the logic regarding anchored/unanchored sprites.
 	 **/
@@ -21,10 +21,10 @@
 	 * Icon state for when the component is active. If you do not have a sprite for this, keep it null.
 	 **/
 	var/active_icon_state = null
-	
+
 	/**
 	 * if the component has a smaller sprite for when it's anchored to the floor.
-	 **/ 
+	 **/
 	var/has_anchored_icon_state = FALSE
 
 
@@ -37,20 +37,20 @@
 	var/deactivatecb = CALLBACK()
 
 	/**
-	 * If only a single instance of a component is allowed to be anchored onto a tile.part_icon_state = 
-	 * Also resets it's own pixel_x and pixel_y vars when anchored so that it stays centered.part_icon_state = 
+	 * If only a single instance of a component is allowed to be anchored onto a tile.part_icon_state =
+	 * Also resets it's own pixel_x and pixel_y vars when anchored so that it stays centered.part_icon_state =
 	 **/
 	var/only_one_per_tile = FALSE
 
 	/**
 	 * DO NOT FUCKING TOUCH THIS REEEE! use update_icon_state("compname") instead.
-	 * Yes, even if you want your component to chance icon when it's active. 
+	 * Yes, even if you want your component to chance icon when it's active.
 	 **/
-	icon_state = "fixme"
-	
+	icon_state = "generic"
+
 
 /**
- * Another part to the gooncode crutch adaptation. 
+ * Another part to the gooncode crutch adaptation.
  * Use it to actually change icon_state, instead of accessing icon_state or part_icon_state directly.
  **/
 /obj/item/mechcomp/update_icon_state(var/part_icon_state)
@@ -101,7 +101,7 @@
 		//i want to fucking die btw
 		//this should probably be moved to another proc.
 		if(I.tool_behaviour == TOOL_WRENCH)
-			
+
 			var/a
 			if(anchored)
 				a = unanchor(user)
@@ -114,7 +114,7 @@
 					"<span class='notice'>Я [anchored ? "прикручиваю [src.name] к полу" : "откручиваю [src.name] от пола"].</span>")
 				update_icon_state(part_icon_state)
 		return
-	
+
 	//shouldn't get to this point if the user's intent is harm
 	//this way stuff like item scanners can accept all items (like a fucking wrench) on the first 3 intents
 	//AND still be wrenched (bypassing the scan) if on harm intent.
@@ -176,7 +176,7 @@
 
 	if(!istype(_drop,/obj/item/mechcomp))
 		return
-	
+
 	var/obj/item/mechcomp/drop = _drop
 	if(!(src.anchored && drop.anchored))
 		return
@@ -202,7 +202,7 @@
 	*/
 	if(user.held_items[user.active_hand_index].tool_behaviour != TOOL_MULTITOOL)
 		return
-	
+
 	var/obj/item/mechcomp/over = _over
 	for(input in input_types)
 		input_icons += list(input) = image(icon = input[1], icon_state = "[input[1] ? input[1] : "unknown"]")
