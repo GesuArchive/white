@@ -36,6 +36,70 @@
 			cached_map = parsed
 	return bounds
 
+/datum/parsed_map/proc/initTemplateBounds(datum/map_template/template)
+	var/list/obj/machinery/atmospherics/atmos_machines = list()
+	var/list/obj/structure/cable/cables = list()
+	var/list/atom/atoms = list()
+	var/list/area/areas = list()
+	var/list/turfs = block(
+		locate(
+			bounds[MAP_MINX],
+			bounds[MAP_MINY],
+			bounds[MAP_MINZ]
+			),
+		locate(
+			bounds[MAP_MAXX],
+			bounds[MAP_MAXY],
+			bounds[MAP_MAXZ]
+			)
+		)
+	for(var/L in turfs)
+		var/turf/B = L
+		var/area/G = B.loc
+		areas |= G
+		if(!SSatoms.initialized)
+			continue
+		for(var/A in B)
+			atoms += A
+			if(istype(A, /obj/structure/cable))
+				cables += A
+				continue
+			if(istype(A, /obj/machinery/atmospherics))
+				atmos_machines += A
+	// Not sure if there is some importance here to make sure the area is in z
+	// first or not.  Its defined In Initialize yet its run first in templates
+	// BEFORE so... hummm
+	SSmapping.reg_in_areas_in_z(areas)
+	// We have to do this hack here because its the ONLY place we can get the
+	// meta data from the template so we can properly set up the area
+	SSnetworks.assign_areas_root_ids(areas, template)
+	// If the world is starting up stop here and the world will do the rest
+	if(!SSatoms.initialized)
+		return
+	SSatoms.InitializeAtoms(areas + turfs + atoms)
+
+	// NOTE, now that Initialize and LateInitialize run correctly, do we really
+	// need these two below?
+	SSmachines.setup_template_powernets(cables)
+	SSair.setup_template_machinery(atmos_machines)
+	//calculate all turfs inside the border
+	var/list/template_and_bordering_turfs = block(
+		locate(
+			max(bounds[MAP_MINX]-1, 1),
+			max(bounds[MAP_MINY]-1, 1),
+			bounds[MAP_MINZ]
+			),
+		locate(
+			min(bounds[MAP_MAXX]+1, world.maxx),
+			min(bounds[MAP_MAXY]+1, world.maxy),
+			bounds[MAP_MAXZ]
+			)
+		)
+	for(var/t in template_and_bordering_turfs)
+		var/turf/affected_turf = t
+		affected_turf.air_update_turf(TRUE, TRUE)
+		affected_turf.levelupdate()
+
 /datum/map_template/proc/initTemplateBounds(list/bounds)
 	if (!bounds) //something went wrong
 		stack_trace("[name] template failed to initialize correctly!")

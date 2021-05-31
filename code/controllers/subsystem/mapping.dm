@@ -266,7 +266,7 @@ Used by the AI doomsday and the self-destruct nuke.
 				name = "станцию"
 			if("Lavaland")
 				name = "Лаваленд"
-		INIT_ANNOUNCE("Загружаю в память [name] за [(REALTIMEOFDAY - start_time)/10]s!")
+		INIT_ANNOUNCE("Загружаю в память [name] за [(REALTIMEOFDAY - start_time)/10] с!")
 	return parsed_maps
 
 /datum/controller/subsystem/mapping/proc/loadWorld()
