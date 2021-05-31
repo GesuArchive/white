@@ -66,17 +66,20 @@
 /obj/item/storage/secure/attack_self(mob/user)
 	var/locked = SEND_SIGNAL(src, COMSIG_IS_STORAGE_LOCKED)
 	user.set_machine(src)
-	var/dat = text("<TT><B>[]</B><BR>\n\nLock Status: []",src, (locked ? "LOCKED" : "UNLOCKED"))
+	var/dat = text("<TT><B>[]</B><BR>\n\nБлокировка: []",src, (locked ? "ЗАБЛОКИРОВАНО" : "РАЗБЛОКИРОВАНО"))
 	var/message = "Code"
 	if ((l_set == 0) && (!l_setshort))
-		dat += text("<p>\n<b>5-DIGIT PASSCODE NOT SET.<br>ENTER NEW PASSCODE.</b>")
+		dat += text("<p>\n<b>ПЯТИЗНАЧНЫЙ КОД НЕ УСТАНОВЛЕН.<br>ВВЕДИТЕ НОВЫЙ КОД.</b>")
 	if (l_setshort)
 		dat += text("<p>\n<font color=red><b>ALERT: MEMORY SYSTEM ERROR - 6040 201</b></font>")
 	message = text("[]", code)
 	if (!locked)
 		message = "*****"
 	dat += text("<HR>\n>[]<BR>\n<A href='?src=[REF(src)];type=1'>1</A>-<A href='?src=[REF(src)];type=2'>2</A>-<A href='?src=[REF(src)];type=3'>3</A><BR>\n<A href='?src=[REF(src)];type=4'>4</A>-<A href='?src=[REF(src)];type=5'>5</A>-<A href='?src=[REF(src)];type=6'>6</A><BR>\n<A href='?src=[REF(src)];type=7'>7</A>-<A href='?src=[REF(src)];type=8'>8</A>-<A href='?src=[REF(src)];type=9'>9</A><BR>\n<A href='?src=[REF(src)];type=R'>R</A>-<A href='?src=[REF(src)];type=0'>0</A>-<A href='?src=[REF(src)];type=E'>E</A><BR>\n</TT>", message)
-	user << browse(dat, "window=caselock;size=300x280")
+
+	var/datum/browser/popup = new(user, "caselock-[REF(src)]", "Сейф", 300, 280)
+	popup.set_content(dat)
+	popup.open()
 
 /obj/item/storage/secure/Topic(href, href_list)
 	..()
