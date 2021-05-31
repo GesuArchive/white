@@ -1,6 +1,6 @@
 {
 	"version": 1,
-    "map_name": "Construction Station",
+    "map_name": "Construction Station OpenWorld",
     "map_path": "map_files/ConstructionStation",
     "map_file": "ConstructionStation.dmm",
     "shuttles": {
