@@ -84,8 +84,10 @@ GLOBAL_LIST_EMPTY(gear_datums)
 
 /datum/gear/proc/spawn_item(location, metadata)
 	var/datum/gear_data/gd = new(path, location)
-	var/item = new gd.path(gd.location)
-	return item
+	if(gd?.path)
+		var/item = new gd.path(gd.location)
+		return item
+	return null
 
 // Convinience proc.  Collects crap that fails to equip either onto the mob's back, or drops it.
 // Used in job equipping so shit doesn't pile up at the start loc.
