@@ -46,7 +46,7 @@
 	 * DO NOT FUCKING TOUCH THIS REEEE! use update_icon_state("compname") instead.
 	 * Yes, even if you want your component to chance icon when it's active. 
 	 **/
-	icon_state = null
+	icon_state = "fixme"
 	
 
 /**
