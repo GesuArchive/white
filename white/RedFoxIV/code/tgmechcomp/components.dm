@@ -468,15 +468,15 @@
 	. = ..()
 	//lolol
 	if(in_range(src,user))
-		. += "It currently holds the following data:<br>"
-		. += "A = [isnull(A) ? "<i>null</i>" : "[sanitize(A)]" ]<br>"
-		. += "B = [isnull(B) ? "<i>null</i>" : "[sanitize(B)]" ]<br>"
-		. += "C = [isnull(C) ? "<i>null</i>" : "[sanitize(C)]" ]<br>"
-		. += "D = [isnull(D) ? "<i>null</i>" : "[sanitize(D)]" ]<br>"
-		. += "E = [isnull(E) ? "<i>null</i>" : "[sanitize(E)]" ]<br>"
-		. += "F = [isnull(F) ? "<i>null</i>" : "[sanitize(F)]" ]<br>"
-		. += "G = [isnull(G) ? "<i>null</i>" : "[sanitize(G)]" ]<br>"
-		. += "H = [isnull(H) ? "<i>null</i>" : "[sanitize(H)]" ]<br>"
+		. += "<br>It currently holds the following data:<br>"
+		. += "A = [isnull(A) ? "<i><b>null</b></i>" : "[sanitize(A)]" ]<br>"
+		. += "B = [isnull(B) ? "<i><b>null</b></i>" : "[sanitize(B)]" ]<br>"
+		. += "C = [isnull(C) ? "<i><b>null</b></i>" : "[sanitize(C)]" ]<br>"
+		. += "D = [isnull(D) ? "<i><b>null</b></i>" : "[sanitize(D)]" ]<br>"
+		. += "E = [isnull(E) ? "<i><b>null</b></i>" : "[sanitize(E)]" ]<br>"
+		. += "F = [isnull(F) ? "<i><b>null</b></i>" : "[sanitize(F)]" ]<br>"
+		. += "G = [isnull(G) ? "<i><b>null</b></i>" : "[sanitize(G)]" ]<br>"
+		. += "H = [isnull(H) ? "<i><b>null</b></i>" : "[sanitize(H)]" ]<br>"
 	else
 		. += "<i>You will have to get closer to get a better look at it's data inputs.</i>"
 
