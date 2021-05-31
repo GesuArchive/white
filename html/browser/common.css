@@ -492,3 +492,8 @@ a.rs_butt:hover
 	border-radius: 1px;
 	margin: 0;
 }
+
+.titlescreen p a {
+	line-height: 2.5;
+	padding: 8px;
+}

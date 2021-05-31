@@ -49,7 +49,7 @@
 
 	var/datum/asset/asset_datum = get_asset_datum(/datum/asset/simple/lobby)
 	asset_datum.send(client)
-	var/list/output = list("<center><p><a href='byond://?src=[REF(src)];show_preferences=1'>Настроить Персонажа</a></p>")
+	var/list/output = list("<center class='titlescreen'><p><a href='byond://?src=[REF(src)];show_preferences=1'>Настроить Персонажа</a></p>")
 
 	if(SSticker.current_state <= GAME_STATE_PREGAME)
 		switch(ready)
