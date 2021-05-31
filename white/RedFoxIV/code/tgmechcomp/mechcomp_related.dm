@@ -1,6 +1,6 @@
 /obj/item/multitool/mechcomp
 	name = "MechComp™  Connector Utility Mechanism"
-	desc = "The MechComp brand Connector Utility Mechanism used in construction and usage of MechComp brand mechanical components."
+	desc = "The MechComp brand Connector Utility Mechanism used in construction and usage of MechComp brand mechanical components. Can also double as a useful multitool."
 	icon = 'white/RedFoxIV/icons/mechcomp/connection.dmi'
 	icon_state = "linker_multitool"
 	var/mechcomp_enabled = FALSE
@@ -25,7 +25,7 @@
 
 
 
-/obj/machinery/vending/tool
+/obj/machinery/vending/mechcomp
 	name = "MechComp vending machine"
 	desc = "."
 	icon = 'white/RedFoxIV/icons/mechcomp/connection.dmi'

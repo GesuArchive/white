@@ -121,6 +121,17 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 		new /obj/item/stock_parts/micro_laser(src)
 		new /obj/item/stock_parts/matter_bin(src)
 
+/obj/item/storage/part_replacer/tier2 //used in mechanic outfit
+
+/obj/item/storage/part_replacer/tier2/PopulateContents()
+	for(var/i in 1 to 10)
+		new /obj/item/stock_parts/capacitor/adv(src)
+		new /obj/item/stock_parts/scanning_module/adv(src)
+		new /obj/item/stock_parts/manipulator/nano(src)
+		new /obj/item/stock_parts/micro_laser/high(src)
+		new /obj/item/stock_parts/matter_bin/adv(src)
+
+
 /obj/item/storage/part_replacer/cyborg
 	name = "rapid part exchange device"
 	desc = "Special mechanical module made to store, sort, and apply standard machine parts."
