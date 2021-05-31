@@ -26,14 +26,14 @@
 	name = "Механик"
 	jobtype = /datum/job/engineer/mechanic
 
-	belt = /obj/item/storage/belt/utility/full/engi
+	belt = /obj/item/storage/belt/utility/full/mechanic
 	l_pocket = /obj/item/pda/engineering
 	ears = /obj/item/radio/headset/headset_eng
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/wzzzz/mechanic
 	shoes = /obj/item/clothing/shoes/workboots
 	head = /obj/item/clothing/head/welding/open
 	r_pocket = /obj/item/t_scanner
-	l_hand = /obj/item/storage/part_replacer/cargo
+	l_hand = /obj/item/storage/part_replacer/tier2
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
@@ -52,6 +52,7 @@
 	icon_state = "apparatus"
 	density = TRUE
 	layer = MOB_LAYER
+	var/timer
 	var/scanned_type = null
 	var/tier_rate = 1
 	var/obj/machinery/copytech_platform/cp = null
@@ -84,6 +85,7 @@
 /obj/machinery/copytech/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='info'>Примерное время создания объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>\n"
+	. += "<span class='info'>Оставшееся время: [timeleft(timer)] секунд.</span>"
 	. += "<span class='info'>Внутри запасено: <b>[crystals]/[max_crystals] блюспейс-кристаллов</b>.</span>\n"
 	. += "<span class='info'>Накоплено энергии: <b>[num2loadingbar((siphon_max-siphoned_power)/siphon_max, reverse = TRUE)] [DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.</span>"
 	. += "<hr><span class='notice'>Похоже, ему требуется подключение к энергосети через кабель.</span>"
@@ -133,17 +135,18 @@
 	if(!crystals)
 		say("Недостаточно блюспейс-кристаллов для начала работы!")
 		return
-	if(create_thing())
-		say("Приступаю к процессу создания объекта...")
-		working = TRUE
-		update_icon()
+	start_working()
+		
 
-/obj/machinery/copytech/proc/create_thing()
+/obj/machinery/copytech/proc/start_working()
+	say("Приступаю к процессу создания объекта...")
+	working = TRUE
+	update_icon()
 
-	var/atom/A = drop_location()
+	var/atom/drop_loc = drop_location()
 
 	if(ispath(current_design, /obj))
-		var/obj/O = new current_design(A)
+		var/obj/O = new current_design(drop_loc)
 		O.set_anchored(TRUE)
 		O.layer = ABOVE_MOB_LAYER
 		O.alpha = 0
@@ -153,20 +156,15 @@
 		active_item = O
 		crystals--
 		siphoned_power = 0
-		spawn(get_replication_speed(tier_rate))
-			O?.set_anchored(FALSE)
-			O?.layer = initial(O?.layer)
-			O?.alpha = initial(O?.alpha)
-			say("Завершение работы...")
-			working = FALSE
-			update_icon()
+		timer = addtimer(CALLBACK(src, .proc/finish_work, O), get_replication_speed(tier_rate), TIMER_STOPPABLE)
 		return TRUE
-	else if (ispath(current_design, /mob/living))
+
+	if (ispath(current_design, /mob/living))
 		if(tier_rate < 8)
 			say("Слишком слабая мощность лазера.")
 			return FALSE
-		var/mob/living/M = new current_design(A)
-		M.SetParalyzed(get_replication_speed(tier_rate) * 2)
+		var/mob/living/M = new current_design(drop_loc)
+		M.SetParalyzed(get_replication_speed(tier_rate) * 1.5)
 		M.emote("scream")
 		M.layer = ABOVE_MOB_LAYER
 		var/mutable_appearance/result = mutable_appearance(M.icon, M.icon_state)
@@ -175,16 +173,27 @@
 		active_item = M
 		crystals--
 		siphoned_power = 0
-		spawn(get_replication_speed(tier_rate))
-			M?.SetParalyzed(FALSE)
-			M?.layer = initial(M?.layer)
-			say("Завершение работы...")
-			working = FALSE
-			update_icon()
+		timer = addtimer(CALLBACK(src, .proc/finish_work, M), get_replication_speed(tier_rate), TIMER_STOPPABLE)
 		return TRUE
-	else
-		say("Неправильный дизайн!")
-		return FALSE
+
+	say("Неизвестная ошибка! Пожалуйста, свяжитесь с инженерным департаментом.")
+	return FALSE
+/obj/machinery/copytech/proc/finish_work(obj/O)
+	if(istype(O, /mob/living))
+		var/mob/living/L = O
+		L.adjust_disgust(70)
+		L.adjustCloneLoss(30)
+		L.Jitter(40)
+		L.AdjustKnockdown(20)
+	O.set_anchored(FALSE)
+	O.layer = initial(O.layer)
+	O.alpha = initial(O.alpha)
+	say("Завершение работы...")
+	timer = null
+	working = FALSE
+	update_icon()
+
+
 
 /obj/machinery/copytech/RefreshParts()
 	var/T = 0
@@ -210,6 +219,7 @@
 	icon_state = "platform"
 	density = 0
 	layer = MOB_LAYER
+	var/timer
 	var/tier_rate = 1
 	var/obj/machinery/copytech/ct = null
 	var/working = FALSE
@@ -229,12 +239,22 @@
 	var/siphoned_power = 0
 	var/siphon_max = 1e7
 
-/obj/machinery/copytech_platform/process()
-	if(siphoned_power >= siphon_max)
-		return
-	update_cable()
-	if(attached_cable)
-		attempt_siphon()
+
+/obj/machinery/copytech_platform/Initialize()
+	. = ..()
+	RegisterSignal(src, COMSIG_MOVABLE_CROSSED, "movable_crossed")
+
+/obj/machinery/copytech_platform/process(delta_time)
+	if(siphoned_power < siphon_max)
+		update_cable()
+		if(attached_cable)
+			attempt_siphon()
+	if(working)
+		for(var/mob/living/L in get_turf(src))
+			L.adjustFireLoss(10*delta_time)
+			L.set_fire_stacks(5)
+			L.IgniteMob()
+			playsound(L, 'sound/machines/shower/shower_mid1.ogg', 90, TRUE)
 
 /obj/machinery/copytech_platform/proc/update_cable()
 	var/turf/T = get_turf(src)
@@ -252,20 +272,13 @@
 		T += M.rating
 	tier_rate = T
 
-/obj/machinery/copytech_platform/Crossed(H as mob|obj)
-	..()
+/obj/machinery/copytech_platform/proc/movable_crossed(datum/source, atom/movable/AM)
 	if(!working)
 		return
-	if(!H)
-		return
-	if(isobserver(H))
-		return
-	if(!ismob(H))
-		return
-	if(isliving(H))
-		var/mob/living/L = H
-		L.adjustFireLoss(10)
-		L.adjust_fire_stacks(5)
+	if(isliving(AM))
+		var/mob/living/L = AM
+		L.adjustFireLoss(20)
+		L.set_fire_stacks(5)
 		L.IgniteMob()
 		L.visible_message("<span class='danger'><b>[L]</b> прожаривается!</span>")
 		playsound(L, 'sound/machines/shower/shower_mid1.ogg', 90, TRUE)
@@ -273,6 +286,7 @@
 /obj/machinery/copytech_platform/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='info'>Примерное время для уничтожения объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>\n"
+	. += "<span class='info'>Оставшееся время: [time2text(timeleft(timer), "mm:ss")]</span>"
 	. += "<span class='info'>Накоплено энергии: <b>[num2loadingbar((siphon_max-siphoned_power)/siphon_max, reverse = TRUE)] [DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.</span>"
 	. += "<hr><span class='notice'>Похоже, ему требуется подключение к энергосети через кабель.</span>"
 
@@ -299,10 +313,8 @@
 		say("Не обнаружен копирующий станок. Попытка синхронизации...")
 		check_copytech()
 		return
-	if(destroy_thing())
-		say("Приступаю к процессу дезинтеграции объекта...")
-		working = TRUE
-		update_icon()
+	destroy_thing(user)
+
 
 /obj/machinery/copytech_platform/proc/check_copytech()
 	if(!ct)
@@ -311,63 +323,80 @@
 			return TRUE
 	return FALSE
 
-/obj/machinery/copytech_platform/proc/destroy_thing()
+/obj/machinery/copytech_platform/proc/destroy_thing(mob/user)
 	if(!ct)
 		return FALSE
 	var/turf/T = get_turf(src)
-	var/atom/movable/what_we_destroying = null
+	var/atom/movable/D = null
 	if(T?.contents)
 		for(var/thing in T.contents)
 			if(istype(thing, /obj))
 				var/obj/O = thing
 				if(O.anchored || (O.resistance_flags & INDESTRUCTIBLE) || O == src)
 					continue
-				what_we_destroying = thing
+				D = thing
 			if(istype(thing, /mob/living) && tier_rate >= 8)
-				what_we_destroying = thing
-	if(what_we_destroying)
-		what_we_destroying.set_anchored(TRUE)
-		if(isliving(what_we_destroying))
-			var/mob/living/M = what_we_destroying
-			M.SetParalyzed(get_replication_speed(tier_rate) * 2)
-			M.emote("scream")
-			M.layer = ABOVE_MOB_LAYER
-		what_we_destroying.layer = ABOVE_MOB_LAYER
-		var/mutable_appearance/result = mutable_appearance('icons/effects/effects.dmi',"nothing")
-		var/mutable_appearance/scanline = mutable_appearance('icons/effects/effects.dmi',"transform_effect")
-		what_we_destroying.transformation_animation(result, time = get_replication_speed(tier_rate), transform_overlay = scanline, reset_after=TRUE)
-		active_item = what_we_destroying
-		siphoned_power = 0
-		spawn(get_replication_speed(tier_rate))
-			if(!src)
-				return
-			if(get_turf(what_we_destroying) != get_turf(src))
-				say("ОШИБКА!!!")
-				working = FALSE
-				update_icon()
-				return
-			if(active_item.type in blacklisted_items)
-				say("СИСТЕМА ПОИСКА ПИДОРАСОВ АКТИВИРОВАНА!")
-				var/list/targs = list()
-				for(var/mob/living/L in oview(7, src))
-					targs += L
-				sleep(100)
-				for(var/mob/living/L in targs)
-					L?.gib()
-				say("ПИДОРАС НАЙДЕН!")
-				message_admins("[key_name(src)] копирует запрещённые вещи!")
-				explosion(T, 3, 5, 7)
-				qdel(src)
-				return
-			else
-				ct?.current_design = what_we_destroying.type
-			say("Завершение работы...")
-			qdel(what_we_destroying)
-			working = FALSE
-			update_icon()
-		return TRUE
-	else
-		return FALSE
+				D = thing
+	
+	if(!D)
+		return
+
+	if(D.type in blacklisted_items)
+		message_admins("[key_name(user)] попытался скопировать [active_item.name] ([active_item.type])!")
+		say("СИСТЕМА ПОИСКА ПИДОРАСОВ АКТИВИРОВАНА!")
+		sleep(3 SECONDS)
+		say("ПИДОРАС НАЙДЕН!")
+		sleep(1 SECONDS)
+		say("Приступаю к процессу дезинтеграции объекта...")
+		var/mob/living/M = D
+		M.SetParalyzed(get_replication_speed(tier_rate) * 2)
+		M.emote("scream")
+		M.layer = ABOVE_MOB_LAYER
+		to_chat(user, "<span class='danger'>You feel a burning sensation throughout your entire body!.</span>")
+		sleep(1 SECONDS)
+		to_chat(user, "<span class='alert'>Ну бл~</span>")
+		explosion(user, 0, 0, 1)
+		if(istype(user, /mob/living))
+			var/mob/living/L = user
+			L.gib()
+		explosion(src, 0, 0, 1)
+		qdel(src)
+		return
+
+	say("Приступаю к процессу дезинтеграции объекта...")
+	working = TRUE
+	update_icon()
+
+	D.set_anchored(TRUE)
+	if(isliving(D))
+		var/mob/living/M = D
+		M.SetParalyzed(get_replication_speed(tier_rate) * 2)
+		M.emote("scream")
+		M.layer = ABOVE_MOB_LAYER
+	D.layer = ABOVE_MOB_LAYER
+	var/mutable_appearance/result = mutable_appearance('icons/effects/effects.dmi',"nothing")
+	var/mutable_appearance/scanline = mutable_appearance('icons/effects/effects.dmi',"transform_effect")
+	D.transformation_animation(result, time = get_replication_speed(tier_rate), transform_overlay = scanline, reset_after=TRUE)
+	active_item = D
+	siphoned_power = 0
+	timer = addtimer(CALLBACK(src, .proc/finish_work, D), get_replication_speed(tier_rate), TIMER_STOPPABLE)
+	return TRUE
+
+/obj/machinery/copytech_platform/proc/finish_work(obj/D)
+	if(!src)
+		return
+	if(get_turf(D) != get_turf(src))
+		say("Ошибка!")
+		working = FALSE
+		update_icon()
+		return
+	
+	ct.current_design = D.type
+	say("Завершение работы...")
+	timer = null
+	qdel(D)
+	working = FALSE
+	update_icon()
 
 /obj/item/circuitboard/machine/copytech
 	name = "Копирующий станок (Оборудование)"

@@ -47,6 +47,7 @@
 	 * Yes, even if you want your component to chance icon when it's active. 
 	 **/
 	icon_state = null
+	
 
 /**
  * Another part to the gooncode crutch adaptation. 
@@ -87,7 +88,8 @@
  **/
 /obj/item/mechcomp/attack_hand(mob/user)
 	. = ..()
-	interact_by_hand(user)
+	if(anchored)
+		interact_by_hand(user)
 
 /**
  * please no touch, use interact_by_item instead!
@@ -111,13 +113,13 @@
 				user.visible_message("<span class='notice'>[user] [anchored ? "прикручивает" : "откручивает"] [src.name].</span>", \
 					"<span class='notice'>Я [anchored ? "прикручиваю [src.name] к полу" : "откручиваю [src.name] от пола"].</span>")
 				update_icon_state(part_icon_state)
-
 		return
 	
 	//shouldn't get to this point if the user's intent is harm
 	//this way stuff like item scanners can accept all items (like a fucking wrench) on the first 3 intents
 	//AND still be wrenched (bypassing the scan) if on harm intent.
-	interact_by_item(I, user)
+	if(anchored)
+		interact_by_item(I, user)
 
 
 ///Returns true if anchoring is allowed, returns false if not.
@@ -141,6 +143,14 @@
 	//just in case we /somehow/ fucked up with the check
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_RM_ALL_CONNECTIONS)
 	return TRUE
+
+
+//feels like a good idea to include these
+/obj/item/mechcomp/Destroy()
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_RM_ALL_CONNECTIONS)
+	. = ..()
+
+
 
 /**
  * Change the active var to TRUE and current icon to active_icon_state, it it's not null.area

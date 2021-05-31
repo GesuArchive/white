@@ -11,10 +11,19 @@
 
 
 //copypaste of a goon component, thankfully it somehow just works.
-//Still probably should be at least reviewed.
+//Still probably should be at least reviewed. 
 /obj/item/mechcomp/math
 	name = "Arithmetic Component"
-	desc = "Do number things! Component list<br/>rng: Generates a random number from A to B<br/>add: Adds A + B<br/>sub: Subtracts A - B<br/>mul: Multiplies A * B<br/>div: Divides A / B<br/>pow: Power of A ^ B<br/>mod: Modulos A % B<br/>eq|neq|gt|lt|gte|lte: Equal/NotEqual/GreaterThan/LessThan/GreaterEqual/LessEqual -- will output 1 if true. Example: A GT B = 1 if A is larger than B"
+	desc = "Do number things! Component list<br>\
+	rng: Generates a random number from A to B<br>\
+	add: Adds A + B<br>\
+	sub: Subtracts A - B<br>\
+	mul: Multiplies A * B<br>\
+	div: Divides A / B<br>\
+	pow: Power of A ^ B<br>\
+	mod: Modulos A % B<br>\
+	sin, cos, tg, ctg, sec, cosec - All trigonometric functions use A for degrees. B is unused.<br>\
+	eq, neq, gt, lt, gte, lte - Equal, NotEqual, GreaterThan, LessThan, GreaterEqual, LessEqual - will output 1 if true. Example: \"A GT B\" is basically \"1 if A is larger than B\""
 	part_icon_state = "comp_arith"
 	has_anchored_icon_state = TRUE
 	var/A = 1
@@ -53,7 +62,7 @@
 	return 1
 
 /obj/item/mechcomp/math/proc/setMode(obj/item/W as obj, mob/user as mob)
-	mode = input("Set the math mode to what?", "Mode Selector", mode) in list("add","mul","div","sub","mod","pow","rng","eq","neq","gt","lt","gte","lte")
+	mode = input("Set the math mode to what?", "Mode Selector", mode) in list("add","mul","div","sub","mod","pow","rng","eq","neq","gt","lt","gte","lte","sin","cos","tg","ctg","sec","cosec")
 	//tooltip_rebuild = 1
 	return 1
 
@@ -98,6 +107,19 @@
 			. = A == B
 		if("neq")
 			. = A != B
+		if("sin")
+			. = (sin(A)) 
+		if("cos")
+			. = (cos(A)) 
+		if("tg")
+			. = (tan(A)) 
+		if("ctg")
+			. = 1/(tan(A)) 
+		if("sec")
+			. = 1/(cos(A)) 
+		if("cosec")
+			. = 1/(sin(A)) 
+		
 		else
 			return
 	if(. == .) //wtf???
@@ -119,7 +141,7 @@
 
 		SEND_SIGNAL(src,COMSIG_MECHCOMP_ADD_INPUT,"Activate", "activateproc")
 
-/obj/item/mechcomp/test_led/proc/activateproc(datum/mechcompMessage/msg)
+/obj/item/mechcomp/test_led/proc/activateproc(var/datum/mechcompMessage/msg)
 	if(msg.isTrue())
 		update_icon_state("comp_led_on")
 	else
@@ -160,49 +182,34 @@
 	desc = "Speaks whatever it is told to speak."
 	part_icon_state = "comp_synth"
 	active_icon_state = "comp_synth1"
+	var/cd = 3 SECONDS
 
 /obj/item/mechcomp/speaker/Initialize()
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "speak", "activateproc")
 
-/obj/item/mechcomp/speaker/proc/activateproc(datum/mechcompMessage/msg)
+/obj/item/mechcomp/speaker/proc/activateproc(var/datum/mechcompMessage/msg)
 	if(active)
 		return
-	activate_for(3 SECONDS)
+	if(isnull(msg.signal))
+		return
+	activate_for(cd)
 	say(msg.signal)
 
-
-
-
-//probably useless
-/obj/item/mechcomp/numpad
-	name = "mechcomp numpad"
-	desc = "Enter numbers in infinitely different ways! Infinitely inferior to the chad textpanel."
-	part_icon_state = "comp_buttpanel"
-	active_icon_state = "comp_buttpanel1"
-
-/obj/item/mechcomp/numpad/interact_by_hand()
-	var/inp = text2num(input("What number would you like to input?", "Oh, the possibilities!", null))
-	if(isnull(inp))
-		return
-
-	SEND_SIGNAL(src,COMSIG_MECHCOMP_TRANSMIT_SIGNAL,"[inp]")
-	activate_for(0.1 SECONDS)
-
-
-
-
+/obj/item/mechcomp/speaker/debug
+	name = "Special Ops Speaker"
+	cd = 0
 /obj/item/mechcomp/textpad
 	name = "mechcomp textpad"
 	desc = "Text goes here. Strangely similiar to a numpad, while also being better than a numpad."
 	part_icon_state = "comp_buttpanel"
 	active_icon_state = "comp_buttpanel1"
 
-/obj/item/mechcomp/textpad/interact_by_hand()
-	var/inp = input("What text would you like to input?", "Oh, the possibilities!", null)
+/obj/item/mechcomp/textpad/interact_by_hand() 
+	var/inp = input("What text would you like to input?", "Oh, the possibilities!", null) as text|null
 	if(isnull(inp))
 		return
-
+	
 	SEND_SIGNAL(src,COMSIG_MECHCOMP_TRANSMIT_SIGNAL,"[inp]")
 	activate_for(0.1 SECONDS)
 
@@ -271,14 +278,14 @@
 	var/t = text2num(msg.signal)
 	if (!isnull(t) && t > 0 && t<100)
 		delay = t
-
+		
 
 
 //This mechcomp component handles active flag by itself because it can have several different messages waiting to be sent,
-//and active flag should not be set to FALSE untill all of the messages were sent.
-//This is probably not good and stuff regarting active-inactive states should be rewritten to be more flexible.
+//and active flag should not be set to FALSE untill all of the messages were sent. 
+//This is probably not good and stuff regarting active-inactive states should be rewritten to be more flexible. 
 /obj/item/mechcomp/delay/proc/incoming(var/datum/mechcompMessage/msg)
-	pending_messages += list(addtimer(CALLBACK(src, .proc/sendmessage, msg), delay))
+	pending_messages += list(addtimer(CALLBACK(src, .proc/sendmessage, msg), delay, TIMER_STOPPABLE | TIMER_DELETE_ME))
 	active = TRUE
 	update_icon_state(active_icon_state)
 
@@ -334,8 +341,7 @@
 	else if(isobserver(user) && CONFIG_GET(flag/ghost_interaction))
 		return TRUE
 	return FALSE
-
-/obj/item/mechcomp/grav_accelerator/proc/activateproc(datum/mechcompMessage/msg)
+/obj/item/mechcomp/grav_accelerator/proc/activateproc(datum/mechanicsMessage/msg)
 	if(active)
 		return
 
@@ -351,7 +357,7 @@
 	if(!in_range(src, user) || user.stat || isnull(input))
 		to_chat(user, "<span class='notice'>You leave the power setting on [src.name] alone.</span>")
 		return FALSE
-
+	
 	power = clamp(round(input), 1, 7)
 	to_chat(user, "<span class='notice'>You change the power setting on [src.name] to [power].</span>")
 	return TRUE
@@ -379,7 +385,7 @@
 
 	var/obj/item/stock_parts/cell/gun_cell = gun.cell
 	var/obj/item/ammo_casing/energy/casing = gun.ammo_type[gun.select]
-
+	
 	if(gun_cell.use(casing.e_cost))
 		var/obj/projectile/proj = new casing.projectile_type(get_turf(src))
 		proj.fire(angle, null)
@@ -441,3 +447,394 @@
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		return
 	rotate(user)
+
+
+
+/obj/item/mechcomp/list_packer
+	name = "mechcomp List Packer"
+	desc = "Packs a bunch of input data into compact list-like form. Will skip over null data inputs and will not output anything at all if all data inputs are null."
+	part_icon_state = "comp_list_packer"
+	//lol
+	var/A
+	var/B
+	var/C
+	var/D
+	var/E
+	var/F
+	var/G
+	var/H
+	var/glue = "&"
+/obj/item/mechcomp/list_packer/examine(mob/user)
+	. = ..()
+	//lolol
+	if(in_range(src,user))
+		. += "<br>It currently holds the following data:<br>"
+		. += "A = [isnull(A) ? "<i><b>null</b></i>" : "[sanitize(A)]" ]<br>"
+		. += "B = [isnull(B) ? "<i><b>null</b></i>" : "[sanitize(B)]" ]<br>"
+		. += "C = [isnull(C) ? "<i><b>null</b></i>" : "[sanitize(C)]" ]<br>"
+		. += "D = [isnull(D) ? "<i><b>null</b></i>" : "[sanitize(D)]" ]<br>"
+		. += "E = [isnull(E) ? "<i><b>null</b></i>" : "[sanitize(E)]" ]<br>"
+		. += "F = [isnull(F) ? "<i><b>null</b></i>" : "[sanitize(F)]" ]<br>"
+		. += "G = [isnull(G) ? "<i><b>null</b></i>" : "[sanitize(G)]" ]<br>"
+		. += "H = [isnull(H) ? "<i><b>null</b></i>" : "[sanitize(H)]" ]<br>"
+	else
+		. += "<i>You will have to get closer to get a better look at it's data inputs.</i>"
+
+
+/obj/item/mechcomp/list_packer/Initialize()
+	. = ..()
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Build list", "build")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Input A", "update_A")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Input B", "update_B")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Input C", "update_C")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Input D", "update_D")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Input E", "update_E")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Input F", "update_F")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Input G", "update_G")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Input H", "update_H")
+
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set A", "set_A")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set B", "set_B")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set C", "set_C")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set D", "set_D")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set E", "set_E")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set F", "set_F")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set G", "set_G")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set H", "set_H")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set glue", "set_glue")
+
+	
+
+//lololol
+/obj/item/mechcomp/list_packer/proc/update_A(var/datum/mechcompMessage/msg)
+	A = msg.signal
+
+/obj/item/mechcomp/list_packer/proc/update_B(var/datum/mechcompMessage/msg)
+	B = msg.signal
+
+/obj/item/mechcomp/list_packer/proc/update_C(var/datum/mechcompMessage/msg)
+	C = msg.signal
+
+/obj/item/mechcomp/list_packer/proc/update_D(var/datum/mechcompMessage/msg)
+	D = msg.signal
+
+/obj/item/mechcomp/list_packer/proc/update_E(var/datum/mechcompMessage/msg)
+	E = msg.signal
+
+/obj/item/mechcomp/list_packer/proc/update_F(var/datum/mechcompMessage/msg)
+	F = msg.signal
+
+/obj/item/mechcomp/list_packer/proc/update_G(var/datum/mechcompMessage/msg)
+	G = msg.signal
+
+/obj/item/mechcomp/list_packer/proc/update_H(var/datum/mechcompMessage/msg)
+	H = msg.signal
+
+/obj/item/mechcomp/list_packer/proc/prompt_update(var/varname, var/v)
+	var/input = input("Set [varname] to what? Careful, empty input will erase what's currently stored in [varname]!", "[varname]", v)
+	return input
+
+//fucking kill me
+/obj/item/mechcomp/list_packer/proc/set_A(obj/item/I, mob/user)
+	var/p = prompt_update("A", A)
+	if(in_range(src, user) && user.stat)
+		A = p
+
+/obj/item/mechcomp/list_packer/proc/set_B(obj/item/I, mob/user)
+	var/p = prompt_update("B", B)
+	if(in_range(src, user) && user.stat)
+		B = p
+
+/obj/item/mechcomp/list_packer/proc/set_C(obj/item/I, mob/user)
+	var/p = prompt_update("C", C)
+	if(in_range(src, user) && user.stat)
+		C = p
+
+/obj/item/mechcomp/list_packer/proc/set_D(obj/item/I, mob/user)
+	var/p = prompt_update("D", D)
+	if(in_range(src, user) && user.stat)
+		D = p
+
+/obj/item/mechcomp/list_packer/proc/set_E(obj/item/I, mob/user)
+	var/p = prompt_update("E", E)
+	if(in_range(src, user) && user.stat)
+		E = p
+
+/obj/item/mechcomp/list_packer/proc/set_F(obj/item/I, mob/user)
+	var/p = prompt_update("F", F)
+	if(in_range(src, user) && user.stat)
+		F = p
+
+/obj/item/mechcomp/list_packer/proc/set_G(obj/item/I, mob/user)
+	var/p = prompt_update("G", G)
+	if(in_range(src, user) && user.stat)
+		G = p
+
+/obj/item/mechcomp/list_packer/proc/set_H(obj/item/I, mob/user)
+	var/p = prompt_update("H", H)
+	if(in_range(src, user) && user.stat)
+		H = p
+
+/obj/item/mechcomp/list_packer/proc/set_glue(obj/item/I, mob/user)
+	var/input = input("Set glue to what? Glue is used to \"glue\" lists together into a single string. Default glue for most cases is \"&\", but you can use another one if you want to use lists of lists. You can even use multiple symbols as glue!", "glue", glue) as null|text
+	if(!isnull(input))
+		glue = input
+		to_chat(user, "<span class='notice'>You set [src.name]'s glue to \"[glue]\"</span>")
+
+/obj/item/mechcomp/list_packer/proc/build(var/datum/mechcompMessage/msg)
+	var/list/l = list()
+	//lol
+	if(!isnull(A))
+		l.Add(A)
+	if(!isnull(B))
+		l.Add(B)
+	if(!isnull(C))
+		l.Add(C)
+	if(!isnull(D))
+		l.Add(D)
+	if(!isnull(E))
+		l.Add(E)
+	if(!isnull(F))
+		l.Add(F)
+	if(!isnull(G))
+		l.Add(G)
+	if(!isnull(H))
+		l.Add(H)
+	
+	var/result = jointext(l, glue)
+	if(length(result))
+		SEND_SIGNAL(src, COMSIG_MECHCOMP_TRANSMIT_SIGNAL, result)
+
+/obj/item/mechcomp/list_extractor
+	name = "mechcomp list Extractor"
+	desc = "Takes a numerical index and outputs a value from a given list with that index. It's that simple. Refuses lists with a single element (i.e. no \"&\" dividers.). If not a number value is passed to it as an index, it will return the first item of the list."
+	var/list/memory = list()
+	var/glue = "&"
+	part_icon_state = "comp_list_unpacker"
+	has_anchored_icon_state = TRUE
+
+/obj/item/mechcomp/list_extractor/Initialize()
+	. = ..()
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "List in", "updatelist")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Extract from list", "extract")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set Glue", "set_glue")
+
+/obj/item/mechcomp/list_extractor/proc/updatelist(var/datum/mechcompMessage/msg)
+	var/list/l = splittext(msg.signal, glue)
+	if (length(l)<2)
+		return
+	memory = l
+
+/obj/item/mechcomp/list_extractor/proc/extract(var/datum/mechcompMessage/msg)
+	var/index = text2num(msg.signal)
+	if(isnull(index))//return the first item if the message doesn't have a numerical index
+		SEND_SIGNAL(src, COMSIG_MECHCOMP_TRANSMIT_SIGNAL, memory[1])
+		return
+	if(index >= 1 && index <= length(memory))//return eat shit if it's an invalid number tho
+		SEND_SIGNAL(src, COMSIG_MECHCOMP_TRANSMIT_SIGNAL, memory[index])
+
+/obj/item/mechcomp/list_extractor/proc/set_glue(obj/item/I, mob/user)
+	var/input = input("Set glue to what? Glue is used to \"glue\" lists together into a single string. Default glue for most cases is \"&\", but you can use another one if you want to use lists of lists. You can even use multiple symbols as glue! Make sure the list you pass to [src.name] uses the same glue!", "Glue", glue) as null|text
+	if(!isnull(input))
+		glue = input
+		to_chat(user, "<span class='notice'>You set [src.name]'s glue to \"[glue]\"</span>")
+
+
+
+
+/obj/item/mechcomp/find_regex
+	name = "mechcomp Regex text finder"
+	desc = "Uses the black Regex magic to find specific data in a given string."
+	part_icon_state = "comp_regfind"
+	has_anchored_icon_state = TRUE
+	var/regex/reg
+	var/glue = "&"
+	var/group_glue = ";"
+	//global search flag
+	var/g = TRUE
+	//case insensitive flag
+	var/i = TRUE
+
+/obj/item/mechcomp/find_regex/examine(mob/user)
+	. = ..()
+	. += "<br><i>Currently the regex expression is [reg ? "\"<font color='orange'>[reg.name]</font>\"[i||g? " with flag[g&&i?"s":""] [g ? "g":""][i ? "i":""]." : "."]" : "<font color='orange'>not set!</font>"]</i>"
+
+/obj/item/mechcomp/find_regex/Initialize()
+	. = ..()
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "String to search", "find")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set the Regex pattern", "setpattern")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set Result Glue", "set_glue")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set Group Glue", "set_group_glue")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Toggle case insensitivity", "toggle_case")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Toggle global search", "toggle_global")
+
+
+/obj/item/mechcomp/find_regex/proc/setpattern(obj/item/I, mob/user)
+	var/input = input("Input your regex pattern.", "[pick(80;"Regex", 5;"Reg-ekhs?", 5;"what the fuck is a regex", 5;"if you have a problem you want to solve with regex, you have 2 problems.", 5;"the regex is outlawed in 48 US states")]", reg?.name) as null|text
+	if(!isnull(input))
+		reg = regex(input, "[g ? "g":""][i ? "i":""]")
+		to_chat(user, "<span class='notice'>You set [src.name]'s pattern to \"[reg?.name]\"</span>")
+
+/obj/item/mechcomp/find_regex/proc/find(var/datum/mechcompMessage/msg)
+	if(isnull(reg))
+		say("Warning, the regex expression is not set[prob(4) ? ", you fucking retard!" : "!"]")
+	var/haystack = msg.signal
+
+	//var/len = length(haystack)
+	var/list/result = list()
+	for(var/i=0, i<1000, i++)
+		//i am afraid to use infinite loops even though it should never go into one
+		if(i==999)
+			
+			//oh god what have you done
+			say("Critical error: Approached limit of 1000 iterations of regex search for given text. Report to NanoTrasen Mechanical division.")
+			CRASH("A mechcomp regex searcher went over 1000 iterations of searching through text and is shutting down. Please ask whoever set up this shite how did they achieve this.")
+
+		var/index = reg.Find(haystack)
+		if(!index)
+			break
+		if(reg.group)
+			result.Add(jointext(reg.group,group_glue))
+		else
+			result.Add(reg.match)
+	if(result)
+		SEND_SIGNAL(src, COMSIG_MECHCOMP_TRANSMIT_SIGNAL, jointext(result, glue))
+	//reg = regex(reg)//reset the regex expression vars, just in case
+
+
+/obj/item/mechcomp/find_regex/proc/set_group_glue(obj/item/I, mob/user)
+	var/input = input("Set group glue to what? Group glue for regex is used to glue together all the capture groups from the single search. It is heavily recommended to keep different from result glue which is used to glue together all search results.", "Glue", glue) as null|text
+	if(!isnull(input))
+		glue = input
+		to_chat(user, "<span class='notice'>You set [src.name]'s group glue to \"[glue]\"</span>")
+
+/obj/item/mechcomp/find_regex/proc/set_glue(obj/item/I, mob/user)
+	var/input = input("Set result glue to what? Glue is used to \"glue\" lists together into a single string. Default glue for most cases is \"&\", but you can use another one if you want to use lists of lists. You can even use multiple symbols as glue! Make sure to use a unique symbol or group or symbols, or else extracting data will be stupidly complicated!", "Glue", glue) as null|text
+	if(!isnull(input))
+		glue = input
+		to_chat(user, "<span class='notice'>You set [src.name]'s result glue to \"[glue]\"</span>")
+
+/obj/item/mechcomp/find_regex/proc/toggle_case(obj/item/I, mob/user)
+	i = !i
+	reg = regex(reg?.name, "[g ? "g":""][i ? "i":""]")
+
+/obj/item/mechcomp/find_regex/proc/toggle_global(obj/item/I, mob/user)
+	g = !g
+	reg = regex(reg?.name, "[g ? "g":""][i ? "i":""]")
+
+
+
+/obj/item/mechcomp/timer
+	name = "mechcomp Timer"
+	desc = "Sends out a set signal every time period. Can be set to periods from 0.1 to 10 seconds."
+	part_icon_state = "comp_timer"
+	has_anchored_icon_state = TRUE
+	var/time = 10
+	var/timer_id
+/obj/item/mechcomp/timer/examine(mob/user)
+	. = ..()
+	. += "<i>Currently set to <font color='orange'>[time/10]</font> seconds. [active ? "<font color='orange'>[timeleft(timer_id)]</font> seconds left until the next activation." : "It is deactivated."]</i>"
+
+/obj/item/mechcomp/timer/Initialize()
+	. = ..()
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Toggle state", "toggle")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Set state", "setstate")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Toggle state manually", "togglemanual")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set time", "set_time")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ALLOW_MANUAL_SIGNAL)
+
+/obj/item/mechcomp/timer/proc/set_time(obj/item/I, mob/user)
+	if(active)
+		to_chat(user, "<span class='alert'>Deactivate the [src.name] first!</span>")
+		return FALSE
+	var/input = input("Enter new time in deciseconds. Currently the [src.name] will activate every [time/10] seconds.", "Time", time) as num
+	if(!in_range(src, user) || user.stat || isnull(input))
+		return FALSE
+	time = clamp(input, 1, 100)
+	to_chat(user, "<span class='notice'>You change the time on [src.name] to [time/10] seconds.</span>")
+	return TRUE
+
+/obj/item/mechcomp/timer/proc/toggle(var/datum/mechcompMessage/msg)
+	if(!timer_id)
+		active = TRUE
+		start_ticking()
+	else
+		deltimer(timer_id)
+		timer_id = null
+		active = FALSE
+
+/obj/item/mechcomp/timer/proc/togglemanual(obj/item/I, mob/user)
+	toggle()
+	to_chat(user, "You [active ? "activate": "deactivate"] the [src.name]")
+
+
+
+//will do nothing on trying to enable an active timer or disable an inactive one.
+/obj/item/mechcomp/timer/proc/setstate(var/datum/mechcompMessage/msg)
+	if(msg.isTrue())
+		if(!timer_id)
+			start_ticking()
+			active = TRUE
+	else
+		if(timer_id)
+			deltimer(timer_id)
+			timer_id = null
+			active = FALSE
+
+/obj/item/mechcomp/timer/proc/start_ticking()
+	timer_id = addtimer(CALLBACK(src, .proc/fire), time, TIMER_STOPPABLE | TIMER_LOOP | TIMER_DELETE_ME)
+
+/obj/item/mechcomp/timer/proc/fire()
+	if(active) //just in case...
+		SEND_SIGNAL(src, COMSIG_MECHCOMP_TRANSMIT_DEFAULT_MSG)
+		//can't be active while unanchored so fuck it.
+		flick("ucomp_timer_flash", src)
+	else
+		//whoops, this timer shouldn't exist
+		deltimer(timer_id)
+		timer_id = null
+
+/obj/item/mechcomp/timer/unanchor(mob/user)
+	. = ..()
+	if(timer_id || active)
+		to_chat(user, "<span class='alert'>The timer still running! Disable it first!</span>")
+		return FALSE
+
+/obj/item/mechcomp/microphone
+	name = "mechcomp Microphone"
+	desc = "Would be pretty useful for spying on people, but it's just too big for this job. Comically oversized, even."
+	part_icon_state = "comp_mic"
+	has_anchored_icon_state = TRUE
+	var/ignore_mechcomp = TRUE
+	var/ignore_radios = TRUE
+/
+/obj/item/mechcomp/microphone/Initialize()
+	. = ..()
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Toggle ignoring mechcomp devices", "togglemechcomp")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Toggle ignoring radios", "toggleradio")
+
+
+
+/obj/item/mechcomp/microphone/proc/togglemechcomp(obj/item/I, mob/user)
+	ignore_mechcomp = !ignore_mechcomp
+	if(ignore_mechcomp)
+		to_chat(user, "<span class='notice'>The [src.name] will now filter out other mechcomp components.</span>")
+	else
+		to_chat(user, "<span class='notice'>The [src.name] will now pick up what other mechcomp components say.</span>")
+
+
+/obj/item/mechcomp/microphone/proc/toggleradio(obj/item/I, mob/user)
+	ignore_radios = !ignore_radios
+	if(ignore_radios)
+		to_chat(user, "<span class='notice'>The [src.name] will filter out speech from nearby radios and intercomms.</span>")
+	else
+		to_chat(user, "<span class='notice'>The [src.name] will pick up speech from a radio or an intercomm, if one is nearby.</span>")
+
+
+/obj/item/mechcomp/microphone/Hear(message, atom/movable/speaker, message_language, raw_message)
+	. = ..()
+	if(istype(speaker, /obj/item/mechcomp) && ignore_mechcomp)
+		return
+	if(istype(speaker, /obj/item/radio) && ignore_radios)
+		return
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_TRANSMIT_SIGNAL, "[message]&[speaker.GetVoice()]")

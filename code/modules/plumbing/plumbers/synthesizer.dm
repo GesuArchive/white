@@ -42,7 +42,8 @@
 		/datum/reagent/water,
 		/datum/reagent/fuel,
 	)
-
+	//for mechcomp input stuff
+	var/glue = "&"
 /obj/machinery/plumbing/synthesizer/Initialize(mapload, bolt)
 	. = ..()
 	AddComponent(/datum/component/plumbing/simple_supply, bolt)
@@ -50,6 +51,7 @@
 	AddComponent(/datum/component/mechanics_holder)
 	
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Chemical to dispense", "mechcomp_update_chems")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set Glue", "set_glue")
 
 /obj/machinery/plumbing/synthesizer/process(delta_time)
 	if(machine_stat & NOPOWER || !reagent_id || !amount)
@@ -57,10 +59,7 @@
 	if(reagents.total_volume >= amount*delta_time*0.5) //otherwise we get leftovers, and we need this to be precise
 		return
 	reagents.add_reagent(reagent_id, amount*delta_time*0.5)
-	
-	var/datum/mechcompMessage/msg = new
-	msg.signal = "[reagent_id.name];[amount]"
-	SEND_SIGNAL(src, COMSIG_MECHCOMP_TRANSMIT_MSG,)
+
 
 /obj/machinery/plumbing/synthesizer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -118,7 +117,7 @@
 
 /obj/machinery/plumbing/synthesizer/proc/mechcomp_update_chems(var/datum/mechcompMessage/msg)
 	var/err = 0
-	var/list/signal = splittext(msg.signal, "&")
+	var/list/signal = splittext(msg.signal, glue)
 
 	if(length(signal) == 0 || length(signal) > 2)
 		say("Invalid signal syntax! Proper signal syntax is: \[CHEM_NAME]&\[DISPENSE_AMOUNT(from 0 to 5 inclusive!)].")
@@ -162,3 +161,9 @@
 
 	if(err)
 		say("Invalid [err == 1 ? "chemical name!" : "[err == 2 ? "dispense amount!" : "chemical name and dispense amount!" ]" ] Proper signal syntax is: \[CHEM_NAME]&\[DISPENSE_AMOUNT(from 0 to 5 inclusive!)].")
+
+/obj/machinery/plumbing/synthesizer/proc/set_glue(obj/item/I, mob/user)
+	var/input = input("Set glue to what? Glue is used to \"glue\" lists together into a single string. Default glue for most cases is \"&\", but you can use another one if you want to use lists of lists. You can even use multiple symbols as glue! Make sure the list you pass to [src.name] uses the same glue!", "Glue", glue) as null|text
+	if(!isnull(input))
+		glue = input
+		to_chat(user, "<span class='notice'>You set [src.name]'s glue to \"[glue]\"</span>")

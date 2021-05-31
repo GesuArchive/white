@@ -61,7 +61,8 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 			replace_beaker(user, BEAKER1, beaker)
 		to_chat(user, "<span class='notice'>Добавляю [beaker] в [src].</span>")
 		updateUsrDialog()
-	update_icon()
+		update_icon()
+		return
 	..()
 
 /obj/machinery/chem_mass_spec/AltClick(mob/living/user)
