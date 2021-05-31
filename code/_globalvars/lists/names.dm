@@ -48,11 +48,11 @@ List of configurable names in preferences and their metadata
 */
 GLOBAL_LIST_INIT(preferences_custom_names, list(
 	"human" = list("pref_name" = "Запасное человеческое", "qdesc" = "используется, когда требуемая роль возможна только для людей с чистыми генами", "allow_numbers" = FALSE , "group" = "backup_human", "allow_null" = FALSE),
-	"clown" = list("pref_name" = "Клоун" , "qdesc" = "имя клоуна", "allow_numbers" = FALSE , "group" = "fun", "allow_null" = FALSE),
-	"mime" = list("pref_name" = "Мим", "qdesc" = "имя мима" , "allow_numbers" = FALSE , "group" = "fun", "allow_null" = FALSE),
-	"cyborg" = list("pref_name" = "Cyborg", "qdesc" = "имя киборга (пусто - рандом)", "allow_numbers" = TRUE , "group" = "silicons", "allow_null" = TRUE),
-	"ai" = list("pref_name" = "ИИ", "qdesc" = "имя ии", "allow_numbers" = TRUE , "group" = "silicons", "allow_null" = FALSE),
-	"religion" = list("pref_name" = "Религия", "qdesc" = "религия" , "allow_numbers" = TRUE , "group" = "chaplain", "allow_null" = FALSE),
-	"deity" = list("pref_name" = "Божество", "qdesc" = "божество", "allow_numbers" = TRUE , "group" = "chaplain", "allow_null" = FALSE),
-	"bible" = list("pref_name" = "Библия", "qdesc" = "название библии (пусто - рандом)", "allow_numbers" = TRUE , "group" = "chaplain", "allow_null" = TRUE)
+	"clown" = list("pref_name" = "Имя Клоуна" , "qdesc" = "имя клоуна", "allow_numbers" = FALSE , "group" = "fun", "allow_null" = FALSE),
+	"mime" = list("pref_name" = "Имя Мима", "qdesc" = "имя мима" , "allow_numbers" = FALSE , "group" = "fun", "allow_null" = FALSE),
+	"cyborg" = list("pref_name" = "Имя Киборга", "qdesc" = "имя киборга (пусто - рандом)", "allow_numbers" = TRUE , "group" = "silicons", "allow_null" = TRUE),
+	"ai" = list("pref_name" = "Имя ИИ", "qdesc" = "имя ии", "allow_numbers" = TRUE , "group" = "silicons", "allow_null" = FALSE),
+	"religion" = list("pref_name" = "Название Религии", "qdesc" = "религия" , "allow_numbers" = TRUE , "group" = "chaplain", "allow_null" = FALSE),
+	"deity" = list("pref_name" = "Имя Божества", "qdesc" = "божество", "allow_numbers" = TRUE , "group" = "chaplain", "allow_null" = FALSE),
+	"bible" = list("pref_name" = "Тип Библии", "qdesc" = "название библии (пусто - рандом)", "allow_numbers" = TRUE , "group" = "chaplain", "allow_null" = TRUE)
 	))

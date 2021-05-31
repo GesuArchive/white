@@ -27,8 +27,11 @@ a, button, a:link, a:visited, a:active, .linkOn, .linkOff
 	font-weight: 100;
 	text-decoration: none;
 	background: #090909;
-	border: 1px solid rgba(55, 55, 55, 0.5);
-	border-radius: 3px;
+	border-top: 1px solid #444444;
+	border-left: 1px solid #333333;
+	border-right: 1px solid #222222;
+	border-bottom: 1px solid #111111;
+	border-radius: 1px;
 	padding: 2px 6px 2px 6px;
 	line-height: 1.9;
 	margin: 0 2px 0 0;
@@ -46,7 +49,10 @@ a.white, a.white:link, a.white:visited, a.white:active
 	color: #000000;
 	text-decoration: none;
 	background: #f4f4ff;
-	border: 1px solid rgba(55, 55, 55, 0.5);
+	border-top: 1px solid #444444;
+	border-left: 1px solid #333333;
+	border-right: 1px solid #222222;
+	border-bottom: 1px solid #111111;
 	padding: 1px 4px 1px 4px;
 	margin: 0 2px 0 0;
 	cursor:default;
@@ -70,7 +76,10 @@ a.white:hover
 {
 	color: #aaaaaa;
 	background: #242424;
-	border-color: rgba(55, 55, 55, 0.5);
+	border-top: 1px solid #444444;
+	border-left: 1px solid #333333;
+	border-right: 1px solid #222222;
+	border-bottom: 1px solid #111111;
 }
 
 a.icon, .linkOn.icon, .linkOff.icon
@@ -226,7 +235,10 @@ div.notice
 {
 	background: #030303;
 	color: #aaaaaa;
-	border: 1px solid rgba(55, 55, 55, 0.5);
+	border-top: 1px solid #444444;
+	border-left: 1px solid #333333;
+	border-right: 1px solid #222222;
+	border-bottom: 1px solid #111111;
 	padding: 4px;
 	margin: 3px 0;
 }
@@ -247,10 +259,21 @@ div.notice
 .block
 {
 	padding: 8px;
-	margin: 10px 4px 4px 4px;
-	border: 1px solid rgba(55, 55, 55, 0.5);
+	margin: 4px 0 4px 0;
+	border-top: 1px solid #444444;
+	border-left: 1px solid #333333;
+	border-right: 1px solid #222222;
+	border-bottom: 1px solid #111111;
 	color: #aaa;
 	background-color: #050505;
+	white-space: nowrap;
+	overflow: hidden;
+	width:100%;
+}
+
+.block tr
+{
+	min-width: 300px;
 }
 
 .block h3
@@ -468,4 +491,9 @@ a.rs_butt:hover
 	border-bottom: 3px solid #222222;
 	border-radius: 1px;
 	margin: 0;
+}
+
+.titlescreen p a {
+	line-height: 2.5;
+	padding: 8px;
 }

@@ -238,7 +238,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<td align='right' width='360px' valign='top'>"
 			dat += "<h3 class='statusDisplay'>Имя</h3>"
 			dat += "<table width='360px' class='block'>"
-			dat += "<tr><td><b>Основное:</b></td><td align='right'><a href='?_src_=prefs;preference=name;task=input'>[real_name]</a> <a href='?_src_=prefs;preference=name;task=random'>Случайное</a></td></tr>"
+			dat += "<tr><td><b>Основное имя персонажа:</b></td><td align='right'><a href='?_src_=prefs;preference=name;task=input'>[real_name]</a> <a href='?_src_=prefs;preference=name;task=random'>Сгенерировать случайное</a></td></tr>"
 
 			var/old_group
 			for(var/custom_name_id in GLOB.preferences_custom_names)
@@ -249,9 +249,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					old_group = namedata["group"]
 				dat += "<tr><td><b>[namedata["pref_name"]]:</b></td><td align='right'><a href ='?_src_=prefs;preference=[custom_name_id];task=input'>[custom_names[custom_name_id]]</a></td></tr>"
 
-			dat += "<tr><td><b>Всегда случайное:</b></td><td align='right'><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_NAME]'>[(randomise[RANDOM_NAME]) ? "Да" : "Нет"]</a></td></tr>"
-			dat += "<tr><td><b>Язык генератора:</b></td><td align='right'><a href='?_src_=prefs;preference=name_lang'>[(en_names) ? "EN" : "RU"]</a></td></tr>"
-			dat += "<tr><td><b>Когда антагонист:</b></td><td align='right'><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_NAME_ANTAG]'>[(randomise[RANDOM_NAME_ANTAG]) ? "Да" : "Нет"]</a></td></tr>"
+			dat += "<tr><td><b>Всегда случайное имя:</b></td><td align='right'><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_NAME]'>[(randomise[RANDOM_NAME]) ? "Да" : "Нет"]</a></td></tr>"
+			dat += "<tr><td><b>Язык генератора имени:</b></td><td align='right'><a href='?_src_=prefs;preference=name_lang'>[(en_names) ? "EN" : "RU"]</a></td></tr>"
+			dat += "<tr><td><b>Случайное имя, если антагонист:</b></td><td align='right'><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_NAME_ANTAG]'>[(randomise[RANDOM_NAME_ANTAG]) ? "Да" : "Нет"]</a></td></tr>"
 
 			dat += "</table></td><td width='360px' valign='top'>"
 			dat += "<h3 class='statusDisplay'>Персонаж</h3>"
@@ -297,26 +297,26 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<table width='400px' class='block'>"
 
 			dat += "<tr><td><b>Вид:</b></td><td align='right'><a href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a>"
-			dat += "<a href='?_src_=prefs;preference=species;task=random'>Случайно</A></td>"
-			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SPECIES]'>[(randomise[RANDOM_SPECIES]) ? "Да" : "Нет"]</A></td></tr>"
+			dat += "<a href='?_src_=prefs;preference=species;task=random'>Случайно</A>"
+			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SPECIES]'>[(randomise[RANDOM_SPECIES]) ? "Да" : "Нет"]</A></td></tr>"
 
-			dat += "<tr><td><b>Бельё:</b></td><td align='right'><a href='?_src_=prefs;preference=underwear;task=input'>[underwear]</a></td>"
-			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERWEAR]'>[(randomise[RANDOM_UNDERWEAR]) ? "🔓" : "🔒"]</A></td></tr>"
+			dat += "<tr><td><b>Бельё:</b></td><td align='right'><a href='?_src_=prefs;preference=underwear;task=input'>[underwear]</a>"
+			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERWEAR]'>[(randomise[RANDOM_UNDERWEAR]) ? "🔓" : "🔒"]</A></td></tr>"
 
-			dat += "<tr><td><b>Цвет белья:</b></td><td align='right'><span style='border: 1px solid #161616; background-color: #[underwear_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=underwear_color;task=input'>Изменить</a></td>"
-			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERWEAR_COLOR]'>[(randomise[RANDOM_UNDERWEAR_COLOR]) ? "🔓" : "🔒"]</A></td></tr>"
+			dat += "<tr><td><b>Цвет белья:</b></td><td align='right'><span style='border: 1px solid #161616; background-color: #[underwear_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=underwear_color;task=input'>Изменить</a>"
+			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERWEAR_COLOR]'>[(randomise[RANDOM_UNDERWEAR_COLOR]) ? "🔓" : "🔒"]</A></td></tr>"
 
-			dat += "<tr><td><b>Рубаха:</b></td><td align='right'><a href='?_src_=prefs;preference=undershirt;task=input'>[undershirt]</a></td>"
-			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERSHIRT]'>[(randomise[RANDOM_UNDERSHIRT]) ? "🔓" : "🔒"]</A></td></tr>"
+			dat += "<tr><td><b>Рубаха:</b></td><td align='right'><a href='?_src_=prefs;preference=undershirt;task=input'>[undershirt]</a>"
+			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERSHIRT]'>[(randomise[RANDOM_UNDERSHIRT]) ? "🔓" : "🔒"]</A></td></tr>"
 
 			dat += "<tr><td><b>Носки:</b></td><td align='right'><a href='?_src_=prefs;preference=socks;task=input'>[socks]</a></td>"
-			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SOCKS]'>[(randomise[RANDOM_SOCKS]) ? "🔓" : "🔒"]</A></td></tr>"
+			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SOCKS]'>[(randomise[RANDOM_SOCKS]) ? "🔓" : "🔒"]</A></td></tr>"
 
-			dat += "<tr><td><b>Рюкзак:</b></td><td align='right'><a href='?_src_=prefs;preference=bag;task=input'>[backpack]</a></td>"
-			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_BACKPACK]'>[(randomise[RANDOM_BACKPACK]) ? "🔓" : "🔒"]</A></td></tr>"
+			dat += "<tr><td><b>Рюкзак:</b></td><td align='right'><a href='?_src_=prefs;preference=bag;task=input'>[backpack]</a>"
+			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_BACKPACK]'>[(randomise[RANDOM_BACKPACK]) ? "🔓" : "🔒"]</A></td></tr>"
 
-			dat += "<tr><td><b>Комбез:</b></td><td align='right'><a href='?_src_=prefs;preference=suit;task=input'>[jumpsuit_style]</a></td>"
-			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_JUMPSUIT_STYLE]'>[(randomise[RANDOM_JUMPSUIT_STYLE]) ? "🔓" : "🔒"]</A></td></tr>"
+			dat += "<tr><td><b>Комбез:</b></td><td align='right'><a href='?_src_=prefs;preference=suit;task=input'>[jumpsuit_style]</a>"
+			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_JUMPSUIT_STYLE]'>[(randomise[RANDOM_JUMPSUIT_STYLE]) ? "🔓" : "🔒"]</A></td></tr>"
 
 			dat += "<tr><td><b>Аплинк:</b></td><td align='right'><a href='?_src_=prefs;preference=uplink_loc;task=input'>[uplink_spawn_loc]</a></td></tr>"
 
@@ -653,7 +653,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<table>"
 
 			if(is_banned_from(user.ckey, ROLE_SYNDICATE))
-				dat += "<font color=red><b>Тебе нельзя быть антагами.</b></font><br>"
+				dat += "<font color='#ff7777'><b>Тебе нельзя быть антагами.</b></font><br>"
 				src.be_special = list()
 
 
@@ -668,7 +668,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						days_remaining = temp_mode.get_remaining_days(user.client)
 
 					if(days_remaining)
-						dat += "<tr><td><b>[capitalize(i)]:</b></td><td><font color=red> \[Через [days_remaining] дней]</font></td></tr>"
+						dat += "<tr><td><b>[capitalize(i)]:</b></td><td><font color='#ff7777'> \[Через [days_remaining] дней]</font></td></tr>"
 					else
 						dat += "<tr><td><b>[capitalize(i)]:</b></td><td><a href='?_src_=prefs;preference=be_special;be_special_type=[i]'>[(i in be_special) ? "Да" : "Нет"]</a></td></tr>"
 			dat += "<tr><td><b>Посреди раунда:</b></td><td><a href='?_src_=prefs;preference=allow_midround_antag'>[(toggles & MIDROUND_ANTAG) ? "Да" : "Нет"]</a></td></tr>"
@@ -876,21 +876,21 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			var/ru_rank = job.ru_title
 			lastJob = job
 			if(is_banned_from(user.ckey, rank))
-				HTML += "<font color=red>[ru_rank]</font></td><td><a href='?_src_=prefs;bancheck=[rank]'> БЛОК</a></td></tr>"
+				HTML += "<font color='#ff7777'>[ru_rank]</font></td><td><a href='?_src_=prefs;bancheck=[rank]'> БЛОК</a></td></tr>"
 				continue
 			var/required_playtime_remaining = job.required_playtime_remaining(user.client)
 			if(required_playtime_remaining)
-				HTML += "<font color=red>[ru_rank]</font></td><td><font color=red> \[ [get_exp_format(required_playtime_remaining)] как [job.get_exp_req_type()] \] </font></td></tr>"
+				HTML += "<font color='#ff7777'>[ru_rank]</font></td><td><font color='#ff7777'> \[ [get_exp_format(required_playtime_remaining)] как [job.get_exp_req_type()] \] </font></td></tr>"
 				continue
 			if(job.metalocked && !(job.type in jobs_buyed))
-				HTML += "<font color=red>[ru_rank]</font></td><td><font color=red> \[ $$$ \] </font></td></tr>"
+				HTML += "<font color='#ff7777'>[ru_rank]</font></td><td><font color='#ff7777'> \[ $$$ \] </font></td></tr>"
 				continue
 			if(!job.player_old_enough(user.client))
 				var/available_in_days = job.available_in_days(user.client)
-				HTML += "<font color=red>[ru_rank]</font></td><td><font color=red> \[ЧЕРЕЗ [(available_in_days)] ДНЕЙ\]</font></td></tr>"
+				HTML += "<font color='#ff7777'>[ru_rank]</font></td><td><font color='#ff7777'> \[ЧЕРЕЗ [(available_in_days)] ДНЕЙ\]</font></td></tr>"
 				continue
 			if((job_preferences[SSjob.overflow_role] == JP_LOW) && (rank != SSjob.overflow_role) && !is_banned_from(user.ckey, SSjob.overflow_role))
-				HTML += "<font color=orange>[ru_rank]</font></td><td></td></tr>"
+				HTML += "<font color='#ff9955'>[ru_rank]</font></td><td></td></tr>"
 				continue
 			if((rank in GLOB.command_positions) || (rank == "AI"))//Bold head jobs
 				HTML += "<b><span>[ru_rank]</span></b>"
@@ -907,22 +907,22 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			switch(job_preferences[job.title])
 				if(JP_HIGH)
 					prefLevelLabel = "Высокий"
-					prefLevelColor = "slateblue"
+					prefLevelColor = "#9999ff"
 					prefUpperLevel = 4
 					prefLowerLevel = 2
 				if(JP_MEDIUM)
 					prefLevelLabel = "Средний"
-					prefLevelColor = "green"
+					prefLevelColor = "#77ff77"
 					prefUpperLevel = 1
 					prefLowerLevel = 3
 				if(JP_LOW)
 					prefLevelLabel = "Низкий"
-					prefLevelColor = "orange"
+					prefLevelColor = "#ff9955"
 					prefUpperLevel = 2
 					prefLowerLevel = 4
 				else
 					prefLevelLabel = "НИКОГДА"
-					prefLevelColor = "red"
+					prefLevelColor = "#ff7777"
 					prefUpperLevel = 3
 					prefLowerLevel = 1
 
@@ -930,9 +930,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			if(rank == SSjob.overflow_role)//Overflow is special
 				if(job_preferences[SSjob.overflow_role] == JP_LOW)
-					HTML += "<font color=green>Да</font>"
+					HTML += "<font color='#77ff77'>Да</font>"
 				else
-					HTML += "<font color=red>Нет</font>"
+					HTML += "<font color='#ff7777'>Нет</font>"
 				HTML += "</a></td></tr>"
 				continue
 
