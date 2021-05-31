@@ -413,7 +413,7 @@
 	for(var/category in GLOB.position_categories)
 		// position_categories contains category names mapped to available jobs and an appropriate color
 		var/cat_color = GLOB.position_categories[category]["color"]
-		dat += "<fieldset style='width: 185px; border: 2px solid [cat_color]; display: inline'>"
+		dat += "<fieldset style='width: 203px; border: 2px solid [cat_color]; display: inline'>"
 		dat += "<legend align='center' style='color: #ffffff;'>[GLOB.position_categories[category]["runame"]]</legend>"
 		var/list/dept_dat = list()
 		for(var/job in GLOB.position_categories[category]["jobs"])
