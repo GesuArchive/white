@@ -341,7 +341,7 @@ update_label()
 
 /obj/item/card/id/proc/update_label()
 	var/blank = !registered_name
-	name = "[blank ? id_type_name : "ID-карта [registered_name]"][(!assignment) ? "" : " ([assignment])"]"
+	name = "[blank ? id_type_name : "ID-карта [registered_name]"][(!assignment) ? "" : " ([ru_job_parse(assignment)])"]"
 	update_icon()
 
 /obj/item/card/id/silver

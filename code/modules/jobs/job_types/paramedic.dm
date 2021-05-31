@@ -1,5 +1,6 @@
 /datum/job/paramedic
 	title = "Paramedic"
+	ru_title = "Парамедик"
 	department_head = list("Chief Medical Officer")
 	faction = "Station"
 	total_positions = 2

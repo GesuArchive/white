@@ -1,5 +1,6 @@
 /datum/job/doctor/field_medic
 	title = "Field Medic"
+	ru_title = "Полевой Врач"
 	total_positions = 1
 	spawn_positions = 1
 	exp_requirements = 0

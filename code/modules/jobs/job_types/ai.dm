@@ -1,5 +1,6 @@
 /datum/job/ai
 	title = "AI"
+	ru_title = "ИИ"
 	auto_deadmin_role_flags = DEADMIN_POSITION_SILICON
 	faction = "Station"
 	total_positions = 1

@@ -1,6 +1,7 @@
 /datum/job/atmos
 	title = "Atmospheric Technician"
-	department_head = list("Chief Engineer")
+	ru_title = "Атмостех"
+	department_head = list("Chief Engineer" = "Старший Инженер")
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 2

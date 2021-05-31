@@ -1,5 +1,6 @@
 /datum/job/cmo
 	title = "Chief Medical Officer"
+	ru_title = "Главный Врач"
 	department_head = list("Captain")
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	head_announce = list(RADIO_CHANNEL_MEDICAL)

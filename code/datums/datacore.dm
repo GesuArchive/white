@@ -141,24 +141,24 @@
 
 /datum/datacore/proc/get_manifest()
 	var/list/manifest_out = list(
-		"Command",
-		"Security",
-		"Engineering",
-		"Medical",
-		"Science",
-		"Supply",
-		"Service",
-		"Silicon"
+		"Командование",
+		"Охрана",
+		"Инженерный",
+		"Медицинский",
+		"Научный",
+		"Снабжение",
+		"Обслуга",
+		"Синтетики"
 	)
 	var/list/departments = list(
-		"Command" = GLOB.command_positions,
-		"Security" = GLOB.security_positions,
-		"Engineering" = GLOB.engineering_positions,
-		"Medical" = GLOB.medical_positions,
-		"Science" = GLOB.science_positions,
-		"Supply" = GLOB.supply_positions,
-		"Service" = GLOB.service_positions,
-		"Silicon" = GLOB.nonhuman_positions
+		"Командование" = GLOB.command_positions,
+		"Охрана" = GLOB.security_positions,
+		"Инженерный" = GLOB.engineering_positions,
+		"Медицинский" = GLOB.medical_positions,
+		"Научный" = GLOB.science_positions,
+		"Снабжение" = GLOB.supply_positions,
+		"Обслуга" = GLOB.service_positions,
+		"Синтетики" = GLOB.nonhuman_positions
 	)
 	for(var/datum/data/record/t in GLOB.data_core.general)
 		var/name = t.fields["name"]
@@ -208,7 +208,7 @@
 		var/even = FALSE
 		for(var/entry in entries)
 			var/list/entry_list = entry
-			dat += "<tr[even ? " class='alt'" : ""]><td>[entry_list["name"]]</td><td>[entry_list["rank"]]</td></tr>"
+			dat += "<tr[even ? " class='alt'" : ""]><td>[entry_list["name"]]</td><td>[ru_job_parse(entry_list["rank"])]</td></tr>"
 			even = !even
 
 	dat += "</table>"

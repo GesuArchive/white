@@ -873,28 +873,29 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			HTML += "<tr style='color: [job.selection_color]'><td width='60%' align='right'>"
 			var/rank = job.title
+			var/ru_rank = job.ru_title
 			lastJob = job
 			if(is_banned_from(user.ckey, rank))
-				HTML += "<font color=red>[rank]</font></td><td><a href='?_src_=prefs;bancheck=[rank]'> БЛОК</a></td></tr>"
+				HTML += "<font color=red>[ru_rank]</font></td><td><a href='?_src_=prefs;bancheck=[rank]'> БЛОК</a></td></tr>"
 				continue
 			var/required_playtime_remaining = job.required_playtime_remaining(user.client)
 			if(required_playtime_remaining)
-				HTML += "<font color=red>[rank]</font></td><td><font color=red> \[ [get_exp_format(required_playtime_remaining)] как [job.get_exp_req_type()] \] </font></td></tr>"
+				HTML += "<font color=red>[ru_rank]</font></td><td><font color=red> \[ [get_exp_format(required_playtime_remaining)] как [job.get_exp_req_type()] \] </font></td></tr>"
 				continue
 			if(job.metalocked && !(job.type in jobs_buyed))
-				HTML += "<font color=red>[rank]</font></td><td><font color=red> \[ $$$ \] </font></td></tr>"
+				HTML += "<font color=red>[ru_rank]</font></td><td><font color=red> \[ $$$ \] </font></td></tr>"
 				continue
 			if(!job.player_old_enough(user.client))
 				var/available_in_days = job.available_in_days(user.client)
-				HTML += "<font color=red>[rank]</font></td><td><font color=red> \[ЧЕРЕЗ [(available_in_days)] ДНЕЙ\]</font></td></tr>"
+				HTML += "<font color=red>[ru_rank]</font></td><td><font color=red> \[ЧЕРЕЗ [(available_in_days)] ДНЕЙ\]</font></td></tr>"
 				continue
 			if((job_preferences[SSjob.overflow_role] == JP_LOW) && (rank != SSjob.overflow_role) && !is_banned_from(user.ckey, SSjob.overflow_role))
-				HTML += "<font color=orange>[rank]</font></td><td></td></tr>"
+				HTML += "<font color=orange>[ru_rank]</font></td><td></td></tr>"
 				continue
 			if((rank in GLOB.command_positions) || (rank == "AI"))//Bold head jobs
-				HTML += "<b><span>[rank]</span></b>"
+				HTML += "<b><span>[ru_rank]</span></b>"
 			else
-				HTML += "<span>[rank]</span>"
+				HTML += "<span>[ru_rank]</span>"
 
 			HTML += "</td><td width='40%'>"
 
@@ -1294,7 +1295,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("name")
 					var/new_name = input(user, "Choose your character's name:", "Character Preference")  as text|null
 					if(new_name)
-						new_name = reject_bad_name(new_name)
+						if(pref_species.mutant_bodyparts["ipc_screen"])
+							new_name = reject_bad_name(new_name, TRUE)
+						else
+							new_name = reject_bad_name(new_name)
 						if(new_name)
 							real_name = new_name
 						else

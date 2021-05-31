@@ -75,6 +75,8 @@ GLOBAL_VAR_INIT(security_level, SEC_LEVEL_GREEN)
 				for(var/obj/machinery/computer/shuttle/pod/pod in GLOB.machines)
 					pod.locked = FALSE
 		if(level >= SEC_LEVEL_RED)
+			for(var/obj/item/storage/pod/P in GLOB.emergency_storages)
+				P.dump_shit()
 			for(var/obj/machinery/door/D in GLOB.machines)
 				if(D.red_alert_access)
 					D.visible_message("<span class='notice'>[D] whirrs as it automatically lifts access requirements!</span>")

@@ -1,5 +1,6 @@
 /datum/job/lawyer
 	title = "Lawyer"
+	ru_title = "Адвокат"
 	department_head = list("Head of Personnel")
 	faction = "Station"
 	total_positions = 2

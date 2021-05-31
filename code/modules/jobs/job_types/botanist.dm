@@ -1,5 +1,6 @@
 /datum/job/hydro
 	title = "Botanist"
+	ru_title = "Ботаник"
 	department_head = list("Head of Personnel")
 	faction = "Station"
 	total_positions = 3
