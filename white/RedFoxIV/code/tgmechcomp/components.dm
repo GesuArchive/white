@@ -24,6 +24,7 @@
 	mod: Modulos A % B<br>\
 	sin, cos, tg, ctg, sec, cosec - All trigonometric functions use A for degrees. B is unused.<br>\
 	eq, neq, gt, lt, gte, lte - Equal, NotEqual, GreaterThan, LessThan, GreaterEqual, LessEqual - will output 1 if true. Example: \"A GT B\" is basically \"1 if A is larger than B\""
+	icon_state = "comp_arith"
 	part_icon_state = "comp_arith"
 	has_anchored_icon_state = TRUE
 	var/A = 1
@@ -130,6 +131,7 @@
 
 
 //should be replaced by a proper led with actual light and stuff, not just a stub with 2 sprites for true/false input.
+/*
 /obj/item/mechcomp/test_led
 	name = "Test LED"
 	desc = "Lights up if anything other than zero or an empty string is passed."
@@ -146,7 +148,7 @@
 		update_icon_state("comp_led_on")
 	else
 		update_icon_state("comp_led")
-
+*/
 
 
 
@@ -155,6 +157,7 @@
 /obj/item/mechcomp/button
 	name = "mechcomp Button"
 	desc = "What does it do? Only one way to find out!"
+	icon_state = "comp_button"
 	part_icon_state = "comp_button"
 
 /obj/item/mechcomp/button/Initialize()
@@ -180,6 +183,7 @@
 /obj/item/mechcomp/speaker
 	name = "mechcomp speaker"
 	desc = "Speaks whatever it is told to speak."
+	icon_state = "comp_synth"
 	part_icon_state = "comp_synth"
 	active_icon_state = "comp_synth1"
 	var/cd = 3 SECONDS
@@ -202,6 +206,7 @@
 /obj/item/mechcomp/textpad
 	name = "mechcomp textpad"
 	desc = "Text goes here. Strangely similiar to a numpad, while also being better than a numpad."
+	icon_state = "comp_buttpanel"
 	part_icon_state = "comp_buttpanel"
 	active_icon_state = "comp_buttpanel1"
 
@@ -219,6 +224,7 @@
 /obj/item/mechcomp/pressurepad
 	name = "mechcomp pressure pad"
 	desc = "Senses people walking over it."
+	icon_state = "comp_pressure"
 	part_icon_state = "comp_pressure"
 	has_anchored_icon_state = TRUE
 	var/sensitive = FALSE
@@ -247,6 +253,7 @@
 /obj/item/mechcomp/delay
 	name = "mechcomp timer"
 	desc = "Relays signals with a configurable delay from 0 to 10 seconds."
+	icon_state = "comp_wait"
 	part_icon_state = "comp_wait"
 	active_icon_state = "comp_wait1"
 	has_anchored_icon_state = TRUE
@@ -298,8 +305,8 @@
 		update_icon_state(part_icon_state)
 
 /obj/item/mechcomp/delay/unanchor()
+	. = ..()
 	remove_all_pending_messages()
-	..()
 
 /obj/item/mechcomp/delay/proc/remove_all_pending_messages()
 	for(var/timer in pending_messages)
@@ -310,6 +317,7 @@
 /obj/item/mechcomp/grav_accelerator
 	name = "mechcomp graviton accelerator"
 	desc = "The bread and butter of any self-respecting mechanic, able to launch anyone willing (and unwilling!) in a fixed direction."
+	icon_state = "comp_accel"
 	part_icon_state = "comp_accel"
 	active_icon_state = "comp_accel1"
 	var/power = 3
@@ -365,6 +373,7 @@
 /obj/item/mechcomp/egunholder
 	name = "mechcomp energy gun fixture"
 	desc = "Warcrimes, warcrimes!"
+	icon_state = "comp_egun"
 	part_icon_state = "comp_egun"
 	only_one_per_tile = TRUE
 	///from 0 to 360
@@ -453,6 +462,7 @@
 /obj/item/mechcomp/list_packer
 	name = "mechcomp List Packer"
 	desc = "Packs a bunch of input data into compact list-like form. Will skip over null data inputs and will not output anything at all if all data inputs are null."
+	icon_state = "comp_list_packer"
 	part_icon_state = "comp_list_packer"
 	//lol
 	var/A
@@ -610,6 +620,7 @@
 	desc = "Takes a numerical index and outputs a value from a given list with that index. It's that simple. Refuses lists with a single element (i.e. no \"&\" dividers.). If not a number value is passed to it as an index, it will return the first item of the list."
 	var/list/memory = list()
 	var/glue = "&"
+	icon_state = "comp_list_unpacker"
 	part_icon_state = "comp_list_unpacker"
 	has_anchored_icon_state = TRUE
 
@@ -645,6 +656,7 @@
 /obj/item/mechcomp/find_regex
 	name = "mechcomp Regex text finder"
 	desc = "Uses the black Regex magic to find specific data in a given string."
+	icon_state = "comp_regfind"
 	part_icon_state = "comp_regfind"
 	has_anchored_icon_state = TRUE
 	var/regex/reg
@@ -727,6 +739,7 @@
 /obj/item/mechcomp/timer
 	name = "mechcomp Timer"
 	desc = "Sends out a set signal every time period. Can be set to periods from 0.1 to 10 seconds."
+	icon_state = "comp_timer"
 	part_icon_state = "comp_timer"
 	has_anchored_icon_state = TRUE
 	var/time = 10
@@ -794,7 +807,7 @@
 		deltimer(timer_id)
 		timer_id = null
 
-/obj/item/mechcomp/timer/unanchor(mob/user)
+/obj/item/mechcomp/timer/can_unanchor(mob/user)
 	. = ..()
 	if(timer_id || active)
 		to_chat(user, "<span class='alert'>The timer still running! Disable it first!</span>")
@@ -803,11 +816,12 @@
 /obj/item/mechcomp/microphone
 	name = "mechcomp Microphone"
 	desc = "Would be pretty useful for spying on people, but it's just too big for this job. Comically oversized, even."
+	icon_state = "comp_mic"
 	part_icon_state = "comp_mic"
 	has_anchored_icon_state = TRUE
 	var/ignore_mechcomp = TRUE
 	var/ignore_radios = TRUE
-/
+
 /obj/item/mechcomp/microphone/Initialize()
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Toggle ignoring mechcomp devices", "togglemechcomp")

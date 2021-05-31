@@ -3764,6 +3764,7 @@
 #include "white\RedFoxIV\code\tgmechcomp\components.dm"
 #include "white\RedFoxIV\code\tgmechcomp\mechcomp_component.dm"
 #include "white\RedFoxIV\code\tgmechcomp\mechcomp_related.dm"
+#include "white\RedFoxIV\code\tgmechcomp\teleporter_comp.dm"
 #include "white\RedFoxIV\guns\battery_gun_def\battery_gun.dm"
 #include "white\RedFoxIV\guns\energy_smg\energy_smg.dm"
 #include "white\RedFoxIV\guns\sonicgun\sonicgun.dm"

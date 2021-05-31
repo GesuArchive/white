@@ -323,7 +323,7 @@
 // /datum/component/mechanics_holder/proc/dropConnect(atom/comsig_target, atom/A, mob/user)
 
 /datum/component/mechanics_holder/proc/dropConnect(var/comsig_target, obj/over, mob/user)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 
 	if(!over || over == parent || user.stat || !isliving(user) || (SEND_SIGNAL(over,_COMSIG_MECHCOMP_COMPATIBLE) != 1))  //ZeWaka: Fix for null.mechanics
 		return
