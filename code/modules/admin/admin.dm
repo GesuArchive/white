@@ -62,7 +62,7 @@
 		return
 
 	var/body = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>Панель [M.key]</title></head>"
-	body += "<body>Опции для: <b>[M]</b>"
+	body += "<body><b>[M]</b>"
 	if(M.client)
 		body += " с сикеем <b>[M.client]</b> "
 		body += "<A href='?_src_=holder;[HrefToken()];editrights=[(GLOB.admin_datums[M.client.ckey] || GLOB.deadmins[M.client.ckey]) ? "rank" : "add"];key=[M.key]'>[M.client.holder ? M.client.holder.rank : "Игрок"]</A>"
