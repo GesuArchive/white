@@ -930,6 +930,10 @@
 	},
 /turf/open/floor/plating,
 /area/security/prison)
+"ec" = (
+/obj/structure/table,
+/turf/open/floor/engine,
+/area/maintenance/bottom_station_maints)
 "eg" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
@@ -1160,6 +1164,10 @@
 	},
 /turf/open/floor/engine,
 /area/science/research/abandoned)
+"fk" = (
+/obj/machinery/portable_atmospherics/pump,
+/turf/open/floor/engine,
+/area/maintenance/bottom_station_maints)
 "fn" = (
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
@@ -1242,6 +1250,9 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
+"fR" = (
+/turf/open/floor/engine,
+/area/maintenance/bottom_station_maints)
 "fS" = (
 /obj/machinery/button/door{
 	id = "xenobio4";
@@ -1891,6 +1902,10 @@
 /obj/machinery/door/firedoor/closed,
 /turf/open/floor/plating/rust,
 /area/maintenance/space_hut/plasmaman)
+"iM" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/brown/visible/layer2,
+/turf/closed/wall/r_wall,
+/area/engine/atmospherics_engine)
 "iN" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Xenobiology Maintenance";
@@ -3183,6 +3198,10 @@
 /obj/structure/rospilovo/switcher,
 /turf/closed/wall,
 /area/maintenance/bottom_station_maints/north)
+"nV" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "nX" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -3280,6 +3299,15 @@
 /obj/structure/table,
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/east)
+"oo" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/portables_connector/layer2{
+	dir = 1
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/engine/atmospherics_engine)
 "ou" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -4160,6 +4188,11 @@
 /obj/structure/rospilovo/shina3,
 /turf/open/floor/plasteel/monofloor,
 /area/maintenance/bottom_station_maints/north)
+"sd" = (
+/obj/machinery/portable_atmospherics/pump,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/engine,
+/area/maintenance/bottom_station_maints)
 "se" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/decal/cleanable/dirt,
@@ -4898,6 +4931,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/rust,
 /area/maintenance/space_hut/plasmaman)
+"vr" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/engine,
+/area/maintenance/bottom_station_maints)
 "vt" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -5120,6 +5157,11 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/qm/perch)
+"wo" = (
+/obj/machinery/portable_atmospherics/canister,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "wp" = (
 /obj/effect/loot_site_spawner,
 /turf/open/floor/plating,
@@ -5225,6 +5267,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/stripes/corner,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/brown/visible/layer2,
 /turf/open/floor/plasteel/dark,
 /area/engine/atmospherics_engine)
 "wD" = (
@@ -5823,6 +5866,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/research/abandoned)
+"zu" = (
+/obj/machinery/atmospherics/components/unary/outlet_injector/layer2,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "zv" = (
 /turf/open/floor/plasteel/white/side{
 	dir = 8
@@ -6214,6 +6261,7 @@
 	name = "Atmospherics Maintenance";
 	req_access_txt = "24"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/engine/atmospherics_engine)
 "Bl" = (
@@ -6634,6 +6682,10 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
+"Dr" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/open/floor/engine,
+/area/maintenance/bottom_station_maints)
 "Ds" = (
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 4
@@ -8968,6 +9020,11 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
+"NB" = (
+/obj/structure/table,
+/obj/item/rack_parts,
+/turf/open/floor/engine,
+/area/maintenance/bottom_station_maints)
 "ND" = (
 /obj/effect/landmark/start/botanist,
 /obj/machinery/holopad,
@@ -9746,6 +9803,13 @@
 "QN" = (
 /obj/machinery/light/small,
 /turf/open/genturf,
+/area/maintenance/bottom_station_maints)
+"QP" = (
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/engine,
 /area/maintenance/bottom_station_maints)
 "QT" = (
 /obj/effect/decal/cleanable/dirt,
@@ -10819,6 +10883,14 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"VB" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/scrubber/huge/movable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "VC" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/bottom_station_maints/south)
@@ -11459,6 +11531,10 @@
 	dir = 4
 	},
 /obj/structure/fans/tiny,
+/obj/machinery/door/poddoor/preopen{
+	id = "hosspace";
+	name = "space shutters"
+	},
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "Yg" = (
@@ -46160,11 +46236,11 @@ rm
 rm
 rm
 rm
-rm
-rm
-CJ
-rm
-rm
+nS
+nS
+nS
+nS
+nS
 Vy
 ln
 ln
@@ -46417,10 +46493,10 @@ dP
 dP
 dP
 dP
-rm
-ln
-ln
-ln
+nS
+NB
+ec
+ec
 EB
 EB
 EB
@@ -46674,10 +46750,10 @@ ln
 rm
 ln
 dP
-rm
-ln
-ln
-ln
+nS
+ec
+dP
+nV
 EB
 hW
 Am
@@ -46931,10 +47007,10 @@ rm
 rm
 rm
 FZ
-rm
-ln
-ln
-ln
+nS
+Dr
+vr
+dP
 Bf
 Ha
 Aq
@@ -47188,13 +47264,13 @@ dP
 tG
 ln
 dP
-rm
-ln
-ln
-ln
-EB
+nS
+vr
+vr
+zu
+iM
 wC
-vd
+oo
 vd
 vd
 uq
@@ -47445,10 +47521,10 @@ dP
 dP
 dP
 dP
+nS
 rm
-rm
-ln
-ln
+fR
+fR
 EB
 TX
 Oe
@@ -47702,10 +47778,10 @@ dP
 tp
 ln
 ln
-rm
-ln
-ln
-ln
+nS
+sd
+nV
+fR
 EB
 ip
 Cj
@@ -47959,10 +48035,10 @@ rm
 rm
 rm
 CJ
-rm
-ln
-ln
-Uc
+nS
+fk
+fR
+QP
 EB
 dS
 Oe
@@ -48216,10 +48292,10 @@ ln
 rm
 ln
 ln
-CJ
-ln
-ln
-iO
+nS
+wo
+fR
+VB
 EB
 kb
 kZ
@@ -48473,10 +48549,10 @@ ln
 rm
 ln
 ln
-rm
-rm
-TW
-rm
+nS
+nS
+nS
+nS
 EB
 de
 ZQ
