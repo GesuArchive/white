@@ -3301,6 +3301,16 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/hos)
+"Oi" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/preopen{
+	id = "hosspace";
+	name = "space shutters"
+	},
+/turf/open/floor/plating,
+/area/crew_quarters/heads/hos)
 "Ok" = (
 /obj/structure/table/wood,
 /obj/item/taperecorder{
@@ -5743,7 +5753,7 @@ aS
 aS
 dv
 dv
-du
+Oi
 dv
 dv
 dv
