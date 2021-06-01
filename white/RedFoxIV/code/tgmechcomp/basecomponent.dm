@@ -5,6 +5,7 @@
 	desc = "Holds the basic functionality for the MechComp components. Does nothing, and you should not be seeing this."
 	icon = 'white/RedFoxIV/icons/obj/mechcomp.dmi'
 
+	var/last_anchored_by
 
 	var/datum/component/mechanics_holder/compdatum
 
@@ -139,6 +140,7 @@
 ///handles the anchoring of component.
 /obj/item/mechcomp/proc/anchor(mob/living/user)
 	anchored = TRUE
+	last_anchored_by = user
 	playsound(src, 'sound/items/ratchet.ogg', 100, TRUE)
 	user.visible_message("<span class='notice'>[user] прикручивает [src.name].</span>", \
 		"<span class='notice'>Я прикручиваю [src.name] к полу.</span>")
@@ -158,7 +160,16 @@
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_RM_ALL_CONNECTIONS)
 	. = ..()
 
+/obj/item/mechcomp/proc/log_action(action)
+	log_mechcomp("[initial(src.name)] at x=[src.x] y=[src.y] z=[src.z]: [action]. Last IO edit [last_io_edit()], last config edit: [last_config_edit()]")
 
+/obj/item/mechcomp/proc/last_config_edit()
+	//return list("user" = compdatum.last_edited_configs_by["user"], "action" = compdatum.last_edited_configs_by["action"])
+	return  "by [compdatum.last_edited_configs_by["user"]?.ckey], [compdatum.last_edited_configs_by["action"]]"
+
+/obj/item/mechcomp/proc/last_io_edit()
+	//return list("user" = compdatum.last_edited_inputs_by["user"], "action" = compdatum.last_edited_inputs_by["action"])
+	return  "by [compdatum.last_edited_inputs_by["user"]?.ckey], [compdatum.last_edited_inputs_by["action"]]"
 
 /**
  * Change the active var to TRUE and current icon to active_icon_state, it it's not null.area

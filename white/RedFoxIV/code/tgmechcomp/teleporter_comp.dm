@@ -57,11 +57,15 @@
 		activate_for(1 SECONDS, FALSE)
 		return
 
-
+	var/list/thrown = list()
+	var/mob/living/L
 	for(var/atom/movable/AM in get_turf(src))
 		if(AM.anchored || ( isliving(AM) && !accept_mobs ) || AM == src)
 			continue
 		AM.forceMove(get_turf(tele))
+		if(isliving(AM))
+			L = AM
+			thrown.Add("[L.ckey] as [L.name]")
 	
 	playsound(src, 'sound/weapons/emitter2.ogg', 25, TRUE, extrarange = 3)
 	playsound(tele, 'sound/weapons/emitter2.ogg', 25, TRUE, extrarange = 3)
@@ -70,8 +74,9 @@
 	s1.start()
 
 
-	activate_for(1 SECONDS + 7 SECONDS * accept_mobs)
-	tele.activate_for(1 SECONDS + 7 SECONDS * accept_mobs)
+	activate_for(1 SECONDS + 9 SECONDS * accept_mobs)
+	tele.activate_for(1 SECONDS + 9 SECONDS * accept_mobs)
+	log_action("teleported following people to x=[tele.x], y=[tele.y]: [jointext(thrown, ", ")]")
 	return
 
 
