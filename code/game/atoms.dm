@@ -690,31 +690,25 @@
 	. = list()
 	SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_OVERLAYS, .)
 
-/// Checks if the colors given are different and if so causes a greyscale icon update
-/// The colors argument can be either a list or the full color string
-/atom/proc/set_greyscale_colors(list/colors, update=TRUE)
+/// Handles updates to greyscale value updates.
+/// The colors argument can be either a list or the full color string.
+/// Child procs should call parent last so the update happens after all changes.
+/atom/proc/set_greyscale(list/colors, new_config)
 	SHOULD_CALL_PARENT(TRUE)
 	if(istype(colors))
 		colors = colors.Join("")
-	if(greyscale_colors == colors)
-		return
-	greyscale_colors = colors
-	if(!greyscale_config)
-		return
-	if(update)
-		update_greyscale()
+	if(!isnull(colors) && greyscale_colors != colors) // If you want to disable greyscale stuff then give a blank string
+		greyscale_colors = colors
 
-/// Checks if the greyscale config given is different and if so causes a greyscale icon update
-/atom/proc/set_greyscale_config(new_config, update=TRUE)
-	if(greyscale_config == new_config)
-		return
-	greyscale_config = new_config
-	if(update)
-		update_greyscale()
+	if(!isnull(new_config) && greyscale_config != new_config)
+		greyscale_config = new_config
 
-/// Checks if this atom uses the GAS system and if so updates the icon
+	update_greyscale()
+
+/// Checks if this atom uses the GAGS system and if so updates the icon
 /atom/proc/update_greyscale()
-	if(greyscale_config && greyscale_colors)
+	SHOULD_CALL_PARENT(TRUE)
+	if(greyscale_colors && greyscale_config)
 		icon = SSgreyscale.GetColoredIconByType(greyscale_config, greyscale_colors)
 
 /**
