@@ -68,7 +68,6 @@ GLOBAL_LIST_INIT(donations_list, list(
 	),
 	"Обувь" = list(
 		new /datum/donate_info("Clown Shoes",				/obj/item/clothing/shoes/clown_shoes,			120),
-		new /datum/donate_info("Cyborg Shoes",				/obj/item/clothing/shoes/cyborg,				120),
 		new /datum/donate_info("Laceups Shoes",				/obj/item/clothing/shoes/laceup,				120),
 		new /datum/donate_info("Wooden Sandals",			/obj/item/clothing/shoes/sandal,				80),
 		new /datum/donate_info("Brown Shoes",				/obj/item/clothing/shoes/sneakers/brown,		120),

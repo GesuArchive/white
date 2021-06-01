@@ -667,7 +667,7 @@
 		update_icon_state()
 		. = TRUE
 
-	if(!(signalOut & COMSIG_ATOM_UPDATE_GREYSCALE))
+	if(greyscale_colors)
 		var/list/colors = update_greyscale()
 		// Updating the greyscale config in update_greyscale() is fine or we would check this earlier
 		if(greyscale_config)

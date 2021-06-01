@@ -9106,9 +9106,9 @@
 /area/science/lab)
 "hhp" = (
 /obj/structure/rack,
-/obj/item/clothing/under/rank/prisoner,
-/obj/item/clothing/under/rank/prisoner,
-/obj/item/clothing/under/rank/prisoner,
+/obj/item/clothing/under/color/prisoner,
+/obj/item/clothing/under/color/prisoner,
+/obj/item/clothing/under/color/prisoner,
 /obj/item/clothing/shoes/sneakers/orange,
 /obj/item/clothing/shoes/sneakers/orange,
 /obj/item/clothing/shoes/sneakers/orange,
@@ -13321,7 +13321,7 @@
 	pixel_x = -6;
 	pixel_y = -8
 	},
-/obj/item/clothing/under/rank/prisoner{
+/obj/item/clothing/under/color/prisoner{
 	pixel_x = 8;
 	pixel_y = 5
 	},
@@ -25895,10 +25895,10 @@
 /area/hallway/secondary/command)
 "uwh" = (
 /obj/structure/closet/crate/trashcart/laundry,
-/obj/item/clothing/under/rank/prisoner/skirt,
-/obj/item/clothing/under/rank/prisoner/skirt,
-/obj/item/clothing/under/rank/prisoner,
-/obj/item/clothing/under/rank/prisoner,
+/obj/item/clothing/under/color/jumpskirt/prisoner,
+/obj/item/clothing/under/color/jumpskirt/prisoner,
+/obj/item/clothing/under/color/prisoner,
+/obj/item/clothing/under/color/prisoner,
 /obj/effect/spawner/lootdrop/prison_contraband,
 /obj/effect/turf_decal/delivery/red,
 /turf/open/floor/plasteel/cafeteria,
@@ -29967,15 +29967,15 @@
 /area/engine/engineering)
 "xmH" = (
 /obj/structure/table,
-/obj/item/clothing/under/rank/prisoner/skirt{
+/obj/item/clothing/under/color/jumpskirt/prisoner{
 	pixel_x = 9;
 	pixel_y = 5
 	},
-/obj/item/clothing/under/rank/prisoner{
+/obj/item/clothing/under/color/prisoner{
 	pixel_x = -2;
 	pixel_y = 5
 	},
-/obj/item/clothing/under/rank/prisoner/skirt{
+/obj/item/clothing/under/color/jumpskirt/prisoner{
 	pixel_x = -13;
 	pixel_y = 5
 	},

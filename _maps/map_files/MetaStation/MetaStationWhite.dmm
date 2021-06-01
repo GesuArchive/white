@@ -1493,7 +1493,7 @@
 	pixel_x = -6;
 	pixel_y = -8
 	},
-/obj/item/clothing/under/rank/prisoner{
+/obj/item/clothing/under/color/prisoner{
 	pixel_x = 8;
 	pixel_y = 5
 	},
@@ -2828,10 +2828,10 @@
 	},
 /obj/structure/closet/crate/trashcart/laundry,
 /obj/effect/spawner/lootdrop/prison_contraband,
-/obj/item/clothing/under/rank/prisoner,
-/obj/item/clothing/under/rank/prisoner,
-/obj/item/clothing/under/rank/prisoner/skirt,
-/obj/item/clothing/under/rank/prisoner/skirt,
+/obj/item/clothing/under/color/prisoner,
+/obj/item/clothing/under/color/prisoner,
+/obj/item/clothing/under/color/jumpskirt/prisoner,
+/obj/item/clothing/under/color/jumpskirt/prisoner,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -12324,11 +12324,11 @@
 /area/security/brig)
 "aGr" = (
 /obj/structure/rack,
-/obj/item/clothing/under/rank/prisoner,
-/obj/item/clothing/under/rank/prisoner,
-/obj/item/clothing/under/rank/prisoner,
-/obj/item/clothing/under/rank/prisoner,
-/obj/item/clothing/under/rank/prisoner,
+/obj/item/clothing/under/color/prisoner,
+/obj/item/clothing/under/color/prisoner,
+/obj/item/clothing/under/color/prisoner,
+/obj/item/clothing/under/color/prisoner,
+/obj/item/clothing/under/color/prisoner,
 /obj/item/clothing/shoes/sneakers/orange,
 /obj/item/clothing/shoes/sneakers/orange,
 /obj/item/clothing/shoes/sneakers/orange,
@@ -55006,15 +55006,15 @@
 /area/maintenance/port/fore)
 "dsG" = (
 /obj/structure/table,
-/obj/item/clothing/under/rank/prisoner/skirt{
+/obj/item/clothing/under/color/jumpskirt/prisoner{
 	pixel_x = -13;
 	pixel_y = 5
 	},
-/obj/item/clothing/under/rank/prisoner/skirt{
+/obj/item/clothing/under/color/jumpskirt/prisoner{
 	pixel_x = 9;
 	pixel_y = 5
 	},
-/obj/item/clothing/under/rank/prisoner{
+/obj/item/clothing/under/color/prisoner{
 	pixel_x = -2;
 	pixel_y = 5
 	},
