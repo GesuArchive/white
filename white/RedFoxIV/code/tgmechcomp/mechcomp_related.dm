@@ -48,10 +48,10 @@
 	contraband = list(
 						/obj/item/mechcomp/egunholder = 3,
 						/obj/item/mechcomp/grav_accelerator = 5,
-						/obj/item/mechcomp/teleport = 6)
+						/obj/item/mechcomp/teleport/longrange = 6)
 	premium = list(	/obj/item/multitool/mechcomp = 1,
 					/obj/item/mechcomp/grav_accelerator = 2,
-					/obj/item/mechcomp/teleport/longrange = 14)
+					/obj/item/mechcomp/teleport/longrange = 3)
 	armor = list(MELEE = 30, BULLET = 30, LASER = 40, ENERGY = 40, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 40)
 	resistance_flags = FIRE_PROOF
 	default_price = PAYCHECK_ASSISTANT
