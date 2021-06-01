@@ -71,7 +71,7 @@
 
 /mob/living/simple_animal/hostile/carp/Initialize(mapload)
 	if(random_color)
-		set_greyscale_config(/datum/greyscale_config/carp)
+		set_greyscale(new_config=/datum/greyscale_config/carp)
 		carp_randomify(rarechance)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
@@ -90,10 +90,10 @@
 	var/our_color
 	if(prob(rarechance))
 		our_color = pick(carp_colors_rare)
-		set_greyscale_colors(list(carp_colors_rare[our_color]))
+		set_greyscale(colors=list(carp_colors_rare[our_color]))
 	else
 		our_color = pick(carp_colors)
-		set_greyscale_colors(list(carp_colors[our_color]))
+		set_greyscale(colors=list(carp_colors[our_color]))
 
 /mob/living/simple_animal/hostile/carp/revive(full_heal = FALSE, admin_revive = FALSE)
 	. = ..()

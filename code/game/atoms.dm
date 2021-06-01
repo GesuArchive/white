@@ -703,7 +703,7 @@
 	greyscale_colors = colors
 	if(!greyscale_config)
 		return
-	if(update && greyscale_config && greyscale_colors)
+	if(greyscale_config && greyscale_colors)
 		update_greyscale()
 
 /// Checks if the greyscale config given is different and if so causes a greyscale icon update
