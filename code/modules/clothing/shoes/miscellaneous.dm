@@ -1,6 +1,6 @@
 /obj/item/clothing/shoes/sneakers/mime
-	name = "обувь мима"
-	icon_state = "mime"
+	name = "обутки мима"
+	greyscale_colors = "#ffffff"
 
 /obj/item/clothing/shoes/combat //basic syndicate combat boots for nuke ops and mob corpses
 	name = "боевые ботинки"
@@ -46,7 +46,6 @@
 /obj/item/clothing/shoes/sandal/marisa
 	desc = "Пара волшебных чёрных туфель."
 	name = "магические туфли"
-	icon_state = "black"
 	resistance_flags = FIRE_PROOF |  ACID_PROOF
 	species_exception = null
 
@@ -212,10 +211,10 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CULT_TRAIT)
 
-/obj/item/clothing/shoes/cyborg
+/obj/item/clothing/shoes/sneakers/cyborg
 	name = "обутки киборка"
 	desc = "Обувь для киборгского костюма."
-	icon_state = "boots"
+	greyscale_colors = "#4e4e4e#4e4e4e"
 
 /obj/item/clothing/shoes/laceup
 	name = "шнуровочные туфли"
@@ -271,7 +270,7 @@
 		user.visible_message("<span class='warning'>[usr] взлетает в воздух!</span>")
 		recharging_time = world.time + recharging_rate
 	else
-		to_chat(user, "<span class='warning'>Что-то мешает мне взлететь!</span>")
+		to_chat(user, "<span class='warning'>SЧто-то мешает мне взлететь!</span>")
 
 /obj/item/clothing/shoes/bhop/rocket
 	name = "rocket boots"
@@ -308,8 +307,10 @@
 /obj/item/clothing/shoes/wheelys
 	name = "Вилли-Хилс"
 	desc = "Использует запатентованную технологию выдвижных колес. Никогда не жертвуйте скоростью ради стиля - не то, чтобы это давало много и того, и другого." //Thanks Fel
-	icon_state = "wheelys"
 	worn_icon_state = "wheelys"
+	greyscale_colors = "#545454#ffffff"
+	icon_state = "sneakers"
+	greyscale_config = /datum/greyscale_config/sneakers_wheelys
 	inhand_icon_state = "wheelys"
 	worn_icon = 'icons/mob/large-worn-icons/64x64/feet.dmi'
 	worn_x_dimension = 64
@@ -331,7 +332,7 @@
 	if(!isliving(user))
 		return
 	if(!istype(user.get_item_by_slot(ITEM_SLOT_FEET), /obj/item/clothing/shoes/wheelys))
-		to_chat(user, "<span class='warning'>Я должен надеть вилли-хилс чтобы их использовать!</span>")
+		to_chat(user, "<span class='warning'>Стоит надеть вилли-хилс чтобы их использовать!</span>")
 		return
 	if(!(wheels.is_occupant(user)))
 		wheelToggle = FALSE
@@ -351,9 +352,9 @@
 
 /obj/item/clothing/shoes/wheelys/proc/toggle_wheels(status)
 	if (status)
-		worn_icon_state = "[initial(icon_state)]-on"
+		worn_icon_state = "[initial(worn_icon_state)]-on"
 	else
-		worn_icon_state = "[initial(icon_state)]"
+		worn_icon_state = "[initial(worn_icon_state)]"
 	playsound(src, 'sound/weapons/tap.ogg', 10, TRUE)
 	update_icon()
 
@@ -365,6 +366,8 @@
 	name = "роликовые коньки"
 	desc = "Пара роликовых коньков марки EightO. Колеса убираются, но слишком громоздкие чтобы ходить."
 	icon_state = "rollerskates"
+	greyscale_colors = null
+	greyscale_config = null
 	worn_icon_state = "rollerskates"
 	slowdown = SHOES_SLOWDOWN+1
 	wheels = /obj/vehicle/ridden/scooter/skateboard/wheelys/rollerskates
@@ -375,6 +378,8 @@
 	name = "лыжные ботинки"
 	desc = "Пара ботинок со складными лыжами! Очень удобна для передвижения по снежной местности."
 	icon_state = "skishoes"
+	greyscale_colors = null
+	greyscale_config = null
 	worn_icon_state = "skishoes"
 	slowdown = SHOES_SLOWDOWN+1
 	wheels = /obj/vehicle/ridden/scooter/skateboard/wheelys/skishoes

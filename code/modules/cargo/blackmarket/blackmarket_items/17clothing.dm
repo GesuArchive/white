@@ -334,16 +334,6 @@
 	stock_max = 5
 	availability_prob = 50
 
-/datum/blackmarket_item/clothing/shoes/cyborg
-	name = "Обувь киборга"
-	desc = "Hello World!"
-	item = /obj/item/clothing/shoes/cyborg
-
-	price_min = 100
-	price_max = 1000
-	stock_max = 5
-	availability_prob = 50
-
 /datum/blackmarket_item/clothing/jackboots
 	name = "Военный ботинки"
 	desc = "jackass"
