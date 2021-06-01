@@ -11,7 +11,7 @@
 
 
 //copypaste of a goon component, thankfully it somehow just works.
-//Still probably should be at least reviewed.
+//Still probably should be at least reviewed. 
 /obj/item/mechcomp/math
 	name = "Arithmetic Component"
 	desc = "Do number things! Component list<br>\
@@ -24,6 +24,7 @@
 	mod: Modulos A % B<br>\
 	sin, cos, tg, ctg, sec, cosec - All trigonometric functions use A for degrees. B is unused.<br>\
 	eq, neq, gt, lt, gte, lte - Equal, NotEqual, GreaterThan, LessThan, GreaterEqual, LessEqual - will output 1 if true. Example: \"A GT B\" is basically \"1 if A is larger than B\""
+	icon_state = "comp_arith"
 	part_icon_state = "comp_arith"
 	has_anchored_icon_state = TRUE
 	var/A = 1
@@ -108,18 +109,18 @@
 		if("neq")
 			. = A != B
 		if("sin")
-			. = (sin(A))
+			. = (sin(A)) 
 		if("cos")
-			. = (cos(A))
+			. = (cos(A)) 
 		if("tg")
-			. = (tan(A))
+			. = (tan(A)) 
 		if("ctg")
-			. = 1/(tan(A))
+			. = 1/(tan(A)) 
 		if("sec")
-			. = 1/(cos(A))
+			. = 1/(cos(A)) 
 		if("cosec")
-			. = 1/(sin(A))
-
+			. = 1/(sin(A)) 
+		
 		else
 			return
 	if(. == .) //wtf???
@@ -130,6 +131,7 @@
 
 
 //should be replaced by a proper led with actual light and stuff, not just a stub with 2 sprites for true/false input.
+/*
 /obj/item/mechcomp/test_led
 	name = "Test LED"
 	desc = "Lights up if anything other than zero or an empty string is passed."
@@ -146,7 +148,7 @@
 		update_icon_state("comp_led_on")
 	else
 		update_icon_state("comp_led")
-
+*/
 
 
 
@@ -155,6 +157,7 @@
 /obj/item/mechcomp/button
 	name = "mechcomp Button"
 	desc = "What does it do? Only one way to find out!"
+	icon_state = "comp_button"
 	part_icon_state = "comp_button"
 
 /obj/item/mechcomp/button/Initialize()
@@ -180,6 +183,7 @@
 /obj/item/mechcomp/speaker
 	name = "mechcomp speaker"
 	desc = "Speaks whatever it is told to speak."
+	icon_state = "comp_synth"
 	part_icon_state = "comp_synth"
 	active_icon_state = "comp_synth1"
 	var/cd = 3 SECONDS
@@ -202,14 +206,15 @@
 /obj/item/mechcomp/textpad
 	name = "mechcomp textpad"
 	desc = "Text goes here. Strangely similiar to a numpad, while also being better than a numpad."
+	icon_state = "comp_buttpanel"
 	part_icon_state = "comp_buttpanel"
 	active_icon_state = "comp_buttpanel1"
 
-/obj/item/mechcomp/textpad/interact_by_hand()
+/obj/item/mechcomp/textpad/interact_by_hand() 
 	var/inp = input("What text would you like to input?", "Oh, the possibilities!", null) as text|null
 	if(isnull(inp))
 		return
-
+	
 	SEND_SIGNAL(src,COMSIG_MECHCOMP_TRANSMIT_SIGNAL,"[inp]")
 	activate_for(0.1 SECONDS)
 
@@ -219,6 +224,7 @@
 /obj/item/mechcomp/pressurepad
 	name = "mechcomp pressure pad"
 	desc = "Senses people walking over it."
+	icon_state = "comp_pressure"
 	part_icon_state = "comp_pressure"
 	has_anchored_icon_state = TRUE
 	var/sensitive = FALSE
@@ -247,6 +253,7 @@
 /obj/item/mechcomp/delay
 	name = "mechcomp timer"
 	desc = "Relays signals with a configurable delay from 0 to 10 seconds."
+	icon_state = "comp_wait"
 	part_icon_state = "comp_wait"
 	active_icon_state = "comp_wait1"
 	has_anchored_icon_state = TRUE
@@ -278,12 +285,12 @@
 	var/t = text2num(msg.signal)
 	if (!isnull(t) && t > 0 && t<100)
 		delay = t
-
+		
 
 
 //This mechcomp component handles active flag by itself because it can have several different messages waiting to be sent,
-//and active flag should not be set to FALSE untill all of the messages were sent.
-//This is probably not good and stuff regarting active-inactive states should be rewritten to be more flexible.
+//and active flag should not be set to FALSE untill all of the messages were sent. 
+//This is probably not good and stuff regarting active-inactive states should be rewritten to be more flexible. 
 /obj/item/mechcomp/delay/proc/incoming(var/datum/mechcompMessage/msg)
 	pending_messages += list(addtimer(CALLBACK(src, .proc/sendmessage, msg), delay, TIMER_STOPPABLE | TIMER_DELETE_ME))
 	active = TRUE
@@ -298,8 +305,8 @@
 		update_icon_state(part_icon_state)
 
 /obj/item/mechcomp/delay/unanchor()
+	. = ..()
 	remove_all_pending_messages()
-	..()
 
 /obj/item/mechcomp/delay/proc/remove_all_pending_messages()
 	for(var/timer in pending_messages)
@@ -310,6 +317,7 @@
 /obj/item/mechcomp/grav_accelerator
 	name = "mechcomp graviton accelerator"
 	desc = "The bread and butter of any self-respecting mechanic, able to launch anyone willing (and unwilling!) in a fixed direction."
+	icon_state = "comp_accel"
 	part_icon_state = "comp_accel"
 	active_icon_state = "comp_accel1"
 	var/power = 3
@@ -341,7 +349,7 @@
 	else if(isobserver(user) && CONFIG_GET(flag/ghost_interaction))
 		return TRUE
 	return FALSE
-/obj/item/mechcomp/grav_accelerator/proc/activateproc(datum/mechcompMessage/msg)
+/obj/item/mechcomp/grav_accelerator/proc/activateproc(datum/mechanicsMessage/msg)
 	if(active)
 		return
 
@@ -357,7 +365,7 @@
 	if(!in_range(src, user) || user.stat || isnull(input))
 		to_chat(user, "<span class='notice'>You leave the power setting on [src.name] alone.</span>")
 		return FALSE
-
+	
 	power = clamp(round(input), 1, 7)
 	to_chat(user, "<span class='notice'>You change the power setting on [src.name] to [power].</span>")
 	return TRUE
@@ -365,6 +373,7 @@
 /obj/item/mechcomp/egunholder
 	name = "mechcomp energy gun fixture"
 	desc = "Warcrimes, warcrimes!"
+	icon_state = "comp_egun"
 	part_icon_state = "comp_egun"
 	only_one_per_tile = TRUE
 	///from 0 to 360
@@ -385,7 +394,7 @@
 
 	var/obj/item/stock_parts/cell/gun_cell = gun.cell
 	var/obj/item/ammo_casing/energy/casing = gun.ammo_type[gun.select]
-
+	
 	if(gun_cell.use(casing.e_cost))
 		var/obj/projectile/proj = new casing.projectile_type(get_turf(src))
 		proj.fire(angle, null)
@@ -453,6 +462,7 @@
 /obj/item/mechcomp/list_packer
 	name = "mechcomp List Packer"
 	desc = "Packs a bunch of input data into compact list-like form. Will skip over null data inputs and will not output anything at all if all data inputs are null."
+	icon_state = "comp_list_packer"
 	part_icon_state = "comp_list_packer"
 	//lol
 	var/A
@@ -503,7 +513,7 @@
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set H", "set_H")
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set glue", "set_glue")
 
-
+	
 
 //lololol
 /obj/item/mechcomp/list_packer/proc/update_A(var/datum/mechcompMessage/msg)
@@ -600,7 +610,7 @@
 		l.Add(G)
 	if(!isnull(H))
 		l.Add(H)
-
+	
 	var/result = jointext(l, glue)
 	if(length(result))
 		SEND_SIGNAL(src, COMSIG_MECHCOMP_TRANSMIT_SIGNAL, result)
@@ -610,6 +620,7 @@
 	desc = "Takes a numerical index and outputs a value from a given list with that index. It's that simple. Refuses lists with a single element (i.e. no \"&\" dividers.). If not a number value is passed to it as an index, it will return the first item of the list."
 	var/list/memory = list()
 	var/glue = "&"
+	icon_state = "comp_list_unpacker"
 	part_icon_state = "comp_list_unpacker"
 	has_anchored_icon_state = TRUE
 
@@ -645,6 +656,7 @@
 /obj/item/mechcomp/find_regex
 	name = "mechcomp Regex text finder"
 	desc = "Uses the black Regex magic to find specific data in a given string."
+	icon_state = "comp_regfind"
 	part_icon_state = "comp_regfind"
 	has_anchored_icon_state = TRUE
 	var/regex/reg
@@ -685,7 +697,7 @@
 	for(var/i=0, i<1000, i++)
 		//i am afraid to use infinite loops even though it should never go into one
 		if(i==999)
-
+			
 			//oh god what have you done
 			say("Critical error: Approached limit of 1000 iterations of regex search for given text. Report to NanoTrasen Mechanical division.")
 			CRASH("A mechcomp regex searcher went over 1000 iterations of searching through text and is shutting down. Please ask whoever set up this shite how did they achieve this.")
@@ -727,6 +739,7 @@
 /obj/item/mechcomp/timer
 	name = "mechcomp Timer"
 	desc = "Sends out a set signal every time period. Can be set to periods from 0.1 to 10 seconds."
+	icon_state = "comp_timer"
 	part_icon_state = "comp_timer"
 	has_anchored_icon_state = TRUE
 	var/time = 10
@@ -794,7 +807,7 @@
 		deltimer(timer_id)
 		timer_id = null
 
-/obj/item/mechcomp/timer/unanchor(mob/user)
+/obj/item/mechcomp/timer/can_unanchor(mob/user)
 	. = ..()
 	if(timer_id || active)
 		to_chat(user, "<span class='alert'>The timer still running! Disable it first!</span>")
@@ -803,6 +816,7 @@
 /obj/item/mechcomp/microphone
 	name = "mechcomp Microphone"
 	desc = "Would be pretty useful for spying on people, but it's just too big for this job. Comically oversized, even."
+	icon_state = "comp_mic"
 	part_icon_state = "comp_mic"
 	has_anchored_icon_state = TRUE
 	var/ignore_mechcomp = TRUE
@@ -812,6 +826,8 @@
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Toggle ignoring mechcomp devices", "togglemechcomp")
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Toggle ignoring radios", "toggleradio")
+
+
 
 /obj/item/mechcomp/microphone/proc/togglemechcomp(obj/item/I, mob/user)
 	ignore_mechcomp = !ignore_mechcomp

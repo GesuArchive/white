@@ -27,7 +27,7 @@
 
 /obj/machinery/vending/mechcomp
 	name = "MechComp vending machine"
-	desc = "."
+	desc = "Sells mechcomp components. Not much else to say about it."
 	icon = 'white/RedFoxIV/icons/mechcomp/connection.dmi'
 	icon_state = "vending"
 	icon_deny = "vending-deny"
@@ -39,15 +39,19 @@
 					/obj/item/mechcomp/pressurepad = 5,
 					/obj/item/mechcomp/grav_accelerator = 2,
 					/obj/item/mechcomp/math = 35,
-					/obj/item/mechcomp/list_packer = 21,
-					/obj/item/mechcomp/list_extractor = 21,
+					/obj/item/mechcomp/list_packer = 12,
+					/obj/item/mechcomp/list_extractor = 12,
 					/obj/item/mechcomp/find_regex = 7,
 					/obj/item/mechcomp/timer = 2,
-					/obj/item/mechcomp/microphone = 7)
+					/obj/item/mechcomp/microphone = 7,
+					/obj/item/mechcomp/teleport = 6)
 	contraband = list(
 						/obj/item/mechcomp/egunholder = 3,
-						/obj/item/mechcomp/grav_accelerator = 5)
-	premium = list(/obj/item/multitool/mechcomp = 1)
+						/obj/item/mechcomp/grav_accelerator = 5,
+						/obj/item/mechcomp/teleport = 6)
+	premium = list(	/obj/item/multitool/mechcomp = 1,
+					/obj/item/mechcomp/grav_accelerator = 2,
+					/obj/item/mechcomp/teleport/longrange = 14)
 	armor = list(MELEE = 30, BULLET = 30, LASER = 40, ENERGY = 40, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 40)
 	resistance_flags = FIRE_PROOF
 	default_price = PAYCHECK_ASSISTANT

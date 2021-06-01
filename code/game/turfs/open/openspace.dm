@@ -35,13 +35,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 		set_light(0)
 
 /turf/open/openspace/airless
-	var/static/datum/gas_mixture/immutable/space/space_gas = new
 	initial_gas_mix = AIRLESS_ATMOS
-
-/turf/open/openspace/airless/Initialize()
-	. = ..()
-	air = space_gas
-	update_air_ref()
 
 /turf/open/openspace/fastload
 	plane = OPENSPACE_PLANE

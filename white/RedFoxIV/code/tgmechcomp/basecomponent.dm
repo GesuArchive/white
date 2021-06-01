@@ -9,9 +9,9 @@
 	var/datum/component/mechanics_holder/compdatum
 
 	/**
-	 * A crutch to use the goon mechcomp sprites, because goon iconstate
+	 * A crutch to use the goon mechcomp sprites, because goon iconstate 
 	 * format for mechcomp is [compname] for unanchored and u[compname] for anchored components.
-	 *
+	 * 
 	 * Avoid editing it in runtime as it should (?) hold the "initial" value at all times. Use update_icon_state instead,
 	 * it also handles all the logic regarding anchored/unanchored sprites.
 	 **/
@@ -21,10 +21,10 @@
 	 * Icon state for when the component is active. If you do not have a sprite for this, keep it null.
 	 **/
 	var/active_icon_state = null
-
+	
 	/**
 	 * if the component has a smaller sprite for when it's anchored to the floor.
-	 **/
+	 **/ 
 	var/has_anchored_icon_state = FALSE
 
 
@@ -37,20 +37,20 @@
 	var/deactivatecb = CALLBACK()
 
 	/**
-	 * If only a single instance of a component is allowed to be anchored onto a tile.part_icon_state =
-	 * Also resets it's own pixel_x and pixel_y vars when anchored so that it stays centered.part_icon_state =
+	 * If only a single instance of a component is allowed to be anchored onto a tile.part_icon_state = 
+	 * Also resets it's own pixel_x and pixel_y vars when anchored so that it stays centered.part_icon_state = 
 	 **/
 	var/only_one_per_tile = FALSE
 
 	/**
-	 * DO NOT FUCKING TOUCH THIS REEEE! use update_icon_state("compname") instead.
-	 * Yes, even if you want your component to chance icon when it's active.
+	 * Set this to the same value as initial part_icon_state, or else the icon in right-click menu
+	 * will break. For runtime updates, use update_icon_state("comp_ass") instead.
 	 **/
-	icon_state = "generic"
-
+	icon_state = "fixme"
+	
 
 /**
- * Another part to the gooncode crutch adaptation.
+ * Another part to the gooncode crutch adaptation. 
  * Use it to actually change icon_state, instead of accessing icon_state or part_icon_state directly.
  **/
 /obj/item/mechcomp/update_icon_state(var/part_icon_state)
@@ -101,20 +101,14 @@
 		//i want to fucking die btw
 		//this should probably be moved to another proc.
 		if(I.tool_behaviour == TOOL_WRENCH)
+			
 
-			var/a
-			if(anchored)
-				a = unanchor(user)
-			else
-				a = anchor(user)
-			if(a)
-				set_anchored(!anchored)
-				I.play_tool_sound(src, 100)
-				user.visible_message("<span class='notice'>[user] [anchored ? "прикручивает" : "откручивает"] [src.name].</span>", \
-					"<span class='notice'>Я [anchored ? "прикручиваю [src.name] к полу" : "откручиваю [src.name] от пола"].</span>")
-				update_icon_state(part_icon_state)
+			if(anchored && can_unanchor(user))
+				unanchor(user)
+			else if(!anchored && can_anchor(user))
+				anchor(user)
 		return
-
+	
 	//shouldn't get to this point if the user's intent is harm
 	//this way stuff like item scanners can accept all items (like a fucking wrench) on the first 3 intents
 	//AND still be wrenched (bypassing the scan) if on harm intent.
@@ -123,7 +117,7 @@
 
 
 ///Returns true if anchoring is allowed, returns false if not.
-/obj/item/mechcomp/proc/anchor(mob/living/user)
+/obj/item/mechcomp/proc/can_anchor(mob/living/user)
 	if(only_one_per_tile)
 		for(var/obj/item/mechcomp/i in get_turf(src))
 			if(istype(i, src) && i.anchored)
@@ -134,15 +128,29 @@
 	return TRUE
 
 ///Returns true if unanchoring is allowed, returns false if not.
-/obj/item/mechcomp/proc/unanchor(mob/living/user)
-	to_chat(user,"incoming - [length(compdatum.connected_incoming)] // outgoing - [length(compdatum.connected_outgoing)]")
-	to_chat(user,"[length(compdatum.connected_incoming)] [length(compdatum.connected_outgoing)]")
+/obj/item/mechcomp/proc/can_unanchor(mob/living/user)
 	if (length(compdatum.connected_incoming) || length(compdatum.connected_outgoing))
 		to_chat(user, "<span class='alert'>The locking bolts of [src.name] are locked in and do not budge! Disconnect all first!</span>")
 		return FALSE
 	//just in case we /somehow/ fucked up with the check
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_RM_ALL_CONNECTIONS)
 	return TRUE
+
+///handles the anchoring of component.
+/obj/item/mechcomp/proc/anchor(mob/living/user)
+	anchored = TRUE
+	playsound(src, 'sound/items/ratchet.ogg', 100, TRUE)
+	user.visible_message("<span class='notice'>[user] прикручивает [src.name].</span>", \
+		"<span class='notice'>Я прикручиваю [src.name] к полу.</span>")
+	update_icon_state(part_icon_state)
+
+///handles the unanchoring of component.
+/obj/item/mechcomp/proc/unanchor(mob/living/user)
+	anchored = FALSE
+	playsound(src, 'sound/items/ratchet.ogg', 100, TRUE)
+	user.visible_message("<span class='notice'>[user] откручивает [src.name].</span>", \
+		"<span class='notice'>Я откручиваю [src.name] от пола.</span>")
+	update_icon_state(part_icon_state)
 
 
 //feels like a good idea to include these
@@ -158,10 +166,12 @@
  * if(active)
  *		return
  * construction in the beginning of your interact proc or signal handling proc.
+ * The visual controls whether or not to apply active_icon_state. passing FALSE to it will result
+ * in applying only cooldown without any sprite changes.
  **/
-/obj/item/mechcomp/proc/activate_for(var/time)
+/obj/item/mechcomp/proc/activate_for(var/time, visual = TRUE)
 	active = TRUE
-	if(active_icon_state)
+	if(active_icon_state && visual)
 		update_icon_state(active_icon_state)
 	addtimer(CALLBACK(src, .proc/_deactivate), time)
 
@@ -176,7 +186,7 @@
 
 	if(!istype(_drop,/obj/item/mechcomp))
 		return
-
+	
 	var/obj/item/mechcomp/drop = _drop
 	if(!(src.anchored && drop.anchored))
 		return
@@ -202,7 +212,7 @@
 	*/
 	if(user.held_items[user.active_hand_index].tool_behaviour != TOOL_MULTITOOL)
 		return
-
+	
 	var/obj/item/mechcomp/over = _over
 	for(input in input_types)
 		input_icons += list(input) = image(icon = input[1], icon_state = "[input[1] ? input[1] : "unknown"]")
