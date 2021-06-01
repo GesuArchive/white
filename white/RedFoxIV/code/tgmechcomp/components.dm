@@ -11,7 +11,7 @@
 
 
 //copypaste of a goon component, thankfully it somehow just works.
-//Still probably should be at least reviewed. 
+//Still probably should be at least reviewed.
 /obj/item/mechcomp/math
 	name = "Arithmetic Component"
 	desc = "Do number things! Component list<br>\
@@ -109,18 +109,18 @@
 		if("neq")
 			. = A != B
 		if("sin")
-			. = (sin(A)) 
+			. = (sin(A))
 		if("cos")
-			. = (cos(A)) 
+			. = (cos(A))
 		if("tg")
-			. = (tan(A)) 
+			. = (tan(A))
 		if("ctg")
-			. = 1/(tan(A)) 
+			. = 1/(tan(A))
 		if("sec")
-			. = 1/(cos(A)) 
+			. = 1/(cos(A))
 		if("cosec")
-			. = 1/(sin(A)) 
-		
+			. = 1/(sin(A))
+
 		else
 			return
 	if(. == .) //wtf???
@@ -210,11 +210,11 @@
 	part_icon_state = "comp_buttpanel"
 	active_icon_state = "comp_buttpanel1"
 
-/obj/item/mechcomp/textpad/interact_by_hand() 
+/obj/item/mechcomp/textpad/interact_by_hand()
 	var/inp = input("What text would you like to input?", "Oh, the possibilities!", null) as text|null
 	if(isnull(inp))
 		return
-	
+
 	SEND_SIGNAL(src,COMSIG_MECHCOMP_TRANSMIT_SIGNAL,"[inp]")
 	activate_for(0.1 SECONDS)
 
@@ -285,12 +285,12 @@
 	var/t = text2num(msg.signal)
 	if (!isnull(t) && t > 0 && t<100)
 		delay = t
-		
+
 
 
 //This mechcomp component handles active flag by itself because it can have several different messages waiting to be sent,
-//and active flag should not be set to FALSE untill all of the messages were sent. 
-//This is probably not good and stuff regarting active-inactive states should be rewritten to be more flexible. 
+//and active flag should not be set to FALSE untill all of the messages were sent.
+//This is probably not good and stuff regarting active-inactive states should be rewritten to be more flexible.
 /obj/item/mechcomp/delay/proc/incoming(var/datum/mechcompMessage/msg)
 	pending_messages += list(addtimer(CALLBACK(src, .proc/sendmessage, msg), delay, TIMER_STOPPABLE | TIMER_DELETE_ME))
 	active = TRUE
@@ -349,7 +349,7 @@
 	else if(isobserver(user) && CONFIG_GET(flag/ghost_interaction))
 		return TRUE
 	return FALSE
-/obj/item/mechcomp/grav_accelerator/proc/activateproc(datum/mechanicsMessage/msg)
+/obj/item/mechcomp/grav_accelerator/proc/activateproc(datum/mechcompMessage/msg)
 	if(active)
 		return
 
@@ -365,7 +365,7 @@
 	if(!in_range(src, user) || user.stat || isnull(input))
 		to_chat(user, "<span class='notice'>You leave the power setting on [src.name] alone.</span>")
 		return FALSE
-	
+
 	power = clamp(round(input), 1, 7)
 	to_chat(user, "<span class='notice'>You change the power setting on [src.name] to [power].</span>")
 	return TRUE
@@ -394,7 +394,7 @@
 
 	var/obj/item/stock_parts/cell/gun_cell = gun.cell
 	var/obj/item/ammo_casing/energy/casing = gun.ammo_type[gun.select]
-	
+
 	if(gun_cell.use(casing.e_cost))
 		var/obj/projectile/proj = new casing.projectile_type(get_turf(src))
 		proj.fire(angle, null)
@@ -513,7 +513,7 @@
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set H", "set_H")
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set glue", "set_glue")
 
-	
+
 
 //lololol
 /obj/item/mechcomp/list_packer/proc/update_A(var/datum/mechcompMessage/msg)
@@ -610,7 +610,7 @@
 		l.Add(G)
 	if(!isnull(H))
 		l.Add(H)
-	
+
 	var/result = jointext(l, glue)
 	if(length(result))
 		SEND_SIGNAL(src, COMSIG_MECHCOMP_TRANSMIT_SIGNAL, result)
@@ -697,7 +697,7 @@
 	for(var/i=0, i<1000, i++)
 		//i am afraid to use infinite loops even though it should never go into one
 		if(i==999)
-			
+
 			//oh god what have you done
 			say("Critical error: Approached limit of 1000 iterations of regex search for given text. Report to NanoTrasen Mechanical division.")
 			CRASH("A mechcomp regex searcher went over 1000 iterations of searching through text and is shutting down. Please ask whoever set up this shite how did they achieve this.")
