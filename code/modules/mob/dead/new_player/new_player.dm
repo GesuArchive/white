@@ -413,7 +413,7 @@
 	for(var/category in GLOB.position_categories)
 		// position_categories contains category names mapped to available jobs and an appropriate color
 		var/cat_color = GLOB.position_categories[category]["color"]
-		dat += "<fieldset style='width: 203px; border: 2px solid [cat_color]; display: inline'>"
+		dat += "<fieldset style='width: 206px; border: 2px solid [cat_color]; display: inline'>"
 		dat += "<legend align='center' style='color: #ffffff;'>[GLOB.position_categories[category]["runame"]]</legend>"
 		var/list/dept_dat = list()
 		for(var/job in GLOB.position_categories[category]["jobs"])
@@ -435,7 +435,7 @@
 			dat += "</td><td valign='top'>"
 	dat += "</td></tr></table></center>"
 	dat += "</div></div>"
-	var/datum/browser/popup = new(src, "latechoices", "Выбери профессию", 680, 680)
+	var/datum/browser/popup = new(src, "latechoices", "Выбери профессию", 736, 736)
 	popup.add_stylesheet("playeroptions", 'html/browser/playeroptions.css')
 	popup.set_content(jointext(dat, ""))
 	popup.open(FALSE) // 0 is passed to open so that it doesn't use the onclose() proc
