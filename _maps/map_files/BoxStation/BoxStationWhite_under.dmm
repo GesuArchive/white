@@ -105,15 +105,15 @@
 /area/security/prison)
 "aB" = (
 /obj/structure/table,
-/obj/item/clothing/under/color/jumpskirt/prisoner{
+/obj/item/clothing/under/rank/prisoner/skirt{
 	pixel_x = 9;
 	pixel_y = 5
 	},
-/obj/item/clothing/under/color/prisoner{
+/obj/item/clothing/under/rank/prisoner{
 	pixel_x = -2;
 	pixel_y = 5
 	},
-/obj/item/clothing/under/color/jumpskirt/prisoner{
+/obj/item/clothing/under/rank/prisoner/skirt{
 	pixel_x = -13;
 	pixel_y = 5
 	},
@@ -1861,7 +1861,7 @@
 /area/security/prison)
 "iK" = (
 /obj/structure/table,
-/obj/item/clothing/under/color/prisoner{
+/obj/item/clothing/under/rank/prisoner{
 	pixel_x = 16;
 	pixel_y = 5
 	},
@@ -1881,7 +1881,7 @@
 	pixel_x = -6;
 	pixel_y = -8
 	},
-/obj/item/clothing/under/color/jumpskirt/prisoner{
+/obj/item/clothing/under/rank/prisoner/skirt{
 	pixel_x = 9;
 	pixel_y = 5
 	},
@@ -3257,11 +3257,11 @@
 /area/security/prison)
 "og" = (
 /obj/structure/table,
-/obj/item/clothing/under/color/prisoner{
+/obj/item/clothing/under/rank/prisoner{
 	pixel_x = 6;
 	pixel_y = 5
 	},
-/obj/item/clothing/under/color/jumpskirt/prisoner{
+/obj/item/clothing/under/rank/prisoner/skirt{
 	pixel_x = -5;
 	pixel_y = 5
 	},
@@ -9872,10 +9872,10 @@
 	},
 /obj/structure/closet/crate/trashcart/laundry,
 /obj/effect/spawner/lootdrop/prison_contraband,
-/obj/item/clothing/under/color/prisoner,
-/obj/item/clothing/under/color/prisoner,
-/obj/item/clothing/under/color/jumpskirt/prisoner,
-/obj/item/clothing/under/color/jumpskirt/prisoner,
+/obj/item/clothing/under/rank/prisoner,
+/obj/item/clothing/under/rank/prisoner,
+/obj/item/clothing/under/rank/prisoner/skirt,
+/obj/item/clothing/under/rank/prisoner/skirt,
 /turf/open/floor/plasteel/cafeteria,
 /area/security/prison)
 "QX" = (
