@@ -6,6 +6,7 @@
 	part_icon_state = "comp_tele"
 	active_icon_state = "comp_tele1"
 	has_anchored_icon_state = TRUE
+	only_one_per_tile = TRUE
 	//см. CONTRIBUTING.md, там описано, что такое static
 	var/max_tele_range = 14
 	var/tele_id
