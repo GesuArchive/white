@@ -21,18 +21,6 @@
 	icon_file = 'icons/obj/atmospherics/prototype_canister.dmi'
 	json_config = 'code/datums/greyscale/json_configs/canister_proto.json'
 
-/datum/greyscale_config/screwdriver_inhand_left
-	icon_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
-	json_config = 'code/datums/greyscale/json_configs/screwdriver_worn.json'
-
-/datum/greyscale_config/screwdriver_inhand_right
-	icon_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
-	json_config = 'code/datums/greyscale/json_configs/screwdriver_worn.json'
-
-/datum/greyscale_config/screwdriver_belt
-	icon_file = 'icons/obj/clothing/belt_overlays.dmi'
-	json_config = 'code/datums/greyscale/json_configs/screwdriver_worn.json'
-
 /datum/greyscale_config/jumpsuit
 	icon_file = 'icons/obj/clothing/under/color.dmi'
 	json_config = 'code/datums/greyscale/json_configs/jumpsuit.json'

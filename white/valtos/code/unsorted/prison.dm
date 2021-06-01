@@ -722,7 +722,7 @@
 
 /datum/outfit/prison/prisoner
 	name = "Prisoner USSR"
-	uniform = /obj/item/clothing/under/rank/prisoner
+	uniform = /obj/item/clothing/under/color/prisoner
 	shoes = /obj/item/clothing/shoes/sneakers/orange
 
 /**********************Spawn-flavoures**************************/
