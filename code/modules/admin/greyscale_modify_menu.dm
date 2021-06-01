@@ -71,7 +71,7 @@
 				refresh_preview()
 		if("apply")
 			target.greyscale_colors = split_colors.Join()
-			target.update_appearance()
+			target.update_icon()
 		if("refresh_file")
 			SSgreyscale.RefreshConfigsFromFile()
 			refresh_preview()
