@@ -139,11 +139,6 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 /proc/log_mechcomp(text)
 	if (CONFIG_GET(flag/log_mechcomp))
 		WRITE_LOG(GLOB.world_mechcomp_log, "MECHCOMP: [text]")
-		for(var/c in GLOB.clients)
-			to_chat(c, "ASS")
-	else
-		for(var/c in GLOB.clients)
-			to_chat(c, "no ASS")
 
 /proc/log_say(text)
 	if (CONFIG_GET(flag/log_say))
