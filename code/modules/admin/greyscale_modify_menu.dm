@@ -97,7 +97,7 @@
 				refresh_preview()
 
 		if("apply")
-			target.set_greyscale_config(config.type, update=FALSE)
+			target.set_greyscale_config(config.type)
 			target.greyscale_colors = "" // We do this to force an update, in some cases it will think nothing changed when it should be refreshing
 			target.set_greyscale_colors(split_colors)
 
