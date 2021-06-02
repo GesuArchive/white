@@ -1,6 +1,6 @@
 /datum/outfit/job/security/omon
 	name = "Russian Officer"
-	jobtype = /datum/job/security_officer/omon
+	jobtype = /datum/job/omon
 
 	belt = /obj/item/gun/ballistic/automatic/pistol/traumatic
 	ears = /obj/item/radio/headset/headset_sec/alt
@@ -21,7 +21,7 @@
 
 	implants = list(/obj/item/implant/mindshield/)
 
-	id_trim = /datum/id_trim/job/security_officer/omon
+	id_trim = /datum/id_trim/job/omon
 
 	chameleon_extras = list(/obj/item/gun/ballistic/automatic/pistol/traumatic, /obj/item/clothing/glasses/hud/security/sunglasses, /obj/item/clothing/head/helmet)
 
