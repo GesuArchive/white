@@ -44,7 +44,8 @@
 					/obj/item/mechcomp/find_regex = 7,
 					/obj/item/mechcomp/timer = 2,
 					/obj/item/mechcomp/microphone = 7,
-					/obj/item/mechcomp/teleport = 6)
+					/obj/item/mechcomp/teleport = 6,
+					/obj/structure/disposalconstruct/mechcomp = 2)
 	contraband = list(
 						/obj/item/mechcomp/egunholder = 3,
 						/obj/item/mechcomp/grav_accelerator = 5,
