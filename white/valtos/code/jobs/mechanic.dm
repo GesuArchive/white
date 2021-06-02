@@ -1,4 +1,4 @@
-/datum/job/engineer/mechanic
+/datum/job/station_engineer/mechanic
 	title = "Mechanic"
 	ru_title = "Механик"
 	total_positions = 1
@@ -29,7 +29,7 @@
 
 /datum/outfit/job/mechanic
 	name = "Mechanic"
-	jobtype = /datum/job/engineer/mechanic
+	jobtype = /datum/job/station_engineer/mechanic
 
 	belt = /obj/item/storage/belt/utility/full/mechanic
 	l_pocket = /obj/item/pda/engineering
