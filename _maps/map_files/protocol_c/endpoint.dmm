@@ -1015,7 +1015,7 @@
 /turf/open/floor/plasteel,
 /area/syndicate_mothership/control)
 "fs" = (
-/obj/machinery/computer/card/centcom,
+/obj/machinery/modular_computer/console/preset/command,
 /obj/effect/turf_decal/trimline/red/line{
 	dir = 5
 	},
@@ -5068,7 +5068,7 @@
 	},
 /area/abductor_ship)
 "Mv" = (
-/obj/machinery/computer/card/centcom{
+/obj/machinery/modular_computer/console/preset/command{
 	dir = 1
 	},
 /turf/open/floor/plasteel/grimy,

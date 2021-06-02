@@ -6521,7 +6521,7 @@
 /turf/open/floor/plasteel,
 /area/storage/primary)
 "aDc" = (
-/obj/machinery/computer/card,
+/obj/machinery/modular_computer/console/preset/id,
 /obj/machinery/light{
 	dir = 1;
 	pixel_y = 0
@@ -18881,7 +18881,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
-/obj/machinery/computer/card/minor/rd{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
@@ -26148,7 +26148,7 @@
 /turf/open/floor/plasteel,
 /area/engine/engine_smes)
 "cjg" = (
-/obj/machinery/computer/card/minor/ce{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 4
 	},
 /obj/machinery/requests_console{

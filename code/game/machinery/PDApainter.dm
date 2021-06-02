@@ -4,6 +4,7 @@
 	desc = "A painting machine that can be used to paint PDAs and trim IDs. To use, simply insert the item and choose the desired preset."
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "pdapainter"
+	base_icon_state = "pdapainter"
 	density = TRUE
 	max_integrity = 200
 	/// Current ID card inserted into the machine.
@@ -28,13 +29,10 @@
 
 /obj/machinery/pdapainter/update_icon_state()
 	if(machine_stat & BROKEN)
-		icon_state = "[initial(icon_state)]-broken"
-		return
-
-	if(powered())
-		icon_state = initial(icon_state)
-	else
-		icon_state = "[initial(icon_state)]-off"
+		icon_state = "[base_icon_state]-broken"
+		return ..()
+	icon_state = "[base_icon_state][powered() ? null : "-off"]"
+	return ..()
 
 /obj/machinery/pdapainter/update_overlays()
 	. = ..()
@@ -80,10 +78,22 @@
 		stored_id_card = null
 
 /obj/machinery/pdapainter/contents_explosion(severity, target)
-	if(stored_pda)
-		stored_pda.ex_act(severity, target)
-	if(stored_id_card)
-		stored_id_card.ex_act(severity, target)
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			if(stored_pda)
+				SSexplosions.high_mov_atom += stored_pda
+			if(stored_id_card)
+				SSexplosions.high_mov_atom += stored_id_card
+		if(EXPLODE_HEAVY)
+			if(stored_pda)
+				SSexplosions.med_mov_atom += stored_pda
+			if(stored_id_card)
+				SSexplosions.med_mov_atom += stored_id_card
+		if(EXPLODE_LIGHT)
+			if(stored_pda)
+				SSexplosions.low_mov_atom += stored_pda
+			if(stored_id_card)
+				SSexplosions.low_mov_atom += stored_id_card
 
 /obj/machinery/pdapainter/handle_atom_del(atom/A)
 	if(A == stored_pda)
@@ -93,14 +103,14 @@
 		stored_id_card = null
 		update_icon()
 
-/obj/machinery/pdapainter/attackby(obj/item/O, mob/user, params)
+/obj/machinery/pdapainter/attackby(obj/item/O, mob/living/user, params)
 	if(machine_stat & BROKEN)
 		if(O.tool_behaviour == TOOL_WELDER && user.a_intent != INTENT_HARM)
 			if(!O.tool_start_check(user, amount=0))
 				return
 			user.visible_message("<span class='notice'>[user] is repairing [src].</span>", \
 							"<span class='notice'>You begin repairing [src]...</span>", \
-							"<span class='hear'>Слышу сварку.</span>")
+							"<span class='hear'>You hear welding.</span>")
 			if(O.use_tool(src, user, 40, volume=50))
 				if(!(machine_stat & BROKEN))
 					return
@@ -117,11 +127,11 @@
 
 	// Chameleon checks first so they can exit the logic early if they're detected.
 	if(istype(O, /obj/item/card/id/advanced/chameleon))
-		to_chat(user, "<span class='warning'>The machine rejects your [src]. It's clearly not a compatible ID card.</span>")
+		to_chat(user, "<span class='warning'>The machine rejects your [O]. This ID card does not appear to be compatible with the PDA Painter.</span>")
 		return
 
 	if(istype(O, /obj/item/pda/chameleon))
-		to_chat(user, "<span class='warning'>The machine rejects your [src]. It's clearly not a compatible PDA.</span>")
+		to_chat(user, "<span class='warning'>The machine rejects your [O]. This PDA does not appear to be compatible with the PDA Painter.</span>")
 		return
 
 	if(istype(O, /obj/item/pda))
@@ -312,8 +322,7 @@
 					break
 
 			if(initial(pda_path.greyscale_config) && initial(pda_path.greyscale_colors))
-				stored_pda.set_greyscale_config(initial(pda_path.greyscale_config), update=FALSE)
-				stored_pda.set_greyscale_colors(initial(pda_path.greyscale_colors))
+				stored_pda.set_greyscale(initial(pda_path.greyscale_colors), initial(pda_path.greyscale_config))
 			else
 				stored_pda.icon = initial(pda_path.icon)
 			stored_pda.icon_state = initial(pda_path.icon_state)
@@ -332,7 +341,14 @@
 				if(SSid_access.apply_trim_to_card(stored_id_card, path, copy_access = FALSE))
 					return TRUE
 
-				to_chat(usr, "<span class='warning'>The trim you selected could not be added to \the [src]. You will need a rarer ID card to imprint that trim data.</span>")
+				to_chat(usr, "<span class='warning'>The trim you selected could not be added to \the [stored_id_card]. You will need a rarer ID card to imprint that trim data.</span>")
+
+			return TRUE
+		if("reset_card")
+			if((machine_stat & BROKEN) || !stored_id_card)
+				return TRUE
+
+			stored_id_card.clear_account()
 
 			return TRUE
 
