@@ -69,7 +69,7 @@
 		if(isliving(AM))
 			L = AM
 			teleported_mobs.Add("[L.ckey ? "[L.ckey] as " : ""][L.name]")
-	
+
 	playsound(src, 'sound/weapons/emitter2.ogg', 25, TRUE, extrarange = 3)
 	playsound(tele, 'sound/weapons/emitter2.ogg', 25, TRUE, extrarange = 3)
 	var/datum/effect_system/spark_spread/s1 = new(src)
@@ -93,7 +93,7 @@
 	if(!isnull(id) && id >=0 && id<=65535) //from 0 to FFFF
 		if(teles["[id]"])
 			return
-		target_id = id 
+		target_id = id
 
 /obj/item/mechcomp/teleport/proc/set_target_id_manually(obj/item/I, mob/user)
 	var/input = hex2num(input("Enter new target teleID.", "Teleporter goin' up!", num2hex(target_id, 4)) as text|null)

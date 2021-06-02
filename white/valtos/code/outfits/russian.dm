@@ -1,6 +1,6 @@
 /datum/outfit/job/security/omon
 	name = "Russian Officer"
-	jobtype = /datum/job/officer/omon
+	jobtype = /datum/job/security_officer/omon
 
 	belt = /obj/item/gun/ballistic/automatic/pistol/traumatic
 	ears = /obj/item/radio/headset/headset_sec/alt
@@ -36,7 +36,7 @@
 
 /datum/outfit/job/security/veteran
 	name = "Veteran"
-	jobtype = /datum/job/officer/veteran
+	jobtype = /datum/job/security_officer/veteran
 
 	belt = /obj/item/gun/ballistic/automatic/pistol/makarov
 	ears = /obj/item/radio/headset/headset_sec/alt/department/engi

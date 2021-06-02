@@ -37,7 +37,7 @@
 	head = /obj/item/clothing/head/beret/durathread
 	glasses = /obj/item/clothing/glasses/sunglasses
 	belt = /obj/item/storage/belt/security/sobr
-	id = /obj/item/card/id/centcom
+	id = /obj/item/card/id/advanced/centcom
 
 	implants = list(/obj/item/implant/sound_implant)
 /datum/outfit/sobr/pre_equip(mob/living/carbon/human/H)
@@ -79,7 +79,7 @@
 	head = /obj/item/clothing/head/beret/durathread
 	glasses = /obj/item/clothing/glasses/sunglasses
 	belt = /obj/item/storage/belt/military/army/wzzzz/sobr
-	id = /obj/item/card/id/centcom
+	id = /obj/item/card/id/advanced/centcom
 
 	implants = list(/obj/item/implant/sound_implant)
 /datum/outfit/sobr/leader/pre_equip(mob/living/carbon/human/H)

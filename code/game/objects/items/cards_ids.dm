@@ -1206,3 +1206,8 @@
 	name = "Green Team identification card"
 	desc = "A card used to identify members of the green team for CTF"
 	icon_state = "ctf_green"
+
+/obj/item/card/id/advanced/ratvar
+	name = "карта служителя"
+	icon_state = "ratvar"
+	access = list(ACCESS_CLOCKCULT, ACCESS_MAINT_TUNNELS)

@@ -7,7 +7,7 @@
 	ears = /obj/item/radio/headset/headset_cent/commander/x031
 	mask = /obj/item/clothing/mask/gas/syndicate/x031
 	gloves = /obj/item/clothing/gloves/combat/x031
-	id = /obj/item/card/id/ert/deathsquad/x031
+	id = /obj/item/card/id/advanced/centcom/ert/deathsquad/x031
 	suit_store = /obj/item/tank/internals/emergency_oxygen/recharge/x031
 	internals_slot = ITEM_SLOT_SUITSTORE
 
@@ -155,11 +155,11 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
 
-/obj/item/card/id/ert/deathsquad/x031
+/obj/item/card/id/advanced/centcom/ert/deathsquad/x031
 	name = "х031 ID"
 	desc = "DHWA*("
 
-/obj/item/card/id/ert/deathsquad/x031/equipped(mob/user, slot)
+/obj/item/card/id/advanced/centcom/ert/deathsquad/x031/equipped(mob/user, slot)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
 

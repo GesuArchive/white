@@ -332,7 +332,7 @@
 	reward = CARGO_CRATE_VALUE * 75
 	required_count = 1
 	include_subtypes = TRUE
-	wanted_types = list(/obj/item/card/id/captains_spare)
+	wanted_types = list(/obj/item/card/id/advanced/gold/captains_spare)
 
 /datum/bounty/item/assistant/closet
 	name = "Шкафчики или ящики"

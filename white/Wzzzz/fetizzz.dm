@@ -29,7 +29,7 @@
 	r_pocket = /obj/item/analyzer
 	belt = /obj/item/storage/belt/utility/full/engi
 	suit_store = /obj/item/tank/internals/emergency_oxygen/engi
-	id = /obj/item/card/id/ert/engineer
+	id = /obj/item/card/id/advanced/centcom/ert/engineer
 
 /datum/outfit/wzzzz/sov_off
 	name = "Soviet Officer"
@@ -93,7 +93,7 @@
 	/obj/item/clothing/mask/balaclava/wzzzz/balaclavager/black=1,
 	/obj/item/clothing/suit/armor/vest=1,
 	/obj/item/grenade/frag=1)
-	id = /obj/item/card/id/syndicate
+	id = /obj/item/card/id/advanced/syndicate
 
 /datum/outfit/wzzzz/spa_eng
 	name = "Space Engineer"
@@ -110,7 +110,7 @@
 	r_pocket = /obj/item/extinguisher/mini
 	belt = /obj/item/storage/belt/utility/full/engi
 	suit_store = /obj/item/gun/energy/e_gun/mini
-	id = /obj/item/card/id/ert/engineer
+	id = /obj/item/card/id/advanced/centcom/ert/engineer
 
 /obj/item/kitchen/knife/combat/survival
 
