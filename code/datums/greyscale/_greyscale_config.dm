@@ -162,8 +162,8 @@
 /datum/greyscale_config/proc/GenerateBundle(list/colors, list/render_steps)
 	if(!istype(colors))
 		colors = SSgreyscale.ParseColorString(colors)
-	if(length(colors) != expected_colors)
-		CRASH("[DebugName()] expected [expected_colors] color arguments but only received [length(colors)]")
+	//if(length(colors) != expected_colors)
+	//	CRASH("[DebugName()] expected [expected_colors] color arguments but only received [length(colors)]")
 
 	var/list/generated_icons = list()
 	for(var/icon_state in icon_states)
