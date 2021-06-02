@@ -9,8 +9,6 @@
 	exp_requirements = 1000
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_CREW
-	access = list(ACCESS_TRADER)
-	minimal_access = list(ACCESS_TRADER)
 	outfit = /datum/outfit/job/trader
 	display_order = JOB_DISPLAY_ORDER_SPECIAL
 

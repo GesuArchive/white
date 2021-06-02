@@ -16,9 +16,6 @@
 
 	mind_traits = list(TRAIT_HACKER)
 
-/datum/job/hacker/get_access()
-	return get_all_accesses()
-
 /datum/atom_hud/hacker
 	hud_icons = list(HACKER_HUD)
 

@@ -60,10 +60,10 @@
 	R.recalculateChannels()
 
 	var/obj/item/card/id/W = H.wear_id
-	W.access = get_centcom_access(name)
-	W.access += ACCESS_WEAPONS
-	W.access += ACCESS_MAINT_TUNNELS
-	W.access += get_region_accesses(2)
+	//W.access = get_centcom_access(name)
+	//W.access += ACCESS_WEAPONS
+	//W.access += ACCESS_MAINT_TUNNELS
+	//W.access += get_region_accesses(2)
 	W.assignment = name
 	W.registered_name = H.real_name
 	W.update_label()
@@ -92,10 +92,10 @@
 	R.keyslot = new /obj/item/encryptionkey/heads/hos
 	R.recalculateChannels()
 	var/obj/item/card/id/W = H.wear_id
-	W.access = get_centcom_access(name)
-	W.access += ACCESS_WEAPONS
-	W.access += ACCESS_MAINT_TUNNELS
-	W.access += get_region_accesses(2)
+	//W.access = get_centcom_access(name)
+	//W.access += ACCESS_WEAPONS
+	//W.access += ACCESS_MAINT_TUNNELS
+	//W.access += get_region_accesses(2)
 	W.assignment = name
 	W.registered_name = H.real_name
 	W.update_label()

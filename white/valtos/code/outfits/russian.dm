@@ -21,6 +21,8 @@
 
 	implants = list(/obj/item/implant/mindshield/)
 
+	id_trim = /datum/id_trim/job/security_officer/omon
+
 	chameleon_extras = list(/obj/item/gun/ballistic/automatic/pistol/traumatic, /obj/item/clothing/glasses/hud/security/sunglasses, /obj/item/clothing/head/helmet)
 
 /datum/outfit/job/hos
@@ -54,5 +56,7 @@
 	box = /obj/item/storage/box/survival/security
 
 	implants = list(/obj/item/implant/mindshield/, /obj/item/implant/krav_maga)
+
+	id_trim = /datum/id_trim/job/veteran
 
 	chameleon_extras = list(/obj/item/gun/ballistic/automatic/pistol/tanner, /obj/item/clothing/glasses/hud/security/sunglasses, /obj/item/clothing/head/helmet)

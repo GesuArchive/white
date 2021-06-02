@@ -8,15 +8,20 @@
 
 	outfit = /datum/outfit/job/mechanic
 
-	access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE, ACCESS_AUX_BASE,
-		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_TCOMSAT, ACCESS_MINERAL_STOREROOM, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS)
-	minimal_access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE, ACCESS_AUX_BASE,
-		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_TCOMSAT, ACCESS_MINERAL_STOREROOM, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS)
-
 	paycheck = PAYCHECK_HARD
 	paycheck_department = ACCOUNT_ENG
 
 	metalocked = TRUE
+
+/datum/id_trim/job/mechanic
+	assignment = "Механик"
+	trim_state = "trim_atmospherictechnician"
+	full_access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE, ACCESS_AUX_BASE,
+		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_TCOMSAT, ACCESS_MINERAL_STOREROOM, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS)
+	minimal_access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE, ACCESS_AUX_BASE,
+		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_TCOMSAT, ACCESS_MINERAL_STOREROOM, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS)
+	config_job = "механик"
+	template_access = list(ACCESS_CAPTAIN, ACCESS_CE, ACCESS_CHANGE_IDS)
 
 /area/engine/manufactory
 	name = "Фабрика"
@@ -43,6 +48,8 @@
 	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced = 1)
 
 	skillchips = list(/obj/item/skillchip/job/engineer)
+
+	id_trim = /datum/id_trim/job/mechanic
 
 /obj/machinery/copytech
 	name = "копирующий станок"
@@ -136,7 +143,7 @@
 		say("Недостаточно блюспейс-кристаллов для начала работы!")
 		return
 	start_working()
-		
+
 
 /obj/machinery/copytech/proc/start_working()
 	say("Приступаю к процессу создания объекта...")
@@ -337,7 +344,7 @@
 				D = thing
 			if(istype(thing, /mob/living) && tier_rate >= 8)
 				D = thing
-	
+
 	if(!D)
 		return
 
@@ -390,7 +397,7 @@
 		working = FALSE
 		update_icon()
 		return
-	
+
 	ct.current_design = D.type
 	say("Завершение работы...")
 	timer = null

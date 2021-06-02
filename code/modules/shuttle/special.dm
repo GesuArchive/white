@@ -146,7 +146,6 @@
 /mob/living/simple_animal/drone/snowflake/bardrone/Initialize()
 	. = ..()
 	access_card.add_access(list(ACCESS_CENT_BAR))
-	become_area_sensitive(ROUNDSTART_TRAIT)
 	RegisterSignal(src, COMSIG_ENTER_AREA, .proc/check_barstaff_godmode)
 	check_barstaff_godmode()
 

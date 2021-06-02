@@ -316,5 +316,4 @@
 	icon = 'icons/obj/card.dmi'
 	icon_state = "data_1"
 	access = list(ACCESS_TRADER_EX)
-	uses_overlays = FALSE
 	registered_age = null

@@ -578,10 +578,6 @@
 	icon_state = "keys"
 	desc = "Ключи от всех дверей"
 
-/obj/item/card/id/keys/Initialize()
-	access = get_all_syndicate_access()
-	..()
-
 /*********************Sovietlathe************************/
 
 /obj/machinery/autolathe/soviet

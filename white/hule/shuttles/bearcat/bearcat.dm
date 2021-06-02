@@ -148,7 +148,6 @@
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	id = /obj/item/card/id
 	gloves = /obj/item/clothing/gloves/color/yellow
-	id_access_list = list(205,204,24,11)
 
 /obj/effect/mob_spawn/human/bearcat/eng/Destroy()
 	return ..()
@@ -159,7 +158,6 @@
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	id = /obj/item/card/id
 	gloves = /obj/item/clothing/gloves/color/black
-	id_access_list = list(205,204,24,11)
 
 /obj/effect/mob_spawn/human/bearcat/atmos/Destroy()
 	return ..()
@@ -169,7 +167,6 @@
 	uniform = /obj/item/clothing/under/syndicate/camo
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	id = /obj/item/card/id
-	id_access_list = list(205,204,203,24,11)
 
 /obj/effect/mob_spawn/human/bearcat/pilot/Destroy()
 	return ..()

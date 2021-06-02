@@ -11,8 +11,8 @@
 	grant_language(/datum/language/common)
 	name = "Smarty"
 	real_name = "Smarty"
-	wear_id = new /obj/item/card/id/gold(src)
-	wear_id.access = get_all_accesses()
+	wear_id = new /obj/item/card/id/advanced/gold(src)
+	wear_id.trim = /datum/id_trim/job/captain
 	wear_id.registered_name = real_name
 	wear_id.assignment = "Captain's pet"
 	wear_id.update_label()
