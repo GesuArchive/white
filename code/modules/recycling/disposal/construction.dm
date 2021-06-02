@@ -184,3 +184,16 @@
 			return FALSE
 
 	return TRUE
+
+
+//because i couldn't be arsed
+/obj/structure/disposalconstruct/mechcomp
+	name = "mechcomp Disposals trapdoor"
+	pipename = "mechcomp Disposals trapdoor"
+	pipe_type = /obj/machinery/disposal/mechcomp
+	icon = 'white/RedFoxIV/icons/obj/mechcomp.dmi'
+	icon_state = "comp_disp"
+
+//a stub proc which is required since this disposal construct is supposed to be vended from a mechcomp vendor, and vending machines expect only items inside.
+//Surely this will not backfire. Ever. 
+/obj/structure/disposalconstruct/mechcomp/proc/dropped()

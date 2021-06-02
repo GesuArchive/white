@@ -356,18 +356,19 @@
 /obj/item/mechcomp/grav_accelerator/proc/activateproc(datum/mechcompMessage/msg)
 	if(active)
 		return
-	var/lolcounter = 0
-	var/roflcounter = 0
+	var/thrown_AM = 0
+	var/list/thrown_mobs = list()
 	for(var/atom/movable/AM in range(0, src))
 		if(AM.anchored || AM == src)
 			continue
 		var/throwtarget = get_edge_target_turf(AM, src.dir)
 		AM.safe_throw_at(throwtarget, power, 1, force = MOVE_FORCE_STRONG, spin = TRUE)
 		if(isliving(AM))
-			roflcounter++
-		lolcounter++
-	activate_for((power+2) SECONDS)
-	log_action("sent [lolcounter] object[lolcounter > 1 ? "s" : ""] flying, which includes [roflcounter] mobs[roflcounter > 1 ? "s" : ""]")
+			var/mob/living/L = AM
+			thrown_mobs.Add("[L.ckey ? "[L.ckey] as " : ""][L.name]")
+		thrown_AM++
+	activate_for((power + 2) SECONDS)
+	log_action("sent [thrown_AM] atom/movables flying[thrown_mobs.len ? ", including following mobs: [jointext(thrown_mobs, ", ")]" : ""]")
 
 /obj/item/mechcomp/grav_accelerator/proc/setpowermanually(obj/item/W, mob/user)
 	var/input = input("Enter new power setting.", "Power", null) as num
