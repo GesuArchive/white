@@ -58,7 +58,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		"Chief Engineer" = 40,
 		"Station Engineer" = 41,
 		"Atmospheric Technician" = 42,
-		"Механик" = 43,
+		"Mechanic" = 43,
 		// 50-59: Cargo
 		"Head of Personnel" = 50,
 		"Quartermaster" = 51,
@@ -77,7 +77,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		"Lawyer" = 69,
 		"Psychologist" = 71,
 		// ANYTHING ELSE = UNKNOWN_JOB_ID, Unknowns/custom jobs will appear after civilians, and before assistants
-		"Бомж" = 998,
+		"Bomj" = 998,
 		"Assistant" = 999,
 
 		// 200-229: Centcom

@@ -246,8 +246,6 @@ Security HUDs! Basic mode shows only the job.
 	if(sechud_icon_state in GLOB.white_job_list)
 		holder.icon = 'white/valtos/icons/hud.dmi'
 		sechud_icon_state = "hud[sechud_icon_state]"
-	if(sechud_icon_state == "механик")
-		holder.icon_state = "hudmechanic"
 	if(!sechud_icon_state)
 		sechud_icon_state = "hudno_id"
 	holder.icon_state = sechud_icon_state

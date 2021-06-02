@@ -1,5 +1,5 @@
 /datum/job/engineer/mechanic
-	title = "Механик"
+	title = "Mechanic"
 	ru_title = "Механик"
 	total_positions = 1
 	spawn_positions = 1
@@ -14,13 +14,13 @@
 	metalocked = TRUE
 
 /datum/id_trim/job/mechanic
-	assignment = "Механик"
+	assignment = "Mechanic"
 	trim_state = "trim_atmospherictechnician"
 	full_access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE, ACCESS_AUX_BASE,
 		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_TCOMSAT, ACCESS_MINERAL_STOREROOM, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS)
 	minimal_access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE, ACCESS_AUX_BASE,
 		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_TCOMSAT, ACCESS_MINERAL_STOREROOM, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS)
-	config_job = "механик"
+	config_job = "mechanic"
 	template_access = list(ACCESS_CAPTAIN, ACCESS_CE, ACCESS_CHANGE_IDS)
 
 /area/engine/manufactory
@@ -28,7 +28,7 @@
 	icon_state = "engine"
 
 /datum/outfit/job/mechanic
-	name = "Механик"
+	name = "Mechanic"
 	jobtype = /datum/job/engineer/mechanic
 
 	belt = /obj/item/storage/belt/utility/full/mechanic

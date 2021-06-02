@@ -225,7 +225,7 @@
 
 /datum/gear/uniform/rank/medical/scrubs_blue
 	display_name = "синий медицинский халат"
-	path = /obj/item/clothing/under/rank/medical/doctor/blue	
+	path = /obj/item/clothing/under/rank/medical/doctor/blue
 
 /datum/gear/uniform/rank/medical/scrubs_green
 	display_name = "зелёный медицинский халат"
@@ -239,7 +239,7 @@
 
 /datum/gear/uniform/rank/engineering
 	subtype_path = /datum/gear/uniform/rank/engineering
-	allowed_roles = list("Chief Engineer", "Station Engineer", "Atmospheric Technician", "Механик")
+	allowed_roles = list("Chief Engineer", "Station Engineer", "Atmospheric Technician", "Mechanic")
 
 /datum/gear/uniform/rank/engineering/hazard
 	display_name = "комбинезон инженера"

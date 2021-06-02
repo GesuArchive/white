@@ -684,7 +684,7 @@ Turf and target are separate in case you want to teleport some distance from a t
 		return "Старший Инженер"
 	else if (job == "Station Engineer")
 		return "Инженер"
-	else if (job == "Механик")
+	else if (job == "Mechanic")
 		return "Механик"
 	else if (job == "Atmospheric Technician")
 		return "Атмостех"
@@ -754,7 +754,7 @@ Turf and target are separate in case you want to teleport some distance from a t
 		return "Мим"
 	else if (job == "Prisoner")
 		return "Заключённый"
-	else if (job == "Бомж")
+	else if (job == "Bomj")
 		return "Бомж"
 	else
 		return job

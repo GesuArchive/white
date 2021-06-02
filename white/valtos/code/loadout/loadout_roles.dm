@@ -21,7 +21,7 @@
 	job_path = /datum/job/doctor/field_medic
 
 /datum/gear/roles/bomj
-	display_name = "Бомж"
+	display_name = "Bomj"
 	description = "Просто бомж."
 	cost = 5
 	job_path = /datum/job/bomj

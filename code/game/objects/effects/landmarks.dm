@@ -66,7 +66,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "Prisoner"
 
 /obj/effect/landmark/start/bomj
-	name = "Бомж"
+	name = "Bomj"
 	icon_state = "Prisoner"
 
 /obj/effect/landmark/start/janitor
@@ -157,7 +157,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "Station Engineer"
 
 /obj/effect/landmark/start/mechanic
-	name = "Механик"
+	name = "Mechanic"
 	icon_state = "Station Engineer"
 
 /obj/effect/landmark/start/medical_doctor
