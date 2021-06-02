@@ -16,7 +16,6 @@
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	fitted = FEMALE_UNIFORM_TOP
 	icon_state = "jumpskirt"
-	inhand_icon_state = "jumpskirt"
 
 /obj/item/clothing/under/color/random
 	icon_state = "random_jumpsuit"
