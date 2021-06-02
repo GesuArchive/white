@@ -1140,6 +1140,9 @@
 /area/bridge)
 "cA" = (
 /obj/structure/dresser,
+/obj/item/storage/secure/safe/caps_spare{
+	pixel_x = -23
+	},
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "cB" = (

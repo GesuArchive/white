@@ -2692,6 +2692,9 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/item/storage/secure/safe/caps_spare{
+	pixel_x = -23
+	},
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "ip" = (
