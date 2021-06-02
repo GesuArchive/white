@@ -718,6 +718,14 @@ Turf and target are separate in case you want to teleport some distance from a t
 		return "Детектив"
 	else if (job == "Security Officer")
 		return "Офицер"
+	else if (job == "Security Officer (Cargo)")
+		return "Офицер (Снабжение)"
+	else if (job == "Security Officer (Engineering)")
+		return "Офицер (Инженерный)"
+	else if (job == "Security Officer (Medical)")
+		return "Офицер (Медбей)"
+	else if (job == "Security Officer (Science)")
+		return "Офицер (Научный)"
 	else if (job == "Russian Officer")
 		return "Русский Офицер"
 	else if (job == "Veteran")
