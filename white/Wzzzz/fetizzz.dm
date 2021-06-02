@@ -93,7 +93,7 @@
 	/obj/item/clothing/mask/balaclava/wzzzz/balaclavager/black=1,
 	/obj/item/clothing/suit/armor/vest=1,
 	/obj/item/grenade/frag=1)
-	id = /obj/item/card/id/advanced/syndicate
+	id = /obj/item/card/id/advanced/chameleon
 
 /datum/outfit/wzzzz/spa_eng
 	name = "Space Engineer"
