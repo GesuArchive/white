@@ -33,6 +33,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
 		/obj/item/melee/baton/loaded=1)
 	l_pocket = /obj/item/switchblade
+	skillchips = list(/obj/item/skillchip/disk_verifier)
 
 /datum/outfit/centcom/ert/commander/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
@@ -102,9 +103,11 @@
 		/obj/item/melee/baton/loaded=1,\
 		/obj/item/reagent_containers/hypospray/combat=1,\
 		/obj/item/gun/medbeam=1)
+	skillchips = list(/obj/item/skillchip/entrails_reader)
 
 /datum/outfit/centcom/ert/medic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
+
 
 	if(visualsOnly)
 		return
@@ -137,6 +140,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
 		/obj/item/melee/baton/loaded=1,\
 		/obj/item/construction/rcd/loaded=1)
+	skillchips = list(/obj/item/skillchip/job/engineer)
 
 
 /datum/outfit/centcom/ert/engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
