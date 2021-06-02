@@ -755,12 +755,12 @@
 	trim = /datum/id_trim/job/captain
 	registered_age = null
 
-/obj/item/card/id/advanced/captains_spare/trap
+/obj/item/card/id/advanced/gold/captains_spare/trap
 	desc = "Запасная ID-карта самого Верховного Лорда. К ней привязана какая-то микросхема..."
 	anchored = TRUE
 	var/first_try = TRUE
 
-/obj/item/card/id/advanced/captains_spare/trap/attackby(obj/item/I, mob/user, params)
+/obj/item/card/id/advanced/gold/captains_spare/trap/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_WIRECUTTER && first_try)
 		to_chat(user, "<span class='notice'>Начинаю обезвреживать карту. (это займёт примерно одну минуту и нужно не шевелиться)</span>")
 		if(do_after(user, 30 SECONDS, target = src) && first_try)
@@ -772,7 +772,7 @@
 	else
 		return ..()
 
-/obj/item/card/id/advanced/captains_spare/trap/attack_hand(mob/user)
+/obj/item/card/id/advanced/gold/captains_spare/trap/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
