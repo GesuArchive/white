@@ -7016,7 +7016,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/morgue)
 "Zh" = (
-/obj/machinery/computer/card/minor/cmo,
+/obj/machinery/modular_computer/console/preset/id,
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},

@@ -491,7 +491,7 @@
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/hos)
 "bC" = (
-/obj/machinery/computer/card/minor/hos,
+/obj/machinery/modular_computer/console/preset/id,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/hos)
@@ -1253,7 +1253,6 @@
 	},
 /obj/structure/cable,
 /obj/structure/bed/dogbed/lia,
-/mob/living/simple_animal/hostile/carp/cayenne/lia,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 5
 	},

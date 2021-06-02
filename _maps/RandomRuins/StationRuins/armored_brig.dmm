@@ -148,7 +148,7 @@
 /turf/open/floor/engine,
 /area/crew_quarters/heads/hos)
 "bD" = (
-/obj/machinery/computer/card/minor/hos,
+/obj/machinery/modular_computer/console/preset/id,
 /turf/open/floor/engine,
 /area/crew_quarters/heads/hos)
 "bE" = (

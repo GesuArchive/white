@@ -1614,7 +1614,7 @@
 /obj/item/radio/intercom{
 	pixel_y = 25
 	},
-/obj/machinery/computer/card/minor/cmo,
+/obj/machinery/modular_computer/console/preset/id,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
 "pB" = (
@@ -3684,7 +3684,7 @@
 /obj/machinery/firealarm{
 	pixel_y = 25
 	},
-/obj/machinery/computer/card/minor/cmo,
+/obj/machinery/modular_computer/console/preset/id,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/heads/cmo)
 "KM" = (

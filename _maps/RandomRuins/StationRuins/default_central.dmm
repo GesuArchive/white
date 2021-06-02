@@ -2578,7 +2578,7 @@
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "gR" = (
-/obj/machinery/computer/card{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 8
 	},
 /turf/open/floor/wood,
@@ -3246,7 +3246,7 @@
 /turf/open/floor/plating,
 /area/crew_quarters/heads/hop)
 "iz" = (
-/obj/machinery/computer/card{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue{
