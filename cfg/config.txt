@@ -115,6 +115,10 @@ LOG_PRAYER
 ## log lawchanges
 LOG_LAW
 
+## log mechcomp actions
+LOG_MECHCOMP	
+
+
 ## log crew manifest to seperate file
 LOG_MANIFEST
 

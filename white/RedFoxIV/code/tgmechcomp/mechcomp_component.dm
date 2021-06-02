@@ -124,6 +124,10 @@
 
 	var/defaultSignal = "1"
 
+	var/last_edited_configs_by = list("user" = null, "action" = null)
+	var/last_edited_inputs_by = list("user" = null, "action" = null)
+
+
 /datum/component/mechanics_holder/Initialize(can_manually_set_signal = 0)
 	src.connected_outgoing = list()
 	src.connected_incoming = list()
@@ -414,6 +418,8 @@
 	trg_outgoing |= receiver //Let's not allow making many of the same connection.
 	trg_outgoing[receiver] = selected_input
 	src.connected_incoming |= trigger //Let's not allow making many of the same connection.
+	last_edited_inputs_by["user"] = user
+	last_edited_inputs_by["action"] = "connected [trigger.name] to [receiver.name] ([selected_input])"
 	to_chat(user, "<span class='success'>You connect the [trigger.name] to the [receiver.name].</span>")
 	//logTheThing("station", user, null, "connects a <b>[trigger.name]</b> to a <b>[receiver.name]</b>.")
 	SEND_SIGNAL(trigger,_COMSIG_MECHCOMP_DISPATCH_ADD_FILTER, receiver, user)
@@ -470,18 +476,23 @@
 
 					inp = trim(strip_html(inp))
 					if(length(inp))
+						last_edited_configs_by["user"] = user
+						last_edited_configs_by["action"] = "changed default signal from [defaultSignal] to [inp]"
 						defaultSignal = inp
 						to_chat(user, "Signal set to [inp]")
 				if(DC_ALL)
 					WipeConnections()
 					if(istype(parent, /atom))
 						var/atom/AP = parent
+						last_edited_inputs_by["user"] = user
+						last_edited_inputs_by["action"] = "wiped all connections"
 						to_chat(user, "<span class='notice'>You disconnect [AP.name].</span>")
 				else
 					//must be a custom config specific to the device, so let the device handle it
 					var/path = src.configs[selected_config]
 					call(parent, path)(W, user)
-
+					last_edited_configs_by["user"] = user
+					last_edited_configs_by["action"] = "called config \"[selected_config]\""
 //If it's a multi-tool, let the user configure the device.
 /datum/component/mechanics_holder/proc/compatible()
 	SIGNAL_HANDLER

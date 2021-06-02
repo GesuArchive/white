@@ -170,6 +170,7 @@
 	activate_for(1 SECONDS)
 	update_icon_state("comp_button1")
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_TRANSMIT_DEFAULT_MSG)
+	log_action("pressed by [fingerprintslast]")
 	spawn(1 SECONDS)
 		update_icon_state("comp_button")
 		active = FALSE
@@ -199,7 +200,7 @@
 		return
 	activate_for(cd)
 	say(msg.signal)
-
+	log_action("said [msg.signal]")
 /obj/item/mechcomp/speaker/debug
 	name = "Special Ops Speaker"
 	cd = 0
@@ -217,7 +218,7 @@
 
 	SEND_SIGNAL(src,COMSIG_MECHCOMP_TRANSMIT_SIGNAL,"[inp]")
 	activate_for(0.1 SECONDS)
-
+	log_action("inputted \"[inp]\".")
 
 
 
@@ -240,8 +241,11 @@
 	if(anchored)
 		if( sensitive || isliving(AM))
 			SEND_SIGNAL(src, COMSIG_MECHCOMP_TRANSMIT_DEFAULT_MSG)
-
-
+			if(isliving(AM))
+				var/mob/living/L = AM
+				log_action("triggered by [L.ckey] as [L.name]")
+			else
+				log_action("triggered by [AM.name], last touched by [AM.fingerprintslast]")
 
 /obj/item/mechcomp/pressurepad/proc/finetune(obj/item/W, mob/user)
 	sensitive = !sensitive
@@ -262,7 +266,7 @@
 
 /obj/item/mechcomp/delay/examine(mob/user)
 	. = ..()
-	. += "It is currently set to delay incoming messages by [delay] deciseconds."
+	. += "It is currently set to delay incoming messages by [delay/10] seconds."
 
 
 /obj/item/mechcomp/delay/Initialize()
@@ -272,12 +276,12 @@
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Delay", "setdelay")
 
 /obj/item/mechcomp/delay/proc/setdelaymanually(obj/item/W, mob/user)
-	var/input = input("Enter new time in deciseconds Current delay is [delay]ds.", "Delay", null) as num
+	var/input = input("Enter new time in deciseconds Current delay is [delay/10]s.", "Delay", null) as num
 	if(!in_range(src, user) || user.stat || isnull(input))
 		to_chat(user, "<span class='notice'>You leave the delay on [src.name] alone.</span>")
 		return FALSE
-	delay = clamp(input, 0, 100)
-	to_chat(user, "<span class='notice'>You change the delay on [src.name] to [delay] deciseconds.</span>")
+	delay = clamp(input, 1, 100)
+	to_chat(user, "<span class='notice'>You change the delay on [src.name] to [delay/10] seconds.</span>")
 	return TRUE
 
 
@@ -352,13 +356,18 @@
 /obj/item/mechcomp/grav_accelerator/proc/activateproc(datum/mechcompMessage/msg)
 	if(active)
 		return
-
+	var/lolcounter = 0
+	var/roflcounter = 0
 	for(var/atom/movable/AM in range(0, src))
 		if(AM.anchored || AM == src)
 			continue
 		var/throwtarget = get_edge_target_turf(AM, src.dir)
 		AM.safe_throw_at(throwtarget, power, 1, force = MOVE_FORCE_STRONG, spin = TRUE)
+		if(isliving(AM))
+			roflcounter++
+		lolcounter++
 	activate_for((power+2) SECONDS)
+	log_action("sent [lolcounter] object[lolcounter > 1 ? "s" : ""] flying, which includes [roflcounter] mobs[roflcounter > 1 ? "s" : ""]")
 
 /obj/item/mechcomp/grav_accelerator/proc/setpowermanually(obj/item/W, mob/user)
 	var/input = input("Enter new power setting.", "Power", null) as num
@@ -403,6 +412,7 @@
 		//to handle different states correctly.
 		flick("comp_egun_firing",src)
 		activate_for(1 SECONDS)
+		log_action("fired [initial(gun.name)] ([casing.projectile_type]) at [angle] degrees. Gun installed by [gun.fingerprintslast]")
 	else
 		playsound(src, gun.dry_fire_sound, 50, TRUE)
 

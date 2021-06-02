@@ -44,6 +44,10 @@ GLOBAL_VAR(tgui_log)
 GLOBAL_PROTECT(tgui_log)
 GLOBAL_VAR(world_shuttle_log)
 GLOBAL_PROTECT(world_shuttle_log)
+GLOBAL_VAR(world_mechcomp_log)
+GLOBAL_PROTECT(world_mechcomp_log)
+
+
 
 GLOBAL_VAR(perf_log)
 GLOBAL_PROTECT(perf_log)
