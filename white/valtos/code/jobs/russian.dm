@@ -16,7 +16,7 @@
 	exp_type_department = EXP_TYPE_SECURITY
 	outfit = /datum/outfit/job/security/veteran
 
-/datum/id_trim/job/security_officer/omon
+/datum/id_trim/job/omon
 	assignment = "Russian Officer"
 	trim_state = "trim_securityofficer"
 	full_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_MAINT_TUNNELS, ACCESS_MECH_SECURITY, ACCESS_MORGUE, ACCESS_WEAPONS, ACCESS_FORENSICS_LOCKERS, ACCESS_MINERAL_STOREROOM)
@@ -25,7 +25,7 @@
 	template_access = list(ACCESS_CAPTAIN, ACCESS_HOS, ACCESS_CHANGE_IDS)
 
 
-/datum/id_trim/job/security_officer/veteran
+/datum/id_trim/job/veteran
 	assignment = "Veteran"
 	trim_state = "trim_securityofficer"
 	full_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_ARMORY, ACCESS_COURT, ACCESS_WEAPONS, ACCESS_MECH_SECURITY,

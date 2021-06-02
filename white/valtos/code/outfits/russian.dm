@@ -36,7 +36,7 @@
 
 /datum/outfit/job/security/veteran
 	name = "Veteran"
-	jobtype = /datum/job/security_officer/veteran
+	jobtype = /datum/job/veteran
 
 	belt = /obj/item/gun/ballistic/automatic/pistol/makarov
 	ears = /obj/item/radio/headset/headset_sec/alt/department/engi
@@ -57,6 +57,6 @@
 
 	implants = list(/obj/item/implant/mindshield/, /obj/item/implant/krav_maga)
 
-	id_trim = /datum/id_trim/job/security_officer/veteran
+	id_trim = /datum/id_trim/job/veteran
 
 	chameleon_extras = list(/obj/item/gun/ballistic/automatic/pistol/tanner, /obj/item/clothing/glasses/hud/security/sunglasses, /obj/item/clothing/head/helmet)

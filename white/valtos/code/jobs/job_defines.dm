@@ -1,1 +1,1 @@
-GLOBAL_LIST_INIT(white_job_list, list("russianofficer", "veteran", "internationalofficer", "trader", "hacker", "mechanic", "fieldmedic"))
+GLOBAL_LIST_INIT(white_job_list, list("Russian Officer", "Veteran", "International Officer", "Trader", "Hacker", "Mechanic", "Field Medic"))
