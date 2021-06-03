@@ -318,4 +318,5 @@
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	ambientsounds = AWAY_MISSION
 	requires_power = FALSE
+	sound_environment = SOUND_ENVIRONMENT_CAVE
 	ambientsounds = list('white/valtos/sounds/lifeweb/caves8.ogg', 'white/valtos/sounds/lifeweb/caves_old.ogg')
