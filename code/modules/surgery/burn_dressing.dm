@@ -59,7 +59,7 @@
 
 /datum/surgery_step/debride/failure(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, fail_prob = 0)
 	..()
-	display_results(user, target, "<span class='notice'>Я отрезал немного здоровой плоти с [parse_zone(target_zone)] [target].</span>",
+	display_results(user, target, "<span class='notice'>Отрезал немного здоровой плоти с [parse_zone(target_zone)] [target].</span>",
 		"<span class='notice'>[user] отрезал немного здоровой плоти с [parse_zone(target_zone)] [target] при помощи [tool]!</span>",
 		"<span class='notice'>[user] отрезал немного здоровой плоти с [parse_zone(target_zone)] [target]!</span>")
 	surgery.operated_bodypart.receive_damage(brute=rand(4,8), sharpness=TRUE)

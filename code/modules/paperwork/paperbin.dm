@@ -70,7 +70,7 @@
 		P.add_fingerprint(user)
 		P.forceMove(user.loc)
 		user.put_in_hands(P)
-		to_chat(user, "<span class='notice'>Я беру [P] из <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>Беру [P] из <b>[src.name]</b>.</span>")
 		bin_pen = null
 		update_icon()
 	else if(total_paper >= 1)
@@ -91,7 +91,7 @@
 		P.add_fingerprint(user)
 		P.forceMove(user.loc)
 		user.put_in_hands(P)
-		to_chat(user, "<span class='notice'>Я беру [P] из <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>Беру [P] из <b>[src.name]</b>.</span>")
 	else
 		to_chat(user, "<span class='warning'>[capitalize(src.name)] пуст!</span>")
 	add_fingerprint(user)
@@ -102,7 +102,7 @@
 		var/obj/item/paper/P = I
 		if(!user.transferItemToLoc(P, src))
 			return
-		to_chat(user, "<span class='notice'>Я кладу [P] в [src].</span>")
+		to_chat(user, "<span class='notice'>Кладу [P] в [src].</span>")
 		papers.Add(P)
 		total_paper++
 		update_icon()
@@ -110,7 +110,7 @@
 		var/obj/item/pen/P = I
 		if(!user.transferItemToLoc(P, src))
 			return
-		to_chat(user, "<span class='notice'>Я кладу [P] в [src].</span>")
+		to_chat(user, "<span class='notice'>Кладу [P] в [src].</span>")
 		bin_pen = P
 		update_icon()
 	else

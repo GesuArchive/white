@@ -405,7 +405,7 @@
 
 /obj/machinery/atmospherics/components/unary/hypertorus/core/proc/activate(mob/living/user)
 	if(active)
-		to_chat(user, "<span class='notice'>Я уже активировал машину.</span>")
+		to_chat(user, "<span class='notice'>Уже активировал машину.</span>")
 		return
 	to_chat(user, "<span class='notice'>Соединяю все части вместе.</span>")
 	active = TRUE

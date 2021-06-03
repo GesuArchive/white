@@ -217,7 +217,7 @@
 	if(M.melee_damage_upper == 0)
 		visible_message("<span class='notice'><b>[M]</b> [M.friendly_verb_continuous] <b>[sklonenie(name, VINITELNI, gender)]</b>!</span>", \
 						"<span class='notice'><b>[M]</b> [M.friendly_verb_continuous] меня!</span>", null, COMBAT_MESSAGE_RANGE, M)
-		to_chat(M, "<span class='notice'>Я [M.friendly_verb_simple] <b>[sklonenie(name, VINITELNI, gender)]</b>!</span>")
+		to_chat(M, "<span class='notice'>[M.friendly_verb_simple] <b>[sklonenie(name, VINITELNI, gender)]</b>!</span>")
 		return FALSE
 	if(HAS_TRAIT(M, TRAIT_PACIFISM))
 		to_chat(M, "<span class='warning'>Не хочу вредить!</span>")
@@ -229,7 +229,7 @@
 	M.do_attack_animation(src)
 	visible_message("<span class='danger'><b>[M]</b> [M.attack_verb_continuous] <b>[sklonenie(name, VINITELNI, gender)]</b>!</span>", \
 					"<span class='userdanger'><b>[M]</b> [M.attack_verb_continuous] меня!</span>", null, COMBAT_MESSAGE_RANGE, M)
-	to_chat(M, "<span class='danger'>Я [M.attack_verb_simple] <b>[sklonenie(name, VINITELNI, gender)]</b>!</span>")
+	to_chat(M, "<span class='danger'>[M.attack_verb_simple] <b>[sklonenie(name, VINITELNI, gender)]</b>!</span>")
 	log_combat(M, src, "attacked")
 	return TRUE
 
@@ -261,7 +261,7 @@
 				playsound(loc, 'sound/weapons/bite.ogg', 50, TRUE, -1)
 				visible_message("<span class='danger'><b>[M.name]</b> кусает <b>[sklonenie(name, VINITELNI, gender)]</b>!</span>", \
 								"<span class='userdanger'><b>[M.name]</b> кусает меня!</span>", "<span class='hear'>Слышу кусь!</span>", COMBAT_MESSAGE_RANGE, M)
-				to_chat(M, "<span class='danger'>Я кусаю [sklonenie(name, VINITELNI, gender)]!</span>")
+				to_chat(M, "<span class='danger'>Кусаю [sklonenie(name, VINITELNI, gender)]!</span>")
 				return TRUE
 			else
 				visible_message("<span class='danger'><b>[M.name]</b> пытается укусить <b>[sklonenie(name, VINITELNI, gender)]</b>!</span>", \

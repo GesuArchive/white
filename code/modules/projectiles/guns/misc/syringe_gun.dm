@@ -54,7 +54,7 @@
 	user.put_in_hands(S)
 
 	syringes.Remove(S)
-	to_chat(user, "<span class='notice'>Я вытащил [S] из <b>[src.name]</b>.</span>")
+	to_chat(user, "<span class='notice'>Вытащил [S] из <b>[src.name]</b>.</span>")
 	update_icon()
 
 	return TRUE

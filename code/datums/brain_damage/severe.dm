@@ -153,7 +153,7 @@
 	if(check_alone())
 		to_chat(owner, "<span class='warning'>Мне так одиноко...</span>")
 	else
-		to_chat(owner, "<span class='notice'>Я в безопасности, пока рядом есть люди.</span>")
+		to_chat(owner, "<span class='notice'>В безопасности, пока рядом есть люди.</span>")
 
 /datum/brain_trauma/severe/monophobia/on_life()
 	..()
@@ -253,7 +253,7 @@
 	name = "Hypnotic Stupor"
 	desc = "Пациент склонен к приступам сильного ступора, что делает его чрезвычайно внушаемым."
 	scan_desc = "онейрическая петля обратной связи"
-	gain_text = "<span class='warning'>Я немного ошеломлен.</span>"
+	gain_text = "<span class='warning'>Немного ошеломлен.</span>"
 	lose_text = "<span class='notice'>Туман уходит из моей головы.</span>"
 
 /datum/brain_trauma/severe/hypnotic_stupor/on_lose() //hypnosis must be cleared separately, but brain surgery should get rid of both anyway

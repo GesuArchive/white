@@ -419,7 +419,7 @@
 
 /obj/structure/rospilovo/switcher
 	name = "выключатель"
-	desc = "Неисправный выключатель.\n<span class='notice'>Я начинаю щелкать его и обретаю на некоторое время покой.</span>"
+	desc = "Неисправный выключатель.\n<span class='notice'>Начинаю щелкать его и обретаю на некоторое время покой.</span>"
 	icon_state = "vikluchatel"
 
 /obj/structure/rospilovo/doski

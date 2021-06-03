@@ -78,7 +78,7 @@
 		scanning = TRUE
 
 		user.visible_message("<span class='notice'>[user] указывает на [src.name] в [A] и начинает судебно-медицинское сканирование.</span>")
-		to_chat(user, "<span class='notice'>Я сканирую [A]. Сканер начинает анализ результатов...</span>")
+		to_chat(user, "<span class='notice'>Сканирую [A]. Сканер начинает анализ результатов...</span>")
 
 
 		// GATHER INFORMATION

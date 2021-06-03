@@ -9,7 +9,7 @@
 	name = "Светочувствительность"
 	desc = "Пациент имеет необъяснимую неблагоприятную реакцию на свет."
 	scan_desc = "лёгкая светочувствительность"
-	gain_text = "<span class='warning'>Я чувствую тягу к темноте.</span>"
+	gain_text = "<span class='warning'>Чувствую тягу к темноте.</span>"
 	lose_text = "<span class='notice'>Свет больше не беспокоит меня.</span>"
 	var/next_damage_warning = 0
 
@@ -28,8 +28,8 @@
 	name = "Полтергейст"
 	desc = "Пациент, кажется, подвергается нападению со стороны невидимого объекта."
 	scan_desc = "паранормальная активность"
-	gain_text = "<span class='warning'>Я чувствую ненавистное присутствие рядом со мной.</span>"
-	lose_text = "<span class='notice'>Я чувствую, что ненавистное присутствие исчезает.</span>"
+	gain_text = "<span class='warning'>Чувствую ненавистное присутствие рядом со мной.</span>"
+	lose_text = "<span class='notice'>Чувствую, что ненавистное присутствие исчезает.</span>"
 
 /datum/brain_trauma/magic/poltergeist/on_life()
 	..()
@@ -49,8 +49,8 @@
 	name = "Athaumasia"
 	desc = "Пациент совершенно инертен к магическим силам."
 	scan_desc = "таумически-пуст"
-	gain_text = "<span class='notice'>Я понимаю, что магия не может быть реальной.</span>"
-	lose_text = "<span class='notice'>Я понимаю, что магия может быть реальной.</span>"
+	gain_text = "<span class='notice'>Понимаю, что магия не может быть реальной.</span>"
+	lose_text = "<span class='notice'>Понимаю, что магия может быть реальной.</span>"
 
 /datum/brain_trauma/magic/antimagic/on_gain()
 	ADD_TRAIT(owner, TRAIT_ANTIMAGIC, TRAUMA_TRAIT)
@@ -64,8 +64,8 @@
 	name = "Преследующий призрак"
 	desc = "Пациент преследуется фантомом, который видит только он."
 	scan_desc = "экстрасенсорная паранойя"
-	gain_text = "<span class='warning'>Я чувствую, что что-то хочет меня убить...</span>"
-	lose_text = "<span class='notice'>Я больше не чувствую глаза на спине.</span>"
+	gain_text = "<span class='warning'>Чувствую, что что-то хочет меня убить...</span>"
+	lose_text = "<span class='notice'>Больше не чувствую глаза на спине.</span>"
 	var/obj/effect/hallucination/simple/stalker_phantom/stalker
 	var/close_stalker = FALSE //For heartbeat
 

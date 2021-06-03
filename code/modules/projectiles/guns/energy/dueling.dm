@@ -210,7 +210,7 @@
 /obj/item/gun/energy/dueling/process_fire(atom/target, mob/living/user, message, params, zone_override, bonus_spread)
 	if(duel.state == DUEL_READY)
 		duel.confirmations[src] = TRUE
-		to_chat(user,"<span class='notice'>Я подтвердил готовность.</span>")
+		to_chat(user,"<span class='notice'>Подтвердил готовность.</span>")
 		return
 	else if(!is_duelist(target)) //I kinda want to leave this out just to see someone shoot a bystander or missing.
 		to_chat(user,"<span class='warning'>[capitalize(src.name)] система безопасности предотвращает стрельбу по кому либо, кроме указанного оппонента.</span>")

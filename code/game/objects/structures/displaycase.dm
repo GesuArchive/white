@@ -116,7 +116,7 @@
 /obj/structure/displaycase/attackby(obj/item/W, mob/user, params)
 	if(W.GetID() && !broken && openable)
 		if(allowed(user))
-			to_chat(user, "<span class='notice'>Я [open ? "закрываю":"открываю"] [src].</span>")
+			to_chat(user, "<span class='notice'>[open ? "закрываю":"открываю"] [src].</span>")
 			toggle_lock(user)
 		else
 			to_chat(user, "<span class='alert'>Доступ запрещён.</span>")
@@ -125,11 +125,11 @@
 			if(!W.tool_start_check(user, amount=5))
 				return
 
-			to_chat(user, "<span class='notice'>Я начинаю чинить [src]...</span>")
+			to_chat(user, "<span class='notice'>Начинаю чинить [src]...</span>")
 			if(W.use_tool(src, user, 40, amount=5, volume=50))
 				obj_integrity = max_integrity
 				update_icon()
-				to_chat(user, "<span class='notice'>Я починил [src].</span>")
+				to_chat(user, "<span class='notice'>Починил [src].</span>")
 		else
 			to_chat(user, "<span class='warning'>[capitalize(src.name)] сейчас в хорошем состоянии!</span>")
 		return
@@ -138,12 +138,12 @@
 			if(showpiece)
 				to_chat(user, "<span class='warning'>Сначала удалите отображаемый объект!</span>")
 			else
-				to_chat(user, "<span class='notice'>Я убираю разбитый стеклянный купол витрины.</span>")
+				to_chat(user, "<span class='notice'>Убираю разбитый стеклянный купол витрины.</span>")
 				qdel(src)
 		else
-			to_chat(user, "<span class='notice'>Я начинаю [open ? "закрывать":"открывать"] [src]...</span>")
+			to_chat(user, "<span class='notice'>Начинаю [open ? "закрывать":"открывать"] [src]...</span>")
 			if(W.use_tool(src, user, 20))
-				to_chat(user, "<span class='notice'>Я [open ? "закрыл":"открыл"] [src].</span>")
+				to_chat(user, "<span class='notice'>[open ? "закрыл":"открыл"] [src].</span>")
 				toggle_lock(user)
 	else if(open && !showpiece)
 		insert_showpiece(W, user)
@@ -152,7 +152,7 @@
 		if(G.get_amount() < 2)
 			to_chat(user, "<span class='warning'>Мне нужно два стеклянных листа, чтобы починить купол витрины</span>")
 			return
-		to_chat(user, "<span class='notice'>Я начинаю чинить [src]...</span>")
+		to_chat(user, "<span class='notice'>Начинаю чинить [src]...</span>")
 		if(do_after(user, 20, target = src))
 			G.use(2)
 			broken = FALSE
@@ -213,7 +213,7 @@
 
 /obj/structure/displaycase_chassis/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_WRENCH) //The player can only deconstruct the wooden frame
-		to_chat(user, "<span class='notice'>Я начинаю разбирать [src]...</span>")
+		to_chat(user, "<span class='notice'>Начинаю разбирать [src]...</span>")
 		I.play_tool_sound(src)
 		if(I.use_tool(src, user, 30))
 			playsound(src.loc, 'sound/items/deconstruct.ogg', 50, TRUE)
@@ -221,15 +221,15 @@
 			qdel(src)
 
 	else if(istype(I, /obj/item/electronics/airlock))
-		to_chat(user, "<span class='notice'>Я начинаю устанавливать проводку в [src]...</span>")
+		to_chat(user, "<span class='notice'>Начинаю устанавливать проводку в [src]...</span>")
 		I.play_tool_sound(src)
 		if(do_after(user, 30, target = src) && user.transferItemToLoc(I,src))
 			electronics = I
-			to_chat(user, "<span class='notice'>Я устанавливаю проводку шлюзовой камеры.</span>")
+			to_chat(user, "<span class='notice'>Устанавливаю проводку шлюзовой камеры.</span>")
 
 	else if(istype(I, /obj/item/stock_parts/card_reader))
 		var/obj/item/stock_parts/card_reader/C = I
-		to_chat(user, "<span class='notice'>Я начинаю добавлять [C] к [src]...</span>")
+		to_chat(user, "<span class='notice'>Начинаю добавлять [C] к [src]...</span>")
 		if(do_after(user, 20, target = src))
 			var/obj/structure/displaycase/forsale/sale = new(src.loc)
 			if(electronics)
@@ -247,7 +247,7 @@
 		if(G.get_amount() < 10)
 			to_chat(user, "<span class='warning'>Мне нужно десять листов стекла чтобы сделать это!</span>")
 			return
-		to_chat(user, "<span class='notice'>Я начинаю добавлять [G] к [src]...</span>")
+		to_chat(user, "<span class='notice'>Начинаю добавлять [G] к [src]...</span>")
 		if(do_after(user, 20, target = src))
 			G.use(10)
 			var/obj/structure/displaycase/noalert/display = new(src.loc)
@@ -303,7 +303,7 @@
 	if(user.is_holding_item_of_type(/obj/item/key/displaycase))
 		if(added_roundstart)
 			is_locked = !is_locked
-			to_chat(user, "<span class='notice'>Я [!is_locked ? "раз" : ""]блокирую витрину.</span>")
+			to_chat(user, "<span class='notice'>[!is_locked ? "раз" : ""]блокирую витрину.</span>")
 		else
 			to_chat(user, "<span class='warning'>Замок заклинило!</span>")
 		return
@@ -313,7 +313,7 @@
 		return
 
 	if(!added_roundstart)
-		to_chat(user, "<span class='warning'>Я уже положил что-то новое в эту витрину!</span>")
+		to_chat(user, "<span class='warning'>Уже положил что-то новое в эту витрину!</span>")
 		return
 
 	if(is_type_in_typecache(W, GLOB.blacklisted_cargo_types))
@@ -328,10 +328,10 @@
 	if(user.transferItemToLoc(W, src))
 
 		if(showpiece)
-			to_chat(user, "<span class='notice'>Я нажимаю кнопку, и [showpiece] опускается на полку витрины.</span>")
+			to_chat(user, "<span class='notice'>Нажимаю кнопку, и [showpiece] опускается на полку витрины.</span>")
 			QDEL_NULL(showpiece)
 
-		to_chat(user, "<span class='notice'>Я помещаю [W] в витрину.</span>")
+		to_chat(user, "<span class='notice'>Помещаю [W] в витрину.</span>")
 		showpiece = W
 		added_roundstart = FALSE
 		update_icon()
@@ -344,9 +344,9 @@
 		if(chosen_plaque)
 			if(user.Adjacent(src))
 				trophy_message = chosen_plaque
-				to_chat(user, "<span class='notice'>Я делаю надпись на табличке.</span>")
+				to_chat(user, "<span class='notice'>Делаю надпись на табличке.</span>")
 			else
-				to_chat(user, "<span class='warning'>Я слишком далеко чтобы писать на табличке!</span>")
+				to_chat(user, "<span class='warning'>Слишком далеко чтобы писать на табличке!</span>")
 
 		SSpersistence.SaveTrophy(src)
 		return TRUE
@@ -530,7 +530,7 @@
 /obj/structure/displaycase/forsale/multitool_act(mob/living/user, obj/item/I)
 	. = ..()
 	if(obj_integrity <= (integrity_failure *  max_integrity))
-		to_chat(user, "<span class='notice'>Я начинаю настраивать антигравитационное поле...</span>")
+		to_chat(user, "<span class='notice'>Начинаю настраивать антигравитационное поле...</span>")
 		if(do_after(user, 20, target = src))
 			broken = FALSE
 			obj_integrity = max_integrity
@@ -541,16 +541,16 @@
 	. = ..()
 	if(open && user.a_intent == INTENT_HELP )
 		if(anchored)
-			to_chat(user, "<span class='notice'>Я начинаю снимать защиту с [src]...</span>")
+			to_chat(user, "<span class='notice'>Начинаю снимать защиту с [src]...</span>")
 		else
-			to_chat(user, "<span class='notice'>Я начинаю устанавливать защиту на [src]...</span>")
+			to_chat(user, "<span class='notice'>Начинаю устанавливать защиту на [src]...</span>")
 		if(I.use_tool(src, user, 16, volume=50))
 			if(QDELETED(I))
 				return
 			if(anchored)
-				to_chat(user, "<span class='notice'>Я снял защиту с [src].</span>")
+				to_chat(user, "<span class='notice'>Снял защиту с [src].</span>")
 			else
-				to_chat(user, "<span class='notice'>Я установил защиту на [src].</span>")
+				to_chat(user, "<span class='notice'>Установил защиту на [src].</span>")
 			set_anchored(!anchored)
 			return TRUE
 	else if(!open && user.a_intent == INTENT_HELP)

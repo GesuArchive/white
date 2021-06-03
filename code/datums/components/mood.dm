@@ -52,13 +52,13 @@
 		if(SANITY_GREAT to INFINITY)
 			msg += "<span class='nicegreen'>Мой разум словно храм!<span>\n"
 		if(SANITY_NEUTRAL to SANITY_GREAT)
-			msg += "<span class='nicegreen'>Я чувствую себя прекрасно в последнее время!<span>\n"
+			msg += "<span class='nicegreen'>Чувствую себя прекрасно в последнее время!<span>\n"
 		if(SANITY_DISTURBED to SANITY_NEUTRAL)
-			msg += "<span class='nicegreen'>Я чувствую себя вполне нормально в последнее время..<span>\n"
+			msg += "<span class='nicegreen'>Чувствую себя вполне нормально в последнее время..<span>\n"
 		if(SANITY_UNSTABLE to SANITY_DISTURBED)
-			msg += "<span class='warning'>Я немного не в себе....</span>\n"
+			msg += "<span class='warning'>Немного не в себе....</span>\n"
 		if(SANITY_CRAZY to SANITY_UNSTABLE)
-			msg += "<span class='boldwarning'>Я в бешенстве!!</span>\n"
+			msg += "<span class='boldwarning'>В бешенстве!!</span>\n"
 		if(SANITY_INSANE to SANITY_CRAZY)
 			msg += "<span class='boldwarning'>АХАХАХАХАХАХАХАХАХ!!</span>\n"
 
@@ -67,21 +67,21 @@
 		if(1)
 			msg += "<span class='boldwarning'>Хотелось бы мне умереть!<span>\n"
 		if(2)
-			msg += "<span class='boldwarning'>Я чувствую себя ужасно...<span>\n"
+			msg += "<span class='boldwarning'>Чувствую себя ужасно...<span>\n"
 		if(3)
 			msg += "<span class='boldwarning'>Мне очень грустно.<span>\n"
 		if(4)
 			msg += "<span class='boldwarning'>Мне грустно.<span>\n"
 		if(5)
-			msg += "<span class='nicegreen'>Я в порядке.<span>\n"
+			msg += "<span class='nicegreen'>В порядке.<span>\n"
 		if(6)
-			msg += "<span class='nicegreen'>Я чувствую себя хорошо.<span>\n"
+			msg += "<span class='nicegreen'>Чувствую себя хорошо.<span>\n"
 		if(7)
-			msg += "<span class='nicegreen'>Я чувствую себя довольно хорошо.<span>\n"
+			msg += "<span class='nicegreen'>Чувствую себя довольно хорошо.<span>\n"
 		if(8)
-			msg += "<span class='nicegreen'>Я чувствую себя потрясающе!<span>\n"
+			msg += "<span class='nicegreen'>Чувствую себя потрясающе!<span>\n"
 		if(9)
-			msg += "<span class='nicegreen'>Я люблю жизнь!<span>\n"
+			msg += "<span class='nicegreen'>Люблю жизнь!<span>\n"
 
 	msg += "<hr><span class='notice'>Факторы:</span>\n"//All moodlets
 	if(mood_events.len)

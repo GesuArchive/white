@@ -83,13 +83,13 @@
 			to_chat(M, "<span class='notice'>Мои мозги работают быстрее!</span>")
 		if("str")
 			M.current_fate[MOB_STR] = 4
-			to_chat(M, "<span class='notice'><b>Я ОЩУЩАЮ СИЛУ!</b></span>")
+			to_chat(M, "<span class='notice'><b>ОЩУЩАЮ СИЛУ!</b></span>")
 		if("stm")
 			M.current_fate[MOB_STM] = 4
 			to_chat(M, "<span class='notice'>Моя кожа каменеет, а кровь начинает кипеть!</span>")
 		if("dex")
 			M.current_fate[MOB_DEX] = 4
-			to_chat(M, "<span class='notice'>Я чувствую, что могу дотрогнуться локтём до носа!</span>")
+			to_chat(M, "<span class='notice'>Чувствую, что могу дотрогнуться локтём до носа!</span>")
 	M.recalculate_stats()
 
 /obj/item/organ/cyberimp/brain/stats/emp_act(severity)

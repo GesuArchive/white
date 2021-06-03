@@ -152,7 +152,7 @@
 	if(user.pulling != victim || user.zone_selected != limb.body_zone || !isfelinid(user) || !victim.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE))
 		return FALSE
 	if(DOING_INTERACTION_WITH_TARGET(user, victim))
-		to_chat(user, "<span class='warning'>Я уже взаимодействую с [victim]!</span>")
+		to_chat(user, "<span class='warning'>Уже взаимодействую с [victim]!</span>")
 		return
 	if(user.is_mouth_covered())
 		to_chat(user, "<span class='warning'Мой рот закрыт и не может достать до ран [victim]!</span>")
@@ -288,7 +288,7 @@
 	name = "Открытая артерия"
 	skloname = "открытой артерии"
 	desc = "Нарушена целостность артерии. Серьёзный риск смерти пациента без медицинского вмешательства."
-	treat_text = "Немедленное закрытие раны хирургическими нитками, прижигание и восстановление повреждённых тканей." //на уроках ОБЖ в школе нас учили 
+	treat_text = "Немедленное закрытие раны хирургическими нитками, прижигание и восстановление повреждённых тканей." //на уроках ОБЖ в школе нас учили
 	examine_desc = "брызжет кровью с угрожающей скоростью"
 	occur_text = "разрывается, дико брызгая кровью"
 	sound_effect = 'sound/effects/wounds/blood3.ogg'

@@ -289,7 +289,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 		to_chat(user, "<span class='notice'>Бедный <b>[src]</b> уже взломан!</span>")
 		return
 	log_combat(user, src, "emagged")
-	to_chat(user, "<span class='notice'>Я нещадно провожу криптокаркой по <b>[src]</b>, заставляя его сойти с ума.</span>")
+	to_chat(user, "<span class='notice'>Нещадно провожу криптокаркой по <b>[src]</b>, заставляя его сойти с ума.</span>")
 	add_fingerprint(user)
 	caesar = TRUE
 

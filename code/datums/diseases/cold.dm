@@ -18,11 +18,11 @@
 	switch(stage)
 		if(2)
 			if(affected_mob.body_position == LYING_DOWN && prob(40))  //changed FROM prob(10) until sleeping is fixed
-				to_chat(affected_mob, "<span class='notice'>Я чувствую себя лучше.</span>")
+				to_chat(affected_mob, "<span class='notice'>Чувствую себя лучше.</span>")
 				cure()
 				return FALSE
 			if(prob(0.05))
-				to_chat(affected_mob, "<span class='notice'>Я чувствую себя лучше.</span>")
+				to_chat(affected_mob, "<span class='notice'>Чувствую себя лучше.</span>")
 				cure()
 				return FALSE
 			if(prob(1))
@@ -32,14 +32,14 @@
 			if(prob(1))
 				to_chat(affected_mob, "<span class='danger'>У меня болит горло.</span>")
 			if(prob(1))
-				to_chat(affected_mob, "<span class='danger'>Я чувствую мокроту в горле, похоже, слизистая раздражена.</span>")
+				to_chat(affected_mob, "<span class='danger'>Чувствую мокроту в горле, похоже, слизистая раздражена.</span>")
 		if(3)
 			if(affected_mob.body_position == LYING_DOWN && prob(25))  //changed FROM prob(5) until sleeping is fixed
-				to_chat(affected_mob, "<span class='notice'>Я чувствую себя лучше.</span>")
+				to_chat(affected_mob, "<span class='notice'>Чувствую себя лучше.</span>")
 				cure()
 				return FALSE
 			if(prob(0.01))
-				to_chat(affected_mob, "<span class='notice'>Я чувствую себя лучше.</span>")
+				to_chat(affected_mob, "<span class='notice'>Чувствую себя лучше.</span>")
 				cure()
 				return FALSE
 			if(prob(1))
@@ -49,7 +49,7 @@
 			if(prob(1))
 				to_chat(affected_mob, "<span class='danger'>У меня болит горло.</span>")
 			if(prob(1))
-				to_chat(affected_mob, "<span class='danger'>Я чувствую мокроту в горле, похоже, слизистая раздражена.</span>")
+				to_chat(affected_mob, "<span class='danger'>Чувствую мокроту в горле, похоже, слизистая раздражена.</span>")
 			if(prob(0.5) && !LAZYFIND(affected_mob.disease_resistances, /datum/disease/flu))
 				var/datum/disease/Flu = new /datum/disease/flu()
 				affected_mob.ForceContractDisease(Flu, FALSE, TRUE)

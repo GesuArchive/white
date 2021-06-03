@@ -387,7 +387,7 @@
 			if(affecting.heal_damage(brute_heal, burn_heal, 0, BODYPART_ROBOTIC))
 				H.update_damage_overlays()
 			user.visible_message("<span class='notice'>[user] чинит несколько [dam ? "dents on" : "burnt wires in"] [H] [affecting.name].</span>", \
-			"<span class='notice'>Я чиню несколько [dam ? "dents on" : "burnt wires in"] [H == user ? "your" : "[H]"] [affecting.name].</span>")
+			"<span class='notice'>Чиню несколько [dam ? "dents on" : "burnt wires in"] [H == user ? "your" : "[H]"] [affecting.name].</span>")
 			return 1 //successful heal
 		else
 			to_chat(user, "<span class='warning'>[affecting] уже в хорошем состоянии!</span>")

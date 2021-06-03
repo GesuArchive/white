@@ -564,7 +564,7 @@
 	if(prob(2) && iscarbon(M))
 		var/datum/disease/D = new /datum/disease/heart_failure
 		M.ForceContractDisease(D)
-		to_chat(M, "<span class='userdanger'>Я уверен что ощутил как мое сердце пропустило удар..</span>")
+		to_chat(M, "<span class='userdanger'>Уверен что ощутил как мое сердце пропустило удар..</span>")
 		M.playsound_local(M, 'sound/effects/singlebeat.ogg', 100, 0)
 
 	if(prob(7))
@@ -619,7 +619,7 @@
 		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "numb", /datum/mood_event/narcotic_medium, name)
 	switch(current_cycle)
 		if(11)
-			to_chat(M, "<span class='warning'>Я начал ощущать усталость...</span>" )
+			to_chat(M, "<span class='warning'>Начал ощущать усталость...</span>" )
 		if(12 to 24)
 			M.drowsyness += 1
 		if(24 to INFINITY)
@@ -1256,7 +1256,7 @@
 				M.emote("moan")
 				M.Paralyze(20) // you should be in a bad spot at this point unless epipen has been used
 		if(81)
-			to_chat(M, "<span class='userdanger'>Я слишком устал, не могу так дальше!</span>") // at this point you will eventually die unless you get charcoal
+			to_chat(M, "<span class='userdanger'>Слишком устал, не могу так дальше!</span>") // at this point you will eventually die unless you get charcoal
 			M.adjustOxyLoss(0.1*REM, 0)
 			M.adjustStaminaLoss(0.1*REM, 0)
 		if(82 to INFINITY)

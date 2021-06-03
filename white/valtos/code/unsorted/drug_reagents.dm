@@ -12,7 +12,7 @@
         if(prob(5+(current_cycle*0.6))) //burping intensifies
             H.emote("poo")
             if(prob(5))
-                to_chat(H, "<span class='danger'>Я чувствую, что мой раздутый живот грохочет газом.</span>")
+                to_chat(H, "<span class='danger'>Чувствую, что мой раздутый живот грохочет газом.</span>")
 
         if(current_cycle>90) //chance to burp = 55% (you can't stop burping)
             if(prob(5))
@@ -166,7 +166,7 @@
 	CHECK_DNA_AND_SPECIES(H)
 	H.setOrganLoss(ORGAN_SLOT_BRAIN, 30)
 	if(ishuman(H))
-		to_chat(H, "<span class= 'userdanger'>Я чувствую себя совсем нехорошо!</span>")
+		to_chat(H, "<span class= 'userdanger'>Чувствую себя совсем нехорошо!</span>")
 		H.set_species(/datum/species/krokodil_addict)
 	..()
 
@@ -220,7 +220,7 @@
 					if(prob(15))
 						whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = WAVE_BOUNDED)
 						animate(whole_screen.filters[whole_screen.filters.len], size = rand(1,3), time = 30, easing = QUAD_EASING, loop = -1)
-						to_chat(H, "<span class='notice'>Я чувствую, что реальность тает...</span>")
+						to_chat(H, "<span class='notice'>Чувствую, что реальность тает...</span>")
 						addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 1200)
 				high_message = pick("Ебена мать...", "Реальность не существует, человек.", "...", "Никто не летает вокруг солнца.")
 			else if(prob(5))
@@ -275,7 +275,7 @@
 					addtimer(CALLBACK(src, .proc/end_bad_trip, H), 30)
 
 	if(prob(5))
-		to_chat(H, "<i>Я слышу свои собственные мысли... <b>[high_message]</i></b>")
+		to_chat(H, "<i>Слышу свои собственные мысли... <b>[high_message]</i></b>")
 	..()
 
 /datum/reagent/drug/grape_blast/on_mob_end_metabolize(mob/living/L)

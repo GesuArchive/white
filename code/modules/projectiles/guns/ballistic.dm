@@ -135,7 +135,7 @@
 		. += MA
 	if(!chambered && empty_indicator) //this is duplicated in c20's update_overlayss due to a layering issue with the select fire icon.
 		. += "[icon_state]_empty"
-	
+
 	if(gun_flags & TOY_FIREARM_OVERLAY)
 		. += "[icon_state]_toy"
 
@@ -488,7 +488,7 @@ GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
 		to_chat(user, "<span class='warning'><b>[src.name]</b> уже обрезан!</span>")
 		return
 	if(bayonet)
-		to_chat(user, "<span class='warning'>Я не могу отпилить <b>[src.name]</b> с прикрепленным [bayonet]!</span>")
+		to_chat(user, "<span class='warning'>Не могу отпилить <b>[src.name]</b> с прикрепленным [bayonet]!</span>")
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	user.visible_message("<span class='notice'>[user] начинает обрезать <b>[src.name]</b>.</span>", "<span class='notice'>Начинаю обрезать <b>[src.name]</b>...</span>")

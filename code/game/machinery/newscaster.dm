@@ -756,7 +756,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 				new /obj/item/shard(loc)
 				new /obj/item/shard(loc)
 			else
-				to_chat(user, "<span class='notice'>Я [anchored ? "откручиваю" : "прикручиваю"] [name].</span>")
+				to_chat(user, "<span class='notice'>[anchored ? "откручиваю" : "прикручиваю"] [name].</span>")
 				new /obj/item/wallframe/newscaster(loc)
 			qdel(src)
 	else if(I.tool_behaviour == TOOL_WELDER && user.a_intent != INTENT_HARM)

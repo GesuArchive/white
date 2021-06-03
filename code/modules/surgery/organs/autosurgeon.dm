@@ -80,7 +80,7 @@
 			var/atom/movable/AM = J
 			AM.forceMove(drop_loc)
 
-		to_chat(user, "<span class='notice'>Я извлек [storedorgan] из [src].</span>")
+		to_chat(user, "<span class='notice'>Извлек [storedorgan] из [src].</span>")
 		I.play_tool_sound(src)
 		storedorgan = null
 		if(uses != INFINITE)
@@ -197,7 +197,7 @@
 		return
 
 	stored_skillchip = I
-	to_chat(user, "<span class='notice'>Я вставил [I] в [src].</span>")
+	to_chat(user, "<span class='notice'>Вставил [I] в [src].</span>")
 
 /obj/item/autosurgeon/skillchip/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()

@@ -42,7 +42,7 @@
 			to_chat(src, "<span class='danger'>Не хочу писать в LOOC.</span>")
 			return
 		if(is_banned_from(ckey, "OOC"))
-			to_chat(src, "<span class='danger'>Я точно не хочу писать в LOOC.</span>")
+			to_chat(src, "<span class='danger'>Точно не хочу писать в LOOC.</span>")
 			return
 
 	msg = copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)

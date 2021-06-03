@@ -39,7 +39,7 @@
 		QDEL_NULL(A.malf_picker)
 	SSticker.mode.traitors -= owner
 	if(!silent && owner.current)
-		to_chat(owner.current,"<span class='userdanger'>Я больше не [special_role]!</span>")
+		to_chat(owner.current,"<span class='userdanger'>Больше не [special_role]!</span>")
 	owner.special_role = null
 	return ..()
 
@@ -241,7 +241,7 @@
 	antag_memory += "<b>Кодовый ответ</b>: <span class='red'>[responses]</span><br>"
 
 	to_chat(traitor_mob, "Надо бы использовать кодовые слова в своём разговоре для кооперации с другими агентами. Только надо быть осторожнее.")
-	to_chat(traitor_mob, "<span class='alertwarning'>Я запомню эти слова и буду определять их быстро.</span>")
+	to_chat(traitor_mob, "<span class='alertwarning'>Запомню эти слова и буду определять их быстро.</span>")
 
 /datum/antagonist/traitor/proc/add_law_zero()
 	var/mob/living/silicon/ai/killer = owner.current

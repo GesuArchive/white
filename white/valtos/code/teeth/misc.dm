@@ -107,7 +107,7 @@
 				user.changeNext_move(0)
 			return TRUE
 		else
-			to_chat(user, "<span class='notice'>Я уже вырываю зуб!</span>")
+			to_chat(user, "<span class='notice'>Уже вырываю зуб!</span>")
 		return TRUE
 
 /mob/living/carbon/human/regenerate_organs()

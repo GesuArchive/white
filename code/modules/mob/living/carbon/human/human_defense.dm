@@ -792,7 +792,7 @@
 			else if(toxloss > 20)
 				combined_msg += "<span class='danger'>Меня тошнит.</span>"
 			else if(toxloss > 40)
-				combined_msg += "<span class='danger'>Я сейчас блевану!</span>"
+				combined_msg += "<span class='danger'>Сейчас блевану!</span>"
 		if(oxyloss)
 			if(oxyloss > 10)
 				combined_msg += "<span class='danger'>Ощущаю головкружение.</span>"
@@ -806,9 +806,9 @@
 			if(NUTRITION_LEVEL_FULL to INFINITY)
 				combined_msg += "<span class='info'>Мне вообще не хочется есть!</span>"
 			if(NUTRITION_LEVEL_WELL_FED to NUTRITION_LEVEL_FULL)
-				combined_msg += "<span class='info'>Я почти наелся!</span>"
+				combined_msg += "<span class='info'>Почти наелся!</span>"
 			if(NUTRITION_LEVEL_FED to NUTRITION_LEVEL_WELL_FED)
-				combined_msg += "<span class='info'>Я не голоден.</span>"
+				combined_msg += "<span class='info'>Не голоден.</span>"
 			if(NUTRITION_LEVEL_HUNGRY to NUTRITION_LEVEL_FED)
 				combined_msg += "<span class='info'>Надо бы покушать.</span>"
 			if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_HUNGRY)
@@ -860,7 +860,7 @@
 		combined_msg += "<span class='info'>Похоже [damaged_message] [damaged_plural ? "имеет" : "имеют"] повреждения.</span>"
 
 	if(roundstart_quirks.len)
-		combined_msg += "<span class='info'>Я имею черты: [get_quirk_string(FALSE, CAT_QUIRK_ALL)].</span>"
+		combined_msg += "<span class='info'>Имею черты: [get_quirk_string(FALSE, CAT_QUIRK_ALL)].</span>"
 
 	to_chat(src, combined_msg.Join("\n"))
 

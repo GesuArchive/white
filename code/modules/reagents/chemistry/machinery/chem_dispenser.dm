@@ -156,7 +156,7 @@
 	if(obj_flags & EMAGGED)
 		to_chat(user, "<span class='warning'>У [capitalize(src.name)] отсутствуют функциональные предохранители, которые можно взломать.</span>")
 		return
-	to_chat(user, "<span class='notice'>Я закоротил предохранители [src].</span>")
+	to_chat(user, "<span class='notice'>Закоротил предохранители [src].</span>")
 	dispensable_reagents |= emagged_reagents//add the emagged reagents to the dispensable ones
 	obj_flags |= EMAGGED
 

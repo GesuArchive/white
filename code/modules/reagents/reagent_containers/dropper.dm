@@ -44,7 +44,7 @@
 					target.visible_message("<span class='danger'>[user] пытается капнуть чем-то в глаза [target], но у него не выходит!</span>", \
 											"<span class='userdanger'>[user] пытается капнуть чем-то в мои глаза, но у него не выходит!</span>")
 
-					to_chat(user, "<span class='notice'>Я перенес [trans] единиц раствора.</span>")
+					to_chat(user, "<span class='notice'>Перенес [trans] единиц раствора.</span>")
 					update_icon()
 					return
 			else if(isalien(target)) //hiss-hiss has no eyes!
@@ -64,13 +64,13 @@
 			log_combat(user, M, "squirted", R)
 
 		trans = src.reagents.trans_to(target, amount_per_transfer_from_this, transfered_by = user)
-		to_chat(user, "<span class='notice'>Я перенес [trans] единиц раствора.</span>")
+		to_chat(user, "<span class='notice'>Перенес [trans] единиц раствора.</span>")
 		update_icon()
 
 	else
 
 		if(!target.is_drawable(user, FALSE)) //No drawing from mobs here
-			to_chat(user, "<span class='warning'>Я не могу напрямую извлечь реагенты из [target]!</span>")
+			to_chat(user, "<span class='warning'>Не могу напрямую извлечь реагенты из [target]!</span>")
 			return
 
 		if(!target.reagents.total_volume)
@@ -79,7 +79,7 @@
 
 		var/trans = target.reagents.trans_to(src, amount_per_transfer_from_this, transfered_by = user)
 
-		to_chat(user, "<span class='notice'>Я наполняю [src] [trans] единицами раствора.</span>")
+		to_chat(user, "<span class='notice'>Наполняю [src] [trans] единицами раствора.</span>")
 
 		update_icon()
 

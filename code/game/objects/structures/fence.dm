@@ -73,7 +73,7 @@
 			return
 
 		user.visible_message("<span class='danger'> [user] начинает прорезать <b>[src.name]</b> с помощью \the [W].</span>",\
-		"<span class='danger'>Я начинаю прорезать <b>[src.name]</b> используя \the [W].</span>")
+		"<span class='danger'>Начинаю прорезать <b>[src.name]</b> используя \the [W].</span>")
 
 		if(do_after(user, CUT_TIME*W.toolspeed, target = src))
 			if(current_stage == hole_size)

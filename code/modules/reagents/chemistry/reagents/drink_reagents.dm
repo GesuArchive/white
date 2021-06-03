@@ -186,7 +186,7 @@
 
 /datum/reagent/consumable/superlaughter/on_mob_life(mob/living/carbon/M)
 	if(prob(30))
-		M.visible_message("<span class='danger'>[M] разразился приступом неконтролируемого смеха!</span>", "<span class='userdanger'>Я зашелся в приступе неконтролируемого смеха!</span>")
+		M.visible_message("<span class='danger'>[M] разразился приступом неконтролируемого смеха!</span>", "<span class='userdanger'>Зашелся в приступе неконтролируемого смеха!</span>")
 		M.Stun(5)
 		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "chemical_laughter", /datum/mood_event/chemical_superlaughter)
 	..()

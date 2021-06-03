@@ -24,12 +24,12 @@
 	time = 125
 
 /datum/surgery_step/fold_cortex/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>Я начал сгибать внешнюю кору большого мозга [target] в фрактальный паттерн.</span>",
+	display_results(user, target, "<span class='notice'>Начал сгибать внешнюю кору большого мозга [target] в фрактальный паттерн.</span>",
 		"<span class='notice'>[user] начал сгибать внешнюю кору большого мозга [target] в фрактальный паттерн.</span>",
 		"<span class='notice'>[user] начинает операцию на мозге [target].</span>")
 
 /datum/surgery_step/fold_cortex/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, "<span class='notice'>Я согнул внешнюю кору большого мозга [target] в фрактальный паттерн!</span>",
+	display_results(user, target, "<span class='notice'>Согнул внешнюю кору большого мозга [target] в фрактальный паттерн!</span>",
 		"<span class='notice'>[user] согнул внешнюю кору большого мозга [target] в фрактальный паттерн!</span>",
 		"<span class='notice'>[user] завершил операцию на мозге [target].</span>")
 	new /datum/bioware/cortex_fold(target)

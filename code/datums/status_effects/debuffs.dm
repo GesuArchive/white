@@ -270,11 +270,11 @@
 	. = ..()
 	if(usr != owner)
 		return
-	to_chat(owner, "<span class='notice'>Я пытаюсь снять прядь дюраткани с моей шеи.</span>")
+	to_chat(owner, "<span class='notice'>Пытаюсь снять прядь дюраткани с моей шеи.</span>")
 	if(do_after(owner, 3.5 SECONDS, owner))
 		if(isliving(owner))
 			var/mob/living/L = owner
-			to_chat(owner, "<span class='notice'>Я успешно удаляю прядь дюраткани.</span>")
+			to_chat(owner, "<span class='notice'>Успешно удаляю прядь дюраткани.</span>")
 			L.remove_status_effect(STATUS_EFFECT_CHOKINGSTRAND)
 
 //OTHER DEBUFFS

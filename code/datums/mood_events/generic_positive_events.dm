@@ -85,7 +85,7 @@
 	hidden = TRUE
 
 /datum/mood_event/badass_antag
-	description = "<span class='greentext'>Я так крут, и все это знают. Просто посмотри на них, они трясутся от одной мысли, что я рядом с ними.</span>\n"
+	description = "<span class='greentext'>Так крут, и все это знают. Просто посмотри на них, они трясутся от одной мысли, что я рядом с ними.</span>\n"
 	mood_change = 7
 	hidden = TRUE
 	special_screen_obj = "badass_sun"
@@ -103,7 +103,7 @@
 	hidden = TRUE
 
 /datum/mood_event/cult
-	description = "<span class='nicegreen'>Я знаю правду, славим великого!</span>\n"
+	description = "<span class='nicegreen'>Знаю правду, славим великого!</span>\n"
 	mood_change = 10 //maybe being a cultist isnt that bad after all
 	hidden = TRUE
 

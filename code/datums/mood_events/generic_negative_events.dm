@@ -7,7 +7,7 @@
 	mood_change = -8
 
 /datum/mood_event/on_fire
-	description = "<span class='boldwarning'>Я ГОРЮ!!!</span>\n"
+	description = "<span class='boldwarning'>ГОРЮ!!!</span>\n"
 	mood_change = -12
 
 /datum/mood_event/suffocation
@@ -73,7 +73,7 @@
 	timeout = 2 MINUTES
 
 /datum/mood_event/shameful_suicide //suicide_acts that return SHAME, like sord
-	description = "<span class='boldwarning'>Я даже не могу покончить со всем этим!</span>\n"
+	description = "<span class='boldwarning'>Даже не могу покончить со всем этим!</span>\n"
 	mood_change = -15
 	timeout = 60 SECONDS
 
@@ -134,11 +134,11 @@
 	mood_change = -3
 
 /datum/mood_event/bright_light
-	description = "<span class='boldwarning'>Я ненавижу белых... Хочу срочно стать негром...</span>\n"
+	description = "<span class='boldwarning'>Ненавижу белых... Хочу срочно стать негром...</span>\n"
 	mood_change = -12
 
 /datum/mood_event/family_heirloom_missing
-	description = "<span class='warning'>Я скучаю по моей семейной реликвии...</span>\n"
+	description = "<span class='warning'>Скучаю по моей семейной реликвии...</span>\n"
 	mood_change = -4
 
 /datum/mood_event/healsbadman
@@ -147,7 +147,7 @@
 	timeout = 2 MINUTES
 
 /datum/mood_event/jittery
-	description = "<span class='warning'>Я нервничаю, нервничаю и не могу стоять ровно!</span>\n"
+	description = "<span class='warning'>Нервничаю, нервничаю и не могу стоять ровно!</span>\n"
 	mood_change = -2
 
 /datum/mood_event/vomit

@@ -82,7 +82,7 @@
 			log_combat(A, D, "grabbed", addition="aggressively")
 			D.visible_message("<span class='warning'>[A] violently grabs [D]!</span>", \
 							"<span class='userdanger'>You're grabbed violently by [A]!</span>", "<span class='hear'>You hear sounds of aggressive fondling!</span>", COMBAT_MESSAGE_RANGE, A)
-			to_chat(A, "<span class='danger'>Я крепко хватаю [D]!</span>")
+			to_chat(A, "<span class='danger'>Крепко хватаю [D]!</span>")
 		return TRUE
 	else
 		return FALSE

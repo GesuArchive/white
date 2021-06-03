@@ -140,21 +140,21 @@
 /obj/item/bodypart/chest/robot/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stock_parts/cell))
 		if(cell)
-			to_chat(user, "<span class='warning'>Я уже вставил ячейку питания!</span>")
+			to_chat(user, "<span class='warning'>Уже вставил ячейку питания!</span>")
 			return
 		else
 			if(!user.transferItemToLoc(W, src))
 				return
 			cell = W
-			to_chat(user, "<span class='notice'>Я вставил ячейку питания.</span>")
+			to_chat(user, "<span class='notice'>Вставил ячейку питания.</span>")
 	else if(istype(W, /obj/item/stack/cable_coil))
 		if(wired)
-			to_chat(user, "<span class='warning'>Я уже вставил провод!</span>")
+			to_chat(user, "<span class='warning'>Уже вставил провод!</span>")
 			return
 		var/obj/item/stack/cable_coil/coil = W
 		if (coil.use(1))
 			wired = TRUE
-			to_chat(user, "<span class='notice'>Я вставил провод.</span>")
+			to_chat(user, "<span class='notice'>Вставил провод.</span>")
 		else
 			to_chat(user, "<span class='warning'>Мне нужен 1 кусок провода, чтобы присоединить его сюда!</span>")
 	else
@@ -166,7 +166,7 @@
 		return
 	. = TRUE
 	I.play_tool_sound(src)
-	to_chat(user, "<span class='notice'>Я отрезаю провода в [src].</span>")
+	to_chat(user, "<span class='notice'>Отрезаю провода в [src].</span>")
 	new /obj/item/stack/cable_coil(drop_location(), 1)
 	wired = FALSE
 
@@ -259,10 +259,10 @@
 	if(istype(W, /obj/item/assembly/flash/handheld))
 		var/obj/item/assembly/flash/handheld/F = W
 		if(flash1 && flash2)
-			to_chat(user, "<span class='warning'>Я уже вставил глаза!</span>")
+			to_chat(user, "<span class='warning'>Уже вставил глаза!</span>")
 			return
 		else if(F.burnt_out)
-			to_chat(user, "<span class='warning'>Я не могу использовать сломанную вспышку!</span>")
+			to_chat(user, "<span class='warning'>Не могу использовать сломанную вспышку!</span>")
 			return
 		else
 			if(!user.transferItemToLoc(F, src))
@@ -271,7 +271,7 @@
 				flash2 = F
 			else
 				flash1 = F
-			to_chat(user, "<span class='notice'>Я вставил вспышку в глазной разъем.</span>")
+			to_chat(user, "<span class='notice'>Вставил вспышку в глазной разъем.</span>")
 			return
 	return ..()
 
@@ -279,7 +279,7 @@
 	..()
 	if(flash1 || flash2)
 		I.play_tool_sound(src)
-		to_chat(user, "<span class='notice'>Я извлек вспышку из [src].</span>")
+		to_chat(user, "<span class='notice'>Извлек вспышку из [src].</span>")
 		if(flash1)
 			flash1.forceMove(drop_location())
 			flash1 = null

@@ -27,8 +27,8 @@
 	name = "Дефицит крови"
 	desc = "Ваш организм не может производить достаточно крови для нормального функционирования."
 	value = -8
-	gain_text = "<span class='danger'>Я чувствую онемение.</span>"
-	lose_text = "<span class='notice'>Я чувствую себя бодрым!</span>"
+	gain_text = "<span class='danger'>Чувствую онемение.</span>"
+	lose_text = "<span class='notice'>Чувствую себя бодрым!</span>"
 	medical_record_text = " Пациенту необходима дополнительная помощь для переливания крови из-за её дефицита в организме."
 	hardcore_value = 8
 
@@ -44,8 +44,8 @@
 	name = "Слепой"
 	desc = "Я абсолютно слеп. Ничего не может воспрепятствовать этому."
 	value = -16
-	gain_text = "<span class='danger'>Я ничего не вижу!</span>"
-	lose_text = "<span class='notice'>Я чудесным образом снова вижу!</span>"
+	gain_text = "<span class='danger'>Ничего не вижу!</span>"
+	lose_text = "<span class='notice'>Чудесным образом снова вижу!</span>"
 	medical_record_text = "Пациент имеет постоянную слепоту."
 	hardcore_value = 15
 
@@ -67,8 +67,8 @@
 	name = "Паразит в голове"
 	desc = "В вашей голове завёлся маленький дружок, который медленно уничтожает ваш мозг. Будет хорошим выбором носить с собой маннитол."
 	value = -12
-	gain_text = "<span class='danger'>Я чувствую боль в голове.</span>"
-	lose_text = "<span class='notice'>Я чувствую, что голова перестала болеть.</span>"
+	gain_text = "<span class='danger'>Чувствую боль в голове.</span>"
+	lose_text = "<span class='notice'>Чувствую, что голова перестала болеть.</span>"
 	medical_record_text = "Пациент имеет паразита в своей голове, который медленно пожирает его мозг, и в скором будущем это может привести к летальному исходу."
 	hardcore_value = 12
 	/// Location of the bottle of pills on spawn
@@ -102,7 +102,7 @@
 	desc = "Я ничего не слышу."
 	value = -8
 	mob_trait = TRAIT_DEAF
-	gain_text = "<span class='danger'>Я не могу слышать.</span>"
+	gain_text = "<span class='danger'>Не могу слышать.</span>"
 	lose_text = "<span class='notice'>Теперь я снова слышу!</span>"
 	medical_record_text = "Ушная улитка пациента повреждена и не подвергается лечению."
 	hardcore_value = 12
@@ -112,8 +112,8 @@
 	desc = "Иногда я просто ненавижу свою жизнь."
 	mob_trait = TRAIT_DEPRESSION
 	value = -3
-	gain_text = "<span class='danger'>Я чувствую себя депрессивным.</span>"
-	lose_text = "<span class='notice'>Я больше не чувствую себя депрессивным.</span>" // если один это было так легко!
+	gain_text = "<span class='danger'>Чувствую себя депрессивным.</span>"
+	lose_text = "<span class='notice'>Больше не чувствую себя депрессивным.</span>" // если один это было так легко!
 	medical_record_text = "Пациент имеет серьёзное психическое заболевание, в результате чего у него возникают острые эпизоды депрессии."
 	mood_quirk = TRUE
 	hardcore_value = 1
@@ -261,8 +261,8 @@
 	desc = "Ваши кости очень хрупкие! Ваши конечности не смогут выдержать слишком много повреждений."
 	value = -6
 	mob_trait = TRAIT_EASILY_WOUNDED
-	gain_text = "<span class='danger'>Я чувствую себя слабым.</span>"
-	lose_text = "<span class='notice'>Я вновь чувствую себя крепким!</span>"
+	gain_text = "<span class='danger'>Чувствую себя слабым.</span>"
+	lose_text = "<span class='notice'>Вновь чувствую себя крепким!</span>"
 	medical_record_text = "Пациент имеет очень слабые кости, рекомендуется кальцевая диета."
 	hardcore_value = 4
 
@@ -271,8 +271,8 @@
 	desc = " Я крепко сплю! Всякий раз, когда я ложусь спать или теряю сознание, мне потребуется немного больше времени, чтобы встать."
 	value = -2
 	mob_trait = TRAIT_HEAVY_SLEEPER
-	gain_text = "<span class='danger'>Я чувствую себя вялым.</span>"
-	lose_text = "<span class='notice'>Я вновь чувствую себя бодрым!</span>"
+	gain_text = "<span class='danger'>Чувствую себя вялым.</span>"
+	lose_text = "<span class='notice'>Вновь чувствую себя бодрым!</span>"
 	medical_record_text = "Пациент имеет отрицательные результаты качества сна и его трудно разбудить."
 	hardcore_value = 2
 
@@ -302,7 +302,7 @@
 	value = -2
 	mob_trait = TRAIT_LIGHT_DRINKER
 	gain_text = "<span class='notice'>Даже мысль об алкоголе заставляет вашу голову кружиться.</span>"
-	lose_text = "<span class='danger'>Я чувствую себя более устойчивее к алкоголю.</span>"
+	lose_text = "<span class='danger'>Чувствую себя более устойчивее к алкоголю.</span>"
 	medical_record_text = "Пациент демонстрирует низкую устойчивость к алкоголю."
 	hardcore_value = 3
 
@@ -352,8 +352,8 @@
 	desc = "Мысль о насилии заставляет меня чувствовать себя неприятно. Настолько, что я не могу нанести вред окружающим."
 	value = -8
 	mob_trait = TRAIT_PACIFISM
-	gain_text = "<span class='danger'>Я чувствую себя жутко, подумав о насилии!</span>"
-	lose_text = "<span class='notice'>Я чувствую, что можно защитить себя вновь.</span>"
+	gain_text = "<span class='danger'>Чувствую себя жутко, подумав о насилии!</span>"
+	lose_text = "<span class='notice'>Чувствую, что можно защитить себя вновь.</span>"
 	medical_record_text = "Пациент является пацифистом и не может заставить себя причинить вред кому-либо."
 	hardcore_value = 6
 
@@ -451,7 +451,7 @@
 	desc = "Мой первый инстинкт будет позволять людям толкать меня. Вырываться из захвата будет также сложнее."
 	value = -8
 	mob_trait = TRAIT_GRABWEAKNESS
-	gain_text = "<span class='danger'>Я чувствую себя неуверенно.</span>"
+	gain_text = "<span class='danger'>Чувствую себя неуверенно.</span>"
 	lose_text = "<span class='notice'>Теперь-то я смогу защитить себя!</span>"
 	medical_record_text = "Пациент представляет собой неуверенную и наивную личность, и им легко манипулировать."
 	hardcore_value = 4
@@ -462,7 +462,7 @@
 	value = -8
 	//no mob trait because it's handled uniquely
 	gain_text = "<span class='userdanger'>...</span>"
-	lose_text = "<span class='notice'>Я чувствую себя нормальным..</span>"
+	lose_text = "<span class='notice'>Чувствую себя нормальным..</span>"
 	medical_record_text = "Пациент страдает от Синдрома Диссоциации Реальности, вызывающее у него тяжелые галлюцинации."
 	hardcore_value = 6
 
@@ -486,7 +486,7 @@
 	name = "Социофоб"
 	desc = "Разговор с людьми очень сложен для вас, и вы будете заикаться при попытке заговорить, или просто молчать."
 	value = -3
-	gain_text = "<span class='danger'>Я начинаю волноваться насчёт мнения окружающих.</span>"
+	gain_text = "<span class='danger'>Начинаю волноваться насчёт мнения окружающих.</span>"
 	lose_text = "<span class='notice'>Вам стало легче говорить.</span>" //if only it were that easy!
 	medical_record_text = "Пациент, как правило, беспокоится о социальных связях и предпочитает избегать их."
 	hardcore_value = 4
@@ -510,10 +510,10 @@
 	if(DT_PROB(2 + nearby_people, delta_time))
 		H.stuttering = max(3, H.stuttering)
 	else if(DT_PROB(min(3, nearby_people), delta_time) && !H.silent)
-		to_chat(H, "<span class='danger'>Я решаю просто немного помолчать. Мне <i>совсем</i> не хочется разговаривать.</span>")
+		to_chat(H, "<span class='danger'>Решаю просто немного помолчать. Мне <i>совсем</i> не хочется разговаривать.</span>")
 		H.silent = max(10, H.silent)
 	else if(DT_PROB(0.5, delta_time) && dumb_thing)
-		to_chat(H, "<span class='userdanger'>Я вспоминаю дурацкую вещь, которую сказали давным давно и испытываю внутреннюю боль.</span>")
+		to_chat(H, "<span class='userdanger'>Вспоминаю дурацкую вещь, которую сказали давным давно и испытываю внутреннюю боль.</span>")
 		dumb_thing = FALSE //only once per life
 		if(prob(1))
 			new/obj/item/food/spaghetti/pastatomato(get_turf(H)) //now that's what I call spaghetti code
@@ -619,7 +619,7 @@
 			quirk_holder.mind.remove_addiction_points(addiction_type, MAX_ADDICTION_POINTS) //chat feedback here. No need of lose_text.
 
 /datum/quirk/junkie/proc/announce_drugs()
-	to_chat(quirk_holder, "<span class='boldnotice'>Я пронёс [initial(drug_container_type.name)] из [initial(reagent_type.name)] [where_drug]. Скоро он закончится, и мне необходимо будет найти дополнительную дозу.</span>")
+	to_chat(quirk_holder, "<span class='boldnotice'>Пронёс [initial(drug_container_type.name)] из [initial(reagent_type.name)] [where_drug]. Скоро он закончится, и мне необходимо будет найти дополнительную дозу.</span>")
 
 /datum/quirk/junkie/on_process()
 	if(HAS_TRAIT(quirk_holder, TRAIT_NOMETABOLISM))
@@ -680,7 +680,7 @@
 	value = -10
 	mob_trait = TRAIT_UNSTABLE
 	gain_text = "<span class='danger'>Столько вещей сейчас в голове...</span>"
-	lose_text = "<span class='notice'>Я чувствую себя гораздо спокойнее.</span>"
+	lose_text = "<span class='notice'>Чувствую себя гораздо спокойнее.</span>"
 	medical_record_text = "Психика пациента находится в уязвимом состоянии и не сможет больше оправиться после травмы."
 	hardcore_value = 9
 

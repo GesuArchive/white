@@ -43,7 +43,7 @@
 		return FALSE
 
 	battery = I
-	to_chat(user, "<span class='notice'>Я подключаю \[I] к <b>[src.name]</b>.</span>")
+	to_chat(user, "<span class='notice'>Подключаю \[I] к <b>[src.name]</b>.</span>")
 
 	return TRUE
 
@@ -57,7 +57,7 @@
 			user.put_in_hands(battery)
 		else
 			battery.forceMove(drop_location())
-		to_chat(user, "<span class='notice'>Я отсоединяю \[battery] от <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>Отсоединяю \[battery] от <b>[src.name]</b>.</span>")
 		battery = null
 
 		if(holder)

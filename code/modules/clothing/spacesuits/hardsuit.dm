@@ -133,29 +133,29 @@
 			to_chat(user, "<span class='warning'>Джетпак [src] уже установлен.</span>")
 			return
 		if(src == user.get_item_by_slot(ITEM_SLOT_OCLOTHING)) //Make sure the player is not wearing the suit before applying the upgrade.
-			to_chat(user, "<span class='warning'>Я не могу установить улучшение [src] пока он надет.</span>")
+			to_chat(user, "<span class='warning'>Не могу установить улучшение [src] пока он надет.</span>")
 			return
 
 		if(user.transferItemToLoc(I, src))
 			jetpack = I
-			to_chat(user, "<span class='notice'>Я успешно установил джетпак в [src].</span>")
+			to_chat(user, "<span class='notice'>Успешно установил джетпак в [src].</span>")
 			return
 	else if(!cell_cover_open && I.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!jetpack)
 			to_chat(user, "<span class='warning'>Джетпак [src] не установлен.</span>")
 			return
 		if(src == user.get_item_by_slot(ITEM_SLOT_OCLOTHING))
-			to_chat(user, "<span class='warning'>Я не могу вытащить джетпак из надетого [src].</span>")
+			to_chat(user, "<span class='warning'>Не могу вытащить джетпак из надетого [src].</span>")
 			return
 
 		jetpack.turn_off(user)
 		jetpack.forceMove(drop_location())
 		jetpack = null
-		to_chat(user, "<span class='notice'>Я успешно вытащил джетпак из [src].</span>")
+		to_chat(user, "<span class='notice'>Успешно вытащил джетпак из [src].</span>")
 		return
 	else if(istype(I, /obj/item/light) && helmettype)
 		if(src == user.get_item_by_slot(ITEM_SLOT_OCLOTHING))
-			to_chat(user, "<span class='warning'>Я не могу заменить лампочку на шлеме [src] пока он надет.</span>")
+			to_chat(user, "<span class='warning'>Не могу заменить лампочку на шлеме [src] пока он надет.</span>")
 			return
 		if(helmet)
 			to_chat(user, "<span class='warning'>Шлему [src] не нужна новая лампочка.</span>")
@@ -167,7 +167,7 @@
 		if(do_after(user, 5 SECONDS, src))
 			qdel(I)
 			helmet = new helmettype(src)
-			to_chat(user, "<span class='notice'>Я успешно заменил лампочку на шлеме [src].</span>")
+			to_chat(user, "<span class='notice'>Успешно заменил лампочку на шлеме [src].</span>")
 			new /obj/item/light/bulb/broken(drop_location())
 	return ..()
 

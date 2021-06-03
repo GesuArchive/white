@@ -260,7 +260,7 @@
 		return
 	if(new_style && new_style != hairstyle)
 		hairstyle = new_style
-		user.visible_message("<span class='notice'>[user] меняет прическу [src] на [new_style].</span>", "<span class='notice'>Я изменил прическу [src] на [new_style].</span>")
+		user.visible_message("<span class='notice'>[user] меняет прическу [src] на [new_style].</span>", "<span class='notice'>Изменил прическу [src] на [new_style].</span>")
 	if(newcolor && newcolor != color) // only update if necessary
 		add_atom_colour(newcolor, FIXED_COLOUR_PRIORITY)
 	update_icon()
@@ -268,7 +268,7 @@
 /obj/item/clothing/head/wig/afterattack(mob/living/carbon/human/target, mob/user)
 	. = ..()
 	if (istype(target) && (HAIR in target.dna.species.species_traits) && target.hairstyle != "Bald")
-		to_chat(user, "<span class='notice'>Я подстриг [src] под [target.name] [target.hairstyle].</span>")
+		to_chat(user, "<span class='notice'>Подстриг [src] под [target.name] [target.hairstyle].</span>")
 		add_atom_colour("#[target.hair_color]", FIXED_COLOUR_PRIORITY)
 		hairstyle = target.hairstyle
 		update_icon()

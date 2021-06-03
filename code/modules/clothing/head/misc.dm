@@ -141,7 +141,7 @@
 		return
 	if(slot == ITEM_SLOT_HEAD)
 		user.grant_language(/datum/language/piratespeak/, TRUE, TRUE, LANGUAGE_HAT)
-		to_chat(user, "<span class='boldnotice'>Я вспоминаю как говорить, как пират!</span>")
+		to_chat(user, "<span class='boldnotice'>Вспоминаю как говорить, как пират!</span>")
 
 /obj/item/clothing/head/pirate/dropped(mob/user)
 	. = ..()
@@ -150,7 +150,7 @@
 	var/mob/living/carbon/human/H = user
 	if(H.get_item_by_slot(ITEM_SLOT_HEAD) == src)
 		user.remove_language(/datum/language/piratespeak/, TRUE, TRUE, LANGUAGE_HAT)
-		to_chat(user, "<span class='boldnotice'>Я забываю как говорить, как пират.</span>")
+		to_chat(user, "<span class='boldnotice'>Забываю как говорить, как пират.</span>")
 
 /obj/item/clothing/head/pirate/armored
 	armor = list(MELEE = 30, BULLET = 50, LASER = 30,ENERGY = 40, BOMB = 30, BIO = 30, RAD = 30, FIRE = 60, ACID = 75)
