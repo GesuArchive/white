@@ -94,7 +94,7 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	return text
 
 /proc/r_jobgen(text)
-	var/list/strip_chars = list("_"," ")
+	var/list/strip_chars = list("_"," ","(",")")
 	for(var/char in strip_chars)
 		text = replacetext_char(text, char, "")
 	return lowertext(text)
