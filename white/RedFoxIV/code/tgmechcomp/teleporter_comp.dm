@@ -3,6 +3,7 @@
 /obj/item/mechcomp/teleport
 	name = "mechcomp Teleporter"
 	desc = "Teleports things around. This one is severly limited by range."
+	icon_state = "comp_tele"
 	part_icon_state = "comp_tele"
 	active_icon_state = "comp_tele1"
 	has_anchored_icon_state = TRUE
