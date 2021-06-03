@@ -1,13 +1,11 @@
 /datum/job/bomj
-	title = "Бомж"
+	title = "Bomj"
 	ru_title = "Бомж"
 	faction = "Station"
 	total_positions = 5
 	spawn_positions = 5
 	supervisors = "никому"
 	selection_color = "#dddd00"
-	access = list()
-	minimal_access = list()
 	outfit = /datum/outfit/job/bomj
 	antag_rep = 3
 	paycheck = PAYCHECK_PRISONER

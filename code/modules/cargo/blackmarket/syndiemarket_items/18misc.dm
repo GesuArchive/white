@@ -77,7 +77,7 @@
 			access gained from another. In addition, they can be forged to display a new assignment and name. \
 			This can be done an unlimited amount of times. Some Syndicate areas and devices can only be accessed \
 			with these cards."
-	item = /obj/item/card/id/syndicate
+	item = /obj/item/card/id/advanced/chameleon
 
 	price_min = 5000
 	price_max = 10000

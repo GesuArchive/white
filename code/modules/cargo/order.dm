@@ -51,7 +51,7 @@
 	P.info += "Запрос #[id]<br/>"
 	P.info += "Время заказа: [station_time_timestamp()]<br/>"
 	P.info += "Товар: [pack.name]<br/>"
-	P.info += "Ограничения: [get_access_desc(pack.access)]<br/>"
+	P.info += "Ограничения: [SSid_access.get_access_desc(pack.access)]<br/>"
 	P.info += "Заказчик: [orderer]<br/>"
 	if(paying_account)
 		P.info += "Оплачено: [paying_account.account_holder]<br/>"

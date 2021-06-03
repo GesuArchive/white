@@ -241,15 +241,14 @@ Security HUDs! Basic mode shows only the job.
 	var/image/holder = hud_list[ID_HUD]
 	var/icon/I = icon(icon, icon_state, dir)
 	holder.pixel_y = I.Height() - world.icon_size
-	holder.icon_state = "hudno_id"
-	if(wear_id?.GetID())
-		var/jobid = r_jobgen(wear_id.GetJobName())
-		if(jobid in GLOB.white_job_list)
-			holder.icon = 'white/valtos/icons/hud.dmi'
-		if(jobid == "механик")
-			holder.icon_state = "hudmechanic"
-		else
-			holder.icon_state = "hud[r_jobgen(wear_id.GetJobName())]"
+	var/sechud_icon_state = wear_id?.get_sechud_job_icon_state()
+
+	if(sechud_icon_state in GLOB.white_job_list)
+		holder.icon = 'white/valtos/icons/hud.dmi'
+		sechud_icon_state = "hud[r_jobgen(sechud_icon_state)]"
+	if(!sechud_icon_state)
+		sechud_icon_state = "hudno_id"
+	holder.icon_state = sechud_icon_state
 	sec_hud_set_security_status()
 
 /mob/living/proc/sec_hud_set_implants()

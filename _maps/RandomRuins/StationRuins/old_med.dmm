@@ -1377,7 +1377,7 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay)
 "pc" = (
-/obj/machinery/computer/card/minor/cmo{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue{

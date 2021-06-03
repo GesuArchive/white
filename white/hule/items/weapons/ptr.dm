@@ -107,7 +107,7 @@
 	mask = /obj/item/clothing/mask/gas/anonist
 	suit_store = /obj/item/tank/internals/emergency_oxygen/double
 	r_hand = /obj/item/gun/ballistic/rifle/boltaction/ptr
-	id = /obj/item/card/id/silver/reaper
+	id = /obj/item/card/id/advanced/silver/reaper
 	l_pocket = /obj/item/switchblade
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(	/obj/item/ammo_box/a15mm = 3,

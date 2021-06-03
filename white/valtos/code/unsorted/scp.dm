@@ -32,7 +32,7 @@
 	name = "SCP: Prisoner D"
 	uniform = /obj/item/clothing/under/prison/dclass
 	shoes = /obj/item/clothing/shoes/sneakers/orange
-	id = /obj/item/card/id/prisoner
+	id = /obj/item/card/id/advanced/prisoner
 
 	implants = list(/obj/item/implant/exile)
 
@@ -41,7 +41,7 @@
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/wzzzz/morpheus
 	suit = /obj/item/clothing/suit/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/sneakers/brown
-	id = /obj/item/card/id/ert/security
+	id = /obj/item/card/id/advanced/centcom/ert/security
 
 	implants = list(/obj/item/implant/exile)
 

@@ -1,5 +1,5 @@
 /datum/outfit/job/bomj
-	name = "Бомж"
+	name = "Bomj"
 	jobtype = /datum/job/bomj
 	uniform = /obj/item/clothing/under/shorts/black
 	backpack = null

@@ -899,7 +899,7 @@
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "bZ" = (
-/obj/machinery/computer/card{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 8
 	},
 /obj/machinery/airalarm{
@@ -1008,7 +1008,7 @@
 /turf/open/floor/plating,
 /area/crew_quarters/heads/captain)
 "cm" = (
-/obj/machinery/computer/card{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue{
@@ -1140,6 +1140,9 @@
 /area/bridge)
 "cA" = (
 /obj/structure/dresser,
+/obj/item/storage/secure/safe/caps_spare{
+	pixel_x = -23
+	},
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "cB" = (

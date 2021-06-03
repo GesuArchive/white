@@ -1,5 +1,5 @@
-/datum/job/engineer/mechanic
-	title = "Механик"
+/datum/job/station_engineer/mechanic
+	title = "Mechanic"
 	ru_title = "Механик"
 	total_positions = 1
 	spawn_positions = 1
@@ -8,23 +8,29 @@
 
 	outfit = /datum/outfit/job/mechanic
 
-	access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE, ACCESS_AUX_BASE,
-		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_TCOMSAT, ACCESS_MINERAL_STOREROOM, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS)
-	minimal_access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE, ACCESS_AUX_BASE,
-		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_TCOMSAT, ACCESS_MINERAL_STOREROOM, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS)
-
 	paycheck = PAYCHECK_HARD
 	paycheck_department = ACCOUNT_ENG
 
 	metalocked = TRUE
+
+/datum/id_trim/job/mechanic
+	assignment = "Mechanic"
+	trim_state = "trim_mechanic"
+	full_access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE, ACCESS_AUX_BASE,
+		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_TCOMSAT, ACCESS_MINERAL_STOREROOM, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS)
+	minimal_access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE, ACCESS_AUX_BASE,
+		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_TCOMSAT, ACCESS_MINERAL_STOREROOM, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS)
+	config_job = "mechanic"
+	template_access = list(ACCESS_CAPTAIN, ACCESS_CE, ACCESS_CHANGE_IDS)
+	trim_icon = 'white/valtos/icons/card.dmi'
 
 /area/engine/manufactory
 	name = "Фабрика"
 	icon_state = "engine"
 
 /datum/outfit/job/mechanic
-	name = "Механик"
-	jobtype = /datum/job/engineer/mechanic
+	name = "Mechanic"
+	jobtype = /datum/job/station_engineer/mechanic
 
 	belt = /obj/item/storage/belt/utility/full/mechanic
 	l_pocket = /obj/item/pda/engineering
@@ -43,6 +49,8 @@
 	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced = 1)
 
 	skillchips = list(/obj/item/skillchip/job/engineer)
+
+	id_trim = /datum/id_trim/job/mechanic
 
 /obj/machinery/copytech
 	name = "копирующий станок"
@@ -136,7 +144,7 @@
 		say("Недостаточно блюспейс-кристаллов для начала работы!")
 		return
 	start_working()
-		
+
 
 /obj/machinery/copytech/proc/start_working()
 	say("Приступаю к процессу создания объекта...")
@@ -337,7 +345,7 @@
 				D = thing
 			if(istype(thing, /mob/living) && tier_rate >= 8)
 				D = thing
-	
+
 	if(!D)
 		return
 
@@ -390,7 +398,7 @@
 		working = FALSE
 		update_icon()
 		return
-	
+
 	ct.current_design = D.type
 	say("Завершение работы...")
 	timer = null

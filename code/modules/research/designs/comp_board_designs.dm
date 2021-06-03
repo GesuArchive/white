@@ -104,14 +104,6 @@
 	category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SECURITY				//Honestly should have a bridge techfab for this sometime.
 
-/datum/design/board/idcardconsole
-	name = "Дизайн консоли (ID Console)"
-	desc = "Allows for the construction of circuit boards used to build an ID computer."
-	id = "idcardconsole"
-	build_path = /obj/item/circuitboard/computer/card
-	category = list("Консоли")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SECURITY				//Honestly should have a bridge techfab for this sometime.
-
 /datum/design/board/crewconsole
 	name = "Дизайн консоли (Crew monitoring computer)"
 	desc = "Allows for the construction of circuit boards used to build a Crew monitoring computer."

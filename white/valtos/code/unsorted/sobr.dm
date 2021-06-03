@@ -37,7 +37,7 @@
 	head = /obj/item/clothing/head/beret/durathread
 	glasses = /obj/item/clothing/glasses/sunglasses
 	belt = /obj/item/storage/belt/security/sobr
-	id = /obj/item/card/id/centcom
+	id = /obj/item/card/id/advanced/centcom
 
 	implants = list(/obj/item/implant/sound_implant)
 /datum/outfit/sobr/pre_equip(mob/living/carbon/human/H)
@@ -60,10 +60,10 @@
 	R.recalculateChannels()
 
 	var/obj/item/card/id/W = H.wear_id
-	W.access = get_centcom_access(name)
-	W.access += ACCESS_WEAPONS
-	W.access += ACCESS_MAINT_TUNNELS
-	W.access += get_region_accesses(2)
+	//W.access = get_centcom_access(name)
+	//W.access += ACCESS_WEAPONS
+	//W.access += ACCESS_MAINT_TUNNELS
+	//W.access += get_region_accesses(2)
 	W.assignment = name
 	W.registered_name = H.real_name
 	W.update_label()
@@ -79,7 +79,7 @@
 	head = /obj/item/clothing/head/beret/durathread
 	glasses = /obj/item/clothing/glasses/sunglasses
 	belt = /obj/item/storage/belt/military/army/wzzzz/sobr
-	id = /obj/item/card/id/centcom
+	id = /obj/item/card/id/advanced/centcom
 
 	implants = list(/obj/item/implant/sound_implant)
 /datum/outfit/sobr/leader/pre_equip(mob/living/carbon/human/H)
@@ -92,10 +92,10 @@
 	R.keyslot = new /obj/item/encryptionkey/heads/hos
 	R.recalculateChannels()
 	var/obj/item/card/id/W = H.wear_id
-	W.access = get_centcom_access(name)
-	W.access += ACCESS_WEAPONS
-	W.access += ACCESS_MAINT_TUNNELS
-	W.access += get_region_accesses(2)
+	//W.access = get_centcom_access(name)
+	//W.access += ACCESS_WEAPONS
+	//W.access += ACCESS_MAINT_TUNNELS
+	//W.access += get_region_accesses(2)
 	W.assignment = name
 	W.registered_name = H.real_name
 	W.update_label()

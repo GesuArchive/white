@@ -13,16 +13,13 @@
 	desc = "Удалённый доступ к шлюзам."
 	w_class = WEIGHT_CLASS_TINY
 	var/mode = WAND_OPEN
-	var/region_access = 1 //See access.dm
+	var/region_access = REGION_GENERAL
 	var/list/access_list
 	network_id = NETWORK_DOOR_REMOTES
 
 /obj/item/door_remote/Initialize()
 	. = ..()
-	if(region_access == 0)
-		access_list = get_all_accesses() + get_all_centcom_access() + get_all_syndicate_access()
-	else
-		access_list = get_region_accesses(region_access)
+	access_list = SSid_access.get_region_access_list(list(region_access))
 	RegisterSignal(src, COMSIG_COMPONENT_NTNET_NAK, .proc/bad_signal)
 	RegisterSignal(src, COMSIG_COMPONENT_NTNET_ACK, .proc/good_signal)
 
@@ -84,48 +81,47 @@
 
 	ntnet_send(data)
 
-
 /obj/item/door_remote/omni
 	name = "всешлюзник"
 	desc = "Имеет доступ ко всем шлюзам на этой деревне."
 	icon_state = "gangtool-yellow"
-	region_access = 0
+	region_access = REGION_ALL_STATION
 
 /obj/item/door_remote/captain
 	name = "пульт управления командования"
 	icon_state = "gangtool-yellow"
-	region_access = 7
+	region_access = REGION_COMMAND
 
 /obj/item/door_remote/chief_engineer
 	name = "инженерный пульт управления"
 	icon_state = "gangtool-orange"
-	region_access = 5
+	region_access = REGION_ENGINEERING
 
 /obj/item/door_remote/research_director
 	name = "научный пульт управления"
 	icon_state = "gangtool-purple"
-	region_access = 4
+	region_access = REGION_RESEARCH
 
 /obj/item/door_remote/head_of_security
 	name = "пульт управления безопасности"
 	icon_state = "gangtool-red"
-	region_access = 2
+	region_access = REGION_SECURITY
 
 /obj/item/door_remote/quartermaster
 	name = "пульт управления снабжения"
 	desc = "Удалённый доступ к шлюзам. Этот имеет доступ к хранилищу."
 	icon_state = "gangtool-green"
-	region_access = 6
+	region_access = REGION_SUPPLY
 
 /obj/item/door_remote/chief_medical_officer
 	name = "медицинский пульт управления"
 	icon_state = "gangtool-blue"
-	region_access = 3
+	region_access = REGION_MEDBAY
 
 /obj/item/door_remote/civilian
 	name = "гражданский пульт управления"
 	icon_state = "gangtool-white"
-	region_access = 1
+	region_access = REGION_GENERAL
 
 #undef WAND_OPEN
 #undef WAND_BOLT

@@ -377,9 +377,9 @@ var turfcontents = [];
 var turfname = "";
 var imageRetryDelay = 500;
 var imageRetryLimit = 50;
-var menu = document.querySelector('#menu');
-var under_menu = document.querySelector('#under_menu');
-var statcontentdiv = document.querySelector('#statcontent');
+var menu = document.getElementById('menu');
+var under_menu = document.getElementById('under_menu');
+var statcontentdiv = document.getElementById('statcontent');
 var storedimages = [];
 
 var connected = false;
@@ -496,6 +496,7 @@ function checkStatusTab() {
 		if(!verb_tabs.includes(menu.children[i].id) && !permanent_tabs.includes(menu.children[i].id))
 			menu.removeChild(menu.children[i]);
 }
+
 function remove_verb(v) {
 	var verb_to_remove = v; // to_remove = [verb:category, verb:name]
 	for(var i = verbs.length - 1; i >= 0; i--){
@@ -551,6 +552,11 @@ function wipe_verbs() {
 	checkStatusTab(); // remove all empty verb tabs
 }
 
+function update_verbs() {
+	wipe_verbs();
+	send_byond_command("Update-Verbs");
+}
+
 function add_verb_list(v) {
 	var to_add = JSON.parse(v); // list of a list with category and verb inside it
 	to_add.sort(); // sort what we're adding
@@ -588,6 +594,7 @@ function remove_verb_list(v) {
 // passes a 2D list of (verbcategory, verbname) creates tabs and adds verbs to respective list
 // example (IC, Say)
 function init_verbs(c, v) {
+	connected_to_server();
 	wipe_verbs(); // remove all verb categories so we can replace them
 	checkStatusTab(); // remove all status tabs
 	verb_tabs = JSON.parse(c);
@@ -753,6 +760,12 @@ function draw_debug() {
 	link[textContentKey] = "Wipe All Verbs";
 	wipeverbstabs.appendChild(link);
 	document.getElementById("statcontent").appendChild(wipeverbstabs);
+	var wipeUpdateVerbsTabs = document.createElement("div");
+	var updateLink = document.createElement("a");
+	updateLink.onclick = function() {update_verbs()};
+	updateLink[textContentKey] = "Wipe and Update All Verbs";
+	wipeUpdateVerbsTabs.appendChild(updateLink);
+	document.getElementById("statcontent").appendChild(wipeUpdateVerbsTabs);
 	var text = document.createElement("div");
 	text[textContentKey] = "Verb Tabs:";
 	document.getElementById("statcontent").appendChild(text);

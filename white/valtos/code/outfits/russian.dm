@@ -1,6 +1,6 @@
 /datum/outfit/job/security/omon
 	name = "Russian Officer"
-	jobtype = /datum/job/officer/omon
+	jobtype = /datum/job/security_officer/omon
 
 	belt = /obj/item/gun/ballistic/automatic/pistol/traumatic
 	ears = /obj/item/radio/headset/headset_sec/alt
@@ -21,6 +21,8 @@
 
 	implants = list(/obj/item/implant/mindshield/)
 
+	id_trim = /datum/id_trim/job/omon
+
 	chameleon_extras = list(/obj/item/gun/ballistic/automatic/pistol/traumatic, /obj/item/clothing/glasses/hud/security/sunglasses, /obj/item/clothing/head/helmet)
 
 /datum/outfit/job/hos
@@ -34,7 +36,7 @@
 
 /datum/outfit/job/security/veteran
 	name = "Veteran"
-	jobtype = /datum/job/officer/veteran
+	jobtype = /datum/job/security_officer/veteran
 
 	belt = /obj/item/gun/ballistic/automatic/pistol/makarov
 	ears = /obj/item/radio/headset/headset_sec/alt/department/engi
@@ -54,5 +56,7 @@
 	box = /obj/item/storage/box/survival/security
 
 	implants = list(/obj/item/implant/mindshield/, /obj/item/implant/krav_maga)
+
+	id_trim = /datum/id_trim/job/veteran
 
 	chameleon_extras = list(/obj/item/gun/ballistic/automatic/pistol/tanner, /obj/item/clothing/glasses/hud/security/sunglasses, /obj/item/clothing/head/helmet)

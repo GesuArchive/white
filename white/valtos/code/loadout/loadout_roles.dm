@@ -12,7 +12,7 @@
 	display_name = "Механик"
 	description = "Занимается исключительно улучшением всего и вся на станции. Имеет RPED с компонентами."
 	cost = 500
-	job_path = /datum/job/engineer/mechanic
+	job_path = /datum/job/station_engineer/mechanic
 
 /datum/gear/roles/field_medic
 	display_name = "Полевой медик"
@@ -21,7 +21,7 @@
 	job_path = /datum/job/doctor/field_medic
 
 /datum/gear/roles/bomj
-	display_name = "Бомж"
+	display_name = "Bomj"
 	description = "Просто бомж."
 	cost = 5
 	job_path = /datum/job/bomj
