@@ -3599,6 +3599,7 @@
 #include "white\R3801U710N.dm"
 #include "white\webhook.dm"
 #include "white\adept\cerebullum_altering_pill.dm"
+#include "white\alexs410\medical_shit.dm"
 #include "white\baldenysh\govnokod\adminverbs.dm"
 #include "white\baldenysh\govnokod\boombox.dm"
 #include "white\baldenysh\govnokod\emotes.dm"

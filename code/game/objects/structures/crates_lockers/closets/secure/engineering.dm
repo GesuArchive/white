@@ -26,6 +26,8 @@
 	new /obj/item/extinguisher/advanced(src)
 	new /obj/item/storage/photo_album/ce(src)
 	new /obj/item/storage/box/skillchips/engineering(src)
+	new /obj/item/holosign_creator/atmos(src)
+	new /obj/item/construction/rcd/combat(src)
 
 /obj/structure/closet/secure_closet/engineering_electrical
 	name = "шкафчик с электроприборами"
