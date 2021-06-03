@@ -381,21 +381,17 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 	var/view_size = getviewsize(view)
 	var/aspect_ratio = view_size[1] / view_size[2]
 
-	var/window_to = "mapwindow"
-	if(prefs.w_toggles & SCREEN_HORIZ_INV)
-		window_to = "infowindow"
-
 	// Calculate desired pixel width using window size and aspect ratio
-	var/list/sizes = params2list(winget(src, "mainwindow.split;[window_to]", "size"))
+	var/list/sizes = params2list(winget(src, "mainwindow.split;mapwindow", "size"))
 
 	// Client closed the window? Some other error? This is unexpected behaviour, let's
 	// CRASH with some info.
-	if(!sizes["[window_to].size"])
-		CRASH("sizes does not contain [window_to].size key. This means a winget failed to return what we wanted. --- sizes var: [sizes] --- sizes length: [length(sizes)]")
+	if(!sizes["mapwindow.size"])
+		CRASH("sizes does not contain mapwindow.size key. This means a winget failed to return what we wanted. --- sizes var: [sizes] --- sizes length: [length(sizes)]")
 
-	var/list/map_size = splittext(sizes["[window_to].size"], "x")
+	var/list/map_size = splittext(sizes["mapwindow.size"], "x")
 
-	// Looks like we expect [window_to].size to be "ixj" where i and j are numbers.
+	// Looks like we expect mapwindow.size to be "ixj" where i and j are numbers.
 	// If we don't get our expected 2 outputs, let's give some useful error info.
 	if(length(map_size) != 2)
 		CRASH("map_size of incorrect length --- map_size var: [map_size] --- map_size length: [length(map_size)]")
@@ -415,12 +411,15 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 	// Calculate and apply a best estimate
 	// +4 pixels are for the width of the splitter's handle
 	var/pct = 100 * (desired_width + 4) / split_width
-	winset(src, "mainwindow.split", "splitter=[pct]")
+	if(prefs.w_toggles & SCREEN_HORIZ_INV)
+		winset(src, "mainwindow.split", "splitter=[-pct + 100]")
+	else
+		winset(src, "mainwindow.split", "splitter=[pct]")
 
 	// Apply an ever-lowering offset until we finish or fail
 	var/delta
 	for(var/safety in 1 to 10)
-		var/after_size = winget(src, "[window_to]", "size")
+		var/after_size = winget(src, "mapwindow", "size")
 		map_size = splittext(after_size, "x")
 		var/got_width = text2num(map_size[1])
 
@@ -435,7 +434,10 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 			delta = -delta/2
 
 		pct += delta
-		winset(src, "mainwindow.split", "splitter=[pct]")
+		if(prefs.w_toggles & SCREEN_HORIZ_INV)
+			winset(src, "mainwindow.split", "splitter=[-pct + 100]")
+		else
+			winset(src, "mainwindow.split", "splitter=[pct]")
 
 /client/verb/policy()
 	set name = "📘 Показать политику"
