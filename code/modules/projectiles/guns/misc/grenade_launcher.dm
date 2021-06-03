@@ -33,7 +33,7 @@
 
 /obj/item/gun/grenadelauncher/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
 	user.visible_message("<span class='danger'>[user] выстрелил гранату!</span>", \
-						"<span class='danger'>Я выстрелил из гранатомета!</span>")
+						"<span class='danger'>Выстрелил из гранатомета!</span>")
 	var/obj/item/grenade/F = grenades[1] //Now with less copypasta!
 	grenades -= F
 	F.forceMove(user.loc)

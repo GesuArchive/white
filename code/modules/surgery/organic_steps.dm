@@ -117,7 +117,7 @@
 
 /datum/surgery_step/saw/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
 	target.apply_damage(50, BRUTE, "[target_zone]", wound_bonus=CANT_WOUND)
-	display_results(user, target, "<span class='notice'>Я отпилил [parse_zone(target_zone)] [target].</span>",
+	display_results(user, target, "<span class='notice'>Отпилил [parse_zone(target_zone)] [target].</span>",
 		"<span class='notice'>[user] отпилил [parse_zone(target_zone)] [target]!</span>",
 		"<span class='notice'>[user] отпилил [parse_zone(target_zone)] [target]!</span>")
 	return ..()
@@ -134,7 +134,7 @@
 		"<span class='notice'>[user] начинает сверление кости в [parse_zone(target_zone)] [target].</span>")
 
 /datum/surgery_step/drill/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, "<span class='notice'>Я успешно просверлил кость в [parse_zone(target_zone)] [target].</span>",
+	display_results(user, target, "<span class='notice'>Успешно просверлил кость в [parse_zone(target_zone)] [target].</span>",
 		"<span class='notice'>[user] успешно просверлил кость в [parse_zone(target_zone)] [target]!</span>",
 		"<span class='notice'>[user] успешно просверлил кость в [parse_zone(target_zone)] [target]!</span>")
 	return ..()

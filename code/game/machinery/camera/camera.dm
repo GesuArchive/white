@@ -195,7 +195,7 @@
 	if(..())
 		return TRUE
 	panel_open = !panel_open
-	to_chat(user, "<span class='notice'>Я [panel_open ? "откручиваю" : "закручиваю"] техническую панель.</span>")
+	to_chat(user, "<span class='notice'>[panel_open ? "откручиваю" : "закручиваю"] техническую панель.</span>")
 	I.play_tool_sound(src)
 	update_icon()
 	return TRUE
@@ -245,7 +245,7 @@
 		return
 
 	setViewRange((view_range == initial(view_range)) ? short_range : initial(view_range))
-	to_chat(user, "<span class='notice'>Я [(view_range == initial(view_range)) ? "восстанавливаю" : "ломаю"] фокусировку камеры.</span>")
+	to_chat(user, "<span class='notice'>[(view_range == initial(view_range)) ? "восстанавливаю" : "ломаю"] фокусировку камеры.</span>")
 	return TRUE
 
 /obj/machinery/camera/welder_act(mob/living/user, obj/item/I)

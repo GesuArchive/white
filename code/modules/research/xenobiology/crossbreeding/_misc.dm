@@ -64,7 +64,7 @@ Slimecrossing Items
 		else
 			to_chat(user, "<span class=notice>Сфоткался с [target]!</span>")
 			to_chat(target, "<span class=notice>[user] сфоткался с тобой!</span>")
-		to_chat(target, "<span class=notice>Я запомню этот миг навсегда!</span>")
+		to_chat(target, "<span class=notice>Запомню этот миг навсегда!</span>")
 
 		used = TRUE
 		target.AddComponent(/datum/component/dejavu, 2)
@@ -185,8 +185,8 @@ Slimecrossing Items
 				to_chat(M, "<span class='notice'>Мир вокруг тебя искривляется и внезапно ты оказываешься в бесконечной пустоте с летающим окном наружу перед тобой.</span>")
 				store(M, user)
 			else
-				to_chat(user, "<span class='warning'>Я был слишком далеко от [M].</span>")
-				to_chat(M, "<span class='warning'>Я был слишком далеко от [user].</span>")
+				to_chat(user, "<span class='warning'>Был слишком далеко от [M].</span>")
+				to_chat(M, "<span class='warning'>Был слишком далеко от [user].</span>")
 		else
 			to_chat(user, "<span class='warning'>[M] отказался заходить в устройство.</span>")
 			return

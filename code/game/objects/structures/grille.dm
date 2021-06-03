@@ -156,7 +156,7 @@
 			W.play_tool_sound(src, 100)
 			set_anchored(!anchored)
 			user.visible_message("<span class='notice'>[user] [anchored ? "прикручивает" : "откручивает"] [src.name].</span>", \
-				"<span class='notice'>Я [anchored ? "прикручиваю [src.name] к полу" : "откручиваю [src.name] от пола"].</span>")
+				"<span class='notice'>[anchored ? "прикручиваю [src.name] к полу" : "откручиваю [src.name] от пола"].</span>")
 			if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
 				QUEUE_SMOOTH(src)
 			return

@@ -417,7 +417,7 @@
 		return
 	if(!ismonkey(user) || user.ckey)
 		var/mob/living/something = user
-		to_chat(something, "<span class='boldnotice'>Я на секунду ощутил колющую боль в затылке.</span>")
+		to_chat(something, "<span class='boldnotice'>На секунду ощутил колющую боль в затылке.</span>")
 		something.apply_damage(5,BRUTE,BODY_ZONE_HEAD,FALSE,FALSE,FALSE) //notably: no damage resist (it's in your helmet), no damage spread (it's in your helmet)
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
 		return
@@ -437,7 +437,7 @@
 	var/mob/picked = pick(candidates)
 	magnification.key = picked.key
 	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
-	to_chat(magnification, "<span class='notice'>Я обезьянка с увеличенным интеллектом! Нужно защищать свой шлем ценой жизни - если я его потеряю, то и моя разумность пропадет вместе с ним!</span>")
+	to_chat(magnification, "<span class='notice'>Обезьянка с увеличенным интеллектом! Нужно защищать свой шлем ценой жизни - если я его потеряю, то и моя разумность пропадет вместе с ним!</span>")
 	var/policy = get_policy(ROLE_MONKEY_HELMET)
 	if(policy)
 		to_chat(magnification, policy)
@@ -452,7 +452,7 @@
 		return
 	if(!polling)//put on a viable head, but taken off after polling finished.
 		if(magnification.client)
-			to_chat(magnification, "<span class='userdanger'>Я чую как я теряю проблески разума, и всё становится тусклым...</span>")
+			to_chat(magnification, "<span class='userdanger'>Чую как я теряю проблески разума, и всё становится тусклым...</span>")
 			magnification.ghostize(FALSE)
 		if(prob(10))
 			switch(rand(1,4))

@@ -28,7 +28,7 @@
 			Copy.info += copycontents
 			Copy.info += "</font>"
 			Copy.name = "Copy - [C.name]"
-		to_chat(user, "<span class='notice'>Я оторвал образец углеродного листа!</span>")
+		to_chat(user, "<span class='notice'>Оторвал образец углеродного листа!</span>")
 		C.copied = TRUE
 		Copy.iscopy = TRUE
 		Copy.update_icon_state()

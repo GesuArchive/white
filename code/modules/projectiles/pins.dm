@@ -83,7 +83,7 @@
 /obj/item/firing_pin/test_range
 	name = "ударник для тестовой площадки"
 	desc = "Данный ударник позволяет протестировать оружие на тестовой площадке. В ином месте это не будет работать."
-	fail_message = "<span class='warning'>Я НЕ НА ТЕСТОВОЙ ПЛОЩАДКЕ.</span>"
+	fail_message = "<span class='warning'>НЕ НА ТЕСТОВОЙ ПЛОЩАДКЕ.</span>"
 	pin_removeable = TRUE
 
 /obj/item/firing_pin/test_range/pin_auth(mob/living/user)

@@ -328,7 +328,7 @@
 		if(qdel_on_fail)
 			qdel(W)
 		else if(!disable_warning)
-			to_chat(src, "<span class='warning'>Я не могу себя снарядить этим!</span>")
+			to_chat(src, "<span class='warning'>Не могу себя снарядить этим!</span>")
 		return FALSE
 	equip_to_slot(W, slot, initial, redraw_mob) //This proc should not ever fail.
 	return TRUE
@@ -700,7 +700,7 @@
 		return
 
 	if ((stat != DEAD || !( SSticker )))
-		to_chat(usr, "<span class='boldnotice'>Я живу!</span>")
+		to_chat(usr, "<span class='boldnotice'>Живу!</span>")
 		return
 
 	client.is_respawned = TRUE

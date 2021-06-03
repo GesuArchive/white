@@ -258,7 +258,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 			if(istype(eyes))
 				eyes.Remove(M)
 				eyes.forceMove(get_turf(M))
-				to_chat(M, "<span class='userdanger'>Я сгибаюсь от боли, кажется мои глазные яблоки разжижаются в голове!</span>")
+				to_chat(M, "<span class='userdanger'>Сгибаюсь от боли, кажется мои глазные яблоки разжижаются в голове!</span>")
 				M.emote("scream")
 				M.adjustBruteLoss(15)
 		else
@@ -274,7 +274,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	if(prob(1) && iscarbon(M))
 		var/datum/disease/D = new /datum/disease/heart_failure
 		M.ForceContractDisease(D)
-		to_chat(M, "<span class='userdanger'>Я уверен что ощутил как мое сердце пропустило удар..</span>")
+		to_chat(M, "<span class='userdanger'>Уверен что ощутил как мое сердце пропустило удар..</span>")
 		M.playsound_local(M, 'sound/effects/singlebeat.ogg', 100, 0)
 
 /datum/reagent/consumable/ethanol/vodka
@@ -1564,7 +1564,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	if(prob(20))
 		M.adjustStaminaLoss(10)
 		M.drop_all_held_items()
-		to_chat(M, "<span class='notice'>Я не чувствую свои руки!</span>")
+		to_chat(M, "<span class='notice'>Не чувствую свои руки!</span>")
 	if(current_cycle > 5)
 		if(prob(20))
 			var/t = pickt()

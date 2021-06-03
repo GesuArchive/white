@@ -40,9 +40,9 @@
 	var/datum/component/material_container/bananium = GetComponent(/datum/component/material_container)
 	var/sheet_amount = bananium.retrieve_all()
 	if(sheet_amount)
-		to_chat(user, "<span class='notice'>Я получил[sheet_amount] листов бананиума из прототипных ботинок.</span>")
+		to_chat(user, "<span class='notice'>Получил[sheet_amount] листов бананиума из прототипных ботинок.</span>")
 	else
-		to_chat(user, "<span class='warning'>Я не могу получить бананиум из прототипных ботинки!</span>")
+		to_chat(user, "<span class='warning'>Не могу получить бананиум из прототипных ботинки!</span>")
 
 /obj/item/clothing/shoes/clown_shoes/banana_shoes/examine(mob/user)
 	. = ..()

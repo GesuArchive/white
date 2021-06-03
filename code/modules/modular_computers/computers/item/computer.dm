@@ -217,9 +217,9 @@
 		if(app.run_emag())
 			newemag = TRUE
 	if(newemag)
-		to_chat(user, "<span class='notice'>Я провожу <b>[src.name]</b>. Окно консоли немедленно заполняет экран, а белый текст быстро прокручивается.</span>")
+		to_chat(user, "<span class='notice'>Провожу <b>[src.name]</b>. Окно консоли немедленно заполняет экран, а белый текст быстро прокручивается.</span>")
 		return TRUE
-	to_chat(user, "<span class='notice'>Я провожу <b>[src.name]</b>. Окно консоли заполняет экран, но оно быстро закрывается после того, как в него записано всего несколько строк.</span>")
+	to_chat(user, "<span class='notice'>Провожу <b>[src.name]</b>. Окно консоли заполняет экран, но оно быстро закрывается после того, как в него записано всего несколько строк.</span>")
 	return FALSE
 
 /obj/item/modular_computer/examine(mob/user)
@@ -263,9 +263,9 @@
 	var/issynth = issilicon(user) // Robots and AIs get different activation messages.
 	if(obj_integrity <= integrity_failure * max_integrity)
 		if(issynth)
-			to_chat(user, "<span class='warning'>Я посылаю сигнал активации <b>[src.name]</b>, но он отвечает кодом ошибки. Должно быть, что он повреждён.</span>")
+			to_chat(user, "<span class='warning'>Посылаю сигнал активации <b>[src.name]</b>, но он отвечает кодом ошибки. Должно быть, что он повреждён.</span>")
 		else
-			to_chat(user, "<span class='warning'>Я нажимаю кнопку питания, но компьютер не загружается, перед повторным выключением отображается множество ошибок.</span>")
+			to_chat(user, "<span class='warning'>Нажимаю кнопку питания, но компьютер не загружается, перед повторным выключением отображается множество ошибок.</span>")
 		return FALSE
 
 	// If we have a recharger, enable it automatically. Lets computer without a battery work.
@@ -275,9 +275,9 @@
 
 	if(all_components[MC_CPU] && use_power()) // use_power() checks if the PC is powered
 		if(issynth)
-			to_chat(user, "<span class='notice'>Я посылаю сигнал активации<b>[src.name]</b>, включая его.</span>")
+			to_chat(user, "<span class='notice'>Посылаю сигнал активации<b>[src.name]</b>, включая его.</span>")
 		else
-			to_chat(user, "<span class='notice'>Я нажимаю кнопку питания и запускаете <b>[src.name]</b>.</span>")
+			to_chat(user, "<span class='notice'>Нажимаю кнопку питания и запускаете <b>[src.name]</b>.</span>")
 		if(looping_sound)
 			soundloop.start()
 		enabled = 1
@@ -286,9 +286,9 @@
 		return TRUE
 	else // Unpowered
 		if(issynth)
-			to_chat(user, "<span class='warning'>Я посылаю сигнал активации<b>[src.name]</b>, но тот не отвечает.</span>")
+			to_chat(user, "<span class='warning'>Посылаю сигнал активации<b>[src.name]</b>, но тот не отвечает.</span>")
 		else
-			to_chat(user, "<span class='warning'>Я нажимаю кнопку питания <b>[src.name]</b>, но тот не отвечает..</span>")
+			to_chat(user, "<span class='warning'>Нажимаю кнопку питания <b>[src.name]</b>, но тот не отвечает..</span>")
 		return FALSE
 
 // Process currently calls handle_power(), may be expanded in future if more things are added.
@@ -538,10 +538,10 @@
 		if(!W.tool_start_check(user, amount=1))
 			return
 
-		to_chat(user, "<span class='notice'>Я начинаю ремонтировать повреждения <b>[src.name]</b>...</span>")
+		to_chat(user, "<span class='notice'>Начинаю ремонтировать повреждения <b>[src.name]</b>...</span>")
 		if(W.use_tool(src, user, 20, volume=50, amount=1))
 			obj_integrity = max_integrity
-			to_chat(user, "<span class='notice'>Я чиню<b>[src.name]</b>.</span>")
+			to_chat(user, "<span class='notice'>Чиню<b>[src.name]</b>.</span>")
 		return
 
 	var/obj/item/computer_hardware/card_slot/card_slot = all_components[MC_CARD]

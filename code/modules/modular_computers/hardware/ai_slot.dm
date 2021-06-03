@@ -18,7 +18,7 @@
 /obj/item/computer_hardware/ai_slot/examine(mob/user)
 	. = ..()
 	if(stored_card)
-		. += "<hr>There appears to be an intelliCard loaded. There appears to be a pinhole protecting a manual eject button. A screwdriver could probably press it."
+		. += "<hr>Здесь уже загружена intelliCard. Есть небольшая щель для возможность вытащить её. Отвёртка, возможно, подойдёт."
 
 /obj/item/computer_hardware/ai_slot/try_insert(obj/item/I, mob/living/user = null)
 	if(!holder)
@@ -28,13 +28,13 @@
 		return FALSE
 
 	if(stored_card)
-		to_chat(user, "<span class='warning'>Пытаюсь insert \the [I] into <b>[src.name]</b>, but the slot is occupied.</span>")
+		to_chat(user, "<span class='warning'>Пытаюсь вставить [I] в <b>[src.name]</b>, но слот уже занят.</span>")
 		return FALSE
 	if(user && !user.transferItemToLoc(I, src))
 		return FALSE
 
 	stored_card = I
-	to_chat(user, "<span class='notice'>Я вставляю \ [I] в <b>[src.name]</b>.</span>")
+	to_chat(user, "<span class='notice'>Вставляю [I] в <b>[src.name]</b>.</span>")
 
 	return TRUE
 
@@ -49,7 +49,7 @@
 		return FALSE
 
 	if(stored_card)
-		to_chat(user, "<span class='notice'>Я вытаскивю [stored_card] из [src].</span>")
+		to_chat(user, "<span class='notice'>Вытаскивю [stored_card] из [src].</span>")
 		locked = FALSE
 		if(user)
 			user.put_in_hands(stored_card)
@@ -64,6 +64,6 @@
 	if(..())
 		return
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
-		to_chat(user, "<span class='notice'>Я нажимаю кнопку ручного извлечения с \[I].</span>")
+		to_chat(user, "<span class='notice'>Нажимаю кнопку ручного извлечения с [I].</span>")
 		try_eject(user, TRUE)
 		return

@@ -135,7 +135,7 @@
 	if(ishuman(owner))
 		var/mob/living/carbon/human/H = owner
 		if(H.fire_stacks)
-			to_chat(owner, "<span class='notice'>Я поджёг себя!</span>")
+			to_chat(owner, "<span class='notice'>Поджёг себя!</span>")
 		else
 			to_chat(owner, "<span class='warning'>Пытаюсь поджечь себя, но моя затея не удалась...</span>")
 		H.IgniteMob() //firestacks are already there passively

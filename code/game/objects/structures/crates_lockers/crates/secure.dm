@@ -99,7 +99,7 @@
 							add_fingerprint(user)
 						locked = !locked
 						user.visible_message("<span class='notice'>[user] открывает замок [src].</span>",
-										"<span class='notice'>Я открываю замок [src].</span>")
+										"<span class='notice'>Открываю замок [src].</span>")
 						privacy_lock = FALSE
 						update_icon()
 					else if(!silent)

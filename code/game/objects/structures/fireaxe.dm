@@ -46,11 +46,11 @@
 			if(!I.tool_start_check(user, amount=2))
 				return
 
-			to_chat(user, "<span class='notice'>Я начинаю чинить [src].</span>")
+			to_chat(user, "<span class='notice'>Начинаю чинить [src].</span>")
 			if(I.use_tool(src, user, 40, volume=50, amount=2))
 				obj_integrity = max_integrity
 				update_icon()
-				to_chat(user, "<span class='notice'>Я чиню [src].</span>")
+				to_chat(user, "<span class='notice'>Чиню [src].</span>")
 		else
 			to_chat(user, "<span class='warning'>[capitalize(src.name)] сейчас в хорошем состоянии!</span>")
 		return
@@ -59,7 +59,7 @@
 		if(G.get_amount() < 2)
 			to_chat(user, "<span class='warning'>Вам нужно два листа стекла, чтобы починить [src]!</span>")
 			return
-		to_chat(user, "<span class='notice'>Я начинаю чинить [src]...</span>")
+		to_chat(user, "<span class='notice'>Начинаю чинить [src]...</span>")
 		if(do_after(user, 20, target = src) && G.use(2))
 			broken = FALSE
 			obj_integrity = max_integrity
@@ -73,7 +73,7 @@
 			if(!user.transferItemToLoc(F, src))
 				return
 			fireaxe = F
-			to_chat(user, "<span class='notice'>Я кладу [F.name] обратно в [name].</span>")
+			to_chat(user, "<span class='notice'>Кладу [F.name] обратно в [name].</span>")
 			update_icon()
 			return
 		else if(!broken)
@@ -186,7 +186,7 @@
 	to_chat(user, "<span class='notice'>Сброс схем...</span>")
 	playsound(src, 'sound/machines/locktoggle.ogg', 50, TRUE)
 	if(do_after(user, 20, target = src))
-		to_chat(user, "<span class='notice'>Я [locked ? "выключаю" : "перезапускаю"] блокирующие модули.</span>")
+		to_chat(user, "<span class='notice'>[locked ? "выключаю" : "перезапускаю"] блокирующие модули.</span>")
 		locked = !locked
 		update_icon()
 

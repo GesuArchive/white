@@ -317,7 +317,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			if(response == "Да")
 				ghostize(FALSE)
 				return
-		to_chat(src, "<span class='boldnotice'>Я пока ещё живу.</span>")
+		to_chat(src, "<span class='boldnotice'>Пока ещё живу.</span>")
 	if(stat == DEAD)
 		ghostize(TRUE)
 	return

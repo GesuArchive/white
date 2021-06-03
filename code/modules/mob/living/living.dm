@@ -1216,7 +1216,7 @@
 	if(fire_stacks > 0 && !on_fire)
 		on_fire = TRUE
 		src.visible_message("<span class='warning'><b>[src]</b> горит!</span>", \
-						"<span class='userdanger'>Я ГОРЮ!!! Вот это да!</span>")
+						"<span class='userdanger'>ГОРЮ!!! Вот это да!</span>")
 		new/obj/effect/dummy/lighting_obj/moblight/fire(src)
 		throw_alert("fire", /atom/movable/screen/alert/fire)
 		update_fire()

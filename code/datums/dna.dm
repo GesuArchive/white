@@ -237,7 +237,7 @@
 		if(alert)
 			switch(stability)
 				if(70 to 90)
-					message = "<span class='warning'>Я дрожу.</span>"
+					message = "<span class='warning'>Дрожу.</span>"
 				if(60 to 69)
 					message = "<span class='warning'>Мне холодно.</span>"
 				if(40 to 59)
@@ -245,7 +245,7 @@
 				if(20 to 39)
 					message = "<span class='warning'>Моя кожа движется?</span>"
 				if(1 to 19)
-					message = "<span class='warning'>Я чувствую как каждая моя клеточка горит.</span>"
+					message = "<span class='warning'>Чувствую как каждая моя клеточка горит.</span>"
 				if(-INFINITY to 0)
 					message = "<span class='boldwarning'>Похоже моя ДНК сейчас взорвётся! Надо бы что-то предпринять поскорее.</span>"
 		if(stability <= 0)

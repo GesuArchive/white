@@ -847,7 +847,7 @@
 	else
 		if(src.allowed(usr) && !wires.is_cut(WIRE_IDSCAN))
 			locked = !locked
-			to_chat(user, "<span class='notice'>Я [ locked ? "блокирую" : "разблокирую"] интерфейс контроллера воздуха.</span>")
+			to_chat(user, "<span class='notice'>[ locked ? "блокирую" : "разблокирую"] интерфейс контроллера воздуха.</span>")
 			updateUsrDialog()
 		else
 			to_chat(user, "<span class='danger'>Доступ запрещён.</span>")

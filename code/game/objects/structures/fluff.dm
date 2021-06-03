@@ -12,10 +12,10 @@
 
 /obj/structure/fluff/attackby(obj/item/I, mob/living/user, params)
 	if(I.tool_behaviour == TOOL_WRENCH && deconstructible)
-		user.visible_message("<span class='notice'>[user] начинает разбирать [src]...</span>", "<span class='notice'>Я начинаю разбирать [src]...</span>")
+		user.visible_message("<span class='notice'>[user] начинает разбирать [src]...</span>", "<span class='notice'>Начинаю разбирать [src]...</span>")
 		I.play_tool_sound(src)
 		if(I.use_tool(src, user, 50))
-			user.visible_message("<span class='notice'>[user] разобрал [src]!</span>", "<span class='notice'>Я разломал [src] на куски металла.</span>")
+			user.visible_message("<span class='notice'>[user] разобрал [src]!</span>", "<span class='notice'>Разломал [src] на куски металла.</span>")
 			playsound(user, 'sound/items/deconstruct.ogg', 50, TRUE)
 			new/obj/item/stack/sheet/metal(drop_location())
 			qdel(src)

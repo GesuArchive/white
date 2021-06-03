@@ -143,7 +143,7 @@
 	last_anchored_by = user
 	playsound(src, 'sound/items/ratchet.ogg', 100, TRUE)
 	user.visible_message("<span class='notice'>[user] прикручивает [src.name].</span>", \
-		"<span class='notice'>Я прикручиваю [src.name] к полу.</span>")
+		"<span class='notice'>Прикручиваю [src.name] к полу.</span>")
 	update_icon_state(part_icon_state)
 
 ///handles the unanchoring of component.
@@ -151,7 +151,7 @@
 	anchored = FALSE
 	playsound(src, 'sound/items/ratchet.ogg', 100, TRUE)
 	user.visible_message("<span class='notice'>[user] откручивает [src.name].</span>", \
-		"<span class='notice'>Я откручиваю [src.name] от пола.</span>")
+		"<span class='notice'>Откручиваю [src.name] от пола.</span>")
 	update_icon_state(part_icon_state)
 
 

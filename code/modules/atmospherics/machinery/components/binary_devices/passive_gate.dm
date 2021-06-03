@@ -38,7 +38,7 @@ Passive gate is similar to the regular pump except:
 	if(can_interact(user))
 		target_pressure = MAX_OUTPUT_PRESSURE
 		investigate_log("was set to [target_pressure] kPa by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, "<span class='notice'>Я максимально выкручиваю давление в [src] до [target_pressure] кПа.</span>")
+		to_chat(user, "<span class='notice'>Максимально выкручиваю давление в [src] до [target_pressure] кПа.</span>")
 		update_icon()
 	return ..()
 

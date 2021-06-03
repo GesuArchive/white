@@ -144,7 +144,7 @@
 		return
 
 	if(!in_range(user, our_guy))
-		to_chat(user, "<span class='warning'>Я слишком далеко чтобы взаимодействовать со шнурками [src]!</span>")
+		to_chat(user, "<span class='warning'>Слишком далеко чтобы взаимодействовать со шнурками [src]!</span>")
 		return
 
 	if(user == loc && tied != SHOES_TIED) // if they're our own shoes, go tie-wards

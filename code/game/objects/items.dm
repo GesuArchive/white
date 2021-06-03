@@ -609,11 +609,11 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		return
 
 	if(isalien(M))//Aliens don't have eyes./N     slimes also don't have eyes!
-		to_chat(user, "<span class='warning'>Я не могу найти глаза у этого существа!</span>")
+		to_chat(user, "<span class='warning'>Не могу найти глаза у этого существа!</span>")
 		return
 
 	if(isbrain(M))
-		to_chat(user, "<span class='warning'>Я не могу найти глаз на этом мозге!</span>")
+		to_chat(user, "<span class='warning'>Не могу найти глаз на этом мозге!</span>")
 		return
 
 	src.add_fingerprint(user)
@@ -628,7 +628,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	else
 		user.visible_message( \
 			"<span class='danger'>[user] протыкает свой глаз при помощи [src]!</span>", \
-			"<span class='userdanger'>Я протыкаю себе глаз при помощи [src]!</span>" \
+			"<span class='userdanger'>Протыкаю себе глаз при помощи [src]!</span>" \
 		)
 	if(is_human_victim)
 		var/mob/living/carbon/human/U = M
@@ -651,18 +651,18 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		if(M.stat != DEAD)
 			to_chat(M, "<span class='danger'>Мои глаза начинают кровоточить!</span>")
 		if(!(M.is_blind() || HAS_TRAIT(M, TRAIT_NEARSIGHT)))
-			to_chat(M, "<span class='danger'>Я становлюсь близоруким!</span>")
+			to_chat(M, "<span class='danger'>Становлюсь близоруким!</span>")
 		M.become_nearsighted(EYE_DAMAGE)
 		if(prob(50))
 			if(M.stat != DEAD)
 				if(M.drop_all_held_items())
-					to_chat(M, "<span class='danger'>Я бросаю то, что держу в своих руках и хватаюсь за свои глаза!</span>")
+					to_chat(M, "<span class='danger'>Бросаю то, что держу в своих руках и хватаюсь за свои глаза!</span>")
 			M.adjust_blurriness(10)
 			M.Unconscious(20)
 			M.Paralyze(40)
 		if(prob(eyes.damage - 10 + 1))
 			M.become_blind(EYE_DAMAGE)
-			to_chat(M, "<span class='danger'>Я слепну!</span>")
+			to_chat(M, "<span class='danger'>Слепну!</span>")
 
 /obj/item/singularity_pull(S, current_size)
 	..()

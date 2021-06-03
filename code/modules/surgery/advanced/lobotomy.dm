@@ -59,7 +59,7 @@
 /datum/surgery_step/lobotomize/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	var/obj/item/organ/brain/B = target.getorganslot(ORGAN_SLOT_BRAIN)
 	if(B)
-		display_results(user, target, "<span class='warning'>Я извлек неверную часть, что привело к большим повреждениям!</span>",
+		display_results(user, target, "<span class='warning'>Извлек неверную часть, что привело к большим повреждениям!</span>",
 			"<span class='notice'>[user] успешно выполнил лоботомию [target]!</span>",
 			"<span class='notice'>[user] завершает операцию [target] brain.</span>")
 		B.applyOrganDamage(80)

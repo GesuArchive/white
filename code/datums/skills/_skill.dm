@@ -25,13 +25,13 @@ GLOBAL_LIST_INIT(skill_types, subtypesof(/datum/skill))
 	levelUpMessages = list("<span class='nicegreen'>Че такое [name]? Сообщите администратору, если увидите это.</span>", //This first index shouldn't ever really be used
 	"<span class='nicegreen'>Начинаю понимать что такое [name]!</span>",
 	"<span class='nicegreen'>Становится легче понимать [name]!</span>",
-	"<span class='nicegreen'>Я гораздо лучше понимаю [name]!</span>",
-	"<span class='nicegreen'>Я уже неплохо справляюсь с таким навыком как [name]!</span>",
+	"<span class='nicegreen'>Гораздо лучше понимаю [name]!</span>",
+	"<span class='nicegreen'>Уже неплохо справляюсь с таким навыком как [name]!</span>",
 	"<span class='nicegreen'>После долгих практик и упорного обучения, я теперь почти \
 	превосходно понимаю что такое [name]. Могу называть себя [title].</span>",
 	"<span class='nicegreen'>Благодаря невероятной решимости и усилиям я достиг пика в развитии [name]. Я наконец могу считать себя легендарным [title]!</span>" )
-	levelDownMessages = list("<span class='nicegreen'>Я как-то полностью потерял понимание [name]. Сообщите администратору, если увидите это.</span>",
-	"<span class='nicegreen'>Я начинаю забывать что такое [name]. Нужно больше практики...</span>",
+	levelDownMessages = list("<span class='nicegreen'>Как-то полностью потерял понимание [name]. Сообщите администратору, если увидите это.</span>",
+	"<span class='nicegreen'>Начинаю забывать что такое [name]. Нужно больше практики...</span>",
 	"<span class='nicegreen'>Мне становится немного хуже понятна [name]. Мне нужно продолжать практиковаться, чтобы стать лучше...</span>",
 	"<span class='nicegreen'>Мне становится немного хуже понятна [name]...</span>",
 	"<span class='nicegreen'>Теряю понимание [name] ещё сильнее...</span>",

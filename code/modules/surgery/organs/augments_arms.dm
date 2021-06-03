@@ -49,7 +49,7 @@
 	else
 		zone = BODY_ZONE_R_ARM
 	SetSlotFromZone()
-	to_chat(user, "<span class='notice'>Я изменил положение [src] и пересобрал его в [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] руке.</span>")
+	to_chat(user, "<span class='notice'>Изменил положение [src] и пересобрал его в [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] руке.</span>")
 	update_icon()
 
 /obj/item/organ/cyberimp/arm/Insert(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)

@@ -284,8 +284,8 @@
 				fluff = "пиздец как [fluff]"
 
 		D.visible_message("<span class='danger'>[A] [fluff] [D]!</span>", \
-						"<span class='userdanger'>Я [fluff]ут  [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-		to_chat(A, "<span class='danger'>Я [fluff] [D]!</span>")
+						"<span class='userdanger'>[fluff]ут  [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
+		to_chat(A, "<span class='danger'>[fluff] [D]!</span>")
 		playsound(A.loc, "swing_hit", 50, TRUE)
 		if (!D.stat)
 			D.emote("scream")
@@ -332,7 +332,7 @@
 
 		D.visible_message("<span class='danger'>[A] дал чапалах [D]!</span>", \
 						"<span class='userdanger'>Получаю чапалахом по лицу от [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-		to_chat(A, "<span class='danger'>Я угаманил [D]!</span>")
+		to_chat(A, "<span class='danger'>Угаманил [D]!</span>")
 		D.adjustBruteLoss(rand(10,20))
 		playsound(A.loc, "white/fogmann/taa.ogg", 100, TRUE)
 		D.Unconscious(20)
@@ -345,8 +345,8 @@
 	A.setDir(turn(A.dir, 90))
 
 	D.visible_message("<span class='danger'>[A] дает с вертухи [D]!</span>", \
-					"<span class='userdanger'>Я почуствовал вкус макасинов [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-	to_chat(A, "<span class='danger'>Я угаманил [D]!</span>")
+					"<span class='userdanger'>Почуствовал вкус макасинов [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
+	to_chat(A, "<span class='danger'>Угаманил [D]!</span>")
 	playsound(A.loc, "white/fogmann/shaa.ogg", 100, TRUE)
 	D.adjustBruteLoss(rand(10,20))
 

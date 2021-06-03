@@ -35,9 +35,9 @@
 /datum/action/item_action/hands_free/activate_pill/Trigger()
 	if(!..())
 		return FALSE
-	to_chat(owner, "<span class='notice'>Я сжимаю зубы и разжёвываю имплант [target.name]!</span>")
+	to_chat(owner, "<span class='notice'>Сжимаю зубы и разжёвываю имплант [target.name]!</span>")
 	log_combat(owner, null, "проглотил имплантированную пилюлю", target)
-	if(target.reagents.total_volume)		
+	if(target.reagents.total_volume)
 		target.reagents.trans_to(owner, target.reagents.total_volume, transfered_by = owner, methods = INGEST)
 	qdel(target)
 	return TRUE

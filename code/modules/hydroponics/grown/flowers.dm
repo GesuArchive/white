@@ -185,7 +185,7 @@
 
 /obj/item/grown/sunflower/attack(mob/M, mob/user)
 	to_chat(M, "<font color='green'>[user] шлёпает меня подсолнухом!<font color='orange'><b>ЦВЕТОЧНАЯ СИЛА!</b></font></font>")
-	to_chat(user, "<font color='green'>Я шлёпаю подсолнухом <font color='orange'><b>ЦВЕТОЧНАЯ СИЛА</b></font> strikes [M]!</font>")
+	to_chat(user, "<font color='green'>Шлёпаю подсолнухом <font color='orange'><b>ЦВЕТОЧНАЯ СИЛА</b></font> strikes [M]!</font>")
 
 // Moonflower
 /obj/item/seeds/sunflower/moonflower

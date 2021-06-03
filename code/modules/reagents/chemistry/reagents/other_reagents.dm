@@ -588,7 +588,7 @@
 		var/datum/species/species_type = race
 		H.set_species(species_type)
 		holder.del_reagent(type)
-		to_chat(H, "<span class='warning'>Я превратился в [lowertext(initial(species_type.name))]!</span>")
+		to_chat(H, "<span class='warning'>Превратился в [lowertext(initial(species_type.name))]!</span>")
 		return
 	..()
 
@@ -664,7 +664,7 @@
 		var/datum/species/species_type = pick(subtypesof(race))
 		H.set_species(species_type)
 		holder.del_reagent(type)
-		to_chat(H, "<span class='warning'>Я превратился в [initial(species_type.name)]!</span>")
+		to_chat(H, "<span class='warning'>Превратился в [initial(species_type.name)]!</span>")
 		return TRUE
 	return ..()
 

@@ -295,7 +295,7 @@
 			after_weld(welded)
 			update_airtightness()
 			user.visible_message("<span class='notice'>[user] [welded ? "сварные швы заварены" : "разварено"] <b>[src.name]</b>.</span>",
-							"<span class='notice'>Я [welded ? "сварил" : "разварил"] <b>[src.name]</b> с помощью \the [W].</span>",
+							"<span class='notice'>[welded ? "сварил" : "разварил"] <b>[src.name]</b> с помощью \the [W].</span>",
 							"<span class='hear'>Слышу сварку.</span>")
 			log_game("[key_name(user)] [welded ? "welded":"unwelded"] closet [src] with [W] at [AREACOORD(src)]")
 			update_icon()
@@ -395,8 +395,8 @@
 	var/list/targets = list(O, src)
 	add_fingerprint(user)
 	user.visible_message("<span class='warning'>[user] [actuallyismob ? "Пытаюсь ":""]вставить[O] в [src].</span>", \
-		"<span class='warning'>Я [actuallyismob ? "Пытаюсь ":""]вставить [O] в [src].</span>", \
-		"<span class='hear'>Я слышу лязг.</span>")
+		"<span class='warning'>[actuallyismob ? "Пытаюсь ":""]вставить [O] в [src].</span>", \
+		"<span class='hear'>Слышу лязг.</span>")
 	if(actuallyismob)
 		if(do_after_mob(user, targets, 40))
 			user.visible_message("<span class='notice'>[user] вставляет [O] в [src].</span>", \
@@ -494,11 +494,11 @@
 			return
 		//we check after a while whether there is a point of resisting anymore and whether the user is capable of resisting
 		user.visible_message("<span class='danger'>[user] успешно вырвался из хватки [src]!</span>",
-							"<span class='notice'>Я успешно вырвался из захвата [src]!</span>")
+							"<span class='notice'>Успешно вырвался из захвата [src]!</span>")
 		bust_open()
 	else
 		if(user.loc == src) //so we don't get the message if we resisted multiple times and succeeded.
-			to_chat(user, "<span class='warning'>Я не могу вырваться из захвата [src]!</span>")
+			to_chat(user, "<span class='warning'>Не могу вырваться из захвата [src]!</span>")
 
 /obj/structure/closet/proc/bust_open()
 	SIGNAL_HANDLER

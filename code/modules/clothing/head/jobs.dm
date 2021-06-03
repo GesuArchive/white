@@ -109,7 +109,7 @@
 		to_chat(user, "<span class='notice'>Достаю кукурузную конфету из своей шляпы.</span>")
 		candy_cooldown = world.time+1200
 	else
-		to_chat(user, "<span class='warning'>Я только что взял кукурузную конфету! Надо подождать пару минут, чтобы не истратить заначку.</span>")
+		to_chat(user, "<span class='warning'>Только что взял кукурузную конфету! Надо подождать пару минут, чтобы не истратить заначку.</span>")
 
 
 //Mime

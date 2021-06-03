@@ -42,7 +42,7 @@
 
 /obj/item/energy_katana/attack_self(mob/user)
 	dash_toggled = !dash_toggled
-	to_chat(user, "<span class='notice'>Я [dash_toggled ? "enable" : "disable"] функцию рывка на [src].</span>")
+	to_chat(user, "<span class='notice'>[dash_toggled ? "enable" : "disable"] функцию рывка на [src].</span>")
 
 /obj/item/energy_katana/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()

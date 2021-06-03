@@ -43,7 +43,7 @@
 
 /obj/item/gun/ballistic/bow/attack_self(mob/user)
 	if(chambered)
-		to_chat(user, "<span class='notice'>Я [drawn ? "ослабляю натяжение" : "натягиваю тетиву"] [src].</span>")
+		to_chat(user, "<span class='notice'>[drawn ? "ослабляю натяжение" : "натягиваю тетиву"] [src].</span>")
 		drawn = !drawn
 	update_icon()
 
