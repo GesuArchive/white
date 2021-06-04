@@ -119,7 +119,7 @@ const VendingRow = (props, context) => {
             || productStock.amount <= (product.max_amount / 2) && 'average'
             || 'good'
           )}>
-          {productStock.amount} в наличии
+          {productStock?.amount} в наличии
         </Box>
       </Table.Cell>
       <Table.Cell collapsing textAlign="center">
@@ -149,7 +149,7 @@ const VendingRow = (props, context) => {
       </Table.Cell>
       <Table.Cell>
         {
-          productStock.colorable
+          productStock?.colorable
             ? (
               <Button
                 fluid
