@@ -23,6 +23,8 @@
 	display_order = JOB_DISPLAY_ORDER_SECURITY_OFFICER
 	bounty_types = CIV_JOB_SEC
 
+	var/assign_dep = TRUE
+
 GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, SEC_DEPT_SCIENCE, SEC_DEPT_SUPPLY))
 
 /datum/job/security_officer/after_spawn(mob/living/carbon/human/H, mob/M)
@@ -42,31 +44,32 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 	var/list/dep_trim = null
 	var/destination = null
 	var/spawn_point = null
-	switch(department)
-		if(SEC_DEPT_SUPPLY)
-			ears = /obj/item/radio/headset/headset_sec/alt/department/supply
-			dep_trim = /datum/id_trim/job/security_officer/supply
-			destination = /area/security/checkpoint/supply
-			spawn_point = locate(/obj/effect/landmark/start/depsec/supply) in GLOB.department_security_spawns
-			accessory = /obj/item/clothing/accessory/armband/cargo
-		if(SEC_DEPT_ENGINEERING)
-			ears = /obj/item/radio/headset/headset_sec/alt/department/engi
-			dep_trim = /datum/id_trim/job/security_officer/engineering
-			destination = /area/security/checkpoint/engineering
-			spawn_point = locate(/obj/effect/landmark/start/depsec/engineering) in GLOB.department_security_spawns
-			accessory = /obj/item/clothing/accessory/armband/engine
-		if(SEC_DEPT_MEDICAL)
-			ears = /obj/item/radio/headset/headset_sec/alt/department/med
-			dep_trim = /datum/id_trim/job/security_officer/medical
-			destination = /area/security/checkpoint/medical
-			spawn_point = locate(/obj/effect/landmark/start/depsec/medical) in GLOB.department_security_spawns
-			accessory =  /obj/item/clothing/accessory/armband/medblue
-		if(SEC_DEPT_SCIENCE)
-			ears = /obj/item/radio/headset/headset_sec/alt/department/sci
-			dep_trim = /datum/id_trim/job/security_officer/science
-			destination = /area/security/checkpoint/science
-			spawn_point = locate(/obj/effect/landmark/start/depsec/science) in GLOB.department_security_spawns
-			accessory = /obj/item/clothing/accessory/armband/science
+	if(assign_dep)
+		switch(department)
+			if(SEC_DEPT_SUPPLY)
+				ears = /obj/item/radio/headset/headset_sec/alt/department/supply
+				dep_trim = /datum/id_trim/job/security_officer/supply
+				destination = /area/security/checkpoint/supply
+				spawn_point = locate(/obj/effect/landmark/start/depsec/supply) in GLOB.department_security_spawns
+				accessory = /obj/item/clothing/accessory/armband/cargo
+			if(SEC_DEPT_ENGINEERING)
+				ears = /obj/item/radio/headset/headset_sec/alt/department/engi
+				dep_trim = /datum/id_trim/job/security_officer/engineering
+				destination = /area/security/checkpoint/engineering
+				spawn_point = locate(/obj/effect/landmark/start/depsec/engineering) in GLOB.department_security_spawns
+				accessory = /obj/item/clothing/accessory/armband/engine
+			if(SEC_DEPT_MEDICAL)
+				ears = /obj/item/radio/headset/headset_sec/alt/department/med
+				dep_trim = /datum/id_trim/job/security_officer/medical
+				destination = /area/security/checkpoint/medical
+				spawn_point = locate(/obj/effect/landmark/start/depsec/medical) in GLOB.department_security_spawns
+				accessory =  /obj/item/clothing/accessory/armband/medblue
+			if(SEC_DEPT_SCIENCE)
+				ears = /obj/item/radio/headset/headset_sec/alt/department/sci
+				dep_trim = /datum/id_trim/job/security_officer/science
+				destination = /area/security/checkpoint/science
+				spawn_point = locate(/obj/effect/landmark/start/depsec/science) in GLOB.department_security_spawns
+				accessory = /obj/item/clothing/accessory/armband/science
 
 	if(accessory)
 		var/obj/item/clothing/under/U = H.w_uniform
@@ -99,10 +102,10 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 				if (H.Move(target))
 					break
 				possible_turfs.Cut(I,I+1)
-	if(department)
-		to_chat(M, "<b>You have been assigned to [department]!</b>")
+	if(department && assign_dep)
+		to_chat(M, "<b>Мне назначено следить за порядком в [department]!</b>")
 	else
-		to_chat(M, "<b>You have not been assigned to any department. Patrol the halls and help where needed.</b>")
+		to_chat(M, "<b>У меня нет особых назначений в отделы на эту смену. Пока только патрулирование является моей задачей.</b>")
 
 
 
