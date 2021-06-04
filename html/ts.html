@@ -115,9 +115,11 @@
 				if(state == 1) {
 					document.getElementById("pp").style.visibility = "visible";
 					document.getElementById("ld").style.visibility = "hidden";
+					document.getElementById("tm").style.visibility = "visible";
 				} else {
 					document.getElementById("pp").style.visibility = "hidden";
 					document.getElementById("ld").style.visibility = "visible";
+					document.getElementById("tm").style.visibility = "hidden";
 				}
 			};
 
@@ -166,6 +168,7 @@
 				setTimeout(movebg, 250);
 				document.getElementById("pp").style.visibility = "hidden";
 				document.getElementById("ld").style.visibility = "hidden";
+				document.getElementById("tm").style.visibility = "hidden";
 				NotifyByondOnload();
 			};
 
@@ -236,8 +239,8 @@
 	</head>
 
 	<body>
-		<div id=tm></div>
 		<div id=pp>Загрузка...</div>
+		<div id=tm></div>
 		<div id=ld>
 			<div id=li>
 				Инициализация
