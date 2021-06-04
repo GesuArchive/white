@@ -2,7 +2,7 @@
 	var/icon/tacmap_icon = new('white/valtos/icons/tacmap.dmi', "tacmap_base")
 	// берём все турфы с нужного з-уровня и рисуем шедевр
 	for(var/xx in 1 to world.maxx)
-		for(var/yy in 1 to world.mayy)
+		for(var/yy in 1 to world.maxy)
 			var/turf/T = locate(xx, yy, map_z)
 			if(isspaceturf(T))
 				tacmap_icon.DrawBox(rgb(22, 22, 22), xx, yy, xx, yy)
@@ -30,8 +30,8 @@
 		to_chat(usr, "<span class='adminnotice'> !! RETARD !! </span>")
 		return
 
-	message_admins("[ADMIN_LOOKUPFLW(usr)] запустил генерацию миникарты Z-уровня [zlevel].")
-	log_admin("[key_name(usr)] запустил генерацию миникарты Z-уровня [zlevel].")
+	message_admins("[ADMIN_LOOKUPFLW(usr)] запустил генерацию миникарты Z-уровня [fuckz].")
+	log_admin("[key_name(usr)] запустил генерацию миникарты Z-уровня [fuckz].")
 
 	spawn(0)
 		var/icon/I = gen_tacmap(fuckz)
