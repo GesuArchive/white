@@ -225,21 +225,18 @@
 				document.getElementById("li").innerHTML = text;
 			}
 
-			function display_tacmap(levels = 1) {
-				var tacmap = document.createElement('div');
-				tacmap.id = "tm";
-				for (var i = 2; i < levels+2; i++) {
-					var img = document.createElement('img');
-					img.src = "tacmap" + i + ".png";
-					tacmap.append(img);
-				}
-				document.body.appendChild(tacmap);
+			function push_tacmap_image(imageto) {
+				var img = document.createElement("img");
+				var tacmap = document.getElementById("tm");
+				img.src = imageto;
+				tacmap.append(img);
 			}
 
 		</script>
 	</head>
 
 	<body>
+		<div id=tm></div>
 		<div id=pp>Загрузка...</div>
 		<div id=ld>
 			<div id=li>

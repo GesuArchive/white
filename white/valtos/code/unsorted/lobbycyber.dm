@@ -38,7 +38,8 @@
 	src << output("", "lobbyprotoc:cls")
 
 /client/proc/display_tacmap(levels)
-	src << output(levels, "lobbyprotoc:display_tacmap")
+	for(var/i=2 to levels)
+		src << output(SSassets.transport.get_asset_url("tacmap[i].png"), "lobbyprotoc:push_tacmap_image")
 
 /client/verb/lobby_ready()
 	set category = null
