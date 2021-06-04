@@ -39,7 +39,7 @@
 	display_name = "Фатальный сброс"
 	sort_category = "OOC"
 	description = "Сбрасывает метакэш до нуля. Всем."
-	cost = 25000
+	cost = 100500
 
 /datum/gear/ooc/purge_this_shit/purchase(var/client/C)
 	var/fuck_everyone = alert(src,"Это действие приведёт обнулению ВСЕГО метакэша. Ты уверен?","Очищение","Да","Нет")
