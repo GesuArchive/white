@@ -52,7 +52,7 @@
 				mode = WAND_OPEN
 		if(WAND_SHOCK)
 			mode = WAND_OPEN
-	to_chat(user, "<span class='notice'>Теперь в режиме: <b>[desc[mode]]</b>.</span>")
+	balloon_alert(user, "Режим: [desc[mode]]")
 
 /obj/item/door_remote/emag_act(mob/user, obj/item/card/emag/E)
 	. = ..()

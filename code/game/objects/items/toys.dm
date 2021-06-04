@@ -286,6 +286,7 @@
 		return
 	src.add_fingerprint(user)
 	if (src.bullets < 1)
+		user.balloon_alert_to_viewers("*щёлк*")
 		user.show_message("<span class='warning'>*щёлк*</span>", MSG_AUDIBLE)
 		playsound(src, 'sound/weapons/gun/revolver/dry_fire.ogg', 30, TRUE)
 		return

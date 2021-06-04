@@ -416,7 +416,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	if(.)
 		return
 	if(length(src_object.contents()))
-		to_chat(usr, "<span class='notice'>You start dumping out the contents...</span>")
+		balloon_alert(usr, "Начинаю вытряхивать содержимое...")
 		if(!do_after(usr,20,target=src_object.parent))
 			return FALSE
 

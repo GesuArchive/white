@@ -84,11 +84,11 @@
 /obj/item/melee/transforming/proc/transform_messages(mob/living/user, supress_message_text)
 	playsound(user, active ? 'sound/weapons/saberon.ogg' : 'sound/weapons/saberoff.ogg', 35, TRUE)  //changed it from 50% volume to 35% because deafness
 	if(!supress_message_text)
-		to_chat(user, "<span class='notice'>[capitalize(src.name)] [active ? "is now active":"can now be concealed"].</span>")
+		balloon_alert(user, "[capitalize(src.name)] [active ? "активируется":"деактивируется"]")
 
 /obj/item/melee/transforming/proc/clumsy_transform_effect(mob/living/user)
 	if(clumsy_check && HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50))
-		to_chat(user, "<span class='warning'>You accidentally cut yourself with [src], like a doofus!</span>")
+		to_chat(user, "<span class='warning'>Случайно втыкаю [src.name] в себя, ой!</span>")
 		user.take_bodypart_damage(5,5)
 
 /obj/item/melee/transforming/proc/on_sharpen(datum/source, increment, max)
