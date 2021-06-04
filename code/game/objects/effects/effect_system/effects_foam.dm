@@ -264,7 +264,8 @@
 // FOAM STRUCTURE. Formed by metal foams. Dense and opaque, but easy to break
 /obj/structure/foamedmetal
 	icon = 'icons/effects/effects.dmi'
-	icon_state = "foam_smooth"
+	icon_state = "metalfoam"
+	base_icon_state = "foam_smooth"
 	density = TRUE
 	opacity = TRUE 	// changed in New()
 	anchored = TRUE
@@ -286,7 +287,7 @@
 		M.Translate(-8, -8)
 		transform = M
 		icon = smooth_icon
-		icon_state = "[icon_state]-[smoothing_junction]"
+		icon_state = "[base_icon_state]-[smoothing_junction]"
 
 /obj/structure/foamedmetal/Destroy()
 	air_update_turf(TRUE, FALSE)
