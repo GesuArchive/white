@@ -37,11 +37,17 @@
 	src << output(SStitle.game_loaded, "lobbyprotoc:set_state")
 	src << output("", "lobbyprotoc:cls")
 
+/client/proc/display_tacmap(levels)
+	src << output(levels, "lobbyprotoc:display_tacmap")
+
 /client/verb/lobby_ready()
 	set category = null
 
 	src << output(SStitle.game_loaded, 		   "lobbyprotoc:set_state")
 	src << output(SStitle.ctt, 				   "lobbyprotoc:set_cons_now")
+	if(SStitle.game_loaded)
+		var/list/zets = SSmapping.levels_by_trait(ZTRAIT_STATION)
+		display_tacmap(zets.len)
 	src << output("[SStitle.loader_pos];...;", "lobbyprotoc:set_loader_pos")
 
 /client/proc/reload_lobby()

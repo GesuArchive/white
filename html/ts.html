@@ -81,6 +81,21 @@
 				background: url('black.png');
 			}
 
+			#tm {
+				position: absolute;
+				right: 8px;
+				top: 8px;
+				border: 1px solid #333;
+				z-index: 2;
+				width: 259px;
+				background: #000;
+			}
+
+			#tm img {
+				margin: 1px;
+				border: 1px solid #333;
+			}
+
 		</style>
 		<script type="text/javascript">
 
@@ -208,6 +223,17 @@
 				amt = val;
 				smooth_loader();
 				document.getElementById("li").innerHTML = text;
+			}
+
+			function display_tacmap(levels = 1) {
+				var tacmap = document.createElement('div');
+				tacmap.id = "tm";
+				for (var i = 2; i < levels+2; i++) {
+					var img = document.createElement('img');
+					img.src = "tacmap" + i + ".png";
+					tacmap.append(img);
+				}
+				document.body.appendChild(tacmap);
 			}
 
 		</script>
