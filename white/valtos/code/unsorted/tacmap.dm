@@ -40,5 +40,6 @@
 
 	spawn(0)
 		var/icon/I = gen_tacmap(fuckz)
+		usr << browse_rsc(I, "tacmap[fuckz].png")
 		to_chat(usr, "<span class='adminnotice'>Ваша овсянка, сер:</span>")
-		to_chat(usr, "<img src='[icon2base64(I, usr)]'>")
+		to_chat(usr, "<img src='tacmap[fuckz].png'>")
