@@ -326,6 +326,7 @@
 	alpha = 120
 	max_integrity = 10
 	pass_flags_self = PASSGLASS
+	smoothing_flags = NONE
 
 /obj/structure/foamedmetal/resin/Initialize()
 	. = ..()
