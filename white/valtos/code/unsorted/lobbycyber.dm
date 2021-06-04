@@ -40,7 +40,7 @@
 /client/proc/display_tacmap(levels)
 	for(var/i=1 to levels)
 		SSassets.transport.send_assets(src, "tacmap[i + 1].png")
-		spawn(1 SECONDS)
+		spawn(5 SECONDS)
 			src << output("[SSassets.transport.get_asset_url("tacmap[i + 1].png")]", "lobbyprotoc:push_tacmap_image")
 
 /client/verb/lobby_ready()
