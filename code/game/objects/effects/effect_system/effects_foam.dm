@@ -277,6 +277,8 @@
 	gender = PLURAL
 	max_integrity = 20
 	CanAtmosPass = ATMOS_PASS_DENSITY
+	smoothing_groups = list(SMOOTH_GROUP_METALFOAM)
+	canSmoothWith = list(SMOOTH_GROUP_METALFOAM)
 	var/smooth_icon = 'white/valtos/icons/foam_smooth.dmi'
 
 /obj/structure/foamedmetal/Initialize()

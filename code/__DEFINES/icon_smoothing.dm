@@ -134,4 +134,6 @@ DEFINE_BITFIELD(smoothing_flags, list(
 
 #define SMOOTH_GROUP_BLUESPACE_OPENSPACE S_OBJ(72)					///turf/open/openspace/bluespace
 
-#define MAX_S_OBJ SMOOTH_GROUP_BLUESPACE_OPENSPACE //Always match this value with the one above it.
+#define SMOOTH_GROUP_METALFOAM S_OBJ(73)	///obj/structure/foamedmetal
+
+#define MAX_S_OBJ SMOOTH_GROUP_METALFOAM //Always match this value with the one above it.
