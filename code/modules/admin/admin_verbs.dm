@@ -166,6 +166,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/raspidoars,
 	/client/proc/kaboom,
 	/client/proc/smooth_fucking_z_level,
+	/client/proc/get_tacmap_for_test,
 	/proc/machine_upgrade,
 	/client/proc/populate_world,
 	/client/proc/get_dynex_power,		//*debug verbs for dynex explosions.
