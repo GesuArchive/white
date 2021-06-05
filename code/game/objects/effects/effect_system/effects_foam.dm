@@ -27,6 +27,7 @@
 	var/can_bypass_density = FALSE
 	smoothing_groups = list(SMOOTH_GROUP_FOAM)
 	canSmoothWith = list(SMOOTH_GROUP_FOAM)
+	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	var/smooth_icon = 'white/valtos/icons/foam_smooth.dmi'
 
 /obj/effect/particle_effect/foam/smart
