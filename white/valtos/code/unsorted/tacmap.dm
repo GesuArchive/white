@@ -1,0 +1,83 @@
+/proc/gen_tacmap(map_z = 2)
+	var/icon/tacmap_icon = new('white/valtos/icons/tacmap.dmi', "tacmap_base")
+	// берём все турфы с нужного з-уровня и рисуем шедевр
+	for(var/xx in 1 to world.maxx)
+		for(var/yy in 1 to world.maxy)
+			var/turf/T = locate(xx, yy, map_z)
+			if(isspaceturf(T) || isopenspace(T))
+				if(locate(/obj/structure/lattice) in T)
+					tacmap_icon.DrawBox(rgb(143, 103, 175), xx, yy, xx, yy)
+				continue
+			if(isopenturf(T))
+				if(isplatingturf(T))
+					if(locate(/obj/structure/window) in T)
+						tacmap_icon.DrawBox(rgb(0, 60, 255), xx, yy, xx, yy)
+					else if(locate(/obj/machinery/door) in T)
+						tacmap_icon.DrawBox(rgb(255, 0, 0), xx, yy, xx, yy)
+					else
+						tacmap_icon.DrawBox(rgb(109, 42, 128), xx, yy, xx, yy)
+					continue
+				tacmap_icon.DrawBox(rgb(220, 44, 255), xx, yy, xx, yy)
+				continue
+			if(isclosedturf(T))
+				tacmap_icon.DrawBox(rgb(0, 195, 255), xx, yy, xx, yy)
+	return tacmap_icon
+
+/proc/gen_tacmap_areas(map_z = 2)
+	var/icon/tacmap_icon = new('white/valtos/icons/tacmap.dmi', "tacmap_base")
+	for(var/xx in 1 to world.maxx)
+		for(var/yy in 1 to world.maxy)
+			var/turf/T = locate(xx, yy, map_z)
+			if(isspaceturf(T) || isopenspace(T))
+				continue
+			var/area/A = get_area(T)
+			if(istype(A, /area/hallway))
+				tacmap_icon.DrawBox(rgb(255, 255, 255), xx, yy, xx, yy)
+				continue
+			if(istype(A, /area/security))
+				tacmap_icon.DrawBox(rgb(255, 0, 0), xx, yy, xx, yy)
+				continue
+			if(istype(A, /area/quartermaster))
+				tacmap_icon.DrawBox(rgb(209, 101, 43), xx, yy, xx, yy)
+				continue
+			if(istype(A, /area/quartermaster))
+				tacmap_icon.DrawBox(rgb(209, 101, 43), xx, yy, xx, yy)
+				continue
+			if(istype(A, /area/hydroponics) || istype(A, /area/chapel) || istype(A, /area/library) || istype(A, /area/crew_quarters))
+				tacmap_icon.DrawBox(rgb(62, 209, 43), xx, yy, xx, yy)
+				continue
+			if(istype(A, /area/science))
+				tacmap_icon.DrawBox(rgb(209, 43, 209), xx, yy, xx, yy)
+				continue
+			if(istype(A, /area/medical))
+				tacmap_icon.DrawBox(rgb(0, 255, 229), xx, yy, xx, yy)
+				continue
+			if(istype(A, /area/ai_monitored) || istype(A, /area/teleporter) || istype(A, /area/gateway) || istype(A, /area/bridge))
+				tacmap_icon.DrawBox(rgb(0, 60, 255), xx, yy, xx, yy)
+				continue
+			if(istype(A, /area/storage) || istype(A, /area/maintenance))
+				tacmap_icon.DrawBox(rgb(70, 70, 70), xx, yy, xx, yy)
+				continue
+			if(istype(A, /area/vacant_room) || istype(A, /area/tcommsat) || istype(A, /area/comms) || istype(A, /area/server) || istype(A, /area/solar) || istype(A, /area/engine))
+				tacmap_icon.DrawBox(rgb(255, 145, 0), xx, yy, xx, yy)
+				continue
+	return tacmap_icon
+
+/client/proc/get_tacmap_for_test()
+	set name = " ? Generate TacMap"
+	set category = "Дбг"
+
+	var/fuckz = input("З-уровень") as num
+
+	if(!fuckz || fuckz >= world.maxz)
+		to_chat(usr, "<span class='adminnotice'> !! RETARD !! </span>")
+		return
+
+	message_admins("[ADMIN_LOOKUPFLW(usr)] запустил генерацию миникарты Z-уровня [fuckz].")
+	log_admin("[key_name(usr)] запустил генерацию миникарты Z-уровня [fuckz].")
+
+	spawn(0)
+		var/icon/I = gen_tacmap(fuckz)
+		usr << browse_rsc(I, "tacmap[fuckz].png")
+		to_chat(usr, "<span class='adminnotice'>Ваша овсянка, сер:</span>")
+		to_chat(usr, "<img src='tacmap[fuckz].png'>")

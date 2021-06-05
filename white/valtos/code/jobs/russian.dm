@@ -4,6 +4,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	outfit = /datum/outfit/job/security/omon
+	assign_dep = FALSE
 
 /datum/job/security_officer/veteran
 	title = "Veteran"
@@ -15,6 +16,7 @@
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_SECURITY
 	outfit = /datum/outfit/job/security/veteran
+	assign_dep = FALSE
 
 /datum/id_trim/job/omon
 	assignment = "Russian Officer"

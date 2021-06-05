@@ -700,14 +700,14 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 			var/surname_found = 0
 			//surnames
 			for(var/i=L.len, i>=1, i--)
-				var/word = ckey(L[i])
+				var/word = r_jobgen(L[i])
 				if(word)
 					surnames[word] = M
 					surname_found = i
 					break
 			//forenames
 			for(var/i=1, i<surname_found, i++)
-				var/word = ckey(L[i])
+				var/word = r_jobgen(L[i])
 				if(word)
 					forenames[word] = M
 			//ckeys

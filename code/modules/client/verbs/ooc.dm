@@ -411,7 +411,10 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 	// Calculate and apply a best estimate
 	// +4 pixels are for the width of the splitter's handle
 	var/pct = 100 * (desired_width + 4) / split_width
-	winset(src, "mainwindow.split", "splitter=[pct]")
+	if(prefs.w_toggles & SCREEN_HORIZ_INV)
+		winset(src, "mainwindow.split", "splitter=[-pct + 100]")
+	else
+		winset(src, "mainwindow.split", "splitter=[pct]")
 
 	// Apply an ever-lowering offset until we finish or fail
 	var/delta
@@ -431,7 +434,10 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 			delta = -delta/2
 
 		pct += delta
-		winset(src, "mainwindow.split", "splitter=[pct]")
+		if(prefs.w_toggles & SCREEN_HORIZ_INV)
+			winset(src, "mainwindow.split", "splitter=[-pct + 100]")
+		else
+			winset(src, "mainwindow.split", "splitter=[pct]")
 
 /client/verb/policy()
 	set name = "📘 Показать политику"

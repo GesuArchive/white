@@ -81,6 +81,18 @@
 				background: url('black.png');
 			}
 
+			#tm {
+				position: absolute;
+				right: 8px;
+				top: 8px;
+				z-index: 2;
+				width: 259px;
+			}
+
+			#tm img {
+				margin: 1px;
+			}
+
 		</style>
 		<script type="text/javascript">
 
@@ -100,9 +112,11 @@
 				if(state == 1) {
 					document.getElementById("pp").style.visibility = "visible";
 					document.getElementById("ld").style.visibility = "hidden";
+					document.getElementById("tm").style.visibility = "visible";
 				} else {
 					document.getElementById("pp").style.visibility = "hidden";
 					document.getElementById("ld").style.visibility = "visible";
+					document.getElementById("tm").style.visibility = "hidden";
 				}
 			};
 
@@ -151,6 +165,7 @@
 				setTimeout(movebg, 250);
 				document.getElementById("pp").style.visibility = "hidden";
 				document.getElementById("ld").style.visibility = "hidden";
+				document.getElementById("tm").style.visibility = "hidden";
 				NotifyByondOnload();
 			};
 
@@ -210,11 +225,19 @@
 				document.getElementById("li").innerHTML = text;
 			}
 
+			function push_tacmap_image(imageto) {
+				var img = document.createElement("img");
+				var tacmap = document.getElementById("tm");
+				img.src = imageto;
+				tacmap.appendChild(img);
+			}
+
 		</script>
 	</head>
 
 	<body>
 		<div id=pp>Загрузка...</div>
+		<div id=tm></div>
 		<div id=ld>
 			<div id=li>
 				Инициализация

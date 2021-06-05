@@ -444,6 +444,16 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		winset(src, "mainwindow", "statusbar = false;statusbar = true")
 		winset(src, "mainwindow", "is-maximized=true")
 
+	if(prefs.w_toggles & SCREEN_HORIZ_INV)
+		winset(src, "split", "left=infowindow;right=mapwindow")
+
+	if(prefs.w_toggles & SCREEN_VERTI_INV)
+		winset(src, "info", "left=outputwindow;right=statwindow")
+
+	if(prefs.w_toggles & SCREEN_HIDE_SPLIT)
+		winset(src, "info", "show-splitter=false")
+		winset(src, "split", "show-splitter=false")
+
 	if (prefs.fullscreen)
 		ToggleFullscreen()
 

@@ -264,7 +264,7 @@
 		embedding = list(embed_chance = EMBED_CHANCE)
 		throwforce = initial(throwforce)
 		playsound(user, 'sound/weapons/saberoff.ogg', 5, TRUE)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] can now be concealed.</span>")
+		balloon_alert(user, "[capitalize(src.name)] деактивируется")
 	else
 		on = TRUE
 		force = 18
@@ -275,7 +275,7 @@
 		embedding = list(embed_chance = 100) //rule of cool
 		throwforce = 35
 		playsound(user, 'sound/weapons/saberon.ogg', 5, TRUE)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] is now active.</span>")
+		balloon_alert(user, "[capitalize(src.name)] активируется")
 	updateEmbedding()
 	update_icon()
 

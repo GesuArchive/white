@@ -615,7 +615,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += "<tr><td><b>Названия предметов:</b></td><td align='right'><a href='?_src_=prefs;preference=tooltip_user'>[(w_toggles & TOOLTIP_USER_UP) ? "Вкл" : "Выкл"]</a></td></tr>"
 			dat += "<tr><td><b>Позиция на экране:</b></td><td align='right'><a href='?_src_=prefs;preference=tooltip_pos'>[(w_toggles & TOOLTIP_USER_POS) ? "Низ" : "Верх"]</a></td></tr>"
-			dat += "<tr><td><b>Ретро-статусбар:</b></td><td align='right'><a href='?_src_=prefs;preference=tooltip_pos'>[(w_toggles & TOOLTIP_USER_RETRO) ? "Вкл" : "Выкл"]</a></td></tr>"
+			dat += "<tr><td><b>Ретро-статусбар:</b></td><td align='right'><a href='?_src_=prefs;preference=tooltip_retro'>[(w_toggles & TOOLTIP_USER_RETRO) ? "Вкл" : "Выкл"]</a></td></tr>"
+			dat += "<tr><td><b>Горизонтальная инверсия:</b></td><td align='right'><a href='?_src_=prefs;preference=horiz_inv'>[(w_toggles & SCREEN_HORIZ_INV) ? "Вкл" : "Выкл"]</a></td></tr>"
+			dat += "<tr><td><b>Вертикальная инверсия:</b></td><td align='right'><a href='?_src_=prefs;preference=verti_inv'>[(w_toggles & SCREEN_VERTI_INV) ? "Вкл" : "Выкл"]</a></td></tr>"
+			dat += "<tr><td><b>Невидимые разделители:</b></td><td align='right'><a href='?_src_=prefs;preference=hide_split'>[(w_toggles & SCREEN_HIDE_SPLIT) ? "Вкл" : "Выкл"]</a></td></tr>"
 			button_name = pixel_size
 			dat += "<tr><td><b>Pixel Scaling:</b></td><td align='right'><a href='?_src_=prefs;preference=pixel_size'>[(button_name) ? "Pixel Perfect [button_name]x" : "Stretch to fit"]</a></td></tr>"
 
@@ -1888,6 +1891,29 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if("tooltip_retro")
 					w_toggles ^= TOOLTIP_USER_RETRO
+
+				if("horiz_inv")
+					w_toggles ^= SCREEN_HORIZ_INV
+					if(w_toggles & SCREEN_HORIZ_INV)
+						winset(user, "split", "left=infowindow;right=mapwindow")
+					else
+						winset(user, "split", "left=mapwindow;right=infowindow")
+
+				if("verti_inv")
+					w_toggles ^= SCREEN_VERTI_INV
+					if(w_toggles & SCREEN_VERTI_INV)
+						winset(user, "info", "left=outputwindow;right=statwindow")
+					else
+						winset(user, "info", "left=statwindow;right=outputwindow")
+
+				if("hide_split")
+					w_toggles ^= SCREEN_HIDE_SPLIT
+					if(w_toggles & SCREEN_HIDE_SPLIT)
+						winset(user, "info", "show-splitter=false")
+						winset(user, "split", "show-splitter=false")
+					else
+						winset(user, "info", "show-splitter=true")
+						winset(user, "split", "show-splitter=true")
 
 				if("widescreenpref")
 					widescreenpref = !widescreenpref

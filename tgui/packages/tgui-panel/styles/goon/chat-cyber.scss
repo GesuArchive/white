@@ -407,9 +407,16 @@ em {
 }
 
 .userdanger {
-  color: #e755db;
+  color: #d82020;
   font-weight: bold;
   font-size: 135%;
+  margin-left: 8px;
+  animation: udfade 3s ease-out;
+}
+
+@keyframes udfade {
+  from {color: #ff62f2;}
+  to {color: #d82020;}
 }
 
 .danger {

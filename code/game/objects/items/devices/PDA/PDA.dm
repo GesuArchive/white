@@ -799,7 +799,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 
 	if (!silent)
 		playsound(src, 'sound/machines/twobeep_high.ogg', 50, TRUE)
-		audible_message("[icon2html(src, hearers(src))] *[ttone]*", null, 3)
+		balloon_alert_to_viewers("*[ttone]*", vision_distance = 3)
 	//Search for holder of the PDA.
 	var/mob/living/L = null
 	if(loc && isliving(loc))
