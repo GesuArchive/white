@@ -14,4 +14,7 @@
 
 /datum/smite/bad_luck/effect(client/user, mob/living/target)
 	. = ..()
+	if (permanent)
+		log_admin ("Перманентная неудача, скорее всего юзер сдохнет нахуй")
+	log_admin("Одноразовая неудача")
 	target.AddComponent(/datum/component/omen, silent, null, permanent)
