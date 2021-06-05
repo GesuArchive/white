@@ -1,7 +1,7 @@
 /**
  * # Radio Component
  *
- * Listens out for signals on the designated frequencies and
+ * Listens out for signals on the designated frequencies and sends signals on designated frequencies
  */
 /obj/item/circuit_component/radio
 	display_name = "Радио"
@@ -20,14 +20,13 @@
 	. = ..()
 	freq = add_input_port("Частота", PORT_TYPE_NUMBER, default = FREQ_SIGNALER)
 	code = add_input_port("Код", PORT_TYPE_NUMBER, default = DEFAULT_SIGNALER_CODE)
+	// These are cleaned up on the parent
 	trigger_input = add_input_port("Отправить", PORT_TYPE_SIGNAL)
 	trigger_output = add_output_port("Принять", PORT_TYPE_SIGNAL)
 
 /obj/item/circuit_component/radio/Destroy()
 	freq = null
 	code = null
-	trigger_input = null
-	trigger_output = null
 	SSradio.remove_object(src, current_freq)
 	radio_connection = null
 	return ..()
