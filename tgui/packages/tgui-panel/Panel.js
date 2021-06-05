@@ -12,6 +12,7 @@ import { useGame } from './game';
 import { Notifications } from './Notifications';
 import { PingIndicator } from './ping';
 import { SettingsPanel, useSettings } from './settings';
+import { useLocalState } from 'tgui/backend';
 
 export const Panel = (props, context) => {
   // IE8-10: Needs special treatment due to missing Flex support
@@ -23,7 +24,7 @@ export const Panel = (props, context) => {
   const audio = useAudio(context);
   const settings = useSettings(context);
   const game = useGame(context);
-  const [things, setThings] = useLocalState(context, "things", 1);
+  const [things, setThings] = useLocalState(context, 'things', 1);;
   if (process.env.NODE_ENV !== 'production') {
     const { useDebug, KitchenSink } = require('tgui/debug');
     const debug = useDebug(context);
@@ -45,12 +46,12 @@ export const Panel = (props, context) => {
               <Stack.Item>
                 <Button
                   color="grey"
-                  tooltip="Скрыть"
+                  tooltip={things ? "Скрыть" : "Показать"}
                   tooltipPosition="bottom"
-                  icon="angle-double-right"
-                  onClick={setThings(1)}/>
+                  icon={things ? "angle-double-right" : "angle-double-left"}
+                  onClick={() => setThings(!things)}/>
               </Stack.Item>
-              {things && (
+              {!!things && (
                 <Stack.Item>
                   <Button
                     color="green"
@@ -61,7 +62,7 @@ export const Panel = (props, context) => {
                   </Button>
                 </Stack.Item>
               )}
-              {things && (
+              {!!things && (
                 <Stack.Item>
                   <Button
                     color="teal"
@@ -72,7 +73,7 @@ export const Panel = (props, context) => {
                   </Button>
                 </Stack.Item>
               )}
-              {things && (
+              {!!things && (
                 <Stack.Item>
                   <Button
                     color="yellow"
