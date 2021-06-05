@@ -123,11 +123,9 @@ SUBSYSTEM_DEF(title)
 	display_tacmap()
 
 /datum/controller/subsystem/title/proc/regen_tacmap()
-	to_chat(world, "<span class='green'>Генерация TacMap начата...</span>")
 	for(var/Z in SSmapping.levels_by_trait(ZTRAIT_STATION))
 		var/icon/I = gen_tacmap(Z)
 		SSassets.transport.register_asset("tacmap[Z].png", I)
-	to_chat(world, "<span class='green'>Генерация TacMap завершена!</span>")
 
 /datum/controller/subsystem/title/proc/display_tacmap()
 	var/list/zets = SSmapping.levels_by_trait(ZTRAIT_STATION)
