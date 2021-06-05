@@ -8,6 +8,7 @@
 /obj/effect/particle_effect/foam
 	name = "foam"
 	icon_state = "foam"
+	base_icon_state = "foam_smooth"
 	opacity = FALSE
 	anchored = TRUE
 	density = FALSE
@@ -24,6 +25,9 @@
 	/turf/open/lava))
 	var/slippery_foam = TRUE
 	var/can_bypass_density = FALSE
+	smoothing_groups = list(SMOOTH_GROUP_FOAM)
+	canSmoothWith = list(SMOOTH_GROUP_FOAM)
+	var/smooth_icon = 'white/valtos/icons/foam_smooth.dmi'
 
 /obj/effect/particle_effect/foam/smart
 	can_bypass_density = TRUE
@@ -97,6 +101,12 @@
 	create_reagents(1000, REAGENT_HOLDER_INSTANT_REACT) //limited by the size of the reagent holder anyway. Works without instant possibly edit in future
 	START_PROCESSING(SSfastprocess, src)
 	playsound(src, 'sound/effects/bubbles2.ogg', 80, TRUE, -3)
+	if(smoothing_flags & SMOOTH_BITMASK)
+		var/matrix/M = new
+		M.Translate(-8, -8)
+		transform = M
+		icon = smooth_icon
+		icon_state = "[base_icon_state]-[smoothing_junction]"
 
 /obj/effect/particle_effect/foam/ComponentInitialize()
 	. = ..()
