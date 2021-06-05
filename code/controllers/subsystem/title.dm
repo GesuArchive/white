@@ -124,7 +124,7 @@ SUBSYSTEM_DEF(title)
 
 /datum/controller/subsystem/title/proc/regen_tacmap()
 	for(var/Z in SSmapping.levels_by_trait(ZTRAIT_STATION))
-		var/icon/I = gen_tacmap(Z)
+		var/icon/I = gen_tacmap_areas(Z)
 		SSassets.transport.register_asset("tacmap[Z].png", I)
 
 /datum/controller/subsystem/title/proc/display_tacmap()
