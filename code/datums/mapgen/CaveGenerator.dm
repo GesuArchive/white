@@ -1,5 +1,5 @@
 /datum/map_generator/cave_generator
-	var/name = "Генератор пещер"
+	var/name = "Пещеры"
 	///Weighted list of the types that spawns if the turf is open
 	var/open_turf_types = list(/turf/open/floor/plating/asteroid = 1)
 	///Weighted list of the types that spawns if the turf is closed
@@ -136,6 +136,5 @@
 					new picked_mob(new_open_turf)
 		CHECK_TICK
 
-	var/message = "[name] завершает работу за [(REALTIMEOFDAY - start_time)/10] секунд!"
-	to_chat(world, "<span class='boldannounce'>[message]</span>")
-	log_world(message)
+	to_chat(world, "<span class='green'> -- #<b>[name]</b>:> <b>[(REALTIMEOFDAY - start_time)/10]</b> -- </span>")
+	log_world("[name] is done job for [(REALTIMEOFDAY - start_time)/10]s!")

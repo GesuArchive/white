@@ -1,16 +1,16 @@
 /obj/effect/mob_spawn/human/dukra
 	name = "спящий больной"
-	desc = "Накачался и спит."
+	desc = "Смотрит мне прямо в душу. Он что-то замышляет???"
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "shiz"
 	roundstart = FALSE
 	death = FALSE
-	short_desc = "Я точно не болен... Врачи убийцы держат меня тут насильно... Надо придумать способ сбежать отсюда..."
-	flavour_text = "Нужно обезвредить всех НЕ-шизов и угнать эвакуационный шаттл."
+	short_desc = "Местные врачи моя последняя надежда, ведь именно благодаря им я всё ещё могу дышать и хоть как-то мыслить."
+	flavour_text = "Хотелось бы вылечиться и начать новую жизнь!"
 	outfit = /datum/outfit/durka
 	assignedrole = "Больной"
 	faction = list("shiz")
-	important_info = "Каждый может быть опасным для меня... Доверять можно только шизам..."
+	important_info = "Однако, каждый может быть опасным для меня... Доверять можно только моему психологу, хотя тот в последнее время что-то недоговаривает..."
 	oxy_damage = 40
 
 /datum/outfit/durka
@@ -61,3 +61,11 @@
 /datum/antagonist/shizoid/on_gain()
 	forge_objectives()
 	. = ..()
+
+/obj/item/psihi
+	name = "ПСИХИ"
+	desc = "Эта вывеска внезапно хочет о чём-то предупредить."
+	icon = 'white/valtos/icons/psihi.dmi'
+	icon_state = "psihi"
+	density = 0
+	anchored = 1

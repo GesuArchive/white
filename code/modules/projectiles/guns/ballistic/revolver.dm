@@ -234,7 +234,7 @@
 				chambered = null
 				return
 
-		user.visible_message("<span class='danger'>*щёлк*</span>")
+		user.balloon_alert_to_viewers("*щёлк*")
 		playsound(src, dry_fire_sound, 30, TRUE)
 
 /obj/item/gun/ballistic/revolver/russian/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)

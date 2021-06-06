@@ -125,9 +125,15 @@
 	name = "Default Medbay"
 
 /datum/map_template/ruin/station/med/durka
-	id = "durka_med"
-	suffix = "durka_med.dmm"
-	name = "Durka Medbay"
+	id = "durka_med2"
+	suffix = "durka_med2.dmm"
+	name = "Durka Fortress"
+	always_spawn_with = list(/datum/map_template/ruin/station/med/durka/bottom = PLACE_BELOW)
+
+/datum/map_template/ruin/station/med/durka/bottom
+	id = "durka_med_bottom"
+	suffix = "durka_med_bottom.dmm"
+	name = "Durka Fortress Bottom"
 
 /datum/map_template/ruin/station/med/old
 	id = "old_med"

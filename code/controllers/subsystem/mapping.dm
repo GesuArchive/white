@@ -261,12 +261,13 @@ Used by the AI doomsday and the self-destruct nuke.
 		if (!pm.load(1, 1, start_z + parsed_maps[P], no_changeturf = TRUE))
 			errorList |= pm.original_path
 	if(!silent)
+		log_world("Map [name] loaded for [(REALTIMEOFDAY - start_time)/10] seconds!")
 		switch(name)
 			if("Station")
-				name = "станцию"
+				name = "Станция"
 			if("Lavaland")
 				name = "Лаваленд"
-		INIT_ANNOUNCE("Загружаю в память [name] за [(REALTIMEOFDAY - start_time)/10] с!")
+		to_chat(world, "<span class='green'> -- #<b>[name]</b>:> <b>[(REALTIMEOFDAY - start_time)/10]</b> -- </span>")
 	return parsed_maps
 
 /datum/controller/subsystem/mapping/proc/loadWorld()
@@ -278,7 +279,8 @@ Used by the AI doomsday and the self-destruct nuke.
 
 	// load the station
 	station_start = world.maxz + 1
-	INIT_ANNOUNCE("Начинаю настраивать [config.map_name]...")
+	log_world("Loading map config named [config.map_name]...")
+	to_chat(world, "<span class='green'> -- $<b>Настройка</b>:> <b>[config.map_name]</b> -- </span>")
 	LoadGroup(FailedZs, "Station", config.map_path, config.map_file, config.traits, ZTRAITS_STATION)
 
 	if(SSdbcore.Connect())

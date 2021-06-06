@@ -3,7 +3,7 @@
 	layer = CLOSED_DOOR_LAYER
 	closingLayer = CLOSED_DOOR_LAYER
 
-/obj/machinery/door/poddoor/multi_tile/New()
+/obj/machinery/door/poddoor/multi_tile/Initialize()
 	. = ..()
 	apply_opacity_to_my_turfs(opacity)
 

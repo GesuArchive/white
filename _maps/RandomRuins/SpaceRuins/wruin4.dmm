@@ -1677,11 +1677,11 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/ruin/space/has_grav/terrorship)
 "Pv" = (
-/obj/machinery/computer/card{
-	dir = 4;
-	icon_state = "computer"
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
 	},
-/turf/open/floor/plasteel/dark,
+/obj/machinery/modular_computer/console/preset/id,
+/turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/terrorship)
 "PO" = (
 /obj/machinery/light{
@@ -2536,7 +2536,7 @@ fJ
 fJ
 ac
 ac
-Pv
+ad
 RM
 fe
 ac
@@ -3998,7 +3998,7 @@ ad
 ad
 aG
 ac
-bA
+Pv
 eW
 bn
 aF

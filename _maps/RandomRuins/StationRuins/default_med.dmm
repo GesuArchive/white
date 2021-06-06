@@ -4726,7 +4726,7 @@
 "Ip" = (
 /obj/structure/cable,
 /obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating,
 /area/security/checkpoint/medical)
 "Iu" = (
 /obj/structure/chair/office/light{

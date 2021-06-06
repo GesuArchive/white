@@ -379,7 +379,7 @@ SUBSYSTEM_DEF(air)
 		var/ending_ats = active_turfs.len
 
 		var/msg = "ЭЙ! СЛЫШ! [DisplayTimeText(world.timeofday - timer)] было потрачено на [starting_ats] активных турфов (которые подключены к [ending_ats] другим) с разностями в атмосфере при инициализации."
-		to_chat(world, "<span class='green'>[msg]</span>")
+		message_admins("[msg]")
 		warning(msg)
 
 /turf/open/proc/resolve_active_graph()

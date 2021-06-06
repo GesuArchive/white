@@ -12,6 +12,7 @@ import { useGame } from './game';
 import { Notifications } from './Notifications';
 import { PingIndicator } from './ping';
 import { SettingsPanel, useSettings } from './settings';
+import { useLocalState } from 'tgui/backend';
 
 export const Panel = (props, context) => {
   // IE8-10: Needs special treatment due to missing Flex support
@@ -23,6 +24,7 @@ export const Panel = (props, context) => {
   const audio = useAudio(context);
   const settings = useSettings(context);
   const game = useGame(context);
+  const [things, setThings] = useLocalState(context, 'things', 1);;
   if (process.env.NODE_ENV !== 'production') {
     const { useDebug, KitchenSink } = require('tgui/debug');
     const debug = useDebug(context);
@@ -43,31 +45,45 @@ export const Panel = (props, context) => {
               </Stack.Item>
               <Stack.Item>
                 <Button
-                  color="green"
-                  tooltip="Ваш путеводитель."
+                  color="grey"
+                  tooltip={things ? "Скрыть" : "Показать"}
                   tooltipPosition="bottom"
-                  onClick={() => Byond.command('wiki')}>
-                  Wiki
-                </Button>
+                  icon={things ? "angle-double-right" : "angle-double-left"}
+                  onClick={() => setThings(!things)}/>
               </Stack.Item>
-              <Stack.Item>
-                <Button
-                  color="teal"
-                  tooltip="Наша конференция."
-                  tooltipPosition="bottom"
-                  onClick={() => Byond.command('forum')}>
-                  Discord
-                </Button>
-              </Stack.Item>
-              <Stack.Item>
-                <Button
-                  color="yellow"
-                  tooltip=":^)"
-                  tooltipPosition="bottom"
-                  onClick={() => Byond.command('Панель-благотворца')}>
-                  Донат
-                </Button>
-              </Stack.Item>
+              {!!things && (
+                <Stack.Item>
+                  <Button
+                    color="green"
+                    tooltip="Ваш путеводитель"
+                    tooltipPosition="bottom"
+                    onClick={() => Byond.command('wiki')}>
+                    Wiki
+                  </Button>
+                </Stack.Item>
+              )}
+              {!!things && (
+                <Stack.Item>
+                  <Button
+                    color="teal"
+                    tooltip="Наша конференция"
+                    tooltipPosition="bottom"
+                    onClick={() => Byond.command('forum')}>
+                    Discord
+                  </Button>
+                </Stack.Item>
+              )}
+              {!!things && (
+                <Stack.Item>
+                  <Button
+                    color="yellow"
+                    tooltip=":^)"
+                    tooltipPosition="bottom"
+                    onClick={() => Byond.command('Панель-благотворца')}>
+                    Донат
+                  </Button>
+                </Stack.Item>
+              )}
               <Stack.Item>
                 <PingIndicator />
               </Stack.Item>

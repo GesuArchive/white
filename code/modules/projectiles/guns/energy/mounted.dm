@@ -13,7 +13,7 @@
 	..()
 
 /obj/item/gun/energy/laser/mounted
-	name = "монтированный тазер"
+	name = "монтированный лазер"
 	desc = "Орудие, установленное на руку, которое запускает смертельные лазеры."
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "laser"

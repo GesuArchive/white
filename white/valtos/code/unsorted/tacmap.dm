@@ -6,23 +6,61 @@
 			var/turf/T = locate(xx, yy, map_z)
 			if(isspaceturf(T) || isopenspace(T))
 				if(locate(/obj/structure/lattice) in T)
-					tacmap_icon.DrawBox(rgb(66, 66, 66), xx, yy, xx, yy)
-				else
-					tacmap_icon.DrawBox(rgb(22, 22, 22), xx, yy, xx, yy)
+					tacmap_icon.DrawBox(rgb(143, 103, 175), xx, yy, xx, yy)
 				continue
 			if(isopenturf(T))
 				if(isplatingturf(T))
 					if(locate(/obj/structure/window) in T)
-						tacmap_icon.DrawBox(rgb(150, 150, 255), xx, yy, xx, yy)
+						tacmap_icon.DrawBox(rgb(0, 60, 255), xx, yy, xx, yy)
 					else if(locate(/obj/machinery/door) in T)
-						tacmap_icon.DrawBox(rgb(250, 200, 200), xx, yy, xx, yy)
+						tacmap_icon.DrawBox(rgb(255, 0, 0), xx, yy, xx, yy)
 					else
-						tacmap_icon.DrawBox(rgb(150, 150, 150), xx, yy, xx, yy)
+						tacmap_icon.DrawBox(rgb(109, 42, 128), xx, yy, xx, yy)
 					continue
-				tacmap_icon.DrawBox(rgb(225, 225, 225), xx, yy, xx, yy)
+				tacmap_icon.DrawBox(rgb(220, 44, 255), xx, yy, xx, yy)
 				continue
 			if(isclosedturf(T))
-				tacmap_icon.DrawBox(rgb(100, 100, 100), xx, yy, xx, yy)
+				tacmap_icon.DrawBox(rgb(0, 195, 255), xx, yy, xx, yy)
+	return tacmap_icon
+
+/proc/gen_tacmap_areas(map_z = 2)
+	var/icon/tacmap_icon = new('white/valtos/icons/tacmap.dmi', "tacmap_base")
+	for(var/xx in 1 to world.maxx)
+		for(var/yy in 1 to world.maxy)
+			var/turf/T = locate(xx, yy, map_z)
+			if(isspaceturf(T) || isopenspace(T))
+				continue
+			var/area/A = get_area(T)
+			if(istype(A, /area/hallway))
+				tacmap_icon.DrawBox(rgb(255, 255, 255), xx, yy, xx, yy)
+				continue
+			if(istype(A, /area/security))
+				tacmap_icon.DrawBox(rgb(255, 0, 0), xx, yy, xx, yy)
+				continue
+			if(istype(A, /area/quartermaster))
+				tacmap_icon.DrawBox(rgb(209, 101, 43), xx, yy, xx, yy)
+				continue
+			if(istype(A, /area/quartermaster))
+				tacmap_icon.DrawBox(rgb(209, 101, 43), xx, yy, xx, yy)
+				continue
+			if(istype(A, /area/hydroponics) || istype(A, /area/chapel) || istype(A, /area/library) || istype(A, /area/crew_quarters))
+				tacmap_icon.DrawBox(rgb(62, 209, 43), xx, yy, xx, yy)
+				continue
+			if(istype(A, /area/science))
+				tacmap_icon.DrawBox(rgb(209, 43, 209), xx, yy, xx, yy)
+				continue
+			if(istype(A, /area/medical))
+				tacmap_icon.DrawBox(rgb(0, 255, 229), xx, yy, xx, yy)
+				continue
+			if(istype(A, /area/ai_monitored) || istype(A, /area/teleporter) || istype(A, /area/gateway) || istype(A, /area/bridge))
+				tacmap_icon.DrawBox(rgb(0, 60, 255), xx, yy, xx, yy)
+				continue
+			if(istype(A, /area/storage) || istype(A, /area/maintenance))
+				tacmap_icon.DrawBox(rgb(70, 70, 70), xx, yy, xx, yy)
+				continue
+			if(istype(A, /area/vacant_room) || istype(A, /area/tcommsat) || istype(A, /area/comms) || istype(A, /area/server) || istype(A, /area/solar) || istype(A, /area/engine))
+				tacmap_icon.DrawBox(rgb(255, 145, 0), xx, yy, xx, yy)
+				continue
 	return tacmap_icon
 
 /client/proc/get_tacmap_for_test()
