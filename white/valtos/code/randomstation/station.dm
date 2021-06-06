@@ -125,9 +125,9 @@
 	name = "Default Medbay"
 
 /datum/map_template/ruin/station/med/durka
-	id = "durka_med"
-	suffix = "durka_med.dmm"
-	name = "Durka Medbay"
+	id = "durka_med2"
+	suffix = "durka_med2.dmm"
+	name = "Durka Fortress"
 
 /datum/map_template/ruin/station/med/old
 	id = "old_med"

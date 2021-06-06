@@ -65,7 +65,7 @@
 	icon_state = "maint"
 
 /obj/effect/landmark/stationroom/medbay
-	template_names = list("Default Medbay" = 10, "Old Medbay" = 7, "Durka Medbay" = 2)
+	template_names = list("Default Medbay" = 10, "Old Medbay" = 7, "Durka Fortress" = 10)
 	icon_state = "med"
 
 /obj/effect/landmark/stationroom/maint/rdm3x3
