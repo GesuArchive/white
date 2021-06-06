@@ -39,7 +39,7 @@
 	data["price_for_one_kw"] = price_for_one_kw
 	return data
 
-/obj/item/radio/ui_act(action, params, datum/tgui/ui)
+/obj/machinery/computer/enernet_control/ui_act(action, params, datum/tgui/ui)
 	. = ..()
 	if(.)
 		return
