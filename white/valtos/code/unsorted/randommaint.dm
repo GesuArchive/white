@@ -1,5 +1,5 @@
 /datum/map_generator/station_maints_generator
-	var/name = "Генератор техтоннелей"
+	var/name = "Техтоннели"
 	var/list/turf_types = list(/turf/open/floor/plating = 90, /turf/open/floor/plasteel = 1, /turf/open/floor/plasteel/dark = 1, /turf/closed/wall = 1)
 	var/list/garbage_types = list(
 		/obj/effect/spawner/lootdrop/grille_or_trash = 50,
@@ -100,6 +100,5 @@
 
 		CHECK_TICK
 
-	var/message = "[name] завершает работу за [(REALTIMEOFDAY - start_time)/10] секунд!"
-	to_chat(world, "<span class='boldannounce'>[message]</span>")
-	log_world(message)
+	to_chat(world, "<span class='green'> -- #<b>[name]</b>:> <b>[(REALTIMEOFDAY - start_time)/10]</b> -- </span>")
+	log_world("[name] is done job for [(REALTIMEOFDAY - start_time)/10]s!")

@@ -215,11 +215,9 @@
 /datum/controller/subsystem/Initialize(start_timeofday)
 	initialized = TRUE
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
-	var/msg = "Инициализация <b>[name]</b> за <b>[time]</b> секунд!"
 	SStitle.adjust_load_pos(round(time, 1), "[name] ГОТОВО")
-	var/log_msg = "Init [name] for [time]s!"
-	to_chat(world, "<span class='green'>[msg]</span>")
-	log_world(log_msg)
+	to_chat(world, "<span class='green'> -- @<b>[name]</b>:> <b>[time]</b> -- </span>")
+	log_world("Init [name] for [time]s!")
 	return time
 
 /datum/controller/subsystem/stat_entry(msg)

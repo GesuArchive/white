@@ -201,11 +201,10 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	current_ticklimit = TICK_LIMIT_RUNNING
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 
-	var/msg = "Мир создан за <b>[time]</b> секунд!"
 	spawn(10)
 		SStitle.afterload()
-	to_chat(world, "<span class='green'>[msg]</span>")
-	log_world(msg)
+	to_chat(world, "<span class='green'> -- $<b>Мир</b>:> <b>[time]</b> -- </span>")
+	log_world("World init for [time] seconds!")
 
 	if (!current_runlevel)
 		SetRunLevel(1)

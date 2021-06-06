@@ -3,7 +3,7 @@
 
 /obj/item/integrated_circuit/smart/Initialize(mapload)
 	. = ..()
-	if(mapload)
+	if(Master.current_runlevel == RUNLEVEL_INIT)
 		return
 	var/list/maybe = list()
 	for(var/mob/living/L in view(1))

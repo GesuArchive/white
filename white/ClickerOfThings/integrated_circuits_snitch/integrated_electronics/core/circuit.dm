@@ -77,7 +77,6 @@ PROCESSING_SUBSYSTEM_DEF(circuit)
 		/obj/item/electronic_assembly/wallmount/light,
 		/obj/item/electronic_assembly/wallmount,
 		/obj/item/electronic_assembly/wallmount/heavy
-		///obj/item/weapon/implant/integrated_circuit
 		)
 
 	circuit_fabricator_recipe_list["Инструменты"] = list(
