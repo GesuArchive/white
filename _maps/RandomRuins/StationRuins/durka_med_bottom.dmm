@@ -2,13 +2,6 @@
 "a" = (
 /turf/template_noop,
 /area/template_noop)
-"b" = (
-/obj/structure/table/wood,
-/obj/machinery/computer/med_data/laptop{
-	dir = 4
-	},
-/turf/open/floor/carpet/blue,
-/area/medical/medbay/zone2)
 "c" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -18,6 +11,13 @@
 /obj/machinery/power/apc/auto_name/south,
 /obj/structure/cable,
 /turf/open/floor/plasteel/white,
+/area/medical/medbay/zone2)
+"d" = (
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
+/turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/zone2)
 "e" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -33,12 +33,26 @@
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/zone2)
-"j" = (
-/obj/item/radio/intercom{
-	pixel_y = -35
+"h" = (
+/obj/structure/chair/sofa/right{
+	dir = 8
 	},
+/obj/item/toy/plush/moth,
+/turf/open/floor/carpet/blue,
+/area/medical/medbay/zone2)
+"j" = (
 /obj/machinery/light,
 /turf/open/floor/carpet/blue,
+/area/medical/medbay/zone2)
+"k" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 6
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/medbay/zone2)
+"l" = (
+/obj/structure/closet/secure_closet/psychology,
+/turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/zone2)
 "m" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
@@ -52,9 +66,33 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/medical/medbay/zone2)
+"o" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin/carbon,
+/obj/item/pen,
+/obj/item/radio/intercom{
+	pixel_y = -35
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/medbay/zone2)
+"p" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 10
+	},
+/obj/structure/table,
+/obj/item/stack/ducts/fifty,
+/obj/item/stack/ducts/fifty,
+/obj/item/stack/ducts/fifty,
+/obj/item/stack/ducts/fifty,
+/obj/item/plunger,
+/turf/open/floor/plasteel/white,
+/area/medical/medbay/zone2)
 "q" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/item/radio/intercom{
+	pixel_y = -35
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
 "r" = (
@@ -119,11 +157,20 @@
 	dir = 1;
 	pixel_y = -23
 	},
+/obj/machinery/light,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
 "z" = (
-/obj/structure/filingcabinet,
 /obj/machinery/firealarm/directional/east,
+/obj/structure/chair/sofa{
+	dir = 8
+	},
+/obj/machinery/camera{
+	c_tag = "Psychology";
+	dir = 8;
+	network = list("ss13","medbay");
+	pixel_y = -22
+	},
 /turf/open/floor/carpet/blue,
 /area/medical/medbay/zone2)
 "A" = (
@@ -136,18 +183,25 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/zone2)
 "D" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 4;
-	name = "Medbay Maintenance";
-	req_access_txt = "5"
+/obj/machinery/door/airlock/medical/glass{
+	name = "Chemistry Storage";
+	req_access_txt = "33"
 	},
-/obj/effect/mapping_helpers/airlock/locked,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
 "E" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/requests_console{
+	department = "Medbay";
+	departmentType = 1;
+	name = "Medbay RC";
+	pixel_x = -30
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
@@ -174,6 +228,28 @@
 /obj/structure/bookcase/random/reference,
 /turf/open/floor/plating,
 /area/medical/medbay/zone2)
+"J" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 9
+	},
+/obj/structure/table,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 11
+	},
+/obj/item/clothing/head/welding,
+/obj/item/construction/plumbing{
+	pixel_y = -10
+	},
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = -24
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/medbay/zone2)
+"K" = (
+/obj/structure/filingcabinet,
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/medbay/zone2)
 "L" = (
 /obj/machinery/atmospherics/components/unary/cryo_cell,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -192,6 +268,23 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
+"O" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 5
+	},
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 0
+	},
+/obj/structure/sign/departments/chemistry{
+	pixel_y = 32
+	},
+/obj/machinery/airalarm{
+	dir = 8;
+	pixel_x = 23
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/medbay/zone2)
 "P" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
@@ -202,21 +295,19 @@
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
 "Q" = (
-/obj/effect/landmark/start/psychologist,
-/obj/structure/chair/office/light{
-	dir = 8
-	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -5;
-	pixel_y = 30
-	},
 /turf/open/floor/carpet/blue,
 /area/medical/medbay/zone2)
 "R" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/light,
 /turf/open/floor/plasteel/white,
+/area/medical/medbay/zone2)
+"S" = (
+/obj/structure/table/wood,
+/obj/machinery/computer/med_data/laptop{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/zone2)
 "T" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer,
@@ -235,6 +326,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
+/obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
 "V" = (
@@ -254,12 +346,25 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/zone2)
 "X" = (
-/obj/structure/closet/secure_closet/psychology,
 /obj/machinery/airalarm{
 	dir = 8;
 	pixel_x = 23
 	},
+/obj/structure/chair/sofa/left{
+	dir = 8
+	},
 /turf/open/floor/carpet/blue,
+/area/medical/medbay/zone2)
+"Y" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -5;
+	pixel_y = 30
+	},
+/obj/structure/chair/office/light{
+	dir = 8
+	},
+/obj/effect/landmark/start/psychologist,
+/turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/zone2)
 "Z" = (
 /obj/structure/table/glass,
@@ -854,9 +959,9 @@ a
 a
 a
 a
-a
-a
-a
+F
+F
+F
 F
 T
 m
@@ -896,9 +1001,9 @@ a
 a
 a
 a
-a
-a
-a
+F
+J
+p
 F
 L
 m
@@ -938,9 +1043,9 @@ a
 a
 a
 a
-a
-a
-a
+F
+O
+k
 D
 A
 C
@@ -980,9 +1085,9 @@ a
 a
 a
 a
-a
-a
-a
+F
+F
+F
 F
 P
 v
@@ -1022,9 +1127,9 @@ a
 a
 a
 a
-a
-a
-a
+F
+S
+o
 F
 F
 V
@@ -1064,11 +1169,11 @@ a
 a
 a
 a
-a
-a
-a
 F
-b
+Y
+C
+Q
+Q
 e
 I
 n
@@ -1106,10 +1211,10 @@ a
 a
 a
 a
-a
-a
-a
 F
+d
+C
+Q
 Q
 j
 F
@@ -1148,10 +1253,10 @@ a
 a
 a
 a
-a
-a
-a
 F
+K
+l
+h
 z
 X
 F
@@ -1190,9 +1295,9 @@ a
 a
 a
 a
-a
-a
-a
+F
+F
+F
 F
 F
 F

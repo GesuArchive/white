@@ -396,6 +396,9 @@
 /obj/machinery/light,
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/disposal/bin,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
 "fo" = (
@@ -408,6 +411,9 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/camera/autoname{
+	dir = 8
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
@@ -608,6 +614,9 @@
 	dir = 6
 	},
 /obj/effect/landmark/start/virologist,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/medical/virology)
 "iF" = (
@@ -705,6 +714,9 @@
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/light,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/surgery)
 "jL" = (
@@ -818,6 +830,9 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/camera/autoname{
+	dir = 1
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/storage)
@@ -1143,6 +1158,9 @@
 	dir = 5
 	},
 /obj/machinery/firealarm/directional/west,
+/obj/machinery/camera/autoname{
+	dir = 5
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/storage)
 "py" = (
@@ -1261,6 +1279,9 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 8
 	},
+/obj/machinery/camera/autoname{
+	dir = 5
+	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
 "sU" = (
@@ -1302,6 +1323,9 @@
 /obj/machinery/firealarm/directional/south,
 /obj/structure/disposalpipe/segment{
 	dir = 9
+	},
+/obj/machinery/camera/autoname{
+	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/aft)
@@ -1440,6 +1464,9 @@
 	dir = 8
 	},
 /obj/machinery/firealarm/directional/west,
+/obj/machinery/camera/autoname{
+	dir = 5
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "wh" = (
@@ -1591,6 +1618,9 @@
 	pixel_y = -28
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/sleeper)
 "xF" = (
@@ -1708,6 +1738,9 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
 /turf/open/floor/engine,
 /area/medical/medbay/lobby)
 "zT" = (
@@ -1931,6 +1964,9 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
 "Cy" = (
@@ -2080,6 +2116,9 @@
 /obj/effect/turf_decal/box,
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 4
+	},
+/obj/machinery/camera/autoname{
+	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/virology)
@@ -2353,6 +2392,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
 "JO" = (
