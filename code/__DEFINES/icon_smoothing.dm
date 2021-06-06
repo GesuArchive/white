@@ -136,6 +136,4 @@ DEFINE_BITFIELD(smoothing_flags, list(
 
 #define SMOOTH_GROUP_METALFOAM S_OBJ(73)	///obj/structure/foamedmetal
 
-#define SMOOTH_GROUP_FOAM S_OBJ(74)	///obj/effect/particle_effect/foam
-
-#define MAX_S_OBJ SMOOTH_GROUP_FOAM //Always match this value with the one above it.
+#define MAX_S_OBJ SMOOTH_GROUP_METALFOAM //Always match this value with the one above it.
