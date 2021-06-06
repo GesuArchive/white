@@ -4424,9 +4424,6 @@
 /obj/machinery/status_display/evac{
 	pixel_x = 32
 	},
-/obj/machinery/computer/card{
-	dir = 8
-	},
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -4435,6 +4432,9 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/modular_computer/console/preset/id{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/station)
 "iK" = (
@@ -4493,7 +4493,7 @@
 "iP" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light,
-/obj/item/card/id/captains_spare,
+/obj/item/card/id/advanced/gold/captains_spare,
 /obj/item/radio,
 /obj/item/radio,
 /obj/item/radio,
@@ -5067,7 +5067,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/station)
 "vF" = (
-/obj/item/card/id/captains_spare,
+/obj/item/card/id/advanced/gold/captains_spare,
 /turf/open/space/basic,
 /area/ruin/space/has_grav/austation/rnd)
 "vT" = (
