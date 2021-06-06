@@ -19,6 +19,10 @@
 	var/autosell_amount = 1000000
 	var/price_for_one_kw = 0.000142
 
+/obj/machinery/computer/enernet_control/Initialize(mapload, obj/item/circuitboard/C)
+	. = ..()
+	AddElement(/datum/element/empprotection, EMP_PROTECT_SELF | EMP_PROTECT_WIRES | EMP_PROTECT_CONTENTS)
+
 /obj/machinery/computer/enernet_control/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
@@ -29,11 +33,29 @@
 	var/list/data = list()
 	data["coils"] = list()
 	for(var/obj/machinery/enernet_coil/E in attached_coils)
-		data["coils"] = list(list("acc" = E.cur_acc, "max" = E.max_acc, "suc" = E.suck_rate))
+		data["coils"] += list(list("acc" = E.cur_acc, "max" = E.max_acc, "suc" = E.suck_rate))
 	data["autosell"] 	     = autosell
 	data["autosell_amount"]  = autosell_amount
 	data["price_for_one_kw"] = price_for_one_kw
 	return data
+
+/obj/item/radio/ui_act(action, params, datum/tgui/ui)
+	. = ..()
+	if(.)
+		return
+	switch(action)
+		if("setautosellamount")
+			autosell_amount = params["autosell_selected"]
+			. = TRUE
+		if("toggle_autosell")
+			if(autosell)
+				stop_selling()
+			else
+				start_selling()
+			. = TRUE
+		if("get_coils")
+			get_coils()
+			. = TRUE
 
 /obj/machinery/computer/enernet_control/process()
 	. = ..()
@@ -94,6 +116,7 @@
 	. = ..()
 	soundloop = new(list(src), TRUE)
 	soundloop.stop()
+	AddElement(/datum/element/empprotection, EMP_PROTECT_SELF | EMP_PROTECT_WIRES | EMP_PROTECT_CONTENTS)
 
 /obj/machinery/enernet_coil/Destroy()
 	QDEL_NULL(soundloop)
@@ -136,7 +159,7 @@
 		if(max_acc - 1000001 to max_acc)
 			add_overlay("eball_fuck")
 			return
-		else
+		if(max_acc +1 to INFINITY)
 			playsound(get_turf(src), 'white/valtos/sounds/explo.ogg', 80)
 			spawn(1 SECONDS)
 				empulse(get_turf(src), rand(1, 4), rand(4, 8))

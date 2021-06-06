@@ -1,6 +1,5 @@
 import { useBackend } from '../backend';
 import { Slider, NoticeBox, Table, Button, LabeledList, ProgressBar, Section } from '../components';
-import { BeakerContents } from './common/BeakerContents';
 import { Window } from '../layouts';
 
 export const EnerNet = (props, context) => {
@@ -61,6 +60,13 @@ export const EnerNet = (props, context) => {
           </Table.Row>
         ))}
         </Table>
+        <Button
+          content="НАЙТИ КАТУШКИ"
+          textAlign="center"
+          fontSize="18px"
+          fluid
+          mb={1}
+          onClick={() => act('get_coils')} />
         <NoticeBox
           fontSize="16px"
           p={1}>
