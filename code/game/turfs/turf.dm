@@ -416,7 +416,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	if(.)
 		return
 	if(length(src_object.contents()))
-		balloon_alert(usr, "Начинаю вытряхивать содержимое...")
+		user.balloon_alert(user, "Начинаю вытряхивать содержимое...")
 		if(!do_after(usr,20,target=src_object.parent))
 			return FALSE
 
