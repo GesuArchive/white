@@ -38,7 +38,7 @@
 	if(!isliving(user))
 		return
 	var/mob/living/jedi = user
-	to_chat(jedi, "<span class='userdanger'>Я больше не чувствую себя настоящим.</span>")
+	to_chat(jedi, "<span class='userdanger'>Больше не чувствую себя настоящим.</span>")
 	jedi.dust_animation()
 	jedi.spawn_dust()
 	addtimer(CALLBACK(src, /atom/proc/attack_hand, jedi), 0.5 SECONDS)

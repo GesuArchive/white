@@ -96,13 +96,13 @@
 
 /obj/item/clothing/neck/cloak/skill_reward/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>Я ощущаю сильную ауру окружающую этот плащ. Предполагаю, что им может владеть только кто-то по настоящему опытный.</span>"
+	. += "<hr><span class='notice'>Ощущаю сильную ауру окружающую этот плащ. Предполагаю, что им может владеть только кто-то по настоящему опытный.</span>"
 
 /obj/item/clothing/neck/cloak/skill_reward/proc/check_wearable(mob/user)
 	return user.mind?.get_skill_level(associated_skill_path) < SKILL_LEVEL_LEGENDARY
 
 /obj/item/clothing/neck/cloak/skill_reward/proc/unworthy_unequip(mob/user)
-	to_chat(user, "<span class = 'notice'>Я чую что я полностью и абсолютно не готов даже прикоснуться к <b>[src.name]</b>.</span>")
+	to_chat(user, "<span class = 'notice'>Чую что я полностью и абсолютно не готов даже прикоснуться к <b>[src.name]</b>.</span>")
 	var/hand_index = user.get_held_index_of_item(src)
 	if (hand_index)
 		user.dropItemToGround(src, TRUE)

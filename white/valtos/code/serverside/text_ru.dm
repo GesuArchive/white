@@ -94,7 +94,7 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	return text
 
 /proc/r_jobgen(text)
-	var/list/strip_chars = list("_"," ")
+	var/list/strip_chars = list("_"," ","(",")")
 	for(var/char in strip_chars)
 		text = replacetext_char(text, char, "")
 	return lowertext(text)
@@ -242,8 +242,8 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	desc = "Я не помню как проговаривать букву \"Р\"."
 	value = 0
 	mob_trait = TRAIT_KARTAVII
-	gain_text = "<span class='notice'>Я забываю как проговаривать букву \"Р\".</span>"
-	lose_text = "<span class='danger'>Я вспоминаю как проговаривать букву \"Р\".</span>"
+	gain_text = "<span class='notice'>Забываю как проговаривать букву \"Р\".</span>"
+	lose_text = "<span class='danger'>Вспоминаю как проговаривать букву \"Р\".</span>"
 	medical_record_text = "Пациент не может проговаривать букву \"Р\"."
 
 /datum/quirk/jewish
@@ -252,7 +252,7 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	value = 4 // гоев проще наёбывать
 	mob_trait = TRAIT_JEWISH
 	gain_text = "<span class='notice'>Теперь я знаю цену вещам.</span>"
-	lose_text = "<span class='danger'>Я забываю цену вещам.</span>"
+	lose_text = "<span class='danger'>Забываю цену вещам.</span>"
 	medical_record_text = "Пациент имеет удивительные навыки в оценке стоимости вещей."
 
 /datum/quirk/ukrainish
@@ -261,7 +261,7 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	value = 0
 	mob_trait = TRAIT_UKRAINISH
 	gain_text = "<span class='notice'>Дайте мне, будь ласка, сала.</span>"
-	lose_text = "<span class='danger'>Я забываю запах сала.</span>"
+	lose_text = "<span class='danger'>Забываю запах сала.</span>"
 	medical_record_text = "Пациент имеет страсть к салу."
 
 /datum/quirk/ukrainish/add()

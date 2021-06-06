@@ -564,7 +564,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 		return
 
 	if(get_dist(T,user) > 1) // Too far
-		to_chat(user, "<span class='warning'>Я не могу проложить кабель так далеко!</span>")
+		to_chat(user, "<span class='warning'>Не могу проложить кабель так далеко!</span>")
 		return
 
 	for(var/obj/structure/cable/C in T)

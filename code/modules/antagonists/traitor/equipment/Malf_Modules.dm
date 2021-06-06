@@ -179,7 +179,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	cost = 130
 	one_purchase = TRUE
 	power_type = /datum/action/innate/ai/nuke_station
-	unlock_text = "<span class='notice'>Я медленно и аккуратно устанавливаю соединение с системой самоуничтожения станции. Теперь я могу активировать её в любой момент..</span>"
+	unlock_text = "<span class='notice'>Медленно и аккуратно устанавливаю соединение с системой самоуничтожения станции. Теперь я могу активировать её в любой момент..</span>"
 
 /datum/action/innate/ai/nuke_station
 	name = "Устройство Судного Дня"
@@ -190,7 +190,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 /datum/action/innate/ai/nuke_station/Activate()
 	var/turf/T = get_turf(owner)
 	if(!istype(T) || !is_station_level(T.z))
-		to_chat(owner, "<span class='warning'>Я не могу активировать устройство судного дня за пределами станции!</span>")
+		to_chat(owner, "<span class='warning'>Не могу активировать устройство судного дня за пределами станции!</span>")
 		return
 	if(alert(owner, "Send arming signal? (true = arm, false = cancel)", "purge_all_life()", "confirm = TRUE;", "confirm = FALSE;") != "confirm = TRUE;")
 		return
@@ -435,7 +435,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 		remove_ranged_ability()
 		return
 	if(!istype(target))
-		to_chat(ranged_ability_user, "<span class='warning'>Я не могу активировать что-то кроме аппаратов!</span>")
+		to_chat(ranged_ability_user, "<span class='warning'>Не могу активировать что-то кроме аппаратов!</span>")
 		return
 	if(!target.can_be_overridden() || is_type_in_typecache(target, GLOB.blacklisted_malf_machines))
 		to_chat(ranged_ability_user, "<span class='warning'>Этот аппарат нельзя перенастроить!</span>")
@@ -518,7 +518,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 		remove_ranged_ability()
 		return
 	if(!istype(target))
-		to_chat(ranged_ability_user, "<span class='warning'>Я не могу перегрузить что-то не являющееся аппаратом!</span>")
+		to_chat(ranged_ability_user, "<span class='warning'>Не могу перегрузить что-то не являющееся аппаратом!</span>")
 		return
 	if(is_type_in_typecache(target, GLOB.blacklisted_malf_machines))
 		to_chat(ranged_ability_user, "<span class='warning'>Не могу перегрузить это устройство!</span>")

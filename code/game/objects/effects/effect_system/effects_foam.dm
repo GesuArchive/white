@@ -265,20 +265,29 @@
 /obj/structure/foamedmetal
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "metalfoam"
+	base_icon_state = "foam_smooth"
 	density = TRUE
 	opacity = TRUE 	// changed in New()
 	anchored = TRUE
 	layer = EDGED_TURF_LAYER
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	name = "foamed metal"
-	desc = "A lightweight foamed metal wall."
+	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
+	name = "металопена"
+	desc = "Лёгкая металлическая пенная стена."
 	gender = PLURAL
 	max_integrity = 20
 	CanAtmosPass = ATMOS_PASS_DENSITY
+	var/smooth_icon = 'white/valtos/icons/foam_smooth.dmi'
 
 /obj/structure/foamedmetal/Initialize()
 	. = ..()
 	air_update_turf(TRUE, TRUE)
+	if(smoothing_flags & SMOOTH_BITMASK)
+		var/matrix/M = new
+		M.Translate(-8, -8)
+		transform = M
+		icon = smooth_icon
+		icon_state = "[base_icon_state]-[smoothing_junction]"
 
 /obj/structure/foamedmetal/Destroy()
 	air_update_turf(TRUE, FALSE)
@@ -317,6 +326,7 @@
 	alpha = 120
 	max_integrity = 10
 	pass_flags_self = PASSGLASS
+	smoothing_flags = NONE
 
 /obj/structure/foamedmetal/resin/Initialize()
 	. = ..()

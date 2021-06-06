@@ -200,7 +200,7 @@
 	value = 2
 	mob_trait = TRAIT_LIGHT_POOER
 	gain_text = "<span class='notice'>Теперь я знаю древние техники покакунек.</span>"
-	lose_text = "<span class='danger'>Я забываю как правильно какать.</span>"
+	lose_text = "<span class='danger'>Забываю как правильно какать.</span>"
 	medical_record_text = "Дефекационные навыки пациента стоят за гранью понимания." //prikol
 
 /datum/quirk/legkoserya/post_add()

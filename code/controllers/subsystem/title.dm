@@ -119,9 +119,23 @@ SUBSYSTEM_DEF(title)
 
 /datum/controller/subsystem/title/proc/afterload()
 	cls()
+	regen_tacmap()
+	display_tacmap()
+
+/datum/controller/subsystem/title/proc/regen_tacmap()
+	to_chat(world, "<span class='green'>Генерация TacMap начата...</span>")
+	for(var/Z in SSmapping.levels_by_trait(ZTRAIT_STATION))
+		var/icon/I = gen_tacmap(Z)
+		SSassets.transport.register_asset("tacmap[Z].png", I)
+	to_chat(world, "<span class='green'>Генерация TacMap завершена!</span>")
+
+/datum/controller/subsystem/title/proc/display_tacmap()
+	var/list/zets = SSmapping.levels_by_trait(ZTRAIT_STATION)
+	for(var/mob/dead/new_player/D in GLOB.new_player_list)
+		if(D?.client?.lobbyscreen_image)
+			D.client.display_tacmap(zets.len)
 
 /datum/controller/subsystem/title/Shutdown()
-
 	for(var/client/thing in GLOB.clients)
 		if(!thing)
 			continue

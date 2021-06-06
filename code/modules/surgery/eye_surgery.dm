@@ -25,8 +25,8 @@
 
 /datum/surgery_step/fix_eyes/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/obj/item/organ/eyes/E = target.getorganslot(ORGAN_SLOT_EYES)
-	user.visible_message("<span class='notice'>[user] успешно исправил [target.ru_who()] глаза!</span>", "<span class='notice'>Я успешно исправил глаз [sklonenie(target, RODITELNI, target.gender)].</span>")
-	display_results(user, target, "<span class='notice'>Я успешно исправил глаза [target].</span>",
+	user.visible_message("<span class='notice'>[user] успешно исправил [target.ru_who()] глаза!</span>", "<span class='notice'>Успешно исправил глаз [sklonenie(target, RODITELNI, target.gender)].</span>")
+	display_results(user, target, "<span class='notice'>Успешно исправил глаза [target].</span>",
 		"<span class='notice'>[user] успешно исправил [target.ru_who()] глаза!</span>",
 		"<span class='notice'>[user] завершил операцию на [target.ru_who()] глазах.</span>")
 	target.cure_blind(list(EYE_DAMAGE))
@@ -38,12 +38,12 @@
 
 /datum/surgery_step/fix_eyes/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(target.getorgan(/obj/item/organ/brain))
-		display_results(user, target, "<span class='warning'>Я случайно уколол [sklonenie(target, RODITELNI, target.gender)] прямо в мозг!</span>",
+		display_results(user, target, "<span class='warning'>Случайно уколол [sklonenie(target, RODITELNI, target.gender)] прямо в мозг!</span>",
 			"<span class='warning'>[user] случайно уколол [target.ru_who()] прямо в мозг!</span>",
 			"<span class='warning'>[user] случайно уколол [target.ru_who()] прямо в мозг!</span>")
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 70)
 	else
-		display_results(user, target, "<span class='warning'>Я случайно уколол [sklonenie(target, RODITELNI, target.gender)] прямо в мозг! Ну, точнее уколол бы, если бы у [target.ru_who()] был мозг.</span>",
+		display_results(user, target, "<span class='warning'>Случайно уколол [sklonenie(target, RODITELNI, target.gender)] прямо в мозг! Ну, точнее уколол бы, если бы у [target.ru_who()] был мозг.</span>",
 			"<span class='warning'>[user] случайно уколол [target.ru_who()] прямо в мозг! Ну, точнее уколол бы, если бы у [target.ru_who()] был мозг.</span>",
 			"<span class='warning'>[user] случайно уколол [target.ru_who()] прямо в мозг!</span>")
 	return FALSE

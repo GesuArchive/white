@@ -176,7 +176,7 @@
 	var/FryLoss = round(min(38, oil_damage * reac_volume))
 	if(!HAS_TRAIT(exposed_mob, TRAIT_OIL_FRIED))
 		exposed_mob.visible_message("<span class='warning'>Кипящее масло шипит, покрывая [exposed_mob]!</span>", \
-		"<span class='userdanger'>Я облит кипящим маслом!</span>")
+		"<span class='userdanger'>Облит кипящим маслом!</span>")
 		if(FryLoss)
 			exposed_mob.emote("scream")
 		playsound(exposed_mob, 'sound/machines/fryer/deep_fryer_emerge.ogg', 25, TRUE)

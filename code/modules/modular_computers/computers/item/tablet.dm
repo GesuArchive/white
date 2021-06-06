@@ -48,7 +48,7 @@
 	if(!enabled)
 		to_chat(user, "<span class='warning'>Сначала мне нужно повернуть [src].</span>")
 		return FALSE
-	to_chat(user, "<span class='notice'>Я провожу <b>[src.name]</b>. На экране на короткое время отображается следующее сообщение: \"ИНЪЕКЦИЯ КОДА ПАМЯТИ ОБНАРУЖЕНА И УСПЕШНО ПОМЕЩЕНА В КАРАНТИН\".</span>")
+	to_chat(user, "<span class='notice'>Провожу <b>[src.name]</b>. На экране на короткое время отображается следующее сообщение: \"ИНЪЕКЦИЯ КОДА ПАМЯТИ ОБНАРУЖЕНА И УСПЕШНО ПОМЕЩЕНА В КАРАНТИН\".</span>")
 	return FALSE
 
 /// Borg Built-in tablet interface

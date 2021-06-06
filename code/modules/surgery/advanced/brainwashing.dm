@@ -46,7 +46,7 @@
 	if(HAS_TRAIT(target, TRAIT_MINDSHIELD))
 		to_chat(user, "<span class='warning'>Слышу слабое жужание устройства в мозгу [target] и новая директива стирается.</span>")
 		return FALSE
-	display_results(user, target, "<span class='notice'>Я успешно промыл мозг [target].</span>",
+	display_results(user, target, "<span class='notice'>Успешно промыл мозг [target].</span>",
 		"<span class='notice'>[user] успешно исправил мозг [target]!</span>",
 		"<span class='notice'>[user] завершил операцию на мозге [target].</span>")
 	to_chat(target, "<span class='userdanger'>Что-то заполняет ваш разум, принуждая вас... подчиниться!</span>")
@@ -57,7 +57,7 @@
 
 /datum/surgery_step/brainwash/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(target.getorganslot(ORGAN_SLOT_BRAIN))
-		display_results(user, target, "<span class='warning'>Я облажалися, повредив мозговую ткань!</span>",
+		display_results(user, target, "<span class='warning'>Облажалися, повредив мозговую ткань!</span>",
 			"<span class='warning'>[user] облажался, нанеся урон мозгу!</span>",
 			"<span class='notice'>[user] завершил операцию на мозге [target].</span>")
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 40)

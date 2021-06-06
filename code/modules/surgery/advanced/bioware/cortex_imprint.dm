@@ -24,12 +24,12 @@
 	time = 125
 
 /datum/surgery_step/imprint_cortex/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>Я начинаю вырезать на коре большого мозга [target] само-импринтирующий паттерн.</span>",
+	display_results(user, target, "<span class='notice'>Начинаю вырезать на коре большого мозга [target] само-импринтирующий паттерн.</span>",
 		"<span class='notice'>[user] начинает вырезать на коре большого мозга [target]само-импринтирующий паттерн.</span>",
 		"<span class='notice'>[user] начинает проводить операцию на мозге [target].</span>")
 
 /datum/surgery_step/imprint_cortex/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, "<span class='notice'>Я изменил форму коры большого мозга [target] на само-импринтирующий паттерн!</span>",
+	display_results(user, target, "<span class='notice'>Изменил форму коры большого мозга [target] на само-импринтирующий паттерн!</span>",
 		"<span class='notice'>[user] изменил форму коры большого мозга [target] на само-импринтирующий паттерн!</span>",
 		"<span class='notice'>[user] завершил операцию на мозге [target].</span>")
 	new /datum/bioware/cortex_imprint(target)

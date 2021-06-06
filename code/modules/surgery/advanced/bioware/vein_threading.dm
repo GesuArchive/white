@@ -22,7 +22,7 @@
 		"<span class='notice'>[user] начал работать над кровеносной системой [target].</span>")
 
 /datum/surgery_step/thread_veins/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, "<span class='notice'>Я сплел кровеносную систему [target] в прочную сеть!</span>",
+	display_results(user, target, "<span class='notice'>Сплел кровеносную систему [target] в прочную сеть!</span>",
 		"<span class='notice'>[user] сплел кровеносную систему [target] в прочную сеть!</span>",
 		"<span class='notice'>[user] закончил работать над кровеносной системой [target].</span>")
 	new /datum/bioware/threaded_veins(target)

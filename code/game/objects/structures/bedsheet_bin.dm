@@ -360,7 +360,7 @@ LINEN BINS
 			to_chat(user, "<span class='warning'>[I] застрял в моей руке, я не могу спрятать его среди просыней!</span>")
 			return
 		hidden = I
-		to_chat(user, "<span class='notice'>Я спрятал [I] среди простыней.</span>")
+		to_chat(user, "<span class='notice'>Спрятал [I] среди простыней.</span>")
 
 
 /obj/structure/bedsheetbin/attack_paw(mob/user)
@@ -387,7 +387,7 @@ LINEN BINS
 
 		B.forceMove(drop_location())
 		user.put_in_hands(B)
-		to_chat(user, "<span class='notice'>Я вытащил [B] из [src].</span>")
+		to_chat(user, "<span class='notice'>Вытащил [B] из [src].</span>")
 		update_icon()
 
 		if(hidden)
@@ -411,7 +411,7 @@ LINEN BINS
 			B = new /obj/item/bedsheet(loc)
 
 		B.forceMove(drop_location())
-		to_chat(user, "<span class='notice'>Я телекинетически вытащил [B] из [src].</span>")
+		to_chat(user, "<span class='notice'>Телекинетически вытащил [B] из [src].</span>")
 		update_icon()
 
 		if(hidden)

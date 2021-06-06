@@ -37,7 +37,7 @@
 		var/obj/item/stack/cable_coil/C = I
 		C.use(1)
 		has_sensor = HAS_SENSORS
-		to_chat(user,"<span class='notice'>Я починил датчики костюма [src] с помощью [C].</span>")
+		to_chat(user,"<span class='notice'>Починил датчики костюма [src] с помощью [C].</span>")
 		return 1
 	if(!attach_accessory(I, user))
 		return ..()
@@ -227,7 +227,7 @@
 	var/list/modes = list("Выкл", "Примерные показатели", "Точные показатели", " + отслеживание")
 	var/switchMode = tgui_input_list(M, "Выбери режим работы:", "Режим работы", modes)
 	if(get_dist(usr, src) > 1)
-		to_chat(usr, "<span class='warning'>Я слишком далеко от станции!</span>")
+		to_chat(usr, "<span class='warning'>Слишком далеко от станции!</span>")
 		return
 	sensor_mode = modes.Find(switchMode) - 1
 	if (loc == usr)

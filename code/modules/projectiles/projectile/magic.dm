@@ -48,9 +48,9 @@
 		else
 			if(target.revive(full_heal = TRUE, admin_revive = TRUE))
 				target.grab_ghost(force = TRUE) // even suicides
-				to_chat(target, "<span class='notice'>Я ЖИВУ!</span>")
+				to_chat(target, "<span class='notice'>ЖИВУ!</span>")
 			else if(target.stat != DEAD)
-				to_chat(target, "<span class='notice'>Я чувствую себя прекрасно!</span>")
+				to_chat(target, "<span class='notice'>Чувствую себя прекрасно!</span>")
 
 /obj/projectile/magic/teleport
 	name = "заряд телепортации"
@@ -294,7 +294,7 @@
 
 	M.wabbajack_act(new_mob)
 
-	to_chat(new_mob, "<span class='warning'>Я внезапно становлюсь [randomize].</span>")
+	to_chat(new_mob, "<span class='warning'>Внезапно становлюсь [randomize].</span>")
 
 	var/poly_msg = get_policy(POLICY_POLYMORPH)
 	if(poly_msg)
@@ -588,7 +588,7 @@
 		return
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/C = pick(candidates)
-		to_chat(M, "<span class='boldnotice'>Я был замечен призраком, и он овладел мною!</span>")
+		to_chat(M, "<span class='boldnotice'>Был замечен призраком, и он овладел мною!</span>")
 		var/oldkey = M.key
 		M.ghostize(0)
 		M.key = C.key

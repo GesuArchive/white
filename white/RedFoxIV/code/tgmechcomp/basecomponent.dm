@@ -13,18 +13,25 @@
 	 * A crutch to use the goon mechcomp sprites, because goon iconstate
 	 * format for mechcomp is [compname] for unanchored and u[compname] for anchored components.
 	 *
-	 * Avoid editing it in runtime as it should (?) not change from the "initial" value.
-	 * Override update_icon_state and call update_icon instead.
+	 * Avoid editing it in runtime as it should (?) hold the "initial" value at all times. Use update_icon_state instead,
+	 * it also handles all the logic regarding anchored/unanchored sprites.
 	 **/
 	var/part_icon_state = "generic"
 
-	///Icon state for when the component is active. If you do not have a sprite for this, keep it null.
+	/**
+	 * Icon state for when the component is active. If you do not have a sprite for this, keep it null.
+	 **/
 	var/active_icon_state = null
 
-	///if the component has a smaller sprite for when it's anchored to the floor.
+	/**
+	 * if the component has a smaller sprite for when it's anchored to the floor.
+	 **/
 	var/has_anchored_icon_state = FALSE
 
-	///If the current component is active, i.e. performing some work.
+
+	/**
+	 * If the current component is active, i.e. performing some work.
+	 **/
 	var/active = FALSE
 
 	///cringe
@@ -47,14 +54,14 @@
  * Another part to the gooncode crutch adaptation.
  * Use it to actually change icon_state, instead of accessing icon_state or part_icon_state directly.
  **/
-/obj/item/mechcomp/update_icon_state()
+/obj/item/mechcomp/update_icon_state(var/part_icon_state)
 	. = ..()
-	icon_state = "[src.anchored && src.has_anchored_icon_state ? "u" : ""][!isnull(active_icon_state) && active ? "[active_icon_state]" : "[part_icon_state]"]"
+	icon_state = "[src.anchored && src.has_anchored_icon_state ? "u" : ""][part_icon_state]"
 
 
 /obj/item/mechcomp/Initialize()
 	. = ..()
-	update_icon()
+	update_icon_state(part_icon_state)
 
 /obj/item/mechcomp/ComponentInitialize()
 	. = ..()
@@ -136,16 +143,16 @@
 	last_anchored_by = user
 	playsound(src, 'sound/items/ratchet.ogg', 100, TRUE)
 	user.visible_message("<span class='notice'>[user] прикручивает [src.name].</span>", \
-		"<span class='notice'>Я прикручиваю [src.name] к полу.</span>")
-	update_icon()
+		"<span class='notice'>Прикручиваю [src.name] к полу.</span>")
+	update_icon_state(part_icon_state)
 
 ///handles the unanchoring of component.
 /obj/item/mechcomp/proc/unanchor(mob/living/user)
 	anchored = FALSE
 	playsound(src, 'sound/items/ratchet.ogg', 100, TRUE)
 	user.visible_message("<span class='notice'>[user] откручивает [src.name].</span>", \
-		"<span class='notice'>Я откручиваю [src.name] от пола.</span>")
-	update_icon()
+		"<span class='notice'>Откручиваю [src.name] от пола.</span>")
+	update_icon_state(part_icon_state)
 
 
 //feels like a good idea to include these
@@ -177,12 +184,56 @@
  **/
 /obj/item/mechcomp/proc/activate_for(var/time, visual = TRUE)
 	active = TRUE
-	update_icon()
+	if(active_icon_state && visual)
+		update_icon_state(active_icon_state)
 	addtimer(CALLBACK(src, .proc/_deactivate), time)
 
-/**internal, for callback stuff. Override if you want to do something when the cooldown from "activate_for()" ends.
- * You could also call it directly if you want to reset the cooldown sooner, just don't forget to call deltimer().
- **/
+///internal, for callback stuff.
 /obj/item/mechcomp/proc/_deactivate()
 	active = FALSE
-	update_icon()
+	update_icon_state(part_icon_state)
+
+/*
+/obj/item/mechcomp/MouseDrop_T(atom/_drop, mob/living/user)
+	. = ..()
+
+	if(!istype(_drop,/obj/item/mechcomp))
+		return
+
+	var/obj/item/mechcomp/drop = _drop
+	if(!(src.anchored && drop.anchored))
+		return
+
+	SEND_SIGNAL(src,_COMSIG_MECHCOMP_DROPCONNECT, drop, user)
+*/
+
+
+/**
+ * here lies fancy radial menu stuff, that i wanted to use but didn't get to because signals in mechcomp don't actually have types like "strings" and "numbers".
+ * R.I.P.
+**/
+
+/*
+/obj/item/mechcomp/MouseDrop(atom/_over, src_location, over_location, src_control, over_control, params)
+	. = ..()
+	if(!istype(over, /obj/item/mechcomp))
+		return
+	/*
+	if(!isliving(usr))
+		return
+	var/mob/living/user = usr
+	*/
+	if(user.held_items[user.active_hand_index].tool_behaviour != TOOL_MULTITOOL)
+		return
+
+	var/obj/item/mechcomp/over = _over
+	for(input in input_types)
+		input_icons += list(input) = image(icon = input[1], icon_state = "[input[1] ? input[1] : "unknown"]")
+	var/input_choice = show_radial_menu(user, src, list/choices, tooltips = TRUE)
+	to_chat(user, "<span class='notice'>Подключаю вход \"[input_choice[2]]\" [src.name]...</span>")
+
+	for(output in over.output_types)
+		input_icons += list(input[2]) = image(icon = output[1], icon_state = "[output[1] ? output[1] : "unknown"]")
+	var/output_choice = show_radial_menu(user, over, list/choices, tooltips = TRUE)
+	to_chat(user, "<span class='notice'>...к выходу \"[output_choice[2]]\" [over.name].</span>")
+*/

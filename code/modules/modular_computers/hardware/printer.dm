@@ -41,12 +41,12 @@
 /obj/item/computer_hardware/printer/try_insert(obj/item/I, mob/living/user = null)
 	if(istype(I, /obj/item/paper))
 		if(stored_paper >= max_paper)
-			to_chat(user, "<span class='warning'>Пытаюсь add \the [I] into [src], but its paper bin is full!</span>")
+			to_chat(user, "<span class='warning'>Пытаюсь добавить [I] в [src.name], но буффер бумаги оказывается переполнен!</span>")
 			return FALSE
 
 		if(user && !user.temporarilyRemoveItemFromInventory(I))
 			return FALSE
-		to_chat(user, "<span class='notice'>Я вставляю \[I] в [src] переработчик бумаги.</span>")
+		to_chat(user, "<span class='notice'>Вставляю [I] в переработчик бумаги [src.name].</span>")
 		qdel(I)
 		stored_paper++
 		return TRUE

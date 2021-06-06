@@ -25,7 +25,7 @@
 			if(prob(5))
 				affected_mob.emote("cough")
 			if(prob(1))
-				to_chat(affected_mob, "<span class='danger'>Я горю изнутри!</span>")
+				to_chat(affected_mob, "<span class='danger'>Горю изнутри!</span>")
 				affected_mob.take_bodypart_damage(0, 5, updating_health = FALSE)
 
 		if(3)
@@ -35,5 +35,5 @@
 			if(prob(5))
 				affected_mob.emote("cough")
 			if(prob(5))
-				to_chat(affected_mob, "<span class='danger'>Я горю изнутри!</span>")
+				to_chat(affected_mob, "<span class='danger'>Горю изнутри!</span>")
 				affected_mob.take_bodypart_damage(0, 5, updating_health = FALSE)

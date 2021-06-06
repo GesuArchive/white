@@ -8,15 +8,15 @@
 	mood_change = 8
 
 /datum/mood_event/fed
-	description = "<span class='nicegreen'>Я не хочу есть.</span>\n"
+	description = "<span class='nicegreen'>Не хочу есть.</span>\n"
 	mood_change = 5
 
 /datum/mood_event/hungry
-	description = "<span class='warning'>Я хочу есть.</span>\n"
+	description = "<span class='warning'>Хочу есть.</span>\n"
 	mood_change = -6
 
 /datum/mood_event/starving
-	description = "<span class='boldwarning'>Я голодаю!</span>\n"
+	description = "<span class='boldwarning'>Голодаю!</span>\n"
 	mood_change = -10
 
 //charge
@@ -29,7 +29,7 @@
 	mood_change = -4
 
 /datum/mood_event/charged
-	description = "<span class='nicegreen'>Я чувствую электричество в моих венах!</span>\n"
+	description = "<span class='nicegreen'>Чувствую электричество в моих венах!</span>\n"
 	mood_change = 6
 
 /datum/mood_event/lowpower
@@ -37,7 +37,7 @@
 	mood_change = -6
 
 /datum/mood_event/decharged
-	description = "<span class='boldwarning'>Я отчаянно нуждаюсь в электричестве!</span>\n"
+	description = "<span class='boldwarning'>Отчаянно нуждаюсь в электричестве!</span>\n"
 	mood_change = -10
 
 //Disgust
@@ -54,7 +54,7 @@
 	mood_change = -8
 
 /datum/mood_event/disgust/bad_smell
-	description = "<span class='warning'>Я чувствую запах чего-то ужасно разложившегося внутри этой комнаты.</span>\n"
+	description = "<span class='warning'>Чувствую запах чего-то ужасно разложившегося внутри этой комнаты.</span>\n"
 	mood_change = -6
 
 /datum/mood_event/disgust/nauseating_stench

@@ -112,7 +112,7 @@
 			victim.Paralyze(2 SECONDS)
 			Paralyze(2 SECONDS)
 			visible_message("<span class='danger'><b>[src]</b> врезается в <b>[victim]</b>[extra_speed ? "со всей силы" : ""], роняя обоих на пол!</span>",\
-				"<span class='userdanger'>Я жестко врезался в <b>[victim]</b>[extra_speed ? " со всей дури" : ""]!</span>")
+				"<span class='userdanger'>Жестко врезался в <b>[victim]</b>[extra_speed ? " со всей дури" : ""]!</span>")
 		playsound(src,'sound/weapons/punch1.ogg',50,TRUE)
 
 
@@ -244,7 +244,7 @@
 	Paralyze(60, ignore_canstun = TRUE)
 	spin(32,2)
 	visible_message("<span class='danger'>[capitalize(src.name)] катается по полу пытаясь сбросить пламя!</span>", \
-		"<span class='notice'>Я останавливаюсь, падаю и катаюсь по полу!</span>")
+		"<span class='notice'>Останавливаюсь, падаю и катаюсь по полу!</span>")
 	sleep(30)
 	if(fire_stacks <= 0 && !QDELETED(src))
 		visible_message("<span class='danger'>[capitalize(src.name)] успешно тушит себя!</span>", \
@@ -273,7 +273,7 @@
 
 /mob/living/carbon/proc/cuff_resist(obj/item/I, breakouttime = 600, cuff_break = 0)
 	if(I.item_flags & BEING_REMOVED)
-		to_chat(src, "<span class='warning'>Я уже пытаюсь снять [I]!</span>")
+		to_chat(src, "<span class='warning'>Уже пытаюсь снять [I]!</span>")
 		return
 	I.item_flags |= BEING_REMOVED
 	breakouttime = I.breakouttime
@@ -335,7 +335,7 @@
 	if(I != handcuffed && I != legcuffed)
 		return FALSE
 	visible_message("<span class='danger'>[capitalize(src.name)] успешно [cuff_break ? "разрывает" : "снимает"] [I]!</span>")
-	to_chat(src, "<span class='notice'>Я успешно [cuff_break ? "разрываю" : "снимаю"] [I].</span>")
+	to_chat(src, "<span class='notice'>Успешно [cuff_break ? "разрываю" : "снимаю"] [I].</span>")
 
 	if(cuff_break)
 		. = !((I == handcuffed) || (I == legcuffed))

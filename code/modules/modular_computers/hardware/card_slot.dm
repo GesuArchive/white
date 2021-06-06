@@ -54,7 +54,7 @@
 		I.forceMove(src)
 
 	stored_card = I
-	to_chat(user, "<span class='notice'>Я вставляю \[I] в \the [expansion_hw ? "secondary":"primary"] [src].</span>")
+	to_chat(user, "<span class='notice'>Вставляю [I] в [expansion_hw ? "secondary":"primary"] [src].</span>")
 	playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -100,11 +100,11 @@
 		return
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		if(stored_card)
-			to_chat(user, "<span class='notice'>Я нажимаю кнопку ручного извлечения с \ [I].</span>")
+			to_chat(user, "<span class='notice'>Нажимаю кнопку ручного извлечения с [I].</span>")
 			try_eject(user)
 			return
 		swap_slot()
-		to_chat(user, "<span class='notice'>Я настраиваю разъем, чтобы он соответствовал [expansion_hw ? "an expansion bay" : "the primary ID bay"].</span>")
+		to_chat(user, "<span class='notice'>Настраиваю разъем, чтобы он соответствовал [expansion_hw ? "дополнительному слоту" : "основному слоту"].</span>")
 
 /**
  *Swaps the card_slot hardware between using the dedicated card slot bay on a computer, and using an expansion bay.
@@ -120,9 +120,9 @@
 
 /obj/item/computer_hardware/card_slot/examine(mob/user)
 	. = ..()
-	. += "<hr>The connector is set to fit into [expansion_hw ? "an expansion bay" : "a computer's primary ID bay"], but can be adjusted with a screwdriver."
+	. += "<hr>Коннектор сейчас в режиме [expansion_hw ? "дополнительного слота" : "основного слота компьютера"], но его можно настроить при помощи отвёртки."
 	if(stored_card)
-		. += "<hr>There appears to be something loaded in the card slots."
+		. += "<hr>Что-то уже есть в слоте."
 
 /obj/item/computer_hardware/card_slot/secondary
 	name = "Второстепенный модуль RFID-карты"

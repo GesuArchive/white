@@ -363,7 +363,7 @@
 			++Friends[user]
 		else
 			Friends[user] = 1
-		to_chat(user, "<span class='notice'>Я кормлю слизь плазмой. Он весело верещит.</span>")
+		to_chat(user, "<span class='notice'>Кормлю слизь плазмой. Он весело верещит.</span>")
 		var/obj/item/stack/sheet/mineral/plasma/S = W
 		S.use(1)
 		return
@@ -396,7 +396,7 @@
 				applied++
 				hasFound = TRUE
 			if(applied >= SLIME_EXTRACT_CROSSING_REQUIRED)
-				to_chat(user, "<span class='notice'>Я кормлю слайма как можно большим количеством экстрактов из мешка, и он мутирует!</span>")
+				to_chat(user, "<span class='notice'>Кормлю слайма как можно большим количеством экстрактов из мешка, и он мутирует!</span>")
 				playsound(src, 'sound/effects/attackblob.ogg', 50, TRUE)
 				spawn_corecross()
 				hasOutput = TRUE
@@ -405,7 +405,7 @@
 			if(!hasFound)
 				to_chat(user, "<span class='warning'>В сумке нет экстрактов, которые примет этот слайм!</span>")
 			else
-				to_chat(user, "<span class='notice'>Я кормлю слайма экстрактами из мешка.</span>")
+				to_chat(user, "<span class='notice'>Кормлю слайма экстрактами из мешка.</span>")
 				playsound(src, 'sound/effects/attackblob.ogg', 50, TRUE)
 		return
 	..()

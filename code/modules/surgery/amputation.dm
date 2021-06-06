@@ -19,7 +19,7 @@
 
 /datum/surgery_step/sever_limb/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/mob/living/carbon/human/L = target
-	display_results(user, target, "<span class='notice'>Я отрезал от [L] [parse_zone(target_zone)].</span>",
+	display_results(user, target, "<span class='notice'>Отрезал от [L] [parse_zone(target_zone)].</span>",
 		"<span class='notice'>[user] отрезал от [L] [parse_zone(target_zone)]!</span>",
 		"<span class='notice'>[user] отрезал от [L] [parse_zone(target_zone)]!</span>")
 	if(surgery.operated_bodypart)

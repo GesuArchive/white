@@ -22,7 +22,7 @@
 		"<span class='notice'>[user] начал работать с кровеносной системой [target].</span>")
 
 /datum/surgery_step/muscled_veins/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, "<span class='notice'>Я изменил кровеносную систему [target], добавив мышечные мембраны!</span>",
+	display_results(user, target, "<span class='notice'>Изменил кровеносную систему [target], добавив мышечные мембраны!</span>",
 		"<span class='notice'>[user] изменил кровеносную систему [target], добавив мышечные мембраны!</span>",
 		"<span class='notice'>[user] закончил работать с кровеносной системой [target].</span>")
 	new /datum/bioware/muscled_veins(target)

@@ -154,7 +154,7 @@
 			I.Remove(target)
 			I.forceMove(get_turf(target))
 		else
-			display_results(user, target, "<span class='warning'>Я не могу ничего извлечь из [parse_zone(target_zone)] [target]!</span>",
+			display_results(user, target, "<span class='warning'>Не могу ничего извлечь из [parse_zone(target_zone)] [target]!</span>",
 				"<span class='notice'>[user] не может ничего извлечь из [parse_zone(target_zone)] [target]!</span>",
 				"<span class='notice'>[user] не может ничего извлечь из [parse_zone(target_zone)] [target]!</span>")
 	return FALSE

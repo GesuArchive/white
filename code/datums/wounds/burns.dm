@@ -87,7 +87,7 @@
 				to_chat(victim, "<span class='warning'><b>Моя [limb.name] немеет от инфекциии!</b></span>")
 				set_disabling(TRUE)
 			else if(disabling && prob(8))
-				to_chat(victim, "<span class='notice'>Я снова чувствую [ru_parse_zone(limb.name)], но она все еще в ужасном состоянии!</span>")
+				to_chat(victim, "<span class='notice'>Снова чувствую [ru_parse_zone(limb.name)], но она все еще в ужасном состоянии!</span>")
 				set_disabling(FALSE)
 			else if(prob(20))
 				victim.adjustToxLoss(0.5)

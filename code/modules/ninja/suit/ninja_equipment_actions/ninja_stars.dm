@@ -20,7 +20,7 @@
 		to_chat(ninja, "<span class='notice'>В моей руке создана метательная звезда!</span>")
 	else
 		qdel(ninja_star)
-		to_chat(ninja, "<span class='notice'>Я не могу создать метательную звезду, мои руки заняты!</span>")
+		to_chat(ninja, "<span class='notice'>Не могу создать метательную звезду, мои руки заняты!</span>")
 
 /**
  * # Ninja Throwing Star

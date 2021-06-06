@@ -37,7 +37,7 @@
 		return TRUE //now this is podracing
 
 	if(loc in I.GetAllContents()) // fixes tg #39452, evidence bags could store their own location, causing I to be stored in the bag while being present inworld still, and able to be teleported when removed.
-		to_chat(user, "<span class='warning'>Я нахожу засовывание [I] в [src] пока он всё еще внутри довольно сложным занятием!</span>")
+		to_chat(user, "<span class='warning'>Нахожу засовывание [I] в [src] пока он всё еще внутри довольно сложным занятием!</span>")
 		return
 
 	if(I.w_class > WEIGHT_CLASS_NORMAL)
@@ -54,8 +54,8 @@
 		if(!user.dropItemToGround(I))
 			return
 
-	user.visible_message("<span class='notice'>[user] положил [I] в [src].</span>", "<span class='notice'>Я положил [I] внутрь [src].</span>",\
-	"<span class='hear'>Я слышу как кто-то шелестит полиэтиленовым пакетом засовывая в него что-то.</span>")
+	user.visible_message("<span class='notice'>[user] положил [I] в [src].</span>", "<span class='notice'>Положил [I] внутрь [src].</span>",\
+	"<span class='hear'>Слышу как кто-то шелестит полиэтиленовым пакетом засовывая в него что-то.</span>")
 
 	icon_state = "evidence"
 
@@ -75,8 +75,8 @@
 /obj/item/evidencebag/attack_self(mob/user)
 	if(contents.len)
 		var/obj/item/I = contents[1]
-		user.visible_message("<span class='notice'>[user] вытаскивает [I] из [src].</span>", "<span class='notice'>Я достал [I] из [src].</span>",\
-		"<span class='hear'>Я слышу как кто-то шелестит доставая что-то из полиэтиленового пакета.</span>")
+		user.visible_message("<span class='notice'>[user] вытаскивает [I] из [src].</span>", "<span class='notice'>Достал [I] из [src].</span>",\
+		"<span class='hear'>Слышу как кто-то шелестит доставая что-то из полиэтиленового пакета.</span>")
 		cut_overlays()	//remove the overlays
 		user.put_in_hands(I)
 		w_class = WEIGHT_CLASS_TINY

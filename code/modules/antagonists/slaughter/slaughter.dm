@@ -123,7 +123,7 @@
 	face_atom(A)
 	var/mob/living/victim = A
 	victim.take_bodypart_damage(brute=20, wound_bonus=wound_bonus) // don't worry, there's more punishment when they hit something
-	visible_message("<span class='danger'>[capitalize(src.name)] отбрасывает [victim] с монструозной силой!</span>", "<span class='danger'>Я отбрасываю [victim] с монструозной силой!</span>", ignored_mobs=victim)
+	visible_message("<span class='danger'>[capitalize(src.name)] отбрасывает [victim] с монструозной силой!</span>", "<span class='danger'>Отбрасываю [victim] с монструозной силой!</span>", ignored_mobs=victim)
 	to_chat(victim, "<span class='userdanger'>[capitalize(src.name)] отбрасывает меня с монструозной силой, как обычную тряпичную куклу!</span>")
 	var/turf/yeet_target = get_edge_target_turf(victim, dir)
 	victim.throw_at(yeet_target, 10, 5, src)

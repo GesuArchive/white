@@ -20,7 +20,7 @@
 	switch(stage)
 		if(2)
 			if(affected_mob.body_position == LYING_DOWN && prob(20))
-				to_chat(affected_mob, "<span class='notice'>Я чувствую себя лучше.</span>")
+				to_chat(affected_mob, "<span class='notice'>Чувствую себя лучше.</span>")
 				stage--
 				return
 			if(prob(1))
@@ -38,7 +38,7 @@
 
 		if(3)
 			if(affected_mob.body_position == LYING_DOWN && prob(15))
-				to_chat(affected_mob, "<span class='notice'>Я чувствую себя лучше.</span>")
+				to_chat(affected_mob, "<span class='notice'>Чувствую себя лучше.</span>")
 				stage--
 				return
 			if(prob(1))
