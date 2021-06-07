@@ -18,6 +18,12 @@
 
 	display_order = JOB_DISPLAY_ORDER_ROBOTICIST
 
+	mail_goodies = list(
+		/obj/item/storage/box/flashes = 20,
+		/obj/item/stack/sheet/metal/twenty = 15,
+		/obj/item/modular_computer/tablet/preset/advanced = 5
+	)
+
 /datum/outfit/job/roboticist
 	name = "Roboticist"
 	jobtype = /datum/job/roboticist
