@@ -6,7 +6,7 @@ GLOBAL_VAR_INIT(webhook_can_fire, 0)
 	if(extraData)
 		query.Add(extraData)
 
-	webhook_send("roundstatus", query)
+	webhook_send_invst("roundstatus", query)
 
 /proc/webhook_send_runtime(var/message) //when server logging gets fucked up, discord bot saves the day
 	var/list/query = list("message" = message)
