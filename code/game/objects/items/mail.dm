@@ -53,7 +53,7 @@
 /obj/item/mail/Initialize()
 	. = ..()
 	RegisterSignal(src, COMSIG_MOVABLE_DISPOSING, .proc/disposal_handling)
-	AddElement(/datum/element/item_scaling, 0.5, 1)
+	AddElement(/datum/element/item_scaling, 0.75, 1)
 	if(isnull(department_colors))
 		department_colors = list(
 			ACCOUNT_CIV = COLOR_WHITE,
@@ -113,7 +113,7 @@
 		to_chat(user, "<span class='notice'>Эта почта защищена слишком мудрым защитным механизмом! Не хотелось бы <em>потерять голову</em>!</span>")
 		return
 
-	user.visible_message("<span class='notice'>Начинаю вскрывать посылку...</span>")
+	to_chat(user, "<span class='notice'>Начинаю вскрывать посылку...</span>")
 	if(!do_after(user, 1.5 SECONDS, target = user))
 		return
 	user.temporarilyRemoveItemFromInventory(src, TRUE)
@@ -121,6 +121,16 @@
 		user.put_in_hands(contents[1])
 	playsound(loc, 'sound/items/poster_ripped.ogg', 50, TRUE)
 	qdel(src)
+
+/obj/item/mail/examine_more(mob/user)
+	. = ..()
+	var/list/msg = list("<span class='notice'><i>Замечаю почтовый штемпель на лицевой стороне письма...</i></span>")
+	if(recipient)
+		msg += "\t<span class='info'>Сертифицированная Нанотрейзен посылка для [recipient].</span>"
+	else
+		msg += "\t<span class='info'>Сертифицированная посылка для [GLOB.station_name].</span>"
+	msg += "\t<span class='info'>Для распространения вручную или через метки назначения с использованием сертифицированной системы мусоропровода Нанотрейзен.</span>"
+	return msg
 
 /// Accepts a mob to initialize goodies for a piece of mail.
 /obj/item/mail/proc/initialize_for_recipient(mob/new_recipient)
