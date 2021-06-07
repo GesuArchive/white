@@ -1,8 +1,8 @@
 /// Mail is tamper-evident and unresealable, postmarked by CentCom for an individual recepient.
 /obj/item/mail
-	name = "mail"
+	name = "Посылка"
 	gender = NEUTER
-	desc = "An officially postmarked, tamper-evident parcel regulated by CentCom and made of high-quality materials."
+	desc = "Посылка с официальным почтовым штемпелем и защитой от несанкционированного вскрытия, регулируемая Центральным Командованием и сделанная из высококачественных материалов."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "mail_small"
 	inhand_icon_state = "paper"
@@ -44,7 +44,7 @@
 	var/static/list/department_colors
 
 /obj/item/mail/envelope
-	name = "envelope"
+	name = "Посылка"
 	icon_state = "mail_large"
 	goodie_count = 2
 	stamp_max = 2
@@ -110,10 +110,10 @@
 
 /obj/item/mail/attack_self(mob/user)
 	if(recipient && user != recipient)
-		to_chat(user, "<span class='notice'>You can't open somebody else's mail! That's <em>illegal</em>!</span>")
+		to_chat(user, "<span class='notice'>Эта почта защищена слишком мудрым защитным механизмом! Не хотелось бы <em>потерять голову</em>!</span>")
 		return
 
-	user.visible_message("<span class='notice'>You start to unwrap the package...</span>")
+	user.visible_message("<span class='notice'>Начинаю вскрывать посылку...</span>")
 	if(!do_after(user, 1.5 SECONDS, target = user))
 		return
 	user.temporarilyRemoveItemFromInventory(src, TRUE)
@@ -125,7 +125,7 @@
 /// Accepts a mob to initialize goodies for a piece of mail.
 /obj/item/mail/proc/initialize_for_recipient(mob/new_recipient)
 	recipient = new_recipient
-	name = "[initial(name)] for [new_recipient.real_name] ([new_recipient.job])"
+	name = "[initial(name)] для [new_recipient.real_name] ([new_recipient.job])"
 	var/list/goodies = generic_goodies
 
 	var/datum/job/this_job = SSjob.name_occupations[new_recipient.job]
@@ -145,7 +145,7 @@
 		if(ispath(target_good, /datum/reagent))
 			var/obj/item/reagent_containers/target_container = new /obj/item/reagent_containers/glass/bottle(src)
 			target_container.reagents.add_reagent(target_good, target_container.volume)
-			target_container.name = "[target_container.reagents.reagent_list[1].name] bottle"
+			target_container.name = "[target_container.reagents.reagent_list[1].name] бутылка"
 			new_recipient.log_message("[key_name(new_recipient)] received reagent container [target_container.name] in the mail ([target_good])", LOG_GAME)
 		else
 			var/atom/movable/target_atom = new target_good(src)
@@ -164,14 +164,14 @@
 		junk = pick(list(/obj/item/paper/pamphlet/gateway, /obj/item/paper/pamphlet/violent_video_games, /obj/item/paper/fluff/junkmail_redpill, /obj/effect/decal/cleanable/ash))
 
 	var/list/junk_names = list(
-		/obj/item/paper/pamphlet/gateway = "[initial(name)] for [pick(GLOB.adjectives)] adventurers",
-		/obj/item/paper/pamphlet/violent_video_games = "[initial(name)] for the truth about the arcade centcom doesn't want to hear",
-		/obj/item/paper/fluff/junkmail_redpill = "[initial(name)] for those feeling [pick(GLOB.adjectives)] working at Nanotrasen",
-		/obj/effect/decal/cleanable/ash = "[initial(name)] with INCREDIBLY IMPORTANT ARTIFACT- DELIVER TO SCIENCE DIVISION. HANDLE WITH CARE.",
+		/obj/item/paper/pamphlet/gateway = "[initial(name)] для [pick(GLOB.adjectives)] приключенцев",
+		/obj/item/paper/pamphlet/violent_video_games = "[initial(name)] за правду об аркадных автоматах, которую центком не хочет слышать",
+		/obj/item/paper/fluff/junkmail_redpill = "[initial(name)] для [pick(GLOB.adjectives)] работяг Нанотрейзен",
+		/obj/effect/decal/cleanable/ash = "[initial(name)] с НЕВЕРОЯТНО ВАЖНЫМ АРТЕФАКТОМ - ДОСТАВИТЬ В НАУЧНЫЙ ОТДЕЛ. ОЧЕНЬ ХРУПКОЕ СОДЕРЖИМОЕ.",
 	)
 
 	color = pick(department_colors) //eh, who gives a shit.
-	name = special_name ? junk_names[junk] : "important [initial(name)]"
+	name = special_name ? junk_names[junk] : "ВАЖНАЯ [initial(name)]"
 
 	junk = new junk(src)
 	return TRUE
@@ -188,14 +188,14 @@
 
 /// Crate for mail from CentCom.
 /obj/structure/closet/crate/mail
-	name = "mail crate"
-	desc = "A certified post crate from CentCom."
+	name = "почтовый ящик"
+	desc = "Сертифицированный почтовый ящик от ЦК."
 	icon_state = "mail"
 
 /// Crate for mail that automatically generates a lot of mail. Usually only normal mail, but on lowpop it may end up just being junk.
 /obj/structure/closet/crate/mail/full
-	name = "brimming mail crate"
-	desc = "A certified post crate from CentCom. Looks stuffed to the gills."
+	name = "переполненный почтовый ящик"
+	desc = "Сертифицированный почтовый ящик от ЦК. Чет ему плохо."
 
 /obj/structure/closet/crate/mail/update_icon_state()
 	. = ..()
@@ -229,8 +229,8 @@
 
 /// Mailbag.
 /obj/item/storage/bag/mail
-	name = "mail bag"
-	desc = "A bag for letters, envelopes, and other postage."
+	name = "мешок с почтой"
+	desc = "Сумка для писем, конвертов и других почтовых отправлений."
 	icon = 'icons/obj/library.dmi'
 	icon_state = "bookbag"
 	worn_icon_state = "bookbag"
@@ -250,26 +250,26 @@
 	))
 
 /obj/item/paper/fluff/junkmail_redpill
-	name = "smudged paper"
+	name = "свёрток"
 	icon_state = "scrap"
 	var/nuclear_option_odds = 0.1
 
 /obj/item/paper/fluff/junkmail_redpill/Initialize()
 	. = ..()
 	if(!prob(nuclear_option_odds)) // 1 in 1000 chance of getting 2 random nuke code characters.
-		info = "<i>You need to escape the simulation. Don't forget the numbers, they help you remember:</i> '[rand(0,9)][rand(0,9)][rand(0,9)]...'"
+		info = "<i>Тебе пора выходить из симуляции. Не забудь числа, они помогут тебе вспомнить:</i> '[rand(0,9)][rand(0,9)][rand(0,9)]...'"
 		return
 	var/code = random_nukecode()
 	for(var/obj/machinery/nuclearbomb/selfdestruct/self_destruct in GLOB.nuke_list)
 		self_destruct.r_code = code
 	message_admins("Through junkmail, the self-destruct code was set to \"[code]\".")
-	info = "<i>You need to escape the simulation. Don't forget the numbers, they help you remember:</i> '[code[rand(1,5)]][code[rand(1,5)]]...'"
+	info = "<i>Тебе пора выходить из симуляции. Не забудь числа, они помогут тебе вспомнить:</i> '[code[rand(1,5)]][code[rand(1,5)]]...'"
 
 /obj/item/paper/fluff/junkmail_redpill/true //admin letter enabling players to brute force their way through the nuke code if they're so inclined.
 	nuclear_option_odds = 100
 
 /obj/item/paper/fluff/junkmail_generic
-	name = "important document"
+	name = "важный документ"
 	icon_state = "paper_words"
 
 /obj/item/paper/fluff/junkmail_generic/Initialize()
