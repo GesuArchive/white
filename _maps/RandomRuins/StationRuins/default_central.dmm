@@ -621,7 +621,7 @@ flight/labor,
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "cd" = (
-flight/mining,
+/obj/machinery/computer/shuttle_flight/mining,
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4

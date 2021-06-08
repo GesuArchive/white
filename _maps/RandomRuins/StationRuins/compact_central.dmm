@@ -2502,7 +2502,7 @@
 /turf/open/floor/plasteel/grimy,
 /area/crew_quarters/heads/captain)
 "hC" = (
-flight/mining,
+/obj/machinery/computer/shuttle_flight/mining,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
@@ -4076,4 +4076,4 @@ labor,
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/central)
-"Sy" 
+"Sy"
