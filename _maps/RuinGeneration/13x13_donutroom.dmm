@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/item/twohanded/required/kirbyplants/random,
+/obj/item/kirbyplants/random,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "k" = (
@@ -30,10 +30,6 @@
 "C" = (
 /turf/template_noop,
 /area/template_noop)
-"G" = (
-/obj/machinery/vending/snack/random,
-/turf/open/floor/plasteel,
-/area/ruin/unpowered)
 "J" = (
 /obj/structure/table/wood,
 /turf/open/floor/plasteel,
@@ -42,10 +38,6 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/template_noop)
-"Q" = (
-/obj/machinery/vending/cola/random,
-/turf/open/floor/plasteel,
-/area/ruin/unpowered)
 "R" = (
 /obj/effect/abstract/open_area_marker{
 	dir = 8
@@ -126,7 +118,7 @@ o
 o
 o
 Y
-Q
+s
 s
 s
 Y
@@ -180,7 +172,7 @@ Y
 Y
 s
 s
-G
+s
 Y
 o
 o

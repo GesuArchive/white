@@ -45,7 +45,7 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/ruin/unpowered)
 "eh" = (
-/obj/machinery/computer/rdconsole/core{
+/obj/machinery/computer/rdconsole{
 	dir = 8
 	},
 /turf/open/floor/plasteel/white,
@@ -215,7 +215,7 @@
 /area/ruin/unpowered)
 "Au" = (
 /obj/structure/table,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/metal/fifty,
 /obj/item/stack/sheet/glass/fifty{
 	pixel_x = 3;
 	pixel_y = 3
@@ -264,7 +264,7 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "Gu" = (
-/obj/effect/spawner/structure/window/plastitanium,
+/obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "GX" = (
@@ -287,10 +287,6 @@
 /obj/item/crowbar,
 /obj/item/flashlight/glowstick,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
-"Kx" = (
-/obj/machinery/modular_fabricator/exosuit_fab,
-/turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "KM" = (
 /obj/effect/decal/cleanable/dirt,
@@ -690,7 +686,7 @@ Ef
 KM
 uO
 hQ
-Kx
+aW
 FZ
 aW
 yL

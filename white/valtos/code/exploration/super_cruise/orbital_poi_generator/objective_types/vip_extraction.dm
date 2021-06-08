@@ -68,7 +68,7 @@
 			created_human.equipOutfit(/datum/outfit/vip_dictator)
 			created_human.mind.add_antag_datum(/datum/antagonist/vip_dictator)
 		if("greytide")
-			//created_human.flavor_text = "You are just a lonely assistant, on a lonely derelict station. You dream of going home, \
+			//created_human.flavor_text = "You are just a lonely assistant, on a lonely derelict station. You dream of going home,
 			//	but it would take another one of the miracles that kept you alive to get you home."
 			created_human.equipOutfit(/datum/outfit/greytide)
 			antag_elligable = TRUE

@@ -48,12 +48,12 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "K" = (
-/obj/effect/spawner/lootdrop/glowstick/lit,
+/obj/effect/spawner/lootdrop/glowstick,
 /obj/structure/chair,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "M" = (
-/obj/effect/spawner/lootdrop/glowstick/lit,
+/obj/effect/spawner/lootdrop/glowstick,
 /obj/structure/chair{
 	dir = 1
 	},

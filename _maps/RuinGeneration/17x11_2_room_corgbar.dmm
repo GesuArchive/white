@@ -74,14 +74,14 @@
 	pixel_x = -3;
 	pixel_y = -1
 	},
-/obj/item/reagent_containers/food/snacks/pizzaslice/pineapple{
+/obj/item/food/pizzaslice/pineapple{
 	pixel_x = -2;
 	pixel_y = 9
 	},
 /turf/open/floor/wood,
 /area/ruin/unpowered)
 "k" = (
-/obj/item/twohanded/required/kirbyplants/random,
+/obj/item/kirbyplants/random,
 /obj/item/radio/intercom{
 	pixel_y = 24
 	},
@@ -132,7 +132,7 @@
 /turf/open/floor/wood,
 /area/ruin/unpowered)
 "r" = (
-/obj/item/twohanded/required/kirbyplants/random,
+/obj/item/kirbyplants/random,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -30
 	},
@@ -171,7 +171,6 @@
 /area/ruin/unpowered)
 "x" = (
 /obj/structure/table/wood,
-/obj/item/modular_computer/laptop/preset/civillian,
 /turf/open/floor/carpet/green,
 /area/ruin/unpowered)
 "y" = (
@@ -187,7 +186,7 @@
 /turf/open/floor/carpet/green,
 /area/ruin/unpowered)
 "B" = (
-/obj/item/twohanded/required/kirbyplants/random,
+/obj/item/kirbyplants/random,
 /turf/open/floor/wood,
 /area/ruin/unpowered)
 "C" = (
@@ -221,7 +220,7 @@
 /obj/machinery/firealarm{
 	pixel_y = -24
 	},
-/obj/machinery/vending/cola/random,
+/obj/machinery/vending/cola,
 /turf/open/floor/wood,
 /area/ruin/unpowered)
 "G" = (

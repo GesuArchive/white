@@ -13402,10 +13402,6 @@
 /obj/effect/landmark/stationroom/maint/rdm3x3,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
-"bgz" = (
-/obj/structure/ladder,
-/turf/open/floor/plasteel/monofloor/dark,
-/area/quartermaster/storage)
 "bgA" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -14174,6 +14170,8 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
+/obj/item/camera,
+/obj/structure/table,
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/storage)
 "bko" = (
@@ -35897,6 +35895,8 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
+/obj/structure/table,
+/obj/effect/spawner/lootdrop/maintenance/two,
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/storage)
 "mNB" = (
@@ -61666,7 +61666,7 @@ uqv
 sSZ
 sSZ
 des
-bgz
+pdC
 dci
 dgB
 aZE

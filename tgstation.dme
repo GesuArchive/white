@@ -3846,6 +3846,7 @@
 #include "white\valtos\code\events\unsorted.dm"
 #include "white\valtos\code\exploration\exploration_laser_gun.dm"
 #include "white\valtos\code\exploration\exploration_shuttle.dm"
+#include "white\valtos\code\exploration\exploration_team.dm"
 #include "white\valtos\code\exploration\nostation_firing_pin.dm"
 #include "white\valtos\code\exploration\super_cruise\shuttle_supercruise.dm"
 #include "white\valtos\code\exploration\super_cruise\interface\orbital_map_interface.dm"

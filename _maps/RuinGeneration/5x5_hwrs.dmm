@@ -11,7 +11,7 @@
 /turf/closed/wall,
 /area/ruin/unpowered)
 "G" = (
-/obj/item/twohanded/required/kirbyplants/random,
+/obj/item/kirbyplants/random,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "I" = (

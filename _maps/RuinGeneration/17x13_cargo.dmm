@@ -87,7 +87,7 @@
 /area/ruin/unpowered)
 "y" = (
 /obj/effect/turf_decal/delivery,
-/obj/effect/spawner/lootdrop/glowstick/lit,
+/obj/effect/spawner/lootdrop/glowstick,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "B" = (

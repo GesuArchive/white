@@ -736,6 +736,8 @@ Turf and target are separate in case you want to teleport some distance from a t
 		return "Грузчик"
 	else if (job == "Shaft Miner")
 		return "Шахтёр"
+	else if (job == "Exploration Crew")
+		return "Рейнджер"
 	else if (job == "Trader")
 		return "Торговец"
 	else if (job == "Head of Personnel")

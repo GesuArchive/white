@@ -9,46 +9,29 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
 "b" = (
 /obj/machinery/power/port_gen/pacman,
-/obj/structure/cable/yellow,
+/obj/structure/cable,
 /turf/open/floor/plating,
-/area/shuttle/exploration)
-"c" = (
-/obj/machinery/atmospherics/components/binary/dp_vent_pump{
-	dir = 8
-	},
-/turf/open/floor/mineral/plastitanium,
 /area/shuttle/exploration)
 "d" = (
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/exploration)
 "f" = (
-/obj/machinery/atmospherics/pipe/simple/dark/hidden{
-	dir = 4
-	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/shuttle/exploration)
-"g" = (
+/obj/machinery/power/apc/auto_name/north,
+/obj/structure/cable,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
-"h" = (
-/obj/machinery/telecomms/hub/preset/exploration,
-/obj/effect/turf_decal/delivery,
+"g" = (
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
 "j" = (
 /obj/machinery/telecomms/broadcaster/preset_exploration,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/mineral/titanium,
-/area/shuttle/exploration)
-"k" = (
-/obj/machinery/atmospherics/pipe/manifold/dark/hidden{
-	dir = 4
-	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/exploration)
 "l" = (
 /turf/template_noop,
@@ -89,15 +72,8 @@
 	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
-"s" = (
-/obj/machinery/atmospherics/pipe/simple/dark/hidden,
-/turf/closed/wall/mineral/titanium,
-/area/shuttle/exploration)
 "t" = (
 /obj/machinery/door/airlock/external/glass,
-/obj/machinery/atmospherics/pipe/simple/dark/hidden{
-	dir = 6
-	},
 /obj/docking_port/mobile{
 	dir = 4;
 	dwidth = 5;
@@ -107,22 +83,8 @@
 	port_direction = 8;
 	width = 13
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/exploration)
-"u" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/turf/open/floor/mineral/titanium,
-/area/shuttle/exploration)
-"v" = (
-/obj/machinery/atmospherics/pipe/simple/dark/hidden{
-	dir = 9
-	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/exploration)
 "w" = (
 /obj/machinery/telecomms/receiver/preset_exploration,
@@ -130,18 +92,13 @@
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
 "x" = (
-/obj/machinery/door/airlock/external/glass,
-/obj/machinery/atmospherics/pipe/simple/dark/hidden{
-	dir = 10
-	},
-/turf/open/floor/mineral/plastitanium,
+/obj/structure/cable,
+/turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
 "y" = (
-/obj/machinery/atmospherics/components/unary/tank/air{
-	dir = 4;
-	initialize_directions = 4
-	},
-/turf/open/floor/mineral/plastitanium,
+/obj/machinery/telecomms/hub/preset/exploration,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
 "z" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
@@ -152,9 +109,6 @@
 	},
 /obj/machinery/power/apc/auto_name/north{
 	pixel_y = 24
-	},
-/obj/structure/cable/yellow{
-	icon_state = "0-4"
 	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
@@ -181,12 +135,6 @@
 /obj/structure/shuttle/engine/propulsion/burst,
 /turf/open/floor/plating,
 /area/shuttle/exploration)
-"H" = (
-/obj/machinery/atmospherics/pipe/simple/dark/hidden{
-	dir = 5
-	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/shuttle/exploration)
 "I" = (
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/exploration)
@@ -204,9 +152,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/structure/cable/yellow{
-	icon_state = "2-8"
-	},
+/obj/structure/cable,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
 "O" = (
@@ -236,11 +182,6 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/exploration)
-"T" = (
-/obj/structure/closet/emcloset/anchored,
-/obj/machinery/advanced_airlock_controller/directional/east,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/exploration)
 "U" = (
@@ -275,8 +216,8 @@ R
 Q
 Q
 t
-s
-H
+Q
+z
 q
 r
 Q
@@ -288,10 +229,10 @@ R
 R
 D
 z
-T
-c
+g
+x
 y
-f
+z
 B
 C
 w
@@ -303,11 +244,11 @@ R
 W
 P
 z
-z
+f
 x
-k
-v
-u
+g
+z
+V
 O
 o
 n
@@ -319,8 +260,8 @@ d
 d
 S
 g
+x
 g
-h
 R
 N
 b
@@ -334,10 +275,10 @@ m
 P
 z
 g
-g
-g
+x
+x
 a
-V
+N
 U
 L
 n
