@@ -374,7 +374,7 @@
 /turf/open/floor/plating/foam,
 /area/ruin/space/has_grav/bseruin/foam)
 "CN" = (
-/obj/machinery/computer/shuttle,
+/obj/machinery/computer/shuttle_flight,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle)
 "Dk" = (

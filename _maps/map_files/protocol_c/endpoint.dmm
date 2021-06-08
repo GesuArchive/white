@@ -348,7 +348,7 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/brief)
 "bX" = (
-/obj/machinery/computer/shuttle,
+/obj/machinery/computer/shuttle_flight,
 /turf/open/floor/engine/cult,
 /area/wizard_station)
 "ca" = (
