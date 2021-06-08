@@ -802,7 +802,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		to_chat(src, "<span class='warning'>Failed to place [template.name].</span>", confidential = TRUE)
 
 /client/proc/generate_ruin()
-	set category = "Debug"
+	set category = "Дбг"
 	set name = "Generate Ruin"
 	set desc = "Randomly generate a space ruin."
 	if (!holder)
