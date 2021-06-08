@@ -21,7 +21,13 @@
 	job_path = /datum/job/doctor/field_medic
 
 /datum/gear/roles/bomj
-	display_name = "Bomj"
+	display_name = "Бомж"
 	description = "Просто бомж."
 	cost = 5
 	job_path = /datum/job/bomj
+
+/datum/gear/roles/exploration
+	display_name = "Рейнджер"
+	description = "Храбрый исследователь космоса."
+	cost = 1000
+	job_path = /datum/job/exploration

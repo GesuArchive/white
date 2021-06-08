@@ -17,6 +17,8 @@
 	display_order = JOB_DISPLAY_ORDER_SHAFT_MINER
 	bounty_types = CIV_JOB_MINE
 
+	metalocked = TRUE
+
 /datum/outfit/job/exploration
 	name = "Exploration Crew"
 	jobtype = /datum/job/exploration
