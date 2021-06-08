@@ -1831,6 +1831,7 @@
 #include "code\modules\atmospherics\gasmixtures\gas_types.dm"
 #include "code\modules\atmospherics\gasmixtures\immutable_mixtures.dm"
 #include "code\modules\atmospherics\gasmixtures\reactions.dm"
+#include "code\modules\atmospherics\machinery\_exp_fastinit.dm"
 #include "code\modules\atmospherics\machinery\airalarm.dm"
 #include "code\modules\atmospherics\machinery\atmosmachinery.dm"
 #include "code\modules\atmospherics\machinery\datum_pipeline.dm"

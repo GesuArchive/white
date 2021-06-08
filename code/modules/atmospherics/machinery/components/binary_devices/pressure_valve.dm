@@ -65,13 +65,13 @@
 		is_gas_flowing = FALSE
 	update_icon_nopipes()
 
-/obj/machinery/atmospherics/components/binary/pressure_valve/proc/set_frequency(new_frequency)
+/obj/machinery/atmospherics/components/binary/pressure_valve/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
 	if(frequency)
 		radio_connection = SSradio.add_object(src, frequency, filter = RADIO_ATMOSIA)
 
-/obj/machinery/atmospherics/components/binary/pressure_valve/proc/broadcast_status()
+/obj/machinery/atmospherics/components/binary/pressure_valve/broadcast_status()
 	if(!radio_connection)
 		return
 

@@ -163,7 +163,7 @@
 			. = TRUE
 	update_icon()
 
-/obj/machinery/atmospherics/components/trinary/mixer/proc/adjust_node1_value(newValue)
+/obj/machinery/atmospherics/components/trinary/mixer/adjust_node1_value(newValue)
 	node1_concentration = newValue / 100
 	node2_concentration = 1 - node1_concentration
 

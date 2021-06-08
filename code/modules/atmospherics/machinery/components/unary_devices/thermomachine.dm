@@ -33,7 +33,7 @@
 	RefreshParts()
 	update_icon()
 
-/obj/machinery/atmospherics/components/unary/thermomachine/proc/swap_function()
+/obj/machinery/atmospherics/components/unary/thermomachine/swap_function()
 	cooling = !cooling
 	if(cooling)
 		icon_state_off = "freezer"
