@@ -3650,7 +3650,7 @@
 /turf/open/floor/wood,
 /area/space)
 "auZ" = (
-/obj/machinery/computer/shuttle/labor{
+/obj/machinery/computer/shuttle_flight/labor{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red{
@@ -6348,7 +6348,7 @@
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
 "aSJ" = (
-/obj/machinery/computer/shuttle/mining{
+/obj/machinery/computer/shuttle_flight/mining{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/yellow{
@@ -44364,7 +44364,7 @@
 /turf/open/floor/plasteel/white,
 /area/science/research)
 "lPS" = (
-/obj/machinery/computer/shuttle/mining{
+/obj/machinery/computer/shuttle_flight/mining{
 	dir = 1;
 	req_access = null
 	},
@@ -78836,7 +78836,7 @@
 /area/space)
 "xzi" = (
 /obj/structure/cable,
-/obj/machinery/computer/shuttle/mining/common,
+/obj/machinery/computer/shuttle_flight/mining/common,
 /obj/structure/window/reinforced{
 	dir = 1
 	},

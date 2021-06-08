@@ -266,7 +266,7 @@
 		if(!check_rights(R_ADMIN))
 			return
 
-		var/obj/machinery/computer/shuttle/shuttle_console = locate(href_list["unlock_shuttle"])
+		var/obj/machinery/computer/shuttle_flight/shuttle_console = locate(href_list["unlock_shuttle"])
 		if(!shuttle_console)
 			return
 		shuttle_console.admin_controlled = !shuttle_console.admin_controlled

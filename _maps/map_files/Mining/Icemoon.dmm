@@ -12,7 +12,7 @@
 /turf/closed/wall/r_wall,
 /area/icemoon/surface/outdoors/explored)
 "ao" = (
-/obj/machinery/computer/shuttle/labor/one_way{
+/obj/machinery/computer/shuttle_flight/labor/one_way{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -239,7 +239,7 @@
 /obj/machinery/airalarm{
 	pixel_y = 23
 	},
-/obj/machinery/computer/shuttle/mining{
+/obj/machinery/computer/shuttle_flight/mining{
 	req_access = null
 	},
 /obj/effect/turf_decal/tile/purple{
@@ -2936,7 +2936,7 @@
 /turf/open/floor/plasteel,
 /area/mine/laborcamp)
 "Co" = (
-/obj/machinery/computer/shuttle/mining/common{
+/obj/machinery/computer/shuttle_flight/mining/common{
 	dir = 4;
 	name = "mining shuttle console"
 	},

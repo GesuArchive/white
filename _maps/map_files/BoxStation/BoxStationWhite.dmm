@@ -534,7 +534,7 @@
 /turf/closed/wall,
 /area/maintenance/fore/secondary)
 "ahw" = (
-/obj/machinery/computer/shuttle/mining{
+/obj/machinery/computer/shuttle_flight/mining{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/brown{
@@ -1422,7 +1422,7 @@
 /turf/open/floor/plasteel,
 /area/security/processing)
 "amc" = (
-/obj/machinery/computer/shuttle/labor{
+/obj/machinery/computer/shuttle_flight/labor{
 	dir = 4
 	},
 /obj/effect/turf_decal/stripes/line{
@@ -30112,7 +30112,7 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "cTE" = (
-/obj/machinery/computer/shuttle/mining{
+/obj/machinery/computer/shuttle_flight/mining{
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/yellow,
@@ -38440,7 +38440,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
-/obj/machinery/computer/shuttle/mining/common{
+/obj/machinery/computer/shuttle_flight/mining/common{
 	dir = 4
 	},
 /turf/open/floor/plasteel/white/corner{

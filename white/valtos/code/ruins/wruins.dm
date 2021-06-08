@@ -74,22 +74,14 @@
 	name = "Auto-Explorer Mini"
 
 /obj/item/circuitboard/computer/explorer_mini
-	build_path = /obj/machinery/computer/shuttle/explorer_mini
+	build_path = /obj/machinery/computer/shuttle_flight/explorer_mini
 
-/obj/machinery/computer/shuttle/explorer_mini
+/obj/machinery/computer/shuttle_flight/explorer_mini
 	name = "консоль Авто-Исследователя Мини"
 	desc = "Для самых отбитых. Гарантированно ведёт в никуда."
 	circuit = /obj/item/circuitboard/computer/explorer_mini
 	shuttleId = "explorer_mini"
 	possible_destinations = "explorer_mini_custom;explorer_mini_station"
-
-/obj/machinery/computer/camera_advanced/shuttle_docker/explorer_mini
-	name = "навигация Авто-Исследователя Мини"
-	desc = "Используется для точной настройки места стыковки."
-	shuttleId = "explorer_mini"
-	shuttlePortId = "explorer_mini_custom"
-	jumpto_ports = list("explorer_mini_station" = 1)
-	view_range = 9
 
 /obj/item/paper/crumpled/ruins/autism
 	info = "<i>Ты пидор.</i>"

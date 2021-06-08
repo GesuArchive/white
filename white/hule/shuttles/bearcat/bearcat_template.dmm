@@ -19,7 +19,7 @@
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/bridge)
 "ad" = (
-/obj/machinery/computer/shuttle/bearcat{
+/obj/machinery/computer/shuttle_flight/bearcat{
 	dir = 4
 	},
 /turf/open/floor/plasteel,

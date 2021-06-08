@@ -2062,7 +2062,7 @@
 /turf/open/floor/plating/airless,
 /area/science/test_area)
 "fa" = (
-/obj/machinery/computer/shuttle/labor,
+/obj/machinery/computer/shuttle_flight/labor,
 /turf/open/floor/plating,
 /area/maintenance/department/security)
 "fb" = (
@@ -6752,7 +6752,7 @@
 /turf/open/floor/plasteel/dark,
 /area/science/robotics/lab)
 "vg" = (
-/obj/machinery/computer/shuttle/unit_shuttle,
+/obj/machinery/computer/shuttle_flight/unit_shuttle,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -9030,7 +9030,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
-/obj/machinery/computer/shuttle/ferry/request/trader,
+/obj/machinery/computer/shuttle_flight/ferry/request/trader,
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
 "Ds" = (
@@ -13558,7 +13558,7 @@
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
 "SC" = (
-/obj/machinery/computer/shuttle/mining{
+/obj/machinery/computer/shuttle_flight/mining{
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/blue{
@@ -13857,7 +13857,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/computer/shuttle/mining/common,
+/obj/machinery/computer/shuttle_flight/mining/common,
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
 "TD" = (
@@ -14041,7 +14041,7 @@
 /turf/open/floor/plasteel,
 /area/security/main)
 "Ul" = (
-/obj/machinery/computer/shuttle/labor{
+/obj/machinery/computer/shuttle_flight/labor{
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/blue{
@@ -15403,7 +15403,7 @@
 /turf/open/floor/engine/o2,
 /area/engine/atmos)
 "YX" = (
-/obj/machinery/computer/shuttle/mining{
+/obj/machinery/computer/shuttle_flight/mining{
 	dir = 1
 	},
 /turf/open/floor/plating,

@@ -1,14 +1,4 @@
-/obj/machinery/computer/camera_advanced/shuttle_docker/adv/corvette
-	name = "SBC corvette navigation console"
-	desc = "Used to designate a precise transit location for the SBC corvette."
-	shuttleId = "corvette"
-	shuttlePortId = "corvette_custom"
-	jumpto_ports = list()
-	//view_range = 20
-	x_offset = 15
-	y_offset = 0
-
-/obj/machinery/computer/shuttle/corvette
+/obj/machinery/computer/shuttle_flight/corvette
 	name = "SBC corvette console"
 	shuttleId = "corvette"
 	icon_screen = "syndishuttle"

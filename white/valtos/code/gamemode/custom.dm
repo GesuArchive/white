@@ -152,7 +152,7 @@
 /area/shuttle/partyhard
 	name = "Station Elevator"
 
-/obj/machinery/computer/shuttle/partyhard
+/obj/machinery/computer/shuttle_flight/partyhard
 	name = "elevator console"
 	desc = "A elevator control computer."
 	icon_screen = "shuttle"

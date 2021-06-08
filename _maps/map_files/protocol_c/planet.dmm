@@ -1592,7 +1592,7 @@
 /turf/open/floor/plasteel,
 /area/hydroponics)
 "eo" = (
-/obj/machinery/computer/shuttle/unit_shuttle,
+/obj/machinery/computer/shuttle_flight/unit_shuttle,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},

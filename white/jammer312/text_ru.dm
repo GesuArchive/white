@@ -245,6 +245,8 @@ proc/rhtml_decode(var/t)
 		return "Снабжение"
 	else if (freq == "Service")
 		return "Обслуживание"
+	else if (freq == "Exploration")
+		return "Рейнджеры"
 	else if (freq == "AI Private")
 		return "Приватный ИИ"
 	else if (freq == "Syndicate")

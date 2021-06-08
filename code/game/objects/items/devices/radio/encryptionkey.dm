@@ -87,7 +87,7 @@
 /obj/item/encryptionkey/heads/captain
 	name = "ключ шифрования капитана"
 	icon_state = "cap_cypherkey"
-	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_ENGINEERING = 0, RADIO_CHANNEL_SCIENCE = 0, RADIO_CHANNEL_MEDICAL = 0, RADIO_CHANNEL_SUPPLY = 0, RADIO_CHANNEL_SERVICE = 0)
+	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_ENGINEERING = 0, RADIO_CHANNEL_SCIENCE = 0, RADIO_CHANNEL_MEDICAL = 0, RADIO_CHANNEL_SUPPLY = 0, RADIO_CHANNEL_SERVICE = 0, RADIO_CHANNEL_EXPLORATION = 0)
 
 /obj/item/encryptionkey/heads/rd
 	name = "ключ шифрования научного руководителя"
@@ -123,6 +123,22 @@
 	name = "ключ шифрования шахтёров"
 	icon_state = "cargo_cypherkey"
 	channels = list(RADIO_CHANNEL_SUPPLY = 1, RADIO_CHANNEL_SCIENCE = 1)
+
+
+/obj/item/encryptionkey/headset_exp
+	name = "ключ шифрования рейнджеров"
+	icon_state = "exp_cypherkey"
+	channels = list(RADIO_CHANNEL_EXPLORATION = 1)
+
+/obj/item/encryptionkey/headset_expteam
+	name = "ключ шифрования команды рейнджеров"
+	icon_state = "expteam_cypherkey"
+	channels = list(RADIO_CHANNEL_EXPLORATION = 1, RADIO_CHANNEL_SUPPLY = 1, RADIO_CHANNEL_SCIENCE = 1)
+
+/obj/item/encryptionkey/headset_curator
+	name = "ключ шифрования куратора"
+	icon_state = "srv_cypherkey"
+	channels = list(RADIO_CHANNEL_SERVICE = 1, RADIO_CHANNEL_EXPLORATION = 1)
 
 /obj/item/encryptionkey/headset_service
 	name = "ключ шифрования сервиса"

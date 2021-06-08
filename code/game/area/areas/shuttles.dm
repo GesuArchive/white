@@ -216,3 +216,7 @@
 
 /area/shuttle/transport/tramstation
 	name = "Трамвай"
+
+/area/shuttle/exploration
+	name = "Шаттл Рейнджеров"
+	requires_power = TRUE

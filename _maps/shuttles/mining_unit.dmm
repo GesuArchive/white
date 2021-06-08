@@ -46,7 +46,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining)
 "A" = (
-/obj/machinery/computer/shuttle/mining{
+flight/mining{
 	dir = 4
 	},
 /obj/effect/turf_decal/bot,

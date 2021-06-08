@@ -1357,7 +1357,7 @@
 /turf/open/floor/mineral/titanium/tiled/blue,
 /area/shuttle/abandoned/bridge)
 "dv" = (
-/obj/machinery/computer/shuttle/white_ship/bridge{
+/obj/machinery/computer/shuttle_flight/white_ship/bridge{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,

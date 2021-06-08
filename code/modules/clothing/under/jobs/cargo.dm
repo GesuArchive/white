@@ -50,3 +50,9 @@
 	icon_state = "explorer"
 	inhand_icon_state = "explorer"
 	can_adjust = FALSE
+
+/obj/item/clothing/under/rank/cargo/exploration
+	name = "комбинезон рейнджера"
+	desc = "В самый раз для самого пекла."
+	icon_state = "curator"
+	inhand_icon_state = "curator"

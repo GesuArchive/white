@@ -122,3 +122,9 @@
 /obj/machinery/telecomms/server/presets/common/birdstation/Initialize()
 	. = ..()
 	freq_listening = list()
+
+/obj/machinery/telecomms/server/presets/exploration
+	id = "Exploration Server"
+	network = "exploration"
+	freq_listening = list(FREQ_EXPLORATION)
+	autolinkers = list("exploration")

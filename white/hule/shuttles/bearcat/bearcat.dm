@@ -87,18 +87,7 @@
 
 ///////////////////////////Nav Console///////////////////////////
 
-/obj/machinery/computer/camera_advanced/shuttle_docker/adv/bearcat
-	name = "CSV Bearcat navigation computer"
-	desc = "Used to designate a precise transit location for the ship."
-	shuttleId = "bearcat"
-	shuttlePortId = "bearcat_custom"
-	shuttlePortName = "custom location"
-	view_range = 20
-	x_offset = 8
-	y_offset = -12
-	z_lock = list(3,4,7,8,9,10,12,13)
-
-/obj/machinery/computer/shuttle/bearcat
+/obj/machinery/computer/shuttle_flight/bearcat
 	name = "CSV Bearcat console"
 	shuttleId = "bearcat"
 	possible_destinations = "bearcat_custom;bearcat_away"

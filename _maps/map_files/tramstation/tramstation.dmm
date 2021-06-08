@@ -10594,7 +10594,7 @@
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "aJe" = (
-/obj/machinery/computer/shuttle/mining,
+/obj/machinery/computer/shuttle_flight/mining,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
 	},
@@ -17529,7 +17529,7 @@
 /turf/open/floor/plating,
 /area/maintenance/tram/mid)
 "cRt" = (
-/obj/machinery/computer/shuttle/mining{
+/obj/machinery/computer/shuttle_flight/mining{
 	dir = 8;
 	req_access = null
 	},
@@ -19993,7 +19993,7 @@
 /turf/open/floor/plasteel/dark,
 /area/science/xenobiology)
 "dOd" = (
-/obj/machinery/computer/shuttle/labor,
+/obj/machinery/computer/shuttle_flight/labor,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
@@ -62634,7 +62634,7 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "vdf" = (
-/obj/machinery/computer/shuttle/mining/common{
+/obj/machinery/computer/shuttle_flight/mining/common{
 	dir = 8
 	},
 /obj/effect/turf_decal/stripes{
