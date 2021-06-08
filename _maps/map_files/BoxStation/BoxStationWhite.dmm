@@ -19075,7 +19075,7 @@
 	roundstart_template = /datum/map_template/shuttle/mining/large;
 	width = 7
 	},
-/turf/open/floor/engine/hull/reinforced,
+/turf/open/floor/engine/hull,
 /area/space/nearstation)
 "bJd" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -37241,13 +37241,10 @@
 	pixel_y = 23
 	},
 /obj/structure/cable,
-/obj/structure/table,
-/obj/item/rack_parts,
-/obj/item/rack_parts,
-/obj/item/rack_parts,
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
+/obj/machinery/modular_computer/console/preset/civilian,
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/storage)
 "pch" = (
@@ -38360,6 +38357,12 @@
 /obj/effect/turf_decal/siding/thinplating/corner,
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/xenobiology)
+"qLv" = (
+/obj/machinery/modular_computer/console/preset/civilian{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/fore)
 "qLT" = (
 /obj/machinery/light{
 	dir = 4
@@ -38775,10 +38778,10 @@
 	dir = 1;
 	pixel_y = 0
 	},
-/obj/structure/table,
 /obj/structure/sign/flags/kazakh{
 	pixel_y = 32
 	},
+/obj/machinery/modular_computer/console/preset/engineering,
 /turf/open/floor/plasteel/monofloor,
 /area/engine/atmos)
 "rEs" = (
@@ -40783,6 +40786,15 @@
 	},
 /turf/open/floor/plasteel,
 /area/vacant_room/commissary)
+"uTP" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 5
+	},
+/obj/structure/chair/office{
+	dir = 1
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/quartermaster/storage)
 "uUp" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
@@ -42709,6 +42721,7 @@
 /obj/structure/sign/departments/cargo{
 	pixel_x = -32
 	},
+/obj/structure/ladder,
 /turf/open/floor/plasteel/monofloor,
 /area/quartermaster/office)
 "yhR" = (
@@ -56479,7 +56492,7 @@ alU
 aoT
 amC
 dAb
-amC
+qLv
 alU
 alU
 hCx
@@ -61670,15 +61683,15 @@ pdC
 dci
 dgB
 aZE
-gXs
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-gXs
+pUF
+pUF
+pUF
+pUF
+pUF
+pUF
+pUF
+pUF
+pUF
 bCq
 uUp
 bCq
@@ -61927,15 +61940,15 @@ pdC
 pzD
 tdh
 blW
-gXs
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-gXs
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
 bCq
 bPS
 bCq
@@ -62172,7 +62185,7 @@ oLz
 oLz
 aZE
 pca
-cFs
+uTP
 pTT
 sSZ
 sSZ
@@ -62184,15 +62197,15 @@ pdC
 pzD
 bkG
 blW
-gXs
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-pUF
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
 bCq
 iIA
 aad
@@ -62441,15 +62454,15 @@ rtc
 pzD
 bkJ
 blW
-pUF
-pUF
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-pUF
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
 bLv
 akZ
 bRc
@@ -62699,14 +62712,14 @@ pzD
 krF
 blW
 wIB
-pUF
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-pUF
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
 mra
 bPS
 bRf
@@ -62956,14 +62969,14 @@ qHQ
 bAS
 aZE
 wIB
-pUF
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-pUF
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
 mra
 bPT
 bRe
@@ -63213,14 +63226,14 @@ qBd
 fql
 blW
 wIB
-pUF
-pUF
-pUF
+wIB
+wIB
+wIB
 bJc
-pUF
-pUF
-pUF
-pUF
+wIB
+wIB
+wIB
+wIB
 mra
 bPS
 alv
@@ -63470,14 +63483,14 @@ bwS
 pdC
 blW
 wIB
-pUF
+wIB
 bbv
 bbv
 bJb
 bbv
 bbv
-pUF
-pUF
+wIB
+wIB
 bCq
 ala
 alK
@@ -63727,14 +63740,14 @@ uyZ
 pdC
 blW
 wIB
-pUF
+wIB
 bbv
 bHz
 dUO
 bKk
 bbv
-pUF
-pUF
+wIB
+wIB
 bCq
 alg
 alN
@@ -63984,14 +63997,14 @@ eYf
 pdC
 blW
 wIB
-pUF
+wIB
 bbv
 bHy
 dUO
 bKj
 bbv
-pUF
-pUF
+wIB
+wIB
 bCq
 bTs
 bPS
@@ -64247,8 +64260,8 @@ bxy
 bJd
 bKm
 bxy
-pUF
-pUF
+wIB
+wIB
 bCq
 als
 cOw
@@ -64504,8 +64517,8 @@ bHA
 nXT
 bKl
 bxy
-pUF
-pUF
+wIB
+wIB
 bCq
 bHE
 bRg
@@ -64761,8 +64774,8 @@ byE
 hJD
 byE
 bbv
-pUF
-pUF
+wIB
+wIB
 mra
 bQa
 bHE
@@ -65018,8 +65031,8 @@ bEQ
 bGM
 bKn
 bbv
-pUF
-pUF
+wIB
+wIB
 mra
 bPZ
 bHE
@@ -65275,8 +65288,8 @@ bEP
 bGm
 bKp
 bbv
-pUF
-pUF
+wIB
+wIB
 mra
 bHE
 bHE
@@ -65532,8 +65545,8 @@ cBB
 byE
 bKo
 bxy
-pUF
-pUF
+wIB
+wIB
 bCq
 bHE
 alT
@@ -65789,8 +65802,8 @@ bGn
 bGn
 bKq
 bxy
-pUF
-pUF
+wIB
+wIB
 bCq
 bOK
 bCq
@@ -66051,7 +66064,7 @@ mra
 bCq
 bHE
 mra
-pUF
+gXs
 aaa
 aaa
 aaa
@@ -66308,7 +66321,7 @@ bHE
 bHE
 bHE
 mra
-pUF
+gXs
 aaa
 aaa
 aaa
