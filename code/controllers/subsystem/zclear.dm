@@ -173,7 +173,7 @@ SUBSYSTEM_DEF(zclear)
 			if(cleardata.tracking)
 				LAZYADD(free_levels, SSmapping.z_list[cleardata.zvalue])
 			if(length(nullspaced_mobs))
-				priority_announce("Sensors indicate that multiple crewmembers have been lost at an abandoned station. They can potentially be recovered by flying to the nearest derelict station and locating their bodies.")
+				priority_announce("Сенсоры сообщают о том, что множество членов вашего экипажа пропало. Скорее всего их раскидало по космосу, их всё ещё можно попробовать найти.")
 	cleardata.process_num ++
 
 /*
