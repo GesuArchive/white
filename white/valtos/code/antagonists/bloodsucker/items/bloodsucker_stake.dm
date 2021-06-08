@@ -210,7 +210,7 @@
 /datum/crafting_recipe/silver_stake
 	name = "Silver Stake"
 	result = /obj/item/stake/hardened/silver
-	tool_behaviors = list(/obj/item/weldingtool)
+	tool_behaviors = list(TOOL_WELDER)
 	reqs = list(/obj/item/stack/sheet/mineral/silver = 1,
 				/obj/item/stake/hardened = 1)
 				///obj/item/stack/package_wrap = 8,

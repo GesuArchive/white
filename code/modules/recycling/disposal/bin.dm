@@ -512,7 +512,7 @@
 	var/list/flushed_mobs = list()
 	var/flushed_AM = 0
 	var/mob/living/L
-	for(var/atom/movable/AM in get_turf(src))
+	for(var/obj/AM in get_turf(src))
 		if(AM.anchored || AM == src)
 			continue
 		AM.forceMove(src)
@@ -520,7 +520,7 @@
 		if(isliving(AM))
 			L = AM
 			flushed_mobs.Add("[L.ckey ? "[L.ckey] as " : ""][L.name]")
-	log_mechcomp("[src.name] at x=[src.x], y=[src.y], z=[src.z]: flushed [flushed_AM] atom/movables[flushed_mobs.len ? ", including following mobs: [jointext(flushed_mobs, ", ")]." : ""] Last IO edit [last_io_edit()], last config edit: [last_config_edit()]")
+	log_mechcomp("[src.name] at x=[src.x], y=[src.y], z=[src.z]: flushed [flushed_AM] objects[flushed_mobs.len ? ", including following mobs: [jointext(flushed_mobs, ", ")]." : ""] Last IO edit [last_io_edit()], last config edit: [last_config_edit()]")
 	activate_for(7 SECONDS)
 	flush()
 
@@ -565,8 +565,8 @@
 	update_icon()
 
 /obj/machinery/disposal/mechcomp/flushAnimation()
-	. = ..()
 	update_icon()
+	. = ..()
 
 /obj/machinery/disposal/mechcomp/flush()
 	. = ..()

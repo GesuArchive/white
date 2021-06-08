@@ -159,28 +159,19 @@
 	desc = "What does it do? Only one way to find out!"
 	icon_state = "comp_button"
 	part_icon_state = "comp_button"
+	active_icon_state = "comp_button1"
 
 /obj/item/mechcomp/button/Initialize()
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ALLOW_MANUAL_SIGNAL)
 
-/obj/item/mechcomp/button/interact_by_hand()
+/obj/item/mechcomp/button/interact_by_hand(mob/user)
 	if(active)
-		return
+		return	
 	activate_for(1 SECONDS)
-	update_icon_state("comp_button1")
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_TRANSMIT_DEFAULT_MSG)
-	log_action("pressed by [fingerprintslast]")
-	spawn(1 SECONDS)
-		update_icon_state("comp_button")
-		active = FALSE
+	log_action("pressed by [user.ckey ? "[user.ckey]" : "[user.name] without a ckey. Check more logs, this should not happen"].")
 
-
-
-
-
-
-//Changes it's description to whatever is passed to it's speak input. SHOULD ACTUALLY SAY IT INSTEAD OF THIS SHITE
 /obj/item/mechcomp/speaker
 	name = "mechcomp speaker"
 	desc = "Speaks whatever it is told to speak."
@@ -217,7 +208,7 @@
 		return
 
 	SEND_SIGNAL(src,COMSIG_MECHCOMP_TRANSMIT_SIGNAL,"[inp]")
-	activate_for(0.1 SECONDS)
+	flick(active_icon_state, src)
 	log_action("inputted \"[inp]\".")
 
 
@@ -256,13 +247,12 @@
 
 /obj/item/mechcomp/delay
 	name = "mechcomp timer"
-	desc = "Relays signals with a configurable delay from 0 to 10 seconds."
+	desc = "Relays signals with a configurable delay from 0.1 to 10 seconds."
 	icon_state = "comp_wait"
 	part_icon_state = "comp_wait"
 	active_icon_state = "comp_wait1"
 	has_anchored_icon_state = TRUE
 	var/delay = 10
-	var/list/pending_messages = list()
 
 /obj/item/mechcomp/delay/examine(mob/user)
 	. = ..()
@@ -296,26 +286,24 @@
 //and active flag should not be set to FALSE untill all of the messages were sent.
 //This is probably not good and stuff regarting active-inactive states should be rewritten to be more flexible.
 /obj/item/mechcomp/delay/proc/incoming(var/datum/mechcompMessage/msg)
-	pending_messages += list(addtimer(CALLBACK(src, .proc/sendmessage, msg), delay, TIMER_STOPPABLE | TIMER_DELETE_ME))
+	addtimer(CALLBACK(src, .proc/sendmessage, msg), delay, TIMER_STOPPABLE | TIMER_DELETE_ME)
 	active = TRUE
-	update_icon_state(active_icon_state)
+	update_icon()
 
 
 
 /obj/item/mechcomp/delay/proc/sendmessage(var/datum/mechcompMessage/msg)
 	SEND_SIGNAL(src,COMSIG_MECHCOMP_TRANSMIT_MSG, msg)
-	if(!pending_messages.len)
-		active = FALSE
-		update_icon_state(part_icon_state)
+	if(!active_timers.len)
+		_deactivate()
 
 /obj/item/mechcomp/delay/unanchor()
 	. = ..()
 	remove_all_pending_messages()
 
 /obj/item/mechcomp/delay/proc/remove_all_pending_messages()
-	for(var/timer in pending_messages)
+	for(var/timer in active_timers)
 		deltimer(timer)
-	pending_messages = list()
 
 
 /obj/item/mechcomp/grav_accelerator
@@ -323,7 +311,7 @@
 	desc = "The bread and butter of any self-respecting mechanic, able to launch anyone willing (and unwilling!) in a fixed direction."
 	icon_state = "comp_accel"
 	part_icon_state = "comp_accel"
-	active_icon_state = "comp_accel1"
+	//active_icon_state = "comp_accel1"
 	var/power = 3
 	has_anchored_icon_state = TRUE
 	only_one_per_tile = TRUE
@@ -358,7 +346,7 @@
 		return
 	var/thrown_AM = 0
 	var/list/thrown_mobs = list()
-	for(var/atom/movable/AM in range(0, src))
+	for(var/obj/AM in range(0, src))
 		if(AM.anchored || AM == src)
 			continue
 		var/throwtarget = get_edge_target_turf(AM, src.dir)
@@ -368,7 +356,7 @@
 			thrown_mobs.Add("[L.ckey ? "[L.ckey] as " : ""][L.name]")
 		thrown_AM++
 	activate_for((power + 2) SECONDS)
-	log_action("sent [thrown_AM] atom/movables flying[thrown_mobs.len ? ", including following mobs: [jointext(thrown_mobs, ", ")]" : ""]")
+	log_action("sent [thrown_AM] bojects flying[thrown_mobs.len ? ", including following mobs: [jointext(thrown_mobs, ", ")]" : ""]")
 
 /obj/item/mechcomp/grav_accelerator/proc/setpowermanually(obj/item/W, mob/user)
 	var/input = input("Enter new power setting.", "Power", null) as num
@@ -380,21 +368,34 @@
 	to_chat(user, "<span class='notice'>You change the power setting on [src.name] to [power].</span>")
 	return TRUE
 
+/obj/item/mechcomp/grav_accelerator/update_overlays()
+	. = ..()
+	if(active)
+		. += "accel_overlay_active"
+
+
 /obj/item/mechcomp/egunholder
 	name = "mechcomp energy gun fixture"
-	desc = "Warcrimes, warcrimes!"
+	desc = "Self-explanatory."
 	icon_state = "comp_egun"
 	part_icon_state = "comp_egun"
 	only_one_per_tile = TRUE
 	///from 0 to 360
 	var/angle = 0
 	var/obj/item/gun/energy/gun
+	var/obj/machinery/recharger/recharger //lmfao
 
 
 /obj/item/mechcomp/egunholder/Initialize()
 	. = ..()
+	recharger = new(src)
+	recharger.recharge_coeff = 0.25 //4 times slower more inefficient than a regular weapon recharger
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Fire!", "fire")
 	//SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Angle", "rotate") //Would this make the gun component too OP? :thinking:
+
+/obj/item/mechcomp/egunholder/Destroy()
+	qdel(recharger)
+	. = ..()
 
 /obj/item/mechcomp/egunholder/proc/fire(var/datum/mechcompMessage/msg)
 	if(isnull(gun))
@@ -433,6 +434,8 @@
 			gun = I
 			to_chat(user, "<span class='notice'>You slide \the [gun] into the [src.name].</span>")
 			playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
+			if(gun.can_charge)
+				recharger.setCharging(gun)
 			return
 		else
 			to_chat(user, "<span class='notice'>There's already a weapon installed in [src.name]!.</span>")
@@ -443,6 +446,7 @@
 		gun = null
 		playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You pop \the [gun] out of the [src.name].</span>")
+		recharger.setCharging(null)
 		return
 
 //recycled from reflector code

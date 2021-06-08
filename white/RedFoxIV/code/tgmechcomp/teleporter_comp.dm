@@ -3,6 +3,7 @@
 /obj/item/mechcomp/teleport
 	name = "mechcomp Teleporter"
 	desc = "Teleports things around. This one is severly limited by range."
+	icon_state = "comp_tele"
 	part_icon_state = "comp_tele"
 	active_icon_state = "comp_tele1"
 	has_anchored_icon_state = TRUE
@@ -61,7 +62,7 @@
 	var/list/teleported_mobs = list()
 	var/teleported_AM = 0
 	var/mob/living/L
-	for(var/atom/movable/AM in get_turf(src))
+	for(var/obj/AM in get_turf(src))
 		if(AM.anchored || ( isliving(AM) && !accept_mobs ) || AM == src)
 			continue
 		AM.forceMove(get_turf(tele))
@@ -79,7 +80,7 @@
 
 	activate_for(2 SECONDS + 10 SECONDS * accept_mobs)
 	tele.activate_for(2 SECONDS + 10 SECONDS * accept_mobs)
-	log_action("teleported [teleported_AM] atom/movables to x=[tele.x], y=[tele.y][teleported_mobs.len ? ", including following mobs: [jointext(teleported_mobs, ", ")]" : ""]")
+	log_action("teleported [teleported_AM] objects to x=[tele.x], y=[tele.y][teleported_mobs.len ? ", including following mobs: [jointext(teleported_mobs, ", ")]" : ""]")
 	return
 
 

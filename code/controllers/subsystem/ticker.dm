@@ -214,6 +214,7 @@ SUBSYSTEM_DEF(ticker)
 				toggle_dooc(TRUE)
 				toggle_looc(TRUE)
 				declare_completion(force_ending)
+				webhook_send_roundstatus("ending")
 				check_maprotate()
 				Master.SetRunLevel(RUNLEVEL_POSTGAME)
 
