@@ -1,5 +1,5 @@
 /datum/orbital_object/shuttle
-	name = "Shuttle"
+	name = "Шаттл"
 	var/shuttle_port_id
 	//Shuttle data
 	var/max_thrust = 2

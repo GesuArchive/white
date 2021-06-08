@@ -1,5 +1,5 @@
 /datum/orbital_objective/vip_recovery
-	name = "VIP Recovery"
+	name = "VIP эвакуация"
 	var/generated = FALSE
 	var/death_caring = TRUE
 	var/mob/mob_to_recover
@@ -9,10 +9,10 @@
 	max_payout = 400000
 
 /datum/orbital_objective/vip_recovery/get_text()
-	return "Someone of particular interest to use is located at [station_name]. We require them to be extracted immediately. \
-		We have good intel to suggest that the VIP is still alive, however if not their personal diary-disk should have enough infomation \
-		about what we are looking for. An additional point to note is that it is recommended a security team assists in this mission due \
-		to the potentially hostile nature of the individual. Return the individual to the station alive to complete the objective."
+	return "Кто-то, представляющий особый интерес, находится по адресу [station_name]. Мы требуем его немедленно спасти. \
+		Мы предполагаем, что эта VIP-персона всё ещё жива, однако, если мертва, то диск-дневник с историей личной жизни был бы \
+		тем, что нам могло бы понадобиться. Также, возможно вам понадобится помощь местного отряда службы безопасности, так как \
+		вероятно вы встретите неприятеля. Верните этого человека на станции и задание будет выполнено."
 
 //If nobody takes up the ghost role, then we dont care if they died.
 //I know, its a bit sad.
@@ -29,9 +29,8 @@
 					var/obj/item/disk/record/diary = new(get_turf(mob_to_recover))
 					diary.setup_recover(src)
 					tracked_diary = diary
-					priority_announce("Sensors indicate that the VIP you were required to extract has perished from the \
-						events that took place in the outpost. Recover their personal logbook and bring it to the station bridge \
-						for recovery.")
+					priority_announce("Сенсоры сообщают о том, что VIP, которого мы хотели достать, внезапно скончался, однако \
+						его дневник поможет нам восстановить произошедшие события. Найдите его.")
 				death_caring = FALSE
 		else if(is_station_level(mob_to_recover.z))
 			complete_objective()
@@ -81,8 +80,8 @@
 	generated = TRUE
 
 /obj/item/disk/record
-	name = "Record Disk"
-	desc = "A disk containing the logs for whatever happened."
+	name = "Диск-дневник"
+	desc = "Диск, который содержит интересную информацию."
 
 /obj/item/disk/record/ComponentInitialize()
 	. = ..()
@@ -93,7 +92,7 @@
 
 /obj/item/disk/record/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Use in hand on the <b>bridge</b> of the station to send it to Nanotrasen and complete the objective.</span>"
+	. += "<hr><span class='notice'>Активируй это в руке <b>на мостике</b> станции, чтобы отправить Нанотрейзен нужные данные и завершить контракт.</span>"
 
 
 //=====================

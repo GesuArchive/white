@@ -14,7 +14,7 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 	//Once pressed the shuttle will engage autopilot and return to the dock.
 	var/recall_docking_port_id = ""
 
-	var/request_shuttle_message = "Request Shuttle"
+	var/request_shuttle_message = "Запросить шаттл"
 
 	//Admin controlled shuttles
 	var/admin_controlled = FALSE
@@ -48,12 +48,12 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 		shuttleObject.controlling_computer = null
 		switch(SSshuttle.moveShuttle(shuttleId, recall_docking_port_id, 1))
 			if(0)
-				say("Shuttle has arrived at destination.")
+				say("Шаттл прибыл в точку назначения.")
 				QDEL_NULL(shuttleObject)
 			if(1)
-				to_chat(usr, "<span class='warning'>Invalid shuttle requested.</span>")
+				to_chat(usr, "<span class='warning'>Неправильный шаттл запрошен.</span>")
 			else
-				to_chat(usr, "<span class='notice'>Unable to comply.</span>")
+				to_chat(usr, "<span class='notice'>БЛЯТЬ!</span>")
 
 /obj/machinery/computer/shuttle_flight/ui_state(mob/user)
 	return GLOB.default_state
@@ -61,7 +61,7 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 /obj/machinery/computer/shuttle_flight/ui_interact(mob/user, datum/tgui/ui)
 	//Ash walkers cannot use the console because they are unga bungas
 	if(user.mind?.has_antag_datum(/datum/antagonist/ashwalker))
-		to_chat(user, "<span class='warning'>This computer has been designed to keep the natives like you from meddling with it, you have no hope of using it.</span>")
+		to_chat(user, "<span class='warning'>Пошёл на хуй, ящер ёбаный.</span>")
 		return
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
@@ -159,7 +159,7 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 		return
 
 	if(admin_controlled)
-		say("This shuttle is restricted to authorised personnel only.")
+		say("Этот шаттл только для авторизованного персонала.")
 		return
 
 	if(recall_docking_port_id)
@@ -168,15 +168,15 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 				//Find the z-level that the dock is on
 				var/obj/docking_port/stationary/target_port = SSshuttle.getDock(recall_docking_port_id)
 				if(!target_port)
-					say("Unable to locate port location.")
+					say("Невозможно найти порт.")
 					return
 				//Locate linked shuttle
 				var/obj/docking_port/mobile/shuttle = SSshuttle.getShuttle(shuttleId)
 				if(!shuttle)
-					say("Unable to locate linked shuttle.")
+					say("Невозможно найти нужный шаттл.")
 					return
 				if(target_port in shuttle.loc)
-					say("Shuttle is already at destination.")
+					say("Шаттл уже в месте назначения.")
 					return
 				//Locate the orbital object
 				for(var/datum/orbital_object/z_linked/z_linked in SSorbits.orbital_map.bodies)
@@ -193,7 +193,7 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 						shuttleObject.controlling_computer = src
 						say("Shuttle requested.")
 						return
-				say("Docking port in invalid location. Please contact a Nanotrasen technician.")
+				say("Место стыковки в жопе. Свяжитесь с техниками Нанотрейзен.")
 		return
 
 	switch(action)
@@ -207,14 +207,14 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 					return
 		if("setThrust")
 			if(shuttleObject.autopilot)
-				to_chat(usr, "<span class='warning'>Shuttle is controlled by autopilot.</span>")
+				to_chat(usr, "<span class='warning'>Работает автопилот.</span>")
 				return
 			if(QDELETED(shuttleObject))
 				return
 			shuttleObject.thrust = clamp(params["thrust"], 0, 100)
 		if("setAngle")
 			if(shuttleObject.autopilot)
-				to_chat(usr, "<span class='warning'>Shuttle is controlled by autopilot.</span>")
+				to_chat(usr, "<span class='warning'>Работает автопилот.</span>")
 				return
 			if(QDELETED(shuttleObject))
 				return
@@ -246,20 +246,20 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 				return
 			//Check ready
 			if(mobile_port.mode == SHUTTLE_RECHARGING)
-				say("Supercruise Warning: Shuttle engines not ready for use.")
+				say("Круиз: Двигатели не готовы.")
 				return
 			if(mobile_port.mode != SHUTTLE_CALL || mobile_port.destination)
-				say("Supercruise Warning: Already dethrottling shuttle.")
+				say("Круиз: Уже замедляем шаттл.")
 				return
 			//Special check
 			if(params["port"] == "custom_location")
 				//Open up internal docking computer if any location is allowed.
 				if(shuttleObject.docking_target.can_dock_anywhere)
 					if(GLOB.shuttle_docking_jammed)
-						say("Shuttle docking computer jammed.")
+						say("Консоль блокирована.")
 						return
 					if(current_user)
-						to_chat(usr, "<span class='warning'>Somebody is already docking the shuttle.</span>")
+						to_chat(usr, "<span class='warning'>Кто-то уже стыкуется.</span>")
 						return
 					view_range = max(mobile_port.width, mobile_port.height) + 4
 					give_eye_control(usr)
@@ -287,30 +287,30 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 			SSzclear.temp_keep_z(target_port.z)
 			switch(SSshuttle.moveShuttle(shuttleId, target_port.id, 1))
 				if(0)
-					say("Initiating supercruise throttle-down, prepare for landing.")
+					say("Инициируем замедление скорости, готовимся к сближению.")
 					QDEL_NULL(shuttleObject)
 				if(1)
-					to_chat(usr, "<span class='warning'>Invalid shuttle requested.</span>")
+					to_chat(usr, "<span class='warning'>Неправильный шаттл запрошен.</span>")
 				else
-					to_chat(usr, "<span class='notice'>Unable to comply.</span>")
+					to_chat(usr, "<span class='notice'>Не понимаю. Иди на хуй.</span>")
 
 /obj/machinery/computer/shuttle_flight/proc/launch_shuttle()
 	var/obj/docking_port/mobile/mobile_port = SSshuttle.getShuttle(shuttleId)
 	if(!mobile_port)
 		return
 	if(mobile_port.mode == SHUTTLE_RECHARGING)
-		say("Supercruise Warning: Shuttle engines not ready for use.")
+		say("Круиз: Двигатели остывают.")
 		return
 	if(mobile_port.mode != SHUTTLE_IDLE)
-		say("Supercruise Warning: Shuttle already in transit.")
+		say("Круиз: Уже летим.")
 		return
 	if(SSorbits.assoc_shuttles.Find(shuttleId))
-		say("Shuttle is controlled from another location, updating telemetry.")
+		say("Перехват управления из внешнего ПУ, обновление телеметрии.")
 		shuttleObject = SSorbits.assoc_shuttles[shuttleId]
 		return shuttleObject
 	shuttleObject = mobile_port.enter_supercruise()
 	if(!shuttleObject)
-		say("Failed to enter supercruise due to an unknown error.")
+		say("БЛЯТЬ?")
 		return
 	shuttleObject.valid_docks = valid_docks
 	return shuttleObject
@@ -357,13 +357,13 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 		//Ok lets go there
 		switch(SSshuttle.moveShuttle(shuttleId, random_port.id, 1))
 			if(0)
-				say("Initiating supercruise throttle-down, prepare for landing.")
+				say("Инициируем замедление скорости, готовимся к посадке.")
 				QDEL_NULL(shuttleObject)
 			if(1)
-				to_chat(usr, "<span class='warning'>Invalid shuttle requested.</span>")
+				to_chat(usr, "<span class='warning'>Неправильный шаттл запрошен.</span>")
 				qdel(random_port)
 			else
-				to_chat(usr, "<span class='notice'>Unable to comply.</span>")
+				to_chat(usr, "<span class='notice'>Иди на хуй.</span>")
 				qdel(random_port)
 	qdel(random_port)
 
@@ -372,7 +372,7 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 		return
 	req_access = list()
 	obj_flags |= EMAGGED
-	to_chat(user, "<span class='notice'>You fried the consoles ID checking system.</span>")
+	to_chat(user, "<span class='notice'>Сжигаю консоль.</span>")
 
 /obj/machinery/computer/shuttle_flight/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
 	if(port && (shuttleId == initial(shuttleId) || override))

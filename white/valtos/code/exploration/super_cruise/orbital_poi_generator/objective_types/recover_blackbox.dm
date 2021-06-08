@@ -1,5 +1,5 @@
 /datum/orbital_objective/recover_blackbox
-	name = "Blackbox Recovery"
+	name = "Спасение чёрного ящика"
 	var/generated = FALSE
 	//The blackbox required to recover.
 	var/obj/item/blackbox/objective/linked_blackbox
@@ -13,10 +13,9 @@
 	linked_blackbox.setup_recover(src)
 
 /datum/orbital_objective/recover_blackbox/get_text()
-	. = "Outpost [station_name] recently went dark and is no longer responding to our attempts \
-		to contact them. Send in a team and recover the station's blackbox for a payout of [payout] credits."
+	. = "Аванпост [station_name] недавно погрузился во тьму и больше оттуда не поступало сигналов. Отправьтесь туда и найдите чёрный ящик, вознаграждение в [payout] кредитов окупит затраты."
 	if(linked_beacon)
-		. += " The station is located at the beacon marked [linked_beacon.name]. Good luck."
+		. += " Станция находится в точке [linked_beacon.name]. Успехов."
 
 /datum/orbital_objective/recover_blackbox/check_failed()
 	if(!QDELETED(linked_blackbox) || !generated)
@@ -29,7 +28,7 @@
  * from completing their objective and recover invaluable data.
  */
 /obj/item/blackbox/objective
-	name = "damaged blackbox"
+	name = "повреждённый чёрный ящик"
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
@@ -42,7 +41,7 @@
 
 /obj/item/blackbox/objective/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Use in hand on the <b>bridge</b> of the station to send it to Nanotrasen and complete the objective.</span>"
+	. += "<hr><span class='notice'>Активируй это в руке <b>на мостике</b> станции, чтобы отправить Нанотрейзен нужные данные и завершить контракт.</span>"
 
 /datum/component/recoverable
 	var/recovered = FALSE
@@ -61,7 +60,7 @@
 	if(istype(A, /area/bridge) && is_station_level(T.z))
 		initiate_recovery()
 	else
-		pA.say("Blackbox must be recovered at the station's bridge.")
+		pA.say("Чёрный ящик должен быть активирован на мостике.")
 
 /datum/component/recoverable/proc/initiate_recovery()
 	var/atom/movable/parentobj = parent
@@ -76,7 +75,7 @@
 	if(linked_obj)
 		linked_obj.complete_objective()
 	else
-		parentobj.say("Non-priority item recovered, dispensing 2000 credit reward.")
+		parentobj.say("Малоприоритетный предмен обнаружен, выдаём награду в размере 2000 кредитов.")
 		new /obj/item/stack/spacecash/c1000(get_turf(parent), 2)
 	//Fly away
 	var/mutable_appearance/balloon

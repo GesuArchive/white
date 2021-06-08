@@ -1,5 +1,5 @@
 /datum/orbital_objective/nuclear_bomb
-	name = "Nuclear Decomission"
+	name = "Ядерное Правосудие"
 	var/generated = FALSE
 	//The blackbox required to recover.
 	var/obj/machinery/nuclearbomb/decomission/nuclear_bomb
@@ -15,11 +15,9 @@
 	nuclear_bomb.linked_objective = src
 
 /datum/orbital_objective/nuclear_bomb/get_text()
-	. = "Outpost [station_name] requires immediate decomissioning to prevent infomation from being \
-		leaked to the space press. Retrieve the nuclear authentication disk from the outpost and detonate it \
-		with the provided nuclear bomb which will be delivered to the bridge."
+	. = "Аванпост [station_name] требует немедленного уничтожения, так как хранит в себе информацию, которая не должна попасть в руки прессы. Добудьте диск ядерной аутентификации на аванпосте и взорвите бомбу на мостике."
 	if(linked_beacon)
-		. += " The station is located at the beacon marked [linked_beacon.name]. Good luck."
+		. += " Станция находится в локации [linked_beacon.name]. Успехов."
 
 /datum/orbital_objective/nuclear_bomb/on_assign(obj/machinery/computer/objective/objective_computer)
 	var/area/A = GLOB.areas_by_type[/area/bridge]
@@ -36,8 +34,8 @@
 //==============
 
 /obj/item/disk/nuclear/decommission
-	name = "outdated nuclear authentication disk"
-	desc = "An old, worn nuclear authentication disk used in the outdated X-7 nuclear fission explosive. Nanotrasen no longer uses this model of authentication due to its poor security."
+	name = "устаревший диск ядерной аутентификации"
+	desc = "Старый, изношенный диск, используемый в устаревшей ядерной боеголовке X-7. Нанотрейзен больше не использует эту модель аутентификации из-за ее плохой безопасности."
 	fake = TRUE
 
 /obj/item/disk/nuclear/decommission/ComponentInitialize()
@@ -50,7 +48,7 @@
 GLOBAL_LIST_EMPTY(decomission_bombs)
 
 /obj/machinery/nuclearbomb/decomission
-	desc = "A nuclear bomb for destroying stations. Uses an old version of the nuclear authentication disk."
+	desc = "Ядерная бомба для уничтожения станций. Использует старую версию дисков ядерной аутентификации."
 	proper_bomb = FALSE
 	var/datum/orbital_objective/nuclear_bomb/linked_objective
 	var/target_z
@@ -63,7 +61,7 @@ GLOBAL_LIST_EMPTY(decomission_bombs)
 	. = ..()
 	GLOB.decomission_bombs += src
 	r_code = "[rand(10000, 99999)]"
-	print_command_report("Nuclear decomission explosive code: [r_code]")
+	print_command_report("Код взрыва ядерной бомбы: [r_code]")
 	var/obj/structure/closet/supplypod/bluespacepod/pod = new()
 	pod.explosionSize = list(0,0,0,4)
 	new /obj/effect/pod_landingzone(get_turf(src), pod)
@@ -97,15 +95,13 @@ GLOBAL_LIST_EMPTY(decomission_bombs)
 
 /obj/machinery/nuclearbomb/decomission/set_active()
 	if(safety)
-		to_chat(usr, "<span class='danger'>The safety is still on.</span>")
+		to_chat(usr, "<span class='danger'>Механизм безопасности включен.</span>")
 		return
 	timing = !timing
 	if(timing)
 		detonation_timer = world.time + (timer_set * 10)
 		countdown.start()
-		priority_announce("Nuclear fission explosive armed at abandoned output, vacate \
-			output immediately.",
-			null, 'sound/misc/notice1.ogg', "Priority")
+		priority_announce("Ядерная бомба была запущена в отдалённом секторе, будьте осторожны.",null, 'sound/misc/notice1.ogg', "Priority")
 	else
 		detonation_timer = null
 		countdown.stop()

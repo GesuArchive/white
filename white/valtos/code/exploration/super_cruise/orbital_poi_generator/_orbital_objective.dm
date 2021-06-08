@@ -27,14 +27,14 @@
 	return ""
 
 /datum/orbital_objective/proc/announce()
-	priority_announce(get_text(), "Central Command Report", SSstation.announcer.get_rand_report_sound())
+	priority_announce(get_text(), "Центральное командование", SSstation.announcer.get_rand_report_sound())
 
 /datum/orbital_objective/proc/generate_payout()
 	payout = rand(min_payout, max_payout)
 
 /datum/orbital_objective/proc/generate_attached_beacon()
 	linked_beacon = new
-	linked_beacon.name = "(OBJECTIVE) [linked_beacon.name]"
+	linked_beacon.name = "(ЗАДАНИЕ) [linked_beacon.name]"
 	linked_beacon.linked_objective = src
 
 /datum/orbital_objective/proc/complete_objective()
@@ -44,9 +44,8 @@
 		return
 	completed = TRUE
 	//Handle payout
-	SSeconomy.departmental_payouts()
+	SSeconomy.adjust_cargo_money(payout, "ЦК", "*ЗАСЕКРЕЧЕНО*", "Выполнение задания")
 	//Announcement
-	priority_announce("Central Command priority objective completed. [payout] credits have been \
-		distributed across departmental budgets.", "Central Command Report", SSstation.announcer.get_rand_report_sound())
+	priority_announce("Задание выполнено. [payout] кредитов было выдано на счёт снабжения.", "Центральное Командование", SSstation.announcer.get_rand_report_sound())
 	//Delete
 	QDEL_NULL(SSorbits.current_objective)

@@ -601,7 +601,7 @@
 /datum/map_template/shuttle/exploration
 	port_id = "exploration"
 	suffix = "shuttle"
-	name = "exploration shuttle"
+	name = "Шаттл Рейнджеров"
 	can_be_bought = FALSE
 
 /datum/map_template/shuttle/labour/delta

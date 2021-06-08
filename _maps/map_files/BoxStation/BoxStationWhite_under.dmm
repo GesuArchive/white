@@ -5688,6 +5688,10 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/tcommsat/server/upper)
+"xY" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/quartermaster/exploration_prep)
 "xZ" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -6761,6 +6765,9 @@
 /turf/open/floor/plasteel/monofloor,
 /area/quartermaster/warehouse)
 "CR" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/quartermaster/exploration_dock)
 "CS" = (
@@ -8294,6 +8301,9 @@
 /obj/machinery/light,
 /obj/machinery/power/apc/auto_name/south,
 /obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/quartermaster/exploration_dock)
 "Ji" = (
@@ -10772,6 +10782,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/security/prison/safe)
+"TE" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/exploration_prep)
 "TI" = (
 /obj/effect/turf_decal/trimline/neutral/line,
 /obj/structure/window/reinforced{
@@ -32896,7 +32912,7 @@ AP
 Fg
 ry
 nO
-WA
+TE
 WA
 WA
 Ck
@@ -33151,7 +33167,7 @@ zT
 HO
 Ru
 LD
-ry
+xY
 nO
 Dk
 Dk

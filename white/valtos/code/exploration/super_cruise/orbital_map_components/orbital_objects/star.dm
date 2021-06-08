@@ -1,6 +1,6 @@
 
 /datum/orbital_object/star
-	name = "Stellar Body"
+	name = "Звёздное тело"
 	mass = 100000
 	radius = 200
 	static_object = TRUE

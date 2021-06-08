@@ -1,7 +1,7 @@
 //Centcom Z-Level.
 //Syndicate infiltrator level.
 /datum/orbital_object/z_linked/phobos
-	name = "Phobos"
+	name = "Озон"
 	mass = 500
 	radius = 130
 

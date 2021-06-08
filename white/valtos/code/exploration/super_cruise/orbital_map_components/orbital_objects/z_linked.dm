@@ -1,5 +1,5 @@
 /datum/orbital_object/z_linked
-	name = "Unidentified Beacon"
+	name = "Неизвестный маяк"
 	//The space level we are linked to
 	var/datum/space_level/linked_z_level
 	//If docking is forced upon collision
@@ -26,7 +26,7 @@
 			qdel(L)
 	//Prevent access to the z-level.
 	//Announcement
-	priority_announce("The orbital body [name] has been destroyed. Transit to this location is no longer possible.", "Nanotrasen Orbital Body Division")
+	priority_announce("Орбитальное тело [name] было уничтожено. Переход в эту зону более невозможен.", "Отслеживание космоса Нанотрейзен")
 	qdel(src)
 
 /datum/orbital_object/z_linked/collision(datum/orbital_object/other)

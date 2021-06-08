@@ -556,5 +556,5 @@
 	build_path = /obj/machinery/computer/exodrone_control_console
 
 /obj/item/circuitboard/computer/exploration_shuttle
-	name = "exploration shuttle console (Консоль)"
+	name = "Exploration shuttle console (Консоль)"
 	build_path = /obj/machinery/computer/shuttle_flight/exploration

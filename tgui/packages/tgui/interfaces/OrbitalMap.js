@@ -63,10 +63,8 @@ export const OrbitalMap = (props, context) => {
   return (
     <Window
       width={1036}
-      height={670}
-      resizable>
-      <Window.Content
-        scrollable>
+      height={670}>
+      <Window.Content>
         <div class="OrbitalMap__radar">
           <Button
             position="absolute"
@@ -95,13 +93,13 @@ export const OrbitalMap = (props, context) => {
               fontSize="14px">
               <>
                 <NoticeBox mt={1}>
-                  DOCKING PROTOCOL ONLINE,
-                  FLIGHT DISABLED -
-                  SELECT DESTINATION.
+                  ПРОТОКОЛ СТЫКОВКИ АКТИВЕН,
+                  ПОЛЁТ ОСТАНОВЛЕН -
+                  ВЫБЕРИТЕ НАЗАЧЕНИЕ.
                 </NoticeBox>
                 <Dropdown
                   mt={1}
-                  selected="Select Docking Location"
+                  selected="Выбрать место стыковки"
                   width="100%"
                   options={validDockingPorts.map(
                     map_object => (
@@ -156,7 +154,7 @@ export const OrbitalMap = (props, context) => {
                           <rect width={100 * zoomScale} height={100 * zoomScale}
                             fill="url(#smallgrid)" />
                           <path
-                            fill="none" stroke="#4665DE" stroke-width="1"
+                            fill="none" stroke="#64aE64" stroke-width="1"
                             d={"M " + (100 * zoomScale)+ " 0 L 0 0 0 " + (100 * zoomScale)} />
                         </pattern>
                         <pattern id="smallgrid"
@@ -166,10 +164,10 @@ export const OrbitalMap = (props, context) => {
                           <rect
                             width={50 * zoomScale}
                             height={50 * zoomScale}
-                            fill="#2B2E3B" />
+                            fill="#1B1E1B" />
                           <path
                             fill="none"
-                            stroke="#4665DE"
+                            stroke="#5B5E5B"
                             stroke-width="0.5"
                             d={"M " + (50 * zoomScale) + " 0 L 0 0 0 "
                             + (50 * zoomScale)} />
@@ -253,9 +251,9 @@ export const OrbitalMap = (props, context) => {
           </DraggableControl>
         </div>
         <div class="OrbitalMap__panel">
-          <Section title="Orbital Body Tracking" height="100%">
+          <Section title="Отслеживание тел" height="100%">
             <Box bold>
-              Tracking
+              Отслеживание
             </Box>
             <Box mb={1}>
               {trackedBody}
@@ -274,16 +272,16 @@ export const OrbitalMap = (props, context) => {
             </Box>
             <Box>
               <b>
-                Velocity:&nbsp;
+                Ускорение:&nbsp;
               </b>
               ({trackedObject && trackedObject.velocity_x}
               , {trackedObject && trackedObject.velocity_y})
             </Box>
             <Box>
               <b>
-                Radius:&nbsp;
+                Радиус:&nbsp;
               </b>
-              {trackedObject && trackedObject.radius} BSU
+              {trackedObject && trackedObject.radius} БСЕ
             </Box>
             <Divider />
             <Dropdown
@@ -294,7 +292,7 @@ export const OrbitalMap = (props, context) => {
               onSelected={value => setTrackedBody(value)} />
           </Section>
           <Divider />
-          <Section title="Flight Controls" height="100%">
+          <Section title="Управление полётом" height="100%">
             {(!thrust_alert) || (
               <NoticeBox color="red">
                 {thrust_alert}
@@ -312,10 +310,10 @@ export const OrbitalMap = (props, context) => {
                 : (canLaunch ? (
                   <>
                     <NoticeBox>
-                      Currently docked, awaiting launch order.
+                      Сейчас в доке, ожидаю отлёта.
                     </NoticeBox>
                     <Button
-                      content="INITIATE LAUNCH"
+                      content="ОТСТЫКОВАТЬСЯ"
                       textAlign="center"
                       fontSize="30px"
                       icon="rocket"
@@ -326,7 +324,7 @@ export const OrbitalMap = (props, context) => {
                 ) : (
                   <NoticeBox
                     color="red">
-                    Not linked to a shuttle.
+                    НЕ ОБНАРУЖЕН ШАТТЛ.
                   </NoticeBox>
                 ))}
           </Section>
@@ -342,8 +340,7 @@ export const RecallControl = (props, context) => {
   return (
     <>
       <NoticeBox>
-        Manual control disabled, this location
-        can only recall the shuttle.
+        Ручное управление отключено, отсюда только обратный полёт.
       </NoticeBox>
       <Button
         content={request_shuttle_message}
@@ -375,7 +372,7 @@ export const ShuttleControls = (props, context) => {
   return (
     <>
       <Box bold>
-        Autopilot Target
+        Автопилот к цели
       </Box>
       <Dropdown
         mt={1}
@@ -386,12 +383,11 @@ export const ShuttleControls = (props, context) => {
           target: value,
         })} />
       <Box mt={1}>
-        Velocity line will be adjusted to relative
-        speed of this orbital body.
+        Ускорение будет равно относительной скорости этого тела.
       </Box>
       <ShuttleMap />
       <Box bold>
-        Throttle
+        Ускорение
       </Box>
       <Slider
         value={shuttleThrust}
@@ -403,7 +399,7 @@ export const ShuttleControls = (props, context) => {
           thrust: value,
         })} />
       <Box bold mt={2}>
-        Thrust Angle
+        Угол ускорения
       </Box>
       <Slider
         value={shuttleAngle}
@@ -417,11 +413,11 @@ export const ShuttleControls = (props, context) => {
       {(!display_fuel) || (
         <>
           <Box bold mt={2}>
-            Fuel Remaining
+            Топлива осталось
           </Box>
           <ProgressBar
             value={fuel}>
-            {fuel} moles.
+            {fuel} молей.
           </ProgressBar>
         </>
       )}
@@ -439,13 +435,13 @@ export const ShuttleControls = (props, context) => {
       </Table>
       <Button
         mt={2}
-        content="Toggle Autopilot"
+        content="Переключить автопилот"
         onClick={() => act('nautopilot')}
         color={autopilot_enabled ? "green" : "red"} />
       {!(canDock && !isDocking) || (
         <Button
           mt={2}
-          content="Initiate Docking"
+          content="Начать процедуру стыковки"
           onClick={() => act('dock')} />
       )}
     </>

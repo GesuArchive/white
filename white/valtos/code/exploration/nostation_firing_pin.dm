@@ -1,7 +1,7 @@
 /obj/item/firing_pin/off_station
-	name = "off-station firing pin"
-	desc = "Allows the firing of weapons while not on the station."
-	fail_message = "<span class='warning'>STATION SAFETY ENABLED.</span>"
+	name = "внестанционный ударник"
+	desc = "Разрешает стрелять из пушек, когда пушки не на станции. Полезно."
+	fail_message = "<span class='warning'>ПРОТОКОЛЫ БЕЗОПАСНОСТИ В ДЕЙСТВИИ.</span>"
 	pin_removeable = TRUE
 
 /obj/item/firing_pin/off_station/pin_auth(mob/living/user)

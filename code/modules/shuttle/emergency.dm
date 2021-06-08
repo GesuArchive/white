@@ -590,7 +590,7 @@
 /obj/machinery/computer/shuttle_flight/pod
 	name = "консоль управления подом"
 	recall_docking_port_id = "null"
-	request_shuttle_message = "Override Escape"
+	request_shuttle_message = "Форсировать отлёт"
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "dorm_available"
 	light_color = LIGHT_COLOR_BLUE
