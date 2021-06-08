@@ -21,7 +21,6 @@
 	name = "Exploration Crew"
 	jobtype = /datum/job/exploration
 
-	id = /obj/item/card/id/job/exploration
 	belt = /obj/item/pda/exploration
 	ears = /obj/item/radio/headset/headset_exploration
 	shoes = /obj/item/clothing/shoes/jackboots
