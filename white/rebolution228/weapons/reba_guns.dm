@@ -280,7 +280,7 @@
 /obj/item/ammo_box/magazine/internal/grenadelauncher/gp25
 	name = "ebalo"
 	ammo_type = /obj/item/ammo_casing/a40mm/vog25
-	caliber = "vog25"
+	caliber = "40mmvog"
 	max_ammo = 1
 
 /obj/item/gun/ballistic/automatic/ak74m/gp25/attackby(obj/item/A, mob/user, params)
