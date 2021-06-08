@@ -135,7 +135,7 @@
 	if(designate_time && (landing_clear != SHUTTLE_DOCKER_BLOCKED))
 		to_chat(current_user, "<span class='warning'>Targeting transit location, please wait [DisplayTimeText(designate_time)]...</span>")
 		designating_target_loc = the_eye.loc
-		var/wait_completed = do_after(current_user, designate_time, FALSE, designating_target_loc, TRUE, CALLBACK(src, .proc/canDesignateTarget))
+		var/wait_completed = do_after(current_user, designate_time, NONE, TRUE, CALLBACK(src, .proc/canDesignateTarget))
 		designating_target_loc = null
 		if(!current_user)
 			return
