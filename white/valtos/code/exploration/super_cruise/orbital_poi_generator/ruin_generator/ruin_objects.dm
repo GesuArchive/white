@@ -36,7 +36,7 @@
 /obj/effect/spawner/interdiction_lens_setup/Initialize()
 	. = ..()
 	var/turf/T = get_turf(src)
-	new /obj/structure/destructible/clockwork/gear_base/interdiction_lens/free(T)
+	new /obj/structure/destructible/clockwork/gear_base/interdiction_lens(T)
 	var/turf/open/power_turf = locate() in shuffle(view(3, src))
 	new /obj/structure/destructible/clockwork/sigil/transmission(power_turf)
 	return INITIALIZE_HINT_QDEL

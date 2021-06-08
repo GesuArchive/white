@@ -107,7 +107,7 @@
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	gloves = /obj/item/clothing/gloves/color/black
 	ears = /obj/item/radio/headset/headset_cent/empty
-	glasses = /obj/item/clothing/glasses/sunglasses/advanced
+	glasses = /obj/item/clothing/glasses/sunglasses
 	belt = /obj/item/gun/energy/e_gun
 	l_pocket = /obj/item/pen
 	back = /obj/item/storage/backpack/satchel
@@ -129,7 +129,7 @@
 /datum/outfit/vip_dictator
 	name = "Dictator VIP"
 
-	uniform = /obj/item/clothing/under/rank/security/head_of_security/white
+	uniform = /obj/item/clothing/under/rank/security/head_of_security
 	suit = /obj/item/clothing/suit/armor/hos
 	suit_store = /obj/item/gun/ballistic/automatic/pistol/m1911
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -140,8 +140,8 @@
 	l_pocket = /obj/item/ammo_box/magazine/m45
 	r_pocket = /obj/item/grenade/smokebomb
 	id = /obj/item/card/id/away/old
-	neck = /obj/item/clothing/neck/crucifix
-	head = /obj/item/clothing/head/HoS/beret/syndicate
+	neck = /obj/item/clothing/neck/necklace/dope
+	head = /obj/item/clothing/head/hos/beret/syndicate
 	r_hand = /obj/item/gps
 
 //=====================
@@ -156,7 +156,7 @@
 	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/color/yellow
 	ears = /obj/item/radio/headset
-	glasses = /obj/item/clothing/glasses/sunglasses/advanced
+	glasses = /obj/item/clothing/glasses/sunglasses
 	belt = /obj/item/storage/belt/utility/full/engi
 	id = /obj/item/card/id
 	head = /obj/item/clothing/head/helmet
