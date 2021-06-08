@@ -30,7 +30,7 @@
 /turf/open/floor/engine,
 /area/shuttle/snowdin/elevator1)
 "f" = (
-flight/snowdin/mining{
+/obj/machinery/computer/shuttle_flight/snowdin/mining{
 	name = "Excavation Elevator Console";
 	possible_destinations = "snowdin_excavation_top;snowdin_excavation_down";
 	shuttleId = "snowdin_excavation"

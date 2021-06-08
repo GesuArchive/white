@@ -11,7 +11,7 @@
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "d" = (
-flight/mining/common,
+/obj/machinery/computer/shuttle_flight/mining/common,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "e" = (

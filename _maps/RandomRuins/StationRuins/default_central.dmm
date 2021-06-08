@@ -602,7 +602,7 @@
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "cb" = (
-flight/labor,
+/obj/machinery/computer/shuttle_flight/labor,
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},

@@ -28,7 +28,7 @@
 /turf/closed/wall,
 /area/shuttle/snowdin/elevator2)
 "e" = (
-flight/snowdin/mining,
+/obj/machinery/computer/shuttle_flight/snowdin/mining,
 /turf/open/floor/engine,
 /area/shuttle/snowdin/elevator2)
 "f" = (
