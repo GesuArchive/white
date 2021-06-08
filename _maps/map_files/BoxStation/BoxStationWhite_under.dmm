@@ -10216,7 +10216,7 @@
 	dwidth = 5;
 	height = 7;
 	id = "exploration_home";
-	name = "exploration shuttle bay";
+	name = "Док Рейнджеров";
 	roundstart_template = /datum/map_template/shuttle/exploration;
 	width = 13
 	},

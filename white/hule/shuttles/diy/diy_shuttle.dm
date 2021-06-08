@@ -8,12 +8,12 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
 /obj/machinery/computer/shuttle_flight/diy
 	name = "Do-It-Yourself shuttle movement console"
-	shuttleId = "diy_autism"
+	//shuttleId = "diy_autism"
 	possible_destinations = ""
 	dir = 2
 
 /obj/machinery/computer/shuttle_flight/diy/Initialize()
-	shuttleId += "[GLOB.diy_shuttle_count]"
+	//shuttleId += "[GLOB.diy_shuttle_count]"
 	possible_destinations += "diy_autism[GLOB.diy_shuttle_count]_home;"
 	possible_destinations += "diy_autism[GLOB.diy_shuttle_count]_custom"
 	. = ..()
@@ -21,7 +21,7 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 //////////////////////////////////////////////////////
 
 /obj/docking_port/mobile/diy
-	name = "DIY"
+	name = "DIY-шаттл"
 	id = "diy_autism"
 	port_direction = 2
 	width = 9
@@ -30,12 +30,12 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	dheight = 14
 
 /obj/docking_port/mobile/diy/Initialize()
-	id += "[GLOB.diy_shuttle_count]"
+	//id += "[GLOB.diy_shuttle_count]"
 	. = ..()
-	register()
+	//register()
 
 /obj/docking_port/stationary/diy
-	name = "DIY stationary"
+	name = "DIY-порт"
 	id = "diy_autism_home"
 	dir = 2
 	width = 9
@@ -44,7 +44,7 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	dheight = 14
 
 /obj/docking_port/stationary/diy/Initialize()
-	id = "diy_autism[GLOB.diy_shuttle_count]_home"
+	//id = "diy_autism[GLOB.diy_shuttle_count]_home"
 	. = ..()
 
 ///////////////////////////////////////////////////////////////////////
