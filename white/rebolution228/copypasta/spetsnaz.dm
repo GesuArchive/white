@@ -12,7 +12,7 @@
 		return
 
 	owner.current.playsound_local(get_turf(owner.current), 'white/rebolution228/sounds/spetsnaz_spawn.ogg',100,0, use_reverb = FALSE)
-	to_chat(owner, "<B><font size=3 color=red>Вы [name].</font></B>")
+	to_chat(owner, "<B><font size=3 color=red>Я [name].</font></B>")
 	var/missiondesc = "Мой отряд был отправлен на станцию [station_name()] с миссией от Отдела Безопасности Нанотрейсен ."
 	if(leader)
 		missiondesc += "Ведите свой отряд чтобы обеспечить выполнение миссии. Садитесь на шаттл, когда ваша команда будет готова."
@@ -23,7 +23,7 @@
 
 	missiondesc += "<BR><B>Ваша миссия</B>: [ert_team.mission.explanation_text]"
 	to_chat(owner,missiondesc)
-/*
+
 /datum/antagonist/ert/spetsnaz/on_gain()
 	. = ..()
 	huivanus()
@@ -32,8 +32,8 @@
 	var/mob/living/carbon/C = owner.current
 	if(!istype(C))
 		return
-	C.dna.add_mutation(/datum/mutation/human/space_adaptation/fuckoxygen)
-*/
+	C.dna.add_mutation(/datum/mutation/human/spaceproof)
+
 /datum/antagonist/ert/spetsnaz
 	name = "Спецназ"
 	outfit = /datum/outfit/spetsnaz
