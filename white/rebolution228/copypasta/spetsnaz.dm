@@ -98,10 +98,10 @@
 /datum/outfit/spetsnaz/grenadier
 	belt = /obj/item/storage/belt/military/spetsnaz/grenadier
 
-/datum/outfit/spetsnaz/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/spetsnaz/grenadier/pre_equip(mob/living/carbon/human/H)
 	back = /obj/item/gun/ballistic/automatic/ak74m/gp25
 
-/datum/outfit/spetsnaz/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/spetsnaz/grenadier/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)
 		return
 
