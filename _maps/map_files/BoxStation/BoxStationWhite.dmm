@@ -5118,6 +5118,7 @@
 /area/hallway/secondary/entry)
 "ayn" = (
 /obj/effect/turf_decal/stripes/corner,
+/obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry)
 "ayo" = (
@@ -10225,6 +10226,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry)
 "aQI" = (
@@ -31627,6 +31629,11 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/aft)
+"fmh" = (
+/obj/machinery/ai_slipper/smartfoam,
+/obj/structure/cable,
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/secondary/entry)
 "fnr" = (
 /obj/effect/decal/cleanable/vomit,
 /obj/structure/railing{
@@ -34181,6 +34188,11 @@
 /obj/machinery/dna_scannernew,
 /turf/open/floor/plasteel/dark,
 /area/science/genetics)
+"jzl" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/cable,
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/secondary/entry)
 "jzX" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -39457,6 +39469,7 @@
 	dir = 8
 	},
 /obj/machinery/navbeacon/wayfinding,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
 "sIs" = (
@@ -40367,6 +40380,7 @@
 /area/science/xenobiology)
 "ufT" = (
 /obj/machinery/navbeacon/wayfinding/dockaux,
+/obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry)
 "ugb" = (
@@ -42298,6 +42312,7 @@
 	dir = 4
 	},
 /obj/structure/fans/tiny,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
 "xzQ" = (
@@ -51641,7 +51656,7 @@ aaa
 aaa
 gXs
 awW
-auP
+vly
 awW
 gXs
 gXs
@@ -52155,7 +52170,7 @@ aaa
 aaa
 arB
 qRW
-ayk
+jzl
 awW
 aAD
 awW
@@ -52412,7 +52427,7 @@ aaa
 aaa
 arB
 jVc
-ayl
+itz
 beK
 auP
 cyt
@@ -52669,7 +52684,7 @@ aaa
 aaa
 awW
 awZ
-ayk
+jzl
 awW
 awW
 awW
@@ -53183,7 +53198,7 @@ aaa
 aaa
 sFC
 awZ
-iTq
+fmh
 ayl
 aAE
 awW
@@ -53954,7 +53969,7 @@ aaa
 aaa
 awW
 awZ
-ayk
+jzl
 awW
 awW
 awW
@@ -54211,7 +54226,7 @@ aaa
 aaa
 awW
 awZ
-ayl
+itz
 beL
 auP
 cyu
@@ -54468,7 +54483,7 @@ awW
 aaa
 arB
 awY
-ayk
+jzl
 awW
 aAD
 awW
@@ -54982,7 +54997,7 @@ awW
 baF
 asE
 bbb
-ayl
+itz
 beN
 arB
 gXs
@@ -55239,7 +55254,7 @@ aOx
 aTh
 aVU
 aVU
-iTq
+fmh
 beM
 aAC
 gXs
@@ -55496,7 +55511,7 @@ aWc
 baG
 itz
 tPs
-ayl
+itz
 beM
 asE
 aaa

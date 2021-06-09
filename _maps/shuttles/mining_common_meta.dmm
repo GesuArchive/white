@@ -12,6 +12,9 @@
 /area/shuttle/mining)
 "d" = (
 /obj/machinery/computer/shuttle_flight/mining/common,
+/obj/effect/turf_decal/loading_area{
+	dir = 1
+	},
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "e" = (
@@ -21,12 +24,15 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
+/obj/effect/turf_decal/bot,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "g" = (
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/power/apc/auto_name/west,
+/obj/structure/cable,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/mining)
 "h" = (
@@ -42,10 +48,13 @@
 	port_direction = 4;
 	width = 7
 	},
+/obj/structure/fans/tiny,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/mining)
 "i" = (
 /obj/structure/closet/crate,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "j" = (
@@ -64,11 +73,16 @@
 /area/shuttle/mining)
 "k" = (
 /obj/structure/ore_box,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "l" = (
 /obj/structure/shuttle/engine/propulsion/burst,
 /turf/open/floor/plating/airless,
+/area/shuttle/mining)
+"O" = (
+/obj/structure/cable,
+/turf/open/floor/mineral/titanium,
 /area/shuttle/mining)
 "Q" = (
 /obj/structure/chair/comfy/shuttle{
@@ -99,7 +113,7 @@ a
 b
 d
 Q
-e
+O
 f
 j
 l
@@ -108,7 +122,7 @@ l
 a
 c
 e
-e
+O
 f
 k
 a

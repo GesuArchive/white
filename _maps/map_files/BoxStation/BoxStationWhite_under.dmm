@@ -924,15 +924,9 @@
 /turf/open/floor/plasteel/monofloor,
 /area/ai_monitored/storage/eva)
 "dB" = (
-/obj/machinery/light/small,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
+/obj/effect/landmark/stationroom/maint/rdm3x5,
 /turf/open/floor/plating,
-/area/maintenance/bottom_station_maints)
+/area/maintenance/bottom_station_maints/north)
 "dC" = (
 /obj/structure/disposalpipe/segment,
 /turf/closed/wall/r_wall,
@@ -1324,11 +1318,7 @@
 /turf/open/floor/plating,
 /area/maintenance/port)
 "fx" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 4;
-	req_access_txt = "12"
-	},
-/obj/machinery/door/firedoor,
+/obj/effect/landmark/stationroom/maint/rdm10x10,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "fC" = (
@@ -1501,6 +1491,7 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
 	},
+/obj/structure/chair/comfy/teal,
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/meeting_room)
 "gx" = (
@@ -2489,7 +2480,13 @@
 /turf/open/floor/plasteel,
 /area/security/prison)
 "kA" = (
-/obj/effect/landmark/stationroom/maint/rdm10x5,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "kB" = (
@@ -3014,11 +3011,15 @@
 /turf/open/floor/plasteel,
 /area/security/prison)
 "mq" = (
-/obj/machinery/light/small{
-	dir = 4
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 10
 	},
-/turf/open/genturf,
-/area/maintenance/bottom_station_maints/north)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "ms" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -3267,15 +3268,14 @@
 /turf/open/floor/circuit,
 /area/tcommsat/server/upper)
 "nv" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/purple{
 	dir = 8
 	},
-/obj/machinery/door/firedoor,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/north)
+/obj/structure/table,
+/obj/item/book/manual/wiki/tcomms,
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/meeting_room)
 "nw" = (
 /obj/machinery/light/small,
 /turf/open/floor/plasteel/monofloor,
@@ -4972,7 +4972,11 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
 "uh" = (
-/obj/effect/landmark/stationroom/maint/rdm10x10,
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_access_txt = "12"
+	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "uj" = (
@@ -6112,15 +6116,6 @@
 "ze" = (
 /turf/closed/wall,
 /area/crew_quarters/fitness/kachalka)
-"zf" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/turf/open/genturf,
-/area/maintenance/bottom_station_maints)
 "zi" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -6261,10 +6256,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/meeting_room)
-"zI" = (
-/obj/effect/landmark/stationroom/maint/rdm3x5,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/north)
 "zK" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
@@ -7191,8 +7182,8 @@
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/mining/glass{
-	name = "Exploration Dock";
-	req_access_txt = "49"
+	name = "Exploration Bay";
+	req_one_access_txt = "31;49"
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/quartermaster/exploration_prep)
@@ -9418,16 +9409,6 @@
 "MM" = (
 /turf/closed/wall/r_wall,
 /area/quartermaster/qm/perch)
-"MN" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints)
 "MO" = (
 /obj/effect/turf_decal/stripes/box,
 /obj/structure/cable/multilayer/multiz,
@@ -10974,7 +10955,7 @@
 	req_one_access_txt = "31;49"
 	},
 /obj/machinery/door/firedoor,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/qm/perch)
 "Te" = (
 /obj/structure/cable,
@@ -35337,7 +35318,7 @@ cj
 gw
 Yy
 Yy
-zH
+nv
 cj
 PG
 PG
@@ -46357,14 +46338,14 @@ Bt
 Bt
 Bt
 Bt
-Bt
 Xc
 fF
 fF
 fF
 fF
-zI
+dB
 Xc
+fF
 jr
 fF
 fF
@@ -46374,9 +46355,9 @@ fF
 fF
 fF
 fF
-fF
-uh
+fx
 Xc
+ln
 dP
 ln
 ln
@@ -46614,7 +46595,6 @@ fF
 fF
 fF
 fF
-fF
 Xc
 fF
 fF
@@ -46622,6 +46602,7 @@ fF
 fF
 fF
 XX
+fF
 jr
 fF
 fF
@@ -46632,8 +46613,8 @@ fF
 fF
 fF
 fF
-fF
 Xc
+ln
 ln
 ln
 dP
@@ -46871,7 +46852,6 @@ mP
 Bt
 Bt
 Bt
-fF
 Xc
 fF
 fF
@@ -46879,6 +46859,7 @@ fF
 fF
 fF
 Xc
+fF
 jr
 fF
 fF
@@ -46889,11 +46870,12 @@ fF
 fF
 fF
 fF
-fF
 Xc
 ln
 ln
-ln
+rm
+rm
+CJ
 rm
 rm
 rm
@@ -46909,9 +46891,8 @@ rm
 rm
 rm
 rm
-FZ
-FZ
-rm
+zi
+zi
 rm
 rm
 Vy
@@ -47128,14 +47109,14 @@ mP
 mP
 Bt
 Bt
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
 fF
-Xc
-Xc
-Xc
-Xc
-Xc
-Xc
-Xc
 jr
 fF
 fF
@@ -47146,12 +47127,12 @@ fF
 fF
 fF
 fF
-fF
 Xc
 ln
 ln
-dP
 rm
+dP
+dP
 dP
 dP
 tp
@@ -47160,12 +47141,12 @@ dP
 dP
 dP
 dP
-FZ
+zi
 dP
 dP
 dP
 dP
-FZ
+zi
 ln
 ln
 ln
@@ -47391,8 +47372,8 @@ Xc
 Bt
 Bt
 Bt
-Bt
-Bt
+PP
+fF
 jr
 fF
 fF
@@ -47403,12 +47384,12 @@ fF
 fF
 fF
 fF
-fF
 PP
-ln
-ln
 dP
+ln
 rm
+dP
+dP
 dP
 rm
 rm
@@ -47648,8 +47629,8 @@ Xc
 Bt
 fF
 fF
+PP
 fF
-fF
 jr
 jr
 jr
@@ -47660,12 +47641,12 @@ jr
 jr
 jr
 jr
-jr
-nv
+kA
 vG
-zf
 dP
 rm
+dP
+dP
 dP
 rm
 ln
@@ -47905,9 +47886,8 @@ Xc
 Bt
 fF
 Bt
-Bt
-Bt
-Bt
+Xc
+fF
 fF
 fF
 fF
@@ -47919,10 +47899,11 @@ fF
 fF
 fF
 Xc
-dP
 vG
 dP
 rm
+dP
+dP
 dP
 rm
 ln
@@ -48162,9 +48143,8 @@ Xc
 Bt
 fF
 Bt
-Bt
-Bt
-Bt
+Xc
+fF
 fF
 fF
 fF
@@ -48176,10 +48156,11 @@ fF
 fF
 fF
 Xc
-dP
 vG
 dP
-zi
+rm
+dP
+dP
 dP
 rm
 ln
@@ -48419,9 +48400,8 @@ Xc
 Bt
 fF
 Bt
-Bt
-Bt
-Bt
+Xc
+fF
 fF
 fF
 fF
@@ -48433,10 +48413,11 @@ fF
 fF
 fF
 Xc
-ln
 vG
-nA
+ln
 rm
+dP
+dP
 ln
 rm
 rm
@@ -48675,9 +48656,6 @@ IG
 Xc
 Xc
 PP
-IG
-Xc
-Xc
 Xc
 Xc
 fF
@@ -48689,11 +48667,14 @@ fF
 fF
 fF
 fF
+fF
+fF
 Xc
-ln
 vG
-dP
+ln
 rm
+dP
+nA
 rm
 rm
 ln
@@ -48923,18 +48904,18 @@ Bt
 Bt
 Bt
 Bt
-Bt
-Bt
+fF
+fF
+fF
+fF
+fF
+fF
+fF
+fF
+fF
+fx
 Xc
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
+Xc
 uh
 Xc
 Xc
@@ -48943,14 +48924,14 @@ Xc
 Xc
 Xc
 Xc
+uh
 Xc
 Xc
-Xc
-Xc
-Xc
-MN
-CJ
+mq
+FZ
 rm
+dP
+dP
 ln
 ln
 ln
@@ -49180,9 +49161,6 @@ mP
 mP
 mP
 Bt
-Bt
-Bt
-Xc
 fF
 fF
 fF
@@ -49198,16 +49176,19 @@ fF
 fF
 fF
 fF
-kA
+fF
+fF
+fF
+fF
+fF
+fF
+fx
 Xc
-ln
-gn
-dP
-dP
-dP
 vG
 dP
-rm
+CJ
+dP
+dP
 ln
 rm
 ln
@@ -49437,9 +49418,6 @@ bw
 bw
 mP
 mP
-Bt
-Bt
-Xc
 fF
 fF
 fF
@@ -49450,21 +49428,24 @@ fF
 fF
 fF
 fF
-Xc
+nm
 fF
 fF
 fF
 fF
 fF
-Xc
-ln
-zf
+fF
+fF
+fF
+fF
+fF
+fF
+nm
 vG
-vG
-zf
-zf
+dP
+CJ
 ln
-rm
+dP
 rm
 rm
 ln
@@ -49694,9 +49675,9 @@ PG
 Zm
 Zm
 mP
-Bt
-Bt
-Xc
+fF
+fF
+fF
 fF
 fF
 fE
@@ -49704,21 +49685,21 @@ fF
 fF
 fF
 fF
-fF
-fF
-fF
 Xc
 fF
 fF
 fF
 fF
 fF
+fF
+fF
+fF
+fF
+fF
+fF
 Xc
-dP
 vG
-rm
-CJ
-CJ
+ln
 rm
 rm
 rm
@@ -49951,9 +49932,6 @@ PG
 Zm
 Zm
 mP
-Bt
-Bt
-XX
 fF
 fF
 fF
@@ -49970,13 +49948,16 @@ fF
 fF
 fF
 fF
+fF
+fF
+fF
+fF
+fF
+fF
 Xc
-dP
 vG
+ln
 rm
-ln
-ln
-ln
 ln
 ln
 ln
@@ -50208,9 +50189,6 @@ PG
 PG
 PG
 OL
-Bt
-Bt
-Xc
 fF
 fF
 fF
@@ -50227,13 +50205,16 @@ fF
 fF
 fF
 fF
+fF
+fF
+fF
+fF
+fF
+fF
 Xc
-dP
 vG
+ln
 rm
-ln
-ln
-ln
 ln
 ln
 ln
@@ -50465,8 +50446,16 @@ PG
 Zm
 Zm
 mP
-Bt
-Bt
+fF
+fF
+fF
+fF
+fF
+fF
+fF
+fF
+fF
+fF
 Xc
 fF
 fF
@@ -50478,19 +50467,11 @@ fF
 fF
 fF
 fF
-nm
 fF
-fF
-fF
-fF
-fF
-IG
-dP
+Xc
 vG
+dP
 FZ
-dP
-dP
-dP
 dP
 dP
 dP
@@ -50511,7 +50492,7 @@ ln
 ln
 ln
 ln
-FZ
+zi
 ln
 EB
 EB
@@ -50722,9 +50703,6 @@ PG
 Zm
 Zm
 mP
-Bt
-Bt
-Xc
 fF
 fF
 fF
@@ -50741,34 +50719,37 @@ fF
 fF
 fF
 fF
-IG
-dP
-dB
-rm
-CJ
-CJ
+fF
+fF
+fF
+fF
+fF
+fF
+Xc
+vG
+ln
 rm
 ln
 ln
 ln
 rm
-rm
-ln
-ln
-rm
-dP
-dP
-rm
-dP
-dP
-dP
-dP
 rm
 ln
 ln
+rm
+dP
+dP
+rm
+dP
+dP
+dP
+dP
+rm
 ln
 ln
-FZ
+ln
+ln
+zi
 ln
 ln
 ln
@@ -50979,9 +50960,6 @@ PG
 Zm
 Zm
 mP
-mq
-Bt
-Xc
 fF
 fF
 fF
@@ -50998,13 +50976,16 @@ fF
 fF
 fF
 fF
+fF
+fF
+fF
+fF
+fF
+fF
 Xc
+vG
 ln
-zf
 rm
-ln
-ln
-ln
 ln
 ln
 ln
@@ -51021,9 +51002,9 @@ dP
 rm
 FZ
 rm
-FZ
-FZ
 rm
+zi
+zi
 rm
 rm
 ln
@@ -51236,9 +51217,6 @@ bw
 mP
 mP
 mP
-Xc
-IG
-Xc
 fF
 fF
 fF
@@ -51249,17 +51227,20 @@ fF
 fF
 fF
 fF
-Xc
+nm
 fF
 fF
 fF
 fF
 fF
-Xc
-ln
-zf
-rm
-ln
+fF
+fF
+fF
+fF
+fF
+fF
+nm
+vG
 ln
 rm
 ln
@@ -51492,18 +51473,15 @@ Zm
 Zm
 mP
 Bt
-Bt
-Bt
-Bt
+Xc
+Xc
+IG
 Xc
 Xc
 Xc
 Xc
 Xc
 Xc
-Xc
-Xc
-fx
 Xc
 Xc
 Xc
@@ -51512,12 +51490,15 @@ fF
 fF
 fF
 fF
+fF
+fF
+fF
+fF
+fF
+fF
 Xc
-ln
-zf
-rm
-ln
-ln
+mq
+CJ
 rm
 ln
 ln
@@ -51760,9 +51741,9 @@ Bt
 Bt
 Bt
 Bt
-Bt
-Bt
-Bt
+Xc
+Xc
+uh
 Xc
 Xc
 Xc
@@ -51770,10 +51751,10 @@ Xc
 Xc
 Xc
 Xc
-dP
+uh
+Xc
+Xc
 vG
-rm
-ln
 QN
 rm
 ln
@@ -52028,9 +52009,9 @@ CC
 oF
 Te
 wP
+wP
+wP
 ei
-rm
-ln
 ln
 rm
 rm
@@ -52285,11 +52266,11 @@ Wq
 Wq
 rm
 ln
+dP
+dP
 ei
+ln
 rm
-ln
-ln
-ln
 ln
 rm
 ln
@@ -52542,11 +52523,11 @@ mZ
 Wq
 ln
 ln
+dP
+dP
 ei
+ln
 rm
-ln
-ln
-ln
 ln
 rm
 ln
@@ -52799,11 +52780,11 @@ vl
 Wq
 ln
 ln
+dP
+dP
 ei
+ln
 rm
-ln
-ln
-ln
 ln
 ln
 ln
@@ -53056,11 +53037,11 @@ LK
 Wq
 ln
 ln
+dP
+dP
 ei
+ln
 rm
-ln
-ln
-ln
 ln
 ln
 rm
@@ -53313,11 +53294,11 @@ zz
 Wq
 ln
 ln
+dP
+dP
 ei
-rm
 ln
-ln
-ln
+CJ
 ln
 ln
 ln
@@ -53570,11 +53551,11 @@ DV
 Wq
 ln
 ln
+dP
+dP
 ei
-rm
 ln
-ln
-ln
+CJ
 ln
 ln
 ln
@@ -53827,9 +53808,9 @@ BC
 Wq
 hM
 hM
+hM
+hM
 mR
-hM
-hM
 hM
 hM
 hM
@@ -54084,8 +54065,8 @@ BP
 Wq
 Fa
 Fa
-dc
-dc
+dL
+dL
 dc
 dc
 dc

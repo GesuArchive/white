@@ -112,7 +112,9 @@
 /area/shuttle/exploration)
 "p" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/north{
+	cell_type = /obj/item/stock_parts/cell/high/plus
+	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
@@ -315,10 +317,9 @@
 /area/shuttle/exploration)
 "X" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/atmospherics/components/unary/portables_connector/visible/layer4{
+/obj/machinery/atmospherics/components/unary/tank/air{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/air,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
 
@@ -333,7 +334,7 @@ Q
 z
 r
 r
-Q
+I
 I
 l
 "}
@@ -423,7 +424,7 @@ R
 z
 R
 R
-Q
+I
 I
 l
 "}

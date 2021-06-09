@@ -125,10 +125,10 @@
 /area/shuttle/mining
 	name = "Шахтёрский шаттл"
 	area_flags = NONE //Set this so it doesn't inherit NO_ALERTS
+	requires_power = TRUE
 
 /area/shuttle/mining/large
 	name = "Шахтёрский шаттл"
-	requires_power = TRUE
 
 /area/shuttle/labor
 	name = "Шаттл каторги"
