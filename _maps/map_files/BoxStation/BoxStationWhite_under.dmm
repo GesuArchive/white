@@ -1276,6 +1276,7 @@
 	req_access_txt = "1"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/security/prison)
 "gb" = (
@@ -2198,6 +2199,7 @@
 "jW" = (
 /obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2,
 /obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/security/prison)
 "jX" = (
@@ -3859,6 +3861,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/security/prison)
 "qE" = (
@@ -5668,6 +5671,8 @@
 /area/maintenance/space_hut/plasmaman)
 "yv" = (
 /obj/structure/closet/crate/large,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/regular,
 /turf/open/floor/plating/rust,
 /area/maintenance/space_hut/plasmaman)
@@ -10712,6 +10717,7 @@
 /area/crew_quarters/fitness)
 "Ux" = (
 /obj/structure/table,
+/obj/effect/spawner/lootdrop/maintenance/four,
 /obj/effect/spawner/lootdrop/maintenance/four,
 /turf/open/floor/plating,
 /area/security/prison)
