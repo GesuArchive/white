@@ -499,3 +499,14 @@
 	flags_inv = 0
 	armor = list(MELEE = 30, BULLET = 15, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, RAD = 0, FIRE = 50, ACID = 50)
 	strip_delay = (8 SECONDS)
+
+/obj/item/clothing/head/devil_horns
+	name = "дьяволские рога"
+	desc = "Они не снимаются"
+	icon_state = "devil_horns"
+	armor = list(MELEE = 10, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 100)
+	inhand_icon_state = "devil_horns"
+
+/obj/item/clothing/head/devil_horns/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)

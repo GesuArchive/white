@@ -212,6 +212,8 @@
 	M.mind.add_antag_datum(newTraitor)
 	return TRUE
 
+
+
 //////////////////////////////////////////////
 //                                          //
 //                 FAMILIES                 //
@@ -360,6 +362,63 @@
 /datum/dynamic_ruleset/midround/from_ghosts/wizard/finish_setup(mob/new_character, index)
 	..()
 	new_character.forceMove(pick(GLOB.wizardstart))
+
+//////////////////////////////////////////////
+//                                          //
+//               DEVIL                      //
+//                                          //
+//////////////////////////////////////////////
+
+/datum/dynamic_ruleset/midround/from_ghosts/devil
+	name = "Devil"
+	antag_flag = ROLE_DEVIL
+	antag_datum = /datum/antagonist/devil
+	required_candidates = 1
+	weight = 1
+	cost = 15
+	requirements = list(50,45,45,40,35,20,20,15,10,10)
+	repeatable = TRUE
+	var/list/spawn_locs = list()
+
+/datum/dynamic_ruleset/midround/from_ghosts/devil/execute()
+	for(var/X in GLOB.xeno_spawn)
+		var/turf/T = X
+		var/light_amount = T.get_lumcount()
+		if(light_amount < SHADOW_SPECIES_LIGHT_THRESHOLD)
+			spawn_locs += T
+	if(!spawn_locs.len)
+		return FALSE
+	. = ..()
+
+/datum/dynamic_ruleset/midround/from_ghosts/devil/generate_ruleset_body(mob/applicant)
+	var/datum/mind/player_mind = new /datum/mind(applicant.key)
+	player_mind.active = TRUE
+
+	var/mob/living/carbon/human/S = new (pick(spawn_locs))
+	player_mind.transfer_to(S)
+	player_mind.assigned_role = "Devil"
+	player_mind.special_role = "Devil"
+	add_devil(S, ascendable = TRUE)
+	add_devil_objectives(player_mind,2)
+	S.equipOutfit(/datum/outfit/demonic_friend)
+	playsound(S, 'sound/magic/ethereal_exit.ogg', 50, TRUE, -1)
+	message_admins("[ADMIN_LOOKUPFLW(S)] has been made into a Devil by the midround ruleset.")
+	log_game("DYNAMIC: [key_name(S)] was spawned as a Devil by the midround ruleset.")
+	return S
+
+/datum/dynamic_ruleset/midround/from_ghosts/devil/proc/add_devil_objectives(datum/mind/devil_mind, quantity)
+	var/list/validtypes = list(/datum/objective/devil/soulquantity, /datum/objective/devil/soulquality, /datum/objective/devil/sintouch, /datum/objective/devil/buy_target)
+	var/datum/antagonist/devil/D = devil_mind.has_antag_datum(/datum/antagonist/devil)
+	for(var/i = 1 to quantity)
+		var/type = pick(validtypes)
+		var/datum/objective/devil/objective = new type(null)
+		objective.owner = devil_mind
+		D.objectives += objective
+		if(!istype(objective, /datum/objective/devil/buy_target))
+			validtypes -= type
+		else
+			objective.find_target()
+
 
 //////////////////////////////////////////////
 //                                          //

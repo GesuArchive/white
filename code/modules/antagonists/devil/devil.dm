@@ -3,7 +3,7 @@
 #define ARCH_THRESHOLD 12
 
 #define BASIC_DEVIL 0
-#define BLOOD_LIZARD 1
+#define HORNY_MAN 1
 #define TRUE_DEVIL 2
 #define ARCH_DEVIL 3
 
@@ -189,7 +189,7 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 			to_chat(owner.current, "<span class='warning'>Your hellish powers have been restored.</span>")
 			give_appropriate_spells()
 		if(BLOOD_THRESHOLD)
-			increase_blood_lizard()
+			increase_horny_man()
 		if(TRUE_THRESHOLD)
 			increase_true_devil()
 		if(ARCH_THRESHOLD)
@@ -206,8 +206,8 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 		return //arch devil can't regress
 	//Yes, fallthrough behavior is intended, so I can't use a switch statement.
 	if(form == TRUE_DEVIL && SOULVALUE < TRUE_THRESHOLD)
-		regress_blood_lizard()
-	if(form == BLOOD_LIZARD && SOULVALUE < BLOOD_THRESHOLD)
+		regress_horny_man()
+	if(form == HORNY_MAN && SOULVALUE < BLOOD_THRESHOLD)
 		regress_humanoid()
 	if(SOULVALUE < 0)
 		give_appropriate_spells()
@@ -224,34 +224,27 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 		owner.current.forceMove(get_turf(owner.current))//Fixes dying while jaunted leaving you permajaunted.
 	form = BASIC_DEVIL
 
-/datum/antagonist/devil/proc/regress_blood_lizard()
+/datum/antagonist/devil/proc/regress_horny_man()
 	var/mob/living/carbon/true_devil/D = owner.current
 	to_chat(D, "<span class='warning'>Your powers weaken, have more contracts be signed to regain power.</span>")
 	D.oldform.forceMove(D.drop_location())
 	owner.transfer_to(D.oldform)
 	give_appropriate_spells()
 	qdel(D)
-	form = BLOOD_LIZARD
+	form = HORNY_MAN
 	update_hud()
 
 
-/datum/antagonist/devil/proc/increase_blood_lizard()
-	to_chat(owner.current, "<span class='warning'>You feel as though your humanoid form is about to shed. You will soon turn into a blood lizard.</span>")
+/datum/antagonist/devil/proc/increase_horny_man()
+	to_chat(owner.current, "<span class='warning'>Голова начинает чесаться. Скоро мои дьявольские рога прорвут кожу на макушке!.</span>")
 	sleep(50)
 	if(ishuman(owner.current))
 		var/mob/living/carbon/human/H = owner.current
-		H.set_species(/datum/species/lizard, 1)
-		H.underwear = "Nude"
-		H.undershirt = "Nude"
-		H.socks = "Nude"
-		H.dna.features["mcolor"] = "511" //A deep red
-		H.regenerate_icons()
-	else //Did the devil get hit by a staff of transmutation?
-		owner.current.color = "#501010"
+		var/horns = /obj/item/clothing/head/devil_horns
+		var/obj/item/clothing/head/devilhorns = new horns(get_turf(H))
+		H.equip_to_slot(devilhorns, ITEM_SLOT_HEAD, 1, 1)
 	give_appropriate_spells()
-	form = BLOOD_LIZARD
-
-
+	form = HORNY_MAN
 
 /datum/antagonist/devil/proc/increase_true_devil()
 	to_chat(owner.current, "<span class='warning'>You feel as though your current form is about to shed. You will soon turn into a true devil.</span>")
@@ -344,6 +337,7 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 /datum/antagonist/devil/proc/give_base_spells()
 	owner.AddSpell(new /obj/effect/proc_holder/spell/aimed/fireball/hellish(null))
 	owner.AddSpell(new /obj/effect/proc_holder/spell/targeted/conjure_item/summon_pitchfork(null))
+	owner.AddSpell(new /obj/effect/proc_holder/spell/targeted/infernal_jaunt(null))
 
 /datum/antagonist/devil/proc/give_blood_spells()
 	owner.AddSpell(new /obj/effect/proc_holder/spell/targeted/conjure_item/summon_pitchfork(null))
@@ -358,7 +352,9 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 
 /datum/antagonist/devil/proc/give_arch_spells()
 	owner.AddSpell(new /obj/effect/proc_holder/spell/targeted/conjure_item/summon_pitchfork/ascended(null))
+	owner.AddSpell(new /obj/effect/proc_holder/spell/aimed/fireball/hellish(null))
 	owner.AddSpell(new /obj/effect/proc_holder/spell/targeted/sintouch/ascended(null))
+	owner.AddSpell(new /obj/effect/proc_holder/spell/targeted/infernal_jaunt(null))
 
 /datum/antagonist/devil/proc/beginResurrectionCheck(mob/living/body)
 	if(SOULVALUE>0)
@@ -462,11 +458,12 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 		H.equip_to_slot_or_del(new /obj/item/storage/briefcase(H), ITEM_SLOT_HANDS)
 		H.equip_to_slot_or_del(new /obj/item/pen(H), ITEM_SLOT_LPOCKET)
 		if(SOULVALUE >= BLOOD_THRESHOLD)
-			H.set_species(/datum/species/lizard, 1)
+			var/horns = /obj/item/clothing/head/devil_horns
+			var/obj/item/clothing/head/devilhorns = new horns(get_turf(H))
+			H.equip_to_slot(devilhorns, ITEM_SLOT_HEAD, 1, 1)
 			H.underwear = "Nude"
 			H.undershirt = "Nude"
 			H.socks = "Nude"
-			H.dna.features["mcolor"] = "511"
 			H.regenerate_icons()
 			if(SOULVALUE >= TRUE_THRESHOLD) //Yes, BOTH this and the above if statement are to run if soulpower is high enough.
 				var/mob/living/carbon/true_devil/A = new /mob/living/carbon/true_devil(targetturf)
