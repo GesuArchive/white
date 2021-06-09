@@ -24,7 +24,7 @@
 	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
 	icon_state = "dirt"
 	nospawn = TRUE
-	baseturfs = /turf/open/floor/plating/beach/sand
+	baseturfs = /turf/open/floor/grass/gensgrass/dirty
 	var/stoned = FALSE
 
 /turf/open/floor/grass/gensgrass/Initialize()

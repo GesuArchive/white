@@ -101,10 +101,13 @@
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	stoned = TRUE
+	floor_tile = /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	slowdown = 0
 
 /turf/open/floor/grass/gensgrass/dirty/stone/crowbar_act(mob/living/user, obj/item/I)
-	return FALSE
+	if(pry_tile(I, user))
+		new /obj/item/raw_stone/block(get_turf(src))
+		return TRUE
 
 /turf/open/floor/grass/gensgrass/dirty/stone/attackby(obj/item/I, mob/user, params)
 	if((I.tool_behaviour == TOOL_SHOVEL) && params)
@@ -120,7 +123,11 @@
 	icon_state = "stone"
 	stoned = FALSE
 	slowdown = 1
+	baseturfs = /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	var/digged_up = FALSE
+
+/turf/open/floor/grass/gensgrass/dirty/stone/raw/crowbar_act(mob/living/user, obj/item/I)
+	return FALSE
 
 /turf/closed/wall/stonewall
 	name = "каменная стена"

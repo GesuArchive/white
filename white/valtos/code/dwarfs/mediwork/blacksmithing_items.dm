@@ -766,7 +766,7 @@
 	else
 		return FALSE
 
-/obj/item/blacksmith/shpatel/proc/use_resources(var/turf/open/floor/grass/gensgrass/dirty/T, mob/user)
+/obj/item/blacksmith/shpatel/proc/use_resources(var/turf/open/floor/T, mob/user)
 	switch(mode)
 		if(SHPATEL_BUILD_WALL)
 			var/list/blocks = list()
@@ -787,29 +787,34 @@
 			user.visible_message("<span class='notice'><b>[user]</b> возводит каменную стену.</span>", \
 								"<span class='notice'>Возвожу каменную стену.</span>")
 		if(SHPATEL_BUILD_FLOOR)
-			if(!T.stoned)
-				var/list/blocks = list()
-				var/blocks_need = 1
-				var/exile_block = 0
-				for(var/obj/item/raw_stone/block/B in view(1))
-					blocks += B
-					blocks_need -= B.block_count
-					if(blocks_need <= 0)
-						exile_block = -blocks_need
-						break
-				QDEL_LIST(blocks)
-				if(exile_block)
-					var/obj/item/raw_stone/block/B = new /obj/item/raw_stone/block(drop_location())
-					B.block_count = exile_block
-					B.update_icon()
-				T.stoned = TRUE
-				T.ChangeTurf(/turf/open/floor/grass/gensgrass/dirty/stone, flags = CHANGETURF_INHERIT_AIR)
-				user.visible_message("<span class='notice'><b>[user]</b> создаёт каменный пол.</span>", \
-									"<span class='notice'>Делаю каменный пол.</span>")
+			var/list/blocks = list()
+			var/blocks_need = 1
+			var/exile_block = 0
+			for(var/obj/item/raw_stone/block/B in view(1))
+				blocks += B
+				blocks_need -= B.block_count
+				if(blocks_need <= 0)
+					exile_block = -blocks_need
+					break
+			QDEL_LIST(blocks)
+			if(exile_block)
+				var/obj/item/raw_stone/block/B = new /obj/item/raw_stone/block(drop_location())
+				B.block_count = exile_block
+				B.update_icon()
+			T.ChangeTurf(/turf/open/floor/grass/gensgrass/dirty/stone, flags = CHANGETURF_INHERIT_AIR)
+			user.visible_message("<span class='notice'><b>[user]</b> создаёт каменный пол.</span>", \
+								"<span class='notice'>Делаю каменный пол.</span>")
 
 /obj/item/blacksmith/shpatel/proc/do_job(atom/A, mob/user)
-	if(!istype(A, /turf/open/floor/grass/gensgrass/dirty))
+	if(!istype(A, /turf/open/floor))
 		return
+	if(mode != SHPATEL_BUILD_FLOOR && !istype(A, /turf/open/floor/grass/gensgrass/dirty/stone))
+		to_chat(user, "<span class='warning'>Не могу построить на этом полу!</span>")
+		return
+	if(mode==SHPATEL_BUILD_FLOOR && istype(A, /turf/open/floor/grass/gensgrass/dirty/stone))
+		var/turf/open/floor/grass/gensgrass/dirty/stone/S = A
+		if(S.stoned)
+			return
 	var/turf/T = get_turf(A)
 	if(check_resources())
 		if(do_after(user, 5 SECONDS, target = A))
