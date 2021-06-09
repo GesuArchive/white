@@ -181,6 +181,8 @@
 		if(!just_sleeping)
 			if(suiciding)
 				. += "<span class='warning'>[t_on] выглядит как суицидник... [t_ego] уже невозможно спасти.</span>\n"
+			if(hellbound)
+				. += "<span class='warning'>[t_ego] душа выглядит вырванной из [t_ego] тела. Воскрешение невозможно.</span>"
 
 			. += generate_death_examine_text()
 

@@ -37,7 +37,7 @@
 	grant_all_languages()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
-
+	ADD_TRAIT(src, TRAIT_ADVANCEDTOOLUSER, INNATE_TRAIT)
 /mob/living/carbon/true_devil/create_internal_organs()
 	internal_organs += new /obj/item/organ/brain
 	internal_organs += new /obj/item/organ/tongue
@@ -72,7 +72,7 @@
 
 
 /mob/living/carbon/true_devil/examine(mob/user)
-	. = list("<span class='info'>This is [icon2html(src, user)] <b>[src]</b>!")
+	. = list("<span class='info'>*---------*\nThis is [icon2html(src, user)] <b>[src]</b>!")
 
 	//Left hand items
 	for(var/obj/item/I in held_items)
@@ -90,15 +90,13 @@
 		. += "<span class='warning'>You can see hellfire inside its gaping wounds.</span>"
 	else if(health < (maxHealth/2))
 		. += "<span class='warning'>You can see hellfire inside its wounds.</span>"
-	. += "</span>"
+	. += "*---------*</span>"
 
-/mob/living/carbon/true_devil/IsAdvancedToolUser()
-	return 1
 
 /mob/living/carbon/true_devil/resist_buckle()
 	if(buckled)
 		buckled.user_unbuckle_mob(src,src)
-		visible_message("<span class='warning'>[capitalize(src.name)] easily breaks out of [ru_ego()] handcuffs!</span>", \
+		visible_message("<span class='warning'>[src] easily breaks out of [p_their()] handcuffs!</span>", \
 					"<span class='notice'>With just a thought your handcuffs fall off.</span>")
 
 /mob/living/carbon/true_devil/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
@@ -132,7 +130,7 @@
 	if(length(I.attack_verb_continuous))
 		message_verb = "[pick(I.attack_verb_continuous)]"
 	else if(I.force)
-		message_verb = "атакует"
+		message_verb = "attacked"
 
 	var/attack_message = "[src] has been [message_verb] with [I]."
 	if(user)
@@ -176,7 +174,7 @@
 				visible_message("<span class='danger'>[M] punches [src]!</span>", \
 						"<span class='userdanger'>[M] punches you!</span>")
 				adjustBruteLoss(damage)
-				log_combat(M, src, "атакует")
+				log_combat(M, src, "attacked")
 				updatehealth()
 			if ("disarm")
 				if (!(mobility_flags & MOBILITY_STAND) && !ascended) //No stealing the arch devil's pitchfork.
