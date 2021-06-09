@@ -17,4 +17,4 @@
 	if(station)
 		set_orbitting_around_body(station, 150)
 	else
-		set_orbitting_around_body(SSorbits.orbital_map.center, 1000)
+		set_orbitting_around_body(SSorbits.orbital_map.center, 1500)
