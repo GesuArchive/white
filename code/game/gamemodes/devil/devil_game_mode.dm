@@ -7,7 +7,7 @@
 	protected_jobs = list("Prisoner", "Lawyer", "Curator", "Chaplain", "Head of Security", "Captain", "AI")
 	required_players = 0
 	required_enemies = 1
-	recommended_enemies = 4
+	recommended_enemies = 2
 	reroll_friendly = 1
 	enemy_minimum_age = 0
 
