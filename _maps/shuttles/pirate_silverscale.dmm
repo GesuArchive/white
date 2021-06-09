@@ -91,7 +91,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/shuttle/pirate)
 "fj" = (
-/obj/machinery/computer/shuttle/pirate{
+/obj/machinery/computer/shuttle_flight/pirate{
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,

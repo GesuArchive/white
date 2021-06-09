@@ -736,6 +736,8 @@ Turf and target are separate in case you want to teleport some distance from a t
 		return "Грузчик"
 	else if (job == "Shaft Miner")
 		return "Шахтёр"
+	else if (job == "Exploration Crew")
+		return "Рейнджер"
 	else if (job == "Trader")
 		return "Торговец"
 	else if (job == "Head of Personnel")
@@ -1656,3 +1658,13 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 		if(A.density && (!exclude_mobs || !ismob(A)))
 			return TRUE
 	return FALSE
+
+/proc/invertDir(var/input_dir)
+	switch(input_dir)
+		if(UP)
+			return DOWN
+		if(DOWN)
+			return UP
+		if(-INFINITY to 0, 11 to INFINITY)
+			CRASH("Can't turn invalid directions!")
+	return turn(input_dir, 180)

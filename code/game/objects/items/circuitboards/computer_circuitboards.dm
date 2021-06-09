@@ -257,7 +257,7 @@
 /obj/item/circuitboard/computer/monastery_shuttle
 	name = "Monastery Shuttle (Консоль)"
 	icon_state = "generic"
-	build_path = /obj/machinery/computer/shuttle/monastery_shuttle
+	build_path = /obj/machinery/computer/shuttle_flight/monastery_shuttle
 
 /obj/item/circuitboard/computer/olddoor
 	name = "DoorMex (Консоль)"
@@ -282,7 +282,7 @@
 /obj/item/circuitboard/computer/syndicate_shuttle
 	name = "Syndicate Shuttle (Консоль)"
 	icon_state = "generic"
-	build_path = /obj/machinery/computer/shuttle/syndicate
+	build_path = /obj/machinery/computer/shuttle_flight/syndicate
 	var/challenge = FALSE
 	var/moved = FALSE
 
@@ -302,21 +302,25 @@
 /obj/item/circuitboard/computer/white_ship
 	name = "White Ship (Консоль)"
 	icon_state = "generic"
-	build_path = /obj/machinery/computer/shuttle/white_ship
+	build_path = /obj/machinery/computer/shuttle_flight/white_ship
 
 /obj/item/circuitboard/computer/white_ship/bridge
 	name = "White Ship Bridge (Консоль)"
 	icon_state = "generic"
-	build_path = /obj/machinery/computer/shuttle/white_ship/bridge
+	build_path = /obj/machinery/computer/shuttle_flight/white_ship/bridge
 
 /obj/item/circuitboard/computer/white_ship/pod
 	name = "Salvage Pod (Консоль)"
-	build_path = /obj/machinery/computer/shuttle/white_ship/pod
+	build_path = /obj/machinery/computer/shuttle_flight/white_ship/pod
 
 /obj/item/circuitboard/computer/white_ship/pod/recall
 	name = "Salvage Pod Recall (Консоль)"
-	build_path = /obj/machinery/computer/shuttle/white_ship/pod/recall
+	build_path = /obj/machinery/computer/shuttle_flight/white_ship/pod/recall
 
+/obj/item/circuitboard/computer/objective
+	name = "Nanotrasen objective console (Консоль)"
+	icon_state = "supply"
+	build_path = /obj/machinery/computer/objective
 /obj/item/circuitboard/computer/bountypad
 	name = "Bounty Pad (Консоль)"
 	build_path = /obj/machinery/computer/piratepad_control/civilian
@@ -420,12 +424,12 @@
 /obj/item/circuitboard/computer/labor_shuttle
 	name = "Labor Shuttle (Консоль)"
 	icon_state = "security"
-	build_path = /obj/machinery/computer/shuttle/labor
+	build_path = /obj/machinery/computer/shuttle_flight/labor
 
 /obj/item/circuitboard/computer/labor_shuttle/one_way
 	name = "Prisoner Shuttle Console (Консоль)"
 	icon_state = "security"
-	build_path = /obj/machinery/computer/shuttle/labor/one_way
+	build_path = /obj/machinery/computer/shuttle_flight/labor/one_way
 
 /obj/item/circuitboard/computer/gulag_teleporter_console
 	name = "Labor Camp teleporter console (Консоль)"
@@ -522,12 +526,12 @@
 /obj/item/circuitboard/computer/ferry
 	name = "Transport Ferry (Консоль)"
 	icon_state = "supply"
-	build_path = /obj/machinery/computer/shuttle/ferry
+	build_path = /obj/machinery/computer/shuttle_flight/ferry
 
 /obj/item/circuitboard/computer/ferry/request
 	name = "Transport Ferry Console (Консоль)"
 	icon_state = "supply"
-	build_path = /obj/machinery/computer/shuttle/ferry/request
+	build_path = /obj/machinery/computer/shuttle_flight/ferry/request
 
 /obj/item/circuitboard/computer/mining
 	name = "Outpost Status Display (Консоль)"
@@ -537,16 +541,20 @@
 /obj/item/circuitboard/computer/mining_shuttle
 	name = "Mining Shuttle (Консоль)"
 	icon_state = "supply"
-	build_path = /obj/machinery/computer/shuttle/mining
+	build_path = /obj/machinery/computer/shuttle_flight/mining
 
 /obj/item/circuitboard/computer/mining_shuttle/common
 	name = "Lavaland Shuttle (Консоль)"
-	build_path = /obj/machinery/computer/shuttle/mining/common
+	build_path = /obj/machinery/computer/shuttle_flight/mining/common
 
 /obj/item/circuitboard/computer/exoscanner_console
-	name = "Scanner Array Control Console (Computer Board)"
+	name = "Scanner Array Control Console (Консоль)"
 	build_path = /obj/machinery/computer/exoscanner_control
 
 /obj/item/circuitboard/computer/exodrone_console
-	name = "Exploration odrone control console (Computer Board)"
+	name = "Exploration odrone control console (Консоль)"
 	build_path = /obj/machinery/computer/exodrone_control_console
+
+/obj/item/circuitboard/computer/exploration_shuttle
+	name = "Exploration shuttle console (Консоль)"
+	build_path = /obj/machinery/computer/shuttle_flight/exploration

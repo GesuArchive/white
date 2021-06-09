@@ -348,7 +348,7 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/brief)
 "bX" = (
-/obj/machinery/computer/shuttle,
+/obj/machinery/computer/shuttle_flight,
 /turf/open/floor/engine/cult,
 /area/wizard_station)
 "ca" = (
@@ -1263,7 +1263,7 @@
 /obj/structure/railing{
 	dir = 1
 	},
-/obj/machinery/computer/shuttle/ferry/request{
+/obj/machinery/computer/shuttle_flight/ferry/request{
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
@@ -3697,7 +3697,7 @@
 	},
 /area/centcom/holding)
 "zu" = (
-/obj/machinery/computer/shuttle/syndicate/recall,
+/obj/machinery/computer/shuttle_flight/syndicate/recall,
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1

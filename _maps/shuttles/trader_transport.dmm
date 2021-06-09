@@ -41,7 +41,7 @@
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/transport)
 "g" = (
-/obj/machinery/computer/shuttle/ferry/trader,
+/obj/machinery/computer/shuttle_flight/ferry/trader,
 /obj/effect/turf_decal/stripes/end{
 	dir = 1
 	},

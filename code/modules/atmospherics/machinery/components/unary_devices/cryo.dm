@@ -208,7 +208,7 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 	open_machine()
 
 
-/obj/machinery/atmospherics/components/unary/cryo_cell/proc/set_on(new_value)
+/obj/machinery/atmospherics/components/unary/cryo_cell/set_on(new_value)
 	if(on == new_value)
 		return
 	SEND_SIGNAL(src, COMSIG_CRYO_SET_ON, new_value)

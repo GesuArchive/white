@@ -1151,14 +1151,6 @@
 /obj/structure/alien/resin/wall,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/ancientstation/deltaai)
-"dc" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel,
-/area/ruin/space/has_grav/ancientstation/deltacorridor)
 "dd" = (
 /obj/structure/alien/weeds,
 /obj/effect/decal/cleanable/xenoblood/xgibs/larva/body,
@@ -1702,13 +1694,6 @@
 /obj/item/seeds/wheat/rice,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/ancientstation/hydroponics)
-"es" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plasteel,
-/area/ruin/space/has_grav/ancientstation/deltacorridor)
 "et" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/red{
@@ -10968,7 +10953,7 @@ ad
 aa
 bE
 cD
-dc
+dx
 eY
 di
 eE
@@ -11017,7 +11002,7 @@ ad
 bE
 bE
 dG
-dc
+dx
 eY
 dZ
 eF
@@ -11115,7 +11100,7 @@ on
 df
 dg
 cD
-dc
+dx
 eY
 ez
 dZ
@@ -11213,7 +11198,7 @@ ad
 df
 bD
 ca
-dc
+dx
 kn
 eb
 jL
@@ -11228,7 +11213,7 @@ ir
 lT
 hi
 jd
-es
+qI
 qI
 lE
 ki
@@ -11262,7 +11247,7 @@ ad
 bE
 bE
 op
-dc
+dx
 eY
 di
 oD
@@ -11360,7 +11345,7 @@ ad
 aa
 bE
 ca
-dc
+dx
 eY
 dZ
 fv
@@ -11409,7 +11394,7 @@ ad
 aa
 bE
 ca
-dc
+dx
 dy
 eD
 fw

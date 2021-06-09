@@ -179,7 +179,7 @@
 "dx" = (/obj/structure/shuttle/engine/propulsion,/turf/open/floor/plating,/area/shuttle/atmosia/engine)
 "dy" = (/obj/docking_port/mobile/atmosia,/turf/closed/wall,/area/shuttle/atmosia/atmos)
 "dz" = (/obj/machinery/computer/camera_advanced/shuttle_docker/adv/atmosia,/turf/open/floor/plasteel,/area/shuttle/atmosia)
-"dA" = (/obj/machinery/computer/shuttle/atmosia,/turf/open/floor/plasteel,/area/shuttle/atmosia)
+"dA" = (/obj/machinery/computer/shuttle_flight/atmosia,/turf/open/floor/plasteel,/area/shuttle/atmosia)
 "dB" = (/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible{icon_state = "pipe11-2"; dir = 8},/obj/structure/table,/turf/open/floor/plasteel,/area/shuttle/atmosia)
 "dE" = (/obj/item/stack/sheet/metal/fifty,/obj/structure/table,/turf/open/floor/plating,/area/shuttle/atmosia/engine)
 "dF" = (/obj/machinery/atmospherics/components/binary/pump{dir = 4; layer = 2.4},/obj/structure/cable,/turf/open/floor/plasteel,/area/shuttle/atmosia/atmos)

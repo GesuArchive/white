@@ -468,6 +468,14 @@
 	config_job = "shaft_miner"
 	template_access = list(ACCESS_CAPTAIN, ACCESS_HOP, ACCESS_CHANGE_IDS)
 
+/datum/id_trim/job/exploration
+	assignment = "Exploration Crew"
+	trim_state = "trim_shaftminer"
+	full_access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_QM, ACCESS_RESEARCH, ACCESS_EXPLORATION)
+	minimal_access = list(ACCESS_MAILSORTING, ACCESS_EXPLORATION)
+	config_job = "exploration"
+	template_access = list(ACCESS_CAPTAIN, ACCESS_HOP, ACCESS_CHANGE_IDS)
+
 /// ID card obtained from the mining Disney dollar points vending machine.
 /datum/id_trim/job/shaft_miner/spare
 	full_access = list(ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_MECH_MINING, ACCESS_MAILSORTING, ACCESS_MINERAL_STOREROOM)

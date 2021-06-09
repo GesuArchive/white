@@ -175,6 +175,11 @@
 	greyscale_config = /datum/greyscale_config/pda/stripe_thick
 	greyscale_colors = "#af9366#8f36c6#8f36c6"
 
+/obj/item/pda/exploration
+	name = "рейнджерский PDA"
+	greyscale_config = /datum/greyscale_config/pda/stripe_thick
+	greyscale_colors = "#af9366#8f36c6#8f36c6"
+
 /obj/item/pda/syndicate
 	default_cartridge = /obj/item/cartridge/virus/syndicate
 	greyscale_colors = "#891417#000099"

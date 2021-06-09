@@ -22,23 +22,7 @@
 
 //////////////////////////////////////////////////////
 
-/obj/item/circuitboard/computer/atmosia
-	name = "Atmosia Navigation (Консоль)"
-	icon_state = "generic"
-	build_path = /obj/machinery/computer/camera_advanced/shuttle_docker/adv/atmosia
-
-/obj/machinery/computer/camera_advanced/shuttle_docker/adv/atmosia
-	name = "KSV Atmosia navigation computer"
-	desc = "Used to designate a precise transit location for the ship."
-	shuttleId = "ksv_atmosia"
-	shuttlePortId = "ksv_atmosia_custom"
-	shuttlePortName = "custom location"
-	req_access = list(ACCESS_SYNDICATE)
-	view_range = 20
-	y_offset = -14
-	z_lock = list(3,4,7,8,9,10,12)
-
-/obj/machinery/computer/shuttle/atmosia
+/obj/machinery/computer/shuttle_flight/atmosia
 	name = "KSV Atmosia console"
 	shuttleId = "ksv_atmosia"
 	possible_destinations = "ksv_atmosia_custom;ksv_atmosia_home"

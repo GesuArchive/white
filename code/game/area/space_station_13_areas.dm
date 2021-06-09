@@ -1134,6 +1134,18 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Снабжение: Шахтёрский офис"
 	icon_state = "mining"
 
+/area/quartermaster/meeting_room
+	name = "Снабжение: Комната встреч"
+	icon_state = "mining"
+
+/area/quartermaster/exploration_prep
+	name = "Снабжение: Подготовка рейнджеров"
+	icon_state = "mining"
+
+/area/quartermaster/exploration_dock
+	name = "Снабжение: Док рейнджеров"
+	icon_state = "mining"
+
 /area/janitor
 	name = "Уборная"
 	icon_state = "janitor"

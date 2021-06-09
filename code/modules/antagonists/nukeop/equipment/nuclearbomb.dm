@@ -636,8 +636,8 @@ This is here to make the tiles around the station mininuke change when it's arme
 	pickup_sound =  'sound/items/handling/disk_pickup.ogg'
 
 /obj/item/disk/nuclear
-	name = "nuclear authentication disk"
-	desc = "Better keep this safe."
+	name = "диск ядерной аутентификации"
+	desc = "Лучше сохраните это в безопасности."
 	icon_state = "nucleardisk"
 	max_integrity = 250
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 30, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)

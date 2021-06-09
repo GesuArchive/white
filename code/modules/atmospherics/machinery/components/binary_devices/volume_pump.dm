@@ -90,13 +90,13 @@
 	if(overclocked)
 		. += "<hr>Its warning light is on[on ? " and it's spewing gas!" : "."]"
 
-/obj/machinery/atmospherics/components/binary/volume_pump/proc/set_frequency(new_frequency)
+/obj/machinery/atmospherics/components/binary/volume_pump/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
 	if(frequency)
 		radio_connection = SSradio.add_object(src, frequency)
 
-/obj/machinery/atmospherics/components/binary/volume_pump/proc/broadcast_status()
+/obj/machinery/atmospherics/components/binary/volume_pump/broadcast_status()
 	if(!radio_connection)
 		return
 

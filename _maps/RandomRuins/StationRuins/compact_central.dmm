@@ -2502,7 +2502,7 @@
 /turf/open/floor/plasteel/grimy,
 /area/crew_quarters/heads/captain)
 "hC" = (
-/obj/machinery/computer/shuttle/mining,
+/obj/machinery/computer/shuttle_flight/mining,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
@@ -3465,7 +3465,7 @@
 /turf/open/floor/plating,
 /area/maintenance/central)
 "zG" = (
-/obj/machinery/computer/shuttle/labor,
+/obj/machinery/computer/shuttle_flight/labor,
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},

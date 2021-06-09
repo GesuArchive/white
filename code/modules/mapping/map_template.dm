@@ -82,23 +82,6 @@
 	// need these two below?
 	SSmachines.setup_template_powernets(cables)
 	SSair.setup_template_machinery(atmos_machines)
-	//calculate all turfs inside the border
-	var/list/template_and_bordering_turfs = block(
-		locate(
-			max(bounds[MAP_MINX]-1, 1),
-			max(bounds[MAP_MINY]-1, 1),
-			bounds[MAP_MINZ]
-			),
-		locate(
-			min(bounds[MAP_MAXX]+1, world.maxx),
-			min(bounds[MAP_MAXY]+1, world.maxy),
-			bounds[MAP_MAXZ]
-			)
-		)
-	for(var/t in template_and_bordering_turfs)
-		var/turf/affected_turf = t
-		affected_turf.air_update_turf(TRUE, TRUE)
-		affected_turf.levelupdate()
 
 /datum/map_template/proc/initTemplateBounds(list/bounds)
 	if (!bounds) //something went wrong
@@ -151,24 +134,7 @@
 	SSmachines.setup_template_powernets(cables)
 	SSair.setup_template_machinery(atmos_machines)
 
-	//calculate all turfs inside the border
-	var/list/template_and_bordering_turfs = block(
-		locate(
-			max(bounds[MAP_MINX]-1, 1),
-			max(bounds[MAP_MINY]-1, 1),
-			bounds[MAP_MINZ]
-			),
-		locate(
-			min(bounds[MAP_MAXX]+1, world.maxx),
-			min(bounds[MAP_MAXY]+1, world.maxy),
-			bounds[MAP_MAXZ]
-			)
-		)
-	for(var/turf/affected_turf as anything in template_and_bordering_turfs)
-		affected_turf.air_update_turf(TRUE, TRUE)
-		affected_turf.levelupdate()
-
-/datum/map_template/proc/load_new_z()
+/datum/map_template/proc/load_new_z(orbital_body_type)
 	var/x = round((world.maxx - width) * 0.5) + 1
 	var/y = round((world.maxy - height) * 0.5) + 1
 
@@ -245,6 +211,6 @@
 
 //for your ever biggening badminnery kevinz000
 //❤ - Cyberboss
-/proc/load_new_z_level(file, name)
+/proc/load_new_z_level(file, name, orbital_body_type)
 	var/datum/map_template/template = new(file, name)
-	template.load_new_z()
+	template.load_new_z(orbital_body_type = orbital_body_type)

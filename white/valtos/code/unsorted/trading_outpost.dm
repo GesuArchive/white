@@ -218,7 +218,7 @@
 
 	investigate_log("Contents sold for [D.account_balance - presale_points] credits. Contents: [ex.exported_atoms ? ex.exported_atoms.Join(",") + "." : "none."]", INVESTIGATE_CARGO)
 
-/obj/machinery/computer/shuttle/ferry/trader
+/obj/machinery/computer/shuttle_flight/ferry/trader
 	name = "transport trader console"
 	desc = "A console that controls the transport trader."
 	circuit = /obj/item/circuitboard/computer/ferry/trader
@@ -228,7 +228,7 @@
 	req_access_txt = "209"
 	allow_emag = TRUE
 
-/obj/machinery/computer/shuttle/ferry/request/trader
+/obj/machinery/computer/shuttle_flight/ferry/request/trader
 	name = "trader transport console"
 	circuit = /obj/item/circuitboard/computer/ferry/request/trader
 	shuttleId = "trader_transport"
@@ -241,12 +241,12 @@
 /obj/item/circuitboard/computer/ferry/trader
 	name = "Trader Transport Ferry (Консоль)"
 	icon_state = "supply"
-	build_path = /obj/machinery/computer/shuttle/ferry/trader
+	build_path = /obj/machinery/computer/shuttle_flight/ferry/trader
 
 /obj/item/circuitboard/computer/ferry/request/trader
 	name = "Trader Transport Console (Консоль)"
 	icon_state = "supply"
-	build_path = /obj/machinery/computer/shuttle/ferry/request/trader
+	build_path = /obj/machinery/computer/shuttle_flight/ferry/request/trader
 
 /datum/map_template/shuttle/trader_transport
 	port_id = "trader"

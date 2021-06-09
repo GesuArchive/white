@@ -109,12 +109,12 @@
 	else //scrubbing == SIPHONING
 		icon_state = "scrub_purge"
 
-/obj/machinery/atmospherics/components/unary/vent_scrubber/proc/set_frequency(new_frequency)
+/obj/machinery/atmospherics/components/unary/vent_scrubber/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
 	radio_connection = SSradio.add_object(src, frequency, radio_filter_in)
 
-/obj/machinery/atmospherics/components/unary/vent_scrubber/proc/broadcast_status()
+/obj/machinery/atmospherics/components/unary/vent_scrubber/broadcast_status()
 	if(!radio_connection)
 		return FALSE
 
@@ -169,7 +169,7 @@
 			scrub(tile, delta_time)
 	return TRUE
 
-/obj/machinery/atmospherics/components/unary/vent_scrubber/proc/scrub(turf/tile, delta_time = 0.5)
+/obj/machinery/atmospherics/components/unary/vent_scrubber/scrub(turf/tile, delta_time = 0.5)
 	if(!istype(tile))
 		return FALSE
 	var/datum/gas_mixture/environment = tile.return_air()
@@ -214,7 +214,7 @@
 //we populate a list of turfs with nonatmos-blocked cardinal turfs AND
 //	diagonal turfs that can share atmos with *both* of the cardinal turfs
 
-/obj/machinery/atmospherics/components/unary/vent_scrubber/proc/check_turfs()
+/obj/machinery/atmospherics/components/unary/vent_scrubber/check_turfs()
 	adjacent_turfs.Cut()
 	var/turf/T = get_turf(src)
 	if(istype(T))

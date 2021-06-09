@@ -89,7 +89,7 @@
 /turf/open/floor/circuit/telecomms,
 /area/science/xenobiology)
 "aX" = (
-/obj/machinery/computer/shuttle/mining/common{
+/obj/machinery/computer/shuttle_flight/mining/common{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -2193,7 +2193,7 @@
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "xs" = (
-/obj/machinery/computer/shuttle/labor/one_way{
+/obj/machinery/computer/shuttle_flight/labor/one_way{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -4293,7 +4293,7 @@
 /obj/machinery/airalarm{
 	pixel_y = 23
 	},
-/obj/machinery/computer/shuttle/mining{
+/obj/machinery/computer/shuttle_flight/mining{
 	req_access = null
 	},
 /obj/effect/turf_decal/tile/purple{

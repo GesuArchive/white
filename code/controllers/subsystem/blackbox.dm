@@ -1,5 +1,5 @@
 SUBSYSTEM_DEF(blackbox)
-	name = "Blackbox"
+	name = "Чёрный ящик"
 	wait = 6000
 	flags = SS_NO_TICK_CHECK
 	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
@@ -146,6 +146,8 @@ SUBSYSTEM_DEF(blackbox)
 			record_feedback("tally", "radio_usage", 1, "service")
 		if(FREQ_SUPPLY)
 			record_feedback("tally", "radio_usage", 1, "supply")
+		if(FREQ_EXPLORATION)
+			record_feedback("tally", "radio_usage", 1, "exploration")
 		if(FREQ_CENTCOM)
 			record_feedback("tally", "radio_usage", 1, "centcom")
 		if(FREQ_AI_PRIVATE)

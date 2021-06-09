@@ -94,7 +94,7 @@
 		var/layer_type = SSgreyscale.layer_types[data["type"]]
 		if(!layer_type)
 			CRASH("An unknown layer type was specified in the json of greyscale configuration [DebugName()]: [data["layer_type"]]")
-		return new layer_type(icon_file, data)
+		return new layer_type(icon_file, data.Copy())
 	var/list/output = list()
 	for(var/list/group as anything in data)
 		output += ReadLayerGroup(group)

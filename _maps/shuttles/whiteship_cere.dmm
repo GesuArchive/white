@@ -382,7 +382,7 @@
 /area/shuttle/abandoned)
 "aZ" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/computer/shuttle/white_ship/bridge{
+/obj/machinery/computer/shuttle_flight/white_ship/bridge{
 	dir = 1
 	},
 /turf/open/floor/mineral/titanium/blue,

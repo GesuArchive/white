@@ -7793,7 +7793,7 @@
 /turf/open/floor/plasteel,
 /area/security/brig)
 "auZ" = (
-/obj/machinery/computer/shuttle/labor{
+/obj/machinery/computer/shuttle_flight/labor{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red{
@@ -12051,7 +12051,7 @@
 /turf/open/floor/carpet/royalblue,
 /area/library)
 "aFF" = (
-/obj/machinery/computer/shuttle/mining{
+/obj/machinery/computer/shuttle_flight/mining{
 	dir = 1;
 	req_access = null
 	},
@@ -17238,7 +17238,7 @@
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
 "aSJ" = (
-/obj/machinery/computer/shuttle/mining{
+/obj/machinery/computer/shuttle_flight/mining{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/yellow{
@@ -34674,7 +34674,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/obj/machinery/computer/shuttle/ferry/request/trader,
+/obj/machinery/computer/shuttle_flight/ferry/request/trader,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
 "bKT" = (
@@ -81773,7 +81773,7 @@
 /area/medical/patients_rooms)
 "xzi" = (
 /obj/structure/cable,
-/obj/machinery/computer/shuttle/mining/common,
+/obj/machinery/computer/shuttle_flight/mining/common,
 /obj/structure/window/reinforced{
 	dir = 1
 	},

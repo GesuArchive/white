@@ -108,7 +108,7 @@
 /turf/open/floor/plating/abductor,
 /area/shuttle/abandoned)
 "q" = (
-/obj/machinery/computer/shuttle/white_ship/bridge{
+/obj/machinery/computer/shuttle_flight/white_ship/bridge{
 	dir = 1
 	},
 /turf/open/floor/plating/abductor,

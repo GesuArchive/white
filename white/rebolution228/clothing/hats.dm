@@ -19,6 +19,7 @@
 	flags_cover = HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSMOUTH | PEPPERPROOF
 	dog_fashion = null
+	flash_protect = FLASH_PROTECTION_FLASH
 
 /obj/item/clothing/head/helmet/maskasch/attack_self(mob/user)
 	if(can_toggle && !user.incapacitated())

@@ -3516,7 +3516,7 @@
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "pi" = (
-/obj/machinery/computer/shuttle/labor{
+/obj/machinery/computer/shuttle_flight/labor{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue{
@@ -3602,7 +3602,7 @@
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "pr" = (
-/obj/machinery/computer/shuttle/mining{
+/obj/machinery/computer/shuttle_flight/mining{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue{

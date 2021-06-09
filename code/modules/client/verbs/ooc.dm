@@ -23,6 +23,10 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 		if(prefs.muted & MUTE_OOC)
 			to_chat(src, "<span class='danger'>Тебе нельзя. Приятной игры.</span>")
 			return
+		if(is_banned_from(ckey, "OOC"))
+			to_chat(src, "<span class='danger'>Не-а.</span>")
+			return
+
 	if(QDELETED(src))
 		return
 
@@ -76,11 +80,6 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 		if(isnewplayer(mob) && !isnewplayer(C.mob))
 			if(!C.holder)
 				continue
-		if(is_banned_from(ckey, "OOC"))
-			if(!(C == src))
-				continue
-			else
-				message_admins("S[tagmsg]: [key_name_admin(src)]: [msg]")
 		if(C.prefs.chat_toggles & CHAT_OOC)
 			if(holder?.fakekey in C.prefs.ignoring)
 				continue

@@ -61,7 +61,7 @@
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "ay" = (
-/obj/machinery/computer/shuttle/mining{
+/obj/machinery/computer/shuttle_flight/mining{
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
@@ -2769,7 +2769,7 @@
 	dir = 4;
 	pixel_x = -24
 	},
-/obj/machinery/computer/shuttle/mining/common{
+/obj/machinery/computer/shuttle_flight/mining/common{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -3261,7 +3261,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
-/obj/machinery/computer/shuttle/ferry/request/trader,
+/obj/machinery/computer/shuttle_flight/ferry/request/trader,
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "As" = (

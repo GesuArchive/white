@@ -214,6 +214,7 @@ SUBSYSTEM_DEF(ticker)
 				toggle_dooc(TRUE)
 				toggle_looc(TRUE)
 				declare_completion(force_ending)
+				webhook_send_roundstatus("ending")
 				check_maprotate()
 				Master.SetRunLevel(RUNLEVEL_POSTGAME)
 
@@ -329,6 +330,9 @@ SUBSYSTEM_DEF(ticker)
 		for(var/holidayname in SSevents.holidays)
 			var/datum/holiday/holiday = SSevents.holidays[holidayname]
 			to_chat(world, "<h4>[holiday.greet()]</h4>")
+
+	//Setup orbits.
+	SSorbits.post_load_init()
 
 	PostSetup()
 

@@ -109,7 +109,7 @@
 	"<span class='notice'>Идеально. Гораздо лучше! Теперь <i>никто</i> не сможет перед тобой устоять.</span>")
 
 	var/turf/T = get_turf(user)
-	var/list/levels = SSmapping.levels_by_trait(ZTRAIT_SPACE_RUINS)
+	var/list/levels = SSmapping.levels_by_trait(ZTRAIT_DYNAMIC_LEVEL)
 	var/turf/dest
 	if (levels.len)
 		dest = locate(T.x, T.y, pick(levels))

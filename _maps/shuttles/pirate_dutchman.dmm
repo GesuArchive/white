@@ -298,7 +298,7 @@
 /turf/open/floor/wood/airless,
 /area/shuttle/pirate/flying_dutchman)
 "gq" = (
-/obj/machinery/computer/shuttle/pirate{
+/obj/machinery/computer/shuttle_flight/pirate{
 	dir = 1
 	},
 /turf/open/floor/carpet/royalblack/airless,

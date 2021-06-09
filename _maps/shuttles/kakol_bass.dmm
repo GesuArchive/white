@@ -124,7 +124,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle)
 "S" = (
-/obj/machinery/computer/shuttle/diy{
+/obj/machinery/computer/shuttle_flight/diy{
 	name = "Nevmerloshuttle console"
 	},
 /turf/open/floor/mineral/plastitanium,

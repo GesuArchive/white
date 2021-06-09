@@ -624,7 +624,6 @@
 		/obj/item/melee/transforming/energy/sword/cyborg,
 		/obj/item/gun/energy/printer,
 		/obj/item/gun/ballistic/revolver/grenadelauncher/cyborg,
-		/obj/item/card/emag,
 		/obj/item/crowbar/cyborg,
 		/obj/item/extinguisher/mini,
 		/obj/item/pinpointer/syndicate_cyborg)
@@ -696,6 +695,7 @@
 		/obj/item/stack/cable_coil,
 		/obj/item/pinpointer/syndicate_cyborg,
 		/obj/item/borg_chameleon,
+		/obj/item/card/emag,
 		)
 
 	cyborg_base_icon = "synd_engi"

@@ -1,5 +1,6 @@
 /mob/living/simple_animal/pet/dog/corgi/pig
 	name = "Свинья"
+	real_name = "Свинья"
 	desc = "Хрюкает."
 	icon = 'white/valtos/icons/animal.dmi'
 	icon_state = "pig"
@@ -47,6 +48,23 @@
 	if(prob(10))
 		var/chosen_sound = pick('white/valtos/sounds/pig/hru.ogg', 'white/valtos/sounds/pig/oink.ogg', 'white/valtos/sounds/pig/squeak.ogg')
 		playsound(src, chosen_sound, 50, TRUE)
+
+/mob/living/simple_animal/pet/dog/corgi/pig/update_corgi_fluff()
+	name = real_name
+	desc = initial(desc)
+	speak = list("ХРЮ!","УИИИИ!","ХРЮ?")
+	speak_emote = list("хрюкает")
+	emote_hear = list("хрюкает!")
+	emote_see = list("хрюкает гениально")
+	set_light(0)
+
+	if(inventory_head?.dog_fashion)
+		var/datum/dog_fashion/DF = new inventory_head.dog_fashion(src)
+		DF.apply(src)
+
+	if(inventory_back?.dog_fashion)
+		var/datum/dog_fashion/DF = new inventory_back.dog_fashion(src)
+		DF.apply(src)
 
 /obj/item/food/meat/slab/pig
 	name = "сало"

@@ -602,7 +602,7 @@
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "cb" = (
-/obj/machinery/computer/shuttle/labor,
+/obj/machinery/computer/shuttle_flight/labor,
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
@@ -621,7 +621,7 @@
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "cd" = (
-/obj/machinery/computer/shuttle/mining,
+/obj/machinery/computer/shuttle_flight/mining,
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4

@@ -107,13 +107,13 @@
 
 	//Radio remote control
 
-/obj/machinery/atmospherics/components/binary/dp_vent_pump/proc/set_frequency(new_frequency)
+/obj/machinery/atmospherics/components/binary/dp_vent_pump/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
 	if(frequency)
 		radio_connection = SSradio.add_object(src, frequency, filter = RADIO_ATMOSIA)
 
-/obj/machinery/atmospherics/components/binary/dp_vent_pump/proc/broadcast_status()
+/obj/machinery/atmospherics/components/binary/dp_vent_pump/broadcast_status()
 	if(!radio_connection)
 		return
 

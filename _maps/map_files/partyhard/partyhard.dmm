@@ -569,7 +569,7 @@
 /turf/open/floor/plasteel/elevatorshaft,
 /area/partyhard/dva)
 "bI" = (
-/obj/machinery/computer/shuttle/partyhard{
+/obj/machinery/computer/shuttle_flight/partyhard{
 	icon_state = "computer";
 	dir = 8
 	},
@@ -582,7 +582,7 @@
 /turf/closed/wall/r_wall/rust,
 /area/partyhard/tri)
 "bL" = (
-/obj/machinery/computer/shuttle/partyhard,
+/obj/machinery/computer/shuttle_flight/partyhard,
 /turf/closed/wall/partyhard,
 /area/partyhard/pyat)
 "bM" = (

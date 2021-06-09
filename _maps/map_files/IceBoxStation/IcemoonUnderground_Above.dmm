@@ -75,7 +75,7 @@
 /turf/open/floor/plasteel,
 /area/mine/production)
 "ao" = (
-/obj/machinery/computer/shuttle/labor/one_way{
+/obj/machinery/computer/shuttle_flight/labor/one_way{
 	dir = 4
 	},
 /turf/open/floor/plasteel,

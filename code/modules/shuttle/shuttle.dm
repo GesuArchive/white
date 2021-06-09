@@ -368,6 +368,8 @@
 	var/can_move_docking_ports = FALSE
 	var/list/hidden_turfs = list()
 
+	var/shuttle_object_type = /datum/orbital_object/shuttle
+
 /obj/docking_port/mobile/register(replace = FALSE)
 	. = ..()
 	if(!id)
@@ -870,7 +872,7 @@
 /obj/docking_port/mobile/proc/getControlConsole()
 	for(var/place in shuttle_areas)
 		var/area/shuttle/shuttle_area = place
-		for(var/obj/machinery/computer/shuttle/S in shuttle_area)
+		for(var/obj/machinery/computer/shuttle_flight/S in shuttle_area)
 			if(S.shuttleId == id)
 				return S
 	return null

@@ -1295,7 +1295,7 @@
 /turf/open/floor/plasteel,
 /area/construction/mining/aux_base)
 "afY" = (
-/obj/machinery/computer/shuttle/mining{
+/obj/machinery/computer/shuttle_flight/mining{
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/yellow,
@@ -8687,7 +8687,7 @@
 /turf/open/floor/plasteel,
 /area/security/execution/transfer)
 "bpf" = (
-/obj/machinery/computer/shuttle/labor,
+/obj/machinery/computer/shuttle_flight/labor,
 /obj/machinery/status_display/evac/directional/north,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -87596,7 +87596,7 @@
 /turf/open/floor/plasteel,
 /area/maintenance/starboard/aft)
 "rNh" = (
-/obj/machinery/computer/shuttle/mining{
+/obj/machinery/computer/shuttle_flight/mining{
 	dir = 1
 	},
 /obj/effect/turf_decal/bot,
@@ -89355,7 +89355,7 @@
 /turf/open/floor/wood,
 /area/lawoffice)
 "snm" = (
-/obj/machinery/computer/shuttle/mining{
+/obj/machinery/computer/shuttle_flight/mining{
 	dir = 8
 	},
 /obj/machinery/light/directional/east,
@@ -90676,7 +90676,7 @@
 /area/library/abandoned)
 "sDV" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/computer/shuttle/mining/common{
+/obj/machinery/computer/shuttle_flight/mining/common{
 	dir = 4
 	},
 /obj/effect/turf_decal/delivery,
@@ -108615,7 +108615,7 @@
 /area/quartermaster/qm)
 "xAW" = (
 /obj/effect/turf_decal/delivery,
-/obj/machinery/computer/shuttle/mining/common,
+/obj/machinery/computer/shuttle_flight/mining/common,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
 "xAZ" = (

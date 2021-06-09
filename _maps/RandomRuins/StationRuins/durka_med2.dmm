@@ -770,6 +770,15 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/storage)
+"kf" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/chair/office/light{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/medbay/central)
 "kh" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -1969,6 +1978,12 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
+"Cv" = (
+/obj/structure/chair/office/light{
+	dir = 1
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/medbay/central)
 "Cy" = (
 /obj/machinery/computer/operating,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -2273,6 +2288,9 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 5
+	},
+/obj/machinery/modular_computer/console/preset/civilian{
+	dir = 4
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
@@ -4251,7 +4269,7 @@ zb
 MN
 OD
 qA
-MU
+kf
 MU
 YK
 So
@@ -4462,7 +4480,7 @@ XP
 ld
 GF
 kc
-EQ
+Cv
 Wz
 hQ
 FU

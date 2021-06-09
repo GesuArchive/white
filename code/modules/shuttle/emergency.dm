@@ -573,8 +573,8 @@
 	launch_status = UNLAUNCHED
 
 /obj/docking_port/mobile/pod/request(obj/docking_port/stationary/S)
-	var/obj/machinery/computer/shuttle/C = getControlConsole()
-	if(!istype(C, /obj/machinery/computer/shuttle/pod))
+	var/obj/machinery/computer/shuttle_flight/C = getControlConsole()
+	if(!istype(C, /obj/machinery/computer/shuttle_flight/pod))
 		return ..()
 	if(GLOB.security_level >= SEC_LEVEL_RED || (C && (C.obj_flags & EMAGGED)))
 		if(launch_status == UNLAUNCHED)
@@ -587,29 +587,28 @@
 /obj/docking_port/mobile/pod/cancel()
 	return
 
-/obj/machinery/computer/shuttle/pod
+/obj/machinery/computer/shuttle_flight/pod
 	name = "консоль управления подом"
-	locked = TRUE
-	possible_destinations = "pod_asteroid"
+	recall_docking_port_id = "null"
+	request_shuttle_message = "Форсировать отлёт"
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "dorm_available"
 	light_color = LIGHT_COLOR_BLUE
 	density = FALSE
 
-/obj/machinery/computer/shuttle/pod/ComponentInitialize()
+/obj/machinery/computer/shuttle_flight/pod/ComponentInitialize()
 	. = ..()
 	AddElement(/datum/element/update_icon_blocker)
 
-/obj/machinery/computer/shuttle/pod/emag_act(mob/user)
+/obj/machinery/computer/shuttle_flight/pod/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
-	locked = FALSE
 	to_chat(user, "<span class='warning'>Сжигаю систему проверки уровня тревоги.</span>")
 
-/obj/machinery/computer/shuttle/pod/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
+/obj/machinery/computer/shuttle_flight/pod/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	. = ..()
-	possible_destinations += ";[port.id]_lavaland"
+	recall_docking_port_id = ";[port.id]_lavaland"
 
 /obj/docking_port/stationary/random
 	name = "эвакуационный под"
