@@ -20,9 +20,14 @@
 	block_chance = 25
 	worn_icon_state = "katana" //временное решение, пока я не найду в себе силы заспрайтить в себе ещё 9 бит блять
 	var/reskinned = FALSE
-	var/debug_morph = FALSE //adminbus
-	var/selectable = TRUE //whether it can be selected.
-	var/list/allowed_ckey = null //the only ckey who is allowed to choose this skin. null for unrestricted access.
+	///adminbus
+	var/debug_morph = FALSE 
+	///whether it can be selected.
+	var/selectable = TRUE 
+	///the only ckey who is allowed to choose this skin. null for unrestricted access.
+	var/list/allowed_ckey = null 
+	///if not null, the item will be replaced with path stored in this variable.
+	var/replace_with = null
 	custom_materials = list(/datum/material/iron = MINERAL_MATERIAL_AMOUNT * 3.5)
 
 //<stolen from nullrod code>
