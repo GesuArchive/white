@@ -10,7 +10,7 @@
 /area/ruin/unpowered)
 "h" = (
 /obj/effect/abstract/doorway_marker,
-/turf/open/floor/plating,
+/turf/open/floor/wood,
 /area/ruin/unpowered)
 "i" = (
 /obj/structure/bed/dogbed,
@@ -99,7 +99,7 @@
 /obj/effect/abstract/doorway_marker{
 	dir = 4
 	},
-/turf/open/floor/plating,
+/turf/open/floor/wood,
 /area/ruin/unpowered)
 "J" = (
 /obj/structure/chair/sofa/right,
@@ -115,13 +115,6 @@
 	dir = 8
 	},
 /turf/open/floor/carpet/purple,
-/area/ruin/unpowered)
-"O" = (
-/obj/effect/landmark/stationroom/maint/rdm3x3,
-/turf/open/floor/plating,
-/area/ruin/unpowered)
-"Q" = (
-/turf/open/floor/plating,
 /area/ruin/unpowered)
 
 (1,1,1) = {"
@@ -229,9 +222,9 @@ r
 t
 t
 u
-Q
-Q
-O
+n
+n
+n
 u
 "}
 (11,1,1) = {"
@@ -240,9 +233,9 @@ t
 t
 t
 o
-Q
-Q
-Q
+n
+n
+n
 h
 "}
 (12,1,1) = {"
@@ -251,9 +244,9 @@ p
 L
 A
 u
-Q
-Q
-Q
+n
+n
+n
 u
 "}
 (13,1,1) = {"

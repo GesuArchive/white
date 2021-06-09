@@ -11,6 +11,12 @@
 	. = ..()
 	SSticker.force_ending = TRUE
 
+/datum/orbital_object/z_linked/station/New()
+	var/datum/orbital_object/z_linked/station/station = locate() in SSorbits.orbital_map.bodies
+	if(station)
+		stealth = TRUE
+	. = ..()
+
 /datum/orbital_object/z_linked/station/post_map_setup()
 	//Orbit around the system center
 	set_orbitting_around_body(SSorbits.orbital_map.center, 2500)

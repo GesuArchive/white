@@ -56,8 +56,8 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 		/datum/orbital_objective/vip_recovery = 1
 	)
 	if(!length(possible_objectives))
-		priority_announce("Priority station objective recieved - Details transmitted to all available objective consoles. \
-			[GLOB.station_name] will have funds distributed upon objective completion.", "Central Command Report", SSstation.announcer.get_rand_report_sound())
+		priority_announce("Основное задание для станции было выбрано - Детали были разосланы на все консоли заданий. \
+			[GLOB.station_name] получит средства после выполнения задания.", "Центральное Командование", SSstation.announcer.get_rand_report_sound())
 	var/chosen = pickweight(valid_objectives)
 	if(!chosen)
 		return
@@ -68,16 +68,16 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 
 /datum/controller/subsystem/processing/orbits/proc/assign_objective(objective_computer, datum/orbital_objective/objective)
 	if(!possible_objectives.Find(objective))
-		return "Selected objective is no longer available or has been claimed already."
+		return "Задание недоступно."
 	if(current_objective)
-		return "An objective has already been selected and must be completed first."
+		return "Задание уже выбрано и должно быть выполнено."
 	objective.on_assign(objective_computer)
 	objective.generate_attached_beacon()
 	objective.announce()
 	current_objective = objective
 	possible_objectives.Remove(objective)
 	update_objective_computers()
-	return "Objective selected, good luck."
+	return "Задание выбрано, успехов."
 
 /datum/controller/subsystem/processing/orbits/proc/update_objective_computers()
 	for(var/obj/machinery/computer/objective/computer as() in GLOB.objective_computers)

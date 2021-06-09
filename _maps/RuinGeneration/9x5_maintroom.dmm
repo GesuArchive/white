@@ -9,10 +9,6 @@
 "y" = (
 /turf/open/floor/plating,
 /area/ruin/unpowered)
-"L" = (
-/obj/effect/spawner/room/fivexthree,
-/turf/open/floor/plating,
-/area/ruin/unpowered)
 "Q" = (
 /obj/effect/abstract/open_area_marker{
 	dir = 8
@@ -47,7 +43,7 @@ Z
 Z
 y
 y
-L
+y
 Z
 "}
 (4,1,1) = {"

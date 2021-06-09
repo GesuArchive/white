@@ -28,7 +28,7 @@ export const Objective = (props, context) => {
               {objective.description}
             </Box>
             <Button
-              content="Accept"
+              content="Принять"
               icon="check"
               onClick={e => act("assign", {
                 "id": objective.id,
@@ -50,7 +50,7 @@ export const SelectedObjective = (props, context) => {
       <Section
         title={objective.name}>
         <Box>
-          Payout: {objective.payout}
+          Награда: {objective.payout}
         </Box>
         <Box>
           {objective.description}

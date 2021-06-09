@@ -3780,10 +3780,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/xeno)
-"ho" = (
-/obj/machinery/spaceship_navigation_beacon,
-/turf/open/floor/plating/asteroid/airless,
-/area/ruin/space/has_grav/austation/station)
 "hp" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4;
@@ -5837,7 +5833,7 @@ nv
 ac
 ac
 ab
-ho
+ab
 ck
 ck
 ck

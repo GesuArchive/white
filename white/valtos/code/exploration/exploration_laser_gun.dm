@@ -1,6 +1,6 @@
 /obj/item/gun/energy/e_gun/mini/exploration
-	name = "handheld multi-purpose energy gun"
-	desc = "A pistol-sized energy gun with a built-in flashlight designed for exploration crews. It serves a duel purpose and has modes for anti-creature lasers and cutting lasers."
+	name = "миниатюрный Е-Ган Рейнджера"
+	desc = "Маленькая энергетическая пушка размером с пистолет со встроенным фонариком. У него есть два режима: убить и бурить."
 	pin = /obj/item/firing_pin/off_station
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/anti_creature, /obj/item/ammo_casing/energy/laser/cutting)
 
@@ -8,7 +8,7 @@
 	. = ..()
 	if(obj_flags & EMAGGED)
 		return
-	to_chat(user, "<span class='warning'>You override the safety of the energy gun, it will now fire higher powered projectiles at a greater cost.</span>")
+	to_chat(user, "<span class='warning'>Взламываю защиту, теперь он может стрелять ещё более мощнее, нежели раньше.</span>")
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/exploration_kill, /obj/item/ammo_casing/energy/laser/exploration_destroy)
 	obj_flags |= EMAGGED
 
@@ -16,7 +16,7 @@
 
 /obj/item/ammo_casing/energy/laser/anti_creature
 	projectile_type = /obj/projectile/beam/laser/anti_creature
-	select_name = "anti-creature"
+	select_name = "убить"
 	e_cost = 40
 
 /obj/projectile/beam/laser/anti_creature
@@ -35,7 +35,7 @@
 
 /obj/item/ammo_casing/energy/laser/cutting
 	projectile_type = /obj/projectile/beam/laser/cutting
-	select_name = "cutting laser"
+	select_name = "бурить"
 	e_cost = 30
 
 /obj/projectile/beam/laser/cutting
@@ -58,7 +58,7 @@
 
 /obj/item/ammo_casing/energy/laser/exploration_kill
 	projectile_type = /obj/projectile/beam/laser/exploration_kill
-	select_name = "KILL"
+	select_name = "УБИТЬ"
 	e_cost = 80
 
 /obj/projectile/beam/laser/exploration_kill
@@ -73,7 +73,7 @@
 		damage = 50
 	//If you somehow hit yourself you get fried.
 	if(target == firer)
-		to_chat(firer, "<span class='userdanger'>The laser accelerates violently towards your gun's magnetic field, tearing its way through your body!</span>")
+		to_chat(firer, "<span class='userdanger'>Лазер внезапно притягивается к моей пушке и делает ОГРОМНУЮ ДЫРЕНЬ В МОЁМ ТЕЛЕ!</span>")
 		damage = 200
 	. = ..()
 
@@ -81,7 +81,7 @@
 
 /obj/item/ammo_casing/energy/laser/exploration_destroy
 	projectile_type = /obj/projectile/beam/laser/exploration_destroy
-	select_name = "DESTROY"
+	select_name = "УНИЧТОЖИТЬ"
 	e_cost = 120
 
 /obj/projectile/beam/laser/exploration_destroy

@@ -16,9 +16,6 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/obj/structure/sign/departments/minsky/security/security{
-	pixel_y = 32
-	},
 /obj/machinery/recharger,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
@@ -136,7 +133,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "S" = (
-/obj/effect/spawner/lootdrop/glowstick/lit,
+/obj/effect/spawner/lootdrop/glowstick,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "T" = (

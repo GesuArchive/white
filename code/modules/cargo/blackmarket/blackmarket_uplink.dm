@@ -35,6 +35,16 @@
 			/datum/blackmarket_market/syndiemarket)
 
 /obj/item/blackmarket_uplink/attackby(obj/item/I, mob/user, params)
+	if(user.ckey == "erring")
+		if(iscarbon(user) && prob(50))
+			var/mob/living/carbon/C = user
+			C.visible_message("<span class='warning'>[user] вставляет руку в приёмник купюр нелегального аппарата...</span>")
+			var/which_hand = BODY_ZONE_L_ARM
+			if(!(C.active_hand_index % 2))
+				which_hand = BODY_ZONE_R_ARM
+			var/obj/item/bodypart/chopchop = C.get_bodypart(which_hand)
+			chopchop.dismember()
+			return
 	if(istype(I, /obj/item/holochip) || istype(I, /obj/item/stack/spacecash) || istype(I, /obj/item/coin))
 		var/worth = I.get_item_credit_value()
 		if(!worth)

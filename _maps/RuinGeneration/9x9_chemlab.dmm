@@ -35,13 +35,9 @@
 	},
 /obj/structure/rack,
 /obj/item/storage/box/beakers,
-/obj/item/storage/box/medsprays,
-/obj/item/reagent_containers/medspray,
-/obj/item/reagent_containers/medspray,
 /turf/open/floor/plasteel/white,
 /area/ruin)
 "f" = (
-/obj/effect/landmark/start/medical_doctor,
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
@@ -57,7 +53,6 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
 	},
-/obj/effect/landmark/start/chemist,
 /turf/open/floor/plasteel/white,
 /area/ruin)
 "i" = (
@@ -185,10 +180,6 @@
 	dir = 1
 	},
 /obj/structure/table/glass,
-/obj/item/reagent_containers/glass/bottle/charcoal{
-	pixel_x = 3;
-	pixel_y = 3
-	},
 /obj/item/reagent_containers/glass/bottle/epinephrine{
 	pixel_x = -2;
 	pixel_y = 1
