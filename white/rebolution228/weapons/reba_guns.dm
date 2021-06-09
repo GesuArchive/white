@@ -49,12 +49,21 @@
 	pin = /obj/item/firing_pin
 	fire_delay = 1.5
 	slot_flags = ITEM_SLOT_BACK
+	can_suppress = FALSE
 	burst_size = 4
 	empty_indicator = TRUE
 	spread = 5
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'white/rebolution228/weapons/sounds/fire_m41a1.ogg'
+	var/list/fucking = list('white/rebolution228/weapons/sounds/fire_m41a1.ogg',
+						'white/rebolution228/weapons/sounds/fire_m41a2.ogg',
+						'white/rebolution228/weapons/sounds/fire_m41a3.ogg',
+						'white/rebolution228/weapons/sounds/fire_m41a4.ogg')
+
+/obj/item/gun/ballistic/automatic/m41a2/process_chamber()
+	. = ..()
+	fire_sound = pick(fucking)
 
 /obj/item/gun/ballistic/automatic/m41a2/Initialize()
 	. = ..()
@@ -237,7 +246,14 @@
 	load_sound = 'white/rebolution228/weapons/sounds/74_magout.ogg'
 	load_empty_sound = 'white/rebolution228/weapons/sounds/74_magin.ogg'
 	fire_sound = 'white/rebolution228/weapons/sounds/74_ebashit1.ogg'
+	var/list/huipizdaaa = list('white/rebolution228/weapons/sounds/74_ebashit1.ogg',
+							'white/rebolution228/weapons/sounds/74_ebashit2.ogg',
+							'white/rebolution228/weapons/sounds/74_ebashit3.ogg')
 	can_suppress = FALSE
+
+/obj/item/gun/ballistic/automatic/ak74m/process_chamber()
+	. = ..()
+	fire_sound = pick(huipizdaaa)
 
 /obj/item/ammo_box/magazine/ak74m
 	name = "AK-74 Magazine (5.45)"
