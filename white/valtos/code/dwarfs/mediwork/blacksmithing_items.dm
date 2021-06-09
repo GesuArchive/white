@@ -1060,6 +1060,10 @@
 	var/real_force = 0
 	var/item_grade = "*"
 
+/obj/item/blacksmith/partial/attack(mob/living/M, mob/living/user)
+	. = ..()
+	user.attacked_by(src, user)
+
 /obj/item/blacksmith/partial/examine(mob/user)
 	. = ..()
 	if(reqs && reqs_names)
@@ -1149,7 +1153,6 @@
 
 /obj/item/blacksmith/partial/Initialize()
 	. = ..()
-	force = 1
 	update_namelist()
 
 /obj/item/blacksmith/partial/zwei
