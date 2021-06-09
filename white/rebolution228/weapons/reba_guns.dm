@@ -141,7 +141,7 @@
 	. = ..()
 	if(isalien(target))
 		var/mob/living/carbon/alien/L = target
-		L.visible_message("<span class='danger'>[L] explodes into a shower of gibs!</span>")
+		L.visible_message("<span class='danger'>[L] взрывается в клочья!</span>")
 		L.gib()
 
 /obj/item/ammo_casing/caseless/m41acaseless
@@ -278,12 +278,20 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/grenadelauncher/gp25
 
 /obj/item/ammo_box/magazine/internal/grenadelauncher/gp25
-	name = "gp25 magazine"
-	ammo_type = /obj/item/ammo_casing/vog25
+	name = "ebalo"
+	ammo_type = /obj/item/ammo_casing/a40mm/vog25
 	caliber = "40mmvog"
 	max_ammo = 1
 
-/obj/item/ammo_casing/vog25
+/obj/item/gun/ballistic/automatic/ak74m/gp25/attackby(obj/item/A, mob/user, params)
+	if(istype(A, /obj/item/ammo_casing))
+		if(istype(A, underbarrel.magazine.ammo_type))
+			underbarrel.attack_self(user)
+			underbarrel.attackby(A, user, params)
+	else
+		..()
+
+/obj/item/ammo_casing/a40mm/vog25
 	name = "Выстрел ВОГ-25"
 	desc = "Бум."
 	caliber = "40mmvog"
