@@ -128,6 +128,7 @@
 /obj/item/canvas/proc/finalize(mob/user)
 	finalized = TRUE
 	author_ckey = user.ckey
+	inc_metabalance(user, METACOIN_ART_REWARD, reason="Осталось повесить её на стену для сохранения, старые картины снимаются кусачками. При возможном абузе будет обнулён метакэш, учти.")
 	generate_proper_overlay()
 	try_rename(user)
 
