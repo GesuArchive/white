@@ -7,12 +7,12 @@
 	var/datum/action/innate/shuttledocker_rotate/rotate_action = new
 	var/datum/action/innate/shuttledocker_place/place_action = new
 	var/shuttlePortId = ""
-	var/shuttlePortName = "custom location"
+	var/shuttlePortName = "Выбрать место стыковки"
 	var/obj/docking_port/stationary/my_port //the custom docking port placed by this console
 	var/obj/docking_port/mobile/shuttle_port //the mobile docking port of the connected shuttle
 	var/view_range = 0
 	var/list/whitelist_turfs = list(/turf/open/space, /turf/open/openspace, /turf/open/floor/plating/lavaland_baseturf, /turf/open/floor/plating/asteroid, /turf/open/lava)
-	var/designate_time = 50
+	var/designate_time = 150
 	var/turf/designating_target_loc
 
 /obj/machinery/computer/shuttle_flight/Initialize(mapload, obj/item/circuitboard/C)
@@ -127,36 +127,36 @@
 		return
 
 	if(QDELETED(shuttleObject))
-		to_chat(usr, "<span class='warning'>Shuttle has already docked.</span>")
+		to_chat(usr, "<span class='warning'>Шаттл уже пристыкован.</span>")
 		return
 
 	var/mob/camera/ai_eye/remote/shuttle_docker/the_eye = eyeobj
 	var/landing_clear = checkLandingSpot()
 	if(designate_time && (landing_clear != SHUTTLE_DOCKER_BLOCKED))
-		to_chat(current_user, "<span class='warning'>Targeting transit location, please wait [DisplayTimeText(designate_time)]...</span>")
+		to_chat(current_user, "<span class='warning'>Начинаем стыковку, подождите [DisplayTimeText(designate_time)]...</span>")
 		designating_target_loc = the_eye.loc
 		var/wait_completed = do_after(current_user, designate_time, NONE, TRUE, CALLBACK(src, .proc/canDesignateTarget))
 		designating_target_loc = null
 		if(!current_user)
 			return
 		if(!wait_completed)
-			to_chat(current_user, "<span class='warning'>Operation aborted.</span>")
+			to_chat(current_user, "<span class='warning'>Операция отменена.</span>")
 			return
 		landing_clear = checkLandingSpot()
 
 	if(landing_clear != SHUTTLE_DOCKER_LANDING_CLEAR)
 		switch(landing_clear)
 			if(SHUTTLE_DOCKER_BLOCKED)
-				to_chat(current_user, "<span class='warning'>Invalid transit location.</span>")
+				to_chat(current_user, "<span class='warning'>Неправильная локация.</span>")
 			if(SHUTTLE_DOCKER_BLOCKED_BY_HIDDEN_PORT)
-				to_chat(current_user, "<span class='warning'>Unknown object detected in landing zone. Please designate another location.</span>")
+				to_chat(current_user, "<span class='warning'>Неизвестный объект в зоне высадки. Выберите другое место.</span>")
 		return
 
 	///Make one use port that deleted after fly off, to don't lose info that need on to properly fly off.
 	if(my_port)
 		my_port.delete_after = TRUE
 		my_port.id = null
-		my_port.name = "Old [my_port.name]"
+		my_port.name = "Старый [my_port.name]"
 		my_port = null
 
 	if(!my_port)
@@ -191,9 +191,9 @@
 			remove_eye_control(usr)
 			QDEL_NULL(shuttleObject)
 		if(1)
-			to_chat(usr, "<span class='warning'>Invalid shuttle requested.</span>")
+			to_chat(usr, "<span class='warning'>Неправильный шаттл запрошен.</span>")
 		else
-			to_chat(usr, "<span class='notice'>Unable to comply.</span>")
+			to_chat(usr, "<span class='notice'>Не понимаю.</span>")
 
 	return TRUE
 
@@ -310,7 +310,7 @@
 	return TRUE
 
 /datum/action/innate/shuttledocker_rotate
-	name = "Rotate"
+	name = "Поворот"
 	icon_icon = 'icons/mob/actions/actions_mecha.dmi'
 	button_icon_state = "mech_cycle_equip_off"
 
@@ -323,7 +323,7 @@
 	origin.rotateLandingSpot()
 
 /datum/action/innate/shuttledocker_place
-	name = "Place"
+	name = "Установка"
 	icon_icon = 'icons/mob/actions/actions_mecha.dmi'
 	button_icon_state = "mech_zoom_off"
 
@@ -336,7 +336,7 @@
 	origin.placeLandingSpot(target)
 
 /datum/action/innate/camera_jump/shuttle_docker
-	name = "Jump to Location"
+	name = "Прыгнуть к зоне"
 	button_icon_state = "camera_jump"
 
 /datum/action/innate/camera_jump/shuttle_docker/Activate()
@@ -361,7 +361,7 @@
 			L["(L.len)[S.name]"] = S
 
 	playsound(console, 'sound/machines/terminal_prompt.ogg', 25, FALSE)
-	var/selected = input("Choose location to jump to", "Locations", null) as null|anything in L
+	var/selected = input("Куда?", "Зоны", null) as null|anything in L
 	if(QDELETED(src) || QDELETED(target) || !isliving(target))
 		return
 	playsound(src, "terminal_type", 25, 0)
@@ -370,7 +370,7 @@
 		if(T)
 			playsound(console, 'sound/machines/terminal_prompt_confirm.ogg', 25, 0)
 			remote_eye.setLoc(T)
-			to_chat(target, "<span class='notice'>Jumped to [selected].</span>")
+			to_chat(target, "<span class='notice'>Прыгаем к [selected].</span>")
 			C.overlay_fullscreen("flash", /atom/movable/screen/fullscreen/flash/static)
 			C.clear_fullscreen("flash", 3)
 	else

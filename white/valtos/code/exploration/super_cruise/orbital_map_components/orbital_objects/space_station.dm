@@ -15,6 +15,6 @@
 	//Orbit around the system center
 	var/datum/orbital_object/z_linked/station/station = locate() in SSorbits.orbital_map.bodies
 	if(station)
-		set_orbitting_around_body(station, 150)
+		set_orbitting_around_body(station, 100)
 	else
-		set_orbitting_around_body(SSorbits.orbital_map.center, 2500)
+		set_orbitting_around_body(SSorbits.orbital_map.center, 3500)

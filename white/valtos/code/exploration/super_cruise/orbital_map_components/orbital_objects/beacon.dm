@@ -35,4 +35,4 @@
 
 /datum/orbital_object/z_linked/beacon/ruin/post_map_setup()
 	//Orbit around the systems sun
-	set_orbitting_around_body(SSorbits.orbital_map.center, 32000 + 250 * rand(4, 20))
+	set_orbitting_around_body(SSorbits.orbital_map.center, 8000 + 250 * rand(4, 20))
