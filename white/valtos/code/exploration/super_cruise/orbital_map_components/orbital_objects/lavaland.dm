@@ -8,4 +8,4 @@
 
 /datum/orbital_object/z_linked/lavaland/post_map_setup()
 	//Orbit around the systems sun
-	set_orbitting_around_body(SSorbits.orbital_map.center, 4800)
+	set_orbitting_around_body(SSorbits.orbital_map.center, 6800)

@@ -3,7 +3,7 @@
 /datum/orbital_object/z_linked/phobos
 	name = "Озон"
 	mass = 50000
-	radius = 300
+	radius = 800
 
 /datum/orbital_object/z_linked/phobos/New()
 	. = ..()
