@@ -5,7 +5,7 @@
 	opendoors = FALSE
 	rename_team = "Спецназ"
 	mission = "Уничтожить особо опасных террористов на станции."
-	polldesc = "отряде специального назначения"
+	polldesc = "группе специального назначения"
 
 /datum/antagonist/ert/spetsnaz/greet()
 	if(!ert_team)
@@ -13,15 +13,15 @@
 
 	owner.current.playsound_local(get_turf(owner.current), 'white/rebolution228/sounds/spetsnaz_spawn.ogg',100,0, use_reverb = FALSE)
 	to_chat(owner, "<B><font size=3 color=red>Я [name].</font></B>")
-	var/missiondesc = "Мой отряд был отправлен на станцию [station_name()] с миссией от Отдела Безопасности Нанотрейсен ."
+	var/missiondesc = "Мое подразделение было отправлено на станцию '[station_name()]' с заданием от Российского Отдела Службы Безопасности NanoTrasen. "
 	if(leader)
-		missiondesc += "Ведите свой отряд чтобы обеспечить выполнение миссии. Садитесь на шаттл, когда ваша команда будет готова."
+		missiondesc += "Ведите свой отряд, чтобы обеспечить выполнение миссии. Отправьтесь на станцию при помощи шаттла, когда ваша команда будет готова. "
 	else
-		missiondesc += "Следуйте приказам командира отряда."
+		missiondesc += "Следуйте приказам командира отряда. "
 	if(!rip_and_tear)
 		missiondesc += "По возможности избегайте жертв среди гражданского населения."
 
-	missiondesc += "<BR><B>Ваша миссия</B>: [ert_team.mission.explanation_text]"
+	missiondesc += "<BR><B>МИССИЯ:</B>: [ert_team.mission.explanation_text]"
 	to_chat(owner,missiondesc)
 
 /datum/antagonist/ert/spetsnaz/on_gain()
