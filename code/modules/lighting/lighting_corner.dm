@@ -3,9 +3,7 @@
 // For the record: these should never ever ever be deleted, even if the turf doesn't have dynamic lighting.
 
 /datum/lighting_corner
-	var/list/turf/masters
 	var/list/datum/light_source/affecting // Light sources affecting us.
-	var/active                            = FALSE  // TRUE if one of our masters has dynamic lighting.
 
 	var/x = 0
 	var/y = 0
@@ -33,8 +31,7 @@
 
 /datum/lighting_corner/New(turf/new_turf, diagonal)
 	. = ..()
-	masters = list()
-	masters[new_turf] = turn(diagonal, 180)
+	save_master(new_turf, turn(diagonal, 180))
 
 	var/vertical   = diagonal & ~(diagonal - 1) // The horizontal directions (4 and 8) are bigger than the vertical ones (1 and 2), so we can reliably say the lsb is the horizontal direction.
 	var/horizontal = diagonal & ~vertical       // Now that we know the horizontal one we can get the vertical one.
@@ -136,12 +133,10 @@
 	if (lighting_object && !lighting_object.needs_update)
 		lighting_object.needs_update = TRUE
 		SSlighting.objects_queue += lighting_object
-
 	lighting_object = master_SW?.lighting_object
 	if (lighting_object && !lighting_object.needs_update)
 		lighting_object.needs_update = TRUE
 		SSlighting.objects_queue += lighting_object
-
 	lighting_object = master_NW?.lighting_object
 	if (lighting_object && !lighting_object.needs_update)
 		lighting_object.needs_update = TRUE
@@ -157,6 +152,24 @@
 	if (!force)
 		return QDEL_HINT_LETMELIVE
 
-	stack_trace("Ok, Look, /tg/, I need you to find whatever fucker decided to call qdel on a fucking lighting corner, then tell him very nicely and politely that he is brain damaged and needs his head checked. Thanks. Send them my regards by the way.")
+
+	for (var/datum/light_source/light_source as anything in affecting)
+		LAZYREMOVE(light_source.effect_str, src)
+	affecting = null
+
+	if (master_NE)
+		master_NE.lighting_corner_SW = null
+		master_NE.lighting_corners_initialised = FALSE
+	if (master_SE)
+		master_SE.lighting_corner_NW = null
+		master_SE.lighting_corners_initialised = FALSE
+	if (master_SW)
+		master_SW.lighting_corner_NE = null
+		master_SW.lighting_corners_initialised = FALSE
+	if (master_NW)
+		master_NW.lighting_corner_SE = null
+		master_NW.lighting_corners_initialised = FALSE
+	if (needs_update)
+		SSlighting.corners_queue -= src
 
 	return ..()
