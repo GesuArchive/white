@@ -67,7 +67,7 @@
 		qdel(src)
 
 /obj/item/organ/body_egg/changeling_egg/proc/Pop()
-	var/mob/living/carbon/human/species/monkey/M = new(owner)
+	var/mob/living/carbon/human/M = new(owner)
 
 	for(var/obj/item/organ/I in src)
 		I.Insert(M, 1)
@@ -80,8 +80,6 @@
 		if(C.can_absorb_dna(owner))
 			C.add_new_profile(owner)
 
-		var/datum/action/changeling/humanform/hf = new
-		C.purchasedpowers += hf
 		C.regain_powers()
 		M.key = origin.key
 	owner.gib()
