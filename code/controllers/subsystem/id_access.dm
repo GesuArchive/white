@@ -308,6 +308,7 @@ SUBSYSTEM_DEF(id_access)
 	desc_by_access["[ACCESS_WEAPONS]"] = "Weapon Permit"
 	desc_by_access["[ACCESS_NETWORK]"] = "Network Access"
 	desc_by_access["[ACCESS_MECH_MINING]"] = "Mining Mech Access"
+	desc_by_access["[ACCESS_EXPLORATION]"] = "Exploration Access"
 	desc_by_access["[ACCESS_MECH_MEDICAL]"] = "Medical Mech Access"
 	desc_by_access["[ACCESS_MECH_SECURITY]"] = "Security Mech Access"
 	desc_by_access["[ACCESS_MECH_SCIENCE]"] = "Science Mech Access"
