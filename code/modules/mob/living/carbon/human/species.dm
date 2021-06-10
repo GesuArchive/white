@@ -1190,7 +1190,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		log_game("[key_name(H)] has started overdosing on [chem.name] at [chem.volume] units.")
 
 /datum/species/proc/check_species_weakness(obj/item, mob/living/attacker)
-	return 1 //This is not a boolean, it's the multiplier for the damage that the user takes from the item. The force of the item is multiplied by this value
+	return 1 //This is not a boolean, it's the multiplier for the damage that the user takes from the item.It is added onto the check_weakness value of the mob, and then the force of the item is multiplied by this value
 
 /**
  * Equip the outfit required for life. Replaces items currently worn.
@@ -1539,7 +1539,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if((I.item_flags & SURGICAL_TOOL) && user.a_intent == INTENT_HELP && H.body_position == LYING_DOWN && (LAZYLEN(H.surgeries) > 0))
 		Iwound_bonus = CANT_WOUND
 
-	var/weakness = check_species_weakness(I, user)
+	var/weakness = H.check_weakness(I, user)
 
 	H.send_item_attack_message(I, user, hit_area, affecting)
 

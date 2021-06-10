@@ -841,6 +841,9 @@
 	if (HAS_TRAIT(src, TRAIT_HUSK))
 		return DEFIB_FAIL_HUSK
 
+	if (hellbound)
+		return DEFIB_FAIL_HELLBOUND
+
 	if ((getBruteLoss() >= MAX_REVIVE_BRUTE_DAMAGE) || (getFireLoss() >= MAX_REVIVE_FIRE_DAMAGE))
 		return DEFIB_FAIL_TISSUE_DAMAGE
 

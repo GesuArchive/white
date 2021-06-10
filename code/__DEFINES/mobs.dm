@@ -66,6 +66,7 @@
 #define MONKEY_BODYPART "monkey"
 #define ALIEN_BODYPART "alien"
 #define LARVA_BODYPART "larva"
+#define DEVIL_BODYPART "devil"
 /*see __DEFINES/inventory.dm for bodypart bitflag defines*/
 
 // Health/damage defines
@@ -377,6 +378,7 @@
 #define DEFIB_FAIL_FAILING_BRAIN (1<<6)
 #define DEFIB_FAIL_NO_BRAIN (1<<7)
 #define DEFIB_FAIL_NO_INTELLIGENCE (1<<8)
+#define DEFIB_FAIL_HELLBOUND (1<<9)
 
 // Bit mask of possible return values by can_defib that would result in a revivable patient
 #define DEFIB_REVIVABLE_STATES (DEFIB_FAIL_NO_HEART | DEFIB_FAIL_FAILING_HEART | DEFIB_FAIL_HUSK | DEFIB_FAIL_TISSUE_DAMAGE | DEFIB_FAIL_FAILING_BRAIN | DEFIB_POSSIBLE)
