@@ -67,6 +67,7 @@
 #define DATA_HUD_FAN					11
 
 //antag HUD defines
+
 #define ANTAG_HUD_CULT			12
 #define ANTAG_HUD_REV			13
 #define ANTAG_HUD_OPS			14
@@ -84,6 +85,9 @@
 #define ANTAG_HUD_HERETIC		26
 #define ANTAG_HUD_BLOODSUCKER	27
 #define ANTAG_HUD_CLOCKWORK		28
+#define ANTAG_HUD_DEVIL			29
+#define ANTAG_HUD_SINTOUCHED	30
+#define ANTAG_HUD_SOULLESS		31
 
 // Notification action types
 #define NOTIFY_JUMP "jump"
