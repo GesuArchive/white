@@ -90,10 +90,8 @@
 
 
 /obj/item/mechcomp/teleport/proc/set_target_id(datum/mechcompMessage/msg)
-	var/id = text2num(msg.signal)
+	var/id = hex2num(msg.signal)
 	if(!isnull(id) && id >=0 && id<=65535) //from 0 to FFFF
-		if(teles["[id]"])
-			return
 		target_id = id
 
 /obj/item/mechcomp/teleport/proc/set_target_id_manually(obj/item/I, mob/user)

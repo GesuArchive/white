@@ -135,12 +135,12 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 	if(shuttleObject.docking_target)
 		if(shuttleObject.docking_target.can_dock_anywhere && !GLOB.shuttle_docking_jammed)
 			data["validDockingPorts"] += list(list(
-				"name" = "Custom Location",
+				"name" = "Выбрать место стыковки",
 				"id" = "custom_location"
 			))
 		else if(shuttleObject.docking_target.random_docking)
 			data["validDockingPorts"] += list(list(
-				"name" = "Random Drop",
+				"name" = "Случайно",
 				"id" = "custom_location"
 			))
 		for(var/obj/docking_port/stationary/stationary_port as() in SSshuttle.stationary)

@@ -95,7 +95,7 @@ export const OrbitalMap = (props, context) => {
                 <NoticeBox mt={1}>
                   ПРОТОКОЛ СТЫКОВКИ АКТИВЕН,
                   ПОЛЁТ ОСТАНОВЛЕН -
-                  ВЫБЕРИТЕ НАЗАЧЕНИЕ.
+                  ВЫБЕРИТЕ МЕСТО НАЗНАЧЕНИЯ.
                 </NoticeBox>
                 <Dropdown
                   mt={1}
@@ -148,14 +148,14 @@ export const OrbitalMap = (props, context) => {
                       viewBox="-250 -250 500 500"
                       position="absolute">
                       <defs>
-                        <pattern id="grid" width={100 * zoomScale}
-                          height={100 * zoomScale}
+                        <pattern id="grid" width={1000 * zoomScale}
+                          height={1000 * zoomScale}
                           patternUnits="userSpaceOnUse">
-                          <rect width={100 * zoomScale} height={100 * zoomScale}
+                          <rect width={1000 * zoomScale} height={1000 * zoomScale}
                             fill="url(#smallgrid)" />
                           <path
                             fill="none" stroke="#64aE64" stroke-width="1"
-                            d={"M " + (100 * zoomScale)+ " 0 L 0 0 0 " + (100 * zoomScale)} />
+                            d={"M " + (1000 * zoomScale)+ " 0 L 0 0 0 " + (1000 * zoomScale)} />
                         </pattern>
                         <pattern id="smallgrid"
                           width={50 * zoomScale}

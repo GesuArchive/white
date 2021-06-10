@@ -25,6 +25,7 @@
 #define ROLE_MONKEY				"Monkey"
 #define ROLE_MONKEY_HELMET		"Monkey Mind Magnification Helmet"
 #define ROLE_ABDUCTOR			"Abductor"
+#define ROLE_DEVIL				"Devil"
 #define ROLE_REVENANT			"Revenant"
 #define ROLE_BROTHER			"Blood Brother"
 #define ROLE_BRAINWASHED		"Brainwashed Victim"
@@ -69,6 +70,7 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_MONKEY = /datum/game_mode/monkey,
 	ROLE_REVENANT,
 	ROLE_ABDUCTOR,
+	ROLE_DEVIL = /datum/game_mode/devil,
 	ROLE_INTERNAL_AFFAIRS = /datum/game_mode/traitor/internal_affairs,
 	ROLE_SENTIENCE,
 	ROLE_FAMILIES = /datum/game_mode/gang,
