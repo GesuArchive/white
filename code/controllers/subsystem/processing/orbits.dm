@@ -30,6 +30,7 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 	//Create initial ruins
 	for(var/i in 1 to initial_objective_beacons)
 		new /datum/orbital_object/z_linked/beacon/ruin()
+	new /datum/orbital_object/z_linked/habitable()
 
 /datum/controller/subsystem/processing/orbits/fire(resumed)
 	//Check creating objectives / missions.
