@@ -62,6 +62,7 @@
 	role = "Commander"
 	outfit = /datum/outfit/centcom/ert/commander
 	plasmaman_outfit = /datum/outfit/plasmaman/centcom_commander
+	leader = TRUE
 
 /datum/antagonist/ert/commander/red
 	outfit = /datum/outfit/centcom/ert/commander/alert
@@ -89,6 +90,7 @@
 	name = "Deathsquad Officer"
 	outfit = /datum/outfit/centcom/death_commando
 	role = "Officer"
+	leader = TRUE
 
 /datum/antagonist/ert/medic/inquisitor
 	outfit = /datum/outfit/centcom/ert/medic/inquisitor
@@ -133,6 +135,7 @@
 	name = "CentCom Head Intern"
 	outfit = /datum/outfit/centcom/centcom_intern/leader
 	role = "Head Intern"
+	leader = TRUE
 
 /datum/antagonist/ert/clown
 	role = "Clown"
@@ -189,17 +192,17 @@
 	if(!ert_team)
 		return
 
-	to_chat(owner, "<B><font size=3 color=red>Я [name].</font></B>")
+	to_chat(owner, "<span class='warningplain'><B><font size=3 color=red>Я [name].</font></B></span>")
 
-	var/missiondesc = "Мой отряд был отправлен на станцию [station_name()] с миссией от Отдела Безопасности Нанотрейсен ."
+	var/missiondesc = "Мой отряд был отправлен на станцию [station_name()] с миссией от Отдела Безопасности NanoTrasen."
 	if(leader) //If Squad Leader
-		missiondesc += "Ведите свой отряд чтобы обеспечить выполнение миссии. Садитесь на шаттл, когда ваша команда будет готова."
+		missiondesc += " Ведите свой отряд, чтобы обеспечить выполнение миссии. Отправьтесь на станцию при помощи шаттла, когда ваша команда будет готова."
 	else
-		missiondesc += "Следуйте приказам командира отряда."
+		missiondesc += " Следуйте приказам командира отряда."
 	if(!rip_and_tear)
-		missiondesc += "По возможности избегайте жертв среди гражданского населения."
+		missiondesc += " По возможности избегайте жертв среди гражданского населения."
 
-	missiondesc += "<BR><B>Ваша миссия</B>: [ert_team.mission.explanation_text]"
+	missiondesc += "<span class='warningplain'><BR><B>Задание</B>: [ert_team.mission.explanation_text]</span>"
 	to_chat(owner,missiondesc)
 
 
