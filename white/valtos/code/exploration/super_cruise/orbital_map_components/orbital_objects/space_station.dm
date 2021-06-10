@@ -18,4 +18,4 @@
 		maintain_orbit = FALSE
 		set_orbitting_around_body(station, 60)
 	else
-		set_orbitting_around_body(SSorbits.orbital_map.center, 7500)
+		set_orbitting_around_body(SSorbits.orbital_map.center, 1500)
