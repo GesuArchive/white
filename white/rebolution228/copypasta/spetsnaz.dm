@@ -13,6 +13,7 @@
 
 	owner.current.playsound_local(get_turf(owner.current), 'white/rebolution228/sounds/spetsnaz_spawn.ogg',100,0, use_reverb = FALSE)
 	to_chat(owner, "<B><font size=3 color=red>Я [name].</font></B>")
+
 	var/missiondesc = "Мое подразделение было отправлено на станцию '[station_name()]' с заданием от Российского Отдела Службы Безопасности NanoTrasen. "
 	if(leader)
 		missiondesc += "Ведите свой отряд, чтобы обеспечить выполнение миссии. Отправьтесь на станцию при помощи шаттла, когда ваша команда будет готова. "
@@ -47,6 +48,7 @@
 	name = "Лидер отряда"
 	outfit = /datum/outfit/spetsnaz/leader
 	role = "Лидер отряда спецназа"
+	leader = TRUE
 
 /datum/antagonist/ert/spetsnaz/update_name()
 	if(owner.current.gender == FEMALE)

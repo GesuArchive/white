@@ -17,6 +17,7 @@
 	name = "Лидер СОБР"
 	outfit = /datum/outfit/sobr/leader
 	role = "Лидер отряда СОБР"
+	leader = TRUE
 
 /datum/antagonist/ert/sobr/update_name()
 	owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Рядовой", "Ефрейтор", "Сержант")] [pick(name_source)]")
