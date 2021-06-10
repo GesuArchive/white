@@ -11,8 +11,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/exploration)
@@ -164,9 +164,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
 "w" = (
@@ -185,6 +182,9 @@
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
 "y" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
 "z" = (
@@ -235,6 +235,12 @@
 "J" = (
 /obj/machinery/telecomms/server/presets/exploration,
 /obj/effect/turf_decal/delivery,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/exploration)
+"K" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/exploration)
 "L" = (
@@ -318,7 +324,8 @@
 "X" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/atmospherics/components/unary/tank/air{
-	dir = 8
+	dir = 8;
+	piping_layer = 4
 	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
@@ -393,7 +400,7 @@ H
 u
 z
 s
-U
+K
 L
 n
 G
