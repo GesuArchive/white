@@ -414,7 +414,7 @@
 
 /obj/effect/mob_spawn/human/hotel_staff/Destroy()
 	new/obj/structure/fluff/empty_sleeper/syndicate(get_turf(src))
-		..()
+	. = ..()
 
 /obj/effect/mob_spawn/human/demonic_friend
 	name = "Essence of friendship"
