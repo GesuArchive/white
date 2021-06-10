@@ -323,21 +323,21 @@
 
 /datum/map_template/ruin_part/charliestation
 	file_name = "69x45_charliestation"
-	weight = 1
+	weight = 5
 	loot_room = TRUE
 	max_occurances = 1
 
 /datum/map_template/ruin_part/teleporter
 	file_name = "9x13_teleporter"
-	weight = 1
+	weight = 5
 	max_occurances = 1
 
 /datum/map_template/ruin_part/telepadovo
 	file_name = "23x21_telepadovo"
-	weight = 1
+	weight = 5
 	max_occurances = 1
 
 /datum/map_template/ruin_part/autism
 	file_name = "49x47_autism"
-	weight = 1
+	weight = 5
 	max_occurances = 1
