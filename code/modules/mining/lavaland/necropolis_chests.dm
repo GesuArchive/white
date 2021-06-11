@@ -317,8 +317,8 @@
 
 //Red/Blue Cubes
 /obj/item/warp_cube
-	name = "синий cube"
-	desc = "A mysterious blue cube."
+	name = "синий куб"
+	desc = "Загадочный синий куб."
 	icon = 'icons/obj/lavaland/artefacts.dmi'
 	icon_state = "blue_cube"
 	var/teleport_color = "#3FBAFD"
@@ -349,7 +349,9 @@
 		user.forceMove(get_turf(link_holder))
 		qdel(link_holder)
 		return
-	link_holder.forceMove(get_turf(linked))
+	var/link_holder_target_turf = get_turf(linked)
+	linked.forceMove(get_turf(link_holder))
+	link_holder.forceMove(link_holder_target_turf)
 	sleep(2.5)
 	if(QDELETED(user))
 		qdel(link_holder)
@@ -361,8 +363,8 @@
 	qdel(link_holder)
 
 /obj/item/warp_cube/red
-	name = "красный cube"
-	desc = "A mysterious red cube."
+	name = "красный куб"
+	desc = "Загадочный красный куб."
 	icon_state = "red_cube"
 	teleport_color = "#FD3F48"
 

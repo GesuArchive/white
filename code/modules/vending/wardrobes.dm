@@ -125,7 +125,8 @@
 	icon_state = "cargodrobe"
 	product_ads = "Модернизированный стиль ассистента!;Выберите себе сегодня!;Эти шорты удобны и их легко носить, приобретите сейчас!"
 	vend_reply = "Спасибо за использование CargoDrobe!"
-	products = list(/obj/item/clothing/suit/hooded/wintercoat/cargo = 3,
+	products = list(/obj/item/storage/bag/mail = 3,	
+					/obj/item/clothing/suit/hooded/wintercoat/cargo = 3,
 					/obj/item/clothing/under/rank/cargo/tech = 3,
 					/obj/item/clothing/under/rank/cargo/tech/skirt = 3,
 					/obj/item/clothing/shoes/sneakers/black = 3,

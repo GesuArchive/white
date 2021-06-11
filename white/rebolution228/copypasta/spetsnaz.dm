@@ -78,6 +78,7 @@
 	belt = /obj/item/storage/belt/military/spetsnaz
 	id = /obj/item/card/id/advanced/centcom
 	r_pocket = /obj/item/kitchen/knife/combat
+	l_pocket = /obj/item/flashlight/seclite
 
 /datum/outfit/spetsnaz/pre_equip(mob/living/carbon/human/H)
 	back = /obj/item/gun/ballistic/automatic/ak74m
@@ -132,6 +133,7 @@
 	belt = /obj/item/storage/belt/military/spetsnaz/leader
 	id = /obj/item/card/id/advanced/centcom
 	r_pocket = /obj/item/kitchen/knife/combat
+	l_pocket = /obj/item/flashlight/seclite
 
 /datum/outfit/spetsnaz/leader/pre_equip(mob/living/carbon/human/H)
 	back = /obj/item/gun/ballistic/automatic/asval
@@ -181,5 +183,5 @@
 		new /obj/item/reagent_containers/hypospray/medipen/stimpack/traitor(src)
 
 /obj/item/clothing/suit/armor/wzzzz/opvest/spetsnaz
-	armor = list(MELEE = 60, BULLET = 80, LASER = 60, ENERGY = 60, BOMB = 50, BIO = 20, RAD = 20, WOUND = 10)
+	armor = list(MELEE = 60, BULLET = 70, LASER = 60, ENERGY = 60, BOMB = 50, BIO = 20, RAD = 20, WOUND = 10)
 	strip_delay = 100

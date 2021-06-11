@@ -1,7 +1,7 @@
 /obj/item/gun/energy/kinetic_accelerator/super_kinetic_accelerator
 	name = "super proto-kinetic accelerator"
 	desc = "A self recharging, ranged mining tool that does increased damage in low pressure, now with more mod capacity! But without damage..."
-	ammo_type = list(/obj/item/ammo_casing/energy/kinetic/decreased_damage)
+	ammo_type = list(/obj/item/ammo_casing/energy/kinetic/no_damage)
 	max_mod_capacity = 250
 
 	// add here mods that CAN be attached
@@ -41,11 +41,11 @@
 	else
 		..()
 
-/obj/projectile/kinetic/decreased_damage
-	damage = 5
 
-/obj/item/ammo_casing/energy/kinetic/decreased_damage
-	projectile_type = /obj/projectile/kinetic
+/obj/projectile/kinetic/no_damage
+	damage = 0
+/obj/item/ammo_casing/energy/kinetic/no_damage
+	projectile_type = /obj/projectile/kinetic/no_damage
 
 
 /obj/item/gun/energy/kinetic_accelerator/super_kinetic_accelerator/shoot_live_shot(mob/living/user, pointblank = 0, atom/pbtarget = null, message = 1)
