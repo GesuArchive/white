@@ -156,19 +156,6 @@
 	var/title
 	var/challengeitem = /obj/item/nuclear_challenge
 
-/datum/antagonist/nukeop/leader/memorize_code()
-	..()
-	if(nuke_team?.memorized_code)
-		var/obj/item/paper/P = new
-		P.info = "The nuclear authorization code is: <b>[nuke_team.memorized_code]</b>"
-		P.name = "nuclear bomb code"
-		var/mob/living/carbon/human/H = owner.current
-		if(!istype(H))
-			P.forceMove(get_turf(H))
-		else
-			H.put_in_hands(P, TRUE)
-			H.update_icons()
-
 /datum/antagonist/nukeop/leader/give_alias()
 	title = pick("Czar", "Boss", "Commander", "Chief", "Kingpin", "Director", "Overlord")
 	if(nuke_team?.syndicate_name)
