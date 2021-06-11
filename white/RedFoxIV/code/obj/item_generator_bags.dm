@@ -73,6 +73,9 @@
 	charges--
 	if(self_charge)
 		timer = addtimer(CALLBACK(src, .proc/recharge), recharge_time, TIMER_UNIQUE | TIMER_STOPPABLE | TIMER_LOOP)
+		//TIMER_UNIQUE will keep only one timer active and does not allow overriding the timer
+		//TIMER_STOPPABLE so we can deltimer() it
+		//TIMER_LOOP so the loop is handled by the timer subsystem instead of just creating a timer after timer
 
 	var/obj/item/item = try_spawn(user)
 	src.add_fingerprint(user)
@@ -123,8 +126,12 @@
 		to_chat(user, "<span class = 'notice'>Из что-то выпадает!</span>")
 		return FALSE
 
-/obj/item/item_generator/proc/recharge() 
-	if(charges < max_charges && self_charge)
-		charges++
-	else
+/obj/item/item_generator/proc/recharge()
+	if(!self_charge) //safeguard
 		deltimer(timer) //don't care about passing null to deltimer, it just returns false immediately.
+		return
+	
+	if(charges < max_charges)
+		charges++
+	if(charges >= max_charges) //second check to see if we have reached the max_charges after adding one charge.
+		deltimer(timer) //if so, delete the timer
