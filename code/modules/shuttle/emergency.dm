@@ -591,8 +591,6 @@
 	name = "консоль управления подом"
 	recall_docking_port_id = "null"
 	request_shuttle_message = "Форсировать отлёт"
-	autopilot_forced = TRUE
-	possible_destinations = "pod_asteroid"
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "dorm_available"
 	light_color = LIGHT_COLOR_BLUE
