@@ -41,7 +41,10 @@
 /datum/orbital_objective/vip_recovery/generate_objective_stuff(turf/chosen_turf)
 	var/mob/living/carbon/human/created_human = new(chosen_turf)
 	//Maybe polling ghosts would be better than the shintience code
-	//created_human.set_playable()
+	created_human.ice_cream_mob = TRUE
+	ADD_TRAIT(created_human, TRAIT_CLIENT_LEAVED, "ice_cream")
+	notify_ghosts("VIP-персона может быть занята.", source = created_human, action = NOTIFY_ORBIT, flashwindow = FALSE, ignore_key = POLL_IGNORE_SPLITPERSONALITY, notify_suiciders = FALSE)
+	created_human.AddElement(/datum/element/point_of_interest)
 	created_human.mind_initialize()
 	//Remove nearby dangers
 	for(var/mob/living/simple_animal/hostile/SA in view(10, created_human))
