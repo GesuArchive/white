@@ -725,8 +725,9 @@ GLOBAL_LIST_EMPTY(PDAs)
 	var/t = stripped_input(U, "Что же мы напишем?", name)
 	if (!t || toff)
 		return
-	if(!U.canUseTopic(src, BE_CLOSE))
-		return
+	if(!issilicon(U))
+		if(!U.canUseTopic(src, BE_CLOSE))
+			return
 	if(emped)
 		t = Gibberish(t, TRUE)
 	return t
