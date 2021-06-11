@@ -92,7 +92,7 @@ SUBSYSTEM_DEF(zclear)
 		LAZYREMOVE(free_levels, picked_level)
 		//In 1 minute we will begine tracking when all mobs have left the z-level.
 		//Begin tracking. In the rare case that someone got into a free z-level then just allow them to float there with no ruins. Space is pretty empty you know.
-		addtimer(CALLBACK(src, .proc/begin_tracking, picked_level), 60 SECONDS)
+		addtimer(CALLBACK(src, .proc/begin_tracking, picked_level), 120 SECONDS)
 		//Check if the z-level is actually free. (Someone might have drifted into the z-level.)
 		var/free = TRUE
 		for(var/mob/living/L in GLOB.player_list)

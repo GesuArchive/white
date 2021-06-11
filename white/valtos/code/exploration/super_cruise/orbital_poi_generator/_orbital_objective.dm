@@ -44,7 +44,10 @@
 		return
 	completed = TRUE
 	//Handle payout
-	SSeconomy.adjust_cargo_money(payout, "ЦК", "*ЗАСЕКРЕЧЕНО*", "Выполнение задания")
+	var/delitme = round(payout / SSeconomy.generated_accounts.len)
+	for(var/datum/bank_account/B in SSeconomy.generated_accounts)
+		B.adjust_money(delitme)
+	//SSeconomy.adjust_cargo_money(payout, "ЦК", "*ЗАСЕКРЕЧЕНО*", "Выполнение задания")
 	//Announcement
 	priority_announce("Задание выполнено. [payout] кредитов было выдано на счёт снабжения.", "Центральное Командование", SSstation.announcer.get_rand_report_sound())
 	//Delete

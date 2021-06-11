@@ -41,6 +41,19 @@
 	. = ..()
 	SSorbits.assoc_shuttles.Remove(shuttle_port_id)
 
+/datum/orbital_object/shuttle/stealth/infiltrator
+	max_thrust = 1.5
+
+/datum/orbital_object/shuttle/stealth/steel_rain
+	max_thrust = 3
+
+/datum/orbital_object/shuttle/stealth
+	stealth = TRUE
+
+/datum/orbital_object/shuttle/Destroy()
+	. = ..()
+	SSorbits.assoc_shuttles.Remove(shuttle_port_id)
+
 //Dont fly into the sun idiot.
 /datum/orbital_object/shuttle/explode()
 	var/obj/docking_port/mobile/port = SSshuttle.getShuttle(shuttle_port_id)

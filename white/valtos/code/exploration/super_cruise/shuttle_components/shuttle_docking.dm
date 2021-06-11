@@ -12,7 +12,7 @@
 	var/obj/docking_port/mobile/shuttle_port //the mobile docking port of the connected shuttle
 	var/view_range = 0
 	var/list/whitelist_turfs = list(/turf/open/space, /turf/open/openspace, /turf/open/floor/plating/lavaland_baseturf, /turf/open/floor/plating/asteroid, /turf/open/lava)
-	var/designate_time = 300
+	var/designate_time = 50
 	var/turf/designating_target_loc
 
 /obj/machinery/computer/shuttle_flight/Initialize(mapload, obj/item/circuitboard/C)
