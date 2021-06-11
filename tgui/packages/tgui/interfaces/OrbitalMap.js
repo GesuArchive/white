@@ -18,6 +18,7 @@ export const OrbitalMap = (props, context) => {
     desired_vel_y = 0,
     validDockingPorts = [],
     isDocking = false,
+    has_radar = true,
   } = data;
   const lineStyle = {
     stroke: '#BBBBBB',
@@ -62,8 +63,8 @@ export const OrbitalMap = (props, context) => {
   }
   return (
     <Window
-      width={1036}
-      height={670}>
+      width={has_radar ? 1036 : 400}
+      height={has_radar ? 670 : 500}>
       <Window.Content>
         <div class="OrbitalMap__radar">
           <Button
@@ -251,6 +252,7 @@ export const OrbitalMap = (props, context) => {
           </DraggableControl>
         </div>
         <div class="OrbitalMap__panel">
+          {!has_radar || (
           <Section title="Отслеживание тел" height="100%">
             <Box bold>
               Отслеживание
@@ -291,7 +293,25 @@ export const OrbitalMap = (props, context) => {
               options={map_objects.map(map_object => (map_object.name))}
               onSelected={value => setTrackedBody(value)} />
           </Section>
+          )}
+          {!has_radar || (
           <Divider />
+          )}
+          {!isDocking && !has_radar || (
+            <Dropdown
+              mt={1}
+              selected="Выбрать место стыковки"
+              width="100%"
+              options={validDockingPorts.map(
+                map_object => (
+                  <option key={map_object.id}>
+                    {map_object.name}
+                  </option>
+                ))}
+              onSelected={value => act("gotoPort", {
+                port: value.key,
+              })} />
+          )}
           <Section title="Управление полётом" height="100%">
             {(!thrust_alert) || (
               <NoticeBox color="red">

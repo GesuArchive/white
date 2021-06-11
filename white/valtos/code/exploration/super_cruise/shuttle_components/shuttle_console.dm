@@ -23,6 +23,8 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 	var/possible_destinations = ""
 	var/list/valid_docks = list("")
 
+	var/has_radar = TRUE
+
 	//Our orbital body.
 	var/datum/orbital_object/shuttle/shuttleObject
 
@@ -87,6 +89,7 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 	var/list/data = list()
 	//Add orbital bodies
 	data["map_objects"] = list()
+	data["has_radar"] = has_radar
 	for(var/datum/orbital_object/object in SSorbits.orbital_map.bodies)
 		if(!object)
 			continue
