@@ -49,7 +49,11 @@
 	var/list/display_names = list()
 	var/list/bat_icons = list()
 
-	for(var/bat in typesof(/obj/item/melee/baseball_bat/hos))
+	var/list/available_items = typesof(/obj/item/melee/baseball_bat/hos)
+	//if you want to add an item to the selection that is not subtype of /obj/item/melee/baseball_bat/hos, add it here 
+	var/list/additional_items = list(/obj/item/item_generator/brick)
+	//////////////////////////////////////////////////////////////////
+	for(var/bat in available_items)
 		var/obj/item/melee/baseball_bat/hos/bat_type = bat
 		if(!initial(bat_type.selectable))
 			continue
@@ -59,6 +63,11 @@
 				continue
 		display_names[initial(bat_type.name)] = bat_type
 		bat_icons += list(initial(bat_type.name) = image(icon = initial(bat_type.icon), icon_state = initial(bat_type.icon_state)))
+	
+	for(var/item_type in additional_items)
+		var/obj/item/item = item_type
+		display_names[initial(item.name)] = item
+		bat_icons += list(initial(item.name) = image(icon = initial(item.icon), icon_state = initial(item.icon_state)))
 	bat_icons = sortList(bat_icons)
 	var/choice = show_radial_menu(user, src , bat_icons, custom_check = CALLBACK(src, .proc/check_menu, user), radius = 42, require_near = TRUE)
 	if(!choice || !check_menu(user))
@@ -117,20 +126,63 @@
 
 
 //кирпич
-/obj/item/melee/baseball_bat/hos/brick
+/obj/item/item_generator/brick //Сегодня мы пиздим у Молдаван
+	name = "Мешок с кирпичами"
+	desc = "Ворует кирпичи у Молдаван используя блюспейс технологию. Достаточно теплый на ощупь"
+	slot_flags = ITEM_SLOT_BELT
+	charges = 3
+	max_charges = 3
+	self_charge = TRUE
+	recharge_time = 12 SECONDS
+	items = list(/obj/item/melee/brick)
+	bluespace_effect = TRUE
+	word1 = "кирпич"
+	word2 = "кирпича"
+	word5 = "кирпичей"
+
+/obj/item/item_generator/brick/Initialize()
+	. = ..()
+	update_icon()
+
+/obj/item/item_generator/brick/update_overlays()
+	. = ..()
+	. += "overlay_bluespace"
+
+/obj/item/melee/brick 
 	name = "кирпич"
 	desc = "Необычайно тяжёлый кирпич. Удобно сидит в вашей руке."
+	icon = 'white/RedFoxIV/icons/obj/weapons/melee/hosbat/hosbat.dmi'
 	icon_state = "brick"
 	force = 5
-	throwforce = 35
+	throwforce = 20
 
-/obj/item/melee/baseball_bat/hos/brick/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+/obj/item/melee/brick/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
-	if(istype(hit_atom,/mob/living))
-		var/mob/living/L = hit_atom
-		L.Paralyze(11)
-		L.Jitter(11)
-//STOP
+	if(isliving(loc) && prob(75)) //i have no fucking idea if this works lmfao
+		return
+	if(!istype(hit_atom,/mob/living))
+		src.visible_message(message = "<span class='alert'>The brick shatters into a fine mist upon impact, like it never existed to begin with...</span>")
+		qdel(src)
+		return
+
+	var/mob/living/L = hit_atom
+	L.Paralyze(5)
+	L.Jitter(15)
+	L.blur_eyes(10)
+	if (prob(0.1)) //расколбас
+		var/obj/item/bodypart/head/head = L.get_bodypart(BODY_ZONE_HEAD)
+		if(!head)
+			qdel(src)
+			return
+		L.visible_message("<span class='danger'>Голова [L] распидорашивается кирпичом нахуй!</span>", "<span class='userdanger'>Кирпич уничтожает мою голову!</span>")
+		L.emote("blyadiada")
+		new /obj/effect/gibspawner/generic(get_turf(L), L)
+		head.dismember(BRUTE)
+		head.drop_organs()
+		qdel(head)
+		L.regenerate_icons()
+	qdel(src)
+
 /obj/item/melee/baseball_bat/hos/stopsign
 	name = "дорожный знак"
 	desc = "Где ты его вообще достал? В космосе ведь нет дорог."
