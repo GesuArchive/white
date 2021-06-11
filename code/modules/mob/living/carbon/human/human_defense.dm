@@ -158,7 +158,7 @@
 	if(istype(AM, /obj/item))
 		I = AM
 		throwpower = I.throwforce
-		if(I.thrownby == src) //No throwing stuff at yourself to trigger hit reactions
+		if(I.thrownby == WEAKREF(src)) //No throwing stuff at yourself to trigger hit reactions
 			return ..()
 	if(check_shields(AM, throwpower, "[AM.name]", THROWN_PROJECTILE_ATTACK))
 		hitpush = FALSE
