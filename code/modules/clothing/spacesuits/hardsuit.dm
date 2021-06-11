@@ -33,6 +33,10 @@
 
 /obj/item/clothing/head/helmet/space/hardsuit/Destroy()
 	. = ..()
+	if(!QDELETED(suit))
+		qdel(suit)
+	suit = null
+	QDEL_NULL(soundloop)
 	STOP_PROCESSING(SSobj, src)
 
 /obj/item/clothing/head/helmet/space/hardsuit/attack_self(mob/user)
@@ -114,7 +118,6 @@
 	var/helmettype = /obj/item/clothing/head/helmet/space/hardsuit
 	var/obj/item/tank/jetpack/suit/jetpack = null
 	var/hardsuit_type
-
 
 /obj/item/clothing/suit/space/hardsuit/Initialize()
 	if(jetpack && ispath(jetpack))
@@ -909,10 +912,7 @@
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/shielded/syndi
 	slowdown = 0
 	shield_icon = "shield-red"
-
-/obj/item/clothing/suit/space/hardsuit/shielded/syndi/Initialize()
-	jetpack = new /obj/item/tank/jetpack/suit(src)
-	. = ..()
+	jetpack = /obj/item/tank/jetpack/suit
 
 /obj/item/clothing/head/helmet/space/hardsuit/shielded/syndi
 	name = "кроваво-красный шлем"

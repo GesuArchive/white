@@ -148,7 +148,7 @@
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
-	if(H.get_item_by_slot(ITEM_SLOT_HEAD) == src)
+	if(H.get_item_by_slot(ITEM_SLOT_HEAD) == src && !QDELETED(src)) //This can be called as a part of destroy
 		user.remove_language(/datum/language/piratespeak/, TRUE, TRUE, LANGUAGE_HAT)
 		to_chat(user, span_boldnotice("Забываю как говорить, как пират."))
 

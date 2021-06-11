@@ -70,8 +70,8 @@
 	var/list/skills_rewarded
 	///Assoc list of skills. Use SKILL_LVL to access level, and SKILL_EXP to access skill's exp.
 	var/list/known_skills = list()
-	///What character we joined in as- either at roundstart or latejoin, so we know for persistent scars if we ended as the same person or not
-	var/mob/original_character
+	///Weakref to thecharacter we joined in as- either at roundstart or latejoin, so we know for persistent scars if we ended as the same person or not
+	var/datum/weakref/original_character
 	/// The index for what character slot, if any, we were loaded from, so we can track persistent scars on a per-character basis. Each character slot gets PERSISTENT_SCAR_SLOTS scar slots
 	var/original_character_slot_index
 	/// The index for our current scar slot, so we don't have to constantly check the savefile (unlike the slots themselves, this index is independent of selected char slot, and increments whenever a valid char is joined with)
@@ -99,10 +99,9 @@
 
 /datum/mind/Destroy()
 	SSticker.minds -= src
-	if(islist(antag_datums))
-		QDEL_LIST(antag_datums)
-	current = null
-	soulOwner = null
+	QDEL_LIST(antag_datums)
+	QDEL_NULL(language_holder)
+	set_current(null)
 	return ..()
 
 /datum/mind/proc/set_current(mob/new_current)
@@ -124,8 +123,8 @@
 	return language_holder
 
 /datum/mind/proc/transfer_to(mob/new_character, force_key_move = 0)
-	original_character = null
-	if(current)	// remove ourself from our old body's mind variable
+	set_original_character(null)
+	if(current) // remove ourself from our old body's mind variable
 		current.mind = null
 		UnregisterSignal(current, COMSIG_LIVING_DEATH)
 		SStgui.on_transfer(current, new_character)
@@ -136,16 +135,16 @@
 	else
 		key = new_character.key
 
-	if(new_character.mind)								//disassociate any mind currently in our new body's mind variable
-		new_character.mind.current = null
+	if(new_character.mind) //disassociate any mind currently in our new body's mind variable
+		new_character.mind.set_current(null)
 
 	var/datum/atom_hud/antag/hud_to_transfer = antag_hud//we need this because leave_hud() will clear this list
 	var/mob/living/old_current = current
 	if(current)
-		current.transfer_observers_to(new_character)	//transfer anyone observing the old character to the new one
-	current = new_character								//associate ourself with our new body
-	new_character.mind = src							//and associate our new body with ourself
-	for(var/a in antag_datums)	//Makes sure all antag datums effects are applied in the new body
+		current.transfer_observers_to(new_character) //transfer anyone observing the old character to the new one
+	set_current(new_character) //associate ourself with our new body
+	new_character.mind = src //and associate our new body with ourself
+	for(var/a in antag_datums) //Makes sure all antag datums effects are applied in the new body
 		var/datum/antagonist/A = a
 		A.on_body_transfer(old_current, current)
 	if(iscarbon(new_character))
@@ -161,6 +160,10 @@
 		LAZYCLEARLIST(new_character.client.recent_examines)
 		new_character.client.init_verbs() // re-initialize character specific verbs
 	current.update_atom_languages()
+
+//I cannot trust you fucks to do this properly
+/datum/mind/proc/set_original_character(new_original_character)
+	original_character = WEAKREF(new_original_character)
 
 /datum/mind/proc/init_known_skills()
 	for (var/type in GLOB.skill_types)
@@ -850,7 +853,7 @@
 		SSticker.minds += mind
 	if(!mind.name)
 		mind.name = real_name
-	mind.current = src
+	mind.set_current(src)
 
 /mob/living/carbon/mind_initialize()
 	..()
