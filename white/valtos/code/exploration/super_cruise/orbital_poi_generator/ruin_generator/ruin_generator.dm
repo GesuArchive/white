@@ -546,14 +546,8 @@
 		var/objective_turf = pick(floor_turfs)
 		var/split_loc = splittext(objective_turf, "_")
 		M.forceMove(locate(text2num(split_loc[1]), text2num(split_loc[2]), center_z))
+
 	SSzclear.nullspaced_mobs.Cut()
-
-	//Generate research disks
-	for(var/i in 1 to rand(1, 3))
-		var/objective_turf = pick(floor_turfs)
-		var/split_loc = splittext(objective_turf, "_")
-		new /obj/effect/spawner/lootdrop/ruinloot/important(locate(text2num(split_loc[1]), text2num(split_loc[2]), center_z))
-
 	SSair.unpause_z(center_z)
 
 	log_mapping("Finished generating ruin at [center_x], [center_y], [center_z]")
