@@ -199,8 +199,7 @@
 					else if(href_list["target"])
 						if(silent)
 							return alert("Communications circuits remain uninitialized.")
-						var/target = locate(href_list["target"]) in GLOB.PDAs
-						aiPDA.create_message(src, target)
+						aiPDA.create_message(src, locate(href_list["target"]) in GLOB.PDAs)
 
 			if("medicalrecord") // Accessing medical records
 				if(subscreen == 1)
@@ -596,8 +595,7 @@
 		for (var/obj/item/pda/P in get_viewable_pdas())
 			if (P == aiPDA)
 				continue
-			dat += "<li><a href='byond://?src=[REF(src)];software=pdamessage;target=[REF(P)]'>[P]</a>"
-			dat += "</li>"
+			dat += "<li><a href='byond://?src=[REF(src)];software=pdamessage;target=[REF(P)]'>[P]</a></li>"
 	dat += "</ul>"
 	dat += "<br><br>"
 	dat += "Messages: <hr> [aiPDA.tnote]"

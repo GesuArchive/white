@@ -722,7 +722,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 
 
 /obj/item/pda/proc/msg_input(mob/living/U = usr)
-	var/t = stripped_input(U, "Please enter message", name)
+	var/t = stripped_input(U, "Что же мы напишем?", name)
 	if (!t || toff)
 		return
 	if(!U.canUseTopic(src, BE_CLOSE))

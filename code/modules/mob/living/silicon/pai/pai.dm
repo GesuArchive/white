@@ -1,5 +1,5 @@
 /mob/living/silicon/pai
-	name = "pAI"
+	name = "пИИ"
 	icon = 'icons/mob/pai.dmi'
 	icon_state = "repairbot"
 	mouse_opacity = MOUSE_OPACITY_ICON
@@ -7,7 +7,7 @@
 	hud_type = /datum/hud/pai
 	pass_flags = PASSTABLE | PASSMOB
 	mob_size = MOB_SIZE_TINY
-	desc = "A generic pAI mobile hard-light holographics emitter. It seems to be deactivated."
+	desc = "Обычный миниатюрный карманный ИИ с голографическим проектором. Этот выключен."
 	weather_immunities = list("ash")
 	health = 500
 	maxHealth = 500
@@ -154,7 +154,7 @@
 	//PDA
 	aiPDA = new/obj/item/pda/ai(src)
 	aiPDA.owner = real_name
-	aiPDA.ownjob = "pAI Messenger"
+	aiPDA.ownjob = "Мессенджер пИИ"
 	aiPDA.name = real_name + " (" + aiPDA.ownjob + ")"
 
 /mob/living/silicon/pai/proc/process_hack()
@@ -163,7 +163,7 @@
 	if(hacking_cable && hacking_cable.machine && istype(hacking_cable.machine, /obj/machinery/door) && hacking_cable.machine == hackdoor && get_dist(src, hackdoor) <= 1)
 		hackprogress = clamp(hackprogress + 4, 0, 100)
 	else
-		temp = "Door Jack: Connection to airlock has been lost. Hack aborted."
+		temp = "Взломщик дверей: Соединение с шлюзом потеряно. Взлом прерван."
 		hackprogress = 0
 		hacking = FALSE
 		hackdoor = null
@@ -197,9 +197,9 @@
 /mob/living/silicon/pai/get_status_tab_items()
 	. += ..()
 	if(!stat)
-		. += text("Emitter Integrity: [emitterhealth * (100/emittermaxhealth)]")
+		. += text("Состояние проектора: [emitterhealth * (100/emittermaxhealth)]")
 	else
-		. += text("Systems nonfunctional")
+		. += text("Системы деактивированы")
 
 
 // See software.dm for Topic()
@@ -217,7 +217,7 @@
 		qdel(src)
 
 /datum/action/innate/pai
-	name = "PAI Action"
+	name = "Действия пИИ"
 	icon_icon = 'icons/mob/actions/actions_silicon.dmi'
 	var/mob/living/silicon/pai/P
 
@@ -227,7 +227,7 @@
 	P = owner
 
 /datum/action/innate/pai/software
-	name = "Software Interface"
+	name = "Программный Интерфейс"
 	button_icon_state = "pai"
 	background_icon_state = "bg_tech"
 
@@ -236,7 +236,7 @@
 	P.paiInterface()
 
 /datum/action/innate/pai/shell
-	name = "Toggle Holoform"
+	name = "Переключить Голоформу"
 	button_icon_state = "pai_holoform"
 	background_icon_state = "bg_tech"
 
@@ -248,7 +248,7 @@
 		P.fold_out()
 
 /datum/action/innate/pai/chassis
-	name = "Holochassis Appearance Composite"
+	name = "Изменить композицию голограммы"
 	button_icon_state = "pai_chassis"
 	background_icon_state = "bg_tech"
 
@@ -257,7 +257,7 @@
 	P.choose_chassis()
 
 /datum/action/innate/pai/rest
-	name = "Rest"
+	name = "Лежать"
 	button_icon_state = "pai_rest"
 	background_icon_state = "bg_tech"
 
@@ -266,7 +266,7 @@
 	P.toggle_resting()
 
 /datum/action/innate/pai/light
-	name = "Toggle Integrated Lights"
+	name = "Переключить фонарик"
 	icon_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "emp"
 	background_icon_state = "bg_tech"
@@ -285,7 +285,7 @@
 
 /mob/living/silicon/pai/examine(mob/user)
 	. = ..()
-	. += "<hr>A personal AI in holochassis mode. Its master ID string seems to be [master]."
+	. += "<hr>Персональный ИИ в голографической проекции. ID мастера указывает на [master]."
 
 /mob/living/silicon/pai/Life()
 	. = ..()
@@ -294,7 +294,7 @@
 	if(hacking_cable)
 		if(get_dist(src, hacking_cable) > 1)
 			var/turf/T = get_turf(src)
-			T.visible_message("<span class='warning'>[hacking_cable] rapidly retracts back into its spool.</span>", "<span class='hear'>You hear a click and the sound of wire spooling rapidly.</span>")
+			T.visible_message("<span class='warning'>[hacking_cable] быстро втягивается обратно.</span>", "<span class='hear'>Слышу щелчок и быстрое сворачивание кабеля.</span>")
 			QDEL_NULL(hacking_cable)
 			if(!QDELETED(card))
 				card.update_icon()
@@ -314,7 +314,7 @@
 /obj/item/paicard/attackby(obj/item/W, mob/user, params)
 	if(pai && (istype(W, /obj/item/encryptionkey) || W.tool_behaviour == TOOL_SCREWDRIVER))
 		if(!pai.encryptmod)
-			to_chat(user, "<span class='alert'>Encryption Key ports not configured.</span>")
+			to_chat(user, "<span class='alert'>Порт ключей шифрования не настроен.</span>")
 			return
 		user.set_machine(src)
 		pai.radio.attackby(W, user, params)
