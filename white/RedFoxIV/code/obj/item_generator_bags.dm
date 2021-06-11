@@ -30,16 +30,16 @@
 //http://www.seoded.ru/webmaster/sozdanie-saita/sklonenie-suschestvitelnykh-s-ciframi.html
 /obj/item/item_generator/proc/incline(n)
 	if(n % 100 > 4 && n % 100 < 20)
-		return word2
+		return src.word2
 
 	var/a = list(2,0,1,1,1,2)[min(n%10, 5)+1]
 	switch(a)
 		if(0)
-			return word1
+			return src.word1
 		if(1)
-			return word2
+			return src.word2
 		if(2)
-			return word5
+			return src.word5
 
 ///Returns an item path to spawn. Override this proc if you don't want to choose randomly from a list.
 /obj/item/item_generator/proc/pick_item()

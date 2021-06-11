@@ -78,9 +78,10 @@
 
 	if(chosen_bat)
 		qdel(src)
-		if(!debug_morph)
-			chosen_bat.reskinned = TRUE
-		chosen_bat.debug_morph = debug_morph
+		if(istype(chosen_bat, /obj/item/melee/baseball_bat/hos))
+			if(!debug_morph)
+				chosen_bat.reskinned = TRUE
+			chosen_bat.debug_morph = debug_morph
 		user.put_in_hands(chosen_bat)
 //</stolen from nullrod code>
 
@@ -155,6 +156,7 @@
 	icon_state = "brick"
 	force = 5
 	throwforce = 20
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/melee/brick/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
