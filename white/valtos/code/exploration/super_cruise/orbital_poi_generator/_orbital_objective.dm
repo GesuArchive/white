@@ -45,10 +45,11 @@
 	completed = TRUE
 	//Handle payout
 	var/delitme = round(payout / SSeconomy.generated_accounts.len)
-	for(var/datum/bank_account/B in SSeconomy.generated_accounts)
-		B.adjust_money(delitme)
+	for(var/B in SSeconomy.bank_accounts_by_id)
+		var/datum/bank_account/A = SSeconomy.bank_accounts_by_id[B]
+		A.adjust_money(delitme)
 	//SSeconomy.adjust_cargo_money(payout, "ЦК", "*ЗАСЕКРЕЧЕНО*", "Выполнение задания")
 	//Announcement
-	priority_announce("Задание выполнено. [payout] кредитов было выдано на счёт снабжения.", "Центральное Командование", SSstation.announcer.get_rand_report_sound())
+	priority_announce("Задание выполнено. [payout] кредитов было распределено между всем экипажем.", "Центральное Командование", SSstation.announcer.get_rand_report_sound())
 	//Delete
 	QDEL_NULL(SSorbits.current_objective)

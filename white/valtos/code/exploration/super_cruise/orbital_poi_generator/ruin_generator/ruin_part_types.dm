@@ -326,18 +326,22 @@
 	weight = 50
 	loot_room = TRUE
 	max_occurances = 1
+	special_flags = RUIN_PART_HABITABLE
 
 /datum/map_template/ruin_part/teleporter
 	file_name = "9x13_teleporter"
 	weight = 50
 	max_occurances = 1
+	special_flags = RUIN_PART_HABITABLE
 
 /datum/map_template/ruin_part/telepadovo
 	file_name = "23x21_telepadovo"
 	weight = 50
 	max_occurances = 1
+	special_flags = RUIN_PART_HABITABLE
 
 /datum/map_template/ruin_part/autism
 	file_name = "49x47_autism"
 	weight = 50
 	max_occurances = 1
+	special_flags = RUIN_PART_HABITABLE

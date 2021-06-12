@@ -171,7 +171,9 @@
 
 	if(prob(25))
 		special_name = TRUE
-		junk = pick(list(/obj/item/paper/pamphlet/gateway, /obj/item/paper/pamphlet/violent_video_games, /obj/item/paper/fluff/junkmail_redpill, /obj/effect/decal/cleanable/ash))
+		junk = pick(list(/obj/item/paper/pamphlet/gateway, /obj/item/paper/pamphlet/violent_video_games, /obj/effect/decal/cleanable/ash))
+		if(prob(1))
+			junk = /obj/item/paper/fluff/junkmail_redpill
 
 	var/list/junk_names = list(
 		/obj/item/paper/pamphlet/gateway = "[initial(name)] для [pick(GLOB.adjectives)] приключенцев",
@@ -273,7 +275,7 @@
 	for(var/obj/machinery/nuclearbomb/selfdestruct/self_destruct in GLOB.nuke_list)
 		self_destruct.r_code = code
 	message_admins("Through junkmail, the self-destruct code was set to \"[code]\".")
-	info = "<i>Тебе пора выходить из симуляции. Не забудь числа, они помогут тебе вспомнить:</i> '[code[rand(1,5)]][code[rand(1,5)]]...'"
+	info = "<i>Тебе пора выходить из симуляции. Не забудь числа, они помогут тебе вспомнить настоящий код от взрыва бомбы:</i> '[code[rand(1,5)]][code[rand(1,5)]]...'"
 
 /obj/item/paper/fluff/junkmail_redpill/true //admin letter enabling players to brute force their way through the nuke code if they're so inclined.
 	nuclear_option_odds = 100

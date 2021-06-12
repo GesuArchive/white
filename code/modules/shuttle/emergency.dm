@@ -595,6 +595,7 @@
 	icon_state = "dorm_available"
 	light_color = LIGHT_COLOR_BLUE
 	density = FALSE
+	has_radar = FALSE
 
 /obj/machinery/computer/shuttle_flight/pod/ComponentInitialize()
 	. = ..()

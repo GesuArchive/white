@@ -7,3 +7,6 @@
 #define ORBITAL_UPDATE_RATE 1
 #define ORBITAL_UPDATE_RATE_SECONDS 1	//1 second
 #define ORBITAL_UPDATES_PER_SECOND 1	//1 per second
+
+#define RUIN_PART_DEFAULT (1<<0)
+#define RUIN_PART_HABITABLE (1<<1)

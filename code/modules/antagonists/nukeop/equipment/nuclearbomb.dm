@@ -497,16 +497,17 @@
 	//INVOKE_ASYNC(GLOBAL_PROC,.proc/KillEveryoneOnZLevel, z) //Эта хуйня не работает, меняю на свое.
 
 
-/obj/machinery/nuclearbomb/proc/GrabDatFence() //Любой ядерный взрыв гибает всех на станции, ибо я не могу нормально реализовать, оно сразу же перестает работать.
+/obj/machinery/nuclearbomb/proc/GrabDatFence(nukez)
+	var/nukedstation = is_station_level(nukez)
 	for(var/i in GLOB.mob_living_list)
 		var/mob/living/L = i
-		var/turf/T = get_turf(L)
-		if(T || !is_station_level(T.z))
+		if (nukedstation && !is_station_level(L.z))
+			continue
+		else if (!nukedstation && L.z != nukez)
 			continue
 		to_chat(L, "<span class='userdanger'>Сгораю в огне ядерного пламени, БЛЯДЬ!</span>")
 		L.adjustFireLoss(500)
 		L.set_species(/datum/species/skeleton)
-
 
 /obj/machinery/nuclearbomb/proc/get_cinematic_type(off_station)
 	if(off_station < 2)

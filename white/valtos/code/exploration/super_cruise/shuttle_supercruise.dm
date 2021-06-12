@@ -15,6 +15,8 @@
 	var/datum/orbital_object/shuttle/our_orbital_body = new shuttle_object_type()
 	//Linkup
 	our_orbital_body.link_shuttle(src)
-	our_orbital_body.velocity = new(z_level.orbital_body.velocity.x, z_level.orbital_body.velocity.y)
+	our_orbital_body.thrust = 0
+	our_orbital_body.angle = 0
+	our_orbital_body.velocity = new(0, 0)
 	our_orbital_body.position = new(z_level.orbital_body.position.x + our_orbital_body.velocity.x, z_level.orbital_body.position.y + our_orbital_body.velocity.y)
 	return our_orbital_body
