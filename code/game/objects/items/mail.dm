@@ -275,7 +275,7 @@
 	for(var/obj/machinery/nuclearbomb/selfdestruct/self_destruct in GLOB.nuke_list)
 		self_destruct.r_code = code
 	message_admins("Through junkmail, the self-destruct code was set to \"[code]\".")
-	info = "<i>Тебе пора выходить из симуляции. Не забудь числа, они помогут тебе вспомнить:</i> '[code[rand(1,5)]][code[rand(1,5)]]...'"
+	info = "<i>Тебе пора выходить из симуляции. Не забудь числа, они помогут тебе вспомнить настоящий код от взрыва бомбы:</i> '[code[rand(1,5)]][code[rand(1,5)]]...'"
 
 /obj/item/paper/fluff/junkmail_redpill/true //admin letter enabling players to brute force their way through the nuke code if they're so inclined.
 	nuclear_option_odds = 100
