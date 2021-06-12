@@ -501,7 +501,9 @@
 	var/nukedstation = is_station_level(nukez)
 	for(var/i in GLOB.mob_living_list)
 		var/mob/living/L = i
-		if ((nukedstation && !is_station_level(L.z)) || L.z != nukez)
+		if (nukedstation && !is_station_level(L.z))
+			continue
+		else if (!nukedstation && L.z != nukez)
 			continue
 		to_chat(L, "<span class='userdanger'>Сгораю в огне ядерного пламени, БЛЯДЬ!</span>")
 		L.adjustFireLoss(500)
