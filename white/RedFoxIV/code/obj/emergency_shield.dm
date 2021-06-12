@@ -5,9 +5,9 @@
 	//If people still abuse this too much, tune down the cell's chargerate.
 
 /obj/item/emergency_shield
-	name = "Аварийтый прожектор щита"
+	name = "Аварийный прожектор щита"
 	//desc = "Emergency pressure shields you in case of a pressure emergency where an emergency pressure shield is required to save you from a pressure emergency.<br>What was i talking about again?"
-	desc = "Создаёт вокруг человека щит, защищающий от низкого и высокого давления, но бесполезный против физического урона и высоких/низких температур. Тратит весьма много энергии и работает только пока вы держите его в руках, поэтому лучше оставить его на крайний случай."
+	desc = "Создаёт вокруг человека щит, защищающий от низкого давления, но бесполезный против физического урона и высоких/низких температур. Тратит весьма много энергии и работает только пока вы держите его в руках, поэтому лучше оставить его на крайний случай."
 	icon = 'white/RedFoxIV/icons/obj/emergency_shield.dmi'
 	icon_state = "inactive"
 	w_class = WEIGHT_CLASS_SMALL
