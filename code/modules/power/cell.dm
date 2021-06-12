@@ -19,11 +19,15 @@
 	var/maxcharge = 1000
 	custom_materials = list(/datum/material/iron=700, /datum/material/glass=50)
 	grind_results = list(/datum/reagent/lithium = 15, /datum/reagent/iron = 5, /datum/reagent/silicon = 5)
-	var/rigged = FALSE	/// If the cell has been booby-trapped by injecting it with plasma. Chance on use() to explode.
-	var/corrupted = FALSE /// If the power cell was damaged by an explosion, chance for it to become corrupted and function the same as rigged.
-	var/chargerate = 100 //how much power is given every tick in a recharger
+	/// If the cell has been booby-trapped by injecting it with plasma. Chance on use() to explode.
+	var/rigged = FALSE	
+	/// If the power cell was damaged by an explosion, chance for it to become corrupted and function the same as rigged.
+	var/corrupted = FALSE
+	///how much power is given every tick in a recharger 
+	var/chargerate = 100 
 	var/ratingdesc = TRUE
-	var/grown_battery = FALSE // If it's a grown that acts as a battery, add a wire overlay to it.
+	/// If it's a grown that acts as a battery, add a wire overlay to it.
+	var/grown_battery = FALSE 
 
 /obj/item/stock_parts/cell/get_cell()
 	return src

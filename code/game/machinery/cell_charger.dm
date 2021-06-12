@@ -11,7 +11,7 @@
 	pass_flags = PASSTABLE
 	anchorables = list(/obj/structure/table)
 	var/obj/item/stock_parts/cell/charging = null
-	var/charge_rate = 250
+	var/charge_rate = 1
 
 /obj/machinery/cell_charger/update_icon()
 	cut_overlays()
@@ -27,7 +27,7 @@
 	if(charging)
 		. += "<hr><b>Заряд:</b> [round(charging.percent(), 1)]%."
 	if(in_range(user, src) || isobserver(user))
-		. += "<hr><span class='notice'>Дисплей: Мощность зарядки <b>[charge_rate]W</b>.</span>"
+		. += "<hr><span class='notice'>Дисплей: [charge_rate == 1 ? "Стандартная скорость зарядки." : "Скорость зарядки увеличена в <b>[charge_rate]</b> раза."]</span>"
 
 /obj/machinery/cell_charger/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stock_parts/cell) && !panel_open)
@@ -115,7 +115,7 @@
 		charging.emp_act(severity)
 
 /obj/machinery/cell_charger/RefreshParts()
-	charge_rate = 250
+	charge_rate = 1
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		charge_rate *= C.rating
 
@@ -125,8 +125,8 @@
 
 	if(charging.percent() >= 100)
 		return
-
-	var/main_draw = use_power_from_net(charge_rate * delta_time, take_any = TRUE) //Pulls directly from the Powernet to dump into the cell
+	//a crude fix to allow cells to dictate how fast they should be charging while also allowing cell_chargers to charge faster if upgraded.
+	var/main_draw = use_power_from_net(charging.chargerate * charge_rate * delta_time, take_any = TRUE) //Pulls directly from the Powernet to dump into the cell
 	if(!main_draw)
 		return
 	charging.give(main_draw)
