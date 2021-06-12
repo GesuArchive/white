@@ -171,7 +171,9 @@
 
 	if(prob(25))
 		special_name = TRUE
-		junk = pick(list(/obj/item/paper/pamphlet/gateway, /obj/item/paper/pamphlet/violent_video_games, /obj/item/paper/fluff/junkmail_redpill, /obj/effect/decal/cleanable/ash))
+		junk = pick(list(/obj/item/paper/pamphlet/gateway, /obj/item/paper/pamphlet/violent_video_games, /obj/effect/decal/cleanable/ash))
+		if(prob(1))
+			junk = /obj/item/paper/fluff/junkmail_redpill
 
 	var/list/junk_names = list(
 		/obj/item/paper/pamphlet/gateway = "[initial(name)] для [pick(GLOB.adjectives)] приключенцев",
