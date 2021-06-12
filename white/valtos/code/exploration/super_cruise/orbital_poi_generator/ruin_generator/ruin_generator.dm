@@ -17,7 +17,7 @@
  * however if a room attachment point is not past the border, the room it generates on that attachment point
  * can go past the border. No attachment points can be generated past the border.
  */
-/proc/generate_space_ruin(center_x, center_y, center_z, border_x, border_y, datum/orbital_objective/linked_objective, forced_decoration, allowed_flags = RUIN_PART_DEFAULT)
+/proc/generate_space_ruin(center_x, center_y, center_z, border_x, border_y, datum/orbital_objective/linked_objective, forced_decoration, list/allowed_flags = list(RUIN_PART_DEFAULT))
 
 	SSair.pause_z(center_z)
 
@@ -48,7 +48,7 @@
 	var/list/valid_ruin_parts = list()
 
 	for(var/datum/map_template/ruin_part/ruinpart as() in GLOB.loaded_ruin_parts)
-		if(ruinpart.special_flags & allowed_flags)
+		if(ruinpart.special_flags in allowed_flags)
 			valid_ruin_parts[ruinpart] = ruinpart.max_occurances
 
 	//Generate ruins.
