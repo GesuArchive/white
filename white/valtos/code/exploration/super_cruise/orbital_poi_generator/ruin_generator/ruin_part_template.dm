@@ -11,6 +11,8 @@
 	var/max_occurances = INFINITY
 	//Is this a loot room (Only 1 loot room spawns per station)
 	var/loot_room = FALSE
+	//Special flags for special fags
+	var/special_flags = RUIN_PART_DEFAULT
 
 /datum/map_template/ruin_part/New(path, rename, cache)
 	mappath = "_maps/RuinGeneration/[file_name].dmm"
