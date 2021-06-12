@@ -257,7 +257,7 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 			//Special check
 			if(params["port"] == "custom_location")
 				//Open up internal docking computer if any location is allowed.
-				if(shuttleObject.docking_target.can_dock_anywhere)
+				if(shuttleObject?.docking_target?.can_dock_anywhere)
 					if(GLOB.shuttle_docking_jammed)
 						say("Консоль блокирована.")
 						return
@@ -266,10 +266,10 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 						return
 					view_range = max(mobile_port.width, mobile_port.height) + 4
 					give_eye_control(usr)
-					eyeobj.forceMove(locate(world.maxx * 0.5, world.maxy * 0.5, shuttleObject.docking_target.linked_z_level.z_value))
+					eyeobj.forceMove(locate(world.maxx * 0.5, world.maxy * 0.5, shuttleObject?.docking_target?.linked_z_level?.z_value))
 					return
 				//If random dropping is allowed, random drop.
-				if(shuttleObject.docking_target.random_docking)
+				if(shuttleObject?.docking_target?.random_docking)
 					random_drop()
 					return
 				//Report exploit
@@ -344,7 +344,7 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 		var/y = rand(border_distance, world.maxy - border_distance)
 		//Check to make sure there are no indestructible turfs in the way
 		random_port.setDir(pick(NORTH, SOUTH, EAST, WEST))
-		random_port.forceMove(locate(x, y, shuttleObject.docking_target.linked_z_level.z_value))
+		random_port.forceMove(locate(x, y, shuttleObject?.docking_target?.linked_z_level?.z_value))
 		var/list/turfs = random_port.return_turfs()
 		var/valid = TRUE
 		for(var/turf/T as() in turfs)
@@ -356,7 +356,7 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 		//Dont wipe z level while we are going
 		//Dont wipe z of where we are leaving for a bit, in case we come back.
 		SSzclear.temp_keep_z(z)
-		SSzclear.temp_keep_z(shuttleObject.docking_target.linked_z_level.z_value)
+		SSzclear.temp_keep_z(shuttleObject?.docking_target?.linked_z_level?.z_value)
 		//Ok lets go there
 		switch(SSshuttle.moveShuttle(shuttleId, random_port.id, 1))
 			if(0)
