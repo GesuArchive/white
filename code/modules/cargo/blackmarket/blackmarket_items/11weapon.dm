@@ -7,8 +7,8 @@
 	desc = "Пукает хорошо а стоимость ещё дороже"
 	item = /obj/item/gun/ballistic/
 
-	price_min = 1000
-	price_max = 10000
+	price_min = 100000
+	price_max = 1000000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
@@ -69,8 +69,8 @@
 	desc = "Пукает хорошо а стоимость ещё дороже"
 	item = /obj/item/gun/energy/
 
-	price_min = 1000
-	price_max = 10000
+	price_min = 100000
+	price_max = 1000000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
@@ -97,8 +97,8 @@
 	desc = "Тазер или Дизаблер? Сложный выбор..."
 	item = /obj/item/gun/energy/taser
 
-	price_min = 5000
-	price_max = 15000
+	price_min = 50000
+	price_max = 150000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
@@ -114,8 +114,8 @@
 	desc = "Для истинных долбаёбов"
 	item = /obj/item/gun/ballistic/automatic/fallout/marksman
 
-	price_min = 10000
-	price_max = 25000
+	price_min = 1000000
+	price_max = 2500000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
