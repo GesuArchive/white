@@ -1,10 +1,11 @@
 /datum/brain_trauma/mild/phobia
-	name = "Phobia"
-	desc = "Patient is unreasonably afraid of something."
-	scan_desc = "phobia"
+	name = "Фобия"
+	desc = "Пациент чего-то беспричинно боится."
+	scan_desc = "фобия"
 	gain_text = "<span class='warning'>You start finding default values very unnerving...</span>"
 	lose_text = "<span class='notice'>You no longer feel afraid of default values.</span>"
 	var/phobia_type
+	var/phobia_ru
 	var/next_check = 0
 	var/next_scare = 0
 	var/regex/trigger_regex
@@ -13,17 +14,29 @@
 	var/list/trigger_objs //also checked in mob equipment
 	var/list/trigger_turfs
 	var/list/trigger_species
+	var/list/trigger_persons
 
-/datum/brain_trauma/mild/phobia/New(new_phobia_type)
+/datum/brain_trauma/mild/phobia/New(new_phobia_type, specific_person = null)
 	if(new_phobia_type)
 		phobia_type = new_phobia_type
+
+	if(specific_person)
+		phobia_type = "ptsr"
+		gain_text = "<span class='warning'>Кто-то меня до чёртиков пугает...</span>"
+		lose_text = "<span class='notice'>Да кого вообще волнует [specific_person]?!</span>"
+		scan_desc += " \"[phobia_ru]\""
+		trigger_regex = regex("(\\b|\\A)([specific_person])('?s*)(\\b|\\|)", "ig")
+		for(var/mob/M in GLOB.mob_list)
+			if(M.real_name == specific_person)
+				trigger_persons = list(M)
+		return ..()
 
 	if(!phobia_type)
 		phobia_type = pick(SStraumas.phobia_types)
 
-	gain_text = "<span class='warning'>You start finding [phobia_type] very unnerving...</span>"
-	lose_text = "<span class='notice'>You no longer feel afraid of [phobia_type].</span>"
-	scan_desc += " of [phobia_type]"
+	gain_text = "<span class='warning'>[capitalize(phobia_ru)] меня пугают...</span>"
+	lose_text = "<span class='notice'>Да кого вообще волнуют [phobia_ru]?!</span>"
+	scan_desc += " \"[phobia_ru]\""
 	trigger_regex = SStraumas.phobia_regexes[phobia_type]
 	trigger_mobs = SStraumas.phobia_mobs[phobia_type]
 	trigger_objs = SStraumas.phobia_objs[phobia_type]
@@ -60,9 +73,13 @@
 					return
 
 		seen_atoms -= owner //make sure they aren't afraid of themselves.
-		if(LAZYLEN(trigger_mobs) || LAZYLEN(trigger_species))
+		if(LAZYLEN(trigger_mobs) || LAZYLEN(trigger_species) || LAZYLEN(trigger_persons))
 			for(var/mob/M in seen_atoms)
 				if(is_type_in_typecache(M, trigger_mobs))
+					freak_out(M)
+					return
+
+				else if(LAZYLEN(trigger_persons) && (M in trigger_persons))
 					freak_out(M)
 					return
 
@@ -88,34 +105,34 @@
 	if(HAS_TRAIT(owner, TRAIT_FEARLESS))
 		return
 	if(trigger_regex.Find(speech_args[SPEECH_MESSAGE]) != 0)
-		to_chat(owner, "<span class='warning'>You can't bring yourself to say the word \"<span class='phobia'>[trigger_regex.group[2]]</span>\"!</span>")
+		to_chat(owner, "<span class='warning'>ОЧЕНЬ СТРАШНО СКАЗАТЬ СЛОВО \"<span class='phobia'>[uppertext(trigger_regex.group[2])]</span>\"!</span>")
 		speech_args[SPEECH_MESSAGE] = ""
 
 /datum/brain_trauma/mild/phobia/proc/freak_out(atom/reason, trigger_word)
 	next_scare = world.time + 120
 	if(owner.stat == DEAD)
 		return
-	var/message = pick("spooks you to the bone", "shakes you up", "terrifies you", "sends you into a panic", "sends chills down your spine")
+	var/message = pick("пугает меня до костей", "заставляет меня дрожать", "пугает меня", "заставляет меня паниковать", "бросает меня в холодный пот")
 	if(reason)
-		to_chat(owner, "<span class='userdanger'>Seeing [reason] [message]!</span>")
+		to_chat(owner, "<span class='userdanger'>[capitalize(reason)] [message]!</span>")
 	else if(trigger_word)
-		to_chat(owner, "<span class='userdanger'>Hearing \"[trigger_word]\" [message]!</span>")
+		to_chat(owner, "<span class='userdanger'>\"[capitalize(trigger_word)]\" [message]!</span>")
 	else
-		to_chat(owner, "<span class='userdanger'>Something [message]!</span>")
+		to_chat(owner, "<span class='userdanger'>Что-то [message]!</span>")
 	var/reaction = rand(1,4)
 	switch(reaction)
 		if(1)
-			to_chat(owner, "<span class='warning'>You are paralyzed with fear!</span>")
+			to_chat(owner, "<span class='warning'>Ох!</span>")
 			owner.Stun(70)
 			owner.Jitter(8)
 		if(2)
 			owner.emote("scream")
 			owner.Jitter(5)
-			owner.say("AAAAH!!", forced = "phobia")
+			owner.say("ААААААА!!", forced = "phobia")
 			if(reason)
 				owner.pointed(reason)
 		if(3)
-			to_chat(owner, "<span class='warning'>You shut your eyes in terror!</span>")
+			to_chat(owner, "<span class='warning'>Какой ужас!</span>")
 			owner.Jitter(5)
 			owner.blind_eyes(10)
 		if(4)
@@ -128,76 +145,100 @@
 
 /datum/brain_trauma/mild/phobia/spiders
 	phobia_type = "spiders"
+	phobia_ru = "пауки"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/space
 	phobia_type = "space"
+	phobia_ru = "космосы"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/security
 	phobia_type = "security"
+	phobia_ru = "охранники"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/clowns
 	phobia_type = "clowns"
+	phobia_ru = "клоуны"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/greytide
 	phobia_type = "greytide"
+	phobia_ru = "ассистенты"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/lizards
 	phobia_type = "lizards"
+	phobia_ru = "ящеры"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/skeletons
 	phobia_type = "skeletons"
+	phobia_ru = "скелеты"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/snakes
 	phobia_type = "snakes"
+	phobia_ru = "змеи"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/robots
 	phobia_type = "robots"
+	phobia_ru = "роботы"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/doctors
 	phobia_type = "doctors"
+	phobia_ru = "врачи"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/authority
 	phobia_type = "authority"
+	phobia_ru = "главы"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/supernatural
 	phobia_type = "the supernatural"
+	phobia_ru = "сверхъестественные вещи"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/aliens
 	phobia_type = "aliens"
+	phobia_ru = "пришельцы"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/strangers
 	phobia_type = "strangers"
+	phobia_ru = "незнакомцы"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/birds
 	phobia_type = "birds"
+	phobia_ru = "птицы"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/falling
 	phobia_type = "falling"
+	phobia_ru = "падения"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/anime
 	phobia_type = "anime"
+	phobia_ru = "анимешники"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/conspiracies
 	phobia_type = "conspiracies"
+	phobia_ru = "конспирации"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/insects
 	phobia_type = "insects"
+	phobia_ru = "насекомые"
+	random_gain = FALSE
+
+/datum/brain_trauma/mild/phobia/ptsr
+	phobia_type = "ptsr"
+	phobia_ru = "ПТСР"
 	random_gain = FALSE
