@@ -54,7 +54,7 @@
 	action_icon_state = "mindread"
 
 /obj/effect/proc_holder/cure_ptsr/Click()
-	select_person(owner)
+	select_person(action?.owner)
 
 /obj/effect/proc_holder/cure_ptsr/proc/select_person(mob/user)
 	var/mob/living/carbon/human/picked_human
