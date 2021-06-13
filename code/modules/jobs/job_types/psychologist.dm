@@ -47,17 +47,19 @@
 
 /datum/outfit/job/psychologist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.AddAbility(new/datum/action/cure_ptsr(H))
+	H.AddAbility(new/obj/effect/proc_holder/cure_ptsr(null))
 
-/datum/action/cure_ptsr
+/obj/effect/proc_holder/cure_ptsr
+
+/obj/effect/proc_holder/cure_ptsr
 	name = "Вылечить ПТСР"
-	button_icon_state = "hand"
+	action_icon_state = "hand"
 
-/datum/action/cure_ptsr/Trigger()
+/obj/effect/proc_holder/cure_ptsr/fire()
 	select_person(owner)
 	return TRUE
 
-/datum/action/cure_ptsr/proc/select_person(mob/user)
+/obj/effect/proc_holder/cure_ptsr/proc/select_person(mob/user)
 	var/mob/living/carbon/human/picked_human
 	picked_human = input(user, "Лечение ПТСР", "Это будет стоить тебе всего 100 метакэша. Убедись, что цель отработала их для тебя сполна, перед лечением.") as null|mob in view(4, user)
 	if(!picked_human)
