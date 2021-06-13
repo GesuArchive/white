@@ -164,7 +164,7 @@
 
 /obj/item/stock_parts/cell/emergency_shield/update_overlays()
 	. = ..()
-	cut_overlays() // retard magnitola
+	. = list() // FUCK YOU
 	if(charge < 0.01)
 		return
 	else if(charge/maxcharge >=0.995)
