@@ -25,7 +25,7 @@
 		gain_text = "<span class='warning'>Кто-то меня до чёртиков пугает...</span>"
 		lose_text = "<span class='notice'>Да кого вообще волнует [specific_person]?!</span>"
 		scan_desc += " \"[phobia_ru]\""
-		var/list/names = splittext_char(specific_person)
+		var/list/names = splittext_char(specific_person, " ")
 		var/words_match = ""
 		for(var/word in names)
 			words_match += "[REGEX_QUOTE(word)]|"
