@@ -53,11 +53,13 @@
 
 /obj/effect/proc_holder/cure_ptsr
 	name = "Вылечить ПТСР"
-	action_icon_state = "hand"
+	action_icon_state = "mindread"
 
-/obj/effect/proc_holder/cure_ptsr/fire()
+/obj/effect/proc_holder/cure_ptsr/Click()
+	var/mob/living/user = usr
+	if(!istype(user))
+		return
 	select_person(owner)
-	return TRUE
 
 /obj/effect/proc_holder/cure_ptsr/proc/select_person(mob/user)
 	var/mob/living/carbon/human/picked_human

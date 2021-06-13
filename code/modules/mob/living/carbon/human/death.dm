@@ -41,7 +41,7 @@ GLOBAL_LIST_EMPTY(dead_players_during_shift)
 		log_message("has died (BRUTE: [src.getBruteLoss()], BURN: [src.getFireLoss()], TOX: [src.getToxLoss()], OXY: [src.getOxyLoss()], CLONE: [src.getCloneLoss()])", LOG_ATTACK)
 	if(is_devil(src))
 		INVOKE_ASYNC(is_devil(src), /datum/antagonist/devil.proc/beginResurrectionCheck, src)
-	if(lastattacker && lastattacker != real_name)
+	if(mind && !mind.antag_datums && lastattacker && lastattacker != real_name)
 		gain_trauma(new /datum/brain_trauma/mild/phobia(specific_person = lastattacker), TRAUMA_RESILIENCE_PSYCHONLY)
 	to_chat(src, "<span class='warning'>Пришлось погибнуть. Учитывая практически полную потерю тела, всё ещё есть все большие шансы на спасение другими людьми.</span>")
 
