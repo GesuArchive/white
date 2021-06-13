@@ -44,3 +44,34 @@
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
 	id_trim = /datum/id_trim/job/psychologist
+
+/datum/outfit/job/psychologist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.AddAbility(new/datum/action/cure_ptsr(H))
+
+/datum/action/cure_ptsr
+	name = "Вылечить ПТСР"
+	button_icon_state = "hand"
+
+/datum/action/cure_ptsr/Trigger()
+	select_person(owner)
+	return TRUE
+
+/datum/action/cure_ptsr/proc/select_person(mob/user)
+	var/mob/living/carbon/human/picked_human
+	picked_human = input(user, "Лечение ПТСР", "Это будет стоить тебе всего 100 метакэша. Убедись, что цель отработала их для тебя сполна, перед лечением.") as null|mob in view(4, user)
+	if(!picked_human)
+		to_chat(user, "<span class='notice'>Никого не выбрали.</span>")
+		return
+	if(picked_human.stat != CONSCIOUS)
+		to_chat(user, "<span class='notice'>[picked_human] не сможет вылечиться в таком состоянии.</span>")
+		return
+	if(!picked_human.has_trauma_type(resilience = TRAUMA_RESILIENCE_PSYCHONLY))
+		to_chat(user, "<span class='notice'>У [picked_human] нет ПТСР.</span>")
+		return
+	var/area/A = get_area(picked_human)
+	if(!istype(A, /area/medical/psychology))
+		to_chat(user, "<span class='notice'>[picked_human] должен быть в моём кабинете.</span>")
+		return
+	inc_metabalance(user, -100, reason="Лечение выполнено успешно!")
+	picked_human.cure_all_traumas(TRAUMA_RESILIENCE_PSYCHONLY)
