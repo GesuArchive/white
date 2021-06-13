@@ -854,13 +854,15 @@
 	smoothing_groups = list(SMOOTH_GROUP_ALIEN_RESIN, SMOOTH_GROUP_ALIEN_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_ALIEN_WALLS)
 
-/turf/closed/wall/clown/Exited(atom/movable/AM, atom/newloc)
+
+/mob/living/simple_animal/hostile/clown/Bump(atom/AM)
 	. = ..()
-	if(istype(AM, /mob/living/simple_animal/hostile/clown/))
-		var/mob/living/simple_animal/hostile/clown/H = AM
-		var/atom/movable/stored_pulling = H.pulling
+	if(istype(AM, /turf/closed/wall/clown/) && AM != loc) //we can go through cult walls
+		var/atom/movable/stored_pulling = pulling
 		if(stored_pulling)
-			stored_pulling.setDir(get_dir(stored_pulling.loc, newloc))
-			playsound(src.loc, 'sound/effects/gib_step.ogg', 50, TRUE)
-			stored_pulling.forceMove(src)
-			H.start_pulling(stored_pulling, supress_message = TRUE)
+			stored_pulling.setDir(get_dir(stored_pulling.loc, loc))
+			stored_pulling.forceMove(loc)
+		forceMove(AM)
+		playsound(src.loc, 'sound/effects/gib_step.ogg', 50, TRUE)
+		if(stored_pulling)
+			start_pulling(stored_pulling, supress_message = TRUE) //drag anything we're pulling through the wall with us by magic

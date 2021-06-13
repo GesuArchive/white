@@ -41,6 +41,9 @@
 	return TRUE
 
 /datum/crafting_recipe/proc/on_craft_completion(mob/user, atom/result)
+	if(istype(result, /obj/structure/mineral_door))
+		result.dir = user.dir
+		result.update_icon()
 	return
 
 /datum/crafting_recipe/improv_explosive
