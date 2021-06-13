@@ -108,9 +108,6 @@
 /obj/structure/sign/poster/official/ian{
 	pixel_y = 32
 	},
-/obj/machinery/camera/motion{
-	c_tag = "Armory Motion Sensor"
-	},
 /obj/item/rack_parts,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)

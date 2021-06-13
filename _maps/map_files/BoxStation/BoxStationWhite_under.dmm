@@ -11325,6 +11325,12 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/engine/atmospherics_engine)
+"UY" = (
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "UZ" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -48163,7 +48169,7 @@ fF
 fF
 Xc
 vG
-dP
+UY
 rm
 dP
 dP

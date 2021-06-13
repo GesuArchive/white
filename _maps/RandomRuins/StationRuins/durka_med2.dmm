@@ -86,6 +86,12 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/central)
+"bs" = (
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/open/openspace,
+/area/medical/medbay/central)
 "bz" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
@@ -1207,6 +1213,10 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating/airless,
 /area/crew_quarters/heads/cmo)
+"qt" = (
+/obj/machinery/camera/autoname,
+/turf/open/openspace,
+/area/medical/medbay/central)
 "qA" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -2064,6 +2074,12 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/virology)
+"DI" = (
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/open/openspace,
+/area/medical/medbay/central)
 "DK" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -2395,6 +2411,9 @@
 /obj/machinery/power/apc/auto_name/south,
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/camera/autoname{
+	dir = 1
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
@@ -3355,6 +3374,17 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay/lobby)
+"XI" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/open/openspace,
+/area/medical/medbay/central)
 "XL" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/brown/hidden,
@@ -3395,6 +3425,9 @@
 	},
 /obj/machinery/power/apc/auto_name/east,
 /obj/structure/cable,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "Yz" = (
@@ -3559,7 +3592,7 @@ di
 di
 eH
 di
-di
+DI
 di
 di
 GH
@@ -4214,7 +4247,7 @@ ba
 (19,1,1) = {"
 GH
 di
-di
+bs
 SU
 xt
 xF
@@ -4540,7 +4573,7 @@ sJ
 JO
 tW
 So
-di
+qt
 di
 di
 Jk
@@ -4725,7 +4758,7 @@ GH
 KV
 GH
 wy
-dU
+XI
 Fh
 dU
 DK
@@ -4745,7 +4778,7 @@ di
 Jk
 di
 di
-di
+DI
 di
 di
 di

@@ -4,13 +4,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/austation/med)
-"am" = (
-/obj/structure/cable,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
-/area/ruin/space/has_grav/austation/maint)
 "as" = (
 /obj/machinery/sleeper{
 	dir = 4
@@ -23,7 +16,7 @@
 /area/ruin/space/has_grav/austation/med)
 "av" = (
 /obj/machinery/status_display/evac,
-/turf/closed/wall,
+/turf/closed/wall/r_wall/rust,
 /area/ruin/space/has_grav/austation/med)
 "aB" = (
 /obj/effect/turf_decal/caution{
@@ -35,8 +28,8 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/station)
 "aM" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
+/turf/open/floor/plating/airless{
+	icon_state = "panelscorched"
 	},
 /area/ruin/space/has_grav/austation/station)
 "aT" = (
@@ -101,7 +94,7 @@
 /obj/machinery/light,
 /obj/effect/turf_decal/tile/purple,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/rnd)
 "bo" = (
 /obj/structure/window/reinforced/spawner/east,
@@ -202,7 +195,7 @@
 	id = "rndlab1";
 	name = "Research and Development Shutter"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/rnd)
 "ca" = (
 /obj/machinery/door/firedoor,
@@ -362,7 +355,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/rnd)
 "dl" = (
-/turf/open/floor/plating{
+/turf/open/floor/plating/airless{
 	icon_state = "platingdmg1"
 	},
 /area/ruin/unpowered)
@@ -425,7 +418,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
 	dir = 4
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/eng)
 "ef" = (
 /obj/effect/turf_decal/tile/yellow,
@@ -450,7 +443,7 @@
 /obj/item/grenade/smokebomb,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "eo" = (
 /obj/structure/table/wood,
@@ -464,7 +457,7 @@
 	},
 /obj/item/poster/random_contraband,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "eC" = (
 /obj/effect/turf_decal/stripes/end{
@@ -603,7 +596,7 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/south,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "fU" = (
 /obj/machinery/light{
@@ -709,7 +702,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/rnd)
 "gY" = (
 /obj/effect/turf_decal/tile/blue{
@@ -727,7 +720,7 @@
 /obj/structure/sign/warning/nosmoking/circle{
 	pixel_x = 32
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/med)
 "hk" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
@@ -771,7 +764,7 @@
 /area/ruin/space/has_grav/austation/vault)
 "hH" = (
 /obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/med)
 "hQ" = (
 /obj/structure/lattice/catwalk,
@@ -779,11 +772,11 @@
 /area/space/nearstation)
 "hY" = (
 /obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/station)
 "ic" = (
 /obj/structure/sign/warning/biohazard,
-/turf/closed/wall,
+/turf/closed/wall/rust,
 /area/ruin/space/has_grav/austation/xeno)
 "ik" = (
 /obj/machinery/light{
@@ -967,12 +960,12 @@
 "jR" = (
 /obj/machinery/vending/dinnerware,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "ka" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/med)
 "kc" = (
 /obj/effect/turf_decal/tile/blue{
@@ -1121,8 +1114,10 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/station)
 "ln" = (
-/turf/closed/wall/r_wall,
-/area/ruin/space/has_grav/austation/xeno)
+/turf/open/floor/plating/airless{
+	icon_state = "platingdmg2"
+	},
+/area/ruin/space/has_grav/austation/station)
 "lw" = (
 /obj/structure/table/wood,
 /obj/item/storage/fancy/cigarettes/cigpack_uplift{
@@ -1133,7 +1128,7 @@
 	},
 /obj/item/lighter,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "lx" = (
 /obj/effect/turf_decal/tile/blue{
@@ -1360,9 +1355,7 @@
 /area/ruin/space/has_grav/austation/rnd)
 "mS" = (
 /obj/machinery/door/firedoor/closed,
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
-	},
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/station)
 "mZ" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -1538,7 +1531,7 @@
 	pixel_y = 17
 	},
 /obj/item/paper/crumpled/ruins/autism,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "oc" = (
 /obj/machinery/dna_scannernew,
@@ -1624,7 +1617,7 @@
 "oT" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "oU" = (
 /obj/machinery/door/firedoor,
@@ -1633,11 +1626,13 @@
 	req_access_txt = "10"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/eng)
 "pm" = (
-/turf/closed/wall,
-/area/ruin/space/has_grav/austation/med)
+/turf/open/floor/plating/airless{
+	icon_state = "platingdmg3"
+	},
+/area/ruin/space/has_grav/austation/station)
 "po" = (
 /obj/machinery/autolathe,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1655,7 +1650,7 @@
 /area/ruin/space/has_grav/austation/station)
 "pB" = (
 /obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/rnd)
 "pH" = (
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -1669,7 +1664,7 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/airlock/abandoned,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "pK" = (
 /obj/structure/table/reinforced,
@@ -1885,7 +1880,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "sF" = (
 /obj/structure/table/reinforced,
@@ -1929,12 +1924,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/station)
-"sU" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
-/area/ruin/space/has_grav/austation/maint)
 "sV" = (
 /obj/structure/table,
 /obj/item/clothing/gloves/color/latex,
@@ -1950,7 +1939,7 @@
 /area/ruin/space/has_grav/austation/med)
 "sZ" = (
 /obj/structure/sign/departments/medbay/alt,
-/turf/closed/wall,
+/turf/closed/wall/rust,
 /area/ruin/space/has_grav/austation/med)
 "te" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
@@ -2034,9 +2023,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/med)
-"tU" = (
-/turf/open/floor/plating,
-/area/ruin/unpowered)
 "tV" = (
 /obj/machinery/light,
 /obj/item/radio/intercom{
@@ -2131,9 +2117,7 @@
 /obj/effect/abstract/open_area_marker{
 	dir = 1
 	},
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
 /area/ruin/unpowered)
 "vi" = (
 /obj/machinery/door/firedoor,
@@ -2143,13 +2127,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/rnd)
-"vm" = (
-/obj/structure/cable,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
-/area/ruin/space/has_grav/austation/maint)
 "vn" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -2160,8 +2137,10 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/austation/med)
 "vp" = (
-/turf/closed/wall/r_wall,
-/area/ruin/space/has_grav/austation/eng)
+/obj/structure/lattice,
+/obj/item/shuttlespawner/diyshuttle,
+/turf/open/space/basic,
+/area/ruin/space/has_grav/austation/rnd)
 "vr" = (
 /obj/machinery/newscaster{
 	pixel_x = -32
@@ -2275,7 +2254,7 @@
 /area/ruin/space/has_grav/austation/vault)
 "wl" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/eng)
 "wm" = (
 /obj/machinery/power/apc/auto_name/north,
@@ -2290,7 +2269,7 @@
 	name = "Xenobiology Containment Door"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/rnd)
 "wt" = (
 /obj/structure/lattice,
@@ -2320,7 +2299,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/abandoned,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "wG" = (
 /obj/structure/table/wood,
@@ -2332,7 +2311,7 @@
 /area/ruin/space/has_grav/austation/maint)
 "wO" = (
 /obj/machinery/smartfridge/chemistry/preloaded,
-/turf/closed/wall,
+/turf/closed/wall/rust,
 /area/ruin/space/has_grav/austation/med)
 "wS" = (
 /obj/item/multitool,
@@ -2340,7 +2319,7 @@
 /area/ruin/space/has_grav/austation/rnd)
 "wU" = (
 /obj/machinery/status_display/evac,
-/turf/closed/wall,
+/turf/closed/wall/rust,
 /area/ruin/space/has_grav/austation/rnd)
 "wZ" = (
 /obj/effect/decal/cleanable/xenoblood/xgibs,
@@ -2424,7 +2403,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible{
 	dir = 4
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/eng)
 "xD" = (
 /obj/effect/turf_decal/stripes/line{
@@ -2472,16 +2451,16 @@
 /turf/template_noop,
 /area/space/nearstation)
 "xZ" = (
-/obj/structure/sign/poster/contraband/random,
-/turf/closed/wall,
-/area/ruin/space/has_grav/austation/maint)
+/obj/machinery/status_display/evac,
+/turf/closed/wall/rust,
+/area/ruin/space/has_grav/austation/med)
 "yl" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "chemistbot";
 	name = "Chemistry Privacy Shutters"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/med)
 "yt" = (
 /obj/machinery/door/poddoor/preopen{
@@ -2550,7 +2529,7 @@
 /area/ruin/space/has_grav/austation/rnd)
 "zp" = (
 /obj/effect/spawner/structure/window/reinforced/tinted,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "zv" = (
 /obj/machinery/smartfridge/extract/preloaded,
@@ -2586,7 +2565,7 @@
 	name = "Maintenance Hatch";
 	req_access_txt = "12"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/rnd)
 "zA" = (
 /obj/machinery/door/airlock/public/glass{
@@ -2605,11 +2584,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/maint)
-"zF" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
-/area/ruin/space/has_grav/austation/station)
 "zM" = (
 /turf/closed/wall/rust,
 /area/ruin/space/has_grav/austation/med)
@@ -2701,8 +2675,12 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/austation/maint)
 "Az" = (
-/turf/closed/wall/r_wall,
-/area/ruin/space/has_grav/austation/rnd)
+/obj/effect/turf_decal/bot,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating/airless{
+	icon_state = "platingdmg3"
+	},
+/area/ruin/space/has_grav/austation/station)
 "AD" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -2720,8 +2698,8 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/station)
 "AQ" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
+/turf/open/floor/plating/airless{
+	icon_state = "panelscorched"
 	},
 /area/ruin/unpowered)
 "Ba" = (
@@ -2740,7 +2718,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "Bf" = (
 /obj/machinery/door/airlock/public/glass{
@@ -2777,7 +2755,7 @@
 /area/ruin/space/has_grav/austation/xeno)
 "Bk" = (
 /obj/machinery/status_display/ai,
-/turf/closed/wall/r_wall,
+/turf/closed/wall/r_wall/rust,
 /area/ruin/space/has_grav/austation/rnd)
 "Bs" = (
 /obj/effect/turf_decal/stripes/line,
@@ -2790,10 +2768,6 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken7"
 	},
-/area/ruin/space/has_grav/austation/maint)
-"BD" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
 /area/ruin/space/has_grav/austation/maint)
 "BG" = (
 /obj/structure/closet/firecloset,
@@ -2851,7 +2825,7 @@
 "Cd" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/xeno)
 "Ch" = (
 /obj/machinery/door/firedoor,
@@ -2908,7 +2882,7 @@
 /obj/item/storage/briefcase,
 /obj/item/taperecorder,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "Cx" = (
 /obj/structure/closet/secure_closet/medical3,
@@ -3059,8 +3033,13 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/austation/med)
 "DN" = (
-/turf/closed/wall,
-/area/ruin/space/has_grav/austation/maint)
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/bot,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating/airless{
+	icon_state = "platingdmg3"
+	},
+/area/ruin/space/has_grav/austation/station)
 "Eg" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 4
@@ -3198,11 +3177,8 @@
 	pixel_x = 30
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
-"FH" = (
-/turf/closed/wall/r_wall,
-/area/ruin/space/has_grav/austation/station)
 "FV" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
@@ -3326,7 +3302,7 @@
 	pixel_x = 11
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "GD" = (
 /obj/item/kirbyplants{
@@ -3375,7 +3351,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/rnd)
 "GO" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
@@ -3461,12 +3437,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/austation/med)
-"Hj" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
-	},
-/area/ruin/space/has_grav/austation/maint)
 "Hl" = (
 /obj/machinery/chem_dispenser,
 /obj/machinery/button/door{
@@ -3568,7 +3538,7 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/austation/med)
 "Ih" = (
-/turf/closed/wall/r_wall,
+/turf/closed/wall/r_wall/rust,
 /area/ruin/space/has_grav/austation/maint)
 "Il" = (
 /obj/structure/table/glass,
@@ -3712,9 +3682,7 @@
 "Ji" = (
 /obj/item/secateurs,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
-	},
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "Jr" = (
 /obj/machinery/processor/slime,
@@ -3767,9 +3735,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/med)
-"JD" = (
-/turf/closed/wall,
-/area/ruin/space/has_grav/austation/rnd)
 "JH" = (
 /obj/machinery/rnd/server,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden{
@@ -3957,12 +3922,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/station)
-"KT" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
-/area/ruin/space/has_grav/austation/maint)
 "KU" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research{
@@ -3985,7 +3944,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/xeno)
 "Lb" = (
 /turf/closed/wall/r_wall/rust,
@@ -4072,12 +4031,12 @@
 /area/ruin/space/has_grav/austation/xeno)
 "Mb" = (
 /obj/structure/sign/nanotrasen,
-/turf/closed/wall/r_wall,
+/turf/closed/wall/r_wall/rust,
 /area/ruin/space/has_grav/austation/rnd)
 "Mj" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "Mw" = (
 /obj/structure/chair/office{
@@ -4190,7 +4149,7 @@
 /area/ruin/space/has_grav/austation/rnd)
 "Nh" = (
 /obj/structure/sign/warning/nosmoking/circle,
-/turf/closed/wall,
+/turf/closed/wall/rust,
 /area/ruin/space/has_grav/austation/rnd)
 "Nm" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -4208,7 +4167,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "Ny" = (
 /obj/effect/turf_decal/tile/purple,
@@ -4279,9 +4238,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/circuit/green,
 /area/ruin/space/has_grav/austation/xeno)
-"NU" = (
-/turf/closed/wall,
-/area/ruin/space/has_grav/austation/station)
 "NX" = (
 /obj/structure/tank_dispenser/oxygen,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -4295,18 +4251,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/eng)
-"Ol" = (
-/obj/docking_port/stationary{
-	dir = 4;
-	dwidth = 8;
-	height = 12;
-	id = "explorer_mini_station";
-	name = "Autism Station";
-	roundstart_template = /datum/map_template/shuttle/ruin/explorer_mini;
-	width = 12
-	},
-/turf/template_noop,
-/area/template_noop)
 "On" = (
 /turf/closed/wall/rust,
 /area/ruin/space/has_grav/austation/eng)
@@ -4321,7 +4265,7 @@
 /obj/item/crowbar,
 /obj/item/wrench,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/eng)
 "OA" = (
 /obj/machinery/door/firedoor,
@@ -4345,7 +4289,7 @@
 "OF" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/eng)
 "OH" = (
 /obj/effect/turf_decal/tile/purple,
@@ -4502,7 +4446,7 @@
 	pixel_x = -12
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "Py" = (
 /obj/machinery/door/airlock/public/glass,
@@ -4511,9 +4455,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/station)
-"PL" = (
-/turf/closed/wall,
-/area/ruin/space/has_grav/austation/xeno)
 "PO" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Maintenance Hatch";
@@ -4527,7 +4468,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/abandoned,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "PP" = (
 /obj/structure/table/glass,
@@ -4574,9 +4515,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/austation/maint)
-"PU" = (
-/turf/closed/wall,
-/area/ruin/space/has_grav/austation/eng)
 "Qc" = (
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
@@ -4671,7 +4609,9 @@
 /obj/structure/closet/crate/solarpanel_small,
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating/airless{
+	icon_state = "platingdmg2"
+	},
 /area/ruin/space/has_grav/austation/station)
 "Rj" = (
 /obj/structure/table/glass,
@@ -4719,7 +4659,7 @@
 /obj/structure/sign/warning/nosmoking/circle{
 	pixel_y = -28
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/med)
 "Sd" = (
 /obj/structure/cable,
@@ -4741,9 +4681,7 @@
 /area/ruin/space/has_grav/austation/station)
 "Sm" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "Sq" = (
 /obj/structure/bed/roller,
@@ -4798,7 +4736,7 @@
 	id = "rdxeno";
 	name = "Xenobiology Containment Door"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/rnd)
 "SP" = (
 /obj/structure/closet/crate/solarpanel_small,
@@ -4858,7 +4796,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/med)
 "TV" = (
-/turf/open/floor/plating{
+/turf/open/floor/plating/airless{
 	icon_state = "platingdmg1"
 	},
 /area/ruin/space/has_grav/austation/station)
@@ -4877,7 +4815,7 @@
 /area/ruin/space/has_grav/austation/med)
 "Uh" = (
 /obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/xeno)
 "Uj" = (
 /obj/machinery/door/firedoor,
@@ -4920,7 +4858,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/eng)
 "UF" = (
 /obj/item/stock_parts/matter_bin,
@@ -5044,7 +4982,7 @@
 /area/ruin/space/has_grav/austation/rnd)
 "VL" = (
 /obj/effect/spawner/structure/window/reinforced/tinted,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/med)
 "VM" = (
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -5131,9 +5069,8 @@
 /turf/open/space/basic,
 /area/ruin/space/has_grav/austation/rnd)
 "WV" = (
-/turf/open/floor/plating{
-	heat_capacity = 1e+006;
-	icon_state = "platingdmg1"
+/turf/open/floor/plating/airless{
+	icon_state = "platingdmg2"
 	},
 /area/ruin/unpowered)
 "Xl" = (
@@ -5162,7 +5099,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "Xx" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -5211,11 +5148,8 @@
 "XG" = (
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
-"XM" = (
-/turf/closed/wall/r_wall,
-/area/ruin/space/has_grav/austation/med)
 "XV" = (
 /turf/closed/wall/rust,
 /area/ruin/space/has_grav/austation/maint)
@@ -5287,7 +5221,7 @@
 /area/ruin/space/has_grav/austation/med)
 "Yv" = (
 /obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "YA" = (
 /obj/effect/turf_decal/stripes/line{
@@ -5355,7 +5289,7 @@
 	},
 /obj/structure/rack,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/eng)
 "Zb" = (
 /obj/machinery/vending/assist,
@@ -5388,23 +5322,23 @@
 	},
 /obj/item/newspaper,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "Ze" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/rack,
 /obj/item/food/cake/birthday,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/eng)
 "Zf" = (
 /obj/structure/girder,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "Zi" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/sign/departments/medbay/alt,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/med)
 "Zt" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -5446,12 +5380,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/austation/med)
-"Zz" = (
-/obj/machinery/door/firedoor/closed,
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
-	},
-/area/ruin/unpowered)
 "ZH" = (
 /obj/machinery/light_switch{
 	pixel_x = -26;
@@ -5693,7 +5621,7 @@ Jy
 js
 ZW
 ZW
-XM
+ZW
 ZW
 Rw
 Rw
@@ -5735,12 +5663,12 @@ mZ
 mZ
 mZ
 ka
-pm
+zM
 nF
 Fo
 EB
 VW
-pm
+zM
 jC
 jd
 aV
@@ -5759,7 +5687,7 @@ oj
 ul
 NH
 NH
-Ol
+NH
 NH
 NH
 NH
@@ -5784,12 +5712,12 @@ IK
 IF
 IF
 ct
-pm
+zM
 Cx
 Fo
 Fo
 Ym
-pm
+zM
 Iw
 UQ
 oR
@@ -5827,18 +5755,18 @@ NH
 NH
 lb
 ZW
-pm
-pm
-pm
+ZW
+zM
+zM
 sn
-pm
-pm
-pm
+zM
+zM
+zM
 Zi
 Ch
 Ch
 RS
-pm
+zM
 mg
 ty
 UQ
@@ -5876,7 +5804,7 @@ NH
 oj
 lb
 lb
-pm
+ZW
 lZ
 Ve
 lD
@@ -5887,7 +5815,7 @@ as
 Qd
 Qd
 Ub
-pm
+zM
 FW
 MR
 RI
@@ -5925,7 +5853,7 @@ NH
 lb
 lb
 lb
-pm
+ZW
 CL
 gI
 og
@@ -5936,7 +5864,7 @@ Ve
 Ve
 Pn
 Ja
-pm
+zM
 VL
 VL
 TE
@@ -6022,13 +5950,13 @@ NH
 NH
 oj
 oj
-XM
-pm
+ZW
+ZW
 hH
-av
+xZ
 hH
-pm
-pm
+zM
+zM
 fU
 LT
 tM
@@ -6120,20 +6048,20 @@ NH
 NH
 oj
 oj
-XM
+ZW
 zx
 MC
 nR
 nR
 ZR
-pm
+zM
 vn
 xD
 OS
 dE
 kW
 iW
-av
+xZ
 hH
 hH
 Rw
@@ -6284,7 +6212,7 @@ Cl
 vZ
 lx
 LC
-XM
+ZW
 yL
 yL
 Bf
@@ -6307,33 +6235,33 @@ NH
 Vr
 dt
 TV
-zF
-NU
-NU
-NU
-FH
+TV
+xu
+xu
+xu
+Lb
 hY
 hY
 hY
-FH
-XM
+Lb
+ZW
 yl
-pm
+zM
 yl
-pm
+zM
 yl
-pm
-pm
+zM
+zM
 hH
 CU
 iZ
 hH
-pm
-pm
+zM
+zM
 hH
 ov
 sZ
-XM
+ZW
 SE
 Nm
 zA
@@ -6353,11 +6281,11 @@ NH
 NH
 "}
 (18,1,1) = {"
-Zz
+wv
 AQ
-NH
-TV
-zF
+dt
+aM
+aM
 Ne
 LL
 nM
@@ -6385,8 +6313,8 @@ AF
 gh
 yL
 Nm
-NU
-NU
+xu
+xu
 Zc
 hY
 Xl
@@ -6405,8 +6333,8 @@ NH
 vd
 WV
 dt
-NH
-TV
+dt
+ln
 WF
 ut
 kK
@@ -6442,7 +6370,7 @@ nD
 Cj
 vr
 Lb
-JN
+Az
 Bs
 hQ
 ul
@@ -6453,8 +6381,8 @@ NH
 (20,1,1) = {"
 wv
 dl
-dl
-NH
+AQ
+dt
 aM
 mS
 NQ
@@ -6492,7 +6420,7 @@ qb
 kS
 hY
 JN
-Bs
+DN
 hQ
 ul
 NH
@@ -6502,37 +6430,37 @@ NH
 (21,1,1) = {"
 Vr
 Vr
-tU
-NH
-aM
+AQ
+dt
+pm
 Yg
-vp
-vp
+Yg
+Yg
 IA
 yu
-FH
+Lb
 hY
-Az
+Fz
 bY
 Ix
 bY
-Az
+Fz
 bY
-Az
+Fz
 Uj
 gH
-Az
-Az
-Az
+Fz
+Fz
+Fz
 GP
 pB
 pB
-Az
-Az
+Fz
+Fz
 Nm
-FH
+Lb
 cY
-NU
+xu
 qT
 cw
 GQ
@@ -6553,10 +6481,10 @@ NH
 NH
 NH
 NH
-vp
-vp
+Yg
+Yg
 Oo
-vp
+Yg
 lC
 yu
 hY
@@ -6570,28 +6498,28 @@ Fn
 pB
 yO
 Pd
-JD
+WJ
 nj
 nj
 nj
 nj
 nj
 nj
-Az
+Fz
 Nr
-ln
-ln
-ln
-ln
 bs
-ln
-ln
-ln
+bs
+bs
+bs
+bs
+bs
+bs
+bs
 bs
 bs
 Uh
-ln
-ln
+bs
+bs
 lb
 ul
 NH
@@ -6605,7 +6533,7 @@ NH
 Yg
 YZ
 wl
-vp
+Yg
 lC
 yu
 hY
@@ -6627,20 +6555,20 @@ nj
 nj
 nj
 Fz
-BD
-ln
+Sm
+bs
 iA
 vW
 iA
-PL
+Qv
 iA
 vW
 iA
-PL
+Qv
 iA
 vW
 iA
-ln
+bs
 lb
 oj
 NH
@@ -6651,7 +6579,7 @@ NH
 NH
 NH
 NH
-vp
+Yg
 Ze
 wl
 oU
@@ -6675,17 +6603,17 @@ nj
 nj
 nj
 Qn
-Az
-sU
+Fz
+Sm
 bs
 iA
 NT
 bH
-PL
+Qv
 iA
 NT
 bH
-PL
+Qv
 iA
 NT
 bH
@@ -6700,21 +6628,21 @@ NH
 NH
 lb
 lb
-vp
+Yg
 UD
 wl
-vp
+Yg
 lC
 yu
-FH
+Lb
 NH
-Az
+Fz
 WU
 wS
 Jh
 wt
 bj
-JD
+WJ
 eh
 tm
 pB
@@ -6724,9 +6652,9 @@ nj
 nj
 nj
 nj
-Az
-KT
-ln
+Fz
+Sm
+bs
 Cd
 nv
 KX
@@ -6734,12 +6662,12 @@ Qv
 KX
 DB
 KX
-PL
+Qv
 KX
 eU
 KX
-ln
-ln
+bs
+bs
 lb
 lb
 NH
@@ -6747,39 +6675,39 @@ NH
 (26,1,1) = {"
 NH
 NH
-vp
-vp
-vp
-vp
+Yg
+Yg
+Yg
+Yg
 OF
-vp
+Yg
 lC
 yu
 hY
 NH
 bY
 cE
-wt
+vp
 yx
 zS
 YS
-JD
+WJ
 CC
 tV
-Az
+Fz
 pB
 Ng
 pB
 pB
 wU
 pB
-Az
+Fz
 Xt
-ln
+bs
 ZV
 xR
 IM
-PL
+Qv
 nS
 xR
 IM
@@ -6788,7 +6716,7 @@ xk
 xR
 IM
 Gt
-ln
+bs
 lb
 lb
 NH
@@ -6799,17 +6727,17 @@ lb
 Yg
 dC
 dC
-vp
-vp
-vp
+Yg
+Yg
+Yg
 ql
 bE
-vp
-vp
-vp
-JD
+Yg
+Yg
+Yg
+WJ
 pB
-JD
+WJ
 pB
 wU
 Nh
@@ -6837,7 +6765,7 @@ cq
 cq
 JU
 BO
-ln
+bs
 lb
 lb
 lb
@@ -6848,14 +6776,14 @@ lb
 Yg
 Eg
 LA
-vp
+Yg
 qG
 Fq
 Oa
 Qi
 LJ
 YI
-vp
+Yg
 XF
 bN
 eT
@@ -6886,7 +6814,7 @@ cZ
 pM
 uc
 ud
-ln
+bs
 lb
 lb
 lb
@@ -6897,14 +6825,14 @@ lb
 Yg
 xB
 ed
-vp
+Yg
 aW
 KH
 iT
 mD
 ef
 BT
-vp
+Yg
 dk
 GH
 GH
@@ -6920,13 +6848,13 @@ Ng
 pB
 WJ
 pB
-Az
+Fz
 Ba
-ln
+bs
 Cd
 lE
 KX
-PL
+Qv
 Cd
 Bi
 KX
@@ -6935,7 +6863,7 @@ SC
 Kb
 OH
 Js
-ln
+bs
 lb
 lb
 lb
@@ -6953,38 +6881,38 @@ Qo
 sF
 ef
 Zb
-vp
-Az
+Yg
+Fz
 GL
-JD
 WJ
-JD
-JD
+WJ
+WJ
+WJ
 mQ
-JD
-Az
+WJ
+Fz
 nj
 nj
 nj
 nj
 nj
 nj
-Az
+Fz
 Mj
-ln
+bs
 iA
 iA
 sj
-PL
+Qv
 iA
 iA
 sj
-PL
+Qv
 Jr
 BS
 dg
 NF
-ln
+bs
 lb
 lb
 lb
@@ -6992,20 +6920,20 @@ lb
 (31,1,1) = {"
 oj
 lb
-vp
+Yg
 xU
 xz
-vp
+Yg
 ce
 FV
 Qc
 Lo
 XC
 nA
-PU
+On
 Ji
 Sm
-Az
+Fz
 An
 nk
 wr
@@ -7020,19 +6948,19 @@ nj
 nj
 zy
 Mj
-ln
+bs
 wZ
 Zt
 iA
-PL
+Qv
 EY
 NT
 iA
-PL
+Qv
 zv
 km
 Hy
-ln
+bs
 bs
 lb
 lb
@@ -7041,47 +6969,47 @@ lb
 (32,1,1) = {"
 oj
 lb
-vp
-vp
-vp
-vp
+Yg
+Yg
+Yg
+Yg
 fw
 CF
 po
 Kq
 oO
 pK
-PU
+On
 Zf
-BD
+Sm
 Fz
 zm
 uX
 cy
 UI
 Gc
-Az
+Fz
 nj
 nj
 nj
 nj
 nj
 nj
-Az
-am
-ln
+Fz
+Mj
+bs
 iA
 Zt
 iA
-PL
+Qv
 iA
 Zt
 iA
-ln
+bs
 Cd
 Ql
 Cd
-ln
+bs
 lb
 lb
 lb
@@ -7093,17 +7021,17 @@ lb
 lb
 lb
 lb
-vp
 Yg
-vp
-vp
-vp
-vp
-vp
+Yg
+Yg
+Yg
+Yg
+Yg
+Yg
 On
 zE
-BD
-Az
+Sm
+Fz
 dh
 JH
 SO
@@ -7116,13 +7044,13 @@ nj
 nj
 nj
 nj
-Az
-vm
-ln
+Fz
+Mj
+bs
 iA
 KO
 iA
-PL
+Qv
 iA
 KO
 iA
@@ -7130,7 +7058,7 @@ bs
 cV
 te
 cV
-ln
+bs
 lb
 lb
 lb
@@ -7151,14 +7079,14 @@ oj
 oj
 Yv
 RN
-sU
-Az
-Az
+Sm
 Fz
-Az
-Az
 Fz
-Az
+Fz
+Fz
+Fz
+Fz
+Fz
 nj
 nj
 nj
@@ -7169,13 +7097,13 @@ Fz
 Mj
 bs
 bs
-ln
-ln
-ln
 bs
-ln
-ln
-ln
+bs
+bs
+bs
+bs
+bs
+bs
 CN
 XB
 cV
@@ -7198,24 +7126,24 @@ oj
 zp
 zp
 zp
-DN
+XV
 Wm
-sU
-KT
-BD
-BD
-sU
-Hj
-BD
-Az
+Sm
+Sm
+Sm
+Sm
+Sm
+Sm
+Sm
+Fz
 nj
 nj
 bJ
 nj
 nj
 nj
-Az
-am
+Fz
+Mj
 Ih
 eE
 Px
@@ -7224,11 +7152,11 @@ XV
 lb
 lb
 lb
-ln
-ln
+bs
+bs
 Uh
-ln
-ln
+bs
+bs
 lb
 lb
 lb
@@ -7247,29 +7175,29 @@ oj
 zp
 em
 vR
-DN
+XV
 QQ
 XV
-xZ
+QQ
 pH
 QQ
-DN
-xZ
+XV
+QQ
 Nr
 Fz
-Az
-Az
-Az
 Fz
-Az
-Az
-Az
+Fz
+Fz
+Fz
+Fz
+Fz
+Fz
 fS
-DN
+XV
 Kw
-BD
+Sm
 mj
-DN
+XV
 lb
 mt
 oj
@@ -7296,27 +7224,27 @@ NH
 zp
 sC
 Ph
-DN
+XV
 Zd
 eo
 dA
 ZO
 wG
-DN
+XV
 BG
-BD
-sU
+Sm
+Sm
 Sm
 FF
-BD
-KT
-BD
-sU
-BD
-BD
-xZ
+Sm
+Sm
+Sm
+Sm
+Sm
+Sm
+QQ
 tk
-BD
+Sm
 kB
 Yv
 mt
@@ -7351,21 +7279,21 @@ BA
 ny
 ny
 kR
-DN
 XV
-DN
 XV
-DN
-DN
 XV
-xZ
+XV
+XV
+XV
+XV
+QQ
 PO
-DN
-DN
-BD
+XV
+XV
+Sm
 XV
 Yb
-BD
+Sm
 Gf
 Yv
 mt
@@ -7394,27 +7322,27 @@ NH
 zp
 zp
 zp
-DN
+XV
 lw
 ba
 Er
 oT
 Cp
-DN
+XV
 lb
 lb
 lb
-DN
+XV
 nX
-DN
+XV
 qD
 QT
 rE
-DN
-Hj
+XV
+Sm
 wE
-BD
-BD
+Sm
+Sm
 XG
 XV
 oj
@@ -7453,17 +7381,17 @@ XV
 lb
 oj
 lb
-DN
-DN
-DN
+XV
+XV
+XV
 fg
 uP
 IW
-DN
+XV
 jR
-DN
+XV
 PQ
-BD
+Sm
 ea
 Yv
 mt
@@ -7504,15 +7432,15 @@ NH
 oj
 oj
 lb
-DN
 XV
-DN
-DN
 XV
-DN
-DN
+XV
+XV
+XV
+XV
+XV
 Aq
-BD
+Sm
 Wq
 Yv
 mt
@@ -7559,7 +7487,7 @@ lb
 lb
 lb
 lb
-DN
+XV
 Ay
 GA
 mi
@@ -7608,11 +7536,11 @@ oj
 oj
 lb
 lb
-DN
 XV
-DN
-DN
-DN
+XV
+XV
+XV
+XV
 lb
 lb
 lb
