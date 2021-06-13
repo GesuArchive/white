@@ -362,9 +362,13 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 		sleep(DEVILRESURRECTTIME)
 		if (!body ||  body.stat == DEAD)
 			if(SOULVALUE>0)
-				if(check_banishment(body))
-					to_chat(owner.current, "<span class='userdanger'>Unfortunately, the mortals have finished a ritual that prevents your resurrection.</span>")
-					return -1
+				if(body)
+					if(check_banishment(body))
+						to_chat(owner.current, "<span class='userdanger'>Unfortunately, the mortals have finished a ritual that prevents your resurrection.</span>")
+						return -1
+					else
+						to_chat(owner.current, "<span class='userdanger'>WE LIVE AGAIN!</span>")
+						return hellish_resurrection(body)
 				else
 					to_chat(owner.current, "<span class='userdanger'>WE LIVE AGAIN!</span>")
 					return hellish_resurrection(body)
