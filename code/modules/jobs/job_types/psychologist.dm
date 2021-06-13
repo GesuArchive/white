@@ -50,15 +50,10 @@
 	H.AddAbility(new/obj/effect/proc_holder/cure_ptsr(null))
 
 /obj/effect/proc_holder/cure_ptsr
-
-/obj/effect/proc_holder/cure_ptsr
 	name = "Вылечить ПТСР"
 	action_icon_state = "mindread"
 
 /obj/effect/proc_holder/cure_ptsr/Click()
-	var/mob/living/user = usr
-	if(!istype(user))
-		return
 	select_person(owner)
 
 /obj/effect/proc_holder/cure_ptsr/proc/select_person(mob/user)
@@ -66,6 +61,9 @@
 	picked_human = input(user, "Лечение ПТСР", "Это будет стоить тебе всего 100 метакэша. Убедись, что цель отработала их для тебя сполна, перед лечением.") as null|mob in view(4, user)
 	if(!picked_human)
 		to_chat(user, "<span class='notice'>Никого не выбрали.</span>")
+		return
+	if(!ishuman(picked_human))
+		to_chat(user, "<span class='notice'>Это не человек!</span>")
 		return
 	if(picked_human.stat != CONSCIOUS)
 		to_chat(user, "<span class='notice'>[picked_human] не сможет вылечиться в таком состоянии.</span>")

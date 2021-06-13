@@ -43,6 +43,7 @@ GLOBAL_LIST_EMPTY(dead_players_during_shift)
 		INVOKE_ASYNC(is_devil(src), /datum/antagonist/devil.proc/beginResurrectionCheck, src)
 	if(mind && !mind.antag_datums && lastattacker && lastattacker != real_name)
 		gain_trauma(new /datum/brain_trauma/mild/phobia(specific_person = lastattacker), TRAUMA_RESILIENCE_PSYCHONLY)
+		tgui_alert(src, "Тебя кто-то убил. Персонаж получил травму связанную с этим событием не дающую ему вспомнить своего убийцу. Возможно психолог поможет вспомнить.", "ПТСР", list("Понимаю"))
 	to_chat(src, "<span class='warning'>Пришлось погибнуть. Учитывая практически полную потерю тела, всё ещё есть все большие шансы на спасение другими людьми.</span>")
 
 /mob/living/carbon/human/proc/makeSkeleton()
