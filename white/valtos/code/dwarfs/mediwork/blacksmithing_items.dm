@@ -201,27 +201,32 @@
 			to_chat(user, "<span class='notice'>Беру слиток клещами.</span>")
 			return
 
-/obj/item/raw_stone
+/datum/material/stone
 	name = "камень"
+	skloname = "камня"
 	desc = "Олдфаг."
+	color = "#878687"
+	sheet_type = /obj/item/stack/sheet/stone
+
+/obj/item/stack/ore/stone
+	name = "камень"
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "stone"
-	w_class = WEIGHT_CLASS_TINY
-	force = 3
-	throwforce = 7
-	throw_range = 14
+	singular_name = "Кусок камня"
+	refined_type = /obj/item/stack/sheet/stone
+	merge_type = /obj/item/stack/ore/stone
 
-/obj/item/raw_stone/attackby(obj/item/I, mob/living/user, params)
+/obj/item/stack/ore/stone/attackby(obj/item/I, mob/living/user, params)
 
 	if(user.a_intent == INTENT_HARM)
 		return ..()
 
-	if(istype(I, /obj/item/blacksmith/chisel) && isstrictlytype(src, /obj/item/raw_stone))
+	if(istype(I, /obj/item/blacksmith/chisel))
 		playsound(src, 'white/valtos/sounds/tough.wav', 100, TRUE)
 		if(prob(25))
 			to_chat(user, "<span class='warning'>Обрабатываю камень.</span>")
 			return
-		new /obj/item/raw_stone/block(drop_location())
+		new /obj/item/stack/sheet/stone(drop_location())
 		to_chat(user, "<span class='notice'>Обрабатываю камень.</span>")
 		qdel(src)
 		return
@@ -232,56 +237,21 @@
 		qdel(src)
 		return
 
-/obj/item/raw_stone/block
-	name = "кирпич"
+/obj/item/stack/sheet/stone
+	name = "Кирпич"
 	desc = "\"Кастрат\" - могли бы сказать Вы, если бы он не вырубил Вас одним попаданием."
+	singular_name = "Кирпич"
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "block"
-	w_class = WEIGHT_CLASS_TINY
+	inhand_icon_state = "sheet-metal"
 	force = 10
-	throwforce = 20
-	throw_range = 12
-	var/block_count = 1
-
-/obj/item/raw_stone/block/examine()
-	. = ..()
-	. += "<hr><span class='notice'>Всего тут [block_count] кирпичных единиц.</span>"
-
-/obj/item/raw_stone/block/update_icon()
-	. = ..()
-	switch(block_count)
-		if(1)
-			icon_state = "block"
-		if(2)
-			icon_state = "block_2"
-		if(3 to INFINITY)
-			icon_state = "block_more"
-
-/obj/item/raw_stone/block/attackby(obj/item/I, mob/living/user, params)
-
-	if(user.a_intent == INTENT_HARM)
-		return ..()
-
-	if(istype(I, /obj/item/raw_stone/block))
-		var/obj/item/raw_stone/block/B = I
-		if((block_count + B.block_count) > 5)
-			to_chat(user, "<span class='warning'>СЛИШКОМ МНОГО КИРПИЧЕЙ!</span>")
-			return
-		block_count += B.block_count
-		to_chat(user, "<span class='notice'>Теперь в куче [block_count] кирпичных единиц.</span>")
-		update_icon()
-		qdel(I)
-		return
-
-/obj/item/raw_stone/block/attack_self(mob/user)
-	. = ..()
-
-	if(block_count > 1)
-		new /obj/item/raw_stone/block(drop_location())
-		block_count--
-		to_chat(user, "<span class='notice'>Аккуратно вытаскиваю один кирпичик из кучи.</span>")
-		update_icon()
-		return
+	throwforce = 10
+	resistance_flags = FIRE_PROOF
+	w_class = WEIGHT_CLASS_TINY
+	merge_type = /obj/item/stack/sheet/stone
+	material_type = /datum/material/stone
+	matter_amount = 4
+	cost = 500
 
 /obj/item/blacksmith/katanus
 	name = "катанус"
@@ -756,8 +726,8 @@
 /obj/item/blacksmith/shpatel/proc/check_resources()
 	var/mat_to = 0
 	var/mat_need = 0
-	for(var/obj/item/raw_stone/block/B in view(1))
-		mat_to += B.block_count
+	for(var/obj/item/stack/sheet/stone/B in view(1))
+		mat_to += B.amount
 	switch(mode)
 		if(SHPATEL_BUILD_WALL) mat_need = 4
 		if(SHPATEL_BUILD_FLOOR) mat_need = 1
@@ -769,38 +739,28 @@
 /obj/item/blacksmith/shpatel/proc/use_resources(var/turf/open/floor/T, mob/user)
 	switch(mode)
 		if(SHPATEL_BUILD_WALL)
-			var/list/blocks = list()
 			var/blocks_need = 5
-			var/exile_block = 0
-			for(var/obj/item/raw_stone/block/B in view(1))
-				blocks += B
-				blocks_need -= B.block_count
-				if(blocks_need <= 0)
-					exile_block = -blocks_need
-					break
-			QDEL_LIST(blocks)
-			if(exile_block)
-				var/obj/item/raw_stone/block/B = new /obj/item/raw_stone/block(drop_location())
-				B.block_count = exile_block
+			for(var/obj/item/stack/sheet/stone/B in view(1))
+				blocks_need -= B.amount
+				B.amount = -blocks_need
 				B.update_icon()
+				if(B.amount <= 0)
+					qdel(B)
+				if(blocks_need <= 0)
+					break
 			T.ChangeTurf(/turf/closed/wall/stonewall, flags = CHANGETURF_IGNORE_AIR)
 			user.visible_message("<span class='notice'><b>[user]</b> возводит каменную стену.</span>", \
 								"<span class='notice'>Возвожу каменную стену.</span>")
 		if(SHPATEL_BUILD_FLOOR)
-			var/list/blocks = list()
 			var/blocks_need = 1
-			var/exile_block = 0
-			for(var/obj/item/raw_stone/block/B in view(1))
-				blocks += B
-				blocks_need -= B.block_count
-				if(blocks_need <= 0)
-					exile_block = -blocks_need
-					break
-			QDEL_LIST(blocks)
-			if(exile_block)
-				var/obj/item/raw_stone/block/B = new /obj/item/raw_stone/block(drop_location())
-				B.block_count = exile_block
+			for(var/obj/item/stack/sheet/stone/B in view(1))
+				blocks_need -= B.amount
+				B.amount = -blocks_need
 				B.update_icon()
+				if(B.amount <= 0)
+					qdel(B)
+				if(blocks_need <= 0)
+					break
 			T.ChangeTurf(/turf/open/floor/grass/gensgrass/dirty/stone, flags = CHANGETURF_INHERIT_AIR)
 			user.visible_message("<span class='notice'><b>[user]</b> создаёт каменный пол.</span>", \
 								"<span class='notice'>Делаю каменный пол.</span>")
