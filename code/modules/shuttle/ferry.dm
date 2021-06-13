@@ -10,7 +10,7 @@
 
 /obj/machinery/computer/shuttle_flight/ferry/emag_act(mob/user)
 	if(!allow_emag)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] security firewall is far too powerful for you to bypass.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] сообщает о том, что синдикат вроде как может и на хуй пойти, ладно?</span>")
 		return FALSE
 	return ..()
 

@@ -526,7 +526,7 @@
 	if(prob(85) || (istype(mind_check) && mind_check.mind))
 		return
 
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, quirk_holder, "<span class='smallnotice'>[capitalize(A)] смотрит прямо на меня.</span>"), 3)
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, quirk_holder, "<span class='smallnotice'>[capitalize(A.name)] смотрит прямо на меня.</span>"), 3)
 
 /datum/quirk/social_anxiety/proc/eye_contact(datum/source, mob/living/other_mob, triggering_examiner)
 	SIGNAL_HANDLER
@@ -535,9 +535,9 @@
 		return
 	var/msg
 	if(triggering_examiner)
-		msg = "[capitalize(other_mob)] смотрит прямо на меня, "
+		msg = "[capitalize(other_mob.name)] смотрит прямо на меня, "
 	else
-		msg = "[capitalize(other_mob)] смотрит прямо на меня, "
+		msg = "[capitalize(other_mob.name)] смотрит прямо на меня, "
 
 	switch(rand(1,3))
 		if(1)

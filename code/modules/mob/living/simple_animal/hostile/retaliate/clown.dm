@@ -17,6 +17,8 @@
 	emote_see = list("хонкает", "пищит")
 	speak_chance = 1
 	a_intent = INTENT_HARM
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	minbodytemp = 0
 	maxHealth = 50
 	health = 50
 	speed = 2
@@ -29,10 +31,6 @@
 	del_on_death = 1
 	faction = list("clown")
 	loot = list(/obj/effect/mob_spawn/human/clown/corpse)
-	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 1, "min_co2" = 0, "max_co2" = 5, "min_n2" = 0, "max_n2" = 0)
-	minbodytemp = 100
-	maxbodytemp = 600
-	unsuitable_atmos_damage = 10
 	footstep_type = FOOTSTEP_MOB_SHOE
 	see_in_dark = 8
 	lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
@@ -397,6 +395,7 @@
 	speed = 0
 	turns_per_move = 5
 	see_in_dark = 4
+	ventcrawler = VENTCRAWLER_ALWAYS
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
 	response_disarm_continuous = "gently pushes aside"
@@ -553,8 +552,10 @@
 			user.adjustHealth(-50)
 		L.on = 1
 		L.break_light_tube()
-	for(var/mob/living/M in get_hearers_in_view(4, user))
+	for(var/mob/living/carbon/human/M in get_hearers_in_view(4, user))
 		SEND_SOUND(M, sound('sound/effects/screech.ogg'))
+		M.add_confusion(25)
+		M.Jitter(50)
 	to_chat(user, "<span class='notice'>Издаю ужасающий визг, высасывая энергию из лампочек вокруг!</span>")
 	return
 
@@ -855,3 +856,15 @@
 	smoothing_groups = list(SMOOTH_GROUP_ALIEN_RESIN, SMOOTH_GROUP_ALIEN_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_ALIEN_WALLS)
 
+
+/mob/living/simple_animal/hostile/clown/Bump(atom/AM)
+	. = ..()
+	if(istype(AM, /turf/closed/wall/clown/) && AM != loc) //we can go through cult walls
+		var/atom/movable/stored_pulling = pulling
+		if(stored_pulling)
+			stored_pulling.setDir(get_dir(stored_pulling.loc, loc))
+			stored_pulling.forceMove(loc)
+		forceMove(AM)
+		playsound(src.loc, 'sound/effects/gib_step.ogg', 50, TRUE)
+		if(stored_pulling)
+			start_pulling(stored_pulling, supress_message = TRUE) //drag anything we're pulling through the wall with us by magic

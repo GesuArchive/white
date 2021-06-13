@@ -44,6 +44,7 @@
 	created_human.ice_cream_mob = TRUE
 	ADD_TRAIT(created_human, TRAIT_CLIENT_LEAVED, "ice_cream")
 	notify_ghosts("VIP-персона может быть занята.", source = created_human, action = NOTIFY_ORBIT, flashwindow = FALSE, ignore_key = POLL_IGNORE_SPLITPERSONALITY, notify_suiciders = FALSE)
+	death_caring = FALSE
 	created_human.AddElement(/datum/element/point_of_interest)
 	created_human.mind_initialize()
 	//Remove nearby dangers

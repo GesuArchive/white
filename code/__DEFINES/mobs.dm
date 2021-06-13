@@ -110,6 +110,7 @@
 #define TRAUMA_RESILIENCE_WOUND 4    //Curable by healing the head wound
 #define TRAUMA_RESILIENCE_MAGIC 5      //Curable only with magic
 #define TRAUMA_RESILIENCE_ABSOLUTE 6   //This is here to stay
+#define TRAUMA_RESILIENCE_PSYCHONLY 7   //Psych can cure
 
 //Limit of traumas for each resilience tier
 #define TRAUMA_LIMIT_BASIC 3

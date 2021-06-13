@@ -67,14 +67,14 @@
 	if(I.tool_behaviour == TOOL_SCREWDRIVER && cell)
 		if(active)
 			to_chat(user, "<span class='alert'>Сначала выключи прожектор!</span>")
-			return	
+			return
 		cell.forceMove(src.drop_location())
 		cell.update_icon()
 		I.play_tool_sound(src,50)
 		visible_message("[user.name] вытаскивает [cell.name] из прожектора щита!", "Вытаскиваю [cell.name] из прожектора щита!")
 		icon_state = "nocell"
 		cell = null
-	
+
 	if(istype(I, /obj/item/stock_parts/cell) && !cell)
 		if(!istype(I, /obj/item/stock_parts/cell/emergency_shield))
 			to_chat(user, "<span class='alert'>Аварийный прожектор щита можно запитать только специальной батарейкой для прожекторов!..</span>")
@@ -84,10 +84,10 @@
 		playsound(src, 'sound/items/crowbar.ogg', 15, TRUE)
 		visible_message("[user.name] вставляет батарею в аварийный прожектор щита.", "Вставляю [cell.name] в прожектор щита!")
 		icon_state = "inactive"
-		
+
 /obj/item/emergency_shield/attack_self(mob/user)
 	. = ..()
-	
+
 	if(world.time - time_used < 20 || !cell)
 		return
 	time_used = world.time
@@ -95,7 +95,7 @@
 	if((cell.charge<1500 || HAS_TRAIT_FROM(user, TRAIT_RESISTLOWPRESSURE, "emergency_shield")) && !active) //cell charge too low or the user already has the trait AND it's inactive.
 		playsound(src, 'white/RedFoxIV/sounds/mechcomp/generic_energy_dryfire.ogg', 15, FALSE)
 		return
-	
+
 	active = !active
 	if(active)
 		current_user = user
@@ -163,12 +163,8 @@
 
 
 /obj/item/stock_parts/cell/emergency_shield/update_overlays()
-	//валтос долбаёб и захардкодил оверлеи батарейкам без возможности поменять их, не трогая код базовой батарейки ИЛИ не делая такие дикие костыли.
-	//следующие три строчки - копипаста из определения метода update_overlays() в atom'е, чтобы обойти update_overlays валтоса.
-	SHOULD_CALL_PARENT(TRUE)
-	. = list()
-	SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_OVERLAYS, .)
-	//а это копипаста из кода базовой батарейки, с подменённым icon файлом. Блядь.
+	. = ..()
+	. = list() // FUCK YOU
 	if(charge < 0.01)
 		return
 	else if(charge/maxcharge >=0.995)
