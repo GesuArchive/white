@@ -114,7 +114,7 @@
 		return
 	var/message = pick("пугает меня до костей", "заставляет меня дрожать", "пугает меня", "заставляет меня паниковать", "бросает меня в холодный пот")
 	if(reason)
-		to_chat(owner, "<span class='userdanger'>[capitalize(reason)] [message]!</span>")
+		to_chat(owner, "<span class='userdanger'>[capitalize(reason.name)] [message]!</span>")
 	else if(trigger_word)
 		to_chat(owner, "<span class='userdanger'>\"[capitalize(trigger_word)]\" [message]!</span>")
 	else
