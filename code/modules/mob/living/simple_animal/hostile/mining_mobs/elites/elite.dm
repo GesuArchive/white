@@ -90,7 +90,7 @@ While using this makes the system rely on OnFire, it still gives options for tim
 	if(elite_owner == null)
 		STOP_PROCESSING(SSfastprocess, src)
 		qdel(src)
-	var/timeleft = max(elite_owner.ranged_cooldown - world.time, 0)
+	var/timeleft = max(elite_owner?.ranged_cooldown - world.time, 0)
 	if(timeleft == 0)
 		button.maptext = ""
 		UpdateButtonIcon()

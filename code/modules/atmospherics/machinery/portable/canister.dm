@@ -372,7 +372,7 @@
 	if(connected_port)
 		. += mutable_appearance(canister_overlay_file, "can-connector")
 
-	switch(air_contents.return_pressure())
+	switch(air_contents?.return_pressure())
 		if((40 * ONE_ATMOSPHERE) to INFINITY)
 			. += mutable_appearance(canister_overlay_file, "can-3")
 		if((10 * ONE_ATMOSPHERE) to (40 * ONE_ATMOSPHERE))
