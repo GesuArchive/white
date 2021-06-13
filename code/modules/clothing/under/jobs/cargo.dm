@@ -54,5 +54,7 @@
 /obj/item/clothing/under/rank/cargo/exploration
 	name = "комбинезон рейнджера"
 	desc = "В самый раз для похода в самую жопу космоса."
+	icon = 'white/valtos/icons/clothing/uniforms.dmi'
+	worn_icon = 'white/valtos/icons/clothing/mob/uniform.dmi'
 	icon_state = "miner"
 	inhand_icon_state = "miner"
