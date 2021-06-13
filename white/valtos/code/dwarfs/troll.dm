@@ -13,7 +13,7 @@
 	faction = list("mining")
 	weather_immunities = list("ash")
 	see_in_dark = 1
-	butcher_results = list(/obj/item/food/meat/slab = 3, /obj/item/raw_stone = 30)
+	butcher_results = list(/obj/item/food/meat/slab = 3, /obj/item/stack/ore/stone = 30)
 	response_help_continuous = "отталкивает"
 	response_help_simple = "отталкивает"
 	response_disarm_continuous = "толкает"

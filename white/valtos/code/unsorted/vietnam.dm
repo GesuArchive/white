@@ -106,7 +106,7 @@
 
 /turf/open/floor/grass/gensgrass/dirty/stone/crowbar_act(mob/living/user, obj/item/I)
 	if(pry_tile(I, user))
-		new /obj/item/raw_stone/block(get_turf(src))
+		new /obj/item/stack/sheet/stone(get_turf(src))
 		return TRUE
 
 /turf/open/floor/grass/gensgrass/dirty/stone/attackby(obj/item/I, mob/user, params)
@@ -137,7 +137,7 @@
 	smoothing_flags = SMOOTH_CORNERS
 	smoothing_groups = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
 	canSmoothWith = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
-	sheet_type = /obj/item/raw_stone/block
+	sheet_type = /obj/item/stack/sheet/stone
 	baseturfs = /turf/open/floor/grass/gensgrass/dirty/stone
 	sheet_amount = 4
 	girder_type = null
@@ -151,7 +151,7 @@
 				if(digged_up)
 					return
 				for(var/i in 1 to rand(3, 6))
-					var/obj/item/S = new /obj/item/raw_stone(src)
+					var/obj/item/S = new /obj/item/stack/ore/stone(src)
 					S.pixel_x = rand(-8, 8)
 					S.pixel_y = rand(-8, 8)
 				digged_up = TRUE
@@ -198,7 +198,7 @@
 	result = /obj/item/blacksmith/anvil_free
 	tool_behaviors = list(/obj/item/blacksmith/smithing_hammer)
 	reqs = list(/obj/item/blacksmith/ingot = 3,
-				/obj/item/raw_stone/block = 5)
+				/obj/item/stack/sheet/stone = 5)
 	time = 350
 	category = CAT_STRUCTURE
 	always_available = TRUE
@@ -224,7 +224,7 @@
 /datum/crafting_recipe/smithman/furnace
 	name = "Плавильня"
 	result = /obj/furnace
-	reqs = list(/obj/item/raw_stone/block = 10, /obj/item/stack/sheet/mineral/wood = 10)
+	reqs = list(/obj/item/stack/sheet/stone = 10, /obj/item/stack/sheet/mineral/wood = 10)
 	time = 300
 	category = CAT_STRUCTURE
 	always_available = TRUE
@@ -232,7 +232,7 @@
 /datum/crafting_recipe/smithman/furnace_cook
 	name = "Печь для готовки"
 	result = /obj/machinery/microwave/furnace
-	reqs = list(/obj/item/raw_stone/block = 8, /obj/item/stack/sheet/mineral/wood = 6)
+	reqs = list(/obj/item/stack/sheet/stone = 8, /obj/item/stack/sheet/mineral/wood = 6)
 	time = 200
 	category = CAT_STRUCTURE
 	always_available = TRUE
@@ -240,7 +240,7 @@
 /datum/crafting_recipe/smithman/forge
 	name = "Кузница"
 	result = /obj/forge
-	reqs = list(/obj/item/raw_stone/block = 20, /obj/item/stack/sheet/mineral/wood = 20)
+	reqs = list(/obj/item/stack/sheet/stone = 20, /obj/item/stack/sheet/mineral/wood = 20)
 	time = 300
 	category = CAT_STRUCTURE
 	always_available = TRUE
@@ -248,7 +248,7 @@
 /datum/crafting_recipe/smithman/stonedoor
 	name = "Каменная дверь"
 	result = /obj/structure/mineral_door/heavystone
-	reqs = list(/obj/item/raw_stone/block = 5, /obj/item/stack/sheet/mineral/wood = 1, /obj/item/blacksmith/ingot = 1)
+	reqs = list(/obj/item/stack/sheet/stone = 5, /obj/item/stack/sheet/mineral/wood = 1, /obj/item/blacksmith/ingot = 1)
 	time = 300
 	category = CAT_STRUCTURE
 	always_available = TRUE
@@ -256,7 +256,7 @@
 /datum/crafting_recipe/smithman/stonechair
 	name = "Каменный стул"
 	result = /obj/structure/chair/comfy/stone
-	reqs = list(/obj/item/raw_stone/block = 1)
+	reqs = list(/obj/item/stack/sheet/stone = 1)
 	time = 100
 	category = CAT_STRUCTURE
 	always_available = TRUE
@@ -264,7 +264,7 @@
 /datum/crafting_recipe/smithman/stonetable
 	name = "Каменный стол"
 	result = /obj/structure/table/stone
-	reqs = list(/obj/item/raw_stone/block = 2)
+	reqs = list(/obj/item/stack/sheet/stone = 2)
 	time = 100
 	category = CAT_STRUCTURE
 	always_available = TRUE
@@ -272,7 +272,7 @@
 /datum/crafting_recipe/smithman/sarcophage
 	name = "Саркофаг"
 	result = /obj/structure/closet/crate/sarcophage
-	reqs = list(/obj/item/raw_stone/block = 10)
+	reqs = list(/obj/item/stack/sheet/stone = 10)
 	time = 250
 	category = CAT_STRUCTURE
 	always_available = TRUE
