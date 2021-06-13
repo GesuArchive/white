@@ -118,7 +118,7 @@
 			if(randomspread)
 				spread = round((rand() - 0.5) * distro)
 			else //Smart spread
-				spread = round((i / num_pellets - 0.5) * distro)
+				spread = round((i / num_pellets - (num_pellets/2 + 0.5)/num_pellets) * distro)
 
 		RegisterSignal(shell.BB, COMSIG_PROJECTILE_SELF_ON_HIT, .proc/pellet_hit)
 		RegisterSignal(shell.BB, list(COMSIG_PROJECTILE_RANGE_OUT, COMSIG_PARENT_QDELETING), .proc/pellet_range)
