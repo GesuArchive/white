@@ -242,7 +242,8 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 		var/mob/living/carbon/human/H = owner.current
 		var/horns = /obj/item/clothing/head/devil_horns
 		var/obj/item/clothing/head/devilhorns = new horns(get_turf(H))
-		H.equip_to_slot(devilhorns, ITEM_SLOT_HEAD, 1, 1)
+		H.unequip_everything()
+		H.equip_to_slot_or_del(devilhorns, ITEM_SLOT_HEAD, 1, 1)
 	give_appropriate_spells()
 	form = HORNY_MAN
 
