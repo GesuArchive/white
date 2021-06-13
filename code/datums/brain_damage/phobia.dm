@@ -25,7 +25,12 @@
 		gain_text = "<span class='warning'>Кто-то меня до чёртиков пугает...</span>"
 		lose_text = "<span class='notice'>Да кого вообще волнует [specific_person]?!</span>"
 		scan_desc += " \"[phobia_ru]\""
-		trigger_regex = regex("(\\b|\\A)([specific_person])('?s*)(\\b|\\|)", "ig")
+		var/list/names = splittext_char(specific_person)
+		var/words_match = ""
+		for(var/word in names)
+			words_match += "[REGEX_QUOTE(word)]|"
+		words_match = copytext_char(words_match, 1, -1)
+		trigger_regex = regex("(\\b|\\A)([words_match])('?s*)(\\b|\\|)", "ig")
 		for(var/mob/M in GLOB.mob_list)
 			if(M.real_name == specific_person)
 				trigger_persons = list(M)
