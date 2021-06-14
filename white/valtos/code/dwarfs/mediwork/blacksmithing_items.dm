@@ -213,6 +213,7 @@
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "stone"
 	singular_name = "Кусок камня"
+	max_amount = 1
 	refined_type = /obj/item/stack/sheet/stone
 	merge_type = /obj/item/stack/ore/stone
 
