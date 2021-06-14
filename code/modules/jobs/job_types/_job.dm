@@ -229,7 +229,7 @@
 		return FALSE
 	if(CONFIG_GET(flag/enforce_human_authority) && ((title in GLOB.command_positions) || (title in GLOB.security_positions)))
 		if(H.dna.species.id != "human")
-			if(check_donations(H.ckey)) // obama don't touch donbass protivniy pidoras
+			if(!check_donations(H.ckey)) // obama don't touch donbass protivniy pidoras
 				H.set_species(/datum/species/human)
 				H.apply_pref_name("human", preference_source)
 	if(!visualsOnly)
