@@ -30825,6 +30825,10 @@
 /obj/effect/loot_site_spawner,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"dQA" = (
+/obj/structure/sign/painting/library_secure,
+/turf/closed/wall/r_wall,
+/area/crew_quarters/heads/chief)
 "dSr" = (
 /obj/structure/chair/stool,
 /turf/open/floor/plating,
@@ -33587,6 +33591,10 @@
 /obj/structure/lattice,
 /turf/open/openspace,
 /area/crew_quarters/fitness/recreation)
+"ipJ" = (
+/obj/structure/sign/painting/library,
+/turf/closed/wall,
+/area/quartermaster/qm)
 "iqh" = (
 /turf/closed/wall/r_wall,
 /area/engine/atmospherics_engine)
@@ -36034,6 +36042,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/security/courtroom)
+"ndH" = (
+/obj/structure/sign/painting/library,
+/turf/closed/wall,
+/area/hydroponics/garden)
 "ndV" = (
 /obj/docking_port/stationary{
 	dir = 4;
@@ -36918,6 +36930,10 @@
 /obj/machinery/meteor_catcher,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
+"owZ" = (
+/obj/structure/sign/painting/library,
+/turf/open/openspace/airless,
+/area/space)
 "ozc" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -38473,6 +38489,10 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"qRI" = (
+/obj/structure/sign/painting/library,
+/turf/closed/wall/r_wall,
+/area/science/storage)
 "qRW" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -38624,6 +38644,10 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
+"rjj" = (
+/obj/structure/sign/painting/library,
+/turf/closed/wall,
+/area/hallway/secondary/entry)
 "rkf" = (
 /obj/effect/landmark/xeno_spawn,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -39034,6 +39058,10 @@
 	},
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/heads/hor)
+"rRQ" = (
+/obj/structure/sign/painting/library,
+/turf/closed/wall,
+/area/crew_quarters/fitness/recreation)
 "rSF" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -41859,6 +41887,10 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/starboard)
+"wyA" = (
+/obj/structure/sign/painting/library_private,
+/turf/closed/wall,
+/area/lawoffice)
 "wyU" = (
 /obj/effect/landmark/stationroom/bar,
 /turf/open/openspace/airless,
@@ -57421,10 +57453,10 @@ aFL
 aBI
 aIO
 aKk
+rjj
 asE
 asE
-asE
-asE
+rjj
 aRd
 ayl
 czK
@@ -59727,7 +59759,7 @@ bLU
 qQO
 azF
 azF
-azF
+ndH
 azF
 aEL
 azF
@@ -64377,7 +64409,7 @@ bcS
 aWy
 gjl
 gjl
-gjl
+ipJ
 sdX
 srx
 sdX
@@ -68457,7 +68489,7 @@ cCi
 uIU
 arR
 lmZ
-aph
+wyA
 aph
 aph
 bIo
@@ -71288,7 +71320,7 @@ bON
 apd
 apd
 awj
-aCb
+rRQ
 aCb
 gjP
 gjP
@@ -73671,7 +73703,7 @@ bZy
 ccs
 bZu
 cfb
-cfb
+dQA
 cfc
 cfc
 cfb
@@ -80305,7 +80337,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+owZ
 tFV
 hug
 tFV
@@ -89578,7 +89610,7 @@ wkN
 wkN
 wkN
 dZF
-bvK
+qRI
 bvK
 bvK
 bvK
