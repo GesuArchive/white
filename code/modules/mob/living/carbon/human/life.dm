@@ -56,11 +56,11 @@
 				to_chat(src, "<span class='warning'>[pick("Голодно...", "Кушать хочу...", "Вот бы что-нибудь съесть...", "Мой живот урчит...")]</span>")
 				take_overall_damage(stamina = 60)
 			switch(pooition)
-				if(155 to 190)
+				if(75 to 100)
 					to_chat(src, "<span class='warning'>[pick("Где тут уборная?", "Хочу в туалет.", "Надо в туалет.")]</span>")
-				if(191 to 199)
+				if(125 to 129)
 					to_chat(src, "<span class='warning'>[pick("СРОЧНО В ТУАЛЕТ!", "ЖОПНЫЙ КЛАПАН НА ПРЕДЕЛЕ!", "ХОЧУ В ТУАЛЕТ!")]</span>")
-				if(200 to INFINITY)
+				if(130 to INFINITY)
 					try_poo()
 		return TRUE
 

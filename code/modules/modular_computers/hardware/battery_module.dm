@@ -32,18 +32,18 @@
 		return FALSE
 
 	if(battery)
-		to_chat(user, "<span class='warning'>Пытаюсь connect \the [I] to <b>[src.name]</b>, but its connectors are occupied.</span>")
+		to_chat(user, "<span class='warning'>Пытаюсь подключить [I] к <b>[src.name]</b>, но не могу найти куда.</span>")
 		return FALSE
 
 	if(I.w_class > holder.max_hardware_size)
-		to_chat(user, "<span class='warning'>Эта батарея слишком велика для \[holder]!</span>")
+		to_chat(user, "<span class='warning'>Эта батарея слишком велика для [holder]!</span>")
 		return FALSE
 
 	if(user && !user.transferItemToLoc(I, src))
 		return FALSE
 
 	battery = I
-	to_chat(user, "<span class='notice'>Подключаю \[I] к <b>[src.name]</b>.</span>")
+	to_chat(user, "<span class='notice'>Подключаю [I] к <b>[src.name]</b>.</span>")
 
 	return TRUE
 
@@ -57,7 +57,7 @@
 			user.put_in_hands(battery)
 		else
 			battery.forceMove(drop_location())
-		to_chat(user, "<span class='notice'>Отсоединяю \[battery] от <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>Отсоединяю [battery] от <b>[src.name]</b>.</span>")
 		battery = null
 
 		if(holder)

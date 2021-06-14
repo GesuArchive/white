@@ -235,14 +235,14 @@
 						emote_cooldown = world.time
 					break
 				if(!M.stat && Adjacent(M))
-					manual_emote("splats \the [M]!")
+					manual_emote("splats [M]!")
 					M.splat()
 					movement_target = null
 					stop_automated_movement = 0
 					break
 			for(var/obj/item/toy/cattoy/T in view(1,src))
 				if (T.cooldown < (world.time - 400))
-					manual_emote("bats \the [T] around with its paw!")
+					manual_emote("bats [T] around with its paw!")
 					T.cooldown = world.time
 
 	..()

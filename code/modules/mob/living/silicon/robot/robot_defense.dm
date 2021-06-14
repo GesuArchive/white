@@ -244,7 +244,7 @@ GLOBAL_LIST_INIT(blacklisted_borg_hats, typecacheof(list( //Hats that don't real
 				uneq_active()
 				visible_message("<span class='danger'>[M] disarmed [src]!</span>", \
 					"<span class='userdanger'>[M] has disabled [src] active module!</span>", null, COMBAT_MESSAGE_RANGE)
-				log_combat(M, src, "disarmed", "[I ? " removing \the [I]" : ""]")
+				log_combat(M, src, "disarmed", "[I ? " removing [I]" : ""]")
 			else
 				Stun(40)
 				step(src,get_dir(M,src))
@@ -282,7 +282,7 @@ GLOBAL_LIST_INIT(blacklisted_borg_hats, typecacheof(list( //Hats that don't real
 			cell.update_icon()
 			cell.add_fingerprint(user)
 			user.put_in_active_hand(cell)
-			to_chat(user, "<span class='notice'>You remove \the [cell].</span>")
+			to_chat(user, "<span class='notice'>You remove [cell].</span>")
 			cell = null
 			update_icons()
 			diag_hud_set_borgcell()

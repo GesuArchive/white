@@ -179,7 +179,7 @@
 				if(label)
 					label.remove_label()
 					label.apply_label()
-				to_chat(user, "<span class='notice'>You have successfully renamed \the [oldname] to [O].</span>")
+				to_chat(user, "<span class='notice'>You have successfully renamed [oldname] to [O].</span>")
 				O.renamedByPlayer = TRUE
 
 		if(penchoice == "Change description")

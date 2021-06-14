@@ -68,7 +68,7 @@
 		var/mob/living/carbon/C = target
 		if(prob(15))
 			C.Paralyze(60)
-			C.visible_message("<span class='danger'><b>[src.name]</b> knocks down \the [C]!</span>", \
+			C.visible_message("<span class='danger'><b>[src.name]</b> knocks down [C]!</span>", \
 					"<span class='userdanger'><b>[src.name]</b> knocks you down!</span>")
 
 /mob/living/simple_animal/hostile/tree/add_cell_sample()

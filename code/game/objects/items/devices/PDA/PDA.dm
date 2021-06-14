@@ -1027,7 +1027,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 		if(!user.transferItemToLoc(C, src))
 			return
 		pai = C
-		to_chat(user, "<span class='notice'>You slot \the [C] into [src].</span>")
+		to_chat(user, "<span class='notice'>You slot [C] into [src].</span>")
 		update_icon()
 		updateUsrDialog()
 	else if(is_type_in_list(C, contained_item)) //Checks if there is a pen
@@ -1036,14 +1036,14 @@ GLOBAL_LIST_EMPTY(PDAs)
 		else
 			if(!user.transferItemToLoc(C, src))
 				return
-			to_chat(user, "<span class='notice'>You slide \the [C] into <b>[src.name]</b>.</span>")
+			to_chat(user, "<span class='notice'>You slide [C] into <b>[src.name]</b>.</span>")
 			inserted_item = C
 			update_icon()
 			playsound(src, 'sound/machines/pda_button1.ogg', 50, TRUE)
 	else if(istype(C, /obj/item/photo))
 		var/obj/item/photo/P = C
 		picture = P.picture
-		to_chat(user, "<span class='notice'>You scan \the [C].</span>")
+		to_chat(user, "<span class='notice'>You scan [C].</span>")
 	// Check to see if we have an ID inside, and a valid input for money
 	else if(id && iscash(C))
 		id.attackby(C, user) // If we do, try and put that attacking object in

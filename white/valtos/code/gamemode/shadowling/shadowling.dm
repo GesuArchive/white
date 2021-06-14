@@ -196,7 +196,7 @@ Made by Xhuis
 	if(istype(T) && shadow_charges > 0)
 		var/light_amount = T.get_lumcount()
 		if(light_amount < LIGHT_DAM_THRESHOLD)
-			H.visible_message("<span class='danger'>The shadows around [H] ripple as they absorb \the [P]!</span>")
+			H.visible_message("<span class='danger'>The shadows around [H] ripple as they absorb [P]!</span>")
 			playsound(T, "bullet_miss", 75, 1)
 			shadow_charges = min(shadow_charges - 1, 0)
 			return -1

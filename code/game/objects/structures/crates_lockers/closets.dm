@@ -272,7 +272,7 @@
 					if(!opened)
 						return
 					user.visible_message("<span class='notice'>[user] разрезает <b>[src.name]</b>.</span>",
-									"<span class='notice'>Режу <b>[src.name]</b> с помощью \the [W].</span>",
+									"<span class='notice'>Режу <b>[src.name]</b> с помощью [W].</span>",
 									"<span class='hear'>Слышу сварку.</span>")
 					deconstruct(TRUE)
 				return
@@ -295,7 +295,7 @@
 			after_weld(welded)
 			update_airtightness()
 			user.visible_message("<span class='notice'>[user] [welded ? "сварные швы заварены" : "разварено"] <b>[src.name]</b>.</span>",
-							"<span class='notice'>[welded ? "сварил" : "разварил"] <b>[src.name]</b> с помощью \the [W].</span>",
+							"<span class='notice'>[welded ? "сварил" : "разварил"] <b>[src.name]</b> с помощью [W].</span>",
 							"<span class='hear'>Слышу сварку.</span>")
 			log_game("[key_name(user)] [welded ? "welded":"unwelded"] closet [src] with [W] at [AREACOORD(src)]")
 			update_icon()

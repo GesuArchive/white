@@ -464,7 +464,7 @@
 		needs_power = TRUE
 		setDir(get_dir(gen_primary, gen_secondary))
 	for(var/mob/living/L in get_turf(src))
-		visible_message("<span class='danger'><b>[src.name]</b> is suddenly occupying the same space as \the [L]!</span>")
+		visible_message("<span class='danger'><b>[src.name]</b> is suddenly occupying the same space as [L]!</span>")
 		L.gib()
 	RegisterSignal(src, COMSIG_ATOM_SINGULARITY_TRY_MOVE, .proc/block_singularity)
 

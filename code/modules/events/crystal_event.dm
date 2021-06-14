@@ -385,7 +385,7 @@ This section is for the destabilized SM
 		if(!injector.filled)
 			to_chat(user, "<span class='notice'>\The [W] is empty!</span>")
 			return
-		to_chat(user, "<span class='notice'>You carefully begin injecting <b>[src.name]</b> with \the [W]... take care not to move until all the steps are finished!</span>")
+		to_chat(user, "<span class='notice'>You carefully begin injecting <b>[src.name]</b> with [W]... take care not to move until all the steps are finished!</span>")
 		if(!W.use_tool(src, user, 1 SECONDS, volume = 100))
 			return
 		to_chat(user, "<span class='notice'>Seems that <b>[src.name]</b> internal resonance is fading with the fluid!</span>")

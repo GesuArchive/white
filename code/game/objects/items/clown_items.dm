@@ -128,9 +128,9 @@
 	if(user.client && ((target in user.client.screen) && !user.is_holding(target)))
 		to_chat(user, "<span class='warning'>You need to take that [target.name] off before cleaning it!</span>")
 	else if(istype(target, /obj/effect/decal/cleanable))
-		user.visible_message("<span class='notice'>[user] begins to scrub \the [target.name] out with [src].</span>", "<span class='warning'>You begin to scrub \the [target.name] out with [src]...</span>")
+		user.visible_message("<span class='notice'>[user] begins to scrub [target.name] out with [src].</span>", "<span class='warning'>You begin to scrub [target.name] out with [src]...</span>")
 		if(do_after(user, clean_speedies, target = target))
-			to_chat(user, "<span class='notice'>You scrub \the [target.name] out.</span>")
+			to_chat(user, "<span class='notice'>You scrub [target.name] out.</span>")
 			var/obj/effect/decal/cleanable/cleanies = target
 			user.mind?.adjust_experience(/datum/skill/cleaning, max(round(cleanies.beauty/CLEAN_SKILL_BEAUTY_ADJUSTMENT),0)) //again, intentional that this does NOT round but mops do.
 			qdel(target)
@@ -138,7 +138,7 @@
 
 	else if(ishuman(target) && user.zone_selected == BODY_ZONE_PRECISE_MOUTH)
 		var/mob/living/carbon/human/human_user = user
-		user.visible_message("<span class='warning'>\the [user] washes \the [target] mouth out with [src.name]!</span>", "<span class='notice'>You wash \the [target] mouth out with [src.name]!</span>") //washes mouth out with soap sounds better than 'the soap' here			if(user.zone_selected == "mouth")
+		user.visible_message("<span class='warning'>\the [user] washes [target] mouth out with [src.name]!</span>", "<span class='notice'>You wash [target] mouth out with [src.name]!</span>") //washes mouth out with soap sounds better than 'the soap' here			if(user.zone_selected == "mouth")
 		if(human_user.lip_style)
 			user.mind?.adjust_experience(/datum/skill/cleaning, CLEAN_SKILL_GENERIC_WASH_XP)
 			human_user.lip_style = null //removes lipstick
@@ -146,17 +146,17 @@
 		decreaseUses(user)
 		return
 	else if(istype(target, /obj/structure/window))
-		user.visible_message("<span class='notice'>[user] begins to clean \the [target.name] with [src]...</span>", "<span class='notice'>You begin to clean \the [target.name] with [src]...</span>")
+		user.visible_message("<span class='notice'>[user] begins to clean [target.name] with [src]...</span>", "<span class='notice'>You begin to clean [target.name] with [src]...</span>")
 		if(do_after(user, clean_speedies, target = target))
-			to_chat(user, "<span class='notice'>You clean \the [target.name].</span>")
+			to_chat(user, "<span class='notice'>You clean [target.name].</span>")
 			target.remove_atom_colour(WASHABLE_COLOUR_PRIORITY)
 			target.set_opacity(initial(target.opacity))
 			user.mind?.adjust_experience(/datum/skill/cleaning, CLEAN_SKILL_GENERIC_WASH_XP)
 			decreaseUses(user)
 	else
-		user.visible_message("<span class='notice'>[user] begins to clean \the [target.name] with [src]...</span>", "<span class='notice'>You begin to clean \the [target.name] with [src]...</span>")
+		user.visible_message("<span class='notice'>[user] begins to clean [target.name] with [src]...</span>", "<span class='notice'>You begin to clean [target.name] with [src]...</span>")
 		if(do_after(user, clean_speedies, target = target))
-			to_chat(user, "<span class='notice'>You clean \the [target.name].</span>")
+			to_chat(user, "<span class='notice'>You clean [target.name].</span>")
 			if(user && isturf(target))
 				for(var/obj/effect/decal/cleanable/cleanable_decal in target)
 					user.mind?.adjust_experience(/datum/skill/cleaning, round(cleanable_decal.beauty / CLEAN_SKILL_BEAUTY_ADJUSTMENT))

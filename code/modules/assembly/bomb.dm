@@ -56,7 +56,7 @@
 	if(I.use_tool(src, user, 0, volume=40))
 		status = TRUE
 		log_bomber(user, "welded a single tank bomb,", src, "| Temp: [bombtank.air_contents.return_temperature()-T0C]")
-		to_chat(user, "<span class='notice'>A pressure hole has been bored to [bombtank] valve. \The [bombtank] can now be ignited.</span>")
+		to_chat(user, "<span class='notice'>A pressure hole has been bored to [bombtank] valve. [bombtank] can now be ignited.</span>")
 		add_fingerprint(user)
 		return TRUE
 

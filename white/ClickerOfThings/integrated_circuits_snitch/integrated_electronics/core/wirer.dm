@@ -25,23 +25,23 @@
 	switch(mode)
 		if(WIRE)
 			selected_io = io
-			to_chat(user, "<span class='notice'>You attach a data wire to \the [selected_io.holder] [selected_io.name] data channel.</span>")
+			to_chat(user, "<span class='notice'>You attach a data wire to [selected_io.holder] [selected_io.name] data channel.</span>")
 			mode = WIRING
 			update_icon()
 		if(WIRING)
 			if(io == selected_io)
-				to_chat(user, "<span class='warning'>Wiring \the [selected_io.holder] [selected_io.name] into itself is rather pointless.</span>")
+				to_chat(user, "<span class='warning'>Wiring [selected_io.holder] [selected_io.name] into itself is rather pointless.</span>")
 				return
 			if(io.io_type != selected_io.io_type)
 				to_chat(user, "<span class='warning'>Those two types of channels are incompatible.  The first is a [selected_io.io_type], \
 				while the second is a [io.io_type].</span>")
 				return
 			if(io.holder.assembly && io.holder.assembly != selected_io.holder.assembly)
-				to_chat(user, "<span class='warning'>Both \the [io.holder] and \the [selected_io.holder] need to be inside the same assembly.</span>")
+				to_chat(user, "<span class='warning'>Both [io.holder] and [selected_io.holder] need to be inside the same assembly.</span>")
 				return
 			selected_io.connect_pin(io)
 
-			to_chat(user, "<span class='notice'>You connect \the [selected_io.holder] [selected_io.name] to \the [io.holder] [io.name].</span>")
+			to_chat(user, "<span class='notice'>You connect [selected_io.holder] [selected_io.name] to [io.holder] [io.name].</span>")
 			mode = WIRE
 			update_icon()
 			selected_io.holder.interact(user) // This is to update the UI.
@@ -50,29 +50,29 @@
 		if(UNWIRE)
 			selected_io = io
 			if(!io.linked.len)
-				to_chat(user, "<span class='warning'>There is nothing connected to \the [selected_io] data channel.</span>")
+				to_chat(user, "<span class='warning'>There is nothing connected to [selected_io] data channel.</span>")
 				selected_io = null
 				return
-			to_chat(user, "<span class='notice'>You prepare to detach a data wire from \the [selected_io.holder] [selected_io.name] data channel.</span>")
+			to_chat(user, "<span class='notice'>You prepare to detach a data wire from [selected_io.holder] [selected_io.name] data channel.</span>")
 			mode = UNWIRING
 			update_icon()
 			return
 
 		if(UNWIRING)
 			if(io == selected_io)
-				to_chat(user, "<span class='warning'>You can't wire a pin into each other, so unwiring \the [selected_io.holder] from \
+				to_chat(user, "<span class='warning'>You can't wire a pin into each other, so unwiring [selected_io.holder] from \
 				the same pin is rather moot.</span>")
 				return
 			if(selected_io in io.linked)
 				selected_io.disconnect_pin(io)
-				to_chat(user, "<span class='notice'>You disconnect \the [selected_io.holder] [selected_io.name] from \
+				to_chat(user, "<span class='notice'>You disconnect [selected_io.holder] [selected_io.name] from \
 				\the [io.holder] [io.name].</span>")
 				selected_io.holder.interact(user) // This is to update the UI.
 				selected_io = null
 				mode = UNWIRE
 				update_icon()
 			else
-				to_chat(user, "<span class='warning'>\The [selected_io.holder] [selected_io.name] and \the [io.holder] \
+				to_chat(user, "<span class='warning'>\The [selected_io.holder] [selected_io.name] and [io.holder] \
 				[io.name] are not connected.</span>")
 				return
 

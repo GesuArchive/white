@@ -22,8 +22,8 @@
 
 /datum/component/storage/concrete/tcg/show_to(mob/M)
 	. = ..()
-	M.visible_message("<span class='notice'>[M] starts to look through the contents of \the [parent]!</span>", \
-					"<span class='notice'>You begin looking into the contents of \the [parent]!</span>")
+	M.visible_message("<span class='notice'>[M] starts to look through the contents of [parent]!</span>", \
+					"<span class='notice'>You begin looking into the contents of [parent]!</span>")
 
 /datum/component/storage/concrete/tcg/close(mob/M)
 	. = ..()

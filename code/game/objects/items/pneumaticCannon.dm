@@ -123,7 +123,7 @@
 	if(user)		//Only use transfer proc if there's a user, otherwise just set loc.
 		if(!user.transferItemToLoc(I, src))
 			return FALSE
-		to_chat(user, "<span class='notice'>You load \the [I] into <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>You load [I] into <b>[src.name]</b>.</span>")
 	else
 		I.forceMove(src)
 	loadedItems += I
@@ -244,7 +244,7 @@
 	if(removing)
 		if(!tank)
 			return
-		to_chat(user, "<span class='notice'>You detach \the [thetank] from <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>You detach [thetank] from <b>[src.name]</b>.</span>")
 		tank.forceMove(user.drop_location())
 		user.put_in_hands(tank)
 		tank = null
@@ -254,7 +254,7 @@
 			return
 		if(!user.transferItemToLoc(thetank, src))
 			return
-		to_chat(user, "<span class='notice'>You hook \the [thetank] up to <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>You hook [thetank] up to <b>[src.name]</b>.</span>")
 		tank = thetank
 	update_icon()
 

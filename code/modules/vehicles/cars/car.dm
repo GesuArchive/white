@@ -33,7 +33,7 @@
 	if(M != user || !(LAZYACCESS(occupants, M) & VEHICLE_CONTROL_KIDNAPPED))
 		mob_exit(M, silent)
 		return TRUE
-	to_chat(user, "<span class='notice'>You push against the back of \the [src]'s trunk to try and get out.</span>")
+	to_chat(user, "<span class='notice'>You push against the back of [src]'s trunk to try and get out.</span>")
 	if(!do_after(user, escape_time, target = src))
 		return FALSE
 	to_chat(user,"<span class='danger'>[user] gets out of [src].</span>")
@@ -70,7 +70,7 @@
 ///Proc called when someone is forcefully stuffedd into a car
 /obj/vehicle/sealed/car/proc/mob_forced_enter(mob/kidnapped, silent = FALSE)
 	if(!silent)
-		kidnapped.visible_message("<span class='warning'>[kidnapped] is forced into \the [src]!</span>")
+		kidnapped.visible_message("<span class='warning'>[kidnapped] is forced into [src]!</span>")
 	kidnapped.forceMove(src)
 	add_occupant(kidnapped, VEHICLE_CONTROL_KIDNAPPED)
 
