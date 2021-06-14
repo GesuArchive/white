@@ -3799,6 +3799,7 @@
 #include "white\RedFoxIV\code\Crutches_Gigapack.dm"
 #include "white\RedFoxIV\code\obj\emergency_shield.dm"
 #include "white\RedFoxIV\code\obj\item_generator_bags.dm"
+#include "white\RedFoxIV\code\obj\weapons\breakopen.dm"
 #include "white\RedFoxIV\code\obj\weapons\misc.dm"
 #include "white\RedFoxIV\code\obj\weapons\melee\hosbat.dm"
 #include "white\RedFoxIV\code\tgmechcomp\basecomponent.dm"

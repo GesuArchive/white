@@ -1,68 +1,17 @@
-/obj/item/gun/ballistic/detonator
+/obj/item/gun/breakopen/detonator
 	name = "Детонатор"
 	desc = "Гарантированный мини-крит по горящим врагам. Погодите-ка..."
 	icon = 'white/RedFoxIV/icons/obj/weapons/misc.dmi'
 	icon_state = "detonator"
-	
-	var/barrel_closed = TRUE //i don't know if using bolt_locked var will break something on a NO_BOLT gun and i don't want to test it 
-	mag_type = /obj/item/ammo_box/magazine/internal/detonator
-	internal_magazine = TRUE
-	casing_ejector = FALSE
-	bolt_type = BOLT_TYPE_NO_BOLT
-
-
-/*
-/obj/item/gun/ballistic/detonator/process_fire(atom/target, mob/living/user, message, params, zone_override, bonus_spread)
-	. = ..()
-	//idk, the for loop is taken from attack_self() proc for /item/gun/ballistic.
-	for(var/obj/item/ammo_casing/casing in get_ammo_list(FALSE, TRUE))
-		qdel(casing)
-*/
-
-//чтобы убрать навязанные тгшниками строчки говна. ненавижу тг блять сука
-/obj/item/gun/ballistic/detonator/examine(mob/user)
-	var/list/desc = ..()
-	var/ass = desc.len
-	desc.Cut(ass-1, ass)
-	if(chambered)
-		desc.Cut(ass-1, ass)
-	return desc
-
-
-/obj/item/gun/ballistic/detonator/update_icon_state()
-	icon_state = "detonator[!magazine.ammo_count() ? "_open" : ""]"
-
-/*
-/obj/item/gun/ballistic/detonator/attack_self(mob/living/user)
-	. = ..()
-	if(magazine.ammo_count() &&)
-		icon_state = "detonator"
-		barrel_closed = TRUE
-
-/obj/item/gun/ballistic/detonator/attackby(obj/item/A, mob/user, params)
-	. = ..()
-	if(magazine.ammo_count() &&)
-		icon_state = "detonator"
-		barrel_closed = TRUE
-*/
-/obj/item/ammo_box/magazine/internal/detonator
-	name = "detonator gun internal magazine"
-	desc = "Oh god, this shouldn't be here"
-	ammo_type = /obj/item/ammo_casing/detflare
-	caliber = "flare"
 	max_ammo = 1
-	multiload = FALSE
 
-/obj/item/ammo_casing/detflare
+/obj/item/ammo_casing/caseless/detflare
 	name = "Заряд для сигнальной ракетницы"
 	desc = "\"Слегка\" модифицирован для более \"зрелищного\" результата."
 	icon = 'white/RedFoxIV/icons/obj/weapons/misc.dmi'
 	icon_state = "detonator_casing"
 	projectile_type = /obj/projectile/detflare
 	caliber = "flare"
-
-
-
 /obj/projectile/detflare
 	icon = 'white/RedFoxIV/icons/obj/weapons/misc.dmi'
 	icon_state = "detonator_projectile"
@@ -79,7 +28,7 @@
 /obj/projectile/detflare/on_hit(atom/target, blocked, pierce_hit)
 	var/turf/tloc
 	//i don't think this works like it should, but i'm actually content with how it works currently.
-	//...it's not stupid.
+	//...it ain't stupid.
 	if(isclosedturf(target))
 		tloc = prev_loc
 	else
@@ -140,7 +89,7 @@
 /obj/projectile/acoustic_wave
 	name = "Acoustic wave"
 	icon = 'white/RedFoxIV/icons/obj/weapons/misc.dmi'
-	icon_state = "projectile"
+	icon_state = "sonic_projectile"
 	damage = 0
 	range = 4
 	speed = 1.6
@@ -175,7 +124,7 @@
 	if(isclosedturf(target))
 		for(var/mob/living/L in buckled_mobs)
 			L.Paralyze(rand(30,60))
-			L.adjustBruteLoss(rand(10,20))
+			L.adjustBruteLoss(rand(10,20))	
 	/*
 	var/atom/movable/throwdir = angle2dir(Angle)
 	var/atom/movable/throwtarget = get_edge_target_turf(target, throwdir)
@@ -202,3 +151,59 @@
 	category = list("Вооружение")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_SCIENCE //убрать флаг РнД если чрезмерно охуеют
 */
+
+/obj/item/gun/breakopen/doublebarrel
+	name = "двухствольный дробовик"
+	desc = "Настоящая классика."
+	can_be_sawn_off = TRUE
+	can_fire_all_rounds_at_once = TRUE
+
+/obj/item/gun/ballistic/stabba_taser
+	name = "Стабба тазер"
+	desc = "Двухзарядный тазер, стреляющий застревающими в теле электродами."
+	icon = 'white/qwaszx000/sprites/stabba_taser.dmi'
+	icon_state = "taser_gun"
+	inhand_icon_state = "stabba_taser"
+	lefthand_file = 'white/qwaszx000/sprites/stabba_taser_left.dmi'
+	righthand_file = 'white/qwaszx000/sprites/stabba_taser_right.dmi'
+	pin = /obj/item/firing_pin
+	bolt_type = BOLT_TYPE_NO_BOLT
+	mag_type = /obj/item/ammo_box/magazine/internal/stabba_taser_magazine
+	fire_delay = 5
+	internal_magazine = TRUE
+
+/obj/item/ammo_box/magazine/internal/stabba_taser_magazine
+	name = "Магазин стабба тазера. Если вы видите это, сообщите администратору."
+	icon = null
+	icon_state = null
+	ammo_type = /obj/item/ammo_casing/caseless/stabba_taser_projectile_casing
+	caliber = "taser"
+	max_ammo = 2
+	start_empty = FALSE
+
+/obj/item/ammo_box/magazine/internal/stabba_taser_magazine/give_round(obj/item/ammo_casing/R, replace_spent = 1)
+	return ..(R,1)
+
+/obj/item/ammo_casing/caseless/stabba_taser_projectile_casing
+	name = "картридж стабба тазера"
+	desc = "Одноразовый картридж"
+	icon = 'white/qwaszx000/sprites/stabba_taser.dmi'
+	icon_state = "taser_projectile"
+	throwforce = 1
+	projectile_type = /obj/projectile/bullet/stabba_taser_projectile
+	firing_effect_type = null
+	caliber = "taser"
+	harmful = FALSE
+	heavy_metal = FALSE
+
+/obj/projectile/bullet/stabba_taser_projectile
+	name = "Электродик Стаббы"
+	desc = "Выглядит остро"
+	icon = 'white/qwaszx000/sprites/stabba_taser.dmi'
+	icon_state = "taser_projectile"
+	damage = 0
+	nodamage = TRUE
+	stamina = 8
+	speed = 2
+	range = 12
+	embedding = list(embed_chance=100, fall_chance=0, pain_stam_pct=8, pain_mult=1, pain_chance=75)

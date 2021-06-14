@@ -124,7 +124,10 @@ Arrow&bow
 
 /*
  * New taser
- */
+
+
+//old definition, keeping it here for whatever
+see 'white/RedFoxIV/code/obj/weapons/misc.dm'
 
 /obj/item/gun/ballistic/stabba_taser
 	name = "Стабба тазер"
@@ -175,7 +178,6 @@ Arrow&bow
 	range = 12
 	embedding = list(embed_chance=95, fall_chance=10, pain_stam_pct=8, pain_mult=1, pain_chance=75)
 
-/*
  * XVII-XVIII rifle
  */
 
