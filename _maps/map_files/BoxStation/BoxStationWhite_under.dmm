@@ -1702,6 +1702,9 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"hx" = (
+/turf/open/floor/plasteel/monofloor/white,
+/area/science/research/abandoned)
 "hy" = (
 /obj/effect/turf_decal/trimline/green/filled/corner{
 	dir = 4
@@ -59742,7 +59745,7 @@ Zm
 Zm
 ds
 Fa
-Fa
+zy
 zy
 zy
 zy
@@ -59997,10 +60000,10 @@ Zm
 Zm
 Zm
 Zm
-Qz
-Fa
+ds
 Fa
 zy
+hx
 zt
 NI
 VG
@@ -60254,10 +60257,10 @@ PG
 PG
 PG
 PG
-Qz
-Qz
+ds
 Fa
 zy
+hx
 zt
 NI
 VG
@@ -60511,9 +60514,9 @@ Zm
 Zm
 Zm
 PG
-Zm
-Qz
+ds
 Fa
+zy
 zy
 zy
 zy
@@ -60768,8 +60771,8 @@ Zm
 Zm
 Zm
 PG
-Zm
 Qz
+Fa
 Fa
 zy
 KQ
@@ -61025,7 +61028,7 @@ Zm
 Zm
 Zm
 PG
-Zm
+Qz
 Qz
 Qz
 zy

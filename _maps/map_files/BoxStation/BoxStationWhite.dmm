@@ -14222,6 +14222,9 @@
 	pixel_x = -30;
 	receive_ore_updates = 1
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/floor/plasteel/monofloor,
 /area/science/lab)
 "bkt" = (
@@ -15151,10 +15154,6 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/quartermaster/office)
-"bpE" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/science/genetics)
 "bpH" = (
 /obj/structure/disposalpipe/segment{
 	dir = 9
@@ -28276,9 +28275,6 @@
 	dir = 10
 	},
 /area/science/research)
-"cwE" = (
-/turf/open/floor/plating,
-/area/science/genetics)
 "cwT" = (
 /obj/structure/table,
 /obj/machinery/light/small{
@@ -28773,7 +28769,7 @@
 /area/engine/storage)
 "cAR" = (
 /turf/open/floor/plasteel,
-/area/science/nanite)
+/area/science/research)
 "cAS" = (
 /obj/machinery/power/smes{
 	charge = 5e+006
@@ -28799,13 +28795,6 @@
 	},
 /turf/open/openspace/airless,
 /area/space/nearstation)
-"cAV" = (
-/obj/machinery/door/airlock/research{
-	name = "Research Division Access";
-	req_access_txt = "47"
-	},
-/turf/open/floor/plasteel,
-/area/science/nanite)
 "cAW" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
@@ -28880,12 +28869,15 @@
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
 "cBd" = (
-/turf/closed/wall,
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 4;
+	id = "rnd2";
+	name = "research lab shutters"
+	},
+/turf/open/floor/plating,
 /area/science/genetics)
 "cBe" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
 /turf/open/floor/plasteel,
 /area/science/nanite)
 "cBf" = (
@@ -30789,6 +30781,9 @@
 	},
 /turf/open/floor/plating,
 /area/engine/engine_room/external)
+"dMf" = (
+/turf/closed/wall,
+/area/science/genetics)
 "dMZ" = (
 /obj/item/transfer_valve{
 	pixel_x = -5
@@ -30861,6 +30856,7 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "dYq" = (
+/obj/structure/sign/departments/nanites,
 /turf/closed/wall,
 /area/science/nanite)
 "dYK" = (
@@ -30880,6 +30876,9 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/monofloor,
 /area/quartermaster/office)
+"dZF" = (
+/turf/closed/wall/r_wall,
+/area/science/nanite)
 "dZX" = (
 /obj/structure/chair{
 	dir = 4
@@ -31083,7 +31082,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/stripes/line{
-	dir = 5
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/science/nanite)
@@ -32230,7 +32229,10 @@
 /area/engine/atmos)
 "gnX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/closed/wall,
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/plasteel,
 /area/science/nanite)
 "goW" = (
 /obj/structure/sign/prison/kolesa{
@@ -32397,8 +32399,12 @@
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
 "gDw" = (
-/obj/structure/ladder,
-/turf/open/floor/plasteel/monofloor/white,
+/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/airlock/research{
+	name = "Nanites Lab Access";
+	req_access_txt = "47"
+	},
+/turf/open/floor/plasteel/dark,
 /area/science/nanite)
 "gEl" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -32587,6 +32593,11 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/science/lab)
+"gOy" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/science/nanite)
 "gPK" = (
 /obj/machinery/firealarm{
 	dir = 1;
@@ -33341,9 +33352,8 @@
 /turf/open/floor/plasteel/dark,
 /area/engine/manufactory)
 "hZk" = (
-/obj/machinery/door/airlock/research{
-	name = Nanites Lab;
-	req_access_txt = "47"
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
 	},
 /turf/open/floor/plasteel,
 /area/science/nanite)
@@ -33378,7 +33388,10 @@
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/miningdock)
 "ibG" = (
-/obj/machinery/nanite_chamber,
+/obj/structure/table,
+/obj/item/storage/box/disks_nanite{
+	pixel_y = 5
+	},
 /turf/open/floor/plasteel/dark,
 /area/science/nanite)
 "ice" = (
@@ -35104,10 +35117,8 @@
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "lcg" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/closed/wall,
+/obj/machinery/nanite_chamber,
+/turf/open/floor/plasteel/dark,
 /area/science/nanite)
 "ldT" = (
 /obj/structure/sign/poster/official/random,
@@ -35304,7 +35315,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/science/nanite)
+/area/science/research)
 "lxk" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/westright{
@@ -35548,6 +35559,9 @@
 	pixel_y = -24
 	},
 /obj/machinery/nanite_programmer,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27
+	},
 /turf/open/floor/plasteel/dark,
 /area/science/nanite)
 "lQG" = (
@@ -35797,7 +35811,7 @@
 /turf/open/floor/plasteel/white/side{
 	dir = 8
 	},
-/area/science/nanite)
+/area/science/research)
 "mEJ" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
@@ -35987,9 +36001,11 @@
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "mTi" = (
-/obj/structure/sign/departments/nanites,
-/turf/closed/wall,
-/area/science/nanite)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel/white/corner{
+	dir = 4
+	},
+/area/science/research)
 "mVj" = (
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
@@ -37677,6 +37693,12 @@
 /turf/open/floor/plasteel,
 /area/quartermaster/qm)
 "pKm" = (
+/obj/structure/table,
+/obj/item/nanite_remote{
+	pixel_x = 3;
+	pixel_y = 7
+	},
+/obj/item/nanite_scanner,
 /obj/machinery/requests_console{
 	department = "Science";
 	departmentType = 2;
@@ -37684,7 +37706,9 @@
 	pixel_x = 30;
 	receive_ore_updates = 1
 	},
-/obj/machinery/nanite_chamber,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/open/floor/plasteel/dark,
 /area/science/nanite)
 "pKX" = (
@@ -37975,8 +37999,10 @@
 	},
 /area/hallway/primary/aft)
 "qea" = (
-/turf/open/floor/plasteel/monofloor/white,
-/area/science/nanite)
+/turf/open/floor/plasteel/white/side{
+	dir = 1
+	},
+/area/science/research)
 "qfo" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 8
@@ -38325,7 +38351,7 @@
 	},
 /obj/effect/landmark/start/scientist,
 /obj/effect/turf_decal/stripes/line{
-	dir = 9
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/science/nanite)
@@ -38882,6 +38908,11 @@
 	},
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 4;
+	id = "rnd2";
+	name = "research lab shutters"
+	},
 /turf/open/floor/plasteel,
 /area/science/lab)
 "rKn" = (
@@ -39216,8 +39247,12 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -27
 	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/ladder,
 /turf/open/floor/plasteel,
-/area/science/nanite)
+/area/science/research)
 "sjK" = (
 /obj/structure/disposalpipe/junction/flip{
 	dir = 1
@@ -39336,7 +39371,7 @@
 /turf/open/floor/plasteel/white/side{
 	dir = 4
 	},
-/area/science/nanite)
+/area/science/research)
 "svb" = (
 /obj/structure/table/reinforced,
 /obj/item/stack/sheet/metal/fifty{
@@ -39833,7 +39868,10 @@
 /area/science/xenobiology)
 "tgl" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/closed/wall,
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/plasteel,
 /area/science/nanite)
 "tgF" = (
 /obj/structure/cable,
@@ -40750,6 +40788,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel/monofloor,
 /area/security/brig/upper)
+"uNu" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plasteel/white/corner{
+	dir = 1
+	},
+/area/science/research)
 "uNM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /turf/open/floor/plasteel/monofloor,
@@ -41283,6 +41327,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 4;
+	id = "rnd2";
+	name = "research lab shutters"
+	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/genetics)
 "vGf" = (
@@ -41647,12 +41696,12 @@
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "wkN" = (
-/obj/effect/spawner/structure/window,
 /obj/machinery/door/poddoor/shutters/preopen{
 	dir = 8;
 	id = "rnd2";
 	name = "research lab shutters"
 	},
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/science/nanite)
 "wlg" = (
@@ -41748,15 +41797,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/aft)
-"wqH" = (
-/obj/structure/table,
-/obj/item/nanite_remote{
-	pixel_x = 3;
-	pixel_y = 7
-	},
-/obj/item/nanite_scanner,
-/turf/open/floor/plasteel,
-/area/science/nanite)
 "wrS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible{
 	dir = 4
@@ -42292,14 +42332,8 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/fore)
 "xmh" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -27
-	},
-/obj/item/storage/box/disks_nanite{
-	pixel_y = 5
-	},
-/obj/structure/table,
-/turf/open/floor/plasteel,
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
 /area/science/nanite)
 "xnE" = (
 /obj/machinery/light/small{
@@ -42450,6 +42484,11 @@
 	dir = 8
 	},
 /area/engine/atmos)
+"xDk" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/science/nanite)
 "xDT" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/engineering{
@@ -42836,7 +42875,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/science/nanite)
+/area/science/research)
 "yji" = (
 /obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2{
 	color = "#ff0000";
@@ -89529,13 +89568,13 @@ boB
 qaX
 jrH
 sve
-dYq
-mTi
-dYq
+bhA
+bhA
 dYq
 wkN
 wkN
-dYq
+wkN
+dZF
 bvK
 bvK
 bvK
@@ -89789,7 +89828,7 @@ bta
 lxd
 sjr
 xmh
-dYq
+lcg
 hAK
 ibG
 lQm
@@ -90044,8 +90083,8 @@ boQ
 bxe
 bro
 suU
-suU
-suU
+mTi
+xDk
 tgl
 qGG
 oMN
@@ -90300,7 +90339,7 @@ boA
 cwD
 biA
 kqV
-qea
+qHw
 qea
 gDw
 hZk
@@ -90557,10 +90596,10 @@ bnk
 bpo
 bvg
 qHw
-qea
+qHw
 qea
 gDw
-cAV
+hZk
 cBe
 icS
 bUq
@@ -90815,8 +90854,8 @@ bpX
 bth
 kuP
 mBm
-mBm
-mBm
+uNu
+gOy
 gnX
 epI
 uzl
@@ -91073,7 +91112,7 @@ vdl
 kXt
 yiW
 cAR
-wqH
+xmh
 lcg
 xEM
 pKm
@@ -91327,12 +91366,12 @@ bgc
 rKc
 bon
 vGb
-cwE
-bpE
-bpE
-bpE
 cBd
-bpE
+cBd
+cBd
+dMf
+cBd
+cBd
 bEC
 bEC
 bEC
