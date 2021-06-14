@@ -244,7 +244,7 @@
 	name = "Купол симуляции Средневековой эры"
 	description = "A state of the art simulation dome, loaded onto your shuttle! Watch and laugh at how petty humanity used to be before it reached the stars. Guaranteed to be at least 40% historically accurate."
 	admin_notes = "Ghosts can spawn in and fight as knights or archers. The CTF auto restarts, so no admin intervention necessary."
-	credit_cost = 20000
+	credit_cost = 2000
 
 /datum/map_template/shuttle/emergency/medisim/prerequisites_met()
 	return SSshuttle.shuttle_purchase_requirements_met[SHUTTLE_UNLOCK_MEDISIM]
@@ -357,7 +357,7 @@
 	description = "Looks like this shuttle may have wandered into the darkness between the stars on route to the station. Let's not think too hard about where all the bodies came from."
 	admin_notes = "Contains real cult ruins, mob eyeballs, and inactive constructs. Cult mobs will automatically be sentienced by fun balloon. \
 	Cloning pods in 'medbay' area are showcases and nonfunctional."
-	credit_cost = 6667 ///The joke is the number so no defines
+	credit_cost = 667 ///The joke is the number so no defines
 
 /datum/map_template/shuttle/emergency/narnar/prerequisites_met()
 	return SSshuttle.shuttle_purchase_requirements_met[SHUTTLE_UNLOCK_NARNAR]

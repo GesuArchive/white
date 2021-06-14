@@ -25,7 +25,7 @@
 
 /datum/supply_pack/medical/hyperpsy
 	name = "Hyperpsychotic drug crate"
-	cost = 5000
+	cost = 500
 	contains = list(/obj/item/reagent_containers/pill/hyperpsy)
 	crate_name = "hyperpsy crate"
 

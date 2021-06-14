@@ -101,9 +101,9 @@
 			++loaded
 			add_seed(G)
 		if (loaded)
-			to_chat(user, "<span class='notice'>You put as many seeds from \the [O.name] into [src] as you can.</span>")
+			to_chat(user, "<span class='notice'>You put as many seeds from [O.name] into [src] as you can.</span>")
 		else
-			to_chat(user, "<span class='notice'>There are no seeds in \the [O.name].</span>")
+			to_chat(user, "<span class='notice'>There are no seeds in [O.name].</span>")
 		return
 
 	else if(seedify(O,-1, src, user))
@@ -115,7 +115,7 @@
 			updateUsrDialog()
 		return
 	else if(user.a_intent != INTENT_HARM)
-		to_chat(user, "<span class='warning'>You can't extract any seeds from \the [O.name]!</span>")
+		to_chat(user, "<span class='warning'>You can't extract any seeds from [O.name]!</span>")
 	else
 		return ..()
 

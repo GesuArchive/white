@@ -170,7 +170,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		return
 	if(istype(glass))	//you can dip cigarettes into beakers
 		if(glass.reagents.trans_to(src, chem_volume, transfered_by = user))	//if reagents were transfered, show the message
-			to_chat(user, "<span class='notice'>You dip <b>[src.name]</b> into \the [glass].</span>")
+			to_chat(user, "<span class='notice'>You dip <b>[src.name]</b> into [glass].</span>")
 		else			//if not, either the beaker was empty, or the cigarette was full
 			if(!glass.reagents.total_volume)
 				to_chat(user, "<span class='warning'>[glass] is empty!</span>")
@@ -741,7 +741,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			cig.attackby(src, user)
 		else
 			if(fancy)
-				cig.light("<span class='rose'>[user] whips the [name] out and holds it for [M]. [user.ru_ego(TRUE)] arm is as steady as the unflickering flame [user.ru_who()] light[user.p_s()] \the [cig] with.</span>")
+				cig.light("<span class='rose'>[user] whips the [name] out and holds it for [M]. [user.ru_ego(TRUE)] arm is as steady as the unflickering flame [user.ru_who()] light[user.p_s()] [cig] with.</span>")
 			else
 				cig.light("<span class='notice'>[user] holds the [name] out for [M], and lights [M.ru_ego()] [cig.name].</span>")
 	else

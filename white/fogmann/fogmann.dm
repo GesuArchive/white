@@ -299,7 +299,7 @@
 
 /datum/supply_pack/organic/critter/dhund
 	name = "Dachshund Crate"
-	cost = 1000
+	cost = 100
 	contains = list(/mob/living/simple_animal/pet/dog/dhund)
 	crate_name = "dachshund crate"
 
@@ -364,13 +364,13 @@
 
 /datum/supply_pack/organic/critter/shepherd
 	name = "German Shepherd"
-	cost = 1000
+	cost = 100
 	contains = list(/mob/living/simple_animal/pet/dog/shepherd)
 	crate_name = "shepherd crate"
 
 /datum/supply_pack/organic/critter/doggies
 	name = "Doggies crate"
-	cost = 1000
+	cost = 100
 	contains = list(/mob/living/simple_animal/pet/dog/jack, /mob/living/simple_animal/pet/dog/pug/chi)
 	crate_name = "doggies crate"
 

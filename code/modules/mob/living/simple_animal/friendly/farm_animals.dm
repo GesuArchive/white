@@ -412,7 +412,7 @@
 		return
 	var/transfered = reagents.trans_to(O, rand(5,10))
 	if(transfered)
-		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>", "<span class='notice'>You milk [src] using \the [O].</span>")
+		user.visible_message("<span class='notice'>[user] milks [src] using [O].</span>", "<span class='notice'>You milk [src] using [O].</span>")
 	else
 		to_chat(user, "<span class='warning'>The udder is dry. Wait a bit longer...</span>")
 

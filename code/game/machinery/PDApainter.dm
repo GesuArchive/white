@@ -341,7 +341,7 @@
 				if(SSid_access.apply_trim_to_card(stored_id_card, path, copy_access = FALSE))
 					return TRUE
 
-				to_chat(usr, "<span class='warning'>The trim you selected could not be added to \the [stored_id_card]. You will need a rarer ID card to imprint that trim data.</span>")
+				to_chat(usr, "<span class='warning'>The trim you selected could not be added to [stored_id_card]. You will need a rarer ID card to imprint that trim data.</span>")
 
 			return TRUE
 		if("reset_card")

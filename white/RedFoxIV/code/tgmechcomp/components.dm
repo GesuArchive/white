@@ -167,7 +167,7 @@
 
 /obj/item/mechcomp/button/interact_by_hand(mob/user)
 	if(active)
-		return	
+		return
 	activate_for(1 SECONDS)
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_TRANSMIT_DEFAULT_MSG)
 	log_action("pressed by [user.ckey ? "[user.ckey]" : "[user.name] without a ckey. Check more logs, this should not happen"].")
@@ -432,7 +432,7 @@
 		if(isnull(gun))
 			user.transferItemToLoc(I,src)
 			gun = I
-			to_chat(user, "<span class='notice'>You slide \the [gun] into the [src.name].</span>")
+			to_chat(user, "<span class='notice'>You slide [gun] into the [src.name].</span>")
 			playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
 			if(gun.can_charge)
 				recharger.setCharging(gun)
@@ -445,7 +445,7 @@
 		gun.forceMove(drop_location())
 		gun = null
 		playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>You pop \the [gun] out of the [src.name].</span>")
+		to_chat(user, "<span class='notice'>You pop [gun] out of the [src.name].</span>")
 		recharger.setCharging(null)
 		return
 

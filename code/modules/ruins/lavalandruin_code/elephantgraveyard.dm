@@ -101,7 +101,7 @@
 			to_chat(user, "<span class='notice'>\The [RG] is full.</span>")
 			return FALSE
 	if(user.a_intent != INTENT_HARM)
-		to_chat(user, "<span class='notice'>You won't have any luck getting \the [O] out if you drop it in the oil.</span>")
+		to_chat(user, "<span class='notice'>You won't have any luck getting [O] out if you drop it in the oil.</span>")
 		return 1
 	else
 		return ..()
@@ -164,7 +164,7 @@
 	if(user.a_intent == INTENT_HELP) //checks to attempt to dig the grave, must be done on help intent only.
 		if(!opened)
 			if(istype(S,cutting_tool) && S.tool_behaviour == TOOL_SHOVEL)
-				to_chat(user, "<span class='notice'>You start start to dig open <b>[src.name]</b> with \the [S]...</span>")
+				to_chat(user, "<span class='notice'>You start start to dig open <b>[src.name]</b> with [S]...</span>")
 				if (do_after(user,20, target = src))
 					opened = TRUE
 					locked = TRUE
@@ -178,7 +178,7 @@
 					return 1
 				return 1
 			else
-				to_chat(user, "<span class='notice'>You can't dig up a grave with \the [S.name].</span>")
+				to_chat(user, "<span class='notice'>You can't dig up a grave with [S.name].</span>")
 				return 1
 		else
 			to_chat(user, "<span class='notice'>The grave has already been dug up.</span>")
@@ -186,7 +186,7 @@
 
 	else if((user.a_intent != INTENT_HELP) && opened) //checks to attempt to remove the grave entirely.
 		if(istype(S,cutting_tool) && S.tool_behaviour == TOOL_SHOVEL)
-			to_chat(user, "<span class='notice'>You start to remove <b>[src.name]</b> with \the [S].</span>")
+			to_chat(user, "<span class='notice'>You start to remove <b>[src.name]</b> with [S].</span>")
 			if (do_after(user,15, target = src))
 				to_chat(user, "<span class='notice'>You remove <b>[src.name]</b> completely.</span>")
 				SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "graverobbing", /datum/mood_event/graverobbing)

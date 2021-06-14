@@ -441,7 +441,7 @@
 		user.transferItemToLoc(O,src)
 		encryption_keys += O
 		recalculate_channels()
-		to_chat(user, "<span class='notice'>You slide \the [O] inside the circuit.</span>")
+		to_chat(user, "<span class='notice'>You slide [O] inside the circuit.</span>")
 	else
 		..()
 

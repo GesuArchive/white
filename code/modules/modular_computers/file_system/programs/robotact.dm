@@ -22,7 +22,7 @@
 
 /datum/computer_file/program/robotact/run_program(mob/living/user)
 	if(!istype(computer, /obj/item/modular_computer/tablet/integrated))
-		to_chat(user, "<span class='warning'>Предупреждение мерцает на \the [computer]: Устройство несовместимо.</span>")
+		to_chat(user, "<span class='warning'>Предупреждение мерцает на [computer]: Устройство несовместимо.</span>")
 		return FALSE
 	. = ..()
 	if(.)

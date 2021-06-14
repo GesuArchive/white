@@ -145,7 +145,7 @@
 	else if(istype(W, /obj/item/scalpel/supermatter) || istype(W, /obj/item/nuke_core_container/supermatter/)) // we don't want it to dust
 		return
 	else
-		to_chat(user, "<span class='notice'>As it touches <b>[src.name]</b>, both <b>[src.name]</b> and \the [W] burst into dust!</span>")
+		to_chat(user, "<span class='notice'>As it touches <b>[src.name]</b>, both <b>[src.name]</b> and [W] burst into dust!</span>")
 		radiation_pulse(user, 100)
 		playsound(src, 'sound/effects/supermatter.ogg', 50, TRUE)
 		qdel(W)

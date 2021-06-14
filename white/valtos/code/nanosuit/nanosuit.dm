@@ -934,7 +934,7 @@
 		D.visible_message("<span class='danger'>[A] пытается обезоружить [D]!</span>", \
 							"<span class='userdanger'>[A] пытается обезоружить [D]!</span>")
 		playsound(D, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
-	log_combat(A, D, "disarmed with nanosuit", "[I ? " removing \the [I]" : ""]")
+	log_combat(A, D, "disarmed with nanosuit", "[I ? " removing [I]" : ""]")
 	return TRUE
 
 /obj/proc/nanosuit_damage() //the damage nanosuits do on punches to this object, is affected by melee armor

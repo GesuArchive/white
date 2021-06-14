@@ -177,7 +177,7 @@
 	name = "NULL_ENTRY"
 	desc = "(#@&^$THIS PACKAGE CONTAINS 30TC WORTH OF SOME RANDOM SYNDICATE GEAR WE HAD LYING AROUND THE WAREHOUSE. GIVE EM HELL, OPERATIVE@&!*() "
 	hidden = TRUE
-	cost = 20000
+	cost = 2000
 	contains = list()
 	crate_name = "emergency crate"
 	crate_type = /obj/structure/closet/crate/internals
@@ -999,7 +999,7 @@
 /datum/supply_pack/engine/particle
 	name = "Particle Accelerator Crate"
 	desc = "A supermassive black hole or hyper-powered teslaball are the perfect way to spice up any party! This \"My First Apocalypse\" kit contains everything you need to build your own Particle Accelerator! Ages 10 and up."
-	cost = 3000
+	cost = 300
 	contains = list(/obj/structure/particle_accelerator/fuel_chamber,
 					/obj/machinery/particle_accelerator/control_box,
 					/obj/structure/particle_accelerator/particle_emitter/center,
@@ -1012,7 +1012,7 @@
 /datum/supply_pack/engine/tesla_gen
 	name = "Tesla Generator Crate"
 	desc = "The key to unlocking the power of the Tesla energy ball. Particle Accelerator not included."
-	cost = 5000
+	cost = 500
 	contains = list(/obj/machinery/the_singularitygen/tesla)
 	crate_name = "tesla generator crate"
 
@@ -2384,7 +2384,7 @@
 /datum/supply_pack/costumes_toys/randomised/tcg
 	name = "Big-Ass Booster Pack Pack"
 	desc = "A bumper load of NT TCG Booster Packs of varying series. Collect them all!"
-	cost = 1000
+	cost = 100
 	contains = list()
 	crate_name = "booster pack pack"
 

@@ -7,8 +7,8 @@
 	desc = "An assortment of deadly chemicals packed into a compact box. Comes with a syringe for more precise application."
 	item = /obj/item/storage/box/syndie_kit/chemical
 
-	price_min = 5000
-	price_max = 50000
+	price_min = 500
+	price_max = 5000
 	stock_max = 1
 	availability_prob = 25
 
@@ -97,8 +97,8 @@
 			5 minutes after injection."
 	item = /obj/item/reagent_containers/hypospray/medipen/stimulants
 
-	price_min = 5000
-	price_max = 50000
+	price_min = 500
+	price_max = 5000
 	stock_max = 1
 	availability_prob = 25
 

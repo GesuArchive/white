@@ -7,76 +7,76 @@
 /datum/supply_pack/goody/dumdum38
 	name = ".38 DumDum Speedloader"
 	desc = "Contains one speedloader of .38 DumDum ammunition, good for embedding in soft targets."
-	cost = PAYCHECK_MEDIUM * 2
+	cost = PAYCHECK_MEDIUM * 20
 	access_view = ACCESS_BRIG
 	contains = list(/obj/item/ammo_box/c38/dumdum)
 
 /datum/supply_pack/goody/match38
 	name = ".38 Match Grade Speedloader"
 	desc = "Contains one speedloader of match grade .38 ammunition, perfect for showing off trickshots."
-	cost = PAYCHECK_MEDIUM * 2
+	cost = PAYCHECK_MEDIUM * 20
 	access_view = ACCESS_BRIG
 	contains = list(/obj/item/ammo_box/c38/match)
 
 /datum/supply_pack/goody/rubber
 	name = ".38 Rubber Speedloader"
 	desc = "Contains one speedloader of bouncy rubber .38 ammunition, for when you want to bounce your shots off anything and everything."
-	cost = PAYCHECK_MEDIUM * 1.5
+	cost = PAYCHECK_MEDIUM * 10.5
 	access_view = ACCESS_BRIG
 	contains = list(/obj/item/ammo_box/c38/match/bouncy)
 
 /datum/supply_pack/goody/stingbang
 	name = "Stingbang Single-Pack"
 	desc = "Contains one \"stingbang\" grenade, perfect for playing meanhearted pranks."
-	cost = PAYCHECK_HARD * 2.5
+	cost = PAYCHECK_HARD * 20.5
 	access_view = ACCESS_BRIG
 	contains = list(/obj/item/grenade/stingbang)
 
 /datum/supply_pack/goody/combatknives_single
 	name = "Combat Knife Single-Pack"
 	desc = "Contains one sharpened combat knive. Guaranteed to fit snugly inside any Nanotrasen-standard boot."
-	cost = PAYCHECK_HARD * 1.75
+	cost = PAYCHECK_HARD * 10.75
 	contains = list(/obj/item/kitchen/knife/combat)
 
 /datum/supply_pack/goody/ballistic_single
 	name = "Combat Shotgun Single-Pack"
 	desc = "For when the enemy absolutely needs to be replaced with lead. Contains one Aussec-designed Combat Shotgun, and one Shotgun Bandolier."
-	cost = PAYCHECK_HARD * 15
+	cost = PAYCHECK_HARD * 150
 	access_view = ACCESS_ARMORY
 	contains = list(/obj/item/gun/ballistic/shotgun/automatic/combat, /obj/item/storage/belt/bandolier)
 
 /datum/supply_pack/goody/energy_single
 	name = "Energy Gun Single-Pack"
 	desc = "Contains one energy gun, capable of firing both nonlethal and lethal blasts of light."
-	cost = PAYCHECK_HARD * 12
+	cost = PAYCHECK_HARD * 120
 	access_view = ACCESS_ARMORY
 	contains = list(/obj/item/gun/energy/e_gun)
 
 /datum/supply_pack/goody/hell_single
 	name = "Hellgun Kit Single-Pack"
 	desc = "Contains one hellgun degradation kit, an old pattern of laser gun infamous for its ability to horribly disfigure targets with burns. Technically violates the Space Geneva Convention when used on humanoids."
-	cost = PAYCHECK_MEDIUM * 2
+	cost = PAYCHECK_MEDIUM * 200
 	access_view = ACCESS_ARMORY
 	contains = list(/obj/item/weaponcrafting/gunkit/hellgun)
 
 /datum/supply_pack/goody/wt550_single
 	name = "WT-550 Auto Rifle Single-Pack"
 	desc = "Contains one high-powered, semiautomatic rifles chambered in 4.6x30mm." // "high-powered" lol yea right
-	cost = PAYCHECK_HARD * 20
+	cost = PAYCHECK_HARD * 100
 	access_view = ACCESS_ARMORY
 	contains = list(/obj/item/gun/ballistic/automatic/wt550)
 
 /datum/supply_pack/goody/wt550ammo_single
 	name = "WT-550 Auto Rifle Ammo Single-Pack"
 	desc = "Contains a 20-round magazine for the WT-550 Auto Rifle. Each magazine is designed to facilitate rapid tactical reloads."
-	cost = PAYCHECK_HARD * 6
+	cost = PAYCHECK_HARD * 60
 	access_view = ACCESS_ARMORY
 	contains = list(/obj/item/ammo_box/magazine/wt550m9)
 
 /datum/supply_pack/goody/sologamermitts
 	name = "Insulated Gloves Single-Pack"
 	desc = "The backbone of modern society. Barely ever ordered for actual engineering."
-	cost = PAYCHECK_MEDIUM * 8
+	cost = PAYCHECK_MEDIUM * 80
 	contains = list(/obj/item/clothing/gloves/color/yellow)
 
 /datum/supply_pack/goody/gripper_single

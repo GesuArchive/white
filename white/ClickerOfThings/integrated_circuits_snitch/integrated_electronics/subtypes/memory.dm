@@ -133,7 +133,7 @@
 	if(accepting_refs && proximity)
 		var/datum/integrated_io/O = outputs[1]
 		O.data = WEAKREF(target)
-		visible_message("<span class='notice'>[user] slides <b>[src.name]</b>'s over \the [target].</span>")
+		visible_message("<span class='notice'>[user] slides <b>[src.name]</b>'s over [target].</span>")
 		to_chat(user, "<span class='notice'>You set <b>[src.name]</b>'s memory to a reference to [O.display_data(O.data)].  The ref scanner is \
 		now off.</span>")
 		accepting_refs = FALSE

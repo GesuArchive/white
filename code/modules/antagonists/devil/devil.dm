@@ -242,7 +242,8 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 		var/mob/living/carbon/human/H = owner.current
 		var/horns = /obj/item/clothing/head/devil_horns
 		var/obj/item/clothing/head/devilhorns = new horns(get_turf(H))
-		H.equip_to_slot(devilhorns, ITEM_SLOT_HEAD, 1, 1)
+		H.unequip_everything()
+		H.equip_to_slot_or_del(devilhorns, ITEM_SLOT_HEAD, 1, 1)
 	give_appropriate_spells()
 	form = HORNY_MAN
 
@@ -302,7 +303,7 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 		D.forceMove(get_turf(D))//Fixes dying while jaunted leaving you permajaunted.
 	var/area/A = get_area(owner.current)
 	if(A)
-		notify_ghosts("An arch devil has ascended in \the [A.name]. Reach out to the devil to be given a new shell for your soul.", source = owner.current, action=NOTIFY_ATTACK)
+		notify_ghosts("An arch devil has ascended in [A.name]. Reach out to the devil to be given a new shell for your soul.", source = owner.current, action=NOTIFY_ATTACK)
 	sleep(50)
 	if(!SSticker.mode.devil_ascended)
 		SSshuttle.emergency.request(null, set_coefficient = 0.3)
@@ -362,9 +363,13 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 		sleep(DEVILRESURRECTTIME)
 		if (!body ||  body.stat == DEAD)
 			if(SOULVALUE>0)
-				if(check_banishment(body))
-					to_chat(owner.current, "<span class='userdanger'>Unfortunately, the mortals have finished a ritual that prevents your resurrection.</span>")
-					return -1
+				if(body)
+					if(check_banishment(body))
+						to_chat(owner.current, "<span class='userdanger'>Unfortunately, the mortals have finished a ritual that prevents your resurrection.</span>")
+						return -1
+					else
+						to_chat(owner.current, "<span class='userdanger'>WE LIVE AGAIN!</span>")
+						return hellish_resurrection(body)
 				else
 					to_chat(owner.current, "<span class='userdanger'>WE LIVE AGAIN!</span>")
 					return hellish_resurrection(body)

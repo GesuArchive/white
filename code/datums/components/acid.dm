@@ -197,7 +197,7 @@
 	if(!affecting?.receive_damage(0, 5))
 		return NONE
 
-	to_chat(user, "<span class='warning'>The acid on \the [parent_atom] burns your hand!</span>")
+	to_chat(user, "<span class='warning'>The acid on [parent_atom] burns your hand!</span>")
 	playsound(parent_atom, 'sound/weapons/sear.ogg', 50, TRUE)
 	user.update_damage_overlays()
 	return COMPONENT_CANCEL_ATTACK_CHAIN

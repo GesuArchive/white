@@ -583,7 +583,7 @@
 			var/logmsg
 			valve_open = !valve_open
 			if(valve_open)
-				logmsg = "Valve was <b>opened</b> by [key_name(usr)], starting a transfer into \the [holding || "air"].<br>"
+				logmsg = "Valve was <b>opened</b> by [key_name(usr)], starting a transfer into [holding || "air"].<br>"
 				if(!holding)
 					var/list/danger = list()
 					for(var/id in air_contents.get_gases())
@@ -600,7 +600,7 @@
 							log_admin(msg)
 							message_admins(msg)
 			else
-				logmsg = "Valve was <b>closed</b> by [key_name(usr)], stopping the transfer into \the [holding || "air"].<br>"
+				logmsg = "Valve was <b>closed</b> by [key_name(usr)], stopping the transfer into [holding || "air"].<br>"
 			investigate_log(logmsg, INVESTIGATE_ATMOS)
 			release_log += logmsg
 			. = TRUE

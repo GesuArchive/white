@@ -72,8 +72,8 @@
 			to_chat(user, "<span class='warning'>В этом заборе уже прорезали слишком много дыр!</span>")
 			return
 
-		user.visible_message("<span class='danger'> [user] начинает прорезать <b>[src.name]</b> с помощью \the [W].</span>",\
-		"<span class='danger'>Начинаю прорезать <b>[src.name]</b> используя \the [W].</span>")
+		user.visible_message("<span class='danger'> [user] начинает прорезать <b>[src.name]</b> с помощью [W].</span>",\
+		"<span class='danger'>Начинаю прорезать <b>[src.name]</b> используя [W].</span>")
 
 		if(do_after(user, CUT_TIME*W.toolspeed, target = src))
 			if(current_stage == hole_size)

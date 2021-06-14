@@ -58,10 +58,10 @@
 				to_chat(user, "<span class='nzcrentr'>You need [200 - GLOB.clockcult_power]W more to repair the [C]...</span>")
 				return
 			GLOB.clockcult_power -= 200
-			to_chat(user, "<span class='nzcrentr'>You repair some of the damage on \the [C].</span>")
+			to_chat(user, "<span class='nzcrentr'>You repair some of the damage on [C].</span>")
 			C.obj_integrity = clamp(C.obj_integrity + 15, 0, C.max_integrity)
 		else
-			to_chat(user, "<span class='nzcrentr'>You fail to repair the damage of \the [C]...</span>")
+			to_chat(user, "<span class='nzcrentr'>You fail to repair the damage of [C]...</span>")
 
 /obj/item/clockwork/replica_fabricator/proc/fabricate_sheets(turf/target, mob/user)
 	var/sheets = FLOOR(clamp(GLOB.clockcult_power / BRASS_POWER_COST, 0, 50), 1)

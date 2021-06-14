@@ -18,8 +18,8 @@
 					/obj/item/storage/mre/protein = 5
 					)
 	//refill_canister = /obj/item/vending_refill/cola
-	default_price = 100
-	extra_price = 500
+	default_price = 5
+	extra_price = 25
 	payment_department = ACCOUNT_SRV
 	light_mask = "chetverochka-light-mask"
 
@@ -40,12 +40,13 @@
 
 					)
 	premium = list(
-					/obj/item/storage/box/pillpack/stimulant = 1
-
+					/obj/item/storage/box/pillpack/stimulant = 1,
+					/obj/item/stack/medical/aloe = 5,
+					/obj/item/stack/medical/suture/medicated = 5
 					)
 	armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
 	resistance_flags = FIRE_PROOF
 	//refill_canister = /obj/item/vending_refill/medical
-	default_price = 200
-	extra_price = 1000
+	default_price = 25
+	extra_price = 50
 	payment_department = ACCOUNT_MED

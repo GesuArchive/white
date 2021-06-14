@@ -180,7 +180,7 @@
 	if(ismovable(target))
 		target.wash(CLEAN_SCRUB)
 		if(istype(target, /obj/effect/decal/cleanable))
-			visible_message("<span class='notice'>[capitalize(src.name)] cleans up \the [target].</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] cleans up [target].</span>")
 		else
-			visible_message("<span class='notice'>[capitalize(src.name)] polishes \the [target].</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] polishes [target].</span>")
 		return TRUE

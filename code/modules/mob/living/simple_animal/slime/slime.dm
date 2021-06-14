@@ -314,26 +314,26 @@
 		M.do_attack_animation(src, ATTACK_EFFECT_DISARM)
 		if(buckled == M)
 			if(prob(60))
-				M.visible_message("<span class='warning'>[M] attempts to wrestle \the [name] off!</span>", \
-					"<span class='danger'>You attempt to wrestle \the [name] off!</span>")
+				M.visible_message("<span class='warning'>[M] пытается скинуть [name]!</span>", \
+					"<span class='danger'>Пытаюсь скинуть [name]!</span>")
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 
 			else
-				M.visible_message("<span class='warning'>[M] удаётся побороть \ [name]!</span>", \
-					"<span class='notice'>Мне удаётся побороть \[name]!</span>")
+				M.visible_message("<span class='warning'>[M] удаётся побороть [name]!</span>", \
+					"<span class='notice'>Мне удаётся побороть [name]!</span>")
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 
 				discipline_slime(M)
 
 		else
 			if(prob(30))
-				buckled.visible_message("<span class='warning'>[M] пытается побороть \[name] [buckled]!</span>", \
-					"<span class='warning'>[M] пытается побороть мой \the [name]!</span>")
+				buckled.visible_message("<span class='warning'>[M] пытается побороть [name] [buckled]!</span>", \
+					"<span class='warning'>[M] пытается побороть мой [name]!</span>")
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 
 			else
-				buckled.visible_message("<span class='warning'>[M] удаётся побороть \the [name] [buckled]!</span>", \
-					"<span class='notice'>[M] удаётся побороть мой \the [name]!</span>")
+				buckled.visible_message("<span class='warning'>[M] удаётся побороть [name] [buckled]!</span>", \
+					"<span class='notice'>[M] удаётся побороть мой [name]!</span>")
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 
 				discipline_slime(M)

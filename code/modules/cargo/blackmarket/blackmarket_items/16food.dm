@@ -9,8 +9,8 @@
 
 	stock_min = 1
 	stock_max = 10
-	price_min = 100
-	price_max = 500
+	price_min = 10
+	price_max = 50
 	availability_prob = 100
 
 /datum/blackmarket_item/food/donk_pocket_box/spawn_item(loc)
@@ -30,8 +30,8 @@
 
 	stock_min = 1
 	stock_max = 10
-	price_min = 100
-	price_max = 500
+	price_min = 10
+	price_max = 50
 	availability_prob = 100
 
 /datum/blackmarket_item/food/pizza
@@ -41,8 +41,8 @@
 
 	stock_min = 1
 	stock_max = 20
-	price_min = 500
-	price_max = 3000
+	price_min = 50
+	price_max = 300
 	availability_prob = 100
 
 /datum/blackmarket_item/food/pizza/spawn_item(loc)
@@ -64,7 +64,7 @@
 
 	stock_min = 10
 	stock_max = 50
-	price_min = 1
+	price_min = 10
 	price_max = 50
 	availability_prob = 100
 

@@ -107,7 +107,7 @@
 /datum/supply_pack/medical/stat_implants
 	name = "Импланты усиления"
 	desc = "Содержит несколько настраиваемых имплантов для усиления возможностей человека."
-	cost = 9500
+	cost = 950
 	contains = list(/obj/item/organ/cyberimp/brain/stats,
 					/obj/item/organ/cyberimp/brain/stats,
 					/obj/item/organ/cyberimp/brain/stats)

@@ -7,8 +7,8 @@
 	desc = "Все возможные ресурсы только для вас!"
 	item = /obj/structure/closet/syndicate/resources/everything
 
-	price_min = 50000
-	price_max = 200000
+	price_min = 5000
+	price_max = 20000
 	stock_min = 3
 	stock_max = 1
 	availability_prob = 100
@@ -18,8 +18,8 @@
 	desc = "Собственная марка отца Лотия."
 	item = /obj/item/reagent_containers/food/drinks/bottle/holywater
 
-	price_min = 400
-	price_max = 600
+	price_min = 40
+	price_max = 60
 	stock_max = 3
 	availability_prob = 40
 
@@ -33,8 +33,8 @@
 	desc = "An Exotic Variety of seed that can contain anything from glow to acid."
 	item = /obj/item/seeds/random
 
-	price_min = 100
-	price_max = 10000
+	price_min = 10
+	price_max = 1000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 70
@@ -44,8 +44,8 @@
 	desc = "Легко спрятать"
 	item = /obj/item/storage/backpack/satchel/flat/empty
 
-	price_min = 750
-	price_max = 1000
+	price_min = 75
+	price_max = 100
 	stock_max = 2
 	availability_prob = 30
 
@@ -54,8 +54,8 @@
 	desc = "Какая-то карта с микросхемами, подсоединенные проводами."
 	item = /obj/item/card/emag
 
-	price_min = 10000
-	price_max = 25000
+	price_min = 1000
+	price_max = 2500
 	stock_max = 1
 	availability_prob = 10
 
@@ -64,8 +64,8 @@
 	desc = "Случайная видеокарта со склада NTS."
 	item = /obj/item/mining_thing/amd
 
-	price_min = 2000
-	price_max = 10000
+	price_min = 200
+	price_max = 300
 	stock_max = 5
 	availability_prob = 25
 

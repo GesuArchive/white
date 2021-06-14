@@ -159,7 +159,7 @@
 			return
 		if(user.transferItemToLoc(I, src))
 			cell = I
-			to_chat(user, "<span class='notice'>You successfully install \the [cell] into [src].</span>")
+			to_chat(user, "<span class='notice'>You successfully install [cell] into [src].</span>")
 			return
 	return ..()
 
@@ -184,7 +184,7 @@
 /// Remove the cell from the suit if the cell cover is open
 /obj/item/clothing/suit/space/proc/remove_cell(mob/user)
 	if(cell_cover_open && cell)
-		user.visible_message("<span class='notice'>[user] removes \the [cell] from [src]!</span>", \
+		user.visible_message("<span class='notice'>[user] removes [cell] from [src]!</span>", \
 			"<span class='notice'>You remove [cell].</span>")
 		cell.add_fingerprint(user)
 		user.put_in_hands(cell)

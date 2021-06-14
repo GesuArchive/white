@@ -23,7 +23,7 @@
 		else
 			if(gang)
 				gang.adjust_influence(-real_cost)
-		to_chat(user, "<span class='notice'>You bought \the [name].</span>")
+		to_chat(user, "<span class='notice'>You bought [name].</span>")
 		gangtool.attack_self(user)
 		return TRUE
 

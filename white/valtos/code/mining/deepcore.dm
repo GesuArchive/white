@@ -600,7 +600,7 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 		else
 			active = TRUE
 			use_power = 2 //Use active power
-			to_chat(user, "<span class='notice'>You activeate \the [src.name]</span>")
+			to_chat(user, "<span class='notice'>You activeate [src.name]</span>")
 	update_icon_state()
 
 /obj/machinery/deepcore/hopper/process()
@@ -631,7 +631,7 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 
 /obj/machinery/deepcore/hopper/can_be_unfasten_wrench(mob/user, silent)
 	if(active)
-		to_chat(user, "<span class='warning'>Turn \the [src.name] off first!</span>")
+		to_chat(user, "<span class='warning'>Turn [src.name] off first!</span>")
 		return FAILED_UNFASTEN
 	return ..()
 

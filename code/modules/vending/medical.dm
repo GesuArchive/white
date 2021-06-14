@@ -69,8 +69,8 @@
 	premium = list(/obj/item/reagent_containers/medigel/synthflesh = 2,
 					/obj/item/storage/pill_bottle/psicodine = 2,
 					/obj/item/plunger/reinforced = 2)
-	default_price = 50
-	extra_price = 100
+	default_price = 5
+	extra_price = 15
 	payment_department = ACCOUNT_MED
 	refill_canister = /obj/item/vending_refill/drugs
 

@@ -192,7 +192,7 @@
 						"<span class='userdanger'>You're nearly disarmed by [A]!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, A)
 		to_chat(A, "<span class='warning'>You fail to disarm [D]!</span>")
 		playsound(D, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
-	log_combat(A, D, "disarmed (CQC)", "[I ? " grabbing \the [I]" : ""]")
+	log_combat(A, D, "disarmed (CQC)", "[I ? " grabbing [I]" : ""]")
 	if(restraining && A.pulling == D)
 		log_combat(A, D, "knocked out (Chokehold)(CQC)")
 		D.visible_message("<span class='danger'>[A] puts [D] into a chokehold!</span>", \

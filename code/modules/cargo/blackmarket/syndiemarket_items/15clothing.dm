@@ -17,8 +17,8 @@
 	desc = "Very heavy, but nice protection"
 	item = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/merc_rig_heavy
 
-	price_min = 3000000
-	price_max = 10000000
+	price_min = 30000
+	price_max = 100000
 	stock_max = 1
 	availability_prob = 50
 
@@ -27,8 +27,8 @@
 	desc = "Very heavy, but nice protection"
 	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/hazard_rig
 
-	price_min = 1000000
-	price_max = 6500000
+	price_min = 10000
+	price_max = 65000
 	stock_max = 1
 	availability_prob = 100
 
@@ -41,8 +41,8 @@
 			Nanotrasen crew who spot these suits are known to panic."
 	item = /obj/item/clothing/suit/space/hardsuit/syndi
 
-	price_min = 50000
-	price_max = 100000
+	price_min = 5000
+	price_max = 10000
 	stock_max = 1
 	availability_prob = 50
 
@@ -52,8 +52,8 @@
 			provides the user with superior armor and mobility compared to the standard Syndicate hardsuit."
 	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite
 
-	price_min = 250000
-	price_max = 500000
+	price_min = 25000
+	price_max = 50000
 	stock_max = 1
 	availability_prob = 50
 
@@ -65,8 +65,8 @@
 			and artificial intelligence cores emit more of this light than cooler objects like walls and airlocks."
 	item = /obj/item/clothing/glasses/thermal/syndi
 
-	price_min = 10000
-	price_max = 100000
+	price_min = 1000
+	price_max = 10000
 	stock_max = 1
 	availability_prob = 50
 
@@ -109,8 +109,8 @@
 		squeak significantly louder."
 	item = /obj/item/clothing/shoes/clown_shoes/banana_shoes/combat
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 500
+	price_max = 1000
 	stock_max = 1
 	availability_prob = 50
 
@@ -120,8 +120,8 @@
 			They do not work on heavily lubricated surfaces."
 	item = /obj/item/clothing/shoes/chameleon/noslip
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 500
+	price_max = 1000
 	stock_max = 1
 	availability_prob = 50
 
@@ -132,7 +132,7 @@
 			'Advanced Magboots' slow you down in simulated-gravity environments much like the standard issue variety."
 	item = /obj/item/clothing/shoes/magboots/syndie
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 500
+	price_max = 1000
 	stock_max = 1
 	availability_prob = 50

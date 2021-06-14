@@ -505,7 +505,6 @@
 	desc = "Они не снимаются"
 	icon_state = "devil_horns"
 	armor = list(MELEE = 10, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 100)
-	inhand_icon_state = "devil_horns"
 
 /obj/item/clothing/head/devil_horns/Initialize()
 	. = ..()

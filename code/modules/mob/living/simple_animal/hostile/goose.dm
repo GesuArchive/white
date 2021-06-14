@@ -72,8 +72,8 @@
 	if(stat == DEAD || choking) // plapatin I swear to god
 		return FALSE
 	if(suffocator.has_material_type(/datum/material/plastic)) // dumb goose'll swallow food or drink with plastic in it
-		visible_message("<span class='danger'>[src] hungrily gobbles up \the [suffocator]! </span>")
-		visible_message("<span class='boldwarning'>[src] is choking on \the [suffocator]! </span>")
+		visible_message("<span class='danger'>[src] hungrily gobbles up [suffocator]! </span>")
+		visible_message("<span class='boldwarning'>[src] is choking on [suffocator]! </span>")
 		suffocator.forceMove(src)
 		choke(suffocator)
 		choking = TRUE
@@ -126,11 +126,11 @@
 		return FALSE
 	if (contents.len > GOOSE_SATIATED)
 		if(message_cooldown < world.time)
-			visible_message("<span class='notice'>[capitalize(src.name)] looks too full to eat \the [tasty]!</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] looks too full to eat [tasty]!</span>")
 			message_cooldown = world.time + 5 SECONDS
 		return FALSE
 	if (tasty.foodtype & GROSS)
-		visible_message("<span class='notice'>[capitalize(src.name)] hungrily gobbles up \the [tasty]!</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] hungrily gobbles up [tasty]!</span>")
 		tasty.forceMove(src)
 		playsound(src,'sound/items/eatfood.ogg', 70, TRUE)
 		vomitCoefficient += 3
@@ -138,7 +138,7 @@
 		return TRUE
 	else
 		if(message_cooldown < world.time)
-			visible_message("<span class='notice'>[capitalize(src.name)] refuses to eat \the [tasty].</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] refuses to eat [tasty].</span>")
 			message_cooldown = world.time + 5 SECONDS
 			return FALSE
 
@@ -151,7 +151,7 @@
 	if(stat == DEAD || choking)
 		return
 	if(prob(25))
-		visible_message("<span class='warning'>[capitalize(src.name)] is gagging on \the [plastic]!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] is gagging on [plastic]!</span>")
 		manual_emote("gags!")
 		addtimer(CALLBACK(src, .proc/vomit), 300)
 	else

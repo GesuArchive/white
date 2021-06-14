@@ -80,7 +80,7 @@
 			return
 		else if(G.use(decrement))
 			AddUses(increment)
-			to_chat(user, "<span class='notice'>You insert a piece of glass into \the [src.name]. You have [uses] light\s remaining.</span>")
+			to_chat(user, "<span class='notice'>You insert a piece of glass into [src.name]. You have [uses] light\s remaining.</span>")
 			return
 		else
 			to_chat(user, "<span class='warning'>You need one sheet of glass to replace lights!</span>")
@@ -141,7 +141,7 @@
 			to_chat(user, "<span class='warning'><b>[src.name]</b> is full!</span>")
 			return
 
-		to_chat(user, "<span class='notice'>You fill <b>[src.name]</b> with lights from \the [S]. " + status_string() + "</span>")
+		to_chat(user, "<span class='notice'>You fill <b>[src.name]</b> with lights from [S]. " + status_string() + "</span>")
 
 /obj/item/lightreplacer/emag_act()
 	if(obj_flags & EMAGGED)
@@ -191,7 +191,7 @@
 		if(CanUse(U))
 			if(!Use(U))
 				return
-			to_chat(U, "<span class='notice'>You replace \the [target.fitting] with <b>[src.name]</b>.</span>")
+			to_chat(U, "<span class='notice'>You replace [target.fitting] with <b>[src.name]</b>.</span>")
 
 			if(target.status != LIGHT_EMPTY)
 				AddShards(1, U)

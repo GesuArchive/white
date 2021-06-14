@@ -162,7 +162,7 @@
 	if(istype(I, /obj/item/pinpointer/wayfinding))
 		var/obj/item/pinpointer/wayfinding/WP = I
 
-		to_chat(user, "<span class='notice'>You put \the [WP] in the return slot.</span>")
+		to_chat(user, "<span class='notice'>You put [WP] in the return slot.</span>")
 
 		var/refundiscredits = FALSE
 		var/itsmypinpointer = TRUE

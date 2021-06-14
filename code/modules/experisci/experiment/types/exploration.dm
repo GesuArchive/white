@@ -67,7 +67,7 @@
 		name_parts += "site"
 	if(required_condition)
 		var/datum/scan_condition/condition = required_condition
-		name_parts += "affected by \the [initial(condition.name)]"
+		name_parts += "affected by [initial(condition.name)]"
 	name = capitalize(name_parts.Join(""))
 	description = name
 

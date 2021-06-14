@@ -41,7 +41,7 @@
 			to_chat(user, "<span class='warning'><b>[src.name]</b>, кажется, не требуется починка.</span>")
 			return 1
 		if(S.use(1))
-			to_chat(user, "<span class='notice'>Ты починил <b>[src.name]</b> с небольшой долей \[I].</span>")
+			to_chat(user, "<span class='notice'>Ты починил <b>[src.name]</b> с небольшой долей [I].</span>")
 			obj_integrity = min(obj_integrity + 10, max_integrity)
 		return 1
 

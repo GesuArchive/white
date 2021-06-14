@@ -116,7 +116,7 @@
 		to_chat(user, "<span class='warning'>The toolbox is somehow stuck on! It won't budge!</span>")
 		return
 	attach_item(target)
-	to_chat(user, "<span class='notice'>You attach \the [attached_item] to the training device.</span>")
+	to_chat(user, "<span class='notice'>You attach [attached_item] to the training device.</span>")
 	playsound(src, "rustle", 50, TRUE)
 
 /**
@@ -184,7 +184,7 @@
 	if (obj_flags & EMAGGED)
 		to_chat(user, "<span class='warning'>The toolbox is somehow stuck on! It won't budge!</span>")
 		return
-	to_chat(user, "<span class='notice'>You remove \the [attached_item] from the training device.</span>")
+	to_chat(user, "<span class='notice'>You remove [attached_item] from the training device.</span>")
 	remove_attached_item(user)
 	playsound(src, "rustle", 50, TRUE)
 
@@ -327,11 +327,11 @@
 	. = ..()
 	var/has_buckled_mob = has_buckled_mobs()
 	if(has_buckled_mob)
-		. += "<span class='notice'><b>Alt-Click to unbuckle \the [buckled_mobs[1]]</b></span>"
+		. += "<span class='notice'><b>Alt-Click to unbuckle [buckled_mobs[1]]</b></span>"
 	if (obj_flags & EMAGGED)
 		. += "<span class='warning'>It has a dangerous-looking toolbox attached to it, and the control panel is smoking sightly...</span>"
 	else if (!has_buckled_mob && attached_item) //Can't removed the syndicate toolbox!
-		. += "<span class='notice'><b>Alt-Click to remove \the [attached_item]</b></span>"
+		. += "<span class='notice'><b>Alt-Click to remove [attached_item]</b></span>"
 	. += "<span class='notice'><b>Click to open control interface.</b></span>"
 
 /**

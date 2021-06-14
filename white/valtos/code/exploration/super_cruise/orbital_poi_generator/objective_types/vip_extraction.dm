@@ -5,8 +5,8 @@
 	var/mob/mob_to_recover
 	var/tracked_diary
 	//Relatively easy mission.
-	min_payout = 100000
-	max_payout = 400000
+	min_payout = 1000
+	max_payout = 4000
 
 /datum/orbital_objective/vip_recovery/get_text()
 	return "Кто-то, представляющий особый интерес, находится по адресу [station_name]. Мы требуем его немедленно спасти. \
