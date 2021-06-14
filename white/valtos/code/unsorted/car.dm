@@ -21,7 +21,7 @@
 	set_vehicle_dir_offsets(WEST, -18, 0)
 
 /datum/supply_pack/misc/driftcar
-	name = "контейнер с дрифткаром"
+	name = "Контейнер с дрифткаром"
 	desc = "Содержит целую машину."
 	cost = 5000
 	contains = list(/obj/vehicle/sealed/car/driftcar)

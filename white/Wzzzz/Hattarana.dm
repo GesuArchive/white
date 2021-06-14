@@ -4610,14 +4610,14 @@
 /datum/supply_pack/security/armory/webvests
 	name = "Advanced Vest Crate"
 	desc = "Contains a two vest with pockets and bit more protection than usual vests. Requires Armory access to open."
-	cost = 1250
+	cost = 250
 	contains = list(/obj/item/clothing/suit/armor/wzzzz/opvest,
 					/obj/item/clothing/suit/armor/wzzzz/opvest)
 
 /datum/supply_pack/medical/hardsuit
 	name = "Medical Hardsuit Crate"
 	desc = "Contains a medical hardsuit. Requires CMO access to open."
-	cost = 5500
+	cost = 550
 	contains = list(/obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/medical_rig)
 
 /datum/supply_pack/medical/pills
