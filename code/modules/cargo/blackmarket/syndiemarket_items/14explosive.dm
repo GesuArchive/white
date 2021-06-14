@@ -9,8 +9,8 @@
 			minimum setting of 10 seconds."
 	item = /obj/item/grenade/c4
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 500
+	price_max = 1000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 25
@@ -20,8 +20,8 @@
 	desc = "Because sometimes quantity is quality. Contains 10 C-4 plastic explosives."
 	item = /obj/item/storage/backpack/duffelbag/syndie/c4
 
-	price_min = 50000
-	price_max = 100000
+	price_min = 5000
+	price_max = 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -32,8 +32,8 @@
 			For when you want a controlled explosion that leaves a wider, deeper, hole."
 	item = /obj/item/storage/backpack/duffelbag/syndie/x4
 
-	price_min = 100000
-	price_max = 1000000
+	price_min = 10000
+	price_max = 100000
 	stock_max = 1
 	availability_prob = 25
 
@@ -46,8 +46,8 @@
 			be defused, and some crew may attempt to do so."
 	item = /obj/item/sbeacondrop/clownbomb
 
-	price_min = 100000
-	price_max = 1000000
+	price_min = 10000
+	price_max = 100000
 	stock_max = 1
 	availability_prob = 25
 
@@ -57,8 +57,8 @@
 			security's energy weapons and silicon lifeforms when you're in a tight spot."
 	item = /obj/item/storage/box/syndie_kit/emp
 
-	price_min = 10000
-	price_max = 50000
+	price_min = 1000
+	price_max = 5000
 	stock_max = 1
 	availability_prob = 25
 
@@ -69,8 +69,8 @@
 			the BVAK solution."
 	item = /obj/item/storage/box/syndie_kit/tuberculosisgrenade
 
-	price_min = 100000
-	price_max = 1000000
+	price_min = 10000
+	price_max = 100000
 	stock_max = 1
 	availability_prob = 25
 
@@ -80,8 +80,8 @@
 			opening the box again will trigger the detonation after the timer has elapsed. Comes with free pizza, for you or your target!"
 	item = /obj/item/pizzabox/bomb
 
-	price_min = 50000
-	price_max = 100000
+	price_min = 5000
+	price_max = 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -90,8 +90,8 @@
 	desc = "A traditional clusterbang grenade with a payload consisting entirely of Syndicate soap. Useful in any scenario!"
 	item = /obj/item/grenade/clusterbuster/soap
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 500
+	price_max = 1000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 25
@@ -106,8 +106,8 @@
 			The bomb core can be pried out and manually detonated with other explosives."
 	item = /obj/item/sbeacondrop/bomb
 
-	price_min = 50000
-	price_max = 100000
+	price_min = 5000
+	price_max = 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -117,8 +117,8 @@
 			in addition to dealing high amounts of damage to nearby personnel."
 	item = /obj/item/grenade/syndieminibomb
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 500
+	price_max = 1000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 25
@@ -129,8 +129,8 @@
 		remain attached to the face of all targets for one minute, preventing the use of breath masks and other such devices."
 	item = /obj/item/grenade/chem_grenade/teargas/moustache
 
-	price_min = 100000
-	price_max = 1000000
+	price_min = 10000
+	price_max = 100000
 	stock_max = 1
 	availability_prob = 5
 
@@ -140,7 +140,7 @@
 			any non-operatives in the area."
 	item = /obj/item/grenade/spawnergrenade/manhacks
 
-	price_min = 100000
-	price_max = 1000000
+	price_min = 10000
+	price_max = 100000
 	stock_max = 1
 	availability_prob = 5

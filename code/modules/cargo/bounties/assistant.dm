@@ -113,7 +113,7 @@
 /datum/bounty/item/assistant/shard
 	name = "Осколки стекла"
 	description = "ЦК преследует убийцу-клоуна и сотрудники не могут поймать его потому что она не носит обувь. Пожалуйста, отправьте несколько осколков, чтобы сделать ловушку."
-	reward = 1500
+	reward = 15
 	required_count = 15
 	wanted_types = list(/obj/item/shard)
 
@@ -156,13 +156,13 @@
 /datum/bounty/item/assistant/earmuffs
 	name = "Наушники"
 	description = "Центральное командование устало от сообщений вашей станции. Они приказали вам отправить несколько наушников, чтобы уменьшить раздражение."
-	reward = 1000
+	reward = 100
 	wanted_types = list(/obj/item/clothing/ears/earmuffs)
 
 /datum/bounty/item/assistant/handcuffs
 	name = "Наручники"
 	description = "Большой поток сбежавших осужденных прибыло на ЦК. Сейчас самое подходящее время для отправки запасных наручников."
-	reward = 1000
+	reward = 100
 	required_count = 5
 	wanted_types = list(/obj/item/restraints/handcuffs)
 
@@ -176,7 +176,7 @@
 /datum/bounty/item/assistant/chainsaw
 	name = "Бензопила"
 	description = "У шеф-повара на ЦК возникают проблемы с разделкой животных. Он просит одну бензопилу..."
-	reward = 2500
+	reward = 90
 	wanted_types = list(/obj/item/chainsaw)
 
 /datum/bounty/item/assistant/ied
@@ -189,7 +189,7 @@
 /datum/bounty/item/assistant/bonfire
 	name = "Горящий костёр"
 	description = "Обогреватели неисправны, и грузовой экипаж Центрального командования начинает мерзнуть. Поставьте зажженный костер, чтобы согреть их."
-	reward = 5000
+	reward = 50
 	wanted_types = list(/obj/structure/bonfire)
 
 /datum/bounty/item/assistant/bonfire/applies_to(obj/O)
@@ -214,7 +214,7 @@
 /datum/bounty/item/assistant/tail_whip
 	name = "Девятихвостый кнут"
 	description = "Коммандер Джексон ищет прекрасное дополнение к своей коллекции экзотического оружия. Она щедро вознаградит вас за девятихвостый кнут (кнут из ящера учитывается также)"
-	reward = 4000
+	reward = 140
 	wanted_types = list(/obj/item/melee/chainofcommand/tailwhip)
 
 /datum/bounty/item/assistant/dead_mice

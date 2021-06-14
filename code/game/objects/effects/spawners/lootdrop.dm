@@ -583,13 +583,13 @@
 	fan_out_items = TRUE
 	loot = list(
 		/obj/item/stack/spacecash/c1 = 100,
-		/obj/item/stack/spacecash/c10 = 80,
-		/obj/item/stack/spacecash/c20 = 60,
-		/obj/item/stack/spacecash/c50 = 40,
+		/obj/item/stack/spacecash/c10 = 95,
+		/obj/item/stack/spacecash/c20 = 90,
+		/obj/item/stack/spacecash/c50 = 50,
 		/obj/item/stack/spacecash/c100 = 30,
-		/obj/item/stack/spacecash/c200 = 20,
-		/obj/item/stack/spacecash/c500 = 10,
-		/obj/item/stack/spacecash/c1000 = 5,
+		/obj/item/stack/spacecash/c200 = 10,
+		/obj/item/stack/spacecash/c500 = 5,
+		/obj/item/stack/spacecash/c1000 = 2,
 		/obj/item/stack/spacecash/c10000 = 1
 	)
 

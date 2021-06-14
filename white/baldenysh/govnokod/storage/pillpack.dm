@@ -43,7 +43,7 @@
 	name = "Хохломицин"
 	desc = "Таблетки содержат правий сиктор."
 	illustration = "hohlomicin"
-	custom_price = 6666
+	custom_price = 666
 	blister_list = list(
 						/obj/item/storage/blister/hohlomicin,
 						/obj/item/storage/blister/hohlomicin
@@ -53,7 +53,7 @@
 	name = "Галоперидол"
 	desc = "Шутки кончились."
 	illustration = "haloperidol"
-	custom_price = 200
+	custom_price = 20
 	blister_list = list(
 						/obj/item/storage/blister/haloperidol
 						)
@@ -62,7 +62,7 @@
 /obj/item/storage/box/pillpack/antihol
 	name = "Антиголь"
 	illustration = "antihol"
-	custom_price = 100
+	custom_price = 10
 	blister_list = list(
 						/obj/item/storage/blister/antihol,
 						/obj/item/storage/blister/antihol
@@ -71,7 +71,7 @@
 /obj/item/storage/box/pillpack/psicodine
 	name = "Псикодин"
 	illustration = "psicodine"
-	custom_price = 300
+	custom_price = 30
 	blister_list = list(
 						/obj/item/storage/blister/psicodine,
 						/obj/item/storage/blister/psicodine
@@ -80,7 +80,7 @@
 /obj/item/storage/box/pillpack/potassiodide
 	name = "Йодид калия"
 	illustration = "potassiodide"
-	custom_price = 100
+	custom_price = 10
 	blister_list = list(
 						/obj/item/storage/blister/potassiodide
 						)
@@ -88,7 +88,7 @@
 /obj/item/storage/box/pillpack/stimulant
 	name = "Стимулянты"
 	illustration = "stimulant"
-	custom_price = 1000
+	custom_price = 100
 	blister_list = list(
 						/obj/item/storage/blister/stimulant
 						)
@@ -96,7 +96,7 @@
 /obj/item/storage/box/pillpack/aspirin
 	name = "Аспирин"
 	illustration = "aspirin"
-	custom_price = 400
+	custom_price = 40
 	blister_list = list(
 						/obj/item/storage/blister/aspirin,
 						/obj/item/storage/blister/aspirin

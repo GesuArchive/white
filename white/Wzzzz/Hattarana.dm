@@ -4517,14 +4517,14 @@
 /datum/supply_pack/security/armory/carbine_single
 	name = "Assault Carbine Single-Pack"
 	desc = "Contains one Assault Carbine. Requires Armory access to open."
-	cost = 50000
+	cost = 5000
 	contains = list(/obj/item/gun/ballistic/automatic/wzzzz/carbine)
 	goody = TRUE
 
 /datum/supply_pack/security/armory/carbine
 	name = "Assault Carbine Crate"
 	desc = "Contains two Assault Carbines. Requires Armory access to open."
-	cost = 85000
+	cost = 8500
 	contains = list(/obj/item/gun/ballistic/automatic/wzzzz/carbine,
 					/obj/item/gun/ballistic/automatic/wzzzz/carbine)
 	crate_name = "auto rifle crate"
@@ -4532,7 +4532,7 @@
 /datum/supply_pack/security/armory/carbineammo
 	name = "Assault Carbine Ammo Crate"
 	desc = "Contains four 25-round magazine for the Assault Carbine. Each magazine is designed to facilitate rapid tactical reloads. Requires Armory access to open."
-	cost = 50000
+	cost = 5000
 	contains = list(/obj/item/ammo_box/magazine/wzzzz/carbine,
 					/obj/item/ammo_box/magazine/wzzzz/carbine,
 					/obj/item/ammo_box/magazine/wzzzz/carbine,
@@ -4541,39 +4541,39 @@
 /datum/supply_pack/security/armory/carbineammo_single
 	name = "Assault Carbine Ammo Single-Pack"
 	desc = "Contains a 25-round magazine for the Assault Carbine. Each magazine is designed to facilitate rapid tactical reloads. Requires Armory access to open."
-	cost = 15000
+	cost = 1500
 	contains = list(/obj/item/ammo_box/magazine/wzzzz/carbine)
 	goody = TRUE
 
 /datum/supply_pack/security/armory/secalthard
 	name = "Adv. Security Hardsuit Crate"
 	desc = "Contains a Advanced Security Hardsuit. Requires Armory access to open."
-	cost = 75000
+	cost = 7500
 	contains = list(/obj/item/clothing/suit/space/hardsuit/wzzzz/rig_secb)
 
 /datum/supply_pack/security/trau_s
 	name = "Traumatic Pistol Single-Pack"
 	desc = "Contains a single traumatic pistol. Requires Armory access to open."
-	cost = 10000
+	cost = 1000
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/traumatic)
 
 /datum/supply_pack/security/trau
 	name = "Traumatic Pistol Crate"
 	desc = "Contains a two traumatic pistols. Requires Armory access to open."
-	cost = 20000
+	cost = 2000
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/traumatic,
 					/obj/item/gun/ballistic/automatic/pistol/traumatic)
 
 /datum/supply_pack/security/trau_a_s
 	name = "Traumatic Pistol Ammo Single-Pack"
 	desc = "Contains a 8-round magazine for traumatic pistol. Each magazine is designed to facilitate rapid tactical reloads. Requires Armory access to open."
-	cost = 5000
+	cost = 500
 	contains = list(/obj/item/ammo_box/magazine/traumatic)
 
 /datum/supply_pack/security/trau_a
 	name = "Traumatic Pistol Ammo Crate"
 	desc = "Contains a 8-round magazine for traumatic pistol. Each magazine is designed to facilitate rapid tactical reloads. Requires Armory access to open."
-	cost = 15000
+	cost = 1500
 	contains = list(/obj/item/ammo_box/magazine/traumatic,
 					/obj/item/ammo_box/magazine/traumatic,
 					/obj/item/ammo_box/magazine/traumatic,
@@ -4582,26 +4582,26 @@
 /datum/supply_pack/security/armory/mak_s
 	name = "Makarov Pistol Single-Pack"
 	desc = "Contains a single makarov pistol. Requires Armory access to open."
-	cost = 12500
+	cost = 1250
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/makarov)
 
 /datum/supply_pack/security/armory/mak
 	name = "Makarov Pistol Crate"
 	desc = "Contains a two makarov pistols. Requires Armory access to open."
-	cost = 22500
+	cost = 2250
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/makarov,
 					/obj/item/gun/ballistic/automatic/pistol/makarov)
 
 /datum/supply_pack/security/armory/mak_a_s
 	name = "Pistol 9mm Ammo Single-Pack"
 	desc = "Contains a 15-round magazine for 9mm pistol. Each magazine is designed to facilitate rapid tactical reloads. Requires Armory access to open."
-	cost = 6000
+	cost = 600
 	contains = list(/obj/item/ammo_box/magazine/m9mm)
 
 /datum/supply_pack/security/armory/mak_a
 	name = "Pistol 9mm Ammo Crate"
 	desc = "Contains a 15-round magazine for 9mm pistols. Each magazine is designed to facilitate rapid tactical reloads. Requires Armory access to open."
-	cost = 22500
+	cost = 2250
 	contains = list(/obj/item/ammo_box/magazine/m9mm,
 					/obj/item/ammo_box/magazine/m9mm,
 					/obj/item/ammo_box/magazine/m9mm,
@@ -4610,20 +4610,20 @@
 /datum/supply_pack/security/armory/webvests
 	name = "Advanced Vest Crate"
 	desc = "Contains a two vest with pockets and bit more protection than usual vests. Requires Armory access to open."
-	cost = 12500
+	cost = 1250
 	contains = list(/obj/item/clothing/suit/armor/wzzzz/opvest,
 					/obj/item/clothing/suit/armor/wzzzz/opvest)
 
 /datum/supply_pack/medical/hardsuit
 	name = "Medical Hardsuit Crate"
 	desc = "Contains a medical hardsuit. Requires CMO access to open."
-	cost = 55000
+	cost = 5500
 	contains = list(/obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/medical_rig)
 
 /datum/supply_pack/medical/pills
 	name = "Universal Pill Bottle Crate"
 	desc = "Contains 3 pill bottles with 2 epinephrine pills and 5 instabitaluri patches each of pill bottles. Requires CMO access to open."
-	cost = 4000
+	cost = 400
 	contains = list(/obj/item/storage/pill_bottle/wzzzz/soldier,
 					/obj/item/storage/pill_bottle/wzzzz/soldier,
 					/obj/item/storage/pill_bottle/wzzzz/soldier)

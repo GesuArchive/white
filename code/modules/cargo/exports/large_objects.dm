@@ -33,7 +33,7 @@
 
 /datum/export/large/reagent_dispenser
 	cost = CARGO_CRATE_VALUE * 0.5 // +0-400 depending on amount of reagents left
-	var/contents_cost = 400
+	var/contents_cost = 4
 
 /datum/export/large/reagent_dispenser/get_cost(obj/O)
 	var/obj/structure/reagent_dispensers/D = O
@@ -44,7 +44,7 @@
 /datum/export/large/reagent_dispenser/water
 	unit_name = "канистра с водой"
 	export_types = list(/obj/structure/reagent_dispensers/watertank)
-	contents_cost = 200
+	contents_cost = 2
 
 /datum/export/large/reagent_dispenser/fuel
 	unit_name = "канистра с топливом"
@@ -82,12 +82,12 @@
 	export_types = list(/obj/machinery/power/tesla_coil)
 
 /datum/export/large/pa
-	cost = 350
+	cost = 35
 	unit_name = "часть ускорителя частиц"
 	export_types = list(/obj/structure/particle_accelerator)
 
 /datum/export/large/pa/controls
-	cost = 500
+	cost = 50
 	unit_name = "консоль ускорителя частиц"
 	export_types = list(/obj/machinery/particle_accelerator/control_box)
 
@@ -102,12 +102,12 @@
 	export_types = list(/obj/machinery/power/grounding_rod)
 
 /datum/export/large/tesla_gen
-	cost = 4000
+	cost = 40
 	unit_name = "генератор теслы"
 	export_types = list(/obj/machinery/the_singularitygen/tesla)
 
 /datum/export/large/singulo_gen
-	cost = 4000
+	cost = 40
 	unit_name = "генератор сингулярности"
 	export_types = list(/obj/machinery/the_singularitygen)
 	include_subtypes = FALSE

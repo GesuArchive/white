@@ -34,7 +34,7 @@
 	item = /obj/item/melee/classic_baton/dildon
 
 	price_min = 1000
-	price_max = 15000
+	price_max = 1500
 	stock_min = 1
 	stock_max = 5
 	availability_prob = 100
@@ -72,8 +72,8 @@
 	desc = "При заказе вам будет выдано случайное священное оружие ближнего боя. Да прибудет с вами бог!"
 	item = /obj/item/nullrod
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 500
+	price_max = 1000
 	stock_min = 1
 	stock_max = 5
 	availability_prob = 100
@@ -118,8 +118,8 @@
 	desc = "Набор священного воина"
 	item = /obj/item/storage/box
 
-	price_min = 1000
-	price_max = 5000
+	price_min = 100
+	price_max = 500
 	stock_max = 3
 	availability_prob = 70
 

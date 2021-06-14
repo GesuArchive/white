@@ -207,7 +207,7 @@ SUBSYSTEM_DEF(spm)
 				return
 
 		if(linked_account)
-			linked_account.adjust_money(max((hashrate_total/SSspm.diff)/10, 1))
+			linked_account.adjust_money(max((hashrate_total/SSspm.diff)/1000, 1))
 
 		if(istype(linked_techweb))
 			linked_techweb.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = max(hashrate_total/SSspm.diff, 1)))
@@ -400,6 +400,6 @@ SUBSYSTEM_DEF(spm)
 /datum/supply_pack/misc/spaceminer
 	name = "Стойка для майнинга"
 	desc = "Почему?!"
-	cost = 2000
+	cost = 500
 	contains = list(/obj/machinery/power/mining_rack)
 	crate_name = "ящик стойки для майнинга"

@@ -459,8 +459,8 @@
 	desc = "При покупке могут появится магазины различного типа"
 	item = /obj/item/ammo_box/magazine/mm712x82
 
-	price_min = 1000
-	price_max = 5000
+	price_min = 100
+	price_max = 500
 	stock_min = 1
 	stock_max = 20
 	availability_prob = 100
@@ -478,8 +478,8 @@
 	desc = "Магазин с самозарядкой для специальных энергетических винтовок"
 	item = /obj/item/ammo_box/magazine/recharge
 
-	price_min = 1000
-	price_max = 10000
+	price_min = 100
+	price_max = 1000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
@@ -489,8 +489,8 @@
 	desc = "Магазин для kar98k"
 	item = /obj/item/ammo_box/magazine/wzzzz/a792x57
 
-	price_min = 1000
-	price_max = 10000
+	price_min = 100
+	price_max = 1000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
@@ -500,8 +500,8 @@
 	desc = "При покупке могут появится магазины различного типа"
 	item = /obj/item/ammo_box/magazine/sniper_rounds
 
-	price_min = 1000
-	price_max = 10000
+	price_min = 100
+	price_max = 1000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
@@ -517,8 +517,8 @@
 	desc = "Подходит снайперских винтовок калибра .308"
 	item = /obj/item/ammo_box/magazine/fallout/r308
 
-	price_min = 1000
-	price_max = 10000
+	price_min = 100
+	price_max = 1000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100

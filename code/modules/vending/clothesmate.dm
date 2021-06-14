@@ -132,7 +132,7 @@
 		           /obj/item/clothing/suit/jacket/letterman_nanotrasen = 1,
 		           /obj/item/instrument/piano_synth/headphones/spacepods = 1)
 	refill_canister = /obj/item/vending_refill/clothing
-	default_price = PAYCHECK_ASSISTANT * 0.7 //Default of
+	default_price = PAYCHECK_ASSISTANT * 0.7
 	extra_price = PAYCHECK_HARD
 	payment_department = NO_FREEBIES
 	light_mask = "wardrobe-light-mask"

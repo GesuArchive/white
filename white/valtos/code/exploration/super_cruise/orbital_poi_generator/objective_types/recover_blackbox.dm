@@ -75,8 +75,8 @@
 	if(linked_obj)
 		linked_obj.complete_objective()
 	else
-		parentobj.say("Малоприоритетный предмен обнаружен, выдаём награду в размере 2000 кредитов.")
-		new /obj/item/stack/spacecash/c1000(get_turf(parent), 2)
+		parentobj.say("Малоприоритетный предмен обнаружен, выдаём награду в размере 200 кредитов.")
+		new /obj/item/stack/spacecash/c100(get_turf(parent), 2)
 	//Fly away
 	var/mutable_appearance/balloon
 	var/mutable_appearance/balloon2

@@ -94,6 +94,6 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
 /datum/supply_pack/misc/diyshuttle
 	name = "Bluespace shuttle capsule crate"
-	cost = 20000
+	cost = 2000
 	contains = list(/obj/item/shuttlespawner/diyshuttle/big)
 	crate_name = "shuttle capsule crate"
