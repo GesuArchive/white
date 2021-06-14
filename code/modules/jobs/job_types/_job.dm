@@ -227,10 +227,11 @@
 /datum/job/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE, announce = TRUE, latejoin = FALSE, datum/outfit/outfit_override = null, client/preference_source, is_captain = FALSE)
 	if(!H)
 		return FALSE
-	if(CONFIG_GET(flag/enforce_human_authority) && ((title in GLOB.command_positions)||(title in GLOB.security_positions)))
+	if(CONFIG_GET(flag/enforce_human_authority) && ((title in GLOB.command_positions) || (title in GLOB.security_positions)))
 		if(H.dna.species.id != "human")
-			H.set_species(/datum/species/human)
-			H.apply_pref_name("human", preference_source)
+			if(check_donations(H.ckey)) // obama don't touch donbass protivniy pidoras
+				H.set_species(/datum/species/human)
+				H.apply_pref_name("human", preference_source)
 	if(!visualsOnly)
 		var/datum/bank_account/bank_account = new(H.real_name, src, H.dna.species.payday_modifier)
 		bank_account.payday(STARTING_PAYCHECKS, TRUE)
