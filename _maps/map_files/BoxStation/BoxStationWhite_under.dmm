@@ -1700,11 +1700,15 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "hx" = (
-/turf/open/floor/plasteel/monofloor/white,
-/area/science/research/abandoned)
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/east)
 "hy" = (
 /obj/effect/turf_decal/trimline/green/filled/corner{
 	dir = 4
@@ -2688,9 +2692,10 @@
 /turf/open/floor/engine,
 /area/engine/atmospherics_engine)
 "lp" = (
-/obj/structure/reagent_dispensers/watertank,
-/turf/open/floor/plating,
-/area/maintenance/starboard/aft)
+/obj/structure/ladder,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plasteel/monofloor/white,
+/area/science/research/abandoned)
 "lq" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "xenobio7";
@@ -3242,6 +3247,10 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
+"nn" = (
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/maintenance/starboard/aft)
 "no" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2{
@@ -6194,8 +6203,10 @@
 /turf/open/floor/plasteel/dark,
 /area/engine/atmospherics_engine)
 "zt" = (
-/obj/structure/ladder,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/research/abandoned)
 "zu" = (
@@ -8518,6 +8529,11 @@
 /obj/item/reagent_containers/syringe,
 /turf/open/floor/plasteel/monofloor,
 /area/maintenance/bottom_station_maints/north)
+"Jc" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/reagent_dispensers/watertank,
+/turf/open/floor/plating,
+/area/maintenance/starboard/aft)
 "Jd" = (
 /obj/structure/table,
 /turf/open/floor/engine,
@@ -9981,10 +9997,12 @@
 /turf/open/floor/plasteel/monofloor,
 /area/hydroponics)
 "Pv" = (
-/obj/structure/cable,
-/obj/machinery/door/firedoor,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/east)
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/science/research/abandoned)
 "Pw" = (
 /obj/structure/closet/secure_closet/brig,
 /obj/effect/turf_decal/tile/red{
@@ -11162,9 +11180,12 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "TR" = (
-/obj/structure/reagent_dispensers/fueltank,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
-/area/maintenance/starboard/aft)
+/area/maintenance/bottom_station_maints/east)
 "TT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/lootdrop/maintenance/four,
@@ -12323,8 +12344,9 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
 "YT" = (
-/obj/structure/closet/wardrobe/mixed,
-/turf/open/genturf,
+/obj/structure/cable,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "YU" = (
 /obj/item/blackmarket_uplink,
@@ -53844,7 +53866,7 @@ cq
 hM
 mR
 hM
-YT
+hM
 zB
 hM
 hM
@@ -54101,7 +54123,7 @@ dc
 mR
 NL
 Nz
-Fa
+hM
 Fa
 CG
 sX
@@ -54358,7 +54380,7 @@ dL
 cq
 Fa
 dc
-Fa
+hM
 Fa
 Fa
 Fa
@@ -54615,7 +54637,7 @@ cq
 hM
 hM
 dc
-dL
+lP
 dL
 dL
 dL
@@ -54642,7 +54664,7 @@ dL
 dL
 dL
 dL
-dL
+lP
 dL
 sX
 Qz
@@ -55928,7 +55950,7 @@ TK
 GR
 xj
 LM
-Pv
+cO
 Qz
 Qz
 PG
@@ -57428,8 +57450,8 @@ Qz
 Qz
 Qz
 ds
-Qz
-Qz
+ds
+ds
 Qz
 hM
 hk
@@ -57687,7 +57709,7 @@ Zm
 Zm
 Zm
 Zm
-Qz
+ds
 Fa
 Fa
 Fa
@@ -57956,7 +57978,7 @@ Fa
 hM
 RC
 dc
-ER
+hM
 Ls
 Vg
 jv
@@ -58201,7 +58223,7 @@ Zm
 Zm
 Zm
 Zm
-Qz
+ds
 Fa
 Fa
 Fa
@@ -58213,7 +58235,7 @@ Fa
 hM
 ZP
 ko
-Vi
+TR
 Vi
 Vi
 Fa
@@ -58240,7 +58262,7 @@ jM
 ER
 ER
 ER
-ER
+hM
 cO
 on
 Qz
@@ -58464,13 +58486,13 @@ JW
 Fa
 Fa
 Fa
-Fa
-Fa
-Fa
+hM
+hk
+hM
 hM
 Fa
 Vg
-Fa
+hM
 Fa
 NG
 Lt
@@ -58497,7 +58519,7 @@ DS
 cO
 cO
 cO
-cO
+YT
 cO
 dL
 dL
@@ -58505,7 +58527,7 @@ dL
 Zq
 cP
 pw
-Rn
+Jc
 Rn
 vu
 BT
@@ -58721,13 +58743,13 @@ Ac
 Fa
 Fa
 Fa
-Fa
+hM
 ko
 Vi
 Up
 Vi
 ha
-Fa
+hM
 kB
 Jv
 TZ
@@ -58754,7 +58776,7 @@ ER
 ER
 dL
 ER
-ER
+hM
 ER
 hi
 dL
@@ -58978,7 +59000,7 @@ Qz
 Fa
 Fa
 Fa
-Fa
+hM
 Vg
 Fa
 zy
@@ -59228,14 +59250,14 @@ Zm
 Zm
 Zm
 Zm
-Zm
+Qz
 Qz
 Fa
 Fa
 Fa
 Fa
 Fa
-Fa
+hM
 Vg
 XR
 zy
@@ -59485,10 +59507,10 @@ Zm
 Zm
 Zm
 Zm
-Zm
 Qz
 Fa
 Fa
+hx
 Fa
 Fa
 Fa
@@ -59742,9 +59764,9 @@ Zm
 Zm
 Zm
 Zm
-Zm
 ds
 Fa
+zy
 zy
 zy
 zy
@@ -59790,9 +59812,9 @@ Zm
 MI
 Rx
 HH
+nn
 HH
 HH
-TR
 gY
 HH
 HH
@@ -59999,11 +60021,11 @@ Zm
 Zm
 Zm
 Zm
-Zm
 ds
 Fa
 zy
-hx
+lp
+NI
 zt
 NI
 VG
@@ -60047,9 +60069,9 @@ Zm
 MI
 Rx
 HH
+nn
 HH
 HH
-lp
 gY
 CX
 sb
@@ -60256,12 +60278,12 @@ PG
 PG
 PG
 PG
-PG
 ds
 Fa
 zy
-hx
-zt
+lp
+NI
+Pv
 NI
 VG
 nj
@@ -60304,8 +60326,8 @@ Zm
 MI
 MI
 MI
-dE
 MI
+dE
 MI
 MI
 MI
@@ -60513,9 +60535,9 @@ Zm
 Zm
 Zm
 Zm
-PG
 ds
 Fa
+zy
 zy
 zy
 zy
@@ -60770,8 +60792,8 @@ Zm
 Zm
 Zm
 Zm
-PG
 Qz
+Fa
 Fa
 Fa
 zy
@@ -61027,7 +61049,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+Qz
 Qz
 Qz
 Qz

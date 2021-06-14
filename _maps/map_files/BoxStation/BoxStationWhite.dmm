@@ -34643,6 +34643,10 @@
 "kli" = (
 /turf/open/openspace,
 /area/maintenance/port/aft)
+"klw" = (
+/obj/structure/ladder,
+/turf/open/floor/plasteel/monofloor/white,
+/area/science/research)
 "kmh" = (
 /turf/open/floor/plasteel,
 /area/engine/manufactory)
@@ -39250,7 +39254,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/ladder,
 /turf/open/floor/plasteel,
 /area/science/research)
 "sjK" = (
@@ -90339,7 +90342,7 @@ boA
 cwD
 biA
 kqV
-qHw
+klw
 qea
 gDw
 hZk
@@ -90596,7 +90599,7 @@ bnk
 bpo
 bvg
 qHw
-qHw
+klw
 qea
 gDw
 hZk
