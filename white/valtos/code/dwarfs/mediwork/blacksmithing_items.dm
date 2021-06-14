@@ -339,7 +339,7 @@
 	inhand_icon_state = "dagger"
 	worn_icon_state = "dagger"
 	flags_1 = CONDUCT_1
-	force = 5
+	force = 6
 	throwforce = 10
 	w_class = WEIGHT_CLASS_NORMAL
 	hitsound = 'sound/weapons/bladeslice.ogg'
