@@ -2,6 +2,8 @@
 	name = "Хохлокарась"
 	desc = "Винахід Правого Сіктора"
 
+	color = null
+
 	icon = 'white/jhnazar/icons/hohol.dmi'
 	icon_state = "hohol"
 	icon_living = "hohol"
