@@ -427,11 +427,19 @@
 			var/obj/item/I =  new /obj/item/pissball
 			var/mob/living/carbon/C = hit_atom
 			if((istype(C.gloves, /obj/item/clothing/gloves/color/yellow))&&(C.can_catch_item()))
-
 				C.put_in_active_hand(I)
 				visible_message("<span class='warning'><b>[C.name]</b> ловит <b>[I.name]</b>!</span>", \
 								"<span class='userdanger'>Ловлю <b>[I.name]</b>!</span>")
 				C.throw_mode_off(THROW_MODE_TOGGLE)
 			else
-				C.electrocute_act(80, "стансферы", flags = SHOCK_ILLUSION)
+				C.Paralyze(100)
+				addtimer(CALLBACK(C, /mob/living/carbon.proc/do_jitter_animation, 20), 5)
 		qdel(src)
+
+/obj/item/pissball/equipped(mob/living/carbon/user, slot)
+	. = ..()
+	if(!istype(user.gloves, /obj/item/clothing/gloves/color/yellow))
+		user.Paralyze(100)
+		addtimer(CALLBACK(user, /mob/living/carbon.proc/do_jitter_animation, 20), 5)
+		visible_message("<span class='warning'><b>[user.name]</b> ловит разряд тока от стансферы!</span>", \
+						"<span class='userdanger'>Ай!!!</span>")
