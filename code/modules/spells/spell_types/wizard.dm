@@ -379,6 +379,8 @@
 		var/mob/living/carbon/human/H = thrower
 		H.say("LIGHTNINGBOLT!!", forced = "spell")
 
+
+
 /obj/effect/proc_holder/spell/furion
 	name = "Забрать шекели"
 	desc = "У глупых гоев."
