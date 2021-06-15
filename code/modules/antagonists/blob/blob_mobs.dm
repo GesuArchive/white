@@ -105,6 +105,7 @@
 	attack_verb_continuous = "бьёт"
 	attack_verb_simple = "бьёт"
 	attack_sound = 'sound/weapons/genhit1.ogg'
+	is_flying_animal = TRUE
 	del_on_death = TRUE
 	deathmessage = "explodes into a cloud of gas!"
 	gold_core_spawnable = NO_SPAWN //gold slime cores should only spawn the independent subtype
@@ -116,7 +117,6 @@
 
 /mob/living/simple_animal/hostile/blob/blobspore/Initialize(mapload, obj/structure/blob/special/linked_node)
 	. = ..()
-	AddElement(/datum/element/simple_flying)
 	if(istype(linked_node))
 		factory = linked_node
 		factory.spores += src

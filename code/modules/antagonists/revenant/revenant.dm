@@ -45,6 +45,7 @@
 	status_flags = 0
 	wander = FALSE
 	density = FALSE
+	is_flying_animal = TRUE
 	move_resist = MOVE_FORCE_OVERPOWERING
 	mob_size = MOB_SIZE_TINY
 	pass_flags = PASSTABLE | PASSGRILLE | PASSMOB
@@ -71,7 +72,6 @@
 
 /mob/living/simple_animal/revenant/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/simple_flying)
 	flags_1 |= RAD_NO_CONTAMINATE_1
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
 	ADD_TRAIT(src, TRAIT_SIXTHSENSE, INNATE_TRAIT)

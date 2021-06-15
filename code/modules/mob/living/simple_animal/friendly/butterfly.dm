@@ -18,6 +18,7 @@
 	friendly_verb_continuous = "nudges"
 	friendly_verb_simple = "nudge"
 	density = FALSE
+	is_flying_animal = TRUE
 	pass_flags = PASSTABLE | PASSGRILLE | PASSMOB
 	ventcrawler = VENTCRAWLER_ALWAYS
 	mob_size = MOB_SIZE_TINY
@@ -30,7 +31,6 @@
 
 /mob/living/simple_animal/butterfly/Initialize()
 	. = ..()
-	AddElement(/datum/element/simple_flying)
 	var/newcolor = rgb(rand(0, 255), rand(0, 255), rand(0, 255))
 	add_atom_colour(newcolor, FIXED_COLOUR_PRIORITY)
 

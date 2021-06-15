@@ -40,6 +40,7 @@
 	minbodytemp = 0
 	maxbodytemp = 1500
 	faction = list("carp")
+	is_flying_animal = TRUE
 	pressure_resistance = 200
 	gold_core_spawnable = HOSTILE_SPAWN
 	/// If the carp uses random coloring
@@ -69,7 +70,6 @@
 	)
 
 /mob/living/simple_animal/hostile/carp/Initialize(mapload)
-	AddElement(/datum/element/simple_flying)
 	if(random_color)
 		set_greyscale(new_config=/datum/greyscale_config/carp)
 		carp_randomify(rarechance)
