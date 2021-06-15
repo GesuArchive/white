@@ -681,7 +681,7 @@
 	prereq_ids = list("adv_weaponry")
 	design_ids = list("techshotshell", "c38_hotshot", "c38_iceblox")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
-
+/*
 /datum/techweb_node/exotic_weapons
 	id = "exotic_weapons"
 	display_name = "Exotic Weaponry"
@@ -689,7 +689,7 @@
 	prereq_ids = list("adv_weaponry", "beam_weapons")
 	design_ids = list("energy_smg", "energy_smg_mag", "nlaw")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 12500)
-
+*/
 /datum/techweb_node/gravity_gun
 	id = "gravity_gun"
 	display_name = "One-point Bluespace-gravitational Manipulator"
