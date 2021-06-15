@@ -161,13 +161,14 @@
 /obj/item/gun/ballistic/stabba_taser
 	name = "Стабба тазер"
 	desc = "Двухзарядный тазер, стреляющий застревающими в теле электродами."
-	icon = 'white/qwaszx000/sprites/stabba_taser.dmi'
-	icon_state = "taser_gun"
+	icon = 'white/RedFoxIV/icons/obj/weapons/misc.dmi'
+	icon_state = "ballistic_taser"
 	inhand_icon_state = "stabba_taser"
 	lefthand_file = 'white/qwaszx000/sprites/stabba_taser_left.dmi'
 	righthand_file = 'white/qwaszx000/sprites/stabba_taser_right.dmi'
 	pin = /obj/item/firing_pin
 	bolt_type = BOLT_TYPE_NO_BOLT
+	casing_ejector = FALSE
 	mag_type = /obj/item/ammo_box/magazine/internal/stabba_taser_magazine
 	fire_delay = 5
 	internal_magazine = TRUE
@@ -176,27 +177,44 @@
 	name = "Магазин стабба тазера. Если вы видите это, сообщите администратору."
 	icon = null
 	icon_state = null
-	ammo_type = /obj/item/ammo_casing/caseless/stabba_taser_projectile_casing
-	caliber = "taser"
+	ammo_type = /obj/item/ammo_casing/stabba
+	caliber = "stabba"
 	max_ammo = 2
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/internal/stabba_taser_magazine/give_round(obj/item/ammo_casing/R, replace_spent = 1)
 	return ..(R,1)
 
-/obj/item/ammo_casing/caseless/stabba_taser_projectile_casing
+/obj/item/ammo_casing/stabba
 	name = "картридж стабба тазера"
-	desc = "Одноразовый картридж"
-	icon = 'white/qwaszx000/sprites/stabba_taser.dmi'
-	icon_state = "taser_projectile"
+	desc = "Одноразовый картридж."
+	icon = 'white/RedFoxIV/icons/obj/weapons/misc.dmi'
+	icon_state = "ballistic_taser_casing"
 	throwforce = 1
-	projectile_type = /obj/projectile/bullet/stabba_taser_projectile
+	projectile_type = /obj/projectile/bullet/stabba
 	firing_effect_type = null
-	caliber = "taser"
+	caliber = "stabba"
 	harmful = FALSE
-	heavy_metal = FALSE
+/obj/item/trash/stabba_casing_cover
+	name = "Пластиковая оболочка картриджа тазера"
+	icon = 'white/RedFoxIV/icons/obj/weapons/misc.dmi'
+	icon_state = "bt_trash1"
 
-/obj/projectile/bullet/stabba_taser_projectile
+/obj/item/trash/stabba_casing_cover/Initialize(mapload, cover)
+	. = ..()
+	icon_state = "bt_trash[cover]"
+	pixel_x = base_pixel_x + rand(-6,6)
+	pixel_y = base_pixel_y + rand(-6,6)
+	transform = matrix().Turn(rand(0,360))
+	SpinAnimation(loops = 1)
+
+/obj/item/ammo_casing/stabba/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
+	. = ..()
+	new /obj/item/trash/stabba_casing_cover(get_turf(src), 1)
+	new /obj/item/trash/stabba_casing_cover(get_turf(src), 2)
+	
+
+/obj/projectile/bullet/stabba
 	name = "Электродик Стаббы"
 	desc = "Выглядит остро"
 	icon = 'white/qwaszx000/sprites/stabba_taser.dmi'
