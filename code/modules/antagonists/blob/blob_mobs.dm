@@ -277,7 +277,7 @@
 
 /mob/living/simple_animal/hostile/blob/blobbernaut/add_cell_sample()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_BLOBBERNAUT, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
-/*
+
 /mob/living/simple_animal/hostile/blob/blobbernaut/Life(delta_time = SSMOBS_DT, times_fired)
 	if(!..())
 		return
@@ -313,7 +313,7 @@
 		if(overmind)
 			I.color = overmind.blobstrain.complementary_color
 		flick_overlay_view(I, src, 8)
-*/
+
 /mob/living/simple_animal/hostile/blob/blobbernaut/AttackingTarget()
 	. = ..()
 	if(. && isliving(target) && overmind)
