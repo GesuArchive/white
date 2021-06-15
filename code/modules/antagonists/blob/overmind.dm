@@ -23,7 +23,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	hud_type = /datum/hud/blob_overmind
 	var/obj/structure/blob/special/core/blob_core = null // The blob overmind's core
 	var/blob_points = 0
-	var/max_blob_points = OVERMIND_MAX_POINTS_DEFAULT
+	var/max_blob_points = 100
 	var/last_attack = 0
 	var/datum/blobstrain/reagent/blobstrain
 	var/list/blob_mobs = list()
@@ -32,25 +32,25 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	var/list/resource_blobs = list()
 	var/list/factory_blobs = list()
 	var/list/node_blobs = list()
-	var/free_strain_rerolls = OVERMIND_STARTING_REROLLS
+	var/free_strain_rerolls = 1
 	var/last_reroll_time = 0 //time since we last rerolled, used to give free rerolls
 	var/nodes_required = TRUE //if the blob needs nodes to place resource and factory blobs
 	var/placed = FALSE
-	var/manualplace_min_time = OVERMIND_STARTING_MIN_PLACE_TIME // Some time to get your bearings
-	var/autoplace_max_time = OVERMIND_STARTING_AUTO_PLACE_TIME // Automatically place the core in a random spot
+	var/manualplace_min_time = 1 MINUTES // Some time to get your bearings
+	var/autoplace_max_time = 6 MINUTES // Automatically place the core in a random spot
 	var/list/blobs_legit = list()
 	var/max_count = 0 //The biggest it got before death
-	var/blobwincount = OVERMIND_WIN_CONDITION_AMOUNT
+	var/blobwincount = 400
 	var/victory_in_progress = FALSE
 	var/rerolling = FALSE
-	var/announcement_size = OVERMIND_ANNOUNCEMENT_MIN_SIZE // Announce the biohazard when this size is reached
+	var/announcement_size = 75 // Announce the biohazard when this size is reached
 	var/announcement_time
 	var/has_announced = FALSE
 
 	/// The list of strains the blob can reroll for.
 	var/list/strain_choices
 
-/mob/camera/blob/Initialize(mapload, starting_points = OVERMIND_STARTING_POINTS)
+/mob/camera/blob/Initialize(mapload, starting_points = 60)
 	validate_location()
 	blob_points = starting_points
 	manualplace_min_time += world.time
@@ -282,7 +282,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 
 /mob/camera/blob/Move(NewLoc, Dir = 0)
 	if(placed)
-		var/obj/structure/blob/B = locate() in range(OVERMIND_MAX_CAMERA_STRAY, NewLoc)
+		var/obj/structure/blob/B = locate() in range("3x3", NewLoc)
 		if(B)
 			forceMove(NewLoc)
 		else
