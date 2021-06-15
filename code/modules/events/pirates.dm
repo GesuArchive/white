@@ -21,7 +21,7 @@
 	startWhen = 60 //2 minutes to answer
 	var/datum/comm_message/threat
 	var/payoff = 0
-	var/payoff_min = 20000
+	var/payoff_min = 5000
 	var/paid_off = FALSE
 	var/pirate_type
 	var/ship_template
@@ -416,7 +416,7 @@
 	return
 
 /datum/export/pirate/ransom
-	cost = 3000
+	cost = 300
 	unit_name = "hostage"
 	export_types = list(/mob/living/carbon/human)
 
@@ -441,7 +441,7 @@
 			return 1000
 
 /datum/export/pirate/parrot
-	cost = 2000
+	cost = 200
 	unit_name = "alive parrot"
 	export_types = list(/mob/living/simple_animal/parrot)
 

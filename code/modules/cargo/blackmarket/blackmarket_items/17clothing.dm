@@ -37,8 +37,8 @@
 	desc = "Космический костюм НТ устаревшего вида"
 	item = /obj/item/storage/box
 
-	price_min = 10000
-	price_max = 25000
+	price_min = 100
+	price_max = 250
 	stock_max = 1
 	availability_prob = 100
 
@@ -55,8 +55,8 @@
 	desc = "Улучшенная версия обычного скафандра"
 	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/null
 
-	price_min = 10000
-	price_max = 50000
+	price_min = 100
+	price_max = 500
 	stock_min = 1
 	stock_max = 5
 	availability_prob = 100
@@ -66,8 +66,8 @@
 	desc = "Улучшенная версия обычного скафандра"
 	item = /obj/item/clothing/suit/space/hardsuit/wzzzz/void_explorer
 
-	price_min = 15000
-	price_max = 60000
+	price_min = 150
+	price_max = 600
 	stock_max = 2
 	availability_prob = 100
 
@@ -76,8 +76,8 @@
 	desc = "Этот скафандр был найден в уничтоженном гнезде ксеноморфов. Судьба носителя неизвестна, но этот скафандр до сих пор соответсвует стандартам боевых скафандров"
 	item = /obj/item/clothing/suit/space/hardsuit/combatmedic
 
-	price_min = 5500
-	price_max = 7000
+	price_min = 550
+	price_max = 700
 	stock_max = 1
 	availability_prob = 70
 
@@ -86,8 +86,8 @@
 	desc = "Обновлённая модель скафандра СБ"
 	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/security_rig
 
-	price_min = 100000
-	price_max = 500000
+	price_min = 1000
+	price_max = 5000
 	stock_max = 1
 	availability_prob = 100
 
@@ -108,8 +108,8 @@
 	desc = "Пахнет плазмой!"
 	item = /obj/item/clothing/head/collectable/petehat
 
-	price_min = 100
-	price_max = 500
+	price_min = 10000
+	price_max = 50000
 	stock_max = 5
 	availability_prob = 30
 
@@ -118,8 +118,8 @@
 	desc = "Hiss hiss hiss!"
 	item = /obj/item/clothing/head/collectable/xenom
 
-	price_min = 100
-	price_max = 500
+	price_min = 10000
+	price_max = 50000
 	stock_max = 5
 	availability_prob = 30
 
@@ -128,8 +128,8 @@
 	desc = "A"
 	item = /obj/item/clothing/head/collectable/tophat
 
-	price_min = 100
-	price_max = 500
+	price_min = 10000
+	price_max = 50000
 	stock_max = 5
 	availability_prob = 30
 
@@ -138,8 +138,8 @@
 	desc = "ERP shit"
 	item = /obj/item/clothing/head/kitty
 
-	price_min = 1000
-	price_max = 10000
+	price_min = 10000
+	price_max = 100000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 30
@@ -149,8 +149,8 @@
 	desc = "Идеально подходит для зимы в Сибири, да?"
 	item = /obj/item/clothing/head/ushanka
 
-	price_min = 100
-	price_max = 500
+	price_min = 10
+	price_max = 50
 	stock_max = 5
 	availability_prob = 30
 

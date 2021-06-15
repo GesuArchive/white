@@ -66,7 +66,7 @@
 	if(!proximity_flag) return //It should only work on adjacent target.
 	if(istype(W, /obj/item/storage/bag/tray))
 		var/obj/item/shield/trayshield/new_item = new(user.loc)
-		to_chat(user, "<span class='notice'>You strap [src] to \the [W].</span>")
+		to_chat(user, "<span class='notice'>You strap [src] to [W].</span>")
 		var/replace = (user.get_inactive_held_item()==W)
 		qdel(W)
 		if(src.use(3) == 0)
@@ -77,7 +77,7 @@
 		playsound(user, 'white/valtos/sounds/ducttape1.ogg', 50, 1)
 	if(istype(W, /obj/item/shard) && !istype(W, /obj/item/melee/shank))
 		var/obj/item/melee/shank/new_item = new(user.loc)
-		to_chat(user, "<span class='notice'>You strap [src] to \the [W].</span>")
+		to_chat(user, "<span class='notice'>You strap [src] to [W].</span>")
 		var/replace = (user.get_inactive_held_item()==W)
 		qdel(W)
 		if(src.use(3) == 0)

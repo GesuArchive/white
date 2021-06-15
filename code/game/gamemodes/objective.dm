@@ -804,7 +804,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 /datum/objective/protect_object/update_explanation_text()
 	. = ..()
 	if(protect_target)
-		explanation_text = "Protect \the [protect_target] at all costs."
+		explanation_text = "Protect [protect_target] at all costs."
 	else
 		explanation_text = "Ничего."
 

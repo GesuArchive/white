@@ -1124,7 +1124,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		if(victim_cavity.cavity_item)
 			victim.vomit(5, FALSE, FALSE, distance = 0)
 			forceMove(drop_location())
-			to_chat(victim, "<span class='warning'>You vomit up a [name]! [source_item? "Was that in \the [source_item]?" : ""]</span>")
+			to_chat(victim, "<span class='warning'>You vomit up a [name]! [source_item? "Was that in [source_item]?" : ""]</span>")
 		else
 			victim.transferItemToLoc(src, victim, TRUE)
 			victim.losebreath += 2
@@ -1133,7 +1133,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		discover_after = FALSE
 
 	else
-		to_chat(victim, "<span class='warning'>[source_item? "Something strange was in the \the [source_item]..." : "I just bit something strange..."] </span>")
+		to_chat(victim, "<span class='warning'>[source_item? "Something strange was in the [source_item]..." : "I just bit something strange..."] </span>")
 
 	return discover_after
 

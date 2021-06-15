@@ -109,8 +109,8 @@
 		return
 
 	if(istype(user_item, /obj/item/disk/design_disk/limbs))
-		user.visible_message("<span class='notice'>[user] begins to load \the [user_item] in \the [src]...</span>",
-			"<span class='notice'>You begin to load designs from \the [user_item]...</span>",
+		user.visible_message("<span class='notice'>[user] begins to load [user_item] in [src]...</span>",
+			"<span class='notice'>You begin to load designs from [user_item]...</span>",
 			"<span class='hear'>You hear the clatter of a floppy drive.</span>")
 		busy = TRUE
 		var/obj/item/disk/design_disk/limbs/limb_design_disk = user_item

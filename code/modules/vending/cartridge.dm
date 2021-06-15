@@ -15,7 +15,7 @@
 					/obj/item/cartridge/quartermaster = 10)
 	refill_canister = /obj/item/vending_refill/cart
 	default_price = PAYCHECK_COMMAND
-	extra_price = PAYCHECK_COMMAND * 2.5
+	extra_price = PAYCHECK_COMMAND * 1.5
 	payment_department = ACCOUNT_SRV
 	light_mask="cart-light-mask"
 

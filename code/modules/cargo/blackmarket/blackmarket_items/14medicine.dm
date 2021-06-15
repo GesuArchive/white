@@ -157,8 +157,8 @@
 
 	stock_min = 1
 	stock_max = 3
-	price_min = 2500
-	price_max = 10000
+	price_min = 250
+	price_max = 1000
 	availability_prob = 70
 
 /datum/blackmarket_item/medicine/zvezdochka

@@ -163,7 +163,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		SSblackbox.record_feedback("nested tally", "cargo_imports", 1, list("[SO.pack.cost]", "[SO.pack.name]"))
 		investigate_log("Заказ № [SO.id] ([SO.pack.name], размещенный [key_name (SO.orderer_ckey)]), оплаченный [D.account_holder], отправлен.", INVESTIGATE_CARGO)
 		if(SO.pack.dangerous)
-			message_admins("\ [SO.pack.name], заказанный [ADMIN_LOOKUPFLW (SO.orderer_ckey)], оплаченный [D.account_holder], отправлен.")
+			message_admins("[SO.pack.name], заказанный [ADMIN_LOOKUPFLW (SO.orderer_ckey)], оплаченный [D.account_holder], отправлен.")
 		purchases++
 
 	// we handle packing all the goodies last, since the type of crate we use depends on how many goodies they ordered. If it's more than GOODY_FREE_SHIPPING_MAX

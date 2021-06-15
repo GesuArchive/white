@@ -40,7 +40,7 @@
 		if(inview) //If we can see the katana, throw it towards ourselves, damaging people as we go.
 			energyKatana.spark_system.start()
 			playsound(ninja, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-			ninja.visible_message("<span class='danger'>\[energyKatana] летит в сторону [ninja]!</span>","<span class='warning'>Вытягиваю руку, и \the [energyKatana] летит ко мне!</span>")
+			ninja.visible_message("<span class='danger'>\[energyKatana] летит в сторону [ninja]!</span>","<span class='warning'>Вытягиваю руку, и [energyKatana] летит ко мне!</span>")
 			energyKatana.throw_at(ninja, distance+1, energyKatana.throw_speed, ninja)
 
 		else //Else just TP it to us.

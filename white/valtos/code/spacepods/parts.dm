@@ -81,7 +81,7 @@
 			qdel(F)
 		return TRUE
 	if(O.tool_behaviour == TOOL_WRENCH)
-		to_chat(user, "<span class='notice'>You [!anchored ? "secure \the [src] in place."  : "remove the securing bolts."]</span>")
+		to_chat(user, "<span class='notice'>You [!anchored ? "secure [src] in place."  : "remove the securing bolts."]</span>")
 		anchored = !anchored
 		density = anchored
 		O.play_tool_sound(src)

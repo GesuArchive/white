@@ -648,8 +648,9 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		pilot = M
 		M.click_intercept = src
 		addverbs(M)
+		ADD_TRAIT(M, TRAIT_HANDS_BLOCKED, VEHICLE_TRAIT)
 		if(M.client)
-			M.client.view_size.setTo(3)
+			M.client.view_size.setTo(2)
 			M.movement_type = GROUND
 	else if(passengers.len < max_passengers)
 		passengers += M
@@ -666,6 +667,7 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 	if(M == pilot)
 		pilot = null
 		removeverbs(M)
+		REMOVE_TRAIT(M, TRAIT_HANDS_BLOCKED, VEHICLE_TRAIT)
 		if(M.client)
 			M.client.view_size.resetToDefault()
 		if(M.click_intercept == src)

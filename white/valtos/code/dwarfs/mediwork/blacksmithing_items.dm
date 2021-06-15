@@ -213,6 +213,7 @@
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "stone"
 	singular_name = "Кусок камня"
+	max_amount = 1
 	refined_type = /obj/item/stack/sheet/stone
 	merge_type = /obj/item/stack/ore/stone
 
@@ -338,7 +339,7 @@
 	inhand_icon_state = "dagger"
 	worn_icon_state = "dagger"
 	flags_1 = CONDUCT_1
-	force = 5
+	force = 6
 	throwforce = 10
 	w_class = WEIGHT_CLASS_NORMAL
 	hitsound = 'sound/weapons/bladeslice.ogg'

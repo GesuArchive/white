@@ -1008,7 +1008,7 @@
 			if(do_after(user, create_delay, target = T))
 				var/old_name = T.name
 				if(T.TerraformTurf(turf_type, flags = CHANGETURF_INHERIT_AIR))
-					user.visible_message("<span class='danger'>[user] turns \the [old_name] into [transform_string]!</span>")
+					user.visible_message("<span class='danger'>[user] turns [old_name] into [transform_string]!</span>")
 					message_admins("[ADMIN_LOOKUPFLW(user)] fired the lava staff at [ADMIN_VERBOSEJMP(T)]")
 					log_game("[key_name(user)] fired the lava staff at [AREACOORD(T)].")
 					timer = world.time + create_cooldown
@@ -1019,7 +1019,7 @@
 		else
 			var/old_name = T.name
 			if(T.TerraformTurf(reset_turf_type, flags = CHANGETURF_INHERIT_AIR))
-				user.visible_message("<span class='danger'>[user] turns \the [old_name] into [reset_string]!</span>")
+				user.visible_message("<span class='danger'>[user] turns [old_name] into [reset_string]!</span>")
 				timer = world.time + reset_cooldown
 				playsound(T,'sound/magic/fireball.ogg', 200, TRUE)
 

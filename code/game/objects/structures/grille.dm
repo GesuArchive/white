@@ -2,7 +2,8 @@
 	desc = "Хрупкий каркас из металлических стержней."
 	name = "решетка"
 	icon = 'icons/obj/smooth_structures/grille.dmi'
-	icon_state = "grille"
+	icon_state = "grille-0"
+	base_icon_state = "grille"
 	density = TRUE
 	anchored = TRUE
 	flags_1 = CONDUCT_1 | RAD_PROTECT_CONTENTS_1 | RAD_NO_CONTAMINATE_1
@@ -11,7 +12,7 @@
 	max_integrity = 50
 	integrity_failure = 0.4
 	appearance_flags = KEEP_TOGETHER
-	smoothing_flags = SMOOTH_CORNERS
+	smoothing_flags = SMOOTH_BITMASK
 	can_be_unanchored = TRUE
 	canSmoothWith = list(SMOOTH_GROUP_GRILLE)
 	smoothing_groups = list(SMOOTH_GROUP_GRILLE)

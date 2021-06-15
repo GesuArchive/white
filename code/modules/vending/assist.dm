@@ -19,7 +19,7 @@
 				   /obj/item/assembly/igniter/condenser = 2)
 	refill_canister = /obj/item/vending_refill/assist
 	product_ads = "Только лучшее!;Купи инструменты.;Самое надежное оборудование.;Лучшие штуки во всём космосе!"
-	default_price = PAYCHECK_ASSISTANT * 0.7 //Default of 35.
+	default_price = PAYCHECK_ASSISTANT * 0.7
 	extra_price = PAYCHECK_EASY
 	payment_department = NO_FREEBIES
 	light_mask = "generic-light-mask"

@@ -28,7 +28,7 @@
 		to_chat(user, "<span class='notice'>You begin cutting <b>[src.name]</b> apart...</span>")
 		if(I.use_tool(src, user, 50, volume=50))
 			visible_message("<span class='notice'>[user] slices apart <b>[src.name]</b>.</span>",
-				"<span class='notice'>You cut <b>[src.name]</b> apart with \the [I].</span>",
+				"<span class='notice'>You cut <b>[src.name]</b> apart with [I].</span>",
 				"<span class='hear'>Слышу сварку.</span>")
 			new /obj/item/stack/sheet/metal(src.loc, 4)
 			qdel(src)

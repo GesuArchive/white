@@ -4,8 +4,8 @@
 	//The blackbox required to recover.
 	var/obj/item/blackbox/objective/linked_blackbox
 	//Relatively easy mission.
-	min_payout = 50000	//10k credits for sci/sec/eng, 5k for ser / civ
-	max_payout = 100000	//20k credits for sci/sec/eng, 10k for serv / civ
+	min_payout = 500
+	max_payout = 1000
 
 /datum/orbital_objective/recover_blackbox/generate_objective_stuff(turf/chosen_turf)
 	generated = TRUE
@@ -75,8 +75,8 @@
 	if(linked_obj)
 		linked_obj.complete_objective()
 	else
-		parentobj.say("Малоприоритетный предмен обнаружен, выдаём награду в размере 2000 кредитов.")
-		new /obj/item/stack/spacecash/c1000(get_turf(parent), 2)
+		parentobj.say("Малоприоритетный предмен обнаружен, выдаём награду в размере 200 кредитов.")
+		new /obj/item/stack/spacecash/c100(get_turf(parent), 2)
 	//Fly away
 	var/mutable_appearance/balloon
 	var/mutable_appearance/balloon2

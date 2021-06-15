@@ -118,7 +118,7 @@
 		if(secured && signaler2.secured)
 			code = signaler2.code
 			set_frequency(signaler2.frequency)
-			to_chat(user, "You transfer the frequency and code of \the [signaler2.name] to \the [name]")
+			to_chat(user, "You transfer the frequency and code of [signaler2.name] to [name]")
 	..()
 
 /obj/item/assembly/signaler/proc/signal()

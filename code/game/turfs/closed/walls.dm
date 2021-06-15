@@ -17,7 +17,7 @@
 
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS)
-	canSmoothWith = list(SMOOTH_GROUP_WALLS)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE)
 
 	///lower numbers are harder. Used to determine the probability of a hulk smashing through.
 	var/hardness = 40
@@ -184,7 +184,7 @@
 	if(istype(W,/obj/item/melee/baseball_bat/hos/hammer))
 		smash_with_hammer(W, user)
 		return
-	
+
 	if (!ISADVANCEDTOOLUSER(user))
 		to_chat(user, "<span class='warning'>У меня не хватает ловкости, чтобы сделать это!</span>")
 		return
@@ -210,8 +210,8 @@
 	if(W.wielded)
 		p = p * 2.5
 		user.changeNext_move(CLICK_CD_MELEE*2)
-	
-	
+
+
 	if(prob(p))
 		src.dismantle_wall(TRUE)
 		playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)

@@ -56,7 +56,7 @@
 		if(!tank)
 			to_chat(user, "<span class='notice'><b>[src.name]</b> currently has no tank attached to it.</span>")
 			return
-		to_chat(user, "<span class='notice'>You detach \the [thetank] from <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>You detach [thetank] from <b>[src.name]</b>.</span>")
 		tank.forceMove(get_turf(user))
 		user.put_in_hands(tank)
 		tank = null
@@ -66,7 +66,7 @@
 			return
 		if(!user.transferItemToLoc(thetank, src))
 			return
-		to_chat(user, "<span class='notice'>You hook \the [thetank] up to <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>You hook [thetank] up to <b>[src.name]</b>.</span>")
 		tank = thetank
 
 

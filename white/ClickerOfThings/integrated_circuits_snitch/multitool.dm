@@ -21,24 +21,24 @@
 
 	if(selected_io)
 		if(io == selected_io)
-			to_chat(user, "<span class='warning'>Wiring \the [selected_io.holder] [selected_io.name] into itself is rather pointless.</span>")
+			to_chat(user, "<span class='warning'>Wiring [selected_io.holder] [selected_io.name] into itself is rather pointless.</span>")
 			return
 		if(io.io_type != selected_io.io_type)
 			to_chat(user, "<span class='warning'>Those two types of channels are incompatible.  The first is a [selected_io.io_type], \
 			while the second is a [io.io_type].</span>")
 			return
 		if(io.holder.assembly && io.holder.assembly != selected_io.holder.assembly)
-			to_chat(user, "<span class='warning'>Both \the [io.holder] and \the [selected_io.holder] need to be inside the same assembly.</span>")
+			to_chat(user, "<span class='warning'>Both [io.holder] and [selected_io.holder] need to be inside the same assembly.</span>")
 			return
 		io.connect_pin(selected_io)
 
-		to_chat(user, "<span class='notice'>You connect \the [selected_io.holder] [selected_io.name] to \the [io.holder] [io.name].</span>")
+		to_chat(user, "<span class='notice'>You connect [selected_io.holder] [selected_io.name] to [io.holder] [io.name].</span>")
 		selected_io.holder.interact(user) // This is to update the UI.
 		selected_io = null
 
 	else
 		selected_io = io
-		to_chat(user, "<span class='notice'>You link \the multitool to \the [selected_io.holder] [selected_io.name] data channel.</span>")
+		to_chat(user, "<span class='notice'>You link \the multitool to [selected_io.holder] [selected_io.name] data channel.</span>")
 
 	update_icon()
 

@@ -317,7 +317,7 @@
 		else
 			battery.forceMove(drop_location())
 			playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
-			to_chat(usr, "<span class='notice'>You pull \the [battery] out of <b>[src.name]</b>'s power supplier.</span>")
+			to_chat(usr, "<span class='notice'>You pull [battery] out of <b>[src.name]</b>'s power supplier.</span>")
 			battery = null
 			diag_hud_set_circuitstat() //update diagnostic hud
 
@@ -509,7 +509,7 @@
 
 	remove_component(IC)
 	if(!silent)
-		to_chat(user, "<span class='notice'>You pop \the [IC] out of the case, and slide it out.</span>")
+		to_chat(user, "<span class='notice'>You pop [IC] out of the case, and slide it out.</span>")
 		playsound(src, 'sound/items/crowbar.ogg', 50, 1)
 		user.put_in_hands(IC)
 	add_allowed_scanner(user.ckey)

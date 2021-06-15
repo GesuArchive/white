@@ -10,7 +10,7 @@
 	var/desc
 	var/category_index = CATEGORY_FRUITS_VEGGIES
 	var/obj/item/item_instance
-	var/cost_per_order = 10
+	var/cost_per_order = 1
 
 /datum/orderable_item/New()
 	. = ..()

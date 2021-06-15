@@ -312,7 +312,9 @@
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dwarf)
 "sO" = (
-/mob/living/simple_animal/pet/cat,
+/mob/living/simple_animal/pet/cat{
+	gender = "male"
+	},
 /turf/open/floor/wood,
 /area/awaymission/vietnam/dwarf)
 "sP" = (

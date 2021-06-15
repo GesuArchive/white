@@ -868,7 +868,7 @@
 
 	if(opened && (!issilicon(user)))
 		if(cell)
-			user.visible_message("<span class='notice'>[user] removes \the [cell] from <b>[src]</b>!</span>", "<span class='notice'>You remove \the [cell].</span>")
+			user.visible_message("<span class='notice'>[user] removes [cell] from <b>[src]</b>!</span>", "<span class='notice'>You remove [cell].</span>")
 			user.put_in_hands(cell)
 			cell.update_icon()
 			src.cell = null

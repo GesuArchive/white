@@ -48,7 +48,7 @@
 /datum/bounty/item/chef/pie
 	name = "Пирог"
 	description = "3,14159? Нет! Руководство ЦК хочет съесть пирог! Отправьте им целый пирог."
-	reward = 3142
+	reward = 314
 	wanted_types = list(/obj/item/food/pie)
 
 /datum/bounty/item/chef/salad

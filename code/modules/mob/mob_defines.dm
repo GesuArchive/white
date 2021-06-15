@@ -102,7 +102,7 @@
 	/// Hunger level of the mob
 	var/nutrition = NUTRITION_LEVEL_START_MIN // randomised in Initialize
 	/// Shit level of the mob
-	var/pooition = 50
+	var/pooition = 20
 	/// Satiation level of the mob
 	var/satiety = 0//Carbon
 

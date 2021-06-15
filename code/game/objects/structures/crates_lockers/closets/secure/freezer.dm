@@ -100,11 +100,11 @@
 /obj/structure/closet/secure_closet/freezer/money/PopulateContents()
 	..()
 	for(var/i = 0, i < 3, i++)
-		new /obj/item/stack/spacecash/c1000(src)
+		new /obj/item/stack/spacecash/c100(src)
 	for(var/i = 0, i < 5, i++)
-		new /obj/item/stack/spacecash/c500(src)
+		new /obj/item/stack/spacecash/c50(src)
 	for(var/i = 0, i < 6, i++)
-		new /obj/item/stack/spacecash/c200(src)
+		new /obj/item/stack/spacecash/c20(src)
 
 /obj/structure/closet/secure_closet/freezer/cream_pie
 	name = "морозилка с пирогами"

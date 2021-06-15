@@ -303,7 +303,7 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 		D.forceMove(get_turf(D))//Fixes dying while jaunted leaving you permajaunted.
 	var/area/A = get_area(owner.current)
 	if(A)
-		notify_ghosts("An arch devil has ascended in \the [A.name]. Reach out to the devil to be given a new shell for your soul.", source = owner.current, action=NOTIFY_ATTACK)
+		notify_ghosts("An arch devil has ascended in [A.name]. Reach out to the devil to be given a new shell for your soul.", source = owner.current, action=NOTIFY_ATTACK)
 	sleep(50)
 	if(!SSticker.mode.devil_ascended)
 		SSshuttle.emergency.request(null, set_coefficient = 0.3)

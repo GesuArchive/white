@@ -1142,7 +1142,7 @@
 				update_icon()
 				forged = TRUE
 				to_chat(user, "<span class='notice'>Успешно модифицирую ID-карту.</span>")
-				log_game("[key_name(user)] has forged \the [initial(name)] with name \"[registered_name]\", occupation \"[assignment]\" and trim \"[trim?.assignment]\".")
+				log_game("[key_name(user)] has forged [initial(name)] with name \"[registered_name]\", occupation \"[assignment]\" and trim \"[trim?.assignment]\".")
 
 				if(!registered_account)
 					if(ishuman(user))
@@ -1158,7 +1158,7 @@
 				registered_name = initial(registered_name)
 				assignment = initial(assignment)
 				SSid_access.remove_trim_from_card(src)
-				log_game("[key_name(user)] has reset \the [initial(name)] named \"[src]\" to default.")
+				log_game("[key_name(user)] has reset [initial(name)] named \"[src]\" to default.")
 				update_label()
 				update_icon()
 				forged = FALSE

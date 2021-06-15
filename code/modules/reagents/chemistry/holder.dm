@@ -1137,7 +1137,7 @@
 			var/obj/item/slime_extract/extract = my_atom
 			extract.Uses--
 			if(extract.Uses <= 0) // give the notification that the slime core is dead
-				my_atom.visible_message("<span class='notice'>[iconhtml] \The [my_atom]'s power is consumed in the reaction.</span>")
+				my_atom.visible_message("<span class='notice'>[iconhtml] [my_atom]'s power is consumed in the reaction.</span>")
 				extract.name = "used slime extract"
 				extract.desc = "This extract has been used up."
 

@@ -92,7 +92,7 @@
 
 		if(accept_check(O))
 			load(O)
-			user.visible_message("<span class='notice'>[user] adds \the [O] to <b>[src.name]</b>.</span>", "<span class='notice'>You add \the [O] to <b>[src.name]</b>.</span>")
+			user.visible_message("<span class='notice'>[user] adds [O] to <b>[src.name]</b>.</span>", "<span class='notice'>You add [O] to <b>[src.name]</b>.</span>")
 			updateUsrDialog()
 			if (visible_contents)
 				update_icon()
@@ -111,11 +111,11 @@
 
 			if(loaded)
 				if(contents.len >= max_n_of_items)
-					user.visible_message("<span class='notice'>[user] loads <b>[src.name]</b> with \the [O].</span>", \
-						"<span class='notice'>You fill <b>[src.name]</b> with \the [O].</span>")
+					user.visible_message("<span class='notice'>[user] loads <b>[src.name]</b> with [O].</span>", \
+						"<span class='notice'>You fill <b>[src.name]</b> with [O].</span>")
 				else
-					user.visible_message("<span class='notice'>[user] loads <b>[src.name]</b> with \the [O].</span>", \
-						"<span class='notice'>You load <b>[src.name]</b> with \the [O].</span>")
+					user.visible_message("<span class='notice'>[user] loads <b>[src.name]</b> with [O].</span>", \
+						"<span class='notice'>You load <b>[src.name]</b> with [O].</span>")
 				if(O.contents.len > 0)
 					to_chat(user, "<span class='warning'>Some items are refused.</span>")
 				if (visible_contents)
