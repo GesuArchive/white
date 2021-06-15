@@ -405,7 +405,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/hellwater/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	M.set_fire_stacks(min(M. fire_stacks + (1.5 * delta_time), 5))
+	M.set_fire_stacks(min(M.fire_stacks + (1.5 * delta_time), 5))
 	M.IgniteMob()			//Only problem with igniting people is currently the commonly available fire suits make you immune to being on fire
 	M.adjustToxLoss(1, 0)
 	M.adjustFireLoss(1, 0)		//Hence the other damages... ain't I a bastard?
