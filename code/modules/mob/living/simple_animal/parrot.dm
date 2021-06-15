@@ -64,7 +64,6 @@
 	friendly_verb_continuous = "ворсится"
 	friendly_verb_simple = "ворсится"
 	mob_size = MOB_SIZE_SMALL
-	is_flying_animal = TRUE
 	gold_core_spawnable = FRIENDLY_SPAWN
 
 	var/parrot_damage_upper = 10
@@ -130,6 +129,7 @@
 			  /mob/living/simple_animal/parrot/proc/perch_mob_player))
 
 	AddElement(/datum/element/strippable, GLOB.strippable_parrot_items)
+	AddElement(/datum/element/simple_flying)
 
 /mob/living/simple_animal/parrot/examine(mob/user)
 	. = ..()
