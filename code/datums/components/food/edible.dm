@@ -286,14 +286,14 @@ Behavior that's still missing from this component that original food items had t
 			eater.visible_message("<span class='notice'>[eater] [eatverb] [parent].</span>", "<span class='notice'>Кушаю [parent].</span>")
 		else if(fullness > 500 && fullness < 600)
 			eater.visible_message("<span class='notice'>[eater] нехотя [eatverb] кусочек [parent].</span>", "<span class='notice'>Нямкаю кусочек [parent].</span>")
-		else if(fullness > (600 * (1 + eater.overeatduration / 2000)))	// The more you eat - the more you can eat
+		else if(fullness > (600 * (1 + eater.overeatduration / (4000 SECONDS))))	// The more you eat - the more you can eat
 			eater.visible_message("<span class='warning'>[eater] не может запихнуть [parent] в свою глотку!</span>", "<span class='warning'>В меня больше не лезет [parent]!</span>")
 			return
 	else //If you're feeding it to someone else.
 		if(isbrain(eater))
 			to_chat(feeder, "<span class='warning'>[eater] похоже не имеет рта!</span>")
 			return
-		if(fullness <= (600 * (1 + eater.overeatduration / 1000)))
+		if(fullness <= (600 * (1 + eater.overeatduration / (2000 SECONDS))))
 			eater.visible_message("<span class='danger'>[feeder] пытает дать [eater] попробовать [parent].</span>", \
 									"<span class='userdanger'>[feeder] пытается дать мне попробовать [parent].</span>")
 		else

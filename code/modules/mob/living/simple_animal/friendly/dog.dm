@@ -445,7 +445,7 @@ GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 		desc = "В зрелом возрасте [record_age], Ян не такой бодрый, как раньше, но он всегда будет любимым корги главы персонала." //RIP
 		turns_per_move = 20
 
-/mob/living/simple_animal/pet/dog/corgi/ian/Life()
+/mob/living/simple_animal/pet/dog/corgi/ian/Life(delta_time = SSMOBS_DT, times_fired)
 	if(!stat && SSticker.current_state == GAME_STATE_FINISHED && !memory_saved)
 		Write_Memory(FALSE)
 		memory_saved = TRUE
@@ -516,7 +516,7 @@ GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 	unique_pet = TRUE
 	held_state = "narsian"
 
-/mob/living/simple_animal/pet/dog/corgi/narsie/Life()
+/mob/living/simple_animal/pet/dog/corgi/narsie/Life(delta_time = SSMOBS_DT, times_fired)
 	..()
 	for(var/mob/living/simple_animal/pet/P in range(1, src))
 		if(P != src && !istype(P,/mob/living/simple_animal/pet/dog/corgi/narsie))
@@ -657,7 +657,6 @@ GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 		return
 	..()
 
-/mob/living/simple_animal/pet/dog/corgi/lisa/Life()
-	..()
-
+/mob/living/simple_animal/pet/dog/corgi/lisa/Life(delta_time = SSMOBS_DT, times_fired)
+	. = ..()
 	make_babies()

@@ -40,7 +40,6 @@
 	minbodytemp = 0
 	maxbodytemp = 1500
 	faction = list("carp")
-	is_flying_animal = TRUE
 	pressure_resistance = 200
 	gold_core_spawnable = HOSTILE_SPAWN
 	/// If the carp uses random coloring
@@ -70,6 +69,7 @@
 	)
 
 /mob/living/simple_animal/hostile/carp/Initialize(mapload)
+	AddElement(/datum/element/simple_flying)
 	if(random_color)
 		set_greyscale(new_config=/datum/greyscale_config/carp)
 		carp_randomify(rarechance)
@@ -110,7 +110,7 @@
 		adjustBruteLoss(5)
 		qdel(tasty_plastic)
 
-/mob/living/simple_animal/hostile/carp/Life()
+/mob/living/simple_animal/hostile/carp/Life(delta_time = SSMOBS_DT, times_fired)
 	. = ..()
 	if(stat == CONSCIOUS)
 		chomp_plastic()
@@ -186,10 +186,10 @@
 	can_buckle = TRUE
 	buckle_lying = 0
 
-/mob/living/simple_animal/hostile/carp/megacarp/Life()
+/mob/living/simple_animal/hostile/carp/megacarp/Life(delta_time = SSMOBS_DT, times_fired)
 	. = ..()
 	if(regen_cooldown < world.time)
-		heal_overall_damage(4)
+		heal_overall_damage(2 * delta_time)
 
 /mob/living/simple_animal/hostile/carp/lia
 	name = "Lia"

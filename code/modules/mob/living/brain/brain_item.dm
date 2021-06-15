@@ -227,7 +227,7 @@
 	destroy_all_skillchips()
 	return ..()
 
-/obj/item/organ/brain/on_life()
+/obj/item/organ/brain/on_life(delta_time, times_fired)
 	if(damage >= BRAIN_DAMAGE_DEATH) //rip
 		to_chat(owner, "<span class='userdanger'>Последняя искра жизни в моём мозгу угасает..</span>")
 		owner.death()

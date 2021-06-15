@@ -35,7 +35,7 @@
 	taunt_chance = 20
 
 	atmos_requirements = list("min_oxy" = 2, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
-	unsuitable_atmos_damage = 5
+	unsuitable_atmos_damage = 2.5
 	minbodytemp = 0
 	maxbodytemp = 1200
 
@@ -50,17 +50,16 @@
 	. = ..()
 	add_cell_sample()
 
-/mob/living/simple_animal/hostile/tree/Life()
+/mob/living/simple_animal/hostile/tree/Life(delta_time = SSMOBS_DT, times_fired)
 	..()
 	if(is_tree && isopenturf(loc))
 		var/turf/open/T = src.loc
 		if(T.air)
 			var/co2 = T.air.get_moles(/datum/gas/carbon_dioxide)
-			if(co2 > 0)
-				if(prob(25))
-					var/amt = min(co2, 9)
-					T.air.adjust_moles(/datum/gas/carbon_dioxide, -amt)
-					T.atmos_spawn_air("o2=[amt]")
+			if(co2 > 0 && DT_PROB(13, delta_time))
+				var/amt = min(co2, 9)
+				T.air.adjust_moles(/datum/gas/carbon_dioxide, -amt)
+				T.atmos_spawn_air("o2=[amt]")
 
 /mob/living/simple_animal/hostile/tree/AttackingTarget()
 	. = ..()
