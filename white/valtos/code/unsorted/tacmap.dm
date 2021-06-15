@@ -62,22 +62,3 @@
 				tacmap_icon.DrawBox(rgb(255, 145, 0), xx, yy, xx, yy)
 				continue
 	return tacmap_icon
-
-/client/proc/get_tacmap_for_test()
-	set name = " ? Generate TacMap"
-	set category = "Дбг"
-
-	var/fuckz = input("З-уровень") as num
-
-	if(!fuckz || fuckz >= world.maxz)
-		to_chat(usr, "<span class='adminnotice'> !! RETARD !! </span>")
-		return
-
-	message_admins("[ADMIN_LOOKUPFLW(usr)] запустил генерацию миникарты Z-уровня [fuckz].")
-	log_admin("[key_name(usr)] запустил генерацию миникарты Z-уровня [fuckz].")
-
-	spawn(0)
-		var/icon/I = gen_tacmap(fuckz)
-		usr << browse_rsc(I, "tacmap[fuckz].png")
-		to_chat(usr, "<span class='adminnotice'>Ваша овсянка, сер:</span>")
-		to_chat(usr, "<img src='tacmap[fuckz].png'>")

@@ -14,7 +14,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	var/icon_state_closed = "dshotgun"
 	var/icon_state_open = "dshotgun_open"
-	
+
 	var/open = FALSE
 	///resets current_chamber to 1 when opening the gun.
 	var/reset_current_chamber = TRUE
@@ -37,7 +37,7 @@
 	///Sound to play when closing the gun
 	var/close_sound = 'sound/weapons/gun/general/magazine_insert_full.ogg'
 	var/insert_sound = 'sound/weapons/gun/general/mag_bullet_insert.ogg'
-	///if we compare /breakopen type gun to a /ballistic type gun, they all have an internal magazine. Since we're not using a /ballistic type, we can cast away useless magazines and replace them with a list. 
+	///if we compare /breakopen type gun to a /ballistic type gun, they all have an internal magazine. Since we're not using a /ballistic type, we can cast away useless magazines and replace them with a list.
 	var/list/obj/item/ammo_casing/magazine = list()
 	///How much casings can the gun hold.
 	var/max_ammo = 2
@@ -54,7 +54,7 @@
 /obj/item/gun/breakopen/update_icon_state()
 	icon_state = "[initial(icon_state)][sawn_off ? "_sawn":""][open ? "_open" : ""]"
 
-obj/item/gun/breakopen/handle_atom_del(atom/A)
+/obj/item/gun/breakopen/handle_atom_del(atom/A)
 	. = ..()
 	if(magazine.Find(A))
 		magazine -= A
@@ -66,7 +66,7 @@ obj/item/gun/breakopen/handle_atom_del(atom/A)
 		if(reset_current_chamber)
 			current_chamber = 1
 		playsound(user, open_sound, 40, TRUE)
-		autoeject()			
+		autoeject()
 	else
 		playsound(user, close_sound, 40, TRUE)
 	update_icon()
@@ -88,7 +88,7 @@ obj/item/gun/breakopen/handle_atom_del(atom/A)
 		if(!open)
 			to_chat(user, "<span class='notice'>Can't load [src.name] while it's closed!</span>")
 			return
-		
+
 		if(!istype(I, casing_type))
 			to_chat(user, "<span class='notice'>[src.name] does not accept [I.name]!</span>")
 			return
@@ -136,7 +136,7 @@ obj/item/gun/breakopen/handle_atom_del(atom/A)
 /obj/item/gun/breakopen/afterattack(atom/target, mob/living/user, flag, params, aimed)
 	if(open)
 		to_chat(user, "<span class='notice'>Can't fire [src.name] while it's open!</span>")
-		return 
+		return
 	if(can_fire_all_rounds_at_once && user.a_intent == INTENT_HARM && max_ammo > 1 && magazine.len)
 		for(var/obj/item/ammo_casing/AC in magazine)
 			chambered = AC

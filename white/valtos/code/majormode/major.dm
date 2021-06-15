@@ -34,12 +34,3 @@ GLOBAL_VAR_INIT(major_mode_active, FALSE)
 
 /datum/major_mode/proc/fail_completion()
 	return
-
-/client/proc/toggle_major_mode()
-	set name = " ? Переключить ММ (тест)"
-	set category = "Дбг"
-
-	GLOB.major_mode_active = !GLOB.major_mode_active
-
-	message_admins("[ADMIN_LOOKUPFLW(usr)] переключает MAJOR MODE в положение [GLOB.major_mode_active ? "ВКЛ" : "ВЫКЛ"].")
-	log_admin("[key_name(usr)] переключает MAJOR MODE в положение [GLOB.major_mode_active ? "ВКЛ" : "ВЫКЛ"].")

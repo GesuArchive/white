@@ -194,7 +194,7 @@
 				continue
 
 			var/obj/item/storage/B = (locate() in H)
-			if(B)
+			if(B && item)
 				item.forceMove(B)
 				to_chat(M, "<span class='notice'>[capitalize(G.display_name)] в [B.name]!</span>")
 				continue

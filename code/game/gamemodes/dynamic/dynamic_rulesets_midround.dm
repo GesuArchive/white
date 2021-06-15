@@ -400,7 +400,10 @@
 	player_mind.special_role = "Devil"
 	add_devil(S, ascendable = TRUE)
 	add_devil_objectives(player_mind,2)
-	S.equipOutfit(/datum/outfit/demonic_friend)
+	S.equip_to_slot_or_del(new /obj/item/clothing/under/rank/civilian/lawyer/black(S), ITEM_SLOT_ICLOTHING)
+	S.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(S), ITEM_SLOT_FEET)
+	S.equip_to_slot_or_del(new /obj/item/storage/briefcase(S), ITEM_SLOT_HANDS)
+	S.equip_to_slot_or_del(new /obj/item/pen(S), ITEM_SLOT_LPOCKET)
 	playsound(S, 'sound/magic/ethereal_exit.ogg', 50, TRUE, -1)
 	message_admins("[ADMIN_LOOKUPFLW(S)] has been made into a Devil by the midround ruleset.")
 	log_game("DYNAMIC: [key_name(S)] was spawned as a Devil by the midround ruleset.")

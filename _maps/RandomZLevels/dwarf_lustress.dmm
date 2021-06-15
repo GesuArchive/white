@@ -817,6 +817,10 @@
 /obj/structure/stone_tile/block,
 /turf/open/lava/smooth,
 /area/awaymission/vietnam/dwarf)
+"WN" = (
+/obj/structure/dwarf_altar,
+/turf/open/floor/grass/gensgrass/dirty/stone,
+/area/awaymission/vietnam/dwarf)
 "WV" = (
 /obj/machinery/gateway/away,
 /turf/open/floor/mineral/plastitanium/red,
@@ -12252,7 +12256,7 @@ vK
 vK
 vK
 vK
-kb
+WN
 lq
 lq
 oK

@@ -1,15 +1,29 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"as" = (
+/obj/machinery/door/airlock/engineering/glass{
+	name = "Supermatter Engine Room";
+	req_access_txt = "10"
+	},
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/engine/engineering)
 "at" = (
 /obj/structure/sign/poster/official/safety_eye_protection,
 /turf/closed/wall/r_wall,
 /area/engine/engineering)
 "bY" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering/glass{
 	name = "Supermatter Engine Room";
 	req_access_txt = "10"
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "cn" = (
@@ -60,7 +74,6 @@
 /turf/closed/wall/r_wall,
 /area/space/nearstation)
 "gg" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -68,17 +81,18 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
 	},
+/obj/structure/cable/multilayer,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "gG" = (
 /obj/machinery/power/terminal{
 	dir = 1
 	},
-/obj/structure/cable/layer1,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "hq" = (
@@ -91,30 +105,27 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "iA" = (
-/obj/structure/cable/layer1,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 1;
-	light_color = "#c1caff";
-	pixel_y = 0
-	},
-/obj/effect/turf_decal/tile/yellow{
-	dir = 1
-	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "ja" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering/glass{
 	name = "Supermatter Engine Room";
 	req_access_txt = "10"
 	},
-/obj/structure/cable/layer1,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/structure/cable/layer1,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
@@ -133,36 +144,37 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
-/area/engine/engineering)
-"pN" = (
-/obj/structure/cable/layer1,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
+"pN" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/structure/cable/layer1,
+/turf/open/floor/plasteel,
+/area/engine/engineering)
 "rh" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
-/area/engine/engineering)
-"rw" = (
-/obj/structure/cable,
 /obj/structure/cable/layer1,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "rA" = (
 /obj/machinery/power/port_gen/pacman,
-/obj/structure/cable/layer1,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
 /obj/effect/turf_decal/bot,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "rD" = (
@@ -172,10 +184,10 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "rS" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/structure/cable/layer1,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "sn" = (
@@ -188,7 +200,6 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "tg" = (
-/obj/structure/cable/layer1,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -196,6 +207,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
+/obj/structure/cable/layer1,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "to" = (
@@ -216,9 +228,9 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "xD" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "yf" = (
@@ -241,11 +253,14 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "zS" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering/glass{
 	name = "Supermatter Engine Room";
 	req_access_txt = "10"
 	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "Be" = (
@@ -255,8 +270,8 @@
 /area/engine/engineering)
 "Bw" = (
 /obj/machinery/power/port_gen/pacman,
-/obj/structure/cable/layer1,
 /obj/effect/turf_decal/bot,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "Ch" = (
@@ -274,43 +289,22 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "Ck" = (
-/obj/structure/cable/layer1,
-/turf/open/floor/plasteel,
-/area/engine/engineering)
-"Cz" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "CA" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "Da" = (
 /obj/structure/cable/layer1,
 /obj/structure/cable,
-/turf/open/floor/plasteel,
-/area/engine/engineering)
-"Dy" = (
-/obj/structure/cable/layer1,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/yellow{
-	dir = 1
-	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "FQ" = (
@@ -492,14 +486,14 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "Vf" = (
-/obj/structure/cable,
+/obj/structure/cable/layer1,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "WX" = (
 /obj/machinery/power/terminal{
 	dir = 1
 	},
-/obj/structure/cable/layer1,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "XX" = (
@@ -524,7 +518,7 @@
 	capacity = 9e+006;
 	charge = 10000
 	},
-/obj/structure/cable,
+/obj/structure/cable/layer1,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "ZF" = (
@@ -1081,7 +1075,7 @@ Ck
 Vf
 Ck
 Vf
-pN
+iA
 Ss
 Sn
 Le
@@ -1099,17 +1093,17 @@ ZT
 "}
 (21,1,1) = {"
 Sn
-Dy
-rw
+Ka
+Vf
 Da
-rw
 Da
-rw
 Da
-rw
 Da
-rw
-pN
+Da
+Da
+Da
+Da
+iA
 KJ
 Sn
 Le
@@ -1127,7 +1121,7 @@ ZT
 "}
 (22,1,1) = {"
 zS
-Dy
+Ka
 rS
 Ck
 Vf
@@ -1137,7 +1131,7 @@ Ck
 Vf
 Ck
 Vf
-pN
+iA
 Ss
 Sn
 Le
@@ -1155,7 +1149,7 @@ ZT
 "}
 (23,1,1) = {"
 to
-Dy
+Ka
 Vf
 Bw
 Vf
@@ -1183,7 +1177,7 @@ ZT
 "}
 (24,1,1) = {"
 to
-iA
+cC
 Zg
 WX
 Zg
@@ -1211,7 +1205,7 @@ ZT
 "}
 (25,1,1) = {"
 cn
-Dy
+Ka
 Zg
 WX
 Zg
@@ -1239,7 +1233,7 @@ ZT
 "}
 (26,1,1) = {"
 Sn
-Dy
+Ka
 Zg
 WX
 Zg
@@ -1267,7 +1261,7 @@ ZT
 "}
 (27,1,1) = {"
 at
-Dy
+Ka
 pN
 RY
 RY
@@ -1380,10 +1374,10 @@ ZT
 (31,1,1) = {"
 ZT
 sA
-Cz
+CA
 sA
 TL
-zS
+as
 UM
 Ss
 Ch

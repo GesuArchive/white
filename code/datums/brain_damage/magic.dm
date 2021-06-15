@@ -11,18 +11,23 @@
 	scan_desc = "лёгкая светочувствительность"
 	gain_text = "<span class='warning'>Чувствую тягу к темноте.</span>"
 	lose_text = "<span class='notice'>Свет больше не беспокоит меня.</span>"
+	/// Cooldown to prevent warning spam
+	COOLDOWN_DECLARE(damage_warning_cooldown)
 	var/next_damage_warning = 0
 
-/datum/brain_trauma/magic/lumiphobia/on_life()
+/datum/brain_trauma/magic/lumiphobia/on_life(delta_time, times_fired)
 	..()
 	var/turf/T = owner.loc
-	if(istype(T))
-		var/light_amount = T.get_lumcount()
-		if(light_amount > SHADOW_SPECIES_LIGHT_THRESHOLD) //if there's enough light, start dying
-			if(world.time > next_damage_warning)
-				to_chat(owner, "<span class='warning'><b>Свет обжигает меня!</b></span>")
-				next_damage_warning = world.time + 100 //Avoid spamming
-			owner.take_overall_damage(0,3)
+	if(!istype(T))
+		return
+
+	if(T.get_lumcount() <= SHADOW_SPECIES_LIGHT_THRESHOLD) //if there's enough light, start dying
+		return
+
+	if(COOLDOWN_FINISHED(src, damage_warning_cooldown))
+		to_chat(owner, "<span class='warning'><b>Свет обжигает меня!</b></span>")
+		COOLDOWN_START(src, damage_warning_cooldown, 10 SECONDS)
+	owner.take_overall_damage(0, 1.5 * delta_time)
 
 /datum/brain_trauma/magic/poltergeist
 	name = "Полтергейст"
@@ -31,19 +36,21 @@
 	gain_text = "<span class='warning'>Чувствую ненавистное присутствие рядом со мной.</span>"
 	lose_text = "<span class='notice'>Чувствую, что ненавистное присутствие исчезает.</span>"
 
-/datum/brain_trauma/magic/poltergeist/on_life()
+/datum/brain_trauma/magic/poltergeist/on_life(delta_time, times_fired)
 	..()
-	if(prob(4))
-		var/most_violent = -1 //So it can pick up items with 0 throwforce if there's nothing else
-		var/obj/item/throwing
-		for(var/obj/item/I in view(5, get_turf(owner)))
-			if(I.anchored)
-				continue
-			if(I.throwforce > most_violent)
-				most_violent = I.throwforce
-				throwing = I
-		if(throwing)
-			throwing.throw_at(owner, 8, 2)
+	if(!DT_PROB(2, delta_time))
+		return
+
+	var/most_violent = -1 //So it can pick up items with 0 throwforce if there's nothing else
+	var/obj/item/throwing
+	for(var/obj/item/I in view(5, get_turf(owner)))
+		if(I.anchored)
+			continue
+		if(I.throwforce > most_violent)
+			most_violent = I.throwforce
+			throwing = I
+	if(throwing)
+		throwing.throw_at(owner, 8, 2)
 
 /datum/brain_trauma/magic/antimagic
 	name = "Athaumasia"
@@ -81,7 +88,7 @@
 	QDEL_NULL(stalker)
 	..()
 
-/datum/brain_trauma/magic/stalker/on_life()
+/datum/brain_trauma/magic/stalker/on_life(delta_time, times_fired)
 	// Dead and unconscious people are not interesting to the psychic stalker.
 	if(owner.stat != CONSCIOUS)
 		return
@@ -95,7 +102,7 @@
 		playsound(owner, 'sound/magic/demon_attack1.ogg', 50)
 		owner.visible_message("<span class='warning'>[owner] разрывают невидимые когти!</span>", "<span class='userdanger'>Призрачные когти разрывают моё тело на части!</span>")
 		owner.take_bodypart_damage(rand(20, 45), wound_bonus=CANT_WOUND)
-	else if(prob(50))
+	else if(DT_PROB(30, delta_time))
 		stalker.forceMove(get_step_towards(stalker, owner))
 	if(get_dist(owner, stalker) <= 8)
 		if(!close_stalker)

@@ -30,14 +30,14 @@
 	attack_sound = 'sound/weapons/bite.ogg'
 	attack_vis_effect = ATTACK_EFFECT_BITE
 
-/mob/living/simple_animal/crab/Life()
+/mob/living/simple_animal/crab/Life(delta_time = SSMOBS_DT, times_fired)
 	..()
 	//CRAB movement
 	if(!ckey && !stat)
 		if(isturf(loc) && !resting && !buckled)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
 			turns_since_move++
 			if(turns_since_move >= turns_per_move)
-				var/east_vs_west = pick(4,8)
+				var/east_vs_west = pick(4, 8)
 				if(Process_Spacemove(east_vs_west))
 					Move(get_step(src,east_vs_west), east_vs_west)
 					turns_since_move = 0

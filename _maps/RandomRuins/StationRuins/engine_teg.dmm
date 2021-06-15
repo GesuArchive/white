@@ -53,7 +53,6 @@
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
 "ct" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
@@ -67,6 +66,12 @@
 /obj/machinery/door/airlock/engineering/glass{
 	name = "Engine Room";
 	req_access_txt = "10"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
@@ -507,7 +512,6 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "zf" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
@@ -517,6 +521,12 @@
 /obj/machinery/door/airlock/engineering/glass{
 	name = "Engine Room";
 	req_access_txt = "10"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
@@ -551,12 +561,15 @@
 /turf/template_noop,
 /area/space/nearstation)
 "AB" = (
-/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /obj/machinery/door/airlock/engineering/glass{
 	name = "Engine Room";
 	req_access_txt = "10"
 	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
 "AK" = (
@@ -831,6 +844,13 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on,
 /turf/open/floor/engine/airless,
 /area/engine/supermatter)
+"Oq" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 5
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "ON" = (
 /obj/machinery/portable_atmospherics/scrubber,
 /obj/effect/turf_decal/box/white,
@@ -960,12 +980,15 @@
 /turf/open/floor/engine/airless,
 /area/engine/supermatter)
 "Wb" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/engineering/glass{
 	name = "Engine Room";
 	req_access_txt = "10"
+	},
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
@@ -987,7 +1010,7 @@
 	pixel_x = 23
 	},
 /turf/open/floor/plasteel/dark,
-/area/engine/engineering)
+/area/engine/supermatter)
 "Xs" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 5
@@ -1149,11 +1172,11 @@ XV
 XV
 XV
 XV
+XV
+XV
+XV
+XV
 Mz
-fM
-fM
-fM
-nR
 Wp
 OY
 Wp
@@ -1176,12 +1199,12 @@ XV
 XV
 XV
 XV
+XV
+XV
+XV
+XV
 Mz
 Uz
-nR
-nR
-nR
-nR
 nR
 OY
 Wp
@@ -1204,12 +1227,12 @@ At
 Mz
 At
 Mz
+At
+Mz
+At
+Mz
 Uz
 Uz
-fM
-fM
-fM
-nR
 Wp
 OY
 Wp
@@ -1234,10 +1257,10 @@ Uz
 Uz
 Uz
 Uz
-fM
-fM
-fM
-nR
+Uz
+Uz
+Uz
+Uz
 Wp
 Wp
 Wp
@@ -1262,10 +1285,10 @@ Uz
 Uz
 Uz
 Uz
-fM
-fM
-fM
-nR
+Uz
+Uz
+Uz
+Uz
 Wp
 OY
 Wp
@@ -1290,10 +1313,10 @@ Uz
 Uz
 Uz
 Uz
-fM
-fM
-fM
-nR
+Uz
+Uz
+Uz
+Uz
 Wp
 OY
 Wp
@@ -1318,10 +1341,10 @@ Uz
 Uz
 Uz
 Uz
-fM
-fM
-fM
-nR
+Uz
+Uz
+Uz
+Uz
 Wp
 OY
 Wp
@@ -1346,10 +1369,10 @@ Uz
 Uz
 Uz
 Uz
-fM
-fM
-fM
-nR
+Uz
+Uz
+Uz
+Uz
 nR
 Wp
 nR
@@ -1371,13 +1394,13 @@ CW
 GQ
 CW
 GQ
-CW
-GQ
 Uz
-fM
-fM
-fM
-nR
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 Wp
 OY
 Wp
@@ -1398,14 +1421,14 @@ aK
 Hh
 Hh
 Hh
-Hh
-XV
-XV
-GQ
-nR
-nR
-nR
-nR
+Oq
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 Wp
 Wp
 nR
@@ -1426,14 +1449,14 @@ Kr
 Fo
 Fo
 lS
-Ix
-fM
-fM
-fM
-fM
-fM
-fM
-nR
+Kn
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 nR
 OY
 Wp
@@ -1454,14 +1477,14 @@ Ht
 tX
 ja
 lS
-Ix
-fM
-fM
-fM
-fM
-fM
-fM
-nR
+Kn
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 nR
 Wp
 nR
@@ -1482,14 +1505,14 @@ kb
 kb
 hq
 lS
-Ix
-fM
-fM
-fM
-fM
-fM
-fM
-nR
+Kn
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 Wp
 OY
 Wp
@@ -1510,14 +1533,14 @@ Jg
 Jg
 jr
 lS
-Ix
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+Kn
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 Wp
 OY
 Wp
@@ -1538,14 +1561,14 @@ ON
 Jg
 jr
 Fo
-Ix
-fM
-fM
-fM
-fM
-nR
-fM
-fM
+Kn
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 nR
 OY
 Wp
@@ -1566,14 +1589,14 @@ ON
 Jg
 jr
 Fo
-Ix
-fM
-fM
-fM
-fM
-nR
-fM
-fM
+Kn
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 Wp
 Wp
 Wp
@@ -1594,14 +1617,14 @@ et
 et
 Ic
 lS
-Ix
-fM
-fM
-fM
-fM
-nR
-fM
-fM
+Kn
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 nR
 OY
 Wp
@@ -1622,14 +1645,14 @@ yQ
 yQ
 xr
 lS
-Ix
-fM
-fM
-fM
-fM
-nR
-fM
-fM
+Kn
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 Wp
 OY
 Wp
@@ -1650,14 +1673,14 @@ Gb
 fK
 jV
 Fo
-Ix
-fM
-fM
-fM
-fM
-nR
-fM
-fM
+Kn
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 Wp
 OY
 Wp
@@ -1678,14 +1701,14 @@ PP
 bM
 oz
 Fo
-Ix
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+Kn
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 Wp
 Wp
 Wp
@@ -1706,14 +1729,14 @@ di
 in
 ch
 Fo
-Ix
-fM
-nR
-fM
-fM
-fM
-fM
-nR
+Kn
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 Wp
 OY
 Wp
@@ -1734,14 +1757,14 @@ yQ
 yQ
 GD
 lS
-Ix
-fM
-nR
-fM
-fM
-fM
-fM
-nR
+Kn
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 Wp
 OY
 nR
@@ -1762,14 +1785,14 @@ BX
 kr
 hj
 lS
-Ix
-fM
-nR
-fM
-fM
-fM
-fM
-nR
+Kn
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 nR
 OY
 Wp
@@ -1790,14 +1813,14 @@ Jg
 xj
 YG
 Fo
-Ix
-fM
-nR
-fM
-fM
-fM
-fM
-nR
+Kn
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 Wp
 Wp
 Wp
@@ -1818,14 +1841,14 @@ Jg
 rM
 Sm
 Fo
-Ix
-fM
-nR
-fM
-fM
-fM
-fM
-nR
+Kn
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 Wp
 OY
 Wp
@@ -1846,14 +1869,14 @@ rj
 ma
 YE
 My
-Ix
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+Kn
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 Wp
 OY
 Wp
@@ -1874,14 +1897,14 @@ bY
 yH
 Mi
 My
-Ix
-fM
-fM
-fM
-fM
-fM
-nR
-fM
+Kn
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
+Uz
 Wp
 OY
 Wp
@@ -1902,14 +1925,14 @@ dB
 yH
 jj
 My
-Ix
-fM
-fM
-fM
-fM
-fM
-nR
-fM
+Kn
+CW
+GQ
+CW
+GQ
+CW
+GQ
+Uz
 Wp
 nR
 nR
@@ -1930,14 +1953,14 @@ eo
 Oa
 KX
 My
-Ix
-nR
-nR
-nR
-nR
-nR
-nR
-fM
+PL
+XV
+XV
+XV
+XV
+XV
+XV
+GQ
 nR
 OY
 Wp
@@ -1960,10 +1983,10 @@ My
 My
 Ix
 fM
+nR
 fM
 fM
-fM
-fM
+nR
 fM
 fM
 Wp

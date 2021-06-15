@@ -1,7 +1,7 @@
 ///Opiods
 /datum/addiction/opiods
-	name = "opiod"
-	withdrawal_stage_messages = list("I feel aches in my bodies..", "I need some pain relief...", "It aches all over...I need some opiods!")
+	name = "опиоидов"
+	withdrawal_stage_messages = list("Что-то съедает меня изнутри...", "Нужно как-то утолить боль...", "Всё тело болит... Надо вмазаться!")
 
 /datum/addiction/opiods/withdrawal_stage_1_process(mob/living/carbon/affected_carbon, delta_time)
 	. = ..()
@@ -25,8 +25,8 @@
 ///Stimulants
 
 /datum/addiction/stimulants
-	name = "stimulant"
-	withdrawal_stage_messages = list("You feel a bit tired...You could really use a pick me up.", "You are getting a bit woozy...", "So...Tired...")
+	name = "стимулянтов"
+	withdrawal_stage_messages = list("Что-то устаю... Надо бы взбодриться.", "Ух...", "Так... Хочется... Спать...")
 
 /datum/addiction/stimulants/withdrawal_enters_stage_1(mob/living/carbon/affected_carbon)
 	. = ..()
@@ -48,8 +48,8 @@
 
 ///Alcohol
 /datum/addiction/alcohol
-	name = "alcohol"
-	withdrawal_stage_messages = list("I could use a drink...", "Maybe the bar is still open?..", "God I need a drink!")
+	name = "спирта"
+	withdrawal_stage_messages = list("Надо прибухнуть...", "Может быть бар ещё открыт?..", "БОЖЕНЬКИ, ХОЧУ НАЖРАТЬСЯ!")
 
 /datum/addiction/alcohol/withdrawal_stage_1_process(mob/living/carbon/affected_carbon, delta_time)
 	. = ..()
@@ -69,8 +69,8 @@
 			affected_carbon.apply_status_effect(STATUS_EFFECT_SEIZURE)
 
 /datum/addiction/hallucinogens
-	name = "hallucinogen"
-	withdrawal_stage_messages = list("I feel so empty...", "I wonder what the machine elves are up to?..", "I need to see the beautiful colors again!!")
+	name = "галлюнов"
+	withdrawal_stage_messages = list("Так пусто...", "Куда делись все эльфы?..", "Кому нужен этот тусклый мир?!")
 
 /datum/addiction/hallucinogens/withdrawal_enters_stage_2(mob/living/carbon/affected_carbon)
 	. = ..()
@@ -91,7 +91,7 @@
 	affected_carbon.remove_status_effect(/datum/status_effect/trance, 40 SECONDS, TRUE)
 
 /datum/addiction/maintenance_drugs
-	name = "maintenance drug"
+	name = "этих таблеток"
 	withdrawal_stage_messages = list("", "", "")
 
 /datum/addiction/maintenance_drugs/withdrawal_enters_stage_1(mob/living/carbon/affected_carbon)
@@ -109,7 +109,7 @@
 		return
 	var/mob/living/carbon/human/affected_human = affected_carbon
 	if(affected_human.gender == MALE)
-		to_chat(affected_human, "<span class='warning'>Your chin itches.</span>")
+		to_chat(affected_human, "<span class='warning'>Кожа чешется.</span>")
 		affected_human.facial_hairstyle = "Beard (Full)"
 		affected_human.update_hair()
 	//Only like gross food
@@ -121,7 +121,7 @@
 	. = ..()
 	if(!ishuman(affected_carbon))
 		return
-	to_chat(affected_carbon, "<span class='warning'>You feel yourself adapt to the darkness.</span>")
+	to_chat(affected_carbon, "<span class='warning'>В темноте вполне приятно...</span>")
 	var/mob/living/carbon/human/affected_human = affected_carbon
 
 	var/obj/item/organ/liver/empowered_liver = affected_carbon.getorgan(/obj/item/organ/liver)
@@ -161,7 +161,7 @@
 
 ///Makes you a hypochondriac - I'd like to call it hypochondria, but "I could use some hypochondria" doesn't work
 /datum/addiction/medicine
-	name = "medicine"
+	name = "лекарств"
 	withdrawal_stage_messages = list("", "", "")
 	var/datum/hallucination/fake_alert/hallucination
 	var/datum/hallucination/fake_health_doll/hallucination2
@@ -223,7 +223,7 @@
 	else if (organ.high_threshold_passed)
 		to_chat(affected_carbon, organ.high_threshold_passed)
 		return
-	to_chat(affected_carbon, "<span class='warning'>You feel a dull pain in your [organ.name].</span>")
+	to_chat(affected_carbon, "<span class='warning'>[uppertext(organ.name)] БОЛИТ!</span>")
 
 /datum/addiction/medicine/end_withdrawal(mob/living/carbon/affected_carbon)
 	. = ..()
@@ -233,9 +233,12 @@
 
 ///Nicotine
 /datum/addiction/nicotine
-	name = "nicotine"
+	name = "никотина"
 	addiction_relief_treshold = MIN_NICOTINE_ADDICTION_REAGENT_AMOUNT //much less because your intake is probably from ciggies
-	withdrawal_stage_messages = list("Feel like having a smoke...", "Getting antsy. Really need a smoke now.", "I can't take it! Need a smoke NOW!")
+	withdrawal_stage_messages = list("Надо покурить...", "Гадость. Хочу покурить.", "Всего одну затяжку... ВСЕГО ОДНУ ЗАТЯЖКУ!")
+
+	medium_withdrawal_moodlet = /datum/mood_event/nicotine_withdrawal_moderate
+	severe_withdrawal_moodlet = /datum/mood_event/nicotine_withdrawal_severe
 
 /datum/addiction/nicotine/withdrawal_enters_stage_1(mob/living/carbon/affected_carbon, delta_time)
 	. = ..()
@@ -244,13 +247,11 @@
 /datum/addiction/nicotine/withdrawal_stage_2_process(mob/living/carbon/affected_carbon, delta_time)
 	. = ..()
 	affected_carbon.Jitter(10 * delta_time)
-	SEND_SIGNAL(affected_carbon, COMSIG_ADD_MOOD_EVENT, "nicotine_withdrawal_moderate", /datum/mood_event/nicotine_withdrawal_moderate)
 	if(DT_PROB(10, delta_time))
 		affected_carbon.emote("cough")
 
 /datum/addiction/nicotine/withdrawal_stage_3_process(mob/living/carbon/affected_carbon, delta_time)
 	. = ..()
 	affected_carbon.Jitter(15 * delta_time)
-	SEND_SIGNAL(affected_carbon, COMSIG_ADD_MOOD_EVENT, "nicotine_withdrawal_severe", /datum/mood_event/nicotine_withdrawal_severe)
 	if(DT_PROB(15, delta_time))
 		affected_carbon.emote("cough")

@@ -76,10 +76,6 @@
 	result = /obj/item/clothing/shoes/jackboots/plate_boots
 	max_resulting = 3
 
-/datum/smithing_recipe/kar98k
-	name = "Винтовка Kar98k"
-	result = /obj/item/blacksmith/gun_parts/kar98k
-
 /datum/smithing_recipe/torch_fixture
 	name = "Скоба"
 	result = /obj/item/blacksmith/torch_handle
