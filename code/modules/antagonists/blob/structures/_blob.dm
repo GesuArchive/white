@@ -322,21 +322,16 @@
 		return "Currently weak to brute damage."
 	return "N/A"
 
-/obj/structure/blob/normal/update_name()
-	. = ..()
-	name = "[(obj_integrity <= 15) ? "fragile " : (overmind ? null : "dead ")][initial(name)]"
+/obj/structure/blob/normal/update_icon_state()
+	icon_state = "blob[(obj_integrity <= 15) ? "_damaged" : null]"
 
-/obj/structure/blob/normal/update_desc()
-	. = ..()
+	name = "[(obj_integrity <= 15) ? "fragile " : (overmind ? null : "dead ")][initial(name)]"
 	if(obj_integrity <= 15)
 		desc = "A thin lattice of slightly twitching tendrils."
 	else if(overmind)
 		desc = "A thick wall of writhing tendrils."
 	else
 		desc = "A thick wall of lifeless tendrils."
-
-/obj/structure/blob/normal/update_icon_state()
-	icon_state = "blob[(obj_integrity <= 15) ? "_damaged" : null]"
 
 	/// - [] TODO: Move this elsewhere
 	if(obj_integrity <= 15)
