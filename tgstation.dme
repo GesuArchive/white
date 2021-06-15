@@ -1630,8 +1630,6 @@
 #include "code\modules\antagonists\blob\blobstrains\_blobstrain.dm"
 #include "code\modules\antagonists\blob\blobstrains\_reagent.dm"
 #include "code\modules\antagonists\blob\blobstrains\blazing_oil.dm"
-#include "code\modules\antagonists\blob\blobstrains\cryogenic_poison.dm"
-#include "code\modules\antagonists\blob\blobstrains\reactive_spines.dm"
 #include "code\modules\antagonists\blob\blobstrains\regenerative_materia.dm"
 #include "code\modules\antagonists\blob\blobstrains\replicating_foam.dm"
 #include "code\modules\antagonists\blob\blobstrains\shifting_fragments.dm"
