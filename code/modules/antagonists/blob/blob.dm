@@ -6,7 +6,8 @@
 	job_rank = ROLE_BLOB
 
 	var/datum/action/innate/blobpop/pop_action
-	var/starting_points_human_blob = OVERMIND_STARTING_POINTS
+	var/starting_points_human_blob = 60
+	var/point_rate_human_blob = 2
 
 /datum/antagonist/blob/roundend_report()
 	var/basic_report = ..()
@@ -56,7 +57,7 @@
 	var/mob/camera/blob/B = new /mob/camera/blob(get_turf(old_body), blobtag.starting_points_human_blob)
 	owner.mind.transfer_to(B)
 	old_body.gib()
-	B.place_blob_core(placement_override = TRUE, pop_override = TRUE)
+	B.place_blob_core(blobtag.point_rate_human_blob, pop_override = TRUE)
 
 /datum/antagonist/blob/antag_listing_status()
 	. = ..()
