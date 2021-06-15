@@ -58,7 +58,7 @@
 		core.update_icon()
 	update_health_hud()
 	placed = TRUE
-	announcement_time = world.time + OVERMIND_ANNOUNCEMENT_MAX_TIME
+	announcement_time = world.time + 10 MINUTES
 	return TRUE
 
 /mob/camera/blob/proc/transport_core()
