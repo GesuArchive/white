@@ -59,6 +59,11 @@
 	var/minbodytemp = 250
 	var/maxbodytemp = 350
 
+	///This damage is taken when the body temp is too cold.
+	var/unsuitable_cold_damage
+	///This damage is taken when the body temp is too hot.
+	var/unsuitable_heat_damage
+
 	///Healable by medical stacks? Defaults to yes.
 	var/healable = 1
 

@@ -250,7 +250,7 @@
 /obj/item/organ/heart/freedom/on_life(delta_time, times_fired)
 	. = ..()
 	if(owner.health < 5 && COOLDOWN_FINISHED(src, adrenaline_cooldown))
-		mCOOLDOWN_START(src, adrenaline_cooldown, rand(25 SECONDS, 1 MINUTES))
+		COOLDOWN_START(src, adrenaline_cooldown, rand(25 SECONDS, 1 MINUTES))
 		to_chat(owner, "<span class='userdanger'>Отказываюсь сдаваться!</span>")
 		owner.heal_overall_damage(15, 15, 0, BODYPART_ORGANIC)
 		if(owner.reagents.get_reagent_amount(/datum/reagent/medicine/ephedrine) < 20)
