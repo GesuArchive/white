@@ -198,9 +198,6 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/export_dynamic_json,
 	/client/proc/run_dynamic_simulations,
 	#endif
-	#ifdef SENDMAPS_PROFILE
-	/client/proc/display_sendmaps,
-	#endif
 	/datum/admins/proc/create_or_modify_area,
 	/client/proc/clicker_panel,
 	/client/proc/check_timer_sources,
@@ -814,11 +811,3 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	set category = "Дбг"
 
 	src << output("", "statbrowser:create_debug")
-
-#ifdef SENDMAPS_PROFILE
-/client/proc/display_sendmaps()
-	set name = "Send Maps Profile"
-	set category = "Дбг"
-
-	src << link("?debug=profile&type=sendmaps&window=test")
-#endif
