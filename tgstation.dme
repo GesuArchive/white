@@ -1795,6 +1795,7 @@
 #include "code\modules\antagonists\revenant\revenant_spawn_event.dm"
 #include "code\modules\antagonists\revolution\revolution.dm"
 #include "code\modules\antagonists\santa\santa.dm"
+#include "code\modules\antagonists\apostle\apostle_antag.dm"
 #include "code\modules\antagonists\separatist\separatist.dm"
 #include "code\modules\antagonists\slaughter\slaughter.dm"
 #include "code\modules\antagonists\slaughter\slaughter_antag.dm"

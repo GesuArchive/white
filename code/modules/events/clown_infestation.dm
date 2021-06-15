@@ -32,6 +32,9 @@
 
 	var/mob/living/simple_animal/hostile/clown/mutant/glutton/S = new ((pick(spawn_locs)))
 	player_mind.transfer_to(S)
+	player_mind.assigned_role = "Apostle"
+	player_mind.special_role = "Apostle"
+	player_mind.add_antag_datum(/datum/antagonist/apostle)
 	playsound(S, 'sound/magic/ethereal_exit.ogg', 50, TRUE, -1)
 	message_admins("[ADMIN_LOOKUPFLW(S)] has been made into a Clown Apostle by an event.")
 	log_game("[key_name(S)] was spawned as a Clown Apostle by an event.")
