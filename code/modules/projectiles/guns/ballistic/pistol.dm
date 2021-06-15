@@ -55,10 +55,19 @@
 	mag_type = /obj/item/ammo_box/magazine/m50
 	can_suppress = FALSE
 	mag_display = TRUE
-	fire_sound = 'sound/weapons/gun/rifle/shot.ogg'
-	rack_sound = 'sound/weapons/gun/pistol/rack.ogg'
-	lock_back_sound = 'sound/weapons/gun/pistol/slide_lock.ogg'
-	bolt_drop_sound = 'sound/weapons/gun/pistol/slide_drop.ogg'
+	fire_sound = 'white/rebolution228/weapons/sounds/deagle-1.ogg'
+	load_sound = 'white/rebolution228/weapons/sounds/de_clipout.ogg'
+	load_empty_sound = 'white/rebolution228/weapons/sounds/de_clipout.ogg'
+	rack_sound = 'white/rebolution228/weapons/sounds/de_racksound.ogg'
+	lock_back_sound = 'white/rebolution228/weapons/sounds/de_slideback.ogg'
+	bolt_drop_sound = 'white/rebolution228/weapons/sounds/de_racksound.ogg'
+	var/list/deaglefiresound = list('white/rebolution228/weapons/sounds/deagle-1.ogg',
+							'white/rebolution228/weapons/sounds/deagle-2.ogg')
+	can_suppress = FALSE
+
+/obj/item/gun/ballistic/automatic/pistol/deagle/process_chamber()
+	. = ..()
+	fire_sound = pick(deaglefiresound)
 
 /obj/item/gun/ballistic/automatic/pistol/deagle/gold
 	desc = "A gold plated Desert Eagle folded over a million times by superior martian gunsmiths. Uses .50 AE ammo."
