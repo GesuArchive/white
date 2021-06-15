@@ -6,7 +6,7 @@
 	job_rank = ROLE_BLOB
 
 	var/datum/action/innate/blobpop/pop_action
-	var/starting_points_human_blob = 60
+	var/starting_points_human_blob = OVERMIND_STARTING_POINTS
 
 /datum/antagonist/blob/roundend_report()
 	var/basic_report = ..()
