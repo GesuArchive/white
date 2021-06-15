@@ -184,3 +184,32 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 		src << link("[addr]?redirect=1")
 		message_admins("[key] находится под санкциями и был сослан на [pick].")
 
+/client/verb/roundstatus()
+	set name = "Статус раунда"
+	set category = null
+
+	var/round_time = world.time - SSticker.round_start_time
+
+	var/list/data_list = list(
+		"Карта: [SSmapping.config?.map_name || "Загрузка..."]",
+		SSmapping.next_map_config ? "Следующая: [SSmapping.next_map_config.map_name]" : null,
+		"ID раунда: [GLOB.round_id ? GLOB.round_id : "NULL"]",
+		"Серверное время: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
+		"Длительность раунда: [round_time > MIDNIGHT_ROLLOVER ? "[round(round_time/MIDNIGHT_ROLLOVER)]:[worldtime2text()]" : worldtime2text()]",
+		"Время на станции: [station_time_timestamp()]",
+		"Замедление времени: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)"
+	)
+
+	var/data_to_send = jointext(data_list, "\n")
+	to_chat(src, "<span class='notice'>\n[data_to_send]\n</span>")
+
+/datum/smite/valid_hunt
+	name = "Valid Hunt"
+
+/datum/smite/valid_hunt/effect(client/user, mob/living/target)
+	. = ..()
+	var/bounty = input("Награда в кредитах (выдавать руками пока):", "Жопа", 50) as num|null
+	if(bounty)
+		target.color = COLOR_RED
+		target.set_light(1.4, 4, COLOR_RED, TRUE)
+		priority_announce("За голову [target] назначена награда в размере [bounty] кредит[get_num_string(bounty)]. Он будет подсвечен лазерной наводкой для удобства.", "Охота за головами",'sound/ai/announcer/alert.ogg')

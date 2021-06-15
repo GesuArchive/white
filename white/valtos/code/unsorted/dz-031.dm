@@ -381,3 +381,39 @@
 
 /obj/effect/turf_decal/dz031/grid_full
 	icon_state = "grid_center"
+
+/obj/effect/temp_visual/soundwave
+	name = "звук"
+	icon = 'white/valtos/icons/sw.dmi'
+	icon_state = "wave"
+	duration = 6
+	randomdir = FALSE
+
+/obj/structure/sign/decksign
+	name = "дисплей"
+	desc = "Покажет какой здесь этаж. Да?"
+	icon = 'white/valtos/icons/decksign.dmi'
+	icon_state = "sign"
+	light_color = LIGHT_COLOR_ORANGE
+	var/cur_deck = 0
+
+/obj/structure/sign/decksign/Initialize()
+	. = ..()
+	add_overlay("deck-[cur_deck]")
+
+/obj/structure/sign/decksign/attackby(obj/item/I, mob/user, params)
+	if(I.tool_behaviour == TOOL_MULTITOOL)
+		if(icon_state == "sign")
+			icon_state = "sign-off"
+			set_light(0)
+			cut_overlays()
+			playsound(get_turf(src), I.usesound, 60)
+		else
+			var/inset = input(user, "Какой этаж это тогда?", "Ммм?", "0") as num|null
+			if(!inset)
+				return
+			cur_deck = inset
+			icon_state = "sign"
+			set_light(1)
+			add_overlay("deck-[cur_deck]")
+			playsound(get_turf(src), I.usesound, 60)
