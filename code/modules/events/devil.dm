@@ -32,6 +32,10 @@
 
 	var/mob/living/carbon/human/devil = create_event_devil()
 	mind.transfer_to(devil)
+	devil.equip_to_slot_or_del(new /obj/item/clothing/under/rank/civilian/lawyer/black(devil), ITEM_SLOT_ICLOTHING)
+	devil.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(devil), ITEM_SLOT_FEET)
+	devil.equip_to_slot_or_del(new /obj/item/storage/briefcase(devil), ITEM_SLOT_HANDS)
+	devil.equip_to_slot_or_del(new /obj/item/pen(devil), ITEM_SLOT_LPOCKET)
 	add_devil(devil, ascendable = FALSE)
 
 	spawned_mobs += devil

@@ -413,3 +413,25 @@
 	name = "rose bouquet"
 	desc = "A bouquet of roses. A bundle of love."
 	icon_state = "rosebouquet"
+
+/obj/item/pissball
+	name = "Стансфера"
+	desc = "Приятно щекочет пальцы!."
+	icon = 'icons/obj/projectiles.dmi'
+	icon_state = "spark"
+	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/pissball/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+	if(!..())
+		if(iscarbon(hit_atom))
+			var/obj/item/I =  new /obj/item/pissball
+			var/mob/living/carbon/C = hit_atom
+			if((istype(C.gloves, /obj/item/clothing/gloves/color/yellow))&&(C.can_catch_item()))
+
+				C.put_in_active_hand(I)
+				visible_message("<span class='warning'><b>[C.name]</b> ловит <b>[I.name]</b>!</span>", \
+								"<span class='userdanger'>Ловлю <b>[I.name]</b>!</span>")
+				C.throw_mode_off(THROW_MODE_TOGGLE)
+			else
+				C.electrocute_act(80, "стансферы", flags = SHOCK_ILLUSION)
+		qdel(src)
