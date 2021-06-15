@@ -40,7 +40,7 @@
 	if(!anchored || active || isnull(target_id))
 		return
 
-	var/obj/item/mechcomp/teleport/tele = null //teles?["[target_id]"]
+	var/obj/item/mechcomp/teleport/tele = teles?["[target_id]"]
 	if(isnull(tele))
 		say("Invalid target!")
 		playsound(src, 'white/RedFoxIV/sounds/mechcomp/generic_energy_dryfire.ogg', 75, FALSE)

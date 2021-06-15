@@ -117,7 +117,7 @@
 			return
 
 		if(MANUAL_EJECT_SINGLE)
-			var/obj/item/ammo_casing/AC = null //magazine?[1]
+			var/obj/item/ammo_casing/AC = magazine?[1]
 			if(!AC) // check if we have anything to eject
 				return
 			magazine -= AC
