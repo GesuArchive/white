@@ -1173,7 +1173,7 @@
 	if(!active)
 		return FALSE
 	var/dwarf_ask = alert("Стать дворфом?", "КОПАТЬ?", "Да", "Нет")
-	if(dwarf_ask == "No" || !src || QDELETED(src) || QDELETED(user))
+	if(dwarf_ask == "Нет" || !src || QDELETED(src) || QDELETED(user))
 		return FALSE
 	if(!active)
 		to_chat(user, "<span class='warning'>Уже занято!</span>")
