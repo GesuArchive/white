@@ -38,7 +38,7 @@
 /datum/supply_pack/engineering/graviton_beacon
 	name = "Гравитоновые маяки"
 	desc = "Используются для создания гравитации в небольшой зоне."
-	cost = 550
+	cost = 125
 	contains = list(/obj/item/graviton_beacon,
 					/obj/item/graviton_beacon,
 					/obj/item/graviton_beacon)
