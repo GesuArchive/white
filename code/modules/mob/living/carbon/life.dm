@@ -9,7 +9,7 @@
 
 	if(IS_IN_STASIS(src))
 		. = ..()
-		reagents.handle_stasis_chems(src)
+		reagents.handle_stasis_chems(src, delta_time, times_fired)
 	else
 		//Reagent processing needs to come before breathing, to prevent edge cases.
 		handle_organs(delta_time, times_fired)
@@ -37,7 +37,7 @@
 	//Updates the number of stored chemicals for powers
 	handle_changeling(delta_time, times_fired)
 
-	if(mind)
+	if(. && mind) //. == not dead
 		for(var/key in mind.addiction_points)
 			var/datum/addiction/addiction = SSaddiction.all_addictions[key]
 			addiction.process_addiction(src, delta_time, times_fired)

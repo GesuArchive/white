@@ -684,7 +684,7 @@
  * * can_overdose - Allows overdosing
  * * liverless - Stops reagents that aren't set as [/datum/reagent/var/self_consuming] from metabolizing
  */
-/datum/reagents/proc/metabolize_reagent(mob/living/carbon/owner, datum/reagent/reagent, can_overdose = FALSE, liverless = FALSE)
+/datum/reagents/proc/metabolize_reagent(mob/living/carbon/owner, datum/reagent/reagent, delta_time, times_fired, can_overdose = FALSE, liverless = FALSE)
 	var/need_mob_update = FALSE
 	if(QDELETED(reagent.holder))
 		return FALSE
@@ -693,7 +693,7 @@
 		owner = reagent.holder.my_atom
 
 	if(owner && reagent)
-		if(!owner.reagent_check(reagent) != TRUE)
+		if(!owner.reagent_check(reagent, delta_time, times_fired) != TRUE)
 			return
 		if(liverless && !reagent.self_consuming) //need to be metabolized
 			return
@@ -710,9 +710,9 @@
 				owner.mind?.add_addiction_points(addiction, reagent.addiction_types[addiction] * REAGENTS_METABOLISM)
 
 			if(reagent.overdosed)
-				need_mob_update += reagent.overdose_process(owner)
+				need_mob_update += reagent.overdose_process(owner, delta_time, times_fired)
 
-			need_mob_update += reagent.on_mob_life(owner)
+		need_mob_update += reagent.on_mob_life(owner, delta_time, times_fired)
 	return need_mob_update
 
 /// Signals that metabolization has stopped, triggering the end of trait-based effects
@@ -763,12 +763,12 @@
 	return added_volume
 
 ///Processes any chems that have the REAGENT_IGNORE_STASIS bitflag ONLY
-/datum/reagents/proc/handle_stasis_chems(mob/living/carbon/owner)
+/datum/reagents/proc/handle_stasis_chems(mob/living/carbon/owner, delta_time, times_fired)
 	var/need_mob_update = FALSE
 	for(var/datum/reagent/reagent as anything in reagent_list)
 		if(!(reagent.chemical_flags & REAGENT_IGNORE_STASIS))
 			continue
-		need_mob_update += metabolize_reagent(owner, reagent, can_overdose = TRUE)
+		need_mob_update += metabolize_reagent(owner, reagent, delta_time, times_fired, can_overdose = TRUE)
 	if(owner && need_mob_update) //some of the metabolized reagents had effects on the mob that requires some updates.
 		owner.updatehealth()
 		owner.update_stamina()
