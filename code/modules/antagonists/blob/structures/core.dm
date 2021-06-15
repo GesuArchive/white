@@ -19,7 +19,7 @@
 
 /obj/structure/blob/special/core/Initialize(mapload, client/new_overmind = null, placed = 0)
 	GLOB.blob_cores += src
-	START_PROCESSING(SSobj, src)
+	aaaaaaaaaSTART_PROCESSING(SSobj, src)
 	AddElement(/datum/element/point_of_interest)
 	update_icon() //so it atleast appears
 	if(!placed && !overmind)
