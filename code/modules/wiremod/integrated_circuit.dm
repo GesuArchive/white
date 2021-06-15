@@ -32,6 +32,10 @@
 	/// The ID that is authorized to unlock/lock the shell so that the circuit can/cannot be removed.
 	var/datum/weakref/owner_id
 
+/obj/item/integrated_circuit_wiremod/Initialize()
+	. = ..()
+	RegisterSignal(src, COMSIG_ATOM_USB_CABLE_TRY_ATTACH, .proc/on_atom_usb_cable_try_attach)
+
 /obj/item/integrated_circuit_wiremod/loaded/Initialize()
 	. = ..()
 	cell = new /obj/item/stock_parts/cell/high(src)
@@ -55,7 +59,7 @@
 /obj/item/integrated_circuit_wiremod/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
 	if(istype(I, /obj/item/circuit_component))
-		add_component(I, user)
+		add_component_manually(I, user)
 		return
 
 	if(istype(I, /obj/item/stock_parts/cell))
@@ -117,6 +121,7 @@
 	UnregisterSignal(shell, COMSIG_PARENT_QDELETING)
 	shell = null
 	on = FALSE
+	SEND_SIGNAL(src, COMSIG_CIRCUIT_SHELL_REMOVED)
 
 /**
  * Adds a component to the circuitboard
@@ -149,6 +154,15 @@
 	if(shell)
 		to_add.register_shell(shell)
 
+/**
+ * Adds a component to the circuitboard through a manual action.
+ */
+/obj/item/integrated_circuit_wiremod/proc/add_component_manually(obj/item/circuit_component/to_add, mob/living/user)
+	if (SEND_SIGNAL(src, COMSIG_CIRCUIT_ADD_COMPONENT_MANUALLY, to_add, user) & COMPONENT_CANCEL_ADD_COMPONENT)
+		return
+
+	add_component(to_add, user)
+
 /obj/item/integrated_circuit_wiremod/proc/component_move_handler(obj/item/circuit_component/source)
 	SIGNAL_HANDLER
 	if(source.loc != src)
@@ -167,6 +181,7 @@
 	attached_components -= to_remove
 	to_remove.disconnect()
 	to_remove.parent = null
+	SEND_SIGNAL(to_remove, COMSIG_CIRCUIT_COMPONENT_REMOVED, src)
 	SStgui.update_uis(src)
 
 /obj/item/integrated_circuit_wiremod/get_cell()
@@ -382,5 +397,9 @@
 					shell.name = initial(shell.name)
 
 			. = TRUE
+
+/obj/item/integrated_circuit/proc/on_atom_usb_cable_try_attach(datum/source, obj/item/usb_cable/usb_cable, mob/user)
+	usb_cable.balloon_alert(user, "circuit needs to be in a compatible shell")
+	return COMSIG_CANCEL_USB_CABLE_ATTACK
 
 #undef WITHIN_RANGE
