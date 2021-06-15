@@ -221,7 +221,7 @@
 /datum/crafting_recipe/bloodsucker/blackcoffin
 	name = "Black Coffin"
 	result = /obj/structure/closet/crate/coffin/blackcoffin
-	tool_behaviors = list(/obj/item/weldingtool,
+	tool_paths = list(/obj/item/weldingtool,
 				 /obj/item/screwdriver)
 	reqs = list(/obj/item/stack/sheet/cloth = 1,
 				/obj/item/stack/sheet/mineral/wood = 5,
@@ -235,7 +235,7 @@
 /datum/crafting_recipe/bloodsucker/meatcoffin
 	name = "Meat Coffin"
 	result =/obj/structure/closet/crate/coffin/meatcoffin
-	tool_behaviors = list(/obj/item/kitchen/knife,
+	tool_paths = list(/obj/item/kitchen/knife,
 				 /obj/item/kitchen/rollingpin)
 	reqs = list(/obj/item/food/meat/slab = 5,
 				/obj/item/restraints/handcuffs/cable = 1)
@@ -246,7 +246,7 @@
 /datum/crafting_recipe/bloodsucker/metalcoffin
 	name = "Metal Coffin"
 	result =/obj/structure/closet/crate/coffin/metalcoffin
-	tool_behaviors = list(/obj/item/weldingtool,
+	tool_paths = list(/obj/item/weldingtool,
 				 /obj/item/screwdriver)
 	reqs = list(/obj/item/stack/sheet/metal = 5)
 	time = 100

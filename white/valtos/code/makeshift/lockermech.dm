@@ -103,7 +103,7 @@
 				/obj/item/flashlight = 1, //For the mech light
 				/obj/item/stack/rods = 4, //to mount the equipment
 				/obj/item/pipe = 2) //For legs
-	tool_behaviors = list(/obj/item/weldingtool, /obj/item/screwdriver, /obj/item/wirecutters)
+	tool_paths = list(/obj/item/weldingtool, /obj/item/screwdriver, /obj/item/wirecutters)
 	time = 200
 	category = CAT_ROBOT
 
@@ -113,7 +113,7 @@
 	reqs = list(/obj/item/stack/cable_coil = 5,
 				/obj/item/stack/sheet/metal = 2,
 				/obj/item/surgicaldrill = 1)
-	tool_behaviors = list(/obj/item/screwdriver)
+	tool_paths = list(/obj/item/screwdriver)
 	time = 50
 	category = CAT_ROBOT
 
@@ -123,6 +123,6 @@
 	reqs = list(/obj/item/stack/cable_coil = 5,
 				/obj/item/stack/sheet/metal = 2,
 				/obj/item/wirecutters = 1) //Don't ask, its just for the grabby grabby thing
-	tool_behaviors = list(/obj/item/screwdriver)
+	tool_paths = list(/obj/item/screwdriver)
 	time = 50
 	category = CAT_ROBOT
