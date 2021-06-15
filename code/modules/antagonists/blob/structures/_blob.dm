@@ -86,18 +86,11 @@
 	return !atmosblock
 
 /obj/structure/blob/update_icon() //Updates color based on overmind color if we have an overmind.
+	. = ..()
 	if(overmind)
 		add_atom_colour(overmind.blobstrain.color, FIXED_COLOUR_PRIORITY)
 	else
 		remove_atom_colour(FIXED_COLOUR_PRIORITY)
-	if(obj_integrity < max_integrity * 0.5)
-		name = "пробитый [initial(name)]"
-		atmosblock = FALSE
-		air_update_turf(TRUE, FALSE)
-	else
-		name = initial(name)
-		atmosblock = TRUE
-		air_update_turf(TRUE, TRUE)
 
 /obj/structure/blob/proc/Be_Pulsed()
 	if(COOLDOWN_FINISHED(src, pulse_timestamp))
@@ -112,6 +105,9 @@
 
 /obj/structure/blob/proc/ConsumeTile()
 	for(var/atom/A in loc)
+		if(isliving(A) && overmind && !isblobmonster(A)) // Make sure to inject strain-reagents with automatic attacks when needed.
+			overmind.blobstrain.attack_living(A)
+			continue // Don't smack them twice though
 		A.blob_act(src)
 	if(iswallturf(loc))
 		loc.blob_act(src) //don't ask how a wall got on top of the core, just eat it
@@ -155,6 +151,9 @@
 	for(var/atom/A in T)
 		if(!A.CanPass(src, T)) //is anything in the turf impassable
 			make_blob = FALSE
+		if(isliving(A) && overmind && !controller) // Make sure to inject strain-reagents with automatic attacks when needed.
+			overmind.blobstrain.attack_living(A)
+			continue // Don't smack them twice though
 		A.blob_act(src) //also hit everything in the turf
 
 	if(make_blob) //well, can we?
@@ -321,32 +320,37 @@
 /obj/structure/blob/normal/scannerreport()
 	if(obj_integrity <= 15)
 		return "Currently weak to brute damage."
-	if(atmosblock)
-		return "Will prevent the spread of atmospheric changes."
 	return "N/A"
 
-/obj/structure/blob/normal/update_icon()
-	..()
+/obj/structure/blob/normal/update_name()
+	. = ..()
+	name = "[(obj_integrity <= 15) ? "fragile " : (overmind ? null : "dead ")][initial(name)]"
+
+/obj/structure/blob/normal/update_desc()
+	. = ..()
 	if(obj_integrity <= 15)
-		icon_state = "blob_damaged"
-		name = "fragile blob"
 		desc = "A thin lattice of slightly twitching tendrils."
+	else if(overmind)
+		desc = "A thick wall of writhing tendrils."
+	else
+		desc = "A thick wall of lifeless tendrils."
+
+/obj/structure/blob/normal/update_icon_state()
+	icon_state = "blob[(obj_integrity <= 15) ? "_damaged" : null]"
+
+	/// - [] TODO: Move this elsewhere
+	if(obj_integrity <= 15)
 		brute_resist = BLOB_BRUTE_RESIST
 	else if (overmind)
-		icon_state = "blob"
-		name = "blob"
-		desc = "A thick wall of writhing tendrils."
 		brute_resist = BLOB_BRUTE_RESIST * 0.5
 	else
-		icon_state = "blob"
-		name = "dead blob"
-		desc = "A thick wall of lifeless tendrils."
 		brute_resist = BLOB_BRUTE_RESIST * 0.5
+	return ..()
 
-/obj/structure/blob/special	// Generic type for nodes/factories/cores/resource
+/obj/structure/blob/special // Generic type for nodes/factories/cores/resource
 	// Core and node vars: claiming, pulsing and expanding
 	/// The radius inside which (previously dead) blob tiles are 'claimed' again by the pulsing overmind. Very rarely used.
-	var/claim_range	= 0
+	var/claim_range = 0
 	/// The radius inside which blobs are pulsed by this overmind. Does stuff like expanding, making blob spores from factories, make resources from nodes etc.
 	var/pulse_range = 0
 	/// The radius up to which this special structure naturally grows normal blobs.
@@ -355,7 +359,7 @@
 	// Spore production vars: for core, factories, and nodes (with strains)
 	var/mob/living/simple_animal/hostile/blob/blobbernaut/naut = null
 	var/max_spores = 0
-	var/list/spores	= list()
+	var/list/spores = list()
 	COOLDOWN_DECLARE(spore_delay)
 	var/spore_cooldown = BLOBMOB_SPORE_SPAWN_COOLDOWN
 
@@ -365,7 +369,7 @@
 	/// Range this blob free upgrades to reflector blobs at: for the core, and for strains
 	var/reflector_reinforce_range = 0
 
-/obj/structure/blob/special/proc/reinforce_area(delta_time)	// Used by cores and nodes to upgrade their surroundings
+/obj/structure/blob/special/proc/reinforce_area(delta_time) // Used by cores and nodes to upgrade their surroundings
 	if(strong_reinforce_range)
 		for(var/obj/structure/blob/normal/B in range(strong_reinforce_range, src))
 			if(DT_PROB(BLOB_REINFORCE_CHANCE, delta_time))
