@@ -6,7 +6,12 @@
 	name = "Security Maintenance";
 	req_access_txt = "1"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/security/prison)
 "ah" = (
@@ -56,7 +61,6 @@
 /turf/open/floor/plasteel,
 /area/security/prison)
 "au" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
 	name = "Permanent Cell 5"
 	},
@@ -65,6 +69,10 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/security/prison/safe)
 "aw" = (
@@ -659,12 +667,17 @@
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
 "cu" = (
-/obj/machinery/door/firedoor,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "cv" = (
@@ -898,7 +911,6 @@
 /turf/open/floor/plasteel,
 /area/security/prison)
 "dv" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
 	name = "Permanent Cell 4"
 	},
@@ -907,6 +919,10 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel,
 /area/security/prison/safe)
 "dw" = (
@@ -1022,6 +1038,17 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel/dark,
 /area/engine/atmospherics_engine)
+"dT" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_access_txt = "12"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/north)
 "dW" = (
 /obj/structure/stairs/west,
 /obj/structure/railing,
@@ -1097,6 +1124,14 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/prison)
+"er" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/security/prison)
 "et" = (
 /obj/structure/table,
 /obj/item/storage/box/hug{
@@ -1139,6 +1174,10 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
 "eF" = (
@@ -1155,6 +1194,19 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/security/prison)
+"eH" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_access_txt = "12"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/north)
 "eI" = (
 /obj/effect/turf_decal/stripes/box,
 /obj/structure/cable/multilayer/multiz,
@@ -1210,7 +1262,6 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "eZ" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
 	name = "Permanent Cell 6"
 	},
@@ -1219,6 +1270,10 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/security/prison/safe)
 "fa" = (
@@ -1315,6 +1370,9 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/maintenance/port)
 "fx" = (
@@ -1333,7 +1391,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/quartermaster/exploration_dock)
 "fD" = (
@@ -1397,8 +1458,11 @@
 	name = "Security Maintenance";
 	req_access_txt = "1"
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/cable,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/security/prison)
 "gb" = (
@@ -1450,8 +1514,13 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "gk" = (
-/obj/machinery/door/firedoor,
 /obj/effect/turf_decal/delivery,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "gl" = (
@@ -1965,13 +2034,18 @@
 	id_tag = "permainner";
 	name = "Permabrig Transfer"
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "iB" = (
@@ -2048,6 +2122,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "iO" = (
@@ -2068,7 +2148,10 @@
 	dir = 4;
 	req_access_txt = "12"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "iS" = (
@@ -2085,12 +2168,15 @@
 /obj/machinery/door/airlock/public/glass{
 	name = "Prison Cafeteria"
 	},
-/obj/machinery/door/firedoor,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "iX" = (
@@ -2262,7 +2348,6 @@
 /obj/machinery/door/poddoor/preopen{
 	id = "executionfireblast"
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/door/window/westright{
 	dir = 1;
 	name = "Transfer Room";
@@ -2281,6 +2366,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/dark,
 /area/security/execution/transfer)
 "jJ" = (
@@ -2348,6 +2437,12 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"jY" = (
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/south)
 "ka" = (
 /obj/machinery/light{
 	dir = 1;
@@ -2661,6 +2756,9 @@
 	},
 /obj/effect/turf_decal/tile/red,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "lc" = (
@@ -3055,6 +3153,7 @@
 "mC" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/white/side{
 	dir = 8
 	},
@@ -3086,6 +3185,9 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "mF" = (
@@ -3248,7 +3350,10 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "nn" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "no" = (
@@ -3625,13 +3730,16 @@
 	name = "Prison Wing";
 	req_access_txt = "2"
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "oU" = (
@@ -3661,6 +3769,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
 	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plating,
 /area/engine/atmospherics_engine)
 "oX" = (
@@ -3673,6 +3785,19 @@
 "pa" = (
 /turf/closed/wall/r_wall,
 /area/ai_monitored/turret_protected/aisat/hallway)
+"pb" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/north)
 "pc" = (
 /obj/structure/rack,
 /obj/item/crowbar/red,
@@ -4179,6 +4304,9 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "qW" = (
@@ -4272,15 +4400,25 @@
 /obj/machinery/door/airlock/public/glass{
 	name = "Prison Common Room"
 	},
-/obj/machinery/door/firedoor,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
+"ru" = (
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/north)
 "rv" = (
 /obj/structure/table,
 /obj/item/stack/sheet/metal,
@@ -4457,6 +4595,7 @@
 "se" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/white/side{
 	dir = 4
 	},
@@ -4615,7 +4754,6 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/aisat/atmos)
 "sM" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
 	aiControlDisabled = 1;
 	name = "Prisoner Transfer Centre";
@@ -4624,8 +4762,21 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/floor/plasteel/dark,
 /area/security/execution/transfer)
+"sN" = (
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/east)
 "sP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 6
@@ -4743,7 +4894,6 @@
 	name = "Cargo Bay Maintenance";
 	req_access_txt = "31"
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
@@ -4751,6 +4901,12 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/quartermaster/warehouse)
 "tp" = (
@@ -4943,13 +5099,18 @@
 /turf/open/floor/plasteel,
 /area/security/prison)
 "ub" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research/glass{
 	name = "Kill Chamber";
 	normalspeed = 0;
 	req_access_txt = "55"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
 /turf/open/floor/plasteel/freezer,
@@ -5128,11 +5289,16 @@
 	name = "Permabrig Visitation"
 	},
 /obj/effect/turf_decal/delivery,
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "uM" = (
@@ -5226,6 +5392,9 @@
 	},
 /obj/effect/turf_decal/tile/red,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -5519,6 +5688,9 @@
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 8
 	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/security/execution/transfer)
 "ww" = (
@@ -5584,6 +5756,19 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hydroponics)
+"wJ" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_access_txt = "12"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/east)
 "wN" = (
 /obj/machinery/navbeacon/wayfinding/eva,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -5726,6 +5911,12 @@
 	req_access_txt = "35"
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/hydroponics)
 "xr" = (
@@ -5758,6 +5949,9 @@
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 1
 	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/security/execution/transfer)
 "xE" = (
@@ -5770,6 +5964,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden{
 	dir = 6
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
 	},
 /turf/open/floor/plating,
 /area/security/execution/transfer)
@@ -5894,7 +6091,12 @@
 /turf/closed/wall,
 /area/maintenance/bottom_station_maints/south)
 "yf" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/security/prison)
 "yg" = (
@@ -5910,6 +6112,9 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/red,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "yh" = (
@@ -5957,7 +6162,10 @@
 	name = "EVA";
 	req_access_txt = "18"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
 "yu" = (
@@ -6002,6 +6210,13 @@
 	},
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
+"yH" = (
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/north)
 "yI" = (
 /obj/effect/turf_decal/tile/brown,
 /turf/open/floor/plasteel/dark,
@@ -6225,6 +6440,13 @@
 "zw" = (
 /turf/open/floor/plating,
 /area/security/prison)
+"zx" = (
+/obj/structure/cable,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/south)
 "zy" = (
 /turf/closed/wall/r_wall,
 /area/science/research/abandoned)
@@ -6299,7 +6521,12 @@
 /area/storage/tech)
 "zM" = (
 /obj/structure/cable,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
 "zN" = (
@@ -6870,13 +7097,18 @@
 /obj/machinery/door/airlock/security{
 	name = "Prison Yard"
 	},
-/obj/machinery/door/firedoor,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/plasteel/monofloor,
 /area/security/prison)
 "Ct" = (
@@ -7169,7 +7401,10 @@
 /obj/machinery/door/airlock/maintenance{
 	req_access_txt = "18"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/ai_monitored/storage/eva)
 "DH" = (
@@ -7199,10 +7434,15 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/mining/glass{
 	name = "Exploration Bay";
 	req_one_access_txt = "31;49"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/quartermaster/exploration_prep)
@@ -7356,6 +7596,15 @@
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space)
+"Eq" = (
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/north)
 "Er" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 9
@@ -7464,7 +7713,12 @@
 	dir = 4;
 	req_access_txt = "12"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/maintenance/port)
 "EZ" = (
@@ -7673,12 +7927,15 @@
 /obj/machinery/door/airlock/security{
 	name = "Prison Forestry"
 	},
-/obj/machinery/door/firedoor,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "FP" = (
@@ -7878,6 +8135,19 @@
 /obj/machinery/light/small,
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/north)
+"GF" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/security/prison)
 "GG" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/layer2{
 	dir = 1
@@ -7960,13 +8230,18 @@
 	name = "Permabrig Transfer";
 	req_access_txt = "2"
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "GV" = (
@@ -8038,12 +8313,17 @@
 	name = "Research Lab Maintenance";
 	req_access_txt = "47"
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -8178,7 +8458,10 @@
 /obj/machinery/door/airlock/maintenance{
 	req_access_txt = "18"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plating,
 /area/ai_monitored/storage/eva)
 "HO" = (
@@ -8188,13 +8471,18 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/quartermaster/warehouse)
 "HQ" = (
-/obj/machinery/door/firedoor,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "HU" = (
@@ -8295,7 +8583,6 @@
 /turf/open/floor/plating,
 /area/security/prison)
 "Ik" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
 	name = "Permanent Cell 1"
 	},
@@ -8304,6 +8591,10 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/security/prison/safe)
 "Il" = (
@@ -8616,6 +8907,16 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
+"Jt" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/security/prison)
 "Jv" = (
 /obj/structure/rack,
 /obj/effect/spawner/lootdrop/maintenance/two,
@@ -8721,7 +9022,6 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/xenobiology)
 "JV" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
 	name = "Permanent Cell 8"
 	},
@@ -8730,6 +9030,10 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/security/prison/safe)
 "JW" = (
@@ -8771,8 +9075,13 @@
 	id_tag = "permainner";
 	name = "Permabrig Transfer"
 	},
-/obj/machinery/door/firedoor,
 /obj/effect/turf_decal/delivery,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "Kn" = (
@@ -8954,6 +9263,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
 "KO" = (
@@ -9023,6 +9335,9 @@
 /obj/structure/table,
 /obj/item/controller{
 	pixel_y = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/science/research/abandoned)
@@ -9117,7 +9432,10 @@
 	name = "Exploration Bay";
 	req_one_access_txt = "31;49"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/quartermaster/exploration_prep)
 "LH" = (
@@ -9247,6 +9565,7 @@
 "Mf" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/research/abandoned)
 "Mh" = (
@@ -9480,8 +9799,18 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/plasteel/monofloor,
 /area/science/xenobiology)
+"Na" = (
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/west)
 "Nc" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -9503,6 +9832,12 @@
 "Nn" = (
 /obj/machinery/door/airlock{
 	name = "Cleaning Closet"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/security/prison)
@@ -9652,7 +9987,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 10
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "NZ" = (
@@ -9664,7 +10004,6 @@
 /turf/open/floor/plating,
 /area/security/prison/safe)
 "Oc" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	name = "Permabrig Showers"
 	},
@@ -9674,6 +10013,10 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "Od" = (
@@ -9906,7 +10249,10 @@
 	name = "Fitness Maintenance";
 	req_access_txt = "12"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "Pd" = (
@@ -9978,10 +10324,13 @@
 	name = "Cargo Bay Maintenance";
 	req_access_txt = "31"
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/quartermaster/warehouse)
 "Pq" = (
@@ -10038,11 +10387,14 @@
 "Pz" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /obj/machinery/door/airlock/maintenance{
 	name = "Cargo Bay Maintenance";
 	req_access_txt = "31"
+	},
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/west)
@@ -10164,7 +10516,12 @@
 /turf/open/floor/plasteel,
 /area/security/prison)
 "PX" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/west)
 "PY" = (
@@ -10172,6 +10529,9 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/science/research/abandoned)
 "Qa" = (
@@ -10274,7 +10634,6 @@
 /turf/open/floor/engine,
 /area/engine/atmospherics_engine)
 "Qs" = (
-/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -10282,6 +10641,10 @@
 	name = "Tech Storage";
 	req_access_txt = "23"
 	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plating,
 /area/storage/tech)
 "Qu" = (
@@ -10323,7 +10686,6 @@
 /turf/open/floor/plating,
 /area/science/xenobiology)
 "QC" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
 	req_access_txt = "12"
@@ -10333,6 +10695,10 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
@@ -10599,10 +10965,12 @@
 /area/ai_monitored/turret_protected/aisat_interior)
 "RJ" = (
 /obj/structure/cable,
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
 	req_access_txt = "12"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
@@ -10636,12 +11004,17 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/machinery/door/firedoor,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/plasteel/cafeteria,
 /area/security/prison)
 "RQ" = (
@@ -10675,7 +11048,10 @@
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/meeting_room)
 "RW" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hydroponics)
 "RX" = (
@@ -10849,6 +11225,9 @@
 	name = "Greenhouse Access";
 	req_access_txt = "35"
 	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/grass,
 /area/hydroponics)
 "SE" = (
@@ -10935,13 +11314,30 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"SW" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access_txt = "18"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/ai_monitored/storage/eva)
 "SX" = (
-/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -10980,7 +11376,12 @@
 	name = "Exploration Bay";
 	req_one_access_txt = "31;49"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/qm/perch)
 "Te" = (
@@ -11079,8 +11480,11 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/firedoor,
 /obj/structure/cable,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "Tw" = (
@@ -11126,7 +11530,6 @@
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/south)
 "TD" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
 	name = "Permanent Cell 3"
 	},
@@ -11135,6 +11538,10 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/security/prison/safe)
 "TE" = (
@@ -11183,7 +11590,10 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "TT" = (
@@ -11324,6 +11734,28 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/storage_shared)
+"UL" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_access_txt = "12"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/east)
+"UQ" = (
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/north)
 "UR" = (
 /obj/structure/bed/maint,
 /turf/open/floor/wood{
@@ -11436,7 +11868,12 @@
 	req_access_txt = "1"
 	},
 /obj/structure/cable,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/security/prison)
 "Vo" = (
@@ -11556,7 +11993,10 @@
 /area/security/prison)
 "VG" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/research/abandoned)
 "VH" = (
@@ -11605,7 +12045,6 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "VY" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security/glass{
 	name = "Isolation Cell";
 	req_access_txt = "2"
@@ -11615,6 +12054,10 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/security/prison/safe)
 "VZ" = (
@@ -11841,8 +12284,13 @@
 	name = "Permabrig Transfer";
 	req_access_txt = "2"
 	},
-/obj/machinery/door/firedoor,
 /obj/effect/turf_decal/delivery,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "WZ" = (
@@ -11900,6 +12348,17 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hydroponics)
+"Xi" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_access_txt = "12"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/south)
 "Xk" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
@@ -11908,7 +12367,6 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/west)
 "Xl" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
 	name = "Permanent Cell 7"
 	},
@@ -11917,6 +12375,10 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/security/prison/safe)
 "Xm" = (
@@ -11958,7 +12420,6 @@
 /turf/open/floor/plating,
 /area/ai_monitored/turret_protected/aisat/hallway)
 "Xq" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
 	req_access_txt = "12"
@@ -11969,6 +12430,12 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
@@ -12017,7 +12484,6 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "XF" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
 	name = "Permanent Cell 2"
 	},
@@ -12026,6 +12492,10 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel,
 /area/security/prison/safe)
 "XH" = (
@@ -12179,6 +12649,21 @@
 /obj/item/storage/bag/plants/portaseeder,
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
+"Ya" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/north)
 "Yf" = (
 /obj/machinery/door/airlock/external{
 	name = "External Access";
@@ -12345,7 +12830,10 @@
 /area/maintenance/bottom_station_maints/south)
 "YT" = (
 /obj/structure/cable,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "YU" = (
@@ -12368,8 +12856,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /obj/effect/turf_decal/delivery,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "Zb" = (
@@ -12469,7 +12962,6 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "Zy" = (
-/obj/machinery/door/firedoor,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
@@ -12479,6 +12971,10 @@
 	name = "containment blast door"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plasteel/monofloor,
 /area/science/xenobiology)
 "Zz" = (
@@ -12593,7 +13089,10 @@
 	name = "Prison Wing";
 	req_access_txt = "2"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/turbolift/primary)
 
@@ -34318,7 +34817,7 @@ GQ
 GQ
 GQ
 GQ
-PX
+Na
 zK
 Wf
 Wf
@@ -35388,7 +35887,7 @@ PG
 Zm
 eK
 oz
-XI
+Xi
 SF
 SF
 SF
@@ -36416,7 +36915,7 @@ PG
 Zm
 VC
 oz
-Np
+jY
 Np
 oV
 Np
@@ -36605,11 +37104,11 @@ Zm
 PG
 mP
 mP
-PP
+Eq
 Xc
 ap
 ap
-HN
+SW
 ap
 ap
 RQ
@@ -36672,7 +37171,7 @@ Zm
 PG
 Zm
 VC
-zM
+zx
 ye
 ye
 ye
@@ -38146,7 +38645,7 @@ mP
 mP
 Bt
 Xc
-PP
+UQ
 Xc
 Xc
 ap
@@ -39691,7 +40190,7 @@ cw
 cV
 Xc
 Xc
-XX
+eH
 Xc
 Bt
 Bt
@@ -40203,7 +40702,7 @@ Bt
 Bt
 cw
 Bt
-XX
+dT
 Bt
 Bt
 Xc
@@ -40723,7 +41222,7 @@ Bt
 Bt
 Bt
 Bt
-IG
+yH
 fF
 fF
 fF
@@ -40980,7 +41479,7 @@ Bt
 Bt
 Bt
 Bt
-IG
+yH
 fF
 fF
 fF
@@ -41745,13 +42244,13 @@ jr
 jr
 jr
 jr
-qJ
+pb
 jr
 jr
 Bt
 Bt
 Bt
-IG
+yH
 fF
 fF
 qQ
@@ -41980,7 +42479,7 @@ BJ
 BJ
 BJ
 HQ
-gk
+Jt
 BJ
 BJ
 BJ
@@ -42008,7 +42507,7 @@ jr
 Bt
 Bt
 Bt
-IG
+yH
 fF
 fF
 fF
@@ -42518,7 +43017,7 @@ Bt
 Bt
 Xc
 Xc
-qJ
+Ya
 Xc
 Xc
 Xc
@@ -45058,7 +45557,7 @@ Ie
 Ie
 Ie
 HQ
-gk
+Jt
 BJ
 BJ
 BJ
@@ -45319,7 +45818,7 @@ hd
 hd
 hd
 ih
-HQ
+GF
 HX
 Lo
 Ob
@@ -45576,7 +46075,7 @@ zP
 Uf
 Ec
 qF
-gk
+er
 HX
 Kx
 VY
@@ -45856,7 +46355,7 @@ OL
 mP
 mP
 Xc
-PP
+Eq
 Xc
 Xc
 Xc
@@ -48160,7 +48659,7 @@ mP
 mP
 mP
 mP
-fF
+UQ
 uC
 pW
 JD
@@ -48682,7 +49181,7 @@ Bt
 Bt
 Bt
 Bt
-Bt
+mP
 Bt
 Bt
 Xc
@@ -48939,7 +49438,7 @@ Bt
 Bt
 Bt
 Bt
-Bt
+ru
 Bt
 fF
 fF
@@ -50807,7 +51306,7 @@ hM
 hM
 hM
 hM
-dt
+UL
 Qz
 PG
 PG
@@ -54405,8 +54904,8 @@ dL
 dL
 hM
 hM
-cq
-cq
+wJ
+wJ
 hM
 hM
 hM
@@ -54637,7 +55136,7 @@ cq
 hM
 hM
 dc
-lP
+sN
 dL
 dL
 dL
@@ -54664,7 +55163,7 @@ dL
 dL
 dL
 dL
-lP
+sN
 dL
 sX
 Qz

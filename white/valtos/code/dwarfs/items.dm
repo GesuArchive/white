@@ -39,10 +39,12 @@
 	if(!active)
 		to_chat(user, "<span class='warning'>Уже занято!</span>")
 		return FALSE
-	var/mob/living/carbon/human/H = new /mob/living/carbon/human(loc)
-	H.set_species(/datum/species/dwarf)
-	H.equipOutfit(/datum/outfit/dwarf)
-	H.key = user.key
+	var/mob/living/carbon/human/D = new /mob/living/carbon/human(loc)
+	D.set_species(/datum/species/dwarf)
+	D.equipOutfit(/datum/outfit/dwarf)
+	D.key = user.key
+	D.mind.assigned_role = "Dwarf"
+	to_chat(D, "<span class='big bold'>Я ебучий карлик в невероятно диких условиях.</span>")
 	deactivate()
 
 /obj/structure/dwarf_altar/proc/deactivate()

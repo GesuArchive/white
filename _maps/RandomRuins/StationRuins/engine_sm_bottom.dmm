@@ -1414,12 +1414,15 @@
 /turf/open/floor/plating,
 /area/engine/engineering)
 "fd" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering/glass{
 	name = "Laser Room";
 	req_access_txt = "10"
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/engine,
 /area/engine/engineering)
 "fe" = (
@@ -1517,7 +1520,12 @@
 	name = "Engineering Maintenance";
 	req_access_txt = "10"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/engine/engineering)
 "oi" = (
@@ -1561,7 +1569,10 @@
 /obj/structure/sign/warning/radiation/rad_area{
 	pixel_x = -32
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/engine/engineering)
 "FO" = (
