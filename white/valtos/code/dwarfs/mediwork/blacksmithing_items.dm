@@ -1205,3 +1205,25 @@
 		to_chat(user, "<span class='notice'>В алтарь больше не влазит!</span>")
 	else
 		..()
+
+obj/structure/dwarf_altar/attack_hand(mob/user)
+	. = ..()
+	if(ishuman(user) && !isdwarf(user))
+		if(!active)
+			to_chat(user, "<span class='warning'>Алтарь не готов!</span>")
+			return
+		var/mob/living/carbon/human/M = user
+		var/dwarf_ask = alert(M, "Стать дворфом?", "КОПАТЬ?", "Да", "Нет")
+		if(dwarf_ask == "Нет" || !src || QDELETED(src) || QDELETED(M))
+			return FALSE
+		if(!active)
+			to_chat(M, "<span class='warning'>Не повезло!</span>")
+			return FALSE
+		M.set_species(/datum/species/dwarf)
+		for(var/obj/item/W in M)
+			if(!M.dropItemToGround(W))
+				qdel(W)
+				M.regenerate_icons()
+		M.equipOutfit(/datum/outfit/dwarf)
+		to_chat(M, "<span class='notice'>Становлюсь дворфом.</span>")
+		deactivate()
