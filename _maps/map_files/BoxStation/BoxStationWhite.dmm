@@ -3157,14 +3157,16 @@
 /turf/closed/wall/r_wall,
 /area/hallway/secondary/entry)
 "arC" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing{
 	dir = 4
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
-/turf/open/openspace,
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/plasteel/dark,
 /area/quartermaster/storage)
 "arE" = (
 /obj/effect/turf_decal/tile/yellow{
@@ -7445,6 +7447,12 @@
 /obj/machinery/door/airlock{
 	name = "Garden"
 	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/hydroponics/garden)
 "aEM" = (
@@ -10459,6 +10467,10 @@
 	name = "Art Storage"
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel,
 /area/storage/art)
 "aPI" = (
@@ -15336,7 +15348,7 @@
 /area/maintenance/disposal)
 "bnw" = (
 /obj/effect/turf_decal/stripes/line{
-	dir = 8
+	dir = 10
 	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/storage)
@@ -34621,6 +34633,18 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/office)
+"ioU" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/storage)
 "ipb" = (
 /obj/structure/lattice,
 /turf/open/openspace,
@@ -36600,6 +36624,18 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/hallway/primary/fore)
+"lIm" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/storage)
 "lIp" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -63117,8 +63153,8 @@ pdC
 lPm
 tQV
 arC
-arC
-arC
+ioU
+lIm
 huX
 vlB
 pdC

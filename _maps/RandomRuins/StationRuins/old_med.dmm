@@ -627,11 +627,6 @@
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay)
-"gk" = (
-/obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/plasteel/monofloor/white,
-/area/medical/medbay)
 "gn" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/tile/yellow{
@@ -2893,12 +2888,6 @@
 /obj/effect/turf_decal/tile/yellow,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
-"Df" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plasteel/monofloor/white,
-/area/medical/medbay)
 "Dj" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -6026,7 +6015,7 @@ lQ
 oT
 ID
 IX
-Df
+Mp
 IX
 lW
 PP
@@ -6068,7 +6057,7 @@ rz
 oT
 CY
 EX
-gk
+Ab
 vn
 Ot
 vW
