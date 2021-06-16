@@ -494,3 +494,39 @@
 /obj/item/storage/bag/harpoon_quiver/PopulateContents()
 	for(var/i in 1 to 40)
 		new /obj/item/ammo_casing/caseless/harpoon(src)
+
+/obj/item/storage/bag/pissbox
+	name = "Коробка стансфер"
+	desc = "Сделано в Нанотрейзен."
+	icon = 'icons/obj/ammo.dmi'
+	icon_state = "pissbox"
+	w_class = WEIGHT_CLASS_SMALL
+
+/obj/item/storage/bag/pissbox/Initialize()
+	. = ..()
+	update_icon()
+
+/obj/item/storage/bag/pissbox/update_icon_state()
+	switch(contents.len)
+		if(1 to INFINITY)
+			icon_state = "[initial(icon_state)]1"
+		else
+			icon_state = "[initial(icon_state)]"
+
+/obj/item/storage/bag/pissbox/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_w_class = WEIGHT_CLASS_TINY
+	STR.max_items = 33
+	STR.max_combined_w_class = 100
+	STR.set_holdable(list(
+		/obj/item/ammo_casing/caseless/pissball
+		))
+
+/obj/item/storage/bag/pissbox/PopulateContents()
+	for(var/i in 1 to 9)
+		new /obj/item/ammo_casing/caseless/pissball(src)
+
+/obj/item/storage/bag/pissbox/emptyStorage()
+	. = ..()
+	update_icon()

@@ -17,3 +17,8 @@
 	max_ammo = 1
 	caliber = "harpoon"
 	ammo_type = /obj/item/ammo_casing/caseless/harpoon
+
+/obj/item/ammo_box/magazine/internal/boltaction/taser
+	max_ammo = 3
+	caliber = "pissball"
+	ammo_type = /obj/item/ammo_casing/caseless/pissball

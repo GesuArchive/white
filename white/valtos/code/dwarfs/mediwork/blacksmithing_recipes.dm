@@ -16,6 +16,9 @@
 	name = "\[Заготовка\] Шар с цепью"
 	result = /obj/item/blacksmith/partial/cep
 
+/datum/smithing_recipe/dwarfsord
+	name = "\[Заготовка\] Лезвие прямого меча"
+	result = /obj/item/blacksmith/partial/dwarfsord
 /datum/smithing_recipe/dagger
 	name = "Кинжал"
 	result = /obj/item/blacksmith/dagger

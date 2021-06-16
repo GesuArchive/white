@@ -17,13 +17,13 @@
 		var/mob/living/carbon/C = target
 		if((istype(C.head, /obj/item/clothing/head/helmet)) && (def_zone == BODY_ZONE_HEAD))
 			C.visible_message("<span class='danger'>Пуля отскакивает от шлема!</span>", "<span class='userdanger'>Пуля отскакивает от моего шлема!</span>")
-			playsound(G,'white/rebolution228/sounds/cs_helmethit.ogg', 100, 5, pressure_affected = FALSE)
-			damage = 10	
+			playsound(get_turf(src), 'white/rebolution228/sounds/cs_helmethit.ogg', 100, 1, 0)
+			damage = 10 	
 		else if(def_zone == BODY_ZONE_HEAD)
 			var/obj/item/bodypart/head/H = C.get_bodypart(BODY_ZONE_HEAD)
 			H.forceMove(G)
-			damage = 120
-			playsound(G,'white/hule/SFX/csSFX/headshot.wav', 100, 5, pressure_affected = FALSE)
+			damage = 130
+			playsound(G,'white/hule/SFX/csSFX/headshot.wav', 70, 5, pressure_affected = FALSE)
 
 // .38 (Detective's Gun)
 

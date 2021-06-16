@@ -5,6 +5,7 @@
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	custom_materials = list(/datum/material/iron = 10000)
+	var/real_force = 0
 
 /obj/item/blacksmith/smithing_hammer
 	name = "молот"
@@ -98,17 +99,12 @@
 			var/obj/item/blacksmith/ingot/N = contents[contents.len]
 			if(N.progress_current == N.progress_need + 1)
 				for(var/i in 1 to rand(1, N.recipe.max_resulting))
-					var/obj/item/O = new N.recipe.result(drop_location())
-					if(istype(O, /obj/item/blacksmith))
-						O.force = round((O.force / 1.25) * N.mod_grade)
-					if(istype(O, /obj/item/pickaxe))
-						O.force = round((O.force / 2) * N.mod_grade)
-						O.toolspeed = round(1 / N.mod_grade, 0.1)
-					if(istype(O, /obj/item/clothing))
-						O.armor = O.armor.modifyAllRatings(5 * N.mod_grade)
 					var/grd = "*"
 					switch(N.mod_grade)
 						if(5 to INFINITY)
+							N.mod_grade = 5
+							if(prob(10))
+								N.mod_grade = 6
 							grd = "☼"
 						if(4)
 							grd = "≡"
@@ -118,10 +114,15 @@
 							grd = "-"
 						if(1)
 							grd = "*"
-					if(istype(O, /obj/item/blacksmith/partial))
-						var/obj/item/blacksmith/partial/P = O
-						P.item_grade = grd
-						P.real_force = round((O.force / 1.25) * N.mod_grade)
+					var/obj/item/O = new N.recipe.result(drop_location())
+					if(istype(O, /obj/item/blacksmith))
+						var/obj/item/blacksmith/B = O
+						B.real_force = round(2*N.mod_grade+B.real_force)
+					if(istype(O, /obj/item/pickaxe))
+						O.force = round((O.force / 2) * N.mod_grade)
+						O.toolspeed = round(1 / N.mod_grade, 0.1)
+					if(istype(O, /obj/item/clothing))
+						O.armor = O.armor.modifyAllRatings(5 * N.mod_grade)
 					O.name = "[grd][O.name][grd]"
 				qdel(N)
 				LAZYCLEARLIST(contents)
@@ -365,7 +366,7 @@
 	inhand_icon_state = "light_plate"
 	worn_icon = 'white/valtos/icons/clothing/mob/suit.dmi'
 	icon = 'white/valtos/icons/clothing/suits.dmi'
-	armor = list("melee" = 55, "bullet" = 20, "laser" = 20, "energy" = 0, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10, "wound" = 35)
+	armor = list("melee" = 20, "bullet" = 15, "laser" = 15, "energy" = 0, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10, "wound" = 35)
 	custom_materials = list(/datum/material/iron = 10000)
 
 /obj/item/clothing/suit/armor/heavy_plate
@@ -378,7 +379,7 @@
 	inhand_icon_state = "heavy_plate"
 	worn_icon = 'white/valtos/icons/clothing/mob/suit.dmi'
 	icon = 'white/valtos/icons/clothing/suits.dmi'
-	armor = list("melee" = 85, "bullet" = 60, "laser" = 40, "energy" = 10, "bomb" = 50, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 20, "wound" = 65)
+	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 50, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 20, "wound" = 50)
 	custom_materials = list(/datum/material/iron = 10000)
 	var/footstep = 1
 	var/mob/listeningTo
@@ -429,7 +430,7 @@
 	icon = 'white/valtos/icons/clothing/uniforms.dmi'
 	icon_state = "chainmail"
 	inhand_icon_state = "chainmail"
-	armor = list("melee" = 35, "bullet" = 15, "laser" = 0, "energy" = 0, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0, "wound" = 55)
+	armor = list("melee" = 15, "bullet" = 10, "laser" = 0, "energy" = 0, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0, "wound" = 30)
 	custom_materials = list(/datum/material/iron = 10000)
 
 /obj/item/clothing/head/helmet/plate_helmet
@@ -439,7 +440,7 @@
 	icon = 'white/valtos/icons/clothing/hats.dmi'
 	icon_state = "plate_helmet"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
-	armor = list("melee" = 75, "bullet" = 35, "laser" = 10,"energy" = 0, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5, "wound" = 55)
+	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5, "wound" = 50)
 	custom_materials = list(/datum/material/iron = 10000)
 
 /obj/item/clothing/gloves/plate_gloves
@@ -448,7 +449,7 @@
 	worn_icon = 'white/valtos/icons/clothing/mob/glove.dmi'
 	icon = 'white/valtos/icons/clothing/gloves.dmi'
 	icon_state = "plate_gloves"
-	armor = list("melee" = 65, "bullet" = 30, "laser" = 5,"energy" = 0, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 25, "acid" = 25, "wound" = 55)
+	armor = list("melee" = 25, "bullet" = 30, "laser" = 20,"energy" = 0, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 25, "acid" = 25, "wound" = 30)
 	custom_materials = list(/datum/material/iron = 10000)
 
 /obj/item/clothing/shoes/jackboots/plate_boots
@@ -457,7 +458,7 @@
 	worn_icon = 'white/valtos/icons/clothing/mob/shoe.dmi'
 	icon = 'white/valtos/icons/clothing/shoes.dmi'
 	icon_state = "plate_boots"
-	armor = list("melee" = 75, "bullet" = 35, "laser" = 10,"energy" = 0, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 15, "acid" = 15, "wound" = 55)
+	armor = list("melee" = 25, "bullet" = 30, "laser" = 20,"energy" = 0, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 25, "acid" = 25, "wound" = 30)
 	custom_materials = list(/datum/material/iron = 10000)
 
 /obj/item/blacksmith/gun_parts
@@ -490,6 +491,7 @@
 	max_integrity = 600
 	smoothing_groups = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
 	var/locked_door = FALSE
+	sheetType = /obj/item/stack/sheet/stone
 
 /obj/structure/mineral_door/heavystone/examine(mob/user)
 	. = ..()
@@ -914,7 +916,7 @@
 	color = rgb(255,255,255)
 	resistance_flags = LAVA_PROOF
 	max_integrity = 150
-	buildstackamount = null
+	buildstacktype = /obj/item/stack/sheet/stone
 
 /obj/structure/chair/comfy/stone/GetArmrest()
 	return mutable_appearance('white/valtos/icons/objects.dmi', "stoool_armrest")
@@ -945,7 +947,7 @@
 	base_icon_state = "stone_table"
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	max_integrity = 300
-	buildstack = null
+	buildstack = /obj/item/stack/sheet/stone
 	smoothing_groups = list(SMOOTH_GROUP_BRONZE_TABLES)
 	canSmoothWith = list(SMOOTH_GROUP_BRONZE_TABLES)
 
@@ -1018,12 +1020,7 @@
 	var/list/reqs = list()
 	var/list/reqs_names = list()
 	var/list/components = list()
-	var/real_force = 0
 	var/item_grade = "*"
-
-/obj/item/blacksmith/partial/attack(mob/living/M, mob/living/user)
-	. = ..()
-	user.attacked_by(src, user)
 
 /obj/item/blacksmith/partial/examine(mob/user)
 	. = ..()
@@ -1114,28 +1111,35 @@
 
 /obj/item/blacksmith/partial/Initialize()
 	. = ..()
+	force = 1
 	update_namelist()
 
 /obj/item/blacksmith/partial/zwei
 	name = "лезвие цвая"
-	force = 40
+	real_force = 40
 	icon_state = "zwei_part"
 	result = /obj/item/blacksmith/zwei
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 3, /obj/item/stack/sheet/leather = 2)
 
 /obj/item/blacksmith/partial/katanus
 	name = "лезвие катануса"
-	force = 16
+	real_force = 16
 	icon_state = "katanus_part"
 	result = /obj/item/blacksmith/katanus
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 3, /obj/item/stack/sheet/leather = 2)
 
 /obj/item/blacksmith/partial/cep
 	name = "шар с цепью"
-	force = 20
+	real_force = 20
 	icon_state = "cep_part"
 	result = /obj/item/blacksmith/cep
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 2)
+/obj/item/blacksmith/partial/dwarfsord
+	name = "лезвие прямого меча"
+	real_force = 16
+	icon_state = "dwarfsord_part"
+	result = /obj/item/blacksmith/dwarfsord
+	reqs = list(/obj/item/stack/sheet/mineral/wood = 2, /obj/item/stack/sheet/leather = 1)
 
 /obj/structure/dwarf_altar
 	name = "Алтарь"
@@ -1173,7 +1177,7 @@
 	if(!active)
 		return FALSE
 	var/dwarf_ask = alert("Стать дворфом?", "КОПАТЬ?", "Да", "Нет")
-	if(dwarf_ask == "No" || !src || QDELETED(src) || QDELETED(user))
+	if(dwarf_ask == "Нет" || !src || QDELETED(src) || QDELETED(user))
 		return FALSE
 	if(!active)
 		to_chat(user, "<span class='warning'>Уже занято!</span>")
@@ -1205,3 +1209,48 @@
 		to_chat(user, "<span class='notice'>В алтарь больше не влазит!</span>")
 	else
 		..()
+
+obj/structure/dwarf_altar/attack_hand(mob/user)
+	. = ..()
+	if(ishuman(user) && !isdwarf(user))
+		if(!active)
+			to_chat(user, "<span class='warning'>Алтарь не готов!</span>")
+			return
+		var/mob/living/carbon/human/M = user
+		var/dwarf_ask = alert(M, "Стать дворфом?", "КОПАТЬ?", "Да", "Нет")
+		if(dwarf_ask == "Нет" || !src || QDELETED(src) || QDELETED(M))
+			return FALSE
+		if(!active)
+			to_chat(M, "<span class='warning'>Не повезло!</span>")
+			return FALSE
+		M.set_species(/datum/species/dwarf)
+		for(var/obj/item/W in M)
+			if(!M.dropItemToGround(W))
+				qdel(W)
+				M.regenerate_icons()
+		M.equipOutfit(/datum/outfit/dwarf)
+		to_chat(M, "<span class='notice'>Становлюсь дворфом.</span>")
+		deactivate()
+
+/obj/item/blacksmith/dwarfsord
+	name = "Прямой меч"
+	desc = "Точно не гейский"
+	icon_state = "dwarfsord"
+	inhand_icon_state = "dwarfsord"
+	worn_icon_state = "dwarfsord"
+	worn_icon = 'white/valtos/icons/back.dmi'
+	flags_1 = CONDUCT_1
+	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
+	force = 18
+	throwforce = 10
+	w_class = WEIGHT_CLASS_BULKY
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет", "колбасит")
+	block_chance = 30
+	sharpness = SHARP_EDGED
+	max_integrity = 50
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
+	resistance_flags = FIRE_PROOF
+	custom_materials = list(/datum/material/iron = 10000)
+
+

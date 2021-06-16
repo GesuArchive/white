@@ -495,6 +495,11 @@
 	var/busy = FALSE 	//Something's being washed at the moment
 	var/dispensedreagent = /datum/reagent/water // for whenever plumbing happens
 
+/obj/structure/water_source/Initialize()
+	. = ..()
+	create_reagents(100, NO_REACT)
+	reagents.add_reagent(dispensedreagent, 100)
+
 /obj/structure/water_source/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
@@ -592,7 +597,7 @@
 			return TRUE
 		busy = FALSE
 		O.wash(CLEAN_WASH)
-		reagents.expose(O, TOUCH, 5 / max(reagents.total_volume, 5))
+		reagents.expose(O, TOUCH, 5 / 100, 5)
 		user.visible_message("<span class='notice'>[user] washes [O] using [src].</span>", \
 							"<span class='notice'>You wash [O] using [src].</span>")
 		return TRUE

@@ -8,20 +8,20 @@
 	gender = NEUTER
 	speak_chance = 0
 	turns_per_move = 2
-	maxHealth = 500
-	health = 500
+	maxHealth = 350
+	health = 350
 	faction = list("mining")
 	weather_immunities = list("ash")
 	see_in_dark = 1
-	butcher_results = list(/obj/item/food/meat/slab = 3, /obj/item/stack/ore/stone = 30)
+	butcher_results = list(/obj/item/food/meat/slab = 3, /obj/item/stack/ore/stone = 8)
 	response_help_continuous = "отталкивает"
 	response_help_simple = "отталкивает"
 	response_disarm_continuous = "толкает"
 	response_disarm_simple = "толкает"
 	response_harm_continuous = "вмазывает"
 	response_harm_simple = "вмазывает"
-	melee_damage_lower = 20
-	melee_damage_upper = 30
+	melee_damage_lower = 18
+	melee_damage_upper = 28
 	attack_verb_continuous = "ударяет"
 	attack_verb_simple = "ударяет"
 	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 10, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
