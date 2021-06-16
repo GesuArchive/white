@@ -43,7 +43,7 @@
 	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/windoor_assembly/Destroy()
-	density = FALSE
+	set_density(FALSE)
 	air_update_turf(TRUE, FALSE)
 	return ..()
 
@@ -259,8 +259,8 @@
 
 				if(W.use_tool(src, user, 40, volume=100) && electronics)
 
-					density = TRUE //Shouldn't matter but just incase
-					to_chat(user, span_notice("You finish the windoor.") )
+					set_density(TRUE) //Shouldn't matter but just incase
+					to_chat(user, span_notice("You finish the windoor."))
 
 					if(secure)
 						var/obj/machinery/door/window/brigdoor/windoor = new /obj/machinery/door/window/brigdoor(loc)
@@ -271,7 +271,7 @@
 							windoor.icon_state = "rightsecureopen"
 							windoor.base_state = "rightsecure"
 						windoor.setDir(dir)
-						windoor.density = FALSE
+						windoor.set_density(FALSE)
 
 						if(electronics.one_access)
 							windoor.req_one_access = electronics.accesses
@@ -294,7 +294,7 @@
 							windoor.icon_state = "rightopen"
 							windoor.base_state = "right"
 						windoor.setDir(dir)
-						windoor.density = FALSE
+						windoor.set_density(FALSE)
 
 						if(electronics.one_access)
 							windoor.req_one_access = electronics.accesses

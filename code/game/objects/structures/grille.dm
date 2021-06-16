@@ -249,7 +249,7 @@
 
 /obj/structure/grille/obj_break()
 	if(!broken && !(flags_1 & NODECONSTRUCT_1))
-		density = FALSE
+		set_density(FALSE)
 		broken = TRUE
 		var/obj/R = new rods_type(null, rods_amount)
 		transfer_fingerprints_to(R)
@@ -258,6 +258,16 @@
 		rods_broken = FALSE
 		grille_type = /obj/structure/grille
 
+/obj/structure/grille/proc/repair_grille()
+	if(broken)
+		icon_state = "grille"
+		set_density(TRUE)
+		obj_integrity = max_integrity
+		broken = FALSE
+		rods_amount = 2
+		rods_broken = TRUE
+		return TRUE
+	return FALSE
 
 // shock user with probability prb (if all connections & power are working)
 // returns 1 if shocked, 0 otherwise

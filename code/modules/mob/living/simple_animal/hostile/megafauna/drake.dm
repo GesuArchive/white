@@ -308,7 +308,7 @@
 		return
 	stop_automated_movement = TRUE
 	swooping |= SWOOP_DAMAGEABLE
-	density = FALSE
+	set_density(FALSE)
 	icon_state = "shadow"
 	visible_message(span_boldwarning("<b>[src]</b> высоко взлетает!") )
 
@@ -385,7 +385,7 @@
 	for(var/mob/M in range(7, src))
 		shake_camera(M, 15, 1)
 
-	density = TRUE
+	set_density(TRUE)
 	SLEEP_CHECK_DEATH(1)
 	swooping &= ~SWOOP_DAMAGEABLE
 	update_cooldowns(list(COOLDOWN_UPDATE_SET_MELEE = swoop_cooldown, COOLDOWN_UPDATE_SET_RANGED = swoop_cooldown))

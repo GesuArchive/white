@@ -327,7 +327,7 @@
 	do_animate("opening")
 	set_opacity(0)
 	sleep(5)
-	density = FALSE
+	set_density(FALSE)
 	flags_1 &= ~PREVENT_CLICK_UNDER_1
 	sleep(5)
 	layer = initial(layer)
@@ -359,9 +359,8 @@
 	if(air_tight)
 		density = TRUE
 	sleep(5)
-	density = TRUE
-	if(prevent_clicks_under_when_closed)
-		flags_1 |= PREVENT_CLICK_UNDER_1
+	set_density(TRUE)
+	flags_1 |= PREVENT_CLICK_UNDER_1
 	sleep(5)
 	update_icon()
 	if(visible && !glass)

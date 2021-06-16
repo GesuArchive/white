@@ -94,7 +94,7 @@
 	set_opacity(FALSE)
 	flick("[initial(icon_state)]opening",src)
 	sleep(10)
-	density = FALSE
+	set_density(FALSE)
 	door_opened = TRUE
 	layer = OPEN_DOOR_LAYER
 	air_update_turf(TRUE, FALSE)
@@ -114,7 +114,7 @@
 	playsound(src, closeSound, 100, TRUE)
 	flick("[initial(icon_state)]closing",src)
 	sleep(10)
-	density = TRUE
+	set_density(TRUE)
 	set_opacity(TRUE)
 	door_opened = FALSE
 	layer = initial(layer)

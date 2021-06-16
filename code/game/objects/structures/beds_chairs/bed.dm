@@ -89,7 +89,7 @@
 		qdel(src)
 
 /obj/structure/bed/roller/post_buckle_mob(mob/living/M)
-	density = TRUE
+	set_density(TRUE)
 	icon_state = "up"
 	//Push them up from the normal lying position
 	M.pixel_y = M.base_pixel_y
@@ -101,7 +101,7 @@
 
 
 /obj/structure/bed/roller/post_unbuckle_mob(mob/living/M)
-	density = FALSE
+	set_density(FALSE)
 	icon_state = "down"
 	//Set them back down to the normal lying position
 	M.pixel_y = M.base_pixel_y + M.body_position_pixel_y_offset

@@ -659,7 +659,7 @@
 	if(!open)
 		icon_state = "[icon_type]-closed"
 		layer = WALL_OBJ_LAYER
-		density = TRUE
+		set_density(TRUE)
 		open = FALSE
 		if(opaque_closed)
 			set_opacity(TRUE)
@@ -756,7 +756,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical/proc/open()
 	icon_state = "[icon_type]-open"
 	layer = SIGN_LAYER
-	density = FALSE
+	set_density(FALSE)
 	open = TRUE
 	playsound(loc, 'sound/effects/curtain.ogg', 50, TRUE)
 	set_opacity(FALSE)
@@ -764,7 +764,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical/proc/close()
 	icon_state = "[icon_type]-closed"
 	layer = WALL_OBJ_LAYER
-	density = TRUE
+	set_density(TRUE)
 	open = FALSE
 	playsound(loc, 'sound/effects/curtain.ogg', 50, TRUE)
 	if(opaque_closed)

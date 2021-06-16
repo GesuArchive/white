@@ -181,7 +181,7 @@
 	playsound(loc, open_sound, open_sound_volume, TRUE, -3)
 	opened = TRUE
 	if(!dense_when_open)
-		density = FALSE
+		set_density(FALSE)
 	dump_contents()
 	update_icon()
 	update_airtightness()
@@ -240,8 +240,8 @@
 	take_contents()
 	playsound(loc, close_sound, close_sound_volume, TRUE, -3)
 	opened = FALSE
-	density = TRUE
-	update_icon()
+	set_density(TRUE)
+	update_appearance()
 	update_airtightness()
 	after_close(user)
 	return TRUE
