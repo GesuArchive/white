@@ -51,6 +51,11 @@
 /obj/structure/fermenting_barrel,
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dwarf)
+"fS" = (
+/obj/structure/table/stone,
+/obj/item/clothing/mask/cigarette/pipe/cobpipe,
+/turf/open/floor/grass/gensgrass/dirty/stone/raw,
+/area/awaymission/vietnam/dwarf)
 "gc" = (
 /obj/machinery/microwave/furnace,
 /turf/open/floor/grass/gensgrass/dirty/stone,
@@ -246,6 +251,16 @@
 "wz" = (
 /turf/closed/indestructible/black,
 /area/awaymission/vietnam/dwarf)
+"wU" = (
+/obj/machinery/torch_fixture{
+	dir = 4;
+	on = 1;
+	pixel_x = 32
+	},
+/obj/structure/table/stone,
+/obj/item/pickaxe/rusted,
+/turf/open/floor/grass/gensgrass/dirty/stone,
+/area/awaymission/vietnam/dwarf)
 "zx" = (
 /obj/item/reagent_containers/glass/bucket/wooden,
 /obj/structure/table/stone,
@@ -267,6 +282,11 @@
 /obj/structure/table/stone,
 /obj/item/blacksmith/ingot,
 /obj/item/blacksmith/ingot,
+/turf/open/floor/grass/gensgrass/dirty/stone,
+/area/awaymission/vietnam/dwarf)
+"CE" = (
+/obj/structure/table/stone,
+/obj/item/pickaxe/rusted,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "DC" = (
@@ -390,6 +410,12 @@
 	dir = 1
 	},
 /turf/open/lava/smooth,
+/area/awaymission/vietnam/dwarf)
+"TA" = (
+/obj/structure/mineral_door/heavystone{
+	dir = 4
+	},
+/turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "Ur" = (
 /obj/structure/stone_tile/cracked,
@@ -12135,13 +12161,13 @@ MB
 vK
 ha
 vK
-ha
+fS
 oN
 MB
-ha
+oI
 gr
 vK
-sf
+wU
 gr
 MB
 MB
@@ -12639,13 +12665,13 @@ MB
 MB
 lq
 MB
-lq
+CE
 gr
 vK
-lq
+Sc
 oN
 MB
-lq
+Sc
 oN
 MB
 MB
@@ -13386,7 +13412,7 @@ Mu
 vK
 vK
 vK
-lq
+TA
 vK
 vK
 vK
@@ -14139,7 +14165,7 @@ aX
 DC
 lq
 lq
-lq
+kg
 lq
 lq
 ha
@@ -14654,16 +14680,16 @@ MB
 vK
 vK
 vK
-lq
+TA
 MB
 MB
 MB
-lq
+TA
 vK
 MB
 MB
 vK
-lq
+TA
 vK
 vK
 vK
