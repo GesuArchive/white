@@ -574,9 +574,9 @@
 		var/mob/living/carbon/L_occupant = occupant
 		if ((L_occupant.health > 0) && (charge < max_charge))
 			icon_state = "pain_machine_active"
-			L_occupant.adjustBruteLoss(15)
-			if (prob(10))
-				L_occupant.gain_trauma_type(BRAIN_TRAUMA_MILD, natural_gain = TRUE)
+			L_occupant.adjustBruteLoss(5)
+			if (prob(2))
+				L_occupant.gain_trauma_type(BRAIN_TRAUMA_MILD)
 			L_occupant.emote("scream")
 			addtimer(CALLBACK(L_occupant, /mob/living/carbon.proc/do_jitter_animation, 20), 5)
 			charge += 1

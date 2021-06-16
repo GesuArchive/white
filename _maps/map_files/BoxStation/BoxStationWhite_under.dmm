@@ -2959,21 +2959,11 @@
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
 "lM" = (
-/obj/structure/table,
-/obj/item/folder/red{
-	pixel_x = 3
-	},
-/obj/item/taperecorder{
-	pixel_x = -3
-	},
-/obj/item/assembly/flash/handheld,
-/obj/item/reagent_containers/spray/pepper,
 /obj/effect/turf_decal/tile/neutral{
-	dir = 4
+	dir = 8
 	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/structure/closet/secure_closet/injection,
 /turf/open/floor/plasteel/dark,
 /area/security/execution/transfer)
 "lN" = (
@@ -4480,7 +4470,6 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/neutral,
-/obj/structure/closet/secure_closet/injection,
 /turf/open/floor/plasteel/dark,
 /area/security/execution/transfer)
 "rK" = (
@@ -4506,6 +4495,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
+/obj/machinery/light/blacklight,
 /turf/open/floor/plasteel/dark,
 /area/security/execution/transfer)
 "rP" = (
