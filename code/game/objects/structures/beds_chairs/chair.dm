@@ -572,10 +572,10 @@
 /obj/machinery/painmachine/process()
 	if((occupant && iscarbon(occupant)))
 		var/mob/living/carbon/L_occupant = occupant
-		if ((L_occupant.health > 0) && (charge < max_charge))
+		if ((L_occupant.health > 0)&&(L_occupant.key != null) && (charge < max_charge))
 			icon_state = "pain_machine_active"
 			L_occupant.adjustBruteLoss(5)
-			if (prob(2))
+			if (prob(5))
 				L_occupant.gain_trauma_type(BRAIN_TRAUMA_MILD)
 			L_occupant.emote("scream")
 			addtimer(CALLBACK(L_occupant, /mob/living/carbon.proc/do_jitter_animation, 20), 5)
