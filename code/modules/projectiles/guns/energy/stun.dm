@@ -11,6 +11,7 @@
 	desc = "Устройство для запуска шаров сжатой болевой энергии по живым целям."
 	icon = 'icons/obj/guns/projectile.dmi'
 	icon_state = "painser"
+	fire_sound = 'sound/weapons/taser.ogg'
 	inhand_icon_state = "painser"
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/taser
 	can_be_sawn_off = FALSE
