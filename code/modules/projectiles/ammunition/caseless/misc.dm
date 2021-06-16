@@ -43,6 +43,7 @@
 				C.throw_mode_off(THROW_MODE_TOGGLE)
 			else
 				C.Paralyze(100)
+				playsound(C.loc, 'sound/weapons/taserhit.ogg', 50, TRUE)
 				addtimer(CALLBACK(C, /mob/living/carbon.proc/do_jitter_animation, 20), 5)
 		qdel(src)
 
@@ -50,6 +51,7 @@
 	. = ..()
 	if(!istype(user.gloves, /obj/item/clothing/gloves/color/yellow))
 		user.Paralyze(100)
+		playsound(user.loc, 'sound/weapons/taserhit.ogg', 50, TRUE)
 		addtimer(CALLBACK(user, /mob/living/carbon.proc/do_jitter_animation, 20), 5)
 		visible_message("<span class='warning'><b>[user.name]</b> ловит разряд тока от стансферы!</span>", \
 						"<span class='userdanger'>Ай!!!</span>")
