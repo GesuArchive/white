@@ -9,7 +9,7 @@
 /obj/item/gun/ballistic/rifle/boltaction/taser
 	name = "тазер"
 	desc = "Устройство для запуска шаров сжатой болевой энергии по живым целям."
-	icon = 'icons/obj/guns/energy.dmi'
+	icon = 'icons/obj/guns/projectile.dmi'
 	icon_state = "painser"
 	inhand_icon_state = "painser"	//so the human update icon uses the icon_state instead.
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/taser
