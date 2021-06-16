@@ -6,6 +6,15 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/electrode)
 	ammo_x_offset = 3
 
+/obj/item/gun/ballistic/rifle/boltaction/taser
+	name = "тазер"
+	desc = "Устройство для запуска шаров сжатой болевой энергии по живым целям."
+	icon = 'icons/obj/guns/energy.dmi'
+	icon_state = "taser"
+	inhand_icon_state = null	//so the human update icon uses the icon_state instead.
+	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/taser
+	can_be_sawn_off = FALSE
+
 /obj/item/gun/energy/tesla_revolver
 	name = "тесла пушка"
 	desc = "Экспериментальная пушка, основанная на экспериментальном двигателе, с такой же вероятностью убьет своего оператора, как и цель."

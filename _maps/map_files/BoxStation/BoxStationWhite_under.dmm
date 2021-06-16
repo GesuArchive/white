@@ -3913,6 +3913,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 1
 	},
+/obj/machinery/painmachine,
 /turf/open/floor/plasteel/dark,
 /area/security/execution/transfer)
 "pw" = (
@@ -3993,6 +3994,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/item/clothing/gloves/color/yellow,
+/obj/structure/table,
 /turf/open/floor/plasteel/dark,
 /area/security/execution/transfer)
 "pQ" = (
