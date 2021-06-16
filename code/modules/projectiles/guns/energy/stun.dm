@@ -16,9 +16,7 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/taser
 	can_be_sawn_off = FALSE
 
-
 /obj/item/gun/ballistic/rifle/boltaction/taser/update_overlays()
-	return
 
 /obj/item/gun/energy/tesla_revolver
 	name = "тесла пушка"

@@ -42,7 +42,6 @@
 								"<span class='userdanger'>Ловлю <b>[I.name]</b>!</span>")
 				C.throw_mode_off(THROW_MODE_TOGGLE)
 			else
-				playsound(C.loc, 'sound/weapons/taserhit.ogg', 50, TRUE)
 				C.Paralyze(100)
 				addtimer(CALLBACK(C, /mob/living/carbon.proc/do_jitter_animation, 20), 5)
 		qdel(src)
@@ -50,7 +49,6 @@
 /obj/item/ammo_casing/caseless/pissball/equipped(mob/living/carbon/user, slot)
 	. = ..()
 	if(!istype(user.gloves, /obj/item/clothing/gloves/color/yellow))
-		playsound(user.loc, 'sound/weapons/taserhit.ogg', 50, TRUE)
 		user.Paralyze(100)
 		addtimer(CALLBACK(user, /mob/living/carbon.proc/do_jitter_animation, 20), 5)
 		visible_message("<span class='warning'><b>[user.name]</b> ловит разряд тока от стансферы!</span>", \
