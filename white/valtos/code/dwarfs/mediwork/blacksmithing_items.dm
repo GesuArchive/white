@@ -1134,6 +1134,12 @@
 	icon_state = "cep_part"
 	result = /obj/item/blacksmith/cep
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 2)
+/obj/item/blacksmith/partial/dwarfsord
+	name = "лезвие прямого мяча"
+	real_force = 16
+	icon_state = "dwarfsord_part"
+	result = /obj/item/blacksmith/dwarfsord
+	reqs = list(/obj/item/stack/sheet/mineral/wood = 2, /obj/item/stack/sheet/leather = 1)
 
 /obj/structure/dwarf_altar
 	name = "Алтарь"
@@ -1225,3 +1231,26 @@ obj/structure/dwarf_altar/attack_hand(mob/user)
 		M.equipOutfit(/datum/outfit/dwarf)
 		to_chat(M, "<span class='notice'>Становлюсь дворфом.</span>")
 		deactivate()
+
+/obj/item/blacksmith/dwarfsord
+	name = "Прямой меч"
+	desc = "Точно не гейский"
+	icon_state = "dwarfsord"
+	inhand_icon_state = "dwarfsord"
+	worn_icon_state = "dwarfsord"
+	worn_icon = 'white/valtos/icons/back.dmi'
+	flags_1 = CONDUCT_1
+	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
+	force = 18
+	throwforce = 10
+	w_class = WEIGHT_CLASS_BULKY
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет", "колбасит")
+	block_chance = 30
+	sharpness = SHARP_EDGED
+	max_integrity = 50
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
+	resistance_flags = FIRE_PROOF
+	custom_materials = list(/datum/material/iron = 10000)
+
+
