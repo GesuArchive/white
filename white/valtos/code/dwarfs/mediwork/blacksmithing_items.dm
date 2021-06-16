@@ -5,6 +5,7 @@
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	custom_materials = list(/datum/material/iron = 10000)
+	var/real_force = 0
 
 /obj/item/blacksmith/smithing_hammer
 	name = "молот"
@@ -12,7 +13,6 @@
 	icon_state = "molotochek"
 	w_class = WEIGHT_CLASS_HUGE
 	force = 20
-	var/real_force = 0
 	throwforce = 25
 	throw_range = 4
 
