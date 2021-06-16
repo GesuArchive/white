@@ -1135,7 +1135,7 @@
 	result = /obj/item/blacksmith/cep
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 2)
 /obj/item/blacksmith/partial/dwarfsord
-	name = "лезвие прямого мяча"
+	name = "лезвие прямого меча"
 	real_force = 16
 	icon_state = "dwarfsord_part"
 	result = /obj/item/blacksmith/dwarfsord
