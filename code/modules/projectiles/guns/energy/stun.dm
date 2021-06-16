@@ -11,9 +11,11 @@
 	desc = "Устройство для запуска шаров сжатой болевой энергии по живым целям."
 	icon = 'icons/obj/guns/projectile.dmi'
 	icon_state = "painser"
-	inhand_icon_state = "painser"	//so the human update icon uses the icon_state instead.
+	inhand_icon_state = "painser"
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/taser
 	can_be_sawn_off = FALSE
+
+/obj/item/gun/ballistic/rifle/boltaction/taser/update_overlays()
 
 /obj/item/gun/energy/tesla_revolver
 	name = "тесла пушка"
