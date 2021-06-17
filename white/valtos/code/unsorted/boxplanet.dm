@@ -84,11 +84,26 @@
 		else
 			STOP_PROCESSING(SSobj, src)
 
+
 /obj/structure/flora/tree/boxplanet/glikodil
 	name = "гликодил"
 	desc = "Целебный куст."
 	icon_state = "glikodil"
 	var/has_cure = TRUE
+	var/needs_sharp_harvest = TRUE
+	var/harvest = /obj/item/glikoleaf
+	var/harvest_amount = 1
+	var/harvested = FALSE
+	var/harvest_time = 60
+
+/obj/structure/flora/tree/boxplanet/glikodil/attackby(obj/item/W, mob/user, params)
+	if(has_cure && needs_sharp_harvest && W.get_sharpness())
+		user.visible_message("<span class='notice'>[user] начинает собирать [src] используя [W].</span>","<span class='notice'>Вы начинаете собирать [src] используя [W].</span>")
+		if(do_after(user, harvest_time, target = src))
+			new /obj/item/glikoleaf(loc)
+			has_cure = FALSE
+	else
+		..()
 
 /obj/structure/flora/tree/boxplanet/glikodil/attack_hand(mob/user)
 	. = ..()
@@ -108,6 +123,21 @@
 			has_cure = TRUE
 	else
 		to_chat(user, "<span class='notice'>Не могу найти лечебных листочков на этом растении. Видимо ещё не время.</span>")
+
+obj/item/glikoleaf
+	name = "Листок гликодила"
+	desc = "Наныли"
+	icon = 'white/valtos/icons/mineflora.dmi'
+	icon_state = "glikoleaf"
+	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/glikoleaf/attack(mob/living/M, mob/living/user)
+	. = ..()
+	M.adjustBruteLoss(-25)
+	M.adjustFireLoss(-25)
+	M.remove_CC()
+	visible_message("span class='notice'>[M] прикладываеет лист гликодила")
+	qdel(src)
 
 /obj/structure/flora/tree/boxplanet/svetosvin
 	name = "светосвин"
