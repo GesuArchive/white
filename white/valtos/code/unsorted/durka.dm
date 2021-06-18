@@ -28,6 +28,10 @@
 	H.fully_replace_character_name(H.real_name, new_name)
 	H.regenerate_icons()
 	H.add_quirk(pick(SSquirks.hardcore_quirks), TRUE)
+	if(prob(90))
+		H.add_quirk(pick(SSquirks.hardcore_quirks), TRUE)
+		if(prob(50))
+			H.add_quirk(pick(SSquirks.hardcore_quirks), TRUE)
 
 /obj/effect/mob_spawn/human/dukra/special(mob/living/new_spawn)
 	var/datum/antagonist/shizoid/shiz = new
