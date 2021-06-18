@@ -88,11 +88,12 @@
 	if (mineralType && (mineralAmt > 0) && ispath(mineralType, /obj/item/stack))
 		new mineralType(src, mineralAmt)
 		SSblackbox.record_feedback("tally", "ore_mined", mineralAmt, mineralType)
-	if((mineralType && ispath(mineralType, /obj/item/gem)))
-		var/obj/item/gem/G = mineralType
-		var/amount = rand(1, G.max_amount)
-		for(var/i in 1 to amount)
-			new mineralType(src)
+	if(mineralType && ispath(mineralType, /obj/item/gem))
+		var/obj/item/gem/G = new mineralType(src)
+		var/amount = rand(1, G.max_amount)-1
+		if(amount)
+			for(var/i in 1 to amount)
+				new mineralType(src)
 		SSblackbox.record_feedback("tally", "ore_mined", mineralAmt, mineralType)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
