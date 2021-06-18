@@ -203,6 +203,9 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 
 	spawn(10)
 		SStitle.afterload()
+		message_admins("<span class='boldannounce'>Подгружаем DF...</span>")
+		load_new_z_level("_maps/RandomZLevels/dwarf_lustress.dmm", "Dwarf Fortress")
+		message_admins("<span class='boldannounce'>DF подгружен...</span>")
 	to_chat(world, "<span class='green'> -- $<b>Мир</b>:> <b>[time]</b> -- </span>")
 	log_world("World init for [time] seconds!")
 
