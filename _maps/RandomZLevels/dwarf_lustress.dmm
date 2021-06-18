@@ -165,6 +165,12 @@
 /obj/forge,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
+"mn" = (
+/obj/structure/gemcutter{
+	dir = 1
+	},
+/turf/open/floor/grass/gensgrass/dirty/stone,
+/area/awaymission/vietnam/dwarf)
 "nC" = (
 /obj/structure/table/stone,
 /obj/item/blacksmith/ingot,
@@ -14968,7 +14974,7 @@ vK
 vK
 lq
 Mu
-lq
+mn
 vK
 MB
 MB

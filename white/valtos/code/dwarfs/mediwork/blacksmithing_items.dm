@@ -1054,9 +1054,17 @@
 	layer = FLY_LAYER
 	var/active
 	var/resources = 0
-	var/resources_max = 350
-	var/list/allowed_resources = list(/obj/item/blacksmith/ingot/gold, /obj/item/diamond)
-	var/list/resource_values = list(/obj/item/blacksmith/ingot/gold=25, /obj/item/diamond=50)
+	var/resources_max = 500
+	var/list/allowed_resources = list(/obj/item/blacksmith/ingot/gold,
+									/obj/item/gem/cut/diamond,
+									/obj/item/gem/cut/ruby,
+									/obj/item/gem/cut/saphire,
+									)
+	var/list/resource_values = list(/obj/item/blacksmith/ingot/gold=25,
+									/obj/item/gem/cut/diamond=50,
+									/obj/item/gem/cut/ruby=40,
+									/obj/item/gem/cut/saphire=30,
+									)
 
 /obj/structure/dwarf_altar/Initialize()
 	. = ..()
@@ -1154,21 +1162,82 @@
 	custom_materials = list(/datum/material/iron = 10000)
 
 
-/obj/item/diamond
-	name = "алмаз"
+/obj/item/gem
+	name = "необработанный гем"
 	desc = "Крутой"
 	w_class = WEIGHT_CLASS_TINY
 	icon = 'white/valtos/icons/dwarfs/objects.dmi'
+	var/cut_type = /obj/item/gem/cut
+	var/scan_state
+	var/max_amount = 3
+
+/obj/item/gem/Initialize()
+	. = ..()
+	pixel_x = base_pixel_x + rand(0, 16) - 8
+	pixel_y = base_pixel_y + rand(0, 8) - 8
+
+/obj/item/gem/cut
+
+/obj/item/gem/diamond
+	name = "необработанный алмаз"
+	icon_state = "diamond_uncut"
+	cut_type = /obj/item/gem/cut/diamond
+	scan_state = "diamond"
+	max_amount = 2
+
+/obj/item/gem/cut/diamond
+	name = "алмаз"
 	icon_state = "diamond"
 
-/obj/item/stack/ore/diamond/attackby(obj/item/I, mob/living/user, params)
-	. = ..()
-	if(istype(I, /obj/item/blacksmith/chisel))
-		to_chat(user, "<span class='notice'>Обрабатываю [I].</span>")
-		new /obj/item/diamond(loc)
-		amount-=1
-		if(amount<1)
-			qdel(src)
+/obj/item/gem/ruby
+	name = "необработанный рубин"
+	icon_state = "ruby_uncut"
+	cut_type = /obj/item/gem/cut/ruby
+	scan_state = "ruby"
+
+/obj/item/gem/cut/ruby
+	name = "рубин"
+	icon_state = "ruby"
+
+/obj/item/gem/saphire
+	name = "необработанный сапфир"
+	icon_state = "saphire_uncut"
+	cut_type = /obj/item/gem/cut/saphire
+	scan_state = "saphire"
+
+/obj/item/gem/cut/saphire
+	name = "сапфир"
+	icon_state = "saphire"
+
+/obj/structure/gemcutter
+	name = "точильня гемов"
+	desc = "крутится"
+	icon = 'white/valtos/icons/dwarfs/objects.dmi'
+	icon_state = "gemcutter_off"
+	anchored = TRUE
+	density = TRUE
+	layer = TABLE_LAYER
+	var/busy = FALSE
+
+/obj/structure/gemcutter/attacked_by(obj/item/I, mob/living/user)
+	if(istype(I, /obj/item/gem) && !istype(I, /obj/item/gem/cut))
+		icon_state = "gemcutter_on"
+		if(busy)
+			to_chat(user, "<span class='notice'>Сейчас занято.</span>")
+			return
+		busy = TRUE
+		if(!do_after(user, 15 SECONDS, target = src))
+			busy = FALSE
+			icon_state = "gemcutter_off"
+			return
+		busy = FALSE
+		var/obj/item/gem/G = I
+		new G.cut_type(loc)
+		to_chat(user, "<span class='notice'>Обрабатываю [G] на [src]</span>")
+		qdel(G)
+		icon_state = "gemcutter_off"
+	else
+		..()
 
 /obj/structure/workbench
 	name = "верстак"
@@ -1212,7 +1281,7 @@
 		return
 	if(ready)
 		busy = TRUE
-		if(!do_after(user, 4 SECONDS, target = src))
+		if(!do_after(user, 10 SECONDS, target = src))
 			busy = FALSE
 			return
 		busy = FALSE
