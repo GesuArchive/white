@@ -1210,7 +1210,7 @@
 	else
 		..()
 
-obj/structure/dwarf_altar/attack_hand(mob/user)
+/obj/structure/dwarf_altar/attack_hand(mob/user)
 	. = ..()
 	if(ishuman(user) && !isdwarf(user))
 		if(!active)

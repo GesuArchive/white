@@ -516,7 +516,7 @@
 /obj/item/storage/bag/pissbox/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_w_class = WEIGHT_CLASS_TINY
+	STR.max_w_class = WEIGHT_CLASS_BULKY
 	STR.max_items = 33
 	STR.max_combined_w_class = 100
 	STR.set_holdable(list(

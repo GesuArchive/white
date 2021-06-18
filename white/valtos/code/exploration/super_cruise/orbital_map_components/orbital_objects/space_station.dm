@@ -12,6 +12,7 @@
 
 /datum/orbital_object/z_linked/station/post_map_setup()
 	//Orbit around the system center
+	name = "[station_name()] #[linked_z_level.z_value - 1]"
 	var/datum/orbital_object/z_linked/station/station = locate() in SSorbits.orbital_map.bodies
 	if(station && station != src)
 		orbitting = TRUE

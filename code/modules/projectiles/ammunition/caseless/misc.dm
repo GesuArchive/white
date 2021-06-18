@@ -23,13 +23,14 @@
 
 /obj/item/ammo_casing/caseless/pissball
 	name = "стансфера"
-	desc = "Приятно щекочет пальцы!."
+	desc = "Приятно щекочет пальцы!"
 	caliber = "pissball"
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "spark"
 	fire_sound = 'sound/weapons/taser.ogg'
-	w_class = WEIGHT_CLASS_TINY
+	w_class = WEIGHT_CLASS_BULKY
 	projectile_type = /obj/projectile/energy/electrode
+	custom_materials = null
 
 /obj/item/ammo_casing/caseless/pissball/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	if(!..())
@@ -55,3 +56,7 @@
 		addtimer(CALLBACK(user, /mob/living/carbon.proc/do_jitter_animation, 20), 5)
 		visible_message("<span class='warning'><b>[user.name]</b> ловит разряд тока от стансферы!</span>", \
 						"<span class='userdanger'>Ай!!!</span>")
+
+obj/item/ammo_casing/caseless/pissball/examine(mob/user)
+	. = ..()
+	. -= "<hr><span class='smallnoticeital'>Это [weightclass2text(w_class)] размера предмет.</span>"
