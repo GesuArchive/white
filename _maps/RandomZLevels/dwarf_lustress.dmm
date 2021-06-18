@@ -445,9 +445,6 @@
 	},
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
-"Ub" = (
-/turf/open/space/basic,
-/area/awaymission/vietnam/dwarf)
 "Ur" = (
 /obj/structure/stone_tile/cracked,
 /obj/structure/stone_tile{
@@ -18252,7 +18249,7 @@ MB
 MB
 MB
 MB
-Ub
+MB
 MB
 MB
 MB
