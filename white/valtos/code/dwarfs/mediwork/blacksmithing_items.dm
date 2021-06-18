@@ -6,6 +6,7 @@
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	custom_materials = list(/datum/material/iron = 10000)
 	var/real_force = 0
+	var/grade = ""
 
 /obj/item/blacksmith/smithing_hammer
 	name = "молот"
@@ -117,6 +118,7 @@
 					var/obj/item/O = new N.recipe.result(drop_location())
 					if(istype(O, /obj/item/blacksmith))
 						var/obj/item/blacksmith/B = O
+						B.grade = grd
 						B.real_force = round(2*N.mod_grade+B.real_force)
 					if(istype(O, /obj/item/pickaxe))
 						O.force = round((O.force / 2) * N.mod_grade)
@@ -1016,130 +1018,31 @@
 
 /obj/item/blacksmith/partial
 	desc = "Похоже на часть чего-то большего."
-	var/result = null
-	var/list/reqs = list()
-	var/list/reqs_names = list()
-	var/list/components = list()
 	var/item_grade = "*"
-
-/obj/item/blacksmith/partial/examine(mob/user)
-	. = ..()
-	if(reqs && reqs_names)
-		var/hasContent = FALSE
-		var/requires = "Требуется"
-
-		for(var/i = 1 to reqs.len)
-			var/tname = reqs[i]
-			var/amt = reqs[tname]
-			if(amt == 0)
-				continue
-			var/use_and = i == reqs.len
-			requires += "[(hasContent ? (use_and ? ", и" : ",") : "")] [amt] [reqs_names[tname]]"
-			hasContent = TRUE
-
-		if(hasContent)
-			. +=  "<hr>[requires]."
-		else
-			. += "<hr>Удар молотом завершит сборку."
-
-/obj/item/blacksmith/partial/proc/update_namelist()
-	if(!reqs)
-		return
-
-	reqs_names = new()
-	for(var/tname in reqs)
-		if(ispath(tname, /obj/item/stack))
-			var/obj/item/stack/S = tname
-			var/singular_name = initial(S.singular_name)
-			if(singular_name)
-				reqs_names[tname] = singular_name
-			else
-				reqs_names[tname] = initial(S.name)
-		else
-			var/obj/O = tname
-			reqs_names[tname] = initial(O.name)
-
-/obj/item/blacksmith/partial/proc/get_req_components_amt()
-	var/amt = 0
-	for(var/path in reqs)
-		amt += reqs[path]
-	return amt
-
-/obj/item/blacksmith/partial/attackby(obj/item/P, mob/living/user, params)
-	if(istype(P, /obj/item/blacksmith/smithing_hammer))
-		var/component_check = TRUE
-		for(var/R in reqs)
-			if(reqs[R] > 0)
-				component_check = FALSE
-				break
-		if(component_check)
-			playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
-			var/obj/item/blacksmith/NB = new result(loc)
-			NB.force = real_force
-			NB.name = "[item_grade][NB.name][item_grade]"
-			qdel(src)
-		return
-	if(isitem(P) && get_req_components_amt())
-		for(var/I in reqs)
-			if(istype(P, I) && (reqs[I] > 0))
-				if(istype(P, /obj/item/stack))
-					var/obj/item/stack/S = P
-					var/used_amt = min(round(S.get_amount()), reqs[I])
-
-					if(used_amt && S.use(used_amt))
-						var/obj/item/stack/NS = locate(S.merge_type) in components
-
-						if(!NS)
-							NS = new S.merge_type(src, used_amt)
-							components += NS
-						else
-							NS.add(used_amt)
-
-						reqs[I] -= used_amt
-						to_chat(user, "<span class='notice'>Добавляю [P.name] к [src.name].</span>")
-					return
-				if(!user.transferItemToLoc(P, src))
-					break
-				to_chat(user, "<span class='notice'>Добавляю [P.name] к [src.name].</span>")
-				components += P
-				reqs[I]--
-				return TRUE
-		to_chat(user, "<span class='warning'>Это сюда не помещается!</span>")
-		return FALSE
-	else
-		return ..()
 
 /obj/item/blacksmith/partial/Initialize()
 	. = ..()
 	force = 1
-	update_namelist()
 
 /obj/item/blacksmith/partial/zwei
 	name = "лезвие цвая"
 	real_force = 40
 	icon_state = "zwei_part"
-	result = /obj/item/blacksmith/zwei
-	reqs = list(/obj/item/stack/sheet/mineral/wood = 3, /obj/item/stack/sheet/leather = 2)
 
 /obj/item/blacksmith/partial/katanus
 	name = "лезвие катануса"
 	real_force = 16
 	icon_state = "katanus_part"
-	result = /obj/item/blacksmith/katanus
-	reqs = list(/obj/item/stack/sheet/mineral/wood = 3, /obj/item/stack/sheet/leather = 2)
 
 /obj/item/blacksmith/partial/cep
 	name = "шар с цепью"
 	real_force = 20
 	icon_state = "cep_part"
-	result = /obj/item/blacksmith/cep
-	reqs = list(/obj/item/stack/sheet/mineral/wood = 2)
+
 /obj/item/blacksmith/partial/dwarfsord
 	name = "лезвие прямого меча"
 	real_force = 16
 	icon_state = "dwarfsord_part"
-	result = /obj/item/blacksmith/dwarfsord
-	reqs = list(/obj/item/stack/sheet/mineral/wood = 2, /obj/item/stack/sheet/leather = 1)
 
 /obj/structure/dwarf_altar
 	name = "Алтарь"
@@ -1152,8 +1055,8 @@
 	var/active
 	var/resources = 0
 	var/resources_max = 350
-	var/list/allowed_resources = list(/obj/item/blacksmith/ingot/gold)
-	var/list/resource_values = list(/obj/item/blacksmith/ingot/gold=50)
+	var/list/allowed_resources = list(/obj/item/blacksmith/ingot/gold, /obj/item/diamond)
+	var/list/resource_values = list(/obj/item/blacksmith/ingot/gold=25, /obj/item/diamond=50)
 
 /obj/structure/dwarf_altar/Initialize()
 	. = ..()
@@ -1210,7 +1113,7 @@
 	else
 		..()
 
-obj/structure/dwarf_altar/attack_hand(mob/user)
+/obj/structure/dwarf_altar/attack_hand(mob/user)
 	. = ..()
 	if(ishuman(user) && !isdwarf(user))
 		if(!active)
@@ -1224,10 +1127,7 @@ obj/structure/dwarf_altar/attack_hand(mob/user)
 			to_chat(M, "<span class='warning'>Не повезло!</span>")
 			return FALSE
 		M.set_species(/datum/species/dwarf)
-		for(var/obj/item/W in M)
-			if(!M.dropItemToGround(W))
-				qdel(W)
-				M.regenerate_icons()
+		M.unequip_everything()
 		M.equipOutfit(/datum/outfit/dwarf)
 		to_chat(M, "<span class='notice'>Становлюсь дворфом.</span>")
 		deactivate()
@@ -1254,3 +1154,160 @@ obj/structure/dwarf_altar/attack_hand(mob/user)
 	custom_materials = list(/datum/material/iron = 10000)
 
 
+/obj/item/diamond
+	name = "алмаз"
+	desc = "Крутой"
+	w_class = WEIGHT_CLASS_TINY
+	icon = 'white/valtos/icons/dwarfs/objects.dmi'
+	icon_state = "diamond"
+
+/obj/item/stack/ore/diamond/attackby(obj/item/I, mob/living/user, params)
+	. = ..()
+	if(istype(I, /obj/item/blacksmith/chisel))
+		to_chat(user, "<span class='notice'>Обрабатываю [I].</span>")
+		new /obj/item/diamond(loc)
+		amount-=1
+		if(amount<1)
+			qdel(src)
+
+/obj/structure/workbench
+	name = "верстак"
+	icon = 'white/valtos/icons/dwarfs/workbench.dmi'
+	icon_state = "workbench"
+	density = TRUE
+	anchored = TRUE
+	layer = TABLE_LAYER
+	var/list/inventory = list()
+	var/datum/workbench_recipe/recipe
+	var/ready = FALSE
+	var/busy = FALSE
+
+/obj/structure/workbench/Initialize()
+	. = ..()
+	var/turf/T = locate(x+1,y,z)
+	T.density = TRUE
+
+/obj/structure/workbench/Destroy()
+	var/turf/T = locate(x+1,y,z)
+	if(istype(T, /turf/open))
+		T.density = FALSE
+	..()
+
+/obj/structure/workbench/attack_hand(mob/user)
+	. = ..()
+	if(busy)
+		to_chat(user, "<span class='notice'>Сейчас занято.</span>")
+		return
+	if(recipe && inventory.len && !ready)
+		var/answer = tgui_alert(user, "Отменить нынешнюю сборку?", "Верстак", list("Да", "Нет"))
+		if(answer == "Нет" || !answer)
+			return
+		for(var/I in inventory)
+			var/atom/movable/M = I
+			M.forceMove(drop_location())
+		qdel(recipe)
+		recipe = null
+		inventory.Cut()
+		to_chat(user, "<span class='notice'>Отменяю сборку [recipe].</span>")
+		return
+	if(ready)
+		busy = TRUE
+		if(!do_after(user, 4 SECONDS, target = src))
+			busy = FALSE
+			return
+		busy = FALSE
+		playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
+		var/obj/O = new recipe.result(loc)
+		if(istype(get_primary(), /obj/item/blacksmith/partial))
+			var/obj/item/blacksmith/partial/P = get_primary()
+			O.force = P.real_force
+			O.name = "[P.grade][O.name][P.grade]"
+		to_chat(user, "<span class='notice'>Собираю [O].</span>")
+		qdel(recipe)
+		inventory.Cut()
+		recipe = null
+		ready = FALSE
+		return
+	var/list/recipes = list()
+	var/list/recipe_names = list()
+	for(var/t in typesof(/datum/workbench_recipe))
+		var/datum/workbench_recipe/r = new t
+		if(isstrictlytype(r, /datum/workbench_recipe))
+			continue
+		recipes[r.name] = r
+		recipe_names+=r.name
+	var/answer = tgui_input_list(user, "Что собираем?", "Верстак", recipe_names)
+	if(!answer)
+		return
+	recipe = recipes[answer]
+	to_chat(user, "<span class='notice'>Выбираю [recipe.name] для сборки.</span>")
+
+/obj/structure/workbench/examine(mob/user)
+	. = ..()
+	if(recipe)
+		.+="<hr>Собирается [recipe.name]."
+		var/text = "Требуется"
+		for(var/S in recipe.reqs)
+			var/obj/item/stack/I = new S()
+			var/r = recipe.reqs[I.type] - amount(I)
+			var/govno = r ? "[r]":""
+			if(r)
+				text+="<br>[I.name]: [govno]"
+			qdel(I)
+		if(text!="Требуется")
+			.+="<hr>[text]"
+		else
+			.+="<hr>[recipe.name] готов к сборке."
+	else
+		.+="<hr>Верстак пустой!"
+
+/obj/structure/workbench/proc/amount(obj/item/I)
+	. = 0
+	for(var/obj/O in inventory)
+		if(istype(O, I.type))
+			.+=1
+
+/obj/structure/workbench/proc/is_required(obj/item/I)
+	. = FALSE
+	for(var/O in recipe.reqs)
+		var/obj/item/R = new O()
+		if(istype(I, R.type))
+			. = TRUE
+		qdel(R)
+
+/obj/structure/workbench/proc/get_primary()
+	. = null
+	for(var/obj/I in inventory)
+		if(istype(I, recipe.primary))
+			. = I
+
+/obj/structure/workbench/proc/check_ready()
+	var/r = TRUE
+	for(var/S in recipe.reqs)
+		var/obj/item/It = new S
+		if((recipe.reqs[It.type] - amount(It)) > 0)
+			r = FALSE
+			break
+	ready = r
+	return r
+
+/obj/structure/workbench/attacked_by(obj/item/I, mob/living/user)
+	if(!recipe)
+		..()
+		return
+	if(is_required(I))
+		if((recipe.reqs[I.type]-amount(I))>0)
+			if(istype(I, /obj/item/stack))
+				var/obj/item/stack/S = I
+				I = new S.type()
+				S.amount-=1
+				if(S.amount<1)
+					qdel(S)
+			user.transferItemToLoc(I, src)
+			inventory+=I
+			visible_message("<span class='notice'>[user] кладет [I] на [src].</span>","<span class='notice'>Кладу [I] на [src].</span>")
+			check_ready()
+		else
+			to_chat(user, "<span class='notice'>В [src] больше не влазит.</span>")
+	else
+		..()

@@ -156,7 +156,9 @@
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "lZ" = (
-/obj/anvil/fullsteel,
+/obj/anvil/fullsteel{
+	anchored = 1
+	},
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "md" = (
@@ -320,6 +322,21 @@
 /obj/machinery/biogenerator,
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dwarf)
+"IO" = (
+/obj/machinery/torch_fixture{
+	dir = 1;
+	on = 1;
+	pixel_y = 32
+	},
+/obj/structure/workbench,
+/turf/open/floor/grass/gensgrass/dirty/stone,
+/area/awaymission/vietnam/dwarf)
+"JF" = (
+/obj/structure/table/stone,
+/obj/item/cultivator/rake,
+/obj/item/shovel/spade/wzzz,
+/turf/open/floor/grass/gensgrass/dirty/stone/raw,
+/area/awaymission/vietnam/dwarf)
 "Kc" = (
 /obj/effect/flora_spawner,
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
@@ -361,6 +378,11 @@
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium/red,
+/area/awaymission/vietnam/dwarf)
+"Ny" = (
+/mob/living/simple_animal/hostile/retaliate/frog,
+/obj/item/soapstone,
+/turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "PL" = (
 /obj/machinery/torch_fixture{
@@ -416,6 +438,9 @@
 	dir = 4
 	},
 /turf/open/floor/grass/gensgrass/dirty/stone,
+/area/awaymission/vietnam/dwarf)
+"Ub" = (
+/turf/open/space/basic,
 /area/awaymission/vietnam/dwarf)
 "Ur" = (
 /obj/structure/stone_tile/cracked,
@@ -12655,9 +12680,9 @@ MB
 MB
 vK
 vx
-lH
-lH
-lH
+lq
+lq
+lq
 MV
 vK
 MB
@@ -13906,8 +13931,8 @@ MB
 MB
 MB
 MB
-MB
-MB
+vK
+vK
 vK
 DC
 DC
@@ -14158,8 +14183,8 @@ MB
 MB
 MB
 MB
-MB
-MB
+vK
+Ny
 vK
 aX
 DC
@@ -14410,8 +14435,8 @@ MB
 MB
 MB
 MB
-MB
-MB
+vK
+vK
 vK
 DC
 DC
@@ -15186,7 +15211,7 @@ lq
 ha
 ha
 vK
-oI
+JF
 lq
 ha
 ha
@@ -16452,9 +16477,9 @@ MB
 MB
 MB
 MB
-MB
 vK
-vx
+IO
+lq
 lq
 vK
 MB
@@ -16704,8 +16729,8 @@ MB
 MB
 MB
 MB
-MB
 vK
+lq
 lq
 oN
 vK
@@ -16956,7 +16981,7 @@ MB
 MB
 MB
 MB
-MB
+vK
 vK
 rv
 vK
@@ -18221,7 +18246,7 @@ MB
 MB
 MB
 MB
-MB
+Ub
 MB
 MB
 MB
