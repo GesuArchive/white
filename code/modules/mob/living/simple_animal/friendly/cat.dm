@@ -107,6 +107,14 @@
 	mob_size = MOB_SIZE_SMALL
 	collar_type = "kitten"
 
+/mob/living/simple_animal/pet/cat/kitten/Initialize()
+	. = ..()
+	addtimer(CALLBACK(src, .proc/grow), 2.5 MINUTES)
+
+/mob/living/simple_animal/pet/cat/kitten/proc/grow()
+	new animal_species(loc)
+	qdel(src)
+
 //RUNTIME IS ALIVE! SQUEEEEEEEE~
 /mob/living/simple_animal/pet/cat/runtime
 	name = "Runtime"
