@@ -1,3 +1,5 @@
+GLOBAL_LIST_EMPTY(dwarf_crowns)
+
 /obj/item/blacksmith
 	name = "штука"
 	icon = 'white/valtos/icons/objects.dmi'
@@ -526,6 +528,10 @@
 	actions_types = list(/datum/action/item_action/send_message_action)
 	var/mob/assigned_count = null
 
+/obj/item/clothing/head/helmet/dwarf_crown/Initialize()
+	. = ..()
+	GLOB.dwarf_crowns+=src
+
 /datum/action/item_action/send_message_action
 	name = "Отправить сообщение подданым"
 
@@ -537,6 +543,19 @@
 
 /obj/item/clothing/head/helmet/dwarf_crown/attack_self(mob/user)
 	. = ..()
+	var/busy = FALSE
+	var/mob/king
+	for(var/obj/item/clothing/head/helmet/dwarf_crown/C in GLOB.dwarf_crowns)
+		if(C.assigned_count && C.assigned_count?.stat != DEAD)
+			busy = TRUE
+			king = C.assigned_count
+	if(busy && assigned_count != user)
+		if(user != king)
+			to_chat(user, "<span class='warning'>У МЕНЯ ЗДЕСЬ НЕТ ВЛАСТИ!</span>")
+		else
+			to_chat(user, "<span class='warning'>У МЕНЯ УЖЕ ЕСТЬ ВЛАСТЬ!</span>")
+		return
+
 	if(is_species(user, /datum/species/dwarf) && (!assigned_count || assigned_count?.stat == DEAD))
 		assigned_count = user
 		send_message(user, "Волей Армока <b>[user]</b> был выбран как наш новый Лидер Экспедиции! Ура!")
