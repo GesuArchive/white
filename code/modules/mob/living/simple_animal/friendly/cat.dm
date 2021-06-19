@@ -50,10 +50,20 @@
 
 	footstep_type = FOOTSTEP_MOB_CLAW
 
+/mob/living/simple_animal/pet/cat/male
+/mob/living/simple_animal/pet/cat/male/Initialize()
+	..()
+	gender = MALE
+/mob/living/simple_animal/pet/cat/female
+/mob/living/simple_animal/pet/cat/female/Initialize()
+	..()
+	gender = FEMALE
+
 /mob/living/simple_animal/pet/cat/Initialize()
 	. = ..()
 	add_verb(src, /mob/living/proc/toggle_resting)
 	add_cell_sample()
+	gender = pick(FEMALE, MALE)
 
 /mob/living/simple_animal/pet/cat/add_cell_sample()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_CAT, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
