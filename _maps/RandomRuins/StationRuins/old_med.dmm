@@ -2998,6 +2998,7 @@
 	name = "Medbay RC";
 	pixel_x = -30
 	},
+/obj/machinery/chem_seller,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay)
 "Ek" = (
