@@ -435,6 +435,7 @@
 	inhand_icon_state = "chainmail"
 	armor = list("melee" = 15, "bullet" = 10, "laser" = 0, "energy" = 0, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0, "wound" = 30)
 	custom_materials = list(/datum/material/iron = 10000)
+	species_exception = list(/datum/species/dwarf)
 
 /obj/item/clothing/head/helmet/plate_helmet
 	name = "железный шлем"
