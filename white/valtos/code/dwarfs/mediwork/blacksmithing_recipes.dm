@@ -146,7 +146,7 @@
 	reqs = list(/obj/item/gem/cut/saphire = 3, /obj/item/blacksmith/partial/crown_empty = 1)
 	primary = /obj/item/blacksmith/partial/crown_empty
 
-/datum/workbench_recipe/crown
+/datum/workbench_recipe/scepter
 	name = "Скипетр власти"
 	result = /obj/item/blacksmith/scepter
 	reqs = list(/obj/item/gem/cut/ruby = 1, /obj/item/blacksmith/partial/scepter_part = 1, /obj/item/scepter_shaft = 1)
