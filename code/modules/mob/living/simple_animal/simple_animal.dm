@@ -531,12 +531,11 @@
 		if(M.stat != CONSCIOUS) //Check if it's conscious FIRST.
 			continue
 		var/is_child = is_type_in_list(M, childtype)
-		var/is_same_species = isstrictlytype(M, animal_species)
+		var/is_same_species = istype(M, animal_species)
 		if(is_child) //Check for children SECOND.
 			children++
-		if(is_same_species)
+		else if(is_same_species)
 			friends++
-		else if(istype(M, animal_species))
 			if(M.ckey)
 				continue
 			else if(!is_child && M.gender == MALE && !(M.flags_1 & HOLOGRAM_1)) //Better safe than sorry ;_;
@@ -544,8 +543,7 @@
 
 		else if(isliving(M) && !faction_check_mob(M)) //shyness check. we're not shy in front of things that share a faction with us.
 			return //we never mate when not alone, so just abort early
-
-	if(alone && partner && children < 3 && friends < 15)
+	if(alone && partner && (children < 3) && (friends < 15))
 		var/childspawn = pickweight(childtype)
 		var/turf/target = get_turf(loc)
 		if(target)
