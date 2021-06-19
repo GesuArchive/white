@@ -122,9 +122,7 @@
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "kJ" = (
-/mob/living/simple_animal/pet/cat{
-	gender = "female"
-	},
+/mob/living/simple_animal/pet/cat/female,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "kL" = (
@@ -281,9 +279,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/vietnam/dwarf)
 "Bg" = (
-/mob/living/simple_animal/pet/cat{
-	gender = "male"
-	},
+/mob/living/simple_animal/pet/cat/male,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "Cw" = (

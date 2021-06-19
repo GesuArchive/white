@@ -511,10 +511,9 @@
 	if(locked_door)
 		return FALSE
 	. = ..()
-
 /obj/item/clothing/head/helmet/dwarf_crown
-	name = "золотая корона"
-	desc = "Материал указывает на то, что её носитель имеет какой-то важный статус."
+	name = "Королевская корона"
+	desc = "Достойна настоящего короля. Или не настоящего. Я за него не голосовал."
 	worn_icon = 'white/valtos/icons/clothing/mob/hat.dmi'
 	icon = 'white/valtos/icons/clothing/hats.dmi'
 	icon_state = "dwarf_king"
@@ -1043,6 +1042,10 @@
 	name = "лезвие прямого меча"
 	real_force = 16
 	icon_state = "dwarfsord_part"
+
+/obj/item/blacksmith/partial/crown_empty
+	name = "Пустая корона"
+	icon_state = "crown_empty"
 
 /obj/structure/dwarf_altar
 	name = "Алтарь"

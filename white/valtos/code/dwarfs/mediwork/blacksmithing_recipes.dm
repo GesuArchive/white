@@ -101,9 +101,9 @@
 	metal_type_need = "none"
 
 /datum/smithing_recipe/crown
-	name = "Корона"
-	result = /obj/item/clothing/head/helmet/dwarf_crown
-	metal_type_need = "none"
+	name = "Пустая корона"
+	result = /obj/item/blacksmith/partial/crown_empty
+	metal_type_need = "gold"
 
 /datum/workbench_recipe
 	var/name = "workbench_recipe"
@@ -134,3 +134,9 @@
 	result = /obj/item/blacksmith/dwarfsord
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 2, /obj/item/stack/sheet/leather = 1, /obj/item/blacksmith/partial/dwarfsord=1)
 	primary = /obj/item/blacksmith/partial/dwarfsord
+
+/datum/workbench_recipe/crown
+	name = "Королевская корона"
+	result = /obj/item/clothing/head/helmet/dwarf_crown
+	reqs = list(/obj/item/gem/cut/saphire = 3, /obj/item/blacksmith/partial/crown_empty = 1)
+	primary = /obj/item/blacksmith/partial/crown_empty
