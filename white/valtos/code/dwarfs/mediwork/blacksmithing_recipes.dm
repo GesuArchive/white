@@ -117,25 +117,25 @@
 	var/obj/primary
 
 /datum/workbench_recipe/zwei
-	name = "цвай"
+	name = "Цвай"
 	result = /obj/item/blacksmith/zwei
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 3, /obj/item/stack/sheet/leather = 2, /obj/item/blacksmith/partial/zwei=1)
 	primary = /obj/item/blacksmith/partial/zwei
 
 /datum/workbench_recipe/katanus
-	name = "катанус"
+	name = "Катанус"
 	result = /obj/item/blacksmith/katanus
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 3, /obj/item/stack/sheet/leather = 2,/obj/item/blacksmith/partial/katanus=1)
 	primary = /obj/item/blacksmith/partial/katanus
 
 /datum/workbench_recipe/cep
-	name = "цеп"
+	name = "Цеп"
 	result = /obj/item/blacksmith/cep
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 2, /obj/item/blacksmith/partial/cep=1)
 	primary = /obj/item/blacksmith/partial/cep
 
 /datum/workbench_recipe/sword
-	name = "прямой меч"
+	name = "Прямой меч"
 	result = /obj/item/blacksmith/dwarfsord
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 2, /obj/item/stack/sheet/leather = 1, /obj/item/blacksmith/partial/dwarfsord=1)
 	primary = /obj/item/blacksmith/partial/dwarfsord
