@@ -532,6 +532,10 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 	. = ..()
 	GLOB.dwarf_crowns+=src
 
+/obj/item/clothing/head/helmet/dwarf_crown/Destroy()
+    . = ..()
+    GLOB.dwarf_crowns-=src
+
 /datum/action/item_action/send_message_action
 	name = "Отправить сообщение подданым"
 
@@ -569,7 +573,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 		to_chat(user, "<span class='warning'>У МЕНЯ ЗДЕСЬ НЕТ ВЛАСТИ!</span>")
 
 /obj/item/blacksmith/torch_handle
-	name = "скоба"
+	name = "Скоба"
 	desc = "Её можно установить на стену."
 	icon_state = "torch_handle"
 	w_class = WEIGHT_CLASS_SMALL
@@ -604,7 +608,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 	qdel(src)
 
 /obj/machinery/torch_fixture
-	name = "скоба"
+	name = "Скоба"
 	desc = "Держит факел. Да."
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "torch_handle_wall"
@@ -732,7 +736,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 #define SHPATEL_BUILD_CHAIR 5
 
 /obj/item/blacksmith/shpatel
-	name = "мастерок"
+	name = "Мастерок"
 	desc = "Передовое устройство для строительства большинства объектов."
 	icon_state = "shpatel"
 	w_class = WEIGHT_CLASS_SMALL
@@ -1172,7 +1176,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 		deactivate()
 
 /obj/item/blacksmith/dwarfsord
-	name = "Прямой меч"
+	name = "прямой меч"
 	desc = "Точно не гейский"
 	icon_state = "dwarfsord"
 	inhand_icon_state = "dwarfsord"
@@ -1211,6 +1215,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 
 /obj/item/gem/diamond
 	name = "необработанный алмаз"
+	desc = "Алмаз. Необработанный"
 	icon_state = "diamond_uncut"
 	cut_type = /obj/item/gem/cut/diamond
 	scan_state = "diamond"
@@ -1218,20 +1223,24 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 
 /obj/item/gem/cut/diamond
 	name = "алмаз"
+	desc = "Алмаз"
 	icon_state = "diamond"
 
 /obj/item/gem/ruby
 	name = "необработанный рубин"
+	desc = "По нему видно что в таком виде не годится даже на палку"
 	icon_state = "ruby_uncut"
 	cut_type = /obj/item/gem/cut/ruby
 	scan_state = "ruby"
 
 /obj/item/gem/cut/ruby
 	name = "рубин"
+	desc = "Так и просит ебани меня на палку братан"
 	icon_state = "ruby"
 
 /obj/item/gem/saphire
 	name = "необработанный сапфир"
+	desc = "Такой камень не подошел бы королю"
 	icon_state = "saphire_uncut"
 	cut_type = /obj/item/gem/cut/saphire
 	scan_state = "saphire"
@@ -1239,10 +1248,11 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 /obj/item/gem/cut/saphire
 	name = "сапфир"
 	icon_state = "saphire"
+	desc = "Такой камень подошел бы королю."
 
 /obj/structure/gemcutter
-	name = "точильня гемов"
-	desc = "крутится"
+	name = "стол ювелира"
+	desc = "У дворфов нет имени Александр в списке имен"
 	icon = 'white/valtos/icons/dwarfs/objects.dmi'
 	icon_state = "gemcutter_off"
 	anchored = TRUE
@@ -1272,6 +1282,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 
 /obj/structure/workbench
 	name = "верстак"
+	desc = "Почти майнкрафт"
 	icon = 'white/valtos/icons/dwarfs/workbench.dmi'
 	icon_state = "workbench"
 	density = TRUE
