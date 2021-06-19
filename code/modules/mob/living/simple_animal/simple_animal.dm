@@ -543,7 +543,7 @@
 
 		else if(isliving(M) && !faction_check_mob(M)) //shyness check. we're not shy in front of things that share a faction with us.
 			return //we never mate when not alone, so just abort early
-	if(alone && partner && (children < 3) && (friends < 15))
+	if(alone && partner && (children < 3) && (friends < 8))
 		var/childspawn = pickweight(childtype)
 		var/turf/target = get_turf(loc)
 		if(target)
