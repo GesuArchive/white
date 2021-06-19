@@ -19,7 +19,6 @@
 /area/awaymission/vietnam/dwarf)
 "dG" = (
 /obj/structure/table/stone,
-/obj/item/clothing/head/helmet/dwarf_crown,
 /obj/item/flashlight/lantern,
 /turf/open/floor/carpet/green,
 /area/awaymission/vietnam/dwarf)
@@ -164,10 +163,8 @@
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "mn" = (
-/obj/structure/gemcutter{
-	dir = 1
-	},
-/turf/open/floor/grass/gensgrass/dirty/stone,
+/obj/item/flashlight/lantern,
+/turf/closed/wall/stonewall,
 /area/awaymission/vietnam/dwarf)
 "nC" = (
 /obj/structure/table/stone,
@@ -202,6 +199,7 @@
 /obj/structure/table/stone,
 /obj/item/blacksmith/smithing_hammer,
 /obj/item/blacksmith/tongs,
+/obj/item/flashlight/lantern,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "sf" = (
@@ -297,9 +295,7 @@
 /turf/open/floor/carpet/black,
 /area/awaymission/vietnam/dwarf)
 "DI" = (
-/obj/structure/table/stone,
-/obj/item/blacksmith/ingot,
-/obj/item/flashlight/lantern,
+/obj/structure/gemcutter,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "EC" = (
@@ -13698,7 +13694,7 @@ MB
 MB
 vK
 MB
-vK
+mn
 MB
 lq
 vK
@@ -14967,9 +14963,9 @@ vK
 vK
 lq
 Mu
-mn
+lq
 vK
-MB
+vK
 MB
 MB
 MB
@@ -15219,9 +15215,9 @@ vK
 lZ
 lq
 lq
+lq
 nH
 vK
-MB
 MB
 MB
 MB
@@ -15472,8 +15468,8 @@ md
 lq
 lq
 lq
+lq
 vK
-MB
 MB
 MB
 MB
@@ -15724,8 +15720,8 @@ DI
 lq
 lq
 lq
+lq
 vK
-MB
 MB
 MB
 MB
@@ -15977,7 +15973,7 @@ Cw
 nC
 lq
 vK
-MB
+vK
 MB
 MB
 MB

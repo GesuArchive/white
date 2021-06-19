@@ -230,7 +230,7 @@
 		if(prob(25))
 			to_chat(user, "<span class='warning'>Обрабатываю камень.</span>")
 			return
-		new /obj/item/stack/sheet/stone(drop_location())
+		new /obj/item/stack/sheet/stone(user.loc)
 		to_chat(user, "<span class='notice'>Обрабатываю камень.</span>")
 		qdel(src)
 		return
@@ -293,7 +293,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
-	block_chance = 5
+	block_chance = 20
 	sharpness = SHARP_EDGED
 	max_integrity = 150
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
@@ -309,7 +309,7 @@
 	. = ..()
 	if(!proximity)
 		return
-	user.changeNext_move(5 SECONDS)
+	user.changeNext_move(3 SECONDS)
 
 /obj/item/blacksmith/cep
 	name = "цеп"
@@ -381,6 +381,7 @@
 	inhand_icon_state = "heavy_plate"
 	worn_icon = 'white/valtos/icons/clothing/mob/suit.dmi'
 	icon = 'white/valtos/icons/clothing/suits.dmi'
+	flags_inv = HIDEJUMPSUIT
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 50, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 20, "wound" = 50)
 	custom_materials = list(/datum/material/iron = 10000)
 	var/footstep = 1
@@ -441,7 +442,8 @@
 	worn_icon = 'white/valtos/icons/clothing/mob/hat.dmi'
 	icon = 'white/valtos/icons/clothing/hats.dmi'
 	icon_state = "plate_helmet"
-	flags_inv = HIDEMASK|HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5, "wound" = 50)
 	custom_materials = list(/datum/material/iron = 10000)
 
@@ -537,8 +539,6 @@
 	if(is_species(user, /datum/species/dwarf) && (!assigned_count || assigned_count?.stat == DEAD))
 		assigned_count = user
 		send_message(user, "Волей Армока <b>[user]</b> был выбран как наш новый Лидер Экспедиции! Ура!")
-		var/obj/item/SC = new /obj/item/blacksmith/scepter(get_turf(src))
-		user.put_in_hands(SC)
 	if(assigned_count == user)
 		var/msg = stripped_input(user, "Что же мы скажем?", "Сообщение:")
 		if(!msg)
@@ -1046,6 +1046,14 @@
 /obj/item/blacksmith/partial/crown_empty
 	name = "Пустая корона"
 	icon_state = "crown_empty"
+
+/obj/item/blacksmith/partial/scepter_part
+	name = "части скипетра"
+	icon_state = "scepter_part"
+
+/obj/item/scepter_shaft
+	name = "рукоять скипетра"
+	icon_state = "scepter_shaft"
 
 /obj/structure/dwarf_altar
 	name = "Алтарь"
