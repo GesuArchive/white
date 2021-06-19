@@ -11,8 +11,6 @@
 	damage = 60
 
 /obj/projectile/bullet/a50ae/on_hit(atom/target)
-	. = ..()
-	var/obj/item/gun/ballistic/automatic/pistol/deagle/G = fired_from
 	if(iscarbon(target))
 		var/mob/living/carbon/C = target
 		if((istype(C.head, /obj/item/clothing/head/helmet)) && (def_zone == BODY_ZONE_HEAD))
@@ -20,10 +18,11 @@
 			playsound(get_turf(src), 'white/rebolution228/sounds/cs_helmethit.ogg', 100, 1, 0)
 			damage = 10 	
 		else if(def_zone == BODY_ZONE_HEAD)
-			var/obj/item/bodypart/head/H = C.get_bodypart(BODY_ZONE_HEAD)
-			H.forceMove(G)
 			damage = 130
-			playsound(G,'white/hule/SFX/csSFX/headshot.wav', 70, 5, pressure_affected = FALSE)
+			playsound(fired_from,'white/hule/SFX/csSFX/headshot.wav', 70, 5, pressure_affected = FALSE)
+	. = ..()
+
+		
 
 // .38 (Detective's Gun)
 
