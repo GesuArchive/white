@@ -19,6 +19,7 @@
 /datum/smithing_recipe/dwarfsord
 	name = "\[Заготовка\] Лезвие прямого меча"
 	result = /obj/item/blacksmith/partial/dwarfsord
+
 /datum/smithing_recipe/dagger
 	name = "Кинжал"
 	result = /obj/item/blacksmith/dagger
@@ -100,6 +101,53 @@
 	metal_type_need = "none"
 
 /datum/smithing_recipe/crown
-	name = "Корона"
+	name = "Пустая корона"
+	result = /obj/item/blacksmith/partial/crown_empty
+	metal_type_need = "gold"
+
+/datum/smithing_recipe/scepter
+	name = "Части скипетра"
+	result = /obj/item/blacksmith/partial/scepter_part
+	metal_type_need = "gold"
+
+/datum/workbench_recipe
+	var/name = "workbench_recipe"
+	var/result
+	var/list/reqs
+	var/obj/primary
+
+/datum/workbench_recipe/zwei
+	name = "цвай"
+	result = /obj/item/blacksmith/zwei
+	reqs = list(/obj/item/stack/sheet/mineral/wood = 3, /obj/item/stack/sheet/leather = 2, /obj/item/blacksmith/partial/zwei=1)
+	primary = /obj/item/blacksmith/partial/zwei
+
+/datum/workbench_recipe/katanus
+	name = "катанус"
+	result = /obj/item/blacksmith/katanus
+	reqs = list(/obj/item/stack/sheet/mineral/wood = 3, /obj/item/stack/sheet/leather = 2,/obj/item/blacksmith/partial/katanus=1)
+	primary = /obj/item/blacksmith/partial/katanus
+
+/datum/workbench_recipe/cep
+	name = "цеп"
+	result = /obj/item/blacksmith/cep
+	reqs = list(/obj/item/stack/sheet/mineral/wood = 2, /obj/item/blacksmith/partial/cep=1)
+	primary = /obj/item/blacksmith/partial/cep
+
+/datum/workbench_recipe/sword
+	name = "прямой меч"
+	result = /obj/item/blacksmith/dwarfsord
+	reqs = list(/obj/item/stack/sheet/mineral/wood = 2, /obj/item/stack/sheet/leather = 1, /obj/item/blacksmith/partial/dwarfsord=1)
+	primary = /obj/item/blacksmith/partial/dwarfsord
+
+/datum/workbench_recipe/crown
+	name = "Королевская корона"
 	result = /obj/item/clothing/head/helmet/dwarf_crown
-	metal_type_need = "none"
+	reqs = list(/obj/item/gem/cut/saphire = 3, /obj/item/blacksmith/partial/crown_empty = 1)
+	primary = /obj/item/blacksmith/partial/crown_empty
+
+/datum/workbench_recipe/crown
+	name = "Скипетр власти"
+	result = /obj/item/blacksmith/scepter
+	reqs = list(/obj/item/gem/cut/ruby = 1, /obj/item/blacksmith/partial/scepter_part = 1, /obj/item/scepter_shaft = 1)
+	primary = /obj/item/blacksmith/partial/scepter_part

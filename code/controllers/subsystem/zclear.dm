@@ -1,5 +1,5 @@
-#define CLEAR_TURF_PROCESSING_TIME (120 SECONDS)	//Time it takes to clear all turfs
-#define CHECK_ZLEVEL_TICKS (5 SECONDS)			//Every 5 seconds check if a tracked z-level is free.
+#define CLEAR_TURF_PROCESSING_TIME (240 SECONDS)	//Time it takes to clear all turfs
+#define CHECK_ZLEVEL_TICKS (10 SECONDS)			//Every 10 seconds check if a tracked z-level is free.
 
 GLOBAL_LIST_EMPTY(zclear_atoms)
 

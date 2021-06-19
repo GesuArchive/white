@@ -221,7 +221,7 @@
 	qdel(offering)
 	return TRUE
 
-#define GREEDY_HEAL_COST 50
+#define GREEDY_HEAL_COST 5
 
 /datum/religion_sect/greed
 	name = "Greedy God"

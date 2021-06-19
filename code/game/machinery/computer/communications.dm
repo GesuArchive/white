@@ -254,12 +254,12 @@
 			if (!COOLDOWN_FINISHED(src, important_action_cooldown))
 				return
 			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
-			if (bank_account.account_balance < 5000)
-				to_chat(usr, "<span class='alert'>Недостаточно средств для вызова отряда. Требуется 5000 кредитов на счету снабжения.</span>")
+			if (bank_account.account_balance < 250)
+				to_chat(usr, "<span class='alert'>Недостаточно средств для вызова отряда. Требуется 250 кредитов на счету снабжения.</span>")
 				return
 			var/input = trim(html_encode(params["reason"]), MAX_MESSAGE_LEN)
-			bank_account.adjust_money(-5000)
-			to_chat(usr, "<span class='notice'>Запрос отправлен. Со счёта карго было списано 5000 кредитов.</span>")
+			bank_account.adjust_money(-250)
+			to_chat(usr, "<span class='notice'>Запрос отправлен. Со счёта карго было списано 250 кредитов.</span>")
 			usr.log_message("has requested SOBR team from CentCom with reason \"[input]\"", LOG_SAY)
 			priority_announce("Отряд СОБРа был вызван [usr].", "Экстренный запрос",'sound/ai/announcer/alert.ogg')
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
@@ -271,12 +271,12 @@
 			if (!COOLDOWN_FINISHED(src, important_action_cooldown))
 				return
 			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
-			if (bank_account.account_balance < 7500)
-				to_chat(usr, "<span class='alert'>Недостаточно средств для вызова клининговой службы. Требуется 7500 кредитов на счету снабжения.</span>")
+			if (bank_account.account_balance < 500)
+				to_chat(usr, "<span class='alert'>Недостаточно средств для вызова клининговой службы. Требуется 500 кредитов на счету снабжения.</span>")
 				return
 			var/input = trim(html_encode(params["reason"]), MAX_MESSAGE_LEN)
-			bank_account.adjust_money(-7500)
-			to_chat(usr, "<span class='notice'>Запрос отправлен. Со счёта карго было списано 7500 кредитов.</span>")
+			bank_account.adjust_money(-500)
+			to_chat(usr, "<span class='notice'>Запрос отправлен. Со счёта карго было списано 500 кредитов.</span>")
 			usr.log_message("has requested the janitor team from CentCom with reason \"[input]\"", LOG_SAY)
 			priority_announce("Отряд уборщиков был вызван [usr].", "Экстренный запрос",'sound/ai/announcer/alert.ogg')//А надо ли оно?
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
@@ -288,12 +288,12 @@
 			if (!COOLDOWN_FINISHED(src, important_action_cooldown))
 				return
 			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
-			if (bank_account.account_balance < 10000)
-				to_chat(usr, "<span class='alert'>Недостаточно средств для вызова ремонтной бригады. Требуется 10000 кредитов на счету снабжения.</span>")
+			if (bank_account.account_balance < 750)
+				to_chat(usr, "<span class='alert'>Недостаточно средств для вызова ремонтной бригады. Требуется 750 кредитов на счету снабжения.</span>")
 				return
 			var/input = trim(html_encode(params["reason"]), MAX_MESSAGE_LEN)
-			bank_account.adjust_money(-10000)
-			to_chat(usr, "<span class='notice'>Запрос отправлен. Со счёта карго было списано 10000 кредитов.</span>")
+			bank_account.adjust_money(-750)
+			to_chat(usr, "<span class='notice'>Запрос отправлен. Со счёта карго было списано 750 кредитов.</span>")
 			usr.log_message("has requested the engineer team from CentCom with reason \"[input]\"", LOG_SAY)
 			priority_announce("[prob(15) ? "Экстренный отряд таджиков был вызван ":"Ремонтная бригада была вызвана "][usr].", "Экстренный запрос",'sound/ai/announcer/alert.ogg')//tajik = funny
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)

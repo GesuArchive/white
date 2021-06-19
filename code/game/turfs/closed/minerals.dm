@@ -48,6 +48,10 @@
 		var/obj/item/stack/ore/the_ore = ore_type
 		scan_state = initial(the_ore.scan_state) // I SAID. SWITCH. TO. IT.
 		mineralType = ore_type // Everything else assumes that this is typed correctly so don't set it to non-ores thanks.
+	if(ispath(ore_type, /obj/item/gem))
+		var/obj/item/gem/G = ore_type
+		scan_state = initial(G.scan_state)
+		mineralType = ore_type
 
 /turf/closed/mineral/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	if(turf_type)
@@ -81,8 +85,15 @@
 		return attack_hand(user)
 
 /turf/closed/mineral/proc/gets_drilled(user, give_exp = FALSE)
-	if (mineralType && (mineralAmt > 0))
+	if (mineralType && (mineralAmt > 0) && ispath(mineralType, /obj/item/stack))
 		new mineralType(src, mineralAmt)
+		SSblackbox.record_feedback("tally", "ore_mined", mineralAmt, mineralType)
+	if(mineralType && ispath(mineralType, /obj/item/gem))
+		var/obj/item/gem/G = new mineralType(src)
+		var/amount = rand(1, G.max_amount)-1
+		if(amount)
+			for(var/i in 1 to amount)
+				new mineralType(src)
 		SSblackbox.record_feedback("tally", "ore_mined", mineralAmt, mineralType)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user

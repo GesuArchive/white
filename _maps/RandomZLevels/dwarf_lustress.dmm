@@ -19,7 +19,6 @@
 /area/awaymission/vietnam/dwarf)
 "dG" = (
 /obj/structure/table/stone,
-/obj/item/clothing/head/helmet/dwarf_crown,
 /obj/item/flashlight/lantern,
 /turf/open/floor/carpet/green,
 /area/awaymission/vietnam/dwarf)
@@ -122,9 +121,7 @@
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "kJ" = (
-/mob/living/simple_animal/pet/cat{
-	gender = "female"
-	},
+/mob/living/simple_animal/pet/cat/female,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "kL" = (
@@ -156,12 +153,18 @@
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "lZ" = (
-/obj/anvil/fullsteel,
+/obj/anvil/fullsteel{
+	anchored = 1
+	},
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "md" = (
 /obj/forge,
 /turf/open/floor/grass/gensgrass/dirty/stone,
+/area/awaymission/vietnam/dwarf)
+"mn" = (
+/obj/item/flashlight/lantern,
+/turf/closed/wall/stonewall,
 /area/awaymission/vietnam/dwarf)
 "nC" = (
 /obj/structure/table/stone,
@@ -196,6 +199,7 @@
 /obj/structure/table/stone,
 /obj/item/blacksmith/smithing_hammer,
 /obj/item/blacksmith/tongs,
+/obj/item/flashlight/lantern,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "sf" = (
@@ -273,9 +277,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/vietnam/dwarf)
 "Bg" = (
-/mob/living/simple_animal/pet/cat{
-	gender = "male"
-	},
+/mob/living/simple_animal/pet/cat/male,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "Cw" = (
@@ -293,9 +295,7 @@
 /turf/open/floor/carpet/black,
 /area/awaymission/vietnam/dwarf)
 "DI" = (
-/obj/structure/table/stone,
-/obj/item/blacksmith/ingot,
-/obj/item/flashlight/lantern,
+/obj/structure/gemcutter,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "EC" = (
@@ -318,6 +318,21 @@
 /area/awaymission/vietnam/dwarf)
 "HG" = (
 /obj/machinery/biogenerator,
+/turf/open/floor/grass/gensgrass/dirty/stone/raw,
+/area/awaymission/vietnam/dwarf)
+"IO" = (
+/obj/machinery/torch_fixture{
+	dir = 1;
+	on = 1;
+	pixel_y = 32
+	},
+/obj/structure/workbench,
+/turf/open/floor/grass/gensgrass/dirty/stone,
+/area/awaymission/vietnam/dwarf)
+"JF" = (
+/obj/structure/table/stone,
+/obj/item/cultivator/rake,
+/obj/item/shovel/spade/wzzz,
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dwarf)
 "Kc" = (
@@ -361,6 +376,11 @@
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium/red,
+/area/awaymission/vietnam/dwarf)
+"Ny" = (
+/mob/living/simple_animal/hostile/retaliate/frog,
+/obj/item/soapstone,
+/turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "PL" = (
 /obj/machinery/torch_fixture{
@@ -12655,9 +12675,9 @@ MB
 MB
 vK
 vx
-lH
-lH
-lH
+lq
+lq
+lq
 MV
 vK
 MB
@@ -13674,7 +13694,7 @@ MB
 MB
 vK
 MB
-vK
+mn
 MB
 lq
 vK
@@ -13906,8 +13926,8 @@ MB
 MB
 MB
 MB
-MB
-MB
+vK
+vK
 vK
 DC
 DC
@@ -14158,8 +14178,8 @@ MB
 MB
 MB
 MB
-MB
-MB
+vK
+Ny
 vK
 aX
 DC
@@ -14410,8 +14430,8 @@ MB
 MB
 MB
 MB
-MB
-MB
+vK
+vK
 vK
 DC
 DC
@@ -14945,7 +14965,7 @@ lq
 Mu
 lq
 vK
-MB
+vK
 MB
 MB
 MB
@@ -15186,7 +15206,7 @@ lq
 ha
 ha
 vK
-oI
+JF
 lq
 ha
 ha
@@ -15195,9 +15215,9 @@ vK
 lZ
 lq
 lq
+lq
 nH
 vK
-MB
 MB
 MB
 MB
@@ -15448,8 +15468,8 @@ md
 lq
 lq
 lq
+lq
 vK
-MB
 MB
 MB
 MB
@@ -15700,8 +15720,8 @@ DI
 lq
 lq
 lq
+lq
 vK
-MB
 MB
 MB
 MB
@@ -15953,7 +15973,7 @@ Cw
 nC
 lq
 vK
-MB
+vK
 MB
 MB
 MB
@@ -16452,9 +16472,9 @@ MB
 MB
 MB
 MB
-MB
 vK
-vx
+IO
+lq
 lq
 vK
 MB
@@ -16704,8 +16724,8 @@ MB
 MB
 MB
 MB
-MB
 vK
+lq
 lq
 oN
 vK
@@ -16956,7 +16976,7 @@ MB
 MB
 MB
 MB
-MB
+vK
 vK
 rv
 vK
