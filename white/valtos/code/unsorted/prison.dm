@@ -529,6 +529,7 @@
 	name = "кровать"
 	icon = 'white/valtos/icons/prison/decor.dmi'
 	desc = "Тут можно отдохнуть, но не всегда."
+	buildstacktype = /obj/item/stack/sheet/stone
 	icon_state = "bed"
 
 /obj/structure/bed/prison/bed/Initialize()

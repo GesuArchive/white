@@ -314,7 +314,7 @@
 /turf/closed/mineral/random/dwarf_lustress/gets_drilled(user, give_exp = FALSE)
 	. = ..()
 
-	if(prob(1))
+	if(prob(0.5))
 		to_chat(user, "<span class='userdanger'>КАМЕНЬ ОКАЗАЛСЯ УДИВИТЕЛЬНО МЯГКИМ!</span>")
 		new /mob/living/simple_animal/hostile/troll(src)
 
