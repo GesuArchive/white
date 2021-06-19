@@ -66,10 +66,10 @@
 #define MAX_ATOM_OVERLAYS 100
 
 #define EXTOOLS world.GetConfig("env", "EXTOOLS_DLL") || (world.system_type == MS_WINDOWS ? "./byond-extools.dll" : "./libbyond-extools.so")
-
+/*
 /proc/auxtools_stack_trace(msg)
 	CRASH(msg)
-
+*/
 /proc/enable_debugging(mode, port)
 	CRASH("auxtools not loaded")
 
