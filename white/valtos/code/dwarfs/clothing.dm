@@ -13,3 +13,4 @@
 	icon = 'white/valtos/icons/clothing/uniforms.dmi'
 	icon_state = "dwarf"
 	species_exception = list(/datum/species/dwarf)
+	has_sensor = NO_SENSORS
