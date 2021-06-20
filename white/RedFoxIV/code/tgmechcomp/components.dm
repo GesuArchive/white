@@ -346,17 +346,18 @@
 		return
 	var/thrown_AM = 0
 	var/list/thrown_mobs = list()
-	for(var/obj/AM in range(0, src))
-		if(AM.anchored || AM == src)
-			continue
-		var/throwtarget = get_edge_target_turf(AM, src.dir)
-		AM.safe_throw_at(throwtarget, power, 1, force = MOVE_FORCE_STRONG, spin = TRUE)
-		if(isliving(AM))
-			var/mob/living/L = AM
-			thrown_mobs.Add("[L.ckey ? "[L.ckey] as " : ""][L.name]")
-		thrown_AM++
+	for(var/atom/movable/AM in range(0, src))
+		if(isliving(AM) || istype(AM, /obj/item) || istype(AM, /obj/structure) || istype(AM, /obj/machinery))
+			if(AM.anchored || AM == src)
+				continue
+			var/throwtarget = get_edge_target_turf(AM, src.dir)
+			AM.safe_throw_at(throwtarget, power, 1, force = MOVE_FORCE_STRONG, spin = TRUE)
+			if(isliving(AM))
+				var/mob/living/L = AM
+				thrown_mobs.Add("[L.ckey ? "[L.ckey] as " : ""][L.name]")
+			thrown_AM++
 	activate_for((power + 2) SECONDS)
-	log_action("sent [thrown_AM] bojects flying[thrown_mobs.len ? ", including following mobs: [jointext(thrown_mobs, ", ")]" : ""]")
+	log_action("sent [thrown_AM] objects flying[thrown_mobs.len ? ", including following mobs: [jointext(thrown_mobs, ", ")]" : ""]")
 
 /obj/item/mechcomp/grav_accelerator/proc/setpowermanually(obj/item/W, mob/user)
 	var/input = input("Enter new power setting.", "Power", null) as num
