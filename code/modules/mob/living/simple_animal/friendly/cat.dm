@@ -50,14 +50,14 @@
 
 	footstep_type = FOOTSTEP_MOB_CLAW
 	deathsound = 'white/valtos/sounds/cat/death.ogg'
-	var/list/meowlist =list('white/valtos/sounds/cat/meow1.ogg',
-							'white/valtos/sounds/cat/meow2.ogg',
-							'white/valtos/sounds/cat/meow3.ogg',
-							'white/valtos/sounds/cat/meow4.ogg',
-							'white/valtos/sounds/cat/meow5.ogg',
-							'white/valtos/sounds/cat/meow6.ogg',
-							'white/valtos/sounds/cat/meow7.ogg',
-							'white/valtos/sounds/cat/meow8.ogg')
+	//var/list/meowlist =list('white/valtos/sounds/cat/meow1.ogg',
+	//						'white/valtos/sounds/cat/meow2.ogg',
+	//						'white/valtos/sounds/cat/meow3.ogg',
+	//						'white/valtos/sounds/cat/meow4.ogg',
+	//						'white/valtos/sounds/cat/meow5.ogg',
+	//						'white/valtos/sounds/cat/meow6.ogg',
+	//						'white/valtos/sounds/cat/meow7.ogg',
+	//						'white/valtos/sounds/cat/meow8.ogg')
 
 /mob/living/simple_animal/pet/cat/male
 /mob/living/simple_animal/pet/cat/male/Initialize()
@@ -241,21 +241,21 @@
 		if(DT_PROB(0.5, delta_time))
 			manual_emote(pick("вытягивается и показывает свой животик.", "виляет хвостиком.", "ложится."))
 			set_resting(TRUE)
-			playsound(src, pick(meowlist), 50, TRUE)
+			//playsound(src, pick(meowlist), 50, TRUE)
 		else if(DT_PROB(0.5, delta_time))
 			manual_emote(pick("присаживается.", "присаживается на задние лапы.", "загадочно присаживается."))
 			set_resting(TRUE)
 			icon_state = "[icon_living]_sit"
 			collar_type = "[initial(collar_type)]_sit"
-			playsound(src, pick(meowlist), 25, TRUE)
+			//playsound(src, pick(meowlist), 25, TRUE)
 		else if(DT_PROB(0.5, delta_time))
 			if (resting)
 				manual_emote(pick("встаёт и мяукает.", "ходит по кругу.", "встаёт."))
 				set_resting(FALSE)
-				playsound(src, pick(meowlist), 25, TRUE)
+				//playsound(src, pick(meowlist), 25, TRUE)
 			else
 				manual_emote(pick("прилизывается.", "дергает усами.", "отряхивается."))
-				playsound(src, pick(meowlist), 40, TRUE)
+				//playsound(src, pick(meowlist), 40, TRUE)
 
 	//MICE!
 	if((src.loc) && isturf(src.loc))
