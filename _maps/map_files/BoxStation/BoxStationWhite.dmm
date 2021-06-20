@@ -27847,6 +27847,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
+/obj/machinery/chem_seller/engineering,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "cmG" = (
