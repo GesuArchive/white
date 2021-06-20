@@ -1077,6 +1077,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 
 /obj/item/scepter_shaft
 	name = "рукоять скипетра"
+	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "scepter_shaft"
 
 /obj/structure/dwarf_altar
