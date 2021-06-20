@@ -61,18 +61,17 @@
 
 /mob/living/simple_animal/pet/cat/male
 /mob/living/simple_animal/pet/cat/male/Initialize()
-	..()
-	gender = MALE
+	.=..(MALE)
 /mob/living/simple_animal/pet/cat/female
 /mob/living/simple_animal/pet/cat/female/Initialize()
-	..()
-	gender = FEMALE
+	.=..(FEMALE)
 
-/mob/living/simple_animal/pet/cat/Initialize()
+/mob/living/simple_animal/pet/cat/Initialize(_gender=null)
 	. = ..()
 	add_verb(src, /mob/living/proc/toggle_resting)
 	add_cell_sample()
-	gender = pick(FEMALE, MALE)
+	gender = _gender ? _gender : pick(MALE, FEMALE)
+	name = gender == FEMALE ? "Кошка":"Кот"
 
 /mob/living/simple_animal/pet/cat/add_cell_sample()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_CAT, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
@@ -127,13 +126,16 @@
 	collar_type = "kitten"
 
 /mob/living/simple_animal/pet/cat/kitten/Initialize()
-	. = ..()
+	..()
 	addtimer(CALLBACK(src, .proc/grow), 2.5 MINUTES)
+	name = gender == FEMALE ? "Киса":"Котик"
 
 /mob/living/simple_animal/pet/cat/kitten/proc/grow()
 	if(stat == DEAD)
 		return
-	new animal_species(loc)
+	var/mob/living/M = new animal_species(loc)
+	M.gender = gender
+	M.name = M.gender == FEMALE ? "Кошка":"Кот"
 	qdel(src)
 
 //RUNTIME IS ALIVE! SQUEEEEEEEE~
