@@ -131,6 +131,8 @@
 	addtimer(CALLBACK(src, .proc/grow), 2.5 MINUTES)
 
 /mob/living/simple_animal/pet/cat/kitten/proc/grow()
+	if(stat == DEAD)
+		return
 	new animal_species(loc)
 	qdel(src)
 
