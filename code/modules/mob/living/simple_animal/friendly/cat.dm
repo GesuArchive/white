@@ -1,15 +1,15 @@
 //Cat
 /mob/living/simple_animal/pet/cat
-	name = "cat"
-	desc = "Kitty!!"
+	name = "Кот"
+	desc = "Кiшка!!"
 	icon = 'icons/mob/pets.dmi'
 	icon_state = "cat2"
 	icon_living = "cat2"
 	icon_dead = "cat2_dead"
-	speak = list("Meow!", "Esp!", "Purr!", "HSSSSS")
-	speak_emote = list("purrs", "meows")
-	emote_hear = list("meows.", "mews.")
-	emote_see = list("shakes its head.", "shivers.")
+	speak = list("Мяу!", "Шшш!", "Мурр!", "ХШШШШ")
+	speak_emote = list("мурчит", "мяукает")
+	emote_hear = list("мяукает.", "мявкает.")
+	emote_see = list("мотает головой.", "дрожит.")
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
@@ -23,12 +23,12 @@
 	animal_species = /mob/living/simple_animal/pet/cat
 	childtype = list(/mob/living/simple_animal/pet/cat/kitten)
 	butcher_results = list(/obj/item/food/meat/slab = 1, /obj/item/organ/ears/cat = 1, /obj/item/organ/tail/cat = 1, /obj/item/stack/sheet/animalhide/cat = 1)
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
-	response_harm_continuous = "kicks"
-	response_harm_simple = "kick"
+	response_help_continuous = "гладит"
+	response_help_simple = "гладит"
+	response_disarm_continuous = "отталкивает"
+	response_disarm_simple = "отталкивает"
+	response_harm_continuous = "пинает"
+	response_harm_simple = "пинает"
 	mobility_flags = MOBILITY_FLAGS_REST_CAPABLE_DEFAULT
 	var/turns_since_scan = 0
 	var/mob/living/simple_animal/mouse/movement_target
@@ -41,14 +41,23 @@
 	can_be_held = TRUE
 	held_state = "cat2"
 	pet_bonus = TRUE
-	pet_bonus_emote = "purrs!"
+	pet_bonus_emote = "мурчит!"
 	///In the case 'melee_damage_upper' is somehow raised above 0
-	attack_verb_continuous = "claws"
-	attack_verb_simple = "claw"
+	attack_verb_continuous = "цапает"
+	attack_verb_simple = "цапает"
 	attack_sound = 'sound/weapons/slash.ogg'
 	attack_vis_effect = ATTACK_EFFECT_CLAW
 
 	footstep_type = FOOTSTEP_MOB_CLAW
+	deathsound = 'white/valtos/sounds/cat/death.ogg'
+	var/list/meowlist =list('white/valtos/sounds/cat/meow1.ogg',
+							'white/valtos/sounds/cat/meow2.ogg',
+							'white/valtos/sounds/cat/meow3.ogg',
+							'white/valtos/sounds/cat/meow4.ogg',
+							'white/valtos/sounds/cat/meow5.ogg',
+							'white/valtos/sounds/cat/meow6.ogg',
+							'white/valtos/sounds/cat/meow7.ogg',
+							'white/valtos/sounds/cat/meow8.ogg')
 
 /mob/living/simple_animal/pet/cat/male
 /mob/living/simple_animal/pet/cat/male/Initialize()
@@ -70,8 +79,8 @@
 
 
 /mob/living/simple_animal/pet/cat/space
-	name = "space cat"
-	desc = "It's a cat... in space!"
+	name = "Космокот"
+	desc = "Это кот... в космосе!"
 	icon_state = "spacecat"
 	icon_living = "spacecat"
 	icon_dead = "spacecat_dead"
@@ -81,8 +90,8 @@
 	held_state = "spacecat"
 
 /mob/living/simple_animal/pet/cat/breadcat
-	name = "bread cat"
-	desc = "It's a cat... with a bread!"
+	name = "Хлеб"
+	desc = "Это кот... не хлеб!"
 	icon_state = "breadcat"
 	icon_living = "breadcat"
 	icon_dead = "breadcat_dead"
@@ -94,8 +103,8 @@
 	return
 
 /mob/living/simple_animal/pet/cat/original
-	name = "Batsy"
-	desc = "The product of alien DNA and bored geneticists."
+	name = "Бэтси"
+	desc = "Продукт смеси ДНК пришельца и кота."
 	gender = FEMALE
 	icon_state = "original"
 	icon_living = "original"
@@ -107,7 +116,7 @@
 /mob/living/simple_animal/pet/cat/original/add_cell_sample()
 	return
 /mob/living/simple_animal/pet/cat/kitten
-	name = "kitten"
+	name = "Киса"
 	desc = "D'aaawwww."
 	icon_state = "kitten"
 	icon_living = "kitten"
@@ -127,7 +136,7 @@
 
 //RUNTIME IS ALIVE! SQUEEEEEEEE~
 /mob/living/simple_animal/pet/cat/runtime
-	name = "Runtime"
+	name = "Рантайм"
 	desc = "GCAT"
 	icon_state = "cat"
 	icon_living = "cat"
@@ -206,7 +215,7 @@
 				new cat_type(loc)
 
 /mob/living/simple_animal/pet/cat/_proc
-	name = "Proc"
+	name = "Прок"
 	gender = MALE
 	gold_core_spawnable = NO_SPAWN
 	unique_pet = TRUE
@@ -228,19 +237,23 @@
 /mob/living/simple_animal/pet/cat/Life(delta_time = SSMOBS_DT, times_fired)
 	if(!stat && !buckled && !client)
 		if(DT_PROB(0.5, delta_time))
-			manual_emote(pick("stretches out for a belly rub.", "wags its tail.", "lies down."))
+			manual_emote(pick("вытягивается и показывает свой животик.", "виляет хвостиком.", "ложится."))
 			set_resting(TRUE)
+			playsound(src, pick(meowlist), 50, TRUE)
 		else if(DT_PROB(0.5, delta_time))
-			manual_emote(pick("sits down.", "crouches on its hind legs.", "looks alert."))
+			manual_emote(pick("присаживается.", "присаживается на задние лапы.", "загадочно присаживается."))
 			set_resting(TRUE)
 			icon_state = "[icon_living]_sit"
 			collar_type = "[initial(collar_type)]_sit"
+			playsound(src, pick(meowlist), 25, TRUE)
 		else if(DT_PROB(0.5, delta_time))
 			if (resting)
-				manual_emote(pick("gets up and meows.", "walks around.", "stops resting."))
+				manual_emote(pick("встаёт и мяукает.", "ходит по кругу.", "встаёт."))
 				set_resting(FALSE)
+				playsound(src, pick(meowlist), 25, TRUE)
 			else
-				manual_emote(pick("grooms its fur.", "twitches its whiskers.", "shakes out its coat."))
+				manual_emote(pick("прилизывается.", "дергает усами.", "отряхивается."))
+				playsound(src, pick(meowlist), 40, TRUE)
 
 	//MICE!
 	if((src.loc) && isturf(src.loc))
@@ -248,19 +261,19 @@
 			for(var/mob/living/simple_animal/mouse/M in view(1,src))
 				if(istype(M, /mob/living/simple_animal/mouse/brown/tom) && inept_hunter)
 					if(COOLDOWN_FINISHED(src, emote_cooldown))
-						visible_message("<span class='warning'>[capitalize(src.name)] chases [M] around, to no avail!</span>")
+						visible_message("<span class='warning'>[capitalize(src.name)] бежит за [M] безуспешно, теряя последнюю надежду!</span>")
 						step(M, pick(GLOB.cardinals))
 						COOLDOWN_START(src, emote_cooldown, 1 MINUTES)
 					break
 				if(!M.stat && Adjacent(M))
-					manual_emote("splats [M]!")
+					manual_emote("давит [M]!")
 					M.splat()
 					movement_target = null
 					stop_automated_movement = 0
 					break
 			for(var/obj/item/toy/cattoy/T in view(1,src))
 				if (T.cooldown < (world.time - 400))
-					manual_emote("bats [T] around with its paw!")
+					manual_emote("шлёпает [T] своей лапой!")
 					T.cooldown = world.time
 
 	..()
@@ -287,14 +300,14 @@
 				walk_to(src,movement_target,0,3)
 
 /mob/living/simple_animal/pet/cat/jerry //Holy shit we left jerry on donut ~ Arcane ~Fikou
-	name = "Jerry"
-	desc = "Tom is VERY amused."
+	name = "Джерри"
+	desc = "Том очень ОЧЕНЬ изумлён."
 	inept_hunter = TRUE
 	gender = MALE
 
 /mob/living/simple_animal/pet/cat/cak //I told you I'd do it, Remie
 	name = "Keeki"
-	desc = "It's a cat made out of cake."
+	desc = "Это кот, который торт."
 	icon_state = "cak"
 	icon_living = "cak"
 	icon_dead = "cak_dead"
@@ -304,10 +317,10 @@
 	harm_intent_damage = 10
 	butcher_results = list(/obj/item/organ/brain = 1, /obj/item/organ/heart = 1, /obj/item/food/cakeslice/birthday = 3,  \
 	/obj/item/food/meat/slab = 2)
-	response_harm_continuous = "takes a bite out of"
-	response_harm_simple = "take a bite out of"
+	response_harm_continuous = "откусывает кусочек"
+	response_harm_simple = "откусывает кусочек"
 	attacked_sound = 'sound/items/eatfood.ogg'
-	deathmessage = "loses its false life and collapses!"
+	deathmessage = "разваливается!"
 	deathsound = "bodyfall"
 	held_state = "cak"
 
