@@ -2575,7 +2575,7 @@
 	},
 /obj/machinery/computer/security{
 	desc = "Для прослушки соседей.";
-	name = "������� ����� ��������";
+	name = "Консоль домофона";
 	network = list("durka_domofon")
 	},
 /turf/open/floor/plasteel/dark,
