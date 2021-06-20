@@ -250,27 +250,32 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 50
 	var/dispense_power_usage = 250
+	var/global/list/users_interacted = list() //сбор данных гуглом
 
 	var/last_shopper
 	//to track the cooldown on messages
 	var/last_say_time = 0
 	//how long the cooldown for messages lasts
 	var/obj/item/reagent_containers/beaker = null
-	var/currently_selected = /datum/reagent/medicine/c2/libital
+	var/currently_selected
 	var/list/available_chems = list(
-		/datum/reagent/medicine/c2/libital = 0.33,
-		/datum/reagent/medicine/c2/aiuri = 0.33,
+		/datum/reagent/medicine/c2/libital = 0.25,
+		/datum/reagent/medicine/c2/aiuri = 0.25,
 		/datum/reagent/medicine/c2/hercuri = 0.25,
 		/datum/reagent/medicine/c2/convermol = 0.25,
-		/datum/reagent/medicine/c2/multiver = 0.33,
-		/datum/reagent/medicine/c2/synthflesh = 0.5,
-		/datum/reagent/medicine/sal_acid = 0.5,
-		/datum/reagent/medicine/oxandrolone = 0.5,
+		/datum/reagent/medicine/c2/multiver = 0.25,
+		/datum/reagent/medicine/c2/synthflesh = 0.25,
+		/datum/reagent/medicine/sal_acid = 0.33,
+		/datum/reagent/medicine/oxandrolone = 0.33,
 		/datum/reagent/medicine/cryoxadone = 0.2,
-		/datum/reagent/medicine/c2/penthrite = 4,
+		/datum/reagent/medicine/c2/penthrite = 5,
 		//misc//
 		/datum/reagent/medicine/leporazine = 1
 	)
+/obj/machinery/chem_seller/Initialize()
+	. = ..()
+	currently_selected = available_chems[1]
+	update_icon() //for subtypes which use overlays to look different
 
 /obj/machinery/chem_seller/process() //wtf
 
@@ -345,6 +350,9 @@
 		. += b_o
 
 /obj/machinery/chem_seller/ui_interact(mob/user, datum/tgui/ui)
+	if(!(user in users_interacted)) //google analytics
+		users_interacted.Add(user)
+		to_chat(user,"<span class='notice'>hurr durr early access, work in progress, alpha build и так далее. Человек, который работал над этим аппаратом не шарит во внутриигровой экономике, поэтому выставил цены от балды. Убедительная просьба написать в дискорд канале #suggestions, стоит ли их повысить/занизить/оставить, как есть и почему. Заранее спасибо[prob(20) ? ", ебать!" : "!"]</span>")
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "ChemSeller")
@@ -455,3 +463,66 @@
 	if(last_say_time < world.time)
 		say(message)
 		last_say_time = world.time + cooldown
+
+
+/obj/item/circuitboard/machine/chem_seller/engineering
+	name = "Engineering chem seller circuitboard"
+	build_path = /obj/machinery/chem_seller/engineering
+/obj/machinery/chem_seller/engineering
+	name = "Раздатчик WD-40"
+	desc = "Транспортирует чудодейственную кровь богов прямо к тебе в стакан. Не за спасибо, разумеется. Так же воспроизводит некоторые другие химикаты, полезные в работе инженера."
+	circuit = /obj/item/circuitboard/machine/chem_seller/engineering
+	available_chems = list(
+		/datum/reagent/fuel/oil/wd40 = 146,
+		/datum/reagent/medicine/c2/aiuri = 0.25,
+		/datum/reagent/medicine/potass_iodide = 0.11, // 1/0.11 ~= 9
+		/datum/reagent/consumable/ethanol/screwdrivercocktail = 0.066
+	)
+
+/obj/machinery/chem_seller/engineering/update_overlays()
+	. = ..()
+	. += mutable_appearance(icon, "[initial(icon_state)]_engineering")
+/datum/reagent/fuel/oil/wd40
+	name = "ВД-40"
+	enname = "WD-40"
+	description = "Количество применений этого вещества стремится к бесконечности. Достаточно лишь одной единицы, чтобы произошло чудо. Например, улучшение работы компонентов различных устройств."
+	burning_temperature = 2400
+	burning_volume = 0.15
+
+/datum/reagent/fuel/oil/wd40/expose_obj(obj/exposed_obj, reac_volume)
+	//maybe another time
+	/*
+	if(istype(exposed_obj, /obj/item/stock_parts/cell))
+		var/obj/item/stock_parts/cell/cell = exposed_obj
+		var/ratio = 1 + (initial(cell.maxcharge) * round(reac_volume) / cell.maxcharge)
+		switch(ratio) //plug "1 + 1/x" into desmos (where n is reac_volume) if you really want to.
+			if( to INFINITY)
+				ass = ""
+			if(2) //meh
+				ass = "заметно"
+			if(2.1 to 2.2) //2.1(6)
+				ass = "немного"
+			if(2.25)
+				ass = "чуть-чуть"
+			else
+				ass = "почти никак не"
+		cell.visible_message("<span class='hypnophrase'>Чудодейственное вещество проникает в щели и отверстия [cell.name], [ass] увеличивая энергоёмкость батареи.</span>")
+		cell.desc = initial(cell.desc) + " Обладаёт лёгким и неописуемым ароматом."
+		return ..()
+	*/
+	if(istype(exposed_obj, /obj/item/stock_parts))
+		var/obj/item/stock_parts/SP = exposed_obj
+		var/new_rating = min(SP.rating + round(reac_volume), 8)
+		if(SP.rating !=new_rating)
+			var/ass = ""
+			switch(new_rating - SP.rating)
+				if(2)
+					ass = "двукратно"
+				if(3)
+					ass = "троекратно"
+				if(4 to INFINITY)
+					ass = "<i>многократно</i>"
+			SP.rating = new_rating
+			SP.visible_message("<span class='hypnophrase'>Чудодейственное вещество проникает в щели и отверстия [SP.name], [ass] оптимизируя и улучшая его работу! </span>")
+		SP.desc = initial(SP.desc) + " Обладаёт лёгким и неописуемым ароматом."
+		return ..()
