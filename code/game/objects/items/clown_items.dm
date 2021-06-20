@@ -240,7 +240,7 @@
 	for(M in ohearers(7, T))
 		if(M.can_hear())
 			M.emote("flip")
-	COOLDOWN_START(src, golden_horn_cooldown, 1 SECONDS)
+	COOLDOWN_START(src, golden_horn_cooldown, 0.5 SECONDS)
 
 //canned laughter
 /obj/item/reagent_containers/food/drinks/soda_cans/canned_laughter
