@@ -8,7 +8,8 @@ export const ChemSeller = (props, context) => {
     chemicals,
     selected,
     isBeakerLoaded,
-    beakerPercentage,
+    beakerReagentAmount,
+    beakerVolume,
   } = data;
   return (
     <Window resizable width={300} height={500} title="Chem Vendor">
@@ -35,8 +36,11 @@ export const ChemSeller = (props, context) => {
         </Section>
         <Section title={selected[0].title}>
             <ProgressBar
-              value = {isBeakerLoaded ? beakerPercentage : 0 }
-            />
+              value = {beakerReagentAmount}
+              maxValue = {beakerVolume}
+              >
+              {isBeakerLoaded ? beakerReagentAmount+"u/"+beakerVolume+"u." : "No beaker found."}
+            </ProgressBar>
           <Flex>
             <Flex.Item grow={1}>
             <Button

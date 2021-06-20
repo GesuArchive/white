@@ -376,11 +376,15 @@
 	data["maxEnergy"] = cell.maxcharge * powerefficiency
 	*/
 	data["isBeakerLoaded"] = beaker ? 1 : 0
+	//if no beaker is inserted, these two don't get updated and will be passed like that to the tgui. this is fine.
+	data["beakerReagentAmount"] = 0
+	data["beakerVolume"] = 1
 	if(beaker)
 		var/total_volume = 0
 		for(var/datum/reagent/R in beaker.reagents.reagent_list)
 			total_volume += R.volume
-		data["beakerPercentage"] = total_volume / beaker.volume
+		data["beakerReagentAmount"] = total_volume
+		data["beakerVolume"] = beaker.volume
 	return data
 
 /obj/machinery/chem_seller/ui_act(action, params)
