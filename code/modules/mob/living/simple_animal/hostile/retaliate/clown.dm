@@ -186,7 +186,6 @@
 	speak = list("HONK", "Honk!", "I didn't ask for this", "I feel constant and horrible pain", "YA-HONK!!!", "this body is a merciless and unforgiving prison", "I was born out of mirthful pranking but I live in suffering")
 	emote_see = list("honks", "sweats", "jiggles", "contemplates its existence")
 	speak_chance = 5
-	dextrous = TRUE
 	ventcrawler = VENTCRAWLER_ALWAYS
 	maxHealth = 150
 	health = 150
@@ -214,7 +213,6 @@
 	response_disarm_simple = "push the unwieldy frame of"
 	response_harm_continuous = "tries to shut up"
 	response_harm_simple = "try to shut up"
-	speak = list("YA-HONK!!!")
 	emote_see = list("honks", "squeaks")
 	speak_chance = 60
 	maxHealth = 100
@@ -430,12 +428,11 @@
 	response_disarm_simple = "shoo"
 	response_harm_continuous = "steps on"
 	response_harm_simple = "step on"
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam)
+	loot = list(/obj/effect/particle_effect/foam)
 	ventcrawler = VENTCRAWLER_ALWAYS
 	density = FALSE
 	pass_flags = PASSTABLE | PASSMOB
 	mob_size = MOB_SIZE_SMALL
-	mob_biotypes = MOB_ORGANIC|MOB_BEAST|MOB_REPTILE
 	environment_smash = ENVIRONMENT_SMASH_NONE
 
 

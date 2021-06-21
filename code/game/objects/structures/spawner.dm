@@ -121,7 +121,7 @@
 	icon_state = "clownworm"
 	icon = 'icons/obj/device.dmi'
 	max_integrity = 500
-	max_mobs = 6
+	max_mobs = 2
 	spawn_time = 60
 	mob_types = list(/mob/living/simple_animal/hostile/clown/worm)
 	spawn_text = "выползает из"
