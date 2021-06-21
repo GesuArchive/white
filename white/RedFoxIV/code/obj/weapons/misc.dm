@@ -226,6 +226,80 @@
 	range = 12
 	embedding = list(embed_chance=100, fall_chance=0, pain_stam_pct=8, pain_mult=1, pain_chance=75)
 
+
+//CRIKEY
+
+/*
+/obj/item/gun/ballistic/smart
+	name = "MK5 Smart Pistol"
+	desc = "Oh, cry me a river."
+	icon = 'white/RedFoxIV/icons/obj/weapons/misc.dmi'
+	icon_state = "smart_pistol"
+	//bolt_type = BOLT_TYPE_STANDARD //already defined in /ballistic, thought that mentioning it here for clarity is a good idea.
+	mag_type = /obj/item/ammo_box/magazine/smart
+	mag_display = TRUE
+
+/obj/item/ammo_box/magazine/smart
+	ammo_type = /obj/item/ammo_casing/smart
+	max_ammo = 12
+
+/obj/item/ammo_casing/smart
+	projectile_type = /obj/projectile/smart
+
+/obj/projectile/smart
+	damage = 10
+	speed = 1.5
+	homing_turn_speed = 20
+
+/obj/projectile/smart/preparePixelProjectile(atom/target, atom/source, params, spread)
+	if(isnull(target))
+		loc.visible_message("target is null!")
+		return
+	if(isliving(target) && prob(50)) //50% change to fire a homing shot when clicking directly on a mob
+		set_homing_target(target)
+		homing = TRUE
+		return ..()
+	if(!prob(25)) // 25% chance to fire a homing shot if not clicking on a mob
+		return ..()
+	var/list/mob/living/R = view(3, target)
+	var/list/pt = list() //potential_targets
+	var/dist
+	loc.visible_message("target.type = [target.type]")
+	for(var/mob/living/L in R)
+		loc.visible_message("L.type = [L.type] /// isliving(L) = [isliving(L)]")
+		if(!isliving(L))
+			continue
+		if(L == fired_from)
+			continue
+		if(isnull(dist) || dist == get_dist(L, target)) // if it's null, it means we're on our first cycle and we save in var/dist the distance to the closest mob
+			pt.Add(L)
+		else
+			break
+	
+	dist = INFINITY
+	var/mob/living/ht //homing target
+	for(var/mob/living/L in pt)
+		var/dist_from_firer = get_dist(fired_from, L)
+		if(dist_from_firer < dist)
+			dist = dist_from_firer
+			ht = L
+		if(dist_from_firer == dist && prob(50)) //fuck it
+			ht = L
+	set_homing_target(ht) // fucking finally
+	homing = TRUE
+	return ..() 
+
+*/
+
+
+
+
+
+
+
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //до фикса проблемы с лимитом файлов эта хуйня будет жить здесь
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -268,9 +342,10 @@
 		/datum/reagent/medicine/sal_acid = 0.33,
 		/datum/reagent/medicine/oxandrolone = 0.33,
 		/datum/reagent/medicine/cryoxadone = 0.2,
-		/datum/reagent/medicine/c2/penthrite = 5,
+		/datum/reagent/medicine/c2/penthrite = 1,
 		//misc//
-		/datum/reagent/medicine/leporazine = 1
+		/datum/reagent/medicine/leporazine = 0.33,
+		/datum/reagent/consumable/doctor_delight = 0.066 //15u, since, you know, why the fuck not
 	)
 /obj/machinery/chem_seller/Initialize()
 	. = ..()
@@ -352,7 +427,7 @@
 /obj/machinery/chem_seller/ui_interact(mob/user, datum/tgui/ui)
 	if(!(user in users_interacted)) //google analytics
 		users_interacted.Add(user)
-		to_chat(user,"<span class='notice'>hurr durr early access, work in progress, alpha build и так далее. Человек, который работал над этим аппаратом не шарит во внутриигровой экономике, поэтому выставил цены от балды. Убедительная просьба написать в дискорд канале #suggestions, стоит ли их повысить/занизить/оставить, как есть и почему. Заранее спасибо[prob(20) ? ", ебать!" : "!"]</span>")
+		to_chat(user,"<br><span class='notice'><b>hurr durr early access, work in progress, alpha build и так далее. Человек, который работал над этим аппаратом, не шарит во внутриигровой экономике, поэтому выставил цены от балды. Убедительная просьба написать в дискорд канале #suggestions, стоит ли их повысить/занизить/оставить, как есть и почему. Заранее спасибо[prob(20) ? ", ебать!" : "!"]</b></span>")
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "ChemSeller")
@@ -459,8 +534,8 @@
 	var/datum/reagent/chemical = GLOB.chemical_reagents_list[currently_selected]
 	log_econ("[price_to_use] credits were inserted into [name] by [account] to buy [get_dispense_amount()]u [chemical.enname ? "[chemical.enname]" : "[chemical.name]"].")
 	if(last_shopper != usr)
-		cd_say("Thank you for your patronage!", 10 SECONDS)
-		last_shopper = usr
+		cd_say("Thank you for your patronage!", 5 SECONDS)
+		last_shopper = usr //if someone uses this machine a second after someone else buys a reagent they won't be thanked for their purchase. still, i think it's alright because noone fucking cares about these messages and it will prevent the machine from spamming useless text in the chatbox.
 	return TRUE
 
 /obj/machinery/chem_seller/proc/cd_say(message, cooldown = 1 SECONDS)
@@ -474,18 +549,18 @@
 	build_path = /obj/machinery/chem_seller/engineering
 /obj/machinery/chem_seller/engineering
 	name = "Раздатчик WD-40"
-	desc = "Транспортирует чудодейственную кровь богов прямо к тебе в стакан. Не за спасибо, разумеется. Так же воспроизводит некоторые другие химикаты, полезные в работе инженера."
+	desc = "Транспортирует чудодейственную кровь богов по блуспейс каналу прямо к тебе в стакан. Не за спасибо, разумеется. Так же воспроизводит некоторые другие химикаты, полезные в работе инженера."
 	circuit = /obj/item/circuitboard/machine/chem_seller/engineering
 	available_chems = list(
 		/datum/reagent/fuel/oil/wd40 = 146,
 		/datum/reagent/medicine/c2/aiuri = 0.25,
-		/datum/reagent/medicine/potass_iodide = 0.11, // 1/0.11 ~= 9
-		/datum/reagent/consumable/ethanol/screwdrivercocktail = 0.066
+		/datum/reagent/medicine/potass_iodide = 0.11, //9u per 1cr
+		/datum/reagent/consumable/ethanol/screwdrivercocktail = 0.033 //30u per 1cr
 	)
 
 /obj/machinery/chem_seller/engineering/update_overlays()
 	. = ..()
-	. += mutable_appearance(icon, "[initial(icon_state)]_engineering")
+	. += mutable_appearance(icon, "[initial(icon_state)]_engineering") //because i'm using icon_states for flicker()s. yeah, this is dumb.
 /datum/reagent/fuel/oil/wd40
 	name = "ВД-40"
 	enname = "WD-40"
@@ -495,25 +570,31 @@
 
 /datum/reagent/fuel/oil/wd40/expose_obj(obj/exposed_obj, reac_volume)
 	//maybe another time
-	/*
+	
 	if(istype(exposed_obj, /obj/item/stock_parts/cell))
 		var/obj/item/stock_parts/cell/cell = exposed_obj
-		var/ratio = 1 + (initial(cell.maxcharge) * round(reac_volume) / cell.maxcharge)
-		switch(ratio) //plug "1 + 1/x" into desmos (where n is reac_volume) if you really want to.
-			if( to INFINITY)
-				ass = ""
-			if(2) //meh
+		// out of all the things i've made, THIS probably wins the competition of dumb:
+		// the mere thought of the amount of ways to abuse this throws me into a rather distressed state.
+		// still, it KINDA does it's job right, scaling up with reac_volume and scaling down after multiple uses.
+		// but hey, it costs a lot, and the only /reliable/ way of getting a lot of it is syndie's 1TC briefcase.
+		// so yeah, fuck it. i'm just gonna slap a 0.75* in there just to make sure it doesn't go out of hand too much.
+		var/ratio = 1 + (0.75 * initial(cell.maxcharge) * round(reac_volume) / cell.maxcharge) 
+		var/ass = ""
+		switch(ratio)
+			if(1.751 to INFINITY)
+				ass = "невероятно"
+			if(1.75)
 				ass = "заметно"
-			if(2.1 to 2.2) //2.1(6)
+			if(1.5 to 1.74) //2.1(6)
 				ass = "немного"
-			if(2.25)
+			if(1.2 to 1.49)
 				ass = "чуть-чуть"
 			else
 				ass = "почти никак не"
 		cell.visible_message("<span class='hypnophrase'>Чудодейственное вещество проникает в щели и отверстия [cell.name], [ass] увеличивая энергоёмкость батареи.</span>")
 		cell.desc = initial(cell.desc) + " Обладаёт лёгким и неописуемым ароматом."
 		return ..()
-	*/
+	
 	if(istype(exposed_obj, /obj/item/stock_parts))
 		var/obj/item/stock_parts/SP = exposed_obj
 		var/new_rating = min(SP.rating + round(reac_volume), 8)
