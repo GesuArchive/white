@@ -58,8 +58,6 @@
 	faction = list("clown")
 	var/cost = 0
 
-/obj/structure/spawner/clown/proc/getCost()
-	return cost
 
 /obj/structure/spawner/clown/clownsmall
 	name = "клоунская дыра"

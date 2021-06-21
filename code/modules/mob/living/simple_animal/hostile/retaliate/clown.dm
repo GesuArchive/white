@@ -100,9 +100,7 @@
 /mob/living/simple_animal/hostile/clown/Life(delta_time = SSMOBS_DT, times_fired)
 	. = ..()
 	if(banana_time && banana_time < world.time)
-		var/turf/T = get_turf(src)
-		var/list/adjacent =  T.GetAtmosAdjacentTurfs(1)
-		new banana_type(pick(adjacent))
+		new banana_type(pick(src.loc))
 		banana_time = world.time + rand(30,60)
 	if ((locate(/obj/structure/clownweeds) in src.loc))
 		if(heal_time < world.time)
@@ -148,7 +146,6 @@
 	response_harm_continuous = "peels"
 	response_harm_simple = "peel"
 	turns_per_move = 1
-	speak = list("ХОНК", "Хонк!")
 	emote_see = list("хонкает", "вгрызается в банан", "берет банан с головы", "фотосинтезирует")
 	maxHealth = 120
 	health = 120
@@ -183,7 +180,6 @@
 	response_disarm_simple = "sink your hands into the spongy flesh of"
 	response_harm_continuous = "cleanses the world of"
 	response_harm_simple = "cleanse the world of"
-	speak = list("HONK", "Honk!", "I didn't ask for this", "I feel constant and horrible pain", "YA-HONK!!!", "this body is a merciless and unforgiving prison", "I was born out of mirthful pranking but I live in suffering")
 	emote_see = list("honks", "sweats", "jiggles", "contemplates its existence")
 	speak_chance = 5
 	ventcrawler = VENTCRAWLER_ALWAYS
