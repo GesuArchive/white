@@ -154,7 +154,7 @@
 	..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	for(var/i = 0, i < STR.max_items - 2, i++)
-		new /obj/item/stack/spacecash/c1000(src)
+		new /obj/item/stack/spacecash/c100(src) //Было 1000, Ебаная валероэкономика.
 
 
 // -----------------------------
