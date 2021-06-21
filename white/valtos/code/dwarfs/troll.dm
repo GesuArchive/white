@@ -4,7 +4,7 @@
 	icon = 'white/valtos/icons/troll.dmi'
 	icon_state = "troll"
 	icon_living = "troll"
-	icon_dead = "troll"
+	icon_dead = "troll_dead"
 	gender = NEUTER
 	speak_chance = 0
 	turns_per_move = 2
