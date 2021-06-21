@@ -103,6 +103,7 @@
 	stoned = TRUE
 	floor_tile = /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	slowdown = 0
+	var/busy = FALSE
 
 /turf/open/floor/grass/gensgrass/dirty/stone/crowbar_act(mob/living/user, obj/item/I)
 	if(pry_tile(I, user))
@@ -141,6 +142,62 @@
 	baseturfs = /turf/open/floor/grass/gensgrass/dirty/stone
 	sheet_amount = 4
 	girder_type = null
+	var/busy = FALSE
+
+/turf/closed/wall/stonewall/attackby(obj/item/W, mob/user, params)
+	. = ..()
+	if(istype(W, /obj/item/blacksmith/chisel))
+		if(busy)
+			to_chat(user, "<span class='warning'>Сейчас занято.</span>")
+			return
+		busy = TRUE
+		if(!do_after(user, 10 SECONDS, target = src))
+			busy = FALSE
+			return
+		busy = FALSE
+		to_chat(user, "<span class='warning'>Обрабатываю [src].</span>")
+		ChangeTurf(/turf/closed/wall/stonewall_fancy)
+
+/turf/closed/wall/stonewall_fancy
+	name = "красивая каменная стена"
+	desc = "KrasIVo!"
+	icon = 'white/valtos/icons/dwarfs/rich_wall.dmi'
+	icon_state = "rich_wall-0"
+	base_icon_state = "rich_wall"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
+	canSmoothWith = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
+	sheet_type = /obj/item/stack/sheet/stone
+	baseturfs = /turf/open/floor/grass/gensgrass/dirty/stone
+	sheet_amount = 4
+	girder_type = null
+
+/turf/open/floor/grass/gensgrass/dirty/stone/fancy
+	name = "красивый каменный пол"
+	desc = "Красивая классика."
+	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
+	icon_state = "stone_floor_fancy"
+	footstep = FOOTSTEP_SAND
+	barefootstep = FOOTSTEP_SAND
+	clawfootstep = FOOTSTEP_SAND
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	stoned = TRUE
+	floor_tile = /turf/open/floor/grass/gensgrass/dirty/stone/raw
+	slowdown = 0
+
+/turf/open/floor/grass/gensgrass/dirty/stone/attackby(obj/item/W, mob/user, params)
+	. = ..()
+	if(istype(W, /obj/item/blacksmith/chisel)&&isstrictlytype(src, /turf/open/floor/grass/gensgrass/dirty/stone))
+		if(busy)
+			to_chat(user, "<span class='warning'>Сейчас занято.</span>")
+			return
+		busy = TRUE
+		if(!do_after(user, 10 SECONDS, target = src))
+			busy = FALSE
+			return
+		busy = FALSE
+		to_chat(user, "<span class='warning'>Обрабатываю [src].</span>")
+		ChangeTurf(/turf/open/floor/grass/gensgrass/dirty/stone/fancy, flags=CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/grass/gensgrass/dirty/stone/raw/attackby(obj/item/I, mob/user, params)
 	. = ..()
