@@ -46,16 +46,99 @@
 	faction = list("skeleton")
 
 /obj/structure/spawner/clown
-	name = "Смешной портал"
-	desc = "Дыра в реальности в форме смешного лица."
-	icon_state = "clownbeacon"
+	name = "спавнер клоунов"
+	desc = "такого не бывает."
+	icon_state = "mindflash"
 	icon = 'icons/obj/device.dmi'
-	max_integrity = 200
-	max_mobs = 10
-	spawn_time = 150
-	mob_types = list(/mob/living/simple_animal/hostile/clown, /mob/living/simple_animal/hostile/clown/mutant, /mob/living/simple_animal/hostile/clown/fleshclown, /mob/living/simple_animal/hostile/clown/longface, /mob/living/simple_animal/hostile/clown/honkling, /mob/living/simple_animal/hostile/clown/lube)
+	max_integrity = 2777
+	max_mobs = 3777
+	spawn_time = 3007
+	mob_types = list(/mob/living/simple_animal/hostile/clown, /mob/living/simple_animal/hostile/clown/longface, /mob/living/simple_animal/hostile/clown/honkling, /mob/living/simple_animal/hostile/clown/lube)
 	spawn_text = "вылезает из"
 	faction = list("clown")
+	var/cost = 0
+
+/obj/structure/spawner/clown/proc/getCost()
+	return cost
+
+/obj/structure/spawner/clown/clownsmall
+	name = "клоунская дыра"
+	desc = "Отсюда выползают клоуны."
+	icon_state = "hole"
+	icon = 'icons/mob/nest.dmi'
+	max_integrity = 200
+	max_mobs = 3
+	spawn_time = 300
+	mob_types = list(/mob/living/simple_animal/hostile/clown, /mob/living/simple_animal/hostile/clown/longface, /mob/living/simple_animal/hostile/clown/honkling, /mob/living/simple_animal/hostile/clown/lube)
+	spawn_text = "вылезает из"
+	faction = list("clown")
+	cost = 80
+	layer = TURF_LAYER
+
+/obj/structure/spawner/clown/clownbuilder
+	name = "пульсирующее яйцо"
+	desc = "Здесь вызревают умнейшие клоуны."
+	icon_state = "clownbuilder"
+	icon = 'icons/obj/device.dmi'
+	max_integrity = 400
+	max_mobs = 3
+	spawn_time = 600
+	mob_types = list(/mob/living/simple_animal/hostile/clown/fleshclown)
+	spawn_text = "вылупляется из"
+	faction = list("clown")
+	cost = 120
+
+
+/obj/structure/spawner/clown/clownspider
+	name = "паучье нечто"
+	desc = "Это... что-то... Каким-то образом производит клоунов-пауков."
+	icon_state = "clownspider"
+	icon = 'icons/obj/device.dmi'
+	max_integrity = 600
+	max_mobs = 2
+	spawn_time = 800
+	mob_types = list(/mob/living/simple_animal/hostile/clown/infestor)
+	spawn_text = "жутким образом появляется из"
+	faction = list("clown")
+	cost = 200
+
+/obj/structure/spawner/clown/clownana
+	name = "гора бананов"
+	desc = "Гора бананов. Приятно пахнет бананами."
+	icon_state = "clownana"
+	icon = 'icons/obj/device.dmi'
+	max_integrity = 500
+	max_mobs = 2
+	spawn_time = 600
+	mob_types = list(/mob/living/simple_animal/hostile/clown/banana)
+	spawn_text = "вырастает из"
+	faction = list("clown")
+	cost = 150
+
+/obj/structure/spawner/clown/clownworm
+	name = "червивая стена"
+	desc = "Эта не стена, а уютный дом для сотен клоунов-червей."
+	icon_state = "clownworm"
+	icon = 'icons/obj/device.dmi'
+	max_integrity = 500
+	max_mobs = 6
+	spawn_time = 60
+	mob_types = list(/mob/living/simple_animal/hostile/clown/worm)
+	spawn_text = "выползает из"
+	faction = list("clown")
+
+/obj/structure/spawner/clown/clownbig
+	name = "смешной портал"
+	desc = "Портал для прохода элитных клоунов в наш мир."
+	icon_state = "clownbig"
+	icon = 'icons/obj/device.dmi'
+	max_integrity = 800
+	max_mobs = 2
+	spawn_time = 1000
+	mob_types = list(/mob/living/simple_animal/hostile/clown/clownhulk, /mob/living/simple_animal/hostile/clown/clownhulk/chlown, /mob/living/simple_animal/hostile/clown/clownhulk/honcmunculus)
+	spawn_text = "выходит из"
+	faction = list("clown")
+	cost = 300
 
 /obj/structure/spawner/mining
 	name = "monster den"

@@ -109,7 +109,7 @@
 			if (src.health < src.maxHealth)
 				adjustHealth(-1)
 			heal_time = world.time + 10
-			if (istype(src, /mob/living/simple_animal/hostile/clown/mutant/glutton))
+			if ((istype(src, /mob/living/simple_animal/hostile/clown/mutant/glutton))||(istype(src, /mob/living/simple_animal/hostile/clown/fleshclown)))
 				var/mob/living/simple_animal/hostile/clown/mutant/glutton/glutton = src
 				glutton.biomass += 1
 
@@ -195,7 +195,12 @@
 	attack_verb_continuous = "limply slaps"
 	attack_verb_simple = "limply slap"
 	obj_damage = 5
+	var/biomass = 25
+	var/datum/action/innate/glutton/plantSkin/plantSkin
 	loot = list(/obj/effect/mob_spawn/human/clown/corpse, /obj/item/clothing/suit/hooded/bloated_human, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
+	/mob/living/simple_animal/hostile/clown/fleshclown/get_status_tab_items()
+		. = ..()
+		. += "Плоть: [biomass]"
 
 /mob/living/simple_animal/hostile/clown/longface
 	name = "Longface"
@@ -362,7 +367,7 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 25
 	force_threshold = 10 //lots of fat to cushion blows.
-	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, CLONE = 2, STAMINA = 0, OXY = 1)
+	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, CLONE = 2, STAMINA = 0, OXY = 0)
 	attack_verb_continuous = "slams"
 	attack_verb_simple = "slam"
 	loot = list(/obj/effect/gibspawner/xeno/bodypartless, /obj/effect/gibspawner/generic, /obj/effect/gibspawner/generic/animal, /obj/effect/gibspawner/human/bodypartless)
@@ -370,11 +375,8 @@
 	food_type = list(/obj/item/food/cheesiehonkers, /obj/item/food/cornchips)
 	var/obj/effect/proc_holder/spell/aoe_turf/Lighteater/my_regurgitate
 	var/biomass = 70
-	var/datum/action/innate/glutton/open_portal/open_portal
-	var/datum/action/innate/glutton/clown1/clown1
-	var/datum/action/innate/glutton/clown2/clown2
-	var/datum/action/innate/glutton/clown3/clown3
 	var/datum/action/innate/glutton/plantSkin/plantSkin
+	var/datum/action/innate/glutton/build/myBuild
 /mob/living/simple_animal/hostile/clown/mutant/glutton/get_status_tab_items()
 	. = ..()
 	. += "Плоть: [biomass]"
@@ -441,18 +443,15 @@
 /mob/living/simple_animal/hostile/clown/mutant/glutton/Initialize()
 	. = ..()
 	AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/lighteater)
-	open_portal = new
-	open_portal.Grant(src)
+	myBuild = new
+	myBuild.Grant(src)
 	plantSkin = new
 	plantSkin.Grant(src)
-	clown1 = new
-	clown1.Grant(src)
-	clown2 = new
-	clown2.Grant(src)
-	clown3 = new
-	clown3.Grant(src)
 
-
+/mob/living/simple_animal/hostile/clown/fleshclown/Initialize()
+	. = ..()
+	plantSkin = new
+	plantSkin.Grant(src)
 
 //Пожирание трупов матерью
 /mob/living/simple_animal/hostile/clown/mutant/glutton/proc/eat(atom/movable/A)
@@ -503,7 +502,7 @@
 
 
 
-//Жрет свет и лечит себя + атмосфэра
+//Жрет свет и лечит себя
 /obj/effect/proc_holder/spell/aoe_turf/lighteater
 	name = "Поглотить свет"
 	desc = "Поглощает свет из ближайших лампочек."
@@ -530,123 +529,6 @@
 	return
 
 
-// Создание спавнера
-/datum/action/innate/glutton/open_portal
-	name = "Открыть разлом(300)"
-	desc = "Открыть разлом в измерение клоунов."
-	check_flags = AB_CHECK_CONSCIOUS
-	icon_icon = 'icons/obj/device.dmi'
-	button_icon_state = "clownbeacon"
-	background_icon_state = "bg_changeling"
-
-//Создание обычного клоуна
-/datum/action/innate/glutton/clown1
-	name = "Слепить клоуна(50)"
-	desc = "Слепить обычного клоуна из плоти."
-	check_flags = AB_CHECK_CONSCIOUS
-	icon_icon = 'icons/mob/actions/actions_clown.dmi'
-	button_icon_state = "clown1"
-	background_icon_state = "bg_changeling"
-
-//Создание среднего клоуна
-/datum/action/innate/glutton/clown2
-	name = "Слепить необычного клоуна(75)"
-	desc = "Взять немного больше плоти и сделать необычного клоуна."
-	check_flags = AB_CHECK_CONSCIOUS
-	icon_icon = 'icons/mob/actions/actions_clown.dmi'
-	button_icon_state = "clown2"
-	background_icon_state = "bg_changeling"
-
-//Создание большого клоуна
-/datum/action/innate/glutton/clown3
-	name = "Слепить клоуна-чудовище(200)"
-	desc = "Взять плоть, набранную из многих тел и создать монстра."
-	check_flags = AB_CHECK_CONSCIOUS
-	icon_icon = 'icons/mob/actions/actions_clown.dmi'
-	button_icon_state = "clown3"
-	background_icon_state = "bg_changeling"
-
-
-/datum/action/innate/glutton/open_portal/Activate()
-	if(!istype(owner, /mob/living/simple_animal/hostile/clown/mutant/glutton))
-		return
-	var/mob/living/simple_animal/hostile/clown/mutant/glutton/glutton = owner
-
-	if(!isturf(glutton.loc))
-		return
-	var/turf/glutton_turf = get_turf(glutton)
-
-	var/obj/structure/spawner/clown/spawner = locate() in glutton_turf
-	if(spawner)
-		to_chat(glutton, "<span class='warning'>Здесь уже есть портал!</span>")
-		return
-
-	if (glutton.biomass < 300)
-		to_chat(glutton, "<span class ='notice'>Недостаточно плоти!</span>")
-		return FALSE
-	else
-		playsound(src, 'sound/effects/splat.ogg', 100, TRUE)
-		to_chat(glutton, "<span class='notice'>Леплю из собранной плоти смешную голову клоуна!</span>")
-		new /obj/structure/spawner/clown(glutton_turf)
-		glutton.biomass -= 300
-
-/datum/action/innate/glutton/clown1/Activate()
-	if(!istype(owner, /mob/living/simple_animal/hostile/clown/mutant/glutton))
-		return
-	var/mob/living/simple_animal/hostile/clown/mutant/glutton/glutton = owner
-
-	if(!isturf(glutton.loc))
-		return
-	var/turf/glutton_turf = get_turf(glutton)
-
-	if (glutton.biomass < 50)
-		to_chat(glutton, "<span class ='notice'>Недостаточно плоти!</span>")
-		return FALSE
-	else
-		playsound(glutton, 'sound/effects/splat.ogg', 100, TRUE)
-		to_chat(glutton, "<span class='notice'>Создаю из собранной плоти нового клоуна!</span>")
-		new /mob/living/simple_animal/hostile/clown(glutton_turf)
-		glutton.biomass -= 50
-
-/datum/action/innate/glutton/clown2/Activate()
-	if(!istype(owner, /mob/living/simple_animal/hostile/clown/mutant/glutton))
-		return
-	var/mob/living/simple_animal/hostile/clown/mutant/glutton/glutton = owner
-
-	if(!isturf(glutton.loc))
-		return
-	var/turf/glutton_turf = get_turf(glutton)
-
-	if (glutton.biomass < 75)
-		to_chat(glutton, "<span class ='notice'>Недостаточно плоти!</span>")
-		return FALSE
-	else
-		playsound(glutton, 'sound/effects/splat.ogg', 100, TRUE)
-		to_chat(glutton, "<span class='notice'>Создаю из собранной плоти необычного клоуна!</span>")
-		var/moblist = list(/mob/living/simple_animal/hostile/clown/banana, /mob/living/simple_animal/hostile/clown/mutant, /mob/living/simple_animal/hostile/clown/fleshclown, /mob/living/simple_animal/hostile/clown/longface, /mob/living/simple_animal/hostile/clown/honkling, /mob/living/simple_animal/hostile/clown/lube)
-		var/spawnedmob = pick(moblist)
-		new spawnedmob(glutton_turf)
-		glutton.biomass -= 75
-
-/datum/action/innate/glutton/clown3/Activate()
-	if(!istype(owner, /mob/living/simple_animal/hostile/clown/mutant/glutton))
-		return
-	var/mob/living/simple_animal/hostile/clown/mutant/glutton/glutton = owner
-
-	if(!isturf(glutton.loc))
-		return
-	var/turf/glutton_turf = get_turf(glutton)
-
-	if (glutton.biomass < 200)
-		to_chat(glutton, "<span class ='notice'>Недостаточно плоти!</span>")
-		return FALSE
-	else
-		playsound(glutton, 'sound/effects/splat.ogg', 100, TRUE)
-		to_chat(glutton, "<span class='notice'>Создаю из собранной плоти сильного клоуна!</span>")
-		var/moblist = list(/mob/living/simple_animal/hostile/clown/clownhulk,  /mob/living/simple_animal/hostile/clown/infestor,  /mob/living/simple_animal/hostile/clown/clownhulk/chlown, /mob/living/simple_animal/hostile/clown/clownhulk/honcmunculus)
-		var/spawnedmob = pick(moblist)
-		new spawnedmob(glutton_turf)
-		glutton.biomass -= 200
 
 //Направление клоунов в точку матерью
 
@@ -743,6 +625,8 @@
 		for (var/turf/V in range(1,T))
 			if(istype(V, /turf/closed/wall))
 				V.ChangeTurf(/turf/closed/wall/clown)
+				if(prob(2))
+					new /obj/structure/spawner/clown/clownworm(V)
 
 	return TRUE
 
@@ -794,10 +678,14 @@
 	button_icon_state = "alien_plant"
 	background_icon_state = "bg_changeling"
 
+/datum/action/innate/fleshclown/plantSkin
+	name = "Вырастить кожу(25)"
+	desc = "Выращивает на полу рассадник кожи."
+	icon_icon = 'icons/mob/actions/actions_clown.dmi'
+	button_icon_state = "alien_plant"
+	background_icon_state = "bg_changeling"
 
 /datum/action/innate/glutton/plantSkin/Activate()
-	if(!istype(owner, /mob/living/simple_animal/hostile/clown/mutant/glutton))
-		return
 	var/mob/living/simple_animal/hostile/clown/mutant/glutton/glutton = owner
 
 	if(!isturf(glutton.loc))
@@ -815,7 +703,23 @@
 	glutton.biomass = glutton.biomass - 25
 	return TRUE
 
+/datum/action/innate/fleshclown/plantSkin/Activate()
+	var/mob/living/simple_animal/hostile/clown/fleshclown/glutton = owner
 
+	if(!isturf(glutton.loc))
+		return
+	var/turf/glutton_turf = get_turf(glutton)
+
+	if (glutton.biomass < 25)
+		to_chat(glutton, "<span class='warning'>Недостаточно плоти!</span>")
+		return FALSE
+	if(locate(/obj/structure/clownweeds/node/) in glutton_turf)
+		to_chat(glutton, "<span class='warning'>Здесь уже есть рассадник кожи!</span>")
+		return FALSE
+	glutton.visible_message("<span class='alertalien'>[glutton] выращивает на полу рассадник кожи!</span>")
+	new/obj/structure/clownweeds/node/(glutton.loc)
+	glutton.biomass = glutton.biomass - 25
+	return TRUE
 
 /turf/closed/wall/clown
 	name = "Кожистая стена"
@@ -838,3 +742,35 @@
 		playsound(src.loc, 'sound/effects/gib_step.ogg', 50, TRUE)
 		if(stored_pulling)
 			start_pulling(stored_pulling, supress_message = TRUE) //drag anything we're pulling through the wall with us by magic
+
+/datum/action/innate/glutton/build
+	name = "Flesh sculpting"
+	desc = "Слепить из накопленной плоти органическое здание."
+	var/list/structures = list(
+		"small clowns(80)" = /obj/structure/spawner/clown/clownsmall,
+		"flesh clowns(120)" = /obj/structure/spawner/clown/clownbuilder,
+		"banana clowns(150)" = /obj/structure/spawner/clown/clownana,
+		"spider clowns(200)" = /obj/structure/spawner/clown/clownspider,
+		"elite clowns(300)" = /obj/structure/spawner/clown/clownbig)
+
+	icon_icon = 'icons/mob/actions/actions_clown.dmi'
+	button_icon_state = "alien_resin"
+	background_icon_state = "bg_changeling"
+
+/datum/action/innate/glutton/build/Activate()
+	var/mob/living/simple_animal/hostile/clown/mutant/glutton/glutton = owner
+	var/choice = tgui_input_list(glutton, "Choose what to build.","Flesh sculpting", structures)
+	if(!choice)
+		return FALSE
+	choice =  structures[choice]
+	var/obj/structure/spawner/clown/spawner =  new choice
+	var/ccost = spawner.cost
+	if(ccost > glutton.biomass)
+		to_chat(glutton, "<span class='notice'>Недостаточно плоти.</span>")
+		return FALSE
+	else
+		new choice(glutton.loc)
+		to_chat(glutton, "<span class='notice'>Леплю из плоти [choice].</span>")
+		glutton.visible_message("<span class='notice'>[glutton] формирует неестественное строение из накопленной плоти.</span>")
+		glutton.biomass -= ccost
+		return TRUE
