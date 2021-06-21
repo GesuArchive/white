@@ -3986,6 +3986,8 @@
 	},
 /obj/item/clothing/gloves/color/yellow,
 /obj/structure/table,
+/obj/item/gun/ballistic/rifle/boltaction/taser,
+/obj/item/gun/ballistic/rifle/boltaction/taser,
 /turf/open/floor/plasteel/dark,
 /area/security/execution/transfer)
 "pQ" = (

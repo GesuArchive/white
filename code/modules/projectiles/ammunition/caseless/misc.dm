@@ -32,22 +32,6 @@
 	projectile_type = /obj/projectile/energy/electrode
 	custom_materials = null
 
-/obj/item/ammo_casing/caseless/pissball/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	if(!..())
-		if(iscarbon(hit_atom))
-			var/obj/item/I =  new /obj/item/ammo_casing/caseless/pissball
-			var/mob/living/carbon/C = hit_atom
-			if((istype(C.gloves, /obj/item/clothing/gloves/color/yellow))&&(C.can_catch_item()))
-				C.put_in_active_hand(I)
-				visible_message("<span class='warning'><b>[C.name]</b> ловит <b>[I.name]</b>!</span>", \
-								"<span class='userdanger'>Ловлю <b>[I.name]</b>!</span>")
-				C.throw_mode_off(THROW_MODE_TOGGLE)
-			else
-				C.Paralyze(100)
-				playsound(C.loc, 'sound/weapons/taserhit.ogg', 50, TRUE)
-				addtimer(CALLBACK(C, /mob/living/carbon.proc/do_jitter_animation, 20), 5)
-		qdel(src)
-
 /obj/item/ammo_casing/caseless/pissball/equipped(mob/living/carbon/user, slot)
 	. = ..()
 	if(!istype(user.gloves, /obj/item/clothing/gloves/color/yellow))
