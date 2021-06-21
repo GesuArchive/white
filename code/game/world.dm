@@ -295,9 +295,9 @@ GLOBAL_VAR_INIT(hub_mimic, FALSE)
 	var/s = ""
 
 	if(!GLOB.hub_mimic)
-		s += "<big><b>W#t Dream: RU</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/9uJ7dmM\">DISCORD</a>\n\n"
-		s += "<img src='https://assets.station13.ru/l/w3.gif'>\n\n"
-		s += "\[<big>3APA3A!</big>"
+		s += "<big><b>White Dream: RU</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/9uJ7dmM\">DISCORD</a>\n\n"
+		s += "<img src='https://assets.station13.ru/l/w[rand(1, 2)].gif'>\n\n"
+		s += "\[<big>ORBITAL EDITION</big>"
 	else
 		s += "<big><b>CBACTOH STATION: RU</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/9uJ7dmM\">DISCORD</a>\n\n"
 		s += "<img src='https://assets.station13.ru/l/w[rand(1, 2)].gif'>\n\n"
