@@ -144,7 +144,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 	throwforce = 5
 	throw_range = 7
 	var/datum/smithing_recipe/recipe = null
-	var/durability = 5
+	var/durability = 6
 	var/progress_current = 0
 	var/progress_need = 10
 	var/heattemp = 0
