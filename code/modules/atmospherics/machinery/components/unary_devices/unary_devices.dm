@@ -15,7 +15,7 @@
 	..()
 	update_icon()
 
-/proc/assign_uid_vents()
+/obj/machinery/atmospherics/proc/assign_uid_vents()
 	return
 
 /obj/machinery/atmospherics/components/unary/assign_uid_vents()
