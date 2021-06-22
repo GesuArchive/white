@@ -28936,7 +28936,6 @@
 	name = "AI Core Door";
 	req_access_txt = "16"
 	},
-/obj/structure/cable,
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
 "cvw" = (
@@ -29652,14 +29651,12 @@
 /turf/open/floor/plasteel,
 /area/science/research)
 "cAS" = (
-/obj/machinery/power/smes{
-	charge = 5e+006
+/obj/machinery/power/apc/highcap/five_k{
+	areastring = "/area/ai_monitored/turret_protected/ai";
+	name = "AI Chamber APC";
+	pixel_y = 23
 	},
 /obj/structure/cable,
-/obj/machinery/door/window{
-	name = "AI Core Door";
-	req_access_txt = "16"
-	},
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
 "cAT" = (
@@ -29711,6 +29708,7 @@
 	pixel_x = 27;
 	pixel_y = -9
 	},
+/obj/structure/cable,
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
 "cBb" = (
@@ -29746,6 +29744,11 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/power/port_gen/pacman{
+	anchored = 1;
+	sheets = 10
 	},
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
@@ -31620,9 +31623,6 @@
 /area/engine/manufactory)
 "dCp" = (
 /obj/structure/cable,
-/obj/machinery/power/terminal{
-	dir = 1
-	},
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
 "dCG" = (
@@ -41287,11 +41287,6 @@
 /turf/open/floor/plasteel/monofloor,
 /area/engine/engineering)
 "thp" = (
-/obj/machinery/power/apc/highcap/five_k{
-	areastring = "/area/ai_monitored/turret_protected/ai";
-	name = "AI Chamber APC";
-	pixel_y = -23
-	},
 /obj/machinery/flasher{
 	id = "AI";
 	pixel_x = -11;
@@ -41307,7 +41302,6 @@
 	name = "AI Core Door";
 	req_access_txt = "16"
 	},
-/obj/structure/cable,
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
 "thG" = (
@@ -42980,6 +42974,10 @@
 /obj/machinery/airalarm{
 	dir = 1;
 	pixel_y = -23
+	},
+/obj/machinery/camera/motion{
+	c_tag = "MiniSat AI Chamber North";
+	network = list("aicore")
 	},
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
