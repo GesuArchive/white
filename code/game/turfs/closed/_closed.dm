@@ -61,9 +61,9 @@
 
 /turf/closed/indestructible/splashscreen
 	name = "White Dream"
-	desc = "Собрание психопатов и дети."
-	icon = 'icons/protocol_c.dmi'
-	icon_state = "blank"
+	desc = "Поколение странных увлечений."
+	icon = 'icons/effects/station_explosion.dmi'
+	icon_state = "station_intact"
 	layer = SPLASHSCREEN_LAYER
 	plane = SPLASHSCREEN_PLANE
 	bullet_bounce_sound = null
