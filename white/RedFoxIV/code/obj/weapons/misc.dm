@@ -229,10 +229,12 @@
 
 //CRIKEY
 
-/*
 /obj/item/gun/ballistic/smart
 	name = "MK5 Smart Pistol"
-	desc = "Oh, cry me a river."
+	desc = "Древний артефакт. Использует особые картриджи с флешеттами, способными корректировать свою траекторию в полёте.\
+	Несмотря на свою точность, линейка Smart-оружия так и не нашла широкого применения из-за чрезвычайно низкой останавливающей силы.\
+	Похоже, до сего момента он хранился в ненадлежащих условиях, и электроника немного сбоит."
+
 	icon = 'white/RedFoxIV/icons/obj/weapons/misc.dmi'
 	icon_state = "smart_pistol"
 	//bolt_type = BOLT_TYPE_STANDARD //already defined in /ballistic, thought that mentioning it here for clarity is a good idea.
@@ -240,43 +242,54 @@
 	mag_display = TRUE
 
 /obj/item/ammo_box/magazine/smart
+	name = "Мазазин от Smart-пистолета"
+	desc = "Единственная особенность этого магазина - защита от дурака в виде необычной формы магазина, которая не даёт вставить обычные 9мм патроны."
+	icon = 'white/RedFoxIV/icons/obj/weapons/misc.dmi'
+	icon_state = "smart_pistol_magazine"
 	ammo_type = /obj/item/ammo_casing/smart
 	max_ammo = 12
 
 /obj/item/ammo_casing/smart
+	name = "Smart-флешетта"
+	desc = "Картридж с особым патроном - флешеттой. Необычная конструкция картриджа не позволит зарядить его в обычный 9мм огнестрел."
+	icon = 'white/RedFoxIV/icons/obj/weapons/misc.dmi'
+	icon_state = "smart_ammo_casing"
 	projectile_type = /obj/projectile/smart
 
-/obj/projectile/smart
+/obj/projectile/bullet/smart
+	icon = 'white/RedFoxIV/icons/obj/weapons/misc.dmi'
+	icon_state = "smart_flechette"
 	damage = 10
 	speed = 1.5
 	homing_turn_speed = 20
 
+//this is a shitcode
+  //dear god
+//there's more shitcode
+  //no
 /obj/projectile/smart/preparePixelProjectile(atom/target, atom/source, params, spread)
 	if(isnull(target))
-		loc.visible_message("target is null!")
 		return
 	if(isliving(target) && prob(50)) //50% change to fire a homing shot when clicking directly on a mob
 		set_homing_target(target)
 		homing = TRUE
 		return ..()
-	if(!prob(25)) // 25% chance to fire a homing shot if not clicking on a mob
+
+	if(!prob(35)) // 35% chance to fire a homing shot if not clicking on a mob
 		return ..()
-	var/list/mob/living/R = view(3, target)
+
+	var/list/mob/living/R = viewers(3, target)
 	var/list/pt = list() //potential_targets
 	var/dist
-	loc.visible_message("target.type = [target.type]")
 	for(var/mob/living/L in R)
-		loc.visible_message("L.type = [L.type] /// isliving(L) = [isliving(L)]")
-		if(!isliving(L))
-			continue
-		if(L == fired_from)
+		if(L == firer)
 			continue
 		if(isnull(dist) || dist == get_dist(L, target)) // if it's null, it means we're on our first cycle and we save in var/dist the distance to the closest mob
 			pt.Add(L)
 		else
 			break
 	
-	dist = INFINITY
+	dist = INFINITY // this gives me vietnam-style flashbacks about programming classes in 7th grade
 	var/mob/living/ht //homing target
 	for(var/mob/living/L in pt)
 		var/dist_from_firer = get_dist(fired_from, L)
@@ -288,9 +301,6 @@
 	set_homing_target(ht) // fucking finally
 	homing = TRUE
 	return ..() 
-
-*/
-
 
 
 
