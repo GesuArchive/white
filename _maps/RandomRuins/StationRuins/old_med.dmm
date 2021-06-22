@@ -3540,7 +3540,7 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/lobby)
 "Jw" = (
-/obj/structure/table/glass,
+/obj/machinery/chem_mass_spec,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/pharmacy)
 "JA" = (
