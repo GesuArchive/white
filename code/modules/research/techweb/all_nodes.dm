@@ -82,6 +82,7 @@
 		"comp_length",
 		"comp_light",
 		"comp_logic",
+		"comp_multiplexer",
 		"comp_not",
 		"comp_radio",
 		"comp_ram",

@@ -5,6 +5,7 @@
  */
 /obj/item/circuit_component/tostring
 	display_name = "В строку"
+	display_desc = "A component that converts its input to text."
 
 	/// The input port
 	var/datum/port/input/input_port
