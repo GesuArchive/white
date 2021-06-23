@@ -15,6 +15,9 @@
 	..()
 	update_icon()
 
-/obj/machinery/atmospherics/components/unary/proc/assign_uid_vents()
+/obj/machinery/atmospherics/proc/assign_uid_vents()
+	return
+
+/obj/machinery/atmospherics/components/unary/assign_uid_vents()
 	uid = num2text(gl_uid++)
 	return uid
