@@ -694,9 +694,13 @@
 	flavour_text = "Будущее цирковых технологий. Развлекайте публику на станции любыми возможными способами, не покидая <b><i>Цирк</i></b>."
 	outfit = /datum/outfit/artist
 	assignedrole = "Artist"
-	var/list/round_banned_ckeys = list()
+	
+	//mobs that were spawned from /this/ one instance of the spawner
 	var/list/mob/living/spawned_mobs = list()
-	var/amount = 0
+
+	//shared across all spawners
+	var/global/list/round_banned_ckeys = list()
+	var/global/amount = 0
 
 /obj/effect/mob_spawn/human/artist/Initialize()
 	. = ..()
@@ -740,16 +744,16 @@
 			round_banned_ckeys.Add(spawned_mobs[artist])
 			spawned_mobs.Remove(artist)
 			to_chat(artist, "<span class='userdanger'>Ох, лучше бы я не покидал Цирк...</span>") //let them know they fucked up
-			artist.pooition = 10000
-			artist.emote("scream")
-			addtimer(CALLBACK(artist, /mob/proc/emote, "poo"), 0.1 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME | TIMER_LOOP)
 			message_admins("Игрок [artist.ckey], будучи Артистом, каким-то образом сбежал из цирка, за что был казнён и лишён доступа к спавнеру до конца раунда. Такого быть не должно: выясните, как он этого добился и передайте кодербасу. Если же это произошло по вине админбаса, удалите сикей игрока из переменной спавнера (round_banned_ckeys). Позиция игрока на момент обнаружения побега: x=[artist.x], y=[artist.y], z=[artist.z], название зоны - [get_area_name(artist)]")
-			spawn(2 SECONDS)
+			spawn(0.5 SECONDS)
+				artist.pooition = 10000
+				artist.emote("scream")
+				addtimer(CALLBACK(artist, /mob/proc/emote, "poo"), 0.1 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME | TIMER_LOOP)
+			spawn(2.5 SECONDS)
 				for(var/whatever=0,whatever<50,whatever++)
 					artist.emote("poo")
 				artist.visible_message("<span class='hypnophrase'>[artist.name] испепеляется, оставляя за собой только кости: похоже, за побег из Цирка он был отправлен в бессрочную ссылку на [pick("Цитадель", "Флаффи", "Скайрэт", "Опух", "парашу")]. [pick("Прикольно", "Страшно", "Помянем", "Ужасно", "Кошмар", "Грустно", "Смешно")].</span>")
-				artist.dust() //nothing is dropped this time
-				
+				artist.gib(TRUE)
 			continue
 		/*
 		else
