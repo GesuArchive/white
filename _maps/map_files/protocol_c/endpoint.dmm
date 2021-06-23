@@ -7,6 +7,11 @@
 /obj/effect/landmark/mafia_game_area,
 /turf/open/space/basic,
 /area/space)
+"ad" = (
+/turf/open/floor/light/colour_cycle/dancefloor_b{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
+/area/centcom/outdoors/circus)
 "aj" = (
 /turf/closed/indestructible/riveted,
 /area/awaymission/errorroom)
@@ -137,6 +142,11 @@
 /obj/effect/turf_decal/stripes/full,
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"bd" = (
+/turf/open/floor/light/colour_cycle/dancefloor_a{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
+/area/centcom/outdoors/circus)
 "bi" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -457,15 +467,6 @@
 	},
 /turf/open/floor/engine/cult,
 /area/wizard_station)
-"cv" = (
-/obj/item/vending_refill/engivend{
-	pixel_y = 6
-	},
-/obj/structure/table,
-/turf/open/floor/holofloor/carpet{
-	baseturfs = /turf/open/floor/plating/asteroid
-	},
-/area/centcom/circus)
 "cA" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -1654,11 +1655,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/control)
-"hO" = (
-/turf/open/floor/light/colour_cycle/dancefloor_a{
-	baseturfs = /turf/open/floor/plating/asteroid
-	},
-/area/centcom/outdoors/circus)
 "hT" = (
 /obj/item/defibrillator/loaded,
 /obj/structure/table/reinforced,
@@ -1931,12 +1927,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/one)
-"jX" = (
-/obj/structure/grille/broken,
-/turf/open/floor/plating{
-	baseturfs = /turf/open/floor/plating/asteroid
-	},
-/area/centcom/outdoors/circus)
 "jZ" = (
 /obj/structure/table,
 /obj/item/book/manual/hydroponics_pod_people,
@@ -2226,13 +2216,6 @@
 "lQ" = (
 /turf/open/floor/plasteel/checker,
 /area/ruin/powered/yohei_base)
-"lR" = (
-/obj/machinery/computer/arcade/battle{
-	dir = 8;
-	resistance_flags = 64
-	},
-/turf/open/floor/wood,
-/area/centcom/circus)
 "lX" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -2723,11 +2706,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
-"oS" = (
-/turf/open/floor/light/colour_cycle/dancefloor_b{
-	baseturfs = /turf/open/floor/plating/asteroid
-	},
-/area/centcom/outdoors/circus)
 "oW" = (
 /obj/effect/turf_decal/arrows/white,
 /turf/open/floor/plasteel/monofloor,
@@ -2939,6 +2917,15 @@
 	color = "#008000"
 	},
 /area/wizard_station)
+"qt" = (
+/obj/item/vending_refill/engivend{
+	pixel_y = 6
+	},
+/obj/structure/table,
+/turf/open/floor/holofloor/carpet{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
+/area/centcom/circus)
 "qu" = (
 /obj/machinery/processor,
 /turf/open/floor/plasteel/cafeteria,
@@ -3969,12 +3956,6 @@
 	smoothing_flags = 1
 	},
 /area/centcom/holding)
-"zf" = (
-/obj/structure/windoor_assembly,
-/turf/open/floor/plating{
-	baseturfs = /turf/open/floor/plating/asteroid
-	},
-/area/centcom/outdoors/circus)
 "zl" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -4264,6 +4245,13 @@
 	},
 /turf/open/floor/engine/cult,
 /area/wizard_station)
+"Bp" = (
+/obj/machinery/computer/arcade/battle{
+	dir = 8;
+	resistance_flags = 64
+	},
+/turf/open/floor/wood,
+/area/centcom/circus)
 "Bq" = (
 /turf/open/floor/plating,
 /area/syndicate_mothership/control)
@@ -4522,6 +4510,12 @@
 	},
 /turf/open/floor/plasteel/checker,
 /area/ruin/powered/yohei_base)
+"CT" = (
+/obj/effect/mob_spawn/human/artist{
+	pixel_y = 6
+	},
+/turf/open/floor/wood,
+/area/centcom/circus)
 "CZ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -4804,6 +4798,9 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/centcom/control)
+"EK" = (
+/turf/closed/indestructible/syndicate,
+/area/space)
 "EM" = (
 /obj/structure/flora/junglebush/large,
 /turf/open/floor/plating/grass/jungle,
@@ -4840,14 +4837,6 @@
 "EV" = (
 /turf/closed/indestructible/sandstone,
 /area/centcom/outdoors)
-"EZ" = (
-/obj/machinery/vending/engivend{
-	resistance_flags = 64
-	},
-/turf/open/floor/holofloor/carpet{
-	baseturfs = /turf/open/floor/plating/asteroid
-	},
-/area/centcom/circus)
 "Fc" = (
 /obj/structure/flora/tree/jungle,
 /turf/open/floor/plating/grass/jungle,
@@ -5223,6 +5212,12 @@
 /obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/syndicate_mothership/control)
+"ID" = (
+/obj/structure/grille/broken,
+/turf/open/floor/plating{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
+/area/centcom/outdoors/circus)
 "IG" = (
 /obj/structure/chair/stool,
 /obj/effect/turf_decal/tile/bar,
@@ -5443,6 +5438,14 @@
 	icon_state = "alien9"
 	},
 /area/abductor_ship)
+"KH" = (
+/obj/machinery/vending/engivend{
+	resistance_flags = 64
+	},
+/turf/open/floor/holofloor/carpet{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
+/area/centcom/circus)
 "KL" = (
 /obj/machinery/abductor/experiment{
 	team_number = 3
@@ -5589,12 +5592,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/brief)
-"LS" = (
-/obj/effect/mob_spawn/human/artist{
-	pixel_y = 6
-	},
-/turf/open/floor/wood,
-/area/centcom/circus)
 "LT" = (
 /obj/effect/light_emitter{
 	set_cap = 1;
@@ -6383,14 +6380,6 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding)
-"RT" = (
-/obj/effect/mob_spawn/human/artist{
-	pixel_y = 6
-	},
-/turf/open/floor/holofloor/carpet{
-	baseturfs = /turf/open/floor/plating/asteroid
-	},
-/area/centcom/circus)
 "RX" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -6876,6 +6865,21 @@
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
 /area/centcom/circus)
+"UY" = (
+/obj/machinery/vending/chetverochka{
+	resistance_flags = 64
+	},
+/obj/item/uplink{
+	anchored = 1;
+	desc = "Какая-то дылда положила аплинк на самый верх вендомата. Теперь его не достать.";
+	layer = 4.01;
+	name = "аплинк синдиката";
+	pixel_y = 19
+	},
+/turf/open/floor/holofloor/carpet{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
+/area/centcom/circus)
 "Vb" = (
 /obj/structure/table/wood,
 /turf/open/floor/wood,
@@ -7121,9 +7125,6 @@
 "WY" = (
 /turf/open/floor/plasteel,
 /area/centcom/control)
-"Xb" = (
-/turf/closed/indestructible/syndicate,
-/area/space)
 "Xc" = (
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
@@ -7248,6 +7249,12 @@
 /obj/machinery/suit_storage_unit/mining,
 /turf/open/indestructible/white,
 /area/centcom/control)
+"XW" = (
+/obj/structure/windoor_assembly,
+/turf/open/floor/plating{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
+/area/centcom/outdoors/circus)
 "XX" = (
 /turf/open/floor/plasteel/monofloor/dark,
 /area/centcom/supplypod)
@@ -7265,21 +7272,6 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/three)
-"Yg" = (
-/obj/machinery/vending/chetverochka{
-	resistance_flags = 64
-	},
-/obj/item/uplink{
-	anchored = 1;
-	desc = "Какая-то дылда положила аплинк на самый верх вендомата. Теперь его не достать.";
-	layer = 4.01;
-	name = "аплинк синдиката";
-	pixel_y = 19
-	},
-/turf/open/floor/holofloor/carpet{
-	baseturfs = /turf/open/floor/plating/asteroid
-	},
-/area/centcom/circus)
 "Yi" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/trimline/neutral/line{
@@ -7461,6 +7453,14 @@
 /obj/item/pickaxe/rusted,
 /turf/open/floor/plating/dirt/jungle/dark,
 /area/centcom/outdoors)
+"Zg" = (
+/obj/effect/mob_spawn/human/artist{
+	pixel_y = 6
+	},
+/turf/open/floor/holofloor/carpet{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
+/area/centcom/circus)
 "Zm" = (
 /obj/structure/railing{
 	dir = 4
@@ -26760,7 +26760,7 @@ Tw
 WN
 Tx
 qk
-EZ
+KH
 zV
 Co
 Co
@@ -27003,7 +27003,7 @@ ZU
 jz
 Wm
 sV
-RT
+Zg
 Xn
 Xn
 Xn
@@ -27014,10 +27014,10 @@ Xn
 Xn
 Xn
 Xn
-zf
+XW
 Xn
 Xn
-cv
+qt
 zV
 Co
 Co
@@ -27523,7 +27523,7 @@ Xn
 Xn
 Xn
 Xn
-jX
+ID
 Xn
 Xn
 Xn
@@ -28040,7 +28040,7 @@ Xn
 Xn
 Xn
 NS
-jX
+ID
 Xn
 Xn
 Xn
@@ -29326,10 +29326,10 @@ ru
 Xn
 Xn
 ru
-oS
-hO
-hO
-oS
+ad
+bd
+bd
+ad
 db
 zV
 Co
@@ -29830,7 +29830,7 @@ ZU
 rv
 ZU
 zV
-LS
+CT
 QF
 QF
 FP
@@ -30348,7 +30348,7 @@ Cy
 Db
 DH
 Ga
-lR
+Bp
 Hc
 IV
 Kr
@@ -30358,7 +30358,7 @@ Vr
 Ko
 WP
 wY
-Yg
+UY
 zV
 Co
 Co
@@ -30857,7 +30857,7 @@ Co
 Co
 Co
 Co
-Xb
+EK
 Co
 Co
 Co
