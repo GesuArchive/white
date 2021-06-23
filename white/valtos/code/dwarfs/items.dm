@@ -50,3 +50,15 @@
 	name = "сапфир"
 	icon_state = "saphire"
 	desc = "Такой камень подошел бы королю."
+
+/obj/item/damaz
+	name = "Дамаз Крон"
+	desc = "Обидно."
+	icon = 'white/valtos/icons/dwarfs/objects.dmi'
+	icon_state = "damaz"
+
+/obj/item/damaz/proc/can_use(mob/user)
+	var/allowed = isdwarf(user)
+	if(!allowed)
+		to_chat(user, "<span class='warning'>Ты не достоин!</span>")
+	return allowed
