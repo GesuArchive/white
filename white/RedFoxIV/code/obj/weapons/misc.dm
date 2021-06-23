@@ -621,3 +621,138 @@
 			SP.visible_message("<span class='hypnophrase'>Чудодейственное вещество проникает в щели и отверстия [SP.name], [ass] оптимизируя и улучшая его работу! </span>")
 		SP.desc = initial(SP.desc) + " Обладаёт лёгким и неописуемым ароматом."
 		return ..()
+
+
+/datum/outfit/artist
+	name = "Костюм Артиста"
+
+	uniform = /obj/item/clothing/under/color/grey/artist
+	shoes = /obj/item/clothing/shoes/combat/artist
+	r_hand = /obj/item/storage/toolbox/mechanical
+
+/obj/effect/mob_spawn/human/artist/create(ckey, newname)
+	if(ckey)
+		var/client/C = GLOB.directory[ckey]
+		if(C?.prefs)
+			hairstyle =  C.prefs.hairstyle
+			facial_hairstyle = C.prefs.facial_hairstyle
+			skin_tone = C.prefs.skin_tone
+	. = ..()
+
+
+//artists equipment
+//has NODROP trait, deletes itself when dropped (so the dust(drop_items = TRUE) proc doesn't spam jumpsuits on the floor)
+//artist's version of gray jumpsuit
+/obj/item/clothing/under/color/grey/artist
+	name = "Одежда артиста"
+	resistance_flags = INDESTRUCTIBLE
+
+/obj/item/clothing/under/color/grey/artist/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, "Initialize")
+
+/obj/item/clothing/under/color/grey/artist/dropped(mob/user)
+	. = ..()
+	qdel(src)
+
+//artist's version of boots
+/obj/item/clothing/shoes/combat/artist
+	name = "сапоги артиста"
+	resistance_flags = INDESTRUCTIBLE
+
+/obj/item/clothing/shoes/combat/artist/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, "Initialize")
+
+/obj/item/clothing/shoes/combat/artist/dropped(mob/user)
+	. = ..()
+	qdel(src)
+
+/*
+//artist's version of toolset implant
+/obj/item/organ/cyberimp/arm/toolset/artist
+
+/obj/item/organ/cyberimp/arm/toolset/artist/Initialize()
+	. = ..()
+	START_PROCESSING(SSmachines, src)
+
+/obj/item/organ/cyberimp/arm/toolset/artist/Destroy()
+	START_PROCESSING(SSmachines, src)
+	. = ..()
+*/
+
+/obj/effect/mob_spawn/human/artist
+	name = "Экстрактор"
+	desc = "Вытягивает заблудшие души с того света и конвертирует их в дешёвую рабочую силу."
+	icon = 'white/valtos/icons/prison/prison.dmi'
+	icon_state = "spwn"
+	roundstart = FALSE
+	death = FALSE
+	permanent = TRUE
+	uses = -1
+	short_desc = "Я артист. Я работаю на развлечение публики."
+	flavour_text = "Будущее цирковых технологий. Развлекайте публику на станции любыми возможными способами, не покидая <b><i>Цирк</i></b>."
+	outfit = /datum/outfit/artist
+	assignedrole = "Artist"
+	var/list/round_banned_ckeys = list()
+	var/list/mob/living/spawned_mobs = list()
+	var/amount = 0
+
+/obj/effect/mob_spawn/human/artist/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
+
+/obj/effect/mob_spawn/human/artist/Destroy()
+	START_PROCESSING(SSprocessing, src)
+	. = ..()
+
+/obj/effect/mob_spawn/human/artist/attack_ghost(mob/user)
+	if(user.ckey in round_banned_ckeys)
+		to_chat(user, "<span class='warning'>А хуй тебе!</span>")
+		return
+	. = ..()
+
+/obj/effect/mob_spawn/human/artist/create(ckey, newname)
+	. = ..()
+	var/mob/living/L = .
+	spawned_mobs += L
+	spawned_mobs[L] = L.ckey
+
+/obj/effect/mob_spawn/human/artist/special(mob/living/L)
+	amount += 1
+	L.real_name = "Артист #[amount]"
+	L.name = L.real_name
+	
+
+//stolen from CTF code
+/obj/effect/mob_spawn/human/artist/process(delta_time)
+	for(var/i in spawned_mobs)
+		if(!i)
+			spawned_mobs -= i
+			continue
+		var/mob/living/artist = i
+		if(HAS_TRAIT(artist, TRAIT_CRITICAL_CONDITION) || artist.stat == DEAD)
+			spawned_mobs.Remove(artist)
+			artist.dust(drop_items = TRUE)
+			continue
+		var/area/A = get_area(artist)
+		if(!istype(A, /area/centcom/circus) && !istype(A, /area/centcom/outdoors/circus)) //just in case
+			round_banned_ckeys.Add(spawned_mobs[artist])
+			spawned_mobs.Remove(artist)
+			to_chat(artist, "<span class='userdanger'>Ох, лучше бы я не покидал Цирк...</span>") //let them know they fucked up
+			artist.pooition = 10000
+			artist.emote("scream")
+			addtimer(CALLBACK(artist, /mob/proc/emote, "poo"), 0.1 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME | TIMER_LOOP)
+			message_admins("Игрок [artist.ckey], будучи Артистом, каким-то образом сбежал из цирка, за что был казнён и лишён доступа к спавнеру до конца раунда. Такого быть не должно: выясните, как он этого добился и передайте кодербасу. Если же это произошло по вине админбаса, удалите сикей игрока из переменной спавнера (round_banned_ckeys). Позиция игрока на момент обнаружения побега: x=[artist.x], y=[artist.y], z=[artist.z], название зоны - [get_area_name(artist)]")
+			spawn(2 SECONDS)
+				for(var/whatever=0,whatever<50,whatever++)
+					artist.emote("poo")
+				artist.visible_message("<span class='hypnophrase'>[artist.name] испепеляется, оставляя за собой только кости: похоже, за побег из Цирка он был отправлен в бессрочную ссылку на [pick("Цитадель", "Флаффи", "Скайрэт", "Опух", "парашу")]. [pick("Прикольно", "Страшно", "Помянем", "Ужасно", "Кошмар", "Грустно", "Смешно")].</span>")
+				artist.dust() //nothing is dropped this time
+				
+			continue
+		/*
+		else
+			artist.adjustBruteLoss(-2.5 * delta_time)
+			artist.adjustFireLoss(-2.5 * delta_time)
+		*/

@@ -17,6 +17,13 @@
 /area/centcom/control
 	name = "ЦК"
 
+/area/centcom/circus
+	name = "Блядский цирк"
+	has_gravity = TRUE
+
+/area/centcom/outdoors/circus
+	name = "Блядский цирк"
+
 /area/centcom/evac
 	name = "ЦК: Эвакуационный док"
 

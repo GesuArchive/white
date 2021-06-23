@@ -110,3 +110,9 @@
 		detectTime = 0
 		for(var/obj/machinery/computer/security/telescreen/entertainment/TV in GLOB.machines)
 			TV.notify(FALSE)
+
+/obj/machinery/camera/motion/thunderdome/xray
+
+/obj/machinery/camera/motion/thunderdome/xray/Initialize()
+	. = ..()
+	upgradeXRay()
