@@ -25,6 +25,11 @@ GLOBAL_LIST_EMPTY(dead_players_during_shift)
 	if(H)
 		H.beat = BEAT_NONE
 
+	if(mind && !mind.antag_datums && lastattacker && lastattacker != real_name)
+		gain_trauma(new /datum/brain_trauma/mild/phobia(specific_person = lastattacker), TRAUMA_RESILIENCE_PSYCHONLY)
+		if(client)
+			INVOKE_ASYNC(client, /client/proc/show_tgui_notice, "ПТСР", "Тебя кто-то убил. Персонаж получил травму связанную с этим событием не дающую ему вспомнить своего убийцу. Возможно психолог поможет вспомнить.")
+
 	. = ..()
 
 	dizziness = 0
@@ -41,12 +46,9 @@ GLOBAL_LIST_EMPTY(dead_players_during_shift)
 		log_message("has died (BRUTE: [src.getBruteLoss()], BURN: [src.getFireLoss()], TOX: [src.getToxLoss()], OXY: [src.getOxyLoss()], CLONE: [src.getCloneLoss()])", LOG_ATTACK)
 	if(is_devil(src))
 		INVOKE_ASYNC(is_devil(src), /datum/antagonist/devil.proc/beginResurrectionCheck, src)
-	if(mind && !mind.antag_datums && lastattacker && lastattacker != real_name)
-		gain_trauma(new /datum/brain_trauma/mild/phobia(specific_person = lastattacker), TRAUMA_RESILIENCE_PSYCHONLY)
-		INVOKE_ASYNC(src, .proc/show_tgui_notice, "ПТСР", "Тебя кто-то убил. Персонаж получил травму связанную с этим событием не дающую ему вспомнить своего убийцу. Возможно психолог поможет вспомнить.")
 	to_chat(src, "<span class='warning'>Пришлось погибнуть. Учитывая практически полную потерю тела, всё ещё есть все большие шансы на спасение другими людьми.</span>")
 
-/mob/living/carbon/human/proc/show_tgui_notice(header, msg)
+/client/proc/show_tgui_notice(header, msg)
 	tgui_alert_async(src, header, msg, list("Понимаю"))
 
 /mob/living/carbon/human/proc/makeSkeleton()
