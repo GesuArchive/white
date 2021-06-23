@@ -1173,7 +1173,6 @@
 /turf/open/floor/plating/airless,
 /area/medical/sleeper)
 "oK" = (
-/obj/item/kirbyplants/random,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6
 	},
@@ -1183,6 +1182,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 9
 	},
+/obj/machinery/pdapainter/medbay,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/heads/cmo)
 "oP" = (

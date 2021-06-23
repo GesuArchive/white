@@ -6971,6 +6971,7 @@
 /area/crew_quarters/theatre)
 "fHA" = (
 /obj/effect/turf_decal/delivery,
+/obj/machinery/pdapainter/research,
 /turf/open/floor/plasteel/dark,
 /area/science/research)
 "fHV" = (
@@ -8283,9 +8284,7 @@
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
 "gFp" = (
-/obj/machinery/computer/card{
-	dir = 1
-	},
+/obj/machinery/pdapainter,
 /turf/open/floor/plasteel/grimy,
 /area/bridge)
 "gFM" = (
@@ -10735,13 +10734,11 @@
 /turf/open/floor/plasteel,
 /area/engine/break_room)
 "iux" = (
-/obj/machinery/computer/card/minor/cmo{
-	dir = 8
-	},
 /obj/effect/turf_decal/delivery,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/pdapainter/medbay,
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/cmo)
 "iuG" = (
@@ -10900,9 +10897,6 @@
 /turf/open/floor/plasteel/dark,
 /area/science/research)
 "izn" = (
-/obj/machinery/computer/card{
-	dir = 1
-	},
 /obj/machinery/camera/autoname{
 	dir = 1
 	},
@@ -12405,7 +12399,6 @@
 /turf/open/floor/plasteel,
 /area/crew_quarters/bar/atrium)
 "jGg" = (
-/obj/machinery/computer/card,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
@@ -17366,6 +17359,9 @@
 /turf/open/floor/carpet/black,
 /area/crew_quarters/bar)
 "nJD" = (
+/obj/item/storage/secure/safe/caps_spare{
+	pixel_x = -32
+	},
 /turf/open/floor/carpet/royalblack,
 /area/crew_quarters/heads/captain/private)
 "nKk" = (
@@ -23619,10 +23615,8 @@
 /turf/open/floor/circuit/green,
 /area/ai_monitored/turret_protected/ai_upload)
 "sLy" = (
-/obj/machinery/computer/card/minor/ce{
-	dir = 4
-	},
 /obj/effect/turf_decal/delivery,
+/obj/machinery/pdapainter/engineering,
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/chief)
 "sMG" = (
@@ -26799,9 +26793,6 @@
 	},
 /area/medical/medbay/central)
 "veU" = (
-/obj/machinery/computer/card/minor/hos{
-	dir = 8
-	},
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -26813,6 +26804,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
+/obj/machinery/pdapainter/security,
 /turf/open/floor/plasteel/dark,
 /area/security/main)
 "vfm" = (

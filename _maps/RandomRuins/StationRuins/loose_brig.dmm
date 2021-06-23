@@ -1056,6 +1056,7 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/pdapainter/security,
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/hos)
 "cO" = (
@@ -1277,6 +1278,7 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/pet/dog/pug/mcgriff,
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/hos)
 "dn" = (

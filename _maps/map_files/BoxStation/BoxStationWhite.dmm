@@ -25026,7 +25026,6 @@
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/heads/chief)
 "cbq" = (
-/obj/structure/filingcabinet/chestdrawer,
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -25040,6 +25039,7 @@
 	},
 /obj/structure/cable,
 /mob/living/simple_animal/parrot/poly,
+/obj/machinery/pdapainter/engineering,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/heads/chief)
 "cbr" = (
@@ -31148,6 +31148,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/machinery/pdapainter/research,
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hor)
 "daA" = (
