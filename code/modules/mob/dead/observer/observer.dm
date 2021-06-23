@@ -315,6 +315,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if(incapacitated())
 			var/response = alert(src, "Преждевременный выход из тела отбирает у меня право на донос.\nОно мне нужно?", "Ты УВЕРЕН?", "Да", "Нет")
 			if(response == "Да")
+				inc_metabalance(src, METACOIN_GHOSTIZE_REWARD, reason="Откуп за душу стоил много.")
 				ghostize(FALSE)
 				return
 		to_chat(src, "<span class='boldnotice'>Пока ещё живу.</span>")
@@ -362,18 +363,18 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	. += "X:[src.x] Y:[src.y] Z:[src.z]"
 
 /mob/dead/observer/verb/reenter_corpse()
-	set category = null
-	set name = "❗ Вернуться в тело"
+	set category = "Призрак"
+	set name = "Вернуться в тело"
 	if(!client)
 		return
 	if(!mind || QDELETED(mind.current))
-		to_chat(src, "<span class='warning'>You have no body.</span>")
+		to_chat(src, "<span class='warning'>А тела то и нет. Червь!</span>")
 		return
 	if(!can_reenter_corpse)
-		to_chat(src, "<span class='warning'>You cannot re-enter your body.</span>")
+		to_chat(src, "<span class='warning'>Не могу вернуться в тело.</span>")
 		return
 	if(mind.current.key && mind.current.key[1] != "@")	//makes sure we don't accidentally kick any clients
-		to_chat(usr, "<span class='warning'>Another consciousness is in your body...It is resisting you.</span>")
+		to_chat(usr, "<span class='warning'>Кто-то уже копается в моём теле... Оно отвергает меня.</span>")
 		return
 	client.view_size.setDefault(getScreenSize(client.prefs.widescreenpref))//Let's reset so people can't become allseeing gods
 	SStgui.on_transfer(src, mind.current) // Transfer NanoUIs.
@@ -382,16 +383,16 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	return TRUE
 
 /mob/dead/observer/verb/stay_dead()
-	set category = null
-	set name = "❌ Не хочу воскресать"
+	set category = "Призрак"
+	set name = "Не хочу воскресать"
 	if(!client)
 		return
 	if(!can_reenter_corpse)
-		to_chat(usr, "<span class='warning'>You're already stuck out of your body!</span>")
+		to_chat(usr, "<span class='warning'>Да я как бы уже!</span>")
 		return FALSE
 
-	var/response = alert(src, "Are you sure you want to prevent (almost) all means of resuscitation? This cannot be undone. ","Are you sure you want to stay dead?","DNR","Save Me")
-	if(response != "DNR")
+	var/response = alert(src, "Отменяем возможность возраждаться? Это нельзя отменить и лишает тебя права голоса на этот раунда.","Умираем?","НХВ","Я передумал")
+	if(response != "НХВ")
 		return
 
 	can_reenter_corpse = FALSE
@@ -401,7 +402,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	// Disassociates observer mind from the body mind
 	mind = null
 
-	to_chat(src, "<span class='boldnotice'>You can no longer be brought back into your body.</span>")
+	inc_metabalance(src, METACOIN_DNR_REWARD, reason="Соединение с телом прервано. Приятного времяпрепровождения.")
 	return TRUE
 
 /mob/dead/observer/proc/notify_cloning(message, sound, atom/source, flashwindow = TRUE)
