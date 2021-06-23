@@ -182,7 +182,7 @@
 	var/busy = FALSE
 	var/active = FALSE
 	var/resources = 0
-	var/list/available_rituals = list(/datum/ritual/summon_dwarf,/datum/ritual/summon_seeds,/datum/ritual/summon_frog,/datum/ritual/summon_tools)
+	var/list/available_rituals = list(/datum/ritual/summon_tools,/datum/ritual/summon_frog,/datum/ritual/summon_dwarf,/datum/ritual/summon_seeds)
 	var/list/allowed_resources = list(/obj/item/blacksmith/ingot/gold=25,
 									/obj/item/gem/cut/diamond=50,
 									/obj/item/gem/cut/ruby=40,
@@ -271,7 +271,7 @@
 			active = TRUE
 			notify_ghosts("Новый дворф готов.", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Спавн дворфа доступен.")
 		if("frog")
-			//spawn frog here?
+			new /mob/living/simple_animal/hostile/retaliate/frog(loc)
 		if("tools")
 			for(var/tool in list(/obj/item/blacksmith/smithing_hammer, /obj/item/blacksmith/tongs))
 				new tool(loc)

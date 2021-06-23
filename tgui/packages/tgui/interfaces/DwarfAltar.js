@@ -33,7 +33,7 @@ export const DwarfAltar = (props, context) => {
                </Button>
              )} >
              <Box
-               color={favor < rite.cost ? "red" : "grey"}
+               color={favor < rite.cost ? "red" : "green"}
                mb={0.5}>
                <Icon name="star"/> Цена {rite.cost}.
              </Box>
