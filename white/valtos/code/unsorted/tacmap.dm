@@ -62,3 +62,9 @@
 				tacmap_icon.DrawBox(rgb(255, 145, 0), xx, yy, xx, yy)
 				continue
 	return tacmap_icon
+
+/proc/gen_tacmap_full(map_z = 2)
+	var/icon/mapofthemap   = gen_tacmap(map_z)
+	var/icon/areasofthemap = gen_tacmap_areas(map_z)
+	mapofthemap.Blend(areasofthemap, ICON_MULTIPLY)
+	return mapofthemap
