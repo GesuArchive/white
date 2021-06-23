@@ -3860,6 +3860,7 @@
 #include "white\valtos\code\dwarfs\items.dm"
 #include "white\valtos\code\dwarfs\mobs.dm"
 #include "white\valtos\code\dwarfs\names.dm"
+#include "white\valtos\code\dwarfs\rituals.dm"
 #include "white\valtos\code\dwarfs\structures.dm"
 #include "white\valtos\code\dwarfs\tank_types.dm"
 #include "white\valtos\code\dwarfs\troll.dm"
