@@ -1,5 +1,5 @@
 /obj/item/clipboard
-	name = "Буфер обмена"
+	name = "Доска с зажимом для бумаг"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "clipboard"
 	inhand_icon_state = "clipboard"
@@ -12,6 +12,13 @@
 	var/obj/item/paper/toppaper	//The topmost piece of paper.
 	slot_flags = ITEM_SLOT_BELT
 	resistance_flags = FLAMMABLE
+
+/obj/item/clipboard/examine(mob/user)
+	if(prob(5))
+		name = "буфер обмена" // я ебал этих переводил
+	. = ..()
+	name = initial(src.name)
+	
 
 /obj/item/clipboard/suicide_act(mob/living/carbon/user)
 	user.visible_message("<span class='suicide'>[user] начинает класть [user.ru_ego()] засовывать голову в зажим <b>[src.name]</b>! Судя по всему, [user.p_theyre()] пытается совершить суицид!</span>")
