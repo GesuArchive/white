@@ -18,7 +18,7 @@
 	pixel_y = 0
 	},
 /turf/open/floor/plasteel/monofloor/white,
-/area/medical/medbay/zone2)
+/area/medical/psychology)
 "e" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -26,7 +26,11 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/carpet/blue,
-/area/medical/medbay/zone2)
+/area/medical/psychology)
+"f" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/psychology)
 "g" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -39,21 +43,28 @@
 	},
 /obj/item/toy/plush/moth,
 /turf/open/floor/carpet/blue,
-/area/medical/medbay/zone2)
+/area/medical/psychology)
 "j" = (
 /obj/machinery/light,
+/obj/machinery/power/apc/auto_name/south,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
 /turf/open/floor/carpet/blue,
-/area/medical/medbay/zone2)
+/area/medical/psychology)
 "k" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
 "l" = (
 /obj/structure/closet/secure_closet/psychology,
 /turf/open/floor/plasteel/monofloor/white,
-/area/medical/medbay/zone2)
+/area/medical/psychology)
 "m" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/open/floor/plasteel/monofloor/white,
@@ -65,7 +76,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
-/area/medical/medbay/zone2)
+/area/medical/psychology)
 "o" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin/carbon,
@@ -74,7 +85,7 @@
 	pixel_y = -35
 	},
 /turf/open/floor/plasteel/monofloor/white,
-/area/medical/medbay/zone2)
+/area/medical/psychology)
 "p" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 10
@@ -114,7 +125,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/medical/medbay/zone2)
+/area/medical/psychology)
 "s" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -166,6 +177,10 @@
 /obj/machinery/light,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
+"y" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/carpet/blue,
+/area/medical/psychology)
 "z" = (
 /obj/machinery/firealarm/directional/east,
 /obj/structure/chair/sofa{
@@ -178,13 +193,20 @@
 	pixel_y = -22
 	},
 /turf/open/floor/carpet/blue,
-/area/medical/medbay/zone2)
+/area/medical/psychology)
 "A" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
+"B" = (
+/turf/closed/wall/r_wall,
+/area/medical/psychology)
 "C" = (
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/zone2)
@@ -197,6 +219,10 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
 "E" = (
@@ -237,7 +263,7 @@
 /obj/structure/cable,
 /obj/structure/bookcase/random/reference,
 /turf/open/floor/plating,
-/area/medical/medbay/zone2)
+/area/medical/psychology)
 "J" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
@@ -259,7 +285,7 @@
 "K" = (
 /obj/structure/filingcabinet,
 /turf/open/floor/plasteel/monofloor/white,
-/area/medical/medbay/zone2)
+/area/medical/psychology)
 "L" = (
 /obj/machinery/atmospherics/components/unary/cryo_cell,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -267,6 +293,9 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
+"M" = (
+/turf/open/floor/carpet/blue,
+/area/medical/psychology)
 "N" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -293,6 +322,7 @@
 	dir = 8;
 	pixel_x = 23
 	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
 "P" = (
@@ -302,11 +332,16 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
 "Q" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/carpet/blue,
-/area/medical/medbay/zone2)
+/area/medical/psychology)
 "R" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -318,7 +353,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/white,
-/area/medical/medbay/zone2)
+/area/medical/psychology)
 "T" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -359,7 +394,10 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor/white,
-/area/medical/medbay/zone2)
+/area/medical/psychology)
+"W" = (
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/psychology)
 "X" = (
 /obj/machinery/airalarm{
 	dir = 8;
@@ -369,7 +407,7 @@
 	dir = 8
 	},
 /turf/open/floor/carpet/blue,
-/area/medical/medbay/zone2)
+/area/medical/psychology)
 "Y" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -5;
@@ -380,7 +418,7 @@
 	},
 /obj/effect/landmark/start/psychologist,
 /turf/open/floor/plasteel/monofloor/white,
-/area/medical/medbay/zone2)
+/area/medical/psychology)
 "Z" = (
 /obj/structure/table/glass,
 /obj/item/reagent_containers/glass/beaker/cryoxadone{
@@ -1100,10 +1138,10 @@ a
 a
 a
 a
-F
-F
-F
-F
+B
+B
+B
+B
 P
 v
 v
@@ -1142,15 +1180,15 @@ a
 a
 a
 a
-F
+B
 S
 o
-F
-F
+B
+B
 V
-F
-F
-F
+B
+B
+B
 a
 a
 a
@@ -1184,15 +1222,15 @@ a
 a
 a
 a
-F
+B
 Y
-C
+f
 Q
 Q
 e
 I
 n
-F
+B
 a
 a
 a
@@ -1226,15 +1264,15 @@ a
 a
 a
 a
-F
+B
 d
-C
-Q
-Q
+W
+M
+y
 j
-F
+B
 r
-F
+B
 a
 a
 a
@@ -1268,13 +1306,13 @@ a
 a
 a
 a
-F
+B
 K
 l
 h
 z
 X
-F
+B
 a
 a
 a
@@ -1310,13 +1348,13 @@ a
 a
 a
 a
-F
-F
-F
-F
-F
-F
-F
+B
+B
+B
+B
+B
+B
+B
 a
 a
 a
