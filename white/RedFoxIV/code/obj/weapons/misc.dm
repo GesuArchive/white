@@ -735,8 +735,9 @@
 			spawned_mobs -= i
 			continue
 		var/mob/living/artist = i
-		if(HAS_TRAIT(artist, TRAIT_CRITICAL_CONDITION) || artist.stat == DEAD)
+		if(HAS_TRAIT(artist, TRAIT_CRITICAL_CONDITION) || artist.stat == DEAD || !artist.key)
 			spawned_mobs.Remove(artist)
+			artist.alpha = 0 //because dust animation does not hide the body while playing, which look really fuckiing weird
 			artist.dust(drop_items = TRUE)
 			continue
 		var/area/A = get_area(artist)
@@ -745,14 +746,14 @@
 			spawned_mobs.Remove(artist)
 			to_chat(artist, "<span class='userdanger'>Ох, лучше бы я не покидал Цирк...</span>") //let them know they fucked up
 			message_admins("Игрок [artist.ckey], будучи Артистом, каким-то образом сбежал из цирка, за что был казнён и лишён доступа к спавнеру до конца раунда. Такого быть не должно: выясните, как он этого добился и передайте кодербасу. Если же это произошло по вине админбаса, удалите сикей игрока из переменной спавнера (round_banned_ckeys). Позиция игрока на момент обнаружения побега: x=[artist.x], y=[artist.y], z=[artist.z], название зоны - [get_area_name(artist)]")
-			spawn(0.5 SECONDS)
-				artist.pooition = 10000
-				artist.emote("scream")
-				addtimer(CALLBACK(artist, /mob/proc/emote, "poo"), 0.1 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME | TIMER_LOOP)
-			spawn(2.5 SECONDS)
-				for(var/whatever=0,whatever<50,whatever++)
-					artist.emote("poo")
-				artist.visible_message("<span class='hypnophrase'>[artist.name] испепеляется, оставляя за собой только кости: похоже, за побег из Цирка он был отправлен в бессрочную ссылку на [pick("Цитадель", "Флаффи", "Скайрэт", "Опух", "парашу")]. [pick("Прикольно", "Страшно", "Помянем", "Ужасно", "Кошмар", "Грустно", "Смешно")].</span>")
+			artist.pooition = 10000
+			artist.emote("scream")
+				
+			
+			for(var/s=1,s<51,s++)
+				addtimer(CALLBACK(artist, /mob/proc/emote, "poo"), 1+2*log(s) SECONDS)
+			spawn(8.7 SECONDS)
+				artist.visible_message("<span class='hypnophrase'>[artist.name] распидорасило: похоже, за побег из Цирка он был отправлен в бессрочную ссылку на [pick("Цитадель", "Флаффи", "Скайрэт", "Опух", "парашу")]. [pick("Прикольно", "Страшно", "Помянем", "Ужасно", "Кошмар", "Грустно", "Смешно")].</span>")
 				artist.gib(TRUE)
 			continue
 		/*
