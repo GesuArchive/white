@@ -171,6 +171,11 @@
 /obj/item/blacksmith/ingot,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
+"nG" = (
+/obj/structure/table/stone,
+/obj/item/damaz,
+/turf/open/floor/grass/gensgrass/dirty/stone,
+/area/awaymission/vietnam/dwarf)
 "nH" = (
 /obj/furnace,
 /turf/open/floor/grass/gensgrass/dirty/stone,
@@ -14183,7 +14188,7 @@ Ny
 vK
 aX
 DC
-lq
+nG
 lq
 kg
 lq

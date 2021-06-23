@@ -263,13 +263,13 @@
 		deactivate()
 		return
 	switch(initial(R.true_name))
-		if("dwarf")
-			active = TRUE
-			notify_ghosts("Новый дворф готов.", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Спавн дворфа доступен.")
 		if("seeds")
 			for(var/seed in list(/obj/item/seeds/plump, /obj/item/seeds/tower))
 				for(var/i in 1 to 2)
 					new seed(loc)
+		if("dwarf")
+			active = TRUE
+			notify_ghosts("Новый дворф готов.", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Спавн дворфа доступен.")
 		if("frog")
 			//spawn frog here?
 		if("tools")

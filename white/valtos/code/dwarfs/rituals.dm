@@ -9,6 +9,7 @@
 	true_name = "seeds"
 	desc = "Призывает полезные семена."
 	cost = 150
+
 /datum/ritual/summon_dwarf
 	name = "Ритуал митозиса"
 	true_name = "dwarf"
