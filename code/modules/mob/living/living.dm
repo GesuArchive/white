@@ -417,6 +417,7 @@
 	updatehealth()
 	if(!whispered)
 		to_chat(src, "<span class='notice'>Сдаюсь смерти. Позорно.</span>")
+	inc_metabalance(src, METACOIN_SUCC_REWARD, reason="А стоило ли вообще жить?")
 	death()
 
 /mob/living/incapacitated(ignore_restraints = FALSE, ignore_grab = FALSE, ignore_stasis = FALSE)
