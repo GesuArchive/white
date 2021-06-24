@@ -8,10 +8,10 @@
 /turf/open/space/basic,
 /area/space)
 "ad" = (
-/turf/open/floor/light/colour_cycle/dancefloor_b{
-	baseturfs = /turf/open/floor/plating/asteroid
+/turf/open/floor/plasteel/stairs/old{
+	dir = 4
 	},
-/area/centcom/outdoors/circus)
+/area/centcom/control)
 "aj" = (
 /turf/closed/indestructible/riveted,
 /area/awaymission/errorroom)
@@ -147,8 +147,49 @@
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "bd" = (
-/obj/effect/light_emitter/shadow,
-/turf/open/floor/plasteel/stairs/old,
+/obj/machinery/button{
+	desc = "It's a secret!";
+	name = "secret button";
+	pixel_x = -10;
+	pixel_y = 23;
+	req_access_txt = "150"
+	},
+/obj/machinery/button{
+	desc = "It's a secret!";
+	name = "secret button";
+	pixel_x = 12;
+	pixel_y = 34;
+	req_access_txt = "150"
+	},
+/obj/machinery/button{
+	desc = "It's a secret!";
+	name = "secret button";
+	pixel_x = 12;
+	pixel_y = 23;
+	req_access_txt = "150"
+	},
+/obj/machinery/button{
+	desc = "It's a secret!";
+	name = "secret button";
+	pixel_x = 1;
+	pixel_y = 23;
+	req_access_txt = "150"
+	},
+/obj/machinery/button{
+	desc = "It's a secret!";
+	name = "secret button";
+	pixel_x = 1;
+	pixel_y = 34;
+	req_access_txt = "150"
+	},
+/obj/machinery/button{
+	desc = "It's a secret!";
+	name = "secret button";
+	pixel_x = -10;
+	pixel_y = 34;
+	req_access_txt = "150"
+	},
+/turf/open/indestructible/white,
 /area/centcom/control)
 "bi" = (
 /obj/structure/chair/office{
@@ -178,6 +219,7 @@
 /area/syndicate_mothership)
 "bu" = (
 /mob/living/simple_animal/butterfly,
+/obj/effect/light_emitter,
 /turf/open/floor/plating/asteroid,
 /area/centcom/outdoors)
 "bv" = (
@@ -548,15 +590,16 @@
 /turf/open/floor/plasteel/monofloor,
 /area/centcom/control)
 "db" = (
-/turf/open/floor/light/colour_cycle/dancefloor_a{
-	baseturfs = /turf/open/floor/plating/asteroid
+/turf/open/floor/plasteel/stairs/old{
+	dir = 8
 	},
-/area/centcom/outdoors/circus)
+/area/centcom/control)
 "dc" = (
 /obj/structure/flora/ausbushes/rospilovo/pointybush{
 	pixel_x = -8;
 	pixel_y = 9
 	},
+/obj/effect/light_emitter,
 /turf/open/floor/plating/grass{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
@@ -1170,6 +1213,7 @@
 	pixel_y = 15
 	},
 /obj/structure/flora/ausbushes/ywflowers,
+/obj/effect/light_emitter,
 /turf/open/floor/plating/grass{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
@@ -2055,6 +2099,10 @@
 /area/centcom/holding)
 "kG" = (
 /obj/structure/grille,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
 /turf/open/floor/plating{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
@@ -2634,7 +2682,7 @@
 /turf/open/floor/plating{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
-/area/centcom/outdoors/circus)
+/area/centcom/circus)
 "oG" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/item/shovel/spade,
@@ -2943,7 +2991,7 @@
 /turf/open/floor/plating{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
-/area/centcom/outdoors/circus)
+/area/centcom/circus)
 "qu" = (
 /obj/machinery/processor,
 /turf/open/floor/plasteel/cafeteria,
@@ -3090,7 +3138,7 @@
 /turf/open/floor/plating{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
-/area/centcom/outdoors/circus)
+/area/centcom/circus)
 "rv" = (
 /obj/structure/closet/syndicate/resources/everything{
 	storage_capacity = 40
@@ -3309,6 +3357,7 @@
 	pixel_x = 2;
 	pixel_y = -4
 	},
+/obj/effect/light_emitter,
 /turf/open/floor/plating/grass{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
@@ -3937,6 +3986,13 @@
 /obj/structure/chair/sofa/corp/right,
 /turf/open/floor/dz/green,
 /area/centcom/control)
+"yF" = (
+/obj/structure/flora/ausbushes/rospilovo/brflowers,
+/obj/effect/light_emitter,
+/turf/open/floor/plating/grass{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
+/area/centcom/outdoors)
 "yK" = (
 /obj/structure/chair/comfy/teal,
 /turf/open/floor/carpet/green,
@@ -4215,6 +4271,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/brief)
+"AU" = (
+/obj/effect/light_emitter,
+/turf/closed/indestructible/opsglass,
+/area/centcom/circus)
 "AV" = (
 /obj/machinery/photocopier,
 /turf/open/floor/plasteel/grimy,
@@ -4504,6 +4564,10 @@
 	dir = 2
 	},
 /obj/structure/cable,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
 /turf/open/floor/plating{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
@@ -4688,7 +4752,7 @@
 /turf/open/floor/plating{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
-/area/centcom/outdoors/circus)
+/area/centcom/circus)
 "DI" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/vending/chetverochka/pharma,
@@ -4812,6 +4876,10 @@
 	set_luminosity = 16
 	},
 /turf/open/openspace/fakez/north,
+/area/centcom/outdoors)
+"En" = (
+/obj/effect/light_emitter,
+/turf/open/floor/plating/asteroid,
 /area/centcom/outdoors)
 "Eq" = (
 /obj/item/clothing/suit/wizrobe/black,
@@ -5190,6 +5258,12 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/circus)
+"Hg" = (
+/obj/effect/light_emitter,
+/turf/open/floor/plating/grass{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
+/area/centcom/outdoors)
 "Hl" = (
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/open/floor/plating/grass,
@@ -5904,6 +5978,15 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"NN" = (
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
+/turf/open/floor/plating{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
+/area/centcom/outdoors/circus)
 "NO" = (
 /obj/effect/landmark/abductor/scientist{
 	team_number = 4
@@ -6394,6 +6477,13 @@
 	},
 /turf/open/floor/plating,
 /area/syndicate_mothership/control)
+"Rl" = (
+/mob/living/simple_animal/butterfly,
+/obj/effect/light_emitter,
+/turf/open/floor/plating/grass{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
+/area/centcom/outdoors)
 "Rq" = (
 /obj/machinery/light,
 /turf/open/floor/wood,
@@ -6699,6 +6789,7 @@
 /obj/structure/flora/ausbushes/rospilovo/pointybush{
 	pixel_y = 12
 	},
+/obj/effect/light_emitter,
 /turf/open/floor/plating/grass{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
@@ -6845,6 +6936,12 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding)
+"Uu" = (
+/obj/effect/light_emitter,
+/turf/open/floor/plasteel/stairs/old{
+	dir = 1
+	},
+/area/centcom/control)
 "Uv" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -6966,7 +7063,7 @@
 /turf/open/floor/plating{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
-/area/centcom/outdoors/circus)
+/area/centcom/circus)
 "UY" = (
 /obj/structure/table,
 /obj/item/construction/plumbing/research{
@@ -25641,10 +25738,10 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
+ZU
+ZU
+ZU
+ZU
 Co
 Co
 Co
@@ -25898,10 +25995,10 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
+ZU
+ad
+ad
+ZU
 Co
 Co
 Co
@@ -26155,10 +26252,10 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
+ZU
+ad
+ad
+ZU
 Co
 Co
 Co
@@ -26175,7 +26272,7 @@ ZU
 id
 Wm
 Ny
-Ny
+Uu
 ZU
 Co
 zV
@@ -26196,7 +26293,7 @@ Co
 Co
 Co
 ZU
-Ny
+Uu
 Ny
 Wm
 lm
@@ -26412,9 +26509,9 @@ Co
 Co
 Co
 Co
-Co
 ZU
-ZU
+bd
+Wm
 ZU
 ZU
 ZU
@@ -26423,9 +26520,9 @@ ZU
 ZU
 bj
 TK
-bj
-eE
-rT
+Hg
+yF
+Rl
 fQ
 bj
 ZU
@@ -26669,9 +26766,9 @@ an
 an
 an
 Co
-Co
 ZU
 bd
+Wm
 EK
 EK
 EK
@@ -26683,7 +26780,7 @@ bu
 Ag
 bj
 bj
-bj
+Hg
 bj
 uA
 PF
@@ -26926,9 +27023,9 @@ Nl
 Nl
 an
 Co
-Co
 ZU
 bd
+Wm
 EK
 EK
 EK
@@ -26936,11 +27033,11 @@ EK
 EK
 Wm
 Ag
+En
 Ag
 Ag
 Ag
-Ag
-rT
+Rl
 bj
 ZU
 wj
@@ -27183,9 +27280,9 @@ Nl
 Nl
 an
 Co
-Co
 ZU
-ZU
+bd
+Wm
 ZU
 ZU
 ZU
@@ -27197,26 +27294,26 @@ dc
 dF
 Ag
 Ag
-Ag
+En
 bj
 ZU
 Zg
 Wm
 ls
 rG
-Xn
-Xn
-Xn
-Xn
-Xn
-kG
-Xn
-Xn
-Xn
-Xn
+qk
+qk
+qk
+qk
+qk
+Tx
+qk
+qk
+qk
+qk
 qt
-Xn
-Xn
+qk
+qk
 QH
 zV
 Co
@@ -27440,40 +27537,40 @@ Nl
 Nl
 an
 Co
-Co
-Co
-Co
-Co
+ZU
+db
+db
+ZU
 Co
 Co
 Co
 Co
 ZU
 rT
-bj
-bj
-bj
-Ag
-Ag
+Hg
+Hg
+Hg
+En
+En
 Ag
 uA
 XI
 Wm
 mF
 wh
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
+qk
+qk
+qk
+qk
+qk
+qk
+qk
+qk
+qk
+qk
 UV
-Xn
-Xn
+qk
+qk
 TD
 zV
 Co
@@ -27697,10 +27794,10 @@ Nl
 Nl
 an
 Co
-Co
-Co
-Co
-Co
+ZU
+db
+db
+ZU
 Co
 Co
 Co
@@ -27718,19 +27815,19 @@ ZU
 jA
 zV
 wN
-Xn
-Xn
-Xn
-Xn
-Xn
+qk
+qk
+qk
+qk
+qk
 UV
-Xn
-Xn
-Xn
-Xn
+qk
+qk
+qk
+qk
 oB
-Xn
-Xn
+qk
+qk
 TG
 zV
 Co
@@ -27954,10 +28051,10 @@ Nl
 Nl
 an
 Co
-Co
-Co
-Co
-Co
+ZU
+ZU
+ZU
+ZU
 Co
 Co
 Co
@@ -27975,19 +28072,19 @@ ZU
 ZU
 pf
 xd
-Xn
-Xn
-Xn
-Xn
-Xn
+qk
+qk
+qk
+qk
+NN
 Cy
-Xn
-Xn
-Xn
-Xn
-kG
-Xn
-Xn
+NN
+NN
+qk
+qk
+Tx
+qk
+qk
 UK
 zV
 Co
@@ -28230,21 +28327,21 @@ rB
 Ag
 iY
 jK
-ls
+AU
 wh
-Xn
-Xn
-Xn
-Xn
-Xn
+qk
+qk
+qk
+qk
+NN
 ID
 ID
 kG
 DH
-Xn
-Xn
-Xn
-Xn
+qk
+qk
+qk
+qk
 WP
 zV
 Co
@@ -28487,21 +28584,21 @@ bj
 sV
 jz
 kg
-ls
+AU
 wh
+qk
+qk
+qk
+qk
+NN
 Xn
 Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
+NN
+qk
+qk
+qk
+qk
+qk
 Xk
 zV
 Co
@@ -28744,21 +28841,21 @@ rT
 gK
 jz
 eE
-ls
+AU
 wh
-Xn
-Xn
-Xn
-Xn
-Xn
+qk
+qk
+qk
+qk
+NN
 Xn
 Du
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
+NN
+qk
+qk
+qk
+qk
+qk
 Xo
 zV
 Co
@@ -29003,19 +29100,19 @@ zP
 ZU
 zV
 yx
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
+qk
+qk
+qk
+qk
+NN
+NN
+NN
+NN
+qk
+qk
+qk
+qk
+qk
 Xy
 zV
 Co
@@ -29260,19 +29357,19 @@ Wm
 km
 pr
 wh
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
-Xn
+qk
+qk
+qk
+qk
+qk
+qk
+qk
+qk
+qk
+qk
+qk
+qk
+qk
 XQ
 zV
 Co
@@ -29520,16 +29617,16 @@ GE
 GE
 GE
 GE
-Xn
-Xn
+qk
+qk
 ru
-Xn
-Xn
+qk
+qk
 ru
-ad
-db
-db
-ad
+TM
+uv
+uv
+TM
 XV
 zV
 Co
@@ -31319,7 +31416,7 @@ Wm
 Wm
 Wm
 Ny
-Ny
+Uu
 ZU
 Co
 Co
@@ -31337,7 +31434,7 @@ Co
 Co
 Co
 ZU
-Ny
+Uu
 Ny
 Wm
 lm
