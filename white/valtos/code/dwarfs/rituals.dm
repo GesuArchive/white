@@ -4,26 +4,26 @@
 	var/desc = "govno"
 	var/cost = 0
 
-/datum/ritual/summon_dwarf
-	name = "Призвать дворфа"
-	true_name = "dwarf"
-	desc = "Призывает нового карлика."
-	cost = 300
-
 /datum/ritual/summon_seeds
-	name = "Призыв сеням"
+	name = "Ритуал земли"
 	true_name = "seeds"
 	desc = "Призывает полезные семена."
 	cost = 150
 
+/datum/ritual/summon_dwarf
+	name = "Ритуал митозиса"
+	true_name = "dwarf"
+	desc = "Призывает нового раба Армока."
+	cost = 300
+
 /datum/ritual/summon_frog
-	name = "Призвать лягушку"
+	name = "Ритуал ква"
 	true_name = "frog"
 	desc = "Ква."
 	cost = 500
 
 /datum/ritual/summon_tools
-	name = "Призвать запасные инструменты"
+	name = "Ритуал Грунгни"
 	true_name = "tools"
-	desc = "Не повезло!"
+	desc = "Во имя металла!"
 	cost = 800

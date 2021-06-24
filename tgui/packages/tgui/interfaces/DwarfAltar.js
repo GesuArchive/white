@@ -12,7 +12,7 @@ export const DwarfAltar = (props, context) => {
   return (
     <Window>
       <Box textAlign='center'>
-        You currently have {favor} favor
+        Благосклонности Армока {favor}
       </Box>
       <Stack vertical>
         {rituals.map(rite => (
@@ -29,13 +29,13 @@ export const DwarfAltar = (props, context) => {
                    path: rite.path,
                    cost: rite.cost,
                  })} >
-                 Invoke
+                 Провести
                </Button>
              )} >
              <Box
-               color={favor < rite.cost ? "red" : "grey"}
+               color={favor < rite.cost ? "red" : "green"}
                mb={0.5}>
-               <Icon name="star"/> Costs {rite.cost} favor.
+               <Icon name="star"/> Цена {rite.cost}.
              </Box>
              <BlockQuote>
                {rite.desc}
