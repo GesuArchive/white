@@ -3294,7 +3294,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/structure/bed/dogbed/runtime,
+/obj/machinery/pdapainter/medbay,
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/heads/cmo)
 "Hg" = (
@@ -5153,6 +5153,17 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/virology)
+"Yy" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/structure/bed/dogbed/runtime,
+/mob/living/simple_animal/pet/cat/runtime,
+/turf/open/floor/plasteel/cafeteria,
+/area/crew_quarters/heads/cmo)
 "YC" = (
 /obj/structure/table,
 /obj/item/storage/firstaid/brute{
@@ -6444,7 +6455,7 @@ iZ
 bR
 IM
 Dv
-IM
+Yy
 TJ
 Ha
 iZ

@@ -32,12 +32,9 @@
 /turf/open/floor/plating,
 /area/security/main)
 "be" = (
-/obj/structure/table/wood,
 /obj/machinery/newscaster/security_unit{
 	pixel_y = 32
 	},
-/obj/item/folder/red,
-/obj/item/folder/red,
 /obj/machinery/keycard_auth{
 	pixel_x = -26;
 	pixel_y = 23
@@ -48,6 +45,7 @@
 	pixel_x = -26;
 	pixel_y = 34
 	},
+/obj/machinery/pdapainter/security,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/heads/hos)
 "bp" = (

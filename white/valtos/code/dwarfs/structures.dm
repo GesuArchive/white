@@ -179,15 +179,11 @@
 	density = TRUE
 	anchored = TRUE
 	layer = FLY_LAYER
-	var/active
+	var/busy = FALSE
+	var/active = FALSE
 	var/resources = 0
-	var/resources_max = 500
-	var/list/allowed_resources = list(/obj/item/blacksmith/ingot/gold,
-									/obj/item/gem/cut/diamond,
-									/obj/item/gem/cut/ruby,
-									/obj/item/gem/cut/saphire,
-									)
-	var/list/resource_values = list(/obj/item/blacksmith/ingot/gold=25,
+	var/list/available_rituals = list(/datum/ritual/summon_tools,/datum/ritual/summon_frog,/datum/ritual/summon_dwarf,/datum/ritual/summon_seeds)
+	var/list/allowed_resources = list(/obj/item/blacksmith/ingot/gold=25,
 									/obj/item/gem/cut/diamond=50,
 									/obj/item/gem/cut/ruby=40,
 									/obj/item/gem/cut/saphire=30,
@@ -197,18 +193,10 @@
 	. = ..()
 	set_light(1)
 
-/obj/structure/dwarf_altar/examine(mob/user)
-	. = ..()
-	. += "<hr><span class='notice'>Уровень ресурсов: <b>[resources]/[resources_max]</b>.</span>"
-
 /obj/structure/dwarf_altar/proc/activate()
-	notify_ghosts("Новый дворф готов.", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Спавн дворфа доступен.")
-	active = TRUE
 	icon_state = "altar_active"
-	update_icon()
 
 /obj/structure/dwarf_altar/attack_ghost(mob/user)
-	. = ..()
 	summon_dwarf(user)
 
 /obj/structure/dwarf_altar/proc/summon_dwarf(mob/user)
@@ -225,31 +213,27 @@
 	D.equipOutfit(/datum/outfit/dwarf)
 	D.key = user.key
 	D.mind.assigned_role = "Dwarf"
+	active = FALSE
 	to_chat(D, "<span class='big bold'>Я ебучий карлик в невероятно диких условиях.</span>")
 	deactivate()
 
 /obj/structure/dwarf_altar/proc/deactivate()
-	active = FALSE
-	resources = 0
 	icon_state = "altar_inactive"
-	update_icon()
 
 /obj/structure/dwarf_altar/attackby(obj/item/I, mob/living/user, params)
-	if((I.type in allowed_resources) && (resources < resources_max))
+	if((I.type in allowed_resources))
 		to_chat(user, "<span class='notice'>Жертвую [I.name]</span>")
-		resources+=resource_values[I.type]
+		resources+=allowed_resources[I.type]
 		qdel(I)
-		if(resources>=resources_max)
-			resources=resources_max
-			activate()
-			visible_message("<span class='notice'>Руны на алтаре начинают мигать!</span>")
-	else if((I.type in allowed_resources) && (resources == resources_max))
-		to_chat(user, "<span class='notice'>В алтарь больше не влазит!</span>")
+	else if(istype(I, /obj/item/damaz))
+		var/obj/item/damaz/D = I
+		if(!D.can_use(user))
+			return
+		ui_interact(user)
 	else
 		..()
 
 /obj/structure/dwarf_altar/attack_hand(mob/user)
-	. = ..()
 	if(ishuman(user) && !isdwarf(user))
 		if(!active)
 			to_chat(user, "<span class='warning'>Алтарь не готов!</span>")
@@ -264,5 +248,69 @@
 		M.set_species(/datum/species/dwarf)
 		M.unequip_everything()
 		M.equipOutfit(/datum/outfit/dwarf)
+		active = FALSE
 		to_chat(M, "<span class='notice'>Становлюсь дворфом.</span>")
+
+/obj/structure/dwarf_altar/proc/perform_rite(rite, mob/user)
+	var/datum/ritual/R = new rite
+	if(busy)
+		return
+	busy = TRUE
+	to_chat(user, "<span class='notice'>Начинаю ритуал</span>")
+	activate()
+	if(!do_after(user, 3 SECONDS, target = src))
+		busy = FALSE
 		deactivate()
+		return
+	switch(initial(R.true_name))
+		if("seeds")
+			for(var/seed in list(/obj/item/seeds/plump, /obj/item/seeds/tower))
+				for(var/i in 1 to 2)
+					new seed(loc)
+		if("dwarf")
+			active = TRUE
+			notify_ghosts("Новый дворф готов.", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Спавн дворфа доступен.")
+		if("frog")
+			new /mob/living/simple_animal/hostile/retaliate/frog(loc)
+		if("tools")
+			for(var/tool in list(/obj/item/blacksmith/smithing_hammer, /obj/item/blacksmith/tongs))
+				new tool(loc)
+	busy = FALSE
+	to_chat(user, "<span class='notice'>Заканчиваю ритуал</span>")
+	deactivate()
+	qdel(R)
+
+/obj/structure/dwarf_altar/proc/generate_rituals()
+	var/list/rituals = list()
+	for(var/rt in available_rituals)
+		var/list/rite = list()
+		var/datum/ritual/R = rt
+		rite["name"] = initial(R.name)
+		rite["cost"] = initial(R.cost)
+		rite["desc"] = initial(R.desc)
+		rite["path"] = R
+		rituals+=list(rite)
+	return rituals
+
+/obj/structure/dwarf_altar/ui_interact(mob/user, datum/tgui/ui)
+  ui = SStgui.try_update_ui(user, src, ui)
+  if(!ui)
+    ui = new(user, src, "DwarfAltar")
+    ui.open()
+
+/obj/structure/dwarf_altar/ui_data(mob/user)
+	var/list/data = list()
+	var/list/rituals = generate_rituals()
+	data["favor"] = resources
+	data["rituals"] = rituals
+	return data
+
+/obj/structure/dwarf_altar/ui_act(action, params)
+	. = ..()
+	var/cost = params["cost"]
+	if(cost>resources)
+		to_chat(usr, "<span class='warning'>Не хватает ресурсов!</span>")
+		return
+	resources-=cost
+	perform_rite(params["path"], usr)
+	update_icon()
