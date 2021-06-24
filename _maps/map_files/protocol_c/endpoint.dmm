@@ -1244,6 +1244,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
+"fS" = (
+/obj/effect/light_emitter,
+/turf/open/floor/plating/asteroid,
+/area/centcom/outdoors)
 "fT" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor{
@@ -1459,6 +1463,13 @@
 /obj/item/banner/engineering/atmos/mundane,
 /turf/closed/indestructible/syndicate,
 /area/centcom/control)
+"gG" = (
+/obj/structure/flora/ausbushes/rospilovo/brflowers,
+/obj/effect/light_emitter,
+/turf/open/floor/plating/grass{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
+/area/centcom/outdoors)
 "gH" = (
 /obj/effect/turf_decal/trimline/red/line{
 	dir = 4
@@ -1842,6 +1853,12 @@
 /obj/structure/chair/comfy/arm,
 /turf/open/floor/plasteel/checker,
 /area/ruin/powered/yohei_base)
+"jg" = (
+/obj/effect/light_emitter,
+/turf/open/floor/plating/grass{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
+/area/centcom/outdoors)
 "ji" = (
 /turf/closed/indestructible/rock/snow,
 /area/syndicate_mothership)
@@ -2767,6 +2784,12 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
+"oT" = (
+/obj/effect/light_emitter,
+/turf/open/floor/plasteel/stairs/old{
+	dir = 1
+	},
+/area/centcom/control)
 "oW" = (
 /obj/effect/turf_decal/arrows/white,
 /turf/open/floor/plasteel/monofloor,
@@ -3299,6 +3322,10 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/syndicate_mothership/control)
+"sE" = (
+/obj/effect/light_emitter,
+/turf/closed/indestructible/opsglass,
+/area/centcom/circus)
 "sI" = (
 /obj/item/bedsheet/random,
 /obj/structure/bed/abductor,
@@ -3986,13 +4013,6 @@
 /obj/structure/chair/sofa/corp/right,
 /turf/open/floor/dz/green,
 /area/centcom/control)
-"yF" = (
-/obj/structure/flora/ausbushes/rospilovo/brflowers,
-/obj/effect/light_emitter,
-/turf/open/floor/plating/grass{
-	baseturfs = /turf/open/floor/plating/asteroid
-	},
-/area/centcom/outdoors)
 "yK" = (
 /obj/structure/chair/comfy/teal,
 /turf/open/floor/carpet/green,
@@ -4271,10 +4291,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/brief)
-"AU" = (
-/obj/effect/light_emitter,
-/turf/closed/indestructible/opsglass,
-/area/centcom/circus)
 "AV" = (
 /obj/machinery/photocopier,
 /turf/open/floor/plasteel/grimy,
@@ -4877,10 +4893,6 @@
 	},
 /turf/open/openspace/fakez/north,
 /area/centcom/outdoors)
-"En" = (
-/obj/effect/light_emitter,
-/turf/open/floor/plating/asteroid,
-/area/centcom/outdoors)
 "Eq" = (
 /obj/item/clothing/suit/wizrobe/black,
 /obj/item/clothing/head/wizard/black,
@@ -5258,12 +5270,6 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/circus)
-"Hg" = (
-/obj/effect/light_emitter,
-/turf/open/floor/plating/grass{
-	baseturfs = /turf/open/floor/plating/asteroid
-	},
-/area/centcom/outdoors)
 "Hl" = (
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/open/floor/plating/grass,
@@ -5532,6 +5538,13 @@
 	icon_state = "alien19"
 	},
 /area/abductor_ship)
+"Kl" = (
+/mob/living/simple_animal/butterfly,
+/obj/effect/light_emitter,
+/turf/open/floor/plating/grass{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
+/area/centcom/outdoors)
 "Ko" = (
 /obj/structure/window/plasma/reinforced/spawner/north,
 /obj/effect/turf_decal/tile/blue,
@@ -5978,15 +5991,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
-"NN" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
-/turf/open/floor/plating{
-	baseturfs = /turf/open/floor/plating/asteroid
-	},
-/area/centcom/outdoors/circus)
 "NO" = (
 /obj/effect/landmark/abductor/scientist{
 	team_number = 4
@@ -6477,13 +6481,6 @@
 	},
 /turf/open/floor/plating,
 /area/syndicate_mothership/control)
-"Rl" = (
-/mob/living/simple_animal/butterfly,
-/obj/effect/light_emitter,
-/turf/open/floor/plating/grass{
-	baseturfs = /turf/open/floor/plating/asteroid
-	},
-/area/centcom/outdoors)
 "Rq" = (
 /obj/machinery/light,
 /turf/open/floor/wood,
@@ -6936,12 +6933,6 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding)
-"Uu" = (
-/obj/effect/light_emitter,
-/turf/open/floor/plasteel/stairs/old{
-	dir = 1
-	},
-/area/centcom/control)
 "Uv" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -7775,6 +7766,15 @@
 "ZA" = (
 /turf/closed/mineral/random/vietnam,
 /area/centcom/outdoors)
+"ZB" = (
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
+/turf/open/floor/plating{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
+/area/centcom/outdoors/circus)
 "ZH" = (
 /turf/open/floor/plating/dirt/jungle/dark,
 /area/centcom/outdoors)
@@ -26272,7 +26272,7 @@ ZU
 id
 Wm
 Ny
-Uu
+oT
 ZU
 Co
 zV
@@ -26293,7 +26293,7 @@ Co
 Co
 Co
 ZU
-Uu
+oT
 Ny
 Wm
 lm
@@ -26520,9 +26520,9 @@ ZU
 ZU
 bj
 TK
-Hg
-yF
-Rl
+jg
+gG
+Kl
 fQ
 bj
 ZU
@@ -26780,7 +26780,7 @@ bu
 Ag
 bj
 bj
-Hg
+jg
 bj
 uA
 PF
@@ -27033,11 +27033,11 @@ EK
 EK
 Wm
 Ag
-En
+fS
 Ag
 Ag
 Ag
-Rl
+Kl
 bj
 ZU
 wj
@@ -27285,7 +27285,7 @@ bd
 Wm
 ZU
 ZU
-ZU
+gF
 ZU
 ZU
 ZU
@@ -27294,7 +27294,7 @@ dc
 dF
 Ag
 Ag
-En
+fS
 bj
 ZU
 Zg
@@ -27547,11 +27547,11 @@ Co
 Co
 ZU
 rT
-Hg
-Hg
-Hg
-En
-En
+jg
+jg
+jg
+fS
+fS
 Ag
 uA
 XI
@@ -28076,10 +28076,10 @@ qk
 qk
 qk
 qk
-NN
+ZB
 Cy
-NN
-NN
+ZB
+ZB
 qk
 qk
 Tx
@@ -28327,13 +28327,13 @@ rB
 Ag
 iY
 jK
-AU
+sE
 wh
 qk
 qk
 qk
 qk
-NN
+ZB
 ID
 ID
 kG
@@ -28578,22 +28578,22 @@ Co
 Co
 Co
 Co
-gF
+ZU
 lO
 bj
 sV
 jz
 kg
-AU
+sE
 wh
 qk
 qk
 qk
 qk
-NN
+ZB
 Xn
 Xn
-NN
+ZB
 qk
 qk
 qk
@@ -28841,16 +28841,16 @@ rT
 gK
 jz
 eE
-AU
+sE
 wh
 qk
 qk
 qk
 qk
-NN
+ZB
 Xn
 Du
-NN
+ZB
 qk
 qk
 qk
@@ -29104,10 +29104,10 @@ qk
 qk
 qk
 qk
-NN
-NN
-NN
-NN
+ZB
+ZB
+ZB
+ZB
 qk
 qk
 qk
@@ -31416,7 +31416,7 @@ Wm
 Wm
 Wm
 Ny
-Uu
+oT
 ZU
 Co
 Co
@@ -31434,7 +31434,7 @@ Co
 Co
 Co
 ZU
-Uu
+oT
 Ny
 Wm
 lm
