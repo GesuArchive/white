@@ -147,6 +147,10 @@
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
 /area/centcom/outdoors/circus)
+"bh" = (
+/obj/machinery/light/directional/south,
+/turf/open/indestructible/white,
+/area/space)
 "bi" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -1145,6 +1149,9 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
+"fP" = (
+/turf/open/space/basic,
+/area/centcom/control)
 "fQ" = (
 /obj/structure/flora/ausbushes/rospilovo/sparsegrass{
 	pixel_x = 10;
@@ -1666,6 +1673,10 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/control)
+"hV" = (
+/obj/machinery/light/directional/north,
+/turf/open/floor/carpet/green,
+/area/space)
 "hZ" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/light{
@@ -1779,6 +1790,10 @@
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/open/floor/plating/grass,
 /area/syndicate_mothership)
+"iO" = (
+/obj/structure/table,
+/turf/open/indestructible/white,
+/area/space)
 "iW" = (
 /obj/machinery/modular_computer/console/preset/research,
 /obj/machinery/light{
@@ -1792,6 +1807,12 @@
 	},
 /turf/open/floor/mech_bay_recharge_floor,
 /area/syndicate_mothership/control)
+"ja" = (
+/turf/closed/indestructible/fakedoor{
+	desc = "�����, ������� ������ � ������ �������.";
+	name = "airlock"
+	},
+/area/space)
 "jb" = (
 /obj/structure/chair/comfy/arm,
 /turf/open/floor/plasteel/checker,
@@ -1831,6 +1852,10 @@
 /obj/machinery/computer/bookmanagement,
 /turf/open/floor/wood,
 /area/centcom/holding)
+"jy" = (
+/obj/machinery/light/directional/north,
+/turf/open/indestructible/white,
+/area/space)
 "jz" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/soda_cans/cola{
@@ -1917,6 +1942,12 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
+"jQ" = (
+/obj/machinery/computer/camera_advanced/base_construction/centcom{
+	dir = 1
+	},
+/turf/open/floor/carpet/green,
+/area/space)
 "jV" = (
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/brown{
@@ -2179,6 +2210,15 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/centcom/control)
+"lm" = (
+/obj/machinery/button{
+	desc = "Открывает дверь при нажатии.";
+	name = "airlock cycle button";
+	pixel_x = -24;
+	req_access_txt = "150"
+	},
+/turf/open/indestructible/white,
+/area/space)
 "lr" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel,
@@ -2348,6 +2388,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"mV" = (
+/obj/item/kirbyplants/random,
+/turf/open/indestructible/white,
+/area/space)
 "mZ" = (
 /obj/structure/table,
 /obj/item/gun/energy/ionrifle,
@@ -2592,6 +2636,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"on" = (
+/obj/structure/chair/comfy/lime,
+/turf/open/floor/carpet/green,
+/area/space)
 "ot" = (
 /obj/structure/chair/wood/wings,
 /turf/open/floor/carpet,
@@ -2730,6 +2778,15 @@
 /obj/effect/turf_decal/siding/wideplating/dark,
 /turf/open/floor/plasteel/checker,
 /area/ruin/powered/yohei_base)
+"pj" = (
+/obj/machinery/button{
+	desc = "Открывает дверь при нажатии.";
+	name = "airlock cycle button";
+	pixel_y = -24;
+	req_access_txt = "150"
+	},
+/turf/open/indestructible/white,
+/area/centcom/control)
 "pk" = (
 /obj/machinery/gibber,
 /obj/machinery/light{
@@ -3014,6 +3071,10 @@
 /obj/structure/window/reinforced,
 /turf/open/floor/carpet/black,
 /area/centcom/holding)
+"qU" = (
+/obj/structure/chair/comfy/teal,
+/turf/open/floor/carpet/green,
+/area/space)
 "qY" = (
 /obj/structure/table,
 /obj/machinery/microwave{
@@ -3059,6 +3120,15 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/brief)
+"rq" = (
+/obj/machinery/button{
+	desc = "Открывает дверь при нажатии.";
+	name = "airlock cycle button";
+	pixel_y = -24;
+	req_access_txt = "150"
+	},
+/turf/open/indestructible/white,
+/area/space)
 "rr" = (
 /obj/structure/table,
 /obj/machinery/light{
@@ -3171,6 +3241,10 @@
 /obj/machinery/vending/dinnerware,
 /turf/open/floor/plasteel/cafeteria,
 /area/centcom/holding)
+"sb" = (
+/obj/machinery/light/directional/east,
+/turf/open/floor/carpet/green,
+/area/space)
 "sj" = (
 /obj/structure/table/wood,
 /obj/machinery/recharger,
@@ -3193,6 +3267,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/brief)
+"sr" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/carpet/green,
+/area/space)
 "st" = (
 /obj/structure/closet/secure_closet/ert_engi,
 /obj/machinery/light{
@@ -3589,6 +3667,10 @@
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
 /area/centcom/circus)
+"vJ" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/carpet/green,
+/area/space)
 "vL" = (
 /obj/structure/railing{
 	dir = 8
@@ -3628,6 +3710,10 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel,
 /area/centcom/brief)
+"we" = (
+/obj/machinery/vending/coffee,
+/turf/open/floor/carpet/green,
+/area/space)
 "wf" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -3668,6 +3754,13 @@
 /obj/structure/closet/chefcloset,
 /turf/open/floor/plasteel/cafeteria,
 /area/centcom/holding)
+"wm" = (
+/turf/open/floor/carpet/green,
+/area/space)
+"wo" = (
+/obj/structure/table,
+/turf/open/floor/carpet/green,
+/area/space)
 "wp" = (
 /obj/structure/chair{
 	dir = 4
@@ -3906,6 +3999,12 @@
 /obj/item/stack/sheet/glass/fifty,
 /obj/machinery/light/directional/north,
 /obj/item/stack/sheet/plastic/fifty,
+/obj/machinery/button{
+	desc = "Открывает дверь при нажатии.";
+	name = "airlock cycle button";
+	pixel_y = 24;
+	req_access_txt = "150"
+	},
 /turf/open/floor/holofloor/carpet{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
@@ -3914,6 +4013,15 @@
 /obj/structure/chair/sofa/corp/right,
 /turf/open/floor/dz/green,
 /area/centcom/control)
+"yH" = (
+/obj/machinery/button{
+	desc = "Открывает дверь при нажатии.";
+	name = "airlock cycle button";
+	pixel_x = 24;
+	req_access_txt = "150"
+	},
+/turf/open/indestructible/white,
+/area/space)
 "yO" = (
 /obj/structure/curtain,
 /obj/structure/window/reinforced/tinted{
@@ -5147,6 +5255,7 @@
 /obj/structure/windoor_assembly{
 	dir = 2
 	},
+/obj/structure/cable,
 /turf/open/floor/plating{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
@@ -5383,6 +5492,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/four)
+"JZ" = (
+/turf/open/floor/plasteel/stairs/old,
+/area/space)
 "Ki" = (
 /obj/machinery/door/poddoor/shuttledock{
 	checkdir = 1;
@@ -5618,6 +5730,7 @@
 	resistance_flags = 227;
 	view_range = 5
 	},
+/obj/structure/cable,
 /turf/open/floor/plating{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
@@ -5838,6 +5951,14 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/centcom/control)
+"Nz" = (
+/obj/structure/chair/comfy/brown,
+/turf/open/floor/carpet/green,
+/area/space)
+"NF" = (
+/obj/effect/spawner/randomcolavend,
+/turf/open/indestructible/white,
+/area/space)
 "NH" = (
 /turf/closed/indestructible/opsglass,
 /area/syndicate_mothership/control)
@@ -5876,6 +5997,13 @@
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
 /area/centcom/circus)
+"NX" = (
+/obj/structure/chair/comfy/brown{
+	color = "#596479";
+	dir = 4
+	},
+/turf/open/floor/carpet/green,
+/area/space)
 "NY" = (
 /obj/structure/table/reinforced,
 /obj/item/clipboard,
@@ -5995,6 +6123,16 @@
 	},
 /turf/open/floor/plasteel,
 /area/syndicate_mothership/control)
+"OO" = (
+/obj/effect/spawner/randomsnackvend,
+/turf/open/indestructible/white,
+/area/space)
+"OQ" = (
+/obj/structure/cable,
+/turf/open/floor/plating{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
+/area/centcom/outdoors/circus)
 "OS" = (
 /obj/machinery/airalarm{
 	dir = 1;
@@ -6789,6 +6927,10 @@
 "UB" = (
 /turf/open/floor/plating/abductor,
 /area/abductor_ship)
+"UE" = (
+/obj/structure/chair/comfy/beige,
+/turf/open/floor/carpet/green,
+/area/space)
 "UH" = (
 /obj/structure/rack,
 /obj/item/nullrod/claymore/katana{
@@ -6867,7 +7009,8 @@
 /area/centcom/circus)
 "UY" = (
 /obj/machinery/vending/chetverochka{
-	resistance_flags = 64
+	resistance_flags = 64;
+	tiltable = 0
 	},
 /obj/item/uplink{
 	anchored = 1;
@@ -7029,6 +7172,11 @@
 	icon_state = "alien8"
 	},
 /area/abductor_ship)
+"Wr" = (
+/turf/open/floor/plasteel/stairs/old{
+	dir = 1
+	},
+/area/centcom/control)
 "Wy" = (
 /obj/effect/baseturf_helper/beach/sand,
 /turf/closed/indestructible/syndicate,
@@ -7241,6 +7389,9 @@
 	},
 /turf/open/floor/plating/grass,
 /area/syndicate_mothership)
+"XQ" = (
+/turf/open/indestructible/white,
+/area/space)
 "XT" = (
 /obj/structure/sign/nanotrasen,
 /turf/closed/indestructible/syndicate,
@@ -7272,6 +7423,18 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/three)
+"Yh" = (
+/obj/structure/table,
+/obj/item/reagent_containers/food/drinks/coffee{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/coffee{
+	pixel_x = 7;
+	pixel_y = 3
+	},
+/turf/open/floor/carpet/green,
+/area/space)
 "Yi" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/trimline/neutral/line{
@@ -7392,6 +7555,13 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel,
 /area/wizard_station)
+"YJ" = (
+/obj/structure/chair/comfy/brown{
+	color = "#596479";
+	dir = 8
+	},
+/turf/open/floor/carpet/green,
+/area/space)
 "YK" = (
 /obj/item/clothing/under/costume/jabroni,
 /obj/item/clothing/under/costume/geisha,
@@ -7478,9 +7648,23 @@
 /obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating,
 /area/centcom/control)
+"Zz" = (
+/turf/open/floor/plasteel/stairs/old{
+	dir = 1
+	},
+/area/space)
 "ZA" = (
 /turf/closed/mineral/random/vietnam,
 /area/centcom/outdoors)
+"ZD" = (
+/obj/machinery/button{
+	desc = "Открывает дверь при нажатии.";
+	name = "airlock cycle button";
+	pixel_y = 24;
+	req_access_txt = "150"
+	},
+/turf/open/indestructible/white,
+/area/space)
 "ZH" = (
 /turf/open/floor/plating/dirt/jungle/dark,
 /area/centcom/outdoors)
@@ -25463,7 +25647,7 @@ ZU
 ZU
 ZU
 ZU
-ZU
+fP
 zV
 zV
 zV
@@ -25715,10 +25899,10 @@ ZU
 ZU
 ZU
 ZU
+iL
 Wm
-Wm
-Wm
-Wm
+Wr
+Wr
 ZU
 Co
 zV
@@ -25974,8 +26158,8 @@ bj
 ZU
 id
 Wm
-Wm
-Wm
+Wr
+Wr
 ZU
 Co
 zV
@@ -26231,8 +26415,8 @@ bj
 ZU
 Wm
 Wm
-Wm
-Wm
+Wr
+Wr
 ZU
 Co
 zV
@@ -26753,7 +26937,7 @@ qk
 qk
 qk
 Tx
-qk
+WN
 Mh
 Rb
 Tw
@@ -27515,7 +27699,7 @@ Ag
 Ag
 ZU
 ZU
-iL
+pj
 zV
 yD
 Xn
@@ -27523,7 +27707,7 @@ Xn
 Xn
 Xn
 Xn
-ID
+Xo
 Xn
 Xn
 Xn
@@ -28037,8 +28221,8 @@ Xn
 Xn
 Xn
 Xn
-Xn
-Xn
+OQ
+OQ
 NS
 ID
 Xn
@@ -30083,9 +30267,9 @@ Co
 Co
 Co
 ZU
-Co
-Co
-Co
+OO
+XQ
+XQ
 uP
 Vb
 QF
@@ -30339,10 +30523,10 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
+EK
+mV
+XQ
+XQ
 zV
 Cy
 Db
@@ -30596,10 +30780,10 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
+EK
+jy
+XQ
+XQ
 zV
 zV
 zV
@@ -30853,16 +31037,16 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
 EK
-Co
-Co
-Co
-Co
-Co
+mV
+XQ
+XQ
+EK
+ZD
+XQ
+XQ
+Zz
+Zz
 ZU
 Co
 Co
@@ -31110,17 +31294,17 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+NF
+XQ
+XQ
+ja
+XQ
+XQ
+XQ
+Zz
+Zz
+EK
 Co
 Co
 Co
@@ -31367,24 +31551,24 @@ Co
 Co
 Co
 Co
+EK
+iO
+XQ
+rq
+EK
+jy
+XQ
+XQ
+Zz
+Zz
+EK
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+EK
+EK
+EK
+EK
+EK
 Co
 Co
 Co
@@ -31624,24 +31808,24 @@ Co
 Co
 Co
 Co
+EK
+EK
+EK
+EK
+EK
+EK
+EK
+EK
+EK
+EK
+EK
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+Zz
+Zz
+XQ
+XQ
+EK
 Co
 Co
 Co
@@ -31893,12 +32077,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+Zz
+Zz
+XQ
+bh
+EK
 Co
 Co
 Co
@@ -32150,12 +32334,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+Zz
+Zz
+yH
+XQ
+EK
 Co
 Co
 Co
@@ -32404,15 +32588,15 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+EK
+EK
+EK
+EK
+EK
+EK
+ja
+EK
 Co
 Co
 Co
@@ -32661,15 +32845,15 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+wm
+vJ
+JZ
+JZ
+JZ
+lm
+bh
+EK
 Co
 Co
 Co
@@ -32918,15 +33102,15 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+wm
+wm
+JZ
+JZ
+JZ
+XQ
+XQ
+EK
 Co
 Co
 Co
@@ -33175,15 +33359,15 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+wm
+sr
+EK
+EK
+EK
+EK
+EK
+EK
 Co
 Co
 Co
@@ -33432,15 +33616,15 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+wm
+wm
+wm
+wm
+wm
+wo
+wo
+EK
 Co
 Co
 Co
@@ -33689,15 +33873,15 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+wm
+wm
+wm
+wm
+wm
+qU
+jQ
+EK
 Co
 Co
 Co
@@ -33946,15 +34130,15 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+wm
+wm
+EK
+EK
+hV
+wo
+wo
+EK
 Co
 Co
 Co
@@ -34203,15 +34387,15 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+wm
+NX
+EK
+sr
+wm
+Nz
+jQ
+EK
 Co
 Co
 Co
@@ -34460,15 +34644,15 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+hV
+Yh
+EK
+wo
+wm
+wo
+wo
+EK
 Co
 Co
 Co
@@ -34717,15 +34901,15 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+wm
+YJ
+EK
+we
+wm
+on
+jQ
+EK
 Co
 Co
 Co
@@ -34974,15 +35158,15 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+wm
+wm
+EK
+EK
+hV
+wo
+wo
+EK
 Co
 Co
 Co
@@ -35231,15 +35415,15 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+wm
+wm
+wm
+wm
+wm
+UE
+jQ
+EK
 Co
 Co
 Co
@@ -35488,15 +35672,15 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+wm
+wm
+wm
+wm
+wm
+wo
+wo
+EK
 Co
 Co
 Co
@@ -35745,15 +35929,15 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+wm
+sr
+EK
+EK
+EK
+EK
+EK
+EK
 Co
 Co
 Co
@@ -36002,15 +36186,15 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+wm
+wm
+JZ
+JZ
+JZ
+XQ
+XQ
+EK
 Co
 Co
 Co
@@ -36259,16 +36443,16 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+wm
+sb
+JZ
+JZ
+JZ
+yH
+XQ
+EK
+EK
 Co
 Co
 Co
@@ -36516,16 +36700,16 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+EK
+EK
+EK
+EK
+EK
+EK
+ja
+EK
+EK
 Co
 Co
 Co
@@ -36777,12 +36961,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+Zz
+Zz
+XQ
+lm
+EK
 Co
 Co
 Co
@@ -37034,12 +37218,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+Zz
+Zz
+XQ
+bh
+EK
 Co
 Co
 Co
@@ -37291,12 +37475,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+Zz
+Zz
+XQ
+XQ
+EK
 Co
 Co
 Co
@@ -37548,12 +37732,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+EK
+EK
+EK
+EK
+EK
+EK
 Co
 Co
 Co
