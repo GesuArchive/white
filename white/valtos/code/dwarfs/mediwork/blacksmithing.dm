@@ -87,6 +87,47 @@
 	var/obj/item/blacksmith/ingot/current_ingot = null
 	var/list/allowed_things = list()
 
+/obj/anvil/Topic(href, list/href_list)
+	. = ..()
+	if(.)
+		return .
+	if(href_list["hit"])
+		hit(usr)
+	if(href_list["miss"])
+		miss(usr)
+
+/obj/anvil/proc/hit(mob/user)
+	var/mob/living/carbon/human/H = user
+	if(current_ingot.progress_current == current_ingot.progress_need)
+		current_ingot.progress_current++
+		playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
+		to_chat(user, "<span class='notice'>Болванка готова. Ещё один удар для продолжения ковки, либо можно охлаждать.</span>")
+		to_chat(user, "<span class='green'>> Активируй болванку в клещах для охлаждения.</span>")
+		user<<browse(null, "window=Наковальня")
+		return
+	else
+		playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
+		user.visible_message("<span class='notice'><b>[user]</b> бьёт молотом по наковальне.</span>", \
+						"<span class='notice'>Бью молотом по наковальне.</span>")
+		current_ingot.progress_current++
+		H.adjustStaminaLoss(rand(1, 5))
+		H.mind.adjust_experience(/datum/skill/smithing, rand(0, 4) * current_ingot.mod_grade)
+		return
+
+/obj/anvil/proc/miss(mob/user)
+	// var/mob/living/carbon/human/H = user
+	current_ingot.durability--
+	if(current_ingot.durability == 0)
+		to_chat(user, "<span class='warning'>Болванка раскалывается на множество бесполезных кусочков металла...</span>")
+		current_ingot = null
+		LAZYCLEARLIST(contents)
+		icon_state = "[initial(icon_state)]"
+		user<<browse(null, "window=Наковальня")
+	playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
+	user.visible_message("<span class='warning'><b>[user]</b> неправильно бьёт молотом по наковальне.</span>", \
+						"<span class='warning'>Неправильно бью молотом по наковальне.</span>")
+	return
+
 /obj/anvil/fullsteel
 	name = "тяжёлая наковальня"
 	desc = "Не сдвинуть. Совсем."
@@ -123,37 +164,146 @@
 				to_chat(user, "<span class='warning'>Болванка слишком холодная. Стоит разогреть её.</span>")
 				return
 			if(current_ingot.recipe)
-				if(current_ingot.progress_current == current_ingot.progress_need)
-					current_ingot.progress_current++
-					playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
-					to_chat(user, "<span class='notice'>Болванка готова. Ещё один удар для продолжения ковки, либо можно охлаждать.</span>")
-					to_chat(user, "<span class='green'>> Активируй болванку в клещах для охлаждения.</span>")
-					return
+				var/height = 30
+				var/dat = {"<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Наковальня</title>
+    <style>* { padding: 0; margin: 0; } canvas { background: #eee; display: block; margin: 0 auto; }</style>
+</head>
+<body>
+<div>
+<canvas id="myCanvas" width="300" height="62" style="left: 50%;"></canvas>
+<button onclick="ClickButton()" style="transform: translate(-50%);left: 50%;position: relative;">Ударить</button>
+</div>
+<script>
+    function ClickButton(){
+        if(collision() && !cooldown){
+            score++;
+            cooldownlast=0;
+            cooldown=true;
+			window.location = ("byond://?src=[REF(src)];hit=1")
+        }
+        else if (!collision() && !cooldown){
+            lives--;
+            cooldownlast=0;
+            cooldown=true;
+			window.location = ("byond://?src=[REF(src)];miss=1")
+        }
+    }
+
+    let canvas = document.getElementById("myCanvas");
+    let ctx = canvas.getContext("2d");
+    let linewidth = 1
+    let x = 0
+	let speed = [1+current_ingot.mod_grade/2];
+    let right = true;
+    let cooldown = false;
+    let cooldownlast = 0
+    let score = 0;
+    let lives = 3;
+    let fieldwidth = [20+H.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SMITHING_MODIFIER)];
+    let cooldown_m = 60;
+
+
+    function collision() {
+        if((canvas.width/2-fieldwidth/2)<x&& x<(canvas.width/2+fieldwidth/2)){
+            // console.log("collision")
+            return true
+        }
+        else{
+            // console.log("uncolision")
+            return false
+        }
+    }
+
+    function drawfield(color){
+        ctx.beginPath();
+        ctx.rect(canvas.width/2-fieldwidth/2, 32, fieldwidth, 30);
+        ctx.fillStyle = color;
+        ctx.opacity = 0.1
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    function drawline(){
+        ctx.beginPath();
+        ctx.rect(x, 32, linewidth, 30);
+        ctx.fillStyle = "#FF2133";
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    function drawScore() {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#0095DD";
+        ctx.fillText("Ударов: "+score, 115, 20);
+    }
+
+    function checkcooldown(){
+        // console.log(cooldownlast)
+        if(cooldownlast>cooldown_m){
+            cooldown = false;
+        }
+        else{
+            cooldown = true;
+        }
+    }
+	function drawSep(){
+        ctx.beginPath();
+        ctx.rect(0, 30, canvas.width, 2);
+        ctx.fillStyle = "black";
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        if(collision()){
+            drawfield("green")
+        }
+        else{
+            drawfield("red")
+        }
+        drawline();
+        drawScore();
+		drawSep();
+        // console.log(x)
+        checkcooldown()
+        cooldownlast++;
+        if(right && x<canvas.width){
+            x+=speed;
+        }
+        else if(right && x==canvas.width){
+            right = !right
+        }
+        if(!right && x>0){
+            x-=speed;
+        }
+        else if(!right && x==0){
+            right = !right
+        }
+
+        requestAnimationFrame(draw);
+    }
+
+    draw()
+
+
+</script>
+</body>
+</html>"}
+				if(current_ingot.progress_current <= current_ingot.progress_need)
+					var/datum/browser/popup = new(user, "Наковальня", "Наковальня", 500, height+120)
+					popup.set_content(dat)
+					popup.open()
 				if(current_ingot.progress_current > current_ingot.progress_need)
 					current_ingot.progress_current = 0
 					current_ingot.mod_grade++
 					current_ingot.progress_need = round(current_ingot.progress_need * 1.1)
 					playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
 					to_chat(user, "<span class='notice'>Начинаем улучшать болванку...</span>")
-					return
-				if(!prob(H.mind.get_skill_modifier(/datum/skill/smithing, SKILL_PROBS_MODIFIER) - current_ingot.mod_grade))
-					current_ingot.durability--
-					if(current_ingot.durability == 0)
-						to_chat(user, "<span class='warning'>Болванка раскалывается на множество бесполезных кусочков металла...</span>")
-						current_ingot = null
-						LAZYCLEARLIST(contents)
-						icon_state = "[initial(icon_state)]"
-					playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
-					user.visible_message("<span class='warning'><b>[user]</b> неправильно бьёт молотом по наковальне.</span>", \
-										"<span class='warning'>Неправильно бью молотом по наковальне.</span>")
-					return
-				else
-					playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
-					user.visible_message("<span class='notice'><b>[user]</b> бьёт молотом по наковальне.</span>", \
-										"<span class='notice'>Бью молотом по наковальне.</span>")
-					current_ingot.progress_current++
-					H.adjustStaminaLoss(rand(1, 5))
-					H.mind.adjust_experience(/datum/skill/smithing, rand(0, 4) * current_ingot.mod_grade)
 					return
 			else
 				var/list/metal_allowed_list = list()
