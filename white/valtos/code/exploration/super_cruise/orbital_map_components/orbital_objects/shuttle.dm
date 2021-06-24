@@ -2,7 +2,7 @@
 	name = "Шаттл"
 	var/shuttle_port_id
 	//Shuttle data
-	var/max_thrust = 2
+	var/max_thrust = 10
 	//Controls
 	var/thrust = 0
 	var/angle = 0
@@ -27,7 +27,7 @@
 	var/cheating_autopilot = FALSE
 
 /datum/orbital_object/shuttle/stealth/infiltrator
-	max_thrust = 2.5
+	max_thrust = 20
 
 /datum/orbital_object/shuttle/stealth/steel_rain
 	max_thrust = 0
