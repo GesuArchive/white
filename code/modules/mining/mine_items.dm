@@ -8,6 +8,11 @@
 	var/set_luminosity = 8
 	var/set_cap = 1
 
+
+/obj/effect/light_emitter/shadow
+	name = "Shadow emitter"
+	set_luminosity = -4
+
 /obj/effect/light_emitter/Initialize()
 	. = ..()
 	set_light(set_luminosity, set_cap)
