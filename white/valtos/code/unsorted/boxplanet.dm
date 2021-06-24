@@ -124,7 +124,7 @@
 	else
 		to_chat(user, "<span class='notice'>Не могу найти лечебных листочков на этом растении. Видимо ещё не время.</span>")
 
-obj/item/glikoleaf
+/obj/item/glikoleaf
 	name = "Листок гликодила"
 	desc = "Наныли"
 	icon = 'white/valtos/icons/mineflora.dmi'

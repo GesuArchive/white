@@ -193,7 +193,8 @@
 	var/biomass = 25
 	var/datum/action/innate/glutton/plantSkin/plantSkin
 	loot = list(/obj/effect/mob_spawn/human/clown/corpse, /obj/item/clothing/suit/hooded/bloated_human, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
-	/mob/living/simple_animal/hostile/clown/fleshclown/get_status_tab_items()
+
+/mob/living/simple_animal/hostile/clown/fleshclown/get_status_tab_items()
 		. = ..()
 		. += "Плоть: [biomass]"
 

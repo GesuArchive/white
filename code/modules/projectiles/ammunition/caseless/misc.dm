@@ -41,6 +41,6 @@
 		visible_message("<span class='warning'><b>[user.name]</b> ловит разряд тока от стансферы!</span>", \
 						"<span class='userdanger'>Ай!!!</span>")
 
-obj/item/ammo_casing/caseless/pissball/examine(mob/user)
+/obj/item/ammo_casing/caseless/pissball/examine(mob/user)
 	. = ..()
 	. -= "<hr><span class='smallnoticeital'>Это [weightclass2text(w_class)] размера предмет.</span>"

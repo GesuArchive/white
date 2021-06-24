@@ -126,7 +126,7 @@
 	collar_type = "kitten"
 
 /mob/living/simple_animal/pet/cat/kitten/Initialize()
-	..()
+	. = ..(null)
 	addtimer(CALLBACK(src, .proc/grow), 2.5 MINUTES)
 	name = gender == FEMALE ? "Киса":"Котик"
 
