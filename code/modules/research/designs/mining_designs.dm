@@ -149,12 +149,3 @@
 	build_path = /obj/item/circuitboard/machine/deepcore/hopper
 	category = list("Шахтёрское оборудование")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
-
-/datum/design/board/deepcore_hub
-	name = "Machine Design (Deepcore Mining Control Hub Board)"
-	desc = "The circuit board for a Deepcore Mining Control Hub."
-	id = "deepcore_hub"
-	build_type = IMPRINTER
-	build_path = /obj/item/circuitboard/machine/deepcore/hub
-	category = list("Шахтёрское оборудование")
-	departmental_flags = DEPARTMENTAL_FLAG_CARGO

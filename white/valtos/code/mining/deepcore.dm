@@ -1,138 +1,3 @@
-/datum/dcm_net
-	/*Hub machine
-		The hub machine acts as the main container for the network.
-		influences the following values through proc/UpdateNetwork():
-	transfer_limit = max amount of each material transfered in any given push/pull
-	max_connected = number of machines that can be connected at once
-	*/
-	var/obj/machinery/deepcore/hub/netHub
-	var/transfer_limit = 0
-	var/max_connected = 0
-	// List of connected machines
-	var/list/obj/machinery/deepcore/connected = list()
-
-/datum/dcm_net/New(obj/machinery/deepcore/hub/source)
-	if(!source)
-		stack_trace("dcm_net created without a valid source!")
-		qdel(src)
-	netHub = source
-
-// ** Machine handling procs **
-
-/datum/dcm_net/Destroy()
-	netHub.network = null
-	if(connected)
-		for (var/obj/machinery/deepcore/M in connected)
-			M.network = null
-	return ..()
-
-/datum/dcm_net/proc/AddMachine(obj/machinery/deepcore/M)
-	if(connected.len >= max_connected)
-		playsound(M, 'sound/machines/buzz-sigh.ogg', 30)
-		M.visible_message("<span class='warning'>[M] fails to connect! The display reads 'ERROR: Connection limit reached!'</span>")
-		return FALSE
-	if(!(M in connected))
-		connected += M
-		M.network = src
-		return TRUE
-
-/datum/dcm_net/proc/RemoveMachine(obj/machinery/deepcore/M)
-	if(M in connected)
-		connected -= M
-		M.network = null
-		//Destroys the network if there's no more machines attached
-		if(!length(connected))
-			connected = null
-			qdel(src)
-		return TRUE
-
-/datum/dcm_net/proc/MergeWith(datum/dcm_net/net)
-	for (var/obj/machinery/deepcore/M in net.connected)
-		AddMachine(M)
-	qdel(net)
-
-// ** Ore handling procs **
-
-/datum/dcm_net/proc/Push(var/datum/component/material_container/cont)
-	for(var/O in cont.materials)
-		var/datum/material/M = O
-		cont.transer_amt_to(netHub.container, transfer_limit, M)
-
-/datum/dcm_net/proc/Pull(var/datum/component/material_container/cont)
-	for(var/O in netHub.container.materials)
-		var/datum/material/M = O
-		netHub.container.transer_amt_to(cont, transfer_limit, M)
-
-GLOBAL_DATUM(dcm_net_default, /datum/dcm_net)
-/obj/machinery/deepcore/hub
-	name = "Deepcore Mining Control Hub"
-	desc = "Houses the server which processes all connected mining equipment."
-	icon_state = "hub"
-	density = TRUE
-	circuit = /obj/item/circuitboard/machine/deepcore/hub
-
-/obj/machinery/deepcore/hub/Initialize(mapload)
-	. = ..()
-	if(mapload)
-		if(!GLOB.dcm_net_default)
-			GLOB.dcm_net_default = new /datum/dcm_net(src)
-		network = GLOB.dcm_net_default
-	else if (!network)
-		network = new /datum/dcm_net(src)
-	RefreshParts()
-
-/obj/machinery/deepcore/hub/Destroy()
-	qdel(network)
-	return ..()
-
-/obj/machinery/deepcore/hub/examine(mob/user)
-	. = ..()
-	. += "<hr><span class='info'>Linked to [network.connected.len] machines.</span>"
-	. += "\n<span class='notice'>Deep core mining equipment can be linked to [src.name] with a multitool.</span>"
-
-/obj/machinery/deepcore/hub/RefreshParts()
-	//Matter bins = size of container
-	var/MB_value = 0
-	for(var/obj/item/stock_parts/matter_bin/MB in component_parts)
-		MB_value += MINERAL_MATERIAL_AMOUNT * 10 ** MB.rating
-	container.max_amount = MB_value
-	if(network)
-		//Micro Laser = transfer limit
-		var/ML_value = 0
-		for(var/obj/item/stock_parts/micro_laser/ML in component_parts)
-			ML_value += MINERAL_MATERIAL_AMOUNT * 5 ** ML.rating
-		network.transfer_limit = ML_value
-		//Micro Manipulator = connected limit
-		var/MM_value = 0
-		for(var/obj/item/stock_parts/manipulator/MM in component_parts)
-			MM_value += 3 * MM.rating + 2
-		network.max_connected = MM_value
-
-/obj/machinery/deepcore/hub/multitool_act(mob/living/user, obj/item/multitool/I)
-	. = ..()
-	if (istype(I))
-		to_chat(user, "<span class='notice'>You load the network data on to the multitool...</span>")
-		I.buffer = network
-		return TRUE
-
-/obj/machinery/deepcore/hub/ui_interact(mob/user, datum/tgui/ui)
-	user.set_machine(src)
-	var/datum/browser/popup = new(user, "dcm_hub", null, 600, 550)
-	popup.set_content(generate_ui())
-	popup.open()
-
-/obj/machinery/deepcore/hub/proc/generate_ui()
-	var/dat = "<div class='statusDisplay'><h3>Deepcore Network Hub:</h3><br>"
-	dat = "<h2>Connected to [network.connected.len] machines.</h4>"
-	for(var/M in network.connected)
-		var/obj/machinery/deepcore/D = M
-		dat += "[D.x], [D.y], [D.z] : <b>[D.name]</b>"
-		dat += "<br>"
-	dat += "</div>"
-	return dat
-
-// DCM NETWORK LOGIC
-
 /*\
 	Crude Material Container - Subcomponent to support the transfer of unrefined ores
 	Assumes ores are the same material value as sheets, because at the time of writing they in fact are.
@@ -165,62 +30,6 @@ GLOBAL_DATUM(dcm_net_default, /datum/dcm_net)
 \*/
 /obj/machinery/deepcore
 	icon = 'white/valtos/icons/deepcore.dmi'
-	var/datum/dcm_net/network
-	var/datum/component/material_container/crude/container
-
-/obj/machinery/deepcore/Initialize(mapload)
-	. = ..()
-	if(mapload && !network && GLOB.dcm_net_default)
-		SetNetwork(GLOB.dcm_net_default)
-
-/obj/machinery/deepcore/ComponentInitialize()
-	. = ..()
-	var/static/list/ores_list = list(
-		/datum/material/iron,
-		/datum/material/glass,
-		/datum/material/silver,
-		/datum/material/gold,
-		/datum/material/diamond,
-		/datum/material/plasma,
-		/datum/material/uranium,
-		/datum/material/bananium,
-		/datum/material/titanium,
-		/datum/material/bluespace
-	)
-	// container starts with 0 max amount
-	container = AddComponent(/datum/component/material_container/crude, ores_list, 0, FALSE, null, null, null, TRUE)
-
-/obj/machinery/deepcore/multitool_act(mob/living/user, obj/item/multitool/I)
-	. = ..()
-	if(!istype(I))
-		return FALSE
-
-	//Check if we would like to add a network
-	if(istype(I.buffer, /datum/dcm_net))
-		if(network)
-			to_chat(user, "<span class='notice'>You move [src.name] onto the network saved in the multitool's buffer...</span>")
-			ClearNetwork()
-			SetNetwork(I.buffer)
-			return TRUE
-		else
-			to_chat(user, "<span class='notice'>You load the saved network data into [src.name] and test the connection...</span>")
-			SetNetwork(I.buffer)
-			return TRUE
-
-/obj/machinery/deepcore/examine(mob/user)
-	. = ..()
-	if(network)
-		. += "<hr><span class='info'>This device is registered with a network connected to [length(network.connected)] devices.</span>"
-
-/obj/machinery/deepcore/proc/SetNetwork(var/datum/dcm_net/net)
-	return net.AddMachine(src)
-
-/obj/machinery/deepcore/proc/ClearNetwork()
-	return network.RemoveMachine(src)
-
-/obj/machinery/deepcore/proc/MergeNetwork(var/datum/dcm_net/net)
-	network.MergeWith(net)
-
 /obj/machinery/deepcore/drill
 	name = "Deep Core Bluespace Drill"
 	desc = "Мощная машина, которая способна извлекать руду из недр планеты."
@@ -233,26 +42,31 @@ GLOBAL_DATUM(dcm_net_default, /datum/dcm_net)
 	max_integrity = 200
 	integrity_failure = 0.3
 	circuit = /obj/item/circuitboard/machine/deepcore/drill
+	processing_flags = START_PROCESSING_MANUALLY
 
+	var/obj/machinery/deepcore/hopper/target_hopper
 	var/deployed = FALSE //If the drill is anchored and ready-to-mine
 	var/active = FALSE //If the drill is activly mining ore
 	var/obj/effect/landmark/ore_vein/active_vein //Ore vein currently set to be mined in
+	var/mult = 1
 
-/obj/machinery/deepcore/drill/Initialize(mapload)
-	. = ..()
-	container.max_amount = 4000 //Give the drill some room to buffer mats, but not much
+/obj/machinery/deepcore/drill/proc/toggle()
+	active = !active
+	if(active)
+		START_PROCESSING(SSmachines, src)
+	else
+		STOP_PROCESSING(SSmachines, src)
 
 /obj/machinery/deepcore/drill/interact(mob/user, special_state)
 	. = ..()
 	if(machine_stat & BROKEN)
 		return .
 	if(deployed)
+		toggle()
 		if(active)
-			active = FALSE
-			to_chat(user, "<span class='notice'>Деактивирую [src.name].</span>")
+			to_chat(user, "<span class='notice'>Включаю [src.name].</span>")
 		else
-			active = TRUE
-			to_chat(user, "<span class='notice'>Реактивирую [src.name].</span>")
+			to_chat(user, "<span class='notice'>Выключаю [src.name].</span>")
 		update_icon_state()
 		update_overlays()
 		return TRUE
@@ -278,31 +92,20 @@ GLOBAL_DATUM(dcm_net_default, /datum/dcm_net)
 		flick("deep_core_drill-undeploy", src)
 		addtimer(CALLBACK(src, .proc/Undeploy), 13)
 
-/obj/machinery/deepcore/drill/process()
+/obj/machinery/deepcore/drill/process(delta_time)
 	if(machine_stat & BROKEN || (active && !active_vein))
 		active = FALSE
+		STOP_PROCESSING(SSmachines, src)
 		update_overlays()
 		update_icon_state()
 		return
-	if(deployed && active)
-		if(!mineOre())
-			active = FALSE
-			update_overlays()
-			update_icon_state()
-		if(network)
-			network.Push(container)
-		else //Dry deployment of ores
-			dropOre()
+	if(deployed && active && target_hopper)
+		mine_ore(delta_time)
 
-/obj/machinery/deepcore/drill/proc/mineOre()
-	var/list/extracted = active_vein.extract_ore()
-	for(var/O in extracted)
-		var/datum/material/M = O
-		container.insert_amount_mat(extracted[M], M)
-	return TRUE
 
-/obj/machinery/deepcore/drill/proc/dropOre(datum/material/M, amount)
-	return container.retrieve_all(get_step(src, SOUTH))
+/obj/machinery/deepcore/drill/proc/mine_ore(delta_time)
+	var/obj/effect/landmark/ore_vein/vein = active_vein
+	target_hopper.try_add_material(round(vein.material_rate * min(src.mult, target_hopper.mult) * delta_time), vein.resource)
 
 /obj/machinery/deepcore/drill/proc/scanArea()
 	//Checks for ores and latches to an active vein if one is located.
@@ -314,11 +117,21 @@ GLOBAL_DATUM(dcm_net_default, /datum/dcm_net)
 	else
 		return FALSE
 
+/obj/machinery/deepcore/drill/RefreshParts()
+	var/MM_value = 0
+	var/MM_amount = 0
+	for(var/obj/item/stock_parts/manipulator/MM in component_parts)
+		MM_value += MM.rating
+		MM_amount++
+	mult = MM_value/MM_amount
+
 /obj/machinery/deepcore/drill/proc/Deploy()
 	deployed = TRUE
+	layer = MOB_LAYER+0.01
 	update_icon_state()
 	playsound(src, 'sound/machines/boltsdown.ogg', 50)
-	visible_message("<span class='notice'>[capitalize(src)] готов к работе!</span>")
+	visible_message("<span class='notice'>[capitalize(name)] готов к работе!</span>")
+	
 
 /obj/machinery/deepcore/drill/proc/Undeploy()
 	active_vein = null
@@ -326,7 +139,8 @@ GLOBAL_DATUM(dcm_net_default, /datum/dcm_net)
 	anchored = FALSE
 	update_icon_state()
 	playsound(src, 'sound/machines/boltsup.ogg', 50)
-	visible_message("<span class='notice'>[capitalize(src)] готов к движению!</span>")
+	visible_message("<span class='notice'>[capitalize(name)] готов к движению!</span>")
+	layer = initial(layer)
 
 /obj/machinery/deepcore/drill/update_icon_state()
 	if(deployed)
@@ -361,9 +175,22 @@ GLOBAL_DATUM(dcm_net_default, /datum/dcm_net)
 		set_light(0)
 		update_overlays()
 
+//wtf?
 /obj/machinery/deepcore/drill/can_be_unfasten_wrench(mob/user, silent)
 	to_chat(user, "<span class='notice'>Мне потребуется гаечный ключ для установки [src.name]!</span>")
 	return CANT_UNFASTEN
+
+/obj/machinery/deepcore/drill/multitool_act(mob/living/user, obj/item/multitool/I)
+	. = ..()
+	if(!istype(I))
+		return FALSE
+	if(istype(I.buffer, /obj/machinery/deepcore/hopper))
+		if(I.buffer.z != src.z)
+			to_chat(user, "<span class='notice'>The drill seems to experience some sort of bluespace interference. Perhaps you should move the hopper closer to it?</span>")
+			return FALSE
+		to_chat(user, "<span class='notice'>You connect the deepcore drill to the hopper.</span>")
+		target_hopper = I.buffer
+		return TRUE
 
 /obj/item/circuitboard/machine/deepcore/drill
 	name = "Deep Core Bluespace Drill (Machine Board)"
@@ -371,8 +198,8 @@ GLOBAL_DATUM(dcm_net_default, /datum/dcm_net)
 	build_path = /obj/machinery/deepcore/drill
 	req_components = list(
 		/obj/item/stock_parts/micro_laser = 1,
-		/obj/item/stock_parts/manipulator = 1,
-		/obj/item/stock_parts/matter_bin = 1)
+		/obj/item/stock_parts/manipulator = 4,
+		/obj/item/stock_parts/scanning_module = 1)
 
 /obj/item/circuitboard/machine/deepcore/hopper
 	name = "Bluespace Material Hopper (Machine Board)"
@@ -380,20 +207,10 @@ GLOBAL_DATUM(dcm_net_default, /datum/dcm_net)
 	build_path = /obj/machinery/deepcore/hopper
 	req_components = list(
 		/obj/item/stack/ore/bluespace_crystal = 2,
-		/obj/item/stock_parts/capacitor = 2,
-		/obj/item/stock_parts/manipulator = 2,
-		/obj/item/stock_parts/matter_bin = 2)
-	def_components = list(/obj/item/stack/ore/bluespace_crystal = /obj/item/stack/ore/bluespace_crystal/artificial)
-
-/obj/item/circuitboard/machine/deepcore/hub
-	name = "Deepcore Mining Control Hub (Machine Board)"
-	icon_state = "supply"
-	build_path = /obj/machinery/deepcore/hub
-	req_components = list(
 		/obj/item/stock_parts/capacitor = 1,
-		/obj/item/stock_parts/micro_laser = 2,
-		/obj/item/stock_parts/matter_bin = 3,
-		/obj/item/stock_parts/manipulator = 2)
+		/obj/item/stock_parts/manipulator = 4,
+		/obj/item/stock_parts/matter_bin = 5)
+	def_components = list(/obj/item/stack/ore/bluespace_crystal = /obj/item/stack/ore/bluespace_crystal/artificial)
 
 /obj/item/deepcorecapsule
 	name = "deepcore drill deployment capsule"
@@ -493,33 +310,49 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 
 /obj/effect/landmark/ore_vein
 	name = "ore vein"
-	var/datum/material/resource
+	var/resource
 	var/material_rate = 0
 
-/obj/effect/landmark/ore_vein/Initialize(mapload, var/datum/material/mat)
+/obj/effect/landmark/ore_vein/Initialize()
 	. = ..()
+	for(var/obj/effect/landmark/ore_vein/vein in get_turf(src))
+		if(vein!=src)
+			stack_trace("Ore vein initialized on a tile where another ore vein already exists and was deleted.")
+			qdel(src)
+			return
 	GLOB.ore_vein_landmarks += src
-	// Key = Material path; Value = Material Rate
-	//! Ensure material datum has an ore_type set
-	var/static/list/ores_list = list(
-		/datum/material/iron = 600,
-		/datum/material/glass = 500,
-		/datum/material/silver = 400,
-		/datum/material/gold = 350,
-		/datum/material/diamond = 100,
-		/datum/material/plasma = 450,
-		/datum/material/uranium = 200,
-		/datum/material/titanium = 300,
-		/datum/material/bluespace = 50
-	)
-	var/datum/material/M = resource
-	if(mat)
-		M = mat
-	else if (!M)
-		M = pick(ores_list) //random is default
-	resource = M
-	if((!material_rate) && ores_list[M])
-		material_rate = ores_list[M]
+/*
+	if(resource)
+		return
+	qdel(src)
+	switch(rand(9))
+		if(0)
+			new /obj/effect/landmark/ore_vein/iron(get_turf(src))
+		if(1)
+			new /obj/effect/landmark/ore_vein/glass(get_turf(src))
+		if(2)
+			new /obj/effect/landmark/ore_vein/plasma(get_turf(src))
+		if(3)
+			new /obj/effect/landmark/ore_vein/silver(get_turf(src))
+		if(4)
+			new /obj/effect/landmark/ore_vein/gold(get_turf(src))
+		if(5)
+			new /obj/effect/landmark/ore_vein/diamond(get_turf(src))
+		if(6)
+			new /obj/effect/landmark/ore_vein/uranium(get_turf(src))
+		if(7)
+			new /obj/effect/landmark/ore_vein/titanium(get_turf(src))
+		if(8)
+			new /obj/effect/landmark/ore_vein/bluespace_crystal(get_turf(src))
+		if(0)
+			new /obj/effect/landmark/ore_vein/bananium(get_turf(src))
+*/
+
+/obj/effect/landmark/ore_vein/Destroy()
+	if(GLOB.ore_vein_landmarks.Find(src))
+		GLOB.ore_vein_landmarks -= src
+	. = ..()
+
 
 /obj/effect/landmark/ore_vein/proc/extract_ore() //Called by deepcore drills, returns a list of keyed ore stacks by amount
 	var/list/ores = list()
@@ -529,39 +362,39 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 //Common ore prefabs
 
 /obj/effect/landmark/ore_vein/iron
-	resource = /datum/material/iron
-
-/obj/effect/landmark/ore_vein/plasma
-	resource = /datum/material/plasma
-
-/obj/effect/landmark/ore_vein/silver
-	resource = /datum/material/silver
-
-/obj/effect/landmark/ore_vein/gold
-	resource = /datum/material/gold
-
+	resource = /obj/item/stack/ore/iron
+	material_rate = 500
 /obj/effect/landmark/ore_vein/glass
-	resource = /datum/material/glass
-
+	resource = /obj/item/stack/ore/glass
+	material_rate = 500
+/obj/effect/landmark/ore_vein/plasma
+	resource = /obj/item/stack/ore/plasma
+	material_rate = 300
+/obj/effect/landmark/ore_vein/silver
+	resource = /obj/item/stack/ore/silver
+	material_rate = 200
+/obj/effect/landmark/ore_vein/gold
+	resource = /obj/item/stack/ore/gold
+	material_rate = 200
 /obj/effect/landmark/ore_vein/diamond
-	resource = /datum/material/diamond
-
+	resource = /obj/item/stack/ore/diamond
+	material_rate = 100
 /obj/effect/landmark/ore_vein/uranium
-	resource = /datum/material/uranium
-
+	resource = /obj/item/stack/ore/uranium
+	material_rate = 100
 /obj/effect/landmark/ore_vein/titanium
-	resource = /datum/material/titanium
-
-/obj/effect/landmark/ore_vein/bluespace
-	resource = /datum/material/bluespace
-
+	resource = /obj/item/stack/ore/titanium
+	material_rate = 200
+/obj/effect/landmark/ore_vein/bluespace_crystal
+	resource = /obj/item/stack/ore/bluespace_crystal
+	material_rate = 50
 /obj/effect/landmark/ore_vein/bananium
-	resource = /datum/material/bananium
-	material_rate = 10 //HONK HONK
+	resource = /obj/item/stack/ore/bananium
+	material_rate = 50
 
 /obj/machinery/deepcore/hopper
 	name = "Bluespace Material Hopper"
-	desc = "A machine designed to recieve the output of any bluespace drills connected to its network."
+	desc = "A machine designed to recieve the output of any connected bluespace drills."
 	icon_state = "hopper_off"
 	density = TRUE
 	idle_power_usage = 5
@@ -570,55 +403,102 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 	circuit = /obj/item/circuitboard/machine/deepcore/hopper
 
 	var/active = FALSE
-	var/eject_lim = 0 //Amount of ore stacks the hopper can eject each tick
+	var/mult = 1
+	var/list/storage = list(
+		/obj/item/stack/ore/iron = 0,
+		/obj/item/stack/ore/glass = 0,
+		/obj/item/stack/ore/silver = 0,
+		/obj/item/stack/ore/gold = 0,
+		/obj/item/stack/ore/diamond = 0,
+		/obj/item/stack/ore/plasma = 0,
+		/obj/item/stack/ore/uranium = 0,
+		/obj/item/stack/ore/titanium = 0,
+		/obj/item/stack/ore/bluespace_crystal = 0,
+		/obj/item/stack/ore/bananium = 0
+	)
+	var/storage_volume = 10000 //how many units of each material type can be stored (2000 material is still 1 sheet) 
+	var/eject_speed = 1 //how much time in seconds between each material type being shat out
+	var/ejecting = FALSE
 
 /obj/machinery/deepcore/hopper/RefreshParts()
-	// Material container size
-	var/MB_value = 0
-	for(var/obj/item/stock_parts/matter_bin/MB in component_parts)
-		MB_value += 4 * MB.rating ** 2 // T1 = 8, T2 = 32, T3 = 72, T4 = 128
-	container.max_amount = MB_value * MINERAL_MATERIAL_AMOUNT
-	// Ejection limit per-tick
 	var/MM_value = 0
+	var/MM_amount = 0
 	for(var/obj/item/stock_parts/manipulator/MM in component_parts)
 		MM_value += MM.rating
-	eject_lim = MM_value ** 2
-	// Capacitor part function
-	// lol there is none
+		MM_amount++
+	mult = MM_value/MM_amount
+
+	storage_volume = 0
+	for(var/obj/item/stock_parts/matter_bin/part in component_parts)
+		storage_volume += part.rating*2000
+
+	for(var/obj/item/stock_parts/capacitor/cap in component_parts) // fuck it, a for loop for a single item in the list
+		eject_speed = 1.25 - 0.25 * cap.rating
+
+/obj/machinery/deepcore/hopper/examine(mob/user)
+	. = ..()
+	if(!ejecting)
+		. += "<br>Хранилище воронки содержит в себе"
+		var/list/orelist = list()
+		for(var/mat in storage)
+			var/obj/item/stack/ore/O = mat
+			var/amount = storage[mat]
+			if(amount)
+				orelist.Add("<i>[initial(O.name)]</i> - <b>[amount]</b> ед.<br>")
+		if(orelist.len)
+			. += ":<br>"
+			. += orelist
+		else
+			. += " целое ничего. [pick(30;"Удивительно.", 30;"Поразительно.", 30;"Интересно.", 10;"Охуеть не встать.")]"
+	else
+		. += "Воронка находится в процессе выброса руд."
+/obj/machinery/deepcore/hopper/AltClick(mob/user)
+	if(!active)
+		to_chat(user, "<span class='alert'>Turn on the hopper bfore flushing the materials!</span>")
+		return
+	
+	if(prob(5)) //lol
+		user.say(pick(
+			"Po twojej pysznej zupie", \
+			"Nie ruszam dupy z klopa", \
+			"Ta zupa była z mlekiem", \
+			"Na mleko mam alergię"))
+		to_chat(user, "<span clas=='notice'>You tell the hopper to shit out the materials <b>right now</b>[eject_materials(TRUE) ? ", and it complies." : ", but nothing happens."]</span>")
+		return
+	to_chat(user, "<span clas=='notice'>You press a button on the hopper marked \"Eject materials\"[eject_materials() ? ", and it starts to vibrate slightly." : ", but nothing happens."]</span>")
 
 /obj/machinery/deepcore/hopper/interact(mob/user, special_state)
 	. = ..()
 	if(active)
 		active = FALSE
-		use_power = 1 //Use idle power
+		use_power = IDLE_POWER_USE
 		to_chat(user, "<span class='notice'>You deactiveate [src.name]</span>")
 	else
-		if(!network)
-			to_chat(user, "<span class='warning'>Unable to activate [src.name]! No ore located for processing.</span>")
-		else if(!powered(power_channel))
+		if(!powered(power_channel))
 			to_chat(user, "<span class='warning'>Unable to activate [src.name]! Insufficient power.</span>")
-		else
-			active = TRUE
-			use_power = 2 //Use active power
-			to_chat(user, "<span class='notice'>You activeate [src.name]</span>")
-	update_icon_state()
+			return
+		active = TRUE
+		use_power = ACTIVE_POWER_USE
+		to_chat(user, "<span class='notice'>You activeate [src.name]</span>")
+	update_icon_state()	
 
-/obj/machinery/deepcore/hopper/process()
-	if(!network || !anchored)
+/obj/machinery/deepcore/hopper/multitool_act(mob/living/user, obj/item/multitool/I)
+	. = ..()
+	if(!istype(I))
+		return FALSE
+	I.buffer = src
+	to_chat(user, "<span class='notice'>You save the hopper's bluespace signature onto the multitool.[prob(2) ? " Jeez, apparently multitools, after all, <i>do</i> combine a lot of tools together." : ""]</span>")
+	return TRUE
+
+/obj/machinery/deepcore/hopper/process(delta_time)
+	if(!anchored)
 		active = FALSE
 		update_icon_state()
+	/*
 	if(active)
-		if(network)
-			network.Pull(container)
-			dropOre()
-
-/obj/machinery/deepcore/hopper/proc/dropOre()
-	var/eject_count = eject_lim
-	for(var/I in container.materials)
-		if(eject_count <= 0)
-			return
-		var/datum/material/M = I
-		eject_count -= container.retrieve_sheets(eject_count, M, get_step(src, dir))
+		if(DT_PROB(10, delta_time))
+			do_sparks(rand(3,4), FALSE, src)
+	*/
 
 /obj/machinery/deepcore/hopper/update_icon_state()
 	if(powered(power_channel) && anchored)
@@ -641,5 +521,35 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 		update_icon_state()
 		return TRUE
 
+/obj/machinery/deepcore/hopper/proc/try_add_material(amount, mat_typepath)
+	if(!active)
+		return 
+	var/current_mat = storage[mat_typepath]
+	if(isnull(current_mat))
+		stack_trace("Hopper tried to add a material that is not listed in it's storage. This should not happen.")
+	storage[mat_typepath] = min(storage_volume, current_mat + amount)
+
+/obj/machinery/deepcore/hopper/proc/eject_materials(instant = FALSE)
+	for(var/mat in storage)
+		if(storage[mat] >= 2000 && !ejecting)
+			ejecting = TRUE
+			spawn(eject_speed * 2 SECONDS) // this is dumb
+				_eject_materials(instant) // probably shouldn't do this
+			return TRUE // fuck it
+	return FALSE
+
+/obj/machinery/deepcore/hopper/proc/_eject_materials(instant = FALSE)
+	for(var/mat in storage)
+		if(storage[mat] < 2000)
+			continue
+		if(!anchored || !active || !powered(power_channel))
+			say("No powernet connection, aborting.")
+			break
+		for(storage[mat], storage[mat] >= 2000, storage[mat] -= 2000) //kinda looks dumb, but i'll roll with it for now
+			new mat(get_step(src, dir))
+			. = TRUE
+		if(!instant)
+			sleep(eject_speed SECONDS)
+	ejecting = FALSE
 /obj/machinery/deepcore/hopper/anchored
 	anchored = 1
