@@ -62,6 +62,9 @@
 	if(machine_stat & BROKEN)
 		return .
 	if(deployed)
+		if(!target_hopper)
+			to_chat(user, "<span class='notice'>Бур не подключен к воронке!</span>")
+			return
 		toggle()
 		if(active)
 			to_chat(user, "<span class='notice'>Включаю [src.name].</span>")
@@ -93,7 +96,7 @@
 		addtimer(CALLBACK(src, .proc/Undeploy), 13)
 
 /obj/machinery/deepcore/drill/process(delta_time)
-	if(machine_stat & BROKEN || (active && !active_vein))
+	if(machine_stat & BROKEN || isnull(active_vein) || isnull(target_hopper) )
 		active = FALSE
 		STOP_PROCESSING(SSmachines, src)
 		update_overlays()
