@@ -230,7 +230,7 @@
     function drawline(){
         ctx.beginPath();
         ctx.rect(x, 32, linewidth, 30);
-        ctx.fillStyle = "#FF2133";
+        ctx.fillStyle = "blue";
         ctx.fill();
         ctx.closePath();
     }
