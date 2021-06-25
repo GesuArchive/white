@@ -112,7 +112,7 @@
 	return
 
 
-/obj/structure/table/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/structure/table/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
 	if(.)
 		return
@@ -636,7 +636,7 @@
 	. += "<hr>"
 	. += "<span class='notice'>Он удерживается вместе несколькими <b>болтами</b>.</span>"
 
-/obj/structure/rack/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/structure/rack/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
 	if(.)
 		return

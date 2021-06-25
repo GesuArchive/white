@@ -321,13 +321,10 @@
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/machinery/door/firedoor/border_only/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/machinery/door/firedoor/border_only/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
-	if(mover.loc == loc && get_dir(mover, target) & dir)
-		return !density
-	if(get_dir(loc, mover) & dir)
-		return !density
-	return TRUE
+	if(!(border_dir == dir)) //Make sure looking at appropriate border
+		return TRUE
 
 /obj/machinery/door/firedoor/border_only/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
 	SIGNAL_HANDLER

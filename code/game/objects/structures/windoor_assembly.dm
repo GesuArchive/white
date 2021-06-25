@@ -56,13 +56,10 @@
 /obj/structure/windoor_assembly/update_icon_state()
 	icon_state = "[facing]_[secure ? "secure_" : ""]windoor_assembly[state]"
 
-/obj/structure/windoor_assembly/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/structure/windoor_assembly/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
 
-	if(mover.loc == loc && get_dir(mover, target) & dir)
-		return FALSE
-
-	if(get_dir(loc, mover) & dir)
+	if(border_dir == dir)
 		return
 
 	if(istype(mover, /obj/structure/window))

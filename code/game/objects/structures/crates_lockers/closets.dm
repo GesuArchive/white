@@ -123,7 +123,7 @@
 		if(HAS_TRAIT(L, TRAIT_SKITTISH))
 			. += "<hr><span class='notice'>Ctrl-Shift-лкм [src] чтобы запрыгнуть внутрь.</span>"
 
-/obj/structure/closet/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/structure/closet/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
 	if(wall_mounted)
 		return TRUE

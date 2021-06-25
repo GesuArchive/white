@@ -82,6 +82,10 @@
 		return . || mover.throwing || mover.movement_type & (FLYING | FLOATING)
 	return TRUE
 
+/obj/structure/railing/corner/CanPass()
+	..()
+	return TRUE
+
 /obj/structure/railing/proc/on_exit(datum/source, atom/movable/leaving, direction)
 	SIGNAL_HANDLER
 
