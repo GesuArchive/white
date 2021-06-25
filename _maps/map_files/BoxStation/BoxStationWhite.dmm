@@ -28818,17 +28818,6 @@
 /obj/structure/grille,
 /turf/open/openspace/airless,
 /area/space)
-"cux" = (
-/obj/machinery/door/window{
-	dir = 4;
-	name = "AI Core Door";
-	req_access_txt = "16"
-	},
-/obj/machinery/power/smes{
-	charge = 5e+006
-	},
-/turf/open/floor/circuit,
-/area/ai_monitored/turret_protected/ai)
 "cuy" = (
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/turret_protected/aisat_interior)
@@ -29653,6 +29642,7 @@
 "cAS" = (
 /obj/machinery/power/apc/highcap/five_k{
 	areastring = "/area/ai_monitored/turret_protected/ai";
+	dir = 1;
 	name = "AI Chamber APC";
 	pixel_y = 23
 	},
@@ -29712,11 +29702,6 @@
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
 "cBb" = (
-/obj/machinery/door/window{
-	dir = 8;
-	name = "AI Core Door";
-	req_access_txt = "16"
-	},
 /obj/machinery/power/smes{
 	charge = 5e+006
 	},
@@ -29748,7 +29733,7 @@
 /obj/structure/cable,
 /obj/machinery/power/port_gen/pacman{
 	anchored = 1;
-	sheets = 10
+	sheets = 40
 	},
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
@@ -83287,7 +83272,7 @@ cva
 cva
 thp
 cva
-cux
+cBb
 cva
 hvm
 cva
