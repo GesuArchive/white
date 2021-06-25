@@ -8,6 +8,7 @@
 		//Cannot enter supercruise from this place
 		return
 	//Start moving
+	hyperspace_sound(HYPERSPACE_WARMUP, list(get_area(src)))
 	destination = null
 	mode = SHUTTLE_IGNITING
 	setTimer(ignitionTime)
