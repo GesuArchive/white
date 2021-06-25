@@ -91,6 +91,9 @@
 	. = ..()
 	if(.)
 		return .
+	if(!(usr in view(1, src)))
+		usr<<browse(null, "window=Наковальня")
+		return
 	if(href_list["hit"])
 		hit(usr)
 	if(href_list["miss"])
@@ -298,6 +301,7 @@
 					var/datum/browser/popup = new(user, "Наковальня", "Наковальня", 500, height+120)
 					popup.set_content(dat)
 					popup.open()
+					return
 				if(current_ingot.progress_current > current_ingot.progress_need)
 					current_ingot.progress_current = 0
 					current_ingot.mod_grade++
