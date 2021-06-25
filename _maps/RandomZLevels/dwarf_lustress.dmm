@@ -145,11 +145,21 @@
 /area/awaymission/vietnam/dwarf)
 "lW" = (
 /obj/structure/closet/crate/wooden/wzzzz,
-/obj/item/seeds/tower,
-/obj/item/seeds/tower,
-/obj/item/seeds/wheat,
-/obj/item/seeds/wheat,
-/obj/item/seeds/ambrosia/gaia,
+/obj/item/seeds/tower{
+	instability = 0
+	},
+/obj/item/seeds/tower{
+	instability = 0
+	},
+/obj/item/seeds/wheat{
+	instability = 0
+	},
+/obj/item/seeds/wheat{
+	instability = 0
+	},
+/obj/item/seeds/ambrosia/gaia{
+	instability = 0
+	},
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "lZ" = (
@@ -247,11 +257,21 @@
 /area/awaymission/vietnam/dwarf)
 "vC" = (
 /obj/structure/closet/crate/wooden/wzzzz,
-/obj/item/seeds/plump,
-/obj/item/seeds/plump,
-/obj/item/seeds/cotton,
-/obj/item/seeds/cotton,
-/obj/item/seeds/tobacco,
+/obj/item/seeds/plump{
+	instability = 0
+	},
+/obj/item/seeds/plump{
+	instability = 0
+	},
+/obj/item/seeds/cotton{
+	instability = 0
+	},
+/obj/item/seeds/cotton{
+	instability = 0
+	},
+/obj/item/seeds/tobacco{
+	instability = 0
+	},
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "vK" = (
@@ -319,10 +339,6 @@
 /area/awaymission/vietnam/dwarf)
 "GY" = (
 /obj/effect/spawner/lootdrop/gross_decal_spawner,
-/turf/open/floor/grass/gensgrass/dirty/stone/raw,
-/area/awaymission/vietnam/dwarf)
-"HG" = (
-/obj/machinery/biogenerator,
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dwarf)
 "IO" = (
@@ -14959,7 +14975,7 @@ iq
 iq
 lq
 vK
-HG
+ha
 lq
 lq
 ha
