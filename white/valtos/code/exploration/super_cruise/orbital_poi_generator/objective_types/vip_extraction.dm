@@ -34,7 +34,7 @@
 				death_caring = FALSE
 		else if(is_station_level(mob_to_recover.z))
 			complete_objective()
-		if(death_caring)
+		if(death_caring && QDELETED(tracked_diary))
 			return TRUE
 	return FALSE
 

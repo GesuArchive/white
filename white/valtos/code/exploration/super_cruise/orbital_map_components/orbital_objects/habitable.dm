@@ -4,6 +4,7 @@
 	radius = 30
 	maintain_orbit = TRUE
 	can_dock_anywhere = TRUE
+	orbital_map_color = "#1dddd4"
 
 /datum/orbital_object/z_linked/habitable/New()
 	. = ..()

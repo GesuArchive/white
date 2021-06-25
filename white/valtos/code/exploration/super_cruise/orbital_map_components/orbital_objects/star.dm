@@ -4,6 +4,7 @@
 	mass = 100000
 	radius = 200
 	static_object = TRUE
+	orbital_map_color = "#ffffff"
 
 /datum/orbital_object/star/collision(datum/orbital_object/other)
 	//You got lucky this time

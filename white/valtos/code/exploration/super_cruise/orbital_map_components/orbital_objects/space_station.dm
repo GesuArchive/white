@@ -5,6 +5,7 @@
 	//Sure, why not?
 	can_dock_anywhere = TRUE
 	static_object = TRUE
+	orbital_map_color = "#6149ff"
 
 /datum/orbital_object/z_linked/station/Destroy()
 	. = ..()

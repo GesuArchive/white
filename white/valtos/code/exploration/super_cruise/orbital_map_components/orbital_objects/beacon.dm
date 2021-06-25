@@ -3,6 +3,7 @@
 	mass = 0
 	radius = 30
 	can_dock_anywhere = TRUE
+	orbital_map_color = "#cd03df"
 
 /datum/orbital_object/z_linked/beacon/New()
 	. = ..()

@@ -157,7 +157,7 @@ export const OrbitalMap = (props, context) => {
                                   * zoomScale)}
                               stroke="#BBBBBB"
                               stroke-width="1"
-                              fill="rgba(0,0,0,0)" />
+                              fill={map_object.object_color} />
                             <line
                               style={lineStyle}
                               x1={Math.max(Math.min((map_object.position_x

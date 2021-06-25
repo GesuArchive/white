@@ -35,6 +35,7 @@
 /datum/orbital_objective/proc/generate_attached_beacon()
 	linked_beacon = new
 	linked_beacon.name = "(ЗАДАНИЕ) [linked_beacon.name]"
+	linked_beacon.orbital_map_color = "#ff00e1"
 	linked_beacon.linked_objective = src
 
 /datum/orbital_objective/proc/complete_objective()

@@ -19,6 +19,8 @@
 	//Are we invisible on the map?
 	var/stealth = FALSE
 
+	var/orbital_map_color = "#aaaaaa"
+
 	//CALCULATED IN INIT
 	//Once objects are outside of this range, we will not apply gravity to them.
 	var/relevant_gravity_range

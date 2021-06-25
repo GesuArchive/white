@@ -19,6 +19,7 @@
 			"velocity_x" = object.velocity.x,
 			"velocity_y" = object.velocity.y,
 			"radius" = object.radius,
+			"object_color" = object.orbital_map_color,
 			"gravity_range" = object.relevant_gravity_range
 		))
 	return data

@@ -11,6 +11,7 @@
 	var/random_docking = FALSE
 	//Inherit the name of z-level?
 	var/inherit_name = FALSE
+	orbital_map_color = "#ff0000"
 
 /datum/orbital_object/z_linked/proc/link_to_z(datum/space_level/level)
 	linked_z_level = level

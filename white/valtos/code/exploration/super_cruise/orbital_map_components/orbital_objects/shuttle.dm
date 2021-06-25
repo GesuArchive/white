@@ -26,6 +26,8 @@
 	//Cheating autopilots never fail
 	var/cheating_autopilot = FALSE
 
+	orbital_map_color = "#f2ff00"
+
 /datum/orbital_object/shuttle/stealth/infiltrator
 	max_thrust = 20
 
