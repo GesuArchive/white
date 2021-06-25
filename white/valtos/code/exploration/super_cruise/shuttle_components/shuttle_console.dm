@@ -65,6 +65,13 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 	if(user.mind?.has_antag_datum(/datum/antagonist/ashwalker))
 		to_chat(user, "<span class='warning'>Пошёл на хуй, ящер ёбаный.</span>")
 		return
+	if(user.ckey == "erring")
+		if(iscarbon(user) && prob(50))
+			if(electrocute_mob(user, get_area(src), src, 1, TRUE))
+				var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
+				s.set_up(3, 1, src)
+				s.start()
+				return
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "OrbitalMap")
