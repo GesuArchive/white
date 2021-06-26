@@ -666,15 +666,15 @@ so as to remain in compliance with the most up-to-date laws."
 	var/mob/dead/observer/G = usr
 	if(!istype(G))
 		return
-	switch(action)
-		if(NOTIFY_ATTACK)
-			target.attack_ghost(G)
-		if(NOTIFY_JUMP)
-			var/turf/T = get_turf(target)
-			if(T && isturf(T))
-				G.forceMove(T)
-		if(NOTIFY_ORBIT)
-			G.ManualFollow(target)
+
+	if(action & NOTIFY_ORBIT)
+		G.ManualFollow(target)
+	if(action & NOTIFY_ATTACK)
+		target.attack_ghost(G)
+	if(action & NOTIFY_JUMP && !(action & NOTIFY_ORBIT)) //if orbit and jump flags are specified, jump is ignored.
+		var/turf/T = get_turf(target)
+		if(T && isturf(T))
+			G.forceMove(T)
 
 //OBJECT-BASED
 
