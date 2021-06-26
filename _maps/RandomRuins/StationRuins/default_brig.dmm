@@ -1,7 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"ac" = (
-/turf/closed/wall/r_wall,
-/area/security/prison)
 "ae" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
@@ -112,9 +109,6 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/heads/hos)
-"bx" = (
-/turf/closed/wall,
-/area/security/prison)
 "bC" = (
 /obj/structure/closet/bombcloset/security,
 /turf/open/floor/plasteel/showroomfloor,
@@ -637,7 +631,7 @@
 	dir = 10
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "cV" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/monofloor,
@@ -738,7 +732,7 @@
 "ds" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "du" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/preopen{
@@ -1286,13 +1280,13 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "eV" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "eW" = (
 /obj/machinery/airalarm{
 	pixel_y = 23
@@ -1301,17 +1295,17 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "eX" = (
 /obj/item/cigbutt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "eY" = (
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "eZ" = (
 /obj/item/clothing/gloves/color/latex,
 /obj/item/clothing/mask/surgical,
@@ -1549,18 +1543,18 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "fA" = (
 /obj/structure/table,
 /obj/item/flashlight/lamp,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "fB" = (
 /obj/structure/chair{
 	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "fC" = (
 /obj/item/storage/box/bodybags,
 /obj/structure/extinguisher_cabinet{
@@ -1775,7 +1769,7 @@
 /obj/item/folder/red,
 /obj/item/taperecorder,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "fX" = (
 /obj/machinery/camera{
 	c_tag = "Brig Interrogation";
@@ -1784,7 +1778,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "fY" = (
 /obj/structure/bodycontainer/morgue,
 /obj/machinery/camera{
@@ -2052,20 +2046,20 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "gB" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "gC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "gD" = (
 /obj/structure/bodycontainer/morgue,
 /turf/open/floor/plasteel/dark,
@@ -2177,7 +2171,7 @@
 	},
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "gP" = (
 /obj/machinery/airalarm{
 	dir = 4;
@@ -3222,7 +3216,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "nI" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/public/glass{
@@ -4263,12 +4257,12 @@ aS
 aS
 aS
 aS
-ac
-ac
-ac
-ac
-ac
-ac
+ij
+ij
+ij
+ij
+ij
+ij
 aS
 aS
 aS
@@ -4307,12 +4301,12 @@ aS
 aS
 aS
 aS
-ac
+ij
 eU
 eY
 eY
 gz
-ac
+ij
 ij
 hJ
 ij
@@ -4351,12 +4345,12 @@ aS
 aS
 aS
 aS
-ac
+ij
 eV
 fz
 fz
 gB
-bx
+ez
 hl
 hK
 ez
@@ -4395,12 +4389,12 @@ aS
 aS
 aS
 aS
-ac
+ij
 eW
 fA
 fW
 gB
-bx
+ez
 hm
 hL
 ik
@@ -4439,12 +4433,12 @@ aS
 aS
 aS
 aS
-ac
+ij
 eX
 fB
 fB
 gB
-bx
+ez
 hn
 hM
 ez

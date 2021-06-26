@@ -9,9 +9,6 @@
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/space/nearstation)
-"ae" = (
-/turf/closed/wall/r_wall,
-/area/security/prison)
 "ag" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -26,10 +23,7 @@
 	},
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/engine,
-/area/security/prison)
-"ap" = (
-/turf/open/floor/engine,
-/area/security/prison)
+/area/security/brig)
 "ar" = (
 /obj/effect/turf_decal/tile/hex/red,
 /obj/effect/turf_decal/tile/hex/red{
@@ -40,7 +34,7 @@
 "aM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/engine,
-/area/security/prison)
+/area/security/brig)
 "aR" = (
 /turf/closed/wall/r_wall,
 /area/ai_monitored/security/armory)
@@ -82,13 +76,13 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/security/prison)
+/area/security/brig)
 "bo" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
 	},
 /turf/open/floor/engine,
-/area/security/prison)
+/area/security/brig)
 "bu" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -264,7 +258,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/security/prison)
+/area/security/brig)
 "ch" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -854,7 +848,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/security/prison)
+/area/security/brig)
 "dI" = (
 /obj/machinery/flasher/portable,
 /obj/effect/turf_decal/tile/hex/neutral,
@@ -1578,14 +1572,14 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/security/prison)
+/area/security/brig)
 "fP" = (
 /obj/item/cigbutt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/security/prison)
+/area/security/brig)
 "fQ" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/hex/red{
@@ -1813,12 +1807,12 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/security/prison)
+/area/security/brig)
 "gp" = (
 /obj/structure/table,
 /obj/item/flashlight/lamp,
 /turf/open/floor/engine,
-/area/security/prison)
+/area/security/brig)
 "gr" = (
 /obj/machinery/power/apc{
 	areastring = "/area/security/warden";
@@ -2018,7 +2012,7 @@
 /obj/item/folder/red,
 /obj/item/taperecorder,
 /turf/open/floor/engine,
-/area/security/prison)
+/area/security/brig)
 "gL" = (
 /obj/machinery/camera{
 	c_tag = "Brig Interrogation";
@@ -2027,7 +2021,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/engine,
-/area/security/prison)
+/area/security/brig)
 "gM" = (
 /obj/structure/closet/secure_closet/warden,
 /obj/structure/cable,
@@ -2292,7 +2286,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/engine,
-/area/security/prison)
+/area/security/brig)
 "ho" = (
 /obj/structure/sign/warning/electricshock{
 	pixel_x = -32
@@ -2363,7 +2357,7 @@
 	dir = 1
 	},
 /turf/open/floor/engine,
-/area/security/prison)
+/area/security/brig)
 "ht" = (
 /obj/machinery/airalarm{
 	dir = 4;
@@ -3415,7 +3409,7 @@
 	dir = 8
 	},
 /turf/open/floor/engine,
-/area/security/prison)
+/area/security/brig)
 "kL" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -3426,7 +3420,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/security/prison)
+/area/security/brig)
 "tR" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -4219,12 +4213,12 @@ ab
 ab
 ab
 ab
-ae
-ae
-ae
-ae
-ae
-ae
+iz
+iz
+iz
+iz
+iz
+iz
 ab
 ab
 ab
@@ -4263,12 +4257,12 @@ ab
 ab
 ab
 ab
-ae
+iz
 mp
-ap
-ap
+iS
+iS
 ce
-ae
+iz
 iz
 hA
 iz
@@ -4307,12 +4301,12 @@ ab
 ab
 ab
 ab
-ae
+iz
 bn
 go
 go
 dv
-ae
+iz
 hI
 hX
 iz
@@ -4351,12 +4345,12 @@ ab
 ab
 ab
 ab
-ae
+iz
 fO
 gp
 gK
 dv
-ae
+iz
 hJ
 hY
 iq
@@ -4395,12 +4389,12 @@ ab
 ab
 ab
 ab
-ae
+iz
 fP
 jD
 jD
 dv
-ae
+iz
 hK
 hZ
 iz

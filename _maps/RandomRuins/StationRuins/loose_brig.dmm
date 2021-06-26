@@ -10,9 +10,6 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/space/nearstation)
-"ae" = (
-/turf/closed/wall/r_wall,
-/area/security/prison)
 "ag" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -560,9 +557,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/brig)
-"bI" = (
-/turf/closed/wall,
-/area/security/prison)
 "bJ" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -1592,7 +1586,7 @@
 	dir = 10
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "dW" = (
 /obj/machinery/door/airlock/command/glass{
 	name = "Head of Security";
@@ -2033,7 +2027,7 @@
 "fa" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "fb" = (
 /obj/machinery/door/window/southleft{
 	name = "Armory";
@@ -2444,13 +2438,13 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "fS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "fT" = (
 /obj/machinery/airalarm{
 	pixel_y = 23
@@ -2459,17 +2453,17 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "fU" = (
 /obj/item/cigbutt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "fV" = (
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "fW" = (
 /obj/machinery/light_switch{
 	pixel_y = -23
@@ -2827,18 +2821,18 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "gx" = (
 /obj/structure/table,
 /obj/item/flashlight/lamp,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "gy" = (
 /obj/structure/chair{
 	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "gI" = (
 /obj/machinery/door/airlock/security/glass{
 	name = "Brig Control";
@@ -2858,7 +2852,7 @@
 /obj/item/folder/red,
 /obj/item/taperecorder,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "gT" = (
 /obj/machinery/camera{
 	c_tag = "Brig Interrogation";
@@ -2867,7 +2861,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "hf" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -2880,20 +2874,20 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "hv" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "hw" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "hB" = (
 /obj/structure/sign/warning/electricshock{
 	pixel_x = -32
@@ -2960,7 +2954,7 @@
 	},
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "iz" = (
 /turf/closed/wall/r_wall,
 /area/security/brig)
@@ -3259,7 +3253,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/security/prison)
+/area/security/brig)
 "pH" = (
 /obj/structure/holosign/barrier/atmos,
 /turf/open/floor/plasteel,
@@ -4066,12 +4060,12 @@ ab
 ab
 ab
 ab
-ae
-ae
-ae
-ae
-ae
-ae
+iz
+iz
+iz
+iz
+iz
+iz
 ab
 ab
 ab
@@ -4110,12 +4104,12 @@ ab
 ab
 ab
 ab
-bI
+fw
 fR
 fV
 fV
 ht
-ae
+iz
 iz
 bK
 iz
@@ -4154,12 +4148,12 @@ ab
 ab
 ab
 ab
-bI
+fw
 fS
 gw
 gw
 hv
-bI
+fw
 bm
 bL
 fw
@@ -4198,12 +4192,12 @@ ab
 ab
 ab
 ab
-bI
+fw
 fT
 gx
 gS
 hv
-bI
+fw
 bn
 bM
 cV
@@ -4242,12 +4236,12 @@ ab
 ab
 ab
 ab
-bI
+fw
 fU
 gy
 gy
 hv
-bI
+fw
 bo
 bO
 fw
