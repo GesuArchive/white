@@ -275,13 +275,13 @@
         if(right && x<canvas.width){
             x+=speed;
         }
-        else if(right && x==canvas.width){
+        else if(right && x>=canvas.width){
             right = !right
         }
         if(!right && x>0){
             x-=speed;
         }
-        else if(!right && x==0){
+        else if(!right && x<=0){
             right = !right
         }
 
