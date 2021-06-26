@@ -548,9 +548,10 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 		if(!anchored || !active || !powered(power_channel))
 			say("No powernet connection, aborting.")
 			break
-		for(storage[mat], storage[mat] >= 2000, storage[mat] -= 2000) //kinda looks dumb, but i'll roll with it for now
-			new mat(get_step(src, dir))
+		for(var/m = storage[mat], m >= 2000, m -= 2000) //fucking byond kept trowing a warning here for "StAtEmEnT hAs No EfEcT" if i used storage[mat] directly istead of a var/m
+			new mat(get_step(src, dir))		// statement has no effect my ass
 			. = TRUE
+			storage[mat] = m
 		if(!instant)
 			sleep(eject_speed SECONDS)
 	ejecting = FALSE
