@@ -182,11 +182,6 @@
 "cx" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/obj/item/storage/backpack/duffelbag/med/surgery{
-	pixel_y = 12
-	},
-/obj/item/storage/backpack/duffelbag/med/surgery,
-/obj/structure/table/glass,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -624,6 +619,31 @@
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/aft)
+"id" = (
+/obj/machinery/power/apc/auto_name/west,
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 10
+	},
+/obj/structure/table/glass,
+/obj/item/reagent_containers/glass/bottle/epinephrine{
+	pixel_x = -5;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/glass/bottle/multiver{
+	pixel_x = 8;
+	pixel_y = 9
+	},
+/obj/item/storage/box/masks{
+	pixel_x = -7;
+	pixel_y = -4
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = 2;
+	pixel_y = -5
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/surgery)
 "is" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1070,7 +1090,13 @@
 "nJ" = (
 /obj/machinery/firealarm/directional/west,
 /obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 8
+	dir = 9
+	},
+/obj/structure/table/glass,
+/obj/item/storage/backpack/duffelbag/med/surgery,
+/obj/item/storage/backpack/duffelbag/med/surgery{
+	pixel_x = 2;
+	pixel_y = 10
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/surgery)
@@ -1600,11 +1626,18 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/virology)
 "wB" = (
+/obj/machinery/airalarm{
+	dir = 4;
+	pixel_x = -23
+	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
 	},
-/obj/machinery/power/apc/auto_name/west,
 /obj/structure/cable,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/machinery/disposal/bin,
 /turf/open/floor/plasteel/white,
 /area/medical/surgery)
 "wR" = (
@@ -1890,12 +1923,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/obj/structure/table/glass,
-/obj/item/reagent_containers/syringe,
-/obj/item/stack/medical/gauze{
-	pixel_x = -4;
-	pixel_y = 10
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -3287,19 +3314,11 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay/lobby)
 "TD" = (
-/obj/machinery/airalarm{
-	dir = 4;
-	pixel_x = -23
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 8
-	},
 /obj/structure/cable,
-/obj/structure/disposalpipe/trunk{
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/disposal/bin,
-/turf/open/floor/plasteel/white,
+/turf/open/floor/plasteel/monofloor/white,
 /area/medical/surgery)
 "TE" = (
 /obj/structure/bed/dogbed/runtime,
@@ -3447,23 +3466,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/structure/table/glass,
-/obj/item/storage/box/gloves{
-	pixel_x = -7;
-	pixel_y = 15
-	},
-/obj/item/storage/box/masks{
-	pixel_x = -11;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle/multiver{
-	pixel_x = 10;
-	pixel_y = 14
-	},
-/obj/item/reagent_containers/glass/bottle/epinephrine{
-	pixel_x = 4;
-	pixel_y = 3
-	},
 /obj/structure/disposalpipe/junction/flip{
 	dir = 4
 	},
@@ -3797,10 +3799,10 @@ di
 di
 di
 Jk
+DI
 di
 di
-di
-di
+eH
 di
 di
 di
@@ -3839,12 +3841,12 @@ di
 di
 di
 Jk
+Tn
+Tn
+Tn
+Tn
+Tn
 di
-di
-di
-eH
-di
-DI
 di
 di
 GH
@@ -3882,12 +3884,12 @@ Kr
 Kr
 Tn
 Tn
+nJ
+wB
+id
 Tn
 Tn
-Tn
-Tn
-Tn
-di
+qt
 di
 GH
 ba
@@ -3924,9 +3926,9 @@ Zr
 HA
 Tn
 oP
-nJ
+er
 TD
-wB
+er
 VD
 Tn
 Jk

@@ -306,7 +306,7 @@
 
 /obj/machinery/portable_atmospherics/canister/proto/default/oxygen
 	name = "прототип канистры"
-	desc = "Канистра любителя изобретать велосипеды, что может пойти не тка?"
+	desc = "Канистра любителя изобретать велосипеды, что может пойти не так?"
 	gas_type = /datum/gas/oxygen
 	filled = 1
 	release_pressure = ONE_ATMOSPHERE*2
