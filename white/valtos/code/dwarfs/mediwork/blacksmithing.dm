@@ -158,6 +158,7 @@
 	addtimer(VARSET_CALLBACK(src, acd, FALSE), H.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SPEED_MODIFIER) SECONDS)
 
 	if(istype(I, /obj/item/blacksmith/smithing_hammer))
+		var/obj/item/blacksmith/smithing_hammer/hammer = I
 		if(current_ingot)
 			if(current_ingot.heattemp <= 0)
 				icon_state = "[initial(icon_state)]_cold"
@@ -197,13 +198,13 @@
     let ctx = canvas.getContext("2d");
     let linewidth = 1
     let x = 0
-	let speed = [1+current_ingot.mod_grade/2];
+	let speed = [1+current_ingot.mod_grade];
     let right = true;
     let cooldown = false;
     let cooldownlast = 0
     let score = 0;
     let lives = 3;
-    let fieldwidth = [20+H.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SMITHING_MODIFIER)];
+    let fieldwidth = [20+H.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SMITHING_MODIFIER)+hammer.level];
     let cooldown_m = 60;
 
 
@@ -298,6 +299,7 @@
 					var/datum/browser/popup = new(user, "Наковальня", "Наковальня", 500, height+120)
 					popup.set_content(dat)
 					popup.open()
+					return
 				if(current_ingot.progress_current > current_ingot.progress_need)
 					current_ingot.progress_current = 0
 					current_ingot.mod_grade++
