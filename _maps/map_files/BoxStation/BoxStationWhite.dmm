@@ -28827,6 +28827,7 @@
 /obj/machinery/power/smes{
 	charge = 5e+006
 	},
+/obj/structure/cable,
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
 "cuy" = (
@@ -29651,12 +29652,10 @@
 /turf/open/floor/plasteel,
 /area/science/research)
 "cAS" = (
-/obj/machinery/power/apc/highcap/five_k{
-	areastring = "/area/ai_monitored/turret_protected/ai";
-	name = "AI Chamber APC";
-	pixel_y = 23
-	},
 /obj/structure/cable,
+/obj/machinery/power/apc/highcap/fifteen_k{
+	pixel_y = 24
+	},
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
 "cAT" = (
@@ -29720,6 +29719,7 @@
 /obj/machinery/power/smes{
 	charge = 5e+006
 	},
+/obj/structure/cable,
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
 "cBc" = (
