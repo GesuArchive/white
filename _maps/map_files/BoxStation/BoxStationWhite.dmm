@@ -28797,6 +28797,11 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/machinery/camera/motion{
+	c_tag = "MiniSat AI Chamber North";
+	dir = 1;
+	network = list("aicore")
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/turret_protected/ai)
 "cus" = (
@@ -41294,7 +41299,7 @@
 	pixel_y = -24
 	},
 /obj/machinery/camera/motion{
-	c_tag = "MiniSat AI Chamber North";
+	c_tag = "MiniSat AI Chamber Core";
 	dir = 1;
 	network = list("aicore")
 	},
