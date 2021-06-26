@@ -90,9 +90,9 @@
 #define ANTAG_HUD_SOULLESS		31
 
 // Notification action types
-#define NOTIFY_JUMP 1
-#define NOTIFY_ATTACK 2
-#define NOTIFY_ORBIT 4
+#define NOTIFY_JUMP "jump"
+#define NOTIFY_ATTACK "attack"
+#define NOTIFY_ORBIT "orbit"
 
 /// cooldown for being shown the images for any particular data hud
 #define ADD_HUD_TO_COOLDOWN 20
