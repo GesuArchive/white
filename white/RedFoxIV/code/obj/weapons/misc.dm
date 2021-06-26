@@ -334,8 +334,9 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 50
 	var/dispense_power_usage = 250
+	/*
 	var/global/list/users_interacted = list() //сбор данных гуглом
-
+	*/
 	var/last_shopper
 	//to track the cooldown on messages
 	var/last_say_time = 0
@@ -435,9 +436,11 @@
 		. += b_o
 
 /obj/machinery/chem_seller/ui_interact(mob/user, datum/tgui/ui)
+	/*
 	if(!(user in users_interacted)) //google analytics
 		users_interacted.Add(user)
 		to_chat(user,"<br><span class='notice'><b>hurr durr early access, work in progress, alpha build и так далее. Человек, который работал над этим аппаратом, не шарит во внутриигровой экономике, поэтому выставил цены от балды. Убедительная просьба написать в дискорд канале #suggestions, стоит ли их повысить/занизить/оставить, как есть и почему. Заранее спасибо[prob(20) ? ", ебать!" : "!"]</b></span>")
+	*/
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "ChemSeller")
