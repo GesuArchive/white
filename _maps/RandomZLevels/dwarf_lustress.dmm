@@ -30,6 +30,10 @@
 /mob/living/simple_animal/hostile/asteroid/goliath/beast/ancient,
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dwarf)
+"eu" = (
+/obj/structure/dwarf_waterbarrel,
+/turf/open/floor/grass/gensgrass/dirty/stone,
+/area/awaymission/vietnam/dwarf)
 "eN" = (
 /obj/structure/stone_tile/block/cracked,
 /obj/structure/stone_tile/cracked{
@@ -15473,7 +15477,7 @@ md
 lq
 lq
 lq
-lq
+eu
 vK
 MB
 MB

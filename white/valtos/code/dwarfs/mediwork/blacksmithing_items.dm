@@ -9,6 +9,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 	custom_materials = list(/datum/material/iron = 10000)
 	var/real_force = 0
 	var/grade = ""
+	var/level = 1
 
 /obj/item/blacksmith/smithing_hammer
 	name = "молот"
@@ -94,46 +95,6 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 		return FALSE
 	else
 		..()
-
-/obj/item/blacksmith/tongs/attack_self(mob/user)
-	. = ..()
-	if(contents.len)
-		if(istype(contents[contents.len], /obj/item/blacksmith/ingot))
-			var/obj/item/blacksmith/ingot/N = contents[contents.len]
-			if(N.progress_current == N.progress_need + 1)
-				for(var/i in 1 to rand(1, N.recipe.max_resulting))
-					var/grd = "*"
-					switch(N.mod_grade)
-						if(5 to INFINITY)
-							N.mod_grade = 5
-							if(prob(10))
-								N.mod_grade = 6
-							grd = "☼"
-						if(4)
-							grd = "≡"
-						if(3)
-							grd = "+"
-						if(2)
-							grd = "-"
-						if(1)
-							grd = "*"
-					var/obj/item/O = new N.recipe.result(drop_location())
-					if(istype(O, /obj/item/blacksmith))
-						var/obj/item/blacksmith/B = O
-						B.grade = grd
-						B.real_force = round(2*N.mod_grade+B.real_force)
-					if(istype(O, /obj/item/pickaxe))
-						O.force = round((O.force / 2) * N.mod_grade)
-						O.toolspeed = round(1 / N.mod_grade, 0.1)
-					if(istype(O, /obj/item/clothing))
-						O.armor = O.armor.modifyAllRatings(5 * N.mod_grade)
-					O.name = "[grd][O.name][grd]"
-				qdel(N)
-				LAZYCLEARLIST(contents)
-				playsound(src, 'white/valtos/sounds/vaper.ogg', 100)
-			else
-				N.forceMove(drop_location())
-		icon_state = "tongs"
 
 /obj/item/blacksmith/ingot
 	name = "железный слиток"
