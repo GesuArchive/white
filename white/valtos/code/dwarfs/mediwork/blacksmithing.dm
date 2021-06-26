@@ -299,6 +299,7 @@
 					var/datum/browser/popup = new(user, "Наковальня", "Наковальня", 500, height+120)
 					popup.set_content(dat)
 					popup.open()
+					return
 				if(current_ingot.progress_current > current_ingot.progress_need)
 					current_ingot.progress_current = 0
 					current_ingot.mod_grade++
