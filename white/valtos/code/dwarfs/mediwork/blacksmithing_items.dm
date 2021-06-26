@@ -90,6 +90,12 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 	throwforce = 6
 	throw_range = 7
 
+/obj/item/blacksmith/tongs/attack_self(mob/user)
+	. = ..()
+	if(contents.len)
+		contents[contents.len].forceMove(drop_location())
+		icon_state = "tongs"
+
 /obj/item/blacksmith/tongs/attack(mob/living/carbon/C, mob/user)
 	if(tearoutteeth(C, user))
 		return FALSE
@@ -500,7 +506,8 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 			return
 		busy = FALSE
 		to_chat(user, "<span class='warning'>Обрабатываю [src].</span>")
-		new /obj/structure/mineral_door/detailed_door(loc)
+		var/obj/structure/mineral_door/D = new /obj/structure/mineral_door/detailed_door(loc)
+		D.dir = dir
 		qdel(src)
 
 

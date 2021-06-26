@@ -79,8 +79,8 @@
 		var/obj/O = new recipe.result(loc)
 		if(istype(get_primary(), /obj/item/blacksmith/partial))
 			var/obj/item/blacksmith/partial/P = get_primary()
-			O.force = P.real_force
 			O.name = "[P.grade][O.name][P.grade]"
+			O.calculate_smithing_stats(1+P.level/10)
 		to_chat(user, "<span class='notice'>Собираю [O].</span>")
 		qdel(recipe)
 		inventory.Cut()
@@ -351,18 +351,13 @@
 							var/obj/item/blacksmith/B = O
 							B.level = N.mod_grade
 							B.grade = grd
-							B.real_force = round(2*N.mod_grade+B.real_force)
-						if(istype(O, /obj/item/pickaxe))
-							O.force = round((O.force / 2) * N.mod_grade)
-							O.toolspeed = round(1 / N.mod_grade, 0.1)
-						if(istype(O, /obj/item/clothing))
-							O.armor = O.armor.modifyAllRatings(5 * N.mod_grade)
+						O.calculate_smithing_stats(1+N.mod_grade/10)
 						O.name = "[grd][O.name][grd]"
 					qdel(N)
 					LAZYCLEARLIST(contents)
 					playsound(src, 'white/valtos/sounds/vaper.ogg', 100)
+					I.icon_state = "tongs"
 				else
-					N.forceMove(I.loc)
-			I.icon_state = "tongs"
+					return
 	else
 		. = ..()

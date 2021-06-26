@@ -1,3 +1,30 @@
+/atom/proc/calculate_smithing_stats(multiplier)
+	return
+
+/obj/item/calculate_smithing_stats(multiplier)
+	.=..()
+	force = round(force*multiplier)
+
+/obj/item/pickaxe/calculate_smithing_stats(multiplier)
+	. = ..()
+	force = round(force/2)
+	toolspeed = round(toolspeed/multiplier)
+
+/obj/item/clothing/calculate_smithing_stats(multiplier)
+	. = ..()
+	armor.melee = round(armor.melee*multiplier)
+	armor.bullet = round(armor.bullet*multiplier)
+	armor.laser = round(armor.laser*multiplier)
+	armor.energy = round(armor.energy*multiplier)
+	armor.bomb = round(armor.bomb*multiplier)
+	armor.bio = round(armor.bio*multiplier)
+	armor.rad = round(armor.rad*multiplier)
+	armor.fire = round(armor.fire*multiplier)
+	armor.acid = round(armor.acid*multiplier)
+	armor.magic = round(armor.magic*multiplier)
+	armor.wound = round(armor.wound*multiplier)
+
+
 /obj/forge
 	name = "кузница"
 	desc = "Нагревает различные штуки, но реже всего слитки."
@@ -180,14 +207,14 @@
 </div>
 <script>
     function ClickButton(){
-        if(collision() && !cooldown){
+        let c = collision()
+        if(c && !cooldown){
             score++;
             cooldownlast=0;
             cooldown=true;
 			window.location = ("byond://?src=[REF(src)];hit=1")
         }
-        else if (!collision() && !cooldown){
-            lives--;
+        else if (!c && !cooldown){
             cooldownlast=0;
             cooldown=true;
 			window.location = ("byond://?src=[REF(src)];miss=1")
@@ -203,26 +230,27 @@
     let cooldown = false;
     let cooldownlast = 0
     let score = 0;
-    let lives = 3;
-    let fieldwidth = [20+H.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SMITHING_MODIFIER)+hammer.level];
-    let cooldown_m = 60;
+    let fieldwidth = [20+H.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SMITHING_MODIFIER)+hammer.level*3];
+    let fx1 = 50
+    let fx2 = 250-fieldwidth
+    let cooldown_m = 30;
 
 
     function collision() {
-        if((canvas.width/2-fieldwidth/2)<x&& x<(canvas.width/2+fieldwidth/2)){
-            // console.log("collision")
-            return true
-        }
-        else{
-            // console.log("uncolision")
-            return false
-        }
+        return ((x>fx1)&&(x<(fx1+fieldwidth))||(x>(fx2))&&(x<(fx2+fieldwidth)))
     }
 
-    function drawfield(color){
+    function drawfield(){
         ctx.beginPath();
-        ctx.rect(canvas.width/2-fieldwidth/2, 32, fieldwidth, 30);
-        ctx.fillStyle = color;
+        ctx.rect(fx1, 32, fieldwidth, 30);
+        ctx.fillStyle = "red";
+        ctx.opacity = 0.1
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.rect(fx2, 32, fieldwidth, 30);
+        ctx.fillStyle = "red";
         ctx.opacity = 0.1
         ctx.fill();
         ctx.closePath();
@@ -261,18 +289,13 @@
 
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        if(collision()){
-            drawfield("green")
-        }
-        else{
-            drawfield("red")
-        }
+        drawfield();
         drawline();
         drawScore();
 		drawSep();
         // console.log(x)
         checkcooldown()
-        cooldownlast++;
+        cooldownlast+=speed;
         if(right && x<canvas.width){
             x+=speed;
         }
