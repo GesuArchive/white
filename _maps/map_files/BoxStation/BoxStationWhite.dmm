@@ -29659,6 +29659,9 @@
 "cAS" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/highcap/fifteen_k{
+	areastring = /area/ai_monitored/turret_protected/ai;
+	dir = 1;
+	name = "AI Chamber APC";
 	pixel_y = 24
 	},
 /turf/open/floor/circuit,
@@ -29753,7 +29756,7 @@
 /obj/structure/cable,
 /obj/machinery/power/port_gen/pacman{
 	anchored = 1;
-	sheets = 10
+	sheets = 40
 	},
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
