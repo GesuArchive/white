@@ -285,6 +285,7 @@
 
 /obj/machinery/musicwriter
 	name = "записыватель мозговых импульсов МК-3"
+	desc = "Может быть перезапущен с использованием мультитула."
 	icon = 'white/valtos/icons/musicconsole.dmi'
 	icon_state = "off"
 	var/coin = 0
@@ -295,11 +296,20 @@
 /obj/machinery/musicwriter/attackby(obj/item/I, mob/user)
 	if(default_unfasten_wrench(user, I))
 		return
+
 	if(istype(I, /obj/item/coin))
 		user.dropItemToGround(I)
 		qdel(I)
 		coin++
 		return
+/obj/machinery/musicwriter/multitool_act(mob/living/user, obj/item/I)
+	. = ..()
+	writing = 0
+	to_chat(user,"<span class='warning'>Перезагружаю систему мультулом.</span>")
+	icon_state = "off"
+	retard = null
+	retard_name = null
+
 
 /obj/machinery/musicwriter/ui_interact(mob/user)
 	. = ..()
