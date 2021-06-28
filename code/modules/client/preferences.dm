@@ -1481,7 +1481,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						to_chat(user, "<span class='danger'>Pedos not allowed? <big>ВАШЕ ДЕЙСТВИЕ БУДЕТ ЗАПИСАНО</big>.</span>")
 						message_admins("[ADMIN_LOOKUPFLW(user)] попытался выбрать фуррятину в виде хвоста.")
 						return
-					if(new_tail == "Oni" && user.ckey != user.client.ckey)
+					if(new_tail == "Oni" && user.client.ckey != "oni3288")
 						to_chat(user, "<span class='danger'><big>NO!</big></span>")
 						return
 					if(new_tail)
