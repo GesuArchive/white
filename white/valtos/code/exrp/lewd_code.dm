@@ -12,7 +12,13 @@
 
 	visible_message("<span class='purple'> <b>[src]</b> [pick("стонет", "стонет в наслаждении",)].</span>")
 
-	if (gender == FEMALE && prob(25))
+	var/temp_age = 0
+
+	if(ishuman(src))
+		var/mob/living/carbon/human/H = src
+		temp_age = H.age
+
+	if (gender == FEMALE && temp_age < 30)
 		playsound(get_turf(src), "white/valtos/sounds/love/shot[rand(1, 8)].ogg", 90, 1, 0)
 	else
 		playsound(get_turf(src), "white/valtos/sounds/exrp/interactions/moan_[gender == FEMALE ? "f" : "m"][moan].ogg", 70, 1, 0)
@@ -79,7 +85,11 @@
 		else
 			playsound(loc, "white/valtos/sounds/gachi/penetration_[rand(1, 2)].ogg", 90, 1, 0)
 	else if(gender == FEMALE)
-		if (prob(75))
+		var/temp_age = 0
+		if(ishuman(src))
+			var/mob/living/carbon/human/H = src
+			temp_age = H.age
+		if (temp_age > 30)
 			playsound(loc, "white/valtos/sounds/exrp/interactions/final_f[rand(1, 5)].ogg", 70, 1, 0)
 		else
 			playsound(loc, "white/valtos/sounds/love/shot9.ogg", 90, 1, 0)
