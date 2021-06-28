@@ -47,16 +47,16 @@
 		var/mob/living/crossing_mob = crossing_movable
 		if(crossing_mob.mob_size > MOB_SIZE_SMALL && !(crossing_mob.movement_type & FLYING))
 			if(HAS_TRAIT(crossing_mob, TRAIT_PACIFISM))
-				crossing_mob.visible_message("<span class='notice'>[crossing_mob] carefully steps over [target].</span>", "<span class='notice'>You carefully step over [target] to avoid hurting it.</span>")
+				crossing_mob.visible_message("<span class='notice'>[crossing_mob] изящно обступает [target].</span>", "<span class='notice'>Изящно обступаю [target], чтобы не повредить.</span>")
 				return
 			if(should_squash)
-				crossing_mob.visible_message("<span class='notice'>[crossing_mob] squashed [target].</span>", "<span class='notice'>You squashed [target].</span>")
+				crossing_mob.visible_message("<span class='notice'>[crossing_mob] давит [target].</span>", "<span class='notice'>Безжалостно давлю [target].</span>")
 				Squish(target)
 			else
 				target.visible_message("<span class='notice'>[target] чуть не раздавили.</span>")
 	else if(isstructure(crossing_movable))
 		if(should_squash)
-			crossing_movable.visible_message("<span class='notice'>[target] is crushed under [crossing_movable].</span>")
+			crossing_movable.visible_message("<span class='notice'>[target] раздавливается [crossing_movable].</span>")
 			Squish(target)
 		else
 			target.visible_message("<span class='notice'>[target] чуть не раздавили.</span>")
