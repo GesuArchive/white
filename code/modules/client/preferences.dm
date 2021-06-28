@@ -1433,6 +1433,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(user.key == "WoofWoof322")
 						custom_races += "athena_s"
 
+					if(user.key == "Oni3288")
+						custom_races += "oni"
+
 					if(user.key == "Arsenay")
 						custom_races += "aandroid"
 
@@ -1477,6 +1480,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if((!user.client.holder && user.client.ckey != "felinemistress" && user.client.ckey != "chilipila") && new_tail == "Fox")
 						to_chat(user, "<span class='danger'>Pedos not allowed? <big>ВАШЕ ДЕЙСТВИЕ БУДЕТ ЗАПИСАНО</big>.</span>")
 						message_admins("[ADMIN_LOOKUPFLW(user)] попытался выбрать фуррятину в виде хвоста.")
+						return
+					if(new_tail == "Oni" && user.ckey != user.client.ckey)
+						to_chat(user, "<span class='danger'><big>NO!</big></span>")
 						return
 					if(new_tail)
 						features["tail_human"] = new_tail

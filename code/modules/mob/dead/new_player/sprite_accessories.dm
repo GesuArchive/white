@@ -2208,6 +2208,18 @@
 	color_src = HAIR
 	icon = 'white/valtos/icons/mutant_bodyparts.dmi'
 
+/datum/sprite_accessory/tails/human/oni
+	name = "Oni"
+	icon_state = "oni"
+	color_src = EYECOLOR
+	icon = 'white/valtos/icons/mutant_bodyparts.dmi'
+
+/datum/sprite_accessory/tails_animated/human/fox
+	name = "Oni"
+	icon_state = "oni"
+	color_src = EYECOLOR
+	icon = 'white/valtos/icons/mutant_bodyparts.dmi'
+
 /datum/sprite_accessory/tails/monkey/default
 	name = "Monkey"
 	icon_state = "monkey"
