@@ -85,7 +85,7 @@
 			var/pen_mod = -armor + weapon.armour_penetration // even a little bit of armor can make a big difference for shrapnel with large negative armor pen
 			actual_chance += pen_mod // doing the armor pen as a separate calc just in case this ever gets expanded on
 			if(actual_chance <= 0)
-				victim.visible_message("<span class='danger'>[weapon] bounces off [victim] armor, unable to embed!</span>", "<span class='notice'>[weapon] bounces off your armor, unable to embed!</span>", vision_distance = COMBAT_MESSAGE_RANGE)
+				victim.visible_message("<span class='danger'>[weapon] отскакивает от брони [victim], проваливая свою попытку воткнуться!</span>", "<span class='notice'>[weapon] отскакивает от моей брони!</span>", vision_distance = COMBAT_MESSAGE_RANGE)
 				return
 
 	var/roll_embed = prob(actual_chance)
@@ -129,9 +129,9 @@
 	SIGNAL_HANDLER
 
 	if(I.isEmbedHarmless())
-		examine_list += "[I] feels sticky, and could probably get stuck to someone if thrown properly!"
+		examine_list += "<hr>[capitalize(I.name)] довольно липкий и может прилипнуть к чему угодно, если правильно кинуть!"
 	else
-		examine_list += "[I] has a fine point, and could probably embed in someone if thrown properly!"
+		examine_list += "<hr>[capitalize(I.name)] имеет заострённый край и может воткнуться во что-то, если правильно кинуть!"
 
 /**
  * checkEmbedProjectile() is what we get when a projectile with a defined shrapnel_type impacts a target.
