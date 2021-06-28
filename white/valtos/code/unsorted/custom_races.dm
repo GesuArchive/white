@@ -49,8 +49,8 @@
 	name = "Oni Android"
 	id = "oni"
 	limbs_id = null
-	mutant_organs = list(/obj/item/organ/tail/oni_android)
-	mutant_bodyparts = list("tail_human" = "Oni")
+	//mutant_organs = list(/obj/item/organ/tail/oni_android)
+	//mutant_bodyparts = list("tail_human" = "Oni")
 
 /datum/species/android/oni_android/on_species_gain(mob/living/carbon/C)
 	. = ..()
