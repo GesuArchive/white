@@ -1784,6 +1784,9 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
+"iA" = (
+/turf/closed/indestructible/riveted,
+/area/duel)
 "iB" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -2576,7 +2579,9 @@
 /area/centcom/supplypod/supplypod_temp_holding)
 "nP" = (
 /obj/structure/window/plasma/reinforced/spawner,
-/turf/open/floor/wood,
+/turf/open/floor/wood{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
 /area/centcom/circus)
 "nQ" = (
 /obj/item/kirbyplants/random,
@@ -3156,6 +3161,10 @@
 /obj/item/soap/deluxe,
 /turf/open/floor/plasteel/cafeteria,
 /area/centcom/holding)
+"rt" = (
+/obj/effect/light_emitter,
+/turf/open/indestructible,
+/area/duel)
 "ru" = (
 /obj/structure/window/plasma/reinforced/spawner/east,
 /turf/open/floor/plating{
@@ -3947,6 +3956,10 @@
 	},
 /turf/open/floor/wood,
 /area/syndicate_mothership/control)
+"xX" = (
+/obj/effect/light_emitter,
+/turf/open/indestructible,
+/area/duel/arena)
 "xZ" = (
 /obj/machinery/mech_bay_recharge_port,
 /turf/open/floor/plating,
@@ -4005,10 +4018,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/brief)
-"yD" = (
-/obj/structure/table/wood,
-/turf/open/floor/wood,
-/area/centcom/circus)
 "yE" = (
 /obj/structure/chair/sofa/corp/right,
 /turf/open/floor/dz/green,
@@ -4102,12 +4111,6 @@
 	smoothing_flags = 1
 	},
 /area/centcom/holding)
-"zs" = (
-/obj/structure/table/wood,
-/turf/open/floor/wood{
-	icon_state = "wood-broken5"
-	},
-/area/centcom/circus)
 "zu" = (
 /obj/machinery/computer/shuttle_flight/syndicate/recall,
 /obj/effect/turf_decal/tile/bar,
@@ -4248,6 +4251,12 @@
 	icon_state = "alien16"
 	},
 /area/abductor_ship)
+"Av" = (
+/obj/structure/chair/comfy/black{
+	dir = 4
+	},
+/turf/open/indestructible,
+/area/duel)
 "Ay" = (
 /turf/closed/indestructible/abductor{
 	icon_state = "alien17"
@@ -4295,6 +4304,10 @@
 /obj/machinery/photocopier,
 /turf/open/floor/plasteel/grimy,
 /area/centcom/brief)
+"AY" = (
+/obj/effect/duel_controller,
+/turf/open/indestructible,
+/area/duel/arena)
 "Bb" = (
 /obj/machinery/door/airlock{
 	icon = 'icons/obj/doors/airlocks/station/uranium.dmi';
@@ -4302,12 +4315,6 @@
 	},
 /turf/open/floor/engine/cult,
 /area/wizard_station)
-"Bc" = (
-/obj/structure/table/wood,
-/turf/open/floor/wood{
-	icon_state = "wood-broken7"
-	},
-/area/centcom/circus)
 "Bj" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/red{
@@ -4361,7 +4368,9 @@
 	dir = 8;
 	resistance_flags = 64
 	},
-/turf/open/floor/wood,
+/turf/open/floor/wood{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
 /area/centcom/circus)
 "Bq" = (
 /turf/open/floor/plating,
@@ -4406,7 +4415,9 @@
 /obj/item/integrated_circuit_printer/upgraded/prog{
 	pixel_y = 7
 	},
-/turf/open/floor/wood,
+/turf/open/floor/wood{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
 /area/centcom/circus)
 "BB" = (
 /obj/structure/table/wood/fancy,
@@ -4588,6 +4599,10 @@
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
 /area/centcom/outdoors/circus)
+"Cz" = (
+/obj/structure/table,
+/turf/open/indestructible,
+/area/duel)
 "CA" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/firstaid/regular,
@@ -5100,7 +5115,9 @@
 /obj/effect/mob_spawn/human/artist{
 	pixel_y = 6
 	},
-/turf/open/floor/wood,
+/turf/open/floor/wood{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
 /area/centcom/circus)
 "FU" = (
 /obj/machinery/light/small/directional/north,
@@ -5127,7 +5144,9 @@
 	pixel_y = 4
 	},
 /obj/machinery/light/directional/east,
-/turf/open/floor/wood,
+/turf/open/floor/wood{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
 /area/centcom/circus)
 "Gf" = (
 /obj/structure/table/reinforced,
@@ -5224,7 +5243,9 @@
 /area/centcom/control)
 "GE" = (
 /obj/structure/chair/stool/bar,
-/turf/open/floor/wood,
+/turf/open/floor/wood{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
 /area/centcom/circus)
 "GI" = (
 /turf/open/floor/carpet/black,
@@ -5268,7 +5289,9 @@
 	dir = 8;
 	resistance_flags = 64
 	},
-/turf/open/floor/wood,
+/turf/open/floor/wood{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
 /area/centcom/circus)
 "Hl" = (
 /obj/structure/flora/ausbushes/stalkybush,
@@ -5315,6 +5338,9 @@
 	},
 /turf/open/floor/plating/abductor,
 /area/abductor_ship)
+"HV" = (
+/turf/closed/indestructible/fakeglass,
+/area/duel)
 "Ie" = (
 /obj/structure/table/reinforced,
 /obj/item/clipboard,
@@ -5383,7 +5409,7 @@
 "IQ" = (
 /obj/structure/table/wood,
 /turf/open/floor/wood{
-	icon_state = "wood-broken"
+	baseturfs = /turf/open/floor/plating/asteroid
 	},
 /area/centcom/circus)
 "IR" = (
@@ -5461,6 +5487,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"Jx" = (
+/turf/open/floor/plasteel/stairs/old{
+	dir = 4
+	},
+/area/duel)
 "JD" = (
 /obj/machinery/light{
 	dir = 1
@@ -5564,7 +5595,9 @@
 	dir = 8;
 	resistance_flags = 64
 	},
-/turf/open/floor/wood,
+/turf/open/floor/wood{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
 /area/centcom/circus)
 "Kw" = (
 /turf/open/floor/plating/grass/jungle,
@@ -5754,7 +5787,9 @@
 	dir = 8;
 	resistance_flags = 64
 	},
-/turf/open/floor/wood,
+/turf/open/floor/wood{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
 /area/centcom/circus)
 "Mo" = (
 /obj/structure/window/plasma/reinforced/spawner/north,
@@ -5895,6 +5930,9 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/wizard_station)
+"Na" = (
+/turf/open/indestructible,
+/area/duel)
 "Nb" = (
 /obj/structure/table/reinforced,
 /obj/item/crowbar/red,
@@ -6096,6 +6134,13 @@
 "Om" = (
 /turf/open/floor/plasteel/freezer,
 /area/syndicate_mothership/control)
+"Op" = (
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
+/turf/open/indestructible,
+/area/duel)
 "Ou" = (
 /obj/structure/mirror{
 	pixel_x = 28
@@ -6380,7 +6425,9 @@
 /turf/open/floor/plasteel/checker,
 /area/ruin/powered/yohei_base)
 "QF" = (
-/turf/open/floor/wood,
+/turf/open/floor/wood{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
 /area/centcom/circus)
 "QG" = (
 /obj/structure/table/wood,
@@ -6417,6 +6464,9 @@
 	},
 /turf/open/floor/grass,
 /area/centcom/holding)
+"QK" = (
+/turf/open/indestructible,
+/area/duel/arena)
 "QO" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ppflowers,
@@ -6574,6 +6624,15 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding)
+"Si" = (
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
+/turf/open/floor/plasteel/stairs/old{
+	dir = 4
+	},
+/area/duel)
 "Sl" = (
 /turf/open/floor/plating/airless,
 /area/syndicate_mothership/control)
@@ -6596,6 +6655,12 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding)
+"Su" = (
+/obj/structure/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/indestructible,
+/area/duel)
 "Sx" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/carpet/green,
@@ -7077,7 +7142,9 @@
 /obj/machinery/vending/boozeomat/all_access{
 	resistance_flags = 64
 	},
-/turf/open/floor/wood,
+/turf/open/floor/wood{
+	baseturfs = /turf/open/floor/plating/asteroid
+	},
 /area/centcom/circus)
 "Vc" = (
 /obj/structure/window/reinforced{
@@ -7222,6 +7289,9 @@
 	icon_state = "alien8"
 	},
 /area/abductor_ship)
+"Wu" = (
+/turf/closed/indestructible/fakedoor,
+/area/duel)
 "Wy" = (
 /obj/effect/baseturf_helper/beach/sand,
 /turf/closed/indestructible/syndicate,
@@ -29871,9 +29941,9 @@ zW
 Te
 zV
 Vb
-zs
 IQ
-yD
+IQ
+IQ
 QF
 nP
 Jc
@@ -30130,7 +30200,7 @@ zV
 FP
 QF
 QF
-Bc
+IQ
 QF
 nP
 Ob
@@ -30384,7 +30454,7 @@ wj
 Wm
 Wm
 pf
-yD
+IQ
 QF
 QF
 QF
@@ -31168,7 +31238,7 @@ Co
 Co
 Co
 Co
-ZU
+Co
 Co
 Co
 Co
@@ -31936,10 +32006,10 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
+iA
+iA
+iA
+iA
 Co
 Co
 Co
@@ -32193,10 +32263,10 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
+iA
+Si
+Si
+iA
 Co
 Co
 Co
@@ -32450,10 +32520,10 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
+iA
+Jx
+Jx
+iA
 Co
 Co
 Co
@@ -32697,30 +32767,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+Na
+Na
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
 Co
 Co
 Co
@@ -32954,30 +33024,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+iA
+Na
+Na
+rt
+Na
+Na
+Na
+rt
+Na
+Na
+iA
+Na
+Na
+iA
+Na
+Na
+rt
+Na
+Na
+Na
+rt
+Na
+Na
+iA
 Co
 Co
 Co
@@ -33211,30 +33281,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Wu
+Na
+Na
+Av
+Av
+Av
+Av
+Av
+Na
+Na
+Wu
+Na
+Na
+Wu
+Na
+Na
+Av
+Av
+Av
+Av
+Av
+Na
+Na
+Wu
 Co
 Co
 Co
@@ -33468,30 +33538,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+iA
+Na
+Na
+Cz
+Cz
+Cz
+Cz
+Cz
+Na
+Na
+iA
+Na
+Na
+iA
+Na
+Na
+Cz
+Cz
+Cz
+Cz
+Cz
+Na
+Na
+iA
 Co
 Co
 Co
@@ -33725,30 +33795,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+iA
+Wu
+iA
+HV
+HV
+HV
+HV
+HV
+iA
+Wu
+iA
+Op
+Op
+iA
+Wu
+iA
+HV
+HV
+HV
+HV
+HV
+iA
+Wu
+iA
 Co
 Co
 Co
@@ -33982,30 +34052,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+iA
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+iA
+Na
+Na
+iA
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+iA
 Co
 Co
 Co
@@ -34239,30 +34309,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+iA
+QK
+xX
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+iA
+Na
+Na
+iA
+QK
+xX
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+iA
 Co
 Co
 Co
@@ -34496,30 +34566,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+iA
+QK
+QK
+QK
+QK
+QK
+QK
+xX
+QK
+QK
+iA
+Na
+Na
+iA
+QK
+QK
+QK
+QK
+QK
+QK
+xX
+QK
+QK
+iA
 Co
 Co
 Co
@@ -34753,30 +34823,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+iA
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+iA
+Na
+Na
+iA
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+iA
 Co
 Co
 Co
@@ -35010,30 +35080,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+iA
+QK
+QK
+QK
+QK
+AY
+QK
+QK
+QK
+QK
+iA
+Na
+Na
+iA
+QK
+QK
+QK
+QK
+AY
+QK
+QK
+QK
+QK
+iA
 Co
 Co
 Co
@@ -35267,30 +35337,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+iA
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+iA
+Op
+Op
+iA
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+iA
 Co
 Co
 Co
@@ -35524,30 +35594,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+iA
+QK
+QK
+xX
+QK
+QK
+QK
+QK
+QK
+QK
+iA
+Na
+Na
+iA
+QK
+QK
+xX
+QK
+QK
+QK
+QK
+QK
+QK
+iA
 Co
 Co
 Co
@@ -35781,30 +35851,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+iA
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+xX
+QK
+iA
+Na
+Na
+iA
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+xX
+QK
+iA
 Co
 Co
 Co
@@ -36038,30 +36108,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+iA
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+iA
+Na
+Na
+iA
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+iA
 Co
 Co
 Co
@@ -36295,30 +36365,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+iA
+Wu
+iA
+HV
+HV
+HV
+HV
+HV
+iA
+Wu
+iA
+Na
+Na
+iA
+Wu
+iA
+HV
+HV
+HV
+HV
+HV
+iA
+Wu
+iA
 Co
 Co
 Co
@@ -36552,30 +36622,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+iA
+Na
+Na
+Cz
+Cz
+Cz
+Cz
+Cz
+Na
+Na
+iA
+Na
+Na
+iA
+Na
+Na
+Cz
+Cz
+Cz
+Cz
+Cz
+Na
+Na
+iA
 Co
 Co
 Co
@@ -36809,30 +36879,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+Wu
+Na
+Na
+Su
+Su
+Su
+Su
+Su
+Na
+Na
+Wu
+Na
+Na
+Wu
+Na
+Na
+Su
+Su
+Su
+Su
+Su
+Na
+Na
+Wu
 Co
 Co
 Co
@@ -37066,30 +37136,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+iA
+Na
+Na
+rt
+Na
+Na
+Na
+rt
+Na
+Na
+iA
+Op
+Op
+iA
+Na
+Na
+rt
+Na
+Na
+Na
+rt
+Na
+Na
+iA
 Co
 Co
 Co
@@ -37323,30 +37393,30 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
 Co
 Co
 Co
