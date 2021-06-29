@@ -12,15 +12,15 @@
 		return
 
 	owner.current.playsound_local(get_turf(owner.current), 'white/rebolution228/sounds/spetsnaz_spawn.ogg',100,0, use_reverb = FALSE)
-	to_chat(owner, "<B><font size=3 color=red>Я [name].</font></B>")
+	to_chat(owner, "<B><font size=3 color=red>Я РОССИЙСКИЙ СПЕЦНАЗ!</font></B>")
 
-	var/missiondesc = "Мое подразделение было отправлено на станцию '[station_name()]' с заданием от Российского Отдела Службы Безопасности NanoTrasen. "
+	var/missiondesc = "Вы входите в состав спецподразделения <B>'Оборотень'</B>, отправленный на станцию <B>'[station_name()]'</B> с заданием от <B>Российского Отдела Службы Безопасности NanoTrasen.</B> Ваше тело имеет <B>иммунитет к вакууму и не требует кислорода.</B> Помните об этом. "
 	if(leader)
-		missiondesc += "Ведите свой отряд, чтобы обеспечить выполнение миссии. Отправьтесь на станцию при помощи шаттла, когда ваша команда будет готова. "
+		missiondesc += "Являясь главой отряда, вы должны руководить своим составом, чтобы обеспечить выполнение миссии. Отправьтесь на станцию при помощи шаттла, когда вы будете готовы. "
 	else
-		missiondesc += "Следуйте приказам командира отряда. "
+		missiondesc += "Следуйте приказам вашего командира отряда. "
 	if(!rip_and_tear)
-		missiondesc += "По возможности избегайте жертв среди гражданского населения."
+		missiondesc += "По возможности <B>избегайте</B> жертв среди гражданского населения."
 
 	missiondesc += "<BR><B>МИССИЯ:</B>: [ert_team.mission.explanation_text]"
 	to_chat(owner,missiondesc)

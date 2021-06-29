@@ -118,6 +118,9 @@
 	. = ..()
 	if(.)
 		return .
+	if(!usr.is_holding_item_of_type(/obj/item/blacksmith/smithing_hammer)||!(usr in view(1, src)))
+		usr<<browse(null, "window=Наковальня")
+		return
 	if(href_list["hit"])
 		hit(usr)
 	if(href_list["miss"])

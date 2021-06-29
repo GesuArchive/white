@@ -32,4 +32,4 @@
 				cleaned_human.unglitch_me()
 				cleaned_human.headstamp = null
 				cleaned_human.regenerate_icons()
-				to_chat(cleaned_human, "<span class='danger'>[AM] моет твоё лицо!</span>")
+				to_chat(cleaned_human, "<span class='danger'>[AM] моет моё лицо!</span>")
