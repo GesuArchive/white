@@ -13,7 +13,7 @@
 	faction = list("mining")
 	weather_immunities = list("ash")
 	see_in_dark = 1
-	butcher_results = list(/obj/item/food/meat = 2)
+	butcher_results = list(/obj/item/food/meat/slab = 2)
 	response_help_continuous = "отталкивает"
 	response_help_simple = "отталкивает"
 	response_disarm_continuous = "толкает"
@@ -42,7 +42,7 @@
 	faction = list("mining")
 	weather_immunities = list("ash")
 	see_in_dark = 1
-	butcher_results = list(/obj/item/blacksmith/ingot = 1, /obj/item/food/meat = 1)
+	butcher_results = list(/obj/item/blacksmith/ingot = 1, /obj/item/food/meat/slab = 1)
 	response_help_continuous = "подталкивает"
 	response_help_simple = "подталкивает"
 	response_disarm_continuous = "толкает"
@@ -65,12 +65,12 @@
 	speak_chance = 1
 	speak = list("ПОКАЙТЕСЬ", "ЭТО КОНЕЦ")
 	speak_emote = list("орет")
-	speed = 3
-	move_to_delay = 3
+	speed = 2
+	move_to_delay = 2
 	del_on_death = TRUE
 	loot = list(/obj/item/gem/cut/diamond = 5)
-	maxHealth = 800
-	health = 800
+	maxHealth = 600
+	health = 600
 	faction = list("mining")
 	weather_immunities = list("ash")
 	see_in_dark = 1
@@ -78,4 +78,4 @@
 	attack_verb_simple = "уничтожает"
 	melee_damage_lower = 28
 	melee_damage_upper = 35
-	armour_penetration = 10
+	armour_penetration = 40
