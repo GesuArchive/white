@@ -3,6 +3,11 @@
 
 /obj/item/camera/coom
 	name = "CoomCamera™"
+	var/last_tags = ""
+
+/obj/item/camera/coom/examine(mob/user)
+	. = ..()
+	. += "<hr><span class='notice'>Last shot tags were: [last_tags]</span>"
 
 /obj/item/camera/coom/printpicture(mob/user, datum/picture/picture)
 	var/obj/item/photo/webpic/p = new(get_turf(src), picture)
@@ -32,13 +37,22 @@
 	if(!picture.mobs_seen)
 		return
 
+	var/maleCount = 0
+	var/femaleCount = 0
+	var/otherCount = 0
+
 	var/mob/living/carbon/human/tag_source
 	for(var/mob/living/carbon/human/H in picture.mobs_seen)
-		tag_source = H
-		if(H.gender == FEMALE)
-			break
+		if(H.gender == MALE)
+			maleCount++
+		else if (H.gender == FEMALE)
+			tag_source = H
+			femaleCount++
+		else
+			otherCount++
 
 	if(!tag_source)
+		last_tags = ""
 		return
 
 	p.imgsrc = pick(picsByTags(human2Tags(tag_source)))
@@ -63,7 +77,8 @@
 /proc/human2Tags(mob/living/carbon/human/H) //эту фегню надо дальше допиливать, но я заебался, пойду окучивать картошку.........
 	var/hairHex = findtext(H.hair_color, "#") ? H.hair_color :"#[H.hair_color]"
 	var/eyeHex = findtext(H.eye_color, "#") ? H.eye_color :"#[H.eye_color]"
-	return "[hairColor2Tag(hairHex)]+[eyeColor2Tag(eyeHex)]"
+	last_tags = "[hairColor2Tag(hairHex)]+[eyeColor2Tag(eyeHex)]"
+	return last_tags
 
 /proc/hairColor2Tag(hairColor)
 	var/list/hairTags = list(
