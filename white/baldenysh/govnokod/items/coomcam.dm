@@ -68,8 +68,8 @@
 		to_chat(user, "<span class='warning'>[capitalize(src.name)] seems to be blank...</span>")
 		return
 	user << browse("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>[name]</title></head>" \
-		+ "<body style='overflow:hidden;margin:0;text-align:center;top: 50%;'>" \
-		+ "<img src='[CORS_THING_REQUEST_LINK+url_encode(imgsrc)]' />" \
+		+ "<body style='overflow:hidden;margin:0;text-align:center;'>" \
+		+ "<img src='[CORS_THING_REQUEST_LINK+url_encode(imgsrc)]' style='width: 100%;height: auto;-ms-interpolation-mode: bicubic'/>" \
 		+ "[scribble ? "<br>Written on the back:<br><i>[scribble]</i>" : ""]"\
 		+ "</body></html>", "window=photo_showing")
 	onclose(user, "[name]")
