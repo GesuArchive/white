@@ -74,7 +74,7 @@
 		+ "</body></html>", "window=photo_showing")
 	onclose(user, "[name]")
 
-/proc/human2Tags(mob/living/carbon/human/H) //эту фегню надо дальше допиливать, но я заебался, пойду окучивать картошку.........
+/obj/item/camera/coom/proc/human2Tags(mob/living/carbon/human/H) //эту фегню надо дальше допиливать, но я заебался, пойду окучивать картошку.........
 	var/hairHex = findtext(H.hair_color, "#") ? H.hair_color :"#[H.hair_color]"
 	var/eyeHex = findtext(H.eye_color, "#") ? H.eye_color :"#[H.eye_color]"
 	last_tags = "[hairColor2Tag(hairHex)]+[eyeColor2Tag(eyeHex)]"
