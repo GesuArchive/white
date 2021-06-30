@@ -420,6 +420,16 @@
 	taste_description = "горечь"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
+/datum/reagent/consumable/coco/on_mob_life(mob/living/carbon/human/species/felinid/F, delta_time, times_fired)
+	if(isfelinid(F))
+		if(DT_PROB(50, delta_time))
+			F.losebreath += 70 // https://youtu.be/B2U1SJorwK4
+			F.adjustToxLoss(5.5 * REM * delta_time, 0)
+		if(DT_PROB(50, delta_time))
+			F.losebreath += 120
+			F.hallucination += 5 * REM * delta_time
+		return ..()	
+
 /datum/reagent/drug/mushroomhallucinogen
 	name = "Грибной Галлюциноген"
 	description = "A strong hallucinogenic drug derived from certain species of mushroom."
