@@ -245,16 +245,16 @@
 /obj/machinery/turntable/proc/update_playing()
 	var/filter
 	if(bbox.playing)
-		if(!get_filter("motion_blur"))
-			add_filter("motion_blur", 1, motion_blur_filter(x = 0, y = 1))
-			filter = get_filter("motion_blur")
-			animate(filter, y = 0, time = 1, loop = -1)
-			animate(y = 1, time = 1)
+		if(!get_filter("outline"))
+			add_filter("outline", 1, outline_filter(size = 1, color = random_color()))
+			filter = get_filter("outline")
+			animate(filter, size = 0, time = 1, loop = -1)
+			animate(size = 1, time = 1)
 	else
-		filter = get_filter("motion_blur")
+		filter = get_filter("outline")
 		if(filter)
 			animate(filter)
-			remove_filter("motion_blur")
+			remove_filter("outline")
 
 /obj/machinery/turntable/attackby(obj/item/I, mob/user)
 	if(bbox.disk_insert(user, I, bbox.disk))
