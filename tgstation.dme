@@ -3638,6 +3638,7 @@
 #include "white\baldenysh\govnokod\components\soundplayer.dm"
 #include "white\baldenysh\govnokod\components\tts_comp.dm"
 #include "white\baldenysh\govnokod\foods\food.dm"
+#include "white\baldenysh\govnokod\items\coomcam.dm"
 #include "white\baldenysh\govnokod\items\stacks.dm"
 #include "white\baldenysh\govnokod\items\tgui_zoom.dm"
 #include "white\baldenysh\govnokod\items\cellphone\calling_card.dm"
