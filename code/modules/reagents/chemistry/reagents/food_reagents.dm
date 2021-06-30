@@ -427,6 +427,10 @@
 			F.adjustToxLoss(5.5 * REM * delta_time, 0)
 		if(DT_PROB(50, delta_time))
 			F.losebreath += 120
+			to_chat(F, "<span class='danger'><B>МНЕ ОЧЕНЬ ПЛОХО!</B></span>")
+			F.Jitter(10)
+			F.emote(pick("twitch","cry","scream"))
+			F.adjustToxLoss(10 * REM * delta_time, 0)
 			F.hallucination += 5 * REM * delta_time
 		return ..()	
 
