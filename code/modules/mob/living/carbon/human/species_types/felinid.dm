@@ -63,6 +63,21 @@
 			mutant_organs = list()
 	return ..()
 
+/datum/species/human/felinid/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/M)
+	.=..()
+	if(chem.type == /datum/reagent/consumable/coco)
+		if(prob(40))
+			M.adjust_disgust(20)
+		if(prob(5))
+			M.visible_message("<span class='warning'>[M] [pick("корчится в рвотном позыве!","кашляет!","хрипит!")]</span>")
+		if(prob(10))
+			var/sick_message = pick("Вы чувствуете тошноту.", "Вы чувствуете себя не очень хорошо.","Вы чувствуете, как ваши внутренности тают.","Вам ОЧЕНЬ плохо.")
+			to_chat(M, "<span class='notice'>[sick_message]</span>")
+		if(prob(15))
+			var/obj/item/organ/guts = pick(M.internal_organs)
+			guts.applyOrganDamage(45)
+		return TRUE
+
 /proc/mass_purrbation()
 	for(var/M in GLOB.mob_list)
 		if(ishuman(M))

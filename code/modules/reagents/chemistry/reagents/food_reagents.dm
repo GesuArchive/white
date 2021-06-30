@@ -420,19 +420,13 @@
 	taste_description = "горечь"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/datum/reagent/consumable/coco/on_mob_life(mob/living/carbon/human/species/felinid/F, delta_time, times_fired)
-	if(isfelinid(F))
-		if(DT_PROB(50, delta_time))
-			F.losebreath += 70 // https://youtu.be/B2U1SJorwK4
-			F.adjustToxLoss(5.5 * REM * delta_time, 0)
-		if(DT_PROB(50, delta_time))
-			F.losebreath += 120
-			to_chat(F, "<span class='danger'><B>МНЕ ОЧЕНЬ ПЛОХО!</B></span>")
-			F.Jitter(10)
-			F.emote(pick("twitch","cry","scream"))
-			F.adjustToxLoss(10 * REM * delta_time, 0)
-			F.hallucination += 5 * REM * delta_time
-		return ..()	
+/datum/reagent/consumable/coco/on_mob_add(mob/living/carbon/M)
+	.=..()
+	if(isfelinid(M))
+		to_chat(M, "<span class='warning'>Ваши внутренности переворачиваются от шоколада!</span>")
+		M.vomit(20)
+		M.losebreath += 40
+		M.Paralyze(150)
 
 /datum/reagent/drug/mushroomhallucinogen
 	name = "Грибной Галлюциноген"
