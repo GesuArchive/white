@@ -425,7 +425,7 @@
 	if(isfelinid(M))
 		to_chat(M, "<span class='warning'>Ваши внутренности переворачиваются от шоколада!</span>")
 		M.vomit(20)
-		M.losebreath += 40
+		M.losebreath += 20
 		M.Paralyze(150)
 
 /datum/reagent/drug/mushroomhallucinogen

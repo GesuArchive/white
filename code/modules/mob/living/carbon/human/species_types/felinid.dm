@@ -75,7 +75,7 @@
 			to_chat(M, "<span class='notice'>[sick_message]</span>")
 		if(prob(15))
 			var/obj/item/organ/guts = pick(M.internal_organs)
-			guts.applyOrganDamage(45)
+			guts.applyOrganDamage(20)
 		return TRUE
 
 /proc/mass_purrbation()
