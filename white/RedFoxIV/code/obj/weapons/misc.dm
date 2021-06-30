@@ -764,3 +764,152 @@
 			artist.adjustBruteLoss(-2.5 * delta_time)
 			artist.adjustFireLoss(-2.5 * delta_time)
 		*/
+
+#define DUEL_NODUEL 0
+#define DUEL_PENDING 1
+#define DUEL_IN_PROGRESS 2
+
+
+
+/area/duel
+	icon_state = "duel"
+	area_flags = NO_ALERTS | ABDUCTOR_PROOF | BLOCK_SUICIDE | HIDDEN_AREA | NOTELEPORT | UNIQUE_AREA
+	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	requires_power = FALSE
+	has_gravity = STANDARD_GRAVITY
+/area/duel/arena
+	icon_state = "duel_arena"
+
+/obj/effect/landmark/duel_spawnpoint
+/obj/effect/duel_controller
+	name = "Duel Controller"
+	desc = "Controls duels."
+	icon = 'white/valtos/icons/prison/prison.dmi'
+	icon_state = "spwn"
+	
+	invisibility = INVISIBILITY_OBSERVER
+	var/duel_outfit = /datum/outfit/artist
+	var/duel_status = DUEL_NODUEL
+	var/list/mob/living/carbon/human/duelists[2]
+	var/bet
+	var/timeout_time = 30
+	var/timeout_timer
+	var/stamcrit_is_deadly = FALSE
+	var/duel_timelimit = 2 MINUTES
+	var/list/first_spawnpoint = list(-3,3)
+	var/list/second_spawnpoint	 = list(3,-3)
+
+/obj/effect/duel_controller/attack_ghost(mob/user)
+	if(duel_status == DUEL_IN_PROGRESS)
+		to_chat(user, "Эта комната уже занята!")
+		return
+	if(duel_status == DUEL_PENDING)
+		var/alert = alert("Точно хочешь поучавствовать в дуэли на [bet] метакэша?")
+		if(alert)
+			spawn_user()
+	if(!SSticker.HasRoundStarted() || !loc)
+		return
+	if(!(GLOB.ghost_role_flags & GHOSTROLE_SPAWNER) && !(flags_1 & ADMIN_SPAWNED_1))
+		to_chat(user, "<span class='warning'>Администраторы временно отключили гост-роли.</span>")
+		return
+	var/ghost_role = alert("Точно хочешь начать дуэль? (Ты не сможешь вернуться в своё прошлое тело, так что выбирай с умом!)",,"Да","Нет")
+	if(ghost_role == "Нет" || !loc || QDELETED(user))
+		return
+	bet = input("Сколько метакэша готов поставить? (Не меньше 50!)", "1XBET", 50) as num
+	if(bet < 50)
+		return
+	
+	if(duel_status != DUEL_NODUEL)
+		to_chat(user, "Ты опоздал, дружок!")
+		return
+	duel_status = DUEL_PENDING
+	inc_metabalance(user, bet, FALSE, "Цена входного билета.")
+	spawn_user(user, bet)
+	notify_ghosts("[user.name] ([user.ckey]) приглашает всех желающих поучавствовать в дуэли на [bet] метакэша.", source = src, action = NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_SPLITPERSONALITY)
+	timeout_timer = addtimer(CALLBACK(src, .proc/timeout), timeout_time SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
+
+
+/obj/effect/duel_controller/proc/spawn_user(mob/user)
+	var/mob/living/carbon/human/H = new(get_turf(src))
+	H.equipOutfit()
+	H.ckey = user.ckey
+
+	if(duelists.len != 2)
+		duelists[1] = H
+	else
+		duelists[2] = H
+		start_duel()
+
+/obj/effect/duel_controller/proc/start_duel()
+	if(duelists.len != 2)
+		stack_trace("Duel controller tried to start a duel with [duelists.len] duelists. It should only do that with 2 duelists.")
+		finish_duel()
+		return
+	deltimer(timeout_timer)
+	duel_status = DUEL_IN_PROGRESS
+	timeout_timer = addtimer(CALLBACK(src, .proc/timeout), timeout_time SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
+	duelists[1].forceMove(locate(x+first_spawnpoint[1], y+first_spawnpoint[2], z))
+	duelists[2].forceMove(locate(x+second_spawnpoint[1], y+second_spawnpoint[2], z))
+	for(var/mob/living/D in duelists)
+		D.Paralyze(3 SECONDS)
+		to_chat(D< "<span class='alert'>Дуэль начнётся через 3 секунды...</span>")
+		spawn(3 SECONDS)
+			to_chat(D, "<span class='hypnophrase'>Дуэль началась!</span>")
+	START_PROCESSING(SSfastprocess, src)
+
+/obj/effect/duel_controller/proc/timeout()
+	if(duelists.len != 1)
+		stack_trace("Duel controller timed out with [duelists.len] duelists instead of 2.")
+	
+	switch(duel_status)
+		if(DUEL_NODUEL)
+			stack_trace("Duel controller timed out with with duel_status equal to NODUEL. This is dumb.")
+		if(DUEL_PENDING)
+			to_chat(duelists[1], "Никто не принял твой вызов за [timeout_time] секунд.")
+		if(DUEL_IN_PROGRESS)
+			for(var/mob/living/D in duelists)
+				to_chat(D, "<span class='alert'>Время вышло! Никто не победил.</span>")
+	finish_duel(refund = (duel_status == DUEL_PENDING))
+
+/obj/effect/duel_controller/proc/finish_duel(mob/loser, refund = FALSE)
+	if(loser)
+		for(var/mob/living/D in duelists)
+			if(D != loser)
+				inc_metabalance(D, bet*2, TRUE, "Победа в дуэли!")
+	else
+		if(refund)
+			for(var/mob/living/D in duelists)
+				inc_metabalance(D, bet, TRUE, "Дуэль была прервана по непредвиденным обстоятельствам.")
+
+	for(var/mob/living/D in duelists)
+		D.dust(FALSE, FALSE, TRUE)
+	duelists.Cut()
+	duel_status = DUEL_NODUEL
+	bet = null
+	STOP_PROCESSING(SSfastprocess, src)
+
+/obj/effect/duel_controller/process(delta_time)
+	for(var/mob/living/D in duelists)
+		if(!istype(get_area(D), /area/duel/arena))
+			to_chat(D, "<span class='warning'><b>Вы покинули арену. [pick("Очень глупо с вашей стороны.", "Мнда.", "Лох..")]</b></span>")
+			finish_duel(D)
+			return
+
+		if((D.status_traits.Find("floored") && stamcrit_is_deadly) || HAS_TRAIT(D, TRAIT_CRITICAL_CONDITION) || D.stat == DEAD || !D.key)
+			D.dust(FALSE, FALSE, TRUE)
+			to_chat(D, "<span class='warning'><b>Вы проиграли. [pick("Повезёт в следующий раз.", "Лох.", "На это было смешно смотреть.")]</b></span>")
+			finish_duel(D)
+			return
+		
+
+
+
+#undef DUEL_NODUEL
+#undef DUEL_PENDING
+#undef DUEL_IN_PROGRESS
+
+/*
+/datum/map_template/duel
+	name = "Classic Duel arena"
+	mappath = "_maps/map_files/duels/duel_classic.dmm"
+*/
