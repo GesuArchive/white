@@ -37,11 +37,13 @@
 	if(!picture.mobs_seen)
 		return
 
+	var/mob/living/carbon/human/tag_source = pick(picture.mobs_seen)
+	/*
 	var/maleCount = 0
 	var/femaleCount = 0
 	var/otherCount = 0
 
-	var/mob/living/carbon/human/tag_source
+
 	for(var/mob/living/carbon/human/H in picture.mobs_seen)
 		if(H.gender == MALE)
 			maleCount++
@@ -50,26 +52,38 @@
 			femaleCount++
 		else
 			otherCount++
-
+	*/
 	if(!tag_source)
 		last_tags = ""
 		return
 
-	p.imgsrc = pick(picsByTags(human2Tags(tag_source)))
-	if(!p.imgsrc)
+	p.thumbnailSrc = pick(picsByTags(human2Tags(tag_source)))
+	p.originalSrc = replacetext(replacetext(p.thumbnailSrc, "thumbnail_", ""), "thumbnails", "images")
+
+	if(!p.thumbnailSrc)
 		return
 	p.name = "cum-stained photo"
 
 /obj/item/photo/webpic
-	var/imgsrc
+	var/thumbnailSrc
+	var/originalSrc
+	var/original = FALSE
+
+/obj/item/photo/webpic/examine(mob/user)
+	. = ..()
+	. += "<hr><span class='notice'>Alt-click to change mode.\nMode: [original ? "Original" : "Thumbnail"]</span>"
+
+/obj/item/photo/webpic/AltClick(mob/user)
+	original = !original
+	to_chat(user, "<span class='notice'>Mode set to [original ? "Original" : "Thumbnail"]</span>")
 
 /obj/item/photo/webpic/show(mob/user)
-	if(!istype(picture) || !picture.picture_image || !imgsrc)
+	if(!istype(picture) || !picture.picture_image || !thumbnailSrc)
 		to_chat(user, "<span class='warning'>[capitalize(src.name)] seems to be blank...</span>")
 		return
 	user << browse("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>[name]</title></head>" \
-		+ "<body style='overflow:hidden;margin:0;text-align:center;'>" \
-		+ "<img src='[CORS_THING_REQUEST_LINK+url_encode(imgsrc)]' style='width: 100%;height: auto;-ms-interpolation-mode: bicubic'/>" \
+		+ "<body style='width: auto;height: auto;overflow:hidden;margin:0;text-align:center;'>" \
+		+ "<img src='[CORS_THING_REQUEST_LINK+url_encode(original ? originalSrc : thumbnailSrc)]' style='width: 100%;height: 100%;-ms-interpolation-mode: bicubic'/>" \
 		+ "[scribble ? "<br>Written on the back:<br><i>[scribble]</i>" : ""]"\
 		+ "</body></html>", "window=photo_showing")
 	onclose(user, "[name]")
