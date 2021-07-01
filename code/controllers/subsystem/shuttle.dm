@@ -257,7 +257,7 @@ SUBSYSTEM_DEF(shuttle)
 		return
 
 	var/area/signal_origin = get_area(user)
-	var/emergency_reason = "\nПричиныч:\n\n[call_reason]"
+	var/emergency_reason = "\n[prob(1) ? "Копатыч" : "Причиныч"]:\n\n[call_reason]"
 	var/security_num = seclevel2num(get_security_level())
 	switch(security_num)
 		if(SEC_LEVEL_RED,SEC_LEVEL_DELTA)
