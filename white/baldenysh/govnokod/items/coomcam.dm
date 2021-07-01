@@ -3,11 +3,14 @@
 
 /obj/item/camera/coom
 	name = "CoomCamera™"
-	var/last_tags = ""
+	var/lastTags = ""
+	var/genderDiscrimination = TRUE
+	var/noHTTPRequests = FALSE
 
 /obj/item/camera/coom/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>Last shot tags were: [last_tags]</span>"
+	. += "<hr><span class='notice'>Gender discrimination: [genderDiscrimination ? "ONLINE" : "STANDBY"]</span>"
+	. += "<hr><span class='notice'>Last shot tags were: [lastTags]</span>"
 
 /obj/item/camera/coom/printpicture(mob/user, datum/picture/picture)
 	var/obj/item/photo/webpic/p = new(get_turf(src), picture)
@@ -37,27 +40,31 @@
 	if(!picture.mobs_seen)
 		return
 
-	var/mob/living/carbon/human/tag_source = pick(picture.mobs_seen)
-	/*
-	var/maleCount = 0
-	var/femaleCount = 0
-	var/otherCount = 0
+	var/mob/living/carbon/human/mainTagSource = pick(picture.mobs_seen)
 
-
-	for(var/mob/living/carbon/human/H in picture.mobs_seen)
-		if(H.gender == MALE)
-			maleCount++
-		else if (H.gender == FEMALE)
-			tag_source = H
-			femaleCount++
-		else
-			otherCount++
-	*/
-	if(!tag_source)
-		last_tags = ""
+	lastTags = ""
+	if(!mainTagSource)
 		return
 
-	p.thumbnailSrc = pick(picsByTags(human2Tags(tag_source)))
+	if(genderDiscrimination)
+		var/list/rasstrelniySpisok = list( "boy" = 0, "girl" = 0, "other" = 0)
+		for(var/mob/living/carbon/human/H in picture.mobs_seen)
+			if(H.gender == "male")
+				rasstrelniySpisok["boy"]++
+			else if (H.gender == "female")
+				mainTagSource = H
+				rasstrelniySpisok["girl"]++
+			else
+				rasstrelniySpisok["other"]++
+		for(var/gender in rasstrelniySpisok)
+			lastTags += rasstrelniySpisok[gender] == 0 ? "" : (rasstrelniySpisok[gender] > 1 ? "[rasstrelniySpisok[gender]][gender]s" : "1[gender]") + "+"
+
+	lastTags += "[human2Tags(mainTagSource)]"
+
+	if(noHTTPRequests)
+		return
+
+	p.thumbnailSrc = pick(picsByTags(lastTags))
 	p.originalSrc = replacetext(replacetext(p.thumbnailSrc, "thumbnail_", ""), "thumbnails", "images")
 
 	if(!p.thumbnailSrc)
@@ -88,11 +95,10 @@
 		+ "</body></html>", "window=photo_showing")
 	onclose(user, "[name]")
 
-/obj/item/camera/coom/proc/human2Tags(mob/living/carbon/human/H) //эту фегню надо дальше допиливать, но я заебался, пойду окучивать картошку.........
+/proc/human2Tags(mob/living/carbon/human/H) //эту фегню надо дальше допиливать, но я заебался, пойду окучивать картошку.........
 	var/hairHex = findtext(H.hair_color, "#") ? H.hair_color :"#[H.hair_color]"
 	var/eyeHex = findtext(H.eye_color, "#") ? H.eye_color :"#[H.eye_color]"
-	last_tags = "[hairColor2Tag(hairHex)]+[eyeColor2Tag(eyeHex)]"
-	return last_tags
+	return "[hairColor2Tag(hairHex)]+[eyeColor2Tag(eyeHex)]"
 
 /proc/hairColor2Tag(hairColor)
 	var/list/hairTags = list(
