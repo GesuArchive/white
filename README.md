@@ -16,7 +16,7 @@
 **Ваш путеводитель по вселенной Space Station 13.**<br>Практически всегда актуальна.
 
 [<img src="https://i.imgur.com/dUdgAL5.png" alt="Forum" width="150" align="left">](https://forum.station13.ru)
-**Наш форум.**<br>Скопление живых трупов и заблудших душ. Лучшее место для свободных дискуссий на любые темы.
+**Наш форум. Скопление живых трупов и заблудших душ.**<br> Лучшее место для свободных дискуссий на любые темы.
 
 [<img src="https://i.imgur.com/lOHdByt.png" alt="Discord" width="150" align="left">](https://discord.gg/9uJ7dmM)
 **Наш Discord-сервер.**<br>Обязательно возьмите роль **SS 13** в канале `#▸роли`.
