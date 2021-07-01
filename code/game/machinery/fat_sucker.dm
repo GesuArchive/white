@@ -29,8 +29,12 @@
 
 /obj/machinery/fat_sucker/Initialize()
 	. = ..()
-	soundloop = new(list(src),  FALSE)
+	soundloop = new(src,  FALSE)
 	update_icon()
+
+/obj/machinery/fat_sucker/Destroy()
+	QDEL_NULL(soundloop)
+	. = ..()
 
 /obj/machinery/fat_sucker/RefreshParts()
 	..()

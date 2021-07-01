@@ -38,7 +38,7 @@
 	. = ..()
 	create_reagents(reagent_capacity)
 	reagents.add_reagent(reagent_id, reagent_capacity)
-	soundloop = new(list(src), FALSE)
+	soundloop = new(src, FALSE)
 	AddComponent(/datum/component/plumbing/simple_demand)
 
 /obj/machinery/shower/examine(mob/user)

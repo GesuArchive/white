@@ -28,6 +28,7 @@
 	. = ..()
 	if(starting_tape_type)
 		mytape = new starting_tape_type(src)
+	soundloop = new(src)
 	update_icon()
 
 /obj/item/taperecorder/Destroy()
