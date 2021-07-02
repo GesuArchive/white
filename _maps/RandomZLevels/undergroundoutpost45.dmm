@@ -8437,8 +8437,6 @@
 /area/awaymission/undergroundoutpost45/research)
 "qi" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-	dir = 10
-	},
 /turf/open/floor/plasteel/dark/telecomms,
 /area/awaymission/undergroundoutpost45/research)
 "qj" = (
@@ -8810,8 +8808,6 @@
 /area/awaymission/undergroundoutpost45/research)
 "qR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-	dir = 4
-	},
 /obj/machinery/door/airlock/command/glass{
 	name = "Server Room";
 	req_access_txt = "201"
@@ -8822,8 +8818,6 @@
 /area/awaymission/undergroundoutpost45/research)
 "qS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-	dir = 4
-	},
 /turf/open/floor/plasteel/dark{
 	heat_capacity = 1e+006
 	},
@@ -8833,8 +8827,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-	dir = 9
-	},
 /obj/structure/chair/office/light,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark{
@@ -9208,8 +9200,6 @@
 /area/awaymission/undergroundoutpost45/research)
 "rz" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-	dir = 9
-	},
 /turf/open/floor/plasteel/dark/telecomms,
 /area/awaymission/undergroundoutpost45/research)
 "rA" = (
