@@ -42,7 +42,7 @@
 	var/unres_sides = 0 //Unrestricted sides. A bitflag for which direction (if any) can open the door with no access
 	var/safety_mode = FALSE ///Whether or not the airlock can be opened with bare hands while unpowered
 	var/can_crush = TRUE /// Whether or not the door can crush mobs.
-
+	var/prevent_clicks_under_when_closed = TRUE
 
 /obj/machinery/door/examine(mob/user)
 	. = ..()
@@ -70,7 +70,7 @@
 	GLOB.airlocks += src
 	spark_system = new /datum/effect_system/spark_spread
 	spark_system.set_up(2, 1, src)
-	if(density)
+	if(density && prevent_clicks_under_when_closed)
 		flags_1 |= PREVENT_CLICK_UNDER_1
 	else
 		flags_1 &= ~PREVENT_CLICK_UNDER_1
@@ -360,7 +360,8 @@
 		density = TRUE
 	sleep(5)
 	density = TRUE
-	flags_1 |= PREVENT_CLICK_UNDER_1
+	if(prevent_clicks_under_when_closed)
+		flags_1 |= PREVENT_CLICK_UNDER_1
 	sleep(5)
 	update_icon()
 	if(visible && !glass)

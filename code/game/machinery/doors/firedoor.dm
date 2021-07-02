@@ -169,7 +169,7 @@
 			continue
 		whack_a_mole_part(get_step(src, cdir), reconsider_immediately)
 	if(flags_1 & ON_BORDER_1)
-		whack_a_mole_part(get_turf(src), reconsider_immediately)
+		whack_a_mole_part(get_turf(src), reconsider_immediately)	
 
 /obj/machinery/door/firedoor/proc/whack_a_mole_part(turf/start_point, reconsider_immediately)
 	set waitfor = 0
@@ -305,28 +305,27 @@
 	can_crush = FALSE
 	flags_1 = ON_BORDER_1
 	CanAtmosPass = ATMOS_PASS_PROC
-	glass = FALSE
+	glass = TRUE
+	prevent_clicks_under_when_closed = FALSE
 
 /obj/machinery/door/firedoor/border_only/closed
 	icon_state = "door_closed"
-	opacity = TRUE
 	density = TRUE
 
 /obj/machinery/door/firedoor/border_only/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
-	if(!(get_dir(loc, target) == dir)) //Make sure looking at appropriate border
+	if(get_dir(get_turf(src), target) != dir) //Make sure looking at appropriate border
 		return TRUE
 
 /obj/machinery/door/firedoor/border_only/CheckExit(atom/movable/mover as mob|obj, turf/target)
-	if(get_dir(loc, target) == dir)
+	if(get_dir(get_turf(src), target) == dir)
 		return !density
 	return TRUE
 
 /obj/machinery/door/firedoor/border_only/CanAtmosPass(turf/T)
-	if(get_dir(loc, T) == dir)
+	if(get_dir(get_turf(src), T) == dir)
 		return !density
-	else
-		return TRUE
+	return TRUE
 
 /obj/machinery/door/firedoor/heavy
 	name = "тяжёлый пожарный шлюз"
