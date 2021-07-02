@@ -854,7 +854,7 @@
 	m_two.forceMove(locate(x+second_spawnpoint[1], y+second_spawnpoint[2], z))
 	for(var/mob/living/D in duelists)
 		D.Paralyze(3 SECONDS)
-		to_chat(D< "<span class='alert'>Дуэль начнётся через 3 секунды...</span>")
+		to_chat(D, "<span class='alert'>Дуэль начнётся через 3 секунды...</span>")
 		spawn(3 SECONDS)
 			to_chat(D, "<span class='hypnophrase'>Дуэль началась!</span>")
 	START_PROCESSING(SSfastprocess, src)
