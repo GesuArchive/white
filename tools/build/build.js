@@ -88,8 +88,9 @@ const DefineParameter = Juke.createParameter({
 const DmTarget = Juke.createTarget({
   name: 'dm',
   inputs: [
-    '_maps/map_files/generic/**',
+    '_maps/map_files/protocol_c/**',
     'code/**',
+    'white/**',
     'goon/**',
     'html/**',
     'icons/**',
