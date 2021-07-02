@@ -1,5 +1,5 @@
 [![White Dream](https://i.imgur.com/Fwih1xN.gif)](#) 
-### Это основной репозиторий White Dream по игре [Space Station 13](https://station13.ru/).
+### Это основной репозиторий White Dream по игре [Space Station 13](https://station13.ru/). 
 
 ## Развёртывание
 [<img src="https://i.imgur.com/FMf8JBF.png" alt="Старт" width="150" align="left">](https://hackmd.io/@fdev/SJDYI8iR8)
@@ -40,9 +40,9 @@
 
 ## Лицензия
 
-Весь код до [коммита 333c566b88108de218d882840e61928a9b759d8f на 2014/31/12 в 4:38 PM PST](https://github.com/frosty-dev/white-dream-main/commit/333c566b88108de218d882840e61928a9b759d8f) лицензирован под [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html).
+Весь код после [коммита 333c566b88108de218d882840e61928a9b759d8f на 2014/31/12 в 4:38 PM PST](https://github.com/frosty-dev/white-dream-main/commit/333c566b88108de218d882840e61928a9b759d8f) лицензирован под [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html).
 
-Весь код после [commit 333c566b88108de218d882840e61928a9b759d8f на 2014/31/12 в 4:38 PM PST](https://github.com/frosty-dev/white-dream-main/commit/333c566b88108de218d882840e61928a9b759d8f) лицензирован под [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html).
+Весь код до [commit 333c566b88108de218d882840e61928a9b759d8f на 2014/31/12 в 4:38 PM PST](https://github.com/frosty-dev/white-dream-main/commit/333c566b88108de218d882840e61928a9b759d8f) лицензирован под [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html).
 (Включая папку tools, но только если их readme не сообщает обратное)
 
 Смотрите LICENSE и GPLv3.txt за подробностями.
