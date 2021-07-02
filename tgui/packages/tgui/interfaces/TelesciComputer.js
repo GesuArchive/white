@@ -86,9 +86,10 @@ export const TelesciComputer = (props, context) => {
               <LabeledList.Item label="Сила">
                 {power_options.map(opt => (
                   <Button
+                    key={opt}
                     content={opt}
                     disabled={opt > (crystals * 5) * efficiency}
-                    color={opt == power ? 'green' : null}
+                    color={opt === power ? 'green' : null}
                     onClick={() => act('setpower', {
                       newpower: opt,
                     })} />
@@ -122,25 +123,23 @@ export const TelesciComputer = (props, context) => {
           <Section
             title="GPS Маячок"
             buttons={(
-              <>
-                <Button
-                  icon="eject"
-                  content="Изъять"
-                  tooltip="Я серьёзно не знаю зачем он нужен. Напишите в Баги, если есть идеи."
-                  tooltipPosition="left"
-                  onClick={() => act('ejectGPS')} />
-              </>
+              <Button
+                icon="eject"
+                content="Изъять"
+                tooltip="Я серьёзно не знаю зачем он нужен. Напишите в Баги, если есть идеи."
+                tooltipPosition="left"
+                onClick={() => act('ejectGPS')} />
             )}>
             {inserted_gps}
           </Section>
         )}
         <Section
           title="Последнее сообщение">
-            <NoticeBox>
-              {temp_msg}
-            </NoticeBox>
+          <NoticeBox>
+            {temp_msg}
+          </NoticeBox>
         </Section>
       </Window.Content>
     </Window>
-  )
-}
+  );
+};

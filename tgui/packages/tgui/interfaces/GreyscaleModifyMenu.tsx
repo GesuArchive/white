@@ -104,7 +104,7 @@ const ColorDisplay = (props, context) => {
             <Button
               icon="palette"
               tooltip="Brings up a color pick window to replace this color group."
-              />
+            />
             <Button
               icon="dice"
               onClick={() => act("random_color", { color_index: item.index })}

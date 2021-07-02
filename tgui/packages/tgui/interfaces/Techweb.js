@@ -720,7 +720,7 @@ const TechNode = (props, context) => {
         {design_ids.map((k, i) => (
           <Button
             key={id}
-            className={`${design_cache[k].class} Techweb__DesignIcon`}/>
+            className={`${design_cache[k].class} Techweb__DesignIcon`} />
         ))}
       </Box>
       {required_experiments?.length > 0 && (

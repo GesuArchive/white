@@ -43,22 +43,22 @@ export const EnerNet = (props, context) => {
               Скорость
             </Table.Cell>
           </Table.Row>
-        {data.coils.map((coil, i) => (
-          <Table.Row key={i}>
-            <Table.Cell p={1}>
-              #{i+1}
-            </Table.Cell>
-            <Table.Cell p={1}>
-              {coil.acc}W
-            </Table.Cell>
-            <Table.Cell p={1}>
-              {coil.max}W
-            </Table.Cell>
-            <Table.Cell p={1}>
-              {coil.suc}W
-            </Table.Cell>
-          </Table.Row>
-        ))}
+          {data.coils.map((coil, i) => (
+            <Table.Row key={i}>
+              <Table.Cell p={1}>
+                #{i+1}
+              </Table.Cell>
+              <Table.Cell p={1}>
+                {coil.acc}W
+              </Table.Cell>
+              <Table.Cell p={1}>
+                {coil.max}W
+              </Table.Cell>
+              <Table.Cell p={1}>
+                {coil.suc}W
+              </Table.Cell>
+            </Table.Row>
+          ))}
         </Table>
         <Button
           content="НАЙТИ КАТУШКИ"
