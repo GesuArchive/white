@@ -977,7 +977,7 @@
 /area/ai_monitored/turret_protected/aisat_interior)
 "adm" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel/grimy,
 /area/ai_monitored/turret_protected/aisat_interior)
@@ -13889,7 +13889,7 @@
 /area/hallway/primary/central)
 "aJJ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 1
 	},
@@ -14058,7 +14058,7 @@
 	pixel_x = -32;
 	pixel_y = -40
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -39004,7 +39004,7 @@
 /obj/item/book/manual/wiki/engineering_guide,
 /obj/structure/table/glass,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 9
 	},

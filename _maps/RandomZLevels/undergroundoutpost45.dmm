@@ -8436,7 +8436,7 @@
 /turf/open/floor/circuit/telecomms/server,
 /area/awaymission/undergroundoutpost45/research)
 "qi" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 	dir = 10
 	},
 /turf/open/floor/plasteel/dark/telecomms,
@@ -8809,7 +8809,7 @@
 /turf/open/floor/plasteel/dark/telecomms,
 /area/awaymission/undergroundoutpost45/research)
 "qR" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 	dir = 4
 	},
 /obj/machinery/door/airlock/command/glass{
@@ -8821,7 +8821,7 @@
 	},
 /area/awaymission/undergroundoutpost45/research)
 "qS" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark{
@@ -8832,7 +8832,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 	dir = 9
 	},
 /obj/structure/chair/office/light,
@@ -9207,7 +9207,7 @@
 	},
 /area/awaymission/undergroundoutpost45/research)
 "rz" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 	dir = 9
 	},
 /turf/open/floor/plasteel/dark/telecomms,

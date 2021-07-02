@@ -1520,7 +1520,7 @@
 /area/mine/production)
 "eq" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
@@ -1632,7 +1632,7 @@
 /area/mine/production)
 "eC" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/mine/production)
@@ -4440,7 +4440,7 @@
 /turf/open/floor/plasteel,
 /area/mine/laborcamp/security)
 "HO" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
