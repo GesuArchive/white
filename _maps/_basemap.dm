@@ -8,8 +8,8 @@
 		#include "map_files\debug\runtimestation.dmm"
 		#include "map_files\debug\multiz.dmm"
 		#include "map_files\MetaStation\MetaStation.dmm"
-		#include "map_files\IceBoxStation\BoxStationWhite.dmm"
-		#include "map_files\IceBoxStation\BoxStationWhite_under.dmm"
+		#include "map_files\BoxStation\BoxStationWhite.dmm"
+		#include "map_files\BoxStation\BoxStationWhite_under.dmm"
 
 		#ifdef CIBUILDING
 			#include "templates.dm"
