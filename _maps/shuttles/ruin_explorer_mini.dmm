@@ -40,7 +40,6 @@
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/explorer_mini)
 "h" = (
-/obj/machinery/computer/camera_advanced/shuttle_docker/explorer_mini,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/explorer_mini)
 "i" = (

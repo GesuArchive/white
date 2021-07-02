@@ -72,7 +72,7 @@
 "bt" = (/mob/living/simple_animal/hostile/retaliate/goose,/turf/open/floor/plating/grass,/area/ruin/space/has_grav/abandonedzoo)
 "bu" = (/obj/structure/flora/rock/jungle,/turf/open/floor/plating/grass,/area/ruin/space/has_grav/abandonedzoo)
 "bv" = (/obj/effect/spawner/structure/window/shuttle,/turf/open/floor/mineral/titanium,/area/ruin/space/has_grav/abandonedzoo)
-"bw" = (/obj/machinery/computer/shuttle{icon_state = "computer"; dir = 4},/turf/open/floor/mineral/titanium,/area/ruin/space/has_grav/abandonedzoo)
+"bw" = (/obj/machinery/computer/shuttle_flight{icon_state = "computer"; dir = 4},/turf/open/floor/mineral/titanium,/area/ruin/space/has_grav/abandonedzoo)
 "bx" = (/obj/structure/chair/comfy/shuttle{dir = 8},/obj/effect/mob_spawn/human/commander,/turf/open/floor/mineral/titanium,/area/ruin/space/has_grav/abandonedzoo)
 "by" = (/obj/structure/closet/crate/coffin{icon_state = "coffinopen"},/obj/effect/mob_spawn/human/doctor,/turf/open/floor/mineral/titanium,/area/ruin/space/has_grav/abandonedzoo)
 "bz" = (/obj/machinery/door/airlock/titanium/glass,/turf/open/floor/mineral/titanium,/area/ruin/space/has_grav/abandonedzoo)

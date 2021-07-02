@@ -9,7 +9,6 @@
 /turf/open/floor/plating,
 /area/shuttle/diy)
 "e" = (
-/obj/machinery/computer/camera_advanced/shuttle_docker/adv/diy,
 /turf/open/floor/plating,
 /area/shuttle/diy)
 "f" = (

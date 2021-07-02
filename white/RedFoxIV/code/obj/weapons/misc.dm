@@ -649,27 +649,21 @@
 /obj/item/clothing/under/color/grey/artist
 	name = "Одежда артиста"
 	resistance_flags = INDESTRUCTIBLE
+	item_flags = NEEDS_PERMIT | ABSTRACT | DROPDEL
 
 /obj/item/clothing/under/color/grey/artist/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, "Initialize")
 
-/obj/item/clothing/under/color/grey/artist/dropped(mob/user)
-	. = ..()
-	qdel(src)
-
 //artist's version of boots
 /obj/item/clothing/shoes/combat/artist
 	name = "сапоги артиста"
 	resistance_flags = INDESTRUCTIBLE
+	item_flags = NEEDS_PERMIT | ABSTRACT | DROPDEL
 
 /obj/item/clothing/shoes/combat/artist/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, "Initialize")
-
-/obj/item/clothing/shoes/combat/artist/dropped(mob/user)
-	. = ..()
-	qdel(src)
 
 /*
 //artist's version of toolset implant
@@ -848,11 +842,13 @@
 	deltimer(timeout_timer)
 	duel_status = DUEL_IN_PROGRESS
 	timeout_timer = addtimer(CALLBACK(src, .proc/timeout), timeout_time SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
-	duelists[1].forceMove(locate(x+first_spawnpoint[1], y+first_spawnpoint[2], z))
-	duelists[2].forceMove(locate(x+second_spawnpoint[1], y+second_spawnpoint[2], z))
+	var/mob/m_one = duelists[1]
+	var/mob/m_two = duelists[2]
+	m_one.forceMove(locate(x+first_spawnpoint[1], y+first_spawnpoint[2], z))
+	m_two.forceMove(locate(x+second_spawnpoint[1], y+second_spawnpoint[2], z))
 	for(var/mob/living/D in duelists)
 		D.Paralyze(3 SECONDS)
-		to_chat(D< "<span class='alert'>Дуэль начнётся через 3 секунды...</span>")
+		to_chat(D, "<span class='alert'>Дуэль начнётся через 3 секунды...</span>")
 		spawn(3 SECONDS)
 			to_chat(D, "<span class='hypnophrase'>Дуэль началась!</span>")
 	START_PROCESSING(SSfastprocess, src)

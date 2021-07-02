@@ -83,10 +83,6 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle)
 "G" = (
-/obj/machinery/computer/camera_advanced/shuttle_docker/adv/diy{
-	name = "Nevmerloshuttle console";
-	dir = 1
-	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle)
 "H" = (

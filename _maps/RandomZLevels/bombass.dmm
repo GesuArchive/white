@@ -933,7 +933,7 @@
 /obj/item/tank/internals/emergency_oxygen/double,
 /obj/item/clothing/under/wzzzz/blackutility,
 /obj/item/clothing/gloves/color/black,
-/obj/item/card/id/syndicate/anyone,
+/obj/item/card/id/advanced/black/syndicate_command,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
@@ -951,7 +951,7 @@
 /obj/item/tank/internals/emergency_oxygen/double,
 /obj/item/clothing/under/wzzzz/blackutility,
 /obj/item/clothing/gloves/color/black,
-/obj/item/card/id/syndicate/anyone,
+/obj/item/card/id/advanced/black/syndicate_command,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},

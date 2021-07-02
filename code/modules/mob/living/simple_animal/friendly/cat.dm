@@ -60,17 +60,20 @@
 	//						'white/valtos/sounds/cat/meow8.ogg')
 
 /mob/living/simple_animal/pet/cat/male
-/mob/living/simple_animal/pet/cat/male/Initialize()
+/mob/living/simple_animal/pet/cat/male/Initialize(_gender=null)
 	.=..(MALE)
 /mob/living/simple_animal/pet/cat/female
-/mob/living/simple_animal/pet/cat/female/Initialize()
+/mob/living/simple_animal/pet/cat/female/Initialize(_gender=null)
 	.=..(FEMALE)
 
 /mob/living/simple_animal/pet/cat/Initialize(_gender=null)
 	. = ..()
 	add_verb(src, /mob/living/proc/toggle_resting)
 	add_cell_sample()
-	gender = _gender ? _gender : pick(MALE, FEMALE)
+	if(_gender)
+		gender = _gender
+	else
+		gender = pick(MALE, FEMALE)
 	name = gender == FEMALE ? "Кошка":"Кот"
 
 /mob/living/simple_animal/pet/cat/add_cell_sample()
@@ -125,7 +128,7 @@
 	mob_size = MOB_SIZE_SMALL
 	collar_type = "kitten"
 
-/mob/living/simple_animal/pet/cat/kitten/Initialize()
+/mob/living/simple_animal/pet/cat/kitten/Initialize(_gender=null)
 	. = ..(null)
 	addtimer(CALLBACK(src, .proc/grow), 2.5 MINUTES)
 	name = gender == FEMALE ? "Киса":"Котик"
@@ -154,7 +157,7 @@
 	var/memory_saved = FALSE
 	held_state = "cat"
 
-/mob/living/simple_animal/pet/cat/runtime/Initialize()
+/mob/living/simple_animal/pet/cat/runtime/Initialize(_gender=null)
 	if(prob(5))
 		icon_state = "original"
 		icon_living = "original"

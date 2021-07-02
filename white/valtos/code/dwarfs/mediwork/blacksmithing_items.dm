@@ -93,7 +93,8 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 /obj/item/blacksmith/tongs/attack_self(mob/user)
 	. = ..()
 	if(contents.len)
-		contents[contents.len].forceMove(drop_location())
+		var/obj/O = contents[contents.len]
+		O.forceMove(drop_location())
 		icon_state = "tongs"
 
 /obj/item/blacksmith/tongs/attack(mob/living/carbon/C, mob/user)

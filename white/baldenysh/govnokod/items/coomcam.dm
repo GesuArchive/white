@@ -40,7 +40,11 @@
 	if(!picture.mobs_seen)
 		return
 
-	var/mob/living/carbon/human/mainTagSource = pick(picture.mobs_seen)
+	var/list/humans_seen = list()
+	for(var/mob/living/carbon/human/H in picture.mobs_seen)
+		humans_seen.Add(H)
+
+	var/mob/living/carbon/human/mainTagSource = pick(humans_seen)
 
 	lastTags = ""
 	if(!mainTagSource)
@@ -48,7 +52,7 @@
 
 	if(genderDiscrimination)
 		var/list/rasstrelniySpisok = list( "boy" = 0, "girl" = 0, "other" = 0)
-		for(var/mob/living/carbon/human/H in picture.mobs_seen)
+		for(var/mob/living/carbon/human/H in humans_seen)
 			if(H.gender == "male")
 				rasstrelniySpisok["boy"]++
 			else if (H.gender == "female")

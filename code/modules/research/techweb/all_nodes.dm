@@ -1180,7 +1180,7 @@
 	display_name = "Deepcore Mining"
 	description = "Mining, but automated."
 	prereq_ids = list("basic_mining")
-	design_ids = list("deepcore_drill", "deepcore_hopper", "deepcore_hub")
+	design_ids = list("deepcore_drill", "deepcore_hopper")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 //Helpers for debugging/balancing the techweb in its entirety!
