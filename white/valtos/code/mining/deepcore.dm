@@ -134,7 +134,7 @@
 	update_icon_state()
 	playsound(src, 'sound/machines/boltsdown.ogg', 50)
 	visible_message("<span class='notice'>[capitalize(name)] готов к работе!</span>")
-	
+
 
 /obj/machinery/deepcore/drill/proc/Undeploy()
 	active_vein = null
@@ -419,7 +419,7 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 		/obj/item/stack/ore/bluespace_crystal = 0,
 		/obj/item/stack/ore/bananium = 0
 	)
-	var/storage_volume = 10000 //how many units of each material type can be stored (2000 material is still 1 sheet) 
+	var/storage_volume = 10000 //how many units of each material type can be stored (2000 material is still 1 sheet)
 	var/eject_speed = 1 //how much time in seconds between each material type being shat out
 	var/ejecting = FALSE
 
@@ -459,7 +459,7 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 	if(!active)
 		to_chat(user, "<span class='alert'>Turn on the hopper bfore flushing the materials!</span>")
 		return
-	
+
 	if(prob(5)) //lol
 		user.say(pick(
 			"Po twojej pysznej zupie", \
@@ -483,7 +483,7 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 		active = TRUE
 		use_power = ACTIVE_POWER_USE
 		to_chat(user, "<span class='notice'>You activeate [src.name]</span>")
-	update_icon_state()	
+	update_icon_state()
 
 /obj/machinery/deepcore/hopper/multitool_act(mob/living/user, obj/item/multitool/I)
 	. = ..()
@@ -526,7 +526,7 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 
 /obj/machinery/deepcore/hopper/proc/try_add_material(amount, mat_typepath)
 	if(!active)
-		return 
+		return
 	var/current_mat = storage[mat_typepath]
 	if(isnull(current_mat))
 		stack_trace("Hopper tried to add a material that is not listed in it's storage. This should not happen.")

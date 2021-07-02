@@ -58,7 +58,7 @@
 		if(istype(m,/obj/item/borg/upgrade/modkit/indoors)) //fuck off
 			lmao += 50
 
-		
+
 	if(prob(min(lmao,100)))
 		attempt_reload(21474836) //we do a little trolling
 	. = ..() // как бе вызывает attempt_reload дважды, но второй вызов нихуя не делает, так что похуй.

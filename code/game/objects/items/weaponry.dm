@@ -668,7 +668,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		homerun_ready = 1
 	..()
 
-/obj/item/melee/baseball_bat/attack(mob/living/target, mob/living/user, var/knockback = TRUE)
+/obj/item/melee/baseball_bat/attack(mob/living/target, mob/living/user, knockback = TRUE)
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		return

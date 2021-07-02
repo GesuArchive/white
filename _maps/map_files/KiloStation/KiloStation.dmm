@@ -7285,7 +7285,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 24
 	},
-/mob/living/simple_animal/hostile/carp/cayenne/lia,
+/mob/living/simple_animal/hostile/carp/cayenne,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/heads/hos)
 "amq" = (
@@ -10349,7 +10349,7 @@
 /turf/open/floor/plating,
 /area/maintenance/fore)
 "aru" = (
-/obj/machinery/computer/card{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/neutral{
@@ -11773,7 +11773,7 @@
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "atI" = (
-/obj/machinery/computer/card{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/neutral{
@@ -13810,7 +13810,7 @@
 /turf/closed/wall/r_wall,
 /area/engine/break_room)
 "awO" = (
-/obj/machinery/computer/card/minor/ce,
+/obj/machinery/modular_computer/console/preset/id,
 /obj/effect/turf_decal/bot,
 /obj/machinery/computer/security/telescreen/ce{
 	pixel_y = 28
@@ -24763,7 +24763,7 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/science/mixing/chamber)
 "aOR" = (
-/obj/machinery/computer/card/minor/cmo{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 8
 	},
 /obj/effect/turf_decal/bot,
@@ -34698,7 +34698,7 @@
 /turf/open/floor/plasteel,
 /area/engine/break_room)
 "bdw" = (
-/obj/machinery/computer/card/minor/rd{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 8
 	},
 /obj/effect/turf_decal/bot,
@@ -64800,14 +64800,14 @@
 	name = "hastily written note"
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/kitchen)
+/area/crew_quarters/kitchen)
 "jAY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /obj/machinery/meter,
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /turf/open/floor/engine,
-/area/engineering/main)
+/area/engine/engineering)
 "jBA" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -64815,7 +64815,7 @@
 	name = "Unit 1 Privacy Shutter"
 	},
 /turf/open/floor/plating,
-/area/commons/toilet/restrooms)
+/area/crew_quarters/toilet/restrooms)
 "jBG" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -80586,7 +80586,7 @@
 	},
 /area/maintenance/port/aft)
 "czQ" = (
-/obj/machinery/computer/card/minor/hos{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 1
 	},
 /turf/open/floor/wood,
@@ -90741,7 +90741,7 @@
 	network = list("ss13","medbay")
 	},
 /turf/open/floor/plasteel/dark,
-/area/cargo/qm)
+/area/quartermaster/qm)
 "xwt" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/computer/chef_order{
@@ -102628,7 +102628,6 @@ bNh
 cqr
 cuw
 noZ
-tyj
 ajd
 cqt
 cIA

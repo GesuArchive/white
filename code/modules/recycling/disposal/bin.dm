@@ -194,7 +194,7 @@
 	if(QDELETED(src))
 		return
 	var/obj/structure/disposalholder/H = new(src)
-	newHolderDestination(H)	
+	newHolderDestination(H)
 	H.init(src)
 	air_contents = new()
 	H.start(src)

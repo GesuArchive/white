@@ -6,5 +6,5 @@
 	spans = list(SPAN_ROBOT)
 	icon_state = "ratvar"
 
-/datum/language/ratvar/scramble(var/input)
+/datum/language/ratvar/scramble(input)
 	. = text2ratvar(input)
