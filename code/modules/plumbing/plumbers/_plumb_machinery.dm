@@ -124,6 +124,6 @@
 	else
 		to_chat(user, "<span class='notice'>Now the [src.name] will use russian reagent names for output list.</span>")
 
-/obj/machinery/plumbing/tank/proc/prompt(varname, var/v)
+/obj/machinery/plumbing/tank/proc/prompt(varname, v)
 	var/input = input("Set [varname] to what? Make sure to select a unique symbol like \"&\", otherwise extracting from list will be very problematic! (Groups of symbols are also accepted!)", "[varname]", v) as null|num
 	return input
