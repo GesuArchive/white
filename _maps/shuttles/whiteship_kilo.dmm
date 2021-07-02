@@ -1350,10 +1350,6 @@
 /turf/open/floor/plating,
 /area/shuttle/abandoned/crew)
 "cv" = (
-/obj/machinery/computer/camera_advanced/shuttle_docker/whiteship{
-	dir = 4;
-	view_range = 14
-	},
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium,
