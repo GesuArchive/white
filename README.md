@@ -1,5 +1,5 @@
 [![White Dream](https://i.imgur.com/Fwih1xN.gif)](#) 
-### Это основной репозиторий White Dream по игре [Space Station 13](https://station13.ru/).
+### Это основной репозиторий White Dream по игре [Space Station 13](https://station13.ru/). 
 
 ## Развёртывание
 [<img src="https://i.imgur.com/FMf8JBF.png" alt="Старт" width="150" align="left">](https://hackmd.io/@fdev/SJDYI8iR8)
