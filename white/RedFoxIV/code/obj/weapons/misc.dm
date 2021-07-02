@@ -649,27 +649,21 @@
 /obj/item/clothing/under/color/grey/artist
 	name = "Одежда артиста"
 	resistance_flags = INDESTRUCTIBLE
+	item_flags = NEEDS_PERMIT | ABSTRACT | DROPDEL
 
 /obj/item/clothing/under/color/grey/artist/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, "Initialize")
 
-/obj/item/clothing/under/color/grey/artist/dropped(mob/user)
-	. = ..()
-	qdel(src)
-
 //artist's version of boots
 /obj/item/clothing/shoes/combat/artist
 	name = "сапоги артиста"
 	resistance_flags = INDESTRUCTIBLE
+	item_flags = NEEDS_PERMIT | ABSTRACT | DROPDEL
 
 /obj/item/clothing/shoes/combat/artist/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, "Initialize")
-
-/obj/item/clothing/shoes/combat/artist/dropped(mob/user)
-	. = ..()
-	qdel(src)
 
 /*
 //artist's version of toolset implant

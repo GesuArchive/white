@@ -23,7 +23,7 @@ if [ -d ".git" ]; then
 fi
 
 cp tgstation.dmb tgstation.rsc $1/
-cp libbyond-extools.so libbyond-extools.so $1/
+cp libbyond-extools.so $1/
 cp -r _maps/* $1/_maps/
 cp -r icons/runtime/* $1/icons/runtime/
 cp -r sound/runtime/* $1/sound/runtime/
