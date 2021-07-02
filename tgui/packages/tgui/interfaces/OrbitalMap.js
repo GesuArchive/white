@@ -1,8 +1,6 @@
-import { toTitleCase } from 'common/string';
-import { Box, Button, Section, Table, DraggableControl, Dropdown, Divider, NoticeBox, Slider, Knob, ProgressBar, ScrollableBox } from '../components';
+import { Box, Button, Section, Table, DraggableControl, Dropdown, Divider, NoticeBox, Slider, ProgressBar } from '../components';
 import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
-import { resolveAsset } from '../assets';
 
 export const OrbitalMap = (props, context) => {
   const { act, data } = useBackend(context);
@@ -67,8 +65,7 @@ export const OrbitalMap = (props, context) => {
       width={has_radar ? 1080 : 395}
       height={has_radar ? 710 : 400}>
       <Window.Content>
-      {!has_radar || (
-        <>
+        {!has_radar || (
           <div class="OrbitalMap__radar">
             <Button
               position="absolute"
@@ -124,13 +121,35 @@ export const OrbitalMap = (props, context) => {
                         viewBox="-250 -250 500 500"
                         position="absolute">
                         <defs>
-                          <pattern id="grid" width={200} height={200} patternUnits="userSpaceOnUse">
-                            <rect width={200} height={200} fill="url(#smallgrid)" />
-                            <path d={"M 200 0 L 0 0 0 200"} fill="none" stroke="#222233" stroke-width="1" />
+                          <pattern
+                            id="grid"
+                            width={200}
+                            height={200}
+                            patternUnits="userSpaceOnUse">
+                            <rect
+                              width={200}
+                              height={200}
+                              fill="url(#smallgrid)" />
+                            <path
+                              d={"M 200 0 L 0 0 0 200"}
+                              fill="none"
+                              stroke="#222233"
+                              stroke-width="1" />
                           </pattern>
-                          <pattern id="smallgrid" width={100} height={100} patternUnits="userSpaceOnUse">
-                            <rect width={100} height={100} fill="#111111" />
-                            <path d={"M 100 0 L 0 0 0 100"} fill="none" stroke="#222233" stroke-width="0.5" />
+                          <pattern
+                            id="smallgrid"
+                            width={100}
+                            height={100}
+                            patternUnits="userSpaceOnUse">
+                            <rect
+                              width={100}
+                              height={100}
+                              fill="#111111" />
+                            <path
+                              d={"M 100 0 L 0 0 0 100"}
+                              fill="none"
+                              stroke="#222233"
+                              stroke-width="0.5" />
                           </pattern>
                         </defs>
                         <rect x="-50%" y="-50%" width="100%" height="100%"
@@ -210,72 +229,70 @@ export const OrbitalMap = (props, context) => {
               )}
             </DraggableControl>
           </div>
-        </>
         )}
         <div class="OrbitalMap__panel">
           {!isDocking || (
-            <>
-              <NoticeBox
-                color="red"
-                textAlign="center"
-                fontSize="14px">
-                  ВЫБЕРИТЕ МЕСТО СТЫКОВКИ:
-                <Dropdown
-                  mt={1}
-                  selected="Выбрать место стыковки"
-                  width="100%"
-                  options={validDockingPorts.map(
-                    map_object => (
-                      <option key={map_object.id}>
-                        {map_object.name}
-                      </option>
-                    ))}
-                  onSelected={value => act("gotoPort", {
-                    port: value.key,
-                  })} />
-              </NoticeBox>
-            </>
+            <NoticeBox
+              color="red"
+              textAlign="center"
+              fontSize="14px">
+              ВЫБЕРИТЕ МЕСТО СТЫКОВКИ:
+              <Dropdown
+                mt={1}
+                selected="Выбрать место стыковки"
+                width="100%"
+                options={validDockingPorts.map(
+                  map_object => (
+                    <option key={map_object.id}>
+                      {map_object.name}
+                    </option>
+                  ))}
+                onSelected={value => act("gotoPort", {
+                  port: value.key,
+                })} />
+            </NoticeBox>
           )}
           {!has_radar || (
-          <Section title="Отслеживание тел">
-            <Box
-              mb={2}
-              fontSize="16px"
-              bold>
-              {trackedBody}
-            </Box>
-            <Box>
-              <b>
-                X:&nbsp;
-              </b>
-              {trackedObject && trackedObject.position_x}
-            </Box>
-            <Box>
-              <b>
-                Y:&nbsp;
-              </b>
-              {trackedObject && trackedObject.position_y}
-            </Box>
-            <Box>
-              <b>
-                Ускорение:&nbsp;
-              </b>
-              ({trackedObject && trackedObject.velocity_x}, {trackedObject && trackedObject.velocity_y})
-            </Box>
-            <Box>
-              <b>
-                Радиус:&nbsp;
-              </b>
-              {trackedObject && trackedObject.radius} БСЕ
-            </Box>
-            <Divider />
-            <Dropdown
-              selected={trackedBody}
-              width="100%"
-              color="grey"
-              options={map_objects.map(map_object => (map_object.name))}
-              onSelected={value => setTrackedBody(value)} />
-          </Section>
+            <Section title="Отслеживание тел">
+              <Box
+                mb={2}
+                fontSize="16px"
+                bold>
+                {trackedBody}
+              </Box>
+              <Box>
+                <b>
+                  X:&nbsp;
+                </b>
+                {trackedObject && trackedObject.position_x}
+              </Box>
+              <Box>
+                <b>
+                  Y:&nbsp;
+                </b>
+                {trackedObject && trackedObject.position_y}
+              </Box>
+              <Box>
+                <b>
+                  Ускорение:&nbsp;
+                </b>
+                ({trackedObject && trackedObject.velocity_x},
+                {trackedObject && trackedObject.velocity_y})
+              </Box>
+              <Box>
+                <b>
+                  Радиус:&nbsp;
+                </b>
+                {trackedObject && trackedObject.radius} БСЕ
+              </Box>
+              <Divider />
+              <Dropdown
+                selected={trackedBody}
+                width="100%"
+                color="grey"
+                options={map_objects.map(map_object => (map_object.name))}
+                onSelected={value => setTrackedBody(value)} />
+            </Section>
           )}
           <Section title="Управление полётом" height="100%">
             {(!thrust_alert) || (
@@ -370,55 +387,55 @@ export const ShuttleControls = (props, context) => {
         })} />
       {!has_radar || (
         <>
-        <Divider/>
-        <ShuttleMap />
-        <Box bold>
-          Ускорение
-        </Box>
-        <Slider
-          value={shuttleThrust}
-          minValue={0}
-          maxValue={100}
-          step={1}
-          stepPixelSize={4}
-          onDrag={(e, value) => act('setThrust', {
-            thrust: value,
-          })} />
-        <Box bold mt={2}>
-          Угол ускорения
-        </Box>
-        <Slider
-          value={shuttleAngle}
-          minValue={-180}
-          maxValue={180}
-          step={1}
-          stepPixelSize={1}
-          onDrag={(e, value) => act('setAngle', {
-            angle: value,
-          })} />
-        {(!display_fuel) || (
-          <>
-            <Box bold mt={2}>
-              Топлива осталось
-            </Box>
-            <ProgressBar
-              value={fuel}>
-              {fuel} моль.
-            </ProgressBar>
-          </>
-        )}
-        <Table mt={2}>
-          {Object.keys(display_stats).map(value => (
-            <Table.Row key={value}>
-              <Table.Cell bold>
-                {value} :
-              </Table.Cell>
-              <Table.Cell textAlign="right">
-                {display_stats[value]}
-              </Table.Cell>
-            </Table.Row>
-          ))}
-        </Table>
+          <Divider />
+          <ShuttleMap />
+          <Box bold>
+            Ускорение
+          </Box>
+          <Slider
+            value={shuttleThrust}
+            minValue={0}
+            maxValue={100}
+            step={1}
+            stepPixelSize={4}
+            onDrag={(e, value) => act('setThrust', {
+              thrust: value,
+            })} />
+          <Box bold mt={2}>
+            Угол ускорения
+          </Box>
+          <Slider
+            value={shuttleAngle}
+            minValue={-180}
+            maxValue={180}
+            step={1}
+            stepPixelSize={1}
+            onDrag={(e, value) => act('setAngle', {
+              angle: value,
+            })} />
+          {(!display_fuel) || (
+            <>
+              <Box bold mt={2}>
+                Топлива осталось
+              </Box>
+              <ProgressBar
+                value={fuel}>
+                {fuel} моль.
+              </ProgressBar>
+            </>
+          )}
+          <Table mt={2}>
+            {Object.keys(display_stats).map(value => (
+              <Table.Row key={value}>
+                <Table.Cell bold>
+                  {value} :
+                </Table.Cell>
+                <Table.Cell textAlign="right">
+                  {display_stats[value]}
+                </Table.Cell>
+              </Table.Row>
+            ))}
+          </Table>
         </>
       )}
       <Button
@@ -460,16 +477,43 @@ export const ShuttleMap = (props, context) => {
         height="100%"
         viewBox="-100 -100 200 200">
         <defs>
-          <pattern id="grid" width={200} height={200} patternUnits="userSpaceOnUse">
-            <rect width={200} height={200} fill="url(#smallgrid)" />
-            <path d={"M 200 0 L 0 0 0 200"} fill="none" stroke="#222233" stroke-width="1" />
+          <pattern
+            id="grid"
+            width={200}
+            height={200}
+            patternUnits="userSpaceOnUse">
+            <rect
+              width={200}
+              height={200}
+              fill="url(#smallgrid)" />
+            <path
+              d={"M 200 0 L 0 0 0 200"}
+              fill="none"
+              stroke="#222233"
+              stroke-width="1" />
           </pattern>
-          <pattern id="smallgrid" width={100} height={100} patternUnits="userSpaceOnUse">
-            <rect width={100} height={100} fill="#111111" />
-            <path d={"M 100 0 L 0 0 0 100"} fill="none" stroke="#222233" stroke-width="0.5" />
+          <pattern
+            id="smallgrid"
+            width={100}
+            height={100}
+            patternUnits="userSpaceOnUse">
+            <rect
+              width={100}
+              height={100}
+              fill="#111111" />
+            <path
+              d={"M 100 0 L 0 0 0 100"}
+              fill="none"
+              stroke="#222233"
+              stroke-width="0.5" />
           </pattern>
         </defs>
-        <rect x="-50%" y="-50%" width="100%" height="100%" fill="url(#grid)" />
+        <rect
+          x="-50%"
+          y="-50%"
+          width="100%"
+          height="100%"
+          fill="url(#grid)" />
         <circle
           r="30px"
           stroke="#BBBBBB"

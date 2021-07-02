@@ -86,7 +86,7 @@ SUBSYSTEM_DEF(shuttle)
 	initial_load()
 
 	if(!arrivals)
-		WARNING("No /obj/docking_port/mobile/arrivals placed on the map!")
+		log_game("No /obj/docking_port/mobile/arrivals placed on the map!")
 	if(!emergency)
 		WARNING("No /obj/docking_port/mobile/emergency placed on the map!")
 	if(!backup_shuttle)

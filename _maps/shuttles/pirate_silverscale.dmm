@@ -609,11 +609,6 @@
 /turf/open/floor/carpet/royalblack,
 /area/shuttle/pirate)
 "Mo" = (
-/obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate{
-	dir = 8;
-	x_offset = 10;
-	y_offset = 5
-	},
 /turf/open/floor/plasteel/dark,
 /area/shuttle/pirate)
 "Mu" = (

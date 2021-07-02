@@ -23,7 +23,7 @@
 	//If it works...
 	prev_loc = get_turf(src)
 	. = ..()
-	
+
 
 /obj/projectile/detflare/on_hit(atom/target, blocked, pierce_hit)
 	var/turf/tloc
@@ -109,7 +109,7 @@
 		if(!L.buckled && L != firer)
 			//L.forceMove(get_step(L, angle2dir()))
 			buckle_mob(L, force = TRUE)
-	
+
 	for(var/obj/O in newloc)
 		if(istype(O, /obj/structure/table))
 			for(var/mob/living/L in buckled_mobs)
@@ -117,14 +117,14 @@
 			qdel(src)
 			return
 	. = ..()
-	
+
 /obj/projectile/acoustic_wave/on_hit(atom/target, blocked, pierce_hit)
 	. = ..()
-	
+
 	if(isclosedturf(target))
 		for(var/mob/living/L in buckled_mobs)
 			L.Paralyze(rand(30,60))
-			L.adjustBruteLoss(rand(10,20))	
+			L.adjustBruteLoss(rand(10,20))
 	/*
 	var/atom/movable/throwdir = angle2dir(Angle)
 	var/atom/movable/throwtarget = get_edge_target_turf(target, throwdir)
@@ -212,7 +212,7 @@
 	. = ..()
 	new /obj/item/trash/stabba_casing_cover(get_turf(src), 1)
 	new /obj/item/trash/stabba_casing_cover(get_turf(src), 2)
-	
+
 
 /obj/projectile/bullet/stabba
 	name = "Электродик Стаббы"
@@ -288,7 +288,7 @@
 			pt.Add(L)
 		else
 			break
-	
+
 	dist = INFINITY // this gives me vietnam-style flashbacks about programming classes in 7th grade
 	var/mob/living/ht //homing target
 	for(var/mob/living/L in pt)
@@ -300,7 +300,7 @@
 			ht = L
 	set_homing_target(ht) // fucking finally
 	homing = TRUE
-	return ..() 
+	return ..()
 
 
 
@@ -327,7 +327,7 @@
 	desc = "Синтезирует медикаменты и прочие реагенты за кредиты. В отличии от обычного химика, не потратит 30 минут на приготовление мультивера."
 	icon = 'white/RedFoxIV/icons/obj/weapons/misc.dmi'
 	icon_state = "chem_seller"
-	density = TRUE		
+	density = TRUE
 	var/icon_work = "chem_seller_work"
 	var/icon_deny = "chem_seller_deny"
 	var/icon_nopower = "chem_seller_nopower"
@@ -454,7 +454,7 @@
 		var/datum/reagent/chemical = GLOB.chemical_reagents_list[ass]
 		chemicals.Add(list(list("title" = chemical.name, "price" = get_price_text(ass),  "typepath" = "[chemical.type]" )))
 	data["chemicals"] = chemicals
-	
+
 	var/selected[0] //do i have to do this?
 	var/datum/reagent/temp = GLOB.chemical_reagents_list[currently_selected]
 	selected.Add(list(list("title" = temp.name, "desc" = temp.description, "price" = get_price_text(currently_selected), "typepath" = "[temp.type]" )))
@@ -483,7 +483,7 @@
 		return FALSE
 	switch(action)
 		if("dispense")
-			if(currently_selected in available_chems) //if this fails, either an admin fucked with it or something has gone terribly wrong. 
+			if(currently_selected in available_chems) //if this fails, either an admin fucked with it or something has gone terribly wrong.
 				return try_dispense()
 			else
 				message_admins("[ADMIN_LOOKUPFLW(usr)] tried to dispense a chemical in [src.name] that is not in the list of selectable chemicals. Possible exploit fuckery?")
@@ -512,7 +512,7 @@
 	var/disp = get_dispense_amount()
 	if(!disp)
 		cd_say("Beaker is full!", 1 SECONDS)
-		flick(icon_deny, src) 
+		flick(icon_deny, src)
 		return
 	flick(icon_work, src)
 	use_power(dispense_power_usage)
@@ -520,7 +520,7 @@
 	return TRUE
 
 /obj/machinery/chem_seller/proc/verify()
-	var/obj/item/card/id/C 
+	var/obj/item/card/id/C
 	if(isliving(usr))
 		var/mob/living/L = usr
 		C = L.get_idcard(TRUE)
@@ -583,7 +583,7 @@
 
 /datum/reagent/fuel/oil/wd40/expose_obj(obj/exposed_obj, reac_volume)
 	//maybe another time
-	
+
 	if(istype(exposed_obj, /obj/item/stock_parts/cell))
 		var/obj/item/stock_parts/cell/cell = exposed_obj
 		// out of all the things i've made, THIS probably wins the competition of dumb:
@@ -591,7 +591,7 @@
 		// still, it KINDA does it's job right, scaling up with reac_volume and scaling down after multiple uses.
 		// but hey, it costs a lot, and the only /reliable/ way of getting a lot of it is syndie's 1TC briefcase.
 		// so yeah, fuck it. i'm just gonna slap a 0.75* in there just to make sure it doesn't go out of hand too much.
-		var/ratio = 1 + (0.75 * initial(cell.maxcharge) * round(reac_volume) / cell.maxcharge) 
+		var/ratio = 1 + (0.75 * initial(cell.maxcharge) * round(reac_volume) / cell.maxcharge)
 		var/ass = ""
 		switch(ratio)
 			if(1.751 to INFINITY)
@@ -607,7 +607,7 @@
 		cell.visible_message("<span class='hypnophrase'>Чудодейственное вещество проникает в щели и отверстия [cell.name], [ass] увеличивая энергоёмкость батареи.</span>")
 		cell.desc = initial(cell.desc) + " Обладаёт лёгким и неописуемым ароматом."
 		return ..()
-	
+
 	if(istype(exposed_obj, /obj/item/stock_parts))
 		var/obj/item/stock_parts/SP = exposed_obj
 		var/new_rating = min(SP.rating + round(reac_volume), 8)
@@ -649,27 +649,21 @@
 /obj/item/clothing/under/color/grey/artist
 	name = "Одежда артиста"
 	resistance_flags = INDESTRUCTIBLE
+	item_flags = NEEDS_PERMIT | ABSTRACT | DROPDEL
 
 /obj/item/clothing/under/color/grey/artist/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, "Initialize")
 
-/obj/item/clothing/under/color/grey/artist/dropped(mob/user)
-	. = ..()
-	qdel(src)
-
 //artist's version of boots
 /obj/item/clothing/shoes/combat/artist
 	name = "сапоги артиста"
 	resistance_flags = INDESTRUCTIBLE
+	item_flags = NEEDS_PERMIT | ABSTRACT | DROPDEL
 
 /obj/item/clothing/shoes/combat/artist/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, "Initialize")
-
-/obj/item/clothing/shoes/combat/artist/dropped(mob/user)
-	. = ..()
-	qdel(src)
 
 /*
 //artist's version of toolset implant
@@ -697,7 +691,7 @@
 	flavour_text = "Будущее цирковых технологий. Развлекайте публику на станции любыми возможными способами, не покидая <b><i>Цирк</i></b>."
 	outfit = /datum/outfit/artist
 	assignedrole = "Artist"
-	
+
 	//mobs that were spawned from /this/ one instance of the spawner
 	var/list/mob/living/spawned_mobs = list()
 
@@ -729,7 +723,7 @@
 	amount += 1
 	L.real_name = "Артист #[amount]"
 	L.name = L.real_name
-	
+
 
 //stolen from CTF code
 /obj/effect/mob_spawn/human/artist/process(delta_time)
@@ -751,8 +745,8 @@
 			message_admins("Игрок [artist.ckey], будучи Артистом, каким-то образом сбежал из цирка, за что был казнён и лишён доступа к спавнеру до конца раунда. Такого быть не должно: выясните, как он этого добился и передайте кодербасу. Если же это произошло по вине админбаса, удалите сикей игрока из переменной спавнера (round_banned_ckeys). Позиция игрока на момент обнаружения побега: x=[artist.x], y=[artist.y], z=[artist.z], название зоны - [get_area_name(artist)]")
 			artist.pooition = 10000
 			artist.emote("scream")
-				
-			
+
+
 			for(var/s=1,s<51,s++)
 				addtimer(CALLBACK(artist, /mob/proc/emote, "poo"), 1+2*log(s) SECONDS)
 			spawn(8.7 SECONDS)
@@ -786,7 +780,7 @@
 	desc = "Controls duels."
 	icon = 'white/valtos/icons/prison/prison.dmi'
 	icon_state = "spwn"
-	
+
 	invisibility = INVISIBILITY_OBSERVER
 	var/duel_outfit = /datum/outfit/artist
 	var/duel_status = DUEL_NODUEL
@@ -818,7 +812,7 @@
 	bet = input("Сколько метакэша готов поставить? (Не меньше 50!)", "1XBET", 50) as num
 	if(bet < 50)
 		return
-	
+
 	if(duel_status != DUEL_NODUEL)
 		to_chat(user, "Ты опоздал, дружок!")
 		return
@@ -848,11 +842,13 @@
 	deltimer(timeout_timer)
 	duel_status = DUEL_IN_PROGRESS
 	timeout_timer = addtimer(CALLBACK(src, .proc/timeout), timeout_time SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
-	duelists[1].forceMove(locate(x+first_spawnpoint[1], y+first_spawnpoint[2], z))
-	duelists[2].forceMove(locate(x+second_spawnpoint[1], y+second_spawnpoint[2], z))
+	var/mob/m_one = duelists[1]
+	var/mob/m_two = duelists[2]
+	m_one.forceMove(locate(x+first_spawnpoint[1], y+first_spawnpoint[2], z))
+	m_two.forceMove(locate(x+second_spawnpoint[1], y+second_spawnpoint[2], z))
 	for(var/mob/living/D in duelists)
 		D.Paralyze(3 SECONDS)
-		to_chat(D< "<span class='alert'>Дуэль начнётся через 3 секунды...</span>")
+		to_chat(D, "<span class='alert'>Дуэль начнётся через 3 секунды...</span>")
 		spawn(3 SECONDS)
 			to_chat(D, "<span class='hypnophrase'>Дуэль началась!</span>")
 	START_PROCESSING(SSfastprocess, src)
@@ -860,7 +856,7 @@
 /obj/effect/duel_controller/proc/timeout()
 	if(duelists.len != 1)
 		stack_trace("Duel controller timed out with [duelists.len] duelists instead of 2.")
-	
+
 	switch(duel_status)
 		if(DUEL_NODUEL)
 			stack_trace("Duel controller timed out with with duel_status equal to NODUEL. This is dumb.")
@@ -900,7 +896,7 @@
 			to_chat(D, "<span class='warning'><b>Вы проиграли. [pick("Повезёт в следующий раз.", "Лох.", "На это было смешно смотреть.")]</b></span>")
 			finish_duel(D)
 			return
-		
+
 
 
 

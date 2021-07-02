@@ -29,7 +29,8 @@ SUBSYSTEM_DEF(title)
 	if(!file_path)
 		file_path = "icons/ts.png"
 
-	ASSERT(fexists(file_path))
+	if(fexists(file_path))
+		ASSERT(fexists(file_path))
 
 	current_lobby_screen = fcopy_rsc(file_path)
 

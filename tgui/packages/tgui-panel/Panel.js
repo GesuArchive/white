@@ -24,7 +24,7 @@ export const Panel = (props, context) => {
   const audio = useAudio(context);
   const settings = useSettings(context);
   const game = useGame(context);
-  const [things, setThings] = useLocalState(context, 'things', 1);;
+  const [things, setThings] = useLocalState(context, 'things', 1);
   if (process.env.NODE_ENV !== 'production') {
     const { useDebug, KitchenSink } = require('tgui/debug');
     const debug = useDebug(context);
@@ -49,7 +49,7 @@ export const Panel = (props, context) => {
                   tooltip={things ? "Скрыть" : "Показать"}
                   tooltipPosition="bottom"
                   icon={things ? "angle-double-right" : "angle-double-left"}
-                  onClick={() => setThings(!things)}/>
+                  onClick={() => setThings(!things)} />
               </Stack.Item>
               {!!things && (
                 <Stack.Item>

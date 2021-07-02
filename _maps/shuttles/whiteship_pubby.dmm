@@ -42,7 +42,6 @@
 /turf/open/floor/plating/abductor,
 /area/shuttle/abandoned)
 "i" = (
-/obj/machinery/computer/camera_advanced/shuttle_docker/whiteship,
 /turf/open/floor/plating/abductor,
 /area/shuttle/abandoned)
 "j" = (

@@ -49,7 +49,7 @@
 	AddComponent(/datum/component/plumbing/simple_supply, bolt)
 	//lololol
 	AddComponent(/datum/component/mechanics_holder)
-	
+
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Chemical to dispense", "mechcomp_update_chems")
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set Glue", "set_glue")
 
@@ -115,15 +115,15 @@
 		r_overlay.color = "#FFFFFF"
 	. += r_overlay
 
-/obj/machinery/plumbing/synthesizer/proc/mechcomp_update_chems(var/datum/mechcompMessage/msg)
+/obj/machinery/plumbing/synthesizer/proc/mechcomp_update_chems(datum/mechcompMessage/msg)
 	var/err = 0
 	var/list/signal = splittext(msg.signal, glue)
 
 	if(length(signal) == 0 || length(signal) > 2)
 		say("Invalid signal syntax! Proper signal syntax is: \[CHEM_NAME]&\[DISPENSE_AMOUNT(from 0 to 5 inclusive!)].")
 		return
-	
-	
+
+
 	//the following code is ugly af, so i am going to comment it because ladder ifs (like these) kinda suck ass.
 	if(length(signal == 1))
 		//only the chemical or amount has been passed, let's figure out which one.

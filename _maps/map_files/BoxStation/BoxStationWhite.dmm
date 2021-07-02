@@ -14079,7 +14079,7 @@
 "bhD" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/southright{
-	name = интерьерная дверь;
+	name = "интерьерная дверь";
 	req_one_access_txt = "7;29"
 	},
 /obj/machinery/door/poddoor/shutters/preopen{

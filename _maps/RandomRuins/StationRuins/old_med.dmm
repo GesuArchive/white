@@ -675,6 +675,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/machinery/light,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/aft)
 "gY" = (

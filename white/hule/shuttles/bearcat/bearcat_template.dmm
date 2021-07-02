@@ -12,10 +12,6 @@
 /turf/open/floor/plating,
 /area/shuttle/bearcat/bridge)
 "ac" = (
-/obj/machinery/computer/camera_advanced/shuttle_docker/adv/bearcat{
-	req_access = list(205);
-	z_lock = list(2,3,4,7,8,9,10,12,13)
-	},
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/bridge)
 "ad" = (

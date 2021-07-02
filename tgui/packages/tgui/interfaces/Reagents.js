@@ -1,4 +1,5 @@
 import { useBackend, useLocalState } from '../backend';
+import { Fragment } from 'inferno';
 import { Button, Icon, LabeledList, NumberInput, Section, Stack, Table } from '../components';
 import { Window } from '../layouts';
 import { ReagentLookup } from './common/ReagentLookup';

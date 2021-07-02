@@ -97,7 +97,7 @@
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set list glue", "setlistglue")
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Toggle usage of english names", "toggleenname")
 
-/obj/machinery/plumbing/tank/proc/sendout(var/datum/mechcompMessage/msg)
+/obj/machinery/plumbing/tank/proc/sendout(datum/mechcompMessage/msg)
 	var/list/l = list()
 	for(var/datum/reagent/r in reagents.reagent_list)
 		l.Add("[use_enname_for_list ? "[r.enname ? "[r.enname]" : "[r.name]"]" : "[r.name]"][pairs_glue][r.volume]")
@@ -124,6 +124,6 @@
 	else
 		to_chat(user, "<span class='notice'>Now the [src.name] will use russian reagent names for output list.</span>")
 
-/obj/machinery/plumbing/tank/proc/prompt(var/varname, var/v)
+/obj/machinery/plumbing/tank/proc/prompt(varname, v)
 	var/input = input("Set [varname] to what? Make sure to select a unique symbol like \"&\", otherwise extracting from list will be very problematic! (Groups of symbols are also accepted!)", "[varname]", v) as null|num
 	return input
