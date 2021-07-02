@@ -70,7 +70,10 @@
 	. = ..()
 	add_verb(src, /mob/living/proc/toggle_resting)
 	add_cell_sample()
-	gender = _gender ? _gender : pick(MALE, FEMALE)
+	if(_gender)
+		gender = _gender
+	else
+		gender = pick(MALE, FEMALE)
 	name = gender == FEMALE ? "Кошка":"Кот"
 
 /mob/living/simple_animal/pet/cat/add_cell_sample()
