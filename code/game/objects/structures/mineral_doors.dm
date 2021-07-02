@@ -202,7 +202,6 @@
 
 /obj/structure/mineral_door/iron
 	name = "iron door"
-	icon = 'white/valtos/icons/objects.dmi'
 	max_integrity = 300
 	smoothing_groups = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
 
