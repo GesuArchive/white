@@ -46,7 +46,7 @@ class Dmi:
     @classmethod
     def from_file(cls, fname):
         # 10/10 crutch
-        if(fname == ".\icons\effects\crayondecal.dmi"):
+        if(fname == ".\icons\effects\crayondecal.dmi" or fname == "./icons/effects/crayondecal.dmi"):
             return
         image = Image.open(fname)
         if image.mode != 'RGBA':
