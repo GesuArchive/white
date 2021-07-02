@@ -7,7 +7,6 @@
 		#include "map_files\Mining\Lavaland.dmm"
 		#include "map_files\debug\runtimestation.dmm"
 		#include "map_files\debug\multiz.dmm"
-		#include "map_files\MetaStation\MetaStation.dmm"
 		#include "map_files\BoxStation\BoxStationWhite.dmm"
 		#include "map_files\BoxStation\BoxStationWhite_under.dmm"
 
