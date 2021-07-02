@@ -658,9 +658,8 @@
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
 "bU" = (
-/obj/effect/turf_decal/dust,
-/obj/structure/table/wood,
-/obj/item/hatchet/wooden,
+/obj/structure/dresser,
+/obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility4)
 "bV" = (
@@ -740,6 +739,9 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"cf" = (
+/turf/closed/indestructible/rock/snow,
+/area/awaymission/chilly/facility4)
 "cg" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/table/reinforced,
@@ -804,6 +806,12 @@
 	dir = 4
 	},
 /area/awaymission/chilly/facility2)
+"co" = (
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/wood{
+	icon_state = "wood-broken2"
+	},
+/area/awaymission/chilly/facility4)
 "cp" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/rack,
@@ -1175,11 +1183,6 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/cave)
-"dm" = (
-/obj/effect/turf_decal/dust,
-/obj/item/chair/wood,
-/turf/open/floor/wood,
-/area/awaymission/chilly/facility4)
 "dn" = (
 /obj/structure/girder,
 /obj/effect/decal/cleanable/generic,
@@ -1448,15 +1451,11 @@
 	},
 /area/awaymission/chilly/gatewaystart)
 "dV" = (
-/obj/effect/turf_decal/dust,
-/obj/structure/closet/cabinet,
-/obj/item/clothing/suit/hooded/wintercoat/science,
-/obj/item/clothing/gloves/color/black,
-/obj/item/clothing/shoes/winterboots,
-/obj/item/clothing/head/beanie,
-/obj/item/clothing/neck/stripedgreenscarf/wzzzz/grey,
-/obj/item/key,
-/turf/open/floor/wood,
+/obj/structure/table/wood,
+/obj/structure/rospilovo/televizor/broken,
+/turf/open/floor/plating{
+	icon_state = "platingdmg2"
+	},
 /area/awaymission/chilly/facility4)
 "dW" = (
 /obj/structure/girder,
@@ -1640,10 +1639,10 @@
 	},
 /area/awaymission/chilly/surface)
 "ew" = (
-/obj/effect/turf_decal/dust,
 /obj/structure/table/wood,
-/obj/structure/rospilovo/televizor/broken,
-/turf/open/floor/wood,
+/obj/item/flashlight/lamp,
+/obj/effect/decal/cleanable/cobweb,
+/turf/open/floor/plating,
 /area/awaymission/chilly/facility4)
 "ex" = (
 /obj/structure/frame/computer{
@@ -1691,6 +1690,13 @@
 	dir = 8
 	},
 /area/awaymission/chilly/cave)
+"eE" = (
+/obj/effect/decal/cleanable/garbage,
+/turf/open/floor/grass/snow/safe/oxy{
+	icon_state = "snow_dug";
+	slowdown = 1
+	},
+/area/awaymission/chilly/surface)
 "eF" = (
 /obj/structure/barricade/wooden/snowed,
 /obj/effect/turf_decal/weather/snow/corner,
@@ -1827,6 +1833,17 @@
 	icon_state = "wood-broken"
 	},
 /area/awaymission/chilly/facility3)
+"fa" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/closet/cabinet,
+/obj/item/clothing/suit/hooded/wintercoat/science,
+/obj/item/clothing/gloves/color/black,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/head/beanie,
+/obj/item/clothing/neck/stripedgreenscarf/wzzzz/grey,
+/obj/item/key,
+/turf/open/floor/carpet/red,
+/area/awaymission/chilly/facility4)
 "fb" = (
 /obj/structure/table/wood,
 /obj/machinery/computer/security/wooden_tv{
@@ -1996,6 +2013,11 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"fy" = (
+/obj/effect/turf_decal/dust,
+/obj/item/chair/wood,
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
 "fz" = (
 /obj/item/gun/ballistic/automatic/m41a2,
 /turf/open/floor/plating/asteroid/snow/ice/oxy,
@@ -2004,6 +2026,12 @@
 /obj/structure/lattice,
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly/cave)
+"fB" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/wood{
+	icon_state = "wood-broken3"
+	},
+/area/awaymission/chilly/surface)
 "fC" = (
 /obj/structure/barricade/sandbags,
 /obj/effect/turf_decal/dust,
@@ -2059,9 +2087,9 @@
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility5)
 "fK" = (
-/obj/effect/turf_decal/dust,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood{
-	icon_state = "wood-broken5"
+	icon_state = "wood-broken2"
 	},
 /area/awaymission/chilly/facility4)
 "fL" = (
@@ -2076,6 +2104,16 @@
 	obj_damage = 40
 	},
 /turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
+"fN" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/light/small/broken,
+/obj/item/food/meat/slab/bear,
+/obj/item/food/meat/slab/bear,
+/obj/item/food/meat/slab,
+/obj/item/food/meat/slab,
+/obj/structure/closet/crate/wooden/wzzzz/alt,
+/turf/open/floor/wood,
 /area/awaymission/chilly/surface)
 "fO" = (
 /obj/effect/turf_decal/dust,
@@ -2235,12 +2273,11 @@
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
 "gp" = (
-/obj/effect/turf_decal/dust,
-/mob/living/simple_animal/hostile/cockroach,
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
+/obj/effect/baseturf_helper/asteroid/snow{
+	baseturf = /turf/open/floor/grass/snow/safe/oxy
 	},
-/area/awaymission/chilly/facility4)
+/turf/closed/wall/mineral/wood,
+/area/awaymission/chilly/surface)
 "gq" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/vomit/old,
@@ -2539,6 +2576,11 @@
 /obj/effect/decal/cleanable/wrapping,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
+"hh" = (
+/turf/open/floor/wood{
+	icon_state = "wood-broken7"
+	},
+/area/awaymission/chilly/facility4)
 "hi" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 1
@@ -2688,9 +2730,10 @@
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility2)
 "hB" = (
-/obj/effect/turf_decal/dust,
+/obj/effect/decal/cleanable/food/flour,
 /turf/open/floor/plating{
-	icon_state = "platingdmg1"
+	heat_capacity = 1e+006;
+	icon_state = "panelscorched"
 	},
 /area/awaymission/chilly/facility4)
 "hC" = (
@@ -2739,6 +2782,12 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/pod/dark,
 /area/awaymission/chilly/facility3)
+"hI" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/wood{
+	icon_state = "wood-broken6"
+	},
+/area/awaymission/chilly/facility4)
 "hJ" = (
 /obj/item/stack/sheet/bone,
 /obj/effect/decal/cleanable/blood/old,
@@ -2859,13 +2908,9 @@
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "ib" = (
-/obj/structure/mineral_door/wood,
-/obj/structure/barricade/wooden/crude/snow,
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 4
-	},
-/turf/open/floor/wood,
-/area/awaymission/chilly/facility4)
+/obj/structure/window/reinforced/fulltile/ice,
+/turf/open/floor/plating,
+/area/awaymission/chilly/surface)
 "ic" = (
 /obj/effect/turf_decal/dust,
 /obj/item/chair,
@@ -3194,8 +3239,9 @@
 /area/awaymission/chilly/cave)
 "iX" = (
 /obj/effect/turf_decal/dust,
-/obj/structure/dresser,
-/turf/open/floor/wood,
+/obj/structure/bed,
+/obj/item/bedsheet,
+/turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility4)
 "iY" = (
 /obj/machinery/light/broken{
@@ -3323,6 +3369,13 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility4)
+"jp" = (
+/obj/structure/rospilovo/painting/lenin{
+	pixel_y = 31
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet/red,
+/area/awaymission/chilly/facility4)
 "jq" = (
 /obj/item/pickaxe/rusted,
 /turf/open/floor/plating/asteroid/snow/ice/oxy,
@@ -3441,6 +3494,13 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
+"jG" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/chair/wood,
+/turf/open/floor/wood{
+	icon_state = "wood-broken7"
+	},
+/area/awaymission/chilly/facility4)
 "jH" = (
 /obj/structure/grille/broken,
 /obj/effect/turf_decal/dust,
@@ -3783,18 +3843,6 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility5)
-"kE" = (
-/obj/effect/turf_decal/dust,
-/obj/structure/chair/comfy/black{
-	dir = 8
-	},
-/obj/item/storage/fancy/cigarettes/cigpack_robust,
-/obj/item/lighter,
-/obj/machinery/light/small/broken{
-	dir = 4
-	},
-/turf/open/floor/wood,
-/area/awaymission/chilly/facility4)
 "kF" = (
 /obj/item/shard,
 /obj/effect/turf_decal/dust,
@@ -4338,6 +4386,11 @@
 /obj/structure/grille,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/facility3)
+"mm" = (
+/obj/effect/turf_decal/dust,
+/mob/living/simple_animal/hostile/cockroach,
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
 "mn" = (
 /obj/machinery/door/airlock/security/glass{
 	name = "Brig"
@@ -4675,11 +4728,6 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/material,
 /area/awaymission/chilly/facility3)
-"nh" = (
-/obj/effect/turf_decal/dust,
-/obj/structure/fireplace,
-/turf/open/floor/wood,
-/area/awaymission/chilly/facility4)
 "ni" = (
 /obj/effect/turf_decal/dust,
 /obj/item/stack/rods,
@@ -4806,15 +4854,8 @@
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility/croom)
 "nz" = (
-/obj/effect/turf_decal/dust,
-/obj/item/grown/log/tree,
-/obj/item/grown/log/tree,
-/obj/item/grown/log/tree,
-/obj/item/grown/log/tree,
-/obj/item/grown/log/tree,
-/obj/structure/closet/crate/wooden/wzzzz/alt,
-/turf/open/floor/wood,
-/area/awaymission/chilly/facility4)
+/turf/closed/wall/mineral/wood,
+/area/awaymission/chilly/surface)
 "nA" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/tile/red{
@@ -4909,14 +4950,6 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
-"nO" = (
-/obj/effect/turf_decal/dust,
-/obj/structure/toilet{
-	dir = 4;
-	pixel_x = -2
-	},
-/turf/open/floor/wood,
-/area/awaymission/chilly/facility4)
 "nP" = (
 /obj/structure/sign/warning/securearea/ntsign,
 /turf/closed/wall/rust,
@@ -5027,12 +5060,6 @@
 /obj/machinery/door/airlock/hatch,
 /turf/open/floor/plasteel/elevatorshaft,
 /area/awaymission/chilly/ntcargotrain)
-"of" = (
-/obj/effect/turf_decal/dust,
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
-/area/awaymission/chilly/facility4)
 "og" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/frame/computer{
@@ -5154,12 +5181,6 @@
 	},
 /turf/open/floor/plasteel/white/side,
 /area/awaymission/chilly/facility2)
-"ow" = (
-/obj/effect/turf_decal/dust,
-/turf/open/floor/wood{
-	icon_state = "wood-broken7"
-	},
-/area/awaymission/chilly/facility4)
 "ox" = (
 /obj/structure/chair/comfy/black{
 	dir = 4
@@ -6002,8 +6023,9 @@
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/gatewaystart/base2armory)
 "qT" = (
-/obj/effect/turf_decal/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
 /area/awaymission/chilly/facility4)
 "qU" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -6125,6 +6147,10 @@
 	icon_state = "platingdmg2"
 	},
 /area/awaymission/chilly/facility3)
+"rk" = (
+/mob/living/simple_animal/hostile/cockroach,
+/turf/open/floor/plating,
+/area/awaymission/chilly/surface)
 "rl" = (
 /obj/structure/table,
 /obj/effect/turf_decal/tile/green{
@@ -6311,14 +6337,10 @@
 /area/awaymission/chilly/facility2)
 "rK" = (
 /obj/effect/turf_decal/dust,
-/obj/machinery/light/small/broken,
-/obj/item/food/meat/slab/bear,
-/obj/item/food/meat/slab/bear,
-/obj/item/food/meat/slab,
-/obj/item/food/meat/slab,
-/obj/structure/closet/crate/wooden/wzzzz/alt,
+/obj/structure/table/wood,
+/obj/structure/rospilovo/televizor/broken,
 /turf/open/floor/wood,
-/area/awaymission/chilly/facility4)
+/area/awaymission/chilly/surface)
 "rL" = (
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
@@ -6559,6 +6581,12 @@
 /obj/effect/decal/remains/human,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/cave)
+"sw" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/table/wood,
+/obj/item/storage/belt/bandolier,
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
 "sx" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/fluff/broken_flooring{
@@ -6599,6 +6627,18 @@
 /obj/item/clothing/suit/armor/wzzzz/tac_hazmat/grey/coldres,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/gatewaystart/base2armory)
+"sB" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/closet/cabinet,
+/obj/item/clothing/suit/hooded/wintercoat/science,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/neck/stripedgreenscarf/wzzzz/grey,
+/obj/item/storage/box/matches,
+/obj/item/clothing/head/bearpelt/wzzzz/wolf,
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/awaymission/chilly/surface)
 "sC" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken,
@@ -6755,6 +6795,16 @@
 /obj/effect/light_emitter,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
+"sX" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/chair/comfy/black{
+	dir = 4
+	},
+/obj/machinery/light/small/broken{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
 "sY" = (
 /obj/structure/noticeboard,
 /turf/closed/wall/ice,
@@ -6838,10 +6888,10 @@
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/cave)
 "tk" = (
-/obj/structure/fence/corner{
-	dir = 1
-	},
-/turf/open/floor/grass/snow/safe/oxy,
+/obj/effect/turf_decal/dust,
+/obj/structure/table/wood,
+/obj/item/trash/can/food/beans,
+/turf/open/floor/wood,
 /area/awaymission/chilly/surface)
 "tl" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -7510,6 +7560,12 @@
 /obj/machinery/light/broken,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility)
+"uW" = (
+/obj/structure/rospilovo/shitok/shitok2,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
+/area/awaymission/chilly/facility4)
 "uX" = (
 /obj/structure/chair/plastic{
 	dir = 4
@@ -7551,9 +7607,8 @@
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/gatewaystart)
 "vb" = (
-/obj/effect/turf_decal/dust,
-/mob/living/simple_animal/hostile/cockroach,
-/turf/open/floor/wood,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating,
 /area/awaymission/chilly/facility4)
 "vc" = (
 /obj/structure/closet/crate,
@@ -7873,6 +7928,13 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/chilly/facility)
+"vU" = (
+/obj/effect/turf_decal/dust,
+/mob/living/simple_animal/hostile/cockroach,
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/awaymission/chilly/surface)
 "vW" = (
 /obj/structure/rack,
 /obj/effect/turf_decal/dust,
@@ -7920,9 +7982,8 @@
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility)
 "wd" = (
-/mob/living/simple_animal/hostile/cockroach,
-/turf/open/floor/plating,
-/area/awaymission/chilly/facility4)
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
 "we" = (
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel{
@@ -7962,6 +8023,16 @@
 	slowdown = 1
 	},
 /area/awaymission/chilly/surface)
+"wj" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/toilet{
+	dir = 4;
+	pixel_x = -2
+	},
+/obj/effect/decal/cleanable/shreds,
+/obj/effect/decal/cleanable/poo,
+/turf/open/floor/plasteel/showroomfloor,
+/area/awaymission/chilly/facility4)
 "wk" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/doorpanel/broken,
@@ -8323,6 +8394,17 @@
 /obj/structure/flora/tree/pine,
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly/surface)
+"xm" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/closet/cabinet,
+/obj/item/clothing/suit/hooded/wintercoat/science,
+/obj/item/clothing/gloves/color/black,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/head/beanie,
+/obj/item/clothing/neck/stripedgreenscarf/wzzzz/grey,
+/obj/item/key,
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
 "xn" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/filingcabinet{
@@ -8364,6 +8446,16 @@
 "xr" = (
 /turf/closed/wall/mineral/wood,
 /area/awaymission/chilly/facility3)
+"xs" = (
+/obj/effect/turf_decal/dust,
+/obj/item/grown/log/tree,
+/obj/item/grown/log/tree,
+/obj/item/grown/log/tree,
+/obj/item/grown/log/tree,
+/obj/item/grown/log/tree,
+/obj/structure/closet/crate/wooden/wzzzz/alt,
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
 "xt" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/fulltile/ice,
@@ -8515,9 +8607,12 @@
 /area/awaymission/chilly/facility2)
 "xN" = (
 /obj/effect/turf_decal/dust,
-/turf/open/floor/wood{
-	icon_state = "wood-broken3"
-	},
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
+"xO" = (
+/obj/structure/mineral_door/wood,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/wood,
 /area/awaymission/chilly/facility4)
 "xP" = (
 /turf/open/floor/plasteel/stairs/old/chilly/single{
@@ -8543,6 +8638,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/gatewaystart/base2armory)
+"xT" = (
+/obj/machinery/space_heater/improvised_chem_heater,
+/turf/open/floor/wood,
+/area/awaymission/chilly/facility4)
 "xU" = (
 /obj/effect/turf_decal/weather/side{
 	dir = 6
@@ -8564,6 +8663,11 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility3)
+"xX" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/fulltile/ice,
+/turf/open/floor/plating,
+/area/awaymission/chilly/surface)
 "xY" = (
 /obj/structure/chair/comfy/black{
 	dir = 4
@@ -8611,6 +8715,12 @@
 	set_luminosity = 6
 	},
 /turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
+"yf" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/table/wood,
+/obj/item/hatchet/wooden,
+/turf/open/floor/wood,
 /area/awaymission/chilly/surface)
 "yg" = (
 /obj/structure/closet/crate/internals,
@@ -8996,12 +9106,9 @@
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
 "zk" = (
-/obj/effect/turf_decal/dust,
-/obj/structure/bed,
-/obj/item/bedsheet,
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/obj/structure/table/wood,
+/obj/item/mining_thing/nvidia/ntx3090ti,
+/turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility4)
 "zl" = (
 /obj/effect/turf_decal/dust,
@@ -9021,6 +9128,12 @@
 /obj/structure/chair/comfy/shuttle,
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
+"zo" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/wood{
+	icon_state = "wood-broken7"
+	},
+/area/awaymission/chilly/surface)
 "zp" = (
 /obj/item/key,
 /turf/open/floor/grass/snow/safe/oxy,
@@ -9252,11 +9365,6 @@
 /obj/item/trash/popcorn,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
-"Ad" = (
-/obj/effect/turf_decal/dust,
-/obj/machinery/light/small/broken,
-/turf/open/floor/wood,
-/area/awaymission/chilly/facility4)
 "Ae" = (
 /obj/structure/sign/departments/botany{
 	pixel_x = -32
@@ -9303,6 +9411,12 @@
 	dir = 4
 	},
 /area/awaymission/chilly/facility3)
+"Al" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/wood{
+	icon_state = "wood-broken5"
+	},
+/area/awaymission/chilly/surface)
 "Am" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/dust,
@@ -9656,13 +9770,7 @@
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
 "Bg" = (
-/obj/effect/turf_decal/dust,
-/obj/structure/bed,
-/obj/item/bedsheet,
-/obj/item/storage/box/lethalshot,
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility4)
 "Bh" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -9796,16 +9904,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/cave)
-"Bu" = (
-/obj/effect/turf_decal/dust,
-/obj/structure/chair/comfy/black{
-	dir = 4
-	},
-/obj/machinery/light/small/broken{
-	dir = 8
-	},
-/turf/open/floor/wood,
-/area/awaymission/chilly/facility4)
 "Bv" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 10
@@ -9838,6 +9936,14 @@
 "BA" = (
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility3)
+"BB" = (
+/obj/structure/mineral_door/wood,
+/obj/structure/barricade/wooden/crude/snow,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/awaymission/chilly/facility4)
 "BC" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/dust,
@@ -9907,6 +10013,10 @@
 	},
 /turf/open/floor/plating/ice/smooth/oxy,
 /area/awaymission/chilly/cave)
+"BO" = (
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/wood,
+/area/awaymission/chilly/facility4)
 "BP" = (
 /obj/effect/turf_decal/weather/side{
 	dir = 8
@@ -10181,12 +10291,6 @@
 /obj/effect/turf_decal/dust,
 /turf/closed/mineral/snowmountain/cavern/oxy,
 /area/awaymission/chilly/cave)
-"Cw" = (
-/obj/effect/turf_decal/dust,
-/obj/structure/table/wood,
-/obj/item/storage/belt/bandolier,
-/turf/open/floor/wood,
-/area/awaymission/chilly/facility4)
 "Cx" = (
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 1
@@ -10236,6 +10340,11 @@
 "CD" = (
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly/cave)
+"CE" = (
+/obj/item/shard,
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/chilly/surface)
 "CF" = (
 /obj/structure/table,
 /obj/item/stock_parts/micro_laser/high,
@@ -10754,6 +10863,9 @@
 	},
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility)
+"Eh" = (
+/turf/open/floor/plasteel/showroomfloor,
+/area/awaymission/chilly/facility4)
 "Ei" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/sign/warning{
@@ -11046,6 +11158,31 @@
 	dir = 1
 	},
 /area/awaymission/chilly/surface)
+"EU" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/chair/sofa/right{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
+"EV" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/awaymission/chilly/surface)
+"EW" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/chair/comfy/black{
+	dir = 8
+	},
+/obj/item/storage/fancy/cigarettes/cigpack_robust,
+/obj/item/lighter,
+/obj/machinery/light/small/broken{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
 "EX" = (
 /obj/effect/turf_decal/dust,
 /mob/living/simple_animal/hostile/syndicate/ranged/shotgun/space,
@@ -11071,6 +11208,10 @@
 /obj/item/stack/ore/iron,
 /turf/open/floor/plating/asteroid/snow/ice/oxy,
 /area/awaymission/chilly/cave)
+"Fb" = (
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/turf/open/floor/wood,
+/area/awaymission/chilly/facility4)
 "Fc" = (
 /turf/open/floor/plating,
 /area/awaymission/chilly/ntcargotrain)
@@ -11152,6 +11293,11 @@
 /area/awaymission/chilly/facility3)
 "Fo" = (
 /turf/closed/wall/ice,
+/area/awaymission/chilly/surface)
+"Fp" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/dresser,
+/turf/open/floor/wood,
 /area/awaymission/chilly/surface)
 "Fq" = (
 /obj/machinery/door/firedoor,
@@ -11500,6 +11646,14 @@
 	},
 /turf/open/floor/plating/ice/smooth/oxy,
 /area/awaymission/chilly/cave)
+"Gr" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/bed,
+/obj/item/bedsheet,
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/awaymission/chilly/surface)
 "Gs" = (
 /obj/structure/table/reinforced,
 /obj/machinery/microwave,
@@ -11511,6 +11665,10 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility3)
+"Gu" = (
+/obj/structure/falsewall/wood,
+/turf/open/floor/plating,
+/area/awaymission/chilly/surface)
 "Gv" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/door/firedoor/closed,
@@ -11852,6 +12010,18 @@
 	},
 /turf/open/floor/pod,
 /area/awaymission/chilly/facility3)
+"Hr" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/toilet{
+	dir = 4;
+	pixel_x = -2
+	},
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
+"Hs" = (
+/obj/structure/table/wood,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility4)
 "Ht" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/weather/snow/corner,
@@ -12038,6 +12208,13 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"HR" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/chair/sofa/left{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
 "HT" = (
 /obj/structure/bookcase/random,
 /obj/effect/turf_decal/weather/snow/corner,
@@ -12142,6 +12319,10 @@
 	dir = 4
 	},
 /turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/awaymission/chilly/surface)
+"Ih" = (
+/obj/item/shard,
+/turf/open/floor/plating/ice/smooth/oxy,
 /area/awaymission/chilly/surface)
 "Ii" = (
 /obj/structure/closet/crate/trashcart,
@@ -12570,6 +12751,10 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
+"Jv" = (
+/obj/structure/mineral_door/wood,
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
 "Jx" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/bed/maint,
@@ -12642,6 +12827,12 @@
 /obj/item/pen,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
+"JI" = (
+/obj/structure/chair/sofa/left{
+	dir = 8
+	},
+/turf/open/floor/carpet/red,
+/area/awaymission/chilly/facility4)
 "JJ" = (
 /obj/item/trash/energybar,
 /turf/open/floor/plating/snowed/smoothed/temperatre,
@@ -12651,10 +12842,8 @@
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
 "JM" = (
-/obj/effect/turf_decal/dust,
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/wood,
 /area/awaymission/chilly/facility4)
 "JN" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -12932,6 +13121,26 @@
 /obj/effect/baseturf_helper/asteroid/snow,
 /turf/closed/wall/mineral/wood,
 /area/awaymission/chilly/facility3)
+"KF" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/shard,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/awaymission/chilly/facility4)
+"KG" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = -12
+	},
+/obj/structure/mirror{
+	pixel_x = -27
+	},
+/obj/structure/rospilovo/truba,
+/turf/open/floor/plasteel/showroomfloor,
+/area/awaymission/chilly/facility4)
 "KH" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/lattice,
@@ -13039,6 +13248,14 @@
 /obj/item/clothing/under/misc/pj/red,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
+"KW" = (
+/obj/structure/table/wood,
+/obj/item/hatchet/wooden,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/awaymission/chilly/facility4)
 "KX" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Sector B Arrival Bay"
@@ -13122,11 +13339,9 @@
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
 "Ll" = (
-/obj/effect/turf_decal/dust,
-/obj/structure/chair/sofa/left{
-	dir = 1
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
 	},
-/turf/open/floor/wood,
 /area/awaymission/chilly/facility4)
 "Lm" = (
 /obj/effect/turf_decal/weather/side{
@@ -13171,6 +13386,14 @@
 	icon_state = "platingdmg1"
 	},
 /area/awaymission/chilly/facility2)
+"Ls" = (
+/obj/structure/mineral_door/wood,
+/obj/structure/barricade/wooden/crude/snow,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
 "Lt" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/oldvents,
@@ -13283,10 +13506,9 @@
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
 "LK" = (
-/obj/effect/turf_decal/dust,
 /obj/structure/table/wood,
-/obj/item/trash/can/food/beans,
-/turf/open/floor/wood,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating,
 /area/awaymission/chilly/facility4)
 "LL" = (
 /obj/machinery/light/broken{
@@ -13391,6 +13613,10 @@
 /obj/item/stack/rods,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
+"Ma" = (
+/obj/structure/table/wood,
+/turf/open/floor/wood,
+/area/awaymission/chilly/facility4)
 "Mb" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/dust,
@@ -13841,6 +14067,13 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/cave)
+"Ns" = (
+/obj/structure/chair/sofa/right{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet/red,
+/area/awaymission/chilly/facility4)
 "Nt" = (
 /obj/effect/turf_decal/dust,
 /turf/open/floor/material,
@@ -13928,6 +14161,11 @@
 /obj/machinery/light/broken,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"NG" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/fireplace,
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
 "NH" = (
 /obj/item/stack/sheet/mineral/wood,
 /obj/effect/turf_decal/dust,
@@ -14271,6 +14509,10 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
+"OA" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plasteel/showroomfloor,
+/area/awaymission/chilly/facility4)
 "OB" = (
 /turf/open/floor/plasteel/stairs/old/chilly/single{
 	dir = 1
@@ -14328,6 +14570,12 @@
 /obj/effect/turf_decal/weather/side,
 /turf/open/floor/plating/asteroid/snow/ice/oxy,
 /area/awaymission/chilly/facility2)
+"OK" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
+/area/awaymission/chilly/surface)
 "OL" = (
 /obj/structure/closet/crate/secure/gear,
 /obj/item/storage/box/lethalshot,
@@ -14563,9 +14811,10 @@
 /area/awaymission/chilly/facility2)
 "Pv" = (
 /obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/dust,
-/turf/open/floor/plating/snowed/oxy,
-/area/awaymission/chilly/facility4)
+/turf/open/floor/wood{
+	icon_state = "wood-broken6"
+	},
+/area/awaymission/chilly/surface)
 "Pw" = (
 /obj/effect/turf_decal/weather/side{
 	dir = 8
@@ -15003,6 +15252,11 @@
 	},
 /turf/open/floor/circuit,
 /area/awaymission/chilly/facility)
+"QH" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/space_heater/improvised_chem_heater,
+/turf/open/floor/wood,
+/area/awaymission/chilly/facility4)
 "QI" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/old,
@@ -15059,6 +15313,14 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/chilly/gatewaystart)
+"QS" = (
+/obj/structure/mineral_door/wood,
+/obj/structure/barricade/wooden/crude/snow,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
 "QT" = (
 /obj/item/stack/sheet/metal,
 /obj/effect/turf_decal/dust,
@@ -15098,12 +15360,23 @@
 	},
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly/surface)
+"QZ" = (
+/obj/structure/mineral_door/wood,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plasteel/showroomfloor,
+/area/awaymission/chilly/facility4)
 "Ra" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/fulltile/ice,
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"Rb" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/wood{
+	icon_state = "wood-broken4"
+	},
+/area/awaymission/chilly/surface)
 "Rc" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -15169,6 +15442,11 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility3)
+"Rl" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/light/small/broken,
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
 "Rm" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/fulltile/ice,
@@ -15677,12 +15955,6 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
-"SG" = (
-/obj/effect/turf_decal/dust,
-/turf/open/floor/wood{
-	icon_state = "wood-broken2"
-	},
-/area/awaymission/chilly/facility4)
 "SH" = (
 /obj/structure/trash_pile,
 /turf/open/floor/wood{
@@ -15788,6 +16060,15 @@
 /obj/structure/table,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility2)
+"SX" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/rospilovo/battery{
+	pixel_y = 28
+	},
+/turf/open/floor/plating{
+	icon_state = "platingdmg2"
+	},
+/area/awaymission/chilly/facility4)
 "SY" = (
 /obj/structure/table,
 /obj/machinery/light/broken{
@@ -15986,6 +16267,10 @@
 /obj/effect/light_emitter,
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly/surface)
+"TF" = (
+/obj/structure/rospilovo/krest,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "TG" = (
 /obj/effect/turf_decal/dust,
 /mob/living/simple_animal/hostile/skeleton/ice,
@@ -15999,10 +16284,12 @@
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility3)
 "TI" = (
-/obj/structure/mineral_door/wood,
-/obj/structure/barricade/wooden/crude/snow,
-/turf/open/floor/wood,
-/area/awaymission/chilly/facility4)
+/obj/effect/turf_decal/dust,
+/obj/structure/rospilovo/plita,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
+/area/awaymission/chilly/surface)
 "TJ" = (
 /obj/effect/turf_decal/weather/side{
 	dir = 5
@@ -16124,8 +16411,11 @@
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly/surface)
 "TY" = (
-/obj/effect/turf_decal/dust,
-/obj/structure/rospilovo/plita,
+/obj/item/trash/can/food/beans,
+/obj/item/trash/can/food/beans{
+	pixel_x = 10;
+	pixel_y = 9
+	},
 /turf/open/floor/plating{
 	icon_state = "platingdmg1"
 	},
@@ -16297,9 +16587,18 @@
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility3)
 "UC" = (
-/obj/effect/turf_decal/dust,
-/turf/open/floor/wood{
-	icon_state = "wood-broken6"
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/reagent_containers/glass/bucket/wooden,
+/obj/item/reagent_containers/glass/bucket/wooden{
+	pixel_x = -12;
+	pixel_y = 9
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/floor/plating{
+	heat_capacity = 1e+006;
+	icon_state = "panelscorched"
 	},
 /area/awaymission/chilly/facility4)
 "UD" = (
@@ -16433,12 +16732,11 @@
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/cave)
 "UU" = (
-/obj/effect/turf_decal/dust,
-/obj/structure/closet/crate/wooden,
-/obj/item/trash/can/food/beans,
-/obj/item/trash/can/food/beans,
-/obj/item/trash/can/food/beans,
-/turf/open/floor/plating,
+/obj/structure/rospilovo/plita,
+/obj/item/reagent_containers/glass/bowl/mushroom_bowl,
+/turf/open/floor/plating{
+	icon_state = "platingdmg2"
+	},
 /area/awaymission/chilly/facility4)
 "UV" = (
 /obj/effect/decal/cleanable/blood/old,
@@ -16822,6 +17120,10 @@
 /obj/structure/sign/warning/securearea/ntsign,
 /turf/closed/wall/r_wall/rust,
 /area/awaymission/chilly/gatewaystart/base2armory)
+"VQ" = (
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/chilly/surface)
 "VR" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -17039,6 +17341,15 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/gatewaystart/base2armory)
+"Wu" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/bed,
+/obj/item/bedsheet,
+/obj/item/storage/box/lethalshot,
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/awaymission/chilly/surface)
 "Wv" = (
 /obj/effect/decal/prison/pipe/pipea,
 /obj/effect/turf_decal/dust,
@@ -17149,12 +17460,12 @@
 /area/awaymission/chilly/gatewaystart/base2armory)
 "WM" = (
 /obj/effect/turf_decal/dust,
-/obj/machinery/light/broken{
-	dir = 4
-	},
-/obj/effect/turf_decal/dust,
-/turf/open/floor/plating/snowed/oxy,
-/area/awaymission/chilly/facility4)
+/obj/structure/closet/crate/wooden,
+/obj/item/trash/can/food/beans,
+/obj/item/trash/can/food/beans,
+/obj/item/trash/can/food/beans,
+/turf/open/floor/plating,
+/area/awaymission/chilly/surface)
 "WN" = (
 /obj/effect/turf_decal/dust,
 /obj/item/crowbar/large,
@@ -17456,11 +17767,10 @@
 /turf/open/floor/plasteel/elevatorshaft,
 /area/awaymission/chilly/facility2)
 "XE" = (
-/obj/effect/turf_decal/dust,
-/obj/structure/chair/sofa/right{
-	dir = 1
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/wood{
+	icon_state = "wood-broken3"
 	},
-/turf/open/floor/wood,
 /area/awaymission/chilly/facility4)
 "XF" = (
 /obj/effect/turf_decal/dust,
@@ -17700,6 +18010,17 @@
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
+"Yn" = (
+/obj/item/shard,
+/obj/effect/decal/cleanable/glass,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility4)
 "Yo" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/lattice,
@@ -17712,7 +18033,12 @@
 	},
 /area/awaymission/chilly/facility2)
 "Yp" = (
-/turf/closed/indestructible/rock/snow,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/rospilovo/vanna{
+	density = 0
+	},
+/obj/structure/curtain,
+/turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/chilly/facility4)
 "Yq" = (
 /obj/item/shard,
@@ -17831,15 +18157,8 @@
 /turf/open/floor/plating,
 /area/awaymission/chilly/cave)
 "YG" = (
-/obj/effect/turf_decal/dust,
-/obj/structure/sink{
-	dir = 4;
-	pixel_x = -12
-	},
-/obj/structure/mirror{
-	pixel_x = -27
-	},
-/turf/open/floor/wood,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility4)
 "YH" = (
 /obj/effect/turf_decal/dust,
@@ -18012,6 +18331,12 @@
 /obj/structure/lattice,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
+"Ze" = (
+/obj/structure/chair/sofa{
+	dir = 8
+	},
+/turf/open/floor/carpet/red,
+/area/awaymission/chilly/facility4)
 "Zf" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -18183,6 +18508,12 @@
 	},
 /turf/closed/indestructible/opshuttle,
 /area/awaymission/chilly/syndietrain)
+"Zz" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/wood{
+	icon_state = "wood-broken2"
+	},
+/area/awaymission/chilly/surface)
 "ZA" = (
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/dark{
@@ -18203,16 +18534,9 @@
 /area/awaymission/chilly/facility3)
 "ZD" = (
 /obj/effect/turf_decal/dust,
-/obj/structure/closet/cabinet,
-/obj/item/clothing/suit/hooded/wintercoat/science,
-/obj/item/clothing/shoes/winterboots,
-/obj/item/clothing/neck/stripedgreenscarf/wzzzz/grey,
-/obj/item/storage/box/matches,
-/obj/item/clothing/head/bearpelt/wzzzz/wolf,
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
-/area/awaymission/chilly/facility4)
+/obj/structure/table/wood,
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
 "ZE" = (
 /obj/structure/fluff/broken_flooring{
 	dir = 8;
@@ -18231,9 +18555,12 @@
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/cave)
 "ZG" = (
-/obj/effect/turf_decal/dust,
 /obj/structure/table/wood,
-/turf/open/floor/wood,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/pen,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
 /area/awaymission/chilly/facility4)
 "ZH" = (
 /obj/effect/turf_decal/dust,
@@ -18297,6 +18624,17 @@
 	},
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
+"ZR" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = -12
+	},
+/obj/structure/mirror{
+	pixel_x = -27
+	},
+/turf/open/floor/wood,
+/area/awaymission/chilly/surface)
 "ZS" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light/broken{
@@ -18329,6 +18667,11 @@
 	},
 /obj/effect/light_emitter,
 /turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
+"ZX" = (
+/obj/structure/mineral_door/wood,
+/obj/structure/barricade/wooden/crude/snow,
+/turf/open/floor/wood,
 /area/awaymission/chilly/surface)
 "ZY" = (
 /obj/effect/turf_decal/dust,
@@ -47348,7 +47691,7 @@ Om
 Om
 Om
 Om
-tk
+vl
 Le
 Le
 Le
@@ -55122,7 +55465,7 @@ Om
 Wp
 gi
 Wp
-Wp
+eE
 Om
 Om
 Om
@@ -56583,10 +56926,10 @@ nx
 nx
 lO
 dB
-Ee
 dB
 dB
-Ee
+dB
+oJ
 VV
 "}
 (159,1,1) = {"
@@ -56796,17 +57139,17 @@ YK
 YK
 YK
 YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
+Om
+Om
+Om
+nz
+QS
+nz
+nz
+nz
+xX
+nz
+nz
 YK
 YK
 YK
@@ -56817,16 +57160,16 @@ nx
 nx
 nx
 fK
-WY
-nx
+vb
+Hs
 dV
-UC
-iX
+Ma
+ac
 nx
-dB
-dB
-dB
-oJ
+nx
+nx
+nx
+nx
 dB
 dB
 VV
@@ -57038,17 +57381,17 @@ YK
 YK
 YK
 YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
+gp
+nz
+nz
+nz
+Al
+xN
+nz
+xm
+Pv
+Fp
+nz
 YK
 YK
 YK
@@ -57057,20 +57400,20 @@ YK
 zg
 ew
 ZG
-LK
-WY
-vb
-mQ
+nx
 JM
-ow
+YG
+YG
+Bg
+YG
+Bg
 Lg
 nx
+KG
+wj
+nx
 dB
-lO
-dB
-oJ
-dB
-dB
+Ee
 VV
 "}
 (161,1,1) = {"
@@ -57280,17 +57623,17 @@ YK
 YK
 YK
 YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
+ib
+rK
+ZD
+tk
+xN
+mm
+Jv
+Rb
+zo
+wd
+nz
 YK
 YK
 YK
@@ -57298,19 +57641,19 @@ qe
 YK
 nx
 LK
-dm
-xN
-WY
-Lg
+JM
 nx
-Cw
-kE
+SX
 Bg
+YG
+YG
+Bg
+Bg
+hI
+QZ
+OA
+OA
 nx
-lO
-lO
-dB
-dB
 dB
 dB
 VV
@@ -57522,39 +57865,39 @@ YK
 YK
 YK
 YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
+nz
+tk
+fy
+fB
+xN
+wd
+nz
+sw
+EW
+Wu
+nz
 YK
 YK
 YK
 qe
-YK
+CE
 zg
-Lg
-WY
-gp
+KW
+jG
+nx
 vb
-Ad
+YG
+Ns
+Ze
+JI
+YG
+JM
 nx
-nx
-nx
-nx
-nx
-QX
 Yp
-lO
-Yp
-QX
+Eh
+nx
 dB
+oJ
 VV
 "}
 (163,1,1) = {"
@@ -57764,39 +58107,39 @@ YK
 YK
 YK
 YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
+ib
+wd
+xN
+vU
+mm
+Rl
+nz
+nz
+nz
+nz
+nz
 YK
 YK
 YK
 qe
 YK
-zg
-WY
-nx
-nh
+UX
+KF
+BO
+Lg
 Ll
-SG
-of
-nx
 YG
-nO
+Bg
+Bg
+YG
+YG
+hh
 nx
-lO
-Pv
-Pv
-lO
-QX
+nx
+nx
+nx
 dB
+Ee
 VV
 "}
 (164,1,1) = {"
@@ -58006,38 +58349,38 @@ YK
 YK
 YK
 YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
+ib
+xN
+wd
+NG
+HR
+Zz
+EV
+nz
+ZR
+Hr
+nz
 YK
 YK
 YK
 qe
-YK
-zg
+VQ
+Yn
+co
+Lg
+JM
+XE
+Lg
 Lg
 nx
-nh
-XE
-WY
-WY
-mQ
-xN
-WY
+Lg
+Lg
 nx
-QX
-WM
-Pv
-WM
-QX
+nx
+dB
+dB
+dB
+dB
 dB
 VV
 "}
@@ -58248,17 +58591,17 @@ YK
 YK
 YK
 YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
+ib
+wd
+nz
+NG
+EU
+xN
+xN
+Jv
+fB
+xN
+nz
 YK
 YK
 YK
@@ -58266,21 +58609,21 @@ qe
 YK
 zg
 UC
-JM
 Lg
-WY
-rK
 nx
+QH
+ac
+vb
 nx
-nx
+xO
 nx
 nx
 QX
 QX
-jo
 QX
 QX
-dB
+QX
+QX
 VV
 "}
 (166,1,1) = {"
@@ -58490,31 +58833,31 @@ YK
 YK
 YK
 YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
+ib
+Pv
+Rb
+wd
+xN
+fN
+nz
+nz
+nz
+nz
+nz
 YK
 YK
 YK
 qe
-YK
+Ih
 nx
 TY
 qT
-wd
-WY
-ow
 nx
-ZD
-Bu
+xT
+JM
+uW
+nx
+YG
 zk
 nx
 QX
@@ -58522,7 +58865,7 @@ iY
 yd
 yd
 QX
-lO
+cf
 VV
 "}
 (167,1,1) = {"
@@ -58732,17 +59075,17 @@ YK
 YK
 YK
 YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
+nz
+TI
+bC
+rk
+xN
+zo
+nz
+sB
+sX
+Gr
+nz
 YK
 YK
 YK
@@ -58751,13 +59094,13 @@ YK
 zg
 UU
 hB
-hB
-WY
+nx
+nx
 JM
-TI
-WY
-of
-WY
+nx
+nx
+jp
+fa
 fQ
 jo
 La
@@ -58974,17 +59317,17 @@ YK
 YK
 YK
 YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
+ib
+WM
+OK
+OK
+xN
+Rb
+ZX
+xN
+EV
+xN
+Gu
 YK
 YK
 YK
@@ -58994,11 +59337,11 @@ nx
 nx
 nx
 nx
-WY
-nz
+Fb
+ac
 nx
 bU
-fK
+YG
 iX
 nx
 QX
@@ -59216,17 +59559,17 @@ YK
 YK
 YK
 YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
+nz
+nz
+nz
+nz
+xN
+xs
+nz
+yf
+Al
+Fp
+nz
 YK
 YK
 YK
@@ -59236,8 +59579,8 @@ Om
 Om
 Om
 nx
-ib
 nx
+BB
 nx
 nx
 Rm
@@ -59458,17 +59801,17 @@ YK
 YK
 YK
 YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
+Om
+Om
+Om
+nz
+Ls
+nz
+nz
+nz
+xX
+nz
+nz
 YK
 YK
 YK
@@ -64797,9 +65140,9 @@ Om
 Om
 VX
 Om
+TF
 Om
-Om
-Om
+TF
 Om
 Om
 Om
