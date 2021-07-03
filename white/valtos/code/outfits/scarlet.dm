@@ -50,8 +50,9 @@
 	ADD_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
 	scanlines = mutable_appearance('white/valtos/icons/clothing/mob/suit.dmi', "sl_shell", EFFECTS_LAYER)
 	user.add_overlay(scanlines)
-	if(ishuman(user))
-		INVOKE_ASYNC(src, .proc/bootSequence, user)
+	spawn(10)
+		if(src && user && ishuman(user))
+			INVOKE_ASYNC(src, .proc/bootSequence, user)
 
 /obj/item/clothing/suit/space/x031/proc/bootSequence(mob/living/carbon/human/H)
 	H.Paralyze(200)

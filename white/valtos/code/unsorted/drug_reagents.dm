@@ -40,7 +40,7 @@
 	return ..()
 
 /datum/reagent/drug/crank/on_mob_life(mob/living/M)
-	var/high_message = pick("You feel jittery.", "You feel like you gotta go fast.", "You feel like you need to step it up.")
+	var/high_message = pick("Я чувствую скорость.", "Меня никто не остановит!", "Я чувствую, что могу взять мир в свои руки.")
 	if(prob(5))
 		to_chat(M, "<span class='notice'>[high_message]</span>")
 	M.AdjustStun(-20, 0)
@@ -48,29 +48,6 @@
 	M.AdjustUnconscious(-20, 0)
 	M.adjustToxLoss(2)
 	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 1*REM)
-	return FINISHONMOBLIFE(M)
-
-/datum/reagent/drug/methamphetamine
-	description = "Сокращает время оглушения примерно на 300% и позволяет пользователю быстро восстанавливать выносливость, нанося небольшой урон мозгу. Медленно распадается на гистамин и поражает пользователя большим количеством гистамина, если они оглушены. Плохо реагирует с эфедрином. При передозировке субъект будет двигаться случайно, смеяться случайным образом, бросать предметы и страдать от токсинов и повреждения мозга. Если он зависим, субъект будет постоянно дрожать и пускать слюни, прежде чем начнется головокружение и потеря моторного контроля, и в конечном итоге он получит тяжелые повреждения токсинами."
-
-/datum/reagent/drug/methamphetamine/on_mob_life(mob/living/M)
-	var/high_message = pick("Я чувствую скорость.", "Меня никто не остановит!", "Я чувствую, что могу взять мир в свои руки.")
-	if(prob(5))
-		to_chat(M, "<span class='notice'>[high_message]</span>")
-	M.reagents.remove_reagent(/datum/reagent/medicine/diphenhydramine,2) //Greatly increases rate of decay
-	if(M.IsStun() || M.IsParalyzed() || M.IsUnconscious())
-		M.AdjustStun(-40, 0)
-		M.AdjustParalyzed(-40, 0)
-		M.AdjustUnconscious(-40, 0)
-		var/amount2replace = rand(2,6)
-		M.reagents.add_reagent(/datum/reagent/toxin/histamine,amount2replace)
-		M.reagents.remove_reagent(/datum/reagent/drug/methamphetamine,amount2replace)
-	M.adjustStaminaLoss(-2, 0)
-	M.Jitter(2)
-	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.25)
-	if(prob(5))
-		M.emote(pick("twitch", "shiver"))
-		M.reagents.add_reagent(/datum/reagent/toxin/histamine, rand(1,5))
 	return FINISHONMOBLIFE(M)
 
 /datum/reagent/drug/bath_salts/on_mob_life(mob/living/M)

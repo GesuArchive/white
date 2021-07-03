@@ -143,7 +143,7 @@
 /datum/reagent/drug/methamphetamine
 	name = "Метамфетамин"
 	enname = "Methamphetamine"
-	description = "Reduces stun times by about 300%, speeds the user up, and allows the user to quickly recover stamina while dealing a small amount of Brain damage. If overdosed the subject will move randomly, laugh randomly, drop items and suffer from Toxin and Brain damage. If addicted the subject will constantly jitter and drool, before becoming dizzy and losing motor control and eventually suffer heavy toxin damage."
+	description = "Сокращает время оглушения примерно на 300% и позволяет пользователю быстро восстанавливать выносливость, нанося небольшой урон мозгу. Медленно распадается на гистамин и поражает пользователя большим количеством гистамина, если они оглушены. Плохо реагирует с эфедрином. При передозировке субъект будет двигаться случайно, смеяться случайным образом, бросать предметы и страдать от токсинов и повреждения мозга. Если он зависим, субъект будет постоянно дрожать и пускать слюни, прежде чем начнется головокружение и потеря моторного контроля, и в конечном итоге он получит тяжелые повреждения токсинами."
 	reagent_state = LIQUID
 	color = "#FAFAFA"
 	overdose_threshold = 20
@@ -161,7 +161,7 @@
 	..()
 
 /datum/reagent/drug/methamphetamine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	var/high_message = pick("You feel hyper.", "You feel like you need to go faster.", "You feel like you can run the world.")
+	var/high_message = pick("Я чувствую скорость.", "Меня никто не остановит!", "Я чувствую, что могу взять мир в свои руки.")
 	if(DT_PROB(2.5, delta_time))
 		to_chat(M, "<span class='notice'>[high_message]</span>")
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "tweaking", /datum/mood_event/stimulant_medium, name)
