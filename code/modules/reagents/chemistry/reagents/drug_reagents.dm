@@ -150,7 +150,7 @@
 	metabolization_rate = 0.75 * REAGENTS_METABOLISM
 	ph = 5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-	addiction_types = list(/datum/addiction/stimulants = 14) //4.8 per 2 seconds
+	addiction_types = list(/datum/addiction/stimulants = 12) //4.8 per 2 seconds
 
 /datum/reagent/drug/methamphetamine/on_mob_metabolize(mob/living/L)
 	..()
