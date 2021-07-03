@@ -390,10 +390,9 @@
 				if(PORT_TYPE_NUMBER)
 					port.set_input(text2num(user_input))
 				if(PORT_TYPE_ANY)
-					var/any_type = copytext(user_input, 1, PORT_MAX_STRING_LENGTH)
-					port.set_input(text2num(any_type) || any_type)
+					port.set_input(text2num(user_input) || user_input)
 				if(PORT_TYPE_STRING)
-					port.set_input(copytext(user_input, 1, PORT_MAX_STRING_LENGTH))
+					port.set_input(user_input)
 				if(PORT_TYPE_SIGNAL)
 					balloon_alert(usr, "triggered [port.name]")
 					port.set_input(COMPONENT_SIGNAL)
@@ -413,7 +412,10 @@
 				value = port.convert_value(port.output_value)
 			else if(isnull(value))
 				value = "null"
-			balloon_alert(usr, "[port.name] значение: [value]")
+			var/string_form = copytext("[value]", 1, PORT_MAX_STRING_DISPLAY)
+			if(length(string_form) >= PORT_MAX_STRING_DISPLAY-1)
+				string_form += "..."
+			balloon_alert(usr, "[port.name] значение: [string_form]")
 			. = TRUE
 		if("set_display_name")
 			var/new_name = params["display_name"]
