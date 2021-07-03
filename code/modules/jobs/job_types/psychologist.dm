@@ -45,18 +45,19 @@
 
 	id_trim = /datum/id_trim/job/psychologist
 
+/*
 /datum/outfit/job/psychologist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.AddAbility(new/obj/effect/proc_holder/cure_ptsr(null))
+	H.AddAbility(new/obj/effect/proc_holder/cure_ptsd(null))
 
-/obj/effect/proc_holder/cure_ptsr
+/obj/effect/proc_holder/cure_ptsd
 	name = "Вылечить ПТСР"
 	action_icon_state = "mindread"
 
-/obj/effect/proc_holder/cure_ptsr/Click()
+/obj/effect/proc_holder/cure_ptsd/Click()
 	select_person(action?.owner)
 
-/obj/effect/proc_holder/cure_ptsr/proc/select_person(mob/user)
+/obj/effect/proc_holder/cure_ptsd/proc/select_person(mob/user)
 	var/mob/living/carbon/human/picked_human
 	picked_human = input(user, "Лечение ПТСР", "Это будет стоить тебе всего 100 метакэша. Убедись, что цель отработала их для тебя сполна, перед лечением.") as null|mob in view(4, user)
 	if(!picked_human)
@@ -77,3 +78,4 @@
 		return
 	inc_metabalance(user, -100, reason="Лечение выполнено успешно!")
 	picked_human.cure_all_traumas(TRAUMA_RESILIENCE_PSYCHONLY)
+*/

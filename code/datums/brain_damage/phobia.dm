@@ -24,7 +24,7 @@
 		phobia_type = new_phobia_type
 
 	if(specific_person)
-		phobia_type = "ptsr"
+		phobia_type = "ptsd"
 		gain_text = "<span class='warning'>Кто-то меня до чёртиков пугает...</span>"
 		lose_text = "<span class='notice'>Да кого вообще волнует [specific_person]?!</span>"
 		scan_desc += " \"[phobia_ru]\""
@@ -247,7 +247,7 @@
 	phobia_ru = "насекомые"
 	random_gain = FALSE
 
-/datum/brain_trauma/mild/phobia/ptsr
-	phobia_type = "ptsr"
+/datum/brain_trauma/mild/phobia/ptsdr
+	phobia_type = "ptsd"
 	phobia_ru = "ПТСР"
 	random_gain = FALSE

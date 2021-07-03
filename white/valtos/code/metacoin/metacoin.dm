@@ -52,7 +52,7 @@
 		to_chat(src, "<span class='rose bold'>Новый баланс: [mc_count] метакэша!</span>")
 
 /proc/inc_metabalance(mob/M, mc_count, ann = TRUE, reason = null)
-	if(!M.client)
+	if(!M.client || mc_count == 0)
 		return
 
 	var/datum/db_query/query_inc_metacoins = SSdbcore.NewQuery(

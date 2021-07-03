@@ -70,7 +70,7 @@
 	. = ..()
 	add_verb(src, /mob/living/proc/toggle_resting)
 	add_cell_sample()
-	if(_gender)
+	if(_gender in list(FEMALE, MALE, PLURAL))
 		gender = _gender
 	else
 		gender = pick(MALE, FEMALE)
