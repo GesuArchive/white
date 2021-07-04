@@ -203,8 +203,6 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 
 	spawn(10)
 		SStitle.afterload()
-		//Setup orbits.
-		SSorbits.post_load_init()
 		message_admins("<span class='boldannounce'>Подгружаем DF...</span>")
 		load_new_z_level("_maps/RandomZLevels/dwarf_lustress.dmm", "Dwarf Fortress")
 		message_admins("<span class='boldannounce'>DF подгружен...</span>")
