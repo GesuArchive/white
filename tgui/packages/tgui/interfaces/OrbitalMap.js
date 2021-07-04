@@ -141,8 +141,8 @@ export const OrbitalMap = (props, context) => {
                               height={100 * lockedZoomScale}
                               fill="url(#smallgrid)" />
                             <path
-                              d={"M " + (100 * lockedZoomScale) +
-                              " 0 L 0 0 0 " + (100 * lockedZoomScale)}
+                              d={"M " + (100 * lockedZoomScale)
+                              + " 0 L 0 0 0 " + (100 * lockedZoomScale)}
                               fill="none"
                               stroke="#222233"
                               stroke-width="1" />
@@ -234,15 +234,15 @@ export const OrbitalMap = (props, context) => {
                             )}
                           </>
                         ))};
-                    {ourObject && (
-                      <circle
-                        cx={Math.max(Math.min((ourObject.position_x
+                        {ourObject && (
+                          <circle
+                            cx={Math.max(Math.min((ourObject.position_x
                           - xOffset)
                           * zoomScale, 250), -250)}
-                        cy={Math.max(Math.min((ourObject.position_y
+                            cy={Math.max(Math.min((ourObject.position_y
                           - yOffset)
                           * zoomScale, 250), -250)}
-                        r={((ourObject.position_y - yOffset)
+                            r={((ourObject.position_y - yOffset)
                           * zoomScale > 250
                           || (ourObject.position_y - yOffset)
                           * zoomScale < -250
@@ -250,13 +250,13 @@ export const OrbitalMap = (props, context) => {
                           * zoomScale > 250
                           || (ourObject.position_x - xOffset)
                           * zoomScale < -250)
-                          ? 5 * zoomScale
-                          : Math.max(5 * zoomScale, interdiction_range
+                              ? 5 * zoomScale
+                              : Math.max(5 * zoomScale, interdiction_range
                             * zoomScale)}
-                        stroke="#00FF00"
-                        stroke-width="1"
-                        fill="rgba(0,0,0,0)" />
-                      )}
+                            stroke="#00FF00"
+                            stroke-width="1"
+                            fill="rgba(0,0,0,0)" />
+                        )}
                       </svg>
                     </>
                   )}
