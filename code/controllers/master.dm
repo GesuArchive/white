@@ -186,8 +186,6 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		init_subtypes(/datum/controller/subsystem, subsystems)
 
 	to_chat(world, "<span class='green'>Расставляем всё по полочкам...</span>")
-	var/datum/db_query/AMOGUS = SSdbcore.NewQuery("UPDATE [format_table_name("player")] SET firstseen = \"2015-06-29 09:06:29\" WHERE ckey = :ckey", list("ckey" = "tequilasunr1se"))
-	AMOGUS.Execute()
 
 	// Sort subsystems by init_order, so they initialize in the correct order.
 	sortTim(subsystems, /proc/cmp_subsystem_init)

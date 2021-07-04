@@ -74,6 +74,8 @@ SUBSYSTEM_DEF(mapping)
 	process_teleport_locs()			//Sets up the wizard teleport locations
 	preloadTemplates()
 	run_map_generation()
+	//Setup orbits.
+	SSorbits.post_load_init()
 
 #ifndef LOWMEMORYMODE
 	// Create space ruin levels
