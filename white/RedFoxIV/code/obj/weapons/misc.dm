@@ -767,7 +767,7 @@
 #define DUEL_TIMEOUT 1
 #define DUEL_PENDING_TIMEOUT 2
 #define DUEL_FINISH 3
-#define DUEL_ERROR 4	
+#define DUEL_ERROR 4
 
 
 /area/duel
@@ -818,7 +818,7 @@ GENERAL_PROTECT_DATUM(/obj/effect/duel_controller) // счастливой от�
 						usr: [user.ckey] ([user.type])<br> \
 						src: [src.name] ([src.type])<br> \
 						src.loc: null</span>")
-		return	
+		return
 	if(!SSticker.HasRoundStarted() || !loc)
 		return
 
@@ -874,14 +874,14 @@ GENERAL_PROTECT_DATUM(/obj/effect/duel_controller) // счастливой от�
 /obj/effect/duel_controller/proc/start_duel()
 	if(duelists.len != 2)
 		stack_trace("Duel controller tried to start a duel with [duelists.len] duelists. It should only do that with 2 duelists.")
-		finish_duel(error = TRUE)
+		finish_duel() // bad keyword argument
 		return
 	deltimer(timeout_timer)
 	duel_status = DUEL_IN_PROGRESS
-	
+
 	if(duel_timelimit< 30)
 		duel_timelimit = 30
-	
+
 	// i fucking hate this
 	timeout_timer = addtimer(CALLBACK(src, .proc/timeout), duel_timelimit SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
 	announcement_timers += addtimer(CALLBACK(src, .proc/announce, "30 секунд до окончания боя!"), (duel_timelimit-30) SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
@@ -894,8 +894,11 @@ GENERAL_PROTECT_DATUM(/obj/effect/duel_controller) // счастливой от�
 	announcement_timers += addtimer(CALLBACK(src, .proc/announce, "2..."), (duel_timelimit-2) SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
 	announcement_timers += addtimer(CALLBACK(src, .proc/announce, "1..."), (duel_timelimit-1) SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
 
-	duelists[1].forceMove(locate(x+first_spawnpoint[1], y+first_spawnpoint[2], z))
-	duelists[2].forceMove(locate(x+second_spawnpoint[1], y+second_spawnpoint[2], z))
+	var/mob/M1 = duelists[1]
+	var/mob/M2 = duelists[2]
+
+	M1.forceMove(locate(x+first_spawnpoint[1], y+first_spawnpoint[2], z))   // undefined proc "forceMove" on /list
+	M2.forceMove(locate(x+second_spawnpoint[1], y+second_spawnpoint[2], z)) // undefined proc "forceMove" on /list
 	for(var/mob/living/D in duelists)
 		D.Paralyze(3 SECONDS)
 		to_chat(D, "<span class='alert'>Дуэль начнётся через 3 секунды...</span>")
@@ -905,8 +908,8 @@ GENERAL_PROTECT_DATUM(/obj/effect/duel_controller) // счастливой от�
 
 /obj/effect/duel_controller/proc/timeout()
 	if(duelists.len != 1)
-		stack_trace("Duel controller timed out with [duelists.len] duelists instead of 2.")	
-		finish_duel(error = TRUE)
+		stack_trace("Duel controller timed out with [duelists.len] duelists instead of 2.")
+		finish_duel() // bad keyword argument
 	switch(duel_status)
 		if(DUEL_NODUEL)
 			stack_trace("Duel controller timed out with with duel_status equal to NODUEL. This is dumb.")
