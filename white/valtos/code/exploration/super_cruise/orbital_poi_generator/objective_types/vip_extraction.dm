@@ -48,7 +48,7 @@
 	created_human.AddElement(/datum/element/point_of_interest)
 	created_human.mind_initialize()
 	//Remove nearby dangers
-	for(var/mob/living/simple_animal/hostile/SA in view(10, created_human))
+	for(var/mob/living/simple_animal/hostile/SA in range(10, created_human))
 		qdel(SA)
 	//Give them a space worthy suit
 	var/turf/open/T = locate() in shuffle(view(1, created_human))

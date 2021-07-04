@@ -106,3 +106,18 @@
 					SEND_SOUND(M, sound('sound/misc/notice1.ogg'))
 				else
 					SEND_SOUND(M, sound('sound/misc/notice2.ogg'))
+
+/proc/exploration_announce(text, z_value)
+	var/announcement = "<meta charset='UTF-8'>"
+	announcement += "<h1 class='alert'>[command_name()]: Обновление Задания</h1>"
+	announcement += "<span class='alert'><big>[html_encode(text)]</big></span>\n\n"
+
+	for(var/mob/M in GLOB.player_list)
+		if(isliving(M))
+			var/turf/T = get_turf(M)
+			if(istype(get_area(M), /area/shuttle/exploration) || T.z == z_value)
+				to_chat(M, announcement)
+		if(isobserver(M))
+			to_chat(M, announcement)
+
+	print_command_report(text, "Обновление Рейнджеров")

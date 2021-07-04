@@ -53,6 +53,9 @@ SUBSYSTEM_DEF(zclear)
 	//Check for shuttles
 	for(var/obj/docking_port/mobile/M in SSshuttle.mobile)
 		active_levels["[M.z]"] = TRUE
+		//Check shuttle destination
+		if(M.destination)
+			active_levels["[M.destination.z]"] = TRUE
 	//Check for shuttles docking
 	for(var/port_id in SSorbits.assoc_shuttles)
 		var/datum/orbital_object/shuttle/shuttle = SSorbits.assoc_shuttles[port_id]
@@ -173,7 +176,10 @@ SUBSYSTEM_DEF(zclear)
 			if(cleardata.tracking)
 				LAZYADD(free_levels, SSmapping.z_list[cleardata.zvalue])
 			if(length(nullspaced_mobs))
-				priority_announce("Сенсоры сообщают о том, что несколько членов вашего экипажа пропало. Скорее всего их раскидало по космосу, их всё ещё можно попробовать найти.")
+				var/nullspaced_mob_names = ""
+				for(var/atom/A as() in nullspaced_mobs)
+					nullspaced_mob_names += " - [A.name]\n"
+				priority_announce("Сенсоры сообщают о том, что несколько членов вашего экипажа пропало. Скорее всего их раскидало по космосу, их всё ещё можно попробовать найти.\n[nullspaced_mob_names]")
 	cleardata.process_num ++
 
 /*

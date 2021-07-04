@@ -18,6 +18,8 @@
 	var/datum/orbital_object/target_orbital_body
 	//Are we invisible on the map?
 	var/stealth = FALSE
+	//Multiplier for velocity
+	var/velocity_multiplier = 1
 
 	//CALCULATED IN INIT
 	//Once objects are outside of this range, we will not apply gravity to them.
@@ -107,7 +109,8 @@
 	// MOVEMENT
 	//===================================
 	//Move the gravitational body.
-	position.Add(velocity.Scale(ORBITAL_UPDATE_RATE_SECONDS))
+	var/datum/orbital_vector/vel_new = new(velocity.x * ORBITAL_UPDATE_RATE_SECONDS * velocity_multiplier, velocity.y * ORBITAL_UPDATE_RATE_SECONDS * velocity_multiplier)
+	position.Add(vel_new)
 
 	//===================================
 	// COLLISION CHECKING

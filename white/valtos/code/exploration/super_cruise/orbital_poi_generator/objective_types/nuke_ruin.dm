@@ -73,7 +73,7 @@ GLOBAL_LIST_EMPTY(decomission_bombs)
 
 /obj/machinery/nuclearbomb/decomission/process()
 	if(z != target_z)
-		timing = TRUE
+		timing = FALSE
 		detonation_timer = null
 		countdown?.stop()
 		update_icon()
@@ -109,7 +109,7 @@ GLOBAL_LIST_EMPTY(decomission_bombs)
 
 /obj/machinery/nuclearbomb/decomission/explode()
 	if(z != target_z)
-		timing = TRUE
+		timing = FALSE
 		detonation_timer = null
 		countdown?.stop()
 		update_icon()
@@ -117,6 +117,7 @@ GLOBAL_LIST_EMPTY(decomission_bombs)
 	. = ..()
 
 /obj/machinery/nuclearbomb/decomission/actually_explode()
+	SSticker.roundend_check_paused = FALSE
 	linked_objective.complete_objective()
 	GrabDatFence(target_z)
 	QDEL_NULL(linked_objective.linked_beacon)
