@@ -8575,7 +8575,9 @@
 /area/centcom/ferry)
 "Ak" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular{
+	pixel_x = -7
+	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},

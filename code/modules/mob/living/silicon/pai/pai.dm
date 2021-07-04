@@ -8,7 +8,7 @@
 	pass_flags = PASSTABLE | PASSMOB
 	mob_size = MOB_SIZE_TINY
 	desc = "Обычный миниатюрный карманный ИИ с голографическим проектором. Этот выключен."
-	weather_immunities = list("ash")
+	weather_immunities = list(WEATHER_ASH)
 	health = 500
 	maxHealth = 500
 	layer = BELOW_MOB_LAYER
