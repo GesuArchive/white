@@ -1,10 +1,10 @@
 /obj/item/storage/briefcase/surgery
 	name = "кейс полевого хирурга"
 	desc = "Алюминиевый кейс, содержащий все необходимое для проведения операций в полевых условиях."
-	icon_state = "briefcase"
-	icon = 'white/valtos/icons/items.dmi'
-	lefthand_file = 'icons/mob/inhands/equipment/briefcase_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/briefcase_righthand.dmi'
+	icon_state = "surgerycase"
+	icon = 'white/baldenysh/icons/obj/briefcase.dmi'
+	lefthand_file = 'white/baldenysh/icons/mob/inhands/equipment/briefcase_lefthand.dmi'
+	righthand_file = 'white/baldenysh/icons/mob/inhands/equipment/briefcase_righthand.dmi'
 	force = 12
 	throwforce = 12
 
@@ -12,7 +12,6 @@
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 14
-	STR.max_combined_w_class = 30
 
 /obj/item/storage/briefcase/surgery/PopulateContents()
 	new /obj/item/scalpel(src)
