@@ -96,8 +96,8 @@
 	cost = 250
 
 /datum/gear/surgerykit
-	display_name = "Запасной хирургический набор"
+	display_name = "Кейс полевого хирурга"
 	description = "Набор хирургических инструментов для производимых хирургом хирургических операций."
-	path = /obj/item/storage/backpack/duffelbag/med/surgery
-	allowed_roles = list("Paramedic", "Medical Doctor", "Chief Medical Officer")
+	path = /obj/item/storage/briefcase/surgery
+	allowed_roles = list("Field Medic", "Paramedic", "Medical Doctor", "Chief Medical Officer")
 	cost = 100
