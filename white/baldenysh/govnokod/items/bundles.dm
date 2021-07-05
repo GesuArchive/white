@@ -5,7 +5,7 @@
 	icon = 'white/baldenysh/icons/obj/briefcase.dmi'
 	lefthand_file = 'white/baldenysh/icons/mob/inhands/equipment/briefcase_lefthand.dmi'
 	righthand_file = 'white/baldenysh/icons/mob/inhands/equipment/briefcase_righthand.dmi'
-	force = 12
+	force = 15
 	throwforce = 12
 
 /obj/item/storage/briefcase/surgery/ComponentInitialize()
