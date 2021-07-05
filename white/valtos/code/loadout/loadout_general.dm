@@ -94,3 +94,10 @@
 	path = /obj/item/storage/belt/sheath/security/hos
 	allowed_roles = list("Head of Security")
 	cost = 250
+
+/datum/gear/surgerykit
+	display_name = "Кейс полевого хирурга"
+	description = "Набор хирургических инструментов для производимых хирургом хирургических операций."
+	path = /obj/item/storage/briefcase/surgery
+	allowed_roles = list("Field Medic", "Paramedic", "Medical Doctor", "Chief Medical Officer")
+	cost = 100

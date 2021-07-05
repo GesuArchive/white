@@ -742,7 +742,7 @@
 	desc = "The circuit board for scanner array."
 	id = "exoscanner"
 	build_path = /obj/item/circuitboard/machine/exoscanner
-	category = list ("Engineering Machinery")
+	category = list ("Инженерное оборудование")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/board/exodrone_launcher
@@ -750,7 +750,7 @@
 	desc = "The circuit board for exodrone launcher."
 	id = "exodrone_launcher"
 	build_path = /obj/item/circuitboard/machine/exodrone_launcher
-	category = list ("Engineering Machinery")
+	category = list ("Инженерное оборудование")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/board/component_printer
@@ -758,5 +758,5 @@
 	desc = "The circuit board for a component printer"
 	id = "component_printer"
 	build_path = /obj/item/circuitboard/machine/component_printer
-	category = list("Misc. Machinery")
+	category = list("Различное оборудование")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE

@@ -1,4 +1,4 @@
-import { Box, Button, Section, Table, DraggableControl, Dropdown, Divider, NoticeBox, Slider, ProgressBar } from '../components';
+import { Box, Button, Section, Table, DraggableControl, Dropdown, Divider, NoticeBox, Slider, ProgressBar, Fragment } from '../components';
 import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
@@ -18,6 +18,7 @@ export const OrbitalMap = (props, context) => {
     validDockingPorts = [],
     isDocking = false,
     has_radar = true,
+    interdiction_range = 0,
   } = data;
   const lineStyle = {
     stroke: '#BBBBBB',
@@ -43,11 +44,17 @@ export const OrbitalMap = (props, context) => {
     trackedBody,
     setTrackedBody,
   ] = useLocalState(context, 'trackedBody', map_objects[0].name);
+  let lockedZoomScale = Math.max(Math.min(zoomScale, 4), 0.125);
   let trackedObject = null;
+  let ourObject = null;
   if (map_objects.length > 0)
   {
     // Find the right tracked body
     map_objects.forEach(element => {
+      if (element.name === shuttleName)
+      {
+        ourObject = element;
+      }
       if (element.name === trackedBody && !trackedObject)
       {
         trackedObject = element;
@@ -63,8 +70,10 @@ export const OrbitalMap = (props, context) => {
   return (
     <Window
       width={has_radar ? 1080 : 395}
-      height={has_radar ? 710 : 400}>
-      <Window.Content>
+      height={has_radar ? 710 : 400}
+      resizable
+      overflowY="hidden">
+      <Window.Content overflowY="hidden">
         {!has_radar || (
           <div class="OrbitalMap__radar">
             <Button
@@ -119,34 +128,37 @@ export const OrbitalMap = (props, context) => {
                           control1.handleDragStart(e);
                         }}
                         viewBox="-250 -250 500 500"
-                        position="absolute">
+                        position="absolute"
+                        overflowY="hidden">
                         <defs>
                           <pattern
                             id="grid"
-                            width={200}
-                            height={200}
+                            width={100 * lockedZoomScale}
+                            height={100 * lockedZoomScale}
                             patternUnits="userSpaceOnUse">
                             <rect
-                              width={200}
-                              height={200}
+                              width={100 * lockedZoomScale}
+                              height={100 * lockedZoomScale}
                               fill="url(#smallgrid)" />
                             <path
-                              d={"M 200 0 L 0 0 0 200"}
+                              d={"M " + (100 * lockedZoomScale)
+                              + " 0 L 0 0 0 " + (100 * lockedZoomScale)}
                               fill="none"
                               stroke="#222233"
                               stroke-width="1" />
                           </pattern>
                           <pattern
                             id="smallgrid"
-                            width={100}
-                            height={100}
+                            width={50 * lockedZoomScale}
+                            height={50 * lockedZoomScale}
                             patternUnits="userSpaceOnUse">
                             <rect
-                              width={100}
-                              height={100}
+                              width={50 * lockedZoomScale}
+                              height={50 * lockedZoomScale}
                               fill="#111111" />
                             <path
-                              d={"M 100 0 L 0 0 0 100"}
+                              d={"M " + (50 * lockedZoomScale) + " 0 L 0 0 0 "
+                              + (50 * lockedZoomScale)}
                               fill="none"
                               stroke="#222233"
                               stroke-width="0.5" />
@@ -222,6 +234,29 @@ export const OrbitalMap = (props, context) => {
                             )}
                           </>
                         ))};
+                        {ourObject && (
+                          <circle
+                            cx={Math.max(Math.min((ourObject.position_x
+                          - xOffset)
+                          * zoomScale, 250), -250)}
+                            cy={Math.max(Math.min((ourObject.position_y
+                          - yOffset)
+                          * zoomScale, 250), -250)}
+                            r={((ourObject.position_y - yOffset)
+                          * zoomScale > 250
+                          || (ourObject.position_y - yOffset)
+                          * zoomScale < -250
+                          || (ourObject.position_x - xOffset)
+                          * zoomScale > 250
+                          || (ourObject.position_x - xOffset)
+                          * zoomScale < -250)
+                              ? 5 * zoomScale
+                              : Math.max(5 * zoomScale, interdiction_range
+                            * zoomScale)}
+                            stroke="#00FF00"
+                            stroke-width="1"
+                            fill="rgba(0,0,0,0)" />
+                        )}
                       </svg>
                     </>
                   )}
@@ -446,6 +481,11 @@ export const ShuttleControls = (props, context) => {
         fontSize="30px"
         onClick={() => act('nautopilot')}
         color={autopilot_enabled ? "green" : "red"} />
+      <Button
+        mt={2}
+        content="ВКЛЮЧИТЬ ПЕРЕХВАТ"
+        onClick={() => act('interdict')}
+        color="purple" />
     </>
   );
 };

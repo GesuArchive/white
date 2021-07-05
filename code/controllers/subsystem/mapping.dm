@@ -128,6 +128,9 @@ SUBSYSTEM_DEF(mapping)
 			spawn_rivers(ice_z, 6, /turf/open/floor/plating/asteroid/boxplanet/caves, /area/boxplanet/underground/unexplored)
 	*/
 
+	//Setup orbits.
+	SSorbits.post_load_init()
+
 	// Generate deep space ruins
 	/*var/list/space_ruins = levels_by_trait(ZTRAIT_DYNAMIC_LEVEL)
 	if (space_ruins.len)

@@ -331,9 +331,6 @@ SUBSYSTEM_DEF(ticker)
 			var/datum/holiday/holiday = SSevents.holidays[holidayname]
 			to_chat(world, "<h4>[holiday.greet()]</h4>")
 
-	//Setup orbits.
-	SSorbits.post_load_init()
-
 	PostSetup()
 
 	if(CONFIG_GET(flag/aspects))

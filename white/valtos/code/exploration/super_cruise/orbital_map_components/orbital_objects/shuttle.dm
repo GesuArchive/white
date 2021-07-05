@@ -15,6 +15,9 @@
 	var/desired_vel_x = 0
 	var/desired_vel_y = 0
 
+	//They go faster
+	velocity_multiplier = 3
+
 	//The computer controlling us.
 	var/controlling_computer = null
 
@@ -25,17 +28,6 @@
 	var/datum/orbital_object/shuttleTarget
 	//Cheating autopilots never fail
 	var/cheating_autopilot = FALSE
-
-/datum/orbital_object/shuttle/stealth/infiltrator
-	max_thrust = 20
-
-/datum/orbital_object/shuttle/stealth/steel_rain
-	max_thrust = 0
-	//We never miss our mark
-	cheating_autopilot = TRUE
-
-/datum/orbital_object/shuttle/stealth
-	stealth = TRUE
 
 /datum/orbital_object/shuttle/Destroy()
 	. = ..()
@@ -58,6 +50,14 @@
 	else
 		//If our docking target was deleted, null it to prevent docking interface etc.
 		docking_target = null
+	//I hate that I have to do this, but people keep flying them away.
+	if(position.x > 20000 || position.x < -20000 || position.y > 20000 || position.y < -20000)
+		priority_announce("Разрыв блюспейс ткани обнаружен, источник: [name].")
+		position.x = rand(-2000, 2000)
+		position.y = rand(-2000, 2000)
+		velocity.x = 0
+		velocity.y = 0
+		thrust = 0
 	//AUTOPILOT
 	if(autopilot)
 		handle_autopilot()
@@ -85,7 +85,7 @@
 
 	//Adjust our speed to target to point towards it.
 	var/datum/orbital_vector/desired_velocity = new(next_position.x - position.x, next_position.y - position.y)
-	var/desired_speed = max(distance_to_target * 0.02, 10)
+	var/desired_speed = distance_to_target * 0.02 + 10
 	desired_velocity.Normalize()
 	desired_velocity.Scale(desired_speed)
 

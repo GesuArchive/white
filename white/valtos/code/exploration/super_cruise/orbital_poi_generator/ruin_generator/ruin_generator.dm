@@ -17,7 +17,7 @@
  * however if a room attachment point is not past the border, the room it generates on that attachment point
  * can go past the border. No attachment points can be generated past the border.
  */
-/proc/generate_space_ruin(center_x, center_y, center_z, border_x, border_y, datum/orbital_objective/linked_objective, forced_decoration, list/allowed_flags = list(RUIN_PART_DEFAULT))
+/proc/generate_space_ruin(center_x, center_y, center_z, border_x, border_y, datum/orbital_objective/linked_objective, forced_decoration, list/allowed_flags = list(RUIN_PART_DEFAULT), datum/ruin_event/ruin_event)
 
 	SSair.pause_z(center_z)
 
@@ -50,6 +50,8 @@
 	for(var/datum/map_template/ruin_part/ruinpart as() in GLOB.loaded_ruin_parts)
 		if(ruinpart.special_flags in allowed_flags)
 			valid_ruin_parts[ruinpart] = ruinpart.max_occurances
+
+	ruin_event?.pre_spawn(center_z)
 
 	//Generate ruins.
 	while(length(hallway_connections) || length(room_connections))
@@ -537,7 +539,7 @@
 			linked_objective.generate_objective_stuff(T)
 
 	//Generate research disks
-	for(var/i in 1 to rand(1, 3))
+	for(var/i in 1 to rand(1, 5))
 		var/objective_turf = pick(floor_turfs)
 		var/split_loc = splittext(objective_turf, "_")
 		new /obj/effect/spawner/lootdrop/ruinloot/important(locate(text2num(split_loc[1]), text2num(split_loc[2]), center_z))
@@ -547,6 +549,12 @@
 		var/objective_turf = pick(floor_turfs)
 		var/split_loc = splittext(objective_turf, "_")
 		M.forceMove(locate(text2num(split_loc[1]), text2num(split_loc[2]), center_z))
+
+	ruin_event?.post_spawn(floor_turfs, center_z)
+
+	//Start running event
+	if(ruin_event)
+		SSorbits.ruin_events += ruin_event
 
 	SSzclear.nullspaced_mobs.Cut()
 	SSair.unpause_z(center_z)

@@ -66,12 +66,14 @@
 	else if(ghost_usable)
 		AddElement(/datum/element/point_of_interest)
 		LAZYADD(GLOB.mob_spawners[name], src)
+	GLOB.zclear_atoms += src
 
 /obj/effect/mob_spawn/Destroy()
 	var/list/spawners = GLOB.mob_spawners[name]
 	LAZYREMOVE(spawners, src)
 	if(!LAZYLEN(spawners))
 		GLOB.mob_spawners -= name
+	GLOB.zclear_atoms -= src
 	return ..()
 
 /obj/effect/mob_spawn/proc/allow_spawn(mob/user) //Override this to add spawn limits to a ghost role

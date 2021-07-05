@@ -9,6 +9,11 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 	req_access = list( )
 	var/shuttleId
 
+	//Interdiction range
+	var/interdiction_range = 150
+	//Time it takes to recharge after interdiction
+	var/interdiction_time = 3 MINUTES
+
 	//For recall consoles
 	//If not set to an empty string, will display only the option to call the shuttle to that dock.
 	//Once pressed the shuttle will engage autopilot and return to the dock.
@@ -83,6 +88,7 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 	//If we are a recall console.
 	data["recall_docking_port_id"] = recall_docking_port_id
 	data["request_shuttle_message"] = request_shuttle_message
+	data["interdiction_range"] = interdiction_range
 	return data
 
 /obj/machinery/computer/shuttle_flight/ui_data(mob/user)
@@ -105,8 +111,8 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 			"name" = object.name,
 			"position_x" = object.position.x,
 			"position_y" = object.position.y,
-			"velocity_x" = object.velocity.x,
-			"velocity_y" = object.velocity.y,
+			"velocity_x" = object.velocity.x * object.velocity_multiplier,
+			"velocity_y" = object.velocity.y * object.velocity_multiplier,
 			"radius" = object.radius
 		))
 	if(!SSshuttle.getShuttle(shuttleId))
@@ -238,6 +244,35 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 			//Force dock with the thing we are colliding with.
 			shuttleObject.commence_docking(shuttleObject.can_dock_with, TRUE)
 		//Go to valid port
+		if("interdict")
+			if(QDELETED(shuttleObject))
+				return
+			if(shuttleObject.docking_target || shuttleObject.can_dock_with)
+				say("Перехват невозможен в доке.")
+				return
+			if(shuttleObject.stealth)
+				say("Невозможно выполнить на шаттле в маскировке.")
+				return
+			say("Перехватчик активирован, шаттл замедляется...")
+			//Create the site of interdiction
+			var/datum/orbital_object/z_linked/beacon/z_linked = new /datum/orbital_object/z_linked/beacon/ruin/stranded_shuttle()
+			z_linked.position = new /datum/orbital_vector(shuttleObject.position.x, shuttleObject.position.y)
+			z_linked.name = "Перехват"
+			//Lets tell everyone about it
+			priority_announce("Обнаружен перехват. Источник: [shuttleObject.name]")
+			//Get all shuttle objects in range
+			for(var/shuttleportid in SSorbits.assoc_shuttles)
+				var/datum/orbital_object/shuttle/other_shuttle = SSorbits.assoc_shuttles[shuttleportid]
+				//Do this last
+				if(other_shuttle == shuttleObject)
+					continue
+				if(other_shuttle?.position?.Distance(shuttleObject.position) <= interdiction_range && !other_shuttle.stealth)
+					other_shuttle.commence_docking(z_linked, TRUE)
+					random_drop(other_shuttle, shuttleportid)
+					SSorbits.interdicted_shuttles[shuttleportid] = world.time + interdiction_time
+			shuttleObject.commence_docking(z_linked, TRUE)
+			random_drop()
+			SSorbits.interdicted_shuttles[shuttleId] = world.time + interdiction_time
 		if("gotoPort")
 			if(QDELETED(shuttleObject))
 				return
@@ -291,6 +326,8 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 			switch(SSshuttle.moveShuttle(shuttleId, target_port.id, 1))
 				if(0)
 					say("Инициируем замедление скорости, готовимся к сближению.")
+					if(current_user)
+						remove_eye_control(current_user)
 					QDEL_NULL(shuttleObject)
 				if(1)
 					to_chat(usr, "<span class='warning'>Неправильный шаттл запрошен.</span>")
@@ -298,6 +335,11 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 					to_chat(usr, "<span class='notice'>Не понимаю. Иди на хуй.</span>")
 
 /obj/machinery/computer/shuttle_flight/proc/launch_shuttle()
+	if(SSorbits.interdicted_shuttles.Find(shuttleId))
+		if(world.time < SSorbits.interdicted_shuttles[shuttleId])
+			var/time_left = (SSorbits.interdicted_shuttles[shuttleId] - world.time) * 0.1
+			say("Круиз: Двигатели были перехвачены и будут перезагружены через [time_left] секунд.")
+			return
 	var/obj/docking_port/mobile/mobile_port = SSshuttle.getShuttle(shuttleId)
 	if(!mobile_port)
 		return
@@ -318,14 +360,15 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 	shuttleObject.valid_docks = valid_docks
 	return shuttleObject
 
-/obj/machinery/computer/shuttle_flight/proc/random_drop()
+/obj/machinery/computer/shuttle_flight/proc/random_drop(datum/orbital_object/shuttle/_shuttleObject = shuttleObject, _shuttleId = shuttleId)
 	//Find a random place to drop in at.
-	if(!shuttleObject?.docking_target?.linked_z_level)
-		return
+	if(!_shuttleObject?.docking_target?.linked_z_level)
+		return FALSE
 	//Get shuttle dock
-	var/obj/docking_port/mobile/shuttle_dock = SSshuttle.getShuttle(shuttleId)
+	var/obj/docking_port/mobile/shuttle_dock = SSshuttle.getShuttle(_shuttleId)
 	if(!shuttle_dock)
-		return
+		return FALSE
+	var/target_zvalue = _shuttleObject.docking_target.linked_z_level.z_value
 	//Create temporary port
 	var/obj/docking_port/stationary/random_port = new
 	random_port.delete_after = TRUE
@@ -344,7 +387,7 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 		var/y = rand(border_distance, world.maxy - border_distance)
 		//Check to make sure there are no indestructible turfs in the way
 		random_port.setDir(pick(NORTH, SOUTH, EAST, WEST))
-		random_port.forceMove(locate(x, y, shuttleObject?.docking_target?.linked_z_level?.z_value))
+		random_port.forceMove(locate(x, y, target_zvalue))
 		var/list/turfs = random_port.return_turfs()
 		var/valid = TRUE
 		for(var/turf/T as() in turfs)
@@ -356,12 +399,15 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 		//Dont wipe z level while we are going
 		//Dont wipe z of where we are leaving for a bit, in case we come back.
 		SSzclear.temp_keep_z(z)
-		SSzclear.temp_keep_z(shuttleObject?.docking_target?.linked_z_level?.z_value)
+		SSzclear.temp_keep_z(target_zvalue)
 		//Ok lets go there
-		switch(SSshuttle.moveShuttle(shuttleId, random_port.id, 1))
+		switch(SSshuttle.moveShuttle(_shuttleId, random_port.id, 1))
 			if(0)
 				say("Инициируем замедление скорости, готовимся к посадке.")
-				QDEL_NULL(shuttleObject)
+				if(current_user)
+					remove_eye_control(current_user)
+				QDEL_NULL(_shuttleObject)
+				return TRUE
 			if(1)
 				to_chat(usr, "<span class='warning'>Неправильный шаттл запрошен.</span>")
 				qdel(random_port)
@@ -369,6 +415,7 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 				to_chat(usr, "<span class='notice'>Иди на хуй.</span>")
 				qdel(random_port)
 	qdel(random_port)
+	return FALSE
 
 /obj/machinery/computer/shuttle_flight/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
