@@ -78,7 +78,7 @@
 	desc = "This spell launches hellfire at the target."
 
 	school = "evocation"
-	charge_max = 80
+	charge_max = 16 SECONDS
 	clothes_req = FALSE
 	invocation = "Your very soul will catch fire!"
 	invocation_type = INVOCATION_SHOUT
