@@ -131,7 +131,7 @@
 				W.play_tool_sound(src)
 				user.visible_message( \
 					"[user] отсоединяет [src].", \
-					"<span class='notice'Отсоединяю [src] от порта.</span>", \
+					"<span class='notice'>Отсоединяю [src] от порта.</span>", \
 					"<span class='hear'>Слышу трещотку.</span>")
 				update_icon()
 				return
