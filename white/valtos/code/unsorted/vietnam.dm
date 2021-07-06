@@ -134,8 +134,9 @@
 	name = "каменная стена"
 	desc = "Не дай боженька увидеть такое на продвинутой исследовательской станции!"
 	icon = 'white/valtos/icons/stonewall.dmi'
-	icon_state = "wallthefuck"
-	smoothing_flags = SMOOTH_CORNERS
+	icon_state = "stonewall-0"
+	base_icon_state = "stonewall"
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
 	canSmoothWith = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
 	sheet_type = /obj/item/stack/sheet/stone
