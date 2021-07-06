@@ -354,10 +354,11 @@
 /turf/closed/mineral/random/dwarf_lustress
 	icon = 'white/valtos/icons/rockwall.dmi'
 	smooth_icon = 'white/valtos/icons/rockwall.dmi'
-	icon_state = "rockthefuck"
+	icon_state = "rockwall-0"
+	base_icon_state = "rockwall"
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	environment_type = "stone_raw"
-	smoothing_flags = SMOOTH_CORNERS
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
 	canSmoothWith = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
 	turf_type = /turf/open/floor/grass/gensgrass/dirty/stone/raw
