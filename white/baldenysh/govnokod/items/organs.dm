@@ -73,7 +73,7 @@
 
 /obj/structure/spider/cocoon/mycelium/proc/fruit()
 	var/obj/structure/flora/snus_cap/cap
-	if(prob(30))
+	if(prob(10))
 		var/subtype = pick(subtypesof(/obj/structure/flora/snus_cap))
 		cap = new subtype(get_turf(src))
 	else
