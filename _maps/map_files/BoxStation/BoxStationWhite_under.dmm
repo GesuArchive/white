@@ -1906,6 +1906,12 @@
 /obj/structure/statue/sandstone/assistant,
 /turf/open/floor/plating,
 /area/space/nearstation)
+"ic" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/engine/airless,
+/area/space/nearstation)
 "id" = (
 /obj/structure/lattice,
 /obj/machinery/camera{
@@ -2660,6 +2666,12 @@
 	},
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
+"kP" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/engine/airless,
+/area/space/nearstation)
 "kQ" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plating,
@@ -3399,6 +3411,12 @@
 /obj/machinery/light/small,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
+"nB" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/engine/airless,
+/area/space/nearstation)
 "nC" = (
 /turf/open/floor/plasteel/airless{
 	icon_state = "damaged5"
@@ -5355,7 +5373,7 @@
 /turf/closed/wall/r_wall,
 /area/ai_monitored/storage/eva)
 "vi" = (
-/obj/machinery/portable_atmospherics/canister/proto/default/oxygen,
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "vj" = (
@@ -6895,6 +6913,12 @@
 /obj/structure/window/reinforced,
 /turf/open/floor/plasteel,
 /area/security/prison)
+"Bs" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/engine/airless,
+/area/space/nearstation)
 "Bt" = (
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/north)
@@ -8111,6 +8135,12 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
+"GB" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/engine/airless,
+/area/space/nearstation)
 "GC" = (
 /turf/closed/wall,
 /area/maintenance/port/fore)
@@ -9824,6 +9854,10 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/xenobiology)
+"Nm" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/engine/airless,
+/area/space/nearstation)
 "Nn" = (
 /obj/machinery/door/airlock{
 	name = "Cleaning Closet"
@@ -11281,6 +11315,12 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
+"SO" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/engine/airless,
+/area/space/nearstation)
 "SP" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -11614,6 +11654,9 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel/dark,
 /area/engine/atmospherics_engine)
+"TY" = (
+/turf/open/floor/engine/airless,
+/area/space/nearstation)
 "TZ" = (
 /obj/item/clothing/glasses/meson,
 /obj/item/flashlight,
@@ -11986,6 +12029,12 @@
 	},
 /turf/open/floor/plating,
 /area/security/prison)
+"VE" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/engine/airless,
+/area/space/nearstation)
 "VG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/firedoor/border_only,
@@ -32985,14 +33034,14 @@ Zm
 Zm
 bw
 jb
-kS
-kS
-PG
-kS
-kS
-PG
-kS
-kS
+VE
+GB
+GB
+GB
+GB
+GB
+GB
+ic
 jb
 bw
 Zm
@@ -33242,14 +33291,14 @@ Zm
 Zm
 bw
 jb
-kS
-kS
-kS
-kS
-kS
-kS
-kS
-kS
+Bs
+TY
+TY
+TY
+TY
+TY
+TY
+Nm
 jb
 bw
 Zm
@@ -33499,14 +33548,14 @@ Zm
 Zm
 bw
 jb
-PG
-kS
-jb
-kS
-kS
-jb
-kS
-PG
+Bs
+TY
+TY
+TY
+TY
+TY
+TY
+Nm
 jb
 bw
 Zm
@@ -33756,14 +33805,14 @@ Zm
 Zm
 bw
 jb
-PG
-kS
-jb
-kS
-kS
-jb
-kS
-PG
+Bs
+TY
+TY
+TY
+TY
+TY
+TY
+Nm
 jb
 bw
 Zm
@@ -34013,14 +34062,14 @@ Zm
 Zm
 bw
 jb
-kS
-kS
-kS
-kS
-kS
-kS
-kS
-kS
+Bs
+TY
+TY
+TY
+TY
+TY
+TY
+Nm
 jb
 bw
 Zm
@@ -34270,14 +34319,14 @@ Zm
 Zm
 bw
 jb
-PG
-kS
-jb
-kS
-kS
-jb
-kS
-PG
+Bs
+TY
+TY
+TY
+TY
+TY
+TY
+Nm
 jb
 bw
 Zm
@@ -34527,14 +34576,14 @@ PG
 PG
 bw
 jb
-PG
-kS
-jb
-kS
-kS
-jb
-kS
-PG
+Bs
+TY
+TY
+TY
+TY
+TY
+TY
+Nm
 jb
 bw
 bw
@@ -34784,14 +34833,14 @@ Zm
 Zm
 bw
 jb
-kS
-kS
-kS
-kS
-kS
-kS
-kS
-kS
+Bs
+TY
+TY
+TY
+TY
+TY
+TY
+Nm
 jb
 bw
 Zm
@@ -35041,14 +35090,14 @@ Zm
 Zm
 bw
 jb
-kS
-kS
-PG
-kS
-kS
-PG
-kS
-kS
+SO
+kP
+kP
+kP
+kP
+kP
+kP
+nB
 jb
 bw
 Zm

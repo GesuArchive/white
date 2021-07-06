@@ -1016,6 +1016,13 @@
 	contains = list(/obj/machinery/the_singularitygen/tesla)
 	crate_name = "tesla generator crate"
 
+/datum/supply_pack/engine/singulo_gen
+	name = "Singularity Generator Crate"
+	desc = "The key to unlocking the power of the Lord Singulo. Particle Accelerator not included."
+	cost = 235
+	contains = list(/obj/machinery/the_singularitygen)
+	crate_name = "singularity generator crate"
+
 //////////////////////////////////////////////////////////////////////////////
 /////////////////////// Canisters & Materials ////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////

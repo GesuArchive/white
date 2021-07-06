@@ -18320,9 +18320,15 @@
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/miningdock)
 "bDl" = (
-/obj/structure/grille,
-/turf/open/openspace/airless,
-/area/space)
+/obj/effect/light_emitter{
+	light_range = 16;
+	set_cap = 2.5;
+	set_luminosity = 16
+	},
+/turf/open/floor/plating/rust{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/space/nearstation)
 "bDm" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -24436,6 +24442,11 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
+/obj/effect/light_emitter{
+	light_range = 16;
+	set_cap = 2.5;
+	set_luminosity = 16
+	},
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "bZr" = (
@@ -26703,7 +26714,9 @@
 /turf/open/floor/plating,
 /area/maintenance/solars/port/aft)
 "chY" = (
-/obj/machinery/power/tesla_coil,
+/obj/machinery/the_singularitygen{
+	icon_state = "beacon0"
+	},
 /turf/open/floor/plating,
 /area/engine/engine_smes)
 "cia" = (
@@ -31116,6 +31129,15 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/genetics)
+"cZn" = (
+/obj/structure/lattice,
+/obj/effect/light_emitter{
+	light_range = 16;
+	set_cap = 2.5;
+	set_luminosity = 16
+	},
+/turf/open/openspace/airless,
+/area/space/nearstation)
 "cZW" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
@@ -31574,6 +31596,14 @@
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/xenobiology)
+"dzN" = (
+/obj/effect/light_emitter{
+	light_range = 16;
+	set_cap = 2.5;
+	set_luminosity = 16
+	},
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "dAb" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
@@ -34553,6 +34583,10 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/crew_quarters/fitness/kachalka)
+"ilp" = (
+/obj/structure/grille,
+/turf/open/floor/engine/hull,
+/area/space/nearstation)
 "imY" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -37582,6 +37616,14 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plasteel/monofloor,
 /area/science/misc_lab)
+"nDQ" = (
+/obj/effect/light_emitter{
+	light_range = 16;
+	set_cap = 2.5;
+	set_luminosity = 16
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/space/nearstation)
 "nEm" = (
 /obj/machinery/mineral/ore_redemption{
 	input_dir = 8;
@@ -37850,6 +37892,14 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/mixing)
+"nWq" = (
+/obj/effect/light_emitter{
+	light_range = 16;
+	set_cap = 2.5;
+	set_luminosity = 16
+	},
+/turf/open/floor/engine/hull,
+/area/space/nearstation)
 "nWA" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Air Supply Maintenance";
@@ -38171,7 +38221,9 @@
 /turf/open/floor/plasteel/monofloor,
 /area/science/research)
 "owD" = (
-/obj/machinery/meteor_catcher,
+/obj/machinery/meteor_catcher{
+	dir = 8
+	},
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "owZ" = (
@@ -42536,6 +42588,17 @@
 	},
 /turf/open/floor/glass,
 /area/hydroponics)
+"vhK" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/light_emitter{
+	light_range = 16;
+	set_cap = 2.5;
+	set_luminosity = 16
+	},
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "viD" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -62060,7 +62123,7 @@ gvx
 mSz
 mSz
 mSz
-mSz
+bDl
 mSz
 gvx
 aaa
@@ -62140,14 +62203,14 @@ cKn
 gXs
 gXs
 gXs
-gXs
-gXs
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+ilp
+wIB
+wIB
+wIB
+wIB
+nWq
+wIB
+wIB
 bCq
 bCq
 bCq
@@ -62398,15 +62461,15 @@ aZE
 blW
 blW
 aZE
-gXs
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-gXs
+wIB
+nWq
+wIB
+wIB
+wIB
+wIB
+wIB
+nWq
+wIB
 bCq
 bHE
 bCq
@@ -62570,7 +62633,7 @@ aaa
 aaa
 aaa
 gvx
-mSz
+bDl
 mSz
 qvP
 qvP
@@ -62655,22 +62718,22 @@ bkt
 rIU
 hNs
 blW
-gXs
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-gXs
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
 bCq
 skX
 bCq
 nXv
 aaa
 gXs
-bVz
+vhK
 aaa
 nXv
 aaa
@@ -62912,15 +62975,15 @@ eZO
 pdC
 pdC
 blW
-gXs
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-gXs
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
 bCq
 bHE
 bCq
@@ -63169,15 +63232,15 @@ pdC
 pdC
 pdC
 blW
-gXs
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-gXs
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
 bCq
 bHE
 bCq
@@ -63426,15 +63489,15 @@ pdC
 dci
 dgB
 aZE
-pUF
-pUF
-pUF
-pUF
-pUF
-pUF
-pUF
-pUF
-pUF
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
+wIB
 bCq
 uUp
 bCq
@@ -63856,7 +63919,7 @@ aaa
 gvx
 mSz
 mSz
-mSz
+bDl
 mSz
 mSz
 oMB
@@ -63940,6 +64003,7 @@ pdC
 pzD
 bkG
 blW
+nWq
 wIB
 wIB
 wIB
@@ -63947,8 +64011,7 @@ wIB
 wIB
 wIB
 wIB
-wIB
-wIB
+nWq
 bCq
 iIA
 aad
@@ -64117,7 +64180,7 @@ mSz
 mSz
 mSz
 mSz
-mSz
+bDl
 gvx
 aaa
 aaa
@@ -65226,13 +65289,13 @@ bwS
 pdC
 blW
 wIB
-wIB
+nWq
 bbv
 bbv
 bJb
 bbv
 bbv
-wIB
+nWq
 wIB
 bCq
 ala
@@ -65260,7 +65323,7 @@ pYD
 bCq
 oaV
 bCq
-aaH
+dzN
 gXs
 gXs
 aaa
@@ -66549,7 +66612,7 @@ bHE
 uUz
 pVg
 mra
-aaH
+dzN
 gXs
 aaa
 gXs
@@ -66822,7 +66885,7 @@ dKO
 pxC
 sRa
 lBE
-gXs
+cZn
 gXs
 aaa
 aaa
@@ -67031,7 +67094,7 @@ bEP
 bGm
 bKp
 bbv
-wIB
+nWq
 wIB
 mra
 bHE
@@ -67593,7 +67656,7 @@ fSv
 xwT
 jAd
 qVo
-gXs
+cZn
 gXs
 gXs
 gXs
@@ -73630,7 +73693,7 @@ aaa
 aaa
 aaa
 pUF
-pUF
+nDQ
 pUF
 aaa
 aaa
@@ -74401,7 +74464,7 @@ aaa
 aaa
 aaa
 pUF
-pUF
+nDQ
 pUF
 aaa
 aaa
@@ -81743,7 +81806,7 @@ bcF
 lkE
 bcF
 wIB
-wIB
+nWq
 cva
 cva
 cva
@@ -81986,17 +82049,17 @@ aaa
 gXs
 bcF
 wIB
+nWq
 wIB
 wIB
 wIB
 wIB
-wIB
-wIB
+nWq
 wIB
 cvX
 wIB
 wIB
-wIB
+nWq
 wIB
 wIB
 cva
@@ -84042,17 +84105,17 @@ ctM
 ctX
 cua
 wIB
+nWq
 wIB
 wIB
 wIB
 wIB
-wIB
-wIB
+nWq
 wIB
 cvC
 wIB
 wIB
-wIB
+nWq
 wIB
 wIB
 cva
@@ -84313,7 +84376,7 @@ bcF
 bcF
 bcF
 wIB
-wIB
+nWq
 cva
 cva
 cva
@@ -89682,7 +89745,7 @@ aaa
 aaa
 bcF
 wIB
-wIB
+nWq
 wIB
 bcF
 aaa
@@ -90703,7 +90766,7 @@ czS
 cOb
 bMB
 cNW
-wIB
+nWq
 wIB
 wIB
 wIB
@@ -91477,7 +91540,7 @@ reJ
 aJw
 aJw
 cOT
-wIB
+nWq
 wIB
 wIB
 wIB
@@ -91485,7 +91548,7 @@ wIB
 wIB
 wIB
 iIh
-wIB
+nWq
 wIB
 bcF
 aaa
@@ -91734,7 +91797,7 @@ cOe
 pUz
 pUz
 cOT
-wIB
+nWq
 wIB
 wIB
 wIB
@@ -93458,9 +93521,9 @@ atS
 gXs
 aaa
 gXs
-bDl
+aaS
 aaa
-bDl
+aaS
 gXs
 aMZ
 aOa
@@ -93715,9 +93778,9 @@ atS
 gXs
 aaa
 gXs
-bDl
+aaS
 aaa
-bDl
+aaS
 gXs
 cbJ
 aOd
@@ -93964,7 +94027,7 @@ alO
 aaa
 aaa
 aaa
-aaH
+dzN
 aaa
 aaa
 aaa
@@ -93972,9 +94035,9 @@ atS
 gXs
 aaa
 gXs
-bDl
-bDl
-bDl
+aaS
+aaS
+aaS
 gXs
 cbJ
 aOc
@@ -94488,7 +94551,7 @@ aaa
 gXs
 aaa
 aaa
-bDl
+aaS
 gXs
 gXs
 gXs
@@ -94745,7 +94808,7 @@ aaa
 gXs
 aaa
 aaa
-bDl
+aaS
 gXs
 gXs
 aaa
@@ -95002,9 +95065,9 @@ aaa
 gXs
 aaa
 aaa
-bDl
-bDl
-bDl
+aaS
+aaS
+aaS
 aaa
 aNa
 aeR
