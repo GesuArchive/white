@@ -44,7 +44,7 @@
 		if(O == src|| istype(O, /obj/item/organ/brain) || !(O.organ_flags & ORGAN_EDIBLE))
 			continue
 		var/organ_nutriments = 0
-		for(var/datum/reagent/consumable/nutriment/N in O.reagents)
+		for(var/datum/reagent/consumable/nutriment/N in O.reagents.reagent_list)
 			organ_nutriments += N.volume * N.nutriment_factor
 		to_chat(owner, "<span class='userdanger'>Чувствую жгучую боль в районе [O.name]!</span>")
 		qdel(O)
