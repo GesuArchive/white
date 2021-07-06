@@ -48,7 +48,10 @@
 			organ_nutriments += N.volume * N.nutriment_factor
 		to_chat(owner, "<span class='userdanger'>Чувствую жгучую боль в районе [O.name]!</span>")
 		qdel(O)
-		return organ_nutriments
+		return organ_nutriments*5
+	if(!HAS_TRAIT(owner, TRAIT_HUSK) && prob(10))
+		owner.become_husk()
+		return 200
 
 /obj/item/organ/snus_mycosis/proc/wrap_owner()
 	if(!owner)
