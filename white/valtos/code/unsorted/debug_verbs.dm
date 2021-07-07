@@ -63,7 +63,7 @@
 
 	var/fuckz = input("З-уровень") as num
 
-	if(!fuckz || fuckz >= world.maxz)
+	if(!fuckz || fuckz > world.maxz)
 		to_chat(usr, "<span class='adminnotice'> !! RETARD !! </span>")
 		return
 
