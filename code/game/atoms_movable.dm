@@ -505,6 +505,9 @@
 
 	last_move = direct
 	setDir(direct)
+
+	SEND_SIGNAL(src, "movable_moved_fucking_4real_now")
+
 	if(. && has_buckled_mobs() && !handle_buckled_mob_movement(loc, direct, glide_size_override)) //movement failed due to buckled mob(s)
 		return FALSE
 
