@@ -832,7 +832,9 @@ GENERAL_PROTECT_DATUM(/obj/effect/duel_controller) // счастливой от�
 		return
 
 	if(duel_status == DUEL_PENDING)
-		var/alert = alert("Точно хочешь поучавствовать в дуэли на [bet] метакэша?","Да","Нет")
+		if(duelists.Find(user))
+			CRASH("A ghost tried to join a duel when he already was in the list of duelists. WTF?")
+		var/alert = alert("Точно хочешь поучавствовать в дуэли на [bet] метакэша?","MORTAL COMBAT","Да","Нет")
 		if(alert == "Да")
 			spawn_user()
 		return
@@ -847,6 +849,8 @@ GENERAL_PROTECT_DATUM(/obj/effect/duel_controller) // счастливой от�
 	if(duel_status != DUEL_NODUEL)
 		to_chat(user, "Ты опоздал, дружок!")
 		return
+	if(duelists.Find(user))
+		CRASH("A ghost tried to initiate a duel when he already was in the list of duelists. WTF?")
 	bet = betinput
 	duel_status = DUEL_PENDING
 	inc_metabalance(user, bet, TRUE, "Оплатил входной билет.")
