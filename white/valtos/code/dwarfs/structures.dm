@@ -1,6 +1,6 @@
 /obj/structure/gemcutter
 	name = "стол ювелира"
-	desc = "У дворфов нет имени Александр в списке имен"
+	desc = "У дворфов нет имени Александр в списке имен."
 	icon = 'white/valtos/icons/dwarfs/objects.dmi'
 	icon_state = "gemcutter_off"
 	anchored = TRUE
@@ -214,7 +214,7 @@
 	D.key = user.key
 	D.mind.assigned_role = "Dwarf"
 	active = FALSE
-	to_chat(D, "<span class='big bold'>Я ебучий карлик в невероятно диких условиях.</span>")
+	to_chat(D, "<span class='big bold'>Я Дварф в невероятно диких условиях.</span>")
 	deactivate()
 
 /obj/structure/dwarf_altar/proc/deactivate()

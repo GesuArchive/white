@@ -4,10 +4,12 @@
 
 	color = null
 
-	icon = 'white/jhnazar/icons/hohol.dmi'
-	icon_state = "hohol"
-	icon_living = "hohol"
-	icon_dead = "hohol_dead"
+	icon = 'white/baldenysh/icons/mob/karasik.dmi'
+	icon_state = "karasik"
+	icon_living = "karasik"
+	icon_dead = "karasik"
+
+	base_pixel_x = -16
 
 	maxHealth = 1488
 	health = 1488
@@ -24,3 +26,10 @@
 
 	mob_size = MOB_SIZE_HUGE
 	mob_biotypes = MOB_ORGANIC|MOB_EPIC
+
+/mob/living/simple_animal/hostile/carp/ranged/chaos/hohol/Initialize()
+	. = ..()
+	AddComponent(/datum/component/diagonal_mover)
+
+/mob/living/simple_animal/hostile/carp/ranged/chaos/hohol/add_cell_sample()
+	AddElement(/datum/element/swabable, CELL_LINE_TABLE_SHVAINOKARAS, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)

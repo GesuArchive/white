@@ -1,4 +1,4 @@
-#define CLEAR_TURF_PROCESSING_TIME (240 SECONDS)	//Time it takes to clear all turfs
+#define CLEAR_TURF_PROCESSING_TIME (120 SECONDS)	//Time it takes to clear all turfs
 #define CHECK_ZLEVEL_TICKS (10 SECONDS)			//Every 10 seconds check if a tracked z-level is free.
 
 GLOBAL_LIST_EMPTY(zclear_atoms)
@@ -95,7 +95,7 @@ SUBSYSTEM_DEF(zclear)
 		LAZYREMOVE(free_levels, picked_level)
 		//In 1 minute we will begine tracking when all mobs have left the z-level.
 		//Begin tracking. In the rare case that someone got into a free z-level then just allow them to float there with no ruins. Space is pretty empty you know.
-		addtimer(CALLBACK(src, .proc/begin_tracking, picked_level), 120 SECONDS)
+		addtimer(CALLBACK(src, .proc/begin_tracking, picked_level), 60 SECONDS)
 		//Check if the z-level is actually free. (Someone might have drifted into the z-level.)
 		var/free = TRUE
 		for(var/mob/living/L in GLOB.player_list)
@@ -106,7 +106,8 @@ SUBSYSTEM_DEF(zclear)
 		if(free)
 			return picked_level
 	//Create a new z-level
-	LAZYADD(free_levels, SSmapping.add_new_zlevel("Dynamic free level [LAZYLEN(free_levels)]", ZTRAITS_SPACE, orbital_body_type = null))
+	var/datum/space_level/picked_level = SSmapping.add_new_zlevel("Dynamic free level [LAZYLEN(free_levels)]", ZTRAITS_SPACE, orbital_body_type = null)
+	addtimer(CALLBACK(src, .proc/begin_tracking, picked_level), 60 SECONDS)
 	message_admins("SSORBITS: Created a new dynamic free level ([LAZYLEN(free_levels)] now created) as none were available at the time.")
 
 /datum/controller/subsystem/zclear/proc/begin_tracking(datum/space_level/sl)

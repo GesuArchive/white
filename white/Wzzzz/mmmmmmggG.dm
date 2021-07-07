@@ -2,8 +2,8 @@
 	name = "MG-34"
 	desc = "German machinegun chambered in 7.92x57mm Mauser ammunition. An utterly devastating support weapon."
 	icon = 'white/Wzzzz/icons/Weea.dmi'
-	lefthand_file = 'white/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
-	righthand_file = 'white/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
+	lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
+	righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'
 	icon_state = "mg34"
 	inhand_icon_state = "mg34"
 	slot_flags = ITEM_SLOT_BACK

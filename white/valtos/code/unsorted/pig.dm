@@ -40,6 +40,7 @@
 		desc = "<big>Самый жирный боров.</big>"
 		maxHealth = 500
 		health = 500
+		AddElement(/datum/element/swabable, CELL_LINE_TABLE_SHVAINOKARAS, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
 
 /mob/living/simple_animal/pet/dog/corgi/pig/Life()
 	..()
@@ -66,11 +67,18 @@
 		var/datum/dog_fashion/DF = new inventory_back.dog_fashion(src)
 		DF.apply(src)
 
+/mob/living/simple_animal/pet/dog/corgi/pig/add_cell_sample()
+	AddElement(/datum/element/swabable, CELL_LINE_TABLE_PIG, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
+
 /obj/item/food/meat/slab/pig
 	name = "сало"
 	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "salo"
 	foodtypes = MEAT
+
+/obj/item/food/meat/slab/pig/Initialize()
+	. = ..()
+	AddElement(/datum/element/swabable, CELL_LINE_TABLE_PIG, CELL_VIRUS_TABLE_GENERIC_MOB)
 
 /obj/item/food/meat/slab/pig/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/rawcutlet/plain/salo, 3, 30)

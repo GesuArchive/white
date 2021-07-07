@@ -241,3 +241,6 @@ tools/LinuxOneShot/TGS_Logs
 
 # Common build tooling
 !/tools/build
+
+# Crap
+tools/findunusedicons

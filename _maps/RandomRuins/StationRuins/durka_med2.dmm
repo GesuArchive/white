@@ -278,6 +278,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/openspace,
 /area/medical/medbay/central)
 "eh" = (
@@ -865,6 +866,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/openspace,
 /area/medical/medbay/central)
 "ki" = (
@@ -1617,6 +1619,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/openspace,
 /area/medical/medbay/central)
 "wz" = (
@@ -2229,6 +2232,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/openspace,
 /area/medical/medbay/central)
 "DS" = (
@@ -2315,6 +2319,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/openspace,
 /area/medical/medbay/central)
 "Fk" = (
@@ -2714,6 +2719,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/medical/medbay/central)
 "KX" = (
@@ -3397,6 +3403,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/openspace,
 /area/medical/medbay/central)
 "US" = (

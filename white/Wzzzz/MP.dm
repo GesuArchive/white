@@ -2,8 +2,8 @@
 	name = "MP40"
 	desc = "German submachinegun chambered in 9x19 Parabellum, with a 32 magazine magazine layout. Standard issue amongst most troops."
 	icon = 'white/Wzzzz/icons/Weea.dmi'
-	lefthand_file = 'white/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
-	righthand_file = 'white/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
+	lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
+	righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'
 	icon_state = "mp40"
 	inhand_icon_state = "mp40"
 	slot_flags = ITEM_SLOT_BELT
