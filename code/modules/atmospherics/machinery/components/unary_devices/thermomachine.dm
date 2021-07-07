@@ -125,10 +125,7 @@
 	var/temperature_delta = abs(old_temperature - air_contents.return_temperature())
 	if(temperature_delta > 1)
 		update_parents()
-		if(cooling)
-			use_power(idle_power_usage * 2)
-		else
-			use_power((heat_capacity * target_temperature + air_heat_capacity * air_contents.return_temperature()) / 10)
+		use_power(idle_power_usage * 2)
 	else
 		use_power(idle_power_usage)
 	return 1

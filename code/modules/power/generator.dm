@@ -100,7 +100,7 @@
 /obj/machinery/power/generator/process()
 	//Setting this number higher just makes the change in power output slower, it doesnt actualy reduce power output cause **math**
 	var/power_output = round(lastgen / 10)
-	add_avail(power_output)
+	add_avail(power_output/1000)
 	lastgenlev = power_output
 	lastgen -= power_output
 	..()
@@ -117,7 +117,7 @@
 
 		t += "<div class='statusDisplay'>"
 
-		t += "Выход: [DisplayPower(lastgenlev)]"
+		t += "Выход: [DisplayPower(lastgenlev/1000)]"
 
 		t += "<BR>"
 
