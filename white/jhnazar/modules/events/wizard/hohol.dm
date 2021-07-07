@@ -4,10 +4,12 @@
 
 	color = null
 
-	icon = 'white/jhnazar/icons/hohol.dmi'
-	icon_state = "hohol"
-	icon_living = "hohol"
-	icon_dead = "hohol_dead"
+	icon = 'white/baldenysh/icons/mob/karasik.dmi'
+	icon_state = "karasik"
+	icon_living = "karasik"
+	icon_dead = "karasik"
+
+	pixel_x = -16
 
 	maxHealth = 1488
 	health = 1488
