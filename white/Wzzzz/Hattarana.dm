@@ -1,8 +1,8 @@
 /obj/item/clothing/head/helmet/wzzzz/siegehelmet
 	name = "siege helmet"
 	desc = "Stylish deutch helmet"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "siege_helmet"
 	inhand_icon_state = "siege_helmet"
 	dynamic_hair_suffix = ""
@@ -15,8 +15,8 @@
 /obj/item/clothing/head/helmet/wzzzz/rig0sec
 	name = "heavy security helmet"
 	desc = "Stylish deutch helmet"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "rig0sec"
 	inhand_icon_state = "rig0sec"
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -32,8 +32,8 @@
 /obj/item/clothing/head/helmet/wzzzz/emergencyhelmet
 	name = "emergency Helmet"
 	desc = "Not ugly, just unusual."
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "emergencyhelm"
 	inhand_icon_state = "emergencyhelm"
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEMASK
@@ -49,8 +49,8 @@
 /obj/item/clothing/head/helmet/wzzzz/voxstealth
 	name = "stealth helmet"
 	desc = "Not for humans, but looks great"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "voxstealth"
 	inhand_icon_state = "voxstealth"
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEMASK
@@ -67,8 +67,8 @@
 /obj/item/clothing/head/helmet/wzzzz/rig0syndieskrell
 	name = "syndicate helmet skrell"
 	desc = "Not for humans, but looks great"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "rig0syndieskrell"
 	inhand_icon_state = "rig0syndieskrell"
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEMASK
@@ -84,8 +84,8 @@
 /obj/item/clothing/head/helmet/wzzzz/rig0syndieunathi
 	name = "syndicate helmet unathi"
 	desc = "Not for humans, but looks great"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "rig0syndieunathi"
 	inhand_icon_state = "rig0syndieunathi"
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEMASK
@@ -101,8 +101,8 @@
 /obj/item/clothing/head/helmet/wzzzz/rig0syndietaj
 	name = "syndicate helmet tajare"
 	desc = "Not for humans, but looks great"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "rig0syndietaj"
 	inhand_icon_state = "rig0syndietaj"
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEMASK
@@ -118,8 +118,8 @@
 /obj/item/clothing/head/helmet/wzzzz/swathelm
 	name = "swat helmet"
 	desc = "Helmet for SWAT"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "swathelm"
 	inhand_icon_state = "swathelm"
 	flags_inv = HIDEHAIR|HIDEEARS
@@ -130,8 +130,8 @@
 /obj/item/clothing/head/wizard/wzzzz/amp
 	name = "amp"
 	desc = "Something strange"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "amp"
 	inhand_icon_state = "amp"
 	clothing_flags = BLOCK_GAS_SMOKE_EFFECT|STOPSPRESSUREDAMAGE
@@ -141,10 +141,10 @@
 /obj/item/clothing/head/helmet/wzzzz/helmetold1
 	name = "old helmet"
 	desc = "Nostalgy"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
-	lefthand_file = 'white/Wzzzz/icons/clothing//mob/lefthand_hats.dmi'
-	righthand_file = 'white/Wzzzz/icons/clothing/mob/righthand_hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_hats.dmi'
+	righthand_file = 'white/Wzzzz/clothing/inhand/righthand_hats.dmi'
 	icon_state = "helmetold1"
 	inhand_icon_state = "helmetold1"
 	flags_inv = HIDEHAIR|HIDEEARS
@@ -158,8 +158,8 @@
 	var/lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	var/darkness_view = 10
 	desc = "Looks like something for shadow stealth"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "stealth_rig"
 	flash_protect = 2
 	slot_flags = ITEM_SLOT_MASK
@@ -185,8 +185,8 @@
 /obj/item/clothing/head/helmet/wzzzz/breacher_rig_cheap
 	name = "breacher helmet cheap"
 	desc = "Looks good for dark persons"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "breacher_rig_cheap"
 	inhand_icon_state = "breacher_rig_cheap"
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -203,8 +203,8 @@
 /obj/item/clothing/head/helmet/wzzzz/breacher_rig
 	name = "breacher helmet"
 	desc = "Looks good for dark persons"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "breacher_rig"
 	inhand_icon_state = "breacher_rig"
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -221,8 +221,8 @@
 /obj/item/clothing/head/helmet/wzzzz/asset_protection_rig
 	name = "protection helmet"
 	desc = "Yes, that protect you"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "asset_protection_rig"
 	inhand_icon_state = "asset_protection_rig"
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -237,8 +237,8 @@
 /obj/item/clothing/head/helmet/wzzzz/hazard_rig
 	name = "hazard helmet"
 	desc = "For...maybe, for hazard"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "hazard_rig"
 	inhand_icon_state = "hazard_rig"
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -255,8 +255,8 @@
 /obj/item/clothing/head/helmet/wzzzz/helmetoldup
 	name = "old helmet black"
 	desc = "Black helmet"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "helmetoldup1"
 	inhand_icon_state = "helmetoldup1"
 	flags_inv = HIDEHAIR|HIDEEARS
@@ -268,8 +268,8 @@
 /obj/item/clothing/head/helmet/wzzzz/swatoldup
 	name = "old SWAT helmet"
 	desc = "Old black SWAT helmet"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "swatoldup"
 	inhand_icon_state = "swatoldup"
 	flags_inv = HIDEHAIR|HIDEEARS
@@ -280,8 +280,8 @@
 /obj/item/clothing/head/helmet/wzzzz/medicalalt_helm
 	name = "medical helmet"
 	desc = "Helmet for medics"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "medicalalt_helm"
 	inhand_icon_state = "medicalalt_helm"
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEMASK|HIDEGLOVES|HIDESHOES
@@ -297,8 +297,8 @@
 /obj/item/clothing/head/helmet/wzzzz/secalt_helm
 	name = "hard security helmet"
 	desc = "Harder, Better, Faster, Stronger"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "secalt_helm"
 	inhand_icon_state = "secalt_helm"
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEMASK
@@ -315,8 +315,8 @@
 /obj/item/clothing/head/helmet/wzzzz/helmet_reflect
 	name = "hard security helmet"
 	desc = "Harder, Better, Faster, Stronger"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "helmet_reflect"
 	inhand_icon_state = "helmet_reflect"
 	flags_inv = HIDEHAIR|HIDEEARS
@@ -326,8 +326,8 @@
 /obj/item/clothing/head/helmet/wzzzz/salvage_helm
 	name = "salvage helmet"
 	desc = "Salvage helmet"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "salvage_helm"
 	inhand_icon_state = "salvage_helm"
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -343,8 +343,8 @@
 /obj/item/clothing/head/welding/wzzzz/knightwelding
 	name = "welding mask knight"
 	desc = "Here was artist"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "knightwelding"
 	inhand_icon_state = "knightwelding"
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -358,8 +358,8 @@
 /obj/item/clothing/head/welding/wzzzz/engiewelding
 	name = "welding mask engie"
 	desc = "Here was artist"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "engiewelding"
 	inhand_icon_state = "engiewelding"
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -373,8 +373,8 @@
 /obj/item/clothing/head/welding/wzzzz/demonwelding
 	name = "welding mask demon"
 	desc = "Here was artist"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "demonwelding"
 	inhand_icon_state = "demonwelding"
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -388,8 +388,8 @@
 /obj/item/clothing/head/welding/wzzzz/fancywelding
 	name = "welding mask fancy"
 	desc = "Here was artist"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "fancywelding"
 	inhand_icon_state = "fancywelding"
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -403,8 +403,8 @@
 /obj/item/clothing/head/helmet/wzzzz/helmet_ntguard
 	name = "NT helmet"
 	desc = "Unusual white color"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "helmet_ntguard"
 	inhand_icon_state = "helmet_ntguard"
 	flags_inv = HIDEHAIR|HIDEEARS
@@ -414,8 +414,8 @@
 /obj/item/clothing/head/welding/wzzzz/carpwelding
 	name = "welding mask carp"
 	desc = "Here was artist"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "carpwelding"
 	inhand_icon_state = "carpwelding"
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -429,8 +429,8 @@
 /obj/item/clothing/head/helmet/wzzzz/merc_rig_heavy
 	name = "heavy Syndicate helmet"
 	desc = "Really heavy"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "merc_rig_heavy"
 	inhand_icon_state = "merc_rig_heavy"
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -447,8 +447,8 @@
 /obj/item/clothing/head/helmet/wzzzz/facecover
 	name = "facecover"
 	desc = "Looks unusually"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "facecover"
 	inhand_icon_state = "facecover"
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -464,8 +464,8 @@
 /obj/item/clothing/head/helmet/wzzzz/helmet_sol
 	name = "soldier helmet"
 	desc = "Looks strange for soldier, but that for soldiers"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "helmet_sol"
 	inhand_icon_state = "helmet_sol"
 	flags_inv = HIDEEARS
@@ -476,8 +476,8 @@
 /obj/item/clothing/head/helmet/wzzzz/helmet_tac
 	name = "tactical helmet"
 	desc = "Looks unusual for helmet"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "helmet_tac"
 	inhand_icon_state = "helmet_tac"
 	flags_inv = HIDEEARS
@@ -488,8 +488,8 @@
 /obj/item/clothing/gloves/combat/wzzzz/evening_gloves
 	name = "evening gloves"
 	desc = "Evening gloves."
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hands.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/gloves.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/hands.dmi'
+	icon = 'white/Wzzzz/clothing/gloves.dmi'
 	icon_state = "evening_gloves"
 	inhand_icon_state = "evening_gloves"
 	siemens_coefficient = 0
@@ -505,8 +505,8 @@
 /obj/item/clothing/head/helmet/wzzzz/bio_anom
 	name = "Anomaly hood"
 	desc = "A hood that protects the head and face from exotic alien energies and biological contamination."
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "bio_anom"
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
@@ -523,8 +523,8 @@
 /obj/item/clothing/suit/space/wzzzz/anomaly
 	name = "Anomaly suit"
 	desc = "A suit that protects against exotic alien energies and biological contamination."
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	icon_state = "bio_anom"
 	inhand_icon_state = "bio_anom"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -536,8 +536,8 @@
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 20,"energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 100, "fire" = 80, "acid" = 85)
 
 /obj/item/clothing/suit/space/wzzzz/secger
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "rig_sec"
 	inhand_icon_state = "rig_sec"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -550,8 +550,8 @@
 //helmettype = /obj/item/clothing/head/helmet/wzzzz/rig0sec
 
 /obj/item/clothing/suit/space/wzzzz/secalt
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "rig_secalt"
 	inhand_icon_state = "rig_secalt"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -565,8 +565,8 @@
 /obj/item/clothing/suit/armor/vest/wzzzz/bulletproofsuit
 	name = "bulletproof armour"
 	desc = "Better bulletproof suit."
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "bulletproof"
 	siemens_coefficient = 0.7
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -574,8 +574,8 @@
 	armor = list("melee" = 42, "bullet" = 75, "laser" = 42,"energy" = 10, "bomb" = 35, "bio" = 0, "rad" = 0, "fire" = 40, "acid" = 30)
 
 /obj/item/clothing/suit/toggle/labcoat/wzzzz
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 
 /obj/item/clothing/suit/toggle/labcoat/wzzzz/rd
 	name = "scientist labcoat"
@@ -588,8 +588,8 @@
 /obj/item/clothing/under/syndicate/wzzzz/sweater
 	name = "sweater turtleneck"
 	desc = "Comfortable and warm"
-	icon = 'white/Wzzzz/icons/clothing/ties.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/ties.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "sweater"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
@@ -603,8 +603,8 @@
 
 
 /obj/item/clothing/suit/space/wzzzz/excavation
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	inhand_icon_state = "rig_excavation"
 	icon_state = "rig_excavation"
 	name = "excavation voidsuit"
@@ -617,8 +617,8 @@
 /obj/item/clothing/head/helmet/space/wzzzz/excavation
 	name = "excavation voidsuit helmet"
 	desc = "A sophisticated voidsuit helmet, capable of protecting the wearer from many exotic alien energies."
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "rig0_excavation"
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
@@ -633,16 +633,16 @@
 /obj/item/clothing/suit/armor/vest/bulletproofsuit/wzzzz/vest
 	name = "bulletproof vest"
 	desc = "A suit of armor with heavy plates to protect against ballistic projectiles. Looks like it might impair movement."
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "bulletproofvest"
 	inhand_icon_state = "bulletproofvest"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	armor = list("melee" = 40, "bullet" = 80, "laser" = 20,"energy" = 0, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 40, "acid" = 30)
 
 /obj/item/clothing/suit/space/wzzzz/salvage
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	inhand_icon_state = "rig_salvage"
 	icon_state = "rig_salvage"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -653,8 +653,8 @@
 	armor = list(melee = 50, bullet = 40, laser = 20 ,energy = 10, bomb = 45, bio = 90, rad = 70)
 
 /obj/item/clothing/suit/bomb_suit/wzzzz/german
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	icon_state = "bombsuitsec"
 	inhand_icon_state = "bombsuitsec"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -663,8 +663,8 @@
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 20,"energy" = 10, "bomb" = 100, "bio" = 40, "rad" = 0, "fire" = 80, "acid" = 50)
 
 /obj/item/clothing/suit/bomb_suit/wzzzz/german/bombsuitsecold
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	icon_state = "bombsuitsecold"
 	inhand_icon_state = "bombsuitsecold"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -674,8 +674,8 @@
 
 /obj/item/clothing/head/bomb_hood/wzzzz/german
 	name = "bomb helmet"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "bombsuitsec"
 	inhand_icon_state = "bombsuitsec"
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACIALHAIR|HIDEMASK|HIDEMASK
@@ -686,14 +686,14 @@
 	icon_state = "hosg"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	inhand_icon_state = "hosg"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 
 /obj/item/clothing/suit/imperium_monk/wzzzz/german
 	icon_state = "imperium_monk"
 	inhand_icon_state = "imperium_monk"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	flags_inv = HIDEHAIR|HIDEEARS|256
 	visor_flags_inv = HIDEHAIR|HIDEEARS|256
 	armor = list("melee" = 30, "bullet" = 10, "laser" = 20,"energy" = 30, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 10)
@@ -707,28 +707,28 @@
 	cold_protection = CHEST|GROIN|LEGS|ARMS
 	heat_protection = CHEST|GROIN|LEGS|ARMS
 	clothing_flags = STOPSPRESSUREDAMAGE
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	resistance_flags = NONE|ACID_PROOF|INDESTRUCTIBLE|UNACIDABLE
 	armor = list("melee" = 500, "bullet" = 500, "laser" = 500,"energy" = 500, "bomb" = 500, "bio" = 500, "rad" = 500, "fire" = 0, "acid" = 500)
 
 /obj/item/clothing/suit/radiation/wzzzz/german
 	icon_state = "rad"
 	inhand_icon_state = "rad"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 
 /obj/item/clothing/suit/radiation/wzzzz/germanold
 	icon_state = "rad_old"
 	inhand_icon_state = "rad_old"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 
 /obj/item/clothing/suit/armor/vest/wzzzz/swat_german
 	name = "swat suit"
 	desc = "Good suit for battles versus revolution or criminals."
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "swatold"
 	siemens_coefficient = 0.6
 	inhand_icon_state = "swatold"
@@ -738,8 +738,8 @@
 /obj/item/clothing/suit/armor/vest/wzzzz/riot_german
 	name = "swat suit"
 	desc = "Good suit for battles versus revolution or criminals."
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "riotold"
 	siemens_coefficient = 0.7
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -749,8 +749,8 @@
 /obj/item/clothing/suit/armor/vest/wzzzz/swatarmor_german
 	name = "swat armor"
 	desc = "Armor for swat and swat operations."
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "swatarmor"
 	siemens_coefficient = 0.5
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -761,26 +761,26 @@
 /obj/item/clothing/suit/hazardvest/wzzzz/green
 	icon_state = "hazard_g"
 	inhand_icon_state = "hazard_g"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 
 /obj/item/clothing/suit/hazardvest/wzzzz/white
 	icon_state = "hazard_w"
 	inhand_icon_state = "hazard_w"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 
 /obj/item/clothing/suit/hazardvest/wzzzz/blue
 	icon_state = "hazard_b"
 	inhand_icon_state = "hazard_b"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 
 /obj/item/clothing/suit/space/wzzzz/sec
 	name = "security space suit"
 	desc = "A common suit what protects against pressure."
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	icon_state = "cespace_suit"
 	inhand_icon_state = "cespace_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -794,8 +794,8 @@
 /obj/item/clothing/suit/space/wzzzz/eng
 	name = "engineer space suit"
 	desc = "A common suit what protects against pressure."
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	icon_state = "engspace_suit"
 	inhand_icon_state = "engspace_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -809,8 +809,8 @@
 /obj/item/clothing/head/helmet/space/wzzzz/sec
 	name = "security space helmet"
 	desc = "A common space for space travels."
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "cespace_helmet"
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
@@ -824,8 +824,8 @@
 /obj/item/clothing/head/helmet/space/wzzzz/eng
 	name = "engineer space helmet"
 	desc = "A common space for space travels."
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "engspace_helmet"
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
@@ -841,8 +841,8 @@
 	desc = "You never asked for anything that stylish."
 	icon_state = "jensencoat"
 	inhand_icon_state = "jensencoat"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 
 /obj/item/clothing/suit/space/syndicate/wzzzz/german
 	name = "orange space suit"
@@ -851,14 +851,14 @@
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	cold_protection = CHEST|GROIN|LEGS|ARMS
 	heat_protection = CHEST|GROIN|LEGS|ARMS
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 
 /obj/item/clothing/suit/wzzzz/sweater
 	name = "sweater"
 	desc = "Comfortable and warm"
-	icon = 'white/Wzzzz/icons/clothing/clothing/ties.dmi'
-	worn_icon = 'white/Wzzzz/icons/ties.dmi'
+	icon = 'white/Wzzzz/clothing/ties.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
 	icon_state = "sweater"
 	body_parts_covered = CHEST|GROIN
 	cold_protection = CHEST|GROIN
@@ -870,8 +870,8 @@
 /obj/item/clothing/suit/wzzzz/nttunic
 	name = "NT tunic"
 	desc = "Do you weared tunic early?"
-	icon = 'white/Wzzzz/icons/clothing/clothing/ties.dmi'
-	worn_icon = 'white/Wzzzz/icons/ties.dmi'
+	icon = 'white/Wzzzz/clothing/ties.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
 	icon_state = "nttunic"
 	inhand_icon_state = "nttunic"
 
@@ -880,8 +880,8 @@
 	inhand_icon_state = "nttunicblack"
 
 /obj/item/clothing/suit/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/ties.dmi'
-	worn_icon = 'white/Wzzzz/icons/ties.dmi'
+	icon = 'white/Wzzzz/clothing/ties.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
 
 /obj/item/clothing/suit/wzzzz/thawb
 	desc = "What is thawb?"
@@ -940,16 +940,16 @@
 	inhand_icon_state = "dashikiblue"
 
 /obj/item/clothing/suit/toggle/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/ties.dmi'
-	worn_icon = 'white/Wzzzz/icons/ties.dmi'
+	icon = 'white/Wzzzz/clothing/ties.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
 
 
 /obj/item/clothing/suit/toggle/wzzzz/nt_jacket
 	name = "NT jacket"
 	desc = "Just jacket from NT"
-	icon = 'white/Wzzzz/icons/clothing/clothing/ties.dmi'
+	icon = 'white/Wzzzz/clothing/ties.dmi'
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 10, "acid" = 15)
-	worn_icon = 'white/Wzzzz/icons/ties.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
 	icon_state = "nt_jacket"
 	body_parts_covered = CHEST|GROIN
 	inhand_icon_state = "nt_jacket"
@@ -957,9 +957,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/
 	name = "NT jacket"
 	desc = "Just jacket from NT"
-	icon = 'white/Wzzzz/icons/clothing/clothing/ties.dmi'
+	icon = 'white/Wzzzz/clothing/ties.dmi'
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 10, "acid" = 15)
-	worn_icon = 'white/Wzzzz/icons/ties.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
 	icon_state = "nt_jacket"
 	body_parts_covered = CHEST|GROIN
 	inhand_icon_state = "nt_jacket"
@@ -1025,9 +1025,9 @@
 /obj/item/storage/belt/military/wzzzz/vest
 	name = "german black vest"
 	desc = "Armor, storage, stilysh"
-	icon = 'white/Wzzzz/icons/clothing/clothing/ties.dmi'
+	icon = 'white/Wzzzz/clothing/ties.dmi'
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 10,"energy" = 10, "bomb" = 25, "bio" = 10, "rad" = 0, "fire" = 10, "acid" = 15)
-	worn_icon = 'white/Wzzzz/icons/ties.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
 	icon_state = "vest_black"
 	inhand_icon_state = "vest_black"
 
@@ -1043,8 +1043,8 @@
 
 /obj/item/storage/belt/mining/wzzzz/large
 	icon_state = "webbing_large"
-	icon = 'white/Wzzzz/icons/clothing/clothing/ties.dmi'
-	worn_icon = 'white/Wzzzz/icons/ties.dmi'
+	icon = 'white/Wzzzz/clothing/ties.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
 	inhand_icon_state = "webbing_large"
 	w_class = WEIGHT_CLASS_BULKY
 
@@ -1096,8 +1096,8 @@
 
 /obj/item/storage/belt/mining/wzzzz/alt
 	icon_state = "webbing"
-	icon = 'white/Wzzzz/icons/clothing/clothing/ties.dmi'
-	worn_icon = 'white/Wzzzz/icons/ties.dmi'
+	icon = 'white/Wzzzz/clothing/ties.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
 	inhand_icon_state = "webbing"
 
 
@@ -1105,9 +1105,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/trackjacketred
 	name = "track jacket red"
 	desc = "Track jacket"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "trackjacketred"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "trackjacketred"
@@ -1115,9 +1115,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/trackjacket
 	name = "track jacket"
 	desc = "Track jacket"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "trackjacket"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "trackjacket"
@@ -1125,9 +1125,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/trackjacketblue
 	name = "track jacket blue"
 	desc = "Track jacket"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "trackjacketblue"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "trackjacketblue"
@@ -1135,9 +1135,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/trackjacketwhite
 	name = "track jacket white"
 	desc = "Track jacket"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "trackjacketwhite"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "trackjacketwhite"
@@ -1145,9 +1145,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/trackjacketgreen
 	name = "track jacket green"
 	desc = "Track jacket"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "trackjacketgreen"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "trackjacketgreen"
@@ -1155,9 +1155,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/ia_jacket
 	name = "track jacket"
 	desc = "Track jacket"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "ia_jacket"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "ia_jacket"
@@ -1166,8 +1166,8 @@
 	icon_state = "gentlecoat"
 	body_parts_covered = CHEST|GROIN|ARMS
 	inhand_icon_state = "gentlecoat"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 
 /obj/item/clothing/suit/toggle/labcoat/wzzzz/labcoat_cmoalt
 	name = "cmo labcoat"
@@ -1180,9 +1180,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/brown_jacket
 	name = "brown jacket"
 	desc = "Brown jacket"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "brown_jacket"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "brown_jacket"
@@ -1190,9 +1190,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/suitjacket_blue
 	name = "blue jacket"
 	desc = "Blue jacket"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "suitjacket_blue"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "suitjacket_blue"
@@ -1200,9 +1200,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/bomber
 	name = "bomber jacket"
 	desc = "Oldstyle"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 15, "bullet" = 10, "laser" = 5,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "bomber"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "bomber"
@@ -1210,9 +1210,9 @@
 /obj/item/clothing/suit/wzzzz/leather_jacket
 	name = "leather jacket"
 	desc = "Leather jacket"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 15, "acid" = 15)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "leather_jacket"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "leather_jacket"
@@ -1220,9 +1220,9 @@
 /obj/item/clothing/suit/wzzzz/mbill
 	name = "jacket"
 	desc = "Jacket"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "mbill"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "mbill"
@@ -1230,8 +1230,8 @@
 /obj/item/clothing/suit/wzzzz/towel
 	name = "towel"
 	desc = "Space, war and you with towel"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "towel"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "towel"
@@ -1239,9 +1239,9 @@
 /obj/item/clothing/suit/wzzzz/suitjacket_purp
 	name = "jacket purple"
 	desc = "Like Gulman?"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "suitjacket_purp"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "suitjacket_purp"
@@ -1249,8 +1249,8 @@
 /obj/item/clothing/suit/wzzzz/surgical
 	name = "surgical vest"
 	desc = "For true surgery"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "surgical"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "surgical"
@@ -1258,9 +1258,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/ems_jacket
 	name = "emergensy jacket"
 	desc = "If you wear it, then not time to read description"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "ems_jacket"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "ems_jacket"
@@ -1268,9 +1268,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/whitedress
 	name = "white dress"
 	desc = "For important persons"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "whitedress"
 	body_parts_covered = CHEST|GROIN|ARMS
 	inhand_icon_state = "whitedress"
@@ -1278,9 +1278,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/whitedress_com
 	name = "white dress"
 	desc = "For important persons"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "whitedress_com"
 	body_parts_covered = CHEST|GROIN|ARMS
 	inhand_icon_state = "whitedress_com"
@@ -1288,9 +1288,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/marshal_jacket
 	name = "marshal jacket"
 	desc = "Wow, jackets special for marshals"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "marshal_jacket"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "marshal_jacket"
@@ -1315,9 +1315,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/smw_hoodie
 	name = "smw hoodie"
 	desc = "Who is SMW?"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "smw_hoodie"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "smw_hoodie"
@@ -1325,9 +1325,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/nt_hoodie
 	name = "NT hoodie"
 	desc = "Looks good"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "nt_hoodie"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "nt_hoodie"
@@ -1335,9 +1335,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/mu_hoodie
 	name = "mu hoodie"
 	desc = "Mu"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "mu_hoodie"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "mu_hoodie"
@@ -1345,9 +1345,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/cti_hoodie
 	name = "cti hoodie"
 	desc = "CTI?"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "mu_hoodie"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "mu_hoodie"
@@ -1355,9 +1355,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/cti_hoodie
 	name = "cti hoodie"
 	desc = "CTI?"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "cti_hoodie"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "cti_hoodie"
@@ -1365,9 +1365,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/hoodie
 	name = "hoodie"
 	desc = "Hoodie for hoodies"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "hoodie"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "hoodie"
@@ -1375,9 +1375,9 @@
 /obj/item/clothing/suit/toggle/wzzzz/fr_jacket
 	name = "forensics jacket"
 	desc = "You really want wear it?"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "fr_jacket"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "fr_jacket"
@@ -1385,9 +1385,9 @@
 /obj/item/clothing/suit/wzzzz/mantle_unathi
 	name = "mantle"
 	desc = "Something old or wild"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "mantle_unathi"
 	body_parts_covered = CHEST
 	inhand_icon_state = "mantle_unathi"
@@ -1395,8 +1395,8 @@
 /obj/item/clothing/suit/wzzzz/robe_unathi
 	name = "robe"
 	desc = "Low technologies"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "robe_unathi"
 	body_parts_covered = CHEST|GROIN
 	inhand_icon_state = "robe_unathi"
@@ -1404,8 +1404,8 @@
 /obj/item/clothing/suit/space/wzzzz/skrell_suit_black
 	name = "black space suit"
 	desc = "For skrells, but we anyway too use it"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	icon_state = "skrell_suit_black"
 	inhand_icon_state = "skrell_suit_black"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -1419,8 +1419,8 @@
 /obj/item/clothing/suit/space/wzzzz/skrell_suit_white
 	name = "white space suit"
 	desc = "For skrells, but we anyway too use it"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	icon_state = "skrell_suit_white"
 	inhand_icon_state = "skrell_suit_white"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -1434,9 +1434,9 @@
 /obj/item/clothing/suit/wzzzz/forensics_blue
 	name = "forensics jacket"
 	desc = "Wow, real forensics?"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 15, "acid" = 15)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "forensics_blue"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "forensics_blue"
@@ -1444,24 +1444,24 @@
 /obj/item/clothing/suit/wzzzz/forensics_red
 	name = "forensics jacket"
 	desc = "Wow, real forensics?"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 15, "acid" = 15)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "forensics_red"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "forensics_red"
 
 /obj/item/clothing/suit/armor/vest/wzzzz/armorsec
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "armorsec"
 	inhand_icon_state = "armorsec"
 
 /obj/item/clothing/suit/space/wzzzz/zhan_furs
 	name = "zhan suit"
 	desc = "Space suit. Yes."
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	icon_state = "zhan_furs"
 	inhand_icon_state = "zhan_furs"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -1475,31 +1475,31 @@
 /obj/item/clothing/suit/wzzzz/blueponcho
 	desc = "Blue poncho"
 	name = "blue poncho"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "blueponcho"
 	inhand_icon_state = "blueponcho"
 
 /obj/item/clothing/suit/wzzzz/purpleponcho
 	desc = "Purple poncho"
 	name = "purple poncho"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "purpleponcho"
 	inhand_icon_state = "purpleponcho"
 
 /obj/item/clothing/suit/wzzzz/secponcho
 	desc = "Security poncho"
 	name = "secutiry poncho"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "secponcho"
 	inhand_icon_state = "secponcho"
 
 /obj/item/clothing/suit/wzzzz/medponcho
 	desc = "Medical poncho"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	name = "medical poncho"
 	icon_state = "medponcho"
 	inhand_icon_state = "medponcho"
@@ -1507,8 +1507,8 @@
 /obj/item/clothing/suit/wzzzz/engiponcho
 	desc = "Engineer poncho"
 	name = "engineer poncho"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "engiponcho"
 	inhand_icon_state = "engiponcho"
 
@@ -1516,32 +1516,32 @@
 	desc = "Cargo poncho"
 	name = "cargo poncho"
 	icon_state = "cargoponcho"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	inhand_icon_state = "cargoponcho"
 
 /obj/item/clothing/suit/wzzzz/sciponcho
 	desc = "Science poncho"
 	name = "science poncho"
 	icon_state = "sciponcho"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	inhand_icon_state = "sciponcho"
 
 /obj/item/clothing/suit/wzzzz/pvest
 	desc = "Vest"
 	name = "vest"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "pvest"
 	inhand_icon_state = "pvest"
 
 /obj/item/clothing/suit/wzzzz/blackservice
 	name = "blackservice jacket"
 	desc = "Blackservice"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 15, "acid" = 15)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "blackservice"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "blackservice"
@@ -1585,9 +1585,9 @@
 /obj/item/clothing/suit/wzzzz/greenservice
 	name = "greenservice jacket"
 	desc = "Greenservice"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 20)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "greenservice"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "greenservice"
@@ -1627,9 +1627,9 @@
 /obj/item/clothing/suit/wzzzz/greydress
 	name = "greydress jacket"
 	desc = "Greydress"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 15, "acid" = 15)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "greydress"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "greydress"
@@ -1641,9 +1641,9 @@
 /obj/item/clothing/suit/wzzzz/blackdress
 	name = "blackdress jacket"
 	desc = "Blackdress"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 15, "acid" = 15)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "blackdress"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "blackdress"
@@ -1651,8 +1651,8 @@
 /obj/item/clothing/suit/wzzzz/doctor_vest
 	name = "doctor vest"
 	desc = "For doctor"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "doctor_vest"
 	body_parts_covered = CHEST
 	inhand_icon_state = "doctor_vest"
@@ -1665,8 +1665,8 @@
 /obj/item/clothing/suit/armor/vest/wzzzz/german
 	name = "armored vest"
 	desc = "Protection."
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 35, "bullet" = 35, "laser" = 30, "energy" = 40, "bomb" = 35, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
 	icon_state = "kvest"
 	inhand_icon_state = "kvest"
@@ -1770,39 +1770,39 @@
 /obj/item/clothing/suit/armor/vest/wzzzz/german/ertarmor
 	name = "ert armor"
 	desc = "Usually ert use another protection, but that too exist."
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 40, "energy" = 30, "bomb" = 50, "bio" = 0, "rad" = 0, "fire" = 75, "acid" = 75)
 	body_parts_covered = CHEST
 
 /obj/item/clothing/suit/armor/vest/wzzzz/german/ertarmor/cmd
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "ertarmor_cmd"
 	inhand_icon_state = "ertarmor_cmd"
 
 /obj/item/clothing/suit/armor/vest/wzzzz/german/ertarmor/med
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "ertarmor_med"
 	inhand_icon_state = "ertarmor_med"
 
 /obj/item/clothing/suit/armor/vest/wzzzz/german/ertarmor/sec
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "ertarmor_sec"
 	inhand_icon_state = "ertarmor_esc"
 
 /obj/item/clothing/suit/armor/vest/wzzzz/german/ertarmor/eng
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "ertarmor_eng"
 	inhand_icon_state = "ertarmor_eng"
 
 /obj/item/clothing/under/syndicate/wzzzz/combat/german
 	name = "tactical turtleneck"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "A non-descript and slightly suspicious looking turtleneck with digital camouflage cargo pants."
 	icon_state = "combat"
 	inhand_icon_state = "combat"
@@ -1813,8 +1813,8 @@
 
 /obj/item/clothing/under/wzzzz/mbill
 	name = "mbill uniform"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Looks commons, feel legendary."
 	icon_state = "mbill"
 	inhand_icon_state = "mbill"
@@ -1824,8 +1824,8 @@
 
 /obj/item/clothing/under/rank/cargo/tech/wzzzz/ntwork
 	name = "NT worker uniform"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Work, work and work"
 	icon_state = "ntwork"
 	inhand_icon_state = "ntwork"
@@ -1834,8 +1834,8 @@
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/ntpilot
 	name = "NT pilot uniform"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Work, work and work"
 	icon_state = "ntpilot"
 	can_adjust = FALSE
@@ -1844,8 +1844,8 @@
 
 /obj/item/clothing/under/wzzzz/abaya
 	name = "abaya dress"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "unusual style"
 	icon_state = "abaya"
 	can_adjust = FALSE
@@ -1855,8 +1855,8 @@
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/ntguard
 	name = "NT guard uniform"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "You need to guard, not look at your clothes"
 	icon_state = "ntguard"
 	inhand_icon_state = "ntguard"
@@ -1866,8 +1866,8 @@
 
 /obj/item/clothing/under/wzzzz/confed
 	name = "confed jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Confed"
 	can_adjust = FALSE
 	icon_state = "confed"
@@ -1876,8 +1876,8 @@
 
 /obj/item/clothing/under/wzzzz/focal
 	name = "focal jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Looks like for workers"
 	icon_state = "focal"
 	can_adjust = FALSE
@@ -1886,8 +1886,8 @@
 
 /obj/item/clothing/under/rank/engineering/engineer/wzzzz/mechanic
 	name = "комбинезон механика"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Дешёвый комбинезон для дешёвой рабочей силы."
 	icon_state = "grayson"
 	can_adjust = FALSE
@@ -1896,8 +1896,8 @@
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/wardt
 	name = "ward jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Ward"
 	icon_state = "wardt"
 	can_adjust = FALSE
@@ -1906,8 +1906,8 @@
 
 /obj/item/clothing/under/rank/engineering/atmospheric_technician/wzzzz/aether
 	name = "aether jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "For aether"
 	icon_state = "aether"
 	inhand_icon_state = "aether"
@@ -1916,8 +1916,8 @@
 
 /obj/item/clothing/under/wzzzz/frontier
 	name = "frontier jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "For frontier"
 	icon_state = "frontier"
 	can_adjust = FALSE
@@ -1927,8 +1927,8 @@
 
 /obj/item/clothing/under/wzzzz/saare
 	name = "saare jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "For non-hand work"
 	icon_state = "saare"
 	inhand_icon_state = "saare"
@@ -1937,8 +1937,8 @@
 
 /obj/item/clothing/under/wzzzz/heph
 	name = "heph jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "For non-hand work"
 	can_adjust = FALSE
 	icon_state = "heph"
@@ -1947,8 +1947,8 @@
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/pcrc
 	name = "pcrc jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Something not for low rank"
 	icon_state = "pcrc"
 	can_adjust = FALSE
@@ -1957,8 +1957,8 @@
 
 /obj/item/clothing/under/wzzzz/greydress
 	name = "greydress jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Grey thing"
 	icon_state = "greydress"
 	inhand_icon_state = "greydress"
@@ -1967,8 +1967,8 @@
 
 /obj/item/clothing/under/wzzzz/greydress_com
 	name = "greydress jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Grey thing"
 	icon_state = "greydress_com"
 	inhand_icon_state = "greydress_com"
@@ -1977,8 +1977,8 @@
 
 /obj/item/clothing/under/wzzzz/greydressfem
 	name = "greydress female jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Grey thing"
 	icon_state = "greydressfem"
 	inhand_icon_state = "greydressfem"
@@ -1987,8 +1987,8 @@
 
 /obj/item/clothing/under/wzzzz/greydressfem_com
 	name = "greydress female jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Grey thing"
 	icon_state = "greydressfem_com"
 	inhand_icon_state = "greydressfem_com"
@@ -1997,8 +1997,8 @@
 
 /obj/item/clothing/under/wzzzz/blackdress
 	name = "Blackdress jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Black thing"
 	icon_state = "blackdress"
 	inhand_icon_state = "blackdress"
@@ -2007,8 +2007,8 @@
 
 /obj/item/clothing/under/wzzzz/blackdress_com
 	name = "blackdress jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Black thing"
 	icon_state = "blackdress_com"
 	can_adjust = FALSE
@@ -2017,8 +2017,8 @@
 
 /obj/item/clothing/under/wzzzz/blackdressfem
 	name = "blackdress female jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Black thing"
 	icon_state = "blackdressfem"
 	inhand_icon_state = "blackdressfem"
@@ -2027,8 +2027,8 @@
 
 /obj/item/clothing/under/wzzzz/blackdressfem_com
 	name = "blackdress female jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Black thing"
 	icon_state = "blackdressfem_com"
 	can_adjust = FALSE
@@ -2037,8 +2037,8 @@
 
 /obj/item/clothing/under/rank/medical/doctor/wzzzz/sterile
 	name = "sterile jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Sterile"
 	icon_state = "sterile"
 	can_adjust = FALSE
@@ -2048,8 +2048,8 @@
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/marinept
 	name = "marine jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Marine uniform"
 	icon_state = "marinept"
 	inhand_icon_state = "marinept"
@@ -2058,8 +2058,8 @@
 
 /obj/item/clothing/under/wzzzz/fleetpt
 	name = "fleet jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Fleet uniform"
 	icon_state = "fleetpt"
 	inhand_icon_state = "fleetpt"
@@ -2069,8 +2069,8 @@
 
 /obj/item/clothing/under/wzzzz/expeditionpt
 	name = "expedition jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Expedition uniform"
 	can_adjust = FALSE
 	icon_state = "expeditionpt"
@@ -2080,8 +2080,8 @@
 
 /obj/item/clothing/under/wzzzz/miami
 	name = "miami shirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Miami!"
 	icon_state = "miami"
 	can_adjust = FALSE
@@ -2091,8 +2091,8 @@
 
 /obj/item/clothing/under/wzzzz/dress_fire
 	name = "dress fire"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Blue fire"
 	icon_state = "dress_fire"
 	inhand_icon_state = "dress_fire"
@@ -2102,8 +2102,8 @@
 
 /obj/item/clothing/under/wzzzz/greenservice
 	name = "greenservice jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Green uniform"
 	icon_state = "greenservice"
 	inhand_icon_state = "greenservice"
@@ -2112,8 +2112,8 @@
 
 /obj/item/clothing/under/wzzzz/greenservice_com
 	name = "greenservice jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Green uniform"
 	icon_state = "greenservice_com"
 	can_adjust = FALSE
@@ -2122,8 +2122,8 @@
 
 /obj/item/clothing/under/wzzzz/whiteservice
 	name = "whiteservice jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "White uniform"
 	icon_state = "whiteservice"
 	can_adjust = FALSE
@@ -2132,8 +2132,8 @@
 
 /obj/item/clothing/under/wzzzz/whiteservicefem
 	name = "whiteservice female jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "White uniform"
 	icon_state = "whiteservicefem"
 	inhand_icon_state = "whiteservicefem"
@@ -2141,80 +2141,80 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/security/head_of_security/wzzzz/hosred
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "hosred"
 	inhand_icon_state = "hosred"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/secred
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "secred_s"
 	inhand_icon_state = "secred_s"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/cargo/tech/wzzzz/german
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "cargo"
 	inhand_icon_state = "cargo"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/cargo/qm/wzzzz/german
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "qm"
 	can_adjust = FALSE
 	inhand_icon_state = "qm"
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/medical/doctor/wzzzz/medical_short
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "medical_short"
 	inhand_icon_state = "medical_short"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/centcom/officer/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "officer"
 	inhand_icon_state = "officer"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/centcom/officer/wzzzz/centcom
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "centcom"
 	inhand_icon_state = "centcom"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/medical/doctor/wzzzz/white
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "white"
 	can_adjust = FALSE
 	inhand_icon_state = "white"
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/medical/doctor/wzzzz/medical
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "medical"
 	inhand_icon_state = "medical"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/johnny
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "johnny"
 	inhand_icon_state = "johnny"
 	can_adjust = FALSE
@@ -2223,8 +2223,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/orang
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "orang"
 	name = "orange uniform"
 	can_adjust = FALSE
@@ -2233,8 +2233,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/color
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Simple, but classic"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
@@ -2255,8 +2255,8 @@
 	name = "green"
 
 /obj/item/clothing/under/wzzzz/mai_yang
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "mai_yang"
 	inhand_icon_state = "mai_yang"
 	name = "yang uniform"
@@ -2266,8 +2266,8 @@
 	has_sensor = NO_SENSORS
 
 /obj/item/clothing/under/wzzzz/psysuit
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "psysuit"
 	name = "psy uniform"
 	desc = "From somewhere for someone"
@@ -2279,8 +2279,8 @@
 	armor = list("melee" = 500, "bullet" = 500, "laser" = 500,"energy" = 500, "bomb" = 500, "bio" = 500, "rad" = 500, "fire" = 0, "acid" = 500)
 
 /obj/item/clothing/under/wzzzz/redcoat
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "redcoat"
 	name = "redcoat uniform"
 	desc = "Like pirate, but no"
@@ -2290,8 +2290,8 @@
 	has_sensor = NO_SENSORS
 
 /obj/item/clothing/under/wzzzz/nursesuit
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "nursesuit"
 	inhand_icon_state = "nursesuit"
 	can_adjust = FALSE
@@ -2301,8 +2301,8 @@
 	has_sensor = NO_SENSORS
 
 /obj/item/clothing/under/wzzzz/lawyer_purp
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "lawyer_purp"
 	inhand_icon_state = "lawyer_purp"
 	alt_covers_chest = FALSE
@@ -2311,8 +2311,8 @@
 	desc = "Looks stylish"
 
 /obj/item/clothing/under/wzzzz/greyutility
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "greyutility"
 	inhand_icon_state = "greyutility"
 	name = "grey utility jumpsuit"
@@ -2322,8 +2322,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/greyutility_eng
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "greyutility_eng"
 	name = "grey utility jumpsuit"
 	can_adjust = FALSE
@@ -2333,8 +2333,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/greyutility_med
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "greyutility_med"
 	name = "grey utility jumpsuit"
 	desc = "Grey"
@@ -2344,8 +2344,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/greyutility_sup
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "greyutility_sup"
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 45, "acid" = 40)
 	inhand_icon_state = "greyutility_sup"
@@ -2355,8 +2355,8 @@
 	desc = "Grey"
 
 /obj/item/clothing/under/wzzzz/greyutility_sec
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "greyutility_sec"
 	inhand_icon_state = "greyutility_sec"
 	name = "grey utility jumpsuit"
@@ -2366,8 +2366,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/greyutility_com
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "greyutility_com"
 	inhand_icon_state = "greyutility_com"
 	name = "grey utility jumpsuit"
@@ -2377,8 +2377,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/navyutility
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "navyutility"
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 45, "acid" = 40)
 	inhand_icon_state = "navyutility"
@@ -2388,8 +2388,8 @@
 	desc = "For space navi"
 
 /obj/item/clothing/under/wzzzz/navyutility_eng
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "navyutility_eng"
 	inhand_icon_state = "navyutility_eng"
 	can_adjust = FALSE
@@ -2399,8 +2399,8 @@
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 45, "acid" = 40)
 
 /obj/item/clothing/under/wzzzz/navyutility_med
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "navyutility_med"
 	name = "navy jumpsuit"
 	can_adjust = FALSE
@@ -2410,8 +2410,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/navyutility_sup
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "navyutility_sup"
 	name = "navy jumpsuit"
 	can_adjust = FALSE
@@ -2421,8 +2421,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/navyutility_sec
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "navyutility_sec"
 	can_adjust = FALSE
 	name = "navy jumpsuit"
@@ -2432,8 +2432,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/navyutility_com
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "navyutility_com"
 	can_adjust = FALSE
 	name = "navy jumpsuit"
@@ -2443,8 +2443,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/greenutility
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "greenutility"
 	inhand_icon_state = "greenutility"
 	can_adjust = FALSE
@@ -2454,8 +2454,8 @@
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 45, "acid" = 40)
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/tanutility
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "tanutility"
 	inhand_icon_state = "tanutility"
 	name = "tan utility jumpsuit"
@@ -2465,8 +2465,8 @@
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 45, "acid" = 40)
 
 /obj/item/clothing/under/wzzzz/blackutility
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "blackutility"
 	inhand_icon_state = "blackutility"
 	alt_covers_chest = FALSE
@@ -2476,8 +2476,8 @@
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 55, "acid" = 40)
 
 /obj/item/clothing/under/wzzzz/blackutility_crew
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "blackutility_crew"
 	inhand_icon_state = "blackutility_crew"
 	name = "black utility jumpsuit"
@@ -2487,8 +2487,8 @@
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 55, "acid" = 40)
 
 /obj/item/clothing/under/wzzzz/blackutility_med
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "blackutility_med"
 	inhand_icon_state = "blackutility_med"
 	name = "black utility jumpsuit"
@@ -2498,8 +2498,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/blackutility_medcom
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "blackutility_medcom"
 	name = "black utility jumpsuit"
 	desc = "Stylish black color"
@@ -2509,8 +2509,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/blackutility_eng
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "blackutility_eng"
 	inhand_icon_state = "blackutility_eng"
 	name = "black utility jumpsuit"
@@ -2520,8 +2520,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/blackutility_engcom
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "blackutility_engcom"
 	inhand_icon_state = "blackutility_engcom"
 	name = "black utility jumpsuit"
@@ -2531,8 +2531,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/blackutility_sup
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "blackutility_sup"
 	name = "black utility jumpsuit"
 	can_adjust = FALSE
@@ -2542,8 +2542,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/blackutility_sec
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "blackutility_sec"
 	inhand_icon_state = "blackutility_sec"
 	name = "black utility jumpsuit"
@@ -2553,8 +2553,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/blackutility_seccom
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "blackutility_seccom"
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 55, "acid" = 40)
 	inhand_icon_state = "blackutility_seccom"
@@ -2564,8 +2564,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/blackutility_com
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "blackutility_com"
 	name = "black utility jumpsuit"
 	desc = "Stylish black color"
@@ -2575,16 +2575,16 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/security/detective/wzzzz/detective2
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "detective2"
 	can_adjust = FALSE
 	inhand_icon_state = "detective2"
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/jensen
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "jensen"
 	inhand_icon_state = "jensen"
 	name = "jensen jumpsuit"
@@ -2595,8 +2595,8 @@
 
 
 /obj/item/clothing/under/wzzzz/blue_blazer
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "blue_blazer"
 	inhand_icon_state = "blue_blazer"
 	name = "blazer"
@@ -2606,8 +2606,8 @@
 	has_sensor = NO_SENSORS
 
 /obj/item/clothing/under/wzzzz/gentlesuit
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "gentlesuit"
 	inhand_icon_state = "gentlesuit"
 	name = "gentelman jumpsuit"
@@ -2617,40 +2617,40 @@
 	has_sensor = NO_SENSORS
 
 /obj/item/clothing/under/rank/rnd/research_director/wzzzz/rdalt
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "rdalt"
 	inhand_icon_state = "rdalt"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/swatunder
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "swatunder"
 	inhand_icon_state = "swatunder"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/civilian/head_of_personnel/wzzzz/hopwhimsy
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "hopwhimsy"
 	inhand_icon_state = "hopwhimsy"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/security/warden/wzzzz/wardendnavyclothes
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "wardendnavyclothes"
 	inhand_icon_state = "wardendnavyclothes"
 	alt_covers_chest = FALSE
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/officerdnavyclothes
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "officerdnavyclothes"
 	inhand_icon_state = "officerdnavyclothes"
 	can_adjust = FALSE
@@ -2659,16 +2659,16 @@
 
 
 /obj/item/clothing/under/rank/security/head_of_security/wzzzz/hos_corporate
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "hos_corporate"
 	inhand_icon_state = "hos_corporate"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/dispatch
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "dispatch"
 	inhand_icon_state = "dispatch"
 	name = "dispatch"
@@ -2677,16 +2677,16 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/security/head_of_security/wzzzz/hosdnavyclothes
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "hosdnavyclothes"
 	inhand_icon_state = "hosdnavyclothes"
 	alt_covers_chest = FALSE
 	can_adjust = FALSE
 
 /obj/item/clothing/under/wzzzz/captain_fly
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "captain_fly"
 	inhand_icon_state = "captain_fly"
 	name = "captain's fly"
@@ -2695,16 +2695,16 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/internalaffairs
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "internalaffairs"
 	inhand_icon_state = "internalaffairs"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/bride
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	alt_covers_chest = FALSE
 	can_adjust = FALSE
 	name = "bridge dress"
@@ -2732,8 +2732,8 @@
 	inhand_icon_state = "bride_purple"
 
 /obj/item/clothing/under/wzzzz/dress_orange
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "dress_orange"
 	name = "dress"
 	can_adjust = FALSE
@@ -2743,8 +2743,8 @@
 	has_sensor = NO_SENSORS
 
 /obj/item/clothing/under/wzzzz/dress_saloon
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "dress_saloon"
 	inhand_icon_state = "dress_saloon"
 	alt_covers_chest = FALSE
@@ -2754,8 +2754,8 @@
 	has_sensor = NO_SENSORS
 
 /obj/item/clothing/under/wzzzz/orderly
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "orderly"
 	inhand_icon_state = "orderly"
 	alt_covers_chest = FALSE
@@ -2765,8 +2765,8 @@
 	desc = "Very simple, but classic"
 
 /obj/item/clothing/under/wzzzz/nurse
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "nurse"
 	inhand_icon_state = "nurse"
 	can_adjust = FALSE
@@ -2775,8 +2775,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/oldman
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "oldman"
 	inhand_icon_state = "oldman"
 	name = "oldman suit"
@@ -2786,8 +2786,8 @@
 	has_sensor = NO_SENSORS
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/sec_corporate
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "sec_corporate"
 	inhand_icon_state = "sec_corporate"
 	can_adjust = FALSE
@@ -2795,8 +2795,8 @@
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 10, "rad" = 0, "fire" = 40, "acid" = 40)
 
 /obj/item/clothing/under/wzzzz/psychturtle
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "psychturtle"
 	cold_protection = 200
 	can_adjust = FALSE
@@ -2808,24 +2808,24 @@
 	has_sensor = NO_SENSORS
 
 /obj/item/clothing/under/rank/security/head_of_security/wzzzz/hos_corporate1
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "hos_corporate1"
 	inhand_icon_state = "hos_corporate1"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/security/warden/wzzzz/warden_corporate
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "warden_corporate"
 	inhand_icon_state = "warden_corporate"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/undertaker
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "undertaker"
 	inhand_icon_state = "undertaker"
 	can_adjust = FALSE
@@ -2834,8 +2834,8 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/stripper
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	name = "stripper clothing"
 	desc = "To seduce someone?"
 	can_adjust = FALSE
@@ -2851,8 +2851,8 @@
 	inhand_icon_state = "stripper_p"
 
 /obj/item/clothing/under/wzzzz/swim
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	name = "swim suit"
 	desc = "Good dive in space"
 	alt_covers_chest = FALSE
@@ -2911,8 +2911,8 @@
 /obj/item/clothing/head/helmet/wzzzz/helmet_command
 	name = "command helmet"
 	desc = "Helmet with special line at back side like symbol of command?"
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "helmet_command"
 	inhand_icon_state = "helmet_command"
 	flags_inv = HIDEHAIR|HIDEEARS
@@ -2923,8 +2923,8 @@
 /obj/item/clothing/head/helmet/wzzzz/helmet_security
 	name = "security helmet"
 	desc = "Helmet with special line at back side like symbol of security."
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "helmet_security"
 	inhand_icon_state = "helmet_security"
 	flags_inv = HIDEHAIR|HIDEEARS
@@ -2935,8 +2935,8 @@
 /obj/item/clothing/head/helmet/wzzzz/helmet_pcrc
 	name = "pcrc helmet"
 	desc = "Helmet with special line at back side like symbol of pcrc."
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "helmet_pcrc"
 	inhand_icon_state = "helmet_pcrc"
 	flags_inv = HIDEHAIR|HIDEEARS
@@ -2947,8 +2947,8 @@
 /obj/item/clothing/head/helmet/wzzzz/helmet_nt
 	name = "nt helmet"
 	desc = "Helmet for NT conscripts?"
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "helmet_nt"
 	inhand_icon_state = "helmet_nt"
 	flags_inv = HIDEHAIR|HIDEEARS
@@ -2959,17 +2959,17 @@
 /obj/item/clothing/suit/toggle/wzzzz/trackjackettcc
 	name = "track jacket TTC"
 	desc = "Track jacket"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "trackjackettcc"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "trackjackettcc"
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/ert_uniform
 	name = "ert jumpskirt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Marine uniform"
 	icon_state = "ert_uniform"
 	inhand_icon_state = "ert_uniform"
@@ -3010,32 +3010,32 @@
 /obj/item/clothing/suit/wzzzz/sciponcho_heph
 	desc = "Poncho for area of knowledge"
 	name = "scientist poncho"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "sciponcho_heph"
 	inhand_icon_state = "sciponcho_heph"
 
 /obj/item/clothing/suit/wzzzz/sciponcho_zeng
 	desc = "Poncho for area of knowledge"
 	name = "scientist poncho"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "sciponcho_zeng"
 	inhand_icon_state = "sciponcho_zeng"
 
 /obj/item/clothing/suit/wzzzz/sciponcho
 	desc = "Poncho for area of knowledge"
 	name = "scientist poncho"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "sciponcho"
 	inhand_icon_state = "sciponcho"
 
 /obj/item/clothing/suit/wzzzz/sciponcho_nt
 	desc = "Poncho for area of knowledge"
 	name = "scientist poncho"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "sciponcho_nt"
 	inhand_icon_state = "sciponcho_nt"
 
@@ -3081,8 +3081,8 @@
 	inhand_icon_state = "labcoat_xy"
 
 /obj/item/clothing/under/wzzzz/maid
-	icon = 'white/Wzzzz/icons/Ora/ve/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/Ora/li/uniforms.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "maid"
 	inhand_icon_state = "maid"
 	body_parts_covered = CHEST|GROIN
@@ -3092,8 +3092,8 @@
 	has_sensor = NO_SENSORS
 
 /obj/item/clothing/under/rank/medical/doctor/wzzzz/brig_phys
-	icon = 'white/Wzzzz/icons/Ora/ve/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/Ora/li/uniforms.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "brig_phys"
 	inhand_icon_state = "brig_phys"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -3101,14 +3101,14 @@
 	desc = "Little useful work"
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/altsecurity
-	icon = 'white/Wzzzz/icons/Ora/ve/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/Ora/li/uniforms.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "altsecurity"
 	inhand_icon_state = "altsecurity"
 
 /obj/item/clothing/under/wzzzz/victorian
-	icon = 'white/Wzzzz/icons/Ora/ve/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/Ora/li/uniforms.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	name = "victorian uniform"
 	can_adjust = FALSE
 	desc = "From old times."
@@ -3142,8 +3142,8 @@
 	desc = "Like true lady"
 
 /obj/item/clothing/under/wzzzz/victorian/reddress
-	icon = 'white/Wzzzz/icons/Ora/ve/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/Ora/li/uniforms.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "victorianreddress"
 	inhand_icon_state = "victorianreddress"
 	body_parts_covered = CHEST|GROIN
@@ -3152,16 +3152,16 @@
 	desc = "Like true lady"
 
 /obj/item/clothing/suit/wzzzz/militaryjacket
-	icon = 'white/Wzzzz/icons/Ora/ve/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 15, "bullet" = 15, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 20)
-	worn_icon = 'white/Wzzzz/icons/Ora/li/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	body_parts_covered = CHEST|ARMS
 
 /obj/item/clothing/suit/wzzzz/service_co_coat
 	name = "service jacket"
 	desc = "Jacket for scientists."
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/suit.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 50, "rad" = 10, "fire" = 30, "acid" = 40)
 	body_parts_covered = CHEST|ARMS
 
@@ -3194,8 +3194,8 @@
 /obj/item/clothing/suit/armor/vest/wzzzz/brig_phys_vest
 	name = "psychologist vest"
 	desc = "Looks like for security, but not fully, perhabs."
-	icon = 'white/Wzzzz/icons/Ora/ve/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/Ora/li/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "brig_phys_vest"
 	inhand_icon_state = "brig_phys_vest"
 	body_parts_covered = CHEST
@@ -3204,8 +3204,8 @@
 /obj/item/clothing/suit/armor/vest/wzzzz/paramedic_vest
 	name = "paramedic vest"
 	desc = "Special vest for paramedics."
-	icon = 'white/Wzzzz/icons/Ora/ve/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/Ora/li/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "paramedic_vest"
 	inhand_icon_state = "paramedic_vest"
 	body_parts_covered = CHEST
@@ -3214,15 +3214,15 @@
 /obj/item/clothing/suit/armor/riot/knight/wzzzz/heavy
 	name = "heavy knight suit"
 	desc = "A suit of semi-flexible polycarbonate body armor with heavy padding to protect against melee attacks. Helps the wearer resist shoving in close quarters."
-	icon = 'white/Wzzzz/icons/Ora/ve/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/Ora/li/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "knight_grey"
 	inhand_icon_state = "knight_grey"
 	armor = list("melee" = 80, "bullet" = 75, "laser" = 40, "energy" = 25, "bomb" = 60, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 80)
 	slowdown = 0.7
 
 /obj/item/clothing/suit/armor/changeling/wzzzz
-	icon = 'white/Wzzzz/icons/Ora/ve/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 	armor = list("melee" = 50, "bullet" = 60, "laser" = 20, "energy" = 15, "bomb" = 60, "bio" = 100, "rad" = 0, "fire" = 50, "acid" = 70)
 
@@ -3230,8 +3230,8 @@
 	armor = list("melee" = 70, "bullet" = 70, "laser" = 40, "energy" = 40, "bomb" = 90, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 90)
 	actions = null
 	actions_types = null
-	icon = 'white/Wzzzz/icons/Ora/ve/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/Ora/li/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "uegarmor"
 	inhand_icon_state = "uegarmor"
 	name = "ueg armor"
@@ -3239,8 +3239,8 @@
 
 /obj/item/clothing/suit/space/wzzzz/ashwalker
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 60, "bio" = 100, "rad" = 0, "fire" = 100, "acid" = 80)
-	icon = 'white/Wzzzz/icons/Ora/ve/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/Ora/li/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "ashwalker"
 	inhand_icon_state = "ashwalker"
 	clothing_flags = STOPSPRESSUREDAMAGE|LAVAPROTECT
@@ -3251,8 +3251,8 @@
 /obj/item/clothing/suit/armor/vest/alt/wzzzz/blueshield
 	name = "blueshield armor vest"
 	desc = "Armor vest for forces of Blushield."
-	icon = 'white/Wzzzz/icons/Ora/ve/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/Ora/li/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "blueshield_old"
 	armor = list("melee" = 35, "bullet" = 35, "laser" = 35, "energy" = 15, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 60, "acid" = 50)
 	inhand_icon_state = "blueshield_old"
@@ -3260,8 +3260,8 @@
 /obj/item/clothing/suit/armor/vest/wzzzz/blueshield
 	name = "blueshield armor vest"
 	desc = "Armor vest for forces of Blushield."
-	icon = 'white/Wzzzz/icons/Ora/ve/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/Ora/li/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "blueshield"
 	armor = list("melee" = 35, "bullet" = 35, "laser" = 35, "energy" = 15, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 60, "acid" = 50)
 	inhand_icon_state = "blueshield"
@@ -3269,8 +3269,8 @@
 /obj/item/clothing/suit/armor/vest/leather/wzzzz/tailcoat
 	name = "tail coat"
 	desc = "Stylish armored coat."
-	icon = 'white/Wzzzz/icons/Ora/ve/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/Ora/li/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "tailcoat"
 	armor = list("melee" = 20, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 15)
 	inhand_icon_state = "tailcoat"
@@ -3279,8 +3279,8 @@
 /obj/item/clothing/suit/armor/vest/leather/wzzzz/ladiesvictoriancoat
 	name = "victorian coat"
 	desc = "Stylish victorian coat."
-	icon = 'white/Wzzzz/icons/Ora/ve/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/Ora/li/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "ladiesvictoriancoat"
 	armor = list("melee" = 15, "bullet" = 10, "laser" = 5, "energy" = 5, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 5)
 	inhand_icon_state = "ladiesvictoriancoat"
@@ -3288,8 +3288,8 @@
 /obj/item/clothing/suit/armor/vest/leather/wzzzz/ladiesredvictoriancoat
 	name = "victorian coat"
 	desc = "Stylish victorian coat."
-	icon = 'white/Wzzzz/icons/Ora/ve/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/Ora/li/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "ladiesredvictoriancoat"
 	armor = list("melee" = 15, "bullet" = 10, "laser" = 5, "energy" = 5, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 5)
 	inhand_icon_state = "ladiesredvictoriancoat"
@@ -3297,40 +3297,40 @@
 /obj/item/clothing/suit/wzzzz/greymiljacket
 	name = "grey jacket"
 	desc = "Grey military jacket"
-	icon = 'white/Wzzzz/icons/Ora/ve/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	armor = list("melee" = 25, "bullet" = 15, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 20)
-	worn_icon = 'white/Wzzzz/icons/Ora/li/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "greymiljacket"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "greymiljacket"
 
 /obj/item/clothing/suit/hooded/wintercoat/science/wzzzz/zeng
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "coatscience_zeng"
 	inhand_icon_state = "coatscience_zeng"
 
 /obj/item/clothing/suit/hooded/wintercoat/science/wzzzz/heph
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "coatscience_heph"
 	inhand_icon_state = "coatscience_heph"
 
 /obj/item/clothing/suit/hooded/wintercoat/science/wzzzz/dais
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "coatscience_dais"
 	inhand_icon_state = "coatscience_dais"
 
 /obj/item/clothing/suit/hooded/wintercoat/science/wzzzz/alt
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "coatscience1"
 	inhand_icon_state = "coatscience1"
 
 /obj/item/clothing/suit/hooded/wintercoat/science/wzzzz/nt
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "coatscience_nt"
 	inhand_icon_state = "coatscience_nt"
 
@@ -3338,8 +3338,8 @@
 	name = "jacket"
 	desc = "Just jacket"
 	armor = list("melee" = 15, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 10, "acid" = 15)
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "m_dress"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "m_dress"
@@ -3347,8 +3347,8 @@
 /obj/item/clothing/suit/wzzzz/m_dress_int
 	name = "jacket"
 	desc = "Just jacket"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 15, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 10, "acid" = 15)
 	icon_state = "m_dress_int"
 	body_parts_covered = CHEST|ARMS
@@ -3357,8 +3357,8 @@
 /obj/item/clothing/suit/wzzzz/m_service
 	name = "jacket"
 	desc = "Just jacket"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 15, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 10, "acid" = 15)
 	icon_state = "m_service"
 	body_parts_covered = CHEST|ARMS
@@ -3367,8 +3367,8 @@
 /obj/item/clothing/suit/wzzzz/m_service_int
 	name = "jacket"
 	desc = "Just jacket"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 15, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 10, "acid" = 15)
 	icon_state = "m_service_int"
 	body_parts_covered = CHEST|ARMS
@@ -3377,8 +3377,8 @@
 /obj/item/clothing/suit/wzzzz/infsuit
 	name = "jacket"
 	desc = "Just jacket"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 15, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 10, "acid" = 15)
 	icon_state = "infsuit"
 	body_parts_covered = CHEST|ARMS
@@ -3387,15 +3387,15 @@
 /obj/item/clothing/suit/toggle/wzzzz/suitjacket
 	name = "suit jacket"
 	desc = "Just suit jacket"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "suitjacket"
 	body_parts_covered = CHEST|GROIN
 	inhand_icon_state = "suitjacket"
 
 /obj/item/clothing/suit/armor/vest/wzzzz/german/webvest/m_vest
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "m_vest"
 	inhand_icon_state = "m_vest"
 	name = "medical vest"
@@ -3500,16 +3500,16 @@
 	icon_state = "stripedgreyscarf"
 	inhand_icon_state = "stripedgreyscarf"
 	custom_price = 25
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/ties.dmi'
-	icon = 'white/Wzzzz/icons/clothing/ties.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
+	icon = 'white/Wzzzz/clothing/ties.dmi'
 
 /obj/item/clothing/neck/stripedgreenscarf/wzzzz/black
 	name = "striped black scarf"
 	icon_state = "stripedblackscarf"
 	inhand_icon_state = "stripedblackscarf"
 	custom_price = 25
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/ties.dmi'
-	icon = 'white/Wzzzz/icons/clothing/ties.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
+	icon = 'white/Wzzzz/clothing/ties.dmi'
 
 /obj/item/clothing/suit/toggle/labcoat/wzzzz/labcoat_black
 	name = "scientist labcoat"
@@ -3540,8 +3540,8 @@
 /obj/item/clothing/head/wizard/battlemage
 	name = "battle wizard helmet"
 	desc = "Shield magic."
-	worn_icon = 'white/Wzzzz/icons/Ora/li/head.dmi'
-	icon = 'white/Wzzzz/icons/Ora/ve/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	resistance_flags = NONE|ACID_PROOF|INDESTRUCTIBLE|UNACIDABLE|FIRE_PROOF|FREEZE_PROOF|LAVA_PROOF
 	armor = list("melee" = 80, "bullet" = 60, "laser" = 70,"energy" = 80, "bomb" = 90, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100, "magic" = 75)
 	inhand_icon_state = "battlemage"
@@ -3556,8 +3556,8 @@
 /obj/item/clothing/head/helmet/wzzzz/m_helmet
 	name = "helmet"
 	desc = "Helmet."
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hatsnew.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "m_helmet"
 	inhand_icon_state = "m_helmet"
 	flags_inv = HIDEEARS
@@ -3597,9 +3597,9 @@
 	flags_inv = HIDEJUMPSUIT
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	hoodtype = /obj/item/clothing/head/hooded/wzzzz/fiend
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 50,"energy" = 30, "bomb" = 10, "bio" = 30, "rad" = 0, "fire" = 30, "acid" = 10, "magic" = 25)
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 	allowed = list (/obj/item/storage/book, /obj/item/nullrod, /obj/item/reagent_containers/food/drinks, /obj/item/storage/fancy, /obj/item/candle, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/gun/ballistic/automatic/pistol, /obj/item/ammo_box/magazine, /obj/item/gun/energy/pulse/pistol, /obj/item/kitchen/knife)
 
 /obj/item/clothing/head/hooded/wzzzz/fiend
@@ -3608,8 +3608,8 @@
 	icon_state = "fiendhood"
 	inhand_icon_state = "fiendhood"
 	body_parts_covered = HEAD
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hatsnew.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEEYES|HIDEFACE|HIDEFACIALHAIR|HIDEMASK
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 50,"energy" = 30, "bomb" = 10, "bio" = 30, "rad" = 0, "fire" = 30, "acid" = 10, "magic" = 25)
 
@@ -3717,8 +3717,8 @@
 /obj/item/clothing/under/syndicate/wzzzz/fiendsuit
 	name = "fiend suit"
 	desc = "Darkness inside"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "fiendsuit"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
@@ -3732,8 +3732,8 @@
 /obj/item/clothing/under/syndicate/wzzzz/fienddress
 	name = "fiend dress"
 	desc = "Darkness inside"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "fienddress"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
@@ -3745,8 +3745,8 @@
 /obj/item/clothing/under/syndicate/wzzzz/huntress
 	name = "huntress outfit"
 	desc = "Leather, light and open"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "huntress"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
@@ -3758,8 +3758,8 @@
 /obj/item/clothing/under/syndicate/wzzzz/hunter
 	name = "hunter outfit"
 	desc = "Leather, light and open"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "hunter"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
@@ -3770,8 +3770,8 @@
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/hunter
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/pcrcsuit
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "pcrcsuit"
 	inhand_icon_state = "pcrcsuit"
 	can_adjust = FALSE
@@ -3780,8 +3780,8 @@
 /obj/item/clothing/under/syndicate/wzzzz/familiartunic
 	name = "familiar tunic"
 	desc = "So familiar..."
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "familiartunic"
 	inhand_icon_state = "familiartunic"
 	can_adjust = FALSE
@@ -3790,8 +3790,8 @@
 
 /obj/item/clothing/under/rank/engineering/engineer/wzzzz/morpheus
 	name = "комбинезон рабочего"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Для тяжёлой работы."
 	icon_state = "morpheus"
 	can_adjust = FALSE
@@ -3802,8 +3802,8 @@
 /obj/item/clothing/under/syndicate/wzzzz/grimhoodie
 	name = "grim hoodie"
 	desc = "Grim hooodiiiee"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "grimhoodie"
 	inhand_icon_state = "grimhoodie"
 	can_adjust = FALSE
@@ -3813,8 +3813,8 @@
 /obj/item/clothing/under/syndicate/wzzzz/skrell_suit
 	name = "skrell jumpsuit"
 	desc = "For skrells, but for humans"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "skrell_suit"
 	inhand_icon_state = "skrell_suit"
 	can_adjust = FALSE
@@ -3829,9 +3829,9 @@
 	flags_inv = HIDEJUMPSUIT
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	hoodtype = /obj/item/clothing/head/hooded/wzzzz/caretakercloak
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 10, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10, "magic" = 10)
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 
 /obj/item/clothing/head/hooded/wzzzz/caretakercloak
 	name = "caretaker hood"
@@ -3839,8 +3839,8 @@
 	icon_state = "caretakerhood"
 	inhand_icon_state = "caretakerhood"
 	body_parts_covered = HEAD
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hatsnew.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEEYES|HIDEFACE
 	armor = list("melee" = 10, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10, "magic" = 10)
 
@@ -3852,9 +3852,9 @@
 	flags_inv = HIDEJUMPSUIT
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	hoodtype = /obj/item/clothing/head/hooded/wzzzz/overseercloak
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 20,"energy" = 20, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 60, "acid" = 50, "magic" = 30)
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 
 /obj/item/clothing/head/hooded/wzzzz/overseercloak
 	name = "overseer hood"
@@ -3862,8 +3862,8 @@
 	icon_state = "necromancer"
 	inhand_icon_state = "necromancer"
 	body_parts_covered = HEAD
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hatsnew.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEEYES|HIDEFACE|HIDEMASK|HIDEFACIALHAIR
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 20,"energy" = 20, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 60, "acid" = 50, "magic" = 30)
 
@@ -3875,9 +3875,9 @@
 	flags_inv = HIDEJUMPSUIT
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	hoodtype = /obj/item/clothing/head/hooded/wzzzz/star_traitor
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 20,"energy" = 10, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 40, "acid" = 20)
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
 
 /obj/item/clothing/head/hooded/wzzzz/star_traitor
 	name = "star traitor hood"
@@ -3885,16 +3885,16 @@
 	icon_state = "star_traitor"
 	inhand_icon_state = "star_traitor"
 	body_parts_covered = HEAD
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/hatsnew.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEEYES|HIDEFACE|HIDEFACIALHAIR|HIDEMASK
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 20,"energy" = 10, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 40, "acid" = 20)
 
 /obj/item/clothing/suit/wzzzz/hospitalgown
 	name = "hospital vest"
 	desc = "Hospital going down..."
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "hospitalgown"
 	inhand_icon_state = "hospitalgown"
 	body_parts_covered = CHEST
@@ -3902,15 +3902,15 @@
 /obj/item/clothing/suit/wzzzz/infdress
 	name = "dress"
 	desc = "infdress.png"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "infdress"
 	inhand_icon_state = "infdress"
 	body_parts_covered = CHEST|GROIN|LEGS
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/guard
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	name = "guard jumpsuit"
 	desc = "Not usual security, that's guard"
 	icon_state = "guard"
@@ -3929,8 +3929,8 @@
 /obj/item/clothing/under/syndicate/wzzzz/kimono
 	name = "kimono"
 	desc = "Kimono!"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "kimono"
 	inhand_icon_state = "kimono"
 	can_adjust = FALSE
@@ -3940,8 +3940,8 @@
 /obj/item/clothing/under/wzzzz/dais
 	name = "dais suit"
 	desc = "Dais..."
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "dais"
 	inhand_icon_state = "dais"
 	can_adjust = FALSE
@@ -3950,8 +3950,8 @@
 /obj/item/clothing/under/wzzzz/skinner
 	name = "skinner suit"
 	desc = "Someone can get heart attack..."
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "skinner"
 	inhand_icon_state = "skinner"
 	can_adjust = FALSE
@@ -3961,8 +3961,8 @@
 /obj/item/clothing/under/wzzzz/confed
 	name = "confed suit"
 	desc = "Some looks like navy suit."
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "confed"
 	inhand_icon_state = "confed"
 	can_adjust = FALSE
@@ -3971,8 +3971,8 @@
 /obj/item/clothing/under/wzzzz/wetsuit
 	name = "wetsuit"
 	desc = "For swimming?"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "wetsuit"
 	inhand_icon_state = "wetsuit"
 	can_adjust = FALSE
@@ -3982,8 +3982,8 @@
 /obj/item/clothing/under/wzzzz/m_utility
 	name = "utility jumpsuit"
 	desc = "Unusual style"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "m_utility"
 	inhand_icon_state = "m_utility"
 	can_adjust = FALSE
@@ -3992,8 +3992,8 @@
 /obj/item/clothing/under/wzzzz/m_service
 	name = "service jumpsuit"
 	desc = "Unusual style"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "m_service"
 	inhand_icon_state = "m_service"
 	can_adjust = FALSE
@@ -4002,8 +4002,8 @@
 /obj/item/clothing/under/wzzzz/bluetunic
 	name = "blue tunic"
 	desc = "Some pretty."
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "bluetunic"
 	inhand_icon_state = "bluetunic"
 	can_adjust = FALSE
@@ -4013,8 +4013,8 @@
 /obj/item/clothing/under/wzzzz/caretaker
 	name = "caretaker outfit"
 	desc = "To take care."
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "caretaker"
 	inhand_icon_state = "caretaker"
 	can_adjust = FALSE
@@ -4024,8 +4024,8 @@
 /obj/item/clothing/under/wzzzz/inf_mob
 	name = "mob outfit"
 	desc = "Now you're mob..."
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "inf_mob"
 	inhand_icon_state = "inf_mob"
 	can_adjust = FALSE
@@ -4033,8 +4033,8 @@
 	has_sensor = NO_SENSORS
 
 /obj/item/clothing/under/wzzzz/scrubs
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "scrubs"
 	inhand_icon_state = "scrubs"
 	alt_covers_chest = FALSE
@@ -4065,8 +4065,8 @@
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/pilot_heph
 	name = "NT pilot uniform"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "For pilots"
 	icon_state = "pilot_heph"
 	can_adjust = FALSE
@@ -4075,8 +4075,8 @@
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/pilot
 	name = "pilot uniform"
-	icon = 'white/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "For pilots"
 	icon_state = "pilot"
 	can_adjust = FALSE
@@ -4086,8 +4086,8 @@
 /obj/item/clothing/suit/space/fragile/wzzzz
 	name = "emergency spacesuit"
 	desc = "For emergency, but not only"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "space_emergency"
 	inhand_icon_state = "space_emergency"
 	armor = list("melee" = 20, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 0, "fire" = 40, "acid" = 30)
@@ -4095,8 +4095,8 @@
 /obj/item/clothing/suit/space/eva/wzzzz
 	name = "spacesuit"
 	desc = "Classic..."
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "space"
 	inhand_icon_state = "space"
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 20, "energy" = 10, "bomb" = 40, "bio" = 100, "rad" = 30, "fire" = 70, "acid" = 50)
@@ -4104,8 +4104,8 @@
 /obj/item/clothing/suit/armor/riot/wzzzz
 	name = "champion armor"
 	desc = "You're champion..."
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "champarmor"
 	inhand_icon_state = "champarmor"
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 20, "energy" = 10, "bomb" = 50, "bio" = 100, "rad" = 0, "fire" = 70, "acid" = 60)
@@ -4113,8 +4113,8 @@
 /obj/item/clothing/suit/armor/riot/knight/wzzzz/champion
 	name = "champion armor"
 	desc = "You're space champion..."
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "star_champion"
 	inhand_icon_state = "star_champion"
 	armor = list("melee" = 60, "bullet" = 40, "laser" = 10, "energy" = 10, "bomb" = 50, "bio" = 100, "rad" = 0, "fire" = 70, "acid" = 60)
@@ -4122,16 +4122,16 @@
 /obj/item/clothing/suit/chaplainsuit/holidaypriest/wzzzz
 	name = "oracle suit"
 	desc = "You're space oracle..."
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "star_oracle"
 	resistance_flags = NONE|FREEZE_PROOF|FIRE_PROOF|UNACIDABLE|LAVA_PROOF|INDESTRUCTIBLE
 	inhand_icon_state = "star_oracle"
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 40, "energy" = 40, "bomb" = 40, "bio" = 100, "rad" = 50, "fire" = 100, "acid" = 50, "magic" = 100)
 
 /obj/item/clothing/shoes/sneakers/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/mob/shoe.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/feet.dmi'
+	icon = 'white/Wzzzz/clothing/shoes.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
 
 /obj/item/clothing/shoes/sneakers/wzzzz/white
 	icon_state = "white"
@@ -4170,8 +4170,8 @@
 	inhand_icon_state = "yellow"
 
 /obj/item/clothing/shoes/jackboots/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/mob/shoe.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/feet.dmi'
+	icon = 'white/Wzzzz/clothing/shoes.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
 
 /obj/item/clothing/shoes/jackboots/wzzzz/dutylong
 	icon_state = "dutylong"
@@ -4218,8 +4218,8 @@
 /obj/item/clothing/under/wzzzz/m_utility_i
 	name = "utility jumpsuit"
 	desc = "Unusual style"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "m_utility_i"
 	inhand_icon_state = "m_utility_i"
 	can_adjust = FALSE
@@ -4228,8 +4228,8 @@
 /obj/item/clothing/under/wzzzz/m_service_i
 	name = "service jumpsuit"
 	desc = "Unusual style"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "m_service_i"
 	inhand_icon_state = "m_service_i"
 	can_adjust = FALSE
@@ -4237,8 +4237,8 @@
 
 /obj/item/clothing/under/rank/cargo/tech/wzzzz/work
 	name = "worker uniform"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Work, work and work"
 	icon_state = "work"
 	inhand_icon_state = "work"
@@ -4259,8 +4259,8 @@
 
 /obj/item/clothing/under/wzzzz/smock
 	name = "smock uniform"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Classic style"
 	icon_state = "smock"
 	inhand_icon_state = "smock"
@@ -4297,8 +4297,8 @@
 
 /obj/item/clothing/under/wzzzz/suit
 	name = "suit uniform"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	desc = "Classic style"
 	icon_state = "suit"
 	inhand_icon_state = "suit"
@@ -4321,8 +4321,8 @@
 	name = "dress uniform"
 	desc = "Stylish dress"
 	icon_state = "m_dress"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	inhand_icon_state = "m_dress"
 	has_sensor = NO_SENSORS
 
@@ -4330,8 +4330,8 @@
 	name = "dress uniform"
 	desc = "Stylish dress"
 	icon_state = "m_dress_i"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	inhand_icon_state = "m_dress_i"
 	has_sensor = NO_SENSORS
 
@@ -4340,8 +4340,8 @@
 	desc = "Standart assault rifle."
 	icon = 'white/Wzzzz/icons/Weea.dmi'
 	icon_state = "arifle"
-	lefthand_file = 'white/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
-	righthand_file = 'white/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
+	lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
+	righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'
 	burst_size = 3
 	inhand_icon_state = "arifle"
 	w_class = 4
@@ -4479,8 +4479,8 @@
 	dynamic_fhair_suffix = ""
 
 /obj/item/clothing/head/hardhat/atmos/wzzzz/helmet
-	icon = 'white/Wzzzz/icons/clothing/hatsnew.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	name = "firefighter helmet"
 	desc = "Effectively than usual helmet"
 	icon_state = "hardhat0_firefighter"
@@ -4695,8 +4695,8 @@
 /obj/item/clothing/under/syndicate/wzzzz/fiendsuit/watcher
 	name = "fiend suit"
 	desc = "Darkness inside"
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "watchsuit"
 	can_adjust = FALSE
 	alt_covers_chest = FALSE
@@ -4717,8 +4717,8 @@
 /obj/item/clothing/suit/armor/wzzzz/tac_hazmat
 	name = "tactical hazmat suit"
 	desc = "Armor for battle in hazard ."
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "tac_hazmat"
 	siemens_coefficient = 0.5
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -4737,8 +4737,8 @@
 /obj/item/clothing/suit/wzzzz/hazmat
 	name = "hazmat suit"
 	desc = "Suit for hazard environments."
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/suit.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "hazmat_yellow"
 	siemens_coefficient = 0.5
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -4762,8 +4762,8 @@
 	icon_state = "hazmat_cyan"
 
 /obj/item/clothing/head/helmet/wzzzz/riot
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	name = "riot helmet"
 	desc = "Riot helmet..."
 	icon_state = "helmet_riot2"
@@ -4773,8 +4773,8 @@
 /obj/item/clothing/head/helmet/wzzzz/tac_helmet
 	name = "tactical hazmat helmet"
 	desc = "Armor for battle in hazard."
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	icon_state = "tac_helmet"
 	flags_inv = HIDEEARS|HIDEHAIR|HIDEEYES|HIDEFACE|HIDEFACIALHAIR
 	visor_flags_inv = HIDEEARS|HIDEHAIR|HIDEEYES|HIDEFACE|HIDEFACIALHAIR
@@ -4789,8 +4789,8 @@
 /obj/item/clothing/head/radiation/wzzzz/hazmat
 	name = "hazmat helmet"
 	desc = "Helmet for hazard environments."
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	icon_state = "hazmat_yellow_head"
 	inhand_icon_state = "hazmat_yellow_head"
 
@@ -4811,14 +4811,14 @@
 /obj/item/clothing/head/wzzzz/service_co_cap_om
 	name = "service hat"
 	desc = "For service."
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	icon_state = "service_co_cap_om"
 	inhand_icon_state = "service_co_cap_om"
 
 /obj/item/clothing/under/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/mob/uniform.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 
 /obj/item/clothing/under/wzzzz/white
 	name = "white uniform"
@@ -4924,21 +4924,21 @@
 /obj/item/clothing/gloves/combat/wzzzz/evening_gloves/rubber_gloves
 	icon_state = "rubber_gloves"
 	inhand_icon_state = "rubber_gloves"
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	armor = list("melee" = 10, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 30)
 
 /obj/item/clothing/gloves/combat/wzzzz/co
 	icon_state = "co_gloves"
 	inhand_icon_state = "co_gloves"
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 
 /obj/item/clothing/mask/gas/wzzzz/alt
 	icon_state = "gasmask_alt"
 	inhand_icon_state = "gasmask_alt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	armor = list("melee" = 10, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
 
 /obj/item/clothing/head/helmet/wzzzz/siegehelmet/black
@@ -5013,8 +5013,8 @@
 /obj/item/clothing/head/helmet/wzzzz/metallichelmet
 	name = "metallic helmet"
 	desc = "Stylish medieval helmet"
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "metallichelmet"
 	inhand_icon_state = "metallichelmet"
 	dynamic_hair_suffix = ""
@@ -5024,8 +5024,8 @@
 	armor = list("melee" = 50, "bullet" = 20, "laser" = 20,"energy" = 10, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 60, "acid" = 50)
 
 /obj/item/clothing/head/helmet/wzzzz
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 
 /obj/item/clothing/head/helmet/wzzzz/coif
 	name = "coif"
@@ -5049,16 +5049,16 @@
 	name = "skull mask"
 	desc = "Life is full of cruel. That's one of examples."
 	slot_flags = ITEM_SLOT_MASK
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	icon_state = "skull_mask"
 	inhand_icon_state = "skull_mask"
 
 /obj/item/clothing/mask/skull/wzzzz
 	name = "skull mask"
 	desc = "Life is full of cruel. That's one of examples."
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	icon_state = "skull_mask"
 	inhand_icon_state = "skull_mask"
 	armor = list("melee" = 35, "bullet" = 25, "laser" = 25,"energy" = 35, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
@@ -5069,8 +5069,8 @@
 	throwforce = 3
 
 /obj/item/clothing/mask/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 
 /obj/item/clothing/mask/wzzzz/shemagh
 	name = "shemagh"
@@ -5116,8 +5116,8 @@
 	STR.max_combined_w_class = 7
 
 /obj/item/clothing/shoes/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/shoes.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/feet.dmi'
+	icon = 'white/Wzzzz/clothing/shoes.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
 
 /obj/item/clothing/shoes/wzzzz/arab
 	name = "arab sshoes"
@@ -5130,52 +5130,52 @@
 	desc = "Arabian style."
 	icon_state = "medieval"
 	inhand_icon_state = "medieval"
-	icon = 'white/Wzzzz/icons/clothing/clothing/shoes.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/feet.dmi'
+	icon = 'white/Wzzzz/clothing/shoes.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
 
 /obj/item/clothing/shoes/jackboots/wzzzz/cavalier_boots
 	name = "cavalier boots"
 	desc = "Without horses, but with boots."
 	icon_state = "cavalier_boots"
 	inhand_icon_state = "cavalier_boots"
-	icon = 'white/Wzzzz/icons/clothing/clothing/shoes.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/feet.dmi'
+	icon = 'white/Wzzzz/clothing/shoes.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
 
 /obj/item/clothing/shoes/jackboots/wzzzz/sailorboots
 	name = "sailor boots"
 	desc = "Without sea, but with boots."
 	icon_state = "sailorboots"
 	inhand_icon_state = "sailorboots"
-	icon = 'white/Wzzzz/icons/clothing/clothing/shoes.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/feet.dmi'
+	icon = 'white/Wzzzz/clothing/shoes.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
 
 /obj/item/clothing/shoes/sandal/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/shoes.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/feet.dmi'
+	icon = 'white/Wzzzz/clothing/shoes.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
 	name = "tourist sandals"
 	desc = "Minimalistic, but probably useless."
 	icon_state = "tourist"
 	inhand_icon_state = "tourist"
 
 /obj/item/clothing/shoes/sneakers/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/shoes.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/feet.dmi'
+	icon = 'white/Wzzzz/clothing/shoes.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
 	name = "detective shoes"
 	desc = "Special shoes for special proffesion."
 	icon_state = "detective"
 	inhand_icon_state = "detective"
 
 /obj/item/clothing/shoes/roman/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/shoes.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/feet.dmi'
+	icon = 'white/Wzzzz/clothing/shoes.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
 	name = "roman shoes"
 	desc = "New shoes from old times."
 	icon_state = "roman"
 	inhand_icon_state = "roman"
 
 /obj/item/clothing/shoes/winterboots/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/shoes.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/feet.dmi'
+	icon = 'white/Wzzzz/clothing/shoes.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
 	name = "fur boots"
 	desc = "Simple and warm."
 
@@ -5192,16 +5192,16 @@
 	inhand_icon_state = "fur3"
 
 /obj/item/clothing/shoes/laceup/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/shoes.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/feet.dmi'
+	icon = 'white/Wzzzz/clothing/shoes.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
 	name = "leather shoes"
 	desc = "Someone's skin on your feet."
 	icon_state = "leather"
 	inhand_icon_state = "leather"
 
 /obj/item/clothing/shoes/jackboots/wzzzz/knig
-	icon = 'white/Wzzzz/icons/clothing/clothing/shoes.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/feet.dmi'
+	icon = 'white/Wzzzz/clothing/shoes.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
 	name = "knight boots"
 	desc = "Heavy steps, heavy feets."
 	icon_state = "knight"
@@ -5209,8 +5209,8 @@
 	armor = list("melee" = 50, "bullet" = 40, "laser" = 15,"energy" = 5, "bomb" = 40, "bio" = 50, "rad" = 0, "fire" = 40, "acid" = 40)
 
 /obj/item/clothing/shoes/jackboots/wzzzz/wrapped
-	icon = 'white/Wzzzz/icons/clothing/clothing/shoes.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/feet.dmi'
+	icon = 'white/Wzzzz/clothing/shoes.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
 	name = "wrapped boots"
 	desc = "Makeshift cheap boots, but what big difference with usual boots?"
 	icon_state = "wrappedboots"
@@ -5256,7 +5256,7 @@
 /obj/structure/closet/crate/wooden/wzzzz
 	max_integrity = 125
 	obj_integrity = 125
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "wood_crate"
 
 /obj/structure/closet/crate/wooden/wzzzz/alt
@@ -5270,17 +5270,17 @@
 /obj/item/storage/backpack/wzzzz
 	max_integrity = 325
 	obj_integrity = 325
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 
 /obj/structure/chair/wood/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 
 /obj/structure/chair/wood/wzzzz/red
 	icon_state = "wooden_chair_red"
 
 /obj/structure/bed/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 
 /obj/item/clothing/head/helmet/wzzzz/greek
 	name = "greek helmet"
@@ -5301,8 +5301,8 @@
 	inhand_icon_state = "greek_sl"
 
 /obj/item/clothing/head/helmet/knight/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	icon_state = "knight_simple"
 	inhand_icon_state = "knight_simple"
 
@@ -5351,8 +5351,8 @@
 	dynamic_hair_suffix = null
 
 /obj/item/clothing/suit/pirate/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	icon_state = "piratejacket1"
 	inhand_icon_state = "piratejacket1"
 
@@ -5450,30 +5450,30 @@
 	icon_state = "civ_jacket"
 
 /obj/item/clothing/suit/armor/bone/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	icon_state = "bonearmor"
 	inhand_icon_state = "bonearmor"
 
 /obj/item/clothing/suit/wzzzz/redcape
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	icon_state = "redcape"
 	inhand_icon_state = "redcape"
 	name = "red cloak"
 	desc = "Red and cloak."
 
 /obj/item/clothing/suit/wzzzz/bluecape
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	icon_state = "bluecape"
 	inhand_icon_state = "bluecape"
 	name = "blue cloak"
 	desc = "Blue and cloak."
 
 /obj/item/clothing/suit/armor/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 
 /obj/item/clothing/suit/armor/wzzzz/hauberk
 	icon_state = "hauberk"
@@ -5486,8 +5486,8 @@
 	heat_protection = NONE|CHEST|HANDS|LEGS|GROIN
 
 /obj/item/clothing/suit/armor/riot/knight/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	icon_state = "knight_simple1"
 	inhand_icon_state = "knight_simple1"
 
@@ -5541,12 +5541,12 @@
 	inhand_icon_state = "iron_chestplatec"
 
 /obj/item/clothing/head/crown/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 
 /obj/item/clothing/suit/hooded/wzzzz/fur
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	min_cold_protection_temperature = 2
 	cold_protection = 1
 	name = "fur suit"
@@ -5578,8 +5578,8 @@
 	inhand_icon_state = "fur_jacket3"
 
 /obj/item/clothing/suit/wzzzz/fur
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	icon_state = "fur_jacket1x"
 	inhand_icon_state = "fur_jacket1x"
 	min_cold_protection_temperature = 2
@@ -5599,8 +5599,8 @@
 /obj/item/clothing/under/wzzzz/indian
 	name = "indian outfit"
 	desc = "Leather, light and open"
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	icon_state = "indian1"
 	inhand_icon_state = "indian1"
 	can_adjust = FALSE
@@ -5617,8 +5617,8 @@
 /obj/item/clothing/under/wzzzz/indian/pelt
 	name = "giant leopard pelt"
 	desc = "Big and expensive."
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	icon_state = "giant_leopard_pelt"
 	inhand_icon_state = "giant_leopard_pelt"
 
@@ -5641,8 +5641,8 @@
 /obj/item/clothing/under/wzzzz/sailor
 	name = "sailor uniform"
 	desc = "Old clothing for new waves of sailors."
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	can_adjust = TRUE
 
 /obj/item/clothing/under/wzzzz/sailor/british
@@ -5681,8 +5681,8 @@
 	inhand_icon_state = "dutch_sailor"
 
 /obj/item/clothing/under/costume/pirate/wzzzz
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 
 /obj/item/clothing/under/costume/pirate/wzzzz/a
 	icon_state = "pirate1"
@@ -5706,8 +5706,8 @@
 
 /obj/item/clothing/under/costume/roman/wzzzz
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 8,"energy" = 5, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 15)
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 
 /obj/item/clothing/under/costume/roman/wzzzz/centurion
 	icon_state = "roman_centurion"
@@ -5745,8 +5745,8 @@
 
 /obj/item/clothing/under/civilian
 	name = "civilian uniform"
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	desc = "Classic, pleasantly."
 	icon_state = "civuni"
 	can_adjust = TRUE
@@ -5764,8 +5764,8 @@
 	name = "french officer uniform"
 
 /obj/item/clothing/under/wzzzz/tunic
-	icon = 'white/Wzzzz/icons/clothing/clothing/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 
 /obj/item/clothing/under/wzzzz/tunic/toga
 	icon_state = "toga"

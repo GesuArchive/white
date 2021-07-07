@@ -28,9 +28,9 @@
 	mag_type = /obj/item/ammo_box/magazine/wzzzz/g43
 	fire_sound = 'white/Wzzzz/gunshot3.ogg'
 	icon = 'white/Wzzzz/icons/Weea.dmi'
-	lefthand_file = 'white/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
-	righthand_file = 'white/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/back.dmi'
+	lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
+	righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/back.dmi'
 	fire_delay = 10
 	burst_size = 1
 	actions_types = list()

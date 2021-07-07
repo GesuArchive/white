@@ -6,7 +6,7 @@
 	inhand_icon_state = "marinesword"
 	lefthand_file = 'white/Wzzzz/icons/Weeal.dmi'
 	righthand_file = 'white/Wzzzz/icons/Weear.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/belt.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/belt.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	flags_1 = CONDUCT_1
 	force = 20
@@ -26,7 +26,7 @@
 	inhand_icon_state = "officersword"
 	lefthand_file = 'white/Wzzzz/icons/Weeal.dmi'
 	righthand_file = 'white/Wzzzz/icons/Weear.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/belt.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/belt.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	flags_1 = CONDUCT_1
 	force = 20
@@ -46,7 +46,7 @@
 	inhand_icon_state = "marineofficersword"
 	lefthand_file = 'white/Wzzzz/icons/Weeal.dmi'
 	righthand_file = 'white/Wzzzz/icons/Weear.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/belt.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/belt.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	flags_1 = CONDUCT_1
 	force = 28
@@ -66,7 +66,7 @@
 	inhand_icon_state = "pettyofficersword"
 	lefthand_file = 'white/Wzzzz/icons/Weeal.dmi'
 	righthand_file = 'white/Wzzzz/icons/Weear.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/belt.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/belt.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	flags_1 = CONDUCT_1
 	force = 25
@@ -86,7 +86,7 @@
 	inhand_icon_state = "sabre"
 	lefthand_file = 'white/Wzzzz/icons/Weeal.dmi'
 	righthand_file = 'white/Wzzzz/icons/Weear.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/belt.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/belt.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	flags_1 = CONDUCT_1
 	force = 30
@@ -107,7 +107,7 @@
 	inhand_icon_state = "baton"
 	lefthand_file = 'white/Wzzzz/icons/Weeal.dmi'
 	righthand_file = 'white/Wzzzz/icons/Weear.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/belt.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/belt.dmi'
 	slot_flags = ITEM_SLOT_BELT
 
 /obj/item/melee/wzzzz/club
@@ -144,7 +144,7 @@
 	icon = 'white/Wzzzz/icons/Uebermarginal/weapons.dmi'
 	lefthand_file = 'white/Wzzzz/icons/Weeal.dmi'
 	righthand_file = 'white/Wzzzz/icons/Weear.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/belt.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/belt.dmi'
 
 /obj/item/kitchen/knife/butcher/wzzzz/machete
 	name = "machete"
@@ -153,7 +153,7 @@
 	inhand_icon_state = "machete"
 	lefthand_file = 'white/Wzzzz/icons/Weeal.dmi'
 	righthand_file = 'white/Wzzzz/icons/Weear.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/belt.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/belt.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	force = 23
 	throwforce = 10

@@ -40,32 +40,32 @@
 /obj/item/clothing/shoes/combat/wzzzz/blackger
 	name = "black Boots"
 	desc = "Looks stylish"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/feet.dmi'
-	icon = 'white/Wzzzz/icons/clothing/shoes.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
+	icon = 'white/Wzzzz/clothing/shoes.dmi'
 	icon_state = "black_boots"
 	inhand_icon_state = "black_boots"
 
 /obj/item/clothing/shoes/wzzzz/slippers
 	name = "slippers"
 	desc = "I think you understand all yourself"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/feet.dmi'
-	icon = 'white/Wzzzz/icons/clothing/shoes.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
+	icon = 'white/Wzzzz/clothing/shoes.dmi'
 	icon_state = "slippers"
 	inhand_icon_state = "slippers"
 
 /obj/item/clothing/shoes/wzzzz/digiboots
 	name = "dig boots"
 	desc = "I hope you understand all yourself"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/feet.dmi'
-	icon = 'white/Wzzzz/icons/clothing/shoes.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
+	icon = 'white/Wzzzz/clothing/shoes.dmi'
 	icon_state = "digiboots"
 	inhand_icon_state = "digiboots"
 
 /obj/item/clothing/shoes/wzzzz/flippers
 	name = "flippers"
 	desc = "I think you understand all yourself"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/feet.dmi'
-	icon = 'white/Wzzzz/icons/clothing/shoes.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
+	icon = 'white/Wzzzz/clothing/shoes.dmi'
 	icon_state = "flippers"
 	inhand_icon_state = "flippers"
 
@@ -73,8 +73,8 @@
 	name = "gas mask"
 	desc = "A face-covering mask that can be connected to an air supply. Filters harmful gases from the air."
 	icon_state = "fullgas"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/mask.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/masks.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/mask.dmi'
+	icon = 'white/Wzzzz/clothing/masks.dmi'
 	flags_inv = HIDEEARS|HIDEFACE|HIDEFACIALHAIR
 	visor_flags_inv = HIDEEARS|HIDEFACE|HIDEFACIALHAIR
 	dynamic_fhair_suffix = ""
@@ -91,16 +91,16 @@
 	desc = "A compact, durable gas mask that can be connected to an air supply."
 	icon_state = "halfgas"
 	inhand_icon_state = "halfgas"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/mask.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/masks.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/mask.dmi'
+	icon = 'white/Wzzzz/clothing/masks.dmi'
 	dynamic_fhair_suffix = ""
 	armor = list(melee = 10, bullet = 10, laser = 10, energy = 0, bomb = 0, bio = 55, rad = 0)
 
 /obj/item/clothing/gloves/combat/wzzzz/black_gloves
 	name = "long black gloves"
 	desc = "black, but not too long."
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hands.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/gloves.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/hands.dmi'
+	icon = 'white/Wzzzz/clothing/gloves.dmi'
 	icon_state = "longblack"
 	inhand_icon_state = "longblack"
 	siemens_coefficient = 0
