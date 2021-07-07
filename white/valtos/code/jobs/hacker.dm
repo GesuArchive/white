@@ -81,8 +81,8 @@
 	darkness_view = 10
 	flash_protect = FLASH_PROTECTION_WELDER
 	resistance_flags = NONE
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	var/list/hudlist = list(DATA_HUD_MEDICAL_ADVANCED, DATA_HUD_DIAGNOSTIC_ADVANCED, DATA_HUD_SECURITY_ADVANCED, DATA_HUD_HACKER)
 	vision_flags = SEE_MOBS | SEE_TURFS
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
@@ -131,8 +131,8 @@
 /obj/item/clothing/head/helmet/space/chronos/hacker
 	name = "TK-Нанобролитовый Шлем X1845"
 	desc = "А ты заслуживаешь это?"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "hardsuit1-null_rig"
 	inhand_icon_state = "hardsuit1-null_rig"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
@@ -149,8 +149,8 @@
 	resistance_flags = INDESTRUCTIBLE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100, "magic" = 100, "wound" = 100)
 	//slowdown = -2
 	strip_delay = 1300
@@ -158,8 +158,8 @@
 /obj/item/clothing/gloves/combat/wzzzz/guard
 	name = "DZ-Блюспластовые Перчатки U8621"
 	desc = "А нужны ли они тебе?"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hands.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/gloves.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/hands.dmi'
+	icon = 'white/Wzzzz/clothing/gloves.dmi'
 	icon_state = "guards"
 	inhand_icon_state = "guards"
 	siemens_coefficient = 0

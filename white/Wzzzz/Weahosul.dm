@@ -59,9 +59,9 @@
 	vary_fire_sound = FALSE
 	tac_reloads = FALSE
 	can_be_sawn_off = FALSE
-	lefthand_file = 'white/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
-	righthand_file = 'white/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/back.dmi'
+	lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
+	righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/back.dmi'
 	slot_flags = ITEM_SLOT_BACK
 	can_bayonet = TRUE
 	knife_x_offset = 27
@@ -143,17 +143,17 @@
 		inhand_icon_state = "kar98k_scope_open"
 		icon = 'white/Wzzzz/icons/Weea.dmi'
 		slot_flags = ITEM_SLOT_BACK
-		lefthand_file = 'white/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
-		righthand_file = 'white/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
-		worn_icon = 'white/Wzzzz/icons/clothing/mob1/back.dmi'
+		lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
+		righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'
+		worn_icon = 'white/Wzzzz/clothing/mob/back.dmi'
 		fire_sound = 'white/Wzzzz/kar_shot.ogg'
 	else
 		icon_state = "kar98k_scope"
 		inhand_icon_state = "kar98k_scope"
 		icon = 'white/Wzzzz/icons/Weea.dmi'
-		lefthand_file = 'white/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
-		righthand_file = 'white/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
-		worn_icon = 'white/Wzzzz/icons/clothing/mob1/back.dmi'
+		lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
+		righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'
+		worn_icon = 'white/Wzzzz/clothing/mob/back.dmi'
 		fire_sound = 'white/Wzzzz/kar_shot.ogg'
 		return
 
@@ -178,9 +178,9 @@
 	force = 8
 	selfcharge = 1
 	ammo_x_offset = 2
-	lefthand_file = 'white/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
-	righthand_file = 'white/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/back.dmi'
+	lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
+	righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/back.dmi'
 
 /obj/item/ammo_casing/energy/electrode/carb
 	e_cost = 150
@@ -212,8 +212,8 @@
 	icon_state = "wt550"
 	burst_size = 3
 	inhand_icon_state = "wt550"
-	lefthand_file = 'white/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
-	righthand_file = 'white/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
+	lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
+	righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'
 	mag_type = /obj/item/ammo_box/magazine/wt550m9/wzzzz/mc9mmt
 	actions_types = list(/datum/action/item_action/toggle_firemode)
 

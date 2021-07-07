@@ -2,8 +2,8 @@
 	name = "STG-44"
 	desc = "German submachinegun chambered in 9x19 Parabellum, with a 32 magazine magazine layout. Standard issue amongst most troops."
 	icon = 'white/Wzzzz/icons/Weea.dmi'
-	lefthand_file = 'white/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
-	righthand_file = 'white/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
+	lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
+	righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'
 	icon_state = "stg"
 	inhand_icon_state = "stg"
 	slot_flags = ITEM_SLOT_BACK
@@ -44,8 +44,8 @@
 	name = "FG-42"
 	desc = "Automatic sniper weapon."
 	icon_state = "fg42"
-	lefthand_file = 'white/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
-	righthand_file = 'white/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
+	lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
+	righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'
 	inhand_icon_state = "fg42"
 	mag_type = /obj/item/ammo_box/magazine/wzzzz/fg42
 	fire_sound = 'white/Wzzzz/sfrifle_fire.ogg'
@@ -92,8 +92,8 @@
 	burst_size = 3
 	can_bayonet = FALSE
 	icon = 'white/Wzzzz/icons/Weea.dmi'
-	lefthand_file = 'white/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
-	righthand_file = 'white/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
+	lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
+	righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'
 
 /obj/item/ammo_box/magazine/wzzzz/a556carbine
 	name = "magazine (6.8mm)"
@@ -128,8 +128,8 @@
 	burst_size = 3
 	can_bayonet = FALSE
 	icon = 'white/Wzzzz/icons/Weea.dmi'
-	lefthand_file = 'white/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
-	righthand_file = 'white/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
+	lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
+	righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'
 
 /obj/item/ammo_box/magazine/wzzzz/carbine
 	name = "magazine (5.56mm)"

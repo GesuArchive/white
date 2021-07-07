@@ -25,8 +25,8 @@
 	icon_state = "asset_protection"
 	inhand_icon_state = "asset_protection"
 	hardsuit_type = "asset_protection"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 35, "bio" = 100, "rad" = 0, "fire" = 55, "acid" = 50)
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
@@ -44,8 +44,8 @@
 	icon_state = "hardsuit0-asset_protection"
 	inhand_icon_state = "hardsuit0-asset_protection"
 	hardsuit_type = "asset_protection"
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 35, "bio" = 100, "rad" = 0, "fire" = 55, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/asset_protection
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
@@ -63,8 +63,8 @@
 	light_range = 1
 	light_power = 0.6
 	light_on = FALSE
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 75, "fire" = 50, "acid" = 75)
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/eng
@@ -76,8 +76,8 @@
 	jetpack = null
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	hardsuit_type = "engineeringalt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 30, "bullet" = 25, "laser" = 30, "energy" = 30, "bomb" = 40, "bio" = 100, "rad" = 75, "fire" = 50, "acid" = 75)
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/t_scanner, /obj/item/construction/rcd, /obj/item/pipe_dispenser)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/eng
@@ -89,8 +89,8 @@
 	icon_state = "breacher_rig_cheap"
 	inhand_icon_state = "breacher_rig_cheap"
 	hardsuit_type = "breacher_rig_cheap"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF| 52
@@ -113,8 +113,8 @@
 	hardsuit_type = "breacher_rig_cheap"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 20, "bomb" = 55, "bio" = 50, "rad" = 40, "fire" = 50, "acid" = 50)
 	allowed = list(/obj/item/gun, /obj/item/ammo_box,/obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/breacher_cheap
@@ -127,8 +127,8 @@
 	inhand_icon_state = "hardsuit0-breacher_rig"
 	hardsuit_type = "breacher_rig"
 	w_class = WEIGHT_CLASS_NORMAL
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 60, "bullet" = 75, "laser" = 50, "energy" = 40, "bomb" = 70, "bio" = 80, "rad" = 50, "fire" = 100, "acid" = 100)
 	allowed = list(/obj/item/gun, /obj/item/ammo_box,/obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/breacher
@@ -141,8 +141,8 @@
 	icon_state = "breacher_rig"
 	inhand_icon_state = "breacher_rig"
 	hardsuit_type = "breacher_rig"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40, "energy" = 35, "bomb" = 65, "bio" = 40, "rad" = 0, "fire" = 70, "acid" = 70)
 	flash_protect = 5
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF | 52
@@ -169,8 +169,8 @@
 	icon_state = "hardsuit0-military_rig"
 	inhand_icon_state = "hardsuit0-military_rig"
 	hardsuit_type = "military_rig"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	light_system = MOVABLE_LIGHT
@@ -190,8 +190,8 @@
 	hardsuit_type = "military_rig"
 	armor = list("melee" = 65, "bullet" = 65, "laser" = 55, "energy" = 30, "bomb" = 60, "bio" = 100, "rad" = 70, "fire" = 100, "acid" = 100)
 	w_class = WEIGHT_CLASS_NORMAL
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/military_rig
 
 
@@ -205,8 +205,8 @@
 	icon_state = "hardsuit0-hazard_rig"
 	inhand_icon_state = "hardsuit0-hazard_rig"
 	hardsuit_type = "hazard_rig"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 40, "bullet" = 40, "laser" = 60,"energy" = 60, "bomb" = 50, "bio" = 100, "rad" = 60, "fire" = 100, "acid" = 100)
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
@@ -226,8 +226,8 @@
 	resistance_flags = NONE|FREEZE_PROOF|FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 40, "bullet" = 40, "laser" = 60,"energy" = 60, "bomb" = 50, "bio" = 100, "rad" = 60, "fire" = 100, "acid" = 100)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/hazard_rig
 
@@ -238,8 +238,8 @@
 	icon_state = "hardsuit0-merc_rig"
 	inhand_icon_state = "hardsuit0-merc_rig"
 	hardsuit_type = "merc_rig"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 60, "bullet" = 60, "laser" = 45, "energy" = 40, "bomb" = 60, "bio" = 100, "rad" = 50, "fire" = 80, "acid" = 90)
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
@@ -258,8 +258,8 @@
 	hardsuit_type = "hazard_rig"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 60, "bullet" = 60, "laser" = 45, "energy" = 40, "bomb" = 60, "bio" = 100, "rad" = 50, "fire" = 80, "acid" = 90)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/wzzzz/merc_rig
 
@@ -270,8 +270,8 @@
 	icon_state = "rig_miningalt"
 	inhand_icon_state = "rig_miningalt"
 	hardsuit_type = "rig_miningalt"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	flash_protect = 1
 	actions_types = null
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 30, "bomb" = 60, "bio" = 100, "rad" = 50, "fire" = 60, "acid" = 75)
@@ -293,8 +293,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 30, "bomb" = 60, "bio" = 100, "rad" = 50, "fire" = 60, "acid" = 75)
 	jetpack = null
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/wzzzz/rig_miningalt
 
 
@@ -314,8 +314,8 @@
 	icon_state = "hardsuit0-merc_rig_heavy"
 	inhand_icon_state = "hardsuit0-merc_rig_heavy"
 	hardsuit_type = "merc_rig_heavy"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 90, "bullet" = 85, "laser" = 80,"energy" = 85, "bomb" = 90, "bio" = 100, "rad" = 50, "fire" = 100, "acid" = 100)
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
@@ -337,8 +337,8 @@
 	hardsuit_type = "merc_rig_heavy"
 	w_class = WEIGHT_CLASS_NORMAL
 	slowdown = 2
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 90, "bullet" = 85, "laser" = 80,"energy" = 85, "bomb" = 90, "bio" = 100, "rad" = 50, "fire" = 100, "acid" = 100)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/merc_rig_heavy
 
@@ -354,8 +354,8 @@
 	icon_state = "hardsuit0-security_rig"
 	inhand_icon_state = "hardsuit0-security_rig"
 	hardsuit_type = "security_rig"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 50, "bio" = 50, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
@@ -375,8 +375,8 @@
 	hardsuit_type = "security_rig"
 	w_class = WEIGHT_CLASS_NORMAL
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 50, "bio" = 50, "rad" = 0, "fire" = 60, "acid" = 50)
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/security_rig
 
 
@@ -391,8 +391,8 @@
 	icon_state = "hardsuit0-medical_rig"
 	inhand_icon_state = "hardsuit0-medical_rig"
 	hardsuit_type = "medical_rig"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 100, "rad" = 70, "fire" = 60, "acid" = 70)
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
@@ -413,8 +413,8 @@
 	hardsuit_type = "medical_rig"
 	w_class = WEIGHT_CLASS_NORMAL
 	flags_inv = NONE
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 100, "rad" = 70, "fire" = 60, "acid" = 70)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/medical_rig
 
@@ -422,8 +422,8 @@
 	icon_state = "hardsuit0-medical_rigalt"
 	inhand_icon_state = "hardsuit0-medical_rigalt"
 	hardsuit_type = "medical_rigalt"
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_engineer_rig
 	name = "ert engineer hardsuit helmet"
@@ -433,8 +433,8 @@
 	inhand_icon_state = "hardsuit0-ert_engineer_rig"
 	hardsuit_type = "ert_engineer_rig"
 	slowdown = 0
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
@@ -454,8 +454,8 @@
 	slowdown = 0
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_engineer_rig
 
@@ -469,8 +469,8 @@
 	slowdown = 0
 	inhand_icon_state = "hardsuit0-ert_commander_rig"
 	hardsuit_type = "ert_commander_rig"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
@@ -490,8 +490,8 @@
 	slowdown = 0
 	hardsuit_type = "ert_commander_rig"
 	w_class = WEIGHT_CLASS_NORMAL
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_commander_rig
 
@@ -504,8 +504,8 @@
 	inhand_icon_state = "hardsuit0-ert_security_rig"
 	slowdown = 0
 	hardsuit_type = "ert_security_rig"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
@@ -525,8 +525,8 @@
 	slowdown = 0
 	hardsuit_type = "ert_security_rig"
 	w_class = WEIGHT_CLASS_NORMAL
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_security_rig
 
@@ -541,8 +541,8 @@
 	inhand_icon_state = "hardsuit0-ert_medical_rig"
 	hardsuit_type = "ert_medical_rig"
 	slowdown = 0
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
@@ -564,8 +564,8 @@
 	hardsuit_type = "ert_medical_rig"
 	slowdown = 0
 	w_class = WEIGHT_CLASS_NORMAL
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_medical_rig
 
@@ -579,8 +579,8 @@
 	slowdown = 0
 	inhand_icon_state = "hardsuit0-ert_janitor_rig"
 	hardsuit_type = "ert_janitor_rig"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
@@ -600,8 +600,8 @@
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	hardsuit_type = "ert_janitor_rig"
 	w_class = WEIGHT_CLASS_NORMAL
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/wzzzz/ert_janitor_rig
 
@@ -614,8 +614,8 @@
 	icon_state = "skrell_helmet_white"
 	inhand_icon_state = "skrell_suit_white"
 	hardsuit_type = "skrell_helmet_white"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
 	actions_types = null
@@ -636,8 +636,8 @@
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/wzzzz/skrell_helmet_white
 
@@ -656,8 +656,8 @@
 	icon_state = "hardsuit0-eva_rig"
 	inhand_icon_state = "hardsuit0-eva_rig"
 	hardsuit_type = "eva_rig"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 60, "rad" = 0, "fire" = 40, "acid" = 50)
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
@@ -678,8 +678,8 @@
 	hardsuit_type = "eva_rig"
 	w_class = WEIGHT_CLASS_NORMAL
 	slowdown = 0.6
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 60, "rad" = 0, "fire" = 40, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/eva_rig
 	cold_protection = CHEST | GROIN | LEGS | FEET | ARMS | HANDS
@@ -696,8 +696,8 @@
 	icon_state = "rig_atmosalt"
 	inhand_icon_state = "rig_atmosalt"
 	hardsuit_type = "rig_atmosalt"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 25, "fire" = 100, "acid" = 75)
 	flash_protect = 1
 	actions_types = null
@@ -717,8 +717,8 @@
 	hardsuit_type = "rig_atmosalt"
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 25, "fire" = 100, "acid" = 75)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/wzzzz/rig_atmosalt
 
@@ -733,8 +733,8 @@
 	icon_state = "rig_secalt"
 	inhand_icon_state = "rig_secalt"
 	hardsuit_type = "rig_secalt"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	flash_protect = 1
 	actions_types = null
@@ -755,8 +755,8 @@
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/wzzzz/rig_secalt
 
@@ -771,8 +771,8 @@
 	icon_state = "rig_sec"
 	inhand_icon_state = "rig_sec"
 	hardsuit_type = "rig_sec"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 70, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 60, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	flash_protect = 1
 	actions_types = null
@@ -791,8 +791,8 @@
 	hardsuit_type = "rig_sec"
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 70, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 60, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/wzzzz/rig_sec
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
@@ -809,8 +809,8 @@
 	inhand_icon_state = "rig_medicalalt"
 	slowdown = 0.5
 	hardsuit_type = "rig_medicalalt"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 10, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 60, "fire" = 60, "acid" = 75)
 	flash_protect = 1
 	actions_types = null
@@ -832,8 +832,8 @@
 	hardsuit_type = "rig_medicalalt"
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 10, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 60, "fire" = 60, "acid" = 75)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/wzzzz/rig_medicalalt
 
@@ -848,8 +848,8 @@
 	icon_state = "rig_salvage"
 	inhand_icon_state = "rig_salvage"
 	hardsuit_type = "rig_salvage"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 20,"energy" = 10, "bomb" = 50, "bio" = 100, "rad" = 20, "fire" = 70, "acid" = 30)
 	flash_protect = 1
 	actions_types = null
@@ -870,8 +870,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	slowdown = 2
 	jetpack = null
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 20,"energy" = 10, "bomb" = 50, "bio" = 100, "rad" = 20, "fire" = 70, "acid" = 30)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/wzzzz/rig_salvage
 
@@ -885,8 +885,8 @@
 	icon_state = "rig_excavation"
 	inhand_icon_state = "rig_excavation"
 	hardsuit_type = "rig_excavation"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
 	armor = list(melee = 30, bullet = 20, laser = 35,energy = 20, bomb = 30, bio = 100, rad = 100, fire = 50, acid = 40)
@@ -909,8 +909,8 @@
 	resistance_flags = NONE|FREEZE_PROOF
 	jetpack = null
 	slowdown = 0.5
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list(melee = 30, bullet = 20, laser = 35,energy = 20, bomb = 30, bio = 100, rad = 100, fire = 50, acid = 40)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/wzzzz/rig_excavation
 
@@ -926,8 +926,8 @@
 	icon_state = "rig_engineeringalt"
 	inhand_icon_state = "rig_engineeringalt"
 	hardsuit_type = "rig_engineeringalt"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 40, "bio" = 100, "rad" = 50, "fire" = 60, "acid" = 50)
 	flash_protect = 1
 	actions_types = null
@@ -948,8 +948,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
 	slowdown = 0.7
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 40, "bio" = 100, "rad" = 50, "fire" = 60, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/wzzzz/rig_engineeringalt
 
@@ -962,8 +962,8 @@
 	icon_state = "skrell_helmet_black"
 	inhand_icon_state = "skrell_suit_black"
 	hardsuit_type = "skrell_helmet_black"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 40, "bullet" = 40, "laser" = 30, "energy" = 20, "bomb" = 40, "bio" = 100, "rad" = 0, "fire" = 50, "acid" = 40)
 	flash_protect = 1
 	actions_types = null
@@ -979,8 +979,8 @@
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	slowdown = 0.5
 	jetpack = null
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 40, "bullet" = 40, "laser" = 30, "energy" = 20, "bomb" = 40, "bio" = 100, "rad" = 0, "fire" = 50, "acid" = 40)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/wzzzz/skrell_helmet_black
 
@@ -998,8 +998,8 @@
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/wzzzz/rig_secalt
 
@@ -1010,8 +1010,8 @@
 	icon_state = "hardsuit0-paramedic"
 	inhand_icon_state = "hardsuit0_paramedic"
 	hardsuit_type = "paramedic"
-	icon = 'white/Wzzzz/icons/Ora/ve/hats.dmi'
-	worn_icon = 'white/Wzzzz/icons/Ora/li/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	armor = list("melee" = 35, "bullet" = 15, "laser" = 15, "energy" = 10, "bomb" = 20, "bio" = 100, "rad" = 60, "fire" = 60, "acid" = 75)
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SCAN_REAGENTS | SNUG_FIT
 
@@ -1019,8 +1019,8 @@
 	name = "paramedical hardsuit"
 	icon_state = "hardsuit_paramedic"
 	inhand_icon_state = "hardsuit_paramedic"
-	icon = 'white/Wzzzz/icons/Ora/ve/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/Ora/li/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 35, "bullet" = 15, "laser" = 15, "energy" = 10, "bomb" = 20, "bio" = 100, "rad" = 60, "fire" = 60, "acid" = 75)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/medical/wzzzz
 	slowdown = 0.5
@@ -1032,8 +1032,8 @@
 	cold_protection = CHEST|GROIN|LEGS|ARMS
 	heat_protection = CHEST|GROIN|LEGS|ARMS
 	slowdown = 0.7
-	icon = 'white/Wzzzz/icons/Ora/ve/suits.dmi'
-	worn_icon = 'white/Wzzzz/icons/Ora/li/suits.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	resistance_flags = NONE|ACID_PROOF|INDESTRUCTIBLE|UNACIDABLE|FIRE_PROOF|FREEZE_PROOF|LAVA_PROOF
 	armor = list("melee" = 80, "bullet" = 60, "laser" = 70,"energy" = 80, "bomb" = 90, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100, "magic" = 75)
 
@@ -1085,8 +1085,8 @@
 	icon_state = "pilot_helm"
 	inhand_icon_state = "pilot_helm"
 	hardsuit_type = "pilot"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 30, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 10, "fire" = 70, "acid" = 60)
 	flash_protect = 1
 	actions_types = null
@@ -1107,8 +1107,8 @@
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 30, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 10, "fire" = 70, "acid" = 60)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/wzzzz/pilot_helm
 
@@ -1119,8 +1119,8 @@
 	icon_state = "helm_explorer"
 	inhand_icon_state = "helm_explorer"
 	hardsuit_type = "pilot"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 35, "bio" = 100, "rad" = 90, "fire" = 80, "acid" = 80)
 	flash_protect = 2
 	actions_types = null
@@ -1141,8 +1141,8 @@
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 35, "bio" = 100, "rad" = 90, "fire" = 80, "acid" = 80)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/wzzzz/helm_explorer
 
@@ -1320,8 +1320,8 @@
 	icon_state = "sec_helm1"
 	inhand_icon_state = "sec_helm1"
 	hardsuit_type = "rig_sec1"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	flash_protect = 1
 	actions_types = null
@@ -1342,8 +1342,8 @@
 	resistance_flags = NONE|FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/wzzzz/rig_secb
 
@@ -1360,8 +1360,8 @@
 	icon_state = "hardsuit0-null_rig"
 	inhand_icon_state = "hardsuit0-null_rig"
 	hardsuit_type = "null_rig"
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	flash_protect = 1
 	light_system = MOVABLE_LIGHT
@@ -1381,8 +1381,8 @@
 	icon_state = "hardsuit0-null_rig"
 	inhand_icon_state = "hardsuit0-null_rig"
 	jetpack = null
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/null
 
@@ -1397,8 +1397,8 @@
 	icon_state = "hardsuit0-null_rig_f"
 	inhand_icon_state = "hardsuit0-null_rig_f"
 	jetpack = null
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/null
 
