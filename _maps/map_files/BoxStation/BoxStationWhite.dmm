@@ -73,9 +73,13 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/fore)
 "aaq" = (
-/obj/machinery/satellite/meteor_shield,
-/turf/open/openspace/airless,
-/area/space)
+/obj/structure/easel,
+/obj/item/canvas/nineteen_nineteen,
+/obj/item/canvas/twentyfour_twentyfour,
+/obj/item/canvas/twentythree_nineteen,
+/obj/item/canvas/twentythree_twentythree,
+/turf/open/floor/plasteel/monofloor,
+/area/chapel/main)
 "aat" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 6
@@ -259,7 +263,6 @@
 /area/crew_quarters/fitness)
 "aaY" = (
 /obj/effect/landmark/stationroom/engine,
-/obj/machinery/satellite/meteor_shield,
 /turf/open/openspace/airless,
 /area/space)
 "abs" = (
@@ -771,9 +774,6 @@
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
-	},
-/obj/structure/sign/flags/che{
-	pixel_y = 32
 	},
 /turf/open/floor/plasteel,
 /area/security/courtroom)
@@ -6892,9 +6892,6 @@
 /area/storage/primary)
 "aDp" = (
 /obj/structure/displaycase/winner/robust,
-/obj/structure/sign/flags/russia{
-	pixel_y = 32
-	},
 /turf/open/floor/plasteel,
 /area/storage/primary)
 "aDq" = (
@@ -15414,9 +15411,6 @@
 "bnG" = (
 /obj/machinery/computer/cargo,
 /obj/effect/turf_decal/siding/thinplating,
-/obj/structure/sign/flags/ua{
-	pixel_y = 32
-	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/office)
 "bnI" = (
@@ -28147,7 +28141,6 @@
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
-/obj/item/stack/rods/fifty,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "cpF" = (
@@ -28184,9 +28177,8 @@
 /turf/open/floor/plasteel/monofloor,
 /area/engine/engineering)
 "cpX" = (
-/obj/machinery/computer/sat_control{
-	dir = 8
-	},
+/obj/structure/table,
+/obj/item/stack/rods/fifty,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "cqn" = (
@@ -39137,6 +39129,13 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/aft)
+"pNV" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/recharge_station,
+/turf/open/floor/plasteel/freezer,
+/area/crew_quarters/toilet/locker)
 "pNZ" = (
 /obj/structure/grille/broken,
 /obj/structure/lattice,
@@ -40219,9 +40218,6 @@
 /obj/machinery/light{
 	dir = 1;
 	pixel_y = 0
-	},
-/obj/structure/sign/flags/kazakh{
-	pixel_y = 32
 	},
 /obj/machinery/modular_computer/console/preset/engineering,
 /turf/open/floor/plasteel/monofloor,
@@ -43909,6 +43905,15 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/brig/upper)
+"xjH" = (
+/obj/structure/table/glass,
+/obj/item/toy/crayon/spraycan{
+	pixel_x = 7;
+	pixel_y = 14
+	},
+/obj/item/canvas,
+/turf/open/floor/plasteel/monofloor,
+/area/chapel/main)
 "xjX" = (
 /obj/machinery/camera{
 	c_tag = "Arrivals Escape Pod 2";
@@ -49583,7 +49588,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -49831,7 +49836,6 @@ aaa
 aaa
 aaa
 aaa
-aaq
 aaa
 aaa
 aaa
@@ -49850,7 +49854,8 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -51102,7 +51107,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -51654,7 +51659,7 @@ eRz
 gXs
 eRz
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -52121,7 +52126,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 gXs
 aaa
 aaa
@@ -53204,7 +53209,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -55011,7 +55016,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -56302,7 +56307,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -56482,7 +56487,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -56572,7 +56577,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -57059,7 +57064,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+gXs
 aaa
 aaa
 aaa
@@ -57313,10 +57318,10 @@ aaa
 aaa
 aaa
 aaa
+gXs
 aaa
 aaa
-aaa
-aaa
+gXs
 aaa
 aaa
 aaa
@@ -57570,11 +57575,11 @@ beO
 aaa
 aaa
 aaa
+gXs
 aaa
 aaa
-aaa
-aaa
-aaa
+gXs
+gXs
 aaa
 aaa
 aaa
@@ -57613,7 +57618,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -57825,13 +57830,13 @@ bkz
 blS
 bnv
 aaa
+gXs
 aaa
+gXs
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+gXs
+gXs
+gXs
 aaa
 aaa
 aaa
@@ -58087,7 +58092,7 @@ gXs
 gXs
 gXs
 eRz
-aaa
+gXs
 aaa
 aaa
 aaa
@@ -59299,7 +59304,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -60191,7 +60196,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -61159,7 +61164,7 @@ aZt
 aXQ
 aZt
 aXQ
-aZt
+pNV
 aXQ
 hPI
 bkF
@@ -62362,7 +62367,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -62516,7 +62521,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -64578,7 +64583,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -67252,7 +67257,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -72905,7 +72910,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -73318,7 +73323,7 @@ aaa
 aaa
 aaa
 aaw
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -75991,7 +75996,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -76913,7 +76918,7 @@ eRz
 eRz
 ctv
 eRz
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -77676,7 +77681,7 @@ gXs
 cuh
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 quT
@@ -77793,7 +77798,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -79488,7 +79493,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -80024,7 +80029,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -80882,7 +80887,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -84227,7 +84232,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -86191,7 +86196,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -86427,7 +86432,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -87703,7 +87708,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -89116,7 +89121,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -91305,7 +91310,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -92468,7 +92473,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -92752,8 +92757,8 @@ bfb
 aCR
 aHo
 aKe
-aKe
-aKe
+aaq
+xjH
 aCR
 aNX
 aPo
@@ -95045,7 +95050,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 gXs
@@ -95676,7 +95681,7 @@ aaa
 aaa
 aaa
 aaw
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -96601,7 +96606,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaS
 gXs
 aaa
@@ -97963,7 +97968,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -98204,7 +98209,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -98235,7 +98240,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -98948,7 +98953,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 cxn
 aaa
 aaa
@@ -99733,7 +99738,7 @@ aaa
 gXs
 aaa
 gXs
-aaq
+aaa
 aaa
 aaa
 aaa
@@ -100724,7 +100729,7 @@ aaa
 aaa
 aaa
 aaa
-aaq
+aaa
 aaa
 aaa
 aaa

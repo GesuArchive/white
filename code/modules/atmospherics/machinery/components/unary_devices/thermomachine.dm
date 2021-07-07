@@ -106,7 +106,7 @@
 	else
 		target_temperature = max_temperature
 		investigate_log("was set to [target_temperature] K by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, "<span class='notice'>Уменьшаю температуру термомашины до максимума в размере [target_temperature] K.</span>")
+		to_chat(user, "<span class='notice'>Увеличиваю температуру термомашины до максимума в размере [target_temperature] K.</span>")
 
 /obj/machinery/atmospherics/components/unary/thermomachine/process_atmos()
 	..()
@@ -126,9 +126,9 @@
 	if(temperature_delta > 1)
 		update_parents()
 		if(cooling)
-			use_power((heat_capacity * target_temperature + air_heat_capacity * air_contents.return_temperature()) / 100)
-		else
 			use_power(idle_power_usage * 2)
+		else
+			use_power((heat_capacity * target_temperature + air_heat_capacity * air_contents.return_temperature()) / 10)
 	else
 		use_power(idle_power_usage)
 	return 1
