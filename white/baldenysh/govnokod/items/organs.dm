@@ -62,9 +62,9 @@
 /obj/structure/spider/cocoon/mycelium
 	name = "мицелиевый кокон"
 	desc = "Кокон из мицелия. На нем растут подозрительные грибы."
-	var/sprite_lower_left_bound_x = 3
+	var/sprite_lower_left_bound_x = 5
 	var/sprite_lower_left_bound_y = 5
-	var/spawn_rect_width = 24
+	var/spawn_rect_width = 22
 	var/spawn_rect_height = 8
 
 /obj/structure/spider/cocoon/mycelium/Initialize()
