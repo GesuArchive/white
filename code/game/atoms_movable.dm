@@ -476,6 +476,7 @@
 				else if (!inertia_moving)
 					inertia_next_move = world.time + inertia_move_delay
 					newtonian_move(direct)
+				setDir(get_dir(get_step(oldloc, turn(first_step_dir, 180)), loc))
 			moving_diagonally = 0
 			return
 
@@ -505,9 +506,6 @@
 
 	last_move = direct
 	setDir(direct)
-
-	SEND_SIGNAL(src, "movable_moved_fucking_4real_now")
-
 	if(. && has_buckled_mobs() && !handle_buckled_mob_movement(loc, direct, glide_size_override)) //movement failed due to buckled mob(s)
 		return FALSE
 
