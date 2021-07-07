@@ -98,7 +98,7 @@
 	rend_desc = "Gently wafting with the sounds of mirthful grunting."
 	icon_state = "clownrender"
 
-#define TEAR_IN_REALITY_CONSUME_RANGE 3
+#define TEAR_IN_REALITY_CONSUME_RANGE 0
 #define TEAR_IN_REALITY_SINGULARITY_SIZE STAGE_FOUR
 
 /// Tear in reality, spawned by the veil render

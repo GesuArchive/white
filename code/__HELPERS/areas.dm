@@ -104,3 +104,5 @@ GLOBAL_LIST_INIT(typecache_powerfailure_safe_areas, typecacheof(/area/engine/eng
 	return TRUE
 
 #undef BP_MAX_ROOM_SIZE
+
+#define REALITY_TEAR_VIRTUAL_Z -999999

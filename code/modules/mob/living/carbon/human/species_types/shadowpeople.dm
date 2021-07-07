@@ -187,74 +187,49 @@
 	. = ..()
 	if(!proximity)
 		return
-	if(isopenturf(AM)) //So you can actually melee with it
+
+/mob/living/lighteater_act(obj/item/light_eater/light_eater)
+	if(on_fire)
+		extinguish_mob()
+		playsound(src, 'sound/items/cig_snuff.ogg', 50, 1)
+	for(var/obj/item/O in src)
+		if(O.light_range && O.light_power)
+			O.lighteater_act(light_eater)
+	if(pulling && pulling.light_range)
+		pulling.lighteater_act(light_eater)
+
+/mob/living/carbon/human/lighteater_act(obj/item/light_eater/light_eater)
+	..()
+	if(isethereal(src))
+		emp_act(EMP_LIGHT)
+
+/mob/living/silicon/robot/lighteater_act(obj/item/light_eater/light_eater)
+	..()
+	if(!lamp_functional)
 		return
+	lamp_functional = FALSE
+	playsound(src, 'sound/effects/glass_step.ogg', 50)
+	toggle_headlamp(TRUE)
+	to_chat(src, "<span class='danger'>Your headlamp is fried! You'll need a human to help replace it.</span>")
 
-	if(isliving(AM))
-		var/mob/living/L = AM
-		if(isethereal(L))
-			AM.emp_act(EMP_LIGHT)
+/obj/structure/bonfire/lighteater_act(obj/item/light_eater/light_eater)
+	if(burning)
+		extinguish()
+		playsound(src, 'sound/items/cig_snuff.ogg', 50, 1)
 
-		else if(iscyborg(AM))
-			var/mob/living/silicon/robot/borg = AM
-			if(borg.lamp_enabled)
-				borg.smash_headlamp()
-		else if(ishuman(AM))
-			var/mob/living/carbon/human/H = AM
-			for(var/obj/item/O in H.get_all_gear()) //less expensive than getallcontents
-				light_item_check(O, H)
-		else
-			for(var/obj/item/O in L.GetAllContents())
-				light_item_check(O, L)
-		if(L.pulling)
-			light_item_check(L.pulling, L.pulling)
-
-	else if(isitem(AM))
-		light_item_check(AM, AM)
-
-
-	else if(ismecha(AM))
-		var/obj/vehicle/sealed/mecha/M = AM
-		if(M.mecha_flags & HAS_LIGHTS)
-			M.visible_message("<span class='danger'>[M] lights burn out!</span>")
-			M.mecha_flags &= ~HAS_LIGHTS
-		M.set_light_on(FALSE)
-		for(var/occupant in M.occupants)
-			M.remove_action_type_from_mob(/datum/action/vehicle/sealed/mecha/mech_toggle_lights, occupant)
-		for(var/obj/item/O in AM.GetAllContents())
-			light_item_check(O, M)
-
-	else if(istype(AM, /obj/machinery/light))
-		var/obj/machinery/light/L = AM
-		if(L.status == 1)
-			return
-		disintegrate(L.drop_light_tube(), L)
-
-///checks if the item has an active light, and destroy the light source if it does.
-/obj/item/light_eater/proc/light_item_check(obj/item/I, atom/A)
-	if(!isitem(I))
+/obj/item/pda/lighteater_act(obj/item/light_eater/light_eater)
+	if(!light_range || !light_power)
 		return
-	if(I.light_range && I.light_power)
-		disintegrate(I, A)
-	else if(istype(I, /obj/item/gun))
-		var/obj/item/gun/G = I
-		if(G.gun_light?.on)
-			disintegrate(G.gun_light, A)
-	else if(istype(I, /obj/item/clothing/head/helmet))
-		var/obj/item/clothing/head/helmet/H = I
-		if(H.attached_light?.on)
-			disintegrate(H.attached_light, A)
+	set_light(0)
+	update_icon()
+	visible_message("<span class='danger'>The light in [src] shorts out!</span>")
 
-/obj/item/light_eater/proc/disintegrate(obj/item/O, atom/A)
-	if(istype(O, /obj/item/pda))
-		var/obj/item/pda/PDA = O
-		PDA.set_light_on(FALSE)
-		PDA.set_light_range(0) //It won't be turning on again.
-		PDA.update_icon()
-		A.visible_message("<span class='danger'>The light in [PDA] shorts out!</span>")
-	else
-		A.visible_message("<span class='danger'>[O] is disintegrated by [src]!</span>")
-		O.burn()
+/obj/item/lighteater_act(obj/item/light_eater/light_eater)
+	if(!light_range || !light_power)
+		return
+	if(light_eater)
+		visible_message("<span class='danger'>[src] is disintegrated by [light_eater]!</span>")
+	burn()
 	playsound(src, 'sound/items/welder.ogg', 50, TRUE)
 
 #undef HEART_SPECIAL_SHADOWIFY

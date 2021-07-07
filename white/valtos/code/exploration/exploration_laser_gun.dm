@@ -6,10 +6,14 @@
 
 /obj/item/gun/energy/e_gun/mini/exploration/emag_act(mob/user)
 	. = ..()
+	//Emag the pin too
+	if(pin)
+		pin.emag_act(user)
 	if(obj_flags & EMAGGED)
 		return
 	to_chat(user, "<span class='warning'>Взламываю защиту, теперь он может стрелять ещё более мощнее, нежели раньше.</span>")
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/exploration_kill, /obj/item/ammo_casing/energy/laser/exploration_destroy)
+	update_ammo_types()
 	obj_flags |= EMAGGED
 
 //Anti-creature - Extra damage against simplemobs

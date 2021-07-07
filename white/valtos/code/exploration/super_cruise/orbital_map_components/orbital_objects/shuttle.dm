@@ -9,6 +9,7 @@
 	//Valid docking locations
 	var/list/valid_docks = list()
 	//Docking
+	var/docking_frozen = FALSE
 	var/datum/orbital_object/z_linked/can_dock_with
 	var/datum/orbital_object/z_linked/docking_target
 
@@ -46,6 +47,10 @@
 		velocity.y = 0
 		position.x = docking_target.position.x
 		position.y = docking_target.position.y
+		//Disable autopilot and thrust while docking to prevent fuel usage.
+		thrust = 0
+		angle = 0
+		autopilot = FALSE
 		return
 	else
 		//If our docking target was deleted, null it to prevent docking interface etc.

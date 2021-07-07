@@ -19,6 +19,25 @@
 
 	metalocked = TRUE
 
+/datum/job/exploration/equip(mob/living/carbon/human/H, visualsOnly, announce, latejoin, datum/outfit/outfit_override, client/preference_source)
+	if(outfit_override)
+		return ..()
+	if(visualsOnly || latejoin)
+		return ..()
+	var/static/exploration_job_id = 0
+	exploration_job_id ++
+	switch(exploration_job_id)
+		if(1)
+			to_chat(H, "<span class='notice big'>Мне пришлось стать <span class'medradio'>Доктором</span> в этой операции!</span>")
+			to_chat(H, "<span class='notice'>Необходимо следить за здоровьем товарищей.</span>")
+			outfit_override = /datum/outfit/job/exploration/medic
+		if(2)
+			to_chat(H, "<span class='notice big'>Мне пришлось стать <span class'engradio'>Инженером</span> в этой операции!</span>")
+			to_chat(H, "<span class='notice'>Установка взрывчатки и починка корпуса - моя обязанность.</span>")
+			outfit_override = /datum/outfit/job/exploration/engineer
+		else
+	. = ..(H, visualsOnly, announce, latejoin, outfit_override, preference_source)
+
 /datum/outfit/job/exploration
 	name = "Exploration Crew"
 	jobtype = /datum/job/exploration
@@ -41,6 +60,40 @@
 	id_trim = /datum/id_trim/job/exploration
 
 	chameleon_extras = /obj/item/gun/energy/e_gun/mini/exploration
+
+/datum/outfit/job/exploration/engineer
+	name = "Exploration Crew (Engineer)"
+
+	belt = /obj/item/storage/belt/utility/full
+	r_pocket = /obj/item/pda/exploration
+
+	backpack_contents = list(
+		/obj/item/kitchen/knife/combat/survival=1,
+		/obj/item/stack/marker_beacon/thirty=1,
+		/obj/item/gun/energy/e_gun/mini/exploration=1,
+		/obj/item/grenade/exploration=3,
+		/obj/item/exploration_detonator=1
+	)
+
+	backpack = /obj/item/storage/backpack/industrial
+	satchel = /obj/item/storage/backpack/satchel/eng
+	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
+
+/datum/outfit/job/exploration/medic
+	name = "Exploration Crew (Medical Doctor)"
+
+	backpack_contents = list(
+		/obj/item/kitchen/knife/combat/survival=1,
+		/obj/item/stack/marker_beacon/thirty=1,
+		/obj/item/storage/firstaid/medical=1,
+		/obj/item/pinpointer/crew=1,
+		/obj/item/sensor_device=1,
+		/obj/item/roller=1
+	)
+
+	backpack = /obj/item/storage/backpack/medic
+	satchel = /obj/item/storage/backpack/satchel/med
+	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
 /datum/outfit/job/exploration/hardsuit
 	name = "Exploration Crew (Hardsuit)"
