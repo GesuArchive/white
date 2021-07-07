@@ -9,7 +9,7 @@
 	icon_living = "karasik"
 	icon_dead = "karasik"
 
-	pixel_x = -16
+	base_pixel_x = -16
 
 	maxHealth = 1488
 	health = 1488
