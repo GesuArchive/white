@@ -10,20 +10,6 @@
 	name = ".50AE пуля"
 	damage = 60
 
-/obj/projectile/bullet/a50ae/on_hit(atom/target)
-	if(iscarbon(target))
-		var/mob/living/carbon/C = target
-		if((istype(C.head, /obj/item/clothing/head/helmet)) && (def_zone == BODY_ZONE_HEAD))
-			C.visible_message("<span class='danger'>Пуля отскакивает от шлема!</span>", "<span class='userdanger'>Пуля отскакивает от моего шлема!</span>")
-			playsound(get_turf(src), 'white/rebolution228/sounds/cs_helmethit.ogg', 100, 1, 0)
-			damage = 10 	
-		else if(def_zone == BODY_ZONE_HEAD)
-			damage = 130
-			playsound(fired_from,'white/hule/SFX/csSFX/headshot.wav', 70, 5, pressure_affected = FALSE)
-	. = ..()
-
-		
-
 // .38 (Detective's Gun)
 
 /obj/projectile/bullet/c38
