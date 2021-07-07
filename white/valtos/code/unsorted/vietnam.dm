@@ -346,7 +346,7 @@
 	icon_state = "spwn"
 	roundstart = FALSE
 	death = FALSE
-	short_desc = "Я ебучий карлик в невероятно диких условиях."
+	short_desc = "Я Дварф в невероятно диких условиях."
 	flavour_text = "Выжить."
 	mob_species = /datum/species/dwarf
 	outfit = /datum/outfit/dwarf

@@ -53,9 +53,9 @@
 	speech_args[SPEECH_MESSAGE] = trim(message)
 
 /datum/design/anonist
-	name = "Funny Mask"
+	name = "Странная Маска"
 	id = "anonist"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 1000)
+	materials = list(/datum/material/diamond = 100000) // 50 алмазов
 	build_path = /obj/item/clothing/mask/gas/anonist
 	category = list("initial", "Разное")

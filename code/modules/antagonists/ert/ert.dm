@@ -9,7 +9,7 @@
 	var/leader = FALSE
 	var/datum/outfit/outfit = /datum/outfit/centcom/ert/security
 	var/datum/outfit/plasmaman_outfit = /datum/outfit/plasmaman/centcom_official
-	var/role = "Security Officer"
+	var/role = "Офицер"
 	var/list/name_source
 	var/random_names = TRUE
 	var/rip_and_tear = FALSE
@@ -45,21 +45,21 @@
 	outfit = /datum/outfit/centcom/ert/security/alert
 
 /datum/antagonist/ert/engineer
-	role = "Engineer"
+	role = "Инженер"
 	outfit = /datum/outfit/centcom/ert/engineer
 
 /datum/antagonist/ert/engineer/red
 	outfit = /datum/outfit/centcom/ert/engineer/alert
 
 /datum/antagonist/ert/medic
-	role = "Medical Officer"
+	role = "Доктор"
 	outfit = /datum/outfit/centcom/ert/medic
 
 /datum/antagonist/ert/medic/red
 	outfit = /datum/outfit/centcom/ert/medic/alert
 
 /datum/antagonist/ert/commander
-	role = "Commander"
+	role = "Командир"
 	outfit = /datum/outfit/centcom/ert/commander
 	plasmaman_outfit = /datum/outfit/plasmaman/centcom_commander
 	leader = TRUE
@@ -68,18 +68,18 @@
 	outfit = /datum/outfit/centcom/ert/commander/alert
 
 /datum/antagonist/ert/janitor
-	role = "Janitor"
+	role = "Уборщик"
 	outfit = /datum/outfit/centcom/ert/janitor
 
 /datum/antagonist/ert/janitor/heavy
-	role = "Heavy Duty Janitor"
+	role = "Сверхмощный Уборщик"
 	outfit = /datum/outfit/centcom/ert/janitor/heavy
 
 /datum/antagonist/ert/deathsquad
 	name = "Deathsquad Trooper"
 	outfit = /datum/outfit/centcom/death_commando
 	plasmaman_outfit = /datum/outfit/plasmaman/centcom_commander
-	role = "Trooper"
+	role = "Солдат"
 	rip_and_tear = TRUE
 
 /datum/antagonist/ert/deathsquad/New()
@@ -89,7 +89,7 @@
 /datum/antagonist/ert/deathsquad/leader
 	name = "Deathsquad Officer"
 	outfit = /datum/outfit/centcom/death_commando
-	role = "Officer"
+	role = "Офицер"
 	leader = TRUE
 
 /datum/antagonist/ert/medic/inquisitor
@@ -107,7 +107,7 @@
 	owner.holy_role = HOLY_ROLE_PRIEST
 
 /datum/antagonist/ert/chaplain
-	role = "Chaplain"
+	role = "Священник"
 	outfit = /datum/outfit/centcom/ert/chaplain
 
 /datum/antagonist/ert/chaplain/inquisitor
@@ -129,16 +129,16 @@
 	outfit = /datum/outfit/centcom/centcom_intern
 	plasmaman_outfit = /datum/outfit/plasmaman/centcom_intern
 	random_names = TRUE
-	role = "Intern"
+	role = "Интерн"
 
 /datum/antagonist/ert/intern/leader
 	name = "CentCom Head Intern"
 	outfit = /datum/outfit/centcom/centcom_intern/leader
-	role = "Head Intern"
+	role = "Старший Интерн"
 	leader = TRUE
 
 /datum/antagonist/ert/clown
-	role = "Clown"
+	role = "Клоун"
 	outfit = /datum/outfit/centcom/ert/clown
 	plasmaman_outfit = /datum/outfit/plasmaman/party_comedian
 
@@ -147,26 +147,26 @@
 	name_source = GLOB.clown_names
 
 /datum/antagonist/ert/janitor/party
-	role = "Party Cleaning Service"
+	role = "Чистильщик"
 	outfit = /datum/outfit/centcom/ert/janitor/party
 	plasmaman_outfit = /datum/outfit/plasmaman/party_janitor
 
 /datum/antagonist/ert/security/party
-	role = "Party Bouncer"
+	role = "Вышибала"
 	outfit = /datum/outfit/centcom/ert/security/party
 	plasmaman_outfit = /datum/outfit/plasmaman/party_bouncer
 
 /datum/antagonist/ert/engineer/party
-	role = "Party Constructor"
+	role = "Строитель"
 	outfit = /datum/outfit/centcom/ert/engineer/party
 	plasmaman_outfit = /datum/outfit/plasmaman/party_constructor
 
 /datum/antagonist/ert/clown/party
-	role = "Party Comedian"
+	role = "Комик"
 	outfit = /datum/outfit/centcom/ert/clown/party
 
 /datum/antagonist/ert/commander/party
-	role = "Party Coordinator"
+	role = "Координатор тусы"
 	outfit = /datum/outfit/centcom/ert/commander/party
 
 /datum/antagonist/ert/create_team(datum/team/ert/new_team)
@@ -254,7 +254,7 @@
 
 /datum/antagonist/ert/families/undercover_cop
 	name = "Undercover Cop"
-	role = "Undercover Cop"
+	role = "Коп под прикрытием"
 	outfit = /datum/outfit/families_police/beatcop
 	plasmaman_outfit = /datum/outfit/plasmaman/security
 	var/free_clothes = list(/obj/item/clothing/glasses/hud/spacecop/hidden,
@@ -295,27 +295,27 @@
 
 /datum/antagonist/ert/families/beatcop
 	name = "Beat Cop"
-	role = "Police Officer"
+	role = "Офицер Полиции"
 	outfit = /datum/outfit/families_police/beatcop
 
 /datum/antagonist/ert/families/beatcop/armored
 	name = "Armored Beat Cop"
-	role = "Police Officer"
+	role = "Офицер Полиции"
 	outfit = /datum/outfit/families_police/beatcop/armored
 
 /datum/antagonist/ert/families/beatcop/swat
 	name = "S.W.A.T. Member"
-	role = "S.W.A.T. Officer"
+	role = "Офицер S.W.A.T."
 	outfit = /datum/outfit/families_police/beatcop/swat
 
 /datum/antagonist/ert/families/beatcop/fbi
 	name = "FBI Agent"
-	role = "FBI Agent"
+	role = "Агент ФБР"
 	outfit = /datum/outfit/families_police/beatcop/fbi
 
 /datum/antagonist/ert/families/beatcop/military
 	name = "Space Military"
-	role = "Sergeant"
+	role = "Сержант"
 	outfit = /datum/outfit/families_police/beatcop/military
 
 /datum/antagonist/ert/families/beatcop/military/New()
