@@ -7,43 +7,43 @@
 
 /datum/fantasy_affix/cosmetic_suffixes/New()
 	goodSuffixes = list(
-		"dexterity",
-		"constitution",
-		"intelligence",
-		"wisdom",
-		"charisma",
-		"the forest",
-		"the hills",
-		"the plains",
-		"the sea",
-		"the sun",
-		"the moon",
-		"the void",
-		"the world",
-		"many secrets",
-		"many tales",
-		"many colors",
-		"rending",
-		"sundering",
-		"the night",
-		"the day",
+		"ловкости",
+		"конституции",
+		"интеллекта",
+		"мудрости",
+		"харизмы",
+		"леса",
+		"холмов",
+		"равнин",
+		"моря",
+		"солнца",
+		"луны",
+		"пустоты",
+		"мира",
+		"многих секретов",
+		"многих сказок",
+		"многих цветов",
+		"раздирания",
+		"раскола",
+		"ночи",
+		"дня",
 		)
 	badSuffixes = list(
-		"draining",
-		"burden",
-		"discomfort",
-		"awkwardness",
-		"poor hygiene",
-		"timidity",
+		"осушения",
+		"груза",
+		"дискомфорта",
+		"неловкости",
+		"плохой гигиены",
+		"застенчивости",
 		)
 
 	weight = (length(goodSuffixes) + length(badSuffixes)) * 10
 
 /datum/fantasy_affix/cosmetic_suffixes/apply(datum/component/fantasy/comp, newName)
 	if(comp.quality > 0 || (comp.quality == 0 && prob(50)))
-		return "[newName] of [pick(goodSuffixes)]"
+		return "[newName] [pick(goodSuffixes)]"
 	else
-		return "[newName] of [pick(badSuffixes)]"
+		return "[newName] [pick(badSuffixes)]"
 
 //////////// Good suffixes
 /datum/fantasy_affix/bane
@@ -75,7 +75,7 @@
 
 	var/obj/item/master = comp.parent
 	comp.appliedComponents += master.AddComponent(/datum/component/bane, picked_mobtype)
-	return "[newName] of [initial(picked_mobtype.name)] slaying"
+	return "[newName] убийства [initial(picked_mobtype.name)]"
 
 /datum/fantasy_affix/summoning
 	placement = AFFIX_SUFFIX
@@ -112,7 +112,7 @@
 	var/max_mobs = max(CEILING(comp.quality/2, 1), 1)
 	var/spawn_delay = 300 - 30 * comp.quality
 	comp.appliedComponents += master.AddComponent(/datum/component/summoning, list(picked_mobtype), 100, max_mobs, spawn_delay)
-	return "[newName] of [initial(picked_mobtype.name)] summoning"
+	return "[newName] призыва [initial(picked_mobtype.name)]"
 
 /datum/fantasy_affix/shrapnel
 	placement = AFFIX_SUFFIX
@@ -146,7 +146,7 @@
 
 	var/obj/item/master = comp.parent
 	comp.appliedComponents += master.AddComponent(/datum/component/mirv, picked_projectiletype)
-	return "[newName] of [initial(picked_projectiletype.name)] shrapnel"
+	return "[newName] шрапнели [initial(picked_projectiletype.name)]"
 
 /datum/fantasy_affix/strength
 	placement = AFFIX_SUFFIX
@@ -156,7 +156,7 @@
 	. = ..()
 	var/obj/item/master = comp.parent
 	comp.appliedComponents += master.AddComponent(/datum/component/knockback, CEILING(comp.quality/2, 1), FLOOR(comp.quality/10, 1))
-	return "[newName] of strength"
+	return "[newName] силы"
 
 //////////// Bad suffixes
 
@@ -168,4 +168,4 @@
 	. = ..()
 	var/obj/item/master = comp.parent
 	comp.appliedComponents += master.AddComponent(/datum/component/squeak, list('sound/items/bikehorn.ogg'=1), 50, falloff_exponent = 20)
-	return "[newName] of the fool"
+	return "[newName] дурака"

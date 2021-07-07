@@ -7,27 +7,27 @@
 
 /datum/fantasy_affix/cosmetic_prefixes/New()
 	goodPrefixes = list(
-		"greater",
-		"major",
-		"blessed",
-		"superior",
-		"empowered",
-		"honed",
-		"true",
-		"glorious",
-		"robust",
+		"большой",
+		"главный",
+		"благословенный",
+		"превосходный",
+		"усиленный",
+		"отточенный",
+		"истинный",
+		"славный",
+		"крепкий",
 		)
 	badPrefixes = list(
-		"lesser",
-		"minor",
-		"blighted",
-		"inferior",
-		"enfeebled",
-		"rusted",
-		"unsteady",
-		"tragic",
-		"gimped",
-		"cursed",
+		"меньший",
+		"незначительный",
+		"испорченный",
+		"низший",
+		"ослабленный",
+		"ржавый",
+		"неустойчивый",
+		"трагический",
+		"забитый",
+		"проклятый",
 		)
 
 	weight = (length(goodPrefixes) + length(badPrefixes)) * 10
@@ -46,7 +46,7 @@
 /datum/fantasy_affix/tactical/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
 	comp.appliedComponents += master.AddComponent(/datum/component/tactical)
-	return "tactical [newName]"
+	return "тактический [newName]"
 
 /datum/fantasy_affix/pyromantic
 	placement = AFFIX_PREFIX
@@ -55,7 +55,7 @@
 /datum/fantasy_affix/pyromantic/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
 	comp.appliedComponents += master.AddComponent(/datum/component/igniter, clamp(comp.quality, 1, 10))
-	return "pyromantic [newName]"
+	return "пиромантический [newName]"
 
 /datum/fantasy_affix/vampiric
 	placement = AFFIX_PREFIX
@@ -65,7 +65,7 @@
 /datum/fantasy_affix/vampiric/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
 	comp.appliedComponents += master.AddComponent(/datum/component/lifesteal, comp.quality)
-	return "vampiric [newName]"
+	return "вампирический [newName]"
 
 /datum/fantasy_affix/beautiful
 	placement = AFFIX_PREFIX
@@ -74,7 +74,7 @@
 /datum/fantasy_affix/beautiful/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
 	master.AddComponent(/datum/component/beauty, max(comp.quality, 1) * 250)
-	return "[pick("aesthetic", "beautiful", "gorgeous", "pretty")] [newName]"
+	return "[pick("эстетичный", "красивый", "великолепный", "симпатичный")] [newName]"
 
 /datum/fantasy_affix/beautiful/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent
@@ -87,7 +87,7 @@
 /datum/fantasy_affix/ugly/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
 	master.AddComponent(/datum/component/beauty, min(comp.quality, -1) * 250)
-	return "[pick("fugly", "ugly", "grotesque", "hideous")] [newName]"
+	return "[pick("унылый", "уродливый", "гротескный", "отвратительный")] [newName]"
 
 /datum/fantasy_affix/ugly/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent

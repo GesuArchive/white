@@ -123,10 +123,10 @@ GLOBAL_DATUM_INIT(keycard_events, /datum/events, new)
 	message_admins("[ADMIN_LOOKUPFLW(triggerer)] triggered and [ADMIN_LOOKUPFLW(confirmer)] confirmed event [event]")
 
 	var/area/A1 = get_area(triggerer)
-	deadchat_broadcast(" запускает [event] в <span class='name'>[A1.name]</span>.", "<span class='name'>[triggerer]</span>", triggerer, message_type=DEADCHAT_ANNOUNCEMENT)
+	deadchat_broadcast(" запускает [event] в локации <span class='name'>[A1.name]</span>.", "<span class='name'>[triggerer]</span>", triggerer, message_type=DEADCHAT_ANNOUNCEMENT)
 
 	var/area/A2 = get_area(confirmer)
-	deadchat_broadcast(" подтверждает [event] в <span class='name'>[A2.name]</span>.", "<span class='name'>[confirmer]</span>", confirmer, message_type=DEADCHAT_ANNOUNCEMENT)
+	deadchat_broadcast(" подтверждает [event] в локации <span class='name'>[A2.name]</span>.", "<span class='name'>[confirmer]</span>", confirmer, message_type=DEADCHAT_ANNOUNCEMENT)
 	switch(event)
 		if(KEYCARD_RED_ALERT)
 			set_security_level(SEC_LEVEL_RED)
