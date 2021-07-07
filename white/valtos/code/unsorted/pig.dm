@@ -40,6 +40,7 @@
 		desc = "<big>Самый жирный боров.</big>"
 		maxHealth = 500
 		health = 500
+		AddElement(/datum/element/swabable, CELL_LINE_TABLE_SHVAINOKARAS, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
 
 /mob/living/simple_animal/pet/dog/corgi/pig/Life()
 	..()
