@@ -723,6 +723,9 @@
 /obj/effect/mob_spawn/human/artist/special(mob/living/L)
 	amount += 1
 	L.real_name = "Артист #[amount]"
+	if(L.ckey == "redfoxiv")
+		L.real_name = "Ali Rezun"
+		L.say("Убивать.")
 	L.name = L.real_name
 
 
@@ -781,7 +784,8 @@
 
 /obj/effect/landmark/duel_spawnpoint
 
-GENERAL_PROTECT_DATUM(/obj/effect/duel_controller) // счастливой отладки
+
+//GENERAL_PROTECT_DATUM(/obj/effect/duel_controller) // счастливой отладки // счастливой иди нахуй 
 /obj/effect/duel_controller
 	name = "Duel Controller"
 	desc = "Controls duels."
@@ -791,7 +795,7 @@ GENERAL_PROTECT_DATUM(/obj/effect/duel_controller) // счастливой от�
 	invisibility = INVISIBILITY_OBSERVER
 	var/duel_outfit = /datum/outfit/artist
 	var/duel_status = DUEL_NODUEL
-	var/list/mob/living/carbon/human/duelists[2]
+	var/list/mob/living/carbon/human/duelists
 	var/bet
 
 	/// Время на каждый бой. Не меньше 30 секунд.
@@ -834,7 +838,7 @@ GENERAL_PROTECT_DATUM(/obj/effect/duel_controller) // счастливой от�
 	if(duel_status == DUEL_PENDING)
 		if(duelists.Find(user))
 			CRASH("A ghost tried to join a duel when he already was in the list of duelists. WTF?")
-		var/alert = alert("Точно хочешь поучавствовать в дуэли на [bet] метакэша?","MORTAL COMBAT","Да","Нет")
+		var/alert = alert("Точно хочешь поучавствовать в дуэли на [bet] метакэша?",,"Да","Нет")
 		if(alert == "Да")
 			spawn_user()
 		return
@@ -843,9 +847,14 @@ GENERAL_PROTECT_DATUM(/obj/effect/duel_controller) // счастливой от�
 	if(ghost_role == "Нет" || !loc || QDELETED(user))
 		return
 	var/betinput = input("Сколько метакэша готов поставить? (Не меньше 50!)", "1XBET", 50) as num
+	if(betinput < 0)
+		banned_ckeys += user.ckey
+		to_chat(user, "ебать ты умный нахуй")
 	if(betinput < 50)
 		return
-
+	if(betinput > user.client.mc_cached)
+		to_chat(user, "Где деньги, Лебовски?")
+		return
 	if(duel_status != DUEL_NODUEL)
 		to_chat(user, "Ты опоздал, дружок!")
 		return
@@ -853,7 +862,7 @@ GENERAL_PROTECT_DATUM(/obj/effect/duel_controller) // счастливой от�
 		CRASH("A ghost tried to initiate a duel when he already was in the list of duelists. WTF?")
 	bet = betinput
 	duel_status = DUEL_PENDING
-	inc_metabalance(user, bet, TRUE, "Оплатил входной билет.")
+	inc_metabalance(user, -bet, TRUE, "Оплатил входной билет.")
 	spawn_user(user, bet)
 	to_chat(user, "<span class='notice'>Создали предложение о дуэли. Если никто не откликнется за 30 секунд, дуэль будет отменена и вам вернут деньги.</span>")
 	notify_ghosts("[user.name] ([user.ckey]) приглашает всех желающих поучавствовать в дуэли на [bet] метакэша.", source = src, action = NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_SPLITPERSONALITY)
@@ -868,10 +877,8 @@ GENERAL_PROTECT_DATUM(/obj/effect/duel_controller) // счастливой от�
 	var/mob/living/carbon/human/H = new(get_turf(src))
 	H.equipOutfit()
 	H.ckey = user.ckey
-	if(duelists.len != 1)
-		duelists[1] = H
-	else
-		duelists[2] = H
+	duelists.Add(H)
+	if(duelists.len == 2)
 		start_duel()
 	START_PROCESSING(SSfastprocess, src)
 
@@ -930,6 +937,7 @@ GENERAL_PROTECT_DATUM(/obj/effect/duel_controller) // счастливой от�
 	visible_message("<span class='alert'>[msg]</span>")
 
 /obj/effect/duel_controller/proc/finish_duel(mob/loser, state = DUEL_FINISH)
+	//дичайшее говнище
 	var/pay_mul = 1
 	var/msg
 	switch(state)
