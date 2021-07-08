@@ -177,7 +177,7 @@
 /area/engine/engineering)
 "fA" = (
 /obj/machinery/door/window/brigdoor/security/cell/eastright,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/space)
 "fL" = (
 /obj/effect/turf_decal/stripes/line,
@@ -284,9 +284,8 @@
 /turf/open/floor/plasteel,
 /area/engine/engine_smes)
 "iL" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
-/turf/open/floor/plasteel/dark,
-/area/engine/engineering)
+/turf/open/floor/plasteel/monofloor/dark,
+/area/space)
 "iY" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/maintenance{
@@ -303,7 +302,7 @@
 	pixel_y = 24;
 	prison_radio = 1
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/space)
 "jM" = (
 /obj/structure/table,
@@ -630,12 +629,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/engine/supermatter)
-"ud" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 4
-	},
-/turf/open/floor/plasteel/dark,
-/area/engine/engineering)
 "uf" = (
 /turf/closed/wall,
 /area/space)
@@ -765,7 +758,7 @@
 /area/engine/engineering)
 "xR" = (
 /obj/machinery/vending/cola/red,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/space)
 "yw" = (
 /turf/open/floor/plating,
@@ -846,7 +839,7 @@
 /area/engine/engineering)
 "Ai" = (
 /obj/machinery/vending/sustenance,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/space)
 "Aj" = (
 /obj/effect/turf_decal/stripes/line{
@@ -991,7 +984,7 @@
 /area/engine/engine_smes)
 "Dj" = (
 /obj/machinery/door/window/brigdoor/security/cell/westleft,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/space)
 "Dq" = (
 /obj/effect/turf_decal/stripes/line{
@@ -3558,13 +3551,13 @@ Rk
 Rk
 Rk
 Ii
-ee
-ee
+iL
+iL
 Gz
 Gz
 Gz
 Gz
-ee
+iL
 uf
 uf
 Rk
@@ -3660,7 +3653,7 @@ Rk
 Rk
 Rk
 Ii
-ee
+iL
 Gz
 Ce
 Ce
@@ -3762,7 +3755,7 @@ Rk
 Ii
 Ii
 Ii
-ee
+iL
 Gz
 xK
 xK
@@ -3862,16 +3855,16 @@ Rk
 Rk
 Rk
 Ii
-ee
-ee
-ee
+iL
+iL
+iL
 Gz
 zb
 zb
 zb
 zb
 Gz
-ee
+iL
 uf
 Rk
 uf
@@ -3964,7 +3957,7 @@ Ii
 Ii
 Ii
 Ii
-ee
+iL
 Gz
 Gz
 Gz
@@ -3973,7 +3966,7 @@ Ce
 Ce
 Ce
 Gz
-ee
+iL
 uf
 Rk
 uf
@@ -4066,7 +4059,7 @@ Ii
 CN
 Wx
 ep
-ee
+iL
 Gz
 IJ
 Gz
@@ -4185,31 +4178,31 @@ Gz
 gc
 Gz
 Gz
-ee
+iL
 Gz
 Gz
-ee
+iL
 Gz
 Gz
-ee
+iL
 Gz
 Gz
-ee
+iL
 Gz
 Gz
-ee
+iL
 Gz
 Gz
-ee
+iL
 Gz
 Gz
-ee
+iL
 Gz
 Gz
-ee
+iL
 Gz
 Gz
-ee
+iL
 Ii
 Gz
 Gz
@@ -4284,35 +4277,35 @@ Gz
 Gz
 Gz
 Gz
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
+iL
 Gz
 Gz
 Gz
@@ -4389,31 +4382,31 @@ Gz
 gc
 Gz
 Gz
-ee
+iL
 Gz
 Gz
-ee
+iL
 Gz
 Gz
-ee
+iL
 Gz
 Gz
-ee
+iL
 Gz
 Gz
-ee
+iL
 Gz
 Gz
-ee
+iL
 Gz
 Gz
-ee
+iL
 Gz
 Gz
-ee
+iL
 Gz
 Gz
-ee
+iL
 Ii
 Gz
 Gz
@@ -4436,7 +4429,7 @@ vj
 BJ
 lg
 Th
-ud
+Hj
 Ua
 bG
 Vg
@@ -4474,7 +4467,7 @@ Ii
 me
 Qs
 Mp
-ee
+iL
 Gz
 IJ
 Gz
@@ -4576,7 +4569,7 @@ Ii
 Ii
 Ii
 Ii
-ee
+iL
 Gz
 Gz
 Gz
@@ -4585,7 +4578,7 @@ zb
 zb
 zb
 Gz
-ee
+iL
 uf
 Rk
 uf
@@ -4636,7 +4629,7 @@ kt
 Wb
 ih
 JO
-iL
+mt
 mt
 TY
 bG
@@ -4678,16 +4671,16 @@ Rk
 Rk
 Rk
 Ii
-ee
-ee
-ee
+iL
+iL
+iL
 Gz
 Ce
 Ce
 Ce
 Ce
 Gz
-ee
+iL
 uf
 Rk
 uf
@@ -4782,14 +4775,14 @@ Rk
 Ii
 Ii
 Ii
-ee
+iL
 Gz
 xK
 hI
 xK
 xK
 Gz
-ee
+iL
 uf
 Rk
 uf
@@ -4891,7 +4884,7 @@ zb
 zb
 zb
 Gz
-ee
+iL
 uf
 Rk
 uf
@@ -4986,13 +4979,13 @@ Rk
 Rk
 Rk
 Ii
-ee
-ee
+iL
+iL
 Gz
 Gz
 Gz
 Gz
-ee
+iL
 uf
 uf
 Rk
