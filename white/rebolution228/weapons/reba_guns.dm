@@ -14,7 +14,7 @@
 	rack_sound = 'white/rebolution228/weapons/sounds/spas_pump.ogg'
 	load_sound = 'white/rebolution228/weapons/sounds/spas_insert.ogg'
 	w_class = WEIGHT_CLASS_BULKY
-	mag_type = /obj/item/ammo_box/magazine/internal/shot/com/eight
+	mag_type = /obj/item/ammo_box/magazine/internal/shot/lethal/eight
 	weapon_weight = WEAPON_HEAVY
 	pb_knockback = 1
 	fire_delay = 5
@@ -24,11 +24,13 @@
 /obj/item/gun/ballistic/shotgun/spas12/rubber
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/riot/eight
 
-/obj/item/ammo_box/magazine/internal/shot/com/eight // lethal rounds
+/obj/item/ammo_box/magazine/internal/shot/lethal/eight // lethal rounds
 	max_ammo = 8
+	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
 
 /obj/item/ammo_box/magazine/internal/shot/riot/eight // rubber rounds
 	max_ammo = 8
+	ammo_type = /obj/item/ammo_casing/shotgun/rubbershot
 
 
 // M41A MKII
