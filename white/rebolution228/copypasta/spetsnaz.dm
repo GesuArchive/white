@@ -87,7 +87,7 @@
 						/obj/item/clothing/head/helmet/maska/black, \
 						/obj/item/clothing/head/helmet/maska/altyn, \
 						/obj/item/clothing/head/helmet/maska/altyn/black)
-	if(prob(1))
+	if(prob(3))
 		head = /obj/item/clothing/head/helmet/maska/adidas
 	else 
 		head = randomhelmet
