@@ -162,9 +162,36 @@
 /// Trim for generic ERT clowns. No universal ID card changing access.
 /datum/id_trim/centcom/ert/clown
 	assignment = "Entertainment Response Officer"
+	trim_icon = 'white/rebolution228/icons/card.dmi'
 	trim_state = "trim_ert_entertainment"
 
 /datum/id_trim/centcom/ert/clown/New()
 	. = ..()
 
 	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)) - ACCESS_CHANGE_IDS)
+
+
+////////////////////////
+// WHITE DREAM: Trim for Spetsnaz Soldier. General Centcom access, no station access. 
+
+/datum/id_trim/centcom/spetsnaz
+	assignment = "MVD Spetsnaz Operative"
+	trim_icon = 'white/rebolution228/icons/card.dmi'
+	trim_state = "trim_spetsnaz"
+
+/datum/id_trim/centcom/spetsnaz/New()
+	. = ..()
+
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_WEAPONS)
+
+// WHITE DREAM: Trim for Spetsnaz Leader. Full access.
+
+/datum/id_trim/centcom/spetsnaz/leader
+	assignment = "MVD Spetsnaz Leader"
+	trim_icon = 'white/rebolution228/icons/card.dmi'
+	trim_state = "trim_spetsnazleader"
+
+/datum/id_trim/centcom/spetsnaz/leader/New()
+	. = ..()
+
+	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
