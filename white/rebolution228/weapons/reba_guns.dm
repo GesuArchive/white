@@ -272,6 +272,7 @@
 
 /obj/item/ammo_casing/a545
 	name = "5.45x39 гильза"
+	icon_state = ".50"
 	projectile_type = /obj/projectile/bullet/a545
 
 /obj/projectile/bullet/a545
