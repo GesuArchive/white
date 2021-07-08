@@ -82,7 +82,7 @@
 	head = null	
 
 /datum/outfit/spetsnaz/pre_equip(mob/living/carbon/human/H)
-	suit_store = /obj/item/gun/ballistic/automatic/ak74m/gp25
+	suit_store = /obj/item/gun/ballistic/automatic/ak74m
 	var/randomhelmet = pick(/obj/item/clothing/head/helmet/maska, \
 						/obj/item/clothing/head/helmet/maska/black, \
 						/obj/item/clothing/head/helmet/maska/altyn, \
