@@ -3799,7 +3799,7 @@
 #include "white\qwaszx000\loly\loly.dm"
 #include "white\rebolution228\map_stuff.dm"
 #include "white\rebolution228\clothing\hats.dm"
-#include "white\rebolution228\clothing\uniforms.dm"
+#include "white\rebolution228\clothing\uniform.dm"
 #include "white\rebolution228\copypasta\mutations.dm"
 #include "white\rebolution228\copypasta\spetsnaz.dm"
 #include "white\rebolution228\weapons\reba_guns.dm"
