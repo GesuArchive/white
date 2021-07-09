@@ -3661,6 +3661,7 @@
 #include "white\baldenysh\govnokod\storage\pillpack.dm"
 #include "white\baldenysh\govnokod\turfs\bluespace_openspace.dm"
 #include "white\baldenysh\govnokod\turfs\overrides.dm"
+#include "white\baldenysh\templates\orbital_ruins\orbital_ruins.dm"
 #include "white\ClickerOfThings\duckgame_weapon\dg_weapons.dm"
 #include "white\ClickerOfThings\integrated_circuits_snitch\all_nodes.dm"
 #include "white\ClickerOfThings\integrated_circuits_snitch\electronics_designs.dm"
