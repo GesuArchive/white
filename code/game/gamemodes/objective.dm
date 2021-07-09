@@ -10,6 +10,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	var/target_amount = 0				//If they are focused on a particular number. Steal objectives have their own counter.
 	var/completed = FALSE				//currently only used for custom objectives.
 	var/martyr_compatible = FALSE		//If the objective is compatible with martyr objective, i.e. if you can still do it while dead.
+	var/reward = 0
 
 /datum/objective/New(text)
 	if(text)
@@ -127,6 +128,8 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 			possible_targets = all_possible_targets
 	if(possible_targets.len > 0)
 		target = pick(possible_targets)
+	if(target.assigned_role in list("Russian Officer", "Trader", "Hacker","Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Field Medic", "AI", "Cyborg"))
+		reward+=reward
 	update_explanation_text()
 	return target
 
@@ -190,6 +193,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	name = "assasinate"
 	var/target_role_type=FALSE
 	martyr_compatible = TRUE
+	reward = 15
 
 /datum/objective/assassinate/find_target_by_role(role, role_type=FALSE,invert=FALSE)
 	if(!invert)
@@ -221,6 +225,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	name = "mutiny"
 	var/target_role_type=FALSE
 	martyr_compatible = 1
+	reward = 15
 
 /datum/objective/mutiny/find_target_by_role(role, role_type=FALSE,invert=FALSE)
 	if(!invert)
@@ -244,6 +249,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	name = "maroon"
 	var/target_role_type=FALSE
 	martyr_compatible = TRUE
+	reward = 15
 
 /datum/objective/maroon/find_target_by_role(role, role_type=FALSE,invert=FALSE)
 	if(!invert)
@@ -618,6 +624,7 @@ GLOBAL_LIST_EMPTY(possible_items)
 	var/datum/objective_item/targetinfo = null //Save the chosen item datum so we can access it later.
 	var/obj/item/steal_target = null //Needed for custom objectives (they're just items, not datums).
 	martyr_compatible = FALSE
+	reward = 15
 
 /datum/objective/steal/get_target()
 	return steal_target

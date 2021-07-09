@@ -129,24 +129,27 @@
 			antag_info["team"]["id"] = team_ids[T]
 
 		var/greentexted = TRUE
+		var/reward = 0
+		var/o_completed = 0
 
 		if(A.objectives.len)
 			for(var/datum/objective/O in A.objectives)
 				var/result = O.check_completion() ? "SUCCESS" : "FAIL"
 				if (result == "FAIL")
 					greentexted = FALSE
+				else
+					reward+=O.reward
+					o_completed++
 				antag_info["objectives"] += list(list("objective_type"=O.type,"text"=O.explanation_text,"result"=result))
 		SSblackbox.record_feedback("associative", "antagonists", 1, antag_info)
-
+		var/client/C = GLOB.directory[ckey(A.owner?.key)]
+		if(C)
+			C.process_greentext(reward, o_completed)
 		if (greentexted)
 			if (A.owner && A.owner.key)
 				if (A.type != /datum/antagonist/custom)
-					var/client/C = GLOB.directory[ckey(A.owner.key)]
 					if (C)
 						greentexters |= C
-
-	for (var/client/C in greentexters)
-		C.process_greentext()
 
 /datum/controller/subsystem/ticker/proc/record_nuke_disk_location()
 	var/obj/item/disk/nuclear/N = locate() in GLOB.poi_list
