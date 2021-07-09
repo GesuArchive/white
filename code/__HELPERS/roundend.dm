@@ -129,7 +129,7 @@
 			antag_info["team"]["id"] = team_ids[T]
 
 		var/greentexted = TRUE
-		var/reward = 0
+		var/reward = 5
 		var/o_completed = 0
 
 		if(A.objectives.len)
