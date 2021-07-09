@@ -1,31 +1,31 @@
 "a" = (/turf/closed/wall,/area/space)
-"b" = (/obj/structure/closet,/obj/item/clothing/suit/hooded/cloak/goliath,/obj/item/spear/bonespear,/turf/open/floor/plasteel,/area/space)
-"d" = (/obj/structure/table,/obj/item/modular_computer/laptop/preset/civilian,/turf/open/floor/wood,/area/space)
-"f" = (/obj/structure/table,/obj/item/storage/blister/twocap/stimulant,/turf/open/floor/wood,/area/space)
-"g" = (/turf/open/floor/wood,/area/space)
-"m" = (/obj/structure/chair/wood{dir = 1},/turf/open/floor/wood,/area/space)
-"n" = (/obj/structure/chair/wood,/turf/open/floor/wood,/area/space)
-"o" = (/obj/structure/chair/wood{dir = 1},/obj/machinery/light/small,/turf/open/floor/wood,/area/space)
-"p" = (/turf/open/floor/plasteel,/area/space)
-"q" = (/obj/structure/sign/poster/random{pixel_x = 32},/turf/open/floor/wood,/area/space)
-"t" = (/obj/machinery/light/small,/turf/open/floor/wood,/area/space)
-"w" = (/obj/item/storage/backpack/duffelbag/syndie/x4{pixel_x = 7},/turf/open/floor/plasteel,/area/space)
-"A" = (/obj/structure/table/wood,/turf/open/floor/wood,/area/space)
-"C" = (/obj/machinery/light/small{dir = 8},/turf/open/floor/wood,/area/space)
-"E" = (/obj/effect/abstract/doorway_marker{dir = 1},/turf/open/floor/plasteel,/area/space)
-"H" = (/obj/structure/closet/crate,/obj/effect/spawner/lootdrop/armory_contraband,/obj/structure/sign/poster/random{pixel_x = 32},/turf/open/floor/wood,/area/space)
-"P" = (/obj/machinery/light/small{dir = 8},/turf/open/floor/plasteel,/area/space)
-"Q" = (/obj/structure/closet,/obj/item/stack/sheet/mineral/plasma/thirty,/turf/open/floor/plasteel,/area/space)
-"Z" = (/obj/structure/bed,/obj/item/bedsheet/dorms,/turf/open/floor/wood,/area/space)
+"d" = (/obj/structure/table/wood,/turf/open/floor/wood,/area/space)
+"e" = (/obj/machinery/light/small,/turf/open/floor/wood,/area/space)
+"h" = (/obj/structure/closet/crate,/obj/effect/spawner/lootdrop/armory_contraband,/obj/structure/sign/poster/random{pixel_x = 32},/turf/open/floor/wood,/area/space)
+"k" = (/obj/structure/sign/poster/random{pixel_x = 32},/turf/open/floor/wood,/area/space)
+"o" = (/obj/structure/closet,/obj/item/stack/sheet/mineral/plasma/thirty,/obj/effect/spawner/lootdrop/maintenance/three,/turf/open/floor/plasteel,/area/space)
+"t" = (/obj/machinery/light/small{dir = 8},/turf/open/floor/wood,/area/space)
+"w" = (/obj/structure/chair/wood{dir = 1},/obj/machinery/light/small,/turf/open/floor/wood,/area/space)
+"A" = (/obj/structure/closet,/obj/item/reagent_containers/glass/bottle/morphine,/obj/item/clothing/suit/hooded/cloak/goliath,/obj/item/spear/bonespear,/turf/open/floor/plasteel,/area/space)
+"E" = (/turf/open/floor/plasteel,/area/space)
+"F" = (/obj/structure/bed,/obj/item/bedsheet/dorms,/turf/open/floor/wood,/area/space)
+"I" = (/obj/structure/table,/obj/item/modular_computer/laptop/preset/civilian,/turf/open/floor/wood,/area/space)
+"K" = (/obj/item/storage/backpack/duffelbag/syndie/x4{pixel_x = 7},/turf/open/floor/plasteel,/area/space)
+"M" = (/obj/structure/chair/wood,/turf/open/floor/wood,/area/space)
+"N" = (/obj/effect/abstract/doorway_marker{dir = 1},/turf/open/floor/plasteel,/area/space)
+"R" = (/obj/structure/table,/obj/item/storage/blister/twocap/stimulant,/turf/open/floor/wood,/area/space)
+"S" = (/obj/structure/chair/wood{dir = 1},/turf/open/floor/wood,/area/space)
+"V" = (/obj/machinery/light/small{dir = 8},/turf/open/floor/plasteel,/area/space)
+"Y" = (/turf/open/floor/wood,/area/space)
 
 (1,1,1) = {"
-aaaaaEaa
-afdgappa
-aggqaPQa
-aCggppba
-agggwaaa
-anggggHa
-aAAgggZa
-amoggtga
+aaaaaNaa
+aRIYaEEa
+aYYkaVoa
+atYYEEAa
+aYYYKaaa
+aMYYYYha
+addYYYFa
+aSwYYeYa
 aaaaaaaa
 "}
