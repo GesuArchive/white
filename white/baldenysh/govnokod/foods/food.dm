@@ -1,6 +1,6 @@
 /obj/item/food/lcube
 	name = "Куб личинок в панировке"
-	desc = "Мы - одна галактика. Миpatopг."
+	desc = "Мы - одна галактика. Miratorg Holding Ltd."
 	icon = 'white/baldenysh/icons/obj/foods.dmi'
 	icon_state = "lcube"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4)
