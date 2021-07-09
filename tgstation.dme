@@ -4004,6 +4004,7 @@
 #include "white\valtos\code\outfits\russian.dm"
 #include "white\valtos\code\outfits\scarlet.dm"
 #include "white\valtos\code\outfits\trader.dm"
+#include "white\valtos\code\particles\exp_emitter.dm"
 #include "white\valtos\code\randomstation\landmarks.dm"
 #include "white\valtos\code\randomstation\maint.dm"
 #include "white\valtos\code\randomstation\mapping.dm"
