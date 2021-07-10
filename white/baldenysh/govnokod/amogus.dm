@@ -27,7 +27,7 @@
 /obj/structue/statue/amogus/examine(mob/user)
 	. = ..()
 	if(get_dist(src, user) < 2)
-		. += "<hr><span class='notice'>Похоже, между ягодицами можно просунуть руку...</span>"
+		. += "<span class='notice'>Похоже, между ягодицами можно просунуть руку...</span>"
 
 /obj/structue/statue/amogus/attack_hand(mob/living/user)
 	. = ..()
