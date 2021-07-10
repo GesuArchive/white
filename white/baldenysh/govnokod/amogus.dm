@@ -29,7 +29,10 @@
 /obj/structue/statue/amogus/examine(mob/user)
 	. = ..()
 	if(get_dist(src, user) < 2)
-		. += "\n<span class='notice'>Похоже, между ягодицами можно просунуть руку...</span>"
+		. += "\n<span class='notice'>Похоже, между ягодицами можно просунуть руку... \n GROIN+GRAB+CLICK чтобы пошариться в заднице статуи.</span>"
+
+/obj/structue/statue/amogus/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+	return
 
 /obj/structue/statue/amogus/attack_hand(mob/living/user)
 	. = ..()
