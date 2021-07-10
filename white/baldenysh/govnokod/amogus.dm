@@ -15,9 +15,11 @@
 	LoadComponent(/datum/component/storage/concrete/pockets/butt/bluebutt)
 	if(prob(30))
 		var/list/butt_loot = list(
-				/obj/item/gun/ballistic/shotgun/automatic/combat,
 				/obj/item/gun/ballistic/automatic/pistol/deagle,
-				/obj/item/gun/ballistic/revolver/mateba
+				/obj/item/gun/ballistic/revolver/mateba,
+				/obj/item/gun/ballistic/xviii_rifle,
+				/obj/item/gun/ballistic/shotgun/sniper,
+				/obj/item/gun/ballistic/rifle/boltaction
 				)
 		var/loot_type = pick(butt_loot)
 		new loot_type(src)
@@ -37,8 +39,8 @@
 		user.visible_message("<span class='notice'>[user] сует руку в попу [src].</span>", \
 			"<span class='notice'>Начинаю шариться между булками у [src]...</span>")
 		if(do_after(c_user, 7 SECONDS))
-			if(ripper)
-				user.visible_message("<span class='danger'>[src] отрезает и засасывает руку [user]!</span>", \
+			if(ripper && prob(80))
+				user.visible_message("<span class='danger'>[src] вырывает и засасывает руку [user]!</span>", \
 					"<span class='userdanger'>Задница [src] поглощает мою драгоценную ручку!!!</span>")
 				var/which_hand = BODY_ZONE_L_ARM
 				if(!(c_user.active_hand_index % 2))
@@ -48,11 +50,6 @@
 				if (user.active_storage == STR)
 					user.active_storage.close(user)
 				hand.forceMove(src)
-
-				/*
-				if(STR.can_be_inserted(hand, 0))
-					STR.handle_item_insertion(hand, 0)
-				*/
 				return TRUE
 			if (user.active_storage)
 				user.active_storage.close(user)
