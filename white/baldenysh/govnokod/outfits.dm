@@ -2,7 +2,7 @@
 	name = "одноразовая тарелка"
 	desc = "Просто тарелка с веселой рожицей."
 	icon = 'white/baldenysh/icons/obj/masks.dmi'
-	worn_icon = 'white/hule/icons/mob/mask.dmi'
+	worn_icon = 'white/baldenysh/icons/mob/mask.dmi'
 	icon_state = "tarelka"
 	inhand_icon_state = "tarelka"
 	armor = list(MELEE = 10, BULLET = 20, LASER = 0, ENERGY = 10, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0, WOUND = 10)
