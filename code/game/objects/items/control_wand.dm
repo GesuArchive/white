@@ -78,7 +78,7 @@
 	data.receiver_id = target_interface.hardware_id
 	data.passkey = access_list
 	data.user = user	// for responce message
-	message_admins(data.generate_netlog())
+
 	ntnet_send(data)
 
 /obj/item/door_remote/omni
