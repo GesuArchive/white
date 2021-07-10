@@ -59,7 +59,6 @@ export const Panel = (props, context) => {
                     tooltipPosition="bottom"
                     icon="book"
                     onClick={() => Byond.command('wiki')} />
-                  </Button>
                 </Stack.Item>
               )}
               {!!things && (
@@ -70,7 +69,6 @@ export const Panel = (props, context) => {
                     tooltipPosition="bottom"
                     icon="comments"
                     onClick={() => Byond.command('forum')} />
-                  </Button>
                 </Stack.Item>
               )}
               {!!things && (
@@ -81,7 +79,6 @@ export const Panel = (props, context) => {
                     tooltipPosition="bottom"
                     icon="shopping-basket"
                     onClick={() => Byond.command('Панель-благотворца')} />
-                  </Button>
                 </Stack.Item>
               )}
               <Stack.Item>
