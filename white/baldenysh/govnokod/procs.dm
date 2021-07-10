@@ -25,3 +25,8 @@
 /proc/area2text(area/saving)
 	var/list/bounds = saving.get_bounds()
 */
+
+/mob/make_possess_obj(/obj/O)
+	loc = O
+	reset_perspective(O)
+	control_object = O
