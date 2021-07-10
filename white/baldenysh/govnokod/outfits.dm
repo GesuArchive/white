@@ -46,7 +46,7 @@
 	name = "Dreamer"
 	uniform = /obj/item/clothing/under/color/green/dreamer
 	glasses = /obj/item/clothing/glasses/thermal/monocle
-	head = /obj/item/clothing/head/soft/green
+	//head = /obj/item/clothing/head/soft/green
 	mask = /obj/item/clothing/mask/gas/tarelka
 	shoes = /obj/item/clothing/shoes/sneakers/green
 	gloves = /obj/item/clothing/gloves/color/green
