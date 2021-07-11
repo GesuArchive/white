@@ -3633,6 +3633,8 @@
 #include "white\baldenysh\govnokod\procs.dm"
 #include "white\baldenysh\govnokod\ui.dm"
 #include "white\baldenysh\govnokod\vending.dm"
+#include "white\baldenysh\govnokod\antags\antags.dm"
+#include "white\baldenysh\govnokod\antags\objectives.dm"
 #include "white\baldenysh\govnokod\chem\pills.dm"
 #include "white\baldenysh\govnokod\chem\reactions.dm"
 #include "white\baldenysh\govnokod\chem\reagents.dm"
