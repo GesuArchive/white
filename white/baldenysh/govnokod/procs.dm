@@ -31,7 +31,7 @@
 	reset_perspective(O)
 	control_object = O
 
-/obj/structure/sign/painting/proc/animate_painting_aneme()
+/atom/proc/make_aneme_mimic()
 	var/mob/living/simple_animal/hostile/mimic/copy/C = new(drop_location(), src)
 	C.cut_overlay(C.googly_eyes)
 	C.add_overlay(mutable_appearance('white/baldenysh/icons/mob/aneme.dmi', "chaika_eyes"))
