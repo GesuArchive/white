@@ -7,6 +7,7 @@
 	inhand_icon_state = "tarelka"
 	armor = list(MELEE = 10, BULLET = 20, LASER = 0, ENERGY = 10, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0, WOUND = 10)
 	resistance_flags = INDESTRUCTIBLE
+	flags_cover = MASKCOVERSEYES
 	item_flags = NEEDS_PERMIT | ABSTRACT | DROPDEL
 
 /obj/item/clothing/mask/gas/tarelka/Initialize()
