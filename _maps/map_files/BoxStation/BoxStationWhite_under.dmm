@@ -175,7 +175,7 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plasteel/monofloor,
+/turf/open/floor/plating/catwalk_floor,
 /area/ai_monitored/storage/eva)
 "aN" = (
 /obj/machinery/light/small{
@@ -1214,7 +1214,7 @@
 	dir = 10
 	},
 /obj/structure/cable,
-/turf/open/floor/plasteel/monofloor,
+/turf/open/floor/plating/catwalk_floor,
 /area/security/prison)
 "ew" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -2666,6 +2666,10 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/quartermaster/warehouse)
+"kg" = (
+/obj/structure/cable,
+/turf/open/floor/plating/catwalk_floor,
+/area/ai_monitored/turret_protected/aisat/hallway)
 "kh" = (
 /obj/structure/cable,
 /obj/effect/spawner/structure/window/reinforced,
@@ -3801,7 +3805,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/catwalk_floor,
 /area/science/research/abandoned)
 "oe" = (
 /obj/structure/extinguisher_cabinet{
@@ -4840,6 +4844,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/light_switch{
 	pixel_x = -28
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/dorms)
@@ -8261,7 +8268,7 @@
 	dir = 10
 	},
 /obj/structure/cable,
-/turf/open/floor/plasteel/monofloor,
+/turf/open/floor/plating/catwalk_floor,
 /area/security/prison)
 "Fd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -8572,11 +8579,14 @@
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/xenobiology)
-"Gn" = (
-/obj/effect/decal/cleanable/dirt,
+"Go" = (
 /obj/structure/cable,
-/turf/open/floor/plasteel/monofloor,
-/area/science/research/abandoned)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating/catwalk_floor,
+/area/security/prison)
 "Gp" = (
 /obj/effect/turf_decal/tile/green,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -9810,7 +9820,7 @@
 	req_access_txt = "65"
 	},
 /obj/machinery/door/firedoor,
-/turf/open/floor/plating,
+/turf/open/floor/plating/catwalk_floor,
 /area/ai_monitored/turret_protected/aisat/hallway)
 "KN" = (
 /obj/machinery/door/poddoor/preopen{
@@ -10937,7 +10947,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/turf/open/floor/plasteel/monofloor,
+/turf/open/floor/plating/catwalk_floor,
 /area/security/prison)
 "Pi" = (
 /obj/machinery/light{
@@ -11472,7 +11482,7 @@
 "QT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/catwalk_floor,
 /area/science/research/abandoned)
 "QV" = (
 /obj/effect/turf_decal/tile/blue{
@@ -12460,7 +12470,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/turf/open/floor/plasteel/monofloor,
+/turf/open/floor/plating/catwalk_floor,
 /area/security/prison)
 "Uo" = (
 /obj/structure/cable,
@@ -13230,7 +13240,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
-/turf/open/floor/plating,
+/turf/open/floor/plating/catwalk_floor,
 /area/ai_monitored/turret_protected/aisat/hallway)
 "Xq" = (
 /obj/machinery/door/airlock/maintenance{
@@ -40760,8 +40770,8 @@ su
 Tu
 oT
 DH
-Fo
-Fo
+Go
+Go
 Fo
 Kb
 qR
@@ -51423,10 +51433,10 @@ oh
 Xn
 sK
 Xp
-um
-um
-um
-um
+kg
+kg
+kg
+kg
 CF
 CF
 CF
@@ -51683,7 +51693,7 @@ pa
 CF
 CF
 CF
-um
+kg
 CF
 CF
 CF
@@ -52197,7 +52207,7 @@ pa
 CF
 JK
 CF
-um
+kg
 QE
 Dh
 CF
@@ -52711,7 +52721,7 @@ pa
 CF
 JK
 CF
-um
+kg
 bV
 bT
 PU
@@ -53225,7 +53235,7 @@ pa
 CF
 CF
 CF
-um
+kg
 CF
 CF
 CF
@@ -53479,10 +53489,10 @@ Ro
 lB
 bi
 Xp
-um
-um
-um
-um
+kg
+kg
+kg
+kg
 CF
 CF
 CF
@@ -62412,7 +62422,7 @@ jL
 YI
 Hl
 Hl
-Gn
+QT
 Hl
 Tm
 zy
