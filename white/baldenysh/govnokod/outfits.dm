@@ -55,7 +55,6 @@
 
 /obj/item/card/id/advanced/dreamer_station
 	trim = /datum/id_trim/speedrunner
-	trim_state = "trim_unknown"
 
 /datum/outfit/dreamer
 	name = "Dreamer (Orbital ruins)"
