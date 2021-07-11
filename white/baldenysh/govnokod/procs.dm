@@ -30,3 +30,8 @@
 	loc = O
 	reset_perspective(O)
 	control_object = O
+
+/obj/structure/sign/painting/proc/animate_painting_aneme()
+	var/mob/living/simple_animal/hostile/mimic/copy/C = new(drop_location(), src)
+	C.googly_eyes = mutable_appearance('white/baldenysh/icons/obj/amogus.dmi', "googly_eyes")
+	return C
