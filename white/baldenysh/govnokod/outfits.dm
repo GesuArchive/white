@@ -67,8 +67,9 @@
 	belt = /obj/item/melee/moonlight_greatsword
 	back = /obj/item/gun/ballistic/crossbow
 	l_pocket = /obj/item/stack/rods/twentyfive
-	r_pocket = /obj/item/stack/ore/bluespace_crystal/sixteen
+	r_pocket = /obj/item/crowbar/abductor
 	id = /obj/item/card/id/advanced/chameleon/black
+	r_hand = /obj/item/stack/ore/bluespace_crystal/sixteen
 
 /datum/outfit/dreamer/station
 	name = "Dreamer (Station)"
