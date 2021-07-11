@@ -33,5 +33,6 @@
 
 /obj/structure/sign/painting/proc/animate_painting_aneme()
 	var/mob/living/simple_animal/hostile/mimic/copy/C = new(drop_location(), src)
-	C.googly_eyes = mutable_appearance('white/baldenysh/icons/mob/aneme.dmi', "chaika")
+	C.cut_overlay(C.googly_eyes)
+	C.add_overlay(mutable_appearance('white/baldenysh/icons/mob/aneme.dmi', "chaika_eyes"))
 	return C
