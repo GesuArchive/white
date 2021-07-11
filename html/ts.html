@@ -174,9 +174,7 @@
 				if(state == 1) {
 					document.getElementById("pp").style.cssText = "background-position: " + mp + "px;";
 					mp++
-					if(mp == 64) {
-						mp = 0;
-					};
+					if(mp == 64) mp = 0;
 				};
 				if(!fuk) {
 					setTimeout(movebg, 50);
@@ -187,18 +185,18 @@
 				window.location.href = "byond://winset?command=Lobby-Ready";
 			};
 
-			var pt 	= 0;
+			var pt 	= 10;
 			var mpt = 64;
 
 			function flicker(nmpt = 64) {
-				pt = 0;
+				pt = 10;
 				mpt = nmpt;
 				run_flicker();
 			}
 
 			function run_flicker() {
 				if(pt > mpt) {
-					if(state) {
+					if(state == 1) {
 						document.getElementById("pp").style.display = "block";
 					} else {
 						document.getElementById("ld").style.display = "block";
@@ -207,13 +205,13 @@
 				};
 				pt++;
 				if(pt % 2) {
-					if(state) {
+					if(state == 1) {
 						document.getElementById("pp").style.display = "none";
 					} else {
 						document.getElementById("ld").style.display = "none";
 					};
 				} else {
-					if(state) {
+					if(state == 1) {
 						document.getElementById("pp").style.display = "block";
 					} else {
 						document.getElementById("ld").style.display = "block";
