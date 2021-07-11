@@ -58,3 +58,4 @@
 	back = /obj/item/gun/ballistic/crossbow
 	l_pocket = /obj/item/stack/rods/twentyfive
 	r_pocket = /obj/item/stack/ore/bluespace_crystal/sixteen
+	id = /obj/item/card/id/advanced/chameleon/black
