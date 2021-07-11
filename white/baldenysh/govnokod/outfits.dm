@@ -31,29 +31,28 @@
 	. = ..()
 	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
 	SP.set_sound(sound('white/baldenysh/sounds/speedrun_loop.ogg'))
-	SP.active = TRUE
 	SP.playing_volume = 100
-/*
+	SP.active = TRUE
+
 /obj/item/clothing/under/color/green/dreamer/process()
 	var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
 	if(!SP || !ishuman(loc))
 		return
 	var/mob/living/carbon/human/H = loc
-	SP.playing_volume =
-*/
+	var/playing_mod = (H.health + H.maxHealth) / (H.maxHealth * 2)
+	SP.playing_volume = max(0, round(100*playing_mod))
 
-/obj/item/stack/sheet/bluespace_crystal/sixteen
+/obj/item/stack/ore/bluespace_crystal/sixteen
 	amount = 16
 
 /datum/outfit/dreamer
 	name = "Dreamer"
 	uniform = /obj/item/clothing/under/color/green/dreamer
-	glasses = /obj/item/clothing/glasses/thermal/monocle
-	//head = /obj/item/clothing/head/soft/green
+	glasses = /obj/item/clothing/glasses/thermal
 	mask = /obj/item/clothing/mask/gas/tarelka
 	shoes = /obj/item/clothing/shoes/sneakers/green
 	gloves = /obj/item/clothing/gloves/color/green
 	belt = /obj/item/storage/belt/sheath/security/hos
 	back = /obj/item/gun/ballistic/crossbow
-	l_pocket = /obj/item/stack/rods/lava/thirty
-	r_pocket = /obj/item/stack/sheet/bluespace_crystal/sixteen
+	l_pocket = /obj/item/stack/rods/twentyfive
+	r_pocket = /obj/item/stack/ore/bluespace_crystal/sixteen
