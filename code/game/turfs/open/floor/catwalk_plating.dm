@@ -19,7 +19,7 @@
 
 /turf/open/floor/plating/catwalk_floor/Initialize()
 	. = ..()
-	update_icon(UPDATE_OVERLAYS)
+	update_overlays()
 
 /turf/open/floor/plating/catwalk_floor/update_overlays()
 	. = ..()
@@ -33,7 +33,7 @@
 	. = ..()
 	covered = !covered
 	user.balloon_alert(user, "[!covered ? "покрытие снято" : "покрытие добавлено"]")
-	update_icon(UPDATE_OVERLAYS)
+	update_overlays()
 
 /turf/open/floor/plating/catwalk_floor/pry_tile(obj/item/crowbar, mob/user, silent)
 	if(covered)
