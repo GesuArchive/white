@@ -44,10 +44,10 @@
 			#ld {
 				position: absolute;
 				bottom: 16px;
-				margin: auto 5%;
-				border: 2px #FFF solid;
+				margin: auto 2%;
+				border: 1px #FFF solid;
 				background: #000;
-				width: 90%;
+				width: 96%;
 			}
 
 			#li {
@@ -56,7 +56,7 @@
 				border: 1px #000 solid;
 				width: 0;
 				font-family: Tahoma;
-				font-size: 20px;
+				font-size: 12px;
 				text-transform: uppercase;
 				font-weight: bold;
 				overflow-x: hidden;
@@ -174,7 +174,7 @@
 				if(state == 1) {
 					document.getElementById("pp").style.cssText = "background-position: " + mp + "px;";
 					mp++
-					if(mp == 32) mp = 0;
+					if(mp == 64) mp = 0;
 				};
 				if(!fuk) {
 					setTimeout(movebg, 50);
@@ -185,19 +185,39 @@
 				window.location.href = "byond://winset?command=Lobby-Ready";
 			};
 
-			var pt = 0;
+			var pt 	= 10;
+			var mpt = 64;
 
-			function flicker() {
-				if(pt > 15) {
+			function flicker(nmpt = 64) {
+				pt = 10;
+				mpt = nmpt;
+				run_flicker();
+			}
+
+			function run_flicker() {
+				if(pt > mpt) {
+					if(state == 1) {
+						document.getElementById("pp").style.display = "block";
+					} else {
+						document.getElementById("ld").style.display = "block";
+					};
 					return;
 				};
 				pt++;
 				if(pt % 2) {
-					document.getElementById("pp").style.display = "none";
+					if(state == 1) {
+						document.getElementById("pp").style.display = "none";
+					} else {
+						document.getElementById("ld").style.display = "none";
+					};
 				} else {
-					document.getElementById("pp").style.display = "block";
+					if(state == 1) {
+						document.getElementById("pp").style.display = "block";
+					} else {
+						document.getElementById("ld").style.display = "block";
+					};
 				}
-				setTimeout(flicker, 100);
+				setTimeout(run_flicker, pt);
 			}
 
 			var clp = 0;
@@ -235,7 +255,7 @@
 		</script>
 	</head>
 
-	<body>
+	<body bgcolor="black">
 		<div id=pp>Загрузка...</div>
 		<div id=tm></div>
 		<div id=ld>

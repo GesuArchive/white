@@ -7,6 +7,7 @@
 	inhand_icon_state = "tarelka"
 	armor = list(MELEE = 10, BULLET = 20, LASER = 0, ENERGY = 10, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0, WOUND = 10)
 	resistance_flags = INDESTRUCTIBLE
+	flags_cover = MASKCOVERSEYES
 	item_flags = NEEDS_PERMIT | ABSTRACT | DROPDEL
 
 /obj/item/clothing/mask/gas/tarelka/Initialize()
@@ -31,6 +32,7 @@
 	. = ..()
 	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
 	SP.set_sound(sound('white/baldenysh/sounds/speedrun_loop.ogg'))
+	SP.set_channel(open_sound_channel_for_boombox())
 	SP.playing_volume = 100
 	SP.active = TRUE
 
