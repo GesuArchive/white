@@ -27,6 +27,7 @@
 /obj/item/clothing/under/color/green/dreamer/Destroy()
 	. = ..()
 	STOP_PROCESSING(SSobj, src)
+	qdel(GetComponent(/datum/component/soundplayer))
 
 /obj/item/clothing/under/color/green/dreamer/equipped(mob/user, slot)
 	. = ..()
@@ -47,15 +48,31 @@
 /obj/item/stack/ore/bluespace_crystal/sixteen
 	amount = 16
 
+/datum/id_trim/speedrunner
+	assignment = "Famous speedrunner"
+	access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_MECH_MEDICAL, ACCESS_MINERAL_STOREROOM, ACCESS_MAINT_TUNNELS,
+				ACCESS_EVA, ACCESS_ENGINE, ACCESS_CONSTRUCTION, ACCESS_CARGO, ACCESS_HYDROPONICS, ACCESS_RESEARCH, ACCESS_AUX_BASE)
+
+/obj/item/card/id/advanced/dreamer_station
+	trim = /datum/id_trim/speedrunner
+	trim_state = "trim_unknown"
+
 /datum/outfit/dreamer
-	name = "Dreamer"
+	name = "Dreamer (Orbital ruins)"
 	uniform = /obj/item/clothing/under/color/green/dreamer
 	glasses = /obj/item/clothing/glasses/thermal
 	mask = /obj/item/clothing/mask/gas/tarelka
 	shoes = /obj/item/clothing/shoes/sneakers/green
 	gloves = /obj/item/clothing/gloves/color/green
-	belt = /obj/item/storage/belt/sheath/security/hos
+	belt = /obj/item/melee/moonlight_greatsword
 	back = /obj/item/gun/ballistic/crossbow
 	l_pocket = /obj/item/stack/rods/twentyfive
 	r_pocket = /obj/item/stack/ore/bluespace_crystal/sixteen
 	id = /obj/item/card/id/advanced/chameleon/black
+
+/datum/outfit/dreamer/station
+	name = "Dreamer (Station)"
+	id = /obj/item/card/id/advanced/dreamer_station
+	back = /obj/item/storage/backpack/satchel/leather
+	backpack_contents = list(/obj/item/melee/baton/loaded=1, /obj/item/storage/firstaid/tactical=1)
+	l_pocket = /obj/item/grenade/clusterbuster/syndieminibomb
