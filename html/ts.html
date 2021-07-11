@@ -104,7 +104,7 @@
 			function set_cons(msg) {
 				cm = msg;
 				write_cons();
-			};
+			}
 
 			function set_state(msg) {
 				state = msg;
@@ -118,23 +118,24 @@
 					document.getElementById("ld").style.visibility = "visible";
 					document.getElementById("tm").style.visibility = "hidden";
 				}
-			};
+				flicker();
+			}
 
 			function set_fuk(msg) {
 				fuk = msg;
 				if(fuk) {
 					document.body.innerHTML = '';
-					return
-				};
-			};
+					return;
+				}
+			}
 
 			function set_cons_now(msg) {
 				if(msg) {
-					i = msg.length
+					i = msg.length;
 					var oD = document.getElementById("pp");
 					oD.innerHTML = msg;
 				}
-			};
+			}
 
 			function write_cons() {
 				if (i < cm.length) {
@@ -149,17 +150,17 @@
 					setTimeout(write_cons, 1);
 				} else {
 					document.getElementById("pp").innerHTML = cm.replace(/ /g, "&nbsp;");
-				};
-			};
+				}
+			}
 
 			function cls() {
 				i = 0;
 				document.getElementById("pp").innerHTML = "";
-			};
+			}
 
 			function set_lobby_image(link) {
 				document.getElementById("bg").src = link;
-			};
+			}
 
 			window.onload = function() {
 				setTimeout(movebg, 250);
@@ -173,24 +174,24 @@
 			function movebg() {
 				if(state == 1) {
 					document.getElementById("pp").style.cssText = "background-position: " + mp + "px;";
-					mp++
+					mp++;
 					if(mp == 64) mp = 0;
-				};
+				}
 				if(!fuk) {
 					setTimeout(movebg, 50);
 				}
-			};
+			}
 
 			function NotifyByondOnload() {
 				window.location.href = "byond://winset?command=Lobby-Ready";
-			};
+			}
 
 			var pt 	= 10;
 			var mpt = 64;
 
-			function flicker(nmpt = 64) {
+			function flicker() {
 				pt = 10;
-				mpt = nmpt;
+				mpt = 64;
 				run_flicker();
 			}
 
@@ -200,22 +201,22 @@
 						document.getElementById("pp").style.display = "block";
 					} else {
 						document.getElementById("ld").style.display = "block";
-					};
+					}
 					return;
-				};
+				}
 				pt++;
 				if(pt % 2) {
 					if(state == 1) {
 						document.getElementById("pp").style.display = "none";
 					} else {
 						document.getElementById("ld").style.display = "none";
-					};
+					}
 				} else {
 					if(state == 1) {
 						document.getElementById("pp").style.display = "block";
 					} else {
 						document.getElementById("ld").style.display = "block";
-					};
+					}
 				}
 				setTimeout(run_flicker, pt);
 			}
@@ -229,14 +230,14 @@
 					return;
 				} else {
 					document.getElementById("ld").style.visibility = "visible";
-				};
+				}
 				if (clp != amt) {
 					clp += 0.5;
 					document.getElementById("li").style.cssText = "width: " + clp + "%;";
 					setTimeout(smooth_loader, 40);
 				} else {
 					return;
-				};
+				}
 			}
 
 			function set_loader_pos(val, text) {

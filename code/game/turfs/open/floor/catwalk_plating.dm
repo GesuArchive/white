@@ -19,21 +19,22 @@
 
 /turf/open/floor/plating/catwalk_floor/Initialize()
 	. = ..()
-	update_overlays()
+	update_turf_overlay()
 
-/turf/open/floor/plating/catwalk_floor/update_overlays()
-	. = ..()
-	var/static/catwalk_overlay
-	if(isnull(catwalk_overlay))
-		catwalk_overlay = iconstate2appearance(icon, "catwalk_above")
+/turf/open/floor/plating/catwalk_floor/proc/update_turf_overlay()
+	var/image/I = image(icon, src, "catwalk_above", CATWALK_LAYER)
+	I.plane = FLOOR_PLANE
 	if(covered)
-		. += catwalk_overlay
+		overlays += I
+	else
+		overlays -= I
+		qdel(I)
 
 /turf/open/floor/plating/catwalk_floor/screwdriver_act(mob/living/user, obj/item/tool)
 	. = ..()
 	covered = !covered
 	user.balloon_alert(user, "[!covered ? "покрытие снято" : "покрытие добавлено"]")
-	update_overlays()
+	update_turf_overlay()
 
 /turf/open/floor/plating/catwalk_floor/pry_tile(obj/item/crowbar, mob/user, silent)
 	if(covered)
