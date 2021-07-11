@@ -210,4 +210,5 @@
 	merge_type = null
 
 /obj/item/stack/rods/bent/get_main_recipes()
+	. = ..()
 	return list(new/datum/stack_recipe("выгнуть стержень", /obj/item/stack/rods, 1, time = 1, one_per_turf = FALSE))
