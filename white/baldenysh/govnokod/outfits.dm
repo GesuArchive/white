@@ -31,6 +31,7 @@
 	. = ..()
 	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
 	SP.set_sound(sound('white/baldenysh/sounds/speedrun_loop.ogg'))
+	SP.set_channel(open_sound_channel_for_boombox())
 	SP.playing_volume = 100
 	SP.active = TRUE
 
