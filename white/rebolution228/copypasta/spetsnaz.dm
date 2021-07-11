@@ -24,9 +24,9 @@
 
 /datum/antagonist/ert/spetsnaz/on_gain()
 	. = ..()
-	huivanus()
+	givespaceproof()
 
-/datum/antagonist/ert/spetsnaz/proc/huivanus()
+/datum/antagonist/ert/spetsnaz/proc/givespaceproof()
 	var/mob/living/carbon/C = owner.current
 	if(!istype(C))
 		return
@@ -77,6 +77,11 @@
 	r_pocket = /obj/item/kitchen/knife/combat
 	l_pocket = /obj/item/flashlight/seclite
 	head = null	
+	back = /obj/item/storage/backpack/security
+	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
+		/obj/item/storage/box/handcuffs=1,\
+		/obj/item/melee/classic_baton/wzzzz/german=1,\
+		/obj/item/crowbar/red=1)
 
 /datum/outfit/spetsnaz/pre_equip(mob/living/carbon/human/H)
 	suit_store = /obj/item/gun/ballistic/automatic/ak74m
@@ -154,6 +159,14 @@
 	id_trim = /datum/id_trim/centcom/spetsnaz/leader
 	r_pocket = /obj/item/kitchen/knife/combat
 	l_pocket = /obj/item/flashlight/seclite
+	back = /obj/item/storage/backpack/satchel/sec
+	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
+		/obj/item/storage/box/handcuffs=1,\
+		/obj/item/melee/classic_baton/wzzzz/german=1,\
+		/obj/item/crowbar/red=1,\
+		/obj/item/autosurgeon/organ=1,\
+		/obj/item/organ/eyes/robotic/thermals=1,\
+		/obj/item/organ/cyberimp/eyes/hud/security=1)
 
 /datum/outfit/spetsnaz/leader/pre_equip(mob/living/carbon/human/H)
 	suit_store = /obj/item/gun/ballistic/automatic/asval
