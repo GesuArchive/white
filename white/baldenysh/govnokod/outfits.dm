@@ -28,15 +28,18 @@
 	STOP_PROCESSING(SSobj, src)
 
 /obj/item/clothing/under/color/green/dreamer/equipped(mob/user, slot)
-	var/datum/component/soundplayer/SP = user.AddComponent(/datum/component/soundplayer)
+	. = ..()
+	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
 	SP.set_sound(sound('white/baldenysh/sounds/speedrun_loop.ogg'))
 	SP.active = TRUE
 	SP.playing_volume = 100
 /*
 /obj/item/clothing/under/color/green/dreamer/process()
-	if(ishuman(loc))
-		var/mob/living/carbon/human/H = loc
-		SP.playing_volume
+	var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
+	if(!SP || !ishuman(loc))
+		return
+	var/mob/living/carbon/human/H = loc
+	SP.playing_volume =
 */
 
 /obj/item/stack/sheet/bluespace_crystal/sixteen
