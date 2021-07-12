@@ -78,8 +78,6 @@
 
 /datum/orbital_objective/headhunt/check_failed()
 	if(generated)
-		if(QDELETED(mob_to_recover))
-			return TRUE
 		switch(objective_type)
 			if("dreamer")
 				for(var/datum/antagonist/dreamer_orbital/DO in mob_to_recover.mind.antag_datums)
