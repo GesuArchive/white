@@ -390,12 +390,12 @@
 	prize = 10
 	var/mob/living/target
 
-/datum/yohei_task/kill/generate_task()
+/datum/yohei_task/capture/generate_task()
 	target = find_target()
 	desc = "Захватить [target.name] и доставить живьём в логово."
 	prize = max(rand(prize - 3, prize + 3), 1)
 
-/datum/yohei_task/kill/check_task()
+/datum/yohei_task/capture/check_task()
 	if(target && target.stat != DEAD)
 		var/area/A = get_area(target)
 		if(A.type != /area/ruin/powered/yohei_base)
@@ -437,7 +437,7 @@
 
 /obj/effect/mob_spawn/human/donate
 	name = "платно"
-	desc = "ПЛАТНО ОЗНАЧАЕТ, ЧТО НУЖНО ПЛАТИТЬ!"
+	desc = "ПЛАТНО - ЗНАЧИТ НУЖНО ПЛАТИТЬ!"
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "shiz"
 	roundstart = FALSE
@@ -462,9 +462,9 @@
 	outfit = /datum/outfit/yohei
 	assignedrole = "Yohei"
 	req_sum = 1250
-	uses = 4
+	uses = 20
 
-/obj/effect/mob_spawn/human/donate/attack_ghost(mob/user)
+/obj/effect/mob_spawn/human/donate/yohei/attack_ghost(mob/user)
 	var/static/list/choices = list(
 		"Медик" 	= image(icon = 'white/valtos/icons/objects.dmi', icon_state = "ymedic"),
 		"Боевик" 	= image(icon = 'white/valtos/icons/objects.dmi', icon_state = "ycombatant"),
