@@ -72,6 +72,7 @@
 			created_human.mind.set_level(/datum/skill/gaming, SKILL_LEVEL_LEGENDARY, TRUE)
 			ADD_TRAIT(created_human, TRAIT_NOSOFTCRIT, "gaming")
 			ADD_TRAIT(created_human, TRAIT_FREERUNNING, "gaming")
+			place_portal()
 
 	mob_to_recover = created_human
 	generated = TRUE
@@ -89,4 +90,21 @@
 	return FALSE
 
 /datum/orbital_objective/headhunt/proc/place_portal()
-	/obj/machinery/door/airlock
+	if(!mob_to_recover)
+		return
+	var/list/turf/possible_turfs = list()
+	for(var/obj/machinery/door/airlock/AL in world)
+		if(AL.z != mob_to_recover.z)
+			continue
+		var/turf/western_turf = locate(AL.x-1, AL.y, AL.z)
+		if(isopenturf(western_turf))
+			possible_turfs.Add(get_turf(AL))
+
+	var/turf/place_target
+	if(!possible_turfs.len)
+		place_target = get_turf(mob_to_recover)
+	else
+		place_target = pick(possible_turfs)
+
+	var/datum/map_template/lavaportal/LP = new
+	LP.load(locate(place_target.x - LP.width, place_target.y - LP.height/2, place_target.z))

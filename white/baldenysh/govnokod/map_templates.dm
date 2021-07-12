@@ -1,6 +1,8 @@
 /datum/map_template/lavaportal
 	name = "Lavaland portal room"
 	mappath = "white/baldenysh/map_templates/lavaportal.dmm"
+	width = 16
+	height = 11
 
 /area/ruin/space/has_grav/lavaportal
 	name = "Lavaland portal room"
