@@ -112,7 +112,7 @@
 	to_chat(user, "[bowstring][charge > 2 ? "!" : "."]")
 
 	if (chambered?.BB)
-		to_chat(user, "A [chambered.BB] is loaded.")
+		to_chat(user, "[capitalize(chambered.BB)] установлен.")
 
 /obj/item/gun/ballistic/crossbow/update_icon()
 	..()
