@@ -68,7 +68,7 @@
 	l_pocket = /obj/item/stack/rods/twentyfive
 	r_pocket = /obj/item/crowbar/abductor
 	id = /obj/item/card/id/advanced/chameleon/black
-	r_hand = /obj/item/stack/ore/bluespace_crystal/sixteen
+	r_hand = /obj/item/flashlight/flare/torch
 
 /datum/outfit/dreamer/station
 	name = "Dreamer (Station)"
