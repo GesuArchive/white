@@ -4308,6 +4308,7 @@
 /obj/structure/ladder/unbreakable{
 	id = "yohei_base"
 	},
+/obj/effect/mob_spawn/human/donate/yohei,
 /turf/open/floor/dz/green,
 /area/ruin/powered/yohei_base)
 "AN" = (

@@ -8,6 +8,7 @@
 "i" = (
 /obj/machinery/card_button{
 	id = "yohei";
+	pixel_y = 4;
 	req_access = list(220)
 	},
 /turf/closed/indestructible/reinforced,
@@ -20,6 +21,7 @@
 	id = "yohei"
 	},
 /obj/effect/turf_decal/stripes/line,
+/obj/structure/fans/tiny/invisible,
 /turf/open/indestructible/labfloor,
 /area/ruin/powered/yohei_base)
 "m" = (
@@ -27,6 +29,37 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/item/grenade/barrier{
+	pixel_x = -5;
+	pixel_y = 12
+	},
+/obj/item/grenade/barrier{
+	pixel_x = 4;
+	pixel_y = 11
+	},
+/obj/item/grenade/barrier{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/obj/item/grenade/barrier{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/structure/table/abductor,
+/turf/open/indestructible/labfloor,
+/area/ruin/powered/yohei_base)
+"n" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/item/tank/internals/emergency_oxygen/double/empty{
+	pixel_y = 12
+	},
+/obj/item/tank/internals/emergency_oxygen/double/empty{
+	pixel_y = 6
+	},
+/obj/item/tank/internals/emergency_oxygen/double/empty,
+/obj/structure/table/abductor,
 /turf/open/indestructible/labfloor,
 /area/ruin/powered/yohei_base)
 "o" = (
@@ -49,12 +82,39 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/open/indestructible/labfloor,
+/area/ruin/powered/yohei_base)
+"u" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/structure/rack,
+/obj/item/pickaxe/silver{
+	pixel_y = 8
+	},
+/obj/item/pickaxe/silver,
+/turf/open/indestructible/labfloor,
+/area/ruin/powered/yohei_base)
+"v" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/item/tank/internals/emergency_oxygen/double/empty{
+	pixel_y = 12
+	},
+/obj/item/tank/internals/emergency_oxygen/double/empty{
+	pixel_y = 6
+	},
+/obj/item/tank/internals/emergency_oxygen/double/empty,
+/obj/structure/table/abductor,
 /turf/open/indestructible/labfloor,
 /area/ruin/powered/yohei_base)
 "x" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/indestructible/labfloor,
 /area/ruin/powered/yohei_base)
 "z" = (
@@ -80,11 +140,19 @@
 	},
 /turf/open/indestructible/labfloor,
 /area/ruin/powered/yohei_base)
+"N" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/structure/reagent_dispensers/plumbed/fuel,
+/turf/open/indestructible/labfloor,
+/area/ruin/powered/yohei_base)
 "R" = (
 /obj/machinery/light/directional/north,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/indestructible/labfloor,
 /area/ruin/powered/yohei_base)
 "T" = (
@@ -98,6 +166,14 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/item/tank/internals/emergency_oxygen/double/empty{
+	pixel_y = 12
+	},
+/obj/item/tank/internals/emergency_oxygen/double/empty{
+	pixel_y = 6
+	},
+/obj/item/tank/internals/emergency_oxygen/double/empty,
+/obj/structure/table/abductor,
 /turf/open/indestructible/labfloor,
 /area/ruin/powered/yohei_base)
 
@@ -127,9 +203,9 @@ W
 W
 T
 T
-x
+u
 m
-f
+N
 T
 T
 W
@@ -171,9 +247,9 @@ W
 W
 T
 T
-s
+n
 Y
-o
+v
 T
 T
 W
