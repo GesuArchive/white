@@ -3629,6 +3629,7 @@
 #include "white\baldenysh\govnokod\cytology.dm"
 #include "white\baldenysh\govnokod\emotes.dm"
 #include "white\baldenysh\govnokod\flora.dm"
+#include "white\baldenysh\govnokod\map_templates.dm"
 #include "white\baldenysh\govnokod\outfits.dm"
 #include "white\baldenysh\govnokod\procs.dm"
 #include "white\baldenysh\govnokod\ui.dm"

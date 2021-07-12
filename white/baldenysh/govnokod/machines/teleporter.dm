@@ -201,3 +201,15 @@
 /////////////////////////////////////////////////////////////////
 
 
+/obj/machinery/power/bs_emitter/lavaportal
+	name = "старый блюспейс эмиттер"
+	desc = "Настроен на создание портала в Лаваленд."
+
+	max_range = 5
+	target_x = 94
+	target_y = 105
+	target_z = 5
+
+/obj/machinery/power/bs_emitter/lavaportal/Initialize()
+	. = ..()
+	target_z = SSmapping.levels_by_trait(ZTRAIT_MINING)[1]

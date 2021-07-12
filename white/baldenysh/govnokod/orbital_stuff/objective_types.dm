@@ -87,3 +87,6 @@
 						if(S.completed)
 							return TRUE
 	return FALSE
+
+/datum/orbital_objective/headhunt/proc/place_portal()
+	/obj/machinery/door/airlock
