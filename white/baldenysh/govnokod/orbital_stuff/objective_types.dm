@@ -1,7 +1,13 @@
+/datum/controller/subsystem/processing/orbits/proc/shitspawn_objective(objective_type)
+	var/datum/orbital_objective/objective = new objective_type()
+	objective.generate_payout()
+	possible_objectives += objective
+	update_objective_computers()
+
 /datum/orbital_objective/headhunt
 	name = "Охота за головами"
 	var/generated = FALSE
-	var/objective_type
+	var/target_type
 	var/mob/living/mob_to_recover
 	min_payout = 2000
 	max_payout = 5000
@@ -64,8 +70,8 @@
 		new /obj/item/tank/internals/oxygen(T)
 		new /obj/item/clothing/mask/gas(T)
 		new /obj/item/storage/belt/utility/full(T)
-	objective_type = pick(list("dreamer"))
-	switch(objective_type)
+	target_type = pick(list("dreamer"))
+	switch(target_type)
 		if("dreamer")
 			created_human.equipOutfit(/datum/outfit/dreamer)
 			created_human.mind.add_antag_datum(/datum/antagonist/dreamer_orbital)
@@ -81,7 +87,7 @@
 	if(generated)
 		if(QDELETED(mob_to_recover))
 			return TRUE
-		switch(objective_type)
+		switch(target_type)
 			if("dreamer")
 				for(var/datum/antagonist/dreamer_orbital/DO in mob_to_recover.mind.antag_datums)
 					for(var/datum/objective/slay/S  in DO.objectives)
