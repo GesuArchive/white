@@ -481,7 +481,7 @@
 	dwidth = 12;
 	height = 18;
 	id = "emergency_home";
-	name = "NT SS13: emergency evac bay";
+	name = "NT SS13: Emergency Shuttle Dock";
 	width = 32
 	},
 /turf/open/openspace/airless,
@@ -1955,7 +1955,7 @@
 	dwidth = 2;
 	height = 5;
 	id = "laborcamp_home";
-	name = "NT SS13: Fore bay #1";
+	name = "NT SS13: Fore bay";
 	roundstart_template = /datum/map_template/shuttle/labour/box;
 	width = 9
 	},
@@ -4479,7 +4479,7 @@
 	dwidth = 12;
 	height = 17;
 	id = "syndicate_ne";
-	name = "northeast of NT SS13";
+	name = "north-east of NT SS13";
 	width = 23
 	},
 /turf/open/openspace/airless,
@@ -4967,7 +4967,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 1
 	},
 /turf/open/floor/plasteel,
@@ -9384,6 +9384,9 @@
 /turf/open/floor/plasteel/grimy,
 /area/hallway/secondary/entry)
 "aLz" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
 /turf/open/floor/plasteel/grimy,
 /area/hallway/secondary/entry)
 "aLA" = (
@@ -10331,16 +10334,8 @@
 /turf/open/floor/plating,
 /area/maintenance/fore/secondary)
 "aQo" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
-/turf/open/floor/plasteel,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/plasteel/grimy,
 /area/hallway/secondary/entry)
 "aQp" = (
 /obj/machinery/light/small{
@@ -27925,6 +27920,7 @@
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/rods/fifty,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "cpF" = (
@@ -27961,8 +27957,14 @@
 /turf/open/floor/plasteel/monofloor,
 /area/engine/engineering)
 "cpX" = (
-/obj/structure/table,
-/obj/item/stack/rods/fifty,
+/obj/machinery/computer{
+	desc = "A computer long since rendered non-functional due to lack of maintenance. Spitting out error messages.";
+	dir = 8;
+	name = "Broken Computer"
+	},
+/obj/item/shard{
+	icon_state = "small"
+	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "cqn" = (
@@ -28621,11 +28623,6 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/turret_protected/ai)
-"cuw" = (
-/obj/structure/lattice,
-/obj/structure/grille,
-/turf/open/openspace/airless,
-/area/space)
 "cux" = (
 /obj/machinery/door/window{
 	dir = 4;
@@ -28750,10 +28747,6 @@
 "cvw" = (
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/aisat/hallway)
-"cvx" = (
-/obj/structure/lattice,
-/turf/open/openspace/airless,
-/area/space)
 "cvA" = (
 /turf/open/floor/plasteel/white/side{
 	dir = 6
@@ -28990,7 +28983,7 @@
 	dwidth = 2;
 	height = 13;
 	id = "ferry_home";
-	name = "NT SS13: Port bay #2";
+	name = "NT SS13: Port bay";
 	width = 5
 	},
 /turf/open/openspace/airless,
@@ -29055,7 +29048,8 @@
 /area/maintenance/fore)
 "cyb" = (
 /obj/machinery/door/airlock/external{
-	name = "Escape Pod One"
+	name = "Escape Pod Three";
+	shuttledocked = 1
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
@@ -33837,7 +33831,7 @@
 /area/maintenance/disposal/incinerator)
 "hsB" = (
 /obj/machinery/door/airlock/external{
-	name = "Escape Pod Four";
+	name = "Escape Pod One";
 	shuttledocked = 1
 	},
 /turf/open/floor/plating,
@@ -34751,7 +34745,8 @@
 /area/engine/atmos)
 "iEJ" = (
 /obj/machinery/door/airlock/external{
-	name = "Escape Pod One"
+	name = "Escape Pod Three";
+	shuttledocked = 1
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -37189,7 +37184,7 @@
 	dir = 2;
 	dwidth = 1;
 	height = 4;
-	name = "escape pod loader";
+	name = "NT SS13: escape pod #1 loader";
 	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
 	width = 3
 	},
@@ -37859,7 +37854,7 @@
 	dir = 8;
 	dwidth = 1;
 	height = 4;
-	name = "escape pod loader";
+	name = "NT SS13: escape pod #3 loader";
 	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
 	width = 3
 	},
@@ -41018,6 +41013,16 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
+"sAl" = (
+/obj/machinery/door/airlock/external{
+	name = "Escape Pod Two";
+	shuttledocked = 1
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/hallway/secondary/entry)
 "sBm" = (
 /obj/structure/ladder,
 /turf/open/floor/plasteel,
@@ -43378,6 +43383,17 @@
 /obj/effect/spawner/lootdrop/maintenance/three,
 /turf/open/floor/plating,
 /area/maintenance/aft)
+"wgB" = (
+/obj/docking_port/stationary{
+	dir = 8;
+	dwidth = 1;
+	height = 4;
+	name = "NT SS13: escape pod #2 loader";
+	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
+	width = 3
+	},
+/turf/open/floor/plating,
+/area/hallway/secondary/entry)
 "whq" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -43529,7 +43545,7 @@
 	dwidth = 4;
 	height = 9;
 	id = "aux_base_zone";
-	name = "aux base zone";
+	name = "NT SS13: Auxiliary base bay";
 	roundstart_template = /datum/map_template/shuttle/aux_base/default;
 	width = 9
 	},
@@ -43699,7 +43715,7 @@
 	dwidth = 3;
 	height = 5;
 	id = "commonmining_home";
-	name = "NT SS13: Common Mining Dock";
+	name = "NT SS13: Public Mining Dock";
 	roundstart_template = /datum/map_template/shuttle/mining_common/meta;
 	width = 7
 	},
@@ -44249,6 +44265,16 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/port)
+"xsX" = (
+/obj/machinery/door/airlock/external{
+	name = "Escape Pod Two";
+	shuttledocked = 1
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/hallway/secondary/entry)
 "xtj" = (
 /turf/closed/wall/r_wall,
 /area/lawoffice)
@@ -51875,24 +51901,24 @@ fZW
 ieY
 fZW
 arB
+gXs
+gXs
+gXs
+gXs
+gXs
+gXs
+gXs
+gXs
+gXs
+eRz
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-cuw
-cvx
-cvx
-cvx
-cvx
+eRz
+gXs
+gXs
+gXs
+gXs
 gXs
 eRz
 eRz
@@ -52132,15 +52158,15 @@ auP
 auP
 auP
 arB
-gXs
-gXs
-gXs
-gXs
-gXs
-gXs
-gXs
-gXs
-gXs
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 arB
 fZW
 cwV
@@ -53171,7 +53197,7 @@ aaa
 aaa
 fZW
 auP
-nRQ
+wgB
 auP
 fZW
 aaa
@@ -53428,7 +53454,7 @@ aaa
 aaa
 arB
 asE
-cyb
+xsX
 asE
 arB
 aaa
@@ -53942,7 +53968,7 @@ aaa
 aaa
 arB
 asE
-iEJ
+sAl
 avP
 arB
 aaa
@@ -58563,12 +58589,12 @@ aEI
 aFK
 aHy
 aIM
-aKk
+axk
 aLz
 aNe
 aNe
-aLz
 aQo
+aQJ
 aSb
 czK
 aUQ
@@ -59077,7 +59103,7 @@ aEI
 aFM
 aHy
 awM
-axk
+aKk
 aLA
 tdi
 aNf
