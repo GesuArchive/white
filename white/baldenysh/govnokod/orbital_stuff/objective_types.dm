@@ -65,6 +65,7 @@
 	notify_ghosts("Цель охоты за головами может быть занята.", source = created_human, action = NOTIFY_ORBIT, flashwindow = FALSE, ignore_key = POLL_IGNORE_SPLITPERSONALITY, notify_suiciders = FALSE)
 	created_human.AddElement(/datum/element/point_of_interest)
 	created_human.mind_initialize()
+	mob_to_recover = created_human
 	for(var/mob/living/simple_animal/hostile/SA in range(10, created_human))
 		qdel(SA)
 	var/turf/open/T = locate() in shuffle(view(1, created_human))
@@ -83,7 +84,7 @@
 			ADD_TRAIT(created_human, TRAIT_FREERUNNING, "gaming")
 			place_portal()
 
-	mob_to_recover = created_human
+
 	generated = TRUE
 
 /datum/orbital_objective/headhunt/check_failed()
