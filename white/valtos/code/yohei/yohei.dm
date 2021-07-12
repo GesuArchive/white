@@ -335,4 +335,4 @@
 	name = "Лаваленд: База Йохеев"
 	icon_state = "dk_yellow"
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | BLOCK_SUICIDE | NOTELEPORT
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
