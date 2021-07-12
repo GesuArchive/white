@@ -240,6 +240,16 @@
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list()
 
+/datum/outfit/yohei/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	INVOKE_ASYNC(src, .proc/pick_name, H)
+
+/datum/outfit/yohei/proc/pick_name(mob/living/carbon/human/H)
+	var/newname = sanitize_name(reject_bad_text(stripped_input(H, "Меня когда-то звали [H.name]. Пришло время снова сменить прозвище?", "Прозвище", H.name, MAX_NAME_LEN)))
+	if (!newname)
+		return
+	H.fully_replace_character_name(H.real_name, newname)
+
 /datum/outfit/yohei/medic
 	name = "Йохей: Медик"
 
@@ -264,11 +274,11 @@
 	name = "Йохей: Взломщик"
 
 	glasses = /obj/item/clothing/glasses/hud/diagnostic/sunglasses
-	belt = /obj/item/storage/belt/military/abductor
+	belt = /obj/item/storage/belt/military/abductor/full
 	suit_store = /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm
 	uniform = /obj/item/clothing/under/syndicate/yohei/yellow
 
-	backpack_contents = list(/obj/item/construction/rcd = 1)
+	backpack_contents = list(/obj/item/construction/rcd/combat = 1, /obj/item/rcd_ammo/large = 3)
 
 /datum/outfit/yohei/breaker/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -276,11 +286,13 @@
 	H.add_client_colour(/datum/client_colour/hacker)
 	H.hud_list[HACKER_HUD].icon = null
 
+	ADD_TRAIT(H, TRAIT_HACKER, JOB_TRAIT)
+
 	spawn(5 SECONDS)
-		ADD_TRAIT(H, TRAIT_HACKER, JOB_TRAIT)
 		var/datum/component/battletension/BT = H.GetComponent(/datum/component/battletension)
 		if(BT)
 			BT.pick_sound('white/valtos/sounds/snidleyWhiplash.ogg')
+			BT.tension = 80
 		to_chat(H, "<span class='revenbignotice'>Давно не виделись, а?</span>")
 		if(H?.hud_used)
 			H.hud_used.update_parallax_pref(H, TRUE)
@@ -292,7 +304,7 @@
 /datum/outfit/yohei/prospector
 	name = "Йохей: Разведчик"
 
-	glasses = /obj/item/clothing/glasses/night
+	glasses = /obj/item/clothing/glasses/meson/night
 	belt = /obj/item/shadowcloak/yohei
 	suit_store = /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm
 	uniform = /obj/item/clothing/under/syndicate/yohei/green
@@ -438,6 +450,7 @@
 	desc = "ПЛАТНО ОЗНАЧАЕТ, ЧТО НУЖНО ПЛАТИТЬ!"
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "shiz"
+	death = FALSE
 	var/req_sum = 500
 
 /obj/effect/mob_spawn/human/donate/attack_ghost(mob/user)
