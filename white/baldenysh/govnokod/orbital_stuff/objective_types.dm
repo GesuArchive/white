@@ -23,6 +23,8 @@
 	var/turf/open/T = locate() in shuffle(A.contents)
 
 	var/obj/structure/closet/supplypod/centcompod/empty_pod = new()
+	empty_pod.name = "орбитальная система доставки"
+	empty_pod.desc = "а сюда сувать того самого преступника с [station_name]"
 
 	new /obj/effect/pod_landingzone(T, empty_pod)
 
