@@ -11,7 +11,7 @@
 	objectives += slay
 	if(prob(40))
 		var/datum/objective/limited/limit = new //тун ту ду ту ту дун ту ту ду
-		limit.time_to_do = 1.5 HOURS
+		limit.time_to_do = 1 HOURS
 		limit.owner = owner
 		limit.reward = 50
 		objectives += limit

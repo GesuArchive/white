@@ -1,7 +1,7 @@
 /datum/orbital_objective/headhunt
 	name = "Охота за головами"
 	var/generated = FALSE
-	var/death_caring = TRUE
+	var/objective_type
 	var/mob/mob_to_recover
 	min_payout = 2000
 	max_payout = 5000
@@ -17,7 +17,6 @@
 	created_human.ice_cream_mob = TRUE
 	ADD_TRAIT(created_human, TRAIT_CLIENT_LEAVED, "ice_cream")
 	notify_ghosts("Цель охоты за головами может быть занята.", source = created_human, action = NOTIFY_ORBIT, flashwindow = FALSE, ignore_key = POLL_IGNORE_SPLITPERSONALITY, notify_suiciders = FALSE)
-	death_caring = FALSE
 	created_human.AddElement(/datum/element/point_of_interest)
 	created_human.mind_initialize()
 	for(var/mob/living/simple_animal/hostile/SA in range(10, created_human))
@@ -28,17 +27,33 @@
 		new /obj/item/tank/internals/oxygen(T)
 		new /obj/item/clothing/mask/gas(T)
 		new /obj/item/storage/belt/utility/full(T)
-
-	switch(pick(list("dreamer")))
+	objective_type = pick(list("dreamer"))
+	switch(objective_type)
 		if("dreamer")
 			created_human.flavor_text = "И вот, после долгих скитаний по заброшенным станциям, ты наконец прибываешь на подходящее для постройки портала место. \
 				Тебе удалось оторваться от прошлой группы охотников, но новая наверняка не заставит себя ждать. \
 				Нужно как можно быстрее построить портал на Лаваленд, убить тварь и покончить со всем этим."
 			created_human.equipOutfit(/datum/outfit/dreamer)
 			created_human.mind.add_antag_datum(/datum/antagonist/dreamer_orbital)
+			created_human.mind.set_level(/datum/skill/gaming, SKILL_LEVEL_LEGENDARY, TRUE)
+			ADD_TRAIT(created_human, TRAIT_NOSOFTCRIT, "gaming")
+			ADD_TRAIT(created_human, TRAIT_FREERUNNING, "gaming")
 
 	mob_to_recover = created_human
 	generated = TRUE
+
+/datum/orbital_objective/headhunt/check_failed()
+	if(generated)
+		if(QDELETED(mob_to_recover))
+			return TRUE
+		switch(objective_type)
+			if("dreamer")
+				for(var/datum/antagonist/dreamer_orbital/DO in mob_to_recover.mind.antag_datums)
+					for(var/datum/objective/slay/S  in DO.objectives)
+						if(S.completed)
+							return TRUE
+	return FALSE
+
 
 /*
 /datum/orbital_objective/nuclear_bomb/on_assign(obj/machinery/computer/objective/objective_computer)
