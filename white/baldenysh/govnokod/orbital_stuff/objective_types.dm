@@ -13,11 +13,12 @@
 			Возможно, может потребоваться помощь сотрудников службы безопасности."
 
 /datum/orbital_objective/headhunt/on_assign(obj/machinery/computer/objective/objective_computer)
-	new /obj/effect/pod_landingzone(empty_pod_turf, empty_pod)
 	var/area/A = GLOB.areas_by_type[/area/bridge]
 	var/turf/open/T = locate() in shuffle(A.contents)
 
 	var/obj/structure/closet/supplypod/centcompod/empty_pod = new()
+
+	new /obj/effect/pod_landingzone(T, empty_pod)
 
 	RegisterSignal(empty_pod, COMSIG_ATOM_ENTERED, .proc/enter_check)
 
@@ -29,7 +30,7 @@
 /datum/orbital_objective/headhunt/proc/enter_check(datum/source, entered_mob)
 	if(!istype(source, /obj/structure/closet/supplypod/extractionpod))
 		return
-	if(!isliving(sent_mob))
+	if(!isliving(entered_mob))
 		return
 	if(entered_mob != mob_to_recover)
 		return
@@ -66,9 +67,6 @@
 	objective_type = pick(list("dreamer"))
 	switch(objective_type)
 		if("dreamer")
-			created_human.flavor_text = "И вот, после долгих скитаний по заброшенным станциям, ты наконец прибываешь на подходящее для постройки портала место. \
-				Тебе удалось оторваться от прошлой группы охотников, но новая наверняка не заставит себя ждать. \
-				Нужно как можно быстрее построить портал на Лаваленд, убить тварь и покончить со всем этим."
 			created_human.equipOutfit(/datum/outfit/dreamer)
 			created_human.mind.add_antag_datum(/datum/antagonist/dreamer_orbital)
 			created_human.mind.set_level(/datum/skill/gaming, SKILL_LEVEL_LEGENDARY, TRUE)
