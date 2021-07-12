@@ -240,16 +240,6 @@
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list()
 
-/datum/outfit/yohei/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	INVOKE_ASYNC(src, .proc/pick_name, H)
-
-/datum/outfit/yohei/proc/pick_name(mob/living/carbon/human/H)
-	var/newname = sanitize_name(reject_bad_text(stripped_input(H, "Меня когда-то звали [H.name]. Пришло время снова сменить прозвище?", "Прозвище", H.name, MAX_NAME_LEN)))
-	if (!newname)
-		return
-	H.fully_replace_character_name(H.real_name, newname)
-
 /datum/outfit/yohei/medic
 	name = "Йохей: Медик"
 
@@ -450,6 +440,7 @@
 	desc = "ПЛАТНО ОЗНАЧАЕТ, ЧТО НУЖНО ПЛАТИТЬ!"
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "shiz"
+	roundstart = FALSE
 	death = FALSE
 	var/req_sum = 500
 
@@ -470,7 +461,7 @@
 	flavour_text = "Наёмник посреди пустошей Лаваленда, до чего жизнь довела!"
 	outfit = /datum/outfit/yohei
 	assignedrole = "Yohei"
-	req_sum = 1000
+	req_sum = 1250
 	uses = 4
 
 /obj/effect/mob_spawn/human/donate/attack_ghost(mob/user)
@@ -486,12 +477,16 @@
 	switch(choice)
 		if("Медик")
 			outfit = /datum/outfit/yohei/medic
+			assignedrole = "Yohei: Medic"
 		if("Боевик")
 			outfit = /datum/outfit/yohei/combatant
+			assignedrole = "Yohei: Combatant"
 		if("Взломщик")
 			outfit = /datum/outfit/yohei/breaker
+			assignedrole = "Yohei: Breaker"
 		if("Разведчик")
 			outfit = /datum/outfit/yohei/prospector
+			assignedrole = "Yohei: Prospector"
 	if(user.ckey)
 		var/client/C = GLOB.directory[user.ckey]
 		if(C?.prefs)
@@ -499,3 +494,9 @@
 			facial_hairstyle = C.prefs.facial_hairstyle
 			skin_tone = C.prefs.skin_tone
 	. = ..()
+
+/obj/effect/mob_spawn/human/donate/yohei/special(mob/living/carbon/human/H)
+	var/newname = sanitize_name(reject_bad_text(stripped_input(H, "Меня когда-то звали [H.name]. Пришло время снова сменить прозвище?", "Прозвище", H.name, MAX_NAME_LEN)))
+	if (!newname)
+		return
+	H.fully_replace_character_name(H.real_name, newname)
