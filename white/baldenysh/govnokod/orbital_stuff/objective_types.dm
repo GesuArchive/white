@@ -98,6 +98,10 @@
 /datum/orbital_objective/headhunt/proc/place_portal()
 	if(!mob_to_recover)
 		return
+	var/turf/place_target = get_turf(mob_to_recover)
+	var/datum/map_template/lavaportal/LP = new()
+	LP.load(locate(place_target.x - LP.width + 3, place_target.y - LP.height/2, place_target.z))
+		/*
 	var/list/turf/possible_turfs = list()
 	for(var/obj/machinery/door/airlock/AL in world)
 		if(AL.z != mob_to_recover.z)
