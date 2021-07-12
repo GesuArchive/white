@@ -1,43 +1,77 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"a" = (
-/obj/effect/baseturf_helper/asteroid/basalt,
-/turf/closed/dz/lab{
-	icon_state = "labwall-r-l"
-	},
-/area/ruin/powered/yohei_base)
-"k" = (
-/turf/open/indestructible/labfloor,
-/area/ruin/powered/yohei_base)
-"n" = (
-/turf/closed/dz/lab,
-/area/ruin/powered/yohei_base)
-"u" = (
-/obj/machinery/door/veryblastdoor{
-	id = "yohei"
+"f" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
 	},
 /turf/open/indestructible/labfloor,
 /area/ruin/powered/yohei_base)
-"w" = (
+"i" = (
 /obj/machinery/card_button{
 	id = "yohei";
 	req_access = list(220)
 	},
-/turf/closed/dz/lab,
+/turf/closed/indestructible/reinforced,
 /area/ruin/powered/yohei_base)
-"B" = (
-/turf/closed/dz/lab{
-	icon_state = "labwall-d-l"
-	},
+"k" = (
+/turf/open/indestructible/labfloor,
 /area/ruin/powered/yohei_base)
-"D" = (
-/turf/closed/dz/lab{
-	icon_state = "labwall-r-r"
+"l" = (
+/obj/machinery/door/veryblastdoor{
+	id = "yohei"
 	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/indestructible/labfloor,
 /area/ruin/powered/yohei_base)
-"L" = (
-/turf/closed/dz/lab{
-	icon_state = "labwall-v-l"
+"m" = (
+/obj/machinery/light/directional/west,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
 	},
+/turf/open/indestructible/labfloor,
+/area/ruin/powered/yohei_base)
+"o" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/indestructible/labfloor,
+/area/ruin/powered/yohei_base)
+"q" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/indestructible/labfloor,
+/area/ruin/powered/yohei_base)
+"r" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/turf/open/indestructible/labfloor,
+/area/ruin/powered/yohei_base)
+"s" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/indestructible/labfloor,
+/area/ruin/powered/yohei_base)
+"x" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/indestructible/labfloor,
+/area/ruin/powered/yohei_base)
+"z" = (
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/indestructible/labfloor,
+/area/ruin/powered/yohei_base)
+"C" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/indestructible/labfloor,
+/area/ruin/powered/yohei_base)
+"I" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/indestructible/labfloor,
 /area/ruin/powered/yohei_base)
 "M" = (
 /obj/structure/ladder/unbreakable{
@@ -46,114 +80,116 @@
 	},
 /turf/open/indestructible/labfloor,
 /area/ruin/powered/yohei_base)
-"P" = (
-/turf/closed/dz/lab{
-	icon_state = "labwall-d-r"
-	},
-/area/ruin/powered/yohei_base)
-"T" = (
-/obj/lab_monitor/yohei{
-	anchored = 1;
-	pixel_y = 32
+"R" = (
+/obj/machinery/light/directional/north,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
 	},
 /turf/open/indestructible/labfloor,
 /area/ruin/powered/yohei_base)
+"T" = (
+/turf/closed/indestructible/reinforced,
+/area/ruin/powered/yohei_base)
 "W" = (
-/turf/closed/dz/lab{
-	icon_state = "labwall-v-r"
+/turf/closed/mineral/random/high_chance/volcanic,
+/area/ruin/powered/yohei_base)
+"Y" = (
+/obj/machinery/light/directional/east,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
 	},
+/turf/open/indestructible/labfloor,
 /area/ruin/powered/yohei_base)
 
 (1,1,1) = {"
-a
-L
-L
-L
-L
-L
-L
-L
-B
+W
+W
+W
+W
+W
+W
+W
+W
+W
 "}
 (2,1,1) = {"
-n
-k
-k
-k
-k
-k
-k
-k
-n
+W
+W
+T
+T
+T
+T
+T
+W
+W
 "}
 (3,1,1) = {"
-n
-k
-k
-k
-k
-k
-k
-k
-n
+W
+T
+T
+x
+m
+f
+T
+T
+W
 "}
 (4,1,1) = {"
-n
+W
+T
+x
+I
 k
-k
-k
-k
-k
-k
-k
-w
+r
+f
+i
+W
 "}
 (5,1,1) = {"
-n
+W
 T
-k
+R
 k
 M
 k
-k
-k
-u
+q
+l
+W
 "}
 (6,1,1) = {"
-n
+W
+T
+s
+C
 k
-k
-k
-k
-k
-k
-k
-n
+z
+o
+T
+W
 "}
 (7,1,1) = {"
-n
-k
-k
-k
-k
-k
-k
-k
-n
+W
+T
+T
+s
+Y
+o
+T
+T
+W
 "}
 (8,1,1) = {"
-n
-k
-k
-k
-k
-k
-k
-k
-n
+W
+W
+T
+T
+T
+T
+T
+W
+W
 "}
 (9,1,1) = {"
-D
 W
 W
 W
@@ -161,5 +197,6 @@ W
 W
 W
 W
-P
+W
+W
 "}
