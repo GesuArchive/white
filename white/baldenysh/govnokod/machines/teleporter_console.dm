@@ -78,7 +78,7 @@
 	desc = "Функции ввода координатов и изменения радиуса заблокированы. Место назначения: Лаваленд."
 
 /obj/machinery/computer/bs_emitter/lavaportal/ui_act(action, params)
-	if(action in list("setCoords",setRadius))
+	if(action in list("setCoords","setRadius"))
 		return
 	. = ..()
 
