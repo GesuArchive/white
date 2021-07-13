@@ -22,7 +22,8 @@
 	var/area/A = GLOB.areas_by_type[/area/bridge]
 	var/obj/machinery/atmospherics/components/unary/infactiveseenhimvent = locate() in shuffle(A.contents)
 	var/turf/open/T = get_turf(infactiveseenhimvent)
-
+	if(!T)
+		T = locate() in shuffle(A.contents)
 	var/obj/structure/closet/supplypod/extractionpod/empty_pod = new()
 	empty_pod.name = "орбитальная система доставки"
 	empty_pod.desc = "а сюда сувать того самого преступника с [station_name]"
