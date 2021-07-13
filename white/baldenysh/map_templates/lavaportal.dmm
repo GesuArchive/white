@@ -3,13 +3,16 @@
 /turf/template_noop,
 /area/template_noop)
 "j" = (
-/obj/effect/spawner/structure/window/hollow/reinforced/directional{
+/obj/structure/window{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/lavaportal)
 "k" = (
 /obj/machinery/computer/bs_emitter/lavaportal,
+/obj/structure/window{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/lavaportal)
 "n" = (
@@ -26,6 +29,9 @@
 	pixel_y = 6
 	},
 /obj/item/storage/toolbox/electrical,
+/obj/structure/window{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/lavaportal)
 "D" = (
@@ -46,6 +52,9 @@
 "Q" = (
 /obj/structure/table,
 /obj/item/modular_computer/laptop/preset/bse,
+/obj/structure/window{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/lavaportal)
 "R" = (
@@ -60,24 +69,23 @@
 /obj/item/stock_parts/cell/bluespace{
 	pixel_y = 5
 	},
+/obj/structure/window{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/lavaportal)
 "T" = (
 /obj/machinery/power/bs_emitter/lavaportal{
 	dir = 8
 	},
-/obj/effect/spawner/structure/window/hollow/reinforced/directional{
+/obj/structure/cable,
+/obj/structure/window{
 	dir = 4
 	},
-/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/lavaportal)
 "U" = (
 /turf/open/floor/plating,
-/area/ruin/space/has_grav/lavaportal)
-"V" = (
-/obj/effect/spawner/structure/window/hollow/reinforced/directional,
-/turf/open/floor/plasteel,
 /area/ruin/space/has_grav/lavaportal)
 
 (1,1,1) = {"
@@ -200,7 +208,7 @@ D
 (10,1,1) = {"
 D
 H
-V
+H
 R
 H
 G
@@ -213,7 +221,7 @@ D
 (11,1,1) = {"
 D
 H
-V
+H
 k
 H
 G
@@ -226,7 +234,7 @@ D
 (12,1,1) = {"
 D
 H
-V
+H
 Q
 H
 H
@@ -239,7 +247,7 @@ D
 (13,1,1) = {"
 D
 H
-V
+H
 w
 H
 H

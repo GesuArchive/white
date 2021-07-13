@@ -124,5 +124,6 @@
 		place_target = pick(possible_turfs)
 
 	var/datum/map_template/lavaportal/LP = new()
-	LP.load(locate(place_target.x - LP.width, place_target.y - LP.height/2 + 1, place_target.z))
+	LP.load(locate(place_target.x - LP.width + 1, place_target.y - LP.height/2 + 1, place_target.z))
+
 
