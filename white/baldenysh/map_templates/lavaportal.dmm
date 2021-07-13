@@ -10,9 +10,6 @@
 /area/ruin/space/has_grav/lavaportal)
 "k" = (
 /obj/machinery/computer/bs_emitter/lavaportal,
-/obj/structure/window{
-	dir = 1
-	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/lavaportal)
 "n" = (
@@ -23,15 +20,16 @@
 /obj/machinery/door/airlock/glass,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/lavaportal)
+"q" = (
+/obj/structure/window,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/lavaportal)
 "w" = (
 /obj/structure/table,
 /obj/item/circuitboard/machine/smes{
 	pixel_y = 6
 	},
 /obj/item/storage/toolbox/electrical,
-/obj/structure/window{
-	dir = 1
-	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/lavaportal)
 "D" = (
@@ -51,9 +49,6 @@
 /area/ruin/space/has_grav/lavaportal)
 "Q" = (
 /obj/structure/table,
-/obj/structure/window{
-	dir = 1
-	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/lavaportal)
 "R" = (
@@ -67,9 +62,6 @@
 	},
 /obj/item/stock_parts/cell/bluespace{
 	pixel_y = 5
-	},
-/obj/structure/window{
-	dir = 1
 	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/lavaportal)
@@ -207,7 +199,7 @@ D
 (10,1,1) = {"
 D
 H
-H
+q
 R
 H
 G
@@ -220,7 +212,7 @@ D
 (11,1,1) = {"
 D
 H
-H
+q
 k
 H
 G
@@ -233,7 +225,7 @@ D
 (12,1,1) = {"
 D
 H
-H
+q
 Q
 H
 H
@@ -246,7 +238,7 @@ D
 (13,1,1) = {"
 D
 H
-H
+q
 w
 H
 H
