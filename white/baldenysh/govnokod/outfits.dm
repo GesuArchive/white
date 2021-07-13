@@ -59,7 +59,6 @@
 		return
 	if(!istype(A, /obj/item/stack/rods))
 		return
-	var/obj/item/stack/rods/R = A
 	attackby(A, user)
 
 /datum/id_trim/speedrunner
