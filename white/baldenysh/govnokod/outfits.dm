@@ -32,6 +32,7 @@
 /obj/item/clothing/under/color/green/dreamer/equipped(mob/user, slot)
 	. = ..()
 	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
+	SP.prefs_toggle_flag = null
 	SP.set_sound(sound('white/baldenysh/sounds/speedrun_loop.ogg'))
 	SP.set_channel(open_sound_channel_for_boombox())
 	SP.playing_volume = 100
@@ -68,7 +69,7 @@
 	l_pocket = /obj/item/stack/rods/twentyfive
 	r_pocket = /obj/item/crowbar/abductor
 	id = /obj/item/card/id/advanced/chameleon/black
-	r_hand = /obj/item/stack/ore/bluespace_crystal/sixteen
+	r_hand = /obj/item/flashlight/flare/torch
 
 /datum/outfit/dreamer/station
 	name = "Dreamer (Station)"
@@ -76,3 +77,7 @@
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(/obj/item/melee/baton/loaded=1, /obj/item/storage/firstaid/tactical=1)
 	l_pocket = /obj/item/grenade/clusterbuster/syndieminibomb
+
+/datum/outfit/dreamer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	var/obj/item/flashlight/flare/torch/danetorchya = locate() in H.contents
+	danetorchya.attack_self(H)
