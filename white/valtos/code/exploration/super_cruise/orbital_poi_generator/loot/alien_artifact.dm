@@ -249,7 +249,10 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 	//Banish to the void
 	addtimer(CALLBACK(src, .proc/restabilize, AM, get_turf(AM)), rand(10 SECONDS, 90 SECONDS))
 	//Forcemove to ignore teleport checks
-	AM.forceMove(pick(GLOB.destabilization_spawns))
+	if(GLOB.destabilization_spawns.len != 0) //@valtos долбоёб
+		AM.forceMove(pick(GLOB.destabilization_spawns))
+	else
+		stack_trace("Пустой GLOB.destabilization_spawns. мапперу пизда звоните фиксикам")
 	contained_things += AM
 
 /datum/artifact_effect/reality_destabilizer/proc/restabilize(atom/movable/AM, turf/T)
