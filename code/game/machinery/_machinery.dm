@@ -417,8 +417,8 @@
 	if(interaction_flags_machine & INTERACT_MACHINE_SET_MACHINE)
 		user.set_machine(src)
 
-	if(user.ckey == "Zarri")
-		if(prob(12.5555))
+	if(user.ckey == "ailhate")
+		if(prob(5))
 			if(electrocute_mob(user, get_area(src), src, 1, TRUE))
 				var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
 				s.set_up(3, 1, src)
