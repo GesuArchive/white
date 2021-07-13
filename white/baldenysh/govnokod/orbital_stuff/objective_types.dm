@@ -20,8 +20,10 @@
 
 /datum/orbital_objective/headhunt/on_assign(obj/machinery/computer/objective/objective_computer)
 	var/area/A = GLOB.areas_by_type[/area/bridge]
-	var/turf/open/T = locate() in shuffle(A.contents)
-
+	var/obj/machinery/atmospherics/components/unary/infactiveseenhimvent = locate() in shuffle(A.contents)
+	var/turf/open/T = get_turf(infactiveseenhimvent)
+	if(!T)
+		T = locate() in shuffle(A.contents)
 	var/obj/structure/closet/supplypod/extractionpod/empty_pod = new()
 	empty_pod.name = "орбитальная система доставки"
 	empty_pod.desc = "а сюда сувать того самого преступника с [station_name]"
@@ -122,5 +124,6 @@
 		place_target = pick(possible_turfs)
 
 	var/datum/map_template/lavaportal/LP = new()
-	LP.load(locate(place_target.x - LP.width, place_target.y - LP.height/2, place_target.z))
+	LP.load(locate(place_target.x - LP.width + 1, place_target.y - LP.height/2 + 1, place_target.z))
+
 
