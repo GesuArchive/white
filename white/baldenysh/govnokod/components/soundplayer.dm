@@ -11,6 +11,8 @@
 	var/playing_falloff = 4
 	var/playing_channel
 
+	var/prefs_toggle_flag = SOUND_JUKEBOX
+
 /datum/component/soundplayer/Initialize()
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -34,6 +36,8 @@
 	if(!active || !cursound)
 		return
 	for(var/client/C)
+		if(prefs_toggle_flag && !(C.prefs?.w_toggles & prefs_toggle_flag))
+			continue
 		if(!C.mob)
 			continue
 		var/mob/M = C.mob
@@ -116,7 +120,7 @@
 	if(qdel_check())
 		return
 	var/mob/M = parent
-	if(!(M?.client?.prefs?.w_toggles & SOUND_JUKEBOX))
+	if(prefs_toggle_flag && !(M?.client?.prefs?.w_toggles & prefs_toggle_flag))
 		return
 	var/sound/S = get_player_sound()
 	if(!S)
