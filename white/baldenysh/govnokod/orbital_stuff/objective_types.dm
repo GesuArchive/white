@@ -95,10 +95,10 @@
 			return TRUE
 		switch(target_type)
 			if("dreamer")
-				for(var/datum/antagonist/dreamer_orbital/DO in mob_to_recover.mind.antag_datums)
-					for(var/datum/objective/slay/S  in DO.objectives)
-						if(S.completed)
-							return TRUE
+				var/datum/antagonist/dreamer_orbital/DO = locate() in mob_to_recover.mind.antag_datums
+				var/datum/objective/slay/S = locate() in DO.objectives
+				if(S.completed)
+					return TRUE
 	return FALSE
 
 /datum/orbital_objective/headhunt/proc/place_portal()
