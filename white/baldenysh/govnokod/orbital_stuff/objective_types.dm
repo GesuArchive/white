@@ -122,3 +122,4 @@
 
 	var/datum/map_template/lavaportal/LP = new()
 	LP.load(locate(place_target.x - LP.width, place_target.y - LP.height/2, place_target.z))
+	*/
