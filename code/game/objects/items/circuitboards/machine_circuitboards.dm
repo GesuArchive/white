@@ -1200,7 +1200,7 @@
 
 /obj/item/circuitboard/machine/mining_equipment_vendor/golem
 	name = "Golem Ship Equipment Vendor (Оборудование)"
-	build_path = /obj/machinery/vendor/mining/golem
+	build_path = /obj/machinery/vendor/golem
 
 /obj/item/circuitboard/machine/ore_redemption
 	name = "Ore Redemption (Оборудование)"

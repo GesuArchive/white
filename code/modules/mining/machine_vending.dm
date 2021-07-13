@@ -231,7 +231,7 @@
 
 /obj/machinery/vendor/golem
 	name = "golem ship equipment vendor"
-	circuit = /obj/item/circuitboard/machine/vendor_equipment_vendor/golem
+	circuit = /obj/item/circuitboard/machine/mining_equipment_vendor/golem
 
 /obj/machinery/vendor/golem/Initialize()
 	desc += "\nIt seems a few selections have been added."
