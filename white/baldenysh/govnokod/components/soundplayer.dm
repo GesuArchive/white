@@ -123,7 +123,7 @@
 	if(qdel_check())
 		return
 	var/mob/M = parent
-	if(prefs_toggle_flag && !(M?.client?.prefs?.w_toggles & prefs_toggle_flag))
+	if(myplayer.prefs_toggle_flag && !(M?.client?.prefs?.w_toggles & myplayer.prefs_toggle_flag))
 		return
 	var/sound/S = get_player_sound()
 	if(!S)
