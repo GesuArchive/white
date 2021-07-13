@@ -9,7 +9,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue = 5)
 	var/obj/structure/spider/cocoon/mycelium/cocoon
 	var/nutriments = 0
-	var/nutrition_leeching_factor = 0.3
+	var/nutrition_leeching_factor = 1.5
 	var/cocoon_req = 500
 	var/mushroom_req = 100
 

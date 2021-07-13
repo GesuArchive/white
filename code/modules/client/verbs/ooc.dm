@@ -103,8 +103,9 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 				else
 					to_chat(C, "<span class='ooc'><span class='prefix'>[tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></span>")
 	if(isnewplayer(mob))
-		return
-	webhook_send_ooc(key, msg)
+		webhook_send_lobby(key, msg)
+	else
+		webhook_send_ooc(key, msg)
 
 /proc/toggle_ooc(toggle = null)
 	if(toggle != null) //if we're specifically en/disabling ooc

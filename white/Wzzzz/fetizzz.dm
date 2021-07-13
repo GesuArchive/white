@@ -15,7 +15,7 @@
 	suit_store = /obj/item/gun/ballistic/automatic/pistol
 
 /datum/outfit/wzzzz/hazard
-	name = "Hazard Personal"
+	name = "Hazard Personal Fucks vadim's anal"
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/hazard
 	suit = /obj/item/clothing/suit/hazardvest
 	glasses = /obj/item/clothing/glasses/meson/engine
