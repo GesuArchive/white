@@ -151,7 +151,6 @@
 /obj/projectile/bullet/m41acaseless/on_hit(atom/target, blocked = FALSE)
 	. = ..()
 	if(isalien(target))
-		var/mob/living/carbon/alien/L = target
 		damage = 50
 
 /obj/item/ammo_casing/caseless/m41acaseless
