@@ -51,7 +51,6 @@
 /area/ruin/space/has_grav/lavaportal)
 "Q" = (
 /obj/structure/table,
-/obj/item/modular_computer/laptop/preset/bse,
 /obj/structure/window{
 	dir = 1
 	},
