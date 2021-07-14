@@ -23,7 +23,6 @@
 	dog_fashion = null
 	toggle_cooldown = 0.5
 	flash_protect = FLASH_PROTECTION_FLASH
-	dynamic_hair_suffix = "+generic"
 
 /obj/item/clothing/head/helmet/maska/attack_self(mob/user)
 	if(can_toggle && !user.incapacitated())
