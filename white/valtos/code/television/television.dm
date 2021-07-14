@@ -1,10 +1,10 @@
 /datum/component/television
 	var/viewsize = 3
 	var/obj/machinery/camera/ourcam
-	var/turf/ourturf
+	var/atom/ourthing
 
 /datum/component/television/Initialize(parent, newcam)
-	ourturf = parent
+	ourthing = parent
 
 	if(!newcam)
 		newcam = pick(GLOB.cameranet.cameras)
@@ -18,8 +18,8 @@
 /datum/component/television/proc/draw_picture()
 	var/list/visible_turfs = RANGE_TURFS(viewsize, ourcam)
 
-	ourturf.vis_contents = visible_turfs
-	ourturf.icon_state = "clear"
+	ourthing.vis_contents = visible_turfs
+	ourthing.icon_state = "clear"
 
 /turf/closed/indestructible/black/television
 	name = "ТЕЛЕВИЗОР"
