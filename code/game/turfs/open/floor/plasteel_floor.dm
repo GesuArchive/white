@@ -1,6 +1,14 @@
 /turf/open/floor/plasteel
-	icon_state = "floor"
+	icon = 'white/baldenysh/icons/turf/tiles_gs.dmi'
+	icon_state = "tile0"
+	//icon_state = "floor"
 	floor_tile = /obj/item/stack/tile/plasteel
+
+/turf/open/floor/plasteel/Initialize(mapload)
+	. = ..()
+	var/iconnum = GLOB.detnumoftheday % 16
+	base_icon_state = "tile[iconnum]"
+	icon_state = "tile[iconnum]"
 
 /turf/open/floor/plasteel/setup_broken_states()
 	return list("damaged1", "damaged2", "damaged3", "damaged4", "damaged5")
