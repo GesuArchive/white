@@ -29,4 +29,4 @@
 	layer = TURF_LAYER
 
 /turf/closed/indestructible/black/television/New()
-	AddComponent(/datum/component/television)
+	AddComponent(/datum/component/television, src)
