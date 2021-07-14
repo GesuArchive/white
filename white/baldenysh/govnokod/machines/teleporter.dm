@@ -205,9 +205,9 @@
 	name = "старый блюспейс эмиттер"
 	desc = "Настроен на создание портала в Лаваленд."
 
-	max_range = 5
-	target_x = 94
-	target_y = 105
+	max_range = 3
+	target_x = 103
+	target_y = 35
 	target_z = 5
 
 /obj/machinery/power/bs_emitter/lavaportal/Initialize()

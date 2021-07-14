@@ -49,6 +49,18 @@
 /obj/item/stack/ore/bluespace_crystal/sixteen
 	amount = 16
 
+/obj/item/gun/ballistic/crossbow/quickload
+	name = "самозарядный арбалет"
+	desc = "Автоматически заряжается при соприкосновении со стержнями."
+
+/obj/item/gun/ballistic/crossbow/quickload/afterattack(atom/A, mob/user, proximity)
+	. = ..()
+	if(!proximity)
+		return
+	if(!istype(A, /obj/item/stack/rods))
+		return
+	attackby(A, user)
+
 /datum/id_trim/speedrunner
 	assignment = "Famous speedrunner"
 	access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_MECH_MEDICAL, ACCESS_MINERAL_STOREROOM, ACCESS_MAINT_TUNNELS,
@@ -65,7 +77,7 @@
 	shoes = /obj/item/clothing/shoes/sneakers/green
 	gloves = /obj/item/clothing/gloves/color/green
 	belt = /obj/item/melee/moonlight_greatsword
-	back = /obj/item/gun/ballistic/crossbow
+	back = /obj/item/gun/ballistic/crossbow/quickload
 	l_pocket = /obj/item/stack/rods/twentyfive
 	r_pocket = /obj/item/crowbar/abductor
 	id = /obj/item/card/id/advanced/chameleon/black
@@ -81,3 +93,6 @@
 /datum/outfit/dreamer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/obj/item/flashlight/flare/torch/danetorchya = locate() in H.contents
 	danetorchya.attack_self(H)
+	var/obj/item/melee/moonlight_greatsword/cumborne = locate() in H.contents
+	cumborne.name = "moonlight greatsword +5"
+	cumborne.force = 20
