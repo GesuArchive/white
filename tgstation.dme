@@ -3666,6 +3666,7 @@
 #include "white\baldenysh\govnokod\machines\teleporter_console.dm"
 #include "white\baldenysh\govnokod\orbital_stuff\objective_types.dm"
 #include "white\baldenysh\govnokod\orbital_stuff\orbital_ruins.dm"
+#include "white\baldenysh\govnokod\orbital_stuff\procs.dm"
 #include "white\baldenysh\govnokod\ruins\bseruin.dm"
 #include "white\baldenysh\govnokod\storage\blister.dm"
 #include "white\baldenysh\govnokod\storage\pillpack.dm"

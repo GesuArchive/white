@@ -194,6 +194,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/test_cardpack_distribution,
 	/client/proc/print_cards,
 	/client/proc/generate_ruin,
+	/client/proc/create_orbital_objective,
 	#ifdef TESTING
 	/client/proc/check_missing_sprites,
 	/client/proc/export_dynamic_json,

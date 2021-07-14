@@ -1,9 +1,3 @@
-/datum/controller/subsystem/processing/orbits/proc/shitspawn_objective(objective_type)
-	var/datum/orbital_objective/objective = new objective_type()
-	objective.generate_payout()
-	possible_objectives += objective
-	update_objective_computers()
-
 /datum/orbital_objective/headhunt
 	name = "Охота за головами"
 	var/generated = FALSE
@@ -25,9 +19,9 @@
 	if(!T)
 		T = locate() in shuffle(A.contents)
 	var/obj/structure/closet/supplypod/extractionpod/empty_pod = new()
-	empty_pod.name = "орбитальная система доставки"
-	empty_pod.desc = "а сюда сувать того самого преступника с [station_name]"
-	empty_pod.style = STYLE_CENTCOM
+	empty_pod.name = "орбитальная система доставки Nanotrasen"
+	empty_pod.desc = "Сюда сувать того самого преступника с [station_name]. Пожалуйста, игнорируйте символику синдиката, это трофейный под со Второй Космической."
+	//empty_pod.style = STYLE_CENTCOM //хуета имеет всего три кликабельных пикселя, да и синдикатовский спрайт впринципе тоже в этом плане говнище
 
 	new /obj/effect/pod_landingzone(T, empty_pod)
 
@@ -68,6 +62,7 @@
 	created_human.AddElement(/datum/element/point_of_interest)
 	created_human.mind_initialize()
 	mob_to_recover = created_human
+
 	for(var/mob/living/simple_animal/hostile/SA in range(10, created_human))
 		qdel(SA)
 	var/turf/open/T = locate() in shuffle(view(1, created_human))
@@ -76,6 +71,7 @@
 		new /obj/item/tank/internals/oxygen(T)
 		new /obj/item/clothing/mask/gas(T)
 		new /obj/item/storage/belt/utility/full(T)
+
 	target_type = pick(list("dreamer"))
 	switch(target_type)
 		if("dreamer")
@@ -85,7 +81,6 @@
 			ADD_TRAIT(created_human, TRAIT_NOSOFTCRIT, "gaming")
 			ADD_TRAIT(created_human, TRAIT_FREERUNNING, "gaming")
 			place_portal()
-
 
 	generated = TRUE
 
@@ -104,11 +99,6 @@
 /datum/orbital_objective/headhunt/proc/place_portal()
 	if(!mob_to_recover)
 		return
-	/*
-	var/turf/place_target = get_turf(mob_to_recover)
-	var/datum/map_template/lavaportal/LP = new()
-	LP.load(locate(place_target.x - LP.width + 3, place_target.y - LP.height/2, place_target.z))
-	*/
 	var/list/turf/possible_turfs = list()
 	for(var/obj/machinery/door/airlock/AL in world)
 		if(AL.z != mob_to_recover.z)
@@ -125,5 +115,3 @@
 
 	var/datum/map_template/lavaportal/LP = new()
 	LP.load(locate(place_target.x - LP.width + 1, place_target.y - LP.height/2 + 1, place_target.z))
-
-
