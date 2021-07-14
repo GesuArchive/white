@@ -18,11 +18,17 @@
 /datum/component/television/proc/draw_picture()
 	var/list/visible_turfs = RANGE_TURFS(viewsize, ourcam)
 
+	var/matrix/M = matrix()
+	M.Translate(-16 * viewsize, -16 * viewsize)
+	M.Scale(0.5, 0.5)
+
+	ourthing.transform = M
 	ourthing.vis_contents = visible_turfs
 	ourthing.icon_state = "clear"
 
 /turf/closed/indestructible/black/television
-	name = "ТЕЛЕВИЗОР"
+	name = "Телевизор"
+	appearance_flags = KEEP_TOGETHER|PIXEL_SCALE|TILE_BOUND
 	layer = TURF_LAYER
 
 /turf/closed/indestructible/black/television/New()
@@ -30,7 +36,8 @@
 
 
 /obj/effect/abstract/television
-	name = "ТЕЛЕВИЗОР"
+	name = "Телевизор"
+	appearance_flags = KEEP_TOGETHER|PIXEL_SCALE|TILE_BOUND
 	layer = TURF_LAYER
 
 /obj/effect/abstract/television/New()
