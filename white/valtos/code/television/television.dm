@@ -7,7 +7,10 @@
 	ourthing = parent
 
 	if(!newcam)
-		newcam = pick(GLOB.cameranet.cameras)
+		for(var/obj/machinery/camera/cam in GLOB.cameranet.cameras)
+			if(cam.c_tag == "Arena")
+				newcam = cam
+				break
 	ourcam = newcam
 
 	draw_picture()
@@ -19,7 +22,7 @@
 	var/list/visible_turfs = RANGE_TURFS(viewsize, ourcam)
 
 	var/matrix/M = matrix()
-	M.Translate(-16 * viewsize, -16 * viewsize)
+	M.Translate((-16 * viewsize) - 8, (-16 * viewsize) - 8)
 	M.Scale(0.5, 0.5)
 
 	ourthing.transform = M
@@ -28,16 +31,16 @@
 
 /turf/closed/indestructible/black/television
 	name = "Телевизор"
-	appearance_flags = KEEP_TOGETHER|PIXEL_SCALE|TILE_BOUND
 	layer = TURF_LAYER
+	opacity = FALSE
 
-/turf/closed/indestructible/black/television/New()
-	AddComponent(/datum/component/television, src)
-
+/turf/closed/indestructible/black/television/main
+	icon = 'white/valtos/icons/television.dmi'
+	icon_state = "television"
 
 /obj/effect/abstract/television
 	name = "Телевизор"
-	appearance_flags = KEEP_TOGETHER|PIXEL_SCALE|TILE_BOUND
+	appearance_flags = KEEP_TOGETHER|TILE_BOUND
 	layer = TURF_LAYER
 
 /obj/effect/abstract/television/New()
