@@ -4,9 +4,6 @@
 	var/turf/ourturf
 
 /datum/component/television/Initialize(parent, newcam)
-	if(!isturf(parent))
-		return COMPONENT_INCOMPATIBLE
-
 	ourturf = parent
 
 	if(!newcam)
@@ -29,4 +26,13 @@
 	layer = TURF_LAYER
 
 /turf/closed/indestructible/black/television/New()
+	AddComponent(/datum/component/television, src)
+
+
+/obj/effect/abstract/television
+	name = "ТЕЛЕВИЗОР"
+	layer = TURF_LAYER
+
+/obj/effect/abstract/television/New()
+	. = ..()
 	AddComponent(/datum/component/television, src)
