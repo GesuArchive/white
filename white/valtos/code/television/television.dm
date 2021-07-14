@@ -1,7 +1,7 @@
 /datum/component/television
 	var/viewsize = 3
 	var/obj/machinery/camera/ourcam
-	var/atom/ourthing
+	var/obj/ourthing // думаю ничего страшного не случится
 
 /datum/component/television/Initialize(parent, newcam)
 	ourthing = parent
