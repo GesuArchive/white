@@ -352,9 +352,9 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 
 /datum/artifact_effect/gas_remove/Initialize(source)
 	. = ..()
-	input = pickweight(valid_inputs)
+	input = new pickweight(valid_inputs)
 	effect_act_descs = list("placed near [input.name]")
-	output = pickweight(valid_outputs)
+	output = new pickweight(valid_outputs)
 
 /datum/artifact_effect/gas_remove/process(delta_time)
 	var/turf/T = get_turf(source_object)
