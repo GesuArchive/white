@@ -4047,6 +4047,7 @@
 #include "white\valtos\code\spacepods\spacepod_door.dm"
 #include "white\valtos\code\teeth\misc.dm"
 #include "white\valtos\code\teeth\teeth.dm"
+#include "white\valtos\code\television\television.dm"
 #include "white\valtos\code\trading\_defines.dm"
 #include "white\valtos\code\trading\terminal.dm"
 #include "white\valtos\code\uniforms\hohol.dm"

@@ -195,7 +195,7 @@
 	if(..())
 		return TRUE
 	panel_open = !panel_open
-	to_chat(user, "<span class='notice'>[panel_open ? "откручиваю" : "закручиваю"] техническую панель.</span>")
+	to_chat(user, "<span class='notice'>[panel_open ? "Откручиваю" : "Закручиваю"] техническую панель.</span>")
 	I.play_tool_sound(src)
 	update_icon()
 	return TRUE
@@ -213,10 +213,10 @@
 		droppable_parts += assembly.proxy_module
 	if(!droppable_parts.len)
 		return
-	var/obj/item/choice = input(user, "Select a part to remove:", src) as null|obj in sortNames(droppable_parts)
+	var/obj/item/choice = input(user, "Убираем мы:", src) as null|obj in sortNames(droppable_parts)
 	if(!choice || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return
-	to_chat(user, "<span class='notice'>You remove [choice] from [src].</span>")
+	to_chat(user, "<span class='notice'>Вытаскиваю [choice] из [src].</span>")
 	if(choice == assembly.xray_module)
 		assembly.drop_upgrade(assembly.xray_module)
 		removeXRay()
@@ -245,7 +245,7 @@
 		return
 
 	setViewRange((view_range == initial(view_range)) ? short_range : initial(view_range))
-	to_chat(user, "<span class='notice'>[(view_range == initial(view_range)) ? "восстанавливаю" : "ломаю"] фокусировку камеры.</span>")
+	to_chat(user, "<span class='notice'>[(view_range == initial(view_range)) ? "Восстанавливаю" : "Ломаю"] фокусировку камеры.</span>")
 	return TRUE
 
 /obj/machinery/camera/welder_act(mob/living/user, obj/item/I)
@@ -314,7 +314,7 @@
 			P = I
 			itemname = P.name
 			info = P.notehtml
-		to_chat(U, "<span class='notice'>You hold [itemname] up to the camera...</span>")
+		to_chat(U, "<span class='notice'>Показываю [itemname] перед камерой...</span>")
 		U.changeNext_move(CLICK_CD_MELEE)
 		for(var/mob/O in GLOB.player_list)
 			if(isAI(O))
@@ -322,25 +322,25 @@
 				if(AI.control_disabled || (AI.stat == DEAD))
 					continue
 				if(U.name == "Неизвестный")
-					to_chat(AI, "<span class='name'>[U]</span> holds <a href='?_src_=usr;show_paper=1;'>\a [itemname]</a> up to one of your cameras ...")
+					to_chat(AI, "<span class='name'>[U]</span> держит <a href='?_src_=usr;show_paper=1;'> [itemname]</a> перед одной из моих камер...")
 				else
-					to_chat(AI, "<b><a href='?src=[REF(AI)];track=[html_encode(U.name)]'>[U]</a></b> holds <a href='?_src_=usr;show_paper=1;'>\a [itemname]</a> up to one of your cameras ...")
+					to_chat(AI, "<b><a href='?src=[REF(AI)];track=[html_encode(U.name)]'>[U]</a></b> держит <a href='?_src_=usr;show_paper=1;'> [itemname]</a> перед одной из моих камер...")
 				AI.last_paper_seen = "<HTML><HEAD><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /><TITLE>[itemname]</TITLE></HEAD><BODY><TT>[info]</TT></BODY></HTML>"
 			else if (O.client.eye == src)
-				to_chat(O, "<span class='name'>[U]</span> holds \a [itemname] up to one of the cameras ...")
+				to_chat(O, "<span class='name'>[U]</span> держит [itemname] перед одной из моих камер...")
 				O << browse(text("<HTML><HEAD><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", itemname, info), text("window=[]", itemname))
 		return
 
 	else if(istype(I, /obj/item/camera_bug))
 		if(!can_use())
-			to_chat(user, "<span class='notice'>Camera non-functional.</span>")
+			to_chat(user, "<span class='notice'>Камера не работает.</span>")
 			return
 		if(bug)
-			to_chat(user, "<span class='notice'>Camera bug removed.</span>")
+			to_chat(user, "<span class='notice'>Жучок удалён.</span>")
 			bug.bugged_cameras -= src.c_tag
 			bug = null
 		else
-			to_chat(user, "<span class='notice'>Camera bugged.</span>")
+			to_chat(user, "<span class='notice'>Жучок установлен.</span>")
 			bug = I
 			bug.bugged_cameras[src.c_tag] = src
 		return
@@ -402,9 +402,9 @@
 		if (isarea(myarea))
 			LAZYREMOVE(myarea.cameras, src)
 	GLOB.cameranet.updateChunk(x, y, z)
-	var/change_msg = "deactivates"
+	var/change_msg = "выключает"
 	if(status)
-		change_msg = "reactivates"
+		change_msg = "включает"
 		triggerCameraAlarm()
 		if(!QDELETED(src)) //We'll be doing it anyway in destroy
 			addtimer(CALLBACK(src, .proc/cancelCameraAlarm), 100)
@@ -425,7 +425,7 @@
 		if (O.client.eye == src)
 			O.unset_machine()
 			O.reset_perspective(null)
-			to_chat(O, "<span class='warning'>The screen bursts into static!</span>")
+			to_chat(O, "<span class='warning'>Экран заливается помехами!</span>")
 
 /obj/machinery/camera/proc/triggerCameraAlarm()
 	alarm_on = TRUE
