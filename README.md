@@ -1,6 +1,11 @@
 
-[![White Dream](https://i.imgur.com/Fwih1xN.gif)](#) 
-### Основной репозиторий сборки [White Dream](https://station13.ru/) по игре [Space Station 13](https://station13.ru/).
+[![White Dream](https://i.imgur.com/Fwih1xN.gif)](#)
+
+<p align="center">
+	<h3 align="center">
+		Основной репозиторий сборки <a href="https://station13.ru/">White Dream</a> по игре <a href="http://www.byond.com/games/Exadv1/SpaceStation13/">Space Station 13</a>.
+	</h3>
+</p>
 
 ---
 
@@ -29,4 +34,4 @@
 
 [<img src="https://i.imgur.com/uCDQuc4.png" alt="Редактор карт" width="150" align="left">](https://github.com/SpaiR/StrongDMM/releases) **Наш основной инструмент для работы с картами.** <br> Экономит кучу времени, заменяя встроенный редактор практически полностью.
 
-[<img src="./white/Gesugao-san/License-badge.png" alt="Лицензия" width="150" align="left">](./.github/LICENSE.md) **Информация о правовом использовании.** <br> Кратко: эту кодовую базу нельзя закрыть.
+[<img src="./white/Gesugao-san/License-badge_147px.png" alt="Лицензия" width="150" align="left">](./.github/LICENSE.md) **Информация о правовом использовании.** <br> Кратко: эту кодовую базу нельзя закрыть.
