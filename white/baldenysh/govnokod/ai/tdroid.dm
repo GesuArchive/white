@@ -42,8 +42,9 @@
 	RegisterSignal(new_pawn, COMSIG_ATOM_HITBY, .proc/on_hitby)
 	RegisterSignal(new_pawn, COMSIG_MOVABLE_CROSSED, .proc/on_Crossed)
 	RegisterSignal(new_pawn, COMSIG_LIVING_START_PULL, .proc/on_startpulling)
-
 	RegisterSignal(new_pawn, TDROID_SIMPLE_AGRESSION_SIGNALS, .proc/on_simple_agression)
+
+	RegisterSignal(new_pawn, COMSIG_MOB_MOVESPEED_UPDATED, .proc/update_movespeed)
 
 	movement_delay = living_pawn.cached_multiplicative_slowdown
 
@@ -60,6 +61,8 @@
 	))
 	UnregisterSignal(pawn, TDROID_SIMPLE_AGRESSION_SIGNALS)
 
+	RegisterSignal(pawn, COMSIG_MOB_MOVESPEED_UPDATED)
+
 	return ..()
 
 //////////////////////////////////////////////////проки
@@ -70,12 +73,12 @@
 	blackboard[BB_TDROID_COMMANDER] = commander
 	RegisterSignal(commander, COMSIG_MOB_POINTED, .proc/on_commander_pointed)
 	RegisterSignal(commander, COMSIG_MOVABLE_MOVED, .proc/on_commander_moved)
+
 	RegisterSignal(commander, COMSIG_PARENT_ATTACKBY, .proc/on_attackby)
 	RegisterSignal(commander, COMSIG_ATOM_BULLET_ACT, .proc/on_bullet_act)
 	RegisterSignal(commander, COMSIG_ATOM_HITBY, .proc/on_hitby)
 	RegisterSignal(commander, COMSIG_MOVABLE_CROSSED, .proc/on_Crossed)
 	RegisterSignal(commander, COMSIG_LIVING_START_PULL, .proc/on_startpulling)
-
 	RegisterSignal(commander, TDROID_SIMPLE_AGRESSION_SIGNALS, .proc/on_simple_agression)
 
 /datum/ai_controller/tdroid/proc/UnregisterCommander()
@@ -86,6 +89,7 @@
 								COMSIG_MOB_POINTED,\
 								COMSIG_MOVABLE_MOVED\
 	))
+
 	UnregisterSignal(commander, list(\
 								COMSIG_PARENT_ATTACKBY,\
 								COMSIG_ATOM_BULLET_ACT,\
@@ -126,18 +130,19 @@
 			return TRUE
 	return FALSE
 
-/datum/ai_controller/tdroid/proc/IsCommander(mob/M)
+/datum/ai_controller/tdroid/proc/IsCommander(atom/A)
 	var/mob/living/commander = blackboard[BB_TDROID_COMMANDER]
-	if(commander && M == commander)
+	if(commander && A == commander)
+		return TRUE
+	return FALSE
+
+/datum/ai_controller/tdroid/proc/CanSeeAtom(atom/A)
+	if(A && pawn in viewers(13, A))
 		return TRUE
 	return FALSE
 
 /datum/ai_controller/tdroid/proc/CanSeeCommander()
-	var/mob/living/living_pawn = pawn
-	var/mob/living/commander = blackboard[BB_TDROID_COMMANDER]
-	if(living_pawn in viewers(13, commander))
-		return TRUE
-	return FALSE
+	return CanSeeAtom(blackboard[BB_TDROID_COMMANDER])
 
 /////////////////////////////////хз
 
@@ -151,6 +156,14 @@
 
 /datum/ai_controller/tdroid/proc/TryStore(obj/item)
 
+/datum/ai_controller/tdroid/proc/StateOrder(order)
+	var/mob/living/living_pawn = pawn
+	if(isnum(order))
+		if(order != 0)
+			order = "[order]"
+		else
+			order = "java.lang.NullPointerException at com.tacticalcore.order.ExecuteOrder.main(ExecuteOrder.java:419)"
+	living_pawn.say("Директива [order]")
 
 /datum/ai_controller/tdroid/proc/AgressionReact(mob/agressor, severity = 25)
 	if(IsCommander(agressor) || IsSquadMember(agressor))
@@ -166,7 +179,7 @@
 /datum/ai_controller/tdroid/proc/on_commander_pointed(datum/source, atom/A)
 	SIGNAL_HANDLER
 	var/mob/living/commander = source
-	//var/mob/living/living_pawn = pawn
+	var/mob/living/living_pawn = pawn
 	if(!CanSeeCommander())
 		return
 
@@ -175,28 +188,37 @@
 			switch(commander.a_intent)
 				if(INTENT_DISARM)
 					blackboard[BB_TDROID_ENEMIES] = list()
+					StateOrder(9)
+					return
 				if(INTENT_GRAB)
 					blackboard[BB_TDROID_ORDER_MODE] = TRUE
+					commander.examine(living_pawn)
 					return
 		else if(isliving(A))
 			var/mob/living/L = A
 			switch(commander.a_intent)
 				if(INTENT_DISARM)
 					AgressionReact(L, 30)
+					StateOrder(28)
 				if(INTENT_HARM)
 					AgressionReact(L, 100)
+					StateOrder(56)
 
 	if(!blackboard[BB_TDROID_ORDER_MODE])
 		return
 	blackboard[BB_TDROID_ORDER_MODE] = FALSE
 
-
 	switch(commander.a_intent)
 		if(INTENT_GRAB)
+			if(IsCommander(A))
+				blackboard[BB_TDROID_FOLLOW_TARGET] = null
+				StateOrder(72)
+				return
 			blackboard[BB_TDROID_FOLLOW_TARGET] = A
+			StateOrder(73)
+			return
 
-
-
+	StateOrder(0)
 	/*
 	if(A == pawn)
 		switch(commander.a_intent)
@@ -292,6 +314,10 @@
 /datum/ai_controller/tdroid/proc/on_simple_agression(datum/source, mob/agressor)
 	SIGNAL_HANDLER
 	AgressionReact(agressor)
+
+/datum/ai_controller/tdroid/proc/update_movespeed(mob/living/pawn)
+	SIGNAL_HANDLER
+	movement_delay = pawn.cached_multiplicative_slowdown
 
 //////////////////////////////////////////////////ИИ фегня
 
