@@ -12,9 +12,9 @@
 #define BB_TDROID 							""
 #define BB_TDROID_COMMANDER					"BB_tdroid_commander"
 #define BB_TDROID_COMMANDER_LAST_POSITION	"BB_tdroid_commander_last_position"
+#define BB_TDROID_COMMANDER_LAST_POINT		"BB_tdroid_commander_last_point"
 #define BB_TDROID_SQUAD_MEMBERS				"BB_tdroid_squad_ai_list"
 #define BB_TDROID_CURRENT_WEAPONS			"BB_tdroid_weapons_list"
-#define BB_TDROID_MODE 						"BB_tdroid_mode"
 #define BB_TDROID_ENEMIES			 		"BB_tdroid_enemies_list"
 #define BB_TDROID_ATTACK_TARGET 			"BB_tdroid_attack_target"
 #define BB_TDROID_FOLLOW_TARGET 			"BB_tdroid_follow_target"
@@ -22,14 +22,14 @@
 /datum/ai_controller/tdroid
 	movement_delay = 0.4 SECONDS
 	blackboard = list(\
-						BB_TDROID_COMMANDER 			= null,\
-						BB_TDROID_COMMANDER_LAST_POS 	= null,\
-						BB_TDROID_SQUAD_MEMBERS 		= list(),\
-						BB_TDROID_CURRENT_WEAPONS 		= list("ranged" = null, "melee" = null),\
-						BB_TDROID_MODE 					= "defensive",\
-						BB_TDROID_ENEMIES 				= list(),\
-						BB_TDROID_ATTACK_TARGET 		= null,\
-						BB_TDROID_FOLLOW_TARGET			= null\
+						BB_TDROID_COMMANDER 				= null,\
+						BB_TDROID_COMMANDER_LAST_POSITION 	= null,\
+						BB_TDROID_COMMANDER_LAST_POINT 		= null,\
+						BB_TDROID_SQUAD_MEMBERS 			= list(),\
+						BB_TDROID_CURRENT_WEAPONS 			= list("ranged" = null, "melee" = null),\
+						BB_TDROID_ENEMIES 					= list(),\
+						BB_TDROID_ATTACK_TARGET 			= null,\
+						BB_TDROID_FOLLOW_TARGET				= null\
 	)
 
 /datum/ai_controller/tdroid/TryPossessPawn(atom/new_pawn)
@@ -156,8 +156,11 @@
 		return
 	if(isliving(A))
 		var/mob/living/L = A
-		if(commander.a_intent == INTENT_HARM)
-			AgressionReact(L, 100)
+		switch(commander.a_intent)
+			if(INTENT_DISARM)
+				AgressionReact(L, 30)
+			if(INTENT_HARM)
+				AgressionReact(L, 100)
 	/*
 	if(A == pawn)
 		switch(commander.a_intent)
@@ -266,15 +269,17 @@
 	current_behaviors = list()
 	var/mob/living/living_pawn = pawn
 
-	if(SHOULD_RESIST(living_pawn) && DT_PROB(20, delta_time))
+	if(SHOULD_RESIST(living_pawn) && DT_PROB(50, delta_time))
 		current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/resist)
 		return
 
-	var/list/enemies = blackboard[BB_COMBAT_AI_ENEMIES]
+	current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/follow/tdroid/commander)
+
+	//var/list/enemies = blackboard[BB_COMBAT_AI_ENEMIES]
 
 	if(HAS_TRAIT(pawn, TRAIT_PACIFISM))
 		return
-
+	/*
 	if(enemies && enemies.len)
 		var/list/mob/living/alive_enemies = list()
 		for(var/mob/living/L in enemies)
@@ -284,13 +289,16 @@
 		var/mob/living/selected_enemy = pickweight(alive_enemies & view(9, living_pawn))
 
 		if(selected_enemy)
+			if()
+			/*
 			if(living_pawn.health < 30)
 				blackboard[BB_TDROID_ATTACK_TARGET] = selected_enemy
 				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/combat_ai_flee)
+			*/
 
 			blackboard[BB_TDROID_ATTACK_TARGET] = selected_enemy
 			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/combat_ai_try_kill)
-
+	*/
 
 /datum/ai_controller/tdroid/PerformIdleBehavior(delta_time)
 	return
@@ -301,20 +309,28 @@
 
 /////////////////////////////////перемещение
 
-/datum/ai_behavior/tdroid_follow
+/datum/ai_behavior/follow/tdroid/target
+	target_blackboard_key = BB_TDROID_FOLLOW_TARGET
+
+/datum/ai_behavior/follow/tdroid/commander
+	target_blackboard_key = BB_TDROID_COMMANDER
+
+/////////////////////////////////грифонинг
+
+/datum/ai_behavior/tdroid_try_kill
 	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT
 
-/datum/ai_behavior/tdroid_follow/perform(delta_time, datum/ai_controller/controller)
+/datum/ai_behavior/tdroid_try_kill/perform(delta_time, datum/ai_controller/controller)
 	. = ..()
 
-/datum/ai_behavior/tdroid_follow/finish_action(datum/ai_controller/controller, succeeded)
+/datum/ai_behavior/tdroid_try_kill/finish_action(datum/ai_controller/controller, succeeded)
 	. = ..()
 
-/datum/ai_behavior/tdroid_hold_position
+/datum/ai_behavior/tdroid_try_ko
 	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT
 
-/datum/ai_behavior/tdroid_hold_position/perform(delta_time, datum/ai_controller/controller)
+/datum/ai_behavior/tdroid_try_ko/perform(delta_time, datum/ai_controller/controller)
 	. = ..()
 
-/datum/ai_behavior/tdroid_hold_position/finish_action(datum/ai_controller/controller, succeeded)
+/datum/ai_behavior/tdroid_try_ko/finish_action(datum/ai_controller/controller, succeeded)
 	. = ..()
