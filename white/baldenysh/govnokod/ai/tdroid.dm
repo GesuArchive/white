@@ -12,8 +12,8 @@
 #define BB_TDROID 							""
 #define BB_TDROID_COMMANDER					"BB_tdroid_commander"
 #define BB_TDROID_COMMANDER_LAST_POSITION	"BB_tdroid_commander_last_position"
-#define BB_TDROID_COMMANDER_LAST_POINT		"BB_tdroid_commander_last_point"
-#define BB_TDROID_SQUAD_MEMBERS				"BB_tdroid_squad_ai_list"
+#define BB_TDROID_SQUAD_MEMBERS				"BB_tdroid_squad_members_list"
+#define BB_TDROID_ORDER_MODE				"BB_tdroid_order_mode"
 #define BB_TDROID_CURRENT_WEAPONS			"BB_tdroid_weapons_list"
 #define BB_TDROID_ENEMIES			 		"BB_tdroid_enemies_list"
 #define BB_TDROID_ATTACK_TARGET 			"BB_tdroid_attack_target"
@@ -21,11 +21,12 @@
 
 /datum/ai_controller/tdroid
 	movement_delay = 0.4 SECONDS
+	ai_movement = /datum/ai_movement/jps
 	blackboard = list(\
 						BB_TDROID_COMMANDER 				= null,\
 						BB_TDROID_COMMANDER_LAST_POSITION 	= null,\
-						BB_TDROID_COMMANDER_LAST_POINT 		= null,\
-						BB_TDROID_SQUAD_MEMBERS 			= list(),\
+						BB_TDROID_ORDER_MODE 				= FALSE,\
+						BB_TDROID_SQUAD_MEMBERS 			= null,\
 						BB_TDROID_CURRENT_WEAPONS 			= list("ranged" = null, "melee" = null),\
 						BB_TDROID_ENEMIES 					= list(),\
 						BB_TDROID_ATTACK_TARGET 			= null,\
@@ -69,6 +70,13 @@
 	blackboard[BB_TDROID_COMMANDER] = commander
 	RegisterSignal(commander, COMSIG_MOB_POINTED, .proc/on_commander_pointed)
 	RegisterSignal(commander, COMSIG_MOVABLE_MOVED, .proc/on_commander_moved)
+	RegisterSignal(commander, COMSIG_PARENT_ATTACKBY, .proc/on_attackby)
+	RegisterSignal(commander, COMSIG_ATOM_BULLET_ACT, .proc/on_bullet_act)
+	RegisterSignal(commander, COMSIG_ATOM_HITBY, .proc/on_hitby)
+	RegisterSignal(commander, COMSIG_MOVABLE_CROSSED, .proc/on_Crossed)
+	RegisterSignal(commander, COMSIG_LIVING_START_PULL, .proc/on_startpulling)
+
+	RegisterSignal(commander, TDROID_SIMPLE_AGRESSION_SIGNALS, .proc/on_simple_agression)
 
 /datum/ai_controller/tdroid/proc/UnregisterCommander()
 	var/mob/living/commander = blackboard[BB_TDROID_COMMANDER]
@@ -78,14 +86,22 @@
 								COMSIG_MOB_POINTED,\
 								COMSIG_MOVABLE_MOVED\
 	))
+	UnregisterSignal(commander, list(\
+								COMSIG_PARENT_ATTACKBY,\
+								COMSIG_ATOM_BULLET_ACT,\
+								COMSIG_ATOM_HITBY,\
+								COMSIG_MOVABLE_CROSSED,\
+								COMSIG_LIVING_START_PULL\
+	))
+	UnregisterSignal(commander, TDROID_SIMPLE_AGRESSION_SIGNALS)
 
 /////////////////////////////////отряды
 
-/datum/ai_controller/tdroid/proc/JoinSquad(list/squad) // потом небось фиксить придеца непомню как ссылки все ети работают
+/datum/ai_controller/tdroid/proc/JoinSquad(list/squad)
 	blackboard[BB_TDROID_SQUAD_MEMBERS] = squad
 
 /datum/ai_controller/tdroid/proc/LeaveSquad()
-	blackboard[BB_TDROID_SQUAD_MEMBERS] = list()
+	blackboard[BB_TDROID_SQUAD_MEMBERS] = null
 
 /datum/ai_controller/tdroid/proc/AddToSquad(datum/ai_controller/tdroid/AI)
 	blackboard[BB_TDROID_SQUAD_MEMBERS].Add(AI)
@@ -134,8 +150,6 @@
 
 /datum/ai_controller/tdroid/proc/TryStore(obj/item)
 
-/datum/ai_controller/tdroid/proc/MoveTo(turf/new_loc)
-
 
 /datum/ai_controller/tdroid/proc/AgressionReact(mob/agressor, severity = 25)
 	if(IsCommander(agressor) || IsSquadMember(agressor))
@@ -154,13 +168,34 @@
 	//var/mob/living/living_pawn = pawn
 	if(!CanSeeCommander())
 		return
-	if(isliving(A))
-		var/mob/living/L = A
-		switch(commander.a_intent)
-			if(INTENT_DISARM)
-				AgressionReact(L, 30)
-			if(INTENT_HARM)
-				AgressionReact(L, 100)
+
+	if(!blackboard[BB_TDROID_ORDER_MODE])
+		if(A == pawn)
+			switch(commander.a_intent)
+				if(INTENT_DISARM)
+					blackboard[BB_TDROID_ENEMIES] = list()
+				if(INTENT_GRAB)
+					blackboard[BB_TDROID_ORDER_MODE] = TRUE
+					return
+		else if(isliving(A))
+			var/mob/living/L = A
+			switch(commander.a_intent)
+				if(INTENT_DISARM)
+					AgressionReact(L, 30)
+				if(INTENT_HARM)
+					AgressionReact(L, 100)
+
+	if(!blackboard[BB_TDROID_ORDER_MODE])
+		return
+	blackboard[BB_TDROID_ORDER_MODE] = FALSE
+
+
+	switch(commander.a_intent)
+		if(INTENT_GRAB)
+			blackboard[BB_TDROID_FOLLOW_TARGET] = A
+
+
+
 	/*
 	if(A == pawn)
 		switch(commander.a_intent)
@@ -273,12 +308,20 @@
 		current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/resist)
 		return
 
-	current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/follow/tdroid/commander)
+	if(blackboard[BB_TDROID_FOLLOW_TARGET])
+		current_movement_target = blackboard[BB_TDROID_FOLLOW_TARGET]
+	else if(blackboard[BB_TDROID_COMMANDER] && CanSeeCommander())
+		current_movement_target = blackboard[BB_TDROID_COMMANDER]
+	else
+		current_movement_target = null
 
-	//var/list/enemies = blackboard[BB_COMBAT_AI_ENEMIES]
+	current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/move_to_target)
+
 
 	if(HAS_TRAIT(pawn, TRAIT_PACIFISM))
 		return
+
+	//var/list/enemies = blackboard[BB_COMBAT_AI_ENEMIES]
 	/*
 	if(enemies && enemies.len)
 		var/list/mob/living/alive_enemies = list()
@@ -303,17 +346,7 @@
 /datum/ai_controller/tdroid/PerformIdleBehavior(delta_time)
 	return
 
-
-
 //////////////////////////////////////////////////поведения
-
-/////////////////////////////////перемещение
-
-/datum/ai_behavior/follow/tdroid/target
-	target_blackboard_key = BB_TDROID_FOLLOW_TARGET
-
-/datum/ai_behavior/follow/tdroid/commander
-	target_blackboard_key = BB_TDROID_COMMANDER
 
 /////////////////////////////////грифонинг
 
@@ -334,3 +367,12 @@
 
 /datum/ai_behavior/tdroid_try_ko/finish_action(datum/ai_controller/controller, succeeded)
 	. = ..()
+
+//////////////////////////////////////////////////амонгас
+/mob/living/carbon/human/tdroid_debug
+	ai_controller = /datum/ai_controller/tdroid
+
+/mob/living/carbon/human/tdroid_debug/Initialize()
+	. = ..()
+	var/datum/ai_controller/tdroid/CTRL = ai_controller
+	CTRL.RegisterCommander(locate(/mob/living/carbon/human) in range(0))
