@@ -97,6 +97,7 @@
 
 /////////////////////////////////отряды
 
+/*
 /datum/ai_controller/tdroid/proc/JoinSquad(list/squad)
 	blackboard[BB_TDROID_SQUAD_MEMBERS] = squad
 
@@ -109,7 +110,7 @@
 /datum/ai_controller/tdroid/proc/RemoveFromSquad(datum/ai_controller/tdroid/AI)
 	blackboard[BB_TDROID_SQUAD_MEMBERS].Remove(AI)
 
-/*
+
 /datum/ai_controller/tdroid/proc/GetNearestSquadMember()
 	for(var/datum/ai_controller/AI in blackboard[BB_TDROID_SQUAD_MEMBERS])
 		if(!AI.pawn)
