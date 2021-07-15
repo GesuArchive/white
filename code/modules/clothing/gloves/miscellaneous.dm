@@ -29,7 +29,7 @@
 /obj/item/clothing/gloves/combat
 	name = "боевые перчатки"
 	desc = "Эти тактические перчатки огнеупорны и электрически изолированы."
-	icon_state = "black"
+	icon_state = "cgloves"
 	inhand_icon_state = "blackgloves"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
