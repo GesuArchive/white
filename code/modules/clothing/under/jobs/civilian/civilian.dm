@@ -25,6 +25,7 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	fitted = FEMALE_UNIFORM_TOP
+	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/civilian/chaplain
 	desc = "Это черный комбинезон, который часто носят религиозные люди."
@@ -55,6 +56,7 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	fitted = FEMALE_UNIFORM_TOP
+	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/civilian/head_of_personnel
 	desc = "Это комбинезон, который носит тот, кто работает в должности \"Главы Персонала\"."

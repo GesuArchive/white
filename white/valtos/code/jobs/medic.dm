@@ -27,7 +27,7 @@
 	head = /obj/item/clothing/head/helmet/wzzzz/helmet_tac/helmet_allya1
 	belt = /obj/item/defibrillator/compact/combat/loaded/nanotrasen
 	ears = /obj/item/radio/headset/headset_medsec
-	uniform = /obj/item/clothing/under/rank/medical/doctor/wzzzz/brig_phys
+	uniform = /obj/item/clothing/under/rank/medical/brigphys
 	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/armor/vest/wzzzz/german/webvest/m_vest
 	l_hand = /obj/item/storage/backpack/duffelbag/med/surgery

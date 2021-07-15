@@ -4,9 +4,9 @@
 
 /obj/item/clothing/under/rank/rnd/research_director
 	desc = "Это костюм, который носят те, кто обладает ноу-хау для достижения позиции \"Научного Руководителя\". Его ткань обеспечивает незначительную защиту от биологических загрязнений."
-	name = "костюм научного руководителя"
+	name = "комбинезон научного руководителя"
 	icon_state = "director"
-	inhand_icon_state = "lb_suit"
+	inhand_icon_state = "w_suit"
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 10, BIO = 10, RAD = 0, FIRE = 0, ACID = 35)
 	can_adjust = FALSE
 
@@ -16,10 +16,10 @@
 	random_sensor = FALSE
 
 /obj/item/clothing/under/rank/rnd/research_director/skirt
-	name = "костюм научного руководителя с юбкой"
+	name = "комбинезон научного руководителя с юбкой"
 	desc = "Это костюм, который носят те, кто обладает ноу-хау для достижения позиции \"Научного Руководителя\". Его ткань обеспечивает незначительную защиту от биологических загрязнений."
 	icon_state = "director_skirt"
-	inhand_icon_state = "lb_suit"
+	inhand_icon_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
 	can_adjust = FALSE
 	dying_key = DYE_REGISTRY_JUMPSKIRT
@@ -30,6 +30,15 @@
 	name = "рыжевато-коричневый костюм научного руководителя"
 	icon_state = "rdwhimsy"
 	inhand_icon_state = "rdwhimsy"
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 10, BIO = 10, RAD = 0, FIRE = 0, ACID = 0)
+	can_adjust = TRUE
+	alt_covers_chest = TRUE
+
+/obj/item/clothing/under/rank/rnd/research_director/vest
+	desc = "Это костюм, который носят те, кто обладает ноу-хау для достижения позиции \"Научного Руководителя\". Его ткань обеспечивает незначительную защиту от биологических загрязнений."
+	name = "костюм научного руководителя"
+	icon_state = "rd_vest"
+	inhand_icon_state = "lb_suit"
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 10, BIO = 10, RAD = 0, FIRE = 0, ACID = 0)
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
