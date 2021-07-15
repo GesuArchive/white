@@ -212,7 +212,16 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 					A.RunGeneration()
 	to_chat(world, "<span class='green'> -- $<b>Мир</b>:> <b>[time]</b> -- </span>")
 	log_world("World init for [time] seconds!")
-
+	
+	spawn(5)
+		var/list/templist = world.file2list("[global.config.directory]/assblasted_people.txt")
+		for(var/entry in templist)
+			var/list/entrylist =splittext(entry,"||")
+			if(entrylist.len <2)
+				continue
+			var/ckey = entrylist[1]
+			var/punished_svin = entrylist[2]
+			GLOB.assblasted_people[ckey] = punished_svin
 	if (!current_runlevel)
 		SetRunLevel(1)
 

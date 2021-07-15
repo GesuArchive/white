@@ -149,10 +149,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	READ_FILE(S["be_special"] , be_special)
 	READ_FILE(S["ice_cream_time"], ice_cream_time)
 	READ_FILE(S["ice_cream"], ice_cream)
-
+	/*
 	if(parent.ckey in GLOB.pidorlist)
 		be_special = list()
-
+	*/
 	READ_FILE(S["default_slot"], default_slot)
 	READ_FILE(S["max_slots"], max_slots)
 	READ_FILE(S["chat_toggles"], chat_toggles)

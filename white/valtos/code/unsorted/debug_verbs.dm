@@ -85,6 +85,8 @@
 	message_admins("[ADMIN_LOOKUPFLW(usr)] переключает MAJOR MODE в положение [GLOB.major_mode_active ? "ВКЛ" : "ВЫКЛ"].")
 	log_admin("[key_name(usr)] переключает MAJOR MODE в положение [GLOB.major_mode_active ? "ВКЛ" : "ВЫКЛ"].")
 
+//legacy faggotry
+/*
 GLOBAL_LIST_INIT(pidorlist, world.file2list("[global.config.directory]/autoeban/pidorlist.fackuobema"))
 GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban/obembalist.fackuobema"))
 
@@ -183,6 +185,7 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 		winset(src, null, "command=.options")
 		src << link("[addr]?redirect=1")
 		message_admins("[key] находится под санкциями и был сослан на [pick].")
+*/
 
 /client/verb/roundstatus()
 	set name = "Статус раунда"
