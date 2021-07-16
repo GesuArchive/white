@@ -6,7 +6,6 @@
 	required_reagents = list(
 						/datum/reagent/consumable/nutriment/protein,
 						/datum/reagent/medicine/c2/synthflesh,
-						/datum/reagent/growthserum,
 						/datum/reagent/consumable/nutriment)
 
 	supplementary_reagents = list(

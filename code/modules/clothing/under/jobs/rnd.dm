@@ -40,8 +40,7 @@
 	icon_state = "rd_vest"
 	inhand_icon_state = "lb_suit"
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 10, BIO = 10, RAD = 0, FIRE = 0, ACID = 0)
-	can_adjust = TRUE
-	alt_covers_chest = TRUE
+	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/rnd/research_director/alt/skirt
 	name = "рыжевато-коричневый костюм научного руководителя с юбкой"
