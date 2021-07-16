@@ -120,7 +120,8 @@
 
 */
 /datum/ai_controller/tdroid/proc/GenSquad(range = 5)
-	if(blackboard[BB_TDROID_SQUAD_MEMBERS] && blackboard[BB_TDROID_SQUAD_MEMBERS].len)
+	var/list/cur_members = blackboard[BB_TDROID_SQUAD_MEMBERS]
+	if(cur_members && cur_members.len)
 		return
 	var/list/new_squad_members = list()
 	for(var/mob/living/L in range(range, pawn))
