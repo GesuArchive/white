@@ -11,28 +11,26 @@
 
 #define BB_TDROID 							""
 #define BB_TDROID_COMMANDER					"BB_tdroid_commander"
-#define BB_TDROID_COMMANDER_LAST_POSITION	"BB_tdroid_commander_last_position"
 #define BB_TDROID_DIRECT_ORDER_MODE			"BB_tdroid_direct_order"
 #define BB_TDROID_SQUAD_MEMBERS				"BB_tdroid_squad_members_list"
 #define BB_TDROID_CURRENT_WEAPONS			"BB_tdroid_weapons_list"
 #define BB_TDROID_ENEMIES			 		"BB_tdroid_enemies_list"
 #define BB_TDROID_ATTACK_TARGET 			"BB_tdroid_attack_target"
 #define BB_TDROID_FOLLOW_TARGET 			"BB_tdroid_follow_target"
-#define BB_TDROID_SHOULD_FORM_TRAIN			"BB_tdroid_follow_target"
+#define BB_TDROID_FOLLOW_TARGET_LOST_TIME	"BB_tdroid_follow_target_last_seen"
 
 /datum/ai_controller/tdroid
 	movement_delay = 0.4 SECONDS
-	ai_movement = /datum/ai_movement/jps
+	//ai_movement = /datum/ai_movement/jps
+	ai_movement = /datum/ai_movement/basic_avoidance
 	blackboard = list(\
 						BB_TDROID_COMMANDER 				= null,\
-						BB_TDROID_COMMANDER_LAST_POSITION 	= null,\
 						BB_TDROID_DIRECT_ORDER_MODE 		= FALSE,\
 						BB_TDROID_SQUAD_MEMBERS 			= list(),\
 						BB_TDROID_CURRENT_WEAPONS 			= list("ranged" = null, "melee" = null),\
 						BB_TDROID_ENEMIES 					= list(),\
 						BB_TDROID_ATTACK_TARGET 			= null,\
-						BB_TDROID_FOLLOW_TARGET				= null,\
-						BB_TDROID_SHOULD_FORM_TRAIN			= FALSE\
+						BB_TDROID_FOLLOW_TARGET				= null\
 	)
 
 /datum/ai_controller/tdroid/TryPossessPawn(atom/new_pawn)
@@ -123,6 +121,8 @@
 
 */
 /datum/ai_controller/tdroid/proc/GenSquad(range = 5)
+	if(blackboard[BB_TDROID_SQUAD_MEMBERS] && blackboard[BB_TDROID_SQUAD_MEMBERS].len)
+		return
 	var/list/new_squad_members = list()
 	for(var/mob/living/L in range(range, pawn))
 		if(L.ai_controller && istype(L.ai_controller, type))
@@ -156,6 +156,14 @@
 /datum/ai_controller/tdroid/proc/CanSeeCommander()
 	return CanSeeAtom(blackboard[BB_TDROID_COMMANDER])
 
+/datum/ai_controller/tdroid/proc/CanMove()
+	var/mob/living/living_pawn = pawn
+	return !(HAS_TRAIT(living_pawn, TRAIT_INCAPACITATED) || IS_IN_STASIS(living_pawn) || living_pawn.stat > 1)
+
+/datum/ai_controller/tdroid/proc/CanInteract()
+	var/mob/living/living_pawn = pawn
+	return !(!CanMove() || HAS_TRAIT(living_pawn, TRAIT_HANDS_BLOCKED) || living_pawn.stat)
+
 /////////////////////////////////хз
 
 /datum/ai_controller/tdroid/proc/TryArmWeapon(type)
@@ -164,8 +172,11 @@
 
 /datum/ai_controller/tdroid/proc/TryFindWeapon(type)
 
-/datum/ai_controller/tdroid/proc/TryPickUpItem(obj/item)
-
+/datum/ai_controller/tdroid/proc/InitiateReset()
+	var/mob/living/living_pawn = pawn
+	blackboard[BB_TDROID_ENEMIES] = list()
+	blackboard[BB_TDROID_FOLLOW_TARGET] = null
+	living_pawn.Paralyze(1)
 
 /datum/ai_controller/tdroid/proc/StateOrder(order)
 	var/mob/living/living_pawn = pawn
@@ -184,27 +195,6 @@
 
 /datum/ai_controller/tdroid/proc/FriendlyPullReact(mob/puller)
 	return
-/* да кто такой этот ваш паровозик нахуй
-	var/mob/living/nearest_pawn
-	var/list/mob/living/non_pulled = list()
-	for(var/datum/ai_controller/tdroid/T in blackboard[BB_TDROID_SQUAD_MEMBERS])
-		var/mob/living/t_pawn = T.pawn
-		if(t_pawn && t_pawn.pulledby || T == src)
-			continue
-		non_pulled.Add(t_pawn)
-
-	var/min_dist = 99
-	for(var/mob/living/cpawn in non_pulled)
-		var/cur_dist = get_dist_euclidian(cpawn, pawn)
-		if(cur_dist < min_dist)
-			min_dist = cur_dist
-			nearest_pawn = cpawn
-
-	if(!nearest_pawn)
-		return
-	blackboard[BB_TDROID_FOLLOW_TARGET] = nearest_pawn
-	current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/pull/tdroid)
-	*/
 
 //////////////////////////////////////////////////сигналы
 
@@ -215,19 +205,23 @@
 		return
 
 	if(!blackboard[BB_TDROID_DIRECT_ORDER_MODE])
-		if(A == pawn)
+		if(A == commander)
 			switch(commander.a_intent)
 				if(INTENT_DISARM)
-					blackboard[BB_TDROID_ENEMIES] = list()
-					blackboard[BB_TDROID_FOLLOW_TARGET] = null
+					InitiateReset()
 					GenSquad()
 					StateOrder(9)
-					living_pawn.Paralyze(1)
-					return
+
+		else if(A == pawn)
+			switch(commander.a_intent)
+				if(INTENT_DISARM)
+					InitiateReset()
+					StateOrder(9)
+
 				if(INTENT_GRAB)
 					blackboard[BB_TDROID_DIRECT_ORDER_MODE] = TRUE
 					commander.examine(living_pawn)
-					return
+
 		else if(isliving(A))
 			var/mob/living/L = A
 			if(IsSquadMember(L))
@@ -239,6 +233,7 @@
 				if(INTENT_HARM)
 					AgressionReact(L, 60)
 					StateOrder(56)
+		return
 
 	if(!blackboard[BB_TDROID_DIRECT_ORDER_MODE])
 		return
@@ -305,7 +300,7 @@
 	if(IsCommander(living_puller) || IsSquadMember(living_puller))
 		FriendlyPullReact(living_puller)
 		return TRUE
-	if(!IS_DEAD_OR_INCAP(living_pawn))
+	if(CanMove())
 		AgressionReact(living_puller)
 		return TRUE
 
@@ -320,8 +315,7 @@
 //////////////////////////////////////////////////ИИ фегня
 
 /datum/ai_controller/tdroid/able_to_run()
-	var/mob/living/living_pawn = pawn
-	if(IS_DEAD_OR_INCAP(living_pawn))
+	if(!CanMove())
 		return FALSE
 	return ..()
 
@@ -333,15 +327,18 @@
 		current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/resist)
 		return
 
-	if(blackboard[BB_TDROID_FOLLOW_TARGET])
+	if(!blackboard[BB_TDROID_FOLLOW_TARGET])
+		blackboard[BB_TDROID_FOLLOW_TARGET] = blackboard[BB_TDROID_COMMANDER]
+
+	if(CanSeeAtom(blackboard[BB_TDROID_FOLLOW_TARGET]))
 		current_movement_target = blackboard[BB_TDROID_FOLLOW_TARGET]
-	else if(blackboard[BB_TDROID_COMMANDER] && CanSeeCommander())
-		current_movement_target = blackboard[BB_TDROID_COMMANDER]
 	else
 		current_movement_target = null
 
-	if(!living_pawn.pulling)
-		current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/move_to_target)
+	if(!living_pawn.pulling || !living_pawn.pulledby)
+		current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/move_to_target/tdroid)
+
+
 
 
 	if(HAS_TRAIT(pawn, TRAIT_PACIFISM))
@@ -369,10 +366,13 @@
 			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/combat_ai_try_kill)
 	*/
 
-/datum/ai_controller/tdroid/PerformIdleBehavior(delta_time)
-	return
+///datum/ai_controller/tdroid/PerformIdleBehavior(delta_time)
+//	return
 
 //////////////////////////////////////////////////поведения
+
+/datum/ai_behavior/move_to_target/tdroid
+	required_distance = 2
 
 /datum/ai_behavior/pull/tdroid
 	pull_target_key = BB_TDROID_FOLLOW_TARGET
@@ -380,7 +380,7 @@
 /////////////////////////////////грифонинг
 
 /datum/ai_behavior/tdroid_try_kill
-	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT
+	//behavior_flags = AI_BEHAVIOR_MOVE_AND_PERFORM
 
 /datum/ai_behavior/tdroid_try_kill/perform(delta_time, datum/ai_controller/controller)
 	. = ..()
@@ -389,7 +389,7 @@
 	. = ..()
 
 /datum/ai_behavior/tdroid_try_ko
-	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT
+	//behavior_flags = AI_BEHAVIOR_MOVE_AND_PERFORM
 
 /datum/ai_behavior/tdroid_try_ko/perform(delta_time, datum/ai_controller/controller)
 	. = ..()
