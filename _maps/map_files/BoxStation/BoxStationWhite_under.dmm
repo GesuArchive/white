@@ -1460,6 +1460,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/mob/living/simple_animal/bot/atmosbot,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "fu" = (
@@ -7695,6 +7696,7 @@
 "CP" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/holopad,
+/mob/living/simple_animal/bot/atmosbot,
 /turf/open/floor/plasteel/monofloor,
 /area/quartermaster/warehouse)
 "CR" = (
@@ -11139,6 +11141,7 @@
 /area/crew_quarters/dorms)
 "PN" = (
 /obj/structure/ladder,
+/mob/living/simple_animal/bot/atmosbot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/tcommsat/server/upper)
 "PP" = (
@@ -13599,6 +13602,13 @@
 "Yy" = (
 /turf/open/floor/carpet/purple,
 /area/quartermaster/meeting_room)
+"YA" = (
+/obj/effect/turf_decal/siding/purple{
+	dir = 1
+	},
+/mob/living/simple_animal/bot/atmosbot,
+/turf/open/floor/engine,
+/area/science/research/abandoned)
 "YB" = (
 /obj/effect/decal/cleanable/garbage,
 /turf/open/floor/plating/rust,
@@ -13654,6 +13664,14 @@
 	dir = 8
 	},
 /obj/machinery/chem_dispenser/botany,
+/turf/open/floor/plasteel,
+/area/hydroponics)
+"YL" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/obj/structure/cable,
+/mob/living/simple_animal/bot/atmosbot,
 /turf/open/floor/plasteel,
 /area/hydroponics)
 "YO" = (
@@ -54934,7 +54952,7 @@ BB
 Wn
 MB
 bb
-QH
+YL
 hy
 uP
 jA
@@ -61645,7 +61663,7 @@ VG
 nj
 ew
 Mf
-Gk
+YA
 VN
 VN
 VN

@@ -515,3 +515,33 @@
 				new /obj/item/assembly/prox_sensor(Tsec)
 				to_chat(user, "<span class='notice'>Отключаю датчик движения от [src.name].</span>")
 				build_step--
+
+//Atmosbot Assembly
+/obj/item/bot_assembly/atmosbot
+	name = "каркас атмосбота"
+	desc = "Здесь уже есть анализатор"
+	icon_state = "atmosbot_assembly"
+	created_name = "Atmosbot"
+
+/obj/item/bot_assembly/atmosbot/attackby(obj/item/I, mob/user, params)
+	..()
+	switch(build_step)
+		if(ASSEMBLY_FIRST_STEP)
+			if(istype(I, /obj/item/tank/internals))
+				if(!user.temporarilyRemoveItemFromInventory(I))
+					return
+				to_chat(user,"<span class='notice'>Добавляю [I] к [src]!</span>")
+				icon_state = "atmosbot_assembly_tank"
+				desc = "Здесь уже есть баллон с газом."
+				qdel(I)
+				build_step++
+
+		if(ASSEMBLY_SECOND_STEP)
+			if(isprox(I))
+				if(!can_finish_build(I, user))
+					return
+				to_chat(user, "<span class='notice'>Добавляю [I] к [src]! Бип-буп!</span>")
+				var/mob/living/simple_animal/bot/atmosbot/A = new(drop_location())
+				A.name = created_name
+				qdel(I)
+				qdel(src)
