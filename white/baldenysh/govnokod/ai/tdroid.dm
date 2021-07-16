@@ -164,13 +164,34 @@
 	var/mob/living/living_pawn = pawn
 	return !(!CanMove() || HAS_TRAIT(living_pawn, TRAIT_HANDS_BLOCKED) || living_pawn.stat)
 
+/datum/ai_controller/tdroid/proc/CanShootGun(obj/item/gun/G)
+	var/mob/living/living_pawn = pawn
+	return (G && G.can_trigger_gun(living_pawn) && G.can_shoot())
+/*
+/datum/ai_controller/tdroid/proc/CanReloadGun(obj/item/gun/G)
+	var/mob/living/living_pawn = pawn
+	return (G && G.can_trigger_gun(living_pawn) && G.can_shoot())
+*/
 /////////////////////////////////хз
 
-/datum/ai_controller/tdroid/proc/TryArmWeapon(type)
+/datum/ai_controller/tdroid/proc/TryArmGun()
+	var/mob/living/living_pawn = pawn
+	if(CanShootGun(locate(/obj/item/gun) in living_pawn.held_items))
+		return TRUE
+	for(var/obj/item/gun/G in (living_pawn.contents & view(1, living_pawn)))
+		if(CanShootGun(G))
+			living_pawn.swap_hand(RIGHT_HANDS)
+			if(!living_pawn.put_in_r_hand(G))
+				living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(RIGHT_HANDS))
+				if(living_pawn.put_in_r_hand(G))
+					return TRUE
+				return FALSE
+			return TRUE
 
-/datum/ai_controller/tdroid/proc/ArmWeapon(type)
 
-/datum/ai_controller/tdroid/proc/TryFindWeapon(type)
+
+
+
 
 /datum/ai_controller/tdroid/proc/InitiateReset()
 	var/mob/living/living_pawn = pawn
@@ -265,7 +286,9 @@
 /datum/ai_controller/tdroid/proc/on_moved(datum/source, atom/A)
 	SIGNAL_HANDLER
 
-
+/datum/ai_controller/tdroid/proc/update_movespeed(mob/living/pawn)
+	SIGNAL_HANDLER
+	movement_delay = pawn.cached_multiplicative_slowdown
 
 /////////////////////////////////сигналы реакции
 
@@ -308,10 +331,6 @@
 	SIGNAL_HANDLER
 	AgressionReact(agressor)
 
-/datum/ai_controller/tdroid/proc/update_movespeed(mob/living/pawn)
-	SIGNAL_HANDLER
-	movement_delay = pawn.cached_multiplicative_slowdown
-
 //////////////////////////////////////////////////ИИ фегня
 
 /datum/ai_controller/tdroid/able_to_run()
@@ -335,7 +354,9 @@
 	else
 		current_movement_target = null
 
-	if(!living_pawn.pulling || !living_pawn.pulledby)
+	if(living_pawn.pulling || living_pawn.pulledby)
+		current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/pull/tdroid)
+	else
 		current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/move_to_target/tdroid)
 
 
