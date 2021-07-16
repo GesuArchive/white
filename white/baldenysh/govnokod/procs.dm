@@ -13,7 +13,8 @@ GLOBAL_VAR_INIT(detnumoftheday, hex2num(copytext(md5(time2text(world.realtime, "
 
 /mob/living/carbon/proc/spawn_and_insert_organ(organpathtxt)
 	var/path = text2path(organpathtxt)
-	if(path in subtypesof(/obj/item/organ))
-	var/organ = new path()
+	if(!(path in subtypesof(/obj/item/organ)))
+		return
+	var/obj/item/organ/organ = new path()
 	organ.Insert(src)
 	organ.Initialize()
