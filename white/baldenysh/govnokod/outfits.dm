@@ -94,5 +94,6 @@
 	var/obj/item/flashlight/flare/torch/danetorchya = locate() in H.contents
 	danetorchya.attack_self(H)
 	var/obj/item/melee/moonlight_greatsword/cumborne = locate() in H.contents
-	cumborne.name = "moonlight greatsword +5"
-	cumborne.force = 20
+	var/cumborne_funmod = rand(1,5)
+	cumborne.name = "moonlight greatsword [cumborne_funmod+5]"
+	cumborne.force = 25 + cumborne_funmod * 4
