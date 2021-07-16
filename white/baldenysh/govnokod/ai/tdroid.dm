@@ -17,7 +17,6 @@
 #define BB_TDROID_ENEMIES			 		"BB_tdroid_enemies_list"
 #define BB_TDROID_ATTACK_TARGET 			"BB_tdroid_attack_target"
 #define BB_TDROID_FOLLOW_TARGET 			"BB_tdroid_follow_target"
-#define BB_TDROID_FOLLOW_TARGET_LOST_TIME	"BB_tdroid_follow_target_last_seen"
 
 /datum/ai_controller/tdroid
 	movement_delay = 0.4 SECONDS
