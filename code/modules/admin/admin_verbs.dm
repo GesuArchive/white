@@ -70,7 +70,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/fuck_pie,
 	/datum/admins/proc/open_borgopanel
 	)
-GLOBAL_LIST_INIT(admin_verbs_ban, list(/client/proc/unban_panel, /client/proc/ban_panel, /client/proc/stickybanpanel))
+GLOBAL_LIST_INIT(admin_verbs_ban, list(/client/proc/unban_panel, /client/proc/ban_panel, /client/proc/stickybanpanel, /client/proc/assblast_panel, /client/proc/show_assblasts))
 GLOBAL_PROTECT(admin_verbs_ban)
 GLOBAL_LIST_INIT(admin_verbs_sounds, list(/client/proc/play_local_sound_wrapper, /client/proc/play_direct_mob_sound, /client/proc/play_sound_wrapper, /client/proc/set_round_end_sound_wrapper))
 GLOBAL_PROTECT(admin_verbs_sounds)
@@ -208,7 +208,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, /proc/possess, /proc/release))
 GLOBAL_PROTECT(admin_verbs_possess)
 GLOBAL_LIST_INIT(admin_verbs_permissions, list(/client/proc/edit_admin_permissions, /client/proc/de_admin,
-/client/proc/prikol_panel, /client/proc/retrieve_file, /client/proc/manage_lists))
+/client/proc/retrieve_file, /client/proc/manage_lists))
 GLOBAL_PROTECT(admin_verbs_permissions)
 GLOBAL_LIST_INIT(admin_verbs_poll, list(/client/proc/poll_panel))
 GLOBAL_PROTECT(admin_verbs_poll)
@@ -540,22 +540,32 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/enforce_containment_procedures()
 	set category = "Адм.Веселье"
-	set name = "Put SаnесMan in a jar"
-	set desc = "Won't work if he's disconnected or dead."
+	set name = "Enforce Containment Procedures"
+	set desc = "Panik bunker 2.0."
+	var/rtime = input("лучайное время (от 0 до x секунд) между помещениями людей под стражу. Не больше 6.9 секунд.","",0) as num|null
+	if(isnull(rtime))
+		rtime = 0
+	rtime = clamp(rtime,0,6.9)
+	var/ass = alert("Ты уверен?","SECURE. CONTAIN. PROTECT.", "Да.","Нет.")
+	if(ass=="Нет.")
+		return
+	
+	log_admin("[usr.ckey] enforced containment protocols.")
+	to_chat(usr, "<span class='notice'>Preparing containment protocols...</span>")
+	spawn(1.5 SECONDS)
+		to_chat(usr, "<span class='alert'>Enforcing containment protocols...</span>")
+		for(var/Ct in GLOB.clients)
+			var/client/C = Ct
+			if(check_for_assblast(C.ckey, "cumjar")) // ASSBLAST_CUMJAR define can't be resolved here by compiler for some ungodly reason. i fucking hate byond
+				if(!isliving(C.mob))
+					continue
+				if(istype(C.mob.loc, /obj/item/cum_jar))
+					continue
+				new /obj/item/cum_jar(C.mob)
+				if(rtime != 0)
+					sleep(rand(0,rtime) SECONDS)
+		to_chat(usr, "<span class='alert'>Containment protocols enforced.</span>")
 
-	for(var/Ct in GLOB.clients)
-		var/client/C = Ct
-		if(C.ckey == "sanecman")
-			if(!isliving(C.mob))
-				to_chat(usr, "<span class='alert'>Санёк находится в мобе \[[C.mob.type]]. Необходимо, чтобы он находился в мобе \[/mob/living].</span>")
-				return
-			if(istype(C.mob.loc, /obj/item/cum_jar))
-				to_chat(usr, "<span class='alert'>Уже!</span>")
-				return
-			new /obj/item/cum_jar(C.mob)
-			to_chat(usr, "<span class='alert'>Помянем.</span>")
-			return
-	to_chat(usr, "<span class='alert'>Санёк не на сервере.</span>")
 /client/proc/drop_dynex_bomb()
 	set category = "Адм.Веселье"
 	set name = "Drop DynEx Bomb"

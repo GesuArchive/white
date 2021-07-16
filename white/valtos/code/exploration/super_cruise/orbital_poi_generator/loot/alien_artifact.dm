@@ -396,7 +396,7 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 	if(world.time < next_world_time)
 		return
 	var/turf/T = get_turf(source_object)
-	for(var/datum/light_source/light_source in T.affecting_lights)
+	for(var/datum/light_source/light_source in T.contents)
 		var/atom/movable/AM = light_source.source_atom
 		//Starts at light but gets stronger the longer it is in light.
 		AM.lighteater_act()

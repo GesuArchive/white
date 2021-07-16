@@ -417,7 +417,7 @@
 	if(interaction_flags_machine & INTERACT_MACHINE_SET_MACHINE)
 		user.set_machine(src)
 
-	if(user.ckey == "ailhate")
+	if(user.ckey == "ailhate" || check_for_assblast(user.ckey, "shocking_incompetence"))
 		if(prob(5))
 			if(electrocute_mob(user, get_area(src), src, 1, TRUE))
 				var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread

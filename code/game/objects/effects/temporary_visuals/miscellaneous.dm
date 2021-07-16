@@ -527,3 +527,10 @@
 
 /obj/effect/constructing_effect/proc/end()
 	qdel(src)
+
+/obj/effect/temp_visual/vent_wind
+	icon = 'icons/effects/atmospherics.dmi'
+	icon_state = "vent_wind"
+	layer = FLY_LAYER
+	duration = 4.8
+	mouse_opacity = 0
