@@ -97,7 +97,7 @@
 
 	if (!needs_update)
 		needs_update = TRUE
-		GLOB.corners_queue += src
+		SSlighting.corners_queue += src
 
 /datum/lighting_corner/proc/update_objects()
 	// Cache these values ahead of time so 4 individual lighting objects don't all calculate them individually.

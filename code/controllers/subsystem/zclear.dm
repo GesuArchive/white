@@ -21,7 +21,7 @@ SUBSYSTEM_DEF(zclear)
 	var/list/datum/zclear_data/processing_levels
 
 	//List of atoms to ignore
-	var/list/ignored_atoms = list(/mob/dead, /mob/camera, /mob/dview, /atom/movable/lighting_object)
+	var/list/ignored_atoms = list(/mob/dead, /mob/camera, /mob/dview)
 
 	//List of nullspaced mobs to replace in ruins
 	var/list/nullspaced_mobs = list()
