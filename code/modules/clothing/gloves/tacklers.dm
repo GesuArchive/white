@@ -59,7 +59,7 @@
 /obj/item/clothing/gloves/tackler/combat
 	name = "перчатки повстанца"
 	desc = "Боевые перчатки премиум качества, значительно усиленные чтобы предоставить владельцу преимущество в ближнем бою, однако их использование изматывает сильнее, чем у обычных перчаток перехвата. К тому же они огнеупорны!"
-	icon_state = "black"
+	icon_state = "cgloves"
 	inhand_icon_state = "blackgloves"
 
 	tackle_stam_cost = 30

@@ -225,7 +225,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	name = "mutiny"
 	var/target_role_type=FALSE
 	martyr_compatible = 1
-	reward = 40
+	reward = 20
 
 /datum/objective/mutiny/find_target_by_role(role, role_type=FALSE,invert=FALSE)
 	if(!invert)

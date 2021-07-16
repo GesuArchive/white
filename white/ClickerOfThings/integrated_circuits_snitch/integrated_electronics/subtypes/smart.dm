@@ -3,12 +3,11 @@
 
 /obj/item/integrated_circuit/smart/Initialize(mapload)
 	. = ..()
-	if(Master.current_runlevel == RUNLEVEL_INIT)
-		return
 	var/list/maybe = list()
 	for(var/mob/living/L in view(1))
 		maybe += ADMIN_LOOKUPFLW(L)
-	message_admins("[capitalize(src.name)] был создан в [get_area_name(src)]. Возможные пользователи: [english_list(maybe)]")
+	if(maybe)
+		message_admins("[capitalize(src.name)] был создан в [get_area_name(get_turf(src))]. Возможные пользователи: [english_list(maybe)]")
 
 /obj/item/integrated_circuit/smart/basic_pathfinder
 	name = "basic pathfinder"

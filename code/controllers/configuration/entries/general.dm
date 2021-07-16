@@ -527,3 +527,5 @@
 /datum/config_entry/string/centcom_source_whitelist
 
 /datum/config_entry/flag/this_shit_is_stable
+
+/datum/config_entry/flag/df_enabled

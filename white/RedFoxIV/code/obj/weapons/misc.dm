@@ -1038,4 +1038,124 @@
 	visible_message("[name] пропадает, оставляя за собой [prisoner.name], обмазанного чем-то белым и вонючим!")
 	. = ..()
 
-		
+/*
+GLOBAL_LIST_EMPTY(df_hostile_spawners)
+GLOBAL_LIST_EMPTY(df_hostile_targets)
+
+/obj/effect/df_hostile_spawner
+	icon = 'icons/effects/mapping_helpers.dmi'
+	icon_state = ""
+	var/min_time = 60 SECONDS
+	var/max_time = 120 SECONDS
+
+	var/time = 0
+/obj/effect/df_hostile_spawner/Initialize(mapload)
+	. = ..()
+	time = world.time + rand(min_time, max_time)
+	GLOB.df_hostile_spawners.Add(src)
+	START_PROCESSING(src, SSprocessing)
+
+/obj/effect/df_hostile_spawner/Destroy(force)
+	STOP_PROCESSING(src, SSprocessing)
+	GLOB.df_hostile_spawners.Remove(src)
+	. = ..()
+
+/obj/effect/df_hostile_spawner/process(delta_time)
+	if(world.time < time)
+		return
+	var/turf/T = pick()
+	for(var/mob/living/L in viewers())
+		if(!isnull(L.client))
+
+SUBSYSTEM_DEF(df_gamemaster)
+	name		 = "df_gamemaster"
+	flags		 = SS_BACKGROUND
+	init_order	 = INIT_ORDER_DEFAULT
+
+	wait = 10 SECONDS
+
+
+/datum/controller/subsystem/df_gamemaster/fire(resumed)
+	. = ..()
+*/
+
+#define ASSBLAST_CUMJAR "cumjar"
+#define ASSBLAST_SHOCKING "shocking_incompetence"
+#define ASSBLAST_WIZARD "lemon_party"
+GLOBAL_LIST_INIT(assblasts, list(ASSBLAST_CUMJAR = "Puts people in a cum jar on admin command.", ASSBLAST_SHOCKING = "Patient shows SHOCKING incompetence around machines.", ASSBLAST_WIZARD = "Does literally nothing. For now."))
+
+GLOBAL_LIST_EMPTY(assblasted_people)
+
+/proc/retrieve_assblasts(ckey)
+	if(GLOB.assblasted_people?[ckey])
+		return splittext(GLOB.assblasted_people[ckey], "|")
+	return list()
+/proc/check_for_assblast(user, assblast_type)
+	var/ckey
+	if(istext(user))
+		ckey = user
+	else if((ismob(user)||istype(user, /client)) && user:ckey != null)
+		ckey = user
+	else
+		CRASH("check_for_assblast proc was unable to resolve the ckey: the \"user\" value was neither a text, a client nor a mob with a ckey. ")
+	var/list/assblasts = retrieve_assblasts(ckey)
+	if(assblasts.Find(assblast_type))
+		return TRUE
+	return FALSE
+
+/client/proc/show_assblasts()
+	set name = "Показать-Assblastы"
+	set category = "Адм.Веселье"
+
+	for(var/assblast in GLOB.assblasts)
+		var/desc = GLOB.assblasts[assblast]
+		to_chat(usr, "<span class='notice'><i><b>[assblast]</b> - [desc]</i></span>")
+
+/client/proc/assblast_panel()
+	set name = "Assblast-панель"
+	set category = "Адм.Веселье"
+	
+	var/list/ops = list()
+	ops += "Ввести сикей..."
+	ops += GLOB.assblasted_people
+	ops += "-CANCEL-"
+	var/kill_me = "Ввести сикей..." //awful crutch to show the ckey list menu only when there are entries to said list. fucking awful way of doing it, must redo it later
+	if(ops.len>2) 
+		kill_me = "-CANCEL-"
+		kill_me = input("Добро пожаловать. Снова.", "") in ops
+	if(kill_me == "-CANCEL-")
+		return
+	var/asskey
+	if(kill_me == "Ввести сикей..." )
+		asskey = lowertext(input("Введите сикей опущенца.","R U A WIZARD?") as text|null)
+	else
+		asskey = kill_me
+	if(asskey == "" || isnull(asskey))
+		return
+	var/list/asskey_blasts = retrieve_assblasts(asskey)
+
+	var/list/options = list()
+	for(var/punishment in GLOB.assblasts)
+		if(asskey_blasts.Find(punishment))
+			options.Add("\[x] [punishment]")
+		else
+			options.Add("\[ ] [punishment]")
+	options.Add("-CANCEL-")
+	var/svin = input("Выбирай наказание засранцу.", "Unforeseen consequenses") in options
+	if(isnull(svin) || svin == "" || svin == "-CANCEL-")
+		return
+	svin = copytext(svin, 5)
+
+	if(asskey_blasts.Find(svin))
+		asskey_blasts.Remove(svin)
+		log_admin_private("[usr.ckey] lifted \"[svin]\" punishment from [asskey]. ")
+		message_admins("[usr.ckey] lifted \"[svin]\" punishment from [asskey]. ")
+	else
+		asskey_blasts.Add(svin)
+		log_admin_private("[usr.ckey] granted \"[svin]\" punishment to [asskey]. ")
+		message_admins("[usr.ckey] granted \"[svin]\" punishment to [asskey]. ")
+	if(asskey_blasts.len)
+		sortList(asskey_blasts, /proc/cmp_text_asc)
+		GLOB.assblasted_people[asskey] = jointext(asskey_blasts,"|")
+	else
+		GLOB.assblasted_people.Remove(asskey)

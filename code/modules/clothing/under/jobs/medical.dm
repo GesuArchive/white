@@ -18,6 +18,7 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	fitted = FEMALE_UNIFORM_TOP
+	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/medical/geneticist
 	desc = "Он изготовлен из специального волокна, которое обеспечивает особую защиту от биологических опасностей. На нем есть полоска генетического ранга."
@@ -52,6 +53,7 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	fitted = FEMALE_UNIFORM_TOP
+	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/medical/doctor/nurse
 	desc = "Это комбинезон, который обычно носят медсестры в медицинском отделении."
@@ -98,6 +100,7 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	fitted = FEMALE_UNIFORM_TOP
+	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/medical/chemist
 	desc = "Он изготовлен из специального волокна, которое обеспечивает особую защиту от биологических опасностей. На нём полоса звания химика."
@@ -115,6 +118,7 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	fitted = FEMALE_UNIFORM_TOP
+	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/medical/paramedic
 	desc = "Он сделан из специального волокна, обеспечивающего незначительную защиту от биологических опасностей. На груди есть темно-синий крест, обозначающий, что владелец - обученный фельдшер."
@@ -133,3 +137,22 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	fitted = FEMALE_UNIFORM_TOP
+
+/obj/item/clothing/under/rank/medical/brigphys
+	name = "комбинезон полевого медика"
+	desc = "Он изготовлен из специального волокна, которое обеспечивает незначительную защиту от биологических опасностей."
+	icon_state = "brig_phys"
+	inhand_icon_state = "w_suit"
+	permeability_coefficient = 0.5
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 10, RAD = 0, FIRE = 0, ACID = 0)
+	alt_covers_chest = TRUE
+
+/obj/item/clothing/under/rank/medical/brigphys/skirt
+	name = "юбкомбинезон полевого медика"
+	desc = "Он изготовлен из специального волокна, которое обеспечивает незначительную защиту от биологических опасностей."
+	icon_state = "brig_phys_skirt"
+	inhand_icon_state = "w_suit"
+	body_parts_covered = CHEST|GROIN|ARMS
+	dying_key = DYE_REGISTRY_JUMPSKIRT
+	fitted = FEMALE_UNIFORM_TOP
+	can_adjust = FALSE

@@ -13,17 +13,16 @@
 	alt_toggle_message = "Поднимаю забрало"
 	force = 15
 	can_toggle = 1
-	armor = list(MELEE = 80, BULLET = 90, LASER = 50, ENERGY = 50, BOMB = 80, BIO = 0, RAD = 0, FIRE = 70, WOUND = 15)
-	flags_inv = HIDEEARS|HIDEFACE|HIDESNOUT
+	armor = list(MELEE = 80, BULLET = 90, LASER = 50, ENERGY = 50, BOMB = 80, BIO = 0, RAD = 0, FIRE = 70, WOUND = 20)
 	strip_delay = 100
 	actions_types = list(/datum/action/item_action/toggle)
-	visor_flags_inv = HIDEFACE|HIDESNOUT
-	toggle_cooldown = 0
-	flags_cover = HEADCOVERSMOUTH | PEPPERPROOF
-	visor_flags_cover = HEADCOVERSMOUTH | PEPPERPROOF
+	flags_inv = HIDEEARS|HIDEHAIR|HIDESNOUT|HIDEEYES
+	visor_flags_inv = HIDESNOUT
+	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
+	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	dog_fashion = null
+	toggle_cooldown = 0.5
 	flash_protect = FLASH_PROTECTION_FLASH
-	dynamic_hair_suffix = "+generic"
 
 /obj/item/clothing/head/helmet/maska/attack_self(mob/user)
 	if(can_toggle && !user.incapacitated())
