@@ -149,7 +149,7 @@
 	return FALSE
 
 /datum/ai_controller/tdroid/proc/CanSeeAtom(atom/A)
-	if(A && pawn in viewers(13, A))
+	if(A && (pawn in viewers(13, A)))
 		return TRUE
 	return FALSE
 
@@ -209,7 +209,6 @@
 //////////////////////////////////////////////////сигналы
 
 /datum/ai_controller/tdroid/proc/on_commander_pointed(datum/source, atom/A)
-	SIGNAL_HANDLER
 	var/mob/living/commander = source
 	var/mob/living/living_pawn = pawn
 	if(!CanSeeCommander())
