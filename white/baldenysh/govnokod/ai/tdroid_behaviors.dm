@@ -4,8 +4,12 @@
 /datum/ai_behavior/pull/tdroid
 	pull_target_key = BB_TDROID_FOLLOW_TARGET
 
-/datum/ai_behavior/tdroid_equip
-	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT
+/////////////////////////////////////////эквип
+
+/datum/ai_behavior/carbon_pickup/tdroid
+	item_target_key = BB_TDROID_FOLLOW_TARGET
+
+/////////////////////////////////////////грифенк
 
 /datum/ai_behavior/tdroid_try_kill
 	//behavior_flags = AI_BEHAVIOR_MOVE_AND_PERFORM

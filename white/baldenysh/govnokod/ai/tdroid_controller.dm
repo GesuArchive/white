@@ -235,16 +235,18 @@
 		if(!CanShootGun(G))
 			continue
 		blackboard[BB_TDROID_FOLLOW_TARGET] = G
-		//current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/combat_ai_equip/ground)
+		current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_pickup/tdroid)
 		return TRUE
 	for(var/mob/living/carbon/C in view(range, living_pawn))
-		if(!C.stat)
+		if(C.stat < 2)
 			continue
 		for(var/obj/item/gun/G in C.contents)
 			if(!CanShootGun(G))
 				continue
-			blackboard[BB_TDROID_FOLLOW_TARGET] = G //а правельно ли
-			//current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/combat_ai_equip/maradeur)
+			if(!G.canStrip(living_pawn, C))
+				continue
+			blackboard[BB_TDROID_FOLLOW_TARGET] = G
+			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_pickup/tdroid)
 			return TRUE
 	return FALSE
 
