@@ -329,7 +329,9 @@
 
 /obj/item/gun/proc/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0, aimed=FALSE)
 	if(user)
-		if(HAS_TRAIT(user, TRAIT_POOR_AIM)) //nice shootin' tex
+		if(check_for_assblast(user, ASSBLAST_WIZARD)) //nice shootin' tex nice shootin' tex nice shootin' tex nice shootin' tex
+			target = pick(orange(2, user))
+		else if(HAS_TRAIT(user, TRAIT_POOR_AIM)) //nice shootin' tex
 			target = pick(orange(2, target))
 		SEND_SIGNAL(user, COMSIG_MOB_FIRED_GUN, src, target, params, zone_override)
 
