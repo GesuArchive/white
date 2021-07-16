@@ -37,11 +37,6 @@
 	/// whether we are to be added to SSlighting's sources_queue list for an update
 	var/needs_update = LIGHTING_NO_UPDATE
 
-// Thanks to Lohikar for flinging this tiny bit of code at me, increasing my brain cell count from 1 to 2 in the process.
-// This macro will only offset up to 1 tile, but anything with a greater offset is an outlier and probably should handle its own lighting offsets.
-// Anything pixelshifted 16px or more will be considered on the next tile.
-#define GET_APPROXIMATE_PIXEL_DIR(PX, PY) ((!(PX) ? 0 : ((PX >= 16 ? EAST : (PX <= -16 ? WEST : 0)))) | (!PY ? 0 : (PY >= 16 ? NORTH : (PY <= -16 ? SOUTH : 0))))
-#define UPDATE_APPROXIMATE_PIXEL_TURF var/_mask = GET_APPROXIMATE_PIXEL_DIR(top_atom.pixel_x, top_atom.pixel_y); pixel_turf = _mask ? (get_step(source_turf, _mask) || source_turf) : source_turf
 
 /datum/light_source/New(atom/owner, atom/top)
 	source_atom = owner // Set our new owner.
@@ -51,7 +46,7 @@
 		LAZYADD(top_atom.light_sources, src)
 
 	source_turf = top_atom
-	UPDATE_APPROXIMATE_PIXEL_TURF
+	pixel_turf = get_turf_pixel(top_atom) || source_turf
 
 	light_power = source_atom.light_power
 	light_range = source_atom.light_range
@@ -70,20 +65,21 @@
 		LAZYREMOVE(top_atom.light_sources, src)
 
 	if (needs_update)
-		SSlighting.corners_queue -= src
+		SSlighting.sources_queue -= src
 
 	top_atom = null
 	source_atom = null
 	source_turf = null
 	pixel_turf = null
-	. = ..()
+
+	return ..()
 
 // Yes this doesn't align correctly on anything other than 4 width tabs.
 // If you want it to go switch everybody to elastic tab stops.
 // Actually that'd be great if you could!
 #define EFFECT_UPDATE(level)                \
 	if (needs_update == LIGHTING_NO_UPDATE) \
-		SSlighting.corners_queue += src; \
+		SSlighting.sources_queue += src; \
 	if (needs_update < level)               \
 		needs_update            = level;    \
 
@@ -115,19 +111,7 @@
 // If you're wondering what's with the backslashes, the backslashes cause BYOND to not automatically end the line.
 // As such this all gets counted as a single line.
 // The braces and semicolons are there to be able to do this on a single line.
-
-//Original lighting falloff calculation. This looks the best out of the three. However, this is also the most expensive.
-//#define LUM_FALLOFF(C, T) (1 - CLAMP01(sqrt((C.x - T.x) ** 2 + (C.y - T.y) ** 2 + LIGHTING_HEIGHT) / max(1, light_range)))
-
-//Cubic lighting falloff. This has the *exact* same range as the original lighting falloff calculation, down to the exact decimal, but it looks a little unnatural due to the harsher falloff and how it's generally brighter across the board.
-//#define LUM_FALLOFF(C, T) (1 - CLAMP01((((C.x - T.x) * (C.x - T.x)) + ((C.y - T.y) * (C.y - T.y)) + LIGHTING_HEIGHT) / max(1, light_range*light_range)))
-
-//Linear lighting falloff. This resembles the original lighting falloff calculation the best, but results in lights having a slightly larger range, which is most noticable with large light sources. This also results in lights being diamond-shaped, fuck. This looks the darkest out of the three due to how lights are brighter closer to the source compared to the original falloff algorithm. This falloff method also does not at all take into account lighting height, as it acts as a flat reduction to light range with this method.
-//#define LUM_FALLOFF(C, T) (1 - CLAMP01(((abs(C.x - T.x) + abs(C.y - T.y))) / max(1, light_range+1)))
-
-//Linear lighting falloff but with an octagonal shape in place of a diamond shape. Lummox JR please add pointer support.
-#define GET_LUM_DIST(DISTX, DISTY) (DISTX + DISTY + abs(DISTX - DISTY)*0.4)
-#define LUM_FALLOFF(C, T) (1 - CLAMP01(max(GET_LUM_DIST(abs(C.x - T.x), abs(C.y - T.y)),LIGHTING_HEIGHT) / max(1, light_range+1)))
+#define LUM_FALLOFF(C, T) (1 - CLAMP01(sqrt((C.x - T.x) ** 2 + (C.y - T.y) ** 2 + LIGHTING_HEIGHT) / max(1, light_range)))
 
 #define APPLY_CORNER(C)                          \
 	. = LUM_FALLOFF(C, pixel_turf);              \
@@ -196,11 +180,11 @@
 	if (isturf(top_atom))
 		if (source_turf != top_atom)
 			source_turf = top_atom
-			UPDATE_APPROXIMATE_PIXEL_TURF
+			pixel_turf = source_turf
 			update = TRUE
 	else if (top_atom.loc != source_turf)
 		source_turf = top_atom.loc
-		UPDATE_APPROXIMATE_PIXEL_TURF
+		pixel_turf = get_turf_pixel(top_atom)
 		update = TRUE
 	else
 		var/pixel_loc = get_turf_pixel(top_atom)
@@ -284,6 +268,5 @@
 
 #undef EFFECT_UPDATE
 #undef LUM_FALLOFF
-#undef GET_LUM_DIST
 #undef REMOVE_CORNER
 #undef APPLY_CORNER
