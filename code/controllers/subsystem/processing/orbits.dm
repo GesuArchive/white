@@ -89,10 +89,10 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 
 /datum/controller/subsystem/processing/orbits/proc/create_objective()
 	var/static/list/valid_objectives = list(
-		/datum/orbital_objective/recover_blackbox = 3,
-		/datum/orbital_objective/nuclear_bomb = 1,
-		/datum/orbital_objective/artifact = 1,
-		/datum/orbital_objective/vip_recovery = 1,
+		/datum/orbital_objective/recover_blackbox = 6,
+		/datum/orbital_objective/nuclear_bomb = 2,
+		/datum/orbital_objective/artifact = 2,
+		/datum/orbital_objective/vip_recovery = 2,
 		/datum/orbital_objective/headhunt = 1
 	)
 	if(!length(possible_objectives))

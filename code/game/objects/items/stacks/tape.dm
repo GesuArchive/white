@@ -129,7 +129,7 @@
 	desc = "Используется для сращивания поломаных костей как и костный гель. Не для пранков."
 	//icon_state = "tape_spikes"
 	prefix = "surgical"
-	conferred_embed = list("embed_chance" = 30, "pain_mult" = 0, "jostle_pain_mult" = 0, "ignore_throwspeed_threshold" = TRUE)
+	conferred_embed = list("embed_chance" = 70, "pain_mult" = 0, "jostle_pain_mult" = 0, "ignore_throwspeed_threshold" = TRUE)
 	splint_factor = 0.4
 	custom_price = PAYCHECK_MEDIUM
 	merge_type = /obj/item/stack/sticky_tape/surgical
