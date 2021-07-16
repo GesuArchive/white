@@ -118,8 +118,8 @@
 
 //---------- LIGHTING -------------
 ///Normal 1 per turf dynamic lighting underlays
-#define LIGHTING_PLANE 100
-#define LIGHTING_LAYER 100
+#define LIGHTING_PLANE 15
+#define LIGHTING_LAYER 15
 #define LIGHTING_RENDER_TARGET "LIGHT_PLANE"
 
 #define RAD_TEXT_LAYER 15.1
