@@ -7,8 +7,6 @@
 	display_name = "Микрофон"
 	display_desc = "A component that listens for messages. Requires a shell."
 
-	flags_1 = HEAR_1
-
 	/// The message heard
 	var/datum/port/output/message_port
 	/// The language heard
@@ -24,7 +22,7 @@
 	language_port = add_output_port("Язык", PORT_TYPE_STRING)
 	speaker_port = add_output_port("Источник", PORT_TYPE_ATOM)
 	trigger_port = add_output_port("Активировано", PORT_TYPE_SIGNAL)
-
+	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
 /obj/item/circuit_component/hear/Destroy()
 	message_port = null

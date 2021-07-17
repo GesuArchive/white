@@ -22,7 +22,6 @@
 	desc = "Exosuit"
 	icon = 'icons/mecha/mecha.dmi'
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	flags_1 = HEAR_1
 	max_integrity = 300
 	armor = list(MELEE = 20, BULLET = 10, LASER = 0, ENERGY = 0, BOMB = 10, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
 	movedelay = 1 SECONDS
@@ -210,9 +209,8 @@
 	diag_hud_set_mechstat()
 	update_icon()
 
-/obj/mecha/ComponentInitialize()
-	. = ..()
-	AddElement(/datum/element/atmos_sensitive)
+	AddElement(/datum/element/atmos_sensitive, mapload)
+	become_hearing_sensitive(trait_source = ROUNDSTART_TRAIT)
 
 /obj/vehicle/sealed/mecha/Destroy()
 	for(var/ejectee in occupants)
