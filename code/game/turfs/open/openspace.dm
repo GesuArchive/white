@@ -35,20 +35,8 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/open/openspace/airless
 	initial_gas_mix = AIRLESS_ATMOS
 
-/turf/open/openspace/airless/Assimilate_Air()
-	return
-
-/turf/open/openspace/airless/remove_air(amount)
-	return null
-
-/turf/open/openspace/airless/AfterChange()
-	..()
-	atmos_overlay_types = null
-
-/turf/open/openspace/airless/Initalize_Atmos(times_fired)
-	return
-
-/turf/open/openspace/airless/TakeTemperature(temp)
+/turf/open/openspace/airless/GetTemperature()
+	. = 2.7
 
 /turf/open/openspace/fastload
 	plane = OPENSPACE_PLANE
