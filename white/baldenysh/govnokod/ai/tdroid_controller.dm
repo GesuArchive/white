@@ -138,26 +138,6 @@
 
 /////////////////////////////////отряды
 
-/*
-/datum/ai_controller/tdroid/proc/JoinSquad(list/squad)
-	blackboard[BB_TDROID_SQUAD_MEMBERS] = squad
-
-/datum/ai_controller/tdroid/proc/LeaveSquad()
-	blackboard[BB_TDROID_SQUAD_MEMBERS] = null
-
-/datum/ai_controller/tdroid/proc/AddToSquad(datum/ai_controller/tdroid/AI)
-	blackboard[BB_TDROID_SQUAD_MEMBERS].Add(AI)
-
-/datum/ai_controller/tdroid/proc/RemoveFromSquad(datum/ai_controller/tdroid/AI)
-	blackboard[BB_TDROID_SQUAD_MEMBERS].Remove(AI)
-
-
-/datum/ai_controller/tdroid/proc/GetNearestSquadMember()
-	for(var/datum/ai_controller/AI in blackboard[BB_TDROID_SQUAD_MEMBERS])
-		if(!AI.pawn)
-			continue
-
-*/
 /datum/ai_controller/tdroid/proc/GenSquad(range = 5)
 	var/list/cur_members = blackboard[BB_TDROID_SQUAD_MEMBERS]
 	if(cur_members && cur_members.len)
@@ -171,7 +151,6 @@
 	for(var/datum/ai_controller/tdroid/T in new_squad_members)
 		T.blackboard[BB_TDROID_SQUAD_MEMBERS] = new_squad_members
 	return new_squad_members
-
 
 /////////////////////////////////чеки
 
@@ -228,7 +207,7 @@
 			continue
 		if(!carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(RIGHT_HANDS)))
 			return FALSE
-		if(!carbon_pawn.dropItemToGround())
+		if(!carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(LEFT_HANDS)))
 			return FALSE
 		G.attack_hand(carbon_pawn)
 		return TRUE
