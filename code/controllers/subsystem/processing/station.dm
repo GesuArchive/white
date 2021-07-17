@@ -1,3 +1,4 @@
+
 PROCESSING_SUBSYSTEM_DEF(station)
 	name = "Станция"
 	init_order = INIT_ORDER_STATION
@@ -18,4 +19,3 @@ PROCESSING_SUBSYSTEM_DEF(station)
 		announcer = new /datum/centcom_announcer/intern //слишком ебёт игроков, не врубать
 */
 	return ..()
-
