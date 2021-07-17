@@ -13,7 +13,7 @@
 	)
 
 /datum/ai_controller/tdroid/TryPossessPawn(atom/new_pawn)
-	if(!ishuman(new_pawn))
+	if(!iscarbon(new_pawn))
 		return AI_CONTROLLER_INCOMPATIBLE
 	var/mob/living/living_pawn = new_pawn
 	RegisterSignal(new_pawn, COMSIG_MOVABLE_MOVED, .proc/on_moved)
@@ -217,15 +217,18 @@
 
 /datum/ai_controller/tdroid/proc/TryArmGun()
 	var/mob/living/carbon/carbon_pawn = pawn
-	if(CanShootGun(locate(/obj/item/gun) in carbon_pawn.held_items))
+	carbon_pawn.swap_hand(RIGHT_HANDS)
+	var/obj/item/gun/potential_gun = locate(/obj/item/gun) in carbon_pawn.held_items
+	if(CanShootGun(potential_gun))
+		if(potential_gun == carbon_pawn.get_item_for_held_index(LEFT_HANDS))
+			carbon_pawn.put_in_r_hand(potential_gun)
 		return TRUE
 	for(var/obj/item/gun/G in (carbon_pawn.contents | view(1, carbon_pawn)))
 		if(!CanShootGun(G))
 			continue
-		carbon_pawn.swap_hand(RIGHT_HANDS)
 		if(!carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(RIGHT_HANDS)))
 			return FALSE
-		if(!carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(LEFT_HANDS)))
+		if(!carbon_pawn.dropItemToGround())
 			return FALSE
 		G.attack_hand(carbon_pawn)
 		return TRUE
