@@ -211,19 +211,21 @@
 	var/mob/living/living_pawn = pawn
 	return (G && G.can_trigger_gun(living_pawn) && G.can_shoot())
 */
+/////////////////////////////////чат впилить не забыть
+
 /////////////////////////////////хз
 
 /datum/ai_controller/tdroid/proc/TryArmGun()
-	var/mob/living/living_pawn = pawn
-	if(CanShootGun(locate(/obj/item/gun) in living_pawn.held_items))
+	var/mob/living/carbon/carbon_pawn = pawn
+	if(CanShootGun(locate(/obj/item/gun) in carbon_pawn.held_items))
 		return TRUE
-	for(var/obj/item/gun/G in (living_pawn.contents & view(1, living_pawn)))
+	for(var/obj/item/gun/G in (carbon_pawn.contents & view(1, carbon_pawn)))
 		if(!CanShootGun(G))
 			continue
-		living_pawn.swap_hand(RIGHT_HANDS)
-		if(!living_pawn.put_in_r_hand(G))
-			living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(RIGHT_HANDS))
-			if(living_pawn.put_in_r_hand(G))
+		carbon_pawn.swap_hand(RIGHT_HANDS)
+		if(!carbon_pawn.put_in_hand(G, carbon_pawn.get_empty_held_index_for_side(RIGHT_HANDS), FALSE, FALSE))
+			carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(RIGHT_HANDS))
+			if(carbon_pawn.put_in_hand(G, carbon_pawn.get_empty_held_index_for_side(RIGHT_HANDS, FALSE, FALSE)))
 				return TRUE
 			continue
 		return TRUE
