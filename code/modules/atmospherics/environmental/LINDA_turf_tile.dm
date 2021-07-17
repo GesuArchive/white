@@ -165,6 +165,22 @@
 		if(gas_overlay && air.get_moles(id) > gas_meta[META_GAS_MOLES_VISIBLE])
 			new_overlay_types += gas_overlay[min(TOTAL_VISIBLE_STATES, CEILING(air.get_moles(id) / MOLES_GAS_VISIBLE_STEP, 1))]
 
+	if(air?.return_temperature() && (icon_temperature > 500 || air.return_temperature() > 500)) //glow starts at 500K
+		if(abs(air.return_temperature() - icon_temperature) > 10)
+			icon_temperature = air.return_temperature()
+
+			var/h_r = heat2colour_r(icon_temperature)
+			var/h_g = heat2colour_g(icon_temperature)
+			var/h_b = heat2colour_b(icon_temperature)
+
+			if(icon_temperature < 2000)//scale glow until 2000K
+				var/scale = (icon_temperature - 500) / 1500
+				h_r = 64 + (h_r - 64) * scale
+				h_g = 64 + (h_g - 64) * scale
+				h_b = 64 + (h_b - 64) * scale
+
+			animate(src, color = rgb(h_r, h_g, h_b), time = 20, easing = SINE_EASING)
+
 	if (atmos_overlay_types)
 		for(var/overlay in atmos_overlay_types-new_overlay_types) //doesn't remove overlays that would only be added
 			vis_contents -= overlay
