@@ -1171,4 +1171,4 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 
 /datum/smite/cumjar/effect(client/user, mob/living/target)
 	. = ..()
-	new /obj/item/cum_jar(C.mob)
+	new /obj/item/cum_jar(target)
