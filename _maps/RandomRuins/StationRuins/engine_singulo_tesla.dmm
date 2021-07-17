@@ -399,9 +399,10 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "bm" = (
+/obj/machinery/power/tesla_coil,
 /obj/structure/cable,
-/obj/item/wrench,
-/turf/open/floor/plating,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bn" = (
 /obj/machinery/power/grounding_rod,
@@ -583,7 +584,7 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "bN" = (
-/obj/item/weldingtool,
+/obj/item/wrench,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "bO" = (
@@ -604,11 +605,8 @@
 /turf/open/floor/plating,
 /area/engine/engineering)
 "bR" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/power/tesla_coil,
-/turf/open/floor/engine,
+/obj/item/weldingtool,
+/turf/open/floor/plating,
 /area/engine/engineering)
 "bU" = (
 /obj/structure/grille,
@@ -620,11 +618,11 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "bX" = (
-/obj/item/screwdriver,
+/obj/item/wirecutters,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "bY" = (
-/obj/item/wirecutters,
+/obj/item/screwdriver,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "bZ" = (
@@ -887,6 +885,7 @@
 /turf/open/floor/plating/airless,
 /area/engine/engineering)
 "yz" = (
+/obj/machinery/power/tesla_coil,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -1387,13 +1386,13 @@ aE
 bD
 bD
 aI
-aI
+bm
 yz
-aI
+bm
 bn
-bR
-bR
-bR
+zz
+zz
+zz
 Ia
 zz
 BT
@@ -1561,9 +1560,9 @@ YT
 YT
 YT
 YT
-YT
+bY
 dz
-bX
+YT
 Zf
 bZ
 ad
@@ -1581,7 +1580,7 @@ bA
 bd
 bf
 OM
-bm
+bE
 dz
 YT
 YT
@@ -1640,7 +1639,7 @@ OM
 bE
 dz
 YT
-YT
+bN
 Bx
 GV
 YP
@@ -1700,10 +1699,10 @@ YT
 YT
 YT
 YT
-YT
+bX
 YT
 dz
-bY
+YT
 Zf
 bZ
 ad
@@ -1725,7 +1724,7 @@ bE
 dz
 YT
 YT
-YT
+bR
 YT
 YT
 YT
@@ -1781,7 +1780,7 @@ bE
 YT
 YT
 YT
-bN
+YT
 YT
 YT
 YT

@@ -3,7 +3,9 @@
 /turf/open/openspace/airless,
 /area/space)
 "aab" = (
-/obj/effect/landmark/stationroom/brig/random,
+/obj/effect/landmark/stationroom/brig{
+	icon_state = "default_brig"
+	},
 /turf/closed/wall,
 /area/maintenance/port/fore)
 "aac" = (
@@ -21,11 +23,11 @@
 /turf/open/floor/wood,
 /area/maintenance/port/aft)
 "aah" = (
-/obj/effect/landmark/stationroom/bridge/random,
+/obj/effect/landmark/stationroom/bridge,
 /turf/closed/wall,
 /area/security/checkpoint/supply)
 "aai" = (
-/obj/effect/landmark/stationroom/maintenance/rdm11x14_sw,
+/obj/effect/landmark/stationroom/maint_sw,
 /turf/open/openspace/airless,
 /area/space)
 "aaj" = (
@@ -259,7 +261,7 @@
 /turf/open/floor/plasteel,
 /area/crew_quarters/fitness)
 "aaY" = (
-/obj/effect/landmark/stationroom/engine/random,
+/obj/effect/landmark/stationroom/engine,
 /turf/open/openspace/airless,
 /area/space)
 "abs" = (
@@ -13688,7 +13690,7 @@
 /turf/open/floor/plating,
 /area/maintenance/fore/secondary)
 "bgv" = (
-/obj/effect/landmark/stationroom/maintenance/rdm3x3,
+/obj/effect/landmark/stationroom/maint/rdm3x3,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "bgA" = (
@@ -18986,6 +18988,11 @@
 	},
 /turf/closed/wall/r_wall,
 /area/science/mixing/chamber)
+"bGT" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/lattice/catwalk,
+/turf/open/openspace/airless,
+/area/space/nearstation)
 "bGY" = (
 /obj/structure/table,
 /obj/item/cartridge/signal/toxins{
@@ -39646,7 +39653,7 @@
 /area/hallway/secondary/entry)
 "qiq" = (
 /obj/structure/cable,
-/obj/effect/landmark/stationroom/medbay/random,
+/obj/effect/landmark/stationroom/medbay,
 /turf/open/floor/plasteel/monofloor,
 /area/engine/atmos)
 "qjT" = (
@@ -43849,7 +43856,7 @@
 /turf/closed/wall,
 /area/lawoffice)
 "wyU" = (
-/obj/effect/landmark/stationroom/bar/random,
+/obj/effect/landmark/stationroom/bar,
 /turf/open/openspace/airless,
 /area/space)
 "wyV" = (
@@ -82650,7 +82657,7 @@ eRz
 eRz
 gXs
 nXv
-nXv
+bGT
 bgu
 hnW
 hnW

@@ -1299,13 +1299,6 @@
 /obj/machinery/light/floor,
 /turf/open/floor/engine,
 /area/engine/engineering)
-"Rg" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/structure/closet/emcloset/anchored,
-/turf/open/floor/plating,
-/area/maintenance/aft/upper)
 "SZ" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /turf/open/floor/plating,
@@ -1627,7 +1620,7 @@ ab
 ag
 eB
 DN
-Rg
+Vv
 zX
 uB
 zX

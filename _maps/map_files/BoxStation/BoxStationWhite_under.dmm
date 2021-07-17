@@ -34,11 +34,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
-"am" = (
-/obj/structure/lattice,
-/obj/effect/landmark/stationroom/engine/default/bottom,
-/turf/open/space/basic,
-/area/space/nearstation)
 "ao" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -344,6 +339,13 @@
 /obj/machinery/modular_computer/console/preset/civilian,
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/meeting_room)
+"bn" = (
+/obj/effect/turf_decal/stripes/line,
+/mob/living/simple_animal/bot/atmosbot{
+	auto_patrol = 0
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/secondary/entry)
 "bo" = (
 /obj/machinery/light_switch{
 	pixel_x = 8;
@@ -622,7 +624,7 @@
 /turf/open/floor/plating,
 /area/ai_monitored/turret_protected/ai)
 "ci" = (
-/obj/effect/landmark/stationroom/maintenance/rdm5x4,
+/obj/effect/landmark/stationroom/maint/rdm5x4,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
 "cj" = (
@@ -990,7 +992,7 @@
 /turf/open/floor/plasteel/monofloor,
 /area/ai_monitored/storage/eva)
 "dB" = (
-/obj/effect/landmark/stationroom/maintenance/rdm3x5,
+/obj/effect/landmark/stationroom/maint/rdm3x5,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "dC" = (
@@ -1495,7 +1497,7 @@
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry)
 "fx" = (
-/obj/effect/landmark/stationroom/maintenance/rdm10x10,
+/obj/effect/landmark/stationroom/maint/rdm10x10,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "fC" = (
@@ -1787,7 +1789,7 @@
 /turf/open/floor/engine,
 /area/science/xenobiology)
 "gQ" = (
-/obj/effect/landmark/stationroom/maintenance/rdm5x4,
+/obj/effect/landmark/stationroom/maint/rdm5x4,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "gR" = (
@@ -2392,7 +2394,7 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "iU" = (
-/obj/effect/landmark/stationroom/maintenance/rdm5x4,
+/obj/effect/landmark/stationroom/maint/rdm5x4,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "iW" = (
@@ -3551,7 +3553,7 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "mS" = (
-/obj/effect/landmark/stationroom/maintenance/rdm5x3,
+/obj/effect/landmark/stationroom/maint/rdm5x3,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
 "mT" = (
@@ -3711,13 +3713,6 @@
 /obj/structure/cable,
 /turf/open/floor/circuit,
 /area/tcommsat/server/upper)
-"nt" = (
-/obj/machinery/camera/autoname{
-	dir = 5
-	},
-/obj/structure/closet/emcloset,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/south)
 "nv" = (
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/purple{
@@ -3806,7 +3801,7 @@
 /turf/closed/wall/r_wall,
 /area/crew_quarters/fitness/kachalka)
 "nM" = (
-/obj/effect/landmark/stationroom/maintenance/rdm3x3,
+/obj/effect/landmark/stationroom/maint/rdm3x3,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "nN" = (
@@ -3842,11 +3837,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/exploration_prep)
-"nQ" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/structure/cable,
-/turf/open/floor/plasteel/dark,
-/area/maintenance/bottom_station_maints/south)
 "nR" = (
 /obj/structure/table,
 /obj/item/storage/fancy/egg_box,
@@ -3879,16 +3869,6 @@
 "oa" = (
 /turf/closed/wall/rust,
 /area/maintenance/space_hut/plasmaman)
-"ob" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints)
 "oc" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -4240,17 +4220,12 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/security/execution/transfer)
-"pm" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/south)
 "pp" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/carpet/cyan,
 /area/crew_quarters/dorms)
 "pq" = (
-/obj/effect/landmark/stationroom/maintenance/rdm10x5,
+/obj/effect/landmark/stationroom/maint/rdm10x5,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "pr" = (
@@ -4278,7 +4253,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "pt" = (
@@ -4474,7 +4448,7 @@
 /turf/open/floor/engine,
 /area/science/research/abandoned)
 "qg" = (
-/obj/effect/landmark/stationroom/maintenance/rdm10x10,
+/obj/effect/landmark/stationroom/maint/rdm10x10,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "qh" = (
@@ -4720,7 +4694,7 @@
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/exploration_prep)
 "qQ" = (
-/obj/effect/landmark/stationroom/maintenance/rdm5x3,
+/obj/effect/landmark/stationroom/maint/rdm5x3,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "qR" = (
@@ -4955,7 +4929,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/effect/landmark/stationroom/medbay/default/bottom,
 /turf/open/floor/plating/rust,
 /area/maintenance/bottom_station_maints)
 "rN" = (
@@ -5569,7 +5542,7 @@
 /turf/open/floor/plating,
 /area/maintenance/space_hut)
 "tG" = (
-/obj/effect/landmark/stationroom/maintenance/rdm3x3,
+/obj/effect/landmark/stationroom/maint/rdm3x3,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "tH" = (
@@ -5649,7 +5622,7 @@
 /turf/open/floor/carpet/donk,
 /area/crew_quarters/dorms)
 "tW" = (
-/obj/effect/landmark/stationroom/maintenance/rdm3x5,
+/obj/effect/landmark/stationroom/maint/rdm3x5,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "tX" = (
@@ -6397,11 +6370,6 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hydroponics)
-"wI" = (
-/obj/structure/lattice,
-/obj/effect/landmark/stationroom/bridge/default/bottom,
-/turf/open/space/basic,
-/area/space/nearstation)
 "wJ" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
@@ -7526,15 +7494,6 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/quartermaster/warehouse)
-"Bc" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 4;
-	req_access_txt = "12"
-	},
-/obj/machinery/door/firedoor,
-/turf/open/floor/plating,
-/turf/open/floor/plasteel/monofloor/dark,
-/area/maintenance/bottom_station_maints)
 "Bf" = (
 /obj/structure/table,
 /obj/item/rack_parts,
@@ -9786,21 +9745,6 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
-"JR" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance{
-	dir = 4;
-	req_access_txt = "12"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/south)
 "JS" = (
 /obj/machinery/camera/autoname{
 	dir = 8
@@ -11581,7 +11525,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "Qn" = (
@@ -12285,12 +12228,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/warehouse)
-"SJ" = (
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/south)
 "SL" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 4
@@ -12811,7 +12748,7 @@
 /turf/open/floor/plating,
 /area/security/prison)
 "Uz" = (
-/obj/effect/landmark/stationroom/maintenance/rdm5x3,
+/obj/effect/landmark/stationroom/maint/rdm5x3,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "UB" = (
@@ -12942,7 +12879,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/quartermaster/warehouse)
 "Vf" = (
-/obj/effect/landmark/stationroom/maintenance/rdm5x3,
+/obj/effect/landmark/stationroom/maint/rdm5x3,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "Vg" = (
@@ -13366,16 +13303,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/prison)
-"WN" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/south)
 "WP" = (
 /obj/structure/ladder,
 /turf/open/floor/plasteel/monofloor/dark,
@@ -13639,13 +13566,6 @@
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel,
 /area/security/prison/safe)
-"XG" = (
-/obj/machinery/airalarm{
-	pixel_y = 23
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/south)
 "XH" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -24942,7 +24862,7 @@ bw
 PG
 OI
 JY
-oE
+bn
 TS
 Vv
 Zm
@@ -38129,10 +38049,10 @@ Np
 VC
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
+PG
+PG
+PG
+PG
 Zm
 Zm
 Zm
@@ -38152,7 +38072,7 @@ Zm
 bw
 bw
 bw
-am
+PG
 Zm
 Zm
 Zm
@@ -38605,7 +38525,7 @@ Zm
 Zm
 bw
 Zm
-wI
+PG
 PG
 bw
 PG
@@ -41978,7 +41898,7 @@ SF
 Np
 ye
 SF
-SJ
+SF
 hc
 SF
 SF
@@ -42260,7 +42180,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 bw
 bw
 bw
@@ -43009,7 +42929,7 @@ Np
 Va
 ye
 Np
-nQ
+SF
 Zm
 Zm
 Zm
@@ -43266,7 +43186,7 @@ Np
 Np
 ye
 Np
-oz
+SF
 Zm
 Zm
 Zm
@@ -43523,7 +43443,7 @@ Np
 Np
 RT
 Np
-oz
+SF
 Zm
 Zm
 Zm
@@ -43545,7 +43465,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 bw
 jb
 bw
@@ -43780,7 +43700,7 @@ Np
 Np
 ye
 Np
-oz
+SF
 Zm
 Zm
 Zm
@@ -43802,7 +43722,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 bw
 jb
 PG
@@ -44032,12 +43952,12 @@ ye
 ye
 EM
 Np
+Np
+Np
 ye
 ye
 ye
-ye
-ye
-XG
+hc
 Zm
 Zm
 Zm
@@ -44289,12 +44209,12 @@ Np
 Np
 EM
 Np
-ye
 Np
 Np
 Np
-nt
-oz
+Np
+Np
+SF
 Zm
 Zm
 Zm
@@ -44316,7 +44236,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 bw
 bw
 bw
@@ -44544,14 +44464,14 @@ Np
 Np
 Np
 Np
-WN
-oz
-pm
-oz
-oz
-oz
-oz
-oz
+EM
+SF
+SF
+SF
+SF
+SF
+SF
+SF
 Zm
 Zm
 Zm
@@ -44573,7 +44493,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 bw
 jb
 bw
@@ -44801,14 +44721,14 @@ ye
 Np
 Np
 ye
-JR
+Dq
 ye
 ye
 Np
+WT
 Np
 Np
 Np
-SF
 Zm
 Zm
 Zm
@@ -44830,7 +44750,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 bw
 jb
 bw
@@ -45058,13 +44978,13 @@ ye
 ye
 ye
 ye
-ob
+vG
 ln
 ye
 ye
 ye
 ye
-ye
+St
 ye
 Zm
 Zm
@@ -45315,15 +45235,15 @@ CJ
 ln
 ln
 rm
-ob
-ln
-rm
+vG
 ln
 ln
 ln
 ln
-dP
-Zm
+ln
+ln
+ln
+nS
 Zm
 Zm
 Zm
@@ -45572,14 +45492,15 @@ rm
 rm
 CJ
 rm
-ob
-ln
-Bc
+vG
 ln
 ln
 ln
 ln
-dP
+ln
+ln
+ln
+EN
 Zm
 Zm
 Zm
@@ -45600,8 +45521,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
+PG
 bw
 jb
 bw
@@ -45829,15 +45749,15 @@ CJ
 ln
 dP
 rm
-ob
-ln
-rm
+vG
 ln
 ln
 ln
 ln
-dP
-Zm
+ln
+ln
+ln
+nS
 Zm
 Zm
 Zm
@@ -46094,7 +46014,7 @@ nS
 nS
 nS
 nS
-Zm
+nS
 Zm
 Zm
 Zm
@@ -46341,9 +46261,9 @@ wP
 QN
 rm
 ln
-ob
-ob
-ob
+vG
+vG
+vG
 nS
 PG
 PG
@@ -46598,7 +46518,7 @@ wP
 ln
 rm
 ln
-ob
+vG
 rm
 al
 nS
@@ -47112,7 +47032,7 @@ wP
 rm
 ln
 ln
-ob
+vG
 rm
 dP
 nS
@@ -47367,9 +47287,9 @@ rm
 rm
 xU
 Qk
-ob
-ob
-ob
+vG
+vG
+vG
 rm
 dP
 nS

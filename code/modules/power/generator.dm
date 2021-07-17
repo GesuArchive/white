@@ -100,7 +100,7 @@
 /obj/machinery/power/generator/process()
 	//Setting this number higher just makes the change in power output slower, it doesnt actualy reduce power output cause **math**
 	var/power_output = round(lastgen / 10)
-	add_avail(power_output/100)
+	add_avail(power_output/1000)
 	lastgenlev = power_output
 	lastgen -= power_output
 	..()
@@ -117,7 +117,7 @@
 
 		t += "<div class='statusDisplay'>"
 
-		t += "Выход: [DisplayPower(lastgenlev/100)]"
+		t += "Выход: [DisplayPower(lastgenlev/1000)]"
 
 		t += "<BR>"
 
@@ -230,7 +230,7 @@
 	if(!anchored)
 		kill_circs()
 	connect_to_network()
-	to_chat(user, "<span class='notice'>[anchored? "Прикручиваю": "Откручиваю"] [src].</span>")
+	to_chat(user, "<span class='notice'>[anchored?"Прикручиваю":"Откручиваю"] [src].</span>")
 	update_icon()
 	return TRUE
 
@@ -245,7 +245,7 @@
 		return TRUE
 	panel_open = !panel_open
 	I.play_tool_sound(src)
-	to_chat(user, "<span class='notice'>[panel_open? "Открываю": "Закрываю"] панель [src].</span>")
+	to_chat(user, "<span class='notice'>[panel_open?"Открываю":"Закрываю"] панель [src].</span>")
 	update_icon()
 	return TRUE
 
