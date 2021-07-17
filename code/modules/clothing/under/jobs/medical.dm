@@ -17,7 +17,7 @@
 	inhand_icon_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	fitted = FEMALE_UNIFORM_TOP
+	fitted = NO_FEMALE_UNIFORM
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/medical/geneticist
@@ -35,7 +35,7 @@
 	inhand_icon_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
 	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
+	fitted = NO_FEMALE_UNIFORM
 
 /obj/item/clothing/under/rank/medical/virologist
 	desc = "Он изготовлен из специального волокна, которое обеспечивает особую защиту от биологических опасностей. На нём есть полоса звания вирусолога."
@@ -52,8 +52,8 @@
 	inhand_icon_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	fitted = FEMALE_UNIFORM_TOP
 	can_adjust = FALSE
+	fitted = NO_FEMALE_UNIFORM
 
 /obj/item/clothing/under/rank/medical/doctor/nurse
 	desc = "Это комбинезон, который обычно носят медсестры в медицинском отделении."
@@ -99,7 +99,7 @@
 	inhand_icon_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	fitted = FEMALE_UNIFORM_TOP
+	fitted = NO_FEMALE_UNIFORM
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/medical/chemist
@@ -117,7 +117,7 @@
 	inhand_icon_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	fitted = FEMALE_UNIFORM_TOP
+	fitted = NO_FEMALE_UNIFORM
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/medical/paramedic
@@ -154,5 +154,5 @@
 	inhand_icon_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	fitted = FEMALE_UNIFORM_TOP
+	fitted = NO_FEMALE_UNIFORM
 	can_adjust = FALSE
