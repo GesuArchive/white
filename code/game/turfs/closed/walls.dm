@@ -175,7 +175,13 @@
 	if(.)
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
-	to_chat(user, "<span class='notice'>Толкаю стену, но ничего не происходит!</span>")
+	var/turf/turf_one = SSmapping.get_turf_above(get_turf(user))
+	var/turf/turf_two = SSmapping.get_turf_above(src)
+	if(isopenspace(turf_one) && turf_two.density == FALSE)
+		user.forceMove(turf_two)
+		to_chat(user, "<span class='notice'>Взбираюсь по стене наверх...</span>")
+	else
+		to_chat(user, "<span class='notice'>Толкаю стену, но ничего не происходит!</span>")
 	playsound(src, 'sound/weapons/genhit.ogg', 25, TRUE)
 	add_fingerprint(user)
 
