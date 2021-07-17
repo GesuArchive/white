@@ -17,7 +17,7 @@
 			return
 		finish_action(controller, FALSE)
 
-
+//////////////////////////////////////////////////////////////
 
 /datum/ai_behavior/carbon_pickup
 	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT
@@ -76,3 +76,13 @@
 		target.doStrip(pawn, C)
 		return TRUE
 	return FALSE
+
+//////////////////////////////////////////////////////////////
+
+/datum/ai_behavior/carbon_shooting
+
+/datum/ai_behavior/carbon_shooting/perform(delta_time, datum/ai_controller/controller)
+	. = ..()
+
+/datum/ai_behavior/carbon_shooting/finish_action(datum/ai_controller/controller, success)
+	. = ..()
