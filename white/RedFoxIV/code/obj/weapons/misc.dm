@@ -1163,3 +1163,12 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 		GLOB.assblasted_people[asskey] = jointext(asskey_blasts,"|")
 	else
 		GLOB.assblasted_people.Remove(asskey)
+
+
+
+/datum/smite/cumjar
+	name = "Gib"
+
+/datum/smite/cumjar/effect(client/user, mob/living/target)
+	. = ..()
+	new /obj/item/cum_jar(C.mob)
