@@ -329,9 +329,7 @@
 
 /obj/item/gun/proc/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0, aimed=FALSE)
 	if(user)
-		if(check_for_assblast(user, ASSBLAST_WIZARD)) //nice shootin' tex nice shootin' tex nice shootin' tex nice shootin' tex
-			target = pick(orange(2, user))
-		else if(HAS_TRAIT(user, TRAIT_POOR_AIM)) //nice shootin' tex
+		if(HAS_TRAIT(user, TRAIT_POOR_AIM)) //nice shootin' tex
 			target = pick(orange(2, target))
 		SEND_SIGNAL(user, COMSIG_MOB_FIRED_GUN, src, target, params, zone_override)
 
@@ -351,6 +349,10 @@
 		bonus_spread += 25
 	var/randomized_bonus_spread = rand(0, bonus_spread)
 
+	if(check_for_assblast(user, "R_U_A_WIZARD?")) //nice shootin' tex nice shootin' tex nice shootin' tex nice shootin' tex
+		user.emote("spin")
+		randomized_gun_spread = 360
+		randomized_bonus_spread = 0
 	if(burst_size > 1)
 		firing_burst = TRUE
 		for(var/i = 1 to burst_size)
