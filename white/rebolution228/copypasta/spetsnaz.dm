@@ -3,7 +3,7 @@
 	leader_role = /datum/antagonist/ert/spetsnaz/leader
 	teamsize = 5
 	opendoors = FALSE
-	rename_team = "Спецназ ВВ МВД"
+	rename_team = "Спецназ"
 	mission = "Уничтожить особо опасных террористов на станции."
 	polldesc = "группе специального назначения"
 
@@ -33,7 +33,7 @@
 	C.dna.add_mutation(/datum/mutation/human/spaceproof)
 
 /datum/antagonist/ert/spetsnaz
-	name = "Спецназ ВВ МВД"
+	name = "Спецназ"
 	outfit = /datum/outfit/spetsnaz
 	random_names = TRUE
 	role = "Спецназовец"
@@ -42,7 +42,7 @@
 	outfit = /datum/outfit/spetsnaz/grenadier
 
 /datum/antagonist/ert/spetsnaz/leader
-	name = "Лидер Спецназа ВВ МВД"
+	name = "Лидер Спецназа"
 	outfit = /datum/outfit/spetsnaz/leader
 	role = "Лидер Спецназа"
 	leader = TRUE

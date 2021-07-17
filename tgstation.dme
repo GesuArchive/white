@@ -3817,6 +3817,7 @@
 #include "white\rebolution228\copypasta\mutations.dm"
 #include "white\rebolution228\copypasta\spetsnaz.dm"
 #include "white\rebolution228\copypasta\clothing\hats.dm"
+#include "white\rebolution228\copypasta\clothing\suits.dm"
 #include "white\rebolution228\copypasta\clothing\uniform.dm"
 #include "white\rebolution228\copypasta\weapons\reba_guns.dm"
 #include "white\RedFoxIV\code\Crutches_Gigapack.dm"
