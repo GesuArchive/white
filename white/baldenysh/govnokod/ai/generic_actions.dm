@@ -30,16 +30,24 @@
 	var/mob/living/carbon/carbon_pawn = controller.pawn
 	var/obj/item/I = controller.blackboard[item_target_key]
 
+	if(get_dist(carbon_pawn, I) > 1)
+		controller.current_movement_target = I
+		return
+
 	if(iscarbon(I.loc))
 		if(!try_take_off(I, carbon_pawn))
 			finish_action(controller, FALSE)
 			return
 
+	if(get_dist(carbon_pawn, I) > 1) // пох пока так
+		controller.current_movement_target = I
+		return
+
 	if(isturf(I.loc))
 		if(!try_pickup_item(I, carbon_pawn))
 			finish_action(controller, FALSE)
 			return
-	if(should_equip_after)
+	if(should_equip_after && I.loc == carbon_pawn)
 		I.equip_to_best_slot(carbon_pawn)
 	finish_action(controller, TRUE)
 
@@ -50,8 +58,10 @@
 /datum/ai_behavior/carbon_pickup/proc/try_pickup_item(obj/item/target, mob/living/carbon/pawn)
 	if(!target || target.anchored)
 		return FALSE
-	if(!pawn.put_in_hand(target, pawn.get_empty_held_index_for_side(pickup_hand)))
+	pawn.swap_hand(pickup_hand)
+	if(!pawn.dropItemToGround(pawn.get_item_for_held_index(pickup_hand)))
 		return FALSE
+	target.attack_hand(pawn)
 	return TRUE
 
 /datum/ai_behavior/carbon_pickup/proc/try_take_off(obj/item/target, mob/living/carbon/pawn)

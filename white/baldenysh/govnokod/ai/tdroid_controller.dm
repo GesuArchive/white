@@ -223,11 +223,11 @@
 		if(!CanShootGun(G))
 			continue
 		carbon_pawn.swap_hand(RIGHT_HANDS)
-		if(!carbon_pawn.put_in_hand(G, carbon_pawn.get_empty_held_index_for_side(RIGHT_HANDS), FALSE, FALSE))
-			carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(RIGHT_HANDS))
-			if(carbon_pawn.put_in_hand(G, carbon_pawn.get_empty_held_index_for_side(RIGHT_HANDS, FALSE, FALSE)))
-				return TRUE
-			continue
+		if(!carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(RIGHT_HANDS)))
+			return FALSE
+		if(!carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(LEFT_HANDS)))
+			return FALSE
+		G.attack_hand(carbon_pawn)
 		return TRUE
 	return FALSE
 
