@@ -187,7 +187,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		return
 
 	lit = TRUE
-	name = "lit [name]"
+	name = "зажжённая [name]"
 	attack_verb_continuous =  string_list(list("выжигает", "жарит"))
 	attack_verb_simple =  string_list(list("выжигает", "жарит"))
 	hitsound = 'sound/items/welder.ogg'
