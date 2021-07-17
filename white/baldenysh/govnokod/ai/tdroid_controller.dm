@@ -219,7 +219,7 @@
 	var/mob/living/carbon/carbon_pawn = pawn
 	if(CanShootGun(locate(/obj/item/gun) in carbon_pawn.held_items))
 		return TRUE
-	for(var/obj/item/gun/G in (carbon_pawn.contents & view(1, carbon_pawn)))
+	for(var/obj/item/gun/G in (carbon_pawn.contents | view(1, carbon_pawn)))
 		if(!CanShootGun(G))
 			continue
 		carbon_pawn.swap_hand(RIGHT_HANDS)
