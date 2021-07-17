@@ -11,4 +11,4 @@
 	anomaly_path = /obj/effect/anomaly/pyro
 
 /datum/round_event/anomaly/anomaly_pyro/announce(fake)
-	priority_announce("Пирокластическая аномалия обнаружена на сканерах большой дальности. Ожидаемое место: [impact_area.name].", "Аномальная тревога", 'sound/ai/announcer/anomaly.ogg')
+	priority_announce("Пирокластическая аномалия обнаружена на сканерах большой дальности. Ожидаемое место: [impact_area.name].", "Аномальная тревога", 'sound/ai/ru/announcer_synth/anomaly.ogg')

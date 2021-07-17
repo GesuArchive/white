@@ -261,7 +261,7 @@
 			bank_account.adjust_money(-250)
 			to_chat(usr, "<span class='notice'>Запрос отправлен. Со счёта карго было списано 250 кредитов.</span>")
 			usr.log_message("has requested SOBR team from CentCom with reason \"[input]\"", LOG_SAY)
-			priority_announce("Отряд СОБРа был вызван [usr].", "Экстренный запрос",'sound/ai/announcer/alert.ogg')
+			priority_announce("Отряд СОБРа был вызван [usr].", "Экстренный запрос",'sound/ai/ru/announcer_synth/alert.ogg')
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
 			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)
 			sobr_ert_request(input, usr)
@@ -278,7 +278,7 @@
 			bank_account.adjust_money(-500)
 			to_chat(usr, "<span class='notice'>Запрос отправлен. Со счёта карго было списано 500 кредитов.</span>")
 			usr.log_message("has requested the janitor team from CentCom with reason \"[input]\"", LOG_SAY)
-			priority_announce("Отряд уборщиков был вызван [usr].", "Экстренный запрос",'sound/ai/announcer/alert.ogg')//А надо ли оно?
+			priority_announce("Отряд уборщиков был вызван [usr].", "Экстренный запрос",'sound/ai/ru/announcer_synth/alert.ogg')//А надо ли оно?
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
 			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)
 			janitor_ert_request(input, usr)
@@ -295,7 +295,7 @@
 			bank_account.adjust_money(-750)
 			to_chat(usr, "<span class='notice'>Запрос отправлен. Со счёта карго было списано 750 кредитов.</span>")
 			usr.log_message("has requested the engineer team from CentCom with reason \"[input]\"", LOG_SAY)
-			priority_announce("[prob(15) ? "Экстренный отряд таджиков был вызван ":"Ремонтная бригада была вызвана "][usr].", "Экстренный запрос",'sound/ai/announcer/alert.ogg')//tajik = funny
+			priority_announce("[prob(15) ? "Экстренный отряд таджиков был вызван ":"Ремонтная бригада была вызвана "][usr].", "Экстренный запрос",'sound/ai/ru/announcer_synth/alert.ogg')//tajik = funny
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
 			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)
 			engineer_ert_request(input, usr)

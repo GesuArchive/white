@@ -197,7 +197,7 @@
 			namae = "Valtos" // ඞ //
 		M.real_name = namae
 	new /obj/effect/pod_landingzone(landing, columbine_pod)
-	priority_announce("Зафиксированна десантная капсула неизвестной террористической группировки","ТРЕВОГА!", 'sound/ai/announcer/alert.ogg') //мне это так глаза резало, что я не мог не исправить этот viser
+	priority_announce("Зафиксированна десантная капсула неизвестной террористической группировки","ТРЕВОГА!", 'sound/ai/ru/announcer_synth/alert.ogg') //мне это так глаза резало, что я не мог не исправить этот viser
 
 	return SUCCESSFUL_SPAWN
 

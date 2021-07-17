@@ -75,7 +75,7 @@
 	for(var/mob/M in GLOB.joined_player_list)
 		if(isliving(M) && M.client)
 			inc_metabalance(M, 125, reason="Задание выполнено!")
-	priority_announce("Задание успешно выполнено, на счёт снабжения была переведена награда в размере 125000 кредитов. Можете вернуться к своим основным обязанностям.", "Центральное Командование", 'sound/ai/announcer/alert.ogg')
+	priority_announce("Задание успешно выполнено, на счёт снабжения была переведена награда в размере 125000 кредитов. Можете вернуться к своим основным обязанностям.", "Центральное Командование", 'sound/ai/ru/announcer_synth/alert.ogg')
 	return TRUE
 
 /datum/major_mode/collect_items/fail_completion()

@@ -14,7 +14,7 @@
 
 /datum/round_event/stationvania/announce(fake)
 	priority_announce(scramble_message_replace_chars("[station_name()] входит в зону повышенной активности аномалии 4N1-M3.", 50), \
-		 "Произошло 4N1-M3", 'sound/ai/announcer/artificial.ogg')
+		 "Произошло 4N1-M3", 'sound/ai/ru/announcer_synth/artificial.ogg')
 
 /datum/round_event/stationvania/start()
 	for(var/obj/structure/sign/painting/P in world)

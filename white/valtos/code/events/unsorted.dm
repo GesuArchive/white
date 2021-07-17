@@ -16,7 +16,7 @@
 	spawncount = rand(5, 8)
 
 /datum/round_event/syndicate_assault/announce(fake)
-	priority_announce("Синдикат решил ограбить [station_name()]. Нам не удалось задержать их отряд. Держитесь.", "Вторжение на борт", 'sound/ai/announcer/assault.ogg')
+	priority_announce("Синдикат решил ограбить [station_name()]. Нам не удалось задержать их отряд. Держитесь.", "Вторжение на борт", 'sound/ai/ru/announcer_synth/assault.ogg')
 
 
 /datum/round_event/syndicate_assault/start()

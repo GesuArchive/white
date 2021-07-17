@@ -21,7 +21,7 @@ GLOBAL_VAR_INIT(major_mode_active, FALSE)
 	switch(announce_type)
 		if("announce")
 			print_command_report(announce_text, "Срочное задание", announce=FALSE)
-			priority_announce("Станция, вам поручено задание особой важности. Постарайтесь выполнить его точно в срок. Требования распечатаны на всех коммуникационных консолях.", "Срочное задание", 'sound/ai/announcer/alert.ogg')
+			priority_announce("Станция, вам поручено задание особой важности. Постарайтесь выполнить его точно в срок. Требования распечатаны на всех коммуникационных консолях.", "Срочное задание", 'sound/ai/ru/announcer_synth/alert.ogg')
 		if("message")
 			print_command_report(announce_text, "Срочное задание", announce=FALSE)
 

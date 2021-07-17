@@ -1,20 +1,20 @@
 /datum/centcom_announcer/ru_default
-	welcome_sounds = list('sound/ai/sheptun.ogg')
-	alert_sounds = list('sound/ai/announcer/alert.ogg')
-	command_report_sounds = list('sound/ai/announcer/incoming.ogg')
-	event_sounds = list(ANNOUNCER_AIMALF = 'sound/ai/default/aimalf.ogg',
-						ANNOUNCER_ALIENS = 'sound/ai/default/aliens.ogg',
-						ANNOUNCER_ANIMES = 'sound/ai/default/animes.ogg',
-						ANNOUNCER_GRANOMALIES = 'sound/ai/announcer/anomaly.ogg',
-						ANNOUNCER_INTERCEPT = 'sound/ai/default/intercept.ogg',
-						ANNOUNCER_IONSTORM = 'sound/ai/announcer/artificial.ogg',
-						ANNOUNCER_OUTBREAK5 = 'sound/ai/default/outbreak5.ogg',
-						ANNOUNCER_OUTBREAK7 = 'sound/ai/default/outbreak7.ogg',
-						ANNOUNCER_POWEROFF = 'sound/ai/announcer/poweroff.ogg',
-						ANNOUNCER_POWERON = 'sound/ai/default/poweron.ogg',
-						ANNOUNCER_RADIATION = 'sound/ai/default/radiation.ogg',
-						ANNOUNCER_SHUTTLECALLED = 'sound/ai/default/shuttlecalled.ogg',
-						ANNOUNCER_SHUTTLEDOCK = 'sound/ai/default/shuttledock.ogg',
-						ANNOUNCER_SHUTTLERECALLED = 'sound/ai/default/shuttlerecalled.ogg',
-						ANNOUNCER_SPANOMALIES = 'sound/ai/default/spanomalies.ogg',
+	welcome_sounds = list('sound/ai/general/sheptun.ogg')
+	alert_sounds = list('sound/ai/ru/announcer_synth/alert.ogg')
+	command_report_sounds = list('sound/ai/ru/announcer_synth/incoming.ogg')
+	event_sounds = list(ANNOUNCER_AIMALF = 'sound/ai/en/default/aimalf.ogg',
+						ANNOUNCER_ALIENS = 'sound/ai/en/default/aliens.ogg',
+						ANNOUNCER_ANIMES = 'sound/ai/en/default/animes.ogg',
+						ANNOUNCER_GRANOMALIES = 'sound/ai/ru/announcer_synth/anomaly.ogg',
+						ANNOUNCER_INTERCEPT = 'sound/ai/en/default/intercept.ogg',
+						ANNOUNCER_IONSTORM = 'sound/ai/ru/announcer_synth/artificial.ogg',
+						ANNOUNCER_OUTBREAK5 = 'sound/ai/en/default/outbreak5.ogg',
+						ANNOUNCER_OUTBREAK7 = 'sound/ai/en/default/outbreak7.ogg',
+						ANNOUNCER_POWEROFF = 'sound/ai/ru/announcer_synth/poweroff.ogg',
+						ANNOUNCER_POWERON = 'sound/ai/en/default/poweron.ogg',
+						ANNOUNCER_RADIATION = 'sound/ai/en/default/radiation.ogg',
+						ANNOUNCER_SHUTTLECALLED = 'sound/ai/en/default/shuttlecalled.ogg',
+						ANNOUNCER_SHUTTLEDOCK = 'sound/ai/en/default/shuttledock.ogg',
+						ANNOUNCER_SHUTTLERECALLED = 'sound/ai/en/default/shuttlerecalled.ogg',
+						ANNOUNCER_SPANOMALIES = 'sound/ai/en/default/spanomalies.ogg',
 						ANNOUNCER_WAR = 'sound/machines/alarm.ogg',)

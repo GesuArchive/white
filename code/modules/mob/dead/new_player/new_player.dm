@@ -346,7 +346,7 @@
 		if(!arrivals_docked)
 			var/atom/movable/screen/splash/Spl = new(character.client, TRUE)
 			Spl.Fade(TRUE)
-			character.playsound_local(get_turf(character), 'sound/ai/announcer/hello_crew.ogg', 25)
+			character.playsound_local(get_turf(character), 'sound/ai/ru/announcer_synth/_welcome.ogg', 25)
 
 		character.update_parallax_teleport()
 

@@ -11,7 +11,7 @@
 	announceWhen = 10
 
 /datum/round_event/ghost_role/space_dragon/announce(fake)
-	priority_announce("Похоже, приближается форма жизни с признаками магии к [station_name()], пожалуйста, приготовьтесь.", "Вторжение на борт", 'sound/ai/announcer/assault.ogg')
+	priority_announce("Похоже, приближается форма жизни с признаками магии к [station_name()], пожалуйста, приготовьтесь.", "Вторжение на борт", 'sound/ai/ru/announcer_synth/assault.ogg')
 
 /datum/round_event/ghost_role/space_dragon/spawn_role()
 	var/list/spawn_locs = list()
