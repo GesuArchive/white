@@ -569,7 +569,7 @@ SUBSYSTEM_DEF(job)
 	var/equip_needed = J.total_positions
 	if(equip_needed < 0) // -1: infinite available slots
 		equip_needed = 12
-	for(var/i=equip_needed-5, i>0, i--)
+	for(var/i = equip_needed - 5, i > 0, i--)
 		if(GLOB.secequipment.len)
 			var/spawnloc = GLOB.secequipment[1]
 			new /obj/structure/closet/secure_closet/security/sec(spawnloc)

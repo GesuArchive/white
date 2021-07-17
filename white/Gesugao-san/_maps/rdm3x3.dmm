@@ -1,0 +1,11 @@
+"a" = (/obj/effect/turf_decal/stripes/line{dir = 10},/obj/effect/landmark/stationroom/maintenance,/turf/open/openspace/airless,/area/space)
+"n" = (/obj/effect/turf_decal/stripes/line{dir = 9},/turf/open/openspace/airless,/area/space)
+"v" = (/turf/open/openspace/airless,/area/space)
+"Y" = (/obj/effect/turf_decal/stripes/line{dir = 6},/turf/open/openspace/airless,/area/space)
+"Z" = (/obj/effect/turf_decal/stripes/line{dir = 5},/turf/open/openspace/airless,/area/space)
+
+(1,1,1) = {"
+nvZ
+vvv
+avY
+"}
