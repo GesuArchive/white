@@ -129,6 +129,23 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/open/openspace/proc/CanBuildHere()
 	return can_build_on
 
+/turf/open/openspace/attack_hand(mob/user)
+	. = ..()
+	if(.)
+		return
+	if(locate(/obj/structure/lattice) in src)
+		return
+	var/turf/turf_below = SSmapping.get_turf_below(src)
+	if(isopenturf(turf_below))
+		if(do_after(user, 3 SECONDS, target = src))
+			user.forceMove(turf_below)
+			to_chat(user, "<span class='notice'>Аккуратно спускаюсь вниз...</span>")
+			if(!HAS_TRAIT(user, TRAIT_FREERUNNING))
+				if(ishuman(user))
+					var/mob/living/carbon/human/H = user
+					H.adjustStaminaLoss(60)
+					H.set_resting(TRUE)
+
 /turf/open/openspace/attackby(obj/item/C, mob/user, params)
 	..()
 	if(!CanBuildHere())
