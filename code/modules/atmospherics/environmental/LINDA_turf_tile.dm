@@ -37,7 +37,7 @@
 	var/max_share = 0
 	#endif
 	is_openturf = TRUE
-	var/icon_temperature = T20C
+	var/icon/heat_overlay
 
 /turf/open/Initialize()
 	if(!blocks_air)
@@ -158,22 +158,21 @@
 			src.atmos_overlay_types = null
 		return
 
-	if(air.return_temperature() && (icon_temperature > 500 || air.return_temperature() > 500)) //glow starts at 500K
-		if(abs(air.return_temperature() - icon_temperature) > 10)
-			add_atom_colour("#ffffff", FIXED_COLOUR_PRIORITY)
-			icon_temperature = air.return_temperature()
-
-			var/h_r = heat2colour_r(icon_temperature)
-			var/h_g = heat2colour_g(icon_temperature)
-			var/h_b = heat2colour_b(icon_temperature)
-
-			if(icon_temperature < 2000)//scale glow until 2000K
-				var/scale = (icon_temperature - 500) / 1500
-				h_r = 64 + (h_r - 64) * scale
-				h_g = 64 + (h_g - 64) * scale
-				h_b = 64 + (h_b - 64) * scale
-
-			animate(src, color = rgb(h_r, h_g, h_b), time = 20, easing = SINE_EASING)
+	if(air.return_temperature() > 500)
+		cut_overlay(heat_overlay)
+		switch(air.return_temperature())
+			if(500 to 800)
+				heat_overlay = icon('white/valtos/icons/hotlay.dmi', "hot1")
+			if(801 to 1200)
+				heat_overlay = icon('white/valtos/icons/hotlay.dmi', "hot2")
+			if(1201 to 1600)
+				heat_overlay = icon('white/valtos/icons/hotlay.dmi', "hot3")
+			if(1601 to INFINITY)
+				heat_overlay = icon('white/valtos/icons/hotlay.dmi', "hot4")
+		add_overlay(heat_overlay)
+	else if (heat_overlay)
+		cut_overlay(heat_overlay)
+		heat_overlay = null
 
 	for(var/id in air.get_gases())
 		if (nonoverlaying_gases[id])
