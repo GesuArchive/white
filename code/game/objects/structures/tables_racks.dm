@@ -567,7 +567,7 @@
 	smoothing_groups = null
 	canSmoothWith = null
 	can_buckle = 1
-	buckle_lying = NO_BUCKLE_LYING
+	buckle_lying = 90
 	buckle_requires_restraints = TRUE
 	custom_materials = list(/datum/material/silver = 2000)
 	var/mob/living/carbon/human/patient = null
