@@ -34,6 +34,12 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 
 /turf/open/openspace/airless
 	initial_gas_mix = AIRLESS_ATMOS
+	temperature = TCMB
+	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
+	heat_capacity = 700000
+
+/turf/open/openspace/airless/GetHeatCapacity()
+	. = 7000
 
 /turf/open/openspace/airless/GetTemperature()
 	. = 2.7
