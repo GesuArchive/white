@@ -102,7 +102,7 @@
 ///////////////////////////////////////////////////////////////////// gacha drochilnya
 
 /obj/item/firing_pin/catatonic
-	name = "ударник для дэбилов"
+	name = "ударник для дэбов"
 	desc = "Позволяет стрелять только \"гуманоидам\" с айсикью меньше 10."
 	fail_message = "<span class='warning'>ОБНАРУЖЕНА МОЗГОВАЯ АКТИВНОСТЬ.</span>"
 	pin_removeable = FALSE
