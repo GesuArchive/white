@@ -185,7 +185,11 @@
 			return
 		if(do_after(user, 3 SECONDS, target = src))
 			if(isopenturf(turf_two))
-				if(!locate(/obj/structure/window) in turf_two && !locate(/obj/machinery/door) in turf_two)
+				var/obstacles = FALSE
+				for(var/obj/O in turf_two)
+					if(O.density && (istype(O, /obj/structure/window) || istype(O, /obj/machinery/door)))
+						obstacles = TRUE
+				if(!obstacles)
 					user.forceMove(turf_two)
 					if(!HAS_TRAIT(user, TRAIT_FREERUNNING))
 						if(ishuman(user))
@@ -197,13 +201,13 @@
 			user.movement_type |= FLYING
 			user.forceMove(turf_one)
 			to_chat(user, "<span class='notice'>Взбираюсь по стене наверх осторожно...</span>")
-			var/time_to_fall = 3 SECONDS
+			var/time_to_fall = 1 SECONDS
 			if(!HAS_TRAIT(user, TRAIT_FREERUNNING))
 				if(ishuman(user))
 					var/mob/living/carbon/human/H = user
 					H.adjustStaminaLoss(60)
 			else
-				time_to_fall = 6 SECONDS
+				time_to_fall = 2 SECONDS
 			spawn(time_to_fall)
 				user.movement_type &= ~FLYING
 	else
