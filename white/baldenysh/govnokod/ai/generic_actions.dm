@@ -80,9 +80,30 @@
 //////////////////////////////////////////////////////////////
 
 /datum/ai_behavior/carbon_shooting
+	var/shoot_target_key
+	var/gun_hand = RIGHT_HANDS
+	var/required_stat = UNCONSCIOUS
 
-/datum/ai_behavior/carbon_shooting/perform(delta_time, datum/ai_controller/controller)
+/datum/ai_behavior/carbon_shooting/perform(delta_time, datum/ai_controller/controller) //наверное ету хуйню придеца переделывать потом
 	. = ..()
+	var/mob/living/target = controller.blackboard[shoot_target_key]
+	var/mob/living/carbon/carbon_pawn = controller.pawn
+	var/obj/item/gun/G = carbon_pawn.held_items[gun_hand]
+
+	if(!target || target.stat >= required_stat)
+		finish_action(controller, TRUE)
+		return
+	if(!G || !G.can_shoot())
+		finish_action(controller, FALSE)
+		return
+	if(carbon_pawn.next_move > world.time)
+		return
+	carbon_pawn.changeNext_move(CLICK_CD_RAPID)
+	carbon_pawn.face_atom(target)
+	G.process_fire(target, carbon_pawn)
+
+	finish_action(controller, TRUE)
 
 /datum/ai_behavior/carbon_shooting/finish_action(datum/ai_controller/controller, success)
 	. = ..()
+	controller.blackboard[shoot_target_key] = null

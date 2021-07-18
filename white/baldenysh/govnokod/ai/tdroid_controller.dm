@@ -74,34 +74,51 @@
 	else
 		current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/move_to_target/tdroid)
 
+	if(!CanArmGun())
+		if(TryFindGun())
+			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_pickup/tdroid)
+			return
+		/*
+		else if(!CanArmMelee())
+			if(TryFindMelee())
+				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_pickup/tdroid)
+				return
+		*/
+
 	if(HAS_TRAIT(pawn, TRAIT_PACIFISM))
 		return
-
-	//попытаться найти пушку или перо
-
 
 	var/list/enemies = blackboard[BB_TDROID_ENEMIES]
 	if(enemies && enemies.len || blackboard[BB_TDROID_AGGRESSIVE])
 		var/list/mob/living/friends = GetSquadPawns()
 		if(blackboard[BB_TDROID_COMMANDER])
 			friends.Add(blackboard[BB_TDROID_COMMANDER])
-		var/list/mob/living/alive_enemies = list()
+		var/list/mob/living/possible_enemies = list()
 		for(var/mob/living/L in enemies)
 			if(L.stat == DEAD)
 				continue
 			if(blackboard[BB_TDROID_COMMANDER] && IsInCommandersFaction(L) && !blackboard[BB_TDROID_AGGRESSIVE])
 				continue
-			alive_enemies.Add(L)
+			possible_enemies.Add(L)
 		if(blackboard[BB_TDROID_AGGRESSIVE])
-			blackboard[BB_TDROID_INTERACTION_TARGET] = pickweight((alive_enemies | view(9, living_pawn)) - friends)
+			blackboard[BB_TDROID_INTERACTION_TARGET] = pickweight((possible_enemies | view(9, living_pawn)) - friends)
 		else
-			blackboard[BB_TDROID_INTERACTION_TARGET] = pickweight((alive_enemies & view(9, living_pawn)) - friends)
+			blackboard[BB_TDROID_INTERACTION_TARGET] = pickweight((possible_enemies & view(9, living_pawn)) - friends)
 
-	if(!blackboard[BB_TDROID_INTERACTION_TARGET])
+	if(!isliving(blackboard[BB_TDROID_INTERACTION_TARGET]))
 		return
-	//попытаться достать пушку, перезарядить если надо и стрелять
 
-	//или попытаться зачирикать пером
+	if(TryArmGun())
+		if(ShouldReloadHeldGun() && !TryReloadHeldGun())
+			HolsterHeldWeapon()
+			return
+		var/aggro_pts = blackboard[BB_TDROID_ENEMIES][blackboard[BB_TDROID_INTERACTION_TARGET]]
+		if(aggro_pts && aggro_pts > 100)
+			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid/eliminate)
+		else
+			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid)
+		return
+
 
 ///datum/ai_controller/tdroid/PerformIdleBehavior(delta_time)
 //	return
@@ -196,17 +213,32 @@
 	var/mob/living/living_pawn = pawn
 	return !(!CanMove() || HAS_TRAIT(living_pawn, TRAIT_HANDS_BLOCKED) || living_pawn.stat)
 
-/datum/ai_controller/tdroid/proc/CanTriggerGun(obj/item/gun/G)
-	var/mob/living/living_pawn = pawn
-	return (G && G.can_trigger_gun(living_pawn))
-/*
-/datum/ai_controller/tdroid/proc/CanReloadGun(obj/item/gun/G)
-	var/mob/living/living_pawn = pawn
-	return (G && G.can_trigger_gun(living_pawn) && G.can_shoot())
-*/
-/////////////////////////////////чат впилить не забыть
+/datum/ai_controller/tdroid/proc/ShouldUseGun(obj/item/gun/G)
+	return CanTriggerGun(G) && G.can_shoot() //сюда надо бы напихать чеков типа есть ли патроны к ней и можно ли перезарядить, но похуй покашто
 
-/////////////////////////////////хз
+/datum/ai_controller/tdroid/proc/CanTriggerGun(obj/item/gun/G)
+	var/mob/living/carbon/carbon_pawn = pawn
+	return (G && G.can_trigger_gun(carbon_pawn))
+
+/datum/ai_controller/tdroid/proc/CanArmGun()
+	var/mob/living/carbon/carbon_pawn = pawn
+	for(var/obj/item/gun/G in (carbon_pawn.contents | view(1, carbon_pawn)))
+		if(CanTriggerGun(G))
+			return TRUE
+	return FALSE
+
+/datum/ai_controller/tdroid/proc/ShouldReloadHeldGun()
+	var/mob/living/carbon/carbon_pawn = pawn
+	var/obj/item/gun/G = carbon_pawn.held_items[RIGHT_HANDS]
+	if(!G)
+		return TRUE
+	if(!G.can_shoot())
+		return TRUE
+	return FALSE
+
+/////////////////////////////////чат впилить не забыть наверное
+
+/////////////////////////////////грифенк
 
 /datum/ai_controller/tdroid/proc/TryArmGun()
 	var/mob/living/carbon/carbon_pawn = pawn
@@ -227,33 +259,66 @@
 		return TRUE
 	return FALSE
 
+/datum/ai_controller/tdroid/proc/TryReloadHeldGun()
+	var/mob/living/carbon/carbon_pawn = pawn
+	if(!carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(LEFT_HANDS)))
+		return FALSE
+	var/obj/item/gun/G = carbon_pawn.held_items[RIGHT_HANDS]
+	if(!G)
+		return FALSE
+	if(istype(G, /obj/item/gun/ballistic))
+		var/obj/item/gun/ballistic/B = G
+		var/obj/item/ammo_box/magazine/newmag
+		var/last_ammo_count = 0
+		for(var/obj/item/ammo_box/magazine/MAG in (carbon_pawn.contents | view(1, carbon_pawn)))
+			if(MAG.type != B.mag_type)
+				continue
+			var/cur_count = MAG.ammo_count(FALSE)
+			if(cur_count > last_ammo_count)
+				last_ammo_count = cur_count
+				newmag = MAG
+		if(!newmag)
+			return FALSE
+		carbon_pawn.swap_hand(LEFT_HANDS)
+		if(B.magazine)
+			B.magazine.attack_hand(carbon_pawn)
+			if(!carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(LEFT_HANDS)))
+				return FALSE
+		newmag.attack_hand(carbon_pawn)
+		B.attack_hand(carbon_pawn)
+		carbon_pawn.swap_hand(RIGHT_HANDS)
+		return TRUE
+	return FALSE
+
 /datum/ai_controller/tdroid/proc/TryFindGun(range = 5)
 	var/mob/living/living_pawn = pawn
 	for(var/obj/item/gun/G in view(range, living_pawn))
-		if(!CanTriggerGun(G))
+		if(!ShouldUseGun(G))
 			continue
 		blackboard[BB_TDROID_FOLLOW_TARGET] = G
-		current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_pickup/tdroid)
+		blackboard[BB_TDROID_INTERACTION_TARGET] = G
 		return TRUE
 	for(var/mob/living/carbon/C in view(range, living_pawn))
 		if(C.stat < 2)
 			continue
 		for(var/obj/item/gun/G in C.contents)
-			if(!CanTriggerGun(G))
+			if(!ShouldUseGun(G))
 				continue
 			if(!G.canStrip(living_pawn, C))
 				continue
 			blackboard[BB_TDROID_FOLLOW_TARGET] = G
-			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_pickup/tdroid)
+			blackboard[BB_TDROID_INTERACTION_TARGET] = G
 			return TRUE
 	return FALSE
 
-/datum/ai_controller/tdroid/proc/HolsterWeapon()
+/datum/ai_controller/tdroid/proc/HolsterHeldWeapon()
 	var/mob/living/carbon/carbon_pawn = pawn
 	var/obj/item/I = carbon_pawn.held_items[RIGHT_HANDS]
 	if(!I)
 		return
 	I.equip_to_best_slot(carbon_pawn)
+
+/////////////////////////////////хз
 
 /datum/ai_controller/tdroid/proc/InitiateReset()
 	var/mob/living/living_pawn = pawn
@@ -270,7 +335,7 @@
 			order = "java.lang.NullPointerException at com.tacticalcore.order.ExecuteOrder.main(ExecuteOrder.java:419)"
 	living_pawn.say("Директива [order]")
 
-/datum/ai_controller/tdroid/proc/AgressionReact(mob/agressor, severity = 25)
+/datum/ai_controller/tdroid/proc/AgressionReact(mob/agressor, severity = 30)
 	if(IsCommander(agressor) || IsSquadMember(agressor))
 		return
 	var/list/enemies = blackboard[BB_TDROID_ENEMIES]
