@@ -1167,7 +1167,7 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 
 
 /datum/smite/cumjar
-	name = "Gib"
+	name = "Cumjar"
 
 /datum/smite/cumjar/effect(client/user, mob/living/target)
 	. = ..()
