@@ -84,7 +84,7 @@
 	var/gun_hand = RIGHT_HANDS
 	var/required_stat = UNCONSCIOUS
 
-/datum/ai_behavior/carbon_shooting/perform(delta_time, datum/ai_controller/controller) //наверное ету хуйню придеца переделывать потом
+/datum/ai_behavior/carbon_shooting/perform(delta_time, datum/ai_controller/controller)
 	. = ..()
 	var/mob/living/target = controller.blackboard[shoot_target_key]
 	var/mob/living/carbon/carbon_pawn = controller.pawn
@@ -100,10 +100,52 @@
 		return
 	carbon_pawn.changeNext_move(CLICK_CD_RAPID)
 	carbon_pawn.face_atom(target)
-	G.process_fire(target, carbon_pawn)
+	G.process_fire(target, carbon_pawn) //наверное ету хуйню можно лучше сделать
 
 	finish_action(controller, TRUE)
 
 /datum/ai_behavior/carbon_shooting/finish_action(datum/ai_controller/controller, success)
 	. = ..()
 	controller.blackboard[shoot_target_key] = null
+
+//////////////////////////////////////////////////////////////
+
+/datum/ai_behavior/carbon_ballistic_reload
+	var/ballistic_target_key
+	var/reloading_hand = LEFT_HANDS
+
+/datum/ai_behavior/carbon_ballistic_reload/perform(delta_time, datum/ai_controller/controller)
+	. = ..()
+	var/mob/living/carbon/carbon_pawn = controller.pawn
+	var/obj/item/gun/ballistic/B = controller.blackboard[ballistic_target_key]
+
+	if(istype(B.magazine, /obj/item/ammo_box/magazine/internal))
+		finish_action(controller, FALSE)
+		return // мб потом запилю
+	else
+		var/obj/item/ammo_box/magazine/newmag
+		var/last_ammo_count = 0
+		for(var/obj/item/ammo_box/magazine/MAG in (carbon_pawn.contents | view(1, carbon_pawn)))
+			if(MAG.type != B.mag_type)
+				continue
+			var/cur_count = MAG.ammo_count(FALSE)
+			if(cur_count > last_ammo_count)
+				last_ammo_count = cur_count
+				newmag = MAG
+		if(!newmag)
+			finish_action(controller, FALSE)
+			return
+		carbon_pawn.swap_hand(reloading_hand)
+		if(carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(reloading_hand)))
+			newmag.attack_hand(carbon_pawn)
+			B.attackby(newmag, carbon_pawn) //через аттак хенд хреново работает
+			if(!B.chambered)
+				B.attack_self(carbon_pawn)
+			finish_action(controller, TRUE)
+			return
+	finish_action(controller, FALSE)
+	return
+
+/datum/ai_behavior/carbon_ballistic_reload/finish_action(datum/ai_controller/controller, success)
+	. = ..()
+	controller.blackboard[ballistic_target_key] = null

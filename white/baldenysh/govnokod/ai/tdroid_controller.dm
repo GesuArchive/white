@@ -94,31 +94,38 @@
 		if(blackboard[BB_TDROID_COMMANDER])
 			friends.Add(blackboard[BB_TDROID_COMMANDER])
 
-		var/list/mob/living/possible_enemies = list()
+		var/list/mob/living/alive_enemies = list()
 		for(var/mob/living/L in enemies)
 			if(L.stat == DEAD)
 				continue
-			possible_enemies.Add(L)
+			alive_enemies.Add(L)
 
 		var/list/mob/living/possible_targets = list()
 		for(var/mob/living/L in view(9, living_pawn))
 			if(L.stat == DEAD)
 				continue
-			if(blackboard[BB_TDROID_COMMANDER] && IsInCommandersFaction(L) && !blackboard[BB_TDROID_AGGRESSIVE])
+			if(blackboard[BB_TDROID_COMMANDER] && IsInCommandersFaction(L) && !(L in alive_enemies) && !blackboard[BB_TDROID_AGGRESSIVE])
 				continue
 			possible_targets.Add(L)
 
+		var/list/mob/living/targets
 		if(blackboard[BB_TDROID_AGGRESSIVE])
-			blackboard[BB_TDROID_INTERACTION_TARGET] = pickweight((possible_enemies | possible_targets) - friends)
+			targets = alive_enemies | possible_targets
 		else
-			blackboard[BB_TDROID_INTERACTION_TARGET] = pickweight((possible_enemies & possible_targets) - friends)
+			targets = alive_enemies & possible_targets
+		targets = targets - living_pawn - friends
+
+		blackboard[BB_TDROID_INTERACTION_TARGET] = pickweight(targets)
 
 	if(!isliving(blackboard[BB_TDROID_INTERACTION_TARGET]))
+		TryHolsterHeldWeapon()
 		return
 
-	if(TryArmGun())
-		if(ShouldReloadHeldGun() && !TryReloadHeldGun())
-			HolsterHeldWeapon()
+	var/obj/item/gun/armed_gun = TryArmGun()
+	if(armed_gun)
+		if(ShouldReloadGun(armed_gun))
+			blackboard[BB_TDROID_INTERACTION_TARGET] = armed_gun
+			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_ballistic_reload/tdroid)
 			return
 		var/aggro_pts = blackboard[BB_TDROID_ENEMIES][blackboard[BB_TDROID_INTERACTION_TARGET]]
 		if(aggro_pts && aggro_pts > 100)
@@ -235,9 +242,7 @@
 			return TRUE
 	return FALSE
 
-/datum/ai_controller/tdroid/proc/ShouldReloadHeldGun()
-	var/mob/living/carbon/carbon_pawn = pawn
-	var/obj/item/gun/G = carbon_pawn.held_items[RIGHT_HANDS]
+/datum/ai_controller/tdroid/proc/ShouldReloadGun(obj/item/gun/G)
 	if(!G)
 		return TRUE
 	if(!G.can_shoot())
@@ -255,51 +260,51 @@
 	if(CanTriggerGun(potential_gun))
 		if(potential_gun == carbon_pawn.get_item_for_held_index(LEFT_HANDS))
 			carbon_pawn.put_in_r_hand(potential_gun)
-		return TRUE
+		return potential_gun
 	for(var/obj/item/gun/G in (carbon_pawn.contents | view(1, carbon_pawn)))
 		if(!CanTriggerGun(G))
 			continue
 		if(!carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(RIGHT_HANDS)))
-			return FALSE
+			return
 		if(!carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(LEFT_HANDS)))
-			return FALSE
+			return
 		INVOKE_ASYNC(G, "attack_hand", carbon_pawn)
-		return TRUE
-	return FALSE
+		return G
+	return
 
+/*
 /datum/ai_controller/tdroid/proc/SwapMags(mob/living/carbon/pawn, obj/item/gun/ballistic/gun, obj/item/ammo_box/magazine/newmag)
 	pawn.swap_hand(LEFT_HANDS)
-	if(gun.magazine)
-		gun.magazine.attack_hand(pawn)
-		pawn.dropItemToGround(pawn.get_item_for_held_index(LEFT_HANDS))
+	pawn.dropItemToGround(pawn.get_item_for_held_index(LEFT_HANDS))
 	newmag.attack_hand(pawn)
 	gun.attack_hand(pawn)
+	gun.attack_self(pawn)
 	pawn.swap_hand(RIGHT_HANDS)
 
-/datum/ai_controller/tdroid/proc/TryReloadHeldGun()
+/datum/ai_controller/tdroid/proc/TryReloadGun(obj/item/gun/G)
 	var/mob/living/carbon/carbon_pawn = pawn
-	if(!carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(LEFT_HANDS)))
-		return FALSE
-	var/obj/item/gun/G = carbon_pawn.held_items[RIGHT_HANDS]
 	if(!G)
 		return FALSE
 	if(istype(G, /obj/item/gun/ballistic))
 		var/obj/item/gun/ballistic/B = G
-		var/obj/item/ammo_box/magazine/newmag
-		var/last_ammo_count = 0
-		for(var/obj/item/ammo_box/magazine/MAG in (carbon_pawn.contents | view(1, carbon_pawn)))
-			if(MAG.type != B.mag_type)
-				continue
-			var/cur_count = MAG.ammo_count(FALSE)
-			if(cur_count > last_ammo_count)
-				last_ammo_count = cur_count
-				newmag = MAG
-		if(!newmag)
-			return FALSE
-		INVOKE_ASYNC(src, .proc/SwapMags, carbon_pawn, B, newmag)
-		return TRUE
+		if(istype(B.magazine, /obj/item/ammo_box/magazine/internal))
+			return // мб потом запилю, надо отдельный прок для перезарядки магазинов в принципе
+		else
+			var/obj/item/ammo_box/magazine/newmag
+			var/last_ammo_count = 0
+			for(var/obj/item/ammo_box/magazine/MAG in (carbon_pawn.contents | view(1, carbon_pawn)))
+				if(MAG.type != B.mag_type)
+					continue
+				var/cur_count = MAG.ammo_count(FALSE)
+				if(cur_count > last_ammo_count)
+					last_ammo_count = cur_count
+					newmag = MAG
+			if(!newmag)
+				return FALSE
+			INVOKE_ASYNC(src, .proc/SwapMags, carbon_pawn, B, newmag)
+			return TRUE
 	return FALSE
-
+*/
 /datum/ai_controller/tdroid/proc/TryFindGun(range = 5)
 	var/mob/living/living_pawn = pawn
 	for(var/obj/item/gun/G in view(range, living_pawn))
@@ -321,7 +326,7 @@
 			return TRUE
 	return FALSE
 
-/datum/ai_controller/tdroid/proc/HolsterHeldWeapon()
+/datum/ai_controller/tdroid/proc/TryHolsterHeldWeapon()
 	var/mob/living/carbon/carbon_pawn = pawn
 	var/obj/item/I = carbon_pawn.held_items[RIGHT_HANDS]
 	if(!I)
