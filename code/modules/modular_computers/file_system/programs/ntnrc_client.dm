@@ -23,8 +23,6 @@
 	username = "Пользователь #[rand(100, 999)]"
 
 /datum/computer_file/program/chatclient/Destroy()
-	for(var/datum/ntnet_conversation/discussion as anything in conversations)
-		discussion.purge_client(src)
 	conversations.Cut()
 	return ..()
 
