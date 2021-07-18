@@ -263,9 +263,18 @@
 			return FALSE
 		if(!carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(LEFT_HANDS)))
 			return FALSE
-		G.attack_hand(carbon_pawn)
+		INVOKE_ASYNC(G, "attack_hand", carbon_pawn)
 		return TRUE
 	return FALSE
+
+/datum/ai_controller/tdroid/proc/SwapMags(mob/living/carbon/pawn, obj/item/gun/ballistic/gun, obj/item/ammo_box/magazine/newmag)
+	pawn.swap_hand(LEFT_HANDS)
+	if(gun.magazine)
+		gun.magazine.attack_hand(pawn)
+		pawn.dropItemToGround(pawn.get_item_for_held_index(LEFT_HANDS))
+	newmag.attack_hand(pawn)
+	gun.attack_hand(pawn)
+	pawn.swap_hand(RIGHT_HANDS)
 
 /datum/ai_controller/tdroid/proc/TryReloadHeldGun()
 	var/mob/living/carbon/carbon_pawn = pawn
@@ -287,14 +296,7 @@
 				newmag = MAG
 		if(!newmag)
 			return FALSE
-		carbon_pawn.swap_hand(LEFT_HANDS)
-		if(B.magazine)
-			B.magazine.attack_hand(carbon_pawn)
-			if(!carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(LEFT_HANDS)))
-				return FALSE
-		newmag.attack_hand(carbon_pawn)
-		B.attack_hand(carbon_pawn)
-		carbon_pawn.swap_hand(RIGHT_HANDS)
+		INVOKE_ASYNC(src, .proc/SwapMags, carbon_pawn, B, newmag)
 		return TRUE
 	return FALSE
 
