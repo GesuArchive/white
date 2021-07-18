@@ -1,3 +1,5 @@
+///////////////////////////////////////////////////////////////////// green elephant
+
 /obj/item/clothing/mask/gas/tarelka
 	name = "одноразовая тарелка"
 	desc = "Просто тарелка с веселой рожицей."
@@ -96,3 +98,87 @@
 	var/obj/item/melee/moonlight_greatsword/cumborne = locate() in H.contents
 	cumborne.name = "moonlight greatsword +5"
 	cumborne.force = 20
+
+///////////////////////////////////////////////////////////////////// gacha drochilnya
+
+/obj/item/firing_pin/catatonic
+	name = "ударник для дэбилов"
+	desc = "Позволяет стрелять только \"гуманоидам\" с айсикью меньше 10."
+	fail_message = "<span class='warning'>ОБНАРУЖЕНА МОЗГОВАЯ АКТИВНОСТЬ.</span>"
+	pin_removeable = FALSE
+
+/obj/item/firing_pin/catatonic/pin_auth(mob/living/user)
+	if(!istype(user))
+		return FALSE
+	if(user.client)
+		return FALSE
+	return TRUE
+
+/obj/item/gun/ballistic/automatic/pistol/m1911/catatonic
+	name = "M1911 RR"
+	desc = "Сколько бы ты не старался, привычные мыслительные шаблоны мешают тебе понять как из этого стрелять. Воистину изобретение укропов."
+	pin = /obj/item/firing_pin/catatonic
+
+/datum/id_trim/tcatwife
+	assignment = "Тактическая Кошкожена"
+	access = list(ACCESS_MAINT_TUNNELS)
+
+/obj/item/card/id/advanced/tcatwife
+	trim = /datum/id_trim/tcatwife
+
+/datum/outfit/tcatwife
+	name = "Тактическая Кошкожена"
+	uniform = /obj/item/clothing/under/syndicate/skirt
+	head = /obj/item/clothing/head/kitty
+	ears = /obj/item/clothing/ears/earmuffs
+	glasses = /obj/item/clothing/glasses/sunglasses
+	shoes = /obj/item/clothing/shoes/combat
+	gloves = /obj/item/clothing/gloves/fingerless
+	belt = 	/obj/item/gun/ballistic/automatic/pistol/m1911/catatonic
+	l_pocket = /obj/item/ammo_box/magazine/m45
+	r_pocket = /obj/item/kitchen/knife/combat/survival
+	id = /obj/item/card/id/advanced/tcatwife
+
+/mob/living/carbon/human/tdroid
+	ai_controller = /datum/ai_controller/tdroid
+
+/mob/living/carbon/human/tdroid/Initialize()
+	. = ..()
+	var/datum/ai_controller/tdroid/CTRL = ai_controller
+	for(var/mob/living/L in range(1))
+		if(L.client)
+			CTRL.RegisterCommander(L)
+			return
+
+/obj/effect/mob_spawn/human/tcatwife
+	mob_type = /mob/living/carbon/human/tdroid
+	outfit = /datum/outfit/tcatwife
+	instant = TRUE
+	death = FALSE
+	roundstart = FALSE
+
+/obj/effect/mob_spawn/human/tcatwife/create(ckey, newname)
+	mob_gender = "female"
+	mob_name = random_unique_name("female")
+	. = ..()
+
+/obj/effect/mob_spawn/human/tcatwife/equip(mob/living/carbon/human/H)
+	. = ..()
+	var/list/listIzCoomcamaPrikol = list(
+		"#0FFFFF" = "Aqua_hair",
+		"#000000" = "Black_hair",
+		"#FAF0BE" = "Blonde_hair",
+		"#0000FF" = "Blue_hair",
+		"#964B00" = "Brown_hair",
+		"#B5651D" = "Light_brown_hair",
+		"#808080" = "Grey_hair",
+		"#FFA500" = "Orange_hair",
+		"#FFC0CB" = "Pink_hair",
+		"#800080" = "Purple_hair",
+		"#E6E6FA" = "Lavender_hair",
+		"#FF0000" = "Red_hair",
+		"#C0C0C0" = "Silver_hair",
+		"#FFFFFF" = "White_hair"
+	)
+	H.hair_color = pick(listIzCoomcamaPrikol)
+

@@ -272,39 +272,6 @@
 		return G
 	return
 
-/*
-/datum/ai_controller/tdroid/proc/SwapMags(mob/living/carbon/pawn, obj/item/gun/ballistic/gun, obj/item/ammo_box/magazine/newmag)
-	pawn.swap_hand(LEFT_HANDS)
-	pawn.dropItemToGround(pawn.get_item_for_held_index(LEFT_HANDS))
-	newmag.attack_hand(pawn)
-	gun.attack_hand(pawn)
-	gun.attack_self(pawn)
-	pawn.swap_hand(RIGHT_HANDS)
-
-/datum/ai_controller/tdroid/proc/TryReloadGun(obj/item/gun/G)
-	var/mob/living/carbon/carbon_pawn = pawn
-	if(!G)
-		return FALSE
-	if(istype(G, /obj/item/gun/ballistic))
-		var/obj/item/gun/ballistic/B = G
-		if(istype(B.magazine, /obj/item/ammo_box/magazine/internal))
-			return // мб потом запилю, надо отдельный прок для перезарядки магазинов в принципе
-		else
-			var/obj/item/ammo_box/magazine/newmag
-			var/last_ammo_count = 0
-			for(var/obj/item/ammo_box/magazine/MAG in (carbon_pawn.contents | view(1, carbon_pawn)))
-				if(MAG.type != B.mag_type)
-					continue
-				var/cur_count = MAG.ammo_count(FALSE)
-				if(cur_count > last_ammo_count)
-					last_ammo_count = cur_count
-					newmag = MAG
-			if(!newmag)
-				return FALSE
-			INVOKE_ASYNC(src, .proc/SwapMags, carbon_pawn, B, newmag)
-			return TRUE
-	return FALSE
-*/
 /datum/ai_controller/tdroid/proc/TryFindGun(range = 5)
 	var/mob/living/living_pawn = pawn
 	for(var/obj/item/gun/G in view(range, living_pawn))
@@ -336,10 +303,8 @@
 /////////////////////////////////хз
 
 /datum/ai_controller/tdroid/proc/InitiateReset()
-	var/mob/living/living_pawn = pawn
 	blackboard[BB_TDROID_ENEMIES] = list()
 	blackboard[BB_TDROID_FOLLOW_TARGET] = null
-	living_pawn.Paralyze(1)
 
 /datum/ai_controller/tdroid/proc/StateOrder(order)
 	var/mob/living/living_pawn = pawn
@@ -372,6 +337,7 @@
 			switch(commander.a_intent)
 				if(INTENT_DISARM)
 					InitiateReset()
+					living_pawn.Paralyze(1)
 					GenSquad()
 					StateOrder(9)
 
@@ -379,7 +345,8 @@
 			switch(commander.a_intent)
 				if(INTENT_DISARM)
 					InitiateReset()
-					StateOrder(9)
+					living_pawn.Paralyze(50)
+					StateOrder(87)
 
 				if(INTENT_GRAB)
 					blackboard[BB_TDROID_DIRECT_ORDER_MODE] = TRUE
