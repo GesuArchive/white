@@ -144,7 +144,6 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 				if(ishuman(user))
 					var/mob/living/carbon/human/H = user
 					H.adjustStaminaLoss(60)
-					H.set_resting(TRUE)
 
 /turf/open/openspace/attackby(obj/item/C, mob/user, params)
 	..()
