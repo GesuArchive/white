@@ -60,7 +60,7 @@
 	icon_state = "surgery"
 	name = "alien surgical toolset implant"
 	desc = "A set of alien surgical tools hidden behind a concealed panel on the user's arm."
-	contents = newlist(/obj/item/retractor/alien, /obj/item/hemostat/alien, /obj/item/cautery/alien, /obj/item/surgicaldrill/alien, /obj/item/scalpel/alien, /obj/item/circular_saw/alien, /obj/item/surgical_drapes)
+	items_to_create = newlist(/obj/item/retractor/alien, /obj/item/hemostat/alien, /obj/item/cautery/alien, /obj/item/surgicaldrill/alien, /obj/item/scalpel/alien, /obj/item/circular_saw/alien, /obj/item/surgical_drapes)
 
 /obj/item/organ/cyberimp/eyes/hud/diagnostic
 	name = "Diagnostic HUD implant"

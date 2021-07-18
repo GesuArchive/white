@@ -20,10 +20,15 @@
 
 /obj/structure/trap/Initialize(mapload)
 	. = ..()
-	flare_message = "<span class='warning'>[capitalize(src.name)] flares brightly!</span>"
+	flare_message = "<span class='warning'>[src] flares brightly!</span>"
 	spark_system = new
 	spark_system.set_up(4,1,src)
 	spark_system.attach(src)
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/on_entered
+	)
+	//AddElement(/datum/element/connect_loc, src, loc_connections) BUG-498484
 
 	if(!ignore_typecache)
 		ignore_typecache = typecacheof(list(
@@ -42,7 +47,7 @@
 	if(user.mind && (user.mind in immune_minds))
 		return
 	if(get_dist(user, src) <= 1)
-		. += "<hr><span class='notice'>You reveal [src]!</span>"
+		. += "<span class='notice'>You reveal [src]!</span>"
 		flare()
 
 /obj/structure/trap/proc/flare()
@@ -60,8 +65,8 @@
 	else
 		animate(src, alpha = initial(alpha), time = time_between_triggers)
 
-/obj/structure/trap/Crossed(atom/movable/AM)
-	. = ..()
+/obj/structure/trap/proc/on_entered(datum/source, atom/movable/AM)
+	SIGNAL_HANDLER
 	if(last_trigger + time_between_triggers > world.time)
 		return
 	// Don't want the traps triggered by sparks, ghosts or projectiles.
@@ -107,9 +112,15 @@
 /obj/structure/trap/stun/hunter/Initialize(mapload)
 	. = ..()
 	time_between_triggers = 10
-	flare_message = "<span class='warning'>[capitalize(src.name)] snaps shut!</span>"
+	flare_message = "<span class='warning'>[src] snaps shut!</span>"
 
-/obj/structure/trap/stun/hunter/Crossed(atom/movable/AM)
+/obj/structure/trap/stun/hunter/Destroy()
+	if(!QDELETED(stored_item))
+		qdel(stored_item)
+	stored_item = null
+	return ..()
+
+/obj/structure/trap/stun/hunter/on_entered(datum/source, atom/movable/AM)
 	if(isliving(AM))
 		var/mob/living/L = AM
 		if(!L.mind?.has_antag_datum(/datum/antagonist/fugitive))
@@ -162,7 +173,9 @@
 	forceMove(stored_trap)//moves item into trap
 
 /obj/item/bountytrap/Destroy()
-	qdel(stored_trap)
+	if(!QDELETED(stored_trap))
+		qdel(stored_trap)
+	stored_trap = null
 	QDEL_NULL(radio)
 	QDEL_NULL(spark_system)
 	. = ..()
