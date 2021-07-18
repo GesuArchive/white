@@ -93,17 +93,25 @@
 		var/list/mob/living/friends = GetSquadPawns()
 		if(blackboard[BB_TDROID_COMMANDER])
 			friends.Add(blackboard[BB_TDROID_COMMANDER])
+
 		var/list/mob/living/possible_enemies = list()
 		for(var/mob/living/L in enemies)
 			if(L.stat == DEAD)
 				continue
+			possible_enemies.Add(L)
+
+		var/list/mob/living/possible_targets = list()
+		for(var/mob/living/L in view(9, living_pawn))
+			if(L.stat == DEAD)
+				continue
 			if(blackboard[BB_TDROID_COMMANDER] && IsInCommandersFaction(L) && !blackboard[BB_TDROID_AGGRESSIVE])
 				continue
-			possible_enemies.Add(L)
+			possible_targets.Add(L)
+
 		if(blackboard[BB_TDROID_AGGRESSIVE])
-			blackboard[BB_TDROID_INTERACTION_TARGET] = pickweight((possible_enemies | view(9, living_pawn)) - friends)
+			blackboard[BB_TDROID_INTERACTION_TARGET] = pickweight((possible_enemies | possible_targets) - friends)
 		else
-			blackboard[BB_TDROID_INTERACTION_TARGET] = pickweight((possible_enemies & view(9, living_pawn)) - friends)
+			blackboard[BB_TDROID_INTERACTION_TARGET] = pickweight((possible_enemies & possible_targets) - friends)
 
 	if(!isliving(blackboard[BB_TDROID_INTERACTION_TARGET]))
 		return
