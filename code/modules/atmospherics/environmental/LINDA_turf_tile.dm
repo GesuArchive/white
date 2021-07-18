@@ -157,7 +157,7 @@
 				vis_contents -= overlay
 			src.atmos_overlay_types = null
 		return
-
+/*
 	if(air.return_temperature() > 500)
 		cut_overlay(heat_overlay)
 		switch(air.return_temperature())
@@ -173,7 +173,7 @@
 	else if (heat_overlay)
 		cut_overlay(heat_overlay)
 		heat_overlay = null
-
+*/
 	for(var/id in air.get_gases())
 		if (nonoverlaying_gases[id])
 			continue
