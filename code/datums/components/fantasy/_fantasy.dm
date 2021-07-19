@@ -118,7 +118,8 @@
 	for(var/i in affixes)
 		var/datum/fantasy_affix/affix = i
 		affix.remove(src)
-	QDEL_LIST(appliedComponents)
+	for(var/i in appliedComponents)
+		qdel(i)
 
 	master.force = max(0, master.force - quality)
 	master.throwforce = max(0, master.throwforce - quality)

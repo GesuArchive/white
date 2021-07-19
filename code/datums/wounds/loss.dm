@@ -17,7 +17,7 @@
 		qdel(src)
 		return
 
-	set_victim(dismembered_part.owner)
+	victim = dismembered_part.owner
 
 	if(dismembered_part.body_zone == BODY_ZONE_CHEST)
 		occur_text = "была разорвана, внутренние органы вылетают с [prob(35) ? "вкусным" : "неприятным"] звуком!" //[prob(35) ? "вкусно"] жрал?

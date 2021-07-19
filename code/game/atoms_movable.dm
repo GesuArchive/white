@@ -557,34 +557,6 @@
 			return
 	A.Bumped(src)
 
-/atom/movable/Exited(atom/movable/AM, atom/newLoc)
-	. = ..()
-	if(AM.area_sensitive_contents)
-		for(var/atom/movable/location as anything in get_nested_locs(src) + src)
-			LAZYREMOVE(location.area_sensitive_contents, AM.area_sensitive_contents)
-
-/atom/movable/Entered(atom/movable/AM, atom/oldLoc)
-	. = ..()
-	if(AM.area_sensitive_contents)
-		for(var/atom/movable/location as anything in get_nested_locs(src) + src)
-			//We can't make the assumption that objects won't become area sensitive in the process of entering us
-			LAZYOR(location.area_sensitive_contents, AM.area_sensitive_contents)
-
-/// See traits.dm. Use this in place of ADD_TRAIT.
-/atom/movable/proc/become_area_sensitive(trait_source = TRAIT_GENERIC)
-	if(!HAS_TRAIT(src, TRAIT_AREA_SENSITIVE))
-		RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_AREA_SENSITIVE), .proc/on_area_sensitive_trait_loss)
-		for(var/atom/movable/location as anything in get_nested_locs(src) + src)
-			LAZYADD(location.area_sensitive_contents, src)
-	ADD_TRAIT(src, TRAIT_AREA_SENSITIVE, trait_source)
-
-/atom/movable/proc/on_area_sensitive_trait_loss()
-	SIGNAL_HANDLER
-
-	UnregisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_AREA_SENSITIVE))
-	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
-		LAZYREMOVE(location.area_sensitive_contents, src)
-
 ///Sets the anchored var and returns if it was sucessfully changed or not.
 /atom/movable/proc/set_anchored(anchorvalue)
 	SHOULD_CALL_PARENT(TRUE)

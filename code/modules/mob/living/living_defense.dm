@@ -90,9 +90,8 @@
 		if(blocked)
 			return TRUE
 
-		var/mob/thrown_by = thrown_item.thrownby?.resolve()
-		if(thrown_by)
-			log_combat(thrown_by, src, "threw and hit", thrown_item)
+		if(thrown_item.thrownby)
+			log_combat(thrown_item.thrownby, src, "threw and hit", thrown_item)
 		if(nosell_hit)
 			return ..()
 		visible_message("<span class='danger'>В <b>[sklonenie(name, VINITELNI, gender)]</b> попадает <b>[thrown_item.name]</b>!</span>", \

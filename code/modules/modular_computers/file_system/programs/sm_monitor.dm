@@ -36,15 +36,11 @@
 	refresh()
 
 /datum/computer_file/program/supermatter_monitor/kill_program(forced = FALSE)
-	for(var/supermatter in supermatters)
-		clear_supermatter(supermatter)
 	supermatters = null
 	..()
 
 // Refreshes list of active supermatter crystals
 /datum/computer_file/program/supermatter_monitor/proc/refresh()
-	for(var/supermatter in supermatters)
-		clear_supermatter(supermatter)
 	supermatters = list()
 	var/turf/T = get_turf(ui_host())
 	if(!T)
@@ -54,7 +50,9 @@
 		if (!isturf(S.loc) || !(is_station_level(S.z) || is_mining_level(S.z) || S.z == T.z))
 			continue
 		supermatters.Add(S)
-		RegisterSignal(S, COMSIG_PARENT_QDELETING, .proc/react_to_del)
+
+	if(!(active in supermatters))
+		active = null
 
 /datum/computer_file/program/supermatter_monitor/proc/get_status()
 	. = SUPERMATTER_INACTIVE
@@ -185,13 +183,3 @@
 					active = S
 					set_signals()
 			return TRUE
-
-/datum/computer_file/program/supermatter_monitor/proc/react_to_del(datum/source)
-	SIGNAL_HANDLER
-	clear_supermatter(source)
-
-/datum/computer_file/program/supermatter_monitor/proc/clear_supermatter(matter)
-	supermatters -= matter
-	if(matter == active)
-		active = null
-	UnregisterSignal(matter, COMSIG_PARENT_QDELETING)

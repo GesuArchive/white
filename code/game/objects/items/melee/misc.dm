@@ -311,14 +311,7 @@
 			log_combat(user, target, "stunned", src)
 			add_fingerprint(user)
 
-	target.visible_message(desc["visible"], desc["local"])
-
-	if(!iscarbon(user))
-		target.LAssailant = null
-	else
-		target.LAssailant = WEAKREF(user)
-	cooldown_check = world.time + cooldown
-	return
+			target.visible_message(desc["visible"], desc["local"])
 
 			if(!iscarbon(user))
 				target.LAssailant = null
