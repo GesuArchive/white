@@ -110,7 +110,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 	flare_message = "<span class='warning'>[src] snaps shut!</span>"
 =======
 	flare_message = "<span class='warning'>[capitalize(src.name)] snaps shut!</span>"
@@ -118,9 +117,6 @@
 =======
 	flare_message = "<span class='warning'>[capitalize(src.name)] snaps shut!</span>"
 >>>>>>> parent of 1b6a1f82fd (Мусорщик п228)
-=======
-	flare_message = "<span class='warning'>[capitalize(src.name)] snaps shut!</span>"
->>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)
 =======
 	flare_message = "<span class='warning'>[capitalize(src.name)] snaps shut!</span>"
 >>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)

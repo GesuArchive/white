@@ -2139,7 +2139,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 /obj/machinery/computer/scan_consolenew/proc/set_connected_scanner(new_scanner)
 	if(connected_scanner)
 		UnregisterSignal(connected_scanner, COMSIG_PARENT_QDELETING)
@@ -2162,8 +2161,6 @@
 =======
 #undef ENZYME_COPY_BASE_COOLDOWN
 >>>>>>> parent of 1b6a1f82fd (Мусорщик п228)
-=======
->>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)
 =======
 >>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)
 #undef INJECTOR_TIMEOUT

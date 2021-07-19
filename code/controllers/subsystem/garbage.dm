@@ -226,10 +226,7 @@ SUBSYSTEM_DEF(garbage)
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
-=======
->>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)
 =======
 >>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)
 	del(D)
@@ -239,15 +236,12 @@ SUBSYSTEM_DEF(garbage)
 	var/tick = TICK_USAGE
 	var/ticktime = world.time
 <<<<<<< HEAD
-<<<<<<< HEAD
 >>>>>>> parent of a8afb5995f (Шушорщик бляяя)
 =======
 	var/time = world.timeofday
 	var/tick = TICK_USAGE
 	var/ticktime = world.time
 >>>>>>> parent of 0b99671e00 (Ёбушки воробушки)
-=======
->>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)
 =======
 >>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)
 	++delslasttick
@@ -268,10 +262,7 @@ SUBSYSTEM_DEF(garbage)
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
-=======
->>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)
 =======
 >>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)
 	if (tick > highest_del_tickusage)
@@ -281,7 +272,6 @@ SUBSYSTEM_DEF(garbage)
 		time = TICK_DELTA_TO_MS(tick)/100
 	if (time > highest_del_time)
 		highest_del_time = time
-<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> parent of 0b99671e00 (Ёбушки воробушки)
 	if (time > 0.1 SECONDS)
@@ -303,13 +293,6 @@ SUBSYSTEM_DEF(garbage)
 		postpone(time)
 */
 >>>>>>> parent of a8afb5995f (Шушорщик бляяя)
-=======
-	if (time > 10)
-		log_game("Error: [type]([refID]) took longer than 1 second to delete (took [time/10] seconds to delete)")
-		message_admins("Error: [type]([refID]) took longer than 1 second to delete (took [time/10] seconds to delete).")
-		postpone(time)
-*/
->>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)
 =======
 	if (time > 10)
 		log_game("Error: [type]([refID]) took longer than 1 second to delete (took [time/10] seconds to delete)")
