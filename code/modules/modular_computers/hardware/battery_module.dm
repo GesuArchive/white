@@ -19,10 +19,13 @@
 	. = ..()
 	QDEL_NULL(battery)
 
-/obj/item/computer_hardware/battery/handle_atom_del(atom/A)
-	if(A == battery)
-		try_eject(forced = TRUE)
-	. = ..()
+///What happens when the battery is removed (or deleted) from the module, through try_eject() or not.
+/obj/item/computer_hardware/battery/Exited(atom/movable/gone, direction)
+	if(battery == gone)
+		battery = null
+		if(holder?.enabled && !holder.use_power())
+			holder.shutdown_computer()
+	return ..()
 
 /obj/item/computer_hardware/battery/try_insert(obj/item/I, mob/living/user = null)
 	if(!holder)

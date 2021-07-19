@@ -101,7 +101,6 @@ That's it, ok bye!
 	var/static/list/moving_blacklist = list(/obj/machinery/lazylift, /obj/machinery/lazylift/master, /obj/machinery/light, /obj/structure/cable, /obj/machinery/power/apc, /obj/machinery/airalarm, /obj/machinery/firealarm, /obj/structure/grille, /obj/structure/window, /obj/machinery/camera)
 
 	//Voice activation.
-	flags_1 = HEAR_1
 	initial_language_holder = /datum/language_holder/synthetic/turbolift
 	var/list/addresses = list() //Voice activation! Lets you speak into the elevator to tell it where you wanna go. This stores all the departments on this floor. If youre lazy and re-use floors then uh...sucks to be you I guess!
 	var/list/area_blacklist = list(/area/space, /area/shuttle/turbolift, /area/shuttle) //Areas that do not show up on the address book.
@@ -216,6 +215,7 @@ That's it, ok bye!
 			platform += T
 	addtimer(CALLBACK(src, .proc/acquire_destinations), 10 SECONDS)
 	setup()
+	become_hearing_sensitive()
 
 /obj/machinery/lazylift/proc/acquire_destinations()
 	for(var/x in SSmapping.areas_in_z["[z]"])

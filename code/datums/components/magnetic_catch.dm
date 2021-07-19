@@ -3,7 +3,7 @@
 		return COMPONENT_INCOMPATIBLE
 	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, .proc/examine)
 	if(ismovable(parent))
-		RegisterSignal(parent, COMSIG_MOVABLE_CROSSED, .proc/crossed_react)
+		//RegisterSignal(parent, COMSIG_MOVABLE_CROSSED, .proc/crossed_react)
 		RegisterSignal(parent, COMSIG_MOVABLE_UNCROSSED, .proc/uncrossed_react)
 		for(var/i in get_turf(parent))
 			if(i == parent)

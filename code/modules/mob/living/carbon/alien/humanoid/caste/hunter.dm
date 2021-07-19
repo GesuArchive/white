@@ -82,7 +82,7 @@
 				Paralyze(40, ignore_canstun = TRUE)
 
 			toggle_leap(0)
-		else if(hit_atom.density && !hit_atom.CanPass(src))
+		else if(hit_atom.density && !hit_atom.CanPass(src, get_dir(hit_atom, src)))
 			visible_message("<span class='danger'>[capitalize(src.name)] smashes into [hit_atom]!</span>", "<span class='alertalien'>[capitalize(src.name)] smashes into [hit_atom]!</span>")
 			Paralyze(40, ignore_canstun = TRUE)
 

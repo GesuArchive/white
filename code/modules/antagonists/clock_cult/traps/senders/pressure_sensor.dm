@@ -20,7 +20,7 @@
 
 /datum/component/clockwork_trap/pressure_sensor/Initialize()
 	. = ..()
-	RegisterSignal(parent, COMSIG_MOVABLE_CROSSED, .proc/crossed)
+	//RegisterSignal(parent, COMSIG_MOVABLE_CROSSED, .proc/crossed)
 
 /datum/component/clockwork_trap/pressure_sensor/proc/crossed(datum/source, atom/movable/AM)
 	//Item's in hands or boxes shouldn't trigger it

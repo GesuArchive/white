@@ -28,7 +28,7 @@
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = .proc/on_entered
 	)
-	//AddElement(/datum/element/connect_loc, src, loc_connections) BUG-498484
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 	if(!ignore_typecache)
 		ignore_typecache = typecacheof(list(
@@ -113,12 +113,10 @@
 	. = ..()
 	time_between_triggers = 10
 	flare_message = "<span class='warning'>[src] snaps shut!</span>"
-
-/obj/structure/trap/stun/hunter/Destroy()
-	if(!QDELETED(stored_item))
-		qdel(stored_item)
-	stored_item = null
-	return ..()
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/on_entered,
+	)
+	AddElement(/datum/element/connect_loc, src, loc_connections)
 
 /obj/structure/trap/stun/hunter/on_entered(datum/source, atom/movable/AM)
 	if(isliving(AM))

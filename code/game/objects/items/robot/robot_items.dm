@@ -807,8 +807,8 @@
 		stored.forceMove(get_turf(src))
 		stored = null
 
-/obj/item/borg/apparatus/Exited(atom/A)
-	if(A == stored) //sanity check
+/obj/item/borg/apparatus/Exited(atom/movable/gone, direction)
+	if(gone == stored) //sanity check
 		UnregisterSignal(stored, COMSIG_ATOM_UPDATE_ICON)
 		stored = null
 	update_icon()

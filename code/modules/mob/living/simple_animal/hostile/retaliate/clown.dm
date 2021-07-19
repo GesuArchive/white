@@ -494,8 +494,6 @@
 	else
 		. = ..()
 
-
-
 //Жрет свет и лечит себя
 /obj/effect/proc_holder/spell/aoe_turf/lighteater
 	name = "Поглотить свет"

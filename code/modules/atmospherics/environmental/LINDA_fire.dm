@@ -8,7 +8,11 @@
 /turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	return
 
-
+/**
+ * Handles the creation of hotspots and initial activation of turfs.
+ * Setting the conditions for the reaction to actually happen for gasmixtures
+ * is handled by the hotspot itself, specifically perform_exposure().
+ */
 /turf/open/hotspot_expose(exposed_temperature, exposed_volume, soh)
 	//If the air doesn't exist we just return false
 	if(!air)
@@ -37,7 +41,11 @@
 			//remove just_spawned protection if no longer processing this cell
 		SSair.add_to_active(src)
 
-//This is the icon for fire on turfs, also helps for nurturing small fires until they are full tile
+
+/**
+ * Hotspot objects interfaces with the temperature of turf gasmixtures while also providing visual effects.
+ * One important thing to note about hotspots are that they can roughly be divided into two categories based on the bypassing variable.
+ */
 /obj/effect/hotspot
 	anchored = TRUE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -50,6 +58,11 @@
 	light_power = 1
 	light_color = LIGHT_COLOR_FIRE
 
+	/**
+	 * Volume is the representation of how big and healthy a fire is.
+	 * Hotspot volume will be divided by turf volume to get the ratio for temperature setting on non bypassing mode.
+	 * Also some visual stuffs for fainter fires.
+	 */
 	var/volume = 125
 	var/temperature = FIRE_MINIMUM_TEMPERATURE_TO_EXIST
 	var/just_spawned = TRUE
@@ -67,7 +80,24 @@
 	perform_exposure()
 	setDir(pick(GLOB.cardinals))
 	air_update_turf(FALSE, FALSE)
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/on_entered,
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
 
+/**
+ * Perform interactions between the hotspot and the gasmixture.
+ *
+ * For the first tick, hotspots will take a sample of the air in the turf,
+ * set the temperature equal to a certain amount, and then reacts it.
+ * In some implementations the ratio comes out to around 1, so all of the air in the turf.
+ *
+ * Afterwards if the reaction is big enough it mostly just tags along the fire,
+ * copying the temperature and handling the colouring.
+ * If the reaction is too small it will perform like the first tick.
+ *
+ * Also calls fire_act() which handles burning.
+ */
 /obj/effect/hotspot/proc/perform_exposure()
 	var/turf/open/location = loc
 	if(!istype(location) || !(location.air))
@@ -154,6 +184,14 @@
 	alpha = heat_a
 
 #define INSUFFICIENT(path) (location.air.get_moles(path) < 0.5)
+
+/**
+ * Regular process proc for hotspots governed by the controller.
+ * Handles the calling of perform_exposure() which handles the bulk of temperature processing.
+ * Burning or fire_act() are also called by perform_exposure().
+ * Also handles the dying and qdeletion of the hotspot and hotspot creations on adjacent cardinal turfs.
+ * And some visual stuffs too! Colors and fainter icons for specific conditions.
+ */
 /obj/effect/hotspot/process()
 	if(just_spawned)
 		just_spawned = FALSE
@@ -207,11 +245,11 @@
 		T.active_hotspot = null
 	return ..()
 
-/obj/effect/hotspot/Crossed(atom/movable/AM, oldLoc)
-	..()
-	if(isliving(AM))
-		var/mob/living/L = AM
-		L.fire_act(temperature, volume)
+/obj/effect/hotspot/proc/on_entered(datum/source, atom/movable/arrived, direction)
+	SIGNAL_HANDLER
+	if(isliving(arrived))
+		var/mob/living/immolated = arrived
+		immolated.fire_act(temperature, volume)
 
 /obj/effect/hotspot/singularity_pull()
 	return

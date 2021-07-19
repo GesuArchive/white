@@ -8,10 +8,24 @@
 
 	var/obj/item/card/id/stored_card = null
 
-/obj/item/computer_hardware/card_slot/handle_atom_del(atom/A)
-	if(A == stored_card)
-		try_eject(null, TRUE)
-	. = ..()
+///What happens when the ID card is removed (or deleted) from the module, through try_eject() or not.
+/obj/item/computer_hardware/card_slot/Exited(atom/movable/gone, direction)
+	if(stored_card == gone)
+		stored_card = null
+		if(holder)
+			if(holder.active_program)
+				holder.active_program.event_idremoved(0)
+			for(var/p in holder.idle_threads)
+				var/datum/computer_file/program/computer_program = p
+				computer_program.event_idremoved(1)
+
+			holder.update_slot_icon()
+
+			if(ishuman(holder.loc))
+				var/mob/living/carbon/human/human_wearer = holder.loc
+				if(human_wearer.wear_id == holder)
+					human_wearer.sec_hud_set_ID()
+	return ..()
 
 /obj/item/computer_hardware/card_slot/Destroy()
 	try_eject(forced = TRUE)

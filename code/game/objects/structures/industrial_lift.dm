@@ -160,21 +160,32 @@ GLOBAL_LIST_EMPTY(lifts)
 
 /obj/structure/industrial_lift/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_MOVABLE_CROSSED, .proc/AddItemOnLift)
-	RegisterSignal(loc, COMSIG_ATOM_CREATED, .proc/AddItemOnLift)//For atoms created on platform
-	RegisterSignal(src, COMSIG_MOVABLE_UNCROSSED, .proc/RemoveItemFromLift)
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_EXITED =.proc/UncrossedRemoveItemFromLift,
+		COMSIG_ATOM_ENTERED = .proc/AddItemOnLift,
+		COMSIG_ATOM_CREATED = .proc/AddItemOnLift,
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
 	RegisterSignal(src, COMSIG_MOVABLE_BUMP, .proc/GracefullyBreak)
 
 	if(!lift_master_datum)
 		lift_master_datum = new(src)
 
-/obj/structure/industrial_lift/Move(atom/newloc, direct)
-	UnregisterSignal(loc, COMSIG_ATOM_CREATED)
-	. = ..()
-	RegisterSignal(loc, COMSIG_ATOM_CREATED, .proc/AddItemOnLift)//For atoms created on platform
 
-/obj/structure/industrial_lift/proc/RemoveItemFromLift(datum/source, atom/movable/AM)
-	if(!(AM in lift_load))
+/obj/structure/industrial_lift/proc/UncrossedRemoveItemFromLift(datum/source, atom/movable/gone, direction)
+	SIGNAL_HANDLER
+	RemoveItemFromLift(gone)
+
+/obj/structure/industrial_lift/proc/RemoveItemFromLift(atom/movable/potential_rider)
+	SIGNAL_HANDLER
+	if(!(potential_rider in lift_load))
+		return
+	LAZYREMOVE(lift_load, potential_rider)
+	UnregisterSignal(potential_rider, COMSIG_PARENT_QDELETING)
+
+/obj/structure/industrial_lift/proc/AddItemOnLift(datum/source, atom/movable/AM)
+	SIGNAL_HANDLER
+	if(istype(AM, /obj/structure/fluff/tram_rail))
 		return
 	LAZYREMOVE(lift_load, AM)
 	UnregisterSignal(AM, COMSIG_PARENT_QDELETING)
@@ -198,14 +209,6 @@ GLOBAL_LIST_EMPTY(lifts)
 		if(prob(15) || locate(/mob/living) in tram_part.lift_load) //always go boom on people on the track
 			explosion(get_turf(tram_part),rand(0,1),2,3) //50% chance of gib
 		qdel(tram_part)
-
-/obj/structure/industrial_lift/proc/AddItemOnLift(datum/source, atom/movable/AM)
-	if(istype(AM, /obj/structure/fluff/tram_rail))
-		return
-	if(AM in lift_load)
-		return
-	LAZYADD(lift_load, AM)
-	RegisterSignal(AM, COMSIG_PARENT_QDELETING, .proc/RemoveItemFromLift)
 
 /obj/structure/industrial_lift/proc/lift_platform_expansion(datum/lift_master/lift_master_datum)
 	. = list()

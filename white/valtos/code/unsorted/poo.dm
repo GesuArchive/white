@@ -263,10 +263,11 @@
 		var/checking = FLYING | FLOATING
 		return . || mover.throwing || mover.movement_type & checking
 	return TRUE
-
+/*
 /obj/structure/poop_barricade/CheckExit(atom/movable/mover, turf/target)
 	..()
 	if(get_dir(loc, target) & dir)
 		var/checking = PHASING | FLYING | FLOATING
 		return !density || mover.throwing || mover.movement_type & checking || mover.move_force >= MOVE_FORCE_EXTREMELY_STRONG
 	return TRUE
+*/

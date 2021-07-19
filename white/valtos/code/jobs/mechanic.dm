@@ -251,7 +251,7 @@
 
 /obj/machinery/copytech_platform/Initialize()
 	. = ..()
-	RegisterSignal(src, COMSIG_MOVABLE_CROSSED, "movable_crossed")
+	//RegisterSignal(src, COMSIG_MOVABLE_CROSSED, "movable_crossed")
 
 /obj/machinery/copytech_platform/process(delta_time)
 	if(siphoned_power < siphon_max)

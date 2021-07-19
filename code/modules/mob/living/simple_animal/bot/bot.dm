@@ -533,27 +533,25 @@ Pass a positive integer as an argument to override a bot's default speed.
 
 	if(step_count >= 1 && tries < BOT_STEP_MAX_RETRIES)
 		for(var/step_number = 0, step_number < step_count,step_number++)
-			addtimer(CALLBACK(src, .proc/bot_step, dest), BOT_STEP_DELAY*step_number)
+			addtimer(CALLBACK(src, .proc/bot_step), BOT_STEP_DELAY*step_number)
 	else
 		return FALSE
 	return TRUE
 
-
-/mob/living/simple_animal/bot/proc/bot_step(dest) //Step,increase tries if failed
-	if(!path)
+/// Performs a step_towards and increments the path if successful. Returns TRUE if the bot moved and FALSE otherwise.
+/mob/living/simple_animal/bot/proc/bot_step()
+	if(!length(path))
 		return FALSE
-	if(path.len > 1)
-		step_towards(src, path[1])
-		if(get_turf(src) == path[1]) //Successful move
-			increment_path()
-			tries = 0
 
-		else
-			tries++
-			return FALSE
-	else if(path.len == 1)
-		step_to(src, dest)
-		set_path(null)
+	if(SEND_SIGNAL(src, COMSIG_MOB_BOT_PRE_STEP) & COMPONENT_MOB_BOT_BLOCK_PRE_STEP)
+		return FALSE
+	if(!step_towards(src, path[1]))
+		tries++
+		return FALSE
+
+	increment_path()
+	tries = 0
+	SEND_SIGNAL(src, COMSIG_MOB_BOT_STEP)
 	return TRUE
 
 
@@ -902,12 +900,10 @@ Pass a positive integer as an argument to override a bot's default speed.
 /obj/machinery/bot_core
 	use_power = NO_POWER_USE
 	anchored = FALSE
-	var/mob/living/simple_animal/bot/owner = null
 
 /obj/machinery/bot_core/Initialize()
 	. = ..()
-	owner = loc
-	if(!istype(owner))
+	if(!isbot(loc))
 		return INITIALIZE_HINT_QDEL
 
 /mob/living/simple_animal/bot/proc/topic_denied(mob/user) //Access check proc for bot topics! Remember to place in a bot's individual Topic if desired.
@@ -1078,13 +1074,16 @@ Pass a positive integer as an argument to override a bot's default speed.
 
 
 /mob/living/simple_animal/bot/proc/increment_path()
-	if(!path || !path.len)
+	if(!length(path))
 		return
 	var/image/I = path[path[1]]
 	if(I)
 		I.icon_state = null
 
 	path.Cut(1, 2)
+
+	if(!length(path))
+		set_path(null)
 
 /mob/living/simple_animal/bot/rust_heretic_act()
 	adjustBruteLoss(400)

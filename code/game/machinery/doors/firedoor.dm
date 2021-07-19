@@ -169,7 +169,7 @@
 			continue
 		whack_a_mole_part(get_step(src, cdir), reconsider_immediately)
 	if(flags_1 & ON_BORDER_1)
-		whack_a_mole_part(get_turf(src), reconsider_immediately)	
+		whack_a_mole_part(get_turf(src), reconsider_immediately)
 
 /obj/machinery/door/firedoor/proc/whack_a_mole_part(turf/start_point, reconsider_immediately)
 	set waitfor = 0
@@ -215,6 +215,13 @@
 	if(A && A.fire)
 		return FALSE
 	return !is_holding_pressure()
+
+	var/mob/living/living_user = user
+	if(Adjacent(user) && isliving(user) && (living_user.body_position == STANDING_UP))
+		INVOKE_ASYNC(src, .proc/close)
+		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
+		UnregisterSignal(user, COMSIG_LIVING_SET_BODY_POSITION)
+		UnregisterSignal(user, COMSIG_PARENT_QDELETING)
 
 /obj/machinery/door/firedoor/attack_ai(mob/user)
 	add_fingerprint(user)
@@ -312,15 +319,26 @@
 	icon_state = "door_closed"
 	density = TRUE
 
-/obj/machinery/door/firedoor/border_only/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/machinery/door/firedoor/border_only/Initialize()
 	. = ..()
-	if(get_dir(get_turf(src), target) != dir) //Make sure looking at appropriate border
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_EXIT = .proc/on_exit,
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/machinery/door/firedoor/border_only/CanAllowThrough(atom/movable/mover, border_dir)
+	. = ..()
+	if(!(border_dir == dir)) //Make sure looking at appropriate border
 		return TRUE
 
-/obj/machinery/door/firedoor/border_only/CheckExit(atom/movable/mover as mob|obj, turf/target)
-	if(get_dir(get_turf(src), target) == dir)
-		return !density
-	return TRUE
+/obj/machinery/door/firedoor/border_only/proc/on_exit(datum/source, atom/movable/leaving, direction)
+	SIGNAL_HANDLER
+
+	if(direction == dir && density)
+		leaving.Bump(src)
+		return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/machinery/door/firedoor/border_only/CanAtmosPass(turf/T)
 	if(get_dir(get_turf(src), T) == dir)

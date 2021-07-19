@@ -218,14 +218,14 @@
 	if(istype(mover) && (mover.pass_flags & PASSTABLE))
 		return TRUE
 	return TRUE
-
+/*
 /obj/structure/pillar/CheckExit(atom/movable/O, turf/target)
 	if(istype(O) && (O.pass_flags & PASSTABLE))
 		return TRUE
 	if(get_dir(O.loc, target) == dir)
 		return FALSE
 	return TRUE
-
+*/
 /obj/structure/pillar/CanAtmosPass(turf/T)
 	return TRUE
 
