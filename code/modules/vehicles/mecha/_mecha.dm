@@ -22,6 +22,7 @@
 	desc = "Exosuit"
 	icon = 'icons/mecha/mecha.dmi'
 	resistance_flags = FIRE_PROOF | ACID_PROOF
+	flags_1 = HEAR_1
 	max_integrity = 300
 	armor = list(MELEE = 20, BULLET = 10, LASER = 0, ENERGY = 0, BOMB = 10, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
 	movedelay = 1 SECONDS
@@ -172,7 +173,7 @@
 /obj/item/radio/mech //this has to go somewhere
 	subspace_transmission = TRUE
 
-/obj/vehicle/sealed/mecha/Initialize(mapload)
+/obj/vehicle/sealed/mecha/Initialize()
 	. = ..()
 	if(enclosed)
 		internal_tank = new (src)
@@ -208,8 +209,10 @@
 	diag_hud_set_mechcell()
 	diag_hud_set_mechstat()
 	update_icon()
-	become_hearing_sensitive(trait_source = ROUNDSTART_TRAIT)
-	AddElement(/datum/element/atmos_sensitive, mapload)
+
+/obj/mecha/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/atmos_sensitive)
 
 /obj/vehicle/sealed/mecha/Destroy()
 	for(var/ejectee in occupants)
@@ -257,12 +260,12 @@
 	else
 		icon_state = initial(icon_state)+ "-open"
 
-/obj/vehicle/sealed/mecha/CanPassThrough(atom/blocker, movement_dir, blocker_opinion)
+/obj/vehicle/sealed/mecha/CanPassThrough(atom/blocker, turf/target, blocker_opinion)
 	if(!phasing || get_charge() <= phasing_energy_drain || throwing)
 		return ..()
 	if(phase_state)
 		flick(phase_state, src)
-	var/area/destination_area = get_step(loc, movement_dir).loc
+	var/area/destination_area = target.loc
 	if(destination_area.area_flags & NOTELEPORT)
 		return FALSE
 	return TRUE
@@ -695,7 +698,7 @@
 		if(COOLDOWN_FINISHED(src, mecha_bump_smash))
 			obstacle.mech_melee_attack(src)
 			COOLDOWN_START(src, mecha_bump_smash, smashcooldown)
-			if(!obstacle || obstacle.CanPass(src, get_dir(obstacle, src) || dir)) // The else is in case the obstacle is in the same turf.
+			if(!obstacle || obstacle.CanPass(src,get_step(src,dir)))
 				step(src,dir)
 	if(isobj(obstacle))
 		var/obj/obj_obstacle = obstacle

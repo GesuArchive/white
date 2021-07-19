@@ -19,11 +19,6 @@
 	///Miscelanous caltrop flags; shoe bypassing, walking interaction, silence
 	var/flags
 
-	///given to connect_loc to listen for something moving over target
-	var/static/list/crossed_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
-	)
-
 /datum/element/caltrop/Attach(datum/target, min_damage = 0, max_damage = 0, probability = 100, flags = NONE)
 	. = ..()
 	if(!isatom(target))
@@ -34,21 +29,18 @@
 	src.probability = probability
 	src.flags = flags
 
-	if(ismovable(target))
-		AddElement(/datum/element/connect_loc_behalf, target, crossed_connections)
-	else
-		RegisterSignal(get_turf(target), COMSIG_ATOM_ENTERED, .proc/on_entered)
+	RegisterSignal(target, COMSIG_MOVABLE_CROSSED, .proc/Crossed)
 
-/datum/element/caltrop/proc/on_entered(datum/source, atom/movable/arrived, direction)
+/datum/element/caltrop/proc/Crossed(atom/caltrop, atom/movable/AM)
 	SIGNAL_HANDLER
 
 	if(!prob(probability))
 		return
 
-	if(!ishuman(arrived))
+	if(!ishuman(AM))
 		return
 
-	var/mob/living/carbon/human/H = arrived
+	var/mob/living/carbon/human/H = AM
 	if(HAS_TRAIT(H, TRAIT_PIERCEIMMUNE))
 		return
 
@@ -84,13 +76,8 @@
 
 	if(!(flags & CALTROP_SILENT) && !H.has_status_effect(/datum/status_effect/caltropped))
 		H.apply_status_effect(/datum/status_effect/caltropped)
-		H.visible_message("<span class='danger'>[H] наступает на [source].</span>", \
-					"<span class='userdanger'>Наступаю на [source]!</span>")
+		H.visible_message("<span class='danger'>[H] наступает на [caltrop].</span>", \
+					"<span class='userdanger'>Наступаю на [caltrop]!</span>")
 
 	H.apply_damage(damage, BRUTE, picked_def_zone, wound_bonus = CANT_WOUND)
 	H.Paralyze(60)
-
-/datum/element/caltrop/Detach(datum/target)
-	. = ..()
-	if(ismovable(target))
-		RemoveElement(/datum/element/connect_loc_behalf, target, crossed_connections)

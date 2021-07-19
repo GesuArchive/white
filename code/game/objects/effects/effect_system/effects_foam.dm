@@ -37,8 +37,8 @@
 	slippery_foam = FALSE
 	var/absorbed_plasma = 0
 
-/obj/effect/particle_effect/foam/firefighting/Initialize(mapload)
-	. = ..()
+/obj/effect/particle_effect/foam/firefighting/ComponentInitialize()
+	..()
 	RemoveElement(/datum/element/atmos_sensitive)
 
 /obj/effect/particle_effect/foam/firefighting/process()
@@ -94,7 +94,7 @@
 /obj/effect/particle_effect/foam/long_life
 	lifetime = 150
 
-/obj/effect/particle_effect/foam/Initialize(mapload)
+/obj/effect/particle_effect/foam/Initialize()
 	. = ..()
 	create_reagents(1000, REAGENT_HOLDER_INSTANT_REACT) //limited by the size of the reagent holder anyway. Works without instant possibly edit in future
 	START_PROCESSING(SSfastprocess, src)
@@ -105,7 +105,10 @@
 	transform = M
 	icon = smooth_icon
 	icon_state = "[base_icon_state]-0"
-	AddElement(/datum/element/atmos_sensitive, mapload)
+
+/obj/effect/particle_effect/foam/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/atmos_sensitive)
 
 /obj/effect/particle_effect/foam/ComponentInitialize()
 	. = ..()

@@ -8,7 +8,8 @@
 	ADD_TRAIT(src, TRAIT_AGEUSIA, NO_TONGUE_TRAIT)
 
 	GLOB.carbon_list += src
-	RegisterSignal(src, COMSIG_LIVING_DEATH, .proc/attach_rot)
+	if(!mapload)  //I don't want no gas leaks on my space ruin you hear?
+		RegisterSignal(src, COMSIG_LIVING_DEATH, .proc/attach_rot)
 
 	AddComponent(/datum/component/tts)
 
@@ -1280,4 +1281,4 @@
 
 
 /mob/living/carbon/proc/attach_rot(mapload)
-	AddComponent(/datum/component/rot, 6 MINUTES, 1)
+	AddComponent(/datum/component/rot/corpse)

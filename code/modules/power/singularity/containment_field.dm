@@ -21,10 +21,6 @@
 	. = ..()
 	air_update_turf(TRUE, TRUE)
 	RegisterSignal(src, COMSIG_ATOM_SINGULARITY_TRY_MOVE, .proc/block_singularity)
-	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
-	)
-	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/machinery/field/containment/Destroy()
 	FG1.fields -= src
@@ -69,8 +65,8 @@
 	else
 		return ..()
 
-/obj/machinery/field/containment/proc/on_entered(datum/source, atom/movable/AM)
-	SIGNAL_HANDLER
+/obj/machinery/field/containment/Crossed(atom/movable/AM)
+	. = ..()
 	if(isliving(AM))
 		shock(AM)
 
@@ -117,7 +113,7 @@
 		return
 
 
-/obj/machinery/field/CanAllowThrough(atom/movable/mover, border_dir)
+/obj/machinery/field/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
 	if(hasShocked || isliving(mover) || ismachinery(mover) || isstructure(mover) || ismecha(mover))
 		return FALSE

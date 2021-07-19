@@ -10,11 +10,10 @@
 	var/obj/item/aicard/stored_card = null
 	var/locked = FALSE
 
-///What happens when the intellicard is removed (or deleted) from the module, through try_eject() or not.
-/obj/item/computer_hardware/ai_slot/Exited(atom/movable/gone, direction)
-	if(stored_card == gone)
-		stored_card = null
-	return ..()
+/obj/item/computer_hardware/ai_slot/handle_atom_del(atom/A)
+	if(A == stored_card)
+		try_eject(forced = TRUE)
+	. = ..()
 
 /obj/item/computer_hardware/ai_slot/examine(mob/user)
 	. = ..()

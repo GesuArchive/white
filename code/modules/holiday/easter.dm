@@ -76,11 +76,11 @@
 	add_overlay("basket-grass")
 	add_overlay("basket-egg[min(contents.len, 5)]")
 
-/obj/item/storage/basket/easter/Exited(atom/movable/gone, direction)
+/obj/item/storage/basket/easter/Exited()
 	. = ..()
 	countEggs()
 
-/obj/item/storage/basket/easter/Entered(atom/movable/arrived, direction)
+/obj/item/storage/basket/easter/Entered()
 	. = ..()
 	countEggs()
 

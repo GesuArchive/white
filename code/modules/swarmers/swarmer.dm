@@ -115,11 +115,11 @@
 	else
 		death()
 
-/mob/living/simple_animal/hostile/swarmer/CanAllowThrough(atom/movable/mover, border_dir)
+/mob/living/simple_animal/hostile/swarmer/CanAllowThrough(atom/movable/O)
 	. = ..()
-	if(istype(mover, /obj/projectile/beam/disabler))//Allows for swarmers to fight as a group without wasting their shots hitting each other
+	if(istype(O, /obj/projectile/beam/disabler))//Allows for swarmers to fight as a group without wasting their shots hitting each other
 		return TRUE
-	else if(isswarmer(mover))
+	if(isswarmer(O))
 		return TRUE
 
 ////CTRL CLICK FOR SWARMERS AND SWARMER_ACT()'S////

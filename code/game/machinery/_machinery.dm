@@ -744,12 +744,12 @@
 		power -= power * 0.0005
 	return ..()
 
-/obj/machinery/Exited(atom/movable/gone, direction)
+/obj/machinery/Exited(atom/movable/AM, atom/newloc)
 	. = ..()
-	if(gone == occupant)
+	if(AM == occupant)
 		set_occupant(null)
-	if(gone == circuit)
-		LAZYREMOVE(component_parts, gone)
+	if(AM == circuit)
+		LAZYREMOVE(component_parts, AM)
 		circuit = null
 
 /obj/machinery/proc/adjust_item_drop_location(atom/movable/AM)	// Adjust item drop location to a 3x3 grid inside the tile, returns slot id from 0 to 8

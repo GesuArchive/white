@@ -85,7 +85,6 @@
 	update_config_movespeed()
 	initialize_actionspeed()
 	update_movespeed(TRUE)
-	become_hearing_sensitive()
 
 /**
  * Generate the tag for this mob

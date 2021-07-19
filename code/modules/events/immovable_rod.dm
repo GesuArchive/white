@@ -78,17 +78,9 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 
 	AddElement(/datum/element/point_of_interest)
 
-	RegisterSignal(src, COMSIG_ATOM_ENTERING, .proc/on_entering_atom)
-
 	if(special_target)
 		walk_towards(src, special_target, 1)
-	else
-		walk_towards(src, destination, 1)
-
-/obj/effect/immovablerod/Destroy(force)
-	UnregisterSignal(src, COMSIG_ATOM_ENTERING)
-	RemoveElement(/datum/element/point_of_interest)
-	SSaugury.unregister_doom(src)
+		return
 
 	walk_towards(src, destination, 1)
 
@@ -112,21 +104,19 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 		if(istype(ghost))
 			ghost.ManualFollow(src)
 
-/obj/effect/immovablerod/proc/on_entered_over_movable(datum/source, atom/movable/atom_crossed_over)
-	SIGNAL_HANDLER
-	if((atom_crossed_over.density || isliving(atom_crossed_over)) && !QDELETED(atom_crossed_over))
-		Bump(atom_crossed_over)
-
-/obj/effect/immovablerod/proc/on_entering_atom(datum/source, atom/destination, direction)
-	SIGNAL_HANDLER
-	if(destination.density && isturf(destination))
-		Bump(destination)
-
 /obj/effect/immovablerod/Moved()
+	// If our loc is dense, noogie it.
+	if(loc.density)
+		Bump(loc)
 
-	for(var/atom/movable/to_bump in loc)
-		if((to_bump != src) && !QDELETED(to_bump) && (to_bump.density || isliving(to_bump)))
-			Bump(to_bump)
+	// So, we're phasing as will harmlessly glide through things. Let's noogie everything in our loc's contents.
+	for(var/clong in loc.contents)
+		if(clong == src)
+			continue
+
+		var/atom/clong_atom = clong
+		if(clong_atom.density || isliving(clong_atom) && !QDELETED(clong_atom))
+			Bump(clong_atom)
 
 	// If we have a special target, we should definitely make an effort to go find them.
 	if(special_target)

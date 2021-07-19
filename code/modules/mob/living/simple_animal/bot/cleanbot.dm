@@ -113,10 +113,6 @@
 
 	prefixes = list(command, security, engineering)
 	suffixes = list(research, medical, legal)
-	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
-	)
-	AddElement(/datum/element/connect_loc, loc_connections)
 
 /mob/living/simple_animal/bot/cleanbot/Destroy()
 	if(weapon)
@@ -148,8 +144,8 @@
 	text_dehack = "Сбрасываю программное обеспечение [name]а до заводских настроек."
 	text_dehack_fail = "[name] игнорирует мои попытки сбросить программное обеспечение!"
 
-/mob/living/simple_animal/bot/cleanbot/proc/on_entered(datum/source, atom/movable/AM)
-	SIGNAL_HANDLER
+/mob/living/simple_animal/bot/cleanbot/Crossed(atom/movable/AM)
+	. = ..()
 
 	zone_selected = pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 	if(weapon && has_gravity() && ismob(AM))
@@ -161,7 +157,7 @@
 			stolen_valor += C.job
 		update_titles()
 
-		INVOKE_ASYNC(weapon, /obj/item.proc/attack, C, src)
+		weapon.attack(C, src)
 		C.Knockdown(20)
 
 /mob/living/simple_animal/bot/cleanbot/attackby(obj/item/W, mob/user, params)

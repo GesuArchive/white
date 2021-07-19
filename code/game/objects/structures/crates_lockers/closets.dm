@@ -40,9 +40,6 @@
 	var/anchorable = TRUE
 	var/icon_welded = "welded"
 
-	/// true whenever someone with the strong pull component is dragging this, preventing opening
-	var/strong_grab = FALSE
-
 	var/hack_progress = 0
 	var/datum/gas_mixture/air_contents
 	var/airtight_when_welded = TRUE
@@ -116,7 +113,7 @@
 		if(HAS_TRAIT(L, TRAIT_SKITTISH))
 			. += "<hr><span class='notice'>Ctrl-Shift-лкм [src] чтобы запрыгнуть внутрь.</span>"
 
-/obj/structure/closet/CanAllowThrough(atom/movable/mover, border_dir)
+/obj/structure/closet/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
 	if(wall_mounted)
 		return TRUE
@@ -125,9 +122,6 @@
 	if(force)
 		return TRUE
 	if(welded || locked)
-		return FALSE
-	if(strong_grab)
-		to_chat(user, "<span class='danger'>[pulledby] has an incredibly strong grip on [src], preventing it from opening.</span>")
 		return FALSE
 	var/turf/T = get_turf(src)
 	for(var/mob/living/L in T)
@@ -470,9 +464,9 @@
 // Objects that try to exit a locker by stepping were doing so successfully,
 // and due to an oversight in turf/Enter() were going through walls.  That
 // should be independently resolved, but this is also an interesting twist.
-/obj/structure/closet/Exit(atom/movable/leaving, direction)
+/obj/structure/closet/Exit(atom/movable/AM)
 	open()
-	if(leaving.loc == src)
+	if(AM.loc == src)
 		return FALSE
 	return TRUE
 

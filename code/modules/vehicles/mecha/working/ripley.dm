@@ -156,10 +156,8 @@
 	var/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp/HC = new
 	HC.attach(src)
 
-	take_damage(max_integrity * 0.5, sound_effect=FALSE) //Low starting health
-
-/obj/vehicle/sealed/mecha/working/ripley/Exit(atom/movable/leaving, direction)
-	if(leaving in cargo)
+/obj/vehicle/sealed/mecha/working/ripley/Exit(atom/movable/O)
+	if(O in cargo)
 		return FALSE
 	return ..()
 

@@ -53,12 +53,12 @@
 		user.put_in_active_hand(fold_result)
 		qdel(src)
 
-/obj/item/storage/fancy/Exited(atom/movable/gone, direction)
+/obj/item/storage/fancy/Exited()
 	. = ..()
 	fancy_open = TRUE
 	update_icon()
 
-/obj/item/storage/fancy/Entered(atom/movable/arrived, direction)
+/obj/item/storage/fancy/Entered()
 	. = ..()
 	fancy_open = TRUE
 	update_icon()

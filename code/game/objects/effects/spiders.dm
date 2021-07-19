@@ -7,9 +7,9 @@
 	density = FALSE
 	max_integrity = 15
 
-/obj/structure/spider/Initialize(mapload)
+/obj/structure/spider/ComponentInitialize()
 	. = ..()
-	AddElement(/datum/element/atmos_sensitive, mapload)
+	AddElement(/datum/element/atmos_sensitive)
 
 /obj/structure/spider/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
 	if(damage_type == BURN)//the stickiness of the web mutes all attack sounds except fire damage type
@@ -39,7 +39,7 @@
 		icon_state = "stickyweb2"
 	. = ..()
 
-/obj/structure/spider/stickyweb/CanAllowThrough(atom/movable/mover, border_dir)
+/obj/structure/spider/stickyweb/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
 	if(genetic)
 		return
@@ -62,7 +62,7 @@
 	allowed_mob = allowedmob
 	. = ..()
 
-/obj/structure/spider/stickyweb/genetic/CanAllowThrough(atom/movable/mover, border_dir)
+/obj/structure/spider/stickyweb/genetic/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..() //this is the normal spider web return aka a spider would make this TRUE
 	if(mover == allowed_mob)
 		return TRUE

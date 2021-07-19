@@ -23,9 +23,9 @@
 	var/rods_broken = TRUE
 	var/grille_type = null
 
-/obj/structure/grille/Initialize(mapload)
+/obj/structure/grille/ComponentInitialize()
 	. = ..()
-	AddElement(/datum/element/atmos_sensitive, mapload)
+	AddElement(/datum/element/atmos_sensitive)
 
 /obj/structure/grille/Destroy()
 	update_cable_icons_on_turf(get_turf(src))
@@ -135,7 +135,7 @@
 	if(!shock(user, 70))
 		take_damage(20, BRUTE, MELEE, 1)
 
-/obj/structure/grille/CanAllowThrough(atom/movable/mover, border_dir)
+/obj/structure/grille/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
 	if(!. && istype(mover, /obj/projectile))
 		return prob(30)

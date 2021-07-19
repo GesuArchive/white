@@ -186,17 +186,19 @@
 		recall()
 		move_delay = world.time + 10
 		return FALSE
-	abstract_move(NewLoc)
+	forceMove(NewLoc)
 	move_delay = world.time + 1
 
-/mob/camera/imaginary_friend/abstract_move(atom/destination)
-	. = ..()
+/mob/camera/imaginary_friend/forceMove(atom/destination)
+	dir = get_dir(get_turf(src), destination)
+	loc = destination
+
 	Show()
 
 /mob/camera/imaginary_friend/proc/recall()
 	if(!owner || loc == owner)
 		return FALSE
-	abstract_move(owner)
+	forceMove(owner)
 
 /datum/action/innate/imaginary_join
 	name = "Войти"

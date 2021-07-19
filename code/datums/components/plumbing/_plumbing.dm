@@ -206,7 +206,6 @@
 			for(var/obj/machinery/duct/duct in get_step(parent, D))
 				if(duct.duct_layer == ducting_layer)
 					duct.remove_connects(turn(D, 180))
-					duct.neighbours.Remove(parent)
 					duct.update_icon()
 
 ///settle wherever we are, and start behaving like a piece of plumbing
@@ -311,18 +310,11 @@
 
 /datum/component/plumbing/proc/set_recipient_reagents_holder(datum/reagents/receiver)
 	if(recipient_reagents_holder)
-		UnregisterSignal(recipient_reagents_holder, COMSIG_PARENT_QDELETING) //stop tracking whoever we were tracking
+		UnregisterSignal(recipient_reagents_holder, list(COMSIG_PARENT_QDELETING)) //stop tracking whoever we were tracking
 	if(receiver)
-		RegisterSignal(receiver, COMSIG_PARENT_QDELETING, .proc/handle_reagent_del) //on deletion call a wrapper proc that clears us, and maybe reagents too
+		RegisterSignal(receiver, list(COMSIG_PARENT_QDELETING), .proc/set_recipient_reagents_holder) //so on deletion it calls this proc again, but with no value to set
 
 	recipient_reagents_holder = receiver
-
-/datum/component/plumbing/proc/handle_reagent_del(datum/source)
-	SIGNAL_HANDLER
-	if(source == reagents)
-		reagents = null
-	if(source == recipient_reagents_holder)
-		set_recipient_reagents_holder(null)
 
 ///has one pipe input that only takes, example is manual output pipe
 /datum/component/plumbing/simple_demand

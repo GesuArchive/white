@@ -277,9 +277,9 @@
 		return
 	return ..()
 
-/mob/living/simple_animal/hostile/carp/cayenne/Exited(atom/movable/gone, direction)
+/mob/living/simple_animal/hostile/carp/cayenne/Exited(atom/movable/AM, atom/newLoc)
 	. = ..()
-	if(disky == gone)
+	if(AM == disky)
 		disky = null
 		update_icon()
 

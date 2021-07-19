@@ -60,14 +60,6 @@
 
 /mob/living/simple_animal/bot/mulebot/Initialize(mapload)
 	. = ..()
-
-	RegisterSignal(src, COMSIG_MOB_BOT_PRE_STEP, .proc/check_pre_step)
-	RegisterSignal(src, COMSIG_MOB_CLIENT_PRE_MOVE, .proc/check_pre_step)
-	RegisterSignal(src, COMSIG_MOB_BOT_STEP, .proc/on_bot_step)
-	RegisterSignal(src, COMSIG_MOB_CLIENT_MOVED, .proc/on_bot_step)
-
-	ADD_TRAIT(src, TRAIT_NOMOBSWAP, INNATE_TRAIT)
-
 	if(prob(0.666) && mapload)
 		new /mob/living/simple_animal/bot/mulebot/paranormal(loc)
 		return INITIALIZE_HINT_QDEL
@@ -113,7 +105,6 @@
 
 
 /mob/living/simple_animal/bot/mulebot/Destroy()
-	UnregisterSignal(src, COMSIG_MOB_BOT_PRE_STEP, COMSIG_MOB_CLIENT_PRE_MOVE, COMSIG_MOB_BOT_STEP, COMSIG_MOB_CLIENT_MOVED)
 	unload(0)
 	QDEL_NULL(wires)
 	QDEL_NULL(cell)
@@ -530,6 +521,9 @@
 		start()
 
 /mob/living/simple_animal/bot/mulebot/Move(atom/newloc, direct) //handle leaving bloody tracks. can't be done via Moved() since that can end up putting the tracks somewhere BEFORE we get bloody.
+	if(!has_power((client || paicard))) //turn off if we ran out of power.
+		turn_off()
+		return FALSE
 	if(!bloodiness) //important to check this first since Bump() is called in the Move() -> Entered() chain
 		return ..()
 	var/atom/oldLoc = loc
@@ -542,12 +536,14 @@
 	B.setDir(direct)
 	bloodiness--
 
-/mob/living/simple_animal/bot/mulebot/Moved()
+/mob/living/simple_animal/bot/mulebot/Moved() //make sure we always use power after moving.
 	. = ..()
 
-	for(var/mob/living/carbon/human/future_pancake in loc)
-		run_over(future_pancake)
-
+	if(!cell)
+		return
+	cell.use(cell_move_power_usage)
+	if(cell.charge < cell_move_power_usage) //make sure we have enough power to move again, otherwise turn off.
+		turn_off()
 	diag_hud_set_mulebotcell()
 
 /mob/living/simple_animal/bot/mulebot/handle_automated_action()
@@ -587,12 +583,9 @@
 
 					return
 				if(isturf(next))
-					if(SEND_SIGNAL(src, COMSIG_MOB_BOT_PRE_STEP) & COMPONENT_MOB_BOT_BLOCK_PRE_STEP)
-						return
 					var/oldloc = loc
 					var/moved = step_towards(src, next)	// attempt to move
 					if(moved && oldloc!=loc)	// successful move
-						SEND_SIGNAL(src, COMSIG_MOB_BOT_STEP)
 						blockcount = 0
 						path -= loc
 
@@ -737,7 +730,7 @@
 	return ..()
 
 // when mulebot is in the same loc
-/mob/living/simple_animal/bot/mulebot/proc/run_over(mob/living/carbon/human/H)
+/mob/living/simple_animal/bot/mulebot/proc/RunOver(mob/living/carbon/human/H)
 	log_combat(src, H, "run over", null, "(DAMTYPE: [uppertext(BRUTE)])")
 	H.visible_message("<span class='danger'>[capitalize(src.name)] давит [H]!</span>", \
 					"<span class='userdanger'>[capitalize(src.name)] давит меня!</span>")
@@ -830,23 +823,6 @@
 	. = ..()
 	if(.)
 		visible_message("<span class='notice'>[capitalize(src.name)] не хочет принимать пИИ.</span>")
-
-/// Checks whether the bot can complete a step_towards, checking whether the bot is on and has the charge to do the move. Returns COMPONENT_MOB_BOT_CANCELSTEP if the bot should not step.
-/mob/living/simple_animal/bot/mulebot/proc/check_pre_step(datum/source)
-	SIGNAL_HANDLER
-
-	if(!on)
-		return COMPONENT_MOB_BOT_BLOCK_PRE_STEP
-
-	if((cell && (cell.charge < cell_move_power_usage)) || !has_power((client || paicard)))
-		turn_off()
-		return COMPONENT_MOB_BOT_BLOCK_PRE_STEP
-
-/// Uses power from the cell when the bot steps.
-/mob/living/simple_animal/bot/mulebot/proc/on_bot_step(datum/source)
-	SIGNAL_HANDLER
-
-	cell?.use(cell_move_power_usage)
 
 /mob/living/simple_animal/bot/mulebot/paranormal//allows ghosts only unless hacked to actually be useful
 	name = "Гульбот"

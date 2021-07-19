@@ -50,7 +50,7 @@ Key procs
 	/// Currently spoken language
 	var/selected_language
 	/// Tracks the entity that owns the holder.
-	var/atom/owner
+	var/owner
 
 /// Initializes, and copies in the languages from the current atom if available.
 /datum/language_holder/New(atom/_owner)
@@ -65,7 +65,6 @@ Key procs
 
 /datum/language_holder/Destroy()
 	QDEL_NULL(language_menu)
-	owner = null
 	return ..()
 
 /// Grants the supplied language.

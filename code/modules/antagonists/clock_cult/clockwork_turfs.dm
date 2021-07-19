@@ -143,7 +143,7 @@
 		return 1
 	return
 
-/turf/closed/wall/clockwork/mech_melee_attack(obj/vehicle/sealed/mecha/M)
+/turf/closed/wall/clockwork/mech_melee_attack(obj/mecha/M)
 	return
 
 /turf/closed/wall/clockwork/update_icon()

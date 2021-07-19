@@ -942,8 +942,8 @@
 	*Checking Exited() to detect if a hat gets up and walks off.
 	*Drones and pAIs might do this, after all.
 */
-/mob/living/silicon/robot/Exited(atom/movable/gone, direction)
-	if(hat && hat == gone)
+/mob/living/silicon/robot/Exited(atom/A)
+	if(hat && hat == A)
 		hat = null
 		if(!QDELETED(src)) //Don't update icons if we are deleted.
 			update_icons()

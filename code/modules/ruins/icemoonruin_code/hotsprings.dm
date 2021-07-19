@@ -17,11 +17,11 @@ GLOBAL_LIST_EMPTY(cursed_minds)
 	planetary_atmos = TRUE
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 
-/turf/open/water/cursed_spring/Entered(atom/movable/arrived, direction)
+/turf/open/water/cursed_spring/Entered(atom/movable/thing, atom/oldLoc)
 	. = ..()
-	if(!isliving(arrived))
+	if(!isliving(thing))
 		return
-	var/mob/living/L = arrived
+	var/mob/living/L = thing
 	if(!L.client || L.incorporeal_move)
 		return
 	if(GLOB.cursed_minds[L.mind])

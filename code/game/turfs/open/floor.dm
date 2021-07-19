@@ -112,13 +112,6 @@
 /turf/open/floor/attack_paw(mob/user)
 	return attack_hand(user)
 
-/turf/open/floor/attack_hand(mob/user, list/modifiers)
-	. = ..()
-	if(.)
-		return
-
-	SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_HAND, user, modifiers)
-
 /turf/open/floor/proc/break_tile_to_plating()
 	var/turf/open/floor/plating/T = make_plating()
 	if(!istype(T))

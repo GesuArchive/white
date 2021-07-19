@@ -46,10 +46,6 @@
 	var/datum/id_trim/job/clown_trim = SSid_access.trim_singletons_by_path[/datum/id_trim/job/clown]
 	access_card.add_access(clown_trim.access + clown_trim.wildcard_access)
 	prev_access = access_card.access.Copy()
-	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
-	)
-	AddElement(/datum/element/connect_loc, loc_connections)
 
 /mob/living/simple_animal/bot/honkbot/proc/limiting_spam_false() //used for addtimer
 	limiting_spam = FALSE
@@ -355,8 +351,7 @@ Status: []<BR>
 		target = user
 		mode = BOT_HUNT
 
-/mob/living/simple_animal/bot/honkbot/proc/on_entered(datum/source, atom/movable/AM)
-	SIGNAL_HANDLER
+/mob/living/simple_animal/bot/honkbot/Crossed(atom/movable/AM)
 	if(ismob(AM) && (on)) //only if its online
 		if(prob(30)) //you're far more likely to trip on a honkbot
 			var/mob/living/carbon/C = AM
@@ -372,9 +367,10 @@ Status: []<BR>
 			C.Paralyze(10)
 			playsound(loc, 'sound/misc/sadtrombone.ogg', 50, TRUE, -1)
 			if(!client)
-				INVOKE_ASYNC(src, /mob/living/simple_animal/bot/proc/speak, "Honk!")
+				speak("Хонк!")
 			sensor_blink()
 			return
+	..()
 
 /obj/machinery/bot_core/honkbot
 	req_one_access = list(ACCESS_THEATRE, ACCESS_ROBOTICS)

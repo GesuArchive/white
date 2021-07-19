@@ -30,13 +30,9 @@
 
 	var/attached = 0
 
-/obj/item/clothing/mask/facehugger/Initialize(mapload)
+/obj/item/clothing/mask/facehugger/ComponentInitialize()
 	. = ..()
-	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
-	)
-	AddElement(/datum/element/connect_loc, loc_connections)
-	AddElement(/datum/element/atmos_sensitive, mapload)
+	AddElement(/datum/element/atmos_sensitive)
 
 /obj/item/clothing/mask/facehugger/lamarr
 	name = "Lamarr"
@@ -96,8 +92,8 @@
 	. = ..()
 	Attach(M)
 
-/obj/item/clothing/mask/facehugger/proc/on_entered(datum/source, atom/target)
-	SIGNAL_HANDLER
+/obj/item/clothing/mask/facehugger/Crossed(atom/target)
+	. = ..()
 	HasProximity(target)
 
 /obj/item/clothing/mask/facehugger/on_found(mob/finder)

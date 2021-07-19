@@ -24,12 +24,12 @@
 	playsound(src, 'sound/weapons/blade1.ogg', 50, TRUE)
 	return BULLET_ACT_BLOCK
 
-/mob/living/simple_animal/bot/secbot/grievous/on_entered(datum/source, atom/movable/AM)
-	. = ..()
+/mob/living/simple_animal/bot/secbot/grievous/Crossed(atom/movable/AM)
+	..()
 	if(ismob(AM) && AM == target)
 		visible_message("<span class='warning'>[capitalize(src.name)] сокрушает свои энергомечи в сторону [AM]!</span>")
 		playsound(src,'sound/effects/beepskyspinsabre.ogg',100,TRUE,-1)
-		INVOKE_ASYNC(src, .proc/stun_attack, AM)
+		stun_attack(AM)
 
 /mob/living/simple_animal/bot/secbot/grievous/Initialize()
 	. = ..()

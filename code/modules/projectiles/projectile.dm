@@ -37,7 +37,7 @@
 	var/datum/point/vector/trajectory
 	var/trajectory_ignore_forcemove = FALSE	//instructs forceMove to NOT reset our trajectory to the new location!
 	/// We already impacted these things, do not impact them again. Used to make sure we can pierce things we want to pierce. Lazylist, typecache style (object = TRUE) for performance.
-	var/list/impacted = list()
+	var/list/impacted
 	/// If TRUE, we can hit our firer.
 	var/ignore_source_check = FALSE
 	/// We are flagged PHASING temporarily to not stop moving when we Bump something but want to keep going anyways.
@@ -169,10 +169,6 @@
 	decayedRange = range
 	if(embedding)
 		updateEmbedding()
-	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
-	)
-	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/projectile/proc/Range()
 	range--
@@ -551,16 +547,16 @@
 /**
  * Projectile crossed: When something enters a projectile's tile, make sure the projectile hits it if it should be hitting it.
  */
-/obj/projectile/proc/on_entered(datum/source, atom/movable/AM)
-	SIGNAL_HANDLER
+/obj/projectile/Crossed(atom/movable/AM)
+	. = ..()
 	scan_crossed_hit(AM)
 
 /**
  * Projectile can pass through
  * Used to not even attempt to Bump() or fail to Cross() anything we already hit.
  */
-/obj/projectile/CanPassThrough(atom/blocker, movement_dir, blocker_opinion)
-	return impacted[blocker] ? TRUE : ..()
+/obj/projectile/CanPassThrough(atom/blocker, turf/target, blocker_opinion)
+	return impacted[blocker]? TRUE : ..()
 
 /**
  * Projectile moved:
