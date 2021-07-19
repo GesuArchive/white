@@ -83,8 +83,7 @@
 	var/shoot_target_key
 	var/gun_hand = RIGHT_HANDS
 	var/required_stat = UNCONSCIOUS
-	var/rapid_burst_shots = 3
-	var/action_time = 3
+	var/double_shot = TRUE //тик контроллера раз в две децисекунды, значит пострелять можно два раза за тик
 
 	var/mob/living/target
 	var/mob/living/carbon/carbon_pawn
@@ -96,34 +95,51 @@
 	carbon_pawn = controller.pawn
 	G = carbon_pawn.held_items[gun_hand]
 
+	if(carbon_pawn.next_move > world.time)
+		return
+	carbon_pawn.changeNext_move(CLICK_CD_RAPID)
+
+	carbon_pawn.swap_hand(gun_hand)
+
 	if(!target || target.stat >= required_stat)
 		finish_action(controller, TRUE)
 		return
-	if(!G || !G.can_shoot())
+	if(!G)
 		finish_action(controller, FALSE)
 		return
+	if(!G.can_shoot())
+		if(istype(G, /obj/item/gun/ballistic))
+			var/obj/item/gun/ballistic/B = G
+			if(B.bolt_locked)
+				B.attack_self(carbon_pawn)
+				if(!G.can_shoot())
+					finish_action(controller, FALSE)
+					return
+		else
+			finish_action(controller, FALSE)
+			return
 
-	for(var/i = 1 to rapid_burst_shots)
-		spawn(i*action_time+1)
-			perform_a_little_bit_of_trolling(carbon_pawn, target, G)
+	if(G.weapon_weight == WEAPON_HEAVY)
+		carbon_pawn.dropItemToGround(carbon_pawn.get_inactive_held_item())
+
+	execute_a_little_bit_of_trolling(carbon_pawn, target, G)
+	if(double_shot && istype(G, /obj/item/gun/ballistic/automatic))
+		spawn(1)
+			execute_a_little_bit_of_trolling(carbon_pawn, target, G)
 
 	finish_action(controller, TRUE)
 
-/datum/ai_behavior/carbon_shooting/proc/perform_a_little_bit_of_trolling(mob/living/shooter, mob/living/target, obj/item/gun/G)
+/datum/ai_behavior/carbon_shooting/proc/execute_a_little_bit_of_trolling(mob/living/shooter, mob/living/target, obj/item/gun/G)
 	if(!target|| QDELETED(target) || target.stat >= required_stat)
 		return
 	if(!G || QDELETED(G) || !G.can_shoot())
 		return
 	shooter.face_atom(target)
 	G.afterattack(target, shooter)
+
 	if(istype(G, /obj/item/gun/ballistic/rifle))
-		var/obj/item/gun/ballistic/rifle/R = G
-		spawn(action_time/3)
-			R.rack()
-			var/obj/item/ammo_box/magazine/internal/intmag = locate(/obj/item/ammo_box/magazine/internal) in R.contents
-			if(intmag.ammo_count(FALSE))
-				spawn(action_time/3)
-					R.rack()
+		spawn(1)
+			G.attack_self(shooter)
 
 /datum/ai_behavior/carbon_shooting/finish_action(datum/ai_controller/controller, success)
 	. = ..()
@@ -143,8 +159,6 @@
 	carbon_pawn = controller.pawn
 	B = controller.blackboard[ballistic_target_key]
 
-	if(B.bolt_type == BOLT_TYPE_STANDARD && !B.bolt_locked)
-		B.attack_self(carbon_pawn)
 	carbon_pawn.swap_hand(reloading_hand)
 
 	if(istype(B.magazine, /obj/item/ammo_box/magazine/internal))
@@ -153,10 +167,7 @@
 			for(var/obj/item/ammo_box/box in (carbon_pawn.contents | view(1, carbon_pawn)))
 				if(!box.stored_ammo.len || box.ammo_type != intmag.ammo_type)
 					continue
-				if(carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(reloading_hand)))
-					carbon_pawn.put_in_hand(box, reloading_hand, FALSE, FALSE)
-					B.attackby(box, carbon_pawn)
-					carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(reloading_hand))
+				if(do_reloading(box))
 					finish_action(controller, TRUE)
 					return
 
@@ -165,9 +176,7 @@
 			if(!casing.BB || casing.type != intmag.ammo_type)
 				continue
 			found_live_casing = TRUE
-			if(carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(reloading_hand)))
-				carbon_pawn.put_in_hand(casing, reloading_hand, FALSE, FALSE)
-				B.attackby(casing, carbon_pawn)
+			do_reloading(casing)
 
 		finish_action(controller, found_live_casing)
 		return
@@ -184,25 +193,26 @@
 		if(!newmag)
 			finish_action(controller, FALSE)
 			return
-
 		B.eject_magazine(carbon_pawn)
-		if(carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(reloading_hand)))
-			carbon_pawn.put_in_hand(newmag, reloading_hand, FALSE, FALSE)
-			B.insert_magazine(carbon_pawn, newmag)
+		if(do_reloading(newmag))
 			finish_action(controller, TRUE)
 			return
 	finish_action(controller, FALSE)
 	return
 
+/datum/ai_behavior/carbon_ballistic_reload/proc/do_reloading(obj/item/reloading_item)
+	if(istype(B, /obj/item/gun/ballistic/rifle) && !B.bolt_locked)
+		B.attack_self(carbon_pawn)
+	if(carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(reloading_hand)))
+		carbon_pawn.put_in_hand(reloading_item, reloading_hand, FALSE, FALSE)
+		B.attackby(reloading_item, carbon_pawn)
+		return TRUE
+	return FALSE
+
 /datum/ai_behavior/carbon_ballistic_reload/finish_action(datum/ai_controller/controller, success)
 	. = ..()
-	/*
 	if(success)
-		if(B.bolt_type == BOLT_TYPE_STANDARD && !B.chambered)
+		if(B.bolt_type == BOLT_TYPE_STANDARD)
 			B.attack_self(carbon_pawn)
-	*/
-
-	if(B.bolt_type == BOLT_TYPE_STANDARD && B.bolt_locked)
-		B.attack_self(carbon_pawn)
 
 	controller.blackboard[ballistic_target_key] = null

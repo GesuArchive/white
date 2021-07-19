@@ -122,25 +122,28 @@
 
 	var/obj/item/gun/armed_gun = TryArmGun()
 	if(armed_gun)
-		if(istype(armed_gun, /obj/item/gun/ballistic) && ShouldReloadGun(armed_gun))
+		if(armed_gun.can_shoot() || istype(armed_gun, /obj/item/gun/ballistic) && !ShouldReloadBallistic(armed_gun))
+			//воткнуть куданить сюда чек стрельбы по своим через рейтрейсинг или че там как там ваще эти прожектайлы летают чисто поебать
+			var/aggro_pts = blackboard[BB_TDROID_ENEMIES][blackboard[BB_TDROID_INTERACTION_TARGET]]
+			if(aggro_pts && aggro_pts > 100)
+				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid/eliminate)
+			else if (aggro_pts && aggro_pts > 50)
+				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid)
+			else
+				var/datum/component/aiming/aiming = armed_gun.GetComponent(/datum/component/aiming)
+				if(aiming && isliving(blackboard[BB_TDROID_INTERACTION_TARGET]))
+					aiming.aim(living_pawn, blackboard[BB_TDROID_INTERACTION_TARGET])
+				spawn(2 SECONDS)
+					if(!living_pawn.has_status_effect(STATUS_EFFECT_PARALYZED))
+						current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid)
+			return
+		else if(istype(armed_gun, /obj/item/gun/ballistic) && CanFindAmmo(armed_gun))
 			blackboard[BB_TDROID_INTERACTION_TARGET] = armed_gun
 			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_ballistic_reload/tdroid)
 			return
-		//воткнуть куданить сюда чек стрельбы по своим через рейтрейсинг или че там
-		var/aggro_pts = blackboard[BB_TDROID_ENEMIES][blackboard[BB_TDROID_INTERACTION_TARGET]]
-		if(aggro_pts && aggro_pts > 100)
-			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid/eliminate)
-		else if (aggro_pts && aggro_pts > 50)
-			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid)
-		else
-			var/datum/component/aiming/aiming = armed_gun.GetComponent(/datum/component/aiming)
-			if(aiming && isliving(blackboard[BB_TDROID_INTERACTION_TARGET]))
-				aiming.aim(living_pawn, blackboard[BB_TDROID_INTERACTION_TARGET])
-			spawn(2 SECONDS)
-				if(!living_pawn.has_status_effect(STATUS_EFFECT_PARALYZED))
-					current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid)
-		return
+		TryHolsterHeldWeapon()
 
+	//сюда мили
 
 ///datum/ai_controller/tdroid/PerformIdleBehavior(delta_time)
 //	return
@@ -236,8 +239,17 @@
 	return !(!CanMove() || HAS_TRAIT(living_pawn, TRAIT_HANDS_BLOCKED) || living_pawn.stat)
 
 /datum/ai_controller/tdroid/proc/ShouldUseGun(obj/item/gun/G)
-	return CanTriggerGun(G) && G.can_shoot() //сюда надо бы напихать чеков типа есть ли патроны к ней и можно ли перезарядить, но похуй покашто
-
+	if(QDELETED(G))
+		return FALSE
+	if(!CanTriggerGun(G))
+		return FALSE
+	if(!G.can_shoot())
+		if(istype(G, /obj/item/gun/ballistic))
+			var/obj/item/gun/ballistic/B = G
+			return ShouldReloadBallistic(B)
+		else
+			return FALSE
+	return TRUE
 /datum/ai_controller/tdroid/proc/CanTriggerGun(obj/item/gun/G)
 	var/mob/living/carbon/carbon_pawn = pawn
 	return (G && G.can_trigger_gun(carbon_pawn))
@@ -249,12 +261,16 @@
 			return TRUE
 	return FALSE
 
-/datum/ai_controller/tdroid/proc/ShouldReloadGun(obj/item/gun/G)
-	if(!G)
+/datum/ai_controller/tdroid/proc/ShouldReloadBallistic(obj/item/gun/ballistic/B)
+	if(!B)
 		return FALSE
-	if(!G.can_shoot())
-		return TRUE
+	if(!B.can_shoot())
+		if(!B.magazine || !B.magazine.ammo_count(FALSE))
+			return TRUE
 	return FALSE
+
+/datum/ai_controller/tdroid/proc/CanFindAmmo(obj/item/gun/ballistic/B)
+	return TRUE // хз потом мб каданить зделою
 
 /////////////////////////////////чат впилить не забыть наверное
 
