@@ -106,6 +106,8 @@
 	finish_action(controller, TRUE)
 
 /datum/ai_behavior/carbon_shooting/proc/perform_a_little_bit_of_trolling(mob/living/shooter, mob/living/target, obj/item/gun/G)
+	if(!target|| QDELETED(target) || target.stat >= required_stat)
+		return
 	if(!G || QDELETED(G) || !G.can_shoot())
 		return
 	shooter.face_atom(target)
