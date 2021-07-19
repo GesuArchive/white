@@ -88,8 +88,7 @@
 	say(slogan)
 	COOLDOWN_START(src, next_slogan_tick, COOLDOWN_SLOGAN)
 
-//Do this when someone breaks you/blows you up. The bombs are funny
-/obj/machinery/pinpointer_dispenser/deconstruct()
+/obj/machinery/pinpointer_dispenser/Destroy()
 	for(var/i in 1 to rand(3, 9)) //Doesn't synthesise them in real time and instead stockpiles completed ones (though this is not how the cooldown works)
 		new /obj/item/pinpointer/wayfinding (loc)
 	say("Ouch.")
