@@ -67,14 +67,17 @@
 	var/obj/machinery/computer/teleporter/com = power_station.teleporter_console
 	if (QDELETED(com))
 		return
-	if (QDELETED(com.target))
-		com.target = null
-		visible_message("<span class='alert'>Cannot authenticate locked on coordinates. Please reinstate coordinate matrix.</span>")
+	var/atom/target
+	if(com.target_ref)
+		target = com.target_ref.resolve()
+	if (!target)
+		com.target_ref = null
+		visible_message(span_alert("Cannot authenticate locked on coordinates. Please reinstate coordinate matrix."))
 		return
 
 	if (ismovable(M))
-		if(do_teleport(M, com.target, channel = TELEPORT_CHANNEL_BLUESPACE))
-			use_power(50000)
+		if(do_teleport(M, target, channel = TELEPORT_CHANNEL_BLUESPACE))
+			use_power(5000)
 			if(!calibrated && prob(30 - ((accuracy) * 10))) //oh dear a problem
 				if(ishuman(M))//don't remove people from the round randomly you jerks
 					var/mob/living/carbon/human/human = M
@@ -194,7 +197,7 @@
 /obj/machinery/teleport/station/proc/toggle(mob/user)
 	if(machine_stat & (BROKEN|NOPOWER) || !teleporter_hub || !teleporter_console )
 		return
-	if (teleporter_console.target)
+	if (teleporter_console.target_ref?.resolve())
 		if(teleporter_hub.panel_open || teleporter_hub.machine_stat & (BROKEN|NOPOWER))
 			to_chat(user, "<span class='alert'>The teleporter hub isn't responding.</span>")
 		else
@@ -202,7 +205,8 @@
 			use_power(5000)
 			to_chat(user, "<span class='notice'>Teleporter [engaged ? "" : "dis"]engaged!</span>")
 	else
-		to_chat(user, "<span class='alert'>No target detected.</span>")
+		teleporter_console.target_ref = null
+		to_chat(user, span_alert("No target detected."))
 		engaged = FALSE
 	teleporter_hub.update_icon()
 	add_fingerprint(user)

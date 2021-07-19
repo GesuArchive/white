@@ -69,9 +69,7 @@
 	return
 
 /obj/item/tank/Destroy()
-	if(air_contents)
-		QDEL_NULL(air_contents)
-
+	air_contents = null
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 

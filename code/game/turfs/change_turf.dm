@@ -169,7 +169,6 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		stashed_air?.copy_from(air)
 		. = ..() //If path == type this will return us, don't bank on making a new type
 		if (!.) // changeturf failed or didn't do anything
-			QDEL_NULL(stashed_air)
 			return
 		var/turf/open/newTurf = .
 		if (!istype(newTurf.air, /datum/gas_mixture/immutable/space))
