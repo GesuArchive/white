@@ -182,3 +182,11 @@
 	)
 	H.hair_color = pick(listIzCoomcamaPrikol)
 
+/datum/outfit/tcatwife/mosin
+	name = "Тактическая Кошкожена Мосина"
+	belt = null
+	l_pocket = /obj/item/ammo_box/a762
+	back = /obj/item/gun/ballistic/rifle/boltaction
+
+/obj/effect/mob_spawn/human/tcatwife/mosin_debug
+	outfit = /datum/outfit/tcatwife/mosin
