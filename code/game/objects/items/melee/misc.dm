@@ -318,14 +318,10 @@
 	else
 		target.LAssailant = WEAKREF(user)
 	cooldown_check = world.time + cooldown
-<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
 			target.visible_message(desc["visible"], desc["local"])
-=======
-	return
->>>>>>> parent of 1b6a1f82fd (Мусорщик п228)
 
 			if(!iscarbon(user))
 				target.LAssailant = null
@@ -336,10 +332,7 @@
 			var/wait_desc = get_wait_description()
 			if (wait_desc)
 				to_chat(user, wait_desc)
-<<<<<<< HEAD
 >>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
-=======
->>>>>>> parent of 1b6a1f82fd (Мусорщик п228)
 
 /obj/item/conversion_kit
 	name = "conversion kit"

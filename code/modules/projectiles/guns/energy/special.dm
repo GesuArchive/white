@@ -234,7 +234,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 			W.gun = WEAKREF(src)
-<<<<<<< HEAD
 =======
 			W.gun = src
 >>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
@@ -242,9 +241,6 @@
 			W.gun = src
 >>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
 			var/obj/projectile/beam/wormhole/WH = W.BB
-=======
-			var/obj/projectile/beam/wormhole/WH = W.loaded_projectile
->>>>>>> parent of 1b6a1f82fd (Мусорщик п228)
 			if(istype(WH))
 				WH.gun = src
 

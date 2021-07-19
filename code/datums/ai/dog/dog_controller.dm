@@ -28,11 +28,17 @@
 	RegisterSignal(new_pawn, COMSIG_ATOM_ATTACK_HAND, .proc/on_attack_hand)
 	RegisterSignal(new_pawn, COMSIG_PARENT_EXAMINE, .proc/on_examined)
 	RegisterSignal(new_pawn, COMSIG_CLICK_ALT, .proc/check_altclicked)
+	RegisterSignal(new_pawn, list(COMSIG_LIVING_DEATH, COMSIG_PARENT_QDELETING), .proc/on_death)
 	RegisterSignal(SSdcs, COMSIG_GLOB_CARBON_THROW_THING, .proc/listened_throw)
 	return ..() //Run parent at end
 
 /datum/ai_controller/dog/UnpossessPawn(destroy)
-	UnregisterSignal(pawn, list(COMSIG_ATOM_ATTACK_HAND, COMSIG_PARENT_EXAMINE, COMSIG_GLOB_CARBON_THROW_THING, COMSIG_CLICK_ALT))
+	var/obj/item/carried_item = blackboard[BB_SIMPLE_CARRY_ITEM]
+	if(carried_item)
+		pawn.visible_message("<span='danger'>[pawn] drops [carried_item].</span>")
+		carried_item.forceMove(pawn.drop_location())
+		blackboard[BB_SIMPLE_CARRY_ITEM] = null
+	UnregisterSignal(pawn, list(COMSIG_ATOM_ATTACK_HAND, COMSIG_PARENT_EXAMINE, COMSIG_CLICK_ALT, COMSIG_LIVING_DEATH, COMSIG_GLOB_CARBON_THROW_THING, COMSIG_PARENT_QDELETING))
 	return ..() //Run parent at end
 
 /datum/ai_controller/dog/able_to_run()
@@ -69,8 +75,11 @@
 			current_movement_target = interact_target
 			if(IS_EDIBLE(interact_target))
 				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/eat_snack)
-			else
+			else if(isitem(interact_target))
 				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/simple_equip)
+			else
+				blackboard[BB_FETCH_TARGET] = null
+				blackboard[BB_FETCH_DELIVER_TO] = null
 			return
 
 	// if we're carrying something and we have a destination to deliver it, do that
@@ -104,7 +113,7 @@
 	// if we're just ditzing around carrying something, occasionally print a message so people know we have something
 	if(blackboard[BB_SIMPLE_CARRY_ITEM] && DT_PROB(5, delta_time))
 		var/obj/item/carry_item = blackboard[BB_SIMPLE_CARRY_ITEM]
-		living_pawn.visible_message("<span class='notice'>[living_pawn] gently teethes on [carry_item] in [living_pawn.p_their()] mouth.</span>", vision_distance=COMBAT_MESSAGE_RANGE)
+		living_pawn.visible_message("<span class='notice'>[living_pawn] gently teethes on \the [carry_item] in [living_pawn.p_their()] mouth.</span>", vision_distance=COMBAT_MESSAGE_RANGE)
 
 	if(DT_PROB(5, delta_time) && (living_pawn.mobility_flags & MOBILITY_MOVE))
 		var/move_dir = pick(GLOB.alldirs)
@@ -197,7 +206,7 @@
 		return
 
 	ol_yeller.visible_message("<span='danger'>[ol_yeller] drops [carried_item] as [ol_yeller.p_they()] die[ol_yeller.p_s()].</span>")
-	carried_item.forceMove(get_turf(ol_yeller))
+	carried_item.forceMove(ol_yeller.drop_location())
 	blackboard[BB_SIMPLE_CARRY_ITEM] = null
 
 // next section is regarding commands
@@ -216,7 +225,7 @@
 /// Show the command radial menu
 /datum/ai_controller/dog/proc/command_radial(mob/living/clicker)
 	var/list/commands = list(
-		COMMAND_HEEL = image(icon = 'icons/Testing/turf_analysis.dmi', icon_state = "red_arrow"),
+		COMMAND_HEEL = image(icon = 'icons/testing/turf_analysis.dmi', icon_state = "red_arrow"),
 		COMMAND_FETCH = image(icon = 'icons/mob/actions/actions_spells.dmi', icon_state = "summons"),
 		COMMAND_ATTACK = image(icon = 'icons/effects/effects.dmi', icon_state = "bite"),
 		COMMAND_DIE = image(icon = 'icons/mob/pets.dmi', icon_state = "puppy_dead")
@@ -242,6 +251,10 @@
 		return
 
 	if(!COOLDOWN_FINISHED(src, command_cooldown))
+		return
+
+	var/mob/living/living_pawn = pawn
+	if(IS_DEAD_OR_INCAP(living_pawn))
 		return
 
 	var/spoken_text = speech_args[SPEECH_MESSAGE] // probably should check for full words
@@ -289,6 +302,10 @@
 /datum/ai_controller/dog/proc/check_point(mob/pointing_friend, atom/movable/pointed_movable)
 	SIGNAL_HANDLER
 
+	var/mob/living/living_pawn = pawn
+	if(IS_DEAD_OR_INCAP(living_pawn))
+		return
+
 	if(!COOLDOWN_FINISHED(src, command_cooldown))
 		return
 	if(pointed_movable == pawn || blackboard[BB_FETCH_TARGET] || !istype(pointed_movable) || blackboard[BB_DOG_ORDER_MODE] == DOG_COMMAND_NONE) // busy or no command
@@ -300,12 +317,17 @@
 
 	switch(blackboard[BB_DOG_ORDER_MODE])
 		if(DOG_COMMAND_FETCH)
-			if(ismob(pointed_movable) || pointed_movable.anchored)
+			if(!isitem(pointed_movable) || pointed_movable.anchored)
+				return
+			var/obj/item/pointed_item = pointed_movable
+			if(pointed_item.obj_flags & ABSTRACT)
 				return
 			pawn.visible_message("<span class='notice'>[pawn] follows [pointing_friend]'s gesture towards [pointed_movable] and barks excitedly!</span>")
 			current_movement_target = pointed_movable
 			blackboard[BB_FETCH_TARGET] = pointed_movable
 			blackboard[BB_FETCH_DELIVER_TO] = pointing_friend
+			if(living_pawn.buckled)
+				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/resist)//in case they are in bed or something
 			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/fetch)
 		if(DOG_COMMAND_ATTACK)
 			pawn.visible_message("<span class='notice'>[pawn] follows [pointing_friend]'s gesture towards [pointed_movable] and growls intensely!</span>")
