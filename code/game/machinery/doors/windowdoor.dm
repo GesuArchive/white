@@ -42,15 +42,9 @@
 
 	RegisterSignal(src, COMSIG_COMPONENT_NTNET_RECEIVE, .proc/ntnet_receive)
 
-	var/static/list/loc_connections = list(
-		COMSIG_ATOM_EXIT = .proc/on_exit,
-	)
-
-	AddElement(/datum/element/connect_loc, loc_connections)
-	AddElement(/datum/element/atmos_sensitive, mapload)
-
 /obj/machinery/door/window/ComponentInitialize()
 	. = ..()
+	AddElement(/datum/element/atmos_sensitive)
 	AddComponent(/datum/component/ntnet_interface)
 
 /obj/machinery/door/window/Destroy()
@@ -113,14 +107,12 @@
 		do_animate("deny")
 	return
 
-/obj/machinery/door/window/CanAllowThrough(atom/movable/mover, border_dir)
+/obj/machinery/door/window/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
 	if(.)
 		return
-
-	if(border_dir == dir)
-		return FALSE
-
+	if(get_dir(loc, target) == dir) //Make sure looking at appropriate border
+		return
 	if(istype(mover, /obj/structure/window))
 		var/obj/structure/window/W = mover
 		if(!valid_window_location(loc, W.ini_dir))
@@ -144,15 +136,12 @@
 /obj/machinery/door/window/CanAStarPass(obj/item/card/id/ID, to_dir)
 	return !density || (dir != to_dir) || (check_access(ID) && hasPower())
 
-/obj/machinery/door/window/proc/on_exit(datum/source, atom/movable/leaving, direction)
-	SIGNAL_HANDLER
-
-	if((pass_flags_self & leaving.pass_flags) || ((pass_flags_self & LETPASSTHROW) && leaving.throwing))
-		return
-
-	if(direction == dir && density)
-		leaving.Bump(src)
-		return COMPONENT_ATOM_BLOCK_EXIT
+/obj/machinery/door/window/CheckExit(atom/movable/mover, turf/target)
+	if((pass_flags_self & mover.pass_flags) || ((pass_flags_self & LETPASSTHROW) && mover.throwing))
+		return TRUE
+	if(get_dir(loc, target) == dir)
+		return !density
+	return TRUE
 
 /obj/machinery/door/window/open(forced=FALSE)
 	if (operating) //doors can still open when emag-disabled

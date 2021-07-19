@@ -107,7 +107,7 @@
 	return
 
 
-/obj/structure/table/CanAllowThrough(atom/movable/mover, border_dir)
+/obj/structure/table/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
 	if(.)
 		return
@@ -304,8 +304,6 @@
 
 /obj/structure/table/rolling/Moved(atom/OldLoc, Dir)
 	. = ..()
-	if(!loc)
-		return
 	for(var/mob/M in OldLoc.contents)//Kidnap everyone on top
 		M.forceMove(loc)
 	for(var/x in attached_items)
@@ -335,17 +333,13 @@
 	. = ..()
 	debris += new frame
 	debris += new /obj/item/shard
-	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
-	)
-	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/table/glass/Destroy()
 	QDEL_LIST(debris)
 	. = ..()
 
-/obj/structure/table/glass/proc/on_entered(datum/source, atom/movable/AM)
-	SIGNAL_HANDLER
+/obj/structure/table/glass/Crossed(atom/movable/AM)
+	. = ..()
 	if(flags_1 & NODECONSTRUCT_1)
 		return
 	if(!isliving(AM))
@@ -616,7 +610,7 @@
 /obj/structure/table/optable/proc/patient_deleted(datum/source)
 	SIGNAL_HANDLER
 	set_patient(null)
-
+	
 /obj/structure/table/optable/proc/check_eligible_patient()
 	get_patient()
 	if(!patient)
@@ -644,7 +638,7 @@
 	. += "<hr>"
 	. += "<span class='notice'>Он удерживается вместе несколькими <b>болтами</b>.</span>"
 
-/obj/structure/rack/CanAllowThrough(atom/movable/mover, border_dir)
+/obj/structure/rack/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
 	if(.)
 		return

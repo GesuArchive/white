@@ -38,7 +38,7 @@
 	var/extinguish_fires = TRUE
 	var/stationary_mode = FALSE
 
-/mob/living/simple_animal/bot/firebot/Initialize(mapload)
+/mob/living/simple_animal/bot/firebot/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
 	update_icon()
@@ -49,7 +49,10 @@
 	prev_access = access_card.access.Copy()
 
 	create_extinguisher()
-	AddElement(/datum/element/atmos_sensitive, mapload)
+
+/mob/living/simple_animal/bot/firebot/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/atmos_sensitive)
 
 /mob/living/simple_animal/bot/firebot/bot_reset()
 	create_extinguisher()

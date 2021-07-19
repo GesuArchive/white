@@ -78,6 +78,10 @@
 		"halon" = /obj/machinery/portable_atmospherics/canister/halon
 	)
 
+/obj/machinery/portable_atmospherics/canister/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/atmos_sensitive)
+
 /obj/machinery/portable_atmospherics/canister/interact(mob/user)
 	if(!allowed(user))
 		to_chat(user, "<span class='alert'>Ошибка - недостаточно привилегий.</span>")
@@ -337,7 +341,6 @@
 	else
 		create_gas()
 	update_icon()
-	AddElement(/datum/element/atmos_sensitive, mapload)
 
 
 /obj/machinery/portable_atmospherics/canister/proc/create_gas()

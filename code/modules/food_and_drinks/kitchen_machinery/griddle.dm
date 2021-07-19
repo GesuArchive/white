@@ -37,10 +37,6 @@
 	variant = rand(1,3)
 	RegisterSignal(src, COMSIG_ATOM_EXPOSE_REAGENT, .proc/on_expose_reagent)
 
-/obj/machinery/griddle/Destroy()
-	QDEL_NULL(grill_loop)
-	. = ..()
-
 /obj/machinery/griddle/proc/on_expose_reagent(atom/parent_atom, datum/reagent/exposing_reagent, reac_volume)
 	SIGNAL_HANDLER
 

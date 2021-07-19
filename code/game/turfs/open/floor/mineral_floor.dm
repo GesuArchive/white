@@ -204,12 +204,11 @@
 	custom_materials = list(/datum/material/bananium = 500)
 	var/sound_cooldown = 0
 
-/turf/open/floor/mineral/bananium/Entered(atom/movable/arrived, direction)
-	. = ..()
-	if(.)
-		return
-	if(isliving(arrived))
-		squeak()
+/turf/open/floor/mineral/bananium/Entered(atom/movable/AM)
+	.=..()
+	if(!.)
+		if(isliving(AM))
+			squeak()
 
 /turf/open/floor/mineral/bananium/attackby(obj/item/W, mob/user, params)
 	.=..()
@@ -259,12 +258,11 @@
 	var/last_event = 0
 	var/active = null
 
-/turf/open/floor/mineral/uranium/Entered(atom/movable/arrived, direction)
-	. = ..()
-	if(.)
-		return
-	if(isliving(arrived))
-		radiate()
+/turf/open/floor/mineral/uranium/Entered(atom/movable/AM)
+	.=..()
+	if(!.)
+		if(ismob(AM))
+			radiate()
 
 /turf/open/floor/mineral/uranium/attackby(obj/item/W, mob/user, params)
 	.=..()

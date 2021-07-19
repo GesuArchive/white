@@ -357,7 +357,6 @@
 	if(start_with_cell && !no_emergency)
 		cell = new/obj/item/stock_parts/cell/emergency_light(src)
 
-	AddElement(/datum/element/atmos_sensitive, mapload)
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/light/LateInitialize()
@@ -372,6 +371,10 @@
 			if(prob(5))
 				break_light_tube(1)
 	addtimer(CALLBACK(src, .proc/update, 0), 1)
+
+/obj/machinery/light/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/atmos_sensitive)
 
 /obj/machinery/light/Destroy()
 	var/area/A = get_area(src)
@@ -919,13 +922,9 @@
 	create_reagents(LIGHT_REAGENT_CAPACITY, INJECTABLE | DRAINABLE)
 	AddElement(/datum/element/caltrop, min_damage = force)
 	update()
-	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
-	)
-	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/item/light/proc/on_entered(datum/source, atom/movable/AM)
-	SIGNAL_HANDLER
+/obj/item/light/Crossed(atom/movable/AM)
+	. = ..()
 	if(!isliving(AM))
 		return
 	var/mob/living/L = AM

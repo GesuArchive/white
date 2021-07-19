@@ -177,14 +177,7 @@
 	. = ..()
 	StartBurning()
 
-/obj/structure/bonfire/Initialize()
-	. = ..()
-	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
-	)
-	AddElement(/datum/element/connect_loc, loc_connections)
-
-/obj/structure/bonfire/attackby(obj/item/W, mob/living/user, params)
+/obj/structure/bonfire/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stack/rods) && !can_buckle && !grill)
 		var/obj/item/stack/rods/R = W
 		var/choice = input(user, "What would you like to construct?", "Bonfire") as null|anything in list("Stake","Grill")
@@ -257,8 +250,8 @@
 /obj/structure/bonfire/fire_act(exposed_temperature, exposed_volume)
 	StartBurning()
 
-/obj/structure/bonfire/proc/on_entered(datum/source, atom/movable/AM)
-	SIGNAL_HANDLER
+/obj/structure/bonfire/Crossed(atom/movable/AM)
+	. = ..()
 	if(burning & !grill)
 		Burn()
 

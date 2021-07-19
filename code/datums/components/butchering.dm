@@ -145,20 +145,15 @@
 	. = ..()
 	if(. == COMPONENT_INCOMPATIBLE)
 		return
+	RegisterSignal(parent, COMSIG_MOVABLE_CROSSED, .proc/onCrossed)
 
-	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
-	)
-	AddElement(/datum/element/connect_loc_behalf, parent, loc_connections)
-
-/datum/component/butchering/recycler/proc/on_entered(datum/source, atom/movable/arrived, direction)
+/datum/component/butchering/recycler/proc/onCrossed(datum/source, mob/living/L)
 	SIGNAL_HANDLER
 
-	if(!isliving(arrived))
+	if(!istype(L))
 		return
-	var/mob/living/victim = arrived
 	var/obj/machinery/recycler/eater = parent
 	if(eater.safety_mode || (eater.machine_stat & (BROKEN|NOPOWER))) //I'm so sorry.
 		return
-	if(victim.stat == DEAD && (victim.butcher_results || victim.guaranteed_butcher_results))
-		Butcher(parent, victim)
+	if(L.stat == DEAD && (L.butcher_results || L.guaranteed_butcher_results))
+		Butcher(parent, L)

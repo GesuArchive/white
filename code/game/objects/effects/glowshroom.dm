@@ -98,7 +98,6 @@
 	else //if on the floor, glowshroom on-floor sprite
 		icon_state = base_icon_state
 
-	AddElement(/datum/element/atmos_sensitive, mapload)
 	COOLDOWN_START(src, spread_cooldown, rand(min_delay_spread, max_delay_spread))
 
 	START_PROCESSING(SSobj, src)
@@ -107,6 +106,10 @@
 	. = ..()
 	GLOB.glowshrooms--
 	STOP_PROCESSING(SSobj, src)
+
+/obj/structure/glowshroom/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/atmos_sensitive)
 
 /**
  * Causes glowshroom spreading across the floor/walls.

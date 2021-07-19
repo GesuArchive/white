@@ -47,11 +47,11 @@
 	else
 		to_chat(user, "<span class='notice'>Внутри нет модификаций.</span>")
 
-/obj/item/gun/energy/kinetic_accelerator/Exited(atom/movable/gone, direction)
-	if(gone in modkits)
-		var/obj/item/borg/upgrade/modkit/MK = gone
+/obj/item/gun/energy/kinetic_accelerator/Exited(atom/A)
+	if(modkits.len && (A in modkits))
+		var/obj/item/borg/upgrade/modkit/MK = A
 		MK.uninstall(src)
-	return ..()
+	. = ..()
 
 /obj/item/gun/energy/kinetic_accelerator/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/borg/upgrade/modkit))

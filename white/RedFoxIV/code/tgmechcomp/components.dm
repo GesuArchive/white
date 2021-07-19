@@ -223,7 +223,7 @@
 
 /obj/item/mechcomp/pressurepad/Initialize()
 	. = ..()
-	//RegisterSignal(src, COMSIG_MOVABLE_CROSSED, .proc/pad_triggered)
+	RegisterSignal(src, COMSIG_MOVABLE_CROSSED, .proc/pad_triggered)
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ALLOW_MANUAL_SIGNAL)
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Fine tuning", "finetune")
 

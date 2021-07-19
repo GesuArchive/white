@@ -26,7 +26,7 @@
 	mob_size = MOB_SIZE_HUGE
 	layer = LARGE_MOB_LAYER //Looks weird with them slipping under mineral walls and cameras and shit otherwise
 	mouse_opacity = MOUSE_OPACITY_OPAQUE // Easier to click on in melee, they're giant targets anyway
-	flags_1 = PREVENT_CONTENTS_EXPLOSION_1
+	flags_1 = PREVENT_CONTENTS_EXPLOSION_1 | HEAR_1
 	discovery_points = 10000
 	/// Crusher loot dropped when the megafauna is killed with a crusher
 	var/list/crusher_loot
@@ -72,9 +72,6 @@
 		small_action.Grant(src)
 
 /mob/living/simple_animal/hostile/megafauna/Moved()
-	//Safety check
-	if(!loc)
-		return ..()
 	if(nest && nest.parent && get_dist(nest.parent, src) > nest_range)
 		var/turf/closest = get_turf(nest.parent)
 		for(var/i = 1 to nest_range)

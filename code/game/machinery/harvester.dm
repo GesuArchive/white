@@ -176,9 +176,9 @@
 	else
 		to_chat(user,"<span class='warning'>[capitalize(src.name)] is active and can't be opened!</span>") //rip
 
-/obj/machinery/harvester/Exited(atom/movable/gone, direction)
-	if (!state_open && gone == occupant)
-		container_resist_act(gone)
+/obj/machinery/harvester/Exited(atom/movable/user)
+	if (!state_open && user == occupant)
+		container_resist_act(user)
 
 /obj/machinery/harvester/relaymove(mob/living/user, direction)
 	if (!state_open)

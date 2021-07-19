@@ -506,7 +506,7 @@
 
 	return SINGULARITY_TRY_MOVE_BLOCK
 
-/obj/machinery/shieldwall/CanAllowThrough(atom/movable/mover, border_dir)
+/obj/machinery/shieldwall/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
 	if(istype(mover) && (mover.pass_flags & PASSGLASS))
 		return prob(20)

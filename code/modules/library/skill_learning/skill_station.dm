@@ -51,9 +51,9 @@
 	. = ..()
 	interrupt_operation()
 
-/obj/machinery/skill_station/Exited(atom/movable/gone, direction)
+/obj/machinery/skill_station/Exited(atom/movable/AM, atom/newloc)
 	. = ..()
-	if(gone == inserted_skillchip)
+	if(AM == inserted_skillchip)
 		inserted_skillchip = null
 		interrupt_operation()
 

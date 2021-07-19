@@ -3,7 +3,6 @@
 	stop_automated_movement_when_pulled = 0
 	obj_damage = 40
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES //Bitflags. Set to ENVIRONMENT_SMASH_STRUCTURES to break closets,tables,racks, etc; ENVIRONMENT_SMASH_WALLS for walls; ENVIRONMENT_SMASH_RWALLS for rwalls
-	///The current target of our attacks, use GiveTarget and LoseTarget to set this var
 	var/atom/target
 	var/ranged = FALSE
 	var/rapid = 0 //How many shots per volley.
@@ -655,7 +654,7 @@
 			else
 				Stun((knockdown_time * 2), ignore_canstun = TRUE)
 			charge_end()
-		else if(hit_atom.density && !hit_atom.CanPass(src, get_dir(hit_atom, src)))
+		else if(hit_atom.density && !hit_atom.CanPass(src))
 			visible_message("<span class='danger'>[capitalize(src.name)] smashes into [hit_atom]!</span>")
 			Stun((knockdown_time * 2), ignore_canstun = TRUE)
 

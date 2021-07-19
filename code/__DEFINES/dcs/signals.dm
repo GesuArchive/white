@@ -96,12 +96,10 @@
 #define COMSIG_ATOM_UPDATED_ICON "atom_updated_icon"
 ///from base of atom/Entered(): (atom/movable/entering, /atom)
 #define COMSIG_ATOM_ENTERED "atom_entered"
-/// Sent from the atom that just Entered src. From base of atom/Entered(): (/atom/destination, atom/old_loc, list/atom/old_locs)
-#define COMSIG_ATOM_ENTERING "atom_entering"
-///from base of atom/Exit(): (/atom/movable/leaving, direction)
+///from base of atom/Exit(): (/atom/movable/exiting, /atom/newloc)
 #define COMSIG_ATOM_EXIT "atom_exit"
 	#define COMPONENT_ATOM_BLOCK_EXIT (1<<0)
-///from base of atom/Exited(): (atom/movable/gone, direction)
+///from base of atom/Exited(): (atom/movable/exiting, atom/newloc)
 #define COMSIG_ATOM_EXITED "atom_exited"
 ///from base of atom/Bumped(): (/atom/movable)
 #define COMSIG_ATOM_BUMPED "atom_bumped"
@@ -244,11 +242,6 @@
 #define COMSIG_ATOM_SET_LIGHT_ON "atom_set_light_on"
 ///Called right before the atom changes the value of light_flags to a different one, from base atom/set_light_flags(): (new_value)
 #define COMSIG_ATOM_SET_LIGHT_FLAGS "atom_set_light_flags"
-///signal sent out by an atom when it checks if it can be pulled, for additional checks
-#define COMSIG_ATOM_CAN_BE_PULLED "movable_can_be_pulled"
-	#define COMSIG_ATOM_CANT_PULL (1 << 0)
-///signal sent out by an atom when it is no longer being pulled by something else
-#define COMSIG_ATOM_NO_LONGER_PULLED "movable_no_longer_pulled"
 ///called for each movable in a turf contents on /turf/zImpact(): (atom/movable/A, levels)
 #define COMSIG_ATOM_INTERCEPT_Z_FALL "movable_intercept_z_impact"
 ///called on a movable (NOT living) when it starts pulling (atom/movable/pulled, state, force)
@@ -296,16 +289,14 @@
 
 ///from base of area/proc/power_change(): ()
 #define COMSIG_AREA_POWER_CHANGE "area_power_change"
-///from base of area/Entered(): (atom/movable/arrived, direction)
+///from base of area/Entered(): (atom/movable/M)
 #define COMSIG_AREA_ENTERED "area_entered"
-///from base of area/Exited(): (atom/movable/gone, direction)
+///from base of area/Exited(): (atom/movable/M)
 #define COMSIG_AREA_EXITED "area_exited"
 
 // /turf signals
 
-/// from base of turf/ChangeTurf(): (path, list/new_baseturfs, flags, list/post_change_callbacks).
-/// `post_change_callbacks` is a list that signal handlers can mutate to append `/datum/callback` objects.
-/// They will be called with the new turf after the turf has changed.
+///from base of turf/ChangeTurf(): (path, list/new_baseturfs, flags, list/transferring_comps)
 #define COMSIG_TURF_CHANGE "turf_change"
 ///from base of atom/has_gravity(): (atom/asker, list/forced_gravities)
 #define COMSIG_TURF_HAS_GRAVITY "turf_has_gravity"
@@ -323,12 +314,16 @@
 	#define COMPONENT_MOVABLE_BLOCK_PRE_MOVE (1<<0)
 ///from base of atom/movable/Moved(): (/atom, dir)
 #define COMSIG_MOVABLE_MOVED "movable_moved"
-///from base of atom/movable/update_loc(): (/atom/oldloc)
-#define COMSIG_MOVABLE_LOCATION_CHANGE "location_changed"
+
 ///from base of atom/movable/Cross(): (/atom/movable)
 #define COMSIG_MOVABLE_CROSS "movable_cross"
-///from base of atom/movable/Move(): (/atom/movable)
-#define COMSIG_MOVABLE_CROSS_OVER "movable_cross_am"
+///from base of atom/movable/Crossed(): (/atom/movable)
+#define COMSIG_MOVABLE_CROSSED "movable_crossed"
+///from base of atom/movable/Uncross(): (/atom/movable)
+#define COMSIG_MOVABLE_UNCROSS "movable_uncross"
+	#define COMPONENT_MOVABLE_BLOCK_UNCROSS (1<<0)
+///from base of atom/movable/Uncrossed(): (/atom/movable)
+#define COMSIG_MOVABLE_UNCROSSED "movable_uncrossed"
 ///from base of atom/movable/Bump(): (/atom)
 #define COMSIG_MOVABLE_BUMP "movable_bump"
 ///from base of atom/movable/throw_impact(): (/atom/hit_atom, /datum/thrownthing/throwingdatum)
@@ -404,20 +399,6 @@
 ///from base of mob/AltClickOn(): (atom/A)
 #define COMSIG_MOB_ALTCLICKON "mob_altclickon"
 	#define COMSIG_MOB_CANCEL_CLICKON (1<<0)
-
-/// From base of /mob/living/simple_animal/bot/proc/bot_step()
-#define COMSIG_MOB_BOT_PRE_STEP "mob_bot_pre_step"
-	/// Should always match COMPONENT_MOVABLE_BLOCK_PRE_MOVE as these are interchangeable and used to block movement.
-	#define COMPONENT_MOB_BOT_BLOCK_PRE_STEP COMPONENT_MOVABLE_BLOCK_PRE_MOVE
-/// From base of /mob/living/simple_animal/bot/proc/bot_step()
-#define COMSIG_MOB_BOT_STEP "mob_bot_step"
-
-/// From base of /client/Move()
-#define COMSIG_MOB_CLIENT_PRE_MOVE "mob_client_pre_move"
-	/// Should always match COMPONENT_MOVABLE_BLOCK_PRE_MOVE as these are interchangeable and used to block movement.
-	#define COMSIG_MOB_CLIENT_BLOCK_PRE_MOVE COMPONENT_MOVABLE_BLOCK_PRE_MOVE
-/// From base of /client/Move()
-#define COMSIG_MOB_CLIENT_MOVED "mob_client_moved"
 
 ///from base of obj/allowed(mob/M): (/obj) returns bool, if TRUE the mob has id access to the obj
 #define COMSIG_MOB_ALLOWED "mob_allowed"
@@ -831,8 +812,6 @@
 #define COMSIG_HUMAN_DISARM_HIT	"human_disarm_hit"
 ///Whenever EquipRanked is called, called after job is set
 #define COMSIG_JOB_RECEIVED "job_received"
-///from /mob/living/carbon/human/proc/set_coretemperature(): (oldvalue, newvalue)
-#define COMSIG_HUMAN_CORETEMP_CHANGE "human_coretemp_change"
 
 // /datum/species signals
 
@@ -870,7 +849,7 @@
 
 ///from Edible component: (mob/living/eater, mob/feeder, bitecount, bitesize)
 #define COMSIG_FOOD_EATEN "food_eaten"
-///from base of datum/component/edible/on_entered: (mob/crosser, bitecount)
+///from base of datum/component/edible/oncrossed: (mob/crosser, bitecount)
 #define COMSIG_FOOD_CROSSED "food_crossed"
 
 ///from base of Component/edible/On_Consume: (mob/living/eater, mob/living/feeder)

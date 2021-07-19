@@ -40,7 +40,7 @@
 		/obj/item/stamp),
 		list(/obj/item/screwdriver/power))
 
-/obj/item/storage/wallet/Exited(atom/movable/gone, direction)
+/obj/item/storage/wallet/Exited(atom/movable/AM)
 	. = ..()
 	refreshID(removed = TRUE)
 
@@ -85,7 +85,7 @@
 	update_icon()
 	update_slot_icon()
 
-/obj/item/storage/wallet/Entered(atom/movable/arrived, direction)
+/obj/item/storage/wallet/Entered(atom/movable/AM)
 	. = ..()
 	refreshID(removed = FALSE)
 

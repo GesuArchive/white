@@ -53,7 +53,9 @@
 	myarea = get_area(src)
 	LAZYADD(myarea.firealarms, src)
 
-	AddElement(/datum/element/atmos_sensitive, mapload)
+/obj/machinery/firealarm/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/atmos_sensitive)
 
 /obj/machinery/firealarm/Destroy()
 	myarea.firereset(src)
@@ -140,7 +142,7 @@
 		update_icon()
 	alarm()
 
-/obj/machinery/firealarm/atmos_end()
+/obj/machinery/firealarm/atmos_end(datum/gas_mixture/air, exposed_temperature)
 	if(!detecting)
 		return
 	if(triggered)

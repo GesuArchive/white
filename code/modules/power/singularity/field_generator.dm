@@ -317,7 +317,7 @@ no power level overlay is currently in the overlays list.
 			fields += CF
 			G.fields += CF
 			for(var/mob/living/L in T)
-				CF.on_entered(src, L)
+				CF.Crossed(L)
 
 	connected_gens |= G
 	G.connected_gens |= src

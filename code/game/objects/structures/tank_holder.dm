@@ -28,7 +28,7 @@
 	QDEL_NULL(tank)
 	return ..()
 
-/obj/structure/tank_holder/CanAllowThrough(atom/movable/mover, border_dir)
+/obj/structure/tank_holder/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
 	if(istype(mover) && mover.throwing)
 		return TRUE

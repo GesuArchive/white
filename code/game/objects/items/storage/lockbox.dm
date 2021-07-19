@@ -57,12 +57,12 @@
 			visible_message("<span class='warning'><b>[src.name]</b> is broken by [user] with an electromagnetic card!</span>")
 			return
 
-/obj/item/storage/lockbox/Entered(atom/movable/arrived, direction)
+/obj/item/storage/lockbox/Entered()
 	. = ..()
 	open = TRUE
 	update_icon()
 
-/obj/item/storage/lockbox/Exited(atom/movable/gone, direction)
+/obj/item/storage/lockbox/Exited()
 	. = ..()
 	open = TRUE
 	update_icon()

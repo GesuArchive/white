@@ -319,7 +319,7 @@ GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/ca
 		AM.forceMove(C)
 	return ..()
 
-/mob/living/simple_animal/hostile/mimic/xenobio/CanAllowThrough(atom/movable/mover, border_dir)
+/mob/living/simple_animal/hostile/mimic/xenobio/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
 	if(istype(mover, /obj/structure/closet))
 		return FALSE

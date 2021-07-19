@@ -32,9 +32,9 @@
 		internalPaper = new(src)
 	update_icon()
 
-/obj/item/paperplane/Exited(atom/movable/gone, direction)
+/obj/item/paperplane/Exited(atom/movable/AM, atom/newLoc)
 	. = ..()
-	if (internalPaper == gone)
+	if (AM == internalPaper)
 		internalPaper = null
 		if(!QDELETED(src))
 			qdel(src)

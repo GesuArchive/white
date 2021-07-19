@@ -240,9 +240,9 @@
 	smoothing_groups = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_PLASMA_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_PLASMA_WALLS)
 
-/obj/structure/falsewall/plasma/Initialize(mapload)
+/obj/structure/falsewall/plasma/ComponentInitialize()
 	. = ..()
-	AddElement(/datum/element/atmos_sensitive, mapload)
+	AddElement(/datum/element/atmos_sensitive)
 
 /obj/structure/falsewall/plasma/attackby(obj/item/W, mob/user, params)
 	if(W.get_temperature() > 300)

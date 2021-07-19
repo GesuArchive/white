@@ -66,7 +66,7 @@
  * (if you ask me, this should be at the top of the move so you don't dance around)
  *
  */
-/client/Move(new_loc, direct)
+/client/Move(n, direct)
 	if(world.time < move_delay) //do not move anything ahead of this check please
 		return FALSE
 	else
@@ -76,14 +76,14 @@
 	move_delay = world.time + world.tick_lag //this is here because Move() can now be called mutiple times per tick
 	if(!mob || !mob.loc)
 		return FALSE
-	if(!new_loc || !direct)
+	if(!n || !direct)
 		return FALSE
 	if(mob.notransform)
 		return FALSE	//This is sota the goto stop mobs from moving var
 	if(mob.control_object)
 		return Move_object(direct)
 	if(!isliving(mob))
-		return mob.Move(new_loc, direct)
+		return mob.Move(n, direct)
 	if(mob.stat == DEAD)
 		mob.ghostize()
 		return FALSE
@@ -99,7 +99,7 @@
 		return mob.remote_control.relaymove(mob, direct)
 
 	if(isAI(mob))
-		return AIMove(new_loc,direct,mob)
+		return AIMove(n,direct,mob)
 
 	if(Process_Grab()) //are we restrained by someone's grip?
 		return
@@ -116,10 +116,6 @@
 
 	if(!mob.Process_Spacemove(direct))
 		return FALSE
-
-	if(SEND_SIGNAL(mob, COMSIG_MOB_CLIENT_PRE_MOVE, new_loc) & COMSIG_MOB_CLIENT_BLOCK_PRE_MOVE)
-		return FALSE
-
 	//We are now going to move
 	var/add_delay = mob.cached_multiplicative_slowdown
 	mob.set_glide_size(DELAY_TO_GLIDE_SIZE(add_delay * ( (NSCOMPONENT(direct) && EWCOMPONENT(direct)) ? 2 : 1 ) )) // set it now in case of pulled objects
@@ -139,21 +135,17 @@
 			newdir = angle2dir(dir2angle(direct) + pick(45, -45))
 		if(newdir)
 			direct = newdir
-			new_loc  = get_step(L, direct)
+			n = get_step(L, direct)
 
 	. = ..()
 
-	if((direct & (direct - 1)) && mob.loc == new_loc) //moved diagonally successfully
+	if((direct & (direct - 1)) && mob.loc == n) //moved diagonally successfully
 		add_delay *= 2
 	mob.set_glide_size(DELAY_TO_GLIDE_SIZE(add_delay))
 	move_delay += add_delay
 	if(.) // If mob is null here, we deserve the runtime
 		if(mob.throwing)
 			mob.throwing.finalize(FALSE)
-
-		// At this point we've moved the client's attached mob. This is one of the only ways to guess that a move was done
-		// as a result of player input and not because they were pulled or any other magic.
-		SEND_SIGNAL(mob, COMSIG_MOB_CLIENT_MOVED)
 
 	var/atom/movable/P = mob.pulling
 	if(P && !ismob(P) && P.density)
@@ -232,7 +224,7 @@
 						return
 				var/target = locate(locx,locy,mobloc.z)
 				if(target)
-					L.forceMove(target)
+					L.loc = target
 					var/limit = 2//For only two trailing shadows.
 					for(var/turf/T in getline(mobloc, L.loc))
 						new /obj/effect/temp_visual/dir_setting/ninja/shadow(T, L.dir)
@@ -329,7 +321,7 @@
 				var/mob/M = AM
 				if(M.buckled)
 					continue
-			if(AM.density || !AM.CanPass(src, get_dir(AM, src)))
+			if(!AM.CanPass(src) || AM.density)
 				if(AM.anchored)
 					return AM
 				if(pulling == AM)

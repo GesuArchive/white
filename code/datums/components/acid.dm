@@ -57,7 +57,8 @@
 
 /datum/component/acid/Destroy(force, silent)
 	STOP_PROCESSING(SSacid, src)
-	QDEL_NULL(sizzle)
+	if(sizzle)
+		QDEL_NULL(sizzle)
 	if(process_effect)
 		QDEL_NULL(process_effect)
 	UnregisterSignal(parent, COMSIG_ATOM_UPDATE_OVERLAYS)
@@ -72,7 +73,7 @@
 	RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND, .proc/on_attack_hand)
 	RegisterSignal(parent, COMSIG_ATOM_EXPOSE_REAGENT, .proc/on_expose_reagent)
 	if(isturf(parent))
-		RegisterSignal(parent, COMSIG_ATOM_ENTERED, .proc/on_entered)
+		RegisterSignal(parent, COMSIG_MOVABLE_CROSSED, .proc/on_crossed)
 
 /datum/component/acid/UnregisterFromParent()
 	UnregisterSignal(parent, list(
@@ -82,7 +83,7 @@
 		COMSIG_ATOM_EXPOSE_REAGENT))
 
 	if(isturf(parent))
-		UnregisterSignal(parent, COMSIG_ATOM_ENTERED)
+		UnregisterSignal(parent, COMSIG_MOVABLE_CROSSED)
 
 /// Averages corrosive power and sums volume.
 /datum/component/acid/InheritComponent(datum/component/C, i_am_original, _acid_power, _acid_volume)
@@ -203,12 +204,11 @@
 
 
 /// Handles searing the feet of whoever walks over this without protection. Only active if the parent is a turf.
-/datum/component/acid/proc/on_entered(datum/source, atom/movable/arrived, direction)
+/datum/component/acid/proc/on_crossed(atom/parent_atom, mob/living/crosser)
 	SIGNAL_HANDLER
 
-	if(!isliving(arrived))
+	if(!isliving(crosser))
 		return
-	var/mob/living/crosser = arrived
 	if(crosser.movement_type & FLYING)
 		return
 	if(crosser.m_intent & MOVE_INTENT_WALK)
