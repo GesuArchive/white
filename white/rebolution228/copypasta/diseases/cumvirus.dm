@@ -1,9 +1,10 @@
 /datum/disease/cumvirus
 	name = "Cum Virus"
-	max_stages = 5
+	max_stages = 6
+	stage_prob = 1
 	spread_text = "On contact"
 	cure_text = "Галоперидол & Святая вода"
-	spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_SKIN | DISEASE_SPREAD_CONTACT_FLUIDS
+	spread_flags = DISEASE_SPREAD_CONTACT_FLUIDS
 	cures = list(/datum/reagent/medicine/haloperidol,/datum/reagent/water/holywater)
 	cure_chance = 7.5
 	agent = "Cumthiris+61"
@@ -25,30 +26,43 @@
 			if(DT_PROB(5, delta_time))
 				affected_mob.emote("moan")
 			if(DT_PROB(10, delta_time))
-				to_chat(affected_mob, "<span class='danger'>Ты чувствуешь себя возбужденным.</span>")
+				to_chat(affected_mob, "<span class='danger'>Чувствую себя возбужденным.</span>")
 		if(4)
-			to_chat(affected_mob, "<span class='userdanger'>Ты чувствуешь очень сильное напряжение в своем половом органе!</span>")
+			to_chat(affected_mob, "<span class='userdanger'>Чувствую очень сильное напряжение в своем половом органе!</span>")
 			if(DT_PROB(40, delta_time))
 				affected_mob.emote("moan")
 				affected_mob.cum()
 				affected_mob.adjustStaminaLoss(3.5, FALSE)
-				affected_mob.adjustOxyLoss(1.5, FALSE)
 				shake_camera(affected_mob, 1, 1)
 			if(DT_PROB(20, delta_time))
-				to_chat(affected_mob, "<span class='danger'>Ты чувствуешь себя ОЧЕНЬ возбужденным.</span>")
+				to_chat(affected_mob, "<span class='danger'>Чувствую себя ОЧЕНЬ возбужденным.</span>")
 		if(5)
-			to_chat(affected_mob, "<span class='userdanger'>Ты непроизвольно кончаешь!</span>")
+			to_chat(affected_mob, "<span class='userdanger'>Непроизвольно кончаю!</span>")
 			if(DT_PROB(30, delta_time))
 				affected_mob.emote("moan")
 				affected_mob.cum()
 				affected_mob.adjustStaminaLoss(10, FALSE)
-				affected_mob.adjustOxyLoss(5, FALSE)
 				shake_camera(affected_mob, 1, 2)
 			if(DT_PROB(20, delta_time))
-				affected_mob.emote("choke")
 				affected_mob.cum()
 				affected_mob.Paralyze(40)
 				affected_mob.add_confusion(8)
 				shake_camera(affected_mob, 2, 3)
 				affected_mob.overlay_fullscreen("flash", /atom/movable/screen/fullscreen/flash)
 				affected_mob.clear_fullscreen("flash", 4.5)
+		if(6)
+			if(DT_PROB(30, delta_time))
+				affected_mob.overlay_fullscreen("flash", /atom/movable/screen/fullscreen/flash)
+				affected_mob.clear_fullscreen("flash", 8.5)
+				to_chat(affected_mob, "<span class='userdanger'>ТЕРЯЮ ПОСЛЕДНИЙ ОГОНЕК РАЗУМА!!</span>")
+				affected_mob.ai_controller = new /datum/ai_controller/raper(affected_mob)
+				affected_mob.ghostize(FALSE)
+				affected_mob.adjustStaminaLoss(200, FALSE)
+				var/mob/living/carbon/human/H = affected_mob
+				H.eye_color = "f00"
+				H.dna.update_ui_block(DNA_EYE_COLOR_BLOCK)
+				H.update_body()
+			if(DT_PROB(3, delta_time))
+				affected_mob.cum()
+				affected_mob.emote("moan")
+				affected_mob.do_jitter_animation(30)

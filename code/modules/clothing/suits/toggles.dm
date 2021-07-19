@@ -146,11 +146,10 @@
 	. = ..()
 
 /obj/item/clothing/suit/space/hardsuit/Destroy()
-	if(!QDELETED(helmet))
+	if(helmet)
 		helmet.suit = null
 		qdel(helmet)
-		helmet = null
-	QDEL_NULL(jetpack)
+	qdel(jetpack)
 	return ..()
 
 /obj/item/clothing/head/helmet/space/hardsuit/Destroy()

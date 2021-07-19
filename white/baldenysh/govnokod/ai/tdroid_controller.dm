@@ -74,6 +74,9 @@
 	else
 		current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/move_to_target/tdroid)
 
+	if(HAS_TRAIT(pawn, TRAIT_PACIFISM))
+		return
+
 	if(!CanArmGun())
 		if(TryFindGun())
 			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_pickup/tdroid)
@@ -85,8 +88,7 @@
 				return
 		*/
 
-	if(HAS_TRAIT(pawn, TRAIT_PACIFISM))
-		return
+
 
 	var/list/enemies = blackboard[BB_TDROID_ENEMIES]
 	if(enemies && enemies.len || blackboard[BB_TDROID_AGGRESSIVE])
@@ -244,7 +246,7 @@
 
 /datum/ai_controller/tdroid/proc/ShouldReloadGun(obj/item/gun/G)
 	if(!G)
-		return TRUE
+		return FALSE
 	if(!G.can_shoot())
 		return TRUE
 	return FALSE

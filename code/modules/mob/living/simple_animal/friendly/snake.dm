@@ -48,9 +48,8 @@
 /mob/living/simple_animal/hostile/retaliate/poison/snake/add_cell_sample()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_SNAKE, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
 
-/mob/living/simple_animal/hostile/retaliate/snake/ListTargets(atom/the_target)
-	var/atom/target_from = GET_TARGETS_FROM(src)
-	. = oview(vision_range, target_from) //get list of things in vision range
+/mob/living/simple_animal/hostile/retaliate/poison/snake/ListTargets(atom/the_target)
+	. = oview(vision_range, targets_from) //get list of things in vision range
 	var/list/living_mobs = list()
 	var/list/mice = list()
 	for (var/HM in .)

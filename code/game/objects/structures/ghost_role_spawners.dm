@@ -68,7 +68,7 @@
 	yolk.equipOutfit(/datum/outfit/ashwalker)//this is an authentic mess we're making
 	yolk.update_body()
 	yolk.gib()
-	QDEL_NULL(egg)
+	qdel(egg)
 	return ..()
 
 
@@ -92,11 +92,6 @@
 	var/datum/team/ashwalkers/team
 	var/obj/structure/ash_walker_eggshell/eggshell
 
-
-/obj/effect/mob_spawn/human/ash_walker/Destroy()
-	eggshell = null
-	return ..()
-
 /obj/effect/mob_spawn/human/ash_walker/allow_spawn(mob/user)
 	if(!(user.key in team.players_spawned))//one per person unless you get a bonus spawn
 		return TRUE
@@ -117,7 +112,7 @@
 		H.remove_language(/datum/language/common)
 	team.players_spawned += (new_spawn.key)
 	eggshell.egg = null
-	QDEL_NULL(eggshell)
+	qdel(eggshell)
 
 /obj/effect/mob_spawn/human/ash_walker/Initialize(mapload, datum/team/ashwalkers/ashteam)
 	. = ..()

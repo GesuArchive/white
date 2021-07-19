@@ -1,4 +1,3 @@
-#define SLIME_CARES_ABOUT(to_check) (to_check && (to_check == Target || to_check == Leader || (to_check in Friends)))
 /mob/living/simple_animal/slime
 	name = "grey baby slime (123)"
 	icon = 'icons/mob/slimes.dmi'
@@ -111,9 +110,9 @@
 	for (var/A in actions)
 		var/datum/action/AC = A
 		AC.Remove(src)
-	set_target(null)
-	set_leader(null)
-	clear_friends()
+	Target = null
+	Leader = null
+	Friends = null
 	return ..()
 
 /mob/living/simple_animal/slime/create_reagents(max_vol, flags)
@@ -361,7 +360,10 @@
 				if(S.next_step(user,user.a_intent))
 					return 1
 	if(istype(W, /obj/item/stack/sheet/mineral/plasma) && !stat) //Let's you feed slimes plasma.
-		add_friendship(user, 1)
+		if (user in Friends)
+			++Friends[user]
+		else
+			Friends[user] = 1
 		to_chat(user, "<span class='notice'>Кормлю слизь плазмой. Он весело верещит.</span>")
 		var/obj/item/stack/sheet/mineral/plasma/S = W
 		S.use(1)
@@ -429,7 +431,7 @@
 	adjustBruteLoss(rand(15,20))
 	if(!client)
 		if(Target) // Like cats
-			set_target(null)
+			Target = null
 			++Discipline
 	return
 
@@ -474,7 +476,8 @@
 			if(Discipline == 1)
 				attacked = 0
 
-	set_target(null)
+	if(Target)
+		Target = null
 	if(buckled)
 		Feedstop(silent = TRUE) //we unbuckle the slime from the mob it latched onto.
 
@@ -505,54 +508,5 @@
 /mob/living/simple_animal/slime/add_cell_sample()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_SLIME, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
 
-/mob/living/simple_animal/slime/proc/set_target(new_target)
-	var/old_target = Target
-	Target = new_target
-	if(old_target && !SLIME_CARES_ABOUT(old_target))
-		UnregisterSignal(old_target, COMSIG_PARENT_QDELETING)
-	if(Target)
-		RegisterSignal(Target, COMSIG_PARENT_QDELETING, .proc/clear_memories_of, override = TRUE)
-
-/mob/living/simple_animal/slime/proc/set_leader(new_leader)
-	var/old_leader = Leader
-	Leader = new_leader
-	if(old_leader && !SLIME_CARES_ABOUT(old_leader))
-		UnregisterSignal(old_leader, COMSIG_PARENT_QDELETING)
-	if(Leader)
-		RegisterSignal(Leader, COMSIG_PARENT_QDELETING, .proc/clear_memories_of, override = TRUE)
-
-/mob/living/simple_animal/slime/proc/add_friendship(new_friend, amount = 1)
-	if(!Friends[new_friend])
-		Friends[new_friend] = 0
-	Friends[new_friend] += amount
-	if(new_friend)
-		RegisterSignal(new_friend, COMSIG_PARENT_QDELETING, .proc/clear_memories_of, override = TRUE)
-
-/mob/living/simple_animal/slime/proc/set_friendship(new_friend, amount = 1)
-	Friends[new_friend] = amount
-	if(new_friend)
-		RegisterSignal(new_friend, COMSIG_PARENT_QDELETING, .proc/clear_memories_of, override = TRUE)
-
-/mob/living/simple_animal/slime/proc/remove_friend(friend)
-	Friends -= friend
-	if(friend && !SLIME_CARES_ABOUT(friend))
-		UnregisterSignal(friend, COMSIG_PARENT_QDELETING)
-
-/mob/living/simple_animal/slime/proc/set_friends(new_buds)
-	clear_friends()
-	for(var/mob/friend as anything in new_buds)
-		set_friendship(friend, new_buds[friend])
-
-/mob/living/simple_animal/slime/proc/clear_friends()
-	for(var/mob/friend as anything in Friends)
-		remove_friend(friend)
-
-/mob/living/simple_animal/slime/proc/clear_memories_of(datum/source)
-	SIGNAL_HANDLER
-	if(source == Target)
-		set_target(null)
-	if(source == Leader)
-		set_leader(null)
-	remove_friend(source)
-
-#undef SLIME_CARES_ABOUT
+/mob/living/simple_animal/slime/rainbow/Initialize(mapload, new_colour="rainbow", new_is_adult)
+	. = ..(mapload, new_colour, new_is_adult)

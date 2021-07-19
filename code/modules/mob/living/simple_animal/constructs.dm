@@ -42,7 +42,6 @@
 	var/can_repair_constructs = FALSE
 	var/can_repair_self = FALSE
 	var/runetype
-	var/datum/action/innate/cult/create_rune/our_rune
 	/// Theme controls color. THEME_CULT is red THEME_WIZARD is purple and THEME_HOLY is blue
 	var/theme = THEME_CULT
 	discovery_points = 1000
@@ -64,17 +63,13 @@
 		S.action.button.moved = "6:[pos],4:-2"
 		spellnum++
 	if(runetype)
-		our_rune = new runetype(src)
-		our_rune.Grant(src)
+		var/datum/action/innate/cult/create_rune/CR = new runetype(src)
+		CR.Grant(src)
 		var/pos = 2+spellnum*31
-		our_rune.button.screen_loc = "6:[pos],4:-2"
-		our_rune.button.moved = "6:[pos],4:-2"
+		CR.button.screen_loc = "6:[pos],4:-2"
+		CR.button.moved = "6:[pos],4:-2"
 	add_overlay("glow_[icon_state]_[theme]")
 
-/mob/living/simple_animal/hostile/construct/Destroy()
-	QDEL_NULL(our_rune)
-	return ..()
-	
 /mob/living/simple_animal/hostile/construct/Login()
 	. = ..()
 	if(!. || !client)
@@ -490,11 +485,15 @@
 	background_icon_state = "bg_demon"
 	buttontooltipstyle = "cult"
 	button_icon_state = "cult_mark"
+	var/mob/living/simple_animal/hostile/construct/harvester/the_construct
+
+/datum/action/innate/seek_prey/Grant(mob/living/C)
+	the_construct = C
+	..()
 
 /datum/action/innate/seek_prey/Activate()
 	if(GLOB.cult_narsie == null)
 		return
-	var/mob/living/simple_animal/hostile/construct/harvester/the_construct = owner
 	if(the_construct.seeking)
 		desc = "None can hide from Nar'Sie, activate to track a survivor attempting to flee the red harvest!"
 		button_icon_state = "cult_mark"

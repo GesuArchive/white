@@ -62,7 +62,7 @@
 
 /obj/effect/anomaly/Destroy()
 	STOP_PROCESSING(SSobj, src)
-	QDEL_NULL(countdown)
+	qdel(countdown)
 	if(aSignal)
 		QDEL_NULL(aSignal)
 	return ..()
