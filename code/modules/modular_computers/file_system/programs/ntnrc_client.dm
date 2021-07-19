@@ -22,7 +22,6 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 /datum/computer_file/program/chatclient/Destroy()
 	for(var/datum/ntnet_conversation/discussion as anything in conversations)
 		discussion.purge_client(src)
@@ -33,8 +32,6 @@
 >>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
 =======
 >>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
-=======
->>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)
 /datum/computer_file/program/chatclient/ui_act(action, params)
 	. = ..()
 	if(.)

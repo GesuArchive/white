@@ -313,7 +313,6 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 	target.visible_message(desc["visible"], desc["local"])
 
 	if(!iscarbon(user))
@@ -330,10 +329,6 @@
 	return
 >>>>>>> parent of 1b6a1f82fd (Мусорщик п228)
 
-=======
-			target.visible_message(desc["visible"], desc["local"])
-
->>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)
 			if(!iscarbon(user))
 				target.LAssailant = null
 			else
@@ -344,12 +339,9 @@
 			if (wait_desc)
 				to_chat(user, wait_desc)
 <<<<<<< HEAD
-<<<<<<< HEAD
 >>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
 =======
 >>>>>>> parent of 1b6a1f82fd (Мусорщик п228)
-=======
->>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)
 
 /obj/item/conversion_kit
 	name = "conversion kit"
