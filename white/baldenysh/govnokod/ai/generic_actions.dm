@@ -86,11 +86,15 @@
 	var/rapid_burst_shots = 3
 	var/action_time = 3
 
+	var/mob/living/target
+	var/mob/living/carbon/carbon_pawn
+	var/obj/item/gun/G
+
 /datum/ai_behavior/carbon_shooting/perform(delta_time, datum/ai_controller/controller)
 	. = ..()
-	var/mob/living/target = controller.blackboard[shoot_target_key]
-	var/mob/living/carbon/carbon_pawn = controller.pawn
-	var/obj/item/gun/G = carbon_pawn.held_items[gun_hand]
+	target = controller.blackboard[shoot_target_key]
+	carbon_pawn = controller.pawn
+	G = carbon_pawn.held_items[gun_hand]
 
 	if(!target || target.stat >= required_stat)
 		finish_action(controller, TRUE)
@@ -99,8 +103,8 @@
 		finish_action(controller, FALSE)
 		return
 
-	for(var/i = 1, i <= rapid_burst_shots, i++)
-		spawn(i*action_time)
+	for(var/i = 1 to rapid_burst_shots)
+		spawn(i*action_time+1)
 			perform_a_little_bit_of_trolling(carbon_pawn, target, G)
 
 	finish_action(controller, TRUE)
@@ -111,13 +115,13 @@
 	if(!G || QDELETED(G) || !G.can_shoot())
 		return
 	shooter.face_atom(target)
-	G.process_fire(target, shooter)
+	G.afterattack(target, shooter)
 	if(istype(G, /obj/item/gun/ballistic/rifle))
 		var/obj/item/gun/ballistic/rifle/R = G
 		spawn(action_time/3)
 			R.rack()
-			var/obj/item/ammo_box/magazine/internal/INTMAG = locate(/obj/item/ammo_box/magazine/internal) in R.contents
-			if(INTMAG.ammo_count(FALSE))
+			var/obj/item/ammo_box/magazine/internal/intmag = locate(/obj/item/ammo_box/magazine/internal) in R.contents
+			if(intmag.ammo_count(FALSE))
 				spawn(action_time/3)
 					R.rack()
 
@@ -131,33 +135,60 @@
 	var/ballistic_target_key
 	var/reloading_hand = LEFT_HANDS
 
+	var/mob/living/carbon/carbon_pawn
+	var/obj/item/gun/ballistic/B
+
 /datum/ai_behavior/carbon_ballistic_reload/perform(delta_time, datum/ai_controller/controller)
 	. = ..()
-	var/mob/living/carbon/carbon_pawn = controller.pawn
-	var/obj/item/gun/ballistic/B = controller.blackboard[ballistic_target_key]
+	carbon_pawn = controller.pawn
+	B = controller.blackboard[ballistic_target_key]
+
+	if(B.bolt_type == BOLT_TYPE_STANDARD && !B.bolt_locked)
+		B.attack_self(carbon_pawn)
+	carbon_pawn.swap_hand(reloading_hand)
 
 	if(istype(B.magazine, /obj/item/ammo_box/magazine/internal))
-		finish_action(controller, FALSE)
-		return // мб потом запилю
+		var/obj/item/ammo_box/magazine/internal/intmag = B.magazine
+		if(intmag.multiload)
+			for(var/obj/item/ammo_box/box in (carbon_pawn.contents | view(1, carbon_pawn)))
+				if(!box.stored_ammo.len || box.ammo_type != intmag.ammo_type)
+					continue
+				if(carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(reloading_hand)))
+					carbon_pawn.put_in_hand(box, reloading_hand, FALSE, FALSE)
+					B.attackby(box, carbon_pawn)
+					carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(reloading_hand))
+					finish_action(controller, TRUE)
+					return
+
+		var/found_live_casing = FALSE
+		for(var/obj/item/ammo_casing/casing in (carbon_pawn.contents | view(1, carbon_pawn)))
+			if(!casing.BB || casing.type != intmag.ammo_type)
+				continue
+			found_live_casing = TRUE
+			if(carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(reloading_hand)))
+				carbon_pawn.put_in_hand(casing, reloading_hand, FALSE, FALSE)
+				B.attackby(casing, carbon_pawn)
+
+		finish_action(controller, found_live_casing)
+		return
 	else
 		var/obj/item/ammo_box/magazine/newmag
 		var/last_ammo_count = 0
-		for(var/obj/item/ammo_box/magazine/MAG in (carbon_pawn.contents | view(1, carbon_pawn)))
-			if(MAG.type != B.mag_type)
+		for(var/obj/item/ammo_box/magazine/mag in (carbon_pawn.contents | view(1, carbon_pawn)))
+			if(mag.type != B.mag_type)
 				continue
-			var/cur_count = MAG.ammo_count(FALSE)
+			var/cur_count = mag.ammo_count(FALSE)
 			if(cur_count > last_ammo_count)
 				last_ammo_count = cur_count
-				newmag = MAG
+				newmag = mag
 		if(!newmag)
 			finish_action(controller, FALSE)
 			return
-		carbon_pawn.swap_hand(reloading_hand)
+
+		B.eject_magazine(carbon_pawn)
 		if(carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(reloading_hand)))
-			newmag.attack_hand(carbon_pawn)
-			B.attackby(newmag, carbon_pawn) //через аттак хенд хреново работает
-			if(!B.chambered)
-				B.attack_self(carbon_pawn)
+			carbon_pawn.put_in_hand(newmag, reloading_hand, FALSE, FALSE)
+			B.insert_magazine(carbon_pawn, newmag)
 			finish_action(controller, TRUE)
 			return
 	finish_action(controller, FALSE)
@@ -165,4 +196,13 @@
 
 /datum/ai_behavior/carbon_ballistic_reload/finish_action(datum/ai_controller/controller, success)
 	. = ..()
+	/*
+	if(success)
+		if(B.bolt_type == BOLT_TYPE_STANDARD && !B.chambered)
+			B.attack_self(carbon_pawn)
+	*/
+
+	if(B.bolt_type == BOLT_TYPE_STANDARD && B.bolt_locked)
+		B.attack_self(carbon_pawn)
+
 	controller.blackboard[ballistic_target_key] = null

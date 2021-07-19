@@ -74,9 +74,6 @@
 	else
 		current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/move_to_target/tdroid)
 
-	if(HAS_TRAIT(pawn, TRAIT_PACIFISM))
-		return
-
 	if(!CanArmGun())
 		if(TryFindGun())
 			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_pickup/tdroid)
@@ -125,15 +122,23 @@
 
 	var/obj/item/gun/armed_gun = TryArmGun()
 	if(armed_gun)
-		if(ShouldReloadGun(armed_gun))
+		if(istype(armed_gun, /obj/item/gun/ballistic) && ShouldReloadGun(armed_gun))
 			blackboard[BB_TDROID_INTERACTION_TARGET] = armed_gun
 			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_ballistic_reload/tdroid)
 			return
+		//воткнуть куданить сюда чек стрельбы по своим через рейтрейсинг или че там
 		var/aggro_pts = blackboard[BB_TDROID_ENEMIES][blackboard[BB_TDROID_INTERACTION_TARGET]]
 		if(aggro_pts && aggro_pts > 100)
 			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid/eliminate)
-		else
+		else if (aggro_pts && aggro_pts > 50)
 			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid)
+		else
+			var/datum/component/aiming/aiming = armed_gun.GetComponent(/datum/component/aiming)
+			if(aiming && isliving(blackboard[BB_TDROID_INTERACTION_TARGET]))
+				aiming.aim(living_pawn, blackboard[BB_TDROID_INTERACTION_TARGET])
+			spawn(2 SECONDS)
+				if(!living_pawn.has_status_effect(STATUS_EFFECT_PARALYZED))
+					current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid)
 		return
 
 
@@ -359,9 +364,9 @@
 			if(IsSquadMember(L))
 				return
 			switch(commander.a_intent)
-			//	if(INTENT_DISARM)
-			//		AgressionReact(L, 30)
-			//		StateOrder(28)
+				if(INTENT_DISARM)
+					AgressionReact(L, 30)
+					StateOrder(28)
 				if(INTENT_HARM)
 					AgressionReact(L, 60)
 					StateOrder(56)
@@ -441,17 +446,3 @@
 /datum/ai_controller/tdroid/proc/on_simple_agression(datum/source, mob/agressor)
 	SIGNAL_HANDLER
 	AgressionReact(agressor)
-
-//////////////////////////////////////////////////амонгас
-
-/mob/living/carbon/human/tdroid_debug
-	ai_controller = /datum/ai_controller/tdroid
-
-/mob/living/carbon/human/tdroid_debug/Initialize()
-	. = ..()
-	var/datum/ai_controller/tdroid/CTRL = ai_controller
-	for(var/mob/living/L in range(1))
-		if(L.client)
-			CTRL.RegisterCommander(L)
-			return
-
