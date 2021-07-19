@@ -318,6 +318,17 @@
 	else
 		target.LAssailant = WEAKREF(user)
 	cooldown_check = world.time + cooldown
+	return
+
+			if(!iscarbon(user))
+				target.LAssailant = null
+			else
+				target.LAssailant = user
+			cooldown_check = world.time + cooldown
+		else
+			var/wait_desc = get_wait_description()
+			if (wait_desc)
+				to_chat(user, wait_desc)
 
 /obj/item/conversion_kit
 	name = "conversion kit"
