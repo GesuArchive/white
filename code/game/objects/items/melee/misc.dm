@@ -310,6 +310,7 @@
 			add_fingerprint(user)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	target.visible_message(desc["visible"], desc["local"])
 
 	if(!iscarbon(user))
@@ -318,6 +319,8 @@
 		target.LAssailant = WEAKREF(user)
 	cooldown_check = world.time + cooldown
 =======
+=======
+>>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
 			target.visible_message(desc["visible"], desc["local"])
 
 			if(!iscarbon(user))

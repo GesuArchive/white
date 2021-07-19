@@ -21,10 +21,13 @@
 	username = "Пользователь #[rand(100, 999)]"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /datum/computer_file/program/chatclient/Destroy()
 	conversations.Cut()
 	return ..()
 
+=======
+>>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
 =======
 >>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
 /datum/computer_file/program/chatclient/ui_act(action, params)

@@ -232,7 +232,11 @@
 		var/obj/item/ammo_casing/energy/wormhole/W = ammo_type[i]
 		if(istype(W))
 <<<<<<< HEAD
+<<<<<<< HEAD
 			W.gun = WEAKREF(src)
+=======
+			W.gun = src
+>>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
 =======
 			W.gun = src
 >>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
