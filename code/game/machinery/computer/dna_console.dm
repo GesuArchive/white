@@ -2137,7 +2137,6 @@
 	diskette = null
 
 <<<<<<< HEAD
-<<<<<<< HEAD
 /obj/machinery/computer/scan_consolenew/proc/set_connected_scanner(new_scanner)
 	if(connected_scanner)
 		UnregisterSignal(connected_scanner, COMSIG_PARENT_QDELETING)
@@ -2152,8 +2151,6 @@
 	SIGNAL_HANDLER
 	set_connected_scanner(null)
 
-=======
->>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
 =======
 >>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
 #undef INJECTOR_TIMEOUT

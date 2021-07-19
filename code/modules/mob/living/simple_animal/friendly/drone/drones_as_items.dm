@@ -32,7 +32,6 @@
 	AddElement(/datum/element/point_of_interest)
 
 <<<<<<< HEAD
-<<<<<<< HEAD
 /obj/effect/mob_spawn/drone/allow_spawn(mob/user)
 	var/client/user_client = user.client
 	if(isnull(user_client) || !CONFIG_GET(flag/use_exp_restrictions_other))
@@ -53,8 +52,6 @@
 		return FALSE
 	return ..()
 =======
-=======
->>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
 //ATTACK GHOST IGNORING PARENT RETURN VALUE
 /obj/effect/mob_spawn/drone/attack_ghost(mob/user)
 	if(CONFIG_GET(flag/use_age_restriction_for_jobs))
@@ -64,7 +61,4 @@
 			to_chat(user, "<span class='danger'>You're too new to play as a drone! Please try again in [DRONE_MINIMUM_AGE - user.client.player_age] days.</span>")
 			return
 	. = ..()
-<<<<<<< HEAD
->>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
-=======
 >>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)

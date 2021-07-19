@@ -112,11 +112,7 @@
 /obj/structure/trap/stun/hunter/Initialize(mapload)
 	. = ..()
 	time_between_triggers = 10
-<<<<<<< HEAD
 	flare_message = "<span class='warning'>[src] snaps shut!</span>"
-=======
-	flare_message = "<span class='warning'>[capitalize(src.name)] snaps shut!</span>"
->>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
 
 /obj/structure/trap/stun/hunter/Crossed(atom/movable/AM)
 	if(isliving(AM))
