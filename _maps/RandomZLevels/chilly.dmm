@@ -115,7 +115,7 @@
 /obj/structure/rack,
 /obj/item/clothing/shoes/winterboots/ice_boots,
 /obj/item/storage/backpack/satchel/leather,
-/obj/item/clothing/neck/stripedgreenscarf,
+/obj/item/clothing/neck/stripedgreenscarf/black,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility4)
 "at" = (
@@ -654,7 +654,7 @@
 /obj/effect/turf_decal/dust,
 /obj/item/clothing/suit/jacket/puffer,
 /obj/item/clothing/under/color/white,
-/obj/item/clothing/neck/stripedgreenscarf,
+/obj/item/clothing/neck/stripedgreenscarf/grey,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
 "bU" = (
@@ -1677,9 +1677,9 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/chilly/facility3)
 "eC" = (
-/obj/item/clothing/head/helmet/skull,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/effect/decal/cleanable/blood/old,
+/obj/item/clothing/mask/skull,
 /turf/open/floor/grass/snow/safe/oxy{
 	icon_state = "snow_dug";
 	slowdown = 1
@@ -1840,8 +1840,8 @@
 /obj/item/clothing/gloves/color/black,
 /obj/item/clothing/shoes/winterboots,
 /obj/item/clothing/head/beanie,
-/obj/item/clothing/neck/stripedgreenscarf,
 /obj/item/key,
+/obj/item/clothing/neck/stripedgreenscarf/black,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility4)
 "fb" = (
@@ -4321,12 +4321,12 @@
 /turf/closed/wall/rospilovo/bricks_white,
 /area/awaymission/chilly/cave)
 "ma" = (
-/obj/item/clothing/head/helmet/skull,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 8
 	},
+/obj/item/clothing/mask/skull,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
 "mb" = (
@@ -9106,6 +9106,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/dust,
+/obj/item/clothing/suit/toggle/brown_jacket,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
 "zC" = (
