@@ -235,6 +235,15 @@ SUBSYSTEM_DEF(garbage)
 
 //this is mainly to separate things profile wise.
 /datum/controller/subsystem/garbage/proc/HardDelete(datum/D)
+<<<<<<< HEAD
+=======
+	del(D)
+	return
+/*
+	var/time = world.timeofday
+	var/tick = TICK_USAGE
+	var/ticktime = world.time
+>>>>>>> parent of a8afb5995f (Шушорщик бляяя)
 	++delslasttick
 	++totaldels
 	var/type = D.type
@@ -255,6 +264,7 @@ SUBSYSTEM_DEF(garbage)
 
 	var/time = MS2DS(tick_usage)
 
+<<<<<<< HEAD
 	if (time > 0.1 SECONDS)
 		postpone(time)
 	var/threshold = CONFIG_GET(number/hard_deletes_overrun_threshold)
@@ -268,6 +278,20 @@ SUBSYSTEM_DEF(garbage)
 		if (overrun_limit && I.hard_deletes_over_threshold >= overrun_limit)
 			I.qdel_flags |= QDEL_ITEM_SUSPENDED_FOR_LAG
 
+=======
+	if (tick > highest_del_tickusage)
+		highest_del_tickusage = tick
+	time = world.timeofday - time
+	if (!time && TICK_DELTA_TO_MS(tick) > 1)
+		time = TICK_DELTA_TO_MS(tick)/100
+	if (time > highest_del_time)
+		highest_del_time = time
+	if (time > 10)
+		log_game("Error: [type]([refID]) took longer than 1 second to delete (took [time/10] seconds to delete)")
+		message_admins("Error: [type]([refID]) took longer than 1 second to delete (took [time/10] seconds to delete).")
+		postpone(time)
+*/
+>>>>>>> parent of a8afb5995f (Шушорщик бляяя)
 /datum/controller/subsystem/garbage/Recover()
 	if (istype(SSgarbage.queues))
 		for (var/i in 1 to SSgarbage.queues.len)
