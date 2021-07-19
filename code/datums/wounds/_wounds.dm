@@ -126,7 +126,8 @@
 			qdel(src)
 			return
 
-	set_victim(L.owner)
+	victim = L.owner
+	RegisterSignal(victim, COMSIG_PARENT_QDELETING, .proc/null_victim)
 	set_limb(L)
 	LAZYADD(victim.all_wounds, src)
 	LAZYADD(limb.wounds, src)
@@ -162,15 +163,7 @@
 
 /datum/wound/proc/null_victim()
 	SIGNAL_HANDLER
-	set_victim(null)
-
-/datum/wound/proc/set_victim(new_victim)
-	if(victim)
-		UnregisterSignal(victim, COMSIG_PARENT_QDELETING)
-	remove_wound_from_victim()
-	victim = new_victim
-	if(victim)
-		RegisterSignal(victim, COMSIG_PARENT_QDELETING, .proc/null_victim)
+	victim = null
 
 /datum/wound/proc/source_died()
 	SIGNAL_HANDLER
@@ -184,18 +177,14 @@
 		already_scarred = TRUE
 		var/datum/scar/new_scar = new
 		new_scar.generate(limb, src)
-	remove_wound_from_victim()
+	if(victim)
+		LAZYREMOVE(victim.all_wounds, src)
+		if(!victim.all_wounds)
+			victim.clear_alert("wound")
+		SEND_SIGNAL(victim, COMSIG_CARBON_LOSE_WOUND, src, limb)
 	if(limb && !ignore_limb)
 		LAZYREMOVE(limb.wounds, src)
 		limb.update_wounds(replaced)
-
-/datum/wound/proc/remove_wound_from_victim()
-	if(!victim)
-		return
-	LAZYREMOVE(victim.all_wounds, src)
-	if(!victim.all_wounds)
-		victim.clear_alert("wound")
-	SEND_SIGNAL(victim, COMSIG_CARBON_LOSE_WOUND, src, limb)
 
 /**
  * replace_wound() is used when you want to replace the current wound with a new wound, presumably of the same category, just of a different severity (either up or down counts)
