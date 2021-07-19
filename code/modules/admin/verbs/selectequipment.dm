@@ -136,10 +136,10 @@
 	if(!cached_outfits)
 		cached_outfits = list()
 		cached_outfits += list(outfit_entry("Осн", /datum/outfit, "Naked", priority=TRUE))
-		cached_outfits += make_outfit_entries("Осн", subtypesof(/datum/outfit) - typesof(/datum/outfit/job) - typesof(/datum/outfit/plasmaman) - typesof(/datum/outfit/wzzzz) - typesof(/datum/outfit/whiterobust))
+		cached_outfits += make_outfit_entries("Осн", subtypesof(/datum/outfit) - typesof(/datum/outfit/job) - typesof(/datum/outfit/plasmaman) - typesof(/datum/outfit) - typesof(/datum/outfit/whiterobust))
 		cached_outfits += make_outfit_entries("Джоб", typesof(/datum/outfit/job))
 		cached_outfits += make_outfit_entries("Плазмамен", typesof(/datum/outfit/plasmaman))
-		cached_outfits += make_outfit_entries("Зерг", typesof(/datum/outfit/wzzzz))
+		cached_outfits += make_outfit_entries("Зерг", typesof(/datum/outfit))
 		cached_outfits += make_outfit_entries("Турнир", typesof(/datum/outfit/whiterobust))
 
 	data["outfits"] = cached_outfits

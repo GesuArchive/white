@@ -11,27 +11,27 @@
 	price_max = 10000
 	stock_max = 1
 	availability_prob = 100
-
-/datum/blackmarket_item/sclothing/wzzzz/merc_rig_heavy
+/*
+/datum/blackmarket_item/sclothing/merc_rig_heavy
 	name = "heavy blood-red hardsuit helmet"
 	desc = "Very heavy, but nice protection"
-	item = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/merc_rig_heavy
+	item = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/merc_rig_heavy
 
 	price_min = 30000
 	price_max = 100000
 	stock_max = 1
 	availability_prob = 50
 
-/datum/blackmarket_item/sclothing/wzzzz/hazard_rig
+/datum/blackmarket_item/sclothing/hazard_rig
 	name = "heavy blood-red hardsuit helmet"
 	desc = "Very heavy, but nice protection"
-	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/hazard_rig
+	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite/hazard_rig
 
 	price_min = 10000
 	price_max = 65000
 	stock_max = 1
 	availability_prob = 100
-
+*/
 /datum/blackmarket_item/sclothing/hardsuit
 	name = "Syndicate Hardsuit"
 	desc = "The feared suit of a Syndicate nuclear agent. Features slightly better armoring and a built in jetpack \

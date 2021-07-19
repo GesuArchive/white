@@ -2,7 +2,7 @@
 	damage = 50
 	armour_penetration = 25
 
-/obj/item/ammo_casing/wzzzz/a556
+/obj/item/ammo_casing/a556
 	desc = "A 5.56mm bullet casing."
 	caliber = "a556"
 	projectile_type = /obj/projectile/bullet/rifle/a556
@@ -10,22 +10,22 @@
 	icon_state = "rifle_casing"
 	inhand_icon_state = "rifle_casing"
 
-/obj/item/ammo_box/magazine/wzzzz/g43
+/obj/item/ammo_box/magazine/g43
 	name = "magazine (5.56mm)"
 	icon_state = "5.56"
 	caliber = "a556"
-	ammo_type = /obj/item/ammo_casing/wzzzz/a556
+	ammo_type = /obj/item/ammo_casing/a556
 	icon = 'white/Wzzzz/icons/ammo.dmi'
 	max_ammo = 15
 	multiple_sprites = 1
 
-/obj/item/gun/ballistic/automatic/wzzzz/g43
+/obj/item/gun/ballistic/automatic/g43
 	name = "G-43"
 	desc = "Semi-automatic german rifle."
 	icon_state = "g43"
 	inhand_icon_state = "g43"
 	weapon_weight = WEAPON_HEAVY
-	mag_type = /obj/item/ammo_box/magazine/wzzzz/g43
+	mag_type = /obj/item/ammo_box/magazine/g43
 	fire_sound = 'white/Wzzzz/gunshot3.ogg'
 	icon = 'white/Wzzzz/icons/Weea.dmi'
 	lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'

@@ -1,5 +1,5 @@
 // Медицинский пояс СМО MK2
-/obj/item/storage/belt/medical/wzzzz/ems/cmo
+/obj/item/storage/belt/medical/ems/cmo
 
 /obj/item/reagent_containers/glass/bottle/penacid
 	name = "Пентетовая кислота"
@@ -11,7 +11,7 @@
 	desc = "Небольшая бутылка со средством для лечения побоев и ушибов."
 	list_reagents = list(/datum/reagent/medicine/sal_acid = 30)
 
-/obj/item/storage/belt/medical/wzzzz/ems/cmo/PopulateContents()
+/obj/item/storage/belt/medical/ems/cmo/PopulateContents()
 	new /obj/item/surgical_drapes(src)
 	new /obj/item/scalpel/advanced(src)
 	new /obj/item/retractor/advanced(src)

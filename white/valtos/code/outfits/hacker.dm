@@ -5,8 +5,8 @@
 	belt = /obj/item/storage/belt/utility/full
 	l_pocket = /obj/item/pda/toxins
 	ears = /obj/item/radio/headset/headset_sci
-	glasses = /obj/item/clothing/glasses/hud/wzzzz/hacker_rig
-	uniform = /obj/item/clothing/under/wzzzz/victorian/vest/black
+	glasses = /obj/item/clothing/glasses/hud/hacker_rig
+	uniform = /obj/item/clothing/under/color/grey
 	shoes = /obj/item/clothing/shoes/jackboots
 
 	backpack = /obj/item/storage/backpack/science
@@ -19,8 +19,8 @@
 	name = "Hacker (Full)"
 
 	belt = /obj/item/storage/belt/utility/chief/full
-	gloves = /obj/item/clothing/gloves/combat/wzzzz/guard
-	suit = /obj/item/clothing/suit/space/wzzzz/hacker_rig
+	gloves = /obj/item/clothing/gloves/combat/guard
+	suit = /obj/item/clothing/suit/space/hacker_rig
 	head = /obj/item/clothing/head/helmet/space/chronos/hacker
 
 /datum/outfit/job/hacker/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

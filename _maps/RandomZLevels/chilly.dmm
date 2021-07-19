@@ -115,7 +115,7 @@
 /obj/structure/rack,
 /obj/item/clothing/shoes/winterboots/ice_boots,
 /obj/item/storage/backpack/satchel/leather,
-/obj/item/clothing/neck/stripedgreenscarf/wzzzz/grey,
+/obj/item/clothing/neck/stripedgreenscarf/grey,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility4)
 "at" = (
@@ -654,7 +654,7 @@
 /obj/effect/turf_decal/dust,
 /obj/item/clothing/suit/jacket/puffer,
 /obj/item/clothing/under/color/white,
-/obj/item/clothing/neck/stripedgreenscarf/wzzzz/grey,
+/obj/item/clothing/neck/stripedgreenscarf/grey,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
 "bU" = (
@@ -1677,7 +1677,7 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/chilly/facility3)
 "eC" = (
-/obj/item/clothing/mask/skull/wzzzz,
+/obj/item/clothing/mask/skull,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/grass/snow/safe/oxy{
@@ -1840,7 +1840,7 @@
 /obj/item/clothing/gloves/color/black,
 /obj/item/clothing/shoes/winterboots,
 /obj/item/clothing/head/beanie,
-/obj/item/clothing/neck/stripedgreenscarf/wzzzz/grey,
+/obj/item/clothing/neck/stripedgreenscarf/grey,
 /obj/item/key,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility4)
@@ -3660,7 +3660,7 @@
 /area/awaymission/chilly/surface)
 "ke" = (
 /obj/effect/turf_decal/dust,
-/obj/item/clothing/head/helmet/skull/wzzzz,
+/obj/item/clothing/head/helmet/skull,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
@@ -4179,8 +4179,8 @@
 /area/awaymission/chilly/facility2)
 "lF" = (
 /obj/structure/closet,
-/obj/item/clothing/head/helmet/wzzzz/riot/coldres,
-/obj/item/melee/classic_baton/wzzzz/german{
+/obj/item/clothing/head/helmet/riot/coldres,
+/obj/item/melee/classic_baton/german{
 	desc = "A compact yet robust personal defense weapon. Can be concealed when folded.";
 	name = "baton"
 	},
@@ -4193,7 +4193,7 @@
 /obj/effect/turf_decal/bot,
 /obj/item/storage/belt/utility/full/engi,
 /obj/item/construction/rcd/loaded,
-/obj/item/clothing/suit/armor/wzzzz/tac_hazmat/grey/coldres,
+/obj/item/clothing/suit/armor/tac_hazmat/grey/coldres,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/gatewaystart/base2armory)
 "lG" = (
@@ -4321,7 +4321,7 @@
 /turf/closed/wall/rospilovo/bricks_white,
 /area/awaymission/chilly/cave)
 "ma" = (
-/obj/item/clothing/mask/skull/wzzzz,
+/obj/item/clothing/mask/skull,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/effect/decal/cleanable/blood/tracks{
@@ -4765,15 +4765,15 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/red,
-/obj/item/clothing/head/helmet/wzzzz/riot/coldres,
-/obj/item/melee/classic_baton/wzzzz/german{
+/obj/item/clothing/head/helmet/riot/coldres,
+/obj/item/melee/classic_baton/german{
 	desc = "A compact yet robust personal defense weapon. Can be concealed when folded.";
 	name = "baton"
 	},
 /obj/item/flashlight/seclite,
 /obj/item/clothing/mask/russian_balaclava,
 /obj/item/storage/belt/military/assault,
-/obj/item/clothing/suit/armor/wzzzz/tac_hazmat/grey/coldres,
+/obj/item/clothing/suit/armor/tac_hazmat/grey/coldres,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/gatewaystart/base2armory)
 "np" = (
@@ -4925,7 +4925,7 @@
 /obj/item/clothing/suit/jacket/miljacket,
 /obj/item/clothing/under/switer/dark,
 /obj/item/clothing/head/ushanka,
-/obj/item/clothing/neck/stripedgreenscarf/wzzzz/black,
+/obj/item/clothing/neck/stripedgreenscarf/black,
 /obj/item/gun/ballistic/automatic/pistol/makarov,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
@@ -5438,7 +5438,7 @@
 "pn" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/remains/human,
-/obj/item/clothing/under/rank/cargo/tech/wzzzz,
+/obj/item/clothing/under/rank/cargo/tech,
 /obj/item/clothing/suit/hooded/wintercoat/cargo,
 /obj/machinery/light/broken{
 	dir = 8
@@ -5776,7 +5776,7 @@
 /area/awaymission/chilly/cave)
 "qj" = (
 /obj/effect/decal/cleanable/blood/old,
-/obj/item/clothing/head/helmet/skull/wzzzz,
+/obj/item/clothing/head/helmet/skull,
 /obj/machinery/light/small/broken,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
@@ -6211,7 +6211,7 @@
 	},
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/old,
-/obj/item/clothing/under/rank/civilian/head_of_personnel/wzzzz,
+/obj/item/clothing/under/rank/civilian/head_of_personnel,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
 "rt" = (
@@ -6589,8 +6589,8 @@
 "sA" = (
 /obj/structure/closet,
 /obj/effect/turf_decal/dust,
-/obj/item/clothing/head/helmet/wzzzz/riot/coldres,
-/obj/item/melee/classic_baton/wzzzz/german{
+/obj/item/clothing/head/helmet/riot/coldres,
+/obj/item/melee/classic_baton/german{
 	desc = "A compact yet robust personal defense weapon. Can be concealed when folded.";
 	name = "baton"
 	},
@@ -6605,7 +6605,7 @@
 /obj/item/storage/firstaid/advanced,
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/belt/medical,
-/obj/item/clothing/suit/armor/wzzzz/tac_hazmat/grey/coldres,
+/obj/item/clothing/suit/armor/tac_hazmat/grey/coldres,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/gatewaystart/base2armory)
 "sC" = (
@@ -6717,7 +6717,7 @@
 "sR" = (
 /obj/structure/closet/cabinet,
 /obj/effect/turf_decal/dust,
-/obj/item/clothing/suit/toggle/wzzzz/brown_jacket,
+/obj/item/clothing/suit/toggle/brown_jacket,
 /obj/item/clothing/under/color/white,
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 5
@@ -7616,27 +7616,27 @@
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/bot_red,
-/obj/item/ammo_box/magazine/wzzzz/a556carbine{
+/obj/item/ammo_box/magazine/a556carbine{
 	pixel_x = -8;
 	pixel_y = -4
 	},
-/obj/item/ammo_box/magazine/wzzzz/a556carbine{
+/obj/item/ammo_box/magazine/a556carbine{
 	pixel_x = 12;
 	pixel_y = 9
 	},
-/obj/item/ammo_box/magazine/wzzzz/a556carbine{
+/obj/item/ammo_box/magazine/a556carbine{
 	pixel_x = 1;
 	pixel_y = 9
 	},
-/obj/item/ammo_box/magazine/wzzzz/a556carbine{
+/obj/item/ammo_box/magazine/a556carbine{
 	pixel_x = -9;
 	pixel_y = 9
 	},
-/obj/item/ammo_box/magazine/wzzzz/a556carbine{
+/obj/item/ammo_box/magazine/a556carbine{
 	pixel_x = 2;
 	pixel_y = -2
 	},
-/obj/item/ammo_box/magazine/wzzzz/a556carbine{
+/obj/item/ammo_box/magazine/a556carbine{
 	pixel_x = 11;
 	pixel_y = -4
 	},
@@ -8430,7 +8430,7 @@
 /area/awaymission/chilly/facility2)
 "xA" = (
 /obj/structure/closet/crate/secure/gear,
-/obj/item/melee/classic_baton/wzzzz/german{
+/obj/item/melee/classic_baton/german{
 	desc = "A compact yet robust personal defense weapon. Can be concealed when folded.";
 	name = "baton"
 	},
@@ -10425,14 +10425,14 @@
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/bot_red,
-/obj/item/ammo_box/magazine/wzzzz/carbine{
+/obj/item/ammo_box/magazine/carbine{
 	pixel_x = 6
 	},
-/obj/item/ammo_box/magazine/wzzzz/carbine,
-/obj/item/ammo_box/magazine/wzzzz/carbine{
+/obj/item/ammo_box/magazine/carbine,
+/obj/item/ammo_box/magazine/carbine{
 	pixel_x = -6
 	},
-/obj/item/ammo_box/magazine/wzzzz/carbine{
+/obj/item/ammo_box/magazine/carbine{
 	pixel_x = -10
 	},
 /turf/open/floor/plasteel/dark,
@@ -11783,7 +11783,7 @@
 /area/awaymission/chilly/surface)
 "Hf" = (
 /obj/effect/turf_decal/dust,
-/obj/item/melee/classic_baton/wzzzz/german{
+/obj/item/melee/classic_baton/german{
 	desc = "Устаревшая полицейская резиновая тонфа, использовавшаяся различными корпорациями вплоть до 23 века, пока не была заменена 'стан-палками'. Почувствуй силу демократии.";
 	name = "полицейская дубинка";
 	pixel_x = 10;
@@ -12413,7 +12413,7 @@
 "IT" = (
 /obj/structure/closet/cabinet,
 /obj/effect/turf_decal/dust,
-/obj/item/clothing/suit/toggle/wzzzz/hoodie/black,
+/obj/item/clothing/suit/toggle/hoodie/black,
 /obj/item/clothing/under/dress/skirt/red,
 /obj/item/clothing/neck/stripedredscarf,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -12654,7 +12654,7 @@
 	dir = 4
 	},
 /obj/item/clothing/gloves/color/black,
-/obj/item/clothing/mask/gas/wzzzz/alt,
+/obj/item/clothing/mask/gas/alt,
 /turf/open/floor/plasteel/white/side{
 	dir = 8
 	},
@@ -12858,7 +12858,7 @@
 	dir = 8
 	},
 /obj/item/clothing/gloves/color/black,
-/obj/item/clothing/mask/gas/wzzzz/alt,
+/obj/item/clothing/mask/gas/alt,
 /turf/open/floor/plasteel/white/side{
 	dir = 4
 	},
@@ -13109,7 +13109,7 @@
 /area/awaymission/chilly/facility3)
 "KZ" = (
 /obj/effect/turf_decal/dust,
-/obj/item/clothing/mask/skull/wzzzz,
+/obj/item/clothing/mask/skull,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility3)
 "La" = (
@@ -13239,7 +13239,7 @@
 "Lv" = (
 /obj/structure/closet/cabinet,
 /obj/effect/turf_decal/dust,
-/obj/item/clothing/suit/wzzzz/militaryjacket/desert,
+/obj/item/clothing/suit/militaryjacket/desert,
 /obj/item/clothing/neck/scarf/black,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility3)
@@ -13761,7 +13761,7 @@
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "MY" = (
-/obj/structure/closet/crate/wooden/wzzzz/alt,
+/obj/structure/closet/crate/wooden/alt,
 /obj/item/reagent_containers/food/drinks/bottle/vodka/badminka{
 	pixel_x = 7
 	},
@@ -14679,7 +14679,7 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/remains/human,
-/obj/item/clothing/head/helmet/wzzzz/riot/coldres,
+/obj/item/clothing/head/helmet/riot/coldres,
 /obj/item/gun/ballistic/shotgun/spas12,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility2)
@@ -14737,7 +14737,7 @@
 /obj/effect/turf_decal/dust,
 /obj/item/storage/backpack,
 /obj/item/clothing/gloves/combat,
-/obj/item/clothing/shoes/jackboots/wzzzz/dutylong{
+/obj/item/clothing/shoes/jackboots/dutylong{
 	cold_protection = 120;
 	min_cold_protection_temperature = 2
 	},
@@ -14844,7 +14844,7 @@
 /turf/open/floor/plasteel/elevatorshaft,
 /area/awaymission/chilly/facility)
 "PY" = (
-/obj/structure/closet/crate/wooden/wzzzz/alt,
+/obj/structure/closet/crate/wooden/alt,
 /obj/effect/turf_decal/dust,
 /obj/item/hatchet,
 /turf/open/floor/wood,
@@ -14987,7 +14987,7 @@
 /obj/item/clothing/head/ushanka{
 	cold_protection = 390
 	},
-/obj/item/clothing/neck/stripedgreenscarf/wzzzz,
+/obj/item/clothing/neck/stripedgreenscarf,
 /obj/item/clothing/glasses/sunglasses,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
@@ -16506,7 +16506,7 @@
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/cave)
 "US" = (
-/obj/structure/closet/crate/wooden/wzzzz/alt,
+/obj/structure/closet/crate/wooden/alt,
 /obj/item/food/canned/beans,
 /obj/item/food/canned/beans,
 /obj/item/food/canned/beans,
@@ -16594,12 +16594,12 @@
 /obj/structure/closet/cabinet,
 /obj/effect/turf_decal/dust,
 /obj/item/clothing/suit/jacket/leather/overcoat,
-/obj/item/clothing/head/wzzzz/ttcushankadown{
+/obj/item/clothing/head/ttcushankadown{
 	cold_protection = 390;
 	min_cold_protection_temperature = 120
 	},
 /obj/item/kitchen/knife/combat,
-/obj/item/clothing/neck/stripedgreenscarf/wzzzz/black,
+/obj/item/clothing/neck/stripedgreenscarf/black,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility3)
 "Vg" = (
@@ -16615,15 +16615,15 @@
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/bot_red,
-/obj/item/gun/ballistic/automatic/m90/unrestricted/wzzzz/z8{
+/obj/item/gun/ballistic/automatic/m90/unrestricted/z8{
 	pixel_x = 4;
 	pixel_y = -4
 	},
-/obj/item/gun/ballistic/automatic/m90/unrestricted/wzzzz/z8{
+/obj/item/gun/ballistic/automatic/m90/unrestricted/z8{
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/item/gun/ballistic/automatic/m90/unrestricted/wzzzz/z8,
+/obj/item/gun/ballistic/automatic/m90/unrestricted/z8,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/gatewaystart/base2armory)
 "Vi" = (
@@ -17230,8 +17230,8 @@
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/bot_red,
-/obj/item/gun/ballistic/automatic/wzzzz/carbine,
-/obj/item/gun/ballistic/automatic/wzzzz/carbine{
+/obj/item/gun/ballistic/automatic/carbine,
+/obj/item/gun/ballistic/automatic/carbine{
 	pixel_x = -6;
 	pixel_y = 6
 	},

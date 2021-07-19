@@ -1,10 +1,10 @@
-/obj/item/gun/ballistic/automatic/ar/wzzzz
+/obj/item/gun/ballistic/automatic/ar
 	name = "\improper NT-ARG 'Boarder'"
 	desc = "Assault rile with special amp."
 	icon_state = "arg"
 	inhand_icon_state = "arg"
 	slot_flags = 0
-	mag_type = /obj/item/ammo_box/magazine/m556/arg/wzzzz
+	mag_type = /obj/item/ammo_box/magazine/m556/arg
 	fire_sound = 'white/Wzzzz/gunshot_smg.ogg'
 	can_suppress = FALSE
 	icon = 'white/Wzzzz/icons/Weea.dmi'
@@ -14,7 +14,7 @@
 	zoom_out_amt = 8
 	fire_delay = 2
 
-/obj/item/ammo_box/magazine/m556/arg/wzzzz
+/obj/item/ammo_box/magazine/m556/arg
 	name = "arg magazine (5.56mm)"
 	icon_state = "arg"
 	ammo_type = /obj/item/ammo_casing/m556
@@ -27,9 +27,9 @@
 	name = "5.56mm bullet casing"
 	desc = "A 5.56mm bullet casing."
 	caliber = "m556"
-	projectile_type = /obj/projectile/bullet/m556/wzzzz
+	projectile_type = /obj/projectile/bullet/m556
 
-/obj/projectile/bullet/m556/wzzzz
+/obj/projectile/bullet/m556
 	damage = 35
 	armour_penetration = 10
 	speed = 0.25

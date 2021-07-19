@@ -4727,11 +4727,11 @@
 /obj/machinery/door/window/brigdoor{
 	req_access_txt = "101"
 	},
-/obj/item/gun/energy/taser/wzzzz/carbine{
+/obj/item/gun/energy/taser/carbine{
 	pixel_y = 3
 	},
-/obj/item/gun/energy/taser/wzzzz/carbine,
-/obj/item/gun/energy/taser/wzzzz/carbine{
+/obj/item/gun/energy/taser/carbine,
+/obj/item/gun/energy/taser/carbine{
 	pixel_y = -3
 	},
 /turf/open/floor/plasteel/dark,
@@ -5068,7 +5068,7 @@
 	},
 /area/abductor_ship)
 "Fi" = (
-/obj/structure/bed/wzzzz,
+/obj/structure/bed,
 /obj/item/bedsheet/random,
 /obj/effect/turf_decal/dz031/grid_full,
 /turf/open/floor/dz/cyber,

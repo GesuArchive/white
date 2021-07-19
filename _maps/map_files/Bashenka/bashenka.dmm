@@ -481,16 +481,16 @@
 	},
 /obj/machinery/camera/autoname,
 /obj/structure/table,
-/obj/item/clothing/suit/space/eva/wzzzz{
+/obj/item/clothing/suit/space/eva{
 	pixel_y = 8
 	},
-/obj/item/clothing/suit/space/eva/wzzzz{
+/obj/item/clothing/suit/space/eva{
 	pixel_x = 4
 	},
-/obj/item/clothing/head/helmet/space/eva/wzzzz/spacebowl{
+/obj/item/clothing/head/helmet/space/eva/spacebowl{
 	pixel_y = 8
 	},
-/obj/item/clothing/head/helmet/space/eva/wzzzz/spacebowl{
+/obj/item/clothing/head/helmet/space/eva/spacebowl{
 	pixel_x = 4
 	},
 /obj/item/clothing/mask/breath/cheap,
@@ -12236,16 +12236,16 @@
 	dir = 1
 	},
 /obj/structure/table,
-/obj/item/clothing/suit/space/eva/wzzzz{
+/obj/item/clothing/suit/space/eva{
 	pixel_y = 8
 	},
-/obj/item/clothing/suit/space/eva/wzzzz{
+/obj/item/clothing/suit/space/eva{
 	pixel_x = 4
 	},
-/obj/item/clothing/head/helmet/space/eva/wzzzz/spacebowl{
+/obj/item/clothing/head/helmet/space/eva/spacebowl{
 	pixel_y = 8
 	},
-/obj/item/clothing/head/helmet/space/eva/wzzzz/spacebowl{
+/obj/item/clothing/head/helmet/space/eva/spacebowl{
 	pixel_x = 4
 	},
 /obj/item/clothing/mask/breath/cheap,
@@ -24490,16 +24490,16 @@
 	dir = 10
 	},
 /obj/structure/table,
-/obj/item/clothing/suit/space/eva/wzzzz{
+/obj/item/clothing/suit/space/eva{
 	pixel_y = 8
 	},
-/obj/item/clothing/suit/space/eva/wzzzz{
+/obj/item/clothing/suit/space/eva{
 	pixel_x = 4
 	},
-/obj/item/clothing/head/helmet/space/eva/wzzzz/spacebowl{
+/obj/item/clothing/head/helmet/space/eva/spacebowl{
 	pixel_y = 8
 	},
-/obj/item/clothing/head/helmet/space/eva/wzzzz/spacebowl{
+/obj/item/clothing/head/helmet/space/eva/spacebowl{
 	pixel_x = 4
 	},
 /obj/item/clothing/mask/breath/cheap,
@@ -29360,16 +29360,16 @@
 	dir = 1
 	},
 /obj/structure/table,
-/obj/item/clothing/suit/space/eva/wzzzz{
+/obj/item/clothing/suit/space/eva{
 	pixel_y = 8
 	},
-/obj/item/clothing/suit/space/eva/wzzzz{
+/obj/item/clothing/suit/space/eva{
 	pixel_x = 4
 	},
-/obj/item/clothing/head/helmet/space/eva/wzzzz/spacebowl{
+/obj/item/clothing/head/helmet/space/eva/spacebowl{
 	pixel_y = 8
 	},
-/obj/item/clothing/head/helmet/space/eva/wzzzz/spacebowl{
+/obj/item/clothing/head/helmet/space/eva/spacebowl{
 	pixel_x = 4
 	},
 /obj/item/clothing/mask/breath/cheap,

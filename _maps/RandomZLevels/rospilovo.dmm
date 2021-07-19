@@ -1310,11 +1310,11 @@
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "JG" = (
-/obj/item/clothing/glasses/hud/wzzzz/hacker_rig,
+/obj/item/clothing/glasses/hud/hacker_rig,
 /obj/item/clothing/head/helmet/space/chronos/hacker,
-/obj/item/clothing/suit/space/wzzzz/hacker_rig,
-/obj/item/clothing/gloves/combat/wzzzz/guard,
-/obj/item/clothing/shoes/combat/wzzzz/blackger,
+/obj/item/clothing/suit/space/hacker_rig,
+/obj/item/clothing/gloves/combat/guard,
+/obj/item/clothing/shoes/combat/blackger,
 /turf/open/floor/dz/normal,
 /area/awaymission/rospilovo)
 "KF" = (
@@ -1504,9 +1504,9 @@
 /obj/item/shield/riot/kevlar,
 /obj/structure/table/wood/fancy/black,
 /obj/item/katana,
-/obj/item/clothing/under/syndicate/wzzzz/kimono,
-/obj/item/clothing/shoes/sandal/wzzzz,
-/obj/item/clothing/suit/armor/vest/leather/wzzzz/tailcoat,
+/obj/item/clothing/under/syndicate/kimono,
+/obj/item/clothing/shoes/sandal,
+/obj/item/clothing/suit/armor/vest/leather/tailcoat,
 /turf/open/floor/rospilovo/cyber{
 	icon_state = "bfloor-3"
 	},
