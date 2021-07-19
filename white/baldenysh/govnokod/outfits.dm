@@ -119,12 +119,12 @@
 	desc = "Сколько бы ты не старался, привычные мыслительные шаблоны мешают тебе понять как из этого стрелять. Воистину изобретение укропов."
 	pin = /obj/item/firing_pin/catatonic
 
-/datum/id_trim/tcatwife
+/datum/id_trim/tacticalcatwife
 	assignment = "Тактическая Кошкожена"
 	access = list(ACCESS_MAINT_TUNNELS)
 
-/obj/item/card/id/advanced/tcatwife
-	trim = /datum/id_trim/tcatwife
+/obj/item/card/id/advanced/tacticalcatwife
+	trim = /datum/id_trim/tacticalcatwife
 
 /datum/outfit/tcatwife
 	name = "Тактическая Кошкожена"
@@ -137,7 +137,7 @@
 	belt = 	/obj/item/gun/ballistic/automatic/pistol/m1911/catatonic
 	l_pocket = /obj/item/ammo_box/magazine/m45
 	r_pocket = /obj/item/kitchen/knife/combat/survival
-	id = /obj/item/card/id/advanced/tcatwife
+	id = /obj/item/card/id/advanced/tacticalcatwife
 
 /mob/living/carbon/human/tdroid
 	ai_controller = /datum/ai_controller/tdroid

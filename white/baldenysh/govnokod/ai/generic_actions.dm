@@ -83,6 +83,8 @@
 	var/shoot_target_key
 	var/gun_hand = RIGHT_HANDS
 	var/required_stat = UNCONSCIOUS
+	var/rapid_burst_shots = 3
+	var/action_time = 3
 
 /datum/ai_behavior/carbon_shooting/perform(delta_time, datum/ai_controller/controller)
 	. = ..()
@@ -96,13 +98,26 @@
 	if(!G || !G.can_shoot())
 		finish_action(controller, FALSE)
 		return
-	if(carbon_pawn.next_move > world.time)
-		return
-	carbon_pawn.changeNext_move(CLICK_CD_RAPID)
-	carbon_pawn.face_atom(target)
-	G.process_fire(target, carbon_pawn) //наверное ету хуйню можно лучше сделать
+
+	for(var/i = 1, i <= rapid_burst_shots, i++)
+		spawn(i*action_time)
+			perform_a_little_bit_of_trolling(carbon_pawn, target, G)
 
 	finish_action(controller, TRUE)
+
+/datum/ai_behavior/carbon_shooting/proc/perform_a_little_bit_of_trolling(mob/living/shooter, mob/living/target, obj/item/gun/G)
+	if(!G || QDELETED(G) || !G.can_shoot())
+		return
+	shooter.face_atom(target)
+	G.process_fire(target, shooter)
+	if(istype(G, /obj/item/gun/ballistic/rifle))
+		var/obj/item/gun/ballistic/rifle/R = G
+		spawn(action_time/3)
+			R.rack()
+			var/obj/item/ammo_box/magazine/internal/INTMAG = locate(/obj/item/ammo_box/magazine/internal) in R.contents
+			if(INTMAG.ammo_count(FALSE))
+				spawn(action_time/3)
+					R.rack()
 
 /datum/ai_behavior/carbon_shooting/finish_action(datum/ai_controller/controller, success)
 	. = ..()
