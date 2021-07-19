@@ -34,6 +34,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /obj/effect/mob_spawn/drone/allow_spawn(mob/user)
 	var/client/user_client = user.client
 <<<<<<< HEAD
@@ -67,6 +68,8 @@
 >>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
 =======
 >>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)
+=======
+>>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)
 //ATTACK GHOST IGNORING PARENT RETURN VALUE
 /obj/effect/mob_spawn/drone/attack_ghost(mob/user)
 	if(CONFIG_GET(flag/use_age_restriction_for_jobs))
@@ -78,8 +81,11 @@
 	. = ..()
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
 =======
 >>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
+=======
+>>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)
 =======
 >>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)
