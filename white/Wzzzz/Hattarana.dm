@@ -1,6 +1,6 @@
 /obj/item/clothing/under/jensen
 	name = "jensen jumpsuit"
-	desc = "I not asked for this!"
+	desc = "I asked for this."
 	icon = 'white/Wzzzz/clothing/uniforms.dmi'
 	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
 	icon_state = "jensen"
@@ -50,6 +50,142 @@
 /obj/projectile/bullet/assault_rifle
 	damage = 30
 	armour_penetration = 25
+
+
+
+
+
+
+
+
+
+/obj/item/clothing/suit/toggle/brown_jacket
+	name = "brown jacket"
+	desc = "Brown jacket"
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon_state = "brown_jacket"
+	body_parts_covered = CHEST|ARMS
+	inhand_icon_state = "brown_jacket"
+
+
+/obj/item/clothing/neck/stripedgreenscarf/black
+	name = "striped black scarf"
+	icon_state = "stripedblackscarf"
+	inhand_icon_state = "stripedblackscarf"
+	custom_price = 25
+	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
+	icon = 'white/Wzzzz/clothing/ties.dmi'
+
+/obj/item/clothing/mask/skull
+	name = "skull mask"
+	desc = "Life is full of cruel. That's one of examples."
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon_state = "skull_mask"
+	inhand_icon_state = "skull_mask"
+	armor = list("melee" = 35, "bullet" = 25, "laser" = 25,"energy" = 35, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
+	flags_cover = HEADCOVERSEYES|HEADCOVERSMOUTH
+	flags_inv = HIDEFACE
+	visor_flags_inv = HIDEFACE
+	force = 5
+	throwforce = 3
+
+/obj/item/clothing/neck/stripedgreenscarf/grey
+	name = "striped grey scarf"
+	icon_state = "stripedgreyscarf"
+	inhand_icon_state = "stripedgreyscarf"
+	custom_price = 25
+	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
+	icon = 'white/Wzzzz/clothing/ties.dmi'
+
+/obj/item/clothing/suit/armor/vest/leather/tailcoat
+	name = "tail coat"
+	desc = "Stylish armored coat."
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon_state = "tailcoat"
+	armor = list("melee" = 20, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 15)
+	inhand_icon_state = "tailcoat"
+	pocket_storage_component_path = /datum/component/storage/concrete/pockets/tailcoat
+
+/obj/item/clothing/suit/armor/vest/leather/tailcoat/black
+	icon_state = "tailcoatb"
+	inhand_icon_state = "tailcoatb"
+
+/obj/item/storage/belt/machete
+	name = "machete belt"
+	desc = "Belt for machete."
+	icon = 'white/Wzzzz/be.dmi'
+	worn_icon = 'white/Wzzzz/be1.dmi'
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 5, "energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5)
+	icon_state = "machetebelt"
+	inhand_icon_state = "machetebelt"
+
+/obj/item/storage/belt/machete/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_items = 1
+	STR.max_w_class = WEIGHT_CLASS_NORMAL
+	STR.max_combined_w_class = 4
+	STR.set_holdable(list(/obj/item/kitchen/knife/butcher/machete))
+
+/obj/item/clothing/under/victorian
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	name = "victorian uniform"
+	can_adjust = FALSE
+	desc = "From old times."
+	has_sensor = NO_SENSORS
+
+/obj/item/clothing/under/victorian/blred
+	icon_state = "victorianblred"
+	inhand_icon_state = "victorianblred"
+
+
+/obj/item/clothing/under/victorian/vest
+	icon_state = "victorianvest"
+	inhand_icon_state = "victorianvest"
+
+/obj/item/clothing/under/victorian/redvest
+	icon_state = "victorianredvest"
+	inhand_icon_state = "victorianredvest"
+
+/obj/item/clothing/under/victorian/blackdress
+	icon_state = "victorianblackdress"
+	inhand_icon_state = "victorianblackdress"
+	body_parts_covered = CHEST|GROIN
+	name = "victorian dress"
+	desc = "Like true lady"
+
+/obj/item/clothing/under/victorian/reddress
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	icon_state = "victorianreddress"
+	inhand_icon_state = "victorianreddress"
+	body_parts_covered = CHEST|GROIN
+	name = "victorian dress"
+	can_adjust = FALSE
+	desc = "Like true lady"
+
+
+
+
+
+
+
+
+/obj/structure/chair/wood
+	icon = 'white/Wzzzz/clothing/head.dmi'
+
+/obj/structure/chair/wood/red
+	icon_state = "wooden_chair_red"
+
+
+
+
+
 
 // get rekt drop dead pop a knot fuck off
 
@@ -1229,15 +1365,6 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	inhand_icon_state = "labcoat_cmoalt"
 
-/obj/item/clothing/suit/toggle/brown_jacket
-	name = "brown jacket"
-	desc = "Brown jacket"
-	icon = 'white/Wzzzz/clothing/suits.dmi'
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
-	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
-	icon_state = "brown_jacket"
-	body_parts_covered = CHEST|ARMS
-	inhand_icon_state = "brown_jacket"
 
 /obj/item/clothing/suit/toggle/suitjacket_blue
 	name = "blue jacket"
@@ -1766,22 +1893,7 @@
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_combined_w_class = 6
 
-/obj/item/storage/belt/machete
-	name = "machete belt"
-	desc = "Belt for machete."
-	icon = 'white/Wzzzz/be.dmi'
-	worn_icon = 'white/Wzzzz/be1.dmi'
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 5, "energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5)
-	icon_state = "machetebelt"
-	inhand_icon_state = "machetebelt"
 
-/obj/item/storage/belt/machete/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 1
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_combined_w_class = 4
-	STR.set_holdable(list(/obj/item/kitchen/knife/butcher/machete))
 
 /obj/item/clothing/suit/armor/vest/german/ntvest
 	icon_state = "ntvest"
@@ -3149,25 +3261,8 @@
 	icon_state = "altsecurity"
 	inhand_icon_state = "altsecurity"
 
-/obj/item/clothing/under/victorian
-	icon = 'white/Wzzzz/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
-	name = "victorian uniform"
-	can_adjust = FALSE
-	desc = "From old times."
-	has_sensor = NO_SENSORS
 
-/obj/item/clothing/under/victorian/blred
-	icon_state = "victorianblred"
-	inhand_icon_state = "victorianblred"
 
-/obj/item/clothing/under/victorian/redvest
-	icon_state = "victorianredvest"
-	inhand_icon_state = "victorianredvest"
-
-/obj/item/clothing/under/victorian/vest
-	icon_state = "victorianvest"
-	inhand_icon_state = "victorianvest"
 
 /obj/item/clothing/under/victorian/vest/grey
 	icon_state = "victorianvestg"
@@ -3177,22 +3272,9 @@
 	icon_state = "victorianvestb"
 	inhand_icon_state = "victorianvestb"
 
-/obj/item/clothing/under/victorian/blackdress
-	icon_state = "victorianblackdress"
-	inhand_icon_state = "victorianblackdress"
-	body_parts_covered = CHEST|GROIN
-	name = "victorian dress"
-	desc = "Like true lady"
 
-/obj/item/clothing/under/victorian/reddress
-	icon = 'white/Wzzzz/clothing/uniforms.dmi'
-	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
-	icon_state = "victorianreddress"
-	inhand_icon_state = "victorianreddress"
-	body_parts_covered = CHEST|GROIN
-	name = "victorian dress"
-	can_adjust = FALSE
-	desc = "Like true lady"
+
+
 
 /obj/item/clothing/suit/militaryjacket
 	icon = 'white/Wzzzz/clothing/suits.dmi'
@@ -3309,15 +3391,7 @@
 	armor = list("melee" = 35, "bullet" = 35, "laser" = 35, "energy" = 15, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 60, "acid" = 50)
 	inhand_icon_state = "blueshield"
 
-/obj/item/clothing/suit/armor/vest/leather/tailcoat
-	name = "tail coat"
-	desc = "Stylish armored coat."
-	icon = 'white/Wzzzz/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
-	icon_state = "tailcoat"
-	armor = list("melee" = 20, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 15)
-	inhand_icon_state = "tailcoat"
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/tailcoat
+
 
 /obj/item/clothing/suit/armor/vest/leather/ladiesvictoriancoat
 	name = "victorian coat"
@@ -3538,21 +3612,7 @@
 	worn_icon = 'icons/mob/clothing/suit.dmi'
 	has_sensor = NO_SENSORS
 
-/obj/item/clothing/neck/stripedgreenscarf/grey
-	name = "striped grey scarf"
-	icon_state = "stripedgreyscarf"
-	inhand_icon_state = "stripedgreyscarf"
-	custom_price = 25
-	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
-	icon = 'white/Wzzzz/clothing/ties.dmi'
 
-/obj/item/clothing/neck/stripedgreenscarf/black
-	name = "striped black scarf"
-	icon_state = "stripedblackscarf"
-	inhand_icon_state = "stripedblackscarf"
-	custom_price = 25
-	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
-	icon = 'white/Wzzzz/clothing/ties.dmi'
 
 /obj/item/clothing/suit/toggle/labcoat/labcoat_black
 	name = "scientist labcoat"
@@ -3745,9 +3805,7 @@
 	icon_state = "firesuitb"
 	inhand_icon_state = "firesuitb"
 
-/obj/item/clothing/suit/armor/vest/leather/tailcoat/black
-	icon_state = "tailcoatb"
-	inhand_icon_state = "tailcoatb"
+
 
 /obj/item/clothing/suit/armor/vest/leather/ladiesvictoriancoat/grey
 	icon_state = "ladiesvictoriancoatg"
@@ -5062,19 +5120,7 @@
 	icon_state = "skull_mask"
 	inhand_icon_state = "skull_mask"
 
-/obj/item/clothing/mask/skull
-	name = "skull mask"
-	desc = "Life is full of cruel. That's one of examples."
-	icon = 'white/Wzzzz/clothing/head.dmi'
-	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
-	icon_state = "skull_mask"
-	inhand_icon_state = "skull_mask"
-	armor = list("melee" = 35, "bullet" = 25, "laser" = 25,"energy" = 35, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
-	flags_cover = HEADCOVERSEYES|HEADCOVERSMOUTH
-	flags_inv = HIDEFACE
-	visor_flags_inv = HIDEFACE
-	force = 5
-	throwforce = 3
+
 
 /obj/item/clothing/mask
 	icon = 'white/Wzzzz/clothing/head.dmi'
@@ -5281,11 +5327,7 @@
 	icon = 'white/Wzzzz/clothing/head.dmi'
 	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 
-/obj/structure/chair/wood
-	icon = 'white/Wzzzz/clothing/head.dmi'
 
-/obj/structure/chair/wood/red
-	icon_state = "wooden_chair_red"
 
 /obj/structure/bed
 	icon = 'white/Wzzzz/clothing/head.dmi'
