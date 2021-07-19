@@ -110,6 +110,12 @@
 	inhand_icon_state = "tailcoat"
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/tailcoat
 
+/datum/component/storage/concrete/pockets/tailcoat/Initialize()
+	. = ..()
+	max_items = 2
+	max_combined_w_class = 5
+	max_w_class = WEIGHT_CLASS_NORMAL
+
 /obj/item/clothing/suit/armor/vest/leather/tailcoat/black
 	icon_state = "tailcoatb"
 	inhand_icon_state = "tailcoatb"
@@ -4574,11 +4580,7 @@
 /obj/item/clothing/head/helmet/siegehelmet/black
 	color = "#505050"
 
-/datum/component/storage/concrete/pockets/tailcoat/Initialize()
-	. = ..()
-	max_items = 2
-	max_combined_w_class = 5
-	max_w_class = WEIGHT_CLASS_NORMAL
+
 
 /datum/supply_pack/security/armory/carbine_single
 	name = "Assault Carbine Single-Pack"
