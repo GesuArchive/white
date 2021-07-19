@@ -233,6 +233,7 @@
 		if(istype(W))
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			W.gun = WEAKREF(src)
 <<<<<<< HEAD
 =======
@@ -241,6 +242,9 @@
 =======
 			W.gun = src
 >>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
+=======
+			W.gun = src
+>>>>>>> parent of 54e3ae421c (Merge branch 'master' of https://github.com/frosty-dev/white)
 			var/obj/projectile/beam/wormhole/WH = W.BB
 =======
 			var/obj/projectile/beam/wormhole/WH = W.loaded_projectile
