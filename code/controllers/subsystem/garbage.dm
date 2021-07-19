@@ -97,7 +97,7 @@ SUBSYSTEM_DEF(garbage)
 		dellog += "\tqdel() Count: [I.qdels]"
 		dellog += "\tDestroy() Cost: [I.destroy_time]ms"
 		if (I.hard_deletes)
-			dellog += "\tTotal Hard Deletes [I.hard_deletes]"
+			dellog += "\tTotal Hard Deletes: [I.hard_deletes]"
 			dellog += "\tTime Spent Hard Deleting: [I.hard_delete_time]ms"
 			dellog += "\tHighest Time Spent Hard Deleting: [I.hard_delete_max]ms"
 			if (I.hard_deletes_over_threshold)
@@ -364,7 +364,7 @@ SUBSYSTEM_DEF(garbage)
 				D.find_references()
 			if (QDEL_HINT_IFFAIL_FINDREFERENCE)
 				SSgarbage.Queue(D)
-				SSgarbage.reference_find_on_fail[REF(D)] = TRUE
+				SSgarbage.reference_find_on_fail["\ref[D]"] = TRUE
 			#endif
 			else
 				#ifdef TESTING
