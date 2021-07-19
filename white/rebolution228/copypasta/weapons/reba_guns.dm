@@ -214,8 +214,8 @@
 
 /obj/projectile/bullet/c9x39eb
 	name = "9x39 пуля"
-	damage = 40
-	armour_penetration = 70
+	damage = 30
+	armour_penetration = 60
 	wound_bonus = 10
 
 // AK74M
@@ -277,7 +277,7 @@
 
 /obj/projectile/bullet/a545
 	name = "5.45 пуля"
-	damage = 30
+	damage = 25
 	armour_penetration = 20
 	wound_bonus = -20
 
