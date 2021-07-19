@@ -104,8 +104,6 @@
 
 /obj/machinery/restaurant_portal/Destroy()
 	. = ..()
-	linked_venue.restaurant_portal = null
-	linked_venue = null
 
 /obj/machinery/restaurant_portal/update_overlays()
 	. = ..()
@@ -162,7 +160,6 @@
 		if(linked_venue.open)
 			linked_venue.close()
 		linked_venue.restaurant_portal.linked_venue = null
-		linked_venue.restaurant_portal = null
 
 	linked_venue = chosen_venue
 	linked_venue.restaurant_portal = src

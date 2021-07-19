@@ -326,12 +326,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Used for limbs.
 #define TRAIT_DISABLED_BY_WOUND		"disabled-by-wound"
 
-/*
- * Used for movables that need to be updated, via COMSIG_ENTER_AREA and COMSIG_EXIT_AREA, when transitioning areas.
- * Use [/atom/movable/proc/become_area_sensitive(trait_source)] to properly enable it. How you remove it isn't as important.
- */
-#define TRAIT_AREA_SENSITIVE "area-sensitive"
-
 ///Used for managing KEEP_TOGETHER in [/atom/var/appearance_flags]
 #define TRAIT_KEEP_TOGETHER 	"keep-together"
 
@@ -525,9 +519,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define ELEMENT_TRAIT "element_trait"
 /// Trait granted by [/obj/item/clothing/head/helmet/space/hardsuit/berserker]
 #define BERSERK_TRAIT "berserk_trait"
-/// Self-explainatory.
-#define BEAUTY_ELEMENT_TRAIT "beauty_element"
-#define MOOD_COMPONENT_TRAIT "mood_component"
 
 /**
 * Trait granted by [/mob/living/carbon/Initialize] and
@@ -542,9 +533,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Traits applied to a silicon mob by their module.
 #define MODULE_TRAIT "module_trait"
 
-/// Trait granted by [mob/living/silicon/ai]
-/// Applied when the ai anchors itself
-#define AI_ANCHOR_TRAIT "ai_anchor"
 /// Trait from [/datum/antagonist/nukeop/clownop]
 #define CLOWNOP_TRAIT "clownop"
 

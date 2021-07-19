@@ -30,8 +30,7 @@
 	UnregisterSignal(source, COMSIG_MOUSEDROP_ONTO)
 
 	if (!isnull(strip_menus))
-		qdel(strip_menus[source])
-		strip_menus -= source
+		QDEL_NULL(strip_menus[source])
 
 /datum/element/strippable/proc/mouse_drop_onto(datum/source, atom/over, mob/user)
 	SIGNAL_HANDLER

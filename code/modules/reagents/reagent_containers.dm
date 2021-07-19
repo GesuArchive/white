@@ -92,10 +92,9 @@
 	for(var/datum/reagent/reagent as anything in reagents.reagent_list)
 		reagent_text += "[reagent] ([num2text(reagent.volume)]),"
 
-	var/mob/thrown_by = thrownby?.resolve()
-	if(isturf(target) && reagents.reagent_list.len && thrown_by)
-		log_combat(thrown_by, target, "splashed (thrown) [english_list(reagents.reagent_list)]")
-		message_admins("[ADMIN_LOOKUPFLW(thrown_by)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] at [ADMIN_VERBOSEJMP(target)].")
+	if(isturf(target) && reagents.reagent_list.len && thrownby)
+		log_combat(thrownby, target, "splashed (thrown) [english_list(reagents.reagent_list)]")
+		message_admins("[ADMIN_LOOKUPFLW(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] at [ADMIN_VERBOSEJMP(target)].")
 
 	reagents.expose(target, TOUCH)
 	log_combat(user, target, "splashed", reagent_text)
@@ -146,14 +145,12 @@
 
 /obj/item/reagent_containers/proc/bartender_check(atom/target)
 	. = FALSE
-	var/mob/thrown_by = thrownby?.resolve()
-	if(target.CanPass(src, get_turf(src)) && thrown_by && HAS_TRAIT(thrown_by, TRAIT_BOOZE_SLIDER))
+	if(target.CanPass(src, get_turf(src)) && thrownby && HAS_TRAIT(thrownby, TRAIT_BOOZE_SLIDER))
 		. = TRUE
 
 /obj/item/reagent_containers/proc/SplashReagents(atom/target, thrown = FALSE, override_spillable = FALSE)
 	if(!reagents || !reagents.total_volume || (!spillable && !override_spillable))
 		return
-	var/mob/thrown_by = thrownby?.resolve()
 
 	if(ismob(target) && target.reagents)
 		if(thrown)
@@ -165,8 +162,8 @@
 		for(var/datum/reagent/A in reagents.reagent_list)
 			R += "[A.type]  ([num2text(A.volume)]),"
 
-		if(thrown_by)
-			log_combat(thrown_by, M, "splashed", R)
+		if(thrownby)
+			log_combat(thrownby, M, "splashed", R)
 		reagents.expose(target, TOUCH)
 
 	else if(bartender_check(target) && thrown)
@@ -174,11 +171,11 @@
 		return
 
 	else
-		if(isturf(target) && reagents.reagent_list.len && thrown_by)
-			log_combat(thrown_by, target, "splashed (thrown) [english_list(reagents.reagent_list)]", "in [AREACOORD(target)]")
-			log_game("[key_name(thrown_by)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [AREACOORD(target)].")
-			message_admins("[ADMIN_LOOKUPFLW(thrown_by)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [ADMIN_VERBOSEJMP(target)].")
-		visible_message("<span class='notice'>[src] spills its contents all over [target].</span>")
+		if(isturf(target) && reagents.reagent_list.len && thrownby)
+			log_combat(thrownby, target, "splashed (thrown) [english_list(reagents.reagent_list)]", "in [AREACOORD(target)]")
+			log_game("[key_name(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [AREACOORD(target)].")
+			message_admins("[ADMIN_LOOKUPFLW(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [ADMIN_VERBOSEJMP(target)].")
+		visible_message("<span class='notice'>[capitalize(src.name)] spills its contents all over [target].</span>")
 		reagents.expose(target, TOUCH)
 		if(QDELETED(src))
 			return

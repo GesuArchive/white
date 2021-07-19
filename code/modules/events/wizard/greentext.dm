@@ -83,8 +83,7 @@
 	if(!(resistance_flags & ON_FIRE) && !force)
 		return QDEL_HINT_LETMELIVE
 
-	LAZYREMOVE(SSticker.round_end_events, roundend_callback)
-	roundend_callback = null //This ought to free the callback datum, and prevent us from harddeling
+	SSticker.round_end_events -= roundend_callback
 	for(var/i in GLOB.player_list)
 		var/mob/M = i
 		var/message = "<span class='warning'>A dark temptation has passed from this world"

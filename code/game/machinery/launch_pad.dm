@@ -43,8 +43,7 @@
 	update_indicator()
 
 /obj/machinery/launchpad/Destroy()
-	for(var/datum/atom_hud/data/diagnostic/diag_hud in GLOB.huds)
-		diag_hud.remove_from_hud(src)
+	qdel(hud_list[DIAG_LAUNCHPAD_HUD])
 	return ..()
 
 /obj/machinery/launchpad/examine(mob/user)
@@ -256,9 +255,9 @@
 /obj/machinery/launchpad/briefcase/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/launchpad_remote))
 		var/obj/item/launchpad_remote/L = I
-		if(L.pad == WEAKREF(src)) //do not attempt to link when already linked
+		if(L.pad == src) //do not attempt to link when already linked
 			return ..()
-		L.pad = WEAKREF(src)
+		L.pad = src
 		to_chat(user, "<span class='notice'>You link [src] to [L].</span>")
 	else
 		return ..()
@@ -295,9 +294,9 @@
 /obj/item/storage/briefcase/launchpad/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/launchpad_remote))
 		var/obj/item/launchpad_remote/L = I
-		if(L.pad == WEAKREF(src.pad)) //do not attempt to link when already linked
+		if(L.pad == src.pad) //do not attempt to link when already linked
 			return ..()
-		L.pad = WEAKREF(src.pad)
+		L.pad = src.pad
 		to_chat(user, "<span class='notice'>You link [pad] to [L].</span>")
 	else
 		return ..()
@@ -309,12 +308,11 @@
 	icon_state = "folder"
 	w_class = WEIGHT_CLASS_SMALL
 	var/sending = TRUE
-	//A weakref to our linked pad
-	var/datum/weakref/pad
+	var/obj/machinery/launchpad/briefcase/pad
 
 /obj/item/launchpad_remote/Initialize(mapload, pad) //remote spawns linked to the briefcase pad
 	. = ..()
-	src.pad = WEAKREF(pad)
+	src.pad = pad
 
 /obj/item/launchpad_remote/attack_self(mob/user)
 	. = ..()
@@ -334,17 +332,16 @@
 
 /obj/item/launchpad_remote/ui_data(mob/user)
 	var/list/data = list()
-	var/obj/machinery/launchpad/briefcase/our_pad = pad.resolve()
-	data["has_pad"] = our_pad ? TRUE : FALSE
-	if(our_pad)
-		data["pad_closed"] = our_pad.closed
-	if(!our_pad || our_pad.closed)
+	data["has_pad"] = pad ? TRUE : FALSE
+	if(pad)
+		data["pad_closed"] = pad.closed
+	if(!pad || pad.closed)
 		return data
 
-	data["pad_name"] = our_pad.display_name
-	data["range"] = our_pad.range
-	data["x"] = our_pad.x_offset
-	data["y"] = our_pad.y_offset
+	data["pad_name"] = pad.display_name
+	data["range"] = pad.range
+	data["x"] = pad.x_offset
+	data["y"] = pad.y_offset
 	return data
 
 /obj/item/launchpad_remote/proc/teleport(mob/user, obj/machinery/launchpad/pad)
@@ -360,22 +357,19 @@
 	. = ..()
 	if(.)
 		return
-	var/obj/machinery/launchpad/briefcase/our_pad = pad.resolve()
-	if(!our_pad)
-		pad = null
-		return TRUE
+
 	switch(action)
 		if("set_pos")
 			var/new_x = text2num(params["x"])
 			var/new_y = text2num(params["y"])
-			our_pad.set_offset(new_x, new_y)
+			pad.set_offset(new_x, new_y)
 			. = TRUE
 		if("move_pos")
 			var/plus_x = text2num(params["x"])
 			var/plus_y = text2num(params["y"])
-			our_pad.set_offset(
-				x = our_pad.x_offset + plus_x,
-				y = our_pad.y_offset + plus_y
+			pad.set_offset(
+				x = pad.x_offset + plus_x,
+				y = pad.y_offset + plus_y
 			)
 			. = TRUE
 		if("rename")
@@ -383,16 +377,16 @@
 			var/new_name = params["name"]
 			if(!new_name)
 				return
-			our_pad.display_name = new_name
+			pad.display_name = new_name
 		if("remove")
 			. = TRUE
-			if(usr && tgui_alert(usr, "Are you sure?", "Unlink Launchpad", list("I'm Sure", "Abort")) != "Abort")
-				our_pad = null
+			if(usr && alert(usr, "Are you sure?", "Unlink Launchpad", "I'm Sure", "Abort") != "Abort")
+				pad = null
 		if("launch")
 			sending = TRUE
-			teleport(usr, our_pad)
+			teleport(usr, pad)
 			. = TRUE
 		if("pull")
 			sending = FALSE
-			teleport(usr, our_pad)
+			teleport(usr, pad)
 			. = TRUE

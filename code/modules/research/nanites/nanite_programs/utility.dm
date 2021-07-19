@@ -286,7 +286,7 @@
 
 /datum/nanite_program/dermal_button/on_mob_remove()
 	. = ..()
-	QDEL_NULL(button)
+	qdel(button)
 
 /datum/nanite_program/dermal_button/proc/press()
 	if(activated)

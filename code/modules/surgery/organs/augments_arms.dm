@@ -7,8 +7,6 @@
 	actions_types = list(/datum/action/item_action/organ_action/toggle)
 	///A ref for the arm we're taking up. Mostly for the unregister signal upon removal
 	var/obj/hand
-	//A list of typepaths to create and insert into ourself on init
-	var/list/items_to_create = list()
 	/// Used to store a list of all items inside, for multi-item implants.
 	var/list/items_list = list()// I would use contents, but they shuffle on every activation/deactivation leading to interface inconsistencies.
 	/// You can use this var for item path, it would be converted into an item on New().
@@ -18,25 +16,9 @@
 	. = ..()
 	if(ispath(active_item))
 		active_item = new active_item(src)
-		items_list += WEAKREF(active_item)
-
-	for(var/typepath in items_to_create)
-		var/atom/new_item = new typepath(src)
-		items_list += WEAKREF(new_item)
-
 	update_icon()
 	SetSlotFromZone()
-
-/obj/item/organ/cyberimp/arm/Destroy()
-	hand = null
-	active_item = null
-	for(var/datum/weakref/ref in items_list)
-		var/obj/item/to_del = ref.resolve()
-		if(!to_del)
-			continue
-		qdel(to_del)
-	items_list.Cut()
-	return ..()
+	items_list = contents.Copy()
 
 /obj/item/organ/cyberimp/arm/proc/SetSlotFromZone()
 	switch(zone)
@@ -168,12 +150,8 @@
 			Extend(contents[1])
 		else
 			var/list/choice_list = list()
-			for(var/datum/weakref/augment_ref in items_list)
-				var/obj/item/augment_item = augment_ref.resolve()
-				if(!augment_item)
-					items_list -= augment_ref
-					continue
-				choice_list[augment_item] = image(augment_item)
+			for(var/obj/item/I in items_list)
+				choice_list[I] = image(I)
 			var/obj/item/choice = show_radial_menu(owner, owner, choice_list)
 			if(owner && owner == usr && owner.stat != DEAD && (src in owner.internal_organs) && !active_item && (choice in contents))
 				// This monster sanity check is a nice example of how bad input is.
@@ -201,7 +179,7 @@
 	name = "встроенный в руку лазерный имплант"
 	desc = "Вариация импланта ручной пушки которая стреляет смертоносными лазернами лучами. Если не используется то пушка остается внутри руки, при стрельбе высовывается из неё."
 	icon_state = "arm_laser"
-	items_to_create = list(/obj/item/gun/energy/laser/mounted)
+	contents = newlist(/obj/item/gun/energy/laser/mounted)
 
 /obj/item/organ/cyberimp/arm/gun/laser/l
 	zone = BODY_ZONE_L_ARM
@@ -216,7 +194,7 @@
 	name = "встроенный в руку тазер"
 	desc = "Вариация импланта ручной пушки, которая стреляет электродами и вырубающими снарядами. Если не используется то пушка остается внутри руки, при стрельбе высовывается из неё."
 	icon_state = "arm_taser"
-	items_to_create = list(/obj/item/gun/energy/e_gun/advtaser/mounted)
+	contents = newlist(/obj/item/gun/energy/e_gun/advtaser/mounted)
 
 /obj/item/organ/cyberimp/arm/gun/taser/l
 	zone = BODY_ZONE_L_ARM
@@ -224,42 +202,40 @@
 /obj/item/organ/cyberimp/arm/toolset
 	name = "имплант встроенного набора инструментов"
 	desc = "Урезанная версия набора инструментов инженерного киборга, сконструированная для установки в руку. Содержит улучшенные версии всех инструментов."
-	items_to_create = newlist(/obj/item/screwdriver/cyborg, /obj/item/wrench/cyborg, /obj/item/weldingtool/largetank/cyborg,
+	contents = newlist(/obj/item/screwdriver/cyborg, /obj/item/wrench/cyborg, /obj/item/weldingtool/largetank/cyborg,
 		/obj/item/crowbar/cyborg, /obj/item/wirecutters/cyborg, /obj/item/multitool/cyborg)
 
 /obj/item/organ/cyberimp/arm/toolset/l
 	zone = BODY_ZONE_L_ARM
 
 /obj/item/organ/cyberimp/arm/toolset/emag_act(mob/user)
-	for(var/datum/weakref/created_item in items_list)
-		var/obj/potential_knife = created_item.resolve()
-		if(istype(/obj/item/kitchen/knife/combat/cyborg, potential_knife))
-			return FALSE
+	if(!(locate(/obj/item/kitchen/knife/combat/cyborg) in items_list))
+		to_chat(user, "<span class='notice'>Разблокирую интегрированный нож [src]!</span>")
+		items_list += new /obj/item/kitchen/knife/combat/cyborg(src)
+		return 1
+	return 0
 
 /obj/item/organ/cyberimp/arm/esword
 	name = "встроенный в руку энергетический клинок"
 	desc = "Незаконный и крайне опасный кибернетический имплант способный выпустить смертоносный клинок из концетрированной энергии."
-	items_to_create = newlist(/obj/item/melee/transforming/energy/blade/hardlight)
+	contents = newlist(/obj/item/melee/transforming/energy/blade/hardlight)
 
 /obj/item/organ/cyberimp/arm/medibeam
 	name = "встроенная медицинская лучевая пушка"
 	desc = "Кибернетический имплант позволяющий пользователю излучать исцеляющие лучи из своей руки."
-	items_to_create = newlist(/obj/item/gun/medbeam)
+	contents = newlist(/obj/item/gun/medbeam)
 
 
 /obj/item/organ/cyberimp/arm/flash
 	name = "встроенный проектор фотонов высокой интенсивности" //Why not
 	desc = "Встроенный в руку пользователя проектор способный создавать мощную вспышку."
-	items_to_create = newlist(/obj/item/assembly/flash/armimplant)
+	contents = newlist(/obj/item/assembly/flash/armimplant)
 
 /obj/item/organ/cyberimp/arm/flash/Initialize()
 	. = ..()
-	for(var/datum/weakref/created_item in items_list)
-		var/obj/potential_flash = created_item.resolve()
-		if(!istype(/obj/item/assembly/flash/armimplant, potential_flash))
-			continue
-		var/obj/item/assembly/flash/armimplant/flash = potential_flash
-		flash.arm = WEAKREF(src) // Todo: wipe single letter vars out of assembly code
+	if(locate(/obj/item/assembly/flash/armimplant) in items_list)
+		var/obj/item/assembly/flash/armimplant/F = locate(/obj/item/assembly/flash/armimplant) in items_list
+		F.I = src
 
 /obj/item/organ/cyberimp/arm/flash/Extend()
 	. = ..()
@@ -273,23 +249,20 @@
 /obj/item/organ/cyberimp/arm/baton
 	name = "имплант электрификации руки"
 	desc = "Незаконный боевой имплант позволяющий пользователю контролировать обезвреживающие электричество из своей руки."
-	items_to_create = newlist(/obj/item/borg/stun)
+	contents = newlist(/obj/item/borg/stun)
 
 /obj/item/organ/cyberimp/arm/combat
 	name = "боевой кибернетический имплант"
 	desc = "Мощный кибернетический имплант встроенный в руку пользователя и содержащий боевые модули."
-	items_to_create = newlist(/obj/item/melee/transforming/energy/blade/hardlight, /obj/item/gun/medbeam, /obj/item/borg/stun, /obj/item/assembly/flash/armimplant)
+	contents = newlist(/obj/item/melee/transforming/energy/blade/hardlight, /obj/item/gun/medbeam, /obj/item/borg/stun, /obj/item/assembly/flash/armimplant)
 
 /obj/item/organ/cyberimp/arm/combat/Initialize()
 	. = ..()
-	for(var/datum/weakref/created_item in items_list)
-		var/obj/potential_flash = created_item.resolve()
-		if(!istype(/obj/item/assembly/flash/armimplant, potential_flash))
-			continue
-		var/obj/item/assembly/flash/armimplant/flash = potential_flash
-		flash.arm = WEAKREF(src) // Todo: wipe single letter vars out of assembly code
+	if(locate(/obj/item/assembly/flash/armimplant) in items_list)
+		var/obj/item/assembly/flash/armimplant/F = locate(/obj/item/assembly/flash/armimplant) in items_list
+		F.I = src
 
 /obj/item/organ/cyberimp/arm/surgery
 	name = "имплант хирургических инструментов"
 	desc = "Набор хирургических инструментов скрывающийся за скрытой панелью на руке пользователя."
-	items_to_create = newlist(/obj/item/retractor/augment, /obj/item/hemostat/augment, /obj/item/cautery/augment, /obj/item/surgicaldrill/augment, /obj/item/scalpel/augment, /obj/item/circular_saw/augment, /obj/item/surgical_drapes)
+	contents = newlist(/obj/item/retractor/augment, /obj/item/hemostat/augment, /obj/item/cautery/augment, /obj/item/surgicaldrill/augment, /obj/item/scalpel/augment, /obj/item/circular_saw/augment, /obj/item/surgical_drapes)
