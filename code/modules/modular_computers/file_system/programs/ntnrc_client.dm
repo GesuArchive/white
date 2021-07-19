@@ -14,19 +14,18 @@
 	var/username
 	var/active_channel
 	var/list/channel_history = list()
-	var/operator_mode = FALSE		// Channel operator mode
-	var/netadmin_mode = FALSE		// Administrator mode (invisible to other users + bypasses passwords)
+	var/operator_mode = FALSE // Channel operator mode
+	var/netadmin_mode = FALSE // Administrator mode (invisible to other users + bypasses passwords)
+	//A list of all the converstations we're a part of
+	var/list/datum/ntnet_conversation/conversations = list()
 
 /datum/computer_file/program/chatclient/New()
 	username = "Пользователь #[rand(100, 999)]"
 
-<<<<<<< HEAD
 /datum/computer_file/program/chatclient/Destroy()
 	conversations.Cut()
 	return ..()
 
-=======
->>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
 /datum/computer_file/program/chatclient/ui_act(action, params)
 	. = ..()
 	if(.)

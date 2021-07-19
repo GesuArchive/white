@@ -28,10 +28,8 @@
 	. = ..()
 	var/area/A = get_area(src)
 	if(A)
-		notify_ghosts("A drone shell has been created in [A.name].", source = src, action=NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_DRONE, notify_suiciders = FALSE)
-	AddElement(/datum/element/point_of_interest)
+		notify_ghosts("A drone shell has been created in \the [A.name].", source = src, action=NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_DRONE, notify_suiciders = FALSE)
 
-<<<<<<< HEAD
 /obj/effect/mob_spawn/drone/allow_spawn(mob/user)
 	var/client/user_client = user.client
 	if(isnull(user_client) || !CONFIG_GET(flag/use_exp_restrictions_other))
@@ -51,14 +49,3 @@
 		to_chat(user, "<span class='danger'>You need to play [playtime_left] more as [required_role] to spawn as a Maintenance Drone!</span>")
 		return FALSE
 	return ..()
-=======
-//ATTACK GHOST IGNORING PARENT RETURN VALUE
-/obj/effect/mob_spawn/drone/attack_ghost(mob/user)
-	if(CONFIG_GET(flag/use_age_restriction_for_jobs))
-		if(!isnum(user.client.player_age)) //apparently what happens when there's no DB connected. just don't let anybody be a drone without admin intervention
-			return
-		if(user.client.player_age < DRONE_MINIMUM_AGE)
-			to_chat(user, "<span class='danger'>You're too new to play as a drone! Please try again in [DRONE_MINIMUM_AGE - user.client.player_age] days.</span>")
-			return
-	. = ..()
->>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)

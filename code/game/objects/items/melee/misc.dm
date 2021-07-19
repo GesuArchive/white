@@ -309,7 +309,6 @@
 			log_combat(user, target, "stunned", src)
 			add_fingerprint(user)
 
-<<<<<<< HEAD
 	target.visible_message(desc["visible"], desc["local"])
 
 	if(!iscarbon(user))
@@ -317,19 +316,6 @@
 	else
 		target.LAssailant = WEAKREF(user)
 	cooldown_check = world.time + cooldown
-=======
-			target.visible_message(desc["visible"], desc["local"])
-
-			if(!iscarbon(user))
-				target.LAssailant = null
-			else
-				target.LAssailant = user
-			cooldown_check = world.time + cooldown
-		else
-			var/wait_desc = get_wait_description()
-			if (wait_desc)
-				to_chat(user, wait_desc)
->>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
 
 /obj/item/conversion_kit
 	name = "conversion kit"
