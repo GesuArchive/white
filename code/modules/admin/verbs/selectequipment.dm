@@ -139,7 +139,6 @@
 		cached_outfits += make_outfit_entries("Осн", subtypesof(/datum/outfit) - typesof(/datum/outfit/job) - typesof(/datum/outfit/plasmaman) - typesof(/datum/outfit) - typesof(/datum/outfit/whiterobust))
 		cached_outfits += make_outfit_entries("Джоб", typesof(/datum/outfit/job))
 		cached_outfits += make_outfit_entries("Плазмамен", typesof(/datum/outfit/plasmaman))
-		cached_outfits += make_outfit_entries("Зерг", typesof(/datum/outfit))
 		cached_outfits += make_outfit_entries("Турнир", typesof(/datum/outfit/whiterobust))
 
 	data["outfits"] = cached_outfits
