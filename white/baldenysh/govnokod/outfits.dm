@@ -188,5 +188,24 @@
 	l_pocket = /obj/item/ammo_box/a762
 	back = /obj/item/gun/ballistic/rifle/boltaction
 
-/obj/effect/mob_spawn/human/tcatwife/mosin_debug
+/obj/effect/mob_spawn/human/tcatwife/mosin
 	outfit = /datum/outfit/tcatwife/mosin
+
+/obj/item/gun/energy/disabler/catatonic
+	name = "Усмиритель RR"
+	desc = "Сколько бы ты не старался, привычные мыслительные шаблоны мешают тебе понять как из этого стрелять. Воистину изобретение укропов."
+	pin = /obj/item/firing_pin/catatonic
+
+/datum/outfit/tcatwife/sec
+	name = "Тактическая Служебно-безопасная Кошкожена"
+	uniform = /obj/item/clothing/under/rank/security/officer/skirt
+	suit = /obj/item/clothing/suit/armor/vest/alt
+	suit_store = /obj/item/gun/energy/disabler/catatonic
+	shoes = /obj/item/clothing/shoes/jackboots
+	belt = /obj/item/gun/energy/disabler/catatonic
+	gloves = /obj/item/clothing/gloves/color/black
+	l_pocket = null
+	r_pocket = null
+
+/obj/effect/mob_spawn/human/tcatwife/sec
+	outfit = /datum/outfit/tcatwife/sec
