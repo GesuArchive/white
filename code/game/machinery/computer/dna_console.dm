@@ -2152,10 +2152,14 @@
 	SIGNAL_HANDLER
 	set_connected_scanner(null)
 
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
 =======
 >>>>>>> parent of 08c1aa0ca0 (Мусорщик п2)
+=======
+#undef ENZYME_COPY_BASE_COOLDOWN
+>>>>>>> parent of 1b6a1f82fd (Мусорщик п228)
 #undef INJECTOR_TIMEOUT
 #undef NUMBER_OF_BUFFERS
 #undef SCRAMBLE_TIMEOUT

@@ -35,10 +35,15 @@
 <<<<<<< HEAD
 /obj/effect/mob_spawn/drone/allow_spawn(mob/user)
 	var/client/user_client = user.client
+<<<<<<< HEAD
 	if(isnull(user_client) || !CONFIG_GET(flag/use_exp_restrictions_other))
+=======
+	var/mob/living/simple_animal/drone/drone_type = mob_type
+	if(!initial(drone_type.shy) || isnull(user_client) || !CONFIG_GET(flag/use_exp_restrictions_other))
+>>>>>>> parent of 1b6a1f82fd (Мусорщик п228)
 		return ..()
-	var/required_role = ROLE_DRONE
-	var/required_playtime = 32000 * 60
+	var/required_role = CONFIG_GET(string/drone_required_role)
+	var/required_playtime = CONFIG_GET(number/drone_role_playtime) * 60
 	if(CONFIG_GET(flag/use_exp_restrictions_admin_bypass) && check_rights_for(user.client, R_ADMIN))
 		return ..()
 	if(user?.client?.prefs.db_flags & DB_FLAG_EXEMPT)
