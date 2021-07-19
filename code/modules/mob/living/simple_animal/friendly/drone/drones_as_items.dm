@@ -36,6 +36,10 @@
 /obj/effect/mob_spawn/drone/allow_spawn(mob/user)
 	var/client/user_client = user.client
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+	var/mob/living/simple_animal/drone/drone_type = mob_type
+>>>>>>> parent of 893deb6577 (Жрите)
 	if(isnull(user_client) || !CONFIG_GET(flag/use_exp_restrictions_other))
 =======
 	var/mob/living/simple_animal/drone/drone_type = mob_type

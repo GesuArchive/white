@@ -298,6 +298,8 @@
 				if(check_martial_counter(H, user))
 					return
 
+			var/list/desc = get_stun_description(target, user)
+
 			if (stun_animation)
 				user.do_attack_animation(target)
 
