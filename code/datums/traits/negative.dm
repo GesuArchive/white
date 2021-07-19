@@ -630,14 +630,15 @@
 		var/deleted = QDELETED(reagent_instance)
 		var/missing_addiction = FALSE
 		for(var/addiction_type in reagent_instance.addiction_types)
-			if(!LAZYACCESS(H.mind.active_addictions, addiction_type))
+			if(H?.mind && !LAZYACCESS(H.mind.active_addictions, addiction_type))
 				missing_addiction = TRUE
 		if(deleted || missing_addiction)
 			if(deleted)
 				reagent_instance = new reagent_type()
 			to_chat(quirk_holder, "<span class='danger'>Надо бахнуть..</span>")
-			for(var/addiction in reagent_instance.addiction_types)
-				H.mind.add_addiction_points(addiction, 1000) ///Max that shit out
+			if(H?.mind)
+				for(var/addiction in reagent_instance.addiction_types)
+					H.mind.add_addiction_points(addiction, 1000) ///Max that shit out
 
 /datum/quirk/junkie/smoker
 	name = "Курильщик"
@@ -656,11 +657,11 @@
 		/obj/item/storage/fancy/cigarettes/cigpack_robust,
 		/obj/item/storage/fancy/cigarettes/cigpack_robustgold,
 		/obj/item/storage/fancy/cigarettes/cigpack_carp)
-	quirk_holder?.mind?.store_memory("Мой любимый тип сигарет [initial(drug_container_type.name)]s.")
+	quirk_holder?.mind?.store_memory("Мой любимый тип сигарет [initial(drug_container_type.name)].")
 	. = ..()
 
 /datum/quirk/junkie/smoker/announce_drugs()
-	to_chat(quirk_holder, "<span class='boldnotice'>Пачка сигарет [initial(drug_container_type.name)] [where_drug], и зажигалочка [where_accessory]. Убедись, что ты достанешь свой любимый бренд, если тот закончится.</span>")
+	to_chat(quirk_holder, "<span class='boldnotice'>Пачка сигарет [initial(drug_container_type.name)] [where_drug], и зажигалочка [where_accessory]. Надо убедиться, что я найду свой любимый бренд, если тот закончится.</span>")
 
 
 /datum/quirk/junkie/smoker/on_process()

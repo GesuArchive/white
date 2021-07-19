@@ -73,12 +73,12 @@
 
 /datum/fantasy_affix/beautiful/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
-	master.AddComponent(/datum/component/beauty, max(comp.quality, 1) * 250)
+	master.RemoveElement(/datum/element/beauty, max(comp.quality, 1) * 250)
 	return "[pick("эстетичный", "красивый", "великолепный", "симпатичный")] [newName]"
 
 /datum/fantasy_affix/beautiful/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent
-	master.AddComponent(/datum/component/beauty, -max(comp.quality, 1) * 250)
+	master.RemoveElement(/datum/element/beauty, -max(comp.quality, 1) * 250)
 
 /datum/fantasy_affix/ugly
 	placement = AFFIX_PREFIX
@@ -86,9 +86,9 @@
 
 /datum/fantasy_affix/ugly/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
-	master.AddComponent(/datum/component/beauty, min(comp.quality, -1) * 250)
+	master.RemoveElement(/datum/element/beauty, min(comp.quality, -1) * 250)
 	return "[pick("унылый", "уродливый", "гротескный", "отвратительный")] [newName]"
 
 /datum/fantasy_affix/ugly/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent
-	master.AddComponent(/datum/component/beauty, -min(comp.quality, -1) * 250)
+	master.RemoveElement(/datum/element/beauty, -min(comp.quality, -1) * 250)

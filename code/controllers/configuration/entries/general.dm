@@ -529,3 +529,15 @@
 /datum/config_entry/flag/this_shit_is_stable
 
 /datum/config_entry/flag/df_enabled
+
+/// URL for admins to be redirected to for 2FA
+/datum/config_entry/string/admin_2fa_url
+
+/datum/config_entry/number/hard_deletes_overrun_threshold
+	integer = FALSE
+	min_val = 0
+	config_entry_value = 0.5
+
+/datum/config_entry/number/hard_deletes_overrun_limit
+	config_entry_value = 0
+	min_val = 0

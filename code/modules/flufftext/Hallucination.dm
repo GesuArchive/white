@@ -1069,7 +1069,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 		if("malf ai") //AI is doomsdaying!
 			to_chat(target, "<h1 class='alert'>Anomaly Alert</h1>")
 			to_chat(target, "<br><br><span class='alert'>Hostile runtimes detected in all station systems, please deactivate your AI to prevent possible damage to its morality core.</span><br><br>")
-			SEND_SOUND(target, SSstation.announcer.event_sounds[ANNOUNCER_AIMALF])
+			//SEND_SOUND(target, SSstation.announcer.event_sounds[ANNOUNCER_AIMALF])
 		if("meteors") //Meteors inbound!
 			to_chat(target, "<h1 class='alert'>Meteor Alert</h1>")
 			to_chat(target, "<br><br><span class='alert'>Meteors have been detected on collision course with the station.</span><br><br>")
@@ -1207,7 +1207,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	var/mob/living/carbon/human/human_mob = target
 	LAZYNULL(human_mob.hal_screwydoll)
 	human_mob.update_health_hud()
-	..()
+	return ..()
 
 
 /datum/hallucination/items/New(mob/living/carbon/C, forced = TRUE)

@@ -175,9 +175,43 @@
 	if(.)
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
-	to_chat(user, "<span class='notice'>Толкаю стену, но ничего не происходит!</span>")
+	var/turf/turf_one = SSmapping.get_turf_above(get_turf(user))
+	var/turf/turf_two = SSmapping.get_turf_above(src)
 	playsound(src, 'sound/weapons/genhit.ogg', 25, TRUE)
 	add_fingerprint(user)
+	if(isopenspace(turf_one))
+		if(locate(/obj/structure/lattice) in turf_one)
+			to_chat(user, "<span class='notice'>Решётка над головой не даёт пройти</span>")
+			return
+		if(do_after(user, 3 SECONDS, target = src))
+			if(isopenturf(turf_two))
+				var/obstacles = FALSE
+				for(var/obj/O in turf_two)
+					if(O.density && (istype(O, /obj/structure/window) || istype(O, /obj/machinery/door)))
+						obstacles = TRUE
+				if(!obstacles)
+					user.forceMove(turf_two)
+					if(!HAS_TRAIT(user, TRAIT_FREERUNNING))
+						if(ishuman(user))
+							var/mob/living/carbon/human/H = user
+							H.adjustStaminaLoss(60)
+							H.set_resting(TRUE)
+					to_chat(user, "<span class='notice'>Взбираюсь по стене наверх...</span>")
+					return
+			user.movement_type |= FLYING
+			user.forceMove(turf_one)
+			to_chat(user, "<span class='notice'>Взбираюсь по стене наверх осторожно...</span>")
+			var/time_to_fall = 1 SECONDS
+			if(!HAS_TRAIT(user, TRAIT_FREERUNNING))
+				if(ishuman(user))
+					var/mob/living/carbon/human/H = user
+					H.adjustStaminaLoss(60)
+			else
+				time_to_fall = 2 SECONDS
+			spawn(time_to_fall)
+				user.movement_type &= ~FLYING
+	else
+		to_chat(user, "<span class='notice'>Толкаю стену, но ничего не происходит!</span>")
 
 /turf/closed/wall/attackby(obj/item/W, mob/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)

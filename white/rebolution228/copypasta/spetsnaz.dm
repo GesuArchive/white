@@ -3,7 +3,7 @@
 	leader_role = /datum/antagonist/ert/spetsnaz/leader
 	teamsize = 5
 	opendoors = FALSE
-	rename_team = "Спецназ ВВ МВД"
+	rename_team = "Спецназ"
 	mission = "Уничтожить особо опасных террористов на станции."
 	polldesc = "группе специального назначения"
 
@@ -13,7 +13,8 @@
 
 	owner.current.playsound_local(get_turf(owner.current), 'white/rebolution228/sounds/spetsnaz_spawn.ogg',100,0, use_reverb = FALSE)
 	to_chat(owner, "<B><font size=3 color=red>Я РОССИЙСКИЙ СПЕЦНАЗ!</font></B>")
-	to_chat(owner, "Вы входите в состав спецподразделения <B>'Оборотень'</B>, отправленный на станцию <B>'[station_name()]'</B> с заданием от <B>Российского Отдела Службы Безопасности NanoTrasen.</B> Ваше тело имеет <B>иммунитет к вакууму и не требует кислорода.</B>")
+	to_chat(owner, "Вы входите в состав спецподразделения <B>'Оборотень'</B>, отправленный на станцию <B>'[station_name()]'</B> с заданием от <B>Российского Отдела Службы Безопасности NanoTrasen.</B>")
+	to_chat(owner, "ПОМНИТЕ! Ваше тело имеет <B>иммунитет к вакууму и не требует кислорода.</B>")
 	if(leader)
 		to_chat(owner, "Являясь главой отряда, вы должны руководить своим составом, чтобы обеспечить выполнение миссии. Отправьтесь на станцию при помощи шаттла, когда вы будете готовы.")
 	else
@@ -33,7 +34,7 @@
 	C.dna.add_mutation(/datum/mutation/human/spaceproof)
 
 /datum/antagonist/ert/spetsnaz
-	name = "Спецназ ВВ МВД"
+	name = "Спецназ"
 	outfit = /datum/outfit/spetsnaz
 	random_names = TRUE
 	role = "Спецназовец"
@@ -42,7 +43,7 @@
 	outfit = /datum/outfit/spetsnaz/grenadier
 
 /datum/antagonist/ert/spetsnaz/leader
-	name = "Лидер Спецназа ВВ МВД"
+	name = "Лидер Спецназа"
 	outfit = /datum/outfit/spetsnaz/leader
 	role = "Лидер Спецназа"
 	leader = TRUE

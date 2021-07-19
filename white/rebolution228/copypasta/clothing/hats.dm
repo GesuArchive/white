@@ -59,3 +59,14 @@
 
 /obj/item/clothing/head/helmet/maska/altyn/black
 	icon_state = "baltyn"
+
+
+// field medic helmet
+
+/obj/item/clothing/head/soft/sec/fieldmedic
+	name = "кепка полевого медика"
+	desc = "Прочная кепка с блестящим белым крестом. Выполни свой долг - спаси жизнь."
+	icon = 'white/rebolution228/icons/clothing/hats.dmi'
+	worn_icon = 'white/rebolution228/icons/clothing/mob/hats_mob.dmi'
+	icon_state = "secmedsoft"
+	soft_type = "secmed"
