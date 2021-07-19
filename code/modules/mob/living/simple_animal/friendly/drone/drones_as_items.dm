@@ -32,6 +32,7 @@
 
 /obj/effect/mob_spawn/drone/allow_spawn(mob/user)
 	var/client/user_client = user.client
+	var/mob/living/simple_animal/drone/drone_type = mob_type
 	if(isnull(user_client) || !CONFIG_GET(flag/use_exp_restrictions_other))
 		return ..()
 	var/required_role = ROLE_DRONE

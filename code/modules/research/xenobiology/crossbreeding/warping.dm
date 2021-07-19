@@ -617,6 +617,7 @@ GLOBAL_DATUM(blue_storage, /obj/item/storage/backpack/holding/bluespace)
 		/obj/item/card/emagfake,
 		/obj/item/gun/ballistic/revolver/reverse,
 		/obj/item/flashlight/flashdark,
+		/mob/living/simple_animal/slime/rainbow,
 		/obj/item/storage/belt/sabre,
 		/obj/effect/mob_spawn/drone,
 		/obj/item/sharpener,
