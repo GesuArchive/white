@@ -136,5 +136,5 @@
 	id = "kar98k_clip"
 	build_type = AUTOLATHE
 	materials = list(MAT_CATEGORY_RIGID = 2500)
-	build_path = /obj/item/ammo_box/magazine/wzzzz/a792x57/empty
+	build_path = /obj/item/ammo_box/magazine/a792x57/empty
 	category = list("Импорт")

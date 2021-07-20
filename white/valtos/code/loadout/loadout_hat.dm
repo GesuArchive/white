@@ -34,8 +34,8 @@
 	cost = 100
 
 /datum/gear/hat/blue_beret
-	display_name = "Берет, синий"
-	path = /obj/item/clothing/head/wzzzz/beret/blue
+	display_name = "Берет, который когда-нибуть станет синим"
+	path = /obj/item/clothing/head/beret
 	cost = 100
 
 /datum/gear/hat/black_beret

@@ -13,7 +13,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	var/obj/item/stock_parts/cell/emergency_shield/cell
 	var/active = FALSE
-	var/charge_use = 100
+	var/charge_use = 60
 	var/time_used //stores world.time of last activation for cooldowns.
 	var/mob/living/current_user
 	var/shield_effect
@@ -46,7 +46,7 @@
 		if(2000 to 2499)
 			. += "It seems to be somewhat charged."
 		if (1500 to 1999)
-			. += "It seems to be charged just enough to turn it on."
+			. += "It seems to be charged just enough to turn it on once."
 		if(1000 to 1499)
 			. += "It seems to be pretty low on charge."
 		if (500 to 999)
@@ -158,8 +158,8 @@
 	desc = "Специальная батарея, разработанная специально для прожектора щита. Из-за сложностей конструкции энергоёмкость оставляет желать лучшего."
 	icon = 'white/RedFoxIV/icons/obj/emergency_shield.dmi'
 	icon_state = "cell"
-	maxcharge = 3500 //500 for initial activation and 3000 for the runtime of 30 seconds
-	chargerate = 50
+	maxcharge = 3500 //500 for initial activation and 3000 for the runtime of (3000/charge_use) seconds
+	chargerate = 100
 
 
 /obj/item/stock_parts/cell/emergency_shield/update_overlays()
@@ -176,6 +176,8 @@
 /obj/item/emergency_shield/proc/activate_shield()
 	active = TRUE
 	ADD_TRAIT(current_user, TRAIT_RESISTLOWPRESSURE, "emergency_shield")
+	ADD_TRAIT(current_user, TRAIT_RESISTHIGHPRESSURE, "emergency_shield")
+	
 	current_user.add_movespeed_modifier(/datum/movespeed_modifier/emergency_shield)
 	current_user.add_overlay(shield_effect)
 	playsound(src,'sound/weapons/saberon.ogg', 15, TRUE)
@@ -183,10 +185,12 @@
 /obj/item/emergency_shield/proc/deactivate_shield()
 	active = FALSE
 	REMOVE_TRAIT(current_user, TRAIT_RESISTLOWPRESSURE, "emergency_shield")
+	ADD_TRAIT(current_user, TRAIT_RESISTHIGHPRESSURE, "emergency_shield")
+
 	current_user.remove_movespeed_modifier(/datum/movespeed_modifier/emergency_shield)
 	current_user.cut_overlay(shield_effect)
 	current_user = null
 	playsound(src,'sound/weapons/saberoff.ogg', 15, TRUE)
 
 /datum/movespeed_modifier/emergency_shield
-	multiplicative_slowdown = 1.2
+	multiplicative_slowdown = 1.075

@@ -64,7 +64,7 @@
 
 /datum/gear/assault_rifle
 	display_name = "Штурмовой карабин"
-	path = /obj/item/gun/ballistic/automatic/wzzzz/assault_rifle
+	path = /obj/item/gun/ballistic/automatic/assault_rifle
 	allowed_roles = list("Warden")
 	cost = 5000
 

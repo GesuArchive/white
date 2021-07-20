@@ -1,4 +1,4 @@
-/obj/item/melee/sabre/wzzzz/marine
+/obj/item/melee/sabre/marine
 	name = "marine sword"
 	desc = "A curved sword issued to german marines"
 	icon = 'white/Wzzzz/icons/Weea.dmi'
@@ -18,7 +18,7 @@
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	custom_materials = list(/datum/material/iron = 500)
 
-/obj/item/melee/sabre/wzzzz/officer
+/obj/item/melee/sabre/officer
 	name = "officer sword"
 	desc = "A curved sword issued to german officers"
 	icon = 'white/Wzzzz/icons/Weea.dmi'
@@ -38,7 +38,7 @@
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	custom_materials = list(/datum/material/iron = 500)
 
-/obj/item/melee/sabre/wzzzz/marineofficer
+/obj/item/melee/sabre/marineofficer
 	name = "marine officer sword"
 	desc = "A curved sword issued to german marine officers"
 	icon = 'white/Wzzzz/icons/Weea.dmi'
@@ -58,7 +58,7 @@
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	custom_materials = list(/datum/material/iron = 500)
 
-/obj/item/melee/sabre/wzzzz/pettyofficer
+/obj/item/melee/sabre/pettyofficer
 	name = "pettyofficer sword"
 	desc = "A curved sword issued to german petty officers"
 	icon = 'white/Wzzzz/icons/Weea.dmi'
@@ -78,7 +78,7 @@
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	custom_materials = list(/datum/material/iron = 500)
 
-/obj/item/melee/sabre/wzzzz/german
+/obj/item/melee/sabre/german
 	name = "german sabre"
 	desc = "A good weapon in melee battle"
 	icon = 'white/Wzzzz/icons/Weea.dmi'
@@ -98,7 +98,7 @@
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	custom_materials = list(/datum/material/iron = 500)
 
-/obj/item/melee/classic_baton/wzzzz/german // здесь был реба и я официально заявляю что я ебал зергиверги в очко
+/obj/item/melee/classic_baton/german // здесь был реба и я официально заявляю что я ебал зергиверги в очко
 	name = "резиновая дубинка"
 	desc = "Резиновая палка 'ПР-60' с поперечной рукояткой, классический инвентарь служб охраны и символ демократии, выполненная из резиновой смеси. Используется для обездвиживания различных криминальных элементов."
 	icon = 'white/Wzzzz/icons/Weea.dmi'
@@ -111,7 +111,7 @@
 	worn_icon_state = "baton"
 	slot_flags = ITEM_SLOT_BELT
 
-/obj/item/melee/wzzzz/club
+/obj/item/melee/club
 	icon_state = "club"
 	inhand_icon_state = "club"
 	icon = 'white/Wzzzz/icons/Weea.dmi'
@@ -126,7 +126,7 @@
 	armour_penetration = 30
 	custom_materials = list(/datum/material/iron=2000)
 
-/obj/item/kitchen/knife/wzzzz/german
+/obj/item/kitchen/knife/german
 	name = "combat knife"
 	desc = "A german military combat knife."
 	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 50, "embedded_fall_chance" = 5, "embedded_ignore_throwspeed_threshold" = TRUE)
@@ -147,7 +147,7 @@
 	righthand_file = 'white/Wzzzz/icons/Weear.dmi'
 	worn_icon = 'white/Wzzzz/clothing/mob/belt.dmi'
 
-/obj/item/kitchen/knife/butcher/wzzzz/machete
+/obj/item/kitchen/knife/butcher/machete
 	name = "machete"
 	icon = 'white/Wzzzz/icons/Weea.dmi'
 	icon_state = "machete"

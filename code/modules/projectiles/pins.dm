@@ -285,7 +285,7 @@
 			return FALSE
 		return TRUE
 	if(credit_card_details && !active_prompt)
-		var/license_request = alert(user, "Желаете заплатить [payment_amount] cr.[( payment_amount > 1 ) ? "s" : ""] за [( multi_payment ) ? "каждый выстрел [gun.name]" : "лицензия на пользование [gun.name]"]?", "Покупка оружия", "Да", "Нет")
+		var/license_request = "Yes" //тгшники идут домой со своим спящим говном //alert(user, "Желаете заплатить [payment_amount] cr.[( payment_amount > 1 ) ? "s" : ""] за [( multi_payment ) ? "каждый выстрел [gun.name]" : "лицензия на пользование [gun.name]"]?", "Покупка оружия", "Да", "Нет")
 		active_prompt = TRUE
 		if(!user.canUseTopic(src, BE_CLOSE))
 			active_prompt = FALSE

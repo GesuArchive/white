@@ -1081,8 +1081,12 @@ SUBSYSTEM_DEF(df_gamemaster)
 
 #define ASSBLAST_CUMJAR "cumjar"
 #define ASSBLAST_SHOCKING "shocking_incompetence"
-#define ASSBLAST_WIZARD "lemon_party"
-GLOBAL_LIST_INIT(assblasts, list(ASSBLAST_CUMJAR = "Puts people in a cum jar on admin command.", ASSBLAST_SHOCKING = "Patient shows SHOCKING incompetence around machines.", ASSBLAST_WIZARD = "Does literally nothing. For now."))
+#define ASSBLAST_WIZARD "R_U_A_WIZARD?"
+#define ASSBLAST_BAD_CONNECTION "bad_connection"
+GLOBAL_LIST_INIT(assblasts, list(ASSBLAST_CUMJAR = "Puts people in a cum jar on admin command.",\
+								ASSBLAST_SHOCKING = "Patient shows SHOCKING incompetence around machines.",\
+								ASSBLAST_WIZARD = "What do you do when you can't aim properly? You spin, spray and pray.",\
+								ASSBLAST_BAD_CONNECTION = "I selled my wife for internet connection for play \"spac station 13\" and i want to become the robustest player"))
 
 GLOBAL_LIST_EMPTY(assblasted_people)
 
@@ -1095,9 +1099,9 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 	if(istext(user))
 		ckey = user
 	else if((ismob(user)||istype(user, /client)) && user:ckey != null)
-		ckey = user
+		ckey = user:ckey
 	else
-		CRASH("check_for_assblast proc was unable to resolve the ckey: the \"user\" value was neither a text, a client nor a mob with a ckey. ")
+		return FALSE
 	var/list/assblasts = retrieve_assblasts(ckey)
 	if(assblasts.Find(assblast_type))
 		return TRUE
@@ -1159,3 +1163,12 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 		GLOB.assblasted_people[asskey] = jointext(asskey_blasts,"|")
 	else
 		GLOB.assblasted_people.Remove(asskey)
+
+
+
+/datum/smite/cumjar
+	name = "Cumjar"
+
+/datum/smite/cumjar/effect(client/user, mob/living/target)
+	. = ..()
+	new /obj/item/cum_jar(target)

@@ -179,7 +179,7 @@
 /area/awaymission/bombass/indoors)
 "aG" = (
 /obj/structure/table,
-/obj/item/clothing/under/wzzzz/m35jacket/elite/super,
+/obj/item/clothing/under/m35jacket/elite/super,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-2"
 	},
@@ -406,8 +406,8 @@
 /area/awaymission/bombass/indoors)
 "bx" = (
 /obj/structure/rack,
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/empty,
-/obj/item/ammo_box/magazine/wzzzz/a792x57,
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/empty,
+/obj/item/ammo_box/magazine/a792x57,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
@@ -927,11 +927,11 @@
 	},
 /obj/effect/turf_decal/box,
 /obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
-/obj/item/clothing/head/wzzzz/hijab/black,
-/obj/item/clothing/mask/gas/wzzzz/germanfull,
+/obj/item/clothing/suit/armor/vest/m35/black,
+/obj/item/clothing/head/hijab/black,
+/obj/item/clothing/mask/gas/germanfull,
 /obj/item/tank/internals/emergency_oxygen/double,
-/obj/item/clothing/under/wzzzz/blackutility,
+/obj/item/clothing/under/blackutility,
 /obj/item/clothing/gloves/color/black,
 /obj/item/card/id/advanced/black/syndicate_command,
 /turf/open/floor/partyhard/steel{
@@ -941,15 +941,15 @@
 "cI" = (
 /obj/effect/turf_decal/box,
 /obj/structure/closet/bombcloset/bombsquad,
-/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
+/obj/item/clothing/suit/armor/vest/m35/black,
 /obj/item/stack/sheet/mineral/sandbags{
 	amount = 30
 	},
 /obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/head/wzzzz/hijab/black,
-/obj/item/clothing/mask/gas/wzzzz/germanfull,
+/obj/item/clothing/head/hijab/black,
+/obj/item/clothing/mask/gas/germanfull,
 /obj/item/tank/internals/emergency_oxygen/double,
-/obj/item/clothing/under/wzzzz/blackutility,
+/obj/item/clothing/under/blackutility,
 /obj/item/clothing/gloves/color/black,
 /obj/item/card/id/advanced/black/syndicate_command,
 /turf/open/floor/partyhard/steel{
@@ -1097,12 +1097,12 @@
 /area/awaymission/bombass/indoors)
 "cW" = (
 /obj/structure/rack,
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope,
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope,
 /obj/machinery/light/small{
 	dir = 1;
 	pixel_y = 0
 	},
-/obj/item/ammo_box/magazine/wzzzz/a792x57,
+/obj/item/ammo_box/magazine/a792x57,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
@@ -1128,8 +1128,8 @@
 /area/awaymission/bombass/indoors)
 "de" = (
 /obj/structure/rack,
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k,
-/obj/item/ammo_box/magazine/wzzzz/a792x57,
+/obj/item/gun/ballistic/rifle/boltaction/kar98k,
+/obj/item/ammo_box/magazine/a792x57,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
@@ -1530,12 +1530,12 @@
 /area/awaymission/bombass)
 "ew" = (
 /obj/structure/rack,
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k,
+/obj/item/gun/ballistic/rifle/boltaction/kar98k,
 /obj/machinery/light/small{
 	dir = 1;
 	pixel_y = 0
 	},
-/obj/item/ammo_box/magazine/wzzzz/a792x57,
+/obj/item/ammo_box/magazine/a792x57,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
@@ -1553,10 +1553,10 @@
 /area/awaymission/bombass/indoors)
 "ez" = (
 /obj/structure/table,
-/obj/item/gun/ballistic/automatic/wzzzz/carbine,
-/obj/item/ammo_box/magazine/wzzzz/carbine,
-/obj/item/ammo_box/magazine/wzzzz/carbine,
-/obj/item/ammo_box/magazine/wzzzz/carbine,
+/obj/item/gun/ballistic/automatic/carbine,
+/obj/item/ammo_box/magazine/carbine,
+/obj/item/ammo_box/magazine/carbine,
+/obj/item/ammo_box/magazine/carbine,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-2"
 	},

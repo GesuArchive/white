@@ -50,10 +50,10 @@
 	new /obj/item/clothing/head/helmet/space(B)
 	return B
 
-/datum/blackmarket_item/clothing/wzzzz/null
+/datum/blackmarket_item/clothing/null
 	name = "Скафандр"
 	desc = "Улучшенная версия обычного скафандра"
-	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/null
+	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite/null
 
 	price_min = 100
 	price_max = 500
@@ -61,10 +61,10 @@
 	stock_max = 5
 	availability_prob = 100
 
-/datum/blackmarket_item/clothing/wzzzz/void_explorer
+/datum/blackmarket_item/clothing/void_explorer
 	name = "Скафандр исследователя космоса"
 	desc = "Улучшенная версия обычного скафандра"
-	item = /obj/item/clothing/suit/space/hardsuit/wzzzz/void_explorer
+	item = /obj/item/clothing/suit/space/hardsuit/void_explorer
 
 	price_min = 150
 	price_max = 600
@@ -81,10 +81,10 @@
 	stock_max = 1
 	availability_prob = 70
 
-/datum/blackmarket_item/clothing/wzzzz/security_rig
+/datum/blackmarket_item/clothing/security_rig
 	name = "Боевой скафандр СБ"
 	desc = "Обновлённая модель скафандра СБ"
-	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/security_rig
+	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite/security_rig
 
 	price_min = 1000
 	price_max = 5000

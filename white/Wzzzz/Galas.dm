@@ -1,5 +1,5 @@
 //clothing
-/obj/item/clothing/glasses/wzzzz/leforge
+/obj/item/clothing/glasses/leforge
 	name = "Le forge"
 	desc = "Аля форж"
 	icon = 'white/Wzzzz/clothing/glasses.dmi'
@@ -7,7 +7,7 @@
 	icon_state = "leforge"
 	inhand_icon_state = "leforge"
 
-/obj/item/clothing/glasses/wzzzz/denight
+/obj/item/clothing/glasses/denight
 	name = "denight vision goggles"
 	desc = "Not night, just denight"
 	icon = 'white/Wzzzz/clothing/glasses.dmi'
@@ -18,7 +18,7 @@
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	darkness_view = 10
 
-/obj/item/clothing/glasses/wzzzz/jensenshades
+/obj/item/clothing/glasses/jensenshades
 	name = "Jensenshades"
 	desc = "Дженсен Стэтхем"
 	icon = 'white/Wzzzz/clothing/glasses.dmi'
@@ -28,7 +28,7 @@
 	flash_protect = 5
 	tint = 1
 
-/obj/item/clothing/glasses/wzzzz/goggless
+/obj/item/clothing/glasses/goggless
 	name = "Dark gogles"
 	desc = "Something familiar, but dark"
 	icon = 'white/Wzzzz/clothing/glasses.dmi'
@@ -40,7 +40,7 @@
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	darkness_view = 8
 
-/obj/item/clothing/glasses/wzzzz/sec_flash
+/obj/item/clothing/glasses/sec_flash
 	name = "Security glasses"
 	desc = "New style, maybe"
 	icon = 'white/Wzzzz/clothing/glasses.dmi'
@@ -50,7 +50,7 @@
 	flash_protect = 1
 	tint = 1
 
-/obj/item/clothing/glasses/welding/wzzzz/r
+/obj/item/clothing/glasses/welding/r
 	name = "New welding goggles"
 	desc = "Protects the eyes from bright flashes; approved by the mad scientist association."
 	icon = 'white/Wzzzz/clothing/glasses.dmi'

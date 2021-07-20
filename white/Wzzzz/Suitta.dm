@@ -40,7 +40,7 @@
 
 
 
-	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/breacher_cheap = null
+	var/obj/item/clothing/head/helmet/space/hardsuit/breacher_cheap = null
 
 
 
@@ -49,7 +49,7 @@
 
 
 
-	/obj/item/storage/belt/mining/wzzzz/large/ComponentInitialize()
+	/obj/item/storage/belt/mining/large/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 10

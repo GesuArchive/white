@@ -12,8 +12,8 @@
 	base_pixel_x = -16
 	pixel_x = -16
 
-	maxHealth = 1488
-	health = 1488
+	maxHealth = 100
+	health = 100
 
 	random_color = FALSE
 	projectilesound = list('white/valtos/sounds/pig/hru.ogg', 'white/valtos/sounds/pig/oink.ogg', 'white/valtos/sounds/pig/squeak.ogg')

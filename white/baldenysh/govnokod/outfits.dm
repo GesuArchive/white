@@ -1,3 +1,5 @@
+///////////////////////////////////////////////////////////////////// green elephant
+
 /obj/item/clothing/mask/gas/tarelka
 	name = "одноразовая тарелка"
 	desc = "Просто тарелка с веселой рожицей."
@@ -62,7 +64,7 @@
 	attackby(A, user)
 
 /datum/id_trim/speedrunner
-	assignment = "Famous speedrunner"
+	assignment = "green"
 	access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_MECH_MEDICAL, ACCESS_MINERAL_STOREROOM, ACCESS_MAINT_TUNNELS,
 				ACCESS_EVA, ACCESS_ENGINE, ACCESS_CONSTRUCTION, ACCESS_CARGO, ACCESS_HYDROPONICS, ACCESS_RESEARCH, ACCESS_AUX_BASE)
 
@@ -96,3 +98,127 @@
 	var/obj/item/melee/moonlight_greatsword/cumborne = locate() in H.contents
 	cumborne.name = "moonlight greatsword +5"
 	cumborne.force = 20
+
+///////////////////////////////////////////////////////////////////// gacha drochilnya
+
+/obj/item/paper/tdroid_manual
+	name = "руководство по использованию тактической кошкожены"
+	info = "<h2>me подкрадывается и ломает четвертую стену</h2><br> \
+		азазхвзахвахзазхвазахв вы были затроллены, у вас бивалент!!!<br> \
+		1.Поинт на себя с дизарм интентом чтобы объединить и сбросить цели нескольких андроидов в радиусе 5 метров в отряд, так они не будут друг друга убивать (в теории)<br>  \
+		2.Поинт на андроида с дизарм интентом чтобы сбросить его цели и уронить на 5 секунд.<br>  \
+		3.Поинт на живое существо не в отряде с дизарм интентом чтобы андроиды начали приказывать ему сдаться, и в случае неподчинения начинали производить распидорас.<br>  \
+		3.1 Поинт на живое существо не в отряде с харм интентом чтобы андроиды начали сразу производить его распидорас.<br>  \
+		3.2 Поинт на живое существо не в отряде с харм интентом два раза чтобы андроиды начали производить его распидорас насмерть.<br>  \
+		4.Поинт на андроида с граб интентом для перехода в режим приказов конкретно этому андроиду.<br>  \
+		4.1 Поинт на объект с граб интентом для следования за ним. В случае, когда объект это другой андроид из отряда - первый андроид его схватит и потащит.<br>  \
+		"
+
+/obj/item/firing_pin/catatonic
+	name = "ударник для дэбов"
+	desc = "Позволяет стрелять только \"гуманоидам\" с айсикью меньше 10."
+	fail_message = "<span class='warning'>ОБНАРУЖЕНА МОЗГОВАЯ АКТИВНОСТЬ.</span>"
+	pin_removeable = FALSE
+
+/obj/item/firing_pin/catatonic/pin_auth(mob/living/user)
+	if(!istype(user))
+		return FALSE
+	if(user.client)
+		return FALSE
+	return TRUE
+
+/obj/item/gun/ballistic/automatic/pistol/m1911/catatonic
+	name = "M1911 RR"
+	desc = "Сколько бы ты не старался, привычные мыслительные шаблоны мешают тебе понять как из этого стрелять. Воистину изобретение укропов."
+	pin = /obj/item/firing_pin/catatonic
+
+/datum/id_trim/tacticalcatwife
+	assignment = "Тактическая Кошкожена"
+	access = list(ACCESS_MAINT_TUNNELS)
+
+/obj/item/card/id/advanced/tacticalcatwife
+	trim = /datum/id_trim/tacticalcatwife
+
+/datum/outfit/tcatwife
+	name = "Тактическая Кошкожена"
+	uniform = /obj/item/clothing/under/syndicate/skirt
+	head = /obj/item/clothing/head/kitty
+	ears = /obj/item/clothing/ears/earmuffs
+	glasses = /obj/item/clothing/glasses/sunglasses
+	shoes = /obj/item/clothing/shoes/combat
+	gloves = /obj/item/clothing/gloves/fingerless
+	belt = 	/obj/item/gun/ballistic/automatic/pistol/m1911/catatonic
+	l_pocket = /obj/item/ammo_box/magazine/m45
+	r_pocket = /obj/item/kitchen/knife/combat/survival
+	id = /obj/item/card/id/advanced/tacticalcatwife
+
+/mob/living/carbon/human/tdroid
+	ai_controller = /datum/ai_controller/tdroid
+
+/mob/living/carbon/human/tdroid/Initialize()
+	. = ..()
+	var/datum/ai_controller/tdroid/CTRL = ai_controller
+	for(var/mob/living/L in range(1))
+		if(L.client)
+			CTRL.RegisterCommander(L)
+			return
+
+/obj/effect/mob_spawn/human/tcatwife
+	mob_type = /mob/living/carbon/human/tdroid
+	outfit = /datum/outfit/tcatwife
+	instant = TRUE
+	death = FALSE
+	roundstart = FALSE
+
+/obj/effect/mob_spawn/human/tcatwife/create(ckey, newname)
+	mob_gender = "female"
+	mob_name = random_unique_name("female")
+	. = ..()
+
+/obj/effect/mob_spawn/human/tcatwife/equip(mob/living/carbon/human/H)
+	. = ..()
+	var/list/listIzCoomcamaPrikol = list(
+		"#0FFFFF" = "Aqua_hair",
+		"#000000" = "Black_hair",
+		"#FAF0BE" = "Blonde_hair",
+		"#0000FF" = "Blue_hair",
+		"#964B00" = "Brown_hair",
+		"#B5651D" = "Light_brown_hair",
+		"#808080" = "Grey_hair",
+		"#FFA500" = "Orange_hair",
+		"#FFC0CB" = "Pink_hair",
+		"#800080" = "Purple_hair",
+		"#E6E6FA" = "Lavender_hair",
+		"#FF0000" = "Red_hair",
+		"#C0C0C0" = "Silver_hair",
+		"#FFFFFF" = "White_hair"
+	)
+	H.hair_color = pick(listIzCoomcamaPrikol)
+
+/datum/outfit/tcatwife/mosin
+	name = "Тактическая Кошкожена Мосина"
+	belt = null
+	l_pocket = /obj/item/ammo_box/a762
+	back = /obj/item/gun/ballistic/rifle/boltaction
+
+/obj/effect/mob_spawn/human/tcatwife/mosin
+	outfit = /datum/outfit/tcatwife/mosin
+
+/obj/item/gun/energy/disabler/catatonic
+	name = "Усмиритель RR"
+	desc = "Сколько бы ты не старался, привычные мыслительные шаблоны мешают тебе понять как из этого стрелять. Воистину изобретение укропов."
+	pin = /obj/item/firing_pin/catatonic
+
+/datum/outfit/tcatwife/sec
+	name = "Тактическая Служебно-безопасная Кошкожена"
+	uniform = /obj/item/clothing/under/rank/security/officer/skirt
+	suit = /obj/item/clothing/suit/armor/vest/alt
+	suit_store = /obj/item/gun/energy/disabler/catatonic
+	shoes = /obj/item/clothing/shoes/jackboots
+	belt = /obj/item/gun/energy/disabler/catatonic
+	gloves = /obj/item/clothing/gloves/color/black
+	l_pocket = null
+	r_pocket = null
+
+/obj/effect/mob_spawn/human/tcatwife/sec
+	outfit = /datum/outfit/tcatwife/sec

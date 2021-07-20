@@ -91,7 +91,7 @@
 /turf/open/lava/smooth,
 /area/awaymission/vietnam/dwarf)
 "iq" = (
-/obj/structure/closet/crate/wooden/wzzzz,
+/obj/structure/closet/crate/wooden,
 /obj/item/flashlight/flare/torch,
 /obj/item/flashlight/flare/torch,
 /obj/item/flashlight/flare/torch,
@@ -140,7 +140,7 @@
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dwarf)
 "lW" = (
-/obj/structure/closet/crate/wooden/wzzzz,
+/obj/structure/closet/crate/wooden,
 /obj/item/seeds/tower,
 /obj/item/seeds/tower,
 /obj/item/seeds/wheat,
@@ -240,7 +240,7 @@
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "vC" = (
-/obj/structure/closet/crate/wooden/wzzzz,
+/obj/structure/closet/crate/wooden,
 /obj/item/seeds/plump,
 /obj/item/seeds/plump,
 /obj/item/seeds/cotton,

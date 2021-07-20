@@ -47,7 +47,7 @@
 	colour = list(rgb(255,15,15), rgb(0,255,25), rgb(0,0,255), rgb(0,0,0))
 	priority = 6
 
-/obj/item/clothing/suit/space/wzzzz/hacker_rig/equipped(mob/user, slot)
+/obj/item/clothing/suit/space/hacker_rig/equipped(mob/user, slot)
 	. = ..()
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -73,7 +73,7 @@
 				to_chat(H, "<span class='danger'>КАК?!</span>")
 				visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
 
-/obj/item/clothing/glasses/hud/wzzzz/hacker_rig
+/obj/item/clothing/glasses/hud/hacker_rig
 	name = "NI-Трансфакторный Визор C3451"
 	desc = "А ты заслуживаешь это?"
 	icon_state = "hardsuit1-hacker_rig"
@@ -88,7 +88,7 @@
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 	hud_trait = TRAIT_SECURITY_HUD
 
-/obj/item/clothing/glasses/hud/wzzzz/hacker_rig/equipped(mob/user, slot)
+/obj/item/clothing/glasses/hud/hacker_rig/equipped(mob/user, slot)
 	. = ..()
 
 	if(ishuman(user))
@@ -111,7 +111,7 @@
 		ADD_TRAIT(user, TRAIT_MEDICAL_HUD, GLASSES_TRAIT)
 		ADD_TRAIT(user, TRAIT_SECURITY_HUD, GLASSES_TRAIT)
 
-/obj/item/clothing/glasses/hud/wzzzz/hacker_rig/dropped(mob/user)
+/obj/item/clothing/glasses/hud/hacker_rig/dropped(mob/user)
 	. = ..()
 	REMOVE_TRAIT(user, TRAIT_MEDICAL_HUD, GLASSES_TRAIT)
 	REMOVE_TRAIT(user, TRAIT_SECURITY_HUD, GLASSES_TRAIT)
@@ -120,7 +120,7 @@
 			var/datum/atom_hud/H = GLOB.huds[hud]
 			H.remove_hud_from(user)
 
-/obj/item/clothing/glasses/hud/wzzzz/hacker_rig/emp_act(severity)
+/obj/item/clothing/glasses/hud/hacker_rig/emp_act(severity)
 	. = ..()
 	if(. & EMP_PROTECT_SELF)
 		return
@@ -140,7 +140,7 @@
 	force = 1
 	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100, "magic" = 100, "wound" = 100)
 
-/obj/item/clothing/suit/space/wzzzz/hacker_rig
+/obj/item/clothing/suit/space/hacker_rig
 	name = "AQ-Квантовый Экзоскелет Н4781"
 	desc = "А ты заслуживаешь этот костюм?"
 	icon_state = "hardsuit1-null_rig"
@@ -155,7 +155,7 @@
 	//slowdown = -2
 	strip_delay = 1300
 
-/obj/item/clothing/gloves/combat/wzzzz/guard
+/obj/item/clothing/gloves/combat/guard
 	name = "DZ-Блюспластовые Перчатки U8621"
 	desc = "А нужны ли они тебе?"
 	worn_icon = 'white/Wzzzz/clothing/mob/hands.dmi'
@@ -172,7 +172,7 @@
 	resistance_flags = NONE
 	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100, "magic" = 100, "wound" = 100)
 
-/obj/item/clothing/gloves/combat/wzzzz/guard/ComponentInitialize()
+/obj/item/clothing/gloves/combat/guard/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/punchcooldown)
 
@@ -332,7 +332,7 @@
 
 /datum/crafting_recipe/hacker/suit
 	name = "AQ-Квантовый Экзоскелет Н4781"
-	result = /obj/item/clothing/suit/space/wzzzz/hacker_rig
+	result = /obj/item/clothing/suit/space/hacker_rig
 	tool_paths = list(/obj/item/weldingtool,
 				 /obj/item/screwdriver,
 				 /obj/item/multitool/tricorder,
@@ -353,7 +353,7 @@
 
 /datum/crafting_recipe/hacker/gloves
 	name = "DZ-Блюспластовые Перчатки U8621"
-	result = /obj/item/clothing/gloves/combat/wzzzz/guard
+	result = /obj/item/clothing/gloves/combat/guard
 	tool_paths = list(/obj/item/weldingtool,
 				 /obj/item/screwdriver,
 				 /obj/item/multitool/tricorder,

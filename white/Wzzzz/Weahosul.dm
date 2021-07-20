@@ -15,7 +15,7 @@
 	ammo_type = /obj/item/ammo_casing/a792x57
 	max_ammo = 14
 
-/obj/item/ammo_box/magazine/wzzzz/a792x57
+/obj/item/ammo_box/magazine/a792x57
 	name = "Clip (7.92x57mm)"
 	icon = 'white/Wzzzz/icons/ammo.dmi'
 	icon_state = "kclip"
@@ -24,7 +24,7 @@
 	max_ammo = 5
 	multiple_sprites = TRUE
 
-/obj/item/ammo_box/magazine/wzzzz/a792x57/empty
+/obj/item/ammo_box/magazine/a792x57/empty
 	start_empty = TRUE
 
 /obj/item/ammo_casing/a792x57
@@ -42,7 +42,7 @@
 	speed = 0.4
 	armour_penetration = 45
 
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k
+/obj/item/gun/ballistic/rifle/boltaction/kar98k
 	name = "kar98k"
 	desc = "Some kind of bolt action rifle. You get the feeling you shouldn't have this."
 	icon = 'white/Wzzzz/icons/Weea.dmi'
@@ -68,25 +68,25 @@
 	slot_flags = 0
 	knife_y_offset = 13
 
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/empty
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/empty
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction98/empty
 
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/can_shoot()
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/can_shoot()
 	if (bolt_locked)
 		return FALSE
 	return ..()
 
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/attackby(obj/item/A, mob/user, params)
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/attackby(obj/item/A, mob/user, params)
 	if (!bolt_locked)
 		to_chat(user, "<span class='notice'>The bolt is closed!</span>")
 		return
 	return ..()
 
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/examine(mob/user)
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/examine(mob/user)
 	. = ..()
 	. += "<hr>The bolt is [bolt_locked ? "open" : "closed"]."
 
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/update_icon(var/add_scope = FALSE)
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/update_icon(var/add_scope = FALSE)
 	if (bolt_locked == FALSE)
 		icon_state = "kar98k_open"
 		inhand_icon_state = "kar98k_open"
@@ -101,7 +101,7 @@
 		icon_state = "kar98k"
 	return
 
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/rack(mob/user = null)
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/rack(mob/user = null)
 	if (bolt_locked == FALSE)
 		to_chat(user, "<span class='notice'>You open the bolt of <b>[src.name]</b></span>")
 		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
@@ -112,7 +112,7 @@
 	drop_bolt(user)
 
 
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope
 	name = "kar98k scope"
 	desc = "Some kind of bolt action rifle. You get the feeling you shouldn't have this."
 	icon_state = "kar98k_scope"
@@ -122,22 +122,22 @@
 	zoom_out_amt = 13
 	actions_types = list()
 
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/can_shoot()
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope/can_shoot()
 	if (bolt_locked)
 		return FALSE
 	return ..()
 
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/attackby(obj/item/A, mob/user, params)
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope/attackby(obj/item/A, mob/user, params)
 	if (!bolt_locked)
 		to_chat(user, "<span class='notice'>The bolt is closed!</span>")
 		return
 	return ..()
 
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/examine(mob/user)
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope/examine(mob/user)
 	. = ..()
 	. += "<hr>The bolt is [bolt_locked ? "open" : "closed"]."
 
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/update_icon(var/add_scope = FALSE)
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope/update_icon(var/add_scope = FALSE)
 	if (bolt_locked == FALSE)
 		icon_state = "kar98k_scope_open"
 		inhand_icon_state = "kar98k_scope_open"
@@ -157,7 +157,7 @@
 		fire_sound = 'white/Wzzzz/kar_shot.ogg'
 		return
 
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/rack(mob/user = null)
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope/rack(mob/user = null)
 	if (bolt_locked == FALSE)
 		to_chat(user, "<span class='notice'>You open the bolt of <b>[src.name]</b></span>")
 		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
@@ -167,7 +167,7 @@
 		return
 	drop_bolt(user)
 
-/obj/item/gun/energy/taser/wzzzz/carbine
+/obj/item/gun/energy/taser/carbine
 	name = "taser carbine"
 	desc = "The NT Mk44 NL is a high capacity gun used for non-lethal takedowns. It can switch between high and low intensity stun shots."
 	icon_state = "tasercarbine"
@@ -192,12 +192,12 @@
 	jitter = 27
 	range = 10
 
-/obj/item/ammo_box/magazine/wt550m9/wzzzz/mc9mmt
+/obj/item/ammo_box/magazine/wt550m9/mc9mmt
 	name = "top mounted magazine (9mm)"
-	ammo_type = /obj/item/ammo_casing/wzzzz/c9mm
+	ammo_type = /obj/item/ammo_casing/c9mm
 	caliber = "9mm"
 
-/obj/item/ammo_casing/wzzzz/c9mm
+/obj/item/ammo_casing/c9mm
 	desc = "A 9mm bullet casing."
 	caliber = "9mm"
 	projectile_type = /obj/projectile/bullet/c9mmt
@@ -206,7 +206,7 @@
 	damage = 25
 	armour_penetration = 13.5
 
-/obj/item/gun/ballistic/automatic/wt550/wzzzz/german
+/obj/item/gun/ballistic/automatic/wt550/german
 	name = "9mm machine pistol"
 	desc = "The W-T 550 Saber is a cheap self-defense weapon, mass-produced by Ward-Takahashi for paramilitary and private use. Uses 9mm rounds."
 	icon_state = "wt550"
@@ -214,10 +214,10 @@
 	inhand_icon_state = "wt550"
 	lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
 	righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'
-	mag_type = /obj/item/ammo_box/magazine/wt550m9/wzzzz/mc9mmt
+	mag_type = /obj/item/ammo_box/magazine/wt550m9/mc9mmt
 	actions_types = list(/datum/action/item_action/toggle_firemode)
 
-/obj/item/chainsaw/wzzzz
+/obj/item/chainsaw
 	name = "circular saw"
 	desc = "Good against wood or flesh, bad against steel."
 	icon_state = "saw"
@@ -231,7 +231,7 @@
 	armour_penetration = 0
 	sharpness = 5
 
-/obj/item/shovel/serrated/wzzzz
+/obj/item/shovel/serrated
 	name = "bone shovel"
 	desc = "Weapon and tool together."
 	icon = 'white/Wzzzz/icons/Weea.dmi'
@@ -247,7 +247,7 @@
 	throwforce = 11
 	force = 12
 
-/obj/item/pickaxe/silver/wzzzz
+/obj/item/pickaxe/silver
 	name = "костяная кирка"
 	desc = "Импровизируйте свою жизнь с помощью костей и дерева."
 	toolspeed = 0.2
@@ -257,6 +257,6 @@
 	icon_state = "pickaxe_bone"
 	inhand_icon_state = "pickaxe_bone"
 
-/obj/item/clothing/mask/cigarette/pipe/cobpipe/wzzzz
+/obj/item/clothing/mask/cigarette/pipe/cobpipe
 	icon = 'white/Wzzzz/icons/Weea.dmi'
 	name = "pipe"

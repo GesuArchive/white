@@ -10,3 +10,11 @@ GLOBAL_VAR_INIT(detnumoftheday, hex2num(copytext(md5(time2text(world.realtime, "
 	C.cut_overlay(C.googly_eyes)
 	C.add_overlay(mutable_appearance('white/baldenysh/icons/mob/aneme.dmi', "chaika_eyes"))
 	return C
+
+/mob/living/carbon/proc/spawn_and_insert_organ(organpathtxt)
+	var/path = text2path(organpathtxt)
+	if(!(path in subtypesof(/obj/item/organ)))
+		return
+	var/obj/item/organ/organ = new path()
+	organ.Insert(src)
+	organ.Initialize()

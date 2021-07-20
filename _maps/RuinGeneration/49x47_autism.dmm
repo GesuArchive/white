@@ -1109,7 +1109,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
-/obj/item/clothing/suit/space/hardsuit/wzzzz/rig_sec,
+/obj/item/clothing/suit/space/hardsuit/rig_sec,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/station)
@@ -1675,7 +1675,7 @@
 	pixel_x = 32
 	},
 /obj/effect/turf_decal/bot,
-/obj/item/clothing/suit/space/hardsuit/wzzzz/rig_engineeringalt,
+/obj/item/clothing/suit/space/hardsuit/rig_engineeringalt,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/eng)
@@ -2596,7 +2596,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/item/clothing/suit/space/hardsuit/wzzzz/rig_excavation,
+/obj/item/clothing/suit/space/hardsuit/rig_excavation,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/austation/rnd)
@@ -5175,7 +5175,7 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/clothing/suit/space/hardsuit/wzzzz/rig_medicalalt,
+/obj/item/clothing/suit/space/hardsuit/rig_medicalalt,
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/toxin,
 /obj/effect/decal/cleanable/dirt/dust,

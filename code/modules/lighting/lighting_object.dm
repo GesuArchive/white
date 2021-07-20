@@ -28,6 +28,9 @@
 	for(var/turf/open/space/space_tile in RANGE_TURFS(1, affected_turf))
 		space_tile.update_starlight()
 
+	for(var/turf/open/openspace/airless/O in RANGE_TURFS(1, affected_turf))
+		O.update_starlight()
+
 	needs_update = TRUE
 	SSlighting.objects_queue += src
 
