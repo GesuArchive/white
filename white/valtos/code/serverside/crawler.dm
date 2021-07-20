@@ -22,15 +22,17 @@
 	if(!cril)
 		return TRUE
 
-	if(text2num(cril[0]["bypass"]))
+	if(text2num(cril[1]["bypass"]))
 		return TRUE
 
 	popleft(cril)
+
+	var/clear_sanity = TRUE
 
 	for(var/i in cril)
 		if(text_in_list(cril[i]["servername"], badlist))
 			if(text2num(cril[i]["count"]) > 360)
 				message_admins("[key_name(src)] из [cril[i]["servername"]](<a href='https://crawler.station13.ru/?ckey=[ckey]'>?</a>).")
-				return FALSE
+				clear_sanity = FALSE
 
-	return TRUE
+	return clear_sanity
