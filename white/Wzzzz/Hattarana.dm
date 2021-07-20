@@ -108,7 +108,7 @@
 	icon_state = "tailcoat"
 	armor = list("melee" = 20, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 15)
 	inhand_icon_state = "tailcoat"
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/tailcoat
+	pocket_storage_component_path = /datum/component/storage/concrete/pockets
 
 /obj/item/clothing/suit/armor/vest/leather/tailcoat/black
 	icon_state = "tailcoatb"
