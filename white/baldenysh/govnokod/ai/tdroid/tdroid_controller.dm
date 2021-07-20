@@ -95,7 +95,7 @@
 		for(var/mob/living/L in view(9, living_pawn))
 			if(L.stat == DEAD)
 				continue
-			if(blackboard[BB_TDROID_COMMANDER] && IsInCommandersFaction(L) && !(L in alive_enemies) && !blackboard[BB_TDROID_AGGRESSIVE])
+			if(!ShouldTarget(L))
 				continue
 			possible_targets.Add(L)
 
