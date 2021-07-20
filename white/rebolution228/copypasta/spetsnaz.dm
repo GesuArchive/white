@@ -67,11 +67,11 @@
 	name = "Спецназовец-стрелок"
 
 	uniform = /obj/item/clothing/under/rank/spetsnaz
-	suit = /obj/item/clothing/suit/armor/wzzzz/opvest/spetsnaz
+	suit = /obj/item/clothing/suit/armor/opvest/spetsnaz
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
 	ears = /obj/item/radio/headset/headset_cent/alt
-	mask = /obj/item/clothing/mask/balaclava/wzzzz/swatclava/grey
+	//mask = /obj/item/clothing/mask/balaclava/swatclava/grey
 	belt = /obj/item/storage/belt/military/spetsnaz
 	id = /obj/item/card/id/advanced/centcom/spetsnaz
 	id_trim = /datum/id_trim/centcom/spetsnaz
@@ -81,7 +81,7 @@
 	back = /obj/item/storage/backpack/security
 	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
 		/obj/item/storage/box/handcuffs=1,\
-		/obj/item/melee/classic_baton/wzzzz/german=1,\
+		/obj/item/melee/classic_baton/german=1,\
 		/obj/item/crowbar/red=1)
 
 /datum/outfit/spetsnaz/pre_equip(mob/living/carbon/human/H)
@@ -148,7 +148,7 @@
 	name = "Спецназовец-лидер☆"
 
 	uniform = /obj/item/clothing/under/rank/spetsnaz
-	suit = /obj/item/clothing/suit/armor/wzzzz/opvest/spetsnaz
+	suit = /obj/item/clothing/suit/armor/opvest/spetsnaz
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
 	ears = /obj/item/radio/headset/headset_cent/alt
@@ -163,7 +163,7 @@
 	back = /obj/item/storage/backpack/satchel/sec
 	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
 		/obj/item/storage/box/handcuffs=1,\
-		/obj/item/melee/classic_baton/wzzzz/german=1,\
+		/obj/item/melee/classic_baton/german=1,\
 		/obj/item/crowbar/red=1,\
 		/obj/item/autosurgeon/organ=1,\
 		/obj/item/organ/eyes/robotic/thermals=1,\
@@ -219,7 +219,7 @@
 		new /obj/item/reagent_containers/hypospray/medipen/stimpack/traitor(src)
 		new /obj/item/reagent_containers/hypospray/medipen/stimpack/traitor(src)
 
-/obj/item/clothing/suit/armor/wzzzz/opvest/spetsnaz
+/obj/item/clothing/suit/armor/opvest/spetsnaz
 	armor = list(MELEE = 70, BULLET = 70, LASER = 40, ENERGY = 40, BOMB = 50, BIO = 20, RAD = 20, WOUND = 10)
 	strip_delay = 100
 

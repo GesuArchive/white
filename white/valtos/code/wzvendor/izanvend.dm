@@ -4,47 +4,47 @@
 	icon = 'white/valtos/icons/vending.dmi'
 	icon_state = "trading"
 	density = TRUE
-	var/list/guns = list(/obj/item/gun/ballistic/automatic/l6_saw/unrestricted/wzzzz/mg34, /obj/item/gun/energy/taser/wzzzz/carbine, /obj/item/gun/ballistic/automatic/wt550/wzzzz/german)
+	var/list/guns = list(/obj/item/gun/ballistic/automatic/l6_saw/unrestricted/mg34, /obj/item/gun/energy/taser/carbine, /obj/item/gun/ballistic/automatic/wt550/german)
 
-	var/list/melees = list(/obj/item/melee/cultblade/wzzzz/great,
-						  /obj/item/melee/classic_baton/wzzzz/german,
-						  /obj/item/melee/wzzzz/club,
+	var/list/melees = list(/obj/item/melee/cultblade/great,
+						  /obj/item/melee/classic_baton/german,
+						  /obj/item/melee/club,
 						  /obj/item/melee/baton/loaded/german,
-						  /obj/item/kitchen/knife/wzzzz/german)
+						  /obj/item/kitchen/knife/german)
 
-	var/list/storages = list(/obj/item/storage/belt/military/assault/wzzzz)
+	var/list/storages = list(/obj/item/storage/belt/military/assault)
 
-	var/list/ammos = list(/obj/item/ammo_box/n792x57, /obj/item/ammo_box/magazine/wt550m9/wzzzz/mc9mmt)
+	var/list/ammos = list(/obj/item/ammo_box/n792x57, /obj/item/ammo_box/magazine/wt550m9/mc9mmt)
 
-	var/list/uniforms = list(/obj/item/clothing/under/rank/engineering/engineer/wzzzz/mechanic,
-                    	  /obj/item/clothing/under/rank/engineering/atmospheric_technician/wzzzz/aether,
-                    	  /obj/item/clothing/under/rank/cargo/qm/wzzzz/german,
-                    	  /obj/item/clothing/under/rank/centcom/officer/wzzzz/centcom,
-                    	  /obj/item/clothing/under/rank/security/detective/wzzzz/detective2,
-                    	  /obj/item/clothing/under/rank/rnd/research_director/wzzzz/rdalt,
-                    	  /obj/item/clothing/under/rank/civilian/head_of_personnel/wzzzz/hopwhimsy)
+	var/list/uniforms = list(/obj/item/clothing/under/rank/engineering/engineer/mechanic,
+                    	  /obj/item/clothing/under/rank/engineering/atmospheric_technician/aether,
+                    	  /obj/item/clothing/under/rank/cargo/qm/german,
+                    	  /obj/item/clothing/under/rank/centcom/officer/centcom,
+                    	  /obj/item/clothing/under/rank/security/detective/detective2,
+                    	  /obj/item/clothing/under/rank/rnd/research_director/rdalt,
+                    	  /obj/item/clothing/under/rank/civilian/head_of_personnel/hopwhimsy)
 
-	var/list/suits = list(/obj/item/clothing/suit/armor/vest/bulletproofsuit/wzzzz/vest,
-						  /obj/item/clothing/suit/armor/hos/wzzzz/german,
-						  /obj/item/clothing/suit/imperium_monk/wzzzz/german,
-                    	  /obj/item/clothing/suit/wizrobe/wzzzz/psyamp,
-                    	  /obj/item/clothing/suit/armor/hos/trenchcoat/wzzzz/jensen,
-                    	  /obj/item/clothing/suit/space/syndicate/wzzzz/german,
-						  /obj/item/clothing/suit/armor/wzzzz/opvest)
+	var/list/suits = list(/obj/item/clothing/suit/armor/vest/bulletproofsuit/vest,
+						  /obj/item/clothing/suit/armor/hos/german,
+						  /obj/item/clothing/suit/imperium_monk/german,
+                    	  /obj/item/clothing/suit/wizrobe/psyamp,
+                    	  /obj/item/clothing/suit/armor/hos/trenchcoat/jensen,
+                    	  /obj/item/clothing/suit/space/syndicate/german,
+						  /obj/item/clothing/suit/armor/opvest)
 
-	var/list/glasses = list(/obj/item/clothing/glasses/welding/wzzzz/r, /obj/item/clothing/glasses/hud/wzzzz/hacker_rig)
+	var/list/glasses = list(/obj/item/clothing/glasses/welding/r, /obj/item/clothing/glasses/hud/hacker_rig)
 
 	var/list/shoes = list()
 
-	var/list/masks = list(/obj/item/clothing/mask/balaclava/wzzzz/swatclava, /obj/item/clothing/mask/breath/wzzzz/half, /obj/item/clothing/mask/wzzzz/balaclavager)
+	var/list/masks = list(/obj/item/clothing/mask/balaclava/swatclava, /obj/item/clothing/mask/breath/half, /obj/item/clothing/mask/balaclavager)
 
-	var/list/caps = list(/obj/item/clothing/head/wizard/wzzzz/amp, /obj/item/clothing/head/bomb_hood/wzzzz/german, /obj/item/clothing/head/cap/wzzzz/elite)
+	var/list/caps = list(/obj/item/clothing/head/wizard/amp, /obj/item/clothing/head/bomb_hood/german, /obj/item/clothing/head/cap/elite)
 
 	var/list/gloves = list()
 
 	var/list/misc = list(
-                    /mob/living/simple_animal/pet/cat/wzzzz,
-                    /mob/living/simple_animal/pet/cat/kitten/wzzzz)
+                    /mob/living/simple_animal/pet/cat,
+                    /mob/living/simple_animal/pet/cat/kitten)
 
 	var/list/products = list()
 
@@ -91,71 +91,71 @@
 
 /obj/machinery/izanvend/proc/fill_vendor()
 	// guns
-	guns 	 += subtypesof(/obj/item/gun/ballistic/automatic/wzzzz)
-	guns 	 += subtypesof(/obj/item/gun/ballistic/automatic/pistol/wzzzz)
-	guns 	 += subtypesof(/obj/item/gun/ballistic/rifle/boltaction/wzzzz)
+	guns 	 += subtypesof(/obj/item/gun/ballistic/automatic)
+	guns 	 += subtypesof(/obj/item/gun/ballistic/automatic/pistol)
+	guns 	 += subtypesof(/obj/item/gun/ballistic/rifle/boltaction)
 	build_inventory(guns, "Пушки")
 
 	//melee
-	melees   += subtypesof(/obj/item/melee/sabre/wzzzz)
+	melees   += subtypesof(/obj/item/melee/sabre)
 	build_inventory(melees, "Ближний")
 
 	//storages
-	storages += subtypesof(/obj/item/storage/belt/military/wzzzz)
-	storages += subtypesof(/obj/item/storage/pill_bottle/wzzzz)
-	storages += subtypesof(/obj/item/storage/belt/military/army/wzzzz)
-	storages += subtypesof(/obj/item/storage/belt/mining/wzzzz)
+	storages += subtypesof(/obj/item/storage/belt/military)
+	storages += subtypesof(/obj/item/storage/pill_bottle)
+	storages += subtypesof(/obj/item/storage/belt/military/army)
+	storages += subtypesof(/obj/item/storage/belt/mining)
 	build_inventory(storages, "Сумочки")
 
 	//uniforms
-	uniforms += subtypesof(/obj/item/clothing/under/wzzzz)
-	uniforms += subtypesof(/obj/item/clothing/under/rank/cargo/tech/wzzzz)
-	uniforms += subtypesof(/obj/item/clothing/under/rank/security/officer/wzzzz)
-	uniforms += subtypesof(/obj/item/clothing/under/rank/medical/doctor/wzzzz)
-	uniforms += subtypesof(/obj/item/clothing/under/rank/security/head_of_security/wzzzz)
-	uniforms += subtypesof(/obj/item/clothing/under/rank/security/warden/wzzzz)
-	uniforms += subtypesof(/obj/item/clothing/under/syndicate/wzzzz)
+	uniforms += subtypesof(/obj/item/clothing/under)
+	uniforms += subtypesof(/obj/item/clothing/under/rank/cargo/tech)
+	uniforms += subtypesof(/obj/item/clothing/under/rank/security/officer)
+	uniforms += subtypesof(/obj/item/clothing/under/rank/medical/doctor)
+	uniforms += subtypesof(/obj/item/clothing/under/rank/security/head_of_security)
+	uniforms += subtypesof(/obj/item/clothing/under/rank/security/warden)
+	uniforms += subtypesof(/obj/item/clothing/under/syndicate)
 	build_inventory(uniforms, "Униформы")
 
 	//suits
-	suits 	 += subtypesof(/obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz)
-	suits 	 += subtypesof(/obj/item/clothing/suit/space/wzzzz)
-	suits 	 += subtypesof(/obj/item/clothing/suit/armor/vest/wzzzz)
-	suits 	 += subtypesof(/obj/item/clothing/suit/toggle/labcoat/wzzzz)
-	suits 	 += subtypesof(/obj/item/clothing/suit/bomb_suit/wzzzz)
-	suits 	 += subtypesof(/obj/item/clothing/suit/radiation/wzzzz)
-	suits 	 += subtypesof(/obj/item/clothing/suit/hazardvest/wzzzz)
-	suits 	 += subtypesof(/obj/item/clothing/suit/wzzzz)
-	suits  	 += subtypesof(/obj/item/clothing/suit/toggle/wzzzz)
+	suits 	 += subtypesof(/obj/item/clothing/suit/space/hardsuit/syndi/elite)
+	suits 	 += subtypesof(/obj/item/clothing/suit/space)
+	suits 	 += subtypesof(/obj/item/clothing/suit/armor/vest)
+	suits 	 += subtypesof(/obj/item/clothing/suit/toggle/labcoat)
+	suits 	 += subtypesof(/obj/item/clothing/suit/bomb_suit)
+	suits 	 += subtypesof(/obj/item/clothing/suit/radiation)
+	suits 	 += subtypesof(/obj/item/clothing/suit/hazardvest)
+	suits 	 += subtypesof(/obj/item/clothing/suit)
+	suits  	 += subtypesof(/obj/item/clothing/suit/toggle)
 	build_inventory(suits, "Костюмы")
 
 	//glasses
-	glasses  += subtypesof(/obj/item/clothing/glasses/wzzzz)
+	glasses  += subtypesof(/obj/item/clothing/glasses)
 	build_inventory(glasses, "Очки")
 
 	//shoes
-	shoes 	 += subtypesof(/obj/item/clothing/shoes/combat/wzzzz)
-	shoes 	 += subtypesof(/obj/item/clothing/shoes/wzzzz)
+	shoes 	 += subtypesof(/obj/item/clothing/shoes/combat)
+	shoes 	 += subtypesof(/obj/item/clothing/shoes)
 	build_inventory(shoes, "Обувь")
 
 	//masks
-	masks 	 += subtypesof(/obj/item/clothing/mask/gas/wzzzz)
+	masks 	 += subtypesof(/obj/item/clothing/mask/gas)
 	build_inventory(masks, "Маски")
 
 	//caps
-	caps 	 += subtypesof(/obj/item/clothing/head/helmet/space/wzzzz)
-	caps 	 += subtypesof(/obj/item/clothing/head/wzzzz)
-	caps 	 += subtypesof(/obj/item/clothing/head/soft/wzzzz)
-	caps 	 += subtypesof(/obj/item/clothing/head/helmet/wzzzz)
-	caps 	 += subtypesof(/obj/item/clothing/head/welding/wzzzz)
+	caps 	 += subtypesof(/obj/item/clothing/head/helmet/space)
+	caps 	 += subtypesof(/obj/item/clothing/head)
+	caps 	 += subtypesof(/obj/item/clothing/head/soft)
+	caps 	 += subtypesof(/obj/item/clothing/head/helmet)
+	caps 	 += subtypesof(/obj/item/clothing/head/welding)
 	build_inventory(caps, "Шапочки")
 
 	//gloves
-	gloves 	 += subtypesof(/obj/item/clothing/gloves/combat/wzzzz)
+	gloves 	 += subtypesof(/obj/item/clothing/gloves/combat)
 	build_inventory(gloves, "Перчатки")
 
 	//ammos
-	ammos    += subtypesof(/obj/item/ammo_box/magazine/wzzzz)
+	ammos    += subtypesof(/obj/item/ammo_box/magazine)
 	build_inventory(ammos, "Аммуниция")
 
 	build_inventory(misc)

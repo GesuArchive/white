@@ -60,9 +60,9 @@
 
 	mask = /obj/item/clothing/mask/bandana/green
 	glasses = /obj/item/clothing/glasses/sunglasses
-	suit = /obj/item/clothing/suit/toggle/wzzzz/hawaii
+	suit = /obj/item/clothing/suit/toggle/hawaii
 	uniform = /obj/item/clothing/under/syndicate/camo
-	shoes = /obj/item/clothing/shoes/jackboots/wzzzz/jungle
+	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel/leather/withwallet
 
 	l_pocket = /obj/item/flashlight/seclite

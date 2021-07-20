@@ -1,0 +1,7 @@
+
+USING PRIORITY = HIGH, SEQUENTIAL = FALSE
+CALL ChangeTurf(/turf/closed/wall/mineral/wood) ON /turf/closed/wall WHERE z == 3 || z == 2;
+CALL ChangeTurf(/turf/open/floor/wood) ON /turf/open/floor WHERE z == 3 || z == 2 ;
+CALL ChangeTurf(/turf/closed/mineral/random) ON /turf/open/space/basic WHERE z == 2;
+CALL ChangeTurf(/turf/closed/mineral/random) ON /turf/open/openspace/airless WHERE z == 3
+

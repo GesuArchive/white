@@ -1319,7 +1319,7 @@
 	pixel_y = 4
 	},
 /obj/item/gun/syringe/rapidsyringe,
-/obj/item/melee/classic_baton/wzzzz/german,
+/obj/item/melee/classic_baton/german,
 /obj/item/reagent_containers/hypospray/medipen/survival/luxury,
 /obj/item/reagent_containers/hypospray/medipen/survival/luxury{
 	pixel_y = 6

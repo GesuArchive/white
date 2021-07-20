@@ -53,10 +53,10 @@
 	stock_max = 50
 	availability_prob = 100
 
-/datum/blackmarket_item/ammo/wzzzz/mauser
+/datum/blackmarket_item/ammo/mauser
 	name = "Магазин для Маузера (10mm)"
 	desc = "Магазин для Маузера"
-	item = /obj/item/ammo_box/magazine/wzzzz/mauser
+	item = /obj/item/ammo_box/magazine/mauser
 
 	price_min = 100
 	price_max = 500
@@ -87,10 +87,10 @@
 	stock_max = 50
 	availability_prob = 100
 
-/datum/blackmarket_item/ammo/wzzzz/mc9mmt
+/datum/blackmarket_item/ammo/mc9mmt
 	name = "top mounted magazine (9mm)"
 	desc = "не ебу как перевести поэтому вот вам так. Сами поймёте. далеко не дети..."
-	item = /obj/item/ammo_box/magazine/wt550m9/wzzzz/mc9mmt
+	item = /obj/item/ammo_box/magazine/wt550m9/mc9mmt
 
 	price_min = 100
 	price_max = 500
@@ -98,10 +98,10 @@
 	stock_max = 50
 	availability_prob = 100
 
-/datum/blackmarket_item/ammo/wzzzz/luger
+/datum/blackmarket_item/ammo/luger
 	name = "Магазин для Люгера (9mm)"
 	desc = "Магазин для Люгера"
-	item = /obj/item/ammo_box/magazine/wzzzz/luger
+	item = /obj/item/ammo_box/magazine/luger
 
 	price_min = 100
 	price_max = 500
@@ -279,10 +279,10 @@
 	stock_max = 50
 	availability_prob = 100
 
-/datum/blackmarket_item/ammo/wzzzz/mp40
+/datum/blackmarket_item/ammo/mp40
 	name = "Магазин для МП-40 (9мм)"
 	desc = "Магазин для МП-40 калибра 9мм"
-	item = /obj/item/ammo_box/magazine/wzzzz/mp40
+	item = /obj/item/ammo_box/magazine/mp40
 
 	price_min = 100
 	price_max = 500
@@ -312,10 +312,10 @@
 	stock_max = 50
 	availability_prob = 100
 
-/datum/blackmarket_item/ammo/wzzzz/stg
+/datum/blackmarket_item/ammo/stg
 	name = "Магазин для СТГ"
 	desc = "Магазин для СТГ"
-	item = /obj/item/ammo_box/magazine/wzzzz/stg
+	item = /obj/item/ammo_box/magazine/stg
 
 	price_min = 100
 	price_max = 500
@@ -334,10 +334,10 @@
 	stock_max = 50
 	availability_prob = 100
 
-/datum/blackmarket_item/ammo/wzzzz/assault_rifle
+/datum/blackmarket_item/ammo/assault_rifle
 	name = "Магазин для штурмовой винтовки"
 	desc = "Магазин для штурмовой винтовки калибра asr"
-	item = /obj/item/ammo_box/magazine/wzzzz/assault_rifle
+	item = /obj/item/ammo_box/magazine/assault_rifle
 
 	price_min = 200
 	price_max = 600
@@ -345,10 +345,10 @@
 	stock_max = 50
 	availability_prob = 100
 
-/datum/blackmarket_item/ammo/wzzzz/g43
+/datum/blackmarket_item/ammo/g43
 	name = "Магазин для g43 (5.56mm)"
 	desc = "Магазин для g43"
-	item = /obj/item/ammo_box/magazine/wzzzz/g43
+	item = /obj/item/ammo_box/magazine/g43
 
 	price_min = 200
 	price_max = 600
@@ -356,10 +356,10 @@
 	stock_max = 50
 	availability_prob = 100
 
-/datum/blackmarket_item/ammo/wzzzz/fg42
+/datum/blackmarket_item/ammo/fg42
 	name = "Магазин для fg42 (5.56mm)"
 	desc = "Магазин для fg42"
-	item = /obj/item/ammo_box/magazine/wzzzz/fg42
+	item = /obj/item/ammo_box/magazine/fg42
 
 	price_min = 200
 	price_max = 600
@@ -367,10 +367,10 @@
 	stock_max = 50
 	availability_prob = 100
 
-/datum/blackmarket_item/ammo/wzzzz/carbine
+/datum/blackmarket_item/ammo/carbine
 	name = "Магазин для боевого карабина (5.56mm)"
 	desc = "Магазин для боевого карабина"
-	item = /obj/item/ammo_box/magazine/wzzzz/carbine
+	item = /obj/item/ammo_box/magazine/carbine
 
 	price_min = 200
 	price_max = 600
@@ -389,10 +389,10 @@
 	stock_max = 50
 	availability_prob = 100
 
-/datum/blackmarket_item/ammo/wzzzz/a556carbine
+/datum/blackmarket_item/ammo/a556carbine
 	name = "Магазин для Z8 Bulldog(6.8mm)"
 	desc = "Магазин для Z8 Bulldog"
-	item = /obj/item/ammo_box/magazine/wzzzz/a556carbine
+	item = /obj/item/ammo_box/magazine/a556carbine
 
 	price_min = 200
 	price_max = 600
@@ -414,7 +414,7 @@
 /datum/blackmarket_item/ammo/m556mmrifle
 	name = "Винтовочный магазин калибра (5.56mm)"
 	desc = "Магазин для винтовок калибром 5.56мм"
-	item = /obj/item/ammo_box/magazine/m556/arg/wzzzz
+	item = /obj/item/ammo_box/magazine/m556/arg
 
 	price_min = 200
 	price_max = 600
@@ -487,7 +487,7 @@
 /datum/blackmarket_item/ammo/sniper
 	name = "Магазин для kar98k(7.92x57mm)"
 	desc = "Магазин для kar98k"
-	item = /obj/item/ammo_box/magazine/wzzzz/a792x57
+	item = /obj/item/ammo_box/magazine/a792x57
 
 	price_min = 100
 	price_max = 1000

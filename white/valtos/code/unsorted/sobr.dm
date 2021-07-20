@@ -79,7 +79,7 @@
 	ears = /obj/item/radio/headset/headset_cent/alt
 	head = /obj/item/clothing/head/beret/durathread
 	glasses = /obj/item/clothing/glasses/sunglasses
-	belt = /obj/item/storage/belt/military/army/wzzzz/sobr
+	belt = /obj/item/storage/belt/military/army/sobr
 	id = /obj/item/card/id/advanced/centcom
 
 	implants = list(/obj/item/implant/sound_implant)
@@ -101,9 +101,9 @@
 	W.registered_name = H.real_name
 	W.update_label()
 
-/obj/item/storage/belt/military/army/wzzzz/sobr
+/obj/item/storage/belt/military/army/sobr
 
-/obj/item/storage/belt/military/army/wzzzz/sobr/PopulateContents()
+/obj/item/storage/belt/military/army/sobr/PopulateContents()
 	if(prob(10))
 		new /obj/item/ammo_box/magazine/ak47mag(src)
 	if(prob(15))

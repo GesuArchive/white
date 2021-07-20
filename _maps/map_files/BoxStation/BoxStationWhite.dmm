@@ -7220,7 +7220,7 @@
 /turf/open/floor/plasteel,
 /area/security/checkpoint/auxiliary)
 "aEK" = (
-/obj/structure/chair/wood/wzzzz/red,
+/obj/structure/chair/wood/red,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/chapel/main)
 "aEL" = (
@@ -9821,7 +9821,7 @@
 /turf/open/floor/wood,
 /area/library)
 "aNW" = (
-/obj/structure/chair/wood/wzzzz,
+/obj/structure/chair/wood,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/chapel/main)
 "aNX" = (
@@ -10149,7 +10149,7 @@
 /turf/open/floor/engine/cult,
 /area/library)
 "aPk" = (
-/obj/structure/chair/wood/wzzzz/red{
+/obj/structure/chair/wood/red{
 	dir = 1
 	},
 /turf/open/floor/plasteel/chapel,
@@ -10850,7 +10850,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/chapel/main)
 "aTf" = (
-/obj/structure/chair/wood/wzzzz/red{
+/obj/structure/chair/wood/red{
 	dir = 1
 	},
 /turf/open/floor/plasteel/chapel{
@@ -10858,7 +10858,7 @@
 	},
 /area/chapel/main)
 "aTg" = (
-/obj/structure/chair/wood/wzzzz/red{
+/obj/structure/chair/wood/red{
 	dir = 1
 	},
 /turf/open/floor/plasteel/chapel{
@@ -10875,7 +10875,7 @@
 /area/hallway/secondary/entry)
 "aTi" = (
 /obj/effect/landmark/start/assistant,
-/obj/structure/chair/wood/wzzzz/red{
+/obj/structure/chair/wood/red{
 	dir = 1
 	},
 /turf/open/floor/plasteel/chapel{
@@ -11197,13 +11197,13 @@
 /area/chapel/main)
 "aUH" = (
 /obj/effect/landmark/start/assistant,
-/obj/structure/chair/wood/wzzzz/red{
+/obj/structure/chair/wood/red{
 	dir = 1
 	},
 /turf/open/floor/plasteel/chapel,
 /area/chapel/main)
 "aUI" = (
-/obj/structure/chair/wood/wzzzz/red{
+/obj/structure/chair/wood/red{
 	dir = 1
 	},
 /turf/open/floor/plasteel/chapel{
@@ -11211,10 +11211,10 @@
 	},
 /area/chapel/main)
 "aUJ" = (
-/obj/structure/chair/wood/wzzzz/red{
+/obj/structure/chair/wood/red{
 	dir = 1
 	},
-/obj/structure/chair/wood/wzzzz/red{
+/obj/structure/chair/wood/red{
 	dir = 1
 	},
 /turf/open/floor/plasteel/chapel{
@@ -35012,7 +35012,7 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "jhV" = (
-/obj/structure/chair/wood/wzzzz/red,
+/obj/structure/chair/wood/red,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 9
 	},

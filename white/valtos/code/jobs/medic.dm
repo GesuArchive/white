@@ -38,7 +38,7 @@
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 	box = /obj/item/storage/box/survival/medical
 
-	r_pocket = /obj/item/storage/pill_bottle/wzzzz/soldier
+	r_pocket = /obj/item/storage/pill_bottle/soldier
 	l_pocket = /obj/item/pda/medical
 
 	implants = list(/obj/item/implant/mindshield)

@@ -41,7 +41,7 @@
 	discovery_points = 3000
 
 /mob/living/simple_animal/hostile/imp/slaughter/Initialize(mapload, obj/effect/dummy/phased_mob/bloodpool)//Bloodpool is the blood pool we spawn in
-	. = ..()
+	..()
 	ADD_TRAIT(src, TRAIT_BLOODCRAWL_EAT, "innate")
 	var/obj/effect/proc_holder/spell/bloodcrawl/bloodspell = new
 	AddSpell(bloodspell)

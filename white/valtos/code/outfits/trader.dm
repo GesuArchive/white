@@ -3,9 +3,9 @@
 	jobtype = /datum/job/trader
 
 	ears = /obj/item/radio/headset
-	uniform = /obj/item/clothing/under/wzzzz/jensen
-	gloves = /obj/item/clothing/gloves/combat/wzzzz/evening_gloves
-	suit = /obj/item/clothing/suit/wzzzz/m_service
+	uniform = /obj/item/clothing/under/color/grey
+	gloves = /obj/item/clothing/gloves/combat
+	//suit = /obj/item/clothing/suit/m_service
 	shoes = /obj/item/clothing/shoes/jackboots
 	belt = /obj/item/gun/ballistic/automatic/pistol/makarov
 	suit_store = /obj/item/pda

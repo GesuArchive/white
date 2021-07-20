@@ -14,7 +14,7 @@
 	var/obj/machinery/smartfridge/food/cart_smartfridge
 	var/obj/structure/table/reinforced/cart_table
 	var/obj/effect/food_cart_stand/cart_tent
-	var/list/packed_things
+	var/static/list/packed_things
 
 /obj/machinery/food_cart/Initialize()
 	. = ..()
@@ -26,7 +26,6 @@
 	RegisterSignal(cart_griddle, COMSIG_PARENT_QDELETING, .proc/lost_part)
 	RegisterSignal(cart_smartfridge, COMSIG_PARENT_QDELETING, .proc/lost_part)
 	RegisterSignal(cart_table, COMSIG_PARENT_QDELETING, .proc/lost_part)
-	RegisterSignal(cart_tent, COMSIG_PARENT_QDELETING, .proc/lost_part)
 
 /obj/machinery/food_cart/Destroy()
 	if(cart_griddle)
@@ -35,9 +34,7 @@
 		QDEL_NULL(cart_smartfridge)
 	if(cart_table)
 		QDEL_NULL(cart_table)
-	if(cart_tent)
-		QDEL_NULL(cart_tent)
-	packed_things.Cut()
+	QDEL_NULL(cart_tent)
 	return ..()
 
 /obj/machinery/food_cart/examine(mob/user)
@@ -116,7 +113,7 @@
 	UnregisterSignal(cart_griddle, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_MOVED))
 	UnregisterSignal(cart_smartfridge, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_MOVED))
 	UnregisterSignal(cart_table, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_MOVED))
-	UnregisterSignal(cart_tent, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_MOVED))
+	UnregisterSignal(cart_tent, COMSIG_MOVABLE_MOVED)
 	obj_break()
 
 /obj/machinery/food_cart/obj_break(damage_flag)

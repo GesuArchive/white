@@ -38,7 +38,7 @@
 
 /datum/outfit/scp_scientist
 	name = "SCP: Scientist"
-	uniform = /obj/item/clothing/under/rank/engineering/engineer/wzzzz/morpheus
+	uniform = /obj/item/clothing/under/rank/rnd/scientist
 	suit = /obj/item/clothing/suit/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	id = /obj/item/card/id/advanced/centcom/ert/security

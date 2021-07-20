@@ -148,12 +148,12 @@
 /area/awaymission/vietnam/dark)
 "dc" = (
 /obj/structure/table/wood,
-/obj/item/gun/ballistic/automatic/pistol/wzzzz/mauser,
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k,
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope,
-/obj/item/ammo_box/magazine/wzzzz/a792x57,
-/obj/item/ammo_box/magazine/wzzzz/a792x57,
-/obj/item/ammo_box/magazine/wzzzz/a792x57,
+/obj/item/gun/ballistic/automatic/pistol/mauser,
+/obj/item/gun/ballistic/rifle/boltaction/kar98k,
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope,
+/obj/item/ammo_box/magazine/a792x57,
+/obj/item/ammo_box/magazine/a792x57,
+/obj/item/ammo_box/magazine/a792x57,
 /turf/open/floor/wood,
 /area/awaymission/vietnam/dark)
 "dm" = (
@@ -490,9 +490,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/clothing/suit/armor/vest/leather/wzzzz/tailcoat,
-/obj/item/clothing/suit/armor/vest/leather/wzzzz/tailcoat,
-/obj/item/clothing/suit/armor/vest/leather/wzzzz/tailcoat,
+/obj/item/clothing/suit/armor/vest/leather/tailcoat,
+/obj/item/clothing/suit/armor/vest/leather/tailcoat,
+/obj/item/clothing/suit/armor/vest/leather/tailcoat,
 /obj/structure/table,
 /turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/vietnam/dark)
@@ -549,7 +549,7 @@
 	pixel_y = 32
 	},
 /obj/item/clothing/mask/surgical,
-/obj/item/clothing/suit/wzzzz/surgical,
+/obj/item/clothing/suit/surgical,
 /turf/open/floor/wood,
 /area/awaymission/vietnam/dark)
 "rB" = (
@@ -573,7 +573,7 @@
 /area/awaymission/vietnam)
 "sv" = (
 /obj/structure/table/wood,
-/obj/item/kitchen/knife/butcher/wzzzz/machete,
+/obj/item/kitchen/knife/butcher/machete,
 /obj/item/wirecutters,
 /obj/item/hatchet,
 /obj/item/stack/package_wrap,
@@ -1023,18 +1023,18 @@
 /area/awaymission/vietnam)
 "EA" = (
 /obj/structure/table,
-/obj/item/kitchen/knife/butcher/wzzzz/machete,
-/obj/item/kitchen/knife/butcher/wzzzz/machete,
-/obj/item/kitchen/knife/butcher/wzzzz/machete,
-/obj/item/kitchen/knife/butcher/wzzzz/machete,
-/obj/item/kitchen/knife/butcher/wzzzz/machete,
-/obj/item/kitchen/knife/butcher/wzzzz/machete,
-/obj/item/storage/belt/wzzzz/machete,
-/obj/item/storage/belt/wzzzz/machete,
-/obj/item/storage/belt/wzzzz/machete,
-/obj/item/storage/belt/wzzzz/machete,
-/obj/item/storage/belt/wzzzz/machete,
-/obj/item/storage/belt/wzzzz/machete,
+/obj/item/kitchen/knife/butcher/machete,
+/obj/item/kitchen/knife/butcher/machete,
+/obj/item/kitchen/knife/butcher/machete,
+/obj/item/kitchen/knife/butcher/machete,
+/obj/item/kitchen/knife/butcher/machete,
+/obj/item/kitchen/knife/butcher/machete,
+/obj/item/storage/belt/machete,
+/obj/item/storage/belt/machete,
+/obj/item/storage/belt/machete,
+/obj/item/storage/belt/machete,
+/obj/item/storage/belt/machete,
+/obj/item/storage/belt/machete,
 /turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/vietnam/dark)
 "ED" = (
@@ -1422,16 +1422,16 @@
 	pixel_y = 32
 	},
 /obj/item/clothing/glasses/sunglasses,
-/obj/item/storage/belt/wzzzz/machete,
-/obj/item/storage/belt/wzzzz/machete,
-/obj/item/storage/belt/wzzzz/machete,
-/obj/item/storage/belt/wzzzz/machete,
-/obj/item/storage/belt/wzzzz/machete,
-/obj/item/kitchen/knife/butcher/wzzzz/machete,
-/obj/item/kitchen/knife/butcher/wzzzz/machete,
-/obj/item/kitchen/knife/butcher/wzzzz/machete,
-/obj/item/kitchen/knife/butcher/wzzzz/machete,
-/obj/item/kitchen/knife/butcher/wzzzz/machete,
+/obj/item/storage/belt/machete,
+/obj/item/storage/belt/machete,
+/obj/item/storage/belt/machete,
+/obj/item/storage/belt/machete,
+/obj/item/storage/belt/machete,
+/obj/item/kitchen/knife/butcher/machete,
+/obj/item/kitchen/knife/butcher/machete,
+/obj/item/kitchen/knife/butcher/machete,
+/obj/item/kitchen/knife/butcher/machete,
+/obj/item/kitchen/knife/butcher/machete,
 /turf/open/floor/rospilovo/plitka,
 /area/awaymission/vietnam/dark)
 "Rg" = (
@@ -1469,8 +1469,8 @@
 /area/awaymission/vietnam/dark)
 "RT" = (
 /obj/structure/table/wood,
-/obj/item/kitchen/knife/butcher/wzzzz/machete,
-/obj/item/storage/belt/wzzzz/machete,
+/obj/item/kitchen/knife/butcher/machete,
+/obj/item/storage/belt/machete,
 /turf/open/floor/rospilovo/plitka/full,
 /area/awaymission/vietnam/dark)
 "Sd" = (
@@ -1719,9 +1719,9 @@
 /turf/open/floor/rospilovo/wood,
 /area/awaymission/vietnam/dark)
 "Zm" = (
-/obj/item/clothing/suit/armor/vest/leather/wzzzz/tailcoat,
-/obj/item/clothing/suit/armor/vest/leather/wzzzz/tailcoat,
-/obj/item/clothing/suit/armor/vest/leather/wzzzz/tailcoat,
+/obj/item/clothing/suit/armor/vest/leather/tailcoat,
+/obj/item/clothing/suit/armor/vest/leather/tailcoat,
+/obj/item/clothing/suit/armor/vest/leather/tailcoat,
 /obj/structure/table,
 /turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/vietnam/dark)

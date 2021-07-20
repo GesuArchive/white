@@ -16,7 +16,7 @@
   *
   *SHITCODE AHEAD. BE ADVISED. Also comment extravaganza
   */
-/mob/living/simple_animal/hostile/megafauna/legionold/wzzzz
+/mob/living/simple_animal/hostile/megafauna/legionold
 	name = "Legion"
 	health = 800
 	maxHealth = 800
@@ -69,7 +69,7 @@
 	chosen_message = "<span class='colossus'>You are now creating legion sentinels.</span>"
 	chosen_attack_num = 3
 
-/mob/living/simple_animal/hostile/megafauna/legionold/wzzzz/OpenFire(the_target)
+/mob/living/simple_animal/hostile/megafauna/legionold/OpenFire(the_target)
 	if(charging)
 		return
 	ranged_cooldown = world.time + ranged_cooldown_time
@@ -77,7 +77,7 @@
 //SKULLS
 
 ///Attack proc. Spawns a singular legion skull.
-/mob/living/simple_animal/hostile/megafauna/legionold/wzzzz/proc/create_legion_skull()
+/mob/living/simple_animal/hostile/megafauna/legionold/proc/create_legion_skull()
 	var/mob/living/simple_animal/hostile/asteroid/hivelordbrood/legion/A = new(loc)
 	A.GiveTarget(target)
 	A.friends = friends
@@ -86,7 +86,7 @@
 //CHARGE
 
 ///Attack proc. Gives legion some movespeed buffs and switches the AI to melee. At lower sizes, this also throws the skull at the player.
-/mob/living/simple_animal/hostile/megafauna/legionold/wzzzz/proc/charge_target()
+/mob/living/simple_animal/hostile/megafauna/legionold/proc/charge_target()
 	visible_message("<span class='warning'><b>[src] charges!</b></span>")
 	SpinAnimation(speed = 20, loops = 3, parallel = FALSE)
 	ranged = FALSE
@@ -100,12 +100,12 @@
 		addtimer(CALLBACK(src, .proc/throw_thyself), 20)
 
 ///This is the proc that actually does the throwing. Charge only adds a timer for this.
-/mob/living/simple_animal/hostile/megafauna/legionold/wzzzz/proc/throw_thyself()
+/mob/living/simple_animal/hostile/megafauna/legionold/proc/throw_thyself()
 	playsound(src, 'sound/weapons/sonic_jackhammer.ogg', 50, TRUE)
 	throw_at(target, 7, 1.1, src, FALSE, FALSE, CALLBACK(GLOBAL_PROC, .proc/playsound, src, 'sound/effects/meteorimpact.ogg', 50 * size, TRUE, 2), INFINITY)
 
 ///Deals some extra damage on throw impact.
-/mob/living/simple_animal/hostile/megafauna/legionold/wzzzz/throw_impact(mob/living/hit_atom, datum/thrownthing/throwingdatum)
+/mob/living/simple_animal/hostile/megafauna/legionold/throw_impact(mob/living/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
 	if(istype(hit_atom))
 		playsound(src, attack_sound, 100, TRUE)
@@ -113,13 +113,13 @@
 		hit_atom.safe_throw_at(get_step(src, get_dir(src, hit_atom)), 2) //Some knockback. Prevent the legion from melee directly after the throw.
 
 ///This makes sure that the legion door opens on taking damage, so you can't cheese this boss.
-/mob/living/simple_animal/hostile/megafauna/legionold/wzzzz/adjustHealth(amount, updating_health = TRUE, forced = FALSE)
+/mob/living/simple_animal/hostile/megafauna/legionold/adjustHealth(amount, updating_health = TRUE, forced = FALSE)
 	if(GLOB.necropolis_gate && true_spawn)
 		GLOB.necropolis_gate.toggle_the_gate(null, TRUE) //very clever.
 	return ..()
 
 ///In addition to parent functionality, this will also turn the target into a small legion if they are unconcious.
-/mob/living/simple_animal/hostile/megafauna/legionold/wzzzz/AttackingTarget()
+/mob/living/simple_animal/hostile/megafauna/legionold/AttackingTarget()
 	. = ..()
 	if(. && ishuman(target))
 		var/mob/living/L = target
@@ -128,7 +128,7 @@
 			A.infest(L)
 
 ///Resets the charge buffs.
-/mob/living/simple_animal/hostile/megafauna/legionold/wzzzz/proc/reset_charge()
+/mob/living/simple_animal/hostile/megafauna/legionold/proc/reset_charge()
 	ranged = TRUE
 	retreat_distance = 5
 	minimum_distance = 5
@@ -136,7 +136,7 @@
 	charging = FALSE
 
 ///Special snowflake death() here. Can only die if size is 1 or lower and HP is 0 or below.
-/mob/living/simple_animal/hostile/megafauna/legionold/wzzzz/death()
+/mob/living/simple_animal/hostile/megafauna/legionold/death()
 	//Make sure we didn't get cheesed
 	if(health > 0)
 		return
@@ -144,7 +144,7 @@
 		return
 	//We check what loot we should drop.
 	var/last_legion = TRUE
-	for(var/mob/living/simple_animal/hostile/megafauna/legionold/wzzzz/other in GLOB.mob_living_list)
+	for(var/mob/living/simple_animal/hostile/megafauna/legionold/other in GLOB.mob_living_list)
 		if(other != src)
 			last_legion = FALSE
 			break
@@ -158,7 +158,7 @@
 	return ..()
 
 ///Splits legion into smaller skulls.
-/mob/living/simple_animal/hostile/megafauna/legionold/wzzzz/proc/Split()
+/mob/living/simple_animal/hostile/megafauna/legionold/proc/Split()
 	size--
 	if(size < 1)
 		return FALSE
@@ -182,12 +182,12 @@
 	adjustHealth(0) //Make the health HUD look correct.
 	visible_message("<span class='boldannounce'>This is getting out of hands. Now there are three of them!</span>")
 	for(var/i in 1 to 2) //Create three skulls in total
-		var/mob/living/simple_animal/hostile/megafauna/legionold/wzzzz/L = new(loc)
+		var/mob/living/simple_animal/hostile/megafauna/legionold/L = new(loc)
 		L.setVarsAfterSplit(src)
 	return TRUE
 
 ///Sets the variables for new legion skulls. Usually called after splitting.
-/mob/living/simple_animal/hostile/megafauna/legionold/wzzzz/proc/setVarsAfterSplit(var/mob/living/simple_animal/hostile/megafauna/legionold/wzzzz/L)
+/mob/living/simple_animal/hostile/megafauna/legionold/proc/setVarsAfterSplit(var/mob/living/simple_animal/hostile/megafauna/legionold/L)
 	maxHealth = L.maxHealth
 	updatehealth()
 	size = L.size
@@ -201,7 +201,7 @@
 
 /obj/item/staff/storm
 
-/mob/living/simple_animal/hostile/megafauna/hierophant/wzzzz
+/mob/living/simple_animal/hostile/megafauna/hierophant
 	icon = 'white/Wzzzz/disneyland/hierophant.dmi'
 	icon_state = "hierophant"
 	icon_living = "hierophant"

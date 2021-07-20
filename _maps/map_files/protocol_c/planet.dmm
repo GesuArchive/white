@@ -89,7 +89,7 @@
 /obj/structure/table/wood,
 /obj/item/stack/spacecash/c10,
 /obj/item/stack/spacecash/c100,
-/obj/item/gun/energy/taser/wzzzz/carbine,
+/obj/item/gun/energy/taser/carbine,
 /turf/open/floor/plastic,
 /area/crew_quarters/bar)
 "at" = (

@@ -456,7 +456,7 @@
 	var/target_y_rel = round(get_pin_data(IC_INPUT, 2))
 	var/obj/item/A = get_pin_data_as_type(IC_INPUT, 3, /obj/item)
 
-	if(!A || A.anchored || A.throwing || A == assembly || istype(A, /obj/item/twohanded) || istype(A, /obj/item/transfer_valve))
+	if(!A || A.anchored || A.throwing || A == assembly || GetComponent(/datum/component/two_handed) || istype(A, /obj/item/transfer_valve))
 		return
 
 	if (istype(assembly.loc, /obj/item/implant/storage)) //Prevents the more abusive form of chestgun.

@@ -1802,7 +1802,7 @@
 /area/ruin/space/has_grav/terrorship)
 "Ya" = (
 /obj/structure/table/reinforced,
-/obj/item/melee/sabre/wzzzz/german,
+/obj/item/melee/sabre/german,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "YC" = (

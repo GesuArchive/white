@@ -231,10 +231,10 @@
 	for(var/i in 1 to ammo_type.len)
 		var/obj/item/ammo_casing/energy/wormhole/W = ammo_type[i]
 		if(istype(W))
-			W.gun = WEAKREF(src)
+			W.gun = src
 			var/obj/projectile/beam/wormhole/WH = W.BB
 			if(istype(WH))
-				WH.gun = WEAKREF(src)
+				WH.gun = src
 
 /obj/item/gun/energy/wormhole_projector/process_chamber()
 	..()
