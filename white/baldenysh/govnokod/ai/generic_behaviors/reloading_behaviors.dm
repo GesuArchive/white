@@ -67,3 +67,19 @@
 			B.attack_self(carbon_pawn)
 
 	controller.blackboard[ballistic_target_key] = null
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/ai_behavior/carbon_energy_charger_reload
+	var/energy_target_key
+	var/charger_target_key
+	var/gun_hand = LEFT_HANDS
+
+	var/mob/living/carbon/carbon_pawn
+	var/obj/item/gun/energy/E
+
+/datum/ai_behavior/carbon_energy_charger_reload/perform(delta_time, datum/ai_controller/controller)
+	. = ..()
+
+/datum/ai_behavior/carbon_energy_charger_reload/finish_action(datum/ai_controller/controller, succeeded)
+	. = ..()

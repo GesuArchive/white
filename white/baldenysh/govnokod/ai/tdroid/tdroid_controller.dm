@@ -241,7 +241,8 @@
 /datum/ai_controller/tdroid/proc/ShouldUseGun(obj/item/gun/G)
 	if(QDELETED(G))
 		return FALSE
-	if(!CanTriggerGun(G))
+	var/mob/living/carbon/carbon_pawn = pawn
+	if(!G.can_trigger_gun(carbon_pawn))
 		return FALSE
 	if(!G.can_shoot())
 		if(istype(G, /obj/item/gun/ballistic))
@@ -250,14 +251,11 @@
 		else
 			return FALSE
 	return TRUE
-/datum/ai_controller/tdroid/proc/CanTriggerGun(obj/item/gun/G)
-	var/mob/living/carbon/carbon_pawn = pawn
-	return (G && G.can_trigger_gun(carbon_pawn))
 
 /datum/ai_controller/tdroid/proc/CanArmGun()
 	var/mob/living/carbon/carbon_pawn = pawn
 	for(var/obj/item/gun/G in (carbon_pawn.contents | view(1, carbon_pawn)))
-		if(CanTriggerGun(G))
+		if(ShouldUseGun(G))
 			return TRUE
 	return FALSE
 
@@ -272,7 +270,7 @@
 /datum/ai_controller/tdroid/proc/CanFindAmmo(obj/item/gun/ballistic/B)
 	return TRUE // хз потом мб каданить зделою
 
-/////////////////////////////////чат впилить не забыть наверное
+/////////////////////////////////чат впилить не забыть наверное //впизду
 
 /////////////////////////////////грифенк
 
@@ -280,16 +278,14 @@
 	var/mob/living/carbon/carbon_pawn = pawn
 	carbon_pawn.swap_hand(RIGHT_HANDS)
 	var/obj/item/gun/potential_gun = locate(/obj/item/gun) in carbon_pawn.held_items
-	if(CanTriggerGun(potential_gun))
+	if(ShouldUseGun(potential_gun))
 		if(potential_gun == carbon_pawn.get_item_for_held_index(LEFT_HANDS))
 			carbon_pawn.put_in_r_hand(potential_gun)
 		return potential_gun
 	for(var/obj/item/gun/G in (carbon_pawn.contents | view(1, carbon_pawn)))
-		if(!CanTriggerGun(G))
+		if(!ShouldUseGun(G))
 			continue
 		if(!carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(RIGHT_HANDS)))
-			return
-		if(!carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(LEFT_HANDS)))
 			return
 		INVOKE_ASYNC(G, "attack_hand", carbon_pawn)
 		return G
@@ -327,6 +323,7 @@
 
 /datum/ai_controller/tdroid/proc/InitiateReset()
 	blackboard[BB_TDROID_ENEMIES] = list()
+	blackboard[BB_TDROID_INTERACTION_TARGET] = null
 	blackboard[BB_TDROID_FOLLOW_TARGET] = null
 
 /datum/ai_controller/tdroid/proc/StateOrder(order)
