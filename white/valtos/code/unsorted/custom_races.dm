@@ -82,3 +82,18 @@
 	tail_type = "Oni"
 
 /////////////////////////////////////////////////////////////////////////////////////////
+
+/mob/living/carbon/human/species/android/synthman
+	race = /datum/species/android/synthman
+
+/datum/species/android/synthman
+	name = "Синтетик"
+	id = "synthman"
+	limbs_id = null
+
+/datum/species/android/synthman/on_species_gain(mob/living/carbon/C)
+	. = ..()
+	C.draw_white_parts()
+	C.update_body()
+
+/////////////////////////////////////////////////////////////////////////////////////////
