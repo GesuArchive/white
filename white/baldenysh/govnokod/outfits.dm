@@ -101,6 +101,19 @@
 
 ///////////////////////////////////////////////////////////////////// gacha drochilnya
 
+/obj/item/paper/tdroid_manual
+	name = "руководство по использованию тактической кошкожены"
+	info = "<h2>me подкрадывается и ломает четвертую стену</h2><br> \
+		азазхвзахвахзазхвазахв вы были затроллены, у вас бивалент!!!<br> \
+		1.Поинт на себя с дизарм интентом чтобы объединить и сбросить цели нескольких андроидов в радиусе 5 метров в отряд, так они не будут друг друга убивать (в теории)<br>  \
+		2.Поинт на андроида с дизарм интентом чтобы сбросить его цели и уронить на 5 секунд.<br>  \
+		3.Поинт на живое существо не в отряде с дизарм интентом чтобы андроиды начали приказывать ему сдаться, и в случае неподчинения начинали производить распидорас.<br>  \
+		3.1 Поинт на живое существо не в отряде с харм интентом чтобы андроиды начали сразу производить его распидорас.<br>  \
+		3.2 Поинт на живое существо не в отряде с харм интентом два раза чтобы андроиды начали производить его распидорас насмерть.<br>  \
+		4.Поинт на андроида с граб интентом для перехода в режим приказов конкретно этому андроиду.<br>  \
+		4.1 Поинт на объект с граб интентом для следования за ним. В случае, когда объект это другой андроид из отряда - первый андроид его схватит и потащит.<br>  \
+		"
+
 /obj/item/firing_pin/catatonic
 	name = "ударник для дэбов"
 	desc = "Позволяет стрелять только \"гуманоидам\" с айсикью меньше 10."
@@ -188,5 +201,24 @@
 	l_pocket = /obj/item/ammo_box/a762
 	back = /obj/item/gun/ballistic/rifle/boltaction
 
-/obj/effect/mob_spawn/human/tcatwife/mosin_debug
+/obj/effect/mob_spawn/human/tcatwife/mosin
 	outfit = /datum/outfit/tcatwife/mosin
+
+/obj/item/gun/energy/disabler/catatonic
+	name = "Усмиритель RR"
+	desc = "Сколько бы ты не старался, привычные мыслительные шаблоны мешают тебе понять как из этого стрелять. Воистину изобретение укропов."
+	pin = /obj/item/firing_pin/catatonic
+
+/datum/outfit/tcatwife/sec
+	name = "Тактическая Служебно-безопасная Кошкожена"
+	uniform = /obj/item/clothing/under/rank/security/officer/skirt
+	suit = /obj/item/clothing/suit/armor/vest/alt
+	suit_store = /obj/item/gun/energy/disabler/catatonic
+	shoes = /obj/item/clothing/shoes/jackboots
+	belt = /obj/item/gun/energy/disabler/catatonic
+	gloves = /obj/item/clothing/gloves/color/black
+	l_pocket = null
+	r_pocket = null
+
+/obj/effect/mob_spawn/human/tcatwife/sec
+	outfit = /datum/outfit/tcatwife/sec
