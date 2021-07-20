@@ -63,3 +63,13 @@
 /datum/ai_behavior/carbon_shooting/finish_action(datum/ai_controller/controller, success)
 	. = ..()
 	controller.blackboard[shoot_target_key] = null
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/ai_behavior/carbon_cqc
+
+/datum/ai_behavior/carbon_cqc/perform(delta_time, datum/ai_controller/controller)
+	. = ..()
+
+/datum/ai_behavior/carbon_cqc/finish_action(datum/ai_controller/controller, succeeded)
+	. = ..()
