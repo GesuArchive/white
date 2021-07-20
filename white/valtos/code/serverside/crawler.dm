@@ -8,7 +8,7 @@
 	var/datum/http_response/response = request.into_response()
 
 	if(response.errored || response.status_code != 200)
-		return list("tauceti" = "N/A", "infinity" = "N/A", "onyx" = "N/A", "wycc" = "N/A", "furry" = "N/A", "bypass" = "N/A")
+		return FALSE
 
 	return json_decode(response.body)
 
@@ -17,12 +17,20 @@
 		return
 
 	var/list/cril = ask_crawler_for_support()
+	var/list/badlist = list("SS220", "Tau Ceti", "SS13.RU", "Fluffy", "Infinity")
 
 	if(!cril)
 		return TRUE
 
-	if((text2num(cril["tauceti"]) > 180 || text2num(cril["infinity"]) > 180 || text2num(cril["onyx"]) > 180 || text2num(cril["wycc"]) > 180 || text2num(cril["furry"]) > 180) && text2num(cril["bypass"]) == 0)
-		message_admins("[key_name(src)] не наш игрок. TC: [cril["tauceti"]]m | IN: [cril["infinity"]]m | ON: [cril["onyx"]]m | SS: [cril["wycc"]]m | FF: [cril["furry"]]m")
-		return FALSE
+	if(text2num(cril[0]["bypass"]))
+		return TRUE
+
+	popleft(cril)
+
+	for(var/i in cril)
+		if(text_in_list(cril[i]["servername"], badlist))
+			if(text2num(cril[i]["count"]) > 360)
+				message_admins("[key_name(src)] из [cril[i]["servername"]](<a href='https://crawler.station13.ru/?ckey=[ckey]'>?</a>).")
+				return FALSE
 
 	return TRUE
