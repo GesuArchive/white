@@ -95,10 +95,6 @@
 	carbon_pawn = controller.pawn
 	G = carbon_pawn.held_items[gun_hand]
 
-	if(carbon_pawn.next_move > world.time)
-		return
-	carbon_pawn.changeNext_move(CLICK_CD_RAPID)
-
 	carbon_pawn.swap_hand(gun_hand)
 
 	if(!target || target.stat >= required_stat)
