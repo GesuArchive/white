@@ -119,7 +119,7 @@
 				var/aggro_pts = blackboard[BB_TDROID_ENEMIES][blackboard[BB_TDROID_INTERACTION_TARGET]]
 				if(aggro_pts && aggro_pts > 100)
 					current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid/eliminate)
-				else if (aggro_pts && aggro_pts > 50)
+				else if (aggro_pts && aggro_pts > 50 || blackboard[BB_TDROID_AGGRESSIVE])
 					current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid)
 				else
 					var/datum/component/aiming/aiming = armed_gun.GetComponent(/datum/component/aiming)
