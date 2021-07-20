@@ -59,8 +59,10 @@
 		return 1
 	return ..()
 
-/obj/item/gun/swarmer_act()//Stops you from eating the entire armory
-	return FALSE
+
+
+///obj/item/gun/swarmer_act()//Stops you from eating the entire armory
+//	return FALSE
 
 /turf/open/swarmer_act()//ex_act() on turf calls it on its contents, this is to prevent attacking mobs by DisIntegrate()'ing the floor
 	return FALSE

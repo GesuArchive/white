@@ -57,12 +57,11 @@
 				to_chat(affected_mob, "<span class='userdanger'>ТЕРЯЮ ПОСЛЕДНИЙ ОГОНЕК РАЗУМА!!</span>")
 				affected_mob.ai_controller = new /datum/ai_controller/raper(affected_mob)
 				affected_mob.ghostize(FALSE)
-				affected_mob.adjustStaminaLoss(200, FALSE)
 				var/mob/living/carbon/human/H = affected_mob
 				H.eye_color = "f00"
 				H.dna.update_ui_block(DNA_EYE_COLOR_BLOCK)
 				H.update_body()
-			if(DT_PROB(3, delta_time))
+			if(DT_PROB(10, delta_time))
 				affected_mob.cum()
 				affected_mob.emote("moan")
 				affected_mob.do_jitter_animation(30)

@@ -98,11 +98,10 @@
 
 	if(iscarbon(src))
 		var/mob/living/carbon/C = src
-
 		var/turf/floor = get_turf(src)
-		var/obj/effect/decal/cleanable/cum/spew = new(floor, C.get_static_viruses())
-
-		spew.transfer_mob_blood_dna(src)
+		if ((locate(/obj/effect/decal/cleanable/cum) in src.loc))
+			var/obj/effect/decal/cleanable/cum/spew = new(floor, C.get_static_viruses())
+			spew.transfer_mob_blood_dna(src)
 
 	multiorgasms += 1
 	if(multiorgasms == 1)
