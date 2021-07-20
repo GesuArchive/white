@@ -78,14 +78,6 @@
 		if(TryFindGun())
 			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_pickup/tdroid)
 			return
-		/*
-		else if(!CanArmMelee())
-			if(TryFindMelee())
-				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_pickup/tdroid)
-				return
-		*/
-
-
 
 	var/list/enemies = blackboard[BB_TDROID_ENEMIES]
 	if(enemies && enemies.len || blackboard[BB_TDROID_AGGRESSIVE])
@@ -120,28 +112,28 @@
 		TryHolsterHeldWeapon()
 		return
 
-	var/obj/item/gun/armed_gun = TryArmGun()
-	if(armed_gun)
-		if(armed_gun.can_shoot() || istype(armed_gun, /obj/item/gun/ballistic) && !ShouldReloadBallistic(armed_gun))
-			//воткнуть куданить сюда чек стрельбы по своим через рейтрейсинг или че там как там ваще эти прожектайлы летают чисто поебать
-			var/aggro_pts = blackboard[BB_TDROID_ENEMIES][blackboard[BB_TDROID_INTERACTION_TARGET]]
-			if(aggro_pts && aggro_pts > 100)
-				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid/eliminate)
-			else if (aggro_pts && aggro_pts > 50)
-				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid)
-			else
-				var/datum/component/aiming/aiming = armed_gun.GetComponent(/datum/component/aiming)
-				if(aiming && isliving(blackboard[BB_TDROID_INTERACTION_TARGET]))
-					aiming.aim(living_pawn, blackboard[BB_TDROID_INTERACTION_TARGET])
-				spawn(4 SECONDS)
-					if(!living_pawn.has_status_effect(STATUS_EFFECT_PARALYZED))
-						current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid)
-			return
-		else if(istype(armed_gun, /obj/item/gun/ballistic) && CanFindAmmo(armed_gun))
-			blackboard[BB_TDROID_INTERACTION_TARGET] = armed_gun
-			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_ballistic_reload/tdroid)
-			return
-		TryHolsterHeldWeapon()
+	if(ShouldFireAt(blackboard[BB_TDROID_INTERACTION_TARGET]))
+		var/obj/item/gun/armed_gun = TryArmGun()
+		if(armed_gun)
+			if(armed_gun.can_shoot() || istype(armed_gun, /obj/item/gun/ballistic) && !ShouldReloadBallistic(armed_gun))
+				var/aggro_pts = blackboard[BB_TDROID_ENEMIES][blackboard[BB_TDROID_INTERACTION_TARGET]]
+				if(aggro_pts && aggro_pts > 100)
+					current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid/eliminate)
+				else if (aggro_pts && aggro_pts > 50)
+					current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid)
+				else
+					var/datum/component/aiming/aiming = armed_gun.GetComponent(/datum/component/aiming)
+					if(aiming && isliving(blackboard[BB_TDROID_INTERACTION_TARGET]))
+						aiming.aim(living_pawn, blackboard[BB_TDROID_INTERACTION_TARGET])
+					spawn(4 SECONDS)
+						if(!living_pawn.has_status_effect(STATUS_EFFECT_PARALYZED))
+							current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid)
+				return
+			else if(istype(armed_gun, /obj/item/gun/ballistic) && CanFindAmmo(armed_gun))
+				blackboard[BB_TDROID_INTERACTION_TARGET] = armed_gun
+				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_ballistic_reload/tdroid)
+				return
+			TryHolsterHeldWeapon()
 
 	//сюда мили
 
@@ -269,6 +261,27 @@
 
 /datum/ai_controller/tdroid/proc/CanFindAmmo(obj/item/gun/ballistic/B)
 	return TRUE // хз потом мб каданить зделою
+
+/datum/ai_controller/tdroid/proc/ShouldTarget(mob/living/L)
+	if(IsCommander(L))
+		return FALSE
+	if(IsSquadMember(L))
+		return FALSE
+	if(blackboard[BB_TDROID_COMMANDER] && IsInCommandersFaction(L) && !blackboard[BB_TDROID_AGGRESSIVE])
+		return FALSE
+	return TRUE
+
+/datum/ai_controller/tdroid/proc/ShouldFireAt(atom/A)
+	var/list/turf/turfs_in_line = getline(pawn, A)
+	turfs_in_line -= get_turf(pawn)
+	turfs_in_line -= get_turf(A)
+	for(var/turf/T in turfs_in_line)
+		if(T.density)
+			return FALSE
+		for(var/mob/living/L in T.contents)
+			if(!ShouldTarget(L) && L.density)
+				return FALSE
+	return TRUE
 
 /////////////////////////////////чат впилить не забыть наверное //впизду
 
