@@ -100,3 +100,4 @@
 /obj/item/ammo_magazine/mauser/practice
 	name = "C96 magazine (9mm practice)"
 	ammo_type = /obj/item/ammo_casing/c9mm/practice
+

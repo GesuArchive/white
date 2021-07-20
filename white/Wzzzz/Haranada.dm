@@ -418,13 +418,6 @@
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 100, "rad" = 70, "fire" = 60, "acid" = 70)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/medical_rig
 
-/obj/item/clothing/suit/space/hardsuit/syndi/elite/medical_rig/blue
-	icon_state = "hardsuit0-medical_rigalt"
-	inhand_icon_state = "hardsuit0-medical_rigalt"
-	hardsuit_type = "medical_rigalt"
-	icon = 'white/Wzzzz/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
-
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/ert_engineer_rig
 	name = "ert engineer hardsuit helmet"
 	desc = "Old style of ert hardsuit."
@@ -984,9 +977,6 @@
 	armor = list("melee" = 40, "bullet" = 40, "laser" = 30, "energy" = 20, "bomb" = 40, "bio" = 100, "rad" = 0, "fire" = 50, "acid" = 40)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/skrell_helmet_black
 
-/obj/item/clothing/suit/toggle/hoodie/black
-	color = "#404040"
-
 /obj/item/clothing/suit/space/hardsuit/rig_secalt_sec
 	name = "security hardsuit"
 	desc = "New style of security hardsuit."
@@ -1024,59 +1014,6 @@
 	armor = list("melee" = 35, "bullet" = 15, "laser" = 15, "energy" = 10, "bomb" = 20, "bio" = 100, "rad" = 60, "fire" = 60, "acid" = 75)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/medical
 	slowdown = 0.5
-
-/obj/item/clothing/suit/wizrobe/battlemage
-	icon_state = "battlemage"
-	inhand_icon_state = "battlemage"
-	body_parts_covered = CHEST|GROIN|LEGS|ARMS
-	cold_protection = CHEST|GROIN|LEGS|ARMS
-	heat_protection = CHEST|GROIN|LEGS|ARMS
-	slowdown = 0.7
-	icon = 'white/Wzzzz/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
-	resistance_flags = NONE|ACID_PROOF|INDESTRUCTIBLE|UNACIDABLE|FIRE_PROOF|FREEZE_PROOF|LAVA_PROOF
-	armor = list("melee" = 80, "bullet" = 60, "laser" = 70,"energy" = 80, "bomb" = 90, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100, "magic" = 75)
-
-/mob/living/simple_animal/hostile/pirate/ranged/space
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/pirate/melee/space
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/russian/ranged/officer
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/russian
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/russian/ranged
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/syndicate
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/syndicate/melee/sword
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/syndicate/melee/sword/space
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/syndicate/ranged/smg
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/syndicate/ranged/smg/space
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-//mob/living/simple_animal/hostile/syndicate/ranged/shotgun/space/stormtrooper
-//	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/faithless
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-	maxHealth = 100
-	melee_damage_lower = 20
-	melee_damage_upper = 20
-	unsuitable_atmos_damage = 5
-	harm_intent_damage = 15
 
 /obj/item/clothing/head/helmet/space/hardsuit/pilot_helm
 	name = "pilot hardsuit helmet"
@@ -1181,12 +1118,6 @@
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/rig_secb
 
-/obj/item/reagent_containers/food/drinks/bottle/molotov
-	reagents = list(/datum/reagent/napalm = 100)
-
-/obj/item/spear/explosive
-	explosive = /obj/item/grenade/frag
-
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/null
 	name = "hardsuit helmet"
 	desc = "Just hardsuit helmet."
@@ -1219,31 +1150,6 @@
 	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/null
-
-/obj/item/clothing/suit/space/hardsuit/syndi/elite/null_f
-	name = "hardsuit"
-	desc = "Just hardsuit."
-	alt_desc = "Just hardsuit."
-	slowdown = 0.7
-	hardsuit_type = "null_rig_f"
-	resistance_flags = NONE|FIRE_PROOF
-	w_class = WEIGHT_CLASS_NORMAL
-	icon_state = "hardsuit0-null_rig_f"
-	inhand_icon_state = "hardsuit0-null_rig_f"
-	jetpack = null
-	icon = 'white/Wzzzz/clothing/suits.dmi'
-	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
-	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
-	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/null
-
-/obj/item/kitchen/knife/free
-	custom_price = 0
-
-/obj/item/kitchen/knife/butcher/free
-	custom_price = 0
-
-/obj/item/lighter/greyscale/free
-	custom_price = 0
-
-/obj/item/stack/medical/gauze/improvised/free
-	custom_price = 0
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS|FULL_BODY
+	flags_inv = HIDEJUMPSUIT
+	visor_flags_inv = HIDEJUMPSUIT|HIDENECK|FULL_BODY

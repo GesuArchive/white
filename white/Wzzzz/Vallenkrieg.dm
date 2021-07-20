@@ -101,17 +101,6 @@
 	cold_protection = CHEST|GROIN|LEGS|ARMS
 	heat_protection = CHEST|GROIN|LEGS|ARMS
 
-/obj/item/clothing/suit/cowl
-	name = "cowl"
-	desc = "Stulish thing."
-	worn_icon = 'white/Wzzzz/Valya/clothing/mob/suit.dmi'
-	icon = 'white/Wzzzz/Valya/clothing/suits.dmi'
-	icon_state = "cowl"
-
-/obj/item/clothing/suit/cowl/robe
-	name = "robe"
-	icon_state = "robe"
-
 //gloves
 
 /obj/item/clothing/gloves/combat/arbiter
