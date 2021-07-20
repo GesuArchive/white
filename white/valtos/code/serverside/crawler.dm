@@ -25,7 +25,7 @@
 	if(text2num(cril[1]["bypass"]))
 		return TRUE
 
-	popleft(cril)
+	cril = popleft(cril)
 
 	var/clear_sanity = TRUE
 
