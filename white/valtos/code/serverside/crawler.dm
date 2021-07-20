@@ -29,7 +29,7 @@
 
 	var/clear_sanity = TRUE
 
-	for(var/i in cril)
+	for(var/i in 1 to cril.len)
 		if(text_in_list(cril[i]["servername"], badlist))
 			if(text2num(cril[i]["count"]) > 360)
 				message_admins("[key_name(src)] из [cril[i]["servername"]](<a href='https://crawler.station13.ru/?ckey=[ckey]'>?</a>).")
