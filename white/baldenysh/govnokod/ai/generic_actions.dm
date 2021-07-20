@@ -98,7 +98,7 @@
 	carbon_pawn.swap_hand(gun_hand)
 
 	if(!target || target.stat >= required_stat)
-		finish_action(controller, TRUE)
+		finish_action(controller, FALSE)
 		return
 	if(!G)
 		finish_action(controller, FALSE)
@@ -114,6 +114,10 @@
 		else
 			finish_action(controller, FALSE)
 			return
+
+	if(G.chambered && G.chambered.harmful == FALSE && target.getStaminaLoss() > 100)
+		finish_action(controller, FALSE)
+		return
 
 	if(G.weapon_weight == WEAPON_HEAVY)
 		carbon_pawn.dropItemToGround(carbon_pawn.get_inactive_held_item())
