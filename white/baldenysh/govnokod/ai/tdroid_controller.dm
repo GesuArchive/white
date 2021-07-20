@@ -133,7 +133,7 @@
 				var/datum/component/aiming/aiming = armed_gun.GetComponent(/datum/component/aiming)
 				if(aiming && isliving(blackboard[BB_TDROID_INTERACTION_TARGET]))
 					aiming.aim(living_pawn, blackboard[BB_TDROID_INTERACTION_TARGET])
-				spawn(2 SECONDS)
+				spawn(4 SECONDS)
 					if(!living_pawn.has_status_effect(STATUS_EFFECT_PARALYZED))
 						current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid)
 			return
