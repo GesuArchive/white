@@ -5,7 +5,7 @@
 // You do not need to raise this if you are adding new values that have sane defaults.
 // Only raise this value when changing the meaning/format/name/layout of an existing value
 // where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX 51
+#define SAVEFILE_VERSION_MAX 52
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -62,6 +62,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	if (current_version < 51)
 		if("2ae2b3b0d4c92c994a58de19f7736b59" in purchased_gear)
 			jobs_buyed += /datum/job/station_engineer/mechanic
+
+	if (current_version < 52)
+		uses_glasses_colour = TRUE
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
 	return

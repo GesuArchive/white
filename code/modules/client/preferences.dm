@@ -62,7 +62,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/pda_style = MONO
 	var/pda_color = "#808000"
 
-	var/uses_glasses_colour = 0
+	var/uses_glasses_colour = TRUE
 
 	//character preferences
 	var/slot_randomized					//keeps track of round-to-round randomization of the character slot, prevents overwriting
