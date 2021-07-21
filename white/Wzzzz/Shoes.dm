@@ -154,7 +154,7 @@
 	icon = 'white/Wzzzz/clothing/shoes.dmi'
 	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
 
-/obj/item/clothing/shoes/sandal
+/obj/item/clothing/shoes/sandal/tourist
 	icon = 'white/Wzzzz/clothing/shoes.dmi'
 	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
 	name = "tourist sandals"
@@ -162,7 +162,7 @@
 	icon_state = "tourist"
 	inhand_icon_state = "tourist"
 
-/obj/item/clothing/shoes/sneakers
+/obj/item/clothing/shoes/sneakers/detective
 	icon = 'white/Wzzzz/clothing/shoes.dmi'
 	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
 	name = "detective shoes"
@@ -170,7 +170,7 @@
 	icon_state = "detective"
 	inhand_icon_state = "detective"
 
-/obj/item/clothing/shoes/roman
+/obj/item/clothing/shoes/roman/old
 	icon = 'white/Wzzzz/clothing/shoes.dmi'
 	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
 	name = "roman shoes"
@@ -178,21 +178,21 @@
 	icon_state = "roman"
 	inhand_icon_state = "roman"
 
-/obj/item/clothing/shoes/winterboots
+/obj/item/clothing/shoes/winterboots/fur
 	icon = 'white/Wzzzz/clothing/shoes.dmi'
 	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
 	name = "fur boots"
 	desc = "Simple and warm."
 
-/obj/item/clothing/shoes/winterboots/yellow
+/obj/item/clothing/shoes/winterboots/fur/yellow
 	icon_state = "fur1"
 	inhand_icon_state = "fur1"
 
-/obj/item/clothing/shoes/winterboots/grey
+/obj/item/clothing/shoes/winterboots/fur/grey
 	icon_state = "fur2"
 	inhand_icon_state = "fur2"
 
-/obj/item/clothing/shoes/winterboots/black
+/obj/item/clothing/shoes/winterboots/fur/black
 	icon_state = "fur3"
 	inhand_icon_state = "fur3"
 
