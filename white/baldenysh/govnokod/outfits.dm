@@ -149,7 +149,7 @@
 	gloves = /obj/item/clothing/gloves/fingerless
 	belt = 	/obj/item/gun/ballistic/automatic/pistol/m1911/catatonic
 	l_pocket = /obj/item/ammo_box/magazine/m45
-	r_pocket = /obj/item/kitchen/knife/combat/survival
+	r_pocket = /obj/item/ammo_box/magazine/m45
 	id = /obj/item/card/id/advanced/tacticalcatwife
 
 /mob/living/carbon/human/tdroid
@@ -199,6 +199,7 @@
 	name = "Тактическая Кошкожена Мосина"
 	belt = null
 	l_pocket = /obj/item/ammo_box/a762
+	r_pocket = /obj/item/ammo_box/a762
 	back = /obj/item/gun/ballistic/rifle/boltaction
 
 /obj/effect/mob_spawn/human/tcatwife/mosin

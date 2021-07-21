@@ -21,9 +21,8 @@
 			for(var/obj/item/ammo_box/box in accessible_atoms)
 				if(!box.stored_ammo.len || box.ammo_type != intmag.ammo_type)
 					continue
-				if(do_reloading(box))
-					finish_action(controller, TRUE)
-					return
+				finish_action(controller, do_reloading(box))
+				return
 
 		finish_action(controller, try_load_casings(intmag, accessible_atoms))
 		return
@@ -40,13 +39,13 @@
 
 		B.eject_magazine(carbon_pawn)
 		if(newmag)
-			if(do_reloading(newmag))
-				finish_action(controller, TRUE)
-				return
+			finish_action(controller, do_reloading(newmag))
+			return
 		else
 			var/obj/item/ammo_box/magazine/oldmag = locate(B.mag_type) in view(0, carbon_pawn)
-			finish_action(controller, try_load_casings(oldmag, accessible_atoms) && do_reloading(oldmag))
-			return
+			if(try_load_casings(oldmag, accessible_atoms))
+				finish_action(controller, do_reloading(oldmag))
+				return
 
 	finish_action(controller, FALSE)
 	return
