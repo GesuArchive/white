@@ -7,7 +7,7 @@
 	possible_transfer_amounts = list()
 	volume = 40
 	apply_type = PATCH
-	apply_method = "apply"
+	apply_method = "применить"
 	self_delay = 30		// three seconds
 	dissolvable = FALSE
 
@@ -15,10 +15,10 @@
 	if(ishuman(L))
 		var/obj/item/bodypart/affecting = L.get_bodypart(check_zone(user.zone_selected))
 		if(!affecting)
-			to_chat(user, "<span class='warning'>The limb is missing!</span>")
+			to_chat(user, "<span class='warning'>Конечности нет!</span>")
 			return
 		if(affecting.status != BODYPART_ORGANIC)
-			to_chat(user, "<span class='notice'>Medicine won't work on a robotic limb!</span>")
+			to_chat(user, "<span class='notice'>Медицина бессильна перед синтетикой!</span>")
 			return
 	..()
 

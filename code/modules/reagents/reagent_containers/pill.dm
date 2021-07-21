@@ -11,7 +11,7 @@
 	volume = 50
 	grind_results = list()
 	var/apply_type = INGEST
-	var/apply_method = "swallow"
+	var/apply_method = "проглотить"
 	var/rename_with_volume = FALSE
 	var/self_delay = 0 //pills are instant, this is because patches inheret their aplication from pills
 	var/dissolvable = TRUE
@@ -33,19 +33,19 @@
 		return FALSE
 
 	if(M == user)
-		M.visible_message("<span class='notice'>[user] attempts to [apply_method] [src].</span>")
+		M.visible_message("<span class='notice'>[user] пытается [apply_method] [src].</span>")
 		if(self_delay)
 			if(!do_mob(user, M, self_delay))
 				return FALSE
-		to_chat(M, "<span class='notice'>You [apply_method] [src].</span>")
+		to_chat(M, "<span class='notice'>Пытаюсь [apply_method] [src].</span>")
 
 	else
-		M.visible_message("<span class='danger'>[user] attempts to force [M] to [apply_method] [src].</span>", \
-							"<span class='userdanger'>[user] attempts to force you to [apply_method] [src].</span>")
+		M.visible_message("<span class='danger'>[user] пытается принудить [M] [apply_method] [src].</span>", \
+							"<span class='userdanger'>[user] пытается принудить меня [apply_method] [src].</span>")
 		if(!do_mob(user, M, CHEM_INTERACT_DELAY(3 SECONDS, user)))
 			return FALSE
-		M.visible_message("<span class='danger'>[user] forces [M] to [apply_method] [src].</span>", \
-							"<span class='userdanger'>[user] forces you to [apply_method] [src].</span>")
+		M.visible_message("<span class='danger'>[user] принуждает [M] [apply_method] [src].</span>", \
+							"<span class='userdanger'>[user] принуждает меня [apply_method] [src].</span>")
 
 	return on_consumption(M, user)
 
@@ -67,14 +67,14 @@
 	if(!dissolvable || !target.is_refillable())
 		return
 	if(target.is_drainable() && !target.reagents.total_volume)
-		to_chat(user, "<span class='warning'>[target] is empty! There's nothing to dissolve [src] in.</span>")
+		to_chat(user, "<span class='warning'>[target] пустой! В чём я буду растворять [src]?</span>")
 		return
 
 	if(target.reagents.holder_full())
-		to_chat(user, "<span class='warning'>[target] is full.</span>")
+		to_chat(user, "<span class='warning'>[target] полон.</span>")
 		return
 
-	user.visible_message("<span class='warning'>[user] slips something into [target]!</span>", "<span class='notice'>You dissolve [src] in [target].</span>", null, 2)
+	user.visible_message("<span class='warning'>[user] закидывает что-то в [target]!</span>", "<span class='notice'>Растворяю [src] в [target].</span>", null, 2)
 	reagents.trans_to(target, reagents.total_volume, transfered_by = user)
 	qdel(src)
 

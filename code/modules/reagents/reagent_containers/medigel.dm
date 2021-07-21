@@ -19,7 +19,7 @@
 	volume = 60
 	var/can_fill_from_container = TRUE
 	var/apply_type = PATCH
-	var/apply_method = "spray" //the thick gel is sprayed and then dries into patch like film.
+	var/apply_method = "распылить" //the thick gel is sprayed and then dries into patch like film.
 	var/self_delay = 30
 	var/squirt_mode = 0
 	var/squirt_amount = 5
@@ -39,7 +39,7 @@
 		amount_per_transfer_from_this = squirt_amount
 	else
 		amount_per_transfer_from_this = initial(amount_per_transfer_from_this)
-	to_chat(user, "<span class='notice'>You will now apply the medigel's contents in [squirt_mode ? "short bursts":"extended sprays"]. You'll now use [amount_per_transfer_from_this] units per use.</span>")
+	to_chat(user, "<span class='notice'>Буду применять содержимое в [squirt_mode ? "коротком":"длинном"] режиме. Теперь используется [amount_per_transfer_from_this] единиц за раз.</span>")
 
 /obj/item/reagent_containers/medigel/attack(mob/M, mob/user, def_zone)
 	if(!reagents || !reagents.total_volume)
@@ -47,24 +47,24 @@
 		return
 
 	if(M == user)
-		M.visible_message("<span class='notice'>[user] attempts to [apply_method] [src] on [user.ru_na()]self.</span>")
+		M.visible_message("<span class='notice'>[user] пытается [apply_method] [src] на [user.ru_na()].</span>")
 		if(self_delay)
 			if(!do_mob(user, M, self_delay))
 				return
 			if(!reagents || !reagents.total_volume)
 				return
-		to_chat(M, "<span class='notice'>You [apply_method] yourself with [src].</span>")
+		to_chat(M, "<span class='notice'>Пытаюсь [apply_method] [src] на себя.</span>")
 
 	else
 		log_combat(user, M, "attempted to apply", src, reagents.log_list())
-		M.visible_message("<span class='danger'>[user] attempts to [apply_method] [src] on [M].</span>", \
-							"<span class='userdanger'>[user] attempts to [apply_method] [src] on you.</span>")
+		M.visible_message("<span class='danger'>[user] пытается [apply_method] [src] на [M].</span>", \
+							"<span class='userdanger'>[user] пытается [apply_method] [src] на меня.</span>")
 		if(!do_mob(user, M, CHEM_INTERACT_DELAY(3 SECONDS, user)))
 			return
 		if(!reagents || !reagents.total_volume)
 			return
-		M.visible_message("<span class='danger'>[user] [apply_method]s [M] down with [src].</span>", \
-							"<span class='userdanger'>[user] [apply_method]s you down with [src].</span>")
+		M.visible_message("<span class='danger'>[user] применяет [M] [src].</span>", \
+							"<span class='userdanger'>[user] применяет на мне [src].</span>")
 
 	if(!reagents || !reagents.total_volume)
 		return
