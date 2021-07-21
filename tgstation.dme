@@ -3640,6 +3640,7 @@
 #include "white\baldenysh\govnokod\ai\tdroid\_tdroid_defines.dm"
 #include "white\baldenysh\govnokod\ai\tdroid\tdroid_behaviors.dm"
 #include "white\baldenysh\govnokod\ai\tdroid\tdroid_controller.dm"
+#include "white\baldenysh\govnokod\ai\tdroid\tdroid_cores.dm"
 #include "white\baldenysh\govnokod\antags\antags.dm"
 #include "white\baldenysh\govnokod\antags\objectives.dm"
 #include "white\baldenysh\govnokod\chem\reactions.dm"
