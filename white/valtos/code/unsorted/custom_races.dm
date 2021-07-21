@@ -52,6 +52,7 @@
 	species_traits = list(NOBLOOD, NOEYESPRITES)
 	mutant_organs = list(/obj/item/organ/tail/cat/oni_android)
 	mutant_bodyparts = list("tail_human" = "Oni")
+	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,HAS_FLESH)
 
 /datum/species/android/oni_android/on_species_gain(mob/living/carbon/C)
 	. = ..()
@@ -91,6 +92,8 @@
 	id = "synthman"
 	limbs_id = null
 	yogs_draw_robot_hair = TRUE
+	use_skintones = TRUE
+	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,HAS_FLESH)
 
 /datum/species/android/synthman/on_species_gain(mob/living/carbon/C)
 	. = ..()
@@ -122,10 +125,10 @@
 	C.draw_custom_races(FALSE)
 	. = ..()
 
-/datum/species/human/pigman/spec_life(mob/living/carbon/human/H, delta_time, times_fired)
-	if(H.stat && DT_PROB(5, delta_time))
-		playsound(H, pick('white/valtos/sounds/pig/hru.ogg', 'white/valtos/sounds/pig/oink.ogg', 'white/valtos/sounds/pig/squeak.ogg'), 50, TRUE)
-	..()
+/datum/species/human/pigman/harm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
+	. = ..()
+	if(user.stat && prob(25))
+		playsound(get_turf(user), pick('white/valtos/sounds/pig/hru.ogg', 'white/valtos/sounds/pig/oink.ogg', 'white/valtos/sounds/pig/squeak.ogg'), 50, TRUE)
 
 /datum/language_holder/xoxol
 	understood_languages = list(/datum/language/common = list(LANGUAGE_ATOM),
