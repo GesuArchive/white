@@ -6,7 +6,7 @@
 	name = "тактическое ядро"
 	desc = "Тактическое ядро андроида неизвестной марки. Используйте встроенный ДНК-сканнер для установки коммандира."
 	icon = 'white/baldenysh/icons/obj/organs.dmi'
-	icon_state = "snus_mycosis"
+	icon_state = "tactical_core"
 	zone = BODY_ZONE_HEAD
 	slot = "tactical_core"
 	organ_flags = ORGAN_SYNTHETIC
