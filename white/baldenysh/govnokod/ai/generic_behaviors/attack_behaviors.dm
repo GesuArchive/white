@@ -66,7 +66,27 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+/datum/ai_behavior/carbon_unarmed
+	var/target_key
+	var/required_stat = UNCONSCIOUS
+
+	var/mob/living/target
+	var/mob/living/carbon/carbon_pawn
+
+/datum/ai_behavior/carbon_unarmed/perform(delta_time, datum/ai_controller/controller)
+	. = ..()
+
+/datum/ai_behavior/carbon_unarmed/finish_action(datum/ai_controller/controller, succeeded)
+	. = ..()
+
+////////////////////////////////////////////////////////////////////
+
 /datum/ai_behavior/carbon_cqc
+	var/target_key
+	var/required_stat = UNCONSCIOUS
+
+	var/mob/living/target
+	var/mob/living/carbon/carbon_pawn
 
 /datum/ai_behavior/carbon_cqc/perform(delta_time, datum/ai_controller/controller)
 	. = ..()

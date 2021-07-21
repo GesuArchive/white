@@ -110,7 +110,7 @@
 			blackboard[BB_TDROID_INTERACTION_TARGET] = armed_gun
 			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_ballistic_reload/tdroid)
 			return
-		//TryHolsterHeldWeapon()
+
 
 	//сюда мили
 
@@ -396,6 +396,11 @@
 					GenSquad()
 					StateOrder(9)
 
+				if(INTENT_HARM)
+					blackboard[BB_TDROID_AGGRESSIVE] = !blackboard[BB_TDROID_AGGRESSIVE]
+					StateOrder(67)
+					return
+
 		else if(A == pawn)
 			switch(commander.a_intent)
 				if(INTENT_DISARM)
@@ -420,8 +425,6 @@
 					StateOrder(56)
 		return
 
-	if(!blackboard[BB_TDROID_DIRECT_ORDER_MODE])
-		return
 	blackboard[BB_TDROID_DIRECT_ORDER_MODE] = FALSE
 
 	switch(commander.a_intent)
@@ -429,7 +432,7 @@
 
 		if(INTENT_GRAB)
 			if(IsCommander(A))
-				blackboard[BB_TDROID_FOLLOW_TARGET] = null
+				blackboard[BB_TDROID_FOLLOW_TARGET] = blackboard[BB_TDROID_COMMANDER]
 				StateOrder(72)
 				return
 			if(IsSquadMember(A))
