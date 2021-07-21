@@ -246,10 +246,10 @@
 	var/filter
 	if(bbox.playing)
 		if(!get_filter("outline"))
-			add_filter("outline", 1, outline_filter(size = 1, color = "#[random_color()]"))
+			add_filter("outline", 1, outline_filter(size = 0, color = "#[random_color()]"))
 			filter = get_filter("outline")
-			animate(filter, size = 2, time = 1, loop = -1)
-			animate(size = 1, time = 1)
+			animate(filter, size = 1, time = 1, loop = -1)
+			animate(size = 0, time = 1)
 	else
 		filter = get_filter("outline")
 		if(filter)
