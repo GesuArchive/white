@@ -1037,39 +1037,6 @@
 	resistance_flags = NONE|ACID_PROOF|INDESTRUCTIBLE|UNACIDABLE|FIRE_PROOF|FREEZE_PROOF|LAVA_PROOF
 	armor = list("melee" = 80, "bullet" = 60, "laser" = 70,"energy" = 80, "bomb" = 90, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100, "magic" = 75)
 
-/mob/living/simple_animal/hostile/pirate/ranged/space
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/pirate/melee/space
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/russian/ranged/officer
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/russian
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/russian/ranged
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/syndicate
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/syndicate/melee/sword
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/syndicate/melee/sword/space
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/syndicate/ranged/smg
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-/mob/living/simple_animal/hostile/syndicate/ranged/smg/space
-	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
-//mob/living/simple_animal/hostile/syndicate/ranged/shotgun/space/stormtrooper
-//	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
-
 /mob/living/simple_animal/hostile/faithless
 	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
 	maxHealth = 100
