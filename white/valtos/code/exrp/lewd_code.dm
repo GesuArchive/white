@@ -99,7 +99,7 @@
 	if(iscarbon(src))
 		var/mob/living/carbon/C = src
 		var/turf/floor = get_turf(src)
-		if ((locate(/obj/effect/decal/cleanable/cum) in src.loc))
+		if ((!locate(/obj/effect/decal/cleanable/cum) in src.loc))
 			var/obj/effect/decal/cleanable/cum/spew = new(floor, C.get_static_viruses())
 			spew.transfer_mob_blood_dna(src)
 
