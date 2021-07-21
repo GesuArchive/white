@@ -93,7 +93,7 @@
 	limbs_id = null
 	yogs_draw_robot_hair = TRUE
 	use_skintones = TRUE
-	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,HAS_FLESH)
+	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,HAS_FLESH,NOBLOOD)
 
 /datum/species/android/synthman/on_species_gain(mob/living/carbon/C)
 	. = ..()
