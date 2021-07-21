@@ -79,19 +79,20 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 	hide_actions_toggle = new
 	hide_actions_toggle.InitialiseIcon(src)
-	if(mymob.client)
+	if(mymob?.client)
 		hide_actions_toggle.locked = mymob.client.prefs.buttons_locked
 
 	hand_slots = list()
 
 	tooltip = new /atom/movable/screen/tooltip()
-	tooltip.hud = src
-	if (owner.client.prefs.w_toggles & TOOLTIP_USER_POS)
-		tooltip.screen_loc = "SOUTH+1,CENTER-4:16"
+	tooltip?.hud = src
+	if (owner?.client?.prefs?.w_toggles & TOOLTIP_USER_POS)
+		tooltip?.screen_loc = "SOUTH+1,CENTER-4:16"
 	infodisplay += tooltip
 
-	add_emote_panel(owner)
-	add_multiz_buttons(owner)
+	if(owner)
+		add_emote_panel(owner)
+		add_multiz_buttons(owner)
 
 	for(var/mytype in subtypesof(/atom/movable/screen/plane_master))
 		var/atom/movable/screen/plane_master/instance = new mytype()
