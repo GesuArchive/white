@@ -1,9 +1,9 @@
 /obj/item/melee/vanya
 	name = "eldritch sword"
 	desc = "Looks like life of this weapon is located in tentacle, what gets out from broken crystal."
-	icon = 'white/Wzzzz/icons/Weea.dmi'
-	lefthand_file = 'white/Wzzzz/icons/Weeal.dmi'
-	righthand_file = 'white/Wzzzz/icons/Weear.dmi'
+	icon = 'white/Wzzzz/Knife.dmi'
+	lefthand_file = 'white/Wzzzz/Knifel.dmi'
+	righthand_file = 'white/Wzzzz/Knifer.dmi'
 	icon_state = "old_sword"
 	inhand_icon_state = "old_sword"
 	force = 23

@@ -53,7 +53,7 @@
 	))
 
 	send_to_playing_players("<span class='narsie'>NAR'SIE HAS RISEN</span>")
-	sound_to_playing_players('white/Wzzzz/narsie_rises.ogg')
+	sound_to_playing_players('sound/creatures/narsie_rises.ogg')
 
 	var/area/area = get_area(src)
 	if(area)
