@@ -110,6 +110,7 @@
 	heatmod = 2
 	payday_modifier = 1.5 // :^)
 	mutant_bodyparts = list("tail_human" = "Pig", "ears" = "Pig")
+	meat = /obj/item/food/meat/slab/pig
 	mutantears = /obj/item/organ/ears/pig
 	mutant_organs = list(/obj/item/organ/tail/cat/pig)
 
@@ -122,8 +123,8 @@
 	. = ..()
 
 /datum/species/human/pigman/spec_life(mob/living/carbon/human/H, delta_time, times_fired)
-	if(H.stat && DT_PROB(1.5, delta_time))
-		playsound(src, pick('white/valtos/sounds/pig/hru.ogg', 'white/valtos/sounds/pig/oink.ogg', 'white/valtos/sounds/pig/squeak.ogg'), 50, TRUE)
+	if(H.stat && DT_PROB(5, delta_time))
+		playsound(H, pick('white/valtos/sounds/pig/hru.ogg', 'white/valtos/sounds/pig/oink.ogg', 'white/valtos/sounds/pig/squeak.ogg'), 50, TRUE)
 	..()
 
 /datum/language_holder/xoxol

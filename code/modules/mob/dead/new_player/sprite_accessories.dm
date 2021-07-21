@@ -2225,6 +2225,7 @@
 	icon_state = "pig"
 	icon = 'white/valtos/icons/mutant_bodyparts.dmi'
 	locked = TRUE
+	use_static = TRUE
 
 /datum/sprite_accessory/tails/monkey/default
 	name = "Monkey"
@@ -2294,6 +2295,8 @@
 	name = "Pig"
 	icon_state = "pig"
 	icon = 'white/valtos/icons/mutant_bodyparts.dmi'
+	locked = TRUE
+	use_static = TRUE
 
 /datum/sprite_accessory/wings/none
 	name = "None"
