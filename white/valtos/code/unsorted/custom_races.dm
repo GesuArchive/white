@@ -122,7 +122,7 @@
 	. = ..()
 
 /datum/species/human/pigman/spec_life(mob/living/carbon/human/H, delta_time, times_fired)
-	if(stat && DT_PROB(1.5, delta_time))
+	if(H.stat && DT_PROB(1.5, delta_time))
 		playsound(src, pick('white/valtos/sounds/pig/hru.ogg', 'white/valtos/sounds/pig/oink.ogg', 'white/valtos/sounds/pig/squeak.ogg'), 50, TRUE)
 	..()
 
