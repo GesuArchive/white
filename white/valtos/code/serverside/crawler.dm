@@ -32,8 +32,7 @@
 			if(text2num(cril[i]["count"]) > 360)
 				if(clear_sanity)
 					message_admins("[ADMIN_LOOKUPFLW(src)] имеет грязь.")
-				else
-					message_admins(" >>> [cril[i]["servername"]] ([cril[i]["count"]]m).")
+				message_admins(" >>> [cril[i]["servername"]] ([cril[i]["count"]]m).")
 				clear_sanity = FALSE
 
 	return clear_sanity
