@@ -1915,3 +1915,55 @@
 /obj/item/clothing/under/tunic/crusader/alt
 	icon_state = "crusader2"
 	inhand_icon_state = "crusader2"
+
+/obj/item/clothing/under/m35jacket
+	desc = "Uniform of the German Imperial Army. Life for the Kaiser!"
+	name = "m35 uniform"
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	icon_state = "m35_jacket"
+	inhand_icon_state = "m35_jacket"
+	armor = list("melee" = 10, "bullet" = 10, "laser" = 20,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 10)
+	can_adjust = FALSE
+
+/obj/item/clothing/under/m35jacket/officer
+	desc = "Officer's uniform of the German Imperial Army. Life for the Kaiser and God!"
+	name = "m35 officer uniform"
+	icon_state = "m35_jacket_officer"
+	inhand_icon_state = "m35_jacket_officer"
+	armor = list("melee" = 10, "bullet" = 10, "laser" = 20,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 10)
+
+/obj/item/clothing/under/m35jacket/black
+	icon_state = "m35_elite_jacket"
+	inhand_icon_state = "m35_elite_jacket"
+	desc = "Black uniform of the Geheimpolizei. Life for the Kaiser!"
+	name = "m35 black uniform"
+	armor = list("melee" = 15, "bullet" = 15, "laser" = 15,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 10)
+	siemens_coefficient = 0.9
+
+/obj/item/clothing/under/m35jacket/elite/super
+	icon_state = "m35_super_elite_jacket"
+	desc = "Black uniform of the Geheimpolizei. Looks robust!"
+	name = "m35 dark general uniform"
+	inhand_icon_state = "m35_super_elite_jacket"
+	armor = list("melee" = 25, "bullet" = 25, "laser" = 25,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 5)
+
+/obj/item/clothing/under/magistrate
+	name = "magistrate's uniform"
+	desc = "Regal as you can afford."
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	icon_state = "magistrate"
+	inhand_icon_state = "magistrate"
+	can_adjust = FALSE
+	armor = list("melee" = 10, "bullet" = 10, "laser" = 20,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 00, "acid" = 10)
+
+/obj/item/clothing/under/arbiter
+	name = "arbiter uniform"
+	desc = "Somebody saw description?"
+	icon = 'white/Wzzzz/clothing/uniforms.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/uniform.dmi'
+	icon_state = "arbiter"
+	inhand_icon_state = "arbiter"
+	can_adjust = FALSE
+	armor = list("melee" = 15, "bullet" = 15, "laser" = 15,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 10)

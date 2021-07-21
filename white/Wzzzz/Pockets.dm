@@ -33,3 +33,15 @@
 	max_items = 6
 	max_combined_w_class = 10
 	max_w_class = WEIGHT_CLASS_NORMAL
+
+/datum/component/storage/concrete/pockets/opvest/Initialize()
+	. = ..()
+	set_holdable(GLOB.security_vest_allowed)
+	max_items = 7
+	max_combined_w_class = 13
+
+/datum/component/storage/concrete/pockets/webvest/Initialize()
+	. = ..()
+	max_items = 5
+
+	max_w_class = WEIGHT_CLASS_NORMAL

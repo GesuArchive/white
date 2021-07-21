@@ -142,7 +142,7 @@
 
 /obj/item/melee/baton/loaded/german
 	desc = "A german stun baton."
-	icon = 'white/Wzzzz/icons/Uebermarginal/weapons.dmi'
+	icon = 'white/Wzzzz/icons/Weea.dmi'
 	lefthand_file = 'white/Wzzzz/icons/Weeal.dmi'
 	righthand_file = 'white/Wzzzz/icons/Weear.dmi'
 	worn_icon = 'white/Wzzzz/clothing/mob/belt.dmi'

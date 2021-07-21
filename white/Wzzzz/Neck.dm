@@ -33,8 +33,8 @@
 /obj/item/clothing/neck/cloak/cowl
 	name = "cowl"
 	desc = "Stylish thing."
-	worn_icon = 'white/Wzzzz/Valya/clothing/mob/suit.dmi'
-	icon = 'white/Wzzzz/Valya/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
+	icon = 'white/Wzzzz/clothing/ties.dmi'
 	icon_state = "cowl"
 
 /obj/item/clothing/neck/cloak/cowl/robe

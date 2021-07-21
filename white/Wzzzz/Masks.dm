@@ -144,3 +144,54 @@
 
 /obj/item/clothing/mask/balaclava/balaclavager/black
 	icon_state = "balaclavagb"
+
+/obj/item/clothing/mask/gas/germanfull
+	name = "old style gas mask"
+	desc = "С›РјРј. вЂ™Р°Р№Р»СЊ В¬Р°Р№С‚."
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEEYES
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEEYES
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	worn_icon = 'white/Wzzzz/clothing/mob/mask.dmi'
+	icon = 'white/Wzzzz/clothing/masks.dmi'
+	icon_state = "fullgas"
+
+/obj/item/clothing/mask/gas/german
+	name = "german gas mask"
+	icon_state = "german_gasmask"
+	flags_inv = HIDEFACE|HIDEFACIALHAIR
+	dynamic_fhair_suffix = ""
+	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR
+	worn_icon = 'white/Wzzzz/clothing/mob/mask.dmi'
+	icon = 'white/Wzzzz/clothing/masks.dmi'
+	dynamic_fhair_suffix = ""
+
+/obj/item/clothing/mask/gas/germanalt
+	name = "gas mask"
+	icon_state = "gas_alt"
+	flags_inv = HIDEFACE|HIDEFACIALHAIR
+	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR
+	dynamic_fhair_suffix = ""
+	worn_icon = 'white/Wzzzz/clothing/mob/mask.dmi'
+	icon = 'white/Wzzzz/clothing/masks.dmi'
+
+/obj/item/clothing/mask/gas/respirator
+	name = "respirator mask"
+	icon_state = "respirator"
+	flags_inv = HIDEFACE|HIDEFACIALHAIR
+	worn_icon = 'white/Wzzzz/clothing/mob/mask.dmi'
+	icon = 'white/Wzzzz/clothing/masks.dmi'
+	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR
+	dynamic_fhair_suffix = ""
+
+/obj/item/clothing/mask/balaclavager
+	name = "balaclava"
+	desc = "German balaclava."
+	dynamic_fhair_suffix = ""
+	dynamic_hair_suffix = ""
+	flags_inv = HIDEFACE|HIDEFACIALHAIR
+	worn_icon = 'white/Wzzzz/clothing/mob/mask.dmi'
+	icon = 'white/Wzzzz/clothing/masks.dmi'
+	icon_state = "balaclava"
+	flags_inv = HIDEHAIR|HIDEEARS
+	visor_flags_inv = HIDEHAIR|HIDEEARS

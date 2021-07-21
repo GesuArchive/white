@@ -222,3 +222,10 @@
 	inhand_icon_state = "wrappedboots"
 	permeability_coefficient = 0.5
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
+
+/obj/item/clothing/shoes/combat/arbiter
+	name = "arbiter boots"
+	desc = "Somebody saw description?"
+	icon = 'white/Wzzzz/clothing/shoes.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
+	icon_state = "arbiter"

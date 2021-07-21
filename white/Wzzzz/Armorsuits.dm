@@ -42,7 +42,7 @@
 	cold_protection = CHEST|GROIN|LEGS|ARMS
 	heat_protection = CHEST|GROIN|LEGS|ARMS
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 20,"energy" = 10, "bomb" = 100, "bio" = 40, "rad" = 0, "fire" = 80, "acid" = 50)
-	
+
 /obj/item/clothing/suit/armor/hos/german
 	icon_state = "hosg"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -456,3 +456,36 @@
 
 /obj/item/clothing/suit/armor/plate/crusader
 	armor = list("melee" = 80, "bullet" = 65, "laser" = 100,"energy" = 100, "bomb" = 75, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
+
+/obj/item/clothing/suit/armor/opvest
+	name = "armored vest"
+	desc = "It provides some armor and some storage. Not really the best at either though."
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	icon_state = "opvest"
+	armor = list("melee" = 40, "bullet" = 35, "laser" = 40,"energy" = 35, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 30)
+	pocket_storage_component_path = /datum/component/storage/concrete/pockets/opvest
+
+/obj/item/clothing/suit/armor/vest/arbiter
+	icon_state = "arbiter"
+
+/obj/item/clothing/suit/armor/vest/m35
+	icon_state = "army_coat"
+	armor = list("melee" = 40, "bullet" = 50, "laser" = 40,"energy" = 35, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+	cold_protection = CHEST|GROIN|LEGS|ARMS
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+	heat_protection = CHEST|GROIN|LEGS|ARMS
+
+/obj/item/clothing/suit/armor/vest/m35/black
+	icon_state = "elite_army_coat"
+	armor = list("melee" = 40, "bullet" = 50, "laser" = 40,"energy" = 35, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
+
+/obj/item/clothing/suit/armor/vest/m35/officer
+	icon_state = "super_elite_army_coat"
+	armor = list("melee" = 50, "bullet" = 55, "laser" = 45,"energy" = 35, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 40)
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'

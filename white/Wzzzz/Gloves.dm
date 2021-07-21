@@ -60,3 +60,13 @@
 	inhand_icon_state = "co_gloves"
 	worn_icon = 'white/Wzzzz/clothing/mob/hands.dmi'
 	icon = 'white/Wzzzz/clothing/gloves.dmi'
+
+/obj/item/clothing/gloves/combat/arbiter
+	name = "arbiter gloves"
+	worn_icon = 'white/Wzzzz/clothing/mob/hands.dmi'
+	icon = 'white/Wzzzz/clothing/gloves.dmi'
+	icon_state = "arbiter"
+
+/obj/item/clothing/gloves/combat/arbiter/undertaker
+	name = "undertaker gloves"
+	icon_state = "undertaker"

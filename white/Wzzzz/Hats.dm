@@ -737,7 +737,7 @@
 	inhand_icon_state = "hazmat_yellow_head"
 	flags_inv = HIDEEARS|HIDEHAIR
 	visor_flags_inv = HIDEEARS|HIDEHAIR
-	
+
 
 /obj/item/clothing/head/radiation/hazmat/yellow
 
@@ -1923,3 +1923,67 @@
 
 /obj/item/clothing/head/helmet/swat/noglasses
 	icon_state = "swatsyndie_noglass"
+
+/obj/item/clothing/head/helmet/arbiter
+	name = "arbiter helmet"
+	desc = "Somebody saw description?"
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	icon_state = "arbiter"
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR
+	armor = list("melee" = 20, "bullet" = 20, "laser" = 20,"energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 0, "fire" = 50, "acid" = 40)
+
+/obj/item/clothing/head/helmet/arbiter/inquisitor
+	name = "inquisitor helmet"
+	icon_state = "inquisitor"
+
+/obj/item/clothing/head/helmet/izanhelm
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	icon_state = "officer_cap"
+	name = "officer hat"
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	desc = "Officer's cap. It is obviously used by the officers of the Kaiser Army."
+
+/obj/item/clothing/head/cap/elite
+	name = "чёрный officer hat"
+	desc = "Officer's cap is of dark color. In addition, the cockade depicts a symbol of the secret police."
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	icon_state = "m35_elite_cap"
+
+/obj/item/clothing/head/helmet/m35
+	name = "stahlhelm"
+	desc = "An ordinary steel helmet. Used by the Kaiser Army."
+	icon_state = "m35_helmet"
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	armor = list(melee = 35, bullet = 20, laser = 20, energy = 35, bomb = 15, bio = 2, rad = 0)
+
+/obj/item/clothing/head/helmet/elite
+	name = "чёрный stahlhelm"
+	desc = "A typical germany steel helmet. Black color and it seems instead of steel here used a strong alloy"
+	icon_state = "m35_elite_helmet"
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	armor = list("melee" = 35, "bullet" = 40, "laser" = 40,"energy" = 25, "bomb" = 45, "bio" = 2, "rad" = 0, "fire" = 30, "acid" = 20)
+
+/obj/item/clothing/head/helmet/pickelhelm
+	name = "pickelhaube"
+	desc = "A spiked helmet.On the front is an eagle of gold color. Inspires respect for the Kaiser"
+	armor = list(melee = 65, bullet = 60, laser = 60, energy = 60, bomb = 60, bio = 2, rad = 0, "fire" = 30, "acid" = 20)
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	icon_state = "pickelhelm"
+
+/obj/item/clothing/head/helmet/richard
+	name = "richard's head"
+	desc = "Legendary petuch."
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	icon_state = "richard"
+	dynamic_fhair_suffix = ""
+	dynamic_hair_suffix = ""
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR
+	armor = list("melee" = 10, "bullet" = 0, "laser" = 9,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 10)

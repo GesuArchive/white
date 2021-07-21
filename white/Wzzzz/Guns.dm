@@ -568,7 +568,7 @@
 /obj/item/ammo_box/magazine/a762d
 	name = "Mg34 drum magazine (7.92x57mm)"
 	desc = "A MG-34 magazine."
-	icon = 'white/Wzzzz/icons/3434.dmi'
+	icon = 'white/Wzzzz/icons/mgammo.dmi'
 	icon_state = "mg34_drum"
 	inhand_icon_state = "mg34_drum"
 	caliber = "a792x33"
