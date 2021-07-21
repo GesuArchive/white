@@ -2037,6 +2037,14 @@
 		usr.client.cmd_admin_mod_antag_rep(C, href_list["modantagrep"])
 		show_player_panel(M)
 
+	else if(href_list["pushmetocrawler"])
+		if(!check_rights(R_ADMIN))
+			return
+
+		var/client/C = locate(href_list["pushmetocrawler"]) in GLOB.clients
+
+		usr << link("https://crawler.station13.ru/?ckey=[C.ckey]")
+
 	else if(href_list["changemetacash"])
 		if(!check_rights(R_PERMISSIONS))
 			return
