@@ -2,13 +2,15 @@
 	"version": 1,
     "map_name": "Ex-Perro",
 	"map_path": "map_files/Experro",
-	"space_ruin_levels": 3,
     "map_file": "experro.dmm",
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+	"minetype": "none",
 	"traits": [
 		{
 			"Mining": true,
 			"Gravity": true,
-			"Linkage": null,
+			"Linkage": "Self",
 			"Baseturf": "/turf/open/floor/plating/grass"
 		}
 	],
