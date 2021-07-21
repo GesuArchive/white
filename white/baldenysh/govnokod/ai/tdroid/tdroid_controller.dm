@@ -75,47 +75,23 @@
 		current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/move_to_target/tdroid)
 
 	if(!CanArmGun())
-		if(TryFindGun())
+		var/obj/item/gun/found_gun = TryFindGun()
+		if(found_gun)
+			blackboard[BB_TDROID_FOLLOW_TARGET] = found_gun
+			blackboard[BB_TDROID_INTERACTION_TARGET] = found_gun
 			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_pickup/tdroid)
 			return
 
-	var/list/enemies = blackboard[BB_TDROID_ENEMIES]
-	if(enemies && enemies.len || blackboard[BB_TDROID_AGGRESSIVE])
-		var/list/mob/living/friends = GetSquadPawns()
-		if(blackboard[BB_TDROID_COMMANDER])
-			friends.Add(blackboard[BB_TDROID_COMMANDER])
-
-		var/list/mob/living/alive_enemies = list()
-		for(var/mob/living/L in enemies)
-			if(L.stat == DEAD)
-				continue
-			alive_enemies.Add(L)
-
-		var/list/mob/living/possible_targets = list()
-		for(var/mob/living/L in view(9, living_pawn))
-			if(L.stat == DEAD)
-				continue
-			if(!ShouldTarget(L))
-				continue
-			possible_targets.Add(L)
-
-		var/list/mob/living/targets
-		if(blackboard[BB_TDROID_AGGRESSIVE])
-			targets = alive_enemies | possible_targets
-		else
-			targets = alive_enemies & possible_targets
-		targets = targets - living_pawn - friends
-
-		blackboard[BB_TDROID_INTERACTION_TARGET] = pickweight(targets)
+	blackboard[BB_TDROID_INTERACTION_TARGET] = PickTarget()
 
 	if(!isliving(blackboard[BB_TDROID_INTERACTION_TARGET]))
 		TryHolsterHeldWeapon()
 		return
 
-	if(ShouldFireAt(blackboard[BB_TDROID_INTERACTION_TARGET]))
-		var/obj/item/gun/armed_gun = TryArmGun()
-		if(armed_gun)
-			if(armed_gun.can_shoot() || istype(armed_gun, /obj/item/gun/ballistic) && !ShouldReloadBallistic(armed_gun))
+	var/obj/item/gun/armed_gun = TryArmGun()
+	if(armed_gun)
+		if(armed_gun.can_shoot() || istype(armed_gun, /obj/item/gun/ballistic) && ShouldRackBallistic(armed_gun))
+			if(ShouldFireAt(blackboard[BB_TDROID_INTERACTION_TARGET]))
 				var/aggro_pts = blackboard[BB_TDROID_ENEMIES][blackboard[BB_TDROID_INTERACTION_TARGET]]
 				if(aggro_pts && aggro_pts > 100)
 					current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid/eliminate)
@@ -129,11 +105,12 @@
 						if(!living_pawn.has_status_effect(STATUS_EFFECT_PARALYZED))
 							current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid)
 				return
-			else if(istype(armed_gun, /obj/item/gun/ballistic) && CanFindAmmo(armed_gun))
-				blackboard[BB_TDROID_INTERACTION_TARGET] = armed_gun
-				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_ballistic_reload/tdroid)
-				return
-			TryHolsterHeldWeapon()
+
+		else if(istype(armed_gun, /obj/item/gun/ballistic) && CanFindAmmoBallistic(armed_gun))
+			blackboard[BB_TDROID_INTERACTION_TARGET] = armed_gun
+			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_ballistic_reload/tdroid)
+			return
+		//TryHolsterHeldWeapon()
 
 	//сюда мили
 
@@ -214,6 +191,8 @@
 		return TRUE
 	return FALSE
 
+////////////////////
+
 /datum/ai_controller/tdroid/proc/CanSeeAtom(atom/A)
 	if(A && (pawn in viewers(13, A)))
 		return TRUE
@@ -222,6 +201,8 @@
 /datum/ai_controller/tdroid/proc/CanSeeCommander()
 	return CanSeeAtom(blackboard[BB_TDROID_COMMANDER])
 
+////////////////////
+
 /datum/ai_controller/tdroid/proc/CanMove()
 	var/mob/living/living_pawn = pawn
 	return !(HAS_TRAIT(living_pawn, TRAIT_INCAPACITATED) || IS_IN_STASIS(living_pawn) || living_pawn.stat > 1)
@@ -229,6 +210,8 @@
 /datum/ai_controller/tdroid/proc/CanInteract()
 	var/mob/living/living_pawn = pawn
 	return !(!CanMove() || HAS_TRAIT(living_pawn, TRAIT_HANDS_BLOCKED) || living_pawn.stat)
+
+////////////////////
 
 /datum/ai_controller/tdroid/proc/ShouldUseGun(obj/item/gun/G)
 	if(QDELETED(G))
@@ -239,9 +222,7 @@
 	if(!G.can_shoot())
 		if(istype(G, /obj/item/gun/ballistic))
 			var/obj/item/gun/ballistic/B = G
-			return ShouldReloadBallistic(B)
-		else
-			return FALSE
+			return ShouldRackBallistic(B) || !HasAmmoBallistic(G) && CanFindAmmoBallistic(G)
 	return TRUE
 
 /datum/ai_controller/tdroid/proc/CanArmGun()
@@ -251,16 +232,31 @@
 			return TRUE
 	return FALSE
 
-/datum/ai_controller/tdroid/proc/ShouldReloadBallistic(obj/item/gun/ballistic/B)
-	if(!B)
-		return FALSE
-	if(!B.can_shoot())
-		if(!B.magazine || !B.magazine.ammo_count(FALSE))
+////////////////////
+
+/datum/ai_controller/tdroid/proc/HasAmmoBallistic(obj/item/gun/ballistic/B)
+	return B.magazine && B.magazine.ammo_count(FALSE)
+
+/datum/ai_controller/tdroid/proc/CanFindAmmoBallistic(obj/item/gun/ballistic/B)
+	var/list/atom/accessible_atoms = list(pawn.contents)
+	if(B in pawn.contents)
+		accessible_atoms |= view(1, pawn)
+	for(var/obj/item/ammo_box/box in accessible_atoms)
+		accessible_atoms |= box.stored_ammo
+	for(var/obj/item/ammo_casing/casing in accessible_atoms)
+		if(B.magazine && casing.type == B.magazine.ammo_type && casing.BB)
+			return TRUE
+	for(var/obj/item/ammo_box/magazine/mag in accessible_atoms)
+		if(mag.type == B.mag_type)
 			return TRUE
 	return FALSE
 
-/datum/ai_controller/tdroid/proc/CanFindAmmo(obj/item/gun/ballistic/B)
-	return TRUE // хз потом мб каданить зделою
+/datum/ai_controller/tdroid/proc/ShouldRackBallistic(obj/item/gun/ballistic/B)
+	if(!B.can_shoot() && B.bolt_locked && HasAmmoBallistic(B))
+		return TRUE
+	return FALSE
+
+////////////////////
 
 /datum/ai_controller/tdroid/proc/ShouldTarget(mob/living/L)
 	if(IsCommander(L))
@@ -309,9 +305,7 @@
 	for(var/obj/item/gun/G in view(range, living_pawn))
 		if(!ShouldUseGun(G))
 			continue
-		blackboard[BB_TDROID_FOLLOW_TARGET] = G
-		blackboard[BB_TDROID_INTERACTION_TARGET] = G
-		return TRUE
+		return G
 	for(var/mob/living/carbon/C in view(range, living_pawn))
 		if(C.stat < 2)
 			continue
@@ -320,9 +314,7 @@
 				continue
 			if(!G.canStrip(living_pawn, C))
 				continue
-			blackboard[BB_TDROID_FOLLOW_TARGET] = G
-			blackboard[BB_TDROID_INTERACTION_TARGET] = G
-			return TRUE
+			return G
 	return FALSE
 
 /datum/ai_controller/tdroid/proc/TryHolsterHeldWeapon()
@@ -331,6 +323,36 @@
 	if(!I)
 		return
 	I.equip_to_best_slot(carbon_pawn)
+
+/datum/ai_controller/tdroid/proc/PickTarget(range = 9)
+	var/list/enemies = blackboard[BB_TDROID_ENEMIES]
+	if(enemies && enemies.len || blackboard[BB_TDROID_AGGRESSIVE])
+		var/list/mob/living/friends = GetSquadPawns()
+		if(blackboard[BB_TDROID_COMMANDER])
+			friends.Add(blackboard[BB_TDROID_COMMANDER])
+
+		var/list/mob/living/alive_enemies = list()
+		for(var/mob/living/L in enemies)
+			if(L.stat == DEAD)
+				continue
+			alive_enemies.Add(L)
+
+		var/list/mob/living/possible_targets = list()
+		for(var/mob/living/L in view(range, pawn))
+			if(L.stat == DEAD)
+				continue
+			if(!ShouldTarget(L))
+				continue
+			possible_targets.Add(L)
+
+		var/list/mob/living/targets
+		if(blackboard[BB_TDROID_AGGRESSIVE])
+			targets = alive_enemies | possible_targets
+		else
+			targets = alive_enemies & possible_targets
+		targets = targets - pawn - friends
+
+		return pickweight(targets)
 
 /////////////////////////////////хз
 
