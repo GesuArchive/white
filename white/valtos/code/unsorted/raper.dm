@@ -281,7 +281,7 @@
 
 	controller.blackboard[BB_RAPER_FUCKING] = TRUE
 
-	while(target)
+	if(target)
 		for(var/obj/item/W in target)
 			if(istype(W, /obj/item/restraints))
 				continue
