@@ -1,4 +1,7 @@
-//clothing
+//obj/item/clothing/glasses
+
+
+
 /obj/item/clothing/glasses/leforge
 	name = "Le forge"
 	desc = "Аля форж"
@@ -51,7 +54,7 @@
 	tint = 1
 
 /obj/item/clothing/glasses/welding/r
-	name = "New welding goggles"
+	name = "welding goggles"
 	desc = "Protects the eyes from bright flashes; approved by the mad scientist association."
 	icon = 'white/Wzzzz/clothing/glasses.dmi'
 	worn_icon = 'white/Wzzzz/clothing/mob/eyes.dmi'
@@ -64,3 +67,6 @@
 	visor_vars_to_toggle = VISOR_FLASHPROTECT | VISOR_TINT
 	flags_cover = GLASSESCOVERSEYES
 	glass_colour_type = /datum/client_colour/glass_colour/green
+
+/obj/item/clothing/glasses/hud/health/night/red
+	icon_state = "securityhudnight"

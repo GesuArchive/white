@@ -1,100 +1,6 @@
-//masks
-
-/obj/item/clothing/mask/balaclava/swatclava
-	name = "балаклава"
-	desc = "Легко скроет вашу улыбку на лице."
-	worn_icon = 'white/Wzzzz/pirha1.dmi'
-	icon = 'white/Wzzzz/pirha.dmi'
-	icon_state = "swatclava"
-	inhand_icon_state = "swatclava"
-
-/obj/item/clothing/mask/balaclava/swatclava/grey
-	icon_state = "swatclavag"
-	inhand_icon_state = "swatclavag"
-
-/obj/item/clothing/mask/balaclava/swatclava/black
-	icon_state = "swatclavab"
-	inhand_icon_state = "swatclavab"
-
-/obj/item/clothing/mask/balaclava/balaclavager
-	name = "balaclava"
-	desc = "German balaclava."
-	worn_icon = 'white/Wzzzz/pirha1.dmi'
-	icon = 'white/Wzzzz/pirha.dmi'
-	icon_state = "balaclava"
+//obj/item/clothing/gloves
 
 
-/obj/item/clothing/mask/balaclava/balaclavager
-	name = "balaclava"
-	desc = "German balaclava."
-	worn_icon = 'white/Wzzzz/pirha1.dmi'
-	icon = 'white/Wzzzz/pirha.dmi'
-	icon_state = "balaclava"
-
-/obj/item/clothing/mask/balaclava/balaclavager/grey
-	icon_state = "balaclavag"
-
-/obj/item/clothing/mask/balaclava/balaclavager/black
-	icon_state = "balaclavagb"
-
-/obj/item/clothing/shoes/combat/blackger
-	name = "black Boots"
-	desc = "Looks stylish"
-	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
-	icon = 'white/Wzzzz/clothing/shoes.dmi'
-	icon_state = "black_boots"
-	inhand_icon_state = "black_boots"
-
-/obj/item/clothing/shoes/slippers
-	name = "slippers"
-	desc = "I think you understand all yourself"
-	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
-	icon = 'white/Wzzzz/clothing/shoes.dmi'
-	icon_state = "slippers"
-	inhand_icon_state = "slippers"
-
-/obj/item/clothing/shoes/digiboots
-	name = "dig boots"
-	desc = "I hope you understand all yourself"
-	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
-	icon = 'white/Wzzzz/clothing/shoes.dmi'
-	icon_state = "digiboots"
-	inhand_icon_state = "digiboots"
-
-/obj/item/clothing/shoes/flippers
-	name = "flippers"
-	desc = "I think you understand all yourself"
-	worn_icon = 'white/Wzzzz/clothing/mob/feet.dmi'
-	icon = 'white/Wzzzz/clothing/shoes.dmi'
-	icon_state = "flippers"
-	inhand_icon_state = "flippers"
-
-/obj/item/clothing/mask/gas/full
-	name = "gas mask"
-	desc = "A face-covering mask that can be connected to an air supply. Filters harmful gases from the air."
-	icon_state = "fullgas"
-	worn_icon = 'white/Wzzzz/clothing/mob/mask.dmi'
-	icon = 'white/Wzzzz/clothing/masks.dmi'
-	flags_inv = HIDEEARS|HIDEFACE|HIDEFACIALHAIR
-	visor_flags_inv = HIDEEARS|HIDEFACE|HIDEFACIALHAIR
-	dynamic_fhair_suffix = ""
-	clothing_flags = STOPSPRESSUREDAMAGE
-	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	resistance_flags = NONE
-	inhand_icon_state = "fullgas"
-	armor = list(melee = 5, bullet = 5, laser = 5, energy = 0, bomb = 0, bio = 75, rad = 0)
-
-
-/obj/item/clothing/mask/breath/half
-	name = "face mask"
-	desc = "A compact, durable gas mask that can be connected to an air supply."
-	icon_state = "halfgas"
-	inhand_icon_state = "halfgas"
-	worn_icon = 'white/Wzzzz/clothing/mob/mask.dmi'
-	icon = 'white/Wzzzz/clothing/masks.dmi'
-	dynamic_fhair_suffix = ""
-	armor = list(melee = 10, bullet = 10, laser = 10, energy = 0, bomb = 0, bio = 55, rad = 0)
 
 /obj/item/clothing/gloves/combat/black_gloves
 	name = "long black gloves"
@@ -124,3 +30,33 @@
 	worn_icon = 'white/Wzzzz/pirha1.dmi'
 	icon_state = "evening_glovesd"
 	inhand_icon_state = "evening_glovesd"
+
+/obj/item/clothing/gloves/combat/evening_gloves
+	name = "evening gloves"
+	desc = "Evening gloves."
+	worn_icon = 'white/Wzzzz/clothing/mob/hands.dmi'
+	icon = 'white/Wzzzz/clothing/gloves.dmi'
+	icon_state = "evening_gloves"
+	inhand_icon_state = "evening_gloves"
+	siemens_coefficient = 0
+	permeability_coefficient = 0.05
+	strip_delay = 100
+	cold_protection = HANDS
+	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
+	heat_protection = HANDS
+	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
+	resistance_flags = NONE
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 100, "rad" = 0, "fire" = 50, "acid" = 75)
+
+/obj/item/clothing/gloves/combat/evening_gloves/rubber_gloves
+	icon_state = "rubber_gloves"
+	inhand_icon_state = "rubber_gloves"
+	worn_icon = 'white/Wzzzz/clothing/mob/hands.dmi'
+	icon = 'white/Wzzzz/clothing/gloves.dmi'
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 30)
+
+/obj/item/clothing/gloves/combat/co
+	icon_state = "co_gloves"
+	inhand_icon_state = "co_gloves"
+	worn_icon = 'white/Wzzzz/clothing/mob/hands.dmi'
+	icon = 'white/Wzzzz/clothing/gloves.dmi'

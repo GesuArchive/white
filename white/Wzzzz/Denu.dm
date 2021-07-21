@@ -1,7 +1,45 @@
-//что это блядь такое и зачем оно нам нужно
+/obj/item/clothing/suit/mob
+	name = "mob suit"
+	desc = "Looks like mob, feels like human."
+	worn_icon = 'white/Wzzzz/Souls/souls.dmi'
+	icon = 'white/Wzzzz/Souls/soultem.dmi'
+	drop_sound = null
+	pickup_sound =  null
+	blood_overlay_type = null
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS|HEAD|FULL_BODY
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEMASK|HIDEJUMPSUIT
+	visor_flags_inv = HIDEEYES|HIDEFACE|HIDEFACIALHAIR|HIDEHAIR|HIDEEARS|HIDEJUMPSUIT|HIDENECK|FULL_BODY
+	cold_protection = CHEST|GROIN|LEGS|ARMS|HEAD|FULL_BODY
+	heat_protection = CHEST|GROIN|LEGS|ARMS|HEAD|FULL_BODY
+	clothing_flags = BLOCKS_SHOVE_KNOCKDOWN|BLOCK_GAS_SMOKE_EFFECT
+	resistance_flags = LAVA_PROOF|FIRE_PROOF|UNACIDABLE|FREEZE_PROOF
+	w_class = 4
+	flags_cover = HEADCOVERSMOUTH|PEPPERPROOF|HEADCOVERSEYES
+	visor_flags_cover = HEADCOVERSEYES|HEADCOVERSMOUTH|PEPPERPROOF
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	
+t/syndi/elite/null
+/obj/item/clothing/suit/mob/faithless
+	icon_state = "faithless"
+	inhand_icon_state = "faithless"
+	flags_1 = NONE
+
+/obj/item/clothing/suit/mob/standing
+	icon_state = "standing"
+	inhand_icon_state = "standing"
+	visor_flags_inv = NONE|HIDEHAIR
+	flags_inv = NONE|HIDEHAIR
+	flags_1 = NONE
+
+/obj/item/clothing/suit/mob/ash_whelp
+	icon_state = "ash_whelp"
+	inhand_icon_state = "ash_whelp"
+	flags_1 = NONE
+
 /obj/item/food/meat/slab/human/mutant/shadow
 	icon_state = "golemmeat"
-//что это блядь такое и зачем оно нам нужно
+
 /datum/species/human/husk
 	name = "husk"
 	id = "husk"
@@ -43,17 +81,12 @@
 	//facialhair_hidden = TRUE
 	//hair_hidden = TRUE
 
-
-//что это блядь такое и зачем оно нам нужно
 /obj/item/organ/liver/fly/xyz
 	color = "#808080"
-/*
-white\valtos\code\unsorted\ipc.dm:19:error: /obj/item/organ/brain/xyz: undefined type path
-ебал сладко
-*/
+
 /obj/item/organ/brain/xyz
 	color = "#808080"
-//что это блядь такое и зачем оно нам нужно
+
 /obj/item/organ/heart/xyz
 	color = "#808080"
 
@@ -110,28 +143,70 @@ white\valtos\code\unsorted\ipc.dm:19:error: /obj/item/organ/brain/xyz: undefined
 			4 = 1.67772e+007,
 			5 = 0,
 			6 = 0))
-//	hand_bodyparts = list(
-//		/obj/item/bodypart/l_arm/h,
-//		/obj/item/bodypart/r_arm/h)
-//что это блядь такое и зачем оно нам нужно
+	hand_bodyparts = list(
+		/obj/item/bodypart/l_arm/h,
+		/obj/item/bodypart/r_arm/h)
+
 /obj/item/bodypart/r_arm/h
 	max_stamina_damage = 30
 	max_damage = 25
 	siemens_coefficient = 10
-//что это блядь такое и зачем оно нам нужно
+
 /obj/item/bodypart/l_arm/h
 	max_stamina_damage = 30
 	max_damage = 25
 	siemens_coefficient = 10
 
-
-//ванотян хуй жрал
-/*
-/obj/structure/closet/crate/coffin/blackcoffin
+/obj/structure/closet/crate/coffin/blackcoffin/ambush
 	desc = "It's watching you suspiciously."
 	resistance_flags = FREEZE_PROOF|FIRE_PROOF
 
-/obj/structure/closet/crate/coffin/blackcoffin/PopulateContents()
+/obj/structure/closet/crate/coffin/blackcoffin/ambush/PopulateContents()
 	new /mob/living/simple_animal/hostile/vanya/killermeat(src)
-*/
 
+/mob/living/simple_animal/hostile/pirate/ranged/space
+	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
+
+/mob/living/simple_animal/hostile/pirate/melee/space
+	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
+
+/mob/living/simple_animal/hostile/russian/ranged/officer
+	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
+
+/mob/living/simple_animal/hostile/russian
+	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
+
+/mob/living/simple_animal/hostile/russian/ranged
+	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
+
+/mob/living/simple_animal/hostile/syndicate
+	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
+
+/mob/living/simple_animal/hostile/syndicate/melee/sword
+	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
+
+/mob/living/simple_animal/hostile/syndicate/melee/sword/space
+	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
+
+/mob/living/simple_animal/hostile/syndicate/ranged/smg
+	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
+
+/mob/living/simple_animal/hostile/syndicate/ranged/smg/space
+	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
+
+//mob/living/simple_animal/hostile/syndicate/ranged/shotgun/space/stormtrooper
+//	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
+
+/mob/living/simple_animal/hostile/faithless
+	icon = 'white/Wzzzz/icons/Ora/li/simple_human.dmi'
+	maxHealth = 100
+	melee_damage_lower = 20
+	melee_damage_upper = 20
+	unsuitable_atmos_damage = 5
+	harm_intent_damage = 15
+
+/obj/item/reagent_containers/food/drinks/bottle/molotov
+	reagents = list(/datum/reagent/napalm = 100)
+
+/obj/item/spear/explosive
+	explosive = /obj/item/grenade/frag
