@@ -71,7 +71,7 @@
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
 	ears = /obj/item/radio/headset/headset_cent/alt
-	//mask = /obj/item/clothing/mask/balaclava/swatclava/grey
+	mask = /obj/item/clothing/mask/balaclava/swatclava/grey
 	belt = /obj/item/storage/belt/military/spetsnaz
 	id = /obj/item/card/id/advanced/centcom/spetsnaz
 	id_trim = /datum/id_trim/centcom/spetsnaz
