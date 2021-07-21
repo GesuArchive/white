@@ -266,7 +266,7 @@
 	var/missed = TRUE
 	sharpness = SHARP_POINTY
 
-obj/item/medwep/pilum/embedded(atom/target)
+/obj/item/medwep/pilum/embedded(atom/target)
 	if(isbodypart(target))
 		missed = FALSE
 
