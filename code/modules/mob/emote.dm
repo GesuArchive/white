@@ -53,18 +53,21 @@
 		return
 	if(isliving(user))
 		var/mob/living/flippy_mcgee = user
-		if(prob(20))
-			flippy_mcgee.Knockdown(1 SECONDS)
+		if(prob(90) && !(HAS_TRAIT(user, TRAIT_FREERUNNING)))
+			flippy_mcgee.Knockdown(5 SECONDS)
 			flippy_mcgee.visible_message(
-				"<span class='notice'>[flippy_mcgee] attempts to do a flip and falls over, what a doofus!</span>",
-				"<span class='notice'>You attempt to do a flip while still off balance from the last flip and fall down!</span>"
+				"<span class='notice'>[flippy_mcgee] пытается сделать кувырок и падает на голову, во чудила!</span>",
+				"<span class='notice'>Пытаюсь сделать изящный кувырок, но спотыкаюсь и падаю!</span>"
 			)
-			if(prob(50))
-				flippy_mcgee.adjustBruteLoss(1)
+			if(prob(75))
+				flippy_mcgee.adjustBruteLoss(5)
+				if(prob(10))
+					var/obj/item/bodypart/neckflip = flippy_mcgee.get_bodypart(BODY_ZONE_HEAD)
+					neckflip.force_wound_upwards(/datum/wound/blunt/critical)
 		else
 			flippy_mcgee.visible_message(
-				"<span class='notice'>[flippy_mcgee] stumbles a bit after their flip.</span>",
-				"<span class='notice'>You stumble a bit from still being off balance from your last flip.</span>"
+				"<span class='notice'>[flippy_mcgee] пытается удержать баланс после прыжка.</span>",
+				"<span class='notice'>Ух...</span>"
 			)
 
 /datum/emote/spin
