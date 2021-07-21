@@ -226,3 +226,21 @@
 /obj/item/clothing/head/hos/beret/spetsnaz // ДАААААА БЛЯДЬ МЫ СОЗДАЕМ 99993393 ТИПОВ ОБЪЕКТОВ С РАЗНИЦЕЙ ЛИШЬ В ОПИСАНИИ ДААА БЛЯЯДЬ ДАА!!!!11
 	name = "берет спецназа"
 	desc = "Прочный черный берет, показывающий его обладателя как самого настоящего профессионала в своем деле. В каком - пока что неизвестно."
+
+// потом перемещу это говно, мне впадлу
+
+/obj/item/clothing/mask/balaclava/swatclava
+	name = "балаклава"
+	desc = "Легко скроет вашу улыбку на лице."
+	worn_icon = 'white/Wzzzz/pirha1.dmi'
+	icon = 'white/Wzzzz/pirha.dmi'
+	icon_state = "swatclava"
+	inhand_icon_state = "swatclava"
+
+/obj/item/clothing/mask/balaclava/swatclava/grey
+	icon_state = "swatclavag"
+	inhand_icon_state = "swatclavag"
+
+/obj/item/clothing/mask/balaclava/swatclava/black
+	icon_state = "swatclavab"
+	inhand_icon_state = "swatclavab"
