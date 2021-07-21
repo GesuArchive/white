@@ -267,7 +267,7 @@
 		return FALSE
 	if(IsSquadMember(L))
 		return FALSE
-	if(blackboard[BB_TDROID_COMMANDER] && IsInCommandersFaction(L) && !blackboard[BB_TDROID_AGGRESSIVE])
+	if(!blackboard[BB_TDROID_AGGRESSIVE] && blackboard[BB_TDROID_COMMANDER] && IsInCommandersFaction(L))
 		return FALSE
 	return TRUE
 
@@ -339,28 +339,21 @@
 		if(blackboard[BB_TDROID_COMMANDER])
 			friends.Add(blackboard[BB_TDROID_COMMANDER])
 
-		var/list/mob/living/alive_enemies = list()
+		var/list/mob/living/possible_targets = list()
 		for(var/mob/living/L in enemies)
 			if(L.stat == DEAD)
 				continue
-			alive_enemies.Add(L)
-
-		var/list/mob/living/possible_targets = list()
-		for(var/mob/living/L in view(range, pawn))
-			if(L.stat == DEAD)
-				continue
-			if(!ShouldTarget(L))
-				continue
 			possible_targets.Add(L)
 
-		var/list/mob/living/targets
 		if(blackboard[BB_TDROID_AGGRESSIVE])
-			targets = alive_enemies | possible_targets
-		else
-			targets = alive_enemies & possible_targets
-		targets = targets - pawn - friends
+			for(var/mob/living/L in view(range, pawn))
+				if(L.stat == DEAD)
+					continue
+				possible_targets |= L
 
-		return pickweight(targets)
+		possible_targets = possible_targets - pawn - friends
+
+		return pickweight(possible_targets)
 
 /////////////////////////////////хз
 
