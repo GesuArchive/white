@@ -1,5 +1,3 @@
-#define DRONE_MINIMUM_AGE 14
-
 ///////////////////
 //DRONES AS ITEMS//
 ///////////////////
@@ -12,8 +10,8 @@
  */
 
 /obj/effect/mob_spawn/drone
-	name = "drone shell"
-	desc = "A shell of a maintenance drone, an expendable robot built to perform station repairs."
+	name = "оболочка дрона"
+	desc = "Оболочка дрона, многофункциональный робот созданный для ремонта станции"
 	icon = 'icons/mob/drone.dmi'
 	icon_state = "drone_maint_hat" //yes reuse the _hat state.
 	layer = BELOW_MOB_LAYER
@@ -28,8 +26,10 @@
 	. = ..()
 	var/area/A = get_area(src)
 	if(A)
-		notify_ghosts("A drone shell has been created in [A.name].", source = src, action=NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_DRONE, notify_suiciders = FALSE)
+		notify_ghosts("Оболочка дрона была создана в локации [A.name].", source = src, action=NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_DRONE, notify_suiciders = FALSE)
 	AddElement(/datum/element/point_of_interest)
+
+#define DRONE_MINIMUM_AGE 14
 
 //ATTACK GHOST IGNORING PARENT RETURN VALUE
 /obj/effect/mob_spawn/drone/attack_ghost(mob/user)
@@ -37,6 +37,8 @@
 		if(!isnum(user.client.player_age)) //apparently what happens when there's no DB connected. just don't let anybody be a drone without admin intervention
 			return
 		if(user.client.player_age < DRONE_MINIMUM_AGE)
-			to_chat(user, "<span class='danger'>You're too new to play as a drone! Please try again in [DRONE_MINIMUM_AGE - user.client.player_age] days.</span>")
+			to_chat(user, "<span class='danger'>Пока рано! Попробуй через [DRONE_MINIMUM_AGE - user.client.player_age] дней.</span>")
 			return
 	. = ..()
+
+#undef DRONE_MINIMUM_AGE

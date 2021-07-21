@@ -30,7 +30,10 @@
 	for(var/i in 2 to cril.len)
 		if(text_in_list(cril[i]["servername"], badlist))
 			if(text2num(cril[i]["count"]) > 360)
-				message_admins("[key_name(src)] из [cril[i]["servername"]](<a href='https://crawler.station13.ru/?ckey=[ckey]'>?</a>).")
+				if(clear_sanity)
+					message_admins("[ADMIN_LOOKUPFLW(src)] имеет грязь.")
+				else
+					message_admins(" >>> [cril[i]["servername"]] ([cril[i]["count"]]m).")
 				clear_sanity = FALSE
 
 	return clear_sanity

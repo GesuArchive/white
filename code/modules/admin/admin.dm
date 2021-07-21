@@ -89,6 +89,7 @@
 		body += "<br><b>Страна:</b> [M.client.get_loc_info()["country"]]"
 		if(check_rights(R_PERMISSIONS, show_msg = FALSE))
 			body += " | Город: [M.client.get_loc_info()["city"]]"
+		body += "<br><b>Crawler:</b> <a href='https://crawler.station13.ru/?ckey=[M.client.ckey]'>INFO</a>"
 		var/rep = 0
 		rep += SSpersistence.antag_rep[M.ckey]
 		body += "<br><b>Антаг-репа:</b> [rep] "
@@ -128,7 +129,7 @@
 
 	body += "<b>Моб</b> = [M.type]<br><br>"
 
-	body += "<b>Кара: </b><A href='?_src_=holder;[HrefToken()];boot2=[REF(M)]'>Kick</A>"
+	body += "<b>Кара: </b><A href='?_src_=holder;[HrefToken()];boot2=[REF(M)]'>Кик</A>"
 	if(M.client)
 		body += "<A href='?_src_=holder;[HrefToken()];newbankey=[M.key];newbanip=[M.client.address];newbancid=[M.client.computer_id]'>Бан</A>"
 	else
