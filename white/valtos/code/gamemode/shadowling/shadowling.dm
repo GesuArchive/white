@@ -156,13 +156,13 @@ Made by Xhuis
 	var/last_charge = 0
 
 /datum/species/shadow/ling/on_species_gain(mob/living/carbon/human/C)
-	C.draw_yogs_parts(TRUE)
+	C.draw_custom_races(TRUE)
 	eyes_overlay = mutable_appearance('white/valtos/icons/sling.dmi', "eyes", 25)
 	C.add_overlay(eyes_overlay)
 	. = ..()
 
 /datum/species/shadow/ling/on_species_loss(mob/living/carbon/human/C)
-	C.draw_yogs_parts(FALSE)
+	C.draw_custom_races(FALSE)
 	if(eyes_overlay)
 		C.cut_overlay(eyes_overlay)
 		QDEL_NULL(eyes_overlay)
@@ -273,12 +273,12 @@ Made by Xhuis
 /////BODYPARTS/////
 ////////////////////
 /obj/item/bodypart
-	var/should_draw_yogs = FALSE
+	var/should_draw_custom_races = FALSE
 
-/mob/living/carbon/proc/draw_yogs_parts(do_it)
+/mob/living/carbon/proc/draw_custom_races(do_it)
 	for(var/O in bodyparts)
 		var/obj/item/bodypart/B = O
-		B.should_draw_yogs = do_it
+		B.should_draw_custom_races = do_it
 
 /datum/species
 	var/yogs_draw_robot_hair = FALSE //DAMN ROBOTS STEALING OUR HAIR AND AIR

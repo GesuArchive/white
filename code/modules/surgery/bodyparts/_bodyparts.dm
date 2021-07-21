@@ -860,7 +860,7 @@
 				limb.icon_state = "[species_id]_[body_zone]"
 		// hippie end
 		// yogs start
-		if(should_draw_yogs)
+		if(should_draw_custom_races)
 			limb.icon = 'white/valtos/icons/mutant_bodyparts.dmi'
 			if(should_draw_gender)
 				limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
@@ -880,7 +880,7 @@
 		if(aux_zone)
 			aux = image(limb.icon, "[aux_zone]", -aux_layer, image_dir)
 			. += aux
-		if(should_draw_white)
+		if(should_draw_custom_android)
 			limb.icon = 'white/valtos/icons/android_skins.dmi'
 			limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
 		return

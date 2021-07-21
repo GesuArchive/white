@@ -2220,6 +2220,12 @@
 	color_src = HAIR
 	icon = 'white/valtos/icons/mutant_bodyparts.dmi'
 
+/datum/sprite_accessory/tails/human/pig
+	name = "Pig"
+	icon_state = "pig"
+	icon = 'white/valtos/icons/mutant_bodyparts.dmi'
+	locked = TRUE
+
 /datum/sprite_accessory/tails/monkey/default
 	name = "Monkey"
 	icon_state = "monkey"
@@ -2283,6 +2289,11 @@
 	icon_state = "cat"
 	hasinner = 1
 	color_src = HAIR
+
+/datum/sprite_accessory/ears/pig
+	name = "Pig"
+	icon_state = "pig"
+	icon = 'white/valtos/icons/mutant_bodyparts.dmi'
 
 /datum/sprite_accessory/wings/none
 	name = "None"
