@@ -76,7 +76,7 @@
 		else
 			name = real_name
 		if(name != real_name)
-			alt_name = " (died as [real_name])"
+			alt_name = " (как [real_name])"
 
 	var/spanned = say_quote(message)
 	var/source = "<span class='game'><span class='prefix'>Призрак</span> <span class='name'>[name]</span>[alt_name]"
