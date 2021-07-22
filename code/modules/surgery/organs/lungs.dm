@@ -103,6 +103,12 @@
 			H.throw_alert("not_enough_nitro", /atom/movable/screen/alert/not_enough_nitro)
 		return FALSE
 
+	for(var/gas_id in GLOB.meta_gas_info)
+		breath.assert_gas(gas_id)
+
+	if(breather.wear_mask && breather.wear_mask.clothing_flags & GAS_FILTERING && breather.wear_mask.has_filter == TRUE)
+		breath = breather.wear_mask.consume_filter(breath)
+
 	var/gas_breathed = 0
 
 	var/O2_pp = breath.get_breath_partial_pressure(breath.get_moles(/datum/gas/oxygen))+(8*breath.get_breath_partial_pressure(breath.get_moles(/datum/gas/pluoxium)))

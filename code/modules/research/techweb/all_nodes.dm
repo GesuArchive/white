@@ -55,8 +55,8 @@
 		"space_heater",
 		"tech_disk",
 		"titaniumglass",
-//		"gas_filter",
-//		"plasmaman_gas_filter",
+		"gas_filter",
+		"plasmaman_gas_filter",
 		"oven_tray"
 	)
 
