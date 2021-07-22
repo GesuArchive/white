@@ -12,6 +12,8 @@
 	desc = "Симптомы заставляют зараженный субъект непроизвольно эякулировать."
 	disease_flags = CAN_CARRY|CAN_RESIST|CURABLE
 	permeability_mod = 1
+	bypasses_immunity = TRUE
+	infectable_biotypes = MOB_ORGANIC|MOB_UNDEAD|MOB_ROBOTIC|MOB_MINERAL
 	severity = DISEASE_SEVERITY_BIOHAZARD
 
 /datum/disease/cumvirus/stage_act(delta_time, times_fired)
