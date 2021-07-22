@@ -1737,6 +1737,14 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	exclude_modes = list(/datum/game_mode/nuclear, /datum/game_mode/nuclear/clown_ops)
 	surplus = 0
 
+/datum/uplink_item/role_restricted/cumvirus_kit
+	name = "Cumthiris Virus"
+	desc = "Экспериментальное биооружие, призванное легко выводить из строя членов экипажа. Симптомы включают в себя возбуждение, кашель, потеря рассудка половое влечение к субъектам. Тем не менее, легко лечится с помощью смеси галоперидола и святой воды."
+	item = /obj/item/storage/box/syndie_kit/cumvirus
+	cost = 25
+	cant_discount = TRUE
+	restricted_roles = list("Medical Doctor", "Chief Medical Officer", "Virologist")
+
 /datum/uplink_item/role_restricted/ancient_jumpsuit
 	name = "Ancient Jumpsuit"
 	desc = "A tattered old jumpsuit that will provide absolutely no benefit to you."
