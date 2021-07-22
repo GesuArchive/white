@@ -69,6 +69,8 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/ai_behavior/carbon_unarmed
+	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT
+
 	var/target_key
 
 	var/unarmed_hand = RIGHT_HANDS
@@ -79,6 +81,10 @@
 	. = ..()
 	var/mob/living/living_target = controller.blackboard[target_key]
 	var/mob/living/carbon/carbon_pawn = controller.pawn
+
+	if(get_dist(carbon_pawn, living_target) > 1)
+		controller.current_movement_target = living_target
+		return
 
 	if(!bypass_cd_check)
 		if(carbon_pawn.next_move > world.time)
@@ -92,16 +98,32 @@
 	if(carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(unarmed_hand)))
 		make_the_amogusu_momento(carbon_pawn, living_target)
 
-/datum/ai_behavior/carbon_unarmed/proc/make_the_amogusu_momento(mob/living/carbon/attacker, mob/living/attacked)
+/datum/ai_behavior/carbon_unarmed/proc/make_the_amogusu_momento(mob/living/carbon/carbon_pawn, mob/living/target)
+	if(should_disarm(carbon_pawn, target))
+		carbon_pawn.a_intent = INTENT_DISARM
+		carbon_pawn.UnarmedAttack(target)
 
+	if(should_grab(carbon_pawn, target))
+		carbon_pawn.a_intent = INTENT_GRAB
+		carbon_pawn.UnarmedAttack(target)
 
+	carbon_pawn.a_intent = INTENT_HARM
+	carbon_pawn.UnarmedAttack(target)
 
-/datum/ai_behavior/carbon_unarmed/proc/should_disarm(mob/living/carbon/attacker, mob/living/attacked)
+/datum/ai_behavior/carbon_unarmed/proc/should_disarm(mob/living/carbon/carbon_pawn, mob/living/target)
+	var/turf/T = get_step(target, get_dir(carbon_pawn, target))
+	for(var/atom/A in T)
+		if(A.density)
+			return TRUE
+	return FALSE
 
+/datum/ai_behavior/carbon_unarmed/proc/should_grab(mob/living/carbon/carbon_pawn, mob/living/target)
+	return target.body_position == LYING_DOWN
 
 /datum/ai_behavior/carbon_unarmed/finish_action(datum/ai_controller/controller, succeeded)
 	. = ..()
-
+	controller.current_movement_target = null
+	controller.blackboard[target_key] = null
 ////////////////////////////////////////////////////////////////////
 
-/datum/ai_behavior/carbon_unarmed/cqc/make_the_amogusu_momento(mob/living/carbon/attacker, mob/living/attacked)
+/datum/ai_behavior/carbon_unarmed/cqc/make_the_amogusu_momento(mob/living/carbon/attacker, mob/living/target)
