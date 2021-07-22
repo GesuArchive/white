@@ -1,5 +1,5 @@
 /datum/disease/cumvirus
-	name = "Cum Virus"
+	name = "Cumthiris+61"
 	max_stages = 6
 	stage_prob = 1
 	spread_text = "On contact"
@@ -7,7 +7,7 @@
 	spread_flags = DISEASE_SPREAD_CONTACT_FLUIDS
 	cures = list(/datum/reagent/medicine/haloperidol,/datum/reagent/water/holywater)
 	cure_chance = 7.5
-	agent = "Cumthiris+61"
+	agent = "Cumthiris"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	desc = "Симптомы заставляют зараженный субъект непроизвольно эякулировать."
 	disease_flags = CAN_CARRY|CAN_RESIST|CURABLE
