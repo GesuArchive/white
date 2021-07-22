@@ -10,7 +10,6 @@
 						BB_TDROID_INTERACTION_TARGET 		= null,\
 						BB_TDROID_FOLLOW_TARGET				= null\
 	)
-	var/talkative = FALSE
 
 /datum/ai_controller/tdroid/TryPossessPawn(atom/new_pawn)
 	if(!iscarbon(new_pawn))
@@ -87,27 +86,27 @@
 	if(!isliving(blackboard[BB_TDROID_INTERACTION_TARGET]))
 		TryHolsterHeldWeapon()
 		return
+	var/mob/living/living_target = blackboard[BB_TDROID_INTERACTION_TARGET]
 
 	var/obj/item/gun/armed_gun = TryArmGun()
 	if(armed_gun)
 		if(armed_gun.can_shoot() || istype(armed_gun, /obj/item/gun/ballistic) && ShouldRackBallistic(armed_gun))
-			if(ShouldFireGunAt(armed_gun, blackboard[BB_TDROID_INTERACTION_TARGET]))
-				var/aggro_pts = blackboard[BB_TDROID_ENEMIES][blackboard[BB_TDROID_INTERACTION_TARGET]]
+			if(ShouldFireGunAt(armed_gun, living_target))
+				var/aggro_pts = blackboard[BB_TDROID_ENEMIES][living_target]
 				if(aggro_pts && aggro_pts > 100)
 					current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid/eliminate)
 				else if (aggro_pts && aggro_pts > 50 || blackboard[BB_TDROID_AGGRESSIVE])
 					current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid)
 				else
 					var/datum/component/aiming/aiming = armed_gun.GetComponent(/datum/component/aiming)
-					if(aiming && isliving(blackboard[BB_TDROID_INTERACTION_TARGET]))
-						aiming.aim(living_pawn, blackboard[BB_TDROID_INTERACTION_TARGET])
+					if(aiming)
+						aiming.aim(living_pawn, living_target)
 					spawn(4 SECONDS)
-						if(!blackboard[BB_TDROID_INTERACTION_TARGET].has_status_effect(STATUS_EFFECT_PARALYZED))
+						if(!living_target.has_status_effect(STATUS_EFFECT_PARALYZED))
 							current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_shooting/tdroid)
 				return
 
 		else if(istype(armed_gun, /obj/item/gun/ballistic) && CanFindAmmoBallistic(armed_gun))
-			SayIfTalkative("Перезаряжаюсь")
 			blackboard[BB_TDROID_INTERACTION_TARGET] = armed_gun
 			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_ballistic_reload/tdroid)
 			return
@@ -122,9 +121,7 @@
 
 /datum/ai_controller/tdroid/proc/RegisterCommander(mob/living/commander)
 	if(!commander)
-		SayIfTalkative("Коммандир не обнаружен.")
 		return
-	SayIfTalkative("Коммандир обнаружен: [commander.name].")
 	blackboard[BB_TDROID_COMMANDER] = commander
 	RegisterSignal(commander, COMSIG_MOB_POINTED, .proc/on_commander_pointed)
 	RegisterSignal(commander, COMSIG_MOVABLE_MOVED, .proc/on_commander_moved)
@@ -139,7 +136,6 @@
 	var/mob/living/commander = blackboard[BB_TDROID_COMMANDER]
 	if(!commander)
 		return
-	SayIfTalkative("Cброс коммандира.")
 	UnregisterSignal(commander, list(\
 								COMSIG_MOB_POINTED,\
 								COMSIG_MOVABLE_MOVED\
@@ -370,11 +366,6 @@
 		else
 			order = "java.lang.NullPointerException at com.tacticalcore.order.ExecuteOrder.main(ExecuteOrder.java:419)"
 	living_pawn.say("Директива [order]")
-
-/datum/ai_controller/tdroid/proc/SayIfTalkative(text)
-	if(talkative && pawn)
-		var/mob/living/living_pawn = pawn
-		living_pawn.say("[text]")
 
 /datum/ai_controller/tdroid/proc/AgressionReact(mob/agressor, severity = 30)
 	if(IsCommander(agressor) || IsSquadMember(agressor))

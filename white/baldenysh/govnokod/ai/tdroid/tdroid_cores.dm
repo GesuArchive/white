@@ -1,6 +1,5 @@
 /datum/ai_controller/tdroid/core
 	continue_processing_when_client = TRUE
-	talkative = TRUE
 
 /obj/item/organ/tactical_core
 	name = "тактическое ядро"
