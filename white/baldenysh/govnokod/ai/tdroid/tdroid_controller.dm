@@ -111,8 +111,7 @@
 			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_ballistic_reload/tdroid)
 			return
 
-
-	//сюда мили
+	current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/carbon_unarmed/tdroid)
 
 ///datum/ai_controller/tdroid/PerformIdleBehavior(delta_time)
 //	return

@@ -15,3 +15,6 @@
 
 /datum/ai_behavior/carbon_ballistic_reload/tdroid
 	ballistic_target_key  = BB_TDROID_INTERACTION_TARGET
+
+/datum/ai_behavior/carbon_unarmed/tdroid
+	target_key = BB_TDROID_INTERACTION_TARGET
