@@ -74,7 +74,7 @@
 	var/target_key
 
 	var/unarmed_hand = RIGHT_HANDS
-	var/required_stat = UNCONSCIOUS
+	var/required_stat = SOFT_CRIT
 	var/bypass_cd_check = FALSE
 
 /datum/ai_behavior/carbon_unarmed/perform(delta_time, datum/ai_controller/controller)
