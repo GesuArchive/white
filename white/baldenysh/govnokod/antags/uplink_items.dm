@@ -8,6 +8,6 @@
 	name = "Набор тактических ядер"
 	desc = "Прямо как у кошкожен из ан*ме."
 	item = /obj/item/storage/box/syndie_kit/tacticalcore
-	cost = 16
+	cost = 11
 
 
