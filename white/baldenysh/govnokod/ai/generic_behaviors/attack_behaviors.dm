@@ -75,28 +75,27 @@
 
 	var/unarmed_hand = RIGHT_HANDS
 	var/required_stat = SOFT_CRIT
-	var/bypass_cd_check = FALSE
 
 /datum/ai_behavior/carbon_unarmed/perform(delta_time, datum/ai_controller/controller)
 	. = ..()
 	var/mob/living/living_target = controller.blackboard[target_key]
 	var/mob/living/carbon/carbon_pawn = controller.pawn
 
-	if(get_dist(carbon_pawn, living_target) > 1)
-		controller.current_movement_target = living_target
+	if(carbon_pawn.next_move > world.time)
 		return
-
-	if(!bypass_cd_check)
-		if(carbon_pawn.next_move > world.time)
-			return
-		carbon_pawn.changeNext_move(CLICK_CD_MELEE)
+	carbon_pawn.changeNext_move(CLICK_CD_MELEE)
 
 	if(!living_target || living_target.stat >= required_stat)
 		finish_action(controller, FALSE)
 		return
 
+	if(get_dist(carbon_pawn, living_target) > 1)
+		finish_action(controller, FALSE)
+		return
+
 	if(carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(unarmed_hand)))
 		make_the_amogusu_momento(carbon_pawn, living_target)
+	finish_action(controller, TRUE)
 
 /datum/ai_behavior/carbon_unarmed/proc/make_the_amogusu_momento(mob/living/carbon/carbon_pawn, mob/living/target)
 	if(should_disarm(carbon_pawn, target))
@@ -122,7 +121,6 @@
 
 /datum/ai_behavior/carbon_unarmed/finish_action(datum/ai_controller/controller, succeeded)
 	. = ..()
-	controller.current_movement_target = null
 	controller.blackboard[target_key] = null
 ////////////////////////////////////////////////////////////////////
 
