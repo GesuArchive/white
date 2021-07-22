@@ -5,3 +5,6 @@ CALL ChangeTurf(/turf/open/floor/wood) ON /turf/open/floor WHERE z == 3 || z == 
 CALL ChangeTurf(/turf/closed/mineral/random) ON /turf/open/space/basic WHERE z == 2;
 CALL ChangeTurf(/turf/closed/mineral/random) ON /turf/open/openspace/airless WHERE z == 3
 
+
+SELECT /datum/reagent/consumable/ethanol MAP [holder.add_reagent(/datum/reagent/drug/labebium, volume)]
+
