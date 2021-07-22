@@ -1,6 +1,3 @@
-/obj/item/storage/belt/military/vest
-
-
 //obj/item/storage/belt/military/vest/PopulateContents()
 //	new /obj/item/melee/classic_baton/telescopic(src)
 //	new /obj/item/ammo_box/magazine/stg(src)
@@ -51,7 +48,7 @@
 	new /obj/item/ammo_box/a40mm(src)
 	new /obj/item/gun/ballistic/automatic/pistol(src)
 	new /obj/item/suppressor(src)
-
+/*
 /mob/living/simple_animal/pet/cat
 	maxHealth = 1.#INF
 	health = 1.#INF
@@ -63,7 +60,7 @@
 /obj/item/flashlight/flashdark
 	light_power = -5
 	light_range = 3.5
-
+*/
 /obj/item/storage/belt/military/assault/gerMP40
 
 /obj/item/storage/belt/military/assault/gerMP40/PopulateContents()
