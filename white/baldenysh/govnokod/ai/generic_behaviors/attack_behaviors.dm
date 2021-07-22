@@ -81,9 +81,9 @@
 	var/mob/living/carbon/carbon_pawn = controller.pawn
 
 	if(!bypass_cd_check)
-		if(living_pawn.next_move > world.time)
+		if(carbon_pawn.next_move > world.time)
 			return
-		living_pawn.changeNext_move(CLICK_CD_MELEE)
+		carbon_pawn.changeNext_move(CLICK_CD_MELEE)
 
 	if(!living_target || living_target.stat >= required_stat)
 		finish_action(controller, FALSE)
