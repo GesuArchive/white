@@ -381,9 +381,10 @@
 /datum/ai_controller/tdroid/proc/on_commander_pointed(datum/source, atom/A)
 	var/mob/living/commander = source
 	var/mob/living/living_pawn = pawn
+	if(living_pawn.stat)//pizdec
+		return
 	if(!CanSeeCommander())
 		return
-
 	if(!blackboard[BB_TDROID_DIRECT_ORDER_MODE])
 		if(A == commander)
 			switch(commander.a_intent)
