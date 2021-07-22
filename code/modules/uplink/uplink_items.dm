@@ -1741,7 +1741,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	name = "Cumthiris Virus"
 	desc = "Экспериментальное биооружие, призванное выводить из строя членов экипажа. Симптомы включают в себя: возбуждение, непризвольная эякуляция, эйфория, половое влечение к людям и полную потерю рассудка. Тем не менее, легко лечится с помощью галоперидола и святой воды."
 	item = /obj/item/storage/box/syndie_kit/cumvirus
-	cost = 25
+	cost = 30
 	cant_discount = TRUE
 	restricted_roles = list("Medical Doctor", "Chief Medical Officer", "Virologist")
 
