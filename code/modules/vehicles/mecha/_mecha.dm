@@ -951,7 +951,7 @@
 	setDir(dir_in)
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, TRUE)
 	if(!internal_damage)
-		SEND_SOUND(newoccupant, sound('sound/mecha/nominal.ogg',volume=50))
+		SEND_SOUND(newoccupant, sound('white/Gesugao-san/sound/rus/mecha/nominal.ogg',volume=50))
 	return TRUE
 
 /obj/vehicle/sealed/mecha/proc/mmi_move_inside(obj/item/mmi/M, mob/user)
@@ -996,7 +996,7 @@
 	setDir(dir_in)
 	log_message("[M] moved in as pilot.", LOG_MECHA)
 	if(!internal_damage)
-		SEND_SOUND(M, sound('sound/mecha/nominal.ogg',volume=50))
+		SEND_SOUND(M, sound('white/Gesugao-san/sound/rus/mecha/nominal.ogg',volume=50))
 	log_game("[key_name(user)] has put the MMI/posibrain of [key_name(B)] into [src] at [AREACOORD(src)]")
 	return TRUE
 

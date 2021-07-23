@@ -215,7 +215,7 @@
 		'sound/machines/warning-buzzer.ogg',
 		'sound/mecha/critdestr.ogg',
 		'sound/mecha/imag_enh.ogg',
-		'sound/mecha/nominal.ogg',
+		'white/Gesugao-san/sound/rus/mecha/nominal.ogg',
 		'sound/mecha/weapdestr.ogg',
 		'sound/misc/airraid.ogg',
 		'sound/misc/bang.ogg','sound/misc/highlander.ogg',
