@@ -3647,6 +3647,7 @@
 #include "white\baldenysh\govnokod\chem\reactions.dm"
 #include "white\baldenysh\govnokod\chem\reagents.dm"
 #include "white\baldenysh\govnokod\chem\containers\blisters.dm"
+#include "white\baldenysh\govnokod\chem\containers\medipens.dm"
 #include "white\baldenysh\govnokod\chem\containers\pillpacks.dm"
 #include "white\baldenysh\govnokod\chem\containers\pills.dm"
 #include "white\baldenysh\govnokod\clothing\underwear.dm"
