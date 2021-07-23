@@ -89,7 +89,7 @@
 		finish_action(controller, FALSE)
 		return
 
-	if(get_dist(carbon_pawn, living_target) > 1)
+	if(get_dist(carbon_pawn, living_target) > 1 || carbon_pawn.z != living_target.z)
 		finish_action(controller, FALSE)
 		return
 
