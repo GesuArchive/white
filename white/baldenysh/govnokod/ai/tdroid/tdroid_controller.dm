@@ -204,6 +204,8 @@
 
 /datum/ai_controller/tdroid/proc/CanMove()
 	var/mob/living/living_pawn = pawn
+	if(!living_pawn)
+		return FALSE
 	return !(HAS_TRAIT(living_pawn, TRAIT_INCAPACITATED) || IS_IN_STASIS(living_pawn) || living_pawn.stat > 1)
 
 /datum/ai_controller/tdroid/proc/CanInteract()
