@@ -1,5 +1,5 @@
 /obj/item/reagent_containers/hypospray/medipen/ressconc
-	name = "ressurection concoction"
+	name = "resuscitation concoction"
 	desc = "Медипен с приколом. Вкалывать в трупики не больше двух раз, хотя и одного вполне достаточно."
 	icon_state = "atropen"
 	inhand_icon_state = "atropen"
