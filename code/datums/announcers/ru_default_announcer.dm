@@ -1,7 +1,7 @@
 
 /datum/centcom_announcer/ru_default
 	welcome_sounds = list(
-		'white/Gesugao-san/sound/ai/ru/announcer/hello_crew.ogg', // 'sound/ai/general/sheptun.ogg'
+		'white/Gesugao-san/sound/rus/ai/announcer/hello_crew.ogg', // 'sound/ai/general/sheptun.ogg'
 	)
 	alert_sounds = list(
 		'sound/ai/ru/announcer_synth/alert.ogg',
