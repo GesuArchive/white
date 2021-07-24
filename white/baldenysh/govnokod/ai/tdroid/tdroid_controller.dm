@@ -121,6 +121,8 @@
 /datum/ai_controller/tdroid/proc/RegisterCommander(mob/living/commander)
 	if(!commander)
 		return
+	if(blackboard[BB_TDROID_COMMANDER])
+		UnregisterCommander()
 	blackboard[BB_TDROID_COMMANDER] = commander
 	RegisterSignal(commander, COMSIG_MOB_POINTED, .proc/on_commander_pointed)
 	RegisterSignal(commander, COMSIG_MOVABLE_MOVED, .proc/on_commander_moved)
