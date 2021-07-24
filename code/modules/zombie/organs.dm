@@ -6,6 +6,7 @@
 	icon_state = "blacktumor"
 	var/causes_damage = TRUE
 	var/datum/species/old_species = /datum/species/human
+	var/datum/species/zombie_species = /datum/species/zombie/infectious
 	var/living_transformation_time = 30
 	var/converts_living = FALSE
 
@@ -75,7 +76,7 @@
 
 	if(!iszombie(owner))
 		old_species = owner.dna.species.type
-		owner.set_species(/datum/species/zombie/infectious)
+		owner.set_species(zombie_species)
 
 	var/stand_up = (owner.stat == DEAD) || (owner.stat == UNCONSCIOUS)
 
