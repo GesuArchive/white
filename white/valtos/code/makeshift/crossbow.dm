@@ -176,8 +176,7 @@
 
 		if (istype(BP))
 			R.add_blood_DNA(H.return_blood_DNA())
-			R.forceMove(H)
-			BP.embedded_objects += R
+			R.tryEmbed(BP, TRUE)
 			H.update_damage_overlays()
 			visible_message("<span class='warning'><b>[capitalize(R.name)]</b> проникает в [ru_parse_zone(BP)] <b>[H]</b>!</span>",
 							"<span class='userdanger'>Ох! <b>[capitalize(R.name)]</b> проникает в <b>[ru_parse_zone(BP)]</b>!</span>")
