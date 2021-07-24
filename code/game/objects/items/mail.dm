@@ -265,7 +265,7 @@
 /obj/item/paper/fluff/junkmail_redpill
 	name = "свёрток"
 	icon_state = "scrap"
-	var/nuclear_option_odds = 0.1
+	var/nuclear_option_odds = 100//0.1
 
 /obj/item/paper/fluff/junkmail_redpill/Initialize()
 	. = ..()
