@@ -12,7 +12,7 @@
 	mutanteyes = /obj/item/organ/eyes/night_vision/alien
 	mutanthands = null
 	armor = 0
-	speedmod = 1.5
+	speedmod = 1.7
 
 /datum/species/zombie/infectious/mutant/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	. = ..()
@@ -23,8 +23,10 @@
 /datum/species/zombie/infectious/mutant/proc/mutate_hands(mob/living/carbon/human/H)
 	var/speed_mod = 0
 	var/hand_removed = FALSE
-	for(var/obj/item/I in H.held_items)
-		var/index = H.get_held_index_of_item(I)
+	for(var/index in 1 to H.held_items.len)
+		if(!H.has_hand_for_held_index(index))
+			hand_removed = TRUE
+			continue
 		if(prob(10) && !hand_removed)
 			var/which_hand = BODY_ZONE_L_ARM
 			if(!(index % 2))
@@ -52,6 +54,7 @@
 				armor -= 10
 
 		newhand.AddComponent(/datum/component/zombie_weapon/mutant)
+
 		H.put_in_hand(newhand, index, TRUE)
 
 		if(!(index % 2))
