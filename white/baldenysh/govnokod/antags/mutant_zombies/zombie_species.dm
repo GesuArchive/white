@@ -50,7 +50,7 @@
 				armor += 10
 				speed_mod += 1.5
 			if(10 to 12)
-				newhand = new /obj/item/gun/magic/tentacle/mutantzombie() //aaaaaaaaaaaaaaaaaa
+				newhand = new /obj/item/mutant_zombie_hand()
 				armor -= 10
 
 		newhand.AddComponent(/datum/component/zombie_weapon/mutant)
