@@ -143,7 +143,8 @@
 				/obj/item/light/tube/broken = 3,
 				/obj/item/light/tube/broken = 1,
 				/obj/item/trash/candle = 1,
-				/obj/item/organ/tactical_core = 1)
+				/obj/item/organ/tactical_core = 1,
+				/obj/item/gun/syringe/blowgun = 1)
 
 /obj/effect/spawner/lootdrop/cigbutt
 	name = "cigarette butt spawner"

@@ -11,6 +11,7 @@
 /obj/item/storage/briefcase/surgery/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_combined_w_class = 22
 	STR.max_items = 14
 
 /obj/item/storage/briefcase/surgery/PopulateContents()

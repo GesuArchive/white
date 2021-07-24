@@ -2,7 +2,7 @@
 	name = "Набор смешных таблеток"
 	desc = "Для настоящих дед инсайдов."
 	item = /obj/item/storage/box/pillpack/penthrite
-	cost = 3
+	cost = 1
 
 /datum/uplink_item/tcorekil
 	name = "Набор тактических ядер"
