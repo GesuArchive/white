@@ -51,6 +51,7 @@
 				speed_mod += 1.5
 			if(10 to 12)
 				newhand = new /obj/item/mutant_zombie_hand()
+				speed_mod -= 0.5
 				armor -= 10
 
 		newhand.AddComponent(/datum/component/zombie_weapon/mutant)
@@ -62,7 +63,7 @@
 			M.Scale(-1,1)
 			newhand.transform = M
 
-	H.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/species, multiplicative_slowdown=speed_mod/2)
+	H.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/species, multiplicative_slowdown=speed_mod/H.held_items.len)
 
 /datum/species/zombie/infectious/mutant/proc/mutate_body(mob/living/carbon/human/H)
 	//пох
