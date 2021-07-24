@@ -425,7 +425,7 @@
 	response_disarm_simple = "shoo"
 	response_harm_continuous = "steps on"
 	response_harm_simple = "step on"
-	loot = list(/obj/effect/particle_effect/foam)
+//	loot = list(/obj/effect/particle_effect/foam)
 	ventcrawler = VENTCRAWLER_ALWAYS
 	density = FALSE
 	pass_flags = PASSTABLE | PASSMOB
