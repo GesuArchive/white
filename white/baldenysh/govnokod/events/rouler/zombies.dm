@@ -1,4 +1,4 @@
-/mob/living/carbon/human/species/zombie/event
+
 
 
 /datum/species/zombie/infectious/event
@@ -33,5 +33,3 @@
 	id = "eventzombies_fast"
 	armor = 0
 	speedmod = 0
-
-/obj/item/gun/magic/tentacle
