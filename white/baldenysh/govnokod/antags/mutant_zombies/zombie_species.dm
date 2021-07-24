@@ -1,5 +1,3 @@
-#define MUTANTZOMBIE_HAND_TYPES list()
-
 /datum/component/zombie_weapon/mutant
 	possible_tumors = list(/obj/item/organ/zombie_infection/mutant)
 
