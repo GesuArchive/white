@@ -1,3 +1,10 @@
+/datum/component/zombie_weapon/event
+	possible_tumors = list(
+		/obj/item/organ/zombie_infection/eventzombie/armblade,
+		/obj/item/organ/zombie_infection/eventzombie/tentacle,
+		/obj/item/organ/zombie_infection/eventzombie/fast
+	)
+
 /datum/species/zombie/infectious/event
 	name = "Event Zombie"
 	id = "eventzombies"
@@ -9,7 +16,7 @@
 	name = "Armblade Event Zombie"
 	id = "eventzombies_armblade"
 	armor = 50
-	mutanthands = /obj/item/melee/arm_blade
+	mutanthands = /obj/item/melee/arm_blade/eventzombie
 	speedmod = 1.8
 
 /////////////////////////////organ
@@ -18,6 +25,17 @@
 	zombie_species = /datum/species/zombie/infectious/event/armblade
 
 /////////////////////////////weapon
+
+/obj/item/melee/arm_blade/eventzombie/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/zombie_weapon/event)
+
+/obj/item/melee/arm_blade/eventzombie/equipped(mob/user, slot)
+	. = ..()
+	if(!(user.get_held_index_of_item(src) % 2))
+		var/matrix/M = matrix()
+		M.Scale(-1,1)
+		transform = M
 
 //////////////////////////////////////////////////////////tentacle
 
@@ -41,6 +59,17 @@
 	item_flags = NEEDS_PERMIT | ABSTRACT | DROPDEL
 	hitsound = 'sound/effects/splat.ogg'
 	ammo_type = /obj/item/ammo_casing/magic/tentacle/eventzombie
+
+/obj/item/gun/magic/tentacle/eventzombie/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/zombie_weapon/event)
+
+/obj/item/gun/magic/tentacle/eventzombie/equipped(mob/user, slot)
+	. = ..()
+	if(!(user.get_held_index_of_item(src) % 2))
+		var/matrix/M = matrix()
+		M.Scale(-1,1)
+		transform = M
 
 /obj/item/ammo_casing/magic/tentacle/eventzombie
 	projectile_type = /obj/projectile/tentacle/eventzombie

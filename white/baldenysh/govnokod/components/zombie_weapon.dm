@@ -1,5 +1,5 @@
-/datum/component/zombie_weapon //приколы из зомбирук чтоб зомби с разными типами оружия (армблейды, тентакли) могли инфицировать и кушать
-	var/list/obj/item/organ/zombie_infection/possible_tumors = list( //хз мб в дефайн переделать, но пока так будет для дебага
+/datum/component/zombie_weapon //приколы из зомбирук чтоб зомби с разными типами оружия (армблейды, тентакли) могли инфицировать и кушоть
+	var/list/obj/item/organ/zombie_infection/possible_tumors = list(
 		/obj/item/organ/zombie_infection
 	)
 
@@ -8,7 +8,11 @@
 		return COMPONENT_INCOMPATIBLE
 	RegisterSignal(parent, COMSIG_ITEM_AFTERATTACK, .proc/on_afterattack)
 
-/datum/component/zombie_weapon/proc/on_afterattack(target, user, proximity_flag, click_parameters)
+/datum/component/diagonal_mover/UnregisterFromParent()
+	UnregisterSignal(parent, COMSIG_ITEM_AFTERATTACK)
+
+/datum/component/zombie_weapon/proc/on_afterattack(obj/item/source, atom/target, mob/user, proximity_flag, click_parameters)
+	SIGNAL_HANDLER
 	if(!proximity_flag)
 		return
 	if(isliving(target))
@@ -17,7 +21,7 @@
 		else
 			feast(target, user)
 
-/datum/component/zombie_weapon/proc/infect(mob/living/carbon/target)
+/datum/component/zombie_weapon/proc/infect(mob/living/carbon/human/target)
 	if(!istype(target))
 		return
 	CHECK_DNA_AND_SPECIES(target)
