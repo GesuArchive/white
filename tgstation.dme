@@ -3656,6 +3656,7 @@
 #include "white\baldenysh\govnokod\components\gloo.dm"
 #include "white\baldenysh\govnokod\components\soundplayer.dm"
 #include "white\baldenysh\govnokod\components\tts_comp.dm"
+#include "white\baldenysh\govnokod\events\rouler\components.dm"
 #include "white\baldenysh\govnokod\events\rouler\zombies.dm"
 #include "white\baldenysh\govnokod\foods\food.dm"
 #include "white\baldenysh\govnokod\items\bundles.dm"

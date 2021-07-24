@@ -3,13 +3,6 @@
 	id = "eventzombies"
 	mutanteyes = /obj/item/organ/eyes/night_vision/alien
 
-//////////////////////////////////////////////////////////generic
-
-/datum/species/zombie/infectious/event/generic
-	name = "Generic Event Zombie"
-	id = "eventzombies_generic"
-	armor = 30
-
 //////////////////////////////////////////////////////////armblade
 
 /datum/species/zombie/infectious/event/armblade
@@ -19,6 +12,13 @@
 	mutanthands = /obj/item/melee/arm_blade
 	speedmod = 1.8
 
+/////////////////////////////organ
+
+/obj/item/organ/zombie_infection/eventzombie/armblade
+	zombie_species = /datum/species/zombie/infectious/event/armblade
+
+/////////////////////////////weapon
+
 //////////////////////////////////////////////////////////tentacle
 
 /datum/species/zombie/infectious/event/tentacle
@@ -26,6 +26,13 @@
 	id = "eventzombies_tentacle"
 	armor = 10
 	mutanthands = /obj/item/gun/magic/tentacle/eventzombie
+
+/////////////////////////////organ
+
+/obj/item/organ/zombie_infection/eventzombie/tentacle
+	zombie_species = /datum/species/zombie/infectious/event/tentacle
+
+/////////////////////////////weapon
 
 /obj/item/gun/magic/tentacle/eventzombie
 	recharge_rate = 1 MINUTES
@@ -48,3 +55,10 @@
 	id = "eventzombies_fast"
 	armor = 0
 	speedmod = 0
+
+/////////////////////////////organ
+
+/obj/item/organ/zombie_infection/eventzombie/fast
+	zombie_species = /datum/species/zombie/infectious/event/fast
+
+/////////////////////////////weapon //надо обычные зомбируки переделать чтоб они во все типы инфецировать могли могли
