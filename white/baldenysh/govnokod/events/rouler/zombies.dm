@@ -6,8 +6,6 @@
 	id = "eventzombies"
 	mutanteyes = /obj/item/organ/eyes/night_vision/alien
 
-
-
 /datum/species/zombie/infectious/event/generic
 	name = "Generic Event Zombie"
 	id = "eventzombies_generic"
@@ -31,7 +29,7 @@
 	item_flags = NEEDS_PERMIT | ABSTRACT | DROPDEL
 
 /datum/species/zombie/infectious/event/fast
-	name = "Generic Event Zombie"
+	name = "Fast Event Zombie"
 	id = "eventzombies_fast"
 	armor = 0
 	speedmod = 0
