@@ -313,9 +313,9 @@
 
 /obj/lab_monitor/yohei/attacked_by(obj/item/I, mob/living/user)
 	if(istype(I, /obj/item/pamk))
+		var/obj/item/pamk/P = I
 		if(P.charge_left >= 10)
 			return ..()
-		var/obj/item/pamk/P = I
 		P.charge_left = 100
 		inc_metabalance(user, -5, reason = "Небольшая жертва.")
 		say("Полевой автоматический медицинский комплект был полностью заряжен. Приятной работы.")
