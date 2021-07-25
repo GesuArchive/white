@@ -10,7 +10,7 @@
 	mutanteyes = /obj/item/organ/eyes/night_vision/alien
 	mutanthands = /obj/item/mutant_zombie_hand
 	armor = 0
-	speedmod = 1.7
+	speedmod = 0.5
 
 /datum/species/zombie/infectious/mutant/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	. = ..()
@@ -28,13 +28,13 @@
 	C.mind.remove_antag_datum(/datum/antagonist/mutant_zombie)
 
 /datum/species/zombie/infectious/mutant/proc/mutate_hands(mob/living/carbon/human/H)
-	var/speed_mod = 0
+	var/cur_speed_mod = speedmod
 	for(var/index in 1 to H.held_items.len)
 		if(!H.has_hand_for_held_index(index))
-			speed_mod -= 0.7
+			cur_speed_mod -= 0.5
 			armor += 10
 			continue
-		if(prob(10) && H.usable_hands == 2)
+		if(prob(10) && H.usable_hands > 1)
 			var/which_hand = BODY_ZONE_L_ARM
 			if(!(index % 2))
 				which_hand = BODY_ZONE_R_ARM
@@ -47,17 +47,17 @@
 			if(1)
 				newhand = new /obj/item/melee/arm_blade()
 				armor += 5
-				speed_mod += 1.7
+				cur_speed_mod += 0.4
 			if(2)
 				newhand = new /obj/item/gun/magic/tentacle/mutantzombie()
-				speed_mod += 1.4
+				cur_speed_mod += 0.1
 			if(3)
 				newhand = new /obj/item/shield/mutantzombie()
 				armor += 10
-				speed_mod += 1.5
+				cur_speed_mod += 0.2
 			if(4)
 				newhand = new /obj/item/mutant_zombie_hand()
-				speed_mod -= 0.5
+				cur_speed_mod -= 0.3
 				armor -= 10
 
 		newhand.AddComponent(/datum/component/zombie_weapon/mutant)
@@ -68,16 +68,38 @@
 			var/matrix/M = matrix()
 			M.Scale(-1,1)
 			newhand.transform = M
-	H.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/species, multiplicative_slowdown=speed_mod/H.held_items.len)
+
+	speedmod = cur_speed_mod
+	H.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/species, multiplicative_slowdown=speedmod)
 
 /datum/species/zombie/infectious/mutant/proc/mutate_body(mob/living/carbon/human/H)
-	var/helmet_type = pick(list(null, /obj/item/clothing/head/helmet/space/changeling, /obj/item/clothing/head/helmet/changeling))
-	var/suit_type = pick(list(null, /obj/item/clothing/suit/space/changeling, /obj/item/clothing/suit/armor/changeling))
-	H.dropItemToGround(H.wear_suit, TRUE)
-	H.dropItemToGround(H.head, TRUE)
-	if(suit_type)
-		H.equip_to_slot_if_possible(new suit_type(H), ITEM_SLOT_OCLOTHING, 1, 1, 1)
-	if(helmet_type)
-		H.equip_to_slot_if_possible(new helmet_type(H), ITEM_SLOT_HEAD, 1, 1, 1)
+	var/cur_speed_mod = speedmod
+
+	switch(rand(1,3))
+		if(1)
+			H.dropItemToGround(H.wear_suit, TRUE)
+			H.equip_to_slot_if_possible(new /obj/item/clothing/suit/armor/changeling(H), ITEM_SLOT_OCLOTHING, 1, 1, 1)
+			cur_speed_mod += 0.2
+		if(2)
+			H.dropItemToGround(H.wear_suit, TRUE)
+			H.equip_to_slot_if_possible(new /obj/item/clothing/suit/space/changeling(H), ITEM_SLOT_OCLOTHING, 1, 1, 1)
+			cur_speed_mod += 0.1
+		if(3)
+			cur_speed_mod -= 0.2
+
+	switch(rand(1,3))
+		if(1)
+			H.dropItemToGround(H.head, TRUE)
+			H.equip_to_slot_if_possible(new /obj/item/clothing/head/helmet/space/changeling(H), ITEM_SLOT_OCLOTHING, 1, 1, 1)
+			cur_speed_mod += 0.2
+		if(2)
+			H.dropItemToGround(H.head, TRUE)
+			H.equip_to_slot_if_possible(new /obj/item/clothing/head/helmet/changeling(H), ITEM_SLOT_OCLOTHING, 1, 1, 1)
+			cur_speed_mod += 0.1
+		if(3)
+			cur_speed_mod -= 0.2
+
+	speedmod = cur_speed_mod
+	H.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/species, multiplicative_slowdown=speedmod)
 
 
