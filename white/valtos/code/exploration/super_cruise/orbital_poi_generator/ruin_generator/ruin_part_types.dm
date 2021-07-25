@@ -350,6 +350,7 @@
 // CITY PARTS
 
 /datum/map_template/ruin_part/city
+	file_name = "5x5_road_cross"
 	typegen = "CityGeneration"
 	special_flags = RUIN_PART_CITY
 	weight = 0
