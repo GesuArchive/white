@@ -1,6 +1,7 @@
 /datum/map_template/ruin_part
 	keep_cached_map = TRUE
 	var/file_name = ""
+	var/typegen = "RuinGeneration"
 	//Weight of the ruin part.
 	var/weight = 0
 	//Positions of the connection points.
@@ -15,7 +16,7 @@
 	var/special_flags = RUIN_PART_DEFAULT
 
 /datum/map_template/ruin_part/New(path, rename, cache)
-	mappath = "_maps/RuinGeneration/[file_name].dmm"
+	mappath = "_maps/[typegen]/[file_name].dmm"
 	. = ..(path, rename, TRUE)
 	find_connection_points()
 

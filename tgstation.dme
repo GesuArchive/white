@@ -3948,6 +3948,7 @@
 #include "white\valtos\code\exploration\super_cruise\orbital_poi_generator\ruin_generator\generator_settings\_generator_settings.dm"
 #include "white\valtos\code\exploration\super_cruise\orbital_poi_generator\ruin_generator\generator_settings\generator_abandoned.dm"
 #include "white\valtos\code\exploration\super_cruise\orbital_poi_generator\ruin_generator\generator_settings\generator_blob.dm"
+#include "white\valtos\code\exploration\super_cruise\orbital_poi_generator\ruin_generator\generator_settings\generator_city.dm"
 #include "white\valtos\code\exploration\super_cruise\orbital_poi_generator\ruin_generator\generator_settings\generator_netherworld.dm"
 #include "white\valtos\code\exploration\super_cruise\orbital_poi_generator\ruin_generator\generator_settings\generator_ratvar.dm"
 #include "white\valtos\code\exploration\super_cruise\orbital_poi_generator\ruin_generator\generator_settings\generator_xeno.dm"

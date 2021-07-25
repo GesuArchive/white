@@ -365,17 +365,18 @@
 			var/turf/T = locate(text2num(split_loc[1]), text2num(split_loc[2]), center_z)
 			linked_objective.generate_objective_stuff(T)
 
-	//Generate research disks
-	for(var/i in 1 to rand(1, 5))
-		var/objective_turf = pick(floor_turfs)
-		var/split_loc = splittext(objective_turf, "_")
-		new /obj/effect/spawner/lootdrop/ruinloot/important(locate(text2num(split_loc[1]), text2num(split_loc[2]), center_z))
+	if(RUIN_PART_DEFAULT in allowed_flags)
+		//Generate research disks
+		for(var/i in 1 to rand(1, 5))
+			var/objective_turf = pick(floor_turfs)
+			var/split_loc = splittext(objective_turf, "_")
+			new /obj/effect/spawner/lootdrop/ruinloot/important(locate(text2num(split_loc[1]), text2num(split_loc[2]), center_z))
 
-	//Spawn dead mosb
-	for(var/mob/M as() in SSzclear.nullspaced_mobs)
-		var/objective_turf = pick(floor_turfs)
-		var/split_loc = splittext(objective_turf, "_")
-		M.forceMove(locate(text2num(split_loc[1]), text2num(split_loc[2]), center_z))
+		//Spawn dead mosb
+		for(var/mob/M as() in SSzclear.nullspaced_mobs)
+			var/objective_turf = pick(floor_turfs)
+			var/split_loc = splittext(objective_turf, "_")
+			M.forceMove(locate(text2num(split_loc[1]), text2num(split_loc[2]), center_z))
 
 	ruin_event?.post_spawn(floor_turfs, center_z)
 
