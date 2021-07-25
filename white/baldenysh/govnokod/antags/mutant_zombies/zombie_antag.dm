@@ -42,6 +42,7 @@
 	zombs = new_team
 
 /datum/team/mutant_zombies
+	name = "Зомби"
 	var/datum/atom_hud/antag/hidden/kostil_hud = new
 
 
