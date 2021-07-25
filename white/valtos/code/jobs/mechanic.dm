@@ -243,7 +243,8 @@
 			/obj/item/multitool/uplink,
 			/obj/item/dice/d20/fate/one_use,
 			/obj/item/book/granter/martial/cqc,
-			/obj/item/storage/box/syndie_kit/nanosuit)
+			/obj/item/storage/box/syndie_kit/nanosuit,
+			/obj/structure/closet/crate/necropolis)
 	var/obj/structure/cable/attached_cable
 	var/siphoned_power = 0
 	var/siphon_max = 1e7

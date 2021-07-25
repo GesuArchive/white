@@ -121,6 +121,8 @@
 /datum/ai_controller/tdroid/proc/RegisterCommander(mob/living/commander)
 	if(!commander)
 		return
+	if(blackboard[BB_TDROID_COMMANDER])
+		UnregisterCommander()
 	blackboard[BB_TDROID_COMMANDER] = commander
 	RegisterSignal(commander, COMSIG_MOB_POINTED, .proc/on_commander_pointed)
 	RegisterSignal(commander, COMSIG_MOVABLE_MOVED, .proc/on_commander_moved)
@@ -204,6 +206,8 @@
 
 /datum/ai_controller/tdroid/proc/CanMove()
 	var/mob/living/living_pawn = pawn
+	if(!living_pawn)
+		return FALSE
 	return !(HAS_TRAIT(living_pawn, TRAIT_INCAPACITATED) || IS_IN_STASIS(living_pawn) || living_pawn.stat > 1)
 
 /datum/ai_controller/tdroid/proc/CanInteract()
@@ -222,6 +226,7 @@
 		if(istype(G, /obj/item/gun/ballistic))
 			var/obj/item/gun/ballistic/B = G
 			return ShouldRackBallistic(B) || !HasAmmoBallistic(G) && CanFindAmmoBallistic(G)
+		return FALSE
 	return TRUE
 
 /datum/ai_controller/tdroid/proc/CanArmGun()
@@ -246,7 +251,7 @@
 		if(B.magazine && casing.type == B.magazine.ammo_type && casing.BB)
 			return TRUE
 	for(var/obj/item/ammo_box/magazine/mag in accessible_atoms)
-		if(mag.type == B.mag_type)
+		if(mag.type == B.mag_type && mag.ammo_count(FALSE))
 			return TRUE
 	return FALSE
 
@@ -267,7 +272,7 @@
 	return TRUE
 
 /datum/ai_controller/tdroid/proc/ShouldFireGunAt(obj/item/gun/G, atom/A)
-	var/list/turf/turfs_in_line = getline(pawn, A)
+	var/list/turf/turfs_in_line = getline(pawn, A) //кривая хуйня, не детектит углы нормально
 	turfs_in_line -= get_turf(pawn)
 	turfs_in_line -= get_turf(A)
 	for(var/turf/T in turfs_in_line)
@@ -297,10 +302,9 @@
 	for(var/obj/item/gun/G in (carbon_pawn.contents | view(1, carbon_pawn)))
 		if(!ShouldUseGun(G))
 			continue
-		if(!carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(RIGHT_HANDS)))
-			return
-		INVOKE_ASYNC(G, "attack_hand", carbon_pawn)
-		return G
+		if(carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(RIGHT_HANDS)))
+			INVOKE_ASYNC(G, "attack_hand", carbon_pawn)
+			return G
 	return
 
 /datum/ai_controller/tdroid/proc/TryFindGun(range = 5)

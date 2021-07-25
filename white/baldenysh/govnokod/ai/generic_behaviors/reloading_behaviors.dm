@@ -9,6 +9,9 @@
 	. = ..()
 	carbon_pawn = controller.pawn
 	B = controller.blackboard[ballistic_target_key]
+	if(!B)
+		finish_action(controller, FALSE)
+		return
 
 	carbon_pawn.swap_hand(reloading_hand)
 	var/list/atom/accessible_atoms = carbon_pawn.contents | view(1, carbon_pawn)

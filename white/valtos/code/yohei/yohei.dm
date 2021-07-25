@@ -77,7 +77,7 @@
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	armor = list(MELEE = 25, BULLET = 25, LASER = 25,ENERGY = 25, BOMB = 40, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
 	hoodtype = /obj/item/clothing/head/hooded/yohei
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/toy, /obj/item/storage/fancy/cigarettes, /obj/item/lighter, /obj/item/gun)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/toy, /obj/item/storage/fancy/cigarettes, /obj/item/lighter, /obj/item/gun, /obj/item/pickaxe)
 
 /obj/item/clothing/head/hooded/yohei
 	name = "капюшон йохея"
@@ -184,15 +184,15 @@
 	switch(current_mode)
 		if(MODE_PAINKILLER)
 			if(M.getBruteLoss() > 10 || M.getFireLoss() > 10)
-				if(use_charge(25))
+				if(use_charge(10))
 					M.heal_overall_damage(25, 25)
 				else
-					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 25 единиц.</span>")
+					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 10 единиц.</span>")
 			else
 				to_chat(user, "<span class='warning'>Не обнаружено повреждений, либо они незначительны.</span>")
 		if(MODE_OXYLOSS)
 			if(M.getOxyLoss() > 5)
-				if(use_charge(25))
+				if(use_charge(10))
 					M.setOxyLoss(0)
 				else
 					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 10 единиц.</span>")
@@ -200,22 +200,22 @@
 				to_chat(user, "<span class='warning'>Уровень кислорода в норме.</span>")
 		if(MODE_FRACTURE)
 			if(limb.wounds.len)
-				if(use_charge(25))
+				if(use_charge(10))
 					for(var/thing in limb.wounds)
 						var/datum/wound/W = thing
 						W.remove_wound()
 					to_chat(user, "<span class='notice'>Успешно исправили все переломы и вывихи в этой конечности.</span>")
 				else
-					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 25 единиц.</span>")
+					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 10 единиц.</span>")
 			else
 				to_chat(user, "<span class='warning'>Не обнаружено травм в этой конечности.</span>")
 		if(MODE_BLOOD_INJECTOR)
 			if(M.blood_volume <= initial(M.blood_volume) - 50)
-				if(use_charge(25))
+				if(use_charge(10))
 					M.restore_blood()
 					to_chat(user, "<span class='notice'>Кровь восстановлена.</span>")
 				else
-					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 25 единиц.</span>")
+					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 10 единиц.</span>")
 			else
 				to_chat(user, "<span class='warning'>Уровень крови в пределах нормы.</span>")
 
@@ -258,7 +258,7 @@
 	uniform = /obj/item/clothing/under/syndicate/yohei/red
 	r_pocket = /obj/item/ammo_box/magazine/fallout/m9mm
 
-	backpack_contents = list(/obj/item/ammo_box/magazine/fallout/m9mm = 4)
+	backpack_contents = list(/obj/item/melee/classic_baton/telescopic/contractor_baton = 1, /obj/item/restraints/handcuffs/energy = 2)
 
 /datum/outfit/yohei/breaker
 	name = "Йохей: Взломщик"
@@ -296,18 +296,33 @@
 
 	glasses = /obj/item/clothing/glasses/meson/night
 	belt = /obj/item/shadowcloak/yohei
-	suit_store = /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm
+	suit_store = /obj/item/pickaxe/mini
 	uniform = /obj/item/clothing/under/syndicate/yohei/green
-	r_pocket = /obj/item/ammo_box/magazine/fallout/m9mm
+	r_pocket = /obj/item/stack/rods/twentyfive
+	back = /obj/item/gun/ballistic/crossbow/energy
 
-	backpack_contents = list(/obj/item/pickaxe/mini = 1, /obj/item/grenade/c4 = 3, /obj/item/grenade/smokebomb = 3)
+	backpack_contents = list()
 
 /obj/lab_monitor/yohei
 	name = "Монитор исполнения"
 	desc = "Здесь выводятся задания. Стекло всё ещё выглядит не очень крепким..."
 	var/datum/yohei_task/current_task = null
 	var/list/possible_tasks = list()
-	var/balance = 0
+	var/list/action_guys = list()
+	//var/balance = 0
+
+/obj/lab_monitor/yohei/attacked_by(obj/item/I, mob/living/user)
+	if(istype(I, /obj/item/pamk))
+		var/obj/item/pamk/P = I
+		if(P.charge_left >= 10)
+			say("Полевой автоматический медицинский комплект всё ещё имеет заряд. Опустошите его.")
+			return ..()
+		P.charge_left = 100
+		P.update_icon()
+		inc_metabalance(user, -10, reason = "Небольшая жертва.")
+		say("Полевой автоматический медицинский комплект был полностью заряжен. Приятной работы.")
+	else
+		return ..()
 
 /obj/lab_monitor/yohei/attack_hand(mob/living/user)
 	. = ..()
@@ -320,11 +335,18 @@
 
 	if(current_task && current_task.check_task())
 		say("Задание выполнено. Награда в размере [current_task.prize] выдана. Получение следующего задания...")
-		balance += current_task.prize
+		//balance += current_task.prize
+		for(var/mob/living/carbon/human/H in action_guys)
+			inc_metabalance(H, current_task.prize, reason = "Задание выполнено.")
+		action_guys = list()
 		qdel(current_task)
 
 		var/datum/yohei_task/new_task = pick(possible_tasks)
 		current_task = new new_task()
+
+	if(current_task && !(user in action_guys))
+		action_guys += user
+		say("[user.name] был добавлен в список исполнителей задания.")
 
 /obj/lab_monitor/yohei/examine(mob/user)
 	. = ..()
@@ -332,7 +354,8 @@
 		. += "<hr>"
 		. += "<span class='notice'><b>Задание:</b> [current_task.desc]</span>"
 		. += "\n<span class='notice'><b>Награда:</b> [current_task.prize]</span>"
-		. += "\n\n<span class='notice'><b>Баланс:</b> [balance]</span>"
+		. += "\n<span class='notice'><b>Исполнители:</b> [english_list(action_guys)]</span>"
+		//. += "\n\n<span class='notice'><b>Баланс:</b> [balance]</span>"
 
 /obj/lab_monitor/yohei/Initialize()
 	. = ..()
@@ -361,6 +384,13 @@
 		if(M)
 			. += M
 
+/datum/yohei_task/proc/get_someone_fuck()
+	. = list()
+	for(var/V in GLOB.clients)
+		var/client/C = V
+		if(C.mob && ishuman(C.mob))
+			. += C.mob
+
 /datum/yohei_task/proc/find_target()
 	var/list/possible_targets = list()
 	for(var/datum/mind/possible_target in get_crewmember_minds())
@@ -368,17 +398,17 @@
 			possible_targets += possible_target.current
 	if(possible_targets.len > 0)
 		return pick(possible_targets)
-	return FALSE
+	return pick(get_someone_fuck())
 
 /datum/yohei_task/kill
 	desc = "Убить цель."
-	prize = 5
+	prize = 50
 	var/mob/living/target
 
 /datum/yohei_task/kill/generate_task()
 	target = find_target()
-	desc = "Убить [target.name]."
-	prize = max(rand(prize - 3, prize + 3), 1)
+	desc = "Убить [target.real_name]."
+	prize = max(rand(prize - 30, prize + 30), 1)
 
 /datum/yohei_task/kill/check_task()
 	if(target && target.stat != DEAD)
@@ -387,13 +417,13 @@
 
 /datum/yohei_task/capture
 	desc = "Захватить цель."
-	prize = 10
+	prize = 200
 	var/mob/living/target
 
 /datum/yohei_task/capture/generate_task()
 	target = find_target()
-	desc = "Захватить [target.name] и доставить живьём в логово."
-	prize = max(rand(prize - 3, prize + 3), 1)
+	desc = "Захватить [target.real_name] и доставить живьём в логово."
+	prize = max(rand(prize - 100, prize + 200), 1)
 
 /datum/yohei_task/capture/check_task()
 	if(target && target.stat != DEAD)
@@ -462,7 +492,7 @@
 	outfit = /datum/outfit/yohei
 	assignedrole = "Yohei"
 	req_sum = 1250
-	uses = 20
+	uses = 4
 
 /obj/effect/mob_spawn/human/donate/yohei/attack_ghost(mob/user)
 	var/static/list/choices = list(

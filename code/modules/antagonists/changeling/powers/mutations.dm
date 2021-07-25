@@ -252,6 +252,7 @@
 	throwforce = 0 //Just to be on the safe side
 	throw_range = 0
 	throw_speed = 0
+	var/should_del = TRUE
 
 /obj/item/gun/magic/tentacle/Initialize(mapload, silent)
 	. = ..()
@@ -268,7 +269,7 @@
 
 /obj/item/gun/magic/tentacle/process_fire()
 	. = ..()
-	if(charges == 0)
+	if(should_del && charges == 0)
 		qdel(src)
 
 /obj/item/gun/magic/tentacle/suicide_act(mob/user)
