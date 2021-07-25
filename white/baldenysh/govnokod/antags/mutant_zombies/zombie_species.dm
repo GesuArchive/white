@@ -18,6 +18,15 @@
 		mutate_hands(C)
 		mutate_body(C)
 
+	var/datum/antagonist/mutant_zombie/zomb = new
+	C.mind.add_antag_datum(zomb)
+	message_admins("[ADMIN_LOOKUPFLW(C)] стал зомби.")
+	log_game("[key_name(C)] стал зомби.")
+
+/datum/species/zombie/infectious/mutant/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
+	. = ..()
+	C.mind.remove_antag_datum(/datum/antagonist/mutant_zombie)
+
 /datum/species/zombie/infectious/mutant/proc/mutate_hands(mob/living/carbon/human/H)
 	var/speed_mod = 0
 	for(var/index in 1 to H.held_items.len)
