@@ -46,10 +46,11 @@
 		log_combat(user, M, "fed", reagents.log_list())
 
 	for(var/datum/reagent/R in reagents.reagent_list)
-		if(R in known_reagent_sounds)
+		if(R in M.known_reagent_sounds)
 			continue
 		M.known_reagent_sounds += R.special_sound
 		SEND_SOUND(M, R.special_sound)
+		break
 
 	SEND_SIGNAL(src, COMSIG_DRINK_DRANK, M, user)
 	var/fraction = min(gulp_size/reagents.total_volume, 1)
