@@ -42,7 +42,7 @@
 	zombs = new_team
 
 /datum/team/mutant_zombies
-	var/datum/atom_hud/antag/kostil_hud = new
+	var/datum/atom_hud/antag/hidden/kostil_hud = new
 
 
 /*
