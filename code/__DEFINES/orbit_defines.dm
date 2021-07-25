@@ -10,3 +10,4 @@
 
 #define RUIN_PART_DEFAULT (1<<0)
 #define RUIN_PART_HABITABLE (1<<1)
+#define RUIN_PART_CITY (1<<2)
