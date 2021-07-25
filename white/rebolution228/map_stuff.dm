@@ -748,3 +748,22 @@
 
 /obj/structure/rack/cataclysmdda/metal/alt
 	icon_state = "shelf3"
+
+
+
+/obj/effect/turf_decal/cataclysmdda
+	name = null
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_decals.dmi'
+	icon_state = null
+	mouse_opacity = 0
+
+/obj/effect/turf_decal/cataclysmdda/asphaltpaint
+	name = "asphalt road paint"
+	icon_state = "asphalt_y"
+
+/obj/effect/turf_decal/cataclysmdda/grass
+	name = "grass decal"
+	icon_state = "grassdecal"
+
+/obj/effect/turf_decal/cataclysmdda/grass/alt
+	icon_state = "grassdecal2"
