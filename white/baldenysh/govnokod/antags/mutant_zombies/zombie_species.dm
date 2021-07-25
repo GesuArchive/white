@@ -8,7 +8,7 @@
 	name = "Mutant Zombie"
 	id = "mutantzombies"
 	mutanteyes = /obj/item/organ/eyes/night_vision/alien
-	mutanthands = null
+	mutanthands = /obj/item/mutant_zombie_hand
 	armor = 0
 	speedmod = 1.7
 
@@ -20,39 +20,40 @@
 
 /datum/species/zombie/infectious/mutant/proc/mutate_hands(mob/living/carbon/human/H)
 	var/speed_mod = 0
-	var/hand_removed = FALSE
 	for(var/index in 1 to H.held_items.len)
 		if(!H.has_hand_for_held_index(index))
-			hand_removed = TRUE
+			speed_mod -= 0.7
+			armor += 10
 			continue
-		if(prob(10) && !hand_removed)
+		if(prob(10) && H.usable_hands == 2)
 			var/which_hand = BODY_ZONE_L_ARM
 			if(!(index % 2))
 				which_hand = BODY_ZONE_R_ARM
 			var/obj/item/bodypart/chopchop = H.get_bodypart(which_hand)
 			chopchop.dismember()
-			hand_removed = TRUE
 			continue
 
 		var/obj/item/newhand
-		switch(rand(1,12))
-			if(1 to 3)
+		switch(rand(1,4))
+			if(1)
 				newhand = new /obj/item/melee/arm_blade()
 				armor += 5
 				speed_mod += 1.7
-			if(4 to 6)
+			if(2)
 				newhand = new /obj/item/gun/magic/tentacle/mutantzombie()
 				speed_mod += 1.4
-			if(7 to 9)
+			if(3)
 				newhand = new /obj/item/shield/mutantzombie()
 				armor += 10
 				speed_mod += 1.5
-			if(10 to 12)
+			if(4)
 				newhand = new /obj/item/mutant_zombie_hand()
 				speed_mod -= 0.5
 				armor -= 10
 
 		newhand.AddComponent(/datum/component/zombie_weapon/mutant)
+		ADD_TRAIT(newhand, TRAIT_NODROP, HAND_REPLACEMENT_TRAIT)
+
 		H.put_in_hand(newhand, index, TRUE)
 		if(!(index % 2))
 			var/matrix/M = matrix()
@@ -63,11 +64,11 @@
 /datum/species/zombie/infectious/mutant/proc/mutate_body(mob/living/carbon/human/H)
 	var/helmet_type = pick(list(null, /obj/item/clothing/head/helmet/space/changeling, /obj/item/clothing/head/helmet/changeling))
 	var/suit_type = pick(list(null, /obj/item/clothing/suit/space/changeling, /obj/item/clothing/suit/armor/changeling))
-	if(H.canUnEquip(H.wear_suit) && suit_type)
-		H.dropItemToGround(H.wear_suit)
+	H.dropItemToGround(H.wear_suit, TRUE)
+	H.dropItemToGround(H.head, TRUE)
+	if(suit_type)
 		H.equip_to_slot_if_possible(new suit_type(H), ITEM_SLOT_OCLOTHING, 1, 1, 1)
-	if(H.canUnEquip(H.head) && helmet_type)
-		H.dropItemToGround(H.head)
+	if(helmet_type)
 		H.equip_to_slot_if_possible(new helmet_type(H), ITEM_SLOT_HEAD, 1, 1, 1)
 
 
