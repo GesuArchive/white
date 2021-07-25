@@ -37,6 +37,7 @@
 	lefthand_file = 'icons/mob/inhands/antag/changeling_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/antag/changeling_righthand.dmi'
 	block_chance = 40
+	force = 21
 
 /////////////////////////////hand
 
