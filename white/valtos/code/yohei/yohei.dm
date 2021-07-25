@@ -315,9 +315,11 @@
 	if(istype(I, /obj/item/pamk))
 		var/obj/item/pamk/P = I
 		if(P.charge_left >= 10)
+			say("Полевой автоматический медицинский комплект всё ещё имеет заряд. Опустошите его.")
 			return ..()
 		P.charge_left = 100
-		inc_metabalance(user, -5, reason = "Небольшая жертва.")
+		P.update_icon()
+		inc_metabalance(user, -10, reason = "Небольшая жертва.")
 		say("Полевой автоматический медицинский комплект был полностью заряжен. Приятной работы.")
 	else
 		return ..()
@@ -382,6 +384,13 @@
 		if(M)
 			. += M
 
+/datum/yohei_task/proc/get_someone_fuck()
+	. = list()
+	for(var/V in GLOB.clients)
+		var/client/C = V
+		if(C.mob && ishuman(C.mob))
+			. += M
+
 /datum/yohei_task/proc/find_target()
 	var/list/possible_targets = list()
 	for(var/datum/mind/possible_target in get_crewmember_minds())
@@ -389,7 +398,7 @@
 			possible_targets += possible_target.current
 	if(possible_targets.len > 0)
 		return pick(possible_targets)
-	return FALSE
+	return pick(get_someone_fuck())
 
 /datum/yohei_task/kill
 	desc = "Убить цель."

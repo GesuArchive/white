@@ -178,6 +178,8 @@
 
 		if (istype(BP))
 			R.add_blood_DNA(H.return_blood_DNA())
+			R.embedding = list("pain_mult" = 4, "embed_chance" = 90, "fall_chance" = 10)
+			R.updateEmbedding()
 			R.tryEmbed(BP, TRUE, TRUE)
 			H.update_damage_overlays()
 			visible_message("<span class='warning'><b>[capitalize(R.name)]</b> проникает в [ru_parse_zone(BP)] <b>[H]</b>!</span>",
@@ -219,6 +221,10 @@
 	. = ..()
 	new /obj/item/stack/rods(get_turf(user))
 	qdel(src)
+
+/obj/item/bent_rod/handle_fall(mob/faller)
+	. = ..()
+	disableEmbedding()
 
 /obj/item/gun/ballistic/crossbow/energy
 	name = "энергетический арбалет"
