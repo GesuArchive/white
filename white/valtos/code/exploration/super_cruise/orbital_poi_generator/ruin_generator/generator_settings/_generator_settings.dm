@@ -23,10 +23,10 @@
 //Assoc list.
 //key = ruin part
 //value = max occurances
-/datum/generator_settings/proc/get_valid_rooms(var/list/allowed_flags = list(RUIN_PART_DEFAULT))
+/datum/generator_settings/proc/get_valid_rooms(allowed_flags = RUIN_PART_DEFAULT)
 	. = list()
 	for(var/datum/map_template/ruin_part/ruinpart as() in GLOB.loaded_ruin_parts)
-		if(ruinpart.special_flags in allowed_flags)
+		if(ruinpart.special_flags & allowed_flags)
 			.[ruinpart] = ruinpart.max_occurances
 
 //A list of rooms to force place on the map.
