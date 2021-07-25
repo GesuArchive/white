@@ -53,15 +53,21 @@
 				armor -= 10
 
 		newhand.AddComponent(/datum/component/zombie_weapon/mutant)
-
 		H.put_in_hand(newhand, index, TRUE)
-
 		if(!(index % 2))
 			var/matrix/M = matrix()
 			M.Scale(-1,1)
 			newhand.transform = M
-
 	H.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/species, multiplicative_slowdown=speed_mod/H.held_items.len)
 
 /datum/species/zombie/infectious/mutant/proc/mutate_body(mob/living/carbon/human/H)
-	//пох
+	var/helmet_type = pick(list(null, /obj/item/clothing/head/helmet/space/changeling, /obj/item/clothing/head/helmet/changeling))
+	var/suit_type = pick(list(null, /obj/item/clothing/suit/space/changeling, /obj/item/clothing/suit/armor/changeling))
+	if(H.canUnEquip(H.wear_suit) && suit_type)
+		H.dropItemToGround(H.wear_suit)
+		H.equip_to_slot_if_possible(new suit_type(H), ITEM_SLOT_OCLOTHING, 1, 1, 1)
+	if(H.canUnEquip(H.head) && helmet_type)
+		H.dropItemToGround(H.head)
+		H.equip_to_slot_if_possible(new helmet_type(H), ITEM_SLOT_HEAD, 1, 1, 1)
+
+
