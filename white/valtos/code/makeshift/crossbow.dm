@@ -156,7 +156,7 @@
 	icon = 'white/valtos/icons/crossbow.dmi'
 	icon_state = "rod_proj"
 	suppressed = TRUE
-	damage = 15 // multiply by how drawn the bow string is
+	damage = 10 // multiply by how drawn the bow string is
 	range = 10 // also multiply by the bow string
 	damage_type = BRUTE
 	flag = BULLET

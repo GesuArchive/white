@@ -1103,7 +1103,20 @@
 	if(dist > HIEROPHANT_BLINK_RANGE)
 		to_chat(user, "<span class='hierophant_warning'>Blink destination out of range.</span>")
 		return
-
+	
+	if(iscarbon(user))
+		if(is_centcom_level(user.z))
+			user.visible_message("<span class='hierophant_warning'>[user.name] уносит за пределы этой реальности!</span>", "<span class='hierophant_warning'>Меня уносит за пределы этой реальности!</span>")
+			for(var/obj/item/I in user)
+				if(I != src)
+					user.dropItemToGround(I)
+			for(var/turf/T in RANGE_TURFS(1, user))
+				new /obj/effect/temp_visual/hierophant/blast/visual(T, user, TRUE)
+			user.dropItemToGround(src) //Drop us last, so it goes on top of their stuff
+			qdel(user)
+			return
+		if(get_area(user) & NOTELEPORT || get_area(target) & NOTELEPORT)
+			return
 	. = ..()
 
 	if(!current_charges)
