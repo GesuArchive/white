@@ -58,7 +58,7 @@
 			if(4)
 				newhand = new /obj/item/mutant_zombie_hand()
 				cur_speed_mod -= 0.3
-				armor -= 10
+				armor -= 5
 
 		newhand.AddComponent(/datum/component/zombie_weapon/mutant)
 		ADD_TRAIT(newhand, TRAIT_NODROP, HAND_REPLACEMENT_TRAIT)
