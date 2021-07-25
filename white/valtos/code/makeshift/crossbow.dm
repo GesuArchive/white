@@ -17,6 +17,8 @@
 	var/charge_time = 10
 	var/draw_sound = 'sound/weapons/draw_bow.ogg'
 	var/insert_sound = 'sound/weapons/magin.ogg'
+	var/bow_type_overlay = null
+	var/rod_type = /obj/item/ammo_casing/rod
 	weapon_weight = WEAPON_MEDIUM
 	spawnwithmagazine = FALSE
 	casing_ejector = FALSE
@@ -27,7 +29,7 @@
 			if (istype(A, /obj/item/stack/rods))
 				var/obj/item/stack/rods/R = A
 				if (R.use(1))
-					chambered = new /obj/item/ammo_casing/rod
+					chambered = new rod_type
 					var/obj/projectile/rod/PR = chambered.BB
 
 					if (PR)
@@ -118,16 +120,16 @@
 	..()
 	cut_overlays()
 	if (charge >= max_charge)
-		add_overlay("charge_[max_charge]")
+		add_overlay("[bow_type_overlay]charge_[max_charge]")
 	else if (charge < 1)
-		add_overlay("charge_0")
+		add_overlay("[bow_type_overlay]charge_0")
 	else
-		add_overlay("charge_[charge]")
+		add_overlay("[bow_type_overlay]charge_[charge]")
 	if (chambered && charge > 0)
 		if (charge >= max_charge)
-			add_overlay("rod_[max_charge]")
+			add_overlay("[bow_type_overlay]rod_[max_charge]")
 		else
-			add_overlay("rod_[charge]")
+			add_overlay("[bow_type_overlay]rod_[charge]")
 	return
 
 /obj/item/gun/ballistic/crossbow/improv
@@ -157,7 +159,7 @@
 	damage = 15 // multiply by how drawn the bow string is
 	range = 10 // also multiply by the bow string
 	damage_type = BRUTE
-	flag = "bullet"
+	flag = BULLET
 	hitsound = null // We use our own for different circumstances
 	var/impale_sound = 'white/valtos/sounds/rodgun_pierce.ogg'
 	var/hitsound_override = 'sound/weapons/pierce.ogg'
@@ -217,3 +219,23 @@
 	. = ..()
 	new /obj/item/stack/rods(get_turf(user))
 	qdel(src)
+
+/obj/item/gun/ballistic/crossbow/energy
+	name = "энергетический арбалет"
+	desc = "Совершенство технологий и больной ум позволили создать это."
+	icon_state = "crossbow_body_energy"
+	inhand_icon_state = "crossbow_body_improv"
+	insert_sound = 'white/valtos/sounds/rodgun_reload.ogg'
+	bow_type_overlay = "e_"
+	charge_time = 1
+	rod_type = /obj/item/ammo_casing/rod/energy
+
+/obj/item/ammo_casing/rod/energy
+	projectile_type = /obj/projectile/rod/energy
+
+/obj/projectile/rod/energy
+	name = "раскалённый металлический стержень"
+	icon = 'white/valtos/icons/crossbow.dmi'
+	icon_state = "e_rod_proj"
+	damage = 30
+	range = 20

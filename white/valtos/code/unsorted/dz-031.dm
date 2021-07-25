@@ -158,6 +158,7 @@
 	icon_state = "monitor"
 	flags_1 = INDESTRUCTIBLE
 	plane = -2
+	anchored = TRUE
 	var/what_pic = "anonist"
 
 /obj/lab_monitor/attacked_by(obj/item/I, mob/living/user)
