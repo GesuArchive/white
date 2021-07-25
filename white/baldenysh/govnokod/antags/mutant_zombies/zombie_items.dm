@@ -18,7 +18,7 @@
 
 	ammo_type = /obj/item/ammo_casing/magic/tentacle/mutantzombie
 	hitsound = 'sound/effects/splat.ogg'
-	recharge_rate = 30 SECONDS
+	recharge_rate = 30
 
 /obj/item/ammo_casing/magic/tentacle/mutantzombie
 	projectile_type = /obj/projectile/tentacle/mutantzombie
