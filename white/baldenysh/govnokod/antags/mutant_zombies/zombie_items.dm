@@ -28,7 +28,15 @@
 
 /////////////////////////////shield
 
-//obj/item/shield/changeling/mutantzombie
+/obj/item/shield/mutantzombie
+	name = "щитообразная масса"
+	desc = "Масса жесткой костной ткани. Мы все еще можем видеть пальцы в виде скрученного рисунка на щите."
+	item_flags = ABSTRACT | DROPDEL
+	icon = 'icons/obj/changeling_items.dmi'
+	icon_state = "ling_shield"
+	lefthand_file = 'icons/mob/inhands/antag/changeling_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/antag/changeling_righthand.dmi'
+	block_chance = 40
 
 /////////////////////////////hand
 

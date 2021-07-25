@@ -44,7 +44,7 @@
 				newhand = new /obj/item/gun/magic/tentacle/mutantzombie()
 				speed_mod += 1.4
 			if(7 to 9)
-				newhand = new /obj/item/shield/changeling()
+				newhand = new /obj/item/shield/mutantzombie()
 				armor += 10
 				speed_mod += 1.5
 			if(10 to 12)
