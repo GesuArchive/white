@@ -389,7 +389,7 @@
 	for(var/V in GLOB.clients)
 		var/client/C = V
 		if(C.mob && ishuman(C.mob))
-			. += M
+			. += C.mob
 
 /datum/yohei_task/proc/find_target()
 	var/list/possible_targets = list()
