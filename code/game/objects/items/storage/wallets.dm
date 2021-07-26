@@ -42,7 +42,7 @@
 
 /obj/item/storage/wallet/Exited(atom/movable/AM)
 	. = ..()
-	if(istype(gone, /obj/item/card/id))
+	if(istype(AM, /obj/item/card/id))
 		refreshID()
 
 /**
@@ -80,7 +80,7 @@
 
 /obj/item/storage/wallet/Entered(atom/movable/AM)
 	. = ..()
-	if(istype(arrived, /obj/item/card/id))
+	if(istype(AM, /obj/item/card/id))
 		refreshID()
 
 /obj/item/storage/wallet/update_overlays()
