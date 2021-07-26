@@ -42,28 +42,21 @@
 
 /obj/item/storage/wallet/Exited(atom/movable/AM)
 	. = ..()
-	refreshID(removed = TRUE)
+	if(istype(AM, /obj/item/card/id))
+		refreshID()
 
 /**
  * Calculates the new front ID.
  *
  * Picks the ID card that has the most combined command or higher tier accesses.
  * Arguments:
- * * removed - If this proc was called because a card was removed. There's a chance we don't need to calculate the new front ID if a card was removed.
  */
-/obj/item/storage/wallet/proc/refreshID(removed = FALSE)
+/obj/item/storage/wallet/proc/refreshID()
 	LAZYCLEARLIST(combined_access)
-
-	// If the front_id is still in our wallet an we removed a card, we can return early.
-	if((front_id in src) && removed)
-		return
 
 	front_id = null
 	var/winning_tally = 0
-	for(var/card in contents)
-		var/obj/item/card/id/id_card = card
-		if(!istype(id_card))
-			continue
+	for(var/obj/item/card/id/id_card in contents)
 		var/card_tally = SSid_access.tally_access(id_card, ACCESS_FLAG_COMMAND)
 		if(card_tally > winning_tally)
 			winning_tally = card_tally
@@ -87,7 +80,8 @@
 
 /obj/item/storage/wallet/Entered(atom/movable/AM)
 	. = ..()
-	refreshID(removed = FALSE)
+	if(istype(AM, /obj/item/card/id))
+		refreshID()
 
 /obj/item/storage/wallet/update_overlays()
 	. = ..()

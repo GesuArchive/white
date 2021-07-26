@@ -195,8 +195,9 @@
 			if(is_fucking(partner, CUM_TARGET_THROAT))
 				message = pick(list("невероятно сильно ловит клёв в проруби [partner].", "топит карпика в проруби [partner]."))
 				if(rand(3) == 1) // 33%
-					partner.emote("задыхается в захвате [src]")
-					partner.adjustOxyLoss(1)
+					partner.manual_emote("задыхается в захвате [src]")
+					if(iscarbon(partner))
+						partner.adjustOxyLoss(1)
 			else if(is_fucking(partner, CUM_TARGET_MOUTH))
 				message = "суёт стан-батон глубже, заходя уже в прорубь [partner]."
 
@@ -368,14 +369,12 @@
 		return A.name
 
 /mob/proc/handle_post_sex(var/amount, var/orifice, var/mob/partner)
-
-	sleep(5)
-
-	if(stat != CONSCIOUS)
-		return
-	if(amount)
-		lust += amount
-	if (lust >= lust_tolerance)
-		cum(partner, orifice)
-	else
-		moan()
+	spawn(5)
+		if(stat != CONSCIOUS)
+			return
+		if(amount)
+			lust += amount
+		if (lust >= lust_tolerance)
+			cum(partner, orifice)
+		else
+			moan()
