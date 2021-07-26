@@ -286,6 +286,10 @@ const Connections = (props, context) => {
   const connections = [];
 
   for (const comp of components) {
+    if (comp === null) {
+      continue;
+    }
+
     for (const port of comp.input_ports) {
       if (port.connected_to === NULL_REF) continue;
       const output_port = locations[port.connected_to];

@@ -55,6 +55,7 @@
 		else
 			qdel(replaced)
 
+	SEND_SIGNAL(src, COMSIG_ORGAN_IMPLANTED, M)
 	SEND_SIGNAL(M, COMSIG_CARBON_GAIN_ORGAN, src, special)
 
 	owner = M
@@ -84,6 +85,7 @@
 		A.Remove(M)
 
 	SEND_SIGNAL(M, COMSIG_CARBON_LOSE_ORGAN, src, special)
+	SEND_SIGNAL(src, COMSIG_ORGAN_REMOVED, M)
 
 	START_PROCESSING(SSobj, src)
 
