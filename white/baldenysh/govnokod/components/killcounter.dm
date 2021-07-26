@@ -19,7 +19,7 @@ GLOBAL_LIST_EMPTY(killcounter_counted_kills)
 
 /datum/component/killcounter/proc/on_mob_death(datum/source, mob/living/dead, gibbed)
 	var/mob/living/owner = parent
-	if(dead.lastattackerckey == owner.ckey)
+	if(dead.lastattackerckey != null && dead.lastattackerckey == owner.ckey)
 		on_kill(dead)
 
 /datum/component/killcounter/proc/on_kill(mob/living/killed)
