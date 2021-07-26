@@ -1,8 +1,35 @@
 /datum/component/zombie_weapon/mutant
 	possible_tumors = list(/obj/item/organ/zombie_infection/mutant)
+	infection_chance = 20
 
 /obj/item/organ/zombie_infection/mutant
 	zombie_species = /datum/species/zombie/infectious/mutant
+
+/obj/item/organ/zombie_infection/mutant/Insert(mob/living/carbon/M, special)
+	. = ..()
+	var/datum/team/mutant_zombies/zombs = locate(/datum/team/mutant_zombies) in GLOB.antagonist_teams
+	zombs?.add_infected_to_hud(M)
+	/*
+		for(var/datum/antagonist/mutant_zombie/Z in GLOB.antagonists)
+			if(!Z.owner)
+				continue
+			if(Z.zombs)
+				Z.zombs.add_infected_to_hud(M)
+				break
+				*/
+
+/obj/item/organ/zombie_infection/mutant/Remove(mob/living/carbon/M, special)
+	. = ..()
+	var/datum/team/mutant_zombies/zombs = locate(/datum/team/mutant_zombies) in GLOB.antagonist_teams
+	zombs?.remove_infected_from_hud(M)
+	/*
+		for(var/datum/antagonist/mutant_zombie/Z in GLOB.antagonists)
+			if(!Z.owner)
+				continue
+			if(Z.zombs)
+				Z.zombs.remove_infected_from_hud(M)
+				break
+	*/
 
 /datum/species/zombie/infectious/mutant
 	name = "Mutant Zombie"
@@ -10,7 +37,7 @@
 	mutanteyes = /obj/item/organ/eyes/night_vision/alien
 	mutanthands = /obj/item/mutant_zombie_hand
 	armor = 50
-	speedmod = 0.5
+	speedmod = 1
 
 /datum/species/zombie/infectious/mutant/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	. = ..()
@@ -18,14 +45,22 @@
 		mutate_hands(C)
 	//	mutate_body(C)
 
-	var/datum/antagonist/mutant_zombie/zomb = new
-	C.mind.add_antag_datum(zomb)
-	message_admins("[ADMIN_LOOKUPFLW(C)] стал зомби.")
-	log_game("[key_name(C)] стал зомби.")
+	if(C.mind)
+		var/datum/antagonist/mutant_zombie/zomb = new
+		C.mind.add_antag_datum(zomb)
+		message_admins("[ADMIN_LOOKUPFLW(C)] стал зомби.")
+		log_game("[key_name(C)] стал зомби.")
+
+	var/datum/team/mutant_zombies/zombs = locate(/datum/team/mutant_zombies) in GLOB.antagonist_teams
+	zombs?.add_zombie_to_hud(C)
 
 /datum/species/zombie/infectious/mutant/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	. = ..()
-	C.mind.remove_antag_datum(/datum/antagonist/mutant_zombie)
+	if(C.mind)
+		C.mind.remove_antag_datum(/datum/antagonist/mutant_zombie)
+
+	var/datum/team/mutant_zombies/zombs = locate(/datum/team/mutant_zombies) in GLOB.antagonist_teams
+	zombs?.remove_zombie_from_hud(C)
 
 /datum/species/zombie/infectious/mutant/proc/mutate_hands(mob/living/carbon/human/H)
 	var/cur_speed_mod = speedmod
@@ -46,7 +81,7 @@
 		switch(rand(1,4))
 			if(1)
 				newhand = new /obj/item/melee/arm_blade()
-				armor += 30
+				armor += 15
 				cur_speed_mod += 0.4
 			if(2)
 				newhand = new /obj/item/gun/magic/tentacle/mutantzombie()
@@ -54,12 +89,11 @@
 				cur_speed_mod += 0.1
 			if(3)
 				newhand = new /obj/item/shield/mutantzombie()
-				armor += 50
+				armor += 25
 				cur_speed_mod += 0.2
 			if(4)
 				newhand = new /obj/item/mutant_zombie_hand()
 				cur_speed_mod -= 0.3
-				armor -= 5
 
 		newhand.AddComponent(/datum/component/zombie_weapon/mutant)
 		ADD_TRAIT(newhand, TRAIT_NODROP, HAND_REPLACEMENT_TRAIT)
