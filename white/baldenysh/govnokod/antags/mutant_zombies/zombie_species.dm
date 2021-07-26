@@ -9,27 +9,11 @@
 	. = ..()
 	var/datum/team/mutant_zombies/zombs = locate(/datum/team/mutant_zombies) in GLOB.antagonist_teams
 	zombs?.add_infected_to_hud(M)
-	/*
-		for(var/datum/antagonist/mutant_zombie/Z in GLOB.antagonists)
-			if(!Z.owner)
-				continue
-			if(Z.zombs)
-				Z.zombs.add_infected_to_hud(M)
-				break
-				*/
 
 /obj/item/organ/zombie_infection/mutant/Remove(mob/living/carbon/M, special)
 	. = ..()
 	var/datum/team/mutant_zombies/zombs = locate(/datum/team/mutant_zombies) in GLOB.antagonist_teams
 	zombs?.remove_infected_from_hud(M)
-	/*
-		for(var/datum/antagonist/mutant_zombie/Z in GLOB.antagonists)
-			if(!Z.owner)
-				continue
-			if(Z.zombs)
-				Z.zombs.remove_infected_from_hud(M)
-				break
-	*/
 
 /datum/species/zombie/infectious/mutant
 	name = "Mutant Zombie"
