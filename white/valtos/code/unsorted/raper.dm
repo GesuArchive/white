@@ -281,13 +281,11 @@
 
 	controller.blackboard[BB_RAPER_FUCKING] = TRUE
 
-	if(target)
-		for(var/obj/item/W in target)
-			if(istype(W, /obj/item/restraints))
-				continue
-			if(W.item_flags & ABSTRACT)
-				continue
-			target.dropItemToGround(W)
+	if(target && ishuman(target))
+		var/mob/living/carbon/human/H = target
+		H.dropItemToGround(H.wear_suit)
+		H.dropItemToGround(H.w_uniform)
+		H.drop_all_held_items()
 		living_pawn.do_sex(target, pick("do_anal"))
 	finish_action(controller, TRUE)
 

@@ -26,17 +26,9 @@ GLOBAL_LIST_EMPTY(dead_players_during_shift)
 		H.beat = BEAT_NONE
 
 	to_chat(client, \
-	"<span class='notice'><i>Вы умерли. Было ли это из-за вашей глупости или нет - решать вам. Можете подождать и посмотреть, вдруг ваше тело ещё реанимируют.<br>\
-	Если вы считаете, что этого не произойдёт, или просто не хотите ждать - можете занять один из спавнеров, доступных призракам.<br>\
-	Учтите, что в таком случае в своё старое тело вы вернуться уже не сможете.<br><br>\
-	И наконец. если вы считаете свою смерть несправедливой, а вашего убийцу - [pick("бараном", "козлом", "мудаком", "плохим человеком")] - милости просим на форум.</i></span>")
+	"<span class='notice'><i>Пришлось погибнуть. Было ли это по моей глупости или нет? Возможно моё тело ещё реанимируют, можно подождать...\
+	\nГоворят, что после смерти есть возможность получить вторую жизнь, можно попробовать найти свой шанс...</i></span>")
 
-/*
-	if(mind && !mind.antag_datums && lastattacker && lastattacker != real_name)
-		gain_trauma(new /datum/brain_trauma/mild/phobia(specific_person = lastattacker), TRAUMA_RESILIENCE_PSYCHONLY)
-		if(client)
-			INVOKE_ASYNC(client, /client/proc/show_tgui_notice, "ПТСР", "Тебя кто-то убил. Персонаж получил травму связанную с этим событием не дающую ему вспомнить своего убийцу. Возможно психолог поможет вспомнить.")
-*/
 	. = ..()
 
 	dizziness = 0
@@ -53,7 +45,6 @@ GLOBAL_LIST_EMPTY(dead_players_during_shift)
 		log_message("has died (BRUTE: [src.getBruteLoss()], BURN: [src.getFireLoss()], TOX: [src.getToxLoss()], OXY: [src.getOxyLoss()], CLONE: [src.getCloneLoss()])", LOG_ATTACK)
 	if(is_devil(src))
 		INVOKE_ASYNC(is_devil(src), /datum/antagonist/devil.proc/beginResurrectionCheck, src)
-	to_chat(src, "<span class='warning'>.</span>")
 
 /client/proc/show_tgui_notice(header, msg)
 	tgui_alert_async(src, header, msg, list("Понимаю"))

@@ -2,6 +2,7 @@
 	var/list/obj/item/organ/zombie_infection/possible_tumors = list(
 		/obj/item/organ/zombie_infection
 	)
+	var/infection_chance = 100
 
 /datum/component/zombie_weapon/Initialize()
 	if(!isitem(parent))
@@ -23,6 +24,8 @@
 
 /datum/component/zombie_weapon/proc/infect(mob/living/carbon/human/target)
 	if(!istype(target))
+		return
+	if(!prob(infection_chance) && target.stat != DEAD)
 		return
 	CHECK_DNA_AND_SPECIES(target)
 	if(NOZOMBIE in target.dna.species.species_traits)

@@ -6,24 +6,6 @@
 	prevent_roundtype_conversion = FALSE
 	var/datum/team/mutant_zombies/zombs
 
-/datum/antagonist/mutant_zombie/apply_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	add_hud(M)
-
-/datum/antagonist/mutant_zombie/remove_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	remove_hud(M)
-
-/datum/antagonist/mutant_zombie/proc/add_hud(mob/living/zombie, icontype="zed")
-	zombs?.kostil_hud.join_hud(zombie)
-	set_antag_hud(zombie, icontype) // Located in icons/mob/hud.dmi
-
-/datum/antagonist/mutant_zombie/proc/remove_hud(mob/living/zombie)
-	zombs?.kostil_hud.leave_hud(zombie)
-	set_antag_hud(zombie, null)
-
-///////////////////////////////////////////////////////////////команда
-
 /datum/antagonist/mutant_zombie/get_team()
 	return zombs
 
@@ -41,9 +23,38 @@
 		stack_trace("Wrong team type passed to [type] initialization.")
 	zombs = new_team
 
+///////////////////////////////////////////////////////////////команда
+
 /datum/team/mutant_zombies
 	name = "Зомби"
-	var/datum/atom_hud/antag/hidden/kostil_hud = new
+	var/datum/atom_hud/antag/hidden/zombies_hud = new
+	var/datum/atom_hud/antag/infected_hud = new
+
+/datum/team/mutant_zombies/proc/add_zombie_to_hud(mob/living/carbon/C)
+	var/image/holder = C.hud_list[ANTAG_HUD]
+	holder.icon_state = "zed"
+	zombies_hud.add_to_hud(C)
+
+	zombies_hud.add_hud_to(C)
+	infected_hud.add_hud_to(C)
+
+/datum/team/mutant_zombies/proc/remove_zombie_from_hud(mob/living/carbon/C)
+	var/image/holder = C.hud_list[ANTAG_HUD]
+	holder.icon_state = null
+	zombies_hud.remove_from_hud(C)
+
+	zombies_hud.remove_hud_from(C)
+	infected_hud.remove_hud_from(C)
+
+/datum/team/mutant_zombies/proc/add_infected_to_hud(mob/living/carbon/C)
+	var/image/holder = C.hud_list[ANTAG_HUD]
+	holder.icon_state = "infected"
+	infected_hud.add_to_hud(C)
+
+/datum/team/mutant_zombies/proc/remove_infected_from_hud(mob/living/carbon/C)
+	var/image/holder = C.hud_list[ANTAG_HUD]
+	holder.icon_state = null
+	infected_hud.remove_from_hud(C)
 
 
 /*
