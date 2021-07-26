@@ -37,12 +37,10 @@ GLOBAL_LIST_EMPTY(killcounter_counted_kills)
 	else
 		cur_killstreak = 1
 
-	var/mob/living/owner = parent
-	if(owner.ckey)
-		if(GLOB.killcounter_counted_kills[key_name(parent)])
-			GLOB.killcounter_counted_kills[key_name(parent)].Add(key_name(killed))
-		else
-			GLOB.killcounter_counted_kills[key_name(parent)] = list(key_name(killed))
+	if(GLOB.killcounter_counted_kills[key_name(parent)])
+		GLOB.killcounter_counted_kills[key_name(parent)].Add(key_name(killed))
+	else
+		GLOB.killcounter_counted_kills[key_name(parent)] = list(key_name(killed))
 
 	last_kill_time = world.time
 
