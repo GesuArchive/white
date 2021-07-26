@@ -205,6 +205,9 @@
 /obj/structure/window/reinforced/survival_pod{
 	dir = 6
 	},
+/obj/structure/lattice/catwalk{
+	invisibility = 100
+	},
 /turf/open/chasm/lavaland,
 /area/ruin/powered/yohei_base)
 "bu" = (
@@ -280,21 +283,12 @@
 /turf/closed/indestructible/syndicate,
 /area/centcom/brief)
 "bF" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/trimline/neutral/line{
-	dir = 8
-	},
-/turf/open/floor/plasteel,
-/area/centcom/control)
+/obj/structure/lattice/catwalk,
+/turf/open/water/cataclysmdda,
+/area/centcom/outdoors)
 "bH" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
 	},
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 4
@@ -366,7 +360,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/kirbyplants/random,
 /turf/open/floor/plasteel/dark/side{
 	dir = 8
 	},
@@ -396,7 +389,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/open/floor/plating/grass/jungle,
+/turf/open/floor/plating/beach/sand,
 /area/centcom/control)
 "cb" = (
 /obj/effect/baseturf_helper/beach/sand,
@@ -902,7 +895,7 @@
 	name = "NT CentCom: Ferry dock";
 	width = 5
 	},
-/turf/open/floor/plating/grass/jungle,
+/turf/open/floor/plating/beach/sand,
 /area/centcom/outdoors)
 "eJ" = (
 /obj/machinery/door/airlock{
@@ -2030,15 +2023,10 @@
 /turf/open/floor/carpet,
 /area/wizard_station)
 "kl" = (
-/obj/structure/flora/ausbushes/lavendergrass,
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/brflowers,
-/obj/structure/flora/ausbushes/genericbush,
-/obj/machinery/light{
-	dir = 4
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
 	},
-/turf/open/floor/grass,
+/turf/open/floor/plasteel,
 /area/centcom/control)
 "km" = (
 /obj/machinery/button{
@@ -2091,6 +2079,9 @@
 "kz" = (
 /obj/structure/window/reinforced/survival_pod{
 	dir = 4
+	},
+/obj/structure/lattice/catwalk{
+	invisibility = 100
 	},
 /turf/open/chasm/lavaland,
 /area/ruin/powered/yohei_base)
@@ -2505,8 +2496,10 @@
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "nl" = (
-/obj/structure/lattice/catwalk,
-/turf/open/floor/plating/beach/sand,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
 /area/centcom/outdoors)
 "nn" = (
 /obj/item/kirbyplants/random,
@@ -3401,6 +3394,9 @@
 /obj/structure/window/reinforced/survival_pod{
 	dir = 5
 	},
+/obj/structure/lattice/catwalk{
+	invisibility = 100
+	},
 /turf/open/chasm/lavaland,
 /area/ruin/powered/yohei_base)
 "tl" = (
@@ -3559,7 +3555,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/open/floor/plating/grass/jungle,
+/turf/open/floor/plating/beach/sand,
 /area/centcom/control)
 "uv" = (
 /turf/open/floor/light/colour_cycle/dancefloor_a{
@@ -3977,9 +3973,8 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/brief)
 "yE" = (
-/obj/structure/chair/sofa/corp/right,
-/turf/open/floor/dz/green,
-/area/centcom/control)
+/turf/open/floor/plasteel,
+/area/centcom/outdoors)
 "yK" = (
 /obj/structure/chair/comfy/teal,
 /turf/open/floor/carpet/green,
@@ -4814,8 +4809,11 @@
 /turf/open/floor/engine/cult,
 /area/wizard_station)
 "Eh" = (
-/obj/structure/chair/sofa/corp,
-/turf/open/floor/dz/green,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/light,
+/turf/open/floor/plasteel,
 /area/centcom/control)
 "Ek" = (
 /obj/structure/closet/secure_closet/ert_sec,
@@ -5411,7 +5409,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/kirbyplants/random,
 /turf/open/floor/plasteel/dark/side{
 	dir = 4
 	},
@@ -5452,12 +5449,7 @@
 /turf/open/floor/plasteel,
 /area/centcom/outdoors)
 "JU" = (
-/obj/structure/fans/tiny/invisible,
-/obj/effect/turf_decal/stripes/full,
-/obj/structure/railing/corner{
-	dir = 1
-	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark/side,
 /area/centcom/control)
 "JW" = (
 /obj/structure/sign/warning/radiation{
@@ -5515,7 +5507,7 @@
 	},
 /area/centcom/circus)
 "Kw" = (
-/turf/open/floor/plating/grass/jungle,
+/turf/open/floor/plating/beach/sand,
 /area/centcom/control)
 "Ky" = (
 /turf/closed/indestructible/abductor{
@@ -5824,7 +5816,7 @@
 /area/abductor_ship)
 "Nx" = (
 /obj/machinery/door/poddoor/shuttledock{
-	checkdir = 1;
+	checkdir = 4;
 	name = "syndicate blast door";
 	turftype = /turf/open/floor/plating/beach/sand
 	},
@@ -6442,13 +6434,8 @@
 /turf/open/floor/wood,
 /area/centcom/holding)
 "Rv" = (
-/obj/structure/fans/tiny/invisible,
-/obj/effect/turf_decal/stripes/full,
-/obj/structure/railing/corner{
-	dir = 4
-	},
-/turf/open/floor/plasteel,
-/area/centcom/control)
+/turf/closed/indestructible/syndicate,
+/area/centcom/outdoors)
 "Rx" = (
 /obj/machinery/light,
 /turf/open/floor/wood,
@@ -6675,10 +6662,6 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding)
-"SR" = (
-/obj/structure/chair/sofa/corp/left,
-/turf/open/floor/dz/green,
-/area/centcom/control)
 "ST" = (
 /obj/effect/landmark/holding_facility,
 /turf/open/floor/wood,
@@ -10372,12 +10355,12 @@ eh
 eh
 eh
 eh
-eh
-eh
-eh
-eh
-eh
-eh
+Em
+Em
+Em
+Em
+Em
+Em
 Dk
 ZA
 ZA
@@ -10628,13 +10611,13 @@ Em
 Em
 Cn
 eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
+Em
+Em
+Em
+Em
+Em
+Em
+Em
 eh
 ZH
 ZA
@@ -10885,14 +10868,14 @@ Em
 Em
 Em
 eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
 ZH
 ZA
 ZA
@@ -11142,14 +11125,14 @@ Em
 Em
 Em
 Em
-Dk
-eh
-eh
-eh
-eh
-eh
-Uz
-eh
+Em
+Em
+Em
+Em
+Em
+Em
+kw
+Em
 eh
 ZH
 ZA
@@ -11399,14 +11382,14 @@ Em
 Em
 Em
 Em
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
 eh
 ZH
 ZA
@@ -11656,14 +11639,14 @@ Em
 Em
 Em
 Em
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
 eh
 Xx
 ZA
@@ -11914,13 +11897,13 @@ Em
 Em
 Em
 Em
-eh
-eh
-eh
-eh
-eh
-eh
-eh
+Em
+Em
+Em
+Em
+Em
+Em
+Em
 ZH
 ZH
 ZA
@@ -12172,12 +12155,12 @@ Em
 kw
 Em
 Em
-eh
-eh
-eh
-eh
-Dk
-ZH
+Em
+Em
+Em
+Em
+Em
+Em
 ZH
 ZA
 ZA
@@ -12429,11 +12412,11 @@ Em
 Em
 Em
 Em
-eh
-eh
-eh
-eh
-eh
+Em
+Em
+Em
+Em
+Em
 ZH
 ZA
 ZA
@@ -12685,12 +12668,12 @@ Em
 Em
 Em
 Em
-eh
-eh
-eh
-eh
-eh
-eh
+Em
+Em
+Em
+Em
+Em
+Em
 ZA
 ZA
 ZA
@@ -12941,13 +12924,13 @@ Em
 Em
 Em
 eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
+Em
+Em
+Em
+Em
+Em
+Em
+Em
 ZA
 ZA
 ZA
@@ -13187,7 +13170,7 @@ eh
 ZA
 ZA
 ZA
-ZA
+Em
 Em
 Em
 Em
@@ -13199,12 +13182,12 @@ Em
 eh
 zO
 eh
-eh
-eh
-eh
-eh
-eh
-eh
+Em
+Em
+Em
+Em
+Em
+Em
 ZA
 ZA
 ZA
@@ -13443,10 +13426,10 @@ eh
 ZA
 ZA
 ZA
-ZA
-ZA
-ZA
-ZA
+Em
+Em
+Em
+Em
 Em
 Em
 Em
@@ -13456,12 +13439,12 @@ ZA
 ZA
 eh
 eh
-eh
-eh
-eh
-eh
-eh
-eh
+Em
+Em
+Em
+Em
+Em
+Em
 ZA
 ZU
 ZU
@@ -13700,25 +13683,25 @@ eh
 ZA
 ZA
 ZA
-ZA
-ZA
-ZA
-ZA
-ZA
-ZA
-ZA
+Em
+Em
+Em
+Em
+Em
+Em
+Em
 ZA
 ZA
 ZA
 ZA
 ZA
 eh
-Cn
-eh
-eh
+Em
+Em
+Em
 eH
-eh
-eh
+Em
+Em
 ZA
 ns
 ii
@@ -13957,25 +13940,25 @@ EM
 ZA
 ZA
 ZA
+Em
+Em
+Em
+Em
+Em
+Em
+Em
 ZA
 ZA
 ZA
 ZA
 ZA
 ZA
-ZA
-ZA
-ZA
-ZA
-ZA
-ZA
-ZA
-ZH
-ZH
+Em
+Em
 ZU
 eQ
 ZU
-Dk
+Em
 ZA
 hd
 ik
@@ -14212,27 +14195,27 @@ Em
 Em
 eh
 ZA
-EV
-EV
-EV
-EV
-EV
-EV
-EV
-EV
-EV
-EV
+ZA
+ZA
+Em
+Em
+Em
+Em
+Em
+Em
+Em
 ZA
 ZA
 ZA
 ZA
 ZA
 ZA
-Xx
+ZA
+kw
 ZU
 eT
 ZU
-Uz
+kw
 ZA
 hd
 ik
@@ -14469,18 +14452,18 @@ Em
 Em
 Em
 ZA
-EV
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-EV
-EV
-EV
+ZA
+Em
+Em
+Em
+kw
+Em
+Em
+Em
+Em
+Em
+ZA
+ZA
 ZU
 EV
 ZU
@@ -14726,17 +14709,17 @@ Em
 Em
 Em
 ZA
-EV
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+ZA
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+ZU
+ZU
 ZU
 ZU
 Dw
@@ -14984,14 +14967,14 @@ Em
 Em
 aX
 ZU
+Kw
+Kw
+Kw
 ZU
-ZU
-ZU
-ZU
-ZU
-ZU
-ZU
-ZU
+Kw
+Kw
+Kw
+Kw
 ZU
 Co
 fU
@@ -15749,10 +15732,10 @@ Em
 Em
 Em
 nl
-nl
-nl
-nl
-nl
+bF
+bF
+bF
+yE
 aZ
 bC
 FH
@@ -16006,10 +15989,10 @@ Em
 Em
 Em
 nl
-nl
-nl
-nl
-nl
+bF
+bF
+bF
+yE
 ba
 bC
 FH
@@ -16263,10 +16246,10 @@ Em
 Em
 Em
 nl
-nl
-nl
-nl
-nl
+bF
+bF
+bF
+yE
 aZ
 bC
 FH
@@ -16519,13 +16502,13 @@ Em
 Em
 Em
 XB
-tY
-aI
-aI
-aI
-aI
-Rv
+nl
 bF
+bF
+bF
+yE
+ba
+ky
 Yi
 NM
 NM
@@ -16776,13 +16759,13 @@ Em
 Em
 Em
 Em
-Em
-Em
-Em
-Em
-Em
-ZU
-ZU
+nl
+bF
+bF
+bF
+yE
+aZ
+Eh
 ns
 JD
 Pe
@@ -17033,15 +17016,15 @@ Em
 Em
 Em
 Em
-Em
-Em
-Em
-Em
-Em
-Zw
-SG
-Zw
+nl
+bF
+bF
+bF
 yE
+ba
+kl
+JU
+Xg
 Xg
 Xg
 Xg
@@ -17290,15 +17273,15 @@ Em
 Em
 Em
 Em
-Em
-Em
-Em
-Em
-Em
-Zw
-sJ
-Zw
-Eh
+nl
+bF
+bF
+bF
+yE
+aZ
+kl
+JU
+Xg
 Xg
 Xg
 Xg
@@ -17547,15 +17530,15 @@ Em
 Em
 Em
 Em
-Em
-Em
-Em
-Em
-Em
-Zw
+nl
+bF
+bF
+bF
+yE
+ba
 kl
-Zw
-SR
+JU
+Xg
 Xg
 Xg
 Xg
@@ -17804,13 +17787,13 @@ Em
 Em
 Em
 Em
-Em
-Em
-Em
-Em
-Em
-ZU
-ZU
+nl
+bF
+bF
+bF
+yE
+aZ
+Eh
 ns
 bV
 ke
@@ -18061,12 +18044,12 @@ Em
 Em
 Em
 Em
-JS
-vL
-vL
-vL
-vL
-JU
+nl
+bF
+bF
+bF
+yE
+ba
 bH
 uo
 Hz
@@ -18319,10 +18302,10 @@ Em
 Em
 Em
 nl
-nl
-nl
-nl
-nl
+bF
+bF
+bF
+yE
 aZ
 bC
 FH
@@ -18576,10 +18559,10 @@ Em
 Em
 Em
 nl
-nl
-nl
-nl
-nl
+bF
+bF
+bF
+yE
 ba
 bC
 FH
@@ -18833,10 +18816,10 @@ Em
 Em
 Em
 nl
-nl
-nl
-nl
-nl
+bF
+bF
+bF
+yE
 aZ
 bC
 FH
@@ -19610,12 +19593,12 @@ Em
 Em
 ZU
 ZU
+Kw
+Kw
+Kw
 ZU
-ZU
-ZU
-ZU
-ZU
-ZU
+Kw
+Kw
 ZU
 ZU
 ZU
@@ -19866,14 +19849,14 @@ Em
 Em
 Em
 ZA
-EV
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+ZA
+Em
+Em
+Em
+Em
+Em
+Em
+Rv
 Co
 Co
 Co
@@ -20123,14 +20106,14 @@ Em
 Em
 Em
 ZA
-EV
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+ZA
+Em
+Em
+Em
+kw
+Em
+Em
+Rv
 Co
 Co
 Co
@@ -20380,14 +20363,14 @@ Em
 Em
 xF
 ZA
-EV
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+ZA
+ZA
+Em
+Em
+Em
+Em
+Em
+Rv
 Co
 Co
 Co
@@ -20637,15 +20620,15 @@ Em
 Em
 zO
 ZA
-EV
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+ZA
+ZA
+Em
+Em
+Em
+Em
+Em
+Rv
+Rv
 Co
 Co
 ZU
@@ -20894,17 +20877,17 @@ Em
 Em
 Cn
 ZA
-EV
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-ZU
+ZA
+ZA
+Em
+Em
+Em
+Em
+Em
+Em
+Rv
+Rv
+Rv
 ZU
 Dw
 ZU
@@ -21151,18 +21134,18 @@ Em
 eh
 Dk
 ZA
-EV
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-ZU
+ZA
+ZA
+ZA
+Em
+Em
+Em
+ZA
+Em
+Em
+Em
+Em
+Rv
 Co
 ZU
 pX
@@ -21408,19 +21391,19 @@ eh
 VY
 ZA
 ZA
-EV
-EV
-EV
-EV
-EV
-EV
-EV
-EV
-EV
-EV
-EV
-EV
-EV
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+Rv
+Rv
 ZU
 ZU
 ZU
