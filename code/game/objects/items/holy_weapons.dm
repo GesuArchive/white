@@ -807,7 +807,7 @@
 
 /obj/item/nullrod/hypertool/attack(mob/living/M, mob/living/user)
 	. = ..()
-	user.adjustOrganLoss(ORGAN_SLOT_BRAIN, 10, 199)
+	user.adjustOrganLoss(ORGAN_SLOT_BRAIN, rand(7,14), BRAIN_DAMAGE_DEATH-1)
 /obj/item/nullrod/spear
 	name = "ancient spear"
 	desc = "An ancient spear made of brass, I mean gold, I mean bronze. It looks highly mechanical."
