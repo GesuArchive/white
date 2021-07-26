@@ -9,14 +9,14 @@
 	id = "mutantzombies"
 	mutanteyes = /obj/item/organ/eyes/night_vision/alien
 	mutanthands = /obj/item/mutant_zombie_hand
-	armor = 0
+	armor = 50
 	speedmod = 0.5
 
 /datum/species/zombie/infectious/mutant/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	. = ..()
 	if(ishuman(C))
 		mutate_hands(C)
-		mutate_body(C)
+	//	mutate_body(C)
 
 	var/datum/antagonist/mutant_zombie/zomb = new
 	C.mind.add_antag_datum(zomb)
@@ -46,14 +46,15 @@
 		switch(rand(1,4))
 			if(1)
 				newhand = new /obj/item/melee/arm_blade()
-				armor += 5
+				armor += 30
 				cur_speed_mod += 0.4
 			if(2)
 				newhand = new /obj/item/gun/magic/tentacle/mutantzombie()
+				armor += 10
 				cur_speed_mod += 0.1
 			if(3)
 				newhand = new /obj/item/shield/mutantzombie()
-				armor += 10
+				armor += 50
 				cur_speed_mod += 0.2
 			if(4)
 				newhand = new /obj/item/mutant_zombie_hand()
