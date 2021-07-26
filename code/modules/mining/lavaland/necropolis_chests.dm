@@ -1115,7 +1115,9 @@
 			user.dropItemToGround(src) //Drop us last, so it goes on top of their stuff
 			qdel(user)
 			return
-		if(get_area(user) & NOTELEPORT || get_area(target) & NOTELEPORT)
+		var/area/user_area = get_area(user)
+		var/area/target_area = get_area(target)   
+		if(user_area.area_flags & NOTELEPORT || target_area.area_flags & NOTELEPORT)
 			return
 	. = ..()
 
