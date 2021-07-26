@@ -1,4 +1,4 @@
-GLOBAL_LIST_EMPTY(client_kills)
+GLOBAL_LIST_EMPTY(killcounter_counted_kills)
 
 /datum/component/killcounter
 	var/kill_count = 0
@@ -37,11 +37,10 @@ GLOBAL_LIST_EMPTY(client_kills)
 	else
 		cur_killstreak = 1
 
-	if(killed.ckey)
-		if(GLOB.client_kills[killed.lastattackerckey])
-			GLOB.client_kills[killed.lastattackerckey].Add(killed.ckey)
-		else
-			GLOB.client_kills[killed.lastattackerckey] = list(killed.ckey)
+	if(GLOB.killcounter_counted_kills[key_name(parent)])
+		GLOB.killcounter_counted_kills[key_name(parent)].Add(key_name(killed))
+	else
+		GLOB.killcounter_counted_kills[key_name(parent)] = list(key_name(killed))
 
 	last_kill_time = world.time
 
@@ -71,6 +70,13 @@ GLOBAL_LIST_EMPTY(client_kills)
 		if(7) playsound(T,'white/hule/SFX/csSFX/multikill.wav', 150, 5, pressure_affected = FALSE)
 		if(8) playsound(T,'white/hule/SFX/csSFX/multikill.wav', 150, 5, pressure_affected = FALSE)
 		if(9 to INFINITY) playsound(T,'white/hule/SFX/csSFX/holyshit.wav', 150, 5, pressure_affected = FALSE)
+
+/proc/log_combat_extension(atom/user, atom/target)
+	if(!isliving(user) || !isliving(target))
+		return
+	var/mob/living/attacker = user
+	var/mob/living/attacked = target
+	attacked.lastattackerckey = attacker.ckey
 
 /mob/living/Initialize()
 	. = ..()
