@@ -51,7 +51,7 @@
 
 // Attempt to get the turf below the provided one according to Z traits
 /datum/controller/subsystem/mapping/proc/get_turf_below(turf/T)
-	if (!T)
+	if (!T || !istype(T))
 		return
 	if (T.below_override)
 		return T.below_override
@@ -62,7 +62,7 @@
 
 // Attempt to get the turf above the provided one according to Z traits
 /datum/controller/subsystem/mapping/proc/get_turf_above(turf/T)
-	if (!T)
+	if (!T || !istype(T))
 		return
 	if (T.above_override)
 		return T.above_override

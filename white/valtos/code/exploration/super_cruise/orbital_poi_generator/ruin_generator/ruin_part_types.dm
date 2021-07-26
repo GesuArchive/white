@@ -345,3 +345,40 @@
 	weight = 50
 	max_occurances = 1
 	special_flags = RUIN_PART_HABITABLE
+
+
+// CITY PARTS
+
+/datum/map_template/ruin_part/city
+	file_name = "5x5_road_cross"
+	typegen = "CityGeneration"
+	special_flags = RUIN_PART_CITY
+	weight = 0
+
+/datum/map_template/ruin_part/city/roadcross
+	file_name = "5x5_road_cross"
+	weight = 5
+
+/datum/map_template/ruin_part/city/roadhor
+	file_name = "5x5_road_hor"
+	weight = 5
+
+/datum/map_template/ruin_part/city/roadnorthcap
+	file_name = "5x5_road_northcap"
+	weight = 5
+
+/datum/map_template/ruin_part/city/roadsouthcap
+	file_name = "5x5_road_southcap"
+	weight = 5
+
+/datum/map_template/ruin_part/city/roadvert
+	file_name = "5x5_road_vert"
+	weight = 5
+
+/datum/map_template/ruin_part/city/roadwestcap
+	file_name = "5x5_road_westcap"
+	weight = 5
+
+/datum/map_template/ruin_part/city/roadfuck
+	file_name = "10x10_road_fuck"
+	weight = 3

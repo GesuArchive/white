@@ -801,8 +801,13 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	if (response == "Cancel")
 		return
 	var/border_size = (world.maxx - ruin_size) / 2
-	generate_space_ruin(mob.x, mob.y, mob.z, border_size, border_size)
-	log_admin("[key_name(src)] randomly generated a space ruin at [COORD(mob)].")
+	var/is_city = alert(src, "Город генерируем?", "Ёбки", "Да", "Нет")
+	if (is_city == "Да")
+		generate_space_ruin(mob.x, mob.y, mob.z, border_size, border_size, forced_decoration = /datum/generator_settings/city, allowed_flags = RUIN_PART_CITY)
+		log_admin("[key_name(src)] randomly generated a CITY RUIN at [COORD(mob)].")
+	else
+		generate_space_ruin(mob.x, mob.y, mob.z, border_size, border_size)
+		log_admin("[key_name(src)] randomly generated a space ruin at [COORD(mob)].")
 
 /client/proc/clear_dynamic_transit()
 	set category = "Дбг"

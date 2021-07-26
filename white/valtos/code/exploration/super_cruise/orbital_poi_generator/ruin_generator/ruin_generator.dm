@@ -17,13 +17,13 @@
  * however if a room attachment point is not past the border, the room it generates on that attachment point
  * can go past the border. No attachment points can be generated past the border.
  */
-/proc/generate_space_ruin(center_x, center_y, center_z, border_x, border_y, datum/orbital_objective/linked_objective, forced_decoration, datum/ruin_event/ruin_event, list/allowed_flags = list(RUIN_PART_DEFAULT))
+/proc/generate_space_ruin(center_x, center_y, center_z, border_x, border_y, datum/orbital_objective/linked_objective, forced_decoration, datum/ruin_event/ruin_event, allowed_flags = RUIN_PART_DEFAULT)
 	var/datum/space_level/space_level = SSmapping.get_level(center_z)
 	space_level.generating = TRUE
 	_generate_space_ruin(center_x, center_y, center_z, border_x, border_y, linked_objective, forced_decoration, ruin_event, allowed_flags)
 	space_level.generating = FALSE
 
-/proc/_generate_space_ruin(center_x, center_y, center_z, border_x, border_y, datum/orbital_objective/linked_objective, forced_decoration, datum/ruin_event/ruin_event, list/allowed_flags = list(RUIN_PART_DEFAULT))
+/proc/_generate_space_ruin(center_x, center_y, center_z, border_x, border_y, datum/orbital_objective/linked_objective, forced_decoration, datum/ruin_event/ruin_event, allowed_flags = RUIN_PART_DEFAULT)
 	SSair.pause_z(center_z)
 
 	//Try and catch errors so that critical actions (unpausing the Z atmos) can happen.
@@ -365,17 +365,18 @@
 			var/turf/T = locate(text2num(split_loc[1]), text2num(split_loc[2]), center_z)
 			linked_objective.generate_objective_stuff(T)
 
-	//Generate research disks
-	for(var/i in 1 to rand(1, 5))
-		var/objective_turf = pick(floor_turfs)
-		var/split_loc = splittext(objective_turf, "_")
-		new /obj/effect/spawner/lootdrop/ruinloot/important(locate(text2num(split_loc[1]), text2num(split_loc[2]), center_z))
+	if(RUIN_PART_DEFAULT & allowed_flags)
+		//Generate research disks
+		for(var/i in 1 to rand(1, 5))
+			var/objective_turf = pick(floor_turfs)
+			var/split_loc = splittext(objective_turf, "_")
+			new /obj/effect/spawner/lootdrop/ruinloot/important(locate(text2num(split_loc[1]), text2num(split_loc[2]), center_z))
 
-	//Spawn dead mosb
-	for(var/mob/M as() in SSzclear.nullspaced_mobs)
-		var/objective_turf = pick(floor_turfs)
-		var/split_loc = splittext(objective_turf, "_")
-		M.forceMove(locate(text2num(split_loc[1]), text2num(split_loc[2]), center_z))
+		//Spawn dead mosb
+		for(var/mob/M as() in SSzclear.nullspaced_mobs)
+			var/objective_turf = pick(floor_turfs)
+			var/split_loc = splittext(objective_turf, "_")
+			M.forceMove(locate(text2num(split_loc[1]), text2num(split_loc[2]), center_z))
 
 	ruin_event?.post_spawn(floor_turfs, center_z)
 

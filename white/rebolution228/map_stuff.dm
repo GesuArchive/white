@@ -414,3 +414,356 @@
 // some zombieapoc weird stuff
 //
 ////////////////////////////////////////////////
+
+/* TURFS */
+
+//walls
+
+/turf/closed/wall/cataclysmdda
+	name = "стена"
+	desc = "Простая стена."
+	icon = 'white/rebolution228/icons/cataclysmdda/wall01.dmi'
+	icon_state = "wall-0"
+	base_icon_state = "wall"
+	slicing_duration = 150
+	explosion_block = 1
+	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS)
+
+/turf/closed/wall/cataclysmdda/wooden
+	name = "деревянная стена"
+	icon = 'white/rebolution228/icons/cataclysmdda/wall02.dmi'
+	icon_state = "walld-0"
+	base_icon_state = "walld"
+	sheet_type = /obj/item/stack/sheet/mineral/wood
+	hardness = 70
+	explosion_block = 0
+	custom_materials = list(/datum/material/wood = 4000)
+
+/turf/closed/wall/cataclysmdda/redbrick
+	name = "кирпичная стена"
+	desc = "Типичная стена из красных кирпичей. Поразительно! Вы только посмотрите на то, как укладывали кирпичи, это явно были не простые иммигранты из Азербайджана..."
+	icon = 'white/rebolution228/icons/cataclysmdda/wall03.dmi'
+	icon_state = "wallb-0"
+	base_icon_state = "wallb"
+	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS)
+	sheet_type = null
+	hardness = 100
+	explosion_block = 1
+	custom_materials = null
+
+//floors
+
+/turf/open/floor/wood/cataclysmdda/parquet
+	name = "паркетный пол"
+	desc = "Деревянный пол, уложенный в стиле 'ёлочки'. Подозрительно как-то напоминает о домашнем уюте."
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_floors.dmi'
+	icon_state = "wooden1"
+
+/turf/open/floor/wood/cataclysmdda
+	name = "деревянный пол"
+	desc = "Простой непримечательный деревянный пол. У вас возникает ощущение, что когда-нибудь этот пол провалится над вами."
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_floors.dmi'
+	icon_state = "wooden2"
+
+/turf/open/floor/plasteel/tile
+	name = "плитка"
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_floors.dmi'
+	icon_state = "tile1"
+	base_icon_state = "tile1"
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
+	floor_tile = /obj/item/stack/tile/plasteel
+	flags_1 = NONE
+	baseturfs = /turf/open/floor/plating/beach/sand
+
+/turf/open/floor/plasteel/tile/white
+	icon_state = "tile2"
+	base_icon_state = "tile2"
+
+/turf/open/floor/plasteel/tile/monofloor
+	name = "пол"
+	icon_state = "block1"
+	base_icon_state = "block1"
+
+/turf/open/floor/plasteel/tile/monofloor/alt
+	icon_state = "block2"
+	base_icon_state = "block2"
+
+/turf/open/floor/plasteel/tile/monofloor/alt2
+	name = "бетонный пол"
+	icon_state = "concrete"
+	base_icon_state = "concrete"
+/turf/open/floor/plasteel/tile/monofloor/alt3
+	icon_state = "block3"
+	base_icon_state = "block3"
+
+/turf/open/floor/plasteel/tile/monofloor/crowbar_act(mob/living/user/, obj/item/I)
+	return FALSE
+
+/turf/open/floor/plating/beach/sand/cataclysmdda
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_floors.dmi'
+	icon_state = "sand"
+	base_icon_state = "sand"
+
+/turf/open/floor/grass/cataclysmdda
+	name = "трава"
+	desc = "В ней классно валяться."
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_floors.dmi'
+	icon_state = "grass0"
+	base_icon_state = "grass0"
+
+/turf/open/floor/grass/cataclysmdda/Initialize()
+	. = ..()
+	icon_state = "grass[rand(0, 6)]"
+	if (prob(70))
+		var/obj/structure/flora/ausbushes/rospilovo/F = pick(subtypesof(/obj/structure/flora/ausbushes/rospilovo))
+		new F(get_turf(src))
+		if (prob(70))
+			var/obj/structure/flora/ausbushes/rospilovo/D = pick(subtypesof(/obj/structure/flora/ausbushes/rospilovo))
+			new D(get_turf(src))
+
+/turf/open/floor/grass/cataclysmdda/dirt
+	name = "грязь"
+	desc = null
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_floors.dmi'
+	icon_state = "dirt1"
+	base_icon_state = "dirt1"
+	footstep = FOOTSTEP_LAVA
+	barefootstep = FOOTSTEP_LAVA
+	clawfootstep = FOOTSTEP_LAVA
+	heavyfootstep = FOOTSTEP_LAVA
+
+/turf/open/floor/grass/cataclysmdda/dirt/proc/changeicon()
+	icon_state = "dirt[rand(1,4)]"
+
+/turf/open/floor/grass/cataclysmdda/dirt/Initialize()
+	. = ..()
+	if(nospawn)
+		return
+	changeicon()
+
+/turf/open/floor/grass/cataclysmdda/dirt/alt
+	icon_state = "dirtalt"
+	base_icon_state = "dirt1"
+
+/turf/open/floor/asphalt
+	name = "асфальт"
+	desc = "Асфальтное покрытие, использумое в основном для покрытия дорог. По сути, особая смесь битумов и минеральных веществ."
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_floors.dmi'
+	icon_state = "asphalt1"
+	base_icon_state = "asphalt"
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
+	baseturfs = /turf/open/floor/plating/beach/sand
+
+/turf/open/floor/asphalt/Initialize()
+	. = ..()
+	if(prob(2))
+		icon_state = "asphalt[rand(2,7)]"
+	else
+		icon_state = "asphalt1"
+
+/turf/open/water/cataclysmdda
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_floors.dmi'
+	icon_state = "water"
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
+	baseturfs = /turf/open/water/cataclysmdda // yeah
+	planetary_atmos = FALSE
+	slowdown = 3
+
+/turf/open/floor/carpet/tentfloor
+	name = "пол палатки"
+	desc = "Мягкий пол."
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_floors.dmi'
+	icon_state = "tent_floor"
+	base_icon_state = null
+	floor_tile = null
+
+/turf/open/floor/carpet/tentfloor/crowbar_act(mob/living/user/, obj/item/I)
+	return FALSE
+
+/* Objects */
+
+//Flora
+/obj/structure/flora/cataclysmdda/decoration
+	name = "кустик"
+	desc = null
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "plant1"
+
+/obj/structure/flora/cataclysmdda/decoration/alt1
+	icon_state = "plant2"
+
+/obj/structure/flora/cataclysmdda/decoration/alt2
+	icon_state = "plant3"
+
+/obj/structure/flora/cataclysmdda/decoration/alt3
+	icon_state = "plant4"
+
+/obj/structure/flora/cataclysmdda/decoration/alt4
+	icon_state = "plant5"
+
+/obj/structure/flora/cataclysmdda/decoration/alt5
+	icon_state = "plant6"
+
+/obj/structure/flora/cataclysmdda/decoration/alt6
+	icon_state = "plant7"
+
+/obj/structure/flora/cataclysmdda/decoration/alt7
+	icon_state = "plant9"
+
+/obj/structure/flora/cataclysmdda/decoration/reed
+	name = "камыш"
+	icon_state = "plant8"
+
+/obj/structure/flora/cataclysmdda/decoration/jug
+	name = "кувшинка"
+	icon_state = "koovshin"
+
+
+//Structure
+/obj/structure/barricade/wooden/dark
+	name = "деревянная баррикада"
+	desc = "Вход заборонен."
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "barricade"
+
+/obj/structure/cataclysmdda
+	name = "structure"
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+
+/obj/structure/cataclysmdda/lamp
+	name = "напольный светильник"
+	desc = "Прикольно светится."
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "lomp"
+	anchored = 1
+	max_integrity = 50
+	obj_integrity = 50
+
+/obj/structure/curtain/cataclysmdda
+	name = "штора"
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "shtora-open"
+	icon_type = "shtora"
+	color = null
+	alpha = 255
+
+/obj/structure/cataclysmdda/bath
+	name = "ванна"
+	desc = "Вода не включена в стоимость."
+	icon_state = "bath"
+	anchored = 1
+	max_integrity = 150
+	obj_integrity = 150
+
+/obj/structure/cataclysmdda/bath/another
+	icon_state = "bath2"
+
+/obj/structure/sink/kitchen/cataclysmdda
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "thasink"
+	max_integrity = 150
+	obj_integrity = 150
+
+/obj/structure/toilet/cataclysmdda
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "thatoilet"
+	anchored = 1
+	max_integrity = 100
+	obj_integrity = 100
+
+/obj/structure/cataclysmdda/arcade
+	name = "Arcade Machine"
+	desc = "Не работает."
+	icon_state = "thaarcade"
+	density = 1
+	anchored = 1
+	opacity = 0
+	max_integrity = 200
+	obj_integrity = 200
+
+/obj/structure/cataclysmdda/bassboost
+	name = "колонка"
+	desc = "Долбит нормально."
+	icon_state = "bassiebut"
+	anchored = 1
+	max_integrity = 150
+	obj_integrity = 150
+
+/obj/structure/trash_pile/hay
+	name = "стог сена"
+	desc = "В ней можно спрятаться. Или найти что-то полезное, не так ли?"
+	icon_state = "hay"
+	max_integrity = 25
+	obj_integrity = 25
+
+/obj/structure/cataclysmdda/tablichka
+	name = "ВНИМАНИЕ: МИННОЕ ПОЛЕ."
+	desc = null
+	icon_state = "minefield"
+	max_integrity = 25
+	obj_integrity = 25
+
+/obj/structure/bed/cataclysmdda
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "bed"
+
+/obj/structure/bookcase/cataclysmdda
+	name = "книжная полка"
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "bookshelf"
+
+/obj/structure/closet/crate/box
+	name = "коробка"
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "box01"
+	open_sound = 'sound/machines/cardboard_box.ogg'
+	close_sound = 'sound/machines/cardboard_box.ogg'
+	open_sound_volume = 35
+	close_sound_volume = 50
+
+/obj/structure/cataclysmdda/veshalka
+	name = "Вешалка."
+	desc = null
+	icon_state = "veshalka"
+	max_integrity = 25
+	obj_integrity = 25
+
+
+
+/obj/structure/rack/cataclysmdda
+	name = "деревянный стеллаж"
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "shelf"
+	max_integrity = 100
+	max_integrity = 100
+
+/obj/structure/rack/cataclysmdda/metal
+	name = "металлический стеллаж"
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "shelf2"
+	max_integrity = 150
+	max_integrity = 150
+
+/obj/structure/rack/cataclysmdda/metal/alt
+	icon_state = "shelf3"
+
+
+
+/obj/effect/turf_decal/cataclysmdda
+	name = null
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_decals.dmi'
+	icon_state = null
+	mouse_opacity = 0
+
+/obj/effect/turf_decal/cataclysmdda/asphaltpaint
+	name = "asphalt road paint"
+	icon_state = "asphalt_y"
+
+/obj/effect/turf_decal/cataclysmdda/grass
+	name = "grass decal"
+	icon_state = "grassdecal"
+
+/obj/effect/turf_decal/cataclysmdda/grass/alt
+	icon_state = "grassdecal2"

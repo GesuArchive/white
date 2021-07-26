@@ -18,7 +18,7 @@
 
 	ammo_type = /obj/item/ammo_casing/magic/tentacle/mutantzombie
 	hitsound = 'sound/effects/splat.ogg'
-	recharge_rate = 30 SECONDS
+	recharge_rate = 30
 
 /obj/item/ammo_casing/magic/tentacle/mutantzombie
 	projectile_type = /obj/projectile/tentacle/mutantzombie
@@ -38,6 +38,7 @@
 	righthand_file = 'icons/mob/inhands/antag/changeling_righthand.dmi'
 	block_chance = 40
 	force = 21
+	max_integrity = 500
 
 /////////////////////////////hand
 
@@ -50,7 +51,7 @@
 	item_flags = ABSTRACT | DROPDEL
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	icon = 'icons/effects/blood.dmi'
-	icon_state = "bloodhand_left"
+	icon_state = "bloodhand_right"
 	hitsound = 'sound/hallucinations/growl1.ogg'
 	force = 21 // Just enough to break airlocks with melee attacks
 	sharpness = SHARP_EDGED
