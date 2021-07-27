@@ -3,27 +3,26 @@
 /turf/open/floor/plasteel/tile/monofloor/alt2,
 /area/ruin/unpowered)
 "e" = (
-/obj/effect/turf_decal/cataclysmdda/asphaltpaint,
+/obj/effect/abstract/open_area_marker{
+	dir = 1
+	},
 /turf/open/floor/asphalt,
 /area/ruin/unpowered)
 "g" = (
-/obj/effect/abstract/doorway_marker{
-	dir = 4
-	},
-/turf/open/floor/plasteel/tile/monofloor/alt2,
+/obj/effect/turf_decal/cataclysmdda/asphaltpaint,
+/turf/open/floor/asphalt,
 /area/ruin/unpowered)
 "h" = (
 /turf/open/floor/asphalt,
 /area/ruin/unpowered)
 "r" = (
-/obj/effect/abstract/open_area_marker,
-/obj/effect/turf_decal/cataclysmdda/asphaltpaint,
-/turf/open/floor/asphalt,
+/obj/effect/abstract/doorway_marker{
+	dir = 4
+	},
+/turf/open/floor/plasteel/tile/monofloor/alt2,
 /area/ruin/unpowered)
 "w" = (
-/obj/effect/abstract/open_area_marker{
-	dir = 1
-	},
+/obj/effect/abstract/open_area_marker,
 /obj/effect/turf_decal/cataclysmdda/asphaltpaint,
 /turf/open/floor/asphalt,
 /area/ruin/unpowered)
@@ -42,18 +41,18 @@ a
 a
 "}
 (2,1,1) = {"
-h
-h
-h
-h
-h
+a
+a
+a
+a
+a
 "}
 (3,1,1) = {"
-w
-e
-e
-e
-r
+a
+a
+a
+a
+a
 "}
 (4,1,1) = {"
 h
@@ -63,9 +62,100 @@ h
 h
 "}
 (5,1,1) = {"
-a
-a
+h
+h
+h
+h
+h
+"}
+(6,1,1) = {"
+h
+h
+h
+h
+h
+"}
+(7,1,1) = {"
+h
+h
+h
+h
+h
+"}
+(8,1,1) = {"
+h
+h
+h
+h
+h
+"}
+(9,1,1) = {"
+h
+h
 g
+g
+g
+"}
+(10,1,1) = {"
+e
+h
+g
+g
+w
+"}
+(11,1,1) = {"
+h
+h
+h
+h
+h
+"}
+(12,1,1) = {"
+h
+h
+h
+h
+h
+"}
+(13,1,1) = {"
+h
+h
+h
+h
+h
+"}
+(14,1,1) = {"
+h
+h
+h
+h
+h
+"}
+(15,1,1) = {"
+h
+h
+h
+h
+h
+"}
+(16,1,1) = {"
+a
+a
+a
+a
+a
+"}
+(17,1,1) = {"
+a
+a
+a
+a
+a
+"}
+(18,1,1) = {"
+a
+a
+r
 a
 a
 "}

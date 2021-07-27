@@ -766,13 +766,14 @@
 
 /obj/structure/mineral_door/wood/cataclysmdda
 	name = "деревянная дверь"
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "door"
 	openSound = 'sound/effects/doorcreaky.ogg'
 	closeSound = 'sound/effects/doorcreaky.ogg'
 	sheetType = /obj/item/stack/sheet/mineral/wood
 
 /obj/structure/cataclysmdda/kitchencloset
-	name = "Кухонный шкаф."
+	name = "кухонный шкаф"
 	desc = null
 	icon_state = "kitchencloset"
 	max_integrity = 50
@@ -816,6 +817,10 @@
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_table01.dmi'
 	base_icon_state = "reinforced_table"
 	icon_state = "reinforced_table-0"
+
+/obj/structure/dresser/cataclysmdda
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "dresser"
 
 /obj/structure/table/cataclysmdda/desk
 	name = "стол"

@@ -9,13 +9,6 @@
 "V" = (
 /turf/open/floor/asphalt,
 /area/ruin/unpowered)
-"W" = (
-/obj/effect/turf_decal/cataclysmdda/asphaltpaint,
-/obj/effect/abstract/open_area_marker{
-	dir = 1
-	},
-/turf/open/floor/asphalt,
-/area/ruin/unpowered)
 
 (1,1,1) = {"
 a
@@ -23,19 +16,25 @@ a
 a
 a
 a
+a
+a
 "}
 (2,1,1) = {"
-V
-V
-V
-V
+a
+a
+a
+a
+a
+a
 a
 "}
 (3,1,1) = {"
-W
-d
-d
-V
+a
+a
+a
+a
+a
+a
 a
 "}
 (4,1,1) = {"
@@ -44,8 +43,129 @@ V
 V
 V
 a
+a
+a
 "}
 (5,1,1) = {"
+V
+V
+V
+V
+a
+a
+a
+"}
+(6,1,1) = {"
+V
+V
+V
+V
+a
+a
+a
+"}
+(7,1,1) = {"
+V
+V
+V
+V
+a
+a
+a
+"}
+(8,1,1) = {"
+V
+V
+V
+V
+a
+a
+a
+"}
+(9,1,1) = {"
+d
+d
+d
+V
+a
+a
+a
+"}
+(10,1,1) = {"
+d
+d
+d
+V
+a
+a
+a
+"}
+(11,1,1) = {"
+V
+V
+V
+V
+a
+a
+a
+"}
+(12,1,1) = {"
+V
+V
+V
+V
+a
+a
+a
+"}
+(13,1,1) = {"
+V
+V
+V
+V
+a
+a
+a
+"}
+(14,1,1) = {"
+V
+V
+V
+V
+a
+a
+a
+"}
+(15,1,1) = {"
+V
+V
+V
+V
+a
+a
+a
+"}
+(16,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+"}
+(17,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+"}
+(18,1,1) = {"
+a
+a
 a
 a
 a
