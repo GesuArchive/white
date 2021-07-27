@@ -94,15 +94,33 @@
 
 /area/partyhard/outdoors
 	icon_state = "1f"
-	name = "outdoors"
+	name = "пустоши"
+	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	always_unpowered = TRUE
 	poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
 	requires_power = TRUE
-	ambientsounds = MINING
 	outdoors = TRUE
+	lighting_overlay_colour = "#ffd1b3"
+	lighting_overlay_opacity = 55
+	sound_environment = SOUND_ENVIRONMENT_CITY
+	ambience_index = AMBIENCE_NONE
+
+/area/partyhard/indoors
+	icon_state = "5f"
+	name = "помещения"
+	dynamic_lighting = DYNAMIC_LIGHTING_ENABLED
+	always_unpowered = TRUE
+	poweralm = FALSE
+	power_environ = FALSE
+	power_equip = FALSE
+	power_light = FALSE
+	requires_power = TRUE
+	outdoors = FALSE
+	sound_environment = SOUND_ENVIRONMENT_STONEROOM
+	ambience_index = AMBIENCE_NONE
 
 /area/partyhard/outdoors/unexplored
 	icon_state = "2f"
