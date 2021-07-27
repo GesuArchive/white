@@ -20,6 +20,7 @@
 	id = "mutantzombies"
 	mutanteyes = /obj/item/organ/eyes/night_vision/alien
 	mutanthands = /obj/item/mutant_zombie_hand
+	mutanttongue = /obj/item/organ/tongue/zombie/mutant
 	armor = 50
 	speedmod = 0.5
 
@@ -206,3 +207,6 @@
 	if(istype(H.dna.species, /datum/species/zombie))
 		return FALSE
 	return TRUE
+
+
+

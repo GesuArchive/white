@@ -284,6 +284,30 @@
 
 	speech_args[SPEECH_MESSAGE] = jointext(message_list, " ")
 
+/obj/item/organ/tongue/zombie/mutant
+	name = "гнилой язык"
+	desc = "Этот орган просто выглядит как язык. На самом деле это сложный продукт направленных мутаций, котороый позволяет этим существам общаться друг с другом."
+	icon_state = "tonguezombie"
+	say_mod = "мычит"
+	taste_sensitivity = 32
+
+/obj/item/organ/tongue/zombie/mutant/handle_speech(datum/source, list/speech_args)
+	var/message = speech_args[SPEECH_MESSAGE]
+	var/mob/living/carbon/human/user = source
+	var/rendered = "<font color=\"#4b5320\"><b>\[Zombie hivemind\] [user.real_name]</b> [message]</font>"
+	for(var/mob/living/carbon/human/H in GLOB.alive_mob_list)
+		var/obj/item/organ/tongue/zombie/mutant/T = H.getorganslot(ORGAN_SLOT_TONGUE)
+		if(!istype(T))
+			continue
+		else
+			to_chat(H, rendered)
+
+	for(var/mob/M in GLOB.dead_mob_list)
+		var/link = FOLLOW_LINK(M, user)
+		to_chat(M, "[link] [rendered]")
+
+	speech_args[SPEECH_MESSAGE] = ""
+
 /obj/item/organ/tongue/alien
 	name = "язык чужого"
 	desc = "По мнению ведущих ксенобиологов, эволюционное преимущество от второго рта в том \"что это выглядит круто\"."
