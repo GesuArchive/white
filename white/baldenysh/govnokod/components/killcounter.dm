@@ -38,7 +38,7 @@ GLOBAL_LIST_EMPTY(killcounter_counted_kills)
 		cur_killstreak = 1
 
 	if(GLOB.killcounter_counted_kills[key_name(parent)])
-		GLOB.killcounter_counted_kills[key_name(parent)].Add(key_name(killed))
+		GLOB.killcounter_counted_kills[key_name(parent)] |= key_name(killed)
 	else
 		GLOB.killcounter_counted_kills[key_name(parent)] = list(key_name(killed))
 
@@ -73,6 +73,8 @@ GLOBAL_LIST_EMPTY(killcounter_counted_kills)
 
 /proc/log_combat_extension(atom/user, atom/target)
 	if(!isliving(user) || !isliving(target))
+		return
+	if(target == user)
 		return
 	var/mob/living/attacker = user
 	var/mob/living/attacked = target
