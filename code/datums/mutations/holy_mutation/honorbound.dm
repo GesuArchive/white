@@ -57,7 +57,7 @@
 		return
 	if(!honorbound.DirectAccess(clickingon) && !isgun(weapon))
 		return
-	if(weapon.item_flags & NOBLUDGEON)
+	if(weapon?.item_flags & NOBLUDGEON)
 		return
 	if(honorbound.a_intent != INTENT_HARM && ((!weapon || !weapon.force)))
 		return

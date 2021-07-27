@@ -9,8 +9,6 @@
 		diag_hud.add_to_hud(src)
 	faction += "[REF(src)]"
 	GLOB.mob_living_list += src
-	killcounter = new /datum/cs_killcounter
-	killcounter.owner = src
 
 	spawn(5 SECONDS)
 		if(ckey in GLOB.pacifist_list)

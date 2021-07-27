@@ -1,4 +1,5 @@
 GLOBAL_VAR_INIT(prikol_mode, FALSE)
+/*
 GLOBAL_LIST_EMPTY(frabbers)
 
 /mob/living
@@ -72,6 +73,8 @@ GLOBAL_LIST_EMPTY(frabbers)
 		if(9 to INFINITY)
 			playsound(T,'white/hule/SFX/csSFX/holyshit.wav', 150, 5, pressure_affected = FALSE)
 
+*/
+
 /client/proc/toggle_prikol()
 	set category = "Адм.Веселье"
 	set name = "Toggle P.R.I.K.O.L"
@@ -90,7 +93,7 @@ GLOBAL_LIST_EMPTY(frabbers)
 		message_admins("[key] toggled P.R.I.K.O.L mode on.")
 	else
 		message_admins("[key] toggled P.R.I.K.O.L mode off.")
-
+/*
 /mob/living
 	var/force_killcount = FALSE
 
@@ -108,3 +111,4 @@ GLOBAL_LIST_EMPTY(frabbers)
 	for(var/mob/living/L in GLOB.player_list)
 		if(L.ckey == frabberckey)
 			L.killcounter.count_kill()
+*/

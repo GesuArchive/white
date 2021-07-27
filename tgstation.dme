@@ -3657,6 +3657,7 @@
 #include "white\baldenysh\govnokod\clothing\masks\cheap_breathmask.dm"
 #include "white\baldenysh\govnokod\components\aoe_combat.dm"
 #include "white\baldenysh\govnokod\components\gloo.dm"
+#include "white\baldenysh\govnokod\components\killcounter.dm"
 #include "white\baldenysh\govnokod\components\soundplayer.dm"
 #include "white\baldenysh\govnokod\components\tts_comp.dm"
 #include "white\baldenysh\govnokod\components\zombie_weapon.dm"
