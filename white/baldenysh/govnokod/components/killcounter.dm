@@ -19,7 +19,7 @@ GLOBAL_LIST_EMPTY(killcounter_counted_kills)
 
 /datum/component/killcounter/proc/on_mob_death(datum/source, mob/living/dead, gibbed)
 	var/mob/living/owner = parent
-	if(dead.lastattackerckey != null && dead.lastattackerckey == owner.ckey)
+	if(dead.lastattacker != null && dead.lastattacker == owner.real_name)
 		on_kill(dead)
 
 /datum/component/killcounter/proc/on_kill(mob/living/killed)
@@ -74,11 +74,9 @@ GLOBAL_LIST_EMPTY(killcounter_counted_kills)
 /proc/log_combat_extension(atom/user, atom/target)
 	if(!isliving(user) || !isliving(target))
 		return
-	if(target == user)
-		return
 	var/mob/living/attacker = user
 	var/mob/living/attacked = target
-	attacked.lastattackerckey = attacker.ckey
+	attacked.lastattacker = attacker.real_name
 
 /mob/living/Initialize()
 	. = ..()
