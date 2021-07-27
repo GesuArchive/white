@@ -150,6 +150,9 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/pod_parts/armor = 1,
 		/obj/item/circuitboard/mecha/pod = 1,
 
+		/obj/item/circuitboard/mecha/ripley/main = 1,
+		/obj/item/circuitboard/mecha/ripley/peripherals = 1,
+
 		//light sources
 		/obj/item/flashlight = 1,
 		/obj/effect/spawner/lootdrop/glowstick = 1,
