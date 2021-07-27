@@ -41,6 +41,7 @@
 /turf/closed/wall/vault
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rockvault"
+	rcd_memory = null
 
 /turf/closed/wall/ice
 	icon = 'icons/turf/walls/icedmetal_wall.dmi'
@@ -52,6 +53,7 @@
 	hardness = 35
 	slicing_duration = 150 //welding through the ice+metal
 	bullet_sizzle = TRUE
+	rcd_memory = null
 
 /turf/closed/wall/rust
 	name = "ржавая стена"

@@ -698,6 +698,8 @@ GLOBAL_LIST_EMPTY(emergency_storages)
 	new /obj/item/pickaxe/emergency(src)
 	new /obj/item/survivalcapsule(src)
 	new /obj/item/storage/toolbox/emergency(src)
+	new /obj/item/bodybag/environmental(src)
+	new /obj/item/bodybag/environmental(src)
 
 /obj/item/storage/pod/attackby(obj/item/W, mob/user, params)
 	if (can_interact(user))

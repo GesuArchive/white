@@ -44,6 +44,12 @@
 	var/datum/gas_mixture/air_contents
 	var/airtight_when_welded = TRUE
 	var/airtight_when_closed = FALSE
+	/// Protection against weather that being inside of it provides.
+	var/list/weather_protection = null
+	/// How close being inside of the thing provides complete pressure safety. Must be between 0 and 1!
+	contents_pressure_protection = 0
+	/// How insulated the thing is, for the purposes of calculating body temperature. Must be between 0 and 1!
+	contents_thermal_insulation = 0
 
 /obj/structure/closet/Initialize(mapload)
 	if(mapload && !opened)		// if closed, any item at the crate's loc is put in the contents

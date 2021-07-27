@@ -17,7 +17,7 @@ Difficulty: Hard
 	attack_verb_simple = "разрывает"
 	attack_sound = 'sound/magic/demon_attack1.ogg'
 	attack_vis_effect = ATTACK_EFFECT_CLAW
-	weather_immunities = list("snow")
+	weather_immunities = list(WEATHER_SNOW)
 	speak_emote = list("roars")
 	armour_penetration = 40
 	melee_damage_lower = 40
@@ -74,7 +74,7 @@ Difficulty: Hard
 
 /datum/action/innate/megafauna_attack/disorienting_scream
 	name = "Disorienting Scream"
-	icon_icon = 'icons/turf/walls/wall.dmi'
+	icon_icon = 'icons/turf/walls/baywall.dmi'
 	button_icon_state = "wall-0"
 	chosen_message = "<span class='colossus'>You are now screeching, disorienting targets around you.</span>"
 	chosen_attack_num = 3

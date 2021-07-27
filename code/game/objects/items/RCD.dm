@@ -167,8 +167,12 @@ RLD
 		return TRUE
 
 /obj/item/construction/proc/checkResource(amount, mob/user)
-	if(!silo_link || !silo_mats || !silo_mats.mat_container)
-		. = matter >= amount
+	if(!silo_mats || !silo_mats.mat_container)
+		if(silo_link)
+			to_chat(user, "<span class='alert'>Connected silo link is invalid. Reconnect to silo via multitool.</span>")
+			return FALSE
+		else
+			. = matter >= amount
 	else
 		if(silo_mats.on_hold())
 			if(user)
@@ -201,6 +205,10 @@ RLD
 		return FALSE
 	return TRUE
 
+#define RCD_DESTRUCTIVE_SCAN_RANGE 10
+#define RCD_HOLOGRAM_FADE_TIME (15 SECONDS)
+#define RCD_DESTRUCTIVE_SCAN_COOLDOWN (RCD_HOLOGRAM_FADE_TIME + 1 SECONDS)
+
 /obj/item/construction/rcd
 	name = "rapid-construction-device (RCD)"
 	icon = 'icons/obj/tools.dmi'
@@ -213,6 +221,7 @@ RLD
 	slot_flags = ITEM_SLOT_BELT
 	item_flags = NO_MAT_REDEMPTION | NOBLUDGEON
 	has_ammobar = TRUE
+	actions_types = list(/datum/action/item_action/rcd_scan)
 	var/mode = RCD_FLOORWALL
 	var/ranged = FALSE
 	var/computer_dir = 1
@@ -229,6 +238,75 @@ RLD
 	var/canRturf = FALSE //Variable for R walls to deconstruct them
 	/// Integrated airlock electronics for setting access to a newly built airlocks
 	var/obj/item/electronics/airlock/airlock_electronics
+
+	COOLDOWN_DECLARE(destructive_scan_cooldown)
+
+GLOBAL_VAR_INIT(icon_holographic_wall, init_holographic_wall())
+GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
+
+// `initial` does not work here. Neither does instantiating a wall/whatever
+// and referencing that. I don't know why.
+/proc/init_holographic_wall()
+	return getHologramIcon(
+		icon('icons/turf/walls/baywall.dmi', "wall-0"),
+		opacity = 1,
+	)
+
+/proc/init_holographic_window()
+	var/icon/grille_icon = icon('icons/obj/structures.dmi', "grille")
+	var/icon/window_icon = icon('icons/obj/smooth_structures/window.dmi', "window-0")
+
+	grille_icon.Blend(window_icon, ICON_OVERLAY)
+
+	return getHologramIcon(grille_icon)
+
+/obj/item/construction/rcd/ui_action_click(mob/user, actiontype)
+	if (!COOLDOWN_FINISHED(src, destructive_scan_cooldown))
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] бздынькает.</span>")
+		return
+
+	COOLDOWN_START(src, destructive_scan_cooldown, RCD_DESTRUCTIVE_SCAN_COOLDOWN)
+
+	playsound(src, 'sound/items/rcdscan.ogg', 50, vary = TRUE, pressure_affected = FALSE)
+
+	var/turf/source_turf = get_turf(src)
+	for (var/turf/open/surrounding_turf in RANGE_TURFS(RCD_DESTRUCTIVE_SCAN_RANGE, source_turf))
+		var/rcd_memory = surrounding_turf.rcd_memory
+		if (!rcd_memory)
+			continue
+
+		var/skip_to_next_turf = FALSE
+
+		for (var/atom/content_of_turf as anything in surrounding_turf.contents)
+			if (content_of_turf.density)
+				skip_to_next_turf = TRUE
+				break
+
+		if (skip_to_next_turf)
+			continue
+
+		var/hologram_icon
+		switch (rcd_memory)
+			if (RCD_MEMORY_WALL)
+				hologram_icon = GLOB.icon_holographic_wall
+			if (RCD_MEMORY_WINDOWGRILLE)
+				hologram_icon = GLOB.icon_holographic_window
+
+		var/obj/effect/rcd_hologram/hologram = new (surrounding_turf)
+		hologram.icon = hologram_icon
+		animate(hologram, alpha = 0, time = RCD_HOLOGRAM_FADE_TIME, easing = CIRCULAR_EASING | EASE_IN)
+
+/obj/effect/rcd_hologram
+	name = "голограмма"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/obj/effect/rcd_hologram/Initialize(mapload)
+	. = ..()
+	QDEL_IN(src, RCD_HOLOGRAM_FADE_TIME)
+
+#undef RCD_DESTRUCTIVE_SCAN_COOLDOWN
+#undef RCD_DESTRUCTIVE_SCAN_RANGE
+#undef RCD_HOLOGRAM_FADE_TIME
 
 /obj/item/construction/rcd/suicide_act(mob/living/user)
 	var/turf/T = get_turf(user)
@@ -308,7 +386,7 @@ RLD
 
 /obj/item/construction/rcd/proc/toggle_silo_link(mob/user)
 	if(silo_mats)
-		if(!silo_mats.mat_container)
+		if(!silo_mats.mat_container && !silo_link)
 			to_chat(user, "<span class='alert'>No silo link detected. Connect to silo via multitool.</span>")
 			return FALSE
 		silo_link = !silo_link
@@ -1095,6 +1173,10 @@ RLD
 /obj/item/rcd_upgrade/furnishing
 	desc = "It contains the design for chairs, stools, tables, and glass tables."
 	upgrade = RCD_UPGRADE_FURNISHING
+
+/datum/action/item_action/rcd_scan
+	name = "Реконструктор"
+	desc = "Сканирует окружающую обстановку на предмет разрушений. Отсканированные элементы будут восстанавливаться гораздо быстрее."
 
 #undef GLOW_MODE
 #undef LIGHT_MODE
