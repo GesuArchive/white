@@ -72,7 +72,7 @@
 		new /obj/item/clothing/mask/gas(T)
 		new /obj/item/storage/belt/utility/full(T)
 
-	target_type = pick(list("dreamer"))
+	target_type = pickweight(list("dreamer" = 1, "heretic" = 3))
 	switch(target_type)
 		if("dreamer")
 			created_human.equipOutfit(/datum/outfit/dreamer)
@@ -81,6 +81,10 @@
 			ADD_TRAIT(created_human, TRAIT_NOSOFTCRIT, "gaming")
 			ADD_TRAIT(created_human, TRAIT_FREERUNNING, "gaming")
 			place_portal()
+
+		if("heretic")
+			created_human.equipOutfit(/datum/outfit/heretic_orbital)
+			created_human.mind.add_antag_datum(/datum/antagonist/heretic)
 
 	generated = TRUE
 
