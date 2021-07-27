@@ -96,7 +96,8 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 	)
 	var/observer_count = 0
 	for(var/mob/dead/observer/O in GLOB.player_list)
-		observer_count++
+		if(O.client)
+			observer_count++
 	if(observer_count > 2)
 		valid_objectives |= list(/datum/orbital_objective/headhunt = 1)
 
