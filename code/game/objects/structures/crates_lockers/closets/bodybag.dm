@@ -217,7 +217,7 @@
 	playsound(loc, open_sound, open_sound_volume, TRUE, -3)
 	opened = TRUE
 	if(!dense_when_open)
-		set_density(FALSE)
+		density = FALSE
 	dump_contents()
 	update_icon()
 	after_open(user, force)
