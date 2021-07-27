@@ -705,9 +705,19 @@
 	max_integrity = 25
 	obj_integrity = 25
 
+/obj/structure/cataclysmdda/antenna
+	name = "спутниковая антенна"
+	desc = "Используется для приёма	различных радиосигналов между станциями через спутники."
+	icon_state = "antenn"
+	max_integrity = 100
+	obj_integrity = 100
+
 /obj/structure/bed/cataclysmdda
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "bed"
+
+/obj/structure/bed/cataclysmdda/matress
+	icon_state = "matress"
 
 /obj/structure/bookcase/cataclysmdda
 	name = "книжная полка"
@@ -723,6 +733,30 @@
 	open_sound_volume = 35
 	close_sound_volume = 50
 
+/obj/structure/closet/crate/shkaf
+	name = "шкаф"
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "shkaf"
+	open_sound_volume = 35
+	close_sound_volume = 50
+	obj_integrity = 200
+	max_integrity = 200
+	anchored = 1
+	can_be_unanchored = FALSE
+
+/obj/structure/grille/cataclysmdda
+	name = "решетка"
+	desc = "Крепкая решетка."
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "grille"
+	density = 1
+	anchored = 1
+	max_integrity = 700
+	obj_integrity = 700
+	flags_1 = CONDUCT_1
+	layer = CLOSED_DOOR_LAYER
+	smoothing_flags = NONE
+
 /obj/structure/cataclysmdda/veshalka
 	name = "Вешалка."
 	desc = null
@@ -730,6 +764,19 @@
 	max_integrity = 25
 	obj_integrity = 25
 
+/obj/structure/mineral_door/wood/cataclysmdda
+	name = "деревянная дверь"
+	icon_state = "door"
+	openSound = 'sound/effects/doorcreaky.ogg'
+	closeSound = 'sound/effects/doorcreaky.ogg'
+	sheetType = /obj/item/stack/sheet/mineral/wood
+
+/obj/structure/cataclysmdda/kitchencloset
+	name = "Кухонный шкаф."
+	desc = null
+	icon_state = "kitchencloset"
+	max_integrity = 50
+	obj_integrity = 50
 
 
 /obj/structure/rack/cataclysmdda
@@ -750,6 +797,53 @@
 	icon_state = "shelf3"
 
 
+/obj/structure/chair/stool/bar/cataclysmdda
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "barstool"
+	item_chair = /obj/item/chair/stool/bar/cataclysmdda
+
+/obj/item/chair/stool/bar/cataclysmdda
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "barstool_item"
+	lefthand_file = 'icons/mob/inhands/misc/chairs_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/chairs_righthand.dmi'
+	inhand_icon_state = "stool_bar"
+	origin_type = /obj/structure/chair/stool/bar/cataclysmdda
+
+/obj/structure/table/cataclysmdda
+	name = "стол"
+	desc = "Обычный деревянный слегка пошарпанный стол."
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_table01.dmi'
+	base_icon_state = "reinforced_table"
+	icon_state = "reinforced_table-0"
+
+/obj/structure/table/cataclysmdda/desk
+	name = "стол"
+	desc = "Обычный деревянный слегка пошарпанный стол."
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_table02.dmi'
+	base_icon_state = "reinforced_table"
+	icon_state = "reinforced_table-0"
+
+/obj/structure/table/cataclysmdda/sci
+	name = "стол"
+	desc = "Обычный деревянный слегка пошарпанный стол."
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_table03.dmi'
+	base_icon_state = "reinforced_table"
+	icon_state = "reinforced_table-0"
+
+/obj/structure/chair/wood/cataclysmdda
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "thastool"
+	resistance_flags = FLAMMABLE
+	max_integrity = 70
+	buildstacktype = /obj/item/stack/sheet/mineral/wood
+	buildstackamount = 3
+	item_chair = null
+
+/obj/structure/chair/comfy/cataclysmdda
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "thachair"
+	color = null
 
 /obj/effect/turf_decal/cataclysmdda
 	name = null
