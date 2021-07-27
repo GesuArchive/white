@@ -21,7 +21,7 @@
 	mutanteyes = /obj/item/organ/eyes/night_vision/alien
 	mutanthands = /obj/item/mutant_zombie_hand
 	armor = 50
-	speedmod = 1
+	speedmod = 0.5
 
 /datum/species/zombie/infectious/mutant/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	. = ..()
