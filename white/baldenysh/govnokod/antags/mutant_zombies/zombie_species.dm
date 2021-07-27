@@ -38,6 +38,8 @@
 	var/datum/team/mutant_zombies/zombs = locate(/datum/team/mutant_zombies) in GLOB.antagonist_teams
 	zombs?.add_zombie_to_hud(C)
 
+	C.throw_alert("zombiesense", /atom/movable/screen/alert/zombiesense)
+
 /datum/species/zombie/infectious/mutant/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	. = ..()
 	if(C.mind)
@@ -45,6 +47,8 @@
 
 	var/datum/team/mutant_zombies/zombs = locate(/datum/team/mutant_zombies) in GLOB.antagonist_teams
 	zombs?.remove_zombie_from_hud(C)
+
+	C.clear_alert("zombiesense")
 
 /datum/species/zombie/infectious/mutant/proc/mutate_hands(mob/living/carbon/human/H)
 	var/cur_speed_mod = speedmod
@@ -121,4 +125,84 @@
 	speedmod = cur_speed_mod
 	H.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/species, multiplicative_slowdown=speedmod)
 
+///////////////////////////////////////////////////////////////искатор чоловиков
 
+/atom/movable/screen/alert/zombiesense
+	name = "Чоловеколокатор"
+	desc = "Мозги-и-и-и-и-и."
+	icon = 'icons/hud/screen_alert.dmi' //мб перерисовать нада
+	icon_state = "cult_sense"
+	alerttooltipstyle = "cult"
+	var/angle = 0
+
+/atom/movable/screen/alert/zombiesense/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
+
+/atom/movable/screen/alert/zombiesense/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/atom/movable/screen/alert/zombiesense/process()
+	var/atom/nearest_target
+	var/min_dist = 999
+	for(var/mob/living/carbon/human/H in GLOB.human_list)
+		if(H.z != owner.z)
+			continue
+		if(!is_infectable(H))
+			continue
+		var/cur_dist = get_dist_euclidian(H, owner)
+		if(cur_dist < min_dist)
+			nearest_target = H
+			min_dist = cur_dist
+
+	var/turf/P = get_turf(nearest_target)
+	var/turf/Q = get_turf(owner)
+	if(!P || !Q || (P.z != Q.z))
+		icon_state = "runed_sense2"
+		desc = "Тута нету."
+		return
+
+	var/target_angle = Get_Angle(Q, P)
+	cut_overlays()
+	desc = "Тама..."
+	switch(min_dist)
+		if(0 to 1)
+			icon_state = "runed_sense2"
+			desc = "Пряма тута."
+		if(2 to 8)
+			icon_state = "arrow8"
+		if(9 to 15)
+			icon_state = "arrow7"
+		if(16 to 22)
+			icon_state = "arrow6"
+		if(23 to 29)
+			icon_state = "arrow5"
+		if(30 to 36)
+			icon_state = "arrow4"
+		if(37 to 43)
+			icon_state = "arrow3"
+		if(44 to 50)
+			icon_state = "arrow2"
+		if(51 to 57)
+			icon_state = "arrow1"
+		if(58 to 64)
+			icon_state = "arrow0"
+		if(65 to 400)
+			icon_state = "arrow"
+
+	var/difference = target_angle - angle
+	angle = target_angle
+	if(!difference)
+		return
+	var/matrix/final = matrix(transform)
+	final.Turn(difference)
+	animate(src, transform = final, time = 5, loop = 0)
+
+/proc/is_infectable(mob/living/carbon/human/H)
+	if(H.getorganslot(ORGAN_SLOT_ZOMBIE))
+		return FALSE
+	CHECK_DNA_AND_SPECIES(H)
+	if(istype(H.dna.species, /datum/species/zombie))
+		return FALSE
+	return TRUE

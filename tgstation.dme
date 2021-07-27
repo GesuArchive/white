@@ -3675,7 +3675,6 @@
 #include "white\baldenysh\govnokod\items\cellphone\screens_main.dm"
 #include "white\baldenysh\govnokod\items\cellphone\screens_menu.dm"
 #include "white\baldenysh\govnokod\items\guns\gloogun.dm"
-#include "white\baldenysh\govnokod\machines\atmos_synth.dm"
 #include "white\baldenysh\govnokod\machines\generator.dm"
 #include "white\baldenysh\govnokod\machines\teleporter.dm"
 #include "white\baldenysh\govnokod\machines\teleporter_console.dm"
