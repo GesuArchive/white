@@ -190,7 +190,7 @@
 
 /obj/structure/closet/body_bag/environmental/prisoner/attempt_fold(mob/living/carbon/human/the_folder)
 	if(sinched)
-		to_chat(the_folder, span_warning("You wrestle with [src], but it won't fold while its straps are fastened."))
+		to_chat(the_folder, "<span class='warning'>You wrestle with [src], but it won't fold while its straps are fastened.</span>")
 	return ..()
 
 /obj/structure/closet/body_bag/environmental/prisoner/update_icon()
@@ -204,7 +204,7 @@
 	if(force)
 		return TRUE
 	if(sinched)
-		to_chat(user, span_danger("The buckles on [src] are sinched down, preventing it from opening."))
+		to_chat(user, "<span class='danger'>The buckles on [src] are sinched down, preventing it from opening.</span>")
 		return FALSE
 	. = ..()
 
@@ -219,7 +219,7 @@
 	if(!dense_when_open)
 		set_density(FALSE)
 	dump_contents()
-	update_appearance()
+	update_icon()
 	after_open(user, force)
 	return TRUE
 
@@ -239,19 +239,19 @@
 
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
-	user.visible_message(span_warning("Someone in [src] begins to wriggle!"), \
-		span_notice("You start wriggling, attempting to loosen [src]'s buckles... (this will take about [DisplayTimeText(breakout_time)].)"), \
-		span_hear("You hear straining cloth from [src]."))
+	user.visible_message("<span class='warning'>Someone in [src] begins to wriggle!</span>", \
+		"<span class='notice'>You start wriggling, attempting to loosen [src]'s buckles... (this will take about [DisplayTimeText(breakout_time)].)</span>", \
+		"<span class='hear'>You hear straining cloth from [src].</span>")
 	if(do_after(user,(breakout_time), target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src || opened || !sinched )
 			return
 		//we check after a while whether there is a point of resisting anymore and whether the user is capable of resisting
-		user.visible_message(span_danger("[user] successfully broke out of [src]!"),
-							span_notice("You successfully break out of [src]!"))
+		user.visible_message("<span class='danger'>[user] successfully broke out of [src]!</span>",
+							"<span class='notice'>You successfully break out of [src]!</span>")
 		bust_open()
 	else
 		if(user.loc == src) //so we don't get the message if we resisted multiple times and succeeded.
-			to_chat(user, span_warning("You fail to break out of [src]!"))
+			to_chat(user, "<span class='warning'>You fail to break out of [src]!</span>")
 
 
 /obj/structure/closet/body_bag/environmental/prisoner/bust_open()
@@ -268,24 +268,24 @@
 
 /obj/structure/closet/body_bag/environmental/prisoner/togglelock(mob/living/user, silent)
 	if(user in contents)
-		to_chat(user, span_warning("You can't reach the buckles from here!"))
+		to_chat(user, "<span class='warning'>You can't reach the buckles from here!</span>")
 		return
 	if(iscarbon(user))
 		add_fingerprint(user)
 	if(!sinched)
 		for(var/mob/living/target in contents)
-			to_chat(target, span_userdanger("You feel the lining of [src] tighten around you! Soon, you won't be able to escape!"))
-		user.visible_message(span_notice("You begin sinching down the buckles on [src]."))
+			to_chat(target, "<span class='userdanger'>You feel the lining of [src] tighten around you! Soon, you won't be able to escape!</span>")
+		user.visible_message("<span class='notice'>You begin sinching down the buckles on [src].</span>")
 		if(!(do_after(user,(sinch_time),target = src)))
 			return
 	sinched = !sinched
 	if(sinched)
 		playsound(loc, sinch_sound, 15, TRUE, -2)
-	user.visible_message(span_notice("[user] [sinched ? null : "un"]sinches [src]."),
-							span_notice("You [sinched ? null : "un"]sinch [src]."),
-							span_hear("You hear stretching followed by metal clicking from [src]."))
+	user.visible_message("<span class='notice'>[user] [sinched ? null : "un"]sinches [src].</span>",
+							"<span class='notice'>You [sinched ? null : "un"]sinch [src].</span>",
+							"<span class='hear'>You hear stretching followed by metal clicking from [src].</span>")
 	log_game("[key_name(user)] [sinched ? "sinched":"unsinched"] secure environmental bag [src] at [AREACOORD(src)]")
-	update_appearance()
+	update_icon()
 
 /obj/structure/closet/body_bag/environmental/prisoner/syndicate
 	name = "syndicate prisoner transport bag"
@@ -298,8 +298,6 @@
 	weather_protection = list(WEATHER_ALL)
 	breakout_time = 8 MINUTES
 	sinch_time = 20 SECONDS
-	// The contents of the gas to be distributed to an occupant once sinched down. Set in Initialize()
-	var/datum/gas_mixture/air_contents = null
 
 /obj/structure/closet/body_bag/environmental/prisoner/syndicate/Initialize()
 	. = ..()
@@ -308,11 +306,10 @@
 /obj/structure/closet/body_bag/environmental/prisoner/syndicate/proc/refresh_air()
 	air_contents = null
 	air_contents = new(50) //liters
-	air_contents.temperature = T20C
+	air_contents.set_temperature(T20C)
 
-	air_contents.assert_gases(/datum/gas/oxygen, /datum/gas/nitrous_oxide)
-	air_contents.gases[/datum/gas/oxygen][MOLES] = (ONE_ATMOSPHERE*50)/(R_IDEAL_GAS_EQUATION*T20C) * O2STANDARD
-	air_contents.gases[/datum/gas/nitrous_oxide][MOLES] = (ONE_ATMOSPHERE*50)/(R_IDEAL_GAS_EQUATION*T20C) * N2STANDARD
+	air_contents.set_moles(/datum/gas/oxygen, (ONE_ATMOSPHERE*50)/(R_IDEAL_GAS_EQUATION*T20C) * O2STANDARD)
+	air_contents.set_moles(/datum/gas/nitrous_oxide, (ONE_ATMOSPHERE*50)/(R_IDEAL_GAS_EQUATION*T20C) * N2STANDARD)
 
 /obj/structure/closet/body_bag/environmental/prisoner/syndicate/Destroy()
 	if(air_contents)
@@ -342,4 +339,4 @@
 	. = ..()
 	if(sinched)
 		for(var/mob/living/target in contents)
-			to_chat(target, span_warning("You hear a faint hiss, and a white mist fills your vision..."))
+			to_chat(target, "<span class='warning'>You hear a faint hiss, and a white mist fills your vision...</span>")
