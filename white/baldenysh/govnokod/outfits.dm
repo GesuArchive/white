@@ -108,9 +108,9 @@
 	mask = /obj/item/clothing/mask/void_mask
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/color/brown
-	belt = /obj/item/kitchen/knife
 	back = /obj/item/storage/backpack
 	r_pocket = /obj/item/crowbar/abductor
+	r_hand = /obj/item/kitchen/knife
 	l_hand = /obj/item/flashlight/flare/torch
 
 /datum/outfit/heretic_orbital/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
