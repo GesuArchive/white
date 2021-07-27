@@ -167,8 +167,12 @@ RLD
 		return TRUE
 
 /obj/item/construction/proc/checkResource(amount, mob/user)
-	if(!silo_link || !silo_mats || !silo_mats.mat_container)
-		. = matter >= amount
+	if(!silo_mats || !silo_mats.mat_container)
+		if(silo_link)
+			to_chat(user, "<span class='alert'>Connected silo link is invalid. Reconnect to silo via multitool.</span>")
+			return FALSE
+		else
+			. = matter >= amount
 	else
 		if(silo_mats.on_hold())
 			if(user)
@@ -273,14 +277,7 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 
 		var/skip_to_next_turf = FALSE
 
-		#if MIN_COMPILER_VERSION >= 514
-		#warn Please replace the loop below this warning with an `as anything` loop.
-		#endif
-
-		for (var/_content_of_turf in surrounding_turf.contents)
-			// `as anything` doesn't play well on 513 with special lists such as contents.
-			// When the minimum version is raised to 514, upgrade this to `as anything`.
-			var/atom/content_of_turf = _content_of_turf
+		for (var/atom/content_of_turf as anything in surrounding_turf.contents)
 			if (content_of_turf.density)
 				skip_to_next_turf = TRUE
 				break
@@ -389,7 +386,7 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 
 /obj/item/construction/rcd/proc/toggle_silo_link(mob/user)
 	if(silo_mats)
-		if(!silo_mats.mat_container)
+		if(!silo_mats.mat_container && !silo_link)
 			to_chat(user, "<span class='alert'>No silo link detected. Connect to silo via multitool.</span>")
 			return FALSE
 		silo_link = !silo_link
