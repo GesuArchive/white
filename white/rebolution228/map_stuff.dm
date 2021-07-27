@@ -612,6 +612,21 @@
 /obj/structure/flora/cataclysmdda/decoration/alt7
 	icon_state = "plant9"
 
+/obj/structure/flora/cataclysmdda/decoration/alt8
+	icon_state = "0,162"
+
+/obj/structure/flora/cataclysmdda/decoration/alt9
+	icon_state = "1,162"
+
+/obj/structure/flora/cataclysmdda/decoration/alt10
+	icon_state = "6,163"
+
+/obj/structure/flora/cataclysmdda/decoration/alt11
+	icon_state = "12,163"
+
+/obj/structure/flora/cataclysmdda/decoration/alt12
+	icon_state = "10,164"
+
 /obj/structure/flora/cataclysmdda/decoration/reed
 	name = "камыш"
 	icon_state = "plant8"
@@ -758,7 +773,7 @@
 	smoothing_flags = NONE
 
 /obj/structure/cataclysmdda/veshalka
-	name = "Вешалка."
+	name = "вешалка"
 	desc = null
 	icon_state = "veshalka"
 	max_integrity = 25
@@ -787,12 +802,34 @@
 	max_integrity = 100
 	max_integrity = 100
 
+/obj/structure/rack/cataclysmdda/enternaiment
+	name = "entertaiment center"
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "7,33"
+	max_integrity = 100
+	max_integrity = 100
+
+/obj/structure/barricade/wooden/fence
+	name = "деревянный забор"
+	desc = "Для изоляции от лишних глаз."
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "fence"
+	opacity = 1
+
+/obj/structure/fence/door/cataclysmdda/wooden
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "door_closed"
+
 /obj/structure/rack/cataclysmdda/metal
 	name = "металлический стеллаж"
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "shelf2"
 	max_integrity = 150
 	max_integrity = 150
+
+/obj/structure/filingcabinet/cataclysmdda
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "8,33"
 
 /obj/structure/rack/cataclysmdda/metal/alt
 	icon_state = "shelf3"
@@ -866,3 +903,13 @@
 
 /obj/effect/turf_decal/cataclysmdda/grass/alt
 	icon_state = "grassdecal2"
+
+
+/obj/effect/invisiblewall
+	name = "Invisible Wall"
+	icon = 'white/rebolution228/map_sprites.dmi'
+	icon_state = "blocker"
+	anchored = TRUE
+	density = 1
+	opacity = 0
+	invisibility = 101
