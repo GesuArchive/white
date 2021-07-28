@@ -17,4 +17,3 @@ GLOBAL_VAR_INIT(detnumoftheday, hex2num(copytext(md5(time2text(world.realtime, "
 		return
 	var/obj/item/organ/organ = new path()
 	organ.Insert(src)
-	organ.Initialize()
