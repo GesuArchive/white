@@ -8,8 +8,8 @@ CALL ChangeTurf(/turf/closed/mineral/random) ON /turf/open/openspace/airless WHE
 SELECT /datum/reagent/consumable/ethanol MAP [holder.add_reagent(/datum/reagent/drug/labebium, volume)]
 SELECT /datum/reagent/consumable/ethanol MAP [holder.remove_reagent(type, volume)]
 
-SELECT /obj/item/reagent_containers MAP [remove_all(maximum_volume), add_reagent(/datum/reagent/drug/labebium, maximum_volume)]
-SELECT /obj/structure/reagent_dispensers MAP [remove_all(maximum_volume), add_reagent(/datum/reagent/drug/labebium, maximum_volume)]
+SELECT /obj/item/reagent_containers MAP [reagents.remove_all(maximum_volume), reagents.add_reagent(/datum/reagent/drug/labebium, maximum_volume)]
+SELECT /obj/structure/reagent_dispensers MAP [reagents.remove_all(maximum_volume), reagents.add_reagent(/datum/reagent/drug/labebium, maximum_volume)]
 
 Сегодня ночью с 00:00 по 05:00 с шаттла будут рассыпать ___ для пацанчиков с района, дабы карантин проходил на балдежной волне! Просьба выйти в космос и откинуть губу!
 SELECT /mob/living/carbon IN (@[/area/space MAP contents])[1] MAP reagents.add_reagent(/datum/reagent/drug/nicotine, 10)
