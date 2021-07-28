@@ -618,7 +618,7 @@
 		return
 	obj_flags |= EMAGGED
 	has_radar = TRUE
-	to_chat(user, "<span class='warning'>Сжигаю систему проверки уровня тревоги и активирую прикол.</span>")
+	to_chat(user, "<span class='warning'>Сжигаю систему проверки уровня тревоги и активирую радар.</span>")
 /*
 /obj/machinery/computer/shuttle_flight/pod/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	. = ..()
