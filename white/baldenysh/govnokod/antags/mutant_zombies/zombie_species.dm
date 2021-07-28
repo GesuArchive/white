@@ -21,7 +21,7 @@
 	mutanteyes = /obj/item/organ/eyes/night_vision/alien
 	mutanthands = /obj/item/mutant_zombie_hand
 	mutanttongue = /obj/item/organ/tongue/zombie/mutant
-	armor = 50
+	armor = 0
 	speedmod = 0.5
 
 /datum/species/zombie/infectious/mutant/on_species_gain(mob/living/carbon/C, datum/species/old_species)
@@ -78,7 +78,7 @@
 				cur_speed_mod += 0.1
 			if(3)
 				newhand = new /obj/item/shield/mutantzombie()
-				armor += 25
+				armor += 20
 				cur_speed_mod += 0.2
 			if(4)
 				newhand = new /obj/item/mutant_zombie_hand()
