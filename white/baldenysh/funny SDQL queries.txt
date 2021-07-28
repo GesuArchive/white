@@ -8,8 +8,7 @@ CALL ChangeTurf(/turf/closed/mineral/random) ON /turf/open/openspace/airless WHE
 SELECT /datum/reagent/consumable/ethanol MAP [holder.add_reagent(/datum/reagent/drug/labebium, volume)]
 SELECT /datum/reagent/consumable/ethanol MAP [holder.remove_reagent(type, volume)]
 
-USING PRIORITY = HIGH, SEQUENTIAL = FALSE
-SELECT /obj/item/reagent_containers MAP [remove_all(maximum_volume), add_reagent(/datum/reagent/drug/labebium, maximum_volume)];
+SELECT /obj/item/reagent_containers MAP [remove_all(maximum_volume), add_reagent(/datum/reagent/drug/labebium, maximum_volume)]
 SELECT /obj/structure/reagent_dispensers MAP [remove_all(maximum_volume), add_reagent(/datum/reagent/drug/labebium, maximum_volume)]
 
 Сегодня ночью с 00:00 по 05:00 с шаттла будут рассыпать ___ для пацанчиков с района, дабы карантин проходил на балдежной волне! Просьба выйти в космос и откинуть губу!
