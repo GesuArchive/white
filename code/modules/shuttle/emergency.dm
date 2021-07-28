@@ -599,7 +599,7 @@
 
 /obj/machinery/computer/shuttle_flight/pod/LateInitialize()
 	. = ..()
-	var/obj/docking_port/mobile/pod/kostil_privyazka = locate(obj/docking_port/mobile/pod) in range(4)
+	var/obj/docking_port/mobile/pod/kostil_privyazka = locate(/obj/docking_port/mobile/pod) in range(4)
 	if(kostil_privyazka)
 		shuttleId = kostil_privyazka.id
 		shuttlePortId = "[shuttleId]_custom"
