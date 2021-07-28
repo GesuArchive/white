@@ -599,9 +599,10 @@
 
 /obj/machinery/computer/shuttle_flight/pod/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
-	var/obj/docking_port/mobile/pod/kostil_pivyazka = locate() in range(3)
-	shuttleId = kostil_pivyazka.id
-	shuttlePortId = "[shuttleId]_custom"
+	var/obj/docking_port/mobile/pod/kostil_privyazka = locate() in range(3)
+	if(kostil_privyazka)
+		shuttleId = kostil_privyazka.id
+		shuttlePortId = "[shuttleId]_custom"
 
 /obj/machinery/computer/shuttle_flight/pod/ComponentInitialize()
 	. = ..()
