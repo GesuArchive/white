@@ -203,7 +203,8 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/datum/admins/proc/create_or_modify_area,
 	/client/proc/clicker_panel,
 	/client/proc/check_timer_sources,
-	/client/proc/toggle_cdn
+	/client/proc/toggle_cdn,
+	/client/proc/force_evenmaster_rules
 	)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, /proc/possess, /proc/release))
 GLOBAL_PROTECT(admin_verbs_possess)
@@ -549,7 +550,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	var/ass = alert("Ты уверен?","SECURE. CONTAIN. PROTECT.", "Да.","Нет.")
 	if(ass=="Нет.")
 		return
-	
+
 	log_admin("[usr.ckey] enforced containment protocols.")
 	to_chat(usr, "<span class='notice'>Preparing containment protocols...</span>")
 	spawn(1.5 SECONDS)
