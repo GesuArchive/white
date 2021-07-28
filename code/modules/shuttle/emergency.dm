@@ -597,7 +597,7 @@
 	density = FALSE
 	has_radar = FALSE
 
-/obj/machinery/computer/shuttle_flight/Initialize(mapload, obj/item/circuitboard/C)
+/obj/machinery/computer/shuttle_flight/pod/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
 	var/obj/docking_port/mobile/pod/kostil_pivyazka = locate() in range(3)
 	shuttleId = kostil_pivyazka.id
