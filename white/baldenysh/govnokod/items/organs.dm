@@ -13,6 +13,14 @@
 	var/cocoon_req = 500
 	var/mushroom_req = 100
 
+/obj/item/organ/snus_mycosis/Insert(mob/living/carbon/M, special = 0)
+	. = ..()
+	START_PROCESSING(SSobj, src)
+
+/obj/item/organ/snus_mycosis/Remove(mob/living/carbon/M, special = 0)
+	. = ..()
+	STOP_PROCESSING(SSobj, src)
+
 /obj/item/organ/snus_mycosis/process(delta_time, times_fired)
 	..()
 	if(!owner)
