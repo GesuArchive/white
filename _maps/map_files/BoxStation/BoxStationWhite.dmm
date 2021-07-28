@@ -7219,10 +7219,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/security/checkpoint/auxiliary)
-"aEK" = (
-/obj/structure/chair/wood/red,
-/turf/open/floor/plasteel/monofloor/dark,
-/area/chapel/main)
 "aEL" = (
 /obj/machinery/door/airlock{
 	name = "Garden"
@@ -10149,9 +10145,6 @@
 /turf/open/floor/engine/cult,
 /area/library)
 "aPk" = (
-/obj/structure/chair/wood/red{
-	dir = 1
-	},
 /turf/open/floor/plasteel/chapel,
 /area/chapel/main)
 "aPm" = (
@@ -10849,18 +10842,7 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/chapel/main)
-"aTf" = (
-/obj/structure/chair/wood/red{
-	dir = 1
-	},
-/turf/open/floor/plasteel/chapel{
-	dir = 4
-	},
-/area/chapel/main)
 "aTg" = (
-/obj/structure/chair/wood/red{
-	dir = 1
-	},
 /turf/open/floor/plasteel/chapel{
 	dir = 8
 	},
@@ -10875,9 +10857,6 @@
 /area/hallway/secondary/entry)
 "aTi" = (
 /obj/effect/landmark/start/assistant,
-/obj/structure/chair/wood/red{
-	dir = 1
-	},
 /turf/open/floor/plasteel/chapel{
 	dir = 1
 	},
@@ -11197,26 +11176,14 @@
 /area/chapel/main)
 "aUH" = (
 /obj/effect/landmark/start/assistant,
-/obj/structure/chair/wood/red{
-	dir = 1
-	},
 /turf/open/floor/plasteel/chapel,
 /area/chapel/main)
 "aUI" = (
-/obj/structure/chair/wood/red{
-	dir = 1
-	},
 /turf/open/floor/plasteel/chapel{
 	dir = 1
 	},
 /area/chapel/main)
 "aUJ" = (
-/obj/structure/chair/wood/red{
-	dir = 1
-	},
-/obj/structure/chair/wood/red{
-	dir = 1
-	},
 /turf/open/floor/plasteel/chapel{
 	dir = 4
 	},
@@ -35011,16 +34978,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
-"jhV" = (
-/obj/structure/chair/wood/red,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/turf/open/floor/plasteel/monofloor/dark,
-/area/chapel/main)
 "jia" = (
 /obj/machinery/computer/camera_advanced/xenobio{
 	networks = list("xeno_pens")
@@ -37255,6 +37212,7 @@
 	dir = 2;
 	dwidth = 1;
 	height = 4;
+	id = pod_eng;
 	name = "NT SS13: escape pod #1 loader";
 	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
 	width = 3
@@ -37928,6 +37886,7 @@
 	dir = 8;
 	dwidth = 1;
 	height = 4;
+	id = pod_arrival_1;
 	name = "NT SS13: escape pod #3 loader";
 	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
 	width = 3
@@ -43595,6 +43554,7 @@
 	dir = 8;
 	dwidth = 1;
 	height = 4;
+	id = pod_arrival_2;
 	name = "NT SS13: escape pod #2 loader";
 	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
 	width = 3
@@ -91421,9 +91381,9 @@ aFw
 aFw
 aFz
 baW
-aTf
+aUJ
 aPk
-aTf
+aUJ
 aUH
 aPk
 aRS
@@ -91676,7 +91636,7 @@ okO
 okO
 aFw
 aMM
-aEK
+aFz
 aQw
 aRS
 aRS
@@ -92190,7 +92150,7 @@ pxz
 axa
 axa
 ayg
-jhV
+ayg
 gyL
 tVJ
 cdl
@@ -92706,8 +92666,8 @@ aFz
 aFz
 aFz
 baW
-aTf
-aTf
+aUJ
+aUJ
 aPk
 aUJ
 aPk
