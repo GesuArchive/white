@@ -589,28 +589,34 @@
 
 /obj/machinery/computer/shuttle_flight/pod
 	name = "консоль управления подом"
-	recall_docking_port_id = "null"
-	request_shuttle_message = "Форсировать отлёт"
+	//recall_docking_port_id = "null"
+	//request_shuttle_message = "Форсировать отлёт"
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "dorm_available"
 	light_color = LIGHT_COLOR_BLUE
 	density = FALSE
-	has_radar = FALSE
+	has_radar = TRUE//FALSE
 
 /obj/machinery/computer/shuttle_flight/pod/ComponentInitialize()
 	. = ..()
 	AddElement(/datum/element/update_icon_blocker)
+
+/obj/machinery/computer/shuttle_flight/pod/ui_interact(mob/user, datum/tgui/ui)
+	if(GLOB.security_level < SEC_LEVEL_RED && !(obj_flags & EMAGGED))
+		say("Красный код не красный.")
+		return
+	. = ..()
 
 /obj/machinery/computer/shuttle_flight/pod/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
 	to_chat(user, "<span class='warning'>Сжигаю систему проверки уровня тревоги.</span>")
-
+/*
 /obj/machinery/computer/shuttle_flight/pod/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	. = ..()
 	recall_docking_port_id = ";[port.id]_lavaland"
-
+*/
 /obj/docking_port/stationary/random
 	name = "эвакуационный под"
 	id = "pod"
