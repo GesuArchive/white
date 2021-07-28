@@ -336,7 +336,7 @@
 		return
 	I.equip_to_best_slot(carbon_pawn)
 
-/datum/ai_controller/tdroid/proc/PickTarget(range = 9)
+/datum/ai_controller/tdroid/proc/PickTarget(range = 11)
 	var/list/enemies = blackboard[BB_TDROID_ENEMIES]
 	if(enemies && enemies.len || blackboard[BB_TDROID_AGGRESSIVE])
 		var/list/mob/living/friends = GetSquadPawns()
