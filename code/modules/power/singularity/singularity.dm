@@ -146,9 +146,10 @@
 		var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
 		if(!SP)
 			SP = AddComponent(/datum/component/soundplayer)
-			SP.active = TRUE
+			SP.prefs_toggle_flag = null
+			SP.set_channel(CHANNEL_CUSTOM_JUKEBOX)
 			SP.environmental = TRUE
-			SP.playing_channel = CHANNEL_CUSTOM_JUKEBOX
+			SP.active = TRUE
 		SP.playing_volume = current_size*10
 		SP.playing_range = current_size*5
 
