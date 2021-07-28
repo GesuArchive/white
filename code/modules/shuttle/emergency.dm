@@ -609,7 +609,7 @@
 	AddElement(/datum/element/update_icon_blocker)
 
 /obj/machinery/computer/shuttle_flight/pod/ui_interact(mob/user, datum/tgui/ui)
-	if(GLOB.security_level < SEC_LEVEL_RED && !(obj_flags & EMAGGED))
+	if(isliving(user) && GLOB.security_level < SEC_LEVEL_RED && !(obj_flags & EMAGGED))
 		say("Красный код не красный.")
 		return
 	. = ..()
