@@ -369,12 +369,14 @@
 		return A.name
 
 /mob/proc/handle_post_sex(var/amount, var/orifice, var/mob/partner)
-	spawn(5)
-		if(stat != CONSCIOUS)
-			return
-		if(amount)
-			lust += amount
-		if (lust >= lust_tolerance)
-			cum(partner, orifice)
-		else
-			moan()
+
+	sleep(1 SECONDS)
+
+	if(stat != CONSCIOUS)
+		return
+	if(amount)
+		lust += amount
+	if (lust >= lust_tolerance)
+		cum(partner, orifice)
+	else
+		moan()
