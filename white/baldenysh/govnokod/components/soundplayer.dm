@@ -1,4 +1,6 @@
 /datum/component/soundplayer
+	var/atom/movable/sound_source_override
+
 	var/sound/cursound
 	var/active = FALSE
 	var/playing_range = 32
@@ -31,6 +33,13 @@
 
 /datum/component/soundplayer/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
+
+/datum/component/soundplayer/proc/override_sound_source(atom/movable/A)
+	if(sound_source_override)
+		UnregisterSignal(sound_source_override, COMSIG_MOVABLE_MOVED)
+	else
+		UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
+	RegisterSignal(A, COMSIG_MOVABLE_MOVED, .proc/update_sounds)
 
 /datum/component/soundplayer/process()
 	if(!active || !cursound)
@@ -140,7 +149,7 @@
 	S.channel = myplayer.playing_channel
 
 	var/turf/listener_turf = get_turf(M)
-	var/atom/movable/A = myplayer.parent
+	var/atom/movable/A = myplayer.sound_source_override ? myplayer.sound_source_override : myplayer.parent
 	var/turf/player_turf = get_turf(A)
 	if(!listener_turf || !player_turf)
 		return
