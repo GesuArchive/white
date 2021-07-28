@@ -3,7 +3,7 @@
 
 SUBSYSTEM_DEF(eventmaster)
 	name = "! Ивентовод"
-	wait = 30 SECONDS
+	wait = 1 MINUTES
 	flags = SS_NO_INIT
 	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
 	init_order = INIT_ORDER_EVENTMASTER
@@ -25,24 +25,9 @@ SUBSYSTEM_DEF(eventmaster)
 	// Переменная для времени. Для цикла времени
 	var/current_time = "рассвет"
 
-/client/proc/force_evenmaster_rules()
-	set name = "! Force Eventmaster Rules"
-	set category = "Дбг"
-
-	if(!holder || !check_rights(R_DEBUG))
-		return
-
-	var/list/possible_options = list("ZOMBIES EVENT", "NONE")
-
-	var/what_the_fuck = input("SHIT YES?", "Cum") as null|anything in possible_options
-
-	switch(what_the_fuck)
-		if("ZOMBIES EVENT")
-			SSeventmaster.target_event = EVENT_TYPE_ZOMBIE
-		else
-			SSeventmaster.target_event = EVENT_TYPE_NONE
-
-	SSeventmaster.execute_ignition_rules()
+/datum/controller/subsystem/eventmaster/stat_entry(msg)
+	msg += "Живые: [luckers.len] | Зомби: [suckers.len]"
+	return ..()
 
 /datum/controller/subsystem/eventmaster/proc/execute_ignition_rules()
 	switch(target_event)
@@ -53,8 +38,12 @@ SUBSYSTEM_DEF(eventmaster)
 			SSnightshift.pause()
 			SSorbits.pause()
 			SSweather.pause()
+			SSeconomy.pause()
+			message_admins("Остановка лишних контроллеров успешна!")
 			action_area = GLOB.areas_by_type[/area/partyhard/outdoors]
 			second_area = GLOB.areas_by_type[/area/partyhard/indoors]
+			//action_area.set_dynamic_lighting(DYNAMIC_LIGHTING_FORCED)
+			//message_admins("Свет готов!")
 			message_admins("Готово!")
 			return TRUE
 		else
@@ -106,11 +95,31 @@ SUBSYSTEM_DEF(eventmaster)
 			new_alpha = 3
 
 	if(new_time != current_time)
-		action_area.cut_overlay(action_area.lighting_overlay)
+		current_time = new_time
+		action_area.cut_overlay(/obj/effect/fullbright)
 		action_area.lighting_overlay_colour = new_color
 		action_area.lighting_overlay_opacity = new_alpha
-		action_area.add_overlay(action_area.lighting_overlay)
+		action_area.add_overlay(/obj/effect/fullbright)
 		to_chat(world, "<span class='greenannounce'><b>[station_time_timestamp("hh:mm")]</b> - [new_time].</span>")
+
+/client/proc/force_evenmaster_rules()
+	set name = "? Force Eventmaster Rules"
+	set category = "Дбг"
+
+	if(!holder || !check_rights(R_DEBUG))
+		return
+
+	var/list/possible_options = list("ZOMBIES EVENT", "NONE")
+
+	var/what_the_fuck = input("SHIT YES?", "Cum") as null|anything in possible_options
+
+	switch(what_the_fuck)
+		if("ZOMBIES EVENT")
+			SSeventmaster.target_event = EVENT_TYPE_ZOMBIE
+		else
+			SSeventmaster.target_event = EVENT_TYPE_NONE
+
+	SSeventmaster.execute_ignition_rules()
 
 #undef CYCLE_SUNRISE
 #undef CYCLE_MORNING
