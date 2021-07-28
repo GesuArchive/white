@@ -83,6 +83,6 @@ GLOBAL_LIST_EMPTY(killcounter_counted_kills)
 	var/mob/living/attacked = target
 	attacked.lastattacker = attacker.real_name
 
-/mob/living/Initialize()
+/mob/living/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/killcounter)
