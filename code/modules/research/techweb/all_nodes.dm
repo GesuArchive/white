@@ -109,6 +109,7 @@
 		"compact_remote_shell",
 		"component_printer",
 		"integrated_circuit",
+		"module_duplicator",
 		"usb_cable",
 	)
 

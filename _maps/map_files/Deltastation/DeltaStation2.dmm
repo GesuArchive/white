@@ -82688,6 +82688,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/medical/surgery)
+"qzv" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/electrolyzer,
+/obj/effect/turf_decal/bot,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/engineering/atmos/upper)
 "qzE" = (
 /turf/open/floor/engine,
 /area/engine/supermatter)
@@ -94235,6 +94244,21 @@
 	},
 /turf/open/floor/plasteel,
 /area/maintenance/starboard/aft)
+"tCD" = (
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/landmark/start/hangover,
+/turf/open/floor/iron/dark,
+/area/service/bar)
 "tCG" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -98573,6 +98597,24 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/prison)
+"uHW" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/matches{
+	pixel_x = -3;
+	pixel_y = 5
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/service/bar)
 "uIe" = (
 /obj/machinery/door/airlock{
 	id_tag = "AuxCabinB";
@@ -149328,7 +149370,7 @@ ncV
 mvi
 qMY
 snN
-umc
+mSq
 fqv
 mMT
 ofO
