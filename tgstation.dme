@@ -3658,6 +3658,7 @@
 #include "white\baldenysh\govnokod\components\gloo.dm"
 #include "white\baldenysh\govnokod\components\killcounter.dm"
 #include "white\baldenysh\govnokod\components\mecha_weapon_ripper.dm"
+#include "white\baldenysh\govnokod\components\mecha_weapon_shooter.dm"
 #include "white\baldenysh\govnokod\components\soundplayer.dm"
 #include "white\baldenysh\govnokod\components\tts_comp.dm"
 #include "white\baldenysh\govnokod\components\zombie_weapon.dm"

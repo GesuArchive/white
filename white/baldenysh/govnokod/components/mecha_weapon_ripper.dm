@@ -1,5 +1,6 @@
 /datum/component/mecha_weapon_ripper //позволяет вырывать оружие из турелей и мехов, добавлю спейсподы если они вдруг станут релевантны
 	var/ripping_time = 0
+	var/ripping = FALSE
 
 /datum/component/mecha_weapon_ripper/Initialize()
 	if(!isliving(parent))
@@ -21,6 +22,10 @@
 		return
 	user.face_atom(A)
 
+	var/list/modifiers = params2list(params)
+	if(modifiers["alt"] || modifiers["shift"] || modifiers["ctrl"] || modifiers["middle"])
+		return
+
 	var/obj/item/ripping_target
 	if(ismecha(A))
 		var/obj/vehicle/sealed/mecha/mech = A
@@ -33,6 +38,9 @@
 		to_chat(user, "<span class='warning'>Да тут отрывать-то и нечего!</span>")
 		return
 
+	if(ripping)
+		return (COMSIG_MOB_CANCEL_CLICKON)
+
 	INVOKE_ASYNC(src, .proc/doRip, user, A, ripping_target)
 
 	return (COMSIG_MOB_CANCEL_CLICKON)
@@ -41,9 +49,12 @@
 	if(ripping_time > 0)
 		ripper.visible_message("<span class='warning'>[ripper] пытается оторвать [ripping_target] от [target_holder]!</span>", \
 			 "<span class='danger'>Начинаю отрывать [ripping_target] от [target_holder]!</span>")
+		ripping = TRUE
 		if(!do_after(ripper, ripping_time, target_holder))
 			to_chat(ripper, "<span class='warning'>Что-то помешало мне оторвать [ripping_target]!</span>")
+			ripping = FALSE
 			return
+		ripping = FALSE
 
 	if(ismecha(target_holder))
 		var/obj/vehicle/sealed/mecha/mech = target_holder
