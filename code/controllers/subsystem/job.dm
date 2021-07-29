@@ -43,6 +43,9 @@ SUBSYSTEM_DEF(job)
 	var/assigned_captain = FALSE
 	/// If TRUE, the "Captain" job will always be given the code to the spare ID safe and always have a "Captain on deck!" announcement.
 	var/always_promote_captain_job = TRUE
+	// :^)
+	var/forced_name = null
+	var/forced_num = 1
 
 /datum/controller/subsystem/job/Initialize(timeofday)
 	SSmapping.HACK_LoadMapConfig()
