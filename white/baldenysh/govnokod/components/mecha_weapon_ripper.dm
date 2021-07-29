@@ -53,7 +53,7 @@
 	ripping_target.forceMove(get_turf(A))
 
 	if(iscarbon(user))
-		ripping_target.attack_hand(user)
+		user.put_in_active_hand(ripping_target, FALSE, FALSE)
 
 	user.visible_message("<span class='warning'>[user] отрывает [ripping_target] от [A]!</span>", \
 		 "<span class='danger'>Я отрываю [ripping_target] от [A]!</span>")
