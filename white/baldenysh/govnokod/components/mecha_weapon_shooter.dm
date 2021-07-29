@@ -46,7 +46,7 @@
 		return
 
 	if(istype(W, /obj/item/mecha_parts/mecha_equipment/weapon/honker)) //впадлу для этой хуйни отдельный прок пилить
-		to_chat(shooter, "<span class='warning'>[parent]: ОШИБКА: Стрельба из этого оружия приведет к крайне плачевным последствиям для стрелка. Отмена.</span>")
+		to_chat(shooter, "<span class='warning'>Стрельба из этого оружия приведет к крайне плачевным последствиям для стрелка. Отмена.</span>")
 		return
 
 	var/obj/item/stock_parts/cell/charge_source
@@ -66,7 +66,7 @@
 		shooter.visible_message("<span class='danger'>[shooter] целится из [W] в [target]!</span>", \
 			 "<span class='danger'>Начинаю целиться в [target]!</span>")
 		aiming = TRUE
-		if(!do_after(shooter, shooting_delay, null, timed_action_flags = IGNORE_USER_LOC_CHANGE))
+		if(!do_after(shooter, shooting_delay, W, timed_action_flags = IGNORE_USER_LOC_CHANGE))
 			aiming = FALSE
 			to_chat(shooter, "<span class='warning'>Что-то помешало мне прицелиться!</span>")
 			return
