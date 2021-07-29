@@ -1,5 +1,5 @@
 /datum/component/mecha_weapon_ripper/gloves
-	ripping_time = 5
+	ripping_time = 1 SECONDS
 
 /obj/item/clothing/gloves/combat/mechlink
 	name = "мех-линк перчатки"
