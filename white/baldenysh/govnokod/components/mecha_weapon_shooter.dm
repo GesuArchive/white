@@ -84,6 +84,16 @@
 	shooter.visible_message("<span class='danger'>[shooter] стреляет из [W] в [target]!</span>", \
 			 "<span class='danger'>Стреляю из [W] в [target]!</span>")
 
+	if(istype(W, /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher))
+		var/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/L = W
+		var/obj/O = new L.projectile(shooter.loc)
+		playsound(shooter, L.fire_sound, 50, TRUE)
+		L.log_message("Launched a [O.name] from [L.name], targeting [target].", LOG_MECHA)
+		L.projectiles--
+		L.proj_init(O, shooter)
+		O.throw_at(target, L.missile_range, L.missile_speed, shooter, FALSE, diagonals_first = L.diags_first)
+		return
+
 	for(var/i in 1 to W.projectiles_per_shot)
 		if(W.energy_drain && charge_source.charge < W.energy_drain*energy_drain_mod)
 			break
