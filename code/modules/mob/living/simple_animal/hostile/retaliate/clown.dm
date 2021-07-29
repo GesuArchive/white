@@ -425,7 +425,7 @@
 	response_disarm_simple = "shoo"
 	response_harm_continuous = "steps on"
 	response_harm_simple = "step on"
-//	loot = list(/obj/effect/particle_effect/foam)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat)
 	ventcrawler = VENTCRAWLER_ALWAYS
 	density = FALSE
 	pass_flags = PASSTABLE | PASSMOB
@@ -619,7 +619,7 @@
 		for (var/turf/V in range(1,T))
 			if(istype(V, /turf/closed/wall))
 				V.ChangeTurf(/turf/closed/wall/clown)
-				if(prob(2))
+				if(prob(1))
 					new /obj/structure/spawner/clown/clownworm(V)
 
 	return TRUE
