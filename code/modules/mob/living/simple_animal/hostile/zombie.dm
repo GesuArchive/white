@@ -70,19 +70,12 @@
 	speed = 3
 	attack_verb_continuous = "кусает"
 	attack_verb_simple = "кусает"
-	zombiejob = pick(list(
-		"Assistant",
-		"Cook",
-		"Botanist",
-		"Medical Doctor",
-		"Bomj",
-		"Lawyer",
-		"Janitor",
-		"Cargo Technician"))
-
 	infection_chance = 20
 	faction = list("skeleton")
 
 
-
+/mob/living/simple_animal/hostile/zombie/Initialize()
+	. = ..()
+	INVOKE_ASYNC(src, .proc/setup_visuals)
+	zombiejob = pick(list("Assistant", "Cook", "Botanist", "Medical Doctor", "Bomj", "Lawyer", "Janitor", "Cargo Technician"))
 
