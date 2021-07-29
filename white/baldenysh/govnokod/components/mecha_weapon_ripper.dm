@@ -71,5 +71,9 @@
 	if(iscarbon(ripper))
 		ripper.put_in_active_hand(ripping_target, FALSE, FALSE)
 
+	if(istype(ripping_target, /obj/item/gun/energy/e_gun/turret))
+		var/obj/item/gun/energy/e_gun/turret/funny = ripping_target
+		funny.trigger_guard = TRIGGER_GUARD_NORMAL
+
 	ripper.visible_message("<span class='warning'>[ripper] отрывает [ripping_target] от [target_holder]!</span>", \
 		 "<span class='danger'>Отрываю [ripping_target] от [target_holder]!</span>")
