@@ -2,6 +2,7 @@
 	possible_tumors = list(/obj/item/organ/zombie_infection/mutant)
 	infection_chance = 20
 
+
 /obj/item/organ/zombie_infection/mutant
 	zombie_species = /datum/species/zombie/infectious/mutant
 
@@ -38,6 +39,8 @@
 
 	var/datum/team/mutant_zombies/zombs = locate(/datum/team/mutant_zombies) in GLOB.antagonist_teams
 	zombs?.add_zombie_to_hud(C)
+
+	C.faction = list("skeleton")
 
 	C.throw_alert("zombiesense", /atom/movable/screen/alert/zombiesense)
 
