@@ -30,6 +30,7 @@
 /mob/living/simple_animal/hostile/zombie/Initialize(mapload)
 	. = ..()
 	INVOKE_ASYNC(src, .proc/setup_visuals)
+	zombiejob = pick(list("Assistant", "Cook", "Botanist", "Medical Doctor", "Bomj", "Lawyer", "Janitor", "Cargo Technician"))
 
 
 /mob/living/simple_animal/hostile/zombie/proc/setup_visuals()
@@ -67,15 +68,12 @@
 	desc = "This dude looks sick..."
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	speed = 3
+	speed = 5
 	attack_verb_continuous = "кусает"
 	attack_verb_simple = "кусает"
 	infection_chance = 20
 	faction = list("skeleton")
 
 
-/mob/living/simple_animal/hostile/zombie/Initialize()
-	. = ..()
-	INVOKE_ASYNC(src, .proc/setup_visuals)
-	zombiejob = pick(list("Assistant", "Cook", "Botanist", "Medical Doctor", "Bomj", "Lawyer", "Janitor", "Cargo Technician"))
+
 
