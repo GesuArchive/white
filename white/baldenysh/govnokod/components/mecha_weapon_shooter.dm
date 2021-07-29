@@ -81,6 +81,9 @@
 	if(charge_source)
 		charge_source.use(W.energy_drain*energy_drain_mod)
 
+	shooter.visible_message("<span class='danger'>[shooter] стреляет из [W] в [target]!</span>", \
+			 "<span class='danger'>Стреляю из [W] в [target]!</span>")
+
 	for(var/i in 1 to W.projectiles_per_shot)
 		if(W.energy_drain && charge_source.charge < W.energy_drain*energy_drain_mod)
 			break
