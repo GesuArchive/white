@@ -12,7 +12,7 @@
 	UnregisterSignal(parent, COMSIG_MOB_CLICKON)
 
 /datum/component/mecha_weapon_ripper/proc/checkRip(mob/living/user, atom/A, params)
-	SIGNAL_HANDLER
+	//SIGNAL_HANDLER
 	if(user.incapacitated() || user.get_active_held_item())
 		return
 	if(!A || !(ismecha(A) || istype(A, /obj/machinery/porta_turret)))
