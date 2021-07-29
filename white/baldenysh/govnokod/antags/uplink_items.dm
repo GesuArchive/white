@@ -14,4 +14,4 @@
 	name = "Мех-линк перчатки"
 	desc = "Позволяют отрывать пушки от мехов и турелей."
 	item = /obj/item/clothing/gloves/combat/mechlink
-	cost = 3
+	cost = 5
