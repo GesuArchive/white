@@ -4,6 +4,8 @@
 /obj/item/clothing/gloves/combat/mechlink
 	name = "мех-линк перчатки"
 	//desc = "Кто же знал, что покраска кончиков пальцев перчаток в зеленый цвет может привести к таким результатам..."
+	//icon = 'white/baldenysh/icons/obj/gloves.dmi'
+	//icon_state = "mechlink"
 	var/datum/component/ripper
 	var/datum/component/shooter
 
