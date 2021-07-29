@@ -238,8 +238,8 @@
 	addtimer(CALLBACK(src, .proc/apply_stun_effect_end, L), apply_stun_delay)
 
 	if(user)
-		L.lastattacker = user.real_name
-		L.lastattackerckey = user.ckey
+//		L.lastattacker = user.real_name
+//		L.lastattackerckey = user.ckey
 		L.visible_message("<span class='danger'><b>[user]</b> оглушает <b>[sklonenie(L.name, VINITELNI, L.gender)]</b> <b>электрошоковой дубинкой</b>!</span>", \
 								"<span class='userdanger'><b>[user]</b> оглушает меня <b>электрошоковой дубинкой</b>!</span>")
 		log_combat(user, L, "stunned")

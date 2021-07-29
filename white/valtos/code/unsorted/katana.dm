@@ -157,8 +157,8 @@
 	L.apply_damage(25, STAMINA, BODY_ZONE_CHEST)
 	playsound(src, 'sound/weapons/egloves.ogg', 50, TRUE, -1)
 	if(user)
-		L.lastattacker = user.real_name
-		L.lastattackerckey = user.ckey
+//		L.lastattacker = user.real_name
+//		L.lastattackerckey = user.ckey
 		L.visible_message("<span class='danger'><b>[user]</b> бьёт <b>[L]</b> при помощи <b>[src.name]</b>, высвобождая холодный поток энергии из <b>[src]</b>!</span>", \
 								"<span class='userdanger'><b>[user]</b> бьёт меня при помощи <b>[src.name]</b>!</span>")
 		log_combat(user, L, "cryosliced")
