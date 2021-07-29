@@ -669,6 +669,11 @@
 	color = null
 	alpha = 255
 
+/obj/structure/curtain/cataclysmdda/alt
+	icon_state = "shtora1-open"
+	icon_type = "shtora1"
+
+
 /obj/structure/cataclysmdda/bath
 	name = "ванна"
 	desc = "Вода не включена в стоимость."
