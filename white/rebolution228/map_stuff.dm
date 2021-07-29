@@ -635,6 +635,11 @@
 	name = "кувшинка"
 	icon_state = "koovshin"
 
+//Trees
+
+/obj
+
+
 
 //Structure
 /obj/structure/barricade/wooden/dark
@@ -727,6 +732,27 @@
 	max_integrity = 100
 	obj_integrity = 100
 
+/obj/structure/cataclysmdda/oven
+	name = "кухонная плита"
+	desc = "К сожалению, газа нет."
+	icon_state = "oven"
+	max_integrity = 200
+	obj_integrity = 200
+
+/obj/structure/cataclysmdda/penek
+	name = "пенек"
+	desc = "При осмотре этого пенька вы потеряли где-то свои 1000 рублей."
+	icon_state = "penek"
+	max_integrity = 25
+	obj_integrity = 25
+
+/obj/structure/cataclysmdda/washingmachine
+	name = "стиральная машинка"
+	desc = "Производитель этой машинки пообещал, что когда-нибудь стиральные машины этой серии заработают. Когда-нибудь."
+	icon_state = "washingmachine"
+	max_integrity = 200
+	obj_integrity = 200
+
 /obj/structure/bed/cataclysmdda
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "bed"
@@ -758,6 +784,7 @@
 	max_integrity = 200
 	anchored = 1
 	can_be_unanchored = FALSE
+	
 
 /obj/structure/grille/cataclysmdda
 	name = "решетка"
