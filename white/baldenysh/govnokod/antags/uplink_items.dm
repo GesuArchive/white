@@ -4,10 +4,14 @@
 	item = /obj/item/storage/box/pillpack/penthrite
 	cost = 1
 
-/datum/uplink_item/tcorekil
+/datum/uplink_item/tcorekit
 	name = "Набор тактических ядер"
 	desc = "Прямо как у кошкожен из ан*ме."
 	item = /obj/item/storage/box/syndie_kit/tacticalcore
 	cost = 11
 
-
+/datum/uplink_item/mechlink_gloves
+	name = "Мех-линк перчатки"
+	desc = "Позволяют отрывать пушки от мехов и турелей."
+	item = /obj/item/clothing/gloves/combat/mechlink
+	cost = 5
