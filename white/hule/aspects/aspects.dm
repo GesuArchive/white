@@ -416,3 +416,12 @@
 	if(O)
 		empulse(O, 50, 125)
 	..()
+
+/datum/round_aspect/oleg
+	name = "Oleg"
+	desc = "Олег."
+	weight = 5
+
+/datum/round_aspect/oleg/run_aspect()
+	SSjob.forced_name = "Олег"
+	..()

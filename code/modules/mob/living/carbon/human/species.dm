@@ -1447,8 +1447,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		//			"<span class='userdanger'>[user][return_damage_string(dam_dice_rolled)] [atk_verb] меня!</span>", "<span class='hear'>Слышу как что-то [return_damage_string(dam_dice_rolled)] бьёт по плоти!</span>",COMBAT_MESSAGE_RANGE, user)
 		//to_chat(user, "<span class='danger'>Бью[return_damage_string(dam_dice_rolled)] [target]!</span>")
 
-		target.lastattacker = user.real_name
-		target.lastattackerckey = user.ckey
+//		target.lastattacker = user.real_name
+//		target.lastattackerckey = user.ckey
 		user.dna.species.spec_unarmedattacked(user, target)
 
 		if(user.limb_destroyer)
