@@ -12,7 +12,7 @@
 	UnregisterSignal(parent, COMSIG_MOB_CLICKON)
 
 /datum/component/mecha_weapon_ripper/proc/checkRip(mob/living/user, atom/A, params)
-	SIGNAL_HANDLER
+	//SIGNAL_HANDLER
 	if(user.incapacitated() || user.get_active_held_item())
 		return
 	if(!A || !(ismecha(A) || istype(A, /obj/machinery/porta_turret)))
@@ -53,7 +53,7 @@
 	ripping_target.forceMove(get_turf(A))
 
 	if(iscarbon(user))
-		ripping_target.attack_hand(user)
+		user.put_in_active_hand(ripping_target, FALSE, FALSE)
 
 	user.visible_message("<span class='warning'>[user] отрывает [ripping_target] от [A]!</span>", \
 		 "<span class='danger'>Я отрываю [ripping_target] от [A]!</span>")
