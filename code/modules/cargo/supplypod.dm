@@ -332,7 +332,8 @@
 	if (!holder)
 		return
 	take_contents(holder)
-	playsound(holder, close_sound, soundVolume*0.75, TRUE, -3)
+	if (!effectQuiet && style != STYLE_SEETHROUGH)
+		playsound(holder, close_sound, soundVolume*0.75, TRUE, -3)
 	holder.setClosed()
 	addtimer(CALLBACK(src, .proc/preReturn, holder), delays[POD_LEAVING] * 0.2) //Start to leave a bit after closing for cinematic effect
 
@@ -588,19 +589,13 @@
 	var/soundStartTime = pod.delays[POD_TRANSIT] - pod.fallingSoundLength + pod.delays[POD_FALLING]
 	if (soundStartTime < 0)
 		soundStartTime = 1
-	if (!pod.effectQuiet && !(pod.pod_flags & FIRST_SOUNDS))
+	if ( !(pod.effectQuiet && pod.fallingSound == initial(pod.fallingSound)) && !(pod.pod_flags & FIRST_SOUNDS))
 		addtimer(CALLBACK(src, .proc/playFallingSound), soundStartTime)
 	addtimer(CALLBACK(src, .proc/beginLaunch, pod.effectCircle), pod.delays[POD_TRANSIT])
 
 /obj/effect/pod_landingzone/proc/playFallingSound()
-	if (pod.fallingSound == initial(pod.fallingSound))
-		if(pod.effectQuiet)
-			return
-		else
-			playsound(src, pod.fallingSound, pod.soundVolume, TRUE, 6)
-			return
-	playsound(src, pod.fallingSound, pod.soundVolume, FALSE, 6)
-	
+	playsound(src, pod.fallingSound, pod.soundVolume, !pod.effectQuiet, 6) //no variance if "quiet" is on
+
 
 /obj/effect/pod_landingzone/proc/beginLaunch(effectCircle) //Begin the animation for the pod falling. The effectCircle param determines whether the pod gets to come in from any descent angle
 	pod.addGlow()
