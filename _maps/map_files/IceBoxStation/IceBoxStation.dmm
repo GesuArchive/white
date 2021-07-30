@@ -2583,7 +2583,6 @@
 /area/security/prison)
 "afD" = (
 /obj/structure/table,
-/obj/item/electropack,
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8

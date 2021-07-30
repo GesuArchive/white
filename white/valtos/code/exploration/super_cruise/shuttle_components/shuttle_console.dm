@@ -87,7 +87,8 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 /obj/machinery/computer/shuttle_flight/ui_interact(mob/user, datum/tgui/ui)
 	//Ash walkers cannot use the console because they are unga bungas
 	if(user.mind?.has_antag_datum(/datum/antagonist/ashwalker))
-		to_chat(user, "<span class='warning'>Пошёл на хуй, ящер ёбаный.</span>")
+		say("Пошёл нахуй, ящер ёбаный.")
+		//to_chat(user, "<span class='warning'>Пошёл на хуй, ящер ёбаный.</span>")
 		return
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)

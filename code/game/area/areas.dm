@@ -163,7 +163,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(dynamic_lighting == DYNAMIC_LIGHTING_IFSTARLIGHT)
 		dynamic_lighting = CONFIG_GET(flag/starlight) ? DYNAMIC_LIGHTING_ENABLED : DYNAMIC_LIGHTING_DISABLED
 
-
 	. = ..()
 
 	blend_mode = BLEND_MULTIPLY // Putting this in the constructor so that it stops the icons being screwed up in the map editor.

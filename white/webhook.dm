@@ -15,6 +15,7 @@ GLOBAL_VAR_INIT(webhook_can_fire, 0)
 /proc/webhook_send_asay(var/ckey, var/message)
 	var/list/query = list("ckey" = ckey, "message" = message)
 	webhook_send("asaymessage", query)
+	webhook_send_invst("asaymessage", query)
 
 /proc/webhook_send_ooc(var/ckey, var/message)
 	var/list/query = list("ckey" = ckey, "message" = message)

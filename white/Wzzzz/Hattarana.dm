@@ -180,8 +180,8 @@
 
 
 
-
-
+//зерги верги идет на хуй
+/*
 /obj/structure/chair/wood
 	icon = 'white/Wzzzz/clothing/head.dmi'
 
@@ -189,7 +189,7 @@
 	icon_state = "wooden_chair_red"
 
 
-
+*/
 
 
 

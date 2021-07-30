@@ -9,7 +9,7 @@
 		return COMPONENT_INCOMPATIBLE
 	RegisterSignal(parent, COMSIG_ITEM_AFTERATTACK, .proc/on_afterattack)
 
-/datum/component/diagonal_mover/UnregisterFromParent()
+/datum/component/zombie_weapon/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_ITEM_AFTERATTACK)
 
 /datum/component/zombie_weapon/proc/on_afterattack(obj/item/source, atom/target, mob/user, proximity_flag, click_parameters)

@@ -54,6 +54,19 @@
 		infection = new()
 		infection.Insert(target)
 
+/proc/try_to_mutant_infect(mob/living/carbon/human/target)
+	CHECK_DNA_AND_SPECIES(target)
+
+	if(NOZOMBIE in target.dna.species.species_traits)
+		// cannot infect any NOZOMBIE subspecies (such as high functioning
+		// zombies)
+		return
+
+	var/obj/item/organ/zombie_infection/mutant/infection
+	infection = target.getorganslot(ORGAN_SLOT_ZOMBIE)
+	if(!infection)
+		infection = new()
+		infection.Insert(target)
 
 
 /obj/item/zombie_hand/suicide_act(mob/user)

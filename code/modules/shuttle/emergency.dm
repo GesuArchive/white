@@ -589,8 +589,8 @@
 
 /obj/machinery/computer/shuttle_flight/pod
 	name = "консоль управления подом"
-	recall_docking_port_id = "null"
-	request_shuttle_message = "Форсировать отлёт"
+	//recall_docking_port_id = "null"
+	//request_shuttle_message = "Форсировать отлёт"
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "dorm_available"
 	light_color = LIGHT_COLOR_BLUE
@@ -601,16 +601,28 @@
 	. = ..()
 	AddElement(/datum/element/update_icon_blocker)
 
+/obj/machinery/computer/shuttle_flight/pod/ui_interact(mob/user, datum/tgui/ui)
+	if(isliving(user) && GLOB.security_level < SEC_LEVEL_RED && !(obj_flags & EMAGGED))
+		say("Красный код не красный.")
+		return
+	. = ..()
+
 /obj/machinery/computer/shuttle_flight/pod/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
-	to_chat(user, "<span class='warning'>Сжигаю систему проверки уровня тревоги.</span>")
+	has_radar = TRUE
+	to_chat(user, "<span class='warning'>Сжигаю систему проверки уровня тревоги и активирую радар.</span>")
 
+/obj/machinery/computer/shuttle_flight/pod/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
+	if(port)
+		shuttleId = port.id
+		shuttlePortId = "[shuttleId]_custom"
+/*
 /obj/machinery/computer/shuttle_flight/pod/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	. = ..()
 	recall_docking_port_id = ";[port.id]_lavaland"
-
+*/
 /obj/docking_port/stationary/random
 	name = "эвакуационный под"
 	id = "pod"
@@ -698,6 +710,8 @@ GLOBAL_LIST_EMPTY(emergency_storages)
 	new /obj/item/pickaxe/emergency(src)
 	new /obj/item/survivalcapsule(src)
 	new /obj/item/storage/toolbox/emergency(src)
+	new /obj/item/bodybag/environmental(src)
+	new /obj/item/bodybag/environmental(src)
 
 /obj/item/storage/pod/attackby(obj/item/W, mob/user, params)
 	if (can_interact(user))

@@ -35,6 +35,7 @@
 	. = ..()
 	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
 	SP.prefs_toggle_flag = null
+	SP.override_sound_source(user)
 	SP.set_sound(sound('white/baldenysh/sounds/speedrun_loop.ogg'))
 	SP.set_channel(open_sound_channel_for_boombox())
 	SP.playing_volume = 100
@@ -98,6 +99,24 @@
 	var/obj/item/melee/moonlight_greatsword/cumborne = locate() in H.contents
 	cumborne.name = "moonlight greatsword +5"
 	cumborne.force = 20
+
+///////////////////////////////////////////////////////////////////// grifink
+
+/datum/outfit/heretic_orbital
+	name = "Heretic (Orbital)"
+	uniform = /obj/item/clothing/under/color/grey
+	suit = /obj/item/clothing/suit/hooded/cultrobes/eldritch
+	mask = /obj/item/clothing/mask/void_mask
+	shoes = /obj/item/clothing/shoes/jackboots
+	gloves = /obj/item/clothing/gloves/color/brown
+	back = /obj/item/storage/backpack
+	r_pocket = /obj/item/crowbar/abductor
+	r_hand = /obj/item/kitchen/knife
+	l_hand = /obj/item/flashlight/flare/torch
+
+/datum/outfit/heretic_orbital/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	var/obj/item/flashlight/flare/torch/danetorchya = locate() in H.contents
+	danetorchya.attack_self(H)
 
 ///////////////////////////////////////////////////////////////////// gacha drochilnya
 

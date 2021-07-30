@@ -615,7 +615,7 @@
 		/obj/item/weldingtool/abductor = 1,
 		/obj/item/multitool/abductor = 1,
 		/obj/item/scalpel/alien = 1,
-		/obj/item/hemostat/alien = 1,
+		/obj/item/hemostat/alien = 5,
 		/obj/item/retractor/alien = 1,
 		/obj/item/circular_saw/alien = 1,
 		/obj/item/surgicaldrill/alien = 1,
@@ -647,7 +647,7 @@
 /obj/effect/spawner/lootdrop/space/fancytool/raremedicalonly
 	loot = list(
 		/obj/item/scalpel/alien = 1,
-		/obj/item/hemostat/alien = 1,
+		/obj/item/hemostat/alien = 5,
 		/obj/item/retractor/alien = 1,
 		/obj/item/circular_saw/alien = 1,
 		/obj/item/surgicaldrill/alien = 1,

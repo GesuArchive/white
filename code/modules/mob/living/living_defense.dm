@@ -53,11 +53,14 @@
 
 	SEND_SIGNAL(src, COMSIG_ATOM_BULLET_ACT, P, def_zone)
 
+//	if(isliving(P.firer))
+//		var/mob/living/L = P.firer
+//		lastattacker = L.real_name
+//		if(L.ckey)
+//			lastattackerckey = L.ckey
+
 	if(isliving(P.firer))
-		var/mob/living/L = P.firer
-		lastattacker = L.real_name
-		if(L.ckey)
-			lastattackerckey = L.ckey
+		lastattackermob = P.firer
 
 	if(!P.nodamage && on_hit_state != BULLET_ACT_BLOCK)
 		apply_damage(P.damage, P.damage_type, def_zone, armor, wound_bonus=P.wound_bonus, bare_wound_bonus=P.bare_wound_bonus, sharpness = P.sharpness)

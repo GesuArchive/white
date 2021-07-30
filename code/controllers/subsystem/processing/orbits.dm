@@ -89,12 +89,18 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 
 /datum/controller/subsystem/processing/orbits/proc/create_objective()
 	var/static/list/valid_objectives = list(
-		/datum/orbital_objective/recover_blackbox = 6,
-		/datum/orbital_objective/nuclear_bomb = 2,
-		/datum/orbital_objective/artifact = 2,
-		/datum/orbital_objective/vip_recovery = 2,
-		/datum/orbital_objective/headhunt = 1
+		/datum/orbital_objective/recover_blackbox = 3,
+		/datum/orbital_objective/nuclear_bomb = 1,
+		/datum/orbital_objective/artifact = 1,
+		/datum/orbital_objective/vip_recovery = 1
 	)
+	var/observer_count = 0
+	for(var/mob/dead/observer/O in GLOB.player_list)
+		if(O.client)
+			observer_count++
+	if(observer_count > 2)
+		valid_objectives |= list(/datum/orbital_objective/headhunt = 1)
+
 	if(!length(possible_objectives))
 		priority_announce("Основное задание для станции было выбрано - Детали были разосланы на все консоли заданий. \
 			[GLOB.station_name] получит средства после выполнения задания.", "Центральное Командование", SSstation.announcer.get_rand_report_sound())

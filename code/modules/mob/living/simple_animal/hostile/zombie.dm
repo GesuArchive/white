@@ -6,7 +6,7 @@
 	icon_living = "zombie"
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	speak_chance = 0
-	stat_attack = HARD_CRIT //braains
+	stat_attack = DEAD //braains
 	maxHealth = 100
 	health = 100
 	harm_intent_damage = 5
@@ -22,14 +22,17 @@
 	status_flags = CANPUSH
 	del_on_death = 1
 	var/zombiejob = "Medical Doctor"
-	var/infection_chance = 0
+	var/infection_chance = 5
 	var/obj/effect/mob_spawn/human/corpse/delayed/corpse
 
 	discovery_points = 3000
 
 /mob/living/simple_animal/hostile/zombie/Initialize(mapload)
 	. = ..()
+	zombiejob = pick(list("Assistant", "Cook", "Botanist", "Medical Doctor", "Bomj", "Lawyer", "Janitor", "Cargo Technician"))
 	INVOKE_ASYNC(src, .proc/setup_visuals)
+
+
 
 /mob/living/simple_animal/hostile/zombie/proc/setup_visuals()
 	var/datum/preferences/dummy_prefs = new
@@ -53,9 +56,25 @@
 /mob/living/simple_animal/hostile/zombie/AttackingTarget()
 	. = ..()
 	if(. && ishuman(target) && prob(infection_chance))
-		try_to_zombie_infect(target)
+		try_to_mutant_infect(target)
 
 /mob/living/simple_animal/hostile/zombie/drop_loot()
 	. = ..()
 	corpse.forceMove(drop_location())
 	corpse.create()
+
+
+/mob/living/simple_animal/hostile/zombie/mutant
+	name = "Zombie"
+	desc = "This dude looks sick..."
+	melee_damage_lower = 15
+	melee_damage_upper = 15
+	speed = 5
+	attack_verb_continuous = "кусает"
+	attack_verb_simple = "кусает"
+	infection_chance = 20
+	faction = list("skeleton")
+
+
+
+

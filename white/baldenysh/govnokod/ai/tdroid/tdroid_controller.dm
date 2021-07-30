@@ -71,7 +71,12 @@
 	if(ismob(blackboard[BB_TDROID_FOLLOW_TARGET]) && (living_pawn.pulling || living_pawn.pulledby))
 		current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/pull/tdroid)
 	else
-		current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/move_to_target/tdroid)
+		if(IsCommander(blackboard[BB_TDROID_FOLLOW_TARGET]))
+			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/move_to_target/tdroid_follow)
+		else if(isturf(blackboard[BB_TDROID_FOLLOW_TARGET]))
+			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/move_to_target/tdroid_hold_position)
+		else
+			current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/move_to_target/tdroid_close_follow)
 
 	if(!CanArmGun())
 		var/obj/item/gun/found_gun = TryFindGun()
@@ -331,7 +336,7 @@
 		return
 	I.equip_to_best_slot(carbon_pawn)
 
-/datum/ai_controller/tdroid/proc/PickTarget(range = 9)
+/datum/ai_controller/tdroid/proc/PickTarget(range = 11)
 	var/list/enemies = blackboard[BB_TDROID_ENEMIES]
 	if(enemies && enemies.len || blackboard[BB_TDROID_AGGRESSIVE])
 		var/list/mob/living/friends = GetSquadPawns()

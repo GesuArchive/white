@@ -10,8 +10,16 @@
 	var/obj/structure/spider/cocoon/mycelium/cocoon
 	var/nutriments = 0
 	var/nutrition_leeching_factor = 1.5
-	var/cocoon_req = 500
+	var/cocoon_req = 400
 	var/mushroom_req = 100
+
+/obj/item/organ/snus_mycosis/Insert(mob/living/carbon/M, special = 0)
+	. = ..()
+	START_PROCESSING(SSobj, src)
+
+/obj/item/organ/snus_mycosis/Remove(mob/living/carbon/M, special = 0)
+	. = ..()
+	STOP_PROCESSING(SSobj, src)
 
 /obj/item/organ/snus_mycosis/process(delta_time, times_fired)
 	..()

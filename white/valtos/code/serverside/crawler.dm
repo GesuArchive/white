@@ -10,7 +10,9 @@
 	if(response.errored || response.status_code != 200)
 		return FALSE
 
-	return json_decode(response.body)
+	if (response.body)
+		return json_decode(response.body)
+	return FALSE
 
 /client/proc/crawler_sanity_check()
 	if(!ckey)

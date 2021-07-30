@@ -1,5 +1,11 @@
-/datum/ai_behavior/move_to_target/tdroid
+/datum/ai_behavior/move_to_target/tdroid_follow
 	required_distance = 2
+
+/datum/ai_behavior/move_to_target/tdroid_close_follow
+	required_distance = 1
+
+/datum/ai_behavior/move_to_target/tdroid_hold_position
+	required_distance = 0
 
 /datum/ai_behavior/pull/tdroid
 	pull_target_key = BB_TDROID_FOLLOW_TARGET

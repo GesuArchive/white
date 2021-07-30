@@ -127,7 +127,7 @@
 		M.take_overall_damage(clamp_damage)
 		if(!M) //get gibbed stoopid
 			return
-		M.adjustOxyLoss(round(clamp_damage/2))
+		M.adjustOxyLoss(round(clamp_damage))
 		M.updatehealth()
 		target.visible_message("<span class='danger'>[chassis] squeezes [target]!</span>", \
 							"<span class='userdanger'>[chassis] squeezes you!</span>",\
