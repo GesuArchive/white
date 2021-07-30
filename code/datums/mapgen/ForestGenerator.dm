@@ -15,14 +15,14 @@
 	BIOME_HIGHMEDIUM_HEAT = list(
 		BIOME_LOW_HUMIDITY = /datum/biome/plains/normal,
 		BIOME_LOWMEDIUM_HUMIDITY = /datum/biome/plains/normal,
-		BIOME_HIGHMEDIUM_HUMIDITY = /datum/biome/jungle/deep/normal,
+		BIOME_HIGHMEDIUM_HUMIDITY = /datum/biome/jungle/normal/deep,
 		BIOME_HIGH_HUMIDITY = /datum/biome/jungle/normal
 		),
 	BIOME_HIGH_HEAT = list(
 		BIOME_LOW_HUMIDITY = /datum/biome/wasteland/normal,
 		BIOME_LOWMEDIUM_HUMIDITY = /datum/biome/plains/normal,
 		BIOME_HIGHMEDIUM_HUMIDITY = /datum/biome/jungle/normal,
-		BIOME_HIGH_HUMIDITY = /datum/biome/jungle/deep/normal
+		BIOME_HIGH_HUMIDITY = /datum/biome/jungle/normal/deep
 		)
 	)
 	///Used to select "zoom" level into the perlin noise, higher numbers result in slower transitions
