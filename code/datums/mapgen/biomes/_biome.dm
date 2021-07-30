@@ -82,6 +82,8 @@
 
 /datum/biome/water/normal
 	turf_type = /turf/open/water/cataclysmdda
+	flora_types = list(/obj/structure/flora/cataclysmdda/decoration/reed, /obj/structure/flora/cataclysmdda/decoration/jug)
+	flora_density = 3
 
 /datum/biome/mountain
 	turf_type = /turf/closed/mineral/random/vietnam
