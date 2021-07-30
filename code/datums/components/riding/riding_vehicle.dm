@@ -133,7 +133,9 @@
 	vehicle_move_delay = 0.1
 	override_allow_spacemove = TRUE
 	allowed_turf_typecache = null
-	movable_parent.movement_type = FLYING
+	movable_parent.movement_type |= FLYING
+	for(var/mob/living/M in movable_parent.buckled_mobs)
+		M.movement_type |= FLYING
 
 /datum/component/riding/vehicle/lavaboat/proc/gaming_stop()
 	if(!override_allow_spacemove)
@@ -143,6 +145,8 @@
 	override_allow_spacemove = FALSE
 	allowed_turf_typecache = typecacheof(allowed_turf)
 	movable_parent.movement_type = initial(movable_parent.movement_type)
+	for(var/mob/living/M in movable_parent.buckled_mobs)
+		M.movement_type = initial(M.movement_type)
 
 
 
