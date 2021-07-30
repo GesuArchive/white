@@ -41,8 +41,6 @@ SUBSYSTEM_DEF(title)
 /datum/controller/subsystem/title/proc/adjust_load_pos(val_to, text_to)
 	if(enabled_shit)
 		loader_pos += val_to
-		if(loader_pos > 100)
-			afterload()
 		for(var/mob/dead/new_player/D in GLOB.new_player_list)
 			if(D?.client?.lobbyscreen_image)
 				D.client.send_to_lobby_load_pos(loader_pos, text_to)
