@@ -175,6 +175,7 @@
 	name = "корабль"
 	icon_state = "pod_armor_mil"
 	desc = "Ого..."
+	pod_icon = 'white/valtos/icons/spacepods/2x3.dmi'
 	pod_icon_state = "ship_civ"
 	pod_desc = "Хых..."
 	pod_integrity = 650
