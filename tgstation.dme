@@ -3662,6 +3662,7 @@
 #include "white\baldenysh\govnokod\components\soundplayer.dm"
 #include "white\baldenysh\govnokod\components\tts_comp.dm"
 #include "white\baldenysh\govnokod\components\zombie_weapon.dm"
+#include "white\baldenysh\govnokod\components\melee\melee_defense.dm"
 #include "white\baldenysh\govnokod\foods\food.dm"
 #include "white\baldenysh\govnokod\items\boombox.dm"
 #include "white\baldenysh\govnokod\items\bundles.dm"
