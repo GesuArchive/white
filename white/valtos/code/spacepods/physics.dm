@@ -194,9 +194,11 @@
 				offset_y = 0
 	dir = NORTH
 	var/matrix/mat_from = new()
-	mat_from.Turn(last_angle)
+	if(should_do_rotate_anim)
+		mat_from.Turn(last_angle)
 	var/matrix/mat_to = new()
-	mat_to.Turn(angle)
+	if(should_do_rotate_anim)
+		mat_to.Turn(angle)
 	transform = mat_from
 	pixel_x = last_offset_x*32
 	pixel_y = last_offset_y*32

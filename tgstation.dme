@@ -3634,6 +3634,7 @@
 #include "white\baldenysh\govnokod\map_templates.dm"
 #include "white\baldenysh\govnokod\outfits.dm"
 #include "white\baldenysh\govnokod\procs.dm"
+#include "white\baldenysh\govnokod\spesspods.dm"
 #include "white\baldenysh\govnokod\ui.dm"
 #include "white\baldenysh\govnokod\vending.dm"
 #include "white\baldenysh\govnokod\ai\generic_behaviors\attack_behaviors.dm"
