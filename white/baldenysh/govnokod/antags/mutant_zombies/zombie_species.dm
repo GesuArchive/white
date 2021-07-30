@@ -42,7 +42,7 @@
 
 	C.faction = list("skeleton")
 
-	C.throw_alert("zombiesense", /atom/movable/screen/alert/zombiesense)
+	C.throw_alert("zombiesense", /atom/movable/screen/alert/zombiesense/rebolutious)
 
 /datum/species/zombie/infectious/mutant/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	. = ..()
@@ -213,5 +213,38 @@
 		return FALSE
 	return TRUE
 
+////////////////////
+
+/atom/movable/screen/alert/zombiesense/rebolutious
+	icon = 'white/baldenysh/icons/obj/rebolutious_radar.dmi'
+	icon_state = "zradar0"
+
+/atom/movable/screen/alert/zombiesense/rebolutious/process()
+	var/atom/nearest_target
+	var/min_dist = 999
+	for(var/mob/living/carbon/human/H in GLOB.human_list)
+		if(H.z != owner.z)
+			continue
+		if(!is_infectable(H))
+			continue
+		var/cur_dist = get_dist_euclidian(H, owner)
+		if(cur_dist < min_dist)
+			nearest_target = H
+			min_dist = cur_dist
+
+	var/turf/P = get_turf(nearest_target)
+	var/turf/Q = get_turf(owner)
+	if(!P || !Q || (P.z != Q.z))
+		icon_state = "zradar0"
+		return
+
+	cut_overlays()
+	switch(min_dist)
+		if(0 to 1) icon_state = "zradarcenter"
+		if(2 to 8) icon_state = "zradar"
+		if(9 to 15)	icon_state = "zradar2"
+		if(15 to INFINITY) icon_state = "zradar3"
+
+	dir = get_dir(Q, P)
 
 
