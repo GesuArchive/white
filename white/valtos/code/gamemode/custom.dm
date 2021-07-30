@@ -107,6 +107,7 @@
 	lighting_overlay_opacity = 55
 	sound_environment = SOUND_ENVIRONMENT_CITY
 	ambience_index = AMBIENCE_NONE
+	map_generator = /datum/map_generator/forest_generator
 
 /area/partyhard/indoors
 	icon_state = "5f"
