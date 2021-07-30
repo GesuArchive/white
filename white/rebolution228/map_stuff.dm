@@ -481,24 +481,29 @@
 	icon_state = "tile2"
 	base_icon_state = "tile2"
 
-/turf/open/floor/plasteel/tile/monofloor
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda
 	name = "пол"
 	icon_state = "block1"
 	base_icon_state = "block1"
 
-/turf/open/floor/plasteel/tile/monofloor/alt
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt
 	icon_state = "block2"
 	base_icon_state = "block2"
 
-/turf/open/floor/plasteel/tile/monofloor/alt2
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2
 	name = "бетонный пол"
 	icon_state = "concrete"
 	base_icon_state = "concrete"
-/turf/open/floor/plasteel/tile/monofloor/alt3
+
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt3
 	icon_state = "block3"
 	base_icon_state = "block3"
 
-/turf/open/floor/plasteel/tile/monofloor/crowbar_act(mob/living/user/, obj/item/I)
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/blue
+	icon_state = "blue"
+	base_icon_state = "blue"
+
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/crowbar_act(mob/living/user/, obj/item/I)
 	return FALSE
 
 /turf/open/floor/plating/beach/sand/cataclysmdda
@@ -589,57 +594,39 @@
 	name = "кустик"
 	desc = null
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
-	icon_state = "plant1"
+	icon_state = "plant"
 
-/obj/structure/flora/cataclysmdda/decoration/alt1
-	icon_state = "plant2"
+/obj/structure/flora/cataclysmdda/decoration/nature
+	icon_state = "plant"
 
-/obj/structure/flora/cataclysmdda/decoration/alt2
-	icon_state = "plant3"
+/obj/structure/flora/cataclysmdda/decoration/nature/Initialize()
+	. = ..()
+	icon_state = "[icon_state][rand(1,8)]"
 
-/obj/structure/flora/cataclysmdda/decoration/alt3
-	icon_state = "plant4"
+/obj/structure/flora/cataclysmdda/decoration/houseplant
+	icon_state = "houseplant1"
 
-/obj/structure/flora/cataclysmdda/decoration/alt4
-	icon_state = "plant5"
+/obj/structure/flora/cataclysmdda/decoration/houseplant/alt
+	icon_state = "houseplant2"
 
-/obj/structure/flora/cataclysmdda/decoration/alt5
-	icon_state = "plant6"
+/obj/structure/flora/cataclysmdda/decoration/houseplant/alt2
+	icon_state = "houseplant3"
 
-/obj/structure/flora/cataclysmdda/decoration/alt6
-	icon_state = "plant7"
+/obj/structure/flora/cataclysmdda/decoration/houseplant/alt3
+	icon_state = "houseplant4"
 
-/obj/structure/flora/cataclysmdda/decoration/alt7
-	icon_state = "plant9"
-
-/obj/structure/flora/cataclysmdda/decoration/alt8
-	icon_state = "0,162"
-
-/obj/structure/flora/cataclysmdda/decoration/alt9
-	icon_state = "1,162"
-
-/obj/structure/flora/cataclysmdda/decoration/alt10
-	icon_state = "6,163"
-
-/obj/structure/flora/cataclysmdda/decoration/alt11
-	icon_state = "12,163"
-
-/obj/structure/flora/cataclysmdda/decoration/alt12
-	icon_state = "10,164"
+/obj/structure/flora/cataclysmdda/decoration/houseplant/alt4
+	icon_state = "houseplant5"
 
 /obj/structure/flora/cataclysmdda/decoration/reed
 	name = "камыш"
-	icon_state = "plant8"
+	icon_state = "kamish"
 
 /obj/structure/flora/cataclysmdda/decoration/jug
 	name = "кувшинка"
 	icon_state = "koovshin"
 
 //Trees
-
-/obj
-
-
 
 //Structure
 /obj/structure/barricade/wooden/dark
