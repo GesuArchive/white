@@ -336,7 +336,7 @@ GLOBAL_VAR(yohei_main_controller)
 	reputation = text2num(json["reputation"])
 
 /obj/lab_monitor/yohei/proc/adjust_reputation(amt = 0)
-	reputation = min(150, max(-99, reputation + amt))
+	reputation = min(50, max(-75, reputation + amt))
 	var/json_file = file("data/yohei.json")
 	var/list/file_data = list()
 	file_data["reputation"] = reputation
