@@ -632,8 +632,7 @@
 	name = "КОДЕР"
 	desc = "МУДАК"
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_trees.dmi'
-	pixel_x = -32
-	pixel_y = 16
+	pixel_x = -16
 	density = TRUE
 	icon_state = "els1"
 	base_icon_state = "els"
@@ -652,6 +651,11 @@
 	else
 		icon_state = "[base_icon_state][rand(1, lv)]"
 	. = ..()
+
+/obj/structure/flora/tree/cataclysmdda/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
+	if(!. && istype(mover, /obj/projectile))
+		return prob(30)
 
 /obj/structure/flora/tree/cataclysmdda/iva
 	name = "ива"
