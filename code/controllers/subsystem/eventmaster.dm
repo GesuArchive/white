@@ -39,11 +39,12 @@ SUBSYSTEM_DEF(eventmaster)
 			SSorbits.pause()
 			SSweather.pause()
 			SSeconomy.pause()
+			SSjob.DisableJobsButThis(/datum/job/assistant)
 			message_admins("Остановка лишних контроллеров успешна!")
 			action_area = GLOB.areas_by_type[/area/partyhard/outdoors]
 			second_area = GLOB.areas_by_type[/area/partyhard/indoors]
-			//action_area.set_dynamic_lighting(DYNAMIC_LIGHTING_FORCED)
-			//message_admins("Свет готов!")
+			action_area.set_dynamic_lighting(DYNAMIC_LIGHTING_FORCED)
+			message_admins("Свет готов!")
 			message_admins("Готово!")
 			return TRUE
 		else
@@ -96,10 +97,11 @@ SUBSYSTEM_DEF(eventmaster)
 
 	if(new_time != current_time)
 		current_time = new_time
-		action_area.cut_overlay(/obj/effect/fullbright)
+		action_area.cut_overlay(action_area.lighting_overlay)
+		//action_area.lighting_overlay = new /obj/effect/fullbright
 		action_area.lighting_overlay_colour = new_color
 		action_area.lighting_overlay_opacity = new_alpha
-		action_area.add_overlay(/obj/effect/fullbright)
+		action_area.add_overlay(action_area.lighting_overlay)
 		to_chat(world, "<span class='greenannounce'><b>[station_time_timestamp("hh:mm")]</b> - [new_time].</span>")
 
 /client/proc/force_evenmaster_rules()

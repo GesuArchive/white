@@ -105,7 +105,8 @@
 	outdoors = TRUE
 	lighting_overlay_colour = "#ffd1b3"
 	lighting_overlay_opacity = 55
-	sound_environment = SOUND_ENVIRONMENT_CITY
+	luminosity = 1
+	sound_environment = SOUND_ENVIRONMENT_PLAIN
 	ambience_index = AMBIENCE_NONE
 	map_generator = /datum/map_generator/forest_generator
 
@@ -114,18 +115,18 @@
 	if(ismob(AM))
 		var/mob/M = AM
 		if(M.client)
-			addtimer(CALLBACK(M.client, /client/proc/play_partyhard_ambience), 900)
+			addtimer(CALLBACK(M.client, /client/proc/play_partyhard_ambience), 300)
 
 /client/proc/play_partyhard_ambience()
 	var/area/A = get_area(mob)
 	if(!istype(A, /area/partyhard/outdoors))
 		return
-	var/sound = pick(REEBE)
+	var/sound = pick(CITY_SOUNDS)
 	if(!played)
 		SEND_SOUND(src, sound(sound, repeat = 0, wait = 0, volume = 25, channel = CHANNEL_AMBIENCE))
 		played = TRUE
-		addtimer(CALLBACK(src, /client/proc/ResetAmbiencePlayed), 600)
-	addtimer(CALLBACK(src, /client/proc/play_partyhard_ambience), 900)
+		addtimer(CALLBACK(src, /client/proc/ResetAmbiencePlayed), 1200)
+	addtimer(CALLBACK(src, /client/proc/play_partyhard_ambience), 1600)
 
 /area/partyhard/indoors
 	icon_state = "5f"
