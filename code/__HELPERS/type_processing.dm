@@ -42,6 +42,11 @@
 		pre_generated_list = make_types_fancy(typesof(/atom))
 	return pre_generated_list
 
+/proc/get_fancy_list_of_projectile_types() // я хз, как тгшники задумывали использование этого говна, но я хочу красивый поиск по путям на своих кнопочках, а это говно вообще хуй пойми чё делает
+	var/static/list/pre_generated_list
+	if (!pre_generated_list) //init
+		pre_generated_list = make_types_fancy(sortList(typesof(/obj/projectile)))
+	return pre_generated_list
 
 /proc/get_fancy_list_of_datum_types()
 	var/static/list/pre_generated_list
