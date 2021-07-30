@@ -12,7 +12,7 @@
 	var/max_tele_range = 14
 	var/tele_id
 	var/target_id
-	var/accept_mobs = FALSE
+	//var/accept_mobs = FALSE
 	var/static/list/obj/item/mechcomp/teleport/teles = list()
 
 
@@ -52,18 +52,18 @@
 		playsound(src, 'white/RedFoxIV/sounds/mechcomp/generic_energy_dryfire.ogg', 75, FALSE)
 		activate_for(1 SECONDS, FALSE)
 		return
-
+/*
 	if(accept_mobs != tele.accept_mobs)
 		say("Target and source modes differ - reconfigure teleporters!")
 		playsound(src, 'white/RedFoxIV/sounds/mechcomp/generic_energy_dryfire.ogg', 75, FALSE)
 		activate_for(1 SECONDS, FALSE)
 		return
-
+*/
 	var/list/teleported_mobs = list()
 	var/teleported_AM = 0
 	var/mob/living/L
 	for(var/obj/AM in get_turf(src))
-		if(AM.anchored || ( isliving(AM) && !accept_mobs ) || AM == src)
+		if(AM.anchored || AM == src)
 			continue
 		AM.forceMove(get_turf(tele))
 		teleported_AM++
@@ -78,8 +78,8 @@
 	s1.start()
 
 
-	activate_for(2 SECONDS + 10 SECONDS * accept_mobs)
-	tele.activate_for(2 SECONDS + 10 SECONDS * accept_mobs)
+	activate_for(12 SECONDS)
+	tele.activate_for(0.2 SECONDS)
 	log_action("teleported [teleported_AM] objects to x=[tele.x], y=[tele.y][teleported_mobs.len ? ", including following mobs: [jointext(teleported_mobs, ", ")]" : ""]")
 	return
 
@@ -116,6 +116,7 @@
 	to_chat(user, "<span class='notice'>You change the tele ID on [src.name] to [num2hex(tele_id, 4)].</span>")
 	return TRUE
 
+/*
 /obj/item/mechcomp/teleport/proc/toggle_accept_mobs(obj/item/I, mob/user)
 	accept_mobs = !accept_mobs
 	if(accept_mobs)
@@ -128,11 +129,12 @@
 		active_icon_state = "comp_tele1"
 		update_icon_state(part_icon_state)
 		to_chat(user, "The [src.name] will no more teleport living creatures. The decreased power requirement means it will recharge faster.")
+*/
 
 /obj/item/mechcomp/teleport/can_anchor(mob/user)
 	.=..()
 	if(teles["[tele_id]"])
-		to_chat(user, "The [src.name] refuses to be anchored! It seems there is already an another teleporter with the same teleID.")
+		to_chat(user, "The [src.name] refuses to be anchored! It seems there is already another teleporter with the same teleID.")
 		return FALSE
 
 /obj/item/mechcomp/teleport/can_unanchor(mob/user)
