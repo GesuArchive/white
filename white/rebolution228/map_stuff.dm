@@ -517,6 +517,7 @@
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_floors.dmi'
 	icon_state = "grass0"
 	base_icon_state = "grass0"
+	baseturfs = /turf/open/floor/plating/beach/sand
 
 /turf/open/floor/grass/cataclysmdda/Initialize()
 	. = ..()
@@ -534,10 +535,10 @@
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_floors.dmi'
 	icon_state = "dirt1"
 	base_icon_state = "dirt1"
-	footstep = FOOTSTEP_LAVA
-	barefootstep = FOOTSTEP_LAVA
-	clawfootstep = FOOTSTEP_LAVA
-	heavyfootstep = FOOTSTEP_LAVA
+	footstep = FOOTSTEP_SAND
+	barefootstep = FOOTSTEP_SAND
+	clawfootstep = FOOTSTEP_SAND
+	heavyfootstep = FOOTSTEP_SAND
 
 /turf/open/floor/grass/cataclysmdda/dirt/proc/changeicon()
 	icon_state = "dirt[rand(1,4)]"
@@ -583,6 +584,7 @@
 	icon_state = "tent_floor"
 	base_icon_state = null
 	floor_tile = null
+	baseturfs = /turf/open/floor/plating/beach/sand
 
 /turf/open/floor/carpet/tentfloor/crowbar_act(mob/living/user/, obj/item/I)
 	return FALSE
