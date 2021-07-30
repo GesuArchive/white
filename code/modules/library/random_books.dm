@@ -77,7 +77,7 @@
 	name = "bookcase (Religion)"
 	random_category = "Religion"
 /obj/structure/bookcase/random/adult
-	name = "bookcase (Adult)"
+	name = "bookcase (Supplementary White Dream Lore Material)"
 	random_category = "Adult"
 
 /obj/structure/bookcase/random/reference

@@ -76,6 +76,11 @@
 	cursound.volume = 0
 	update_sounds()
 
+/datum/component/soundplayer/proc/upload_sound(client/uploader)
+	var/sound/soundpath = input(uploader, null, "Upload sound") as sound|null
+	if(soundpath)
+		set_sound(sound(soundpath))
+
 /datum/component/soundplayer/proc/set_channel(chan)
 	playing_channel = chan
 	if(cursound)

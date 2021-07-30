@@ -202,7 +202,6 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 
 	spawn(10)
-		SStitle.afterload()
 		if(CONFIG_GET(flag/df_enabled))
 			message_admins("<span class='boldannounce'>Подгружаем DF...</span>")
 			load_new_z_level("_maps/RandomZLevels/dwarf_lustress.dmm", "Dwarf Fortress")
@@ -210,9 +209,9 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 			for(var/area/A in world)
 				if(istype(A, /area/awaymission/vietnam/dwarfgen))
 					A.RunGeneration()
-	to_chat(world, "<span class='green'> -- $<b>Мир</b>:> <b>[time]</b> -- </span>")
+	message_admins("-- $<b>Мир</b>:> <b>[time]</b> --")
 	log_world("World init for [time] seconds!")
-	
+
 	spawn(5)
 		var/list/templist = world.file2list("[global.config.directory]/assblasted_people.txt")
 		for(var/entry in templist)

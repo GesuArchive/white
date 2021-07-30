@@ -147,6 +147,9 @@
 		SSblackbox.record_feedback("associative", "antagonists", 1, antag_info)
 
 		if (greentexted)
+			if(!(C in greentexters))
+				antag_coins[C]["reward"]+=A.greentext_reward
+				antag_coins[C]["completed"]++
 			if (A.owner && A.owner.key)
 				if (A.type != /datum/antagonist/custom)
 					if (C)

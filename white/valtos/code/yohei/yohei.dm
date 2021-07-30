@@ -240,6 +240,13 @@
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list()
 
+/datum/outfit/yohei/post_equip(mob/living/carbon/human/H, visualsOnly)
+	. = ..()
+	if(GLOB.yohei_main_controller)
+		var/obj/lab_monitor/yohei/LM = GLOB.yohei_main_controller
+		H.maxHealth = MAX_LIVING_HEALTH + LM.reputation
+		ADD_TRAIT(H, TRAIT_YOHEI, JOB_TRAIT)
+
 /datum/outfit/yohei/medic
 	name = "Йохей: Медик"
 
@@ -303,13 +310,38 @@
 
 	backpack_contents = list()
 
+GLOBAL_VAR(yohei_main_controller)
+
 /obj/lab_monitor/yohei
 	name = "Монитор исполнения"
 	desc = "Здесь выводятся задания. Стекло всё ещё выглядит не очень крепким..."
 	var/datum/yohei_task/current_task = null
 	var/list/possible_tasks = list()
 	var/list/action_guys = list()
-	//var/balance = 0
+	var/reputation = 0
+
+/obj/lab_monitor/yohei/Initialize()
+	. = ..()
+	for(var/path in subtypesof(/datum/yohei_task))
+		var/datum/yohei_task/T = path
+		possible_tasks += T
+	load_reputation()
+	GLOB.yohei_main_controller = src
+
+/obj/lab_monitor/yohei/proc/load_reputation()
+	var/json_file = file("data/yohei.json")
+	if(!fexists(json_file))
+		return
+	var/list/json = json_decode(file2text(json_file))
+	reputation = text2num(json["reputation"])
+
+/obj/lab_monitor/yohei/proc/adjust_reputation(amt = 0)
+	reputation = min(50, max(-75, reputation + amt))
+	var/json_file = file("data/yohei.json")
+	var/list/file_data = list()
+	file_data["reputation"] = reputation
+	fdel(json_file)
+	WRITE_FILE(json_file, json_encode(file_data))
 
 /obj/lab_monitor/yohei/attacked_by(obj/item/I, mob/living/user)
 	if(istype(I, /obj/item/pamk))
@@ -335,7 +367,7 @@
 
 	if(current_task && current_task.check_task())
 		say("Задание выполнено. Награда в размере [current_task.prize] выдана. Получение следующего задания...")
-		//balance += current_task.prize
+		reputation += 2
 		for(var/mob/living/carbon/human/H in action_guys)
 			inc_metabalance(H, current_task.prize, reason = "Задание выполнено.")
 		action_guys = list()
@@ -355,13 +387,7 @@
 		. += "<span class='notice'><b>Задание:</b> [current_task.desc]</span>"
 		. += "\n<span class='notice'><b>Награда:</b> [current_task.prize]</span>"
 		. += "\n<span class='notice'><b>Исполнители:</b> [english_list(action_guys)]</span>"
-		//. += "\n\n<span class='notice'><b>Баланс:</b> [balance]</span>"
-
-/obj/lab_monitor/yohei/Initialize()
-	. = ..()
-	for(var/path in subtypesof(/datum/yohei_task))
-		var/datum/yohei_task/T = path
-		possible_tasks += T
+		. += "\n\n<span class='notice'><b>Репутация:</b> [reputation]</span>"
 
 /datum/yohei_task
 	var/desc = null

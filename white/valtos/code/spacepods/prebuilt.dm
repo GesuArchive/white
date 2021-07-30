@@ -76,3 +76,4 @@
 	equipment_types = list(/obj/item/spacepod_equipment/weaponry/laser,
 		/obj/item/spacepod_equipment/cargo/chair,
 		/obj/item/spacepod_equipment/cargo/chair)
+

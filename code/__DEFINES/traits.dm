@@ -484,6 +484,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_UKRAINISH		"ukrainish"
 #define TRAIT_ASIAT			"asiatish"
 #define TRAIT_HACKER		"hackereye"
+#define TRAIT_YOHEI			"yohei"
 
 #define LIFECANDLE_TRAIT "lifecandle"
 #define VENTCRAWLING_TRAIT "ventcrawling"

@@ -27,9 +27,24 @@
 	flora_types = list(/obj/structure/flora/grass/jungle,/obj/structure/flora/grass/jungle/b, /obj/structure/flora/rock/jungle, /obj/structure/flora/rock/pile/largejungle)
 	flora_density = 3
 
+/datum/biome/mudlands/normal
+	turf_type = /turf/open/floor/grass/cataclysmdda/dirt
+	flora_types = list(/obj/structure/flora/tree/cataclysmdda/el/small, /obj/structure/flora/tree/cataclysmdda/ht)
+	flora_density = 3
+
 /datum/biome/plains
 	turf_type = /turf/open/floor/plating/grass/jungle
 	flora_types = list(/obj/structure/flora/grass/jungle,/obj/structure/flora/grass/jungle/b, /obj/structure/flora/tree/jungle, /obj/structure/flora/rock/jungle, /obj/structure/flora/junglebush, /obj/structure/flora/junglebush/b, /obj/structure/flora/junglebush/c, /obj/structure/flora/junglebush/large, /obj/structure/flora/rock/pile/largejungle)
+	flora_density = 15
+
+/datum/biome/plains/normal
+	turf_type = /turf/open/floor/grass/cataclysmdda
+	flora_types = list(/obj/structure/flora/cataclysmdda/decoration/nature,
+					/obj/structure/flora/tree/cataclysmdda/iva,
+					/obj/structure/flora/tree/cataclysmdda/cash,
+					/obj/structure/flora/tree/cataclysmdda/dub,
+					/obj/structure/flora/tree/cataclysmdda/ht,
+					/obj/structure/flora/tree/cataclysmdda/mt)
 	flora_density = 15
 
 /datum/biome/jungle
@@ -37,14 +52,38 @@
 	flora_types = list(/obj/structure/flora/grass/jungle,/obj/structure/flora/grass/jungle/b, /obj/structure/flora/tree/jungle, /obj/structure/flora/rock/jungle, /obj/structure/flora/junglebush, /obj/structure/flora/junglebush/b, /obj/structure/flora/junglebush/c, /obj/structure/flora/junglebush/large, /obj/structure/flora/rock/pile/largejungle)
 	flora_density = 40
 
+/datum/biome/jungle/normal
+	turf_type = /turf/open/floor/grass/cataclysmdda
+	flora_types = list(/obj/structure/flora/cataclysmdda/decoration/nature,
+					/obj/structure/flora/tree/cataclysmdda/yabl,
+					/obj/structure/flora/tree/cataclysmdda/topol,
+					/obj/structure/flora/tree/cataclysmdda/el,
+					/obj/structure/flora/tree/cataclysmdda/oreh,
+					/obj/structure/flora/tree/cataclysmdda/kedr,
+					/obj/structure/flora/tree/cataclysmdda/sosna,
+					/obj/structure/flora/tree/cataclysmdda/ht,
+					/obj/structure/flora/tree/cataclysmdda/mt)
+	flora_density = 50
+
 /datum/biome/jungle/deep
+	flora_density = 65
+
+/datum/biome/jungle/normal/deep
 	flora_density = 65
 
 /datum/biome/wasteland
 	turf_type = /turf/open/floor/plating/dirt/jungle/wasteland
 
+/datum/biome/wasteland/normal
+	turf_type = /turf/open/floor/grass/cataclysmdda/dirt
+
 /datum/biome/water
 	turf_type = /turf/open/water/jungle
+
+/datum/biome/water/normal
+	turf_type = /turf/open/water/cataclysmdda
+	flora_types = list(/obj/structure/flora/cataclysmdda/decoration/reed, /obj/structure/flora/cataclysmdda/decoration/jug)
+	flora_density = 3
 
 /datum/biome/mountain
 	turf_type = /turf/closed/mineral/random/vietnam

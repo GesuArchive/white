@@ -59,6 +59,7 @@ SUBSYSTEM_DEF(mapping)
 #endif
 
 /datum/controller/subsystem/mapping/Initialize(timeofday)
+	var/start_timeofday = REALTIMEOFDAY
 	HACK_LoadMapConfig()
 	if(initialized)
 		return
@@ -74,6 +75,9 @@ SUBSYSTEM_DEF(mapping)
 	process_teleport_locs()			//Sets up the wizard teleport locations
 	preloadTemplates()
 	run_map_generation()
+	SStitle.afterload()
+	var/time = (REALTIMEOFDAY - start_timeofday) / 10
+	to_chat(world, "<span class='green'> -- $<b>Мир</b>:> <b>[time]</b> -- </span>")
 
 #ifndef LOWMEMORYMODE
 	// Create space ruin levels
