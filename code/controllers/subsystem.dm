@@ -215,8 +215,11 @@
 /datum/controller/subsystem/Initialize(start_timeofday)
 	initialized = TRUE
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
-	SStitle.adjust_load_pos(round(time, 1), "[name] ГОТОВО")
-	to_chat(world, "<span class='green'> -- @<b>[name]</b>:> <b>[time]</b> -- </span>")
+	if(loader_pos < 100)
+		SStitle.adjust_load_pos(round(time, 1), "[name] ГОТОВО")
+		to_chat(world, "<span class='green'> -- @<b>[name]</b>:> <b>[time]</b> -- </span>")
+	else
+		message_admins("-- @<b>[name]</b>:> <b>[time]</b> --")
 	log_world("Init [name] for [time]s!")
 	return time
 
