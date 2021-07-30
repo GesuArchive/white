@@ -233,6 +233,7 @@
 	var/working = FALSE
 	var/atom/movable/active_item = null
 	var/list/blacklisted_items = list(/obj/item/stack/telecrystal,
+			/obj/item/card/id,
 			/obj/item/stack/telecrystal/five,
 			/obj/item/stack/telecrystal/twenty,
 			/obj/item/uplink,
