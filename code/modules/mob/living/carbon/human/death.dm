@@ -40,8 +40,8 @@ GLOBAL_LIST_EMPTY(dead_players_during_shift)
 	if(!QDELETED(dna)) //The gibbed param is bit redundant here since dna won't exist at this point if they got deleted.
 		dna.species.spec_death(gibbed, src)
 
-	if(lastattackermob?.ckey)
-		if(HAS_TRAIT(lastattackermob, TRAIT_YOHEI))
+	if(client && lastattackermob?.client)
+		if(!HAS_TRAIT(src, TRAIT_YOHEI) && HAS_TRAIT(lastattackermob, TRAIT_YOHEI))
 			if(GLOB.yohei_main_controller)
 				var/obj/lab_monitor/yohei/LM = GLOB.yohei_main_controller
 				LM.adjust_reputation(-1)
