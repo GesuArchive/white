@@ -593,7 +593,14 @@
 	addtimer(CALLBACK(src, .proc/beginLaunch, pod.effectCircle), pod.delays[POD_TRANSIT])
 
 /obj/effect/pod_landingzone/proc/playFallingSound()
-	playsound(src, pod.fallingSound, pod.soundVolume, TRUE, 6)
+	if (pod.fallingSound == initial(pod.fallingSound))
+		if(pod.effectQuiet)
+			return
+		else
+			playsound(src, pod.fallingSound, pod.soundVolume, TRUE, 6)
+			return
+	playsound(src, pod.fallingSound, pod.soundVolume, FALSE, 6)
+	
 
 /obj/effect/pod_landingzone/proc/beginLaunch(effectCircle) //Begin the animation for the pod falling. The effectCircle param determines whether the pod gets to come in from any descent angle
 	pod.addGlow()
