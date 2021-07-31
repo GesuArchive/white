@@ -16,14 +16,15 @@
 	var/user_thrust_dir = 0
 	var/desired_angle = null // set by pilot moving his mouse
 
-	var/forward_maxthrust = 6
-	var/backward_maxthrust = 3
+	var/forward_maxthrust = 1
+	var/backward_maxthrust = 1
 	var/side_maxthrust = 1
 
 	var/bump_impulse = 0.6
 	var/bounce_factor = 0.2 // how much of our velocity to keep on collision
 	var/lateral_bounce_factor = 0.95 // mostly there to slow you down when you drive (pilot?) down a 2x2 corridor
 
+	var/default_dir = NORTH
 	var/icon_dir_num = 1
 
 	var/disable_drag = FALSE
@@ -249,7 +250,7 @@
 			else
 				offset_y = 0
 
-	AM.dir = NORTH
+	AM.dir = default_dir
 
 	var/matrix/mat_from = new()
 	var/matrix/mat_to = new()
@@ -263,8 +264,8 @@
 	AM.pixel_x = AM.base_pixel_x + last_offset_x*32
 	AM.pixel_y = AM.base_pixel_y + last_offset_y*32
 	animate(AM, transform=mat_to, pixel_x = AM.base_pixel_x + offset_x*32, pixel_y = AM.base_pixel_y + offset_y*32, time = delta_time*10, flags=ANIMATION_END_NOW)
-	var/list/smooth_viewers = AM.contents
-	if(AM.orbiters)
+	var/list/smooth_viewers = AM.contents | AM
+	if(AM.orbiters && AM.orbiters.orbiter_list)
 		smooth_viewers |= AM.orbiters.orbiter_list
 	for(var/mob/M in smooth_viewers)
 		var/client/C = M.client
