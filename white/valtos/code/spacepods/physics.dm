@@ -207,7 +207,9 @@
 	pixel_x = base_pixel_x + last_offset_x*32
 	pixel_y = base_pixel_y + last_offset_y*32
 	animate(src, transform=mat_to, pixel_x = base_pixel_x + offset_x*32, pixel_y = base_pixel_y + offset_y*32, time = time*10, flags=ANIMATION_END_NOW)
-	for(var/mob/living/M in contents)
+	var/list/mob/smooth_viewers = contents
+	smooth_viewers |= orbiters?.orbiter_list //ломает орбитеров, но поебать, зато плавно
+	for(var/mob/M in smooth_viewers)
 		var/client/C = M.client
 		if(!C)
 			continue
