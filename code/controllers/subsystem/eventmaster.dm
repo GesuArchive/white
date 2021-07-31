@@ -123,7 +123,7 @@ SUBSYSTEM_DEF(eventmaster)
 		if(prob(25))
 			SSweather.run_weather(/datum/weather/just_rain)
 		current_time = new_time
-		action_area.cut_overlay((action_area.lighting_overlay)
+		action_area.cut_overlay(action_area.lighting_overlay)
 		action_area.lighting_overlay_colour = new_color
 		action_area.lighting_overlay_opacity = new_alpha
 		action_area.add_overlay(action_area.lighting_overlay)
