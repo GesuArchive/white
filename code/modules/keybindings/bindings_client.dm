@@ -105,8 +105,3 @@
 	holder?.key_up(_key, src)
 	mob.focus?.key_up(_key, src)
 	mob.update_mouse_pointer()
-
-// Called every game tick
-/client/keyLoop()
-	holder?.keyLoop(src)
-	mob?.focus?.keyLoop(src)
