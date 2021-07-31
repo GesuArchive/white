@@ -22,8 +22,8 @@
 
 	if(ishuman(A))
 		var/mob/living/carbon/human/rammed = A
-		rammed.gib()
 		visible_message("<span class='danger'><b>[src]</b> давит <b>[A]</b>!</span>")
+		rammed.gib()
 		return ..()
 
 	if(isclosedturf(A))
@@ -35,10 +35,44 @@
 		dead_obj.take_damage(INFINITY, BRUTE, NONE, TRUE, dir, INFINITY)
 		return ..()
 
-/obj/vehicle/sealed/car/fucking_tank/vehicle_move(direction, forcerotate = FALSE)
+// ЧЕ ЭТО БЛЯ
+/obj/vehicle/sealed/car/fucking_tank/vehicle_move(direction)
 	. = ..()
-	for(var/atom/A in range(2, src))
-		Bump(A)
+	var/turf/lt
+	var/turf/mt
+	var/turf/rt
+	switch(direction)
+		if(WEST)
+			lt = locate(-2, y - 1, z )
+			mt = locate(-2, y, 	   z )
+			rt = locate(-2, y + 1, z )
+		if(EAST)
+			lt = locate( 2, y + 1, z )
+			mt = locate( 2, y, 	   z )
+			rt = locate( 2, y - 1, z )
+		if(NORTH)
+			lt = locate( x - 1, 2, z )
+			mt = locate( x,     2, z )
+			rt = locate( x + 1, 2, z )
+		if(SOUTH)
+			lt = locate( x + 1,-2, z )
+			mt = locate( x,    -2, z )
+			rt = locate( x - 1,-2, z )
+	if(isclosedturf(lt))
+		Bump(lt)
+	else
+		for(var/atom/A in lt)
+			Bump(A)
+	if(isclosedturf(mt))
+		Bump(mt)
+	else
+		for(var/atom/A in mt)
+			Bump(A)
+	if(isclosedturf(rt))
+		Bump(rt)
+	else
+		for(var/atom/A in rt)
+			Bump(A)
 
 /datum/component/riding/vehicle/tank
 	vehicle_move_delay = 10
