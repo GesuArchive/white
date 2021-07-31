@@ -20,14 +20,13 @@
 	if(A == src || (A in occupants))
 		return ..()
 
-	visible_message("<span class='danger'><b>[src]</b> давит <b>[A]</b>!</span>")
-
 	if(ishuman(A))
 		var/mob/living/carbon/human/rammed = A
 		rammed.gib()
+		visible_message("<span class='danger'><b>[src]</b> давит <b>[A]</b>!</span>")
 		return ..()
 
-	if(isturf(A))
+	if(isclosedturf(A))
 		SSexplosions.lowturf += A
 		return ..()
 
