@@ -101,20 +101,22 @@
 	return
 
 /obj/item/gun/ballistic/crossbow/examine(mob/user)
-	..()
-	var/bowstring = "Тетива "
-	if (charge > 2)
-		bowstring = bowstring + "в полной боевой готовности"
-	else if (charge > 1)
-		bowstring = bowstring + "натянута на половину"
-	else if (charge > 0)
-		bowstring = bowstring + "слабо натянута"
-	else
-		bowstring = bowstring + "в покое"
-	to_chat(user, "[bowstring][charge > 2 ? "!" : "."]")
+	. = ..()
+	. += "<br>Тетива "
+	switch(charge)
+		if(0)
+			. += " в покое."
+		if(2 to INFINITY)
+			. += "в полной боевой готовности"
+		if (1 to 2)
+			. += "натянута на половину"
+		if (0 to 1)
+			. += "слабо натянута"
+
+	. += "[charge > 2 ? "!" : "."]<br>"
 
 	if (chambered?.BB)
-		to_chat(user, "[capitalize(chambered.BB)] установлен.")
+		. += "[capitalize(chambered.BB)] установлен."
 
 /obj/item/gun/ballistic/crossbow/update_icon()
 	..()
