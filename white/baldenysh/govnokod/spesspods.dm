@@ -1,36 +1,9 @@
 /obj/spacepod
-	var/should_do_rotate_anim = TRUE
-
-/obj/spacepod/multidir
-	should_do_rotate_anim = FALSE
-
-/obj/spacepod/multidir/update_icon()
-	. = ..()
-	dir = angle2dir(angle)
-
-/obj/spacepod/multidir/prebuilt
-	icon = 'white/valtos/icons/spacepods/goon/2x2.dmi'
-	icon_state = "pod_civ"
-	var/cell_type = /obj/item/stock_parts/cell/high/plus
-	var/armor_type = /obj/item/pod_parts/armor
-	var/internal_tank_type = /obj/machinery/portable_atmospherics/canister/air
-	var/equipment_types = list()
-	construction_state = SPACEPOD_ARMOR_WELDED
-
-/obj/spacepod/multidir/prebuilt/Initialize()
-	..()
-	add_armor(new armor_type(src))
-	if(cell_type)
-		cell = new cell_type(src)
-	if(internal_tank_type)
-		internal_tank = new internal_tank_type(src)
-	for(var/equip in equipment_types)
-		var/obj/item/spacepod_equipment/SE = new equip(src)
-		SE.on_install(src)
+	var/icon_dir_num = 1
 
 ////////////////////////////////////////////////////////////////////////////////////test
 
-/obj/spacepod/multidir/prebuilt/test
+/obj/spacepod/prebuilt/multidir_test
 	name = "мехокарась"
 	desc = "амонг"
 	icon = 'white/baldenysh/icons/mob/karasik.dmi'
@@ -39,6 +12,7 @@
 	bound_x = 64
 	bound_y = 32
 	movement_type = PHASING
+	icon_dir_num = 8
 
 	armor_type = /obj/item/pod_parts/armor/multidir_test
 	cell_type = /obj/item/stock_parts/cell/infinite
@@ -57,4 +31,71 @@
 
 ////////////////////////////////////////////////////////////////////////////////////actual praikol
 
+/obj/item/pod_parts/armor/susplating
+	name = "sussy armor"
+	icon_state = "pod_armor_mil"
+	desc = "I have a reason to believe there is a pretender in the midst of our ranks."
+	pod_icon = 'white/baldenysh/icons/obj/spesspods/snuscopteru.dmi'
+	pod_icon_state = "snuscopter"
+	pod_desc = "Изобретение хохлов будущего #009."
+	pod_integrity = 3000
 
+#define FUNNICOPTER_DESC_LINK "https://hub.station13.ru/library/58"
+
+/obj/spacepod/prebuilt/funnicopter/proc/load_funny_text()
+	var/datum/http_request/request = new()
+	request.prepare(RUSTG_HTTP_METHOD_GET, "[FUNNICOPTER_DESC_LINK]", "", "", null)
+	request.begin_async()
+	UNTIL(request.is_complete())
+	var/datum/http_response/response = request.into_response()
+	if(response.errored || response.status_code != 200)
+		desc += "\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+		return
+	var/text = getListOfEnclosedStrings(html_decode(response.body), "<span style=\"color:'blue';font-family:'Verdana';\"><p>", "</p>")[1]
+	if(!text)
+		desc += "\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+		return
+	desc += "\nНа обшивке можно разглядеть короткую надпись, сделанную розовым мелком:"
+	desc += "\n<font color=\"pink\">[text]</font>"
+
+/obj/spacepod/prebuilt/funnicopter
+	name = "mk.II rev.5 Type-83 \"AMODEUS\" Blackmatter-phasing Antigravity Snuscopter"
+	icon_state = "snuscopter"
+	overlay_file ='white/baldenysh/icons/obj/spesspods/snuscopteru.dmi'
+	//320x192
+	bound_x = 32 * 3
+	bound_y = 32 * 3
+	base_pixel_x = -112
+	base_pixel_y = -48
+
+	movement_type = PHASING
+	icon_dir_num = 8
+
+	armor_type = /obj/item/pod_parts/armor/susplating
+	cell_type = /obj/item/stock_parts/cell/infinite
+	equipment_types = list(/obj/item/spacepod_equipment/weaponry/missile_rack,
+		/obj/item/spacepod_equipment/cargo/chair,
+		/obj/item/spacepod_equipment/cargo/chair)
+
+/obj/spacepod/prebuilt/funnicopter/Initialize()
+	. = ..()
+	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
+	SP.prefs_toggle_flag = null
+	SP.set_sound(sound('white/baldenysh/sounds/dd_phonk_loop.ogg'))
+	SP.set_channel(open_sound_channel_for_boombox())
+	SP.playing_volume = 100
+	SP.active = TRUE
+
+	INVOKE_ASYNC(src, .proc/load_funny_text)
+
+/obj/item/spacepod_equipment/weaponry/missile_rack
+	name = "\improper SRM-8 spacepod missile rack"
+	desc = "grifenk inbound"
+	icon_state = "weapon_burst_taser"
+	projectile_type = /obj/projectile/bullet/a84mm_he
+	shot_cost = 1200
+	shots_per = 3
+	fire_sound = 'sound/weapons/gun/general/rocket_launch.ogg'
+	fire_delay = 5
+	overlay_icon = 'white/valtos/icons/spacepods/2x2.dmi'
+	overlay_icon_state = "aaaaaaaaaaaaaaaaaa"
