@@ -815,6 +815,8 @@
 /obj/structure/sink/kitchen/cataclysmdda
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "thasink"
+	density = 1
+	opacity = 0
 	max_integrity = 150
 	obj_integrity = 150
 
