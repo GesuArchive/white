@@ -427,7 +427,7 @@
 	base_icon_state = "wall"
 	slicing_duration = 150
 	explosion_block = 1
-	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS)
+	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE)
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/cataclysmdda/wooden
@@ -446,7 +446,6 @@
 	icon = 'white/rebolution228/icons/cataclysmdda/wall03.dmi'
 	icon_state = "wallb-0"
 	base_icon_state = "wallb"
-	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 	sheet_type = null
 	hardness = 100
@@ -778,13 +777,16 @@
 /obj/structure/cataclysmdda
 	name = "structure"
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	anchored = 1
+	can_be_unanchored = FALSE
+	opacity = 0
+	density = 1
 
 /obj/structure/cataclysmdda/lamp
 	name = "напольный светильник"
 	desc = "Прикольно светится."
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "lomp"
-	anchored = 1
 	max_integrity = 50
 	obj_integrity = 50
 
@@ -872,6 +874,9 @@
 	icon_state = "oven"
 	max_integrity = 200
 	obj_integrity = 200
+	opacity = 0
+	density = 1
+	custom_materials = list(/datum/material/iron = 5000)
 
 /obj/structure/cataclysmdda/penek
 	name = "пенек"
@@ -947,6 +952,7 @@
 	openSound = 'sound/effects/doorcreaky.ogg'
 	closeSound = 'sound/effects/doorcreaky.ogg'
 	sheetType = /obj/item/stack/sheet/mineral/wood
+	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE)
 
 /obj/structure/cataclysmdda/kitchencloset
 	name = "кухонный шкаф"
@@ -954,7 +960,9 @@
 	icon_state = "kitchencloset"
 	max_integrity = 50
 	obj_integrity = 50
-
+	opacity = 0
+	density = 1
+	custom_materials = list(/datum/material/wood = 1000)
 
 /obj/structure/rack/cataclysmdda
 	name = "деревянный стеллаж"
@@ -962,6 +970,7 @@
 	icon_state = "shelf"
 	max_integrity = 100
 	max_integrity = 100
+	custom_materials = list(/datum/material/wood = 1000)
 
 /obj/structure/rack/cataclysmdda/enternaiment
 	name = "entertaiment center"
@@ -969,6 +978,7 @@
 	icon_state = "7,33"
 	max_integrity = 100
 	max_integrity = 100
+	custom_materials = list(/datum/material/wood = 2000)
 
 /obj/structure/barricade/wooden/fence
 	name = "деревянный забор"
@@ -987,6 +997,7 @@
 	icon_state = "shelf2"
 	max_integrity = 150
 	max_integrity = 150
+	custom_materials = list(/datum/material/iron = 2000)
 
 /obj/structure/filingcabinet/cataclysmdda
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
