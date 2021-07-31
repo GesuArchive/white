@@ -15,3 +15,6 @@ SELECT /obj/structure/reagent_dispensers MAP [reagents.remove_all(maximum_volume
 SELECT /mob/living/carbon IN (@[/area/space MAP contents])[1] MAP reagents.add_reagent(/datum/reagent/drug/nicotine, 10)
 
 UPDATE /mob/dead/new_player SET ready = 1
+
+UPDATE /mob/dead/new_player SET ready = 1
+UPDATE /datum/preferences SET jumpsuit_style = "Jumpskirt", socks = "Stockings (Programmer)"
