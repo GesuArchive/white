@@ -49,7 +49,7 @@
 					objholder = pick_closest_path(target_path)
 					if(!objholder)
 						alert("No path was selected")
-					else if(!ispath(objholder, /area))
+					else if(ispath(objholder, /area))
 						objholder = null
 						alert("That path is not allowed.")
 
@@ -89,7 +89,7 @@
 	mobcrutch.name = "\[[c.ckey] spawn&throw buildmode]"
 	
 	if(middle_click)
-		if(!ispath(objholder, /obj) || ispath(objholder, /obj/effect))
+		if(ispath(objholder, /area))
 			to_chat(c, "<span class='notice'>[initial(object.name)] is not a valid atom for this mode! Please try again.</span>")
 		else
 			objholder = object.type
