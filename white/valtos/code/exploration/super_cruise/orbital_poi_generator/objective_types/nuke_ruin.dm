@@ -21,7 +21,9 @@
 
 /datum/orbital_objective/nuclear_bomb/on_assign(obj/machinery/computer/objective/objective_computer)
 	var/area/A = GLOB.areas_by_type[/area/bridge]
-	var/turf/open/T = locate() in shuffle(A.contents)
+	var/turf/open/T = pick(A.get_unobstructed_turfs())
+	if(!T)
+		T = locate() in shuffle(A.contents)
 	nuclear_bomb = new /obj/machinery/nuclearbomb/decomission(T)
 
 /datum/orbital_objective/nuclear_bomb/check_failed()
