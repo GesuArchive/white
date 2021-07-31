@@ -14,8 +14,8 @@
 
 /datum/orbital_objective/headhunt/on_assign(obj/machinery/computer/objective/objective_computer)
 	var/area/A = GLOB.areas_by_type[/area/bridge]
-	var/obj/machinery/atmospherics/components/unary/infactiveseenhimvent = locate() in shuffle(A.contents)
-	var/turf/open/T = get_turf(infactiveseenhimvent)
+	//var/obj/machinery/atmospherics/components/unary/infactiveseenhimvent = locate() in shuffle(A.contents)
+	var/turf/open/T = pick(A.get_unobstructed_turfs())
 	if(!T)
 		T = locate() in shuffle(A.contents)
 	var/obj/structure/closet/supplypod/extractionpod/empty_pod = new()

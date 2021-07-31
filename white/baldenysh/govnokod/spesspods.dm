@@ -43,15 +43,11 @@
 #define FUNNICOPTER_DESC_LINK "https://hub.station13.ru/library/58"
 
 /obj/spacepod/prebuilt/funnicopter/proc/load_funny_text()
-	var/datum/http_request/request = new()
-	request.prepare(RUSTG_HTTP_METHOD_GET, "[FUNNICOPTER_DESC_LINK]", "", "", null)
-	request.begin_async()
-	UNTIL(request.is_complete())
-	var/datum/http_response/response = request.into_response()
-	if(response.errored || response.status_code != 200)
+	var/docstring = get_html_doc_string("[FUNNICOPTER_DESC_LINK]")
+	if(!docstring)
 		desc += "\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 		return
-	var/text = getListOfEnclosedStrings(html_decode(response.body), "<span style=\"color:'blue';font-family:'Verdana';\"><p>", "</p>")[1]
+	var/text = get_list_of_strings_enclosed(docstring, "<span style=\"color:'blue';font-family:'Verdana';\"><p>", "</p>")[1]
 	if(!text)
 		desc += "\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 		return
