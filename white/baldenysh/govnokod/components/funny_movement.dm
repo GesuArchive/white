@@ -26,7 +26,7 @@
 
 	var/icon_dir_num = 1
 
-	var/disable_drag = TRUE
+	var/disable_drag = FALSE
 
 /datum/component/funny_movement/Initialize()
 	if(!ismovable(parent))
@@ -263,8 +263,9 @@
 	AM.pixel_x = AM.base_pixel_x + last_offset_x*32
 	AM.pixel_y = AM.base_pixel_y + last_offset_y*32
 	animate(AM, transform=mat_to, pixel_x = AM.base_pixel_x + offset_x*32, pixel_y = AM.base_pixel_y + offset_y*32, time = delta_time*10, flags=ANIMATION_END_NOW)
-	var/list/mob/smooth_viewers = AM.contents
-	smooth_viewers |= AM?.orbiters?.orbiter_list
+	var/list/smooth_viewers = AM.contents
+	if(AM.orbiters)
+		smooth_viewers |= AM.orbiters.orbiter_list
 	for(var/mob/M in smooth_viewers)
 		var/client/C = M.client
 		if(!C)
