@@ -24,7 +24,7 @@
 	var/bounce_factor = 0.2 // how much of our velocity to keep on collision
 	var/lateral_bounce_factor = 0.95 // mostly there to slow you down when you drive (pilot?) down a 2x2 corridor
 
-	var/default_dir = NORTH
+	var/default_dir = SOUTH
 	var/icon_dir_num = 1
 
 	var/disable_drag = FALSE
