@@ -9,8 +9,8 @@
 	telegraph_sound = 'sound/ambience/rain_startstop.ogg'
 
 	weather_message = "<span class='boldnotice'><i>Дождик начинает усиливаться!</i></span>"
-	weather_duration_lower = 1200
-	weather_duration_upper = 2400
+	weather_duration_lower = 600
+	weather_duration_upper = 1200
 	weather_overlay = "just_rain"
 	weather_sound = 'sound/ambience/rain_mid.ogg'
 
