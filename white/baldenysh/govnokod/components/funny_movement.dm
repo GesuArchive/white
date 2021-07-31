@@ -263,5 +263,12 @@
 	AM.pixel_x = AM.base_pixel_x + last_offset_x*32
 	AM.pixel_y = AM.base_pixel_y + last_offset_y*32
 	animate(AM, transform=mat_to, pixel_x = AM.base_pixel_x + offset_x*32, pixel_y = AM.base_pixel_y + offset_y*32, time = delta_time*10, flags=ANIMATION_END_NOW)
+	for(var/mob/living/L in AM.contents) // эта хрень чтоб для мобов внутри не было прерывисто все как я понял
+		var/client/C = L.client
+		if(!C)
+			continue
+		C.pixel_x = last_offset_x*32
+		C.pixel_y = last_offset_y*32
+		animate(C, pixel_x = AM.base_pixel_x + offset_x*32, pixel_y = AM.base_pixel_y + offset_y*32, time = delta_time*10, flags=ANIMATION_END_NOW)
 	//user_thrust_dir = 0
 	//update_icon()
