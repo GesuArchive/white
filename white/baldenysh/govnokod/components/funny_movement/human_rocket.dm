@@ -7,6 +7,7 @@
 
 /datum/component/human_rocket/RegisterWithParent()
 	mymovement = parent.AddComponent(/datum/component/funny_movement)
+	mymovement.forward_maxthrust = 3
 	RegisterSignal(parent, COMSIG_MOB_CLICKON, .proc/on_click)
 
 /datum/component/human_rocket/UnregisterFromParent()
