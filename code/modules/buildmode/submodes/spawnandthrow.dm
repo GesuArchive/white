@@ -19,13 +19,13 @@
 
 /datum/buildmode_mode/spawnandthrow/show_help(client/c)
 	to_chat(c, "<span class='notice'>***********************************************************</span>")
-	to_chat(c, "<span class='notice'>Right Mouse Button on buildmode button = Set object type</span>")
-	to_chat(c, "<span class='notice'>Left Mouse Button + alt on turf/obj = Copy object type</span>")
-	to_chat(c, "<span class='notice'>Left Mouse Button on turf/obj = Place objects</span>")
-	to_chat(c, "<span class='notice'>Right Mouse Button = Delete objects</span>")
+	to_chat(c, "<span class='notice'>Middle Mouse Button - Copy object.</span>")
+	to_chat(c, "<span class='notice'>Left Mouse Button - Throw selected object.</span>")
+	to_chat(c, "<span class='notice'>Right Mouse Button - Call attack_self() and throw object. (similiar to using item in hand, uses a stub mob for this, may be buggy with items that are more complex than regular grenades.)</span>")
+	to_chat(c, "<span class='notice'>Alt click - Instead of throwing uses newtonian_move() to nudge object in selected direction. Only works with no gravity.</span>")
 	to_chat(c, "")
 	to_chat(c, "<span class='notice'>Use the button in the upper left corner to</span>")
-	to_chat(c, "<span class='notice'>change the direction of built objects.</span>")
+	to_chat(c, "<span class='notice'>configure throwing. If range is 0, it will spawn and throw the object on the same tile you clicked on.<span>")
 	to_chat(c, "<span class='notice'>***********************************************************</span>")
 
 /datum/buildmode_mode/spawnandthrow/change_settings(client/c)
