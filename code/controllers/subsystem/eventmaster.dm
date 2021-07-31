@@ -1,6 +1,8 @@
 #define EVENT_TYPE_NONE 0
 #define EVENT_TYPE_ZOMBIE 1
 
+GLOBAL_VAR_INIT(disable_fucking_station_shit_please, FALSE)
+
 SUBSYSTEM_DEF(eventmaster)
 	name = "! Ивентовод"
 	wait = 1 MINUTES
@@ -16,6 +18,8 @@ SUBSYSTEM_DEF(eventmaster)
 	var/list/luckers = list()
 	// Проигравшие господа
 	var/list/suckers = list()
+	// Антажные господа
+	var/list/fuckers = list()
 	// Основная зона, где происходит весь замес. На данный момент это открытое пространство
 	var/area/action_area = null
 	// Вторичная зона. Вероятнее всего зона помещений
@@ -26,25 +30,29 @@ SUBSYSTEM_DEF(eventmaster)
 	var/current_time = "рассвет"
 
 /datum/controller/subsystem/eventmaster/stat_entry(msg)
-	msg += "Живые: [luckers.len] | Зомби: [suckers.len]"
+	msg += "Живые: [luckers.len] | Заражённые: [suckers.len] | Зомби: [fuckers.len]"
 	return ..()
 
 /datum/controller/subsystem/eventmaster/proc/execute_ignition_rules()
 	switch(target_event)
 		if(EVENT_TYPE_ZOMBIE)
 			message_admins("Активация правил режима Zombie Event...")
-			SSair.pause()
-			SSevents.pause()
-			SSnightshift.pause()
-			SSorbits.pause()
-			SSweather.pause()
-			SSeconomy.pause()
+			GLOB.disable_fucking_station_shit_please = TRUE
+			SSair.flags |= SS_NO_FIRE
+			SSevents.flags |= SS_NO_FIRE
+			SSnightshift.flags |= SS_NO_FIRE
+			SSorbits.flags |= SS_NO_FIRE
+			SSweather.flags |= SS_NO_FIRE
+			SSeconomy.flags |= SS_NO_FIRE
+			SSeconomy.flags |= SS_NO_FIRE
 			SSjob.DisableJobsButThis(/datum/job/assistant)
 			message_admins("Остановка лишних контроллеров успешна!")
 			action_area = GLOB.areas_by_type[/area/partyhard/outdoors]
 			second_area = GLOB.areas_by_type[/area/partyhard/indoors]
 			action_area.set_dynamic_lighting(DYNAMIC_LIGHTING_FORCED)
 			message_admins("Свет готов!")
+			action_area.luminosity = 1
+			adjust_areas_light()
 			message_admins("Готово!")
 			return TRUE
 		else
@@ -54,8 +62,25 @@ SUBSYSTEM_DEF(eventmaster)
 	switch(target_event)
 		if(EVENT_TYPE_ZOMBIE)
 			adjust_areas_light()
+			calc_alive_and_zombies()
 		else
 			return
+
+/datum/controller/subsystem/eventmaster/proc/calc_alive_and_zombies()
+	luckers.Cut()
+	suckers.Cut()
+	fuckers.Cut()
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
+		if(iszombie(H))
+			fuckers += H
+			continue
+		if(H.getorganslot(ORGAN_SLOT_ZOMBIE))
+			suckers += H
+			continue
+		else
+			luckers += H
+			continue
+	message_admins("Живые: [luckers.len] | Заражённые: [suckers.len] | Зомби: [fuckers.len]")
 
 #define CYCLE_SUNRISE 	6    HOURS // рассвет
 #define CYCLE_MORNING 	6.5  HOURS // утро
@@ -101,7 +126,7 @@ SUBSYSTEM_DEF(eventmaster)
 		//action_area.lighting_overlay = new /obj/effect/fullbright
 		action_area.lighting_overlay_colour = new_color
 		action_area.lighting_overlay_opacity = new_alpha
-		action_area.add_overlay(action_area.lighting_overlay)
+		//action_area.add_overlay(action_area.lighting_overlay)
 		to_chat(world, "<span class='greenannounce'><b>[station_time_timestamp("hh:mm")]</b> - [new_time].</span>")
 
 /client/proc/force_evenmaster_rules()

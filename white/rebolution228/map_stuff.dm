@@ -485,6 +485,10 @@
 	name = "пол"
 	icon_state = "block1"
 	base_icon_state = "block1"
+	footstep = FOOTSTEP_SAND
+	barefootstep = FOOTSTEP_SAND
+	clawfootstep = FOOTSTEP_SAND
+	heavyfootstep = FOOTSTEP_SAND
 
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt
 	icon_state = "block2"
@@ -561,6 +565,10 @@
 	base_icon_state = "asphalt"
 	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
 	baseturfs = /turf/open/floor/plating/beach/sand
+	footstep = FOOTSTEP_SAND
+	barefootstep = FOOTSTEP_SAND
+	clawfootstep = FOOTSTEP_SAND
+	heavyfootstep = FOOTSTEP_SAND
 
 /turf/open/floor/asphalt/Initialize()
 	. = ..()

@@ -115,7 +115,7 @@
 			)
 			query_round_game_mode.Execute()
 			qdel(query_round_game_mode)
-	if(report)
+	if(report && !GLOB.disable_fucking_station_shit_please)
 		addtimer(CALLBACK(src, .proc/send_intercept, 0), rand(waittime_l, waittime_h))
 	generate_station_goals()
 	gamemode_ready = TRUE

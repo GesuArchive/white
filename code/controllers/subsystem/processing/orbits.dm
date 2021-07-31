@@ -101,7 +101,7 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 	if(observer_count > 2)
 		valid_objectives |= list(/datum/orbital_objective/headhunt = 1)
 
-	if(!length(possible_objectives))
+	if(!length(possible_objectives) && !GLOB.disable_fucking_station_shit_please)
 		priority_announce("Основное задание для станции было выбрано - Детали были разосланы на все консоли заданий. \
 			[GLOB.station_name] получит средства после выполнения задания.", "Центральное Командование", SSstation.announcer.get_rand_report_sound())
 	var/chosen = pickweight(valid_objectives)
