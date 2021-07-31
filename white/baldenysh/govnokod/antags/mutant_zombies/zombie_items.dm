@@ -39,13 +39,15 @@
 	block_chance = 40
 	force = 21
 	max_integrity = 500
+	var/thermite_apply_time = 2 SECONDS
+	var/thermite_amount = 5
 
 /obj/item/shield/mutantzombie/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
-	if(isturf(target) && do_after(user, 5, target))
-		var/datum/component/thermite/therm = target.AddComponent(/datum/component/thermite, 5)
+	if(isturf(target) && do_after(user, thermite_apply_time, target))
+		var/datum/component/thermite/therm = target.AddComponent(/datum/component/thermite, thermite_amount)
 		playsound(src, 'sound/effects/splat.ogg', 30, TRUE)
-		if(therm.amount >= 50)
+		if(therm.amount >= therm.burn_require)
 			therm.flame_react(src, 2000)
 
 /////////////////////////////hand
