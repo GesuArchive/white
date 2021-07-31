@@ -36,7 +36,7 @@
 		"range \[[range]]",\
 		"spin \[[spin ? "✓" : "x"]]",\
 		"--close--"		) 
-		var/selection = input("Choose a setting.", "Configure") as null|anything in options
+		var/selection = input("Please make extra sure you know what you're doing.", "Configure") as null|anything in options
 		if(isnull(selection))
 			return
 		selection = copytext(selection, 1, 5)
@@ -49,19 +49,20 @@
 					objholder = pick_closest_path(target_path)
 					if(!objholder)
 						alert("No path was selected")
-					else if(!ispath(objholder, /obj) || ispath(objholder, /obj/effect))
+					else if(!ispath(objholder, /area))
 						objholder = null
 						alert("That path is not allowed.")
+
 			if("forc")
 				var/input = input("\
-				MOVE_FORCE_OVERPOWERING = [MOVE_FORCE_OVERPOWERING]<br>\
-				MOVE_FORCE_EXTREMELY_STRONG = [MOVE_FORCE_EXTREMELY_STRONG]<br>\
-				MOVE_FORCE_VERY_STRONG = [MOVE_FORCE_VERY_STRONG]<br>\
-				MOVE_FORCE_STRONG = [MOVE_FORCE_STRONG]<br>\
-				MOVE_FORCE_NORMAL = [MOVE_FORCE_NORMAL]<br>\
-				MOVE_FORCE_WEAK = [MOVE_FORCE_WEAK]<br>\
-				MOVE_FORCE_VERY_WEAK = [MOVE_FORCE_VERY_WEAK]<br>\
-				MOVE_FORCE_EXTREMELY_WEAK = [MOVE_FORCE_EXTREMELY_WEAK]", "Force", force)
+				overpowering force = [MOVE_FORCE_OVERPOWERING]\
+				extremely strong force = [MOVE_FORCE_EXTREMELY_STRONG]\
+				very strong force = [MOVE_FORCE_VERY_STRONG]\
+				strong force = [MOVE_FORCE_STRONG]\
+				normal force = [MOVE_FORCE_NORMAL]\
+				weak force = [MOVE_FORCE_WEAK]\
+				very weak force = [MOVE_FORCE_VERY_WEAK]\
+				extremely weak force = [MOVE_FORCE_EXTREMELY_WEAK]", "Force", force)
 				if(input>0)
 					force = input
 			if("spee")
@@ -98,30 +99,27 @@
 	if(isnull(objholder))
 		return
 
+	if(alt_click && istype(objholder, /obj/projectile))
+
 	var/throwtarget 
 	if(range)
 		throwtarget = get_edge_target_turf(get_turf(object), BM.build_dir)
 	else
 		throwtarget = get_turf(object)
 
-	if(left_click)
-		var/obj/A = new objholder (get_turf(object))
-		if(alt_click)
-			A.newtonian_move(BM.build_dir)
-			log_admin("Build Mode: [key_name(c)] spawned [A] in [AREACOORD(object)] and nudged it in space.")
-		else
-			A.safe_throw_at(throwtarget, range, speed, force = src.force, spin = src.spin)
-			log_admin("Build Mode: [key_name(c)] spawned [A] in [AREACOORD(object)] and thrown it (range = [range], speed = [speed], force = [force]).")
+	var/obj/A = new objholder (get_turf(object))
+	if(right_click && istype(A, /obj/item))
+		var/obj/item/temp = A
+		temp.attack_self(c.mob)
 
-	if(right_click)
-		var/obj/A = new objholder (get_turf(object))
-		if(istype(A, /obj/item))
-			var/obj/item/temp = A
-			temp.attack_self(mobcrutch)
-		
-		if(alt_click)
-			A.newtonian_move(BM.build_dir)
-			log_admin("Build Mode: [key_name(c)] spawned [A] in [AREACOORD(object)], activated it in hand and nudged it in space.")
-		else	
-			A.safe_throw_at(throwtarget, range, speed, force = src.force, spin = src.spin)
-			log_admin("Build Mode: [key_name(c)] spawned [A] in [AREACOORD(object)],activated it in hand and thrown it (range = [range], speed = [speed], force = [force]).")
+	if(alt_click)
+		A.newtonian_move(BM.build_dir)
+		log_admin("Build Mode: [key_name(c)] spawned [A] in [AREACOORD(object)][right_click ? ", activated it and" : " and"] nudged it in space. (dir=[dir2text(BM.build_dir)])")
+	else
+		if(istype(A, /obj/projectile))
+			var/obj/projectile/proj = A
+			proj.fire(dir2angle(BM.build_dir))
+			log_admin("Build Mode: [key_name(c)] fired [A] in [AREACOORD(object)] (dir=[dir2text(BM.build_dir)]).")
+			return
+		A.safe_throw_at(throwtarget, range, speed, force = src.force, spin = src.spin)
+		log_admin("Build Mode: [key_name(c)] spawned [A] in [AREACOORD(object)][right_click ? ", activated it and" : " and"] thrown it (range = [range], speed = [speed], force = [force], dir=[dir2text(BM.build_dir)]).")
