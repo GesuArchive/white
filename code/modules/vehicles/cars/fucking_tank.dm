@@ -5,7 +5,7 @@
 	icon_state = "tank"
 	engine_sound = 'white/valtos/sounds/tonkloop.ogg'
 	engine_sound_length = 5 SECONDS
-	layer = ABOVE_MOB_LAYER
+	layer = SPACEPOD_LAYER
 	max_buckled_mobs = 1
 	pixel_y = -48
 	pixel_x = -48
@@ -17,13 +17,11 @@
 
 /obj/vehicle/sealed/car/fucking_tank/Bump(atom/A)
 	. = ..()
-	if(!A.density || !has_buckled_mobs())
-		return
-
-	visible_message("<span class='danger'>[src] давит [A]!</span>")
+	visible_message("<span class='danger'><b>[src]</b> давит <b>[A]</b>!</span>")
 	if(ishuman(A))
 		var/mob/living/carbon/human/rammed = A
 		rammed.gib()
+		return ..()
 
 	if(isturf(A))
 		SSexplosions.lowturf += A
@@ -34,16 +32,13 @@
 		dead_obj.take_damage(INFINITY, BRUTE, NONE, TRUE, dir, INFINITY)
 		return ..()
 
-/obj/vehicle/sealed/car/fucking_tank/Moved()
+/obj/vehicle/sealed/car/fucking_tank/vehicle_move(direction, forcerotate = FALSE)
 	. = ..()
-	if(!has_buckled_mobs())
-		return
 	for(var/atom/A in range(2, src))
-		if(!(A in buckled_mobs))
-			Bump(A)
+		Bump(A)
 
 /datum/component/riding/vehicle/tank
-	vehicle_move_delay = 2
+	vehicle_move_delay = 10
 
 /datum/component/riding/vehicle/tank/handle_specials()
 	. = ..()
