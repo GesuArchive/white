@@ -30,7 +30,7 @@
 
 /obj/item/shield/mutantzombie
 	name = "щитообразная масса"
-	desc = "Масса жесткой костной ткани. Мы все еще можем видеть пальцы в виде скрученного рисунка на щите."
+	desc = "Масса жесткой костной ткани с пузырями термита. При должном упорстве этим можно прожечь стену."
 	item_flags = ABSTRACT | DROPDEL
 	icon = 'icons/obj/changeling_items.dmi'
 	icon_state = "ling_shield"
@@ -39,6 +39,14 @@
 	block_chance = 40
 	force = 21
 	max_integrity = 500
+
+/obj/item/shield/mutantzombie/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	. = ..()
+	if(isturf(target) && do_after(user, 5, target))
+		var/datum/component/thermite/therm = target.AddComponent(/datum/component/thermite, 5)
+		playsound(src, 'sound/effects/splat.ogg', 30, TRUE)
+		if(therm.amount >= 50)
+			therm.flame_react(src, 2000)
 
 /////////////////////////////hand
 
