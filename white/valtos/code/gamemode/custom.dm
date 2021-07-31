@@ -131,16 +131,19 @@
 /area/partyhard/indoors
 	icon_state = "5f"
 	name = "помещения"
-	dynamic_lighting = DYNAMIC_LIGHTING_ENABLED
-	always_unpowered = TRUE
+	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	always_unpowered = FALSE
 	poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
-	requires_power = TRUE
+	requires_power = FALSE
 	outdoors = FALSE
-	sound_environment = SOUND_ENVIRONMENT_STONEROOM
+	sound_environment = SOUND_ENVIRONMENT_PSYCHOTIC
 	ambience_index = AMBIENCE_NONE
+	luminosity = 1
+	lighting_overlay_colour = "#ffd1b3"
+	lighting_overlay_opacity = 100
 
 /area/partyhard/outdoors/unexplored
 	icon_state = "2f"

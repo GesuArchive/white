@@ -35,7 +35,6 @@ Assistant
 /datum/outfit/job/assistant/pre_equip(mob/living/carbon/human/H)
 	..()
 	if (CONFIG_GET(flag/grey_assistants))
-		//uniform = /obj/item/clothing/under/switer/tracksuit
 		if(H.jumpsuit_style == PREF_SUIT)
 			uniform = /obj/item/clothing/under/color/grey // ASS WEEK
 		else
@@ -45,3 +44,12 @@ Assistant
 			uniform = /obj/item/clothing/under/color/random
 		else
 			uniform = /obj/item/clothing/under/color/jumpskirt/random
+
+	if(GLOB.disable_fucking_station_shit_please)
+		uniform = pick(/obj/item/clothing/under/switer/tracksuit, /obj/item/clothing/under/switer/lolg, /obj/item/clothing/under/switer/dark, /obj/item/clothing/under/switer)
+		shoes = /obj/item/clothing/shoes/jackboots
+		l_pocket = /obj/item/kitchen/knife/hunting
+		r_pocket = /obj/item/storage/box/matches
+		id = null
+		belt = null
+		ears = null

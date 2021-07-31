@@ -36,7 +36,7 @@ SUBSYSTEM_DEF(eventmaster)
 /datum/controller/subsystem/eventmaster/proc/execute_ignition_rules()
 	switch(target_event)
 		if(EVENT_TYPE_ZOMBIE)
-			message_admins("Активация правил режима Zombie Event...")
+			to_chat(world, "Активация правил режима ZE...")
 			GLOB.disable_fucking_station_shit_please = TRUE
 			SSair.flags |= SS_NO_FIRE
 			SSevents.flags |= SS_NO_FIRE
@@ -46,14 +46,16 @@ SUBSYSTEM_DEF(eventmaster)
 			SSeconomy.flags |= SS_NO_FIRE
 			SSeconomy.flags |= SS_NO_FIRE
 			SSjob.DisableJobsButThis(/datum/job/assistant)
-			message_admins("Остановка лишних контроллеров успешна!")
+			to_chat(world, "Остановка лишних контроллеров успешна!")
 			action_area = GLOB.areas_by_type[/area/partyhard/outdoors]
 			second_area = GLOB.areas_by_type[/area/partyhard/indoors]
-			message_admins("Свет готов!")
 			action_area.luminosity = 1
+			second_area.luminosity = 1
 			adjust_areas_light()
 			action_area.set_dynamic_lighting(DYNAMIC_LIGHTING_IFSTARLIGHT)
-			message_admins("Готово!")
+			second_area.set_dynamic_lighting(DYNAMIC_LIGHTING_IFSTARLIGHT)
+			to_chat(world, "Свет готов!")
+			to_chat(world, "Готово!")
 			return TRUE
 		else
 			return FALSE

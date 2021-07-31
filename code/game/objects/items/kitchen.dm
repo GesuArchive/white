@@ -181,8 +181,8 @@
 	custom_price = PAYCHECK_EASY * 5
 
 /obj/item/kitchen/knife/hunting
-	name = "hunting knife"
-	desc = "Despite its name, it's mainly used for cutting meat from dead prey rather than actual hunting."
+	name = "охотничий нож"
+	desc = "Используется для разделки мяса и других возможных ножевых манипуляций. Его точно можно назвать другом!"
 	inhand_icon_state = "huntingknife"
 	icon_state = "huntingknife"
 
