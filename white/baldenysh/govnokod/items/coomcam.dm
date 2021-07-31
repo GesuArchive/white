@@ -164,26 +164,6 @@
 	return d > 180 ? 360 - d : d
 
 /proc/pics_by_tags(tags_string)
-	var/container = getListOfEnclosedStrings(getFunnyDoc(tags_string), "<div class=\"thumbnail-container\">","</div>")[1]
-	return getListOfEnclosedStrings(container, "src=\"", "\"")
-
-/proc/getFunnyDoc(tags_string)
-	var/datum/http_request/request = new()
-	request.prepare(RUSTG_HTTP_METHOD_GET, "[CORS_THING_REQUEST_LINK][FUNNY_BOOK_SITE_REQUEST_LINK_URI_ENCODED][tags_string]", "", "", null)
-	request.begin_async()
-	UNTIL(request.is_complete())
-	var/datum/http_response/response = request.into_response()
-	if(response.errored || response.status_code != 200)
-		return "<body><div class=\"thumbnail-container\"><img src=\"aaaaaaaaa\"></img></div><body>" //put some pic src here
-	return html_decode(response.body)
-
-/proc/getListOfEnclosedStrings(string, start_string, end_string)
-	var/list/res = new()
-	var/ptrpos = 1
-	while(findtext(string, start_string, ptrpos))
-		var/s = findtext(string, start_string, ptrpos)
-		var/e = findtext(string, end_string, s+length(start_string))
-		res.Add(copytext(string, s+length(start_string), e))
-		ptrpos = e
-	return res
-
+	var/container = get_list_of_strings_enclosed(get_html_doc_string("[CORS_THING_REQUEST_LINK][FUNNY_BOOK_SITE_REQUEST_LINK_URI_ENCODED][tags_string]"),\
+		 "<div class=\"thumbnail-container\">","</div>")[1]
+	return get_list_of_strings_enclosed(container, "src=\"", "\"")

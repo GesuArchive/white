@@ -348,7 +348,7 @@
 
 
 // CITY PARTS
-
+/*
 /datum/map_template/ruin_part/city
 	file_name = "5x5_road_cross"
 	typegen = "CityGeneration"
@@ -382,3 +382,4 @@
 /datum/map_template/ruin_part/city/roadfuck
 	file_name = "10x10_road_fuck"
 	weight = 3
+*/

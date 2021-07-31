@@ -193,16 +193,20 @@
 			else
 				offset_y = 0
 	dir = NORTH
+
 	var/matrix/mat_from = new()
-	if(should_do_rotate_anim)
-		mat_from.Turn(last_angle)
 	var/matrix/mat_to = new()
-	if(should_do_rotate_anim)
+	if(icon_dir_num == 1)
+		mat_from.Turn(last_angle)
 		mat_to.Turn(angle)
+	else
+		dir = angle2dir(angle)
+		//var/degrees_per_dir = 360/icon_dir_num // pohui
+
 	transform = mat_from
-	pixel_x = last_offset_x*32
-	pixel_y = last_offset_y*32
-	animate(src, transform=mat_to, pixel_x = offset_x*32, pixel_y = offset_y*32, time = time*10, flags=ANIMATION_END_NOW)
+	pixel_x = base_pixel_x + last_offset_x*32
+	pixel_y = base_pixel_y + last_offset_y*32
+	animate(src, transform=mat_to, pixel_x = base_pixel_x +offset_x*32, pixel_y = base_pixel_y + offset_y*32, time = time*10, flags=ANIMATION_END_NOW)
 	for(var/mob/living/M in contents)
 		var/client/C = M.client
 		if(!C)

@@ -485,6 +485,11 @@
 	name = "пол"
 	icon_state = "block1"
 	base_icon_state = "block1"
+	footstep = FOOTSTEP_SAND
+	barefootstep = FOOTSTEP_SAND
+	clawfootstep = FOOTSTEP_SAND
+	heavyfootstep = FOOTSTEP_SAND
+	slowdown = 1
 
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt
 	icon_state = "block2"
@@ -518,6 +523,7 @@
 	icon_state = "grass0"
 	base_icon_state = "grass0"
 	baseturfs = /turf/open/floor/plating/beach/sand
+	slowdown = 2
 
 /turf/open/floor/grass/cataclysmdda/Initialize()
 	. = ..()
@@ -539,6 +545,7 @@
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_SAND
+	slowdown = 2.5
 
 /turf/open/floor/grass/cataclysmdda/dirt/proc/changeicon()
 	icon_state = "dirt[rand(1,4)]"
@@ -561,6 +568,11 @@
 	base_icon_state = "asphalt"
 	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
 	baseturfs = /turf/open/floor/plating/beach/sand
+	footstep = FOOTSTEP_SAND
+	barefootstep = FOOTSTEP_SAND
+	clawfootstep = FOOTSTEP_SAND
+	heavyfootstep = FOOTSTEP_SAND
+	slowdown = 1
 
 /turf/open/floor/asphalt/Initialize()
 	. = ..()
