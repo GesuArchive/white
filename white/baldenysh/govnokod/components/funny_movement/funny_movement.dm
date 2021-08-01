@@ -14,7 +14,7 @@
 
 	var/brakes = FALSE//TRUE
 	var/desired_thrust_dir = 0
-	var/desired_angle = null // set by pilot moving his mouse
+	var/desired_angle = null
 
 	var/maxthrust_forward = 1
 	var/maxthrust_backward = 1
