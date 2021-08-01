@@ -785,7 +785,7 @@
 /obj/effect/landmark/duel_spawnpoint
 
 
-//GENERAL_PROTECT_DATUM(/obj/effect/duel_controller) // счастливой отладки // счастливой иди нахуй 
+//GENERAL_PROTECT_DATUM(/obj/effect/duel_controller) // счастливой отладки // счастливой иди нахуй
 /obj/effect/duel_controller
 	name = "Duel Controller"
 	desc = "Controls duels."
@@ -1118,13 +1118,13 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 /client/proc/assblast_panel()
 	set name = "Assblast-панель"
 	set category = "Адм.Веселье"
-	
+
 	var/list/ops = list()
 	ops += "Ввести сикей..."
 	ops += GLOB.assblasted_people
 	ops += "-CANCEL-"
 	var/kill_me = "Ввести сикей..." //awful crutch to show the ckey list menu only when there are entries to said list. fucking awful way of doing it, must redo it later
-	if(ops.len>2) 
+	if(ops.len>2)
 		kill_me = "-CANCEL-"
 		kill_me = input("Добро пожаловать. Снова.", "") in ops
 	if(kill_me == "-CANCEL-")

@@ -549,7 +549,6 @@
 	pixel_y = 32
 	},
 /obj/item/clothing/mask/surgical,
-/obj/item/clothing/suit/surgical,
 /turf/open/floor/wood,
 /area/awaymission/vietnam/dark)
 "rB" = (
