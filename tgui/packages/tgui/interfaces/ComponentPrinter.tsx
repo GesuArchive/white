@@ -2,7 +2,7 @@ import { createSearch } from 'common/string';
 import { useBackend, useLocalState } from '../backend';
 import { Material, MaterialAmount, MaterialFormatting, Materials, MATERIAL_KEYS } from './common/Materials';
 import { Window } from '../layouts';
-import { Button, Input, Section, Stack, Tabs } from '../components';
+import { Button, Input, Section, Stack, Tabs, Box } from '../components';
 
 const CATEGORY_ALL = "Всё";
 
@@ -147,11 +147,12 @@ export const ComponentPrinter = (props, context) => {
                                 }
                                 px={1.5}
                               >
-                                Print
+                                Печать
                               </Button>
                             )}>
-                              {design.description}
-
+                              {design.description.substring(0, 120)}
+                              <br />
+                              {design.description.substring(120)}
                               <MaterialCost materials={design.materials} />
                             </Section>
                           </Stack.Item>
