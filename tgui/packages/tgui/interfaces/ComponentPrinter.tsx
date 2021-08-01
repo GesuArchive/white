@@ -151,8 +151,6 @@ export const ComponentPrinter = (props, context) => {
                               </Button>
                             )}>
                               {design.description.substring(0, 120)}
-                              <br />
-                              {design.description.substring(120)}
                               <MaterialCost materials={design.materials} />
                             </Section>
                           </Stack.Item>
