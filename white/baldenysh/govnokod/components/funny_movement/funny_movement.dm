@@ -25,7 +25,7 @@
 	var/lateral_bounce_factor = 0.95 // mostly there to slow you down when you drive (pilot?) down a 2x2 corridor
 
 	var/default_dir = SOUTH
-	var/icon_dir_num = 1
+	var/icon_dir_num = 0 //отвечает за вращение на спрайте/трансформом. 0 - отсутствие вращения на спрайте
 
 /datum/component/funny_movement/Initialize()
 	if(!ismovable(parent))
@@ -60,8 +60,8 @@
 
 
 /datum/component/funny_movement/process(delta_time)
+	SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_PROCESSING_START)
 	var/atom/movable/AM = parent
-
 	var/last_offset_x = offset_x
 	var/last_offset_y = offset_y
 	var/last_angle = angle
@@ -256,8 +256,9 @@
 
 	var/matrix/mat_from = new()
 	var/matrix/mat_to = new()
-	if(icon_dir_num == 1)
-		AM.dir = default_dir
+	if(icon_dir_num < 4)
+		if(icon_dir_num != 0)
+			AM.dir = default_dir
 		mat_from.Turn(last_angle)
 		mat_to.Turn(angle)
 	else
@@ -278,3 +279,5 @@
 		C.pixel_x = AM.base_pixel_x + last_offset_x*32
 		C.pixel_y = AM.base_pixel_y + last_offset_y*32
 		animate(C, pixel_x = AM.base_pixel_x + offset_x*32, pixel_y = AM.base_pixel_y + offset_y*32, time = delta_time*10, flags=ANIMATION_END_NOW)
+
+	SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_PROCESSING_FINISH)
