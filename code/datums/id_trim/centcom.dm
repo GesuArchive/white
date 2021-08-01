@@ -181,7 +181,7 @@
 /datum/id_trim/centcom/spetsnaz/New()
 	. = ..()
 
-	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_WEAPONS)
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_WEAPONS, ACCESS_MAINT_TUNNELS)
 
 // WHITE DREAM: Trim for Spetsnaz Leader. Full access.
 

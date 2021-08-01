@@ -1314,7 +1314,7 @@
 /obj/item/clothing/head/helmet/space/chronos/hacker,
 /obj/item/clothing/suit/space/hacker_rig,
 /obj/item/clothing/gloves/combat/guard,
-/obj/item/clothing/shoes/combat/blackger,
+/obj/item/clothing/shoes/combat,
 /turf/open/floor/dz/normal,
 /area/awaymission/rospilovo)
 "KF" = (
@@ -1504,7 +1504,7 @@
 /obj/item/shield/riot/kevlar,
 /obj/structure/table/wood/fancy/black,
 /obj/item/katana,
-/obj/item/clothing/under/syndicate/kimono,
+/obj/item/clothing/under/syndicate,
 /obj/item/clothing/shoes/sandal,
 /obj/item/clothing/suit/armor/vest/leather/tailcoat,
 /turf/open/floor/rospilovo/cyber{

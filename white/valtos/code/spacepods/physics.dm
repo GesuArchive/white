@@ -213,9 +213,9 @@
 		var/client/C = M.client
 		if(!C)
 			continue
-		C.pixel_x = base_pixel_x + last_offset_x*32
-		C.pixel_y = base_pixel_y + last_offset_y*32
-		animate(C, pixel_x = base_pixel_x + offset_x*32, pixel_y = base_pixel_y + offset_y*32, time = time*10, flags=ANIMATION_END_NOW)
+		C.pixel_x = last_offset_x*32
+		C.pixel_y = last_offset_y*32
+		animate(C, pixel_x = offset_x*32, pixel_y = offset_y*32, time = time*10, flags=ANIMATION_END_NOW)
 	user_thrust_dir = 0
 	update_icon()
 
