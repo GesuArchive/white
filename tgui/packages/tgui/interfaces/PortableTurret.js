@@ -22,7 +22,7 @@ export const PortableTurret = (props, context) => {
   return (
     <Window
       width={420}
-      height={lasertag_turret ? 120 : 308}>
+      height={lasertag_turret ? 120 : 318}>
       <Window.Content>
         <NoticeBox>
           Проведите ID-картой для {locked ? 'раз' : ''}блокировки интерфейса.

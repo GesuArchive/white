@@ -26,8 +26,8 @@ export const PaintingMachine = (props, context) => {
 
   return (
     <Window
-      width={500}
-      height={620}>
+      width={450}
+      height={450}>
       <Window.Content scrollable>
         <Section
           title="PDA Painter"
@@ -60,12 +60,12 @@ export const PaintingMachine = (props, context) => {
               <Button.Confirm
                 disabled={!hasID}
                 content="Reset ID Account"
-                confirmContent="Confirm?"
+                confirmContent="Да?"
                 onClick={() => act("reset_card")} />
               <Button.Confirm
                 disabled={!hasID}
                 content="Imprint ID Trim"
-                confirmContent="Confirm?"
+                confirmContent="Да?"
                 onClick={sel => act("trim_card", {
                   selection: selectedTrim,
                 })} />

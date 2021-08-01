@@ -15,7 +15,7 @@ export const Teleporter = (props, context) => {
   return (
     <Window
       width={360}
-      height={130}>
+      height={138}>
       <Window.Content>
         <Section>
           {!power_station && (
