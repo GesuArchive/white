@@ -60,19 +60,16 @@
 			rt = locate( x - 1,-2, z )
 	if(isclosedturf(lt))
 		Bump(lt)
-	else
-		for(var/atom/A in lt)
-			Bump(A)
+	for(var/atom/A in lt)
+		Bump(A)
 	if(isclosedturf(mt))
 		Bump(mt)
-	else
-		for(var/atom/A in mt)
-			Bump(A)
+	for(var/atom/A in mt)
+		Bump(A)
 	if(isclosedturf(rt))
 		Bump(rt)
-	else
-		for(var/atom/A in rt)
-			Bump(A)
+	for(var/atom/A in rt)
+		Bump(A)
 
 /datum/component/riding/vehicle/tank
 	vehicle_move_delay = 10

@@ -20,3 +20,6 @@ SUBSYSTEM_DEF(restaurant)
 		all_venues[key] = new key()
 	for(var/key in subtypesof(/datum/customer_data))
 		all_customers[key] = new key()
+
+	SStitle.afterload()
+	to_chat(world, "<span class='green'> -- $<b>Мир</b>:> <b>Почти готов.</b> -- </span>")
