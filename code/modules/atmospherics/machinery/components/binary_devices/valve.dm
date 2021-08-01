@@ -61,7 +61,7 @@ It's like a regular ol' straight pipe, but you can turn it on and off.
 /**
  * Called by iteract() after a 1 second timer, calls toggle(), allows another interaction with the component.
  */
-/obj/machinery/atmospherics/components/binary/valve/proc/finish_interact()
+/obj/machinery/atmospherics/components/binary/valve/finish_interact()
 	set_open(!on)
 	switching = FALSE
 
