@@ -101,6 +101,7 @@
 
 /datum/component/soundplayer_listener/Destroy()
 	myplayer.listener_comps -= src
+	stop_sound()
 	. = ..()
 
 /datum/component/soundplayer_listener/RegisterWithParent()
@@ -138,6 +139,8 @@
 		return
 	var/mob/M = parent
 	if(myplayer.prefs_toggle_flag && !(M?.client?.prefs?.w_toggles & myplayer.prefs_toggle_flag))
+		stop_sound()
+		qdel(src)
 		return
 	var/sound/S = get_player_sound()
 	if(!S)
