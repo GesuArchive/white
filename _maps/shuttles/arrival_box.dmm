@@ -76,6 +76,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/closet/firecloset,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/arrival)
 "m" = (
@@ -356,11 +357,11 @@ m
 b
 "}
 (15,1,1) = {"
-b
+a
 n
 s
 u
 s
 A
-b
+a
 "}
