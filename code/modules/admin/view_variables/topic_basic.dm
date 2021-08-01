@@ -59,7 +59,8 @@
 		names += componentsubtypes
 		names += "---Elements---"
 		names += sortList(subtypesof(/datum/element), /proc/cmp_typepaths_asc)
-		var/result = input(usr, "Choose a component/element to add","better know what ur fuckin doin pal") as null|anything in names
+		var/result = tgui_input_list(usr, "Choose a component/element to add", "better know what ur fuckin doin pal", sortList(names))
+		//var/result = input(usr, "Choose a component/element to add","better know what ur fuckin doin pal") as null|anything in names
 		if(!usr || !result || result == "---Components---" || result == "---Elements---")
 			return
 		if(QDELETED(src))
