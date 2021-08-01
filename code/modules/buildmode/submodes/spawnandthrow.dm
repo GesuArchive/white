@@ -35,7 +35,7 @@
 		"speed \[[speed]]",\
 		"range \[[range]]",\
 		"spin \[[spin ? "✓" : "x"]]",\
-		"--close--"		) 
+		"--close--"		)
 		var/selection = input("Please make extra sure you know what you're doing.", "Configure") as null|anything in options
 		if(isnull(selection))
 			return
@@ -81,13 +81,12 @@
 
 /datum/buildmode_mode/spawnandthrow/handle_click(client/c, params, obj/object)
 	var/list/pa = params2list(params)
-	var/left_click = pa.Find("left")
 	var/middle_click = pa.Find("middle")
 	var/right_click = pa.Find("right")
 	var/alt_click = pa.Find("alt")
-	
+
 	mobcrutch.name = "\[[c.ckey] spawn&throw buildmode]"
-	
+
 	if(middle_click)
 		if(ispath(objholder, /area))
 			to_chat(c, "<span class='notice'>[initial(object.name)] is not a valid atom for this mode! Please try again.</span>")
@@ -99,9 +98,7 @@
 	if(isnull(objholder))
 		return
 
-	if(alt_click && istype(objholder, /obj/projectile))
-
-	var/throwtarget 
+	var/throwtarget
 	if(range)
 		throwtarget = get_edge_target_turf(get_turf(object), BM.build_dir)
 	else
