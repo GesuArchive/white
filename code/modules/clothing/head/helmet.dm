@@ -109,7 +109,7 @@
 /obj/item/clothing/head/helmet/marine/Initialize()
 	set_attached_light(new /obj/item/flashlight/seclite)
 	update_helmlight()
-	update_appearance()
+	update_icon()
 	. = ..()
 
 /obj/item/clothing/head/helmet/marine/security
