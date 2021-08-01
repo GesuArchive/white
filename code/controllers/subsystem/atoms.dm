@@ -32,6 +32,8 @@ SUBSYSTEM_DEF(atoms)
 	if(initialized == INITIALIZATION_INSSATOMS)
 		return
 
+	var/start_timeofday = REALTIMEOFDAY
+
 	old_initialized = initialized
 	initialized = INITIALIZATION_INNEW_MAPLOAD
 
@@ -71,6 +73,10 @@ SUBSYSTEM_DEF(atoms)
 	if (created_atoms)
 		atoms_to_return += created_atoms
 		created_atoms = null
+
+	SStitle.afterload()
+	var/time = (REALTIMEOFDAY - start_timeofday) / 10
+	to_chat(world, "<span class='green'> -- $<b>Мир</b>:> <b>[time]</b> -- </span>")
 
 /// Init this specific atom
 /datum/controller/subsystem/atoms/proc/InitAtom(atom/A, from_template = FALSE, list/arguments)
