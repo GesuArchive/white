@@ -513,7 +513,7 @@
 	head = /obj/item/clothing/head/helmet/marine/engineer
 	back = /obj/item/storage/backpack/ert/engineer
 	backpack_contents = list(
-		/obj/item/construction/rcd/loaded/combat = 1,
+		/obj/item/construction/rcd/combat = 1,
 		/obj/item/pipe_dispenser = 1,
 		/obj/item/storage/box/lethalshot = 1,
 		/obj/item/grenade/c4 = 3,
