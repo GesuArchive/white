@@ -16,6 +16,9 @@
 
 /datum/component/human_rocket/proc/on_click(mob/living/pilot, atom/A, params)
 	SIGNAL_HANDLER
+	if(!mymovement)
+		qdel(src)
+		return
 
 	var/list/modifiers = params2list(params)
 	if(modifiers["ctrl"])

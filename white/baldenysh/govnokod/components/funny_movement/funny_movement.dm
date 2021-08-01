@@ -26,6 +26,7 @@
 
 	var/default_dir = SOUTH
 	var/icon_dir_num = 0 //отвечает за вращение на спрайте/трансформом. 0 - отсутствие вращения на спрайте
+	var/original_animate_movement
 
 /datum/component/funny_movement/Initialize()
 	if(!ismovable(parent))
@@ -33,20 +34,16 @@
 
 /datum/component/funny_movement/RegisterWithParent()
 	var/atom/movable/AM = parent
+	original_animate_movement = AM.animate_movement
 	AM.animate_movement = NO_STEPS // we do our own gliding here
 	START_PROCESSING(SSfastprocess, src)
 	//RegisterSignal(parent, COMSIG_MOVABLE_BUMP, .proc/on_bump)
 
 /datum/component/funny_movement/UnregisterFromParent()
 	var/atom/movable/AM = parent
-	AM.animate_movement = initial(AM.animate_movement)
+	AM.animate_movement = original_animate_movement
 	STOP_PROCESSING(SSfastprocess, src)
 	//UnregisterSignal(parent, COMSIG_MOVABLE_BUMP)
-
-/datum/component/funny_movement/Destroy(force, silent)
-	var/atom/movable/AM = parent
-	AM.animate_movement = initial(AM.animate_movement)
-	. = ..()
 
 /datum/component/funny_movement/proc/on_bump(datum/source, atom/A)
 	var/atom/movable/AM = parent
