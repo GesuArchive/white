@@ -3665,6 +3665,7 @@
 #include "white\baldenysh\govnokod\spesspods.dm"
 #include "white\baldenysh\govnokod\ui.dm"
 #include "white\baldenysh\govnokod\vending.dm"
+#include "white\baldenysh\govnokod\_defines\signals.dm"
 #include "white\baldenysh\govnokod\_helpers\procs.dm"
 #include "white\baldenysh\govnokod\_helpers\web_stuff.dm"
 #include "white\baldenysh\govnokod\ai\generic_behaviors\attack_behaviors.dm"

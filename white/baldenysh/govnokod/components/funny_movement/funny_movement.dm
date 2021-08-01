@@ -13,7 +13,7 @@
 	var/last_rotate = 0
 
 	var/brakes = FALSE//TRUE
-	var/user_thrust_dir = 0
+	var/desired_thrust_dir = 0
 	var/desired_angle = null // set by pilot moving his mouse
 
 	var/forward_maxthrust = 1
@@ -26,8 +26,6 @@
 
 	var/default_dir = SOUTH
 	var/icon_dir_num = 1
-
-	var/disable_drag = FALSE
 
 /datum/component/funny_movement/Initialize()
 	if(!ismovable(parent))
@@ -86,7 +84,7 @@
 
 	var/angular_velocity_adjustment = clamp(desired_angular_velocity - angular_velocity, -max_angular_acceleration*delta_time, max_angular_acceleration*delta_time)
 
-	if(angular_velocity_adjustment/* && cell && cell.use(abs(angular_velocity_adjustment) * 0.05)*/)
+	if(angular_velocity_adjustment && !(SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_AVADJ, angular_velocity_adjustment) & COMPONENT_FUNNY_MOVEMENT_BLOCK_AVADJ))
 		last_rotate = angular_velocity_adjustment / delta_time
 		angular_velocity += angular_velocity_adjustment
 	else
@@ -100,22 +98,25 @@
 		for(var/turf/T in AM.locs)
 			if(isspaceturf(T))
 				continue
-			if(disable_drag)
-				continue
-			drag += 0.001
-			var/floating = FALSE
-			if(T.has_gravity() && !brakes && velocity_mag > 0.1 /*&& cell && cell.use((is_mining_level(z) ? 3 : 15) * delta_time)*/)
-				floating = TRUE // want to fly this shit on the station? Have fun draining your battery.
-			if((!floating && T.has_gravity()) || brakes) // brakes are a kind of magboots okay?
-				drag += is_mining_level(AM.z) ? 0.1 : 0.5 // some serious drag. Damn. Except lavaland, it has less gravity or something
-				if(velocity_mag > 5 && prob(velocity_mag * 4) && istype(T, /turf/open/floor))
-					var/turf/open/floor/TF = T
-					TF.make_plating() // pull up some floor tiles. Stop going so fast, ree.
-					//take_damage(3, BRUTE, "melee", FALSE)
-			var/datum/gas_mixture/env = T.return_air()
-			if(env)
-				var/pressure = env.return_pressure()
-				drag += velocity_mag * pressure * 0.0001 // 1 atmosphere should shave off 1% of velocity per tile
+
+			//ground drag
+			if(AM.movement_type & GROUND)
+				drag += 0.001
+				if((T.has_gravity()) || brakes) // brakes are a kind of magboots okay?
+					drag += is_mining_level(AM.z) ? 0.1 : 0.5 // some serious drag. Damn. Except lavaland, it has less gravity or something
+					if(velocity_mag > 5 && prob(velocity_mag * 4) && istype(T, /turf/open/floor))
+						var/turf/open/floor/TF = T
+						TF.make_plating() // pull up some floor tiles. Stop going so fast, ree.
+						//take_damage(3, BRUTE, "melee", FALSE)
+
+
+			//air drag
+			if(!(AM.movement_type & PHASING))
+				var/datum/gas_mixture/env = T.return_air()
+				if(env)
+					var/pressure = env.return_pressure()
+					drag += velocity_mag * pressure * 0.0001 // 1 atmosphere should shave off 1% of velocity per tile
+
 		if(velocity_mag > 20)
 			drag = max(drag, (velocity_mag - 20) / delta_time)
 		if(drag)
@@ -137,8 +138,6 @@
 	last_thrust_forward = 0
 	last_thrust_right = 0
 	if(brakes)
-//		if(user_thrust_dir)
-//			to_chat(pilot, "<span class='warning'>Your brakes are on!</span>")
 		// basically calculates how much we can brake using the thrust
 		var/forward_thrust = -((fx * velocity_x) + (fy * velocity_y)) / delta_time
 		var/right_thrust = -((sx * velocity_x) + (sy * velocity_y)) / delta_time
@@ -149,36 +148,29 @@
 		last_thrust_forward = forward_thrust
 		last_thrust_right = right_thrust
 	else // want some sort of help piloting the ship? Haha no fuck you do it yourself
-		if(user_thrust_dir & NORTH)
+		if(desired_thrust_dir & NORTH)
 			thrust_x += fx * forward_maxthrust
 			thrust_y += fy * forward_maxthrust
 			last_thrust_forward = forward_maxthrust
-		if(user_thrust_dir & SOUTH)
+		if(desired_thrust_dir & SOUTH)
 			thrust_x -= fx * backward_maxthrust
 			thrust_y -= fy * backward_maxthrust
 			last_thrust_forward = -backward_maxthrust
-		if(user_thrust_dir & EAST)
+		if(desired_thrust_dir & EAST)
 			thrust_x += sx * side_maxthrust
 			thrust_y += sy * side_maxthrust
 			last_thrust_right = side_maxthrust
-		if(user_thrust_dir & WEST)
+		if(desired_thrust_dir & WEST)
 			thrust_x -= sx * side_maxthrust
 			thrust_y -= sy * side_maxthrust
 			last_thrust_right = -side_maxthrust
 
-	velocity_x += thrust_x * delta_time
-	velocity_y += thrust_y * delta_time
-
-	/*
-	if(TRUE/*cell && cell.use(10 * sqrt((thrust_x*thrust_x)+(thrust_y*thrust_y)) * delta_time)*/)
+	if(!(SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_ACCELERATION) & COMPONENT_FUNNY_MOVEMENT_BLOCK_ACCELERATION))
 		velocity_x += thrust_x * delta_time
 		velocity_y += thrust_y * delta_time
 	else
 		last_thrust_forward = 0
 		last_thrust_right = 0
-//		if(!brakes && user_thrust_dir)
-//			to_chat(pilot, "<span class='warning'>You are out of power!</span>")
-	*/
 
 	offset_x += velocity_x * delta_time
 	offset_y += velocity_y * delta_time
@@ -260,11 +252,10 @@
 			else
 				offset_y = 0
 
-	AM.dir = default_dir
-
 	var/matrix/mat_from = new()
 	var/matrix/mat_to = new()
 	if(icon_dir_num == 1)
+		AM.dir = default_dir
 		mat_from.Turn(last_angle)
 		mat_to.Turn(angle)
 	else
@@ -274,6 +265,7 @@
 	AM.pixel_x = AM.base_pixel_x + last_offset_x*32
 	AM.pixel_y = AM.base_pixel_y + last_offset_y*32
 	animate(AM, transform=mat_to, pixel_x = AM.base_pixel_x + offset_x*32, pixel_y = AM.base_pixel_y + offset_y*32, time = delta_time*10, flags=ANIMATION_END_NOW)
+
 	var/list/smooth_viewers = AM.contents | AM
 	if(AM.orbiters && AM.orbiters.orbiter_list)
 		smooth_viewers |= AM.orbiters.orbiter_list
@@ -284,5 +276,3 @@
 		C.pixel_x = AM.base_pixel_x + last_offset_x*32
 		C.pixel_y = AM.base_pixel_y + last_offset_y*32
 		animate(C, pixel_x = AM.base_pixel_x + offset_x*32, pixel_y = AM.base_pixel_y + offset_y*32, time = delta_time*10, flags=ANIMATION_END_NOW)
-	//user_thrust_dir = 0
-	//update_icon()

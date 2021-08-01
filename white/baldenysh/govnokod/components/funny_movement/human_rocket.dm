@@ -19,10 +19,10 @@
 
 	var/list/modifiers = params2list(params)
 	if(modifiers["ctrl"])
-		mymovement.user_thrust_dir = 0
+		mymovement.desired_thrust_dir = 0
 		mymovement.brakes = 1
 	else
-		mymovement.user_thrust_dir = 1
+		mymovement.desired_thrust_dir = 1
 		mymovement.brakes = 0
 
 	if(pilot?.client)
