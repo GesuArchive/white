@@ -7,7 +7,7 @@
 
 /datum/component/human_rocket/RegisterWithParent()
 	mymovement = parent.AddComponent(/datum/component/funny_movement)
-	mymovement.forward_maxthrust = 3
+	mymovement.maxthrust_forward = 3
 	RegisterSignal(parent, COMSIG_MOB_CLICKON, .proc/on_click)
 
 /datum/component/human_rocket/UnregisterFromParent()
@@ -41,7 +41,7 @@
 
 /datum/component/human_rocket/tank_controls/RegisterWithParent()
 	mymovement = parent.AddComponent(/datum/component/funny_movement)
-	mymovement.forward_maxthrust = 3
+	mymovement.maxthrust_forward = 3
 	RegisterSignal(mymovement, COMSIG_FUNNY_MOVEMENT_PROCESSING_START, .proc/premove)
 	RegisterSignal(mymovement, COMSIG_FUNNY_MOVEMENT_PROCESSING_FINISH, .proc/moved)
 

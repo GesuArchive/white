@@ -44,9 +44,9 @@
 	//UnregisterSignal(parent, COMSIG_MOVABLE_BUMP)
 
 /datum/component/funny_movement/Destroy(force, silent)
-	. = ..()
 	var/atom/movable/AM = parent
 	AM.animate_movement = initial(AM.animate_movement)
+	. = ..()
 
 /datum/component/funny_movement/proc/on_bump(datum/source, atom/A)
 	var/atom/movable/AM = parent
