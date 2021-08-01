@@ -104,10 +104,12 @@
 				drag += 0.001
 				if((T.has_gravity()) || brakes) // brakes are a kind of magboots okay?
 					drag += is_mining_level(AM.z) ? 0.1 : 0.5 // some serious drag. Damn. Except lavaland, it has less gravity or something
+					/*
 					if(velocity_mag > 5 && prob(velocity_mag * 4) && istype(T, /turf/open/floor))
 						var/turf/open/floor/TF = T
 						TF.make_plating() // pull up some floor tiles. Stop going so fast, ree.
 						//take_damage(3, BRUTE, "melee", FALSE)
+					*/
 
 
 			//air drag
