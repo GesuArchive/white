@@ -16,9 +16,9 @@
 	var/desired_thrust_dir = 0
 	var/desired_angle = null // set by pilot moving his mouse
 
-	var/forward_maxthrust = 1
-	var/backward_maxthrust = 1
-	var/side_maxthrust = 1
+	var/maxthrust_forward = 1
+	var/maxthrust_backward = 1
+	var/maxthrust_sides = 1
 
 	var/bump_impulse = 0.6
 	var/bounce_factor = 0.2 // how much of our velocity to keep on collision
@@ -35,13 +35,13 @@
 	var/atom/movable/AM = parent
 	AM.animate_movement = NO_STEPS // we do our own gliding here
 	START_PROCESSING(SSfastprocess, src)
-	RegisterSignal(parent, COMSIG_MOVABLE_BUMP, .proc/on_bump)
+	//RegisterSignal(parent, COMSIG_MOVABLE_BUMP, .proc/on_bump)
 
 /datum/component/funny_movement/UnregisterFromParent()
 	var/atom/movable/AM = parent
 	AM.animate_movement = initial(AM.animate_movement)
 	STOP_PROCESSING(SSfastprocess, src)
-	UnregisterSignal(parent, COMSIG_MOVABLE_BUMP)
+	//UnregisterSignal(parent, COMSIG_MOVABLE_BUMP)
 
 /datum/component/funny_movement/Destroy(force, silent)
 	. = ..()
@@ -55,14 +55,6 @@
 		bump_velocity = abs(velocity_y) + (abs(velocity_x) / 15)
 	else
 		bump_velocity = abs(velocity_x) + (abs(velocity_y) / 15)
-	if(istype(A, /obj/machinery/door/airlock)) // try to open doors
-		var/obj/machinery/door/D = A
-		if(!D.operating)
-			if(D.allowed())
-				spawn(0)
-					D.open()
-			else
-				D.do_animate("deny")
 	var/atom/movable/bumped = A
 	if(istype(bumped) && !bumped.anchored && bump_velocity > 1)
 		step(bumped, AM.dir)
@@ -150,29 +142,29 @@
 		// basically calculates how much we can brake using the thrust
 		var/forward_thrust = -((fx * velocity_x) + (fy * velocity_y)) / delta_time
 		var/right_thrust = -((sx * velocity_x) + (sy * velocity_y)) / delta_time
-		forward_thrust = clamp(forward_thrust, -backward_maxthrust, forward_maxthrust)
-		right_thrust = clamp(right_thrust, -side_maxthrust, side_maxthrust)
+		forward_thrust = clamp(forward_thrust, -maxthrust_backward, maxthrust_forward)
+		right_thrust = clamp(right_thrust, -maxthrust_sides, maxthrust_sides)
 		thrust_x += forward_thrust * fx + right_thrust * sx;
 		thrust_y += forward_thrust * fy + right_thrust * sy;
 		last_thrust_forward = forward_thrust
 		last_thrust_right = right_thrust
 	else // want some sort of help piloting the ship? Haha no fuck you do it yourself
 		if(desired_thrust_dir & NORTH)
-			thrust_x += fx * forward_maxthrust
-			thrust_y += fy * forward_maxthrust
-			last_thrust_forward = forward_maxthrust
+			thrust_x += fx * maxthrust_forward
+			thrust_y += fy * maxthrust_forward
+			last_thrust_forward = maxthrust_forward
 		if(desired_thrust_dir & SOUTH)
-			thrust_x -= fx * backward_maxthrust
-			thrust_y -= fy * backward_maxthrust
-			last_thrust_forward = -backward_maxthrust
+			thrust_x -= fx * maxthrust_backward
+			thrust_y -= fy * maxthrust_backward
+			last_thrust_forward = -maxthrust_backward
 		if(desired_thrust_dir & EAST)
-			thrust_x += sx * side_maxthrust
-			thrust_y += sy * side_maxthrust
-			last_thrust_right = side_maxthrust
+			thrust_x += sx * maxthrust_sides
+			thrust_y += sy * maxthrust_sides
+			last_thrust_right = maxthrust_sides
 		if(desired_thrust_dir & WEST)
-			thrust_x -= sx * side_maxthrust
-			thrust_y -= sy * side_maxthrust
-			last_thrust_right = -side_maxthrust
+			thrust_x -= sx * maxthrust_sides
+			thrust_y -= sy * maxthrust_sides
+			last_thrust_right = -maxthrust_sides
 
 	if(!(SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_ACCELERATION) & COMPONENT_FUNNY_MOVEMENT_BLOCK_ACCELERATION))
 		velocity_x += thrust_x * delta_time
