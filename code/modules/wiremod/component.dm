@@ -77,7 +77,7 @@
 /obj/item/circuit_component/Destroy()
 	if(parent)
 		// Prevents a Destroy() recursion
-		var/obj/item/integrated_circuit/old_parent = parent
+		var/obj/item/integrated_circuit_wiremod/old_parent = parent
 		parent = null
 		old_parent.remove_component(src)
 
@@ -202,11 +202,11 @@
 		return TRUE
 
 /// Called when this component is about to be added to an integrated_circuit.
-/obj/item/circuit_component/proc/add_to(obj/item/integrated_circuit/added_to)
+/obj/item/circuit_component/proc/add_to(obj/item/integrated_circuit_wiremod/added_to)
 	return TRUE
 
 /// Called when this component is removed from an integrated_circuit.
-/obj/item/circuit_component/proc/removed_from(obj/item/integrated_circuit/removed_from)
+/obj/item/circuit_component/proc/removed_from(obj/item/integrated_circuit_wiremod/removed_from)
 	return
 
 /**

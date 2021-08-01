@@ -194,7 +194,7 @@ GLOBAL_LIST_EMPTY(lifts)
 	bumped_atom.visible_message("<span class='userdanger'>[src] crashes into the field violently!</span>")
 	for(var/obj/structure/industrial_lift/tram/tram_part as anything in lift_master_datum.lift_platforms)
 		tram_part.travel_distance = 0
-		tram_part.set_travelling(FALSE)
+		//tram_part.set_travelling(FALSE)
 		if(prob(15) || locate(/mob/living) in tram_part.lift_load) //always go boom on people on the track
 			explosion(get_turf(tram_part),rand(0,1),2,3) //50% chance of gib
 		qdel(tram_part)
@@ -485,7 +485,7 @@ GLOBAL_LIST_EMPTY(lifts)
 		if(other_tram_part.travelling) //wee woo wee woo there was a double action queued. damn multi tile structs
 			return //we don't care to undo locked controls, though, as that will resolve itself
 		SEND_SIGNAL(src, COMSIG_TRAM_TRAVEL, from_where, to_where)
-		other_tram_part.set_travelling(TRUE)
+		//other_tram_part.set_travelling(TRUE)
 		other_tram_part.from_where = to_where
 	travel_direction = get_dir(from_where, to_where)
 	travel_distance = get_dist(from_where, to_where)

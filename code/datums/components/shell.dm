@@ -52,7 +52,7 @@
 	SIGNAL_HANDLER
 	objects += parent
 
-/datum/component/shell/proc/on_load(datum/source, obj/item/integrated_circuit/circuit, list/components)
+/datum/component/shell/proc/on_load(datum/source, obj/item/integrated_circuit_wiremod/circuit, list/components)
 	SIGNAL_HANDLER
 	var/list/components_in_list = list()
 	for(var/obj/item/circuit_component/component as anything in components)
@@ -107,7 +107,7 @@
 	examine_text += "<span class='notice'>The charge meter reads [cell ? round(cell.percent(), 1) : 0]%.</span>"
 
 	if (shell_flags & SHELL_FLAG_USB_PORT)
-		examine_text += span_notice("There is a <b>USB port</b> on the front.")
+		examine_text += "<span class='notice'>There is a <b>USB port</b> on the front.</span>"
 
 /**
  * Called when the shell is wrenched.
@@ -134,7 +134,7 @@
 
 	if(attached_circuit)
 		if(attached_circuit.owner_id && item == attached_circuit.owner_id.resolve())
-			set_locked(!locked)
+			locked = !locked
 			source.balloon_alert(attacker, "[locked? "locked" : "unlocked"] [source]")
 			return COMPONENT_NO_AFTERATTACK
 

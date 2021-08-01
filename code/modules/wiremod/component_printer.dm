@@ -300,7 +300,6 @@
 
 /obj/item/circuitboard/machine/module_duplicator
 	name = "\improper Module Duplicator (Machine Board)"
-	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/module_duplicator
 	req_components = list(
 		/obj/item/stock_parts/matter_bin = 2,

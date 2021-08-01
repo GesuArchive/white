@@ -1190,7 +1190,7 @@
 /// Sent when a circuit is removed from its shell
 #define COMSIG_CIRCUIT_SHELL_REMOVED "circuit_shell_removed"
 
-/// Sent to [/obj/item/circuit_component] when it is removed from a circuit. (/obj/item/integrated_circuit)
+/// Sent to [/obj/item/circuit_component] when it is removed from a circuit. (/obj/item/integrated_circuit_wiremod)
 #define COMSIG_CIRCUIT_COMPONENT_REMOVED "circuit_component_removed"
 
 /// Called when the integrated circuit's cell is set.

@@ -228,7 +228,7 @@
 		if (resolved_owner.stat == DEAD)
 			return
 
-		to_chat(resolved_owner, "<i>You hear a strange, robotic voice in your head...</i> \"[span_robot("[html_encode(sent_message)]")]\"")
+		to_chat(resolved_owner, "<i>You hear a strange, robotic voice in your head...</i> \"<span class='robot'>[html_encode(sent_message)]</span>\"")
 
 /obj/item/circuit_component/bci_core/proc/on_organ_implanted(datum/source, mob/living/carbon/owner)
 	SIGNAL_HANDLER
@@ -268,7 +268,7 @@
 		return
 
 	parent.cell.give(shock_damage * 2)
-	to_chat(source, span_notice("You absorb some of the shock into your [parent.name]!"))
+	to_chat(source, "<span class='notice'>You absorb some of the shock into your [parent.name]!</span>")
 
 /datum/action/innate/bci_charge_action
 	name = "Check BCI Charge"
@@ -301,10 +301,10 @@
 	var/obj/item/stock_parts/cell/cell = circuit_component.parent.cell
 
 	if (isnull(cell))
-		to_chat(owner, span_boldwarning("[circuit_component.parent] has no power cell."))
+		to_chat(owner, "<span class='boldwarning'>[circuit_component.parent] has no power cell.</span>")
 	else
-		to_chat(owner, span_info("[circuit_component.parent]'s [cell.name] has <b>[cell.percent()]%</b> charge left."))
-		to_chat(owner, span_info("You can recharge it by using a cyborg recharging station."))
+		to_chat(owner, "<span class='info'>[circuit_component.parent]'s [cell.name] has <b>[cell.percent()]%</b> charge left.</span>")
+		to_chat(owner, "<span class='info'>You can recharge it by using a cyborg recharging station.</span>")
 
 /datum/action/innate/bci_charge_action/process(delta_time)
 	update_maptext()
@@ -324,7 +324,6 @@
 	use_power = IDLE_POWER_USE
 	anchored = TRUE
 	density = TRUE
-	obj_flags = NO_BUILD // Becomes undense when the door is open
 	idle_power_usage = 50
 	active_power_usage = 300
 
@@ -348,14 +347,14 @@
 	. = ..()
 
 	if (isnull(bci_to_implant?.resolve()))
-		. += span_notice("There is no BCI inserted.")
+		. += "<span class='notice'>There is no BCI inserted.</span>"
 	else
-		. += span_notice("Right-click to remove current BCI.")
+		. += "<span class='notice'>Right-click to remove current BCI.</span>"
 
 /obj/machinery/bci_implanter/proc/set_busy(status, working_icon)
 	busy = status
 	busy_icon_state = working_icon
-	update_appearance()
+	update_icon()
 
 /obj/machinery/bci_implanter/update_icon_state()
 	if (occupant)
@@ -384,14 +383,12 @@
 
 	return overlays
 
-/obj/machinery/bci_implanter/attack_hand_secondary(mob/user, list/modifiers)
+/obj/machinery/bci_implanter/AltClick(mob/user)
 	. = ..()
-	if (. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
-		return .
 
 	if (locked)
 		balloon_alert(user, "it's locked!")
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+		return
 
 	var/obj/item/organ/cyberimp/bci/bci_to_implant_resolved = bci_to_implant?.resolve()
 	if (isnull(bci_to_implant_resolved) && user.Adjacent(src))
@@ -402,12 +399,12 @@
 
 	bci_to_implant = null
 
-	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	return
 
 /obj/machinery/bci_implanter/attackby(obj/item/weapon, mob/user, params)
 	var/obj/item/organ/cyberimp/bci/new_bci = weapon
 	if (istype(new_bci))
-		if (!(locate(/obj/item/integrated_circuit) in new_bci))
+		if (!(locate(/obj/item/integrated_circuit_wiremod) in new_bci))
 			balloon_alert(user, "bci has no circuit!")
 			return
 
@@ -424,20 +421,17 @@
 
 		return
 
-	return ..()
-
-/obj/machinery/bci_implanter/attackby_secondary(obj/item/weapon, mob/user, params)
 	if (!occupant && default_deconstruction_screwdriver(user, icon_state, icon_state, weapon))
-		update_appearance()
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+		update_icon()
+		return
 
 	if (default_pry_open(weapon))
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+		return
 
 	if (default_deconstruction_crowbar(weapon))
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+		return
 
-	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	return ..()
 
 /obj/machinery/bci_implanter/proc/start_process()
 	if (machine_stat & (NOPOWER|BROKEN))
@@ -537,7 +531,6 @@
 
 /obj/item/circuitboard/machine/bci_implanter
 	name = "Brain-Computer Interface Manipulation Chamber (Machine Board)"
-	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/bci_implanter
 	req_components = list(
 		/obj/item/stock_parts/micro_laser = 2,

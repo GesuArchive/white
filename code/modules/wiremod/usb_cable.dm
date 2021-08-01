@@ -10,7 +10,7 @@
 	custom_materials = list(/datum/material/iron = 75)
 
 	/// The currently connected circuit
-	var/obj/item/integrated_circuit/attached_circuit
+	var/obj/item/integrated_circuit_wiremod/attached_circuit
 
 /obj/item/usb_cable/Destroy()
 	attached_circuit = null
@@ -25,7 +25,7 @@
 	. = ..()
 
 	if (!isnull(attached_circuit))
-		. += span_notice("It is attached to [attached_circuit.shell || attached_circuit].")
+		. += "<span class='notice'>It is attached to [attached_circuit.shell || attached_circuit].</span>"
 
 // Look, I'm not happy about this either, but moving an object doesn't call Moved if it's inside something else.
 // There's good reason for this, but there's no element or similar yet to track it as far as I know.
@@ -81,7 +81,7 @@
 	return FALSE
 
 /obj/item/usb_cable/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is wrapping [src] around [user.p_their()] neck! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message("<span class='suicide'>[user] is wrapping [src] around [user.p_their()] neck! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return OXYLOSS
 
 /obj/item/usb_cable/proc/register_circuit_signals()
@@ -89,7 +89,7 @@
 	RegisterSignal(attached_circuit, COMSIG_PARENT_QDELETING, .proc/on_circuit_qdeling)
 	RegisterSignal(attached_circuit.shell, COMSIG_MOVABLE_MOVED, .proc/on_moved)
 
-/obj/item/usb_cable/proc/unregister_circuit_signals(obj/item/integrated_circuit/old_circuit)
+/obj/item/usb_cable/proc/unregister_circuit_signals(obj/item/integrated_circuit_wiremod/old_circuit)
 	UnregisterSignal(attached_circuit, list(
 		COMSIG_MOVABLE_MOVED,
 		COMSIG_PARENT_QDELETING,

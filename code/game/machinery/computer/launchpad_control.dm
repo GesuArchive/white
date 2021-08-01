@@ -239,7 +239,7 @@
 			if(isnull(checks))
 				current_pad.doteleport(usr, TRUE)
 			else
-				to_chat(usr, span_warning(checks))
+				to_chat(usr, "<span class='warning'>[checks]</span>")
 			. = TRUE
 
 		if("pull")
@@ -247,7 +247,7 @@
 			if(isnull(checks))
 				current_pad.doteleport(usr, FALSE)
 			else
-				to_chat(usr, span_warning(checks))
+				to_chat(usr, "<span class='warning'>[checks]</span>")
 
 			. = TRUE
 	. = TRUE

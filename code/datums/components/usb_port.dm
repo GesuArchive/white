@@ -4,7 +4,7 @@
 	var/list/circuit_component_types
 
 	/// The currently connected circuit
-	var/obj/item/integrated_circuit/attached_circuit
+	var/obj/item/integrated_circuit_wiremod/attached_circuit
 
 	/// The currently connected USB cable
 	var/datum/weakref/usb_cable_ref
@@ -71,7 +71,7 @@
 	SIGNAL_HANDLER
 	objects += parent
 
-/datum/component/usb_port/proc/on_load(datum/source, obj/item/integrated_circuit/circuit, list/components)
+/datum/component/usb_port/proc/on_load(datum/source, obj/item/integrated_circuit_wiremod/circuit, list/components)
 	SIGNAL_HANDLER
 	var/list/components_in_list = list()
 	for(var/obj/item/circuit_component/component as anything in components)
@@ -115,7 +115,7 @@
 		COMSIG_PARENT_EXAMINE,
 	))
 
-/datum/component/usb_port/proc/attach_circuit_components(obj/item/integrated_circuit/circuitboard)
+/datum/component/usb_port/proc/attach_circuit_components(obj/item/integrated_circuit_wiremod/circuitboard)
 	for(var/obj/item/circuit_component/component as anything in circuit_components)
 		circuitboard.add_component(component)
 		RegisterSignal(component, COMSIG_CIRCUIT_COMPONENT_REMOVED, .proc/on_circuit_component_removed)
@@ -124,14 +124,14 @@
 	SIGNAL_HANDLER
 
 	if (isnull(attached_circuit))
-		examine_text += span_notice("There is a USB port on the front.")
+		examine_text += "<span class='notice'>There is a USB port on the front.</span>"
 	else
-		examine_text += span_notice("[attached_circuit.shell || attached_circuit] is connected to [parent.p_them()] by a USB port.")
+		examine_text += "<span class='notice'>[attached_circuit.shell || attached_circuit] is connected to [parent.p_them()] by a USB port.</span>"
 
 /datum/component/usb_port/proc/on_examine_shell(datum/source, mob/user, list/examine_text)
 	SIGNAL_HANDLER
 
-	examine_text += span_notice("[source.p_they(TRUE)] [source.p_are()] attached to [parent] with a USB cable.")
+	examine_text += "<span class='notice'>[source.p_they(TRUE)] [source.p_are()] attached to [parent] with a USB cable.</span>"
 
 /datum/component/usb_port/proc/on_atom_usb_cable_try_attach(datum/source, obj/item/usb_cable/connecting_cable, mob/user)
 	SIGNAL_HANDLER

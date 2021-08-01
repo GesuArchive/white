@@ -29,6 +29,9 @@
 	/// Whether the integrated circuit is on or not. Handled by the shell.
 	var/on = FALSE
 
+	/// Whether the integrated circuit is locked or not. Handled by the shell.
+	var/locked = FALSE
+
 	/// The ID that is authorized to unlock/lock the shell so that the circuit can/cannot be removed.
 	var/datum/weakref/owner_id
 
@@ -141,7 +144,7 @@
 	set_on(FALSE)
 	SEND_SIGNAL(src, COMSIG_CIRCUIT_SHELL_REMOVED)
 
-/obj/item/integrated_circuit/proc/set_on(new_value)
+/obj/item/integrated_circuit_wiremod/proc/set_on(new_value)
 	SEND_SIGNAL(src, COMSIG_CIRCUIT_SET_ON, new_value)
 	on = new_value
 
@@ -466,26 +469,26 @@
 			DIRECT_OUTPUT(saver, ftp(temp_file, "[display_name || "circuit"].json"))
 			. = TRUE
 
-/obj/item/integrated_circuit/proc/on_atom_usb_cable_try_attach(datum/source, obj/item/usb_cable/usb_cable, mob/user)
+/obj/item/integrated_circuit_wiremod/proc/on_atom_usb_cable_try_attach(datum/source, obj/item/usb_cable/usb_cable, mob/user)
 	usb_cable.balloon_alert(user, "circuit needs to be in a compatible shell")
 	return COMSIG_CANCEL_USB_CABLE_ATTACK
 
 #undef WITHIN_RANGE
 
 /// Sets the display name that appears on the shell.
-/obj/item/integrated_circuit/proc/set_display_name(new_name)
+/obj/item/integrated_circuit_wiremod/proc/set_display_name(new_name)
 	display_name = new_name
 
 /**
  * Returns the creator of the integrated circuit. Used in admin messages and other related things.
  */
-/obj/item/integrated_circuit/proc/get_creator_admin()
+/obj/item/integrated_circuit_wiremod/proc/get_creator_admin()
 	return get_creator(include_link = TRUE)
 
 /**
  * Returns the creator of the integrated circuit. Used in admin logs and other related things.
  */
-/obj/item/integrated_circuit/proc/get_creator(include_link = FALSE)
+/obj/item/integrated_circuit_wiremod/proc/get_creator(include_link = FALSE)
 	var/datum/mind/inserter
 	if(inserter_mind)
 		inserter = inserter_mind.resolve()

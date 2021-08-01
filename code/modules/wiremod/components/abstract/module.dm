@@ -7,7 +7,7 @@
 	display_name = "Module"
 	display_desc = "A component that has other components within it, acting like a function. Use it in your hand to control the amount of input and output ports it has, as well as being able to access the integrated circuit contained inside."
 
-	var/obj/item/integrated_circuit/module/internal_circuit
+	var/obj/item/integrated_circuit_wiremod/module/internal_circuit
 
 	var/obj/item/circuit_component/module_input/input_component
 	var/obj/item/circuit_component/module_output/output_component
@@ -17,19 +17,19 @@
 
 	var/port_limit = 10
 
-/obj/item/integrated_circuit/module
+/obj/item/integrated_circuit_wiremod/module
 	var/obj/item/circuit_component/module/attached_module
 
-/obj/item/integrated_circuit/module/ui_host(mob/user)
+/obj/item/integrated_circuit_wiremod/module/ui_host(mob/user)
 	. = ..()
 	if(. == src)
 		return attached_module
 
-/obj/item/integrated_circuit/module/set_display_name(new_name)
+/obj/item/integrated_circuit_wiremod/module/set_display_name(new_name)
 	. = ..()
 	attached_module.display_name = new_name
 
-/obj/item/integrated_circuit/module/load_component(type)
+/obj/item/integrated_circuit_wiremod/module/load_component(type)
 	if(!attached_module)
 		return ..()
 
@@ -41,7 +41,7 @@
 
 	return ..()
 
-/obj/item/integrated_circuit/module/Destroy()
+/obj/item/integrated_circuit_wiremod/module/Destroy()
 	attached_module = null
 	return ..()
 
@@ -152,7 +152,7 @@
 	var/datum/port/new_port = output_component.add_input_port(name, type)
 	linked_ports[new_port] = add_output_port(name, type)
 
-/obj/item/circuit_component/module/add_to(obj/item/integrated_circuit/added_to)
+/obj/item/circuit_component/module/add_to(obj/item/integrated_circuit_wiremod/added_to)
 	. = ..()
 	RegisterSignal(added_to, COMSIG_CIRCUIT_SET_CELL, .proc/handle_set_cell)
 	RegisterSignal(added_to, COMSIG_CIRCUIT_SET_ON, .proc/handle_set_on)
@@ -162,7 +162,7 @@
 	internal_circuit.set_on(added_to.on)
 
 
-/obj/item/circuit_component/module/removed_from(obj/item/integrated_circuit/removed_from)
+/obj/item/circuit_component/module/removed_from(obj/item/integrated_circuit_wiremod/removed_from)
 	internal_circuit.set_cell(null)
 	internal_circuit.set_on(FALSE)
 	internal_circuit.remove_current_shell()

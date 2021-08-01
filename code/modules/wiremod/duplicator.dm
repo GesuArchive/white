@@ -8,7 +8,7 @@ GLOBAL_LIST_INIT(circuit_dupe_whitelisted_types, list(
 ))
 
 /// Loads a circuit based on json data at a location. Can also load usb connections, such as arrest consoles.
-/obj/item/integrated_circuit/proc/load_circuit_data(json_data, list/errors)
+/obj/item/integrated_circuit_wiremod/proc/load_circuit_data(json_data, list/errors)
 	var/list/general_data = json_decode(json_data)
 
 	if(!general_data)
@@ -90,7 +90,7 @@ GLOBAL_LIST_INIT(circuit_dupe_whitelisted_types, list(
 #undef LOG_ERROR
 
 /// Converts a circuit into json.
-/obj/item/integrated_circuit/proc/convert_to_json()
+/obj/item/integrated_circuit_wiremod/proc/convert_to_json()
 	var/list/circuit_to_identifiers = list()
 	var/list/identifiers = list()
 	var/list/external_objects = list() // Objects that are connected to a component. These objects will be linked to the components.
@@ -146,7 +146,7 @@ GLOBAL_LIST_INIT(circuit_dupe_whitelisted_types, list(
 
 	return json_encode(general_data)
 
-/obj/item/integrated_circuit/proc/load_component(type)
+/obj/item/integrated_circuit_wiremod/proc/load_component(type)
 	var/obj/item/circuit_component/component = new type(src)
 	add_component(component)
 	return component
@@ -185,10 +185,10 @@ GLOBAL_LIST_INIT(circuit_dupe_whitelisted_types, list(
 	if(!txt)
 		return
 
-	var/obj/item/integrated_circuit/loaded/circuit = new(mob.drop_location())
+	var/obj/item/integrated_circuit_wiremod/loaded/circuit = new(mob.drop_location())
 	circuit.load_circuit_data(txt, errors)
 
 	if(length(errors))
-		to_chat(src, span_warning("The following errors were found whilst compiling the circuit data:"))
+		to_chat(src, "<span class='warning'>The following errors were found whilst compiling the circuit data:</span>")
 		for(var/error in errors)
-			to_chat(src, span_warning(error))
+			to_chat(src, "<span class='warning'>[error]</span>")

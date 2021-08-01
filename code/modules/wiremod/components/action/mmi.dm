@@ -85,7 +85,7 @@
 		if(!target)
 			return
 
-		to_chat(target, "[span_bold("You hear a message in your ear: ")][msg_str]")
+		to_chat(target, "<b>You hear a message in your ear:</b> [msg_str]")
 
 
 /obj/item/circuit_component/mmi/register_shell(atom/movable/shell)
@@ -171,13 +171,13 @@
 		attack.set_output(COMPONENT_SIGNAL)
 		. = COMSIG_MOB_CANCEL_CLICKON
 
-/obj/item/circuit_component/mmi/add_to(obj/item/integrated_circuit/add_to)
+/obj/item/circuit_component/mmi/add_to(obj/item/integrated_circuit_wiremod/add_to)
 	. = ..()
 	if(HAS_TRAIT(add_to, TRAIT_COMPONENT_MMI))
 		return FALSE
 	ADD_TRAIT(add_to, TRAIT_COMPONENT_MMI, src)
 
-/obj/item/circuit_component/mmi/removed_from(obj/item/integrated_circuit/removed_from)
+/obj/item/circuit_component/mmi/removed_from(obj/item/integrated_circuit_wiremod/removed_from)
 	REMOVE_TRAIT(removed_from, TRAIT_COMPONENT_MMI, src)
 	remove_current_brain()
 	return ..()
