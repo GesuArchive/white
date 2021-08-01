@@ -91,7 +91,7 @@ export class Window extends Component {
             logger.log('pressed close');
             dispatch(backendSuspendStart());
           }}
-          onClose={onClose}>
+          noClose={noClose}>
           {buttons}
         </TitleBar>
         <div
