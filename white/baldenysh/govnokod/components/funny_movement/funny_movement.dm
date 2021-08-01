@@ -43,6 +43,11 @@
 	AM.animate_movement = initial(AM.animate_movement)
 	STOP_PROCESSING(SSfastprocess, src)
 
+/datum/component/funny_movement/Destroy(force, silent)
+	. = ..()
+	var/atom/movable/AM = parent
+	AM.animate_movement = initial(AM.animate_movement)
+
 /datum/component/funny_movement/proc/on_bump(..., atom/A)
 	var/atom/movable/AM = parent
 	var/bump_velocity = 0
@@ -161,6 +166,10 @@
 			thrust_y -= sy * side_maxthrust
 			last_thrust_right = -side_maxthrust
 
+	velocity_x += thrust_x * delta_time
+	velocity_y += thrust_y * delta_time
+
+	/*
 	if(TRUE/*cell && cell.use(10 * sqrt((thrust_x*thrust_x)+(thrust_y*thrust_y)) * delta_time)*/)
 		velocity_x += thrust_x * delta_time
 		velocity_y += thrust_y * delta_time
@@ -169,6 +178,7 @@
 		last_thrust_right = 0
 //		if(!brakes && user_thrust_dir)
 //			to_chat(pilot, "<span class='warning'>You are out of power!</span>")
+	*/
 
 	offset_x += velocity_x * delta_time
 	offset_y += velocity_y * delta_time
