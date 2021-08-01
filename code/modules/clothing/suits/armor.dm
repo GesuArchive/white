@@ -29,6 +29,34 @@
 	icon_state = "armor"
 	inhand_icon_state = "armor"
 
+/obj/item/clothing/suit/armor/vest/marine
+	name = "marine combat armor"
+	desc = "A multirole set of armor used by the marines, painted in a tacticool black color with blue markings to indicate you might be important."
+	icon_state = "marine_command"
+	inhand_icon_state = "armor"
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	armor = list(MELEE = 40, BULLET = 50, LASER = 25, ENERGY = 25, BOMB = 50, BIO = 20, RAD = 0, FIRE = 40, ACID = 50, WOUND = 20)
+	cold_protection = CHEST|GROIN|LEGS|ARMS
+	heat_protection = CHEST|GROIN|LEGS|ARMS
+
+/obj/item/clothing/suit/armor/vest/marine/security
+	name = "marine heavy armor"
+	desc = "A heavy set of armor that still allows full mobility, offering higher protection at the cost of having red targets painted on your shoulders."
+	icon_state = "marine_security"
+	armor = list(MELEE = 45, BULLET = 60, LASER = 30, ENERGY = 30, BOMB = 40, BIO = 20, RAD = 0, FIRE = 50, ACID = 50, WOUND = 20)
+
+/obj/item/clothing/suit/armor/vest/marine/engineer
+	name = "marine utility armor"
+	desc = "A light set of armor with a mounted satchel for storing things. You realized too late that pouches are only for looks, and don't actually work. No refunds."
+	icon_state = "marine_engineer"
+	armor = list(MELEE = 35, BULLET = 40, LASER = 20, ENERGY = 20, BOMB = 70, BIO = 20, RAD = 30, FIRE = 70, ACID = 70, WOUND = 10)
+
+/obj/item/clothing/suit/armor/vest/marine/medic
+	name = "marine medic armor"
+	desc = "Light armor with needlessly large arm and leg plates, they provide no extra protection, but you feel safer."
+	icon_state = "marine_medic"
+	armor = list(MELEE = 35, BULLET = 40, LASER = 20, ENERGY = 20, BOMB = 30, BIO = 30, RAD = 10, FIRE = 50, ACID = 70, WOUND = 10)
+
 /obj/item/clothing/suit/armor/vest/old
 	name = "старый бронежилет"
 	desc = "Бронежилет Тип I старого поколения. Из-за ухудшения со временем жилет гораздо менее маневренен для перемещения."
@@ -112,11 +140,18 @@
 	desc = "Зловеще выглядящий жилет из усовершенствованной брони, надетый на черно-красную огнезащитную куртку. Золотой воротник и плечи означают, что это принадлежит высокопоставленному чиновнику синдиката."
 	icon_state = "syndievest"
 
-/obj/item/clothing/suit/armor/vest/capcarapace/alt
+/obj/item/clothing/suit/toggle/captains_parade
 	name = "парадная куртка капитана"
 	desc = "Когда бронежилет недостаточно моден."
 	icon_state = "capformal"
 	inhand_icon_state = "capspacesuit"
+	body_parts_covered = CHEST|GROIN|ARMS
+	armor = list(MELEE = 50, BULLET = 40, LASER = 50, ENERGY = 50, BOMB = 25, BIO = 0, RAD = 0, FIRE = 100, ACID = 90, WOUND = 10)
+	togglename = "buttons"
+
+/obj/item/clothing/suit/toggle/captains_parade/Initialize()
+	. = ..()
+	allowed = GLOB.security_wintercoat_allowed
 
 /obj/item/clothing/suit/armor/riot
 	name = "костюм анти-бунт"
@@ -307,10 +342,28 @@
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 
-/obj/item/clothing/suit/armor/vest/centcom_formal
+/obj/item/clothing/suit/toggle/armor/vest/centcom_formal
 	name = "пальто офицера ЦентКома"
 	desc = "Отлично подходит для суицидальных миссий!"
 	icon_state = "centcom_formal"
 	inhand_icon_state = "centcom"
 	body_parts_covered = CHEST|GROIN|ARMS
 	armor = list(MELEE = 35, BULLET = 40, LASER = 40, ENERGY = 50, BOMB = 35, BIO = 10, RAD = 10, FIRE = 10, ACID = 60)
+	togglename = "buttons"
+
+/obj/item/clothing/suit/toggle/armor/vest/centcom_formal/Initialize()
+	. = ..()
+	allowed = GLOB.security_wintercoat_allowed
+
+/obj/item/clothing/suit/toggle/armor/hos/hos_formal
+	name = "парадное пальто Начальника Охраны "
+	desc = "Когда бронежилет недостаточно модный."
+	icon_state = "hosformal"
+	inhand_icon_state = "hostrench"
+	body_parts_covered = CHEST|GROIN|ARMS
+	armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, RAD = 0, FIRE = 70, ACID = 90, WOUND = 10)
+	togglename = "buttons"
+
+/obj/item/clothing/suit/toggle/armor/hos/hos_formal/Initialize()
+	. = ..()
+	allowed = GLOB.security_wintercoat_allowed
