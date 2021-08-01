@@ -19,9 +19,9 @@
 
 	var/list/modifiers = params2list(params)
 	if(modifiers["ctrl"])
-		mymovement.user_thrust_dir = 1
-	else
 		mymovement.user_thrust_dir = 0
+	else
+		mymovement.user_thrust_dir = 1
 
 	if(pilot?.client)
 		var/list/sl_list = splittext(modifiers["screen-loc"],",")
