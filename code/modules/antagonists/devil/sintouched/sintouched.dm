@@ -13,6 +13,7 @@
 	antag_hud_type = ANTAG_HUD_SINTOUCHED
 	antag_hud_name = "sintouched"
 	var/sin
+	greentext_reward = 5
 
 	var/static/list/sins = list(SIN_ACEDIA,SIN_GLUTTONY,SIN_GREED,SIN_SLOTH,SIN_WRATH,SIN_ENVY,SIN_PRIDE)
 

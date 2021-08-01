@@ -38,6 +38,7 @@
 	outfit = /datum/outfit/spetsnaz
 	random_names = TRUE
 	role = "Спецназовец"
+	greentext_reward = 15
 
 /datum/antagonist/ert/spetsnaz/grenadier
 	outfit = /datum/outfit/spetsnaz/grenadier
@@ -47,6 +48,7 @@
 	outfit = /datum/outfit/spetsnaz/leader
 	role = "Лидер Спецназа"
 	leader = TRUE
+	greentext_reward = 20
 
 /datum/antagonist/ert/spetsnaz/update_name()
 	if(owner.current.gender == FEMALE)

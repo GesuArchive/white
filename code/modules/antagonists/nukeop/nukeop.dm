@@ -12,6 +12,7 @@
 	var/always_new_team = FALSE //If not assigned a team by default ops will try to join existing ones, set this to TRUE to always create new team.
 	var/send_to_spawnpoint = TRUE //Should the user be moved to default spawnpoint.
 	var/nukeop_outfit = /datum/outfit/syndicate
+	greentext_reward = 10
 
 
 /datum/antagonist/nukeop/apply_innate_effects(mob/living/mob_override)
@@ -155,6 +156,7 @@
 	always_new_team = TRUE
 	var/title
 	var/challengeitem = /obj/item/nuclear_challenge
+	greentext_reward = 15
 
 /datum/antagonist/nukeop/leader/give_alias()
 	title = pick("Czar", "Boss", "Commander", "Chief", "Kingpin", "Director", "Overlord")

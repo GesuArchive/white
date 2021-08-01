@@ -19,6 +19,7 @@
 	show_in_antagpanel = FALSE
 	show_to_ghosts = TRUE
 	antag_moodlet = /datum/mood_event/focused
+	greentext_reward = 15
 
 /datum/antagonist/ert/on_gain()
 	if(random_names)
@@ -130,17 +131,20 @@
 	plasmaman_outfit = /datum/outfit/plasmaman/centcom_intern
 	random_names = TRUE
 	role = "Интерн"
+	greentext_reward = 10
 
 /datum/antagonist/ert/intern/leader
 	name = "CentCom Head Intern"
 	outfit = /datum/outfit/centcom/centcom_intern/leader
 	role = "Старший Интерн"
 	leader = TRUE
+	greentext_reward = 15
 
 /datum/antagonist/ert/clown
 	role = "Клоун"
 	outfit = /datum/outfit/centcom/ert/clown
 	plasmaman_outfit = /datum/outfit/plasmaman/party_comedian
+	greentext_reward = 10
 
 /datum/antagonist/ert/clown/New()
 	. = ..()
@@ -150,24 +154,29 @@
 	role = "Чистильщик"
 	outfit = /datum/outfit/centcom/ert/janitor/party
 	plasmaman_outfit = /datum/outfit/plasmaman/party_janitor
+	greentext_reward = 10
 
 /datum/antagonist/ert/security/party
 	role = "Вышибала"
 	outfit = /datum/outfit/centcom/ert/security/party
 	plasmaman_outfit = /datum/outfit/plasmaman/party_bouncer
+	greentext_reward = 10
 
 /datum/antagonist/ert/engineer/party
 	role = "Строитель"
 	outfit = /datum/outfit/centcom/ert/engineer/party
 	plasmaman_outfit = /datum/outfit/plasmaman/party_constructor
+	greentext_reward = 10
 
 /datum/antagonist/ert/clown/party
 	role = "Комик"
 	outfit = /datum/outfit/centcom/ert/clown/party
+	greentext_reward = 10
 
 /datum/antagonist/ert/commander/party
 	role = "Координатор тусы"
 	outfit = /datum/outfit/centcom/ert/commander/party
+	greentext_reward = 15
 
 /datum/antagonist/ert/create_team(datum/team/ert/new_team)
 	if(istype(new_team))
@@ -210,6 +219,7 @@
 	name = "Space Police Responder"
 	antag_hud_type = ANTAG_HUD_SPACECOP
 	antag_hud_name = "hud_spacecop"
+	greentext_reward = 20
 
 /datum/antagonist/ert/families/apply_innate_effects(mob/living/mob_override)
 	..()

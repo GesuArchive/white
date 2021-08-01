@@ -6,6 +6,7 @@ GLOBAL_LIST_INIT(thrall_spell_types, typecacheof(list(/obj/effect/proc_holder/sp
 	roundend_category = "thralls"
 	antagpanel_category = "Shadowlings"
 	antag_moodlet = /datum/mood_event/thrall
+	greentext_reward = 15
 
 /datum/antagonist/thrall/on_gain()
 	. = ..()

@@ -15,6 +15,7 @@
 	var/outfit_type = /datum/outfit/wizard
 	var/wiz_age = WIZARD_AGE_MIN /* Wizards by nature cannot be too young. */
 	show_to_ghosts = TRUE
+	greentext_reward = 20
 
 /datum/antagonist/wizard/on_gain()
 	register()

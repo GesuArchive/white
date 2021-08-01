@@ -92,6 +92,7 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 	antag_hud_type = ANTAG_HUD_DEVIL
 	antag_hud_name = "devil"
 	show_to_ghosts = TRUE
+	greentext_reward = 20
 	var/obligation
 	var/ban
 	var/bane

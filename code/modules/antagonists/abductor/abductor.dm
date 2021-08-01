@@ -24,6 +24,7 @@ GLOBAL_LIST_INIT(possible_abductor_names, list("Alpha","Beta","Gamma","Delta","E
 	landmark_type = /obj/effect/landmark/abductor/agent
 	greet_text = "Use your stealth technology and equipment to incapacitate humans for your scientist to retrieve."
 	show_in_antagpanel = TRUE
+	greentext_reward = 20
 
 /datum/antagonist/abductor/scientist
 	name = "Abductor Scientist"
@@ -32,10 +33,12 @@ GLOBAL_LIST_INIT(possible_abductor_names, list("Alpha","Beta","Gamma","Delta","E
 	landmark_type = /obj/effect/landmark/abductor/scientist
 	greet_text = "Use your experimental console and surgical equipment to monitor your agent and experiment upon abducted humans."
 	show_in_antagpanel = TRUE
+	greentext_reward = 15
 
 /datum/antagonist/abductor/scientist/onemanteam
 	name = "Abductor Solo"
 	outfit = /datum/outfit/abductor/scientist/onemanteam
+	greentext_reward = 20
 
 /datum/antagonist/abductor/create_team(datum/team/abductor_team/new_team)
 	if(!new_team)
@@ -172,6 +175,7 @@ GLOBAL_LIST_INIT(possible_abductor_names, list("Alpha","Beta","Gamma","Delta","E
 	antagpanel_category = "Abductee"
 	antag_hud_type = ANTAG_HUD_ABDUCTOR
 	antag_hud_name = "abductee"
+	greentext_reward = 10
 
 /datum/antagonist/abductee/on_gain()
 	give_objective()

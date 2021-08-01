@@ -4,6 +4,7 @@
 	antagpanel_category = "Blob"
 	show_to_ghosts = TRUE
 	job_rank = ROLE_BLOB
+	greentext_reward = 30
 
 	var/datum/action/innate/blobpop/pop_action
 	var/starting_points_human_blob = OVERMIND_STARTING_POINTS

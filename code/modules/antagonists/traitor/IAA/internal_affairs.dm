@@ -12,7 +12,7 @@
 	var/syndicate = FALSE
 	var/last_man_standing = FALSE
 	var/list/datum/mind/targets_stolen
-
+	greentext_reward = 15
 
 /datum/antagonist/traitor/internal_affairs/proc/give_pinpointer()
 	if(!owner)

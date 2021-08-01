@@ -3,6 +3,7 @@
 	show_in_antagpanel = FALSE
 	show_name_in_check_antagonists = TRUE
 	show_to_ghosts = TRUE
+	greentext_reward = 30
 
 /datum/antagonist/revenant/greet()
 	owner.announce_objectives()

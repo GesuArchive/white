@@ -11,6 +11,7 @@
 	show_to_ghosts = TRUE
 	var/datum/team/monkey/monkey_team
 	var/monkey_only = TRUE
+	greentext_reward = 30
 
 /datum/antagonist/monkey/can_be_owned(datum/mind/new_owner)
 	return ..() && (!monkey_only || ismonkey(new_owner.current))
@@ -94,6 +95,7 @@
 /datum/antagonist/monkey/leader
 	name = "Monkey Leader"
 	monkey_only = FALSE
+	greentext_reward = 40
 
 /datum/antagonist/monkey/leader/admin_add(datum/mind/new_owner,mob/admin)
 	var/mob/living/carbon/human/H = new_owner.current

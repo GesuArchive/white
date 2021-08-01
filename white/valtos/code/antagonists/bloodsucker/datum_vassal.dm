@@ -20,6 +20,7 @@
 	var/datum/antagonist/bloodsucker/master		// Who made me?
 	var/list/datum/action/powers = list()// Purchased powers
 	var/list/datum/objective/objectives_given = list()	// For removal if needed.
+	greentext_reward = 15
 
 /datum/antagonist/vassal/can_be_owned(datum/mind/new_owner)
 	// If we weren't created by a bloodsucker, then we cannot be a vassal (assigned from antag panel)

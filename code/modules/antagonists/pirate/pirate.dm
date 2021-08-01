@@ -5,6 +5,7 @@
 	antagpanel_category = "Pirate"
 	show_to_ghosts = TRUE
 	var/datum/team/pirate/crew
+	greentext_reward = 40
 
 /datum/antagonist/pirate/greet()
 	to_chat(owner, "<span class='boldannounce'>You are a Space Pirate!</span>")

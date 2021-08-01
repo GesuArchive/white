@@ -11,6 +11,7 @@
 	var/give_objectives = TRUE
 	///Whether or not this ninja receives the standard equipment
 	var/give_equipment = TRUE
+	greentext_reward = 30
 
 /datum/antagonist/ninja/apply_innate_effects(mob/living/mob_override)
 	var/mob/living/ninja = mob_override || owner.current

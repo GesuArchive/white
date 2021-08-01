@@ -5,6 +5,7 @@
 	antagpanel_category = "Shadowlings"
 	antag_moodlet = /datum/mood_event/sling
 	var/list/objectives_given = list()
+	greentext_reward = 30
 
 /datum/antagonist/shadowling/on_gain()
 	. = ..()

@@ -6,6 +6,7 @@
 	job_rank = ROLE_ALIEN
 	show_in_antagpanel = FALSE
 	show_to_ghosts = TRUE
+	greentext_reward = 40
 
 /datum/antagonist/slaughter/on_gain()
 	forge_objectives()
@@ -31,3 +32,4 @@
 /datum/antagonist/slaughter/laughter
 	name = "Демон смеха"
 	objective_verb = "Hug and Tickle"
+	greentext_reward = 35

@@ -7,6 +7,7 @@
 	var/hud_type = "gangster"
 	var/message_name = "Gangster"
 	var/datum/team/gang/gang
+	greentext_reward = 25
 
 /datum/antagonist/gang/can_be_owned(datum/mind/new_owner)
 	. = ..()
@@ -177,6 +178,7 @@
 	name = "Gang boss"
 	hud_type = "gang_boss"
 	message_name = "Leader"
+	greentext_reward = 40
 
 /datum/antagonist/gang/boss/on_gain()
 	..()

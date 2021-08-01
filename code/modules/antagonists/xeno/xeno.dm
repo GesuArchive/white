@@ -15,6 +15,7 @@
 	prevent_roundtype_conversion = FALSE
 	show_to_ghosts = TRUE
 	var/datum/team/xeno/xeno_team
+	greentext_reward = 30
 
 /datum/antagonist/xeno/create_team(datum/team/xeno/new_team)
 	if(!new_team)

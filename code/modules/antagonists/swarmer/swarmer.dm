@@ -15,6 +15,7 @@
 	show_in_antagpanel = FALSE
 	prevent_roundtype_conversion = FALSE
 	var/datum/team/swarmer/swarmer_team
+	greentext_reward = 15
 
 /datum/antagonist/swarmer/create_team(datum/team/swarmer/new_team)
 	if(!new_team)

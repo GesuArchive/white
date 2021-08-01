@@ -100,6 +100,7 @@
 	show_in_antagpanel = TRUE
 	roundend_category = "Ruin VIPs"
 	antagpanel_category = "Other"
+	greentext_reward = 25
 
 /datum/outfit/vip_dictator
 	name = "Dictator VIP"

@@ -48,6 +48,7 @@
 	antag_hud_type = ANTAG_HUD_FUGITIVE
 	antag_hud_name = "fugitive_hunter"
 	var/datum/team/shizoid_team/shizoid_team
+	greentext_reward = 10
 
 /datum/antagonist/shizoid/apply_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current

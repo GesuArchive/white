@@ -12,6 +12,7 @@
 	antag_hud_type = ANTAG_HUD_REV
 	antag_hud_name = "rev"
 	var/datum/team/revolution/rev_team
+	greentext_reward = 20
 
 	/// What message should the player receive when they are being demoted, and the revolution has won?
 	var/victory_message = "The revolution has overpowered the command staff! Viva la revolution! Execute any head of staff and security should you find them alive."
@@ -159,6 +160,7 @@
 	var/remove_clumsy = FALSE
 	var/give_flash = FALSE
 	var/give_hud = TRUE
+	greentext_reward = 25
 
 /datum/antagonist/rev/head/on_removal()
 	if(give_hud)
@@ -284,6 +286,7 @@
 /datum/antagonist/revolution_enemy
 	name = "Enemy of the Revolution"
 	show_in_antagpanel = FALSE
+	greentext_reward = 30
 
 /datum/antagonist/revolution_enemy/on_gain()
 	owner.special_role = "revolution enemy"

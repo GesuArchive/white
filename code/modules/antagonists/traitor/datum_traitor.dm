@@ -18,6 +18,7 @@
 	var/should_equip = TRUE
 	var/traitor_kind = TRAITOR_HUMAN //Set on initial assignment
 	var/datum/contractor_hub/contractor_hub
+	greentext_reward = 10
 
 /datum/antagonist/traitor/on_gain()
 	if(owner.current && isAI(owner.current))

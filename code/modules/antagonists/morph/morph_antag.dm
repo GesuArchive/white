@@ -9,6 +9,7 @@
 							In addition, anyone within three tiles will note an uncanny wrongness if examining you. \
 							You can attack any item or dead creature to consume it - creatures will restore your health. \
 							Finally, you can restore yourself to your original form while morphed by shift-clicking yourself."
+	greentext_reward = 20
 
 /datum/antagonist/morph/on_gain()
 	to_chat(owner.current, playstyle_string)

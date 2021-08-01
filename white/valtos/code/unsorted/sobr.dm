@@ -12,12 +12,14 @@
 	outfit = /datum/outfit/sobr
 	random_names = TRUE
 	role = "Отряд СОБР"
+	greentext_reward = 15
 
 /datum/antagonist/ert/sobr/leader
 	name = "Лидер СОБР"
 	outfit = /datum/outfit/sobr/leader
 	role = "Лидер отряда СОБР"
 	leader = TRUE
+	greentext_reward = 20
 
 /datum/antagonist/ert/sobr/update_name()
 	owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Рядовой", "Ефрейтор", "Сержант")] [pick(name_source)]")

@@ -9,6 +9,7 @@
 	antag_hud_name = "fugitive_hunter"
 	var/datum/team/fugitive_hunters/hunter_team
 	var/backstory = "error"
+	greentext_reward = 30
 
 /datum/antagonist/fugitive_hunter/apply_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current

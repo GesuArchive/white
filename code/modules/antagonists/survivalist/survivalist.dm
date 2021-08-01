@@ -3,6 +3,7 @@
 	show_in_antagpanel = FALSE
 	show_name_in_check_antagonists = TRUE
 	var/greet_message = ""
+	greentext_reward = 5
 
 /datum/antagonist/survivalist/proc/forge_objectives()
 	var/datum/objective/survive/survive = new

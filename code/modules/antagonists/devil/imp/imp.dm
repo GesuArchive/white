@@ -48,6 +48,7 @@
 	name = "Imp"
 	antagpanel_category = "Devil"
 	show_in_roundend = FALSE
+	greentext_reward = 5
 
 /datum/antagonist/imp/on_gain()
 	. = ..()

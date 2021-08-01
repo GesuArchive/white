@@ -11,6 +11,7 @@
 	antag_hud_type = ANTAG_HUD_CHANGELING
 	antag_hud_name = "changeling"
 	hijack_speed = 0.5
+	greentext_reward = 30
 	var/you_are_greet = TRUE
 	var/give_objectives = TRUE
 	var/competitive_objectives = FALSE //Should we assign objectives in competition with other lings?
@@ -541,6 +542,7 @@
 	give_objectives = FALSE
 	show_in_roundend = FALSE //These are here for admin tracking purposes only
 	you_are_greet = FALSE
+	greentext_reward = 10
 
 /datum/antagonist/changeling/roundend_report()
 	var/list/parts = list()

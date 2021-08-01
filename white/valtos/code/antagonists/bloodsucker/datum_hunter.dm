@@ -12,6 +12,7 @@
 	var/list/datum/objective/objectives_given = list()	// For removal if needed.
 	var/datum/martial_art/my_kungfu // Hunters know a lil kung fu.
 	var/bad_dude = FALSE  	// Every first hunter spawned is a SHIT LORD.
+	greentext_reward = 20
 
 
 /datum/antagonist/vamphunter/on_gain()

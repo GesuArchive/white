@@ -17,6 +17,7 @@
 	var/ignore_implant = FALSE
 	var/give_equipment = FALSE
 	var/datum/team/cult/cult_team
+	greentext_reward = 20
 
 
 /datum/antagonist/cult/get_team()
@@ -186,6 +187,7 @@
 	var/datum/action/innate/cult/master/finalreck/reckoning = new
 	var/datum/action/innate/cult/master/cultmark/bloodmark = new
 	var/datum/action/innate/cult/master/pulse/throwing = new
+	greentext_reward = 50
 
 /datum/antagonist/cult/master/Destroy()
 	QDEL_NULL(reckoning)

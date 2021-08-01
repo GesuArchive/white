@@ -11,6 +11,7 @@
 	prevent_roundtype_conversion = FALSE
 	antagpanel_category = "Ash Walkers"
 	var/datum/team/ashwalkers/ashie_team
+	greentext_reward = 5
 
 /datum/antagonist/ashwalker/create_team(datum/team/team)
 	if(team)

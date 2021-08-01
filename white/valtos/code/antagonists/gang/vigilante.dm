@@ -4,6 +4,7 @@
 	antagpanel_category = "Vigilante"
 	job_rank = ROLE_GANG
 	var/datum/team/vigilante/batman
+	greentext_reward = 30
 
 /datum/antagonist/vigilante/on_gain()
 	. = ..()

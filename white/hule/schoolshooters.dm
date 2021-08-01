@@ -95,6 +95,7 @@
 	show_in_antagpanel = FALSE
 	show_to_ghosts = TRUE
 	var/datum/team/schoolshooters/team
+	greentext_reward = 20
 
 /datum/antagonist/schoolshooter/create_team(datum/team/abductor_team/new_team)
 	if(!new_team)

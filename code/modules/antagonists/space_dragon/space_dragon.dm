@@ -7,6 +7,7 @@
 	show_name_in_check_antagonists = TRUE
 	show_to_ghosts = TRUE
 	var/list/datum/mind/carp = list()
+	greentext_reward = 35
 
 /datum/antagonist/space_dragon/greet()
 	to_chat(owner, "<b>Мы движемся через бесконечное время и пространство. Мы не помним откуда мы пришли и не знаем куда мы пойдем. Весь космос принадлежит нам.\n\

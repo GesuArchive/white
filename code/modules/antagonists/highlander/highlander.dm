@@ -4,6 +4,7 @@
 	show_in_antagpanel = FALSE
 	show_name_in_check_antagonists = TRUE
 	can_elimination_hijack = ELIMINATION_ENABLED
+	greentext_reward = 50
 
 /datum/antagonist/highlander/apply_innate_effects(mob/living/mob_override)
 	var/mob/living/L = owner.current || mob_override
@@ -83,6 +84,7 @@
 
 /datum/antagonist/highlander/robot
 	name="highlander"
+	greentext_reward = 100
 
 /datum/antagonist/highlander/robot/greet()
 	to_chat(owner, "<span class='boldannounce'>Your integrated claymore cries out for blood. Claim the lives of others, and your own will be restored!\n\

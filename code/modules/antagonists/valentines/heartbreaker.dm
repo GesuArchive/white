@@ -3,7 +3,7 @@
 	roundend_category = "valentines"
 	show_in_antagpanel = FALSE
 	show_name_in_check_antagonists = TRUE
-
+	greentext_reward = 10
 
 /datum/antagonist/heartbreaker/proc/forge_objectives()
 	var/datum/objective/martyr/normiesgetout = new
