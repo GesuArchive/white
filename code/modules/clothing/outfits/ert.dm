@@ -482,7 +482,7 @@
 	suit_store = /obj/item/storage/belt/holster/detective/full/ert
 	back = /obj/item/storage/backpack/ert/medical
 	r_pocket = /obj/item/healthanalyzer
-	mask = /obj/item/food/lollipop
+	mask = /obj/item/food/chewable/lollipop
 	head = /obj/item/clothing/head/helmet/marine/medic
 	backpack_contents = list(
 		/obj/item/reagent_containers/hypospray/combat = 1,
@@ -513,13 +513,13 @@
 	head = /obj/item/clothing/head/helmet/marine/engineer
 	back = /obj/item/storage/backpack/ert/engineer
 	backpack_contents = list(
-		/obj/item/construction/rcd/loaded/upgraded = 1,
+		/obj/item/construction/rcd/loaded/combat = 1,
 		/obj/item/pipe_dispenser = 1,
 		/obj/item/storage/box/lethalshot = 1,
 		/obj/item/grenade/c4 = 3,
 )
 	uniform = /obj/item/clothing/under/syndicate/camo
-	belt = /obj/item/storage/belt/utility/full/powertools
+	belt = /obj/item/storage/belt/utility/full/engi
 	glasses =  /obj/item/clothing/glasses/welding
 	r_pocket = /obj/item/rcd_ammo/large
 
