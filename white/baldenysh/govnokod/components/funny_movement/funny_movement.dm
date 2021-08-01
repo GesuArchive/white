@@ -35,29 +35,37 @@
 	var/atom/movable/AM = parent
 	AM.animate_movement = NO_STEPS // we do our own gliding here
 	START_PROCESSING(SSfastprocess, src)
+	RegisterSignal(parent, COMSIG_MOVABLE_BUMP, .proc/on_bump)
 
 /datum/component/funny_movement/UnregisterFromParent()
 	var/atom/movable/AM = parent
 	AM.animate_movement = initial(AM.animate_movement)
 	STOP_PROCESSING(SSfastprocess, src)
+	UnregisterSignal(parent, COMSIG_MOVABLE_BUMP)
 
 /datum/component/funny_movement/Destroy(force, silent)
 	. = ..()
 	var/atom/movable/AM = parent
 	AM.animate_movement = initial(AM.animate_movement)
 
-/datum/component/funny_movement/proc/on_bump(..., atom/A)
+/datum/component/funny_movement/proc/on_bump(datum/source, atom/A)
 	var/atom/movable/AM = parent
 	var/bump_velocity = 0
 	if(AM.dir & (NORTH|SOUTH))
 		bump_velocity = abs(velocity_y) + (abs(velocity_x) / 15)
 	else
 		bump_velocity = abs(velocity_x) + (abs(velocity_y) / 15)
-
+	if(istype(A, /obj/machinery/door/airlock)) // try to open doors
+		var/obj/machinery/door/D = A
+		if(!D.operating)
+			if(D.allowed())
+				spawn(0)
+					D.open()
+			else
+				D.do_animate("deny")
 	var/atom/movable/bumped = A
 	if(istype(bumped) && !bumped.anchored && bump_velocity > 1)
 		step(bumped, AM.dir)
-
 
 /datum/component/funny_movement/process(delta_time)
 	SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_PROCESSING_START)
@@ -83,7 +91,6 @@
 			desired_angular_velocity = -2 * sqrt((angle - desired_angle) * max_angular_acceleration * 0.25)
 
 	var/angular_velocity_adjustment = clamp(desired_angular_velocity - angular_velocity, -max_angular_acceleration*delta_time, max_angular_acceleration*delta_time)
-
 	if(angular_velocity_adjustment && !(SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_AVADJ, angular_velocity_adjustment) & COMPONENT_FUNNY_MOVEMENT_BLOCK_AVADJ))
 		last_rotate = angular_velocity_adjustment / delta_time
 		angular_velocity += angular_velocity_adjustment
