@@ -1,4 +1,7 @@
 
+//mob signals
+#define COMSIG_MOB_CLIENT_MOUSE_ENTERED "mob_mouse_entered"
+
 //funny movement signals
 
 #define COMSIG_FUNNY_MOVEMENT_AVADJ "funny_movement_angular_velocity_adjustment"

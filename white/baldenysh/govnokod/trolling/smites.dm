@@ -1,5 +1,5 @@
 /datum/smite/human_rocket_click
-	name = "Human Rocket (Point&Click)"
+	name = "Human Rocket (Point Controls)"
 /datum/smite/human_rocket_click/effect(client/user, mob/living/target)
 	. = ..()
 	target.AddComponent(/datum/component/human_rocket)
