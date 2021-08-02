@@ -107,12 +107,13 @@
 		reward.name = "[reward.name] [reward.bounty_value] кредит[get_num_string(reward.bounty_value)] "
 		reward.desc += " Бирка указывает, что этот куб принадлежит [reward.bounty_holder] за выполнение заказа <i>[reward.bounty_name]</i> которые было принято в [station_time_timestamp(format = "hh:mm")]."
 		reward.AddComponent(/datum/component/pricetag, inserted_scan_id.registered_account, CIV_BOUNTY_SPLIT)
-		if(curr_bounty.reward <= 10000)
-			inc_metabalance(usr, METACOIN_BOUNTY_REWARD_EASY, reason="Лёгкий заказ выполнен!")
-		if(curr_bounty.reward >= 10001 && curr_bounty.reward <= 20000)
-			inc_metabalance(usr, METACOIN_BOUNTY_REWARD_NORMAL, reason="Обычный заказ выполнен!")
-		if(curr_bounty.reward >= 20001)
-			inc_metabalance(usr, METACOIN_BOUNTY_REWARD_HARD, reason="Сложный заказ выполнен!")
+		switch(curr_bounty.reward)
+			if(1 to 10 * CARGO_CRATE_VALUE)
+				inc_metabalance(usr, METACOIN_BOUNTY_REWARD_EASY, reason="Лёгкий заказ выполнен!")
+			if(10 * CARGO_CRATE_VALUE + 1 to 50 * CARGO_CRATE_VALUE)
+				inc_metabalance(usr, METACOIN_BOUNTY_REWARD_NORMAL, reason="Обычный заказ выполнен!")
+			if(50 * CARGO_CRATE_VALUE + 1 to INFINITY)
+				inc_metabalance(usr, METACOIN_BOUNTY_REWARD_HARD, reason="Сложный заказ выполнен!")
 	pad.visible_message("<span class='notice'>[capitalize(pad.name)] активируется!</span>")
 	flick(pad.sending_state,pad)
 	pad.icon_state = pad.idle_state
