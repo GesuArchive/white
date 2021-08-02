@@ -29,6 +29,7 @@
 	var/default_dir = SOUTH
 	var/icon_dir_num = 0 //отвечает за вращение на спрайте/трансформом. 0 - отсутствие вращения на спрайте
 	var/original_animate_movement
+	var/list/client/affected_viewers = list()
 
 /datum/component/funny_movement/Initialize()
 	if(!ismovable(parent))
@@ -267,15 +268,21 @@
 	AM.pixel_y = AM.base_pixel_y + last_offset_y*32
 	animate(AM, transform=mat_to, pixel_x = AM.base_pixel_x + offset_x*32, pixel_y = AM.base_pixel_y + offset_y*32, time = delta_time*10, flags=ANIMATION_END_NOW)
 
-	var/list/smooth_viewers = AM.contents | AM
+	var/list/possible_smooth_viewers = AM.contents | AM
 	if(AM.orbiters && AM.orbiters.orbiter_list)
-		smooth_viewers |= AM.orbiters.orbiter_list
-	for(var/mob/M in smooth_viewers)
+		possible_smooth_viewers |= AM.orbiters.orbiter_list
+	for(var/client/C in affected_viewers)
+		if(!(C.mob in possible_smooth_viewers))
+			animate(C, pixel_x = 0, pixel_y = 0, time = delta_time*10, flags=ANIMATION_END_NOW)
+	affected_viewers = list()
+	for(var/mob/M in possible_smooth_viewers)
 		var/client/C = M.client
 		if(!C)
 			continue
+		affected_viewers.Add(C)
 		C.pixel_x = last_offset_x*32
 		C.pixel_y = last_offset_y*32
 		animate(C, pixel_x = offset_x*32, pixel_y = offset_y*32, time = delta_time*10, flags=ANIMATION_END_NOW)
+
 
 	SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_PROCESSING_FINISH)
