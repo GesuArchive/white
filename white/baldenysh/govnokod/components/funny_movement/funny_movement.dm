@@ -24,6 +24,8 @@
 	var/bounce_factor = 0.2 // how much of our velocity to keep on collision
 	var/lateral_bounce_factor = 0.95 // mostly there to slow you down when you drive (pilot?) down a 2x2 corridor
 
+	var/ground_drag = 0.5
+
 	var/default_dir = SOUTH
 	var/icon_dir_num = 0 //отвечает за вращение на спрайте/трансформом. 0 - отсутствие вращения на спрайте
 	var/original_animate_movement
@@ -103,20 +105,11 @@
 		for(var/turf/T in AM.locs)
 			if(isspaceturf(T))
 				continue
-
 			//ground drag
 			if(AM.movement_type & GROUND)
 				drag += 0.001
 				if((T.has_gravity()) || brakes) // brakes are a kind of magboots okay?
-					drag += is_mining_level(AM.z) ? 0.1 : 0.5 // some serious drag. Damn. Except lavaland, it has less gravity or something
-					/*
-					if(velocity_mag > 5 && prob(velocity_mag * 4) && istype(T, /turf/open/floor))
-						var/turf/open/floor/TF = T
-						TF.make_plating() // pull up some floor tiles. Stop going so fast, ree.
-						//take_damage(3, BRUTE, "melee", FALSE)
-					*/
-
-
+					drag += ground_drag
 			//air drag
 			if(!(AM.movement_type & PHASING))
 				var/datum/gas_mixture/env = T.return_air()
