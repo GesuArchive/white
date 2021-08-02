@@ -246,7 +246,7 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		pod_armor = null
 		update_icon()
 
-
+/*
 /obj/spacepod/proc/InterceptClickOn(mob/user, params, atom/target)
 	var/list/params_list = params2list(params)
 	if(target == src || istype(target, /atom/movable/screen) || (target && (target in user.GetAllContents())) || user != pilot || params_list["shift"] || params_list["alt"])
@@ -268,6 +268,26 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		else
 			return FALSE
 	return TRUE
+*/
+
+/obj/spacepod/proc/on_mouse_entered(mob/user, object, location, control, params)
+	var/list/modifiers = params2list(params)
+	if(object == src || /*istype(object, /atom/movable/screen) ||*/ (object && (object in user.GetAllContents())) || user != pilot/* || modifiers["shift"] || modifiers["alt"]*/)
+		return
+	if(weapon && modifiers["ctrl"])
+		weapon.fire_weapons(object)
+	else
+		//desired_angle = Get_Angle(src, object)
+		var/list/sl_list = splittext(modifiers["screen-loc"],",")
+		var/list/sl_x_list = splittext(sl_list[1], ":")
+		var/list/sl_y_list = splittext(sl_list[2], ":")
+		var/list/view_list = isnum(pilot.client.view) ? list("[pilot.client.view*2+1]","[pilot.client.view*2+1]") : splittext(pilot.client.view, "x")
+		var/dx = text2num(sl_x_list[1]) + (text2num(sl_x_list[2]) / world.icon_size) - 1 - text2num(view_list[1]) / 2
+		var/dy = text2num(sl_y_list[1]) + (text2num(sl_y_list[2]) / world.icon_size) - 1 - text2num(view_list[2]) / 2
+		if(sqrt(dx*dx+dy*dy) > 1)
+			desired_angle = 90 - ATAN2(dx, dy)
+		else
+			desired_angle = null
 
 /obj/spacepod/take_damage()
 	..()
@@ -646,7 +666,8 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		return FALSE
 	if(!pilot && allow_pilot)
 		pilot = M
-		M.click_intercept = src
+		//M.click_intercept = src
+		RegisterSignal(M, COMSIG_MOB_CLIENT_MOUSE_ENTERED, .proc/on_mouse_entered)
 		addverbs(M)
 		ADD_TRAIT(M, TRAIT_HANDS_BLOCKED, VEHICLE_TRAIT)
 		if(M.client)
@@ -670,8 +691,9 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		REMOVE_TRAIT(M, TRAIT_HANDS_BLOCKED, VEHICLE_TRAIT)
 		if(M.client)
 			M.client.view_size.resetToDefault()
-		if(M.click_intercept == src)
-			M.click_intercept = null
+		UnregisterSignal(M, COMSIG_MOB_CLIENT_MOUSE_ENTERED)
+		//if(M.click_intercept == src)
+		//	M.click_intercept = null
 		desired_angle = null // since there's no pilot there's no one aiming it.
 	else if(M in passengers)
 		passengers -= M
