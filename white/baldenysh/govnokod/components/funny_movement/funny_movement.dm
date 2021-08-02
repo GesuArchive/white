@@ -37,24 +37,33 @@
 	original_animate_movement = AM.animate_movement
 	AM.animate_movement = NO_STEPS // we do our own gliding here
 	START_PROCESSING(SSfastprocess, src)
-	//RegisterSignal(parent, COMSIG_MOVABLE_BUMP, .proc/on_bump)
+	RegisterSignal(parent, COMSIG_ATOM_BUMPED, .proc/on_bumped)
 
 /datum/component/funny_movement/UnregisterFromParent()
 	var/atom/movable/AM = parent
 	AM.animate_movement = original_animate_movement
 	STOP_PROCESSING(SSfastprocess, src)
-	//UnregisterSignal(parent, COMSIG_MOVABLE_BUMP)
+	UnregisterSignal(parent, COMSIG_ATOM_BUMPED)
 
-/datum/component/funny_movement/proc/on_bump(datum/source, atom/A)
-	var/atom/movable/AM = parent
+/datum/component/funny_movement/proc/on_bump(atom/movable/source, atom/A)
 	var/bump_velocity = 0
-	if(AM.dir & (NORTH|SOUTH))
+	if(source.dir & (NORTH|SOUTH))
 		bump_velocity = abs(velocity_y) + (abs(velocity_x) / 15)
 	else
 		bump_velocity = abs(velocity_x) + (abs(velocity_y) / 15)
 	var/atom/movable/bumped = A
 	if(istype(bumped) && !bumped.anchored && bump_velocity > 1)
-		step(bumped, AM.dir)
+		step(bumped, source.dir)
+
+/datum/component/funny_movement/proc/on_bumped(atom/movable/source, atom/movable/A)
+	if(A.dir & NORTH)
+		velocity_y += bump_impulse
+	if(A.dir & SOUTH)
+		velocity_y -= bump_impulse
+	if(A.dir & EAST)
+		velocity_x += bump_impulse
+	if(A.dir & WEST)
+		velocity_x -= bump_impulse
 
 /datum/component/funny_movement/process(delta_time)
 	SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_PROCESSING_START)
