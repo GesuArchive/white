@@ -7,7 +7,7 @@
 
 /datum/component/human_rocket/RegisterWithParent()
 	mymovement = parent.AddComponent(/datum/component/funny_movement)
-	mymovement.forward_maxthrust = 3
+	mymovement.maxthrust_forward = 3
 	RegisterSignal(parent, COMSIG_MOB_CLICKON, .proc/on_click)
 
 /datum/component/human_rocket/UnregisterFromParent()
@@ -16,6 +16,9 @@
 
 /datum/component/human_rocket/proc/on_click(mob/living/pilot, atom/A, params)
 	SIGNAL_HANDLER
+	if(!mymovement)
+		qdel(src)
+		return
 
 	var/list/modifiers = params2list(params)
 	if(modifiers["ctrl"])
@@ -41,7 +44,7 @@
 
 /datum/component/human_rocket/tank_controls/RegisterWithParent()
 	mymovement = parent.AddComponent(/datum/component/funny_movement)
-	mymovement.forward_maxthrust = 3
+	mymovement.maxthrust_forward = 3
 	RegisterSignal(mymovement, COMSIG_FUNNY_MOVEMENT_PROCESSING_START, .proc/premove)
 	RegisterSignal(mymovement, COMSIG_FUNNY_MOVEMENT_PROCESSING_FINISH, .proc/moved)
 
@@ -73,26 +76,9 @@
 	if(movement_dir & SOUTH)
 		mymovement.desired_thrust_dir |= SOUTH
 	if(movement_dir & WEST)
-		mymovement.desired_angle -= rotation
+		mymovement.desired_angle = mymovement.angle - rotation
 	if(movement_dir & EAST)
-		mymovement.desired_angle += rotation
+		mymovement.desired_angle = mymovement.angle + rotation
 
 /datum/component/human_rocket/tank_controls/proc/moved()
 	mymovement.desired_thrust_dir = 0
-
-////////////////////////////////////////////////////// smites
-
-/datum/smite/human_rocket_click
-	name = "Human Rocket (Point&Click)"
-
-/datum/smite/human_rocket_click/effect(client/user, mob/living/target)
-	. = ..()
-	target.AddComponent(/datum/component/human_rocket)
-
-
-/datum/smite/human_rocket_tank_controls
-	name = "Human Rocket (Tank Controls)"
-
-/datum/smite/human_rocket_tank_controls/effect(client/user, mob/living/target)
-	. = ..()
-	target.AddComponent(/datum/component/human_rocket/tank_controls)

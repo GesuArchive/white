@@ -14,18 +14,22 @@
 
 	var/brakes = FALSE//TRUE
 	var/desired_thrust_dir = 0
-	var/desired_angle = null // set by pilot moving his mouse
+	var/desired_angle = null
 
-	var/forward_maxthrust = 1
-	var/backward_maxthrust = 1
-	var/side_maxthrust = 1
+	var/maxthrust_forward = 1
+	var/maxthrust_backward = 1
+	var/maxthrust_sides = 1
 
 	var/bump_impulse = 0.6
 	var/bounce_factor = 0.2 // how much of our velocity to keep on collision
 	var/lateral_bounce_factor = 0.95 // mostly there to slow you down when you drive (pilot?) down a 2x2 corridor
 
+	var/ground_drag = 0.5
+
 	var/default_dir = SOUTH
 	var/icon_dir_num = 0 //отвечает за вращение на спрайте/трансформом. 0 - отсутствие вращения на спрайте
+	var/original_animate_movement
+	var/list/client/affected_viewers = list()
 
 /datum/component/funny_movement/Initialize()
 	if(!ismovable(parent))
@@ -33,31 +37,36 @@
 
 /datum/component/funny_movement/RegisterWithParent()
 	var/atom/movable/AM = parent
+	original_animate_movement = AM.animate_movement
 	AM.animate_movement = NO_STEPS // we do our own gliding here
 	START_PROCESSING(SSfastprocess, src)
+	//RegisterSignal(parent, COMSIG_ATOM_BUMPED, .proc/on_bumped)
 
 /datum/component/funny_movement/UnregisterFromParent()
 	var/atom/movable/AM = parent
-	AM.animate_movement = initial(AM.animate_movement)
+	AM.animate_movement = original_animate_movement
 	STOP_PROCESSING(SSfastprocess, src)
+	//UnregisterSignal(parent, COMSIG_ATOM_BUMPED)
 
-/datum/component/funny_movement/Destroy(force, silent)
-	. = ..()
-	var/atom/movable/AM = parent
-	AM.animate_movement = initial(AM.animate_movement)
-
-/datum/component/funny_movement/proc/on_bump(..., atom/A)
-	var/atom/movable/AM = parent
+/datum/component/funny_movement/proc/on_bump(atom/movable/source, atom/A)
 	var/bump_velocity = 0
-	if(AM.dir & (NORTH|SOUTH))
+	if(source.dir & (NORTH|SOUTH))
 		bump_velocity = abs(velocity_y) + (abs(velocity_x) / 15)
 	else
 		bump_velocity = abs(velocity_x) + (abs(velocity_y) / 15)
-
 	var/atom/movable/bumped = A
 	if(istype(bumped) && !bumped.anchored && bump_velocity > 1)
-		step(bumped, AM.dir)
+		step(bumped, source.dir)
 
+/datum/component/funny_movement/proc/on_bumped(atom/movable/source, atom/movable/A)
+	if(A.dir & NORTH)
+		velocity_y += bump_impulse
+	if(A.dir & SOUTH)
+		velocity_y -= bump_impulse
+	if(A.dir & EAST)
+		velocity_x += bump_impulse
+	if(A.dir & WEST)
+		velocity_x -= bump_impulse
 
 /datum/component/funny_movement/process(delta_time)
 	SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_PROCESSING_START)
@@ -83,7 +92,6 @@
 			desired_angular_velocity = -2 * sqrt((angle - desired_angle) * max_angular_acceleration * 0.25)
 
 	var/angular_velocity_adjustment = clamp(desired_angular_velocity - angular_velocity, -max_angular_acceleration*delta_time, max_angular_acceleration*delta_time)
-
 	if(angular_velocity_adjustment && !(SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_AVADJ, angular_velocity_adjustment) & COMPONENT_FUNNY_MOVEMENT_BLOCK_AVADJ))
 		last_rotate = angular_velocity_adjustment / delta_time
 		angular_velocity += angular_velocity_adjustment
@@ -98,20 +106,11 @@
 		for(var/turf/T in AM.locs)
 			if(isspaceturf(T))
 				continue
-
 			//ground drag
 			if(AM.movement_type & GROUND)
 				drag += 0.001
 				if((T.has_gravity()) || brakes) // brakes are a kind of magboots okay?
-					drag += is_mining_level(AM.z) ? 0.1 : 0.5 // some serious drag. Damn. Except lavaland, it has less gravity or something
-					/*
-					if(velocity_mag > 5 && prob(velocity_mag * 4) && istype(T, /turf/open/floor))
-						var/turf/open/floor/TF = T
-						TF.make_plating() // pull up some floor tiles. Stop going so fast, ree.
-						//take_damage(3, BRUTE, "melee", FALSE)
-					*/
-
-
+					drag += ground_drag
 			//air drag
 			if(!(AM.movement_type & PHASING))
 				var/datum/gas_mixture/env = T.return_air()
@@ -143,29 +142,29 @@
 		// basically calculates how much we can brake using the thrust
 		var/forward_thrust = -((fx * velocity_x) + (fy * velocity_y)) / delta_time
 		var/right_thrust = -((sx * velocity_x) + (sy * velocity_y)) / delta_time
-		forward_thrust = clamp(forward_thrust, -backward_maxthrust, forward_maxthrust)
-		right_thrust = clamp(right_thrust, -side_maxthrust, side_maxthrust)
+		forward_thrust = clamp(forward_thrust, -maxthrust_backward, maxthrust_forward)
+		right_thrust = clamp(right_thrust, -maxthrust_sides, maxthrust_sides)
 		thrust_x += forward_thrust * fx + right_thrust * sx;
 		thrust_y += forward_thrust * fy + right_thrust * sy;
 		last_thrust_forward = forward_thrust
 		last_thrust_right = right_thrust
 	else // want some sort of help piloting the ship? Haha no fuck you do it yourself
 		if(desired_thrust_dir & NORTH)
-			thrust_x += fx * forward_maxthrust
-			thrust_y += fy * forward_maxthrust
-			last_thrust_forward = forward_maxthrust
+			thrust_x += fx * maxthrust_forward
+			thrust_y += fy * maxthrust_forward
+			last_thrust_forward = maxthrust_forward
 		if(desired_thrust_dir & SOUTH)
-			thrust_x -= fx * backward_maxthrust
-			thrust_y -= fy * backward_maxthrust
-			last_thrust_forward = -backward_maxthrust
+			thrust_x -= fx * maxthrust_backward
+			thrust_y -= fy * maxthrust_backward
+			last_thrust_forward = -maxthrust_backward
 		if(desired_thrust_dir & EAST)
-			thrust_x += sx * side_maxthrust
-			thrust_y += sy * side_maxthrust
-			last_thrust_right = side_maxthrust
+			thrust_x += sx * maxthrust_sides
+			thrust_y += sy * maxthrust_sides
+			last_thrust_right = maxthrust_sides
 		if(desired_thrust_dir & WEST)
-			thrust_x -= sx * side_maxthrust
-			thrust_y -= sy * side_maxthrust
-			last_thrust_right = -side_maxthrust
+			thrust_x -= sx * maxthrust_sides
+			thrust_y -= sy * maxthrust_sides
+			last_thrust_right = -maxthrust_sides
 
 	if(!(SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_ACCELERATION) & COMPONENT_FUNNY_MOVEMENT_BLOCK_ACCELERATION))
 		velocity_x += thrust_x * delta_time
@@ -269,15 +268,21 @@
 	AM.pixel_y = AM.base_pixel_y + last_offset_y*32
 	animate(AM, transform=mat_to, pixel_x = AM.base_pixel_x + offset_x*32, pixel_y = AM.base_pixel_y + offset_y*32, time = delta_time*10, flags=ANIMATION_END_NOW)
 
-	var/list/smooth_viewers = AM.contents | AM
+	var/list/possible_smooth_viewers = AM.contents | AM
 	if(AM.orbiters && AM.orbiters.orbiter_list)
-		smooth_viewers |= AM.orbiters.orbiter_list
-	for(var/mob/M in smooth_viewers)
+		possible_smooth_viewers |= AM.orbiters.orbiter_list
+	for(var/client/C in affected_viewers)
+		if(!(C.mob in possible_smooth_viewers))
+			animate(C, pixel_x = 0, pixel_y = 0, time = delta_time*10, flags=ANIMATION_END_NOW)
+	affected_viewers = list()
+	for(var/mob/M in possible_smooth_viewers)
 		var/client/C = M.client
 		if(!C)
 			continue
-		C.pixel_x = AM.base_pixel_x + last_offset_x*32
-		C.pixel_y = AM.base_pixel_y + last_offset_y*32
-		animate(C, pixel_x = AM.base_pixel_x + offset_x*32, pixel_y = AM.base_pixel_y + offset_y*32, time = delta_time*10, flags=ANIMATION_END_NOW)
+		affected_viewers.Add(C)
+		C.pixel_x = last_offset_x*32
+		C.pixel_y = last_offset_y*32
+		animate(C, pixel_x = offset_x*32, pixel_y = offset_y*32, time = delta_time*10, flags=ANIMATION_END_NOW)
+
 
 	SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_PROCESSING_FINISH)

@@ -928,10 +928,8 @@
 /obj/effect/turf_decal/box,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/suit/armor/vest/m35/black,
-/obj/item/clothing/head/hijab/black,
 /obj/item/clothing/mask/gas/germanfull,
 /obj/item/tank/internals/emergency_oxygen/double,
-/obj/item/clothing/under/blackutility,
 /obj/item/clothing/gloves/color/black,
 /obj/item/card/id/advanced/black/syndicate_command,
 /turf/open/floor/partyhard/steel{
@@ -946,10 +944,8 @@
 	amount = 30
 	},
 /obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/head/hijab/black,
 /obj/item/clothing/mask/gas/germanfull,
 /obj/item/tank/internals/emergency_oxygen/double,
-/obj/item/clothing/under/blackutility,
 /obj/item/clothing/gloves/color/black,
 /obj/item/card/id/advanced/black/syndicate_command,
 /turf/open/floor/partyhard/steel{

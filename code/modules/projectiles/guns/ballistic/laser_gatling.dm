@@ -108,7 +108,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	custom_materials = null
 	burst_size = 3
-	automatic = 0
+	automatic = 1
 	fire_delay = 1
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'sound/weapons/laser.ogg'

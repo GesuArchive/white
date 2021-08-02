@@ -81,7 +81,7 @@
 
 /datum/buildmode_mode/spawnandthrow/handle_click(client/c, params, obj/object)
 	var/list/pa = params2list(params)
-	var/left_click = pa.Find("left")
+	//var/left_click = pa.Find("left")
 	var/middle_click = pa.Find("middle")
 	var/right_click = pa.Find("right")
 	var/alt_click = pa.Find("alt")
@@ -98,8 +98,6 @@
 
 	if(isnull(objholder))
 		return
-
-	if(alt_click && istype(objholder, /obj/projectile))
 
 	var/throwtarget 
 	if(range)

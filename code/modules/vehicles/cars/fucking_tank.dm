@@ -14,6 +14,8 @@
 /obj/vehicle/sealed/car/fucking_tank/Initialize()
 	. = ..()
 	AddElement(/datum/element/ridable, /datum/component/riding/vehicle/tank)
+	vehicle_move_delay = 10
+	glide_size = 1.5
 
 /obj/vehicle/sealed/car/fucking_tank/Bump(atom/A)
 	. = ..()
@@ -63,6 +65,8 @@
 	for(var/atom/A in mt)
 		Bump(A)
 	for(var/atom/A in rt)
+		Bump(A)
+	for(var/atom/A in range(1, src))
 		Bump(A)
 	Bump(lt)
 	Bump(mt)
