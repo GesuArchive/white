@@ -13,7 +13,7 @@
 	bolt_drop_sound = 'white/valtos/sounds/ebutt.ogg'
 	empty_alarm_sound = 'white/valtos/sounds/ebutt.ogg'
 	can_suppress = FALSE
-	burst_size = 5
+	burst_size = 1
 	fire_delay = 1
 	extra_damage = 1500
 	extra_penetration = 1500
@@ -21,6 +21,7 @@
 	spread = 0
 	recoil = 0
 	automatic = 1
+	actions_types = null
 
 /obj/item/ammo_box/magazine/fallout/railgun
 	name = "БРХС-1000ПВ"
@@ -40,11 +41,14 @@
 
 /obj/projectile/bullet/fallout/railgun
 	icon_state = "gauss_silenced"
-	speed = 2
+	speed = 0.4
 	damage = 1500
 	armour_penetration = 1500
 	range = 150
-	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSCLOSEDTURF | PASSMACHINE | PASSSTRUCTURE
+	projectile_piercing = PASSMOB
+	projectile_phasing = (ALL & (~PASSMOB))
+	dismemberment = 50
+	paralyze = 100
 	impact_type = /obj/effect/projectile/impact/heavy_laser
 
 /obj/projectile/bullet/fallout/railgun/on_hit(atom/target, blocked = FALSE)
