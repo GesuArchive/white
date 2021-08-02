@@ -4,7 +4,9 @@
 	icon_state = "railgun"
 	inhand_icon_state = "railgun"
 	mag_type = /obj/item/ammo_box/magazine/fallout/railgun
+	fire_sound_volume = 60
 	fire_sound = 'white/valtos/sounds/fallout/gunsounds/tribeam/tribeam1.ogg'
+	dry_fire_sound = 'white/valtos/sounds/ebutt.ogg'
 	load_sound = 'white/valtos/sounds/ebutt.ogg'
 	load_empty_sound = 'white/valtos/sounds/ebutt.ogg'
 	rack_sound = 'white/valtos/sounds/ebutt.ogg'
@@ -20,7 +22,7 @@
 	force = 1500
 	spread = 0
 	recoil = 0
-	automatic = 1
+	automatic = 0.1
 	actions_types = null
 
 /obj/item/ammo_box/magazine/fallout/railgun
@@ -44,9 +46,9 @@
 	speed = 0.4
 	damage = 1500
 	armour_penetration = 1500
+	damage_type = BURN
 	range = 150
-	projectile_piercing = PASSMOB
-	projectile_phasing = (ALL & (~PASSMOB))
+	projectile_piercing = PASSALL
 	dismemberment = 50
 	paralyze = 100
 	impact_type = /obj/effect/projectile/impact/heavy_laser
