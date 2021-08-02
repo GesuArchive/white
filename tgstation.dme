@@ -3724,6 +3724,8 @@
 #include "white\baldenysh\govnokod\storage\blister.dm"
 #include "white\baldenysh\govnokod\storage\pillpack.dm"
 #include "white\baldenysh\govnokod\subsystems\killcounter.dm"
+#include "white\baldenysh\govnokod\trolling\quirks.dm"
+#include "white\baldenysh\govnokod\trolling\smites.dm"
 #include "white\baldenysh\govnokod\turfs\bluespace_openspace.dm"
 #include "white\baldenysh\govnokod\turfs\overrides.dm"
 #include "white\baldenysh\vehicles\spesspods.dm"

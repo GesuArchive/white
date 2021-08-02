@@ -82,20 +82,3 @@
 
 /datum/component/human_rocket/tank_controls/proc/moved()
 	mymovement.desired_thrust_dir = 0
-
-////////////////////////////////////////////////////// smites
-
-/datum/smite/human_rocket_click
-	name = "Human Rocket (Point&Click)"
-
-/datum/smite/human_rocket_click/effect(client/user, mob/living/target)
-	. = ..()
-	target.AddComponent(/datum/component/human_rocket)
-
-
-/datum/smite/human_rocket_tank_controls
-	name = "Human Rocket (Tank Controls)"
-
-/datum/smite/human_rocket_tank_controls/effect(client/user, mob/living/target)
-	. = ..()
-	target.AddComponent(/datum/component/human_rocket/tank_controls)

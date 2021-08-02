@@ -2,13 +2,14 @@
 /////////////////////////////////////////////////////////////
 
 /obj/vehicle/sealed/tank
-	name = "among"
+	name = "A M O N G"
 	icon = 'icons/obj/car.dmi'
 	icon_state = "tank"
 	bound_width = 32 * 3
 	bound_height = 32 * 3
 	base_pixel_x = -16
 	base_pixel_y = -16
+	max_integrity = 2000
 	var/datum/component/funny_movement/movement
 
 /obj/vehicle/sealed/tank/ComponentInitialize()
