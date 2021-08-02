@@ -39,13 +39,13 @@
 	original_animate_movement = AM.animate_movement
 	AM.animate_movement = NO_STEPS // we do our own gliding here
 	START_PROCESSING(SSfastprocess, src)
-	RegisterSignal(parent, COMSIG_ATOM_BUMPED, .proc/on_bumped)
+	//RegisterSignal(parent, COMSIG_ATOM_BUMPED, .proc/on_bumped)
 
 /datum/component/funny_movement/UnregisterFromParent()
 	var/atom/movable/AM = parent
 	AM.animate_movement = original_animate_movement
 	STOP_PROCESSING(SSfastprocess, src)
-	UnregisterSignal(parent, COMSIG_ATOM_BUMPED)
+	//UnregisterSignal(parent, COMSIG_ATOM_BUMPED)
 
 /datum/component/funny_movement/proc/on_bump(atom/movable/source, atom/A)
 	var/bump_velocity = 0
