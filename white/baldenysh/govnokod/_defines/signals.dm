@@ -1,6 +1,7 @@
 
 //mob signals
-#define COMSIG_MOB_CLIENT_MOUSE_ENTERED "mob_mouse_entered"
+#define COMSIG_MOB_CLIENT_MOUSE_ENTERED "client_mob_mouse_entered"
+#define COMSIG_MOB_CLIENT_MOUSE_MOVE "client_mob_mouse_move"
 
 //funny movement signals
 

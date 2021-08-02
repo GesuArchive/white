@@ -270,7 +270,7 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 	return TRUE
 */
 
-/obj/spacepod/proc/on_mouse_entered(mob/user, object, location, control, params)
+/obj/spacepod/proc/on_mouse_moved(mob/user, object, location, control, params)
 	var/list/modifiers = params2list(params)
 	if(object == src || /*istype(object, /atom/movable/screen) ||*/ (object && (object in user.GetAllContents())) || user != pilot/* || modifiers["shift"] || modifiers["alt"]*/)
 		return
@@ -667,7 +667,8 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 	if(!pilot && allow_pilot)
 		pilot = M
 		//M.click_intercept = src
-		RegisterSignal(M, COMSIG_MOB_CLIENT_MOUSE_ENTERED, .proc/on_mouse_entered)
+		M.client_mouse_signal_flags |= CLIENT_MOB_SEND_MOUSE_MOVE
+		RegisterSignal(M, COMSIG_MOB_CLIENT_MOUSE_MOVE, .proc/on_mouse_moved)
 		addverbs(M)
 		ADD_TRAIT(M, TRAIT_HANDS_BLOCKED, VEHICLE_TRAIT)
 		if(M.client)
@@ -691,7 +692,8 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		REMOVE_TRAIT(M, TRAIT_HANDS_BLOCKED, VEHICLE_TRAIT)
 		if(M.client)
 			M.client.view_size.resetToDefault()
-		UnregisterSignal(M, COMSIG_MOB_CLIENT_MOUSE_ENTERED)
+		M.client_mouse_signal_flags &= ~CLIENT_MOB_SEND_MOUSE_MOVE
+		UnregisterSignal(M, COMSIG_MOB_CLIENT_MOUSE_MOVE)
 		//if(M.click_intercept == src)
 		//	M.click_intercept = null
 		desired_angle = null // since there's no pilot there's no one aiming it.

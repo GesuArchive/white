@@ -7,16 +7,20 @@
 
 /datum/component/human_rocket/RegisterWithParent()
 	mymovement = parent.AddComponent(/datum/component/funny_movement)
-	mymovement.maxthrust_forward = 3
+	mymovement.maxthrust_forward = 4
+	var/mob/living/L = parent
+	L.client_mouse_signal_flags |= CLIENT_MOB_SEND_MOUSE_MOVE
 	//RegisterSignal(parent, COMSIG_MOB_CLICKON, .proc/on_click)
-	RegisterSignal(parent, COMSIG_MOB_CLIENT_MOUSE_ENTERED, .proc/on_mouse_entered)
+	RegisterSignal(parent, COMSIG_MOB_CLIENT_MOUSE_MOVE, .proc/on_mouse_moved)
 
 /datum/component/human_rocket/UnregisterFromParent()
+	var/mob/living/L = parent
+	L.client_mouse_signal_flags &= ~CLIENT_MOB_SEND_MOUSE_MOVE
 	qdel(mymovement)
 	//UnregisterSignal(parent, COMSIG_MOB_CLICKON)
-	UnregisterSignal(parent, COMSIG_MOB_CLIENT_MOUSE_ENTERED)
+	UnregisterSignal(parent, COMSIG_MOB_CLIENT_MOUSE_MOVE)
 
-/datum/component/human_rocket/proc/on_mouse_entered(mob/pilot, object, location, control, params)
+/datum/component/human_rocket/proc/on_mouse_moved(mob/pilot, object, location, control, params)
 	SIGNAL_HANDLER
 	if(!mymovement)
 		qdel(src)
@@ -30,9 +34,8 @@
 		mymovement.desired_thrust_dir = 1
 		mymovement.brakes = 0
 
-	mymovement.desired_angle = Get_Angle(pilot, object)
+	//mymovement.desired_angle = Get_Angle(pilot, object)
 
-/*
 	var/list/sl_list = splittext(modifiers["screen-loc"],",")
 	var/list/sl_x_list = splittext(sl_list[1], ":")
 	var/list/sl_y_list = splittext(sl_list[2], ":")
@@ -43,7 +46,6 @@
 		mymovement.desired_angle = 90 - ATAN2(dx, dy)
 	else
 		mymovement.desired_angle = null
-*/
 
 /datum/component/human_rocket/proc/on_click(mob/living/pilot, atom/A, params)
 	SIGNAL_HANDLER
@@ -75,7 +77,7 @@
 
 /datum/component/human_rocket/tank_controls/RegisterWithParent()
 	mymovement = parent.AddComponent(/datum/component/funny_movement)
-	mymovement.maxthrust_forward = 3
+	mymovement.maxthrust_forward = 4
 	RegisterSignal(mymovement, COMSIG_FUNNY_MOVEMENT_PROCESSING_START, .proc/premove)
 	RegisterSignal(mymovement, COMSIG_FUNNY_MOVEMENT_PROCESSING_FINISH, .proc/moved)
 
