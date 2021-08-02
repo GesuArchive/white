@@ -76,9 +76,9 @@
 	if(movement_dir & SOUTH)
 		mymovement.desired_thrust_dir |= SOUTH
 	if(movement_dir & WEST)
-		mymovement.desired_angle -= rotation
+		mymovement.desired_angle = mymovement.angle - rotation
 	if(movement_dir & EAST)
-		mymovement.desired_angle += rotation
+		mymovement.desired_angle = mymovement.angle + rotation
 
 /datum/component/human_rocket/tank_controls/proc/moved()
 	mymovement.desired_thrust_dir = 0
