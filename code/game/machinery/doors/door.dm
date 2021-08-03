@@ -104,7 +104,7 @@
 
 /obj/machinery/door/proc/is_holding_pressure()
 	var/turf/open/T = get_turf(src)
-	if(!T)
+	if(!T || !isopenturf(T))
 		return FALSE
 	if(!density)
 		return FALSE
