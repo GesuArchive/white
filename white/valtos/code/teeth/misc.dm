@@ -34,6 +34,7 @@
 			var/obj/item/stack/teeth/T = new teeth.type(owner.loc, drop)
 			T.copy_evidences(teeth)
 			teeth.use(drop)
+			teeth.zero_amount() //Try to delete the teeth
 			if(QDELETED(T))
 				continue
 			var/turf/target = get_turf(owner.loc)
@@ -44,7 +45,6 @@
 				if(new_turf.density)
 					break
 			T.throw_at(target,T.throw_range,T.throw_speed)
-			teeth.zero_amount() //Try to delete the teeth
 			return TRUE
 	return FALSE
 
