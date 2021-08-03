@@ -359,6 +359,8 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 
 	var/mob/living/living_owner = owner
 	var/last_whisper = input("Последние слова есть хоть?", "Последние слова") as null | text
+	if(!owner)
+		return
 	if (isnull(last_whisper) || !CAN_SUCCUMB(living_owner))
 		return
 
