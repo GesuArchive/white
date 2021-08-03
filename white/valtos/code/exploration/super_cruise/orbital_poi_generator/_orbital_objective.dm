@@ -57,8 +57,8 @@
 			A.adjust_money(israel)
 		else
 			A.adjust_money(goyam)
-	GLOB.exploration_points += payout * 0.1
+	GLOB.exploration_points += payout * 50
 	//Announcement
-	priority_announce("Задание выполнено. [payout] кредитов было распределено между всем экипажем. [payout * 0.1] очков было также выдано Рейнджерам за работу.", "Центральное Командование", SSstation.announcer.get_rand_report_sound())
+	priority_announce("Задание выполнено. [payout] кредитов было распределено между всем экипажем. [payout * 50] очков было также выдано Рейнджерам за работу.", "Центральное Командование", SSstation.announcer.get_rand_report_sound())
 	//Delete
 	QDEL_NULL(SSorbits.current_objective)
