@@ -45,7 +45,7 @@
 	remove_antag_hud(antag_hud_type, M)
 
 /datum/antagonist/obsessed/proc/forge_objectives(datum/mind/obsessionmind)
-	var/list/objectives_left = list("spendtime", "polaroid", "hug")
+	var/list/objectives_left = list("spendtime", "polaroid"/*, "hug"*/) //нахуй, оно сломано
 	var/datum/objective/assassinate/obsessed/kill = new
 	kill.owner = owner
 	kill.target = obsessionmind
@@ -155,7 +155,7 @@
 		explanation_text = "Ничего."
 
 /datum/objective/assassinate/jealous/proc/find_coworker(datum/mind/oldmind)//returning null = Развлекаться
-	if(!oldmind.assigned_role)
+	if(!oldmind || !oldmind.assigned_role)
 		return
 	var/list/viable_coworkers = list()
 	var/list/all_coworkers = list()
@@ -229,6 +229,8 @@
 	..()
 	if(!hugs_needed)//just so admins can mess with it
 		hugs_needed = rand(4,6)
+	if(!owner)
+		return
 	var/datum/antagonist/obsessed/creeper = owner.has_antag_datum(/datum/antagonist/obsessed)
 	if(target?.current && creeper)
 		explanation_text = "Обнять [target.name] [hugs_needed] раз пока цель жива."
