@@ -31,12 +31,7 @@
 /turf/closed/wall/r_wall,
 /area/ruin/unpowered)
 "r" = (
-/obj/machinery/porta_turret/syndicate{
-	desc = "A ballistic machine gun auto-turret that fires bluespace bullets.";
-	lethal_projectile = /obj/item/projectile/magic/teleport;
-	name = "displacement turret";
-	stun_projectile = /obj/item/projectile/magic/teleport
-	},
+/obj/machinery/porta_turret/syndicate/pod,
 /turf/open/floor/plasteel/grimy{
 	icon_state = "engine"
 	},
