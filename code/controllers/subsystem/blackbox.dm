@@ -330,8 +330,8 @@ Versioning
 		"job" = L.mind.assigned_role,
 		"special" = L.mind.special_role,
 		"pod" = get_area_name(L, TRUE),
-		"laname" = L.lastattackermob.real_name,
-		"lakey" = L.lastattackermob.ckey,
+		"laname" = L.lastattackermob ? L.lastattackermob.real_name : "Неизвестно",
+		"lakey" = L.lastattackermob ? L.lastattackermob.ckey : "Неизвестно",
 		"brute" = L.getBruteLoss(),
 		"fire" = L.getFireLoss(),
 		"brain" = L.getOrganLoss(ORGAN_SLOT_BRAIN) || BRAIN_DAMAGE_DEATH, //getOrganLoss returns null without a brain but a value is required for this column
