@@ -139,7 +139,7 @@
 	if(ismoth(H) && prob(50))
 		heirloom_type = /obj/item/flashlight/lantern/heirloom_moth
 	else
-		switch(quirk_holder.mind.assigned_role)
+		switch(quirk_holder?.mind?.assigned_role)
 			//Service jobs
 			if("Clown")
 				heirloom_type = /obj/item/bikehorn/golden
