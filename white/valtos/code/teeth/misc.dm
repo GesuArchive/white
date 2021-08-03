@@ -24,6 +24,7 @@
 	teeth_list += teeth
 
 /obj/item/bodypart/head/proc/knock_out_teeth(throw_dir, num=32) //Won't support knocking teeth out of a dismembered head or anything like that yet.
+	. = FALSE
 	num = clamp(num, 1, 32)
 	if(teeth_list && teeth_list.len) //We still have teeth
 		var/stacks = rand(1,3)
@@ -35,6 +36,7 @@
 			T.copy_evidences(teeth)
 			teeth.use(drop)
 			teeth.zero_amount() //Try to delete the teeth
+			. = TRUE
 			if(QDELETED(T))
 				continue
 			var/turf/target = get_turf(owner.loc)
@@ -45,8 +47,6 @@
 				if(new_turf.density)
 					break
 			T.throw_at(target,T.throw_range,T.throw_speed)
-			return TRUE
-	return FALSE
 
 /obj/item/bodypart/head/proc/get_teeth() //returns collective amount of teeth
 	var/amt = 0
