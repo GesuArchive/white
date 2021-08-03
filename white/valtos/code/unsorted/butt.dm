@@ -126,6 +126,9 @@
 /mob/living/carbon/human/proc/checkbuttinspect(mob/living/carbon/user)
 	if(user.zone_selected == "groin")
 		var/obj/item/organ/butt/B = getorgan(/obj/item/organ/butt)
+		if(!B)
+			to_chat(user, "<span class='warning'>А задница-то отсутствует!</span>")
+			return
 		if(!w_uniform)
 			var/datum/component/storage/STR = B.storage_handler.GetComponent(B.pocket_storage_component_path)
 			if(B && STR)
