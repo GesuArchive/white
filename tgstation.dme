@@ -3858,7 +3858,6 @@
 #include "white\jhnazar\modules\turbolift\turbolift_machines.dm"
 #include "white\maxsc\axe.dm"
 #include "white\maxsc\deadmin.dm"
-#include "white\other\give.dm"
 #include "white\other\telescience\telepad.dm"
 #include "white\other\telescience\telesci_calc.dm"
 #include "white\other\telescience\telesci_circuits.dm"
