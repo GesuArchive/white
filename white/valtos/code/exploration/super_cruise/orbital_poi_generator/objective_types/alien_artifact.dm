@@ -3,8 +3,8 @@
 	var/generated = FALSE
 	//The blackbox required to recover.
 	var/obj/item/alienartifact/objective/linked_artifact
-	min_payout = 2000
-	max_payout = 6000
+	min_payout = 20 * CARGO_CRATE_VALUE
+	max_payout = 60 * CARGO_CRATE_VALUE
 
 /datum/orbital_objective/artifact/generate_objective_stuff(turf/chosen_turf)
 	generated = TRUE
