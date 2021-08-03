@@ -272,12 +272,23 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 /datum/artifact_effect/reality_destabilizer/proc/destabilize(atom/movable/AM)
 	//Banish to the void
 	addtimer(CALLBACK(src, .proc/restabilize, AM, get_turf(AM)), rand(10 SECONDS, 90 SECONDS))
+
+	if(GLOB.destabilization_spawns.len == 0)
+		for(var/i in 1 to rand(3, 9))
+			var/turf/T = get_safe_random_station_turf()
+			if(T)
+				GLOB.destabilization_spawns += T
+
 	//Forcemove to ignore teleport checks
 	if(GLOB.destabilization_spawns.len != 0) //@valtos долбоёб
 		AM.forceMove(pick(GLOB.destabilization_spawns))
 	else
-		stack_trace("Пустой GLOB.destabilization_spawns. мапперу пизда звоните фиксикам")
+		stack_trace("Пустой GLOB.destabilization_spawns. мапперу пизда звоните фиксикам")//@valtos фашист где маппер где фиксики
+
 	contained_things += AM
+
+/datum/artifact_effect/reality_destabilizer/proc/create_random_destabilization_spawns()
+
 
 /datum/artifact_effect/reality_destabilizer/proc/restabilize(atom/movable/AM, turf/T)
 	if(QDELETED(src))
