@@ -32,10 +32,10 @@
 			if(!teeth || teeth.zero_amount()) return //No teeth left, abort!
 			var/drop = round(min(teeth.amount, num)/stacks) //Calculate the amount of teeth in the stack
 			var/obj/item/stack/teeth/T = new teeth.type(owner.loc, drop)
-			if(QDELETED(T))
-				continue
 			T.copy_evidences(teeth)
 			teeth.use(drop)
+			if(QDELETED(T))
+				continue
 			var/turf/target = get_turf(owner.loc)
 			var/range = rand(2,T.throw_range)
 			for(var/i = 1; i < range; i++)
