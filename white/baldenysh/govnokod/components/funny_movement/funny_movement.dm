@@ -27,7 +27,7 @@
 	var/ground_drag = 0.5
 
 	var/default_dir = SOUTH
-	var/icon_dir_num = 0 //отвечает за вращение на спрайте/трансформом. 0 - отсутствие вращения на спрайте
+	var/icon_dir_num = 0 //отвечает за смену дира на спрайте и вращение трансформом. 0 - отсутствие смены дира
 	var/original_animate_movement
 	var/list/client/affected_viewers = list()
 
@@ -92,7 +92,7 @@
 			desired_angular_velocity = -2 * sqrt((angle - desired_angle) * max_angular_acceleration * 0.25)
 
 	var/angular_velocity_adjustment = clamp(desired_angular_velocity - angular_velocity, -max_angular_acceleration*delta_time, max_angular_acceleration*delta_time)
-	if(angular_velocity_adjustment && !(SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_AVADJ, angular_velocity_adjustment) & COMPONENT_FUNNY_MOVEMENT_BLOCK_AVADJ))
+	if(angular_velocity_adjustment && !(SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_AVADJ, angular_velocity_adjustment, delta_time) & COMPONENT_FUNNY_MOVEMENT_BLOCK_AVADJ))
 		last_rotate = angular_velocity_adjustment / delta_time
 		angular_velocity += angular_velocity_adjustment
 	else
@@ -100,34 +100,35 @@
 	angle += angular_velocity * delta_time
 
 	// calculate drag and shit
-	var/velocity_mag = sqrt(velocity_x*velocity_x+velocity_y*velocity_y) // magnitude
-	if(velocity_mag || angular_velocity)
-		var/drag = 0
-		for(var/turf/T in AM.locs)
-			if(isspaceturf(T))
-				continue
-			//ground drag
-			if(AM.movement_type & GROUND)
-				drag += 0.001
-				if((T.has_gravity()) || brakes) // brakes are a kind of magboots okay?
-					drag += ground_drag
-			//air drag
-			if(!(AM.movement_type & PHASING))
-				var/datum/gas_mixture/env = T.return_air()
-				if(env)
-					var/pressure = env.return_pressure()
-					drag += velocity_mag * pressure * 0.0001 // 1 atmosphere should shave off 1% of velocity per tile
+	if(!(SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_DRAG, delta_time) & COMPONENT_FUNNY_MOVEMENT_BLOCK_DRAG))
+		var/velocity_mag = sqrt(velocity_x*velocity_x+velocity_y*velocity_y) // magnitude
+		if(velocity_mag || angular_velocity)
+			var/drag = 0
+			for(var/turf/T in AM.locs)
+				if(isspaceturf(T))
+					continue
+				//ground drag
+				if(AM.movement_type & GROUND)
+					drag += 0.001
+					if((T.has_gravity()) || brakes) // brakes are a kind of magboots okay?
+						drag += ground_drag
+				//air drag
+				if(!(AM.movement_type & PHASING))
+					var/datum/gas_mixture/env = T.return_air()
+					if(env)
+						var/pressure = env.return_pressure()
+						drag += velocity_mag * pressure * 0.0001 // 1 atmosphere should shave off 1% of velocity per tile
 
-		if(velocity_mag > 20)
-			drag = max(drag, (velocity_mag - 20) / delta_time)
-		if(drag)
-			if(velocity_mag)
-				var/drag_factor = 1 - clamp(drag * delta_time / velocity_mag, 0, 1)
-				velocity_x *= drag_factor
-				velocity_y *= drag_factor
-			if(angular_velocity != 0)
-				var/drag_factor_spin = 1 - clamp(drag * 30 * delta_time / abs(angular_velocity), 0, 1)
-				angular_velocity *= drag_factor_spin
+			if(velocity_mag > 20)
+				drag = max(drag, (velocity_mag - 20) / delta_time)
+			if(drag)
+				if(velocity_mag)
+					var/drag_factor = 1 - clamp(drag * delta_time / velocity_mag, 0, 1)
+					velocity_x *= drag_factor
+					velocity_y *= drag_factor
+				if(angular_velocity != 0)
+					var/drag_factor_spin = 1 - clamp(drag * 30 * delta_time / abs(angular_velocity), 0, 1)
+					angular_velocity *= drag_factor_spin
 
 	// Alright now calculate the THRUST
 	var/thrust_x
@@ -166,12 +167,9 @@
 			thrust_y -= sy * maxthrust_sides
 			last_thrust_right = -maxthrust_sides
 
-	if(!(SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_ACCELERATION) & COMPONENT_FUNNY_MOVEMENT_BLOCK_ACCELERATION))
+	if(!(SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_ACCELERATION, thrust_x, thrust_y, delta_time) & COMPONENT_FUNNY_MOVEMENT_BLOCK_ACCELERATION))
 		velocity_x += thrust_x * delta_time
 		velocity_y += thrust_y * delta_time
-	else
-		last_thrust_forward = 0
-		last_thrust_right = 0
 
 	offset_x += velocity_x * delta_time
 	offset_y += velocity_y * delta_time
