@@ -2,7 +2,6 @@
 	possible_tumors = list(/obj/item/organ/zombie_infection/mutant)
 	infection_chance = 20
 
-
 /obj/item/organ/zombie_infection/mutant
 	zombie_species = /datum/species/zombie/infectious/mutant
 
@@ -15,6 +14,10 @@
 	. = ..()
 	var/datum/team/mutant_zombies/zombs = locate(/datum/team/mutant_zombies) in GLOB.antagonist_teams
 	zombs?.remove_infected_from_hud(M)
+
+
+
+
 
 /datum/species/zombie/infectious/mutant
 	name = "Mutant Zombie"
@@ -48,6 +51,11 @@
 	. = ..()
 	if(C.mind)
 		C.mind.remove_antag_datum(/datum/antagonist/mutant_zombie)
+
+	for(var/obj/item/I in C.held_items)
+		var/datum/component/zombie_weapon/mutant/ZW = I.GetComponent(/datum/component/zombie_weapon/mutant)
+		if(ZW)
+			qdel(ZW)
 
 	var/datum/team/mutant_zombies/zombs = locate(/datum/team/mutant_zombies) in GLOB.antagonist_teams
 	zombs?.remove_zombie_from_hud(C)
