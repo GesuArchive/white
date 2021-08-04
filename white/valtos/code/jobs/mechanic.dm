@@ -332,7 +332,7 @@
 	return FALSE
 
 /obj/machinery/copytech_platform/proc/destroy_thing(mob/user)
-	if(!ct)
+	if(!ct )
 		return FALSE
 	var/turf/T = get_turf(src)
 	var/atom/movable/D = null
@@ -351,8 +351,8 @@
 
 	for(var/type in blacklisted_items)
 		if(istype(D, type))
-			if(user && active_item)
-				message_admins("[key_name(user)] попытался скопировать [active_item.name] ([active_item.type])!")
+			if(user)
+				message_admins("[key_name(user)] попытался скопировать [D.name] ([D.type])!")
 			say("СИСТЕМА ПОИСКА ПИДОРАСОВ АКТИВИРОВАНА!")
 			sleep(3 SECONDS)
 			say("ПИДОРАС НАЙДЕН!")
