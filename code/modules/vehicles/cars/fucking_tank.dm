@@ -1,7 +1,3 @@
-#define FUCKING_TANK_CANNON_INACTIVE 0
-#define FUCKING_TANK_CANNON_BUSY 1
-#define FUCKING_TANK_CANNON_READY 2
-
 /obj/vehicle/sealed/car/fucking_tank
 	name = "ТАНК"
 	desc = "<big>БЛЯТЬ!</big>"
@@ -102,7 +98,6 @@
 /////////////////////////////////////////////стреляет карочи
 
 /obj/vehicle/sealed/car/fucking_tank/proc/fire_cannon_at(mob/user, atom/A, params)
-	SIGNAL_HANDLER
 	if(world.time < cannon_last_fire_time + cannon_cd)
 		to_chat(user, "Рано еще!")
 		return NONE
