@@ -61,7 +61,6 @@
 #include "code\__DEFINES\exosuit_fab.dm"
 #include "code\__DEFINES\experisci.dm"
 #include "code\__DEFINES\exports.dm"
-#include "code\__DEFINES\extools.dm"
 #include "code\__DEFINES\fantasy_affixes.dm"
 #include "code\__DEFINES\flags.dm"
 #include "code\__DEFINES\food.dm"
