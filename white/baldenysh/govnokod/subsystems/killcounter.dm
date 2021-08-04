@@ -95,3 +95,14 @@ SUBSYSTEM_DEF(killcounter)
 	else
 		cur_killstreak = 1
 	last_kill_time = world.time
+
+////////////////////////////////////////////////////////////////////кнопка
+
+/client/proc/open_killcounter_counts()
+	set category = "Адм.Игра"
+	set name = "Возможные убийства"
+
+	if(!check_rights())
+		return
+
+	debug_variables(SSkillcounter.key_name_kill_counter) //чиста паебать
