@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/frogman
 	name = "Фрогман"
 	desc = "Не имеет ничего общего с Фогманом"
-	icon = 'white/valtos/icons/dwarfs/frogges.dmi'
+	icon = 'white/rashcat/icons/dwarfs/mobs/frogges.dmi'
 	icon_state = "frogman"
 	icon_dead = "frogman_dead"
 	speak_chance = 1
@@ -30,7 +30,7 @@
 /mob/living/simple_animal/hostile/mech_frog
 	name = "Меха-лягуха"
 	desc = "All systems nominal."
-	icon = 'white/valtos/icons/dwarfs/frogges.dmi'
+	icon = 'white/rashcat/icons/dwarfs/mobs/frogges.dmi'
 	icon_state = "frog_mech"
 	icon_dead = "mech_dead"
 	speak_chance = 1
@@ -60,7 +60,7 @@
 /mob/living/simple_animal/hostile/froggernaut
 	name = "Фроггернаут"
 	desc = "Это конец"
-	icon = 'white/valtos/icons/dwarfs/46x46.dmi'
+	icon = 'white/rashcat/icons/dwarfs/mobs/46x46.dmi'
 	icon_state = "froggernaut"
 	speak_chance = 1
 	speak = list("ПОКАЙТЕСЬ", "ЭТО КОНЕЦ")

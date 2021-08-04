@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/troll
 	name = "тролль"
 	desc = "Милый."
-	icon = 'white/valtos/icons/troll.dmi'
+	icon = 'white/rashcat/icons/dwarfs/mobs/troll.dmi'
 	icon_state = "troll"
 	icon_living = "troll"
 	icon_dead = "troll_dead"
