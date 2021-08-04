@@ -49,7 +49,10 @@
 		var/datum/job/J = I
 		if(istype(J, /datum/job/exploration))
 			rangers_count = J.current_positions
-	var/israel = round((payout / 2) / rangers_count)
+
+	var/israel = 0
+	if(rangers_count)
+		israel = round((payout / 2) / rangers_count)
 	var/goyam  = round((payout / 2) / SSeconomy.generated_accounts.len)
 	for(var/B in SSeconomy.bank_accounts_by_id)
 		var/datum/bank_account/A = SSeconomy.bank_accounts_by_id[B]
