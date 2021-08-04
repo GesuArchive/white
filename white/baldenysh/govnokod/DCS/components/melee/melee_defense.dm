@@ -19,8 +19,8 @@
 
 
 /datum/component/melee_defense/proc/apply_impulse(angle, amount)
-	balance_x += round(amount*cos(angle), 0.01)
-	balance_y += round(amount*sin(angle), 0.01)
+	balance_x += round(amount*cos(90 - angle), 0.01)
+	balance_y += round(amount*sin(90 - angle), 0.01)
 
 /datum/component/melee_defense/proc/regain_balance(amount)
 	if(balance_x == 0 && balance_y == 0)

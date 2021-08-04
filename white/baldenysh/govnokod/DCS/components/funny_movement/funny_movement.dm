@@ -36,13 +36,15 @@
 	original_animate_movement = AM.animate_movement
 	AM.animate_movement = NO_STEPS // we do our own gliding here
 	START_PROCESSING(SSfastprocess, src)
-	//RegisterSignal(parent, COMSIG_ATOM_BUMPED, .proc/on_bumped)
+	RegisterSignal(parent, COMSIG_ATOM_BUMPED, .proc/on_bumped)
 
 /datum/component/funny_movement/UnregisterFromParent()
 	var/atom/movable/AM = parent
 	AM.animate_movement = original_animate_movement
 	STOP_PROCESSING(SSfastprocess, src)
-	//UnregisterSignal(parent, COMSIG_ATOM_BUMPED)
+	UnregisterSignal(parent, COMSIG_ATOM_BUMPED)
+	for(var/client/C in affected_viewers)
+		animate(C, pixel_x = 0, pixel_y = 0, time = 0, flags=ANIMATION_END_NOW)
 
 /datum/component/funny_movement/proc/on_bump(atom/movable/source, atom/A)
 	var/bump_velocity = 0
@@ -63,6 +65,10 @@
 		velocity_x += bump_impulse
 	if(A.dir & WEST)
 		velocity_x -= bump_impulse
+
+/datum/component/funny_movement/proc/apply_impulse_at_angle(angle, amount)
+	velocity_x += round(amount*cos(90 - angle), 0.01)
+	velocity_y += round(amount*sin(90 - angle), 0.01)
 
 /datum/component/funny_movement/process(delta_time)
 	SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_PROCESSING_START)
@@ -106,12 +112,12 @@
 					drag += 0.001
 					if((T.has_gravity()) || brakes) // brakes are a kind of magboots okay?
 						drag += ground_drag
+
 				//air drag
-				if(!(AM.movement_type & PHASING))
-					var/datum/gas_mixture/env = T.return_air()
-					if(env)
-						var/pressure = env.return_pressure()
-						drag += velocity_mag * pressure * 0.0001 // 1 atmosphere should shave off 1% of velocity per tile
+				var/datum/gas_mixture/env = T.return_air()
+				if(env)
+					var/pressure = env.return_pressure()
+					drag += velocity_mag * pressure * 0.0001 // 1 atmosphere should shave off 1% of velocity per tile
 
 			if(velocity_mag > 20)
 				drag = max(drag, (velocity_mag - 20) / delta_time)
@@ -257,7 +263,7 @@
 		possible_smooth_viewers |= AM.orbiters.orbiter_list
 	for(var/client/C in affected_viewers)
 		if(!(C.mob in possible_smooth_viewers))
-			animate(C, pixel_x = 0, pixel_y = 0, time = delta_time*10, flags=ANIMATION_END_NOW)
+			animate(C, pixel_x = 0, pixel_y = 0, time = 0, flags=ANIMATION_END_NOW)
 	affected_viewers = list()
 	for(var/mob/M in possible_smooth_viewers)
 		var/client/C = M.client
