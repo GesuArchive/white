@@ -53,7 +53,7 @@
 	if(velocity_mag > ram_velocity)
 		var/list/newlocs = isturf(newloc) ? block(locate(newloc.x+(-bound_x) / world.icon_size, newloc.y+(-bound_y) / world.icon_size, newloc.z), locate(newloc.x+(-bound_x+bound_width) / world.icon_size-1, newloc.y+(-bound_y+bound_height) / world.icon_size-1, newloc.z)) : list(newloc)
 		if(newlocs)
-			for(var/turf/T in newlocs)
+			for(var/turf/T in newlocs & locs)
 				if(isclosedturf(T))
 					SSexplosions.lowturf += T
 					continue
