@@ -467,6 +467,7 @@
 		visible_message("<span class='notice'>[capitalize(src.name)] замолкает и падает на пол. Может стоит попробовать позже?</span>")
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
 		user.dropItemToGround(src)
+		return
 	var/mob/picked = pick(candidates)
 	magnification.key = picked.key
 	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
