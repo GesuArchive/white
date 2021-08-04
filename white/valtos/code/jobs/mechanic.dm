@@ -351,7 +351,7 @@
 
 	for(var/type in blacklisted_items)
 		if(istype(D, type))
-			if(user)
+			if(user && active_item)
 				message_admins("[key_name(user)] попытался скопировать [active_item.name] ([active_item.type])!")
 			say("СИСТЕМА ПОИСКА ПИДОРАСОВ АКТИВИРОВАНА!")
 			sleep(3 SECONDS)
