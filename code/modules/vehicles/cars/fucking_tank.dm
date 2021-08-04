@@ -1,3 +1,7 @@
+#define FUCKING_TANK_CANNON_INACTIVE 0
+#define FUCKING_TANK_CANNON_BUSY 1
+#define FUCKING_TANK_CANNON_READY 2
+
 /obj/vehicle/sealed/car/fucking_tank
 	name = "ТАНК"
 	desc = "<big>БЛЯТЬ!</big>"
@@ -10,10 +14,13 @@
 	pixel_y = -48
 	pixel_x = -48
 	max_integrity = 2000
+	var/cannon_last_fire_time = 0
+	var/cannon_cd = 3 SECONDS
+	var/cannon_projectile_type = /obj/projectile/bullet/cannonball/explosive
 
 /obj/vehicle/sealed/car/fucking_tank/Initialize()
 	. = ..()
-	AddElement(/datum/element/ridable, /datum/component/riding/vehicle/tank)
+	//AddElement(/datum/element/ridable, /datum/component/riding/vehicle/tank)
 	vehicle_move_delay = 10
 	glide_size = 1.5
 
@@ -36,6 +43,10 @@
 		var/obj/dead_obj = A
 		dead_obj.take_damage(INFINITY, BRUTE, NONE, TRUE, dir, INFINITY)
 		return ..()
+
+/obj/vehicle/sealed/car/fucking_tank/auto_assign_occupant_flags(mob/M)
+	. = ..()
+	RegisterSignal(M, COMSIG_MOB_CLICKON, .proc/fire_cannon_at)
 
 // ЧЕ ЭТО БЛЯ
 /obj/vehicle/sealed/car/fucking_tank/vehicle_move(direction)
@@ -71,6 +82,8 @@
 	Bump(lt)
 	Bump(mt)
 	Bump(rt)
+
+/* это тебе нахуй ненужн это блин для хуйни где моб вне нее сидит типа всяких скейтов
 /datum/component/riding/vehicle/tank
 	vehicle_move_delay = 10
 
@@ -84,3 +97,30 @@
 	set_vehicle_dir_offsets(SOUTH, -48, -48)
 	set_vehicle_dir_offsets(EAST, -48, -48)
 	set_vehicle_dir_offsets(WEST, -48, -48)
+*/
+
+/////////////////////////////////////////////стреляет карочи
+
+/obj/vehicle/sealed/car/fucking_tank/proc/fire_cannon_at(mob/user, atom/A, params)
+	SIGNAL_HANDLER
+	if(world.time < cannon_last_fire_time + cannon_cd)
+		to_chat(user, "Рано еще!")
+		return NONE
+	var/turf/firing_turf = get_turf(src) //поправишь если захочш ебнешь оффсеты там ченить такое придумаешь карочи
+	var/firing_angle = Get_Angle(firing_turf, A)
+	if(angle_diff(dir2angle(dir), firing_angle) > 45)
+		to_chat(user, "Надо бы повернуться!")
+		return NONE
+
+	cannon_last_fire_time = world.time
+	if(cannon_projectile_type)
+		visible_message("<span class='danger'>[src] производит стрельбу пушечными ядрами XVIII века!</span>")
+		for(var/mob/shaken_mob in urange(10, src))
+			if(shaken_mob.stat == CONSCIOUS)
+				shake_camera(shaken_mob, 3, 1)
+		playsound(src, 'sound/weapons/gun/general/cannon.ogg', 150, TRUE)
+		var/obj/projectile/fired_projectile = new cannon_projectile_type(firing_turf)
+		fired_projectile.firer = user
+		fired_projectile.fired_from = src
+		fired_projectile.fire(firing_angle, A)
+	return COMSIG_MOB_CANCEL_CLICKON
