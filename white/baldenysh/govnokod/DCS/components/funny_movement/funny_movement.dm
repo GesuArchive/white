@@ -8,10 +8,6 @@
 	var/angular_velocity = 0 // degrees per second
 	var/max_angular_acceleration = 360 // in degrees per second per second
 
-	var/last_thrust_forward = 0
-	var/last_thrust_right = 0
-	var/last_rotate = 0
-
 	var/brakes = FALSE//TRUE
 	var/desired_thrust_dir = 0
 	var/desired_angle = null
@@ -93,10 +89,8 @@
 
 	var/angular_velocity_adjustment = clamp(desired_angular_velocity - angular_velocity, -max_angular_acceleration*delta_time, max_angular_acceleration*delta_time)
 	if(angular_velocity_adjustment && !(SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_AVADJ, angular_velocity_adjustment, delta_time) & COMPONENT_FUNNY_MOVEMENT_BLOCK_AVADJ))
-		last_rotate = angular_velocity_adjustment / delta_time
 		angular_velocity += angular_velocity_adjustment
-	else
-		last_rotate = 0
+
 	angle += angular_velocity * delta_time
 
 	// calculate drag and shit
@@ -137,8 +131,6 @@
 	var/fy = sin(90 - angle)
 	var/sx = fy
 	var/sy = -fx
-	last_thrust_forward = 0
-	last_thrust_right = 0
 	if(brakes)
 		// basically calculates how much we can brake using the thrust
 		var/forward_thrust = -((fx * velocity_x) + (fy * velocity_y)) / delta_time
@@ -147,25 +139,19 @@
 		right_thrust = clamp(right_thrust, -maxthrust_sides, maxthrust_sides)
 		thrust_x += forward_thrust * fx + right_thrust * sx;
 		thrust_y += forward_thrust * fy + right_thrust * sy;
-		last_thrust_forward = forward_thrust
-		last_thrust_right = right_thrust
 	else // want some sort of help piloting the ship? Haha no fuck you do it yourself
 		if(desired_thrust_dir & NORTH)
 			thrust_x += fx * maxthrust_forward
 			thrust_y += fy * maxthrust_forward
-			last_thrust_forward = maxthrust_forward
 		if(desired_thrust_dir & SOUTH)
 			thrust_x -= fx * maxthrust_backward
 			thrust_y -= fy * maxthrust_backward
-			last_thrust_forward = -maxthrust_backward
 		if(desired_thrust_dir & EAST)
 			thrust_x += sx * maxthrust_sides
 			thrust_y += sy * maxthrust_sides
-			last_thrust_right = maxthrust_sides
 		if(desired_thrust_dir & WEST)
 			thrust_x -= sx * maxthrust_sides
 			thrust_y -= sy * maxthrust_sides
-			last_thrust_right = -maxthrust_sides
 
 	if(!(SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_ACCELERATION, thrust_x, thrust_y, delta_time) & COMPONENT_FUNNY_MOVEMENT_BLOCK_ACCELERATION))
 		velocity_x += thrust_x * delta_time
