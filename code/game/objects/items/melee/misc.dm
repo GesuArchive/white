@@ -646,7 +646,7 @@
 			playsound(src.loc, 'sound/weapons/batonextend.ogg', 50, TRUE)
 		else
 			return
-		if(do_after(user, 100, target = user))
+		if(do_after(user, 100, held_sausage))
 			finish_roasting(user, target)
 		else
 			QDEL_NULL(beam)
