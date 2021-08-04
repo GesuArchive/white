@@ -8,14 +8,10 @@
 /datum/component/human_rocket/RegisterWithParent()
 	mymovement = parent.AddComponent(/datum/component/funny_movement)
 	mymovement.maxthrust_forward = 4
-	var/mob/living/L = parent
-	L.client_mouse_signal_flags |= CLIENT_MOB_SEND_MOUSE_MOVE
 	//RegisterSignal(parent, COMSIG_MOB_CLICKON, .proc/on_click)
 	RegisterSignal(parent, COMSIG_MOB_CLIENT_MOUSE_MOVE, .proc/on_mouse_moved)
 
 /datum/component/human_rocket/UnregisterFromParent()
-	var/mob/living/L = parent
-	L.client_mouse_signal_flags &= ~CLIENT_MOB_SEND_MOUSE_MOVE
 	qdel(mymovement)
 	//UnregisterSignal(parent, COMSIG_MOB_CLICKON)
 	UnregisterSignal(parent, COMSIG_MOB_CLIENT_MOUSE_MOVE)

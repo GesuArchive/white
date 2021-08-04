@@ -124,38 +124,38 @@
 					var/drag_factor_spin = 1 - clamp(drag * 30 * delta_time / abs(angular_velocity), 0, 1)
 					angular_velocity *= drag_factor_spin
 
-	// Alright now calculate the THRUST
-	var/thrust_x
-	var/thrust_y
-	var/fx = cos(90 - angle)
-	var/fy = sin(90 - angle)
-	var/sx = fy
-	var/sy = -fx
-	if(brakes)
-		// basically calculates how much we can brake using the thrust
-		var/forward_thrust = -((fx * velocity_x) + (fy * velocity_y)) / delta_time
-		var/right_thrust = -((sx * velocity_x) + (sy * velocity_y)) / delta_time
-		forward_thrust = clamp(forward_thrust, -maxthrust_backward, maxthrust_forward)
-		right_thrust = clamp(right_thrust, -maxthrust_sides, maxthrust_sides)
-		thrust_x += forward_thrust * fx + right_thrust * sx;
-		thrust_y += forward_thrust * fy + right_thrust * sy;
-	else // want some sort of help piloting the ship? Haha no fuck you do it yourself
-		if(desired_thrust_dir & NORTH)
-			thrust_x += fx * maxthrust_forward
-			thrust_y += fy * maxthrust_forward
-		if(desired_thrust_dir & SOUTH)
-			thrust_x -= fx * maxthrust_backward
-			thrust_y -= fy * maxthrust_backward
-		if(desired_thrust_dir & EAST)
-			thrust_x += sx * maxthrust_sides
-			thrust_y += sy * maxthrust_sides
-		if(desired_thrust_dir & WEST)
-			thrust_x -= sx * maxthrust_sides
-			thrust_y -= sy * maxthrust_sides
+	if(!(SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_THRUST) & COMPONENT_FUNNY_MOVEMENT_BLOCK_THRUST))
+		var/thrust_x
+		var/thrust_y
+		var/fx = cos(90 - angle)
+		var/fy = sin(90 - angle)
+		var/sx = fy
+		var/sy = -fx
+		if(brakes)
+			// basically calculates how much we can brake using the thrust
+			var/forward_thrust = -((fx * velocity_x) + (fy * velocity_y)) / delta_time
+			var/right_thrust = -((sx * velocity_x) + (sy * velocity_y)) / delta_time
+			forward_thrust = clamp(forward_thrust, -maxthrust_backward, maxthrust_forward)
+			right_thrust = clamp(right_thrust, -maxthrust_sides, maxthrust_sides)
+			thrust_x += forward_thrust * fx + right_thrust * sx;
+			thrust_y += forward_thrust * fy + right_thrust * sy;
+		else // want some sort of help piloting the ship? Haha no fuck you do it yourself
+			if(desired_thrust_dir & NORTH)
+				thrust_x += fx * maxthrust_forward
+				thrust_y += fy * maxthrust_forward
+			if(desired_thrust_dir & SOUTH)
+				thrust_x -= fx * maxthrust_backward
+				thrust_y -= fy * maxthrust_backward
+			if(desired_thrust_dir & EAST)
+				thrust_x += sx * maxthrust_sides
+				thrust_y += sy * maxthrust_sides
+			if(desired_thrust_dir & WEST)
+				thrust_x -= sx * maxthrust_sides
+				thrust_y -= sy * maxthrust_sides
 
-	if(!(SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_ACCELERATION, thrust_x, thrust_y, delta_time) & COMPONENT_FUNNY_MOVEMENT_BLOCK_ACCELERATION))
-		velocity_x += thrust_x * delta_time
-		velocity_y += thrust_y * delta_time
+		if(!(SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_ACCELERATION, thrust_x, thrust_y, delta_time) & COMPONENT_FUNNY_MOVEMENT_BLOCK_ACCELERATION))
+			velocity_x += thrust_x * delta_time
+			velocity_y += thrust_y * delta_time
 
 	offset_x += velocity_x * delta_time
 	offset_y += velocity_y * delta_time
@@ -264,9 +264,9 @@
 		if(!C)
 			continue
 		affected_viewers.Add(C)
-		C.pixel_x = last_offset_x*32
-		C.pixel_y = last_offset_y*32
-		animate(C, pixel_x = offset_x*32, pixel_y = offset_y*32, time = delta_time*10, flags=ANIMATION_END_NOW)
+		C.pixel_x = AM.base_pixel_x + last_offset_x*32
+		C.pixel_y = AM.base_pixel_y + last_offset_y*32
+		animate(C, pixel_x = AM.base_pixel_x + offset_x*32, pixel_y = AM.base_pixel_y + offset_y*32, time = delta_time*10, flags=ANIMATION_END_NOW)
 
 
 	SEND_SIGNAL(src, COMSIG_FUNNY_MOVEMENT_PROCESSING_FINISH)

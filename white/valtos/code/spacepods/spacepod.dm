@@ -667,7 +667,6 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 	if(!pilot && allow_pilot)
 		pilot = M
 		//M.click_intercept = src
-		M.client_mouse_signal_flags |= CLIENT_MOB_SEND_MOUSE_MOVE
 		RegisterSignal(M, COMSIG_MOB_CLIENT_MOUSE_MOVE, .proc/on_mouse_moved)
 		addverbs(M)
 		ADD_TRAIT(M, TRAIT_HANDS_BLOCKED, VEHICLE_TRAIT)
@@ -692,7 +691,6 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		REMOVE_TRAIT(M, TRAIT_HANDS_BLOCKED, VEHICLE_TRAIT)
 		if(M.client)
 			M.client.view_size.resetToDefault()
-		M.client_mouse_signal_flags &= ~CLIENT_MOB_SEND_MOUSE_MOVE
 		UnregisterSignal(M, COMSIG_MOB_CLIENT_MOUSE_MOVE)
 		//if(M.click_intercept == src)
 		//	M.click_intercept = null
