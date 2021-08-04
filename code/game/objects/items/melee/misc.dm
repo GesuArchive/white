@@ -633,6 +633,11 @@
 	. = ..()
 	if (!on)
 		return
+
+	if(!held_sausage)
+		to_chat("<span class='warning'>А сосиски-то и нет!</span>")
+		return
+
 	if (is_type_in_typecache(target, ovens))
 		if (held_sausage?.roasted)
 			to_chat("<span class='warning'>Your [held_sausage] has already been cooked!</span>")
