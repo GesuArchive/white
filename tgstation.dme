@@ -3702,6 +3702,7 @@
 #include "white\baldenysh\govnokod\items\bundles.dm"
 #include "white\baldenysh\govnokod\items\coomcam.dm"
 #include "white\baldenysh\govnokod\items\organs.dm"
+#include "white\baldenysh\govnokod\items\rotating_shield.dm"
 #include "white\baldenysh\govnokod\items\stacks.dm"
 #include "white\baldenysh\govnokod\items\tgui_zoom.dm"
 #include "white\baldenysh\govnokod\items\cellphone\calling_card.dm"
