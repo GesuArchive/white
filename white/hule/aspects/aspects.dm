@@ -355,9 +355,12 @@
 	name = "Battled"
 	desc = "Люди очень насторожены и готовы дать отпор в любую секунду."
 	weight = 8
+	forbidden = TRUE
 
 /datum/round_aspect/battled/run_aspect()
 	SSbtension.forced_tension = TRUE
+	spawn(5 SECONDS)
+		rightandwrong(SUMMON_GUNS, survivor_probability = 10)
 	..()
 
 /datum/round_aspect/tts
@@ -424,7 +427,8 @@
 
 /datum/round_aspect/oleg/run_aspect()
 	SSjob.forced_name = "Олег"
-	for(var/mob/living/carbon/human/H in GLOB.joined_player_list)
-		H.fully_replace_character_name(H.real_name, "[SSjob.forced_name] \Roman[SSjob.forced_num]")
-		SSjob.forced_num++
+	spawn(5 SECONDS)
+		for(var/mob/living/carbon/human/H in GLOB.joined_player_list)
+			H.fully_replace_character_name(H.real_name, "[SSjob.forced_name] \Roman[SSjob.forced_num]")
+			SSjob.forced_num++
 	..()
