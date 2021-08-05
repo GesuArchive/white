@@ -27,6 +27,10 @@
 		return
 
 	var/turf/open/T = get_turf(A)
+
+	if(istype(T) && !T.air)
+		stack_trace("БЛЯЯЯЯДЬ ТУРФ БЕЗ ВОЗДУХА: [src]([type])[COORD(T)]")
+
 	if(!istype(T) || T.planetary_atmos || T.air.return_pressure() > (WARNING_HIGH_PRESSURE - 10))
 		return
 
