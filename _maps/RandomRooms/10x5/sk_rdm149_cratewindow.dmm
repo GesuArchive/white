@@ -102,6 +102,9 @@
 /obj/structure/window/reinforced/spawner/east,
 /turf/open/space/basic,
 /area/space)
+"J" = (
+/turf/open/floor/plating,
+/area/space)
 "K" = (
 /obj/machinery/light,
 /turf/open/floor/plating,
@@ -167,14 +170,14 @@ M
 (5,1,1) = {"
 e
 E
-p
+J
 B
 M
 "}
 (6,1,1) = {"
 s
 E
-p
+J
 B
 m
 "}

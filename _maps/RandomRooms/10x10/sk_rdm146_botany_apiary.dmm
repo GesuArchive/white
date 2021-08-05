@@ -25,6 +25,12 @@
 /obj/item/seeds/liberty,
 /turf/open/floor/grass,
 /area/template_noop)
+"i" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/template_noop)
 "j" = (
 /obj/structure/table/glass,
 /obj/item/reagent_containers/spray/plantbgone{
@@ -38,6 +44,9 @@
 	},
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/reagent_containers/glass/bucket,
+/obj/machinery/light/small{
+	dir = 4
+	},
 /turf/open/floor/grass,
 /area/template_noop)
 "k" = (
@@ -71,6 +80,9 @@
 "r" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/cabbage,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/open/floor/grass,
 /area/template_noop)
 "t" = (
@@ -86,10 +98,22 @@
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/grass,
 /area/template_noop)
+"A" = (
+/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/machinery/light/small,
+/turf/open/floor/plating,
+/area/template_noop)
 "D" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/bamboo,
 /turf/open/floor/grass,
+/area/template_noop)
+"E" = (
+/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/plating,
 /area/template_noop)
 "G" = (
 /obj/structure/flora/ausbushes/ppflowers,
@@ -165,6 +189,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
+"S" = (
+/obj/machinery/light/small,
+/turf/open/floor/plating,
+/area/template_noop)
 "T" = (
 /obj/structure/beebox,
 /turf/open/floor/grass,
@@ -200,7 +228,7 @@ a
 a
 "}
 (2,1,1) = {"
-N
+A
 H
 e
 e
@@ -209,7 +237,7 @@ a
 e
 e
 H
-a
+i
 "}
 (3,1,1) = {"
 a
@@ -284,7 +312,7 @@ e
 K
 "}
 (9,1,1) = {"
-a
+S
 H
 e
 e
@@ -293,7 +321,7 @@ a
 e
 e
 H
-N
+E
 "}
 (10,1,1) = {"
 a

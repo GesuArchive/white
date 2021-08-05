@@ -143,6 +143,12 @@
 /obj/item/clothing/suit/toggle/labcoat/science,
 /turf/open/floor/plating,
 /area/template_noop)
+"A" = (
+/obj/structure/sign/warning{
+	pixel_y = -32
+	},
+/turf/open/floor/plating,
+/area/template_noop)
 "C" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/disposalpipe/segment,
@@ -266,7 +272,7 @@ I
 f
 M
 H
-P
+A
 "}
 (5,1,1) = {"
 e
@@ -302,7 +308,7 @@ J
 L
 f
 H
-P
+A
 "}
 (8,1,1) = {"
 g

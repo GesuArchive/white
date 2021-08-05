@@ -4,7 +4,7 @@
 /turf/open/floor/carpet/blue,
 /area/template_noop)
 "bI" = (
-/obj/structure/chair/sofa/right{
+/obj/structure/chair/sofa/left{
 	dir = 1
 	},
 /turf/open/floor/carpet/blue,
@@ -183,10 +183,6 @@
 /obj/structure/chair/office,
 /turf/open/floor/carpet/blue,
 /area/template_noop)
-"yb" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/template_noop)
 "yM" = (
 /obj/structure/sign/poster/contraband/clown{
 	pixel_y = -30
@@ -342,7 +338,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "KL" = (
-/obj/structure/chair/sofa/left{
+/obj/structure/chair/sofa/right{
 	dir = 1
 	},
 /turf/open/floor/carpet/blue,
@@ -533,7 +529,7 @@ mV
 (8,1,1) = {"
 Ov
 lL
-yb
+Cz
 ni
 lF
 bI
@@ -545,7 +541,7 @@ ni
 (9,1,1) = {"
 VT
 fJ
-yb
+Cz
 uS
 Eu
 KL

@@ -14,7 +14,7 @@
 /area/template_noop)
 "d" = (
 /obj/structure/alien/weeds,
-/obj/effect/mob_spawn/facehugger,
+/obj/effect/mob_spawn/human/corpse/damaged/chilly,
 /turf/open/floor/plating,
 /area/template_noop)
 "e" = (
@@ -23,7 +23,7 @@
 "f" = (
 /obj/structure/alien/weeds,
 /obj/structure/bed/nest,
-/obj/effect/mob_spawn/human/corpse/damaged,
+/obj/effect/mob_spawn/human/corpse/damaged/chilly,
 /turf/open/floor/plating,
 /area/template_noop)
 "g" = (
@@ -43,10 +43,6 @@
 /obj/structure/alien/weeds/node,
 /turf/open/floor/plating,
 /area/template_noop)
-"k" = (
-/obj/effect/mob_spawn/facehugger,
-/turf/closed/wall,
-/area/template_noop)
 "m" = (
 /obj/effect/spawner/lootdrop/maintenance/two,
 /turf/open/floor/plating,
@@ -65,7 +61,6 @@
 /area/template_noop)
 "q" = (
 /obj/structure/alien/weeds,
-/obj/effect/mob_spawn/facehugger,
 /obj/structure/rack,
 /obj/effect/spawner/lootdrop/maintenance/two,
 /turf/open/floor/plating,
@@ -73,13 +68,12 @@
 "r" = (
 /obj/structure/alien/weeds,
 /obj/structure/bed/nest,
-/obj/item/clothing/suit/armor/vest,
 /obj/item/flamethrower,
+/obj/effect/mob_spawn/human/corpse/damaged/chilly,
 /turf/open/floor/plating,
 /area/template_noop)
 "s" = (
 /obj/structure/alien/weeds,
-/obj/effect/mob_spawn/facehugger,
 /obj/effect/spawner/lootdrop/maintenance/two,
 /obj/structure/rack,
 /obj/effect/spawner/lootdrop/maintenance/two,
@@ -94,7 +88,7 @@ g
 e
 e
 g
-d
+a
 e
 e
 "}
@@ -114,7 +108,7 @@ e
 e
 g
 b
-k
+g
 c
 a
 c
@@ -154,7 +148,7 @@ a
 h
 a
 a
-a
+d
 g
 e
 "}

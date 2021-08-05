@@ -93,6 +93,9 @@
 "r" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/robot_debris,
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "s" = (
@@ -144,6 +147,26 @@
 /obj/machinery/light/small/broken,
 /turf/open/floor/plating,
 /area/template_noop)
+"E" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+"V" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
 
 (1,1,1) = {"
 a
@@ -174,11 +197,11 @@ q
 u
 "}
 (5,1,1) = {"
-d
-d
+V
+V
 r
-u
-u
+E
+E
 "}
 (6,1,1) = {"
 e

@@ -94,7 +94,6 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "o" = (
-/obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/item/kirbyplants/random,
 /turf/open/floor/plasteel/grimy,
 /area/template_noop)
@@ -207,7 +206,6 @@
 /turf/open/floor/wood,
 /area/template_noop)
 "J" = (
-/obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
@@ -418,11 +416,11 @@ X
 "}
 (10,1,1) = {"
 i
-o
+e
 t
 y
 B
-B
+o
 D
 H
 K

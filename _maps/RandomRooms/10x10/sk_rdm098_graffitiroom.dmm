@@ -139,14 +139,6 @@
 /obj/machinery/light,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
-"v" = (
-/obj/item/clothing/gloves/fingerless,
-/turf/open/floor/plasteel,
-/area/template_noop)
-"w" = (
-/obj/item/clothing/head/beret,
-/turf/open/floor/plasteel,
-/area/template_noop)
 
 (1,1,1) = {"
 a
@@ -202,7 +194,7 @@ i
 l
 l
 l
-w
+l
 l
 l
 s
@@ -213,7 +205,7 @@ e
 i
 l
 l
-v
+l
 q
 l
 l

@@ -67,7 +67,7 @@
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
 /obj/item/kitchen/knife/butcher,
-/obj/item/clothing/suit/hooded/wintercoat/security,
+/obj/item/clothing/suit/apron/chef,
 /turf/open/floor/plating{
 	icon_state = "platingdmg1"
 	},
@@ -116,6 +116,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/item/food/burger/rat,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "G" = (

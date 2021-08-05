@@ -4,6 +4,7 @@
 /area/template_noop)
 "b" = (
 /obj/structure/chair/comfy/brown,
+/obj/effect/turf_decal/weather/side,
 /turf/open/floor/wood,
 /area/template_noop)
 "c" = (
@@ -12,6 +13,7 @@
 "d" = (
 /obj/structure/chair/comfy/brown,
 /obj/structure/chair/comfy/brown,
+/obj/effect/turf_decal/weather/side,
 /turf/open/floor/wood,
 /area/template_noop)
 "e" = (
@@ -55,12 +57,18 @@
 "n" = (
 /obj/structure/chair/comfy/brown,
 /obj/item/food/popcorn,
+/obj/effect/turf_decal/weather/side{
+	dir = 6
+	},
 /turf/open/floor/wood,
 /area/template_noop)
 "o" = (
 /obj/structure/chair/comfy/brown,
 /obj/item/food/popcorn,
 /obj/item/reagent_containers/food/drinks/soda_cans/shamblers,
+/obj/effect/turf_decal/weather/side{
+	dir = 6
+	},
 /turf/open/floor/wood,
 /area/template_noop)
 "p" = (
@@ -78,11 +86,15 @@
 "s" = (
 /obj/structure/chair/comfy/brown,
 /obj/item/trash/popcorn,
+/obj/effect/turf_decal/weather/side{
+	dir = 10
+	},
 /turf/open/floor/wood,
 /area/template_noop)
 "t" = (
 /obj/structure/chair/comfy/brown,
 /obj/item/reagent_containers/food/drinks/soda_cans/space_mountain_wind,
+/obj/effect/turf_decal/weather/side,
 /turf/open/floor/wood,
 /area/template_noop)
 "u" = (
@@ -93,6 +105,50 @@
 /obj/item/trash/popcorn,
 /turf/open/floor/wood,
 /area/template_noop)
+"y" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 9
+	},
+/turf/open/floor/carpet/red,
+/area/template_noop)
+"G" = (
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 4
+	},
+/turf/open/floor/carpet/red,
+/area/template_noop)
+"M" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 5
+	},
+/turf/open/floor/carpet/red,
+/area/template_noop)
+"N" = (
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 8
+	},
+/turf/open/floor/carpet/red,
+/area/template_noop)
+"R" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/turf/open/floor/carpet/red,
+/area/template_noop)
+"X" = (
+/obj/structure/chair/comfy/brown,
+/obj/effect/turf_decal/weather/side{
+	dir = 6
+	},
+/turf/open/floor/wood,
+/area/template_noop)
+"Z" = (
+/obj/structure/chair/comfy/brown,
+/obj/effect/turf_decal/weather/side{
+	dir = 10
+	},
+/turf/open/floor/wood,
+/area/template_noop)
 
 (1,1,1) = {"
 a
@@ -100,7 +156,7 @@ b
 p
 b
 u
-a
+R
 f
 h
 j
@@ -108,11 +164,11 @@ e
 "}
 (2,1,1) = {"
 a
-b
+Z
 q
-b
-a
-a
+Z
+N
+y
 f
 e
 f
@@ -123,7 +179,7 @@ a
 c
 a
 c
-a
+R
 e
 e
 e
@@ -135,7 +191,7 @@ l
 n
 m
 n
-a
+R
 v
 e
 e
@@ -147,7 +203,7 @@ m
 b
 a
 b
-a
+R
 e
 e
 e
@@ -159,7 +215,7 @@ a
 b
 r
 b
-a
+R
 e
 e
 e
@@ -168,10 +224,10 @@ e
 "}
 (7,1,1) = {"
 a
-b
+Z
 a
 s
-a
+R
 e
 e
 e
@@ -183,7 +239,7 @@ a
 c
 a
 c
-a
+R
 e
 e
 e
@@ -194,9 +250,9 @@ e
 a
 o
 a
-b
-a
-a
+X
+G
+M
 f
 e
 f
@@ -208,7 +264,7 @@ d
 a
 t
 a
-a
+R
 f
 i
 k
