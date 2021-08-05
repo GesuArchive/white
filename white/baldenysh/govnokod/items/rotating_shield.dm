@@ -1,7 +1,7 @@
 /obj/item/rotating_shield
 	name = "RS controller"
 	icon = 'white/baldenysh/icons/obj/rshield.dmi'
-	icon_state = "layer1"
+	icon_state = "type0"
 	var/atom/shielded_atom
 	var/list/plate_layers = list(list())
 	var/angle = 0
@@ -11,15 +11,46 @@
 	var/active = FALSE
 
 /obj/item/rotating_shield/Initialize()
+	. = ..()
 	shielded_atom = src
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/on_moved)
+
+/obj/item/rotating_shield/Destroy()
+	. = ..()
+	UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
+
+/obj/item/rotating_shield/proc/on_moved()
+	set waitfor = FALSE
+	if(!active)
+		return
+	var/turf/T = get_turf(shielded_atom)
+	for(var/list/plate_layer in plate_layers)
+		for(var/obj/structure/rs_plate/plate in plate_layer)
+			plate.forceMove(T)
 
 /obj/item/rotating_shield/Destroy(force, silent)
 	. = ..()
 	QDEL_LIST(plate_layers)
 
 /obj/item/rotating_shield/process(delta_time)
+	var/last_angle = angle
 	angle += angular_velocity * delta_time
 	angle %= 360
+	var/matrix/mtrx_from = new()
+	var/matrix/mtrx_to = new()
+	mtrx_from.Turn(last_angle)
+	mtrx_to.Turn(angle)
+	transform = mtrx_from
+	animate(src, transform = mtrx_to, time = delta_time*10, flags = ANIMATION_END_NOW)
+	var/i = 0
+	for(var/list/plate_layer in plate_layers)
+		if(!plate_layer.len)
+			continue
+		for(var/obj/structure/rs_plate/plate in plate_layer)
+			var/matrix/p_mtrx_to = plate.transform
+			p_mtrx_to.Turn((i%2? 1 : -1)*(angle - last_angle))
+			animate(plate, transform = p_mtrx_to, time = delta_time*10, flags = ANIMATION_END_NOW)
+		i++
 
 /obj/item/rotating_shield/proc/activate()
 	var/i = 0
@@ -28,11 +59,12 @@
 			continue
 		var/j = 0
 		for(var/obj/structure/rs_plate/plate in plate_layer)
-			var/matrix/mtrx = new()
-			mtrx.Translate(0, radius + plate_layer_radius_diff*i)
-			mtrx.Turn(angle + j*360/plate_layer.len)
-			plate.transform = mtrx
-			plate.orbit(src, 0, i%2, 360 - angular_velocity, 12, FALSE)
+			animate(plate)
+			var/matrix/p_mtrx = new()
+			p_mtrx.Translate(0, radius + plate_layer_radius_diff*i)
+			p_mtrx.Turn((i%2? 1 : -1)*(angle) + j*360/plate_layer.len)
+			plate.transform = p_mtrx
+			plate.forceMove(get_turf(shielded_atom))
 			j++
 		i++
 
@@ -75,5 +107,7 @@
 	name = "impact plating"
 	icon = 'white/baldenysh/icons/obj/rshield.dmi'
 	icon_state = "type0"
+	move_resist = INFINITY
+	layer = ABOVE_ALL_MOB_LAYER
 	max_integrity = 50
 	var/def_degrees = 90
