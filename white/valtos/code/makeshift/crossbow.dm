@@ -36,6 +36,8 @@
 						PR.range = PR.range * charge
 						PR.damage = PR.damage * charge
 						PR.charge = charge
+						if(charge == 3)
+							PR.AddElement(/datum/element/impaling, 2, 3*MOVE_FORCE_DEFAULT, TRUE)
 
 					playsound(user, insert_sound, 50, 1)
 
