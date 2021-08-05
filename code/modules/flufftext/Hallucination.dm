@@ -763,7 +763,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			locking = FALSE
 			next_action = 10 SECONDS
 			return
-	else
+	else if(locks && locks.len)
 		var/obj/effect/hallucination/fake_door_lock/next_unlock = popleft(locks)
 		if (next_unlock)
 			next_unlock.unlock()
