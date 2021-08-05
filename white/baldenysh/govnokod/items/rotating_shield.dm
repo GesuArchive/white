@@ -74,6 +74,6 @@
 /obj/structure/rs_plate
 	name = "impact plating"
 	icon = 'white/baldenysh/icons/obj/rshield.dmi'
-	icon_state = "layer1"
+	icon_state = "type0"
 	max_integrity = 50
 	var/def_degrees = 90
