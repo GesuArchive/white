@@ -31,7 +31,7 @@
 	if(istype(T) && !T.air)
 		stack_trace("БЛЯЯЯЯДЬ ТУРФ БЕЗ ВОЗДУХА: [T]([T.type])[COORD(T)]")
 
-	if(!istype(T) || T.planetary_atmos || T.air.return_pressure() > (WARNING_HIGH_PRESSURE - 10))
+	if(!istype(T) || T.planetary_atmos || T.blocks_air || T.air.return_pressure() > (WARNING_HIGH_PRESSURE - 10))
 		return
 
 	var/datum/gas_mixture/stank = new
