@@ -199,7 +199,7 @@
 			else
 				to_chat(user, "<span class='warning'>Уровень кислорода в норме.</span>")
 		if(MODE_FRACTURE)
-			if(limb.wounds.len)
+			if(limb?.wounds?.len)
 				if(use_charge(10))
 					for(var/thing in limb.wounds)
 						var/datum/wound/W = thing
