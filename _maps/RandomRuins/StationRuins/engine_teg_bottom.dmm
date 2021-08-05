@@ -476,9 +476,7 @@
 	network = list("ss13","engine")
 	},
 /turf/open/floor/engine,
-/area/engine/engineering{
-	dir = 4
-	})
+/area/engine/engineering)
 "hm" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
