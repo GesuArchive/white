@@ -247,8 +247,9 @@
 	return B.magazine && B.magazine.ammo_count(FALSE)
 
 /datum/ai_controller/tdroid/proc/CanFindAmmoBallistic(obj/item/gun/ballistic/B)
-	var/list/atom/accessible_atoms = list(pawn.get_contents())
-	if(B in pawn.get_contents())
+	var/mob/living/carbon/carbon_pawn = pawn
+	var/list/atom/accessible_atoms = list(carbon_pawn.get_contents())
+	if(B in carbon_pawn.get_contents())
 		accessible_atoms |= view(1, pawn)
 	for(var/obj/item/ammo_box/box in accessible_atoms)
 		accessible_atoms |= box.stored_ammo
