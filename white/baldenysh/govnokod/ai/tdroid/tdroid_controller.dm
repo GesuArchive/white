@@ -236,7 +236,7 @@
 
 /datum/ai_controller/tdroid/proc/CanArmGun()
 	var/mob/living/carbon/carbon_pawn = pawn
-	for(var/obj/item/gun/G in (carbon_pawn.contents | view(1, carbon_pawn)))
+	for(var/obj/item/gun/G in (carbon_pawn.get_contents() | view(1, carbon_pawn)))
 		if(ShouldUseGun(G))
 			return TRUE
 	return FALSE
@@ -247,8 +247,8 @@
 	return B.magazine && B.magazine.ammo_count(FALSE)
 
 /datum/ai_controller/tdroid/proc/CanFindAmmoBallistic(obj/item/gun/ballistic/B)
-	var/list/atom/accessible_atoms = list(pawn.contents)
-	if(B in pawn.contents)
+	var/list/atom/accessible_atoms = list(pawn.get_contents())
+	if(B in pawn.get_contents())
 		accessible_atoms |= view(1, pawn)
 	for(var/obj/item/ammo_box/box in accessible_atoms)
 		accessible_atoms |= box.stored_ammo
@@ -304,7 +304,7 @@
 		if(potential_gun == carbon_pawn.get_item_for_held_index(LEFT_HANDS))
 			carbon_pawn.put_in_r_hand(potential_gun)
 		return potential_gun
-	for(var/obj/item/gun/G in (carbon_pawn.contents | view(1, carbon_pawn)))
+	for(var/obj/item/gun/G in (carbon_pawn.get_contents() | view(1, carbon_pawn)))
 		if(!ShouldUseGun(G))
 			continue
 		if(carbon_pawn.dropItemToGround(carbon_pawn.get_item_for_held_index(RIGHT_HANDS)))
@@ -321,7 +321,7 @@
 	for(var/mob/living/carbon/C in view(range, living_pawn))
 		if(C.stat < 2)
 			continue
-		for(var/obj/item/gun/G in C.contents)
+		for(var/obj/item/gun/G in C.get_contents())
 			if(!ShouldUseGun(G))
 				continue
 			if(!G.canStrip(living_pawn, C))
