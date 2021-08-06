@@ -83,7 +83,7 @@
 	if(plate_layers.len < plate_layer)
 		for(var/i in plate_layers.len to plate_layer)
 			plate_layers.Add(list(list()))
-	plate_layers[plate_layer].Add(plate)
+	plate_layers[plate_layer] += plate
 
 /obj/item/rotating_shield/proc/on_loc_change()
 
