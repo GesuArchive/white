@@ -331,9 +331,9 @@
 	if(cap_lost)
 		. += "<hr><span class='notice'>The cap seems to be missing.</span>"
 	else if(cap_on)
-		. += "<hr><span class='notice'>The cap is firmly on to prevent spilling. Alt-click to remove the cap.</span>"
+		. += "<hr><span class='notice'>The cap is firmly on to prevent spilling. ПКМ to remove the cap.</span>"
 	else
-		. += "<hr><span class='notice'>The cap has been taken off. Alt-click to put a cap on.</span>"
+		. += "<hr><span class='notice'>The cap has been taken off. ПКМ to put a cap on.</span>"
 
 /obj/item/reagent_containers/food/drinks/waterbottle/AltClick(mob/user)
 	. = ..()

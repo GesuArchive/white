@@ -37,7 +37,7 @@
 /obj/item/geiger_counter/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	QDEL_NULL(soundloop)
-	
+
 	return ..()
 
 /obj/item/geiger_counter/process(delta_time)
@@ -62,7 +62,7 @@
 	. = ..()
 	if(!scanning)
 		return
-	. += "<hr><span class='info'>Alt-клик для очистки показателей.</span>"
+	. += "<hr><span class='info'>ПКМ для очистки показателей.</span>"
 	if(obj_flags & EMAGGED)
 		. += "\n<span class='warning'>Дисплей выдаёт ересь.</span>"
 		return

@@ -19,7 +19,7 @@
 	if(Adjacent(user))
 		. += "<hr>Внутри [case ? "[case.name]" : "пусто"]."
 		if(case)
-			. += "</br><span class='info'>Alt-клик для изъятия [case.name].</span>"
+			. += "</br><span class='info'>ПКМ для изъятия [case.name].</span>"
 	else
 		if(case)
 			. += "<hr><span class='warning'>Он что-то имеет внутри, нужно подойти поближе, чтобы рассмотреть...</span>"

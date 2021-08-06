@@ -201,7 +201,7 @@
 	. += "Предохранитель [safety ? "включен" : "отключен"]."
 
 	if(reagents.total_volume)
-		. += "</br><span class='notice'>Alt-клик, чтобы опустошить его.</span>"
+		. += "</br><span class='notice'>ПКМ, чтобы опустошить его.</span>"
 
 /obj/item/extinguisher/proc/AttemptRefill(atom/target, mob/user)
 	if(istype(target, tanktype) && target.Adjacent(user))

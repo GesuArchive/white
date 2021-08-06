@@ -56,7 +56,7 @@
 /obj/machinery/microwave/examine(mob/user)
 	. = ..()
 	if(!operating)
-		. += "<hr><span class='notice'>Alt-клик, чтобы включить печь.</span>"
+		. += "<hr><span class='notice'>ПКМ, чтобы включить печь.</span>"
 
 	if(!in_range(user, src) && !issilicon(user) && !isobserver(user))
 		. += "<hr><span class='warning'>Слишком далеко, чтобы рассмотреть печь!</span>"

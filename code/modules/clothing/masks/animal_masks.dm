@@ -44,7 +44,7 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 /obj/item/clothing/mask/animal/examine(mob/user)
 	. = ..()
 	if(clothing_flags & VOICEBOX_TOGGLABLE)
-		. += "<span class='notice'>Its voicebox is currently [clothing_flags & VOICEBOX_DISABLED ? "disabled" : "enabled"]. <b>Alt-click</b> to toggle it.</span>"
+		. += "<span class='notice'>Its voicebox is currently [clothing_flags & VOICEBOX_DISABLED ? "disabled" : "enabled"]. <b>ПКМ</b> to toggle it.</span>"
 
 /obj/item/clothing/mask/animal/AltClick(mob/user)
 	. = ..()

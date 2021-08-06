@@ -97,7 +97,7 @@
 	return
 
 /*
-	Since the AI handles shift, ctrl, and alt-click differently
+	Since the AI handles shift, ctrl, and ПКМ differently
 	than anything else in the game, atoms have separate procs
 	for AI shift, ctrl, and alt clicking.
 */

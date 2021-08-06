@@ -308,7 +308,7 @@
 		else
 			how_cool_are_your_threads += "[src] может хранить [pockets.max_items] [weightclass2text(pockets.max_w_class)] размера или меньше.\n"
 		if(pockets.quickdraw)
-			how_cool_are_your_threads += "Могу быстро вытащить предмет из [src] используя Alt-Клик.\n"
+			how_cool_are_your_threads += "Могу быстро вытащить предмет из [src] используя ПКМ.\n"
 		if(pockets.silent)
 			how_cool_are_your_threads += "Добавление или изъятие предметов из [src] не издаёт шума.\n"
 		how_cool_are_your_threads += "</span>"

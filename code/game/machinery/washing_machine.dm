@@ -148,7 +148,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 /obj/machinery/washing_machine/examine(mob/user)
 	. = ..()
 	if(!busy)
-		. += "<hr><span class='notice'><b>Alt-click</b> it to start a wash cycle.</span>"
+		. += "<hr><span class='notice'><b>ПКМ</b> it to start a wash cycle.</span>"
 
 /obj/machinery/washing_machine/AltClick(mob/user)
 	if(!user.canUseTopic(src, !issilicon(user)))

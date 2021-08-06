@@ -122,7 +122,7 @@
 
 /obj/item/radio/headset/syndicate/alt/nano
 	name = "\proper the nanosuit's bowman headset"
-	desc = "Operator communication headset. Property of CryNet Systems. Alt-click to toggle interface."
+	desc = "Operator communication headset. Property of CryNet Systems. ПКМ to toggle interface."
 	icon_state = "syndie_headset"
 	inhand_icon_state = "syndie_headset"
 	subspace_transmission = FALSE

@@ -26,7 +26,7 @@
 	. = ..()
 	. += "<hr>"
 	if(glass_colour_type && ishuman(user))
-		. += "<span class='notice'>Alt-клик, чтобы поменять их цвета.</span>"
+		. += "<span class='notice'>ПКМ, чтобы поменять их цвета.</span>"
 
 /obj/item/clothing/glasses/visor_toggling()
 	..()

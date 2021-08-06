@@ -224,7 +224,7 @@
 
 /obj/structure/chair/comfy/arm
 	name = "Armchair"
-	desc = "It looks comfy.\n<span class='notice'>Alt-click to rotate it clockwise.</span>"
+	desc = "It looks comfy.\n<span class='notice'>ПКМ to rotate it clockwise.</span>"
 	icon = 'white/pieceofcrap.dmi'
 	icon_state = "armchair"
 	resistance_flags = FLAMMABLE

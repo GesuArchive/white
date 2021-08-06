@@ -34,7 +34,7 @@
 
 /obj/machinery/stasis/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>Alt-click to [stasis_enabled ? "turn off" : "turn on"] the machine.</span>"
+	. += "<hr><span class='notice'>ПКМ to [stasis_enabled ? "turn off" : "turn on"] the machine.</span>"
 	. += "<span class='notice'><b>[src.name]</b> is [op_computer ? "linked" : "<b>NOT</b> linked"] to a nearby operating computer.</span>"
 
 /obj/machinery/stasis/proc/play_power_sound()

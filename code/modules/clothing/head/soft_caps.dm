@@ -41,7 +41,7 @@
 /obj/item/clothing/head/soft/examine(mob/user)
 	. = ..()
 	. += "<hr>"
-	. += "<span class='notice'>Alt-клик, чтобы повернуть козырёк кепки [flipped ? "вперёд" : "назад"].</span>"
+	. += "<span class='notice'>ПКМ, чтобы повернуть козырёк кепки [flipped ? "вперёд" : "назад"].</span>"
 
 /obj/item/clothing/head/soft/red
 	name = "красная кепка"

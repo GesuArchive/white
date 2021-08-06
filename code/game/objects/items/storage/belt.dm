@@ -709,7 +709,7 @@
 	. = ..()
 	. += "<hr>"
 	if(length(contents))
-		. += "<span class='notice'>Alt-клик, чтобы немедленно достать саблю.</span>"
+		. += "<span class='notice'>ПКМ, чтобы немедленно достать саблю.</span>"
 
 /obj/item/storage/belt/sabre/AltClick(mob/user)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))

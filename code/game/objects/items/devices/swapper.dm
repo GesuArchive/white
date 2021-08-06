@@ -64,7 +64,7 @@
 	if(world.time < next_use)
 		. += "<hr><span class='warning'>Time left to recharge: [DisplayTimeText(next_use - world.time)].</span>"
 	if(linked_swapper)
-		. += "<hr><span class='notice'><b>Linked.</b> Alt-Click to break the quantum link.</span>"
+		. += "<hr><span class='notice'><b>Linked.</b> ПКМ to break the quantum link.</span>"
 	else
 		. += "<hr><span class='notice'><b>Not Linked.</b> Use on another quantum spin inverter to establish a quantum link.</span>"
 

@@ -346,7 +346,7 @@
 		user.listed_turf = T
 		user.client << output("[url_encode(json_encode(T.name))];", "statbrowser:create_listedturf")
 
-/// Use this instead of [/mob/proc/AltClickOn] where you only want turf content listing without additional atom alt-click interaction
+/// Use this instead of [/mob/proc/AltClickOn] where you only want turf content listing without additional atom ПКМ interaction
 /atom/proc/AltClickNoInteract(mob/user, atom/A)
 	var/turf/T = get_turf(A)
 	if(T && user.TurfAdjacent(T))

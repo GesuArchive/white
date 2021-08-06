@@ -168,7 +168,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 		. += "<hr>[dead_message]"
 		if(ask_role)
 			. += "<hr><span class='notice'>Текущее случайное число сознания: \"[ask_role]\"</span>"
-		. += "\n<span class='boldnotice'>Alt-клик для установки случайного числа. Оно укажет позитронику кему ему быть. Это поможет заинтересовать кого-нибудь.</span>"
+		. += "\n<span class='boldnotice'>ПКМ для установки случайного числа. Оно укажет позитронику кему ему быть. Это поможет заинтересовать кого-нибудь.</span>"
 
 /obj/item/mmi/posibrain/Initialize()
 	. = ..()

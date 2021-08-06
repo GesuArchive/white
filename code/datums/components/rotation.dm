@@ -102,7 +102,7 @@
 	SIGNAL_HANDLER
 
 	if(rotation_flags & ROTATION_ALTCLICK)
-		examine_list += "<hr><span class='notice'>Alt-клик для поворота по часовой стрелке.</span>"
+		examine_list += "<hr><span class='notice'>ПКМ для поворота по часовой стрелке.</span>"
 
 /datum/component/simple_rotation/proc/HandRot(datum/source, mob/user, rotation = default_rotation_direction)
 	SIGNAL_HANDLER

@@ -89,7 +89,7 @@
 
 /obj/structure/aquarium/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Alt-click to [panel_open ? "close" : "open"] the control panel.</span>"
+	. += "<span class='notice'>ПКМ to [panel_open ? "close" : "open"] the control panel.</span>"
 
 /obj/structure/aquarium/AltClick(mob/user)
 	if(!user.canUseTopic(src, BE_CLOSE))

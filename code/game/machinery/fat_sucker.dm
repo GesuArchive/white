@@ -42,7 +42,7 @@
 
 /obj/machinery/fat_sucker/examine(mob/user)
 	. = ..()
-	. += {"<hr><span class='notice'>Alt-клик для разблокировки или блокировки люка.</span>
+	. += {"<hr><span class='notice'>ПКМ для разблокировки или блокировки люка.</span>
 				<span class='notice'>Удаляем [bite_size] единиц питательных веществ за операцию.</span>
 				<span class='notice'>Требует [nutrient_to_meat] единиц питательных веществ на кусок мяса.</span>"}
 

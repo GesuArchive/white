@@ -2,7 +2,7 @@
  * # Compact Remote
  *
  * A handheld device with several buttons.
- * In game, this translates to having different signals for normal usage, alt-clicking, and ctrl-clicking when in your hand.
+ * In game, this translates to having different signals for normal usage, ПКМing, and ctrl-clicking when in your hand.
  */
 /obj/item/controller
 	name = "контроллер"
@@ -23,7 +23,7 @@
 
 /obj/item/circuit_component/controller
 	display_name = "Контроллер"
-	display_desc = "Used to receive inputs from the controller shell. Use the shell in hand to trigger the output signal. Alt-click for the alternate signal. Right click for the extra signal."
+	display_desc = "Used to receive inputs from the controller shell. Use the shell in hand to trigger the output signal. ПКМ for the alternate signal. Right click for the extra signal."
 
 	/// The three separate buttons that are called in attack_hand on the shell.
 	var/datum/port/output/signal
@@ -66,7 +66,7 @@
 	signal.set_output(COMPONENT_SIGNAL)
 
 /**
- * Called when the shell item is alt-clicked
+ * Called when the shell item is ПКМed
  */
 /obj/item/circuit_component/controller/proc/send_alternate_signal(atom/source, mob/user)
 	SIGNAL_HANDLER

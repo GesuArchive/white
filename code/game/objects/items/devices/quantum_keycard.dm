@@ -13,7 +13,7 @@
 	. = ..()
 	if(qpad)
 		. += "<hr>It's currently linked to a quantum pad."
-		. += "<hr><span class='notice'>Alt-click to unlink the keycard.</span>"
+		. += "<hr><span class='notice'>ПКМ to unlink the keycard.</span>"
 	else
 		. += "<hr><span class='notice'>Insert [src] into an active quantum pad to link it.</span>"
 

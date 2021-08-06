@@ -166,7 +166,7 @@ GLOBAL_LIST_EMPTY(bodycontainers) //Let them act as spawnpoints for revenants an
 
 /obj/structure/bodycontainer/morgue/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>Динамик [beeper ? "включен" : "отключен"]. Alt-клик для смены режима.</span>"
+	. += "<hr><span class='notice'>Динамик [beeper ? "включен" : "отключен"]. ПКМ для смены режима.</span>"
 
 /obj/structure/bodycontainer/morgue/AltClick(mob/user)
 	..()
