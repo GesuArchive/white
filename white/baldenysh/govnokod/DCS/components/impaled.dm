@@ -47,8 +47,8 @@
 
 /obj/structure/wall_stuck_thing
 	name = "что-то"
-	icon = 'icons/obj/kitchen.dmi'
-	icon_state = "spike"
+	icon = 'white/valtos/icons/effects.dmi'
+	icon_state = "pinned"
 	desc = "В стене!"
 	density = FALSE
 	anchored = TRUE
