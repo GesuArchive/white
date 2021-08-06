@@ -1657,6 +1657,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"hE" = (
+/obj/structure/fans/tiny/invisible,
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/engine,
+/area/ruin/powered/yohei_base)
 "hJ" = (
 /obj/item/kirbyplants/random,
 /obj/structure/sign/nanotrasen{
@@ -1824,8 +1831,8 @@
 /turf/open/floor/plasteel/monofloor,
 /area/centcom/control)
 "iK" = (
-/turf/closed/indestructible/syndicate,
-/area/space)
+/turf/closed/indestructible/black,
+/area/ruin/powered/yohei_base)
 "iL" = (
 /obj/structure/table,
 /turf/open/indestructible/white,
@@ -2046,15 +2053,6 @@
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
 /area/centcom/outdoors)
-"kh" = (
-/obj/structure/fans/tiny/invisible,
-/obj/effect/turf_decal/stripes/line{
-	dir = 10
-	},
-/obj/spacepod/prebuilt/yohei,
-/obj/effect/landmark/yohei_beacon,
-/turf/open/floor/engine,
-/area/ruin/powered/yohei_base)
 "kj" = (
 /obj/machinery/door/airlock/wood,
 /turf/open/floor/wood,
@@ -2153,11 +2151,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
-"kO" = (
-/obj/spacepod/prebuilt/yohei,
-/obj/effect/landmark/yohei_beacon,
-/turf/open/floor/engine,
-/area/ruin/powered/yohei_base)
 "kP" = (
 /obj/structure/sign/warning/vacuum/external{
 	pixel_y = -32
@@ -2458,10 +2451,9 @@
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "mY" = (
-/obj/structure/fans/tiny/invisible,
-/obj/effect/turf_decal/stripes/line,
-/obj/spacepod/prebuilt/yohei,
-/obj/effect/landmark/yohei_beacon,
+/obj/effect/turf_decal/box/corners{
+	dir = 1
+	},
 /turf/open/floor/engine,
 /area/ruin/powered/yohei_base)
 "nb" = (
@@ -3091,13 +3083,6 @@
 /obj/structure/window/reinforced,
 /turf/open/floor/carpet/black,
 /area/centcom/holding)
-"qR" = (
-/obj/structure/fans/tiny/invisible,
-/obj/effect/turf_decal/stripes/line{
-	dir = 6
-	},
-/turf/open/floor/engine,
-/area/ruin/powered/yohei_base)
 "qY" = (
 /obj/structure/table,
 /obj/machinery/microwave{
@@ -3107,25 +3092,15 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/centcom/holding)
 "qZ" = (
-/obj/effect/light_emitter{
-	light_range = 16;
-	set_cap = 2.5;
-	set_luminosity = 16
+/obj/spacepod/prebuilt/yohei,
+/obj/effect/landmark/yohei_beacon,
+/obj/effect/turf_decal/box/corners{
+	dir = 8
 	},
-/obj/structure/fans/tiny/invisible,
-/obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/engine,
 /area/ruin/powered/yohei_base)
 "rh" = (
-/obj/effect/light_emitter{
-	light_range = 16;
-	set_cap = 2.5;
-	set_luminosity = 16
-	},
-/obj/structure/fans/tiny/invisible,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 8
-	},
+/obj/effect/turf_decal/box/corners,
 /turf/open/floor/engine,
 /area/ruin/powered/yohei_base)
 "rk" = (
@@ -3414,12 +3389,16 @@
 	},
 /area/centcom/outdoors)
 "sW" = (
-/obj/structure/fans/tiny/invisible,
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
 /obj/spacepod/prebuilt/yohei,
 /obj/effect/landmark/yohei_beacon,
+/obj/effect/turf_decal/box/corners{
+	dir = 8
+	},
+/obj/effect/light_emitter{
+	light_range = 16;
+	set_cap = 2.5;
+	set_luminosity = 16
+	},
 /turf/open/floor/engine,
 /area/ruin/powered/yohei_base)
 "tb" = (
@@ -3717,9 +3696,11 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/centcom/holding)
 "vY" = (
-/obj/structure/fans/tiny/invisible,
-/obj/effect/turf_decal/stripes/line{
-	dir = 10
+/obj/effect/turf_decal/box/corners,
+/obj/effect/light_emitter{
+	light_range = 16;
+	set_cap = 2.5;
+	set_luminosity = 16
 	},
 /turf/open/floor/engine,
 /area/ruin/powered/yohei_base)
@@ -4622,6 +4603,13 @@
 "CL" = (
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
+"CS" = (
+/obj/structure/fans/tiny/invisible,
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/engine,
+/area/ruin/powered/yohei_base)
 "CT" = (
 /turf/closed/indestructible/fakedoor{
 	desc = "Дверь, ведущая дальше в пучину небытия.";
@@ -5196,6 +5184,11 @@
 "Gw" = (
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ruin/powered/yohei_base)
+"Gy" = (
+/obj/structure/fans/tiny/invisible,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/engine,
+/area/ruin/powered/yohei_base)
 "Gz" = (
 /obj/structure/cable,
 /obj/structure/frame,
@@ -5546,8 +5539,9 @@
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/four)
 "Kh" = (
-/obj/structure/fans/tiny/invisible,
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/box/corners{
+	dir = 4
+	},
 /turf/open/floor/engine,
 /area/ruin/powered/yohei_base)
 "Kj" = (
@@ -10834,11 +10828,11 @@ XF
 XF
 XF
 XF
-iK
-iK
-iK
-iK
-iK
+WA
+WA
+WA
+WA
+WA
 XF
 XF
 XF
@@ -11085,18 +11079,18 @@ Qd
 eS
 as
 XF
-iK
-iK
-iK
-iK
-iK
-iK
-iK
-at
-at
-at
-iK
-iK
+WA
+WA
+WA
+WA
+WA
+WA
+WA
+Gw
+Gw
+Gw
+WA
+WA
 WA
 yr
 px
@@ -11342,19 +11336,19 @@ Vi
 eS
 as
 XF
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-WA
+iK
+Gw
+Gw
+Gw
+Gw
+au
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+au
 yr
 yr
 XF
@@ -11599,18 +11593,18 @@ qP
 eS
 as
 XF
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
+iK
+Gw
+Gw
+Gw
+Gw
+au
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
 WA
 WA
 WA
@@ -11856,20 +11850,20 @@ qP
 Tp
 as
 XF
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
+iK
+Gw
+Gw
+WA
+WA
+WA
+WA
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
 WA
 uS
 iZ
@@ -11879,12 +11873,12 @@ Hf
 zR
 WA
 jp
-sW
 SY
-vY
-XF
-XF
-XF
+SY
+SY
+SY
+SY
+CS
 XF
 XF
 XF
@@ -12113,21 +12107,21 @@ qP
 eS
 as
 XF
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
+iK
+Gw
+Gw
+au
+Gw
+Gw
 WA
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+au
 bo
 Gw
 Gw
@@ -12136,12 +12130,12 @@ Gw
 HT
 WA
 WJ
+mY
+qZ
 vP
-vP
-rh
-kh
-XF
-XF
+mY
+sW
+Gy
 XF
 XF
 XF
@@ -12370,19 +12364,19 @@ qL
 eS
 as
 XF
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
+iK
+Gw
+Gw
+au
+Gw
+Gw
+WA
+au
+WA
+WA
+WA
+au
+WA
 WA
 WA
 dK
@@ -12393,12 +12387,12 @@ lT
 LQ
 WA
 Qn
-vP
-vP
+Kh
+rh
 vP
 Kh
-XF
-XF
+rh
+Gy
 XF
 XF
 XF
@@ -12627,19 +12621,19 @@ Qg
 eS
 as
 XF
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
+iK
+Gw
+Gw
+WA
+Gw
+Gw
+WA
+Gw
+Gw
+WA
+Gw
+Gw
+Gw
 WA
 hq
 bo
@@ -12653,9 +12647,9 @@ WJ
 vP
 vP
 vP
-Kh
-XF
-XF
+vP
+vP
+Gy
 XF
 XF
 XF
@@ -12884,19 +12878,19 @@ eS
 eS
 as
 XF
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
+iK
+Gw
+Gw
+WA
+Gw
+Gw
+WA
+Gw
+Gw
+WA
+Gw
+Gw
+Gw
 WA
 rO
 ve
@@ -12907,12 +12901,12 @@ hn
 LQ
 WA
 Qn
-vP
-vP
+mY
+qZ
 vP
 mY
-XF
-XF
+qZ
+Gy
 XF
 XF
 XF
@@ -13141,19 +13135,19 @@ pW
 AE
 as
 XF
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
+iK
+Gw
+Gw
+WA
+Gw
+Gw
+WA
+Gw
+Gw
+WA
+Gw
+Gw
+Gw
 WA
 WA
 ex
@@ -13164,12 +13158,12 @@ bo
 HT
 WA
 WJ
-kO
+Kh
+rh
 vP
-qZ
-qR
-XF
-XF
+Kh
+vY
+Gy
 XF
 XF
 XF
@@ -13398,20 +13392,20 @@ as
 as
 as
 XF
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
+iK
+Gw
+Gw
+WA
+au
+au
+WA
+Gw
+Gw
+WA
+Gw
+Gw
+Gw
+Gw
 au
 fK
 kz
@@ -13423,10 +13417,10 @@ WA
 EI
 nm
 nm
-qR
-XF
-XF
-XF
+nm
+nm
+nm
+hE
 XF
 XF
 XF
@@ -13655,26 +13649,26 @@ Co
 Co
 XF
 XF
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
+iK
+Gw
+Gw
+WA
+Gw
+Gw
+Gw
+Gw
+Gw
+au
+Gw
+Gw
+Gw
+Gw
 WA
 gT
 kW
 kz
 WA
-WA
+au
 WA
 WA
 XF
@@ -13912,20 +13906,20 @@ Co
 Co
 XF
 XF
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
+iK
+Gw
+Gw
+WA
+Gw
+Gw
+Gw
+Gw
+Gw
+WA
+Gw
+Gw
+Gw
+Gw
 WA
 hc
 lg
@@ -14169,19 +14163,19 @@ Co
 Co
 XF
 XF
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
+iK
+WA
+WA
+WA
+au
+au
+WA
+WA
+WA
+WA
+WA
+WA
+WA
 WA
 WA
 WA
@@ -14426,20 +14420,20 @@ Co
 Co
 XF
 XF
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-WA
+iK
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+au
+Gw
+Gw
+Gw
+au
 yr
 px
 XF
@@ -14683,19 +14677,19 @@ Co
 Co
 XF
 XF
-at
-at
-at
-at
-at
-at
-at
-at
-at
 iK
-iK
-iK
-iK
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+WA
+WA
+WA
+WA
 WA
 yr
 yr
@@ -14940,16 +14934,16 @@ Co
 Co
 XF
 XF
-iK
-iK
-iK
-iK
-iK
-iK
-iK
-iK
-iK
-iK
+WA
+WA
+WA
+WA
+WA
+WA
+WA
+WA
+WA
+WA
 XF
 XF
 XF

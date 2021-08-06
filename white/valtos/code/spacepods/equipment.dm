@@ -390,6 +390,7 @@
 /obj/spacepod/verb/wayback_me()
 	set name = "Вернуться к маяку"
 	set category = "Спейспод"
+	set src = usr.loc
 
 	if(!(locate(/obj/item/spacepod_equipment/teleport) in equipment))
 		to_chat(usr, "<span class='warning'>Нет телепортирующего устройства!</span>")
@@ -398,6 +399,12 @@
 	if(!verb_check())
 		return
 
-	to_chat(usr, "<span class='notice'>ТЕЛЕПОРТИРУЕМСЯ!</span>")
+	for(var/atom/A in GLOB.yohei_beacons)
+		var/turf/T = get_turf(A)
+		if(locate(/obj/spacepod in T))
+			continue
+		else
+			forceMove(T)
+			return
 
-	forceMove(get_turf(pick(GLOB.yohei_beacons)))
+	to_chat(usr, "<span class='notice'>ТЕЛЕПОРТИРУЕМСЯ!</span>")
