@@ -628,9 +628,9 @@
 
 /datum/techweb_node/exp_tools
 	id = "exp_tools"
-	display_name = "Experimental Tools"
-	description = "Highly advanced tools."
-	design_ids = list("exwelder", "jawsoflife", "handdrill", "laserscalpel", "mechanicalpinches", "searingtool", "gene_shears", "tricorder")
+	display_name = "Экспериментальные инструменты"
+	description = "Инструменты с повышенной эффективностью работы и гибридным функционалом."
+	design_ids = list("jawsoflife", "handdrill", "exwelder", "tricorder", "laserscalpel", "mechanicalpinches", "searingtool", "biocorrector", "gene_shears")
 	prereq_ids = list("adv_engi")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 7500)
 	discount_experiments = list(/datum/experiment/scanning/random/material/hard/one = 5000)
