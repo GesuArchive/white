@@ -10,24 +10,18 @@
 
 /datum/component/impaled/RegisterWithParent()
 	var/mob/living/carbon/C = parent
-
+	C.Paralyze(10 SECONDS)
 	var/obj/structure/wall_stuck_thing/ST = new(get_turf(C))
 	ST.dir = get_dir(impaled_to, C)
+	if(ST.dir & SOUTH)
+		ST.layer = ABOVE_ALL_MOB_LAYER
 	ST.name = impaled_by.name
 	impaled_by.forceMove(ST)
 	ST.impaler = impaled_by
-
-	if(ST.dir  & NORTH)
-		ST.pixel_y += 16
-	if(ST.dir  & SOUTH)
-		ST.pixel_y -= 16
-	if(ST.dir  & EAST)
-		ST.pixel_x += 16
-	if(ST.dir  & WEST)
-		ST.pixel_x -= 16
-
 	ST.buckle_mob(C, force=1)
+	set_offsets(ST.dir)
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/on_moved)
+	RegisterSignal(parent, COMSIG_MOVABLE_UNBUCKLE, .proc/on_unbuckle)
 
 /datum/component/impaled/UnregisterFromParent()
 	var/mob/living/carbon/C = parent
@@ -38,10 +32,30 @@
 /datum/component/impaled/proc/on_moved(atom/movable/mover, atom/oldloc, direction)
 	if(oldloc == mover.loc)
 		return
-
+	reset_offsets()
 	qdel(src)
 
+/datum/component/impaled/proc/on_unbuckle()
+	reset_offsets()
+	qdel(src)
 
+/datum/component/impaled/proc/set_offsets(offset_dir)
+	var/mob/living/carbon/C = parent
+	var/offset_x = 0
+	var/offset_y = 0
+	if(offset_dir  & NORTH)
+		offset_y -= 0
+	if(offset_dir  & SOUTH)
+		offset_y += 24
+	if(offset_dir  & EAST)
+		offset_x -= 16
+	if(offset_dir  & WEST)
+		offset_x += 16
+	animate(C, pixel_x = C.base_pixel_x + offset_x, pixel_y = C.base_pixel_y + offset_y, 3)
+
+/datum/component/impaled/proc/reset_offsets()
+	var/mob/living/carbon/C = parent
+	animate(C, pixel_x = C.base_pixel_x, pixel_y = C.base_pixel_y, 1)
 
 ///////////////////////////////////////////////////////
 
@@ -54,7 +68,7 @@
 	anchored = TRUE
 	buckle_lying = 0
 	can_buckle = 1
-	max_integrity = 50
+	max_integrity = 25
 	var/obj/impaler
 
 /obj/structure/wall_stuck_thing/proc/release_mob(mob/living/M)

@@ -39,7 +39,7 @@
 
 /datum/element/impaling/proc/throw_thing(mob/living/carbon/C, dir, additional_dmg)
 	//message_admins("[C.health - additional_dmg]")
-	if(crit_only && !C.stat && !(C.health - additional_dmg <= 0)) //эта хуйня с допдамагом ни в какую не хочет работать, криво считает почему-то
+	if(crit_only && !C.stat && !(C.health - additional_dmg*2 <= 0)) //эта хуйня с допдамагом ни в какую не хочет работать, криво считает почему-то
 		return
 	var/move_target = get_ranged_target_turf(C, dir, 5)
 	RegisterSignal(C, COMSIG_MOVABLE_IMPACT, .proc/impale)
