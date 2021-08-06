@@ -3696,6 +3696,20 @@
 "mw" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/bottom_station_maints/west)
+"mA" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/engineering{
+	name = "Tech Storage";
+	req_access_txt = "23"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
+/turf/open/floor/plating,
+/area/storage/tech)
 "mB" = (
 /obj/structure/rospilovo/doski,
 /turf/open/floor/plating,
@@ -5779,12 +5793,11 @@
 /area/crew_quarters/dorms)
 "ti" = (
 /obj/machinery/airalarm{
-	dir = 1;
-	pixel_y = -23
+	dir = 4;
+	pixel_x = -23
 	},
-/obj/structure/cable,
-/obj/machinery/camera/autoname{
-	dir = 1
+/obj/machinery/light/small{
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/storage/tech)
@@ -8624,8 +8637,9 @@
 /turf/open/floor/plasteel,
 /area/security/prison)
 "DJ" = (
-/obj/machinery/light/small,
-/obj/structure/cable,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/storage/tech)
 "DK" = (
@@ -9492,9 +9506,6 @@
 /turf/open/floor/plasteel/dark,
 /area/security/execution/transfer)
 "GO" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
 /obj/structure/cable,
 /obj/machinery/light_switch{
 	pixel_x = -23
@@ -12254,17 +12265,9 @@
 /turf/open/floor/engine,
 /area/engine/atmospherics_engine)
 "Qs" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/engineering{
-	name = "Tech Storage";
-	req_access_txt = "23"
+/obj/machinery/light/small{
+	pixel_y = 0
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plating,
 /area/storage/tech)
 "Qt" = (
@@ -41160,11 +41163,11 @@ RO
 fq
 RO
 RO
-nS
-EN
-EN
-EN
-EN
+fq
+RO
+RO
+RO
+fq
 nS
 nS
 VC
@@ -41417,11 +41420,11 @@ qv
 GO
 qv
 ZN
-nS
-ln
-ln
-ln
-ln
+ti
+qv
+cb
+cb
+fq
 Sx
 bJ
 oG
@@ -41674,11 +41677,11 @@ To
 Lp
 pz
 pz
-Qs
-bJ
-bJ
-bJ
-bJ
+pz
+pz
+pz
+pz
+mA
 eN
 ln
 ye
@@ -41930,12 +41933,12 @@ zL
 cb
 Sw
 cb
-DJ
-nS
-rm
-rm
-rm
-rm
+qv
+cb
+cb
+cb
+Qs
+fq
 wP
 ln
 ln
@@ -42187,12 +42190,12 @@ YC
 qv
 JO
 qv
-ti
-nS
-nb
-dP
-Vf
-rm
+qv
+qv
+qv
+cb
+cb
+fq
 wP
 ln
 ln
@@ -42445,11 +42448,11 @@ qv
 ql
 qv
 bt
-nS
-dP
-dP
-dP
-rm
+DJ
+qv
+qv
+cb
+fq
 wP
 rm
 ln
@@ -42702,11 +42705,11 @@ RO
 fq
 RO
 RO
-nS
-dP
-dP
-dP
-zi
+fq
+RO
+RO
+fq
+fq
 wP
 rm
 ln
@@ -42959,11 +42962,11 @@ PG
 PG
 PG
 PG
+bw
+PG
+PG
+PG
 nS
-dP
-dP
-dP
-rm
 wP
 rm
 ln
@@ -43216,11 +43219,11 @@ Zm
 Zm
 PG
 Zm
+bw
+PG
+PG
+PG
 nS
-dP
-dP
-dP
-rm
 wP
 rm
 ln
@@ -43474,10 +43477,10 @@ bw
 bw
 bw
 nS
-rm
-rm
-rm
-rm
+nS
+EN
+nS
+nS
 wP
 ln
 ln

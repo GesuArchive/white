@@ -20063,6 +20063,7 @@
 /area/quartermaster/sorting)
 "bKU" = (
 /obj/machinery/door/airlock/engineering{
+	locked = 1;
 	name = "Construction Area";
 	req_access_txt = "32"
 	},
@@ -20939,6 +20940,7 @@
 /obj/machinery/airalarm{
 	pixel_y = 23
 	},
+/obj/structure/lattice,
 /turf/open/openspace,
 /area/construction)
 "bNP" = (
@@ -21959,6 +21961,7 @@
 /obj/structure/light_construct{
 	dir = 8
 	},
+/obj/structure/lattice,
 /turf/open/openspace,
 /area/construction)
 "bRm" = (
@@ -25127,6 +25130,7 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
+	locked = 1;
 	name = "Construction Area Maintenance";
 	req_access_txt = "32"
 	},
@@ -72106,7 +72110,7 @@ sDF
 bKt
 bLx
 bCs
-cCe
+bNJ
 bRl
 cCe
 bLC
@@ -72363,8 +72367,8 @@ bFa
 bFa
 bLz
 bCs
-cCe
-cCe
+bNJ
+bNJ
 cCe
 bJC
 gWd
@@ -72878,7 +72882,7 @@ bFa
 bFa
 bCs
 bNL
-cCe
+bNJ
 cCe
 bJD
 nxv
