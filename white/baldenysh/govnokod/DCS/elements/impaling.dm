@@ -50,6 +50,11 @@
 	UnregisterSignal(thrown, COMSIG_MOVABLE_IMPACT)
 
 /datum/element/impaling/proc/impale(mob/living/carbon/source, atom/hit_atom, datum/thrownthing/throwingdatum)
-	if(!hit_atom.density)
-		return
+	if(!isclosedturf(hit_atom))
+		if(istype(hit_atom, /obj/structure/window))
+			var/obj/structure/window/W = hit_atom
+			if(!W.fulltile)
+				return
+		else
+			return
 	source.AddComponent(/datum/component/impaled, impaler, hit_atom)

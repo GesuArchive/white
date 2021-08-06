@@ -290,31 +290,31 @@
 	icon_state = "off"
 	var/coin = 0
 	var/mob/retard //current user
-	var/retard_name
 	var/writing = 0
+
+/obj/machinery/musicwriter/examine(mob/user)
+	. = ..()
+	if(writing)
+		. += "<span class='notice'>Можно перезагрузить <b>мультитулом</b>.</span>"
 
 /obj/machinery/musicwriter/attackby(obj/item/I, mob/user)
 	if(default_unfasten_wrench(user, I))
 		return
-
 	if(istype(I, /obj/item/coin))
 		user.dropItemToGround(I)
 		qdel(I)
 		coin++
 		return
+
 /obj/machinery/musicwriter/multitool_act(mob/living/user, obj/item/I)
 	. = ..()
-	writing = 0
-	to_chat(user,"<span class='warning'>Перезагружаю систему мультулом.</span>")
-	icon_state = "off"
-	retard = null
-	retard_name = null
-
+	if(writing && do_after(user, 5 SECONDS, src))
+		writing = 0
+		to_chat(user,"<span class='warning'>Перезагружаю систему мультулом.</span>")
+		icon_state = "off"
+		retard = null
 
 /obj/machinery/musicwriter/ui_interact(mob/user)
-	. = ..()
-	if(!user.canUseTopic(src, !issilicon(user)))
-		return
 	if (!anchored)
 		to_chat(user,"<span class='warning'>Надо бы прикрутить!</span>")
 		return
@@ -322,7 +322,39 @@
 		to_chat(user,"<span class='warning'>Ошибка! Нет доступа.</span>")
 		user.playsound_local(src,'sound/misc/compiler-failure.ogg', 25, 1)
 		return
+	if(writing)
+		say("Записываем мозги [retard.name]... Подождите!")
+		return
+	if(!coin)
+		say("Вставьте монетку.")
+		return
+	write(user)
 
+/obj/machinery/musicwriter/proc/write(mob/user)
+	if(!writing && !retard && coin)
+		icon_state = "on"
+		writing = TRUE
+		retard = user
+		var/N = sanitize(input("Название") as text|null)
+		to_chat(user,"<span class='warning'>Надо бы прикрутить!</span>")
+		if(N)
+			var/sound/S = input("Файл") as sound|null
+			if(S)
+				var/datum/track/T = new()
+				var/obj/item/card/data/music/disk = new(src)
+				T.song_path = S
+				T.song_name = N
+				disk.track = T
+				disk.name = "диск ([N])"
+				disk.forceMove(get_turf(src))
+				disk.uploader_ckey = retard.ckey
+				message_admins("[ADMIN_LOOKUPFLW(user)] uploaded <A HREF='?_src_=holder;listensound=\ref[S]'>sound</A> named as [N]. <A HREF='?_src_=holder;wipedata=\ref[disk]'>Wipe</A> data.")
+				coin--
+
+		icon_state = "off"
+		writing = FALSE
+		retard = null
+/*
 	var/list/dat = list()
 
 	if(writing)
@@ -335,7 +367,9 @@
 	var/datum/browser/popup = new(user, "vending", "[name]", 400, 350)
 	popup.set_content(dat.Join())
 	popup.open()
+*/
 
+/*
 /obj/machinery/musicwriter/Topic(href, href_list)
 	if(..())
 		return
@@ -369,3 +403,4 @@
 				writing = 0
 				retard = null
 				retard_name = null
+*/
