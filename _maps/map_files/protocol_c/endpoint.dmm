@@ -1806,13 +1806,11 @@
 /turf/open/floor/plating/abductor,
 /area/abductor_ship)
 "iH" = (
-/obj/structure/window/reinforced/survival_pod{
-	dir = 4
+/obj/item/restraints/handcuffs/cable{
+	pixel_x = -8;
+	pixel_y = 3
 	},
-/obj/structure/lattice/catwalk{
-	invisibility = 100
-	},
-/turf/open/space/transit,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/ruin/powered/yohei_base)
 "iJ" = (
 /obj/machinery/door/airlock/centcom{
@@ -1835,6 +1833,10 @@
 "iV" = (
 /obj/structure/table/reinforced,
 /obj/item/modular_computer/tablet/preset/cheap,
+/obj/structure/window/reinforced/survival_pod{
+	dir = 8
+	},
+/obj/structure/fans/tiny/invisible,
 /turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/powered/yohei_base)
 "iW" = (
@@ -2244,6 +2246,10 @@
 /obj/item/pen/edagger{
 	pixel_y = 5
 	},
+/obj/structure/window/reinforced/survival_pod{
+	dir = 8
+	},
+/obj/structure/fans/tiny/invisible,
 /turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/powered/yohei_base)
 "lm" = (
@@ -2317,13 +2323,11 @@
 	},
 /area/centcom/outdoors)
 "lT" = (
-/obj/structure/window/reinforced/survival_pod{
-	dir = 5
+/obj/item/restraints/handcuffs/cable{
+	pixel_x = -5;
+	pixel_y = 8
 	},
-/obj/structure/lattice/catwalk{
-	invisibility = 100
-	},
-/turf/open/space/transit,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/ruin/powered/yohei_base)
 "lX" = (
 /obj/effect/turf_decal/stripes/line{
@@ -2613,6 +2617,10 @@
 "nO" = (
 /obj/item/storage/fancy/donut_box,
 /obj/structure/table/reinforced,
+/obj/structure/window/reinforced/survival_pod{
+	dir = 8
+	},
+/obj/structure/fans/tiny/invisible,
 /turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/powered/yohei_base)
 "nP" = (
@@ -2860,11 +2868,9 @@
 /turf/open/floor/plasteel/white,
 /area/centcom/control)
 "px" = (
-/obj/structure/lattice/catwalk{
-	invisibility = 100
-	},
 /obj/structure/shuttle/engine/large,
-/turf/open/space/transit,
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/engine/airless,
 /area/ruin/powered/yohei_base)
 "pA" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -3471,15 +3477,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
-"ty" = (
-/obj/structure/window/reinforced/survival_pod{
-	dir = 6
-	},
-/obj/structure/lattice/catwalk{
-	invisibility = 100
-	},
-/turf/open/space/transit,
-/area/ruin/powered/yohei_base)
 "tJ" = (
 /obj/docking_port/stationary{
 	area_type = /area/syndicate_mothership/control;
@@ -3977,10 +3974,8 @@
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
 "yr" = (
-/obj/structure/lattice/catwalk{
-	invisibility = 100
-	},
-/turf/open/space/transit,
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/engine/airless,
 /area/ruin/powered/yohei_base)
 "yu" = (
 /obj/machinery/washing_machine,
@@ -6089,21 +6084,17 @@
 	pixel_y = 3
 	},
 /obj/item/restraints/handcuffs/cable{
-	pixel_x = -8;
-	pixel_y = 3
-	},
-/obj/item/restraints/handcuffs/cable{
 	pixel_y = 6
-	},
-/obj/item/restraints/handcuffs/cable{
-	pixel_x = -5;
-	pixel_y = 8
 	},
 /obj/item/restraints/handcuffs/cable{
 	pixel_x = 4;
 	pixel_y = 11
 	},
 /obj/structure/table/reinforced,
+/obj/structure/window/reinforced/survival_pod{
+	dir = 8
+	},
+/obj/structure/fans/tiny/invisible,
 /turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/powered/yohei_base)
 "Op" = (
@@ -8009,34 +8000,6 @@ Co
 Co
 Co
 at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
 XF
 XF
 XF
@@ -8047,7 +8010,35 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co
@@ -8304,7 +8295,7 @@ XF
 XF
 XF
 XF
-at
+XF
 Co
 jj
 jj
@@ -8561,7 +8552,7 @@ XF
 XF
 XF
 XF
-at
+XF
 Co
 jj
 jj
@@ -8818,7 +8809,7 @@ XF
 XF
 XF
 XF
-at
+XF
 Co
 jj
 jj
@@ -9075,7 +9066,7 @@ XF
 XF
 XF
 XF
-at
+XF
 Co
 jj
 jj
@@ -9332,7 +9323,7 @@ XF
 XF
 XF
 XF
-at
+XF
 Co
 jj
 jj
@@ -9589,7 +9580,7 @@ XF
 XF
 XF
 XF
-at
+XF
 Co
 jj
 jj
@@ -9846,7 +9837,7 @@ XF
 XF
 XF
 XF
-at
+XF
 Co
 jj
 jj
@@ -10103,7 +10094,7 @@ XF
 XF
 XF
 XF
-at
+XF
 Co
 jj
 jj
@@ -10360,7 +10351,7 @@ XF
 XF
 XF
 XF
-at
+XF
 Co
 jj
 jj
@@ -10617,7 +10608,7 @@ XF
 XF
 XF
 XF
-at
+XF
 Co
 jj
 jj
@@ -10874,7 +10865,7 @@ XF
 XF
 XF
 XF
-at
+XF
 Co
 jj
 jj
@@ -11131,7 +11122,7 @@ XF
 XF
 XF
 XF
-at
+XF
 Co
 jj
 jj
@@ -11366,12 +11357,6 @@ at
 WA
 yr
 yr
-ty
-iH
-iH
-iH
-iH
-lT
 XF
 XF
 XF
@@ -11388,7 +11373,13 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 jj
 jj
@@ -11630,11 +11621,6 @@ nO
 On
 uD
 WA
-yr
-yr
-yr
-yr
-yr
 XF
 XF
 XF
@@ -11645,7 +11631,12 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 jj
 jj
@@ -11891,8 +11882,6 @@ jp
 sW
 SY
 vY
-yr
-yr
 XF
 XF
 XF
@@ -11902,7 +11891,9 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
+XF
 Co
 jj
 jj
@@ -12149,7 +12140,6 @@ vP
 vP
 rh
 kh
-yr
 XF
 XF
 XF
@@ -12159,7 +12149,8 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
 Co
 jj
 jj
@@ -12396,9 +12387,9 @@ WA
 WA
 dK
 Gw
+iH
 Gw
-Gw
-Gw
+lT
 LQ
 WA
 Qn
@@ -12406,7 +12397,6 @@ vP
 vP
 vP
 Kh
-yr
 XF
 XF
 XF
@@ -12416,7 +12406,8 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
 Co
 jj
 jj
@@ -12663,7 +12654,6 @@ vP
 vP
 vP
 Kh
-yr
 XF
 XF
 XF
@@ -12673,7 +12663,8 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
 Co
 jj
 jj
@@ -12920,7 +12911,6 @@ vP
 vP
 vP
 mY
-yr
 XF
 XF
 XF
@@ -12930,7 +12920,8 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
 Co
 jj
 jj
@@ -13177,7 +13168,6 @@ kO
 vP
 qZ
 qR
-yr
 XF
 XF
 XF
@@ -13187,7 +13177,8 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
 Co
 jj
 jj
@@ -13433,8 +13424,6 @@ EI
 nm
 nm
 qR
-yr
-yr
 XF
 XF
 XF
@@ -13444,7 +13433,9 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
+XF
 Co
 Co
 Co
@@ -13662,7 +13653,7 @@ Co
 Co
 Co
 Co
-at
+XF
 XF
 at
 at
@@ -13686,11 +13677,6 @@ WA
 WA
 WA
 WA
-yr
-yr
-yr
-yr
-yr
 XF
 XF
 XF
@@ -13701,7 +13687,12 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co
@@ -13919,7 +13910,7 @@ Co
 Co
 Co
 Co
-at
+XF
 XF
 at
 at
@@ -13958,7 +13949,7 @@ XF
 XF
 XF
 XF
-at
+XF
 Co
 Co
 Co
@@ -14176,7 +14167,7 @@ Co
 Co
 Co
 Co
-at
+XF
 XF
 at
 at
@@ -14215,7 +14206,7 @@ XF
 XF
 XF
 XF
-at
+XF
 Co
 Co
 Co
@@ -14433,7 +14424,7 @@ Co
 Co
 Co
 Co
-at
+XF
 XF
 at
 at
@@ -14472,7 +14463,7 @@ XF
 XF
 XF
 XF
-at
+XF
 Co
 Co
 Co
@@ -14690,7 +14681,7 @@ Co
 Co
 Co
 Co
-at
+XF
 XF
 at
 at
@@ -14729,7 +14720,7 @@ XF
 XF
 XF
 XF
-at
+XF
 Co
 Co
 Co
@@ -14947,7 +14938,7 @@ Co
 Co
 Co
 Co
-at
+XF
 XF
 iK
 iK
@@ -14986,7 +14977,7 @@ XF
 XF
 XF
 XF
-at
+XF
 Co
 Co
 Co
@@ -15204,7 +15195,6 @@ Co
 Co
 Co
 Co
-at
 XF
 XF
 XF
@@ -15243,7 +15233,8 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
 Co
 Co
 Co
@@ -15461,7 +15452,6 @@ Co
 Co
 Co
 Co
-at
 XF
 XF
 XF
@@ -15500,7 +15490,8 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
 Co
 Co
 Co
@@ -15718,7 +15709,6 @@ Co
 Co
 Co
 Co
-at
 XF
 XF
 XF
@@ -15757,7 +15747,8 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
 Co
 Co
 Co
@@ -15975,7 +15966,6 @@ Co
 Co
 Co
 Co
-at
 XF
 XF
 XF
@@ -16014,7 +16004,8 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
 Co
 Co
 Co
@@ -16232,7 +16223,6 @@ Co
 Co
 Co
 Co
-at
 XF
 XF
 XF
@@ -16271,7 +16261,8 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
 Co
 Co
 Co
@@ -16489,7 +16480,6 @@ Co
 Co
 Co
 Co
-at
 XF
 XF
 XF
@@ -16528,7 +16518,8 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
 Co
 Co
 Co
@@ -16746,7 +16737,6 @@ Co
 Co
 Co
 Co
-at
 XF
 XF
 XF
@@ -16785,7 +16775,8 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
 Co
 Co
 Co
@@ -17003,7 +16994,6 @@ Co
 Co
 Co
 Co
-at
 XF
 XF
 XF
@@ -17042,7 +17032,8 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
 Co
 Co
 Co
@@ -17260,7 +17251,6 @@ Co
 Co
 Co
 Co
-at
 XF
 XF
 XF
@@ -17299,7 +17289,8 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
 Co
 Co
 Co
@@ -17517,7 +17508,6 @@ Co
 Co
 Co
 Co
-at
 XF
 XF
 XF
@@ -17556,7 +17546,8 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
 Co
 Co
 Co
@@ -17774,7 +17765,6 @@ Co
 Co
 Co
 Co
-at
 XF
 XF
 XF
@@ -17813,7 +17803,8 @@ XF
 XF
 XF
 XF
-at
+XF
+XF
 Co
 Co
 Co
@@ -18031,46 +18022,46 @@ Co
 Co
 Co
 Co
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co

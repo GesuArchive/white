@@ -396,10 +396,13 @@
 	if(!(locate(/obj/item/spacepod_equipment/teleport) in spacepod.equipment))
 		spacepod.verbs -= /obj/spacepod/proc/wayback_me
 
-/obj/spacepod/proc/wayback_me()
+/obj/spacepod/verb/wayback_me()
 	set name = "Вернуться к маяку"
 	set category = "Спейспод"
-	set src = usr.loc
+
+	if(!(locate(/obj/item/spacepod_equipment/teleport) in spacepod.equipment))
+		to_chat(usr, "<span class='warning'>Нет телепортирующего устройства!</span>")
+		return
 
 	if(!verb_check())
 		return
