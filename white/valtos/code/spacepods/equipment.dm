@@ -387,20 +387,11 @@
 	icon_state = "cargo_blank"
 	slot = SPACEPOD_SLOT_MISC
 
-/obj/item/spacepod_equipment/teleport/on_install(obj/spacepod/SP)
-	..()
-	SP.verbs |= /obj/spacepod/proc/wayback_me
-
-/obj/item/spacepod_equipment/teleport/on_uninstall()
-	..()
-	if(!(locate(/obj/item/spacepod_equipment/teleport) in spacepod.equipment))
-		spacepod.verbs -= /obj/spacepod/proc/wayback_me
-
 /obj/spacepod/verb/wayback_me()
 	set name = "Вернуться к маяку"
 	set category = "Спейспод"
 
-	if(!(locate(/obj/item/spacepod_equipment/teleport) in spacepod.equipment))
+	if(!(locate(/obj/item/spacepod_equipment/teleport) in equipment))
 		to_chat(usr, "<span class='warning'>Нет телепортирующего устройства!</span>")
 		return
 
