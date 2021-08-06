@@ -77,3 +77,12 @@
 		/obj/item/spacepod_equipment/cargo/chair,
 		/obj/item/spacepod_equipment/cargo/chair)
 
+/obj/spacepod/prebuilt/yohei
+	name = "проникновенец"
+	icon_state = "pod_mil"
+	armor_type = /obj/item/pod_parts/armor/security
+	cell_type = /obj/item/stock_parts/cell/high
+	equipment_types = list(/obj/item/spacepod_equipment/weaponry/burst_disabler,
+		/obj/item/spacepod_equipment/cargo/large,
+		/obj/item/spacepod_equipment/lock/keyed/yohei,
+		/obj/item/spacepod_equipment/teleport)

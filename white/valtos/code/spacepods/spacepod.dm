@@ -575,7 +575,7 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 
 /obj/spacepod/verb/exit_pod()
 	set name = "Exit pod"
-	set category = "Spacepod"
+	set category = "Спейспод"
 	set src = usr.loc
 
 	if(!isliving(usr) || usr.stat > CONSCIOUS)
@@ -593,7 +593,7 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 
 /obj/spacepod/verb/lock_pod()
 	set name = "Lock Doors"
-	set category = "Spacepod"
+	set category = "Спейспод"
 	set src = usr.loc
 
 	if(!verb_check(FALSE))
@@ -608,7 +608,7 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 
 /obj/spacepod/verb/toggle_brakes()
 	set name = "Toggle Brakes"
-	set category = "Spacepod"
+	set category = "Спейспод"
 	set src = usr.loc
 
 	if(!verb_check())
@@ -624,7 +624,7 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 
 /obj/spacepod/verb/toggleLights()
 	set name = "Toggle Lights"
-	set category = "Spacepod"
+	set category = "Спейспод"
 	set src = usr.loc
 
 	if(!verb_check())
@@ -641,7 +641,7 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 
 /obj/spacepod/verb/toggleDoors()
 	set name = "Toggle Nearby Pod Doors"
-	set category = "Spacepod"
+	set category = "Спейспод"
 	set src = usr.loc
 
 	if(!verb_check())

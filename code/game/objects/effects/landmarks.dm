@@ -474,3 +474,17 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 	name = "portal exit"
 	icon_state = "portal_exit"
 	var/id
+
+// yohei shit beacon
+/obj/effect/landmark/yohei_beacon
+	name = "yohei beacon"
+	icon_state = "generic_event"
+	layer = HIGH_LANDMARK_LAYER
+
+/obj/effect/landmark/yohei_beacon/New()
+	..()
+	GLOB.yohei_beacons += src
+
+/obj/effect/landmark/yohei_beacon/Destroy()
+	GLOB.yohei_beacons -= src
+	return ..()

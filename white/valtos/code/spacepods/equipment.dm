@@ -103,7 +103,7 @@
 
 /obj/spacepod/proc/unload_cargo() // if I could i'd put this on spacepod_equipment but unfortunately BYOND is stupid
 	set name = "Unload Cargo"
-	set category = "Spacepod"
+	set category = "Спейспод"
 	set src = usr.loc
 
 	if(!verb_check())
@@ -343,6 +343,9 @@
 /obj/item/spacepod_equipment/lock/keyed/sec
 	id = "security spacepod"
 
+/obj/item/spacepod_equipment/lock/keyed/yohei
+	id = "yohei spacepod"
+
 // The key
 /obj/item/spacepod_key
 	name = "spacepod key"
@@ -356,6 +359,11 @@
 	name = "security spacepod key"
 	desc = "Unlocks the security spacepod. Probably best kept out of assistant hands."
 	id = "security spacepod"
+
+/obj/item/spacepod_key/yohei
+	name = "yohei spacepod key"
+	desc = "Unlocks the yohei spacepod."
+	id = "yohei spacepod"
 
 /obj/item/device/lock_buster
 	name = "pod lock buster"
@@ -371,3 +379,31 @@
 	else
 		icon_state = "lock_buster_off"
 	to_chat(user, "<span class='notice'>You turn the [src] [on ? "on" : "off"].</span>")
+
+// Teleportation
+/obj/item/spacepod_equipment/teleport
+	name = "телепортатор"
+	desc = "Мгновенно возвращает корабль к маяку."
+	icon_state = "cargo_blank"
+	slot = SPACEPOD_SLOT_MISC
+
+/obj/item/spacepod_equipment/teleport/on_install(obj/spacepod/SP)
+	..()
+	SP.verbs |= /obj/spacepod/proc/wayback_me
+
+/obj/item/spacepod_equipment/teleport/on_uninstall()
+	..()
+	if(!(locate(/obj/item/spacepod_equipment/teleport) in spacepod.equipment))
+		spacepod.verbs -= /obj/spacepod/proc/wayback_me
+
+/obj/spacepod/proc/wayback_me()
+	set name = "Вернуться к маяку"
+	set category = "Спейспод"
+	set src = usr.loc
+
+	if(!verb_check())
+		return
+
+	to_chat(usr, "<span class='notice'>ТЕЛЕПОРТИРУЕМСЯ!</span>")
+
+	forceMove(get_turf(pick(GLOB.yohei_beacons)))

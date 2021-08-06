@@ -476,11 +476,12 @@ GLOBAL_VAR(yohei_main_controller)
 	description = "Мяу..."
 	suffix = "lavaland_yohei_base.dmm"
 	allow_duplicates = FALSE
-	always_place = TRUE
+	unpickable = TRUE
 
 /area/ruin/powered/yohei_base
-	name = "Лаваленд: База Йохеев"
+	name = "Ресурс Йохеев"
 	icon_state = "dk_yellow"
+	parallax_movedir = NORTH
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | BLOCK_SUICIDE | NOTELEPORT
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 
