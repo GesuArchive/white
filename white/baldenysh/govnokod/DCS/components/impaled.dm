@@ -10,20 +10,23 @@
 
 /datum/component/impaled/RegisterWithParent()
 	var/mob/living/carbon/C = parent
-	//C.density = FALSE
 
 	var/obj/structure/wall_stuck_thing/ST = new(get_turf(C))
-	ST.name = impaled_by.name
 	ST.dir = get_dir(impaled_to, C)
+	ST.name = impaled_by.name
+	impaled_by.forceMove(ST)
+	ST.impaler = impaled_by
+
+	if(ST.dir  & NORTH)
+		ST.pixel_y += 16
+	if(ST.dir  & SOUTH)
+		ST.pixel_y -= 16
+	if(ST.dir  & EAST)
+		ST.pixel_x += 16
+	if(ST.dir  & WEST)
+		ST.pixel_x -= 16
+
 	ST.buckle_mob(C, force=1)
-	if(imp_dir & NORTH) //эти условия не работают ваще тупа паебать
-		C.base_pixel_y += 6
-	if(imp_dir & SOUTH)
-		C.base_pixel_y -= 6
-	if(imp_dir & EAST)
-		C.base_pixel_x += 6
-	if(imp_dir & WEST)
-		C.base_pixel_x -= 6
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/on_moved)
 
 /datum/component/impaled/UnregisterFromParent()
@@ -35,8 +38,7 @@
 /datum/component/impaled/proc/on_moved(atom/movable/mover, atom/oldloc, direction)
 	if(oldloc == mover.loc)
 		return
-	//C.density = initial(C.density)
-	//чето тут травмы смешные может
+
 	qdel(src)
 
 
@@ -53,6 +55,7 @@
 	buckle_lying = 0
 	can_buckle = 1
 	max_integrity = 50
+	var/obj/impaler
 
 /obj/structure/wall_stuck_thing/proc/release_mob(mob/living/M)
 	M.pixel_y = M.base_pixel_y + PIXEL_Y_OFFSET_LYING
@@ -66,6 +69,8 @@
 	if(has_buckled_mobs())
 		for(var/mob/living/L in buckled_mobs)
 			release_mob(L)
+	if(impaler)
+		impaler.forceMove(get_turf(src))
 	return ..()
 
 /obj/structure/wall_stuck_thing/user_unbuckle_mob(mob/living/buckled_mob, mob/living/carbon/human/user)
