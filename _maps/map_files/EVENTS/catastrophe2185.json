@@ -1,6 +1,0 @@
-{
-    "map_name": "Plasma Station 2185",
-    "map_path": "map_files/EVENTS",
-    "map_file": "catastrophe2185.dmm",
-	"traits": [{"Up": 1}, {"Up": 1, "Down": -1}, {"Down": -1}]
-}

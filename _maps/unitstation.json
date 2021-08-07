@@ -1,5 +1,0 @@
-{
-    "map_name": "Unit Station",
-    "map_path": "map_files/protocol_c",
-    "map_file": ["unit.dmm", "planet.dmm", "surface.dmm"]
-}
