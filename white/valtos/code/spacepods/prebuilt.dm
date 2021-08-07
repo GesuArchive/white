@@ -17,6 +17,7 @@
 	for(var/equip in equipment_types)
 		var/obj/item/spacepod_equipment/SE = new equip(src)
 		SE.on_install(src)
+	return INITIALIZE_HINT_NORMAL // ???
 
 /obj/spacepod/prebuilt/sec
 	name = "security space pod"
