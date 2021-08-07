@@ -401,7 +401,7 @@
 
 	for(var/atom/A in GLOB.yohei_beacons)
 		var/turf/T = get_turf(A)
-		if(locate(/obj/spacepod) in T)
+		if(locate(/obj/spacepod) in T.contents)
 			continue
 		else
 			forceMove(T)
