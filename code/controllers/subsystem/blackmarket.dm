@@ -91,7 +91,7 @@ SUBSYSTEM_DEF(blackmarket)
 				var/atom/movable/item = purchase.entry.spawn_item(pickedloc)
 				item.throw_at(purchase.uplink, 3, 3, spin = FALSE)
 
-				to_chat(recursive_loc_check(purchase.uplink.loc, /mob), "<span class='notice'>На экране [purchase.uplink] появляется сообщение, что заказ в данный момент летит в сторону станции из [dir2text(startSide)].</span>")
+				to_chat(recursive_loc_check(purchase.uplink.loc, /mob), "<span class='notice'>На экране [purchase.uplink] появляется сообщение, что заказ в данный момент летит в сторону станции из [dir2ru_text(startSide)].</span>")
 
 				queued_purchases -= purchase
 				qdel(purchase)

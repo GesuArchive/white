@@ -56,7 +56,7 @@ GLOBAL_VAR(command_name)
 
 	//Rename the station on the orbital charter.
 	for(var/datum/orbital_object/z_linked/station/station in SSorbits.orbital_map.bodies)
-		station.name = "[newname] #[station.linked_z_level.z_value - 1]"
+		station.name = "[newname]"
 
 /proc/new_station_name()
 	var/random = rand(1,5)

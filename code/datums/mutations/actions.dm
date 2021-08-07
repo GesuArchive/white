@@ -91,7 +91,7 @@
 	else if(usr.z > tracking_target.z)
 		to_chat(user,"<span class='warning'>The trail leads... way down below you? Huh. They must be really, really far away.</span>")
 		return
-	var/direction_text = "[dir2text(get_dir(usr, tracking_target))]"
+	var/direction_text = "[dir2ru_text(get_dir(usr, tracking_target))]"
 	if(direction_text)
 		to_chat(user,"<span class='notice'>You consider [tracking_target] scent. The trail leads <b>[direction_text].</b></span>")
 

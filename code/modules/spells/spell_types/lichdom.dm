@@ -146,7 +146,7 @@
 				var/obj/item/organ/I = X
 				I.Remove(C)
 				I.forceMove(body_turf)
-		var/wheres_wizdo = dir2text(get_dir(body_turf, item_turf))
+		var/wheres_wizdo = dir2ru_text(get_dir(body_turf, item_turf))
 		if(wheres_wizdo)
 			old_body.visible_message("<span class='warning'>Suddenly [old_body.name] corpse falls to pieces! You see a strange energy rise from the remains, and speed off towards the [wheres_wizdo]!</span>")
 			body_turf.Beam(item_turf,icon_state="lichbeam", time = 10 + 10 * resurrections)

@@ -2,6 +2,7 @@
 #define CHECK_ZLEVEL_TICKS (10 SECONDS)			//Every 10 seconds check if a tracked z-level is free.
 
 GLOBAL_LIST_EMPTY(zclear_atoms)
+GLOBAL_LIST_EMPTY(zclear_blockers)
 
 SUBSYSTEM_DEF(zclear)
 	name = "Аннигилятор"
@@ -50,6 +51,9 @@ SUBSYSTEM_DEF(zclear)
 	for(var/obj/machinery/nuclearbomb/decomission/bomb in GLOB.decomission_bombs)
 		if(bomb.timing)
 			active_levels["[bomb.z]"] = TRUE
+	//Block z-clear from these levels.
+	for(var/atom/A as() in GLOB.zclear_blockers)
+		active_levels["[A.z]"] = TRUE
 	//Check for shuttles
 	for(var/obj/docking_port/mobile/M in SSshuttle.mobile)
 		active_levels["[M.z]"] = TRUE
@@ -59,8 +63,9 @@ SUBSYSTEM_DEF(zclear)
 	//Check for shuttles docking
 	for(var/port_id in SSorbits.assoc_shuttles)
 		var/datum/orbital_object/shuttle/shuttle = SSorbits.assoc_shuttles[port_id]
-		if(shuttle.docking_target?.linked_z_level?.z_value)
-			active_levels["[shuttle.docking_target.linked_z_level.z_value]"] = TRUE
+		if(shuttle.docking_target)
+			for(var/datum/space_level/level in shuttle.docking_target.linked_z_level)
+				active_levels["[level.z_value]"] = TRUE
 	//Check for shuttles coming in
 	for(var/docking_level in docking_levels)
 		active_levels["[docking_level]"] = TRUE

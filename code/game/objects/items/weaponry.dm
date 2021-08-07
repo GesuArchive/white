@@ -167,7 +167,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	if(!closest_victim)
 		to_chat(user, "<span class='warning'>[capitalize(src.name)] thrums for a moment and falls dark. Perhaps there's nobody nearby.</span>")
 		return
-	to_chat(user, "<span class='danger'>[capitalize(src.name)] thrums and points to the [dir2text(get_dir(user, closest_victim))].</span>")
+	to_chat(user, "<span class='danger'>[capitalize(src.name)] thrums and points to the [dir2ru_text(get_dir(user, closest_victim))].</span>")
 
 /obj/item/claymore/highlander/IsReflect()
 	return 1 //YOU THINK YOUR PUNY LASERS CAN STOP ME?

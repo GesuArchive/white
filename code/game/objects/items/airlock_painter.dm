@@ -316,7 +316,7 @@
 			<a href="?src=[REF(src)];choose_dir=1">Choose Direction</a>
 			<a href="?src=[REF(src)];cycledirright=1">-&gt;</a>
 		</center>
-		<div class='statusDisplay'>Direction: [dir2text(floor_dir)]</div>
+		<div class='statusDisplay'>Direction: [dir2ru_text(floor_dir)]</div>
 	"}
 
 	var/datum/browser/popup = new(user, "floor_painter", name, 225, 300)
