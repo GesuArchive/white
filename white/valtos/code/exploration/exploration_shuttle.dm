@@ -18,4 +18,12 @@
 			for(var/obj/item/clothing/mask/facehugger/pidar in A.contents)
 				say("Пидарас, ты ксенохуйню с шаттла выкинь, тогда побазарим.")
 				return
+			for(var/mob/living/carbon/C in port.shuttle_areas)
+				if(locate(/obj/item/organ/body_egg/alien_embryo) in C.internal_organs)
+					say("Пидарас, ты ксенохуйню из себя вытащи, тогда побазарим.")
+					return
+				if(locate(/obj/item/organ/zombie_infection) in C.internal_organs)
+					say("Пидарас, ты ксенохуйню из себя вытащи, тогда побазарим.")
+					return
+
 	. = ..()
