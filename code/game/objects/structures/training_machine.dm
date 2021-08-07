@@ -327,11 +327,11 @@
 	. = ..()
 	var/has_buckled_mob = has_buckled_mobs()
 	if(has_buckled_mob)
-		. += "<span class='notice'><b>Alt-Click to unbuckle [buckled_mobs[1]]</b></span>"
+		. += "<span class='notice'><b>ПКМ to unbuckle [buckled_mobs[1]]</b></span>"
 	if (obj_flags & EMAGGED)
 		. += "<span class='warning'>It has a dangerous-looking toolbox attached to it, and the control panel is smoking sightly...</span>"
 	else if (!has_buckled_mob && attached_item) //Can't removed the syndicate toolbox!
-		. += "<span class='notice'><b>Alt-Click to remove [attached_item]</b></span>"
+		. += "<span class='notice'><b>ПКМ to remove [attached_item]</b></span>"
 	. += "<span class='notice'><b>Click to open control interface.</b></span>"
 
 /**
@@ -354,7 +354,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	///Total number of hits made against a valid target
 	var/total_hits = 0
-	///Number of hits made since the Lap button (alt-click) was last pushed
+	///Number of hits made since the Lap button (ПКМ) was last pushed
 	var/lap_hits = 0
 
 /obj/item/training_toolbox/afterattack(atom/target, mob/user, proximity)
@@ -406,7 +406,7 @@
 	. += "<span class='notice'>Total Hits: <b>[total_hits]</b></span>"
 	if (lap_hits != total_hits)
 		. += "<span class='notice'>Current Lap: <b>[lap_hits]</b></span>"
-	. += "<span class='notice'><b>Alt-Click to 'Lap' the hit counter.</b></span>"
+	. += "<span class='notice'><b>ПКМ to 'Lap' the hit counter.</b></span>"
 
 #undef MIN_RANGE
 #undef MIN_SPEED

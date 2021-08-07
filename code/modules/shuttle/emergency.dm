@@ -33,7 +33,7 @@
 	if(hijack_announce)
 		. += "<hr><span class='danger'>Системы безопасности присутствуют на консоли. Любое несанкционированное вмешательство приведет к экстренному объявлению.</span>"
 	if(user?.mind?.get_hijack_speed())
-		. += "<hr><span class='danger'>Alt-клик чтобы попытаться угнать шаттл. Это займёт несколько попыток (текущая: стадия [SSshuttle.emergency.hijack_status]/[HIJACKED]).</span>"
+		. += "<hr><span class='danger'>ПКМ чтобы попытаться угнать шаттл. Это займёт несколько попыток (текущая: стадия [SSshuttle.emergency.hijack_status]/[HIJACKED]).</span>"
 		. += "\n<span class='notice'>Это займёт примерно [(hijack_stage_time * user.mind.get_hijack_speed()) / 10] секунд для перепрограммирования навигационной прошивки, консоль также будет включать протоколы защиты на [hijack_stage_cooldown/10] секунд после каждого этапа.</span>"
 		if(hijack_announce)
 			. += "\n<span class='warning'>Вероятно, лучше всего укрепить свою позицию, чтобы вас не прерывали во время попыток, учитывая автоматические объявления...</span>"

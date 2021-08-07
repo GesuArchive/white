@@ -191,6 +191,6 @@
 	if(state_open)
 		. += "<hr><span class='notice'>[capitalize(src.name)] must be closed before harvesting.</span>"
 	else if(!harvesting)
-		. += "<hr><span class='notice'>Alt-click [src] to start harvesting.</span>"
+		. += "<hr><span class='notice'>ПКМ [src] to start harvesting.</span>"
 	if(in_range(user, src) || isobserver(user))
 		. += "<hr><span class='notice'>Дисплей: Harvest speed at <b>[interval*0.1]</b> seconds per organ.</span>"

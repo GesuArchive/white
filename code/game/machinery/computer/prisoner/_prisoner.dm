@@ -10,7 +10,7 @@
 /obj/machinery/computer/prisoner/examine(mob/user)
 	. = ..()
 	if(contained_id)
-		. += "<hr><span class='notice'><b>Alt-click</b> to eject the ID card.</span>"
+		. += "<hr><span class='notice'><b>ПКМ</b> to eject the ID card.</span>"
 
 
 

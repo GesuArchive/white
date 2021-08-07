@@ -16,6 +16,6 @@
 	new /obj/item/scalpel/advanced(src)
 	new /obj/item/retractor/advanced(src)
 	new /obj/item/cautery/advanced(src)
-	new /obj/item/bonesetter(src)
+	new /obj/item/bonesetter/advanced(src)
 	new /obj/item/reagent_containers/glass/bottle/penacid(src)
 	new /obj/item/reagent_containers/glass/bottle/sal_acid(src)

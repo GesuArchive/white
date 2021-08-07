@@ -73,7 +73,7 @@
 	amount = 2
 	},
 /obj/item/stack/sheet/metal/ten,
-/obj/item/twohanded/required/chainsaw,
+/obj/item/circular_saw,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/item/clothing/head/wig/random,
 /obj/item/radio,

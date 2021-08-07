@@ -77,6 +77,10 @@
 	hide = TRUE
 	autolinkers = list("autorelay")
 
+/obj/machinery/telecomms/relay/preset/exploration
+	id = "Exploration Relay"
+	autolinkers = list("exp_relay")
+
 /obj/machinery/telecomms/relay/preset/reebe
 	id = "Hierophant Relay"
 	hide = 1

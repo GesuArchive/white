@@ -723,6 +723,7 @@
 	name = "аблативный капюшон"
 	desc = "Штука, которая защитит от лазеров, но не от пуль."
 	icon_state = "ablativehood"
+	flags_inv = HIDEHAIR|HIDEEARS
 	armor = list(MELEE = 10, BULLET = 10, LASER = 60, ENERGY = 60, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
 	strip_delay = 30
 	var/hit_reflect_chance = 50

@@ -24,6 +24,9 @@
 			},
 			"protected_roles": [
 				"Prisoner",
+				"Veteran",
+				"Field Medic",
+				"Russian Officer",
 				"Security Officer",
 				"Warden",
 				"Detective",

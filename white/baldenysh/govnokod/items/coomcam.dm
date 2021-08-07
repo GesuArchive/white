@@ -82,7 +82,7 @@
 
 /obj/item/photo/webpic/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>Alt-click to change mode.\nMode: [original ? "Original" : "Thumbnail"]</span>"
+	. += "<hr><span class='notice'>ПКМ to change mode.\nMode: [original ? "Original" : "Thumbnail"]</span>"
 
 /obj/item/photo/webpic/AltClick(mob/user)
 	original = !original

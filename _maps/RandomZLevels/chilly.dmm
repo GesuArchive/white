@@ -258,7 +258,6 @@
 /area/awaymission/chilly/facility)
 "aO" = (
 /obj/structure/lattice,
-/obj/structure/lattice,
 /obj/item/flashlight/seclite,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/cave)
@@ -631,7 +630,6 @@
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "bO" = (
-/obj/structure/lattice,
 /obj/structure/lattice,
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating,
@@ -2208,7 +2206,6 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/oil,
-/obj/structure/lattice,
 /obj/structure/lattice,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility5)
@@ -6069,7 +6066,6 @@
 "ra" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/lattice,
-/obj/structure/lattice,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility2)
 "rb" = (
@@ -6167,7 +6163,6 @@
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
 "rn" = (
-/obj/structure/lattice,
 /obj/structure/lattice,
 /turf/open/floor/plating,
 /area/awaymission/chilly/cave)
@@ -9226,7 +9221,6 @@
 "zU" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/lattice,
-/obj/structure/lattice,
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "zV" = (
@@ -11536,7 +11530,6 @@
 /area/awaymission/chilly/facility2)
 "Gw" = (
 /obj/structure/lattice,
-/obj/structure/lattice,
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/cave)
@@ -13832,7 +13825,6 @@
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
 "Nh" = (
-/obj/structure/lattice,
 /obj/structure/lattice,
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/weather/snow/corner{

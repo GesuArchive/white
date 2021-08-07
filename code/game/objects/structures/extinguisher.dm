@@ -39,7 +39,7 @@
 
 /obj/structure/extinguisher_cabinet/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>Alt-клик для [opened ? "закрытия":"открытия"] его.</span>"
+	. += "<hr><span class='notice'>ПКМ для [opened ? "закрытия":"открытия"] его.</span>"
 
 /obj/structure/extinguisher_cabinet/Destroy()
 	if(stored_extinguisher)

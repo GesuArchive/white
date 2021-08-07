@@ -5,8 +5,8 @@
 	var/obj/machinery/nuclearbomb/decomission/nuclear_bomb
 	var/obj/item/disk/nuclear/decommission/nuclear_disk
 	//Relatively easy mission.
-	min_payout = 800
-	max_payout = 2000
+	min_payout = 8 * CARGO_CRATE_VALUE
+	max_payout = 20 * CARGO_CRATE_VALUE
 
 /datum/orbital_objective/nuclear_bomb/generate_objective_stuff(turf/chosen_turf)
 	generated = TRUE

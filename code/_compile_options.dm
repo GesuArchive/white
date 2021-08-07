@@ -45,7 +45,7 @@
 #if DM_VERSION < MIN_COMPILER_VERSION || DM_BUILD < MIN_COMPILER_BUILD
 //Don't forget to update this part
 #error Your version of BYOND is too out-of-date to compile this project. Go to https://secure.byond.com/download and update.
-#error You need version 514.1553 or higher
+#error You need version 514.1560 or higher
 #endif
 
 //Additional code for the above flags.
@@ -70,22 +70,20 @@
 /proc/auxtools_stack_trace(msg)
 	CRASH(msg)
 
+/proc/auxtools_expr_stub()
+	CRASH("auxtools not loaded")
+
 /proc/enable_debugging(mode, port)
 	CRASH("auxtools not loaded")
 
-// надавить на простату чтобы
-//#define retard_shit_cum
-
-#ifdef retard_shit_cum
 /world/proc/enable_debugger()
-	var/dll = "./debug_server.dll"
+	var/dll = world.GetConfig("env", "AUXTOOLS_DEBUG_DLL")
 	if (dll)
 		call(dll, "auxtools_init")()
 		enable_debugging()
 
 /world/Del()
-	var/debug_server = "./debug_server.dll"
+	var/debug_server = world.GetConfig("env", "AUXTOOLS_DEBUG_DLL")
 	if (debug_server)
 		call(debug_server, "auxtools_shutdown")()
 	. = ..()
-#endif

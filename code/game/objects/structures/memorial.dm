@@ -16,6 +16,7 @@ This memorial has been designed for him and any future coders to perish.
 	desc = "Here rests an unknown employee\nUnknown by name or rank\nWhose acts will not be forgotten"
 	icon = 'icons/obj/tomb.dmi'
 	icon_state = "memorial"
+	layer = ABOVE_ALL_MOB_LAYER
 	density = TRUE
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF

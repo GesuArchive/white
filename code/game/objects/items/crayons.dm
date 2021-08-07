@@ -718,7 +718,7 @@
 		. += "<hr>Ещё есть примерно [charges_left] использований."
 	else
 		. += "<hr>It is empty."
-	. += "<hr><span class='notice'>Alt-клик по [src.name], чтобы [ is_capped ? "снять крышку" : "вернуть крышку на место"].</span>"
+	. += "<hr><span class='notice'>ПКМ по [src.name], чтобы [ is_capped ? "снять крышку" : "вернуть крышку на место"].</span>"
 
 /obj/item/toy/crayon/spraycan/afterattack(atom/target, mob/user, proximity, params)
 	if(!proximity)

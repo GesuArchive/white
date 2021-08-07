@@ -1,19 +1,7 @@
-/obj/item/grenade/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/wirekit))
-		if(do_after(user, 60, target = src))
-			var/obj/structure/boobytrap/T = new(get_turf(src))
-			user.dropItemToGround(src)
-			src.forceMove(T)
-			T.grenade = src
-			T.owner = user
-			message_admins("[ADMIN_LOOKUPFLW(user)] поставил растяжку [ADMIN_COORDJMP(user)].")
-			log_game("[key_name(user)] поставил растяжку [COORD(user)].")
-	..()
-
-/obj/structure/boobytrap
-	name = "Растяжка."
+/obj/structure/tripwire
+	name = "растяжка"
 	desc = "Не подходи - убьет!"
-	icon_state = "boobytrap"
+	icon_state = "tripwire"
 	icon = 'white/hule/icons/obj/weapons.dmi'
 	anchored = TRUE
 	can_buckle = TRUE
@@ -21,15 +9,15 @@
 	resistance_flags = FLAMMABLE
 	max_integrity = 25
 	integrity_failure = 0.5
-	var/obj/item/grenade/grenade
+	var/obj/item/grenade/prikl
 	var/mob/owner
 
-/obj/structure/boobytrap/proc/activate()
-	if(grenade)
-		grenade.detonate(owner)
+/obj/structure/tripwire/proc/activate()
+	if(prikl)
+		prikl.detonate(owner)
 		qdel(src)
 
-/obj/structure/boobytrap/Crossed(atom/movable/AM as mob|obj)
+/obj/structure/tripwire/Crossed(atom/movable/AM as mob|obj)
 	. = ..()
 	if(ismob(AM))
 		var/mob/MM = AM
@@ -43,39 +31,47 @@
 				return
 	activate()
 
-/obj/structure/boobytrap/attack_hand(mob/user)
+/obj/structure/tripwire/attack_hand(mob/user)
 	activate()
 
-/obj/structure/boobytrap/attack_paw(mob/user)
-	return attack_hand(user)
-
-/obj/structure/boobytrap/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/wirecutters) && !(flags_1&NODECONSTRUCT_1))
+/obj/structure/tripwire/attackby(obj/item/W, mob/user, params)
+	if(istype(W, /obj/item/wirecutters) && !(flags_1 & NODECONSTRUCT_1))
 		if(do_after(user, 30, target = src))
 			W.play_tool_sound(src)
 			if(prob(80) && user.mind.antag_datums == null && user != owner)
 				to_chat(user, "<span class='userdanger'>ОШИБОЧКА ВЫШЛА!</span>")
 				activate()
 				return
-			if(grenade)
-				grenade.forceMove(get_turf(user))
+			if(prikl)
+				prikl.forceMove(get_turf(prikl))
 			qdel(src)
 	..()
 
-/obj/item/wirekit
-	name = "Wiring kit"
-	desc = "Содержит все необходимое для создания растяжек."
-	icon = 'icons/obj/cigarettes.dmi'
-	icon_state = "matchbox"
-	inhand_icon_state = "zippo"
-	w_class = WEIGHT_CLASS_TINY
 
-/datum/crafting_recipe/wiringkit
-	name = "Wiring kit"
-	result = /obj/item/wirekit
-	reqs = list(/obj/item/stack/cable_coil = 30,
-				/obj/item/stack/rods = 5)
-	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	time = 200
+
+
+
+
+/obj/structure/tripwire/CheckParts(list/parts_list)
+	prikl = locate() in parts_list
+	if(!prikl)
+		qdel(src)
+		return
+	return ..()
+
+/datum/crafting_recipe/tripwire
+	name = "Растяжка"
+	time = 5 SECONDS
+	result = /obj/structure/tripwire
+	reqs = list(/obj/item/stack/cable_coil = 3,
+				/obj/item/grenade = 1)
+	parts = list(/obj/item/grenade = 1)
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
+
+/datum/crafting_recipe/tripwire/on_craft_completion(mob/user, atom/result)
+	. = ..()
+	var/obj/structure/tripwire/TW = result
+	TW.owner = user
+	message_admins("[ADMIN_LOOKUPFLW(user)] поставил растяжку[ADMIN_COORDJMP(result)]")
+	log_game("[key_name(user)] поставил растяжку[COORD(result)]")

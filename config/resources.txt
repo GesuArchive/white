@@ -2,9 +2,8 @@
 # Set this to the location of a .zip with the server's .rsc inside of it.
 # If you set this mutiple times, the server will rotate between the links.
 # To use this, the compile option PRELOAD_RSC must be set to 0 to keep byond from preloading resources
-# Resource urls can not be encrypted (https://), as they are downloaded by byond, not IE, and byond can't into encryption
 
-EXTERNAL_RSC_URLS http://tgstation13.download/byond/tgstationv2.zip
+# EXTERNAL_RSC_URLS http://tgstation13.download/byond/tgstationv2.zip
 
 
 ########################
@@ -24,7 +23,7 @@ EXTERNAL_RSC_URLS http://tgstation13.download/byond/tgstationv2.zip
 
 # Uncomment this to have the server passively send all browser assets to each client in the background. (instead of waiting for them to be needed)
 # This should be uncommented in production and commented in development
-#ASSET_SIMPLE_PRELOAD
+ASSET_SIMPLE_PRELOAD
 
 
 # Webroot asset transport configurable values.
@@ -35,7 +34,5 @@ EXTERNAL_RSC_URLS http://tgstation13.download/byond/tgstationv2.zip
 
 # URL the folder from above can be accessed from.
 # for best results the webserver powering this should return a long cache validity time, as all assets sent via this transport use hash based urls
-# Encryption (https) is supported here, but linux clients will have issues if you require higher then tls 1.0. Windows clients down to windows 7 can handle tls 1.2 no issue.
 # if you want to test this locally, you simpily run the `localhost-asset-webroot-server.py` python3 script to host assets stored in `data/asset-store/` via http://localhost:58715/
 #ASSET_CDN_URL http://localhost:58715/
-

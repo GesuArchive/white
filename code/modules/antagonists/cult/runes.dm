@@ -446,7 +446,7 @@ structure_check() searches for nearby cultist structures required for the invoca
 	inner_portal = new /obj/effect/temp_visual/cult/portal(T)
 	if(portal_type == "space")
 		set_light_color(color)
-		desc += "<br><b>A tear in reality reveals a black void interspersed with dots of light... something recently teleported here from space.<br><u>The void feels like it's trying to pull you to the [dir2text(get_dir(T, origin))]!</u></b>"
+		desc += "<br><b>A tear in reality reveals a black void interspersed with dots of light... something recently teleported here from space.<br><u>The void feels like it's trying to pull you to the [dir2ru_text(get_dir(T, origin))]!</u></b>"
 	else
 		inner_portal.icon_state = "lava"
 		set_light_color(LIGHT_COLOR_FIRE)

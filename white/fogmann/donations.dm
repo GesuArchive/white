@@ -160,7 +160,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("Boombox",					/obj/item/boombox,								150),
 		new /datum/donate_info("Music Writer",				/obj/machinery/musicwriter,						450),
 		new /datum/donate_info("TTS ears",					/obj/item/organ/ears/cat/tts,                   500),
-		new /datum/donate_info("DIY Shuttle capsule",		/obj/item/shuttlespawner/diyshuttle,			500),
+		new /datum/donate_info("DIY Shuttle Kit",			/obj/item/storage/box/diy_shuttle,				500),
 		new /datum/donate_info("Anonist Mask",				/obj/item/clothing/mask/gas/anonist,			100),
 		new /datum/donate_info("Glitch Gun",				/obj/item/gun/magic/glitch,						300)
 	)

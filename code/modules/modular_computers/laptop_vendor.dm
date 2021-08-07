@@ -1,3 +1,5 @@
+#define LAPTOP_VENDOR_BASE_PRICE (CARGO_CRATE_VALUE - 1)
+
 // A vendor machine for modular computer portable devices - Laptops and Tablets
 
 /obj/machinery/lapvend
@@ -55,7 +57,7 @@
 			fabricated_laptop.install_component(new /obj/item/computer_hardware/card_slot)
 			fabricated_laptop.install_component(new /obj/item/computer_hardware/battery)
 			battery_module = fabricated_laptop.all_components[MC_CELL]
-		total_price = 99
+		total_price = LAPTOP_VENDOR_BASE_PRICE
 		switch(dev_cpu)
 			if(1)
 				if(fabricate)
@@ -63,7 +65,7 @@
 			if(2)
 				if(fabricate)
 					fabricated_laptop.install_component(new /obj/item/computer_hardware/processor_unit)
-				total_price += 299
+				total_price += 3 * LAPTOP_VENDOR_BASE_PRICE
 		switch(dev_battery)
 			if(1) // Basic(750C)
 				if(fabricate)
@@ -71,11 +73,11 @@
 			if(2) // Upgraded(1100C)
 				if(fabricate)
 					battery_module.try_insert(new /obj/item/stock_parts/cell/computer/advanced)
-				total_price += 199
+				total_price += 2 * LAPTOP_VENDOR_BASE_PRICE
 			if(3) // Advanced(1500C)
 				if(fabricate)
 					battery_module.try_insert(new /obj/item/stock_parts/cell/computer/super)
-				total_price += 499
+				total_price += 5 * LAPTOP_VENDOR_BASE_PRICE
 		switch(dev_disk)
 			if(1) // Basic(128GQ)
 				if(fabricate)
@@ -83,30 +85,30 @@
 			if(2) // Upgraded(256GQ)
 				if(fabricate)
 					fabricated_laptop.install_component(new /obj/item/computer_hardware/hard_drive/advanced)
-				total_price += 99
+				total_price += LAPTOP_VENDOR_BASE_PRICE
 			if(3) // Advanced(512GQ)
 				if(fabricate)
 					fabricated_laptop.install_component(new /obj/item/computer_hardware/hard_drive/super)
-				total_price += 299
+				total_price += 3 * LAPTOP_VENDOR_BASE_PRICE
 		switch(dev_netcard)
 			if(1) // Basic(Short-Range)
 				if(fabricate)
 					fabricated_laptop.install_component(new /obj/item/computer_hardware/network_card)
-				total_price += 99
+				total_price += LAPTOP_VENDOR_BASE_PRICE
 			if(2) // Advanced (Long Range)
 				if(fabricate)
 					fabricated_laptop.install_component(new /obj/item/computer_hardware/network_card/advanced)
-				total_price += 299
+				total_price += 3 * LAPTOP_VENDOR_BASE_PRICE
 		if(dev_apc_recharger)
-			total_price += 399
+			total_price += 4 * LAPTOP_VENDOR_BASE_PRICE
 			if(fabricate)
 				fabricated_laptop.install_component(new /obj/item/computer_hardware/recharger/apc_recharger)
 		if(dev_printer)
-			total_price += 99
+			total_price += LAPTOP_VENDOR_BASE_PRICE
 			if(fabricate)
 				fabricated_laptop.install_component(new /obj/item/computer_hardware/printer/mini)
 		if(dev_card)
-			total_price += 199
+			total_price += 2 * LAPTOP_VENDOR_BASE_PRICE
 			if(fabricate)
 				fabricated_laptop.install_component(new /obj/item/computer_hardware/card_slot/secondary)
 
@@ -119,7 +121,7 @@
 			fabricated_tablet.install_component(new /obj/item/computer_hardware/processor_unit/small)
 			fabricated_tablet.install_component(new/obj/item/computer_hardware/card_slot)
 			battery_module = fabricated_tablet.all_components[MC_CELL]
-		total_price = 199
+		total_price = 2 * LAPTOP_VENDOR_BASE_PRICE
 		switch(dev_battery)
 			if(1) // Basic(300C)
 				if(fabricate)
@@ -127,11 +129,11 @@
 			if(2) // Upgraded(500C)
 				if(fabricate)
 					battery_module.try_insert(new /obj/item/stock_parts/cell/computer/micro)
-				total_price += 199
+				total_price += 2 * LAPTOP_VENDOR_BASE_PRICE
 			if(3) // Advanced(750C)
 				if(fabricate)
 					battery_module.try_insert(new /obj/item/stock_parts/cell/computer)
-				total_price += 499
+				total_price += 5 * LAPTOP_VENDOR_BASE_PRICE
 		switch(dev_disk)
 			if(1) // Basic(32GQ)
 				if(fabricate)
@@ -139,26 +141,26 @@
 			if(2) // Upgraded(64GQ)
 				if(fabricate)
 					fabricated_tablet.install_component(new /obj/item/computer_hardware/hard_drive/small)
-				total_price += 99
+				total_price += LAPTOP_VENDOR_BASE_PRICE
 			if(3) // Advanced(128GQ)
 				if(fabricate)
 					fabricated_tablet.install_component(new /obj/item/computer_hardware/hard_drive)
-				total_price += 299
+				total_price += 3 * LAPTOP_VENDOR_BASE_PRICE
 		switch(dev_netcard)
 			if(1) // Basic(Short-Range)
 				if(fabricate)
 					fabricated_tablet.install_component(new/obj/item/computer_hardware/network_card)
-				total_price += 99
+				total_price += LAPTOP_VENDOR_BASE_PRICE
 			if(2) // Advanced (Long Range)
 				if(fabricate)
 					fabricated_tablet.install_component(new/obj/item/computer_hardware/network_card/advanced)
-				total_price += 299
+				total_price += 3 * LAPTOP_VENDOR_BASE_PRICE
 		if(dev_printer)
-			total_price += 99
+			total_price += LAPTOP_VENDOR_BASE_PRICE
 			if(fabricate)
 				fabricated_tablet.install_component(new/obj/item/computer_hardware/printer/mini)
 		if(dev_card)
-			total_price += 199
+			total_price += 2 * LAPTOP_VENDOR_BASE_PRICE
 			if(fabricate)
 				fabricated_tablet.install_component(new/obj/item/computer_hardware/card_slot/secondary)
 		return total_price

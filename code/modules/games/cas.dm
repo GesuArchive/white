@@ -116,7 +116,7 @@
 		. += "<hr><span class='notice'>The card is blank. Write on it with a pen.</span>"
 	else
 		. += "<hr><span class='notice'>The card reads: [name]</span>"
-	. += "<hr><span class='notice'>Alt-click to flip it.</span>"
+	. += "<hr><span class='notice'>ПКМ to flip it.</span>"
 
 /obj/item/toy/cards/singlecard/cas/Flip()
 	set name = "Flip Card"

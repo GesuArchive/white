@@ -281,7 +281,7 @@
 	if(locked == should_bolt)
 		return
 	SEND_SIGNAL(src, COMSIG_AIRLOCK_SET_BOLT, should_bolt)
-	. = locked 
+	. = locked
 	locked = should_bolt
 
 /obj/machinery/door/airlock/unlock()
@@ -706,7 +706,7 @@
 	if(issilicon(user) && !(machine_stat & BROKEN))
 		. += "<hr><span class='notice'>Shift-клик по [src], чтобы [ density ? "открыть" : "закрыть"] его.</span>\n"
 		. += "<span class='notice'>Ctrl-клик по [src], чтобы [ locked ? "поднять" : "опустить"] его болты.</span>\n"
-		. += "<span class='notice'>Alt-клик по [src], чтобы [ secondsElectrified ? "снять электризацию с н" : "электризовать "]его.</span>\n"
+		. += "<span class='notice'>ПКМ по [src], чтобы [ secondsElectrified ? "снять электризацию с н" : "электризовать "]его.</span>\n"
 		. += "<span class='notice'>Ctrl-Shift-клик по [src], чтобы [ emergency ? "отключить" : "включить"] экстренный доступ.</span>"
 
 /obj/machinery/door/airlock/attack_ai(mob/user)

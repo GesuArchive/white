@@ -214,7 +214,7 @@
 /obj/item/storage/fancy/cigarettes/examine(mob/user)
 	. = ..()
 
-	. += "<hr><span class='notice'>Alt-click чтобы извлечь содержимое.</span>"
+	. += "<hr><span class='notice'>ПКМ чтобы извлечь содержимое.</span>"
 	if(spawn_coupon)
 		. += "\n<span class='notice'>На обратной стороне упаковки есть купон! Вы можете оторвать его, когда содержимое пачки станет пустым.</span>"
 

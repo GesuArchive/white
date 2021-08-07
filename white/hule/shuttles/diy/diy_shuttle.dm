@@ -91,9 +91,3 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
 /obj/item/shuttlespawner/diyshuttle/big
 	template = new /datum/map_template/shuttle/capsule/diyshuttle/big
-
-/datum/supply_pack/misc/diyshuttle
-	name = "Bluespace shuttle capsule crate"
-	cost = 1000
-	contains = list(/obj/item/shuttlespawner/diyshuttle/big)
-	crate_name = "shuttle capsule crate"

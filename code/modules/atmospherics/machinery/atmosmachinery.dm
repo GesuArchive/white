@@ -68,7 +68,7 @@
 	if(is_type_in_list(src, GLOB.ventcrawl_machinery) && isliving(user))
 		var/mob/living/L = user
 		if(L.ventcrawler)
-			. += "<hr><span class='notice'>Alt-клик, чтобы заползти в вентиляцию.</span>"
+			. += "<hr><span class='notice'>ПКМ, чтобы заползти в вентиляцию.</span>"
 
 /obj/machinery/atmospherics/New(loc, process = TRUE, setdir)
 	if(!isnull(setdir))

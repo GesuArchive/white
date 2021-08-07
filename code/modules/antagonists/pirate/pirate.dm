@@ -59,7 +59,7 @@
 /datum/objective/loot
 	var/obj/machinery/computer/piratepad_control/cargo_hold
 	explanation_text = "Acquire valuable loot and store it in designated area."
-	var/target_value = 50000
+	var/target_value = 500 * CARGO_CRATE_VALUE
 	reward = 50
 
 

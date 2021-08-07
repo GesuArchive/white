@@ -155,7 +155,7 @@
 /obj/item/flamethrower/examine(mob/user)
 	. = ..()
 	if(ptank)
-		. += "<hr><span class='notice'>К <b>[src.name]</b> подсоединён <b>[ptank]</b>. Alt-клик для изъятия.</span>"
+		. += "<hr><span class='notice'>К <b>[src.name]</b> подсоединён <b>[ptank]</b>. ПКМ для изъятия.</span>"
 
 /obj/item/flamethrower/proc/toggle_igniter(mob/user)
 	if(!ptank)

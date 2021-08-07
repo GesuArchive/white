@@ -471,7 +471,7 @@ Code:
 						if (ml.z != cl.z)
 							continue
 						var/direction = get_dir(src, M)
-						ldat += "Mop - <b>\[[ml.x],[ml.y] ([uppertext(dir2text(direction))])\]</b> - [M.reagents.total_volume ? "Wet" : "Dry"]<br>"
+						ldat += "Mop - <b>\[[ml.x],[ml.y] ([uppertext(dir2ru_text(direction))])\]</b> - [M.reagents.total_volume ? "Wet" : "Dry"]<br>"
 
 				if (!ldat)
 					menu += "None"
@@ -488,7 +488,7 @@ Code:
 						if (bl.z != cl.z)
 							continue
 						var/direction = get_dir(src, B)
-						ldat += "Cart - <b>\[[bl.x],[bl.y] ([uppertext(dir2text(direction))])\]</b> - Water level: [B.reagents.total_volume]/100<br>"
+						ldat += "Cart - <b>\[[bl.x],[bl.y] ([uppertext(dir2ru_text(direction))])\]</b> - Water level: [B.reagents.total_volume]/100<br>"
 
 				if (!ldat)
 					menu += "None"
@@ -505,7 +505,7 @@ Code:
 						if (bl.z != cl.z)
 							continue
 						var/direction = get_dir(src, B)
-						ldat += "Cleanbot - <b>\[[bl.x],[bl.y] ([uppertext(dir2text(direction))])\]</b> - [B.on ? "Online" : "Offline"]<br>"
+						ldat += "Cleanbot - <b>\[[bl.x],[bl.y] ([uppertext(dir2ru_text(direction))])\]</b> - [B.on ? "Online" : "Offline"]<br>"
 
 				if (!ldat)
 					menu += "None"

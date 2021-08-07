@@ -108,7 +108,7 @@
 		dat += "Патрулировать станцию: <A href='?src=[REF(src)];operation=patrol'>[auto_patrol ? "Да" : "Нет"]</A><BR>"
 		var/bmode
 		if(targetdirection)
-			bmode = dir2text(targetdirection)
+			bmode = dir2ru_text(targetdirection)
 		else
 			bmode = "отключено"
 		dat += "Режим линии: <A href='?src=[REF(src)];operation=linemode'>[bmode]</A><BR>"

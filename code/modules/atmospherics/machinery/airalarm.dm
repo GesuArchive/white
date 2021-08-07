@@ -253,7 +253,7 @@
 		if(1)
 			. += "<span class='notice'>Не хватает проводов</span>"
 		if(2)
-			. += "<span class='notice'>Alt-клик, чтобы [locked ? "разблокировать" : "заблокировать"] интерфейс.</span>"
+			. += "<span class='notice'>ПКМ, чтобы [locked ? "разблокировать" : "заблокировать"] интерфейс.</span>"
 
 /obj/machinery/airalarm/ui_status(mob/user)
 	if(user.has_unlimited_silicon_privilege && aidisabled)

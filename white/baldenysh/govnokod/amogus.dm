@@ -1,4 +1,4 @@
-/obj/structue/statue/amogus
+/obj/structure/statue/amogus
 	name = "статуя космонавта"
 	desc = "Статуя космонавта в смирительном скафандре. Выполнена из настоящей асбестовой ткани, намотанной на металлический каркас."
 	icon = 'white/baldenysh/icons/obj/amogus.dmi'
@@ -9,7 +9,7 @@
 	anchored = TRUE
 	var/ripper = FALSE
 
-/obj/structue/statue/amogus/Initialize()
+/obj/structure/statue/amogus/Initialize()
 	. = ..()
 	transform *= 2
 	LoadComponent(/datum/component/storage/concrete/pockets/butt/bluebutt)
@@ -26,15 +26,15 @@
 	if(prob(50))
 		ripper = TRUE
 
-/obj/structue/statue/amogus/examine(mob/user)
+/obj/structure/statue/amogus/examine(mob/user)
 	. = ..()
 	if(get_dist(src, user) < 2)
 		. += "\n<span class='notice'>Похоже, между ягодицами можно просунуть руку... \n GROIN+GRAB+CLICK чтобы пошариться в заднице статуи.</span>"
 
-/obj/structue/statue/amogus/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+/obj/structure/statue/amogus/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	return
 
-/obj/structue/statue/amogus/attack_hand(mob/living/user)
+/obj/structure/statue/amogus/attack_hand(mob/living/user)
 	. = ..()
 	if(user.zone_selected == BODY_ZONE_PRECISE_GROIN && user.a_intent == INTENT_GRAB && iscarbon(user))
 		var/mob/living/carbon/c_user = user

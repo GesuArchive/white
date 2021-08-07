@@ -473,7 +473,7 @@
 
 	return total
 
-/// Helper proc. Can the user alt-click the ID?
+/// Helper proc. Can the user ПКМ the ID?
 /obj/item/card/id/proc/alt_click_can_use_id(mob/living/user)
 	if(!isliving(user))
 		return
@@ -563,7 +563,7 @@
 			var/datum/bank_account/D = SSeconomy.get_dep_account(registered_account.account_job.paycheck_department)
 			if(D)
 				msg += "\nБаланс [D.account_holder] составляет <b>[D.account_balance] кредит[get_num_string(D.account_balance)]."
-		msg += "\n<span class='info'>Alt-клик на ID-карте для снятия денег.</span>"
+		msg += "\n<span class='info'>ПКМ на ID-карте для снятия денег.</span>"
 		msg += "\n<span class='info'>Похоже сюда можно вставлять голо-чипы, монетки и прочую валюту.</span>"
 		if(registered_account.civilian_bounty)
 			msg += "\n<span class='info'><b>Есть активный гражданский заказ.</b>"
@@ -571,9 +571,9 @@
 			msg += "\n<span class='info'>Количество: [registered_account.bounty_num()]</span>"
 			msg += "\n<span class='info'>Награда: [registered_account.bounty_value()]</span>"
 		if(registered_account.account_holder == user.real_name)
-			msg += "\n<span class='boldnotice'>Если ты потеряешь эту ID-карту, ты можешь запросто переподключить свой счёт используя Alt-клик на своей новой карте.</span>"
+			msg += "\n<span class='boldnotice'>Если ты потеряешь эту ID-карту, ты можешь запросто переподключить свой счёт используя ПКМ на своей новой карте.</span>"
 	else
-		msg += "\n<span class='info'>Похоже здесь не привязан аккаунт. Alt-клик для привязки аккаунта поможет.</span>"
+		msg += "\n<span class='info'>Похоже здесь не привязан аккаунт. ПКМ для привязки аккаунта поможет.</span>"
 
 	return msg
 

@@ -33,13 +33,12 @@
 /turf/closed/indestructible/wood,
 /area/centcom/holding)
 "at" = (
-/obj/item/pamk,
-/obj/structure/table/reinforced,
-/turf/open/floor/plasteel/elevatorshaft,
-/area/ruin/powered/yohei_base)
+/turf/closed/indestructible/black,
+/area/space)
 "au" = (
-/obj/machinery/turntable,
-/turf/open/floor/plasteel/elevatorshaft,
+/turf/closed/indestructible/fakedoor{
+	name = "Scarlet Dawn Access"
+	},
 /area/ruin/powered/yohei_base)
 "ax" = (
 /obj/item/storage/firstaid/toxin,
@@ -202,13 +201,10 @@
 	},
 /area/centcom/outdoors)
 "bo" = (
-/obj/structure/window/reinforced/survival_pod{
-	dir = 6
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
 	},
-/obj/structure/lattice/catwalk{
-	invisibility = 100
-	},
-/turf/open/chasm/lavaland,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/ruin/powered/yohei_base)
 "bu" = (
 /mob/living/simple_animal/butterfly,
@@ -707,8 +703,16 @@
 /turf/open/floor/plating,
 /area/centcom/control)
 "dK" = (
-/obj/structure/sign/warning,
-/turf/closed/indestructible/reinforced,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/obj/lab_monitor/yohei{
+	anchored = 1;
+	pixel_y = 32;
+	plane = -1
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/ruin/powered/yohei_base)
 "dL" = (
 /obj/machinery/door/airlock{
@@ -848,9 +852,10 @@
 /turf/open/floor/plasteel/white,
 /area/centcom/control)
 "ex" = (
-/obj/effect/landmark/start/new_player,
-/turf/open/floor/plating,
-/area/start)
+/obj/structure/table/abductor,
+/obj/item/clothing/glasses/sunglasses,
+/turf/open/floor/plasteel/elevatorshaft,
+/area/ruin/powered/yohei_base)
 "ey" = (
 /obj/structure/showcase{
 	desc = "A historical figure of great importance to the wizard federation. He spent his long life learning magic, stealing artifacts, and harassing idiots with swords. May he rest forever, Rodney.";
@@ -1114,6 +1119,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"fA" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 6
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/ruin/powered/yohei_base)
 "fD" = (
 /obj/machinery/computer/operating{
 	dir = 4
@@ -1166,10 +1177,8 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "fK" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 9
-	},
-/turf/open/floor/plasteel/monofloor/dark,
+/obj/effect/mob_spawn/human/donate/yohei,
+/turf/open/floor/plasteel/checker,
 /area/ruin/powered/yohei_base)
 "fL" = (
 /turf/open/floor/plasteel/dark,
@@ -1501,11 +1510,8 @@
 /turf/open/floor/plasteel/white,
 /area/centcom/control)
 "gT" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 1
-	},
 /obj/machinery/light/directional/north,
-/turf/open/floor/plasteel/monofloor/dark,
+/turf/open/floor/plasteel/checker,
 /area/ruin/powered/yohei_base)
 "gU" = (
 /obj/machinery/conveyor_switch/oneway{
@@ -1549,27 +1555,17 @@
 /turf/open/floor/plating/grass/jungle,
 /area/centcom/outdoors)
 "hc" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 1
+/obj/structure/table/abductor,
+/obj/machinery/chem_dispenser/drinks/beer/fullupgrade{
+	dir = 8;
+	resistance_flags = 64
 	},
-/obj/lab_monitor/yohei{
-	anchored = 1;
-	pixel_y = 32;
-	plane = -1
-	},
-/turf/open/floor/plasteel/monofloor/dark,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/powered/yohei_base)
 "hd" = (
 /obj/machinery/light/floor,
 /turf/closed/indestructible/syndicate,
 /area/centcom/control)
-"hf" = (
-/obj/effect/mob_spawn/human/donate/yohei,
-/obj/structure/ladder/unbreakable{
-	id = "yohei_base"
-	},
-/turf/open/floor/vault,
-/area/ruin/powered/yohei_base)
 "hg" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Briefing Room";
@@ -1590,11 +1586,28 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
-"hq" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 1
+"hn" = (
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
+/area/ruin/powered/yohei_base)
+"hq" = (
+/obj/structure/table/reinforced,
+/obj/item/spacepod_key/yohei{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/spacepod_key/yohei{
+	pixel_x = -6;
+	pixel_y = -1
+	},
+/obj/item/spacepod_key/yohei{
+	pixel_x = -2;
+	pixel_y = -5
+	},
+/obj/item/spacepod_key/yohei,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/powered/yohei_base)
 "hw" = (
 /obj/structure/table/reinforced,
@@ -1644,6 +1657,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"hE" = (
+/obj/structure/fans/tiny/invisible,
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/engine,
+/area/ruin/powered/yohei_base)
 "hJ" = (
 /obj/item/kirbyplants/random,
 /obj/structure/sign/nanotrasen{
@@ -1793,9 +1813,9 @@
 /turf/open/floor/plating/abductor,
 /area/abductor_ship)
 "iH" = (
-/obj/structure/chair/stool/bar,
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 5
+/obj/item/restraints/handcuffs/cable{
+	pixel_x = -8;
+	pixel_y = 3
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ruin/powered/yohei_base)
@@ -1810,13 +1830,20 @@
 /obj/effect/turf_decal/stripes/full,
 /turf/open/floor/plasteel/monofloor,
 /area/centcom/control)
+"iK" = (
+/turf/closed/indestructible/black,
+/area/ruin/powered/yohei_base)
 "iL" = (
 /obj/structure/table,
 /turf/open/indestructible/white,
 /area/centcom/control)
 "iV" = (
-/obj/structure/table/abductor,
-/obj/item/clothing/glasses/sunglasses,
+/obj/structure/table/reinforced,
+/obj/item/modular_computer/tablet/preset/cheap,
+/obj/structure/window/reinforced/survival_pod{
+	dir = 8
+	},
+/obj/structure/fans/tiny/invisible,
 /turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/powered/yohei_base)
 "iW" = (
@@ -1835,7 +1862,13 @@
 /turf/open/floor/plating/asteroid,
 /area/centcom/outdoors)
 "iZ" = (
-/turf/open/floor/plasteel/checker,
+/obj/structure/chair/comfy/lime{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/dark,
 /area/ruin/powered/yohei_base)
 "jg" = (
 /obj/effect/light_emitter,
@@ -1844,18 +1877,25 @@
 	},
 /area/centcom/outdoors)
 "ji" = (
-/obj/machinery/light/directional/north,
-/turf/open/floor/plasteel/checker,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/obj/structure/chair/stool/bar,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/ruin/powered/yohei_base)
 "jj" = (
 /turf/closed/indestructible/black,
 /area/start)
+"jp" = (
+/obj/structure/fans/tiny/invisible,
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/engine,
+/area/ruin/powered/yohei_base)
 "jq" = (
 /obj/structure/table/abductor,
-/obj/machinery/chem_dispenser/drinks/beer/fullupgrade{
-	dir = 8;
-	resistance_flags = 64
-	},
+/obj/item/reagent_containers/food/drinks/drinkingglass,
 /turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/powered/yohei_base)
 "jt" = (
@@ -2077,13 +2117,7 @@
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "kz" = (
-/obj/structure/window/reinforced/survival_pod{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk{
-	invisibility = 100
-	},
-/turf/open/chasm/lavaland,
+/turf/open/floor/plasteel/checker,
 /area/ruin/powered/yohei_base)
 "kB" = (
 /obj/structure/chair/wood{
@@ -2145,9 +2179,9 @@
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "kW" = (
-/obj/structure/table/reinforced,
-/obj/item/modular_computer/tablet/preset/cheap,
-/turf/open/floor/plasteel/elevatorshaft,
+/obj/structure/safe/floor,
+/obj/item/uplink/nuclear,
+/turf/open/floor/plasteel/checker,
 /area/ruin/powered/yohei_base)
 "kX" = (
 /obj/effect/turf_decal/tile/brown,
@@ -2183,13 +2217,12 @@
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
 "lg" = (
-/obj/structure/chair/comfy/lime{
-	dir = 8
+/obj/structure/table/abductor,
+/obj/machinery/chem_dispenser/drinks/fullupgrade{
+	dir = 8;
+	resistance_flags = 64
 	},
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 8
-	},
-/turf/open/floor/plasteel/monofloor/dark,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/powered/yohei_base)
 "lh" = (
 /obj/effect/turf_decal/stripes/line{
@@ -2197,15 +2230,20 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/ert)
-"li" = (
-/turf/open/floor/plasteel/monofloor/dark,
-/area/ruin/powered/yohei_base)
 "lk" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 4
+/obj/structure/table/reinforced,
+/obj/item/paper_bin/carbon{
+	pixel_x = 4;
+	pixel_y = 4
 	},
-/obj/structure/chair/stool/bar,
-/turf/open/floor/plasteel/monofloor/dark,
+/obj/item/pen/edagger{
+	pixel_y = 5
+	},
+/obj/structure/window/reinforced/survival_pod{
+	dir = 8
+	},
+/obj/structure/fans/tiny/invisible,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/powered/yohei_base)
 "lm" = (
 /obj/machinery/light/directional/south,
@@ -2277,6 +2315,13 @@
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
 /area/centcom/outdoors)
+"lT" = (
+/obj/item/restraints/handcuffs/cable{
+	pixel_x = -5;
+	pixel_y = 8
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/ruin/powered/yohei_base)
 "lX" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -2310,9 +2355,14 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "mk" = (
-/obj/structure/table/abductor,
-/obj/item/reagent_containers/food/drinks/drinkingglass,
-/turf/open/floor/plasteel/elevatorshaft,
+/obj/structure/chair/comfy/teal{
+	color = "#99ff99";
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/dark,
 /area/ruin/powered/yohei_base)
 "mo" = (
 /obj/machinery/status_display/evac,
@@ -2325,9 +2375,9 @@
 /turf/open/floor/grass,
 /area/centcom/holding)
 "ms" = (
-/obj/structure/safe/floor,
-/obj/item/uplink/nuclear,
-/turf/open/floor/plasteel/checker,
+/obj/structure/table/abductor,
+/obj/item/tank/internals/emergency_oxygen/double/empty,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/powered/yohei_base)
 "mt" = (
 /obj/effect/turf_decal/stripes/line{
@@ -2350,9 +2400,7 @@
 /turf/open/floor/wood,
 /area/centcom/holding)
 "mD" = (
-/obj/structure/table/abductor,
-/obj/machinery/chem_dispenser/drinks/fullupgrade{
-	dir = 8;
+/obj/machinery/vending/boozeomat/all_access{
 	resistance_flags = 64
 	},
 /turf/open/floor/plasteel/elevatorshaft,
@@ -2363,17 +2411,6 @@
 	name = "airlock"
 	},
 /area/centcom/circus)
-"mG" = (
-/obj/structure/table/reinforced,
-/obj/item/paper_bin/carbon{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/pen/edagger{
-	pixel_y = 5
-	},
-/turf/open/floor/plasteel/elevatorshaft,
-/area/ruin/powered/yohei_base)
 "mH" = (
 /obj/structure/chair/office{
 	dir = 8
@@ -2391,16 +2428,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/brief)
-"mJ" = (
-/obj/structure/chair/comfy/teal{
-	color = "#99ff99";
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 8
-	},
-/turf/open/floor/plasteel/monofloor/dark,
-/area/ruin/powered/yohei_base)
 "mR" = (
 /obj/effect/baseturf_helper/beach/sand,
 /turf/closed/indestructible/syndicate,
@@ -2423,6 +2450,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"mY" = (
+/obj/effect/turf_decal/box/corners{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/ruin/powered/yohei_base)
 "nb" = (
 /obj/structure/chair,
 /obj/machinery/light{
@@ -2501,6 +2534,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/outdoors)
+"nm" = (
+/obj/structure/fans/tiny/invisible,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/ruin/powered/yohei_base)
 "nn" = (
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/trimline/neutral/line,
@@ -2567,7 +2607,12 @@
 /turf/open/floor/holofloor/hyperspace,
 /area/centcom/supplypod/supplypod_temp_holding)
 "nO" = (
-/obj/structure/table/abductor,
+/obj/item/storage/fancy/donut_box,
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced/survival_pod{
+	dir = 8
+	},
+/obj/structure/fans/tiny/invisible,
 /turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/powered/yohei_base)
 "nP" = (
@@ -2584,10 +2629,14 @@
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "nS" = (
-/obj/machinery/vending/boozeomat/all_access{
-	resistance_flags = 64
+/obj/structure/chair/comfy/lime{
+	color = "#ff9999";
+	dir = 8
 	},
-/turf/open/floor/plasteel/elevatorshaft,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/dark,
 /area/ruin/powered/yohei_base)
 "nT" = (
 /obj/item/kirbyplants/random,
@@ -2596,11 +2645,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
-"nU" = (
-/obj/item/storage/fancy/donut_box,
-/obj/structure/table/reinforced,
-/turf/open/floor/plasteel/elevatorshaft,
-/area/ruin/powered/yohei_base)
 "oa" = (
 /obj/structure/chair{
 	dir = 8
@@ -2636,16 +2680,6 @@
 /obj/structure/table,
 /turf/open/floor/carpet/green,
 /area/centcom/control)
-"oj" = (
-/obj/structure/chair/comfy/lime{
-	color = "#ff9999";
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 8
-	},
-/turf/open/floor/plasteel/monofloor/dark,
-/area/ruin/powered/yohei_base)
 "ol" = (
 /obj/machinery/vending/hydroseeds,
 /obj/effect/turf_decal/tile/green{
@@ -2676,13 +2710,6 @@
 	name = "Scarlet Dawn Access"
 	},
 /area/centcom/brief)
-"ox" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 4
-	},
-/obj/machinery/light/directional/east,
-/turf/open/floor/plasteel/monofloor/dark,
-/area/ruin/powered/yohei_base)
 "oA" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -2726,12 +2753,6 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/centcom/brief)
-"oK" = (
-/obj/machinery/door/airlock/public/glass{
-	req_access_txt = "220"
-	},
-/turf/open/floor/plasteel/monofloor,
-/area/ruin/powered/yohei_base)
 "oN" = (
 /obj/machinery/biogenerator,
 /obj/effect/turf_decal/tile/green{
@@ -2839,27 +2860,9 @@
 /turf/open/floor/plasteel/white,
 /area/centcom/control)
 "px" = (
-/obj/item/restraints/handcuffs/cable{
-	pixel_x = 8;
-	pixel_y = 3
-	},
-/obj/item/restraints/handcuffs/cable{
-	pixel_x = -8;
-	pixel_y = 3
-	},
-/obj/item/restraints/handcuffs/cable{
-	pixel_y = 6
-	},
-/obj/item/restraints/handcuffs/cable{
-	pixel_x = -5;
-	pixel_y = 8
-	},
-/obj/item/restraints/handcuffs/cable{
-	pixel_x = 4;
-	pixel_y = 11
-	},
-/obj/structure/table/reinforced,
-/turf/open/floor/plasteel/elevatorshaft,
+/obj/structure/shuttle/engine/large,
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/engine/airless,
 /area/ruin/powered/yohei_base)
 "pA" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -3088,20 +3091,17 @@
 	},
 /turf/open/floor/plasteel/cafeteria,
 /area/centcom/holding)
-"rb" = (
-/obj/structure/chair/comfy/teal{
+"qZ" = (
+/obj/spacepod/prebuilt/yohei,
+/obj/effect/landmark/yohei_beacon,
+/obj/effect/turf_decal/box/corners{
 	dir = 8
 	},
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 8
-	},
-/turf/open/floor/plasteel/monofloor/dark,
+/turf/open/floor/engine,
 /area/ruin/powered/yohei_base)
-"rf" = (
-/obj/effect/turf_decal/siding/wideplating/dark/corner{
-	dir = 4
-	},
-/turf/open/floor/plasteel/monofloor/dark,
+"rh" = (
+/obj/effect/turf_decal/box/corners,
+/turf/open/floor/engine,
 /area/ruin/powered/yohei_base)
 "rk" = (
 /obj/structure/table/wood,
@@ -3228,10 +3228,8 @@
 /turf/open/floor/engine/cult,
 /area/wizard_station)
 "rO" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 5
-	},
-/turf/open/floor/plasteel/monofloor/dark,
+/obj/machinery/turntable,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/powered/yohei_base)
 "rT" = (
 /mob/living/simple_animal/butterfly,
@@ -3266,8 +3264,12 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/brief)
 "sk" = (
-/turf/closed/indestructible/splashscreen,
-/area/start)
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/obj/machinery/light/directional/east,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/ruin/powered/yohei_base)
 "sm" = (
 /obj/structure/flora/ausbushes/rospilovo,
 /turf/open/floor/plating/beach/sand,
@@ -3386,18 +3388,28 @@
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
 /area/centcom/outdoors)
+"sW" = (
+/obj/spacepod/prebuilt/yohei,
+/obj/effect/landmark/yohei_beacon,
+/obj/effect/turf_decal/box/corners{
+	dir = 8
+	},
+/obj/effect/light_emitter{
+	light_range = 16;
+	set_cap = 2.5;
+	set_luminosity = 16
+	},
+/turf/open/floor/engine,
+/area/ruin/powered/yohei_base)
 "tb" = (
 /obj/effect/landmark/abductor/scientist,
 /turf/open/floor/plating/abductor,
 /area/abductor_ship)
 "tk" = (
-/obj/structure/window/reinforced/survival_pod{
-	dir = 5
+/obj/machinery/door/airlock/public/glass{
+	req_access_txt = "220"
 	},
-/obj/structure/lattice/catwalk{
-	invisibility = 100
-	},
-/turf/open/chasm/lavaland,
+/turf/open/floor/plasteel/monofloor,
 /area/ruin/powered/yohei_base)
 "tl" = (
 /obj/machinery/smartfridge,
@@ -3444,12 +3456,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
-"ty" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 10
-	},
-/turf/open/floor/plasteel/monofloor/dark,
-/area/ruin/powered/yohei_base)
 "tJ" = (
 /obj/docking_port/stationary{
 	area_type = /area/syndicate_mothership/control;
@@ -3576,9 +3582,8 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/centcom/holding)
 "uD" = (
-/obj/effect/turf_decal/siding/wideplating/dark,
-/obj/machinery/light/directional/south,
-/turf/open/floor/plasteel/monofloor/dark,
+/obj/structure/sign/warning,
+/turf/closed/indestructible/syndicate,
 /area/ruin/powered/yohei_base)
 "uF" = (
 /obj/effect/landmark/abductor/agent{
@@ -3597,7 +3602,10 @@
 /turf/open/floor/plating/abductor,
 /area/abductor_ship)
 "uS" = (
-/obj/effect/turf_decal/siding/wideplating/dark,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 9
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ruin/powered/yohei_base)
 "vb" = (
@@ -3606,8 +3614,9 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/centcom/holding)
 "ve" = (
+/obj/structure/chair/stool/bar,
 /obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 6
+	dir = 5
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ruin/powered/yohei_base)
@@ -3648,10 +3657,6 @@
 /obj/machinery/vending/chetverochka/pharma,
 /turf/open/floor/plasteel,
 /area/syndicate_mothership/control)
-"vE" = (
-/obj/machinery/light/directional/north,
-/turf/open/floor/dz/green,
-/area/ruin/powered/yohei_base)
 "vL" = (
 /obj/structure/railing{
 	dir = 8
@@ -3680,6 +3685,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/brief)
+"vP" = (
+/turf/open/floor/engine,
+/area/ruin/powered/yohei_base)
 "vR" = (
 /obj/item/reagent_containers/food/condiment/enzyme,
 /obj/item/reagent_containers/food/drinks/shaker,
@@ -3687,6 +3695,15 @@
 /obj/structure/closet/crate,
 /turf/open/floor/plasteel/cafeteria,
 /area/centcom/holding)
+"vY" = (
+/obj/effect/turf_decal/box/corners,
+/obj/effect/light_emitter{
+	light_range = 16;
+	set_cap = 2.5;
+	set_luminosity = 16
+	},
+/turf/open/floor/engine,
+/area/ruin/powered/yohei_base)
 "wb" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel,
@@ -3823,6 +3840,12 @@
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
 /area/centcom/circus)
+"xe" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 5
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/ruin/powered/yohei_base)
 "xk" = (
 /turf/closed/indestructible/abductor{
 	icon_state = "alien21"
@@ -3932,7 +3955,8 @@
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
 "yr" = (
-/turf/closed/indestructible/black,
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/engine/airless,
 /area/ruin/powered/yohei_base)
 "yu" = (
 /obj/machinery/washing_machine,
@@ -4102,6 +4126,20 @@
 /obj/structure/sink/oil_well,
 /turf/open/floor/plating/beach/sand,
 /area/syndicate_mothership)
+"zR" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 10
+	},
+/obj/item/tank/internals/emergency_oxygen/double/empty{
+	pixel_y = 12
+	},
+/obj/item/tank/internals/emergency_oxygen/double/empty{
+	pixel_y = 6
+	},
+/obj/item/tank/internals/emergency_oxygen/double/empty,
+/obj/structure/closet/crate,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/ruin/powered/yohei_base)
 "zV" = (
 /turf/closed/indestructible/syndicate,
 /area/centcom/circus)
@@ -4323,9 +4361,6 @@
 	},
 /turf/open/floor/engine/cult,
 /area/wizard_station)
-"Bt" = (
-/turf/closed/indestructible/reinforced,
-/area/ruin/powered/yohei_base)
 "Bw" = (
 /obj/structure/table/wood,
 /obj/item/integrated_circuit_printer/upgraded/prog,
@@ -4568,6 +4603,13 @@
 "CL" = (
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
+"CS" = (
+/obj/structure/fans/tiny/invisible,
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/engine,
+/area/ruin/powered/yohei_base)
 "CT" = (
 /turf/closed/indestructible/fakedoor{
 	desc = "Дверь, ведущая дальше в пучину небытия.";
@@ -4869,6 +4911,13 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/centcom/control)
+"EI" = (
+/obj/structure/fans/tiny/invisible,
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/engine,
+/area/ruin/powered/yohei_base)
 "EK" = (
 /turf/open/floor/plasteel/stairs/old,
 /area/centcom/control)
@@ -5133,7 +5182,12 @@
 /turf/open/floor/plasteel,
 /area/syndicate_mothership/control)
 "Gw" = (
-/turf/open/floor/dz/green,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/ruin/powered/yohei_base)
+"Gy" = (
+/obj/structure/fans/tiny/invisible,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/engine,
 /area/ruin/powered/yohei_base)
 "Gz" = (
 /obj/structure/cable,
@@ -5214,6 +5268,15 @@
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
 /area/centcom/circus)
+"Hf" = (
+/obj/structure/chair/comfy/teal{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/ruin/powered/yohei_base)
 "Hm" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
@@ -5268,6 +5331,10 @@
 	},
 /turf/open/floor/plating/abductor,
 /area/abductor_ship)
+"HT" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/ruin/powered/yohei_base)
 "HV" = (
 /turf/closed/indestructible/fakeglass,
 /area/duel)
@@ -5471,6 +5538,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/four)
+"Kh" = (
+/obj/effect/turf_decal/box/corners{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/ruin/powered/yohei_base)
 "Kj" = (
 /turf/closed/indestructible/abductor{
 	icon_state = "alien19"
@@ -5631,6 +5704,15 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/brief)
+"LP" = (
+/obj/effect/landmark/start/new_player,
+/turf/open/floor/plating,
+/area/start)
+"LQ" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/obj/machinery/light/directional/south,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/ruin/powered/yohei_base)
 "LS" = (
 /obj/structure/table/wood,
 /turf/open/floor/wood,
@@ -5990,6 +6072,25 @@
 	},
 /turf/open/floor/plasteel,
 /area/syndicate_mothership/control)
+"On" = (
+/obj/item/restraints/handcuffs/cable{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/item/restraints/handcuffs/cable{
+	pixel_y = 6
+	},
+/obj/item/restraints/handcuffs/cable{
+	pixel_x = 4;
+	pixel_y = 11
+	},
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced/survival_pod{
+	dir = 8
+	},
+/obj/structure/fans/tiny/invisible,
+/turf/open/floor/plasteel/elevatorshaft,
+/area/ruin/powered/yohei_base)
 "Op" = (
 /obj/effect/light_emitter{
 	set_cap = 1;
@@ -6249,6 +6350,13 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding)
+"Qn" = (
+/obj/machinery/light/directional/north,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/ruin/powered/yohei_base)
 "Qo" = (
 /obj/machinery/door/airlock{
 	icon = 'icons/obj/doors/airlocks/station/uranium.dmi';
@@ -6495,6 +6603,14 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding)
+"RR" = (
+/obj/machinery/door/airlock/public/glass{
+	req_access_txt = "220"
+	},
+/obj/structure/fans/tiny,
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/plasteel/monofloor,
+/area/ruin/powered/yohei_base)
 "RX" = (
 /obj/machinery/light{
 	dir = 8
@@ -6666,6 +6782,13 @@
 /obj/effect/landmark/holding_facility,
 /turf/open/floor/wood,
 /area/centcom/holding)
+"SY" = (
+/obj/structure/fans/tiny/invisible,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/ruin/powered/yohei_base)
 "SZ" = (
 /obj/machinery/abductor/gland_dispenser,
 /turf/open/floor/plating/abductor,
@@ -7208,7 +7331,7 @@
 /turf/closed/indestructible/syndicate,
 /area/centcom/supplypod)
 "WA" = (
-/turf/open/chasm/lavaland,
+/turf/closed/indestructible/syndicate,
 /area/ruin/powered/yohei_base)
 "WC" = (
 /obj/machinery/light/small{
@@ -7234,6 +7357,12 @@
 /obj/effect/landmark/abductor/agent,
 /turf/open/floor/plating/abductor,
 /area/abductor_ship)
+"WJ" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/ruin/powered/yohei_base)
 "WK" = (
 /obj/machinery/abductor/console{
 	team_number = 2
@@ -7737,6 +7866,9 @@
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
 /area/centcom/circus)
+"Zf" = (
+/turf/closed/indestructible/splashscreen,
+/area/start)
 "Zg" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/soda_cans/cola{
@@ -7861,8 +7993,7 @@ Co
 Co
 Co
 Co
-Co
-Co
+at
 XF
 XF
 XF
@@ -7891,16 +8022,17 @@ XF
 XF
 XF
 XF
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co
@@ -8119,7 +8251,6 @@ as
 as
 as
 as
-Co
 XF
 XF
 XF
@@ -8148,33 +8279,34 @@ XF
 XF
 XF
 XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
 Co
 XF
 XF
@@ -8376,62 +8508,62 @@ eS
 lz
 eS
 as
-Co
 XF
 XF
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
 XF
 XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
 Co
 XF
 XF
@@ -8633,62 +8765,62 @@ eS
 eS
 eS
 as
-Co
 XF
 XF
-yr
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-yr
 XF
 XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+Zf
 Co
 XF
 XF
@@ -8890,62 +9022,62 @@ eS
 eS
 Rq
 as
-Co
 XF
 XF
-yr
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-yr
 XF
 XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
 Co
 XF
 XF
@@ -9147,62 +9279,62 @@ eS
 eS
 eS
 as
-Co
 XF
 XF
-yr
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-yr
 XF
 XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
 Co
 XF
 XF
@@ -9404,62 +9536,62 @@ eS
 eS
 Rq
 as
-Co
 XF
 XF
-yr
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-yr
 XF
 XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
+jj
 Co
 XF
 XF
@@ -9661,45 +9793,46 @@ eS
 eS
 eS
 as
-Co
 XF
 XF
-yr
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-yr
 XF
 XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
 jj
 jj
 jj
@@ -9716,7 +9849,6 @@ jj
 jj
 jj
 jj
-Co
 Co
 XF
 XF
@@ -9918,45 +10050,46 @@ eS
 mz
 eS
 as
-Co
 XF
 XF
-yr
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-yr
 XF
 XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
 jj
 jj
 jj
@@ -9973,7 +10106,6 @@ jj
 jj
 jj
 jj
-Co
 Co
 XF
 XF
@@ -10175,45 +10307,46 @@ as
 as
 as
 as
-Co
 XF
 XF
-yr
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-yr
 XF
 XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
 jj
 jj
 jj
@@ -10229,8 +10362,7 @@ jj
 jj
 jj
 jj
-sk
-Co
+jj
 Co
 XF
 XF
@@ -10432,45 +10564,46 @@ YK
 ao
 Rs
 as
-Co
 XF
 XF
-yr
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-yr
 XF
 XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
 jj
 jj
 jj
@@ -10487,7 +10620,6 @@ jj
 jj
 jj
 jj
-Co
 Co
 XF
 XF
@@ -10689,45 +10821,46 @@ eS
 eS
 eS
 as
-Co
 XF
 XF
-yr
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-bo
-kz
-kz
-kz
-kz
-tk
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-yr
 XF
 XF
+XF
+XF
+XF
+WA
+WA
+WA
+WA
+WA
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
 jj
 jj
 jj
@@ -10736,6 +10869,7 @@ jj
 jj
 jj
 jj
+LP
 jj
 jj
 jj
@@ -10743,8 +10877,6 @@ jj
 jj
 jj
 jj
-jj
-Co
 Co
 XF
 XF
@@ -10946,45 +11078,46 @@ Qd
 Qd
 eS
 as
-Co
 XF
-XF
+WA
+WA
+WA
+WA
+WA
+WA
+WA
+Gw
+Gw
+Gw
+WA
+WA
+WA
 yr
-WA
-WA
-WA
-WA
-WA
-WA
-Bt
-dK
-kW
-mG
-nU
 px
-dK
-Bt
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-yr
 XF
 XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
 jj
 jj
 jj
@@ -11001,7 +11134,6 @@ jj
 jj
 jj
 jj
-Co
 Co
 XF
 XF
@@ -11203,45 +11335,46 @@ Xl
 Vi
 eS
 as
-Co
 XF
-XF
+iK
+Gw
+Gw
+Gw
+Gw
+au
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+au
 yr
-WA
-WA
-WA
-WA
-WA
-WA
-Bt
-fK
-lg
-mJ
-oj
-rb
-ty
-Bt
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
 yr
 XF
 XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
 jj
 jj
 jj
@@ -11258,7 +11391,6 @@ jj
 jj
 jj
 jj
-Co
 Co
 XF
 XF
@@ -11460,45 +11592,46 @@ GI
 qP
 eS
 as
-Co
 XF
-XF
-yr
+iK
+Gw
+Gw
+Gw
+Gw
+au
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
 WA
 WA
 WA
-WA
-WA
-WA
-Bt
-gT
-li
-li
-li
-li
 uD
-Bt
+iV
+lk
+nO
+On
+uD
 WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-yr
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 XF
 XF
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
 jj
 jj
 jj
@@ -11515,7 +11648,6 @@ jj
 jj
 jj
 jj
-Co
 Co
 XF
 XF
@@ -11717,44 +11849,45 @@ GI
 qP
 Tp
 as
-Co
 XF
-XF
-yr
+iK
+Gw
+Gw
 WA
 WA
 WA
 WA
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
 WA
-Bt
-Bt
-hc
-li
-li
-li
-li
 uS
-Bt
+iZ
+mk
+nS
+Hf
+zR
 WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-yr
+jp
+SY
+SY
+SY
+SY
+SY
+CS
 XF
 XF
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 jj
 jj
@@ -11772,7 +11905,6 @@ jj
 jj
 jj
 jj
-Co
 Co
 XF
 XF
@@ -11974,45 +12106,46 @@ GI
 qP
 eS
 as
-Co
+XF
+iK
+Gw
+Gw
+au
+Gw
+Gw
+WA
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+au
+bo
+Gw
+Gw
+Gw
+Gw
+HT
+WA
+WJ
+mY
+qZ
+vP
+mY
+sW
+Gy
 XF
 XF
-yr
-WA
-WA
-WA
-WA
-WA
-Bt
-at
-hq
-li
-li
-li
-li
-uS
-Bt
-Bt
-Bt
-Bt
-Bt
-WA
-WA
-WA
-WA
-yr
+XF
+XF
+XF
+XF
+XF
 XF
 XF
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
 jj
 jj
 jj
@@ -12029,7 +12162,6 @@ jj
 jj
 jj
 jj
-Co
 Co
 XF
 XF
@@ -12231,44 +12363,45 @@ Ym
 qL
 eS
 as
-Co
 XF
-XF
-yr
-WA
-WA
-WA
-WA
-WA
-Bt
+iK
+Gw
+Gw
 au
+Gw
+Gw
+WA
+au
+WA
+WA
+WA
+au
+WA
+WA
+WA
+dK
+Gw
 iH
-lk
-lk
-ox
-rf
-uS
-Bt
-vE
 Gw
-Gw
-Bt
+lT
+LQ
 WA
-WA
-WA
-WA
-yr
+Qn
+Kh
+rh
+vP
+Kh
+rh
+Gy
 XF
 XF
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 jj
 jj
@@ -12278,7 +12411,6 @@ jj
 jj
 jj
 jj
-ex
 jj
 jj
 jj
@@ -12286,7 +12418,7 @@ jj
 jj
 jj
 jj
-Co
+jj
 Co
 XF
 XF
@@ -12488,44 +12620,45 @@ Qg
 Qg
 eS
 as
-Co
 XF
-XF
-yr
+iK
+Gw
+Gw
 WA
+Gw
+Gw
 WA
+Gw
+Gw
 WA
+Gw
+Gw
+Gw
 WA
-WA
-Bt
-Bt
-iV
-mk
-nO
-Bt
 hq
-uS
-oK
+bo
 Gw
-hf
 Gw
-Bt
-WA
-WA
-WA
-WA
-yr
+Gw
+Gw
+HT
+RR
+WJ
+vP
+vP
+vP
+vP
+vP
+Gy
 XF
 XF
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 jj
 jj
@@ -12543,7 +12676,6 @@ jj
 jj
 jj
 jj
-Co
 Co
 XF
 XF
@@ -12745,44 +12877,45 @@ eS
 eS
 eS
 as
-Co
 XF
-XF
-yr
+iK
+Gw
+Gw
 WA
+Gw
+Gw
 WA
+Gw
+Gw
 WA
+Gw
+Gw
+Gw
 WA
-WA
-WA
-Bt
-iZ
-iZ
-iZ
-oK
 rO
 ve
-Bt
-vE
-Gw
-Gw
-Bt
+ji
+ji
+sk
+hn
+LQ
 WA
-WA
-WA
-WA
-yr
+Qn
+mY
+qZ
+vP
+mY
+qZ
+Gy
 XF
 XF
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 jj
 jj
@@ -12800,7 +12933,6 @@ jj
 jj
 jj
 jj
-Co
 Co
 XF
 XF
@@ -13002,44 +13134,45 @@ nB
 pW
 AE
 as
-Co
 XF
-XF
-yr
+iK
+Gw
+Gw
+WA
+Gw
+Gw
+WA
+Gw
+Gw
+WA
+Gw
+Gw
+Gw
 WA
 WA
-WA
-WA
-WA
-WA
-Bt
-ji
+ex
+jq
 ms
-iZ
-Bt
-Bt
-Bt
-Bt
-Bt
-Bt
-Bt
-Bt
 WA
+bo
+HT
 WA
-WA
-WA
-yr
+WJ
+Kh
+rh
+vP
+Kh
+vY
+Gy
 XF
 XF
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 jj
 jj
@@ -13057,7 +13190,6 @@ jj
 jj
 jj
 jj
-Co
 Co
 XF
 XF
@@ -13259,33 +13391,43 @@ as
 as
 as
 as
-Co
+XF
+iK
+Gw
+Gw
+WA
+au
+au
+WA
+Gw
+Gw
+WA
+Gw
+Gw
+Gw
+Gw
+au
+fK
+kz
+kz
+tk
+xe
+fA
+WA
+EI
+nm
+nm
+nm
+nm
+nm
+hE
 XF
 XF
-yr
-WA
-WA
-WA
-WA
-WA
-WA
-Bt
-jq
-mD
-nS
-Bt
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-yr
+XF
+XF
+XF
+XF
+XF
 XF
 XF
 Co
@@ -13298,22 +13440,12 @@ Co
 Co
 Co
 Co
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
+Co
+Co
+Co
+Co
+Co
+Co
 Co
 Co
 XF
@@ -13515,34 +13647,44 @@ Co
 Co
 Co
 Co
-Co
-Co
 XF
 XF
-yr
+iK
+Gw
+Gw
+WA
+Gw
+Gw
+Gw
+Gw
+Gw
+au
+Gw
+Gw
+Gw
+Gw
+WA
+gT
+kW
+kz
+WA
+au
 WA
 WA
-WA
-WA
-WA
-WA
-Bt
-Bt
-Bt
-Bt
-Bt
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-yr
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 XF
 XF
 Co
@@ -13555,22 +13697,12 @@ Co
 Co
 Co
 Co
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
+Co
+Co
+Co
+Co
+Co
+Co
 Co
 Co
 XF
@@ -13772,36 +13904,46 @@ Co
 Co
 Co
 Co
-Co
-Co
 XF
 XF
-yr
+iK
+Gw
+Gw
 WA
+Gw
+Gw
+Gw
+Gw
+Gw
 WA
+Gw
+Gw
+Gw
+Gw
 WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
+hc
+lg
+mD
 WA
 yr
+px
 XF
 XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co
@@ -13812,22 +13954,12 @@ Co
 Co
 Co
 Co
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
+Co
+Co
+Co
+Co
+Co
+Co
 Co
 Co
 XF
@@ -14029,20 +14161,14 @@ Co
 Co
 Co
 Co
-Co
-Co
 XF
 XF
-yr
+iK
 WA
 WA
 WA
-WA
-WA
-WA
-WA
-WA
-WA
+au
+au
 WA
 WA
 WA
@@ -14057,8 +14183,24 @@ WA
 WA
 WA
 yr
+yr
 XF
 XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co
@@ -14069,22 +14211,12 @@ Co
 Co
 Co
 Co
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
+Co
+Co
+Co
+Co
+Co
+Co
 Co
 Co
 XF
@@ -14286,34 +14418,44 @@ Co
 Co
 Co
 Co
-Co
-Co
 XF
 XF
+iK
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+au
+Gw
+Gw
+Gw
+au
 yr
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-yr
+px
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 XF
 XF
 Co
@@ -14326,22 +14468,12 @@ Co
 Co
 Co
 Co
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
+Co
+Co
+Co
+Co
+Co
+Co
 Co
 Co
 XF
@@ -14543,34 +14675,44 @@ Co
 Co
 Co
 Co
-Co
-Co
 XF
 XF
-yr
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
+iK
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
+Gw
 WA
 WA
 WA
 WA
 WA
 yr
+yr
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 XF
 XF
 Co
@@ -14583,22 +14725,12 @@ Co
 Co
 Co
 Co
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
+Co
+Co
+Co
+Co
+Co
+Co
 Co
 Co
 XF
@@ -14800,11 +14932,8 @@ Co
 Co
 Co
 Co
-Co
-Co
 XF
 XF
-yr
 WA
 WA
 WA
@@ -14815,31 +14944,34 @@ WA
 WA
 WA
 WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-yr
 XF
 XF
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co
@@ -15057,46 +15189,46 @@ Co
 Co
 Co
 Co
-Co
-Co
 XF
 XF
-yr
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-WA
-yr
 XF
 XF
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co
@@ -15314,46 +15446,46 @@ Co
 Co
 Co
 Co
-Co
-Co
 XF
 XF
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
 XF
 XF
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co
@@ -15571,8 +15703,6 @@ Co
 Co
 Co
 Co
-Co
-Co
 XF
 XF
 XF
@@ -15601,16 +15731,18 @@ XF
 XF
 XF
 XF
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co
@@ -15828,8 +15960,6 @@ Co
 Co
 Co
 Co
-Co
-Co
 XF
 XF
 XF
@@ -15858,16 +15988,18 @@ XF
 XF
 XF
 XF
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co
@@ -16085,46 +16217,46 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co
@@ -16342,46 +16474,46 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co
@@ -16599,46 +16731,46 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co
@@ -16856,46 +16988,46 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co
@@ -17113,46 +17245,46 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co
@@ -17370,46 +17502,46 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co
@@ -17627,46 +17759,46 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co
@@ -17884,46 +18016,46 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
+XF
 Co
 Co
 Co

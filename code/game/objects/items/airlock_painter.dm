@@ -146,7 +146,7 @@
 
 /obj/item/airlock_painter/decal
 	name = "decal painter"
-	desc = "An airlock painter, reprogramed to use a different style of paint in order to apply decals for floor tiles as well, in addition to repainting doors. Decals break when the floor tiles are removed. Alt-Click to change design."
+	desc = "An airlock painter, reprogramed to use a different style of paint in order to apply decals for floor tiles as well, in addition to repainting doors. Decals break when the floor tiles are removed. ПКМ to change design."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "decal_sprayer"
 	inhand_icon_state = "decalsprayer"
@@ -316,7 +316,7 @@
 			<a href="?src=[REF(src)];choose_dir=1">Choose Direction</a>
 			<a href="?src=[REF(src)];cycledirright=1">-&gt;</a>
 		</center>
-		<div class='statusDisplay'>Direction: [dir2text(floor_dir)]</div>
+		<div class='statusDisplay'>Direction: [dir2ru_text(floor_dir)]</div>
 	"}
 
 	var/datum/browser/popup = new(user, "floor_painter", name, 225, 300)

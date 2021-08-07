@@ -35,7 +35,7 @@
 		"speed \[[speed]]",\
 		"range \[[range]]",\
 		"spin \[[spin ? "✓" : "x"]]",\
-		"--close--"		) 
+		"--close--"		)
 		var/selection = input("Please make extra sure you know what you're doing.", "Configure") as null|anything in options
 		if(isnull(selection))
 			return
@@ -85,9 +85,9 @@
 	var/middle_click = pa.Find("middle")
 	var/right_click = pa.Find("right")
 	var/alt_click = pa.Find("alt")
-	
+
 	mobcrutch.name = "\[[c.ckey] spawn&throw buildmode]"
-	
+
 	if(middle_click)
 		if(ispath(objholder, /area))
 			to_chat(c, "<span class='notice'>[initial(object.name)] is not a valid atom for this mode! Please try again.</span>")
@@ -99,7 +99,7 @@
 	if(isnull(objholder))
 		return
 
-	var/throwtarget 
+	var/throwtarget
 	if(range)
 		throwtarget = get_edge_target_turf(get_turf(object), BM.build_dir)
 	else
@@ -112,12 +112,12 @@
 
 	if(alt_click)
 		A.newtonian_move(BM.build_dir)
-		log_admin("Build Mode: [key_name(c)] spawned [A] in [AREACOORD(object)][right_click ? ", activated it and" : " and"] nudged it in space. (dir=[dir2text(BM.build_dir)])")
+		log_admin("Build Mode: [key_name(c)] spawned [A] in [AREACOORD(object)][right_click ? ", activated it and" : " and"] nudged it in space. (dir=[dir2ru_text(BM.build_dir)])")
 	else
 		if(istype(A, /obj/projectile))
 			var/obj/projectile/proj = A
 			proj.fire(dir2angle(BM.build_dir))
-			log_admin("Build Mode: [key_name(c)] fired [A] in [AREACOORD(object)] (dir=[dir2text(BM.build_dir)]).")
+			log_admin("Build Mode: [key_name(c)] fired [A] in [AREACOORD(object)] (dir=[dir2ru_text(BM.build_dir)]).")
 			return
 		A.safe_throw_at(throwtarget, range, speed, force = src.force, spin = src.spin)
-		log_admin("Build Mode: [key_name(c)] spawned [A] in [AREACOORD(object)][right_click ? ", activated it and" : " and"] thrown it (range = [range], speed = [speed], force = [force], dir=[dir2text(BM.build_dir)]).")
+		log_admin("Build Mode: [key_name(c)] spawned [A] in [AREACOORD(object)][right_click ? ", activated it and" : " and"] thrown it (range = [range], speed = [speed], force = [force], dir=[dir2ru_text(BM.build_dir)]).")

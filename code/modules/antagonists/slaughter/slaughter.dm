@@ -28,7 +28,7 @@
 	del_on_death = 1
 	///Sound played when consuming a body
 	var/feast_sound = 'sound/magic/demon_consume.ogg'
-	/// How long it takes for the alt-click slam attack to come off cooldown
+	/// How long it takes for the ПКМ slam attack to come off cooldown
 	var/slam_cooldown_time = 45 SECONDS
 	/// The actual instance var for the cooldown
 	var/slam_cooldown = 0

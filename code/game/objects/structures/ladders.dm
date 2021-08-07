@@ -88,7 +88,7 @@
 	if(AM)
 		user.start_pulling(AM, supress_message = TRUE)
 
-	if(!(HAS_TRAIT(user, TRAIT_KNOW_ENGI_WIRES)))
+	if(!HAS_TRAIT(user, TRAIT_KNOW_ENGI_WIRES) && !HAS_TRAIT(user, TRAIT_FREERUNNING))
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			H.adjustStaminaLoss(50)

@@ -57,19 +57,6 @@
 	icon = 'white/Wzzzz/Valya/clothing/suits.dmi'
 	icon_state = "opvest"
 	armor = list("melee" = 40, "bullet" = 35, "laser" = 40,"energy" = 35, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 30)
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/opvest
-
-/datum/component/storage/concrete/pockets/opvest/Initialize()
-	. = ..()
-	set_holdable(GLOB.security_vest_allowed)
-	max_items = 7
-	max_combined_w_class = 13
-
-/datum/component/storage/concrete/pockets/webvest/Initialize()
-	. = ..()
-	max_items = 5
-
-	max_w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/clothing/suit/armor/vest/arbiter
 	icon_state = "arbiter"

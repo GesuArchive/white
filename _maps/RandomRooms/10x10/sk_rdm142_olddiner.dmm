@@ -84,11 +84,11 @@
 	},
 /area/template_noop)
 "uE" = (
-/obj/item/stack/tile/carpet/black/fifty,
 /obj/structure/closet,
 /obj/item/stack/tile/wood,
 /obj/item/stack/sheet/metal/fifty,
 /obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/tile/carpet/royalblack/fifty,
 /turf/open/floor/wood,
 /area/template_noop)
 "vw" = (

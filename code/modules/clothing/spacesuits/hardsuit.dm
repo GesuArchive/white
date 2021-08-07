@@ -66,6 +66,9 @@
 			qdel(src)
 	else
 		soundloop.start(user)
+		if(iscarbon(user))
+			var/mob/living/carbon/C = user
+			C.head_update(src)
 
 /obj/item/clothing/head/helmet/space/hardsuit/proc/display_visor_message(msg)
 	var/mob/wearer = loc

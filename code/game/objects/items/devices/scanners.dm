@@ -555,7 +555,7 @@ GENE SCANNER
 	woundscan(user, patient, src)
 
 /obj/item/analyzer
-	desc = "Ручной анализатор, который сканирует состояние воздуха в помещении. Alt-клик, чтобы использовать барометр."
+	desc = "Ручной анализатор, который сканирует состояние воздуха в помещении. ПКМ, чтобы использовать барометр."
 	name = "анализатор"
 	custom_price = PAYCHECK_ASSISTANT * 0.9
 	icon = 'white/valtos/icons/items.dmi'
@@ -579,7 +579,7 @@ GENE SCANNER
 
 /obj/item/analyzer/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>Alt-клик [src] для активации барометра.</span>"
+	. += "<hr><span class='notice'>ПКМ [src] для активации барометра.</span>"
 
 /obj/item/analyzer/suicide_act(mob/living/carbon/user)
 	user.visible_message("<span class='suicide'>[user] begins to analyze [user.ru_na()]self with [src]! The display shows that [user.p_theyre()] dead!</span>")

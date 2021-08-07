@@ -18,7 +18,7 @@
 
 /datum/surgery_step/filter_blood
 	name = "Фильтрация крови"
-	implements = list(/obj/item/blood_filter = 95)
+	implements = list(TOOL_BLOODFILTER = 95)
 	repeatable = TRUE
 	time = 2.5 SECONDS
 

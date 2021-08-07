@@ -14,7 +14,7 @@
 		return
 	for(var/datum/artifact_effect/effect in effects)
 		for(var/verb in effect.effect_act_descs)
-			. += "[src] likely does something when [verb]."
+			. += "[src] видимо [verb]."
 
 /obj/item/alienartifact/ComponentInitialize()
 	AddComponent(/datum/component/discoverable, 10000, TRUE)
@@ -96,7 +96,7 @@
 
 /datum/artifact_effect/throwchaos
 	signal_types = list(COMSIG_MOVABLE_POST_THROW)
-	effect_act_descs = list("thrown")
+	effect_act_descs = list("брошенный")
 
 /datum/artifact_effect/throwchaos/register_signals(source)
 	RegisterSignal(source, COMSIG_MOVABLE_POST_THROW, .proc/throw_thing_randomly)
@@ -116,7 +116,7 @@
 
 /datum/artifact_effect/soundindark
 	requires_processing = TRUE
-	effect_act_descs = list("in darkness")
+	effect_act_descs = list("тёмный")
 
 /datum/artifact_effect/soundindark/process(delta_time)
 	var/turf/T = get_turf(source_object)
@@ -131,7 +131,7 @@
 
 /datum/artifact_effect/inducespasm
 	signal_types = list(COMSIG_PARENT_EXAMINE)
-	effect_act_descs = list("examined")
+	effect_act_descs = list("осмотренный")
 
 /datum/artifact_effect/inducespasm/register_signals(source)
 	RegisterSignal(source, COMSIG_PARENT_EXAMINE, .proc/do_effect)
@@ -147,7 +147,7 @@
 
 /datum/artifact_effect/projreflect
 	requires_processing = TRUE
-	effect_act_descs = list("shot at")
+	effect_act_descs = list("стреляющий")
 
 /datum/artifact_effect/projreflect/process(delta_time)
 	for(var/obj/projectile/P in range(3, src))
@@ -159,7 +159,7 @@
 //===================
 
 /datum/artifact_effect/airfreeze
-	effect_act_descs = list("depressurised")
+	effect_act_descs = list("вакуумный")
 
 /datum/artifact_effect/airfreeze/Initialize(atom/source)
 	. = ..()
@@ -171,7 +171,7 @@
 
 /datum/artifact_effect/atmosfix
 	requires_processing = TRUE
-	effect_act_descs = list("depressurised")
+	effect_act_descs = list("вакуумный")
 
 /datum/artifact_effect/atmosfix/process(delta_time)
 	var/turf/T = get_turf(source_object)
@@ -185,7 +185,7 @@
 /datum/artifact_effect/gravity_well
 	signal_types = list(COMSIG_ITEM_ATTACK_SELF)
 	var/next_use_world_time = 0
-	effect_act_descs = list("used")
+	effect_act_descs = list("использованный")
 
 /datum/artifact_effect/gravity_well/register_signals(source)
 	RegisterSignal(source, COMSIG_ITEM_ATTACK_SELF, .proc/suck)
@@ -207,7 +207,7 @@
 /datum/artifact_effect/access
 	requires_processing = TRUE
 	var/next_use_time = 0
-	effect_act_descs = list("near something")
+	effect_act_descs = list("рядом с чем-то")
 
 /datum/artifact_effect/access/process(delta_time)
 	if(next_use_time < world.time)
@@ -242,7 +242,7 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 	requires_processing = TRUE
 	var/cooldown = 0
 	var/list/contained_things = list()
-	effect_act_descs = list("near something")
+	effect_act_descs = list("рядом с чем-то")
 
 /datum/artifact_effect/reality_destabilizer/Destroy()
 	for(var/atom/movable/AM as() in contained_things)
@@ -272,12 +272,23 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 /datum/artifact_effect/reality_destabilizer/proc/destabilize(atom/movable/AM)
 	//Banish to the void
 	addtimer(CALLBACK(src, .proc/restabilize, AM, get_turf(AM)), rand(10 SECONDS, 90 SECONDS))
+
+	if(GLOB.destabilization_spawns.len == 0)
+		for(var/i in 1 to rand(3, 9))
+			var/turf/T = get_safe_random_station_turf()
+			if(T)
+				GLOB.destabilization_spawns += T
+
 	//Forcemove to ignore teleport checks
 	if(GLOB.destabilization_spawns.len != 0) //@valtos долбоёб
 		AM.forceMove(pick(GLOB.destabilization_spawns))
 	else
-		stack_trace("Пустой GLOB.destabilization_spawns. мапперу пизда звоните фиксикам")
+		stack_trace("Пустой GLOB.destabilization_spawns. мапперу пизда звоните фиксикам")//@valtos фашист где маппер где фиксики
+
 	contained_things += AM
+
+/datum/artifact_effect/reality_destabilizer/proc/create_random_destabilization_spawns()
+
 
 /datum/artifact_effect/reality_destabilizer/proc/restabilize(atom/movable/AM, turf/T)
 	if(QDELETED(src))
@@ -294,7 +305,7 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 /datum/artifact_effect/warp
 	signal_types = list(COMSIG_ITEM_ATTACK_SELF)
 	var/next_use_world_time = 0
-	effect_act_descs = list("used")
+	effect_act_descs = list("использованный")
 
 /datum/artifact_effect/warp/register_signals(source)
 	RegisterSignal(source, COMSIG_ITEM_ATTACK_SELF, .proc/teleport)
@@ -314,7 +325,7 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 /datum/artifact_effect/curse
 	var/used = FALSE
 	signal_types = list(COMSIG_ITEM_PICKUP)
-	effect_act_descs = list("picked up")
+	effect_act_descs = list("поднятый")
 
 /datum/artifact_effect/curse/register_signals(source)
 	RegisterSignal(source, COMSIG_ITEM_PICKUP, .proc/curse)
@@ -354,7 +365,7 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 	. = ..()
 	input = pickweight(valid_inputs)
 	var/datum/gas/temp_gas = new input(src)
-	effect_act_descs = list("placed near [temp_gas.name]")
+	effect_act_descs = list("рядом с [temp_gas.name]")
 	qdel(temp_gas)
 	output = pickweight(valid_outputs)
 
@@ -372,7 +383,7 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 
 /datum/artifact_effect/recharger
 	requires_processing = TRUE
-	effect_act_descs = list("near something")
+	effect_act_descs = list("рядом с чем-то")
 
 /datum/artifact_effect/recharger/process(delta_time)
 	var/turf/T = get_turf(source_object)
@@ -389,7 +400,7 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 
 /datum/artifact_effect/light_breaker
 	requires_processing = TRUE
-	effect_act_descs = list("near something")
+	effect_act_descs = list("рядом с чем-то")
 	var/next_world_time
 
 /datum/artifact_effect/light_breaker/process(delta_time)
@@ -411,7 +422,7 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 	var/cooldown
 	var/first_time = TRUE
 	signal_types = list(COMSIG_ITEM_ATTACK_SELF)
-	effect_act_descs = list("used")
+	effect_act_descs = list("использованный")
 
 /datum/artifact_effect/insanity_pulse/Initialize(source)
 	. = ..()

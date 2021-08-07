@@ -441,7 +441,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 /obj/machinery/power/supermatter_crystal/proc/explode()
 	for(var/mob in GLOB.alive_mob_list)
 		var/mob/living/L = mob
-		if(istype(L) && L.z == z)
+		if(istype(L) && (L.z == z || (is_station_level(L.z) && is_station_level(z))))
 			if(ishuman(mob))
 				//Hilariously enough, running into a closet should make you get hit the hardest.
 				var/mob/living/carbon/human/H = mob
@@ -452,10 +452,10 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	var/turf/T = get_turf(src)
 	for(var/mob/M in GLOB.player_list)
 		var/turf/mob_turf = get_turf(M)
-		if(T.z == mob_turf.z)
+		if(T.z == mob_turf.z || (is_station_level(T.z) && is_station_level(mob_turf.z)))
 			SEND_SOUND(M, sound('sound/magic/charge.ogg'))
 
-			if (M.z == z)
+			if (M.z == z || (is_station_level(M.z) && is_station_level(z)))
 				to_chat(M, "<span class='boldannounce'>Ощущаю искажение реальности на мгновение...</span>")
 				SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "delam", /datum/mood_event/delam)
 			else

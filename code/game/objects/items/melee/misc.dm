@@ -633,6 +633,11 @@
 	. = ..()
 	if (!on)
 		return
+
+	if(!held_sausage)
+		to_chat("<span class='warning'>А сосиски-то и нет!</span>")
+		return
+
 	if (is_type_in_typecache(target, ovens))
 		if (held_sausage?.roasted)
 			to_chat("<span class='warning'>Your [held_sausage] has already been cooked!</span>")
@@ -646,7 +651,7 @@
 			playsound(src.loc, 'sound/weapons/batonextend.ogg', 50, TRUE)
 		else
 			return
-		if(do_after(user, 100, target = user))
+		if(do_after(user, 100, held_sausage))
 			finish_roasting(user, target)
 		else
 			QDEL_NULL(beam)

@@ -244,7 +244,7 @@
 		. += "</br><span class='notice'>Панель управления [locked ? "заблокирована" : "разблокирована"].</span>"
 		var/is_sillycone = issilicon(user)
 		if(!emagged && (is_sillycone || user.Adjacent(src)))
-			. += "</br><span class='info'>Alt-клик [is_sillycone ? "" : "или ID-карта "]по нему, чтобы [locked ? "раз" : ""]блокировать панель управления.</span>"
+			. += "</br><span class='info'>ПКМ [is_sillycone ? "" : "или ID-карта "]по нему, чтобы [locked ? "раз" : ""]блокировать панель управления.</span>"
 	if(paicard)
 		. += "</br><span class='notice'>Внутри установлен пИИ.</span>"
 		if(!open)

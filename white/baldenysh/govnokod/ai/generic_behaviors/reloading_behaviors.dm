@@ -14,7 +14,7 @@
 		return
 
 	carbon_pawn.swap_hand(reloading_hand)
-	var/list/atom/accessible_atoms = carbon_pawn.contents | view(1, carbon_pawn)
+	var/list/atom/accessible_atoms = carbon_pawn.get_contents() | view(1, carbon_pawn)
 	for(var/obj/item/ammo_box/box in accessible_atoms)
 		accessible_atoms |= box.stored_ammo
 

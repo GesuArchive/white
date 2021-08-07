@@ -628,9 +628,9 @@
 
 /datum/techweb_node/exp_tools
 	id = "exp_tools"
-	display_name = "Experimental Tools"
-	description = "Highly advanced tools."
-	design_ids = list("exwelder", "jawsoflife", "handdrill", "laserscalpel", "mechanicalpinches", "searingtool", "gene_shears", "tricorder")
+	display_name = "Экспериментальные инструменты"
+	description = "Инструменты с повышенной эффективностью работы и гибридным функционалом."
+	design_ids = list("jawsoflife", "handdrill", "exwelder", "tricorder", "laserscalpel", "mechanicalpinches", "searingtool", "biocorrector", "gene_shears")
 	prereq_ids = list("adv_engi")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 7500)
 	discount_experiments = list(/datum/experiment/scanning/random/material/hard/one = 5000)
@@ -1226,6 +1226,15 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 500000)
 	required_experiments = list(/datum/experiment/explosion/medium)
 	discount_experiments = list(/datum/experiment/explosion/calibration = 200000)
+
+/////////////////////////shuttle tech/////////////////////////
+/datum/techweb_node/basic_shuttle_tech
+	id = "basic_shuttle"
+	display_name = "Basic Shuttle Research"
+	description = "Research the technology required to create and use basic shuttles."
+	prereq_ids = list("bluespace_travel", "adv_engi")
+	design_ids = list("shuttle_creator", "engine_plasma", "engine_heater", "shuttle_control")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 10000)
 
 ////////////////////// Deepcore ///////////////////////
 

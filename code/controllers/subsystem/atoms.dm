@@ -26,6 +26,10 @@ SUBSYSTEM_DEF(atoms)
 	initialized = INITIALIZATION_INNEW_MAPLOAD
 	InitializeAtoms()
 	initialized = INITIALIZATION_INNEW_REGULAR
+
+	SStitle.afterload()
+	to_chat(world, "<span class='green'> -- $<b>Мир</b>:> <b>Почти готов</b> -- </span>")
+
 	return ..()
 
 /datum/controller/subsystem/atoms/proc/InitializeAtoms(list/atoms, list/atoms_to_return = null)

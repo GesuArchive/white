@@ -2,7 +2,7 @@
 	name = "необработанный гем"
 	desc = "Крутой"
 	w_class = WEIGHT_CLASS_TINY
-	icon = 'white/valtos/icons/dwarfs/objects.dmi'
+	icon = 'white/rashcat/icons/dwarfs/objects/gems.dmi'
 	var/cut_type = /obj/item/gem/cut
 	var/scan_state
 	var/max_amount = 3
@@ -54,7 +54,7 @@
 /obj/item/damaz
 	name = "Дамаз Крон"
 	desc = "Обидно."
-	icon = 'white/valtos/icons/dwarfs/objects.dmi'
+	icon = 'white/rashcat/icons/dwarfs/objects/tools.dmi'
 	icon_state = "damaz"
 
 /obj/item/damaz/proc/can_use(mob/user)

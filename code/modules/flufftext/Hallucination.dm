@@ -751,7 +751,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	if (next_action > 0)
 		return
 
-	if (locking)
+	if (locking && airlocks_to_hit && airlocks_to_hit.len)
 		var/atom/next_airlock = pop(airlocks_to_hit)
 		if (next_airlock)
 			var/obj/effect/hallucination/fake_door_lock/lock = new(get_turf(next_airlock))
@@ -763,7 +763,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			locking = FALSE
 			next_action = 10 SECONDS
 			return
-	else
+	else if(locks && locks.len)
 		var/obj/effect/hallucination/fake_door_lock/next_unlock = popleft(locks)
 		if (next_unlock)
 			next_unlock.unlock()

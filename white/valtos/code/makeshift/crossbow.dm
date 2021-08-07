@@ -36,6 +36,8 @@
 						PR.range = PR.range * charge
 						PR.damage = PR.damage * charge
 						PR.charge = charge
+						if(charge == 3)
+							PR.AddElement(/datum/element/impaling, 2, 3*MOVE_FORCE_DEFAULT, TRUE)
 
 					playsound(user, insert_sound, 50, 1)
 
@@ -245,5 +247,5 @@
 	name = "раскалённый металлический стержень"
 	icon = 'white/valtos/icons/crossbow.dmi'
 	icon_state = "e_rod_proj"
-	damage = 30
+	damage = 7
 	range = 20

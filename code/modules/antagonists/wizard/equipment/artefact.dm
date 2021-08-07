@@ -389,7 +389,7 @@
 
 /obj/item/voodoo/proc/GiveHint(mob/victim,force=0)
 	if(prob(50) || force)
-		var/way = dir2text(get_dir(victim,get_turf(src)))
+		var/way = dir2ru_text(get_dir(victim,get_turf(src)))
 		to_chat(victim, "<span class='notice'>You feel a dark presence from [way].</span>")
 	if(prob(20) || force)
 		var/area/A = get_area(src)

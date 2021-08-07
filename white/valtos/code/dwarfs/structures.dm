@@ -1,7 +1,7 @@
 /obj/structure/gemcutter
 	name = "стол ювелира"
 	desc = "У дворфов нет имени Александр в списке имен."
-	icon = 'white/valtos/icons/dwarfs/objects.dmi'
+	icon = 'white/rashcat/icons/dwarfs/objects/tools.dmi'
 	icon_state = "gemcutter_off"
 	anchored = TRUE
 	density = TRUE
@@ -174,7 +174,7 @@
 /obj/structure/dwarf_altar
 	name = "Алтарь"
 	desc = "Руны оо мм ммм."
-	icon = 'white/valtos/icons/dwarfs/altar.dmi'
+	icon = 'white/rashcat/icons/dwarfs/objects/altar.dmi'
 	icon_state = "altar_inactive"
 	density = TRUE
 	anchored = TRUE
@@ -318,7 +318,7 @@
 /obj/structure/dwarf_waterbarrel
 	name = "Бочка с грязной водой"
 	desc = "Для охлаждения и закалки заготовок."
-	icon = 'white/valtos/icons/dwarfs/objects.dmi'
+	icon = 'white/rashcat/icons/dwarfs/objects/tools.dmi'
 	icon_state = "barrel_water_1"
 	anchored = TRUE
 	density = TRUE

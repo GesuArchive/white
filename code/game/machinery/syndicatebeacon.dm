@@ -100,7 +100,7 @@
 				var/datum/component/singularity/singulo_component = _singulo_component
 				var/atom/singulo = singulo_component.parent
 				if(singulo.z == z)
-					say("[singulo] is now [get_dist(src,singulo)] standard lengths away to the [dir2text(get_dir(src,singulo))]")
+					say("[singulo] is now [get_dist(src,singulo)] standard lengths away to the [dir2ru_text(get_dir(src,singulo))]")
 	else
 		Deactivate()
 		say("Insufficient charge detected - powering down")

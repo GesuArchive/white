@@ -232,21 +232,17 @@
 	var/obj/machinery/copytech/ct = null
 	var/working = FALSE
 	var/atom/movable/active_item = null
-	var/list/blacklisted_items = list(/obj/item/stack/telecrystal,
+	var/list/blacklisted_items = list(
 			/obj/item/card/id,
-			/obj/item/stack/telecrystal/five,
-			/obj/item/stack/telecrystal/twenty,
+			/obj/item/stack/telecrystal,
 			/obj/item/uplink,
-			/obj/item/uplink/nuclear,
-			/obj/item/uplink/clownop,
-			/obj/item/uplink/old,
 			/obj/item/pen/uplink,
 			/obj/item/multitool/uplink,
 			/obj/item/dice/d20/fate/one_use,
-			/obj/item/book/granter/martial/cqc,
-			/obj/item/storage/box/syndie_kit/nanosuit,
+			/obj/item/storage/box/syndie_kit,
 			/obj/structure/closet/crate/necropolis,
-			/obj/item/book/granter)
+			/obj/item/book/granter,
+			/obj/item/storage/box/syndicate)
 	var/obj/structure/cable/attached_cable
 	var/siphoned_power = 0
 	var/siphon_max = 1e7
@@ -336,7 +332,7 @@
 	return FALSE
 
 /obj/machinery/copytech_platform/proc/destroy_thing(mob/user)
-	if(!ct)
+	if(!ct )
 		return FALSE
 	var/turf/T = get_turf(src)
 	var/atom/movable/D = null
@@ -353,27 +349,29 @@
 	if(!D)
 		return
 
-	if(D.type in blacklisted_items)
-		message_admins("[key_name(user)] попытался скопировать [active_item.name] ([active_item.type])!")
-		say("СИСТЕМА ПОИСКА ПИДОРАСОВ АКТИВИРОВАНА!")
-		sleep(3 SECONDS)
-		say("ПИДОРАС НАЙДЕН!")
-		sleep(1 SECONDS)
-		say("Приступаю к процессу дезинтеграции объекта...")
-		var/mob/living/M = D
-		M.SetParalyzed(get_replication_speed(tier_rate) * 2)
-		M.emote("scream")
-		M.layer = ABOVE_MOB_LAYER
-		to_chat(user, "<span class='danger'>You feel a burning sensation throughout your entire body!.</span>")
-		sleep(1 SECONDS)
-		to_chat(user, "<span class='alert'>Ну бл~</span>")
-		explosion(user, 0, 0, 1)
-		if(istype(user, /mob/living))
-			var/mob/living/L = user
-			L.gib()
-		explosion(src, 0, 0, 1)
-		qdel(src)
-		return
+	for(var/type in blacklisted_items)
+		if(istype(D, type))
+			if(user)
+				message_admins("[key_name(user)] попытался скопировать [D.name] ([D.type])!")
+			say("СИСТЕМА ПОИСКА ПИДОРАСОВ АКТИВИРОВАНА!")
+			sleep(3 SECONDS)
+			say("ПИДОРАС НАЙДЕН!")
+			sleep(1 SECONDS)
+			say("Приступаю к процессу дезинтеграции объекта...")
+			if(isliving(D))
+				var/mob/living/M = D
+				M.Paralyze(get_replication_speed(tier_rate) * 2)
+				M.emote("scream")
+				M.layer = ABOVE_MOB_LAYER
+			sleep(1 SECONDS)
+			if(user)
+				to_chat(user, "<span class='alert'>Ну бл~</span>")
+				explosion(user, 0, 0, 1)
+			if(isliving(user))
+				var/mob/living/L = user
+				L.gib()
+			explosion(src, 3, 7, 14)
+			return
 
 	say("Приступаю к процессу дезинтеграции объекта...")
 	working = TRUE

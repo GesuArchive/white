@@ -165,8 +165,10 @@ GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 	var/mob/living/simple_animal/pet/dog/corgi/corgi_source = source
 	if (!istype(corgi_source))
 		return
-
-	user.put_in_hands(corgi_source.inventory_head)
+	if(user)
+		user.put_in_hands(corgi_source.inventory_head)
+	else
+		corgi_source.dropItemToGround(corgi_source.inventory_head)
 	corgi_source.inventory_head = null
 	corgi_source.update_corgi_fluff()
 	corgi_source.regenerate_icons()

@@ -29,11 +29,8 @@ GLOBAL_VAR(restart_counter)
  *			All atoms in both compiled and uncompiled maps are initialized()
  */
 /world/New()
-	if (fexists(EXTOOLS))
-		call(EXTOOLS, "maptick_initialize")()
-#ifdef retard_shit_cum
 	enable_debugger()
-#endif
+
 	log_world("World loaded at [time_stamp()]!")
 
 	make_datum_references_lists()	//initialises global lists for referencing frequently used datums (so that we only ever do it once)

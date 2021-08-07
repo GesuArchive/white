@@ -87,7 +87,7 @@
 
 /obj/machinery/hydroponics/constructable/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>Используйте <b>Ctrl-Click</b>, чтобы активировать авторост. \n<b>Alt-Click</b> опустошит удобрения внутри лотка.</span>"
+	. += "<hr><span class='notice'>Используйте <b>Ctrl-Click</b>, чтобы активировать авторост. \n<b>ПКМ</b> опустошит удобрения внутри лотка.</span>"
 	if(in_range(user, src) || isobserver(user))
 		. += "<hr><span class='notice'>Дисплей: Tray efficiency at <b>[rating*100]%</b>.</span>"
 

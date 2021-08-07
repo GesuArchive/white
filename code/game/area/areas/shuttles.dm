@@ -220,3 +220,10 @@
 /area/shuttle/exploration
 	name = "Шаттл Рейнджеров"
 	requires_power = TRUE
+
+/area/shuttle/custom
+	name = "DIY-шаттл"
+
+/area/shuttle/custom/powered
+	name = "DIY-энергошаттл"
+	requires_power = FALSE

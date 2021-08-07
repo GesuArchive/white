@@ -39,7 +39,18 @@
 	circuit = /obj/item/circuitboard/machine/bluespace_miner
 	layer = BELOW_OBJ_LAYER
 	idle_power_usage = 2000
-	var/list/ores = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/plasma = 400,  /datum/material/silver = 400, /datum/material/gold = 250, /datum/material/titanium = 250, /datum/material/uranium = 250, /datum/material/bananium = 90, /datum/material/diamond = 90, /datum/material/bluespace = 90)
+	var/list/ores = list(
+			/datum/material/iron = 600,
+			/datum/material/glass = 600,
+			/datum/material/plasma = 400,
+			/datum/material/silver = 400,
+			/datum/material/gold = 250,
+			/datum/material/titanium = 250,
+			/datum/material/uranium = 250,
+			/datum/material/bananium = 90,
+			/datum/material/diamond = 90,
+			/datum/material/bluespace = 90
+		)
 	var/datum/component/remote_materials/materials
 	var/mine_rate = 1
 
@@ -104,6 +115,11 @@
 	if(!mat_container || panel_open || !powered())
 		update_icon_state()
 		return
-	var/datum/material/ore = pick(ores)
+
+	var/datum/material/ore = pickweight(ores)
+	if(!mat_container.can_hold_material(ore))
+		WARNING("Валера, твой блюспейс майнер опять обосрался!!! Причина: [ore]")
+		return
+
 	materials.mat_container.insert_amount_mat(rand(5, 9) * mine_rate, ore)
 	update_icon_state()

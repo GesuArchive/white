@@ -138,11 +138,6 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel,
 /area/template_noop)
-"i" = (
-/obj/effect/turf_decal/delivery,
-/obj/machinery/suit_storage_unit/standard_unit,
-/turf/open/floor/plasteel,
-/area/template_noop)
 "j" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -186,7 +181,7 @@
 (1,1,1) = {"
 a
 f
-i
+l
 l
 "}
 (2,1,1) = {"

@@ -17,10 +17,17 @@
 	},
 /turf/open/floor/plating,
 /area/template_noop)
+"d" = (
+/obj/structure/rack,
+/obj/effect/spawner/lootdrop/maintenance/five,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating,
+/area/template_noop)
 "g" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/template_noop)
 "j" = (
@@ -50,6 +57,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "u" = (
@@ -61,6 +69,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "v" = (
@@ -68,6 +77,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "w" = (
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "x" = (
@@ -81,6 +91,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "B" = (
@@ -95,6 +106,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "D" = (
@@ -102,16 +114,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "E" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/turf/open/floor/plasteel,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating,
 /area/template_noop)
 "F" = (
 /obj/structure/noticeboard{
@@ -124,6 +128,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "H" = (
@@ -132,6 +137,7 @@
 /area/template_noop)
 "I" = (
 /obj/structure/chair/office/light,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "J" = (
@@ -200,7 +206,7 @@
 (1,1,1) = {"
 M
 M
-E
+M
 s
 a
 "}
@@ -229,15 +235,15 @@ Q
 q
 W
 H
-B
+d
 B
 "}
 (6,1,1) = {"
-M
-M
+E
+E
 v
 X
-M
+E
 "}
 (7,1,1) = {"
 X
@@ -256,7 +262,7 @@ L
 (9,1,1) = {"
 r
 M
-M
+E
 Q
 R
 "}
