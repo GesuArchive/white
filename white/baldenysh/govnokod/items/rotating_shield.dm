@@ -2,31 +2,52 @@
 	name = "RS controller"
 	icon = 'white/baldenysh/icons/obj/rshield.dmi'
 	icon_state = "type0"
-	var/atom/shielded_atom
+
+	var/atom/movable/shielded_atom
 	var/list/plate_layers = list(list())
 	var/angle = 0
-	var/angular_velocity = 30
+	var/angular_velocity = 120
 	var/radius = 32
 	var/plate_layer_radius_diff = 12
 	var/active = FALSE
 
 /obj/item/rotating_shield/Initialize()
 	. = ..()
-	shielded_atom = src
+	RegisterShielded(ismovable(loc) ? loc : src)
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/on_moved)
 
 /obj/item/rotating_shield/Destroy()
 	. = ..()
+	UnregisterShielded()
 	UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
 
-/obj/item/rotating_shield/proc/on_moved()
-	set waitfor = FALSE
+/obj/item/rotating_shield/proc/on_moved(datum/source, newloc, dir)
+	UnregisterShielded()
+	RegisterShielded(ismovable(loc) ? loc : src)
+
+/obj/item/rotating_shield/proc/RegisterShielded(atom/movable/A)
+	if(!istype(A))
+		return
+	shielded_atom = A
+	RegisterSignal(A, COMSIG_MOVABLE_MOVED, .proc/on_shielded_moved)
+	RegisterSignal(A, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, .proc/on_shielded_glide_size_update)
+	on_shielded_moved()
+
+/obj/item/rotating_shield/proc/UnregisterShielded()
+	UnregisterSignal(shielded_atom, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(shielded_atom, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE)
+
+/obj/item/rotating_shield/proc/on_shielded_moved(datum/source, newloc, dir)
 	if(!active)
 		return
-	var/turf/T = get_turf(shielded_atom)
-	for(var/list/plate_layer in plate_layers)
-		for(var/obj/structure/rs_plate/plate in plate_layer)
-			plate.forceMove(T)
+	var/turf/T = get_turf(loc)
+	for(var/obj/structure/rs_plate/plate in get_plates())
+		plate.forceMove(T)
+
+/obj/item/rotating_shield/proc/on_shielded_glide_size_update(datum/source, new_glide_size)
+	set_glide_size(new_glide_size)
+	for(var/obj/structure/rs_plate/plate in get_plates())
+		plate.set_glide_size(new_glide_size)
 
 /obj/item/rotating_shield/Destroy(force, silent)
 	. = ..()
@@ -65,6 +86,7 @@
 			p_mtrx.Turn((i%2? 1 : -1)*(angle) + j*360/plate_layer.len)
 			plate.transform = p_mtrx
 			plate.forceMove(get_turf(shielded_atom))
+			plate.control = src
 			j++
 		i++
 
@@ -72,20 +94,24 @@
 	active = TRUE
 
 /obj/item/rotating_shield/proc/deactivate()
-	for(var/list/plate_layer in plate_layers)
-		for(var/obj/structure/rs_plate/plate in plate_layer)
-			plate.forceMove(src)
+	for(var/obj/structure/rs_plate/plate in get_plates())
+		plate.forceMove(src)
+		plate.control = null
 
 	STOP_PROCESSING(SSfastprocess, src)
 	active = FALSE
+
+/obj/item/rotating_shield/proc/get_plates()
+	. = list()
+	for(var/list/plate_layer in plate_layers)
+		for(var/obj/structure/rs_plate/plate in plate_layer)
+			. += plate
 
 /obj/item/rotating_shield/proc/add_plating_to_layer(obj/structure/rs_plate/plate, plate_layer)
 	if(plate_layers.len < plate_layer)
 		for(var/i in plate_layers.len to plate_layer)
 			plate_layers.Add(list(list()))
 	plate_layers[plate_layer] += plate
-
-/obj/item/rotating_shield/proc/on_loc_change()
 
 /////////////////
 
@@ -109,5 +135,7 @@
 	icon_state = "type0"
 	move_resist = INFINITY
 	layer = ABOVE_ALL_MOB_LAYER
+	appearance_flags = LONG_GLIDE
 	max_integrity = 50
+	var/obj/item/rotating_shield/control
 	var/def_degrees = 90
