@@ -213,7 +213,7 @@
 	desc = "Allows for the construction of circuit boards used to build a Objective Console."
 	id = "objective"
 	build_path = /obj/item/circuitboard/computer/objective
-	category = list("Computer Boards")
+	category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/cargorequest
@@ -334,3 +334,19 @@
 	build_type = IMPRINTER
 	build_path = /obj/item/circuitboard/computer/exodrone_console
 	category = list("Консоли")
+
+/datum/design/board/shuttle/flight_control
+	name = "Computer Design (Shuttle Flight Controls)"
+	desc = "Allows for the construction of circuit boards used to build a console that enables shuttle flight"
+	id = "shuttle_control"
+	build_path = /obj/item/circuitboard/computer/shuttle/flight_control
+	category = list("Консоли", "Шаттлостроение")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
+
+/datum/design/board/shuttle/shuttle_docker
+	name = "Computer Design (Private Navigation Computer)"
+	desc = "Allows for the construction of circuit boards used to build a console that enables the targetting of custom flight locations"
+	id = "shuttle_docker"
+	build_path = /obj/item/circuitboard/computer/shuttle/docker
+	category = list("Консоли", "Шаттлостроение")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING

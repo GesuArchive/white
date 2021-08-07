@@ -558,3 +558,8 @@
 /obj/item/circuitboard/computer/exploration_shuttle
 	name = "Exploration shuttle console (Консоль)"
 	build_path = /obj/machinery/computer/shuttle_flight/exploration
+
+/obj/item/circuitboard/computer/shuttle/flight_control
+	name = "shuttle flight control (Computer Board)"
+	icon_state = "generic"
+	build_path = /obj/machinery/computer/shuttle_flight/custom_shuttle
