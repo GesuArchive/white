@@ -1330,6 +1330,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						features["ipc_antenna"] = new_ipc_antenna
 
 				if("hairstyle")
+					/*
 					var/new_hairstyle
 					if(gender == MALE)
 						new_hairstyle = input(user, "Choose your character's hairstyle:", "Character Preference")  as null|anything in GLOB.hairstyles_male_list
@@ -1337,6 +1338,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						new_hairstyle = input(user, "Choose your character's hairstyle:", "Character Preference")  as null|anything in GLOB.hairstyles_female_list
 					else
 						new_hairstyle = input(user, "Choose your character's hairstyle:", "Character Preference")  as null|anything in GLOB.hairstyles_list
+					*/
+					var/list/options
+					switch(gender)
+						if(MALE) options = GLOB.hairstyles_male_list
+						if(FEMALE) options = GLOB.hairstyles_female_list
+						else options = GLOB.hairstyles_list
+					var/new_hairstyle = tgui_input_list(user, "Choose your character's hairstyle:", "Character Preference", options)
 					if(new_hairstyle)
 						hairstyle = new_hairstyle
 
@@ -1362,6 +1370,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						facial_hair_color = sanitize_hexcolor(new_facial)
 
 				if("facial_hairstyle")
+					/*
 					var/new_facial_hairstyle
 					if(gender == MALE)
 						new_facial_hairstyle = input(user, "Choose your character's facial-hairstyle:", "Character Preference")  as null|anything in GLOB.facial_hairstyles_male_list
@@ -1369,6 +1378,15 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						new_facial_hairstyle = input(user, "Choose your character's facial-hairstyle:", "Character Preference")  as null|anything in GLOB.facial_hairstyles_female_list
 					else
 						new_facial_hairstyle = input(user, "Choose your character's facial-hairstyle:", "Character Preference")  as null|anything in GLOB.facial_hairstyles_list
+					if(new_facial_hairstyle)
+						facial_hairstyle = new_facial_hairstyle
+					*/
+					var/list/options
+					switch(gender)
+						if(MALE) options = GLOB.facial_hairstyles_male_list
+						if(FEMALE) options = GLOB.facial_hairstyles_female_list
+						else options = GLOB.facial_hairstyles_list
+					var/new_facial_hairstyle = tgui_input_list(user, "Choose your character's facial-hairstyle:", "Character Preference", options)
 					if(new_facial_hairstyle)
 						facial_hairstyle = new_facial_hairstyle
 
@@ -1389,6 +1407,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						facial_hairstyle = previous_list_item(facial_hairstyle, GLOB.facial_hairstyles_list)
 
 				if("underwear")
+					/*
 					var/new_underwear
 					if(gender == MALE)
 						new_underwear = input(user, "Choose your character's underwear:", "Character Preference")  as null|anything in GLOB.underwear_m
@@ -1398,6 +1417,15 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						new_underwear = input(user, "Choose your character's underwear:", "Character Preference")  as null|anything in GLOB.underwear_list
 					if(new_underwear)
 						underwear = new_underwear
+					*/
+					var/list/options
+					switch(gender)
+						if(MALE) options = GLOB.underwear_m
+						if(FEMALE) options = GLOB.underwear_f
+						else options = GLOB.underwear_list
+					var/new_underwear = tgui_input_list(user, "Choose your character's underwear:", "Character Preference", options)
+					if(new_underwear)
+						underwear = new_underwear
 
 				if("underwear_color")
 					var/new_underwear_color = input(user, "Choose your character's underwear color:", "Character Preference","#"+underwear_color) as color|null
@@ -1405,6 +1433,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						underwear_color = sanitize_hexcolor(new_underwear_color)
 
 				if("undershirt")
+					/*
 					var/new_undershirt
 					if(gender == MALE)
 						new_undershirt = input(user, "Choose your character's undershirt:", "Character Preference") as null|anything in GLOB.undershirt_m
@@ -1414,10 +1443,22 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						new_undershirt = input(user, "Choose your character's undershirt:", "Character Preference") as null|anything in GLOB.undershirt_list
 					if(new_undershirt)
 						undershirt = new_undershirt
+					*/
+					var/list/options
+					switch(gender)
+						if(MALE) options = GLOB.undershirt_m
+						if(FEMALE) options = GLOB.undershirt_f
+						else options = GLOB.undershirt_list
+					var/new_undershirt = tgui_input_list(user, "Choose your character's undershirt:", "Character Preference", options)
+					if(new_undershirt)
+						undershirt = new_undershirt
 
 				if("socks")
+					/*
 					var/new_socks
 					new_socks = input(user, "Choose your character's socks:", "Character Preference") as null|anything in GLOB.socks_list
+					*/
+					var/new_socks = tgui_input_list(user, "Choose your character's socks:", "Character Preference", GLOB.socks_list)
 					if(new_socks)
 						socks = new_socks
 
@@ -1572,7 +1613,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						asaycolor = sanitize_ooccolor(new_asaycolor)
 
 				if("bag")
+					/*
 					var/new_backpack = input(user, "Choose your character's style of bag:", "Character Preference")  as null|anything in GLOB.backpacklist
+					if(new_backpack)
+						backpack = new_backpack
+					*/
+					var/new_backpack = tgui_input_list(user, "Choose your character's socks:", "Character Preference", GLOB.backpacklist)
 					if(new_backpack)
 						backpack = new_backpack
 
