@@ -62,15 +62,17 @@
 	QDEL_LIST(plate_layers)
 
 /obj/item/rotating_shield/process(delta_time)
-	var/last_angle = angle
+	//var/last_angle = angle
 	angle += angular_velocity * delta_time
 	angle %= 360
+	/*
 	var/matrix/mtrx_from = new()
 	var/matrix/mtrx_to = new()
 	mtrx_from.Turn(last_angle)
 	mtrx_to.Turn(angle)
 	transform = mtrx_from
 	animate(src, transform = mtrx_to, time = delta_time*10, flags = ANIMATION_END_NOW) //ето тупа для дэбага, убрать потом надо будет
+	*/
 
 	for(var/datum/rs_plate_layer/rspl in plate_layers)
 		rspl.rotate_to(angle, delta_time)
@@ -113,7 +115,9 @@
 
 ////////////////////////////////////////////////////////////////////////
 
-#define CIRCUMFERENCE (radius * PI * 2)
+#define CIRCUMFERENCE(r) 		(r*PI*2)
+#define CHORD2CANGLE(c, r)		(2*arcsin(c/(2*r)))
+#define CHORD2ARC(c, r)			(TORADIANS(CHORD2CANGLE(c, r))*r)
 
 /datum/rs_plate_layer
 	var/list/obj/structure/rs_plate/plates = list()
@@ -130,36 +134,42 @@
 /datum/rs_plate_layer/proc/get_total_arc_length()
 	. = 0
 	for(var/obj/structure/rs_plate/plate in plates)
-		. += plate.arc_length
+		. += CHORD2ARC(plate.chord_length, radius)
 
 /datum/rs_plate_layer/proc/set_radius(newradius)
-	if(get_total_arc_length() >= newradius * PI * 2)
+	if(get_total_arc_length() >= CIRCUMFERENCE(newradius))
 		return
 	radius = newradius
 	regen_visuals()
 
 /datum/rs_plate_layer/proc/add_plate(obj/structure/rs_plate/plate)
-	if(get_total_arc_length() + plate.arc_length >= CIRCUMFERENCE)
+	if(plate.chord_length > radius * 2)
+		stack_trace("Попытка вставить пластину длиной больше диаметра. Хорда: [plate.chord_length], Радиус: [radius]")
+		return
+	if(get_total_arc_length() + CHORD2ARC(plate.chord_length, radius) >= CIRCUMFERENCE(radius))
+		stack_trace("Попытка вставить пластину сверх лимита. ДО: [CIRCUMFERENCE(radius)], ИСП: [get_total_arc_length()], \
+			Радиус: [radius], Хорда: [plate.chord_length], Угол: [CHORD2CANGLE(plate.chord_length, radius)], Дуга: [CHORD2ARC(plate.chord_length, radius)]")
 		return
 	plates.Add(plate)
-	regen_visuals() //убрать эту хуйню отсюда и сверху и ебнуть где меньше раз вызывается если слишком лагать будет
+	regen_visuals()
 
 /datum/rs_plate_layer/proc/regen_visuals()
 	if(!plates.len)
 		return
-	var/arc_between_plates = (CIRCUMFERENCE - get_total_arc_length())/plates.len
+	var/arc_between_plates = (CIRCUMFERENCE(radius) - get_total_arc_length())/plates.len
 	var/cur_arc = angle
 	for(var/obj/structure/rs_plate/plate in plates)
 		animate(plate)
 		var/matrix/p_mtrx = new()
-		p_mtrx.Translate(0, radius)
+		p_mtrx.Translate(0, radius) //мб надо ебнуть base_pixel_y и обновлять какта чтоб анимация ударов именно по пластинам была
 		p_mtrx.Turn(cur_arc)
 		plate.transform = p_mtrx
-		cur_arc += plate.arc_length + arc_between_plates
+		cur_arc += (CHORD2ARC(plate.chord_length, radius) + arc_between_plates)
 
 //datum/rs_plate_layer/proc/check_hit(angle)
 
-
+#undef CHORD2ARC
+#undef CHORD2CANGLE
 #undef CIRCUMFERENCE
 
 ////////////////////////////////////////////////////////////////////////хрень для дебага хз че ето
@@ -196,4 +206,4 @@
 	appearance_flags = LONG_GLIDE
 	max_integrity = 50
 	var/obj/item/rotating_shield/control
-	var/arc_length = 16*PI
+	var/chord_length = 16
