@@ -167,9 +167,9 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 
 /obj/structure/cable/proc/get_power_info()
 	if(powernet?.avail > 0)
-		to_chat(user, "<span class='danger'>Суммарная мощность: [DisplayPower(powernet.avail)]\nНагрузка: [DisplayPower(powernet.load)]\nИзлишки: [DisplayPower(surplus())]</span>")
+		to_chat(usr, "<span class='danger'>Суммарная мощность: [DisplayPower(powernet.avail)]\nНагрузка: [DisplayPower(powernet.load)]\nИзлишки: [DisplayPower(surplus())]</span>")
 	else
-		to_chat(user, "<span class='danger'>Кабель не подключен.</span>")
+		to_chat(usr, "<span class='danger'>Кабель не подключен.</span>")
 
 
 // Items usable on a cable :
