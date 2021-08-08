@@ -115,7 +115,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	. = ..()
 	target = T
 	current_image = GetImage()
-	if(target.client)
+	if(target?.client)
 		target.client.images |= current_image
 
 /obj/effect/hallucination/simple/proc/GetImage()
@@ -128,11 +128,11 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 
 /obj/effect/hallucination/simple/proc/Show(update=1)
 	if(active)
-		if(target.client)
+		if(target?.client)
 			target.client.images.Remove(current_image)
 		if(update)
 			current_image = GetImage()
-		if(target.client)
+		if(target?.client)
 			target.client.images |= current_image
 
 /obj/effect/hallucination/simple/update_icon(new_state,new_icon,new_px=0,new_py=0)
@@ -150,7 +150,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	Show()
 
 /obj/effect/hallucination/simple/Destroy()
-	if(target.client)
+	if(target?.client)
 		target.client.images.Remove(current_image)
 	active = FALSE
 	return ..()
@@ -193,7 +193,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	flood_images += plasma_image
 	flood_image_holders += pih
 	flood_turfs += center
-	if(target.client)
+	if(target?.client)
 		target.client.images |= flood_images
 	next_expand = world.time + FAKE_FLOOD_EXPAND_TIME
 	START_PROCESSING(SSobj, src)
@@ -224,14 +224,14 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			flood_images += new_plasma
 			flood_image_holders += pih
 			flood_turfs += T
-	if(target.client)
+	if(target?.client)
 		target.client.images |= flood_images
 
 /datum/hallucination/fake_flood/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	qdel(flood_turfs)
 	flood_turfs = list()
-	if(target.client)
+	if(target?.client)
 		target.client.images.Remove(flood_images)
 	qdel(flood_images)
 	flood_images = list()
@@ -354,7 +354,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	var/turf/landing_image_turf = get_step(landing, SOUTHWEST) //the icon is 3x3
 	fakerune = image('icons/effects/96x96.dmi', landing_image_turf, "landing", layer = ABOVE_OPEN_TURF_LAYER)
 	fakebroken.override = TRUE
-	if(target.client)
+	if(target?.client)
 		target.client.images |= fakebroken
 		target.client.images |= fakerune
 	target.playsound_local(wall,'sound/effects/meteorimpact.ogg', 150, 1)
@@ -394,7 +394,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 		QDEL_IN(src, 3 SECONDS)
 
 /datum/hallucination/oh_yeah/Destroy()
-	if(target.client)
+	if(target?.client)
 		target.client.images.Remove(fakebroken)
 		target.client.images.Remove(fakerune)
 	QDEL_NULL(fakebroken)
@@ -609,7 +609,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 					image_file = 'icons/mob/inhands/antag/changeling_lefthand.dmi'
 				target.playsound_local(H, 'sound/effects/blobattack.ogg',30,1)
 				A = image(image_file,H,"arm_blade", layer=ABOVE_MOB_LAYER)
-		if(target.client)
+		if(target?.client)
 			target.client.images |= A
 			addtimer(CALLBACK(src, .proc/cleanup, item, A, H), rand(15 SECONDS, 25 SECONDS))
 			return
@@ -669,7 +669,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 				A = image(custom_icon_file, H, custom_icon)
 				A.name = custom_name
 		A.override = 1
-		if(target.client)
+		if(target?.client)
 			delusions |= A
 			target.client.images |= A
 	if(duration)
@@ -677,7 +677,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 
 /datum/hallucination/delusion/Destroy()
 	for(var/image/I in delusions)
-		if(target.client)
+		if(target?.client)
 			target.client.images.Remove(I)
 	return ..()
 
@@ -709,7 +709,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 		if("custom")
 			A = image(custom_icon_file, target, custom_icon)
 	A.override = 1
-	if(target.client)
+	if(target?.client)
 		if(wabbajack)
 			to_chat(target, "<span class='hear'>...wabbajack...wabbajack...</span>")
 			target.playsound_local(target,'sound/magic/staff_change.ogg', 50, 1)
@@ -718,7 +718,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	QDEL_IN(src, duration)
 
 /datum/hallucination/self_delusion/Destroy()
-	if(target.client)
+	if(target?.client)
 		target.client.images.Remove(delusion)
 	return ..()
 
@@ -785,12 +785,12 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 
 /obj/effect/hallucination/fake_door_lock/proc/lock()
 	bolt_light = image(airlock.overlays_file, get_turf(airlock), "lights_bolts",layer=airlock.layer+0.1)
-	if(target.client)
+	if(target?.client)
 		target.client.images |= bolt_light
 		target.playsound_local(get_turf(airlock), 'sound/machines/boltsdown.ogg',30,0,3)
 
 /obj/effect/hallucination/fake_door_lock/proc/unlock()
-	if(target.client)
+	if(target?.client)
 		target.client.images.Remove(bolt_light)
 		target.playsound_local(get_turf(airlock), 'sound/machines/boltsup.ogg',30,0,3)
 	qdel(src)
@@ -1267,7 +1267,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 				halitem.icon_state = "flashbang1"
 				halitem.name = "Flashbang"
 		feedback_details += "Type: [halitem.name]"
-		if(target.client)
+		if(target?.client)
 			target.client.screen += halitem
 		QDEL_IN(halitem, rand(150, 350))
 
@@ -1322,7 +1322,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 
 /obj/effect/hallucination/danger/lava/show_icon()
 	image = image('icons/turf/floors/lava.dmi', src, "lava-0", TURF_LAYER)
-	if(target.client)
+	if(target?.client)
 		target.client.images += image
 
 /obj/effect/hallucination/danger/lava/Crossed(atom/movable/AM)
@@ -1337,7 +1337,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 /obj/effect/hallucination/danger/chasm/show_icon()
 	var/turf/target_loc = get_turf(target)
 	image = image('icons/turf/floors/chasms.dmi', src, "chasms-[target_loc.smoothing_junction]", TURF_LAYER)
-	if(target.client)
+	if(target?.client)
 		target.client.images += image
 
 /obj/effect/hallucination/danger/chasm/Crossed(atom/movable/AM)
@@ -1367,7 +1367,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 
 /obj/effect/hallucination/danger/anomaly/show_icon()
 	image = image('icons/effects/effects.dmi',src,"electricity2",OBJ_LAYER+0.01)
-	if(target.client)
+	if(target?.client)
 		target.client.images += image
 
 /obj/effect/hallucination/danger/anomaly/Crossed(atom/movable/AM)
@@ -1429,7 +1429,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	..()
 	target.set_fire_stacks(max(target.fire_stacks, 0.1)) //Placebo flammability
 	fire_overlay = image('icons/mob/OnFire.dmi', target, "Standing", ABOVE_MOB_LAYER)
-	if(target.client)
+	if(target?.client)
 		target.client.images += fire_overlay
 	to_chat(target, "<span class='userdanger'>ГОРЮ!</span>")
 	target.throw_alert("fire", /atom/movable/screen/alert/fire, override = TRUE)
@@ -1491,7 +1491,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 		return
 	active = FALSE
 	target.clear_alert("fire", clear_override = TRUE)
-	if(target.client)
+	if(target?.client)
 		target.client.images -= fire_overlay
 	QDEL_NULL(fire_overlay)
 	fire_clearing = TRUE
@@ -1514,7 +1514,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	electrocution_skeleton_anim = image('icons/mob/human.dmi', target, icon_state = "electrocuted_base", layer=ABOVE_MOB_LAYER)
 	electrocution_skeleton_anim.appearance_flags |= RESET_COLOR|KEEP_APART
 	to_chat(target, "<span class='userdanger'>Меня ударило током. ЭТО ОЧЕНЬ БОЛЬНО!</span>")
-	if(target.client)
+	if(target?.client)
 		target.client.images |= shock_image
 		target.client.images |= electrocution_skeleton_anim
 	addtimer(CALLBACK(src, .proc/reset_shock_animation), 40)
@@ -1526,7 +1526,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	addtimer(CALLBACK(src, .proc/shock_drop), 20)
 
 /datum/hallucination/shock/proc/reset_shock_animation()
-	if(target.client)
+	if(target?.client)
 		target.client.images.Remove(shock_image)
 		target.client.images.Remove(electrocution_skeleton_anim)
 
@@ -1557,7 +1557,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			if(4)
 				halbody = image('icons/mob/alien.dmi',husk_point,"alienother",TURF_LAYER)
 
-		if(target.client)
+		if(target?.client)
 			target.client.images += halbody
 		QDEL_IN(src, rand(30,50)) //Only seen for a brief moment.
 
