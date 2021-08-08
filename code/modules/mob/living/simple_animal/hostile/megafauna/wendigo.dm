@@ -84,11 +84,10 @@ Difficulty: Hard
 	starting = get_turf(src)
 
 /mob/living/simple_animal/hostile/megafauna/wendigo/OpenFire()
-	SetRecoveryTime(0, 100)
-	if(health <= maxHealth*0.5)
-		stomp_range = 2
-		speed = 6
-		move_to_delay = 6
+	update_cooldowns(list(COOLDOWN_UPDATE_SET_MELEE = 10 SECONDS, COOLDOWN_UPDATE_SET_RANGED = 10 SECONDS))
+	if(WENDIGO_ENRAGED)
+		speed = 4
+		move_to_delay = 4
 	else
 		stomp_range = initial(stomp_range)
 		speed = initial(speed)
@@ -160,17 +159,36 @@ Difficulty: Hard
 /// Larger but slower ground stomp
 /mob/living/simple_animal/hostile/megafauna/wendigo/proc/heavy_stomp()
 	can_move = FALSE
-	ground_slam(5, 2)
-	SetRecoveryTime(0, 0)
+	wendigo_slam(src, 5, 3 - WENDIGO_ENRAGED, 8)
+	update_cooldowns(list(COOLDOWN_UPDATE_SET_MELEE = 0 SECONDS, COOLDOWN_UPDATE_SET_RANGED = 0 SECONDS))
 	can_move = TRUE
 
 /// Teleports to a location 4 turfs away from the enemy in view
-/mob/living/simple_animal/hostile/megafauna/wendigo/proc/teleport()
-	var/list/possible_ends = list()
-	for(var/turf/T in view(4, target.loc) - view(3, target.loc))
-		if(isclosedturf(T))
-			continue
-		possible_ends |= T
+/mob/living/simple_animal/hostile/megafauna/wendigo/proc/try_teleport()
+	teleport(6)
+	if(WENDIGO_ENRAGED)
+		playsound(loc, 'sound/magic/clockwork/invoke_general.ogg', 100, TRUE)
+		for(var/shots in 1 to WENDIGO_SHOTGUN_SHOTCOUNT)
+			var/spread = shots * 10 - 30
+			var/turf/startloc = get_step(get_turf(src), get_dir(src, target))
+			var/turf/endloc = get_turf(target)
+			if(!endloc)
+				break
+			var/obj/projectile/wendigo_shockwave/shockwave = new /obj/projectile/wendigo_shockwave(loc)
+			shockwave.speed = 8
+			shockwave.preparePixelProjectile(endloc, startloc, null, spread)
+			shockwave.firer = src
+			if(target)
+				shockwave.original = target
+			shockwave.fire()
+	update_cooldowns(list(COOLDOWN_UPDATE_SET_MELEE = 0 SECONDS, COOLDOWN_UPDATE_SET_RANGED = 0 SECONDS))
+
+/mob/living/simple_animal/hostile/megafauna/wendigo/proc/teleport(range = 6)
+	var/list/possible_ends = view(range, target.loc) - view(range - 1, target.loc)
+	for(var/turf/closed/cant_teleport_turf in possible_ends)
+		possible_ends -= cant_teleport_turf
+	if(!possible_ends.len)
+		return
 	var/turf/end = pick(possible_ends)
 	do_teleport(src, end, 0,  channel=TELEPORT_CHANNEL_BLUESPACE, forced = TRUE)
 	SetRecoveryTime(20, 0)
@@ -182,11 +200,13 @@ Difficulty: Hard
 	playsound(src, 'sound/magic/demon_dies.ogg', 600, FALSE, 10)
 	animate(src, pixel_z = rand(5, 15), time = 1, loop = 6)
 	animate(pixel_z = 0, time = 1)
-	for(var/mob/living/L in get_hearers_in_view(7, src) - src)
-		L.Dizzy(6)
-		to_chat(L, "<span class='danger'>[capitalize(src)] screams loudly!</span>")
-	SetRecoveryTime(30, 0)
-	SLEEP_CHECK_DEATH(12)
+	for(var/mob/living/dizzy_target in get_hearers_in_view(7, src) - src)
+		dizzy_target.Dizzy(6)
+		to_chat(dizzy_target, span_danger("The wendigo screams loudly!"))
+	SLEEP_CHECK_DEATH(1 SECONDS)
+	spiral_attack()
+	update_cooldowns(list(COOLDOWN_UPDATE_SET_MELEE = 3 SECONDS, COOLDOWN_UPDATE_SET_RANGED = 3 SECONDS))
+	SLEEP_CHECK_DEATH(3 SECONDS)
 	can_move = TRUE
 	teleport()
 

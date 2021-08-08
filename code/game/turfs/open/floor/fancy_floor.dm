@@ -186,6 +186,11 @@
 	slowdown = 1.5
 	planetary_atmos = FALSE
 
+/turf/open/floor/grass/snow/actually_safe
+	slowdown = 0
+	planetary_atmos = FALSE
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+
 
 /turf/open/floor/grass/fakebasalt //Heart is not a real planeteer power
 	name = "эстетическая вулканическая поверхность"

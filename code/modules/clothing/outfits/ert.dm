@@ -301,6 +301,8 @@
 	glasses = /obj/item/clothing/glasses/godeye
 	back = /obj/item/storage/backpack/ert/clown
 	belt = /obj/item/storage/belt/champion
+	glasses = /obj/item/clothing/glasses/trickblindfold
+	mask = /obj/item/clothing/mask/gas/clown_hat
 	shoes = /obj/item/clothing/shoes/clown_shoes/combat
 	r_pocket = /obj/item/bikehorn/golden
 	l_pocket = /obj/item/food/grown/banana
