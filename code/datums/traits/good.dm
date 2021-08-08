@@ -138,12 +138,13 @@
 	gain_text = "<span class='notice'>Хожу с немного большей гибкостью.</span>"
 	lose_text = "<span class='danger'>Начинаю делать такие шаги, словно какой-то варвар.</span>"
 	medical_record_text = "Пациент демонстрирует хорошо развитые стопы."
-
+/* @Valtos чини вилкой
 /datum/quirk/light_step/on_spawn()
 	var/datum/component/footstep/C = quirk_holder.GetComponent(/datum/component/footstep)
 	if(C)
 		C.volume *= 0.6
 		C.e_range -= 2
+*/
 
 /datum/quirk/musician
 	name = "Музыкант"

@@ -24,7 +24,7 @@
 	vendor_pawn.tiltable = TRUE
 	vendor_pawn.RemoveElement(/datum/element/waddling)
 	vendor_pawn.squish_damage = initial(vendor_pawn.squish_damage)
-	qdel(vendor_pawn.GetComponent(/datum/component/footstep))
+	//qdel(vendor_pawn.GetComponent(/datum/component/footstep))
 	return ..() //Run parent at end
 
 /datum/ai_controller/vending_machine/SelectBehaviors(delta_time)
