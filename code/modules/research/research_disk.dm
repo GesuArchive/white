@@ -6,6 +6,14 @@
 	custom_materials = list(/datum/material/iron=300, /datum/material/glass=100)
 	var/datum/techweb/stored_research
 
+/obj/item/disk/tech_disk/examine(mob/user)
+	. = ..()
+	if(user.research_scanner)
+		. += "\n<span class='purple'>Технологии:</span>"
+		for(var/id in stored_research.researched_nodes)
+			var/datum/techweb_node/tn = SSresearch.techweb_node_by_id(id)
+			. += "\n\t[tn?.display_name]"
+
 /obj/item/disk/tech_disk/Initialize()
 	. = ..()
 	pixel_x = base_pixel_x + rand(-5, 5)
