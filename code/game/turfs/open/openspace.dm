@@ -57,10 +57,10 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	update_air_ref()
 	var/turf/T = locate(x, y, z - 1)
 	if(T)
-		overlays += T
+		vis_contents += T
 	flags_1 |= INITIALIZED_1
 	directional_opacity = ALL_CARDINALS
-	overlays += GLOB.openspace_backdrop_one_for_all
+	vis_contents += GLOB.openspace_backdrop_one_for_all
 	return INITIALIZE_HINT_NORMAL
 
 /turf/open/openspace/fastload/airless
@@ -77,7 +77,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 
 /turf/open/openspace/Initialize() // handle plane and layer here so that they don't cover other obs/turfs in Dream Maker
 	. = ..()
-	overlays += GLOB.openspace_backdrop_one_for_all //Special grey square for projecting backdrop darkness filter on it.
+	vis_contents += GLOB.openspace_backdrop_one_for_all //Special grey square for projecting backdrop darkness filter on it.
 	return INITIALIZE_HINT_LATELOAD
 
 /turf/open/openspace/LateInitialize()

@@ -280,7 +280,7 @@
 
 	orbiters = null // The component is attached to us normaly and will be deleted elsewhere
 
-	LAZYNULL(overlays)
+	LAZYCLEARLIST(overlays)
 
 	QDEL_NULL(light)
 	QDEL_NULL(ai_controller)
@@ -686,10 +686,7 @@
 			cut_overlay(managed_overlays)
 			managed_overlays = null
 		if(length(new_overlays))
-			if (length(new_overlays) == 1)
-				managed_overlays = new_overlays[1]
-			else
-				managed_overlays = new_overlays
+			managed_overlays = new_overlays
 			add_overlay(new_overlays)
 		. = TRUE
 
