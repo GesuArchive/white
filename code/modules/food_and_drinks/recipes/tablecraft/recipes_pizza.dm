@@ -106,7 +106,7 @@
 	name = "Ant Party pizza"
 	reqs = list(
 		/obj/item/food/pizzabread = 1,
-		/obj/item/food/cheese = 2,
+		/obj/item/food/cheesewedge = 2,
 		/obj/item/food/grown/tomato = 1,
 		/datum/reagent/ants = 20
 	)
