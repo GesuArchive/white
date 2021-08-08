@@ -6,10 +6,11 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	anchored		= TRUE
 
 	icon = 'icons/turf/floors.dmi'
-	icon_state = "grey"
+	icon_state = "black"
 	plane = OPENSPACE_BACKDROP_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	vis_flags = VIS_INHERIT_ID
+	alpha = 160
 
 /turf/open/openspace
 	name = "открытое пространство"
