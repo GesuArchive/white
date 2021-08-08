@@ -808,13 +808,13 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	var/target_name = target.first_name()
 	var/speak_messages = list("[pick_list_replacements(HAL_LINES_FILE, "suspicion")]",\
 		"[pick_list_replacements(HAL_LINES_FILE, "conversation")]",\
-		"[pick_list_replacements(HAL_LINES_FILE, "greetings")][target.first_name()]!",\
+		"[pick_list_replacements(HAL_LINES_FILE, "greetings")][target.first_name()]",\
 		"[pick_list_replacements(HAL_LINES_FILE, "getout")]",\
 		"[pick_list_replacements(HAL_LINES_FILE, "weird")]",\
 		"[pick_list_replacements(HAL_LINES_FILE, "didyouhearthat")]",\
 		"[pick_list_replacements(HAL_LINES_FILE, "doubt")]",\
 		"[pick_list_replacements(HAL_LINES_FILE, "aggressive")]",\
-		"[pick_list_replacements(HAL_LINES_FILE, "help")]!!",\
+		"[pick_list_replacements(HAL_LINES_FILE, "help")]",\
 		"[pick_list_replacements(HAL_LINES_FILE, "escape")]",\
 		"У меня вирус, [pick_list_replacements(HAL_LINES_FILE, "infection_advice")]!")
 
@@ -828,7 +828,6 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 		"ИИ [pick("сбойный", "уничтожен")]!!")
 
 	var/mob/living/carbon/person = null
-	var/datum/language/understood_language = target.get_random_understood_language()
 	for(var/mob/living/carbon/H in view(target))
 		if(H == target)
 			continue
@@ -850,7 +849,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	var/spans = list(person.speech_span)
 	var/chosen = !specific_message ? capitalize(pick(is_radio ? speak_messages : radio_messages)) : specific_message
 	chosen = replacetext(chosen, "%TARGETNAME%", target_name)
-	var/message = target.compose_message(person, understood_language, chosen, is_radio ? "[FREQ_COMMON]" : null, spans, face_name = TRUE)
+	var/message = target.compose_message(person, chosen, is_radio ? "[FREQ_COMMON]" : null, spans, face_name = TRUE)
 	feedback_details += "Type: [is_radio ? "Radio" : "Talk"], Source: [person.real_name], Message: [message]"
 
 	// Display message
@@ -858,7 +857,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 		var/image/speech_overlay = image('icons/mob/talk.dmi', person, "default0", layer = ABOVE_MOB_LAYER)
 		INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, speech_overlay, list(target.client), 30)
 	if (target.client?.prefs.chat_on_map || isdead(target))
-		target.create_chat_message(person, understood_language, chosen, spans)
+		target.create_chat_message(person, chosen, spans)
 	to_chat(target, message)
 	qdel(src)
 
@@ -888,11 +887,10 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 		if(istype(equipped_backpack))
 			for(var/i in 1 to 5) //increase the odds
 				message_pool.Add("<span class='notice'>[other] кладёт [pick(\
-					"revolver","energy sword","cryptographic sequencer","power sink","energy bow",\
-					"hybrid taser","stun baton","flash","syringe gun","circular saw","tank transfer valve",\
+					"револьвер .357 калибра","energy sword","cryptographic sequencer","power sink","мини энергетический арбалет",\
+					"гибридный тазер","электрошоковая дубинка","flash","шприцевой пистолет","циркулярная пила","tank transfer valve",\
 					"ritual dagger","spellbook",\
-					"Codex Cicatrix", "Living Heart",\
-					"pulse rifle","captain's spare ID","hand teleporter","hypospray","antique laser gun","X-01 MultiPhase Energy Gun","station's blueprints"\
+					"импульсный карабин","запасная ID-карта капитана","ручной телепортер","hypospray","Антикварный лазерный пистолет","X-01 MultiPhase Energy Gun","station's blueprints"\
 					)] в [equipped_backpack].</span>")
 
 		message_pool.Add("<B>[other]</B> [pick("чихает","кашляет")].")
@@ -947,7 +945,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 		if("alarm")
 			target.playsound_local(source, 'sound/machines/alarm.ogg', 100, 0)
 		if("beepsky")
-			target.playsound_local(source, 'sound/voice/beepsky/freeze.ogg', 35, 0)
+			target.playsound_local(source, 'white/valtos/sounds/beepsky_russian/freeze.ogg', 35, 0)
 		if("mech")
 			new /datum/hallucination/mech_sounds(C, forced, sound_type)
 		//Deconstructing a wall
@@ -1003,7 +1001,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	..()
 	var/turf/source = random_far_turf()
 	if(!sound_type)
-		sound_type = pick("phone","hallelujah","highlander","laughter","hyperspace","game over","creepy","tesla")
+		sound_type = pick("phone","hallelujah","laughter","hyperspace","game over","creepy","tesla")
 	feedback_details += "Type: [sound_type]"
 	//Strange audio
 	switch(sound_type)
@@ -1015,8 +1013,6 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			target.playsound_local(null, 'sound/runtime/hyperspace/hyperspace_begin.ogg', 50)
 		if("hallelujah")
 			target.playsound_local(source, 'sound/effects/pray_chaplain.ogg', 50)
-		if("highlander")
-			target.playsound_local(null, 'sound/misc/highlander.ogg', 50)
 		if("game over")
 			target.playsound_local(source, 'sound/misc/compiler-failure.ogg', 50)
 		if("laughter")
@@ -1040,12 +1036,12 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	set waitfor = FALSE
 	..()
 	if(!message)
-		message = pick("ratvar","shuttle dock","blob alert","malf ai","meteors","supermatter")
+		message = pick("ratvar","shuttle dock","blob alert","meteors","supermatter")
 	feedback_details += "Type: [message]"
 	switch(message)
 		if("blob alert")
-			to_chat(target, "<h1 class='alert'>Biohazard Alert</h1>")
-			to_chat(target, "<br><br><span class='alert'>Confirmed outbreak of level 5 biohazard aboard [station_name()]. All personnel must contain the outbreak.</span><br><br>")
+			to_chat(target, "<h1 class='alert'>Биологическая Тревога</h1>")
+			to_chat(target, "<br><br><span class='alert'>Подтвержденная вспышка биологической опасности уровня 5 на борту [station_name()]. Весь персонал должен противостоять эпидемии.</span><br><br>")
 			SEND_SOUND(target,  SSstation.announcer.event_sounds[ANNOUNCER_OUTBREAK5])
 		if("ratvar")
 			target.playsound_local(target, 'sound/machines/clockcult/ark_deathrattle.ogg', 50, FALSE, pressure_affected = FALSE)
@@ -1064,19 +1060,15 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			), 27)
 		if("shuttle dock")
 			to_chat(target, "<h1 class='alert'>Priority Announcement</h1>")
-			to_chat(target, "<br><br><span class='alert'>The Emergency Shuttle has docked with the station. You have 3 minutes to board the Emergency Shuttle.</span><br><br>")
+			to_chat(target, "<br><br><span class='alert'>Box emergency shuttle был пристыкован к станции. В вашем распоряжении 3 минуты на посадку.</span><br><br>")
 			SEND_SOUND(target, SSstation.announcer.event_sounds[ANNOUNCER_SHUTTLEDOCK])
-		if("malf ai") //AI is doomsdaying!
-			to_chat(target, "<h1 class='alert'>Anomaly Alert</h1>")
-			to_chat(target, "<br><br><span class='alert'>Hostile runtimes detected in all station systems, please deactivate your AI to prevent possible damage to its morality core.</span><br><br>")
-			//SEND_SOUND(target, SSstation.announcer.event_sounds[ANNOUNCER_AIMALF])
 		if("meteors") //Meteors inbound!
-			to_chat(target, "<h1 class='alert'>Meteor Alert</h1>")
-			to_chat(target, "<br><br><span class='alert'>Meteors have been detected on collision course with the station.</span><br><br>")
+			to_chat(target, "<h1 class='alert'>Метеоритная тревога</h1>")
+			to_chat(target, "<br><br><span class='alert'>Метеоры были обнаружены на пути столкновения со станцией.</span><br><br>")
 			SEND_SOUND(target, SSstation.announcer.event_sounds[ANNOUNCER_METEORS])
 		if("supermatter")
 			SEND_SOUND(target, sound('sound/magic/charge.ogg'))
-			to_chat(target, "<span class='boldannounce'>You feel reality distort for a moment...</span>")
+			to_chat(target, "<span class='boldannounce'>Ощущаю искажение реальности на мгновение...</span>")
 
 /datum/hallucination/hudscrew
 
@@ -1243,7 +1235,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			if(1) //revolver
 				halitem.icon = 'icons/obj/guns/projectile.dmi'
 				halitem.icon_state = "revolver"
-				halitem.name = "Revolver"
+				halitem.name = "револьвер .357 калибра"
 			if(2) //c4
 				halitem.icon = 'icons/obj/grenade.dmi'
 				halitem.icon_state = "plastic-explosive0"
@@ -1253,19 +1245,19 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			if(3) //sword
 				halitem.icon = 'icons/obj/transforming_energy.dmi'
 				halitem.icon_state = "sword0"
-				halitem.name = "Energy Sword"
+				halitem.name = "energy sword"
 			if(4) //stun baton
 				halitem.icon = 'icons/obj/items_and_weapons.dmi'
 				halitem.icon_state = "stunbaton"
-				halitem.name = "Stun Baton"
+				halitem.name = "электоршоковая дубинка"
 			if(5) //emag
 				halitem.icon = 'icons/obj/card.dmi'
 				halitem.icon_state = "emag"
-				halitem.name = "Cryptographic Sequencer"
+				halitem.name = "cryptographic sequencer"
 			if(6) //flashbang
 				halitem.icon = 'icons/obj/grenade.dmi'
 				halitem.icon_state = "flashbang1"
-				halitem.name = "Flashbang"
+				halitem.name = "flashbang"
 		feedback_details += "Type: [halitem.name]"
 		if(target?.client)
 			target.client.screen += halitem
