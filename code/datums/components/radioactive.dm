@@ -74,20 +74,20 @@
 
 	var/list/fragments = list()
 	if(get_dist(master, user) <= 1)
-		fragments += "The air around [master] feels warm"
+		fragments += "Воздух вокруг [master] ощущается тёплым"
 	switch(strength)
 		if(0 to RAD_AMOUNT_LOW)
 			if(length(fragments))
 				fragments += "."
 		if(RAD_AMOUNT_LOW to RAD_AMOUNT_MEDIUM)
-			fragments += "[length(fragments) ? " and [master.p_they()] " : "[master] "]feel[master.p_s()] weird to look at."
+			fragments += "[length(fragments) ? " и " : "[master] "] выглядит странным."
 		if(RAD_AMOUNT_MEDIUM to RAD_AMOUNT_HIGH)
-			fragments += "[length(fragments) ? " and [master.p_they()] " : "[master] "]seem[master.p_s()] to be glowing a bit."
+			fragments += "[length(fragments) ? " и " : "[master] "] светится немного."
 		if(RAD_AMOUNT_HIGH to INFINITY) //At this level the object can contaminate other objects
-			fragments += "[length(fragments) ? " and [master.p_they()] " : "[master] "]hurt[master.p_s()] to look at."
+			fragments += "[length(fragments) ? " и " : "[master] "] очень ярко светится."
 
 	if(length(fragments))
-		out += "<span class='warning'>[fragments.Join()]</span>"
+		out += "<hr><span class='warning'>[fragments.Join()]</span>"
 
 /datum/component/radioactive/proc/rad_attack(datum/source, atom/movable/target, mob/living/user)
 	SIGNAL_HANDLER
