@@ -203,7 +203,7 @@
 	if(damage_coeff)
 		damage_coeff = string_assoc_list(damage_coeff)
 	if(footstep_type)
-		AddComponent(/datum/component/footstep, footstep_type)
+		AddElement(/datum/element/footstep, footstep_type)
 
 /mob/living/simple_animal/Life(delta_time = SSMOBS_DT, times_fired)
 	. = ..()

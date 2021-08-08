@@ -15,7 +15,7 @@
 	var/obj/machinery/vending/vendor_pawn = new_pawn
 	vendor_pawn.tiltable = FALSE  //Not manually tiltable by hitting it anymore. We are now agressively doing it ourselves.
 	vendor_pawn.AddElement(/datum/element/waddling)
-	vendor_pawn.AddComponent(/datum/component/footstep, FOOTSTEP_OBJ_MACHINE, 1, -6, vary = TRUE)
+	vendor_pawn.AddElement(/datum/element/footstep, FOOTSTEP_OBJ_MACHINE, 1, -6, vary = TRUE)
 	vendor_pawn.squish_damage = 15
 	return ..() //Run parent at end
 

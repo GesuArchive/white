@@ -103,7 +103,7 @@
 	set_colour(new_colour)
 	. = ..()
 	set_nutrition(700)
-	AddComponent(/datum/component/footstep, FOOTSTEP_MOB_SLIME, 0)
+	AddElement(/datum/element/footstep, FOOTSTEP_MOB_SLIME, 0)
 	add_cell_sample()
 
 /mob/living/simple_animal/slime/Destroy()
