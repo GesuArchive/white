@@ -579,7 +579,7 @@
 	if(!can_trigger)
 		return
 
-	G.audible_message("<span_class='notice'>[G] очень выразительно смеётся.</span>")
+	G.audible_message("<span class='notice'>[G] очень выразительно смеётся.</span>")
 	playsound(G, pick(sounds), 100, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 /**

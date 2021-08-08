@@ -91,8 +91,3 @@
 	if(!soundfile)
 		return
 	playsound(H, soundfile, 15, TRUE, -3)
-
-/datum/element/caltrop/Detach(datum/target)
-	. = ..()
-	if(ismovable(target))
-		RemoveElement(/datum/element/connect_loc_behalf, target)
