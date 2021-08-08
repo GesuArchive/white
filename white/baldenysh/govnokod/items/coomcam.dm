@@ -44,6 +44,9 @@
 	for(var/mob/living/carbon/human/H in picture.mobs_seen)
 		humans_seen.Add(H)
 
+	if(!humans_seen)
+		return
+
 	var/mob/living/carbon/human/main_tag_source = pick(humans_seen)
 
 	last_tags = ""
