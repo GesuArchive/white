@@ -2824,7 +2824,8 @@
 		exposed_atom.add_atom_colour(color, WASHABLE_COLOUR_PRIORITY)
 
 /datum/reagent/ants
-	name = "Ants"
+	name = "Муравьи"
+	enname = "Ants"
 	description = "A sample of a lost breed of Space Ants (formicidae bastardium tyrannus), they are well-known for ravaging the living shit out of pretty much anything."
 	reagent_state = SOLID
 	color = "#993333"

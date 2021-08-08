@@ -104,7 +104,7 @@
 	var/obj/decomp = parent //Lets us spawn things at decomp
 	new /obj/effect/decal/cleanable/ants(decomp.loc)
 	new /obj/item/food/badrecipe/moldy(decomp.loc)
-	decomp.visible_message("<span class='notice'>[decomp] gets overtaken by mold and ants! Gross!</span>")
+	decomp.visible_message("<span class='notice'>[capitalize(decomp)] покрывается плесенью и муравьями! Фу!</span>")
 	qdel(decomp)
 	return
 
@@ -119,27 +119,27 @@
 		if(DECOMP_EXAM_NORMAL)// All other types
 			switch(time_d) // Deciseconds used so there's no gaps between examine times.
 				if(3001 to 4500) // 7.5 to 5 Minutes left
-					examine_list += "[parent] looks kinda stale."
+					examine_list += "[parent] кажется сейчас протухнет."
 				if(1501 to 3000) // 5 to 2.5 Minutes left
-					examine_list += "[parent] is starting to look pretty gross."
+					examine_list += "[parent] выглядит старовато."
 				if(1 to 1500) // 2.5 Minutes to 1 Decisecond left
-					examine_list += "[parent] looks barely edible."
+					examine_list += "[parent] выглядит вполне съедобно."
 		if(DECOMP_EXAM_GROSS) // Gross food
 			switch(time_d)
 				if(2101 to 3150) // 5.25 to 3.5 Minutes
-					examine_list += "[parent] looks kinda stale."
+					examine_list += "[parent] гниёт."
 				if(1050 to 2100) // 3.5 to 1.75 Minutes left
-					examine_list += "[parent] is starting to look pretty gross."
+					examine_list += "[parent] начинает немного подгнивать."
 				if(1 to 1051) // 1.75 Minutes to 1 Decisecond left
-					examine_list += "[parent] looks barely edible."
+					examine_list += "[parent] выглядит вполне съедобно."
 		if(DECOMP_EXAM_RAW) // Raw food
 			switch(time_d)
 				if(1501 to 2250) // 3.75 to 2.5 Minutes left
-					examine_list += "[parent] looks kinda stale."
+					examine_list += "[parent] гниёт."
 				if(751 to 1500) // 2.5 to 1.25 Minutes left
-					examine_list += "[parent] is starting to look pretty gross."
+					examine_list += "[parent] начинает немного подгнивать."
 				if(1 to 750) // 1.25 Minutes to 1 Decisecond left
-					examine_list += "[parent] looks barely edible."
+					examine_list += "[parent] выглядит вполне съедобно."
 
 #undef DECOMPOSITION_TIME
 #undef DECOMPOSITION_TIME_GROSS
