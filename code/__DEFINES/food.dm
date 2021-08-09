@@ -70,7 +70,20 @@
 #define FOOD_PRICE_LEGENDARY 130 //Large windfall for making something from this list.
 
 
-#define DRINK_PRICE_STOCK 2
-#define DRINK_PRICE_EASY 3
-#define DRINK_PRICE_MEDIUM 8
-#define DRINK_PRICE_HIGH 20
+#define DRINK_PRICE_STOCK 20
+#define DRINK_PRICE_EASY 35
+#define DRINK_PRICE_MEDIUM 80
+#define DRINK_PRICE_HIGH 200
+
+
+/// Flavour defines (also names) for GLOB.ice_cream_flavours list access. Safer from mispelling than plain text.
+#define ICE_CREAM_VANILLA "vanilla"
+#define ICE_CREAM_CHOCOLATE "chocolate"
+#define ICE_CREAM_STRAWBERRY "strawberry"
+#define ICE_CREAM_BLUE "blue"
+#define ICE_CREAM_MOB "mob"
+#define ICE_CREAM_CUSTOM "custom"
+#define ICE_CREAM_BLAND "bland"
+
+#define DEFAULT_MAX_ICE_CREAM_SCOOPS 3
+
