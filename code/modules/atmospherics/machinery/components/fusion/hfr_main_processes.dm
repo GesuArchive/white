@@ -58,7 +58,7 @@
 		var/obj/machinery/atmospherics/components/unary/hypertorus/part = create_crack()
 		if(moderator_internal.return_pressure() >= 10000 && moderator_internal.return_pressure() < 12000)
 			explosion(
-				origin = part,
+				epicenter = part,
 				devastation_range = 0,
 				heavy_impact_range = 0,
 				light_impact_range = 1,
@@ -68,7 +68,7 @@
 			spill_gases(part, moderator_internal, ratio = 0.25)
 		else if(moderator_internal.return_pressure() >= 12000)
 			explosion(
-				origin = part,
+				epicenter = part,
 				devastation_range = 0,
 				heavy_impact_range = 1,
 				light_impact_range = 3,
@@ -111,8 +111,8 @@
 
 	fusion_temperature = internal_fusion.return_temperature()
 	moderator_temperature = moderator_internal.return_temperature()
-	coolant_temperature = airs[1].temperature
-	output_temperature = linked_output.airs[1].temperature
+	coolant_temperature = airs[1].return_temperature()
+	output_temperature = linked_output.airs[1].return_temperature()
 
 	//Set the power level of the fusion process
 	switch(fusion_temperature)
