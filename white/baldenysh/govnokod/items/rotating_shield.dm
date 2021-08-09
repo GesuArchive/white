@@ -115,9 +115,7 @@
 
 ////////////////////////////////////////////////////////////////////////
 
-#define CIRCUMFERENCE(r) 		(r*PI*2)
 #define CHORD2CANGLE(c, r)		(2*arcsin(c/(2*r)))
-#define CHORD2ARC(c, r)			(TORADIANS(CHORD2CANGLE(c, r))*r)
 #define CHORDDIST(c, r)			(sqrt(r**2 - (c/2)**2))
 
 /datum/rs_plate_layer
@@ -132,13 +130,13 @@
 		animate(plate, transform = p_mtrx_to, time = delta_time*10, flags = ANIMATION_END_NOW)
 	angle = newangle
 
-/datum/rs_plate_layer/proc/get_total_arc_length()
+/datum/rs_plate_layer/proc/get_total_plates_angle(r)
 	. = 0
 	for(var/obj/structure/rs_plate/plate in plates)
-		. += CHORD2ARC(plate.chord_length, radius)
+		. += CHORD2CANGLE(plate.chord_length, r)
 
 /datum/rs_plate_layer/proc/set_radius(newradius)
-	if(get_total_arc_length() >= CIRCUMFERENCE(newradius))
+	if(get_total_plates_angle(newradius) >= 360)
 		return
 	radius = newradius
 	regen_visuals()
@@ -147,9 +145,8 @@
 	if(plate.chord_length > radius * 2)
 		stack_trace("Попытка вставить пластину длиной больше диаметра. Хорда: [plate.chord_length], Радиус: [radius]")
 		return
-	if(get_total_arc_length() + CHORD2ARC(plate.chord_length, radius) >= CIRCUMFERENCE(radius))
-		stack_trace("Попытка вставить пластину сверх лимита. ДО: [CIRCUMFERENCE(radius)], ИСП: [get_total_arc_length()], \
-			Радиус: [radius], Хорда: [plate.chord_length], Угол: [CHORD2CANGLE(plate.chord_length, radius)], Дуга: [CHORD2ARC(plate.chord_length, radius)]")
+	if(get_total_plates_angle(radius) + CHORD2CANGLE(plate.chord_length, radius) >= 360)
+		stack_trace("Попытка вставить пластину сверх 360 . Радиус: [radius], Хорда: [plate.chord_length], Угол: [get_total_plates_angle(radius)], Угол пл: [CHORD2CANGLE(plate.chord_length, radius)]")
 		return
 	plates.Add(plate)
 	regen_visuals()
@@ -157,22 +154,30 @@
 /datum/rs_plate_layer/proc/regen_visuals()
 	if(!plates.len)
 		return
-	var/arc_between_plates = (CIRCUMFERENCE(radius) - get_total_arc_length())/plates.len
+	var/angle_between_plates = (360 - get_total_plates_angle(radius))/plates.len
 	var/cur_angle = angle
 	for(var/obj/structure/rs_plate/plate in plates)
+		var/plate_angle = CHORD2CANGLE(plate.chord_length, radius)
 		animate(plate)
 		var/matrix/p_mtrx = new()
 		p_mtrx.Translate(0, CHORDDIST(plate.chord_length, radius))
 		p_mtrx.Turn(cur_angle)
 		plate.transform = p_mtrx
-		cur_angle += (CHORD2ARC(plate.chord_length, radius)+arc_between_plates) * 360 / CIRCUMFERENCE(radius)
+		cur_angle += plate_angle + angle_between_plates
 
-//datum/rs_plate_layer/proc/check_hit(angle)
+datum/rs_plate_layer/proc/check_hit(angle)
+	if(!plates.len)
+		return
+	var/angle_between_plates = (360 - get_total_plates_angle(radius))/plates.len
+	var/cur_angle = angle
+	for(var/obj/structure/rs_plate/plate in plates)
+		var/plate_angle = CHORD2CANGLE(plate.chord_length, radius)
+		if(angle >= cur_angle && angle <= cur_angle + plate_angle)
+			return plate
+		cur_angle += plate_angle + angle_between_plates
 
 #undef CHORDDIST
-#undef CHORD2ARC
 #undef CHORD2CANGLE
-#undef CIRCUMFERENCE
 
 ////////////////////////////////////////////////////////////////////////хрень для дебага хз че ето
 
@@ -186,14 +191,22 @@
 	rspl1.add_plate(new /obj/structure/rs_plate(src))
 
 	var/datum/rs_plate_layer/rspl2 = new
-	rspl2.radius = 64
-	rspl2.add_plate(new /obj/structure/rs_plate(src))
+	rspl2.radius = 56
 	rspl2.add_plate(new /obj/structure/rs_plate(src))
 	rspl2.add_plate(new /obj/structure/rs_plate(src))
 	rspl2.add_plate(new /obj/structure/rs_plate(src))
 
+	var/datum/rs_plate_layer/rspl3 = new
+	rspl3.radius = 64
+	rspl3.add_plate(new /obj/structure/rs_plate(src))
+	rspl3.add_plate(new /obj/structure/rs_plate(src))
+	rspl3.add_plate(new /obj/structure/rs_plate(src))
+	rspl3.add_plate(new /obj/structure/rs_plate(src))
+	rspl3.add_plate(new /obj/structure/rs_plate(src))
+
 	plate_layers.Add(rspl1)
 	plate_layers.Add(rspl2)
+	plate_layers.Add(rspl3)
 
 	activate()
 
