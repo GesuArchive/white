@@ -162,14 +162,14 @@
 		plate.transform = p_mtrx
 		cur_angle += plate_angle + angle_between_plates
 
-/datum/rs_plate_layer/proc/check_hit(angle)
+/datum/rs_plate_layer/proc/check_hit(hitangle)
 	if(!plates.len)
 		return
 	var/angle_between_plates = (360 - get_total_plates_angle(radius))/plates.len
 	var/cur_angle = angle
 	for(var/obj/structure/rs_plate/plate in plates)
 		var/plate_angle = CHORD2CANGLE(plate.chord_length, radius)
-		if(cur_angle <= angle && angle <= cur_angle + plate_angle) //аааааааааааааааа че не работает ааааааааааааа
+		if(cur_angle <= hitangle && hitangle <= cur_angle + plate_angle)
 			return plate
 		cur_angle += plate_angle + angle_between_plates
 
