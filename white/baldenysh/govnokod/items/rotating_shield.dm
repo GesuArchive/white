@@ -5,7 +5,6 @@
 
 	var/atom/movable/shielded_atom
 	var/list/datum/rs_plate_layer/plate_layers = list()
-	var/angle = 0
 	var/angular_velocity = 30
 	var/active = FALSE
 
@@ -62,20 +61,12 @@
 	QDEL_LIST(plate_layers)
 
 /obj/item/rotating_shield/process(delta_time)
-	//var/last_angle = angle
-	angle += angular_velocity * delta_time
-	angle %= 360
-	/*
-	var/matrix/mtrx_from = new()
-	var/matrix/mtrx_to = new()
-	mtrx_from.Turn(last_angle)
-	mtrx_to.Turn(angle)
-	transform = mtrx_from
-	animate(src, transform = mtrx_to, time = delta_time*10, flags = ANIMATION_END_NOW) //ето тупа для дэбага, убрать потом надо будет
-	*/
+	var/base_rotation = angular_velocity * delta_time
 
-	for(var/datum/rs_plate_layer/rspl in plate_layers)
-		rspl.rotate_to(angle, delta_time)
+	for(var/i in 1 to plate_layers.len)
+		var/cur_rotation = base_rotation/i
+		var/datum/rs_plate_layer/rspl = plate_layers[i]
+		rspl.rotate(i%2 ? cur_rotation : -cur_rotation, delta_time)
 
 /obj/item/rotating_shield/proc/activate()
 	for(var/obj/structure/rs_plate/plate in get_plates())
@@ -123,12 +114,14 @@
 	var/angle = 0
 	var/radius = 48
 
-/datum/rs_plate_layer/proc/rotate_to(newangle, delta_time)
+/datum/rs_plate_layer/proc/rotate(degrees, delta_time)
+	var/last_angle = angle
+	angle += degrees
 	for(var/obj/structure/rs_plate/plate in plates)
-		var/matrix/p_mtrx_to = plate.transform
-		p_mtrx_to.Turn(newangle - angle)
+		var/matrix/p_mtrx_to = new()
+		p_mtrx_to = plate.transform
+		p_mtrx_to.Turn(angle-last_angle)
 		animate(plate, transform = p_mtrx_to, time = delta_time*10, flags = ANIMATION_END_NOW)
-	angle = newangle
 
 /datum/rs_plate_layer/proc/get_total_plates_angle(r)
 	. = 0
