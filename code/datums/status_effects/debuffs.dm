@@ -869,11 +869,11 @@
 	switch(msg_stage)
 		if(0 to 300)
 			if(prob(1))
-				fake_msg = pick("<span class='warning'>[pick("Моя голова болит.", "Моя голова разрывается.")]</span>",
+				fake_msg = pick("<span class='warning'>[pick("Голова болит.", "Моя голова разрывается.")]</span>",
 				"<span class='warning'>[pick("Дышать сложно.", "Моё дыхание становится более тяжелым.")]</span>",
 				"<span class='warning'>[pick("У меня кружится голова.", "Перед глазами всё вращается.")]</span>",
 				"<span notice='warning'>[pick("Сглатываю излишки слизи.", "Я слегка покашливаю.")]</span>",
-				"<span class='warning'>[pick("Моя голова болит.", "Мой разум на мгновение остался пустым.")]</span>",
+				"<span class='warning'>[pick("Голова болит.", "Мой разум на мгновение остался пустым.")]</span>",
 				"<span class='warning'>[pick("Горло болит.", "Прочищаю своё горло.")]</span>")
 		if(301 to 600)
 			if(prob(2))
@@ -885,7 +885,7 @@
 		else
 			if(prob(3))
 				if(prob(50))// coin flip to throw a message or an emote
-					fake_msg = pick("<span class='userdanger'>[pick("Моя голова болит!", "Чувствую горящий нож в моём мозгу!", "Волна боли заполняет мою голову!")]</span>",
+					fake_msg = pick("<span class='userdanger'>[pick("Голова болит!", "Чувствую горящий нож в моём мозгу!", "Волна боли заполняет мою голову!")]</span>",
 					"<span class='userdanger'>[pick("В груди очень сильно болит!", "Больно дышать!")]</span>",
 					"<span class='warning'>[pick("Меня тошнит.", "Меня сейчас вырвет!")]</span>")
 				else

@@ -744,6 +744,10 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 		count++
 		LAZYADD(airlocks_to_hit, A)
 
+	if(!LAZYLEN(airlocks_to_hit)) //no valid airlocks in sight
+		qdel(src)
+		return
+
 	START_PROCESSING(SSfastprocess, src)
 
 /datum/hallucination/bolts/process(delta_time)
@@ -827,7 +831,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 		"У [pick_list_replacements(HAL_LINES_FILE, "jobs")] [pick_list_replacements(HAL_LINES_FILE, "tator-items")]!!!",\
 		"ИИ [pick("сбойный", "уничтожен")]!!")
 
-	var/mob/living/carbon/person = null	
+	var/mob/living/carbon/person = null
 	var/datum/language/understood_language = target.get_random_understood_language()
 	for(var/mob/living/carbon/H in view(target))
 		if(H == target)
@@ -883,7 +887,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	if(other)
 		if(close_other) //increase the odds
 			for(var/i in 1 to 5)
-				message_pool.Add("<span class='warning'>Чувствую небольшое покалывание!</span>")
+				message_pool.Add("<span class='warning'>Что-то укололо меня!</span>")
 		var/obj/item/storage/equipped_backpack = other.get_item_by_slot(ITEM_SLOT_BACK)
 		if(istype(equipped_backpack))
 			for(var/i in 1 to 5) //increase the odds
@@ -896,19 +900,19 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 
 		message_pool.Add("<B>[other]</B> [pick("чихает","кашляет")].")
 
-	message_pool.Add("<span class='notice'>Слышу как что-то ползает по трубам...</span>", \
-		"<span class='notice'>Моя [pick("рука", "нога", "спина", "голова")] чешется.</span>",\
+	message_pool.Add("<span class='notice'>Что-то ползает по трубам...</span>", \
+		"<span class='notice'>[pick("Рука", "Нога", "Спина", "Голова")] чешется.</span>",\
 		"<span class='warning'>Ощущаю [pick("жар","холод","сухость","сырость","головокружение","слабость")].</span>",
-		"<span class='warning'>Мой желудок грохочет.</span>",
-		"<span class='warning'>Моя голова болит.</span>",
-		"<span class='warning'>Слышу слабый гул в своей голове.</span>",
+		"<span class='warning'>В животе что-то грохочет.</span>",
+		"<span class='warning'>Голова болит.</span>",
+		"<span class='warning'>Голова гудит.</span>",
 		"<B>[target]</B> чихает.")
 	if(prob(10))
 		message_pool.Add("<span class='warning'>Позади меня.</span>",\
-			"<span class='warning'>Слышу слабый смех.</span>",
+			"<span class='warning'>Кто-то тихо смеётся.</span>",
 			"<span class='warning'>Что-то движется.</span>",
-			"<span class='warning'>Слышу шум на потолке.</span>",
-			"<span class='warning'>Вижу нечеловечески высокий силуэт, движущийся на расстоянии.</span>")
+			"<span class='warning'>Что-то шумит на потолке.</span>",
+			"<span class='warning'>Что-то движется ко мне.</span>")
 	if(prob(10))
 		message_pool.Add("[pick_list_replacements(HAL_LINES_FILE, "advice")]")
 	var/chosen = pick(message_pool)
