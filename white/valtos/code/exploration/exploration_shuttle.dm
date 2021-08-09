@@ -14,14 +14,7 @@
 /obj/machinery/computer/shuttle_flight/exploration/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override)
 	return
 
-/obj/machinery/computer/shuttle_flight/exploration/ui_interact(mob/user, datum/tgui/ui)
-	if(isliving(user))
-		if(check_banned_contents())
-			say("Пидарас, ты ксенохуйню с шаттла выкинь, тогда побазарим.")
-			return
-	. = ..()
-
-/obj/machinery/computer/shuttle_flight/exploration/ui_act(action, params)
+/obj/machinery/computer/shuttle_flight/exploration/launch_shuttle()
 	if(check_banned_contents())
 		say("Пидарас, ты ксенохуйню с шаттла выкинь, тогда побазарим.")
 		return
