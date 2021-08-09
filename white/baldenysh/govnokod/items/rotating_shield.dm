@@ -118,11 +118,12 @@
 #define CIRCUMFERENCE(r) 		(r*PI*2)
 #define CHORD2CANGLE(c, r)		(2*arcsin(c/(2*r)))
 #define CHORD2ARC(c, r)			(TORADIANS(CHORD2CANGLE(c, r))*r)
+#define CHORDDIST(c, r)			(sqrt(r**2 - (c/2)**2))
 
 /datum/rs_plate_layer
 	var/list/obj/structure/rs_plate/plates = list()
 	var/angle = 0
-	var/radius = 32
+	var/radius = 48
 
 /datum/rs_plate_layer/proc/rotate_to(newangle, delta_time)
 	for(var/obj/structure/rs_plate/plate in plates)
@@ -157,17 +158,18 @@
 	if(!plates.len)
 		return
 	var/arc_between_plates = (CIRCUMFERENCE(radius) - get_total_arc_length())/plates.len
-	var/cur_arc = angle
+	var/cur_angle = angle
 	for(var/obj/structure/rs_plate/plate in plates)
 		animate(plate)
 		var/matrix/p_mtrx = new()
-		p_mtrx.Translate(0, radius) //мб надо ебнуть base_pixel_y и обновлять какта чтоб анимация ударов именно по пластинам была
-		p_mtrx.Turn(cur_arc)
+		p_mtrx.Translate(0, CHORDDIST(plate.chord_length, radius))
+		p_mtrx.Turn(cur_angle)
 		plate.transform = p_mtrx
-		cur_arc += (CHORD2ARC(plate.chord_length, radius) + arc_between_plates)
+		cur_angle += (CHORD2ARC(plate.chord_length, radius)+arc_between_plates) * 360 / CIRCUMFERENCE(radius)
 
 //datum/rs_plate_layer/proc/check_hit(angle)
 
+#undef CHORDDIST
 #undef CHORD2ARC
 #undef CHORD2CANGLE
 #undef CIRCUMFERENCE
@@ -184,7 +186,7 @@
 	rspl1.add_plate(new /obj/structure/rs_plate(src))
 
 	var/datum/rs_plate_layer/rspl2 = new
-	rspl2.radius = 48
+	rspl2.radius = 64
 	rspl2.add_plate(new /obj/structure/rs_plate(src))
 	rspl2.add_plate(new /obj/structure/rs_plate(src))
 	rspl2.add_plate(new /obj/structure/rs_plate(src))
@@ -206,4 +208,4 @@
 	appearance_flags = LONG_GLIDE
 	max_integrity = 50
 	var/obj/item/rotating_shield/control
-	var/chord_length = 16
+	var/chord_length = 64
