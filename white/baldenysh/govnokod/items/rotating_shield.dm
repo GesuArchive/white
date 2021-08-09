@@ -118,14 +118,19 @@
 	var/radius = 48
 
 /datum/rs_plate_layer/proc/rotate(degrees, delta_time)
-	var/last_angle = angle
+	if(!plates.len)
+		return
 	angle += degrees
 	angle %= 360
+	var/angle_between_plates = (360 - get_total_plates_angle(radius))/plates.len
+	var/cur_angle = angle
 	for(var/obj/structure/rs_plate/plate in plates)
+		var/plate_angle = CHORD2CANGLE(plate.chord_length, radius)
+		var/plate_dist = CHORDDIST(plate.chord_length, radius)
 		var/matrix/p_mtrx_to = new()
-		p_mtrx_to = plate.transform
-		p_mtrx_to.Turn(angle-last_angle)
-		animate(plate, transform = p_mtrx_to, time = delta_time*10, flags = ANIMATION_END_NOW)
+		p_mtrx_to.Turn(cur_angle)
+		animate(plate, transform = p_mtrx_to, pixel_x = sin(cur_angle)*plate_dist, pixel_y = cos(cur_angle)*plate_dist, time = delta_time*10, flags = ANIMATION_END_NOW)
+		cur_angle += plate_angle + angle_between_plates
 
 /datum/rs_plate_layer/proc/get_total_plates_angle(r)
 	. = 0
@@ -136,31 +141,15 @@
 	if(get_total_plates_angle(newradius) >= 360)
 		return
 	radius = newradius
-	regen_visuals()
 
 /datum/rs_plate_layer/proc/add_plate(obj/structure/rs_plate/plate)
 	if(plate.chord_length > radius * 2)
 		stack_trace("Попытка вставить пластину длиной больше диаметра. Хорда: [plate.chord_length], Радиус: [radius]")
 		return
 	if(get_total_plates_angle(radius) + CHORD2CANGLE(plate.chord_length, radius) >= 360)
-		stack_trace("Попытка вставить пластину сверх 360 . Радиус: [radius], Хорда: [plate.chord_length], Угол: [get_total_plates_angle(radius)], Угол пл: [CHORD2CANGLE(plate.chord_length, radius)]")
+		stack_trace("Попытка вставить пластину сверх 360 градусов. Радиус: [radius], Хорда: [plate.chord_length], Угол: [get_total_plates_angle(radius)], Угол пл: [CHORD2CANGLE(plate.chord_length, radius)]")
 		return
 	plates.Add(plate)
-	regen_visuals()
-
-/datum/rs_plate_layer/proc/regen_visuals()
-	if(!plates.len)
-		return
-	var/angle_between_plates = (360 - get_total_plates_angle(radius))/plates.len
-	var/cur_angle = angle
-	for(var/obj/structure/rs_plate/plate in plates)
-		var/plate_angle = CHORD2CANGLE(plate.chord_length, radius)
-		animate(plate)
-		var/matrix/p_mtrx = new()
-		p_mtrx.Translate(0, CHORDDIST(plate.chord_length, radius))
-		p_mtrx.Turn(cur_angle)
-		plate.transform = p_mtrx
-		cur_angle += plate_angle + angle_between_plates
 
 /datum/rs_plate_layer/proc/check_hit(hitangle)
 	if(!plates.len)
@@ -169,7 +158,7 @@
 	var/cur_angle = angle
 	for(var/obj/structure/rs_plate/plate in plates)
 		var/plate_angle = CHORD2CANGLE(plate.chord_length, radius)
-		if(cur_angle <= hitangle && hitangle <= cur_angle + plate_angle)
+		if(cur_angle - plate_angle/2 <= hitangle && hitangle <= cur_angle + plate_angle/2)
 			return plate
 		cur_angle += plate_angle + angle_between_plates
 
@@ -180,6 +169,7 @@
 
 /obj/item/rotating_shield/test
 	name = "RSE-00"
+	angular_velocity = 0
 
 /obj/item/rotating_shield/test/Initialize()
 	. = ..()
