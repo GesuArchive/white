@@ -57,12 +57,15 @@
 		plate.set_glide_size(new_glide_size)
 
 /obj/item/rotating_shield/Destroy(force, silent)
-	. = ..()
+	deactivate()
 	QDEL_LIST(plate_layers)
+	. = ..()
 
 /obj/item/rotating_shield/process(delta_time)
-	var/base_rotation = angular_velocity * delta_time
+	rotate(angular_velocity, delta_time)
 
+/obj/item/rotating_shield/proc/rotate(degrees, delta_time)
+	var/base_rotation = degrees * delta_time
 	for(var/i in 1 to plate_layers.len)
 		var/cur_rotation = base_rotation/i
 		var/datum/rs_plate_layer/rspl = plate_layers[i]
@@ -117,6 +120,7 @@
 /datum/rs_plate_layer/proc/rotate(degrees, delta_time)
 	var/last_angle = angle
 	angle += degrees
+	angle %= 360
 	for(var/obj/structure/rs_plate/plate in plates)
 		var/matrix/p_mtrx_to = new()
 		p_mtrx_to = plate.transform
@@ -158,14 +162,14 @@
 		plate.transform = p_mtrx
 		cur_angle += plate_angle + angle_between_plates
 
-datum/rs_plate_layer/proc/check_hit(angle)
+/datum/rs_plate_layer/proc/check_hit(angle)
 	if(!plates.len)
 		return
 	var/angle_between_plates = (360 - get_total_plates_angle(radius))/plates.len
 	var/cur_angle = angle
 	for(var/obj/structure/rs_plate/plate in plates)
 		var/plate_angle = CHORD2CANGLE(plate.chord_length, radius)
-		if(angle >= cur_angle && angle <= cur_angle + plate_angle)
+		if(cur_angle <= angle && angle <= cur_angle + plate_angle) //аааааааааааааааа че не работает ааааааааааааа
 			return plate
 		cur_angle += plate_angle + angle_between_plates
 
@@ -175,7 +179,7 @@ datum/rs_plate_layer/proc/check_hit(angle)
 ////////////////////////////////////////////////////////////////////////хрень для дебага хз че ето
 
 /obj/item/rotating_shield/test
-	name = "RSE-01"
+	name = "RSE-00"
 
 /obj/item/rotating_shield/test/Initialize()
 	. = ..()
