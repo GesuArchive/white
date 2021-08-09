@@ -231,6 +231,8 @@
 
 /obj/machinery/vendor/golem
 	name = "golem ship equipment vendor"
+	icon_state = "mining"
+	density = TRUE
 	circuit = /obj/item/circuitboard/machine/mining_equipment_vendor/golem
 
 /obj/machinery/vendor/golem/Initialize()
