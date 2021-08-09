@@ -8,9 +8,9 @@
 	var/obscure_name
 	var/true_info = FALSE
 
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(HAS_TRAIT(H, TRAIT_PROSOPAGNOSIA))
+	if(isliving(user))
+		var/mob/living/L = user
+		if(HAS_TRAIT(L, TRAIT_PROSOPAGNOSIA) || HAS_TRAIT(L, TRAIT_INVISIBLE_MAN))
 			obscure_name = TRUE
 		if(H.glasses && H.glasses.type == /obj/item/clothing/glasses/hud/hacker_rig)
 			true_info = TRUE

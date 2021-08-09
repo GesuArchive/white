@@ -122,6 +122,7 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		) = 1,
 
 	list(//medical and chemicals
+		/obj/item/stock_parts/cell/lead = 1,
 		/obj/item/storage/fancy/cigarettes/dromedaryco = 1,
 		/obj/item/grenade/chem_grenade/cleaner = 1,
 		/obj/item/storage/box/matches = 1,
@@ -130,6 +131,7 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/reagent_containers/glass/rag = 1,
 		/obj/item/reagent_containers/hypospray/medipen/pumpup = 2,
 		/obj/item/reagent_containers/glass/bottle/random_buffer = 2,
+		/obj/item/lead_pipe = 1,
 		) = 1,
 
 	list(//food
@@ -206,6 +208,8 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 		/obj/item/weaponcrafting/receiver = 1,
 		/obj/item/paper/fluff/stations/soap = 1, //recipes count as crafting.
 		/obj/item/plaque = 1,
+		/obj/item/storage/box/clown = 1,
+		/obj/item/seeds/kronkus = 1,
 		) = 8,
 
 	list(//medical and chemicals
