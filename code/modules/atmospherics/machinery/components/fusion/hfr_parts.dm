@@ -299,7 +299,7 @@
 		var/list/gas = GLOB.meta_gas_info[path]
 		data["filter_types"] += list(list("name" = gas[META_GAS_NAME], "id" = gas[META_GAS_ID], "selected" = (path == gas_id2path(connected_core.filter_type))))
 
-	data["cooling_volume"] = connected_core.airs[1].volume
+	data["cooling_volume"] = connected_core.airs[1].return_volume()
 
 	return data
 
@@ -388,7 +388,7 @@
 				cooling_volume = text2num(cooling_volume)
 				. = TRUE
 			if(.)
-				connected_core.airs[1].volume = clamp(cooling_volume, 50, 2000)
+				connected_core.airs[1].set_volume(clamp(cooling_volume, 50, 2000))
 
 /obj/machinery/hypertorus/corner
 	name = "HFR corner"
@@ -409,7 +409,7 @@
 	-Connect the fuel mix into the fuel injector port, allow only 1000 moles into the machine to ease the kickstart of the reaction<BR>\
 	-Set the Heat conductor to 500 when starting the reaction, reset it to 100 when power level is higher than 1<BR>\
 	-In the event of a meltdown, set the heat conductor to max and set the current damper to max. Set the fuel injection to min. \
-	If the heat output doesn�t go negative, try changing the magnetic costrictors untill heat output goes negative. \
+	If the heat output doesn't go negative, try changing the magnetic costrictors untill heat output goes negative. \
 	Make the cooling stronger, put high heat capacity gases inside the moderator (hypernoblium will help dealing with the problem)<BR><BR>\
 	<B>Warnings:</B><BR>\
 	-You cannot dismantle the machine if the power level is over 0<BR>\
