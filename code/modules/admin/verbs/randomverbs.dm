@@ -1218,7 +1218,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 				var/name = GLOB.trait_name_map[trait] || trait
 				available_traits[name] = trait
 
-	var/chosen_trait = tgui_input_list("Select trait to modify", "Trait", sortList(available_traits))
+	var/chosen_trait = tgui_input_list(usr, "Select trait to modify", "Trait", sortList(available_traits))
 	//var/chosen_trait = input("Select trait to modify", "Trait") as null|anything in sortList(available_traits)
 	if(!chosen_trait)
 		return
