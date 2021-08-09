@@ -31,6 +31,8 @@
 
 /turf/open/space/transit/Entered(atom/movable/AM, atom/OldLoc)
 	..()
+	if(HAS_TRAIT(AM, TRAIT_HYPERSPACE_IMMUNE))
+		return
 	if(!locate(/obj/structure/lattice) in src)
 		throw_atom(AM)
 
