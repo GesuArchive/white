@@ -5084,6 +5084,13 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/fore)
+"axv" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/blue,
+/area/crew_quarters/fitness/recreation)
 "axw" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible{
 	dir = 4
@@ -5329,7 +5336,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "ayG" = (
 /turf/closed/wall/r_wall,
@@ -5354,7 +5361,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "ayP" = (
 /obj/structure/cable,
@@ -5393,7 +5400,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "ayY" = (
 /obj/effect/turf_decal/tile/blue{
@@ -6252,7 +6259,10 @@
 /area/hallway/primary/fore)
 "aBP" = (
 /obj/item/kirbyplants/random,
-/turf/open/floor/plasteel/monofloor/dark,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 9
+	},
+/turf/open/floor/carpet/blue,
 /area/crew_quarters/fitness/recreation)
 "aBQ" = (
 /turf/closed/wall,
@@ -6386,7 +6396,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "aCl" = (
 /obj/machinery/power/apc{
@@ -6877,7 +6887,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "aDH" = (
 /obj/machinery/light{
@@ -6900,7 +6910,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "aDK" = (
 /obj/machinery/door/airlock{
@@ -7948,7 +7958,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 10
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "aGp" = (
 /obj/machinery/light/small{
@@ -7972,7 +7982,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "aGr" = (
 /obj/structure/chair/stool,
@@ -8491,7 +8501,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "aHT" = (
 /obj/machinery/door/airlock/public/glass{
@@ -28331,7 +28341,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "csN" = (
 /obj/structure/transit_tube/horizontal,
@@ -31602,6 +31612,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/maintenance/port/fore)
+"dAv" = (
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 4
+	},
+/turf/open/floor/carpet/blue,
+/area/crew_quarters/fitness/recreation)
 "dAx" = (
 /obj/machinery/light{
 	dir = 1;
@@ -32640,7 +32656,10 @@
 /area/science/xenobiology)
 "fhf" = (
 /obj/structure/aquarium,
-/turf/open/floor/plasteel/monofloor/dark,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 1
+	},
+/turf/open/floor/carpet/blue,
 /area/crew_quarters/fitness/recreation)
 "fhW" = (
 /obj/structure/table/wood,
@@ -32652,7 +32671,7 @@
 	pixel_x = 8;
 	pixel_y = 13
 	},
-/turf/open/floor/plasteel/monofloor/dark,
+/turf/open/floor/carpet/blue,
 /area/crew_quarters/fitness/recreation)
 "fif" = (
 /obj/structure/cable,
@@ -32895,7 +32914,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "fva" = (
 /obj/machinery/firealarm{
@@ -33135,7 +33154,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "fMU" = (
 /obj/structure/sign/warning/electricshock{
@@ -33492,7 +33511,10 @@
 /obj/structure/chair/sofa/corner{
 	dir = 1
 	},
-/turf/open/floor/plasteel/monofloor/dark,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 10
+	},
+/turf/open/floor/carpet/blue,
 /area/crew_quarters/fitness/recreation)
 "gpE" = (
 /obj/structure/table/wood,
@@ -33737,7 +33759,10 @@
 /obj/structure/chair/sofa/corner{
 	dir = 8
 	},
-/turf/open/floor/plasteel/monofloor/dark,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 6
+	},
+/turf/open/floor/carpet/blue,
 /area/crew_quarters/fitness/recreation)
 "gJi" = (
 /obj/effect/turf_decal/tile/green{
@@ -33814,6 +33839,16 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
+"gLK" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 4
+	},
+/turf/open/floor/carpet/blue,
+/area/crew_quarters/fitness/recreation)
 "gLN" = (
 /turf/open/floor/plasteel,
 /area/security/brig/upper)
@@ -33930,6 +33965,9 @@
 /obj/structure/sign/painting/library,
 /turf/closed/wall,
 /area/library)
+"gUx" = (
+/turf/open/floor/carpet/blue,
+/area/crew_quarters/fitness/recreation)
 "gWb" = (
 /obj/effect/light_emitter{
 	light_range = 16;
@@ -34115,7 +34153,8 @@
 	pixel_x = -8;
 	pixel_y = 39
 	},
-/turf/open/floor/plasteel/monofloor/dark,
+/obj/effect/turf_decal/siding/thinplating,
+/turf/open/floor/carpet/blue,
 /area/crew_quarters/fitness/recreation)
 "hnW" = (
 /turf/open/openspace,
@@ -35070,7 +35109,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "izk" = (
 /obj/structure/closet/l3closet/scientist,
@@ -35132,7 +35171,8 @@
 /obj/structure/chair/sofa{
 	dir = 1
 	},
-/turf/open/floor/plasteel/monofloor/dark,
+/obj/effect/turf_decal/siding/thinplating,
+/turf/open/floor/carpet/blue,
 /area/crew_quarters/fitness/recreation)
 "iCP" = (
 /obj/structure/cable,
@@ -36970,7 +37010,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "lwo" = (
 /obj/machinery/door/airlock/maintenance{
@@ -37464,7 +37504,7 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "mcm" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -39851,7 +39891,10 @@
 /obj/structure/chair/sofa/left{
 	dir = 4
 	},
-/turf/open/floor/plasteel/monofloor/dark,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 8
+	},
+/turf/open/floor/carpet/blue,
 /area/crew_quarters/fitness/recreation)
 "pFd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -40605,7 +40648,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "qDx" = (
 /obj/effect/turf_decal/siding/white/corner{
@@ -40619,7 +40662,7 @@
 	dir = 1
 	},
 /obj/structure/railing,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "qEv" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -40636,7 +40679,7 @@
 	dir = 8
 	},
 /obj/structure/railing,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "qGG" = (
 /obj/structure/chair/office/light{
@@ -40895,7 +40938,7 @@
 /obj/structure/railing/corner{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "qYI" = (
 /obj/effect/turf_decal/stripes/line{
@@ -41109,6 +41152,10 @@
 	},
 /turf/open/openspace/airless,
 /area/space/nearstation)
+"rvy" = (
+/obj/structure/ladder,
+/turf/open/floor/plating,
+/area/maintenance/department/medical/morgue)
 "rvI" = (
 /obj/structure/water_source/puddle,
 /obj/structure/flora/junglebush/large{
@@ -41843,7 +41890,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "ssM" = (
 /obj/structure/cable,
@@ -42705,6 +42752,13 @@
 "tvC" = (
 /turf/closed/wall,
 /area/maintenance/department/medical/morgue)
+"twL" = (
+/obj/item/kirbyplants/random,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 5
+	},
+/turf/open/floor/carpet/blue,
+/area/crew_quarters/fitness/recreation)
 "twQ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -43457,7 +43511,7 @@
 /obj/item/fish_feed{
 	pixel_x = 7
 	},
-/turf/open/floor/plasteel/monofloor/dark,
+/turf/open/floor/carpet/blue,
 /area/crew_quarters/fitness/recreation)
 "uLo" = (
 /obj/structure/cable,
@@ -43687,7 +43741,10 @@
 /turf/open/floor/plating,
 /area/maintenance/port)
 "uWQ" = (
-/turf/open/floor/plasteel/monofloor/dark,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 8
+	},
+/turf/open/floor/carpet/blue,
 /area/crew_quarters/fitness/recreation)
 "uXr" = (
 /obj/machinery/power/mining_rack,
@@ -44811,7 +44868,10 @@
 /obj/structure/chair/sofa/right{
 	dir = 8
 	},
-/turf/open/floor/plasteel/monofloor/dark,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 4
+	},
+/turf/open/floor/carpet/blue,
 /area/crew_quarters/fitness/recreation)
 "wFi" = (
 /obj/machinery/door/airlock/maintenance{
@@ -44966,7 +45026,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "wND" = (
 /obj/structure/cable,
@@ -45006,7 +45066,10 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plasteel/monofloor/dark,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 8
+	},
+/turf/open/floor/carpet/blue,
 /area/crew_quarters/fitness/recreation)
 "wQy" = (
 /obj/structure/disposalpipe/segment,
@@ -73313,8 +73376,8 @@ axt
 aCb
 aCj
 fhf
-uWQ
-wOO
+gUx
+axv
 uJG
 iCr
 qEw
@@ -73570,8 +73633,8 @@ axt
 aCb
 aDI
 fhf
-uWQ
-wOO
+gUx
+axv
 fhW
 hjn
 qEw
@@ -73826,9 +73889,9 @@ apd
 axt
 aCb
 fMJ
-aBP
-uWQ
-wOO
+twL
+dAv
+gLK
 wEX
 gIX
 qYh
@@ -87474,7 +87537,7 @@ beB
 tvC
 tvC
 xfL
-bgg
+rvy
 rzp
 bgg
 mkA
@@ -90004,8 +90067,8 @@ aaa
 gXs
 alP
 alP
-alP
 alO
+alP
 alP
 alP
 alP
@@ -90515,7 +90578,7 @@ aaa
 eRz
 aaa
 aaa
-alP
+aaa
 alP
 anf
 anf
@@ -90772,8 +90835,8 @@ aaa
 eRz
 aaa
 aaa
+aaa
 alP
-aqA
 anf
 anf
 anf
@@ -91029,9 +91092,9 @@ aaa
 eRz
 aaa
 aaa
-alO
-anf
-anf
+alP
+alP
+alP
 alP
 alP
 alP
@@ -91286,10 +91349,10 @@ aaa
 gXs
 aaa
 aaa
-alO
-anf
-cUO
 alP
+anf
+qBr
+anf
 aoP
 aoP
 alP
