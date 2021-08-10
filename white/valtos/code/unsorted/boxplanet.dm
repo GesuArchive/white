@@ -291,7 +291,7 @@
 	digResult = /obj/item/stack/sheet/mineral/snow
 	turf_type = /turf/open/floor/plating/asteroid/boxplanet/caves
 
-/turf/open/floor/plating/asteroid/boxplanet/ex_act(severity, target, prikolist)
+/turf/open/floor/plating/asteroid/boxplanet/ex_act(severity, target)
 	..()
 	if(severity == 1)
 		var/turf/T = below()

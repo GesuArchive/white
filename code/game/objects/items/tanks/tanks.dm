@@ -251,8 +251,12 @@
 		var/range = (pressure-TANK_FRAGMENT_PRESSURE)/TANK_FRAGMENT_SCALE
 		var/turf/epicenter = get_turf(loc)
 
+		var/mob/bombasta_masta = get_mob_by_key(fingerprintslast)
+		if(istype(src.loc, /obj/item/transfer_valve))
+			var/obj/item/transfer_valve/funni = src.loc
+			bombasta_masta = get_mob_by_key(funni.fingerprintslast)
 
-		explosion(epicenter, round(range*0.25), round(range*0.5), round(range), round(range*1.5))
+		explosion(epicenter, round(range*0.25), round(range*0.5), round(range), round(range*1.5), prikolist = bombasta_masta)
 		if(istype(src.loc, /obj/item/transfer_valve))
 			qdel(src.loc)
 		else

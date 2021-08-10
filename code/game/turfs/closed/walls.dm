@@ -99,7 +99,7 @@
 		if(1)
 			//SN src = null
 			var/turf/NT = ScrapeAway()
-			NT.contents_explosion(severity, target, prikolist)
+			NT.contents_explosion(severity, target)
 			return
 		if(2)
 			if (prob(50))

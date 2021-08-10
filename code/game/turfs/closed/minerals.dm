@@ -151,7 +151,7 @@
 /turf/closed/mineral/acid_melt()
 	ScrapeAway()
 
-/turf/closed/mineral/ex_act(severity, target, prikolist)
+/turf/closed/mineral/ex_act(severity, target)
 	..()
 	switch(severity)
 		if(3)

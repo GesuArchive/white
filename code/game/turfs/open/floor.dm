@@ -59,7 +59,7 @@
 		GLOB.station_turfs -= src
 	return ..()
 
-/turf/open/floor/ex_act(severity, target, prikolist)
+/turf/open/floor/ex_act(severity, target)
 	var/shielded = is_shielded()
 	..()
 	if(severity != 1 && shielded && target != src)
