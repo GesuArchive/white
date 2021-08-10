@@ -3354,6 +3354,7 @@
 /area/lawoffice)
 "asp" = (
 /obj/structure/table/wood,
+/obj/item/flashlight/lamp/lavalamp,
 /turf/open/floor/wood,
 /area/crew_quarters/dorms)
 "asq" = (
@@ -3515,6 +3516,7 @@
 	specialfunctions = 4
 	},
 /obj/item/bedsheet/dorms,
+/obj/item/toy/plush/bear,
 /turf/open/floor/carpet,
 /area/crew_quarters/dorms)
 "asM" = (
@@ -36674,6 +36676,10 @@
 /obj/machinery/nanite_chamber,
 /turf/open/floor/plasteel/dark,
 /area/science/nanite)
+"lcQ" = (
+/obj/item/reagent_containers/food/drinks/flask/gold/soviet,
+/turf/open/openspace/airless,
+/area/space)
 "ldT" = (
 /obj/structure/sign/poster/official/random,
 /turf/closed/wall,
@@ -79624,7 +79630,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+lcQ
 aaa
 aaa
 aaa

@@ -2241,6 +2241,7 @@
 /area/maintenance/starboard/aft)
 "hG" = (
 /obj/structure/bed/maint,
+/obj/item/toy/plush/bear,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "hH" = (
@@ -11784,6 +11785,7 @@
 	},
 /obj/structure/table,
 /obj/item/vending_refill/custom,
+/obj/item/reagent_containers/food/drinks/thermos,
 /turf/open/floor/plasteel,
 /area/vacant_room/commissary/second)
 "LB" = (
@@ -13512,6 +13514,9 @@
 	},
 /obj/item/stack/sheet/metal/fifty{
 	pixel_x = -4
+	},
+/obj/item/melee/fan{
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/vacant_room/commissary/second)
