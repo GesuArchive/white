@@ -243,7 +243,7 @@
 	SIGNAL_HANDLER
 
 	var/mob/user = arguments[2]
-	owner = "[user.key]"
+	owner = "[user?.key]"
 
 /datum/component/uplink/proc/old_implant(datum/source, list/arguments, obj/item/implant/new_implant)
 	SIGNAL_HANDLER

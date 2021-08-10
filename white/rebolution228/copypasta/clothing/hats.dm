@@ -16,7 +16,7 @@
 	armor = list(MELEE = 80, BULLET = 90, LASER = 50, ENERGY = 50, BOMB = 80, BIO = 0, RAD = 0, FIRE = 70, WOUND = 20)
 	strip_delay = 100
 	actions_types = list(/datum/action/item_action/toggle)
-	flags_inv = HIDEEARS|HIDEHAIR|HIDESNOUT|HIDEEYES
+	flags_inv = HIDEEARS|HIDEHAIR|HIDESNOUT
 	visor_flags_inv = HIDESNOUT
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF

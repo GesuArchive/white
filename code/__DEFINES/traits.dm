@@ -489,6 +489,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_HACKER		"hackereye"
 #define TRAIT_YOHEI			"yohei"
 
+#define TRAIT_HYPERSPACE_IMMUNE	"hyperspace_immune"
+
 #define LIFECANDLE_TRAIT "lifecandle"
 #define VENTCRAWLING_TRAIT "ventcrawling"
 #define SPECIES_FLIGHT_TRAIT "species-flight"

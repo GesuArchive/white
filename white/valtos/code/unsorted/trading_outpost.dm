@@ -270,6 +270,8 @@
 	name = "пиздюлегенератор"
 	desc = "Лучшее, что создало человечество. Работает на счёте древних шизов."
 	anchored = FALSE
+	armor = list(MELEE = 20, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 100, RAD = 100, FIRE = 70, ACID = 100)
+	maptext_y = 24
 	var/tier = 1
 	var/exp = 0
 	var/datum/bank_account/linked_account
@@ -290,6 +292,7 @@
 		return
 	linked_account?.adjust_money(tier)
 	exp++
+	maptext = MAPTEXT("[exp]")
 	if(exp >= 100 * tier)
 		tier++
 		exp = 0

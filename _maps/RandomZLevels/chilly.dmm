@@ -630,10 +630,13 @@
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "bO" = (
-/obj/structure/lattice,
-/obj/effect/turf_decal/dust,
-/turf/open/floor/plating,
-/area/awaymission/chilly/cave)
+/obj/effect/turf_decal/bot_white,
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/obj/machinery/porta_turret/syndicate/shuttle/chilly,
+/turf/open/floor/engine/hull/oxy,
+/area/awaymission/chilly/syndietrain)
 "bP" = (
 /obj/structure/chair/brevno{
 	dir = 1
@@ -787,10 +790,12 @@
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility2)
 "cm" = (
-/obj/structure/lattice,
-/obj/effect/turf_decal/dust,
-/turf/open/floor/plating/snowed/oxy,
-/area/awaymission/chilly/cave)
+/obj/effect/turf_decal/bot_white,
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/turf/open/floor/engine/hull/oxy,
+/area/awaymission/chilly/syndietrain)
 "cn" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/fluff/broken_flooring{
@@ -1541,7 +1546,6 @@
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
 "ei" = (
-/obj/machinery,
 /obj/effect/turf_decal/dust,
 /obj/structure/spider/stickyweb,
 /turf/open/floor/plating{
@@ -2109,12 +2113,15 @@
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
 "fO" = (
-/obj/effect/turf_decal/dust,
-/obj/effect/decal/cleanable/glass,
-/obj/effect/decal/cleanable/oil,
-/obj/structure/lattice,
-/turf/open/floor/plating,
-/area/awaymission/chilly/facility5)
+/obj/effect/turf_decal/bot_white,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/turf/open/floor/engine/hull/oxy,
+/area/awaymission/chilly/syndietrain)
 "fP" = (
 /obj/structure/closet/secure_closet/hydroponics,
 /obj/machinery/light/small/broken{
@@ -4190,7 +4197,7 @@
 /obj/effect/turf_decal/bot,
 /obj/item/storage/belt/utility/full/engi,
 /obj/item/construction/rcd/loaded,
-/obj/item/clothing/suit/armor/tac_hazmat/grey/coldres,
+/obj/item/clothing/suit/armor/opvest/spetsnaz,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/gatewaystart/base2armory)
 "lG" = (
@@ -4694,25 +4701,11 @@
 	},
 /area/awaymission/chilly/facility2)
 "nf" = (
-/obj/effect/turf_decal/dust,
-/obj/structure/safe/floor,
-/obj/item/ammo_box/magazine/m50,
-/obj/item/ammo_box/magazine/m50,
-/obj/item/ammo_box/magazine/m50,
-/obj/item/ammo_box/magazine/m50,
-/obj/item/stack/spacecash/c10000,
-/obj/item/stack/spacecash/c10000,
-/obj/item/stack/spacecash/c10000,
-/obj/item/stack/spacecash/c10000,
-/obj/item/stack/spacecash/c10000,
-/obj/item/stack/spacecash/c1000,
-/obj/item/stack/spacecash/c1000,
-/obj/item/stack/spacecash/c1000,
-/obj/item/stack/spacecash/c1000,
-/obj/item/stack/spacecash/c1000,
-/obj/item/gun/ballistic/automatic/pistol/deagle/gold,
-/turf/open/floor/plasteel/showroomfloor,
-/area/awaymission/chilly/facility)
+/obj/effect/turf_decal/bot_white,
+/obj/structure/closet/crate/secure,
+/obj/item/gun/magic/staff/spellblade,
+/turf/open/floor/engine/hull/oxy,
+/area/awaymission/chilly/syndietrain)
 "ng" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 8
@@ -4770,7 +4763,7 @@
 /obj/item/flashlight/seclite,
 /obj/item/clothing/mask/russian_balaclava,
 /obj/item/storage/belt/military/assault,
-/obj/item/clothing/suit/armor/tac_hazmat/grey/coldres,
+/obj/item/clothing/suit/armor/opvest/spetsnaz,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/gatewaystart/base2armory)
 "np" = (
@@ -4935,9 +4928,12 @@
 	},
 /area/awaymission/chilly/facility)
 "nM" = (
-/obj/structure/lattice,
-/turf/open/floor/plating,
-/area/awaymission/chilly/cave)
+/obj/effect/turf_decal/bot_white,
+/obj/machinery/light,
+/obj/structure/closet/crate/secure,
+/obj/item/disk/design_disk,
+/turf/open/floor/engine/hull/oxy,
+/area/awaymission/chilly/syndietrain)
 "nN" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/grille,
@@ -4988,10 +4984,11 @@
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
 "nV" = (
-/obj/effect/turf_decal/dust,
-/obj/structure/lattice,
-/turf/open/floor/plating/rust,
-/area/awaymission/chilly/facility2)
+/obj/effect/turf_decal/bot_white,
+/obj/effect/turf_decal/weather/side,
+/obj/machinery/porta_turret/syndicate/shuttle/chilly,
+/turf/open/floor/engine/hull/oxy,
+/area/awaymission/chilly/syndietrain)
 "nW" = (
 /obj/structure/lattice,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -6064,10 +6061,10 @@
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility/emergencystorage)
 "ra" = (
-/obj/effect/turf_decal/dust,
-/obj/structure/lattice,
-/turf/open/floor/plasteel/white,
-/area/awaymission/chilly/facility2)
+/obj/effect/turf_decal/bot_white,
+/obj/effect/turf_decal/weather/side,
+/turf/open/floor/engine/hull/oxy,
+/area/awaymission/chilly/syndietrain)
 "rb" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/fluff/broken_flooring{
@@ -6600,7 +6597,7 @@
 /obj/item/storage/firstaid/advanced,
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/belt/medical,
-/obj/item/clothing/suit/armor/tac_hazmat/grey/coldres,
+/obj/item/clothing/suit/armor/opvest/spetsnaz,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/gatewaystart/base2armory)
 "sC" = (
@@ -8779,9 +8776,8 @@
 "yD" = (
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/light,
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
+/obj/structure/closet/crate/secure,
+/obj/item/disk/surgery/debug,
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
 "yE" = (
@@ -9028,7 +9024,8 @@
 /area/awaymission/chilly/cave)
 "zn" = (
 /obj/effect/turf_decal/bot_white,
-/obj/structure/chair/comfy/shuttle,
+/obj/structure/closet/crate/secure,
+/obj/item/gun/magic/glitch,
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
 "zp" = (
@@ -10284,9 +10281,8 @@
 /area/awaymission/chilly/facility2)
 "CL" = (
 /obj/effect/turf_decal/bot_white,
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
+/obj/structure/closet/crate/secure,
+/obj/item/disk/design_disk,
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
 "CM" = (
@@ -12417,6 +12413,8 @@
 /area/awaymission/chilly/facility3)
 "IU" = (
 /obj/effect/turf_decal/bot_white,
+/obj/structure/closet/crate/secure,
+/obj/item/disk/tech_disk/debug,
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
 "IV" = (
@@ -12561,7 +12559,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/chair/comfy/shuttle,
+/obj/structure/closet/crate/secure,
+/obj/item/disk/design_disk,
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
 "Jr" = (
@@ -13818,6 +13817,8 @@
 /obj/machinery/door/window{
 	dir = 4
 	},
+/obj/structure/table/reinforced,
+/obj/item/gun/magic/wand/resurrection/debug,
 /turf/open/floor/circuit/red,
 /area/awaymission/chilly/syndietrain)
 "Ne" = (
@@ -13825,13 +13826,11 @@
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
 "Nh" = (
-/obj/structure/lattice,
-/obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 8
-	},
-/turf/open/floor/plating/snowed/oxy,
-/area/awaymission/chilly/cave)
+/obj/effect/turf_decal/bot_white,
+/obj/machinery/light,
+/obj/effect/turf_decal/weather/side,
+/turf/open/floor/engine/hull/oxy,
+/area/awaymission/chilly/syndietrain)
 "Ni" = (
 /obj/machinery/light/broken{
 	dir = 1
@@ -17348,10 +17347,8 @@
 /obj/machinery/door/window/northright{
 	dir = 4
 	},
-/obj/machinery/nuclearbomb{
-	desc = "You probably shouldn't stick around to see if this is armed. Also you can see 30642 number scribbled on bomb side";
-	r_code = "30642"
-	},
+/obj/structure/table/reinforced,
+/obj/item/fakeartefact,
 /turf/open/floor/circuit/red,
 /area/awaymission/chilly/syndietrain)
 "Xf" = (
@@ -18183,8 +18180,8 @@
 /area/awaymission/chilly/facility)
 "Zo" = (
 /obj/effect/turf_decal/bot_white,
-/obj/machinery/porta_turret/syndicate/shuttle/chilly,
-/turf/open/floor/circuit/green,
+/obj/structure/closet/crate/secure,
+/turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
 "Zp" = (
 /obj/structure/bed,
@@ -23284,7 +23281,7 @@ Om
 Om
 Mp
 rQ
-fO
+gf
 Mp
 Mp
 Mp
@@ -41775,7 +41772,7 @@ ii
 wJ
 tQ
 oF
-nf
+Gz
 zs
 PQ
 oF
@@ -52156,7 +52153,7 @@ vE
 Vv
 Vv
 Nu
-nM
+rn
 Vv
 pQ
 Vv
@@ -52356,29 +52353,29 @@ cu
 cu
 cu
 aG
-nM
-UG
-nM
-UG
-nM
-UG
-UG
-nM
 rn
-nM
+UG
+rn
+UG
+rn
+UG
+UG
+rn
+rn
+rn
 AG
-nM
+rn
 Qs
 iW
 UG
 rn
-nM
+rn
 UG
-nM
+rn
 tF
 Dr
 FM
-nM
+rn
 pc
 hk
 qC
@@ -52393,22 +52390,22 @@ gc
 Om
 Ka
 vx
-nM
-cm
-nM
-nM
+rn
+Gw
+rn
+rn
 Nu
-nM
+rn
 UG
 UG
-nM
+rn
 Dr
-nM
-cm
+rn
+Gw
 AT
 Dr
 rv
-cm
+Gw
 FK
 bC
 HA
@@ -52420,30 +52417,30 @@ UG
 YL
 BP
 ek
-nM
+rn
 AG
 Lf
 AG
-cm
 Gw
-Nh
+Gw
+PJ
 UG
 PJ
 mL
 mL
 UG
 UG
-nM
+rn
 Ty
 Qd
 oM
 DY
-nM
-nM
+rn
+rn
 Vv
 UG
-nM
-nM
+rn
+rn
 lZ
 lZ
 Pr
@@ -52640,7 +52637,7 @@ Vv
 Vv
 Vv
 Nu
-nM
+rn
 YU
 Vv
 Vv
@@ -52882,7 +52879,7 @@ Vv
 tF
 YU
 Nu
-nM
+rn
 YU
 Uz
 mL
@@ -53114,7 +53111,7 @@ Kg
 Vv
 fr
 UG
-cm
+Gw
 mL
 mL
 mL
@@ -53124,7 +53121,7 @@ Vv
 mL
 Vv
 Nu
-nM
+rn
 YU
 WN
 tF
@@ -53351,10 +53348,10 @@ mL
 Vv
 mL
 mL
-nM
+rn
 Vv
-cm
-nM
+Gw
+rn
 fr
 Dr
 Vv
@@ -53366,7 +53363,7 @@ mL
 Vv
 Vv
 Nu
-nM
+rn
 pt
 tJ
 YU
@@ -53567,58 +53564,58 @@ cu
 cu
 aG
 aG
-nM
+rn
 UG
-nM
-nM
 rn
 rn
 rn
-nM
-nM
+rn
+rn
+rn
+rn
 UG
-nM
-nM
 rn
-nM
-nM
-nM
-nM
+rn
+rn
+rn
+rn
+rn
+rn
 UG
 QD
 Vv
 YU
 UG
-bO
+Dr
 UG
 Dr
-nM
-nM
+rn
+rn
 Dr
-nM
+rn
 aO
-nM
-nM
-nM
+rn
+rn
+rn
 UG
 rn
 Dr
 iv
 hX
 Dr
-nM
+rn
 Nu
-nM
+rn
 Vv
 UG
-cm
+Gw
 Vv
 UG
 Vv
-cm
+Gw
 Dr
 jj
-nM
+rn
 nr
 FK
 bC
@@ -53627,21 +53624,21 @@ YU
 YU
 aG
 YU
-nM
 rn
-nM
-nM
+rn
+rn
+rn
 Gq
 Xm
 lV
-nM
+rn
 AG
 AG
 Vv
 Vv
 AG
 AG
-nM
+rn
 UG
 UG
 Tq
@@ -53850,7 +53847,7 @@ yt
 Vv
 Vv
 Nu
-nM
+rn
 Vv
 Vv
 mL
@@ -54324,8 +54321,8 @@ mL
 vK
 xy
 Vv
-nM
-nM
+rn
+rn
 Vv
 YU
 Vu
@@ -54561,13 +54558,13 @@ xK
 su
 Vv
 UG
-nM
+rn
 Vv
 YU
 mL
 Vv
-nM
-nM
+rn
+rn
 Vv
 LD
 Mg
@@ -54803,12 +54800,12 @@ EO
 Vv
 Vv
 Vv
-nM
+rn
 vC
 Vv
 Vv
 YU
-nM
+rn
 Vv
 rC
 Pr
@@ -55045,7 +55042,7 @@ Pr
 EO
 Vv
 Vv
-nM
+rn
 Vv
 vC
 Vv
@@ -55292,7 +55289,7 @@ Vv
 Vv
 Vv
 Vv
-nM
+rn
 xu
 Pr
 EO
@@ -55776,7 +55773,7 @@ XJ
 YU
 YU
 EF
-nM
+rn
 Vv
 YU
 Pr
@@ -56260,7 +56257,7 @@ mL
 Vv
 YU
 YU
-nM
+rn
 Vv
 Qs
 Pr
@@ -56720,7 +56717,7 @@ Sv
 me
 pA
 pA
-nV
+zU
 Yo
 pB
 pg
@@ -56967,7 +56964,7 @@ Tw
 HL
 oO
 IL
-nV
+zU
 AW
 Mr
 ta
@@ -57228,7 +57225,7 @@ mL
 fz
 Vv
 mL
-nM
+rn
 AZ
 Qs
 zZ
@@ -57468,7 +57465,7 @@ EF
 ln
 YU
 Vv
-nM
+rn
 mL
 zm
 Vv
@@ -57707,7 +57704,7 @@ cu
 Pr
 EO
 xg
-nM
+rn
 tF
 YU
 YU
@@ -57954,7 +57951,7 @@ Vv
 tF
 Ru
 YU
-nM
+rn
 UV
 Qs
 zZ
@@ -58191,7 +58188,7 @@ cu
 EO
 zt
 Vv
-nM
+rn
 bi
 tF
 tF
@@ -58675,7 +58672,7 @@ cu
 Pr
 zt
 iH
-nM
+rn
 Vv
 mL
 tF
@@ -58711,7 +58708,7 @@ na
 mB
 bu
 Uw
-nV
+zU
 gI
 Rq
 cu
@@ -58899,7 +58896,7 @@ Rq
 Tw
 Tw
 Tw
-nV
+zU
 Tw
 Rq
 mB
@@ -58922,7 +58919,7 @@ Pn
 tF
 YU
 mL
-nM
+rn
 YU
 Qs
 zZ
@@ -59159,7 +59156,7 @@ Nj
 EO
 zt
 mL
-nM
+rn
 tF
 Vv
 mL
@@ -59406,7 +59403,7 @@ Vv
 YU
 EX
 UV
-nM
+rn
 Vv
 Qs
 EO
@@ -59643,7 +59640,7 @@ me
 Pr
 zt
 Vv
-nM
+rn
 mL
 tF
 mL
@@ -59885,12 +59882,12 @@ Sv
 EO
 zt
 Vv
-nM
+rn
 Vv
 tF
 tF
 Ta
-nM
+rn
 mL
 EO
 cu
@@ -60107,7 +60104,7 @@ cu
 cu
 Rq
 Rq
-nV
+zU
 ix
 he
 qb
@@ -60132,7 +60129,7 @@ YU
 YU
 tF
 Ta
-nM
+rn
 tt
 EO
 cu
@@ -60354,7 +60351,7 @@ ud
 mB
 Rh
 mB
-nV
+zU
 tg
 DE
 mB
@@ -60611,7 +60608,7 @@ cu
 EO
 zt
 mL
-cm
+Gw
 Vv
 EX
 Vv
@@ -60853,7 +60850,7 @@ cu
 EO
 Pr
 Fw
-nM
+rn
 tF
 tF
 mL
@@ -61342,7 +61339,7 @@ YU
 mL
 YU
 mL
-cm
+Gw
 vK
 Cd
 cu
@@ -61821,7 +61818,7 @@ cu
 cu
 EO
 Vv
-nM
+rn
 Vv
 tF
 mL
@@ -63078,7 +63075,7 @@ cu
 IA
 Sv
 pA
-nV
+zU
 pA
 Rd
 HI
@@ -63515,12 +63512,12 @@ cu
 cu
 Pr
 YU
-cm
+Gw
 Vv
 Vv
 Vv
 YU
-nM
+rn
 mL
 aG
 cu
@@ -63564,7 +63561,7 @@ Rq
 rJ
 RD
 hT
-nV
+zU
 zC
 Tw
 WG
@@ -63757,12 +63754,12 @@ cu
 cu
 Pr
 AH
-nM
+rn
 Vv
 mL
 Vv
 mL
-nM
+rn
 qh
 Pr
 cu
@@ -63804,10 +63801,10 @@ Rq
 Rq
 Rq
 HI
-nV
-nV
+zU
+zU
 bA
-nV
+zU
 dv
 GG
 Ha
@@ -64532,7 +64529,7 @@ Rq
 Si
 bN
 Si
-ra
+te
 jk
 mB
 Kj
@@ -65209,7 +65206,7 @@ cu
 cu
 Pr
 mL
-cm
+Gw
 Vv
 Vv
 tF
@@ -65451,12 +65448,12 @@ cu
 cu
 EO
 mL
-cm
+Gw
 mL
 mL
 Vv
 mL
-cm
+Gw
 Vv
 EO
 cu
@@ -68117,7 +68114,7 @@ XI
 Zo
 lo
 kP
-Zo
+CL
 XI
 Vv
 Pr
@@ -68359,7 +68356,7 @@ Zy
 IU
 lo
 kP
-IU
+Zo
 XI
 YU
 EO
@@ -69082,10 +69079,10 @@ zZ
 zt
 mL
 XI
-zn
+Zo
 lo
 kP
-CL
+Zo
 XI
 Vv
 aG
@@ -69324,10 +69321,10 @@ zZ
 zt
 Vv
 XI
-zn
+CL
 lo
 kP
-CL
+nf
 XI
 YU
 Pr
@@ -69569,7 +69566,7 @@ XI
 Jq
 lo
 kP
-yD
+nM
 XI
 tF
 EO
@@ -69808,10 +69805,10 @@ zZ
 zt
 YU
 XI
-IU
+Zo
 lo
 kP
-IU
+Zo
 XI
 mL
 Pr
@@ -70053,7 +70050,7 @@ XI
 Zo
 qB
 Nn
-Zo
+CL
 XI
 YU
 aG
@@ -71018,10 +71015,10 @@ zZ
 zt
 YU
 XI
-Zo
+bO
 KR
 xH
-Zo
+nV
 XI
 Vv
 Qs
@@ -71260,10 +71257,10 @@ zZ
 zt
 mL
 XI
-IU
+cm
 lo
 kP
-IU
+ra
 XI
 mL
 Pr
@@ -71502,10 +71499,10 @@ zZ
 EO
 mL
 XI
-Jq
+fO
 lo
 kP
-yD
+Nh
 XI
 YU
 EO
@@ -71744,10 +71741,10 @@ aG
 EO
 Vv
 XI
-zn
+cm
 lo
 kP
-CL
+ra
 XI
 mL
 Pr
@@ -71986,10 +71983,10 @@ aG
 Pr
 la
 XI
-zn
+cm
 lo
 kP
-CL
+ra
 XI
 mL
 Pr
@@ -72228,10 +72225,10 @@ cu
 Pr
 mL
 XI
-zn
+cm
 lo
 kP
-CL
+ra
 XI
 Vv
 Pr
@@ -72470,10 +72467,10 @@ cu
 Pr
 Vv
 XI
-Jq
+fO
 lo
 kP
-yD
+Nh
 XI
 tF
 EO
@@ -72712,10 +72709,10 @@ cu
 aG
 mL
 XI
-IU
+cm
 lo
 kP
-IU
+ra
 XI
 tJ
 aG
@@ -72954,10 +72951,10 @@ cu
 Pr
 Vv
 XI
-Zo
+bO
 qB
 Nn
-Zo
+nV
 XI
 tF
 aG
@@ -75373,7 +75370,7 @@ cu
 cu
 Pr
 le
-nM
+rn
 PI
 Na
 Na

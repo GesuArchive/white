@@ -110,7 +110,7 @@ Borg Hypospray
 	if(!istype(M))
 		return
 	if(R.total_volume && M.try_inject(user, user.zone_selected, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE | (bypass_protection ? INJECT_CHECK_PENETRATE_THICK : 0)))
-		to_chat(M, "<span class='warning'>Чувствую небольшое покалывание!</span>")
+		to_chat(M, "<span class='warning'>Что-то укололо меня!</span>")
 		to_chat(user, "<span class='notice'>Ввожу [M] используя инжектор.</span>")
 		if(M.reagents)
 			var/trans = R.trans_to(M, amount_per_transfer_from_this, transfered_by = user, methods = INJECT)

@@ -366,7 +366,7 @@
 		return
 	var/mob/living/carbon/human/transferer = owner
 
-	to_chat(transfered, "<span class='warning'>Чувствую небольшое покалывание!</span>")
+	to_chat(transfered, "<span class='warning'>Что-то укололо меня!</span>")
 	transferer.reagents.trans_to(transfered, transferer.reagents.total_volume, 1, 1, 0, transfered_by = transferer)
 
 	var/obj/item/bodypart/L = spikey.checkembedded()

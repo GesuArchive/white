@@ -10,7 +10,7 @@
 		moan--
 	lastmoan = moan
 
-	visible_message("<span class='purple'> <b>[src]</b> [pick("стонет", "стонет в наслаждении",)].</span>")
+	visible_message("<span class='purple'><b>[src]</b> [pick("стонет", "стонет в наслаждении")].</span>")
 
 	var/temp_age = 0
 
@@ -133,7 +133,7 @@
 
 	if(stat != CONSCIOUS) return
 
-	var/message
+	var/message = "пританцовывает."
 	var/lust_increase = 0
 	var/lust_which = ACTOR_TARD | VICTIM_TARD
 	var/c_target = null
@@ -370,7 +370,7 @@
 
 /mob/proc/handle_post_sex(var/amount, var/orifice, var/mob/partner)
 
-	sleep(1 SECONDS)
+	sleep(0.5 SECONDS)
 
 	if(stat != CONSCIOUS)
 		return

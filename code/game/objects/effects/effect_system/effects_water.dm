@@ -12,6 +12,9 @@
 	QDEL_IN(src, 70)
 
 /obj/effect/particle_effect/water/Move(turf/newloc)
+	var/datum/gas_mixture/env = loc.return_air()
+	if(env)
+		env.set_temperature(T20C)
 	if (--src.life < 1)
 		qdel(src)
 		return FALSE

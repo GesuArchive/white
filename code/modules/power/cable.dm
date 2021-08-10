@@ -142,6 +142,10 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 		dir_string = "l[cable_layer]-[dir_string]"
 		icon_state = dir_string
 
+/obj/structure/cable/examine(mob/user)
+	. = ..()
+	if(isobserver(user))
+		. += get_power_info()
 
 /obj/structure/cable/proc/handlecable(obj/item/W, mob/user, params)
 	var/turf/T = get_turf(src)
@@ -156,13 +160,17 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 		return
 
 	else if(W.tool_behaviour == TOOL_MULTITOOL)
-		if(powernet && (powernet.avail > 0))		// is it powered?
-			to_chat(user, "<span class='danger'>Суммарная мощность: [DisplayPower(powernet.avail)]\nНагрузка: [DisplayPower(powernet.load)]\nИзлишки: [DisplayPower(surplus())]</span>")
-		else
-			to_chat(user, "<span class='danger'>Кабель не подключен.</span>")
+		to_chat(user, get_power_info())
 		shock(user, 5, 0.2)
 
 	add_fingerprint(user)
+
+/obj/structure/cable/proc/get_power_info()
+	if(powernet?.avail > 0)
+		return "<span class='danger'>Суммарная мощность: [DisplayPower(powernet.avail)]\nНагрузка: [DisplayPower(powernet.load)]\nИзлишки: [DisplayPower(surplus())]</span>"
+	else
+		return "<span class='danger'>Кабель не подключен.</span>"
+
 
 // Items usable on a cable :
 //   - Wirecutters : cut it duh !

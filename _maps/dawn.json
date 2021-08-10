@@ -1,0 +1,22 @@
+{
+	"version": 1,
+    "map_name": "Dawn",
+    "map_path": "map_files/Dawn",
+    "map_file": "dawn.dmm",
+    "shuttles": {
+	    "cargo": "cargo_box",
+	    "ferry": "ferry_fancy",
+	    "whiteship": "whiteship_box",
+	    "emergency": "emergency_box"
+    },
+	"job_changes": {
+		"paramedic": {
+			"total_positions": 0,
+			"spawn_positions": 0
+		},
+		"psychologist": {
+			"total_positions": 0,
+			"spawn_positions": 0
+		}
+	}
+}

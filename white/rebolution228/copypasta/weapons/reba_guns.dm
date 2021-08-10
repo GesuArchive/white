@@ -171,7 +171,7 @@
 // AS VAL
 
 /obj/item/gun/ballistic/automatic/asval
-	name = "АС 'Вал'"
+	name = "АС Вал"
 	desc = "Бесшумный автомат, используемый войсками осназа Новой России. Использует 9х39 калибр."
 	icon = 'white/rebolution228/icons/weapons/rguns.dmi'
 	icon_state = "asval"
@@ -210,19 +210,20 @@
 
 /obj/item/ammo_casing/c9x39
 	name = "9x39 гильза"
+	caliber = "9x39"
 	projectile_type = /obj/projectile/bullet/c9x39eb
 
 /obj/projectile/bullet/c9x39eb
 	name = "9x39 пуля"
 	damage = 30
 	armour_penetration = 60
-	wound_bonus = 10
+	wound_bonus = -10
 
 // AK74M
 
 /obj/item/gun/ballistic/automatic/ak74m
 	name = "AK-74M"
-	desc = "Младший брат автомата АК. Использует 5.45 калибр."
+	desc = "Основной образец индивидуального оружия личного состава пехотных и других подразделений Вооруженных сил Новой России, специальных подразделений правоохранительных органов. Использует 5,45мм патроны."
 	icon = 'white/rebolution228/icons/weapons/rguns.dmi'
 	icon_state = "ak74m"
 	inhand_icon_state = "ak74m"
@@ -272,7 +273,8 @@
 
 /obj/item/ammo_casing/a545
 	name = "5.45x39 гильза"
-	icon_state = ".50"
+	icon_state = "a762-50"
+	caliber = "a545"
 	projectile_type = /obj/projectile/bullet/a545
 
 /obj/projectile/bullet/a545
@@ -285,7 +287,7 @@
 
 /obj/item/gun/ballistic/automatic/ak74m/gp25
 	var/obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel
-	desc = "Младший брат автомата АК. Использует 5.45 калибр. Имеет при себе подствольник ГП-25."
+	desc = "Основной образец индивидуального оружия личного состава пехотных и других подразделений Вооруженных сил Новой России, специальных подразделений правоохранительных органов. Использует 5,45мм патроны и имеет при себе подствольный 40-мм гранатомёт ГП-25."
 	icon_state = "ak74mgl"
 	inhand_icon_state = "ak74mgl"
 	worn_icon_state = "ak74mgl_back"
