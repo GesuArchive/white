@@ -32,7 +32,7 @@
 		LAZYSET(expansion_bays, H.device_type, H)
 	all_components[H.device_type] = H
 
-	to_chat(user, "<span class='notice'>Устанавливаю \[H] в <b>[src.name]</b>.</span>")
+	to_chat(user, "<span class='notice'>Устанавливаю [H] в <b>[src.name]</b>.</span>")
 	H.holder = src
 	H.forceMove(src)
 	H.on_install(src, user)
