@@ -52,7 +52,7 @@
 	dir = 4
 	},
 /obj/machinery/button/door{
-	id = "ex_pilot";
+	id = "ex_cab";
 	name = "Cabin Bolt Control";
 	normaldoorcontrol = 1;
 	pixel_y = -32;
@@ -283,7 +283,7 @@
 	cell_type = /obj/item/stock_parts/cell/high/plus
 	},
 /obj/machinery/button/door{
-	id = "ex_pilot";
+	id = "ex_cab";
 	name = "Cabin Bolt Control";
 	normaldoorcontrol = 1;
 	pixel_y = -25;
@@ -390,7 +390,7 @@
 "M" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/button/door{
-	id = "ex_pilot";
+	id = "ex_cab";
 	name = "Cabin Bolt Control";
 	normaldoorcontrol = 1;
 	pixel_y = 32;
