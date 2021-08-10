@@ -11,11 +11,11 @@
 			to_chat(user, "<span class='warning'>Все отсеки расширения компьютера заполнены.</span>")
 			return FALSE
 		if(LAZYACCESS(expansion_bays, H.device_type))
-			to_chat(user, "<span class='warning'>Компьютер сразу отторгает /[H] и отображает ошибку: \"Конфликт адресов оборудования\".</span>")
+			to_chat(user, "<span class='warning'>Компьютер сразу отторгает [H] и отображает ошибку: \"Конфликт адресов оборудования\".</span>")
 			return FALSE
 
 	if(all_components[H.device_type])
-		to_chat(user, "<span class='warning'>Слот оборудования этого компьютера уже занят \[all_components[H.device_type]].</span>")
+		to_chat(user, "<span class='warning'>Слот оборудования этого компьютера уже занят [all_components[H.device_type]].</span>")
 		return FALSE
 	return TRUE
 
@@ -47,7 +47,7 @@
 		LAZYREMOVE(expansion_bays, H.device_type)
 	all_components.Remove(H.device_type)
 
-	to_chat(user, "<span class='notice'>Извлекаю \[H] из <b>[src.name]</b>.</span>")
+	to_chat(user, "<span class='notice'>Извлекаю [H] из <b>[src.name]</b>.</span>")
 
 	H.forceMove(get_turf(src))
 	H.holder = null
