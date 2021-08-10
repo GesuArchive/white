@@ -1,5 +1,7 @@
 /datum/antagonist/dreamer_orbital
 	name = "Дример с Л*****ба"
+	show_name_in_check_antagonists = TRUE
+	show_to_ghosts = TRUE
 	show_in_antagpanel = TRUE
 	roundend_category = "Orbital Ruin Antags"
 	antagpanel_category = "Other"
