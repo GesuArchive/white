@@ -12,7 +12,7 @@
 /datum/antagonist/dreamer_orbital/proc/forge_objectives()
 	var/datum/objective/slay/slay = new
 	slay.owner = owner
-	slay.reward = 200
+	slay.reward = 100
 	objectives += slay
 
 	var/datum/objective/limited/limit = new
