@@ -1,9 +1,9 @@
 /datum/objective/slay
 	name = "slay"
 	explanation_text = "Ликвидировать существо класса \"МЕГАФАУНА\"."
-	var/target_megafauna_type
 	martyr_compatible = TRUE
 	reward = 30
+	var/target_megafauna_type
 
 /datum/objective/slay/New()
 	var/list/mob/living/simple_animal/hostile/megafauna/mflist = list()

@@ -3,6 +3,9 @@
 	show_in_antagpanel = TRUE
 	roundend_category = "Orbital Ruin Antags"
 	antagpanel_category = "Other"
+	var/greet_text = 	"И вот, после долгих скитаний по заброшенным станциям, подходящее место с порталом наконец найдено. \
+						Чудом удалось оторваться от прошлой группы охотников, но новая наверняка не заставит себя ждать. \
+						Нужно как можно быстрее активировать портал на Лаваленд и убить мою цель. Риск несомненно велик, но награда еще больше!"
 
 /datum/antagonist/dreamer_orbital/proc/forge_objectives()
 	var/datum/objective/slay/slay = new
@@ -22,7 +25,6 @@
 	. = ..()
 
 /datum/antagonist/dreamer_orbital/greet()
-	to_chat(owner, "<span class='boldannounce'>И вот, после долгих скитаний по заброшенным станциям, подходящее место с порталом наконец найдено. \
-				Чудом удалось оторваться от прошлой группы охотников, но новая наверняка не заставит себя ждать. \
-				Нужно как можно быстрее активировать портал на Лаваленд и убить мою цель. Риск несомненно велик, но награда еще больше!")
-	owner.announce_objectives()
+	to_chat(owner.current, greet_text)
+	antag_memory += greet_text
+	. = ..()
