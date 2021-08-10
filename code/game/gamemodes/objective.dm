@@ -580,14 +580,14 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 /datum/objective/limited/admin_edit(mob/admin)
 	var/def_value = 36000
 	var/mob/new_timer = input(admin, "Какое время ставим в секундах?", "Таймер", def_value) as num|null
-	if (!new_timer)
+	set_time(new_timer)
+
+/datum/objective/limited/set_time(newtime)
+	if (!newtime || newtime < 1)
 		return
-
-	time_to_do = new_timer * 10
-
+	time_to_do = newtime
 	deltimer(timerid)
 	timerid = null
-
 	update_explanation_text()
 
 /datum/objective/limited/check_completion()

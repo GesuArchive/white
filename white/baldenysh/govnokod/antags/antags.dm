@@ -7,11 +7,11 @@
 /datum/antagonist/dreamer_orbital/proc/forge_objectives()
 	var/datum/objective/slay/slay = new
 	slay.owner = owner
-	slay.reward = 70
+	slay.reward = 150
 	objectives += slay
 
 	var/datum/objective/limited/limit = new
-	limit.time_to_do = 2 HOURS
+	limit.set_time(2 HOURS)
 	limit.owner = owner
 	limit.reward = 20
 	objectives += limit
