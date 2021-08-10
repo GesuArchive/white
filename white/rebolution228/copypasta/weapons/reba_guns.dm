@@ -155,6 +155,7 @@
 
 /obj/item/ammo_casing/caseless/m41acaseless
 	name = "10x24мм патрон"
+	caliber = "10x24mm"
 	projectile_type = /obj/projectile/bullet/m41acaseless
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted/m41a
@@ -273,7 +274,7 @@
 
 /obj/item/ammo_casing/a545
 	name = "5.45x39 гильза"
-	icon_state = "a762-50"
+	icon_state = "762-casing"
 	caliber = "a545"
 	projectile_type = /obj/projectile/bullet/a545
 
