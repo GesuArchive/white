@@ -582,7 +582,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	var/mob/new_timer = input(admin, "Какое время ставим в секундах?", "Таймер", def_value) as num|null
 	set_time(new_timer)
 
-/datum/objective/limited/set_time(newtime)
+/datum/objective/limited/proc/set_time(newtime)
 	if (!newtime || newtime < 1)
 		return
 	time_to_do = newtime

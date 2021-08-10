@@ -72,10 +72,15 @@
 		new /obj/item/clothing/mask/gas(T)
 		new /obj/item/storage/belt/utility/full(T)
 
-	target_type = pickweight(list("dreamer" = 1, "heretic" = 3))
+	target_type = pickweight(list("dreamer" = 1, "heretic" = 5))
 	switch(target_type)
 		if("dreamer")
 			created_human.equipOutfit(/datum/outfit/dreamer)
+
+			created_human.mind.store_memory("И вот, после долгих скитаний по заброшенным станциям, подходящее место наконец найдено. \
+				Чудом удалось оторваться от прошлой группы охотников, но новая наверняка не заставит себя ждать. \
+				Нужно как можно быстрее активировать портал на Лаваленд и убить мою цель. Риск несомненно велик, но награда еще больше!")
+
 			created_human.mind.add_antag_datum(/datum/antagonist/dreamer_orbital)
 			created_human.mind.set_level(/datum/skill/gaming, SKILL_LEVEL_LEGENDARY, TRUE)
 			ADD_TRAIT(created_human, TRAIT_NOSOFTCRIT, "gaming")
