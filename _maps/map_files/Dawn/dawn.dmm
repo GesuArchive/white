@@ -2196,9 +2196,7 @@
 /area/security/brig)
 "gf" = (
 /obj/effect/turf_decal/stripes/line{
-	dir = 6;
-	step_x = 0;
-	step_y = 0
+	dir = 6
 	},
 /obj/structure/closet/firecloset,
 /obj/structure/sign/warning/securearea{
@@ -3426,8 +3424,7 @@
 "jy" = (
 /obj/machinery/power/apc{
 	dir = 8;
-	pixel_x = -24;
-	step_x = 0
+	pixel_x = -24
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -4409,8 +4406,7 @@
 "mt" = (
 /obj/machinery/power/apc{
 	dir = 8;
-	pixel_x = -24;
-	step_x = 0
+	pixel_x = -24
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -5037,10 +5033,7 @@
 /turf/open/floor/plating,
 /area/maintenance/port)
 "ol" = (
-/obj/structure/closet/emcloset{
-	step_x = 0;
-	step_y = 0
-	},
+/obj/structure/closet/emcloset,
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -5050,10 +5043,7 @@
 	},
 /area/hallway/secondary/exit)
 "om" = (
-/obj/structure/closet/emcloset{
-	step_x = 0;
-	step_y = 0
-	},
+/obj/structure/closet/emcloset,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
 "on" = (
@@ -5541,8 +5531,7 @@
 	areastring = "/area/crew_quarters/heads/hop";
 	dir = 1;
 	name = "Head of Personnel APC";
-	pixel_y = 24;
-	step_y = 0
+	pixel_y = 24
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -6171,8 +6160,7 @@
 	},
 /obj/machinery/power/apc{
 	dir = 1;
-	pixel_y = 24;
-	step_y = 0
+	pixel_y = 24
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -6942,9 +6930,7 @@
 /area/engine/engineering)
 "tY" = (
 /obj/effect/turf_decal/stripes/line{
-	dir = 6;
-	step_x = 0;
-	step_y = 0
+	dir = 6
 	},
 /turf/open/floor/plating,
 /area/engine/engineering)
@@ -8748,18 +8734,12 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
-/obj/structure/closet/emcloset{
-	step_x = 0;
-	step_y = 0
-	},
+/obj/structure/closet/emcloset,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
 "zZ" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/structure/closet/emcloset{
-	step_x = 0;
-	step_y = 0
-	},
+/obj/structure/closet/emcloset,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
 "Aa" = (
@@ -8775,14 +8755,9 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/aisat)
 "Ab" = (
-/obj/machinery/vending/coffee{
-	step_x = 0;
-	step_y = 0
-	},
+/obj/machinery/vending/coffee,
 /obj/effect/turf_decal/stripes/line{
-	dir = 6;
-	step_x = 0;
-	step_y = 0
+	dir = 6
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)

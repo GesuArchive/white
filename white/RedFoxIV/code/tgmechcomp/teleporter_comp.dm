@@ -59,28 +59,32 @@
 		activate_for(1 SECONDS, FALSE)
 		return
 */
-	var/list/teleported_mobs = list()
-	var/teleported_AM = 0
+	var/turf/dest = get_turf(tele)
+	var/list/teleported_mobs = list() //list for storing "ckey as mobname (mobtype)" strings for all teleported mobs
+	var/teleported_objs = 0 // a simple counter for other stuff though
 	var/mob/living/L
-	for(var/obj/AM in get_turf(src))
-		if(AM.anchored || AM == src)
+	for(var/atom/movable/AM in get_turf(src))
+		if(AM.anchored || AM == src) // no teleporting self or anchored stuff
 			continue
-		AM.forceMove(get_turf(tele))
-		teleported_AM++
+		if(!istype(AM, /obj) && !istype(AM, /mob)) // allowing only /obj and /mob type atoms
+			continue
+		if(istype(AM, /obj/effect) || istype(AM, /obj/projectile)) // but no /obj/effects or projectiles.
+			continue
+		// yes, i could put it all under one if but it would look like ass
+
+		AM.forceMove(dest)
+		teleported_objs++
 		if(isliving(AM))
 			L = AM
-			teleported_mobs.Add("[L.ckey ? "[L.ckey] as " : ""][L.name]")
-
+			teleported_mobs.Add("[L.ckey ? "[L.ckey] as " : ""][L.name] ([L.type])")
 	playsound(src, 'sound/weapons/emitter2.ogg', 25, TRUE, extrarange = 3)
 	playsound(tele, 'sound/weapons/emitter2.ogg', 25, TRUE, extrarange = 3)
 	var/datum/effect_system/spark_spread/s1 = new(src)
 	s1.set_up(rand(3,7), FALSE, src)
 	s1.start()
-
-
 	activate_for(12 SECONDS)
 	tele.activate_for(0.2 SECONDS)
-	log_action("teleported [teleported_AM] objects to x=[tele.x], y=[tele.y][teleported_mobs.len ? ", including following mobs: [jointext(teleported_mobs, ", ")]" : ""]")
+	log_action("teleported [teleported_objs] objects to x=[tele.x], y=[tele.y][teleported_mobs.len ? ", which includes following mobs: [jointext(teleported_mobs, ", ")]" : ""]")
 	return
 
 

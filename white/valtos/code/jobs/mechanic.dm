@@ -93,9 +93,9 @@
 /obj/machinery/copytech/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='info'>Примерное время создания объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>\n"
-	. += "<span class='info'>Оставшееся время: [timeleft(timer)] секунд.</span>"
+	. += "<span class='info'>Оставшееся время: [timeleft(timer)] секунд.</span>\n"
 	. += "<span class='info'>Внутри запасено: <b>[crystals]/[max_crystals] блюспейс-кристаллов</b>.</span>\n"
-	. += "<span class='info'>Накоплено энергии: <b>[num2loadingbar((siphon_max-siphoned_power)/siphon_max, reverse = TRUE)] [DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.</span>"
+	. += "<span class='info'>Накоплено энергии: <b>[num2loadingbar((siphon_max-siphoned_power)/siphon_max, 10, reverse = TRUE)] [DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.</span>"
 	. += "<hr><span class='notice'>Похоже, ему требуется подключение к энергосети через кабель.</span>"
 
 /obj/machinery/copytech/Initialize()
@@ -294,8 +294,8 @@
 /obj/machinery/copytech_platform/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='info'>Примерное время для уничтожения объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>\n"
-	. += "<span class='info'>Оставшееся время: [time2text(timeleft(timer), "mm:ss")]</span>"
-	. += "<span class='info'>Накоплено энергии: <b>[num2loadingbar((siphon_max-siphoned_power)/siphon_max, reverse = TRUE)] [DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.</span>"
+	. += "<span class='info'>Оставшееся время: [time2text(timeleft(timer), "mm:ss")]</span>\n"
+	. += "<span class='info'>Накоплено энергии: <b>[num2loadingbar((siphon_max-siphoned_power)/siphon_max, 10, reverse = TRUE)] [DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.</span>"
 	. += "<hr><span class='notice'>Похоже, ему требуется подключение к энергосети через кабель.</span>"
 
 /obj/machinery/copytech_platform/Initialize()

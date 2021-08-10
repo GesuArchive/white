@@ -28,18 +28,18 @@
 	var/list/data = ..()
 	data["fuel"] = get_fuel()
 	data["display_stats"] = list(
-		"Shuttle Mass" = "[calculated_mass/10] Tons",
-		"Engine Force" = "[calculated_dforce]kN ([calculated_engine_count] engines)",
-		"Supercruise Acceleration" = "[calculated_acceleration] ms^-2",
-		"Fuel Consumption" = "[calculated_consumption] moles per second",
-		"Engine Cooldown" = "[calculated_cooldown] seconds"
+		"Масса" = "[calculated_mass/10] тонн",
+		"Сила двигателей" = "[calculated_dforce]кН ([calculated_engine_count] двигателей)",
+		"Ускорение" = "[calculated_acceleration] мс^-2",
+		"Потребление топлива" = "[calculated_consumption] молей в секунду",
+		"Охлаждение двигателей" = "[calculated_cooldown] секунд"
 	)
 	if(calculated_acceleration < 1)
-		data["thrust_alert"] = "Insufficient engine power at last callibration. Launch shuttle to recalculate thrust."
+		data["thrust_alert"] = "Недостаточно энергии было записано с последнего запуска. Запустите шаттл для перекалибровки."
 	else
 		data["thrust_alert"] = 0
 	if(calculated_non_operational_thrusters > 0)
-		data["damage_alert"] = "[calculated_non_operational_thrusters] thrusters offline."
+		data["damage_alert"] = "[calculated_non_operational_thrusters] двигатели оффлайн."
 	else
 		data["thrust_alert"] = 0
 	return data
@@ -47,7 +47,7 @@
 /obj/machinery/computer/shuttle_flight/custom_shuttle/launch_shuttle()
 	calculateStats()
 	if(calculated_acceleration < 1)
-		say("Insufficient engine power to engage supercruise.")
+		say("Недостаточная сила двигателей.")
 		return
 	var/datum/orbital_object/shuttle/custom_shuttle/shuttle = ..()
 	if(shuttle)
@@ -92,7 +92,7 @@
 
 /obj/machinery/computer/shuttle_flight/custom_shuttle/proc/check_stranded()
 	if(!calculated_engine_count && shuttleObject)
-		say("Fuel reserves depleted, dropping out of supercruise.")
+		say("Топливо закончилось. Экстренный сброс!")
 		if(!shuttleObject.docking_target)
 			if(shuttleObject.can_dock_with)
 				shuttleObject.commence_docking(shuttleObject.can_dock_with, TRUE)
@@ -100,15 +100,15 @@
 				//Send shuttle object to random location
 				var/datum/orbital_object/z_linked/beacon/z_linked = new /datum/orbital_object/z_linked/beacon/ruin/stranded_shuttle()
 				z_linked.position = new /datum/orbital_vector(shuttleObject.position.x, shuttleObject.position.y)
-				z_linked.name = "Stranded [shuttleObject]"
+				z_linked.name = "Заблудший [shuttleObject]"
 				if(!z_linked)
-					say("Failed to dethrottle shuttle, please contact a Nanotrasen supervisor.")
+					say("Невозможно остановить шаттл, свяжитесь с Нанотрейзен.")
 					return
 				shuttleObject.commence_docking(z_linked, TRUE)
 		shuttleObject.docking_frozen = TRUE
 		//Dock
 		if(!random_drop())
-			say("Failed to drop at a random location. Please select a location.")
+			say("Невозможно выбрать место приземления. Выберите локацию.")
 			shuttleObject.docking_frozen = FALSE
 		return TRUE
 	return FALSE
