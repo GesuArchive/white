@@ -145,6 +145,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 /obj/structure/cable/examine(mob/user)
 	. = ..()
 	if(isobserver(user))
+		. += "<hr>"
 		. += get_power_info()
 
 /obj/structure/cable/proc/handlecable(obj/item/W, mob/user, params)
