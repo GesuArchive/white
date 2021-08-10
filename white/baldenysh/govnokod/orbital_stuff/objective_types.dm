@@ -1,7 +1,7 @@
 /datum/orbital_objective/headhunt
 	name = "Охота за головами"
 	var/generated = FALSE
-	var/target_type
+	var/objective_z_level
 	var/mob/living/mob_to_recover
 	min_payout = 20 * CARGO_CRATE_VALUE
 	max_payout = 50 * CARGO_CRATE_VALUE
@@ -10,7 +10,8 @@
 	return "Требуется ликвидировать опасного преступника, скрывающегося на [station_name]. \
 			Живым или мертвым, его необходимо доставить на мостик и отправить к вашему нанимателю с помощью предоставленной системы доставки. \
 			Следует принять во внимание, что преступник может быть экипирован гораздо лучше обычного рейнджера. \
-			Возможно, может потребоваться помощь сотрудников службы безопасности."
+			Возможно, может потребоваться помощь сотрудников службы безопасности. \
+			Задание будет провалено в случае побега преступника со станции или уничтожения его тела!"
 
 /datum/orbital_objective/headhunt/on_assign(obj/machinery/computer/objective/objective_computer)
 	var/area/A = GLOB.areas_by_type[/area/bridge]
@@ -56,6 +57,7 @@
 
 /datum/orbital_objective/headhunt/generate_objective_stuff(turf/chosen_turf)
 	var/mob/living/carbon/human/created_human = new(chosen_turf)
+	objective_z_level = created_human.z
 	created_human.ice_cream_mob = TRUE
 	ADD_TRAIT(created_human, TRAIT_CLIENT_LEAVED, "ice_cream")
 	notify_ghosts("Цель охоты за головами может быть занята.", source = created_human, action = NOTIFY_ORBIT, flashwindow = FALSE, ignore_key = POLL_IGNORE_SPLITPERSONALITY, notify_suiciders = FALSE)
@@ -72,8 +74,7 @@
 		new /obj/item/clothing/mask/gas(T)
 		new /obj/item/storage/belt/utility/full(T)
 
-	target_type = pickweight(list("dreamer" = 1, "heretic" = 5))
-	switch(target_type)
+	switch(pickweight(list("dreamer" = 1, "heretic" = 5)))
 		if("dreamer")
 			created_human.equipOutfit(/datum/outfit/dreamer)
 
@@ -95,14 +96,18 @@
 
 /datum/orbital_objective/headhunt/check_failed()
 	if(generated)
-		if(QDELETED(mob_to_recover))
+		if(!mob_to_recover || QDELETED(mob_to_recover))
 			return TRUE
+		if(mob_to_recover.z != objective_z_level)
+			return TRUE
+		/*
 		switch(target_type)
 			if("dreamer")
 				var/datum/antagonist/dreamer_orbital/DO = locate() in mob_to_recover.mind.antag_datums
 				var/datum/objective/slay/S = locate() in DO.objectives
 				if(S.completed)
 					return TRUE
+		*/
 	return FALSE
 
 /datum/orbital_objective/headhunt/proc/place_portal()
