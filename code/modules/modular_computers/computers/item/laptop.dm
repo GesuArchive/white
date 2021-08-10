@@ -62,9 +62,11 @@
 
 /obj/item/modular_computer/laptop/MouseDrop(obj/over_object, src_location, over_location)
 	. = ..()
+	/* там и так аттак_селф у родителя вызываеца блядь
 	if(over_object == usr || over_object == src)
 		try_toggle_open(usr)
 		return
+	*/
 	if(istype(over_object, /atom/movable/screen/inventory/hand))
 		var/atom/movable/screen/inventory/hand/H = over_object
 		var/mob/M = usr
