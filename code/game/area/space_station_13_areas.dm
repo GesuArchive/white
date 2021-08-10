@@ -1337,6 +1337,9 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Свободный магазин"
 	icon_state = "vacant_commissary"
 
+/area/vacant_room/commissary/second
+	name = "Нижний магазин"
+
 //AI
 
 /area/ai_monitored
