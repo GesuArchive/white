@@ -78,13 +78,22 @@
 	physical = null
 	return ..()
 
+/*
 /obj/item/modular_computer/attack(mob/living/M, mob/living/user)
 	if(active_program?.tap(M, user))
 		playsound(loc, 'sound/weapons/tap.ogg', get_clamped_volume(), TRUE, -1) //Likewise for the tap sound
 		addtimer(CALLBACK(src, .proc/play_ping), 0.5 SECONDS, TIMER_UNIQUE) //Slightly delayed ping to indicate success
 		return TRUE
 	return ..()
+*/
 
+/obj/item/modular_computer/pre_attack(atom/A, mob/living/user, params)
+	. = ..()
+	if(active_program?.tap(A, user))
+		playsound(loc, 'sound/weapons/tap.ogg', get_clamped_volume(), TRUE, -1) //Likewise for the tap sound
+		addtimer(CALLBACK(src, .proc/play_ping), 0.5 SECONDS, TIMER_UNIQUE) //Slightly delayed ping to indicate success
+		return TRUE
+	return FALSE
 
 /**
  * Plays a ping sound.

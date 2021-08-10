@@ -72,6 +72,13 @@
 			if(type in SP.advanced_surgeries)
 				return TRUE
 
+	for(var/obj/item/modular_computer/modcomp in user.held_items | range(1, patient))
+		if(!modcomp.screen_on)
+			continue
+		var/datum/computer_file/program/surgmaster/SM = modcomp.active_program
+		if(SM && istype(SM))
+			return SM.can_start_surgery(type, replaced_by)
+
 	var/turf/T = get_turf(patient)
 
 	//Get the relevant operating computer

@@ -3736,6 +3736,8 @@
 #include "white\baldenysh\govnokod\machines\teleporter.dm"
 #include "white\baldenysh\govnokod\machines\teleporter_console.dm"
 #include "white\baldenysh\govnokod\machines\vending.dm"
+#include "white\baldenysh\govnokod\modular_computers\presets.dm"
+#include "white\baldenysh\govnokod\modular_computers\programs\surgery.dm"
 #include "white\baldenysh\govnokod\orbital_stuff\objective_types.dm"
 #include "white\baldenysh\govnokod\orbital_stuff\orbital_ruins.dm"
 #include "white\baldenysh\govnokod\orbital_stuff\procs.dm"
