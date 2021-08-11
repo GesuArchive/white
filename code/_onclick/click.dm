@@ -93,6 +93,9 @@
 	if(LAZYACCESS(modifiers, SHIFT_CLICK))
 		ShiftClickOn(A)
 		return
+	if(LAZYACCESS(modifiers, ALT_CLICK))
+		AltClickOn(A)
+		return
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		AltClickOn(A)
 		return
