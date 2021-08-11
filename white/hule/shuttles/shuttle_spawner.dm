@@ -62,10 +62,12 @@
 
 /datum/map_template/shuttle/capsule/proc/check_deploy(turf/deploy_location)
 	var/affected = get_affected_turfs(deploy_location, centered=TRUE)
+	var/turf/dest = get_turf(src)
 	for(var/turf/T in affected)
 		var/area/A = get_area(T)
 		if(is_type_in_typecache(A, banned_areas))
-			return "bad area"
+			if(!is_centcom_level(dest.z))
+				return "bad area"
 
 		var/banned = is_type_in_typecache(T, blacklisted_turfs)
 		var/permitted = is_type_in_typecache(T, whitelisted_turfs)
