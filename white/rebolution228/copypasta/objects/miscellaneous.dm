@@ -29,6 +29,7 @@
 	isGlass = FALSE
 	custom_materials = list(/datum/material/iron=1500)
 	custom_price = PAYCHECK_HARD * 2
+	w_class = WEIGHT_CLASS_NORMAL
 
 //soviet flask
 
