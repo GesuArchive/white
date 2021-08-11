@@ -2,6 +2,25 @@ import { useBackend, useSharedState } from '../backend';
 import { NtosWindow } from '../layouts';
 import { AnimatedNumber, Button, LabeledList, NoticeBox, ProgressBar, Section, Tabs } from '../components';
 
+const damageTypes = [
+  {
+    label: 'Физический',
+    type: 'bruteLoss',
+  },
+  {
+    label: 'Ожоги',
+    type: 'fireLoss',
+  },
+  {
+    label: 'Токсины',
+    type: 'toxLoss',
+  },
+  {
+    label: 'Кислород',
+    type: 'oxyLoss',
+  },
+];
+
 export const NtosOperating = (props, context) => {
   const [tab, setTab] = useSharedState(context, 'tab', 1);
   return (
@@ -36,17 +55,9 @@ export const NtosOperating = (props, context) => {
 const PatientStateView = (props, context) => {
   const { act, data } = useBackend(context);
   const {
-    table,
     procedures = [],
     patient = {},
   } = data;
-  if (!table) {
-    return (
-      <NoticeBox>
-        No Table Detected
-      </NoticeBox>
-    );
-  }
   return (
     <>
       <Section title="Статус пациента">
@@ -80,7 +91,7 @@ const PatientStateView = (props, context) => {
             ))}
           </LabeledList>
         ) || (
-          'Не обнаружено пациента'
+          'Пациент не обнаружен, выполните ручное сканирование или начните операцию.'
         )}
       </Section>
       {procedures.length === 0 && (
@@ -129,10 +140,6 @@ const SurgeryProceduresView = (props, context) => {
   } = data;
   return (
     <Section title="Продвинутые хирургические процедуры">
-      <Button
-        icon="download"
-        content="Синхронизировать"
-        onClick={() => act('sync')} />
       {surgeries.map(surgery => (
         <Section
           title={surgery.name}
