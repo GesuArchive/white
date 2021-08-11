@@ -31739,6 +31739,7 @@
 	receive_ore_updates = 1
 	},
 /obj/structure/table/reinforced,
+/obj/item/transfer_valve,
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/mixing)
 "dNE" = (
