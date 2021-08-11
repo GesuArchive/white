@@ -50,11 +50,14 @@
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "j" = (
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/machinery/door/window/eastright{
+	base_state = "left";
+	dir = 8;
+	icon_state = "left";
+	name = "Arena"
 	},
 /obj/structure/window/reinforced{
-	dir = 4
+	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -164,15 +167,11 @@
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "s" = (
-/obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
 	dir = 4
-	},
-/mob/living/simple_animal/chicken{
-	name = "Roscoe Reichard"
 	},
 /turf/open/floor/plating,
 /area/template_noop)
@@ -243,17 +242,15 @@
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "z" = (
-/obj/machinery/door/window/eastright{
-	base_state = "left";
-	dir = 8;
-	icon_state = "left";
-	name = "Arena"
-	},
+/obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 8
 	},
 /obj/structure/window/reinforced{
 	dir = 4
+	},
+/mob/living/simple_animal/chicken{
+	name = "Roscoe Reichard"
 	},
 /turf/open/floor/plating,
 /area/template_noop)
@@ -355,8 +352,7 @@
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "O" = (
-/obj/structure/mopbucket,
-/obj/item/mop,
+/obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "P" = (
@@ -366,7 +362,8 @@
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "Q" = (
-/obj/structure/reagent_dispensers/watertank,
+/obj/structure/mopbucket,
+/obj/item/mop,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "R" = (
@@ -516,11 +513,11 @@ X
 a
 a
 a
-z
+a
 j
 s
+z
 a
-O
 Q
-a
+O
 "}
