@@ -95,7 +95,7 @@
 		/obj/item/pipe_dispenser = 4,
 		/obj/item/wrench = 6,
 		/obj/item/assembly/signaler = 5,
-		/obj/item/transfer_valve = 6,
+//		/obj/item/transfer_valve = 6,
 		/obj/item/cartridge/rd = 3,
 		/obj/item/radio = 5,
 		/obj/item/camera = 4,

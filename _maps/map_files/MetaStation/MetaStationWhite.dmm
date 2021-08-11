@@ -81005,20 +81005,6 @@
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/exit/departure_lounge)
 "wGd" = (
-/obj/item/transfer_valve{
-	pixel_x = -5
-	},
-/obj/item/transfer_valve{
-	pixel_x = -5
-	},
-/obj/item/transfer_valve,
-/obj/item/transfer_valve,
-/obj/item/transfer_valve{
-	pixel_x = 5
-	},
-/obj/item/transfer_valve{
-	pixel_x = 5
-	},
 /obj/structure/table/reinforced,
 /obj/machinery/light{
 	dir = 8
