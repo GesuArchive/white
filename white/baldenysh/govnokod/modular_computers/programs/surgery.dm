@@ -8,7 +8,7 @@
 	usage_flags = PROGRAM_LAPTOP
 	program_icon = "stethoscope"
 	size = 12
-	tgui_id = "валера зделай тгхуй блин штоб отображались хирургии тут или чет такое, мне пиздец впадлу это говно трогать"
+	tgui_id = "NtosOperating"
 	var/list/advanced_surgeries = list()
 
 /datum/computer_file/program/surgmaster/tap(atom/A, mob/living/user)
