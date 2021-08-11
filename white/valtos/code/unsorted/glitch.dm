@@ -1,12 +1,11 @@
 /datum/element/glitch
-	var/atom/movable/master
+	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH
+	id_arg_index = 2
 
 /datum/element/glitch/Attach(datum/target, amount = 4, speed_min = 1, speed_max = 2, count = 1)
 	if(!isatom(target) || HAS_TRAIT(src, TRAIT_HACKER))
 		return ELEMENT_INCOMPATIBLE
-
-	master = target
-
+	var/atom/master = target
 	master.add_filter("glitch_shadow_1", 2, drop_shadow_filter(rand(-1, 1), color = "#ff0000"))
 	master.add_filter("glitch_shadow_2", 2, drop_shadow_filter(rand(-1, 1), color = "#00ffff"))
 	master.add_filter("glitch_displace", 2, displacement_map_filter(icon = 'white/valtos/icons/glitch_mask.png', size = amount))
@@ -21,6 +20,7 @@
 	RegisterSignal(target, COMSIG_ATOM_GET_EXAMINE_NAME, .proc/get_examine_name, TRUE)
 
 /datum/element/glitch/Detach(atom/source)
+	var/atom/master = source
 	UnregisterSignal(source, COMSIG_ATOM_GET_EXAMINE_NAME)
 	master.remove_filter("glitch_shadow_1")
 	master.remove_filter("glitch_shadow_2")
