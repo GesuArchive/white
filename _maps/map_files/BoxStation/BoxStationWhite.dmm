@@ -42749,6 +42749,13 @@
 	},
 /turf/open/floor/engine,
 /area/security/brig/upper)
+"tIY" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/library)
 "tJc" = (
 /obj/structure/sign/warning/biohazard,
 /turf/closed/wall/r_wall,
@@ -88675,7 +88682,7 @@ tGh
 aFu
 tGh
 aFu
-tGh
+tIY
 aFu
 aFu
 tBB
