@@ -71,7 +71,6 @@
 		"comp_arithmetic",
 		"comp_trigonometry",
 		"comp_clock",
-		"comp_combiner",
 		"comp_comparison",
 		"comp_concat",
 		"comp_concat_list",

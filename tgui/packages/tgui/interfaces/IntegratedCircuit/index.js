@@ -207,7 +207,40 @@ export class IntegratedCircuit extends Component {
       examined_rel_y,
       is_admin,
     } = data;
-    const { locations } = this.state;
+    const { locations, selectedPort } = this.state;
+    const connections = [];
+
+    for (const comp of components) {
+      if (comp === null) {
+        continue;
+      }
+
+      for (const input of comp.input_ports) {
+        for (const output of input.connected_to) {
+          const output_port = locations[output];
+          connections.push({
+            color: (output_port && output_port.color) || 'blue',
+            from: output_port,
+            to: locations[input.ref],
+          });
+        }
+      }
+    }
+
+    if (selectedPort) {
+      const { mouseX, mouseY, zoom } = this.state;
+      const isOutput = selectedPort.is_output;
+      const portLocation = locations[selectedPort.ref];
+      const mouseCoords = {
+        x: (mouseX)*Math.pow(zoom, -1),
+        y: (mouseY + ABSOLUTE_Y_OFFSET)*Math.pow(zoom, -1),
+      };
+      connections.push({
+        color: (portLocation && portLocation.color) || 'blue',
+        from: isOutput? portLocation : mouseCoords,
+        to: isOutput? mouseCoords : portLocation,
+      });
+    }
 
     return (
       <Window

@@ -179,3 +179,94 @@
 	if(!A ||(A.area_flags & NOTELEPORT))
 		return FALSE
 	return TRUE
+
+/obj/item/circuit_component/teleporter_control_console
+	display_name = "Teleporter Control Console"
+	desc = "Used to control a linked teleportation Hub and Station."
+	circuit_flags = CIRCUIT_FLAG_OUTPUT_SIGNAL
+
+	var/datum/port/input/new_target
+	var/datum/port/input/set_target_trigger
+	var/datum/port/input/update_trigger
+
+	var/datum/port/output/current_target
+	var/datum/port/output/possible_targets
+	var/datum/port/output/on_fail
+
+	var/obj/machinery/computer/teleporter/attached_console
+
+/obj/item/circuit_component/teleporter_control_console/Initialize()
+	. = ..()
+
+	new_target = add_input_port("New Target", PORT_TYPE_STRING)
+	set_target_trigger = add_input_port("Set Target", PORT_TYPE_SIGNAL)
+	update_trigger = add_input_port("Update Targets", PORT_TYPE_SIGNAL)
+
+	current_target = add_output_port("Current Target", PORT_TYPE_STRING)
+	possible_targets = add_output_port("Possible Targets", PORT_TYPE_LIST)
+	on_fail = add_output_port("Failed", PORT_TYPE_SIGNAL)
+
+/obj/item/circuit_component/teleporter_control_console/register_usb_parent(atom/movable/parent)
+	. = ..()
+
+	if (istype(parent, /obj/machinery/computer/teleporter))
+		attached_console = parent
+
+		RegisterSignal(attached_console, COMSIG_TELEPORTER_NEW_TARGET, .proc/on_teleporter_new_target)
+		update_targets()
+
+/obj/item/circuit_component/teleporter_control_console/unregister_usb_parent(atom/movable/parent)
+	UnregisterSignal(attached_console, COMSIG_TELEPORTER_NEW_TARGET)
+	attached_console = null
+	return attached_console
+
+/obj/item/circuit_component/teleporter_control_console/input_received(datum/port/input/port)
+	. = ..()
+
+	if (.)
+		return .
+
+	var/list/targets = attached_console.get_targets()
+
+	if (COMPONENT_TRIGGERED_BY(set_target_trigger, port))
+		var/target = targets[new_target.value]
+		if (!target)
+			on_fail.set_output(COMPONENT_SIGNAL)
+			return .
+
+		attached_console.investigate_log("Teleport location set to [target] by circuit. [parent.get_creator()]")
+
+		if (istype(target, /obj/machinery/teleport/station))
+			var/obj/machinery/teleport/station/station = target
+			attached_console.set_teleport_target(station.teleporter_hub)
+			attached_console.lock_in_station(station)
+		else
+			attached_console.set_teleport_target(target)
+
+		return .
+
+	if (COMPONENT_TRIGGERED_BY(update_trigger, port))
+		update_targets()
+
+/obj/item/circuit_component/teleporter_control_console/proc/on_teleporter_new_target(datum/source, atom/new_target)
+	SIGNAL_HANDLER
+
+	if (isnull(new_target))
+		current_target.set_output(null)
+		return
+
+	var/list/targets = attached_console.get_targets()
+	for (var/target_name in targets)
+		if (targets[target_name] == new_target)
+			current_target.set_output(target_name)
+			return
+
+	// Last ditch scenario, we still need a string.
+	current_target.set_output(new_target.name)
+
+/obj/item/circuit_component/teleporter_control_console/proc/update_targets()
+	var/list/target_names = list()
+	for (var/target in attached_console.get_targets())
+		target_names |= target
+
+	possible_targets.set_output(target_names)

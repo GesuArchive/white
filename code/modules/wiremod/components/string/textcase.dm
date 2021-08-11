@@ -37,12 +37,12 @@
 	if(.)
 		return
 
-	var/value = input_port.input_value
+	var/value = input_port.value
 	if(isnull(value))
 		return
 
 	var/result
-	switch(current_option)
+	switch(textcase_options.value)
 		if(COMP_TEXT_LOWER)
 			result = lowertext(value)
 		if(COMP_TEXT_UPPER)

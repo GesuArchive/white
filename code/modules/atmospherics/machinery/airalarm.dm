@@ -940,6 +940,8 @@
 	if(. || !connected_alarm || connected_alarm.locked)
 		return
 
+	var/current_option = air_alarm_options.value
+
 	if(COMPONENT_TRIGGERED_BY(request_data, port))
 		var/turf/alarm_turf = get_turf(connected_alarm)
 		var/datum/gas_mixture/environment = alarm_turf.return_air()

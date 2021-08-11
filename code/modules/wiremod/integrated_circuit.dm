@@ -232,14 +232,17 @@
 		var/list/component_data = list()
 		component_data["input_ports"] = list()
 		for(var/datum/port/input/port as anything in component.input_ports)
-			var/current_data = port.input_value
+			var/current_data = port.value
 			if(isatom(current_data)) // Prevent passing the name of the atom.
 				current_data = null
+			var/list/connected_to = list()
+			for(var/datum/port/output/output as anything in port.connected_ports)
+				connected_to += REF(output)
 			component_data["input_ports"] += list(list(
 				"name" = port.name,
 				"type" = port.datatype,
 				"ref" = REF(port), // The ref is the identifier to work out what it is connected to
-				"connected_to" = REF(port.connected_port),
+				"connected_to" = connected_to,
 				"color" = port.color,
 				"current_data" = current_data,
 			))
@@ -316,8 +319,7 @@
 
 			if(input_port.datatype != PORT_TYPE_ANY && !output_port.compatible_datatype(input_port.datatype))
 				return
-
-			input_port.register_output_port(output_port)
+			input_port.connect(output_port)
 			. = TRUE
 		if("remove_connection")
 			var/component_id = text2num(params["component_id"])
@@ -338,7 +340,7 @@
 				return
 
 			var/datum/port/port = port_table[port_id]
-			port.disconnect()
+			port.disconnect_all()
 			. = TRUE
 		if("detach_component")
 			var/component_id = text2num(params["component_id"])
@@ -380,9 +382,6 @@
 				return
 			var/datum/port/input/port = component.input_ports[port_id]
 
-			if(port.connected_port)
-				return
-
 			if(params["set_null"])
 				port.set_input(null)
 				return TRUE
@@ -423,9 +422,9 @@
 				return
 
 			var/datum/port/output/port = component.output_ports[port_id]
-			var/value = port.output_value
+			var/value = port.value
 			if(isatom(value))
-				value = port.convert_value(port.output_value)
+				value = PORT_TYPE_ATOM
 			else if(isnull(value))
 				value = "null"
 			var/string_form = copytext("[value]", 1, PORT_MAX_STRING_DISPLAY)
