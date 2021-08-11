@@ -33697,7 +33697,7 @@
 "gKn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
-/turf/open/floor/engine/hull,
+/turf/open/floor/engine/hull/reinforced,
 /area/space/nearstation)
 "gKu" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -34475,6 +34475,9 @@
 	},
 /turf/open/openspace,
 /area/ai_monitored/turret_protected/ai)
+"hLa" = (
+/turf/open/openspace/airless,
+/area/space/nearstation)
 "hLX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/disposalpipe/segment,
@@ -34670,13 +34673,12 @@
 /turf/open/floor/plasteel,
 /area/science/nanite)
 "iax" = (
-/obj/structure/lattice,
 /obj/machinery/light/small{
 	dir = 1;
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
-/turf/open/openspace/airless,
+/turf/open/floor/engine/hull/reinforced,
 /area/engine/atmos)
 "ibj" = (
 /obj/structure/table,
@@ -39402,7 +39404,7 @@
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
-/turf/open/floor/engine/hull,
+/turf/open/floor/engine/hull/reinforced,
 /area/engine/atmos)
 "pgP" = (
 /obj/structure/disposalpipe/segment{
@@ -39872,7 +39874,7 @@
 /area/maintenance/disposal)
 "pLB" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
-/turf/open/floor/engine/hull,
+/turf/open/floor/engine/hull/reinforced,
 /area/space/nearstation)
 "pLG" = (
 /obj/structure/cable,
@@ -41451,8 +41453,10 @@
 	},
 /area/engine/atmos)
 "rVS" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/lattice,
 /obj/effect/landmark/blobstart,
-/turf/open/floor/plating,
+/turf/open/openspace,
 /area/maintenance/aft)
 "rXH" = (
 /turf/open/openspace,
@@ -77643,7 +77647,7 @@ aaa
 bCv
 bDP
 bCv
-rVS
+bAw
 fbo
 wiz
 bBR
@@ -78415,7 +78419,7 @@ bzs
 bzs
 bFm
 ccM
-ccM
+rVS
 cBD
 ccJ
 bLO
@@ -82301,7 +82305,7 @@ cDY
 bQA
 bTM
 bOh
-gXs
+hLa
 bPn
 bAw
 hbV
@@ -84352,7 +84356,7 @@ crA
 bLK
 bLK
 bLK
-gXs
+pUF
 bOh
 bOh
 bOh
@@ -84609,10 +84613,10 @@ omQ
 qhM
 crR
 ryy
-gXs
-gXs
-gXs
-gXs
+pUF
+pUF
+pUF
+pUF
 gXs
 gXs
 frR

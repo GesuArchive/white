@@ -20,11 +20,10 @@
 /obj/structure/barricade/wooden{
 	name = "wooden barricade (CLOSED)"
 	},
-/obj/machinery/door/airlock/engineering{
-	name = "Engine Room";
-	req_access_txt = "10"
-	},
 /obj/structure/cable,
+/obj/machinery/door/airlock/external{
+	req_access_txt = "12"
+	},
 /turf/open/floor/plating,
 /area/engine/engineering)
 "FH" = (

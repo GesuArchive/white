@@ -77,7 +77,7 @@
 			continue
 		var/datum/computer_file/program/surgmaster/SM = modcomp.active_program
 		if(SM && istype(SM))
-			return SM.can_start_surgery(type, replaced_by)
+			return SM.can_start_surgery(patient, type, replaced_by)
 
 	var/turf/T = get_turf(patient)
 

@@ -497,6 +497,7 @@ GLOBAL_LIST_INIT(pda_styles, sortList(list(MONO, VT, ORBITRON, SHARE)))
 
 //Misc text define. Does 4 spaces. Used as a makeshift tabulator.
 #define FOURSPACES "&nbsp;&nbsp;&nbsp;&nbsp;"
+//#define SPACES *"&nbsp;" // "[4 SPACES]"
 
 // art quality defines, used in datums/components/art.dm, elsewhere
 #define BAD_ART 12.5

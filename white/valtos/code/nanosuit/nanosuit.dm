@@ -428,7 +428,7 @@
 				helmet.armor = helmet.armor.setRating(melee = 50, bullet = 50, laser = 50, energy = 55, bomb = 90, rad = 100)
 				Wearer.filters = list()
 				animate(Wearer, alpha = 255, time = 5)
-				Wearer.remove_movespeed_modifier(NANO_SPEED)
+				Wearer.remove_movespeed_modifier(/datum/movespeed_modifier/nanospeed)
 				REMOVE_TRAIT(Wearer, TRAIT_IGNORESLOWDOWN, NANO_SPEED)
 				REMOVE_TRAIT(Wearer, TRAIT_PUSHIMMUNE, NANO_STRENGTH)
 				REMOVE_TRAIT(Wearer, TRAIT_TACRELOAD, NANO_SPEED)
@@ -444,7 +444,7 @@
 				helmet.armor = helmet.armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 100)
 				Wearer.filters = filter(type="blur",size=1)
 				animate(Wearer, alpha = 40, time = 2)
-				Wearer.remove_movespeed_modifier(NANO_SPEED)
+				Wearer.remove_movespeed_modifier(/datum/movespeed_modifier/nanospeed)
 				REMOVE_TRAIT(Wearer, TRAIT_IGNORESLOWDOWN, NANO_SPEED)
 				REMOVE_TRAIT(Wearer, TRAIT_PUSHIMMUNE, NANO_STRENGTH)
 				REMOVE_TRAIT(Wearer, TRAIT_TACRELOAD, NANO_SPEED)
@@ -464,7 +464,7 @@
 				animate(Wearer, alpha = 255, time = 5)
 				REMOVE_TRAIT(Wearer, TRAIT_PUSHIMMUNE, NANO_STRENGTH)
 				ADD_TRAIT(Wearer, TRAIT_TACRELOAD, NANO_SPEED)
-				Wearer.add_movespeed_modifier(NANO_SPEED, update=TRUE)
+				Wearer.add_movespeed_modifier(/datum/movespeed_modifier/nanospeed, update=TRUE)
 				ADD_TRAIT(Wearer, TRAIT_IGNORESLOWDOWN, NANO_SPEED)
 				REMOVE_TRAIT(Wearer, TRAIT_LIGHT_STEP, NANO_SPEED)
 				style.remove(Wearer)
@@ -480,7 +480,7 @@
 				Wearer.filters = filter(type="outline", size=0.1, color=rgb(255,0,0))
 				animate(Wearer, alpha = 255, time = 5)
 				ADD_TRAIT(Wearer, TRAIT_PUSHIMMUNE, NANO_STRENGTH)
-				Wearer.remove_movespeed_modifier(NANO_SPEED)
+				Wearer.remove_movespeed_modifier(/datum/movespeed_modifier/nanospeed)
 				REMOVE_TRAIT(Wearer, TRAIT_IGNORESLOWDOWN, NANO_SPEED)
 				REMOVE_TRAIT(Wearer, TRAIT_TACRELOAD, NANO_SPEED)
 				REMOVE_TRAIT(Wearer, TRAIT_LIGHT_STEP, NANO_SPEED)
@@ -495,7 +495,7 @@
 				Wearer.filters = list()
 				animate(Wearer, alpha = 255, time = 5)
 				REMOVE_TRAIT(Wearer, TRAIT_PUSHIMMUNE, NANO_STRENGTH)
-				Wearer.remove_movespeed_modifier(NANO_SPEED)
+				Wearer.remove_movespeed_modifier(/datum/movespeed_modifier/nanospeed)
 				REMOVE_TRAIT(Wearer, TRAIT_IGNORESLOWDOWN, NANO_SPEED)
 				REMOVE_TRAIT(Wearer, TRAIT_TACRELOAD, NANO_SPEED)
 				REMOVE_TRAIT(Wearer, TRAIT_LIGHT_STEP, NANO_SPEED)
@@ -1197,3 +1197,8 @@
 	surplus = 20
 	cant_discount = FALSE
 	exclude_modes = list(/datum/game_mode/nuclear)
+
+/datum/movespeed_modifier/nanospeed
+	movetypes = GROUND
+	multiplicative_slowdown = 1
+	id = NANO_SPEED
