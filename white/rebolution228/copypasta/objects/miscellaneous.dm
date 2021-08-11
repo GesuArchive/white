@@ -20,11 +20,16 @@
 	desc = "Старый, металлический термос со слабым блеском."
 	icon = 'white/rebolution228/icons/obj/items.dmi'
 	icon_state = "thermos"
+	inhand_icon_state = "thermos"
 	lefthand_file = 'white/rebolution228/icons/obj/mob/inhand_objects_left.dmi'
 	righthand_file = 'white/rebolution228/icons/obj/mob/inhand_objects_right.dmi'
 	volume = 50
 	list_reagents = list(/datum/reagent/consumable/tea = 30)
 	spillable = FALSE
+	isGlass = FALSE
+	custom_materials = list(/datum/material/iron=1500)
+	custom_price = PAYCHECK_HARD * 2
+	w_class = WEIGHT_CLASS_NORMAL
 
 //soviet flask
 
