@@ -43,6 +43,12 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 	__gasmixture_register()
 	reaction_results = new
 
+/datum/gas_mixture/Destroy(force)
+	. = ..()
+	// leak fix?
+	ATMOS_EXTOOLS_CHECK
+	__gasmixture_unregister()
+
 /datum/gas_mixture/vv_edit_var(var_name, var_value)
 	if(var_name == "_extools_pointer_gasmixture")
 		return FALSE // please no. segfaults bad.
