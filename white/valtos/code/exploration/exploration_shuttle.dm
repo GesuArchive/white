@@ -23,15 +23,16 @@
 /obj/machinery/computer/shuttle_flight/exploration/proc/check_banned_contents()
 	var/obj/docking_port/mobile/port = SSshuttle.getShuttle(shuttleId)
 	for(var/area/A in port.shuttle_areas)
-		for(var/obj/O in A.GetAllContents())
+		for(var/atom/movable/AM in A.GetAllContents())
 			for(var/type in banned_types)
-				if(istype(O, type))
+				if(istype(AM, type))
 					return TRUE
-		for(var/mob/living/carbon/C in A.contents)
-			for(var/obj/O in C.internal_organs)
-				for(var/type in banned_types)
-					if(istype(O, type))
-						return TRUE
+			if(iscarbon(AM))
+				var/mob/living/carbon/C = AM
+				for(var/obj/O in C.internal_organs)
+					for(var/type in banned_types)
+						if(istype(O, type))
+							return TRUE
 
 
 
