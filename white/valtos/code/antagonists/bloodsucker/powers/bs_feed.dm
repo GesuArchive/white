@@ -157,7 +157,7 @@
 		to_chat(user, "<span class='warning'>You pull [target] close to you and draw out your fangs...</span>")
 	if (!do_mob(user, target, feed_time,0,1,extra_checks=CALLBACK(src, .proc/ContinueActive, user, target)))//sleep(10)
 		to_chat(user, "<span class='warning'>Your feeding was interrupted.</span>")
-		//DeactivatePower(user,target)
+		DeactivatePower(user,target)
 		return
 
 	// Put target to Sleep (Bloodsuckers are immune to their own bite's sleep effect)
@@ -167,7 +167,7 @@
 			sleep(1)
 			// Wait, then Cancel if Invalid
 			if (!ContinueActive(user,target)) // Cancel. They're gone.
-				//DeactivatePower(user,target)
+				DeactivatePower(user,target)
 				return
 		// Pull Target Close
 		if (!target.density) // Pull target to you if they don't take up space.
@@ -216,7 +216,7 @@
 	// FEEEEEEEEED!!! //
 	bloodsuckerdatum.poweron_feed = TRUE
 	while (bloodsuckerdatum && target && active)
-		user.mobility_flags &= ~MOBILITY_MOVE // user.canmove = 0 // Prevents spilling blood accidentally.
+		//user.mobility_flags &= ~MOBILITY_MOVE // user.canmove = 0 // Prevents spilling blood accidentally.
 
 		// Abort? A bloody mistake.
 		if (!do_mob(user, target, 20, 0, 0, extra_checks=CALLBACK(src, .proc/ContinueActive, user, target)))
@@ -296,7 +296,7 @@
 		owner.playsound_local(null, 'sound/effects/singlebeat.ogg', 40, 1) // Play THIS sound for user only. The "null" is where turf would go if a location was needed. Null puts it right in their head.
 
 	// DONE!
-	//DeactivatePower(user,target)
+	DeactivatePower(user,target)
 	if (amSilent)
 		to_chat(user, "<span class='notice'>You slowly release [target] wrist." + (target.stat == 0 ? " [target.ru_ego(TRUE)] face lacks expression, like you've already been forgotten.</span>" : ""))
 	else
