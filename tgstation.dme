@@ -3748,6 +3748,8 @@
 #include "white\baldenysh\govnokod\turfs\overrides.dm"
 #include "white\baldenysh\govnokod\vehicles\spesspods.dm"
 #include "white\baldenysh\govnokod\vehicles\tank.dm"
+#include "white\baldenysh\govnokod\wiremod\designs.dm"
+#include "white\baldenysh\govnokod\wiremod\components\maths\trigonometry.dm"
 #include "white\ClickerOfThings\duckgame_weapon\dg_weapons.dm"
 #include "white\ClickerOfThings\integrated_circuits_snitch\all_nodes.dm"
 #include "white\ClickerOfThings\integrated_circuits_snitch\electronics_designs.dm"
