@@ -477,6 +477,11 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/science/research/abandoned)
+"bv" = (
+/obj/structure/rack,
+/obj/item/stack/sheet/mineral/wood/fifty,
+/turf/open/floor/plasteel/monofloor,
+/area/maintenance/bottom_station_maints/north)
 "bw" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -1311,6 +1316,10 @@
 	pixel_x = -23
 	},
 /obj/structure/rack,
+/obj/item/stack/sheet/glass/fifty{
+	pixel_x = 4;
+	pixel_y = 4
+	},
 /turf/open/floor/plasteel,
 /area/vacant_room/commissary/second)
 "ed" = (
@@ -1362,6 +1371,17 @@
 /obj/effect/loot_site_spawner,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"ek" = (
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_access_txt = "12"
+	},
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/north)
 "el" = (
 /obj/machinery/power/smes/engineering,
 /obj/structure/cable,
@@ -1839,6 +1859,9 @@
 	color = "#0000ff";
 	dir = 8;
 	name = "Supply multi deck pipe adapter"
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/maintenance/solars/starboard/fore)
@@ -2394,6 +2417,9 @@
 "hM" = (
 /turf/closed/wall,
 /area/maintenance/bottom_station_maints/east)
+"hN" = (
+/turf/open/floor/plasteel/monofloor,
+/area/maintenance/bottom_station_maints)
 "hO" = (
 /obj/effect/spawner/randomsnackvend,
 /obj/effect/turf_decal/stripes/line{
@@ -4397,7 +4423,6 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "no" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2{
 	color = "#ff0000";
 	name = "Scrubbers multi deck pipe adapter"
@@ -7157,6 +7182,19 @@
 /obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"vk" = (
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_access_txt = "12"
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/maintenance/bottom_station_maints/north)
 "vl" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -30
@@ -9228,6 +9266,9 @@
 	dir = 8;
 	name = "Supply multi deck pipe adapter"
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/open/floor/plasteel/monofloor,
 /area/space)
 "BH" = (
@@ -9597,6 +9638,9 @@
 	color = "#0000ff";
 	dir = 8;
 	name = "Supply multi deck pipe adapter"
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/maintenance/solars/port/fore)
@@ -11136,6 +11180,11 @@
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/science/research/abandoned)
+"HM" = (
+/obj/structure/rack,
+/obj/item/disk/design_disk/adv/kar98k_ammo,
+/turf/open/floor/plasteel/monofloor,
+/area/maintenance/bottom_station_maints/north)
 "HN" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access_txt = "18"
@@ -11323,6 +11372,9 @@
 	},
 /obj/machinery/camera/autoname,
 /obj/structure/rack,
+/obj/item/stack/sheet/metal/fifty{
+	pixel_x = -4
+	},
 /turf/open/floor/plasteel,
 /area/vacant_room/commissary/second)
 "Io" = (
@@ -12016,6 +12068,9 @@
 /obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4{
 	color = "#0000ff";
 	name = "Supply multi deck pipe adapter"
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/maintenance/solars/port/aft)
@@ -12765,6 +12820,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 9
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
 "ME" = (
@@ -12849,7 +12905,7 @@
 	dir = 1;
 	pixel_y = 0
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/monofloor,
 /area/maintenance/bottom_station_maints/north)
 "MR" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
@@ -13399,6 +13455,10 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"OG" = (
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel/monofloor,
+/area/maintenance/bottom_station_maints)
 "OH" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -14221,13 +14281,6 @@
 	dir = 1
 	},
 /obj/structure/table,
-/obj/item/stack/sheet/glass/fifty{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/stack/sheet/metal/fifty{
-	pixel_x = -4
-	},
 /obj/item/melee/fan{
 	dir = 4
 	},
@@ -14469,8 +14522,8 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/quartermaster/warehouse)
 "RM" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/open/genturf,
+/obj/effect/loot_site_spawner,
+/turf/open/floor/plasteel/monofloor,
 /area/maintenance/bottom_station_maints/north)
 "RN" = (
 /obj/machinery/power/shieldwallgen/xenobiologyaccess,
@@ -16826,14 +16879,14 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
 "YR" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
+/obj/structure/table,
+/obj/item/blacksmith/gun_parts/kar98k,
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 0
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/south)
+/turf/open/floor/plasteel/monofloor,
+/area/maintenance/bottom_station_maints/north)
 "YT" = (
 /obj/structure/cable,
 /obj/machinery/door/firedoor/border_only,
@@ -39895,7 +39948,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+bw
 Zm
 Zm
 mP
@@ -40152,7 +40205,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+bw
 Zm
 Zm
 OL
@@ -40409,7 +40462,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+bw
 Zm
 mP
 mP
@@ -40665,8 +40718,8 @@ PG
 PG
 PG
 PG
-PG
-PG
+bw
+bw
 PG
 OL
 Mw
@@ -40921,8 +40974,8 @@ Zm
 Zm
 PG
 Zm
-Zm
-Zm
+bw
+bw
 PG
 Zm
 OL
@@ -41178,7 +41231,7 @@ Zm
 Zm
 PG
 Zm
-Zm
+bw
 Zm
 PG
 mP
@@ -41435,7 +41488,7 @@ Zm
 Zm
 PG
 Zm
-Zm
+bw
 Zm
 mP
 mP
@@ -41692,7 +41745,7 @@ Zm
 Zm
 PG
 Zm
-Zm
+bw
 Zm
 OL
 cV
@@ -41942,14 +41995,14 @@ Zm
 Zm
 PG
 Zm
-Zm
-Zm
+bw
 PG
-Zm
-Zm
-PG
-Zm
-Zm
+bw
+bw
+bw
+bw
+bw
+bw
 Zm
 OL
 cV
@@ -42456,14 +42509,14 @@ Zm
 Zm
 PG
 Zm
-Zm
-Zm
+bw
 PG
-Zm
-Zm
 PG
-Zm
-Zm
+mP
+OL
+OL
+OL
+mP
 mP
 mP
 Xc
@@ -42712,16 +42765,16 @@ bw
 bw
 Zm
 PG
-Zm
-Zm
-Zm
+bw
+bw
 PG
-Zm
-Zm
-PG
-Zm
 mP
 mP
+YR
+bv
+HM
+Xc
+Bt
 Bt
 Xc
 Eg
@@ -42969,17 +43022,17 @@ PG
 bw
 bw
 PG
+Zm
 bw
-bw
-bw
-bw
-bw
-bw
-bw
-mP
-mP
-Bt
-Bt
+Zm
+OL
+RM
+yL
+yL
+fF
+ek
+fF
+fF
 tj
 Xx
 ao
@@ -43035,8 +43088,8 @@ Zm
 PG
 Zm
 VC
-oz
-YR
+SF
+cS
 ye
 Np
 Np
@@ -43227,14 +43280,14 @@ Zm
 bw
 PG
 Zm
+bw
 Zm
-Zm
-PG
-Zm
-Zm
-mP
-mP
-Bt
+OL
+RM
+yL
+fF
+fF
+Xc
 Bt
 Bt
 DW
@@ -43484,19 +43537,19 @@ PG
 bw
 PG
 Zm
+bw
 Zm
-Zm
-PG
-Zm
-mP
-mP
-Bt
-Bt
-Bt
-Bt
+OL
+RM
+yL
+fF
+Xc
+Xc
+fF
+fF
 DW
-fF
-fF
+yL
+yL
 fF
 HN
 Yn
@@ -43741,15 +43794,15 @@ Zm
 bw
 bw
 PG
-PG
-PG
+bw
 PG
 mP
-mP
+Xc
+vk
+Xc
+Xc
 Bt
-Bt
-Bt
-GE
+eF
 Xc
 SX
 Xc
@@ -44001,12 +44054,12 @@ PG
 Zm
 PG
 mP
-mP
 Bt
-Bt
-Bt
-Bt
-Bt
+fF
+fF
+fF
+fF
+fF
 Xc
 nD
 eU
@@ -44259,7 +44312,7 @@ Zm
 PG
 mP
 Bt
-Bt
+fF
 Bt
 Xc
 Xc
@@ -44516,7 +44569,7 @@ Zm
 PG
 mP
 Bt
-Bt
+fF
 Bt
 Xc
 cV
@@ -44526,7 +44579,7 @@ Xq
 Xc
 Xc
 Bt
-fF
+yL
 Xc
 Bt
 Bt
@@ -44773,7 +44826,7 @@ Zm
 PG
 mP
 Xc
-XX
+nm
 Xc
 Xc
 Bt
@@ -44783,7 +44836,7 @@ cw
 fF
 dT
 fF
-fF
+yL
 Xc
 Bt
 Bt
@@ -45030,7 +45083,7 @@ Zm
 PG
 mP
 Bt
-Bt
+fF
 Bt
 Xc
 Bt
@@ -45040,7 +45093,7 @@ cw
 Bt
 Xc
 Bt
-fF
+yL
 Xc
 Xc
 OL
@@ -45287,7 +45340,7 @@ Zm
 PG
 mP
 Bt
-Bt
+fF
 Bt
 Xc
 Bt
@@ -45297,7 +45350,7 @@ cw
 Bt
 Xc
 Bt
-fF
+yL
 Bt
 Bt
 Bt
@@ -46573,7 +46626,7 @@ mP
 mP
 Bt
 fF
-Bt
+yL
 Xc
 Bt
 fF
@@ -46827,10 +46880,10 @@ II
 Zm
 PG
 OL
-fF
-fF
-fF
-fF
+yL
+yL
+yL
+yL
 Xc
 Xc
 PP
@@ -47084,10 +47137,10 @@ aF
 Zm
 PG
 OL
-fF
-fF
-fF
-fF
+yL
+yL
+yL
+yL
 Xc
 Bt
 fF
@@ -51239,9 +51292,9 @@ ij
 ij
 ij
 dP
-ln
-dP
-dP
+hN
+hN
+hN
 FZ
 dP
 ij
@@ -52021,7 +52074,7 @@ rm
 rm
 ln
 ln
-dP
+hN
 ln
 EB
 hW
@@ -52278,7 +52331,7 @@ rm
 ln
 ln
 ln
-dP
+hN
 ln
 EB
 Ha
@@ -52535,7 +52588,7 @@ FZ
 dP
 dP
 dP
-dP
+hN
 ln
 EB
 wC
@@ -52737,7 +52790,7 @@ bw
 mP
 mP
 mP
-mP
+Xc
 UQ
 uC
 pW
@@ -52792,7 +52845,7 @@ rm
 dP
 dP
 ln
-dP
+hN
 ln
 EB
 TX
@@ -53049,7 +53102,7 @@ rm
 rm
 ln
 ln
-dP
+hN
 ln
 EB
 ip
@@ -53306,7 +53359,7 @@ dP
 rm
 ln
 dP
-dP
+hN
 ln
 EB
 dS
@@ -53563,7 +53616,7 @@ dP
 rm
 ln
 dP
-dP
+hN
 ln
 EB
 kb
@@ -53819,8 +53872,8 @@ dP
 dP
 rm
 ln
-dP
-dP
+hN
+hN
 ln
 EB
 de
@@ -54076,8 +54129,8 @@ dP
 dP
 rm
 ln
-dP
-dP
+hN
+hN
 ln
 EB
 zs
@@ -54334,7 +54387,7 @@ dP
 rm
 ln
 ln
-dP
+hN
 ln
 EB
 EB
@@ -54812,8 +54865,8 @@ Zt
 Sz
 YD
 Wu
-fF
-Bt
+yL
+yL
 ka
 fF
 fF
@@ -55061,7 +55114,7 @@ nk
 Zm
 Zm
 mP
-RM
+DP
 IG
 Xc
 Uk
@@ -55069,8 +55122,8 @@ Sz
 BL
 eW
 Xc
-fF
-Bt
+yL
+yL
 ka
 fF
 fF
@@ -55105,9 +55158,9 @@ dP
 rm
 ln
 ln
-dP
-dP
-FZ
+hN
+hN
+OG
 ln
 EB
 EB
@@ -55318,7 +55371,7 @@ nk
 Zm
 Zm
 mP
-cV
+wp
 fF
 Xc
 Xc
@@ -55575,7 +55628,7 @@ nk
 Zm
 Zm
 mP
-cV
+wp
 fF
 Bt
 Bt
@@ -55881,9 +55934,9 @@ ei
 nN
 ei
 rm
-FZ
 rm
 rm
+zi
 rm
 rm
 rm
@@ -56138,13 +56191,13 @@ rm
 rm
 rm
 rm
+dP
+dP
+dP
+dP
+Gu
+rm
 ln
-ln
-CJ
-ln
-ln
-ln
-CJ
 ln
 ln
 hM
@@ -56394,14 +56447,14 @@ ln
 CJ
 ln
 ln
-CJ
+rm
+dP
+dP
+dP
+dP
+dP
+rm
 ln
-ln
-CJ
-ln
-ln
-ln
-CJ
 ln
 ln
 ln
@@ -56649,16 +56702,16 @@ ln
 ln
 ln
 rm
-ln
-ln
+jU
+jU
+rm
+dP
+dP
+dP
+dP
+dP
 rm
 ln
-ln
-rm
-CJ
-rm
-rm
-rm
 ln
 ln
 ln
@@ -56906,16 +56959,16 @@ ln
 ln
 QN
 rm
-jU
-jU
+rm
+rm
+rm
+dP
+dP
+dP
+dP
+dP
 rm
 ln
-ln
-CJ
-ln
-rm
-ln
-rm
 ln
 ln
 ln
@@ -57163,16 +57216,16 @@ ln
 rm
 rm
 rm
-rm
-rm
-rm
-rm
+ln
+ln
 CJ
-rm
+dP
+dP
+dP
+dP
+dP
+CJ
 ln
-rm
-ln
-rm
 ln
 ln
 ln
@@ -57422,14 +57475,14 @@ ln
 CJ
 ln
 ln
+CJ
+dP
+dP
+dP
+dP
+dP
+CJ
 ln
-ln
-ln
-rm
-ln
-rm
-ln
-rm
 ln
 ln
 ln
@@ -57679,14 +57732,14 @@ rm
 rm
 ln
 ln
-ln
-ln
-ln
+rm
+dP
+dP
+dP
+dP
+dP
 rm
 ln
-CJ
-ln
-rm
 ln
 ln
 ln
@@ -57937,13 +57990,13 @@ rm
 rm
 rm
 rm
+dP
+dP
+dP
+dP
+dP
 rm
-rm
-rm
-rm
-rm
-rm
-rm
+ln
 ln
 ln
 ln
@@ -58193,13 +58246,13 @@ ln
 ln
 ln
 ln
-ln
-ln
-ln
-ln
-ln
-ln
-ln
+rm
+dP
+dP
+dP
+dP
+dP
+rm
 ln
 ln
 ln
@@ -58450,13 +58503,13 @@ ln
 ln
 ln
 ln
-ln
-ln
-ln
-ln
-ln
-KL
-ln
+rm
+dP
+dP
+dP
+dP
+dP
+rm
 ln
 ln
 pB
@@ -58710,8 +58763,8 @@ hM
 hM
 hM
 hM
-hM
 cq
+hM
 hM
 hM
 hM
@@ -58967,7 +59020,7 @@ Fa
 Fa
 Fa
 ER
-OT
+dL
 dL
 dL
 dL
@@ -59202,7 +59255,7 @@ rt
 hM
 hM
 hM
-lP
+cq
 hM
 hM
 hM
@@ -59225,7 +59278,7 @@ dL
 dL
 dL
 dL
-dL
+OT
 ER
 ER
 ER
@@ -59713,7 +59766,7 @@ Fa
 Fa
 Fa
 ol
-lP
+cq
 dL
 dL
 dL
@@ -59972,7 +60025,7 @@ Fa
 ol
 hM
 hM
-lP
+cq
 hM
 hM
 Fa
@@ -60483,13 +60536,13 @@ hM
 hM
 hM
 dL
-Fa
-lP
+dL
+cq
 dL
 dL
 dL
-lP
-Fa
+cq
+dL
 dL
 hM
 dL
@@ -60740,7 +60793,7 @@ dL
 Uz
 hM
 dL
-Fa
+dL
 hM
 dL
 dL
@@ -61000,7 +61053,7 @@ hM
 lP
 hM
 hM
-lP
+cq
 hM
 hM
 Fa
@@ -61254,11 +61307,11 @@ dL
 dL
 cq
 dL
-Fa
-Fa
-Fa
-Fa
-PS
+dL
+hM
+dL
+dL
+nM
 hM
 Fa
 dL
@@ -61511,13 +61564,13 @@ dL
 dL
 hM
 dL
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
+dL
+cq
+dL
+dL
+dL
+cq
+dL
 dL
 cq
 dL
@@ -61767,13 +61820,13 @@ dL
 dL
 dL
 hM
-Fa
+dL
+dL
 hM
-Fa
-Fa
-Fa
-Fa
-Fa
+dL
+dL
+dL
+hM
 Fa
 dL
 hM
@@ -62024,15 +62077,15 @@ Qz
 ds
 Qz
 Qz
-Qz
-Qz
+ds
+ds
 Qz
 ds
 ds
 ds
-Qz
 hM
-lP
+hM
+cq
 hM
 dL
 dL
