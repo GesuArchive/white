@@ -359,12 +359,24 @@ GLOBAL_VAR(yohei_main_controller)
 	. = ..()
 
 	if(!current_task)
-		say("Загружаю новое задание...")
-		var/datum/yohei_task/new_task = pick(possible_tasks)
-		current_task = new new_task()
-		return
+		var/static/list/choices = list(
+			"Классическая охота" = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "classic"),
+			"Помочь событиям" 	 = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "gamemode")
+		)
+		var/choice = show_radial_menu(user, src, choices, tooltips = TRUE)
+		if(!choice)
+			return
 
-	if(current_task && current_task.check_task())
+		if(choice == "Классическая охота")
+			say("Загружаю стандартное задание...")
+			var/datum/yohei_task/new_task = pick(possible_tasks)
+			current_task = new new_task()
+			return
+		else
+			current_task = new /datum/yohei_task/gamemode()
+			return
+
+	if(current_task && current_task.check_task(user))
 		say("Задание выполнено. Награда в размере [current_task.prize] выдана. Получение следующего задания...")
 		for(var/keyto in reputation)
 			reputation[keyto] = reputation[keyto] + 2
@@ -397,7 +409,7 @@ GLOBAL_VAR(yohei_main_controller)
 /datum/yohei_task/proc/generate_task()
 	return
 
-/datum/yohei_task/proc/check_task()
+/datum/yohei_task/proc/check_task(mob/user)
 	return FALSE
 
 /datum/yohei_task/New()
@@ -437,7 +449,7 @@ GLOBAL_VAR(yohei_main_controller)
 	desc = "Убить [target.real_name]."
 	prize = max(rand(prize - 30, prize + 30), 1)
 
-/datum/yohei_task/kill/check_task()
+/datum/yohei_task/kill/check_task(mob/user)
 	if(target && target.stat != DEAD)
 		return FALSE
 	return TRUE
@@ -452,7 +464,7 @@ GLOBAL_VAR(yohei_main_controller)
 	desc = "Захватить [target.real_name] и доставить живьём в логово."
 	prize = max(rand(prize - 100, prize + 200), 1)
 
-/datum/yohei_task/capture/check_task()
+/datum/yohei_task/capture/check_task(mob/user)
 	if(target && target.stat != DEAD)
 		var/area/A = get_area(target)
 		if(A.type != /area/ruin/powered/yohei_base)
@@ -471,13 +483,59 @@ GLOBAL_VAR(yohei_main_controller)
 		qdel(src)
 		return FALSE
 
-/datum/map_template/ruin/lavaland/yohei_base
-	name = "База Йохеев"
-	id = "yohei_base"
-	description = "Мяу..."
-	suffix = "lavaland_yohei_base.dmm"
-	allow_duplicates = FALSE
-	unpickable = TRUE
+/datum/yohei_task/gamemode
+	desc = "Помочь каким-то событиям"
+	prize = 0
+	var/datum/antagonist/adatum = null
+
+/datum/yohei_task/gamemode/generate_task()
+	switch(SSticker.mode.type)
+		if(/datum/game_mode/traitor)
+			desc = "Помочь Синдикату"
+			adatum = /datum/antagonist/traitor
+		if(/datum/game_mode/wizard)
+			desc = "Помочь Волшебникам"
+			adatum = /datum/antagonist/wizard
+		if(/datum/game_mode/nuclear)
+			desc = "Помочь Оперативникам Синдиката"
+			adatum = /datum/antagonist/nukeop/reinforcement
+		if(/datum/game_mode/cult)
+			desc = "Помочь Культистам Нар-Си"
+			adatum = /datum/antagonist/cult
+		if(/datum/game_mode/clockcult)
+			desc = "Помочь Служителям Ратвара"
+			adatum = /datum/antagonist/servant_of_ratvar
+		if(/datum/game_mode/bloodsucker)
+			desc = "Помочь Вампирам"
+			adatum = /datum/antagonist/bloodsucker
+		if(/datum/game_mode/changeling)
+			desc = "Помочь Генокрадам"
+			adatum = /datum/antagonist/changeling
+		if(/datum/game_mode/devil)
+			desc = "Помочь Дьяволам"
+			adatum = /datum/antagonist/devil
+		if(/datum/game_mode/heretics)
+			desc = "Помочь Еретикам"
+			adatum = /datum/antagonist/heretic
+		if(/datum/game_mode/monkey)
+			desc = "Помочь Мартышкам"
+			adatum = /datum/antagonist/monkey
+		if(/datum/game_mode/shadowling)
+			desc = "Помочь Теневикам"
+			adatum = /datum/antagonist/shadowling
+		if(/datum/game_mode/gang)
+			desc = "Помочь Якудзе"
+			adatum = /datum/antagonist/gang/yakuza
+		else
+			desc = "Помочь себе"
+			adatum = null
+	if(!adatum)
+		qdel(src)
+
+/datum/yohei_task/gamemode/check_task(mob/user)
+	if(!is_special_character(user))
+		user.mind.add_antag_datum(adatum)
+	return FALSE
 
 /area/ruin/powered/yohei_base
 	name = "Ресурс Йохеев"
