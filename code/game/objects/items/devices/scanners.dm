@@ -737,7 +737,8 @@ GENE SCANNER
 		if(total_moles > 0)
 			render_list += "<span class='notice'>Моли: [round(total_moles, 0.01)] моль</span>\
 							\n<span class='notice'>Объём: [volume] Л</span>\
-							\n<span class='notice'>Давление: [round(pressure,0.01)] кПа</span>"
+							\n<span class='notice'>Давление: [round(pressure,0.01)] кПа</span>\
+							\n<span class='notice'>Т.Энергия: [DisplayJoules(air_contents.thermal_energy())]</span>"
 
 			for(var/id in air_contents.get_gases())
 				var/gas_concentration = air_contents.get_moles(id) / total_moles
