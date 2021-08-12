@@ -493,52 +493,65 @@ GLOBAL_VAR(yohei_main_controller)
 /datum/yohei_task/gamemode/generate_task()
 	switch(SSticker.mode.type)
 		if(/datum/game_mode/traitor)
-			desc = "Помочь Синдикату"
 			if(prob(50))
+				desc = "Помочь Синдикату"
 				adatum = /datum/antagonist/traitor
 			else
+				desc = "Помочь Станции"
 				adatum = /datum/antagonist/traitor/internal_affairs
+			return TRUE
 		if(/datum/game_mode/wizard)
-			desc = "Помочь Волшебникам"
 			if(prob(50))
+				desc = "Помочь Волшебникам"
 				adatum = /datum/antagonist/wizard/apprentice
 			else
+				desc = "Помочь Станции"
 				adatum = /datum/antagonist/wizard/apprentice/imposter
+			return TRUE
 		if(/datum/game_mode/nuclear)
 			desc = "Помочь Оперативникам Синдиката"
 			adatum = /datum/antagonist/nukeop/reinforcement
+			return TRUE
 		if(/datum/game_mode/cult)
 			desc = "Помочь Культистам Нар-Си"
 			adatum = /datum/antagonist/cult
+			return TRUE
 		if(/datum/game_mode/clockcult)
 			desc = "Помочь Служителям Ратвара"
 			adatum = /datum/antagonist/servant_of_ratvar
+			return TRUE
 		if(/datum/game_mode/bloodsucker)
 			desc = "Помочь Вампирам"
 			adatum = /datum/antagonist/vassal
+			return TRUE
 		if(/datum/game_mode/changeling)
 			desc = "Помочь Генокрадам"
 			adatum = /datum/antagonist/changeling
+			return TRUE
 		if(/datum/game_mode/heretics)
 			desc = "Помочь Еретикам"
 			adatum = /datum/antagonist/heretic
+			return TRUE
 		if(/datum/game_mode/monkey)
 			desc = "Помочь Мартышкам"
 			adatum = /datum/antagonist/monkey
+			return TRUE
 		if(/datum/game_mode/shadowling)
 			desc = "Помочь Теневикам"
 			adatum = /datum/antagonist/thrall
+			return TRUE
 		if(/datum/game_mode/revolution)
 			desc = "Помочь Революции"
 			adatum = /datum/antagonist/rev
+			return TRUE
 		if(/datum/game_mode/gang)
-			desc = "Помочь Якудзе"
+			desc = "Помочь Гангстерам"
 			adatum = pick(subtypesof(/datum/antagonist/gang))
+			return TRUE
 		else
-			desc = "Помочь себе"
-			adatum = null
-	if(!isnull(adatum))
-		qdel(src)
+			qdel(src)
+			return FALSE
+
 
 /datum/yohei_task/gamemode/check_task(mob/user)
 	if(!is_special_character(user))
