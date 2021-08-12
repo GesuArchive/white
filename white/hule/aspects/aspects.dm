@@ -428,7 +428,7 @@
 /datum/round_aspect/oleg/run_aspect()
 	SSjob.forced_name = "Олег"
 	spawn(5 SECONDS)
-		for(var/mob/living/carbon/human/H in GLOB.joined_player_list)
+		for(var/mob/living/carbon/human/H in GLOB.mob_list)
 			H.fully_replace_character_name(H.real_name, "[SSjob.forced_name] \Roman[SSjob.forced_num]")
 			SSjob.forced_num++
 	..()
