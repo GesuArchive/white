@@ -318,7 +318,7 @@ GLOBAL_VAR(yohei_main_controller)
 	var/datum/yohei_task/current_task = null
 	var/list/possible_tasks = list()
 	var/list/action_guys = list()
-	var/reputation = 0
+	var/list/reputation = list()
 
 /obj/lab_monitor/yohei/Initialize()
 	. = ..()
@@ -332,16 +332,15 @@ GLOBAL_VAR(yohei_main_controller)
 	var/json_file = file("data/yohei.json")
 	if(!fexists(json_file))
 		return
-	var/list/json = json_decode(file2text(json_file))
-	reputation = text2num(json["reputation"])
+	reputation = json_decode(file2text(json_file))
 
-/obj/lab_monitor/yohei/proc/adjust_reputation(amt = 0)
-	reputation = min(50, max(-75, reputation + amt))
+/obj/lab_monitor/yohei/proc/adjust_reputation(keyto, amt = 0)
+	if(!keyto)
+		return
+	reputation[keyto] = min(50, max(-75, reputation[keyto] + amt))
 	var/json_file = file("data/yohei.json")
-	var/list/file_data = list()
-	file_data["reputation"] = reputation
 	fdel(json_file)
-	WRITE_FILE(json_file, json_encode(file_data))
+	WRITE_FILE(json_file, json_encode(reputation))
 
 /obj/lab_monitor/yohei/attacked_by(obj/item/I, mob/living/user)
 	if(istype(I, /obj/item/pamk))
@@ -367,7 +366,8 @@ GLOBAL_VAR(yohei_main_controller)
 
 	if(current_task && current_task.check_task())
 		say("Задание выполнено. Награда в размере [current_task.prize] выдана. Получение следующего задания...")
-		reputation += 2
+		for(var/keyto in reputation)
+			reputation[keyto] = reputation[keyto] + 2
 		for(var/mob/living/carbon/human/H in action_guys)
 			inc_metabalance(H, current_task.prize, reason = "Задание выполнено.")
 		action_guys = list()
@@ -387,7 +387,8 @@ GLOBAL_VAR(yohei_main_controller)
 		. += "<span class='notice'><b>Задание:</b> [current_task.desc]</span>"
 		. += "\n<span class='notice'><b>Награда:</b> [current_task.prize]</span>"
 		. += "\n<span class='notice'><b>Исполнители:</b> [english_list(action_guys)]</span>"
-		. += "\n\n<span class='notice'><b>Репутация:</b> [reputation]</span>"
+		if(user?.ckey in reputation)
+			. += "\n\n<span class='notice'><b>Моя репутация:</b> [reputation[user.ckey]]</span>"
 
 /datum/yohei_task
 	var/desc = null
