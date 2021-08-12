@@ -528,13 +528,16 @@ GLOBAL_VAR(yohei_main_controller)
 		if(/datum/game_mode/shadowling)
 			desc = "Помочь Теневикам"
 			adatum = /datum/antagonist/thrall
+		if(/datum/game_mode/revolution)
+			desc = "Помочь Революции"
+			adatum = /datum/antagonist/rev
 		if(/datum/game_mode/gang)
 			desc = "Помочь Якудзе"
 			adatum = pick(subtypesof(/datum/antagonist/gang))
 		else
 			desc = "Помочь себе"
 			adatum = null
-	if(!adatum)
+	if(!isnull(adatum))
 		qdel(src)
 
 /datum/yohei_task/gamemode/check_task(mob/user)
