@@ -156,7 +156,7 @@
 				to_chat(usr, "<span class='notice'>Аппаратная ошибка: в принтере закончилась бумага.</span>")
 				return
 			else
-				computer.visible_message("<span class='notice'>\[computer] печатает бумагу.</span>")
+				computer.visible_message("<span class='notice'>[computer] печатает бумагу.</span>")
 				if(ticket_count >= 1)
 					new /obj/item/stack/arcadeticket((get_turf(computer)), 1)
 					to_chat(usr, "<span class='notice'>[computer] выдаёт билет!</span>")
