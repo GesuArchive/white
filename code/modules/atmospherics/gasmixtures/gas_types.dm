@@ -72,7 +72,7 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 
 /datum/gas/plasma
 	id = "plasma"
-	specific_heat = 50
+	specific_heat = 200
 	name = "Плазма"
 	gas_overlay = "plasma"
 	moles_visible = MOLES_GAS_VISIBLE
