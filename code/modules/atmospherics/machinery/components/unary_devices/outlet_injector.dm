@@ -272,7 +272,7 @@
 	name = "инжектор в камеру с стимулумом"
 	id = ATMOS_GAS_MONITOR_INPUT_STIMULUM
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/tritium_input
-	name = "инжектор в камеру с триумом"
+	name = "инжектор в камеру с тритием"
 	id = ATMOS_GAS_MONITOR_INPUT_TRITIUM
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/water_vapor_input
 	name = "инжектор в камеру с паром"
