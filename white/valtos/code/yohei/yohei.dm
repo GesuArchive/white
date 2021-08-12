@@ -244,7 +244,7 @@
 	. = ..()
 	if(GLOB.yohei_main_controller)
 		var/obj/lab_monitor/yohei/LM = GLOB.yohei_main_controller
-		H.maxHealth = MAX_LIVING_HEALTH + LM.reputation
+		H.maxHealth = MAX_LIVING_HEALTH + LM.reputation[H.ckey]
 		ADD_TRAIT(H, TRAIT_YOHEI, JOB_TRAIT)
 
 /datum/outfit/yohei/medic
