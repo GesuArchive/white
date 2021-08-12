@@ -128,6 +128,9 @@
 //fluff
 /obj/item/storage/belt/chameleon/bomb
 
+/obj/item/storage/belt/chameleon/bomb/PopulateContents()
+	new /obj/item/transfer_valve(src)
+
 /obj/item/storage/belt/chameleon/bomb/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
@@ -142,7 +145,7 @@
 	name = "Bomb belt"
 	desc = "Особый пояс для хранения и переноса бомб, возможно использование в качестве пояса шахида."
 	item = /obj/item/storage/belt/chameleon/bomb
-	cost = 8
+	cost = 10
 
 
 /obj/item/clothing/accessory/medal/frog
