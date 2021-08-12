@@ -42401,14 +42401,10 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/obj/machinery/power/apc{
-	areastring = "/area/science/nanite";
-	name = "Nanite Lab APC";
-	pixel_y = 23
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/power/apc/auto_name/north,
 /turf/open/floor/plasteel,
 /area/science/nanite)
 "tgF" = (
