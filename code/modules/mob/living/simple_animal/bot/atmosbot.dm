@@ -49,7 +49,7 @@
 	//Weakref of deployed barrier
 	var/datum/weakref/deployed_holobarrier
 	//Deployment time of last barrier
-	var/last_barrier_tick
+	var/last_barrier_tick = 0
 	//Gasses
 	var/list/gasses = list(
 		/datum/gas/bz = 1,
@@ -286,7 +286,7 @@
 			var/turf/adjacent_turf = get_step(checking_turf, direction)
 			if(adjacent_turf in checked_turfs || !adjacent_turf.CanAtmosPass(adjacent_turf) || istype(adjacent_turf.loc, /area/space))
 				continue
-			if(isspaceturf(adjacent_turf))
+			if(isspaceturf(adjacent_turf) || isopenturf(adjacent_turf))
 				return checking_turf
 			to_check_turfs |= adjacent_turf
 	return null

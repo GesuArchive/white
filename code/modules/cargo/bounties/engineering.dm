@@ -23,7 +23,7 @@
 	gas_type = /datum/gas/freon
 
 /datum/bounty/item/engineering/gas/tritium_tank
-	name = "Полная канистра Тритиума"
+	name = "Полная канистра Трития"
 	description = "Станция 49 надеется начать свою исследовательскую программу. Отправьте им канистру, полную трития."
 	gas_type = /datum/gas/tritium
 
