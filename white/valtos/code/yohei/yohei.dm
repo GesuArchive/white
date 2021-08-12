@@ -365,6 +365,7 @@ GLOBAL_VAR(yohei_main_controller)
 		)
 		var/choice = show_radial_menu(user, src, choices, tooltips = TRUE)
 		if(!choice)
+			say("Ничего не выбрано!")
 			return
 
 		if(choice == "Классическая охота")
@@ -373,6 +374,7 @@ GLOBAL_VAR(yohei_main_controller)
 			current_task = new new_task()
 			return
 		else
+			say("Загружаю особое задание...")
 			current_task = new /datum/yohei_task/gamemode()
 			return
 
@@ -492,10 +494,16 @@ GLOBAL_VAR(yohei_main_controller)
 	switch(SSticker.mode.type)
 		if(/datum/game_mode/traitor)
 			desc = "Помочь Синдикату"
-			adatum = /datum/antagonist/traitor
+			if(prob(50))
+				adatum = /datum/antagonist/traitor
+			else
+				adatum = /datum/antagonist/traitor/internal_affairs
 		if(/datum/game_mode/wizard)
 			desc = "Помочь Волшебникам"
-			adatum = /datum/antagonist/wizard
+			if(prob(50))
+				adatum = /datum/antagonist/wizard/apprentice
+			else
+				adatum = /datum/antagonist/wizard/apprentice/imposter
 		if(/datum/game_mode/nuclear)
 			desc = "Помочь Оперативникам Синдиката"
 			adatum = /datum/antagonist/nukeop/reinforcement
@@ -507,13 +515,10 @@ GLOBAL_VAR(yohei_main_controller)
 			adatum = /datum/antagonist/servant_of_ratvar
 		if(/datum/game_mode/bloodsucker)
 			desc = "Помочь Вампирам"
-			adatum = /datum/antagonist/bloodsucker
+			adatum = /datum/antagonist/vassal
 		if(/datum/game_mode/changeling)
 			desc = "Помочь Генокрадам"
 			adatum = /datum/antagonist/changeling
-		if(/datum/game_mode/devil)
-			desc = "Помочь Дьяволам"
-			adatum = /datum/antagonist/devil
 		if(/datum/game_mode/heretics)
 			desc = "Помочь Еретикам"
 			adatum = /datum/antagonist/heretic
@@ -522,10 +527,10 @@ GLOBAL_VAR(yohei_main_controller)
 			adatum = /datum/antagonist/monkey
 		if(/datum/game_mode/shadowling)
 			desc = "Помочь Теневикам"
-			adatum = /datum/antagonist/shadowling
+			adatum = /datum/antagonist/thrall
 		if(/datum/game_mode/gang)
 			desc = "Помочь Якудзе"
-			adatum = /datum/antagonist/gang/yakuza
+			adatum = pick(subtypesof(/datum/antagonist/gang))
 		else
 			desc = "Помочь себе"
 			adatum = null
