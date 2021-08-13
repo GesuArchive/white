@@ -246,11 +246,11 @@
 			cell.use(E.e_cost)
 			. = "<span class='danger'>[user] непринужденно зажигает [A.loc == user ? "[user.ru_ego()] [A.name]" : A] при помощи [src]. Вот блин.</span>"
 
-/obj/item/gun/proc/check_jammed(mob/living/user)
+/obj/item/gun/energy/check_jammed(mob/living/user)
 	if(!jammed)
 		if(prob(jam_chance))
 			to_chat(user, "<span class='userdanger'>КРИТИЧЕСКАЯ ОШИБКА!</span>")
-			playsound(get_turf(src), empty_alarm_sound, 100)
+			playsound(get_turf(src), 'sound/weapons/gun/general/empty_alarm.ogg', 100)
 			jammed = TRUE
 			return TRUE
 		return FALSE
