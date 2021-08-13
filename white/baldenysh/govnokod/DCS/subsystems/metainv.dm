@@ -44,7 +44,7 @@ SUBSYSTEM_DEF(metainv)
 /datum/metainventory/serialize_list(list/options)
 	. = list()
 	.["ckey"] = owner_ckey
-	.["slots"] = slots
+	.["slots"] = null_slots
 	.["objs"] = list()
 	for(var/datum/metainv_object/MO in obj_list)
 		.["objs"] += MO.serialize_json()
@@ -53,7 +53,7 @@ SUBSYSTEM_DEF(metainv)
 	if(!input["ckey"] || !input["slots"] || !input["objs"])
 		return
 	owner_ckey = input["ckey"]
-	slots = input["slots"]
+	null_slots = input["slots"]
 	for(var/json_obj in input["objs"])
 		var/datum/metainv_object/MO = new
 		obj_list += MO.deserialize_json(json_obj)
@@ -105,7 +105,7 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainventory/test
 	owner_ckey = "imposter"
-	slots = 11
+	null_slots = 11
 
 /datum/metainventory/test/New()
 	. = ..()
