@@ -582,7 +582,7 @@ GLOBAL_VAR(yohei_main_controller)
 	var/req_sum = 500
 
 /obj/effect/mob_spawn/human/donate/attack_ghost(mob/user)
-	if(user?.client?.holder || check_donations(user?.ckey) >= req_sum)
+	if(check_donations(user?.ckey) >= req_sum)
 		. = ..()
 	else
 		to_chat(user, "<span class='warning'>Эта роль требует <b>[req_sum]</b> донат-поинтов для доступа.</span>")
@@ -625,6 +625,8 @@ GLOBAL_VAR(yohei_main_controller)
 			outfit = /datum/outfit/yohei/prospector
 			assignedrole = "Yohei: Prospector"
 	if(user.ckey)
+		var/datum/donator/D = get_donator(user.ckey)
+		D.money -= 1250
 		var/client/C = GLOB.directory[user.ckey]
 		if(C?.prefs)
 			hairstyle =  C.prefs.hairstyle

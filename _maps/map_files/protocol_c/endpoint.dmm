@@ -907,7 +907,7 @@
 	pixel_y = 6
 	},
 /turf/open/indestructible,
-/area/centcom/holding)
+/area/centcom/circus)
 "eJ" = (
 /obj/machinery/door/airlock{
 	icon = 'icons/obj/doors/airlocks/station/uranium.dmi';
@@ -2186,7 +2186,7 @@
 /area/centcom/control)
 "kS" = (
 /turf/open/openspace/fakez/east,
-/area/centcom/holding)
+/area/centcom/circus)
 "kW" = (
 /obj/structure/safe/floor,
 /obj/item/uplink/nuclear,
@@ -2356,7 +2356,7 @@
 /area/centcom/control)
 "mg" = (
 /turf/open/openspace/fakez/north,
-/area/centcom/holding)
+/area/centcom/circus)
 "mj" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -3199,7 +3199,7 @@
 /obj/structure/lattice/catwalk,
 /obj/item/food/cake/birthday,
 /turf/open/openspace/fakez/north,
-/area/centcom/holding)
+/area/centcom/circus)
 "rB" = (
 /obj/structure/flora/rock/pile,
 /obj/structure/flora/ausbushes/rospilovo/pointybush{
@@ -4518,7 +4518,7 @@
 /area/wizard_station)
 "Cd" = (
 /turf/closed/indestructible/necropolis,
-/area/centcom/holding)
+/area/centcom/circus)
 "Cf" = (
 /obj/machinery/light{
 	dir = 1
@@ -5488,7 +5488,7 @@
 /area/centcom/circus)
 "Jf" = (
 /turf/open/indestructible,
-/area/centcom/holding)
+/area/centcom/circus)
 "Jh" = (
 /turf/open/floor/plasteel/freezer,
 /area/syndicate_mothership/control)
@@ -5655,7 +5655,7 @@
 /area/abductor_ship)
 "KD" = (
 /turf/open/openspace/fakez/south,
-/area/centcom/holding)
+/area/centcom/circus)
 "KI" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -6340,7 +6340,7 @@
 "Pl" = (
 /obj/item/construction/rld,
 /turf/open/indestructible,
-/area/centcom/holding)
+/area/centcom/circus)
 "Po" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -6859,7 +6859,7 @@
 "SM" = (
 /obj/item/construction/rcd/loaded,
 /turf/open/indestructible,
-/area/centcom/holding)
+/area/centcom/circus)
 "SO" = (
 /obj/structure/table_frame/wood,
 /obj/item/stack/sheet/mineral/wood{
