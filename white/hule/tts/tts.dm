@@ -68,7 +68,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 				message_admins("[key] toggled anime voiceover off.")
 
 		if("Change Lang")
-			var/list/langlist = list("Cancel", "ru", "en", "ua", "ja", "fr")
+			var/list/langlist = list("Cancel", "ru", "en", "uk", "ja", "fr")
 
 			var/selectedlang = input("Main Menu", "ANIME VOICEOVER", null) as null|anything in langlist
 			if(selectedlang == "Cancel")
