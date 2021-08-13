@@ -31,9 +31,12 @@ SUBSYSTEM_DEF(metainv)
 
 ////////////////////////////////////////////////////////////////////
 
+#define METAINVENTORY_SLOT_CURSOR 1
+#define METAINVENTORY_SLOT_TURF 2
+#define METAINVENTORY_SLOT_HAND_R 3
+
 /datum/metainventory
 	var/owner_ckey
-
 	var/slots = 20
 	var/list/datum/metainv_object/obj_list = list()
 
@@ -58,6 +61,23 @@ SUBSYSTEM_DEF(metainv)
 	for(var/datum/metainv_object/MO in obj_list)
 		MO.create_object(location)
 
+/datum/metainventory/proc/get_equipped_items(slot_id)
+	. = list()
+	for(var/datum/metainv_object/MO in obj_list)
+		if(MO.equipped_to_slot == slot_id)
+			. += MO
+
+/datum/metainventory/proc/equip_carbon(mob/living/carbon/target)
+	if(!target || !istype(target))
+		return
+	var/turf/T = get_turf(target)
+	for(var/datum/metainv_object/MO in get_equipped_items(METAINVENTORY_SLOT_TURF))
+		MO.create_object(T)
+
+	var/datum/metainv_object/r_hand_metaobj = get_equipped_items(METAINVENTORY_SLOT_HAND_R)?[1]
+	if(r_hand_metaobj)
+		target.put_in_r_hand(r_hand_metaobj.create_object(T))
+
 
 /datum/metainventory/test
 	owner_ckey = "imposter"
@@ -66,9 +86,11 @@ SUBSYSTEM_DEF(metainv)
 /datum/metainventory/test/New()
 	. = ..()
 	var/datum/metainv_object/test/bimba = new
+	bimba.equipped_to_slot = 2
 	var/datum/metainv_object/stels = new
 	stels.object_path_txt = "/obj/item/stack/sheet/mineral/wood"
 	stels.var_overrides = list("name" = "жопные доски", "desc" = "фичи, каторые мы заслужили", "amount" = 15)
+	stels.equipped_to_slot = 3
 
 	obj_list += bimba
 	obj_list += stels
@@ -77,8 +99,7 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainv_object
 	var/object_path_txt
-
-	var/equip_slot_id //айди слота куда в настоящий момент этот айтем эквипнут
+	var/equipped_to_slot = 0
 	var/rarity
 	var/list/var_overrides
 
@@ -87,12 +108,13 @@ SUBSYSTEM_DEF(metainv)
 	var/obj/O = new object_path(location)
 	for(var/varname in var_overrides)
 		O.vars[varname] = var_overrides[varname]
+	return O
 
 /datum/metainv_object/serialize_list(list/options) //нужно для работы serialize_json
 	. = list()
 	.["OPT"] = object_path_txt
-	if(equip_slot_id)
-		.["ESI"] = equip_slot_id
+	if(equipped_to_slot)
+		.["ETS"] = equipped_to_slot
 	if(rarity)
 		.["R"] = rarity
 	if(var_overrides && var_overrides.len)
@@ -102,7 +124,7 @@ SUBSYSTEM_DEF(metainv)
 	if(!input["OPT"])
 		return
 	object_path_txt = input["OPT"]
-	equip_slot_id = input?["ESI"]
+	equipped_to_slot = input?["ETS"]
 	rarity = input?["R"]
 	var_overrides = json_decode(input?["VO"])
 	return src
