@@ -10,6 +10,8 @@
 
 	recoil = 0.75
 
+	jam_chance = 5
+
 	///sound when inserting magazine
 	var/load_sound = 'sound/weapons/gun/general/magazine_insert_full.ogg'
 	///sound when inserting an empty magazine

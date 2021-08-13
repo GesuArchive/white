@@ -66,6 +66,7 @@
 	knife_x_offset = 27
 	slot_flags = 0
 	knife_y_offset = 13
+	jam_chance = 50
 
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/empty
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction98/empty
