@@ -47,6 +47,7 @@
 	icon = 'white/Wzzzz/icons/Weea.dmi'
 	icon_state = "kar98k"
 	inhand_icon_state = "kar98k"
+	worn_icon = "kar98k"
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction98
 	bolt_wording = "bolt"
 	w_class = WEIGHT_CLASS_BULKY
@@ -64,7 +65,6 @@
 	slot_flags = ITEM_SLOT_BACK
 	can_bayonet = TRUE
 	knife_x_offset = 27
-	slot_flags = 0
 	knife_y_offset = 13
 
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/Initialize()
@@ -77,11 +77,11 @@
 		if(2)
 			name = "старая ржавая [name]"
 			jam_chance = 50
-			jam_chance = 7
+			extra_damage = 7
 		if(2)
 			name = "старая ржавая кривая [name]"
 			jam_chance = 75
-			jam_chance = 3
+			extra_damage = 3
 
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/empty
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction98/empty
