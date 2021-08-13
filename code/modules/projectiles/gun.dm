@@ -242,7 +242,11 @@
 			handle_suicide(user, target, params)
 			return
 
-	if(!can_shoot() || check_jammed(user)) //Just because you can pull the trigger doesn't mean it can shoot.
+	if(!can_shoot()) //Just because you can pull the trigger doesn't mean it can shoot.
+		shoot_with_empty_chamber(user)
+		return
+
+	if(check_jammed(user))
 		shoot_with_empty_chamber(user)
 		return
 

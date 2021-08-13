@@ -10,13 +10,13 @@
 	start_empty = TRUE
 
 /obj/item/ammo_box/n792x57
-	name = "ammo box (7.92x57)"
+	name = "ящик с патронами (7.92x57)"
 	icon_state = "10mmbox"
 	ammo_type = /obj/item/ammo_casing/a792x57
 	max_ammo = 14
 
 /obj/item/ammo_box/magazine/a792x57
-	name = "Clip (7.92x57mm)"
+	name = "зарядник (7.92x57mm)"
 	icon = 'white/Wzzzz/icons/ammo.dmi'
 	icon_state = "kclip"
 	caliber = "a792x57"
@@ -42,7 +42,7 @@
 	armour_penetration = 0
 
 /obj/item/gun/ballistic/rifle/boltaction/kar98k
-	name = "старая болтовка"
+	name = "болтовка"
 	desc = "Настолько старая, что даже порох в патронах успевает быстро устаревать, пока находится в ней."
 	icon = 'white/Wzzzz/icons/Weea.dmi'
 	icon_state = "kar98k"
@@ -66,15 +66,25 @@
 	knife_x_offset = 27
 	slot_flags = 0
 	knife_y_offset = 13
-	jam_chance = 50
+
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/Initialize()
+	. = ..()
+	switch(rand(1, 3))
+		if(1)
+			name = "старая [name]"
+			jam_chance = 25
+			extra_damage = 10
+		if(2)
+			name = "старая ржавая [name]"
+			jam_chance = 50
+			jam_chance = 7
+		if(2)
+			name = "старая ржавая кривая [name]"
+			jam_chance = 75
+			jam_chance = 3
 
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/empty
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction98/empty
-
-/obj/item/gun/ballistic/rifle/boltaction/kar98k/can_shoot()
-	if (bolt_locked)
-		return FALSE
-	return ..()
 
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/update_icon(var/add_scope = FALSE)
 	if (bolt_locked == FALSE)
@@ -103,8 +113,8 @@
 
 
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/scope
-	name = "kar98k scope"
-	desc = "Some kind of bolt action rifle. You get the feeling you shouldn't have this."
+	name = "болтовка с оптикой"
+	desc = "Настолько старая, что даже порох в патронах успевает быстро устаревать, пока находится в ней. Эта имеет оптический прицел."
 	icon_state = "kar98k_scope"
 	inhand_icon_state = "kar98k_scope"
 	zoomable = TRUE
@@ -112,51 +122,13 @@
 	zoom_out_amt = 13
 	actions_types = list()
 
-/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope/can_shoot()
-	if (bolt_locked)
-		return FALSE
-	return ..()
-
-/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope/attackby(obj/item/A, mob/user, params)
-	if (!bolt_locked)
-		to_chat(user, "<span class='notice'>The bolt is closed!</span>")
-		return
-	return ..()
-
-/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope/examine(mob/user)
-	. = ..()
-	. += "<hr>The bolt is [bolt_locked ? "open" : "closed"]."
-
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/scope/update_icon(var/add_scope = FALSE)
 	if (bolt_locked == FALSE)
 		icon_state = "kar98k_scope_open"
 		inhand_icon_state = "kar98k_scope_open"
-		icon = 'white/Wzzzz/icons/Weea.dmi'
-		slot_flags = ITEM_SLOT_BACK
-		lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
-		righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'
-		worn_icon = 'white/Wzzzz/clothing/mob/back.dmi'
-		fire_sound = 'white/Wzzzz/kar_shot.ogg'
 	else
 		icon_state = "kar98k_scope"
 		inhand_icon_state = "kar98k_scope"
-		icon = 'white/Wzzzz/icons/Weea.dmi'
-		lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
-		righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'
-		worn_icon = 'white/Wzzzz/clothing/mob/back.dmi'
-		fire_sound = 'white/Wzzzz/kar_shot.ogg'
-		return
-
-/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope/rack(mob/user = null)
-	if (bolt_locked == FALSE)
-		to_chat(user, "<span class='notice'>You open the bolt of <b>[src.name]</b></span>")
-		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
-		process_chamber(FALSE, FALSE, FALSE)
-		bolt_locked = TRUE
-		update_icon()
-		return
-	drop_bolt(user)
-
 /obj/item/gun/energy/taser/carbine
 	name = "taser carbine"
 	desc = "The NT Mk44 NL is a high capacity gun used for non-lethal takedowns. It can switch between high and low intensity stun shots."
@@ -207,9 +179,9 @@
 	mag_type = /obj/item/ammo_box/magazine/wt550m9/mc9mmt
 	actions_types = list(/datum/action/item_action/toggle_firemode)
 
-/obj/item/chainsaw
-	name = "circular saw"
-	desc = "Good against wood or flesh, bad against steel."
+/obj/item/chainsaw/circular
+	name = "циркулярная пила"
+	desc = "Режет неплохо всё, кроме стали."
 	icon_state = "saw"
 	icon = 'white/Wzzzz/icons/Weea.dmi'
 	inhand_icon_state = "saw"
@@ -220,13 +192,6 @@
 	righthand_file = 'white/Wzzzz/icons/Weear.dmi'
 	armour_penetration = 0
 	sharpness = 5
-
-/obj/item/shovel/serrated
-	name = "bone shovel"
-	desc = "Weapon and tool together."
-	icon = 'white/Wzzzz/icons/Weea.dmi'
-	throwforce = 10
-	force = 12
 
 /obj/item/shovel/spade/wzzz
 	icon = 'white/Wzzzz/icons/Weea.dmi'
