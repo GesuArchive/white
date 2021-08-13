@@ -4,7 +4,7 @@ SUBSYSTEM_DEF(metainv)
 	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
 	init_order = 5
 
-	var/datum/metainv_item/test/ABOBA = new
+	var/datum/metainv_object/test/ABOBA = new
 	var/list/datum/metainventory/inventories = list()
 
 /datum/controller/subsystem/metainv/Initialize()
@@ -32,12 +32,12 @@ SUBSYSTEM_DEF(metainv)
 	var/owner_ckey
 
 	var/slots = 20
-	var/list/datum/metainv_item/item_list
+	var/list/datum/metainv_object/obj_list
 
 /datum/metainventory/serialize_list(list/options)
 	. = list()
 	. += list("slots" = slots)
-	. += list("items" = item_list)
+	. += list("objects" = obj_list)
 
 /datum/metainventory/deserialize_list(list/input, list/options)
 
@@ -45,21 +45,22 @@ SUBSYSTEM_DEF(metainv)
 
 ////////////////////////////////////////////////////////////////////
 
-/datum/metainv_item
-	var/item_path_txt
+/datum/metainv_object
+	var/object_path_txt
+
 	var/equip_slot_id //айди слота куда в настоящий момент этот айтем эквипнут
 	var/rarity
 	var/list/var_overrides
 
-/datum/metainv_item/proc/create_item(atom/location)
-	var/item_path = text2path(item_path_txt)
-	var/obj/O = new item_path(location)
+/datum/metainv_object/proc/create_item(atom/location)
+	var/object_path = text2path(object_path_txt)
+	var/obj/O = new object_path(location)
 	for(var/varname in var_overrides)
 		O.vars[varname] = var_overrides[varname]
 
-/datum/metainv_item/serialize_list(list/options)
+/datum/metainv_object/serialize_list(list/options) //нужно для работы serialize_json
 	. = list()
-	.["IPT"] = item_path_txt
+	.["OPT"] = object_path_txt
 	if(equip_slot_id)
 		.["ESI"] = equip_slot_id
 	if(rarity)
@@ -67,15 +68,15 @@ SUBSYSTEM_DEF(metainv)
 	if(var_overrides && var_overrides.len)
 		.["VO"] = json_encode(var_overrides)
 
-/datum/metainv_item/deserialize_list(list/input, list/options)
-	if(!input["IPT"])
+/datum/metainv_object/deserialize_list(list/input, list/options)
+	if(!input["OPT"])
 		return
-	item_path_txt = input["IPT"]
+	object_path_txt = input["OPT"]
 	equip_slot_id = input?["ESI"]
 	rarity = input?["R"]
 	var_overrides = json_decode(input?["VO"])
 	return src
 
-/datum/metainv_item/test
-	item_path_txt = "/obj/item/soap/nanotrasen"
-	var_overrides = list("name" = "salo", "throwforce" = 999)
+/datum/metainv_object/test
+	object_path_txt = "/obj/machinery/nuclearbomb"
+	var_overrides = list("name" = "Українська бiмба", "throwforce" = 999)
