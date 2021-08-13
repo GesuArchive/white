@@ -14,7 +14,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 ////////////////////////////////////////////////
 
 /proc/tts_args(var/name, var/msg, var/lang)
-	world.shelleo("gtts-cli \'[msg]\' -l [lang] -o [TTS_PATH]/lines/[name].ogg")
+	world.shelleo("python3 t.py \'[msg]\' [lang] [TTS_PATH]/lines/[name].wav")
 
 /////////////////////////////////////
 
@@ -28,18 +28,18 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 
 	tts_args(namae, msg, lang)
 	var/datum/component/tts/TTS = GetComponent(/datum/component/tts)
-	if(fexists("[TTS_PATH]/lines/[namae].ogg"))
+	if(fexists("[TTS_PATH]/lines/[namae].wav"))
 		for(var/mob/M in range(13))
 			var/turf/T = get_turf(src)
-			M.playsound_local(T, "[TTS_PATH]/lines/[namae].ogg", 100, channel = TTS.assigned_channel, frequency = freq)
+			M.playsound_local(T, "[TTS_PATH]/lines/[namae].wav", 100, channel = TTS.assigned_channel, frequency = freq)
 
 /proc/to_tts(target, message)
 	spawn(0)
 		tts_args("announcer", message,  "ru")
-		if(fexists("[TTS_PATH]/lines/announcer.ogg"))
+		if(fexists("[TTS_PATH]/lines/announcer.wav"))
 			var/mob/M = target
 			var/turf/T = get_turf(target)
-			M.playsound_local(T, "[TTS_PATH]/lines/announcer.ogg", 70, channel = CHANNEL_TTS_ANNOUNCER, frequency = 1)
+			M.playsound_local(T, "[TTS_PATH]/lines/announcer.wav", 70, channel = CHANNEL_TTS_ANNOUNCER, frequency = 1)
 	return
 
 ////////////////////////////////////////
@@ -68,7 +68,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 				message_admins("[key] toggled anime voiceover off.")
 
 		if("Change Lang")
-			var/list/langlist = list("Cancel", "ru", "en", "uk", "ja", "fr")
+			var/list/langlist = list("Cancel", "aidar", "baya", "kseniya", "natasha")
 
 			var/selectedlang = input("Main Menu", "ANIME VOICEOVER", null) as null|anything in langlist
 			if(selectedlang == "Cancel")
