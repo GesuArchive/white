@@ -172,7 +172,7 @@
 // AS VAL
 
 /obj/item/gun/ballistic/automatic/asval
-	name = "АС Вал"
+	name = "АС \"Вал\""
 	desc = "Бесшумный автомат, используемый войсками осназа Новой России. Использует 9х39 калибр."
 	icon = 'white/rebolution228/icons/weapons/rguns.dmi'
 	icon_state = "asval"
@@ -192,6 +192,10 @@
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'white/rebolution228/sounds/weapons/fire_asval.ogg'
 	rack_sound = 'white/rebolution228/sounds/weapons/asval_zatvor.ogg'
+	eject_sound = 'white/rebolution228/sounds/weapons/asval_magout.ogg'
+	eject_empty_sound = 'white/rebolution228/sounds/weapons/asval_magout.ogg'
+	load_sound = 'white/rebolution228/sounds/weapons/asval_magout.ogg'
+	load_empty_sound = 'white/rebolution228/sounds/weapons/asval_magin.ogg'
 	can_suppress = FALSE
 
 /obj/item/ammo_box/magazine/asval
