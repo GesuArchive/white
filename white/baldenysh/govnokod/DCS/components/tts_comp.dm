@@ -43,7 +43,7 @@
 		return
 	next_line_time = world.time
 	msg = trim(msg, maxchars)
-	next_line_time += length(msg)*charcd * 10
+	next_line_time += length(msg)*charcd * 2
 	if(lang)
 		owner.tts(msg, lang, freq = frequency)
 	else
