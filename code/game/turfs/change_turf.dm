@@ -27,7 +27,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		T.ChangeTurf(type)
 		if(underlays.len)
 			T.underlays.Cut()
-			T.underlays += O.underlays
+			//T.underlays += O.underlays
 	if(T.icon_state != icon_state)
 		T.icon_state = icon_state
 	if(T.icon != icon)
