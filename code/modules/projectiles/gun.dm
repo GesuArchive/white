@@ -133,6 +133,7 @@
 	if(jammed)
 		. += "<span class='danger'><big>СТВОЛ ЗАКЛИНИЛО!</big></span>"
 		. += "\n<span class='info'>Можно попытаться починить его используя ПКМ.</span>"
+		. += "<hr>"
 	if(pin)
 		. += "<span class='smalldanger'>Внутри установлен [pin].</span>"
 		. += "\n<span class='small info'>Похоже [pin] можно вытащить при помощи <b>инструментов</b>.</span>"
