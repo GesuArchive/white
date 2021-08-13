@@ -1,6 +1,5 @@
 /obj/item/gun/ballistic/shotgun/makeshift
 	var/debug
-	var/jammed = FALSE
 	var/jamchance
 	var/time_to_unjam
 	name = "Captain's bane"

@@ -366,3 +366,11 @@ GLOBAL_VAR_INIT(ohshitfuck, FALSE)
 	if(D)
 		return D.maxmoney
 	return 0
+
+/proc/get_donator(ckey)
+	if (!GLOB.donators[ckey])
+		return FALSE
+	var/datum/donator/D = GLOB.donators[ckey]
+	if(D)
+		return D
+	return null

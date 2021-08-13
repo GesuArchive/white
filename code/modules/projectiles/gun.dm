@@ -79,6 +79,10 @@
 	var/extra_damage = 0				//Number to add to individual bullets.
 	var/extra_penetration = 0			//Number to add to armor penetration of individual bullets.
 
+	var/jammed = FALSE
+	var/jam_chance = 1 // да-да
+
+
 /obj/item/gun/Initialize()
 	. = ..()
 	if(pin)
@@ -126,9 +130,13 @@
 /obj/item/gun/examine(mob/user)
 	. = ..()
 	. += "<hr>"
+	if(jammed)
+		. += "<span class='danger'><big>СТВОЛ ЗАКЛИНИЛО!</big></span>"
+		. += "\n<span class='info'>Можно попытаться починить его используя ПКМ.</span>"
+		. += "<hr>"
 	if(pin)
 		. += "<span class='smalldanger'>Внутри установлен [pin].</span>"
-		. += "</br><span class='small info'>Похоже [pin] можно вытащить при помощи <b>инструментов</b>.</span>"
+		. += "\n<span class='small info'>Похоже [pin] можно вытащить при помощи <b>инструментов</b>.</span>"
 	else
 		. += "Внутри отсутствует <b>ударник</b>, поэтому огонь вести невозможно."
 
@@ -136,7 +144,7 @@
 		. += "<hr>"
 		. += "На нём установлен [gun_light], который [can_flashlight ? "" : "надёжно "]прикручен к нему."
 		if(can_flashlight) //if it has a light and this is false, the light is permanent.
-			. += "</br><span class='info'>Похоже [gun_light] может быть <b>откручен</b> от [src].</span>"
+			. += "\n<span class='info'>Похоже [gun_light] может быть <b>откручен</b> от [src].</span>"
 	else if(can_flashlight)
 		. += "<hr>"
 		. += "Здесь присутствует посадочное место для <b>фонарика</b>."
@@ -145,7 +153,7 @@
 		. += "<hr>"
 		. += "На нём установлен [bayonet], который [can_bayonet ? "" : "надёжно "]прикреплён к нему."
 		if(can_bayonet) //if it has a bayonet and this is false, the bayonet is permanent.
-			. += "</br><span class='info'>Похоже [bayonet] может быть <b>откручен</b> от [src].</span>"
+			. += "\n<span class='info'>Похоже [bayonet] может быть <b>откручен</b> от [src].</span>"
 	else if(can_bayonet)
 		. += "<hr>"
 		. += "Сюда можно прикрепить <b>штык</b>."
@@ -238,6 +246,10 @@
 		shoot_with_empty_chamber(user)
 		return
 
+	if(check_jammed(user))
+		shoot_with_empty_chamber(user)
+		return
+
 	if(check_botched(user))
 		return
 
@@ -259,6 +271,24 @@
 				addtimer(CALLBACK(G, /obj/item/gun.proc/process_fire, target, user, TRUE, params, null, bonus_spread), loop_counter)
 
 	return process_fire(target, user, TRUE, params, null, bonus_spread, aimed)
+
+/obj/item/gun/proc/check_jammed(mob/living/user)
+	if(!jammed)
+		if(prob(jam_chance))
+			to_chat(user, "<span class='userdanger'>ЗАКЛИНИЛО!</span>")
+			jammed = TRUE
+			return TRUE
+		return FALSE
+	else
+		return TRUE
+
+/obj/item/gun/AltClick(mob/user)
+	if(jammed)
+		if(do_after(user, 1 SECONDS, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE)))
+			to_chat(user, "<span class='notice'>Удалось починить [src.name].</span>")
+			jammed = FALSE
+	else
+		. = ..()
 
 /obj/item/gun/proc/check_botched(mob/living/user, params)
 	if(clumsy_check)
