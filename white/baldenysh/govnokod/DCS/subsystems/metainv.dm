@@ -38,7 +38,7 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainventory
 	var/owner_ckey
-	var/slots = 20
+	var/null_slots = 20
 	var/list/datum/metainv_object/obj_list = list()
 
 /datum/metainventory/serialize_list(list/options)
