@@ -3,7 +3,7 @@
 #define TTS_PATH "/home/ubuntu/tenebrae/prod/server_white/white/hule/tts"
 
 GLOBAL_VAR_INIT(tts, FALSE)
-GLOBAL_LIST_INIT(tts_settings, list("ja"))//1-lang, 2-livingonly
+GLOBAL_LIST_INIT(tts_settings, list("aidar"))//1-lang, 2-livingonly
 
 PROCESSING_SUBSYSTEM_DEF(tts)
 	name = "Text To Speech"
@@ -14,7 +14,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 ////////////////////////////////////////////////
 
 /proc/tts_args(var/name, var/msg, var/lang)
-	world.shelleo("python3 t.py \'[msg]\' [lang] [TTS_PATH]/lines/[name].wav")
+	world.shelleo("python3 [TTS_PATH]/t.py \"[msg]\" [lang] \"[TTS_PATH]/lines/[name].wav\"")
 
 /////////////////////////////////////
 
