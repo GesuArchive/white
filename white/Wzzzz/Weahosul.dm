@@ -47,7 +47,7 @@
 	icon = 'white/Wzzzz/icons/Weea.dmi'
 	icon_state = "kar98k"
 	inhand_icon_state = "kar98k"
-	worn_icon = "kar98k"
+	worn_icon_state = "kar98k"
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction98
 	bolt_wording = "bolt"
 	w_class = WEIGHT_CLASS_BULKY
@@ -78,8 +78,8 @@
 			name = "старая ржавая [name]"
 			jam_chance = 50
 			extra_damage = 7
-		if(2)
-			name = "старая ржавая кривая [name]"
+		if(3)
+			name = "старая ржавая погнутая [name]"
 			jam_chance = 75
 			extra_damage = 3
 
@@ -111,7 +111,6 @@
 		return
 	drop_bolt(user)
 
-
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/scope
 	name = "болтовка с оптикой"
 	desc = "Настолько старая, что даже порох в патронах успевает быстро устаревать, пока находится в ней. Эта имеет оптический прицел."
@@ -129,6 +128,7 @@
 	else
 		icon_state = "kar98k_scope"
 		inhand_icon_state = "kar98k_scope"
+
 /obj/item/gun/energy/taser/carbine
 	name = "taser carbine"
 	desc = "The NT Mk44 NL is a high capacity gun used for non-lethal takedowns. It can switch between high and low intensity stun shots."
