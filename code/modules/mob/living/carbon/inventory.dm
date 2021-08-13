@@ -168,7 +168,7 @@
 	if(istype(receiving, /obj/item/slapper))
 		offer_high_five(receiving)
 		return
-	visible_message("<span class='notice'><b>[src.name]</b> хочет дать мне <b>[receiving.name].</b></span>", \
+	visible_message("<span class='notice'><b>[src.name]</b> хочет дать <b>[receiving.name].</b></span>", \
 					"<span class='notice'>Хочу дать <b>[receiving.name]</b>.</span>", null, 2)
 	for(var/mob/living/carbon/C in orange(1, src)) //Fixed that, now it shouldn't be able to give benos stunbatons and IDs
 		if(!CanReach(C))

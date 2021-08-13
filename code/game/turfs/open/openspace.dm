@@ -233,7 +233,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/open/openspace/fakez
 	planetary_atmos = TRUE
 	var/dir_to = SOUTH
-	var/offset_to = 30
+	var/offset_to = 10
 
 /turf/open/openspace/fakez/LateInitialize()
 	switch(dir_to)

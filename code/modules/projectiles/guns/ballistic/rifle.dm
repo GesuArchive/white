@@ -23,7 +23,7 @@
 
 /obj/item/gun/ballistic/rifle/rack(mob/user = null)
 	if (bolt_locked == FALSE)
-		to_chat(user, "<span class='notice'>You open the bolt of <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>Открываю затвор <b>[src.name]</b>.</span>")
 		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
 		process_chamber(FALSE, FALSE, FALSE)
 		bolt_locked = TRUE
@@ -38,13 +38,13 @@
 
 /obj/item/gun/ballistic/rifle/attackby(obj/item/A, mob/user, params)
 	if (!bolt_locked)
-		to_chat(user, "<span class='notice'>The bolt is closed!</span>")
+		to_chat(user, "<span class='notice'>Затвор опущен!</span>")
 		return
 	return ..()
 
 /obj/item/gun/ballistic/rifle/examine(mob/user)
 	. = ..()
-	. += "<hr>The bolt is [bolt_locked ? "open" : "closed"]."
+	. += "<hr>Затвор [bolt_locked ? "открыт" : "опущен"]."
 
 ///////////////////////
 // BOLT ACTION RIFLE //

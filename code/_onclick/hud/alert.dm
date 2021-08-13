@@ -306,8 +306,8 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
  * * receiving - The item being given by the giver
  */
 /atom/movable/screen/alert/give/proc/setup(mob/living/carbon/taker, mob/living/carbon/giver, obj/item/receiving)
-	name = "[giver] is offering [receiving]"
-	desc = "[giver] is offering [receiving]. Click this alert to take it."
+	name = "[giver] предлагает мне [receiving]"
+	desc = "[giver] предлагает мне [receiving]. Нажми чтобы взять."
 	icon_state = "template"
 	cut_overlays()
 	add_overlay(receiving)

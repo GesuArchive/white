@@ -233,7 +233,8 @@
 			H.apply_pref_name("human", preference_source)
 	if(!visualsOnly)
 		var/datum/bank_account/bank_account = new(H.real_name, src, H.dna.species.payday_modifier)
-		bank_account.payday(STARTING_PAYCHECKS, TRUE)
+		if(!latejoin)
+			bank_account.payday(STARTING_PAYCHECKS, TRUE)
 		H.account_id = bank_account.account_id
 
 	//Equip the rest of the gear
@@ -248,7 +249,7 @@
 
 	H.dna.species.after_equip_job(src, H, visualsOnly)
 
-	if(SSjob.forced_name)
+	if(latejoin && SSjob.forced_name)
 		H.fully_replace_character_name(H.real_name, "[SSjob.forced_name] \Roman[SSjob.forced_num]")
 		SSjob.forced_num++
 

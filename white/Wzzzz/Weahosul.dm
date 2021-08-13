@@ -28,8 +28,7 @@
 	start_empty = TRUE
 
 /obj/item/ammo_casing/a792x57
-	name = "7.92x57mm bullet casing"
-	desc = "A 7.92x57mm bullet casing."
+	name = "гильза 7.92x57mm"
 	caliber = "a792x57"
 	projectile_type = /obj/projectile/bullet/a792x57
 	icon = 'white/Wzzzz/icons/ammo.dmi'
@@ -37,14 +36,14 @@
 	inhand_icon_state = "rifle_casing"
 
 /obj/projectile/bullet/a792x57
-	damage = 45
-	stamina = 25
+	damage = 3
+	stamina = 5
 	speed = 0.4
-	armour_penetration = 45
+	armour_penetration = 0
 
 /obj/item/gun/ballistic/rifle/boltaction/kar98k
-	name = "kar98k"
-	desc = "Some kind of bolt action rifle. You get the feeling you shouldn't have this."
+	name = "старая болтовка"
+	desc = "Настолько старая, что даже порох в патронах успевает быстро устаревать, пока находится в ней."
 	icon = 'white/Wzzzz/icons/Weea.dmi'
 	icon_state = "kar98k"
 	inhand_icon_state = "kar98k"
@@ -76,16 +75,6 @@
 		return FALSE
 	return ..()
 
-/obj/item/gun/ballistic/rifle/boltaction/kar98k/attackby(obj/item/A, mob/user, params)
-	if (!bolt_locked)
-		to_chat(user, "<span class='notice'>The bolt is closed!</span>")
-		return
-	return ..()
-
-/obj/item/gun/ballistic/rifle/boltaction/kar98k/examine(mob/user)
-	. = ..()
-	. += "<hr>The bolt is [bolt_locked ? "open" : "closed"]."
-
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/update_icon(var/add_scope = FALSE)
 	if (bolt_locked == FALSE)
 		icon_state = "kar98k_open"
@@ -103,7 +92,7 @@
 
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/rack(mob/user = null)
 	if (bolt_locked == FALSE)
-		to_chat(user, "<span class='notice'>You open the bolt of <b>[src.name]</b></span>")
+		to_chat(user, "<span class='notice'>Открываю затвор <b>[src.name]</b></span>")
 		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
 		process_chamber(FALSE, FALSE, FALSE)
 		bolt_locked = TRUE

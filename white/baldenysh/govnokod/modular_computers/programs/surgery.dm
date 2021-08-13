@@ -2,7 +2,6 @@
 	filename = "SurgMaster"
 	filedesc = "SurgMaster"
 	extended_desc = "Эта программа позволяет проводить комплексные операции в полевых условиях. Находится на стадии разработки и превратит ваш девайс в кирпич при запуске. Зато работает!"
-	requires_ntnet = TRUE
 	transfer_access = ACCESS_MEDICAL
 	available_on_ntnet = TRUE
 	usage_flags = PROGRAM_LAPTOP

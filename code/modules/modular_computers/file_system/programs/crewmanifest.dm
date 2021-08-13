@@ -47,4 +47,4 @@
 					to_chat(usr, "<span class='notice'>Аппаратная ошибка: принтеру не удалось распечатать файл. Возможно, закончилась бумага.</span>")
 					return
 				else
-					computer.visible_message("<span class='notice'>\[computer] распечатывает бумагу.</span>")
+					computer.visible_message("<span class='notice'>[computer] распечатывает бумагу.</span>")

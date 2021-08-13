@@ -112,7 +112,7 @@
 			victim.Paralyze(2 SECONDS)
 			Paralyze(2 SECONDS)
 			visible_message("<span class='danger'><b>[src]</b> врезается в <b>[victim]</b>[extra_speed ? "со всей силы" : ""], роняя обоих на пол!</span>",\
-				"<span class='userdanger'>Жестко врезался в <b>[victim]</b>[extra_speed ? " со всей дури" : ""]!</span>")
+				"<span class='userdanger'>Жестко врезаюсь в <b>[victim]</b>[extra_speed ? " со всей дури" : ""]!</span>")
 		playsound(src,'sound/weapons/punch1.ogg',50,TRUE)
 
 

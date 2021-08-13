@@ -24,7 +24,7 @@
 			addtimer(CALLBACK(modularInterface.borgo, /mob/living/silicon/robot/.proc/death), 2 SECONDS, TIMER_UNIQUE)
 			return
 
-		computer.visible_message("<span class='notice'>\[computer] экран ярко мерцает, и слышно громкое жужжание электричества.</span>")
+		computer.visible_message("<span class='notice'>[computer] экран ярко мерцает, и слышно громкое жужжание электричества.</span>")
 		computer.enabled = FALSE
 		computer.update_icon()
 		var/obj/item/computer_hardware/hard_drive/hard_drive = computer.all_components[MC_HDD]

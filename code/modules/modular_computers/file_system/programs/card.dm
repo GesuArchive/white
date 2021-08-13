@@ -126,7 +126,7 @@
 				return TRUE
 			else
 				playsound(computer, 'sound/machines/terminal_on.ogg', 50, FALSE)
-				computer.visible_message("<span class='notice'>\[computer] печатает бумагу.</span>")
+				computer.visible_message("<span class='notice'>[computer] печатает бумагу.</span>")
 			return TRUE
 		// Eject the ID used to log on to the ID app.
 		if("PRG_ejectauthid")
