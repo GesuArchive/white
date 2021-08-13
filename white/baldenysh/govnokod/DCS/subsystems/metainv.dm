@@ -1,20 +1,81 @@
 SUBSYSTEM_DEF(metainv)
-	name = "Метаинвентарь"
+	name = "МетаИнвентарь"
 	flags = SS_NO_FIRE //хз потом убрать если дроп кейсов со временем прикрутить припрет
 	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
 	init_order = 5
 
-	var/list/items_by_ckey = list()
+	var/datum/metainv_item/test/ABOBA = new
+	var/list/datum/metainventory/inventories = list()
 
 /datum/controller/subsystem/metainv/Initialize()
 	. = ..()
 
-/datum/controller/subsystem/killcounter/proc/load(ckey)
-	var/json_file = file("data/player_saves/[ckey[1]]/[ckey]/metainv.json")
-	if(!fexists(json_file))
-		items_by_ckey[ckey] = list()
-		return
-	items_by_ckey[ckey] = json_decode(json_file)
+/datum/controller/subsystem/metainv/proc/get_inv(ckey)
+	if(inventories[ckey])
+		. = inventories[ckey]
+	else
+		var/json_file = file("data/player_saves/[ckey[1]]/[ckey]/metainv.json")
+		if(!fexists(json_file))
+			. = list()
+		else
+			. = r_json_decode(json_file)
+		inventories[ckey] = .
 
-/datum/controller/subsystem/killcounter/proc/save(ckey)
-	var/infofile = "data/player_saves/[ckey[1]]/[ckey]/metainv.json"
+/datum/controller/subsystem/metainv/proc/save_inv(ckey)
+	if(inventories[ckey])
+		WRITE_FILE("data/player_saves/[ckey[1]]/[ckey]/metainv.json", json_encode(inventories[ckey]))
+		return TRUE
+
+////////////////////////////////////////////////////////////////////
+
+/datum/metainventory
+	var/owner_ckey
+
+	var/slots = 20
+	var/list/datum/metainv_item/item_list
+
+/datum/metainventory/serialize_list(list/options)
+	. = list()
+	. += list("slots" = slots)
+	. += list("items" = item_list)
+
+/datum/metainventory/deserialize_list(list/input, list/options)
+
+
+
+////////////////////////////////////////////////////////////////////
+
+/datum/metainv_item
+	var/item_path_txt
+	var/equip_slot_id //айди слота куда в настоящий момент этот айтем эквипнут
+	var/rarity
+	var/list/var_overrides
+
+/datum/metainv_item/proc/create_item(atom/location)
+	var/item_path = text2path(item_path_txt)
+	var/obj/O = new item_path(location)
+	for(var/varname in var_overrides)
+		O.vars[varname] = var_overrides[varname]
+
+/datum/metainv_item/serialize_list(list/options)
+	. = list()
+	.["IPT"] = item_path_txt
+	if(equip_slot_id)
+		.["ESI"] = equip_slot_id
+	if(rarity)
+		.["R"] = rarity
+	if(var_overrides && var_overrides.len)
+		.["VO"] = json_encode(var_overrides)
+
+/datum/metainv_item/deserialize_list(list/input, list/options)
+	if(!input["IPT"])
+		return
+	item_path_txt = input["IPT"]
+	equip_slot_id = input?["ESI"]
+	rarity = input?["R"]
+	var_overrides = json_decode(input?["VO"])
+	return src
+
+/datum/metainv_item/test
+	item_path_txt = "/obj/item/soap/nanotrasen"
+	var_overrides = list("name" = "salo", "throwforce" = 999)
