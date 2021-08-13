@@ -295,7 +295,7 @@ GLOBAL_VAR_INIT(hub_mimic, FALSE)
 	if(!GLOB.hub_mimic)
 		s += "<big><b>White Dream: RU</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/9uJ7dmM\">DISCORD</a>\n\n"
 		s += "<img src='https://assets.station13.ru/l/w7.png'>\n\n"
-		s += "\[<big>ZOMBIE SURVIVAL</big>"
+		s += "\[<big>INDUSTRIAL JRPG</big>"
 	else
 		s += "<big><b>CBACTOH STATION: RU</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/9uJ7dmM\">DISCORD</a>\n\n"
 		s += "<img src='https://assets.station13.ru/l/w[rand(1, 2)].gif'>\n\n"
