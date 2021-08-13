@@ -242,7 +242,7 @@
 			handle_suicide(user, target, params)
 			return
 
-	if(!can_shoot() || check_jammed()) //Just because you can pull the trigger doesn't mean it can shoot.
+	if(!can_shoot() || check_jammed(user)) //Just because you can pull the trigger doesn't mean it can shoot.
 		shoot_with_empty_chamber(user)
 		return
 
@@ -280,9 +280,8 @@
 
 /obj/item/gun/AltClick(mob/user)
 	if(jammed)
-		if(do_after(user, 5 SECONDS, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM)))
+		if(do_after(user, 1 SECONDS, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE)))
 			to_chat(user, "<span class='notice'>Удалось починить [src.name].</span>")
-			process_chamber()
 			jammed = FALSE
 	else
 		. = ..()

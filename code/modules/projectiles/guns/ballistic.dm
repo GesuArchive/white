@@ -332,6 +332,12 @@
 	return ..()
 
 /obj/item/gun/ballistic/AltClick(mob/user)
+	if(jammed)
+		if(do_after(user, 2.5 SECONDS, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE)))
+			to_chat(user, "<span class='notice'>Удалось починить [src.name].</span>")
+			process_chamber()
+			jammed = FALSE
+			return
 	if (unique_reskin && !current_skin && user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
 		reskin_obj(user)
 		return
