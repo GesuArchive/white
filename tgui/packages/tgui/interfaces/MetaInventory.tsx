@@ -19,7 +19,7 @@ const getGridSpotKey = (spot: [number, number]): GridSpotKey => {
 const CornerText = (props: {
   align: "left" | "right";
   children: string;
-}): Element => {
+}): JSX.Element => {
   const { align, children } = props;
 
   return (
@@ -97,14 +97,14 @@ const SLOTS: Record<
     displayName: "правая рука",
     gridSpot: getGridSpotKey([2, 4]),
     image: "inventory-hand_r.png",
-    additionalComponent: <CornerText align="left" children={""}>П</CornerText>,
+    additionalComponent: <CornerText align="left">П</CornerText>,
   },
 
   "-3": {
     displayName: "левая рука",
     gridSpot: getGridSpotKey([2, 5]),
     image: "inventory-hand_l.png",
-    additionalComponent: <CornerText align="right" children={""}>Л</CornerText>,
+    additionalComponent: <CornerText align="right">Л</CornerText>,
   },
 
   "128": {
@@ -268,11 +268,7 @@ export const MetaInventory = (props, context) => {
                           fluid
                           tooltip={tooltip}
                           style={{
-                            /*
-                            background: item?.interacting
-                              ? "hsl(39, 73%, 30%)"
-                              : undefined,
-                            */
+                            background: undefined,
                             position: "relative",
                             width: "100%",
                             height: "100%",
