@@ -67,8 +67,9 @@
 	if(T.tiled_dirt)
 		smoothing_flags = SMOOTH_BITMASK
 		QUEUE_SMOOTH(src)
-	if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
 		QUEUE_SMOOTH_NEIGHBORS(src)
+	else
+		icon_state = "dirt"
 
 /obj/effect/decal/cleanable/dirt/Destroy()
 	if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
