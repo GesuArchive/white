@@ -50,8 +50,8 @@ SUBSYSTEM_DEF(metainv)
 	for(var/datum/metainv_object/MO in obj_list)
 		.["objs"] += MO.serialize_json()
 	.["loadouts"] = list()
-	for(var/datum/metainv_object/MO in obj_list)
-		.["loadouts"] += MO.serialize_json()
+	for(var/datum/metainv_loadout/ML in loadout_list)
+		.["loadouts"] += ML.serialize_json()
 	.["a_loadout"] = active_loadout
 
 /datum/metainventory/deserialize_list(list/input, list/options)
@@ -64,7 +64,8 @@ SUBSYSTEM_DEF(metainv)
 		obj_list += MO.deserialize_json(json_obj)
 	for(var/json_loadout in input["loadouts"])
 		var/datum/metainv_loadout/ML = new
-		obj_list += ML.deserialize_json(json_loadout)
+		ML.inv = src
+		loadout_list += ML.deserialize_json(json_loadout)
 	active_loadout = input?["a_loadout"]
 
 
@@ -217,24 +218,22 @@ SUBSYSTEM_DEF(metainv)
 		if(target.dropItemToGround(unequipped, force = FALSE, silent = TRUE, invdrop = FALSE))
 			if(!target.equip_to_slot_if_possible(I, slot, bypass_equip_delay_self = TRUE))
 				target.equip_to_slot_if_possible(unequipped, slot, bypass_equip_delay_self = TRUE)
-/*
-/datum/metainventory/serialize_list(list/options)
-	. = list()
-	.["ckey"] = owner_ckey
-	.["slots"] = slots
-	.["objs"] = list()
-	for(var/datum/metainv_object/MO in obj_list)
-		.["objs"] += MO.serialize_json()
 
-/datum/metainventory/deserialize_list(list/input, list/options)
-	if(!input["ckey"] || !input["slots"] || !input["objs"])
+/datum/metainv_loadout/serialize_list(list/options)
+	. = list()
+	.["slots_contents"] = list()
+	for(var/slot in loadout_slots)
+		if(loadout_slots[slot])
+			.["slots_contents"][slot] = loadout_slots[slot]
+
+/datum/metainv_loadout/deserialize_list(list/input, list/options)
+	if(!input["slots_contents"])
 		return
-	owner_ckey = input["ckey"]
-	slots = input["slots"]
-	for(var/json_obj in input["objs"])
-		var/datum/metainv_object/MO = new
-		obj_list += MO.deserialize_json(json_obj)
-*/
+	var/list/slots_contents = input["slots_contents"]
+	for(var/slot in slots_contents)
+		loadout_slots[slot] = slots_contents[slot]
+	return src
+
 ////////////////////////////////////////////////////////////////////
 
 /datum/metainv_object
@@ -252,6 +251,7 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainv_object/serialize_list(list/options)
 	. = list()
+	.["UID"] = uid
 	.["OPT"] = object_path_txt
 	if(rarity)
 		.["R"] = rarity
@@ -259,9 +259,12 @@ SUBSYSTEM_DEF(metainv)
 		.["VO"] = json_encode(var_overrides)
 
 /datum/metainv_object/deserialize_list(list/input, list/options)
-	if(!input["OPT"])
+	if(!input["UID"] || !input["OPT"])
 		return
+	uid = input["UID"]
 	object_path_txt = input["OPT"]
-	rarity = input?["R"]
-	var_overrides = json_decode(input?["VO"])
+	if(input["R"])
+		rarity = input["R"]
+	if(input["VO"])
+		var_overrides = json_decode(input["VO"])
 	return src
