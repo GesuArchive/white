@@ -186,7 +186,7 @@ export const MetaInventory = (props, context) => {
   const gridSpots = new Map<GridSpotKey, string>();
 
   for (const slotkey of Object.keys(data.loadout)) {
-    if(SLOTS[slotkey]){
+    if (SLOTS[slotkey]) {
       gridSpots.set(SLOTS[slotkey].gridSpot, slotkey);
     }
   }
@@ -215,7 +215,7 @@ export const MetaInventory = (props, context) => {
                     );
                   }
 
-                  const item_uid = data.loadout[keyAtSpot]
+                  const item_uid = data.loadout[keyAtSpot];
                   const item = item_uid ? data.items[item_uid] : null;
                   const slot = SLOTS[keyAtSpot];
 
