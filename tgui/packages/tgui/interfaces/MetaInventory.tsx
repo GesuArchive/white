@@ -175,86 +175,22 @@ type MetaInvObj = {
 };
 
 type MetaInvData = {
-  items: Record<keyof typeof SLOTS, Array<MetaInvObj>>;
-  null_slots: number;
+  items: Record<string, MetaInvObj>;
+  loadout: Record<string, string>;
+  slots: number;
 };
-
-const MetaInvObjDisplay = (slot, item) : Element => {
-  return (
-    <Box>
-
-    </Box>
-  );
-};
-
-
-const EQUIP_ROWS = 5;
-const EQUIP_COLUMNS = 6;
-
-const EquipMenu = (invdata: MetaInvData) : Element => {
-  const gridSpots = new Map<GridSpotKey, string>();
-
-  for (const key of Object.keys(invdata.items)) {
-    if(SLOTS[key]){
-        gridSpots.set(SLOTS[key].gridSpot, key);
-    }
-  }
-  return (
-    <Stack fill vertical>
-      {range(0, EQUIP_ROWS).map(row => (
-        <Stack.Item key={row}>
-          <Stack fill>
-            {range(0, EQUIP_COLUMNS).map(column => {
-              const key = getGridSpotKey([row, column]);
-              const keyAtSpot = gridSpots.get(key);
-              if (!keyAtSpot) {
-                return (
-                  <Stack.Item
-                    key={key}
-                    style={{
-                      width: BUTTON_DIMENSIONS,
-                      height: BUTTON_DIMENSIONS,
-                    }}
-                  />
-                );
-              }
-              const item = invdata.items[keyAtSpot][1];
-              const slot = SLOTS[keyAtSpot];
-
-              let content;
-              let tooltip;
-            })}
-          </Stack>
-        </Stack.Item>
-      ))}
-    </Stack>
-  );
-};
-/*
-export const MetaInventory = (props, context) => {
-  const { act, data } = useBackend<MetaInvData>(context);
-  return(
-    <Window title={`Инвентарь`} width={340} height={350}>
-      <Window.Content>
-        {EquipMenu(data)}
-      </Window.Content>
-    </Window>
-  )
-}
-*/
-
 
 export const MetaInventory = (props, context) => {
   const { act, data } = useBackend<MetaInvData>(context);
 
   const gridSpots = new Map<GridSpotKey, string>();
-  for (const slotkey of Object.keys(data.items)) {
+
+  for (const slotkey of Object.keys(data.loadout)) {
     if(SLOTS[slotkey]){
-      for (const key of Object.keys(data.items[slotkey])) {
-        gridSpots.set(SLOTS[slotkey].gridSpot, key);
-      }
+      gridSpots.set(SLOTS[slotkey].gridSpot, data.loadout[slotkey]);
     }
   }
+
 
   return (
     <Window title={`Инвентарь`} width={340} height={350}>
@@ -267,7 +203,7 @@ export const MetaInventory = (props, context) => {
                   const key = getGridSpotKey([row, column]);
                   const keyAtSpot = gridSpots.get(key);
 
-                  if (!keyAtSpot || !data.items[keyAtSpot]) {
+                  if (!keyAtSpot) {
                     return (
                       <Stack.Item
                         key={key}
@@ -279,12 +215,12 @@ export const MetaInventory = (props, context) => {
                     );
                   }
 
-                  const item = data.items[keyAtSpot][1];
+                  //const item = data.items[keyAtSpot][1];
                   const slot = SLOTS[keyAtSpot];
 
                   let content;
                   let tooltip;
-
+                  /*
                   if (item === null) {
                     tooltip = slot.displayName;
                   } else if ("name" in item) {
@@ -293,7 +229,7 @@ export const MetaInventory = (props, context) => {
                     content = (
                       <Box
                         as="img"
-                        src={`data:image/jpeg;base64,${item[1].icon}`}
+                        src={`data:image/jpeg;base64,${item.icon}`}
                         height="100%"
                         width="100%"
                         style={{
@@ -303,23 +239,9 @@ export const MetaInventory = (props, context) => {
                       />
                     );
 
-                    tooltip = item[1].name;
-                  } else if ("obscured" in item) {
-                    content = (
-                      <Icon
-                        size={3}
-                        ml={0}
-                        mt={1.3}
-                        style={{
-                          "text-align": "center",
-                          height: "100%",
-                          width: "100%",
-                        }}
-                      />
-                    );
-
-                    tooltip = `скрыто: ${slot.displayName}`;
+                    tooltip = item.name;
                   }
+                  */
 
                   return (
                     <Stack.Item

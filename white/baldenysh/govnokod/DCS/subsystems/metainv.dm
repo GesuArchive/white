@@ -91,10 +91,8 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainventory/ui_data(mob/user)
 	var/list/data = list()
-	var/datum/metainv_loadout/cur_loadout = loadout_list[active_loadout]
-	data["loadout"] = cur_loadout.loadout_slots
 
-	var/list/items = list()
+	data["items"] = list()
 	for(var/datum/metainv_object/MO in obj_list)
 		var/list/res = list()
 		var/obj/O = text2path(MO.object_path_txt)
@@ -103,10 +101,12 @@ SUBSYSTEM_DEF(metainv)
 		var/mo_icon_state = (MO.var_overrides && MO.var_overrides["icon_state"]) ? MO.var_overrides["icon_state"] : initial(O.icon_state)
 		res["icon"] = icon2base64(icon(mo_icon, mo_icon_state))
 		res["name"] = mo_name
-		res["uid"] = num2text(MO.uid)
-		items += res
 
-	data["items"] = items
+		data["items"]["[MO.uid]"] = res
+
+	var/datum/metainv_loadout/cur_loadout = loadout_list[active_loadout]
+	data["loadout"] = cur_loadout.loadout_slots
+
 	data["slots"] = slots_max
 	return data
 
