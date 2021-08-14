@@ -62,7 +62,7 @@ SUBSYSTEM_DEF(metainv)
 	for(var/datum/metainv_object/MO in obj_list)
 		MO.create_object(location)
 
-/datum/metainventory/proc/get_equipped_items_slot_assoc()
+/datum/metainventory/proc/get_equipped_objs_slot_assoc()
 	. = list()
 	for(var/datum/metainv_object/MO in obj_list)
 		if(.["[MO.equipped_to_slot]"])
@@ -74,7 +74,7 @@ SUBSYSTEM_DEF(metainv)
 /datum/metainventory/proc/equip_carbon(mob/living/carbon/target)
 	if(!target || !istype(target))
 		return
-	var/list/equipped = get_equipped_items_slot_assoc()
+	var/list/equipped = get_equipped_objs_slot_assoc()
 	var/turf/T = get_turf(target)
 
 	for(var/datum/metainv_object/MO in equipped["[METAINVENTORY_SLOT_TURF]"])
@@ -100,6 +100,55 @@ SUBSYSTEM_DEF(metainv)
 		if(target.dropItemToGround(unequipped, force = FALSE, silent = TRUE, invdrop = FALSE))
 			if(!target.equip_to_slot_if_possible(I, slot, bypass_equip_delay_self = TRUE))
 				target.equip_to_slot_if_possible(unequipped, slot, bypass_equip_delay_self = TRUE)
+
+
+/datum/metainventory/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "MetaInventory")
+		ui.open()
+
+/datum/metainventory/ui_assets(mob/user)
+	return list(get_asset_datum(/datum/asset/simple/inventory))
+
+/datum/metainventory/ui_data(mob/user)
+	var/list/data = list()
+	var/list/items = list()
+
+	var/list/equipped = get_equipped_objs_slot_assoc()
+	for(var/metaobj_slot in equipped)
+		var/list/slot_items = list()
+		for(var/datum/metainv_object/MO in equipped[metaobj_slot])
+			var/list/result = list()
+
+			var/obj/O = text2path(MO.object_path_txt)
+			var/mo_name = MO.var_overrides && MO.var_overrides["name"] ? MO.var_overrides["name"] : initial(O.name)
+			var/mo_icon = MO.var_overrides && MO.var_overrides["icon"] ? MO.var_overrides["icon"] : initial(O.icon)
+			var/mo_icon_state = MO.var_overrides && MO.var_overrides["icon_state"] ? MO.var_overrides["icon_state"] : initial(O.icon_state)
+			result["icon"] = icon2base64(icon(mo_icon, mo_icon_state))
+			result["name"] = mo_name
+
+			slot_items += result
+
+		items[metaobj_slot] = slot_items
+
+	data["items"] = items
+	data["null_slots"] = null_slots
+
+	return data
+
+/datum/metainventory/proc/ui_data_json()
+	return json_encode(ui_data())
+
+
+/datum/metainventory/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if (.)
+		return
+
+/datum/metainventory/ui_status(mob/user)
+	return UI_INTERACTIVE
+
 
 ////////////////////////////////
 
