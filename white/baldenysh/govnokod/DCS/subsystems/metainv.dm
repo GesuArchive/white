@@ -91,33 +91,24 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainventory/ui_data(mob/user)
 	var/list/data = list()
-	//var/list/items = list()
-/*
-	var/list/equipped = get_equipped_objs_slot_assoc()
-	for(var/metaobj_slot in equipped)
-		var/list/slot_items = list()
-		for(var/datum/metainv_object/MO in equipped[metaobj_slot])
-			var/list/result = list()
+	var/datum/metainv_loadout/cur_loadout = loadout_list[active_loadout]
+	data["loadout"] = cur_loadout.loadout_slots
 
-			var/obj/O = text2path(MO.object_path_txt)
-			var/mo_name = MO.var_overrides && MO.var_overrides["name"] ? MO.var_overrides["name"] : initial(O.name)
-			var/mo_icon = MO.var_overrides && MO.var_overrides["icon"] ? MO.var_overrides["icon"] : initial(O.icon)
-			var/mo_icon_state = MO.var_overrides && MO.var_overrides["icon_state"] ? MO.var_overrides["icon_state"] : initial(O.icon_state)
-			result["icon"] = icon2base64(icon(mo_icon, mo_icon_state))
-			result["name"] = mo_name
-
-			slot_items += result
-
-		items[metaobj_slot] = slot_items
+	var/list/items = list()
+	for(var/datum/metainv_object/MO in obj_list)
+		var/list/res = list()
+		var/obj/O = text2path(MO.object_path_txt)
+		var/mo_name = (MO.var_overrides && MO.var_overrides["name"]) ? MO.var_overrides["name"] : initial(O.name)
+		var/mo_icon = (MO.var_overrides && MO.var_overrides["icon"]) ? MO.var_overrides["icon"] : initial(O.icon)
+		var/mo_icon_state = (MO.var_overrides && MO.var_overrides["icon_state"]) ? MO.var_overrides["icon_state"] : initial(O.icon_state)
+		res["icon"] = icon2base64(icon(mo_icon, mo_icon_state))
+		res["name"] = mo_name
+		res["uid"] = num2text(MO.uid)
+		items += res
 
 	data["items"] = items
-	data["slots"] = slots
-*/
+	data["slots"] = slots_max
 	return data
-
-/datum/metainventory/proc/ui_data_json()
-	return json_encode(ui_data())
-
 
 /datum/metainventory/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -126,6 +117,9 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainventory/ui_status(mob/user)
 	return UI_INTERACTIVE
+
+/datum/metainventory/proc/ui_data_json()
+	return json_encode(ui_data())
 
 
 ////////////////////////////////
@@ -154,8 +148,8 @@ SUBSYSTEM_DEF(metainv)
 	obj_list += stels
 
 	var/datum/metainv_loadout/ML = new
-	ML.loadout_slots[num2text(METAINVENTORY_SLOT_HAND_R)] = stels.uid
-	ML.loadout_slots[num2text(ITEM_SLOT_ICLOTHING)] = uniform.uid
+	ML.set_slot(METAINVENTORY_SLOT_HAND_R, stels.uid)
+	ML.set_slot(ITEM_SLOT_ICLOTHING, uniform.uid)
 	ML.inv = src
 	loadout_list += ML
 
@@ -171,19 +165,22 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainv_loadout/proc/build_slots()
 	var/list/res = list()
-	var/list/metainv_slots = list(METAINVENTORY_SLOT_CURSOR, /*METAINVENTORY_SLOT_TURF,*/ METAINVENTORY_SLOT_HAND_L, METAINVENTORY_SLOT_HAND_R)
+	var/list/metainv_slots = list(METAINVENTORY_SLOT_CURSOR, METAINVENTORY_SLOT_TURF, METAINVENTORY_SLOT_HAND_L, METAINVENTORY_SLOT_HAND_R)
 	for(var/slot in metainv_slots)
-		res[num2text(slot)] = null
+		res["[slot]"] = ""
 	for(var/i = 1; i < SLOTS_AMT; i++)
-		res[num2text((1<<i))] = null
+		res["[1<<i]"] = ""
 	loadout_slots = res
+
+/datum/metainv_loadout/proc/set_slot(slot, uid)
+	loadout_slots["[slot]"] = "[uid]"
 
 /datum/metainv_loadout/proc/get_slot_to_metaobj_assoc()
 	. = list()
 	var/list/uid_assoc = inv.get_uid_to_metaobj_assoc()
 	for(var/slot in loadout_slots)
-		var/equipped_uid = num2text(loadout_slots?[slot])
-		if(equipped_uid)
+		var/equipped_uid = "[loadout_slots?[slot]]"
+		if(equipped_uid && equipped_uid != "")
 			var/datum/metainv_object/MO = uid_assoc?[equipped_uid]
 			if(MO)
 				.[slot] = MO
@@ -198,16 +195,16 @@ SUBSYSTEM_DEF(metainv)
 	for(var/datum/metainv_object/MO in equipped["[METAINVENTORY_SLOT_TURF]"])
 		MO.create_object(T)
 */
-	var/datum/metainv_object/l_hand_metaobj = equipped[num2text(METAINVENTORY_SLOT_HAND_L)]
+	var/datum/metainv_object/l_hand_metaobj = equipped["[METAINVENTORY_SLOT_HAND_L]"]
 	if(l_hand_metaobj)
 		target.put_in_l_hand(l_hand_metaobj.create_object(T))
 
-	var/datum/metainv_object/r_hand_metaobj = equipped[num2text(METAINVENTORY_SLOT_HAND_R)]
+	var/datum/metainv_object/r_hand_metaobj = equipped["[METAINVENTORY_SLOT_HAND_R]"]
 	if(r_hand_metaobj)
 		target.put_in_r_hand(r_hand_metaobj.create_object(T))
 
 	for(var/i = 1; i < SLOTS_AMT; i++)
-		var/datum/metainv_object/MO = equipped[num2text(1<<i)]
+		var/datum/metainv_object/MO = equipped["[1<<i]"]
 		if(MO)
 			equip_metaobj_to_invslot(target, (1<<i), MO)
 
@@ -223,7 +220,7 @@ SUBSYSTEM_DEF(metainv)
 	. = list()
 	.["slots_contents"] = list()
 	for(var/slot in loadout_slots)
-		if(loadout_slots[slot])
+		if(loadout_slots[slot] && loadout_slots[slot] != "")
 			.["slots_contents"][slot] = loadout_slots[slot]
 
 /datum/metainv_loadout/deserialize_list(list/input, list/options)
