@@ -567,10 +567,15 @@ GLOBAL_VAR(yohei_main_controller)
 
 /obj/item/card/id/yohei
 	name = "странная карточка"
-	desc = "Очень. Откуда это вообще взялось?"
+	desc = "Что это такое?"
 	icon_state = "yohei"
 	icon = 'white/valtos/icons/card.dmi'
+	assignment = "Yohei"
+	registered_age = 666
 	access = list(ACCESS_YOHEI, ACCESS_MAINT_TUNNELS)
+
+/obj/item/card/id/yohei/update_label()
+	name = "[md5(rand(500, 5000))]"
 
 /obj/effect/mob_spawn/human/donate
 	name = "платно"
