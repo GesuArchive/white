@@ -118,14 +118,16 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = FALSE
 
-/datum/emote/living/carbon/human/scream/agony
+/datum/emote/living/carbon/human/agony
 	key = "agony"
 	ru_name = "агония"
 	key_third_person = "agonizes"
 	message = "кричит в агонии!"
+	emote_type = EMOTE_AUDIBLE
 	only_forced_audio = TRUE
+	vary = TRUE
 
-/datum/emote/living/carbon/human/scream/agony/get_sound(mob/living/user)
+/datum/emote/living/carbon/human/agony/get_sound(mob/living/user)
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
