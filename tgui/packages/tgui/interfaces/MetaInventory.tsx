@@ -42,7 +42,7 @@ const SLOTS: Record<
     displayName: string;
     gridSpot: GridSpotKey;
     image?: string;
-    additionalComponent?: Element;
+    additionalComponent?: JSX.Element;
   }
 > = {
   "8": {
