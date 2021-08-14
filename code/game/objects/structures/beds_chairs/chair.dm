@@ -582,7 +582,7 @@
 				L_occupant.gain_trauma_type(BRAIN_TRAUMA_SEVERE)
 			if (prob(1))
 				L_occupant.gain_trauma_type(BRAIN_TRAUMA_SPECIAL)
-			L_occupant.emote("scream")
+			L_occupant.emote("agony")
 			addtimer(CALLBACK(L_occupant, /mob/living/carbon.proc/do_jitter_animation, 20), 5)
 			charge += 1
 			sleep(30)

@@ -234,7 +234,7 @@
 		damage += rand(3,7)
 
 	if(damage >= 5)
-		target.emote("scream")
+		target.emote("agony")
 
 	log_combat(user, target, "given a noogie to", addition = "([damage] brute before armor)")
 	target.apply_damage(damage, BRUTE, BODY_ZONE_HEAD)

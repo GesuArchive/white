@@ -57,7 +57,7 @@
 	if(obj_flags & EMAGGED)
 
 		for(var/obj/item/bodypart/BP in reverseList(C.bodyparts)) //Chest and head are first in bodyparts, so we invert it to make them suffer more
-			C.emote("scream")
+			C.emote("agony")
 			if(!HAS_TRAIT(C, TRAIT_NODISMEMBER))
 				BP.dismember()
 			else

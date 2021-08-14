@@ -173,7 +173,7 @@
 			return FALSE
 		var/mob/living/M = new current_design(drop_loc)
 		M.SetParalyzed(get_replication_speed(tier_rate) * 1.5)
-		M.emote("scream")
+		M.emote("agony")
 		M.layer = ABOVE_MOB_LAYER
 		var/mutable_appearance/result = mutable_appearance(M.icon, M.icon_state)
 		var/mutable_appearance/scanline = mutable_appearance('icons/effects/effects.dmi',"transform_effect")
@@ -361,7 +361,7 @@
 			if(isliving(D))
 				var/mob/living/M = D
 				M.Paralyze(get_replication_speed(tier_rate) * 2)
-				M.emote("scream")
+				M.emote("agony")
 				M.layer = ABOVE_MOB_LAYER
 			sleep(1 SECONDS)
 			if(user)
@@ -381,7 +381,7 @@
 	if(isliving(D))
 		var/mob/living/M = D
 		M.SetParalyzed(get_replication_speed(tier_rate) * 2)
-		M.emote("scream")
+		M.emote("agony")
 		M.layer = ABOVE_MOB_LAYER
 	D.layer = ABOVE_MOB_LAYER
 	var/mutable_appearance/result = mutable_appearance('icons/effects/effects.dmi',"nothing")

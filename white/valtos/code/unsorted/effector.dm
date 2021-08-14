@@ -38,7 +38,7 @@
 						pushed_mob.Knockdown(10)
 						pushed_mob.apply_damage(30, BURN, BODY_ZONE_HEAD)
 						pushed_mob.apply_damage(60, STAMINA)
-						pushed_mob.emote("scream")
+						pushed_mob.emote("agony")
 						playsound(pushed_mob, 'sound/machines/shower/shower_mid1.ogg', 90, TRUE)
 						pushed_mob.visible_message("<span class='danger'><b>[user]</b> принуждает <b>[pushed_mob]</b> вкусить свежий пар!</span>",
 									"<span class='userdanger'><b>[user]</b> принуждает меня вкусить свежий пар!</span>")

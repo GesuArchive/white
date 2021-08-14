@@ -391,7 +391,7 @@
 		C.visible_message("<span class='suicide'>[C] облажался и все равно умирает!</span>")
 		return (BRUTELOSS)
 
-	C.emote("scream")
+	C.emote("agony")
 	for(var/i in C.bodyparts)
 		var/obj/item/bodypart/bone = i
 		var/datum/wound/blunt/severe/oof_ouch = new

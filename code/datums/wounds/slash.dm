@@ -206,7 +206,7 @@
 	lasgun.chambered.BB.damage *= self_penalty_mult
 	if(!lasgun.process_fire(victim, victim, TRUE, null, limb.body_zone))
 		return
-	victim.emote("scream")
+	victim.emote("agony")
 	blood_flow -= damage / (5 * self_penalty_mult) // 20 / 5 = 4 bloodflow removed, p good
 	victim.visible_message("<span class='warning'>Порезы на [ru_gde_zone(limb.name)] <b>[victim]</b> превращаются в ужасные шрамы!</span>")
 
@@ -222,7 +222,7 @@
 	user.visible_message("<span class='green'><b>[user]</b> прижигает некоторые порезы <b>[victim]</b>.</span>", "<span class='green'>Прижигаю некоторые порезы <b>[victim]</b>.</span>")
 	limb.receive_damage(burn = 2 + severity, wound_bonus = CANT_WOUND)
 	if(prob(30))
-		victim.emote("scream")
+		victim.emote("agony")
 	var/blood_cauterized = (0.6 / (self_penalty_mult * improv_penalty_mult))
 	blood_flow -= blood_cauterized
 

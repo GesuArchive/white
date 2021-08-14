@@ -147,8 +147,8 @@
 	yeeted_person.visible_message("<span class='danger'>[the_hulk] starts spinning [yeeted_person] around by [yeeted_person.p_their()] tail!</span>", \
 					"<span class='userdanger'>[the_hulk] starts spinning you around by your tail!</span>", "<span class='hear'>You hear wooshing sounds!</span>", null, the_hulk)
 	to_chat(the_hulk, "<span class='danger'>You start spinning [yeeted_person] around by [yeeted_person.p_their()] tail!</span>")
-	the_hulk.emote("scream")
-	yeeted_person.emote("scream")
+	the_hulk.emote("agony")
+	yeeted_person.emote("agony")
 	swing_loop(the_hulk, yeeted_person, 0, original_dir)
 
 /**
@@ -245,7 +245,7 @@
 	if(!isturf(T))
 		return
 	if(!yeeted_person.stat)
-		yeeted_person.emote("scream")
+		yeeted_person.emote("agony")
 	yeeted_person.throw_at(T, 10, 6, the_hulk, TRUE, TRUE)
 	log_combat(the_hulk, yeeted_person, "has thrown by tail")
 

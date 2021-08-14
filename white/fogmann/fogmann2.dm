@@ -107,7 +107,7 @@
 	D.visible_message("<span class='danger'>[A] кидает на прогиб [D]!</span>", \
 					"<span class='userdanger'>Меня кидает на прогиб [A]!</span>", "<span class='hear'>Слышу звук трещащих костей!</span>", null, A)
 	to_chat(A, "<span class='danger'>Кидаю на прогиб [D]!</span>")
-	A.emote("scream")
+	A.emote("agony")
 
 
 	for (var/i = 0, i < 3, i++)
@@ -189,7 +189,7 @@
 		var/turf/T = get_edge_target_turf(A, A.dir)
 		if (T && isturf(T))
 			if (!D.stat)
-				D.emote("scream")
+				D.emote("agony")
 			D.throw_at(T, 10, 4, A, TRUE, TRUE, callback = CALLBACK(D, /mob/living/carbon/human.proc/Paralyze, 20))
 	log_combat(A, D, "has thrown with progib")
 	return
@@ -288,7 +288,7 @@
 		to_chat(A, "<span class='danger'>[fluff] [D]!</span>")
 		playsound(A.loc, "swing_hit", 50, TRUE)
 		if (!D.stat)
-			D.emote("scream")
+			D.emote("agony")
 			D.Paralyze(40)
 
 			switch(rand(1,3))
@@ -341,7 +341,7 @@
 /datum/martial_art/shaitanka/proc/shaa(mob/living/carbon/human/A, mob/living/carbon/human/D)
 	if(!D)
 		return
-	A.emote("scream")
+	A.emote("agony")
 	A.setDir(turn(A.dir, 90))
 
 	D.visible_message("<span class='danger'>[A] дает с вертухи [D]!</span>", \

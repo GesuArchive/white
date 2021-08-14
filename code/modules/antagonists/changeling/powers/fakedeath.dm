@@ -37,7 +37,7 @@
 	if(missing.len)
 		playsound(user, 'sound/magic/demon_consume.ogg', 50, TRUE)
 		user.visible_message("<span class='warning'>Конечности <b>[user]</b> внезапно отрастают, издавая громкие хрустящие звуки!</span>", "<span class='userdanger'>Наши конечности вырастают, издают громкий хрустящий звук и причиняют нам сильную боль!</span>", "<span class='hear'>Слышу, как что-то органическое разрывается!</span>")
-		user.emote("scream")
+		user.emote("agony")
 		user.regenerate_limbs(0, list(BODY_ZONE_HEAD))
 	user.regenerate_organs()
 

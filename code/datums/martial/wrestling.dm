@@ -140,7 +140,7 @@ If you make a derivative work from this code, you must include this notification
 	D.visible_message("<span class='danger'>[A] starts spinning around with [D]!</span>", \
 					"<span class='userdanger'>You're spun around by [A]!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", null, A)
 	to_chat(A, "<span class='danger'>You start spinning around with [D]!</span>")
-	A.emote("scream")
+	A.emote("agony")
 
 	for (var/i = 0, i < 20, i++)
 		var/delay = 5
@@ -197,7 +197,7 @@ If you make a derivative work from this code, you must include this notification
 		var/turf/T = get_edge_target_turf(A, A.dir)
 		if (T && isturf(T))
 			if (!D.stat)
-				D.emote("scream")
+				D.emote("agony")
 			D.throw_at(T, 10, 4, A, TRUE, TRUE, callback = CALLBACK(D, /mob/living.proc/Paralyze, 20))
 	log_combat(A, D, "has thrown with wrestling")
 	return
@@ -297,7 +297,7 @@ If you make a derivative work from this code, you must include this notification
 		to_chat(A, "<span class='danger'>You [fluff] [D]!</span>")
 		playsound(A.loc, "swing_hit", 50, TRUE)
 		if (!D.stat)
-			D.emote("scream")
+			D.emote("agony")
 			D.Paralyze(40)
 
 			switch(rand(1,3))
@@ -348,7 +348,7 @@ If you make a derivative work from this code, you must include this notification
 /datum/martial_art/wrestling/proc/kick(mob/living/A, mob/living/D)
 	if(!D)
 		return
-	A.emote("scream")
+	A.emote("agony")
 	A.emote("flip")
 	A.setDir(turn(A.dir, 90))
 
@@ -422,7 +422,7 @@ If you make a derivative work from this code, you must include this notification
 						"<span class='userdanger'>You're leg-dropped by [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", null, A)
 		to_chat(A, "<span class='danger'>You leg-drop [D]!</span>")
 		playsound(A.loc, "swing_hit", 50, TRUE)
-		A.emote("scream")
+		A.emote("agony")
 
 		if (falling == 1)
 			if (prob(33) || D.stat)

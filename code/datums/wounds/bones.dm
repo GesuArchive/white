@@ -198,7 +198,7 @@
 	name = "Вывих"
 	skloname = "вывиха"
 	desc = "Кость пациента смещена относительно сустава, препятствуя нормальной работе конечности."
-	treat_text = "Рекомендовано использование костоправа для вправления, хотя ручного перемещения путем применения агрессивного захвата к пациенту и полезного взаимодействия с пораженной конечностью может быть достаточно." //Это настолько убого звучит, что мой стрелка на моём счётчике полуляха сделала полный оборот и приземлилась обратно на ноль. Оставлю вторую половину, как есть. 
+	treat_text = "Рекомендовано использование костоправа для вправления, хотя ручного перемещения путем применения агрессивного захвата к пациенту и полезного взаимодействия с пораженной конечностью может быть достаточно." //Это настолько убого звучит, что мой стрелка на моём счётчике полуляха сделала полный оборот и приземлилась обратно на ноль. Оставлю вторую половину, как есть.
 	examine_desc = "неловко стоит не на своем месте"
 	occur_text = "яростно дергается и перемещается в загадочное положение"
 	severity = WOUND_SEVERITY_MODERATE
@@ -254,7 +254,7 @@
 	if(prob(65))
 		user.visible_message("<span class='danger'><b>[user]</b> вправляет [ru_parse_zone(limb.name)] <b>[victim]</b>!</span>", "<span class='notice'>Вправляю [ru_parse_zone(limb.name)] <b>[victim]</b> на место!</span>", ignored_mobs=victim)
 		to_chat(victim, "<span class='userdanger'><b>[user]</b> вправляет мою [ru_parse_zone(limb.name)] на место!</span>")
-		victim.emote("scream")
+		victim.emote("agony")
 		limb.receive_damage(brute=20, wound_bonus=CANT_WOUND)
 		qdel(src)
 	else
@@ -273,7 +273,7 @@
 	if(prob(65))
 		user.visible_message("<span class='danger'><b>[user]</b> вправляет [ru_parse_zone(limb.name)] <b>[victim]</b> с отвратительным хрустом!</span>", "<span class='danger'>Вправляю [ru_parse_zone(limb.name)] <b>[victim]</b> с отвратительным хрустом!</span>", ignored_mobs=victim)
 		to_chat(victim, "<span class='userdanger'><b>[user]</b> вправляет [ru_parse_zone(limb.name)] с отвратительным хрустом!</span>")
-		victim.emote("scream")
+		victim.emote("agony")
 		limb.receive_damage(brute=25, wound_bonus=30)
 	else
 		user.visible_message("<span class='danger'><b>[user]</b> крутит [ru_parse_zone(limb.name)] <b>[victim]</b> неправильно!</span>", "<span class='danger'>Кручу [ru_parse_zone(limb.name)] <b>[victim]</b> неправильно!</span>", ignored_mobs=victim)
@@ -299,7 +299,7 @@
 		user.visible_message("<span class='danger'><b>[user]</b> успешно вправляет [ru_parse_zone(limb.name)] <b>[victim]</b>!</span>", "<span class='nicegreen'>Вправляю [ru_parse_zone(limb.name)] <b>[victim]</b>!</span>", victim)
 		to_chat(victim, "<span class='userdanger'><b>[user]</b> вправляет мою [ru_parse_zone(limb.name)]!</span>")
 
-	victim.emote("scream")
+	victim.emote("agony")
 	qdel(src)
 
 /*
@@ -372,7 +372,7 @@
 		return
 
 	I.use(1)
-	victim.emote("scream")
+	victim.emote("agony")
 	if(user != victim)
 		user.visible_message("<span class='notice'><b>[user]</b> заканчивает применять [I] на [ru_parse_zone(limb.name)] <b>[victim]</b>, издавая шипящий звук!</span>", "<span class='notice'>Заканчиваю применять [I] на [ru_parse_zone(limb.name)] <b>[victim]</b>!</span>", ignored_mobs=victim)
 		to_chat(victim, "<span class='userdanger'><b>[user]</b> заканчивает применять [I] на мою [ru_parse_zone(limb.name)] и я начинаю чувствовать, как мои кости взрываются от боли, когда они начинают таять и преобразовываться!</span>")

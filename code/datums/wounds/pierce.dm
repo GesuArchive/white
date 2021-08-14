@@ -126,7 +126,7 @@
 	user.visible_message("<span class='green'><b>[user]</b> успешно прижигает некоторые кровотечения <b>[victim]</b>.</span>", "<span class='green'>Успешно прижигаю некоторые кровотечения на [ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"].</span>")
 	limb.receive_damage(burn = 2 + severity, wound_bonus = CANT_WOUND)
 	if(prob(30))
-		victim.emote("scream")
+		victim.emote("agony")
 	var/blood_cauterized = (0.6 / (self_penalty_mult * improv_penalty_mult))
 	blood_flow -= blood_cauterized
 

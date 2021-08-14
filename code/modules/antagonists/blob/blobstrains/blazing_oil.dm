@@ -40,4 +40,4 @@
 	if(exposed_mob)
 		exposed_mob.apply_damage(0.8*reac_volume, BURN, wound_bonus=CANT_WOUND)
 	if(iscarbon(exposed_mob))
-		exposed_mob.emote("scream")
+		exposed_mob.emote("agony")

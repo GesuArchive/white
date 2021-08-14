@@ -243,7 +243,7 @@
 				user.add_mob_blood(target) // Put target's blood on us. The donor goes in the ( )
 				target.add_mob_blood(target)
 				target.take_overall_damage(10,0)
-				target.emote("scream")
+				target.emote("agony")
 
 			// Killed Target?
 			if (was_alive)

@@ -1042,7 +1042,7 @@
 				if(1)
 					victim.say(pick("GET THEM OFF ME!!", "OH GOD THE ANTS!!", "MAKE IT END!!", "THEY'RE EVERYWHERE!!", "GET THEM OFF!!", "SOMEBODY HELP ME!!"), forced = /datum/status_effect/ants)
 				if(2)
-					victim.emote("scream")
+					victim.emote("agony")
 		if(prob(50))
 			switch(rand(1,50))
 				if (1 to 8) //16% Chance

@@ -203,7 +203,7 @@
 
 		// Chance to scream
 		if (user.stat < UNCONSCIOUS && prob(10))
-			user.emote("scream")
+			user.emote("agony")
 
 	//Engineering
 /obj/item/clothing/head/helmet/space/hardsuit/engine

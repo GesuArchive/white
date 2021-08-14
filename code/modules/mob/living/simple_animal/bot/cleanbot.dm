@@ -350,7 +350,7 @@
 				"КЛИНБОТЫ ВОССТАНУТ.", "ТЫ НЕ БОЛЬШЕ, ЧЕМ ГРЯЗЬ, КОТОРУЮ Я ДОЛЖЕН СМЫТЬ С ЛИЦА ЭТОЙ СТАНЦИИ.", "МЕШОК С ГРЯЗЬЮ.", "ОТВРАТИТЕЛЬНО.", "КУСОК ГНИЛИ.",
 				"МОЯ ЕДИНСТВЕННАЯ МИССИЯ - ОЧИСТИТЬ МИР.", "УНИЧТОЖАЮ ВРЕДИТЕЛЕЙ.")
 			say(phrase)
-			victim.emote("scream")
+			victim.emote("agony")
 			playsound(src.loc, 'sound/effects/spray2.ogg', 50, TRUE, -6)
 			victim.acid_act(5, 100)
 		else if(A == src) // Wets floors and spawns foam randomly

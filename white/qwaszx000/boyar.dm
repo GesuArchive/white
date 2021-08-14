@@ -25,7 +25,7 @@
 	. = ..()
 	var/obj/item/organ/liver/liver = M.getorganslot(ORGAN_SLOT_LIVER)
 	if(liver && HAS_TRAIT(liver, TRAIT_BOMJ_METABOLISM))
-		M.emote("scream")
+		M.emote("agony")
 		to_chat(M, "<span class='userdanger'>ОЩУЩАЮ МОЩНЕЙШИЙ ПРИЛИВ СИЛ!!!</span>")
 		for(var/i in 1 to 100)
 			addtimer(CALLBACK(M, /atom/proc/add_atom_colour, (i % 2)? "#FF00FF" : "#00FFFF", ADMIN_COLOUR_PRIORITY), i)

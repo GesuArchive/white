@@ -415,7 +415,7 @@
 	target.visible_message("<span class='danger'>[user] has [method_string] [target] [target_string] with [user.ru_ego()] [weapon_string]!</span>", \
 						   "<span class='userdanger'>[user] has [method_string] your [target_string] with [user.ru_ego()] [weapon_string]!</span>")
 	if (!target.is_muzzled())
-		target.emote("scream")
+		target.emote("agony")
 	target.Jitter(5)
 	target.apply_damages(brute = torture_dmg_brute, burn = torture_dmg_burn, def_zone = (BP ? BP.body_zone : null)) // take_overall_damage(6,0)
 

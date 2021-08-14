@@ -626,7 +626,7 @@
 			ADD_TRAIT(exposed_carbon, TRAIT_HOLY, SPECIES_TRAIT)
 		playsound(exposed_carbon.loc, 'sound/items/poster_ripped.ogg', 50, TRUE, -1)
 		exposed_carbon.adjustBruteLoss(20)
-		exposed_carbon.emote("scream")
+		exposed_carbon.emote("agony")
 
 
 /obj/item/jacobs_ladder
@@ -1103,7 +1103,7 @@
 	if(dist > HIEROPHANT_BLINK_RANGE)
 		to_chat(user, "<span class='hierophant_warning'>Blink destination out of range.</span>")
 		return
-	
+
 	if(iscarbon(user))
 		if(is_centcom_level(user.z))
 			user.visible_message("<span class='hierophant_warning'>[user.name] уносит за пределы этой реальности!</span>", "<span class='hierophant_warning'>Меня уносит за пределы этой реальности!</span>")
@@ -1116,7 +1116,7 @@
 			qdel(user)
 			return
 		var/area/user_area = get_area(user)
-		var/area/target_area = get_area(target)   
+		var/area/target_area = get_area(target)
 		if(user_area.area_flags & NOTELEPORT || target_area.area_flags & NOTELEPORT)
 			return
 	. = ..()

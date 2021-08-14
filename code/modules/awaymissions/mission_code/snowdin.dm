@@ -232,7 +232,7 @@
 						PP.adjustFireLoss(25)
 						if(plasma_parts.len)
 							var/obj/item/bodypart/NB = pick(plasma_parts) //using the above-mentioned list to get a choice of limbs for dismember() to use
-							PP.emote("scream")
+							PP.emote("agony")
 							NB.species_id = "plasmaman"//change the species_id of the limb to that of a plasmaman
 							NB.no_update = TRUE
 							NB.change_bodypart_status()

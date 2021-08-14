@@ -200,7 +200,7 @@
 	if(harmful)
 		var/damage = weapon.w_class * remove_pain_mult
 		limb.receive_damage(brute=(1-pain_stam_pct) * damage, stamina=pain_stam_pct * damage, sharpness=SHARP_EDGED) //It hurts to rip it out, get surgery you dingus. unlike the others, this CAN wound + increase slash bloodflow
-		victim.emote("scream")
+		victim.emote("agony")
 
 	victim.visible_message("<span class='notice'><b>[victim]</b> успешно [harmful ? "вырывает" : "отклеивает"] <b>[weapon]</b> [harmful ? "из" : "от"] [victim.ru_ego()] [ru_otkuda_zone(limb.name)]!</span>", "<span class='notice'>Успешно вытаскиваю <b>[weapon]</b> из моей [ru_otkuda_zone(limb.name)].</span>")
 	safeRemove(victim)

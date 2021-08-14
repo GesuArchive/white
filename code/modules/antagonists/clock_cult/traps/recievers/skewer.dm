@@ -33,7 +33,7 @@
 		if(buckle_mob(M, TRUE))
 			target_stabbed = TRUE
 			to_chat(M, "<span class='userdanger'>You are impaled by [src]!</span>")
-			M.emote("scream")
+			M.emote("agony")
 			M.apply_damage(5, BRUTE, BODY_ZONE_CHEST)
 			if(ishuman(M))
 				var/mob/living/carbon/human/H = M

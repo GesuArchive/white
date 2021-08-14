@@ -14,7 +14,7 @@ Slimecrossing Weapons
 /obj/item/melee/arm_blade/slime/attack(mob/living/L, mob/user)
 	. = ..()
 	if(prob(20))
-		user.emote("scream")
+		user.emote("agony")
 
 //Rainbow knife - Burning Rainbow
 /obj/item/kitchen/knife/rainbowknife

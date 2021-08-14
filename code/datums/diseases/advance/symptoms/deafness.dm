@@ -57,7 +57,7 @@ Bonus
 				if(ears.damage < ears.maxHealth)
 					to_chat(M, "<span class='userdanger'>Your ears pop painfully and start bleeding!</span>")
 					ears.damage = max(ears.damage, ears.maxHealth)
-					M.emote("scream")
+					M.emote("agony")
 			else
 				to_chat(M, "<span class='userdanger'>Your ears pop and begin ringing loudly!</span>")
 				ears.deaf = min(20, ears.deaf + 15)
