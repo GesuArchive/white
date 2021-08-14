@@ -52,5 +52,5 @@
 			if(MALE)
 				lang_to_use = "aidar"
 			if(FEMALE)
-				lang_to_use = pick("baya", "kseniya", "natasha")
+				lang_to_use = "baya" // блять ну и говно
 		owner.tts(msg, lang_to_use, freq = frequency)
