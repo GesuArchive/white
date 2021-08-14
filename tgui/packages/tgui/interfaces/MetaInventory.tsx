@@ -47,105 +47,105 @@ const SLOTS: Record<
 > = {
   "8": {
     displayName: "глаза",
-    gridSpot: getGridSpotKey([0, 1]),
+    gridSpot: getGridSpotKey([0, 0]),
     image: "inventory-glasses.png",
   },
 
   "64": {
     displayName: "голова",
-    gridSpot: getGridSpotKey([0, 2]),
+    gridSpot: getGridSpotKey([0, 1]),
     image: "inventory-head.png",
   },
 
   "4096": {
     displayName: "шея",
-    gridSpot: getGridSpotKey([1, 1]),
+    gridSpot: getGridSpotKey([1, 0]),
     image: "inventory-neck.png",
   },
 
   "32": {
     displayName: "маска",
-    gridSpot: getGridSpotKey([1, 2]),
+    gridSpot: getGridSpotKey([1, 1]),
     image: "inventory-mask.png",
   },
 
   "16": {
     displayName: "уши",
-    gridSpot: getGridSpotKey([1, 3]),
+    gridSpot: getGridSpotKey([1, 2]),
     image: "inventory-ears.png",
   },
 
   "2": {
     displayName: "униформа",
-    gridSpot: getGridSpotKey([2, 1]),
+    gridSpot: getGridSpotKey([2, 0]),
     image: "inventory-uniform.png",
   },
 
   "1": {
     displayName: "костюм",
-    gridSpot: getGridSpotKey([2, 2]),
+    gridSpot: getGridSpotKey([2, 1]),
     image: "inventory-suit.png",
   },
 
   "4": {
     displayName: "перчатки",
-    gridSpot: getGridSpotKey([2, 3]),
+    gridSpot: getGridSpotKey([2, 2]),
     image: "inventory-gloves.png",
   },
 
   "-4": {
     displayName: "правая рука",
-    gridSpot: getGridSpotKey([2, 4]),
+    gridSpot: getGridSpotKey([2, 3]),
     image: "inventory-hand_r.png",
     additionalComponent: <CornerText align="left">П</CornerText>,
   },
 
   "-3": {
     displayName: "левая рука",
-    gridSpot: getGridSpotKey([2, 5]),
+    gridSpot: getGridSpotKey([2, 4]),
     image: "inventory-hand_l.png",
     additionalComponent: <CornerText align="right">Л</CornerText>,
   },
 
   "128": {
     displayName: "ботинки",
-    gridSpot: getGridSpotKey([3, 2]),
+    gridSpot: getGridSpotKey([3, 1]),
     image: "inventory-shoes.png",
   },
 
-  "": {
+  "32768": {
     displayName: "хранилище костюма",
-    gridSpot: getGridSpotKey([4, 0]),
+    gridSpot: getGridSpotKey([3, 2]),
     image: "inventory-suit_storage.png",
   },
 
   "256": {
     displayName: "ID",
-    gridSpot: getGridSpotKey([4, 1]),
+    gridSpot: getGridSpotKey([4, 0]),
     image: "inventory-id.png",
   },
 
   "512": {
     displayName: "пояс",
-    gridSpot: getGridSpotKey([4, 2]),
+    gridSpot: getGridSpotKey([4, 1]),
     image: "inventory-belt.png",
   },
 
   "1024": {
     displayName: "спина",
-    gridSpot: getGridSpotKey([4, 3]),
+    gridSpot: getGridSpotKey([4, 2]),
     image: "inventory-back.png",
   },
 
   "65536": {
     displayName: "левый карман",
-    gridSpot: getGridSpotKey([4, 4]),
+    gridSpot: getGridSpotKey([4, 3]),
     image: "inventory-pocket.png",
   },
 
   "131072": {
     displayName: "правый карман",
-    gridSpot: getGridSpotKey([4, 5]),
+    gridSpot: getGridSpotKey([4, 4]),
     image: "inventory-pocket.png",
   },
 /*
