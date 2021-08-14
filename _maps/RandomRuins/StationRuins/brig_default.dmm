@@ -3348,6 +3348,7 @@
 	pixel_y = 7
 	},
 /obj/structure/cable,
+/obj/item/reagent_containers/food/drinks/flask/gold/soviet,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/heads/hos)
 "Fi" = (

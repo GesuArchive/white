@@ -235,6 +235,7 @@
 /obj/structure/table/wood,
 /obj/item/radio/off,
 /obj/item/taperecorder,
+/obj/item/reagent_containers/food/drinks/flask/gold/soviet,
 /turf/open/floor/engine,
 /area/crew_quarters/heads/hos)
 "bV" = (

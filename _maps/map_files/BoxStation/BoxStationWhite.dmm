@@ -36734,10 +36734,6 @@
 /obj/machinery/nanite_chamber,
 /turf/open/floor/plasteel/dark,
 /area/science/nanite)
-"lcQ" = (
-/obj/item/reagent_containers/food/drinks/flask/gold/soviet,
-/turf/open/openspace/airless,
-/area/space)
 "ldT" = (
 /obj/structure/sign/poster/official/random,
 /turf/closed/wall,
@@ -79789,7 +79785,7 @@ aaa
 aaa
 aaa
 aaa
-lcQ
+aaa
 aaa
 aaa
 aaa
