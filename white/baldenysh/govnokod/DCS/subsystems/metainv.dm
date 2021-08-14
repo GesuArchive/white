@@ -4,7 +4,6 @@ SUBSYSTEM_DEF(metainv)
 	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
 	init_order = 5
 
-	var/datum/metainv_object/test/ABOBA = new
 	var/datum/metainventory/test/AMONGUS = new
 
 	var/list/datum/metainventory/inventories = list()
@@ -38,69 +37,47 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainventory
 	var/owner_ckey
-	var/null_slots = 20
+	var/slots_max = 30
+	var/active_loadout = 1
+	var/list/datum/metainv_loadout/loadout_list = list()
 	var/list/datum/metainv_object/obj_list = list()
 
 /datum/metainventory/serialize_list(list/options)
 	. = list()
 	.["ckey"] = owner_ckey
-	.["slots"] = null_slots
+	.["slots"] = slots_max
 	.["objs"] = list()
 	for(var/datum/metainv_object/MO in obj_list)
 		.["objs"] += MO.serialize_json()
+	.["loadouts"] = list()
+	for(var/datum/metainv_object/MO in obj_list)
+		.["loadouts"] += MO.serialize_json()
+	.["a_loadout"] = active_loadout
 
 /datum/metainventory/deserialize_list(list/input, list/options)
-	if(!input["ckey"] || !input["slots"] || !input["objs"])
+	if(!input["ckey"] || !input["slots"] || !input["objs"] || !input["loadouts"])
 		return
 	owner_ckey = input["ckey"]
-	null_slots = input["slots"]
+	slots_max = input["slots"]
 	for(var/json_obj in input["objs"])
 		var/datum/metainv_object/MO = new
 		obj_list += MO.deserialize_json(json_obj)
+	for(var/json_loadout in input["loadouts"])
+		var/datum/metainv_loadout/ML = new
+		obj_list += ML.deserialize_json(json_loadout)
+	active_loadout = input?["a_loadout"]
+
 
 /datum/metainventory/proc/create_all_objects(atom/location)
 	for(var/datum/metainv_object/MO in obj_list)
 		MO.create_object(location)
 
-/datum/metainventory/proc/get_equipped_objs_slot_assoc()
+/datum/metainventory/proc/get_uid_to_metaobj_assoc()
 	. = list()
 	for(var/datum/metainv_object/MO in obj_list)
-		if(.["[MO.equipped_to_slot]"])
-			.["[MO.equipped_to_slot]"] += MO
-		else
-			.["[MO.equipped_to_slot]"] = list(MO)
+		.[num2text(MO.uid)] = MO
 
-//PIZDEC
-/datum/metainventory/proc/equip_carbon(mob/living/carbon/target)
-	if(!target || !istype(target))
-		return
-	var/list/equipped = get_equipped_objs_slot_assoc()
-	var/turf/T = get_turf(target)
-
-	for(var/datum/metainv_object/MO in equipped["[METAINVENTORY_SLOT_TURF]"])
-		MO.create_object(T)
-
-	var/datum/metainv_object/l_hand_metaobj = equipped["[METAINVENTORY_SLOT_HAND_L]"]?[1]
-	if(l_hand_metaobj)
-		target.put_in_l_hand(l_hand_metaobj.create_object(T))
-
-	var/datum/metainv_object/r_hand_metaobj = equipped["[METAINVENTORY_SLOT_HAND_R]"]?[1]
-	if(r_hand_metaobj)
-		target.put_in_r_hand(r_hand_metaobj.create_object(T))
-
-	for(var/i = 1; i < SLOTS_AMT; i++)
-		var/slot = (1<<i)
-		if(equipped["[slot]"]?[1])
-			try_equip_metaobj(target, slot, equipped["[slot]"][1])
-
-/datum/metainventory/proc/try_equip_metaobj(mob/living/carbon/target, slot, datum/metainv_object/MO)
-	if(MO && istype(MO))
-		var/obj/item/I = MO.create_object(get_turf(target))
-		var/obj/item/unequipped = target.get_item_by_slot(slot)
-		if(target.dropItemToGround(unequipped, force = FALSE, silent = TRUE, invdrop = FALSE))
-			if(!target.equip_to_slot_if_possible(I, slot, bypass_equip_delay_self = TRUE))
-				target.equip_to_slot_if_possible(unequipped, slot, bypass_equip_delay_self = TRUE)
-
+////////////////////////////////
 
 /datum/metainventory/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -113,8 +90,8 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainventory/ui_data(mob/user)
 	var/list/data = list()
-	var/list/items = list()
-
+	//var/list/items = list()
+/*
 	var/list/equipped = get_equipped_objs_slot_assoc()
 	for(var/metaobj_slot in equipped)
 		var/list/slot_items = list()
@@ -133,8 +110,8 @@ SUBSYSTEM_DEF(metainv)
 		items[metaobj_slot] = slot_items
 
 	data["items"] = items
-	data["null_slots"] = null_slots
-
+	data["slots"] = slots
+*/
 	return data
 
 /datum/metainventory/proc/ui_data_json()
@@ -154,31 +131,115 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainventory/test
 	owner_ckey = "imposter"
-	null_slots = 11
 
 /datum/metainventory/test/New()
 	. = ..()
-	var/datum/metainv_object/test/bimba = new
-	bimba.equipped_to_slot = METAINVENTORY_SLOT_TURF
+	var/datum/metainv_object/bimba = new
+	bimba.uid = 1
+	bimba.object_path_txt = "/obj/machinery/nuclearbomb"
+	bimba.var_overrides = list("name" = "Українська бiмба", "throwforce" = 999)
 
 	var/datum/metainv_object/stels = new
+	stels.uid = 3
 	stels.object_path_txt = "/obj/item/stack/sheet/mineral/wood"
-	stels.var_overrides = list("name" = "жопные доски", "desc" = "фичи, каторые мы заслужили", "amount" = 15)
-	stels.equipped_to_slot = METAINVENTORY_SLOT_HAND_R
+	stels.var_overrides = list("amount" = 15)
 
 	var/datum/metainv_object/uniform = new
+	uniform.uid = 5
 	uniform.object_path_txt = "/obj/item/clothing/under/rank/engineering/atmospheric_technician"
-	uniform.equipped_to_slot = ITEM_SLOT_ICLOTHING
 
 	obj_list += uniform
 	obj_list += bimba
 	obj_list += stels
 
+	var/datum/metainv_loadout/ML = new
+	ML.loadout_slots[num2text(METAINVENTORY_SLOT_HAND_R)] = stels.uid
+	ML.loadout_slots[num2text(ITEM_SLOT_ICLOTHING)] = uniform.uid
+	ML.inv = src
+	loadout_list += ML
+
+////////////////////////////////////////////////////////////////////
+
+/datum/metainv_loadout
+	var/datum/metainventory/inv
+	var/list/loadout_slots //в качестве ключей используются дефайны инвентаря типа ITEM_SLOT_ICLOTHING, плюс дефайны метаинвентаря выше для рук и прочего
+
+/datum/metainv_loadout/New()
+	. = ..()
+	build_slots()
+
+/datum/metainv_loadout/proc/build_slots()
+	var/list/res = list()
+	var/list/metainv_slots = list(METAINVENTORY_SLOT_CURSOR, /*METAINVENTORY_SLOT_TURF,*/ METAINVENTORY_SLOT_HAND_L, METAINVENTORY_SLOT_HAND_R)
+	for(var/slot in metainv_slots)
+		res[num2text(slot)] = null
+	for(var/i = 1; i < SLOTS_AMT; i++)
+		res[num2text((1<<i))] = null
+	loadout_slots = res
+
+/datum/metainv_loadout/proc/get_slot_to_metaobj_assoc()
+	. = list()
+	var/list/uid_assoc = inv.get_uid_to_metaobj_assoc()
+	for(var/slot in loadout_slots)
+		var/equipped_uid = num2text(loadout_slots?[slot])
+		if(equipped_uid)
+			var/datum/metainv_object/MO = uid_assoc?[equipped_uid]
+			if(MO)
+				.[slot] = MO
+
+/datum/metainv_loadout/proc/equip_carbon(mob/living/carbon/target)
+	if(!target || !istype(target))
+		return
+	var/turf/T = get_turf(target)
+
+	var/list/equipped = get_slot_to_metaobj_assoc()
+/*
+	for(var/datum/metainv_object/MO in equipped["[METAINVENTORY_SLOT_TURF]"])
+		MO.create_object(T)
+*/
+	var/datum/metainv_object/l_hand_metaobj = equipped[num2text(METAINVENTORY_SLOT_HAND_L)]
+	if(l_hand_metaobj)
+		target.put_in_l_hand(l_hand_metaobj.create_object(T))
+
+	var/datum/metainv_object/r_hand_metaobj = equipped[num2text(METAINVENTORY_SLOT_HAND_R)]
+	if(r_hand_metaobj)
+		target.put_in_r_hand(r_hand_metaobj.create_object(T))
+
+	for(var/i = 1; i < SLOTS_AMT; i++)
+		var/datum/metainv_object/MO = equipped[num2text(1<<i)]
+		if(MO)
+			equip_metaobj_to_invslot(target, (1<<i), MO)
+
+/datum/metainv_loadout/proc/equip_metaobj_to_invslot(mob/living/target, slot, datum/metainv_object/MO)
+	if(MO && istype(MO))
+		var/obj/item/I = MO.create_object(get_turf(target))
+		var/obj/item/unequipped = target.get_item_by_slot(slot)
+		if(target.dropItemToGround(unequipped, force = FALSE, silent = TRUE, invdrop = FALSE))
+			if(!target.equip_to_slot_if_possible(I, slot, bypass_equip_delay_self = TRUE))
+				target.equip_to_slot_if_possible(unequipped, slot, bypass_equip_delay_self = TRUE)
+/*
+/datum/metainventory/serialize_list(list/options)
+	. = list()
+	.["ckey"] = owner_ckey
+	.["slots"] = slots
+	.["objs"] = list()
+	for(var/datum/metainv_object/MO in obj_list)
+		.["objs"] += MO.serialize_json()
+
+/datum/metainventory/deserialize_list(list/input, list/options)
+	if(!input["ckey"] || !input["slots"] || !input["objs"])
+		return
+	owner_ckey = input["ckey"]
+	slots = input["slots"]
+	for(var/json_obj in input["objs"])
+		var/datum/metainv_object/MO = new
+		obj_list += MO.deserialize_json(json_obj)
+*/
 ////////////////////////////////////////////////////////////////////
 
 /datum/metainv_object
+	var/uid = 0
 	var/object_path_txt
-	var/equipped_to_slot = 0 //используются дефайны инвентаря типа ITEM_SLOT_ICLOTHING, плюс дефайны метаинвентаря выше для рук и прочего
 	var/rarity
 	var/list/var_overrides
 
@@ -189,11 +250,9 @@ SUBSYSTEM_DEF(metainv)
 		O.vars[varname] = var_overrides[varname]
 	return O
 
-/datum/metainv_object/serialize_list(list/options) //нужно для работы serialize_json
+/datum/metainv_object/serialize_list(list/options)
 	. = list()
 	.["OPT"] = object_path_txt
-	if(equipped_to_slot)
-		.["ETS"] = equipped_to_slot
 	if(rarity)
 		.["R"] = rarity
 	if(var_overrides && var_overrides.len)
@@ -203,12 +262,6 @@ SUBSYSTEM_DEF(metainv)
 	if(!input["OPT"])
 		return
 	object_path_txt = input["OPT"]
-	equipped_to_slot = input?["ETS"]
 	rarity = input?["R"]
 	var_overrides = json_decode(input?["VO"])
 	return src
-
-
-/datum/metainv_object/test
-	object_path_txt = "/obj/machinery/nuclearbomb"
-	var_overrides = list("name" = "Українська бiмба", "throwforce" = 999)
