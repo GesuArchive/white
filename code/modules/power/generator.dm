@@ -52,8 +52,6 @@
 		if(L != 0)
 			SSvis_overlays.add_vis_overlay(src, icon, "teg-op[L]", ABOVE_LIGHTING_LAYER, ABOVE_LIGHTING_PLANE, dir)
 
-#define GENRATE 800		// generator output coefficient from Q
-
 /obj/machinery/power/generator/process_atmos()
 
 	if(!cold_circ || !hot_circ)
@@ -100,7 +98,7 @@
 /obj/machinery/power/generator/process()
 	//Setting this number higher just makes the change in power output slower, it doesnt actualy reduce power output cause **math**
 	var/power_output = round(lastgen / 10)
-	add_avail(power_output/1000)
+	add_avail(power_output)
 	lastgenlev = power_output
 	lastgen -= power_output
 	..()
@@ -117,7 +115,7 @@
 
 		t += "<div class='statusDisplay'>"
 
-		t += "Выход: [DisplayPower(lastgenlev/1000)]"
+		t += "Выход: [DisplayPower(lastgenlev)]"
 
 		t += "<BR>"
 
