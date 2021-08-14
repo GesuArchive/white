@@ -179,7 +179,7 @@ SUBSYSTEM_DEF(metainv)
 	. = list()
 	var/list/uid_assoc = inv.get_uid_to_metaobj_assoc()
 	for(var/slot in loadout_slots)
-		var/equipped_uid = "[loadout_slots?[slot]]"
+		var/equipped_uid = num2text(loadout_slots?[slot])
 		if(equipped_uid && equipped_uid != "")
 			var/datum/metainv_object/MO = uid_assoc?[equipped_uid]
 			if(MO)
