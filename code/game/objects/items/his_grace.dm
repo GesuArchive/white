@@ -89,7 +89,7 @@
 			if(HIS_GRACE_CONSUME_OWNER to HIS_GRACE_FALL_ASLEEP)
 				master.visible_message("<span class='boldwarning'>[capitalize(src.name)] turns on [master]!</span>", "<span class='his_grace big bold'>[capitalize(src.name)] turns on you!</span>")
 				do_attack_animation(master, null, src)
-				master.emote("scream")
+				master.emote("agony")
 				master.remove_status_effect(STATUS_EFFECT_HISGRACE)
 				REMOVE_TRAIT(src, TRAIT_NODROP, HIS_GRACE_TRAIT)
 				master.Paralyze(60)

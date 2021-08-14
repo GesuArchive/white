@@ -121,3 +121,8 @@
 	. = ..()
 	var/static/list/exception_cache = typecacheof(list(/obj/item/living_heart,/obj/item/forbidden_book))
 	exception_hold = exception_cache
+
+/datum/component/storage/concrete/pockets/big
+	max_items = 3
+	max_w_class = WEIGHT_CLASS_NORMAL
+	rustle_sound = TRUE

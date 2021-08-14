@@ -266,6 +266,6 @@
 		return ..()
 	if(process_fire(user, user, FALSE, null, BODY_ZONE_HEAD))
 		user.visible_message("<span class='warning'><b>[user]</b> стреляет себе в лицо!</span>", "<span class='userdanger'>Стреляю себе в лицо</span>")
-		user.emote("scream")
+		user.emote("agony")
 		user.drop_all_held_items()
 		user.Paralyze(80)

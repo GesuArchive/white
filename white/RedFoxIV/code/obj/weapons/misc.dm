@@ -748,7 +748,7 @@
 			to_chat(artist, "<span class='userdanger'>Ох, лучше бы я не покидал Цирк...</span>") //let them know they fucked up
 			message_admins("Игрок [artist.ckey], будучи Артистом, каким-то образом сбежал из цирка, за что был казнён и лишён доступа к спавнеру до конца раунда. Такого быть не должно: выясните, как он этого добился и передайте кодербасу. Если же это произошло по вине админбаса, удалите сикей игрока из переменной спавнера (round_banned_ckeys). Позиция игрока на момент обнаружения побега: x=[artist.x], y=[artist.y], z=[artist.z], название зоны - [get_area_name(artist)]")
 			artist.pooition = 10000
-			artist.emote("scream")
+			artist.emote("agony")
 
 
 			for(var/s=1,s<51,s++)

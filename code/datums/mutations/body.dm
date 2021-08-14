@@ -75,7 +75,7 @@
 
 /datum/mutation/human/paranoia/on_life(delta_time, times_fired)
 	if(DT_PROB(2.5, delta_time) && owner.stat == CONSCIOUS)
-		owner.emote("scream")
+		owner.emote("agony")
 		if(prob(25))
 			owner.hallucination += 20
 

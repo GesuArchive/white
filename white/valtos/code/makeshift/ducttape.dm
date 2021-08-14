@@ -20,7 +20,7 @@
 		to_chat(H, "<span class='userdanger'>Лента срывается с моего лица. Это было не самое приятное ощущение.</span>")
 		playsound(user, 'white/valtos/sounds/ducttape2.ogg', 50, 1)
 		H.apply_damage(2, BRUTE, "head")
-		user.emote("scream")
+		user.emote("agony")
 		user.dropItemToGround(user.get_active_held_item())
 		used = TRUE
 		qdel(src)
@@ -38,7 +38,7 @@
 		playsound(user, 'white/valtos/sounds/ducttape2.ogg', 50, 1)
 		H.apply_damage(2, BRUTE, "head")
 		user.dropItemToGround(user.get_active_held_item())
-		user.emote("scream")
+		user.emote("agony")
 		qdel(src)
 
 /obj/item/clothing/mask/tape/handle_speech(datum/source, list/speech_args)

@@ -185,6 +185,9 @@
 	aicamera = new/obj/item/camera/siliconcam/robot_camera(src)
 	toner = tonermax
 	diag_hud_set_borgcell()
+
+	AddComponent(/datum/component/tts)
+
 	logevent("System brought online.")
 
 /mob/living/silicon/robot/proc/create_modularInterface()

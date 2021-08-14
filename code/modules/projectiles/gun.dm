@@ -286,6 +286,7 @@
 	if(jammed)
 		if(do_after(user, 1 SECONDS, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE)))
 			to_chat(user, "<span class='notice'>Удалось починить [src.name].</span>")
+			playsound(get_turf(src), 'sound/weapons/gun/general/slide_lock_1.ogg', 100)
 			jammed = FALSE
 	else
 		. = ..()

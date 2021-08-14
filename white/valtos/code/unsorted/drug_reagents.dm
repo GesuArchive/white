@@ -404,7 +404,7 @@
 						SEND_SOUND(H.client, sound)
 						create_ovosh(H)
 						H.hud_used.show_hud(HUD_STYLE_NOHUD)
-						H.emote("scream")
+						H.emote("agony")
 						tripsoundstarted = TRUE
 				if(31 to INFINITY)
 					if(prob(80) && (H.mobility_flags & MOBILITY_MOVE) && !ismovable(H.loc))
@@ -424,7 +424,7 @@
 								sound.environment = 23
 								sound.volume = 100
 								SEND_SOUND(H.client, sound)
-								H.emote("scream")
+								H.emote("agony")
 								H.overlay_fullscreen("labebium", /atom/movable/screen/fullscreen/labeb, rand(1, 23))
 								H.clear_fullscreen("labebium", rand(15, 60))
 								new /datum/hallucination/delusion(H, TRUE, duration = 150, skip_nearby = FALSE, custom_name = H.name)
@@ -432,12 +432,12 @@
 									spawn(30)
 										H.overlay_fullscreen("labebium", /atom/movable/screen/fullscreen/labeb, rand(1, 23))
 										H.clear_fullscreen("labebium", rand(15, 60))
-										H.emote("scream")
+										H.emote("agony")
 										if(prob(50))
 											spawn(30)
 												H.overlay_fullscreen("labebium", /atom/movable/screen/fullscreen/labeb, rand(1, 23))
 												H.clear_fullscreen("labebium", rand(15, 60))
-												H.emote("scream")
+												H.emote("agony")
 							if(prob(40))
 								H.stuttering = 90
 								animate(whole_screen, color = color_matrix_rotate_hue(rand(0, 360)), transform = turn(matrix(), rand(1,rotation)), time = 150, easing = CIRCULAR_EASING)

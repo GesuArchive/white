@@ -56,7 +56,7 @@
 		spawn(10)
 			if(!HAS_TRAIT(H, TRAIT_HACKER))
 				H.dropItemToGround(src, TRUE)
-				H.emote("scream")
+				H.emote("agony")
 				to_chat(H, "<span class='danger'>КАК?!</span>")
 				visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
 
@@ -69,7 +69,7 @@
 		spawn(10)
 			if(!HAS_TRAIT(H, TRAIT_HACKER))
 				H.dropItemToGround(src, TRUE)
-				H.emote("scream")
+				H.emote("agony")
 				to_chat(H, "<span class='danger'>КАК?!</span>")
 				visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
 
@@ -98,7 +98,7 @@
 		spawn(10)
 			if(!HAS_TRAIT(H, TRAIT_HACKER))
 				H.dropItemToGround(src, TRUE)
-				H.emote("scream")
+				H.emote("agony")
 				to_chat(H, "<span class='danger'>КАК?!</span>")
 				visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
 
@@ -234,7 +234,7 @@
 				user.say("Эй, [target], тебе сейчас будет пиздец!")
 				if(do_after(user, 60, target = target))
 					user.whisper(md5("Удаление  [target]..."))
-					target.emote("scream")
+					target.emote("agony")
 					target.visible_message("<span class='danger'><b>[target]</b> исчезает!</span>", \
 									"<span class='danger'>Мне пиздец!</span>")
 					playsound(target, 'white/valtos/sounds/mechanized/kr1.wav', 100)

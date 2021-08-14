@@ -131,7 +131,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 		if(BP.body_part != HEAD && BP.body_part != CHEST && BP.dismemberable)
 			playsound(src, 'sound/weapons/circsawhit.ogg', 50, TRUE)
 			BP.drop_limb()
-			victim.emote("scream")
+			victim.emote("agony")
 			BP.forceMove(get_turf(src))
 			BP.throw_at(get_edge_target_turf(src, pick(GLOB.alldirs)), INFINITY, 5, spin = TRUE)
 			sleep(10)
@@ -143,7 +143,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 		var/obj/item/organ/O = pick(organs)
 		O.Remove(victim)
 		O.forceMove(get_turf(src))
-		victim.emote("scream")
+		victim.emote("agony")
 		O.throw_at(get_edge_target_turf(src, pick(GLOB.alldirs)), INFINITY, 5, spin = TRUE)
 	// this is just a big ol' middle finger to the victim
 	victim.slurring = 300

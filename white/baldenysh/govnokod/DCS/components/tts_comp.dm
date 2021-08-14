@@ -6,7 +6,7 @@
 	var/lang
 
 	var/charcd = 0.2 //ticks for one char
-	var/maxchars = 128 //sasai kudosai
+	var/maxchars = 140 //sasai kudosai
 
 	var/assigned_channel
 	var/frequency = 1
@@ -47,4 +47,10 @@
 	if(lang)
 		owner.tts(msg, lang, freq = frequency)
 	else
-		owner.tts(msg, freq = frequency)
+		var/lang_to_use = "ruslan" // plural go fuck
+		switch(owner.gender)
+			if(MALE)
+				lang_to_use = "aidar"
+			if(FEMALE)
+				lang_to_use = "baya" // блять ну и говно
+		owner.tts(msg, lang_to_use, freq = frequency)

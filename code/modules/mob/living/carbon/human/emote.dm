@@ -91,16 +91,23 @@
 						'white/valtos/sounds/emotes/scream_female_3.ogg',\
 						'white/valtos/sounds/emotes/scream_female_4.ogg')
 		else
-			return pick('white/valtos/sounds/emotes/scream_male_1.ogg', 'white/valtos/sounds/emotes/scream_male_2.ogg', 'sound/voice/human/malescream_1.ogg', 'sound/voice/human/malescream_2.ogg', 'sound/voice/human/malescream_3.ogg', 'sound/voice/human/malescream_4.ogg', 'sound/voice/human/malescream_5.ogg', 'sound/voice/human/malescream_6.ogg')
+			return pick('white/valtos/sounds/emotes/scream_male_1.ogg',\
+						'white/valtos/sounds/emotes/scream_male_2.ogg',\
+						'sound/voice/human/malescream_1.ogg',\
+						'sound/voice/human/malescream_2.ogg',\
+						'sound/voice/human/malescream_3.ogg',\
+						'sound/voice/human/malescream_4.ogg',\
+						'sound/voice/human/malescream_5.ogg',\
+						'sound/voice/human/malescream_6.ogg')
 	else if(ismoth(H))
 		return 'sound/voice/moth/scream_moth.ogg'
 	else if(ismonkey(user)) //If its a monkey, override it.
-		return pick('sound/creatures/monkey/monkey_screech_1.ogg',
-					'sound/creatures/monkey/monkey_screech_2.ogg',
-					'sound/creatures/monkey/monkey_screech_3.ogg',
-					'sound/creatures/monkey/monkey_screech_4.ogg',
-					'sound/creatures/monkey/monkey_screech_5.ogg',
-					'sound/creatures/monkey/monkey_screech_6.ogg',
+		return pick('sound/creatures/monkey/monkey_screech_1.ogg',\
+					'sound/creatures/monkey/monkey_screech_2.ogg',\
+					'sound/creatures/monkey/monkey_screech_3.ogg',\
+					'sound/creatures/monkey/monkey_screech_4.ogg',\
+					'sound/creatures/monkey/monkey_screech_5.ogg',\
+					'sound/creatures/monkey/monkey_screech_6.ogg',\
 					'sound/creatures/monkey/monkey_screech_7.ogg')
 
 /datum/emote/living/carbon/human/scream/screech //If a human tries to screech it'll just scream.
@@ -110,6 +117,37 @@
 	message = "визжит."
 	emote_type = EMOTE_AUDIBLE
 	vary = FALSE
+
+/datum/emote/living/carbon/human/agony
+	key = "agony"
+	ru_name = "агония"
+	key_third_person = "agonizes"
+	message = "кричит в агонии!"
+	emote_type = EMOTE_AUDIBLE
+	only_forced_audio = TRUE
+	vary = TRUE
+
+/datum/emote/living/carbon/human/agony/get_sound(mob/living/user)
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/H = user
+	if(H.mind?.miming)
+		return
+	if(user.gender == FEMALE)
+		return pick('white/valtos/sounds/emotes/agony_female_1.ogg',\
+					'white/valtos/sounds/emotes/agony_female_2.ogg',\
+					'white/valtos/sounds/emotes/agony_female_3.ogg')
+	else
+		return pick('white/valtos/sounds/emotes/agony_male_1.ogg',\
+					'white/valtos/sounds/emotes/agony_male_2.ogg',\
+					'white/valtos/sounds/emotes/agony_male_3.ogg',\
+					'white/valtos/sounds/emotes/agony_male_4.ogg',\
+					'white/valtos/sounds/emotes/agony_male_5.ogg',\
+					'white/valtos/sounds/emotes/agony_male_6.ogg',\
+					'white/valtos/sounds/emotes/agony_male_7.ogg',\
+					'white/valtos/sounds/emotes/agony_male_8.ogg',\
+					'white/valtos/sounds/emotes/agony_male_9.ogg')
+
 
 /datum/emote/living/carbon/human/pale
 	key = "pale"

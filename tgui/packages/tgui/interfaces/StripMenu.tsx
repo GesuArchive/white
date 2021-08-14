@@ -1,5 +1,5 @@
-import { range } from "common/collections";
-import { BooleanLike } from "common/react";
+import { range } from "../../common/collections";
+import { BooleanLike } from "../../common/react";
 import { resolveAsset } from "../assets";
 import { useBackend } from "../backend";
 import { Box, Button, Icon, Stack } from "../components";
@@ -19,7 +19,7 @@ const getGridSpotKey = (spot: [number, number]): GridSpotKey => {
 const CornerText = (props: {
   align: "left" | "right";
   children: string;
-}): JSX.Element => {
+}): Element => {
   const { align, children } = props;
 
   return (
@@ -79,7 +79,7 @@ const SLOTS: Record<
     displayName: string;
     gridSpot: GridSpotKey;
     image?: string;
-    additionalComponent?: JSX.Element;
+    additionalComponent?: Element;
   }
 > = {
   eyes: {
@@ -156,14 +156,14 @@ const SLOTS: Record<
     displayName: "правая рука",
     gridSpot: getGridSpotKey([2, 4]),
     image: "inventory-hand_r.png",
-    additionalComponent: <CornerText align="left">П</CornerText>,
+    additionalComponent: <CornerText align="left" children={""}>П</CornerText>,
   },
 
   left_hand: {
     displayName: "левая рука",
     gridSpot: getGridSpotKey([2, 5]),
     image: "inventory-hand_l.png",
-    additionalComponent: <CornerText align="right">Л</CornerText>,
+    additionalComponent: <CornerText align="right" children={""}>Л</CornerText>,
   },
 
   shoes: {

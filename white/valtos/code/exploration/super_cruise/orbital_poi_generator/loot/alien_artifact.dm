@@ -452,7 +452,7 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 	var/cy = T.y
 	pulser.blind_eyes(300)
 	pulser.Stun(100)
-	pulser.emote("scream")
+	pulser.emote("agony")
 	pulser.hallucination = 500
 	for(var/r in 1 to max(xrange, yrange))
 		var/xr = min(xrange, r)
@@ -473,7 +473,7 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 				to_chat(M, "<span class='warning'>Ооох...</span>")
 				M.blind_eyes(30)
 				M.Knockdown(10)
-				M.emote("scream")
+				M.emote("agony")
 				M.Jitter(50)
 				M.hallucination = M.hallucination + 20
 			CHECK_TICK

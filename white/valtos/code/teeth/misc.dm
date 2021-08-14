@@ -103,7 +103,7 @@
 				playsound(H, 'white/valtos/sounds/tear.ogg', 40, 1, -1) //RIP AND TEAR. RIP AND TEAR.
 				if(H.client)
 					inc_metabalance(H, METACOIN_TEETH_REWARD, reason="МОЙ ЗУБИК!")
-				H.emote("scream")
+				H.emote("agony")
 			else
 				to_chat(user, "<span class='notice'>Не вышло вырвать зуб...</span>")
 				user.changeNext_move(0)

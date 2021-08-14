@@ -24,7 +24,7 @@
 			var/mob/living/L = M
 			L.fire_stacks = INFINITY
 			L.IgniteMob()
-			L.emote("scream")
+			L.emote("agony")
 
 /proc/clockcult_gg()
 	SSticker.force_ending = TRUE

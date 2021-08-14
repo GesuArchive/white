@@ -42,7 +42,7 @@
 				new_eyes.Insert(affected_mob, drop_if_replaced = TRUE)
 				affected_mob.visible_message("<span class='warning'>[affected_mob] eyes fall out, with snail eyes taking its place!</span>", \
 				"<span class='userdanger'>You scream in pain as your eyes are pushed out by your new snail eyes!</span>")
-				affected_mob.emote("scream")
+				affected_mob.emote("agony")
 				return
 
 			var/obj/item/shell = affected_mob.get_item_by_slot(ITEM_SLOT_BACK)
@@ -53,7 +53,7 @@
 					affected_mob.equip_to_slot_or_del(new /obj/item/storage/backpack/snail(affected_mob), ITEM_SLOT_BACK)
 					affected_mob.visible_message("<span class='warning'>[affected_mob] grows a grotesque shell on their back!</span>", \
 					"<span class='userdanger'>You scream in pain as a shell pushes itself out from under your skin!</span>")
-					affected_mob.emote("scream")
+					affected_mob.emote("agony")
 					return
 
 			var/obj/item/organ/tongue/tongue = locate(/obj/item/organ/tongue/snail) in affected_mob.internal_organs

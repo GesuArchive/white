@@ -73,6 +73,7 @@
 				VV_RESTORE_DEFAULT,
 				VV_TEXT_LOCATE,
 				VV_PROCCALL_RETVAL,
+				VV_CALLERMOB
 				)
 
 		var/markstring
@@ -86,7 +87,8 @@
 		if(extra_classes)
 			classes += extra_classes
 
-		.["class"] = input(src, "What kind of data?", "Variable Type", default_class) as null|anything in classes
+		//.["class"] = input(src, "What kind of data?", "Variable Type", default_class) as null|anything in classes
+		.["class"] = tgui_input_list(src, "What kind of data?", "Variable Type", classes)
 		if(holder && holder.marked_datum && .["class"] == markstring)
 			.["class"] = VV_MARKED_DATUM
 
@@ -209,6 +211,12 @@
 			var/list/get_retval = list()
 			callproc_blocking(get_retval)
 			.["value"] = get_retval[1]		//should have been set in proccall!
+			if(.["value"] == null)
+				.["class"] = null
+				return
+
+		if(VV_CALLERMOB)
+			.["value"] = mob
 			if(.["value"] == null)
 				.["class"] = null
 				return

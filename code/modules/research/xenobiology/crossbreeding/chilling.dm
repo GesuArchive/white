@@ -257,7 +257,7 @@ Chilling extracts:
 		user.visible_message("<span class='warning'>[capitalize(src.name)] flash-freezes [user] arm, cracking the flesh horribly!</span>")
 	else
 		user.visible_message("<span class='danger'>[capitalize(src.name)] chills and snaps off the front of the bone on [user] arm, leaving behind a strange, gun-like structure!</span>")
-	user.emote("scream")
+	user.emote("agony")
 	L.apply_damage(30,BURN,which_hand)
 	..()
 

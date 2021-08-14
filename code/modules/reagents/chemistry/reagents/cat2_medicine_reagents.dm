@@ -559,7 +559,7 @@
 	if(H.health <= (H.crit_threshold + HEALTH_THRESHOLD_FULLCRIT*(2*normalise_creation_purity()))) //certain death below this threshold
 		REMOVE_TRAIT(H, TRAIT_STABLEHEART, type) //we have to remove the stable heart trait before we give them a heart attack
 		to_chat(H,"<span class='danger'>Чувствую как в груди что-то разрывается!</span>")
-		H.emote("scream")
+		H.emote("agony")
 		H.set_heartattack(TRUE)
 		volume = 0
 	. = ..()

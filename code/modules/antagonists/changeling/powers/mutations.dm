@@ -49,7 +49,7 @@
 		limb_regen = user.regenerate_limb(BODY_ZONE_L_ARM, 1)
 	if(limb_regen)
 		user.visible_message("<span class='warning'>Рука <b>[user]</b> трансформируется издавая громкий и неприятный звук!</span>", "<span class='userdanger'>Моя рука отрастает, издает громкий хрустящий звук и причиняет мне сильную боль!</span>", "<span class='hear'>Слышу как что-то органическое разрывается!</span>")
-		user.emote("scream")
+		user.emote("agony")
 	var/obj/item/W = new weapon_type(user, silent)
 	user.put_in_hands(W)
 	if(!silent)

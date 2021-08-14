@@ -518,7 +518,7 @@
 	// If pain/pain immunity ever implemented, check for it here.
 
 	to_chat(victim, "<span class='userdanger'>Ощущаю ослепительную боль, когда [src.name] [double ? "врезаются" : "врезается"] в мой череп.</span>")
-	victim.emote("scream")
+	victim.emote("agony")
 	victim.flash_act()
 
 /obj/item/clothing/glasses/godeye/double

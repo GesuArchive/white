@@ -189,7 +189,7 @@
 			visible_message("<span class='warning'><b>[capitalize(R.name)]</b> проникает в [ru_parse_zone(BP)] <b>[H]</b>!</span>",
 							"<span class='userdanger'>Ох! <b>[capitalize(R.name)]</b> проникает в <b>[ru_parse_zone(BP)]</b>!</span>")
 			playsound(H, impale_sound, 50, 1)
-			H.emote("scream")
+			H.emote("agony")
 
 /obj/projectile/rod/on_hit(atom/target, blocked = FALSE)
 	..()

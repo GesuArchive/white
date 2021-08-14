@@ -135,7 +135,7 @@
 			owner.Stun(70)
 			owner.Jitter(8)
 		if(2)
-			owner.emote("scream")
+			owner.emote("agony")
 			owner.Jitter(5)
 			owner.say("ААААААА!!", forced = "phobia")
 			if(reason)

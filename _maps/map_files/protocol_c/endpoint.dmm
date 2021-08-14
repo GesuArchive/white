@@ -906,8 +906,8 @@
 /obj/effect/mob_spawn/human/artist{
 	pixel_y = 6
 	},
-/turf/open/indestructible,
-/area/centcom/circus)
+/turf/open/floor/glass,
+/area/centcom/outdoors/circus)
 "eJ" = (
 /obj/machinery/door/airlock{
 	icon = 'icons/obj/doors/airlocks/station/uranium.dmi';
@@ -2186,7 +2186,7 @@
 /area/centcom/control)
 "kS" = (
 /turf/open/openspace/fakez/east,
-/area/centcom/circus)
+/area/centcom/outdoors/circus)
 "kW" = (
 /obj/structure/safe/floor,
 /obj/item/uplink/nuclear,
@@ -2356,7 +2356,7 @@
 /area/centcom/control)
 "mg" = (
 /turf/open/openspace/fakez/north,
-/area/centcom/circus)
+/area/centcom/outdoors/circus)
 "mj" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -3199,7 +3199,7 @@
 /obj/structure/lattice/catwalk,
 /obj/item/food/cake/birthday,
 /turf/open/openspace/fakez/north,
-/area/centcom/circus)
+/area/centcom/outdoors/circus)
 "rB" = (
 /obj/structure/flora/rock/pile,
 /obj/structure/flora/ausbushes/rospilovo/pointybush{
@@ -4518,7 +4518,7 @@
 /area/wizard_station)
 "Cd" = (
 /turf/closed/indestructible/necropolis,
-/area/centcom/circus)
+/area/centcom/outdoors/circus)
 "Cf" = (
 /obj/machinery/light{
 	dir = 1
@@ -5487,8 +5487,8 @@
 	},
 /area/centcom/circus)
 "Jf" = (
-/turf/open/indestructible,
-/area/centcom/circus)
+/turf/open/floor/glass,
+/area/centcom/outdoors/circus)
 "Jh" = (
 /turf/open/floor/plasteel/freezer,
 /area/syndicate_mothership/control)
@@ -5655,7 +5655,7 @@
 /area/abductor_ship)
 "KD" = (
 /turf/open/openspace/fakez/south,
-/area/centcom/circus)
+/area/centcom/outdoors/circus)
 "KI" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -6339,8 +6339,8 @@
 /area/syndicate_mothership/control)
 "Pl" = (
 /obj/item/construction/rld,
-/turf/open/indestructible,
-/area/centcom/circus)
+/turf/open/floor/glass,
+/area/centcom/outdoors/circus)
 "Po" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -6858,8 +6858,8 @@
 /area/centcom/supplypod/pod_storage)
 "SM" = (
 /obj/item/construction/rcd/loaded,
-/turf/open/indestructible,
-/area/centcom/circus)
+/turf/open/floor/glass,
+/area/centcom/outdoors/circus)
 "SO" = (
 /obj/structure/table_frame/wood,
 /obj/item/stack/sheet/mineral/wood{

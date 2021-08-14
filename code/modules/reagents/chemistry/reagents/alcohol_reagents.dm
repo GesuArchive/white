@@ -259,12 +259,12 @@ All effects don't start immediately, but rather get worse over time; the rate is
 				eyes.Remove(M)
 				eyes.forceMove(get_turf(M))
 				to_chat(M, "<span class='userdanger'>Сгибаюсь от боли, кажется мои глазные яблоки разжижаются в голове!</span>")
-				M.emote("scream")
+				M.emote("agony")
 				M.adjustBruteLoss(15)
 		else
 			to_chat(M, "<span class='userdanger'>Кричу от ужаса, я ослеп!</span>")
 			eyes.applyOrganDamage(eyes.maxHealth)
-			M.emote("scream")
+			M.emote("agony")
 
 	if(DT_PROB(1.5, delta_time) && iscarbon(M))
 		M.visible_message("<span class='danger'>[M] бьется в припадке!</span>", "<span class='userdanger'>У меня припадок!</span>")
@@ -2299,7 +2299,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 /datum/reagent/consumable/ethanol/bug_spray/on_mob_metabolize(mob/living/carbon/M)
 
 	if(ismoth(M) || isflyperson(M))
-		M.emote("scream")
+		M.emote("agony")
 	return ..()
 
 

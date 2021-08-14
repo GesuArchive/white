@@ -364,7 +364,7 @@
 				mob_occupant.adjustFireLoss(rand(10, 16))
 			if(iscarbon(mob_occupant) && mob_occupant.stat < UNCONSCIOUS)
 				//Awake, organic and screaming
-				mob_occupant.emote("scream")
+				mob_occupant.emote("agony")
 		addtimer(CALLBACK(src, .proc/cook), 50)
 	else
 		uv_cycles = initial(uv_cycles)
