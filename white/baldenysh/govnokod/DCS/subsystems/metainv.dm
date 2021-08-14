@@ -168,7 +168,7 @@ SUBSYSTEM_DEF(metainv)
 	var/list/metainv_slots = list(METAINVENTORY_SLOT_CURSOR, METAINVENTORY_SLOT_TURF, METAINVENTORY_SLOT_HAND_L, METAINVENTORY_SLOT_HAND_R)
 	for(var/slot in metainv_slots)
 		res["[slot]"] = ""
-	for(var/i = 1; i < SLOTS_AMT; i++)
+	for(var/i = 0; i < SLOTS_AMT; i++)
 		res["[1<<i]"] = ""
 	loadout_slots = res
 
