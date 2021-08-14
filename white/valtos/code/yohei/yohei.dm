@@ -77,6 +77,7 @@
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	armor = list(MELEE = 25, BULLET = 25, LASER = 25,ENERGY = 25, BOMB = 40, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
 	hoodtype = /obj/item/clothing/head/hooded/yohei
+	pocket_storage_component_path = /datum/component/storage/concrete/pockets/big
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/toy, /obj/item/storage/fancy/cigarettes, /obj/item/lighter, /obj/item/gun, /obj/item/pickaxe)
 
 /obj/item/clothing/head/hooded/yohei
@@ -575,7 +576,7 @@ GLOBAL_VAR(yohei_main_controller)
 	access = list(ACCESS_YOHEI, ACCESS_MAINT_TUNNELS)
 
 /obj/item/card/id/yohei/update_label()
-	name = "[md5(rand(500, 5000))]"
+	name = "[md5("[rand(1, 10)][name]")]"
 
 /obj/effect/mob_spawn/human/donate
 	name = "платно"
