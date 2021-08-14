@@ -1,5 +1,5 @@
-#define TESLA_DEFAULT_POWER 1738260
-#define TESLA_MINI_POWER 869130
+#define TESLA_DEFAULT_POWER 17382600 // Крутой бафф
+#define TESLA_MINI_POWER 8691300 // Крутой бафф
 //Zap constants, speeds up targeting
 #define BIKE (COIL + 1)
 #define COIL (ROD + 1)
