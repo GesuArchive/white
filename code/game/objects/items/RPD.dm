@@ -249,6 +249,10 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 
 	recipe = first_atmos
 
+/obj/item/pipe_dispenser/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/knockback/randspeed, throw_distance = 2, throw_maxspeed = 3)
+
 /obj/item/pipe_dispenser/Destroy()
 	qdel(spark_system)
 	spark_system = null
