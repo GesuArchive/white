@@ -21,8 +21,8 @@
 	integrity_failure = 0.4
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 100, FIRE = 90, ACID = 30)
 	use_power = IDLE_POWER_USE
-	idle_power_usage = 2
-	active_power_usage = 6
+	idle_power_usage = 200
+	active_power_usage = 600
 	power_channel = AREA_USAGE_ENVIRON
 	resistance_flags = FIRE_PROOF
 

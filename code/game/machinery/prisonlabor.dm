@@ -4,8 +4,8 @@
 	icon = 'icons/obj/machines/prison.dmi'
 	icon_state = "offline"
 	use_power = IDLE_POWER_USE
-	idle_power_usage = 2
-	active_power_usage = 50
+	idle_power_usage = 200
+	active_power_usage = 5000
 	var/obj/item/stack/license_plates/empty/current_plate
 	var/pressing = FALSE
 

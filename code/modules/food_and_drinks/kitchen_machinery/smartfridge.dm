@@ -9,8 +9,8 @@
 	layer = BELOW_OBJ_LAYER
 	density = TRUE
 	use_power = IDLE_POWER_USE
-	idle_power_usage = 5
-	active_power_usage = 100
+	idle_power_usage = 500
+	active_power_usage = 10000
 	circuit = /obj/item/circuitboard/machine/smartfridge
 
 	var/base_build_path = /obj/machinery/smartfridge ///What path boards used to construct it should build into when dropped. Needed so we don't accidentally have them build variants with items preloaded in them.
@@ -248,8 +248,8 @@
 	icon = 'icons/obj/hydroponics/equipment.dmi'
 	icon_state = "drying_rack"
 	use_power = IDLE_POWER_USE
-	idle_power_usage = 5
-	active_power_usage = 200
+	idle_power_usage = 500
+	active_power_usage = 20000
 	visible_contents = FALSE
 	base_build_path = /obj/machinery/smartfridge/drying_rack //should really be seeing this without admin fuckery.
 	var/drying = FALSE

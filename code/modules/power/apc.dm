@@ -66,7 +66,7 @@
 	var/areastring = null
 	var/obj/item/stock_parts/cell/cell
 	var/start_charge = 90				// initial cell charge %
-	var/cell_type = /obj/item/stock_parts/cell/upgraded		//Base cell has 2500 capacity. Enter the path of a different cell you want to use. cell determines charge rates, max capacity, ect. These can also be changed with other APC vars, but isn't recommended to minimize the risk of accidental usage of dirty editted APCs
+	var/cell_type = /obj/item/stock_parts/cell/high		//Base cell has 2500 capacity. Enter the path of a different cell you want to use. cell determines charge rates, max capacity, ect. These can also be changed with other APC vars, but isn't recommended to minimize the risk of accidental usage of dirty editted APCs
 	var/opened = APC_COVER_CLOSED
 	var/shorted = FALSE
 	var/lighting = 3

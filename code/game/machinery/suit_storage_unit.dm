@@ -5,7 +5,7 @@
 	icon = 'icons/obj/machines/suit_storage.dmi'
 	icon_state = "close"
 	use_power = ACTIVE_POWER_USE
-	active_power_usage = 60
+	active_power_usage = 6000
 	power_channel = AREA_USAGE_EQUIP
 	density = TRUE
 	max_integrity = 250

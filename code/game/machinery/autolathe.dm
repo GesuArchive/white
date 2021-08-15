@@ -9,7 +9,7 @@
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 10
-	active_power_usage = 100
+	active_power_usage = 10000
 	circuit = /obj/item/circuitboard/machine/autolathe
 	layer = BELOW_OBJ_LAYER
 

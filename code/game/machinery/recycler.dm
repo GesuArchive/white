@@ -8,8 +8,8 @@
 	layer = ABOVE_ALL_MOB_LAYER // Overhead
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/recycler
-	idle_power_usage = 500
-	active_power_usage = 2000
+	idle_power_usage = 5000
+	active_power_usage = 20000
 	var/safety_mode = FALSE // Temporarily stops machine if it detects a mob
 	var/icon_name = "grinder-o"
 	var/bloody = FALSE

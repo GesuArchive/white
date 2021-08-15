@@ -4,8 +4,8 @@
 	icon_state = "recharger"
 	desc = "Заряжает штуки. В частности оружие."
 	use_power = IDLE_POWER_USE
-	idle_power_usage = 4
-	active_power_usage = 2500
+	idle_power_usage = 400
+	active_power_usage = 25000
 	circuit = /obj/item/circuitboard/machine/recharger
 	pass_flags = PASSTABLE
 	var/obj/item/charging = null

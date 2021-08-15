@@ -196,7 +196,7 @@ GLOBAL_LIST_INIT(scan_conditions,init_scan_conditions())
 	icon_state = "scanner_off"
 	desc = "Sophisticated scanning array. Easily influenced by enviroment."
 	idle_power_usage = 0
-	active_power_usage = 500
+	active_power_usage = 5000
 
 /obj/machinery/exoscanner/Initialize()
 	. = ..()

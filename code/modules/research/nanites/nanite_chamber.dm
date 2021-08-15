@@ -8,8 +8,8 @@
 	use_power = IDLE_POWER_USE
 	anchored = TRUE
 	density = TRUE
-	idle_power_usage = 500
-	active_power_usage = 3000
+	idle_power_usage = 5000
+	active_power_usage = 30000
 
 	var/obj/machinery/computer/nanite_chamber_control/console
 	var/locked = FALSE

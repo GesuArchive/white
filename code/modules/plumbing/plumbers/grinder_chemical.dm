@@ -3,7 +3,7 @@
 	desc = "chemical grinder."
 	icon_state = "grinder_chemical"
 	layer = ABOVE_ALL_MOB_LAYER
-	active_power_usage = 800
+	active_power_usage = 8000
 
 	reagent_flags = TRANSPARENT | DRAINABLE
 	buffer = 400

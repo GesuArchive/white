@@ -8,8 +8,8 @@
 	desc = "It's the hub of a teleporting machine."
 	icon_state = "tele0"
 	use_power = IDLE_POWER_USE
-	idle_power_usage = 100
-	active_power_usage = 20000
+	idle_power_usage = 1000
+	active_power_usage = 80000
 	circuit = /obj/item/circuitboard/machine/teleporter_hub
 	var/accuracy = 0
 	var/obj/machinery/teleport/station/power_station
@@ -110,8 +110,8 @@
 	desc = "The power control station for a bluespace teleporter. Used for toggling power, and can activate a test-fire to prevent malfunctions."
 	icon_state = "controller"
 	use_power = IDLE_POWER_USE
-	idle_power_usage = 10
-	active_power_usage = 2000
+	idle_power_usage = 100
+	active_power_usage = 20000
 	circuit = /obj/item/circuitboard/machine/teleporter_station
 	var/engaged = FALSE
 	var/obj/machinery/computer/teleporter/teleporter_console

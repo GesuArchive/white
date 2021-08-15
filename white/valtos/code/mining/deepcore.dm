@@ -400,8 +400,8 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 	desc = "A machine designed to recieve the output of any connected bluespace drills."
 	icon_state = "hopper_off"
 	density = TRUE
-	idle_power_usage = 5
-	active_power_usage = 50
+	idle_power_usage = 500
+	active_power_usage = 5000
 	anchored = FALSE
 	circuit = /obj/item/circuitboard/machine/deepcore/hopper
 
