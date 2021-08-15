@@ -172,3 +172,14 @@ GLOBAL_LIST_INIT(gas_recipe_meta, gas_recipes_list())
 	energy_release = 6000000
 	requirements = list(/datum/gas/hypernoblium = 100, /datum/gas/stimulum = 100)
 	products = list(/obj/item/fuel_pellet/exotic = 1)
+
+/datum/gas_recipe/crystallizer/tesla
+	id = "tesla"
+	name = "Tesla generator"
+	min_temp = 8000
+	max_temp = 12000
+	reaction_type = ENDOTHERMIC_REACTION
+	energy_release = 350000
+	dangerous = TRUE
+	requirements = list(/datum/gas/stimulum = 500, /datum/gas/freon = 500, /datum/gas/nitryl = 800)
+	products = list(/obj/machinery/the_singularitygen/tesla = 1)

@@ -18,7 +18,7 @@
 	///Base icon state for the machine to be used in update_icon()
 	var/base_icon = "crystallizer"
 	///Internal Gas mix used for processing the gases that have been put in
-	var/datum/gas_mixture/internal
+	var/datum/gas_mixture/internal = new
 	///Var that controls how much gas gets injected in moles/S
 	var/gas_input = 0
 	///Saves the progress during the processing of the items
@@ -29,10 +29,6 @@
 	var/datum/gas_recipe/selected_recipe = null
 	///Stores the total amount of moles needed for the current recipe
 	var/total_recipe_moles = 0
-
-/obj/machinery/atmospherics/components/binary/crystallizer/Initialize()
-	. = ..()
-	internal = new
 
 /obj/machinery/atmospherics/components/binary/crystallizer/attackby(obj/item/I, mob/user, params)
 	if(!on)
@@ -103,7 +99,7 @@
 /obj/machinery/atmospherics/components/binary/crystallizer/proc/check_gas_requirements()
 	var/datum/gas_mixture/contents = airs[2]
 	for(var/gas_type in selected_recipe.requirements)
-		if(contents.get_moles(gas_type) < 0.001)
+		if(!contents.get_moles(gas_type) && !internal.get_moles(gas_type))
 			return FALSE
 	return TRUE
 
@@ -114,10 +110,16 @@
 	return FALSE
 
 ///Injects the gases from the input inside the internal gasmix, the amount is dependant on the gas_input var
-/obj/machinery/atmospherics/components/binary/crystallizer/proc/inject_gases(delta_time)
+/obj/machinery/atmospherics/components/binary/crystallizer/proc/inject_gases()
 	var/datum/gas_mixture/contents = airs[2]
 	for(var/gas_type in selected_recipe.requirements)
-		internal.merge(contents.remove_specific(gas_type, contents.get_moles(gas_type) * (gas_input  * delta_time)))
+		if(contents.get_moles(gas_type))
+			var/datum/gas_mixture/filtered = new
+			filtered.set_temperature(contents.return_temperature())
+			var/filtered_amount = clamp(contents.get_moles(gas_type), gas_input, selected_recipe.requirements - internal.get_moles(gas_type))
+			filtered.set_moles(gas_type, filtered_amount)
+			contents.adjust_moles(gas_type, -filtered_amount)
+			internal.merge(filtered)
 
 ///Checks if the gases required are all inside
 /obj/machinery/atmospherics/components/binary/crystallizer/proc/internal_check()
