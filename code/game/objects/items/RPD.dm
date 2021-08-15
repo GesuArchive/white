@@ -251,7 +251,7 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 
 /obj/item/pipe_dispenser/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/knockback/randspeed, throw_distance = 2, throw_maxspeed = 2)
+	AddComponent(/datum/component/knockback, throw_distance = 2, throw_gentle = TRUE)
 
 /obj/item/pipe_dispenser/Destroy()
 	qdel(spark_system)
