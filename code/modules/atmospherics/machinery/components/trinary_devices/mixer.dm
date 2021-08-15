@@ -50,7 +50,7 @@
 	airs[3] = air3
 
 /obj/machinery/atmospherics/components/trinary/mixer/process_atmos()
-	//..()
+	..()
 	if(!on || !(nodes[1] && nodes[2] && nodes[3]) && !is_operational)
 		return
 
