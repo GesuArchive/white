@@ -5,7 +5,7 @@
 	icon_state = "ccharger"
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 50
-	active_power_usage = 600
+	active_power_usage = 60000
 	power_channel = AREA_USAGE_EQUIP
 	circuit = /obj/item/circuitboard/machine/cell_charger
 	pass_flags = PASSTABLE

@@ -542,8 +542,8 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "pain_machine"
 	max_integrity = 5000
-	idle_power_usage = 0
-	active_power_usage = 0
+	idle_power_usage = 200
+	active_power_usage = 4000
 	anchored = TRUE
 	can_buckle = TRUE
 	buckle_lying = 0 //you sit in a chair, not lay

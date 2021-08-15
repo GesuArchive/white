@@ -84,8 +84,8 @@
 	icon_state = "portal"
 	density = TRUE
 	use_power = IDLE_POWER_USE
-	idle_power_usage = 10
-	active_power_usage = 100
+	idle_power_usage = 1000
+	active_power_usage = 10000
 	circuit = /obj/item/circuitboard/machine/restaurant_portal
 
 	layer = BELOW_OBJ_LAYER

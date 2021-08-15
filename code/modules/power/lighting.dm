@@ -220,8 +220,8 @@
 	layer = BELOW_MOB_LAYER
 	max_integrity = 100
 	use_power = ACTIVE_POWER_USE
-	idle_power_usage = 2
-	active_power_usage = 20
+	idle_power_usage = 200
+	active_power_usage = 2000
 	power_channel = AREA_USAGE_LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	var/on = FALSE					// 1 if on, 0 if off
 	var/on_gs = FALSE
@@ -453,7 +453,7 @@
 		set_light(0)
 	update_icon()
 
-	active_power_usage = (brightness * 10)
+	active_power_usage = (brightness * 100)
 	if(on != on_gs)
 		on_gs = on
 		if(on)
