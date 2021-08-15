@@ -100,7 +100,7 @@
 		icon_state = "vent_in"
 
 /obj/machinery/atmospherics/components/unary/vent_pump/process_atmos()
-	..()
+	//..()
 	if(!is_operational)
 		last_moles_added = 0
 		return

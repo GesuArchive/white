@@ -109,7 +109,7 @@
 		to_chat(user, "<span class='notice'>Увеличиваю температуру термомашины до максимума в размере [target_temperature] K.</span>")
 
 /obj/machinery/atmospherics/components/unary/thermomachine/process_atmos()
-	..()
+	//..()
 	if(!is_operational || !on || !nodes[1])
 		return
 	var/datum/gas_mixture/air_contents = airs[1]
