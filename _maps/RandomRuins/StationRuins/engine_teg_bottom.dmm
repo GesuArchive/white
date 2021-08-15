@@ -299,6 +299,7 @@
 /obj/machinery/light{
 	pixel_y = 0
 	},
+/obj/structure/cable,
 /turf/open/floor/engine,
 /area/engine/engineering)
 "cL" = (
@@ -352,6 +353,7 @@
 	c_tag = "Engineering Supermatter Starboard";
 	network = list("ss13","engine")
 	},
+/obj/structure/cable,
 /turf/open/floor/engine,
 /area/engine/engineering)
 "dp" = (
@@ -669,6 +671,11 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/space/nearstation)
+"Ap" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/engine/engineering)
 "BR" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 5
@@ -717,6 +724,7 @@
 	dir = 1;
 	pixel_y = 0
 	},
+/obj/structure/cable,
 /turf/open/floor/engine,
 /area/engine/engineering)
 "Gx" = (
@@ -1474,11 +1482,11 @@ ab
 (21,1,1) = {"
 ar
 aO
-bv
+Ap
 do
 dZ
 cH
-bv
+Ap
 Fp
 dZ
 fH
