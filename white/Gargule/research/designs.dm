@@ -21,7 +21,7 @@
 	name = "Folding стол"
 	id = "optable_folding"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 3000)
+	materials = list(/datum/material/iron = 3000, /datum/material/silver = 2000)
 	build_path = /obj/item/optable
 	category = list("initial", "Медицина")
 

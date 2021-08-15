@@ -31,7 +31,7 @@
 
 	if(!proximity_flag)
 		return
-	do_knockback(target, user, get_dir(source, target))
+	do_knockback(target, user, user.dir)
 
 /// triggered after a hostile simplemob attacks something
 /datum/component/knockback/proc/hostile_attackingtarget(mob/living/simple_animal/hostile/attacker, atom/target)
@@ -65,3 +65,26 @@
 		throw_distance *= -1
 	var/atom/throw_target = get_edge_target_turf(throwee, throw_dir)
 	throwee.safe_throw_at(throw_target, throw_distance, 1, thrower, gentle = throw_gentle)
+
+
+
+
+
+/datum/component/knockback/randspeed
+	var/throw_maxspeed = 2
+
+/datum/component/knockback/randspeed/Initialize(throw_distance = 2, throw_anchored = FALSE, throw_gentle = FALSE, throw_maxspeed = 2)
+	. = ..()
+	src.throw_maxspeed = throw_maxspeed
+
+/datum/component/knockback/randspeed/do_knockback(atom/target, mob/thrower, throw_dir)
+	if(!ismovable(target) || throw_dir == null)
+		return
+	var/atom/movable/throwee = target
+	if(throwee.anchored && !throw_anchored)
+		return
+	if(throw_distance < 0)
+		throw_dir = turn(throw_dir, 180)
+		throw_distance *= -1
+	var/atom/throw_target = get_edge_target_turf(throwee, throw_dir)
+	throwee.safe_throw_at(throw_target, throw_distance, rand(1, throw_maxspeed), thrower, gentle = throw_gentle)
