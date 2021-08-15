@@ -14028,11 +14028,13 @@
 /turf/open/floor/plating,
 /area/maintenance/port)
 "bhO" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible{
-	dir = 4
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
 	},
-/mob/living/simple_animal/bot/atmosbot,
-/turf/open/floor/plasteel/monofloor,
+/obj/machinery/electrolyzer,
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
 /area/engine/atmos)
 "bhR" = (
 /obj/structure/grille,
@@ -23340,7 +23342,9 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 1
+	},
 /turf/open/floor/plasteel/dark/side,
 /area/engine/atmospherics_engine)
 "bWd" = (
@@ -23911,12 +23915,6 @@
 /obj/machinery/atmospherics/components/binary/crystallizer,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
-"bXV" = (
-/obj/machinery/atmospherics/components/binary/pump{
-	dir = 1
-	},
-/turf/open/floor/plasteel/monofloor,
-/area/engine/atmos)
 "bXW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -24203,10 +24201,12 @@
 /turf/open/floor/plasteel,
 /area/maintenance/disposal/incinerator)
 "bYT" = (
-/obj/machinery/atmospherics/components/unary/portables_connector/visible{
-	dir = 1
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
+	dir = 9
 	},
-/obj/effect/turf_decal/bot_red,
+/obj/machinery/atmospherics/pipe/bridge_pipe/cyan/visible{
+	dir = 4
+	},
 /turf/open/floor/plasteel/monofloor,
 /area/engine/atmos)
 "bYU" = (
@@ -25768,10 +25768,9 @@
 /turf/open/floor/plasteel/dark,
 /area/engine/atmos)
 "ceA" = (
-/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+/obj/machinery/atmospherics/components/binary/pump/on{
 	dir = 8
 	},
-/obj/effect/turf_decal/bot_red,
 /turf/open/floor/plasteel/monofloor,
 /area/engine/atmos)
 "ceB" = (
@@ -34981,9 +34980,16 @@
 /turf/open/floor/engine/hull,
 /area/space/nearstation)
 "imY" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/bridge_pipe/cyan/visible,
 /turf/open/floor/plasteel/monofloor,
 /area/engine/atmos)
 "ink" = (
@@ -35411,7 +35417,9 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible,
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 1
+	},
 /turf/open/floor/plasteel/dark/side,
 /area/engine/atmospherics_engine)
 "iYy" = (
@@ -36021,10 +36029,7 @@
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/entry)
 "jQO" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
+/mob/living/simple_animal/bot/atmosbot,
 /turf/open/floor/plasteel/monofloor,
 /area/engine/atmos)
 "jQV" = (
@@ -36311,13 +36316,6 @@
 	},
 /turf/open/floor/plating/rust,
 /area/maintenance/space_hut/plasmaman)
-"kjF" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 8
-	},
-/turf/open/floor/plasteel/monofloor,
-/area/engine/atmos)
 "kki" = (
 /obj/effect/decal/cleanable/oil,
 /obj/effect/turf_decal/bot{
@@ -38681,7 +38679,6 @@
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/box,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel/monofloor,
 /area/engine/atmos)
 "nMO" = (
@@ -38736,9 +38733,6 @@
 	},
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 8
 	},
 /turf/open/floor/plasteel/dark/side{
 	dir = 4
@@ -39350,7 +39344,10 @@
 /turf/open/floor/plating,
 /area/security/brig/upper)
 "oGr" = (
-/obj/machinery/atmospherics/components/binary/pump,
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot_red,
 /turf/open/floor/plasteel/monofloor,
 /area/engine/atmos)
 "oGP" = (
@@ -41815,9 +41812,8 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "rVk" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 8
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/engine/atmos)
@@ -43619,7 +43615,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
+/obj/machinery/atmospherics/components/binary/pump,
 /turf/open/floor/plasteel/dark/side,
 /area/engine/atmospherics_engine)
 "uyZ" = (
@@ -44808,9 +44804,6 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 8
-	},
 /obj/machinery/atmospherics/components/binary/pump/off/dark/visible{
 	dir = 8
 	},
@@ -45003,13 +44996,6 @@
 	},
 /turf/open/floor/plating,
 /area/vacant_room)
-"wrS" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plasteel/monofloor,
-/area/engine/atmos)
 "wsl" = (
 /obj/machinery/door/poddoor/shutters{
 	dir = 1;
@@ -80468,7 +80454,7 @@ bQp
 bOd
 bRE
 bMQ
-sfZ
+bhO
 bOd
 cbG
 bMQ
@@ -80730,8 +80716,8 @@ rFU
 bWb
 cMN
 dBB
-bOd
-aaE
+bUS
+imY
 mNE
 awk
 axw
@@ -80987,13 +80973,13 @@ xaK
 bVV
 hit
 bOd
-bOd
+bUS
 iTX
 rVk
 nMr
-wrS
-bOX
-imY
+bTO
+bOd
+bOd
 bOd
 lDE
 std
@@ -81243,10 +81229,10 @@ bVW
 cPn
 bWc
 tdH
-bXV
-bYT
+oGr
+bUS
 bZK
-mNE
+bOd
 bQp
 ccA
 psC
@@ -81501,11 +81487,11 @@ hWx
 cCF
 hit
 bOd
-bOd
+bUS
 bZK
-mNE
+jQO
 bQp
-bhO
+bTO
 bOd
 bOd
 vWz
@@ -81758,9 +81744,9 @@ bWR
 ccB
 cMN
 rDO
-bOd
+bUS
 bZK
-mNE
+bOd
 bQp
 bTO
 bOd
@@ -82015,10 +82001,10 @@ qhs
 cCG
 hit
 bOd
-bOd
+bUS
 ksH
-kjF
-jQO
+bVQ
+bQp
 gnw
 psC
 psC
@@ -82271,10 +82257,10 @@ wNL
 bYV
 iYp
 gHG
-bXV
-bYT
+oGr
+bUS
 rAf
-mNE
+bOd
 bQp
 bTO
 bOd
@@ -82526,12 +82512,12 @@ wsV
 wsV
 wNL
 bYV
-iYp
+uyy
 gHG
 oGr
-bYT
+bUS
 rAf
-mNE
+bOd
 bQp
 bTO
 bOd
@@ -82786,9 +82772,9 @@ hWx
 cCB
 cMN
 dAx
-bOd
+bUS
 rAf
-mNE
+bOd
 qLU
 hhN
 psC
@@ -83043,9 +83029,9 @@ bYV
 uyy
 bft
 oGr
-bYT
+bUS
 rAf
-mNE
+bOd
 bOd
 bTO
 bOd
@@ -83300,9 +83286,9 @@ hWx
 cdE
 hit
 bOd
-bOd
+bUS
 rAf
-mNE
+bOd
 bOd
 bTO
 bOd
@@ -83557,9 +83543,9 @@ iqh
 iqh
 iqh
 bOd
-bOd
+bUS
 rAf
-mNE
+bOd
 bOd
 bTO
 bOd
@@ -83814,9 +83800,9 @@ ccI
 rNm
 jdl
 cAa
+bYT
 rAf
-rAf
-mNE
+bOd
 bOd
 bTO
 bOd
@@ -84071,9 +84057,9 @@ dSI
 rwo
 tSp
 bOd
-vWz
+bUS
 rZs
-mNE
+oGr
 bOd
 bTO
 bOd
