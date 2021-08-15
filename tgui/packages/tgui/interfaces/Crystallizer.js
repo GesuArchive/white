@@ -22,16 +22,16 @@ export const Crystallizer = (props, context) => {
       width={500}
       height={600}>
       <Window.Content scrollable>
-        <Section title="Controls">
+        <Section title="Управление">
           <LabeledList>
-            <LabeledList.Item label="Power">
+            <LabeledList.Item label="Питание">
               <Button
                 icon={data.on ? 'power-off' : 'times'}
-                content={data.on ? 'On' : 'Off'}
+                content={data.on ? 'Вкл' : 'Выкл'}
                 selected={data.on}
                 onClick={() => act('power')} />
             </LabeledList.Item>
-            <LabeledList.Item label="Recipe">
+            <LabeledList.Item label="Рецепт">
               {selectedRecipes.map(recipe => (
                 <Button
                   key={recipe.id}
@@ -42,12 +42,12 @@ export const Crystallizer = (props, context) => {
                   })} />
               ))}
             </LabeledList.Item>
-            <LabeledList.Item label="Gas Input">
+            <LabeledList.Item label="Входной газ">
               <NumberInput
                 animated
                 value={parseFloat(data.gas_input)}
                 width="63px"
-                unit="moles/s"
+                unit="моль/с"
                 minValue={0}
                 maxValue={500}
                 onDrag={(e, value) => act('gas_input', {
@@ -56,9 +56,9 @@ export const Crystallizer = (props, context) => {
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        <Section title="Requirements and progress">
+        <Section title="Требования и прогресс">
           <LabeledList>
-            <LabeledList.Item label="Progress">
+            <LabeledList.Item label="Прогресс">
               <ProgressBar
                 value={progress_bar / 100}
                 ranges={{
@@ -67,14 +67,14 @@ export const Crystallizer = (props, context) => {
                   bad: [0, 0.33],
                 }} />
             </LabeledList.Item>
-            <LabeledList.Item label="Recipe">
+            <LabeledList.Item label="Рецепт">
               <Box m={1} style={{
                 'white-space': 'pre-wrap',
               }}>
                 {requirements}
               </Box>
             </LabeledList.Item>
-            <LabeledList.Item label="Temperature">
+            <LabeledList.Item label="Температура">
               <ProgressBar
                 value={logScale(internal_temperature)}
                 minValue={0}
@@ -90,7 +90,7 @@ export const Crystallizer = (props, context) => {
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        <Section title="Gases">
+        <Section title="Газы">
           <LabeledList>
             {gasTypes.map(gas => (
               <LabeledList.Item
@@ -101,7 +101,7 @@ export const Crystallizer = (props, context) => {
                   value={gas.amount}
                   minValue={0}
                   maxValue={1000}>
-                  {toFixed(gas.amount, 2) + ' moles'}
+                  {toFixed(gas.amount, 2) + ' моль'}
                 </ProgressBar>
               </LabeledList.Item>
             ))}

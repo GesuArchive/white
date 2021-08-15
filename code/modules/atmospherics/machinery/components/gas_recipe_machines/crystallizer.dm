@@ -6,8 +6,8 @@
 /obj/machinery/atmospherics/components/binary/crystallizer
 	icon = 'icons/obj/atmospherics/components/machines.dmi'
 	icon_state = "crystallizer-off"
-	name = "crystallizer"
-	desc = "Used to crystallize or solidify gases."
+	name = "кристаллизатор"
+	desc = "Используется для кристаллизации или солидификации газов."
 	layer = ABOVE_MOB_LAYER
 	density = TRUE
 	max_integrity = 300
@@ -131,6 +131,21 @@
 
 ///Calculation for the heat of the various gas mixes and controls the quality of the item
 /obj/machinery/atmospherics/components/binary/crystallizer/proc/heat_calculations()
+	if(	(internal.return_temperature() >= (selected_recipe.min_temp * MIN_DEVIATION_RATE) && internal.return_temperature() <= selected_recipe.min_temp) || \
+		(internal.return_temperature() >= selected_recipe.max_temp && internal.return_temperature() <= (selected_recipe.max_temp * MAX_DEVIATION_RATE)))
+		quality_loss = min(quality_loss + 1.5, 100)
+
+	var/median_temperature = (selected_recipe.max_temp - selected_recipe.min_temp) * 0.5
+	if(internal.return_temperature() >= (median_temperature * MIN_DEVIATION_RATE) && internal.return_temperature() <= (median_temperature * MAX_DEVIATION_RATE))
+		quality_loss = max(quality_loss - 5.5, -100)
+
+	if(selected_recipe.reaction_type == ENDOTHERMIC_REACTION)
+		internal.set_temperature(max(internal.return_temperature() - (selected_recipe.energy_release / internal.heat_capacity()), TCMB))
+	else if(selected_recipe.reaction_type == EXOTHERMIC_REACTION)
+		internal.set_temperature(max(internal.return_temperature() + (selected_recipe.energy_release / internal.heat_capacity()), TCMB))
+
+///Conduction between the internal gasmix and the moderating (cooling/heating) gasmix.
+/obj/machinery/atmospherics/components/binary/crystallizer/proc/heat_conduction()
 	var/datum/gas_mixture/cooling_port = airs[1]
 	if(cooling_port.total_moles() > MINIMUM_MOLE_COUNT)
 		if(internal.total_moles() > 0)
@@ -141,19 +156,6 @@
 			cooling_port.set_temperature(max(cooling_port.return_temperature() - cooling_heat_amount / cooling_heat_capacity, TCMB))
 			internal.set_temperature(max(internal.return_temperature() + cooling_heat_amount / internal_heat_capacity, TCMB))
 		update_parents()
-
-	if(	(internal.return_temperature() >= (selected_recipe.min_temp * MIN_DEVIATION_RATE) && internal.return_temperature() <= selected_recipe.min_temp) || \
-		(internal.return_temperature() >= selected_recipe.max_temp && internal.return_temperature() <= (selected_recipe.max_temp * MAX_DEVIATION_RATE)))
-		quality_loss = min(quality_loss + 1.5, 100)
-
-	var/median_temperature = (selected_recipe.max_temp - selected_recipe.min_temp) * 0.5
-	if(internal.return_temperature() >= (median_temperature * MIN_DEVIATION_RATE) && internal.return_temperature() <= (median_temperature * MAX_DEVIATION_RATE))
-		quality_loss = max(quality_loss - 5.5, -100)
-
-	if(selected_recipe.reaction_type == "endothermic")
-		internal.set_temperature(max(internal.return_temperature() - (selected_recipe.energy_release / internal.heat_capacity()), TCMB))
-	else if(selected_recipe.reaction_type == "exothermic")
-		internal.set_temperature(max(internal.return_temperature() + (selected_recipe.energy_release / internal.heat_capacity()), TCMB))
 
 ///Calculate the total moles needed for the recipe
 /obj/machinery/atmospherics/components/binary/crystallizer/proc/moles_calculations()
@@ -171,14 +173,14 @@
 	if(!on || !is_operational || selected_recipe == null)
 		return
 
-	if(!check_gas_requirements())
-		return
-
-	inject_gases(delta_time)
+	if(check_gas_requirements())
+		inject_gases()
 
 	if(!internal.total_moles())
 		update_parents()
 		return
+
+	heat_conduction()
 
 	if(internal_check())
 		if(check_temp_requirements())
@@ -202,25 +204,25 @@
 	var/quality_control
 	switch(total_quality)
 		if(100)
-			quality_control = "Masterwork"
+			quality_control = "Шедевральный"
 		if(95 to 99)
-			quality_control = "Supreme"
+			quality_control = "Высшего качества"
 		if(75 to 94)
-			quality_control = "Good"
+			quality_control = "Качественный"
 		if(65 to 74)
-			quality_control = "Decent"
+			quality_control = "Отличный"
 		if(55 to 64)
-			quality_control = "Average"
+			quality_control = "Средний"
 		if(35 to 54)
-			quality_control = "Ok"
+			quality_control = "Немного кривой"
 		if(15 to 34)
-			quality_control = "Poor"
+			quality_control = "Плохой"
 		if(5 to 14)
-			quality_control = "Ugly"
+			quality_control = "Уродливый"
 		if(1 to 4)
-			quality_control = "Cracked"
+			quality_control = "Разбитый"
 		if(0)
-			quality_control = "Oh God why"
+			quality_control = "ХУЁВЫЙ"
 
 	for(var/path in selected_recipe.products)
 		var/amount_produced = selected_recipe.products[path]
@@ -277,15 +279,15 @@
 
 	var/list/requirements
 	if(!selected_recipe)
-		requirements = list("Select a recipe to see the requirements")
+		requirements = list("Выбери рецепт для просмотра требований")
 	else
-		requirements = list("To create [selected_recipe.name] you will need:")
+		requirements = list("Чтобы создать [selected_recipe.name] потребуется")
 		for(var/gas_type in selected_recipe.requirements)
 			var/datum/gas/gas_required = gas_type
 			var/amount_consumed = selected_recipe.requirements[gas_type]
-			requirements += "-[amount_consumed] moles of [initial(gas_required.name)]"
-		requirements += "In a temperature range between [selected_recipe.min_temp] K and [selected_recipe.max_temp] K"
-		requirements += "The crystallization reaction will be [selected_recipe.reaction_type]"
+			requirements += "-[amount_consumed] молей [initial(gas_required.name)]"
+		requirements += "В температурном диапазоне [selected_recipe.min_temp] K и [selected_recipe.max_temp] K"
+		requirements += "Реакция кристаллизации будет [selected_recipe.reaction_type]"
 	data["requirements"] = requirements.Join("\n")
 
 	var/temperature

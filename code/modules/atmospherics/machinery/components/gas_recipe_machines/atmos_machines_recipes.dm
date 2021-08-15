@@ -1,8 +1,8 @@
 ///Global list of recipes for atmospheric machines to use
 GLOBAL_LIST_INIT(gas_recipe_meta, gas_recipes_list())
 ///Defines for the recipes var
-#define ENDOTHERMIC_REACTION "endothermic"
-#define EXOTHERMIC_REACTION "exothermic"
+#define ENDOTHERMIC_REACTION "эндотермическая"
+#define EXOTHERMIC_REACTION "экзотермическая"
 
 /*
  * Global proc to build the gas recipe global list
