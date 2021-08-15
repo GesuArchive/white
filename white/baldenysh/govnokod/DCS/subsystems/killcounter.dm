@@ -6,7 +6,7 @@ SUBSYSTEM_DEF(killcounter)
 
 	var/force_funny_sound = FALSE
 	var/count_clientless = FALSE
-	var/killstreak_time = 10 SECONDS
+	var/killstreak_time = 30 SECONDS
 
 	var/list/key_name_kill_counter = list()
 	var/list/datum/killstreak_counter/killstreak_tracker = list()
