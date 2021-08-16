@@ -26,6 +26,7 @@
 	var/list/modkits = list()
 
 	var/recharge_timerid
+	jam_chance = 0 // no fuck you
 
 /obj/item/gun/energy/kinetic_accelerator/examine(mob/user)
 	. = ..()

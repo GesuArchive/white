@@ -43,6 +43,7 @@
 	can_flashlight = FALSE
 	can_charge = FALSE
 	use_cyborg_cell = TRUE
+	jam_chance = 0
 
 
 /obj/item/gun/energy/disabler
@@ -62,6 +63,7 @@
 	desc = "Встроенный блокировщик, который питается от силовой ячейки киборга. Это оружие содержит ограничитель для предотвращения перегрева силовой ячейки киборга."
 	can_charge = FALSE
 	use_cyborg_cell = TRUE
+	jam_chance = 0
 
 /obj/item/gun/energy/taser/triser
 	name = "тризер"

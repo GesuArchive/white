@@ -80,7 +80,7 @@
 	var/extra_penetration = 0			//Number to add to armor penetration of individual bullets.
 
 	var/jammed = FALSE
-	var/jam_chance = 1 // да-да
+	var/jam_chance = 0
 
 
 /obj/item/gun/Initialize()
