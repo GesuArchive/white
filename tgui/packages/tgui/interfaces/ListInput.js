@@ -118,7 +118,7 @@ export const ListInput = (props, context) => {
                   val.toLowerCase().search(value.toLowerCase()) !== -1
                 ))
               )}
-              />
+            />
           </Stack.Item>
           <Stack.Item grow>
             <Section
