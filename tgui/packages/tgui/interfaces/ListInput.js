@@ -108,6 +108,19 @@ export const ListInput = (props, context) => {
       {timeout !== undefined && <Loader value={timeout} />}
       <Window.Content>
         <Stack fill vertical>
+          <Stack.Item>
+            <Input
+              placeholder="Искать..."
+              autoFocus
+              fluid
+              onInput={(e, value) => setDisplayedArray(
+                buttons.filter(val => (
+                  val.toLowerCase().search(value.toLowerCase()) !== -1
+                ))
+              )}
+              //onEnter={(_, value) => orbitMostRelevant(value)}
+              />
+          </Stack.Item>
           <Stack.Item grow>
             <Section
               fill
@@ -116,6 +129,7 @@ export const ListInput = (props, context) => {
               title={message}
               tabIndex={0}
               onKeyDown={handleKeyDown}
+              /*
               buttons={(
                 <Button
                   compact
@@ -129,7 +143,9 @@ export const ListInput = (props, context) => {
                     setDisplayedArray(buttons);
                   }}
                 />
-              )}>
+              )}
+              */
+              >
               {displayedArray.map(button => (
                 <Button
                   key={button}
