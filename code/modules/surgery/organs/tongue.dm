@@ -84,9 +84,9 @@
 	var/message = speech_args[SPEECH_MESSAGE]
 	if(message[1] != "*")
 		message = lizard_hiss.Replace_char(message, "ссс")
-		message = lizard_hiSS.Replace_char(message, "КСС")
-		message = lizard_kss.Replace_char(message, "ксс")
-		message = lizard_kSS.Replace_char(message, "КСС")
+		message = lizard_hiSS.Replace_char(message, "ССС")
+		message = lizard_kss.Replace_char(message, "Хсс")
+		message = lizard_kSS.Replace_char(message, "ХСС")
 	speech_args[SPEECH_MESSAGE] = message
 
 /obj/item/organ/tongue/lizard/silver
