@@ -57,7 +57,7 @@
 
 /datum/gas_reaction/gas_recipe/proc/check_requirements(datum/gas_recipe/recipe, datum/gas_mixture/air)
 	for(var/gas_type in recipe.requirements)
-		if(!air.get_moles(gas_type))
+		if(!air.get_moles(gas_type) || air.get_moles(gas_type) < recipe.requirements[gas_type])
 			return FALSE
 	if(air.return_temperature() >= recipe.min_temp && air.return_temperature() <= recipe.max_temp)
 		return TRUE
