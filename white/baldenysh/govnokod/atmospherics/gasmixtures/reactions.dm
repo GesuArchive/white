@@ -38,24 +38,24 @@
 			air.temperature = max(((temperature * old_heat_capacity - energy_used) / new_heat_capacity), TCMB)
 		return REACTING
 */
-/datum/gas_reaction/gas_recipe
+/datum/gas_reaction/recipe
 	priority = 20
 	name = "Gas recipe reaction"
 	id = "gas_recipe_reaction"
 
-/datum/gas_reaction/gas_recipe/init_reqs()
+/datum/gas_reaction/recipe/init_reqs()
 	min_requirements = list(/datum/gas/pluoxium = 5)
 
-/datum/gas_reaction/gas_recipe/react(datum/gas_mixture/air, datum/holder)
+/datum/gas_reaction/recipe/react(datum/gas_mixture/air, datum/holder)
 	if(!isturf(holder))
 		return NO_REACTION
-
-	for(var/datum/gas_recipe/recipe in GLOB.gas_recipe_meta)
+	for(var/path in GLOB.gas_recipe_meta)
+		var/datum/gas_recipe/recipe = GLOB.gas_recipe_meta[path]
 		if(check_requirements(recipe, air))
 			do_reaction(recipe, air, holder)
 			. = REACTING
 
-/datum/gas_reaction/gas_recipe/proc/check_requirements(datum/gas_recipe/recipe, datum/gas_mixture/air)
+/datum/gas_reaction/recipe/proc/check_requirements(datum/gas_recipe/recipe, datum/gas_mixture/air)
 	for(var/gas_type in recipe.requirements)
 		if(!air.get_moles(gas_type) || air.get_moles(gas_type) < recipe.requirements[gas_type])
 			return FALSE
@@ -63,7 +63,7 @@
 		return TRUE
 	return FALSE
 
-/datum/gas_reaction/gas_recipe/proc/do_reaction(datum/gas_recipe/recipe, datum/gas_mixture/air, datum/holder)
+/datum/gas_reaction/recipe/proc/do_reaction(datum/gas_recipe/recipe, datum/gas_mixture/air, datum/holder)
 	var/turf/open/location = holder
 
 	for(var/gas_type in recipe.requirements)
