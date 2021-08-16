@@ -53,7 +53,7 @@
 	for(var/datum/gas_recipe/recipe in GLOB.gas_recipe_meta)
 		if(check_requirements(recipe, air))
 			do_reaction(recipe, air, holder)
-			return REACTING
+			. = REACTING
 
 /datum/gas_reaction/gas_recipe/proc/check_requirements(datum/gas_recipe/recipe, datum/gas_mixture/air)
 	for(var/gas_type in recipe.requirements)
@@ -71,7 +71,7 @@
 		air.remove_specific(gas_type, amount_consumed)
 
 	var/temperature_change = recipe.energy_release / air.heat_capacity()
-	if(ENDOTHERMIC_REACTION)
+	if(recipe.reaction_type == ENDOTHERMIC_REACTION)
 		temperature_change = -temperature_change
 	air.set_temperature(max(air.return_temperature() + temperature_change, TCMB))
 
