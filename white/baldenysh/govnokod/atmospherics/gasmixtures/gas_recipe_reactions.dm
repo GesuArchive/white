@@ -39,8 +39,20 @@
 	var/dangerous = FALSE
 	var/list/products
 
-/datum/gas_reaction/recipe/react(datum/gas_mixture/air, datum/holder)
+/datum/gas_reaction/recipe/react(datum/gas_mixture/air, datum/holder, reaction_id)
 	if(!isturf(holder))
+		return NO_REACTION
+
+	//ебнутая хуйня потомушто цпп атмос
+	var/true_reaction_id = copytext(reaction_id, 2, 0)
+	if(!src)
+		for(var/datum/gas_reaction/recipe/recipe_reaction in SSair.gas_reactions)
+			if(recipe_reaction.id == true_reaction_id)
+				src = recipe_reaction
+	if(!src)
+		return NO_REACTION
+
+	if(!air.heat_capacity())
 		return NO_REACTION
 
 	var/turf/open/location = holder
@@ -65,13 +77,19 @@
 	return REACTING
 
 
-/obj/machinery/portable_atmospherics/canister/tier_1/felinid
+/obj/machinery/portable_atmospherics/canister/tier_3/felinid_fusion
 	name = "Cumjar canister"
 	max_integrity = 1
 
-/obj/machinery/portable_atmospherics/canister/tier_1/felinid/create_gas()
-	air_contents.set_moles(/datum/gas/miasma, 100)
-	air_contents.set_moles(/datum/gas/bz, 100)
-	air_contents.set_moles(/datum/gas/carbon_dioxide, 1000)
-	air_contents.set_temperature(10000)
+/obj/machinery/portable_atmospherics/canister/tier_3/felinid_fusion/create_gas()
+	air_contents.set_moles(/datum/gas/miasma, 500)
+	air_contents.set_moles(/datum/gas/bz, 5000)
+	air_contents.set_moles(/datum/gas/carbon_dioxide, 50000)
 
+/obj/machinery/portable_atmospherics/canister/tier_1/pellet_test
+	name = "abobus"
+	max_integrity = 1
+
+/obj/machinery/portable_atmospherics/canister/tier_1/pellet_test/create_gas()
+	air_contents.set_moles(/datum/gas/plasma, 1000)
+	air_contents.set_moles(/datum/gas/oxygen, 1000)

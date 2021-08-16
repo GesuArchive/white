@@ -9,7 +9,7 @@
 /mob/living/carbon/human/species/felinid/atmos/Initialize()
 	. = ..()
 	if(prob(10))
-		ai_controller = /datum/ai_controller/raper/opyx
+		ai_controller = new /datum/ai_controller/raper/opyx(src)
 		ADD_TRAIT(src, TRAIT_STUNIMMUNE, "sosi") //будет прикол если игруны пересадят себя в тело такого смешного моба
 		ADD_TRAIT(src, TRAIT_STRONG_GRABBER, "sosi")
 

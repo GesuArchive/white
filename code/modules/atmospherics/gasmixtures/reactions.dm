@@ -18,7 +18,7 @@
 		. += reaction
 
 	//white
-	//. += get_gas_recipe_reactions()
+	. += get_gas_recipe_reactions()
 
 	sortTim(., /proc/cmp_gas_reaction)
 
