@@ -18,7 +18,10 @@
 		return
 	if(isliving(target))
 		if(ishuman(target))
-			infect(target)
+			var/mob/living/carbon/human/H = target
+			if(!H.check_shields(user, source.force, "инфекцию"))
+				infect(target)
+			return
 		else
 			feast(target, user)
 
