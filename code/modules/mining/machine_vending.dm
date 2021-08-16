@@ -231,6 +231,7 @@
 
 /obj/machinery/vendor/golem
 	name = "golem ship equipment vendor"
+	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "mining"
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/mining_equipment_vendor/golem
