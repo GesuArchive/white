@@ -47,13 +47,13 @@
 	min_requirements = list(/datum/gas/pluoxium = 5)
 
 /datum/gas_reaction/recipe/react(datum/gas_mixture/air, datum/holder)
-	if(!isturf(holder))
-		return NO_REACTION
-	for(var/path in GLOB.gas_recipe_meta)
-		var/datum/gas_recipe/recipe = GLOB.gas_recipe_meta[path]
-		if(check_requirements(recipe, air))
-			do_reaction(recipe, air, holder)
-			. = REACTING
+	. = NO_REACTION
+	if(isturf(holder))
+		for(var/path in GLOB.gas_recipe_meta)
+			var/datum/gas_recipe/recipe = GLOB.gas_recipe_meta[path]
+			if(check_requirements(recipe, air))
+				do_reaction(recipe, air, holder)
+				. = REACTING
 
 /datum/gas_reaction/recipe/proc/check_requirements(datum/gas_recipe/recipe, datum/gas_mixture/air)
 	for(var/gas_type in recipe.requirements)
@@ -82,3 +82,14 @@
 			if(recipe.dangerous)
 				creation.investigate_log("has been created as result of a gas recipe reaction.", INVESTIGATE_SUPERMATTER)
 				message_admins("[creation] has been created as result of a gas recipe reaction [ADMIN_JMP(creation)].")
+
+/obj/machinery/portable_atmospherics/canister/gas_reaction_recipe_test
+	name = "among"
+	heat_limit = 1e12
+	pressure_limit = 1e14
+	mode = CANISTER_TIER_3
+
+/obj/machinery/portable_atmospherics/canister/gas_reaction_recipe_test/create_gas()
+	air_contents.set_moles(/datum/gas/pluoxium, 300)
+	air_contents.set_moles(/datum/gas/plasma, 1000)
+	air_contents.set_moles(/datum/gas/oxygen, 1000)
