@@ -41,13 +41,13 @@
 /datum/gas_reaction/gas_recipe
 	priority = 20
 	name = "Gas recipe reaction"
-	id = "gas_recipe"
+	id = "gas_recipe_reaction"
 
 /datum/gas_reaction/gas_recipe/init_reqs()
 	min_requirements = list(/datum/gas/pluoxium = 5)
 
 /datum/gas_reaction/gas_recipe/react(datum/gas_mixture/air, datum/holder)
-	if(!isopenturf(holder))
+	if(!isturf(holder))
 		return NO_REACTION
 
 	for(var/datum/gas_recipe/recipe in GLOB.gas_recipe_meta)
