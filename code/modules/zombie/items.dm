@@ -1,5 +1,5 @@
 /obj/item/zombie_hand
-	name = "zombie claw"
+	name = "когти"
 	desc = "A zombie's claw is its primary tool, capable of infecting \
 		humans, butchering all other living things to \
 		sustain the zombie, smashing open airlock doors and opening \
@@ -36,9 +36,11 @@
 		return
 	else if(isliving(target))
 		if(ishuman(target))
-			try_to_zombie_infect(target)
-		else
-			check_feast(target, user)
+			var/mob/living/carbon/human/H = target
+			if(!H.check_shields(user, force, "когти"))
+				try_to_zombie_infect(target)
+			return
+		check_feast(target, user)
 
 /proc/try_to_zombie_infect(mob/living/carbon/human/target)
 	CHECK_DNA_AND_SPECIES(target)
