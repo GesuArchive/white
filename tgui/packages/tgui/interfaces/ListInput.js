@@ -118,7 +118,6 @@ export const ListInput = (props, context) => {
                   val.toLowerCase().search(value.toLowerCase()) !== -1
                 ))
               )}
-              //onEnter={(_, value) => orbitMostRelevant(value)}
               />
           </Stack.Item>
           <Stack.Item grow>
@@ -128,24 +127,7 @@ export const ListInput = (props, context) => {
               className="ListInput__Section"
               title={message}
               tabIndex={0}
-              onKeyDown={handleKeyDown}
-              /*
-              buttons={(
-                <Button
-                  compact
-                  icon="search"
-                  color="transparent"
-                  selected={showSearchBar}
-                  tooltip="Поиск"
-                  tooltipPosition="left"
-                  onClick={() => {
-                    setShowSearchBar(!showSearchBar);
-                    setDisplayedArray(buttons);
-                  }}
-                />
-              )}
-              */
-              >
+              onKeyDown={handleKeyDown}>
               {displayedArray.map(button => (
                 <Button
                   key={button}
