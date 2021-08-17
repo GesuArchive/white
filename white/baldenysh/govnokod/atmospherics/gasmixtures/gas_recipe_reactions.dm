@@ -10,6 +10,7 @@
 		var/datum/gas_reaction/recipe/reaction = new
 		reaction.name += " ([recipe.name])"
 		reaction.id += "_[recipe.id]"
+		reaction.id_hash = polynomialRollingHash(reaction.id)
 		reaction.energy_release = recipe.energy_release
 		reaction.products = recipe.products
 		reaction.dangerous = recipe.dangerous
@@ -29,6 +30,13 @@
 
 		. += reaction
 
+/datum/gas_reaction
+	var/id_hash = 0 //ебнутая хуйня потомушто екстулз обсирается при отправке стрингов обратно в бьенд
+
+/datum/gas_reaction/New()
+	. = ..()
+	id_hash = polynomialRollingHash(id)
+
 /datum/gas_reaction/recipe
 	priority = 20
 	name = "Gas recipe reaction"
@@ -39,15 +47,14 @@
 	var/dangerous = FALSE
 	var/list/products
 
-/datum/gas_reaction/recipe/react(datum/gas_mixture/air, datum/holder, reaction_id)
+/datum/gas_reaction/recipe/react(datum/gas_mixture/air, datum/holder, reaction_id_hash)
 	if(!isturf(holder))
 		return NO_REACTION
 
-	//ебнутая хуйня потомушто цпп атмос
-	var/true_reaction_id = copytext(reaction_id, 2, 0)
+	//ебнутая хуйня потомушто впадлу сделать нормально поинетры прикрутить там
 	if(!src)
 		for(var/datum/gas_reaction/recipe/recipe_reaction in SSair.gas_reactions)
-			if(recipe_reaction.id == true_reaction_id)
+			if(recipe_reaction.id_hash == reaction_id_hash)
 				src = recipe_reaction
 	if(!src)
 		return NO_REACTION
