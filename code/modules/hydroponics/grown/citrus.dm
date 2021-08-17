@@ -154,7 +154,7 @@
 
 //3D Orange
 /obj/item/seeds/orange_3d
-	name = "Пачка внепространственных апельсинов"
+	name = "Пачка сверхпространственных апельсинов"
 	desc = "Полигональные семена."
 	icon_state = "seed-orange"
 	species = "orange"
@@ -173,8 +173,8 @@
 
 /obj/item/food/grown/citrus/orange_3d
 	seed = /obj/item/seeds/orange_3d
-	name = "внепространственный апельсин"
-	desc = "Вряд ли у тебя получится обернуть его своей головой."
+	name = "сверхпространственный апельсин"
+	desc = "С этой штукой можно и голову потерять."
 	icon_state = "orang"
 	juice_results = list(/datum/reagent/consumable/orangejuice = 0)
 	distill_reagent = /datum/reagent/toxin/mindbreaker
