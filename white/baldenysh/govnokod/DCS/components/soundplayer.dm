@@ -167,7 +167,7 @@
 	var/turf/below = SSmapping.get_turf_below(player_turf)
 	var/list/turf/allowed_z_levels = list(player_turf.z, above.z, below.z)
 
-	if(dist <= myplayer.playing_range && listener_turf.z in allowed_z_levels)
+	if(dist <= myplayer.playing_range && (listener_turf.z in allowed_z_levels))
 		if(myplayer.environmental && player_turf && listener_turf)
 			S.volume = myplayer.playing_volume - max(dist * round(myplayer.playing_range/8), 0)
 		else
