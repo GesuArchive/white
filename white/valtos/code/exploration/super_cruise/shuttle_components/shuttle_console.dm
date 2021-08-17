@@ -85,6 +85,9 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 	return GLOB.default_state
 
 /obj/machinery/computer/shuttle_flight/ui_interact(mob/user, datum/tgui/ui)
+	if(!allowed(user) && !isobserver(user))
+		say("Недостаточно прав.")
+		return
 	//Ash walkers cannot use the console because they are unga bungas
 	if(user.mind?.has_antag_datum(/datum/antagonist/ashwalker))
 		say("Пошёл нахуй, ящер ёбаный.")
@@ -162,7 +165,8 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 	data["isDocking"] = shuttleObject.docking_target != null && !shuttleObject.docking_frozen && !shuttleObject.docking_target.is_generating
 	data["validDockingPorts"] = list()
 	if(shuttleObject.docking_target && !shuttleObject.docking_frozen)
-		if(shuttleObject.docking_target.can_dock_anywhere && !GLOB.shuttle_docking_jammed)
+		//Stealth shuttles bypass shuttle jamming.
+		if(shuttleObject.docking_target.can_dock_anywhere && (!GLOB.shuttle_docking_jammed || shuttleObject.stealth || !istype(shuttleObject.docking_target, /datum/orbital_object/z_linked/station)))
 			data["validDockingPorts"] += list(list(
 				"name" = "Выбрать место стыковки",
 				"id" = "custom_location"
@@ -186,6 +190,10 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 	. = ..()
 
 	if(.)
+		return
+
+	if(!allowed(usr))
+		say("Недостаточно прав.")
 		return
 
 	if(admin_controlled)
@@ -475,7 +483,12 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 	return FALSE
 
 /obj/machinery/computer/shuttle_flight/proc/unfreeze_shuttle(obj/docking_port/mobile/shuttle_dock, datum/space_level/target_spacelevel)
-	UNTIL(!target_spacelevel.generating)
+	var/start_time = world.time
+	UNTIL((!target_spacelevel.generating) || world.time > start_time + 3 MINUTES)
+	if(target_spacelevel.generating)
+		target_spacelevel.generating = FALSE
+		message_admins("CAUTION: SHUTTLE [shuttleId] REACHED THE GENERATION TIMEOUT OF 3 MINUTES. THE ASSIGNED Z-LEVEL IS STILL MARKED AS GENERATING, BUT WE ARE DOCKING ANYWAY.")
+		log_mapping("CAUTION: SHUTTLE [shuttleId] REACHED THE GENERATION TIMEOUT OF 3 MINUTES. THE ASSIGNED Z-LEVEL IS STILL MARKED AS GENERATING, BUT WE ARE DOCKING ANYWAY.")
 	shuttle_dock.setTimer(20)
 
 /obj/machinery/computer/shuttle_flight/emag_act(mob/user)
