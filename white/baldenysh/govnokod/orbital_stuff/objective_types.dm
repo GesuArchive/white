@@ -3,6 +3,7 @@
 	var/generated = FALSE
 	var/objective_z_level
 	var/mob/living/mob_to_recover
+	var/obj/structure/closet/supplypod/extractionpod/extraction_pod
 	min_payout = 20 * CARGO_CRATE_VALUE
 	max_payout = 50 * CARGO_CRATE_VALUE
 
@@ -19,19 +20,19 @@
 	var/turf/open/T = pick(A.get_unobstructed_turfs())
 	if(!T)
 		T = locate() in shuffle(A.contents)
-	var/obj/structure/closet/supplypod/extractionpod/empty_pod = new()
-	empty_pod.name = "орбитальная система доставки Nanotrasen"
-	empty_pod.desc = "Сюда сувать того самого преступника с [station_name]. Пожалуйста, игнорируйте символику синдиката, это трофейный под со Второй Космической."
-	//empty_pod.style = STYLE_CENTCOM //хуета имеет всего три кликабельных пикселя, да и синдикатовский спрайт впринципе тоже в этом плане говнище
+	extraction_pod = new()
+	extraction_pod.name = "орбитальная система доставки Nanotrasen"
+	extraction_pod.desc = "Сюда сувать того самого преступника с [station_name]. Пожалуйста, игнорируйте символику синдиката, это трофейный под со Второй Космической."
+	//extraction_pod.style = STYLE_CENTCOM //хуета имеет всего три кликабельных пикселя, да и синдикатовский спрайт впринципе тоже в этом плане говнище
 
-	new /obj/effect/pod_landingzone(T, empty_pod)
+	new /obj/effect/pod_landingzone(T, extraction_pod)
 
-	RegisterSignal(empty_pod, COMSIG_ATOM_ENTERED, .proc/enter_check)
+	RegisterSignal(extraction_pod, COMSIG_ATOM_ENTERED, .proc/enter_check)
 
-	empty_pod.stay_after_drop = TRUE
-	empty_pod.reversing = TRUE
-	empty_pod.explosionSize = list(0,0,0,1)
-	empty_pod.leavingSound = 'sound/effects/podwoosh.ogg'
+	extraction_pod.stay_after_drop = TRUE
+	extraction_pod.reversing = TRUE
+	extraction_pod.explosionSize = list(0,0,0,1)
+	extraction_pod.leavingSound = 'sound/effects/podwoosh.ogg'
 
 /datum/orbital_objective/headhunt/proc/enter_check(datum/source, entered_mob)
 	if(!istype(source, /obj/structure/closet/supplypod/extractionpod))
@@ -93,15 +94,15 @@
 /datum/orbital_objective/headhunt/check_failed()
 	if(generated)
 		if(!mob_to_recover || QDELETED(mob_to_recover))
-			return TRUE
-		if(mob_to_recover.z != objective_z_level && mob_to_recover.stat != DEAD)
+			. = TRUE
+		else if(mob_to_recover.z != objective_z_level && mob_to_recover.stat != DEAD)
+			. = TRUE
 			if(iscarbon(mob_to_recover))
 				var/mob/living/carbon/C = mob_to_recover
-				if(!C.get_item_by_slot(ITEM_SLOT_HANDCUFFED))
-					return TRUE
-			else
-				return TRUE
-	return FALSE
+				if(C.get_item_by_slot(ITEM_SLOT_HANDCUFFED))
+					. = FALSE
+	if(.)
+		extraction_pod.startExitSequence(extraction_pod)
 
 /datum/orbital_objective/headhunt/proc/place_portal()
 	if(!mob_to_recover)
