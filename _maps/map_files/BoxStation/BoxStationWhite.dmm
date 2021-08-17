@@ -32392,6 +32392,12 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/science/genetics)
+"eHb" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/portables_connector/visible,
+/obj/effect/turf_decal/bot_red,
+/turf/open/floor/plasteel/monofloor,
+/area/engine/atmos)
 "eHV" = (
 /obj/structure/disposalpipe/segment{
 	dir = 9
@@ -80186,8 +80192,8 @@ cdx
 bUS
 aaE
 bOd
-bQp
-vWz
+eHb
+ccA
 cBJ
 hhN
 uyj
