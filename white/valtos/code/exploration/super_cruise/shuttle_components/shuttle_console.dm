@@ -36,6 +36,13 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 	//Is GPS enabled?
 	var/gps_enabled = FALSE
 
+	var/list/banned_types = list(
+		/mob/living/carbon/alien,
+		/obj/item/clothing/mask/facehugger,
+		/obj/item/organ/body_egg,
+		/obj/item/organ/zombie_infection
+	)
+
 /obj/machinery/computer/shuttle_flight/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
 	valid_docks = params2list(possible_destinations)
@@ -390,6 +397,9 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 					to_chat(usr, "<span class='notice'>Не понимаю. Иди на хуй.</span>")
 
 /obj/machinery/computer/shuttle_flight/proc/launch_shuttle()
+	if(check_banned_contents())
+		say("Пидарас, ты ксенохуйню с шаттла выкинь, тогда побазарим.")
+		return
 	if(SSorbits.interdicted_shuttles.Find(shuttleId))
 		if(world.time < SSorbits.interdicted_shuttles[shuttleId])
 			var/time_left = (SSorbits.interdicted_shuttles[shuttleId] - world.time) * 0.1
@@ -414,6 +424,20 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 		return
 	shuttleObject.valid_docks = valid_docks
 	return shuttleObject
+
+/obj/machinery/computer/shuttle_flight/proc/check_banned_contents()
+	var/obj/docking_port/mobile/port = SSshuttle.getShuttle(shuttleId)
+	for(var/area/A in port.shuttle_areas)
+		for(var/atom/movable/AM in A.GetAllContents())
+			for(var/type in banned_types)
+				if(istype(AM, type))
+					return TRUE
+			if(iscarbon(AM))
+				var/mob/living/carbon/C = AM
+				for(var/obj/O in C.internal_organs)
+					for(var/type in banned_types)
+						if(istype(O, type))
+							return TRUE
 
 /obj/machinery/computer/shuttle_flight/proc/random_drop(datum/orbital_object/shuttle/_shuttleObject = shuttleObject, _shuttleId = shuttleId)
 	//Find a random place to drop in at.
