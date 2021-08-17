@@ -94,12 +94,12 @@ export const GenericUplink = (props, context) => {
             <Tabs
               vertical
               mr={1}>
-                <Tabs.Tab
-                  key="test"
-                  selected={"INFO" === selectedCategory}
-                  onClick={() => setSelectedCategory("INFO")}>
-                  Информация
-                </Tabs.Tab>
+              <Tabs.Tab
+                key="test"
+                selected={"INFO" === selectedCategory}
+                onClick={() => setSelectedCategory("INFO")}>
+                Информация
+              </Tabs.Tab>
               {categories.map(category => (
                 <Tabs.Tab
                   key={category.name}
@@ -120,7 +120,7 @@ export const GenericUplink = (props, context) => {
               <Section title="Реквизиты">
                 <LabeledList>
                   <LabeledList.Item label="HUB">
-                    Кнопочка <b>"Пополнить счёт"</b>
+                    Кнопочка <b>Пополнить счёт</b>
                   </LabeledList.Item>
                   <LabeledList.Item label="ЮMoney">
                     410011561142450
@@ -128,7 +128,7 @@ export const GenericUplink = (props, context) => {
                   <LabeledList.Item label="sobe.ru">
                     <a
                       href="https://yasobe.ru/na/novye_koleni_dlya_vaita"
-                      style="color: #ffffff">
+		              style={{"color" : "#ffffff"}}>
                       https://yasobe.ru/na/novye_koleni_dlya_vaita
                     </a>
                   </LabeledList.Item>
@@ -142,7 +142,7 @@ export const GenericUplink = (props, context) => {
                 Полный список можно найти здесь:&nbsp;
                 <a
                   href="https://station13.ru/ru/donate"
-                  style="color: #ffffff">
+                  style={{"color" : "#ffffff"}}>
                   https://station13.ru/ru/donate
                 </a>
               </Section>
@@ -152,10 +152,12 @@ export const GenericUplink = (props, context) => {
               </NoticeBox>
               <Section title="Как работает эта панель?">
                 <big>Всё просто! Любой предмет из списка вы можете вызывать по
-                желанию в первые 10 минут в любом месте на карте, после
-                начала игры, после чего далее только на территории бара.
-                <b> Баланс каждый новый раунд сбрасывается к изначальной
-                сумме</b>, поэтому не стесняйтесь экспериментировать.</big>
+                  желанию в первые 10 минут в любом месте на карте, после
+                  начала игры, после чего далее только на территории бара.
+                  <b> Баланс каждый новый раунд сбрасывается к изначальной
+                  сумме
+                </b>, поэтому не стесняйтесь экспериментировать.
+                </big>
               </Section>
               <NoticeBox success>
                 Успехов!
