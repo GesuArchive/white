@@ -163,9 +163,14 @@
 		return
 
 	var/dist = get_dist(listener_turf, player_turf)//cheap_hypotenuse(listener_turf.x, listener_turf.y, player_turf.x, player_turf.y)
+
+	var/list/turf/allowed_z_levels = list(player_turf.z)
 	var/turf/above = SSmapping.get_turf_above(player_turf)
+	if(above)
+		allowed_z_levels += above.z
 	var/turf/below = SSmapping.get_turf_below(player_turf)
-	var/list/turf/allowed_z_levels = list(player_turf.z, above.z, below.z)
+	if(below)
+		allowed_z_levels += below.z
 
 	if(dist <= myplayer.playing_range && (listener_turf.z in allowed_z_levels))
 		if(myplayer.environmental && player_turf && listener_turf)
