@@ -106,6 +106,8 @@
 
 /datum/config_entry/flag/log_mechcomp // log mechcomp actions like (un)anchoring and triggering of components that can interact with the world.
 
+/datum/config_entry/flag/log_exrp // :^)
+
 /datum/config_entry/flag/allow_admin_ooccolor	// Allows admins with relevant permissions to have their own ooc colour
 
 /datum/config_entry/flag/allow_admin_asaycolor //Allows admins with relevant permissions to have a personalized asay color

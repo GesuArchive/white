@@ -46,6 +46,8 @@ GLOBAL_VAR(world_shuttle_log)
 GLOBAL_PROTECT(world_shuttle_log)
 GLOBAL_VAR(world_mechcomp_log)
 GLOBAL_PROTECT(world_mechcomp_log)
+GLOBAL_VAR(world_exrp_log)
+GLOBAL_PROTECT(world_exrp_log)
 
 
 

@@ -96,6 +96,8 @@
 
 	visible_message("<span class='purple'><b>[src]</b> [message]</span>")
 
+	SSblackbox.record_feedback("amount", "orgasms", 1)
+
 	if(iscarbon(src))
 		var/mob/living/carbon/C = src
 		var/turf/floor = get_turf(src)

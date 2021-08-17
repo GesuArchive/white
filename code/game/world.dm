@@ -143,6 +143,7 @@ GLOBAL_VAR(restart_counter)
 	GLOB.tgui_log = "[GLOB.log_directory]/tgui.log"
 	GLOB.world_shuttle_log = "[GLOB.log_directory]/shuttle.log"
 	GLOB.world_mechcomp_log = "[GLOB.log_directory]/mechcomp.log"
+	GLOB.world_exrp_log = "[GLOB.log_directory]/exrp.log"
 
 	GLOB.demo_log = "[GLOB.log_directory]/demo.log"
 
@@ -163,6 +164,7 @@ GLOBAL_VAR(restart_counter)
 	start_log(GLOB.tgui_log)
 	start_log(GLOB.world_shuttle_log)
 	start_log(GLOB.world_mechcomp_log)
+	start_log(GLOB.world_exrp_log)
 
 	GLOB.changelog_hash = md5('html/changelog.html') //for telling if the changelog has changed recently
 	if(fexists(GLOB.config_error_log))

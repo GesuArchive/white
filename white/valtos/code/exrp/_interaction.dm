@@ -112,9 +112,11 @@ GLOBAL_LIST_EMPTY(interactions)
 	post_interaction(user, target)
 
 	if(write_log_user)
-		log_combat(user, target, write_log_user)
+		log_exrp("([key_name(src)]) [user.real_name] [write_log_user] [target]")
+		SSblackbox.record_feedback("tally", "lewd_actions", 1, write_log_user)
 	if(write_log_target)
-		log_combat(user, target, write_log_target)
+		log_exrp("([key_name(src)]) [user.real_name] [write_log_target] [target]")
+		// no bb, we recorded it early
 
 /datum/interaction/proc/display_interaction(var/mob/user, var/mob/target)
 	if(simple_message)
