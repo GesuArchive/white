@@ -57,7 +57,8 @@
 	var/list/spawnerlist = GLOB.mob_spawners[group_name]
 	if(!spawnerlist.len)
 		return
-	var/obj/effect/mob_spawn/MS = pick(spawnerlist)
+	//var/obj/effect/mob_spawn/MS = pick(spawnerlist)
+	var/atom/MS = pick(spawnerlist)
 	if(!istype(MS) || !(MS in GLOB.poi_list))
 		return
 	switch(action)
