@@ -26,13 +26,21 @@
 		update_icon()
 		playsound(src, 'sound/weapons/handcuffs.ogg', 30, TRUE, -3)
 
+/obj/item/assembly/mousetrap/update_icon_state()
+	icon_state = "mousetrap[armed ? "armed" : ""]"
+	return ..()
+
 /obj/item/assembly/mousetrap/update_icon()
-	if(armed)
-		icon_state = "mousetraparmed"
-	else
-		icon_state = "mousetrap"
-	if(holder)
-		holder.update_icon()
+	. = ..()
+	holder?.update_icon()
+
+/obj/item/assembly/mousetrap/on_attach()
+	. = ..()
+	AddComponent(/datum/component/connect_loc_behalf, holder, holder_connections)
+
+/obj/item/assembly/mousetrap/on_detach()
+	. = ..()
+	qdel(GetComponent(/datum/component/connect_loc_behalf))
 
 /obj/item/assembly/mousetrap/proc/triggered(mob/target, type = "feet")
 	if(!armed)
