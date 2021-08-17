@@ -38,6 +38,11 @@
 
 	if(HAS_TRAIT(src, TRAIT_CLIENT_LEAVED))
 		REMOVE_TRAIT(src, TRAIT_CLIENT_LEAVED, "ice_cream")
+
+		var/list/spawners = GLOB.mob_spawners[real_name]
+		LAZYREMOVE(spawners, src)
+		if(!LAZYLEN(spawners))
+			GLOB.mob_spawners -= name
 	else
 		ice_cream_mob_time = client?.prefs?.ice_cream_time
 		ice_cream_mob = client?.prefs?.ice_cream

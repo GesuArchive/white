@@ -16,3 +16,5 @@
 	if(A)
 		notify_ghosts("Здесь есть свободное тело персонажа [real_name] в зоне [A.name].", source = src, action=NOTIFY_ORBIT, flashwindow = FALSE, ignore_key = POLL_IGNORE_SPLITPERSONALITY, notify_suiciders = FALSE)
 	AddElement(/datum/element/point_of_interest)
+
+	LAZYADD(GLOB.mob_spawners[real_name], src)
