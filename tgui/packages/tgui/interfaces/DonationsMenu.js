@@ -1,7 +1,7 @@
 import { createSearch, decodeHtmlEntities } from 'common/string';
 import { Fragment } from 'inferno';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Flex, Input, Section, Table, Tabs, NoticeBox } from '../components';
+import { Box, Button, Flex, Input, Section, Table, Tabs, NoticeBox, LabeledList } from '../components';
 import { formatMoney } from '../format';
 import { Window } from '../layouts';
 
@@ -41,7 +41,7 @@ export const GenericUplink = (props, context) => {
   const [
     selectedCategory,
     setSelectedCategory,
-  ] = useLocalState(context, 'category', categories[0]?.name);
+  ] = useLocalState(context, 'category', "INFO");
   const testSearch = createSearch(searchText, item => {
     return item.name;
   });
@@ -94,6 +94,12 @@ export const GenericUplink = (props, context) => {
             <Tabs
               vertical
               mr={1}>
+                <Tabs.Tab
+                  key="test"
+                  selected={"INFO" === selectedCategory}
+                  onClick={() => setSelectedCategory("INFO")}>
+                  Информация
+                </Tabs.Tab>
               {categories.map(category => (
                 <Tabs.Tab
                   key={category.name}
@@ -106,7 +112,57 @@ export const GenericUplink = (props, context) => {
           </Flex.Item>
         )}
         <Flex.Item grow={1} basis={0}>
-          {items.length === 0 && (
+          {"INFO" === selectedCategory && (
+            <Box>
+              <NoticeBox danger>
+                Очень важная информация для тех, кто собирается донатить
+              </NoticeBox>
+              <Section title="Реквизиты">
+                <LabeledList>
+                  <LabeledList.Item label="HUB">
+                    Кнопочка <b>"Пополнить счёт"</b>
+                  </LabeledList.Item>
+                  <LabeledList.Item label="ЮMoney">
+                    410011561142450
+                  </LabeledList.Item>
+                  <LabeledList.Item label="sobe.ru">
+                    <a
+                      href="https://yasobe.ru/na/novye_koleni_dlya_vaita"
+                      style="color: #ffffff">
+                      https://yasobe.ru/na/novye_koleni_dlya_vaita
+                    </a>
+                  </LabeledList.Item>
+                </LabeledList>
+              </Section>
+              <NoticeBox>
+                У нас есть всего ТРИ способа сбора средств, ОБЯЗАТЕЛЬНО
+                сверяйте с теми, что были описаны выше!
+              </NoticeBox>
+              <Section title="Дополнительные награды">
+                Полный список можно найти здесь:&nbsp;
+                <a
+                  href="https://station13.ru/ru/donate"
+                  style="color: #ffffff">
+                  https://station13.ru/ru/donate
+                </a>
+              </Section>
+              <NoticeBox info>
+                При платеже указывайте свой CKEY, чтобы не было потом проблем
+                с обновлением баланса. Прикольный цвет, кстати.
+              </NoticeBox>
+              <Section title="Как работает эта панель?">
+                <big>Всё просто! Любой предмет из списка вы можете вызывать по
+                желанию в первые 10 минут в любом месте на карте, после
+                начала игры, после чего далее только на территории бара.
+                <b> Баланс каждый новый раунд сбрасывается к изначальной
+                сумме</b>, поэтому не стесняйтесь экспериментировать.</big>
+              </Section>
+              <NoticeBox success>
+                Успехов!
+              </NoticeBox>
+            </Box>
+          )}
+          {items.length === 0 && "INFO" !== selectedCategory && (
             <NoticeBox>
               {searchText.length === 0
                 ? 'Нет предметов в этой категории.'

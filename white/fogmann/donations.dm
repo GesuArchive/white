@@ -301,26 +301,15 @@ GLOBAL_LIST_EMPTY(donators)
 					to_chat(user,"<span class='warning'>Этот предмет предназначен для <b>[prize.special]</b>.</span>")
 					return 0
 
-			var/list/slots = list(
-				"сумке" = ITEM_SLOT_BACKPACK,
-				"левом кармане" = ITEM_SLOT_LPOCKET,
-				"правом кармане" = ITEM_SLOT_RPOCKET,
-				"руке" = ITEM_SLOT_DEX_STORAGE
-			)
-
 			prize.stock--
 
-			var/obj/spawned = new prize.path_to(user.loc)
-			var/where = null
+			var/obj/structure/closet/supplypod/bluespacepod/pod = new()
+			new prize.path_to(pod)
+			pod.explosionSize = list(0,0,0,0)
 
-			if (ishuman(user))
-				where = user.equip_in_one_of_slots(spawned, slots, qdel_on_fail=0)
+			new /obj/effect/pod_landingzone(get_turf(user), pod)
 
-			if (!where)
-				to_chat(user,"<span class='info'>[capitalize(prize.name)] был создан!</span>")
-				spawned.anchored = FALSE
-			else
-				to_chat(user,"<span class='info'>[capitalize(prize.name)] был создан в [where]!</span>")
+			to_chat(user, "<span class='info'>[capitalize(prize.name)] был создан!</span>")
 
 			money -= prize.cost
 			allowed_num_items--
