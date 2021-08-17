@@ -32,6 +32,7 @@
 	//Maybe polling ghosts would be better than the shintience code
 	created_human.ice_cream_mob = TRUE
 	ADD_TRAIT(created_human, TRAIT_CLIENT_LEAVED, "ice_cream")
+	LAZYADD(GLOB.mob_spawners[created_human.real_name], created_human)
 	notify_ghosts("VIP-персона может быть занята.", source = created_human, action = NOTIFY_ORBIT, flashwindow = FALSE, ignore_key = POLL_IGNORE_SPLITPERSONALITY, notify_suiciders = FALSE)
 	created_human.AddElement(/datum/element/point_of_interest)
 	created_human.mind_initialize()
