@@ -41,6 +41,8 @@
 				else
 					var/obj/O = spawner_obj
 					this["desc"] = O.desc
+					if(HAS_TRAIT(O, TRAIT_CLIENT_LEAVED))
+						this["short_desc"] = "Свободное тело апатика."
 		this["amount_left"] = LAZYLEN(GLOB.mob_spawners[spawner])
 		data["spawners"] += list(this)
 
