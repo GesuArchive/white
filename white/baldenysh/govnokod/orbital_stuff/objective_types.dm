@@ -11,7 +11,7 @@
 			Живым или мертвым, его необходимо доставить на мостик и отправить к вашему нанимателю с помощью предоставленной системы доставки. \
 			Следует принять во внимание, что преступник может быть экипирован гораздо лучше обычного рейнджера. \
 			Возможно, может потребоваться помощь сотрудников службы безопасности. \
-			Задание будет провалено в случае побега преступника со станции или уничтожения его тела!"
+			Задание будет провалено в случае побега преступника со станции живым и без наручников, или в случае уничтожения его тела!"
 
 /datum/orbital_objective/headhunt/on_assign(obj/machinery/computer/objective/objective_computer)
 	var/area/A = GLOB.areas_by_type[/area/bridge]
@@ -94,16 +94,13 @@
 	if(generated)
 		if(!mob_to_recover || QDELETED(mob_to_recover))
 			return TRUE
-		if(mob_to_recover.z != objective_z_level)
-			return TRUE
-		/*
-		switch(target_type)
-			if("dreamer")
-				var/datum/antagonist/dreamer_orbital/DO = locate() in mob_to_recover.mind.antag_datums
-				var/datum/objective/slay/S = locate() in DO.objectives
-				if(S.completed)
+		if(mob_to_recover.z != objective_z_level && mob_to_recover.stat != DEAD)
+			if(iscarbon(mob_to_recover))
+				var/mob/living/carbon/C = mob_to_recover
+				if(!C.get_item_by_slot(ITEM_SLOT_HANDCUFFED))
 					return TRUE
-		*/
+			else
+				return TRUE
 	return FALSE
 
 /datum/orbital_objective/headhunt/proc/place_portal()
