@@ -47,7 +47,7 @@
 	if(isturf(target) && do_after(user, thermite_apply_time, target))
 		var/datum/component/thermite/therm = target.AddComponent(/datum/component/thermite, thermite_amount)
 		playsound(src, 'sound/effects/splat.ogg', 30, TRUE)
-		if(therm.amount >= therm.burn_require)
+		if(therm && therm.amount >= therm.burn_require)
 			therm.flame_react(src, 2000)
 
 /////////////////////////////hand
