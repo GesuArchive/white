@@ -161,8 +161,13 @@
 	var/turf/player_turf = get_turf(A)
 	if(!listener_turf || !player_turf)
 		return
-	var/dist = cheap_hypotenuse(listener_turf.x, listener_turf.y, player_turf.x, player_turf.y)
-	if(dist <= myplayer.playing_range && listener_turf.z == player_turf.z)
+
+	var/dist = get_dist(listener_turf, player_turf)//cheap_hypotenuse(listener_turf.x, listener_turf.y, player_turf.x, player_turf.y)
+	var/turf/above = SSmapping.get_turf_above(player_turf)
+	var/turf/below = SSmapping.get_turf_below(player_turf)
+	var/list/turf/allowed_z_levels = list(player_turf.z, above.z, below.z)
+
+	if(dist <= myplayer.playing_range && listener_turf.z in allowed_z_levels)
 		if(myplayer.environmental && player_turf && listener_turf)
 			S.volume = myplayer.playing_volume - max(dist * round(myplayer.playing_range/8), 0)
 		else
