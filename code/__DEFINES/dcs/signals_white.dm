@@ -70,12 +70,6 @@
 //from base of atom/eminence_act(): ()
 #define COMSIG_ATOM_EMINENCE_ACT "atom_eminence_act"
 
-
-// /mob/living/simple_animal/hostile signals
-#define COMSIG_HOSTILE_ATTACKINGTARGET "hostile_attackingtarget"
-	#define COMPONENT_HOSTILE_NO_ATTACK (1<<0)
-
-
 ///from base of atom/movable/Crossed(): (/atom/movable)
 #define COMSIG_MOVABLE_CROSSED "movable_crossed"
 ///from base of atom/movable/Uncross(): (/atom/movable)
