@@ -51,8 +51,9 @@
 	return GLOB.not_incapacitated_state
 
 /datum/computer_file/program/surgmaster/ui_data(mob/user)
-	if(get_dist_euclidian(get_turf(computer), get_turf(patient)) > 3)
-		patient = null
+	if(patient)
+		if(get_dist_euclidian(get_turf(computer), get_turf(patient)) > 3)
+			patient = null
 	var/list/data = get_header_data()
 	var/list/surgeries = list()
 	for(var/X in advanced_surgeries)
