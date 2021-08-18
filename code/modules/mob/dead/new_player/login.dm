@@ -13,8 +13,6 @@
 	if(!. || !client)
 		return FALSE
 
-	var/list/locinfo = client.get_loc_info()
-
 	spawn(-1)
 		var/crsc = client.crawler_sanity_check()
 		spawn(10 SECONDS)
