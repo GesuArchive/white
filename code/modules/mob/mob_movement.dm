@@ -247,7 +247,7 @@
 						R.reveal(20)
 						R.stun(20)
 					return
-				if(stepTurf.flags_1 & NOJAUNT_1)
+				if(stepTurf.flags_1 & NOJAUNT)
 					to_chat(L, "<span class='warning'>Странная аура блокирует путь.</span>")
 					return
 				if (locate(/obj/effect/blessing, stepTurf))
@@ -266,7 +266,7 @@
 						R.reveal(20)
 						R.stun(20)
 					return
-				if((stepTurf.flags_1 & NOJAUNT_1) && !istype(stepTurf, /turf/closed/wall/clockwork))
+				if((stepTurf.flags_1 & NOJAUNT) && !istype(stepTurf, /turf/closed/wall/clockwork))
 					to_chat(L, "<span class='warning'>Странная аура блокирует путь.</span>")
 					return
 				if (locate(/obj/effect/blessing, stepTurf))
