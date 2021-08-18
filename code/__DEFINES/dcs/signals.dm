@@ -133,12 +133,14 @@
 #define COMSIG_ATOM_UPDATE_NAME "atom_update_name"
 ///from base of [/atom/proc/update_desc]: (updates)
 #define COMSIG_ATOM_UPDATE_DESC "atom_update_desc"
+/* переписано в signals_white
 ///from base of [/atom/update_icon]: ()
 #define COMSIG_ATOM_UPDATE_ICON "atom_update_icon"
 	/// If returned from [COMSIG_ATOM_UPDATE_ICON] it prevents the atom from updating its icon state.
 	#define COMSIG_ATOM_NO_UPDATE_ICON_STATE UPDATE_ICON_STATE
 	/// If returned from [COMSIG_ATOM_UPDATE_ICON] it prevents the atom from updating its overlays.
 	#define COMSIG_ATOM_NO_UPDATE_OVERLAYS UPDATE_OVERLAYS
+*/
 ///from base of [atom/update_icon_state]: ()
 #define COMSIG_ATOM_UPDATE_ICON_STATE "atom_update_icon_state"
 ///from base of [/atom/update_overlays]: (list/new_overlays)

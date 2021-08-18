@@ -2,6 +2,12 @@
 #define COMSIG_EXTINGUISHER_BOOM "extinguisherboom"
 
 
+//старые сигналы обновления иконки до фигни типа update_appearance, в случае дупликейт дефинишна оставить ети
+#define COMSIG_ATOM_UPDATE_ICON "atom_update_icon"
+	#define COMSIG_ATOM_NO_UPDATE_ICON_STATE	(1<<0)
+	#define COMSIG_ATOM_NO_UPDATE_OVERLAYS		(1<<1)
+
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////редфоks
 
