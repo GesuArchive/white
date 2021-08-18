@@ -75,7 +75,7 @@ SUBSYSTEM_DEF(metainv)
 /datum/metainventory/proc/get_uid_to_metaobj_assoc()
 	. = list()
 	for(var/datum/metainv_object/MO in obj_list)
-		.[num2text(MO.uid)] = MO
+		.["[MO.uid]"] = MO
 
 ////////////////////////////////
 
@@ -170,9 +170,9 @@ SUBSYSTEM_DEF(metainv)
 	for(var/i in 1 to 5)
 		metainv_slots += METAINVENTORY_SLOT_TURF(i)
 	for(var/slot in metainv_slots)
-		res["[slot]"] = ""
+		res["[slot]"] = "0"
 	for(var/i = 0; i < SLOTS_AMT; i++)
-		res["[1<<i]"] = ""
+		res["[1<<i]"] = "0"
 	loadout_slots = res
 
 /datum/metainv_loadout/proc/set_slot(slot, uid)
@@ -182,8 +182,8 @@ SUBSYSTEM_DEF(metainv)
 	. = list()
 	var/list/uid_assoc = inv.get_uid_to_metaobj_assoc()
 	for(var/slot in loadout_slots)
-		var/equipped_uid = num2text(loadout_slots?[slot])
-		if(equipped_uid && equipped_uid != "")
+		var/equipped_uid = loadout_slots[slot]
+		if(equipped_uid != "0")
 			var/datum/metainv_object/MO = uid_assoc?[equipped_uid]
 			if(MO)
 				.[slot] = MO
@@ -194,10 +194,12 @@ SUBSYSTEM_DEF(metainv)
 	var/turf/T = get_turf(target)
 
 	var/list/equipped = get_slot_to_metaobj_assoc()
-/*
-	for(var/datum/metainv_object/MO in equipped["[METAINVENTORY_SLOT_TURF]"])
-		MO.create_object(T)
-*/
+
+	for(var/i in 1 to 5)
+		var/datum/metainv_object/turf_obj = equipped["[METAINVENTORY_SLOT_TURF(i)]"]
+		if(turf_obj)
+			turf_obj.create_object(T)
+
 	var/datum/metainv_object/l_hand_metaobj = equipped["[METAINVENTORY_SLOT_HAND_L]"]
 	if(l_hand_metaobj)
 		target.put_in_l_hand(l_hand_metaobj.create_object(T))
@@ -223,7 +225,7 @@ SUBSYSTEM_DEF(metainv)
 	. = list()
 	.["slots_contents"] = list()
 	for(var/slot in loadout_slots)
-		if(loadout_slots[slot] && loadout_slots[slot] != "")
+		if(loadout_slots[slot] && loadout_slots[slot] != "0")
 			.["slots_contents"][slot] = loadout_slots[slot]
 
 /datum/metainv_loadout/deserialize_list(list/input, list/options)
