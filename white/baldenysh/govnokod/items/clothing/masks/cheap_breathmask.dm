@@ -7,11 +7,11 @@
 
 /obj/item/clothing/mask/breath/cheap/equipped(mob/M, slot)
 	. = ..()
-	RegisterSignal(M, COMSIG_MOB_APPLY_DAMAGE, .proc/damage_mask, override = TRUE)
+	RegisterSignal(M, COMSIG_MOB_APPLY_DAMGE, .proc/damage_mask, override = TRUE)
 
 /obj/item/clothing/mask/breath/cheap/dropped(mob/M)
 	. = ..()
-	UnregisterSignal(M, COMSIG_MOB_APPLY_DAMAGE)
+	UnregisterSignal(M, COMSIG_MOB_APPLY_DAMGE)
 
 /obj/item/clothing/mask/gas/cheap
 	name = "противогаз"
@@ -20,11 +20,11 @@
 
 /obj/item/clothing/mask/gas/cheap/equipped(mob/M, slot)
 	. = ..()
-	RegisterSignal(M, COMSIG_MOB_APPLY_DAMAGE, .proc/damage_mask, override = TRUE)
+	RegisterSignal(M, COMSIG_MOB_APPLY_DAMGE, .proc/damage_mask, override = TRUE)
 
 /obj/item/clothing/mask/gas/cheap/dropped(mob/M)
 	. = ..()
-	UnregisterSignal(M, COMSIG_MOB_APPLY_DAMAGE)
+	UnregisterSignal(M, COMSIG_MOB_APPLY_DAMGE)
 
 /obj/item/clothing/mask/attackby(obj/item/W, mob/user, params)
 	if(damaged_clothes && istype(W, /obj/item/stack/sticky_tape))

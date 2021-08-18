@@ -23,7 +23,7 @@
 	icon = 'white/valtos/icons/cliffs.dmi'
 	icon_state = "void"
 	baseturfs = /turf/open/space/basic/planet
-	flags_1 = NOJAUNT
+	flags_1 = NOJAUNT_1
 	explosion_block = INFINITY
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 
