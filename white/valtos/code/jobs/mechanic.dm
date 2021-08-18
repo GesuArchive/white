@@ -233,6 +233,7 @@
 	var/working = FALSE
 	var/atom/movable/active_item = null
 	var/list/blacklisted_items = list(
+	/* в связи с введением требования кристаллов заукера и по просьбе фогмана
 			/obj/item/card/id,
 			/obj/item/stack/telecrystal,
 			/obj/item/uplink,
@@ -242,7 +243,9 @@
 			/obj/item/storage/box/syndie_kit,
 			/obj/structure/closet/crate/necropolis,
 			/obj/item/book/granter,
-			/obj/item/storage/box/syndicate)
+			/obj/item/storage/box/syndicate
+	*/
+		)
 	var/obj/structure/cable/attached_cable
 	var/siphoned_power = 0
 	var/siphon_max = 1e7
