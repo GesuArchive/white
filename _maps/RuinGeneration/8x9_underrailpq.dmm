@@ -58,6 +58,11 @@
 /obj/item/bedsheet/dorms,
 /turf/open/floor/wood,
 /area/ruin/unpowered)
+"G" = (
+/obj/structure/table/wood,
+/obj/item/paper/secretrecipe,
+/turf/open/floor/wood,
+/area/ruin/unpowered)
 "I" = (
 /obj/structure/table,
 /obj/item/modular_computer/laptop/preset/civilian,
@@ -129,7 +134,7 @@ Y
 Y
 Y
 Y
-d
+G
 w
 a
 "}
