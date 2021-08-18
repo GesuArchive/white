@@ -130,6 +130,9 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/open/openspace/proc/CanBuildHere()
 	return can_build_on
 
+/turf/open/openspace/attack_tk(mob/user)
+	return
+
 /turf/open/openspace/attack_hand(mob/user)
 	. = ..()
 	if(.)
