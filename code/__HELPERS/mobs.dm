@@ -281,7 +281,7 @@ GLOBAL_LIST_EMPTY(species_list)
 	if(!user)
 		return FALSE
 	var/atom/target_loc = null
-	if(!istype(target))
+	if(target && !istype(target))
 		stack_trace("Неверная цель в do_after. Пользователь: [user], задержка: [delay]")
 	if(target && !isturf(target))
 		target_loc = target.loc
