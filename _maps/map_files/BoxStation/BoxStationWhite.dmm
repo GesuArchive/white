@@ -26332,6 +26332,10 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/blue,
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "cgY" = (
@@ -26379,6 +26383,10 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/cafeteria,
 /area/engine/atmos)
 "chd" = (
@@ -29810,9 +29818,8 @@
 /area/security/checkpoint/engineering)
 "cBJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible{
-	dir = 4
+	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/bridge_pipe/yellow/visible,
 /turf/open/floor/plasteel/monofloor,
 /area/engine/atmos)
 "cBK" = (
@@ -32393,9 +32400,10 @@
 /turf/open/floor/plasteel/dark,
 /area/science/genetics)
 "eHb" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/portables_connector/visible,
-/obj/effect/turf_decal/bot_red,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/bridge_pipe/yellow/visible,
 /turf/open/floor/plasteel/monofloor,
 /area/engine/atmos)
 "eHV" = (
@@ -33477,12 +33485,6 @@
 	},
 /turf/open/openspace,
 /area/science/xenobiology)
-"gnw" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible{
-	dir = 10
-	},
-/turf/open/floor/plasteel/monofloor,
-/area/engine/atmos)
 "gnX" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -33795,6 +33797,10 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 1
 	},
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "gJk" = (
@@ -34158,8 +34164,9 @@
 /turf/open/floor/plating,
 /area/maintenance/fore)
 "hhN" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible{
-	dir = 9
+/obj/machinery/atmospherics/pipe/bridge_pipe/yellow/visible,
+/obj/machinery/atmospherics/pipe/bridge_pipe/purple{
+	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/engine/atmos)
@@ -34285,6 +34292,10 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/cafeteria,
 /area/engine/atmos)
 "huy" = (
@@ -35767,10 +35778,10 @@
 /turf/open/floor/plasteel/white,
 /area/science/genetics)
 "jxQ" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible{
+/obj/machinery/atmospherics/pipe/bridge_pipe/yellow/visible,
+/obj/machinery/atmospherics/pipe/bridge_pipe/green/visible{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/bridge_pipe/yellow/visible,
 /turf/open/floor/plasteel/monofloor,
 /area/engine/atmos)
 "jyu" = (
@@ -37215,13 +37226,6 @@
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/plasteel/monofloor,
 /area/engine/engine_room/external)
-"lDE" = (
-/obj/machinery/atmospherics/components/unary/portables_connector/visible{
-	dir = 8
-	},
-/obj/effect/turf_decal/bot,
-/turf/open/floor/plasteel/monofloor,
-/area/engine/atmos)
 "lDM" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -38148,6 +38152,10 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "nfx" = (
@@ -42154,6 +42162,10 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
 	},
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "stm" = (
@@ -79165,8 +79177,8 @@ bTP
 dJF
 bOd
 bQp
+bOd
 vWz
-ygI
 ygI
 jxQ
 ygI
@@ -79423,10 +79435,10 @@ aaE
 bOd
 bQp
 bOd
-ccA
 bOd
+ccA
 uyj
-lDE
+ygI
 cgX
 bMQ
 yhR
@@ -79680,8 +79692,8 @@ aaE
 bOd
 bQp
 bOd
-ccA
 bOd
+ccA
 jQO
 psC
 cha
@@ -79937,8 +79949,8 @@ aaE
 bOd
 qiq
 bOd
+bOd
 ccF
-ygI
 jxQ
 ygI
 cgZ
@@ -80192,12 +80204,12 @@ cdx
 bUS
 aaE
 bOd
-eHb
-ccA
-cBJ
+bQp
+bOd
+vWz
 hhN
-uyj
-lDE
+eHb
+ygI
 chb
 bMQ
 yhR
@@ -80451,8 +80463,8 @@ aaE
 bOd
 bQp
 bOd
-gnw
-imY
+bOd
+cBJ
 tpr
 imY
 ckV
@@ -80711,7 +80723,7 @@ mNE
 mNE
 mNE
 kjF
-mNE
+ygI
 chd
 bQy
 iPh
@@ -80968,7 +80980,7 @@ bOd
 bOd
 bOd
 uyj
-lDE
+ygI
 std
 bMQ
 yhR
@@ -81479,8 +81491,8 @@ bZK
 cbz
 bQp
 bOd
+bOd
 vWz
-ygI
 jxQ
 ygI
 che
@@ -81739,7 +81751,7 @@ bOd
 bOd
 bOd
 uyj
-lDE
+ygI
 nfm
 bMQ
 pLB
@@ -82250,8 +82262,8 @@ rAf
 bOd
 bQp
 bOd
+bOd
 vWz
-ygI
 jxQ
 ygI
 cCS
@@ -82510,7 +82522,7 @@ bOd
 bOd
 bOd
 uyj
-lDE
+ygI
 hun
 bMQ
 yhR
@@ -83021,8 +83033,8 @@ rAf
 bOd
 bOd
 bOd
+bOd
 vWz
-ygI
 jxQ
 ygI
 apF
@@ -83281,7 +83293,7 @@ bOd
 bOd
 bOd
 uyj
-lDE
+ygI
 gJi
 bMQ
 yhR
@@ -83792,8 +83804,8 @@ rAf
 bOd
 bOd
 bOd
+bOd
 vWz
-ygI
 jxQ
 uNM
 hpB
