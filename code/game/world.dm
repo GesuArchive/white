@@ -288,7 +288,67 @@ GLOBAL_VAR(restart_counter)
 	log_world("Deallocated [num_deleted] gas mixtures")
 	..()
 
+/*
+:::y+-+oooossoosssysoshyssyo/+``````````+y..++hhhhhdoyhyoosydddodh+/+//.:o//+ddh++oooossyhmdhmmdhsydmmmddmmmNmymmmmmmmmm
+::yo-+osoosoooosyysoysyoos+:o.``````````+o``++yyhhhmyhdhhddddddydy+s+/:.-///+ddh+++++++++ohdhmhsooosdmmyymmmNmshmmmmmmmm
+:ys./osossoooosyysos:oooss-+:```````````s/``++yyhhhmhyhhhhdddhdhdhyho+/-:s//ohdy++++++++++ohymsooooosddsymmmNmsymdmmmmmm
+yh.:osoosoooooyysoo:.yosy--o````````````s:``/+ysyhhdhyhhhhddhddhdhhdh+/-:s/+shdh+++++++++++sydsoooossyyssmmmNmssdhyhdmmm
+d/-+soosooooohysoo-`+sss+`/:````````````o:``:+ysyyyddshhhyhhhhhhdhhhhy/-/y+oyddh+++++++++++oydsoooosssyssmdmNdssyyyyyhhh
+o`/ssossooooyysos-``yoso.`o.````````````+:``.+yyssyhmsyhhyhhhhhhdhhhdhs:/dyhhddho+++++++osssydyoooossyysyddmNhssyyyyyyyh
+.-osooy++o+shsoo-``.yso+:-s:---..```````:/```+hsysssdyoyysyhhhhhdhhhhhh//hdhhddddhsooosydmhshmhoosssymysymdmNyssyyyyyyyh
+`/sooyo++oohyoo-```.s+o:--+/-:://++/-.``.s```:hsysssyyossysyyyyyhhhhhhho+sdhhdddddddhhddmmdhdmdossssdmyshmdmNssshyyyyyhh
+-osooyo+ooyhso:`````::-```.-``````.-/+/.`s-``.hyysoossyosyssssyyhyhhhhho+odyydddddddddddmmhmmmdssssdmmhsdmdmdsshdyyyyyyh
+/soossoooshyo+```````-````````````````-+.:+```/hsyooososossosssyyyyyyyhs+oyhyhddddddddddddhmdmmysshmmmdymmdNhshmhhdmdhhd
++sooyoooohhys.```````````````````````````.+-``.+sys+os/sooyoosssyhyyyyhy+++hyhddmdddddddddhmdmmdyhmmmmddmmdNyymmmmNNNNNN
+ssoohoooyhdh+``````````.....-::-.`````````./.``-sos++os:sosyooooshsssyyys//sysyhddhhddddddhmdmmmdmmmdmmmmdmmymNmmNNNNNNN
+ssooho+ohhdhhhso++//-.`````````...`````````./.``:s++++s/-ssssoooohsssssyos//yssyhmhhhhhhhdhddmdddmmmdmdmddmmmmmmmNNNNNNN
+soooy++shdNMMMMMMMMMMNmho:.`````````````````...``:oo+++s--ssssooosyssssyoy+/+hssydhyyyhhhhhhmmdddddmddddddNmmmNNNNNNNNNN
+ooooh++ydy/oNs----:/oNMMMMMdo-````````````````.``.:oo/++o--+ssossoysssssy/y//sysyhmyyyhhhhhhmmhhddddhddddmmmmmmmNNNNNNNN
+ooooho+hho:`.s.     :NNmNNMMMMdo-`````````````````.-+s/++o-./sso+osyssssy++s//sysymhyyyyyyhyNdhhhhhdhddddNmmmmmmmNNNNNNN
+ooosho+hs/-```.`   `-yhhhhdmNNMMd+-`````````````````.:o::+s/.-oso/osyossososs++yyshmhyyyyyyyNdhhhhhdhdddmNdmmmmmmNNNNNNm
+oooshs+h+:-````````shhhhyhhmdhdNMN+-`````````````````..::.-/+-.:oo/+sssssoo:+ysshyyddyyyyyyymmhhhhhdhdddNddmmmmmmmNNNNNd
+oooshhoy/.-`````````.-:+oydNdhyhdNNs`````````````````````.``.--.-:/+/+ssooo+:+s+osyydhyyyyyydmhyhhhhhhdmmdddmmmmmmmmmmNy
+oooshdys/````````````````.-/+syhhmNd/``````````````````````````....---:/ossoo//o//syydhyyyyyhNdyhhhhhhmNdddddmmmmmmmmmds
+sooshdhs+.``.````...``````````.-+y:..``````````````````````````````.---::+osso++s++syddhyyyyymmyyhdyhdNdhhddddmmmmmmmmyo
+dooohmsoo-.....---........`````````````````````````````````````````````````.-+oo+oo+ohddhyyyymmhyhdhdNdyhhdddddmmmmmmdso
+dyoohNo/o/.........---....`````````````````````````````````..----....`````````.::-:+oohmdhyyyhNdyhhhmmyhhhdddddmmmmmmsos
+ydsohm:.-::........```....--.``````````````````````````.:+sdmmmmmmmmdhyo/-.``````..`-ooshddysymmhdhmNyyhhhddddddmmmmhooh
+sydosm.`....```.....--....`````.``````````````````````.-///:::::::/oNMMMMMmds/-```````-+oyddyshmdddNhshhhhhdddddmmmdsosm
+syyhsy/``````.---...```....----..````   `````````````````````     ``smdmmNNMMMNds:.`````.odhdhydmmmdsyhhhhhdddddmmmyoodm
+yssyhsy.```````````````.....````.--`    ````````````````````````..yhhhhhhhdmmNMMMMNy/````./hhhhhNmmsyyyhhhhdddddmmdooymm
+sssyhoyo.```````````````````````.``````````````````````````````````.:+shhhmNdhhmNMMMMms-```.yhhmmmssyyyhhhhhhdddddsoodmm
+sssho./os/.````````````````````````````````````````````````````````````-:odmhyyhdmNMMMMMdo-``+dmmssyyyyhhhhhhddddyoohmmN
+sssm:`.-:/+/:-.````````````````````````````````````````````````````````````-/syhhdNm/sNMMMmo:`dNyssyyyyyhhhhhdddhoosmmNm
+sssm.`````````````````````````````````````````````````````````````````````````.:smh. `:mMMMy::mysssyyyyyhhhhddddo+odmmmd
+sssm````````````````````````````````````````````````````...-------.````````.`````.```.:osssymdhssssyyyyyyhhhdddsoohmmNmh
+sssm` `````````````````````````````````````````````````````````........----.```````````````/syssssyyyyyyhhhhdds+osdmNmdm
+sssm. ``````````````:.`````````````````````````````````````----................-.`````````+sssssssyyyyyhhhhddy++odmNmdyy
+sssd/ ``````````````.:-```````````````````````````````````````.......----.......```..````+ssssssssyyyyhhhhhdho+ohdmNmhoo
+sssyy`````````````````....``````````````````````````````````..-.......`........---...``-ssssssssssyyyyhhhhhho++ydmNmdydd
+syysyo````````````````````...``````````````````````````````````````````.......````````:o+ossssssyyyyyhhhhhho++yddmdmhsyd
+yyyysh+ ``````````````````````````.`````````````````````````````````````````.....----+++oosssssyyyyyhhhhhho++sddmdddo+hy
+yyysssh/ ``````````````````````````.....````````````````````````````````````....``.+++oooosssyysyyhhhhhhho++oddmdhdy+ohs
+yssssssh+` ``````````````````````````````.........```````.-`````````````````````-os++oooosssyssyhdhyyhhhs//ohdmmhdyo/oyo
+ysssssssho``````````````````````````````````````.....----.````````````````````:sy+/ooooossyssshdhyyyhhho//+hdmmdhyy++o+y
+yysssssysys````````````````````````````````````````````````````````````````-+yyo+ooooosyyssyhddyyyyyhho//+hhmmdyy+soosdN
+yysssyysssyy. `````````````````````````````````````````````````````````.:oyhso+oooosyhyyyhddhyssyyyhho//+hhmmdyhoyoydNNm
+yyyhhysssssyh-``````````````````````````````````````````````:..--::/+shhyysooooosyhdhhhhdhyysssyyyyyo//+yhmddhyyoyNNNNmy
+hyso+oyhyssssh:`````````````````````````````````````````````.:+osyyyyyssssssyhhhyshdhhhyyssysyyyyyyo//+hhmyhhyhdhmNNNNdo
+++++ooosyhysssy+````````````````````````````````````````````````.-://+++++/////:/yhhyyysssssyyyyyy+//+yhmdydydNNhNNNNmh+
++ossssssssyhyosyy.``````````````````````````````````````````````````........-::ohyyyyhsssssyyyyyy+//oyhNNNNhyNNmdNNNNdy+
+sssoo++++++oyhsoyh-``````````````````````````````````````````````````````.-:/+yhyyyhhyssssyyyyys+//oyhNNmNhymNNhmNNNNdoo
+ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddysyyhhyssssyyyyys///syhNNmNmsmNNmhNNNNmh+s
+//++ooosssssyyhmhyyh+```````````````````````````````````````````...-:/+shhhdhssyyhhsssssyyyyyo///syhNNmmNshNNmdmNNNNmyoy
+``````.`..-:+++oooooss-`````````````````````````````  ``````.-::/+shhhyyyhdysssydhssssyyyyyy+//+syhNNmmNyyNNNmhNmNNNdysy
+``````````.:/++++++++ohs+:--.....````````````......--:://++oosssyddysssydhssssydhssosyyyyyy+//oyydNNmmNhsNNNmddmNNNNdyyh
+````````-/ooyhhyssssssmsooooooooooooooooo++++++++++++//////////oddsssyhhysssshdhssssyyyyys///oysdNNmmNmomNNmmhNmNNNNhyyh
+``````-+syyyhhyyssoosys/:::::::::::::::::::::::::::::::::::::/sdyssshdyssssyddhsssysyyyyo/:+syymmNmmmmsdNNNddhNmNmNNdysh
+````:+os+//////+++++oo:/:::::::::::::::::::::::::::::::::::::ydssshdyssysydddyosssyyyyy+//+ysymmNmmmmsdNNNmdymmmNmNNdysh
+``:ooo+////////////+s.:/::::::::::::::::::::::::::::::::::::hhsshdyssyyyhdhyssssssyyys///sysdmmNmmmmshmNNNdhhmdNNdNNdsoh
+*/
+
 GLOBAL_VAR_INIT(hub_mimic, FALSE)
+GLOBAL_VAR_INIT(hub_mimic_desc, "GO! GO! GO!")
 
 /world/proc/update_status()
 
@@ -313,19 +373,9 @@ GLOBAL_VAR_INIT(hub_mimic, FALSE)
 				s += "<img src='https://assets.station13.ru/l/w8.png'>\n\n"
 				s += "\[<big>REMOVE KEBAB</big>"
 	else
-		s += "<big><b>CBACTOH STATION: RU</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/9uJ7dmM\">DISCORD</a>\n\n"
-		s += "<img src='https://assets.station13.ru/l/w[rand(1, 2)].gif'>\n\n"
-		s += "\[<big>GO! GO! GO!</big>"
-		//s += "<big><b>LifeWeb: For Beginners</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/9uJ7dmM\">DISCORD</a>\n\n"
-		//s += "<img src='https://assets.station13.ru/l/hrsy.gif'>\n\n"
-		//s += "\[<big>Chinese Only</big>"
-		//s += "<a href=\"https://discord.gg/9uJ7dmM\" rel=\"nofollow\"><b>SS13-CM - RU EDITION NO LAGS USS Almayer</b><br>\n<img src=\"https://cm-ss13.com//byond_hub_logo.jpg\"></a>"
-		//s += "\nMap: <b>Kutjevo Refinery</b>"
-		//s += "\nMode: <b>Distress Signal</b>"
-		//s += "\nRound time: <b>[worldtime2text()]</b>"
-		//s += "<b>\[RU\] The Fluffy Fronti&iecy;r 18+ MRP</b> вЂ” (<a href=\"https://discord.gg/9uJ7dmM\">Discord)\]<br>"
-		//s += "Russian furry MRP server running on modified Skyrat code<br>"
-		//s += "\[[pick("Box", "Meta")] Station, [pick("green", "blue", "red", "delta")] alert, ~[GLOB.player_list.len] players</a>"
+		s += "<big><b>[GLOB.hub_mimic]: RU</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/9uJ7dmM\">DISCORD</a>\n\n"
+		s += "<img src='https://assets.station13.ru/l/w[rand(4, 8)].gif'>\n\n"
+		s += "\[<big>[GLOB.hub_mimic_desc]</big>"
 
 	status = s
 
