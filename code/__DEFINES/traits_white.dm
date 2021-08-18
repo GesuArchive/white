@@ -15,7 +15,6 @@
 #define TRAIT_MONKEYLIKE		"monkeylike"
 #define TRAIT_DRUNK_HEALING		"drunk_healing"
 #define CHANGELING_HIVEMIND_MUTE "ling_mute"
-#define CURSED_ITEM_TRAIT "cursed-item" // The item is magically cursed
 #define TRAIT_CLIENT_LEAVED "client_leaved" //this guy is braindead
 #define CULT_EYES "cult_eyes"
 #define HOLYWATER_TRAIT "holywater"
