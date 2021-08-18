@@ -422,8 +422,8 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 			return travel_cost_coeff
 
 /obj/item/fuel_pellet
-	name = "standard fuel pellet"
-	desc = "compressed fuel pellet for long-distance flight"
+	name = "топливная ячейка"
+	desc = "Сжатое топливо для дальних перелетов. Не подвеграть перегреву."
 	icon = 'icons/obj/exploration.dmi'
 	icon_state = "fuel_basic"
 	var/fuel_type = FUEL_BASIC
