@@ -197,7 +197,8 @@
 		var/transfer_moles = environment.total_moles()*(volume_rate/environment.return_volume())
 
 		var/datum/gas_mixture/removed = tile.remove_air(transfer_moles)
-
+		if(!air_contents)
+			stack_trace("Блядь! Скраббер пытается сифонить несуществующий воздух. Скраббер: [src], тайл: [tile], координаты: [COORD(src)].")
 		air_contents.merge(removed)
 		tile.air_update_turf(FALSE, FALSE)
 
