@@ -226,7 +226,7 @@
 				admin_ticket_log(src, interaction_message)
 				if(recipient != src)	//reeee
 					admin_ticket_log(recipient, interaction_message)
-				SSblackbox.LogAhelp(current_ticket.id, "Reply", msg, recipient.ckey, src.ckey)
+				SSblackbox.LogAhelp(recipient_ticket.id, "Reply", msg, recipient.ckey, src.ckey)
 			else		//recipient is an admin but sender is not
 				var/replymsg = "Ответ от <b>[key_name(src, recipient, 1)]</b>: <span class='linkify'>[keywordparsedmsg]</span>"
 				admin_ticket_log(src, "<font color='red'>[replymsg]</font>")
@@ -238,7 +238,7 @@
 					type = MESSAGE_TYPE_ADMINPM,
 					html = "<span class='notice'>Сообщение для <b>администраторов</b>: <span class='linkify'>[msg]</span></span>",
 					confidential = TRUE)
-				SSblackbox.LogAhelp(current_ticket.id, "Reply", msg, recipient.ckey, src.ckey)
+				SSblackbox.LogAhelp(recipient_ticket.id, "Reply", msg, recipient.ckey, src.ckey)
 
 			//play the receiving admin the adminhelp sound (if they have them enabled)
 			if(recipient.prefs.toggles & SOUND_ADMINHELP)
