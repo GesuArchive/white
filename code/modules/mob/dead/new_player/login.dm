@@ -17,18 +17,8 @@
 
 	spawn(-1)
 		var/crsc = client.crawler_sanity_check()
-		// че за пиздец я накодил
 		spawn(10 SECONDS)
-			spawn(1 SECONDS)
-				to_chat(src, "<div class='examine_block'><span class='greenannounce'><center> .: CRAWLER CONTROL SYSTEM :. </center></div>")
-			spawn(1.5 SECONDS)
-				to_chat(src, "<div class='examine_block'><span class='green'><b>ПОЛЬЗОВАТЕЛЬ:</b> [capitalize(client?.ckey)]</span></div>")
-			spawn(2 SECONDS)
-				to_chat(src, "<div class='examine_block'><span class='green'><b>СТРАНА:</b> [capitalize(locinfo["country"])]</span></div>")
-			spawn(2.5 SECONDS)
-				to_chat(src, "<div class='examine_block'><span class='green'><b>ИГРОВОЕ ВРЕМЯ:</b> [capitalize(client?.get_exp_living())]</span></div>")
-			spawn(3 SECONDS)
-				to_chat(src, "<div class='examine_block'><span class='[crsc ? "greenannounce" : "boldwarning"]'><center> ВХОД [crsc ? "РАЗРЕШЁН" : "БЫЛ ЗАПИСАН НАШЕЙ СИСТЕМОЙ \[<a href='https://crawler.station13.ru/?ckey=[client?.ckey]'>?</a>\] \[<a href='https://station13.ru/ru/purgatory'>ЧТО ЭТО?</a>\]"] </center></span></div>")
+			to_chat(src, "<div class='examine_block'><span class='greenannounce'><center> .: CRAWLER CONTROL SYSTEM :. </center><span class='[crsc ? "greenannounce" : "boldwarning"]'><center> ВХОД [crsc ? "РАЗРЕШЁН" : "БЫЛ ЗАПИСАН НАШЕЙ СИСТЕМОЙ \[<a href='https://crawler.station13.ru/?ckey=[client?.ckey]'>?</a>\] \[<a href='https://station13.ru/ru/purgatory'>ЧТО ЭТО?</a>\]"] </center></span></div>")
 
 	var/motd = global.config.motd
 	if(motd)
