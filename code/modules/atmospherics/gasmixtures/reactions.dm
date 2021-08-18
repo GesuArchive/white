@@ -38,7 +38,8 @@
 /datum/gas_reaction/New()
 	init_reqs()
 	//временный фикс до обновления екстулзов
-	min_requirements?["MAX_TEMP"] = INFINITY
+	if(min_requirements && !min_requirements["MAX_TEMP"])
+		min_requirements["MAX_TEMP"] = INFINITY
 
 /datum/gas_reaction/proc/init_reqs()
 
