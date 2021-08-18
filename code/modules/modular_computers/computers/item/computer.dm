@@ -448,7 +448,7 @@
 	for(var/datum/computer_file/program/P in idle_threads)
 		P.kill_program(forced = TRUE)
 		idle_threads.Remove(P)
-	if(looping_sound)
+	if(looping_sound && soundloop)
 		soundloop.stop()
 	if(loud)
 		physical.visible_message("<span class='notice'><b>[src.name]</b> выключается.</span>")
