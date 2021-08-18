@@ -28,6 +28,7 @@
 	RegisterSignal(cart_table, COMSIG_PARENT_QDELETING, .proc/lost_part)
 
 /obj/machinery/food_cart/Destroy()
+	/*
 	if(cart_griddle)
 		QDEL_NULL(cart_griddle)
 	if(cart_smartfridge)
@@ -35,6 +36,7 @@
 	if(cart_table)
 		QDEL_NULL(cart_table)
 	QDEL_NULL(cart_tent)
+	*/
 	return ..()
 
 /obj/machinery/food_cart/examine(mob/user)
