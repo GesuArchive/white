@@ -432,7 +432,7 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 
 /obj/item/fuel_pellet/fire_act(exposed_temperature, exposed_volume)
 	if(exposed_temperature > 2000)
-		dyn_explosion(get_turf(src), explosion_power)
+		dyn_explosion(get_turf(src), explosion_power * (uses/initial(uses)) )
 		qdel(src)
 		return
 	return ..()
