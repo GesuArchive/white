@@ -237,8 +237,9 @@
 			rider.Move(landing_turf, vehicle_target.dir)
 			passtable_off(rider, VEHICLE_TRAIT)
 			vehicle.pass_flags &= ~PASSTABLE
-		if((locate(/obj/structure/table) in vehicle.loc.contents) || (locate(/obj/structure/fluff/tram_rail) in vehicle.loc.contents))
-			if(locate(/obj/structure/fluff/tram_rail) in vehicle.loc.contents)
+		var/turf/cur_turf = get_turf(vehicle)
+		if((locate(/obj/structure/table) in cur_turf.contents) || (locate(/obj/structure/fluff/tram_rail) in cur_turf.contents))
+			if(locate(/obj/structure/fluff/tram_rail) in cur_turf.contents)
 				rider.client.give_award(/datum/award/achievement/misc/tram_surfer, rider)
 			vehicle.grinding = TRUE
 			vehicle.icon_state = "[initial(vehicle.icon_state)]-grind"
