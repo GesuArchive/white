@@ -128,7 +128,7 @@ export const GenericUplink = (props, context) => {
                   <LabeledList.Item label="sobe.ru">
                     <a
                       href="https://yasobe.ru/na/novye_koleni_dlya_vaita"
-		              style={{"color" : "#ffffff"}}>
+                      style={{ "color": "#ffffff" }}>
                       https://yasobe.ru/na/novye_koleni_dlya_vaita
                     </a>
                   </LabeledList.Item>
@@ -142,7 +142,7 @@ export const GenericUplink = (props, context) => {
                 Полный список можно найти здесь:&nbsp;
                 <a
                   href="https://station13.ru/ru/donate"
-                  style={{"color" : "#ffffff"}}>
+                  style={{ "color": "#ffffff" }}>
                   https://station13.ru/ru/donate
                 </a>
               </Section>

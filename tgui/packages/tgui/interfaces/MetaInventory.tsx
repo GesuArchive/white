@@ -12,7 +12,7 @@ const BUTTON_DIMENSIONS = "50px";
 
 type GridSpotKey = string;
 
-//getGridSpotKey, переименовал потомушто смешной линт 80 символов на строку
+// getGridSpotKey, переименовал потомушто смешной линт 80 символов на строку
 const getGSK = (spot: [number, number]): GridSpotKey => {
   return `${spot[0]}/${spot[1]}`;
 };
@@ -46,34 +46,34 @@ const SLOTS: Record<
     additionalComponent?: JSX.Element;
   }
 > = {
-  "8":{displayName:"глаза",gridSpot:getGSK([0, 0]),image:"glasses.png",},
-  "64":{displayName:"голова",gridSpot:getGSK([0, 1]),image:"head.png",},
-  "4096":{displayName:"шея",gridSpot:getGSK([1, 0]),image:"neck.png",},
-  "32":{displayName:"маска",gridSpot:getGSK([1, 1]),image:"mask.png",},
-  "16":{displayName:"уши",gridSpot:getGSK([1, 2]),image:"ears.png",},
-  "2":{displayName:"униформа",gridSpot:getGSK([2, 0]),image:"uniform.png",},
-  "1":{displayName:"костюм",gridSpot: getGSK([2, 1]),image:"suit.png",},
-  "4":{displayName:"перчатки",gridSpot:getGSK([2, 2]),image:"gloves.png",},
-  "128":{displayName:"ботинки",gridSpot:getGSK([3, 1]),image:"shoes.png",},
-  "32768":{displayName:"хранилище костюма",gridSpot:getGSK([3, 2]),
-    image: "suit_storage.png",},
-  "256":{displayName:"ID",gridSpot:getGSK([4, 0]),image:"id.png",},
-  "512":{displayName:"пояс",gridSpot:getGSK([4, 1]),image:"belt.png",},
-  "1024":{displayName:"спина",gridSpot: getGSK([4, 2]),image:"back.png",},
-  "65536":{displayName:"левый карман",gridSpot:getGSK([4, 3]),
-    image: "pocket.png",},
-  "131072":{displayName:"правый карман",gridSpot:getGSK([4, 4]),
-    image: "pocket.png",},
-  "-1":{displayName:"левая рука",gridSpot:getGSK([2, 4]),image:"hand_l.png",
-    additionalComponent: <CornerText align="right">Л</CornerText>,},
-  "-2":{displayName:"правая рука",gridSpot:getGSK([2, 3]),image:"hand_r.png",
-    additionalComponent: <CornerText align="left">П</CornerText>,},
-  //аыыыыыыыыыыыы я дыбиииииииил
-  "-3":{displayName: "пол", gridSpot: getGSK([0, 6]), image: "pocket.png",},
-  "-4":{displayName: "пол", gridSpot: getGSK([1, 6]), image: "pocket.png",},
-  "-5":{displayName: "пол", gridSpot: getGSK([2, 6]), image: "pocket.png",},
-  "-6":{displayName: "пол", gridSpot: getGSK([3, 6]), image: "pocket.png",},
-  "-7":{displayName: "пол", gridSpot: getGSK([4, 6]), image: "pocket.png",},
+  "8": { displayName: "глаза", gridSpot: getGSK([0, 0]), image: "glasses.png" },
+  "64": { displayName: "голова", gridSpot: getGSK([0, 1]), image: "head.png" },
+  "4096": { displayName: "шея", gridSpot: getGSK([1, 0]), image: "neck.png" },
+  "32": { displayName: "маска", gridSpot: getGSK([1, 1]), image: "mask.png" },
+  "16": { displayName: "уши", gridSpot: getGSK([1, 2]), image: "ears.png" },
+  "2": { displayName: "униформа", gridSpot: getGSK([2, 0]), image: "uniform.png" },
+  "1": { displayName: "костюм", gridSpot: getGSK([2, 1]), image: "suit.png" },
+  "4": { displayName: "перчатки", gridSpot: getGSK([2, 2]), image: "gloves.png" },
+  "128": { displayName: "ботинки", gridSpot: getGSK([3, 1]), image: "shoes.png" },
+  "32768": { displayName: "хранилище костюма", gridSpot: getGSK([3, 2]),
+    image: "suit_storage.png" },
+  "256": { displayName: "ID", gridSpot: getGSK([4, 0]), image: "id.png" },
+  "512": { displayName: "пояс", gridSpot: getGSK([4, 1]), image: "belt.png" },
+  "1024": { displayName: "спина", gridSpot: getGSK([4, 2]), image: "back.png" },
+  "65536": { displayName: "левый карман", gridSpot: getGSK([4, 3]),
+    image: "pocket.png" },
+  "131072": { displayName: "правый карман", gridSpot: getGSK([4, 4]),
+    image: "pocket.png" },
+  "-1": { displayName: "левая рука", gridSpot: getGSK([2, 4]), image: "hand_l.png",
+    additionalComponent: <CornerText align="right">Л</CornerText> },
+  "-2": { displayName: "правая рука", gridSpot: getGSK([2, 3]), image: "hand_r.png",
+    additionalComponent: <CornerText align="left">П</CornerText> },
+  // аыыыыыыыыыыыы я дыбиииииииил
+  "-3": { displayName: "пол", gridSpot: getGSK([0, 6]), image: "pocket.png" },
+  "-4": { displayName: "пол", gridSpot: getGSK([1, 6]), image: "pocket.png" },
+  "-5": { displayName: "пол", gridSpot: getGSK([2, 6]), image: "pocket.png" },
+  "-6": { displayName: "пол", gridSpot: getGSK([3, 6]), image: "pocket.png" },
+  "-7": { displayName: "пол", gridSpot: getGSK([4, 6]), image: "pocket.png" },
 };
 
 type MetaInvObj = {
