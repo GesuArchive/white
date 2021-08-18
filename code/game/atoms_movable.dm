@@ -705,7 +705,7 @@
 	. = FALSE
 
 	if(QDELETED(src))
-		CRASH("Qdeleted thing being thrown around.")
+		CRASH("Qdeleted thing being thrown around. Thing: [src], thrower: [thrower], target: [target]")
 
 	if (!target || speed <= 0)
 		return
