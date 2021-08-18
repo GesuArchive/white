@@ -244,7 +244,7 @@
 		return
 
 /mob/living/simple_animal/bot/medbot/proc/tip_over(mob/user)
-	ADD_TRAIT(src, TRAIT_IMMOBILIZED, BOT_TIPPED_OVER)
+	ADD_TRAIT(src, TRAIT_IMMOBILIZED, TIPPED_OVER)
 	playsound(src, 'sound/machines/warning-buzzer.ogg', 50)
 	user.visible_message("<span class='danger'>[user] роняет [src.name]а!</span>", "<span class='danger'>Роняю [src.name]а на бок!</span>")
 	mode = BOT_TIPPED
@@ -253,7 +253,7 @@
 	tipper_name = user.name
 
 /mob/living/simple_animal/bot/medbot/proc/set_right(mob/user)
-	REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, BOT_TIPPED_OVER)
+	REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, TIPPED_OVER)
 	var/list/messagevoice
 
 	if(user)
@@ -349,7 +349,7 @@
 				var/list/i_need_scissors = list('sound/voice/medbot/fuck_you.ogg', 'sound/voice/medbot/turn_off.ogg', 'sound/voice/medbot/im_different.ogg', 'sound/voice/medbot/close.ogg', 'sound/voice/medbot/shindemashou.ogg')
 				playsound(src, pick(i_need_scissors), 70)
 			else
-				var/list/messagevoice = list(/*"Радар, надень маску!" = 'sound/voice/medbot/radar.ogg',"Всегда есть подвох, и я лучший из них." = 'sound/voice/medbot/catch.ogg',*/"Я так и знал, лучше бы я стал пластическим хирургом." = 'sound/voice/medbot/surgeon.ogg',"Что это за медотсек? Все вокруг дохнут как мухи." = 'sound/voice/medbot/flies.ogg',"Delicious!" = 'sound/voice/medbot/delicious.ogg', "Почему мы все еще здесь? Просто, чтобы страдать?" = 'sound/voice/medbot/why.ogg') //Непереводимая игра слов непереводима. Хотя это даже не игра слов, это какая-то стрёмная цитата из какого-то там стрёмного сериала. Никто отсылку не поймёт, и звучит убого - выпиливаем. 
+				var/list/messagevoice = list(/*"Радар, надень маску!" = 'sound/voice/medbot/radar.ogg',"Всегда есть подвох, и я лучший из них." = 'sound/voice/medbot/catch.ogg',*/"Я так и знал, лучше бы я стал пластическим хирургом." = 'sound/voice/medbot/surgeon.ogg',"Что это за медотсек? Все вокруг дохнут как мухи." = 'sound/voice/medbot/flies.ogg',"Delicious!" = 'sound/voice/medbot/delicious.ogg', "Почему мы все еще здесь? Просто, чтобы страдать?" = 'sound/voice/medbot/why.ogg') //Непереводимая игра слов непереводима. Хотя это даже не игра слов, это какая-то стрёмная цитата из какого-то там стрёмного сериала. Никто отсылку не поймёт, и звучит убого - выпиливаем.
 				var/message = pick(messagevoice)
 				speak(message)
 				playsound(src, messagevoice[message], 50)

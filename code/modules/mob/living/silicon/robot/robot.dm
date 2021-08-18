@@ -926,10 +926,10 @@
 	if(hands)
 		hands.icon_state = module.moduleselect_icon
 
-	REMOVE_TRAITS_IN(src, MODULE_TRAIT)
+	REMOVE_TRAITS_IN(src, MODEL_TRAIT)
 	if(module.module_traits)
 		for(var/trait in module.module_traits)
-			ADD_TRAIT(src, trait, MODULE_TRAIT)
+			ADD_TRAIT(src, trait, MODEL_TRAIT)
 
 	if(module.clean_on_move)
 		AddElement(/datum/element/cleaning)
