@@ -30,10 +30,9 @@ SUBSYSTEM_DEF(metainv)
 
 ////////////////////////////////////////////////////////////////////
 
-#define METAINVENTORY_SLOT_CURSOR	-1
-#define METAINVENTORY_SLOT_TURF 	-2
-#define METAINVENTORY_SLOT_HAND_L 	-3
-#define METAINVENTORY_SLOT_HAND_R 	-4
+#define METAINVENTORY_SLOT_HAND_L 		-1
+#define METAINVENTORY_SLOT_HAND_R 		-2
+#define METAINVENTORY_SLOT_TURF(num) 	(-2-num)
 
 /datum/metainventory
 	var/owner_ckey
@@ -150,6 +149,7 @@ SUBSYSTEM_DEF(metainv)
 	var/datum/metainv_loadout/ML = new
 	ML.set_slot(METAINVENTORY_SLOT_HAND_R, stels.uid)
 	ML.set_slot(ITEM_SLOT_ICLOTHING, uniform.uid)
+	ML.set_slot(METAINVENTORY_SLOT_TURF(3), bimba.uid)
 	ML.inv = src
 	loadout_list += ML
 
@@ -157,7 +157,8 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainv_loadout
 	var/datum/metainventory/inv
-	var/list/loadout_slots //в качестве ключей используются дефайны инвентаря типа ITEM_SLOT_ICLOTHING, плюс дефайны метаинвентаря выше для рук и прочего
+	//в качестве ключей используются дефайны инвентаря типа ITEM_SLOT_ICLOTHING, плюс дефайны метаинвентаря выше для рук и прочего
+	var/list/loadout_slots
 
 /datum/metainv_loadout/New()
 	. = ..()
@@ -165,7 +166,9 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainv_loadout/proc/build_slots()
 	var/list/res = list()
-	var/list/metainv_slots = list(METAINVENTORY_SLOT_CURSOR, METAINVENTORY_SLOT_TURF, METAINVENTORY_SLOT_HAND_L, METAINVENTORY_SLOT_HAND_R)
+	var/list/metainv_slots = list(METAINVENTORY_SLOT_HAND_L, METAINVENTORY_SLOT_HAND_R)
+	for(var/i in 1 to 5)
+		metainv_slots += METAINVENTORY_SLOT_TURF(i)
 	for(var/slot in metainv_slots)
 		res["[slot]"] = ""
 	for(var/i = 0; i < SLOTS_AMT; i++)

@@ -6,12 +6,14 @@ import { Box, Button, Icon, Stack } from "../components";
 import { Window } from "../layouts";
 
 const ROWS = 5;
-const COLUMNS = 6;
+const COLUMNS = 8;
 
 const BUTTON_DIMENSIONS = "50px";
 
 type GridSpotKey = string;
 
+
+//getGridSpotKey, переименовал потомушто смешной линт 80 символов на строку
 const getGridSpotKey = (spot: [number, number]): GridSpotKey => {
   return `${spot[0]}/${spot[1]}`;
 };
@@ -93,20 +95,6 @@ const SLOTS: Record<
     image: "inventory-gloves.png",
   },
 
-  "-4": {
-    displayName: "правая рука",
-    gridSpot: getGridSpotKey([2, 3]),
-    image: "inventory-hand_r.png",
-    additionalComponent: <CornerText align="left">П</CornerText>,
-  },
-
-  "-3": {
-    displayName: "левая рука",
-    gridSpot: getGridSpotKey([2, 4]),
-    image: "inventory-hand_l.png",
-    additionalComponent: <CornerText align="right">Л</CornerText>,
-  },
-
   "128": {
     displayName: "ботинки",
     gridSpot: getGridSpotKey([3, 1]),
@@ -148,13 +136,30 @@ const SLOTS: Record<
     gridSpot: getGridSpotKey([4, 4]),
     image: "inventory-pocket.png",
   },
-/*
-  "-2": {
-    displayName: "пол",
-    gridSpot: getGridSpotKey([4, 6]),
-    image: "inventory-pocket.png",
+
+  "-1": {
+    displayName: "левая рука",
+    gridSpot: getGridSpotKey([2, 4]),
+    image: "inventory-hand_l.png",
+    additionalComponent: <CornerText align="right">Л</CornerText>,
   },
 
+  "-2": {
+    displayName: "правая рука",
+    gridSpot: getGridSpotKey([2, 3]),
+    image: "inventory-hand_r.png",
+    additionalComponent: <CornerText align="left">П</CornerText>,
+  },
+
+  //аыыыыыыыыыыыы я дыбиииииииил
+  "-3": {displayName: "пол", gridSpot: getGridSpotKey([0, 6]), image: "inventory-pocket.png",},
+  "-4": {displayName: "пол", gridSpot: getGridSpotKey([1, 6]), image: "inventory-pocket.png",},
+  "-5": {displayName: "пол", gridSpot: getGridSpotKey([2, 6]), image: "inventory-pocket.png",},
+  "-6": {displayName: "пол", gridSpot: getGridSpotKey([3, 6]), image: "inventory-pocket.png",},
+  "-7": {displayName: "пол", gridSpot: getGridSpotKey([4, 6]), image: "inventory-pocket.png",},
+  //"-8": {displayName: "пол6", gridSpot: getGridSpotKey([5, 6]), image: "inventory-pocket.png",},
+
+/*
   "-1": {
     displayName: "курсор",
     gridSpot: getGridSpotKey([4, 7]),
@@ -193,7 +198,7 @@ export const MetaInventory = (props, context) => {
 
 
   return (
-    <Window title={`Инвентарь`} width={340} height={350}>
+    <Window title={`Инвентарь`} width={50*(COLUMNS+1)} height={50*(ROWS+1)}>
       <Window.Content>
         <Stack fill vertical>
           {range(0, ROWS).map(row => (
