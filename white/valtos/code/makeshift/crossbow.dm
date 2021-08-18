@@ -77,7 +77,7 @@
 			charging = TRUE
 			playsound(user, draw_sound, 50, 1)
 
-			if (do_after(user, charge_time, 0, timed_action_flags = IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE) && charging)
+			if (do_after(user, charge_time, target = src, timed_action_flags = IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE) && charging)
 				charge = charge + 1
 				charging = FALSE
 				var/draw = "немножечко"
