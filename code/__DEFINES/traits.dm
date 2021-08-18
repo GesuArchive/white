@@ -491,7 +491,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_ASIAT			"asiatish"
 #define TRAIT_HACKER		"hackereye"
 #define TRAIT_YOHEI			"yohei"
-
+#define BATTLE_ROYALE_TRAIT "battleroyale_trait"
 #define TRAIT_HYPERSPACE_IMMUNE	"hyperspace_immune"
 
 #define LIFECANDLE_TRAIT "lifecandle"
@@ -544,5 +544,3 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// Trait from [/datum/antagonist/nukeop/clownop]
 #define CLOWNOP_TRAIT "clownop"
-
-#define BATTLE_ROYALE_TRAIT "battleroyale_trait"
