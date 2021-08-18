@@ -12,8 +12,10 @@
 		var/mob/living/L = user
 		if(HAS_TRAIT(L, TRAIT_PROSOPAGNOSIA) || HAS_TRAIT(L, TRAIT_INVISIBLE_MAN))
 			obscure_name = TRUE
-		if(H.glasses && H.glasses.type == /obj/item/clothing/glasses/hud/hacker_rig)
-			true_info = TRUE
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			if(H.glasses && H.glasses.type == /obj/item/clothing/glasses/hud/hacker_rig)
+				true_info = TRUE
 
 	. = list("")
 

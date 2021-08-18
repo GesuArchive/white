@@ -778,7 +778,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	H.remove_overlay(BODY_ADJ_LAYER)
 	H.remove_overlay(BODY_FRONT_LAYER)
 
-	if(!mutant_bodyparts || HAS_TRAIT(source, TRAIT_INVISIBLE_MAN))
+	if(!mutant_bodyparts || HAS_TRAIT(H, TRAIT_INVISIBLE_MAN))
 		return
 
 	var/obj/item/bodypart/head/HD = H.get_bodypart(BODY_ZONE_HEAD)

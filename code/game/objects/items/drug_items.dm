@@ -54,7 +54,7 @@
 	reagent_flags |= OPENCONTAINER
 	spillable = TRUE
 	playsound(src, 'sound/items/ampoule_snap.ogg', 40)
-	update_appearance()
+	update_icon_state()
 
 /obj/item/reagent_containers/glass/blastoff_ampoule/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()

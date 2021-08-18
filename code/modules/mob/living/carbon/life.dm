@@ -766,6 +766,11 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	adjustToxLoss(0.6 * delta_time, TRUE,  TRUE)
 	adjustOrganLoss(pick(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_STOMACH, ORGAN_SLOT_EYES, ORGAN_SLOT_EARS), 0.5* delta_time)
 
+/mob/living/carbon/proc/undergoing_liver_failure()
+	var/obj/item/organ/liver/liver = getorganslot(ORGAN_SLOT_LIVER)
+	if(liver?.organ_flags & ORGAN_FAILING)
+		return TRUE
+
 /////////////
 //CREMATION//
 /////////////

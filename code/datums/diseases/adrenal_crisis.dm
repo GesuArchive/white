@@ -23,7 +23,7 @@
 	switch(stage)
 		if(1)
 			if(DT_PROB(2.5, delta_time))
-				to_chat(affected_mob, span_warning(pick("You feel lightheaded.", "You feel lethargic.")))
+				to_chat(affected_mob, "<span class='warning'>[pick("You feel lightheaded.", "You feel lethargic.")]</span>")
 		if(2)
 			if(DT_PROB(5, delta_time))
 				affected_mob.Unconscious(40)
@@ -35,4 +35,4 @@
 				affected_mob.Dizzy(10)
 
 			if(DT_PROB(2.5, delta_time))
-				to_chat(affected_mob, span_warning(pick("You feel pain shoot down your legs!", "You feel like you are going to pass out at any moment.", "You feel really dizzy.")))
+				to_chat(affected_mob, "<span class='warning'>[pick("You feel pain shoot down your legs!", "You feel like you are going to pass out at any moment.", "You feel really dizzy.")]</span>")
