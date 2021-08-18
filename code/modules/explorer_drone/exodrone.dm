@@ -428,6 +428,14 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 	icon_state = "fuel_basic"
 	var/fuel_type = FUEL_BASIC
 	var/uses = 5
+	var/explosion_power = 7
+
+/obj/item/fuel_pellet/fire_act(exposed_temperature, exposed_volume)
+	if(exposed_temperature > 2000)
+		dyn_explosion(get_turf(src), explosion_power)
+		qdel(src)
+		return
+	return ..()
 
 /obj/item/fuel_pellet/use()
 	uses--
@@ -437,10 +445,12 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 /obj/item/fuel_pellet/advanced
 	fuel_type = FUEL_ADVANCED
 	icon_state = "fuel_advanced"
+	explosion_power = 20
 
 /obj/item/fuel_pellet/exotic
 	fuel_type = FUEL_EXOTIC
 	icon_state = "fuel_exotic"
+	explosion_power = 50
 
 #undef EXODRONE_LOG_SIZE
 #undef EXODRONE_CARGO_SLOTS

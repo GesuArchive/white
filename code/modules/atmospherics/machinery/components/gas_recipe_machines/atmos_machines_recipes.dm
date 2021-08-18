@@ -152,7 +152,7 @@ GLOBAL_LIST_INIT(gas_recipe_meta, gas_recipes_list())
 /datum/gas_recipe/crystallizer/fuel_pellet
 	id = "fuel_basic"
 	name = "standard fuel pellet"
-	reaction_type = ENDOTHERMIC_REACTION
+	reaction_type = EXOTHERMIC_REACTION
 	energy_release = 6000000
 	requirements = list(/datum/gas/oxygen = 50, /datum/gas/plasma = 100)
 	products = list(/obj/item/fuel_pellet = 1)
@@ -160,7 +160,7 @@ GLOBAL_LIST_INIT(gas_recipe_meta, gas_recipes_list())
 /datum/gas_recipe/crystallizer/fuel_pellet_advanced
 	id = "fuel_advanced"
 	name = "advanced fuel pellet"
-	reaction_type = ENDOTHERMIC_REACTION
+	reaction_type = EXOTHERMIC_REACTION
 	energy_release = 6000000
 	requirements = list(/datum/gas/tritium = 100, /datum/gas/hydrogen = 100)
 	products = list(/obj/item/fuel_pellet/advanced = 1)
@@ -168,7 +168,7 @@ GLOBAL_LIST_INIT(gas_recipe_meta, gas_recipes_list())
 /datum/gas_recipe/crystallizer/fuel_pellet_exotic
 	id = "fuel_exotic"
 	name = "exotic fuel pellet"
-	reaction_type = ENDOTHERMIC_REACTION
+	reaction_type = EXOTHERMIC_REACTION
 	energy_release = 6000000
 	requirements = list(/datum/gas/hypernoblium = 100, /datum/gas/stimulum = 100)
 	products = list(/obj/item/fuel_pellet/exotic = 1)
