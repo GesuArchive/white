@@ -34165,7 +34165,7 @@
 /area/maintenance/fore)
 "hhN" = (
 /obj/machinery/atmospherics/pipe/bridge_pipe/yellow/visible,
-/obj/machinery/atmospherics/pipe/bridge_pipe/purple{
+/obj/machinery/atmospherics/pipe/bridge_pipe/purple/visible{
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor,
@@ -80723,7 +80723,7 @@ mNE
 mNE
 mNE
 kjF
-ygI
+mNE
 chd
 bQy
 iPh
@@ -80980,7 +80980,7 @@ bOd
 bOd
 bOd
 uyj
-ygI
+mNE
 std
 bMQ
 yhR
