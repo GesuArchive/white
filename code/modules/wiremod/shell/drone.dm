@@ -4,7 +4,7 @@
  * A movable mob that can be fed inputs on which direction to travel.
  */
 /mob/living/circuit_drone
-	name = "дрон"
+	name = "drone"
 	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "setup_medium_med"
 	living_flags = 0
@@ -27,7 +27,7 @@
 
 /obj/item/circuit_component/bot_circuit
 	display_name = "Дрон"
-	display_desc = "Used to send movement output signals to the drone shell."
+	desc = "Used to send movement output signals to the drone shell."
 
 	/// The inputs to allow for the drone to move
 	var/datum/port/input/north

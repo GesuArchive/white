@@ -1,3 +1,13 @@
+/datum/wires/airlock/shell
+	holder_type = /obj/machinery/door/airlock/shell
+	proper_name = "Circuit Airlock"
+
+/datum/wires/airlock/shell/on_cut(wire, mend)
+	// Don't allow them to re-enable autoclose.
+	if(wire == WIRE_TIMING)
+		return
+	return ..()
+
 /obj/machinery/door/airlock/shell
 	name = "circuit airlock"
 	autoclose = FALSE
@@ -14,9 +24,18 @@
 /obj/machinery/door/airlock/shell/check_access(obj/item/I)
 	return FALSE
 
+/obj/machinery/door/airlock/shell/canAIControl(mob/user)
+	return FALSE
+
+/obj/machinery/door/airlock/shell/canAIHack(mob/user)
+	return FALSE
+
+/obj/machinery/door/airlock/shell/set_wires()
+	return new /datum/wires/airlock/shell(src)
+
 /obj/item/circuit_component/airlock
 	display_name = "Airlock"
-	display_desc = "The general interface with an airlock. Includes general statuses of the airlock"
+	desc = "The general interface with an airlock. Includes general statuses of the airlock"
 
 	/// Called when attack_hand is called on the shell.
 	var/obj/machinery/door/airlock/attached_airlock
@@ -60,20 +79,6 @@
 	closed = add_output_port("Closed", PORT_TYPE_SIGNAL)
 	bolted = add_output_port("Bolted", PORT_TYPE_SIGNAL)
 	unbolted = add_output_port("Unbolted", PORT_TYPE_SIGNAL)
-
-/obj/item/circuit_component/airlock/Destroy()
-	bolt = null
-	unbolt = null
-	open = null
-	close = null
-	is_open = null
-	is_bolted = null
-	opened = null
-	closed = null
-	bolted = null
-	unbolted = null
-	attached_airlock = null
-	return ..()
 
 /obj/item/circuit_component/airlock/register_shell(atom/movable/shell)
 	. = ..()

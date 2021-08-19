@@ -1,22 +1,17 @@
+#define COMP_TYPECHECK_MOB "organism"
+#define COMP_TYPECHECK_HUMAN "humanoid"
+
 /**
  * # Typecheck Component
  *
  * Checks the type of a value
  */
 /obj/item/circuit_component/compare/typecheck
-	display_name = "Проверка типа"
-	display_desc = "A component that checks the type of its input."
+	display_name = "Typecheck"
+	desc = "A component that checks the type of its input."
 
 	input_port_amount = 1
-
-GLOBAL_LIST_INIT(comp_typecheck_options, list(
-	PORT_TYPE_STRING,
-	PORT_TYPE_NUMBER,
-	PORT_TYPE_LIST,
-	PORT_TYPE_ATOM,
-	COMP_TYPECHECK_MOB,
-	COMP_TYPECHECK_HUMAN,
-))
+	var/datum/port/input/option/typecheck_options
 
 /obj/item/circuit_component/compare/typecheck/populate_options()
 	var/static/component_options = list(
@@ -27,7 +22,7 @@ GLOBAL_LIST_INIT(comp_typecheck_options, list(
 		COMP_TYPECHECK_MOB,
 		COMP_TYPECHECK_HUMAN,
 	)
-	options = component_options
+	typecheck_options = add_option_port("Typecheck Options", component_options)
 
 /obj/item/circuit_component/compare/typecheck/do_comparisons(list/ports)
 	if(!length(ports))
@@ -51,3 +46,6 @@ GLOBAL_LIST_INIT(comp_typecheck_options, list(
 		if(COMP_TYPECHECK_HUMAN)
 			return ishuman(input_val)
 
+
+#undef COMP_TYPECHECK_MOB
+#undef COMP_TYPECHECK_HUMAN

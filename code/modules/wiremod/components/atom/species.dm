@@ -5,7 +5,7 @@
  */
 /obj/item/circuit_component/species
 	display_name = "Получить вид"
-	display_desc = "A component that returns the species of its input."
+	desc = "A component that returns the species of its input."
 
 	/// The input port
 	var/datum/port/input/input_port
@@ -20,11 +20,6 @@
 	input_port = add_input_port("Организм", PORT_TYPE_ATOM)
 
 	output = add_output_port("Мутация", PORT_TYPE_STRING)
-
-/obj/item/circuit_component/species/Destroy()
-	input_port = null
-	output = null
-	return ..()
 
 /obj/item/circuit_component/species/input_received(datum/port/input/port)
 	. = ..()

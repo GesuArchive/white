@@ -1,3 +1,7 @@
+#define COMP_LOGIC_AND "AND"
+#define COMP_LOGIC_OR "OR"
+#define COMP_LOGIC_XOR "XOR"
+
 /**
  * # Logic Component
  *
@@ -5,7 +9,9 @@
  */
 /obj/item/circuit_component/compare/logic
 	display_name = "Логика"
-	display_desc = "A component with 'and' and 'or' capabilities."
+	desc = "A component with 'and' and 'or' capabilities."
+
+	var/datum/port/input/option/logic_options
 
 /obj/item/circuit_component/compare/logic/populate_options()
 	var/static/component_options = list(
@@ -13,7 +19,7 @@
 		COMP_LOGIC_OR,
 		COMP_LOGIC_XOR,
 	)
-	options = component_options
+	logic_options = add_option_port("Logic Options", component_options)
 
 /obj/item/circuit_component/compare/logic/do_comparisons(list/ports)
 	. = FALSE
@@ -45,3 +51,7 @@
 			return FALSE
 		if(.)
 			return TRUE
+
+#undef COMP_LOGIC_AND
+#undef COMP_LOGIC_OR
+#undef COMP_LOGIC_XOR

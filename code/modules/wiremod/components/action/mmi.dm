@@ -5,7 +5,7 @@
  */
 /obj/item/circuit_component/mmi
 	display_name = "Man-Machine Interface"
-	display_desc = "A component that allows MMI to enter shells to send output signals."
+	desc = "A component that allows MMI to enter shells to send output signals."
 
 	/// The message to send to the MMI in the shell.
 	var/datum/port/input/message
@@ -53,16 +53,6 @@
 
 /obj/item/circuit_component/mmi/Destroy()
 	remove_current_brain()
-	message = null
-	send = null
-	eject = null
-	north = null
-	east = null
-	south = null
-	west = null
-	attack = null
-	secondary_attack = null
-	clicked_atom = null
 	return ..()
 
 /obj/item/circuit_component/mmi/input_received(datum/port/input/port)
@@ -85,7 +75,7 @@
 		if(!target)
 			return
 
-		to_chat(target, "<b>You hear a message in your ear:</b> [msg_str]")
+		to_chat(target, "[span_bold("You hear a message in your ear: ")][msg_str]")
 
 
 /obj/item/circuit_component/mmi/register_shell(atom/movable/shell)
@@ -117,6 +107,8 @@
 	RegisterSignal(to_add, COMSIG_MOVABLE_MOVED, .proc/mmi_moved)
 
 /obj/item/circuit_component/mmi/proc/mmi_moved(atom/movable/mmi)
+	SIGNAL_HANDLER
+
 	if(mmi.loc != src)
 		remove_current_brain()
 
@@ -171,13 +163,13 @@
 		attack.set_output(COMPONENT_SIGNAL)
 		. = COMSIG_MOB_CANCEL_CLICKON
 
-/obj/item/circuit_component/mmi/add_to(obj/item/integrated_circuit_wiremod/add_to)
+/obj/item/circuit_component/mmi/add_to(obj/item/integrated_circuit/add_to)
 	. = ..()
 	if(HAS_TRAIT(add_to, TRAIT_COMPONENT_MMI))
 		return FALSE
 	ADD_TRAIT(add_to, TRAIT_COMPONENT_MMI, src)
 
-/obj/item/circuit_component/mmi/removed_from(obj/item/integrated_circuit_wiremod/removed_from)
+/obj/item/circuit_component/mmi/removed_from(obj/item/integrated_circuit/removed_from)
 	REMOVE_TRAIT(removed_from, TRAIT_COMPONENT_MMI, src)
 	remove_current_brain()
 	return ..()

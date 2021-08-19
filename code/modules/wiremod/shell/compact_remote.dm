@@ -5,6 +5,7 @@
  */
 /obj/item/compact_remote
 	name = "пульт"
+	name = "compact remote"
 	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "setup_small_simple"
 	inhand_icon_state = "electronic"
@@ -22,18 +23,17 @@
 
 /obj/item/circuit_component/compact_remote
 	display_name = "Пульт"
-	display_desc = "Used to receive inputs from the compact remote shell. Use the shell in hand to trigger the output signal."
+	desc = "Used to receive inputs from the compact remote shell. Use the shell in hand to trigger the output signal."
 
 	/// Called when attack_self is called on the shell.
 	var/datum/port/output/signal
+	/// The user who used the bot
+	var/datum/port/output/entity
 
 /obj/item/circuit_component/compact_remote/Initialize()
 	. = ..()
-	signal = add_output_port("Сигнал", PORT_TYPE_SIGNAL)
-
-/obj/item/circuit_component/compact_remote/Destroy()
-	signal = null
-	return ..()
+	entity = add_output_port("User", PORT_TYPE_ATOM)
+	signal = add_output_port("Signal", PORT_TYPE_SIGNAL)
 
 /obj/item/circuit_component/compact_remote/register_shell(atom/movable/shell)
 	RegisterSignal(shell, COMSIG_ITEM_ATTACK_SELF, .proc/send_trigger)
@@ -46,6 +46,7 @@
  */
 /obj/item/circuit_component/compact_remote/proc/send_trigger(atom/source, mob/user)
 	SIGNAL_HANDLER
-	source.balloon_alert(user, "основная кнопка")
+	source.balloon_alert(user, "clicked primary button")
 	playsound(source, get_sfx("terminal_type"), 25, FALSE)
+	entity.set_output(user)
 	signal.set_output(COMPONENT_SIGNAL)

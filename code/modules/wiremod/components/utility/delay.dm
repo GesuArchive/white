@@ -1,3 +1,6 @@
+/// The minimum delay value that the delay component can have.
+#define COMP_DELAY_MIN_VALUE 0.1
+
 /**
  * # Delay Component
  *
@@ -5,7 +8,7 @@
  */
 /obj/item/circuit_component/delay
 	display_name = "Задержка"
-	display_desc = "A component that delays a signal by a specified duration."
+	desc = "A component that delays a signal by a specified duration."
 
 	/// Amount to delay by
 	var/datum/port/input/delay_amount
@@ -19,14 +22,8 @@
 	. = ..()
 	delay_amount = add_input_port("Задержка", PORT_TYPE_NUMBER, FALSE)
 	trigger = add_input_port("Активация", PORT_TYPE_SIGNAL)
-
 	output = add_output_port("Результат", PORT_TYPE_SIGNAL)
 
-/obj/item/circuit_component/delay/Destroy()
-	output = null
-	trigger = null
-	delay_amount = null
-	return ..()
 
 /obj/item/circuit_component/delay/input_received(datum/port/input/port)
 	. = ..()

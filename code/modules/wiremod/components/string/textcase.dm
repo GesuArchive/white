@@ -1,11 +1,16 @@
+#define COMP_TEXT_LOWER "To Lower"
+#define COMP_TEXT_UPPER "To Upper"
+
 /**
  * # Text Component
  *
  * Either makes the text upper case or lower case.
  */
 /obj/item/circuit_component/textcase
-	display_name = "Текстовый регистр"
-	display_desc = "A component that makes its input uppercase or lowercase."
+	display_name = "Text Case"
+	desc = "A component that makes its input uppercase or lowercase."
+
+	var/datum/port/input/option/textcase_options
 
 	/// The input port
 	var/datum/port/input/input_port
@@ -20,17 +25,12 @@
 		COMP_TEXT_LOWER,
 		COMP_TEXT_UPPER,
 	)
-	options = component_options
+	textcase_options = add_option_port("Textcase Options", component_options)
 
 /obj/item/circuit_component/textcase/Initialize()
 	. = ..()
 	input_port = add_input_port("Вход", PORT_TYPE_STRING)
 	output = add_output_port("Выход", PORT_TYPE_STRING)
-
-/obj/item/circuit_component/textcase/Destroy()
-	input_port = null
-	output = null
-	return ..()
 
 /obj/item/circuit_component/textcase/input_received(datum/port/input/port)
 	. = ..()
@@ -50,3 +50,5 @@
 
 	output.set_output(result)
 
+#undef COMP_TEXT_LOWER
+#undef COMP_TEXT_UPPER

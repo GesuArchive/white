@@ -11,9 +11,9 @@
 
 	AddComponent(/datum/component/shell, list(
 		new /obj/item/circuit_component/bci_core,
-		new /obj/item/circuit_component/bci_action("One"),
-		new /obj/item/circuit_component/bci_action("Two"),
-		new /obj/item/circuit_component/bci_action("Three"),
+		new /obj/item/circuit_component/bci_action(null, "One"),
+		new /obj/item/circuit_component/bci_action(null, "Two"),
+		new /obj/item/circuit_component/bci_action(null, "Three"),
 	), SHELL_CAPACITY_SMALL)
 
 /obj/item/organ/cyberimp/bci/Insert(mob/living/carbon/reciever, special, drop_if_replaced)
@@ -33,13 +33,13 @@
 	else
 		return ..()
 
-/obj/item/circuit_component/bci
-	display_name = "Brain-Computer Interface"
-	display_desc = "Used to receive inputs for the brain-computer interface. User is presented with three buttons."
-
 /obj/item/circuit_component/bci_action
 	display_name = "BCI Action"
-	display_desc = "Represents an action the user can take when implanted with the brain-computer interface."
+	desc = "Represents an action the user can take when implanted with the brain-computer interface."
+	required_shells = list(/obj/item/organ/cyberimp/bci)
+
+	/// The icon of the button
+	var/datum/port/input/option/icon_options
 
 	/// The name to use for the button
 	var/datum/port/input/button_name
@@ -54,18 +54,14 @@
 	. = ..()
 
 	if (!isnull(default_icon))
-		set_option(default_icon)
+		icon_options.set_input(default_icon)
 
 	button_name = add_input_port("Name", PORT_TYPE_STRING)
 
 	signal = add_output_port("Signal", PORT_TYPE_SIGNAL)
 
 /obj/item/circuit_component/bci_action/Destroy()
-	button_name = null
-	signal = null
-
 	QDEL_NULL(bci_action)
-
 	return ..()
 
 /obj/item/circuit_component/bci_action/populate_options()
@@ -106,7 +102,7 @@
 		"Wireless",
 	)
 
-	options = action_options
+	icon_options = add_option_port("Icon", action_options)
 
 /obj/item/circuit_component/bci_action/register_shell(atom/movable/shell)
 	var/obj/item/organ/cyberimp/bci/bci = shell
@@ -139,7 +135,7 @@
 	name = "Action"
 	icon_icon = 'icons/mob/actions/actions_items.dmi'
 	check_flags = AB_CHECK_CONSCIOUS
-	button_icon_state = "nanite_power"
+	button_icon_state = "bci_power"
 
 	var/obj/item/circuit_component/bci_action/circuit_component
 
@@ -159,7 +155,7 @@
 
 /obj/item/circuit_component/bci_core
 	display_name = "BCI Core"
-	display_desc = "Controls the core operations of the BCI."
+	desc = "Controls the core operations of the BCI."
 
 	/// A reference to the action button to look at charge/get info
 	var/datum/action/innate/bci_charge_action/charge_action
@@ -181,14 +177,6 @@
 
 /obj/item/circuit_component/bci_core/Destroy()
 	QDEL_NULL(charge_action)
-
-	message = null
-	send_message_signal = null
-
-	user_port = null
-
-	user = null
-
 	return ..()
 
 /obj/item/circuit_component/bci_core/register_shell(atom/movable/shell)
@@ -228,7 +216,7 @@
 		if (resolved_owner.stat == DEAD)
 			return
 
-		to_chat(resolved_owner, "<i>You hear a strange, robotic voice in your head...</i> \"<span class='robot'>[html_encode(sent_message)]</span>\"")
+		to_chat(resolved_owner, "<i>You hear a strange, robotic voice in your head...</i> \"[span_robot("[html_encode(sent_message)]")]\"")
 
 /obj/item/circuit_component/bci_core/proc/on_organ_implanted(datum/source, mob/living/carbon/owner)
 	SIGNAL_HANDLER
@@ -236,6 +224,7 @@
 	user_port.set_output(owner)
 	user = WEAKREF(owner)
 
+	RegisterSignal(owner, COMSIG_PARENT_EXAMINE, .proc/on_examine)
 	RegisterSignal(owner, COMSIG_PROCESS_BORGCHARGER_OCCUPANT, .proc/on_borg_charge)
 	RegisterSignal(owner, COMSIG_LIVING_ELECTROCUTE_ACT, .proc/on_electrocute)
 
@@ -246,6 +235,7 @@
 	user = null
 
 	UnregisterSignal(owner, list(
+		COMSIG_PARENT_EXAMINE,
 		COMSIG_PROCESS_BORGCHARGER_OCCUPANT,
 		COMSIG_LIVING_ELECTROCUTE_ACT,
 	))
@@ -268,7 +258,22 @@
 		return
 
 	parent.cell.give(shock_damage * 2)
-	to_chat(source, "<span class='notice'>You absorb some of the shock into your [parent.name]!</span>")
+	to_chat(source, span_notice("You absorb some of the shock into your [parent.name]!"))
+
+/obj/item/circuit_component/bci_core/proc/on_examine(datum/source, mob/mob, list/examine_text)
+	SIGNAL_HANDLER
+
+	if (isobserver(mob))
+		examine_text += span_notice("[source.p_they(capitalized = TRUE)] [source.p_have()] <a href='?src=[REF(src)];open_bci=1'>\a [parent] implanted in [source.p_them()]</a>.")
+
+/obj/item/circuit_component/bci_core/Topic(href, list/href_list)
+	..()
+
+	if (!isobserver(usr))
+		return
+
+	if (href_list["open_bci"])
+		parent.attack_ghost(usr)
 
 /datum/action/innate/bci_charge_action
 	name = "Check BCI Charge"
@@ -301,10 +306,10 @@
 	var/obj/item/stock_parts/cell/cell = circuit_component.parent.cell
 
 	if (isnull(cell))
-		to_chat(owner, "<span class='boldwarning'>[circuit_component.parent] has no power cell.</span>")
+		to_chat(owner, span_boldwarning("[circuit_component.parent] has no power cell."))
 	else
-		to_chat(owner, "<span class='info'>[circuit_component.parent]'s [cell.name] has <b>[cell.percent()]%</b> charge left.</span>")
-		to_chat(owner, "<span class='info'>You can recharge it by using a cyborg recharging station.</span>")
+		to_chat(owner, span_info("[circuit_component.parent]'s [cell.name] has <b>[cell.percent()]%</b> charge left."))
+		to_chat(owner, span_info("You can recharge it by using a cyborg recharging station."))
 
 /datum/action/innate/bci_charge_action/process(delta_time)
 	update_maptext()
@@ -317,13 +322,14 @@
 	name = "brain-computer interface manipulation chamber"
 	desc = "A machine that, when given a brain-computer interface, will implant it into an occupant. Otherwise, will remove any brain-computer interfaces they already have."
 	circuit = /obj/item/circuitboard/machine/bci_implanter
-	icon = 'icons/obj/machines/nanite_chamber.dmi'
-	icon_state = "nanite_chamber"
-	base_icon_state = "nanite_chamber"
+	icon = 'icons/obj/machines/bci_implanter.dmi'
+	icon_state = "bci_implanter"
+	base_icon_state = "bci_implanter"
 	layer = ABOVE_WINDOW_LAYER
 	use_power = IDLE_POWER_USE
 	anchored = TRUE
 	density = TRUE
+	obj_flags = NO_BUILD // Becomes undense when the door is open
 	idle_power_usage = 50
 	active_power_usage = 300
 
@@ -347,9 +353,9 @@
 	. = ..()
 
 	if (isnull(bci_to_implant?.resolve()))
-		. += "<span class='notice'>There is no BCI inserted.</span>"
+		. += span_notice("There is no BCI inserted.")
 	else
-		. += "<span class='notice'>Right-click to remove current BCI.</span>"
+		. += span_notice("Right-click to remove current BCI.")
 
 /obj/machinery/bci_implanter/proc/set_busy(status, working_icon)
 	busy = status
@@ -383,15 +389,20 @@
 
 	return overlays
 
-/obj/machinery/bci_implanter/AltClick(mob/user)
+/obj/machinery/bci_implanter/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
+	if (. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
+		return .
+
+	if(!user.Adjacent(src))
+		return
 
 	if (locked)
 		balloon_alert(user, "it's locked!")
-		return
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 	var/obj/item/organ/cyberimp/bci/bci_to_implant_resolved = bci_to_implant?.resolve()
-	if (isnull(bci_to_implant_resolved) && user.Adjacent(src))
+	if (isnull(bci_to_implant_resolved))
 		balloon_alert(user, "no bci inserted!")
 	else
 		user.put_in_hands(bci_to_implant_resolved)
@@ -399,12 +410,12 @@
 
 	bci_to_implant = null
 
-	return
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/machinery/bci_implanter/attackby(obj/item/weapon, mob/user, params)
 	var/obj/item/organ/cyberimp/bci/new_bci = weapon
 	if (istype(new_bci))
-		if (!(locate(/obj/item/integrated_circuit_wiremod) in new_bci))
+		if (!(locate(/obj/item/integrated_circuit) in new_bci))
 			balloon_alert(user, "bci has no circuit!")
 			return
 
@@ -421,17 +432,20 @@
 
 		return
 
+	return ..()
+
+/obj/machinery/bci_implanter/attackby_secondary(obj/item/weapon, mob/user, params)
 	if (!occupant && default_deconstruction_screwdriver(user, icon_state, icon_state, weapon))
 		update_icon()
-		return
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 	if (default_pry_open(weapon))
-		return
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 	if (default_deconstruction_crowbar(weapon))
-		return
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-	return ..()
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/machinery/bci_implanter/proc/start_process()
 	if (machine_stat & (NOPOWER|BROKEN))
@@ -513,7 +527,7 @@
 	if (!isnull(message))
 		if (COOLDOWN_FINISHED(src, message_cooldown))
 			COOLDOWN_START(src, message_cooldown, 5 SECONDS)
-			balloon_alert(user, "it won't budge!")
+			balloon_alert(user, message)
 
 		return
 
@@ -531,6 +545,7 @@
 
 /obj/item/circuitboard/machine/bci_implanter
 	name = "Brain-Computer Interface Manipulation Chamber (Machine Board)"
+	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/bci_implanter
 	req_components = list(
 		/obj/item/stock_parts/micro_laser = 2,
