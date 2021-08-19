@@ -855,7 +855,7 @@
 	obj_integrity = 25
 
 /obj/structure/cataclysmdda/tablichka
-	name = "ВНИМАНИЕ: МИННОЕ ПОЛЕ."
+	name = "ВНИМАНИЕ: МИННОЕ ПОЛЕ"
 	desc = null
 	icon_state = "minefield"
 	max_integrity = 25

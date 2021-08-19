@@ -427,7 +427,7 @@
 		new /obj/item/reagent_containers/food/drinks/drinkingglass(src)
 
 /obj/item/storage/box/condimentbottles
-	name = "коробка бутылок для приправ."
+	name = "коробка бутылок для приправ"
 	desc = "На нем большой мазок кетчупа."
 	illustration = "condiment"
 

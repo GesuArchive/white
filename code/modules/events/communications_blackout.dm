@@ -1,5 +1,5 @@
 /datum/round_event_control/communications_blackout
-	name = "Блэкаут коммуникаций."
+	name = "Блэкаут коммуникаций"
 	typepath = /datum/round_event/communications_blackout
 	weight = 30
 

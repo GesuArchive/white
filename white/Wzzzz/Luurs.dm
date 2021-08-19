@@ -40,13 +40,13 @@
 	armour_penetration = 15
 
 /obj/item/ammo_casing/mauser
-	name = "10mm bullet casing."
+	name = "10mm bullet casing"
 	desc = "A 10mm bullet casing."
 	caliber = "10mm"
 	projectile_type = /obj/projectile/bullet/pistol/rubberma
 
 /obj/item/ammo_casing/mauserb
-	name = "10mm bullet casing."
+	name = "10mm bullet casing"
 	desc = "A 10mm bullet casing."
 	caliber = "10mm"
 	projectile_type = /obj/projectile/bullet/pistol/battle

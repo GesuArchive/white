@@ -273,7 +273,7 @@ This section is for the event controller
 	kill()
 
 /turf/open/indestructible/crystal_floor
-	name = "Кристальный пол."
+	name = "Кристальный пол"
 	desc = "Кристаллизованный пол."
 	icon_state = "noslip-damaged1"
 	baseturfs = /turf/open/space
@@ -294,7 +294,7 @@ This section is for the event controller
 	return FALSE
 
 /turf/closed/indestructible/crystal_wall
-	name = "Кристальная стена."
+	name = "Кристальная стена"
 	desc = "Кристаллизованная стена."
 	icon = 'icons/turf/mining.dmi'
 	icon_state = "rock_highchance"
@@ -319,7 +319,7 @@ This section is for the event controller
 This section is for the destabilized SM
 */
 /obj/machinery/destabilized_crystal
-	name = "Дестабилизованный кристалл."
+	name = "Дестабилизованный кристалл"
 	desc = "A strangely translucent and iridescent crystal."
 	icon = 'icons/obj/supermatter.dmi'
 	icon_state = "psy"
@@ -471,7 +471,7 @@ This section is for the crystal stabilizer item and the crystal from the closed 
 		qdel(W)
 
 /obj/item/stack/sheet/otherworld_crystal
-	name = "Чужеродные кристаллы."
+	name = "Чужеродные кристаллы"
 	icon_state = "otherworld-crystal"
 	singular_name = "otherworld crystal"
 	icon = 'icons/obj/stack_objects.dmi'
@@ -584,7 +584,7 @@ This section is for the crystal portals variations
 	AddComponent(spawner_type, mob_types, spawn_time, faction, spawn_text, max_mobs)
 
 /obj/structure/crystal_portal/small
-	name = "Маленький портал."
+	name = "Маленький портал"
 	desc = "Маленький портал в неизвестное измерение!"
 	color = COLOR_BRIGHT_BLUE
 	max_mobs = 2
@@ -595,7 +595,7 @@ This section is for the crystal portals variations
 		)
 
 /obj/structure/crystal_portal/medium
-	name = "Средний портал."
+	name = "Средний портал"
 	desc = "Средний портал в неизвестное измерение!"
 	color = COLOR_GREEN
 	max_mobs = 3
@@ -607,7 +607,7 @@ This section is for the crystal portals variations
 		)
 
 /obj/structure/crystal_portal/big
-	name = "Большой портал."
+	name = "Большой портал"
 	desc = "Большой портал в неизвестное измерение!"
 	color = COLOR_RED
 	max_mobs = 4
@@ -620,7 +620,7 @@ This section is for the crystal portals variations
 		)
 
 /obj/structure/crystal_portal/huge
-	name = "Огромный портал."
+	name = "Огромный портал"
 	desc = "Огромный портал в неизвестное измерение!"
 	color = COLOR_BLACK
 	max_mobs = 2

@@ -1,6 +1,6 @@
 /obj/structure/closet/crate/secure
 	desc = "Защищенный ящик."
-	name = "надежный защищенный ящик."
+	name = "надежный защищенный ящик"
 	icon_state = "securecrate"
 	secure = TRUE
 	locked = TRUE

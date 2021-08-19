@@ -10,7 +10,7 @@
 	projectile_type = /obj/projectile/bullet/fallout/a762 */
 
 /obj/item/ammo_casing/fallout/needle
-	name = "A needler round."
+	name = "A needler round"
 	desc = "A dart for use in needler pistols."
 	caliber = "needle"
 	projectile_type = /obj/projectile/bullet/fallout/needle

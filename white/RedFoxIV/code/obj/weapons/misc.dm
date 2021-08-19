@@ -174,7 +174,7 @@
 	internal_magazine = TRUE
 
 /obj/item/ammo_box/magazine/internal/stabba_taser_magazine
-	name = "Магазин стабба тазера. Если вы видите это, сообщите администратору."
+	name = "Магазин стабба тазера. Если вы видите это, сообщите администратору"
 	icon = null
 	icon_state = null
 	ammo_type = /obj/item/ammo_casing/stabba
