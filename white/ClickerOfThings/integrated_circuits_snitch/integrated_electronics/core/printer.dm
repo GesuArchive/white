@@ -34,7 +34,7 @@
 
 /obj/item/integrated_circuit_printer/Initialize()
 	. = ..()
-	AddComponent(/datum/component/material_container, list(/datum/material/iron), MINERAL_MATERIAL_AMOUNT * 50, MATCONTAINER_EXAMINE, list(/datum/material/iron), list(/obj/item/stack, /obj/item/integrated_circuit, /obj/item/electronic_assembly))
+	AddComponent(/datum/component/material_container, list(/datum/material/iron), MINERAL_MATERIAL_AMOUNT * 50, MATCONTAINER_EXAMINE, list(/datum/material/iron), list(/obj/item/stack, /obj/item/integrated_circuit_old, /obj/item/electronic_assembly))
 
 /obj/item/integrated_circuit_printer/proc/print_program(mob/user)
 	if(!cloning)
@@ -50,7 +50,7 @@
 	cloning = FALSE
 
 /obj/item/integrated_circuit_printer/attackby(obj/item/O, mob/user)
-	if(istype(O, /obj/item/disk/integrated_circuit/upgrade/advanced))
+	if(istype(O, /obj/item/disk/integrated_circuit_old/upgrade/advanced))
 		if(upgraded)
 			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has this upgrade. </span>")
 			return TRUE
@@ -58,7 +58,7 @@
 		upgraded = TRUE
 		return TRUE
 
-	if(istype(O, /obj/item/disk/integrated_circuit/upgrade/clone))
+	if(istype(O, /obj/item/disk/integrated_circuit_old/upgrade/clone))
 		if(fast_clone)
 			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has this upgrade. </span>")
 			return TRUE
@@ -78,7 +78,7 @@
 				to_chat(user, "<span class='warning'>Remove [EA] power cell first!</span>")
 				return
 			for(var/V in EA.assembly_components)
-				var/obj/item/integrated_circuit/IC = V
+				var/obj/item/integrated_circuit_old/IC = V
 				if(!IC.removable)
 					to_chat(user, "<span class='warning'>[EA] has irremovable components in the casing, preventing you from emptying it.</span>")
 					return
@@ -89,7 +89,7 @@
 			recycling = TRUE
 			var/datum/component/material_container/mats = GetComponent(/datum/component/material_container)
 			for(var/V in EA.assembly_components)
-				var/obj/item/integrated_circuit/IC = V
+				var/obj/item/integrated_circuit_old/IC = V
 				if(!mats.has_space(mats.get_item_material_amount(IC)))
 					to_chat(user, "<span class='notice'>[capitalize(src.name)] can't hold any more materials!</span>")
 					break
@@ -186,8 +186,8 @@
 	for(var/path in current_list)
 		var/obj/O = path
 		var/can_build = TRUE
-		if(ispath(path, /obj/item/integrated_circuit))
-			var/obj/item/integrated_circuit/IC = path
+		if(ispath(path, /obj/item/integrated_circuit_old))
+			var/obj/item/integrated_circuit_old/IC = path
 			if((initial(IC.spawn_flags) & IC_SPAWN_RESEARCH) && (!(initial(IC.spawn_flags) & IC_SPAWN_DEFAULT)) && !upgraded)
 				can_build = FALSE
 		if(can_build)
@@ -221,8 +221,8 @@
 		if(ispath(build_type, /obj/item/electronic_assembly))
 			var/obj/item/electronic_assembly/E = SScircuit.cached_assemblies[build_type]
 			cost = E.materials[/datum/material/iron]
-		else if(ispath(build_type, /obj/item/integrated_circuit))
-			var/obj/item/integrated_circuit/IC = SScircuit.cached_components[build_type]
+		else if(ispath(build_type, /obj/item/integrated_circuit_old))
+			var/obj/item/integrated_circuit_old/IC = SScircuit.cached_components[build_type]
 			cost = IC.materials[/datum/material/iron]
 		else if(!(build_type in SScircuit.circuit_fabricator_recipe_list["Инструменты"]))
 			return
@@ -334,7 +334,7 @@
 
 
 // FUKKEN UPGRADE DISKS
-/obj/item/disk/integrated_circuit/upgrade
+/obj/item/disk/integrated_circuit_old/upgrade
 	name = "integrated circuit printer upgrade disk"
 	desc = "Install this into your integrated circuit printer to enhance it."
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
@@ -342,11 +342,11 @@
 	inhand_icon_state = "card-id"
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/disk/integrated_circuit/upgrade/advanced
+/obj/item/disk/integrated_circuit_old/upgrade/advanced
 	name = "integrated circuit printer upgrade disk - advanced designs"
 	desc = "Install this into your integrated circuit printer to enhance it.  This one adds new, advanced designs to the printer."
 
-/obj/item/disk/integrated_circuit/upgrade/clone
+/obj/item/disk/integrated_circuit_old/upgrade/clone
 	name = "integrated circuit printer upgrade disk - instant cloner"
 	desc = "Install this into your integrated circuit printer to enhance it.  This one allows the printer to duplicate assemblies instantaneously."
 	icon_state = "upgrade_disk_clone"

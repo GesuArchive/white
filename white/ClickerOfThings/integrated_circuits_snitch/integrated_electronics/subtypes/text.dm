@@ -1,11 +1,11 @@
-/obj/item/integrated_circuit/text
+/obj/item/integrated_circuit_old/text
 	name = "text thingy"
 	desc = "Does text-processing related things."
 	category_text = "Text"
 	complexity = 1
 
 
-/obj/item/integrated_circuit/text/lowercase
+/obj/item/integrated_circuit_old/text/lowercase
 	name = "lowercase string converter"
 	desc = "this circuit will cause a string to come out in all lowercase."
 	icon_state = "lowercase"
@@ -14,7 +14,7 @@
 	activators = list("to lowercase" = IC_PINTYPE_PULSE_IN, "on converted" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/text/lowercase/do_work()
+/obj/item/integrated_circuit_old/text/lowercase/do_work()
 	var/result = null
 	pull_data()
 	var/incoming = get_pin_data(IC_INPUT, 1)
@@ -25,7 +25,7 @@
 	push_data()
 	activate_pin(2)
 
-/obj/item/integrated_circuit/text/uppercase
+/obj/item/integrated_circuit_old/text/uppercase
 	name = "uppercase string converter"
 	desc = "THIS WILL CAUSE A STRING TO COME OUT IN ALL UPPERCASE."
 	icon_state = "uppercase"
@@ -34,7 +34,7 @@
 	activators = list("to uppercase" = IC_PINTYPE_PULSE_IN, "on converted" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/text/uppercase/do_work()
+/obj/item/integrated_circuit_old/text/uppercase/do_work()
 	var/result = null
 	pull_data()
 	var/incoming = get_pin_data(IC_INPUT, 1)
@@ -45,7 +45,7 @@
 	push_data()
 	activate_pin(2)
 
-/obj/item/integrated_circuit/text/concatenator
+/obj/item/integrated_circuit_old/text/concatenator
 	name = "concatenator"
 	desc = "This can join up to 8 strings together to get a string with a maximum of 512 characters."
 	complexity = 4
@@ -56,12 +56,12 @@
 	var/number_of_pins = 8
 	var/max_string_length = 512
 
-/obj/item/integrated_circuit/text/concatenator/Initialize()
+/obj/item/integrated_circuit_old/text/concatenator/Initialize()
 	for(var/i = 1 to number_of_pins)
 		inputs["input [i]"] = IC_PINTYPE_STRING
 	. = ..()
 
-/obj/item/integrated_circuit/text/concatenator/do_work()
+/obj/item/integrated_circuit_old/text/concatenator/do_work()
 	var/result = null
 	var/spamprotection
 	for(var/k in 1 to inputs.len)
@@ -90,21 +90,21 @@
 	push_data()
 	activate_pin(2)
 
-/obj/item/integrated_circuit/text/concatenator/small
+/obj/item/integrated_circuit_old/text/concatenator/small
 	name = "small concatenator"
 	desc = "This can join up to 4 strings together to get a string with a maximum of 256 characters."
 	complexity = 2
 	number_of_pins = 4
 	max_string_length = 256
 
-/obj/item/integrated_circuit/text/concatenator/large
+/obj/item/integrated_circuit_old/text/concatenator/large
 	name = "large concatenator"
 	desc = "This can join up to 16 strings together to get a string with a maximum of 1024 characters."
 	complexity = 6
 	number_of_pins = 16
 	max_string_length = 1024
 
-/obj/item/integrated_circuit/text/separator
+/obj/item/integrated_circuit_old/text/separator
 	name = "separator"
 	desc = "This splits a single string into two at the relative split point."
 	extended_desc = "This circuit splits a given string into two, based on the string and the index value. \
@@ -123,7 +123,7 @@
 	activators = list("separate" = IC_PINTYPE_PULSE_IN, "on separated" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/text/separator/do_work()
+/obj/item/integrated_circuit_old/text/separator/do_work()
 	var/text = get_pin_data(IC_INPUT, 1)
 	var/index = get_pin_data(IC_INPUT, 2)
 
@@ -138,7 +138,7 @@
 
 	activate_pin(2)
 
-/obj/item/integrated_circuit/text/indexer
+/obj/item/integrated_circuit_old/text/indexer
 	name = "indexer"
 	desc = "This circuit takes a string and an index value, then returns the character found at in the string at the given index."
 	extended_desc = "Make sure the index is not longer or shorter than the string length. If you don't, the circuit will return empty."
@@ -154,7 +154,7 @@
 	activators = list("index" = IC_PINTYPE_PULSE_IN, "on indexed" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/text/indexer/do_work()
+/obj/item/integrated_circuit_old/text/indexer/do_work()
 	var/strin = get_pin_data(IC_INPUT, 1)
 	var/ind = get_pin_data(IC_INPUT, 2)
 	if(ind > 0 && ind <= length(strin))
@@ -164,7 +164,7 @@
 	push_data()
 	activate_pin(2)
 
-/obj/item/integrated_circuit/text/findstring
+/obj/item/integrated_circuit_old/text/findstring
 	name = "find text"
 	desc = "This outputs the position of the sample in the string, or returns 0."
 	extended_desc = "The first pin is the string to be examined. The second pin is the sample to be found. \
@@ -182,7 +182,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 
-/obj/item/integrated_circuit/text/findstring/do_work()
+/obj/item/integrated_circuit_old/text/findstring/do_work()
 	var/position = findtext_char(get_pin_data(IC_INPUT, 1),get_pin_data(IC_INPUT, 2))
 
 	set_pin_data(IC_OUTPUT, 1, position)
@@ -194,7 +194,7 @@
 	else
 		activate_pin(4)
 
-/obj/item/integrated_circuit/text/stringlength
+/obj/item/integrated_circuit_old/text/stringlength
 	name = "get length"
 	desc = "This circuit will return the number of characters in a string."
 	complexity = 1
@@ -207,13 +207,13 @@
 	activators = list("get length" = IC_PINTYPE_PULSE_IN, "on acquisition" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/text/stringlength/do_work()
+/obj/item/integrated_circuit_old/text/stringlength/do_work()
 	set_pin_data(IC_OUTPUT, 1, length(get_pin_data(IC_INPUT, 1)))
 	push_data()
 
 	activate_pin(2)
 
-/obj/item/integrated_circuit/text/exploders
+/obj/item/integrated_circuit_old/text/exploders
 	name = "string exploder"
 	desc = "This splits a single string into a list of strings."
 	extended_desc = "This circuit splits a given string into a list of strings based on the string and given delimiter. \
@@ -231,7 +231,7 @@
 	activators = list("separate" = IC_PINTYPE_PULSE_IN, "on separated" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/text/exploders/do_work()
+/obj/item/integrated_circuit_old/text/exploders/do_work()
 	var/strin = get_pin_data(IC_INPUT, 1)
 	var/delimiter = get_pin_data(IC_INPUT, 2)
 	if(delimiter == null)
@@ -244,7 +244,7 @@
 
 
 // - Text Replacer - //
-/obj/item/integrated_circuit/text/text_replacer
+/obj/item/integrated_circuit_old/text/text_replacer
 	name = "replace circuit"
 	desc = "Replaces all of one bit of text with another"
 	extended_desc = "Takes a string(haystack) and puts out the string while having a certain word(needle) replaced with another."
@@ -262,7 +262,7 @@
 		"replaced string" = IC_PINTYPE_STRING
 	)
 
-/obj/item/integrated_circuit/text/text_replacer/do_work()
+/obj/item/integrated_circuit_old/text/text_replacer/do_work()
 	set_pin_data(IC_OUTPUT, 1,replacetext_char(get_pin_data(IC_INPUT, 1), get_pin_data(IC_INPUT, 2), get_pin_data(IC_INPUT, 3)))
 	push_data()
 	activate_pin(2)

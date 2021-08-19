@@ -6,7 +6,7 @@
 #define INTEGRATED_PUMP_MAX_VOLUME 100
 
 
-/obj/item/integrated_circuit/atmospherics
+/obj/item/integrated_circuit_old/atmospherics
 	category_text = "Atmospherics"
 	cooldown_per_use = 2 SECONDS
 	complexity = 10
@@ -18,30 +18,30 @@
 	var/datum/gas_mixture/air_contents
 	var/volume = 2 //Pretty small, I know
 
-/obj/item/integrated_circuit/atmospherics/Initialize()
+/obj/item/integrated_circuit_old/atmospherics/Initialize()
 	air_contents = new(volume)
 	. = ..()
 
-/obj/item/integrated_circuit/atmospherics/return_air()
+/obj/item/integrated_circuit_old/atmospherics/return_air()
 	return air_contents
 
 //Check if the gas container is adjacent and of the right type
-/obj/item/integrated_circuit/atmospherics/proc/check_gassource(atom/gasholder)
+/obj/item/integrated_circuit_old/atmospherics/proc/check_gassource(atom/gasholder)
 	if(!gasholder)
 		return FALSE
 	if(!gasholder.Adjacent(get_object()))
 		return FALSE
-	if(!istype(gasholder, /obj/item/tank) && !istype(gasholder, /obj/machinery/portable_atmospherics) && !istype(gasholder, /obj/item/integrated_circuit/atmospherics))
+	if(!istype(gasholder, /obj/item/tank) && !istype(gasholder, /obj/machinery/portable_atmospherics) && !istype(gasholder, /obj/item/integrated_circuit_old/atmospherics))
 		return FALSE
 	return TRUE
 
 //Needed in circuits where source and target types differ
-/obj/item/integrated_circuit/atmospherics/proc/check_gastarget(atom/gasholder)
+/obj/item/integrated_circuit_old/atmospherics/proc/check_gastarget(atom/gasholder)
 	return check_gassource(gasholder)
 
 
 // - gas pump - // **works**
-/obj/item/integrated_circuit/atmospherics/pump
+/obj/item/integrated_circuit_old/atmospherics/pump
 	name = "gas pump"
 	desc = "Somehow moves gases between two tanks, canisters, and other gas containers."
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -58,7 +58,7 @@
 	var/target_pressure = INTEGRATED_PUMP_MAX_PRESSURE
 	power_draw_per_use = 20
 
-/obj/item/integrated_circuit/atmospherics/pump/Initialize()
+/obj/item/integrated_circuit_old/atmospherics/pump/Initialize()
 	air_contents = new(volume)
 	extended_desc += " Use negative pressure to move air from target to source. \
 					Note that only part of the gas is moved on each transfer, \
@@ -67,11 +67,11 @@
 	. = ..()
 
 // This proc gets the direction of the gas flow depending on its value, by calling update target
-/obj/item/integrated_circuit/atmospherics/pump/on_data_written()
+/obj/item/integrated_circuit_old/atmospherics/pump/on_data_written()
 	var/amt = get_pin_data(IC_INPUT, 3)
 	update_target(amt)
 
-/obj/item/integrated_circuit/atmospherics/pump/proc/update_target(new_amount)
+/obj/item/integrated_circuit_old/atmospherics/pump/proc/update_target(new_amount)
 	if(!isnum(new_amount))
 		new_amount = 0
 	// See in which direction the gas moves
@@ -81,13 +81,13 @@
 		direction = SOURCE_TO_TARGET
 	target_pressure = min(round(INTEGRATED_PUMP_MAX_PRESSURE),abs(new_amount))
 
-/obj/item/integrated_circuit/atmospherics/pump/do_work()
+/obj/item/integrated_circuit_old/atmospherics/pump/do_work()
 	var/obj/source = get_pin_data_as_type(IC_INPUT, 1, /obj)
 	var/obj/target = get_pin_data_as_type(IC_INPUT, 2, /obj)
 	perform_magic(source, target)
 	activate_pin(2)
 
-/obj/item/integrated_circuit/atmospherics/pump/proc/perform_magic(atom/source, atom/target)
+/obj/item/integrated_circuit_old/atmospherics/pump/proc/perform_magic(atom/source, atom/target)
 	//Check if both atoms are of the right type: atmos circuits/gas tanks/canisters. If one is the same, use the circuit var
 	if(!check_gassource(source))
 		source = src
@@ -119,7 +119,7 @@
 	move_gas(source_air, target_air)
 	air_update_turf()
 
-/obj/item/integrated_circuit/atmospherics/pump/proc/move_gas(datum/gas_mixture/source_air, datum/gas_mixture/target_air)
+/obj/item/integrated_circuit_old/atmospherics/pump/proc/move_gas(datum/gas_mixture/source_air, datum/gas_mixture/target_air)
 
 	// No moles = nothing to pump
 	if(source_air.total_moles() <= 0  || target_air.return_pressure() >= INTEGRATED_PUMP_MAX_PRESSURE)
@@ -137,7 +137,7 @@
 
 
 // - volume pump - // **Works**
-/obj/item/integrated_circuit/atmospherics/pump/volume
+/obj/item/integrated_circuit_old/atmospherics/pump/volume
 	name = "volume pump"
 	desc = "Moves gases between two tanks, canisters, and other gas containers by using their volume, up to 200 L/s."
 	extended_desc = " Use negative volume to move air from target to source. Note that only part of the gas is moved on each transfer. Its maximum pumping volume is capped at 1000kPa."
@@ -156,7 +156,7 @@
 	var/transfer_rate = INTEGRATED_PUMP_MAX_VOLUME
 	power_draw_per_use = 20
 
-/obj/item/integrated_circuit/atmospherics/pump/volume/update_target(new_amount)
+/obj/item/integrated_circuit_old/atmospherics/pump/volume/update_target(new_amount)
 	if(!isnum(new_amount))
 		new_amount = 0
 	// See in which direction the gas moves
@@ -166,7 +166,7 @@
 		direction = SOURCE_TO_TARGET
 	target_pressure = min(INTEGRATED_PUMP_MAX_VOLUME,abs(new_amount))
 
-/obj/item/integrated_circuit/atmospherics/pump/volume/move_gas(datum/gas_mixture/source_air, datum/gas_mixture/target_air)
+/obj/item/integrated_circuit_old/atmospherics/pump/volume/move_gas(datum/gas_mixture/source_air, datum/gas_mixture/target_air)
 	// No moles = nothing to pump
 	if(source_air.total_moles() <= 0)
 		return
@@ -187,7 +187,7 @@
 
 
 // - gas vent - // **works**
-/obj/item/integrated_circuit/atmospherics/pump/vent
+/obj/item/integrated_circuit_old/atmospherics/pump/vent
 	name = "gas vent"
 	extended_desc = "Use negative volume to move air from target to environment. Note that only part of the gas is moved on each transfer. Unlike the gas pump, this one keeps pumping even further to pressures of 9000 pKa and it is not advised to use it on tank circuits."
 	desc = "Moves gases between the environment and adjacent gas containers."
@@ -196,27 +196,27 @@
 			"target pressure" = IC_PINTYPE_NUMBER
 			)
 
-/obj/item/integrated_circuit/atmospherics/pump/vent/on_data_written()
+/obj/item/integrated_circuit_old/atmospherics/pump/vent/on_data_written()
 	var/amt = get_pin_data(IC_INPUT, 2)
 	update_target(amt)
 
-/obj/item/integrated_circuit/atmospherics/pump/vent/do_work()
+/obj/item/integrated_circuit_old/atmospherics/pump/vent/do_work()
 	var/turf/source = get_turf(src)
 	var/obj/target = get_pin_data_as_type(IC_INPUT, 1, /obj)
 	perform_magic(source, target)
 	activate_pin(2)
 
-/obj/item/integrated_circuit/atmospherics/pump/vent/check_gastarget(atom/gasholder)
+/obj/item/integrated_circuit_old/atmospherics/pump/vent/check_gastarget(atom/gasholder)
 	if(!gasholder)
 		return FALSE
 	if(!gasholder.Adjacent(get_object()))
 		return FALSE
-	if(!istype(gasholder, /obj/item/tank) && !istype(gasholder, /obj/machinery/portable_atmospherics) && !istype(gasholder, /obj/item/integrated_circuit/atmospherics))
+	if(!istype(gasholder, /obj/item/tank) && !istype(gasholder, /obj/machinery/portable_atmospherics) && !istype(gasholder, /obj/item/integrated_circuit_old/atmospherics))
 		return FALSE
 	return TRUE
 
 
-/obj/item/integrated_circuit/atmospherics/pump/vent/check_gassource(atom/target)
+/obj/item/integrated_circuit_old/atmospherics/pump/vent/check_gassource(atom/target)
 	if(!target)
 		return FALSE
 	if(!istype(target, /turf))
@@ -225,7 +225,7 @@
 
 
 // - integrated connector - // Can connect and disconnect properly
-/obj/item/integrated_circuit/atmospherics/connector
+/obj/item/integrated_circuit_old/atmospherics/connector
 	name = "integrated connector"
 	desc = "Creates an airtight seal with standard connectors found on the floor, allowing the assembly to exchange gases with a pipe network."
 	extended_desc = "This circuit will automatically attempt to locate and connect to ports on the floor beneath it when activated. \
@@ -243,16 +243,16 @@
 
 	var/obj/machinery/atmospherics/components/unary/portables_connector/connector
 
-/obj/item/integrated_circuit/atmospherics/connector/Initialize()
+/obj/item/integrated_circuit_old/atmospherics/connector/Initialize()
 	air_contents = new(volume)
 	START_PROCESSING(SSobj, src)
 	. = ..()
 
 //Sucks up the gas from the connector
-/obj/item/integrated_circuit/atmospherics/connector/process()
+/obj/item/integrated_circuit_old/atmospherics/connector/process()
 	set_pin_data(IC_OUTPUT, 2, air_contents.return_pressure())
 
-/obj/item/integrated_circuit/atmospherics/connector/check_gassource(atom/gasholder)
+/obj/item/integrated_circuit_old/atmospherics/connector/check_gassource(atom/gasholder)
 	if(!gasholder)
 		return FALSE
 	if(!istype(gasholder,/obj/machinery/atmospherics/components/unary/portables_connector))
@@ -260,7 +260,7 @@
 	return TRUE
 
 //If the assembly containing this is moved from the tile the connector pipe is in, the connection breaks
-/obj/item/integrated_circuit/atmospherics/connector/ext_moved()
+/obj/item/integrated_circuit_old/atmospherics/connector/ext_moved()
 	if(connector)
 		if(get_dist(get_object(), connector) > 0)
 			// The assembly is set as connected device and the connector handles the rest
@@ -268,7 +268,7 @@
 			connector = null
 			activate_pin(4)
 
-/obj/item/integrated_circuit/atmospherics/connector/do_work()
+/obj/item/integrated_circuit_old/atmospherics/connector/do_work()
 	// If there is a connection, disconnect
 	if(connector)
 		connector.connected_device = null
@@ -286,7 +286,7 @@
 	activate_pin(2)
 
 // - gas filter - // **works**
-/obj/item/integrated_circuit/atmospherics/pump/filter
+/obj/item/integrated_circuit_old/atmospherics/pump/filter
 	name = "gas filter"
 	desc = "Filters one gas out of a mixture."
 	complexity = 20
@@ -301,11 +301,11 @@
 			)
 	power_draw_per_use = 30
 
-/obj/item/integrated_circuit/atmospherics/pump/filter/on_data_written()
+/obj/item/integrated_circuit_old/atmospherics/pump/filter/on_data_written()
 	var/amt = get_pin_data(IC_INPUT, 5)
 	target_pressure = clamp(amt, 0, INTEGRATED_PUMP_MAX_PRESSURE)
 
-/obj/item/integrated_circuit/atmospherics/pump/filter/do_work()
+/obj/item/integrated_circuit_old/atmospherics/pump/filter/do_work()
 	activate_pin(2)
 	var/obj/source = get_pin_data_as_type(IC_INPUT, 1, /obj)
 	var/obj/filtered = get_pin_data_as_type(IC_INPUT, 2, /obj)
@@ -379,7 +379,7 @@
 	contaminated_air.merge(removed)
 
 
-/obj/item/integrated_circuit/atmospherics/pump/filter/Initialize()
+/obj/item/integrated_circuit_old/atmospherics/pump/filter/Initialize()
 	air_contents = new(volume)
 	. = ..()
 	extended_desc = "Remember to properly spell and capitalize the filtered gas name. \
@@ -389,7 +389,7 @@
 
 
 // - gas mixer - // **works**
-/obj/item/integrated_circuit/atmospherics/pump/mixer
+/obj/item/integrated_circuit_old/atmospherics/pump/mixer
 	name = "gas mixer"
 	desc = "Mixes 2 different types of gases."
 	complexity = 20
@@ -404,7 +404,7 @@
 			)
 	power_draw_per_use = 30
 
-/obj/item/integrated_circuit/atmospherics/pump/mixer/do_work()
+/obj/item/integrated_circuit_old/atmospherics/pump/mixer/do_work()
 	activate_pin(2)
 	var/obj/source_1 = get_pin_data(IC_INPUT, 1)
 	var/obj/source_2 = get_pin_data(IC_INPUT, 2)
@@ -451,7 +451,7 @@
 
 
 // - integrated tank - // **works**
-/obj/item/integrated_circuit/atmospherics/tank
+/obj/item/integrated_circuit_old/atmospherics/tank
 	name = "integrated tank"
 	desc = "A small tank for the storage of gases."
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -462,21 +462,21 @@
 	volume = 3 //emergency tank sized
 	var/broken = FALSE
 
-/obj/item/integrated_circuit/atmospherics/tank/Initialize()
+/obj/item/integrated_circuit_old/atmospherics/tank/Initialize()
 	air_contents = new(volume)
 	START_PROCESSING(SSobj, src)
 	extended_desc = "Take care not to pressurize it above [round(TANK_FAILURE_PRESSURE)] kPa, or else it will break."
 	. = ..()
 
-/obj/item/integrated_circuit/atmospherics/tank/Destroy()
+/obj/item/integrated_circuit_old/atmospherics/tank/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/item/integrated_circuit/atmospherics/tank/do_work()
+/obj/item/integrated_circuit_old/atmospherics/tank/do_work()
 	set_pin_data(IC_OUTPUT, 1, WEAKREF(src))
 	push_data()
 
-/obj/item/integrated_circuit/atmospherics/tank/process()
+/obj/item/integrated_circuit_old/atmospherics/tank/process()
 	var/tank_pressure = air_contents.return_pressure()
 	set_pin_data(IC_OUTPUT, 2, tank_pressure)
 	push_data()
@@ -488,7 +488,7 @@
 	if(broken)
 		release()
 
-/obj/item/integrated_circuit/atmospherics/tank/proc/release()
+/obj/item/integrated_circuit_old/atmospherics/tank/proc/release()
 	if(air_contents.total_moles() > 0)
 		playsound(loc, 'sound/effects/spray.ogg', 10, 1, -3)
 		var/datum/gas_mixture/expelled_gas = air_contents.remove(air_contents.total_moles())
@@ -502,7 +502,7 @@
 
 
 // - large integrated tank - // **works**
-/obj/item/integrated_circuit/atmospherics/tank/large
+/obj/item/integrated_circuit_old/atmospherics/tank/large
 	name = "large integrated tank"
 	desc = "A less small tank for the storage of gases."
 	volume = 9
@@ -511,7 +511,7 @@
 
 
 // - freezer tank - // **works**
-/obj/item/integrated_circuit/atmospherics/tank/freezer
+/obj/item/integrated_circuit_old/atmospherics/tank/freezer
 	name = "freezer tank"
 	desc = "Cools the gas it contains to a preset temperature."
 	volume = 6
@@ -525,14 +525,14 @@
 	var/temperature = 293.15
 	var/heater_coefficient = 0.1
 
-/obj/item/integrated_circuit/atmospherics/tank/freezer/on_data_written()
+/obj/item/integrated_circuit_old/atmospherics/tank/freezer/on_data_written()
 	temperature = max(73.15,min(293.15,get_pin_data(IC_INPUT, 1)))
 	if(get_pin_data(IC_INPUT, 2))
 		power_draw_idle = 30
 	else
 		power_draw_idle = 0
 
-/obj/item/integrated_circuit/atmospherics/tank/freezer/process()
+/obj/item/integrated_circuit_old/atmospherics/tank/freezer/process()
 	var/tank_pressure = air_contents.return_pressure()
 	set_pin_data(IC_OUTPUT, 2, tank_pressure)
 	push_data()
@@ -545,7 +545,7 @@
 
 
 // - heater tank - // **works**
-/obj/item/integrated_circuit/atmospherics/tank/freezer/heater
+/obj/item/integrated_circuit_old/atmospherics/tank/freezer/heater
 	name = "heater tank"
 	desc = "Heats the gas it contains to a preset temperature."
 	volume = 6
@@ -555,14 +555,14 @@
 		)
 	spawn_flags = IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/atmospherics/tank/freezer/heater/on_data_written()
+/obj/item/integrated_circuit_old/atmospherics/tank/freezer/heater/on_data_written()
 	temperature = max(293.15,min(573.15,get_pin_data(IC_INPUT, 1)))
 	if(get_pin_data(IC_INPUT, 2))
 		power_draw_idle = 30
 	else
 		power_draw_idle = 0
 
-/obj/item/integrated_circuit/atmospherics/tank/freezer/heater/process()
+/obj/item/integrated_circuit_old/atmospherics/tank/freezer/heater/process()
 	var/tank_pressure = air_contents.return_pressure()
 	set_pin_data(IC_OUTPUT, 2, tank_pressure)
 	push_data()
@@ -575,7 +575,7 @@
 
 
 // - atmospheric cooler - // **works**
-/obj/item/integrated_circuit/atmospherics/cooler
+/obj/item/integrated_circuit_old/atmospherics/cooler
 	name = "atmospheric cooler circuit"
 	desc = "Cools the air around it."
 	volume = 6
@@ -588,23 +588,23 @@
 	var/temperature = 293.15
 	var/heater_coefficient = 0.1
 
-/obj/item/integrated_circuit/atmospherics/cooler/Initialize()
+/obj/item/integrated_circuit_old/atmospherics/cooler/Initialize()
 	air_contents = new(volume)
 	START_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/item/integrated_circuit/atmospherics/cooler/Destroy()
+/obj/item/integrated_circuit_old/atmospherics/cooler/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/item/integrated_circuit/atmospherics/cooler/on_data_written()
+/obj/item/integrated_circuit_old/atmospherics/cooler/on_data_written()
 	temperature = max(243.15,min(293.15,get_pin_data(IC_INPUT, 1)))
 	if(get_pin_data(IC_INPUT, 2))
 		power_draw_idle = 30
 	else
 		power_draw_idle = 0
 
-/obj/item/integrated_circuit/atmospherics/cooler/process()
+/obj/item/integrated_circuit_old/atmospherics/cooler/process()
 	set_pin_data(IC_OUTPUT, 2, air_contents.return_pressure())
 	push_data()
 
@@ -623,18 +623,18 @@
 
 
 // - atmospheric heater - // **works**
-/obj/item/integrated_circuit/atmospherics/cooler/heater
+/obj/item/integrated_circuit_old/atmospherics/cooler/heater
 	name = "atmospheric heater circuit"
 	desc = "Heats the air around it."
 
-/obj/item/integrated_circuit/atmospherics/cooler/heater/on_data_written()
+/obj/item/integrated_circuit_old/atmospherics/cooler/heater/on_data_written()
 	temperature = max(293.15,min(323.15,get_pin_data(IC_INPUT, 1)))
 	if(get_pin_data(IC_INPUT, 2))
 		power_draw_idle = 30
 	else
 		power_draw_idle = 0
 
-/obj/item/integrated_circuit/atmospherics/cooler/heater/process()
+/obj/item/integrated_circuit_old/atmospherics/cooler/heater/process()
 	set_pin_data(IC_OUTPUT, 2, air_contents.return_pressure())
 	push_data()
 
@@ -652,7 +652,7 @@
 
 
 // - tank slot - // **works**
-/obj/item/integrated_circuit/input/tank_slot
+/obj/item/integrated_circuit_old/input/tank_slot
 	category_text = "Atmospherics"
 	cooldown_per_use = 1
 	name = "tank slot"
@@ -678,14 +678,14 @@
 
 	var/obj/item/tank/internals/current_tank
 
-/obj/item/integrated_circuit/input/tank_slot/Initialize()
+/obj/item/integrated_circuit_old/input/tank_slot/Initialize()
 	START_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/item/integrated_circuit/input/tank_slot/process()
+/obj/item/integrated_circuit_old/input/tank_slot/process()
 	push_pressure()
 
-/obj/item/integrated_circuit/input/tank_slot/attackby(var/obj/item/tank/internals/I, var/mob/living/user)
+/obj/item/integrated_circuit_old/input/tank_slot/attackby(var/obj/item/tank/internals/I, var/mob/living/user)
 	//Check if it truly is a tank
 	if(!istype(I,/obj/item/tank/internals))
 		to_chat(user,"<span class='warning'>The [I.name] doesn't seem to fit in here.</span>")
@@ -708,10 +708,10 @@
 	do_work(1)
 
 
-/obj/item/integrated_circuit/input/tank_slot/ask_for_input(mob/user)
+/obj/item/integrated_circuit_old/input/tank_slot/ask_for_input(mob/user)
 	attack_self(user)
 
-/obj/item/integrated_circuit/input/tank_slot/attack_self(mob/user)
+/obj/item/integrated_circuit_old/input/tank_slot/attack_self(mob/user)
 	//Check if no tank attached
 	if(!current_tank)
 		to_chat(user, "<span class='notice'>There is currently no tank attached.</span>")
@@ -728,11 +728,11 @@
 	push_data()
 	do_work(2)
 
-/obj/item/integrated_circuit/input/tank_slot/do_work()
+/obj/item/integrated_circuit_old/input/tank_slot/do_work()
 	set_pin_data(IC_OUTPUT, 2, WEAKREF(current_tank))
 	push_data()
 
-/obj/item/integrated_circuit/input/tank_slot/proc/push_pressure()
+/obj/item/integrated_circuit_old/input/tank_slot/proc/push_pressure()
 	if(!current_tank)
 		set_pin_data(IC_OUTPUT, 1, 0)
 		return

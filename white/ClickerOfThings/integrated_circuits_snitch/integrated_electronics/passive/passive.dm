@@ -1,5 +1,5 @@
 // 'Passive' components do not have any pins, and instead contribute in some form to the assembly holding them.
-/obj/item/integrated_circuit/passive
+/obj/item/integrated_circuit_old/passive
 	inputs = list()
 	outputs = list()
 	activators = list()

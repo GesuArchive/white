@@ -14,7 +14,7 @@
 	id = "icupgadv"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/glass = 10000, /datum/material/iron = 10000)
-	build_path = /obj/item/disk/integrated_circuit/upgrade/advanced
+	build_path = /obj/item/disk/integrated_circuit_old/upgrade/advanced
 	category = list("Электроника")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -24,6 +24,6 @@
 	id = "icupgclo"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/glass = 10000, /datum/material/iron = 10000)
-	build_path = /obj/item/disk/integrated_circuit/upgrade/clone
+	build_path = /obj/item/disk/integrated_circuit_old/upgrade/clone
 	category = list("Электроника")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE

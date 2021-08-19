@@ -1,5 +1,5 @@
 //These circuits do things with lists, and use special list pins for stability.
-/obj/item/integrated_circuit/lists
+/obj/item/integrated_circuit_old/lists
 	complexity = 1
 	inputs = list(
 		"input" = IC_PINTYPE_LIST
@@ -15,7 +15,7 @@
 	power_draw_per_use = 20
 	cooldown_per_use = 10
 
-/obj/item/integrated_circuit/lists/pick
+/obj/item/integrated_circuit_old/lists/pick
 	name = "pick circuit"
 	desc = "This circuit will pick a random element from the input list, and output that element."
 	extended_desc = "The input list is not modified."
@@ -31,7 +31,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	cooldown_per_use = 1
 
-/obj/item/integrated_circuit/lists/pick/do_work()
+/obj/item/integrated_circuit_old/lists/pick/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1) // List pins guarantee that there is a list inside, even if just an empty one.
 	if(input_list.len)
 		set_pin_data(IC_OUTPUT, 1, pick(input_list))
@@ -41,7 +41,7 @@
 		activate_pin(3)
 
 
-/obj/item/integrated_circuit/lists/append
+/obj/item/integrated_circuit_old/lists/append
 	name = "append circuit"
 	desc = "This circuit will add an element to a list."
 	extended_desc = "The new element will always be at the bottom of the list."
@@ -55,7 +55,7 @@
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/lists/append/do_work()
+/obj/item/integrated_circuit_old/lists/append/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 	var/list/output_list = list()
 	var/new_entry = get_pin_data(IC_INPUT, 2)
@@ -67,7 +67,7 @@
 	activate_pin(2)
 
 
-/obj/item/integrated_circuit/lists/search
+/obj/item/integrated_circuit_old/lists/search
 	name = "search circuit"
 	desc = "This circuit will get the index location of the desired element in a list."
 	extended_desc = "Search will start at position 1 and will return the first matching position."
@@ -88,7 +88,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	cooldown_per_use = 1
 
-/obj/item/integrated_circuit/lists/search/do_work()
+/obj/item/integrated_circuit_old/lists/search/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 	var/output = input_list.Find(get_pin_data(IC_INPUT, 2))
 
@@ -101,7 +101,7 @@
 		activate_pin(3)
 
 
-/obj/item/integrated_circuit/lists/filter
+/obj/item/integrated_circuit_old/lists/filter
 	name = "filter circuit"
 	desc = "This circuit will search through a list for anything matching the desired element(s) and outputs two lists: \
 	one containing only the matching elements, and one with the matching elements filtered out."
@@ -123,7 +123,7 @@
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/lists/filter/do_work()
+/obj/item/integrated_circuit_old/lists/filter/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 	var/sample = get_pin_data(IC_INPUT, 2)
 	var/list/sample_list = islist(sample) ? uniqueList(sample) : null
@@ -165,7 +165,7 @@
 
 	output_list1 ~! input_list ? activate_pin(2) : activate_pin(3)
 
-/obj/item/integrated_circuit/lists/listset
+/obj/item/integrated_circuit_old/lists/listset
 	name = "list set circuit"
 	desc = "This circuit will remove any duplicate entries from a list."
 	extended_desc = "If there are no duplicate entries, the output list will be unchanged."
@@ -178,7 +178,7 @@
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/lists/listset/do_work()
+/obj/item/integrated_circuit_old/lists/listset/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 	input_list = uniqueList(input_list)
 
@@ -186,7 +186,7 @@
 	push_data()
 	activate_pin(2)
 
-/obj/item/integrated_circuit/lists/at
+/obj/item/integrated_circuit_old/lists/at
 	name = "at circuit"
 	desc = "This circuit will pick an element from a list by the input index."
 	extended_desc = "If there is no element at the given index, the result will be null."
@@ -206,7 +206,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	cooldown_per_use = 1
 
-/obj/item/integrated_circuit/lists/at/do_work()
+/obj/item/integrated_circuit_old/lists/at/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 	var/index = get_pin_data(IC_INPUT, 2)
 
@@ -222,7 +222,7 @@
 	activate_pin(2)
 
 
-/obj/item/integrated_circuit/lists/delete
+/obj/item/integrated_circuit_old/lists/delete
 	name = "delete circuit"
 	desc = "This circuit will remove an element from a list by the index."
 	extended_desc = "If there is no element at the given index, the result list will be unchanged."
@@ -236,7 +236,7 @@
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/lists/delete/do_work()
+/obj/item/integrated_circuit_old/lists/delete/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 	var/list/red_list = list()
 	var/index = get_pin_data(IC_INPUT, 2)
@@ -251,7 +251,7 @@
 	activate_pin(2)
 
 
-/obj/item/integrated_circuit/lists/write
+/obj/item/integrated_circuit_old/lists/write
 	name = "write circuit"
 	desc = "This circuit will write an element to a list at the given index location."
 	extended_desc = "If there is no element at the given index, it will output the same list as before."
@@ -271,7 +271,7 @@
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/lists/write/do_work()
+/obj/item/integrated_circuit_old/lists/write/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 	var/index = get_pin_data(IC_INPUT, 2)
 	var/item = get_pin_data(IC_INPUT, 3)
@@ -291,7 +291,7 @@
 		activate_pin(2)
 
 
-/obj/item/integrated_circuit/lists/len
+/obj/item/integrated_circuit_old/lists/len
 	name = "len circuit"
 	desc = "This circuit will return the length of the list."
 	inputs = list(
@@ -303,7 +303,7 @@
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/lists/len/do_work()
+/obj/item/integrated_circuit_old/lists/len/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 	set_pin_data(IC_OUTPUT, 1, input_list.len)
 	push_data()
@@ -311,7 +311,7 @@
 	cooldown_per_use = 1
 
 
-/obj/item/integrated_circuit/lists/jointext
+/obj/item/integrated_circuit_old/lists/jointext
 	name = "join text circuit"
 	desc = "This circuit will combine two lists into one, and output it as a string."
 	extended_desc = "Default settings will encode the entire list into a string."
@@ -333,7 +333,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	cooldown_per_use = 1
 
-/obj/item/integrated_circuit/lists/jointext/do_work()
+/obj/item/integrated_circuit_old/lists/jointext/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 	var/delimiter = get_pin_data(IC_INPUT, 2)
 	var/start = get_pin_data(IC_INPUT, 3)
@@ -349,7 +349,7 @@
 	activate_pin(2)
 
 
-/obj/item/integrated_circuit/lists/constructor
+/obj/item/integrated_circuit_old/lists/constructor
 	name = "large list constructor"
 	desc = "This circuit will build a list out of up to sixteen input values."
 	icon_state = "constr8"
@@ -360,13 +360,13 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	var/number_of_pins = 16
 
-/obj/item/integrated_circuit/lists/constructor/Initialize()
+/obj/item/integrated_circuit_old/lists/constructor/Initialize()
 	for(var/i = 1 to number_of_pins)
 		inputs["input [i]"] = IC_PINTYPE_ANY // This is just a string since pins don't get built until ..() is called.
 	complexity = number_of_pins / 2
 	. = ..()
 
-/obj/item/integrated_circuit/lists/constructor/do_work()
+/obj/item/integrated_circuit_old/lists/constructor/do_work()
 	var/list/output_list = list()
 	for(var/i = 1 to number_of_pins)
 		var/data = get_pin_data(IC_INPUT, i)
@@ -381,20 +381,20 @@
 	push_data()
 	activate_pin(2)
 
-/obj/item/integrated_circuit/lists/constructor/small
+/obj/item/integrated_circuit_old/lists/constructor/small
 	name = "list constructor"
 	desc = "This circuit will build a list out of up to four input values."
 	icon_state = "constr"
 	number_of_pins = 4
 
-/obj/item/integrated_circuit/lists/constructor/medium
+/obj/item/integrated_circuit_old/lists/constructor/medium
 	name = "medium list constructor"
 	desc = "This circuit will build a list out of up to eight input values."
 	icon_state = "constr8"
 	number_of_pins = 8
 
 
-/obj/item/integrated_circuit/lists/deconstructor
+/obj/item/integrated_circuit_old/lists/deconstructor
 	name = "large list deconstructor"
 	desc = "This circuit will write the first sixteen entries of its input list, starting with the index, into the output values."
 	icon_state = "deconstr8"
@@ -406,13 +406,13 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	var/number_of_pins = 16
 
-/obj/item/integrated_circuit/lists/deconstructor/Initialize()
+/obj/item/integrated_circuit_old/lists/deconstructor/Initialize()
 	for(var/i = 1 to number_of_pins)
 		outputs["output [i]"] = IC_PINTYPE_ANY // This is just a string since pins don't get built until ..() is called.
 	complexity = number_of_pins / 2
 	. = ..()
 
-/obj/item/integrated_circuit/lists/deconstructor/do_work()
+/obj/item/integrated_circuit_old/lists/deconstructor/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 	var/start_index = get_pin_data(IC_INPUT, 2)
 
@@ -426,20 +426,20 @@
 	push_data()
 	activate_pin(2)
 
-/obj/item/integrated_circuit/lists/deconstructor/small
+/obj/item/integrated_circuit_old/lists/deconstructor/small
 	name = "list deconstructor"
 	desc = "This circuit will write the first four entries of its input list, starting with the index, into the output values."
 	icon_state = "deconstr"
 	number_of_pins = 4
 
-/obj/item/integrated_circuit/lists/deconstructor/medium
+/obj/item/integrated_circuit_old/lists/deconstructor/medium
 	name = "medium list deconstructor"
 	desc = "This circuit will write the first eight entries of its input list, starting with the index, into the output values."
 	number_of_pins = 8
 
 
 // - Join circuit - //
-/obj/item/integrated_circuit/lists/join
+/obj/item/integrated_circuit_old/lists/join
 	name = "join circuit"
 	desc = "This circuit is a huge fan of shipping. It joins 2 lists together."
 	extended_desc = "Elements found in both lists will not be removed and can be found twice in the list."
@@ -453,7 +453,7 @@
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/lists/join/do_work()
+/obj/item/integrated_circuit_old/lists/join/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 	var/list/input_list2 = get_pin_data(IC_INPUT, 2)
 

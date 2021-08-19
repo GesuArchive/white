@@ -1,7 +1,7 @@
 /obj/item/multitool/circuit
-	name = "circuit multitool"
-	desc = "A circuit multitool. Used to mark entities which can then be uploaded to components by pressing the upload button on a port. \
-	Acts as a normal multitool otherwise. Use in hand to clear marked entity so that you can mark another entity."
+	name = "схемотул"
+	desc = "Мультитул для схем. Используется для отметки объектов, которые затем могут быть загружены в компоненты, нажав кнопку загрузки на порту. \
+	В остальном действует как обычный мультитул. Используйте в руке, чтобы очистить отмеченный объект, чтобы вы могли отметить другой объект."
 	icon_state = "multitool_circuit"
 
 	/// The marked atom of this multitool

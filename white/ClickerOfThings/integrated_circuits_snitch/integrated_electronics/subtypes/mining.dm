@@ -1,4 +1,4 @@
-/obj/item/integrated_circuit/mining/ore_analyzer
+/obj/item/integrated_circuit_old/mining/ore_analyzer
 	name = "ore analyzer"
 	desc = "Analyzes a rock for its ore type."
 	extended_desc = "Takes a reference for an object and checks if it is a rock first. If that is the case, it outputs the mineral \
@@ -25,7 +25,7 @@
 	var/mineral
 
 
-/obj/item/integrated_circuit/mining/ore_analyzer/do_work()
+/obj/item/integrated_circuit_old/mining/ore_analyzer/do_work()
 	rock = get_pin_data(IC_INPUT, 1)
 	if(!istype(rock,/turf/closed/mineral))
 		mineral = null
@@ -50,7 +50,7 @@
 	activate_pin(3)
 
 
-/obj/item/integrated_circuit/mining/mining_drill
+/obj/item/integrated_circuit_old/mining/mining_drill
 	name = "mining drill"
 	desc = "A mining drill that can drill through rocks."
 	extended_desc = "A mining drill that activates on sensing a mineable rock. It takes some time to get the job done and \
@@ -76,7 +76,7 @@
 	var/usedy
 	var/turf/closed/mineral/rock
 
-/obj/item/integrated_circuit/mining/mining_drill/do_work()
+/obj/item/integrated_circuit_old/mining/mining_drill/do_work()
 	rock = get_pin_data(IC_INPUT, 1)
 
 	if(!rock)
@@ -93,7 +93,7 @@
 	addtimer(CALLBACK(src, .proc/drill), 50)
 
 
-/obj/item/integrated_circuit/mining/mining_drill/proc/drill()
+/obj/item/integrated_circuit_old/mining/mining_drill/proc/drill()
 	busy = FALSE
 	// The assembly was moved, hence stopping the mining OR the rock was mined before
 	if(usedx != assembly.loc.x || usedy != assembly.loc.y || !rock)

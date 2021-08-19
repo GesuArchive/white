@@ -1,7 +1,7 @@
-/obj/item/integrated_circuit/power/
+/obj/item/integrated_circuit_old/power/
 	category_text = "Power - Active"
 
-/obj/item/integrated_circuit/power/transmitter
+/obj/item/integrated_circuit_old/power/transmitter
 	name = "power transmission circuit"
 	desc = "This can wirelessly transmit electricity from an assembly's battery towards a nearby machine."
 	icon_state = "power_transmitter"
@@ -22,7 +22,7 @@
 	power_draw_per_use = 500 // Inefficency has to come from somewhere.
 	var/amount_to_move = 5000
 
-/obj/item/integrated_circuit/power/transmitter/large
+/obj/item/integrated_circuit_old/power/transmitter/large
 	name = "large power transmission circuit"
 	desc = "This can wirelessly transmit a lot of electricity from an assembly's battery towards a nearby machine. <b>Warning:</b> Do not operate in flammable environments."
 	extended_desc = "This circuit transmits 20 kJ of electricity every time the activator pin is pulsed. The input pin must be \
@@ -35,7 +35,7 @@
 	power_draw_per_use = 2000
 	amount_to_move = 20000
 
-/obj/item/integrated_circuit/power/transmitter/do_work()
+/obj/item/integrated_circuit_old/power/transmitter/do_work()
 
 	var/atom/movable/AM = get_pin_data_as_type(IC_INPUT, 1, /atom/movable)
 	if(!AM)
@@ -52,7 +52,7 @@
 		if(A.Adjacent(B))
 			if(AM.loc != assembly)
 				transfer_amount *= 0.8 // Losses due to distance.
-			var/list/U=A.GetAllContents(/obj/item/integrated_circuit/power/transmitter)
+			var/list/U=A.GetAllContents(/obj/item/integrated_circuit_old/power/transmitter)
 			transfer_amount *= 1 / U.len
 			set_pin_data(IC_OUTPUT, 1, cell.charge)
 			set_pin_data(IC_OUTPUT, 2, cell.maxcharge)
@@ -75,7 +75,7 @@
 		push_data()
 		return FALSE
 
-/obj/item/integrated_circuit/power/transmitter/large/do_work()
+/obj/item/integrated_circuit_old/power/transmitter/large/do_work()
 	if(..()) // If the above code succeeds, do this below.
 		var/atom/movable/acting_object = get_object()
 		if(prob(20))
@@ -87,7 +87,7 @@
 
 
 // - wire connector - //
-/obj/item/integrated_circuit/power/transmitter/wire_connector
+/obj/item/integrated_circuit_old/power/transmitter/wire_connector
 	name = "wire connector"
 	desc = "Connects to a wire and allows to read the power, charge it or charge itself from the wire's power."
 	extended_desc = "This circuit will automatically attempt to locate and connect to wires on the floor beneath it when pulsed. \
@@ -115,22 +115,22 @@
 
 	var/obj/structure/cable/connected_cable
 
-/obj/item/integrated_circuit/power/transmitter/wire_connector/Destroy()
+/obj/item/integrated_circuit_old/power/transmitter/wire_connector/Destroy()
 	connected_cable = null
 	return ..()
 
-/obj/item/integrated_circuit/power/transmitter/wire_connector/Initialize()
+/obj/item/integrated_circuit_old/power/transmitter/wire_connector/Initialize()
 	START_PROCESSING(SSobj, src)
 	. = ..()
 
 //Does wire things
-/obj/item/integrated_circuit/power/transmitter/wire_connector/process()
+/obj/item/integrated_circuit_old/power/transmitter/wire_connector/process()
 	..()
 	update_cable()
 	push_data()
 
 //If the assembly containing this is moved from the tile the wire is in, the connection breaks
-/obj/item/integrated_circuit/power/transmitter/wire_connector/ext_moved()
+/obj/item/integrated_circuit_old/power/transmitter/wire_connector/ext_moved()
 	if(connected_cable)
 		if(get_dist(get_object(), connected_cable) > 0)
 			// The connected cable is removed
@@ -140,7 +140,7 @@
 			activate_pin(5)
 
 
-/obj/item/integrated_circuit/power/transmitter/wire_connector/on_data_written()
+/obj/item/integrated_circuit_old/power/transmitter/wire_connector/on_data_written()
 	var/charge_num = get_pin_data(IC_INPUT, 1)
 	//In case someone sets that pin to null
 	if(!charge_num)
@@ -149,7 +149,7 @@
 
 	amount_to_move = clamp(charge_num,-2000, 2000)
 
-/obj/item/integrated_circuit/power/transmitter/wire_connector/do_work(var/n)
+/obj/item/integrated_circuit_old/power/transmitter/wire_connector/do_work(var/n)
 	if(n == 1)
 		// If there is a connection, disconnect
 		if(connected_cable)
@@ -192,7 +192,7 @@
 		return
 	connected_cable.powernet.avail -= battery.give(-amount_to_move)
 
-/obj/item/integrated_circuit/power/transmitter/wire_connector/proc/update_cable()
+/obj/item/integrated_circuit_old/power/transmitter/wire_connector/proc/update_cable()
 	if(get_dist(get_object(), connected_cable) > 0)
 		connected_cable = null
 

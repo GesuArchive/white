@@ -8,8 +8,10 @@
 
 /obj/item/circuit_component/trigonometry
 	display_name = "Тригонометрия"
-	display_desc = "Компонент для вычисления всякой тригонометрической хуйни."
+	desc = "Компонент для вычисления всякой тригонометрической хуйни."
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
+
+	var/datum/port/input/option/trigonometric_option
 
 /obj/item/circuit_component/trigonometry/populate_options()
 	var/static/component_options = list(
@@ -20,7 +22,7 @@
 		COMP_TRIG_ARCCOS,
 		COMP_TRIG_ARCTAN
 	)
-	options = component_options
+	trigonometric_option = add_option_port("Trigonometric Option", component_options)
 
 /obj/item/circuit_component/trigonometry/Initialize()
 	. = ..()
@@ -34,10 +36,10 @@
 
 	//var/datum/port/input/input = input_ports[1]
 	var/datum/port/output/output = output_ports[1]
-	var/value = port.input_value
+	var/value = port.value
 	var/result
 
-	switch(current_option)
+	switch(trigonometric_option)
 		if(COMP_TRIG_SIN)
 			result = sin(value)
 		if(COMP_TRIG_COS)

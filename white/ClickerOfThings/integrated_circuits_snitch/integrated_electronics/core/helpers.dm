@@ -1,4 +1,4 @@
-/obj/item/integrated_circuit/proc/setup_io(list/io_list, io_type, list/io_default_list, pin_type)
+/obj/item/integrated_circuit_old/proc/setup_io(list/io_list, io_type, list/io_default_list, pin_type)
 	var/list/io_list_copy = io_list.Copy()
 	io_list.Cut()
 	for(var/i in 1 to io_list_copy.len)
@@ -20,7 +20,7 @@
 			io_list.Add(new io_type(src, io_entry, default_data, pin_type,i))
 
 
-/obj/item/integrated_circuit/proc/set_pin_data(pin_type, pin_number, datum/new_data)
+/obj/item/integrated_circuit_old/proc/set_pin_data(pin_type, pin_number, datum/new_data)
 	if(islist(new_data))
 		for(var/i in 1 to length(new_data))
 			if (istype(new_data) && !isweakref(new_data))
@@ -30,19 +30,19 @@
 	var/datum/integrated_io/pin = get_pin_ref(pin_type, pin_number)
 	return pin.write_data_to_pin(new_data)
 
-/obj/item/integrated_circuit/proc/get_pin_data(pin_type, pin_number)
+/obj/item/integrated_circuit_old/proc/get_pin_data(pin_type, pin_number)
 	var/datum/integrated_io/pin = get_pin_ref(pin_type, pin_number)
 	return pin.get_data()
 
-/obj/item/integrated_circuit/proc/get_pin_data_as_type(pin_type, pin_number, as_type)
+/obj/item/integrated_circuit_old/proc/get_pin_data_as_type(pin_type, pin_number, as_type)
 	var/datum/integrated_io/pin = get_pin_ref(pin_type, pin_number)
 	return pin.data_as_type(as_type)
 
-/obj/item/integrated_circuit/proc/activate_pin(pin_number)
+/obj/item/integrated_circuit_old/proc/activate_pin(pin_number)
 	var/datum/integrated_io/activate/A = activators[pin_number]
 	A.push_data()
 
-/obj/item/integrated_circuit/proc/get_pin_ref(pin_type, pin_number)
+/obj/item/integrated_circuit_old/proc/get_pin_ref(pin_type, pin_number)
 	switch(pin_type)
 		if(IC_INPUT)
 			if(pin_number > inputs.len)
@@ -106,7 +106,7 @@
 	if(component_number > components.len)
 		return
 
-	var/obj/item/integrated_circuit/component = components[component_number]
+	var/obj/item/integrated_circuit_old/component = components[component_number]
 	return component.get_pin_ref(pin_type, pin_number)
 
 

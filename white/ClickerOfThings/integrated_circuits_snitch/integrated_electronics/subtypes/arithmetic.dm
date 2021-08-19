@@ -1,5 +1,5 @@
 //These circuits do simple math.
-/obj/item/integrated_circuit/arithmetic
+/obj/item/integrated_circuit_old/arithmetic
 	complexity = 1
 	inputs = list(
 		"A" = IC_PINTYPE_NUMBER,
@@ -18,7 +18,7 @@
 
 // +Adding+ //
 
-/obj/item/integrated_circuit/arithmetic/addition
+/obj/item/integrated_circuit_old/arithmetic/addition
 	name = "addition circuit"
 	desc = "This circuit can add numbers together."
 	extended_desc = "The order that the calculation goes is;<br>\
@@ -27,7 +27,7 @@
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/arithmetic/addition/do_work()
+/obj/item/integrated_circuit_old/arithmetic/addition/do_work()
 	var/result = 0
 	for(var/k in 1 to inputs.len)
 		var/I = get_pin_data(IC_INPUT, k)
@@ -40,7 +40,7 @@
 
 // -Subtracting- //
 
-/obj/item/integrated_circuit/arithmetic/subtraction
+/obj/item/integrated_circuit_old/arithmetic/subtraction
 	name = "subtraction circuit"
 	desc = "This circuit can subtract numbers."
 	extended_desc = "The order that the calculation goes is;<br>\
@@ -49,7 +49,7 @@
 	icon_state = "subtraction"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/arithmetic/subtraction/do_work()
+/obj/item/integrated_circuit_old/arithmetic/subtraction/do_work()
 	var/datum/integrated_io/A = inputs[1]
 	if(!isnum(A.data))
 		return
@@ -66,7 +66,7 @@
 
 // *Multiply* //
 
-/obj/item/integrated_circuit/arithmetic/multiplication
+/obj/item/integrated_circuit_old/arithmetic/multiplication
 	name = "multiplication circuit"
 	desc = "This circuit can multiply numbers."
 	extended_desc = "The order that the calculation goes is;<br>\
@@ -76,7 +76,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 
-/obj/item/integrated_circuit/arithmetic/multiplication/do_work()
+/obj/item/integrated_circuit_old/arithmetic/multiplication/do_work()
 	var/datum/integrated_io/A = inputs[1]
 	if(!isnum(A.data))
 		return
@@ -92,7 +92,7 @@
 
 // /Division/  //
 
-/obj/item/integrated_circuit/arithmetic/division
+/obj/item/integrated_circuit_old/arithmetic/division
 	name = "division circuit"
 	desc = "This circuit can divide numbers. Don't even think about trying to divide by zero!"
 	extended_desc = "The order that the calculation goes is;<br>\
@@ -101,7 +101,7 @@
 	icon_state = "division"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/arithmetic/division/do_work()
+/obj/item/integrated_circuit_old/arithmetic/division/do_work()
 	var/datum/integrated_io/A = inputs[1]
 	if(!isnum(A.data))
 		return
@@ -120,14 +120,14 @@
 
 //^ Exponent ^//
 
-/obj/item/integrated_circuit/arithmetic/exponent
+/obj/item/integrated_circuit_old/arithmetic/exponent
 	name = "exponent circuit"
 	desc = "Outputs A to the power of B."
 	icon_state = "exponent"
 	inputs = list("A" = IC_PINTYPE_NUMBER, "B" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/arithmetic/exponent/do_work()
+/obj/item/integrated_circuit_old/arithmetic/exponent/do_work()
 	var/result = 0
 	var/datum/integrated_io/A = inputs[1]
 	var/datum/integrated_io/B = inputs[2]
@@ -140,7 +140,7 @@
 
 // +-Sign-+ //
 
-/obj/item/integrated_circuit/arithmetic/sign
+/obj/item/integrated_circuit_old/arithmetic/sign
 	name = "sign circuit"
 	desc = "This circuit can tell if a number is positive, negative, or zero."
 	extended_desc = "Will output 1, -1, or 0, depending on if A is a positive number, a negative number, or zero, respectively."
@@ -148,7 +148,7 @@
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/arithmetic/sign/do_work()
+/obj/item/integrated_circuit_old/arithmetic/sign/do_work()
 	var/result = 0
 	var/datum/integrated_io/A = inputs[1]
 	if(isnum(A.data))
@@ -165,7 +165,7 @@
 
 // Round //
 
-/obj/item/integrated_circuit/arithmetic/round
+/obj/item/integrated_circuit_old/arithmetic/round
 	name = "round circuit"
 	desc = "Rounds A to the nearest B multiple of A."
 	extended_desc = "If B is not given a number, it will output the floor of A instead."
@@ -173,7 +173,7 @@
 	inputs = list("A" = IC_PINTYPE_NUMBER, "B" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/arithmetic/round/do_work()
+/obj/item/integrated_circuit_old/arithmetic/round/do_work()
 	var/result = 0
 	var/datum/integrated_io/A = inputs[1]
 	var/datum/integrated_io/B = inputs[2]
@@ -189,14 +189,14 @@
 
 // Absolute //
 
-/obj/item/integrated_circuit/arithmetic/absolute
+/obj/item/integrated_circuit_old/arithmetic/absolute
 	name = "absolute circuit"
 	desc = "This outputs a non-negative version of the number you put in. This may also be thought of as its distance from zero."
 	icon_state = "absolute"
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/arithmetic/absolute/do_work()
+/obj/item/integrated_circuit_old/arithmetic/absolute/do_work()
 	var/result = 0
 	for(var/k in 1 to inputs.len)
 		var/datum/integrated_io/I = inputs[k]
@@ -210,14 +210,14 @@
 
 // Averaging //
 
-/obj/item/integrated_circuit/arithmetic/average
+/obj/item/integrated_circuit_old/arithmetic/average
 	name = "average circuit"
 	desc = "This circuit is of average quality. It will compute the average of the numbers you give it."
 	extended_desc = "Note that null pins are ignored, whereas a pin containing 0 is included in the averaging calculation."
 	icon_state = "average"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/arithmetic/average/do_work()
+/obj/item/integrated_circuit_old/arithmetic/average/do_work()
 	var/result = 0
 	var/inputs_used = 0
 	for(var/k in 2 to inputs.len)
@@ -234,24 +234,24 @@
 	activate_pin(2)
 
 // Pi, because why the hell not? //
-/obj/item/integrated_circuit/arithmetic/pi
+/obj/item/integrated_circuit_old/arithmetic/pi
 	name = "pi constant circuit"
 	desc = "Not recommended for cooking. Outputs '3.14159' when it receives a pulse."
 	icon_state = "pi"
 	inputs = list()
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/arithmetic/pi/Initialize()
+/obj/item/integrated_circuit_old/arithmetic/pi/Initialize()
 	. = ..()
 	desc = "Not recommended for cooking. Outputs '[PI]' when it receives a pulse."
 
-/obj/item/integrated_circuit/arithmetic/pi/do_work()
+/obj/item/integrated_circuit_old/arithmetic/pi/do_work()
 	set_pin_data(IC_OUTPUT, 1, PI)
 	push_data()
 	activate_pin(2)
 
 // Random //
-/obj/item/integrated_circuit/arithmetic/random
+/obj/item/integrated_circuit_old/arithmetic/random
 	name = "random number generator circuit"
 	desc = "This gives a random (integer) number between values A and B inclusive."
 	extended_desc = "'Inclusive' means that the upper bound is included in the range of numbers, e.g. L = 1 and H = 3 will allow \
@@ -260,7 +260,7 @@
 	inputs = list("L" = IC_PINTYPE_NUMBER,"H" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/arithmetic/random/do_work()
+/obj/item/integrated_circuit_old/arithmetic/random/do_work()
 	var/result = 0
 	var/L = get_pin_data(IC_INPUT, 1)
 	var/H = get_pin_data(IC_INPUT, 2)
@@ -274,14 +274,14 @@
 
 // Square Root //
 
-/obj/item/integrated_circuit/arithmetic/square_root
+/obj/item/integrated_circuit_old/arithmetic/square_root
 	name = "square root circuit"
 	desc = "This outputs the square root of the number you input."
 	icon_state = "square_root"
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/arithmetic/square_root/do_work()
+/obj/item/integrated_circuit_old/arithmetic/square_root/do_work()
 	var/result = 0
 	for(var/k in 2 to inputs.len)
 		var/I = get_pin_data(IC_INPUT, k)
@@ -294,14 +294,14 @@
 
 // % Modulo % //
 
-/obj/item/integrated_circuit/arithmetic/modulo
+/obj/item/integrated_circuit_old/arithmetic/modulo
 	name = "modulo circuit"
 	desc = "Gets the remainder of A / B."
 	icon_state = "modulo"
 	inputs = list("A" = IC_PINTYPE_NUMBER, "B" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/arithmetic/modulo/do_work()
+/obj/item/integrated_circuit_old/arithmetic/modulo/do_work()
 	var/result = 0
 	var/A = get_pin_data(IC_INPUT, 1)
 	var/B = get_pin_data(IC_INPUT, 2)
@@ -313,7 +313,7 @@
 	activate_pin(2)
 
 // -Max- //
-/obj/item/integrated_circuit/arithmetic/max
+/obj/item/integrated_circuit_old/arithmetic/max
 	name = "max circuit"
 	desc = "This circuit sends out the highest number."
 	extended_desc = "The highest number is put out. Null is ignored."
@@ -321,7 +321,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	var/min_comparision = FALSE
 
-/obj/item/integrated_circuit/arithmetic/max/do_work()
+/obj/item/integrated_circuit_old/arithmetic/max/do_work()
 	var/result
 	for(var/k in 1 to inputs.len)
 		var/I = get_pin_data(IC_INPUT, k)
@@ -337,7 +337,7 @@
 
 
 // -Min- //
-/obj/item/integrated_circuit/arithmetic/max/min
+/obj/item/integrated_circuit_old/arithmetic/max/min
 	name = "min circuit"
 	desc = "This circuit sends out the smallest number."
 	extended_desc = "The smallest number is put out. Null is ignored. In case no number is found, 0 is given out."

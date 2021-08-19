@@ -1,5 +1,5 @@
 //These circuits convert one variable to another.
-/obj/item/integrated_circuit/converter
+/obj/item/integrated_circuit_old/converter
 	complexity = 2
 	inputs = list("input")
 	outputs = list("output")
@@ -7,7 +7,7 @@
 	category_text = "Converter"
 	power_draw_per_use = 10
 
-/obj/item/integrated_circuit/converter/num2text
+/obj/item/integrated_circuit_old/converter/num2text
 	name = "number to string"
 	desc = "This circuit can convert a number variable into a string."
 	extended_desc = "Because of circuit limitations, null/false variables will output a '0' string."
@@ -16,7 +16,7 @@
 	outputs = list("output" = IC_PINTYPE_STRING)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/converter/num2text/do_work()
+/obj/item/integrated_circuit_old/converter/num2text/do_work()
 	var/result = null
 	pull_data()
 	var/incoming = get_pin_data(IC_INPUT, 1)
@@ -29,7 +29,7 @@
 	push_data()
 	activate_pin(2)
 
-/obj/item/integrated_circuit/converter/text2num
+/obj/item/integrated_circuit_old/converter/text2num
 	name = "string to number"
 	desc = "This circuit can convert a string variable into a number."
 	icon_state = "string-num"
@@ -37,7 +37,7 @@
 	outputs = list("output" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/converter/text2num/do_work()
+/obj/item/integrated_circuit_old/converter/text2num/do_work()
 	var/result = null
 	pull_data()
 	var/incoming = get_pin_data(IC_INPUT, 1)
@@ -48,7 +48,7 @@
 	push_data()
 	activate_pin(2)
 
-/obj/item/integrated_circuit/converter/ref2text
+/obj/item/integrated_circuit_old/converter/ref2text
 	name = "reference to string"
 	desc = "This circuit can convert a reference to something else to a string, specifically the name of that reference."
 	icon_state = "ref-string"
@@ -56,7 +56,7 @@
 	outputs = list("output" = IC_PINTYPE_STRING)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/converter/ref2text/do_work()
+/obj/item/integrated_circuit_old/converter/ref2text/do_work()
 	var/result = null
 	pull_data()
 	var/atom/A = get_pin_data(IC_INPUT, 1)
@@ -67,7 +67,7 @@
 	push_data()
 	activate_pin(2)
 
-/obj/item/integrated_circuit/converter/refcode
+/obj/item/integrated_circuit_old/converter/refcode
 	name = "reference encoder"
 	desc = "This circuit can encode a reference into a string, which can then be read by a reference decoder circuit."
 	icon_state = "ref-string"
@@ -75,7 +75,7 @@
 	outputs = list("output" = IC_PINTYPE_STRING)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/converter/refcode/do_work()
+/obj/item/integrated_circuit_old/converter/refcode/do_work()
 	var/result = null
 	pull_data()
 	var/atom/A = get_pin_data(IC_INPUT, 1)
@@ -86,7 +86,7 @@
 	push_data()
 	activate_pin(2)
 
-/obj/item/integrated_circuit/converter/refdecode
+/obj/item/integrated_circuit_old/converter/refdecode
 	name = "reference decoder"
 	desc = "This circuit can convert an encoded reference to an actual reference."
 	icon_state = "ref-string"
@@ -95,7 +95,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	var/dec
 
-/obj/item/integrated_circuit/converter/refdecode/do_work()
+/obj/item/integrated_circuit_old/converter/refdecode/do_work()
 	pull_data()
 	dec = rot13(hextostr(get_pin_data(IC_INPUT, 1), TRUE))
 	set_pin_data(IC_OUTPUT, 1, WEAKREF(locate(dec)))
@@ -103,14 +103,14 @@
 	activate_pin(2)
 
 
-/obj/item/integrated_circuit/converter/radians2degrees
+/obj/item/integrated_circuit_old/converter/radians2degrees
 	name = "radians to degrees converter"
 	desc = "Converts radians to degrees."
 	inputs = list("radian" = IC_PINTYPE_NUMBER)
 	outputs = list("degrees" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/converter/radians2degrees/do_work()
+/obj/item/integrated_circuit_old/converter/radians2degrees/do_work()
 	var/result = null
 	pull_data()
 	var/incoming = get_pin_data(IC_INPUT, 1)
@@ -121,14 +121,14 @@
 	push_data()
 	activate_pin(2)
 
-/obj/item/integrated_circuit/converter/degrees2radians
+/obj/item/integrated_circuit_old/converter/degrees2radians
 	name = "degrees to radians converter"
 	desc = "Converts degrees to radians."
 	inputs = list("degrees" = IC_PINTYPE_NUMBER)
 	outputs = list("radians" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/converter/degrees2radians/do_work()
+/obj/item/integrated_circuit_old/converter/degrees2radians/do_work()
 	var/result = null
 	pull_data()
 	var/incoming = get_pin_data(IC_INPUT, 1)
@@ -140,7 +140,7 @@
 	activate_pin(2)
 
 
-/obj/item/integrated_circuit/converter/abs_to_rel_coords
+/obj/item/integrated_circuit_old/converter/abs_to_rel_coords
 	name = "abs to rel coordinate converter"
 	desc = "Easily convert absolute coordinates to relative coordinates with this."
 	extended_desc = "Keep in mind that both sets of input coordinates should be absolute."
@@ -158,7 +158,7 @@
 	activators = list("compute rel coordinates" = IC_PINTYPE_PULSE_IN, "on convert" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/converter/abs_to_rel_coords/do_work()
+/obj/item/integrated_circuit_old/converter/abs_to_rel_coords/do_work()
 	var/x1 = get_pin_data(IC_INPUT, 1)
 	var/y1 = get_pin_data(IC_INPUT, 2)
 
@@ -172,7 +172,7 @@
 	push_data()
 	activate_pin(2)
 
-/obj/item/integrated_circuit/converter/rel_to_abs_coords
+/obj/item/integrated_circuit_old/converter/rel_to_abs_coords
 	name = "rel to abs coordinate converter"
 	desc = "Convert relative coordinates to absolute coordinates with this."
 	extended_desc = "Keep in mind that only one set of input coordinates should be absolute, and the other relative. \
@@ -191,7 +191,7 @@
 	activators = list("compute abs coordinates" = IC_PINTYPE_PULSE_IN, "on convert" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/converter/rel_to_abs_coords/do_work()
+/obj/item/integrated_circuit_old/converter/rel_to_abs_coords/do_work()
 	var/x1 = get_pin_data(IC_INPUT, 1)
 	var/y1 = get_pin_data(IC_INPUT, 2)
 
@@ -205,7 +205,7 @@
 	push_data()
 	activate_pin(2)
 
-/obj/item/integrated_circuit/converter/adv_rel_to_abs_coords
+/obj/item/integrated_circuit_old/converter/adv_rel_to_abs_coords
 	name = "advanced rel to abs coordinate converter"
 	desc = "Easily convert relative coordinates to absolute coordinates with this."
 	extended_desc = "This circuit only requires a single set of relative inputs to output absolute coordinates."
@@ -221,7 +221,7 @@
 	activators = list("compute abs coordinates" = IC_PINTYPE_PULSE_IN, "on convert" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/converter/adv_rel_to_abs_coords/do_work()
+/obj/item/integrated_circuit_old/converter/adv_rel_to_abs_coords/do_work()
 	var/turf/T = get_turf(src)
 
 	if(!T)
@@ -238,7 +238,7 @@
 	activate_pin(2)
 
 
-/obj/item/integrated_circuit/converter/hsv2hex
+/obj/item/integrated_circuit_old/converter/hsv2hex
 	name = "hsv to hexadecimal"
 	desc = "This circuit can convert a HSV (Hue, Saturation, and Value) color to a Hexadecimal RGB color."
 	extended_desc = "The first pin controls tint (0-359), the second pin controls how intense the tint is (0-255), and the third controls how bright the tint is (0 for black, 127 for normal, 255 for white)."
@@ -251,7 +251,7 @@
 	outputs = list("hexadecimal rgb" = IC_PINTYPE_COLOR)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/converter/hsv2hex/do_work()
+/obj/item/integrated_circuit_old/converter/hsv2hex/do_work()
 	var/result = null
 	pull_data()
 	var/hue = get_pin_data(IC_INPUT, 1)
@@ -265,7 +265,7 @@
 	activate_pin(2)
 
 
-/obj/item/integrated_circuit/converter/rgb2hex
+/obj/item/integrated_circuit_old/converter/rgb2hex
 	name = "rgb to hexadecimal"
 	desc = "This circuit can convert a RGB (Red, Green, Blue) color to a Hexadecimal RGB color."
 	extended_desc = "The first pin controls red amount, the second pin controls green amount, and the third controls blue amount. They all go from 0-255."
@@ -278,7 +278,7 @@
 	outputs = list("hexadecimal rgb" = IC_PINTYPE_COLOR)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/converter/rgb2hex/do_work()
+/obj/item/integrated_circuit_old/converter/rgb2hex/do_work()
 	var/result = null
 	pull_data()
 	var/red = get_pin_data(IC_INPUT, 1)
@@ -293,7 +293,7 @@
 
 
 // - hsv to rgb - //
-/obj/item/integrated_circuit/converter/hsv2rgb
+/obj/item/integrated_circuit_old/converter/hsv2rgb
 	name = "hsv to rgb"
 	desc = "This circuit can convert a HSV (Hue, Saturation, and Value) color to a RGB (red, blue and green) color."
 	extended_desc = "The first pin controls tint (0-359), the second pin controls how intense the tint is (0-255), and the third controls how bright the tint is (0 for black, 127 for normal, 255 for white)."
@@ -309,7 +309,7 @@
 		"blue" = IC_PINTYPE_NUMBER
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-/obj/item/integrated_circuit/converter/hsv2rgb/do_work()
+/obj/item/integrated_circuit_old/converter/hsv2rgb/do_work()
 	var/hue = get_pin_data(IC_INPUT, 1)
 	var/sat = get_pin_data(IC_INPUT, 2)
 	var/val = get_pin_data(IC_INPUT, 3)
@@ -328,7 +328,7 @@
 
 
 // - rgb to hsv - //
-/obj/item/integrated_circuit/converter/rgb2hsv
+/obj/item/integrated_circuit_old/converter/rgb2hsv
 	name = "rgb to hsv"
 	desc = "This circuit can convert a RGB (Red, Blue, and Green) color to a HSV (Hue, Saturation and Value) color."
 	extended_desc = "All values for the RGB colors are situated between 0 and 255."
@@ -345,7 +345,7 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/converter/rgb2hsv/do_work()
+/obj/item/integrated_circuit_old/converter/rgb2hsv/do_work()
 	var/red = get_pin_data(IC_INPUT, 1)
 	var/blue = get_pin_data(IC_INPUT, 2)
 	var/green = get_pin_data(IC_INPUT, 3)
@@ -364,7 +364,7 @@
 
 
 // - hexadecimal to hsv - //
-/obj/item/integrated_circuit/converter/hex2hsv
+/obj/item/integrated_circuit_old/converter/hex2hsv
 	name = "hexadecimal to hsv"
 	desc = "This circuit can convert a Hexadecimal RGB color into a HSV (Hue, Saturation and Value) color."
 	extended_desc = "Hexadecimal colors follow the format #RRBBGG, RR being the red value, BB the blue value and GG the green value. They are written in hexadecimal, giving each color a value from 0 (00) to 255 (FF)."
@@ -377,7 +377,7 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/converter/hex2hsv/do_work()
+/obj/item/integrated_circuit_old/converter/hex2hsv/do_work()
 	pull_data()
 	var/rgb = get_pin_data(IC_INPUT, 1)
 	if(!rgb)
@@ -395,7 +395,7 @@
 
 
 // - hex 2 rgb - //
-/obj/item/integrated_circuit/converter/hex2rgb
+/obj/item/integrated_circuit_old/converter/hex2rgb
 	name = "hexadecimal to rgb"
 	desc = "This circuit can convert a Hexadecimal RGB color into a RGB (Red, Blue and Green color."
 	extended_desc = "Hexadecimal colors follow the format #RRBBGG, RR being the red value, BB the blue value and GG the green value. They are written in hexadecimal, giving each color a value from 0 (00) to 255 (FF)."
@@ -408,7 +408,7 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/converter/hex2rgb/do_work()
+/obj/item/integrated_circuit_old/converter/hex2rgb/do_work()
 	var/rgb = get_pin_data(IC_INPUT, 1)
 	if(!rgb)
 		set_pin_data(IC_OUTPUT, 1, 0)

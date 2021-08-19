@@ -38,7 +38,7 @@
 
 /obj/item/circuit_component/telepad_console
 	display_name = "Telepad Console"
-	display_desc = "Хз заполните ету хуйню мне впадлу."
+	desc = "Хз заполните ету хуйню мне впадлу."
 
 	var/datum/port/input/elevation
 	var/datum/port/input/rotation
@@ -100,10 +100,10 @@
 		status.set_output("Не найдена консоль или ее телепад!")
 		return
 
-	attached_console.angle = elevation.input_value
-	attached_console.rotation = rotation.input_value
-	attached_console.power = power.input_value
-	attached_console.z_co = sector.input_value
+	attached_console.angle = elevation.value
+	attached_console.rotation = rotation.value
+	attached_console.power = power.value
+	attached_console.z_co = sector.value
 	if(COMPONENT_TRIGGERED_BY(port, elevation))
 		elevation.set_input(attached_console.angle, FALSE)
 		return

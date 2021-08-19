@@ -1,10 +1,10 @@
-/datum/design/integrated_circuit_wiremod
+/datum/design/integrated_circuit
 	name = "Integrated Circuit"
 	desc = "The foundation of all circuits. All Circuitry go onto this."
 	id = "integrated_circuit"
-	build_path = /obj/item/integrated_circuit_wiremod
+	build_path = /obj/item/integrated_circuit
 	build_type = IMPRINTER | COMPONENT_PRINTER
-	category = list("Схемотехника", "Core")
+	category = list("Circuitry", "Core")
 	materials = list(/datum/material/glass = 1000, /datum/material/iron = 1000)
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -14,7 +14,7 @@
 	id = "circuit_multitool"
 	build_path = /obj/item/multitool/circuit
 	build_type = PROTOLATHE | COMPONENT_PRINTER
-	category = list("Схемотехника", "Core")
+	category = list("Circuitry", "Core")
 	materials = list(/datum/material/glass = 1000, /datum/material/iron = 1000)
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -35,13 +35,13 @@
 	build_type = IMPRINTER | COMPONENT_PRINTER
 	materials = list(/datum/material/glass = 1000)
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
-	category = list("Схемотехника", "Components")
+	category = list("Circuitry", "Components")
 
 /datum/design/component/New()
 	. = ..()
 	if(build_path)
 		var/obj/item/circuit_component/component_path = build_path
-		desc = initial(component_path.display_desc)
+		desc = initial(component_path.desc)
 
 /datum/design/component/arithmetic
 	name = "Arithmetic Component"
@@ -87,11 +87,6 @@
 	name = "Not Component"
 	id = "comp_not"
 	build_path = /obj/item/circuit_component/not
-
-/datum/design/component/ram
-	name = "RAM Component"
-	id = "comp_ram"
-	build_path = /obj/item/circuit_component/ram
 
 /datum/design/component/random
 	name = "Random Component"
@@ -188,10 +183,15 @@
 	id = "comp_mmi"
 	build_path = /obj/item/circuit_component/mmi
 
+/datum/design/component/router
+	name = "Router Component"
+	id = "comp_router"
+	build_path = /obj/item/circuit_component/router
+
 /datum/design/component/multiplexer
 	name = "Multiplexer Component"
 	id = "comp_multiplexer"
-	build_path = /obj/item/circuit_component/multiplexer
+	build_path = /obj/item/circuit_component/router/multiplexer
 
 /datum/design/component/get_column
 	name = "Get Column Component"
@@ -233,6 +233,53 @@
 	id = "comp_module"
 	build_path = /obj/item/circuit_component/module
 
+/datum/design/component/ntnet_receive
+	name = "Pressure NTNet Transmitter"
+	id = "comp_ntnet_receive"
+	build_path = /obj/item/circuit_component/ntnet_receive
+
+/datum/design/component/ntnet_send
+	name = "NTNet Request Component"
+	id = "comp_ntnet_send"
+	build_path = /obj/item/circuit_component/ntnet_send
+
+/datum/design/component/list_literal
+	name = "List Literal Component"
+	id = "comp_list_literal"
+	build_path = /obj/item/circuit_component/list_literal
+
+/datum/design/component/typecast
+	name = "Typecast Component"
+	id = "comp_typecast"
+	build_path = /obj/item/circuit_component/typecast
+
+/datum/design/component/bci
+	category = list("Circuitry", "BCI Components")
+
+/datum/design/component/bci/bci_action
+	name = "BCI Action Component"
+	id = "comp_bci_action"
+	build_path = /obj/item/circuit_component/bci_action
+
+/datum/design/component/bci/object_overlay
+	name = "Object Overlay Component"
+	id = "comp_object_overlay"
+	build_path = /obj/item/circuit_component/object_overlay
+
+/datum/design/component/bci/bar_overlay
+	name = "Bar Overlay Component"
+	id = "comp_bar_overlay"
+	build_path = /obj/item/circuit_component/object_overlay/bar
+
+/datum/design/component/bci/target_intercept
+	name = "BCI Target Interceptor"
+	id = "comp_target_intercept"
+	build_path = /obj/item/circuit_component/target_intercept
+
+/datum/design/component/bci/counter_overlay
+	name = "Counter Overlay Component"
+	id = "comp_counter_overlay"
+	build_path = /obj/item/circuit_component/counter_overlay
 
 /datum/design/compact_remote_shell
 	name = "Compact Remote Shell"
@@ -241,7 +288,7 @@
 	build_path = /obj/item/compact_remote
 	materials = list(/datum/material/glass = 2000, /datum/material/iron = 5000)
 	build_type = PROTOLATHE | COMPONENT_PRINTER
-	category = list("Схемотехника", "Shells")
+	category = list("Circuitry", "Shells")
 
 /datum/design/controller_shell
 	name = "Controller Shell"
@@ -250,7 +297,7 @@
 	build_path = /obj/item/controller
 	build_type = PROTOLATHE | COMPONENT_PRINTER
 	materials = list(/datum/material/glass = 2000, /datum/material/iron = 7000)
-	category = list("Схемотехника", "Shells")
+	category = list("Circuitry", "Shells")
 
 /datum/design/scanner_shell
 	name = "Scanner Shell"
@@ -268,7 +315,7 @@
 	build_path = /obj/item/shell/bot
 	build_type = PROTOLATHE | COMPONENT_PRINTER
 	materials = list(/datum/material/glass = 2000, /datum/material/iron = 10000)
-	category = list("Схемотехника", "Shells")
+	category = list("Circuitry", "Shells")
 
 /datum/design/money_bot_shell
 	name = "Money Bot Shell"
@@ -290,7 +337,7 @@
 		/datum/material/iron = 11000,
 		/datum/material/gold = 500,
 	)
-	category = list("Схемотехника", "Shells")
+	category = list("Circuitry", "Shells")
 
 /datum/design/server_shell
 	name = "Server Shell"
@@ -303,7 +350,7 @@
 	)
 	build_path = /obj/item/shell/server
 	build_type = PROTOLATHE | COMPONENT_PRINTER
-	category = list("Схемотехника", "Shells")
+	category = list("Circuitry", "Shells")
 
 /datum/design/airlock_shell
 	name = "Airlock Shell"
@@ -315,7 +362,7 @@
 	)
 	build_path = /obj/item/shell/airlock
 	build_type = PROTOLATHE | COMPONENT_PRINTER
-	category = list("Схемотехника", "Shells")
+	category = list("Circuitry", "Shells")
 
 /datum/design/bci_shell
 	name = "Brain-Computer Interface Shell"
@@ -327,7 +374,19 @@
 	)
 	build_path = /obj/item/shell/bci
 	build_type = PROTOLATHE | COMPONENT_PRINTER
-	category = list("Схемотехника", "Shells")
+	category = list("Circuitry", "Shells")
+
+/datum/design/scanner_gate_shell
+	name = "Scanner Gate Shell"
+	desc = "A scanner gate shell that performs mid-depth scans on people when they pass through it."
+	id = "scanner_gate_shell"
+	materials = list(
+		/datum/material/glass = 4000,
+		/datum/material/iron = 12000,
+	)
+	build_path = /obj/item/shell/scanner_gate
+	build_type = PROTOLATHE | COMPONENT_PRINTER
+	category = list("Circuitry", "Shells")
 
 /datum/design/board/bci_implanter
 	name = "Brain-Computer Interface Manipulation Chamber"
@@ -335,4 +394,4 @@
 	id = "bci_implanter"
 	build_path = /obj/item/circuitboard/machine/bci_implanter
 	build_type = IMPRINTER | COMPONENT_PRINTER
-	category = list("Схемотехника", "Core")
+	category = list("Circuitry", "Core")

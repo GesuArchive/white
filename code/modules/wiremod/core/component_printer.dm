@@ -1,7 +1,7 @@
 /// Component printer, creates components for integrated circuits.
 /obj/machinery/component_printer
-	name = "component printer"
-	desc = "Produces components for the creation of integrated circuits."
+	name = "схемопринтер"
+	desc = "Печатает различные штуки для нового типа DIY-электроники."
 	icon = 'icons/obj/wiremod_fab.dmi'
 	icon_state = "fab-idle"
 	circuit = /obj/item/circuitboard/machine/component_printer

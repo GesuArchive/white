@@ -1,7 +1,7 @@
-/obj/item/integrated_circuit/smart
+/obj/item/integrated_circuit_old/smart
 	category_text = "Smart"
 
-/obj/item/integrated_circuit/smart/Initialize(mapload)
+/obj/item/integrated_circuit_old/smart/Initialize(mapload)
 	. = ..()
 	var/list/maybe = list()
 	for(var/mob/living/L in view(1))
@@ -9,7 +9,7 @@
 	if(maybe)
 		message_admins("[capitalize(src.name)] был создан в [get_area_name(get_turf(src))]. Возможные пользователи: [english_list(maybe)]")
 
-/obj/item/integrated_circuit/smart/basic_pathfinder
+/obj/item/integrated_circuit_old/smart/basic_pathfinder
 	name = "basic pathfinder"
 	desc = "This complex circuit is able to determine what direction a given target is."
 	extended_desc = "This circuit uses a miniturized integrated camera to determine where the target is. If the machine \
@@ -22,7 +22,7 @@
 	spawn_flags = IC_SPAWN_RESEARCH
 	power_draw_per_use = 40
 
-/obj/item/integrated_circuit/smart/basic_pathfinder/do_work()
+/obj/item/integrated_circuit_old/smart/basic_pathfinder/do_work()
 	var/datum/integrated_io/I = inputs[1]
 	set_pin_data(IC_OUTPUT, 1, null)
 	if(!isweakref(I.data))
@@ -43,7 +43,7 @@
 	push_data()
 	activate_pin(2)
 
-/obj/item/integrated_circuit/smart/coord_basic_pathfinder
+/obj/item/integrated_circuit_old/smart/coord_basic_pathfinder
 	name = "coordinate pathfinder"
 	desc = "This complex circuit is able to determine what direction a given target is."
 	extended_desc = "This circuit uses absolute coordinates to determine where the target is. If the machine \
@@ -59,7 +59,7 @@
 	spawn_flags = IC_SPAWN_RESEARCH
 	power_draw_per_use = 40
 
-/obj/item/integrated_circuit/smart/coord_basic_pathfinder/do_work()
+/obj/item/integrated_circuit_old/smart/coord_basic_pathfinder/do_work()
 	if(!assembly)
 		activate_pin(3)
 		return
@@ -79,7 +79,7 @@
 	push_data()
 	activate_pin(2)
 
-/obj/item/integrated_circuit/smart/advanced_pathfinder
+/obj/item/integrated_circuit_old/smart/advanced_pathfinder
 	name = "advanced pathfinder"
 	desc = "This circuit uses a complex processor for long-range pathfinding."
 	extended_desc = "This circuit uses absolute coordinates to find its target. A path will be generated to the target, taking obstacles into account, \
@@ -94,11 +94,11 @@
 	ext_cooldown = 5
 	var/obj/item/card/id/idc
 
-/obj/item/integrated_circuit/smart/advanced_pathfinder/Initialize()
+/obj/item/integrated_circuit_old/smart/advanced_pathfinder/Initialize()
 	.=..()
 	idc = new(src)
 
-/obj/item/integrated_circuit/smart/advanced_pathfinder/do_work()
+/obj/item/integrated_circuit_old/smart/advanced_pathfinder/do_work()
 	if(!assembly)
 		activate_pin(3)
 		return
@@ -125,7 +125,7 @@
 
 
 // - MMI Tank - //
-/obj/item/integrated_circuit/input/mmi_tank
+/obj/item/integrated_circuit_old/input/mmi_tank
 	name = "man-machine interface tank"
 	desc = "This circuit is just a jar filled with an artificial liquid mimicking the cerebrospinal fluid."
 	extended_desc = "This jar can hold 1 man-machine interface and let it take control of some basic functions of the assembly."
@@ -154,7 +154,7 @@
 
 	var/obj/item/mmi/installed_brain
 
-/obj/item/integrated_circuit/input/mmi_tank/attackby(var/obj/item/mmi/O, var/mob/user)
+/obj/item/integrated_circuit_old/input/mmi_tank/attackby(var/obj/item/mmi/O, var/mob/user)
 	if(!istype(O,/obj/item/mmi))
 		to_chat(user,"<span class='warning'>You can't put that inside.</span>")
 		return
@@ -169,7 +169,7 @@
 	O.brainmob.remote_control=src
 	set_pin_data(IC_OUTPUT, 1, O)
 
-/obj/item/integrated_circuit/input/mmi_tank/attack_self(var/mob/user)
+/obj/item/integrated_circuit_old/input/mmi_tank/attack_self(var/mob/user)
 	if(installed_brain)
 		RemoveBrain()
 		to_chat(user, "<span class='notice'>You slowly lift [installed_brain] out of the MMI tank.</span>")
@@ -179,11 +179,11 @@
 	else
 		to_chat(user, "<span class='notice'>You don't see any brain swimming in the tank.</span>")
 
-/obj/item/integrated_circuit/input/mmi_tank/Destroy()
+/obj/item/integrated_circuit_old/input/mmi_tank/Destroy()
 	RemoveBrain()
 	..()
 
-/obj/item/integrated_circuit/input/mmi_tank/relaymove(var/n,var/dir)
+/obj/item/integrated_circuit_old/input/mmi_tank/relaymove(var/n,var/dir)
 	set_pin_data(IC_OUTPUT, 2, dir)
 	do_work(1)
 	switch(dir)
@@ -192,11 +192,11 @@
 		if(1)	activate_pin(4)
 		if(2)	activate_pin(5)
 
-/obj/item/integrated_circuit/input/mmi_tank/do_work(var/n)
+/obj/item/integrated_circuit_old/input/mmi_tank/do_work(var/n)
 	push_data()
 	activate_pin(n)
 
-/obj/item/integrated_circuit/input/mmi_tank/proc/RemoveBrain()
+/obj/item/integrated_circuit_old/input/mmi_tank/proc/RemoveBrain()
 	if(installed_brain)
 		can_be_asked_input = TRUE
 		installed_brain.forceMove(drop_location())
@@ -210,9 +210,9 @@
 
 /mob/living/brain/ClickOn(atom/A, params)
 	..()
-	if(!istype(remote_control,/obj/item/integrated_circuit/input/mmi_tank))
+	if(!istype(remote_control,/obj/item/integrated_circuit_old/input/mmi_tank))
 		return
-	var/obj/item/integrated_circuit/input/mmi_tank/brainholder=remote_control
+	var/obj/item/integrated_circuit_old/input/mmi_tank/brainholder=remote_control
 	brainholder.set_pin_data(IC_OUTPUT, 3, A)
 	var/list/modifiers = params2list(params)
 
@@ -244,7 +244,7 @@
 /mob/living/brain/canUseTopic(be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
 	return	check_bot_self
 
-/obj/item/integrated_circuit/smart/advanced_pathfinder/proc/hippie_xor_decrypt()
+/obj/item/integrated_circuit_old/smart/advanced_pathfinder/proc/hippie_xor_decrypt()
 	var/Ps = get_pin_data(IC_INPUT, 4)
 	if(!Ps)
 		return
@@ -253,7 +253,7 @@
 		idc.access = Pl
 
 // - pAI connector circuit - //
-/obj/item/integrated_circuit/input/pAI_connector
+/obj/item/integrated_circuit_old/input/pAI_connector
 	name = "pAI connector circuit"
 	desc = "This circuit lets you fit in a personal artificial intelligence to give it some form of control over the bot."
 	extended_desc = "You can wire various functions to it."
@@ -283,7 +283,7 @@
 
 	var/obj/item/paicard/installed_pai
 
-/obj/item/integrated_circuit/input/pAI_connector/attackby(var/obj/item/paicard/O, var/mob/user)
+/obj/item/integrated_circuit_old/input/pAI_connector/attackby(var/obj/item/paicard/O, var/mob/user)
 	if(!istype(O,/obj/item/paicard))
 		to_chat(user,"<span class='warning'>You can't put that inside.</span>")
 		return
@@ -298,7 +298,7 @@
 	O.pai.remote_control=src
 	set_pin_data(IC_OUTPUT, 1, O)
 
-/obj/item/integrated_circuit/input/pAI_connector/attack_self(var/mob/user)
+/obj/item/integrated_circuit_old/input/pAI_connector/attack_self(var/mob/user)
 	if(installed_pai)
 		RemovepAI()
 		to_chat(user, "<span class='notice'>You slowly disconnect the circuit's pins from the [installed_pai].</span>")
@@ -308,7 +308,7 @@
 	else
 		to_chat(user, "<span class='notice'>The connection port is empty.</span>")
 
-/obj/item/integrated_circuit/input/pAI_connector/relaymove(var/n,var/dir)
+/obj/item/integrated_circuit_old/input/pAI_connector/relaymove(var/n,var/dir)
 	set_pin_data(IC_OUTPUT, 2, dir)
 	do_work(1)
 	switch(dir)
@@ -317,16 +317,16 @@
 		if(1)	activate_pin(4)
 		if(2)	activate_pin(5)
 
-/obj/item/integrated_circuit/input/pAI_connector/do_work(var/n)
+/obj/item/integrated_circuit_old/input/pAI_connector/do_work(var/n)
 	push_data()
 	activate_pin(n)
 
 
-/obj/item/integrated_circuit/input/pAI_connector/Destroy()
+/obj/item/integrated_circuit_old/input/pAI_connector/Destroy()
 	RemovepAI()
 	..()
 
-/obj/item/integrated_circuit/input/pAI_connector/proc/RemovepAI()
+/obj/item/integrated_circuit_old/input/pAI_connector/proc/RemovepAI()
 	if(installed_pai)
 		can_be_asked_input = TRUE
 		installed_pai.forceMove(drop_location())
@@ -339,9 +339,9 @@
 
 /mob/living/silicon/pai/ClickOn(atom/A, params)
 	..()
-	if(!istype(remote_control,/obj/item/integrated_circuit/input/pAI_connector))
+	if(!istype(remote_control,/obj/item/integrated_circuit_old/input/pAI_connector))
 		return
-	var/obj/item/integrated_circuit/input/pAI_connector/paiholder=remote_control
+	var/obj/item/integrated_circuit_old/input/pAI_connector/paiholder=remote_control
 	paiholder.set_pin_data(IC_OUTPUT, 3, A)
 	var/list/modifiers = params2list(params)
 

@@ -21,8 +21,8 @@ PROCESSING_SUBSYSTEM_DEF(circuit)
 
 /datum/controller/subsystem/processing/circuit/proc/circuits_init()
 	//Cached lists for free performance
-	for(var/path in typesof(/obj/item/integrated_circuit))
-		var/obj/item/integrated_circuit/IC = path
+	for(var/path in typesof(/obj/item/integrated_circuit_old))
+		var/obj/item/integrated_circuit_old/IC = path
 		var/name = initial(IC.name)
 		all_components[name] = path // Populating the component lists
 		cached_components[IC] = new path

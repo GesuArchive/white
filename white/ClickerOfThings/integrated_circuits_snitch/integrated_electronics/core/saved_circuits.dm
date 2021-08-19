@@ -4,7 +4,7 @@
 // Saves type, modified name and modified inputs (if any) to a list
 // The list is converted to JSON down the line.
 //"Special" is not verified at any point except for by the circuit itself.
-/obj/item/integrated_circuit/proc/save()
+/obj/item/integrated_circuit_old/proc/save()
 	var/list/component_params = list()
 	var/init_name = initial(name)
 
@@ -45,12 +45,12 @@
 
 	return component_params
 
-/obj/item/integrated_circuit/proc/save_special()
+/obj/item/integrated_circuit_old/proc/save_special()
 	return
 
 // Verifies a list of component parameters
 // Returns null on success, error name on failure
-/obj/item/integrated_circuit/proc/verify_save(list/component_params)
+/obj/item/integrated_circuit_old/proc/verify_save(list/component_params)
 	var/init_name = initial(name)
 	// Validate name
 	if(component_params["name"] && !reject_bad_name(component_params["name"], TRUE))
@@ -88,7 +88,7 @@
 
 // Loads component parameters from a list
 // Doesn't verify any of the parameters it loads, this is the job of verify_save()
-/obj/item/integrated_circuit/proc/load(list/component_params)
+/obj/item/integrated_circuit_old/proc/load(list/component_params)
 	// Load name
 	if(component_params["name"])
 		displayed_name = component_params["name"]
@@ -110,7 +110,7 @@
 	if(!isnull(component_params["special"]))
 		load_special(component_params["special"])
 
-/obj/item/integrated_circuit/proc/load_special(special_data)
+/obj/item/integrated_circuit_old/proc/load_special(special_data)
 	return
 
 // Saves type and modified name (if any) to a list
@@ -181,7 +181,7 @@
 	// Block 2. Components.
 	var/list/components = list()
 	for(var/c in assembly.assembly_components)
-		var/obj/item/integrated_circuit/component = c
+		var/obj/item/integrated_circuit_old/component = c
 		components.Add(list(component.save()))
 	blocks["components"] = components
 
@@ -191,7 +191,7 @@
 	var/list/saved_wires = list()
 
 	for(var/c in assembly.assembly_components)
-		var/obj/item/integrated_circuit/component = c
+		var/obj/item/integrated_circuit_old/component = c
 		var/list/all_pins = component.inputs + component.outputs + component.activators
 
 		for(var/p in all_pins)
@@ -274,7 +274,7 @@
 
 		// Validate type, get a temporary component
 		var/component_path = all_components[component_params["type"]]
-		var/obj/item/integrated_circuit/component = cached_components[component_path]
+		var/obj/item/integrated_circuit_old/component = cached_components[component_path]
 		if(!component)
 			return "Invalid component type."
 
@@ -343,8 +343,8 @@
 
 	// Block 2. Components.
 	for(var/component_params in blocks["components"])
-		var/obj/item/integrated_circuit/component_path = all_components[component_params["type"]]
-		var/obj/item/integrated_circuit/component = new component_path(assembly)
+		var/obj/item/integrated_circuit_old/component_path = all_components[component_params["type"]]
+		var/obj/item/integrated_circuit_old/component = new component_path(assembly)
 		assembly.add_component(component)
 		component.load(component_params)
 

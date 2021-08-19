@@ -3,13 +3,13 @@
 	var/dat = "<br>Remote control: <a href='?src=[REF(src)];toggle_remote_control=1'>[GLOB.remote_control ? "<font color='green'><b>ENABLED</b></font>" : "<font color='red'><b>DISABLED</b></font>"]</a>"
 	dat += "<br>Broadcasting signals: "
 	for(var/i in GLOB.ic_speakers)
-		var/obj/item/integrated_circuit/I = i
+		var/obj/item/integrated_circuit_old/I = i
 		var/obj/item/O = I.get_object()
 		if(get_area(O)) //if it isn't in nullspace, can happen due to printer newing all possible circuits to fetch list data
 			dat += "<br>[O.name] = [O.x], [O.y], [O.z], [get_area(O)]"
 	dat += "<br><br>Circuit jammer signals: "
 	for(var/i in GLOB.ic_jammers)
-		var/obj/item/integrated_circuit/I = i
+		var/obj/item/integrated_circuit_old/I = i
 		var/obj/item/O = I.get_object()
 		if(get_area(O)) //if it isn't in nullspace, can happen due to printer newing all possible circuits to fetch list data
 			dat += "<br>[O.name] = [O.x], [O.y], [O.z], [get_area(O)]"
@@ -22,7 +22,7 @@
 /obj/machinery/telecomms/receiver/receive_signal(datum/signal/signal)
 	if(LAZYLEN(GLOB.ic_jammers) && GLOB.remote_control)
 		for(var/i in GLOB.ic_jammers)
-			var/obj/item/integrated_circuit/input/tcomm_interceptor/T = i
+			var/obj/item/integrated_circuit_old/input/tcomm_interceptor/T = i
 			var/obj/item/O = T.get_object()
 			if(is_station_level(O.z)&& (!istype(get_area(O), /area/space)))
 				if(!istype(signal.source, /obj/item/radio/headset/integrated))
@@ -34,7 +34,7 @@
 //have to edit radio.dm and other shit
 /obj/machinery/telecomms/receiver/circuit
 	idle_power_usage = 0
-	var/obj/item/integrated_circuit/input/tcomm_interceptor/holder
+	var/obj/item/integrated_circuit_old/input/tcomm_interceptor/holder
 
 /obj/machinery/telecomms/receiver/circuit/receive_signal(datum/signal/signal)
 	if(!holder.get_pin_data(IC_INPUT, 1))

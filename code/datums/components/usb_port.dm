@@ -4,7 +4,7 @@
 	var/list/circuit_component_types
 
 	/// The currently connected circuit
-	var/obj/item/integrated_circuit_wiremod/attached_circuit
+	var/obj/item/integrated_circuit/attached_circuit
 
 	/// The currently connected USB cable
 	var/datum/weakref/usb_cable_ref
@@ -71,7 +71,7 @@
 	SIGNAL_HANDLER
 	objects += parent
 
-/datum/component/usb_port/proc/on_load(datum/source, obj/item/integrated_circuit_wiremod/circuit, list/components)
+/datum/component/usb_port/proc/on_load(datum/source, obj/item/integrated_circuit/circuit, list/components)
 	SIGNAL_HANDLER
 	var/list/components_in_list = list()
 	for(var/obj/item/circuit_component/component as anything in components)
@@ -115,7 +115,7 @@
 		COMSIG_PARENT_EXAMINE,
 	))
 
-/datum/component/usb_port/proc/attach_circuit_components(obj/item/integrated_circuit_wiremod/circuitboard)
+/datum/component/usb_port/proc/attach_circuit_components(obj/item/integrated_circuit/circuitboard)
 	for(var/obj/item/circuit_component/component as anything in circuit_components)
 		circuitboard.add_component(component)
 		RegisterSignal(component, COMSIG_CIRCUIT_COMPONENT_REMOVED, .proc/on_circuit_component_removed)

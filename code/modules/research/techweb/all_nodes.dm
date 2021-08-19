@@ -69,7 +69,6 @@
 	design_ids = list(
 		"circuit_multitool",
 		"comp_arithmetic",
-		"comp_trigonometry",
 		"comp_clock",
 		"comp_comparison",
 		"comp_concat",
@@ -84,15 +83,18 @@
 		"comp_index_table",
 		"comp_length",
 		"comp_light",
+		"comp_list_literal",
 		"comp_logic",
 		"comp_mmi",
 		"comp_module",
 		"comp_multiplexer",
 		"comp_not",
+		"comp_ntnet_receive",
+		"comp_ntnet_send",
 		"comp_pressuresensor",
 		"comp_radio",
-		"comp_ram",
 		"comp_random",
+		"comp_router",
 		"comp_select_query",
 		"comp_self",
 		"comp_soundemitter",
@@ -105,6 +107,7 @@
 		"comp_textcase",
 		"comp_tonumber",
 		"comp_tostring",
+		"comp_typecast",
 		"comp_typecheck",
 		"compact_remote_shell",
 		"component_printer",
@@ -112,7 +115,6 @@
 		"module_duplicator",
 		"usb_cable",
 	)
-
 /////////////////////////Biotech/////////////////////////
 
 /datum/techweb_node/biotech

@@ -1,7 +1,7 @@
-/obj/item/integrated_circuit/output
+/obj/item/integrated_circuit_old/output
 	category_text = "Output"
 
-/obj/item/integrated_circuit/output/screen
+/obj/item/integrated_circuit_old/output/screen
 	name = "small screen"
 	extended_desc = " use &lt;br&gt; to start a new line"
 	desc = "Takes any data type as an input, and displays it to the user upon examining."
@@ -14,18 +14,18 @@
 	var/eol = "&lt;br&gt;"
 	var/stuff_to_display = null
 
-/obj/item/integrated_circuit/output/screen/disconnect_all()
+/obj/item/integrated_circuit_old/output/screen/disconnect_all()
 	..()
 	stuff_to_display = null
 
-/obj/item/integrated_circuit/output/screen/any_examine(mob/user)
+/obj/item/integrated_circuit_old/output/screen/any_examine(mob/user)
 	var/shown_label = ""
 	if(displayed_name && displayed_name != name)
 		shown_label = " labeled '[displayed_name]'"
 
 	to_chat(user, "There is <b>[src.name]</b>[shown_label], which displays [!isnull(stuff_to_display) ? "'[stuff_to_display]'" : "nothing"].")
 
-/obj/item/integrated_circuit/output/screen/do_work()
+/obj/item/integrated_circuit_old/output/screen/do_work()
 	var/datum/integrated_io/I = inputs[1]
 	if(isweakref(I.data))
 		var/datum/d = I.data_as_type(/datum)
@@ -34,14 +34,14 @@
 	else
 		stuff_to_display = replacetext("[I.data]", eol , "<br>")
 
-/obj/item/integrated_circuit/output/screen/large
+/obj/item/integrated_circuit_old/output/screen/large
 	name = "large screen"
 	desc = "Takes any data type as an input and displays it to anybody near the device when pulsed. \
 	It can also be examined to see the last thing it displayed."
 	icon_state = "screen_medium"
 	power_draw_per_use = 20
 
-/obj/item/integrated_circuit/output/screen/large/do_work()
+/obj/item/integrated_circuit_old/output/screen/large/do_work()
 	..()
 
 	if(isliving(assembly.loc))//this whole block just returns if the assembly is neither in a mobs hands or on the ground
@@ -61,7 +61,7 @@
 	else
 		investigate_log("displayed \"[html_encode(stuff_to_display)]\" as [type].", INVESTIGATE_CIRCUIT)
 
-/obj/item/integrated_circuit/output/light
+/obj/item/integrated_circuit_old/output/light
 	name = "light"
 	desc = "A basic light which can be toggled on/off when pulsed."
 	icon_state = "light"
@@ -75,11 +75,11 @@
 	var/light_rgb = "#FFFFFF"
 	power_draw_idle = 0 // Adjusted based on brightness.
 
-/obj/item/integrated_circuit/output/light/do_work()
+/obj/item/integrated_circuit_old/output/light/do_work()
 	light_toggled = !light_toggled
 	update_lighting()
 
-/obj/item/integrated_circuit/output/light/proc/update_lighting()
+/obj/item/integrated_circuit_old/output/light/proc/update_lighting()
 	if(light_toggled)
 		if(assembly)
 			assembly.set_light(l_range = light_brightness, l_power = 1, l_color = light_rgb)
@@ -88,11 +88,11 @@
 			assembly.set_light(0)
 	power_draw_idle = light_toggled ? light_brightness * 2 : 0
 
-/obj/item/integrated_circuit/output/light/power_fail() // Turns off the flashlight if there's no power left.
+/obj/item/integrated_circuit_old/output/light/power_fail() // Turns off the flashlight if there's no power left.
 	light_toggled = FALSE
 	update_lighting()
 
-/obj/item/integrated_circuit/output/light/advanced
+/obj/item/integrated_circuit_old/output/light/advanced
 	name = "advanced light"
 	desc = "A light that takes a hexadecimal color value and a brightness value, and can be toggled on/off by pulsing it."
 	icon_state = "light_adv"
@@ -104,10 +104,10 @@
 	outputs = list()
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/output/light/advanced/on_data_written()
+/obj/item/integrated_circuit_old/output/light/advanced/on_data_written()
 	update_lighting()
 
-/obj/item/integrated_circuit/output/light/advanced/update_lighting()
+/obj/item/integrated_circuit_old/output/light/advanced/update_lighting()
 	var/new_color = get_pin_data(IC_INPUT, 1)
 	var/brightness = get_pin_data(IC_INPUT, 2)
 
@@ -118,7 +118,7 @@
 
 	..()
 
-/obj/item/integrated_circuit/output/sound
+/obj/item/integrated_circuit_old/output/sound
 	name = "speaker circuit"
 	desc = "A miniature speaker is attached to this component."
 	icon_state = "speaker"
@@ -134,7 +134,7 @@
 	power_draw_per_use = 10
 	var/list/sounds = list()
 
-/obj/item/integrated_circuit/output/sound/Initialize()
+/obj/item/integrated_circuit_old/output/sound/Initialize()
 	.= ..()
 	extended_desc = list()
 	extended_desc += "The first input pin determines which sound is used. The choices are; "
@@ -143,7 +143,7 @@
 	extended_desc += ", and the third determines if the frequency of the sound will vary with each activation."
 	extended_desc = jointext(extended_desc, null)
 
-/obj/item/integrated_circuit/output/sound/do_work()
+/obj/item/integrated_circuit_old/output/sound/do_work()
 	var/ID = get_pin_data(IC_INPUT, 1)
 	var/vol = get_pin_data(IC_INPUT, 2)
 	var/freq = get_pin_data(IC_INPUT, 3)
@@ -156,10 +156,10 @@
 		var/atom/A = get_object()
 		A.investigate_log("played a sound ([selected_sound]) as [type].", INVESTIGATE_CIRCUIT)
 
-/obj/item/integrated_circuit/output/sound/on_data_written()
+/obj/item/integrated_circuit_old/output/sound/on_data_written()
 	power_draw_per_use =  get_pin_data(IC_INPUT, 2) * 15
 
-/obj/item/integrated_circuit/output/sound/beeper
+/obj/item/integrated_circuit_old/output/sound/beeper
 	name = "beeper circuit"
 	desc = "Takes a sound name as an input, and will play said sound when pulsed. This circuit has a variety of beeps, boops, and buzzes to choose from."
 	sounds = list(
@@ -174,7 +174,7 @@
 		)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/output/sound/beepsky
+/obj/item/integrated_circuit_old/output/sound/beepsky
 	name = "securitron sound circuit"
 	desc = "Takes a sound name as an input, and will play said sound when pulsed. This circuit is similar to those used in Securitrons."
 	sounds = list(
@@ -189,7 +189,7 @@
 		)
 	spawn_flags = IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/output/sound/medbot
+/obj/item/integrated_circuit_old/output/sound/medbot
 	name = "medbot sound circuit"
 	desc = "Takes a sound name as an input, and will play said sound when pulsed. This circuit is often found in medical robots."
 	sounds = list(
@@ -211,17 +211,17 @@
 		)
 	spawn_flags = IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/output/sound/vox
+/obj/item/integrated_circuit_old/output/sound/vox
 	name = "ai vox sound circuit"
 	desc = "Takes a sound name as an input, and will play said sound when pulsed. This circuit is often found in AI announcement systems."
 	spawn_flags = IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/output/sound/vox/Initialize()
+/obj/item/integrated_circuit_old/output/sound/vox/Initialize()
 	.= ..()
 	sounds = GLOB.vox_sounds
 	extended_desc = "The first input pin determines which sound is used. It uses the AI Vox Broadcast word list. So either experiment to find words that work, or ask the AI to help in figuring them out. The second pin determines the volume of sound that is played, and the third determines if the frequency of the sound will vary with each activation."
 
-/obj/item/integrated_circuit/output/text_to_speech
+/obj/item/integrated_circuit_old/output/text_to_speech
 	name = "text-to-speech circuit"
 	desc = "Takes any string as an input and will make the device say the string when pulsed."
 	extended_desc = "This unit is more advanced than the plain speaker circuit, able to transpose any valid text to speech."
@@ -234,7 +234,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 60
 
-/obj/item/integrated_circuit/output/text_to_speech/do_work()
+/obj/item/integrated_circuit_old/output/text_to_speech/do_work()
 	text = get_pin_data(IC_INPUT, 1)
 	if(!isnull(text))
 		var/atom/movable/A = get_object()
@@ -245,7 +245,7 @@
 		else
 			log_say("[name] ([type]) : [sanitized_text]")
 
-/obj/item/integrated_circuit/output/video_camera
+/obj/item/integrated_circuit_old/output/video_camera
 	name = "video camera circuit"
 	desc = "Takes a string as a name and a boolean to determine whether it is on, and uses this to be a camera linked to a list of networks you choose."
 	extended_desc = "The camera is linked to a list of camera networks of your choosing. Common choices are 'rd' for the research network, 'ss13' for the main station network (visible to AI), 'mine' for the mining network, and 'thunder' for the thunderdome network (viewable from bar)."
@@ -266,17 +266,17 @@
 	var/obj/machinery/camera/camera
 	var/updating = FALSE
 
-/obj/item/integrated_circuit/output/video_camera/New()
+/obj/item/integrated_circuit_old/output/video_camera/New()
 	..()
 	camera = new(src)
 	camera.network = list("rd")
 	on_data_written()
 
-/obj/item/integrated_circuit/output/video_camera/Destroy()
+/obj/item/integrated_circuit_old/output/video_camera/Destroy()
 	QDEL_NULL(camera)
 	return ..()
 
-/obj/item/integrated_circuit/output/video_camera/proc/set_camera_status(var/status)
+/obj/item/integrated_circuit_old/output/video_camera/proc/set_camera_status(var/status)
 	if(camera)
 		camera.status = status
 		GLOB.cameranet.updatePortableCamera(camera)
@@ -285,7 +285,7 @@
 			if(!draw_idle_power())
 				power_fail()
 
-/obj/item/integrated_circuit/output/video_camera/on_data_written()
+/obj/item/integrated_circuit_old/output/video_camera/on_data_written()
 	if(camera)
 		var/cam_name = get_pin_data(IC_INPUT, 1)
 		var/cam_active = get_pin_data(IC_INPUT, 2)
@@ -296,29 +296,29 @@
 			camera.network = new_network
 		set_camera_status(cam_active)
 
-/obj/item/integrated_circuit/output/video_camera/power_fail()
+/obj/item/integrated_circuit_old/output/video_camera/power_fail()
 	if(camera)
 		set_camera_status(0)
 		set_pin_data(IC_INPUT, 2, FALSE)
 
-/obj/item/integrated_circuit/output/video_camera/ext_moved(oldLoc, dir)
+/obj/item/integrated_circuit_old/output/video_camera/ext_moved(oldLoc, dir)
 	. = ..()
 	update_camera_location(oldLoc)
 
 #define VIDEO_CAMERA_BUFFER 10
-/obj/item/integrated_circuit/output/video_camera/proc/update_camera_location(oldLoc)
+/obj/item/integrated_circuit_old/output/video_camera/proc/update_camera_location(oldLoc)
 	oldLoc = get_turf(oldLoc)
 	if(!QDELETED(camera) && !updating && oldLoc != get_turf(src))
 		updating = TRUE
 		addtimer(CALLBACK(src, .proc/do_camera_update, oldLoc), VIDEO_CAMERA_BUFFER)
 #undef VIDEO_CAMERA_BUFFER
 
-/obj/item/integrated_circuit/output/video_camera/proc/do_camera_update(oldLoc)
+/obj/item/integrated_circuit_old/output/video_camera/proc/do_camera_update(oldLoc)
 	if(!QDELETED(camera) && oldLoc != get_turf(src))
 		GLOB.cameranet.updatePortableCamera(camera)
 	updating = FALSE
 
-/obj/item/integrated_circuit/output/led
+/obj/item/integrated_circuit_old/output/led
 	name = "light-emitting diode"
 	desc = "RGB LED. Takes a boolean value in, and if the boolean value is 'true-equivalent', the LED will be marked as lit on examine."
 	extended_desc = "TRUE-equivalent values are: Non-empty strings, non-zero numbers, and valid refs."
@@ -337,14 +337,14 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	var/led_color = "#FF0000"
 
-/obj/item/integrated_circuit/output/led/on_data_written()
+/obj/item/integrated_circuit_old/output/led/on_data_written()
 	power_draw_idle = get_pin_data(IC_INPUT, 1) ? 1 : 0
 	led_color = get_pin_data(IC_INPUT, 2)
 
-/obj/item/integrated_circuit/output/led/power_fail()
+/obj/item/integrated_circuit_old/output/led/power_fail()
 	set_pin_data(IC_INPUT, 1, FALSE)
 
-/obj/item/integrated_circuit/output/led/external_examine(mob/user)
+/obj/item/integrated_circuit_old/output/led/external_examine(mob/user)
 	var/text_output = "There is "
 
 	if(name == displayed_name)
@@ -354,7 +354,7 @@
 	text_output += " which is currently [get_pin_data(IC_INPUT, 1) ? "lit <font color=[led_color]>*</font>" : "unlit"]."
 	to_chat(user, text_output)
 
-/obj/item/integrated_circuit/output/diagnostic_hud
+/obj/item/integrated_circuit_old/output/diagnostic_hud
 	name = "AR interface"
 	desc = "Takes an icon name as an input, and will update the status hud when data is written to it."
 	extended_desc = "Takes an icon name as an input, and will update the status hud when data is written to it, this means it can change the icon and have the icon stay that way even if the circuit is removed. The acceptable inputs are 'alert', 'move', 'working', 'patrol', 'called', and 'heart'. Any input other than that will return the icon to its default state."
@@ -376,7 +376,7 @@
 	power_draw_idle = 0
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/output/diagnostic_hud/on_data_written()
+/obj/item/integrated_circuit_old/output/diagnostic_hud/on_data_written()
 	var/ID = get_pin_data(IC_INPUT, 1)
 	var/selected_icon = icons[ID]
 	if(assembly)
@@ -393,7 +393,7 @@
 //Input:
 //Text: the actual string to output
 //Frequency: what channel to output in. This is a STRING, not a number, due to how comms work. It has to be the frequency without the dot, aka for common you need to put "1459"
-/obj/item/integrated_circuit/output/text_to_radio
+/obj/item/integrated_circuit_old/output/text_to_radio
 	name = "text-to-radio circuit"
 	desc = "Takes any string as an input and will make the device output it in the radio with the frequency chosen as input."
 	extended_desc = "Similar to the text-to-speech circuit, except the fact that the text is converted into a subspace signal and broadcasted to the desired frequency, or 1459 as default.\
@@ -410,24 +410,24 @@
 	var/list/encryption_keys = list()
 	var/obj/item/radio/headset/integrated/radio
 
-/obj/item/integrated_circuit/output/text_to_radio/Initialize()
+/obj/item/integrated_circuit_old/output/text_to_radio/Initialize()
 	. = ..()
 	radio = new(src)
 	radio.frequency = FREQ_COMMON
 	GLOB.ic_speakers += src
 
-/obj/item/integrated_circuit/output/text_to_radio/Destroy()
+/obj/item/integrated_circuit_old/output/text_to_radio/Destroy()
 	qdel(radio)
 	GLOB.ic_speakers -= src
 	..()
 
-/obj/item/integrated_circuit/output/text_to_radio/on_data_written()
+/obj/item/integrated_circuit_old/output/text_to_radio/on_data_written()
 	var/freq = get_pin_data(IC_INPUT, 2)
 	if(!(freq in whitelisted_freqs))
 		freq = sanitize_frequency(get_pin_data(IC_INPUT, 2), radio.freerange)
 	radio.set_frequency(freq)
 
-/obj/item/integrated_circuit/output/text_to_radio/do_work()
+/obj/item/integrated_circuit_old/output/text_to_radio/do_work()
 	text = get_pin_data(IC_INPUT, 1)
 	if(!isnull(text))
 		var/atom/movable/A = get_object()
@@ -436,7 +436,7 @@
 		if (assembly)
 			log_say("[assembly] [REF(assembly)] : [sanitized_text]")
 
-/obj/item/integrated_circuit/output/text_to_radio/attackby(obj/O, mob/user)
+/obj/item/integrated_circuit_old/output/text_to_radio/attackby(obj/O, mob/user)
 	if(istype(O, /obj/item/encryptionkey))
 		user.transferItemToLoc(O,src)
 		encryption_keys += O
@@ -445,7 +445,7 @@
 	else
 		..()
 
-/obj/item/integrated_circuit/output/text_to_radio/proc/recalculate_channels()
+/obj/item/integrated_circuit_old/output/text_to_radio/proc/recalculate_channels()
 	whitelisted_freqs.Cut()
 	set_pin_data(IC_INPUT, 2, 1459)
 	radio.set_frequency(FREQ_COMMON) //reset it
@@ -458,7 +458,7 @@
 	set_pin_data(IC_OUTPUT, 1, weakreffd_ekeys)
 
 
-/obj/item/integrated_circuit/output/text_to_radio/attack_self(mob/user)
+/obj/item/integrated_circuit_old/output/text_to_radio/attack_self(mob/user)
 	if(encryption_keys.len)
 		for(var/i in encryption_keys)
 			var/obj/O = i
@@ -472,17 +472,17 @@
 
 /obj/item/radio/headset/integrated
 
-/obj/item/integrated_circuit/output/screen/large
+/obj/item/integrated_circuit_old/output/screen/large
 	name = "medium screen"
 
-/obj/item/integrated_circuit/output/screen/extralarge // the subtype is called "extralarge" because tg brought back medium screens and they named the subtype /screen/large
+/obj/item/integrated_circuit_old/output/screen/extralarge // the subtype is called "extralarge" because tg brought back medium screens and they named the subtype /screen/large
 	name = "large screen"
 	desc = "Takes any data type as an input and displays it to the user upon examining, and to all nearby beings when pulsed."
 	icon_state = "screen_large"
 	power_draw_per_use = 40
 	cooldown_per_use = 10
 
-/obj/item/integrated_circuit/output/screen/extralarge/do_work()
+/obj/item/integrated_circuit_old/output/screen/extralarge/do_work()
 	..()
 	var/obj/O = assembly ? get_turf(assembly) : loc
 	O.visible_message("<span class='notice'>[icon2html(O.icon, world, O.icon_state)]  [stuff_to_display]</span>")

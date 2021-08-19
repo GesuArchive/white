@@ -62,7 +62,7 @@
 	if((isobserver(user) && ckeys_allowed_to_scan[user.ckey]) || isAdminGhostAI(user))
 		to_chat(user, "You can <a href='?src=[REF(src)];ghostscan=1'>scan</a> this circuit.")
 
-	for(var/obj/item/integrated_circuit/I in assembly_components)
+	for(var/obj/item/integrated_circuit_old/I in assembly_components)
 		I.external_examine(user)
 	if(opened)
 		interact(user)
@@ -114,11 +114,11 @@
 /obj/item/electronic_assembly/proc/handle_idle_power()
 
 	// First we generate power.
-	for(var/obj/item/integrated_circuit/passive/power/P in assembly_components)
+	for(var/obj/item/integrated_circuit_old/passive/power/P in assembly_components)
 		P.make_energy()
 
 	// Now spend it.
-	for(var/obj/item/integrated_circuit/I in assembly_components)
+	for(var/obj/item/integrated_circuit_old/I in assembly_components)
 		if(I.power_draw_idle)
 			if(!draw_power(I.power_draw_idle))
 				I.power_fail()
@@ -126,7 +126,7 @@
 /obj/item/electronic_assembly/interact(mob/user, circuit)
 	ui_interact(user, circuit)
 
-/obj/item/electronic_assembly/ui_interact(mob/user, obj/item/integrated_circuit/circuit_pins)
+/obj/item/electronic_assembly/ui_interact(mob/user, obj/item/integrated_circuit_old/circuit_pins)
 	. = ..()
 	if(!check_interactivity(user))
 		return
@@ -149,7 +149,7 @@
 
 
 	//Getting the newest viewed circuit to compare with new circuit list
-	if(!circuit_pins || !istype(circuit_pins,/obj/item/integrated_circuit) || !(circuit_pins in assembly_components))
+	if(!circuit_pins || !istype(circuit_pins,/obj/item/integrated_circuit_old) || !(circuit_pins in assembly_components))
 		if(assembly_components.len > 0)
 			circuit_pins = assembly_components[1]
 
@@ -160,7 +160,7 @@
 	var/removables = ""
 	var/remove_num = 1
 
-	for(var/obj/item/integrated_circuit/circuit in assembly_components)
+	for(var/obj/item/integrated_circuit_old/circuit in assembly_components)
 		if(!circuit.removable)
 			if(circuit == circuit_pins)
 				builtin_components += "[circuit.displayed_name]<br>"
@@ -186,7 +186,7 @@
 
 
 	//Getting the newest circuit's pin
-	if(!circuit_pins || !istype(circuit_pins,/obj/item/integrated_circuit))
+	if(!circuit_pins || !istype(circuit_pins,/obj/item/integrated_circuit_old))
 		if(assembly_components.len > 0)
 			circuit_pins = assembly_components[1]
 
@@ -321,7 +321,7 @@
 			battery = null
 			diag_hud_set_circuitstat() //update diagnostic hud
 
-	var/obj/item/integrated_circuit/component
+	var/obj/item/integrated_circuit_old/component
 
 	if(href_list["component"])
 		component = locate(href_list["component"]) in assembly_components
@@ -351,7 +351,7 @@
 		var/first_removable_pos = 0
 		for(var/i in assembly_components)
 			first_removable_pos++
-			var/obj/item/integrated_circuit/temp_component = i
+			var/obj/item/integrated_circuit_old/temp_component = i
 			if(temp_component.removable)
 				break
 
@@ -434,18 +434,18 @@
 
 /obj/item/electronic_assembly/proc/return_total_complexity()
 	var/returnvalue = 0
-	for(var/obj/item/integrated_circuit/part in assembly_components)
+	for(var/obj/item/integrated_circuit_old/part in assembly_components)
 		returnvalue += part.complexity
 	return(returnvalue)
 
 /obj/item/electronic_assembly/proc/return_total_size()
 	var/returnvalue = 0
-	for(var/obj/item/integrated_circuit/part in assembly_components)
+	for(var/obj/item/integrated_circuit_old/part in assembly_components)
 		returnvalue += part.size
 	return(returnvalue)
 
 // Returns true if the circuit made it inside.
-/obj/item/electronic_assembly/proc/try_add_component(obj/item/integrated_circuit/IC, mob/user)
+/obj/item/electronic_assembly/proc/try_add_component(obj/item/integrated_circuit_old/IC, mob/user)
 	if(!opened)
 		to_chat(user, "<span class='warning'><b>[src.name]</b>'s hatch is closed, you can't put anything inside.</span>")
 		return FALSE
@@ -480,7 +480,7 @@
 
 
 // Actually puts the circuit inside, doesn't perform any checks.
-/obj/item/electronic_assembly/proc/add_component(obj/item/integrated_circuit/component)
+/obj/item/electronic_assembly/proc/add_component(obj/item/integrated_circuit_old/component)
 	component.forceMove(get_object())
 	component.assembly = src
 	assembly_components |= component
@@ -496,7 +496,7 @@
 	diag_hud_set_circuittracking()
 
 
-/obj/item/electronic_assembly/proc/try_remove_component(obj/item/integrated_circuit/IC, mob/user, silent)
+/obj/item/electronic_assembly/proc/try_remove_component(obj/item/integrated_circuit_old/IC, mob/user, silent)
 	if(!opened)
 		if(!silent)
 			to_chat(user, "<span class='warning'>[capitalize(src.name)] hatch is closed, so you can't fiddle with the internal components.</span>")
@@ -518,7 +518,7 @@
 	return TRUE
 
 // Actually removes the component, doesn't perform any checks.
-/obj/item/electronic_assembly/proc/remove_component(obj/item/integrated_circuit/component)
+/obj/item/electronic_assembly/proc/remove_component(obj/item/integrated_circuit_old/component)
 	component.disconnect_all()
 	component.forceMove(drop_location())
 	component.assembly = null
@@ -538,7 +538,7 @@
 
 /obj/item/electronic_assembly/afterattack(atom/target, mob/user, proximity)
 	. = ..()
-	for(var/obj/item/integrated_circuit/input/S in assembly_components)
+	for(var/obj/item/integrated_circuit_old/input/S in assembly_components)
 		if(S.sense(target,user,proximity))
 			visible_message("<span class='notice'> [user] waves [src] around [target].</span>")
 
@@ -591,7 +591,7 @@
 		if("unseal")
 			to_chat(user,"<span class='notice'>You start unsealing the assembly carefully...</span>")
 			if(I.use_tool(src, user, 50, volume=250, amount=3))
-				for(var/obj/item/integrated_circuit/IC in assembly_components)
+				for(var/obj/item/integrated_circuit_old/IC in assembly_components)
 					if(prob(50))
 						IC.disconnect_all()
 
@@ -624,13 +624,13 @@
 			debugger.idlock = null
 			return
 
-	if(istype(I, /obj/item/integrated_circuit))
+	if(istype(I, /obj/item/integrated_circuit_old))
 		if(!user.canUnEquip(I))
 			return FALSE
 		if(try_add_component(I, user))
 			return TRUE
 		else
-			for(var/obj/item/integrated_circuit/input/S in assembly_components)
+			for(var/obj/item/integrated_circuit_old/input/S in assembly_components)
 				S.attackby_react(I,user,user.a_intent)
 			return ..()
 
@@ -640,19 +640,19 @@
 			return TRUE
 		else
 			to_chat(user, "<span class='warning'>[capitalize(src.name)] hatch is closed, so you can't fiddle with the internal components.</span>")
-			for(var/obj/item/integrated_circuit/input/S in assembly_components)
+			for(var/obj/item/integrated_circuit_old/input/S in assembly_components)
 				S.attackby_react(I,user,user.a_intent)
 			return ..()
 
 	else if(istype(I, /obj/item/stock_parts/cell))
 		if(!opened)
 			to_chat(user, "<span class='warning'>[capitalize(src.name)] hatch is closed, so you can't access <b>[src.name]</b>'s power supplier.</span>")
-			for(var/obj/item/integrated_circuit/input/S in assembly_components)
+			for(var/obj/item/integrated_circuit_old/input/S in assembly_components)
 				S.attackby_react(I,user,user.a_intent)
 			return ..()
 		if(battery)
 			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has \a [battery] installed. Remove it first if you want to replace it.</span>")
-			for(var/obj/item/integrated_circuit/input/S in assembly_components)
+			for(var/obj/item/integrated_circuit_old/input/S in assembly_components)
 				S.attackby_react(I,user,user.a_intent)
 			return ..()
 		I.forceMove(src)
@@ -672,12 +672,12 @@
 			return ..()
 		var/list/input_selection = list()
 		//Check all the components asking for an input
-		for(var/obj/item/integrated_circuit/input in assembly_components)
+		for(var/obj/item/integrated_circuit_old/input in assembly_components)
 			if((input.demands_object_input && opened) || (input.demands_object_input && input.can_input_object_when_closed))
 				var/i = 0
 				//Check if there is another component with the same name and append a number for identification
 				for(var/s in input_selection)
-					var/obj/item/integrated_circuit/s_circuit = input_selection[s] //The for-loop iterates the keys of the associative list.
+					var/obj/item/integrated_circuit_old/s_circuit = input_selection[s] //The for-loop iterates the keys of the associative list.
 					if(s_circuit.name == input.name && s_circuit.displayed_name == input.displayed_name && s_circuit != input)
 						i++
 				var/disp_name= "[input.displayed_name] \[[input]\]"
@@ -686,7 +686,7 @@
 				//Associative lists prevent me from needing another list and using a Find proc
 				input_selection[disp_name] = input
 
-		var/obj/item/integrated_circuit/choice
+		var/obj/item/integrated_circuit_old/choice
 		if(input_selection)
 			if(input_selection.len == 1)
 				choice = input_selection[input_selection[1]]
@@ -698,7 +698,7 @@
 					choice = input_selection[selection]
 			if(choice)
 				choice.additem(I, user)
-		for(var/obj/item/integrated_circuit/input/S in assembly_components)
+		for(var/obj/item/integrated_circuit_old/input/S in assembly_components)
 			S.attackby_react(I,user,user.a_intent)
 		return ..()
 
@@ -711,12 +711,12 @@
 
 	var/list/input_selection = list()
 	//Check all the components asking for an input
-	for(var/obj/item/integrated_circuit/input/input in assembly_components)
+	for(var/obj/item/integrated_circuit_old/input/input in assembly_components)
 		if(input.can_be_asked_input)
 			var/i = 0
 			//Check if there is another component with the same name and append a number for identification
 			for(var/s in input_selection)
-				var/obj/item/integrated_circuit/s_circuit = input_selection[s] //The for-loop iterates the keys of an associative list.
+				var/obj/item/integrated_circuit_old/s_circuit = input_selection[s] //The for-loop iterates the keys of an associative list.
 				if(s_circuit.name == input.name && s_circuit.displayed_name == input.displayed_name && s_circuit != input)
 					i++
 			var/disp_name= "[input.displayed_name] \[[input]\]"
@@ -725,7 +725,7 @@
 			//Associative lists prevent me from needing another list and using a Find proc
 			input_selection[disp_name] = input
 
-	var/obj/item/integrated_circuit/input/choice
+	var/obj/item/integrated_circuit_old/input/choice
 
 
 	if(input_selection)
@@ -764,14 +764,14 @@
 /obj/item/electronic_assembly/Moved(oldLoc, dir)
 	. = ..()
 	for(var/I in assembly_components)
-		var/obj/item/integrated_circuit/IC = I
+		var/obj/item/integrated_circuit_old/IC = I
 		IC.ext_moved(oldLoc, dir)
 	if(light) //Update lighting objects (From light circuits).
 		update_light()
 
 /obj/item/electronic_assembly/stop_pulling()
 	for(var/I in assembly_components)
-		var/obj/item/integrated_circuit/IC = I
+		var/obj/item/integrated_circuit_old/IC = I
 		IC.stop_pulling()
 	..()
 
@@ -783,7 +783,7 @@
 
 // Returns the location to be used for dropping items.
 // Same as the regular drop_location(), but with checks being run on acting_object if necessary.
-/obj/item/integrated_circuit/drop_location()
+/obj/item/integrated_circuit_old/drop_location()
 	var/atom/movable/acting_object = get_object()
 
 	// plz no infinite loops

@@ -1,15 +1,15 @@
 
-/obj/item/integrated_circuit/passive/power
+/obj/item/integrated_circuit_old/passive/power
 	name = "power thingy"
 	desc = "Does power stuff."
 	complexity = 5
 	category_text = "Power - Passive"
 
-/obj/item/integrated_circuit/passive/power/proc/make_energy()
+/obj/item/integrated_circuit_old/passive/power/proc/make_energy()
 	return
 
 // For calculators.
-/obj/item/integrated_circuit/passive/power/solar_cell
+/obj/item/integrated_circuit_old/passive/power/solar_cell
 	name = "tiny photovoltaic cell"
 	desc = "It's a very tiny solar cell, generally used in calculators."
 	extended_desc = "This cell generates 1 W of power in optimal lighting conditions. Less light will result in less power being generated."
@@ -18,7 +18,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	var/max_power = 30
 
-/obj/item/integrated_circuit/passive/power/solar_cell/make_energy()
+/obj/item/integrated_circuit_old/passive/power/solar_cell/make_energy()
 	var/turf/T = get_turf(src)
 	var/light_amount = T ? T.get_lumcount() : 0
 	var/adjusted_power = max(max_power * light_amount, 0)
@@ -27,7 +27,7 @@
 		if(assembly)
 			assembly.give_power(adjusted_power)
 
-/obj/item/integrated_circuit/passive/power/starter
+/obj/item/integrated_circuit_old/passive/power/starter
 	name = "starter"
 	desc = "This tiny circuit will send a pulse right after the device is turned on, or when power is restored to it."
 	icon_state = "led"
@@ -36,7 +36,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	var/is_charge = FALSE
 
-/obj/item/integrated_circuit/passive/power/starter/make_energy()
+/obj/item/integrated_circuit_old/passive/power/starter/make_energy()
 	if(assembly.battery)
 		if(assembly.battery.charge)
 			if(!is_charge)
@@ -49,7 +49,7 @@
 	return FALSE
 
 // For fat machines that need fat power, like drones.
-/obj/item/integrated_circuit/passive/power/relay
+/obj/item/integrated_circuit_old/passive/power/relay
 	name = "tesla power relay"
 	desc = "A seemingly enigmatic device which connects to nearby APCs wirelessly and draws power from them."
 	w_class = WEIGHT_CLASS_SMALL
@@ -61,7 +61,7 @@
 	var/power_amount = 50
 
 
-/obj/item/integrated_circuit/passive/power/relay/make_energy()
+/obj/item/integrated_circuit_old/passive/power/relay/make_energy()
 	if(!assembly)
 		return
 	var/area/A = get_area(src)
@@ -71,7 +71,7 @@
 
 
 // For really fat machines.
-/obj/item/integrated_circuit/passive/power/relay/large
+/obj/item/integrated_circuit_old/passive/power/relay/large
 	name = "large tesla power relay"
 	desc = "A seemingly enigmatic device which connects to nearby APCs wirelessly and draws power from them, now in industrial size!"
 	w_class = WEIGHT_CLASS_BULKY
@@ -84,7 +84,7 @@
 
 
 //fuel cell
-/obj/item/integrated_circuit/passive/power/chemical_cell
+/obj/item/integrated_circuit_old/passive/power/chemical_cell
 	name = "fuel cell"
 	desc = "Produces electricity from chemicals."
 	icon_state = "chemical_cell"
@@ -104,24 +104,24 @@
 	var/multi = 1
 	var/lfwb =TRUE
 
-/obj/item/integrated_circuit/passive/power/chemical_cell/New()
+/obj/item/integrated_circuit_old/passive/power/chemical_cell/New()
 	..()
 	create_reagents(volume, OPENCONTAINER)
 	extended_desc +="But no fuel can be compared with blood of living human."
 
 
-/obj/item/integrated_circuit/passive/power/chemical_cell/interact(mob/user)
+/obj/item/integrated_circuit_old/passive/power/chemical_cell/interact(mob/user)
 	set_pin_data(IC_OUTPUT, 2, WEAKREF(src))
 	push_data()
 	..()
 
-/obj/item/integrated_circuit/passive/power/chemical_cell/proc/on_reagent_change(datum/reagents/holder, ...)
+/obj/item/integrated_circuit_old/passive/power/chemical_cell/proc/on_reagent_change(datum/reagents/holder, ...)
 	SIGNAL_HANDLER
 	set_pin_data(IC_OUTPUT, 1, reagents.total_volume)
 	push_data()
 	return NONE
 
-/obj/item/integrated_circuit/passive/power/chemical_cell/make_energy()
+/obj/item/integrated_circuit_old/passive/power/chemical_cell/make_energy()
 	if(assembly)
 		if(assembly.battery)
 			var/bp = 5000
@@ -140,6 +140,6 @@
 					if(reagents.remove_reagent(I, 1))
 						assembly.give_power(fuel[I]*multi)
 
-/obj/item/integrated_circuit/passive/power/chemical_cell/do_work()
+/obj/item/integrated_circuit_old/passive/power/chemical_cell/do_work()
 	set_pin_data(IC_OUTPUT, 2, WEAKREF(src))
 	push_data()

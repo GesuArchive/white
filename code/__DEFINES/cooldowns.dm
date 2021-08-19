@@ -26,7 +26,7 @@
 */
 
 //INDEXES
-#define COOLDOWN_BORG_SELF_REPAIR	"borg_self_repair"
+#define COOLDOWN_BORG_SELF_REPAIR "borg_self_repair"
 #define COOLDOWN_EXPRESSPOD_CONSOLE "expresspod_console"
 
 //Mecha cooldowns
@@ -48,6 +48,7 @@
 #define COOLDOWN_CIRCUIT_SPEECH "circuit_speech"
 #define COOLDOWN_CIRCUIT_PATHFIND_SAME "circuit_pathfind_same"
 #define COOLDOWN_CIRCUIT_PATHFIND_DIF "circuit_pathfind_different"
+#define COOLDOWN_CIRCUIT_TARGET_INTERCEPT "circuit_target_intercept"
 
 //TIMER COOLDOWN MACROS
 
@@ -81,7 +82,7 @@
 
 #define COOLDOWN_DECLARE(cd_index) var/##cd_index = 0
 
-#define COOLDOWN_START(cd_source, cd_index, cd_time) (cd_source.cd_index = world.time + cd_time)
+#define COOLDOWN_START(cd_source, cd_index, cd_time) (cd_source.cd_index = world.time + (cd_time))
 
 //Returns true if the cooldown has run its course, false otherwise
 #define COOLDOWN_FINISHED(cd_source, cd_index) (cd_source.cd_index < world.time)

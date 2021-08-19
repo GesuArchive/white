@@ -182,7 +182,7 @@
 
 /obj/item/circuit_component/teleporter_control_console
 	display_name = "Teleporter Control Console"
-	desc = "Used to control a linked teleportation Hub and Station."
+	desc = "Used to control a linked teleportation Hub and Station. НЕ РАБОТАЕТ НАХУЙ, НАДО ОБНОВЛЕНИЕ ТЕЛЕПОРТЕРОВ ВМЕРЖИВАТЬ."
 	circuit_flags = CIRCUIT_FLAG_OUTPUT_SIGNAL
 
 	var/datum/port/input/new_target
@@ -194,7 +194,7 @@
 	var/datum/port/output/on_fail
 
 	var/obj/machinery/computer/teleporter/attached_console
-
+/* это надо обновление телепортеров вмерживать еще
 /obj/item/circuit_component/teleporter_control_console/Initialize()
 	. = ..()
 
@@ -270,3 +270,4 @@
 		target_names |= target
 
 	possible_targets.set_output(target_names)
+*/

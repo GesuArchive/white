@@ -878,6 +878,8 @@
 	display_name = "Контроллер воздуха"
 	desc = "Controls levels of gases and their temperature as well as all vents and scrubbers in the room."
 
+	var/datum/port/input/option/air_alarm_options
+
 	var/datum/port/input/min_2
 	var/datum/port/input/min_1
 	var/datum/port/input/max_1
@@ -894,36 +896,30 @@
 
 /obj/item/circuit_component/air_alarm/Initialize()
 	. = ..()
-	min_2 = add_input_port("Мин 2", PORT_TYPE_NUMBER)
-	min_1 = add_input_port("Мин 1", PORT_TYPE_NUMBER)
-	max_1 = add_input_port("Макс 1", PORT_TYPE_NUMBER)
-	max_2 = add_input_port("Макс 2", PORT_TYPE_NUMBER)
-	request_data = add_input_port("Запрос данных", PORT_TYPE_SIGNAL)
+	min_2 = add_input_port("Min 2", PORT_TYPE_NUMBER)
+	min_1 = add_input_port("Min 1", PORT_TYPE_NUMBER)
+	max_1 = add_input_port("Max 1", PORT_TYPE_NUMBER)
+	max_2 = add_input_port("Max 2", PORT_TYPE_NUMBER)
+	request_data = add_input_port("Request Atmosphere Data", PORT_TYPE_SIGNAL)
 
-	pressure = add_output_port("Давление", PORT_TYPE_NUMBER)
-	temperature = add_output_port("Температура", PORT_TYPE_NUMBER)
-	gas_amount = add_output_port("Объём газа", PORT_TYPE_NUMBER)
+	pressure = add_output_port("Pressure", PORT_TYPE_NUMBER)
+	temperature = add_output_port("Temperature", PORT_TYPE_NUMBER)
+	gas_amount = add_output_port("Chosen Gas Amount", PORT_TYPE_NUMBER)
 
 /obj/item/circuit_component/air_alarm/populate_options()
 	var/static/list/component_options
-	var/static/list/options_to_key
 
 	if(!component_options)
 		component_options = list(
-			"Давление",
-			"Температура"
-		)
-		options_to_key = list(
-			"Давление" = "pressure",
-			"Температура" = "temperature"
+			"Pressure" = "pressure",
+			"Temperature" = "temperature"
 		)
 
 		for(var/gas_id in GLOB.meta_gas_info)
-			component_options.Add(GLOB.meta_gas_info[gas_id][META_GAS_NAME])
-			options_to_key[GLOB.meta_gas_info[gas_id][META_GAS_NAME]] = gas_id2path(gas_id)
+			component_options[GLOB.meta_gas_info[gas_id][META_GAS_NAME]] = gas_id2path(gas_id)
 
-	options = component_options
-	options_map = options_to_key
+	air_alarm_options = add_option_port("Air Alarm Options", component_options)
+	options_map = component_options
 
 /obj/item/circuit_component/air_alarm/register_usb_parent(atom/movable/parent)
 	. = ..()
@@ -947,8 +943,10 @@
 		var/datum/gas_mixture/environment = alarm_turf.return_air()
 		pressure.set_output(round(environment.return_pressure()))
 		temperature.set_output(round(environment.return_temperature()))
+		/* похуй чисто паебать потом пофиксит ктонить кому нада
 		if(ispath(options_map[current_option]))
-			gas_amount.set_output(round(environment.get_moles(options_map[current_option])))
+			gas_amount.set_output(round(environment.gases[options_map[current_option]][MOLES]))
+		*/
 		return
 
 	var/datum/tlv/settings = connected_alarm.TLV[options_map[current_option]]

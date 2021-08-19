@@ -1,5 +1,5 @@
 //These circuits do not-so-simple math.
-/obj/item/integrated_circuit/trig
+/obj/item/integrated_circuit_old/trig
 	complexity = 1
 	inputs = list(
 		"A" = IC_PINTYPE_NUMBER,
@@ -19,14 +19,14 @@
 
 // Sine //
 
-/obj/item/integrated_circuit/trig/sine
+/obj/item/integrated_circuit_old/trig/sine
 	name = "sin circuit"
 	desc = "Only evil if you're allergic to math. Takes a degree and outputs the sine of said degree."
 	icon_state = "sine"
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/trig/sine/do_work()
+/obj/item/integrated_circuit_old/trig/sine/do_work()
 	pull_data()
 	var/result = null
 	var/A = get_pin_data(IC_INPUT, 1)
@@ -39,14 +39,14 @@
 
 // Cosine //
 
-/obj/item/integrated_circuit/trig/cosine
+/obj/item/integrated_circuit_old/trig/cosine
 	name = "cos circuit"
 	desc = "Takes a degree and outputs the cosine of said degree."
 	icon_state = "cosine"
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/trig/cosine/do_work()
+/obj/item/integrated_circuit_old/trig/cosine/do_work()
 	pull_data()
 	var/result = null
 	var/A = get_pin_data(IC_INPUT, 1)
@@ -59,14 +59,14 @@
 
 // Tangent //
 
-/obj/item/integrated_circuit/trig/tangent
+/obj/item/integrated_circuit_old/trig/tangent
 	name = "tan circuit"
 	desc = "Takes a degree and outputs the tangent of said degree."
 	icon_state = "tangent"
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/trig/tangent/do_work()
+/obj/item/integrated_circuit_old/trig/tangent/do_work()
 	pull_data()
 	var/result = null
 	var/A = get_pin_data(IC_INPUT, 1)
@@ -79,14 +79,14 @@
 
 // Cosecant //
 
-/obj/item/integrated_circuit/trig/cosecant
+/obj/item/integrated_circuit_old/trig/cosecant
 	name = "cosecant (CSC) circuit"
 	desc = "Takes a degree and outputs the cosecant of said degree."
 	icon_state = "cosecant"
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/trig/cosecant/do_work()
+/obj/item/integrated_circuit_old/trig/cosecant/do_work()
 	pull_data()
 	var/result = null
 	var/A = get_pin_data(IC_INPUT, 1)
@@ -99,14 +99,14 @@
 
 // Secant //
 
-/obj/item/integrated_circuit/trig/secant
+/obj/item/integrated_circuit_old/trig/secant
 	name = "secant (SEC) circuit"
 	desc = "Takes a degree and outputs the secant of said degree."
 	icon_state = "secant"
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/trig/secant/do_work()
+/obj/item/integrated_circuit_old/trig/secant/do_work()
 	pull_data()
 	var/result = null
 	var/A = get_pin_data(IC_INPUT, 1)
@@ -119,14 +119,14 @@
 
 // Cotangent //
 
-/obj/item/integrated_circuit/trig/cotangent
+/obj/item/integrated_circuit_old/trig/cotangent
 	name = "cotangent (COT) circuit"
 	desc = "Takes a degree and outputs the cotangent of said degree."
 	icon_state = "cotangent"
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/trig/cotangent/do_work()
+/obj/item/integrated_circuit_old/trig/cotangent/do_work()
 	pull_data()
 	var/result = null
 	var/A = get_pin_data(IC_INPUT, 1)
