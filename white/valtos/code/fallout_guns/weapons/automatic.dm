@@ -151,7 +151,6 @@
 	zoom_amt = 10
 	zoom_out_amt = 13
 	weapon_weight = WEAPON_HEAVY
-	automatic = null
 
 /obj/item/gun/ballistic/automatic/fallout/marksman/american
 	name = "All-American"
