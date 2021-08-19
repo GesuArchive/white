@@ -16,43 +16,43 @@
 
 	if(!keycheck(user))
 		if(COOLDOWN_FINISHED(src, message_cooldown))
-			to_chat(user, "<span class='warning'>[vehicle_parent] has no key inserted!</span>")
+			to_chat(user, span_warning("[vehicle_parent] has no key inserted!"))
 			COOLDOWN_START(src, message_cooldown, 5 SECONDS)
 		return COMPONENT_DRIVER_BLOCK_MOVE
 
 	if(HAS_TRAIT(user, TRAIT_INCAPACITATED))
 		if(ride_check_flags & UNBUCKLE_DISABLED_RIDER)
 			vehicle_parent.unbuckle_mob(user, TRUE)
-			user.visible_message("<span class='danger'>[user] falls off [vehicle_parent].</span>",\
-			"<span class='danger'>You slip off [vehicle_parent] as your body slumps!</span>")
+			user.visible_message(span_danger("[user] falls off \the [vehicle_parent]."),\
+			span_danger("You slip off \the [vehicle_parent] as your body slumps!"))
 			user.Stun(3 SECONDS)
 
 		if(COOLDOWN_FINISHED(src, message_cooldown))
-			to_chat(user, "<span class='warning'>You cannot operate [vehicle_parent] right now!</span>")
+			to_chat(user, span_warning("You cannot operate \the [vehicle_parent] right now!"))
 			COOLDOWN_START(src, message_cooldown, 5 SECONDS)
 		return COMPONENT_DRIVER_BLOCK_MOVE
 
 	if(ride_check_flags & RIDER_NEEDS_LEGS && HAS_TRAIT(user, TRAIT_FLOORED))
 		if(ride_check_flags & UNBUCKLE_DISABLED_RIDER)
 			vehicle_parent.unbuckle_mob(user, TRUE)
-			user.visible_message("<span class='danger'>[user] falls off [vehicle_parent].</span>",\
-			"<span class='danger'>You fall off [vehicle_parent] while trying to operate it while unable to stand!</span>")
+			user.visible_message(span_danger("[user] falls off \the [vehicle_parent]."),\
+			span_danger("You fall off \the [vehicle_parent] while trying to operate it while unable to stand!"))
 			user.Stun(3 SECONDS)
 
 		if(COOLDOWN_FINISHED(src, message_cooldown))
-			to_chat(user, "<span class='warning'>You can't seem to manage that while unable to stand up enough to move [vehicle_parent]...</span>")
+			to_chat(user, span_warning("You can't seem to manage that while unable to stand up enough to move \the [vehicle_parent]..."))
 			COOLDOWN_START(src, message_cooldown, 5 SECONDS)
 		return COMPONENT_DRIVER_BLOCK_MOVE
 
 	if(ride_check_flags & RIDER_NEEDS_ARMS && HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
 		if(ride_check_flags & UNBUCKLE_DISABLED_RIDER)
 			vehicle_parent.unbuckle_mob(user, TRUE)
-			user.visible_message("<span class='danger'>[user] falls off [vehicle_parent].</span>",\
-			"<span class='danger'>You fall off [vehicle_parent] while trying to operate it without being able to hold on!</span>")
+			user.visible_message(span_danger("[user] falls off \the [vehicle_parent]."),\
+			span_danger("You fall off \the [vehicle_parent] while trying to operate it without being able to hold on!"))
 			user.Stun(3 SECONDS)
 
 		if(COOLDOWN_FINISHED(src, message_cooldown))
-			to_chat(user, "<span class='warning'>You can't seem to hold onto [vehicle_parent] to move it...</span>")
+			to_chat(user, span_warning("You can't seem to hold onto \the [vehicle_parent] to move it..."))
 			COOLDOWN_START(src, message_cooldown, 5 SECONDS)
 		return COMPONENT_DRIVER_BLOCK_MOVE
 
@@ -65,9 +65,9 @@
 	var/turf/next = get_step(movable_parent, direction)
 	var/turf/current = get_turf(movable_parent)
 	if(!istype(next) || !istype(current))
-		return	//not happening.
+		return //not happening.
 	if(!turf_check(next, current))
-		to_chat(user, "<span class='warning'>\The [movable_parent] can not go onto [next]!</span>")
+		to_chat(user, span_warning("\The [movable_parent] can not go onto [next]!"))
 		return
 	if(!Process_Spacemove(direction) || !isturf(movable_parent.loc))
 		return
@@ -109,48 +109,6 @@
 	keytype = /obj/item/oar
 	var/allowed_turf = /turf/open/lava
 
-//nasral
-
-
-/datum/component/riding/vehicle/lavaboat/driver_move(datum/source, dir)
-	var/atom/movable/movable_parent = parent
-	var/gaming = FALSE
-	for(var/mob/living/M in movable_parent.buckled_mobs)
-		if(M?.mind?.get_skill_level(/datum/skill/gaming) >= SKILL_LEVEL_MASTER)
-			gaming = TRUE
-			break
-	if(gaming)
-		gaming()
-	else
-		gaming_stop()
-
-	. = ..()
-
-/datum/component/riding/vehicle/lavaboat/proc/gaming()
-	if(override_allow_spacemove)
-		return
-	var/atom/movable/movable_parent = parent
-	vehicle_move_delay = 0.1
-	override_allow_spacemove = TRUE
-	allowed_turf_typecache = null
-	movable_parent.movement_type |= FLYING
-	for(var/mob/living/M in movable_parent.buckled_mobs)
-		M.movement_type |= FLYING
-
-/datum/component/riding/vehicle/lavaboat/proc/gaming_stop()
-	if(!override_allow_spacemove)
-		return
-	var/atom/movable/movable_parent = parent
-	vehicle_move_delay = initial(vehicle_move_delay)
-	override_allow_spacemove = FALSE
-	allowed_turf_typecache = typecacheof(allowed_turf)
-	movable_parent.movement_type = initial(movable_parent.movement_type)
-	for(var/mob/living/M in movable_parent.buckled_mobs)
-		M.movement_type = initial(M.movement_type)
-
-
-
-
 /datum/component/riding/vehicle/lavaboat/handle_specials()
 	. = ..()
 	allowed_turf_typecache = typecacheof(allowed_turf)
@@ -177,9 +135,12 @@
 /datum/component/riding/vehicle/scooter
 	ride_check_flags = RIDER_NEEDS_LEGS | RIDER_NEEDS_ARMS | UNBUCKLE_DISABLED_RIDER
 
-/datum/component/riding/vehicle/scooter/handle_specials()
+/datum/component/riding/vehicle/scooter/handle_specials(mob/living/riding_mob)
 	. = ..()
-	set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0), TEXT_SOUTH = list(-2), TEXT_EAST = list(0), TEXT_WEST = list( 2)))
+	if(iscyborg(riding_mob))
+		set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0), TEXT_SOUTH = list(0), TEXT_EAST = list(0), TEXT_WEST = list(2)))
+	else
+		set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(2), TEXT_SOUTH = list(-2), TEXT_EAST = list(0), TEXT_WEST = list(2)))
 
 /datum/component/riding/vehicle/scooter/skateboard
 	vehicle_move_delay = 1.5
@@ -207,7 +168,7 @@
 
 /datum/component/riding/vehicle/scooter/skateboard/wheelys/skishoes/handle_specials()
 	. = ..()
-	allowed_turf_typecache = typecacheof(/turf/open/floor/plating/asteroid/snow/icemoon)
+	allowed_turf_typecache = typecacheof(list(/turf/open/floor/plating/asteroid/snow, /turf/open/floor/grass/snow, /turf/open/floor/holofloor/snow, /turf/open/floor/plating/ice))
 
 /datum/component/riding/vehicle/secway
 	keytype = /obj/item/key/security
@@ -224,7 +185,7 @@
 
 	if(keycheck(user) && the_secway.eddie_murphy)
 		if(COOLDOWN_FINISHED(src, message_cooldown))
-			the_secway.visible_message("<span class='warning'>[src] sputters and refuses to move!</span>")
+			the_secway.visible_message(span_warning("[src] sputters and refuses to move!"))
 			playsound(get_turf(the_secway), 'sound/effects/stall.ogg', 70)
 			COOLDOWN_START(src, message_cooldown, 0.75 SECONDS)
 		return COMPONENT_DRIVER_BLOCK_MOVE
