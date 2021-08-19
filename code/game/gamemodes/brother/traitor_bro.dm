@@ -64,4 +64,4 @@
 	return ..()
 
 /datum/game_mode/traitor/bros/generate_report()
-	return "It's Syndicate recruiting season. Be alert for potential Syndicate infiltrators, but also watch out for disgruntled employees trying to defect. Unlike Nanotrasen, the Syndicate prides itself in teamwork and will only recruit pairs that share a brotherly trust."
+	return "Наступает сезон набора в Синдикат. Будьте внимательны к потенциальным злоумышленникам Синдиката, но также остерегайтесь недовольных сотрудников, пытающихся сбежать. В отличие от Нанотрасена, Синдикат гордится своей командной работой и набирает только те пары, которые разделяют братское доверие."

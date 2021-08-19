@@ -105,7 +105,7 @@
 		return "<div class='panel redborder'><span class='redtext big'>The staff managed to contain the monkey infestation!</span></div>"
 
 /datum/game_mode/monkey/generate_report()
-	return "Reports of an ancient [pick("retrovirus", "flesh eating bacteria", "disease", "magical curse blamed on viruses", "banana blight")] outbreak that turn humans into monkeys has been reported in your quadrant. Due to strain mutation, such infections are no longer curable by any known means. If an outbreak occurs, ensure the station is quarantined to prevent a largescale outbreak at CentCom."
+	return "Отчёты о древне[pick("м ретровирусе", "й бактерии, питающиеся плотью", "й болезни", "м магическом проклятии, в котором обвинили вирусы", "й банановой гнили")] в вашем секторе были зарегистрированы и была замечена вспышка, которая превратила всех людей в обезьян. Из-за мутации штамма такие инфекции больше не поддаются лечению никакими известными способами. Если произойдет вспышка, убедитесь, что станция находится на карантине, чтобы предотвратить крупномасштабную вспышку в ЦентКоме."
 
 /proc/add_monkey_leader(datum/mind/monkey_mind)
 	if(is_monkey_leader(monkey_mind))

@@ -18,7 +18,7 @@
 	CONFIG_SET(flag/allow_random_events, FALSE)
 
 /datum/game_mode/teaparty/generate_report()
-	return "В передаче в основном не упоминается ваш сектор. У вас чайная смена."
+	return "В передаче в основном не упоминается ваш сектор. Успешной смены!"
 
 /datum/game_mode/teaparty/generate_station_goals()
 	for(var/T in subtypesof(/datum/station_goal))

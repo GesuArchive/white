@@ -77,10 +77,10 @@ GLOBAL_LIST_INIT(slot2type, list("head" = /obj/item/clothing/head/changeling, "w
 						changelings += character.mind
 
 /datum/game_mode/changeling/generate_report()
-	return "The Gorlex Marauders have announced the successful raid and destruction of Central Command containment ship #S-[rand(1111, 9999)]. This ship housed only a single prisoner - \
-			codenamed \"Thing\", and it was highly adaptive and extremely dangerous. We have reason to believe that the Thing has allied with the Syndicate, and you should note that likelihood \
-			of the Thing being sent to a station in this sector is highly likely. It may be in the guise of any crew member. Trust nobody - suspect everybody. Do not announce this to the crew, \
-			as paranoia may spread and inhibit workplace efficiency."
+	return "Мародеры Горлекса объявили об успешном рейде и уничтожении корабля сдерживания Центрального Командования #S-[rand(1111, 9999)]. На этом корабле находился только один заключенный - \
+			под кодовым названием \"Существо\", и оно было очень адаптивным и чрезвычайно опасным. У нас есть основания полагать, что Существо заключило союз с Синдикатом, и вы должны отметить, что вероятность \
+			того, что Существо было отправлено на станцию в этом секторе, весьма вероятна. Может быть в облике любого члена экипажа. Никому не доверяйте - подозревайте всех. Не сообщайте об этом экипажу, \
+			поскольку паранойя может распространяться и снизить эффективность рабочих."
 
 /proc/changeling_transform(mob/living/carbon/human/user, datum/changelingprofile/chosen_prof)
 	var/datum/dna/chosen_dna = chosen_prof.dna

@@ -56,5 +56,5 @@
 	SSticker.mode_result = "end - evacuation"
 
 /datum/game_mode/meteor/generate_report()
-	return "[pick("Asteroids have", "Meteors have", "Large rocks have", "Stellar minerals have", "Space hail has", "Debris has")] been detected near your station, and a collision is possible, \
-			though unlikely.  Be prepared for largescale impacts and destruction.  Please note that the debris will prevent the escape shuttle from arriving quickly."
+	return "[pick("Астероиды", "Метеориты", "Огромные камни", "Минералы", "Ваши почки", "Обломки")] были обнаружены рядом с вашей станцией, и возможно столкновение, \
+			хотя маловероятно.  Будьте готовы к масштабным ударам и разрушениям. Обратите внимание, что мусор будет препятствовать быстрому прибытию эвакуационного шаттла."

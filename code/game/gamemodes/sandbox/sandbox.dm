@@ -6,7 +6,7 @@
 
 	announce_span = "info"
 	announce_text = "Build your own station... or just shoot each other!"
-	
+
 	allow_persistence_save = FALSE
 
 /datum/game_mode/sandbox/pre_setup()
@@ -19,4 +19,4 @@
 	SSshuttle.registerHostileEnvironment(src)
 
 /datum/game_mode/sandbox/generate_report()
-	return "Sensors indicate that crewmembers have been all given psychic powers from which they can manifest various objects.<br><br>This can only end poorly."
+	return "Датчики показывают, что всем членам экипажа даны психические силы, с помощью которых они могут проявлять различные объекты.<br><br>Это может плохо кончиться."

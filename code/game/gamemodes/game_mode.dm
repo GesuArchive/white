@@ -458,21 +458,21 @@
 			for(var/dead_dudes_job in reopened_jobs)
 				reopened_job_report_positions = "[reopened_job_report_positions ? "[reopened_job_report_positions]\n":""][dead_dudes_job]"
 
-			var/suicide_command_report = "<font size = 3><b>Central Command Human Resources Board</b><br>\
-								Notice of Personnel Change</font><hr>\
-								To personnel management staff aboard [station_name()]:<br><br>\
-								Our medical staff have detected a series of anomalies in the vital sensors \
-								of some of the staff aboard your station.<br><br>\
-								Further investigation into the situation on our end resulted in us discovering \
-								a series of rather... unforturnate decisions that were made on the part of said staff.<br><br>\
-								As such, we have taken the liberty to automatically reopen employment opportunities for the positions of the crew members \
-								who have decided not to partake in our research. We will be forwarding their cases to our employment review board \
-								to determine their eligibility for continued service with the company (and of course the \
-								continued storage of cloning records within the central medical backup server.)<br><br>\
-								<i>The following positions have been reopened on our behalf:<br><br>\
+			var/suicide_command_report = "<font size = 3><b>Совет по кадрам Центрального Командования</b><br>\
+								Уведомление об изменении персонала</font><hr>\
+								Персоналу управления персоналом на борту [station_name()]:<br><br>\
+								Наш медицинский персонал обнаружил серию аномалий в жизненно важных датчиках \
+								некоторых сотрудников на борту вашей станции.<br><br>\
+								Дальнейшее расследование ситуации с нашей стороны привело к \
+								обнаружению ряда весьма... неудачных решений, которые были приняты указанным персоналом.<br><br>\
+								Таким образом, мы взяли на себя смелость автоматически возобновлять возможности трудоустройства на должности членов экипажа \
+								кто решил не участвовать в нашем исследовании. Мы передадим их дела в наш совет по вопросам занятости \
+								для определения их права на продолжение работы в компании (и, конечно же, \
+								постоянное хранение записей о клонировании на центральном медицинском резервном сервере.)<br><br>\
+								<i>Следующие должности были повторно открыты от нашего имени:<br><br>\
 								[reopened_job_report_positions]</i>"
 
-			print_command_report(suicide_command_report, "Central Command Personnel Update")
+			print_command_report(suicide_command_report, "Обновление Центрального командования")
 
 //////////////////////////
 //Reports player logouts//

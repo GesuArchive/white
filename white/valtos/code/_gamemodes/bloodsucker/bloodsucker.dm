@@ -30,7 +30,8 @@
 	<span class='danger'>Bloodsuckers</span>: The crew are cattle, while you are both shepherd and slaughterhouse.\n\
 	<span class='notice'>Crew</span>: Put an end to the undead infestation before the station is overcome!"
 
-
+/datum/game_mode/bloodsucker/generate_report()
+	return "В вашем секторе был обнаружен странный вид мутировавших крыс, которые питаются кровью. Будьте осторожны."
 
 // Seems to be run by game ONCE, and finds all potential players to be antag.
 /datum/game_mode/bloodsucker/pre_setup()

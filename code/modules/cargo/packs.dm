@@ -1871,10 +1871,10 @@
 				break
 
 /datum/supply_pack/organic/pizza/proc/anomalous_pizza_report()
-	print_command_report("[station_name()], our anomalous materials divison has reported a missing object that is highly likely to have been sent to your station during a routine cargo \
-	delivery. Please search all crates and manifests provided with the delivery and return the object if is located. The object resembles a standard <b>\[DATA EXPUNGED\]</b> and is to be \
-	considered <b>\[REDACTED\]</b> and returned at your leisure. Note that objects the anomaly produces are specifically attuned exactly to the individual opening the anomaly; regardless \
-	of species, the individual will find the object edible and it will taste great according to their personal definitions, which vary significantly based on person and species.")
+	print_command_report("[station_name()], наш отдел аномальных материалов сообщил об пропавшем предмете, который, скорее всего, был отправлен на вашу станцию во время обычной доставки груза. \
+	Пожалуйста, обыщите все ящики и манифесты, поставляемые с доставкой, и верните объект, если он найден. Объект напоминает стандартный <b>\[ДАННЫЕ УНИЧТОЖЕНЫ\]</b> и должен быть \
+	<b>\[УДАЛЕНО\]</b> и возвращён как будет время. Обратите внимание, что объекты, создаваемые аномалией, специально настроены именно на человека, открывающего аномалию; независимо от вида, \
+	человек сочтет объект съедобным, и он будет иметь прекрасный вкус в соответствии с его личными определениями, которые значительно различаются в зависимости от человека и вида.")
 
 /datum/supply_pack/organic/potted_plants
 	name = "Potted Plants Crate"

@@ -84,6 +84,6 @@
 	..()
 
 /datum/game_mode/traitor/changeling/generate_report()
-	return "The Syndicate has started some experimental research regarding humanoid shapeshifting.  There are rumors that this technology will be field tested on a Nanotrasen station \
-			for infiltration purposes.  Be advised that support personel may also be deployed to defend these shapeshifters. Trust nobody - suspect everybody. Do not announce this to the crew, \
-			as paranoia may spread and inhibit workplace efficiency."
+	return "Синдикат начал некоторые экспериментальные исследования по изменению облика гуманоидов. Ходят слухи, что эта технология будет испытана в полевых условиях на станции Нанотрейзен \
+			в целях проникновения. Имейте в виду, что для защиты от этих оборотней может быть также задействован вспомогательный персонал. Никому не доверяйте - подозревайте всех. Не сообщайте об этом экипажу, \
+			поскольку паранойя может распространяться и снизить эффективность рабочих."

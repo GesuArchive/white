@@ -65,5 +65,5 @@
 	return ..()
 
 /datum/game_mode/heretics/generate_report()
-	return "Cybersun Industries has announced that they have successfully raided a high-security library. The library contained a very dangerous book that was \
-	shown to posses anomalous properties. We suspect that the book has been copied over, Stay vigilant!"
+	return "Cybersun Industries объявила, что они успешно совершили набег на библиотеку с высоким уровнем безопасности. \
+	В библиотеке была очень опасная книга, обладающая аномальными свойствами. Мы подозреваем, что книга переписана. Будьте бдительны!"

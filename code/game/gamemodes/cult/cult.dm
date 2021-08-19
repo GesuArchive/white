@@ -151,10 +151,9 @@
 
 
 /datum/game_mode/cult/generate_report()
-	return "Some stations in your sector have reported evidence of blood sacrifice and strange magic. Ties to the Wizards' Federation have been proven not to exist, and many employees \
-			have disappeared; even Central Command employees light-years away have felt strange presences and at times hysterical compulsions. Interrogations point towards this being the work of \
-			the cult of Nar'Sie. If evidence of this cult is discovered aboard your station, extreme caution and extreme vigilance must be taken going forward, and all resources should be \
-			devoted to stopping this cult. Note that holy water seems to weaken and eventually return the minds of cultists that ingest it, and mindshield implants will prevent conversion \
-			altogether."
+	return "Некоторые станции в вашем секторе сообщили о кровавых жертвоприношениях и странной магии. Было доказано, что связи с Федерацией волшебников не существуют, и многие сотрудники \
+			исчез; даже сотрудники Центрального командования, находящиеся на расстоянии световых лет от нас, ощущали странное присутствие и временами истерическое принуждение. Допросы указывают на то, что это работа \
+			культ Нар'Си. Если на борту вашей станции будут обнаружены доказательства этого культа, следует проявлять крайнюю осторожность и предельную бдительность, и все ресурсы должны быть направлены на то, чтобы \
+			остановить этот культ. Обратите внимание, что святая вода, кажется, ослабляет и в конечном итоге возвращает умы культистов, которые ее глотают, а имплантаты щита разума полностью предотвратят обращение."
 
 #undef CULT_SCALING_COEFFICIENT

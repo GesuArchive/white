@@ -94,5 +94,7 @@
 	character.add_antag_datum(new_antag)
 
 /datum/game_mode/traitor/generate_report()
-	return "Although more specific threats are commonplace, you should always remain vigilant for Syndicate agents aboard your station. Syndicate communications have implied that many \
-		Nanotrasen employees are Syndicate agents with hidden memories that may be activated at a moment's notice, so it's possible that these agents might not even know their positions."
+	return "Хотя более конкретные угрозы являются обычным явлением, вы всегда должны проявлять \
+	бдительность в отношении агентов Синдиката на борту вашей станции. Связь Синдиката подразумевает, \
+	что многие сотрудники Нанотрейзен являются агентами Синдиката со скрытыми воспоминаниями, которые \
+	могут быть активированы в любой момент, поэтому возможно, что эти агенты могут даже не знать своего положения."

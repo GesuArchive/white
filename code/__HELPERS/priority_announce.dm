@@ -109,7 +109,7 @@
 
 /proc/exploration_announce(text, z_value)
 	var/announcement = "<meta charset='UTF-8'>"
-	announcement += "<h1 class='alert'>[command_name()]: Обновление Задания</h1>"
+	announcement += "<h1 class='alert'>Обновление Задания</h1>"
 	announcement += "<span class='alert'><big>[html_encode(text)]</big></span>\n\n"
 
 	for(var/mob/M in GLOB.player_list)

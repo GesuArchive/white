@@ -84,9 +84,13 @@ Made by Xhuis
 	return TRUE
 
 /datum/game_mode/shadowling/generate_report()
-	return "Sightings of strange alien creatures have been observed in your area. These aliens supposedly possess the ability to enslave unwitting personnel and leech from their power. \
-	Be wary of dark areas and ensure all lights are kept well-maintained. Closely monitor all crew for suspicious behavior and perform dethralling surgery if they have obvious tells. Investigate all \
-	reports of odd or suspicious sightings in maintenance."
+	return "В вашем районе наблюдались странные инопланетные существа. Эти \
+	инопланетяне якобы обладают способностью порабощать ничего не подозревающих \
+	людей и лишать их власти. Остерегайтесь темных участков и следите за тем, \
+	чтобы все источники света были в хорошем состоянии. Внимательно следите \
+	за всем экипажем на предмет подозрительного поведения и выполняйте операцию \
+	по освобождению от рабства, если у них есть очевидные подсказки. Изучите все \
+	сообщения о необычных или подозрительных случаях обнаружения в ходе технического обслуживания."
 
 /datum/game_mode/shadowling/post_setup()
 	for(var/T in shadows)

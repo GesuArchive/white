@@ -98,9 +98,10 @@
 			SSticker.news_report = OPERATIVE_SKIRMISH
 
 /datum/game_mode/nuclear/generate_report()
-	return "One of Central Command's trading routes was recently disrupted by a raid carried out by the Gorlex Marauders. They seemed to only be after one ship - a highly-sensitive \
-			transport containing a nuclear fission explosive, although it is useless without the proper code and authorization disk. While the code was likely found in minutes, the only disk that \
-			can activate this explosive is on your station. Ensure that it is protected at all times, and remain alert for possible intruders."
+	return "Один из торговых маршрутов Центрального Командования был недавно нарушен рейдом, совершенным мародерами Горлекса. \
+	Казалось, что они охотятся только за одним кораблем - высокочувствительным транспортным средством, содержащим ядерную взрывчатку, \
+	хотя он бесполезен без надлежащего кода и авторизационного диска. Хотя код, скорее всего, был найден за считанные минуты, единственный диск, который \
+	может активировать эту взрывчатку, на вашей станции. Убедитесь, что он надёжно защищен, и будьте начеку для возможных злоумышленников."
 
 /proc/is_nuclear_operative(mob/M)
 	return M && istype(M) && M.mind && M.mind.has_antag_datum(/datum/antagonist/nukeop)

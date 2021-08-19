@@ -47,4 +47,4 @@
 	return handler.set_round_result_analogue()
 
 /datum/game_mode/gang/generate_report()
-	return "Potential violent criminal activity has been detected on board your station, and we believe the Spinward Stellar Coalition may be conducting an audit of us. Keep an eye out for tagging of turf, color coordination, and suspicious people asking you to say things a little closer to their chest."
+	return "На борту вашей станции была обнаружена потенциальная насильственная преступная деятельность, и мы полагаем, что Spinward Stellar Coalition может проводить нашу проверку. Следите за пометкой дерна, цветовой координацией и подозрительными людьми, которые просят вас сказать что-то чуть ближе к их груди."
