@@ -1,4 +1,5 @@
 /datum/component/plumbing
+	dupe_mode = COMPONENT_DUPE_ALLOWED
 	///Index with "1" = /datum/ductnet/theductpointingnorth etc. "1" being the num2text from NORTH define
 	var/list/datum/ductnet/ducts = list()
 	///shortcut to our parents' reagent holder
@@ -27,12 +28,12 @@
 	var/supply_color = "blue"
 
 ///turn_connects is for wheter or not we spin with the object to change our pipes
-/datum/component/plumbing/Initialize(start=TRUE, _turn_connects=TRUE, _ducting_layer, datum/reagents/custom_receiver)
+/datum/component/plumbing/Initialize(start=TRUE, _ducting_layer, _turn_connects=TRUE, datum/reagents/custom_receiver)
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
 
 	if(_ducting_layer)
-		ducting_layer = ducting_layer
+		ducting_layer = _ducting_layer
 
 	var/atom/movable/AM = parent
 	if(!AM.reagents && !custom_receiver)
@@ -100,9 +101,14 @@
 		var/datum/component/plumbing/supplier = A
 		if(supplier.can_give(amount, reagent, net))
 			valid_suppliers += supplier
+	// Need to ask for each in turn very carefully, making sure we get the total volume. This is to avoid a division that would always round down and become 0
+	var/targetVolume = reagents.total_volume + amount
+	var/suppliersLeft = valid_suppliers.len
 	for(var/A in valid_suppliers)
 		var/datum/component/plumbing/give = A
-		give.transfer_to(src, amount / valid_suppliers.len, reagent, net)
+		var/currentRequest = (targetVolume - reagents.total_volume) / suppliersLeft
+		give.transfer_to(src, currentRequest, reagent, net)
+		suppliersLeft--
 
 ///returns TRUE when they can give the specified amount and reagent. called by process request
 /datum/component/plumbing/proc/can_give(amount, reagent, datum/ductnet/net)
@@ -206,10 +212,12 @@
 			for(var/obj/machinery/duct/duct in get_step(parent, D))
 				if(duct.duct_layer == ducting_layer)
 					duct.remove_connects(turn(D, 180))
+					duct.neighbours.Remove(parent)
 					duct.update_icon()
 
 ///settle wherever we are, and start behaving like a piece of plumbing
 /datum/component/plumbing/proc/enable(obj/object, datum/component/component)
+	SIGNAL_HANDLER
 	if(active || (component && component != src))
 		UnregisterSignal(parent, list(COMSIG_COMPONENT_ADDED))
 		return
@@ -218,8 +226,8 @@
 	active = TRUE
 
 	var/atom/movable/AM = parent
-	for(var/obj/machinery/duct/D in AM.loc)	//Destroy any ducts under us. Ducts also self-destruct if placed under a plumbing machine. machines disable when they get moved
-		if(D.anchored)								//that should cover everything
+	for(var/obj/machinery/duct/D in AM.loc) //Destroy any ducts under us. Ducts also self-destruct if placed under a plumbing machine. machines disable when they get moved
+		if(D.anchored) //that should cover everything
 			D.disconnect_duct()
 
 	if(demand_connects)
@@ -234,14 +242,16 @@
 					var/obj/machinery/duct/duct = A
 					duct.attempt_connect()
 				else
-					var/datum/component/plumbing/P = A.GetComponent(/datum/component/plumbing)
-					if(P && P.ducting_layer == ducting_layer)
-						direct_connect(P, D)
+					for(var/plumber in A.GetComponents(/datum/component/plumbing))
+						if(!plumber) //apparently yes it will be null hahahaasahsdvashufv
+							continue
+						var/datum/component/plumbing/plumb = plumber
+						if(plumb && plumb.ducting_layer == ducting_layer)
+							direct_connect(plumb, D)
 
 /// Toggle our machinery on or off. This is called by a hook from default_unfasten_wrench with anchored as only param, so we dont have to copypaste this on every object that can move
 /datum/component/plumbing/proc/toggle_active(obj/O, new_state)
 	SIGNAL_HANDLER
-
 	if(new_state)
 		enable()
 	else
@@ -294,6 +304,7 @@
 	AM.update_icon()
 
 /datum/component/plumbing/proc/change_ducting_layer(obj/caller, obj/O, new_layer = DUCT_LAYER_DEFAULT)
+	SIGNAL_HANDLER
 	ducting_layer = new_layer
 
 	if(ismovable(parent))
@@ -310,11 +321,18 @@
 
 /datum/component/plumbing/proc/set_recipient_reagents_holder(datum/reagents/receiver)
 	if(recipient_reagents_holder)
-		UnregisterSignal(recipient_reagents_holder, list(COMSIG_PARENT_QDELETING)) //stop tracking whoever we were tracking
+		UnregisterSignal(recipient_reagents_holder, COMSIG_PARENT_QDELETING) //stop tracking whoever we were tracking
 	if(receiver)
-		RegisterSignal(receiver, list(COMSIG_PARENT_QDELETING), .proc/set_recipient_reagents_holder) //so on deletion it calls this proc again, but with no value to set
+		RegisterSignal(receiver, COMSIG_PARENT_QDELETING, .proc/handle_reagent_del) //on deletion call a wrapper proc that clears us, and maybe reagents too
 
 	recipient_reagents_holder = receiver
+
+/datum/component/plumbing/proc/handle_reagent_del(datum/source)
+	SIGNAL_HANDLER
+	if(source == reagents)
+		reagents = null
+	if(source == recipient_reagents_holder)
+		set_recipient_reagents_holder(null)
 
 ///has one pipe input that only takes, example is manual output pipe
 /datum/component/plumbing/simple_demand
@@ -328,6 +346,13 @@
 /datum/component/plumbing/tank
 	demand_connects = WEST
 	supply_connects = EAST
+
+/datum/component/plumbing/manifold
+	demand_connects = NORTH
+	supply_connects = SOUTH
+
+/datum/component/plumbing/manifold/change_ducting_layer(obj/caller, obj/O, new_layer)
+	return
 
 #define READY 2
 ///Baby component for the buffer plumbing machine
