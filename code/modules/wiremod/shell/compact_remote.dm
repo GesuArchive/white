@@ -4,7 +4,6 @@
  * A handheld device with one big button.
  */
 /obj/item/compact_remote
-	name = "пульт"
 	name = "compact remote"
 	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "setup_small_simple"
