@@ -98,9 +98,11 @@ GLOBAL_PROTECT(LastAdminCalledProc)
 	if(!ckey)
 		CRASH("WrapAdminProcCall with no ckey: [target] [procname] [english_list(arguments)]")
 
+	/* пасосеш ок
 	if(current_caller && current_caller != ckey)
 		to_chat(usr, span_adminnotice("Another set of admin called procs are still running. Try again later."), confidential = TRUE)
 		return
+	*/
 
 	GLOB.LastAdminCalledProc = procname
 	if(target != GLOBAL_PROC)
