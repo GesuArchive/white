@@ -214,7 +214,7 @@ GLOBAL_LIST_INIT_TYPED(ice_cream_flavours, /datum/ice_cream_flavour, init_ice_cr
 		update_flags |= UPDATE_NAME
 	if(target.change_desc)
 		update_flags |= UPDATE_DESC
-	owner.update_appearance(update_flags)
+	owner.update_icon(update_flags)
 	return TRUE
 
 ///// OUR TYPES OF ICE CREAM, COME GET SOME.
