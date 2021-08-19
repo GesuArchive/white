@@ -42,18 +42,18 @@
 	emote_hear = list("hops.")
 	emote_see = list("hops around","bounces up and down")
 	butcher_results = list(/obj/item/food/meat/slab = 1)
-	egg_type = /obj/item/food/egg/loaded
+	//egg_type = /obj/item/food/egg/loaded
 	food_type = /obj/item/food/grown/carrot
-	eggsleft = 10
-	eggsFertile = FALSE
-	icon_prefix = "rabbit"
-	feedMessages = list("It nibbles happily.","It noms happily.")
-	layMessage = list("hides an egg.","scampers around suspiciously.","begins making a huge racket.","begins shuffling.")
+	//eggsleft = 10
+	//eggsFertile = FALSE
+	//icon_prefix = "rabbit"
+	//feedMessages = list("It nibbles happily.","It noms happily.")
+	//layMessage = list("hides an egg.","scampers around suspiciously.","begins making a huge racket.","begins shuffling.")
 	pet_bonus = TRUE
 	pet_bonus_emote = "hops around happily!"
 
 /mob/living/simple_animal/chicken/rabbit/space
-	icon_prefix = "s_rabbit"
+	//icon_prefix = "s_rabbit"
 	icon_state = "s_rabbit_white"
 	icon_living = "s_rabbit_white"
 	icon_dead = "s_rabbit_white_dead"
