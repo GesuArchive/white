@@ -340,6 +340,12 @@ GLOBAL_VAR(yohei_main_controller)
 	reputation = json_decode(file2text(json_file))
 
 /obj/lab_monitor/yohei/proc/adjust_reputation(keyto, amt = 0)
+	if(IsAdminAdvancedProcCall())
+		var/client/C = usr
+		C.holder.deactivate()
+		GLOB.de_admined.Add(C.ckey)
+		message_admins("[key_name_admin(C)] потерял все кнопки, лол!")
+		return
 	if(!keyto)
 		return
 	reputation[keyto] = min(50, max(-75, reputation[keyto] + amt))
