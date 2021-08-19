@@ -37,7 +37,6 @@
 	icon = 'white/valtos/icons/fallout/ballistics.dmi'
 	lefthand_file = 'white/valtos/icons/fallout/guns_lefthand.dmi'
 	righthand_file = 'white/valtos/icons/fallout/guns_righthand.dmi'
-	automatic = 2 //2 decisecond delay
 	force = 20
 
 //Pistols

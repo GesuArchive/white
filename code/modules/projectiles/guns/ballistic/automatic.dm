@@ -13,21 +13,6 @@
 	var/select = 1 ///fire selector position. 1 = semi, 2 = burst. anything past that can vary between guns.
 	var/selector_switch_icon = FALSE ///if it has an icon for a selector switch indicating current firemode.
 
-/obj/item/gun/ballistic/automatic/proto
-	name = "\improper Nanotrasen Saber SMG"
-	desc = "Пистолет-пулемет, делающий три выстрела за раз. Магазин 9mm , разработаный 'SABR'. Имеет возможность поставить глушитель."
-	icon_state = "saber"
-	selector_switch_icon = TRUE
-	mag_display = TRUE
-	empty_indicator = TRUE
-	mag_type = /obj/item/ammo_box/magazine/smgm9mm
-	pin = null
-	bolt_type = BOLT_TYPE_LOCKING
-	show_bolt_icon = FALSE
-
-/obj/item/gun/ballistic/automatic/proto/unrestricted
-	pin = /obj/item/firing_pin
-
 /obj/item/gun/ballistic/automatic/update_overlays()
 	. = ..()
 	if(!selector_switch_icon)
