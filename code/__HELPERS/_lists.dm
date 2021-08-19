@@ -592,3 +592,13 @@
 	if(Li <= L.len)
 		return (result + L.Copy(Li, 0))
 	return (result + R.Copy(Ri, 0))
+
+#define LAZY_LISTS_OR(left_list, right_list)\
+	( length(left_list)\
+		? length(right_list)\
+			? (left_list | right_list)\
+			: left_list.Copy()\
+		: length(right_list)\
+			? right_list.Copy()\
+			: null\
+	)
