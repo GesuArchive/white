@@ -28,12 +28,11 @@ All ShuttleMove procs go here
  * * shuttle - The smashing shuttle
  */
 /turf/proc/shuttle_gib(obj/docking_port/mobile/shuttle)
-	/*
-		[09:46:54] Runtime in on_move.dm, line 31: Cannot read 428.571.dir
-		proc name: shuttle gib (/turf/proc/shuttle_gib)
-		сука?
-	*/
-	//var/shuttle_dir = shuttle.dir
+	var/shuttle_dir = SOUTH
+	var/shuttle_name = "Somethig-That-Is-Not-A-Shuttle" //потомушто валера долбоеб пихнул шаттлорипплы гибающие этим проком в свою ловилку астероидов
+	if(shuttle && istype(shuttle))
+		shuttle_dir = shuttle.dir
+		shuttle_name = shuttle.name
 	for(var/i in contents)
 		var/atom/movable/thing = i
 		if(ismob(thing))
@@ -44,22 +43,19 @@ All ShuttleMove procs go here
 				if(M.pulledby)
 					M.pulledby.stop_pulling()
 				M.stop_pulling()
-				M.visible_message("<span class='warning'>[shuttle] slams into [M]!</span>")
+				M.visible_message("<span class='warning'>[shuttle_name] slams into [M]!</span>")
 				SSblackbox.record_feedback("tally", "shuttle_gib", 1, M.type)
-				log_attack("[key_name(M)] was shuttle gibbed by [shuttle].")
+				log_attack("[key_name(M)] was shuttle gibbed by [shuttle_name].")
 				M.gib()
 
 
 		else //non-living mobs shouldn't be affected by shuttles, which is why this is an else
 			if((istype(thing, /obj/singularity) || istype(thing, /obj/energy_ball)) || istype(thing, /obj/effect/abstract))
 				continue
-			qdel(thing)
-			/*
 			if(!thing.anchored)
 				step(thing, shuttle_dir)
 			else
 				qdel(thing)
-			*/
 
 // Called on the old turf to move the turf data
 /turf/proc/onShuttleMove(turf/newT, list/movement_force, move_dir)
