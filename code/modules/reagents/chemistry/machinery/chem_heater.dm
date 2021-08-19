@@ -199,7 +199,7 @@
 		ui.open()
 		add_ui_client_list(ui)
 
-/obj/machinery/chem_heater/ui_close(mob/user)
+/obj/machinery/chem_heater/ui_close(mob/user, datum/tgui/tgui)
 	for(var/ui_client in ui_client_list)
 		var/datum/tgui/ui = ui_client
 		if(ui.user == user)

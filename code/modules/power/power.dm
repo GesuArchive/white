@@ -271,7 +271,7 @@
 	for(var/obj/structure/cable/C in T.contents)
 		C.update_icon()
 
-/obj/machinery/power/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
+/obj/machinery/power/lateShuttleMove(turf/oldT, list/movement_force, move_dir)
 	. = ..()
 	disconnect_from_network()
 	connect_to_network()

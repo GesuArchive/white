@@ -18,7 +18,6 @@
 	move_resist = MOVE_FORCE_OVERPOWERING
 	mob_size = MOB_SIZE_LARGE
 	pass_flags = PASSTABLE
-	hud_possible = list(HEALTH_HUD,STATUS_HUD,ANTAG_HUD)
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 0, CLONE = 0, STAMINA = 0, OXY = 0)
 
 	attack_verb_simple = "slices"

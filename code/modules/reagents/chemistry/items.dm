@@ -309,7 +309,7 @@
 		ui = new(user, src, "Thermometer", name)
 		ui.open()
 
-/obj/item/thermometer/ui_close(mob/user)
+/obj/item/thermometer/ui_close(mob/user, datum/tgui/tgui)
 	. = ..()
 	remove_thermometer(user)
 

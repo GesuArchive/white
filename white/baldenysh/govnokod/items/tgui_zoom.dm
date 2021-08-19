@@ -105,7 +105,7 @@
 	data["mapRef"] = map_name
 	return data
 
-/obj/item/clothing/glasses/monocle/map/ui_close(mob/user)
+/obj/item/clothing/glasses/monocle/map/ui_close(mob/user, datum/tgui/tgui)
 	if(user && user.client)
 		user.client.clear_map(map_name)
 

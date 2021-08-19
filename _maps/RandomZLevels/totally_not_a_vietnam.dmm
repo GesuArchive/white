@@ -637,7 +637,6 @@
 /turf/open/genturf,
 /area/awaymission/vietnam)
 "vb" = (
-/obj/item/reagent_containers/syringe/contraband/crank,
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dark)
 "vc" = (

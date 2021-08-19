@@ -163,9 +163,12 @@ Medical HUD! Basic mode needs suit sensors on.
 //called when a living mob changes health
 /mob/living/proc/med_hud_set_health()
 	var/image/holder = hud_list[HEALTH_HUD]
-	holder.icon_state = "hud[RoundHealth(src)]"
-	var/icon/I = icon(icon, icon_state, dir)
-	holder.pixel_y = I.Height() - world.icon_size
+	if(holder)
+		holder.icon_state = "hud[RoundHealth(src)]"
+		var/icon/I = icon(icon, icon_state, dir)
+		holder.pixel_y = I.Height() - world.icon_size
+	else
+		stack_trace("[src] does not have a HEALTH_HUD but updates it!")
 
 //for carbon suit sensors
 /mob/living/carbon/med_hud_set_health()
@@ -174,43 +177,49 @@ Medical HUD! Basic mode needs suit sensors on.
 //called when a carbon changes stat, virus or XENO_HOST
 /mob/living/proc/med_hud_set_status()
 	var/image/holder = hud_list[STATUS_HUD]
-	var/icon/I = icon(icon, icon_state, dir)
-	holder.pixel_y = I.Height() - world.icon_size
-	if(stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
-		holder.icon_state = "huddead"
+	if(holder)
+		var/icon/I = icon(icon, icon_state, dir)
+		holder.pixel_y = I.Height() - world.icon_size
+		if(stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
+			holder.icon_state = "huddead"
+		else
+			holder.icon_state = "hudhealthy"
 	else
-		holder.icon_state = "hudhealthy"
+		stack_trace("[src] does not have a HEALTH_HUD but updates it!")
 
 /mob/living/carbon/med_hud_set_status()
 	var/image/holder = hud_list[STATUS_HUD]
-	var/icon/I = icon(icon, icon_state, dir)
-	var/virus_threat = check_virus()
-	holder.pixel_y = I.Height() - world.icon_size
-	if(HAS_TRAIT(src, TRAIT_XENO_HOST))
-		holder.icon_state = "hudxeno"
-	else if(stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
-		if((key || get_ghost(FALSE, TRUE)) && (can_defib() & DEFIB_REVIVABLE_STATES))
-			holder.icon_state = "huddefib"
+	if(holder)
+		var/icon/I = icon(icon, icon_state, dir)
+		var/virus_threat = check_virus()
+		holder.pixel_y = I.Height() - world.icon_size
+		if(HAS_TRAIT(src, TRAIT_XENO_HOST))
+			holder.icon_state = "hudxeno"
+		else if(stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
+			if((key || get_ghost(FALSE, TRUE)) && (can_defib() & DEFIB_REVIVABLE_STATES))
+				holder.icon_state = "huddefib"
+			else
+				holder.icon_state = "huddead"
 		else
-			holder.icon_state = "huddead"
+			switch(virus_threat)
+				if(DISEASE_SEVERITY_BIOHAZARD)
+					holder.icon_state = "hudill5"
+				if(DISEASE_SEVERITY_DANGEROUS)
+					holder.icon_state = "hudill4"
+				if(DISEASE_SEVERITY_HARMFUL)
+					holder.icon_state = "hudill3"
+				if(DISEASE_SEVERITY_MEDIUM)
+					holder.icon_state = "hudill2"
+				if(DISEASE_SEVERITY_MINOR)
+					holder.icon_state = "hudill1"
+				if(DISEASE_SEVERITY_NONTHREAT)
+					holder.icon_state = "hudill0"
+				if(DISEASE_SEVERITY_POSITIVE)
+					holder.icon_state = "hudbuff"
+				if(null)
+					holder.icon_state = "hudhealthy"
 	else
-		switch(virus_threat)
-			if(DISEASE_SEVERITY_BIOHAZARD)
-				holder.icon_state = "hudill5"
-			if(DISEASE_SEVERITY_DANGEROUS)
-				holder.icon_state = "hudill4"
-			if(DISEASE_SEVERITY_HARMFUL)
-				holder.icon_state = "hudill3"
-			if(DISEASE_SEVERITY_MEDIUM)
-				holder.icon_state = "hudill2"
-			if(DISEASE_SEVERITY_MINOR)
-				holder.icon_state = "hudill1"
-			if(DISEASE_SEVERITY_NONTHREAT)
-				holder.icon_state = "hudill0"
-			if(DISEASE_SEVERITY_POSITIVE)
-				holder.icon_state = "hudbuff"
-			if(null)
-				holder.icon_state = "hudhealthy"
+		stack_trace("[src] does not have a HEALTH_HUD but updates it!")
 
 
 /***********************************************

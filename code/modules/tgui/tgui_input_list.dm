@@ -117,7 +117,7 @@
 		ui = new(user, src, "ListInput")
 		ui.open()
 
-/datum/tgui_list_input/ui_close(mob/user)
+/datum/tgui_list_input/ui_close(mob/user, datum/tgui/tgui)
 	. = ..()
 	closed = TRUE
 
@@ -169,7 +169,7 @@
 	QDEL_NULL(callback)
 	. = ..()
 
-/datum/tgui_list_input/async/ui_close(mob/user)
+/datum/tgui_list_input/async/ui_close(mob/user, datum/tgui/tgui)
 	. = ..()
 	qdel(src)
 

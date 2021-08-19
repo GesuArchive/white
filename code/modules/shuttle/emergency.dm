@@ -595,7 +595,6 @@
 	icon_state = "dorm_available"
 	light_color = LIGHT_COLOR_BLUE
 	density = FALSE
-	has_radar = FALSE
 
 /obj/machinery/computer/shuttle_flight/pod/ComponentInitialize()
 	. = ..()
@@ -611,7 +610,6 @@
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
-	has_radar = TRUE
 	to_chat(user, "<span class='warning'>Сжигаю систему проверки уровня тревоги и активирую радар.</span>")
 
 /obj/machinery/computer/shuttle_flight/pod/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)

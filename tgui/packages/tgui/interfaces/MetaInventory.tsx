@@ -118,7 +118,7 @@ export const MetaInventory = (props, context) => {
                   }
 
                   const item_uid = data.loadout[keyAtSpot];
-                  const item = (item_uid && item_uid != "0") ? data.items[item_uid] : null;
+                  const item = (item_uid && item_uid !== "0") ? data.items[item_uid] : null;
                   const slot = SLOTS[keyAtSpot];
 
                   let content;

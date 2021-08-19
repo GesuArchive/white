@@ -7608,7 +7608,6 @@
 /obj/item/storage/toolbox/emergency/old{
 	pixel_y = 7
 	},
-/obj/item/reagent_containers/syringe/contraband/crank,
 /turf/open/floor/plasteel/monofloor,
 /area/maintenance/bottom_station_maints/north)
 "vZ" = (

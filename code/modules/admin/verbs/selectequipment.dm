@@ -57,7 +57,7 @@
 		return UI_CLOSE
 	return ..()
 
-/datum/select_equipment/ui_close(mob/user)
+/datum/select_equipment/ui_close(mob/user, datum/tgui/tgui)
 	clear_human_dummy(dummy_key)
 	qdel(src)
 

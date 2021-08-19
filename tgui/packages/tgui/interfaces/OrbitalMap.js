@@ -1,4 +1,4 @@
-import { Box, Button, Section, Table, DraggableControl, Dropdown, Divider, NoticeBox, Slider, ProgressBar, Fragment } from '../components';
+import { Box, Button, Section, Table, DraggableOrbitalMap, Dropdown, Divider, NoticeBox, Slider, ProgressBar, Fragment, ScrollableBox } from '../components';
 import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
@@ -6,32 +6,19 @@ export const OrbitalMap = (props, context) => {
   const { act, data } = useBackend(context);
   const {
     map_objects = [],
-    collisionAlert = false,
     linkedToShuttle = false,
     canLaunch = false,
     recall_docking_port_id = "",
     thrust_alert = false,
     damage_alert = false,
     shuttleName = "",
-    desired_vel_x = 0,
-    desired_vel_y = 0,
-    validDockingPorts = [],
-    isDocking = false,
-    has_radar = true,
-    interdiction_range = 0,
+    update_index = -1,
+    interdictionTime = 0,
   } = data;
-  const lineStyle = {
-    stroke: '#BBBBBB',
-    strokeWidth: '2',
-  };
-  const blueLineStyle = {
-    stroke: '#8888FF',
-    strokeWidth: '2',
-  };
   const [
     zoomScale,
     setZoomScale,
-  ] = useLocalState(context, 'zoomScale', 0.05);
+  ] = useLocalState(context, 'zoomScale', 1);
   const [
     xOffset,
     setXOffset,
@@ -43,11 +30,37 @@ export const OrbitalMap = (props, context) => {
   const [
     trackedBody,
     setTrackedBody,
-  ] = useLocalState(context, 'trackedBody', map_objects[0].name);
-  let lockedZoomScale = Math.max(Math.min(zoomScale, 4), 0.125);
+  ] = useLocalState(context, 'trackedBody', shuttleName);
+
+  // EXTREMELY IMPORTANT
+  // Does absolutely nothing. Is always 0.
+  const [
+    nothing,
+    doNothing,
+  ] = useLocalState(context, 'nothing', 0);
+
+  const [
+    prevUpdate_index,
+    setPrevUpdateIndex,
+  ] = useLocalState(context, 'trackingIndex', {
+    index: -1,
+    timer: new Date(),
+  });
+
+  let elapsed = 0;
+
+  if (prevUpdate_index.index === update_index)
+  {
+    let current = new Date();
+    elapsed = (current - prevUpdate_index.timer) / 1000;
+  }
+
+  let dynamicXOffset = xOffset;
+  let dyanmicYOffset = yOffset;
+
   let trackedObject = null;
   let ourObject = null;
-  if (map_objects.length > 0)
+  if (map_objects.length > 0 && interdictionTime === 0)
   {
     // Find the right tracked body
     map_objects.forEach(element => {
@@ -58,241 +71,57 @@ export const OrbitalMap = (props, context) => {
       if (element.name === trackedBody && !trackedObject)
       {
         trackedObject = element;
-        if (xOffset !== element.position_x && yOffset !== element.position_y
-          && trackedBody !== map_objects[0].name)
+        if (trackedBody !== map_objects[0].name)
         {
-          setXOffset(element.position_x);
-          setYOffset(element.position_y);
+          dynamicXOffset = trackedObject.position_x
+           + trackedObject.velocity_x * elapsed;
+          dyanmicYOffset = trackedObject.position_y
+          + trackedObject.velocity_y * elapsed;
         }
       }
     });
   }
+
   return (
     <Window
-      width={has_radar ? 1080 : 395}
-      height={has_radar ? 710 : 400}
+      width={1136}
+      height={770}
       resizable
       overflowY="hidden">
       <Window.Content overflowY="hidden">
-        {!has_radar || (
-          <div class="OrbitalMap__radar">
-            <Button
-              position="absolute"
-              icon="search-plus"
-              right="20px"
-              top="15px"
-              fontSize="18px"
-              color="grey"
-              onClick={() => setZoomScale(zoomScale * 2)} />
-            <Button
-              position="absolute"
-              icon="search-minus"
-              right="20px"
-              top="47px"
-              fontSize="18px"
-              color="grey"
-              mt={2}
-              onClick={() => setZoomScale(zoomScale / 2)} />
-            <DraggableControl
-              position="absolute"
-              value={xOffset}
-              dragMatrix={[-1, 0]}
-              step={1}
-              stepPixelSize={2 * zoomScale}
-              inputRef={null}
-              onDrag={(e, value) => {
-                setXOffset(value);
-                setTrackedBody(map_objects[0].name);
-              }}
-              updateRate={5}>
-              {control => (
-                <DraggableControl
-                  position="absolute"
-                  value={yOffset}
-                  dragMatrix={[0, -1]}
-                  step={1}
-                  stepPixelSize={2 * zoomScale}
-                  inputRef={null}
-                  onDrag={(e, value) => {
-                    setYOffset(value);
-                    setTrackedBody(map_objects[0].name);
-                  }}
-                  updateRate={5}>
-                  {control1 => (
-                    <>
-                      {control.inputElement}
-                      {control1.inputElement}
-                      <svg
-                        onMouseDown={e => {
-                          control.handleDragStart(e);
-                          control1.handleDragStart(e);
-                        }}
-                        viewBox="-250 -250 500 500"
-                        position="absolute"
-                        overflowY="hidden">
-                        <defs>
-                          <pattern
-                            id="grid"
-                            width={100 * lockedZoomScale}
-                            height={100 * lockedZoomScale}
-                            patternUnits="userSpaceOnUse">
-                            <rect
-                              width={100 * lockedZoomScale}
-                              height={100 * lockedZoomScale}
-                              fill="url(#smallgrid)" />
-                            <path
-                              d={"M " + (100 * lockedZoomScale)
-                              + " 0 L 0 0 0 " + (100 * lockedZoomScale)}
-                              fill="none"
-                              stroke="#222233"
-                              stroke-width="1" />
-                          </pattern>
-                          <pattern
-                            id="smallgrid"
-                            width={50 * lockedZoomScale}
-                            height={50 * lockedZoomScale}
-                            patternUnits="userSpaceOnUse">
-                            <rect
-                              width={50 * lockedZoomScale}
-                              height={50 * lockedZoomScale}
-                              fill="#111111" />
-                            <path
-                              d={"M " + (50 * lockedZoomScale) + " 0 L 0 0 0 "
-                              + (50 * lockedZoomScale)}
-                              fill="none"
-                              stroke="#222233"
-                              stroke-width="0.5" />
-                          </pattern>
-                        </defs>
-                        <rect x="-50%" y="-50%" width="100%" height="100%"
-                          fill="url(#grid)" />
-                        {map_objects.map(map_object => (
-                          <>
-                            <circle
-                              cx={Math.max(Math.min((map_object.position_x
-                                - xOffset)
-                                * zoomScale, 250), -250)}
-                              cy={Math.max(Math.min((map_object.position_y
-                                - yOffset)
-                                * zoomScale, 250), -250)}
-                              r={((map_object.position_y - yOffset)
-                                * zoomScale > 250
-                                || (map_object.position_y - yOffset)
-                                * zoomScale < -250
-                                || (map_object.position_x - xOffset)
-                                * zoomScale > 250
-                                || (map_object.position_x - xOffset)
-                                * zoomScale < -250)
-                                ? 5 * zoomScale
-                                : Math.max(5 * zoomScale, map_object.radius
-                                  * zoomScale)}
-                              stroke="#BBBBBB"
-                              stroke-width="1"
-                              fill="rgba(0,0,0,0)" />
-                            <line
-                              style={lineStyle}
-                              x1={Math.max(Math.min((map_object.position_x
-                                - xOffset)
-                                * zoomScale, 250), -250)}
-                              y1={Math.max(Math.min((map_object.position_y
-                                - yOffset)
-                                * zoomScale, 250), -250)}
-                              x2={Math.max(Math.min((map_object.position_x
-                                - xOffset
-                                + map_object.velocity_x * 10)
-                                * zoomScale, 250), -250)}
-                              y2={Math.max(Math.min((map_object.position_y
-                                - yOffset
-                                + map_object.velocity_y * 10)
-                                * zoomScale, 250), -250)} />
-                            <text
-                              x={Math.max(Math.min((map_object.position_x
-                                - xOffset) * zoomScale, 200), -250)}
-                              y={Math.max(Math.min((map_object.position_y
-                                - yOffset) * zoomScale, 250), -240)}
-                              fill="white"
-                              fontSize={8}>
-                              {map_object.name}
-                            </text>
-                            {shuttleName !== map_object.name || (
-                              <line
-                                style={blueLineStyle}
-                                x1={Math.max(Math.min((map_object.position_x
-                                  - xOffset)
-                                  * zoomScale, 250), -250)}
-                                y1={Math.max(Math.min((map_object.position_y
-                                  - yOffset)
-                                  * zoomScale, 250), -250)}
-                                x2={Math.max(Math.min((map_object.position_x
-                                  - xOffset
-                                  + desired_vel_x * 10)
-                                  * zoomScale, 250), -250)}
-                                y2={Math.max(Math.min((map_object.position_y
-                                  - yOffset
-                                  + desired_vel_y * 10)
-                                  * zoomScale, 250), -250)} />
-                            )}
-                          </>
-                        ))};
-                        {ourObject && (
-                          <circle
-                            cx={Math.max(Math.min((ourObject.position_x
-                          - xOffset)
-                          * zoomScale, 250), -250)}
-                            cy={Math.max(Math.min((ourObject.position_y
-                          - yOffset)
-                          * zoomScale, 250), -250)}
-                            r={((ourObject.position_y - yOffset)
-                          * zoomScale > 250
-                          || (ourObject.position_y - yOffset)
-                          * zoomScale < -250
-                          || (ourObject.position_x - xOffset)
-                          * zoomScale > 250
-                          || (ourObject.position_x - xOffset)
-                          * zoomScale < -250)
-                              ? 5 * zoomScale
-                              : Math.max(5 * zoomScale, interdiction_range
-                            * zoomScale)}
-                            stroke="#00FF00"
-                            stroke-width="1"
-                            fill="rgba(0,0,0,0)" />
-                        )}
-                      </svg>
-                    </>
-                  )}
-                </DraggableControl>
-              )}
-            </DraggableControl>
-          </div>
-        )}
-        <div class="OrbitalMap__panel">
-          {!isDocking || (
-            <NoticeBox
-              color="red"
-              textAlign="center"
-              fontSize="14px">
-              ВЫБЕРИТЕ МЕСТО СТЫКОВКИ:
-              <Dropdown
-                mt={1}
-                selected="Выбрать место стыковки"
-                width="100%"
-                options={validDockingPorts.map(
-                  map_object => (
-                    <option key={map_object.id}>
-                      {map_object.name}
-                    </option>
-                  ))}
-                onSelected={value => act("gotoPort", {
-                  port: value.key,
-                })} />
-            </NoticeBox>
+        <div class="OrbitalMap__radar" id="radar">
+          {interdictionTime ? (
+            <InterdictionDisplay
+              xOffset={dynamicXOffset}
+              yOffset={dyanmicYOffset}
+              zoomScale={zoomScale}
+              setZoomScale={setZoomScale}
+              setXOffset={setXOffset}
+              setYOffset={setYOffset} />
+          ) : (
+            <OrbitalMapDisplay
+              xOffset={dynamicXOffset}
+              yOffset={dyanmicYOffset}
+              zoomScale={zoomScale}
+              setZoomScale={setZoomScale}
+              setXOffset={setXOffset}
+              setYOffset={setYOffset}
+              setTrackedBody={setTrackedBody}
+              ourObject={ourObject}
+              elapsed={elapsed}
+              nothing={nothing}
+              doNothing={doNothing}
+              prevUpdate_index={prevUpdate_index}
+              setPrevUpdateIndex={setPrevUpdateIndex} />
           )}
-          {!has_radar || (
+        </div>
+        <div class="OrbitalMap__panel">
+          <ScrollableBox overflowY="scroll" height="100%">
             <Section title="Отслеживание тел">
-              <Box
-                mb={2}
-                fontSize="16px"
-                bold>
+              <Box bold>
+                Отслеживание
+              </Box>
+              <Box mb={1}>
                 {trackedBody}
               </Box>
               <Box>
@@ -311,8 +140,8 @@ export const OrbitalMap = (props, context) => {
                 <b>
                   Ускорение:&nbsp;
                 </b>
-                ({trackedObject && trackedObject.velocity_x},
-                {trackedObject && trackedObject.velocity_y})
+                ({trackedObject && trackedObject.velocity_x}
+                , {trackedObject && trackedObject.velocity_y})
               </Box>
               <Box>
                 <b>
@@ -328,47 +157,594 @@ export const OrbitalMap = (props, context) => {
                 options={map_objects.map(map_object => (map_object.name))}
                 onSelected={value => setTrackedBody(value)} />
             </Section>
-          )}
-          <Section title="Управление полётом" height="100%">
-            {(!thrust_alert) || (
-              <NoticeBox color="red">
-                {thrust_alert}
-              </NoticeBox>
-            )}
-            {(!damage_alert) || (
-              <NoticeBox color="red">
-                {damage_alert}
-              </NoticeBox>
-            )}
-            {recall_docking_port_id !== ""
-              ? <RecallControl />
-              : linkedToShuttle
-                ? <ShuttleControls />
-                : (canLaunch ? (
-                  <>
-                    <NoticeBox>
-                      Сейчас в доке, ожидаю отлёта.
+            <Divider />
+            <Section title="Управление полётом">
+              {(!thrust_alert) || (
+                <NoticeBox color="red">
+                  {thrust_alert}
+                </NoticeBox>
+              )}
+              {(!damage_alert) || (
+                <NoticeBox color="red">
+                  {damage_alert}
+                </NoticeBox>
+              )}
+              {recall_docking_port_id !== ""
+                ? <RecallControl />
+                : linkedToShuttle
+                  ? <ShuttleControls />
+                  : (canLaunch ? (
+                    <>
+                      <NoticeBox>
+                        Пристыкованы, ожидаем запуск.
+                      </NoticeBox>
+                      <Button
+                        content="ЗАПУСК"
+                        textAlign="center"
+                        fontSize="30px"
+                        icon="rocket"
+                        width="100%"
+                        height="50px"
+                        onClick={() => act('launch')} />
+                    </>
+                  ) : (
+                    <NoticeBox
+                      color="red">
+                      Не обнаружен шаттл.
                     </NoticeBox>
-                    <Button
-                      content="ОТСТЫКОВАТЬСЯ"
-                      textAlign="center"
-                      fontSize="30px"
-                      icon="rocket"
-                      width="100%"
-                      height="50px"
-                      onClick={() => act('launch')} />
-                  </>
-                ) : (
-                  <NoticeBox
-                    color="red">
-                    НЕ ОБНАРУЖЕН ШАТТЛ.
-                  </NoticeBox>
-                ))}
-          </Section>
+                  ))}
+            </Section>
+          </ScrollableBox>
         </div>
       </Window.Content>
     </Window>
   );
+};
+
+export const InterdictionDisplay = (props, context) => {
+
+  // SVG Background Style
+  const lineStyle = {
+    stroke: '#BBBBBB',
+    strokeWidth: '2',
+  };
+  const blueLineStyle = {
+    stroke: '#8888FF',
+    strokeWidth: '2',
+  };
+  const boxTargetStyle = {
+    "fill-opacity": 0,
+    stroke: '#DDDDDD',
+    strokeWidth: '1',
+  };
+  const lineTargetStyle = {
+    opacity: 0.4,
+    stroke: '#DDDDDD',
+    strokeWidth: '1',
+  };
+
+  const {
+    xOffset,
+    yOffset,
+    zoomScale,
+    setZoomScale,
+    setXOffset,
+    setYOffset,
+  } = props;
+
+  let lockedZoomScale = Math.max(Math.min(zoomScale, 4), 0.125);
+
+  const { act, data } = useBackend(context);
+
+  const {
+    map_objects = [],
+    interdictionTime = 0,
+    interdictedShuttles = [],
+  } = data;
+
+  return (
+    <Fragment>
+      <NoticeBox
+        position="absolute"
+        color="red">
+        <Box bold mt={1} ml={1}>
+          ДВИГАТЕЛИ ПЕРЕХВАЧЕНЫ
+        </Box>
+        <Box ml={1}>
+          Управление полётом отключено.
+          Двигатели перезапустятся через {interdictionTime / 10} секунд.
+        </Box>
+        <Box ml={1}>
+          Местные шаттлы отмечены на карте.
+        </Box>
+      </NoticeBox>
+      <Button
+        position="absolute"
+        icon="search-plus"
+        right="20px"
+        top="15px"
+        fontSize="18px"
+        color="grey"
+        onClick={() => setZoomScale(zoomScale * 2)} />
+      <Button
+        position="absolute"
+        icon="search-minus"
+        right="20px"
+        top="47px"
+        fontSize="18px"
+        color="grey"
+        onClick={() => setZoomScale(zoomScale / 2)} />
+      <DraggableOrbitalMap
+        position="absolute"
+        value={xOffset}
+        dragMatrix={[-1, 0]}
+        step={1}
+        stepPixelSize={2 * zoomScale}
+        onDrag={(e, value) => {
+          setXOffset(value);
+        }}
+        onClick={(e, value) => {}}
+        updateRate={5}>
+        {control => (
+          <DraggableOrbitalMap
+            position="absolute"
+            value={yOffset}
+            dragMatrix={[0, -1]}
+            step={1}
+            stepPixelSize={2 * zoomScale}
+            onDrag={(e, value) => {
+              setYOffset(value);
+            }}
+            onClick={(e, value) => {}}
+            updateRate={5}>
+            {control1 => (
+              <>
+                {control.inputElement}
+                {control1.inputElement}
+                <svg
+                  onMouseDown={e => {
+                    control.handleDragStart(e);
+                    control1.handleDragStart(e);
+                  }}
+                  viewBox="-250 -250 500 500"
+                  position="absolute"
+                  overflowY="hidden">
+                  <defs>
+                    <pattern id="grid" width={100 * lockedZoomScale}
+                      height={100 * lockedZoomScale}
+                      patternUnits="userSpaceOnUse"
+                      x={-xOffset * zoomScale}
+                      y={-yOffset * zoomScale}>
+                      <rect width={100 * lockedZoomScale}
+                        height={100 * lockedZoomScale}
+                        fill="url(#smallgrid)" />
+                      <path
+                        fill="none" stroke="#CE1935" stroke-width="1"
+                        d={"M " + (100 * lockedZoomScale)+ " 0 L 0 0 0 " + (100 * lockedZoomScale)} />
+                    </pattern>
+                    <pattern id="smallgrid"
+                      width={50 * lockedZoomScale}
+                      height={50 * lockedZoomScale}
+                      patternUnits="userSpaceOnUse">
+                      <rect
+                        width={50 * lockedZoomScale}
+                        height={50 * lockedZoomScale}
+                        fill="#382424" />
+                      <path
+                        fill="none"
+                        stroke="#CE1935"
+                        stroke-width="0.5"
+                        d={"M " + (50 * lockedZoomScale) + " 0 L 0 0 0 "
+                        + (50 * lockedZoomScale)} />
+                    </pattern>
+                  </defs>
+                  <rect x="-50%" y="-50%" width="100%" height="100%"
+                    fill="url(#grid)" />
+                  {interdictedShuttles.map(map_object => (
+                    <>
+                      <rect
+                        x={(map_object.x * 10 - 25 - xOffset) * zoomScale}
+                        y={(-map_object.y * 10 - 25 - yOffset) * zoomScale}
+                        width={50 * zoomScale}
+                        height={50 * zoomScale}
+                        style={boxTargetStyle} />
+                      <text
+                        x={Math.max(Math.min((map_object.x * 10
+                          - xOffset
+                          + 30)
+                          * zoomScale, 200), -250)}
+                        y={Math.max(Math.min((-map_object.y * 10
+                          - yOffset
+                          - 30)
+                          * zoomScale, 250), -240)}
+                        fill="white"
+                        fontSize={Math.min(40 * lockedZoomScale, 14)}>
+                        {map_object.shuttleName} ({map_object.x},{map_object.y})
+                      </text>
+                    </>
+                  ))}
+                </svg>
+              </>
+            )}
+          </DraggableOrbitalMap>
+        )}
+      </DraggableOrbitalMap>
+    </Fragment>
+  );
+
+};
+
+export const OrbitalMapDisplay = (props, context) => {
+
+  // SVG Background Style
+  const lineStyle = {
+    stroke: '#BBBBBB',
+    strokeWidth: '2',
+  };
+  const blueLineStyle = {
+    stroke: '#8888FF',
+    strokeWidth: '2',
+  };
+  const boxTargetStyle = {
+    "fill-opacity": 0,
+    stroke: '#DDDDDD',
+    strokeWidth: '1',
+  };
+  const lineTargetStyle = {
+    opacity: 0.4,
+    stroke: '#DDDDDD',
+    strokeWidth: '1',
+  };
+
+  const {
+    xOffset,
+    yOffset,
+    zoomScale,
+    setZoomScale,
+    setXOffset,
+    setYOffset,
+    setTrackedBody,
+    ourObject,
+    elapsed,
+    nothing,
+    doNothing,
+    prevUpdate_index,
+    setPrevUpdateIndex,
+  } = props;
+
+  let lockedZoomScale = Math.max(Math.min(zoomScale, 4), 0.125);
+
+  const { act, data } = useBackend(context);
+
+  const {
+    map_objects = [],
+    shuttleName = "",
+    desired_vel_x = 0,
+    desired_vel_y = 0,
+    validDockingPorts = [],
+    isDocking = false,
+    interdiction_range = 150,
+    shuttleTargetX = 0,
+    shuttleTargetY = 0,
+    update_index = 0,
+    interdictionTime = 0,
+  } = data;
+
+  return (
+    <Fragment>
+      <Button
+        position="absolute"
+        icon="search-plus"
+        right="20px"
+        top="15px"
+        fontSize="18px"
+        color="grey"
+        onClick={() => setZoomScale(zoomScale * 2)} />
+      <Button
+        position="absolute"
+        icon="search-minus"
+        right="20px"
+        top="47px"
+        fontSize="18px"
+        color="grey"
+        onClick={() => setZoomScale(zoomScale / 2)} />
+      {!isDocking || (
+        <NoticeBox
+          position="absolute"
+          color="red"
+          top="50px"
+          left="calc(50% - 150px)"
+          width="300px"
+          textAlign="center"
+          fontSize="14px">
+          <>
+            <NoticeBox mt={1}>
+              СТЫКОВОЧНЫЙ ПРОТОКОЛ АКТИВЕН,
+              ПОЛЁТ ОСТАНОВЛЕН -
+              ВЫБЕРИТЕ МЕСТО СТЫКОВКИ.
+            </NoticeBox>
+            <Dropdown
+              mt={1}
+              selected="Выбрать место стыковки"
+              width="100%"
+              options={validDockingPorts.map(
+                map_object => (
+                  <option key={map_object.id}>
+                    {map_object.name}
+                  </option>
+                ))}
+              onSelected={value => act("gotoPort", {
+                port: value.key,
+              })} />
+          </>
+        </NoticeBox>
+      )}
+      <DraggableOrbitalMap
+        position="absolute"
+        value={xOffset}
+        dragMatrix={[-1, 0]}
+        step={1}
+        stepPixelSize={2 * zoomScale}
+        onDrag={(e, value) => {
+          setXOffset(value);
+          setTrackedBody(map_objects[0].name);
+        }}
+        onUpdate={() => {
+          // Does this call itself to update again???
+          if (update_index !== prevUpdate_index.index)
+          {
+            setPrevUpdateIndex({
+              index: update_index,
+              timer: new Date(),
+            });
+          }
+          doNothing(Math.random());
+        }}
+        onClick={(e, value) => {
+          let clickedOnDiv = document.getElementById("radar"); // This is kind
+          // of funky but A) I don't know react / javascript and B) Nobody in
+          // the history of the universe knows react / javascript so nobody
+          // will probably ever read this so I'm good.
+          let proportionalX = e.offsetX / clickedOnDiv.offsetWidth * 500;
+          let proportionalY = (e.offsetY - 30) / clickedOnDiv.offsetHeight
+           * 500;
+          act("setTargetCoords", {
+            x: (proportionalX - 250) / zoomScale + xOffset,
+            y: (proportionalY - 250) / zoomScale + yOffset,
+          });
+        }}
+        updateRate={5}>
+        {control => (
+          <DraggableOrbitalMap
+            position="absolute"
+            value={yOffset}
+            dragMatrix={[0, -1]}
+            step={1}
+            stepPixelSize={2 * zoomScale}
+            onDrag={(e, value) => {
+              setYOffset(value);
+              setTrackedBody(map_objects[0].name);
+            }}
+            onClick={(e, value) => {}}
+            updateRate={5}>
+            {control1 => (
+              <>
+                {control.inputElement}
+                {control1.inputElement}
+                <svg
+                  onMouseDown={e => {
+                    control.handleDragStart(e);
+                    control1.handleDragStart(e);
+                  }}
+                  viewBox="-250 -250 500 500"
+                  position="absolute"
+                  overflowY="hidden">
+                  <defs>
+                    <pattern id="grid" width={100 * lockedZoomScale}
+                      height={100 * lockedZoomScale}
+                      patternUnits="userSpaceOnUse"
+                      x={-xOffset * zoomScale}
+                      y={-yOffset * zoomScale}>
+                      <rect width={100 * lockedZoomScale}
+                        height={100 * lockedZoomScale}
+                        fill="url(#smallgrid)" />
+                      <path
+                        fill="none" stroke="#4665DE" stroke-width="1"
+                        d={"M " + (100 * lockedZoomScale)+ " 0 L 0 0 0 " + (100 * lockedZoomScale)} />
+                    </pattern>
+                    <pattern id="smallgrid"
+                      width={50 * lockedZoomScale}
+                      height={50 * lockedZoomScale}
+                      patternUnits="userSpaceOnUse">
+                      <rect
+                        width={50 * lockedZoomScale}
+                        height={50 * lockedZoomScale}
+                        fill="#2B2E3B" />
+                      <path
+                        fill="none"
+                        stroke="#4665DE"
+                        stroke-width="0.5"
+                        d={"M " + (50 * lockedZoomScale) + " 0 L 0 0 0 "
+                        + (50 * lockedZoomScale)} />
+                    </pattern>
+                  </defs>
+                  <rect x="-50%" y="-50%" width="100%" height="100%"
+                    fill="url(#grid)" />
+                  {map_objects.map(map_object => (
+                    <>
+                      <circle
+                        cx={Math.max(Math.min((map_object.position_x
+                          - xOffset
+                          + map_object.velocity_x * elapsed)
+                          * zoomScale, 250), -250)}
+                        cy={Math.max(Math.min((map_object.position_y
+                          - yOffset
+                          + map_object.velocity_y * elapsed)
+                          * zoomScale, 250), -250)}
+                        r={((map_object.position_y - yOffset)
+                          * zoomScale > 250
+                          || (map_object.position_y - yOffset)
+                          * zoomScale < -250
+                          || (map_object.position_x - xOffset)
+                          * zoomScale > 250
+                          || (map_object.position_x - xOffset)
+                          * zoomScale < -250)
+                          ? 5 * zoomScale
+                          : Math.max(5 * zoomScale, map_object.radius
+                            * zoomScale)}
+                        stroke="#BBBBBB"
+                        stroke-width="1"
+                        fill="rgba(0,0,0,0)" />
+                      <line
+                        style={lineStyle}
+                        x1={Math.max(Math.min((map_object.position_x
+                          - xOffset
+                          + map_object.velocity_x * elapsed)
+                          * zoomScale, 250), -250)}
+                        y1={Math.max(Math.min((map_object.position_y
+                          - yOffset
+                          + map_object.velocity_y * elapsed)
+                          * zoomScale, 250), -250)}
+                        x2={Math.max(Math.min((map_object.position_x
+                          - xOffset
+                          + map_object.velocity_x * 10)
+                          * zoomScale, 250), -250)}
+                        y2={Math.max(Math.min((map_object.position_y
+                          - yOffset
+                          + map_object.velocity_y * 10)
+                          * zoomScale, 250), -250)} />
+                      <text
+                        x={Math.max(Math.min((map_object.position_x
+                          - xOffset
+                          + map_object.velocity_x * elapsed)
+                          * zoomScale, 200), -250)}
+                        y={Math.max(Math.min((map_object.position_y
+                          - yOffset
+                          + map_object.velocity_y * elapsed)
+                          * zoomScale, 250), -240)}
+                        fill="white"
+                        fontSize={Math.min(40 * lockedZoomScale, 14)}>
+                        {map_object.name}
+                      </text>
+                      {shuttleName !== map_object.name || (
+                        <line
+                          style={blueLineStyle}
+                          x1={Math.max(Math.min((map_object.position_x
+                            - xOffset
+                            + map_object.velocity_x * elapsed)
+                            * zoomScale, 250), -250)}
+                          y1={Math.max(Math.min((map_object.position_y
+                            - yOffset
+                            + map_object.velocity_y * elapsed)
+                            * zoomScale, 250), -250)}
+                          x2={Math.max(Math.min((map_object.position_x
+                            - xOffset
+                            + map_object.velocity_x * elapsed
+                            + desired_vel_x * 10)
+                            * zoomScale, 250), -250)}
+                          y2={Math.max(Math.min((map_object.position_y
+                            - yOffset
+                            + map_object.velocity_y * elapsed
+                            + desired_vel_y * 10)
+                            * zoomScale, 250), -250)} />
+                      )}
+                    </>
+                  ))};
+                  {/*
+                    Shuttle Target Locator
+                  */}
+                  {((shuttleTargetX || shuttleTargetY) && ourObject) && (
+                    <>
+                      <rect
+                        x={Math.max(Math.min((shuttleTargetX
+                          - xOffset - 25)
+                          * zoomScale, 250), -250)}
+                        y={Math.max(Math.min((shuttleTargetY
+                          - yOffset - 25)
+                          * zoomScale, 250), -250)}
+                        width={50 * zoomScale}
+                        height={50 * zoomScale}
+                        style={boxTargetStyle} />
+                      <line
+                        x1={Math.max(Math.min((shuttleTargetX
+                          - xOffset - 25)
+                          * zoomScale, 250), -250) + 25 * zoomScale}
+                        y1={Math.max(Math.min((shuttleTargetY
+                          - yOffset - 25)
+                          * zoomScale, 250), -250) - 25 * zoomScale}
+                        x2={Math.max(Math.min((shuttleTargetX
+                          - xOffset - 25)
+                          * zoomScale, 250), -250) + 25 * zoomScale}
+                        y2={Math.max(Math.min((shuttleTargetY
+                          - yOffset - 25)
+                          * zoomScale, 250), -250) + 75 * zoomScale}
+                        style={boxTargetStyle} />
+                      <line
+                        x1={Math.max(Math.min((shuttleTargetX
+                          - xOffset - 25)
+                          * zoomScale, 250), -250) - 25 * zoomScale}
+                        y1={Math.max(Math.min((shuttleTargetY
+                          - yOffset - 25)
+                          * zoomScale, 250), -250) + 25 * zoomScale}
+                        x2={Math.max(Math.min((shuttleTargetX
+                          - xOffset - 25)
+                          * zoomScale, 250), -250) + 75 * zoomScale}
+                        y2={Math.max(Math.min((shuttleTargetY
+                          - yOffset - 25)
+                          * zoomScale, 250), -250) + 25 * zoomScale}
+                        style={boxTargetStyle} />
+                      <line
+                        x1={Math.max(Math.min((ourObject.position_x
+                          - xOffset
+                          + ourObject.velocity_x * elapsed)
+                          * zoomScale, 250), -250)}
+                        y1={Math.max(Math.min((ourObject.position_y
+                          - yOffset
+                          + ourObject.velocity_y * elapsed)
+                          * zoomScale, 250), -250)}
+                        x2={Math.max(Math.min((shuttleTargetX
+                          - xOffset)
+                          * zoomScale, 250), -250)}
+                        y2={Math.max(Math.min((shuttleTargetY
+                          - yOffset)
+                          * zoomScale, 250), -250)}
+                        style={lineTargetStyle} />
+                    </>
+                  )}
+                  {ourObject && (
+                    <circle
+                      cx={Math.max(Math.min((ourObject.position_x
+                        - xOffset
+                        + ourObject.velocity_x * elapsed)
+                        * zoomScale, 250), -250)}
+                      cy={Math.max(Math.min((ourObject.position_y
+                        - yOffset
+                        + ourObject.velocity_y * elapsed)
+                        * zoomScale, 250), -250)}
+                      r={((ourObject.position_y - yOffset)
+                        * zoomScale > 250
+                        || (ourObject.position_y - yOffset)
+                        * zoomScale < -250
+                        || (ourObject.position_x - xOffset)
+                        * zoomScale > 250
+                        || (ourObject.position_x - xOffset)
+                        * zoomScale < -250)
+                        ? 5 * zoomScale
+                        : Math.max(5 * zoomScale, interdiction_range
+                          * zoomScale)}
+                      stroke="#00FF00"
+                      stroke-width="1"
+                      fill="rgba(0,0,0,0)" />
+                  )}
+                </svg>
+              </>
+            )}
+          </DraggableOrbitalMap>
+        )}
+      </DraggableOrbitalMap>
+    </Fragment>
+  );
+
 };
 
 export const RecallControl = (props, context) => {
@@ -377,7 +753,8 @@ export const RecallControl = (props, context) => {
   return (
     <>
       <NoticeBox>
-        Ручное управление отключено, отсюда только обратный полёт.
+        Ручное управление отключено, данная локация
+        может только призывать шаттл.
       </NoticeBox>
       <Button
         content={request_shuttle_message}
@@ -405,7 +782,6 @@ export const ShuttleControls = (props, context) => {
     fuel = 0,
     display_stats = [],
     autopilot_enabled = false,
-    has_radar = false,
   } = data;
   return (
     <>
@@ -420,70 +796,62 @@ export const ShuttleControls = (props, context) => {
         onSelected={value => act("setTarget", {
           target: value,
         })} />
-      {!has_radar || (
+      <Box mt={1}>
+        Ускорение будет синхронизированно с ускорением объекта.
+      </Box>
+      <ShuttleMap />
+      <NoticeBox color="purple" mt={2}>
+        Нажми на основной дисплей чтобы лететь.
+      </NoticeBox>
+      <Box bold>
+        Торможение
+      </Box>
+      <Box>
+        Ускорение: {shuttleThrust}
+      </Box>
+      <Box bold mt={2}>
+        Угол ускорения
+      </Box>
+      <Box>
+        Угол: {shuttleAngle}
+      </Box>
+      {(!display_fuel) || (
         <>
-          <Divider />
-          <ShuttleMap />
-          <Box bold>
-            Ускорение
-          </Box>
-          <Slider
-            value={shuttleThrust}
-            minValue={0}
-            maxValue={100}
-            step={1}
-            stepPixelSize={4}
-            onDrag={(e, value) => act('setThrust', {
-              thrust: value,
-            })} />
           <Box bold mt={2}>
-            Угол ускорения
+            Топлива осталось
           </Box>
-          <Slider
-            value={shuttleAngle}
-            minValue={-180}
-            maxValue={180}
-            step={1}
-            stepPixelSize={1}
-            onDrag={(e, value) => act('setAngle', {
-              angle: value,
-            })} />
-          {(!display_fuel) || (
-            <>
-              <Box bold mt={2}>
-                Топлива осталось
-              </Box>
-              <ProgressBar
-                value={fuel}>
-                {fuel} моль.
-              </ProgressBar>
-            </>
-          )}
-          <Table mt={2}>
-            {Object.keys(display_stats).map(value => (
-              <Table.Row key={value}>
-                <Table.Cell bold>
-                  {value} :
-                </Table.Cell>
-                <Table.Cell textAlign="right">
-                  {display_stats[value]}
-                </Table.Cell>
-              </Table.Row>
-            ))}
-          </Table>
+          <ProgressBar
+            value={fuel}>
+            {fuel} моль.
+          </ProgressBar>
         </>
+      )}
+      <Table mt={2}>
+        {Object.keys(display_stats).map(value => (
+          <Table.Row key={value}>
+            <Table.Cell bold>
+              {value} :
+            </Table.Cell>
+            <Table.Cell textAlign="right">
+              {display_stats[value]}
+            </Table.Cell>
+          </Table.Row>
+        ))}
+      </Table>
+      <Button
+        mt={2}
+        content="Переключить автопилот"
+        onClick={() => act('nautopilot')}
+        color={autopilot_enabled ? "green" : "red"} />
+      {!(canDock && !isDocking) || (
+        <Button
+          mt={2}
+          content="Начать стыковку"
+          onClick={() => act('dock')} />
       )}
       <Button
         mt={2}
-        content={autopilot_enabled ? "Автопилот: ВКЛ" : "Автопилот: ВЫКЛ"}
-        fluid
-        textAlign="center"
-        fontSize="30px"
-        onClick={() => act('nautopilot')}
-        color={autopilot_enabled ? "green" : "red"} />
-      <Button
-        mt={2}
-        content="ВКЛЮЧИТЬ ПЕРЕХВАТ"
+        content="ЗАПУСТИТЬ ПЕРЕХВАТ"
         onClick={() => act('interdict')}
         color="purple" />
     </>
@@ -517,43 +885,16 @@ export const ShuttleMap = (props, context) => {
         height="100%"
         viewBox="-100 -100 200 200">
         <defs>
-          <pattern
-            id="grid"
-            width={200}
-            height={200}
-            patternUnits="userSpaceOnUse">
-            <rect
-              width={200}
-              height={200}
-              fill="url(#smallgrid)" />
-            <path
-              d={"M 200 0 L 0 0 0 200"}
-              fill="none"
-              stroke="#222233"
-              stroke-width="1" />
+          <pattern id="grid" width={200} height={200} patternUnits="userSpaceOnUse">
+            <rect width={200} height={200} fill="url(#smallgrid)" />
+            <path d={"M 200 0 L 0 0 0 200"} fill="none" stroke="#4665DE" stroke-width="1" />
           </pattern>
-          <pattern
-            id="smallgrid"
-            width={100}
-            height={100}
-            patternUnits="userSpaceOnUse">
-            <rect
-              width={100}
-              height={100}
-              fill="#111111" />
-            <path
-              d={"M 100 0 L 0 0 0 100"}
-              fill="none"
-              stroke="#222233"
-              stroke-width="0.5" />
+          <pattern id="smallgrid" width={100} height={100} patternUnits="userSpaceOnUse">
+            <rect width={100} height={100} fill="#2B2E3B" />
+            <path d={"M 100 0 L 0 0 0 100"} fill="none" stroke="#4665DE" stroke-width="0.5" />
           </pattern>
         </defs>
-        <rect
-          x="-50%"
-          y="-50%"
-          width="100%"
-          height="100%"
-          fill="url(#grid)" />
+        <rect x="-50%" y="-50%" width="100%" height="100%" fill="url(#grid)" />
         <circle
           r="30px"
           stroke="#BBBBBB"

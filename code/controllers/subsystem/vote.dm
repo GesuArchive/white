@@ -327,7 +327,7 @@ SUBSYSTEM_DEF(vote)
 			V.Remove(V.owner)
 	generated_actions = list()
 
-/datum/controller/subsystem/vote/ui_close(mob/user)
+/datum/controller/subsystem/vote/ui_close(mob/user, datum/tgui/tgui)
 	voting -= user.client?.ckey
 
 /datum/action/vote

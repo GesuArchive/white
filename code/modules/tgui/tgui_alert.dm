@@ -99,7 +99,7 @@
 		ui = new(user, src, "AlertModal")
 		ui.open()
 
-/datum/tgui_modal/ui_close(mob/user)
+/datum/tgui_modal/ui_close(mob/user, datum/tgui/tgui)
 	. = ..()
 	closed = TRUE
 
@@ -145,7 +145,7 @@
 	QDEL_NULL(callback)
 	. = ..()
 
-/datum/tgui_modal/async/ui_close(mob/user)
+/datum/tgui_modal/async/ui_close(mob/user, datum/tgui/tgui)
 	. = ..()
 	qdel(src)
 

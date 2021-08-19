@@ -75,7 +75,6 @@
 	possible_destinations = "mining_home;mining_away;landing_zone_dock;mining_public"
 	req_access = list(ACCESS_MINING)
 	var/static/list/dumb_rev_heads = list()
-	has_radar = TRUE
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 /obj/machinery/computer/shuttle_flight/mining/attack_hand(mob/user)

@@ -122,7 +122,7 @@
 
 		return TRUE
 
-/datum/computer_file/program/secureye/ui_close(mob/user)
+/datum/computer_file/program/secureye/ui_close(mob/user, datum/tgui/tgui)
 	. = ..()
 	var/user_ref = REF(user)
 	var/is_living = isliving(user)
