@@ -56,7 +56,7 @@
 	if(temp_cd < 30)
 		temp_cd++
 	if(workout)
-		soundloop = new(list(src), TRUE)
+		soundloop = new(src, TRUE)
 		soundloop.start()
 		workout = FALSE
 	//var/obj/effect/vaper_smoke/S = new(get_turf(src))
