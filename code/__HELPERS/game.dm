@@ -203,7 +203,7 @@
 /proc/get_hearers_in_view(view_radius, atom/source)
 	var/turf/center_turf = get_turf(source)
 	. = list()
-	if(!source)
+	if(!source || !center_turf)
 		return
 	var/lum = center_turf.luminosity
 	center_turf.luminosity = 6 // This is the maximum luminosity
