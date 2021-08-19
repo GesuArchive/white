@@ -38,7 +38,7 @@
 					this["short_desc"] = MS.short_desc
 					this["flavor_text"] = MS.flavour_text
 					this["important_info"] = MS.important_info
-				else
+				else if(isatom(spawner_obj))
 					var/obj/O = spawner_obj
 					this["desc"] = O.desc
 					if(HAS_TRAIT(O, TRAIT_CLIENT_LEAVED))
