@@ -63,6 +63,10 @@
 	if(istype(carbon_mob.loc, /obj/structure/closet/crate/coffin)|| istype(carbon_mob.loc, /obj/structure/closet/body_bag) || istype(carbon_mob.loc, /obj/structure/bodycontainer))
 		return
 
+	if(!carbon_mob.reagents)
+		stack_trace("Блядь! Карбон без реагентов пытается гнить. Карбон:[src], координаты: [COORD(src)].")
+		return
+
 	// No decay if formaldehyde in corpse or when the corpse is charred
 	if(carbon_mob.reagents.has_reagent(/datum/reagent/toxin/formaldehyde, 15) || HAS_TRAIT(carbon_mob, TRAIT_HUSK))
 		return
