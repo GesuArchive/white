@@ -15,7 +15,8 @@
 
 	if(!mapload && isopenturf(to_track.loc))
 		var/turf/open/new_open = to_track.loc
-		to_track.check_atmos_process(new_open, new_open.air, new_open.air.return_temperature()) //Make sure you're properly registered
+		if(new_open.air)
+			to_track.check_atmos_process(new_open, new_open.air, new_open.air.return_temperature()) //Make sure you're properly registered
 
 	return ..()
 
