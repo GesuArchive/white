@@ -1,4 +1,4 @@
-import { Box, Button, Section, Table, DraggableOrbitalMap, Dropdown, Divider, NoticeBox, Slider, ProgressBar, Fragment, ScrollableBox } from '../components';
+import { Box, Button, Section, Table, DraggableOrbitalMap, Dropdown, Divider, NoticeBox, ProgressBar, Fragment } from '../components';
 import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
@@ -84,8 +84,8 @@ export const OrbitalMap = (props, context) => {
 
   return (
     <Window
-      width={1136}
-      height={770}
+      width={1089}
+      height={720}
       resizable
       overflowY="hidden">
       <Window.Content overflowY="hidden">
@@ -116,7 +116,7 @@ export const OrbitalMap = (props, context) => {
           )}
         </div>
         <div class="OrbitalMap__panel">
-          <ScrollableBox overflowY="scroll" height="100%">
+          <Box overflowY="scroll" overflowX="hidden" height="100%">
             <Section title="Отслеживание тел">
               <Box bold>
                 Отслеживание
@@ -194,7 +194,7 @@ export const OrbitalMap = (props, context) => {
                     </NoticeBox>
                   ))}
             </Section>
-          </ScrollableBox>
+          </Box>
         </div>
       </Window.Content>
     </Window>
@@ -549,7 +549,7 @@ export const OrbitalMapDisplay = (props, context) => {
                         height={100 * lockedZoomScale}
                         fill="url(#smallgrid)" />
                       <path
-                        fill="none" stroke="#4665DE" stroke-width="1"
+                        fill="none" stroke="#150000" stroke-width="1"
                         d={"M " + (100 * lockedZoomScale)+ " 0 L 0 0 0 " + (100 * lockedZoomScale)} />
                     </pattern>
                     <pattern id="smallgrid"
@@ -559,10 +559,10 @@ export const OrbitalMapDisplay = (props, context) => {
                       <rect
                         width={50 * lockedZoomScale}
                         height={50 * lockedZoomScale}
-                        fill="#2B2E3B" />
+                        fill="#010000" />
                       <path
                         fill="none"
-                        stroke="#4665DE"
+                        stroke="#100000"
                         stroke-width="0.5"
                         d={"M " + (50 * lockedZoomScale) + " 0 L 0 0 0 "
                         + (50 * lockedZoomScale)} />
