@@ -81,7 +81,7 @@
 	ghost.forceMove(target)
 
 /obj/machinery/launchpad/proc/isAvailable()
-	if(machine_stat & NOPOWER)
+	if(use_power && machine_stat & NOPOWER)
 		return FALSE
 	if(panel_open)
 		return FALSE
