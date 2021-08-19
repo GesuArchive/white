@@ -927,7 +927,7 @@
 	icon_state = "recorder"
 	complexity = 8
 	inputs = list()
-	flags_1 = CONDUCT_1 | HEAR_1
+	flags_1 = CONDUCT_1
 	outputs = list(
 	"speaker" = IC_PINTYPE_STRING,
 	"message" = IC_PINTYPE_STRING
@@ -935,6 +935,10 @@
 	activators = list("on message received" = IC_PINTYPE_PULSE_OUT, "on translation" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 5
+
+/obj/item/integrated_circuit/input/microphone/Initialize()
+	. = ..()
+	become_hearing_sensitive()
 
 /obj/item/integrated_circuit/input/microphone/Hear(message, atom/movable/speaker, message_langs, raw_message, radio_freq, spans, message_mode)
 	. = ..()

@@ -208,7 +208,6 @@
 	layer = 5.0
 	density = 0
 	anchored = 0
-	flags_1 = HEAR_1
 	health = 25
 	var/xeno = 0 //Do we hiss when buttspeech?
 	var/cooldown = 0
@@ -217,6 +216,7 @@
 
 /mob/living/simple_animal/bot/buttbot/Initialize()
 	. = ..()
+	become_hearing_sensitive()
 	if(xeno)
 		icon_state = "buttbot_xeno"
 		speech_list = list("хссс жопка", "хсс хсс пидор", "отличный трофей, придурок", "жопа", "инспекция жопы пришельца начата")

@@ -4,9 +4,6 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////вырезанное или измененное тгшниками
 
-/// This flag is what recursive_hear_check() uses to determine wether to add an item to the hearer list or not.
-#define HEAR_1						(1<<22)
-
 #define CULT_PERMITTED_1			(1<<5)
 
 // This skillchip is incompatible with the Chameleon skillchip and cannot be copied.

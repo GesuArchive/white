@@ -172,7 +172,7 @@
 /obj/item/radio/mech //this has to go somewhere
 	subspace_transmission = TRUE
 
-/obj/vehicle/sealed/mecha/Initialize()
+/obj/vehicle/sealed/mecha/Initialize(mapload)
 	. = ..()
 	if(enclosed)
 		internal_tank = new (src)
