@@ -4,7 +4,7 @@
  * Immobile (but not dense) shells that can interact with world.
  */
 /obj/structure/bot
-	name = "бот"
+	name = "bot"
 	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "setup_medium_box"
 

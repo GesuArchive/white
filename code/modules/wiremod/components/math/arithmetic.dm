@@ -12,7 +12,7 @@
  * This one only works with numbers.
  */
 /obj/item/circuit_component/arithmetic
-	display_name = "Арифметика"
+	display_name = "Arithmetic"
 	desc = "General arithmetic component with arithmetic capabilities."
 
 	/// The amount of input ports to have

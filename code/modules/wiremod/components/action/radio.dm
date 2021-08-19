@@ -7,7 +7,7 @@
  * Listens out for signals on the designated frequencies and sends signals on designated frequencies
  */
 /obj/item/circuit_component/radio
-	display_name = "Радио"
+	display_name = "Radio"
 	desc = "A component that can listen and send frequencies. If set to private, the component will only receive signals from other components attached to circuitboards with the same owner id."
 
 	/// The publicity options. Controls whether it's public or private.
@@ -32,16 +32,14 @@
 
 /obj/item/circuit_component/radio/Initialize()
 	. = ..()
-	freq = add_input_port("Частота", PORT_TYPE_NUMBER, default = FREQ_SIGNALER)
-	code = add_input_port("Код", PORT_TYPE_NUMBER, default = DEFAULT_SIGNALER_CODE)
+	freq = add_input_port("Frequency", PORT_TYPE_NUMBER, default = FREQ_SIGNALER)
+	code = add_input_port("Code", PORT_TYPE_NUMBER, default = DEFAULT_SIGNALER_CODE)
 	TRIGGER_CIRCUIT_COMPONENT(src, null)
 	// These are cleaned up on the parent
-	trigger_input = add_input_port("Отправить", PORT_TYPE_SIGNAL)
-	trigger_output = add_output_port("Принять", PORT_TYPE_SIGNAL)
+	trigger_input = add_input_port("Send", PORT_TYPE_SIGNAL)
+	trigger_output = add_output_port("Received", PORT_TYPE_SIGNAL)
 
 /obj/item/circuit_component/radio/Destroy()
-	freq = null
-	code = null
 	SSradio.remove_object(src, current_freq)
 	return ..()
 
