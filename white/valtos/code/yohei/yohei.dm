@@ -632,12 +632,15 @@ GLOBAL_VAR(yohei_main_controller)
 			assignedrole = "Yohei: Prospector"
 	if(user.ckey)
 		var/datum/donator/D = get_donator(user.ckey)
-		D.money -= 1250
-		var/client/C = GLOB.directory[user.ckey]
-		if(C?.prefs)
-			hairstyle =  C.prefs.hairstyle
-			facial_hairstyle = C.prefs.facial_hairstyle
-			skin_tone = C.prefs.skin_tone
+		if(D)
+			D.money -= 1250
+			var/client/C = GLOB.directory[user.ckey]
+			if(C?.prefs)
+				hairstyle =  C.prefs.hairstyle
+				facial_hairstyle = C.prefs.facial_hairstyle
+				skin_tone = C.prefs.skin_tone
+		else
+			to_chat(user, span_userdanger("Сработала защита от детей. Этот раунд последний."))
 	. = ..()
 
 /obj/effect/mob_spawn/human/donate/yohei/special(mob/living/carbon/human/H)
