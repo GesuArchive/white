@@ -188,7 +188,8 @@
 	var/list/sig_types = islist(sig_type_or_types) ? sig_type_or_types : list(sig_type_or_types)
 	for(var/sig_type in sig_types)
 		if(!override && procs[target][sig_type])
-			stack_trace("SIGNAL ERROR: [sig_type] overridden. Source: [src], target: [target]. Use override = TRUE to suppress this warning")
+			stack_trace("SIGNAL ERROR: [sig_type] overridden. Source: [src], target: [target], old proctype: [procs[target][sig_type]], new proctype: [proctype].\
+				Use override = TRUE to suppress this warning")
 
 		procs[target][sig_type] = proctype
 
