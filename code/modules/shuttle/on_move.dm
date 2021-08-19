@@ -28,7 +28,12 @@ All ShuttleMove procs go here
  * * shuttle - The smashing shuttle
  */
 /turf/proc/shuttle_gib(obj/docking_port/mobile/shuttle)
-	var/shuttle_dir = shuttle.dir
+	/*
+		[09:46:54] Runtime in on_move.dm, line 31: Cannot read 428.571.dir
+		proc name: shuttle gib (/turf/proc/shuttle_gib)
+		сука?
+	*/
+	//var/shuttle_dir = shuttle.dir
 	for(var/i in contents)
 		var/atom/movable/thing = i
 		if(ismob(thing))
@@ -48,10 +53,13 @@ All ShuttleMove procs go here
 		else //non-living mobs shouldn't be affected by shuttles, which is why this is an else
 			if((istype(thing, /obj/singularity) || istype(thing, /obj/energy_ball)) || istype(thing, /obj/effect/abstract))
 				continue
+			qdel(thing)
+			/*
 			if(!thing.anchored)
 				step(thing, shuttle_dir)
 			else
 				qdel(thing)
+			*/
 
 // Called on the old turf to move the turf data
 /turf/proc/onShuttleMove(turf/newT, list/movement_force, move_dir)
