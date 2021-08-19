@@ -22,6 +22,8 @@
 	var/additional_req_text
 	///Required machines for the craft, set the assigned value of the typepath to CRAFTING_MACHINERY_CONSUME or CRAFTING_MACHINERY_USE. Lazy associative list: type_path key -> flag value.
 	var/list/machinery
+	///Should only one object exist on the same turf?
+	var/one_per_turf = FALSE
 
 /datum/crafting_recipe/New()
 	if(!(result in reqs))
