@@ -28,8 +28,5 @@
 			var/mob/living/carbon/human/cleaned_human = A
 			if(cleaned_human.body_position == LYING_DOWN)
 				cleaned_human.wash(CLEAN_SCRUB)
-				cleaned_human.wash_poo()
-				cleaned_human.unglitch_me()
-				cleaned_human.headstamp = null
 				cleaned_human.regenerate_icons()
-				to_chat(cleaned_human, "<span class='danger'>[AM] моет моё лицо!</span>")
+				to_chat(cleaned_human, span_danger("[AM] cleans your face!"))

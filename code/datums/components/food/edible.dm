@@ -276,11 +276,11 @@ Behavior that's still missing from this component that original food items had t
 		if(IsFoodGone(owner, feeder))
 			return
 		var/eatverb = pick(eatverbs)
-
+/*
 		var/message_to_nearby_audience = ""
 		var/message_to_consumer = ""
 		var/message_to_blind_consumer = ""
-
+*/
 		if(junkiness && eater.satiety < -150 && eater.nutrition > NUTRITION_LEVEL_STARVING + 50 && !HAS_TRAIT(eater, TRAIT_VORACIOUS))
 			to_chat(eater, "<span class='warning'>Не хочу я жрать эти отбросы!</span>")
 			return

@@ -99,7 +99,7 @@
 	var/amt = TC.amount
 	telecrystals += amt
 	TC.use(amt)
-	log_uplink("[key_name(user)] loaded [amt] telecrystals into [parent]'s uplink")
+	//log_uplink("[key_name(user)] loaded [amt] telecrystals into [parent]'s uplink")
 
 /datum/component/uplink/proc/OnAttackBy(datum/source, obj/item/I, mob/user)
 	SIGNAL_HANDLER
@@ -115,7 +115,7 @@
 			var/cost = UI.refund_amount || UI.cost
 			if(I.type == path && UI.refundable && I.check_uplink_validity())
 				telecrystals += cost
-				log_uplink("[key_name(user)] refunded [UI] for [cost] telecrystals using [parent]'s uplink")
+				//log_uplink("[key_name(user)] refunded [UI] for [cost] telecrystals using [parent]'s uplink")
 				if(purchase_log)
 					purchase_log.total_spent -= cost
 				to_chat(user, span_notice("[I] refunded."))
@@ -168,9 +168,14 @@
 			var/datum/uplink_item/I = uplink_items[category][item]
 			if(I.limited_stock == 0)
 				continue
+
+			/*
 			if(length(I.restricted_roles))
-				if(!debug && !(user.mind.assigned_role.title in I.restricted_roles))
+				if(!debug && !(user.mind.assigned_role.title in I.restricted_roles))*/
+			for(var/R in I.restricted_roles)
+				if(R == user.mind.assigned_role || debug)
 					continue
+
 			if(I.restricted_species)
 				if(ishuman(user))
 					var/is_inaccessible = TRUE

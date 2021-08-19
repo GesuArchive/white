@@ -109,9 +109,9 @@
 		zone_override = shooter.zone_selected
 
 	// things like mouth executions and gunpoints can multiply the damage and wounds of projectiles, so this makes sure those effects are applied to each pellet instead of just one
-	var/original_damage = shell.loaded_projectile.damage
-	var/original_wb = shell.loaded_projectile.wound_bonus
-	var/original_bwb = shell.loaded_projectile.bare_wound_bonus
+	var/original_damage = shell.BB.damage
+	var/original_wb = shell.BB.wound_bonus
+	var/original_bwb = shell.BB.bare_wound_bonus
 
 	for(var/i in 1 to num_pellets)
 		shell.ready_proj(target, user, SUPPRESSED_VERY, zone_override, fired_from)
@@ -127,9 +127,8 @@
 		shell.BB.wound_bonus = original_wb
 		shell.BB.bare_wound_bonus = original_bwb
 		pellets += shell.BB
-		if(!shell.throw_proj(target, targloc, shooter, params, spread))
 		var/turf/current_loc = get_turf(user)
-		if (!istype(target_loc) || !istype(current_loc) || !(shell.loaded_projectile))
+		if (!istype(target_loc) || !istype(current_loc) || !(shell.BB))
 			return
 		INVOKE_ASYNC(shell, /obj/item/ammo_casing.proc/throw_proj, target, target_loc, shooter, params, spread)
 
@@ -312,7 +311,7 @@
 				hit_part.painless_wound_roll(wound_type, damage_dealt, w_bonus, bw_bonus, initial(P.sharpness))
 
 		if(num_hits > 1)
-			target.visible_message(span_danger("[target] is hit by [num_hits] [proj_name][plural_s(proj_name)][hit_part ? " in the [hit_part.name]" : ""][did_damage ? ", which don't leave a mark" : ""]!"), null, null, COMBAT_MESSAGE_RANGE, target)
+			target.visible_message(span_danger("[target] is hit by [num_hits] [proj_name][hit_part ? " in the [hit_part.name]" : ""][did_damage ? ", which don't leave a mark" : ""]!"), null, null, COMBAT_MESSAGE_RANGE, target)
 			to_chat(target, span_userdanger("You're hit by [num_hits] [proj_name]s[hit_part ? " in the [hit_part.name]" : ""]!"))
 		else
 			target.visible_message(span_danger("[target] is hit by a [proj_name][hit_part ? " in the [hit_part.name]" : ""][did_damage ? ", which doesn't leave a mark" : ""]!"), null, null, COMBAT_MESSAGE_RANGE, target)

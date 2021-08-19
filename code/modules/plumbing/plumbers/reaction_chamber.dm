@@ -6,6 +6,11 @@
 	buffer = 200
 	reagent_flags = TRANSPARENT | NO_REACT
 
+	/**
+	* list of set reagents that the reaction_chamber allows in, and must all be present before mixing is enabled.
+	* example: list(/datum/reagent/water = 20, /datum/reagent/fuel/oil = 50)
+	*/
+	var/list/required_reagents = list()
 	///At what volume do we start reacting?
 	var/target_volume = 200
 	///If above this pH, we start dumping buffer into it

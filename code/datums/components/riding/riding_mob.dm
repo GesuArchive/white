@@ -126,7 +126,7 @@
 		return
 
 	for(var/mob/yeet_mob in user.buckled_mobs)
-		force_dismount(yeet_mob, (!user.combat_mode)) // gentle on help, byeeee if not
+		force_dismount(yeet_mob, (!user.a_intent != INTENT_HARM)) // gentle on help, byeeee if not
 
 /// If the ridden creature has abilities, and some var yet to be made is set to TRUE, the rider will be able to control those abilities
 /datum/component/riding/creature/proc/setup_abilities(mob/living/M)
@@ -273,9 +273,9 @@
 
 	for(var/mob/living/rider in robot_parent.buckled_mobs)
 		rider.setDir(dir)
-		if(istype(robot_parent.model))
-			rider.pixel_x = robot_parent.model.ride_offset_x[dir2text(dir)]
-			rider.pixel_y = robot_parent.model.ride_offset_y[dir2text(dir)]
+		if(istype(robot_parent.module))
+			rider.pixel_x = robot_parent.module.ride_offset_x[dir2text(dir)]
+			rider.pixel_y = robot_parent.module.ride_offset_y[dir2text(dir)]
 
 //now onto every other ridable mob//
 
