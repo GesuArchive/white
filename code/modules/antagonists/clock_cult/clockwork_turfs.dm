@@ -143,9 +143,6 @@
 		return 1
 	return
 
-/turf/closed/wall/clockwork/mech_melee_attack()
-	return
-
 /turf/closed/wall/clockwork/update_icon()
 	. = ..()
 	if(d_state == INTACT)
