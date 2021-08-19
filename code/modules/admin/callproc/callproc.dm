@@ -93,7 +93,7 @@ GLOBAL_PROTECT(LastAdminCalledProc)
 	if(target != GLOBAL_PROC && !target.CanProcCall(procname))
 		to_chat(usr, "Proccall on [target.type]/proc/[procname] is disallowed!", confidential = TRUE)
 		return
-	var/current_caller = GLOB.AdminProcCaller
+	//var/current_caller = GLOB.AdminProcCaller
 	var/ckey = usr ? usr.client.ckey : GLOB.AdminProcCaller
 	if(!ckey)
 		CRASH("WrapAdminProcCall with no ckey: [target] [procname] [english_list(arguments)]")
