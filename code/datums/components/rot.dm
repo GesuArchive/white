@@ -64,7 +64,7 @@
 		return
 
 	if(!carbon_mob.reagents)
-		stack_trace("Блядь! Карбон без реагентов пытается гнить. Карбон:[src], координаты: [COORD(src)].")
+		stack_trace("Блядь! Карбон без реагентов пытается гнить. Карбон:[carbon_mob], координаты: [COORD(carbon_mob)].")
 		return
 
 	// No decay if formaldehyde in corpse or when the corpse is charred
