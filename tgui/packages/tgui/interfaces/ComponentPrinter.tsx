@@ -2,9 +2,9 @@ import { createSearch } from 'common/string';
 import { useBackend, useLocalState } from '../backend';
 import { Material, MaterialAmount, MaterialFormatting, Materials, MATERIAL_KEYS } from './common/Materials';
 import { Window } from '../layouts';
-import { Button, Input, Section, Stack, Tabs, Box } from '../components';
+import { Box, Button, Input, Section, Stack, Tabs } from '../components';
 
-const CATEGORY_ALL = "Всё";
+const CATEGORY_ALL = "All";
 
 const searchFor = searchText => createSearch(
   searchText,
@@ -12,7 +12,7 @@ const searchFor = searchText => createSearch(
 );
 
 const getCategory = (category: string[]) => {
-  return category[0] === "Схемотехника" ? category[1] : category[0];
+  return category[0] === "Circuitry" ? category[1] : category[0];
 };
 
 type Design = {
@@ -73,11 +73,11 @@ export const ComponentPrinter = (props, context) => {
   const [searchText, setSearchText] = useLocalState(context, "searchText", "");
 
   return (
-    <Window title="Схемопринтер" width={900} height={700}>
+    <Window title="Component Printer" width={900} height={700}>
       <Window.Content scrollable>
-        <Stack fill vertical>
-          <Stack.Item grow>
-            <Section title="Материалы">
+        <Stack vertical>
+          <Stack.Item>
+            <Section title="Materials">
               <Materials
                 materials={data.materials || []}
                 onEject={(ref, amount) => {
@@ -88,11 +88,12 @@ export const ComponentPrinter = (props, context) => {
                 }}
               />
             </Section>
-
-            <Stack fill>
+          </Stack.Item>
+          <Stack.Item>
+            <Stack>
               <Stack.Item>
-                <Section fill title="Категории">
-                  <Tabs vertical>
+                <Section title="Categories" fill>
+                  <Tabs vertical fill>
                     {Object.values(data.designs)
                       .reduce<string[]>((categories, design) => {
                         const category = getCategory(design.categories);
@@ -116,12 +117,12 @@ export const ComponentPrinter = (props, context) => {
                 </Section>
               </Stack.Item>
 
-              <Stack.Item fill grow>
-                <Section fill title="Запчасти">
-                  <Stack fill vertical>
+              <Stack.Item basis="100%">
+                <Section title="Parts">
+                  <Stack vertical>
                     <Stack.Item>
                       <Input
-                        placeholder="Поиск..."
+                        placeholder="Search..."
                         autoFocus
                         fluid
                         value={searchText}
@@ -147,10 +148,12 @@ export const ComponentPrinter = (props, context) => {
                                 }
                                 px={1.5}
                               >
-                                Печать
+                                Print
                               </Button>
                             )}>
-                              {design.description.substring(0, 120)}
+                              <Box inline width="100%">
+                                {design.description}
+                              </Box>
                               <MaterialCost materials={design.materials} />
                             </Section>
                           </Stack.Item>
