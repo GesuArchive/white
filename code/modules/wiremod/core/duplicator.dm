@@ -197,7 +197,7 @@ GLOBAL_LIST_INIT(circuit_dupe_whitelisted_types, list(
 
 /client/proc/load_circuit()
 	set name = "Load Circuit"
-	set category = "Admin.Fun"
+	set category = "Адм.Веселье"
 
 	if(!check_rights(R_VAREDIT))
 		return
