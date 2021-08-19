@@ -4,7 +4,7 @@
  * Return the length of an input
  */
 /obj/item/circuit_component/length
-	display_name = "Length"
+	display_name = "Длина"
 	desc = "A component that returns the length of its input."
 
 	/// The input port
@@ -16,9 +16,9 @@
 
 /obj/item/circuit_component/length/Initialize()
 	. = ..()
-	input_port = add_input_port("Input", PORT_TYPE_ANY)
+	input_port = add_input_port("Вход", PORT_TYPE_ANY)
 
-	output = add_output_port("Length", PORT_TYPE_NUMBER)
+	output = add_output_port("Длина", PORT_TYPE_NUMBER)
 
 /obj/item/circuit_component/length/input_received(datum/port/input/port)
 	. = ..()

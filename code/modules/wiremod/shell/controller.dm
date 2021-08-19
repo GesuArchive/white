@@ -5,7 +5,7 @@
  * In game, this translates to having different signals for normal usage, alt-clicking, and ctrl-clicking when in your hand.
  */
 /obj/item/controller
-	name = "controller"
+	name = "контроллер"
 	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "setup_small_calc"
 	inhand_icon_state = "electronic"
@@ -22,7 +22,7 @@
 	), SHELL_CAPACITY_MEDIUM)
 
 /obj/item/circuit_component/controller
-	display_name = "Controller"
+	display_name = "Контроллер"
 	desc = "Used to receive inputs from the controller shell. Use the shell in hand to trigger the output signal. Alt-click for the alternate signal. Right click for the extra signal."
 
 	/// The three separate buttons that are called in attack_hand on the shell.

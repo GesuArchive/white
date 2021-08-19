@@ -4,7 +4,7 @@
  * Return the species of a mob
  */
 /obj/item/circuit_component/species
-	display_name = "Get Species"
+	display_name = "Получить вид"
 	desc = "A component that returns the species of its input."
 
 	/// The input port
@@ -17,9 +17,9 @@
 
 /obj/item/circuit_component/species/Initialize()
 	. = ..()
-	input_port = add_input_port("Organism", PORT_TYPE_ATOM)
+	input_port = add_input_port("Организм", PORT_TYPE_ATOM)
 
-	output = add_output_port("Species", PORT_TYPE_STRING)
+	output = add_output_port("Мутация", PORT_TYPE_STRING)
 
 /obj/item/circuit_component/species/input_received(datum/port/input/port)
 	. = ..()

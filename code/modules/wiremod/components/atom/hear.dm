@@ -4,7 +4,7 @@
  * Listens for messages. Requires a shell.
  */
 /obj/item/circuit_component/hear
-	display_name = "Voice Activator"
+	display_name = "Микрофон"
 	desc = "A component that listens for messages. Requires a shell."
 
 	/// The message heard
@@ -18,10 +18,10 @@
 
 /obj/item/circuit_component/hear/Initialize()
 	. = ..()
-	message_port = add_output_port("Message", PORT_TYPE_STRING)
-	language_port = add_output_port("Language", PORT_TYPE_STRING)
-	speaker_port = add_output_port("Speaker", PORT_TYPE_ATOM)
-	trigger_port = add_output_port("Triggered", PORT_TYPE_SIGNAL)
+	message_port = add_output_port("Сообщение", PORT_TYPE_STRING)
+	language_port = add_output_port("Язык", PORT_TYPE_STRING)
+	speaker_port = add_output_port("Источник", PORT_TYPE_ATOM)
+	trigger_port = add_output_port("Активировано", PORT_TYPE_SIGNAL)
 	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
 /obj/item/circuit_component/hear/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods)

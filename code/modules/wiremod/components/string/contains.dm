@@ -4,7 +4,7 @@
  * Checks if a string contains a word/letter
  */
 /obj/item/circuit_component/compare/contains
-	display_name = "String Contains"
+	display_name = "Поиск слова"
 	desc = "Checks if a string contains a word/letter"
 
 	input_port_amount = 0
@@ -13,8 +13,8 @@
 	var/datum/port/input/haystack
 
 /obj/item/circuit_component/compare/contains/load_custom_ports()
-	needle = add_input_port("Needle", PORT_TYPE_STRING)
-	haystack = add_input_port("Haystack", PORT_TYPE_STRING)
+	needle = add_input_port("Иголка", PORT_TYPE_STRING)
+	haystack = add_input_port("Стог сена", PORT_TYPE_STRING)
 
 /obj/item/circuit_component/compare/contains/Destroy()
 	needle = null

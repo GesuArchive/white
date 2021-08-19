@@ -7,7 +7,7 @@
  * Delays a signal by a specified duration.
  */
 /obj/item/circuit_component/delay
-	display_name = "Delay"
+	display_name = "Задержка"
 	desc = "A component that delays a signal by a specified duration."
 
 	/// Amount to delay by
@@ -20,10 +20,10 @@
 
 /obj/item/circuit_component/delay/Initialize()
 	. = ..()
-	delay_amount = add_input_port("Delay", PORT_TYPE_NUMBER, FALSE)
-	trigger = add_input_port("Trigger", PORT_TYPE_SIGNAL)
+	delay_amount = add_input_port("Задержка", PORT_TYPE_NUMBER, FALSE)
+	trigger = add_input_port("Активация", PORT_TYPE_SIGNAL)
+	output = add_output_port("Результат", PORT_TYPE_SIGNAL)
 
-	output = add_output_port("Result", PORT_TYPE_SIGNAL)
 
 /obj/item/circuit_component/delay/input_received(datum/port/input/port)
 	. = ..()

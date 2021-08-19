@@ -29,8 +29,8 @@
 
 /obj/item/circuit_component/textcase/Initialize()
 	. = ..()
-	input_port = add_input_port("Input", PORT_TYPE_STRING)
-	output = add_output_port("Output", PORT_TYPE_STRING)
+	input_port = add_input_port("Вход", PORT_TYPE_STRING)
+	output = add_output_port("Выход", PORT_TYPE_STRING)
 
 /obj/item/circuit_component/textcase/input_received(datum/port/input/port)
 	. = ..()

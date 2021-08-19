@@ -4,7 +4,7 @@
  * Sends a message. Requires a shell.
  */
 /obj/item/circuit_component/speech
-	display_name = "Speech"
+	display_name = "Говорилка"
 	desc = "A component that sends a message. Requires a shell."
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 
@@ -20,7 +20,7 @@
 
 /obj/item/circuit_component/speech/Initialize()
 	. = ..()
-	message = add_input_port("Message", PORT_TYPE_STRING, FALSE)
+	message = add_input_port("Сообщение", PORT_TYPE_STRING, FALSE)
 
 /obj/item/circuit_component/speech/input_received(datum/port/input/port)
 	. = ..()

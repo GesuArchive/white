@@ -4,7 +4,7 @@
  * Emits a light of a specific brightness and colour. Requires a shell.
  */
 /obj/item/circuit_component/light
-	display_name = "Light"
+	display_name = "Диод"
 	desc = "A component that emits a light of a specific brightness and colour. Requires a shell."
 
 	/// The colours of the light
@@ -28,10 +28,10 @@
 
 /obj/item/circuit_component/light/Initialize()
 	. = ..()
-	red = add_input_port("Red", PORT_TYPE_NUMBER)
-	green = add_input_port("Green", PORT_TYPE_NUMBER)
-	blue = add_input_port("Blue", PORT_TYPE_NUMBER)
-	brightness = add_input_port("Brightness", PORT_TYPE_NUMBER)
+	red = add_input_port("Красный", PORT_TYPE_NUMBER)
+	green = add_input_port("Зелёный", PORT_TYPE_NUMBER)
+	blue = add_input_port("Синий", PORT_TYPE_NUMBER)
+	brightness = add_input_port("Яркость", PORT_TYPE_NUMBER)
 
 	on = add_input_port("On", PORT_TYPE_NUMBER)
 
