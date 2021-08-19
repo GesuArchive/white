@@ -1196,7 +1196,7 @@
 	cost = 30
 	surplus = 20
 	cant_discount = FALSE
-	exclude_modes = list(/datum/game_mode/nuclear)
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/movespeed_modifier/nanospeed
 	movetypes = GROUND
