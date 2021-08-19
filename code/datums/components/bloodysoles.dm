@@ -144,7 +144,7 @@
 			add_parent_to_footprint(oldLocFP)
 			if (!(oldLocFP.exited_dirs & wielder.dir))
 				oldLocFP.exited_dirs |= wielder.dir
-				oldLocFP.update_appearance()
+				oldLocFP.update_icon()
 		else if(find_pool_by_blood_state(oldLocTurf))
 			// No footprints in the tile we left, but there was some other blood pool there. Add exit footprints on it
 			bloody_shoes[last_blood_state] -= half_our_blood
@@ -157,7 +157,7 @@
 				add_parent_to_footprint(oldLocFP)
 				oldLocFP.bloodiness = half_our_blood
 				oldLocFP.add_blood_DNA(parent_atom.return_blood_DNA())
-				oldLocFP.update_appearance()
+				oldLocFP.update_icon()
 
 			half_our_blood = bloody_shoes[last_blood_state] / 2
 
