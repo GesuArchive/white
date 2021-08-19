@@ -1,9 +1,9 @@
-#define ROTATION_ALTCLICK			(1<<0)
-#define ROTATION_WRENCH				(1<<1)
-#define ROTATION_VERBS				(1<<2)
-#define ROTATION_COUNTERCLOCKWISE	(1<<3)
-#define ROTATION_CLOCKWISE			(1<<4)
-#define ROTATION_FLIP				(1<<5)
+#define ROTATION_ALTCLICK (1<<0)
+#define ROTATION_WRENCH (1<<1)
+#define ROTATION_VERBS (1<<2)
+#define ROTATION_COUNTERCLOCKWISE (1<<3)
+#define ROTATION_CLOCKWISE (1<<4)
+#define ROTATION_FLIP (1<<5)
 
 /datum/component/simple_rotation
 	var/datum/callback/can_user_rotate //Checks if user can rotate
@@ -94,15 +94,15 @@
 	//Signals + verbs removed via UnRegister
 	. = ..()
 
-/datum/component/simple_rotation/RemoveComponent()
+/datum/component/simple_rotation/ClearFromParent()
 	remove_verbs()
-	. = ..()
+	return ..()
 
 /datum/component/simple_rotation/proc/ExamineMessage(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
 	if(rotation_flags & ROTATION_ALTCLICK)
-		examine_list += "<hr><span class='notice'>ПКМ для поворота по часовой стрелке.</span>"
+		examine_list += span_notice("Alt-click to rotate it clockwise.")
 
 /datum/component/simple_rotation/proc/HandRot(datum/source, mob/user, rotation = default_rotation_direction)
 	SIGNAL_HANDLER
