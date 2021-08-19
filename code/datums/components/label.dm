@@ -29,7 +29,7 @@
 	UnregisterSignal(parent, list(COMSIG_PARENT_ATTACKBY, COMSIG_PARENT_EXAMINE))
 
 /**
-	This proc will fire after the parent is hit by a hand labeler which пытается apply another label.
+	This proc will fire after the parent is hit by a hand labeler which is trying to apply another label.
 	Since the parent already has a label, it will remove the old one from the parent's name, and apply the new one.
 */
 /datum/component/label/InheritComponent(datum/component/label/new_comp , i_am_original, _label_name)
@@ -62,7 +62,7 @@
 
 	remove_label()
 	playsound(parent, 'sound/items/poster_ripped.ogg', 20, TRUE)
-	to_chat(user, "<span class='warning'>You remove the label from [parent].</span>")
+	to_chat(user, span_warning("You remove the label from [parent]."))
 	qdel(src) // Remove the component from the object.
 
 /**
@@ -77,7 +77,7 @@
 /datum/component/label/proc/Examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
-	examine_list += "<hr><span class='notice'>It has a label with some words written on it. Use a hand labeler to remove it.</span>"
+	examine_list += span_notice("It has a label with some words written on it. Use a hand labeler to remove it.")
 
 /// Applies a label to the name of the parent in the format of: "parent_name (label)"
 /datum/component/label/proc/apply_label()
