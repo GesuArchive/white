@@ -9,14 +9,15 @@
 	screen_icon_state_menu = "menu"
 	hardware_flag = PROGRAM_CONSOLE
 	density = TRUE
-	base_idle_power_usage = 1000
-	base_active_power_usage = 5000
+	base_idle_power_usage = 100
+	base_active_power_usage = 500
 	max_hardware_size = 4
 	steel_sheet_cost = 10
 	light_strength = 2
 	max_integrity = 300
 	integrity_failure = 0.5
-	var/console_department = "" // Used in New() to set network tag according to our area.
+	///Used in New() to set network tag according to our area.
+	var/console_department = ""
 
 /obj/machinery/modular_computer/console/buildable/Initialize()
 	. = ..()

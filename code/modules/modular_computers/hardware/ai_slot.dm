@@ -7,13 +7,14 @@
 	device_type = MC_AI
 	expansion_hw = TRUE
 
-	var/obj/item/aicard/stored_card = null
+	var/obj/item/aicard/stored_card
 	var/locked = FALSE
 
-/obj/item/computer_hardware/ai_slot/handle_atom_del(atom/A)
-	if(A == stored_card)
-		try_eject(forced = TRUE)
-	. = ..()
+///What happens when the intellicard is removed (or deleted) from the module, through try_eject() or not.
+/obj/item/computer_hardware/ai_slot/Exited(atom/movable/gone, direction)
+	if(stored_card == gone)
+		stored_card = null
+	return ..()
 
 /obj/item/computer_hardware/ai_slot/examine(mob/user)
 	. = ..()
@@ -51,11 +52,10 @@
 	if(stored_card)
 		to_chat(user, "<span class='notice'>Вытаскивю [stored_card] из [src].</span>")
 		locked = FALSE
-		if(user)
+		if(Adjacent(user))
 			user.put_in_hands(stored_card)
 		else
 			stored_card.forceMove(drop_location())
-		stored_card = null
 
 		return TRUE
 	return FALSE

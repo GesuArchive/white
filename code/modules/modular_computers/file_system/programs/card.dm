@@ -1,6 +1,7 @@
 /datum/computer_file/program/card_mod
 	filename = "plexagonidwriter"
 	filedesc = "Plexagon Access Management"
+	category = PROGRAM_CATEGORY_CREW
 	program_icon_state = "id"
 	extended_desc = "Program for programming employee ID cards to access parts of the station."
 	transfer_access = ACCESS_HEADS
@@ -17,10 +18,10 @@
 	var/authenticated_user
 	/// The regions this program has access to based on the authenticated ID.
 	var/list/region_access = list()
-	/// List of job templates that can be applied to ID cards from this program.
-	var/list/job_templates = list()
 	/// The list of accesses this program is verified to change based on the authenticated ID. Used for state checking against player input.
 	var/list/valid_access = list()
+	/// List of job templates that can be applied to ID cards from this program.
+	var/list/job_templates = list()
 	/// Which departments this program has access to. See region defines.
 	var/target_dept
 

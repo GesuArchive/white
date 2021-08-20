@@ -1,6 +1,7 @@
 /datum/computer_file/program/borg_monitor
 	filename = "siliconnect"
 	filedesc = "SiliConnect"
+	category = PROGRAM_CATEGORY_ROBO
 	ui_header = "borg_mon.gif"
 	program_icon_state = "generic"
 	extended_desc = "This program allows for remote monitoring of station cyborgs."
@@ -31,7 +32,7 @@
 	emagged = TRUE
 	return TRUE
 
-/datum/computer_file/program/borg_monitor/tap(atom/A, mob/living/user)
+/datum/computer_file/program/borg_monitor/tap(atom/A, mob/living/user, params)
 	var/mob/living/silicon/robot/borgo = A
 	if(!istype(borgo) || !borgo.modularInterface)
 		return FALSE
@@ -135,10 +136,10 @@
 			to_chat(R, "<br><br><span class='notice'>Сообщение от [ID] -- \"[message]\"</span><br>")
 			to_chat(usr, "Сообщение отправлено [R]: [message]")
 			R.logevent("Message from [ID] -- \"[message]\"")
-			SEND_SOUND(R, sound('sound/machines/twobeep_high.ogg'))
+			SEND_SOUND(R, 'sound/machines/twobeep_high.ogg')
 			if(R.connected_ai)
 				to_chat(R.connected_ai, "<br><br><span class='notice'>Сообщение от [ID] к [R] -- \"[message]\"</span><br>")
-				SEND_SOUND(R.connected_ai, sound('sound/machines/twobeep_high.ogg'))
+				SEND_SOUND(R.connected_ai, 'sound/machines/twobeep_high.ogg')
 			usr.log_talk(message, LOG_PDA, tag="Cyborg Monitor Program: ID name \"[ID]\" to [R]")
 
 ///This proc is used to determin if a borg should be shown in the list (based on the borg's scrambledcodes var). Syndicate version overrides this to show only syndicate borgs.
@@ -161,6 +162,7 @@
 /datum/computer_file/program/borg_monitor/syndicate
 	filename = "roboverlord"
 	filedesc = "Roboverlord"
+	category = PROGRAM_CATEGORY_ROBO
 	ui_header = "borg_mon.gif"
 	program_icon_state = "generic"
 	extended_desc = "This program allows for remote monitoring of mission-assigned cyborgs."

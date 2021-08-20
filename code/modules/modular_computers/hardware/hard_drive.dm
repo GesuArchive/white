@@ -8,15 +8,15 @@
 	device_type = MC_HDD
 	var/max_capacity = 128
 	var/used_capacity = 0
-	var/list/stored_files = list()		// List of stored files on this drive. DO NOT MODIFY DIRECTLY!
+	var/list/stored_files = list() // List of stored files on this drive. DO NOT MODIFY DIRECTLY!
 
 /obj/item/computer_hardware/hard_drive/on_remove(obj/item/modular_computer/MC, mob/user)
 	MC.shutdown_computer()
 
 /obj/item/computer_hardware/hard_drive/proc/install_default_programs()
-	store_file(new/datum/computer_file/program/computerconfig(src)) 	// Computer configuration utility, allows hardware control and displays more info than status bar
-	store_file(new/datum/computer_file/program/ntnetdownload(src))		// NTNet Downloader Utility, allows users to download more software from NTNet repository
-	store_file(new/datum/computer_file/program/filemanager(src))		// File manager, allows text editor functions and basic file manipulation.
+	store_file(new/datum/computer_file/program/computerconfig(src)) // Computer configuration utility, allows hardware control and displays more info than status bar
+	store_file(new/datum/computer_file/program/ntnetdownload(src)) // NTNet Downloader Utility, allows users to download more software from NTNet repository
+	store_file(new/datum/computer_file/program/filemanager(src)) // File manager, allows text editor functions and basic file manipulation.
 
 /obj/item/computer_hardware/hard_drive/examine(user)
 	. = ..()
@@ -117,7 +117,7 @@
 	return null
 
 /obj/item/computer_hardware/hard_drive/Destroy()
-	stored_files = null
+	QDEL_LIST(stored_files)
 	return ..()
 
 /obj/item/computer_hardware/hard_drive/Initialize()
@@ -129,7 +129,7 @@
 	name = "Усовершенствованный привод жёсткого диска"
 	desc = "Гибридный жёсткий диск для использования в компьютерах более высокого класса, где требуется баланс между энергоэффективностью и ёмкостью."
 	max_capacity = 256
-	power_usage = 50 					// Hybrid, medium capacity and medium power storage
+	power_usage = 50 // Hybrid, medium capacity and medium power storage
 	icon_state = "harddisk_mini"
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -137,7 +137,7 @@
 	name = "Суперпривод жёсткого диска"
 	desc = "Жёсткий диск большой емкости, используемый для кластерного хранения, где ёмкость важнее энергоэффективности."
 	max_capacity = 512
-	power_usage = 100					// High-capacity but uses lots of power, shortening battery life. Best used with APC link.
+	power_usage = 100 // High-capacity but uses lots of power, shortening battery life. Best used with APC link.
 	icon_state = "harddisk_mini"
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -161,8 +161,8 @@
 
 // For borg integrated tablets. No downloader.
 /obj/item/computer_hardware/hard_drive/small/integrated/install_default_programs()
-	store_file(new /datum/computer_file/program/computerconfig(src)) 	// Computer configuration utility, allows hardware control and displays more info than status bar
-	store_file(new /datum/computer_file/program/filemanager(src))		// File manager, allows text editor functions and basic file manipulation.
+	store_file(new /datum/computer_file/program/computerconfig(src)) // Computer configuration utility, allows hardware control and displays more info than status bar
+	store_file(new /datum/computer_file/program/filemanager(src)) // File manager, allows text editor functions and basic file manipulation.
 	store_file(new /datum/computer_file/program/robotact(src))
 
 

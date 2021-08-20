@@ -3,6 +3,7 @@
 /datum/computer_file/program/secureye
 	filename = "secureye"
 	filedesc = "SecurEye"
+	category = PROGRAM_CATEGORY_MISC
 	ui_header = "borg_mon.gif"
 	program_icon_state = "generic"
 	extended_desc = "This program allows access to standard security camera networks."
@@ -122,7 +123,7 @@
 
 		return TRUE
 
-/datum/computer_file/program/secureye/ui_close(mob/user, datum/tgui/tgui)
+/datum/computer_file/program/secureye/ui_close(mob/user)
 	. = ..()
 	var/user_ref = REF(user)
 	var/is_living = isliving(user)
