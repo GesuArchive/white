@@ -52,7 +52,7 @@ Difficulty: Extremely Hard
 /mob/living/simple_animal/hostile/megafauna/demonic_frost_miner/Initialize()
 	. = ..()
 	AddComponent(/datum/component/knockback, 7, FALSE, TRUE)
-	AddComponent(/datum/component/lifesteal, 50)
+	AddElement(/datum/element/lifesteal, 50)
 
 /datum/action/innate/megafauna_attack/frost_orbs
 	name = "Fire Frost Orbs"
@@ -355,7 +355,7 @@ Difficulty: Extremely Hard
 /obj/item/pickaxe/drill/jackhammer/demonic/Initialize()
 	. = ..()
 	AddComponent(/datum/component/knockback, 4, TRUE, FALSE)
-	AddComponent(/datum/component/lifesteal, 5)
+	AddElement(/datum/element/lifesteal, 5)
 
 /obj/item/pickaxe/drill/jackhammer/demonic/use_tool(atom/target, mob/living/user, delay, amount=0, volume=0, datum/callback/extra_checks)
 	var/turf/T = get_turf(target)

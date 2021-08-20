@@ -21,4 +21,4 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, HAND_REPLACEMENT_TRAIT)
 	AddComponent(/datum/component/butchering, 80, 70)
-	AddComponent(/datum/component/light_eater)
+	AddElement(/datum/element/light_eater)
