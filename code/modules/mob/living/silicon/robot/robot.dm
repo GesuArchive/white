@@ -112,6 +112,9 @@
 	/// What types of mobs are allowed to ride/buckle to this mob
 	var/static/list/can_ride_typecache = typecacheof(/mob/living/carbon/human)
 
+	///Alarm listener datum, handes caring about alarm events and such
+	var/datum/alarm_listener/listener
+
 /mob/living/silicon/robot/get_cell()
 	return cell
 
@@ -198,7 +201,7 @@
 /mob/living/silicon/robot/model/syndicate/Initialize()
 	. = ..()
 	laws = new /datum/ai_laws/syndicate_override()
-	addtimer(CALLBACK(src, .proc/show_playstyle), 5)
+	//addtimer(CALLBACK(src, .proc/show_playstyle), 5)
 
 /mob/living/silicon/robot/proc/create_modularInterface()
 	if(!modularInterface)

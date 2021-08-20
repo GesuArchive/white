@@ -109,7 +109,7 @@
 	if(isarea(myarea))
 		LAZYREMOVE(myarea.cameras, src)
 	QDEL_NULL(alarm_manager)
-	QDEL_NULL(assembly_ref)
+	//QDEL_NULL(assembly_ref)
 	if(bug)
 		bug.bugged_cameras -= c_tag
 		if(bug.current == src)

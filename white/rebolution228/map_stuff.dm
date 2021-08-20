@@ -19,7 +19,7 @@
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
-	poweralm = FALSE
+	//poweralm = FALSE
 	ambientsounds = list('sound/ambience/white/snowyambient.ogg')
 	env_temp_relative = -25
 
