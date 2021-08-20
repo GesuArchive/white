@@ -81,10 +81,12 @@
 					recipes += temp
 	update_weight()
 	update_icon()
+	/*
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = .proc/on_movable_entered_occupied_turf,
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
+	*/
 
 /** Sets the amount of materials per unit for this stack.
  *
@@ -475,6 +477,11 @@
 	. = merge_without_del(target_stack, limit)
 	is_zero_amount(delete_if_zero = TRUE)
 
+/obj/item/stack/Crossed(atom/movable/crossing)
+	if(!crossing.throwing && can_merge(crossing))
+		merge(crossing)
+	. = ..()
+/*
 /// Signal handler for connect_loc element. Called when a movable enters the turf we're currently occupying. Merges if possible.
 /obj/item/stack/proc/on_movable_entered_occupied_turf(datum/source, atom/movable/arrived)
 	SIGNAL_HANDLER
@@ -485,7 +492,7 @@
 
 	if(!arrived.throwing && can_merge(arrived))
 		INVOKE_ASYNC(src, .proc/merge, arrived)
-
+*/
 /obj/item/stack/hitby(atom/movable/hitting, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(can_merge(hitting))
 		merge(hitting)
@@ -499,6 +506,10 @@
 		return split_stack(user, 1)
 	else
 		. = ..()
+
+/obj/item/stack/AltClick(mob/living/user)
+	. = ..()
+	attack_hand_secondary(user) //похуй
 
 /obj/item/stack/attack_hand_secondary(mob/user, modifiers)
 	. = ..()
