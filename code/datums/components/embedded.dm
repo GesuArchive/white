@@ -185,13 +185,18 @@
 
 /// Called when a carbon with an object embedded/stuck to them inspects themselves and clicks the appropriate link to begin ripping the item out. This handles the ripping attempt, descriptors, and dealing damage, then calls safe_remove()
 /datum/component/embedded/proc/ripOut(datum/source, obj/item/I, obj/item/bodypart/limb)
-	SIGNAL_HANDLER_DOES_SLEEP
+	SIGNAL_HANDLER
 
 	if(I != weapon || src.limb != limb)
 		return
 	var/mob/living/carbon/victim = parent
 	var/time_taken = rip_time * weapon.w_class
 	victim.visible_message("<span class='warning'><b>[capitalize(victim)]</b> пытается вытащить <b>[weapon]</b> из [victim.ru_ego()] [ru_otkuda_zone(limb.name)].</span>","<span class='notice'>Пытаюсь вытащить <b>[weapon]</b> из моей [ru_otkuda_zone(limb.name)]... (Это займёт примерно [DisplayTimeText(time_taken)].)</span>")
+	INVOKE_ASYNC(src, .proc/complete_rip_out, victim, I, limb, time_taken)
+
+/// everything async that ripOut used to do
+/datum/component/embedded/proc/complete_rip_out(mob/living/carbon/victim, obj/item/I, obj/item/bodypart/limb, time_taken)
+	victim.visible_message(span_warning("[victim] attempts to remove [weapon] from [victim.p_their()] [limb.name]."),span_notice("You attempt to remove [weapon] from your [limb.name]... (It will take [DisplayTimeText(time_taken)].)"))
 	if(!do_after(victim, time_taken, target = victim))
 		return
 	if(!weapon || !limb || weapon.loc != victim || !(weapon in limb.embedded_objects))
@@ -260,22 +265,22 @@
 	var/self_pluck = (user == victim)
 
 	if(self_pluck)
-		user.visible_message("<span class='danger'>[user] begins plucking [weapon] from [user.p_their()] [limb.name]</span>", "<span class='notice'>You start plucking [weapon] from your [limb.name]...</span>",\
+		user.visible_message(span_danger("[user] begins plucking [weapon] from [user.p_their()] [limb.name]"), span_notice("You start plucking [weapon] from your [limb.name]..."),\
 			vision_distance=COMBAT_MESSAGE_RANGE, ignored_mobs=victim)
 	else
-		user.visible_message("<span class='danger'>[user] begins plucking [weapon] from [victim]'s [limb.name]</span>","<span class='notice'>You start plucking [weapon] from [victim]'s [limb.name]...</span>", \
+		user.visible_message(span_danger("[user] begins plucking [weapon] from [victim]'s [limb.name]"),span_notice("You start plucking [weapon] from [victim]'s [limb.name]..."), \
 			vision_distance=COMBAT_MESSAGE_RANGE, ignored_mobs=victim)
-		to_chat(victim, "<span class='userdanger'>[user] begins plucking [weapon] from your [limb.name]...</span>")
+		to_chat(victim, span_userdanger("[user] begins plucking [weapon] from your [limb.name]..."))
 
 	var/pluck_time = 2.5 SECONDS * weapon.w_class * (self_pluck ? 2 : 1)
 	if(!do_after(user, pluck_time, victim))
 		if(self_pluck)
-			to_chat(user, "<span class='danger'>You fail to pluck [weapon] from your [limb.name].</span>")
+			to_chat(user, span_danger("You fail to pluck [weapon] from your [limb.name]."))
 		else
-			to_chat(user, "<span class='danger'>You fail to pluck [weapon] from [victim]'s [limb.name].</span>")
-			to_chat(victim, "<span class='danger'>[user] fails to pluck [weapon] from your [limb.name].</span>")
+			to_chat(user, span_danger("You fail to pluck [weapon] from [victim]'s [limb.name]."))
+			to_chat(victim, span_danger("[user] fails to pluck [weapon] from your [limb.name]."))
 		return
 
-	to_chat(user, "<span class='notice'>You successfully pluck [weapon] from [victim]'s [limb.name].</span>")
-	to_chat(victim, "<span class='notice'>[user] plucks [weapon] from your [limb.name].</span>")
+	to_chat(user, span_notice("You successfully pluck [weapon] from [victim]'s [limb.name]."))
+	to_chat(victim, span_notice("[user] plucks [weapon] from your [limb.name]."))
 	safeRemove(user)

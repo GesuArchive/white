@@ -42,11 +42,14 @@
 	if(unremovable_circuit_components)
 		QDEL_LIST(unremovable_circuit_components)
 
-	unremovable_circuit_components = components
+	unremovable_circuit_components = list()
 
-	for(var/obj/item/circuit_component/circuit_component as anything in unremovable_circuit_components)
+	for(var/obj/item/circuit_component/circuit_component as anything in components)
+		if(ispath(circuit_component))
+			circuit_component = new circuit_component()
 		circuit_component.removable = FALSE
 		RegisterSignal(circuit_component, COMSIG_CIRCUIT_COMPONENT_SAVE, .proc/save_component)
+		unremovable_circuit_components += circuit_component
 
 /datum/component/shell/proc/save_component(datum/source, list/objects)
 	SIGNAL_HANDLER
@@ -88,7 +91,8 @@
 
 /datum/component/shell/proc/on_object_deconstruct()
 	SIGNAL_HANDLER
-	remove_circuit()
+	if(!attached_circuit.admin_only)
+		remove_circuit()
 
 /datum/component/shell/proc/on_attack_ghost(datum/source, mob/dead/observer/ghost)
 	SIGNAL_HANDLER
@@ -98,16 +102,16 @@
 /datum/component/shell/proc/on_examine(datum/source, mob/user, list/examine_text)
 	SIGNAL_HANDLER
 	if(!attached_circuit)
-		examine_text += "<span class='notice'>There is no integrated circuit attached.</span>"
+		examine_text += span_notice("There is no integrated circuit attached.")
 		return
 
-	examine_text += "<span class='notice'>There is an integrated circuit attached. Use a multitool to access the wiring. Use a screwdriver to remove it from [source].</span>"
-	examine_text += "<span class='notice'>The cover panel to the integrated circuit is [locked? "locked" : "unlocked"].</span>"
+	examine_text += span_notice("There is an integrated circuit attached. Use a multitool to access the wiring. Use a screwdriver to remove it from [source].")
+	examine_text += span_notice("The cover panel to the integrated circuit is [locked? "locked" : "unlocked"].")
 	var/obj/item/stock_parts/cell/cell = attached_circuit.cell
-	examine_text += "<span class='notice'>The charge meter reads [cell ? round(cell.percent(), 1) : 0]%.</span>"
+	examine_text += span_notice("The charge meter reads [cell ? round(cell.percent(), 1) : 0]%.")
 
 	if (shell_flags & SHELL_FLAG_USB_PORT)
-		examine_text += "<span class='notice'>There is a <b>USB port</b> on the front.</span>"
+		examine_text += span_notice("There is a <b>USB port</b> on the front.")
 
 /**
  * Called when the shell is wrenched.
@@ -134,7 +138,7 @@
 
 	if(attached_circuit)
 		if(attached_circuit.owner_id && item == attached_circuit.owner_id.resolve())
-			locked = !locked
+			set_locked(!locked)
 			source.balloon_alert(attacker, "[locked? "locked" : "unlocked"] [source]")
 			return COMPONENT_NO_AFTERATTACK
 
@@ -159,12 +163,18 @@
 		source.balloon_alert(attacker, "there is already a circuitboard inside!")
 		return
 
-	if(length(logic_board.attached_components) > capacity)
+	if(length(logic_board.attached_components) - length(unremovable_circuit_components) > capacity)
 		source.balloon_alert(attacker, "this is too large to fit into [parent]!")
 		return
 
 	logic_board.inserter_mind = WEAKREF(attacker.mind)
 	attach_circuit(logic_board, attacker)
+
+/// Sets whether the shell is locked or not
+/datum/component/shell/proc/set_locked(new_value)
+	locked = new_value
+	attached_circuit?.locked = locked
+
 
 /datum/component/shell/proc/on_multitool_act(atom/source, mob/user, obj/item/tool)
 	SIGNAL_HANDLER
@@ -268,6 +278,7 @@
 	for(var/obj/item/circuit_component/to_remove as anything in unremovable_circuit_components)
 		attached_circuit.remove_component(to_remove)
 		to_remove.moveToNullspace()
+	attached_circuit.locked = FALSE
 	attached_circuit = null
 
 /datum/component/shell/proc/on_atom_usb_cable_try_attach(atom/source, obj/item/usb_cable/usb_cable, mob/user)

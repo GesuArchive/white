@@ -245,6 +245,7 @@
 	else
 		tame_chance += bonus_tame_chance
 
+
 ///Extra effects to add when the mob is tamed, such as adding a riding component
 /mob/living/simple_animal/proc/tamed(whomst)
 	tame = TRUE

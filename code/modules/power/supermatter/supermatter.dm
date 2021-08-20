@@ -368,7 +368,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	if(!air)
 		return SUPERMATTER_ERROR
 
-	var/integrity = get_integrity()
+	var/integrity = get_integrity_percent()
 	if(integrity < SUPERMATTER_DELAM_PERCENT)
 		return SUPERMATTER_DELAMINATING
 
@@ -399,7 +399,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		if(SUPERMATTER_WARNING)
 			playsound(src, 'sound/machines/terminal_alert.ogg', 75)
 
-/obj/machinery/power/supermatter_crystal/proc/get_integrity()
+/obj/machinery/power/supermatter_crystal/proc/get_integrity_percent()
 	var/integrity = damage / explosion_point
 	integrity = round(100 - integrity * 100, 0.01)
 	integrity = integrity < 0 ? 0 : integrity
@@ -569,7 +569,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 					continue
 				var/turf/turf_to_check = t
 				if(LAZYLEN(turf_to_check.atmos_adjacent_turfs))
-					var/integrity = get_integrity()
+					var/integrity = get_integrity_percent()
 					if(integrity < 10)
 						damage += clamp((power * 0.0005) * DAMAGE_INCREASE_MULTIPLIER, 0, MAX_SPACE_EXPOSURE_DAMAGE)
 					else if(integrity < 25)
@@ -787,7 +787,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 
 			//Oh shit it's bad, time to freak out
 			if(damage > emergency_point)
-				radio.talk_into(src, "[emergency_alert] Целостность: [get_integrity()]%", common_channel)
+				radio.talk_into(src, "[emergency_alert] Целостность: [get_integrity_percent()]%", common_channel)
 				SEND_SIGNAL(src, COMSIG_SUPERMATTER_DELAM_ALARM)
 				lastwarning = REALTIMEOFDAY
 				if(!has_reached_emergency)
@@ -795,12 +795,12 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 					message_admins("[src] has reached the emergency point [ADMIN_JMP(src)].")
 					has_reached_emergency = TRUE
 			else if(damage >= damage_archived) // The damage is still going up
-				radio.talk_into(src, "[warning_alert] Целостность: [get_integrity()]%", engineering_channel)
+				radio.talk_into(src, "[warning_alert] Целостность: [get_integrity_percent()]%", engineering_channel)
 				SEND_SIGNAL(src, COMSIG_SUPERMATTER_DELAM_ALARM)
 				lastwarning = REALTIMEOFDAY - (WARNING_DELAY * 5)
 
 			else                                                 // Phew, we're safe
-				radio.talk_into(src, "[safe_alert] Целостность: [get_integrity()]%", engineering_channel)
+				radio.talk_into(src, "[safe_alert] Целостность: [get_integrity_percent()]%", engineering_channel)
 				lastwarning = REALTIMEOFDAY
 
 			if(power > POWER_PENALTY_THRESHOLD)

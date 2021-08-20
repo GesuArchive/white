@@ -11,8 +11,10 @@
 	var/butchering_enabled = TRUE
 	/// Whether or not this component is compatible with blunt tools.
 	var/can_be_blunt = FALSE
+	/// Callback for butchering
+	var/datum/callback/butcher_callback
 
-/datum/component/butchering/Initialize(_speed, _effectiveness, _bonus_modifier, _butcher_sound, disabled, _can_be_blunt)
+/datum/component/butchering/Initialize(_speed, _effectiveness, _bonus_modifier, _butcher_sound, disabled, _can_be_blunt, _butcher_callback)
 	if(_speed)
 		speed = _speed
 	if(_effectiveness)
@@ -25,6 +27,8 @@
 		butchering_enabled = FALSE
 	if(_can_be_blunt)
 		can_be_blunt = _can_be_blunt
+	if(_butcher_callback)
+		butcher_callback = _butcher_callback
 	if(isitem(parent))
 		RegisterSignal(parent, COMSIG_ITEM_ATTACK, .proc/onItemAttack)
 
@@ -42,14 +46,14 @@
 		var/mob/living/carbon/human/H = M
 		if((user.pulling == H && user.grab_state >= GRAB_AGGRESSIVE) && user.zone_selected == BODY_ZONE_HEAD) // Only aggressive grabbed can be sliced.
 			if(H.has_status_effect(/datum/status_effect/neck_slice))
-				user.show_message("<span class='warning'>[H] neck has already been already cut, you can't make the bleeding any worse!</span>", MSG_VISUAL, \
-								"<span class='warning'>Their neck has already been already cut, you can't make the bleeding any worse!</span>")
+				user.show_message(span_warning("[H]'s neck has already been already cut, you can't make the bleeding any worse!"), MSG_VISUAL, \
+								span_warning("Their neck has already been already cut, you can't make the bleeding any worse!"))
 				return COMPONENT_CANCEL_ATTACK_CHAIN
 			INVOKE_ASYNC(src, .proc/startNeckSlice, source, H, user)
 			return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /datum/component/butchering/proc/startButcher(obj/item/source, mob/living/M, mob/living/user)
-	to_chat(user, "<span class='notice'>You begin to butcher [M]...</span>")
+	to_chat(user, span_notice("You begin to butcher [M]..."))
 	playsound(M.loc, butcher_sound, 50, TRUE, -1)
 	if(do_mob(user, M, speed) && M.Adjacent(source))
 		Butcher(user, M)
@@ -75,8 +79,8 @@
 
 		H.visible_message("<span class='danger'>[user] режет глотку [H]!</span>", \
 					"<span class='userdanger'>[user] режет мою глотку...</span>")
-		log_combat(user, H, "finishes slicing the throat of")
 		playsound(get_turf(H), 'sound/effects/wounds/crackandbleed.ogg', 40)
+		log_combat(user, H, "wounded via throat slitting", source)
 		H.apply_damage(source.force, BRUTE, BODY_ZONE_HEAD, wound_bonus=CANT_WOUND) // easy tiger, we'll get to that in a sec
 		var/obj/item/bodypart/slit_throat = H.get_bodypart(BODY_ZONE_HEAD)
 		if(slit_throat)
@@ -102,12 +106,12 @@
 		for(var/_i in 1 to amount)
 			if(!prob(final_effectiveness))
 				if(butcher)
-					to_chat(butcher, "<span class='warning'>You fail to harvest some of the [initial(bones.name)] from [meat].</span>")
+					to_chat(butcher, span_warning("You fail to harvest some of the [initial(bones.name)] from [meat]."))
 				continue
 
 			if(prob(bonus_chance))
 				if(butcher)
-					to_chat(butcher, "<span class='info'>You harvest some extra [initial(bones.name)] from [meat]!</span>")
+					to_chat(butcher, span_info("You harvest some extra [initial(bones.name)] from [meat]!"))
 				results += new bones (T)
 			results += new bones (T)
 
@@ -127,17 +131,15 @@
 		carrion.set_custom_materials((carrion.custom_materials - meat_mats) + list(GET_MATERIAL_REF(/datum/material/meat/mob_meat, meat) = counterlist_sum(meat_mats)))
 
 	if(butcher)
-		butcher.visible_message("<span class='notice'>[butcher] butchers [meat].</span>", \
-								"<span class='notice'>You butcher [meat].</span>")
-	ButcherEffects(meat)
+		butcher.visible_message(span_notice("[butcher] butchers [meat]."), \
+								span_notice("You butcher [meat]."))
+	butcher_callback?.Invoke(butcher, meat)
 	meat.harvest(butcher)
 	meat.gib(FALSE, FALSE, TRUE)
 
-/datum/component/butchering/proc/ButcherEffects(mob/living/meat) //extra effects called on butchering, override this via subtypes
-	return
-
 ///Special snowflake component only used for the recycler.
 /datum/component/butchering/recycler
+
 
 /datum/component/butchering/recycler/Initialize(_speed, _effectiveness, _bonus_modifier, _butcher_sound, disabled, _can_be_blunt)
 	if(!istype(parent, /obj/machinery/recycler)) //EWWW
@@ -145,15 +147,20 @@
 	. = ..()
 	if(. == COMPONENT_INCOMPATIBLE)
 		return
-	RegisterSignal(parent, COMSIG_MOVABLE_CROSSED, .proc/onCrossed)
 
-/datum/component/butchering/recycler/proc/onCrossed(datum/source, mob/living/L)
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/on_entered,
+	)
+	AddComponent(/datum/component/connect_loc_behalf, parent, loc_connections)
+
+/datum/component/butchering/recycler/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
 
-	if(!istype(L))
+	if(!isliving(arrived))
 		return
+	var/mob/living/victim = arrived
 	var/obj/machinery/recycler/eater = parent
 	if(eater.safety_mode || (eater.machine_stat & (BROKEN|NOPOWER))) //I'm so sorry.
 		return
-	if(L.stat == DEAD && (L.butcher_results || L.guaranteed_butcher_results))
-		Butcher(parent, L)
+	if(victim.stat == DEAD && (victim.butcher_results || victim.guaranteed_butcher_results))
+		Butcher(parent, victim)

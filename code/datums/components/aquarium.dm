@@ -15,6 +15,7 @@
 	var/base_py = 0
 	//Current layer for the visual object
 	var/base_layer
+
 	//If flopping animation was applied to parent, tracked to stop it on removal/destroy
 	var/flopping = FALSE
 
@@ -85,7 +86,6 @@
 	//Finally add it to to objects vis_contents
 	current_aquarium.vis_contents |= vc_obj
 
-
 /// Aquarium surface changed in some way, we need to recalculate base position and aninmation
 /datum/component/aquarium_content/proc/on_surface_changed()
 	SIGNAL_HANDLER
@@ -110,7 +110,6 @@
 	current_aquarium.vis_contents -= vc_obj
 	if(base_layer)
 		current_aquarium.free_layer(base_layer)
-
 
 /// Generates common visual object, propeties that don't depend on aquarium surface
 /datum/component/aquarium_content/proc/generate_base_vc()
@@ -175,7 +174,6 @@
 	base_py = py_min
 	animate(vc_obj, pixel_y = py_min, time = 1) //flop to bottom and end current animation.
 
-
 #define PAUSE_BETWEEN_PHASES 15
 #define PAUSE_BETWEEN_FLOPS 2
 #define FLOP_COUNT 2
@@ -228,7 +226,6 @@
 		flopping = FALSE
 		animate(parent, transform = matrix()) //stop animation
 
-
 /datum/component/aquarium_content/proc/set_vc_base_position()
 	var/list/aq_properties = current_aquarium.get_surface_properties()
 	if(properties.randomize_position)
@@ -250,9 +247,9 @@
 	base_layer = current_aquarium.request_layer(properties.layer_mode)
 	vc_obj.layer = base_layer
 
-/datum/component/aquarium_content/proc/on_removed(datum/source, atom/movable/mover)
+/datum/component/aquarium_content/proc/on_removed(datum/source, atom/movable/gone, direction)
 	SIGNAL_HANDLER
-	if(mover != parent)
+	if(parent != gone)
 		return
 	remove_from_aquarium()
 

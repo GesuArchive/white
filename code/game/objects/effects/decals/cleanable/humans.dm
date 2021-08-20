@@ -107,7 +107,9 @@
 
 /obj/effect/decal/cleanable/blood/gibs/dry()
 	. = ..()
-	AddComponent(/datum/component/rot/gibs)
+	if(!.)
+		return
+	AddComponent(/datum/component/rot, 0, 5 MINUTES, 0.7)
 
 /obj/effect/decal/cleanable/blood/gibs/ex_act(severity, target)
 	return

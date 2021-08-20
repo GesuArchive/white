@@ -214,7 +214,7 @@
 		if(asteroid_catched)
 			if(!asteroid_catching)
 				for(var/T in valid_turfs)
-					ripples += new /obj/effect/abstract/ripple(T, time_left = asteroid_catch_time / catch_power)
+					ripples += new /obj/effect/abstract/ripple(T, null, asteroid_catch_time / catch_power)
 				asteroid_catching = TRUE
 			asteroid_catch_time -= (10 * catch_power) * 2
 			if(asteroid_catch_time <= 0)
@@ -266,7 +266,7 @@
 					last_err = "НЕДОСТАТОЧНО МЕСТА ДЛЯ АКТИВАЦИИ ЗАХВАТА. ОТМЕНА"
 					return PROCESS_KILL
 			for(var/T in valid_turfs)
-				ripples += new /obj/effect/abstract/ripple(T, time_left = asteroid_catch_time / catch_power)
+				ripples += new /obj/effect/abstract/ripple(T, null, asteroid_catch_time / catch_power)
 			Beam(target, icon_state = "nzcrentrs_power", time = asteroid_catch_time / catch_power, maxdistance = world.maxx)
 			asteroid_catching = TRUE
 			icon_state = "beacon_on"

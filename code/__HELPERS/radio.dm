@@ -17,3 +17,17 @@
 /proc/unformat_frequency(frequency)
 	frequency = text2num(frequency)
 	return frequency * 10
+
+///returns a random unused frequency between MIN_FREE_FREQ & MAX_FREE_FREQ if free = TRUE, and MIN_FREQ & MAX_FREQ if FALSE
+/proc/return_unused_frequency(free = FALSE)
+	var/start = free ? MIN_FREE_FREQ : MIN_FREQ
+	var/end = free ? MAX_FREE_FREQ : MAX_FREQ
+
+	var/freq_to_check = 0
+	do
+		freq_to_check = rand(start, end)
+		if(!(freq_to_check % 2)) // Ensure the last digit is an odd number
+			freq_to_check++
+	while((freq_to_check == 0) || ("[freq_to_check]" in GLOB.reverseradiochannels))
+
+	return freq_to_check

@@ -17,6 +17,7 @@
 	if(footsteps)
 		footsteps.signal_enabled = FALSE
 */
+/*
 /datum/component/walk/RemoveComponent()
 /*
 	var/datum/component/footstep/footsteps = parent.GetComponent(/datum/component/footstep)
@@ -24,7 +25,7 @@
 		footsteps.signal_enabled = TRUE
 		*/
 	return ..()
-
+*/
 /datum/component/walk/proc/handle_move(datum/source, direction)
 	var/mob/living/L = parent
 	var/turf/T = get_step(L, direction)

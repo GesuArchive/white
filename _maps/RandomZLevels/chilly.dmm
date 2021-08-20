@@ -979,7 +979,6 @@
 	dir = 5
 	},
 /obj/structure/closet/crate,
-/obj/item/integrated_circuit/input/atmospheric_analyzer,
 /turf/open/floor/plating/asteroid/snow/ice/oxy,
 /area/awaymission/chilly/cave)
 "cL" = (

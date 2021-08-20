@@ -22,13 +22,13 @@
 	RegisterSignal(parent, COMSIG_CLEAR_MOOD_EVENT, .proc/clear_event)
 	RegisterSignal(parent, COMSIG_ENTER_AREA, .proc/check_area_mood)
 	RegisterSignal(parent, COMSIG_LIVING_REVIVE, .proc/on_revive)
-
 	RegisterSignal(parent, COMSIG_MOB_HUD_CREATED, .proc/modify_hud)
 	RegisterSignal(parent, COMSIG_JOB_RECEIVED, .proc/register_job_signals)
-
 	RegisterSignal(parent, COMSIG_VOID_MASK_ACT, .proc/direct_sanity_drain)
+	RegisterSignal(parent, COMSIG_ON_CARBON_SLIP, .proc/on_slip)
 
 	var/mob/living/owner = parent
+	owner.become_area_sensitive(MOOD_COMPONENT_TRAIT)
 	if(owner.hud_used)
 		modify_hud()
 		var/datum/hud/hud = owner.hud_used
@@ -36,6 +36,7 @@
 
 /datum/component/mood/Destroy()
 	STOP_PROCESSING(SSmood, src)
+	REMOVE_TRAIT(parent, TRAIT_AREA_SENSITIVE, MOOD_COMPONENT_TRAIT)
 	unmodify_hud()
 	return ..()
 
@@ -90,7 +91,7 @@
 			msg += event.description
 	else
 		msg += "<span class='nicegreen'>Да как-то всё равно на всё в данный момент.<span>\n"
-	to_chat(user, "<div class='examine_block'>[msg]</div>")
+	to_chat(user, msg)
 
 ///Called after moodevent/s have been added/removed.
 /datum/component/mood/proc/update_mood()
@@ -173,6 +174,9 @@
 
 ///Called on SSmood process
 /datum/component/mood/process(delta_time)
+	var/mob/living/moody_fellow = parent
+	if(moody_fellow.stat == DEAD)
+		return //updating sanity during death leads to people getting revived and being completely insane for simply being dead for a long time
 	switch(mood_level)
 		if(1)
 			setSanity(sanity-0.3*delta_time, SANITY_INSANE)
@@ -193,6 +197,17 @@
 		if(9)
 			setSanity(sanity+0.6*delta_time, SANITY_NEUTRAL, SANITY_MAXIMUM)
 	HandleNutrition()
+
+	// 0.416% is 15 successes / 3600 seconds. Calculated with 2 minute
+	// mood runtime, so 50% average uptime across the hour.
+	if(HAS_TRAIT(parent, TRAIT_DEPRESSION) && DT_PROB(0.416, delta_time))
+		add_event(null, "depression_mild", /datum/mood_event/depression_mild)
+
+	if(HAS_TRAIT(parent, TRAIT_JOLLY) && DT_PROB(0.416, delta_time))
+		add_event(null, "jolly", /datum/mood_event/jolly)
+
+
+
 
 ///Sets sanity to the specified amount and applies effects.
 /datum/component/mood/proc/setSanity(amount, minimum=SANITY_INSANE, maximum=SANITY_GREAT, override = FALSE)
@@ -325,8 +340,6 @@
 
 /datum/component/mood/proc/HandleNutrition()
 	var/mob/living/L = parent
-	if(isethereal(L))
-		HandleCharge(L)
 	if(HAS_TRAIT(L, TRAIT_NOHUNGER))
 		return FALSE //no mood events for nutrition
 	switch(L.nutrition)
@@ -346,27 +359,11 @@
 		if(0 to NUTRITION_LEVEL_STARVING)
 			add_event(null, "nutrition", /datum/mood_event/starving)
 
-/datum/component/mood/proc/HandleCharge(mob/living/carbon/human/H)
-	var/datum/species/ethereal/E = H.dna.species
-	switch(E.get_charge(H))
-		if(ETHEREAL_CHARGE_NONE to ETHEREAL_CHARGE_LOWPOWER)
-			add_event(null, "charge", /datum/mood_event/decharged)
-		if(ETHEREAL_CHARGE_LOWPOWER to ETHEREAL_CHARGE_NORMAL)
-			add_event(null, "charge", /datum/mood_event/lowpower)
-		if(ETHEREAL_CHARGE_NORMAL to ETHEREAL_CHARGE_ALMOSTFULL)
-			clear_event(null, "charge")
-		if(ETHEREAL_CHARGE_ALMOSTFULL to ETHEREAL_CHARGE_FULL)
-			add_event(null, "charge", /datum/mood_event/charged)
-		if(ETHEREAL_CHARGE_FULL to ETHEREAL_CHARGE_OVERLOAD)
-			add_event(null, "charge", /datum/mood_event/overcharged)
-		if(ETHEREAL_CHARGE_OVERLOAD to ETHEREAL_CHARGE_DANGEROUS)
-			add_event(null, "charge", /datum/mood_event/supercharged)
-
 /datum/component/mood/proc/check_area_mood(datum/source, area/A)
 	SIGNAL_HANDLER
 
 	update_beauty(A)
-	if(A.mood_bonus)
+	if(A.mood_bonus && (!A.mood_trait || HAS_TRAIT(source, A.mood_trait)))
 		add_event(null, "area", /datum/mood_event/area, A.mood_bonus, A.mood_message)
 	else
 		clear_event(null, "area")
@@ -413,6 +410,7 @@
 	SIGNAL_HANDLER
 
 	add_event(null, "slipped", /datum/mood_event/slipped)
+
 
 /datum/component/mood/proc/HandleAddictions()
 	if(!iscarbon(parent))

@@ -92,12 +92,14 @@
 	return FALSE
 
 /datum/component/storage/concrete/proc/on_contents_del(datum/source, atom/A)
+	SIGNAL_HANDLER
 	var/atom/real_location = parent
 	if(A in real_location)
 		usr = null
 		remove_from_storage(A, null)
 
 /datum/component/storage/concrete/proc/on_deconstruct(datum/source, disassembled)
+	SIGNAL_HANDLER
 	if(drop_all_on_deconstruct)
 		do_quick_empty()
 
@@ -151,7 +153,7 @@
 	if(. && !prevent_warning)
 		slave.mob_item_insertion_feedback(usr, M, I)
 
-/datum/component/storage/concrete/handle_item_insertion(obj/item/I, prevent_warning = FALSE, mob/M, datum/component/storage/remote)		//Remote is null or the slave datum
+/datum/component/storage/concrete/handle_item_insertion(obj/item/I, prevent_warning = FALSE, mob/M, datum/component/storage/remote) //Remote is null or the slave datum
 	var/datum/component/storage/concrete/master = master()
 	var/atom/parent = src.parent
 	var/moved = FALSE
@@ -161,7 +163,7 @@
 		if(!M.temporarilyRemoveItemFromInventory(I))
 			return FALSE
 		else
-			moved = TRUE			//At this point if the proc fails we need to manually move the object back to the turf/mob/whatever.
+			moved = TRUE //At this point if the proc fails we need to manually move the object back to the turf/mob/whatever.
 	if(I.pulledby)
 		I.pulledby.stop_pulling()
 	if(silent)

@@ -43,22 +43,24 @@ Behavior that's still missing from this component that original food items had t
 	///The flavortext for taste (haha get it flavor text)
 	var/list/tastes
 	///The type of atom this creates when the object is microwaved.
-	var/microwaved_type
+	var/atom/microwaved_type
 
-/datum/component/edible/Initialize(list/initial_reagents,
-								food_flags = NONE,
-								foodtypes = NONE,
-								volume = 50,
-								eat_time = 10,
-								list/tastes,
-								list/eatverbs = list("кусает","чмакает","наяривает","пожирает","грызёт","втягивает"),
-								bite_consumption = 2,
-								microwaved_type,
-								junkiness,
-								datum/callback/after_eat,
-								datum/callback/on_consume,
-								datum/callback/check_liked)
 
+/datum/component/edible/Initialize(
+	list/initial_reagents,
+	food_flags = NONE,
+	foodtypes = NONE,
+	volume = 50,
+	eat_time = 10,
+	list/tastes,
+	list/eatverbs = list("bite","chew","nibble","gnaw","gobble","chomp"),
+	bite_consumption = 2,
+	microwaved_type,
+	junkiness,
+	datum/callback/after_eat,
+	datum/callback/on_consume,
+	datum/callback/check_liked,
+)
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
 
@@ -67,8 +69,12 @@ Behavior that's still missing from this component that original food items had t
 	RegisterSignal(parent, COMSIG_ATOM_CHECKPARTS, .proc/OnCraft)
 	RegisterSignal(parent, COMSIG_ATOM_CREATEDBY_PROCESSING, .proc/OnProcessed)
 	RegisterSignal(parent, COMSIG_ITEM_MICROWAVE_COOKED, .proc/OnMicrowaveCooked)
-	RegisterSignal(parent, COMSIG_MOVABLE_CROSSED, .proc/onCrossed)
 	RegisterSignal(parent, COMSIG_EDIBLE_INGREDIENT_ADDED, .proc/edible_ingredient_added)
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/on_entered,
+	)
+	AddComponent(/datum/component/connect_loc_behalf, parent, loc_connections)
 
 	if(isitem(parent))
 		RegisterSignal(parent, COMSIG_ITEM_ATTACK, .proc/UseFromHand)
@@ -107,20 +113,23 @@ Behavior that's still missing from this component that original food items had t
 		else
 			owner.reagents.add_reagent(rid, amount)
 
-/datum/component/edible/InheritComponent(datum/component/C,
+/datum/component/edible/InheritComponent(
+	datum/component/C,
 	i_am_original,
 	list/initial_reagents,
 	food_flags = NONE,
 	foodtypes = NONE,
 	volume = 50,
-	eat_time = 30,
+	eat_time = 10,
 	list/tastes,
 	list/eatverbs = list("bite","chew","nibble","gnaw","gobble","chomp"),
 	bite_consumption = 2,
+	microwaved_type,
+	junkiness,
 	datum/callback/after_eat,
-	datum/callback/on_consume
-	)
-
+	datum/callback/on_consume,
+	datum/callback/check_liked,
+)
 	. = ..()
 	src.bite_consumption = bite_consumption
 	src.food_flags = food_flags
@@ -139,16 +148,19 @@ Behavior that's still missing from this component that original food items had t
 /datum/component/edible/proc/examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
+	if(microwaved_type)
+		examine_list += "[parent] could be <b>microwaved</b> into [initial(microwaved_type.name)]!"
+
 	if(!(food_flags & FOOD_IN_CONTAINER))
 		switch (bitecount)
 			if (0)
 				return
 			if(1)
-				examine_list += "<hr>[parent] надкушено кем-то!"
+				examine_list += "[parent] was bitten by someone!"
 			if(2,3)
-				examine_list += "<hr>[parent] надкусили [bitecount] раза!"
+				examine_list += "[parent] was bitten [bitecount] times!"
 			else
-				examine_list += "<hr>[parent] обглодали жутко!"
+				examine_list += "[parent] was bitten multiple times!"
 
 /datum/component/edible/proc/UseFromHand(obj/item/source, mob/living/M, mob/living/user)
 	SIGNAL_HANDLER
@@ -194,19 +206,8 @@ Behavior that's still missing from this component that original food items had t
 
 	this_food.reagents.multiply_reagents(CRAFTED_FOOD_BASE_REAGENT_MODIFIER)
 
-	for(var/obj/item/crafted_part in this_food.contents)
+	for(var/obj/item/food/crafted_part in parts_list)
 		crafted_part.reagents?.trans_to(this_food.reagents, crafted_part.reagents.maximum_volume, CRAFTED_FOOD_INGREDIENT_REAGENT_MODIFIER)
-
-	var/list/objects_to_delete = list()
-
-	// Remove all non recipe objects from the contents
-	for(var/content_object in this_food.contents)
-		for(var/recipe_object in recipe.real_parts)
-			if(istype(content_object, recipe_object))
-				continue
-		objects_to_delete += content_object
-
-	QDEL_LIST(objects_to_delete)
 
 	SSblackbox.record_feedback("tally", "food_made", 1, type)
 
@@ -275,6 +276,11 @@ Behavior that's still missing from this component that original food items had t
 		if(IsFoodGone(owner, feeder))
 			return
 		var/eatverb = pick(eatverbs)
+/*
+		var/message_to_nearby_audience = ""
+		var/message_to_consumer = ""
+		var/message_to_blind_consumer = ""
+*/
 		if(junkiness && eater.satiety < -150 && eater.nutrition > NUTRITION_LEVEL_STARVING + 50 && !HAS_TRAIT(eater, TRAIT_VORACIOUS))
 			to_chat(eater, "<span class='warning'>Не хочу я жрать эти отбросы!</span>")
 			return
@@ -282,7 +288,6 @@ Behavior that's still missing from this component that original food items had t
 			eater.visible_message("<span class='notice'>[eater] жадно [eatverb] [parent], проглатывая кусками!</span>", "<span class='notice'>Жадно кусаю [parent], проглатывая кусками!</span>")
 		else if(fullness > 50 && fullness < 150)
 			eater.visible_message("<span class='notice'>[eater] жадно [eatverb] [parent].</span>", "<span class='notice'>Жадно пожираю [parent].</span>")
-		else if(fullness > 150 && fullness < 500)
 			eater.visible_message("<span class='notice'>[eater] [eatverb] [parent].</span>", "<span class='notice'>Кушаю [parent].</span>")
 		else if(fullness > 500 && fullness < 600)
 			eater.visible_message("<span class='notice'>[eater] нехотя [eatverb] кусочек [parent].</span>", "<span class='notice'>Нямкаю кусочек [parent].</span>")
@@ -321,6 +326,7 @@ Behavior that's still missing from this component that original food items had t
 	var/atom/owner = parent
 
 	if(!owner?.reagents)
+		stack_trace("[eater] failed to bite [owner], because [owner] had no reagents.")
 		return FALSE
 	if(eater.satiety > -200)
 		eater.satiety -= junkiness
@@ -438,9 +444,9 @@ Behavior that's still missing from this component that original food items had t
 
 
 ///Ability to feed food to puppers
-/datum/component/edible/proc/onCrossed(datum/source, mob/user)
+/datum/component/edible/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
-	SEND_SIGNAL(parent, COMSIG_FOOD_CROSSED, user, bitecount)
+	SEND_SIGNAL(parent, COMSIG_FOOD_CROSSED, arrived, bitecount)
 
 ///Response to being used to customize something
 /datum/component/edible/proc/used_to_customize(datum/source, atom/customized)
@@ -458,3 +464,4 @@ Behavior that's still missing from this component that original food items had t
 		for (var/t in E.tastes)
 			tastes[t] += E.tastes[t]
 	foodtypes |= E.foodtypes
+

@@ -151,12 +151,13 @@
 			update_icon()
 
 			oldLocFP = new(oldLocTurf)
-			oldLocFP.blood_state = last_blood_state
-			oldLocFP.exited_dirs |= wielder.dir
-			add_parent_to_footprint(oldLocFP)
-			oldLocFP.bloodiness = half_our_blood
-			oldLocFP.add_blood_DNA(parent_atom.return_blood_DNA())
-			oldLocFP.update_icon()
+			if(!QDELETED(oldLocFP)) ///prints merged
+				oldLocFP.blood_state = last_blood_state
+				oldLocFP.exited_dirs |= wielder.dir
+				add_parent_to_footprint(oldLocFP)
+				oldLocFP.bloodiness = half_our_blood
+				oldLocFP.add_blood_DNA(parent_atom.return_blood_DNA())
+				oldLocFP.update_icon()
 
 			half_our_blood = bloody_shoes[last_blood_state] / 2
 
@@ -166,20 +167,17 @@
 
 	// Create new footprints
 	if(half_our_blood >= BLOOD_FOOTPRINTS_MIN)
-		var/turf/oldLocTurf = get_turf(parent_atom)
-		var/obj/effect/decal/cleanable/blood/footprints/oldLocFP = find_pool_by_blood_state(oldLocTurf, /obj/effect/decal/cleanable/blood/footprints)
-		if(oldLocFP)
-			qdel(oldLocFP)
 		bloody_shoes[last_blood_state] -= half_our_blood
 		update_icon()
 
 		var/obj/effect/decal/cleanable/blood/footprints/FP = new(get_turf(parent_atom))
-		FP.blood_state = last_blood_state
-		FP.entered_dirs |= wielder.dir
-		add_parent_to_footprint(FP)
-		FP.bloodiness = half_our_blood
-		FP.add_blood_DNA(parent_atom.return_blood_DNA())
 		FP.update_icon()
+		if(!QDELETED(FP)) ///prints merged
+			FP.blood_state = last_blood_state
+			FP.entered_dirs |= wielder.dir
+			add_parent_to_footprint(FP)
+			FP.bloodiness = half_our_blood
+			FP.add_blood_DNA(parent_atom.return_blood_DNA())
 
 
 /**
