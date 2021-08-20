@@ -18,7 +18,7 @@
 		"bucket",
 		"c-reader",
 		"circuit_imprinter",
-		"circuit_imprinter_offstation",
+//		"circuit_imprinter_offstation",
 		"conveyor_belt",
 		"conveyor_switch",
 		"design_disk",
@@ -55,8 +55,8 @@
 		"space_heater",
 		"tech_disk",
 		"titaniumglass",
-		"gas_filter",
-		"plasmaman_gas_filter",
+//		"gas_filter",
+//		"plasmaman_gas_filter",
 		"oven_tray"
 	)
 
