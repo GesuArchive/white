@@ -61,28 +61,30 @@ All the important duct code:
 		if(D == src)
 			continue
 		if(D.duct_layer & duct_layer)
-			disconnect_duct()
+			return INITIALIZE_HINT_QDEL //If we have company, end it all
 
-	if(active)
-		attempt_connect()
-
+	attempt_connect()
 	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE)
 
 ///start looking around us for stuff to connect to
 /obj/machinery/duct/proc/attempt_connect()
 
 	for(var/atom/movable/AM in loc)
-		var/datum/component/plumbing/P = AM.GetComponent(/datum/component/plumbing)
-		if(P?.active)
-			disconnect_duct() //let's not built under plumbing machinery
-			return
+		for(var/plumber in AM.GetComponents(/datum/component/plumbing))
+			if(!plumber) //apparently yes it will be null hahahaasahsdvashufv
+				continue
+			var/datum/component/plumbing/plumb = plumber
+			if(plumb.active)
+				disconnect_duct() //let's not built under plumbing machinery
+				return
+
 	for(var/D in GLOB.cardinals)
 		if(dumb && !(D & connects))
 			continue
 		for(var/atom/movable/AM in get_step(src, D))
 			if(connect_network(AM, D))
 				add_connects(D)
-	update_icon()
+	update_appearance()
 
 ///see if whatever we found can be connected to
 /obj/machinery/duct/proc/connect_network(atom/movable/AM, direction, ignore_color)
@@ -91,7 +93,7 @@ All the important duct code:
 
 	for(var/plumber in AM.GetComponents(/datum/component/plumbing))
 		if(!plumber) //apparently yes it will be null hahahaasahsdvashufv
-			return
+			continue
 		. += connect_plumber(plumber, direction) //so that if one is true, all is true. beautiful.
 
 ///connect to a duct
@@ -128,9 +130,11 @@ All the important duct code:
 		else
 			create_duct()
 			duct.add_duct(D)
+
 	add_neighbour(D, direction)
-	//tell our buddy its time to pass on the torch of connecting to pipes. This shouldn't ever infinitely loop since it only works on pipes that havent been inductrinated
-	D.attempt_connect()
+
+	//Delegate to timer subsystem so its handled the next tick and doesnt cause byond to mistake it for an infinite loop and kill the game
+	addtimer(CALLBACK(D, .proc/attempt_connect))
 
 	return TRUE
 
@@ -162,33 +166,10 @@ All the important duct code:
 	lose_neighbours()
 	reset_connects(0)
 	update_icon()
-	if(ispath(drop_on_wrench) && !QDELING(src))
+	if(ispath(drop_on_wrench))
 		new drop_on_wrench(drop_location())
+	if(!QDELETED(src))
 		qdel(src)
-
-///''''''''''''''''optimized''''''''''''''''' proc for quickly reconnecting after a duct net was destroyed
-/obj/machinery/duct/proc/reconnect()
-	if(neighbours.len && !duct)
-		create_duct()
-	for(var/atom/movable/AM in neighbours)
-		if(istype(AM, /obj/machinery/duct))
-			var/obj/machinery/duct/D = AM
-			if(D.duct)
-				if(D.duct == duct) //we're already connected
-					continue
-				else
-					duct.assimilate(D.duct)
-					continue
-			else
-				duct.add_duct(D)
-				D.reconnect()
-		else
-			var/datum/component/plumbing/P = AM.GetComponent(/datum/component/plumbing)
-			if(AM in get_step(src, neighbours[AM])) //did we move?
-				if(P)
-					connect_plumber(P, neighbours[AM])
-			else
-				neighbours -= AM //we moved
 
 ///Special proc to draw a new connect frame based on neighbours. not the norm so we can support multiple duct kinds
 /obj/machinery/duct/proc/generate_connects()
@@ -255,6 +236,7 @@ All the important duct code:
 			if(D == WEST)
 				temp_icon += "_w"
 	icon_state = temp_icon
+	return ..()
 
 ///update the layer we are on
 /obj/machinery/duct/proc/handle_layer()
@@ -291,10 +273,11 @@ All the important duct code:
 	if(anchored || can_anchor())
 		set_anchored(!anchored)
 		user.visible_message( \
-		"[user] [anchored ? null : "un"]fastens <b>[src.name]</b>.", \
-		"<span class='notice'>You [anchored ? null : "un"]fasten <b>[src.name]</b>.</span>", \
-		"<span class='hear'>You hear ratcheting.</span>")
+		"[user] [anchored ? null : "un"]fastens \the [src].", \
+		span_notice("You [anchored ? null : "un"]fasten \the [src]."), \
+		span_hear("You hear ratcheting."))
 	return TRUE
+
 ///collection of all the sanity checks to prevent us from stacking ducts that shouldn't be stacked
 /obj/machinery/duct/proc/can_anchor(turf/T)
 	if(!T)
@@ -310,7 +293,7 @@ All the important duct code:
 /obj/machinery/duct/doMove(destination)
 	. = ..()
 	disconnect_duct()
-	anchored = FALSE
+	set_anchored(FALSE)
 
 /obj/machinery/duct/Destroy()
 	disconnect_duct()
@@ -322,7 +305,7 @@ All the important duct code:
 	var/obj/machinery/duct/D = A
 	var/obj/item/I = user.get_active_held_item()
 	if(I?.tool_behaviour != TOOL_WRENCH)
-		to_chat(user, "<span class='warning'>You need to be holding a wrench in your active hand to do that!</span>")
+		to_chat(user, span_warning("You need to be holding a wrench in your active hand to do that!"))
 		return
 	if(get_dist(src, D) != 1)
 		return
@@ -336,57 +319,6 @@ All the important duct code:
 	add_neighbour(D, direction)
 	connect_network(D, direction, TRUE)
 	update_icon()
-
-/obj/machinery/duct/water
-	name = "водопровод"
-	duct_color = "#00aaff"
-
-///has a total of 5 layers and doesnt give a shit about color. its also dumb so doesnt autoconnect.
-/obj/machinery/duct/multilayered
-	name = "труба-переходник"
-	icon = 'icons/obj/2x2.dmi'
-	icon_state = "multiduct"
-	pixel_x = -15
-	pixel_y = -15
-
-	color_to_color_support = FALSE
-	duct_layer = FIRST_DUCT_LAYER | SECOND_DUCT_LAYER | THIRD_DUCT_LAYER | FOURTH_DUCT_LAYER | FIFTH_DUCT_LAYER
-	drop_on_wrench = null
-
-	lock_connects = TRUE
-	lock_layers = TRUE
-	ignore_colors = TRUE
-	dumb = TRUE
-
-	active = FALSE
-	anchored = FALSE
-
-/obj/machinery/duct/multilayered/Initialize(mapload, no_anchor, color_of_duct, layer_of_duct = DUCT_LAYER_DEFAULT, force_connects)
-	. = ..()
-	update_connects()
-
-/obj/machinery/duct/multilayered/ComponentInitialize()
-	. = ..()
-	AddElement(/datum/element/update_icon_blocker)
-
-/obj/machinery/duct/multilayered/wrench_act(mob/living/user, obj/item/I)
-	. = ..()
-	update_connects()
-
-/obj/machinery/duct/multilayered/proc/update_connects()
-	if(dir & NORTH || dir & SOUTH)
-		connects = NORTH | SOUTH
-	else
-		connects = EAST | WEST
-
-///don't connect to other multilayered stuff because honestly it shouldn't be done and I dont wanna deal with it
-/obj/machinery/duct/multilayered/connect_duct(obj/machinery/duct/D, direction, ignore_color)
-	if(istype(D, /obj/machinery/duct/multilayered))
-		return
-	return ..()
-
-/obj/machinery/duct/multilayered/handle_layer()
-	return
 
 /obj/item/stack/ducts
 	name = "набор труб"
@@ -405,11 +337,11 @@ All the important duct code:
 	///Default layer of our duct
 	var/duct_layer = "Default Layer"
 	///Assoc index with all the available layers. yes five might be a bit much. Colors uses a global by the way
-	var/list/layers = list("Alternate Layer" = SECOND_DUCT_LAYER, "Default Layer" = DUCT_LAYER_DEFAULT)
+	var/list/layers = list("Second Layer" = SECOND_DUCT_LAYER, "Default Layer" = DUCT_LAYER_DEFAULT, "Fourth Layer" = FOURTH_DUCT_LAYER)
 
 /obj/item/stack/ducts/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>It's current color and layer are [duct_color] and [duct_layer]. Use in-hand to change.</span>"
+	. += span_notice("It's current color and layer are [duct_color] and [duct_layer]. Use in-hand to change.")
 
 /obj/item/stack/ducts/attack_self(mob/user)
 	var/new_layer = input("Select a layer", "Layer") as null|anything in layers
