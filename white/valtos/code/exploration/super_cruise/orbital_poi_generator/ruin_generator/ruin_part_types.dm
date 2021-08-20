@@ -321,6 +321,31 @@
 	weight = 1
 	max_occurances = 1
 
+/datum/map_template/ruin_part/room_arsenal
+	file_name = "5x6_arsenal"
+	weight = 1
+	loot_room = TRUE
+
+/datum/map_template/ruin_part/hallwaystrange
+	file_name = "7x7_hallwaystrange"
+	weight = 3
+
+/datum/map_template/ruin_part/teleporter_two
+	file_name = "9x9_teleporter"
+	weight = 1
+
+/datum/map_template/ruin_part/vaporwave
+	file_name = "11x8_vaporwave"
+	weight = 1
+
+/datum/map_template/ruin_part/abandonedzoo
+	file_name = "19x19_abandonedzoo"
+	weight = 3
+
+/datum/map_template/ruin_part/bigderelict
+	file_name = "40x34_bigderelict"
+	weight = 3
+
 /datum/map_template/ruin_part/charliestation
 	file_name = "69x45_charliestation"
 	weight = 50
