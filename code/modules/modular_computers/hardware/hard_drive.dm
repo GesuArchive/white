@@ -151,7 +151,7 @@
 
 // For tablets, etc. - highly power efficient.
 /obj/item/computer_hardware/hard_drive/small
-	name = "Твердотельный накопитель"
+	name = "твердотельный накопитель"
 	desc = "Эффективный твердотельный накопитель для портативных устройств."
 	power_usage = 10
 	max_capacity = 64
