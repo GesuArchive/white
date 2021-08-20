@@ -15,7 +15,7 @@
 	resistance_flags = FLAMMABLE
 	merge_type = /obj/item/stack/wrapping_paper
 
-/obj/item/stack/wrapping_paper/use(used, transfer)
+/obj/item/stack/wrapping_paper/use(used, transfer, check = TRUE)
 	var/turf/T = get_turf(src)
 	. = ..()
 	if(QDELETED(src) && !transfer)
