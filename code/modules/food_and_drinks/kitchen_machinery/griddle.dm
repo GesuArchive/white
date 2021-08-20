@@ -1,8 +1,8 @@
 /obj/machinery/griddle
 	name = "гридль"
 	desc = "Потому что кастрюли предназначены для анютиных глазок."
-	//icon = 'icons/obj/machines/griddle.dmi'
-	//icon_state = "griddle1_off"
+	icon = 'icons/obj/machines/kitchenmachines.dmi'
+	icon_state = "griddle1_off"
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 5
@@ -27,6 +27,11 @@
 	grill_loop = new(src, FALSE)
 	if(isnum(variant))
 		variant = rand(1,3)
+	RegisterSignal(src, COMSIG_ATOM_EXPOSE_REAGENT, .proc/on_expose_reagent)
+
+/obj/machinery/griddle/Destroy()
+	QDEL_NULL(grill_loop)
+	. = ..()
 
 /obj/machinery/griddle/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()
@@ -35,7 +40,6 @@
 	if(default_deconstruction_crowbar(I, ignore_panel = TRUE))
 		return
 	variant = rand(1,3)
-	RegisterSignal(src, COMSIG_ATOM_EXPOSE_REAGENT, .proc/on_expose_reagent)
 
 /obj/machinery/griddle/proc/on_expose_reagent(atom/parent_atom, datum/reagent/exposing_reagent, reac_volume)
 	SIGNAL_HANDLER
@@ -50,7 +54,7 @@
 		AddToGrill(new_pancake)
 		if(griddled_objects.len >= max_items)
 			break
-	visible_message("<span class='notice'>[capitalize(exposing_reagent)] начинает жариться на [src.name].</span>")
+	visible_message(span_notice("[exposing_reagent] begins to cook on [src]."))
 	return NONE
 
 /obj/machinery/griddle/crowbar_act(mob/living/user, obj/item/I)
@@ -59,23 +63,24 @@
 
 
 /obj/machinery/griddle/attackby(obj/item/I, mob/user, params)
-	. = ..()
 	if(griddled_objects.len >= max_items)
-		to_chat(user, "<span class='notice'>[capitalize(src.name)] не хочет принимать больше!</span>")
+		to_chat(user, span_notice("[src] can't fit more items!"))
+		return
+	var/list/modifiers = params2list(params)
+	//Center the icon where the user clicked.
+	if(!LAZYACCESS(modifiers, ICON_X) || !LAZYACCESS(modifiers, ICON_Y))
 		return
 	if(user.transferItemToLoc(I, src, silent = FALSE))
-		var/list/click_params = params2list(params)
-		//Center the icon where the user clicked.
-		if(!click_params || !click_params["icon-x"] || !click_params["icon-y"])
-			return
 		//Clamp it so that the icon never moves more than 16 pixels in either direction (thus leaving the table turf)
-		I.pixel_x = clamp(text2num(click_params["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)
-		I.pixel_y = clamp(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)
-		to_chat(user, "<span class='notice'>Кидаю [I.name] на [src.name].</span>")
+		I.pixel_x = clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -(world.icon_size/2), world.icon_size/2)
+		I.pixel_y = clamp(text2num(LAZYACCESS(modifiers, ICON_Y)) - 16, -(world.icon_size/2), world.icon_size/2)
+		to_chat(user, span_notice("You place [I] on [src]."))
 		AddToGrill(I, user)
 		update_icon()
+	else
+		return ..()
 
-/obj/machinery/griddle/attack_hand(mob/user)
+/obj/machinery/griddle/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	on = !on
 	if(on)
@@ -96,6 +101,7 @@
 	update_grill_audio()
 
 /obj/machinery/griddle/proc/ItemRemovedFromGrill(obj/item/I)
+	SIGNAL_HANDLER
 	I.flags_1 &= ~IS_ONTOP_1
 	griddled_objects -= I
 	vis_contents -= I
@@ -116,6 +122,11 @@
 	else
 		grill_loop.stop()
 
+/obj/machinery/griddle/wrench_act(mob/living/user, obj/item/I)
+	..()
+	default_unfasten_wrench(user, I, 2 SECONDS)
+	return TRUE
+
 ///Override to prevent storage dumping onto the griddle until I figure out how to navigate the mess that is storage code to allow me to nicely move the dumped objects onto the griddle.
 /obj/machinery/griddle/get_dumping_location(obj/item/storage/source, mob/user)
 	return
@@ -123,18 +134,16 @@
 /obj/machinery/griddle/process(delta_time)
 	..()
 	for(var/i in griddled_objects)
-		if(isnull(i)) //somehow a null is getting into this list and i have no idea why, but i also have to somehow stop the fucking runtimes AAAAAAAA
-			continue
 		var/obj/item/griddled_item = i
 		if(SEND_SIGNAL(griddled_item, COMSIG_ITEM_GRILLED, src, delta_time) & COMPONENT_HANDLED_GRILLING)
 			continue
 		griddled_item.fire_act(1000) //Hot hot hot!
 		if(prob(10))
-			visible_message("<span class='danger'>Жарить [griddled_item.name] выглядит не очень здравой идеей!</span>")
+			visible_message(span_danger("[griddled_item] doesn't seem to be doing too great on the [src]!"))
 
 /obj/machinery/griddle/update_icon_state()
-	. = ..()
 	icon_state = "griddle[variant]_[on ? "on" : "off"]"
+	return ..()
 
 /obj/machinery/griddle/stand
 	name = "griddle stand"
