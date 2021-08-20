@@ -19,7 +19,7 @@
 
 /obj/machinery/plumbing/Initialize(mapload, bolt = TRUE)
 	. = ..()
-	anchored = bolt
+	set_anchored(bolt)
 	create_reagents(buffer, reagent_flags)
 	AddComponent(/datum/component/simple_rotation, ROTATION_ALTCLICK | ROTATION_CLOCKWISE | ROTATION_COUNTERCLOCKWISE | ROTATION_VERBS, null, CALLBACK(src, .proc/can_be_rotated))
 
@@ -28,18 +28,17 @@
 
 /obj/machinery/plumbing/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>The maximum volume display reads: <b>[reagents.maximum_volume] units</b>.</span>"
+	. += span_notice("The maximum volume display reads: <b>[reagents.maximum_volume] units</b>.")
 
 /obj/machinery/plumbing/wrench_act(mob/living/user, obj/item/I)
 	..()
 	default_unfasten_wrench(user, I)
-
 	return TRUE
 
 /obj/machinery/plumbing/plunger_act(obj/item/plunger/P, mob/living/user, reinforced)
-	to_chat(user, "<span class='notice'>You start furiously plunging [name].</span>")
+	to_chat(user, span_notice("You start furiously plunging [name]."))
 	if(do_after(user, 30, target = src))
-		to_chat(user, "<span class='notice'>You finish plunging the [name].</span>")
+		to_chat(user, span_notice("You finish plunging the [name]."))
 		reagents.expose(get_turf(src), TOUCH) //splash on the floor
 		reagents.clear_reagents()
 
@@ -54,6 +53,7 @@
 			to_chat(user, "<span class='notice'>You slice the [name] apart.</span")
 			return TRUE
 
+
 ///We can empty beakers in here and everything
 /obj/machinery/plumbing/input
 	name = "input gate"
@@ -61,9 +61,9 @@
 	icon_state = "pipe_input"
 	reagent_flags = TRANSPARENT | REFILLABLE
 
-/obj/machinery/plumbing/input/Initialize(mapload, bolt)
+/obj/machinery/plumbing/input/Initialize(mapload, bolt, layer)
 	. = ..()
-	AddComponent(/datum/component/plumbing/simple_supply, bolt)
+	AddComponent(/datum/component/plumbing/simple_supply, bolt, layer)
 
 ///We can fill beakers in here and everything. we dont inheret from input because it has nothing that we need
 /obj/machinery/plumbing/output
@@ -72,9 +72,10 @@
 	icon_state = "pipe_output"
 	reagent_flags = TRANSPARENT | DRAINABLE
 
-/obj/machinery/plumbing/output/Initialize(mapload, bolt)
+/obj/machinery/plumbing/output/Initialize(mapload, bolt, layer)
 	. = ..()
-	AddComponent(/datum/component/plumbing/simple_demand, bolt)
+	AddComponent(/datum/component/plumbing/simple_demand, bolt, layer)
+
 
 /obj/machinery/plumbing/tank
 	name = "chemical tank"
@@ -87,9 +88,9 @@
 	var/list_glue = "&"
 	var/use_enname_for_list = TRUE //fuck off
 
-/obj/machinery/plumbing/tank/Initialize(mapload, bolt)
+/obj/machinery/plumbing/tank/Initialize(mapload, bolt, layer)
 	. = ..()
-	AddComponent(/datum/component/plumbing/tank, bolt)
+	AddComponent(/datum/component/plumbing/tank, bolt, layer)
 	AddComponent(/datum/component/mechanics_holder)
 
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Send out contents data", "sendout")
@@ -127,3 +128,18 @@
 /obj/machinery/plumbing/tank/proc/prompt(varname, v)
 	var/input = input("Set [varname] to what? Make sure to select a unique symbol like \"&\", otherwise extracting from list will be very problematic! (Groups of symbols are also accepted!)", "[varname]", v) as null|num
 	return input
+
+
+///Layer manifold machine that connects a bunch of layers
+/obj/machinery/plumbing/layer_manifold
+	name = "layer manifold"
+	desc = "A plumbing manifold for layers."
+	icon_state = "manifold"
+	density = FALSE
+
+/obj/machinery/plumbing/layer_manifold/Initialize(mapload, bolt, layer)
+	. = ..()
+
+	AddComponent(/datum/component/plumbing/manifold, bolt, SECOND_DUCT_LAYER)
+	AddComponent(/datum/component/plumbing/manifold, bolt, THIRD_DUCT_LAYER)
+	AddComponent(/datum/component/plumbing/manifold, bolt, FOURTH_DUCT_LAYER)
