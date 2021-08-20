@@ -152,6 +152,8 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 		return "Чечня"
 	else if (freq == "Yellow Team")
 		return "Хохлы"
+	else if (freq == "Yohei")
+		return "Криптосвязь"
 	else
 		return freq
 
