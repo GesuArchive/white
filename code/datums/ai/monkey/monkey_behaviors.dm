@@ -58,8 +58,6 @@
 		finish_action(controller, TRUE)
 		return
 
-
-
 	finish_action(controller, FALSE)
 
 /datum/ai_behavior/monkey_equip/ground
@@ -81,27 +79,32 @@
 	var/obj/item/target = controller.blackboard[BB_MONKEY_PICKUPTARGET]
 
 	var/mob/living/victim = target.loc
-
 	var/mob/living/living_pawn = controller.pawn
 
-	victim.visible_message("<span class='warning'>[living_pawn] starts trying to take [target] from [victim]!</span>", "<span class='danger'>[living_pawn] tries to take [target]!</span>")
+	if(!istype(victim) || !living_pawn.CanReach(victim))
+		finish_action(controller, FALSE)
+		return
+
+
+
+	victim.visible_message(span_warning("[living_pawn] starts trying to take [target] from [victim]!"), span_danger("[living_pawn] tries to take [target]!"))
 
 	controller.blackboard[BB_MONKEY_PICKPOCKETING] = TRUE
 
 	var/success = FALSE
 
-	if(do_mob(living_pawn, victim, MONKEY_ITEM_SNATCH_DELAY) && target)
+	if(do_mob(living_pawn, victim, MONKEY_ITEM_SNATCH_DELAY) && target && living_pawn.CanReach(victim))
 
 		for(var/obj/item/I in victim.held_items)
 			if(I == target)
-				victim.visible_message("<span class='danger'>[living_pawn] snatches [target] from [victim].</span>", "<span class='userdanger'>[living_pawn] snatched [target]!</span>")
+				victim.visible_message(span_danger("[living_pawn] snatches [target] from [victim]."), span_userdanger("[living_pawn] snatched [target]!"))
 				if(victim.temporarilyRemoveItemFromInventory(target))
 					if(!QDELETED(target) && !equip_item(controller))
 						target.forceMove(living_pawn.drop_location())
 						success = TRUE
 						break
 				else
-					victim.visible_message("<span class='danger'>[living_pawn] tried to snatch [target] from [victim], but failed!</span>", "<span class='userdanger'>[living_pawn] tried to grab [target]!</span>")
+					victim.visible_message(span_danger("[living_pawn] tried to snatch [target] from [victim], but failed!"), span_userdanger("[living_pawn] tried to grab [target]!"))
 
 	finish_action(controller, success) //We either fucked up or got the item.
 
@@ -145,7 +148,7 @@
 	if(!target || target.stat != CONSCIOUS)
 		finish_action(controller, TRUE) //Target == owned
 
-	if(living_pawn.Adjacent(target) && isturf(target.loc) && !IS_DEAD_OR_INCAP(living_pawn))	// if right next to perp
+	if(isturf(target.loc) && !IS_DEAD_OR_INCAP(living_pawn)) // Check if they're a valid target
 		// check if target has a weapon
 		var/obj/item/W
 		for(var/obj/item/I in target.held_items)
@@ -155,11 +158,9 @@
 
 		// if the target has a weapon, chance to disarm them
 		if(W && DT_PROB(MONKEY_ATTACK_DISARM_PROB, delta_time))
-			living_pawn.a_intent = INTENT_DISARM
-			monkey_attack(controller, target, delta_time)
+			monkey_attack(controller, target, delta_time, TRUE)
 		else
-			living_pawn.a_intent = INTENT_HARM
-			monkey_attack(controller, target, delta_time)
+			monkey_attack(controller, target, delta_time, FALSE)
 
 
 /datum/ai_behavior/monkey_attack_mob/finish_action(datum/ai_controller/controller, succeeded)
@@ -169,8 +170,7 @@
 	controller.blackboard[BB_MONKEY_CURRENT_ATTACK_TARGET] = null
 
 /// attack using a held weapon otherwise bite the enemy, then if we are angry there is a chance we might calm down a little
-/datum/ai_behavior/monkey_attack_mob/proc/monkey_attack(datum/ai_controller/controller, mob/living/target, delta_time)
-
+/datum/ai_behavior/monkey_attack_mob/proc/monkey_attack(datum/ai_controller/controller, mob/living/target, delta_time, disarm)
 	var/mob/living/living_pawn = controller.pawn
 
 	if(living_pawn.next_move > world.time)
@@ -182,11 +182,36 @@
 
 	living_pawn.face_atom(target)
 
+	//living_pawn.set_combat_mode(TRUE)
+	living_pawn.a_intent = INTENT_HARM
+
+	if(isnull(controller.blackboard[BB_MONKEY_GUN_WORKED]))
+		controller.blackboard[BB_MONKEY_GUN_WORKED] = TRUE
+
 	// attack with weapon if we have one
-	if(weapon)
-		weapon.melee_attack_chain(living_pawn, target)
-	else
-		living_pawn.UnarmedAttack(target)
+	if(living_pawn.CanReach(target, weapon))
+		if(weapon)
+			weapon.melee_attack_chain(living_pawn, target)
+		else
+			living_pawn.UnarmedAttack(target, null, disarm ? list("right" = TRUE) : null) //Fake a right click if we're disarmin
+		controller.blackboard[BB_MONKEY_GUN_WORKED] = TRUE // We reset their memory of the gun being 'broken' if they accomplish some other attack
+	else if(weapon)
+		var/atom/real_target = target
+		if(prob(10)) // Artificial miss
+			real_target = pick(oview(2, target))
+
+		var/obj/item/gun/gun = locate() in living_pawn.held_items
+		var/can_shoot = gun?.can_shoot() || FALSE
+		if(gun && controller.blackboard[BB_MONKEY_GUN_WORKED] && prob(95))
+			// We attempt to attack even if we can't shoot so we get the effects of pulling the trigger
+			gun.afterattack(real_target, living_pawn, FALSE)
+			controller.blackboard[BB_MONKEY_GUN_WORKED] = can_shoot ? TRUE : prob(80) // Only 20% likely to notice it didn't work
+			if(can_shoot)
+				controller.blackboard[BB_MONKEY_GUN_NEURONS_ACTIVATED] = TRUE
+		else
+			living_pawn.throw_item(real_target)
+			controller.blackboard[BB_MONKEY_GUN_WORKED] = TRUE // 'worked'
+
 	// no de-aggro
 	if(controller.blackboard[BB_MONKEY_AGRESSIVE])
 		return
@@ -223,7 +248,6 @@
 
 	if(target.pulledby != living_pawn && !HAS_AI_CONTROLLER_TYPE(target.pulledby, /datum/ai_controller/monkey)) //Dont steal from my fellow monkeys.
 		if(living_pawn.Adjacent(target) && isturf(target.loc))
-			living_pawn.a_intent = INTENT_GRAB
 			target.grabbedby(living_pawn)
 		return //Do the rest next turn
 
