@@ -379,7 +379,6 @@
 	icon = 'white/rebolution228/icons/weapons/rguns.dmi'
 	icon_state = "hs010"
 	inhand_icon_state = "hs010"
-	selector_switch_icon = TRUE
 	lefthand_file = 'white/rebolution228/icons/weapons/guns_inhand_left.dmi'
 	righthand_file = 'white/rebolution228/icons/weapons/guns_inhand_right.dmi'
 	mag_type = /obj/item/ammo_box/magazine/hs010
@@ -433,7 +432,7 @@
 		icon_state = "hs010ammo"
 
 /obj/item/ammo_casing/c25mm
-	name = "2.5мм гильза"
+	name = "2,5мм гильза"
 	caliber = "c25mm"
 	projectile_type = /obj/projectile/bullet/c25mm
 
@@ -441,4 +440,4 @@
 	name = "2,5мм пуля"
 	damage = 7
 	armour_penetration = 0
-	wound_bonus = 0
+	wound_bonus = 2
