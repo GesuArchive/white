@@ -256,7 +256,7 @@
 				return
 			if(recipe.time)
 				var/adjusted_time = 0
-				usr.visible_message("<span class='notice'>[usr] начинает строить [R.title].</span>", "<span class='notice'>Начинаю строить [R.title]...</span>")
+				usr.visible_message("<span class='notice'>[usr] начинает строить [recipe.title].</span>", "<span class='notice'>Начинаю строить [recipe.title]...</span>")
 				if(HAS_TRAIT(usr, recipe.trait_booster))
 					adjusted_time = (recipe.time * recipe.trait_modifier)
 				else
@@ -311,16 +311,15 @@
 		return TRUE
 	return ..()
 
-			to_chat(usr, "<span class='warning'>Здесь недостаточно <b>[src]</b> для постройки [R.req_amount*multiplier] <b>[R.title]</b>!</span>")
 /obj/item/stack/proc/building_checks(datum/stack_recipe/recipe, multiplier)
 	if (get_amount() < recipe.req_amount*multiplier)
 		if (recipe.req_amount*multiplier>1)
+			to_chat(usr, span_warning("You haven't got enough [src] to build \the [recipe.req_amount*multiplier] [recipe.title]\s!"))
 		else
-			to_chat(usr, "<span class='warning'>Здесь недостаточно <b>[src]</b> для постройки <b>[R.title]</b>!</span>")
+			to_chat(usr, span_warning("You haven't got enough [src] to build \the [recipe.title]!"))
 		return FALSE
 	var/turf/dest_turf = get_turf(usr)
 
-		to_chat(usr, "<span class='warning'>Здесь уже есть <b>[R.title]</b>!</span>")
 	// If we're making a window, we have some special snowflake window checks to do.
 	if(ispath(recipe.result_type, /obj/structure/window))
 		var/obj/structure/window/result_path = recipe.result_type
@@ -329,11 +328,12 @@
 			return FALSE
 
 	if(recipe.one_per_turf && (locate(recipe.result_type) in dest_turf))
+		to_chat(usr, span_warning("There is another [recipe.title] here!"))
 		return FALSE
-			to_chat(usr, "<span class='warning'><b>[capitalize(R.title)]</b> должен быть построен на полу!</span>")
 
 	if(recipe.on_floor)
 		if(!isfloorturf(dest_turf))
+			to_chat(usr, span_warning("\The [recipe.title] must be constructed on the floor!"))
 			return FALSE
 
 		for(var/obj/object in dest_turf)
@@ -345,21 +345,21 @@
 				var/obj/structure/window/window_structure = object
 				if(!window_structure.fulltile)
 					continue
-				to_chat(usr, "<span class='warning'>Здесь стоит <b>[AM.name]</b>. Я не могу построить <b>[R.title]</b> здесь!</span>")
 			if(object.density || NO_BUILD & object.obj_flags)
+				to_chat(usr, span_warning("There is \a [object.name] here. You can\'t make \a [recipe.title] here!"))
 				return FALSE
 	if(recipe.placement_checks)
 		switch(recipe.placement_checks)
 			if(STACK_CHECK_CARDINALS)
 				var/turf/step
 				for(var/direction in GLOB.cardinals)
-						to_chat(usr, "<span class='warning'><b>[capitalize(R.title)]</b> не может быть построен рядом с другим таким же!</span>")
 					step = get_step(dest_turf, direction)
 					if(locate(recipe.result_type) in step)
+						to_chat(usr, span_warning("\The [recipe.title] must not be built directly adjacent to another!"))
 						return FALSE
 			if(STACK_CHECK_ADJACENT)
-					to_chat(usr, "<span class='warning'><b>[capitalize(R.title)]</b> должен быть построен в радиусе метра от такой же постройки!</span>")
 				if(locate(recipe.result_type) in range(1, dest_turf))
+					to_chat(usr, span_warning("\The [recipe.title] must be constructed at least one tile away from others of its type!"))
 					return FALSE
 	return TRUE
 
