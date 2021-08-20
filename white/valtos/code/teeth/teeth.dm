@@ -3,7 +3,7 @@
 	singular_name = "зуб"
 	w_class = 1
 	throwforce = 2
-	max_amount = 5
+	max_amount = 32
 	desc = "Кто-то потерял зуб. Класс."
 	icon = 'white/valtos/icons/teeth.dmi'
 	icon_state = "teeth"
@@ -18,7 +18,7 @@
 			icon_state = "[initial(icon_state)]_[amount]"
 			return
 		else
-			icon_state = "[initial(icon_state)]_[max_amount]"
+			icon_state = "[initial(icon_state)]_5"
 			return
 
 /obj/item/stack/teeth/Initialize()
