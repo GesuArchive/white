@@ -544,7 +544,7 @@
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_SAND
-	slowdown = 2.5
+	slowdown = 1
 
 /turf/open/floor/grass/cataclysmdda/dirt/proc/changeicon()
 	icon_state = "dirt[rand(1,4)]"
@@ -571,7 +571,7 @@
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_SAND
-	slowdown = 1
+	slowdown = 0
 
 /turf/open/floor/asphalt/Initialize()
 	. = ..()
@@ -802,7 +802,6 @@
 	icon_state = "shtora1-open"
 	icon_type = "shtora1"
 
-
 /obj/structure/cataclysmdda/bath
 	name = "ванна"
 	desc = "Вода не включена в стоимость."
@@ -849,7 +848,6 @@
 
 /obj/structure/trash_pile/hay
 	name = "стог сена"
-	desc = "В ней можно спрятаться. Или найти что-то полезное, не так ли?"
 	icon_state = "hay"
 	max_integrity = 25
 	obj_integrity = 25
@@ -887,10 +885,11 @@
 
 /obj/structure/cataclysmdda/washingmachine
 	name = "стиральная машинка"
-	desc = "Производитель этой машинки пообещал, что когда-нибудь стиральные машины этой серии заработают. Когда-нибудь."
+	desc = "Производитель этих стиральных машин дал обещание, что они будут работать. Когда-нибудь."
 	icon_state = "washingmachine"
 	max_integrity = 200
 	obj_integrity = 200
+	custom_materials = list(/datum/material/iron = 5000)
 
 /obj/structure/bed/cataclysmdda
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
@@ -898,11 +897,6 @@
 
 /obj/structure/bed/cataclysmdda/matress
 	icon_state = "matress"
-
-/obj/structure/bookcase/cataclysmdda
-	name = "книжная полка"
-	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
-	icon_state = "bookshelf"
 
 /obj/structure/closet/crate/box
 	name = "коробка"
@@ -937,6 +931,14 @@
 	flags_1 = CONDUCT_1
 	layer = CLOSED_DOOR_LAYER
 	smoothing_flags = NONE
+
+/obj/structure/cataclysmdda/bookcase
+	name = "книжная полка"
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "bookshelf"
+	max_integrity = 80
+	obj_integrity = 80
+	custom_materials = list(/datum/material/wood = 3000)
 
 /obj/structure/cataclysmdda/veshalka
 	name = "вешалка"

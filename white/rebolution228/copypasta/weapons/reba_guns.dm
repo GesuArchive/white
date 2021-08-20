@@ -368,3 +368,57 @@
 	playsound(user, 'white/rebolution228/sounds/weapons/dryfire1.ogg', 100, TRUE)
 	update_icon()
 	return
+
+
+
+// HS 010 SMG
+
+/obj/item/gun/ballistic/automatic/hs010
+	name = "CROON HS 010 Submachine Gun"
+	desc = "Произведен компанией CROON, этот пистолет-пулемёт известен за свою крайне высокую скорострельность. Использовался не только армиями частных корпораций, но и преступными и террористическими группировками. Использует 2,5мм калибр."
+	icon = 'white/rebolution228/icons/weapons/rguns.dmi'
+	icon_state = "hs010"
+	inhand_icon_state = "hs010"
+	selector_switch_icon = TRUE
+	lefthand_file = 'white/rebolution228/icons/weapons/guns_inhand_left.dmi'
+	righthand_file = 'white/rebolution228/icons/weapons/guns_inhand_right.dmi'
+	mag_type = /obj/item/ammo_box/magazine/hs010
+	pin = /obj/item/firing_pin
+	fire_delay = null // enter ur number here
+	burst_size = null // here too
+	spread = null // and here 
+	w_class = WEIGHT_CLASS_NORMAL
+	weapon_weight = WEAPON_LIGHT
+	fire_sound = null // 
+	rack_sound = null // 
+	eject_sound = null // 
+	eject_empty_sound = null // 
+	load_sound = null //
+	load_empty_sound = null // 
+	can_suppress = FALSE
+
+/obj/item/ammo_box/magazine/hs010
+	name = "HS 010 Magazine"
+	icon = 'white/rebolution228/icons/weapons/rammo.dmi'
+	icon_state = "hs010ammo"
+	ammo_type = /obj/item/ammo_casing/c25mm
+	caliber = "c25mm"
+	max_ammo = 100
+
+/obj/item/ammo_box/magazine/ak74m/update_icon()
+	..()
+	if(ammo_count() <= 0)
+		icon_state = "hs010ammo_e"
+	else
+		icon_state = "hs010ammo"
+
+/obj/item/ammo_casing/c25mm
+	name = "2.5мм гильза"
+	caliber = "c25mm"
+	projectile_type = /obj/projectile/bullet/c25mm
+
+/obj/projectile/bullet/c25mm
+	name = "2,5мм пуля"
+	damage = 10
+	armour_penetration = 0
+	wound_bonus = 0

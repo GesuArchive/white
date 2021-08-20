@@ -114,3 +114,11 @@
 /obj/structure/closet/secure_closet/freezer/cream_pie/PopulateContents()
 	..()
 	new /obj/item/food/pie/cream(src)
+
+/obj/structure/closet/secure_closet/freezer/empty
+	name = "холодильник"
+	req_access = list()
+
+/obj/structure/closet/secure_closet/freezer/empty/PopulateContents()
+	..()
+	new null(src) // хочешь стать программистом? да ебись ты в рот! ПОЙТИ НАХУЙ
