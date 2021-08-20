@@ -30,12 +30,12 @@
 		var/stacks = rand(1,3)
 		for(var/curr = 1 to stacks) //Random amount of teeth stacks
 			var/obj/item/stack/teeth/teeth = pick(teeth_list)
-			if(!teeth || teeth.zero_amount()) return //No teeth left, abort!
+			if(!teeth || teeth.is_zero_amount()) return //No teeth left, abort!
 			var/drop = round(min(teeth.amount, num)/stacks) //Calculate the amount of teeth in the stack
 			var/obj/item/stack/teeth/T = new teeth.type(owner.loc, drop)
 			T.copy_evidences(teeth)
 			teeth.use(drop)
-			teeth.zero_amount() //Try to delete the teeth
+			teeth.is_zero_amount() //Try to delete the teeth
 			. = TRUE
 			if(QDELETED(T))
 				continue
@@ -90,11 +90,11 @@
 			if(do_after(user, 50, target = H))
 				if(!O || !O.get_teeth()) return TRUE
 				var/obj/item/stack/teeth/E = pick(O.teeth_list)
-				if(!E || E.zero_amount()) return TRUE
+				if(!E || E.is_zero_amount()) return TRUE
 				var/obj/item/stack/teeth/T = new E.type(H.loc, 1)
 				T.copy_evidences(E)
 				E.use(1)
-				E.zero_amount() //Try to delete the teeth
+				E.is_zero_amount() //Try to delete the teeth
 				log_combat(user, H, "torn out the tooth from", src)
 				H.visible_message("<span class='danger'>[user] вырывает зуб [H] используя [src.name]!</span>",
 								"<span class='userdanger'>[user] вырывает мой зуб используя [src.name]!</span>")

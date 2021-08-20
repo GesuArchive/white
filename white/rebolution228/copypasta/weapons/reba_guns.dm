@@ -431,6 +431,9 @@
 	else
 		icon_state = "hs010ammo"
 
+/obj/item/ammo_box/magazine/hs010/empty
+	start_empty = TRUE
+
 /obj/item/ammo_casing/c25mm
 	name = "2,5мм гильза"
 	caliber = "c25mm"
@@ -441,3 +444,37 @@
 	damage = 7
 	armour_penetration = 0
 	wound_bonus = 2
+
+/obj/item/ammo_box/c25mm
+	name = "коробка с патронами (10mm)"
+	icon_state = "10mmbox" //аааааааааааааааааааааааааааааааааааааааааааааааааааа?
+	ammo_type = /obj/item/ammo_casing/c25mm
+	max_ammo = 100
+
+/obj/item/disk/design_disk/adv/hs010_ammo
+	name = "HS 010 Ammo and Mags"
+
+/obj/item/disk/design_disk/adv/hs010_ammo/Initialize()
+	. = ..()
+	var/datum/design/hs010_mag/M = new
+	var/datum/design/c25mm_box/B = new
+	blueprints[1] = M
+	blueprints[2] = B
+
+/datum/design/c25mm_box
+	name = "Ammo Box (2.5mm)"
+	desc = "Коробка патронов калибра 2,5мм."
+	id = "hs010_ammo"
+	build_type = AUTOLATHE
+	materials = list(MAT_CATEGORY_RIGID = 30000)
+	build_path = /obj/item/ammo_box/c25mm
+	category = list("Импорт")
+
+/datum/design/hs010_mag
+	name = "HS 010 Magazine"
+	desc = "Это магазин......... Что еще сказать....."
+	id = "hs010_mag"
+	build_type = AUTOLATHE
+	materials = list(MAT_CATEGORY_RIGID = 2500)
+	build_path = /obj/item/ammo_box/magazine/hs010/empty
+	category = list("Импорт")

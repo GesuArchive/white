@@ -121,7 +121,7 @@
 	user.visible_message("<span class='notice'><b>[user]</b> оборачивает <b>[target]</b> в красивую и модную упаковку.</span>")
 	user.log_message("has used [name] on [key_name(target)]", LOG_ATTACK, color="blue")
 
-/obj/item/stack/package_wrap/use(used, transfer = FALSE)
+/obj/item/stack/package_wrap/use(used, transfer = FALSE, check = TRUE)
 	var/turf/T = get_turf(src)
 	. = ..()
 	if(QDELETED(src) && !transfer)

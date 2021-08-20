@@ -18,7 +18,7 @@
 			icon_state = "[initial(icon_state)]_[amount]"
 			return
 		else
-			icon_state = "[initial(icon_state)]_[max_amount]"
+			icon_state = "[initial(icon_state)]_5"
 			return
 
 /obj/item/stack/teeth/Initialize()

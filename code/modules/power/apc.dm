@@ -260,7 +260,6 @@
 
 /obj/machinery/power/apc/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/atmos_sensitive, mapload)
 	alarm_manager = new(src)
 
 	if(!mapload)
