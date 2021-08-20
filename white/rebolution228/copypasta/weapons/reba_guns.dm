@@ -386,17 +386,17 @@
 	pin = /obj/item/firing_pin
 	fire_delay = 2 // enter ur number here
 	burst_size = 1 // here too
-	spread = 10 // and here
+	spread = 25 // and here
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_LIGHT
-	/* папож
-	fire_sound = null //
-	rack_sound = null //
-	eject_sound = null //
-	eject_empty_sound = null //
-	load_sound = null //
-	load_empty_sound = null //
-	*/
+
+	//fire_sound = null //
+	//rack_sound = null //
+	eject_sound = 'white/baldenysh/sounds/eyedc/hs_reload_02.wav'
+	eject_empty_sound = 'white/baldenysh/sounds/eyedc/hs_reload_02.wav'
+	load_sound = 'white/baldenysh/sounds/eyedc/hs_reload_02.wav'
+	load_empty_sound = 'white/baldenysh/sounds/eyedc/hs_reload_02.wav'
+
 	can_suppress = FALSE
 	var/fuller_auto = FALSE
 
@@ -411,11 +411,11 @@
 	if(fuller_auto)
 		var/datum/component/automatic_fire_funny/D = GetComponent(/datum/component/automatic_fire_funny)
 		D.autofire_shot_delay = 0.1
-		spread = 30
+		spread = 40
 	else
 		var/datum/component/automatic_fire_funny/D = GetComponent(/datum/component/automatic_fire_funny)
 		D.autofire_shot_delay = 1
-		spread = 10
+		spread = 25
 
 /obj/item/ammo_box/magazine/hs010
 	name = "HS 010 Magazine"
@@ -439,6 +439,6 @@
 
 /obj/projectile/bullet/c25mm
 	name = "2,5мм пуля"
-	damage = 10
+	damage = 7
 	armour_penetration = 0
 	wound_bonus = 0
