@@ -53,16 +53,19 @@
  *     html = "You have found <strong>[object]</strong>")
  * ```
  */
-/proc/to_chat(target, html,
-		type = null,
-		text = null,
-		avoid_highlighting = FALSE,
-		// FIXME: These flags are now pointless and have no effect
-		handle_whitespace = TRUE,
-		trailing_newline = TRUE,
-		confidential = FALSE)
-	if(Master.current_runlevel == RUNLEVEL_INIT || !SSchat?.initialized)
-		to_chat_immediate(target, html, type, text)
+/proc/to_chat(
+	target,
+	html,
+	type = null,
+	text = null,
+	avoid_highlighting = FALSE,
+	// FIXME: These flags are now pointless and have no effect
+	handle_whitespace = TRUE,
+	trailing_newline = TRUE,
+	confidential = FALSE
+)
+	if(isnull(Master) || Master.current_runlevel == RUNLEVEL_INIT || !SSchat?.initialized)
+		to_chat_immediate(target, html, type, text, avoid_highlighting)
 		return
 	if(!target || (!html && !text))
 		return
