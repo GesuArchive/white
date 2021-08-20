@@ -168,14 +168,9 @@
 			var/datum/uplink_item/I = uplink_items[category][item]
 			if(I.limited_stock == 0)
 				continue
-
-			/*
 			if(length(I.restricted_roles))
-				if(!debug && !(user.mind.assigned_role.title in I.restricted_roles))*/
-			for(var/R in I.restricted_roles)
-				if(R == user.mind.assigned_role || debug)
+				if(!debug && !(user.mind.assigned_role in I.restricted_roles))
 					continue
-
 			if(I.restricted_species)
 				if(ishuman(user))
 					var/is_inaccessible = TRUE
