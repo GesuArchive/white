@@ -3,7 +3,7 @@
 	singular_name = "зуб"
 	w_class = 1
 	throwforce = 2
-	max_amount = 32
+	max_amount = 5
 	desc = "Кто-то потерял зуб. Класс."
 	icon = 'white/valtos/icons/teeth.dmi'
 	icon_state = "teeth"
