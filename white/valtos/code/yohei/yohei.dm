@@ -240,7 +240,7 @@
 /datum/outfit/yohei
 	name = "Йохей: Дженерик"
 
-	ears = /obj/item/radio/headset/abductor
+	ears = /obj/item/radio/headset
 	uniform = /obj/item/clothing/under/syndicate/yohei
 	mask = /obj/item/clothing/mask/breath/yohei
 	shoes = /obj/item/clothing/shoes/jackboots/yohei
