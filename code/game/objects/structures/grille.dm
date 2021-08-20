@@ -92,11 +92,13 @@
 			if(!isturf(loc))
 				return FALSE
 			var/turf/T = loc
-			var/window_dir = the_rcd.window_size == RCD_WINDOW_FULLTILE ? FULLTILE_WINDOW_DIR : user.dir
-			if(!valid_window_location(T, window_dir))
+			if(!ispath(the_rcd.window_type, /obj/structure/window))
+				CRASH("Invalid window path type in RCD: [the_rcd.window_type]")
+			var/obj/structure/window/window_path = the_rcd.window_type
+			if(!valid_window_location(T, user.dir, is_fulltile = initial(window_path.fulltile)))
 				return FALSE
-			to_chat(user, "<span class='notice'>Собираю окно.</span>")
-			var/obj/structure/window/WD = new the_rcd.window_type(drop_location(), window_dir)
+			to_chat(user, span_notice("Собираю окно."))
+			var/obj/structure/window/WD = new the_rcd.window_type(T, user.dir)
 			WD.set_anchored(TRUE)
 			return TRUE
 	return FALSE
