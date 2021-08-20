@@ -181,6 +181,7 @@
 	dump_contents()
 	update_icon()
 	update_airtightness()
+	after_open(user, force)
 	return TRUE
 
 ///Proc to override for effects after opening a door

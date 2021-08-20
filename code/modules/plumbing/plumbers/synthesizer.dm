@@ -44,9 +44,10 @@
 	)
 	//for mechcomp input stuff
 	var/glue = "&"
-/obj/machinery/plumbing/synthesizer/Initialize(mapload, bolt)
+
+/obj/machinery/plumbing/synthesizer/Initialize(mapload, bolt, layer)
 	. = ..()
-	AddComponent(/datum/component/plumbing/simple_supply, bolt)
+	AddComponent(/datum/component/plumbing/simple_supply, bolt, layer)
 	//lololol
 	AddComponent(/datum/component/mechanics_holder)
 

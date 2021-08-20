@@ -1,0 +1,3132 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ag" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 6;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"an" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old{
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"aC" = (
+/obj/structure/closet/crate,
+/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/metal/fifty,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"aK" = (
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/structure/table,
+/obj/machinery/recharger,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/derelictoutpost)
+"bx" = (
+/obj/structure/alien/weeds/creature,
+/obj/structure/alien/gelpod,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"bE" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old{
+	dir = 5;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"bZ" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 6;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost)
+"ce" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 4;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/obj/structure/glowshroom/single,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"cy" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old,
+/obj/effect/decal/cleanable/blood/old{
+	dir = 1;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"cQ" = (
+/obj/machinery/button/door{
+	name = "tradepost entry doors";
+	pixel_y = 24
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"cV" = (
+/obj/effect/decal/cleanable/blood/old{
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost)
+"dd" = (
+/turf/closed/wall,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"dh" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost)
+"dq" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"dO" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/electrical,
+/obj/item/stack/cable_coil,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"dV" = (
+/obj/structure/alien/weeds/creature,
+/mob/living/simple_animal/hostile/netherworld{
+	name = "Miss Tiggles"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"dY" = (
+/obj/structure/table,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"ea" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"eo" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old{
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"ev" = (
+/obj/structure/alien/weeds/creature,
+/obj/item/shard,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"ew" = (
+/obj/structure/closet/crate,
+/obj/item/target/syndicate,
+/obj/item/target/clown,
+/obj/item/target/clown,
+/obj/item/target/alien,
+/obj/item/target,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"eH" = (
+/obj/structure/alien/weeds/creature,
+/obj/structure/glowshroom/single,
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"eI" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"eM" = (
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"fi" = (
+/obj/machinery/door/airlock/security/glass{
+	id_tag = "innerbrig";
+	name = "Security Checkpoint";
+	req_access_txt = "63"
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/derelictoutpost)
+"fC" = (
+/obj/structure/table,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"gh" = (
+/obj/effect/mob_spawn/human/corpse/nanotrasensoldier{
+	head = null;
+	name = "Tradeport Officer";
+	random = 1
+	},
+/obj/item/paper/crumpled/ruins/bigderelict1/coward,
+/obj/effect/decal/cleanable/blood/old{
+	name = "dried blood splatter";
+	pixel_x = -29
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"gk" = (
+/obj/structure/alien/weeds/creature,
+/obj/structure/glowshroom/single,
+/turf/open/floor/mineral/titanium/blue,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"gq" = (
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"hf" = (
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/derelictoutpost)
+"hF" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 4;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plating{
+	icon_state = "wall_thermite";
+	name = "melted wall"
+	},
+/area/ruin/space/has_grav/derelictoutpost)
+"hT" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost)
+"ik" = (
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/mineral/titanium/blue,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"in" = (
+/obj/structure/closet/crate/internals,
+/obj/item/storage/toolbox/emergency,
+/obj/item/clothing/mask/breath,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"it" = (
+/obj/structure/alien/weeds/creature,
+/mob/living/simple_animal/hostile/netherworld{
+	desc = "Awh its so sm-OH GOD WHAT THE FUCK.";
+	health = 25;
+	maxHealth = 25;
+	name = "hatchling";
+	resize = 0.85
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"iw" = (
+/obj/structure/alien/weeds/creature,
+/obj/structure/glowshroom/single,
+/obj/effect/decal/cleanable/blood/old{
+	dir = 1;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"iH" = (
+/obj/structure/closet/crate{
+	icon_state = "crateopen"
+	},
+/obj/effect/spawner/lootdrop/space/fancytool,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"iQ" = (
+/obj/item/clothing/head/helmet,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"iT" = (
+/obj/structure/closet/crate/engineering/electrical,
+/obj/item/storage/toolbox/electrical,
+/obj/item/stack/cable_coil,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"jJ" = (
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/mineral/titanium/blue,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"jN" = (
+/obj/structure/janitorialcart,
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"ks" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 5;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/structure/alien/weeds/creature,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost)
+"kF" = (
+/obj/structure/table,
+/obj/item/clothing/head/soft,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"kS" = (
+/obj/structure/table,
+/obj/item/stock_parts/cell/hyper,
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"ll" = (
+/obj/structure/closet/crate{
+	icon_state = "crateopen"
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"ls" = (
+/obj/structure/alien/resin/membrane/creature,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"lB" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old{
+	dir = 9;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost)
+"lI" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 9;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"lY" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"mm" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 10;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"mZ" = (
+/turf/closed/wall/mineral/titanium,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"na" = (
+/obj/structure/closet/crate{
+	icon_state = "crateopen"
+	},
+/obj/item/stack/sheet/plasteel/twenty,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"nh" = (
+/obj/structure/alien/resin/wall/creature,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"nl" = (
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"nL" = (
+/obj/item/shard,
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/mineral/titanium/blue,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"oh" = (
+/obj/structure/closet/crate/internals,
+/obj/item/tank/internals/emergency_oxygen/engi,
+/obj/item/tank/internals/emergency_oxygen/engi,
+/obj/item/storage/firstaid/toxin,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"oz" = (
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/regular{
+	empty = 1;
+	name = "First-Aid (empty)"
+	},
+/obj/item/storage/firstaid/o2,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"oA" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/shuttle/engine/heater{
+	dir = 1
+	},
+/turf/open/floor/mineral/titanium/yellow,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"pe" = (
+/obj/structure/alien/weeds/creature,
+/mob/living/simple_animal/hostile/netherworld{
+	desc = "Awh its so sm-OH GOD WHAT THE FUCK.";
+	health = 25;
+	maxHealth = 25;
+	name = "hatchling";
+	resize = 0.85
+	},
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"pl" = (
+/turf/closed/wall,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"pv" = (
+/obj/structure/alien/weeds/creature,
+/obj/structure/glowshroom/single,
+/obj/effect/decal/cleanable/blood/old{
+	dir = 8;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"pA" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 4;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/obj/structure/door_assembly/door_assembly_mai{
+	density = 0;
+	desc = "A pried-open airlock. Scratch marks mark the sidings of the door.";
+	name = "pried-open airlock"
+	},
+/obj/structure/cable,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"pK" = (
+/obj/structure/closet/crate/engineering/electrical,
+/obj/item/storage/toolbox/electrical,
+/obj/item/stock_parts/cell/hyper,
+/turf/open/floor/mineral/titanium/yellow,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"pL" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 10;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"qe" = (
+/obj/effect/decal/cleanable/blood/old{
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"qh" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old{
+	dir = 6;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"qi" = (
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"qn" = (
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"qy" = (
+/obj/item/gun/ballistic/automatic/pistol/m1911{
+	spawnwithmagazine = 0
+	},
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"qM" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old{
+	dir = 9;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"qV" = (
+/obj/machinery/power/smes,
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"rp" = (
+/obj/effect/spawner/structure/window/shuttle,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"rD" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 8;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"rH" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 8;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"rL" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"sg" = (
+/obj/structure/closet/crate,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"sp" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 8;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"sr" = (
+/obj/structure/closet/crate,
+/obj/item/storage/pill_bottle/stimulant,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"sD" = (
+/obj/structure/alien/weeds/creature,
+/obj/machinery/light,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"tg" = (
+/obj/structure/closet/crate,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/glass/fifty,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"tC" = (
+/obj/item/crowbar{
+	pixel_x = -16;
+	pixel_y = -6
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"tF" = (
+/obj/structure/sign/warning/vacuum{
+	pixel_y = 32
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"tN" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 8;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/resin/membrane/creature,
+/turf/open/floor/plating{
+	icon_state = "wall_thermite";
+	name = "melted wall"
+	},
+/area/ruin/space/has_grav/derelictoutpost)
+"tU" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old{
+	dir = 5;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"tV" = (
+/obj/structure/grille/broken,
+/obj/effect/decal/cleanable/blood/old{
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/turf/closed/wall/mineral/iron,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"ub" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old{
+	dir = 8;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"ug" = (
+/obj/structure/barricade/wooden,
+/obj/machinery/door/airlock/engineering{
+	name = "Power Storage";
+	req_access_txt = "10"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"ui" = (
+/obj/effect/decal/cleanable/blood/old{
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost)
+"uN" = (
+/turf/closed/wall/r_wall,
+/area/ruin/space/has_grav/derelictoutpost)
+"vb" = (
+/obj/item/ammo_casing/c45{
+	caliber = null;
+	desc = "A .45 bullet casing. This one is spent.";
+	name = "spent bullet casing"
+	},
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old{
+	dir = 5;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"vn" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"vP" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 6;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"wm" = (
+/obj/item/chair,
+/obj/structure/alien/weeds/creature,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/derelictoutpost)
+"wp" = (
+/obj/machinery/light,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"wq" = (
+/turf/closed/wall/r_wall,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"wu" = (
+/obj/machinery/door/poddoor{
+	id = "bigderelictshipdock"
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"wx" = (
+/obj/item/ammo_casing/c45{
+	caliber = null;
+	desc = "A .45 bullet casing. This one is spent.";
+	name = "spent bullet casing"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"wA" = (
+/obj/machinery/door/poddoor{
+	id = "bigderelictship"
+	},
+/turf/open/floor/mineral/titanium/yellow,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"wM" = (
+/obj/structure/closet/crate,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"wS" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 10;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"xd" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old{
+	dir = 4;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"xg" = (
+/turf/closed/wall,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"xl" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old{
+	dir = 1;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"xI" = (
+/obj/structure/sign/warning/vacuum{
+	pixel_y = 32
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"xJ" = (
+/obj/structure/barricade/wooden,
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"yh" = (
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "Cargo Bay APC";
+	pixel_x = 24;
+	start_charge = 0
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"yl" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -24
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"ys" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/template_noop)
+"yt" = (
+/obj/structure/table,
+/obj/item/clothing/gloves/fingerless,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"yx" = (
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"yC" = (
+/obj/structure/alien/weeds/creature,
+/obj/structure/glowshroom/single,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"yK" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 4;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/obj/machinery/light,
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"yZ" = (
+/turf/open/floor/mineral/titanium/blue,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"zH" = (
+/obj/structure/sign/warning/vacuum{
+	pixel_y = 32
+	},
+/obj/effect/decal/cleanable/cobweb,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"zL" = (
+/obj/structure/alien/weeds/creature,
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"zX" = (
+/obj/structure/table_frame,
+/obj/item/stack/sheet/metal,
+/obj/effect/decal/cleanable/blood/old{
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/mineral/titanium/blue,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"Aj" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"Br" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old{
+	dir = 1;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"Bw" = (
+/obj/structure/closet/crate/critter{
+	name = "critter crate - mr.tiggles";
+	opened = 1
+	},
+/obj/item/paper/crumpled/ruins/bigderelict1/manifest,
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/mineral/titanium/yellow,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"BQ" = (
+/obj/effect/decal/cleanable/blood/old{
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"Ca" = (
+/obj/structure/filingcabinet,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/derelictoutpost)
+"Cz" = (
+/obj/machinery/button/door{
+	id = "bigderelictship";
+	name = "shuttle cargo doors";
+	pixel_x = 24
+	},
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/mineral/titanium/blue,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"CA" = (
+/obj/structure/alien/resin/wall/creature,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"CB" = (
+/obj/structure/alien/weeds/creature,
+/obj/structure/glowshroom/single,
+/obj/structure/sign/warning/vacuum{
+	pixel_y = 32
+	},
+/obj/effect/decal/cleanable/blood/old{
+	dir = 4;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"CC" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 10;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"Db" = (
+/obj/structure/closet/crate{
+	icon_state = "crateopen"
+	},
+/obj/item/stack/sheet/cardboard/fifty,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"Dg" = (
+/obj/effect/decal/cleanable/xenoblood/xsplatter,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"Dj" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/derelictoutpost)
+"Dk" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 4;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"Ds" = (
+/obj/structure/grille/broken,
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost)
+"DB" = (
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = -24
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"DO" = (
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/o2,
+/turf/open/floor/mineral/titanium/yellow,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"DP" = (
+/turf/open/floor/plating/asteroid/airless,
+/area/ruin/unpowered/no_grav)
+"DQ" = (
+/obj/machinery/door/airlock/public/glass,
+/obj/machinery/door/poddoor{
+	id = "bigderelictcheckpoint";
+	name = "checkpoint security doors"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"DY" = (
+/obj/effect/decal/cleanable/xenoblood/xsplatter,
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"Er" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/shuttle/engine/heater{
+	dir = 1
+	},
+/turf/open/floor/mineral/titanium/yellow,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"Ez" = (
+/obj/effect/decal/cleanable/blood/old{
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"EO" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old,
+/obj/structure/alien/gelpod,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"ER" = (
+/obj/item/ammo_casing/c45{
+	caliber = null;
+	desc = "A .45 bullet casing. This one is spent.";
+	name = "spent bullet casing"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"Fa" = (
+/obj/structure/closet/crate/radiation,
+/obj/item/clothing/head/radiation,
+/obj/item/clothing/suit/radiation,
+/obj/item/geiger_counter,
+/turf/open/floor/mineral/titanium/yellow,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"Fz" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"FG" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old{
+	dir = 10;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/mob/living/simple_animal/hostile/netherworld{
+	desc = "Awh its so sm-OH GOD WHAT THE FUCK.";
+	health = 25;
+	maxHealth = 25;
+	name = "hatchling";
+	resize = 0.85
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"Gb" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 1;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"Gc" = (
+/obj/machinery/light,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"Ge" = (
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"Gh" = (
+/obj/item/gps/spaceruin,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"Gq" = (
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/regular{
+	empty = 1;
+	name = "First-Aid (empty)"
+	},
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"Gu" = (
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"GE" = (
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"GK" = (
+/obj/structure/alien/weeds/creature,
+/obj/item/gun/ballistic/automatic/pistol/m1911{
+	spawnwithmagazine = 0
+	},
+/obj/item/ammo_box/magazine/m45,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"Ha" = (
+/obj/machinery/computer{
+	dir = 1
+	},
+/turf/open/floor/mineral/titanium/blue,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"He" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 4;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"Hp" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 6;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost)
+"HI" = (
+/obj/structure/closet/crate/engineering/electrical,
+/obj/item/storage/toolbox/electrical,
+/obj/item/stock_parts/cell/hyper,
+/obj/item/stock_parts/cell/high,
+/turf/open/floor/mineral/titanium/yellow,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"HP" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/mechanical,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"Ig" = (
+/obj/effect/gibspawner/human,
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"IG" = (
+/obj/structure/closet/crate,
+/obj/item/stack/sheet/cloth/ten,
+/obj/item/stack/sheet/cloth/ten,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"II" = (
+/turf/closed/mineral/random,
+/area/ruin/unpowered/no_grav)
+"IK" = (
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"Ju" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 5;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/mineral/titanium/blue,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"Jx" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old,
+/obj/effect/decal/cleanable/blood/old{
+	dir = 1;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"JJ" = (
+/obj/machinery/door/poddoor{
+	id = "bigderelictshipdock"
+	},
+/turf/open/floor/plating/airless,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"Kj" = (
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "Power Storage APC";
+	pixel_x = 24;
+	pixel_y = 2;
+	start_charge = 0
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"Km" = (
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"Kq" = (
+/obj/structure/table,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"KH" = (
+/obj/structure/closet/crate/secure/loot,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"KK" = (
+/obj/structure/shuttle/engine/propulsion/burst/right{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"Ln" = (
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "Cargo Storage APC";
+	pixel_x = 24;
+	start_charge = 0
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"Lx" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 4;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"LD" = (
+/obj/structure/closet/crate/engineering,
+/obj/item/storage/toolbox/mechanical,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"LF" = (
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"LL" = (
+/obj/structure/closet/crate/secure/loot,
+/turf/open/floor/mineral/titanium/yellow,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"LO" = (
+/obj/structure/alien/weeds/creature,
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"Ml" = (
+/obj/structure/alien/weeds/creature,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost)
+"Mn" = (
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"MD" = (
+/obj/item/shard,
+/obj/item/stack/cable_coil{
+	amount = 2
+	},
+/obj/structure/alien/weeds/creature,
+/obj/structure/table_frame,
+/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/plasteel,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/derelictoutpost)
+"MO" = (
+/obj/structure/alien/resin/membrane/creature,
+/turf/open/floor/plating/asteroid/airless,
+/area/ruin/space/has_grav/derelictoutpost)
+"MQ" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 4;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"MV" = (
+/obj/item/shard,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"Nj" = (
+/obj/effect/decal/cleanable/blood/old,
+/obj/machinery/button/door{
+	id = "bigderelictcheckpoint";
+	name = "security checkpoint control";
+	pixel_y = -24
+	},
+/obj/structure/alien/weeds/creature,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/derelictoutpost)
+"Nq" = (
+/turf/closed/wall,
+/area/ruin/space/has_grav/derelictoutpost)
+"NK" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 4;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"On" = (
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"Ph" = (
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/regular,
+/turf/open/floor/mineral/titanium/yellow,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"Pn" = (
+/obj/structure/table,
+/turf/open/floor/mineral/titanium/blue,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"Pu" = (
+/obj/structure/alien/weeds/creature,
+/obj/structure/glowshroom/single,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/public/glass,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"PB" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Power Storage";
+	req_access_txt = "10"
+	},
+/obj/structure/barricade/wooden,
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"Qg" = (
+/obj/machinery/power/apc{
+	name = "Tradepost APC";
+	pixel_y = -23;
+	start_charge = 0
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"Qh" = (
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost)
+"Qn" = (
+/obj/structure/closet/crate{
+	icon_state = "crateopen"
+	},
+/obj/machinery/light,
+/obj/effect/turf_decal/delivery,
+/obj/effect/spawner/lootdrop/space/fancytech,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"Qt" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"Qv" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 8;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"QI" = (
+/obj/structure/closet/crate/internals,
+/obj/item/storage/toolbox/emergency,
+/obj/item/clothing/mask/breath,
+/obj/item/tank/internals/emergency_oxygen/engi,
+/obj/item/tank/internals/emergency_oxygen/engi,
+/obj/item/clothing/mask/breath,
+/turf/open/floor/mineral/titanium/yellow,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"QM" = (
+/obj/item/gun/ballistic/automatic/pistol/m1911{
+	spawnwithmagazine = 0
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"QS" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -24
+	},
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"QV" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"Rh" = (
+/obj/structure/closet/crate{
+	icon_state = "crateopen"
+	},
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"Rx" = (
+/obj/item/shard,
+/obj/structure/alien/weeds/creature,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/derelictoutpost)
+"Sf" = (
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"SF" = (
+/obj/structure/closet/crate/engineering,
+/obj/item/storage/toolbox/mechanical,
+/turf/open/floor/mineral/titanium/yellow,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"SN" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old{
+	dir = 6;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"SQ" = (
+/obj/structure/closet/crate/engineering,
+/obj/item/multitool,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"SU" = (
+/obj/structure/alien/weeds/creature,
+/obj/item/mop,
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"TI" = (
+/obj/effect/decal/cleanable/cobweb,
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"TT" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 5;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"TW" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/derelictoutpost)
+"Uf" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 4;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"Uh" = (
+/obj/structure/closet/crate/engineering,
+/obj/item/storage/toolbox/mechanical,
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/mineral/titanium/yellow,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"Un" = (
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/regular,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"Uo" = (
+/turf/closed/mineral/random,
+/area/ruin/space/has_grav/derelictoutpost)
+"Uq" = (
+/turf/closed/wall/mineral/titanium/interior,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"Ur" = (
+/turf/template_noop,
+/area/template_noop)
+"UD" = (
+/obj/structure/closet/crate,
+/obj/item/pda/clear,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"UU" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost)
+"Ve" = (
+/obj/structure/closet/wardrobe/cargotech,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"Vf" = (
+/obj/effect/abstract/doorway_marker{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"Vp" = (
+/obj/structure/table,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/item/reagent_containers/glass/bucket,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"Vz" = (
+/obj/item/ammo_casing/c45{
+	caliber = null;
+	desc = "A .45 bullet casing. This one is spent.";
+	name = "spent bullet casing"
+	},
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"VO" = (
+/obj/structure/shuttle/engine/propulsion/burst/left{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"WF" = (
+/obj/item/chair,
+/obj/effect/decal/cleanable/blood/old,
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/mineral/titanium/blue,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"XJ" = (
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/fire,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"XK" = (
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"XP" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 5;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/alien/weeds/creature,
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"XS" = (
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/brute,
+/turf/open/floor/mineral/titanium/yellow,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+"XY" = (
+/obj/structure/alien/weeds/creature,
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"Yd" = (
+/obj/machinery/door/airlock/public/glass,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"Ym" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 32
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"YG" = (
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"YK" = (
+/obj/structure/alien/weeds/creature,
+/obj/structure/glowshroom/single,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"YT" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old{
+	dir = 4;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost)
+"Za" = (
+/obj/effect/decal/cleanable/blood/old{
+	dir = 5;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/structure/alien/weeds/creature,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
+"Zu" = (
+/obj/structure/door_assembly/door_assembly_mai{
+	density = 0;
+	desc = "A pried-open airlock. Scratch marks mark the sidings of the door.";
+	name = "pried-open airlock"
+	},
+/obj/effect/decal/cleanable/blood/old{
+	dir = 4;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
+"ZN" = (
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargobay)
+"ZV" = (
+/obj/machinery/door/airlock/titanium,
+/turf/open/floor/mineral/titanium/blue,
+/area/ruin/space/has_grav/derelictoutpost/dockedship)
+
+(1,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+dd
+Vf
+dd
+Ur
+Ur
+Ur
+Ur
+Ur
+DP
+DP
+DP
+DP
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+"}
+(2,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+dd
+ug
+dd
+dd
+dd
+dd
+dd
+DP
+DP
+II
+DP
+II
+DP
+DP
+DP
+DP
+DP
+DP
+DP
+DP
+Ur
+DP
+Ur
+Ur
+Ur
+"}
+(3,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+dd
+iQ
+gh
+wx
+Ge
+dO
+dd
+DP
+II
+II
+II
+II
+II
+II
+II
+DP
+DP
+DP
+DP
+DP
+DP
+DP
+Ur
+Ur
+Ur
+"}
+(4,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+dd
+qV
+ea
+QM
+Gh
+HP
+wq
+pl
+pl
+pl
+pl
+pl
+pl
+pl
+pl
+pl
+pl
+pl
+pl
+Nq
+Nq
+DP
+DP
+Ur
+Ur
+"}
+(5,1,1) = {"
+Ur
+Ur
+Ur
+DP
+DP
+DP
+DP
+II
+II
+dd
+kS
+nl
+nl
+nl
+Ge
+wq
+ER
+ZN
+Fz
+ER
+qn
+qy
+qn
+qn
+Fz
+ZN
+ZN
+eI
+Qh
+Nq
+DP
+DP
+Ur
+Ur
+"}
+(6,1,1) = {"
+Ur
+DP
+DP
+DP
+DP
+DP
+DP
+II
+II
+dd
+qV
+ea
+Ge
+Kj
+xJ
+wq
+ER
+qn
+DY
+qn
+qn
+vb
+an
+BQ
+BQ
+mm
+ZN
+pl
+Qh
+Nq
+DP
+Ur
+Ur
+Ur
+"}
+(7,1,1) = {"
+Ur
+pl
+pl
+pl
+pl
+pl
+pl
+pl
+pl
+wq
+wq
+wq
+wq
+wq
+PB
+wq
+Yd
+Pu
+pl
+pl
+pl
+xg
+xg
+yx
+yx
+rD
+xg
+xg
+Qh
+Nq
+DP
+Ur
+Ur
+Ur
+"}
+(8,1,1) = {"
+Ur
+pl
+zH
+vn
+dq
+Vp
+fC
+fC
+Rh
+QS
+yt
+kF
+dY
+Ve
+GE
+DB
+ZN
+Vz
+pl
+lI
+EO
+xg
+Aj
+eM
+eM
+rH
+aC
+xg
+Qh
+Nq
+DP
+DP
+Ur
+Ur
+"}
+(9,1,1) = {"
+pl
+pl
+pl
+cQ
+ZN
+ZN
+ZN
+ZN
+ZN
+ZN
+ZN
+ZN
+ZN
+ZN
+GE
+ll
+Dg
+sD
+pl
+NK
+XY
+xg
+rL
+eM
+eM
+rH
+Qn
+xg
+Qh
+Nq
+DP
+DP
+Ur
+Ur
+"}
+(10,1,1) = {"
+JJ
+Mn
+wu
+Mn
+Mn
+Mn
+Mn
+Mn
+Mn
+Mn
+Mn
+Mn
+Mn
+Mn
+Mn
+GE
+qn
+qn
+pl
+He
+CA
+xg
+tg
+IG
+in
+rH
+UD
+xg
+Qh
+Nq
+II
+DP
+Ur
+Ur
+"}
+(11,1,1) = {"
+JJ
+Mn
+wu
+Mn
+gq
+Uq
+mZ
+wA
+wA
+wA
+mZ
+ZV
+mZ
+Uq
+Mn
+jN
+qn
+Dg
+pl
+ce
+Uo
+xg
+eM
+eM
+eM
+rH
+eM
+xg
+Qh
+Nq
+II
+DP
+Ur
+Ur
+"}
+(12,1,1) = {"
+JJ
+Mn
+wu
+Mn
+gq
+KK
+Er
+DO
+LL
+LL
+ik
+yZ
+ik
+mZ
+Mn
+SU
+qn
+ZN
+pl
+Za
+wS
+xg
+KH
+eM
+eM
+rH
+Gu
+xg
+Qh
+Nq
+II
+DP
+Ur
+Ur
+"}
+(13,1,1) = {"
+JJ
+Mn
+wu
+Mn
+gq
+VO
+oA
+Ph
+QI
+QI
+jJ
+ik
+Pn
+rp
+Mn
+zL
+sg
+IK
+pl
+Uo
+sp
+xg
+KH
+eM
+iT
+Qv
+oh
+xg
+Qh
+Nq
+II
+II
+DP
+Ur
+"}
+(14,1,1) = {"
+JJ
+Mn
+wu
+Mn
+gq
+mZ
+mZ
+XS
+Fa
+Bw
+ik
+WF
+Ha
+rp
+Mn
+zL
+IK
+Rh
+pl
+Uo
+sp
+xg
+na
+eM
+iH
+rH
+eM
+xg
+Qh
+Nq
+II
+II
+DP
+Ur
+"}
+(15,1,1) = {"
+JJ
+Mn
+wu
+Mn
+gq
+KK
+Er
+SF
+SF
+Uh
+gk
+Ju
+zX
+tV
+Ez
+CC
+IK
+IK
+pl
+lI
+ag
+xg
+Ym
+eM
+eM
+rH
+KH
+xg
+Qh
+Nq
+II
+II
+DP
+Ur
+"}
+(16,1,1) = {"
+JJ
+Mn
+wu
+Mn
+gq
+VO
+oA
+HI
+HI
+pK
+Cz
+ik
+nL
+mZ
+Km
+XP
+Gb
+mm
+pl
+He
+Uo
+xg
+sr
+Db
+Un
+rH
+KH
+xg
+Qh
+Nq
+II
+II
+DP
+Ur
+"}
+(17,1,1) = {"
+JJ
+Mn
+wu
+Mn
+gq
+Uq
+mZ
+wA
+wA
+wA
+mZ
+ZV
+mZ
+Uq
+Mn
+eH
+qn
+MQ
+pl
+Uf
+Uo
+xg
+eM
+eM
+eM
+rH
+wM
+xg
+Qh
+Nq
+II
+II
+DP
+DP
+"}
+(18,1,1) = {"
+JJ
+Mn
+wu
+Mn
+Mn
+Mn
+Mn
+Mn
+Mn
+Mn
+Mn
+tC
+Mn
+Mn
+Km
+zL
+qn
+MQ
+pl
+Uf
+CA
+xg
+ew
+eM
+LD
+rH
+Gc
+xg
+Qh
+Nq
+II
+II
+DP
+DP
+"}
+(19,1,1) = {"
+pl
+pl
+pl
+cQ
+GE
+GE
+GE
+GE
+GE
+GE
+GE
+GE
+GE
+zL
+zL
+zL
+zL
+yK
+pl
+Uf
+YG
+xg
+Gq
+eM
+XJ
+Qv
+SQ
+xg
+Qh
+Nq
+II
+II
+DP
+DP
+"}
+(20,1,1) = {"
+Ur
+pl
+tF
+ZN
+yh
+Kq
+kF
+yt
+Rh
+sg
+Kq
+qn
+Ig
+qn
+zL
+ZN
+ZN
+Lx
+pl
+He
+YG
+xg
+oz
+Ln
+On
+TT
+pL
+xg
+Qh
+Nq
+II
+DP
+DP
+DP
+"}
+(21,1,1) = {"
+Ur
+pl
+pl
+pl
+pl
+pl
+pl
+pl
+pl
+pl
+pl
+qn
+qn
+ZN
+GE
+ZN
+pl
+pA
+pl
+hF
+Nq
+xg
+xg
+xg
+xg
+xg
+Zu
+xg
+Qh
+Nq
+II
+DP
+DP
+DP
+"}
+(22,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+DP
+DP
+DP
+DP
+DP
+Nq
+fi
+uN
+uN
+DQ
+uN
+Nq
+ks
+ui
+bZ
+Ml
+lB
+cV
+cV
+cV
+cV
+Hp
+Qh
+Qh
+Nq
+DP
+DP
+DP
+DP
+"}
+(23,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+DP
+DP
+Ur
+ys
+UU
+hf
+Ca
+uN
+XK
+wp
+Nq
+Nq
+Nq
+Nq
+Nq
+tN
+Nq
+Nq
+Nq
+Nq
+Nq
+Nq
+Nq
+Nq
+DP
+DP
+Ur
+Ur
+"}
+(24,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+ys
+UU
+hf
+Rx
+TW
+XK
+MV
+UU
+YG
+Uo
+YG
+YG
+ub
+MO
+II
+II
+II
+II
+DP
+DP
+DP
+DP
+DP
+Ur
+Ur
+"}
+(25,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+ys
+UU
+Dj
+wm
+MD
+LO
+qi
+Ds
+ev
+YK
+YG
+YG
+ub
+MO
+II
+II
+II
+II
+DP
+DP
+DP
+Ur
+Ur
+Ur
+Ur
+"}
+(26,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+ys
+UU
+aK
+Nj
+uN
+XK
+LF
+UU
+YG
+YG
+Uo
+Uo
+ub
+MO
+DP
+DP
+DP
+DP
+DP
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+"}
+(27,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+ys
+Nq
+uN
+hF
+uN
+DQ
+uN
+Nq
+Nq
+Nq
+Nq
+Nq
+tN
+Nq
+CA
+CA
+CA
+DP
+DP
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+"}
+(28,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+DP
+Nq
+Nq
+lY
+YT
+yl
+LO
+nh
+qi
+Qt
+qi
+qi
+qi
+pv
+YG
+YG
+YG
+CA
+CA
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+"}
+(29,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+UU
+UU
+Nq
+TI
+Sf
+YT
+Sf
+XK
+nh
+yC
+qi
+EO
+eo
+eo
+SN
+pe
+YG
+YG
+YG
+CA
+CA
+CA
+Ur
+Ur
+Ur
+Ur
+Ur
+"}
+(30,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+dh
+Qh
+hT
+Sf
+qi
+YT
+yC
+LO
+nh
+qi
+qi
+nh
+nh
+nh
+nh
+YG
+YG
+bx
+QV
+YG
+YG
+CA
+Ur
+Ur
+Ur
+Ur
+Ur
+"}
+(31,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+UU
+UU
+Nq
+xI
+qi
+YT
+XK
+XK
+nh
+qi
+dV
+nh
+qi
+yC
+qi
+YG
+QV
+qi
+YG
+pe
+YG
+ls
+Ur
+Ur
+Ur
+Ur
+Ur
+"}
+(32,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+DP
+DP
+Nq
+qi
+qi
+Dk
+Qg
+Nq
+nh
+nh
+nh
+nh
+it
+qi
+it
+QV
+CA
+CA
+CA
+CA
+YG
+ls
+Ur
+Ur
+Ur
+Ur
+Ur
+"}
+(33,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+DP
+DP
+Nq
+qM
+qe
+vP
+Sf
+nh
+nh
+yC
+qi
+nh
+nh
+nh
+qi
+YG
+CA
+YG
+YG
+YG
+YG
+CA
+Ur
+Ur
+Ur
+Ur
+Ur
+"}
+(34,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+DP
+DP
+Nq
+YT
+nh
+Nq
+nh
+nh
+qi
+qi
+Qt
+it
+qi
+nh
+qi
+qi
+CA
+YK
+CA
+CA
+CA
+CA
+Ur
+Ur
+Ur
+Ur
+Ur
+"}
+(35,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+UU
+UU
+Nq
+CB
+nh
+qi
+nh
+it
+qi
+nh
+nh
+nh
+qi
+nh
+Qt
+YG
+CA
+YG
+CA
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+"}
+(36,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+dh
+Qh
+hT
+YT
+nh
+qi
+nh
+nh
+nh
+nh
+yC
+nh
+qi
+nh
+qi
+CA
+CA
+pe
+ls
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+"}
+(37,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+UU
+UU
+Nq
+bE
+Jx
+Br
+iw
+FG
+YG
+CA
+EO
+CA
+QV
+CA
+CA
+CA
+YG
+qi
+ls
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+"}
+(38,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+DP
+Nq
+Nq
+Nq
+Nq
+Nq
+xd
+YG
+CA
+ub
+GK
+YG
+YK
+YG
+YG
+YG
+bx
+CA
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+"}
+(39,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+DP
+DP
+II
+II
+II
+CA
+tU
+xl
+cy
+qh
+YG
+CA
+CA
+ls
+ls
+ls
+CA
+CA
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+"}
+(40,1,1) = {"
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+DP
+DP
+DP
+II
+CA
+CA
+CA
+CA
+CA
+CA
+CA
+Ur
+DP
+DP
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+"}
