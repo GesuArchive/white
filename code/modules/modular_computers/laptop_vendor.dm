@@ -1,3 +1,5 @@
+#define LAPTOP_VENDOR_BASE_PRICE (CARGO_CRATE_VALUE - 1)
+
 // A vendor machine for modular computer portable devices - Laptops and Tablets
 
 /obj/machinery/lapvend

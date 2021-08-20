@@ -270,12 +270,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 					D.cancelAlarm("Power", src, source)
 				else
 					D.triggerAlarm("Power", src, cameras, source)
-			for(var/item in GLOB.alarmdisplay)
-				var/datum/computer_file/program/alarm_monitor/p = item
-				if(!state)
-					p.cancelAlarm("Power", src, source)
-				else
-					p.triggerAlarm("Power", src, cameras, source)
 
 /**
  * Generate an atmospheric alert for this area
@@ -297,9 +291,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 			for (var/item in GLOB.drones_list)
 				var/mob/living/simple_animal/drone/D = item
 				D.triggerAlarm("Atmosphere", src, cameras, source)
-			for(var/item in GLOB.alarmdisplay)
-				var/datum/computer_file/program/alarm_monitor/p = item
-				p.triggerAlarm("Atmosphere", src, cameras, source)
 
 		else
 			for (var/item in GLOB.silicon_mobs)
@@ -311,9 +302,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 			for (var/item in GLOB.drones_list)
 				var/mob/living/simple_animal/drone/D = item
 				D.cancelAlarm("Atmosphere", src, source)
-			for(var/item in GLOB.alarmdisplay)
-				var/datum/computer_file/program/alarm_monitor/p = item
-				p.cancelAlarm("Atmosphere", src, source)
 
 		atmosalm = isdangerous
 		return TRUE
@@ -364,9 +352,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		for (var/item in GLOB.drones_list)
 			var/mob/living/simple_animal/drone/D = item
 			D.triggerAlarm("Fire", src, cameras, source)
-		for(var/item in GLOB.alarmdisplay)
-			var/datum/computer_file/program/alarm_monitor/p = item
-			p.triggerAlarm("Fire", src, cameras, source)
 	START_PROCESSING(SSobj, src)
 
 /**
@@ -405,9 +390,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		for (var/item in GLOB.drones_list)
 			var/mob/living/simple_animal/drone/D = item
 			D.cancelAlarm("Fire", src, source)
-		for(var/item in GLOB.alarmdisplay)
-			var/datum/computer_file/program/alarm_monitor/p = item
-			p.cancelAlarm("Fire", src, source)
+
 	STOP_PROCESSING(SSobj, src)
 
 ///Get rid of any dangling camera refs
@@ -419,8 +402,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		comp.freeCamera(src, cam)
 	for (var/mob/living/simple_animal/drone/drone_on as anything in GLOB.drones_list)
 		drone_on.freeCamera(src, cam)
-	for(var/datum/computer_file/program/alarm_monitor/monitor as anything in GLOB.alarmdisplay)
-		monitor.freeCamera(src, cam)
+
 
 /**
  * If 100 ticks has elapsed, toggle all the firedoors closed again

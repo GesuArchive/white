@@ -73,6 +73,6 @@
 				return
 			var/obj/item/barcode/barcode = new /obj/item/barcode(get_turf(ui_host()))
 			barcode.payments_acc = payments_acc
-			barcode.cut_multiplier = cut_multiplier
+			barcode.percent_cut = cut_multiplier
 			printer.stored_paper--
 			to_chat(usr, span_notice("The computer prints out a barcode."))

@@ -39,10 +39,9 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 
 
 /datum/computer_file/program/job_management/proc/can_edit_job(datum/job/job)
-	if(!job || !(job.job_flags & JOB_CREW_MEMBER) || (job.title in blacklisted))
+	if(!job/* || !(job.job_flags & JOB_CREW_MEMBER)*/ || (job.title in blacklisted))
 		return FALSE
 	return TRUE
-
 
 /datum/computer_file/program/job_management/proc/can_open_job(datum/job/job)
 	if(!can_edit_job(job))
@@ -131,7 +130,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 	data["authed"] = authed
 
 	var/list/pos = list()
-	for(var/j in SSjob.joinable_occupations)
+	for(var/j in SSjob.occupations)
 		var/datum/job/job = j
 		if(job.title in blacklisted)
 			continue
