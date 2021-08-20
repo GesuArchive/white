@@ -62,30 +62,30 @@
 /obj/structure/fence/attackby(obj/item/W, mob/user)
 	if(W.tool_behaviour == TOOL_WIRECUTTER)
 		if(!cuttable)
-			to_chat(user, "<span class='warning'>Эту секцию забора нельзя прорезать!</span>")
+			to_chat(user, span_warning("This section of the fence can't be cut!"))
 			return
 		if(invulnerable)
-			to_chat(user, "<span class='warning'>Этот забор слишком прочный, чтобы прорезать его!</span>")
+			to_chat(user, span_warning("This fence is too strong to cut through!"))
 			return
 		var/current_stage = hole_size
 		if(current_stage >= MAX_HOLE_SIZE)
-			to_chat(user, "<span class='warning'>В этом заборе уже прорезали слишком много дыр!</span>")
+			to_chat(user, span_warning("This fence has too much cut out of it already!"))
 			return
 
-		user.visible_message("<span class='danger'> [user] начинает прорезать <b>[src.name]</b> с помощью [W].</span>",\
-		"<span class='danger'>Начинаю прорезать <b>[src.name]</b> используя [W].</span>")
+		user.visible_message(span_danger("\The [user] starts cutting through \the [src] with \the [W]."),\
+		span_danger("You start cutting through \the [src] with \the [W]."))
 
 		if(do_after(user, CUT_TIME*W.toolspeed, target = src))
 			if(current_stage == hole_size)
 				switch(++hole_size)
 					if(MEDIUM_HOLE)
-						visible_message("<span class='notice'>[user] врезается <b>[src.name]</b> еще немного.</span>")
-						to_chat(user, "<span class='info'>Можно пролезть в дыру уже сейчас. Но я пролезу быстрее если сделать дыру побольше.</span>")
-						climbable = TRUE
+						visible_message(span_notice("\The [user] cuts into \the [src] some more."))
+						to_chat(user, span_info("You could probably fit yourself through that hole now. Although climbing through would be much faster if you made it even bigger."))
+						AddElement(/datum/element/climbable)
 					if(LARGE_HOLE)
-						visible_message("<span class='notice'> [user] полностью разрезает <b>[src.name]</b>.</span>")
-						to_chat(user, "<span class='info'>Дыра в <b>[src.name]</b> достаточно большая чтобы пройти в нее не пригибаясь.</span>")
-						climbable = FALSE
+						visible_message(span_notice("\The [user] completely cuts through \the [src]."))
+						to_chat(user, span_info("The hole in \the [src] is now big enough to walk through."))
+						RemoveElement(/datum/element/climbable)
 
 				update_cut_status()
 

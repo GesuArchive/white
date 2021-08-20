@@ -154,6 +154,15 @@
 /datum/ai_behavior/battle_screech/raper
 	screeches = list("scream", "moan")
 
+/datum/ai_behavior/battle_shout
+	var/list/shouts
+
+/datum/ai_behavior/battle_shout/perform(delta_time, datum/ai_controller/controller)
+	. = ..()
+	var/mob/living/living_pawn = controller.pawn
+	living_pawn.say(uppertext(pick(shouts)))
+	finish_action(controller, TRUE)
+
 /datum/ai_behavior/battle_shout/raper
 	shouts = list("СЕЙЧАС ТЕБЕ БУДЕТ ПРИЯТНО!!!",\
 				  "ИДИ СЮДА, СЛАДЕНЬКИЙ!!!",\

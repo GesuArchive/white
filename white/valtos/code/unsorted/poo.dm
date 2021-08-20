@@ -223,7 +223,6 @@
 	icon_state = "barricade"
 	density = TRUE
 	anchored = TRUE
-	climbable = TRUE
 
 /obj/structure/poop_barricade/Initialize()
 	. = ..()
@@ -233,6 +232,7 @@
 		break
 	if(dir == SOUTH)
 		layer = ABOVE_MOB_LAYER
+	AddElement(/datum/element/climbable)
 
 /obj/structure/poop_barricade/attackby(obj/item/I, mob/living/user, params)
 	..()

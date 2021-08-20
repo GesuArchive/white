@@ -1,8 +1,8 @@
-#define GET_AI_BEHAVIOR(behavior_type) SSai_controllers.ai_behaviors[behavior_type]
+#define GET_AI_BEHAVIOR(behavior_type) SSai_behaviors.ai_behaviors[behavior_type]
 #define HAS_AI_CONTROLLER_TYPE(thing, type) istype(thing?.ai_controller, type)
 
-#define AI_STATUS_ON		1
-#define AI_STATUS_OFF		2
+#define AI_STATUS_ON 1
+#define AI_STATUS_OFF 2
 
 
 ///Monkey checks
@@ -12,6 +12,10 @@
 ///For JPS pathing, the maximum length of a path we'll try to generate. Should be modularized depending on what we're doing later on
 #define AI_MAX_PATH_LENGTH 30 // 30 is possibly overkill since by default we lose interest after 14 tiles of distance, but this gives wiggle room for weaving around obstacles
 
+///Cooldown on planning if planning failed last time
+
+#define AI_FAILED_PLANNING_COOLDOWN 1.5 SECONDS
+
 ///Flags for ai_behavior new()
 #define AI_CONTROLLER_INCOMPATIBLE (1<<0)
 
@@ -20,10 +24,16 @@
 ///Does this task let you perform the action while you move closer? (Things like moving and shooting)
 #define AI_BEHAVIOR_MOVE_AND_PERFORM (1<<1)
 
+///Subtree defines
 
-///Monkey AI controller blackboard keys
+///This subtree should cancel any further planning, (Including from other subtrees)
+#define SUBTREE_RETURN_FINISH_PLANNING 1
+
+// Monkey AI controller blackboard keys
 
 #define BB_MONKEY_AGRESSIVE "BB_monkey_agressive"
+#define BB_MONKEY_GUN_NEURONS_ACTIVATED "BB_monkey_gun_aware"
+#define BB_MONKEY_GUN_WORKED "BB_monkey_gun_worked"
 #define BB_MONKEY_BEST_FORCE_FOUND "BB_monkey_bestforcefound"
 #define BB_MONKEY_ENEMIES "BB_monkey_enemies"
 #define BB_MONKEY_BLACKLISTITEMS "BB_monkey_blacklistitems"
@@ -33,32 +43,48 @@
 #define BB_MONKEY_TARGET_DISPOSAL "BB_monkey_target_disposal"
 #define BB_MONKEY_DISPOSING "BB_monkey_disposing"
 #define BB_MONKEY_RECRUIT_COOLDOWN "BB_monkey_recruit_cooldown"
+#define BB_MONKEY_NEXT_HUNGRY "BB_monkey_next_hungry"
 
-/// Raper AI. Yes
 
-#define BB_RAPER_AGRESSIVE 				"BB_raper_agressive"
-#define BB_RAPER_ENEMIES 				"BB_raper_enemies"
-#define BB_RAPER_CURRENT_ATTACK_TARGET 	"BB_raper_current_attack_target"
-#define BB_RAPER_FUCKING 				"BB_raper_fucking"
+///Haunted item controller defines
+
+///Chance for haunted item to haunt someone
+#define HAUNTED_ITEM_ATTACK_HAUNT_CHANCE 10
+///Chance for haunted item to try to get itself let go.
+#define HAUNTED_ITEM_ESCAPE_GRASP_CHANCE 20
+///Chance for haunted item to warp somewhere new
+#define HAUNTED_ITEM_TELEPORT_CHANCE 4
+///Amount of aggro you get when picking up a haunted item
+#define HAUNTED_ITEM_AGGRO_ADDITION 2
+
+///Blackboard keys for haunted items
+#define BB_TO_HAUNT_LIST "BB_to_haunt_list"
+///Actual mob the item is haunting at the moment
+#define BB_HAUNT_TARGET "BB_haunt_target"
+///Amount of successful hits in a row this item has had
+#define BB_HAUNTED_THROW_ATTEMPT_COUNT "BB_haunted_throw_attempt_count"
+
+///Cursed item controller defines
+
+//defines
+///how far a cursed item will still try to chase a target
+#define CURSED_VIEW_RANGE 7
+#define CURSED_ITEM_TELEPORT_CHANCE 4
+//blackboards
+
+///Actual mob the item is haunting at the moment
+#define BB_CURSE_TARGET "BB_haunt_target"
+///Where the item wants to land on
+#define BB_TARGET_SLOT "BB_target_slot"
+///Amount of successful hits in a row this item has had
+#define BB_CURSED_THROW_ATTEMPT_COUNT "BB_cursed_throw_attempt_count"
 
 ///Vending machine AI controller blackboard keys
-
-#define BB_VENDING_CURRENT_TARGET 		"BB_vending_current_target"
-#define BB_VENDING_TILT_COOLDOWN 		"BB_vending_tilt_cooldown"
-#define BB_VENDING_UNTILT_COOLDOWN 		"BB_vending_untilt_cooldown"
-#define BB_VENDING_BUSY_TILTING 		"BB_vending_busy_tilting"
-#define BB_VENDING_LAST_HIT_SUCCESFUL 	"BB_vending_last_hit_succesful"
-
-/// Combat AI
-
-#define BB_COMBAT_AI_ANGRY_GAY 		"BB_combat_ai_angry_gay"
-#define BB_COMBAT_AI_ENEMIES 		"BB_combat_ai_enemies"
-#define BB_COMBAT_AI_CURRENT_TARGET "BB_combat_ai_current_target"
-#define BB_COMBAT_AI_WEAPON_TARGET  "BB_combat_ai_weapon_target"
-#define BB_COMBAT_AI_WEAPON_BL	  	"BB_combat_ai_weapon_bl"
-#define BB_COMBAT_AI_WOUNDED 		"BB_combat_ai_wounded"
-#define BB_COMBAT_AI_STUPIDITY		"BB_combat_ai_stupidity"
-#define BB_COMBAT_AI_SUICIDE_BOMBER "BB_combat_ai_suicide_bomber"
+#define BB_VENDING_CURRENT_TARGET "BB_vending_current_target"
+#define BB_VENDING_TILT_COOLDOWN "BB_vending_tilt_cooldown"
+#define BB_VENDING_UNTILT_COOLDOWN "BB_vending_untilt_cooldown"
+#define BB_VENDING_BUSY_TILTING "BB_vending_busy_tilting"
+#define BB_VENDING_LAST_HIT_SUCCESFUL "BB_vending_last_hit_succesful"
 
 ///Robot customer AI controller blackboard keys
 #define BB_CUSTOMER_CURRENT_ORDER "BB_customer_current_order"
@@ -69,6 +95,30 @@
 #define BB_CUSTOMER_ATTENDING_VENUE "BB_customer_attending_avenue"
 #define BB_CUSTOMER_LEAVING "BB_customer_leaving"
 #define BB_CUSTOMER_CURRENT_TARGET "BB_customer_current_target"
+/// Robot customer has said their can't find seat line at least once. Used to rate limit how often they'll complain after the first time.
+#define BB_CUSTOMER_SAID_CANT_FIND_SEAT_LINE "BB_customer_said_cant_find_seat_line"
+
+
+///Hostile AI controller blackboard keys
+#define BB_HOSTILE_ORDER_MODE "BB_HOSTILE_ORDER_MODE"
+#define BB_HOSTILE_FRIEND "BB_HOSTILE_FRIEND"
+#define BB_HOSTILE_ATTACK_WORD "BB_HOSTILE_ATTACK_WORD"
+#define BB_FOLLOW_TARGET "BB_FOLLOW_TARGET"
+#define BB_ATTACK_TARGET "BB_ATTACK_TARGET"
+#define BB_VISION_RANGE "BB_VISION_RANGE"
+
+/// Basically, what is our vision/hearing range.
+#define BB_HOSTILE_VISION_RANGE 10
+/// After either being given a verbal order or a pointing order, ignore further of each for this duration
+#define AI_HOSTILE_COMMAND_COOLDOWN 2 SECONDS
+
+// hostile command modes (what pointing at something/someone does depending on the last order the carp heard)
+/// Don't do anything (will still react to stuff around them though)
+#define HOSTILE_COMMAND_NONE 0
+/// Will attack a target.
+#define HOSTILE_COMMAND_ATTACK 1
+/// Will follow a target.
+#define HOSTILE_COMMAND_FOLLOW 2
 
 ///Dog AI controller blackboard keys
 
@@ -100,26 +150,14 @@
 /// Will get within a few tiles of whatever you point at and continually growl/bark. If the target is a living mob who gets too close, the dog will attack them with bites
 #define DOG_COMMAND_ATTACK 2
 
-//enumerators for parsing dog command speech
+//enumerators for parsing command speech
 #define COMMAND_HEEL "Heel"
 #define COMMAND_FETCH "Fetch"
+#define COMMAND_FOLLOW "Follow"
+#define COMMAND_STOP "Stop"
 #define COMMAND_ATTACK "Attack"
 #define COMMAND_DIE "Play Dead"
 
-///Haunted item controller defines
-
-///Chance for haunted item to haunt someone
-#define HAUNTED_ITEM_ATTACK_HAUNT_CHANCE 10
-///Chance for haunted item to try to get itself let go.
-#define HAUNTED_ITEM_ESCAPE_GRASP_CHANCE 20
-///Chance for haunted item to warp somewhere new
-#define HAUNTED_ITEM_TELEPORT_CHANCE 4
-///Amount of aggro you get when picking up a haunted item
-#define HAUNTED_ITEM_AGGRO_ADDITION 2
-
-///Blackboard keys for haunted items
-#define BB_TO_HAUNT_LIST "BB_to_haunt_list"
-///Actual mob the item is haunting at the moment
-#define BB_HAUNT_TARGET "BB_haunt_target"
-///Amount of successful hits in a row this item has had
-#define BB_HAUNTED_THROW_ATTEMPT_COUNT "BB_haunted_throw_attempt_count"
+///bane ai
+#define BB_BANE_BATMAN "BB_bane_batman"
+//yep thats it

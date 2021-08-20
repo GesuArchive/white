@@ -1,8 +1,8 @@
 /obj/machinery/griddle
 	name = "гридль"
 	desc = "Потому что кастрюли предназначены для анютиных глазок."
-	icon = 'icons/obj/machines/griddle.dmi'
-	icon_state = "griddle1_off"
+	//icon = 'icons/obj/machines/griddle.dmi'
+	//icon_state = "griddle1_off"
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 5

@@ -17,16 +17,35 @@
 	can_suppress = FALSE
 	burst_size = 1
 	fire_delay = 1
-	extra_damage = 1500
-	extra_penetration = 1500
-	force = 1500
+	extra_damage = 0
+	extra_penetration = 0
+	force = 0
 	spread = 0
 	recoil = 0
 	actions_types = null
+	var/fatality_mode = FALSE
 
 /obj/item/gun/ballistic/automatic/fallout/railgun/Initialize()
 	. = ..()
-	AddComponent(/datum/component/automatic_fire, 0.2 SECONDS)
+	AddComponent(/datum/component/automatic_fire_funny, 0.01)
+
+/obj/item/gun/ballistic/automatic/fallout/railgun/AltClick(mob/user)
+	. = ..()
+	if(user?.client?.holder)
+		fatality_mode = !fatality_mode
+		to_chat(user, "<span class='notice'><b>ЭКСТЕРМИНАТУС:</b> [fatality_mode ? "АКТИВЕН" : "ВЫКЛЮЧЕН"]!</span>")
+		if(fatality_mode)
+			extra_damage = 1500
+			extra_penetration = 1500
+			force = 1500
+			var/datum/component/automatic_fire_funny/D = GetComponent(/datum/component/automatic_fire_funny)
+			D.autofire_shot_delay = 0.01
+		else
+			extra_damage = 0
+			extra_penetration = 0
+			force = 0
+			var/datum/component/automatic_fire_funny/D = GetComponent(/datum/component/automatic_fire_funny)
+			D.autofire_shot_delay = 1
 
 /obj/item/ammo_box/magazine/fallout/railgun
 	name = "БРХС-1000ПВ"
@@ -47,18 +66,15 @@
 /obj/projectile/bullet/fallout/railgun
 	icon_state = "gauss_silenced"
 	speed = 0.4
-	damage = 1500
-	armour_penetration = 1500
+	damage = 0
 	damage_type = BURN
 	range = 150
 	projectile_piercing = PASSALL
-	dismemberment = 50
-	paralyze = 100
 	impact_type = /obj/effect/projectile/impact/heavy_laser
 
 /obj/projectile/bullet/fallout/railgun/on_hit(atom/target, blocked = FALSE)
 	. = ..()
-	if (!QDELETED(target) && (isturf(target) || istype(target, /obj/structure/)))
+	if (damage > 100 && !QDELETED(target) && (isturf(target) || istype(target, /obj/structure/)))
 		if(isobj(target))
 			SSexplosions.med_mov_atom += target
 		else

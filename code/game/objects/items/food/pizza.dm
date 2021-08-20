@@ -7,8 +7,17 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1)
 	foodtypes = GRAIN | DAIRY | VEGETABLES
 	venue_value = FOOD_PRICE_CHEAP
+	burns_in_oven = TRUE
 	/// type is spawned 6 at a time and replaces this pizza when processed by cutting tool
 	var/obj/item/food/pizzaslice/slice_type
+
+/obj/item/food/pizza/raw
+	foodtypes =  GRAIN | DAIRY | VEGETABLES | RAW
+	burns_in_oven = FALSE
+	slice_type = null
+
+/obj/item/food/pizza/raw/MakeBakeable()
+	AddComponent(/datum/component/bakeable, /obj/item/food/pizza, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizza/MakeProcessable()
 	if (slice_type)
@@ -36,6 +45,17 @@
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/margherita
 
+
+/obj/item/food/pizza/margherita/raw
+	name = "raw pizza margherita"
+	icon_state = "pizzamargherita_raw"
+	foodtypes =  GRAIN | VEGETABLES | DAIRY | RAW
+	burns_in_oven = FALSE
+	slice_type = null
+
+/obj/item/food/pizza/margherita/raw/MakeBakeable()
+	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/margherita, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
+
 /obj/item/food/pizza/margherita/robo
 	food_reagents = list(/datum/reagent/nanomachines = 70, /datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
 
@@ -58,13 +78,22 @@
 	foodtypes = GRAIN | VEGETABLES| DAIRY | MEAT
 	slice_type = /obj/item/food/pizzaslice/meat
 
+/obj/item/food/pizza/meat/raw
+	name = "raw meatpizza"
+	icon_state = "meatpizza_raw"
+	foodtypes =  GRAIN | VEGETABLES| DAIRY | MEAT | RAW
+	burns_in_oven = FALSE
+	slice_type = null
+
+/obj/item/food/pizza/meat/raw/MakeBakeable()
+	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/meat, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
+
 /obj/item/food/pizzaslice/meat
 	name = "meatpizza slice"
 	desc = "A nutritious slice of meatpizza."
 	icon_state = "meatpizzaslice"
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT
-
 
 /obj/item/food/pizza/mushroom
 	name = "mushroom pizza"
@@ -74,6 +103,16 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "грибы" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/mushroom
+
+/obj/item/food/pizza/mushroom/raw
+	name = "raw mushroom pizza"
+	icon_state = "mushroompizza_raw"
+	foodtypes =  GRAIN | VEGETABLES | DAIRY | RAW
+	burns_in_oven = FALSE
+	slice_type = null
+
+/obj/item/food/pizza/mushroom/raw/MakeBakeable()
+	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/mushroom, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizzaslice/mushroom
 	name = "mushroom pizza slice"
@@ -93,6 +132,16 @@
 	slice_type = /obj/item/food/pizzaslice/vegetable
 	venue_value = FOOD_PRICE_NORMAL
 
+/obj/item/food/pizza/vegetable/raw
+	name = "raw vegetable pizza"
+	icon_state = "vegetablepizza_raw"
+	foodtypes =  GRAIN | VEGETABLES | DAIRY | RAW
+	burns_in_oven = FALSE
+	slice_type = null
+
+/obj/item/food/pizza/vegetable/raw/MakeBakeable()
+	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/vegetable, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
+
 /obj/item/food/pizzaslice/vegetable
 	name = "vegetable pizza slice"
 	desc = "A slice of the most green pizza of all pizzas not containing green ingredients."
@@ -109,6 +158,16 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1, "лень" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | JUNKFOOD
 	slice_type = /obj/item/food/pizzaslice/donkpocket
+
+/obj/item/food/pizza/donkpocket/raw
+	name = "raw donkpocket pizza"
+	icon_state = "donkpocketpizza_raw"
+	foodtypes =  GRAIN | VEGETABLES | DAIRY | MEAT | JUNKFOOD | RAW
+	burns_in_oven = FALSE
+	slice_type = null
+
+/obj/item/food/pizza/donkpocket/raw/MakeBakeable()
+	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/donkpocket, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizzaslice/donkpocket
 	name = "donkpocket pizza slice"
@@ -127,6 +186,16 @@
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/dank
 
+/obj/item/food/pizza/dank/raw
+	name = "raw dank pizza"
+	icon_state = "dankpizza_raw"
+	foodtypes =  GRAIN | VEGETABLES | DAIRY | RAW
+	burns_in_oven = FALSE
+	slice_type = null
+
+/obj/item/food/pizza/dank/raw/MakeBakeable()
+	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/dank, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
+
 /obj/item/food/pizzaslice/dank
 	name = "dank pizza slice"
 	desc = "So good, man..."
@@ -144,6 +213,16 @@
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/sassysage
 
+/obj/item/food/pizza/sassysage/raw
+	name = "raw sassysage pizza"
+	icon_state = "sassysagepizza_raw"
+	foodtypes =  GRAIN | VEGETABLES | DAIRY | MEAT | RAW
+	burns_in_oven = FALSE
+	slice_type = null
+
+/obj/item/food/pizza/sassysage/raw/MakeBakeable()
+	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/sassysage, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
+
 /obj/item/food/pizzaslice/sassysage
 	name = "sassysage pizza slice"
 	desc = "Deliciously sassy."
@@ -160,6 +239,16 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "ананас" = 2, "ветчина" = 2)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | FRUIT | PINEAPPLE
 	slice_type = /obj/item/food/pizzaslice/pineapple
+
+/obj/item/food/pizza/pineapple/raw
+	name = "raw Hawaiian pizza"
+	icon_state = "pineapplepizza_raw"
+	foodtypes =  GRAIN | VEGETABLES | DAIRY | MEAT | FRUIT | PINEAPPLE | RAW
+	burns_in_oven = FALSE
+	slice_type = null
+
+/obj/item/food/pizza/pineapple/raw/MakeBakeable()
+	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/pineapple, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizzaslice/pineapple
 	name = "\improper Hawaiian pizza slice"
@@ -193,6 +282,16 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 9, /datum/reagent/consumable/nutriment/vitamin = 6, /datum/reagent/iron = 10, /datum/reagent/medicine/omnizine = 30)
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "пепперони" = 2, "9-ти миллиметровые пули" = 2)
 	slice_type = /obj/item/food/pizzaslice/arnold
+
+/obj/item/food/pizza/arnold/raw
+	name = "raw Arnold pizza"
+	icon_state = "arnoldpizza_raw"
+	foodtypes =  GRAIN | DAIRY | VEGETABLES | RAW
+	burns_in_oven = FALSE
+	slice_type = null
+
+/obj/item/food/pizza/arnold/raw/MakeBakeable()
+	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/arnold, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 //fuck it, i will leave this at the food level for now.
 /obj/item/food/proc/try_break_off(mob/living/M, mob/living/user) //maybe i give you a pizza maybe i break off your arm

@@ -9,24 +9,25 @@
 	allow_objects = TRUE
 	allow_dense = TRUE
 	dense_when_open = TRUE
-	climbable = TRUE
-	climb_time = 10 //real fast, because let's be honest stepping into or onto a crate is easy
-	climb_stun = 0 //climbing onto crates isn't hard, guys
 	delivery_icon = "deliverycrate"
 	open_sound = 'sound/machines/crate_open.ogg'
 	close_sound = 'sound/machines/crate_close.ogg'
 	open_sound_volume = 35
 	close_sound_volume = 50
 	drag_slowdown = 0
+	var/crate_climb_time = 20
 	var/obj/item/paper/fluff/jobs/cargo/manifest/manifest
 
 /obj/structure/closet/crate/Initialize()
 	. = ..()
 	if(icon_state == "[initial(icon_state)]open")
 		opened = TRUE
+		AddElement(/datum/element/climbable, climb_time = crate_climb_time * 0.5, climb_stun = 0)
+	else
+		AddElement(/datum/element/climbable, climb_time = crate_climb_time, climb_stun = 0)
 	update_icon()
 
-/obj/structure/closet/crate/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/structure/closet/crate/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
 	if(!istype(mover, /obj/structure/closet))
 		var/obj/structure/closet/crate/locatedcrate = locate(/obj/structure/closet/crate) in get_turf(mover)
@@ -38,18 +39,30 @@
 
 /obj/structure/closet/crate/update_icon_state()
 	icon_state = "[initial(icon_state)][opened ? "open" : ""]"
+	return ..()
 
 /obj/structure/closet/crate/closet_update_overlays(list/new_overlays)
 	. = new_overlays
 	if(manifest)
 		. += "manifest"
 
-/obj/structure/closet/crate/attack_hand(mob/user)
+/obj/structure/closet/crate/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	if(.)
 		return
 	if(manifest)
 		tear_manifest(user)
+
+/obj/structure/closet/crate/after_open(mob/living/user, force)
+	. = ..()
+	RemoveElement(/datum/element/climbable, climb_time = crate_climb_time, climb_stun = 0)
+	AddElement(/datum/element/climbable, climb_time = crate_climb_time * 0.5, climb_stun = 0)
+
+/obj/structure/closet/crate/after_close(mob/living/user, force)
+	. = ..()
+	RemoveElement(/datum/element/climbable, climb_time = crate_climb_time * 0.5, climb_stun = 0)
+	AddElement(/datum/element/climbable, climb_time = crate_climb_time, climb_stun = 0)
+
 
 /obj/structure/closet/crate/open(mob/living/user, force = FALSE)
 	. = ..()
@@ -101,7 +114,7 @@
 	for(var/i in 1 to rand(7,15))
 		new /obj/effect/spawner/lootdrop/garbage_spawner(src)
 		if(prob(12))
-			new	/obj/item/storage/bag/trash/filled(src)
+			new /obj/item/storage/bag/trash/filled(src)
 	new /obj/effect/spawner/scatter/grime(loc)
 
 /obj/structure/closet/crate/internals
@@ -235,7 +248,6 @@
 
 /obj/structure/closet/crate/goldcrate
 	name = "золотой ящик"
-	desc = "Прямоугольный золотой ящик."
 
 /obj/structure/closet/crate/goldcrate/PopulateContents()
 	..()
@@ -245,7 +257,6 @@
 
 /obj/structure/closet/crate/silvercrate
 	name = "серебряный ящик"
-	desc = "Прямоугольный серебрянный ящик."
 
 /obj/structure/closet/crate/silvercrate/PopulateContents()
 	..()

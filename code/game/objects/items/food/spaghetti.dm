@@ -1,9 +1,6 @@
-
+///spaghetti prototype used by all subtypes
 /obj/item/food/spaghetti
-	name = "spaghetti"
-	desc = "Now that's a nic'e pasta!"
 	icon = 'icons/obj/food/pizzaspaghetti.dmi'
-	icon_state = "spaghetti"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
 	microwaved_type = /obj/item/food/spaghetti/boiledspaghetti
 	tastes = list("паста" = 1)
@@ -18,13 +15,19 @@
 			"<span class='warning'>Oh shit! All your pocket [name] fell out!</span>")
 		AddComponent(/datum/component/spill, display_message, 'sound/effects/splat.ogg')
 
+/obj/item/food/spaghetti/raw
+	name = "spaghetti"
+	desc = "Now that's a nic'e pasta!"
+	icon_state = "spaghetti"
+	microwaved_type = /obj/item/food/spaghetti/boiledspaghetti
+	tastes = list("pasta" = 1)
+
 /obj/item/food/spaghetti/boiledspaghetti
 	name = "boiled spaghetti"
 	desc = "A plain dish of noodles, this needs more ingredients."
 	icon_state = "spaghettiboiled"
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/vitamin = 1)
-	microwaved_type = null
 
 /obj/item/food/spaghetti/boiledspaghetti/Initialize()
 	. = ..()

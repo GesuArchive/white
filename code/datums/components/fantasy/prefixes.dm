@@ -71,8 +71,8 @@
 
 /datum/fantasy_affix/vampiric/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
-	return "вампирический [newName]"
 	master.AddElement(/datum/element/lifesteal, comp.quality)
+	return "вампирический [newName]"
 
 /datum/fantasy_affix/vampiric/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent
@@ -99,8 +99,8 @@
 
 /datum/fantasy_affix/ugly/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
-	return "[pick("унылый", "уродливый", "гротескный", "отвратительный")] [newName]"
 	master.AddElement(/datum/element/beauty, min(comp.quality, -1) * 250)
+	return "[pick("унылый", "уродливый", "гротескный", "отвратительный")] [newName]"
 
 /datum/fantasy_affix/ugly/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent

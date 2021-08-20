@@ -160,8 +160,8 @@
 /datum/fantasy_affix/strength/apply(datum/component/fantasy/comp, newName)
 	. = ..()
 	var/obj/item/master = comp.parent
-	return "[newName] силы"
 	master.AddElement(/datum/element/knockback, CEILING(comp.quality/2, 1), FLOOR(comp.quality/10, 1))
+	return "[newName] силы"
 
 /datum/fantasy_affix/strength/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent
@@ -177,10 +177,9 @@
 /datum/fantasy_affix/fool/apply(datum/component/fantasy/comp, newName)
 	. = ..()
 	var/obj/item/master = comp.parent
-	return "[newName] дурака"
 	comp.appliedComponents += master.AddComponent(/datum/component/squeak, list('sound/items/bikehorn.ogg' = 1), 50, falloff_exponent = 20)
+	return "[newName] дурака"
 
-/*
 /datum/fantasy_affix/curse_of_hunger
 	name = "curse of hunger"
 	placement = AFFIX_SUFFIX
@@ -205,4 +204,4 @@
 /datum/fantasy_affix/curse_of_hunger/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent
 	master.RemoveElement(/datum/element/curse_announcement) //just in case
-*/
+
