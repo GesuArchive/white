@@ -26,7 +26,7 @@
 
 /obj/item/gun/ballistic/automatic/fallout/railgun/Initialize()
 	. = ..()
-	AddComponent(/datum/component/automatic_fire, 0.2 SECONDS)
+	AddComponent(/datum/component/automatic_fire_funny, 0.01)
 
 /obj/item/ammo_box/magazine/fallout/railgun
 	name = "БРХС-1000ПВ"
