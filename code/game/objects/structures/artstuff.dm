@@ -57,6 +57,9 @@
 	var/framed_offset_x = 11
 	var/framed_offset_y = 10
 
+	///boolean that blocks persistence from saving it. enabled from printing copies, because we do not want to save copies.
+	var/no_save = FALSE
+
 	pixel_x = 10
 	pixel_y = 9
 
@@ -350,7 +353,7 @@
 	update_icon()
 
 /obj/structure/sign/painting/proc/save_persistent()
-	if(!persistence_id || !C)
+	if(!persistence_id || !C || C.no_save)
 		return
 	if(sanitize_filename(persistence_id) != persistence_id)
 		stack_trace("Invalid persistence_id - [persistence_id]")

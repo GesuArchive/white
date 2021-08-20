@@ -6,12 +6,26 @@
 	w_class = WEIGHT_CLASS_TINY
 	device_type = MC_CARD
 
-	var/obj/item/card/id/stored_card = null
+	var/obj/item/card/id/stored_card
 
-/obj/item/computer_hardware/card_slot/handle_atom_del(atom/A)
-	if(A == stored_card)
-		try_eject(null, TRUE)
-	. = ..()
+///What happens when the ID card is removed (or deleted) from the module, through try_eject() or not.
+/obj/item/computer_hardware/card_slot/Exited(atom/movable/gone, direction)
+	if(stored_card == gone)
+		stored_card = null
+		if(holder)
+			if(holder.active_program)
+				holder.active_program.event_idremoved(0)
+			for(var/p in holder.idle_threads)
+				var/datum/computer_file/program/computer_program = p
+				computer_program.event_idremoved(1)
+
+			holder.update_slot_icon()
+
+			if(ishuman(holder.loc))
+				var/mob/living/carbon/human/human_wearer = holder.loc
+				if(human_wearer.wear_id == holder)
+					human_wearer.sec_hud_set_ID()
+	return ..()
 
 /obj/item/computer_hardware/card_slot/Destroy()
 	try_eject(forced = TRUE)
@@ -47,6 +61,11 @@
 
 	if(stored_card)
 		return FALSE
+
+	// item instead of player is checked so telekinesis will still work if the item itself is close
+	if(!in_range(src, I))
+		return FALSE
+
 	if(user)
 		if(!user.transferItemToLoc(I, src))
 			return FALSE
@@ -54,12 +73,14 @@
 		I.forceMove(src)
 
 	stored_card = I
-	to_chat(user, "<span class='notice'>Вставляю [I] в [expansion_hw ? "secondary":"primary"] [src].</span>")
+	to_chat(user, span_notice("You insert \the [I] into \the [expansion_hw ? "secondary":"primary"] [src]."))
 	playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		H.sec_hud_set_ID()
 
+	var/holder_loc = holder.loc
+	if(ishuman(holder_loc))
+		var/mob/living/carbon/human/human_wearer = holder_loc
+		if(human_wearer.wear_id == holder)
+			human_wearer.sec_hud_set_ID()
 	holder.update_slot_icon()
 
 	return TRUE
@@ -67,28 +88,13 @@
 
 /obj/item/computer_hardware/card_slot/try_eject(mob/living/user = null, forced = FALSE)
 	if(!stored_card)
-		to_chat(user, "<span class='warning'>В <b>[src.name]</b> нет карт.</span>")
+		to_chat(user, span_warning("There are no cards in \the [src]."))
 		return FALSE
 
-	if(user)
+	if(user && !issilicon(user) && in_range(src, user))
 		user.put_in_hands(stored_card)
 	else
 		stored_card.forceMove(drop_location())
-	stored_card = null
-
-	if(holder)
-		if(holder.active_program)
-			holder.active_program.event_idremoved(0)
-
-		for(var/p in holder.idle_threads)
-			var/datum/computer_file/program/computer_program = p
-			computer_program.event_idremoved(1)
-
-		holder.update_slot_icon()
-
-	if(ishuman(user))
-		var/mob/living/carbon/human/human_user = user
-		human_user.sec_hud_set_ID()
 
 	to_chat(user, "<span class='notice'>Извлекаю карту из <b>[src.name]</b>.</span>")
 	playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)

@@ -12,7 +12,7 @@
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
 	icon_state = "explored"
 	always_unpowered = TRUE
-	poweralm = FALSE
+	//poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
@@ -24,7 +24,7 @@
 	outdoors = TRUE
 	always_unpowered = TRUE
 	requires_power = TRUE
-	poweralm = FALSE
+	//poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE

@@ -33,12 +33,12 @@
 	hardware_flag = machinery_computer.hardware_flag
 	max_hardware_size = machinery_computer.max_hardware_size
 	steel_sheet_cost = machinery_computer.steel_sheet_cost
-	obj_integrity = machinery_computer.obj_integrity
+	update_integrity(machinery_computer.get_integrity())
 	max_integrity = machinery_computer.max_integrity
 	integrity_failure = machinery_computer.integrity_failure
 	base_active_power_usage = machinery_computer.base_active_power_usage
 	base_idle_power_usage = machinery_computer.base_idle_power_usage
-	machinery_computer.RegisterSignal(src, COMSIG_ATOM_UPDATED_ICON, /atom/proc/update_icon) //when we update_icon, also update the computer
+	machinery_computer.RegisterSignal(src, COMSIG_ATOM_UPDATED_ICON, /obj/machinery/modular_computer/proc/relay_icon_update) //when we update_icon, also update the computer
 
 /obj/item/modular_computer/processor/relay_qdel()
 	qdel(machinery_computer)

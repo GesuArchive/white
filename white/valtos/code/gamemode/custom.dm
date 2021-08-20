@@ -97,7 +97,7 @@
 	name = "пустоши"
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	always_unpowered = TRUE
-	poweralm = FALSE
+//	//poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
@@ -133,7 +133,7 @@
 	name = "помещения"
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	always_unpowered = FALSE
-	poweralm = FALSE
+///	//poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
@@ -149,7 +149,7 @@
 	icon_state = "2f"
 	name = "far away"
 	always_unpowered = TRUE
-	poweralm = FALSE
+///	//poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
@@ -181,7 +181,7 @@
 	icon_state = "4f"
 	name = "surface"
 	always_unpowered = TRUE
-	poweralm = FALSE
+	//poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
@@ -281,7 +281,7 @@
 	name = "Mining Theta"
 	icon_state = "purple"
 	always_unpowered = TRUE
-	poweralm = FALSE
+	//poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = TRUE
@@ -295,7 +295,7 @@
 	icon_state = "red"
 	always_unpowered = TRUE
 	requires_power = TRUE
-	poweralm = FALSE
+	//poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE

@@ -99,7 +99,7 @@
 		orbiter.glide_size = movable_parent.glide_size
 
 	orbiter.forceMove(get_turf(parent))
-	to_chat(orbiter, span_notice("Следим за <b>[parent]</b>."))
+	to_chat(orbiter, "<span class='notice'>Следим за <b>[parent]</b>.</span>")
 
 /datum/component/orbiter/proc/end_orbit(atom/movable/orbiter, refreshing=FALSE)
 	if(!orbiter_list[orbiter])
@@ -112,7 +112,6 @@
 	orbiter_list -= orbiter
 	orbiter.stop_orbit(src)
 	orbiter.orbiting = null
-
 	if(ismob(orbiter))
 		var/mob/orbiter_mob = orbiter
 		orbiter_mob.updating_glide_size = TRUE
@@ -151,10 +150,9 @@
 	end_orbit(orbiter)
 
 /datum/component/orbiter/proc/orbiter_glide_size_update(datum/source, target)
-	SIGNAL_HANDLER
 	for(var/orbiter in orbiter_list)
 		var/atom/movable/movable_orbiter = orbiter
-		movable_orbiter.glide_size = target
+		movable_orbiter?.glide_size = target
 
 /////////////////////
 

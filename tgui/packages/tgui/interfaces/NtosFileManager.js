@@ -1,5 +1,5 @@
-import { useBackend, useSharedState } from '../backend';
-import { Button, Section, Table, Modal, Flex, Box } from '../components';
+import { useBackend } from '../backend';
+import { Button, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export const NtosFileManager = (props, context) => {
@@ -10,8 +10,6 @@ export const NtosFileManager = (props, context) => {
     files = [],
     usbfiles = [],
   } = data;
-  const [openedFile, setOpenedFile] = useSharedState(
-    context, "opened_file", null);
   return (
     <NtosWindow theme={PC_device_theme}>
       <NtosWindow.Content scrollable>
@@ -21,40 +19,34 @@ export const NtosFileManager = (props, context) => {
             usbconnected={usbconnected}
             onUpload={file => act('PRG_copytousb', { name: file })}
             onDelete={file => act('PRG_deletefile', { name: file })}
-            onRename={(file, newName) => act('PRG_rename', {
+            onRename={(file, newName) => act('PRG_renamefile', {
               name: file,
               new_name: newName,
             })}
             onDuplicate={file => act('PRG_clone', { file: file })}
-            onOpenfile={file => setOpenedFile(file)}
             onToggleSilence={file => act('PRG_togglesilence', { name: file })} />
         </Section>
         {usbconnected && (
-          <Section title="Диск с данными">
+          <Section title="Data Disk">
             <FileTable
               usbmode
               files={usbfiles}
               usbconnected={usbconnected}
               onUpload={file => act('PRG_copyfromusb', { name: file })}
-              onDelete={file => act('PRG_deletefile', { name: file })}
-              onRename={(file, newName) => act('PRG_rename', {
+              onDelete={file => act('PRG_usbdeletefile', { name: file })}
+              onRename={(file, newName) => act('PRG_usbrenamefile', {
                 name: file,
                 new_name: newName,
               })}
               onDuplicate={file => act('PRG_clone', { file: file })} />
           </Section>
         )}
-        {openedFile && <FileModal
-          label={openedFile.name}
-          sdata={openedFile.has_data}
-          onBack={() => setOpenedFile(null)}
-        />}
       </NtosWindow.Content>
     </NtosWindow>
   );
 };
 
-const FileTable = (props, context) => {
+const FileTable = props => {
   const {
     files = [],
     usbconnected,
@@ -63,40 +55,29 @@ const FileTable = (props, context) => {
     onDelete,
     onRename,
     onToggleSilence,
-    onOpenfile,
   } = props;
   return (
     <Table>
       <Table.Row header>
-        <Table.Cell collapsing />
         <Table.Cell>
-          Файл
+          File
         </Table.Cell>
         <Table.Cell collapsing>
-          Тип
+          Type
         </Table.Cell>
         <Table.Cell collapsing>
-          Размер
+          Size
         </Table.Cell>
       </Table.Row>
       {files.map(file => (
         <Table.Row key={file.name} className="candystripe">
-          <Table.Cell>
-            {!!file.has_data && (
-              <Button
-                icon="file"
-                tooltip="Открыть"
-                tooltipPosition="right"
-                onClick={() => onOpenfile(file)} />
-            )}
-          </Table.Cell>
           <Table.Cell>
             {!file.undeletable ? (
               <Button.Input
                 fluid
                 content={file.name}
                 currentValue={file.name}
-                tooltip="Переименовать"
+                tooltip="Rename"
                 onCommit={(e, value) => onRename(file.name, value)} />
             ) : (
               file.name
@@ -113,7 +94,7 @@ const FileTable = (props, context) => {
               <Button
                 icon={file.alert_silenced ? 'bell-slash' : 'bell'}
                 color={file.alert_silenced ? 'red' : 'default'}
-                tooltip={file.alert_silenced ? 'Разоткнуть' : 'Заткнуть'}
+                tooltip={file.alert_silenced ? 'Unmute Alerts' : 'Mute Alerts'}
                 onClick={() => onToggleSilence(file.name)} />
             )}
             {!file.undeletable && (
@@ -122,18 +103,18 @@ const FileTable = (props, context) => {
                   icon="trash"
                   confirmIcon="times"
                   confirmContent=""
-                  tooltip="Удалить"
+                  tooltip="Delete"
                   onClick={() => onDelete(file.name)} />
                 {!!usbconnected && (
                   usbmode ? (
                     <Button
                       icon="download"
-                      tooltip="Загрузить"
+                      tooltip="Download"
                       onClick={() => onUpload(file.name)} />
                   ) : (
                     <Button
                       icon="upload"
-                      tooltip="Выгрузить"
+                      tooltip="Upload"
                       onClick={() => onUpload(file.name)} />
                   )
                 )}
@@ -143,44 +124,5 @@ const FileTable = (props, context) => {
         </Table.Row>
       ))}
     </Table>
-  );
-};
-
-const FileModal = props => {
-  const text_html = {
-    __html: '<span class="paper-text">'
-      + props.sdata
-      + '</span>',
-  };
-  return (
-    <Modal>
-      <Flex direction="column">
-        <Flex.Item fontSize="16px" maxWidth="90vw" mb={1}>
-          {props.label}
-        </Flex.Item>
-
-        <Flex.Item mr={2} mb={2} mt={1}>
-          <Box
-            p={1}
-            fluid
-            overflowY="scroll"
-            height="60vh"
-            width="80vw"
-            backgroundColor="black"
-            textColor="green"
-            dangerouslySetInnerHTML={text_html}
-          />
-        </Flex.Item>
-
-        <Flex.Item>
-          <Button
-            icon="times"
-            content="Закрыть"
-            color="bad"
-            onClick={props.onBack}
-          />
-        </Flex.Item>
-      </Flex>
-    </Modal>
   );
 };

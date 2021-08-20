@@ -38,6 +38,32 @@
 #define APC_CHARGING 1
 #define APC_FULLY_CHARGED 2
 
+// APC channel status:
+/// The APCs power channel is manually set off.
+#define APC_CHANNEL_OFF 0
+/// The APCs power channel is automatically off.
+#define APC_CHANNEL_AUTO_OFF 1
+/// The APCs power channel is manually set on.
+#define APC_CHANNEL_ON 2
+/// The APCs power channel is automatically on.
+#define APC_CHANNEL_AUTO_ON 3
+
+// APC autoset enums:
+/// The APC turns automated and manual power channels off.
+#define AUTOSET_FORCE_OFF 0
+/// The APC turns automated power channels off.
+#define AUTOSET_OFF 2
+/// The APC turns automated power channels on.
+#define AUTOSET_ON 1
+
+// External power status:
+/// The APC either isn't attached to a powernet or there is no power on the external powernet.
+#define APC_NO_POWER 0
+/// The APCs external powernet does not have enough power to charge the APC.
+#define APC_LOW_POWER 1
+/// The APCs external powernet has enough power to charge the APC.
+#define APC_HAS_POWER 2
+
 #define APC_DRAIN_TIME 75
 #define APC_POWER_GAIN 200
 
@@ -105,6 +131,8 @@
 	var/update_overlay = -1
 	var/icon_update_needed = FALSE
 	var/obj/machinery/computer/apc_control/remote_control = null
+	///Represents a signel source of power alarms for this apc
+	var/datum/alarm_handler/alarm_manager
 
 	var/clock_cog_rewarded = FALSE	//Clockcult - Has the reward for converting an APC been given?
 	var/integration_cog = null		//Clockcult - The integration cog inserted inside of us
@@ -206,7 +234,7 @@
 	area.power_equip = FALSE
 	area.power_environ = FALSE
 	area.power_change()
-	area.poweralert(FALSE, src)
+	QDEL_NULL(alarm_manager)
 	if(occupier)
 		malfvacate(1)
 	qdel(wires)
@@ -232,6 +260,9 @@
 
 /obj/machinery/power/apc/Initialize(mapload)
 	. = ..()
+	AddElement(/datum/element/atmos_sensitive, mapload)
+	alarm_manager = new(src)
+
 	if(!mapload)
 		return
 	has_electronics = APC_ELECTRONICS_SECURED
@@ -1274,28 +1305,28 @@
 		else if(longtermpower > -10)
 			longtermpower -= 2
 
-		if(cell.charge <= 0)					// zero charge, turn all off
-			equipment = autoset(equipment, 0)
-			lighting = autoset(lighting, 0)
-			environ = autoset(environ, 0)
-			area.poweralert(TRUE, src)
-		else if(cell.percent() < 15 && longtermpower < 0)	// <15%, turn off lighting & equipment
-			equipment = autoset(equipment, 2)
-			lighting = autoset(lighting, 2)
-			environ = autoset(environ, 1)
-			area.poweralert(TRUE, src)
-		else if(cell.percent() < 30 && longtermpower < 0)			// <30%, turn off equipment
-			equipment = autoset(equipment, 2)
-			lighting = autoset(lighting, 1)
-			environ = autoset(environ, 1)
-			area.poweralert(TRUE, src)
-		else									// otherwise all can be on
-			equipment = autoset(equipment, 1)
-			lighting = autoset(lighting, 1)
-			environ = autoset(environ, 1)
-			area.poweralert(FALSE, src)
+		if(cell.charge <= 0) // zero charge, turn all off
+			equipment = autoset(equipment, AUTOSET_FORCE_OFF)
+			lighting = autoset(lighting, AUTOSET_FORCE_OFF)
+			environ = autoset(environ, AUTOSET_FORCE_OFF)
+			alarm_manager.send_alarm(ALARM_POWER)
+		else if(cell.percent() < 15 && longtermpower < 0) // <15%, turn off lighting & equipment
+			equipment = autoset(equipment, AUTOSET_OFF)
+			lighting = autoset(lighting, AUTOSET_OFF)
+			environ = autoset(environ, AUTOSET_ON)
+			alarm_manager.send_alarm(ALARM_POWER)
+		else if(cell.percent() < 30 && longtermpower < 0) // <30%, turn off equipment
+			equipment = autoset(equipment, AUTOSET_OFF)
+			lighting = autoset(lighting, AUTOSET_ON)
+			environ = autoset(environ, AUTOSET_ON)
+			alarm_manager.send_alarm(ALARM_POWER)
+		else // otherwise all can be on
+			equipment = autoset(equipment, AUTOSET_ON)
+			lighting = autoset(lighting, AUTOSET_ON)
+			environ = autoset(environ, AUTOSET_ON)
 			if(cell.percent() > 75)
-				area.poweralert(FALSE, src)
+				alarm_manager.clear_alarm(ALARM_POWER)
+
 
 		// now trickle-charge the cell
 		if(chargemode && charging == APC_CHARGING && operating)
@@ -1340,10 +1371,10 @@
 
 		charging = APC_NOT_CHARGING
 		chargecount = 0
-		equipment = autoset(equipment, 0)
-		lighting = autoset(lighting, 0)
-		environ = autoset(environ, 0)
-		area.poweralert(TRUE, src)
+		equipment = autoset(equipment, AUTOSET_FORCE_OFF)
+		lighting = autoset(lighting, AUTOSET_FORCE_OFF)
+		environ = autoset(environ, AUTOSET_FORCE_OFF)
+		alarm_manager.send_alarm(ALARM_POWER)
 
 	// update icon & area power if anything changed
 
