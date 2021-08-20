@@ -158,6 +158,7 @@
 	smoke_state = new_state
 
 	QDEL_NULL(particles)
+	/*
 	switch(smoke_state)
 		if(OVEN_SMOKE_STATE_BAD)
 			particles = new /particles/smoke()
@@ -165,6 +166,7 @@
 			particles = new /particles/smoke/steam()
 		if(OVEN_SMOKE_STATE_GOOD)
 			particles = new /particles/smoke/steam/mild
+	*/
 
 /obj/machinery/oven/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()
@@ -185,7 +187,7 @@
 	icon_state = "oven_tray"
 	max_items = 6
 
-
+/*
 /particles/smoke
 	icon = 'icons/effects/particles/smoke.dmi'
 	icon_state = list("smoke_1" = 1, "smoke_2" = 1, "smoke_3" = 2)
@@ -211,7 +213,7 @@
 /particles/smoke/steam
 	icon_state = list("steam_1" = 1, "steam_2" = 1, "steam_3" = 2)
 	fade = 1.5 SECONDS
-
+*/
 
 #undef OVEN_SMOKE_STATE_NONE
 #undef OVEN_SMOKE_STATE_GOOD
