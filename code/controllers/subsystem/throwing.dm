@@ -43,7 +43,6 @@ SUBSYSTEM_DEF(throwing)
 /datum/thrownthing
 	var/atom/movable/thrownthing
 	var/datum/weakref/initial_target
-	var/atom/target
 	var/turf/target_turf
 	var/target_zone
 	var/init_dir
@@ -67,11 +66,10 @@ SUBSYSTEM_DEF(throwing)
 	var/last_move = 0
 
 
-/datum/thrownthing/New(thrownthing, target, target, init_dir, maxrange, speed, thrower, diagonals_first, force, gentle, callback, target_zone)
+/datum/thrownthing/New(thrownthing, target, init_dir, maxrange, speed, thrower, diagonals_first, force, gentle, callback, target_zone)
 	. = ..()
 	src.thrownthing = thrownthing
 	RegisterSignal(thrownthing, COMSIG_PARENT_QDELETING, .proc/on_thrownthing_qdel)
-	src.target = target
 	src.target_turf = get_turf(target)
 	if(target_turf != target)
 		src.initial_target = WEAKREF(target)
@@ -88,11 +86,9 @@ SUBSYSTEM_DEF(throwing)
 
 /datum/thrownthing/Destroy()
 	SSthrowing.processing -= thrownthing
-	if(SSticker.current_state != GAME_STATE_STARTUP)
-		SSthrowing.currentrun -= thrownthing
+	SSthrowing.currentrun -= thrownthing
 	thrownthing.throwing = null
 	thrownthing = null
-	target = null
 	thrower = null
 	initial_target = null
 	if(callback)
