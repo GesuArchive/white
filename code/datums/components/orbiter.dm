@@ -154,7 +154,7 @@
 	SIGNAL_HANDLER
 	for(var/orbiter in orbiter_list)
 		var/atom/movable/movable_orbiter = orbiter
-		movable_orbiter.glide_size = target
+		movable_orbiter?.glide_size = target
 
 /////////////////////
 
