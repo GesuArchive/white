@@ -48,7 +48,7 @@
 	item_to_plate.flags_1 |= IS_ONTOP_1
 	RegisterSignal(item_to_plate, COMSIG_MOVABLE_MOVED, .proc/ItemMoved)
 	RegisterSignal(item_to_plate, COMSIG_PARENT_QDELETING, .proc/ItemMoved)
-	update_appearance()
+	update_icon()
 
 ///This proc cleans up any signals on the item when it is removed from a plate, and ensures it has the correct state again.
 /obj/item/plate/proc/ItemRemovedFromPlate(obj/item/removed_item)

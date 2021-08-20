@@ -55,8 +55,10 @@
 		. += door_overlay
 	else
 		. += mutable_appearance(icon, "oven_lid_closed")
+		/*
 		if(used_tray?.contents.len)
 			. += emissive_appearance(icon, "oven_light_mask", alpha = src.alpha)
+		*/
 
 /obj/machinery/oven/process(delta_time)
 	..()
@@ -82,7 +84,7 @@
 		if(DT_PROB(10, delta_time))
 			visible_message(span_danger("You smell a burnt smell coming from [src]!"))
 	set_smoke_state(worst_cooked_food_state)
-	update_appearance()
+	update_icon()
 
 
 /obj/machinery/oven/attackby(obj/item/I, mob/user, params)
@@ -106,7 +108,7 @@
 
 	RegisterSignal(used_tray, COMSIG_MOVABLE_MOVED, .proc/ItemMoved)
 	update_baking_audio()
-	update_appearance()
+	update_icon()
 
 ///Called when the tray is moved out of the oven in some way
 /obj/machinery/oven/proc/ItemMoved(obj/item/oven_tray, atom/OldLoc, Dir, Forced)
@@ -137,7 +139,7 @@
 		if(used_tray)
 			begin_processing()
 			used_tray.vis_flags |= VIS_HIDE
-	update_appearance()
+	update_icon()
 	update_baking_audio()
 	return TRUE
 

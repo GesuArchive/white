@@ -7,7 +7,7 @@
 	name = "Margherita pizza"
 	reqs = list(
 		/obj/item/food/flatdough = 1,
-		/obj/item/food/cheese = 4,
+		/obj/item/food/cheesewedge = 4,
 		/obj/item/food/grown/tomato = 1
 	)
 	result = /obj/item/food/pizza/margherita/raw
@@ -18,7 +18,7 @@
 	reqs = list(
 		/obj/item/food/flatdough = 1,
 		/obj/item/food/meat/rawcutlet = 4,
-		/obj/item/food/cheese = 1,
+		/obj/item/food/cheesewedge = 1,
 		/obj/item/food/grown/tomato = 1
 	)
 	result = /obj/item/food/pizza/meat/raw
@@ -62,7 +62,7 @@
 	reqs = list(
 		/obj/item/food/flatdough = 1,
 		/obj/item/food/donkpocket = 3,
-		/obj/item/food/cheese = 1,
+		/obj/item/food/cheesewedge = 1,
 		/obj/item/food/grown/tomato = 1
 	)
 	result = /obj/item/food/pizza/donkpocket/raw
@@ -84,7 +84,7 @@
 	reqs = list(
 		/obj/item/food/flatdough = 1,
 		/obj/item/food/raw_meatball = 3,
-		/obj/item/food/cheese = 1,
+		/obj/item/food/cheesewedge = 1,
 		/obj/item/food/grown/tomato = 1
 	)
 	result = /obj/item/food/pizza/sassysage/raw
