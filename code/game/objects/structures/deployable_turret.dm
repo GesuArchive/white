@@ -79,8 +79,8 @@
 		return
 	M.forceMove(get_turf(src))
 	. = ..()
-	if(!.)
-		return
+
+/obj/machinery/deployable_turret/post_buckle_mob(mob/living/M)
 	for(var/V in M.held_items)
 		var/obj/item/I = V
 		if(istype(I))
@@ -242,8 +242,8 @@
 	O.attacked_by(src, user)
 
 /obj/item/gun_control/attack(mob/living/M, mob/living/user)
-	M.lastattacker = user.real_name
-	M.lastattackerckey = user.ckey
+	//M.lastattacker = user.real_name
+	//M.lastattackerckey = user.ckey
 	M.attacked_by(src, user)
 	add_fingerprint(user)
 
