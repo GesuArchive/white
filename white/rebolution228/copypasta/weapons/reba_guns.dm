@@ -425,7 +425,7 @@
 	caliber = "c25mm"
 	max_ammo = 100
 
-/obj/item/ammo_box/magazine/ak74m/update_icon()
+/obj/item/ammo_box/magazine/hs010/update_icon()
 	..()
 	if(ammo_count() <= 0)
 		icon_state = "hs010ammo_e"
