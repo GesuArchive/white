@@ -84,7 +84,7 @@ All the important duct code:
 		for(var/atom/movable/AM in get_step(src, D))
 			if(connect_network(AM, D))
 				add_connects(D)
-	update_appearance()
+	update_icon()
 
 ///see if whatever we found can be connected to
 /obj/machinery/duct/proc/connect_network(atom/movable/AM, direction, ignore_color)
