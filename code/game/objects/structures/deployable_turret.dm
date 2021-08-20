@@ -204,7 +204,7 @@
 	desc = "A heavy calibre machine gun commonly used by Nanotrasen forces, famed for it's ability to give people on the recieving end more holes than normal."
 	icon_state = "hmg"
 	max_integrity = 250
-	projectile_type = /obj/projectile/bullet/manned_turret/hmg
+	//projectile_type = /obj/projectile/bullet/manned_turret/hmg
 	anchored = TRUE
 	number_of_shots = 3
 	cooldown_duration = 2 SECONDS
