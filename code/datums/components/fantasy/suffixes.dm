@@ -180,7 +180,6 @@
 	comp.appliedComponents += master.AddComponent(/datum/component/squeak, list('sound/items/bikehorn.ogg' = 1), 50, falloff_exponent = 20)
 	return "[newName] дурака"
 
-/*
 /datum/fantasy_affix/curse_of_hunger
 	name = "curse of hunger"
 	placement = AFFIX_SUFFIX
@@ -205,4 +204,4 @@
 /datum/fantasy_affix/curse_of_hunger/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent
 	master.RemoveElement(/datum/element/curse_announcement) //just in case
-*/
+
