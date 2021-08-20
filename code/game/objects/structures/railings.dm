@@ -5,14 +5,13 @@
 	icon_state = "railing"
 	density = TRUE
 	anchored = TRUE
-	climbable = TRUE
 	///Initial direction of the railing.
 	var/ini_dir
+	var/climbable = TRUE
 
 /obj/structure/railing/corner //aesthetic corner sharp edges hurt oof ouch
 	icon_state = "railing_corner"
 	density = FALSE
-	climbable = FALSE
 
 /obj/structure/railing/ComponentInitialize()
 	. = ..()
@@ -21,6 +20,18 @@
 /obj/structure/railing/Initialize()
 	. = ..()
 	ini_dir = dir
+	if(climbable)
+		AddElement(/datum/element/climbable)
+	/*
+	if(density && flags_1 & ON_BORDER_1) // blocks normal movement from and to the direction it's facing.
+		var/static/list/loc_connections = list(
+			COMSIG_ATOM_EXIT = .proc/on_exit,
+		)
+		AddElement(/datum/element/connect_loc, loc_connections)
+	*/
+
+	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE | ROTATION_COUNTERCLOCKWISE | ROTATION_VERBS ,null,CALLBACK(src, .proc/can_be_rotated),CALLBACK(src,.proc/after_rotation))
+
 
 /obj/structure/railing/attackby(obj/item/I, mob/living/user, params)
 	..()

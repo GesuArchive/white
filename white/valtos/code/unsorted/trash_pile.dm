@@ -6,7 +6,6 @@
 	density = TRUE
 	anchored = TRUE
 	layer = TABLE_LAYER
-	climbable = TRUE
 	obj_flags = CAN_BE_HIT
 	pass_flags = LETPASSTHROW
 
@@ -47,6 +46,7 @@
 		"brokecomp",
 	)
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_SLUDGE, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 10)
+	AddElement(/datum/element/climbable)
 
 /obj/structure/trash_pile/proc/do_search(mob/user)
 	if(contents.len) //There's something hidden
