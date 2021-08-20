@@ -522,6 +522,7 @@
 	belt = /obj/item/storage/belt/utility/full/engi
 	glasses =  /obj/item/clothing/glasses/welding
 	r_pocket = /obj/item/rcd_ammo/large
+	r_hand = /obj/item/deployable_turret_folded
 
 /datum/outfit/centcom/ert/marine/engineer/post_equip(mob/living/carbon/human/equipper, visualsOnly = FALSE)
 	..()
