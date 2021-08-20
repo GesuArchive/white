@@ -384,18 +384,38 @@
 	righthand_file = 'white/rebolution228/icons/weapons/guns_inhand_right.dmi'
 	mag_type = /obj/item/ammo_box/magazine/hs010
 	pin = /obj/item/firing_pin
-	fire_delay = null // enter ur number here
-	burst_size = null // here too
-	spread = null // and here 
+	fire_delay = 2 // enter ur number here
+	burst_size = 1 // here too
+	spread = 10 // and here
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_LIGHT
-	fire_sound = null // 
-	rack_sound = null // 
-	eject_sound = null // 
-	eject_empty_sound = null // 
+	/* папож
+	fire_sound = null //
+	rack_sound = null //
+	eject_sound = null //
+	eject_empty_sound = null //
 	load_sound = null //
-	load_empty_sound = null // 
+	load_empty_sound = null //
+	*/
 	can_suppress = FALSE
+	var/fuller_auto = FALSE
+
+/obj/item/gun/ballistic/automatic/hs010/Initialize()
+	. = ..()
+	AddComponent(/datum/component/automatic_fire_funny, 1)
+
+/obj/item/gun/ballistic/automatic/hs010/AltClick(mob/user)
+	. = ..()
+	fuller_auto = !fuller_auto
+	balloon_alert(user, "режим: [fuller_auto ? "fuller" : "full"] auto")
+	if(fuller_auto)
+		var/datum/component/automatic_fire_funny/D = GetComponent(/datum/component/automatic_fire_funny)
+		D.autofire_shot_delay = 0.1
+		spread = 30
+	else
+		var/datum/component/automatic_fire_funny/D = GetComponent(/datum/component/automatic_fire_funny)
+		D.autofire_shot_delay = 1
+		spread = 10
 
 /obj/item/ammo_box/magazine/hs010
 	name = "HS 010 Magazine"
