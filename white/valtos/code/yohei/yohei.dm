@@ -116,8 +116,9 @@
 	extra_damage = 25
 	extra_penetration = 20
 
-#define MODE_PAINKILLER "общее лечение"
+#define MODE_PAINKILLER "болеутоляющее"
 #define MODE_OXYLOSS "кислородное голодание"
+#define MODE_TOXDUMP "токсины"
 #define MODE_FRACTURE "травмы"
 #define MODE_BLOOD_INJECTOR "вливание крови"
 
@@ -164,6 +165,8 @@
 		if(MODE_PAINKILLER)
 			new_mode = MODE_OXYLOSS
 		if(MODE_OXYLOSS)
+			new_mode = MODE_TOXDUMP
+		if(MODE_TOXDUMP)
 			new_mode = MODE_FRACTURE
 		if(MODE_FRACTURE)
 			new_mode = MODE_BLOOD_INJECTOR
@@ -199,9 +202,17 @@
 					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 10 единиц.</span>")
 			else
 				to_chat(user, "<span class='warning'>Уровень кислорода в норме.</span>")
+		if(MODE_TOXDUMP)
+			if(M.getToxLoss() > 5)
+				if(use_charge(20))
+					M.setToxLoss(0)
+				else
+					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 10 единиц.</span>")
+			else
+				to_chat(user, "<span class='warning'>Токсины отсутствуют.</span>")
 		if(MODE_FRACTURE)
 			if(limb?.wounds?.len)
-				if(use_charge(10))
+				if(use_charge(20))
 					for(var/thing in limb.wounds)
 						var/datum/wound/W = thing
 						W.remove_wound()
@@ -212,7 +223,7 @@
 				to_chat(user, "<span class='warning'>Не обнаружено травм в этой конечности.</span>")
 		if(MODE_BLOOD_INJECTOR)
 			if(M.blood_volume <= initial(M.blood_volume) - 50)
-				if(use_charge(10))
+				if(use_charge(30))
 					M.restore_blood()
 					to_chat(user, "<span class='notice'>Кровь восстановлена.</span>")
 				else
@@ -222,6 +233,7 @@
 
 #undef MODE_PAINKILLER
 #undef MODE_OXYLOSS
+#undef MODE_TOXDUMP
 #undef MODE_FRACTURE
 #undef MODE_BLOOD_INJECTOR
 
