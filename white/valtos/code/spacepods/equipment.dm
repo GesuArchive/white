@@ -399,12 +399,17 @@
 	if(!verb_check())
 		return
 
-	for(var/atom/A in GLOB.yohei_beacons)
-		var/turf/T = get_turf(A)
-		if(locate(/obj/spacepod) in T.contents)
-			continue
-		else
-			forceMove(T)
+	if(do_after(usr, 5 SECONDS, src, timed_action_flags = IGNORE_INCAPACITATED))
+		if(!cell || !cell.use(5000))
+			to_chat(usr, "<span class='warning'>Недостаточно энергии!</span>")
 			return
 
-	to_chat(usr, "<span class='notice'>ТЕЛЕПОРТИРУЕМСЯ!</span>")
+		for(var/atom/A in GLOB.yohei_beacons)
+			var/turf/T = get_turf(A)
+			if(locate(/obj/spacepod) in T.contents)
+				continue
+			else
+				forceMove(T)
+				return
+
+		to_chat(usr, "<span class='notice'>ТЕЛЕПОРТИРУЕМСЯ!</span>")
