@@ -495,7 +495,7 @@ GLOBAL_VAR(yohei_main_controller)
 		if(A.type != /area/ruin/powered/yohei_base)
 			return FALSE
 		target.Knockdown(5 SECONDS)
-		if(prob(80))
+		if(prob(99))
 			if(prob(10))
 				target.gib()
 				return TRUE
@@ -509,7 +509,7 @@ GLOBAL_VAR(yohei_main_controller)
 		return FALSE
 
 /datum/yohei_task/gamemode
-	desc = "Помочь каким-то событиям"
+	desc = "Нет особых заданий"
 	prize = 0
 	var/datum/antagonist/adatum = null
 
@@ -528,7 +528,7 @@ GLOBAL_VAR(yohei_main_controller)
 				desc = "Помочь Волшебникам"
 				adatum = /datum/antagonist/wizard/apprentice
 			else
-				desc = "Помочь Станции"
+				desc = "Затроллить всех"
 				adatum = /datum/antagonist/wizard/apprentice/imposter
 			return TRUE
 		if(/datum/game_mode/nuclear)
@@ -572,11 +572,13 @@ GLOBAL_VAR(yohei_main_controller)
 			adatum = pick(subtypesof(/datum/antagonist/gang))
 			return TRUE
 		else
-			qdel(src)
+			adatum = null
 			return FALSE
 
-
 /datum/yohei_task/gamemode/check_task(mob/user)
+	if(!adatum)
+		qdel(src)
+		return FALSE
 	if(!is_special_character(user))
 		user.mind.add_antag_datum(adatum)
 	return FALSE
