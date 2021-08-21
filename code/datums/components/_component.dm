@@ -401,7 +401,8 @@
 	var/datum/component/nt = new_type
 
 	if(QDELING(src))
-		CRASH("Attempted to add a new component of type \[[nt]\] to a qdeleting parent of type \[[type]\]!")
+		return
+		//CRASH("Attempted to add a new component of type \[[nt]\] to a qdeleting parent of type \[[type]\]!") //zaebal
 
 	var/dm = initial(nt.dupe_mode)
 	var/dt = initial(nt.dupe_type)
