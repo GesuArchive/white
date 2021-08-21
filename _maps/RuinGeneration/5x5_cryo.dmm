@@ -9,14 +9,14 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/ruin/unpowered)
 "j" = (
-/obj/machinery/cryopod,
+/obj/structure/fluff/empty_sleeper/nanotrasen,
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
 /turf/open/floor/plasteel/showroomfloor,
 /area/ruin/unpowered)
 "t" = (
-/obj/machinery/cryopod{
+/obj/structure/fluff/empty_sleeper/nanotrasen{
 	dir = 4
 	},
 /obj/effect/turf_decal/stripes/line{
@@ -36,7 +36,7 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/ruin/unpowered)
 "E" = (
-/obj/machinery/cryopod{
+/obj/structure/fluff/empty_sleeper/nanotrasen{
 	dir = 4
 	},
 /obj/effect/turf_decal/stripes/line{
@@ -48,7 +48,7 @@
 /turf/closed/wall,
 /area/ruin/unpowered)
 "P" = (
-/obj/machinery/computer/cryopod{
+/obj/structure/fluff/empty_sleeper/nanotrasen{
 	pixel_y = 25
 	},
 /turf/open/floor/plasteel/showroomfloor,
@@ -60,7 +60,7 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/ruin/unpowered)
 "T" = (
-/obj/machinery/cryopod,
+/obj/structure/fluff/empty_sleeper/nanotrasen,
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},

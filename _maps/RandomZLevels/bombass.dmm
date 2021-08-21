@@ -1721,7 +1721,6 @@
 /turf/open/floor/plating,
 /area/awaymission/bombass/indoors)
 "UW" = (
-/obj/machinery/manned_turret,
 /turf/open/floor/plating,
 /area/awaymission/bombass/indoors)
 "VP" = (
