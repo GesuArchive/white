@@ -228,12 +228,12 @@
 
 	if(!can_i_see)
 		return
-	examine_list += span_notice("Use a bible to interact with this.")
+	examine_list += span_notice("\nПохоже, тут может пригодиться библия...")
 	if(!easy_access_sect)
 		if(operation_flags & RELIGION_TOOL_SECTSELECT)
-			examine_list += span_notice("This looks like it can be used to select a sect.")
+			examine_list += span_notice("\nТут я могу выбрать свой путь!")
 			return
 	if(operation_flags & RELIGION_TOOL_SACRIFICE)//this can be moved around if things change but usually no rites == no sacrifice
-		examine_list += span_notice("Desired items can be used on this to increase favor.")
+		examine_list += span_notice("\nТут можно делать подношения.")
 	if(easy_access_sect.rites_list && operation_flags & RELIGION_TOOL_INVOKE)
-		examine_list += span_notice("You can invoke rites from this.")
+		examine_list += span_notice("\nТут можно проводить ритуалы.")

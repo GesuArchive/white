@@ -96,7 +96,7 @@
 					if (i == ingredients.len - 1)
 						ending = ", "
 			ingredients_listed += "[ingredient?.name][ending]"
-	examine_list += "Содержит [LAZYLEN(ingredients) ? "[ingredients_listed]" : " ничего, "]размером с [custom_adjective()] [initial(atom_parent.name)]."
+	examine_list += "\nСодержит [LAZYLEN(ingredients) ? "[ingredients_listed]" : " ничего, "]размером с [custom_adjective()] [initial(atom_parent.name)]."
 
 
 ///Handles when the customizable food is attacked by something.

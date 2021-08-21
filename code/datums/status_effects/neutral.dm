@@ -264,7 +264,7 @@
 	SIGNAL_HANDLER
 
 	if(!slap_item)
-		examine_list += "<span class='warning'>[owner] arm appears tensed up, as if [owner.ru_who()] plan on pulling it back suddenly...</span>\n"
+		examine_list += "\n<span class='warning'>[owner] arm appears tensed up, as if [owner.ru_who()] plan on pulling it back suddenly...</span>\n"
 
 /// One of our possible takers moved, see if they left us hanging
 /datum/status_effect/high_fiving/proc/check_taker_in_range(mob/living/carbon/taker)

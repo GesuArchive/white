@@ -172,11 +172,11 @@
 		return
 	switch(failure_time)
 		if(0 to 3 * LIVER_FAILURE_STAGE_SECONDS - 1)
-			examine_list += "<span class='notice'>Глаза [owner] желтоватые.</span>"
+			examine_list += "\n<span class='notice'>Глаза [owner] желтоватые.</span>"
 		if(3 * LIVER_FAILURE_STAGE_SECONDS to 4 * LIVER_FAILURE_STAGE_SECONDS - 1)
-			examine_list += "<span class='notice'>Глаза [owner] жёлтые и похоже пациенту плохо.</span>"
+			examine_list += "\n<span class='notice'>Глаза [owner] жёлтые и похоже пациенту плохо.</span>"
 		if(4 * LIVER_FAILURE_STAGE_SECONDS to INFINITY)
-			examine_list += "<span class='danger'>Глаза [owner] полностью жёлтые и из них сочится гадкая слизь. [owner.ru_who(TRUE)] не проживёт долго с этим.</span>"
+			examine_list += "\n<span class='danger'>Глаза [owner] полностью жёлтые и из них сочится гадкая слизь. [owner.ru_who(TRUE)] не проживёт долго с этим.</span>"
 
 /obj/item/organ/liver/on_death()
 	. = ..()

@@ -626,7 +626,7 @@
 						. += "\n[round(R.volume, 0.01)] единиц [R.name]"
 					if(reagents.is_reacting)
 						. += "\n<span class='warning'>Сейчас бурлит!</span>"
-					. += "\n<span class='notice'>Кислотность раствора [round(reagents.ph, 0.01)] и его температура [reagents.chem_temp]K.</span>"
+					. += "\n<span class='notice'>Кислотность раствора [round(reagents.ph, 0.01)], его температура [reagents.chem_temp]K.</span>"
 				else //Otherwise, just show the total volume
 					var/total_volume = 0
 					for(var/datum/reagent/R in reagents.reagent_list)
@@ -638,7 +638,7 @@
 			if(reagents.total_volume)
 				. += "<span class='notice'>В нём ещё есть [reagents.total_volume] единиц.</span>"
 			else
-				. += "<span class='danger'>Он пустой.</span>"
+				. += "<span class='danger'>Он пуст.</span>"
 
 	if(ishuman(user))
 		if(user.stat == CONSCIOUS && !user.eye_blind)

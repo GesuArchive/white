@@ -149,7 +149,7 @@
 /datum/element/decal/proc/examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
-	examine_list += description
+	examine_list += "\n" + description
 
 /datum/element/decal/proc/shuttle_move_react(datum/source, turf/new_turf)
 	SIGNAL_HANDLER

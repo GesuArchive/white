@@ -137,9 +137,9 @@
 	SIGNAL_HANDLER
 
 	if(I.isEmbedHarmless())
-		examine_list += "[I] feels sticky, and could probably get stuck to someone if thrown properly!"
+		examine_list += "\n[I] feels sticky, and could probably get stuck to someone if thrown properly!"
 	else
-		examine_list += "[I] has a fine point, and could probably embed in someone if thrown properly!"
+		examine_list += "\n[I] has a fine point, and could probably embed in someone if thrown properly!"
 
 /**
  * checkEmbedProjectile() is what we get when a projectile with a defined shrapnel_type impacts a target.

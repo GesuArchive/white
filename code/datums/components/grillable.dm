@@ -87,16 +87,16 @@
 
 	if(!current_cook_time) //Not grilled yet
 		if(positive_result)
-			examine_list += span_notice("[parent] can be <b>grilled</b> into \a [initial(cook_result.name)].")
+			examine_list += span_notice("\n[parent] можно <b>обжарить</b>.")
 		return
 
 	if(positive_result)
 		if(current_cook_time <= required_cook_time * 0.75)
-			examine_list += span_notice("[parent] probably needs to be cooked a bit longer!")
+			examine_list += span_notice("\n[parent] еще не прожарился!")
 		else if(current_cook_time <= required_cook_time)
-			examine_list += span_notice("[parent] seems to be almost finished cooking!")
+			examine_list += span_notice("\n[parent] почти прожарился!")
 	else
-		examine_list += span_danger("[parent] should probably not be cooked for much longer!")
+		examine_list += span_danger("\n[parent] прожарился как следует!")
 
 ///Ran when an object moves from the grill
 /datum/component/grillable/proc/OnMoved(atom/A, atom/OldLoc, Dir, Forced)

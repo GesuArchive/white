@@ -23,7 +23,7 @@
 	SIGNAL_HANDLER
 
 	if(desc)
-		examine_list += desc
+		examine_list += "\n" + desc
 
 /datum/component/construction/proc/on_step()
 	if(index > steps.len)
