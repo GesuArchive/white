@@ -112,6 +112,9 @@
 	if(.)
 		return
 
+	if(mover.loc == loc && get_dir(mover, target) & dir)
+		return FALSE
+
 	if(get_dir(loc, mover) & dir)
 		return FALSE
 

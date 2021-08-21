@@ -53,6 +53,9 @@
 /obj/structure/windoor_assembly/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
 
+	if(mover.loc == loc && get_dir(mover, target) & dir)
+		return FALSE
+
 	if(get_dir(loc, mover) & dir)
 		return
 
