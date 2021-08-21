@@ -80,13 +80,13 @@
 
 	if(!current_bake_time) //Not baked yet
 		if(positive_result)
-			examine_list += span_notice("\n[parent] можно <b>испечь</b>.")
+			examine_list += span_notice("\n[capitalize(sklonenie_do(A.name, VINITELNI, A.gender))] можно <b>испечь</b>.")
 		return
 
 	if(positive_result)
 		if(current_bake_time <= required_bake_time * 0.75)
-			examine_list += span_notice("\n[parent] еще не пропечен!")
+			examine_list += span_notice("\n[A] еще не пропек[A.ru_sya()]!")
 		else if(current_bake_time <= required_bake_time)
-			examine_list += span_notice("\n[parent] почти пропекся!")
+			examine_list += span_notice("\n[A] почти пропек[A.ru_sya()]!")
 	else
-		examine_list += span_danger("\n[parent] пропекся как следует!")
+		examine_list += span_danger("\n[A] пропек[A.ru_sya()] как следует!")

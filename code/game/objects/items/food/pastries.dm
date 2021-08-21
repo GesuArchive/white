@@ -771,7 +771,7 @@
 /obj/item/food/pancakes/raw/examine(mob/user)
 	. = ..()
 	if(name == initial(name))
-		. += "<span class='notice'>You can modify the pancake by adding <b>blueberries</b> or <b>chocolate</b> before finishing the griddle."
+		. += "<span class='notice'>\nYou can modify the pancake by adding <b>blueberries</b> or <b>chocolate</b> before finishing the griddle."
 
 /obj/item/food/pancakes/blueberry
 	name = "blueberry pancake"

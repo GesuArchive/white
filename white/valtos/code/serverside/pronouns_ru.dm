@@ -69,7 +69,7 @@
 		. = capitalize(.)
 
 //mobs(and atoms but atoms don't really matter write your own proc overrides) also have gender!
-/mob/ru_who(capitalized, temp_gender)
+/atom/ru_who(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
 	. = "он"
@@ -81,7 +81,7 @@
 	if(capitalized)
 		. = capitalize(.)
 
-/mob/ru_ego(capitalized, temp_gender)
+/atom/ru_ego(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
 	. = "его"
@@ -93,7 +93,7 @@
 	if(capitalized)
 		. = capitalize(.)
 
-/mob/ru_na(capitalized, temp_gender)
+/atom/ru_na(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
 	. = "нём"
@@ -105,7 +105,7 @@
 	if(capitalized)
 		. = capitalize(.)
 
-/mob/ru_a(temp_gender)
+/atom/ru_a(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
 	. = ""
@@ -114,6 +114,17 @@
 			. = "а"
 		if(MALE)
 			. = ""
+
+/atom/proc/ru_sya(temp_gender = null, include_l = FALSE)
+	if(!temp_gender)
+		temp_gender = gender
+
+	if(temp_gender == FEMALE)
+		. = "лась"
+	else
+		. = "ся"
+		if(include_l)
+			. = "л" + .
 
 //humans need special handling, because they can have their gender hidden
 /mob/living/carbon/human/ru_who(capitalized, temp_gender)
