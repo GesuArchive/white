@@ -241,8 +241,9 @@
 	if(!loc) //if already qdel'd somehow, we do nothing
 		return
 	if(!(flags_1&NODECONSTRUCT_1))
-		var/obj/R = new rods_type(drop_location(), rods_amount)
+		var/obj/R = new rods_type(null, rods_amount)
 		transfer_fingerprints_to(R)
+		R.forceMove(drop_location())
 		qdel(src)
 	..()
 
@@ -250,8 +251,9 @@
 	if(!broken && !(flags_1 & NODECONSTRUCT_1))
 		density = FALSE
 		broken = TRUE
-		var/obj/R = new rods_type(drop_location(), rods_broken)
+		var/obj/R = new rods_type(null, rods_amount)
 		transfer_fingerprints_to(R)
+		R.forceMove(drop_location())
 		rods_amount = 1
 		rods_broken = FALSE
 		grille_type = /obj/structure/grille
