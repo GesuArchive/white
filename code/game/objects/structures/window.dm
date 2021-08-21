@@ -114,7 +114,7 @@
 	if(fulltile)
 		return FALSE
 
-	if(get_dir(loc, target) == dir)
+	if(get_dir(loc, mover) & dir)
 		return FALSE
 
 	if(istype(mover, /obj/structure/window))

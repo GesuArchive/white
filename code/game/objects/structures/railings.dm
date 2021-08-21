@@ -12,6 +12,7 @@
 /obj/structure/railing/corner //aesthetic corner sharp edges hurt oof ouch
 	icon_state = "railing_corner"
 	density = FALSE
+	climbable = FALSE
 
 /obj/structure/railing/ComponentInitialize()
 	. = ..()
@@ -22,13 +23,6 @@
 	ini_dir = dir
 	if(climbable)
 		AddElement(/datum/element/climbable)
-	/*
-	if(density && flags_1 & ON_BORDER_1) // blocks normal movement from and to the direction it's facing.
-		var/static/list/loc_connections = list(
-			COMSIG_ATOM_EXIT = .proc/on_exit,
-		)
-		AddElement(/datum/element/connect_loc, loc_connections)
-	*/
 
 	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE | ROTATION_COUNTERCLOCKWISE | ROTATION_VERBS ,null,CALLBACK(src, .proc/can_be_rotated),CALLBACK(src,.proc/after_rotation))
 
@@ -79,20 +73,20 @@
 
 /obj/structure/railing/CanPass(atom/movable/mover, turf/target)
 	. = ..()
-	if(get_dir(loc, target) & dir)
+	if(get_dir(loc, mover) & dir)
 		var/checking = FLYING | FLOATING
 		return . || mover.throwing || mover.movement_type & checking
 	return TRUE
 
-/obj/structure/railing/corner/CanPass()
-	..()
-	return TRUE
-
 /obj/structure/railing/CheckExit(atom/movable/mover, turf/target)
 	..()
-	if(get_dir(loc, target) & dir)
+	if(get_dir(loc, mover) & dir)
 		var/checking = PHASING | FLYING | FLOATING
 		return !density || mover.throwing || mover.movement_type & checking || mover.move_force >= MOVE_FORCE_EXTREMELY_STRONG
+	return TRUE
+
+/obj/structure/railing/corner/CanPass()
+	..()
 	return TRUE
 
 /obj/structure/railing/corner/CheckExit()
