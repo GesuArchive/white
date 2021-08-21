@@ -918,7 +918,7 @@
 "eL" = (
 /obj/structure/table/wood/bar,
 /obj/item/stack/sheet/glass/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/multitool,
 /turf/open/floor/wood,
@@ -3817,8 +3817,8 @@
 /area/centcom/supplypod/loading/two)
 "wN" = (
 /obj/structure/rack,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/machinery/light/directional/north,

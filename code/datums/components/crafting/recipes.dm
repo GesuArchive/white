@@ -433,7 +433,7 @@
 /datum/crafting_recipe/improvised_pneumatic_cannon //Pretty easy to obtain but
 	name = "Pneumatic Cannon"
 	result = /obj/item/pneumatic_cannon/ghetto
-	tools = list(TOOL_WELDER, TOOL_WRENCH)
+	tool_behaviors = list(TOOL_WELDER, TOOL_WRENCH)
 	reqs = list(/obj/item/stack/sheet/iron = 4,
 				/obj/item/stack/package_wrap = 8,
 				/obj/item/pipe = 2)

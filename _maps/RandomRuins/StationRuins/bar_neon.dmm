@@ -372,7 +372,7 @@
 /turf/open/floor/wood,
 /area/crew_quarters/bar)
 "bg" = (
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/cable_coil,
 /obj/item/flashlight/lamp,

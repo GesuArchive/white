@@ -27,8 +27,8 @@
 "m" = (
 /obj/effect/turf_decal/delivery,
 /obj/structure/closet/crate,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/effect/spawner/lootdrop/ruinloot/basic,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)

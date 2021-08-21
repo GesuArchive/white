@@ -1202,7 +1202,7 @@
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "akZ" = (
-/obj/item/stack/sheet/metal/five,
+/obj/item/stack/sheet/iron/five,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "ala" = (
@@ -6605,8 +6605,8 @@
 /area/chapel/main)
 "aCT" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
@@ -13930,7 +13930,7 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/clothing/glasses/welding,
 /obj/item/storage/toolbox/mechanical{
 	pixel_x = -2;
@@ -15593,9 +15593,9 @@
 "bpT" = (
 /obj/structure/table,
 /obj/item/storage/belt/utility,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass{
 	amount = 20;
 	pixel_x = -3;
@@ -22391,8 +22391,8 @@
 /area/engine/atmos)
 "bSG" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = 2;
 	pixel_y = 2
 	},
@@ -24636,7 +24636,7 @@
 	pixel_x = -6;
 	pixel_y = 8
 	},
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = 4;
 	pixel_y = -1
 	},
@@ -26790,7 +26790,7 @@
 /area/engine/engine_smes)
 "ciX" = (
 /obj/structure/closet/crate,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/rods/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/electronics/airlock,
@@ -27227,7 +27227,7 @@
 	},
 /obj/structure/cable,
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stock_parts/cell/emproof{
 	pixel_x = 6;
@@ -28156,8 +28156,8 @@
 /area/engine/storage)
 "cqN" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/plasteel{
 	amount = 10
 	},
@@ -30289,9 +30289,9 @@
 	},
 /obj/structure/table,
 /obj/item/storage/belt/utility,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass{
 	amount = 20;
 	pixel_x = -3;
@@ -31939,11 +31939,11 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = -5;
 	pixel_y = 2
 	},
@@ -35924,7 +35924,7 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/mineral/plasma,
 /obj/machinery/firealarm{
 	pixel_y = 24
@@ -40236,7 +40236,7 @@
 /obj/machinery/firealarm{
 	pixel_y = 26
 	},
-/obj/item/stack/sheet/metal/five,
+/obj/item/stack/sheet/iron/five,
 /obj/item/circuitboard/machine/paystand,
 /obj/item/stack/cable_coil/five,
 /obj/effect/turf_decal/tile/brown{
@@ -40255,7 +40255,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = 2;
 	pixel_y = 2
 	},
@@ -40345,7 +40345,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty{
 	pixel_x = 4;
 	pixel_y = 4
@@ -41463,7 +41463,7 @@
 /area/maintenance/starboard/aft)
 "rzp" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /turf/open/floor/plating,
 /area/maintenance/department/medical/morgue)
@@ -42180,7 +42180,7 @@
 /area/science/research)
 "svb" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = 2;
 	pixel_y = 2
 	},
@@ -43254,8 +43254,8 @@
 	c_tag = "Auxiliary Tool Storage"
 	},
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/storage/box/lights/mixed,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4

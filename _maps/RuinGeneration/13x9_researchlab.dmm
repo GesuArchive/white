@@ -239,7 +239,7 @@
 /area/ruin/unpowered)
 "C" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/effect/turf_decal/stripes/end,
 /obj/item/clothing/glasses/welding,
 /turf/open/floor/plasteel,

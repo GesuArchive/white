@@ -500,7 +500,7 @@
 /area/ruin/space/has_grav/austation/eng)
 "aU" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 30
 	},
 /obj/item/stack/sheet/glass{
@@ -1632,7 +1632,7 @@
 /area/ruin/space/has_grav/austation/med)
 "dg" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/wrench,
 /obj/item/clothing/glasses/welding,
@@ -3587,7 +3587,7 @@
 /area/ruin/space/has_grav/austation/maint)
 "gU" = (
 /obj/structure/rack,
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 30
 	},
 /obj/item/stack/package_wrap,
@@ -3744,7 +3744,7 @@
 /obj/item/stack/sheet/cloth/ten,
 /obj/item/stack/sheet/cloth/ten,
 /obj/item/stack/sheet/cloth/ten,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/gps,
 /obj/item/crowbar,
 /obj/item/wrench,
@@ -4479,7 +4479,7 @@
 "iO" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/toolbox/electrical,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stock_parts/cell/high,
 /obj/machinery/cell_charger,

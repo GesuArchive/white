@@ -216,7 +216,7 @@
 /area/engine/supermatter)
 "iK" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = 2;
 	pixel_y = 2
 	},
@@ -639,7 +639,7 @@
 /area/engine/engineering)
 "Cl" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = -5;
 	pixel_y = 2
 	},

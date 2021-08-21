@@ -275,7 +275,7 @@
 /area/security/execution/transfer)
 "aO" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = 2;
 	pixel_y = 2
 	},
@@ -5918,7 +5918,7 @@
 /area/maintenance/bottom_station_maints/north)
 "rv" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /obj/item/storage/box/bodybags,
 /obj/item/pen,
 /obj/machinery/firealarm{
@@ -8749,7 +8749,7 @@
 /area/security/prison/safe)
 "zk" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/clothing/head/welding,
 /obj/item/stack/sheet/mineral/plasma{
@@ -11584,7 +11584,7 @@
 	},
 /obj/machinery/camera/autoname,
 /obj/structure/rack,
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = -4
 	},
 /turf/open/floor/plasteel,
@@ -11785,7 +11785,7 @@
 /area/maintenance/bottom_station_maints)
 "IO" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = 2;
 	pixel_y = 2
 	},
@@ -14176,7 +14176,7 @@
 /area/maintenance/bottom_station_maints/north)
 "PQ" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = -5;
 	pixel_y = 2
 	},
@@ -15316,7 +15316,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/crowbar,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,

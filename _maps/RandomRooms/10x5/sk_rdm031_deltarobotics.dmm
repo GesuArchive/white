@@ -58,7 +58,7 @@
 /area/template_noop)
 "j" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/assembly/flash/handheld,
 /obj/effect/turf_decal/bot,

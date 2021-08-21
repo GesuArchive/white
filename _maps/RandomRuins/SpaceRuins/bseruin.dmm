@@ -201,8 +201,8 @@
 /obj/structure/closet/crate,
 /obj/item/stack/rods/fifty,
 /obj/item/pipe_dispenser,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle)

@@ -53,7 +53,7 @@
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "p" = (
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "q" = (

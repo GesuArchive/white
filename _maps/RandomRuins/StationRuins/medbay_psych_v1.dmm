@@ -2585,12 +2585,12 @@
 	dir = 4;
 	pixel_x = -23
 	},
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = 2;
 	pixel_y = 2
 	},
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty{
 	pixel_x = -4;
 	pixel_y = 3

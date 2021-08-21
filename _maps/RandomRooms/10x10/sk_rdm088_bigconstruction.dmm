@@ -25,7 +25,7 @@
 "f" = (
 /obj/structure/window/reinforced/spawner,
 /obj/structure/rack,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /turf/open/floor/plating,
 /area/template_noop)
 "g" = (

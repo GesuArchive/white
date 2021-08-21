@@ -32,7 +32,7 @@
 /area/template_noop)
 "g" = (
 /obj/structure/closet,
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 34
 	},
 /obj/item/extinguisher/mini,

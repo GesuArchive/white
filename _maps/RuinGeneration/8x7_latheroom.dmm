@@ -4,7 +4,7 @@
 /area/ruin/unpowered)
 "b" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "e" = (

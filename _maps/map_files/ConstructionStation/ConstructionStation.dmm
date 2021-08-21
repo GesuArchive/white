@@ -105,7 +105,7 @@
 /area/tcommsat/oldaisat)
 "bw" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty{
 	pixel_x = 2;
 	pixel_y = -2
@@ -582,8 +582,8 @@
 /area/engine/gravity_generator)
 "hH" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = -2;
 	pixel_y = 2
 	},
@@ -2513,7 +2513,7 @@
 /area/construction/storage_wing)
 "GA" = (
 /obj/structure/rack,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/clothing/gloves/color/fyellow/old,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/plating,

@@ -589,8 +589,8 @@
 /area/science/lab)
 "apo" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/plasteel/twenty,
@@ -1472,8 +1472,8 @@
 /area/engine/atmos)
 "aWR" = (
 /obj/structure/rack,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/plasteel/fifty,
@@ -2466,7 +2466,7 @@
 /area/hallway/primary/starboard)
 "bOv" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/clothing/glasses/welding,
 /obj/item/wrench,
@@ -2474,7 +2474,7 @@
 /area/science/lab)
 "bOE" = (
 /obj/structure/closet/crate,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 30
@@ -5160,9 +5160,9 @@
 /area/science/research)
 "edZ" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/plasteel{
@@ -6531,7 +6531,7 @@
 /area/crew_quarters/dorms)
 "frG" = (
 /obj/structure/closet/crate,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/rods{
 	amount = 25
 	},
@@ -12886,7 +12886,7 @@
 /area/tcommsat/server)
 "kfM" = (
 /obj/structure/closet,
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 30
 	},
 /obj/item/stack/sheet/glass{
@@ -15445,8 +15445,8 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/grenade/chem_grenade/smart_metal_foam,
 /obj/item/grenade/chem_grenade/smart_metal_foam,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
@@ -19776,7 +19776,7 @@
 /area/crew_quarters/dorms)
 "pLT" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = -1;
 	pixel_y = 1
 	},

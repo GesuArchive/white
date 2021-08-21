@@ -2238,7 +2238,7 @@
 	},
 /area/awaymission/chilly/surface)
 "gj" = (
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/white/side{
 	dir = 8
@@ -2647,7 +2647,7 @@
 /obj/machinery/light/broken{
 	dir = 8
 	},
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 8
@@ -2979,7 +2979,7 @@
 /area/awaymission/chilly/facility)
 "im" = (
 /obj/effect/turf_decal/dust,
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /obj/effect/decal/remains/human,
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
@@ -3138,7 +3138,7 @@
 "iK" = (
 /obj/structure/lattice,
 /obj/effect/turf_decal/dust,
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /obj/effect/turf_decal/weather/side/corner{
 	dir = 5
 	},
@@ -3582,7 +3582,7 @@
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility5)
 "jS" = (
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility3)
@@ -4147,7 +4147,7 @@
 /area/awaymission/chilly/surface)
 "lz" = (
 /obj/effect/turf_decal/dust,
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /obj/structure/lattice,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
@@ -4486,7 +4486,7 @@
 /area/awaymission/chilly/mountain)
 "mz" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = -1;
 	pixel_y = 1
 	},
@@ -5409,7 +5409,7 @@
 "pk" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/table_frame,
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility2)
 "pl" = (
@@ -6386,7 +6386,7 @@
 "rV" = (
 /obj/structure/grille/broken,
 /obj/item/stack/rods,
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
@@ -6440,7 +6440,7 @@
 /area/awaymission/chilly/gatewaystart)
 "sd" = (
 /obj/structure/closet/crate,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 9
 	},
@@ -7059,7 +7059,7 @@
 /area/awaymission/chilly/cave)
 "tK" = (
 /obj/effect/turf_decal/dust,
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
 "tL" = (
@@ -8936,7 +8936,7 @@
 "zc" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/dust,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/rods/fifty,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
@@ -9453,7 +9453,7 @@
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/ntcargotrain)
 "AD" = (
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility3)
@@ -9714,7 +9714,7 @@
 /area/awaymission/chilly/gatewaystart)
 "Bn" = (
 /obj/effect/turf_decal/dust,
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "Bo" = (
@@ -11712,7 +11712,7 @@
 /turf/open/floor/plasteel/white/side,
 /area/awaymission/chilly/facility2)
 "GW" = (
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/plating/rust,
@@ -12173,7 +12173,7 @@
 /obj/machinery/light/broken{
 	dir = 4
 	},
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /obj/item/stack/tile/plasteel,
 /obj/structure/lattice,
 /turf/open/floor/plating,
@@ -15119,7 +15119,7 @@
 /turf/open/floor/plating,
 /area/awaymission/chilly/gatewaystart)
 "QT" = (
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /obj/effect/turf_decal/dust,
 /turf/open/floor/material,
 /area/awaymission/chilly/facility3)
@@ -15531,7 +15531,7 @@
 "Sc" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/table,
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "Sd" = (
@@ -17676,7 +17676,7 @@
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
 "XZ" = (
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/remains/human,
@@ -18047,7 +18047,7 @@
 "YZ" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/glass,
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility2)
 "Za" = (
@@ -18062,7 +18062,7 @@
 	dir = 8;
 	pixel_x = 5
 	},
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/weather/side{
 	dir = 4

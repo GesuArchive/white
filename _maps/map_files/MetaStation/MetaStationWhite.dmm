@@ -1884,7 +1884,7 @@
 	},
 /obj/structure/table/reinforced,
 /obj/item/storage/box/lights/mixed,
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 30
 	},
 /obj/item/radio{
@@ -8119,15 +8119,15 @@
 /area/hallway/primary/port)
 "avI" = (
 /obj/structure/closet/crate,
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/stack/sheet/metal/fifty{
+/obj/item/stack/sheet/iron/fifty{
 	pixel_x = 2;
 	pixel_y = 2
 	},
@@ -12553,9 +12553,9 @@
 /area/engine/engineering)
 "aGR" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
@@ -14974,7 +14974,7 @@
 /area/engine/engineering)
 "aNo" = (
 /obj/structure/closet/crate,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/rods/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/electronics/airlock,
@@ -16832,8 +16832,8 @@
 /area/construction/mining/aux_base)
 "aRF" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/pipe_dispenser,
 /obj/machinery/light{
@@ -22158,7 +22158,7 @@
 /obj/machinery/firealarm{
 	pixel_y = 26
 	},
-/obj/item/stack/sheet/metal/five,
+/obj/item/stack/sheet/iron/five,
 /obj/item/radio/intercom{
 	pixel_x = 28;
 	pixel_y = 5
@@ -22296,8 +22296,8 @@
 /area/storage/tools)
 "bdS" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/storage/box/lights/mixed,
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
@@ -30362,7 +30362,7 @@
 /area/crew_quarters/theatre)
 "byO" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 35
@@ -30373,8 +30373,8 @@
 /area/ai_monitored/storage/satellite)
 "byZ" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/grenade/chem_grenade/smart_metal_foam,
 /obj/item/grenade/chem_grenade/smart_metal_foam,
 /obj/machinery/airalarm{
@@ -33814,7 +33814,7 @@
 /obj/item/stack/sheet/rglass{
 	amount = 50
 	},
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/rods/fifty,
 /obj/item/storage/toolbox/emergency,
 /obj/item/flashlight,
@@ -34281,7 +34281,7 @@
 /obj/item/stack/sheet/rglass{
 	amount = 50
 	},
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/storage/toolbox/emergency,
 /obj/item/flashlight,
 /obj/structure/window/reinforced,
@@ -36021,8 +36021,8 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "bOo" = (
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/structure/table,
 /obj/item/stack/sheet/plasteel{
 	amount = 10
@@ -41117,7 +41117,7 @@
 /area/maintenance/port/aft)
 "cbA" = (
 /obj/structure/closet,
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 34
 	},
 /obj/item/extinguisher/mini,
@@ -48365,8 +48365,8 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/construction/plumbing,
 /obj/item/construction/plumbing,
 /turf/open/floor/plasteel/white,
@@ -49236,7 +49236,7 @@
 	pixel_x = 3;
 	pixel_y = -4
 	},
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -58793,7 +58793,7 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/stack/sheet/metal/twenty,
+/obj/item/stack/sheet/iron/twenty,
 /turf/open/floor/plasteel,
 /area/maintenance/port/aft)
 "fJp" = (
@@ -60094,7 +60094,7 @@
 /obj/item/stack/sheet/glass{
 	amount = 30
 	},
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 30
 	},
 /obj/item/stack/cable_coil,
@@ -64463,9 +64463,9 @@
 /obj/structure/table/reinforced,
 /obj/machinery/power/apc/auto_name/east,
 /obj/structure/cable,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/circuitboard/mecha/ripley/main,
 /obj/item/circuitboard/mecha/ripley/peripherals,
@@ -70712,7 +70712,7 @@
 /area/hallway/primary/starboard)
 "oXi" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 10
 	},
 /obj/item/electropack,
@@ -76637,7 +76637,7 @@
 "tnI" = (
 /obj/structure/table,
 /obj/item/stack/sheet/glass/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /turf/open/floor/plasteel/dark,
 /area/engine/atmos)
 "tnM" = (
@@ -80506,7 +80506,7 @@
 /obj/effect/turf_decal/siding{
 	dir = 8
 	},
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/wrench,
 /obj/item/clothing/glasses/welding,

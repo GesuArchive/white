@@ -397,7 +397,7 @@
 /turf/open/floor/mineral/titanium,
 /area/shuttle/abandoned/cargo)
 "bh" = (
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/abandoned/cargo)
@@ -865,7 +865,7 @@
 /obj/structure/closet/crate/engineering,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/toolbox/mechanical,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/rods/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /turf/open/floor/plating,

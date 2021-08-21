@@ -989,7 +989,7 @@
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/flashlight/lamp/green,
 /obj/item/stack/cable_coil,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/flashlight/lamp,
 /obj/machinery/light/small{
 	dir = 8

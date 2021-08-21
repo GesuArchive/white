@@ -14,7 +14,7 @@
 "d" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/electrical,
-/obj/item/stack/sheet/metal/five,
+/obj/item/stack/sheet/iron/five,
 /turf/open/floor/plating,
 /area/template_noop)
 "e" = (

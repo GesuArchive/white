@@ -924,7 +924,7 @@
 "adG" = (
 /obj/item/stack/rods/fifty,
 /obj/item/stack/sheet/glass/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/target,
 /obj/item/target/syndicate,
 /obj/item/target/alien,
@@ -11054,7 +11054,7 @@
 /area/maintenance/port/fore)
 "bIf" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/package_wrap,
 /obj/machinery/light/directional/south,
@@ -37812,7 +37812,7 @@
 "emM" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 30
 	},
 /obj/item/stack/sheet/glass{
@@ -43895,7 +43895,7 @@
 "fXn" = (
 /obj/machinery/light/directional/north,
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/plasteel/fifty,
 /obj/machinery/camera{
@@ -51229,7 +51229,7 @@
 /area/security/prison)
 "ieW" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass{
 	amount = 30
 	},
@@ -54784,7 +54784,7 @@
 /obj/item/stack/sheet/glass{
 	amount = 30
 	},
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 30
 	},
 /obj/item/stack/cable_coil,
@@ -57974,7 +57974,7 @@
 /area/engine/atmos)
 "kbN" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/five,
+/obj/item/stack/sheet/iron/five,
 /obj/item/circuitboard/machine/paystand,
 /obj/effect/turf_decal/tile/brown{
 	dir = 4
@@ -62121,7 +62121,7 @@
 /area/engine/engine_room/external)
 "lgt" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 30
 	},
 /obj/item/stack/sheet/glass/fifty,
@@ -65457,7 +65457,7 @@
 /area/tcommsat/server)
 "mcx" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/wrench,
 /obj/item/clothing/glasses/welding,
@@ -69009,7 +69009,7 @@
 /area/quartermaster/warehouse)
 "nbc" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/rods/fifty,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment,
@@ -73829,7 +73829,7 @@
 /area/space/nearstation)
 "ojg" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/assembly/flash/handheld,
 /obj/effect/turf_decal/bot,
@@ -76933,7 +76933,7 @@
 "oVN" = (
 /obj/item/stack/rods/fifty,
 /obj/item/stack/sheet/glass/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/target,
 /obj/item/target/syndicate,
 /obj/item/target/alien,
@@ -77526,9 +77526,9 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/aft)
 "ped" = (
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/structure/table/reinforced,
 /obj/machinery/requests_console/directional/north{
@@ -78175,8 +78175,8 @@
 /area/hallway/primary/aft)
 "pnH" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/construction/plumbing,
 /obj/item/construction/plumbing,
 /obj/machinery/light/directional/south,
@@ -83580,7 +83580,7 @@
 /area/hallway/primary/fore)
 "qLe" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 30
 	},
 /obj/item/stack/sheet/glass{
@@ -85070,7 +85070,7 @@
 	pixel_x = 7;
 	pixel_y = 3
 	},
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
 /area/engine/engine_room/external)
@@ -90262,7 +90262,7 @@
 /area/crew_quarters/toilet/auxiliary)
 "sAj" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 30
 	},
 /obj/item/stack/sheet/glass{
@@ -93662,7 +93662,7 @@
 /area/library)
 "tte" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 20
@@ -94379,8 +94379,8 @@
 /area/crew_quarters/fitness/recreation)
 "tEh" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/grenade/chem_grenade/smart_metal_foam,
 /obj/item/grenade/chem_grenade/smart_metal_foam,
 /obj/effect/turf_decal/bot,
@@ -95012,8 +95012,8 @@
 /area/chapel/office)
 "tLk" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/crowbar,
@@ -95842,7 +95842,7 @@
 /turf/open/floor/plasteel,
 /area/hydroponics)
 "tVn" = (
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/wrench,
 /obj/structure/table/reinforced,
@@ -99293,7 +99293,7 @@
 "uTr" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light/small/directional/north,
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 30
 	},
 /obj/item/stack/sheet/glass{
@@ -102600,7 +102600,7 @@
 /area/quartermaster/miningoffice)
 "vRV" = (
 /obj/structure/closet/crate,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/rods{
 	amount = 25
 	},
@@ -109469,7 +109469,7 @@
 /area/science/xenobiology)
 "xOe" = (
 /obj/structure/rack,
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 30
 	},
 /obj/item/stack/package_wrap,

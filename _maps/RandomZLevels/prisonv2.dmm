@@ -3033,7 +3033,7 @@
 /obj/structure/table,
 /obj/item/extinguisher,
 /obj/item/extinguisher,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /turf/open/floor/trot,
 /area/prisonv2)
