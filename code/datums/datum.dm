@@ -36,12 +36,6 @@
 	var/list/comp_lookup
 	/// Lazy associated list in the structure of `signals:proctype` that are run when the datum receives that signal
 	var/list/list/datum/callback/signal_procs
-	/**
-	  * Is this datum capable of sending signals?
-	  *
-	  * Set to true when a signal has been registered
-	  */
-	var/signal_enabled = FALSE
 
 	/// Datum level flags
 	var/datum_flags = NONE
@@ -57,9 +51,13 @@
 	*/
 	var/list/cooldowns
 
-#ifdef TESTING
+#ifdef REFERENCE_TRACKING
 	var/running_find_references
 	var/last_find_references = 0
+	#ifdef REFERENCE_TRACKING_DEBUG
+	///Stores info about where refs are found, used for sanity checks and testing
+	var/list/found_refs
+	#endif
 #endif
 
 #ifdef DATUMVAR_DEBUGGING_MODE
@@ -95,7 +93,7 @@
 	SHOULD_CALL_PARENT(TRUE)
 	tag = null
 	datum_flags &= ~DF_USE_TAG //In case something tries to REF us
-	weak_reference = null	//ensure prompt GCing of weakref.
+	weak_reference = null //ensure prompt GCing of weakref.
 
 	var/list/timers = active_timers
 	active_timers = null
@@ -105,9 +103,13 @@
 			continue
 		qdel(timer)
 
-	//BEGIN: ECS SHIT
-	signal_enabled = FALSE
+	#ifdef REFERENCE_TRACKING
+	#ifdef REFERENCE_TRACKING_DEBUG
+	found_refs = null
+	#endif
+	#endif
 
+	//BEGIN: ECS SHIT
 	var/list/dc = datum_components
 	if(dc)
 		var/all_components = dc[/datum/component]
@@ -120,6 +122,14 @@
 			qdel(C, FALSE, TRUE)
 		dc.Cut()
 
+	clear_signal_refs()
+	//END: ECS SHIT
+
+	return QDEL_HINT_QUEUE
+
+///Only override this if you know what you're doing. You do not know what you're doing
+///This is a threat
+/datum/proc/clear_signal_refs()
 	var/list/lookup = comp_lookup
 	if(lookup)
 		for(var/sig in lookup)
@@ -135,9 +145,6 @@
 
 	for(var/target in signal_procs)
 		UnregisterSignal(target, signal_procs[target])
-	//END: ECS SHIT
-
-	return QDEL_HINT_QUEUE
 
 #ifdef DATUMVAR_DEBUGGING_MODE
 /datum/proc/save_vars()
@@ -171,7 +178,7 @@
 	CRASH("Attempted to serialize datum [src] of type [type] without serialize_list being implemented!")
 
 ///Accepts a LIST from deserialize_datum. Should return src or another datum.
-/datum/proc/deserialize_list(list/input, list/options)
+/datum/proc/deserialize_list(json, list/options)
 	CRASH("Attempted to deserialize datum [src] of type [type] without deserialize_list being implemented!")
 
 ///Serializes into JSON. Does not encode type.
@@ -184,8 +191,8 @@
 
 ///Deserializes from JSON. Does not parse type.
 /datum/proc/deserialize_json(list/input, list/options)
-	var/list/jsonlist = r_json_decode(input)
-	. = deserialize_list(jsonlist, options)
+	var/list/jsonlist = json_decode(input)
+	. = deserialize_list(jsonlist)
 	if(!istype(., /datum))
 		. = null
 
@@ -203,7 +210,7 @@
 	if(!islist(jsonlist))
 		if(!istext(jsonlist))
 			CRASH("Invalid JSON")
-		jsonlist = r_json_decode(jsonlist)
+		jsonlist = json_decode(jsonlist)
 		if(!islist(jsonlist))
 			CRASH("Invalid JSON")
 	if(!jsonlist["DATUM_TYPE"])
@@ -222,7 +229,7 @@
 				return
 		else if(!ispath(jsonlist["DATUM_TYPE"], target_type))
 			return
-	var/typeofdatum = jsonlist["DATUM_TYPE"]			//BYOND won't directly read if this is just put in the line below, and will instead runtime because it thinks you're trying to make a new list?
+	var/typeofdatum = jsonlist["DATUM_TYPE"] //BYOND won't directly read if this is just put in the line below, and will instead runtime because it thinks you're trying to make a new list?
 	var/datum/D = new typeofdatum
 	var/datum/returned = D.deserialize_list(jsonlist, options)
 	if(!istype(returned, /datum))
