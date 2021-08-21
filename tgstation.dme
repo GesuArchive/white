@@ -531,7 +531,6 @@
 #include "code\datums\components\electrified_buckle.dm"
 #include "code\datums\components\embedded.dm"
 #include "code\datums\components\explodable.dm"
-#include "code\datums\components\footstep.dm"
 #include "code\datums\components\forensics.dm"
 #include "code\datums\components\fullauto.dm"
 #include "code\datums\components\gps.dm"
