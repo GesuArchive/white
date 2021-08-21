@@ -27,6 +27,10 @@
 
 //Finds connection points on a template without actually spawning it
 /datum/map_template/ruin_part/proc/find_connection_points()
+
+	if(!cached_map)
+		CRASH("Map [file_name] is fucking retarded, damn")
+
 	var/key_len = cached_map.key_len
 
 	var/list/modelCache = cached_map.build_cache()
