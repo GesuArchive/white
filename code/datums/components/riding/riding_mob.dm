@@ -220,14 +220,14 @@
 
 	if(!AM.buckle_lying) // rider is vertical, must be piggybacking
 		if(dir == SOUTH)
-			AM.layer = MOB_ABOVE_PIGGYBACK_LAYER
+			AM.layer = ABOVE_MOB_LAYER
 		else
-			AM.layer = MOB_BELOW_PIGGYBACK_LAYER
+			AM.layer = OBJ_LAYER
 	else  // laying flat, we must be firemanning the rider
 		if(dir == NORTH)
-			AM.layer = MOB_BELOW_PIGGYBACK_LAYER
+			AM.layer = OBJ_LAYER
 		else
-			AM.layer = MOB_ABOVE_PIGGYBACK_LAYER
+			AM.layer = ABOVE_MOB_LAYER
 
 /datum/component/riding/creature/human/get_offsets(pass_index)
 	var/mob/living/carbon/human/H = parent
@@ -261,9 +261,9 @@
 /datum/component/riding/creature/cyborg/handle_vehicle_layer(dir)
 	var/atom/movable/robot_parent = parent
 	if(dir == SOUTH)
-		robot_parent.layer = MOB_ABOVE_PIGGYBACK_LAYER
+		robot_parent.layer = ABOVE_MOB_LAYER
 	else
-		robot_parent.layer = MOB_BELOW_PIGGYBACK_LAYER
+		robot_parent.layer = OBJ_LAYER
 
 /datum/component/riding/creature/cyborg/get_offsets(pass_index) // list(dir = x, y, layer)
 	return list(TEXT_NORTH = list(0, 4), TEXT_SOUTH = list(0, 4), TEXT_EAST = list(-6, 3), TEXT_WEST = list( 6, 3))
