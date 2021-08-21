@@ -1,4 +1,5 @@
-#define GAS_RECIPE_REACTIONS_EXCLUDED_RECIPE_TYPES list(/datum/gas_recipe/crystallizer)
+#define GAS_RECIPE_REACTIONS_EXCLUDED_RECIPE_TYPES list(/datum/gas_recipe/crystallizer, /datum/gas_recipe/crystallizer/fuel_pellet)
+//	/datum/gas_recipe/crystallizer/fuel_pellet_advanced
 
 /proc/get_gas_recipe_reactions()
 	. = list()
