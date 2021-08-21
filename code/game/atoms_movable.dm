@@ -367,14 +367,13 @@
  * if you want something to move onto a tile with a beartrap or recycler or tripmine or mouse without that object knowing about it at all, use this
  * most of the time you want forceMove()
  */
-/atom/movable/proc/abstract_move(atom/new_loc) //хуйню какуета придумали опять пошли они нахуй
-	forceMove(new_loc)
 /*
+/atom/movable/proc/abstract_move(atom/new_loc)
 	var/atom/old_loc = loc
 	move_stacks++
 	loc = new_loc
 	Moved(old_loc)
-	*/
+*/
 
 
 ////////////////////////////////////////
