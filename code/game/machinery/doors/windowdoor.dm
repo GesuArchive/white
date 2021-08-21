@@ -107,12 +107,12 @@
 		do_animate("deny")
 	return
 
-/obj/machinery/door/window/CanAllowThrough(atom/movable/mover, border_dir)
+/obj/machinery/door/window/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
 	if(.)
 		return
 
-	if(border_dir == dir)
+	if(get_dir(loc, target) == dir)
 		return FALSE
 
 	if(istype(mover, /obj/structure/window))
