@@ -134,7 +134,9 @@
 	M.attacked_by(src, user)
 
 	log_combat(user, M, "атакует", src.name, "(INTENT: [uppertext(user.a_intent)]) (DAMTYPE: [uppertext(damtype)])")
-	add_fingerprint(user)
+
+	if(!QDELETED(src))
+		add_fingerprint(user)
 
 /// The equivalent of [/obj/item/proc/attack] but for alternate attacks, AKA right clicking
 /obj/item/proc/attack_secondary(mob/living/victim, mob/living/user, params)
