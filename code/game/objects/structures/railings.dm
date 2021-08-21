@@ -80,7 +80,7 @@
 
 /obj/structure/railing/CheckExit(atom/movable/mover, turf/target)
 	..()
-	if(get_dir(loc, mover) & dir)
+	if(get_dir(loc, target) & dir)
 		var/checking = PHASING | FLYING | FLOATING
 		return !density || mover.throwing || mover.movement_type & checking || mover.move_force >= MOVE_FORCE_EXTREMELY_STRONG
 	return TRUE
