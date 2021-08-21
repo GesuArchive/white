@@ -44,13 +44,13 @@ This component is used in vat growing to swab for microbiological samples which 
 /datum/component/swabbing/proc/examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 	if(LAZYLEN(swabbed_items))
-		examine_list += span_nicegreen("There is a microbiological sample on [parent]!")
-		examine_list += "[span_notice("You can see the following micro-organisms:")]\n"
+		examine_list += span_nicegreen("\nThere is a microbiological sample on [parent]!")
+		examine_list += "\n[span_notice("You can see the following micro-organisms:")]"
 		for(var/i in swabbed_items)
 			var/datum/biological_sample/samp = i
 			for(var/organism in samp.micro_organisms)
 				var/datum/micro_organism/MO = organism
-				examine_list += MO.get_details()
+				examine_list += "\n"+MO.get_details()
 
 ///Ran when you attack an object, tries to get a swab of the object. if a swabbable surface is found it will run behavior and hopefully
 /datum/component/swabbing/proc/try_to_swab(datum/source, atom/target, mob/user, params)

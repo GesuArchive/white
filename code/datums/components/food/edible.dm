@@ -149,18 +149,18 @@ Behavior that's still missing from this component that original food items had t
 	SIGNAL_HANDLER
 
 	if(microwaved_type)
-		examine_list += "[parent] could be <b>microwaved</b> into [initial(microwaved_type.name)]!"
+		examine_list += "\n[parent] можно засунуть в <b>микроволновку</b>!"
 
 	if(!(food_flags & FOOD_IN_CONTAINER))
 		switch (bitecount)
 			if (0)
 				return
 			if(1)
-				examine_list += "[parent] was bitten by someone!"
+				examine_list += "\n[parent] был кем-то покусан!"
 			if(2,3)
-				examine_list += "[parent] was bitten [bitecount] times!"
+				examine_list += "\n[parent] был покусан [bitecount] раз!"
 			else
-				examine_list += "[parent] was bitten multiple times!"
+				examine_list += "\n[parent] был покусан множество раз!"
 
 /datum/component/edible/proc/UseFromHand(obj/item/source, mob/living/M, mob/living/user)
 	SIGNAL_HANDLER
@@ -194,7 +194,7 @@ Behavior that's still missing from this component that original food items had t
 	original_atom.reagents.trans_to(this_food, reagents_for_slice)
 
 	if(original_atom.name != initial(original_atom.name))
-		this_food.name = "slice of [original_atom.name]"
+		this_food.name = "кусочек [original_atom.name]"
 	if(original_atom.desc != initial(original_atom.desc))
 		this_food.desc = "[original_atom.desc]"
 

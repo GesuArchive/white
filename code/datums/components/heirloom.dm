@@ -15,10 +15,10 @@
 	SIGNAL_HANDLER
 
 	if(user.mind == owner)
-		examine_list += span_notice("It is your precious [family_name] family heirloom. Keep it safe!")
+		examine_list += span_notice("\nА это моя семейная реликвия. Главное - не потерять!")
 	else if(isobserver(user))
-		examine_list += span_notice("It is the [family_name] family heirloom, belonging to [owner].")
+		examine_list += span_notice("\nЭто реликвия семьи [family_name], принадлежащая [owner].")
 	else
 		var/datum/antagonist/obsessed/creeper = user.mind.has_antag_datum(/datum/antagonist/obsessed)
 		if(creeper && creeper.trauma.obsession == owner)
-			examine_list += span_nicegreen("This must be [owner]'s family heirloom! It smells just like them...")
+			examine_list += span_nicegreen("\nПохоже, это семейная реликвия [owner]! Пахнет удивительно похоже...")
