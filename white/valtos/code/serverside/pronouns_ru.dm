@@ -19,9 +19,6 @@
 /datum/proc/ru_a(temp_gender)
 	. = ""
 
-/datum/proc/ru_a(temp_gender)
-	. = ""
-
 /datum/proc/ru_sya(temp_gender = null, include_l = FALSE)
 	. = "ся"
 	if(include_l)
