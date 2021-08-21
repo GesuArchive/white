@@ -173,7 +173,6 @@
 "aL" = (
 /obj/structure/rack,
 /obj/machinery/door/window/brigdoor/westright,
-/obj/machinery/manned_turret,
 /turf/open/floor/trot,
 /area/prisonv2)
 "aM" = (
