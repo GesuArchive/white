@@ -19,6 +19,17 @@
 /datum/proc/ru_a(temp_gender)
 	. = ""
 
+/datum/proc/ru_a(temp_gender)
+	. = ""
+
+/datum/proc/ru_sya(temp_gender = null, include_l = FALSE)
+	. = "ся"
+	if(include_l)
+		. = "л" + .
+
+/datum/proc/ru_en(temp_gender = null)
+	. = "ен"
+
 //like clients, which do have gender.
 /client/ru_who(capitalized, temp_gender)
 	if(!temp_gender)
@@ -115,7 +126,7 @@
 		if(MALE)
 			. = ""
 
-/atom/proc/ru_sya(temp_gender = null, include_l = FALSE)
+/atom/ru_sya(temp_gender = null, include_l = FALSE)
 	if(!temp_gender)
 		temp_gender = gender
 
@@ -125,6 +136,15 @@
 		. = "ся"
 		if(include_l)
 			. = "л" + .
+
+/atom/ru_en(temp_gender = null)
+	if(!temp_gender)
+		temp_gender = gender
+
+	if(temp_gender == FEMALE)
+		. = "на"
+	else
+		. = "ен"
 
 //humans need special handling, because they can have their gender hidden
 /mob/living/carbon/human/ru_who(capitalized, temp_gender)

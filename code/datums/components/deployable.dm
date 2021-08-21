@@ -55,7 +55,7 @@
 			source.balloon_alert(user, "Не хватает места!")
 			return
 		new_direction = user.dir //Gets the direction for thing_to_be_deployed if there is a user
-		source.balloon_alert(user, "Разворачиваю...")
+		source.balloon_alert(user, "Разворачиваю [parent]...")
 		playsound(source, 'sound/items/ratchet.ogg', 50, TRUE)
 		if(!do_after(user, deploy_time))
 			return

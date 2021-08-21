@@ -149,18 +149,18 @@ Behavior that's still missing from this component that original food items had t
 	SIGNAL_HANDLER
 
 	if(microwaved_type)
-		examine_list += "\n[parent] можно засунуть в <b>микроволновку</b>!"
+		examine_list += "\n[capitalize(parent)] можно засунуть в <b>микроволновку</b>!"
 
 	if(!(food_flags & FOOD_IN_CONTAINER))
 		switch (bitecount)
 			if (0)
 				return
 			if(1)
-				examine_list += "\n[parent] был кем-то покусан!"
+				examine_list += "\n[capitalize(parent)] был[parent.ru_a()] кем-то покусан[parent.ru_a()]!"
 			if(2,3)
-				examine_list += "\n[parent] был покусан [bitecount] раз!"
+				examine_list += "\n[capitalize(parent)] был[parent.ru_a()] покусан[parent.ru_a()] [bitecount] раз!"
 			else
-				examine_list += "\n[parent] был покусан множество раз!"
+				examine_list += "\n[capitalize(parent)] был[parent.ru_a()] покусан[parent.ru_a()] множество раз!"
 
 /datum/component/edible/proc/UseFromHand(obj/item/source, mob/living/M, mob/living/user)
 	SIGNAL_HANDLER
