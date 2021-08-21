@@ -424,6 +424,16 @@
 	desc = "A poster advertising bounty hunting services. \"I hear you got a problem.\""
 	icon_state = "poster47"
 
+/obj/structure/sign/poster/contraband/jihad_pda
+	name = "ПДА - Бомба!"
+	desc = "Постер сообщает об опасности владения ПДА. Всё таки, ядерная бомба на груди не шутки! Правда, откуда в нашем забытом секторе вообще Синдикату взяться то..."
+	icon_state = "poster48"
+
+/obj/structure/sign/poster/contraband/tablet_is_friend
+	name = "Планшет - Друг!"
+	desc = "Постер хочет сообщить о том, что модульные планшеты полностью безопасны и возможно стоит использовать их. Ведь действительно, когда они вообще взрывались?"
+	icon_state = "poster49"
+
 /obj/structure/sign/poster/official
 	poster_item_name = "motivational poster"
 	poster_item_desc = "An official Nanotrasen-issued poster to foster a compliant and obedient workforce. It comes with state-of-the-art adhesive backing, for easy pinning to any vertical surface."
