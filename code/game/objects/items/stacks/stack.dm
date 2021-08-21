@@ -289,11 +289,12 @@
 				else
 					O.set_custom_materials(mats_per_unit, recipe.req_amount / recipe.res_amount)
 
+			if(isitem(O))
+				usr.put_in_hands(O)
+
 			if(QDELETED(O))
 				return //It's a stack and has already been merged
 
-			if(isitem(O))
-				usr.put_in_hands(O)
 			O.add_fingerprint(usr)
 
 			//BubbleWrap - so newly formed boxes are empty
