@@ -662,7 +662,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
 	build_path = /obj/item/holosign_creator/robot_seat/restaurant
-	category = list("Equipment")
+	category = list("Снаряжение")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/holosign/bar
@@ -672,7 +672,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
 	build_path = /obj/item/holosign_creator/robot_seat/bar
-	category = list("Equipment")
+	category = list("Снаряжение")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/oven_tray
@@ -682,5 +682,5 @@
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = 500)
 	build_path = /obj/item/plate/oven_tray
-	category = list("initial","Equipment")
+	category = list("initial","Снаряжение")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
