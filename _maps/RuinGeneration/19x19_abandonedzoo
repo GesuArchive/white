@@ -685,7 +685,6 @@
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/abandonedzoo)
 "Vt" = (
-/obj/structure/cable,
 /obj/effect/abstract/doorway_marker{
 	dir = 1
 	},
@@ -987,7 +986,7 @@ ac
 aa
 "}
 (15,1,1) = {"
-ac
+at
 am
 am
 ao
@@ -1029,7 +1028,7 @@ bU
 bW
 "}
 (17,1,1) = {"
-ac
+at
 ao
 an
 av
