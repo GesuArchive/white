@@ -132,7 +132,7 @@ GLOBAL_DATUM(ai_camera_room_landmark, /obj/effect/landmark/ai_multicam_room)
 
 /mob/camera/ai_eye/pic_in_pic/setLoc(turf/T)
 	if (T)
-		forceMove(T)
+		abstract_move(T)
 	else
 		moveToNullspace()
 	if(screen?.ai)

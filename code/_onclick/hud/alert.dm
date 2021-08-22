@@ -661,22 +661,23 @@ so as to remain in compliance with the most up-to-date laws."
 	var/action = NOTIFY_JUMP
 
 /atom/movable/screen/alert/notify_action/Click()
-	if(!usr || !usr.client || usr != owner)
+	. = ..()
+	if(!.)
 		return
 	if(!target)
 		return
-	var/mob/dead/observer/G = usr
-	if(!istype(G))
+	var/mob/dead/observer/ghost_owner = owner
+	if(!istype(ghost_owner))
 		return
 	switch(action)
 		if(NOTIFY_ATTACK)
-			target.attack_ghost(G)
+			target.attack_ghost(ghost_owner)
 		if(NOTIFY_JUMP)
-			var/turf/T = get_turf(target)
-			if(T && isturf(T))
-				G.forceMove(T)
+			var/turf/target_turf = get_turf(target)
+			if(target_turf && isturf(target_turf))
+				ghost_owner.abstract_move(target_turf)
 		if(NOTIFY_ORBIT)
-			G.ManualFollow(target)
+			ghost_owner.ManualFollow(target)
 
 //OBJECT-BASED
 
