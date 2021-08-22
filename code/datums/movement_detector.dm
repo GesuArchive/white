@@ -39,10 +39,6 @@
 /datum/movement_detector/proc/move_react(atom/movable/mover, atom/oldloc, direction)
 	SIGNAL_HANDLER
 
-	if(!listener)
-		qdel(src)
-		return
-
 	if(oldloc && !isturf(oldloc))
 		var/atom/target = oldloc
 		while(ismovable(target))
