@@ -327,7 +327,7 @@
 // /datum/component/mechanics_holder/proc/dropConnect(atom/comsig_target, atom/A, mob/user)
 
 /datum/component/mechanics_holder/proc/dropConnect(var/comsig_target, obj/over, mob/user)
-	SIGNAL_HANDLER_DOES_SLEEP
+	//SIGNAL_HANDLER_DOES_SLEEP
 
 	if(!over || over == parent || user.stat || !isliving(user) || (SEND_SIGNAL(over,_COMSIG_MECHCOMP_COMPATIBLE) != 1))  //ZeWaka: Fix for null.mechanics
 		return
@@ -387,7 +387,7 @@
 //We are in the scope of the receiver-component, our argument is the trigger
 //This feels weird/backwards, but it results in fewer SEND_SIGNALS & var/lists
 /datum/component/mechanics_holder/proc/link_devices(var/comsig_target, atom/trigger, mob/user)
-	SIGNAL_HANDLER_DOES_SLEEP
+	//SIGNAL_HANDLER_DOES_SLEEP
 
 	var/atom/receiver = parent
 	if(trigger in src.connected_outgoing)
@@ -443,7 +443,7 @@
 
 //If it's a multi-tool, let the user configure the device.
 /datum/component/mechanics_holder/proc/attackby(var/comsig_target, obj/item/W /*as obj*/ /*НАХУЯ???*/, mob/user)
-	SIGNAL_HANDLER_DOES_SLEEP
+	//SIGNAL_HANDLER_DOES_SLEEP
 
 	if(W.tool_behaviour != TOOL_MECHCOMP || !isliving(user) || user.stat)
 		return FALSE

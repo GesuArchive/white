@@ -9,6 +9,10 @@
 	drop_sound = 'sound/items/handling/component_drop.ogg'
 	pickup_sound =  'sound/items/handling/component_pickup.ogg'
 
+	var/static/list/holder_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/on_entered,
+	)
+
 
 /obj/item/assembly/mousetrap/examine(mob/user)
 	. = ..()
@@ -82,6 +86,22 @@
 	update_icon()
 	pulse(FALSE)
 
+/obj/item/assembly/mousetrap/proc/on_entered(datum/source, atom/movable/AM as mob|obj)
+	SIGNAL_HANDLER
+	if(armed)
+		if(ismob(AM))
+			var/mob/MM = AM
+			if(!(MM.movement_type & FLYING))
+				if(ishuman(AM))
+					var/mob/living/carbon/H = AM
+					if(H.m_intent == MOVE_INTENT_RUN)
+						INVOKE_ASYNC(src, .proc/triggered, H)
+						H.visible_message(span_warning("[H] accidentally steps on [src]."), \
+							span_warning("You accidentally step on [src]"))
+				else if(ismouse(MM) || israt(MM) || isregalrat(MM))
+					INVOKE_ASYNC(src, .proc/triggered, MM)
+		else if(AM.density) // For mousetrap grenades, set off by anything heavy
+			INVOKE_ASYNC(src, .proc/triggered, AM)
 
 /obj/item/assembly/mousetrap/attack_self(mob/living/carbon/human/user)
 	if(!armed)
