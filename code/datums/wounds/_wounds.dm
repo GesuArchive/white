@@ -91,8 +91,7 @@
 /datum/wound/Destroy()
 	if(attached_surgery)
 		QDEL_NULL(attached_surgery)
-	if(limb?.wounds && (src in limb.wounds)) // destroy can call remove_wound() and remove_wound() calls qdel, so we check to make sure there's anything to remove first
-		remove_wound()
+	remove_wound()
 	set_limb(null)
 	victim = null
 	return ..()
@@ -126,8 +125,7 @@
 			qdel(src)
 			return
 
-	victim = L.owner
-	RegisterSignal(victim, COMSIG_PARENT_QDELETING, .proc/null_victim)
+	set_victim(L.owner)
 	set_limb(L)
 	LAZYADD(victim.all_wounds, src)
 	LAZYADD(limb.wounds, src)
@@ -163,7 +161,15 @@
 
 /datum/wound/proc/null_victim()
 	SIGNAL_HANDLER
-	victim = null
+	set_victim(null)
+
+/datum/wound/proc/set_victim(new_victim)
+	if(victim)
+		UnregisterSignal(victim, COMSIG_PARENT_QDELETING)
+	remove_wound_from_victim()
+	victim = new_victim
+	if(victim)
+		RegisterSignal(victim, COMSIG_PARENT_QDELETING, .proc/null_victim)
 
 /datum/wound/proc/source_died()
 	SIGNAL_HANDLER
@@ -177,14 +183,18 @@
 		already_scarred = TRUE
 		var/datum/scar/new_scar = new
 		new_scar.generate(limb, src)
-	if(victim)
-		LAZYREMOVE(victim.all_wounds, src)
-		if(!victim.all_wounds)
-			victim.clear_alert("wound")
-		SEND_SIGNAL(victim, COMSIG_CARBON_LOSE_WOUND, src, limb)
+	remove_wound_from_victim()
 	if(limb && !ignore_limb)
 		LAZYREMOVE(limb.wounds, src)
 		limb.update_wounds(replaced)
+
+/datum/wound/proc/remove_wound_from_victim()
+	if(!victim)
+		return
+	LAZYREMOVE(victim.all_wounds, src)
+	if(!victim.all_wounds)
+		victim.clear_alert("wound")
+	SEND_SIGNAL(victim, COMSIG_CARBON_LOSE_WOUND, src, limb)
 
 /**
  * replace_wound() is used when you want to replace the current wound with a new wound, presumably of the same category, just of a different severity (either up or down counts)
@@ -268,8 +278,13 @@
  */
 /datum/wound/proc/try_treating(obj/item/I, mob/user)
 	// first we weed out if we're not dealing with our wound's bodypart, or if it might be an attack
-	if(QDELETED(I) || limb.body_zone != user.zone_selected || (I.force && user.a_intent != INTENT_HELP))
+	if(!I || limb.body_zone != user.zone_selected)
 		return FALSE
+
+	if(isliving(user))
+		var/mob/living/tendee = user
+		if(I.force && tendee.combat_mode)
+			return FALSE
 
 	var/allowed = FALSE
 
