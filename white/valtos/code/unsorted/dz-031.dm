@@ -13,7 +13,7 @@
 
 /turf/closed/dz
 	icon = 'white/valtos/icons/dz-031.dmi'
-	flags_1 = NOJAUNT
+	turf_flags = NOJAUNT
 
 /turf/open/floor/dz/normal
 	name = "киберпространство"

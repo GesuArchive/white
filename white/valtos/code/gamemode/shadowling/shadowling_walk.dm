@@ -90,7 +90,7 @@
 			R.reveal(20)
 			R.stun(20)
 		return MOVE_NOT_ALLOWED
-	if(destination.flags_1 & NOJAUNT)
+	if(destination.turf_flags & NOJAUNT)
 		to_chat(user, "<span class='warning'>Some strange aura is blocking the way.</span>")
 		return MOVE_NOT_ALLOWED
 	if (locate(/obj/effect/blessing, destination))
