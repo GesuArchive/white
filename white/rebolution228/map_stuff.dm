@@ -931,7 +931,7 @@
 	flags_1 = CONDUCT_1
 	layer = CLOSED_DOOR_LAYER
 	smoothing_flags = NONE
-
+/*
 /obj/structure/cataclysmdda/bookcase
 	name = "книжная полка"
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
@@ -939,13 +939,14 @@
 	max_integrity = 80
 	obj_integrity = 80
 	custom_materials = list(/datum/material/wood = 3000)
-
+*/
 /obj/structure/cataclysmdda/veshalka
 	name = "вешалка"
 	desc = null
 	icon_state = "veshalka"
 	max_integrity = 25
 	obj_integrity = 25
+	custom_materials = list(/datum/material/wood = 1000)
 
 /obj/structure/mineral_door/wood/cataclysmdda
 	name = "деревянная дверь"
