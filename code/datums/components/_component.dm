@@ -54,6 +54,11 @@
 		qdel(src, TRUE, TRUE)
 		return
 
+	if(!parent)
+		stack_trace("Компонент [type] был создан без владельца! Аргументы: [json_encode(arguments)]")
+		qdel(src, TRUE, TRUE)
+		return
+
 	_JoinParent(parent)
 
 /**

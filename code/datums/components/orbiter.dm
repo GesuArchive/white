@@ -102,7 +102,7 @@
 	to_chat(orbiter, "<span class='notice'>Следим за <b>[parent]</b>.</span>")
 
 /datum/component/orbiter/proc/end_orbit(atom/movable/orbiter, refreshing=FALSE)
-	if(!orbiter_list?[orbiter])
+	if(QDELETED(orbiter) || !orbiter_list?[orbiter])
 		return
 	UnregisterSignal(orbiter, COMSIG_MOVABLE_MOVED)
 	SEND_SIGNAL(parent, COMSIG_ATOM_ORBIT_STOP, orbiter)
@@ -157,7 +157,7 @@
 /////////////////////
 
 /atom/movable/proc/orbit(atom/A, radius = 10, clockwise = FALSE, rotation_speed = 20, rotation_segments = 36, pre_rotation = TRUE)
-	if(!istype(A) || !get_turf(A) || A == src)
+	if(!istype(A) || !get_turf(A) || A == src || QDELETED(src)
 		return
 	orbit_target = A
 	return A.AddComponent(/datum/component/orbiter, src, radius, clockwise, rotation_speed, rotation_segments, pre_rotation)
