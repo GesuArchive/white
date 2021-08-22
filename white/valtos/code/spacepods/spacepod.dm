@@ -276,7 +276,8 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 	if(object == src || /*istype(object, /atom/movable/screen) ||*/ (object && (object in user.GetAllContents())) || user != pilot/* || modifiers["shift"] || modifiers["alt"]*/)
 		return
 	if(weapon && modifiers["ctrl"])
-		weapon.fire_weapons(object)
+		INVOKE_ASYNC(src, .proc/fire_weapons, object)
+		//weapon.fire_weapons(object)
 	else
 		//desired_angle = Get_Angle(src, object)
 		var/list/sl_list = splittext(modifiers["screen-loc"],",")
