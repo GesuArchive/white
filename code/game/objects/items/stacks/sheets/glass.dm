@@ -346,14 +346,13 @@ GLOBAL_LIST_INIT(plastitaniumglass_recipes, list(
 	..()
 	if(I.use_tool(src, user, 0, volume=50))
 		var/obj/item/stack/sheet/NG = new weld_material(user.loc)
-		/*
-		for(var/obj/item/stack/sheet/G in user.loc)
-			if(G == NG)
-				continue
-			if(G.amount >= G.max_amount)
-				continue
-			G.attackby(NG, user)
-		*/
+		if(!QDELETED(NG))
+			for(var/obj/item/stack/sheet/G in user.loc)
+				if(G == NG)
+					continue
+				if(G.amount >= G.max_amount)
+					continue
+				G.attackby(NG, user)
 		to_chat(user, "<span class='notice'>Добавляю свеженькое [NG.name] в кучу. Теперь она содержит [NG.amount] листов.</span>")
 		qdel(src)
 	return TRUE
