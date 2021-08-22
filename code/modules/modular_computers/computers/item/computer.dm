@@ -514,7 +514,7 @@
 		return
 
 	uninstall_component(H, user)
-	return
+	return TRUE
 
 
 /obj/item/modular_computer/attackby(obj/item/W as obj, mob/user as mob)
