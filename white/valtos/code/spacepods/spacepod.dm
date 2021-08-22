@@ -276,7 +276,7 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 	if(object == src || /*istype(object, /atom/movable/screen) ||*/ (object && (object in user.GetAllContents())) || user != pilot/* || modifiers["shift"] || modifiers["alt"]*/)
 		return
 	if(weapon && modifiers["ctrl"])
-		INVOKE_ASYNC(src, .proc/fire_weapons, object)
+		INVOKE_ASYNC(src, .proc/async_fire_weapons_at, object)
 		//weapon.fire_weapons(object)
 	else
 		//desired_angle = Get_Angle(src, object)
@@ -290,6 +290,10 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 			desired_angle = 90 - ATAN2(dx, dy)
 		else
 			desired_angle = null
+
+/obj/spacepod/proc/async_fire_weapons_at(object)
+	if(weapon)
+		weapon.fire_weapons(object)
 
 /obj/spacepod/take_damage()
 	..()
