@@ -57,6 +57,7 @@
 		step(bumped, source.dir)
 
 /datum/component/funny_movement/proc/on_bumped(atom/movable/source, atom/movable/A)
+	SIGNAL_HANDLER
 	if(A.dir & NORTH)
 		velocity_y += bump_impulse
 	if(A.dir & SOUTH)

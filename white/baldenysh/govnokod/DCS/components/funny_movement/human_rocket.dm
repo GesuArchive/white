@@ -111,4 +111,5 @@
 		mymovement.desired_angle = mymovement.angle + rotation
 
 /datum/component/human_rocket/tank_controls/proc/moved()
+	SIGNAL_HANDLER
 	mymovement.desired_thrust_dir = 0
