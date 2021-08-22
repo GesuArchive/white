@@ -5,7 +5,7 @@
 		mind.active = FALSE	//This is to stop say, a mind.transfer_to call on a corpse causing a ghost to re-enter its body.
 	med_hud_set_status()
 
-	if(ice_cream_mob)
+	if(ice_cream_mob && !isbrain(src))
 		addtimer(CALLBACK(src, .proc/ice_cream_check), ice_cream_mob_time)
 
 /mob/living/proc/ice_cream_check()
