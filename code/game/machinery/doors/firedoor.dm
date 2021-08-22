@@ -169,7 +169,7 @@
 			continue
 		whack_a_mole_part(get_step(src, cdir), reconsider_immediately)
 	if(flags_1 & ON_BORDER_1)
-		whack_a_mole_part(get_turf(src), reconsider_immediately)
+		whack_a_mole_part(get_turf(src), reconsider_immediately)	
 
 /obj/machinery/door/firedoor/proc/whack_a_mole_part(turf/start_point, reconsider_immediately)
 	set waitfor = 0
@@ -314,11 +314,8 @@
 
 /obj/machinery/door/firedoor/border_only/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
-	if(mover.loc == loc && get_dir(mover, target) & dir)
-		return FALSE
-	if(get_dir(loc, mover) & dir)
-		return FALSE
-	return TRUE
+	if(get_dir(get_turf(src), target) != dir) //Make sure looking at appropriate border
+		return TRUE
 
 /obj/machinery/door/firedoor/border_only/CheckExit(atom/movable/mover as mob|obj, turf/target)
 	if(get_dir(get_turf(src), target) == dir)
