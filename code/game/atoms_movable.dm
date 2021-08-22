@@ -2,6 +2,7 @@
 	layer = OBJ_LAYER
 	glide_size = 8
 	appearance_flags = TILE_BOUND|PIXEL_SCALE|LONG_GLIDE
+
 	var/last_move = null
 	var/last_move_time = 0
 	var/anchored = FALSE
@@ -367,13 +368,11 @@
  * if you want something to move onto a tile with a beartrap or recycler or tripmine or mouse without that object knowing about it at all, use this
  * most of the time you want forceMove()
  */
-/*
 /atom/movable/proc/abstract_move(atom/new_loc)
 	var/atom/old_loc = loc
-	move_stacks++
+	//move_stacks++
 	loc = new_loc
 	Moved(old_loc)
-*/
 
 
 ////////////////////////////////////////
