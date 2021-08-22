@@ -52,7 +52,4 @@
 			RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/move_react, TRUE)
 			target = target.loc
 
-	if(!listener)
-		stack_trace("Блядь! /datum/movement_detector проебал коллбек. Отслеживаемый атом: [tracked].")
-
 	listener.Invoke(tracked, mover, oldloc, direction)
