@@ -52,7 +52,7 @@
 	baseturfs = /turf/open/floor/clockwork/reebe
 	var/obj/effect/clockwork/overlay/wall/realappearence
 	var/d_state = INTACT
-	flags_1 = NOJAUNT
+	turf_flags = NOJAUNT
 
 /turf/closed/wall/clockwork/Initialize()
 	. = ..()

@@ -8,15 +8,14 @@
 	///Assoc list of object being climbed on - climbers.  This allows us to check who needs to be shoved off a climbable object when its clicked on.
 	var/list/current_climbers
 
-/datum/element/climbable/Attach(datum/target, climb_time, climb_stun)
+/datum/element/climbable/Attach(datum/target, climb_time = (2 SECONDS), climb_stun = (2 SECONDS))
 	. = ..()
 
 	if(!isatom(target) || isarea(target))
 		return ELEMENT_INCOMPATIBLE
-	if(climb_time)
-		src.climb_time = climb_time
-	if(climb_stun)
-		src.climb_stun = climb_stun
+
+	src.climb_time = climb_time
+	src.climb_stun = climb_stun
 
 	RegisterSignal(target, COMSIG_ATOM_ATTACK_HAND, .proc/attack_hand)
 	RegisterSignal(target, COMSIG_PARENT_EXAMINE, .proc/on_examine)
@@ -76,7 +75,7 @@
 			return
 		if(do_climb(climbed_thing, user, params))
 			user.visible_message(span_warning("[user] залезает на [climbed_thing]."), \
-								span_notice("Влез на [climbed_thing]."))
+								span_notice("Влезаю на [climbed_thing]."))
 			log_combat(user, climbed_thing, "climbed onto")
 			if(adjusted_climb_stun)
 				user.Stun(adjusted_climb_stun)

@@ -388,7 +388,7 @@
 	},
 /obj/effect/turf_decal/tile/blue,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "ajU" = (
 /obj/structure/table/wood,
 /obj/item/book/manual/wiki/tcomms,
@@ -1001,7 +1001,7 @@
 	},
 /obj/effect/turf_decal/delivery/red,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "aFX" = (
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/command)
@@ -1977,7 +1977,7 @@
 "buW" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/hydroponics)
+/area/service/hydroponics)
 "bvm" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 6
@@ -4495,7 +4495,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "dvd" = (
 /obj/machinery/stasis,
 /obj/effect/turf_decal/trimline/blue/filled/corner{
@@ -4680,7 +4680,7 @@
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/delivery/red,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "dEo" = (
 /obj/effect/landmark/start/cargo_technician,
 /obj/machinery/camera/autoname{
@@ -5454,7 +5454,7 @@
 /area/crew_quarters/dorms)
 "esP" = (
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "etn" = (
 /obj/structure/chair/office{
 	dir = 8
@@ -6871,7 +6871,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "fEC" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -7018,7 +7018,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "fJf" = (
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/exit/departure_lounge)
@@ -10946,7 +10946,7 @@
 "iCn" = (
 /obj/machinery/biogenerator,
 /turf/closed/wall/r_wall,
-/area/hydroponics)
+/area/service/hydroponics)
 "iCq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -11038,7 +11038,7 @@
 /obj/effect/turf_decal/tile/blue,
 /obj/machinery/light,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "iGn" = (
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 1
@@ -11500,7 +11500,7 @@
 "iXi" = (
 /obj/effect/landmark/start/botanist,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "iXA" = (
 /turf/open/floor/plasteel/stairs/left{
 	dir = 4
@@ -11942,7 +11942,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "jqv" = (
 /obj/machinery/computer/operating,
 /turf/open/floor/plasteel/dark,
@@ -12229,7 +12229,7 @@
 	},
 /obj/effect/turf_decal/delivery/red,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "jAi" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/turf_decal/stripes/red/line{
@@ -13915,7 +13915,7 @@
 /obj/machinery/power/apc/auto_name/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "lch" = (
 /obj/machinery/camera/autoname{
 	dir = 4
@@ -16127,7 +16127,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "mKS" = (
 /obj/item/pickaxe,
 /obj/item/flashlight,
@@ -16215,7 +16215,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "mNO" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -17548,7 +17548,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "nSO" = (
 /obj/machinery/door/airlock/research{
 	name = "Research Division Access";
@@ -17652,7 +17652,7 @@
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/delivery/red,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "nWC" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -17692,7 +17692,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "nYW" = (
 /obj/machinery/light{
 	dir = 1
@@ -19996,7 +19996,7 @@
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/delivery/red,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "pVe" = (
 /turf/open/floor/plasteel/dark,
 /area/engine/manufactory)
@@ -21141,7 +21141,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "qPe" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/sign/warning/vacuum,
@@ -21231,7 +21231,7 @@
 	},
 /obj/effect/turf_decal/tile/blue,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "qSc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -23042,7 +23042,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "snD" = (
 /obj/docking_port/stationary{
 	dir = 4;
@@ -23243,7 +23243,7 @@
 	},
 /obj/effect/turf_decal/tile/blue,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "swj" = (
 /turf/closed/wall/r_wall,
 /area/quartermaster/storage)
@@ -24180,7 +24180,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "tjH" = (
 /turf/open/floor/engine/hull/reinforced{
 	initial_gas_mix = "o2=22;n2=82;TEMP=180"
@@ -24209,7 +24209,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "tlq" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/carbon_output,
 /turf/open/floor/engine/co2,
@@ -24226,7 +24226,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "tmw" = (
 /obj/structure/bed,
 /obj/item/bedsheet/black,
@@ -25013,7 +25013,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "tPq" = (
 /obj/structure/lattice/lava,
 /obj/structure/railing{
@@ -25605,7 +25605,7 @@
 /obj/structure/closet/secure_closet/hydroponics,
 /obj/effect/turf_decal/delivery/red,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "ulz" = (
 /obj/structure/tank_dispenser/oxygen,
 /obj/effect/turf_decal/trimline/red/filled/line{
@@ -25678,7 +25678,7 @@
 	},
 /obj/effect/turf_decal/tile/blue,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "uoY" = (
 /turf/closed/wall,
 /area/maintenance/solars)
@@ -26576,7 +26576,7 @@
 	},
 /obj/effect/turf_decal/delivery/red,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "uUA" = (
 /obj/machinery/atmospherics/pipe/multiz,
 /obj/effect/turf_decal/trimline/yellow/line{
@@ -28451,7 +28451,7 @@
 /obj/effect/turf_decal/tile/blue,
 /obj/machinery/light,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "wmo" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -28825,7 +28825,7 @@
 "wwQ" = (
 /obj/machinery/biogenerator,
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "wwS" = (
 /obj/machinery/camera/autoname{
 	dir = 1
@@ -28920,7 +28920,7 @@
 	dir = 5
 	},
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "wAf" = (
 /turf/open/floor/plasteel/dark/side,
 /area/medical/morgue)
@@ -28938,7 +28938,7 @@
 /area/bridge)
 "wAZ" = (
 /turf/closed/wall/r_wall,
-/area/hydroponics)
+/area/service/hydroponics)
 "wBq" = (
 /obj/machinery/suit_storage_unit/cmo,
 /obj/effect/turf_decal/delivery,
@@ -30596,7 +30596,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/hydroponics)
+/area/service/hydroponics)
 "xIw" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{

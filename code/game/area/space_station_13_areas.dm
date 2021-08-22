@@ -1177,37 +1177,6 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Снабжение: Док рейнджеров"
 	icon_state = "mining"
 
-/area/janitor
-	name = "Уборная"
-	icon_state = "janitor"
-	area_flags = CULT_PERMITTED
-	airlock_wires = /datum/wires/airlock/service
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-
-/area/hydroponics
-	name = "Гидропоника"
-	icon_state = "hydro"
-	airlock_wires = /datum/wires/airlock/service
-	sound_environment = SOUND_AREA_STANDARD_STATION
-
-/area/hydroponics/upper
-	name = "Верхняя гидропоника"
-	icon_state = "hydro"
-
-/area/hydroponics/garden
-	name = "Сад"
-	icon_state = "garden"
-
-/area/hydroponics/garden/abandoned
-	name = "Заброшенный сад"
-	icon_state = "abandoned_garden"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-
-/area/hydroponics/garden/monastery
-	name = "Монастырский сад"
-	icon_state = "hydro"
-
-
 //Science
 
 /area/science

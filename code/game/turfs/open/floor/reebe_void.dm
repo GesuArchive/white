@@ -6,7 +6,7 @@
 	planetary_atmos = TRUE
 	bullet_bounce_sound = null //forever falling
 	tiled_dirt = FALSE
-	flags_1 = NOJAUNT
+	turf_flags = NOJAUNT
 
 /turf/open/indestructible/reebe_void/Initialize(mapload)
 	. = ..()

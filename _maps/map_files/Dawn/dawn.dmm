@@ -3873,7 +3873,7 @@
 /area/hallway/secondary/exit)
 "kS" = (
 /turf/closed/wall,
-/area/janitor)
+/area/service/janitor)
 "kU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
@@ -4001,7 +4001,7 @@
 	dir = 10
 	},
 /turf/open/floor/plasteel,
-/area/janitor)
+/area/service/janitor)
 "lo" = (
 /obj/machinery/power/apc{
 	areastring = "/area/hallway/secondary/entry";
@@ -4024,7 +4024,7 @@
 /area/maintenance/port)
 "lq" = (
 /obj/machinery/power/apc{
-	areastring = "/area/janitor";
+	areastring = "/area/service/janitor";
 	dir = 4;
 	name = "Custodial Closet APC";
 	pixel_x = 24
@@ -4034,7 +4034,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/janitor)
+/area/service/janitor)
 "lr" = (
 /obj/machinery/camera{
 	c_tag = "Medbay North";
@@ -4052,7 +4052,7 @@
 	},
 /obj/machinery/vending/wardrobe/jani_wardrobe,
 /turf/open/floor/plasteel,
-/area/janitor)
+/area/service/janitor)
 "lt" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -4068,7 +4068,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/janitor)
+/area/service/janitor)
 "lv" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -4139,7 +4139,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/janitor)
+/area/service/janitor)
 "lF" = (
 /obj/machinery/camera{
 	c_tag = "Central Hallway North";
@@ -4156,11 +4156,11 @@
 /obj/item/grenade/chem_grenade/cleaner,
 /obj/item/grenade/chem_grenade/cleaner,
 /turf/open/floor/plasteel,
-/area/janitor)
+/area/service/janitor)
 "lH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/closed/wall,
-/area/janitor)
+/area/service/janitor)
 "lI" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -4259,7 +4259,7 @@
 "lV" = (
 /obj/structure/closet/l3closet/janitor,
 /turf/open/floor/plasteel,
-/area/janitor)
+/area/service/janitor)
 "lW" = (
 /obj/structure/closet/secure_closet/medical3,
 /obj/effect/turf_decal/tile/blue{
@@ -4306,7 +4306,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
-/area/janitor)
+/area/service/janitor)
 "mb" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
@@ -4389,20 +4389,20 @@
 /area/medical/medbay)
 "mq" = (
 /turf/open/floor/plasteel,
-/area/janitor)
+/area/service/janitor)
 "mr" = (
 /obj/structure/chair/stool,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/landmark/start/janitor,
 /turf/open/floor/plasteel,
-/area/janitor)
+/area/service/janitor)
 "ms" = (
 /obj/structure/table,
 /obj/machinery/airalarm/directional/east,
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/open/floor/plasteel,
-/area/janitor)
+/area/service/janitor)
 "mt" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -4493,16 +4493,16 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/janitor)
+/area/service/janitor)
 "mI" = (
 /obj/item/reagent_containers/glass/bucket,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
-/area/janitor)
+/area/service/janitor)
 "mJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/janitor)
+/area/service/janitor)
 "mK" = (
 /obj/machinery/door/airlock/medical{
 	name = "Operating Theatre";
@@ -4517,7 +4517,7 @@
 	req_access_txt = "26"
 	},
 /turf/open/floor/plating,
-/area/janitor)
+/area/service/janitor)
 "mM" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/maintenance{
@@ -4856,11 +4856,11 @@
 	pixel_x = -24
 	},
 /turf/open/floor/plasteel,
-/area/janitor)
+/area/service/janitor)
 "nK" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
-/area/janitor)
+/area/service/janitor)
 "nL" = (
 /obj/machinery/door/airlock/command{
 	name = "Head of Personnel";
@@ -4873,7 +4873,7 @@
 "nM" = (
 /obj/structure/closet/crate/bin,
 /turf/open/floor/plasteel,
-/area/janitor)
+/area/service/janitor)
 "nN" = (
 /obj/structure/table,
 /turf/open/floor/plating,

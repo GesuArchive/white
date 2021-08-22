@@ -55,8 +55,8 @@
 	merge_type = /obj/item/stack/teeth/generic
 
 /obj/item/stack/teeth/replacement
-	name = "искуственные зубы"
-	singular_name = "искуственный зуб"
+	name = "искусственные зубы"
+	singular_name = "искусственный зуб"
 	desc = "Вау, искуственные зубы?"
 	icon_state = "dentals"
 	custom_materials = list(/datum/material/iron = 250)
@@ -64,12 +64,13 @@
 	merge_type = /obj/item/stack/teeth/replacement
 
 /datum/design/replacement_teeth
-	name = "Искуственный зуб"
+	name = "Искусственный зуб"
 	id = "replacement_teeth"
 	build_type = AUTOLATHE
 	materials = list(MAT_CATEGORY_RIGID = 250)
 	build_path = /obj/item/stack/teeth/replacement
 	category = list("initial", "Медицина")
+	maxstack = 32
 
 /datum/surgery/teeth_reinsertion
 	name = "вставка зуба"

@@ -87,7 +87,7 @@
 
 	if(!current_cook_time) //Not grilled yet
 		if(positive_result)
-			examine_list += span_notice("\n[capitalize(sklonenie_do(A.name, VINITELNI, A.gender))] можно <b>обжарить</b>.")
+			examine_list += span_notice("\n[capitalize(A.name)] можно <b>обжарить</b>.")
 		return
 
 	if(positive_result)
