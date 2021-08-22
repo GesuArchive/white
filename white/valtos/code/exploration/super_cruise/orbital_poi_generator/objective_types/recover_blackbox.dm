@@ -54,6 +54,7 @@
 	RegisterSignal(parent, COMSIG_ITEM_ATTACK_SELF, .proc/attack_self)
 
 /datum/component/recoverable/proc/attack_self(mob/user)
+	SIGNAL_HANDLER
 	var/atom/movable/pA = parent
 	var/turf/T = get_turf(parent)
 	var/area/A = T.loc
