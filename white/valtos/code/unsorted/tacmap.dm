@@ -43,7 +43,7 @@
 			if(istype(A, /area/quartermaster))
 				tacmap_icon.DrawBox(rgb(209, 101, 43), xx, yy, xx, yy)
 				continue
-			if(istype(A, /area/hydroponics) || istype(A, /area/chapel) || istype(A, /area/library) || istype(A, /area/crew_quarters))
+			if(istype(A, /area/service/hydroponics) || istype(A, /area/chapel) || istype(A, /area/library) || istype(A, /area/crew_quarters))
 				tacmap_icon.DrawBox(rgb(62, 209, 43), xx, yy, xx, yy)
 				continue
 			if(istype(A, /area/science))
