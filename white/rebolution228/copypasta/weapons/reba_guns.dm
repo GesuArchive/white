@@ -446,7 +446,7 @@
 	wound_bonus = 2
 
 /obj/item/ammo_box/c25mm
-	name = "коробка с патронами (10mm)"
+	name = "коробка с патронами (2,5mm)"
 	icon_state = "10mmbox" //аааааааааааааааааааааааааааааааааааааааааааааааааааа?
 	ammo_type = /obj/item/ammo_casing/c25mm
 	max_ammo = 100
