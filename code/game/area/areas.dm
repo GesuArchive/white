@@ -62,6 +62,7 @@
 	var/ambience_volume = 15
 	var/ambience_index = AMBIENCE_GENERIC
 	var/list/ambientsounds
+	var/list/ambigensounds
 	flags_1 = CAN_BE_DIRTY_1
 
 	var/list/firedoors
