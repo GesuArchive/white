@@ -263,7 +263,7 @@
 		if(!(C.mob in possible_smooth_viewers))
 			animate(C, pixel_x = 0, pixel_y = 0, time = 0, flags=ANIMATION_END_NOW)
 	affected_viewers = list()
-	for(var/mob/M in possible_smooth_viewers)
+	for(var/mob/M in possible_smooth_viewers) // reset_perspective(AM)?
 		var/client/C = M.client
 		if(!C)
 			continue
