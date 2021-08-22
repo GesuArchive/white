@@ -55,6 +55,7 @@
 		to_chat(user, "<span class='warning'>You detach [src], clearing all the connections associated with it.</span>")
 		new unwrench_path(get_turf(src))
 		qdel(src)
+		return TRUE
 
 //Component
 /datum/component/clockwork_trap
