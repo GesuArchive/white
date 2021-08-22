@@ -99,12 +99,15 @@ Methods to alert the aimer about events, usually to signify that they're complyi
 */
 
 /datum/component/aiming/proc/on_drop()
+	SIGNAL_HANDLER
 	to_chat(user, "<span class='nicegreen'><b>[target]</b> бросает что-то.</span>")
 
 /datum/component/aiming/proc/on_paralyze()
+	SIGNAL_HANDLER
 	to_chat(user, "<span class='nicegreen'><b>[target]</b> сдаётся!</span>")
 
 /datum/component/aiming/proc/on_equip()
+	SIGNAL_HANDLER
 	new /obj/effect/temp_visual/aiming/suspect_alert(get_turf(target))
 	to_chat(user, "<span class='userdanger'><b>[target]</b> что-то достаёт!</span>")
 	SEND_SOUND(user, 'sound/machines/chime.ogg')
@@ -176,6 +179,7 @@ There are two main branches, dictated by SOP. If the perp is armed, tell them to
 		stop_aiming()
 
 /datum/component/aiming/proc/stop_aiming()
+	SIGNAL_HANDLER
 	if(target)
 		UnregisterSignal(target, COMSIG_ITEM_DROPPED)
 		UnregisterSignal(target, COMSIG_ITEM_EQUIPPED)

@@ -100,6 +100,8 @@
 		autofire_on(source.client)
 
 /datum/component/automatic_fire_funny/proc/on_mouse_down(client/source, atom/_target, turf/location, control, params)
+	SIGNAL_HANDLER
+
 	var/list/modifiers = params2list(params) //If they're shift+clicking, for example, let's not have them accidentally shoot.
 
 	if(LAZYACCESS(modifiers, SHIFT_CLICK))

@@ -26,12 +26,14 @@
 	. = ..()
 
 /datum/element/impaling/proc/onHit(obj/item/weapon, mob/living/carbon/victim, hit_zone, datum/thrownthing/throwingdatum, forced=FALSE)
+	SIGNAL_HANDLER
 	if(!iscarbon(victim))
 		return
 	impaler = weapon
 	throw_thing(victim, throwingdatum.init_dir, weapon.throwforce)
 
 /datum/element/impaling/proc/onHitProj(obj/projectile/P, atom/movable/firer, atom/hit, angle, hit_zone)
+	SIGNAL_HANDLER
 	if(!iscarbon(hit))
 		return
 	impaler = P
@@ -50,6 +52,7 @@
 	UnregisterSignal(thrown, COMSIG_MOVABLE_IMPACT)
 
 /datum/element/impaling/proc/impale(mob/living/carbon/source, atom/hit_atom, datum/thrownthing/throwingdatum)
+	SIGNAL_HANDLER
 	if(!isclosedturf(hit_atom))
 		if(istype(hit_atom, /obj/structure/window))
 			var/obj/structure/window/W = hit_atom

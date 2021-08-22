@@ -28,10 +28,12 @@
 	UnregisterSignal(owner, COMSIG_MOVABLE_HEAR)
 
 /datum/component/tts/proc/handle_speech(datum/source, list/speech_args)
+	SIGNAL_HANDLER
 	if(GLOB.tts)
 		prikolize(speech_args[SPEECH_MESSAGE])
 
 /datum/component/tts/proc/handle_hearing(datum/source, list/hearing_args)
+	SIGNAL_HANDLER
 	var/atom/A = hearing_args[HEARING_SPEAKER]
 	var/datum/component/tts/TTS = A.GetComponent(/datum/component/tts)
 	if(!TTS || !TTS.creation || GLOB.tts)

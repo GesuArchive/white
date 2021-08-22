@@ -102,6 +102,7 @@
 	RegisterSignal(source, COMSIG_MOVABLE_POST_THROW, .proc/throw_thing_randomly)
 
 /datum/artifact_effect/throwchaos/proc/throw_thing_randomly(datum/source, datum/thrownthing, spin)
+	SIGNAL_HANDLER
 	if(!isitem(thrownthing) || QDELETED(thrownthing))
 		return
 	if(prob(40))
@@ -137,6 +138,7 @@
 	RegisterSignal(source, COMSIG_PARENT_EXAMINE, .proc/do_effect)
 
 /datum/artifact_effect/inducespasm/proc/do_effect(datum/source, mob/observer, list/examine_text)
+	SIGNAL_HANDLER
 	if(ishuman(observer))
 		var/mob/living/carbon/human/H = observer
 		H.gain_trauma(/datum/brain_trauma/mild/muscle_spasms, TRAUMA_RESILIENCE_BASIC)
@@ -191,6 +193,7 @@
 	RegisterSignal(source, COMSIG_ITEM_ATTACK_SELF, .proc/suck)
 
 /datum/artifact_effect/gravity_well/proc/suck(datum/source, mob/warper)
+	SIGNAL_HANDLER
 	if(world.time < next_use_world_time)
 		return
 	var/turf/T = get_turf(warper)
@@ -311,6 +314,7 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 	RegisterSignal(source, COMSIG_ITEM_ATTACK_SELF, .proc/teleport)
 
 /datum/artifact_effect/warp/proc/teleport(datum/source, mob/warper)
+	SIGNAL_HANDLER
 	if(world.time < next_use_world_time)
 		return
 	var/turf/T = get_turf(warper)
@@ -331,6 +335,7 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 	RegisterSignal(source, COMSIG_ITEM_PICKUP, .proc/curse)
 
 /datum/artifact_effect/curse/proc/curse(datum/source, mob/taker)
+	SIGNAL_HANDLER
 	var/mob/living/carbon/human/H = taker
 	if(istype(H) && !used)
 		used = TRUE
@@ -432,6 +437,7 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 	RegisterSignal(source, COMSIG_ITEM_ATTACK_SELF, .proc/pulse)
 
 /datum/artifact_effect/insanity_pulse/proc/pulse(datum/source, mob/living/pulser)
+	SIGNAL_HANDLER
 	if(!istype(pulser))
 		return
 	if(world.time < next_use_time)

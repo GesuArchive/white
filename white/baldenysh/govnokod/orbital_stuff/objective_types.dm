@@ -35,6 +35,7 @@
 	extraction_pod.leavingSound = 'sound/effects/podwoosh.ogg'
 
 /datum/orbital_objective/headhunt/proc/enter_check(datum/source, entered_mob)
+	SIGNAL_HANDLER
 	if(!istype(source, /obj/structure/closet/supplypod/extractionpod))
 		return
 	if(!isliving(entered_mob))

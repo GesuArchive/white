@@ -27,6 +27,7 @@
 	return ..()
 */
 /datum/component/walk/proc/handle_move(datum/source, direction)
+	SIGNAL_HANDLER
 	var/mob/living/L = parent
 	var/turf/T = get_step(L, direction)
 	L.setDir(direction)

@@ -107,6 +107,7 @@
 		UnregisterSignal(src, COMSIG_ATOM_DIR_CHANGE)
 
 /obj/vehicle/ridden/forklift/proc/update_visuals()
+	SIGNAL_HANDLER
 	if(THING)
 		switch(dir)
 			if(NORTH)

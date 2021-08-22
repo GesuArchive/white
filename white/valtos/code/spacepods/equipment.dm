@@ -123,6 +123,7 @@
 	E.storage = null
 
 /obj/item/spacepod_equipment/cargo/large/proc/spacepod_mousedrop(obj/spacepod/SP, obj/A, mob/user)
+	SIGNAL_HANDLER
 	if(user == SP.pilot || (user in SP.passengers))
 		return FALSE
 	if(istype(A, storage_type) && SP.Adjacent(A)) // For loading ore boxes
@@ -154,6 +155,7 @@
 	..()
 
 /obj/item/spacepod_equipment/cargo/large/ore/proc/spacepod_moved(obj/spacepod/SP)
+	SIGNAL_HANDLER
 	if(storage)
 		for(var/turf/T in SP.locs)
 			for(var/obj/item/stack/ore in T)
@@ -302,6 +304,7 @@
 	..()
 
 /obj/item/spacepod_equipment/lock/proc/spacepod_attackby(obj/spacepod/SP, I, mob/user)
+	SIGNAL_HANDLER
 	return FALSE
 
 // Key and Tumbler System

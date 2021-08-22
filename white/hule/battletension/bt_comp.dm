@@ -89,7 +89,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 			tension = 80
 
 /datum/component/battletension/proc/bulletact_react(datum/source, obj/projectile/P, def_zone)
-
+	SIGNAL_HANDLER
 	var/area/AR = get_area(P)
 
 	if(!AR)
@@ -109,7 +109,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 
 /datum/component/battletension/proc/attackby_react(datum/source, obj/item/I, mob/user)
-
+	SIGNAL_HANDLER
 	var/area/AR = get_area(user)
 
 	AR.area_tension += I.force * 1.2

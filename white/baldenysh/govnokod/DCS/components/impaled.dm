@@ -30,12 +30,14 @@
 	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
 
 /datum/component/impaled/proc/on_moved(atom/movable/mover, atom/oldloc, direction)
+	SIGNAL_HANDLER
 	if(oldloc == mover.loc)
 		return
 	reset_offsets()
 	qdel(src)
 
 /datum/component/impaled/proc/on_unbuckle()
+	SIGNAL_HANDLER
 	reset_offsets()
 	qdel(src)
 

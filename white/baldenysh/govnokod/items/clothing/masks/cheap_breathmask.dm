@@ -41,6 +41,7 @@
 	return ..()
 
 /obj/item/clothing/mask/proc/damage_mask(datum/source, damage, damagetype, def_zone)
+	SIGNAL_HANDLER
 	if(def_zone != BODY_ZONE_HEAD)
 		return
 	if(damagetype != BRUTE)

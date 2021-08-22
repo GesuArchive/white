@@ -271,6 +271,7 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 */
 
 /obj/spacepod/proc/on_mouse_moved(mob/user, object, location, control, params)
+	SIGNAL_HANDLER
 	var/list/modifiers = params2list(params)
 	if(object == src || /*istype(object, /atom/movable/screen) ||*/ (object && (object in user.GetAllContents())) || user != pilot/* || modifiers["shift"] || modifiers["alt"]*/)
 		return

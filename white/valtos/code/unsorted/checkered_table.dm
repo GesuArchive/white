@@ -141,6 +141,7 @@
 	return nwords[n]
 
 /obj/checkered_table/proc/table_click(datum/source, location, control, params, mob/user)
+	SIGNAL_HANDLER
 	if(!isliving(user))
 		return
 

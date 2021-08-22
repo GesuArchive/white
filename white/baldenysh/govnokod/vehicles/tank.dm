@@ -24,6 +24,7 @@
 	RegisterSignal(movement, COMSIG_FUNNY_MOVEMENT_PROCESSING_FINISH, .proc/funny_movement_moved)
 
 /obj/vehicle/sealed/tank/proc/funny_movement_moved()
+	SIGNAL_HANDLER
 	movement.desired_thrust_dir = 0
 
 /obj/vehicle/sealed/tank/vehicle_move(direction)

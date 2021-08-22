@@ -29,6 +29,7 @@
 	AddComponent(/datum/component/two_handed, force_wielded=19, require_twohands=TRUE)
 
 /obj/item/paxe/proc/on_wield(obj/item/source, mob/user)
+	SIGNAL_HANDLER
 	wielded = TRUE
 
 /obj/item/paxee
@@ -63,6 +64,7 @@
 	AddComponent(/datum/component/two_handed,  force_wielded=20, require_twohands=TRUE)
 
 /obj/item/paxee/proc/on_wield(obj/item/source, mob/user)
+	SIGNAL_HANDLER
 	wielded = TRUE
 
 /obj/item/paxee/attack_self(mob/user)

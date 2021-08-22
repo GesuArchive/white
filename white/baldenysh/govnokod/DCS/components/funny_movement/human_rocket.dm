@@ -89,6 +89,7 @@
 	var/rotation = 25
 
 /datum/component/human_rocket/tank_controls/proc/premove()
+	SIGNAL_HANDLER
 	var/mob/M = parent
 	var/movement_dir = NONE
 	if(M.client)

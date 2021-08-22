@@ -31,6 +31,7 @@ SUBSYSTEM_DEF(killcounter)
 			L.lastattackermob = prikolist
 */
 /datum/controller/subsystem/killcounter/proc/on_mob_death(datum/source, mob/living/dead, gibbed)
+	SIGNAL_HANDLER
 	if(!dead.lastattackermob)
 		return
 	var/mob/living/killer = dead.lastattackermob

@@ -21,6 +21,7 @@
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, .proc/check_target_death)
 
 /datum/objective/slay/proc/check_target_death(datum/source, mob/living/dead, gibbed)
+	SIGNAL_HANDLER
 	if(completed)
 		return
 	if(!istype(dead, target_megafauna_type))

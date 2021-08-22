@@ -284,6 +284,7 @@
 	tier_rate = T
 
 /obj/machinery/copytech_platform/proc/movable_crossed(datum/source, atom/movable/AM)
+	SIGNAL_HANDLER
 	if(!working)
 		return
 	if(isliving(AM))

@@ -19,6 +19,7 @@
 	UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
 
 /obj/item/rotating_shield/proc/on_moved(datum/source, newloc, dir)
+	SIGNAL_HANDLER
 	UnregisterShielded()
 	RegisterShielded(ismovable(loc) ? loc : src)
 
@@ -45,6 +46,7 @@
 ////////////////////////////////////////////////////////////////////////перемещение/анимация
 
 /obj/item/rotating_shield/proc/on_shielded_moved(datum/source, newloc, dir)
+	SIGNAL_HANDLER
 	if(!active)
 		return
 	var/turf/T = get_turf(loc)
@@ -52,6 +54,7 @@
 		plate.forceMove(T)
 
 /obj/item/rotating_shield/proc/on_shielded_glide_size_update(datum/source, new_glide_size)
+	SIGNAL_HANDLER
 	set_glide_size(new_glide_size)
 	for(var/obj/structure/rs_plate/plate in get_plates())
 		plate.set_glide_size(new_glide_size)
@@ -90,10 +93,13 @@
 ////////////////////////////////////////////////////////////////////////защита
 
 /obj/item/rotating_shield/proc/on_shielded_attackby(datum/source, obj/item/I, mob/user)
+	SIGNAL_HANDLER
 
 /obj/item/rotating_shield/proc/on_shielded_bullet_act(datum/source, obj/projectile/P, def_zone)
+	SIGNAL_HANDLER
 
 /obj/item/rotating_shield/proc/on_shielded_hitby(datum/source, atom/movable/AM, skipcatch = FALSE, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum)
+	SIGNAL_HANDLER
 /*
 /obj/item/rotating_shield/proc/find_plate_by_angle(angle)
 	for(var/l in plate_layers.len to 1)

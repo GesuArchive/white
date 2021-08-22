@@ -365,6 +365,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 									  'white/valtos/sounds/armorstep/heavystep7.ogg'=1)
 
 /obj/item/clothing/suit/armor/heavy_plate/proc/on_mob_move()
+	SIGNAL_HANDLER
 	var/mob/living/carbon/human/H = loc
 	if(!istype(H) || H.wear_suit != src)
 		return

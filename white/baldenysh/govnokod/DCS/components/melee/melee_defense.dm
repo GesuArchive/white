@@ -15,6 +15,7 @@
 
 
 /datum/component/melee_defense/proc/onDisarm(mob/living/carbon/disarmed, mob/living/attacker, zone_targeted)
+	SIGNAL_HANDLER
 	apply_impulse(Get_Angle(disarmed, attacker), 10)
 
 
