@@ -58,6 +58,7 @@
 		INVOKE_ASYNC(SPL, /datum/component/soundplayer_listener.proc/update_sound)
 
 /datum/component/soundplayer/proc/update_sounds()
+	SIGNAL_HANDLER
 	for(var/datum/component/soundplayer_listener/SPL in listener_comps)
 		INVOKE_ASYNC(SPL, /datum/component/soundplayer_listener.proc/update_sound)
 
@@ -105,7 +106,7 @@
 	. = ..()
 
 /datum/component/soundplayer_listener/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/update_sound)
+	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/do_update_sound)
 	RegisterSignal(parent, COMSIG_MOB_LOGOUT, .proc/qdel_check)
 
 /datum/component/soundplayer_listener/UnregisterFromParent()
@@ -128,11 +129,16 @@
 	return FALSE
 
 /datum/component/soundplayer_listener/proc/qdel_check()
+	SIGNAL_HANDLER
 	var/mob/P = parent
 	if(!P || !P.client || !myplayer || !myplayer.cursound)
 		qdel(src)
 		return TRUE
 	return FALSE
+
+/datum/component/soundplayer_listener/proc/do_update_sound()
+	SIGNAL_HANDLER
+	INVOKE_ASYNC(src, .proc/update_sound)
 
 /datum/component/soundplayer_listener/proc/update_sound()
 	if(qdel_check())
