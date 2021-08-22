@@ -452,14 +452,16 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 		priority_announce("Временные аномалии обнаружены в локации [T.loc]. Анализ завершён, [research_reward] научных очков получено.", "Исследовательский отдел Нантрейзен", ANNOUNCER_SPANOMALIES)
 		SSresearch.science_tech.add_points_all(research_reward)
 	first_time = FALSE
+	pulser.blind_eyes(300)
+	pulser.Stun(100)
+	pulser.hallucination = 500
+	INVOKE_ASYNC(src, .proc/do_pulse, T)
+
+/datum/artifact_effect/insanity_pulse/proc/do_pulse(turf/T)
 	var/xrange = 50
 	var/yrange = 50
 	var/cx = T.x
 	var/cy = T.y
-	pulser.blind_eyes(300)
-	pulser.Stun(100)
-	pulser.emote("agony")
-	pulser.hallucination = 500
 	for(var/r in 1 to max(xrange, yrange))
 		var/xr = min(xrange, r)
 		var/yr = min(yrange, r)

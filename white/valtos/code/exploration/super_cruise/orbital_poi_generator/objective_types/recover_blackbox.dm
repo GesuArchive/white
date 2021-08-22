@@ -59,7 +59,7 @@
 	var/turf/T = get_turf(parent)
 	var/area/A = T.loc
 	if(istype(A, /area/bridge) && is_station_level(T.z))
-		initiate_recovery()
+		INVOKE_ASYNC(src, .proc/initiate_recovery)
 	else
 		pA.say("Чёрный ящик должен быть активирован на мостике.")
 
