@@ -206,7 +206,7 @@
 	pixel_x = base_pixel_x + last_offset_x*32
 	pixel_y = base_pixel_y + last_offset_y*32
 	animate(src, transform=mat_to, pixel_x = base_pixel_x + offset_x*32, pixel_y = base_pixel_y + offset_y*32, time = time*10, flags=ANIMATION_END_NOW)
-	var/list/possible_smooth_viewers = AM.contents | AM | AM.get_all_orbiters()
+	var/list/possible_smooth_viewers = contents | src | get_all_orbiters()
 	for(var/mob/M in possible_smooth_viewers)
 		var/client/C = M.client
 		if(!C)
