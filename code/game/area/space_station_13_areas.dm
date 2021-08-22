@@ -1180,7 +1180,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/janitor
 	name = "Уборная"
 	icon_state = "janitor"
-	flags_1 = CULT_PERMITTED_1
+	area_flags = CULT_PERMITTED
 	airlock_wires = /datum/wires/airlock/service
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
