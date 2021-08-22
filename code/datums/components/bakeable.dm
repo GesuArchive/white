@@ -80,7 +80,7 @@
 
 	if(!current_bake_time) //Not baked yet
 		if(positive_result)
-			examine_list += span_notice("\n[capitalize(sklonenie_do(A.name, VINITELNI, A.gender))] можно <b>испечь</b>.")
+			examine_list += span_notice("\n[capitalize(A.name)] можно <b>испечь</b>.")
 		return
 
 	if(positive_result)
