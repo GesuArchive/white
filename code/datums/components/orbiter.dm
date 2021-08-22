@@ -102,7 +102,7 @@
 	to_chat(orbiter, "<span class='notice'>Следим за <b>[parent]</b>.</span>")
 
 /datum/component/orbiter/proc/end_orbit(atom/movable/orbiter, refreshing=FALSE)
-	if(!orbiter_list[orbiter])
+	if(!orbiter_list?[orbiter])
 		return
 	UnregisterSignal(orbiter, COMSIG_MOVABLE_MOVED)
 	SEND_SIGNAL(parent, COMSIG_ATOM_ORBIT_STOP, orbiter)
