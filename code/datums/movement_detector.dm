@@ -39,7 +39,9 @@
 /datum/movement_detector/proc/move_react(atom/movable/mover, atom/oldloc, direction)
 	SIGNAL_HANDLER
 
-	//var/turf/newturf = get_turf(tracked)
+	if(!listener)
+		qdel(src)
+		return
 
 	if(oldloc && !isturf(oldloc))
 		var/atom/target = oldloc
