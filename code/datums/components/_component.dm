@@ -91,6 +91,10 @@
  */
 /datum/component/proc/_JoinParent()
 	var/datum/P = parent
+	if(!parent)
+		stack_trace("Был вызван _JoinParent() компомнента [type] без владельца! Аргументы: [json_encode(arguments)]")
+		qdel(src, TRUE, TRUE)
+		return
 	//lazy init the parent's dc list
 	var/list/dc = P.datum_components
 	if(!dc)
