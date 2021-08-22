@@ -318,6 +318,7 @@
 		return !density
 	if(get_dir(loc, mover) & dir)
 		return !density
+	return TRUE
 
 /obj/machinery/door/firedoor/border_only/CheckExit(atom/movable/mover as mob|obj, turf/target)
 	if(get_dir(get_turf(src), target) == dir)
