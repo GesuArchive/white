@@ -258,9 +258,7 @@
 	AM.pixel_y = AM.base_pixel_y + last_offset_y*32
 	animate(AM, transform=mat_to, pixel_x = AM.base_pixel_x + offset_x*32, pixel_y = AM.base_pixel_y + offset_y*32, time = delta_time*10, flags=ANIMATION_END_NOW)
 
-	var/list/possible_smooth_viewers = AM.contents | AM
-	if(AM.orbiters && AM.orbiters.orbiter_list)
-		possible_smooth_viewers |= AM.orbiters.orbiter_list
+	var/list/possible_smooth_viewers = AM.contents | AM | AM.get_all_orbiters()
 	for(var/client/C in affected_viewers)
 		if(!(C.mob in possible_smooth_viewers))
 			animate(C, pixel_x = 0, pixel_y = 0, time = 0, flags=ANIMATION_END_NOW)
