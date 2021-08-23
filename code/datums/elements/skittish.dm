@@ -44,7 +44,10 @@
 		scooby.set_resting(TRUE, silent = TRUE)
 
 	scooby.forceMove(closet_turf)
+	INVOKE_ASYNC(src, .proc/async_shit, closet, scooby, target)
 
+/datum/element/skittish/proc/async_shit(obj/structure/closet/closet, mob/living/scooby, atom/target)
+	var/turf/closet_turf = get_turf(closet)
 	if(!closet.close(scooby))
 		to_chat(scooby, span_warning("You can't get [closet] to close!"))
 		if(closet.horizontal)

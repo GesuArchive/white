@@ -111,7 +111,7 @@
 	if(locked)
 		boom(user)
 
-/obj/structure/closet/crate/secure/loot/togglelock(mob/user)
+/obj/structure/closet/crate/secure/loot/togglelock(mob/living/user, silent)
 	if(locked)
 		boom(user)
 	else
