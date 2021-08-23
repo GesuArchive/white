@@ -1832,6 +1832,10 @@
 /obj/item/toy/talking,
 /turf/open/floor/carpet/royalblack,
 /area/partyhard/indoors)
+"lw" = (
+/obj/effect/landmark/latejoin,
+/turf/open/floor/asphalt,
+/area/partyhard/outdoors)
 "ly" = (
 /turf/open/floor/carpet/green,
 /area/partyhard/indoors)
@@ -6127,12 +6131,9 @@
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "Na" = (
-/obj/structure/toilet{
-	dir = 4
-	},
 /obj/effect/landmark/start,
-/turf/open/floor/plasteel/tile/white,
-/area/partyhard/indoors)
+/turf/open/floor/asphalt,
+/area/partyhard/outdoors)
 "Nd" = (
 /obj/structure/table/cataclysmdda/sci,
 /obj/item/trash/plate{
@@ -7851,7 +7852,6 @@
 "YK" = (
 /obj/structure/bed,
 /obj/item/bedsheet/random,
-/obj/effect/landmark/start,
 /turf/open/floor/carpet/green,
 /area/partyhard/indoors)
 "YN" = (
@@ -69769,13 +69769,13 @@ yq
 yq
 yq
 yq
+Na
 yq
 yq
 yq
 yq
 yq
-yq
-yq
+lw
 yq
 yq
 yq
@@ -71177,13 +71177,13 @@ aO
 aO
 aO
 yq
+Na
 yq
 yq
 yq
 yq
 yq
-yq
-yq
+lw
 yq
 yq
 yq
@@ -72233,13 +72233,13 @@ yq
 yq
 yq
 yq
+Na
 yq
 yq
 yq
 yq
 yq
-yq
-yq
+lw
 yq
 yq
 yq
@@ -74434,7 +74434,7 @@ Hm
 MI
 JZ
 ff
-Na
+QT
 Os
 ff
 WN
