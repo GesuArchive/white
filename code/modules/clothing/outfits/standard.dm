@@ -230,7 +230,8 @@
 	gloves = /obj/item/clothing/gloves/color/black
 	ears = /obj/item/radio/headset
 	glasses = /obj/item/clothing/glasses/sunglasses
-	l_pocket = /obj/item/melee/transforming/energy/sword/saber
+	shoes = /obj/item/clothing/shoes/sneakers/black
+	l_pocket = /obj/item/melee/energy/sword/saber
 	l_hand = /obj/item/storage/secure/briefcase
 	id = /obj/item/card/id/advanced/chameleon/black
 	belt = /obj/item/pda/heads
@@ -398,7 +399,7 @@
 	r_hand= /obj/item/tank/internals/plasmaman/belt/full
 	mask = /obj/item/clothing/mask/breath
 	gloves = /obj/item/clothing/gloves/color/plasmaman
-
+/*
 
 /datum/outfit/centcom/death_commando
 	name = "Death Commando"
@@ -445,7 +446,7 @@
 /datum/outfit/centcom/death_commando/officer
 	name = "Death Commando Officer"
 	head = /obj/item/clothing/head/helmet/space/beret
-
+*/
 /datum/outfit/chrono_agent
 	name = "Timeline Eradication Agent"
 	uniform = /obj/item/clothing/under/color/white
@@ -459,6 +460,8 @@
 	name = "Debug outfit"
 	uniform = /obj/item/clothing/under/misc/patriotsuit
 	suit = /obj/item/clothing/suit/space/hardsuit/syndi/elite/debug
+	belt = /obj/item/storage/belt/utility/chief/full
+	ears = /obj/item/radio/headset/headset_cent/commander
 	glasses = /obj/item/clothing/glasses/debug
 	ears = /obj/item/radio/headset/headset_cent/commander
 	mask = /obj/item/clothing/mask/gas/welding/up
@@ -471,7 +474,7 @@
 	box = /obj/item/storage/box/debugtools
 	internals_slot = ITEM_SLOT_SUITSTORE
 	backpack_contents = list(
-		/obj/item/melee/transforming/energy/axe=1,\
+		/obj/item/melee/energy/axe=1,\
 		/obj/item/storage/part_replacer/bluespace/tier5=1,\
 		/obj/item/gun/magic/wand/resurrection/debug=1,\
 		/obj/item/gun/magic/wand/death/debug=1,\
@@ -489,6 +492,8 @@
 	name = "Admin outfit"
 	uniform = /obj/item/clothing/under/misc/patriotsuit
 	suit = /obj/item/clothing/suit/space/hardsuit/syndi/elite/admin
+	belt = /obj/item/storage/belt/utility/chief/full
+	ears = /obj/item/radio/headset/headset_cent/commander
 	glasses = /obj/item/clothing/glasses/debug
 	ears = /obj/item/radio/headset/headset_cent/commander
 	mask = /obj/item/clothing/mask/gas/welding/up

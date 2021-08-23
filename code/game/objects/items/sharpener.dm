@@ -33,7 +33,7 @@
 	if(requires_sharpness && !I.get_sharpness())
 		to_chat(user, span_warning("Могу заточить только уже острые предметы, например, ножи!"))
 		return
-	if(is_type_in_list(I, list(/obj/item/melee/transforming/energy, /obj/item/dualsaber))) //You can't sharpen the photons in energy meelee weapons
+	if(is_type_in_list(I, list(/obj/item/melee/energy, /obj/item/dualsaber))) //You can't sharpen the photons in energy meelee weapons
 		to_chat(user, span_warning("Не думаю что [I] изменится, если я использую его на <b>[src.name]</b>!"))
 		return
 

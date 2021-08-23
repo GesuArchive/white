@@ -245,7 +245,7 @@
 /obj/item/organ/cyberimp/arm/esword
 	name = "встроенный в руку энергетический клинок"
 	desc = "Незаконный и крайне опасный кибернетический имплант способный выпустить смертоносный клинок из концетрированной энергии."
-	items_to_create = newlist(/obj/item/melee/transforming/energy/blade/hardlight)
+	items_to_create = list(/obj/item/melee/energy/blade/hardlight)
 
 /obj/item/organ/cyberimp/arm/medibeam
 	name = "встроенная медицинская лучевая пушка"
@@ -281,7 +281,7 @@
 /obj/item/organ/cyberimp/arm/combat
 	name = "боевой кибернетический имплант"
 	desc = "Мощный кибернетический имплант встроенный в руку пользователя и содержащий боевые модули."
-	items_to_create = list(/obj/item/melee/transforming/energy/blade/hardlight, /obj/item/gun/medbeam, /obj/item/borg/stun, /obj/item/assembly/flash/armimplant)
+	items_to_create = list(/obj/item/melee/energy/blade/hardlight, /obj/item/gun/medbeam, /obj/item/borg/stun, /obj/item/assembly/flash/armimplant)
 
 /obj/item/organ/cyberimp/arm/combat/Initialize()
 	. = ..()
