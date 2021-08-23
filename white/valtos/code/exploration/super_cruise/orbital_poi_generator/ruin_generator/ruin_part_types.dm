@@ -98,7 +98,7 @@
 
 /datum/map_template/ruin_part/corgarmoury
 	file_name = "13x13_corgarmoury"
-	weight = 20
+	weight = 5
 	loot_room = TRUE
 
 /datum/map_template/ruin_part/corgrobotics
@@ -191,8 +191,112 @@
 
 /datum/map_template/ruin_part/pizzaguard
 	file_name = "13x17_pizzaroom"
-	weight = 20
+	weight = 3
 	loot_room = TRUE
+
+//Damaged halls
+
+/datum/map_template/ruin_part/hern_damaged
+	file_name = "5x5_hern_damaged"
+	weight = 0.3
+
+/datum/map_template/ruin_part/hernsw_damaged
+	file_name = "5x5_hernsw_damaged"
+	weight = 0.3
+
+/datum/map_template/ruin_part/hernw_damaged
+	file_name = "5x5_hernw_damaged"
+	weight = 0.3
+
+/datum/map_template/ruin_part/hers_damaged
+	file_name = "5x5_hers_damaged"
+	weight = 0.3
+
+/datum/map_template/ruin_part/hersw_damaged
+	file_name = "5x5_hersw_damaged"
+	weight = 0.3
+
+/datum/map_template/ruin_part/hesrnw_damaged
+	file_name = "5x5_hesrnw_damaged"
+	weight = 0.3
+
+/datum/map_template/ruin_part/hewrn_damaged
+	file_name = "5x5_hewrn_damaged"
+	weight = 0.3
+
+/datum/map_template/ruin_part/hewrns_damaged
+	file_name = "5x5_hewrns_damaged"
+	weight = 0.3
+
+/datum/map_template/ruin_part/hewrs_damaged
+	file_name = "5x5_hewrs_damaged"
+	weight = 0.3
+
+/datum/map_template/ruin_part/hnersw_damaged
+	file_name = "5x5_hnersw_damaged"
+	weight = 0.2
+
+/datum/map_template/ruin_part/hnesrw_damaged
+	file_name = "5x5_hnesrw_damaged"
+	weight = 0.2
+
+/datum/map_template/ruin_part/hnewrs_damaged
+	file_name = "5x5_hnewrs_damaged"
+	weight = 0.2
+
+/datum/map_template/ruin_part/hnresw_damaged
+	file_name = "5x5_hnresw_damaged"
+	weight = 0.2
+
+/datum/map_template/ruin_part/hnswre_damaged
+	file_name = "5x5_hnswre_damaged"
+	weight = 0.2
+
+/datum/map_template/ruin_part/hnwres_damaged
+	file_name = "5x5_hnwres_damaged"
+	weight = 0.2
+
+/datum/map_template/ruin_part/hsrnew_damaged
+	file_name = "5x5_hsrnew_damaged"
+	weight = 0.2
+
+/datum/map_template/ruin_part/hswrne_damaged
+	file_name = "5x5_hswrne_damaged"
+	weight = 0.2
+
+/datum/map_template/ruin_part/hwres_damaged
+	file_name = "5x5_hwres_damaged"
+	weight = 0.2
+
+/datum/map_template/ruin_part/hwrn_damaged
+	file_name = "5x5_hwrn_damaged"
+	weight = 0.2
+
+/datum/map_template/ruin_part/hwrne_damaged
+	file_name = "5x5_hwrne_damaged"
+	weight = 0.2
+
+/datum/map_template/ruin_part/hwrnes_damaged
+	file_name = "5x5_hwrnes_damaged"
+	weight = 0.2
+
+/datum/map_template/ruin_part/hwrns_damaged
+	file_name = "5x5_hwrns_damaged"
+	weight = 0.2
+
+/datum/map_template/ruin_part/hwrs_damaged
+	file_name = "5x5_hwrs_damaged"
+	weight = 0.2
+
+/datum/map_template/ruin_part/hew_damaged
+	file_name = "5x5_hew_damaged"
+	weight = 0.2
+
+/datum/map_template/ruin_part/hns_damaged
+	file_name = "5x5_hns_damaged"
+	weight = 0.2
+
+//End damaged halls
 
 /datum/map_template/ruin_part/hern
 	file_name = "5x5_hern"
@@ -316,10 +420,8 @@
 	weight = 3
 	max_occurances = 1
 
-/datum/map_template/ruin_part/charliestation
-	file_name = "17x17_charliecrew"
-	weight = 1
-	max_occurances = 1
+/datum/map_template/ruin_part/medstorage
+	file_name = "9x13_medstorage"
 
 /datum/map_template/ruin_part/room_arsenal
 	file_name = "5x6_arsenal"
@@ -330,9 +432,16 @@
 	file_name = "7x7_hallwaystrange"
 	weight = 3
 
+/datum/map_template/ruin_part/morgue
+	file_name = "9x5_morgue"
+	weight = 4
 /datum/map_template/ruin_part/teleporter_two
 	file_name = "9x9_teleporter"
 	weight = 1
+
+/datum/map_template/ruin_part/charliestation_mini
+	file_name = "17x17_charliecrew"
+	max_occurances = 1
 
 /datum/map_template/ruin_part/vaporwave
 	file_name = "11x8_vaporwave"
@@ -346,9 +455,39 @@
 	file_name = "40x34_bigderelict"
 	weight = 3
 
+/datum/map_template/ruin_part/corgasteroid
+	file_name = "41x41_corgasteroid"
+	weight = 1
+	max_occurances = 1
+
+/datum/map_template/ruin_part/teleporter
+	file_name = "9x13_teleporter"
+	weight = 1
+	max_occurances = 1
+
+/datum/map_template/ruin_part/medicalroom
+	file_name = "13x9_medical"
+	weight = 3
+
+/datum/map_template/ruin_part/genetics
+	file_name = "9x9_genetics"
+	weight = 3
+
+/datum/map_template/ruin_part/northairlock
+	file_name = "5x9_northernairlock"
+	weight = 4
+
+/datum/map_template/ruin_part/southairlock
+	file_name = "5x9_southernairlock"
+	weight = 4
+
+/datum/map_template/ruin_part/shuttledock_inside
+	file_name = "21x17_shuttledock"
+	weight = 4
+	max_occurances = 1
+
 /datum/map_template/ruin_part/charliestation
 	file_name = "69x45_charliestation"
-	weight = 50
 	loot_room = TRUE
 	max_occurances = 1
 	special_flags = RUIN_PART_HABITABLE
