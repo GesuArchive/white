@@ -30,7 +30,6 @@
 /turf/closed/wall,
 /area/ruin/unpowered)
 "V" = (
-/obj/item/twohanded/required/kirbyplants/random,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "W" = (

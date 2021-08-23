@@ -1,6 +1,5 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "b" = (
-/obj/item/twohanded/required/kirbyplants/random,
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/ruin/unpowered)

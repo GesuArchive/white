@@ -16,7 +16,6 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "t" = (
-/obj/item/twohanded/required/kirbyplants/random,
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/ruin/unpowered)
