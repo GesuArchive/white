@@ -4508,18 +4508,18 @@
 	new /obj/item/ammo_box/magazine/ak47mag(src)
 	new /obj/item/ammo_box/magazine/ak47mag(src)
 	new /obj/item/ammo_box/magazine/ak47mag(src)
+*/
+/obj/item/storage/toolbox/ammo/wt550
 
-/obj/item/storage/toolbox/ammo/WT550
-
-/obj/item/storage/toolbox/ammo/WT550/PopulateContents()
-	new /obj/item/ammo_box/magazine/wt550m9/mc9mmt(src)
-	new /obj/item/ammo_box/magazine/wt550m9/mc9mmt(src)
-	new /obj/item/ammo_box/magazine/wt550m9/mc9mmt(src)
-	new /obj/item/ammo_box/magazine/wt550m9/mc9mmt(src)
-	new /obj/item/ammo_box/magazine/wt550m9/mc9mmt(src)
-	new /obj/item/ammo_box/magazine/wt550m9/mc9mmt(src)
-	new /obj/item/ammo_box/magazine/wt550m9/mc9mmt(src)
-
+/obj/item/storage/toolbox/ammo/wt550/PopulateContents()
+	new /obj/item/ammo_box/magazine/wt550m9(src)
+	new /obj/item/ammo_box/magazine/wt550m9(src)
+	new /obj/item/ammo_box/magazine/wt550m9(src)
+	new /obj/item/ammo_box/magazine/wt550m9(src)
+	new /obj/item/ammo_box/magazine/wt550m9(src)
+	new /obj/item/ammo_box/magazine/wt550m9(src)
+	new /obj/item/ammo_box/magazine/wt550m9(src)
+/*
 /datum/component/storage/concrete/pockets/hunter/Initialize()
 	. = ..()
 	max_items = 3

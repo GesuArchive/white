@@ -742,15 +742,6 @@
 	setStaminaLoss(0)
 	SetUnconscious(0)
 
-
-/mob/living/Crossed(atom/movable/AM)
-	. = ..()
-	for(var/i in get_equipped_items())
-		var/obj/item/item = i
-		SEND_SIGNAL(item, COMSIG_ITEM_WEARERCROSSED, AM, src)
-
-
-
 //proc used to completely heal a mob.
 //admin_revive = TRUE is used in other procs, for example mob/living/carbon/fully_heal()
 /mob/living/proc/fully_heal(admin_revive = FALSE)

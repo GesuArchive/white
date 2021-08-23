@@ -310,20 +310,31 @@
 
 /obj/machinery/door/firedoor/border_only/closed
 	icon_state = "door_closed"
+	opacity = TRUE
 	density = TRUE
 
-/obj/machinery/door/firedoor/border_only/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/machinery/door/firedoor/border_only/Initialize()
 	. = ..()
-	if(mover.loc == loc && get_dir(mover, target) & dir)
-		return !density
-	if(get_dir(loc, mover) & dir)
-		return !density
-	return TRUE
 
-/obj/machinery/door/firedoor/border_only/CheckExit(atom/movable/mover as mob|obj, turf/target)
-	if(get_dir(get_turf(src), target) == dir)
-		return !density
-	return TRUE
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_EXIT = .proc/on_exit,
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/machinery/door/firedoor/border_only/CanAllowThrough(atom/movable/mover, border_dir)
+	. = ..()
+	if(!(border_dir == dir)) //Make sure looking at appropriate border
+		return TRUE
+
+/obj/machinery/door/firedoor/border_only/proc/on_exit(datum/source, atom/movable/leaving, direction)
+	SIGNAL_HANDLER
+	if(leaving == src)
+		return // Let's not block ourselves.
+
+	if(direction == dir && density)
+		leaving.Bump(src)
+		return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/machinery/door/firedoor/border_only/CanAtmosPass(turf/T)
 	if(get_dir(get_turf(src), T) == dir)

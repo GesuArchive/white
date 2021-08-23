@@ -741,7 +741,7 @@ GLOBAL_DATUM(blue_storage, /obj/item/storage/backpack/holding/bluespace)
 	desc = "This can be activated to summon reflective fields."
 	icon_state = "rune_adamantine"
 
-/obj/structure/reflector/box/anchored/mob_pass/CanPass(atom/movable/mover, turf/target)
+/obj/structure/reflector/box/anchored/mob_pass/CanPass(atom/movable/mover, border_dir)
 	if(isliving(mover))
 		return TRUE
 	return ..()

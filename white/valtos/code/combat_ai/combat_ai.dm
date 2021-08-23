@@ -7,6 +7,9 @@
 					  BB_COMBAT_AI_WOUNDED = FALSE,\
 					  BB_COMBAT_AI_STUPIDITY = 0,\
 					  BB_COMBAT_AI_SUICIDE_BOMBER = FALSE)
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/on_Crossed,
+	)
 
 /datum/ai_controller/combat_ai/TryPossessPawn(atom/new_pawn)
 	if(!ishuman(new_pawn))
@@ -16,16 +19,17 @@
 	RegisterSignal(new_pawn, COMSIG_ATOM_ATTACK_PAW, .proc/on_attack_paw)
 	RegisterSignal(new_pawn, COMSIG_ATOM_BULLET_ACT, .proc/on_bullet_act)
 	RegisterSignal(new_pawn, COMSIG_ATOM_HITBY, .proc/on_hitby)
-	RegisterSignal(new_pawn, COMSIG_MOVABLE_CROSSED, .proc/on_Crossed)
 	RegisterSignal(new_pawn, COMSIG_LIVING_START_PULL, .proc/on_startpulling)
 	RegisterSignal(new_pawn, COMSIG_LIVING_TRY_SYRINGE, .proc/on_try_syringe)
 	RegisterSignal(new_pawn, COMSIG_ATOM_HULK_ATTACK, .proc/on_attack_hulk)
 	RegisterSignal(new_pawn, COMSIG_CARBON_CUFF_ATTEMPTED, .proc/on_attempt_cuff)
+	AddComponent(/datum/component/connect_loc_behalf, pawn, loc_connections)
 	return ..() //Run parent at end
 
 /datum/ai_controller/combat_ai/UnpossessPawn(destroy)
-	UnregisterSignal(pawn, list(COMSIG_PARENT_ATTACKBY, COMSIG_ATOM_ATTACK_HAND, COMSIG_ATOM_ATTACK_PAW, COMSIG_ATOM_BULLET_ACT, COMSIG_ATOM_HITBY, COMSIG_MOVABLE_CROSSED, COMSIG_LIVING_START_PULL,\
+	UnregisterSignal(pawn, list(COMSIG_PARENT_ATTACKBY, COMSIG_ATOM_ATTACK_HAND, COMSIG_ATOM_ATTACK_PAW, COMSIG_ATOM_BULLET_ACT, COMSIG_ATOM_HITBY, COMSIG_LIVING_START_PULL,\
 	COMSIG_LIVING_TRY_SYRINGE, COMSIG_ATOM_HULK_ATTACK, COMSIG_CARBON_CUFF_ATTEMPTED))
+	qdel(GetComponent(/datum/component/connect_loc_behalf))
 	return ..() //Run parent at end
 
 /datum/ai_controller/combat_ai/able_to_run()

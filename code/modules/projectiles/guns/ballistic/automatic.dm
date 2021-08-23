@@ -97,7 +97,7 @@
 
 /obj/item/gun/ballistic/automatic/wt550
 	name = "автоматическая винтовка службы безопасности"
-	desc = "Устаревшее оружие. Использует патроны 4.6x30mm калибра, обозначается как \"WT-550 Automatic Rifle\"."
+	desc = "Устаревшее оружие, именуемое как \"WT-550 Automatic Rifle\". Использует патроны 4.6x30mm калибра."
 	icon_state = "wt550"
 	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "arg"
@@ -254,7 +254,7 @@
 
 /obj/item/gun/ballistic/automatic/l6_saw
 	name = "\improper L6 SAW"
-	desc = "Улучшенная модификами, стреляющая 7.12x82mm патронами, назначена как 'L6 SAW'. Гравировка на обратной стороне 'Aussec Armoury - 2531'."
+	desc = "Сильно модифицированный ручной пулемет, так же известен как \"L6 SAW\". На ресивере можно увидеть надпись \"Aussec Armoury - 2531\". Использует патроны 7.12x82мм калибра."
 	icon_state = "l6"
 	inhand_icon_state = "l6"
 	w_class = WEIGHT_CLASS_HUGE

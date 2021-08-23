@@ -797,7 +797,7 @@
 	name = "Пополнение боезапаса"
 	desc = "Хочешь отомстить? Иди \
 		и отомсти!"
-	icon = 'icons/effects/effects.dmi'
+	//icon = 'icons/effects/effects.dmi' потом какнить впилю
 	icon_state = "at_shield1"
 	layer = ABOVE_MOB_LAYER
 	alpha = 255
@@ -806,10 +806,6 @@
 /obj/effect/ctf/ammo/Initialize(mapload)
 	..()
 	QDEL_IN(src, AMMO_DROP_LIFETIME)
-
-/obj/effect/ctf/ammo/Crossed(atom/movable/AM)
-	. = ..()
-	reload(AM)
 
 /obj/effect/ctf/ammo/Bump(atom/A)
 	reload(A)

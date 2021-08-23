@@ -76,16 +76,7 @@
 //from base of atom/eminence_act(): ()
 #define COMSIG_ATOM_EMINENCE_ACT "atom_eminence_act"
 
-///from base of atom/movable/Crossed(): (/atom/movable)
-#define COMSIG_MOVABLE_CROSSED "movable_crossed"
-///from base of atom/movable/Uncross(): (/atom/movable)
-#define COMSIG_MOVABLE_UNCROSS "movable_uncross"
-	#define COMPONENT_MOVABLE_BLOCK_UNCROSS (1<<0)
-///from base of atom/movable/Uncrossed(): (/atom/movable)
-#define COMSIG_MOVABLE_UNCROSSED "movable_uncrossed"
-///called on item when crossed by something (): (/atom/movable, mob/living/crossed)
-#define COMSIG_ITEM_WEARERCROSSED "wearer_crossed"
-
+#define COMSIG_MOVABLE_CROSSED "movable_crossed" //оставил эту хуйню чисто чтоб щиткодоговно компилилось, выпилить везде где используеца и заменить коннект локом
 
 //нахуй бы этих нанитов, говнокод лютого говна неэстетичный
 //Nanites

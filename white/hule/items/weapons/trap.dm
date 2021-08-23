@@ -12,13 +12,20 @@
 	var/obj/item/grenade/prikl
 	var/mob/owner
 
+/obj/structure/tripwire/Initialize()
+	. = ..()
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/check_cbt,
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/structure/tripwire/proc/activate()
 	if(prikl)
 		prikl.detonate(owner)
 		qdel(src)
 
-/obj/structure/tripwire/Crossed(atom/movable/AM as mob|obj)
-	. = ..()
+/obj/structure/tripwire/proc/check_cbt(datum/source, atom/movable/AM)
+	SIGNAL_HANDLER
 	if(ismob(AM))
 		var/mob/MM = AM
 		if(MM.movement_type & FLYING)
