@@ -749,6 +749,7 @@
 #include "code\datums\elements\selfknockback.dm"
 #include "code\datums\elements\series.dm"
 #include "code\datums\elements\simple_flying.dm"
+#include "code\datums\elements\skittish.dm"
 #include "code\datums\elements\snail_crawl.dm"
 #include "code\datums\elements\spooky.dm"
 #include "code\datums\elements\squish.dm"

@@ -25,11 +25,10 @@
 		return
 
 	var/obj/structure/closet/closet = target
-/*
 	if(!closet.divable)
 		// Things like secure crates can blow up under certain circumstances
 		return
-*/
+
 	var/turf/closet_turf = get_turf(closet)
 
 	if(!closet.opened)

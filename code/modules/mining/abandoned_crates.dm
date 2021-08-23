@@ -13,6 +13,9 @@
 	var/spawned_loot = FALSE
 	tamperproof = 90
 
+	// Stop people from "diving into" the crate accidentally, and then detonating it.
+	divable = FALSE
+
 /obj/structure/closet/crate/secure/loot/Initialize()
 	. = ..()
 	var/list/digits = list("1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
