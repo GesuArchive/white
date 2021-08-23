@@ -223,9 +223,13 @@
 
 /obj/item/mechcomp/pressurepad/Initialize()
 	. = ..()
-	RegisterSignal(src, COMSIG_MOVABLE_CROSSED, .proc/pad_triggered)
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ALLOW_MANUAL_SIGNAL)
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Fine tuning", "finetune")
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/pad_triggered,
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/item/mechcomp/pressurepad/proc/pad_triggered(datum/self, atom/movable/AM)
 	SIGNAL_HANDLER

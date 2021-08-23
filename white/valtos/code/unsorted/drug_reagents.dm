@@ -508,9 +508,14 @@
 	color = pick("#ff00ff", "#ff0000", "#0000ff", "#00ff00", "#00ffff")
 	animate(src, color = color_matrix_rotate_hue(rand(0, 360)), time = 200, easing = CIRCULAR_EASING)
 	QDEL_IN(src, rand(40, 200))
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/on_entered,
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/effect/hallucination/simple/water/Crossed(atom/movable/AM)
-	. = ..()
+
+/obj/effect/hallucination/simple/water/proc/on_entered(datum/source, atom/movable/AM)
+	SIGNAL_HANDLER
 	if(!triggered_shit)
 		if(ishuman(AM))
 			animate(src, pixel_y = 600, pixel_x = rand(-4, 4), time = 30, easing = BOUNCE_EASING)

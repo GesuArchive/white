@@ -458,7 +458,7 @@
 	density = 1
 	opacity = 0
 
-/obj/structure/prison/fence/CanPass(atom/movable/mover, turf/target)
+/obj/structure/prison/fence/CanPass(atom/movable/mover, border_dir)
 	if(locate(/obj/structure/prison/fence) in get_turf(mover))
 		return 1
 	else if(istype(mover, /obj/projectile))

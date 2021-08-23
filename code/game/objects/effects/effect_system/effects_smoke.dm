@@ -125,6 +125,13 @@
 /obj/effect/particle_effect/smoke/bad
 	lifetime = 8
 
+/obj/effect/particle_effect/smoke/bad/Initialize()
+	. = ..()
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/on_entered,
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/effect/particle_effect/smoke/bad/smoke_mob(mob/living/carbon/M)
 	. = ..()
 	if(.)
@@ -133,8 +140,8 @@
 		M.emote("cough")
 		return TRUE
 
-/obj/effect/particle_effect/smoke/bad/Crossed(atom/movable/AM, oldloc)
-	. = ..()
+/obj/effect/particle_effect/smoke/bad/proc/on_entered(datum/source, atom/movable/AM, oldloc)
+	SIGNAL_HANDLER
 	if(istype(AM, /obj/projectile/beam))
 		var/obj/projectile/beam/B = AM
 		B.damage = (B.damage/2)

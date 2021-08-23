@@ -29,12 +29,18 @@
 	var/state = "01"	//How far the door assembly has progressed
 	CanAtmosPass = ATMOS_PASS_PROC
 
-/obj/structure/windoor_assembly/New(loc, set_dir)
-	..()
+/obj/structure/windoor_assembly/Initialize(loc, set_dir)
+	. = ..()
 	if(set_dir)
 		setDir(set_dir)
 	ini_dir = dir
 	air_update_turf(TRUE, TRUE)
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_EXIT = .proc/on_exit,
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/windoor_assembly/Destroy()
 	density = FALSE
@@ -50,13 +56,10 @@
 /obj/structure/windoor_assembly/update_icon_state()
 	icon_state = "[facing]_[secure ? "secure_" : ""]windoor_assembly[state]"
 
-/obj/structure/windoor_assembly/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/structure/windoor_assembly/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
 
-	if(mover.loc == loc && get_dir(mover, target) & dir)
-		return FALSE
-
-	if(get_dir(loc, mover) & dir)
+	if(border_dir == dir)
 		return
 
 	if(istype(mover, /obj/structure/window))
@@ -72,13 +75,15 @@
 	else
 		return 1
 
-/obj/structure/windoor_assembly/CheckExit(atom/movable/mover, turf/target)
-	if(mover.pass_flags & pass_flags_self)
-		return TRUE
-	if(get_dir(loc, target) == dir)
-		return !density
-	else
-		return TRUE
+/obj/structure/windoor_assembly/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
+	SIGNAL_HANDLER
+
+	if (leaving.pass_flags & pass_flags_self)
+		return
+
+	if (get_dir(loc, new_location) == dir && density)
+		leaving.Bump(src)
+		return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/structure/windoor_assembly/attackby(obj/item/W, mob/user, params)
 	//I really should have spread this out across more states but thin little windoors are hard to sprite.
@@ -296,7 +301,7 @@
 						else
 							windoor.req_access = electronics.accesses
 						windoor.electronics = electronics
-						electronics.loc = windoor
+						electronics.forceMove(windoor)
 						if(created_name)
 							windoor.name = created_name
 						qdel(src)

@@ -18,10 +18,6 @@
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/machinery/plumbing/grinder_chemical/proc/on_entered(datum/source, atom/movable/AM)
-	SIGNAL_HANDLER
-	grind(AM)
-
 /obj/machinery/plumbing/grinder_chemical/can_be_rotated(mob/user, rotation_type)
 	if(anchored)
 		to_chat(user, "<span class='warning'>It is fastened to the floor!</span>")
@@ -32,18 +28,17 @@
 	. = ..()
 	eat_dir = newdir
 
-/obj/machinery/plumbing/grinder_chemical/CanAllowThrough(atom/movable/AM)
+/obj/machinery/plumbing/grinder_chemical/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
 	if(!anchored)
 		return
-	var/move_dir = get_dir(loc, AM.loc)
-	if(move_dir == eat_dir)
+	if(border_dir == eat_dir)
 		return TRUE
-/*
-/obj/machinery/plumbing/grinder_chemical/Crossed(atom/movable/AM)
-	. = ..()
+
+/obj/machinery/plumbing/grinder_chemical/proc/on_entered(datum/source, atom/movable/AM)
+	SIGNAL_HANDLER
 	grind(AM)
-*/
+
 /obj/machinery/plumbing/grinder_chemical/proc/grind(atom/AM)
 	if(machine_stat & NOPOWER)
 		return

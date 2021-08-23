@@ -114,7 +114,14 @@
 	/// Weakref containing the owner of the trap
 	var/datum/weakref/owner
 
-/obj/structure/trap/eldritch/Crossed(atom/movable/AM)
+/obj/structure/trap/eldritch/Initialize(mapload)
+	. = ..()
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/on_entered,
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/structure/trap/eldritch/on_entered(datum/source, atom/movable/AM)
 	if(!isliving(AM))
 		return ..()
 	var/mob/living/living_mob = AM

@@ -384,13 +384,14 @@
 /obj/effect/temp_visual/bone/fromsky/Initialize()
 	. = ..()
 	animate(src, pixel_z = 0, time = duration)
-
+/* ха ха закомменчу и не буду переделывать валера андртейл саси
 /obj/effect/temp_visual/bone/Crossed(atom/movable/AM, oldloc)
 	. = ..()
 	if(isliving(AM))
 		var/mob/living/L = AM
 		L.adjustBruteLoss(rand(10,15))
 		playsound(src, 'white/valtos/sounds/undertale/snd_hurt1.wav', 100, 0)
+*/
 
 /mob/living/simple_animal/hostile/megafauna/sans/proc/arena_trap(mob/victim) //trap a target in an arena
 	var/turf/T = get_turf(victim)
@@ -417,7 +418,7 @@
 	if(new_caster)
 		caster = new_caster
 
-/obj/effect/temp_visual/sansarena/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/effect/temp_visual/sansarena/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
 	if(QDELETED(caster))
 		return FALSE
@@ -511,11 +512,12 @@
 	do_cumage(T) //do damage and mark us as bursting
 	sleep(1.3) //slightly forgiving; the burst animation is 1.5 deciseconds
 	bursting = FALSE //we no longer damage crossers
-
+/* сос
 /obj/effect/temp_visual/hierophant/blast/sans/Crossed(atom/movable/AM)
 	..()
 	if(bursting)
 		do_cumage(get_turf(src))
+*/
 
 /obj/effect/temp_visual/hierophant/blast/sans/proc/do_cumage(turf/T)
 	if(!damage)
