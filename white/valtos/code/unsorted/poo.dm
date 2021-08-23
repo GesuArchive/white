@@ -257,16 +257,16 @@
 		transfer_fingerprints_to(P)
 		qdel(src)
 
-/obj/structure/poop_barricade/CanPass(atom/movable/mover, turf/target)
+/obj/structure/barricade/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
-	if(get_dir(loc, target) & dir)
-		var/checking = FLYING | FLOATING
-		return . || mover.throwing || mover.movement_type & checking
-	return TRUE
-
-/obj/structure/poop_barricade/CheckExit(atom/movable/mover, turf/target)
-	..()
-	if(get_dir(loc, target) & dir)
-		var/checking = PHASING | FLYING | FLOATING
-		return !density || mover.throwing || mover.movement_type & checking || mover.move_force >= MOVE_FORCE_EXTREMELY_STRONG
-	return TRUE
+	if(locate(/obj/structure/barricade) in get_turf(mover))
+		return TRUE
+	else if(istype(mover, /obj/projectile))
+		if(!anchored)
+			return TRUE
+		var/obj/projectile/proj = mover
+		if(proj.firer && Adjacent(proj.firer))
+			return TRUE
+		if(prob(proj_pass_rate))
+			return TRUE
+		return FALSE

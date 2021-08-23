@@ -193,7 +193,7 @@
 	inputs["left"] = CALLBACK(GLOBAL_PROC, .proc/_step, parent, WEST)
 	inputs["right"] = CALLBACK(GLOBAL_PROC, .proc/_step, parent, EAST)
 
-/* похуй впадлу фиксить
+
 /**
  * Deadchat Moves Things
  *
@@ -210,4 +210,4 @@
 	inputs["down"] = CALLBACK(parent, /obj/effect/immovablerod.proc/walk_in_direction, SOUTH)
 	inputs["left"] = CALLBACK(parent, /obj/effect/immovablerod.proc/walk_in_direction, WEST)
 	inputs["right"] = CALLBACK(parent, /obj/effect/immovablerod.proc/walk_in_direction, EAST)
-*/
+

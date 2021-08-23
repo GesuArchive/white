@@ -240,7 +240,7 @@
 	desc = "Заборчик. Круто."
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "b-1"
-	density = FALSE
+	density = TRUE
 	layer = BYOND_LIGHTING_LAYER
 	plane = BYOND_LIGHTING_PLANE
 	pressure_resistance = 4*ONE_ATMOSPHERE
@@ -254,18 +254,37 @@
 	rad_insulation = RAD_NO_INSULATION
 	var/real_explosion_block	//ignore this, just use explosion_block
 
-/obj/structure/pillar/CanPass(atom/movable/mover, turf/target)
+/obj/structure/pillar/Initialize()
 	. = ..()
-	if(istype(mover) && (mover.pass_flags & PASSTABLE))
-		return TRUE
-	return TRUE
+	if(density && flags_1 & ON_BORDER_1) // blocks normal movement from and to the direction it's facing.
+		var/static/list/loc_connections = list(
+			COMSIG_ATOM_EXIT = .proc/on_exit,
+		)
+		AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/structure/pillar/CheckExit(atom/movable/O, turf/target)
-	if(istype(O) && (O.pass_flags & PASSTABLE))
-		return TRUE
-	if(get_dir(O.loc, target) == dir)
-		return FALSE
-	return TRUE
+/obj/structure/pillar/proc/on_exit(datum/source, atom/movable/leaving, direction)
+	SIGNAL_HANDLER
+
+	if(leaving == src)
+		return // Let's not block ourselves.
+
+	if(!(direction & dir))
+		return
+
+	if (!density)
+		return
+
+	if (leaving.throwing)
+		return
+
+	if (leaving.movement_type & (PHASING | FLYING | FLOATING))
+		return
+
+	if (leaving.move_force >= MOVE_FORCE_EXTREMELY_STRONG)
+		return
+
+	leaving.Bump(src)
+	return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/structure/pillar/CanAtmosPass(turf/T)
 	return TRUE
