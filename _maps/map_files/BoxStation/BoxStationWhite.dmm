@@ -18296,7 +18296,6 @@
 /area/service/janitor)
 "bDL" = (
 /obj/machinery/power/apc{
-	areastring = "/area/service/janitor";
 	dir = 8;
 	name = "Custodial Closet APC";
 	pixel_x = -25
@@ -24394,7 +24393,6 @@
 /area/crew_quarters/heads/chief)
 "bZF" = (
 /obj/machinery/power/apc{
-	areastring = "/area/engine/atmos";
 	cell_type = /obj/item/stock_parts/cell/high/plus;
 	dir = 8;
 	name = "Atmospherics APC";
