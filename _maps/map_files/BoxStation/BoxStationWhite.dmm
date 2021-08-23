@@ -32609,6 +32609,15 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
+"fbj" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/lattice,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/turf/open/openspace,
+/area/hallway/primary/starboard)
 "fbm" = (
 /obj/structure/table,
 /obj/item/paper_bin,
@@ -39162,6 +39171,13 @@
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/mixing/chamber)
+"ous" = (
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/turf/open/openspace,
+/area/hallway/primary/starboard)
 "ouv" = (
 /obj/machinery/airalarm{
 	pixel_y = 23
@@ -88632,7 +88648,7 @@ uOI
 uOI
 aVL
 uOI
-uOI
+fbj
 uOI
 uOI
 aVL
@@ -88889,7 +88905,7 @@ jmN
 jmN
 jmN
 jmN
-jmN
+ous
 jmN
 jmN
 jmN
@@ -89146,7 +89162,7 @@ jmN
 jmN
 jmN
 jmN
-jmN
+ous
 jmN
 jmN
 jmN
@@ -93328,7 +93344,7 @@ reJ
 aJw
 aJw
 cOT
-nWq
+wIB
 wIB
 wIB
 wIB
@@ -93585,7 +93601,7 @@ cOe
 pUz
 pUz
 cOT
-nWq
+wIB
 wIB
 wIB
 wIB

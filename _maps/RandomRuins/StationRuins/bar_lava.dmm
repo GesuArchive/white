@@ -438,11 +438,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
-"nt" = (
-/obj/structure/kitchenspike,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plasteel/showroomfloor,
-/area/crew_quarters/kitchen)
 "nL" = (
 /obj/effect/landmark/event_spawn,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -688,7 +683,6 @@
 /area/crew_quarters/bar)
 "wB" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/kitchenspike,
 /turf/open/floor/plasteel/showroomfloor,
 /area/crew_quarters/kitchen)
 "wK" = (
@@ -785,7 +779,10 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/crew_quarters/bar)
 "zQ" = (
-/obj/machinery/griddle,
+/obj/structure/table,
+/obj/machinery/oven{
+	pixel_y = 10
+	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/crew_quarters/kitchen)
 "zU" = (
@@ -893,6 +890,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/crew_quarters/bar)
 "Gc" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /mob/living/simple_animal/hostile/retaliate/goat{
 	name = "Pete"
 	},
@@ -1654,7 +1652,7 @@ JL
 Jf
 Jf
 Jf
-Gc
+fq
 Jf
 AO
 sG
@@ -1669,10 +1667,10 @@ hm
 sG
 hi
 Jf
+Jf
+Jf
 fq
-fq
-fq
-fq
+Jf
 LQ
 sG
 "}
@@ -1686,10 +1684,10 @@ rJ
 sG
 YM
 Qg
-nt
-nt
 wB
 wB
+wB
+Gc
 lk
 sG
 "}

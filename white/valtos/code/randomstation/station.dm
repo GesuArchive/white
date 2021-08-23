@@ -33,6 +33,11 @@
 	suffix = "bar_lava.dmm"
 	name = "Lava Bar"
 
+/datum/map_template/ruin/station/bar/theatre
+	id = "theatre_bar"
+	suffix = "bar_theatre.dmm"
+	name = "Theatre Bar"
+
 /datum/map_template/ruin/station/bridge
 	id = "default_Bridge"
 	suffix = "bridge_default.dmm"
