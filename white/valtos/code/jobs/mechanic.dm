@@ -256,7 +256,7 @@
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = .proc/movable_crossed,
 	)
-	AddElement(/datum/element/connect_loc, src, loc_connections)
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/machinery/copytech_platform/process(delta_time)
 	if(siphoned_power < siphon_max)

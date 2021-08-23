@@ -229,7 +229,7 @@
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = .proc/pad_triggered,
 	)
-	AddElement(/datum/element/connect_loc, src, loc_connections)
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/item/mechcomp/pressurepad/proc/pad_triggered(datum/self, atom/movable/AM)
 	SIGNAL_HANDLER
