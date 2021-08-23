@@ -60,6 +60,7 @@
 /obj/effect/landmark/stationroom/bar/random
 	template_names = list(
 		"Default Bar" = 10,
+		"Theatre Bar" = 8,
 		"Lava Bar" = 3,
 		"Neon Bar" = 4,
 	)

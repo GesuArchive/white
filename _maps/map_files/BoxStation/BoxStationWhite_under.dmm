@@ -7245,9 +7245,8 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/item/storage/pod{
-	pixel_x = 8;
-	pixel_y = 32
+/obj/effect/turf_decal/arrows{
+	dir = 1
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge)
@@ -12640,11 +12639,11 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/personal,
-/obj/item/stack/spacecash/c1000,
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/item/multitool,
+/obj/effect/spawner/lootdrop/space/cashmoney,
 /turf/open/floor/plasteel,
 /area/vacant_room/commissary/second)
 "Ln" = (
@@ -14353,10 +14352,7 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/stack/spacecash/c100{
-	pixel_x = 4;
-	pixel_y = 8
-	},
+/obj/effect/spawner/lootdrop/space/cashmoney,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge)
 "Qn" = (
@@ -15353,6 +15349,18 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/qm/perch)
+"Td" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/piratepad/civilian,
+/obj/effect/turf_decal/bot,
+/obj/item/storage/pod{
+	pixel_x = 8;
+	pixel_y = 32
+	},
+/turf/open/floor/plasteel,
+/area/hallway/secondary/exit/departure_lounge)
 "Te" = (
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
@@ -16391,6 +16399,13 @@
 /obj/machinery/light/floor,
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
+"Wp" = (
+/obj/machinery/computer/piratepad_control/civilian,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/hallway/secondary/exit/departure_lounge)
 "Wq" = (
 /turf/closed/wall,
 /area/service/hydroponics)
@@ -60126,7 +60141,7 @@ Zm
 bw
 Zm
 nk
-Ye
+Wp
 Ye
 Ye
 xg
@@ -60383,7 +60398,7 @@ PG
 bw
 PG
 nk
-nk
+Td
 uX
 ya
 Bp
@@ -60639,7 +60654,7 @@ bw
 Zm
 bw
 PG
-PG
+nk
 nk
 FF
 FF
@@ -60895,7 +60910,7 @@ PG
 bw
 Zm
 bw
-bw
+PG
 PG
 PG
 Zm
@@ -61151,7 +61166,7 @@ Zm
 PG
 Zm
 Zm
-Zm
+bw
 bw
 bw
 bw

@@ -9,8 +9,8 @@
 #define OVEN_TRAY_X_OFFSET -2
 
 /obj/machinery/oven
-	name = "oven"
-	desc = "Why do they call it oven when you of in the cold food of out hot eat the food?"
+	name = "духовка"
+	desc = "Не рекомендуется залезать внутрь."
 	icon = 'icons/obj/machines/kitchenmachines.dmi'
 	icon_state = "oven_off"
 	density = TRUE
@@ -81,7 +81,7 @@
 		baked_item.fire_act(1000) //Hot hot hot!
 
 		if(DT_PROB(10, delta_time))
-			visible_message(span_danger("You smell a burnt smell coming from [src]!"))
+			visible_message(span_danger("Веет чем-то сгоревшим со стороны [src.name]!"))
 	set_smoke_state(worst_cooked_food_state)
 	update_icon()
 
@@ -89,7 +89,7 @@
 /obj/machinery/oven/attackby(obj/item/I, mob/user, params)
 	if(open && !used_tray && istype(I, /obj/item/plate/oven_tray))
 		if(user.transferItemToLoc(I, src, silent = FALSE))
-			to_chat(user, span_notice("You put [I] in [src]."))
+			to_chat(user, span_notice("Вставляю [I.name] в [src.name]."))
 			add_tray_to_oven(I)
 	else
 		return ..()
@@ -128,13 +128,13 @@
 	if(open)
 		playsound(src, 'sound/machines/oven/oven_open.ogg', 75, TRUE)
 		set_smoke_state(OVEN_SMOKE_STATE_NONE)
-		to_chat(user, span_notice("You open [src]."))
+		to_chat(user, span_notice("Открываю [src.name]."))
 		end_processing()
 		if(used_tray)
 			used_tray.vis_flags &= ~VIS_HIDE
 	else
 		playsound(src, 'sound/machines/oven/oven_close.ogg', 75, TRUE)
-		to_chat(user, span_notice("You close [src]."))
+		to_chat(user, span_notice("Закрываю [src.name]."))
 		if(used_tray)
 			begin_processing()
 			used_tray.vis_flags |= VIS_HIDE
@@ -170,8 +170,8 @@
 
 
 /obj/item/plate/oven_tray
-	name = "oven tray"
-	desc = "Time to bake cookies!"
+	name = "поднос духовки"
+	desc = "Время испечь печенье!"
 	icon_state = "oven_tray"
 	max_items = 6
 

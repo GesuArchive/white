@@ -92,11 +92,11 @@
 
 	if(positive_result)
 		if(current_cook_time <= required_cook_time * 0.75)
-			examine_list += span_notice("\n[A] еще не прожари[A.ru_sya(null, TRUE)]!")
+			examine_list += span_notice("\n[capitalize(A.name)] еще не прожари[A.ru_sya(null, TRUE)]!")
 		else if(current_cook_time <= required_cook_time)
-			examine_list += span_notice("\n[A] почти прожари[A.ru_sya(null, TRUE)]!")
+			examine_list += span_notice("\n[capitalize(A.name)] почти прожари[A.ru_sya(null, TRUE)]!")
 	else
-		examine_list += span_danger("\n[A] прожари[A.ru_sya(null, TRUE)] как следует!")
+		examine_list += span_danger("\n[capitalize(A.name)] прожари[A.ru_sya(null, TRUE)] как следует!")
 
 ///Ran when an object moves from the grill
 /datum/component/grillable/proc/OnMoved(atom/A, atom/OldLoc, Dir, Forced)

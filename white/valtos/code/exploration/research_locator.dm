@@ -16,7 +16,7 @@
 	next_use_time = world.time + 10 SECONDS
 	for(var/obj/item/disk/tech_disk/research/research_disk in SSorbits.research_disks)
 		var/dist = get_dist(user, research_disk)
-		if(dist <= range)
+		if(dist <= range && isturf(research_disk.loc))
 			var/direction = get_dir(user, research_disk)
 			dir = direction
 			say("Обнаружен сигнал в направлении [uppertext(dir2ru_text(direction))], на расстоянии [dist] метров.")

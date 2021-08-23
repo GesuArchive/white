@@ -58,8 +58,8 @@
 		if(user)
 			user.put_in_hands(battery)
 			to_chat(user, span_notice("You detach \the [battery] from \the [src]."))
-		else
-			battery.forceMove(drop_location())
+		else if(holder)
+			battery.forceMove(get_turf(holder))
 		return TRUE
 
 /obj/item/stock_parts/cell/computer

@@ -55,7 +55,7 @@ SUBSYSTEM_DEF(zclear)
 	//Check active mobs
 	for(var/mob/living/L in GLOB.mob_list)
 		//Dead mobs get sent to new ruins
-		if((L.ckey || L.mind || L.client))
+		if(L.ckey || L.mind || L.client)
 			var/turf/T = get_turf(L)
 			mob_levels["[T.z]"] = TRUE
 			if(L.stat != DEAD)

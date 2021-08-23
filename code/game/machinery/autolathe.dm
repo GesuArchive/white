@@ -310,8 +310,21 @@
 		if(ispath(D.build_path, /obj/item/stack))
 			var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 			var/max_multiplier
+			for(var/entry in D.materials)
+				if(istype(entry, /datum/material))
+					max_multiplier = min(D.maxstack, round(materials.get_material_amount(entry)/D.materials[entry]))
+				else
+					var/category_multiplier
+					for(var/i in SSmaterials.materials_by_category[entry])
+						var/amount = materials.get_material_amount(i)
+						if(amount)
+							category_multiplier = max(category_multiplier, round(amount/D.materials[entry]))
+					max_multiplier = min(D.maxstack, category_multiplier)
+
+			/*
 			for(var/datum/material/mat in D.materials)
 				max_multiplier = min(D.maxstack, round(materials.get_material_amount(mat)/D.materials[mat]))
+			*/
 			if (max_multiplier>10 && !disabled)
 				dat += " <a href='?src=[REF(src)];make=[D.id];multiplier=10'>x10</a>"
 			if (max_multiplier>25 && !disabled)
@@ -344,8 +357,21 @@
 		if(ispath(D.build_path, /obj/item/stack))
 			var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 			var/max_multiplier
+			for(var/entry in D.materials)
+				if(istype(entry, /datum/material))
+					max_multiplier = min(D.maxstack, round(materials.get_material_amount(entry)/D.materials[entry]))
+				else
+					var/category_multiplier
+					for(var/i in SSmaterials.materials_by_category[entry])
+						var/amount = materials.get_material_amount(i)
+						if(amount)
+							category_multiplier = max(category_multiplier, round(amount/D.materials[entry]))
+					max_multiplier = min(D.maxstack, category_multiplier)
+
+			/*
 			for(var/datum/material/mat in D.materials)
 				max_multiplier = min(D.maxstack, round(materials.get_material_amount(mat)/D.materials[mat]))
+			*/
 			if (max_multiplier>10 && !disabled)
 				dat += " <a href='?src=[REF(src)];make=[D.id];multiplier=10'>x10</a>"
 			if (max_multiplier>25 && !disabled)
