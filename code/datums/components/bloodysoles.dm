@@ -171,13 +171,13 @@
 		update_icon()
 
 		var/obj/effect/decal/cleanable/blood/footprints/FP = new(get_turf(parent_atom))
-		FP.update_icon()
 		if(!QDELETED(FP)) ///prints merged
 			FP.blood_state = last_blood_state
 			FP.entered_dirs |= wielder.dir
 			add_parent_to_footprint(FP)
 			FP.bloodiness = half_our_blood
 			FP.add_blood_DNA(parent_atom.return_blood_DNA())
+			FP.update_icon()
 
 
 /**
