@@ -70,7 +70,7 @@
 	materials = list(MAT_CATEGORY_RIGID = 250)
 	build_path = /obj/item/stack/teeth/replacement
 	category = list("initial", "Медицина")
-	maxstack = 32
+	maxstack = 5
 
 /datum/surgery/teeth_reinsertion
 	name = "вставка зуба"
