@@ -6959,7 +6959,6 @@
 /area/medical/virology)
 "XH" = (
 /obj/machinery/power/apc/highcap/five_k{
-	areastring = "/area/medical/virology";
 	dir = 1;
 	name = "Virology APC";
 	pixel_y = 23
