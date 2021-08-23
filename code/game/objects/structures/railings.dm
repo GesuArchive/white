@@ -3,11 +3,17 @@
 	desc = "Basic railing meant to protect idiots like you from falling."
 	icon = 'icons/obj/fluff.dmi'
 	icon_state = "railing"
+	flags_1 = ON_BORDER_1
 	density = TRUE
 	anchored = TRUE
+	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE
+	/// armor more or less consistent with grille. max_integrity about one time and a half that of a grille.
+	armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 100, BOMB = 10, BIO = 100, RAD = 100, FIRE = 0, ACID = 0)
+	max_integrity = 75
+
+	var/climbable = TRUE
 	///Initial direction of the railing.
 	var/ini_dir
-	var/climbable = TRUE
 
 /obj/structure/railing/corner //aesthetic corner sharp edges hurt oof ouch
 	icon_state = "railing_corner"
