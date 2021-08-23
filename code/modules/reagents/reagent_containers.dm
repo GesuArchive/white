@@ -145,7 +145,7 @@
 
 /obj/item/reagent_containers/proc/bartender_check(atom/target)
 	. = FALSE
-	var/mob/thrown_by = thrownby?.resolve()
+	var/mob/thrown_by = thrownby
 	if(target.CanPass(src, get_dir(target, src)) && thrown_by && HAS_TRAIT(thrown_by, TRAIT_BOOZE_SLIDER))
 		. = TRUE
 

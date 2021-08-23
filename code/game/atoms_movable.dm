@@ -381,53 +381,79 @@
 // Here's where we rewrite how byond handles movement except slightly different
 // To be removed on step_ conversion
 // All this work to prevent a second bump
-/atom/movable/Move(atom/newloc, direct=0, glide_size_override = 0)
+/atom/movable/Move(atom/newloc, direction, glide_size_override = 0)
 	. = FALSE
 	if(!newloc || newloc == loc)
 		return
 
-	if(!direct)
-		direct = get_dir(src, newloc)
-	setDir(direct)
+	if(!direction)
+		direction = get_dir(src, newloc)
 
-	if(bound_width != world.icon_size || bound_height != world.icon_size)
-		var/list/newlocs = isturf(newloc) ? block(locate(newloc.x+(-bound_x)/world.icon_size,newloc.y+(-bound_y)/world.icon_size,newloc.z),locate(newloc.x+(-bound_x+bound_width)/world.icon_size-1,newloc.y+(-bound_y+bound_height)/world.icon_size-1,newloc.z)) : list(newloc)
-		if(!newlocs)
-			return // we're trying to cross into the edge of space
-		var/bothturfs = isturf(newloc) && isturf(loc)
-		var/dx = bothturfs ? newloc.x - loc.x : 0
-		var/dy = bothturfs ? newloc.y - loc.y : 0
-		var/dz = bothturfs ? newloc.z - loc.z : 0
-		for(var/atom/A in (locs - newlocs))
-			if(!A.Exit(src, bothturfs ? locate(A.x+dx,A.y+dy,A.z+dz) : newloc))
-				return
-		for(var/atom/A in (newlocs - locs))
-			if(!A.Enter(src, bothturfs ? locate(A.x-dx,A.y-dy,A.z+dz) : loc))
+	/* сасеш
+	if(set_dir_on_move)
+		setDir(direction)
+	*/
+
+	var/is_multi_tile_object = bound_width > 32 || bound_height > 32
+
+	var/list/old_locs
+	if(is_multi_tile_object && isturf(loc))
+		old_locs = locs // locs is a special list, this is effectively the same as .Copy() but with less steps
+		for(var/atom/exiting_loc as anything in old_locs)
+			if(!exiting_loc.Exit(src, direction))
 				return
 	else
-		if(!loc.Exit(src, newloc))
+		if(!loc.Exit(src, direction))
 			return
 
-		if(!newloc.Enter(src, src.loc))
+	var/list/new_locs
+	if(is_multi_tile_object && isturf(newloc))
+		new_locs = block(
+			newloc,
+			locate(
+				min(world.maxx, newloc.x + CEILING(bound_width / 32, 1)),
+				min(world.maxy, newloc.y + CEILING(bound_height / 32, 1)),
+				newloc.z
+				)
+		) // If this is a multi-tile object then we need to predict the new locs and check if they allow our entrance.
+		for(var/atom/entering_loc as anything in new_locs)
+			if(!entering_loc.Enter(src))
+				return
+			if(SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_MOVE, entering_loc) & COMPONENT_MOVABLE_BLOCK_PRE_MOVE)
+				return
+	else // Else just try to enter the single destination.
+		if(!newloc.Enter(src))
 			return
-
-	if (SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_MOVE, newloc) & COMPONENT_MOVABLE_BLOCK_PRE_MOVE)
-		return
+		if(SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_MOVE, newloc) & COMPONENT_MOVABLE_BLOCK_PRE_MOVE)
+			return
 
 	// Past this is the point of no return
 	var/atom/oldloc = loc
 	var/area/oldarea = get_area(oldloc)
 	var/area/newarea = get_area(newloc)
 	move_stacks++
-	loc = newloc
-	. = TRUE
-	oldloc.Exited(src, newloc)
-	if(oldarea != newarea)
-		oldarea.Exited(src, newloc)
 
-	newloc.Entered(src, oldloc)
+	loc = newloc
+
+	. = TRUE
+
+	if(old_locs) // This condition will only be true if it is a multi-tile object.
+		for(var/atom/exited_loc as anything in (old_locs - new_locs))
+			exited_loc.Exited(src, direction)
+	else // Else there's just one loc to be exited.
+		oldloc.Exited(src, direction)
 	if(oldarea != newarea)
-		newarea.Entered(src, oldloc)
+		oldarea.Exited(src, direction)
+
+	if(new_locs) // Same here, only if multi-tile.
+		for(var/atom/entered_loc as anything in (new_locs - old_locs))
+			entered_loc.Entered(src, oldloc, old_locs)
+	else
+		newloc.Entered(src, oldloc, old_locs)
+	if(oldarea != newarea)
+		newarea.Entered(src, oldarea)
+
+	Moved(oldloc, direction, FALSE, old_locs)
 
 ////////////////////////////////////////
 
@@ -492,8 +518,9 @@
 						moving_diagonally = SECOND_DIAG_STEP
 						. = step(src, SOUTH)
 			if(moving_diagonally == SECOND_DIAG_STEP)
-				if(!.)
+				if(!./* && set_dir_on_move*/)
 					setDir(first_step_dir)
+
 				else if (!inertia_moving)
 					inertia_next_move = world.time + inertia_move_delay
 					newtonian_move(direct)
@@ -505,15 +532,13 @@
 		last_move = 0
 		return
 
-	if(.)
-		Moved(oldloc, direct)
 	if(. && pulling && pulling == pullee && pulling != moving_from_pull) //we were pulling a thing and didn't lose it during our move.
 		if(pulling.anchored)
 			stop_pulling()
 		else
 			var/pull_dir = get_dir(src, pulling)
-			//puller and pullee more than one tile away or in diagonal position
-			if(get_dist(src, pulling) > 1 || (moving_diagonally != SECOND_DIAG_STEP && ((pull_dir - 1) & pull_dir)))
+			//puller and pullee more than one tile away or in diagonal position and whatever the pullee is pulling isn't already moving from a pull as it'll most likely result in an infinite loop a la ouroborus.
+			if(!pulling.pulling?.moving_from_pull && (get_dist(src, pulling) > 1 || (moving_diagonally != SECOND_DIAG_STEP && ((pull_dir - 1) & pull_dir))))
 				pulling.moving_from_pull = src
 				pulling.Move(T, get_dir(pulling, T), glide_size) //the pullee tries to reach our previous position
 				pulling.moving_from_pull = null
@@ -526,6 +551,10 @@
 		set_glide_size(glide_size_override)
 
 	last_move = direct
+	/*
+	if(set_dir_on_move)
+		setDir(direct)
+	*/
 	setDir(direct)
 	if(. && has_buckled_mobs() && !handle_buckled_mob_movement(loc, direct, glide_size_override)) //movement failed due to buckled mob(s)
 		return FALSE

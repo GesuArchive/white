@@ -113,7 +113,7 @@
 	else
 		..(FULLTILE_WINDOW_DIR)
 
-/obj/structure/window/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/structure/window/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
 	if(.)
 		return
