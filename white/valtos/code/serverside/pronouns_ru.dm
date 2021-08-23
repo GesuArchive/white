@@ -127,12 +127,14 @@
 	if(!temp_gender)
 		temp_gender = gender
 
-	if(temp_gender == FEMALE)
-		. = "лась"
-	else
-		. = "ся"
-		if(include_l)
-			. = "л" + .
+	. = "лось"
+	switch(temp_gender)
+		if(FEMALE)
+			. = "лась"
+		if(MALE)
+			. = "ся"
+			if(include_l)
+				. = "л" + .
 
 /atom/ru_en(temp_gender = null)
 	if(!temp_gender)
