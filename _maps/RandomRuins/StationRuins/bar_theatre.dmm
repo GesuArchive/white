@@ -1190,10 +1190,9 @@
 "Pn" = (
 /obj/structure/table/wood,
 /obj/item/instrument/violin,
-/obj/machinery/button/door{
+/obj/machinery/button/curtain{
 	id = "thea";
-	name = "curtains";
-	pixel_y = 28
+	pixel_y = 32
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/theatre)
