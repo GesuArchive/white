@@ -418,7 +418,7 @@
 	if(new_caster)
 		caster = new_caster
 
-/obj/effect/temp_visual/sansarena/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/effect/temp_visual/sansarena/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
 	if(QDELETED(caster))
 		return FALSE

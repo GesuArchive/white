@@ -257,7 +257,7 @@
 		transfer_fingerprints_to(P)
 		qdel(src)
 
-/obj/structure/barricade/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/structure/barricade/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
 	if(locate(/obj/structure/barricade) in get_turf(mover))
 		return TRUE

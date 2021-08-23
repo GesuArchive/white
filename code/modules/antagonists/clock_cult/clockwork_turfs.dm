@@ -457,7 +457,7 @@
 	icon_state = "servant_blocker"
 	anchored = TRUE
 
-/obj/effect/clockwork/servant_blocker/CanPass(atom/movable/mover, turf/target)
+/obj/effect/clockwork/servant_blocker/CanPass(atom/movable/mover, border_dir)
 	if(ismob(mover))
 		var/mob/M = mover
 		if(is_servant_of_ratvar(M))

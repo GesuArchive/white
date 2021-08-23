@@ -526,7 +526,7 @@
 	return ..()
 
 
-/obj/machinery/am_shielding/CanPass(atom/movable/mover, turf/target)
+/obj/machinery/am_shielding/CanPass(atom/movable/mover, border_dir)
 	. = ..()
 	return 0
 

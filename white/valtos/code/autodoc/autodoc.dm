@@ -62,8 +62,8 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 		. += "<hr><span class='notice'>Вижу <b>[occupant]</b> внутри.</span>"
 	. += "<hr><span class='notice'><b>Ctrl-Клик</b>, чтобы открыть внутреннее хранилище.</span>"
 
-/obj/machinery/autodoc/CanPass(atom/movable/mover, turf/target)
-	if(get_dir(src, mover) == NORTH || get_dir(src, target) == NORTH)
+/obj/machinery/autodoc/CanPass(atom/movable/mover, border_dir)
+	if(border_dir == NORTH)
 		return FALSE
 	return ..()
 

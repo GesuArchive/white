@@ -665,7 +665,7 @@
 		icon_state = "[base_icon_state][rand(1, lv)]"
 	. = ..()
 
-/obj/structure/flora/tree/cataclysmdda/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/structure/flora/tree/cataclysmdda/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
 	if(!. && istype(mover, /obj/projectile))
 		return prob(30)
