@@ -476,6 +476,15 @@
 	. = merge_without_del(target_stack, limit)
 	is_zero_amount(delete_if_zero = TRUE)
 
+/obj/item/stack/Moved()
+	. = ..()
+	if(!throwing)
+		for(var/obj/item/stack/item_stack in loc)
+			if(item_stack == src)
+				continue
+			if(can_merge(item_stack))
+				INVOKE_ASYNC(item_stack, .proc/merge, src)
+
 /// Signal handler for connect_loc element. Called when a movable enters the turf we're currently occupying. Merges if possible.
 /obj/item/stack/proc/on_movable_entered_occupied_turf(datum/source, atom/movable/arrived)
 	SIGNAL_HANDLER
