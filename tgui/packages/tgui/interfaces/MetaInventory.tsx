@@ -268,17 +268,15 @@ const ItemSlot = (slotid, item:MetaInvObj, act) => {
 };
 
 const MetaInvItems = (act, objects:Array<MetaInvObj>, slots:number) => {
-  const slotRows = Math.round(slots/COLUMNS);
-
-  return ( {}
-    /*
-    <Stack fill vertical>
+  const slotRows = Math.ceil(slots/COLUMNS);
+  return (
+  <Stack fill vertical>
     {range(0, slotRows).map(row => (
       <Stack.Item key={row}>
         <Stack fill>
         {range(0, COLUMNS).map(column => {
           const curID = row * slotRows + column;
-          const curItem: MetaInvObj = data.objects[curID];
+          const curItem: MetaInvObj = objects[curID];
           return (
             <Stack.Item
               key={column}
@@ -287,16 +285,16 @@ const MetaInvItems = (act, objects:Array<MetaInvObj>, slots:number) => {
                 height: BUTTON_DIMENSIONS,
               }}
             >
-              {(curID <= data.slots - 1) ? ItemSlot(curID, curItem, act) : null}
+              {(curID <= slots) ? ItemSlot(curID, curItem, act) : null}
             </Stack.Item>
           );
         })}
         </Stack>
       </Stack.Item>
     ))}
-  </Stack>
-  */
-  );
+  </Stack>);
+
+
 };
 
 type MetaInvData = {
@@ -325,7 +323,7 @@ export const MetaInventory = (props, context) => {
             {MetaInvLoadout(act, data.loadout, data.objects)}
           </Stack.Item>
           <Stack.Item>
-            {/*MetaInvItems(act, data.objects, data.slots)*/}
+            {MetaInvItems(act, data.objects, data.slots)}
           </Stack.Item>
         </Stack>
       </Window.Content>
