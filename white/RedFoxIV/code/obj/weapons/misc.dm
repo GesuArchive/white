@@ -705,7 +705,7 @@
 	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/mob_spawn/human/artist/Destroy()
-	START_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSprocessing, src)
 	. = ..()
 
 /obj/effect/mob_spawn/human/artist/attack_ghost(mob/user)
