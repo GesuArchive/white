@@ -815,10 +815,18 @@
 	color = null
 
 /obj/structure/curtain/cataclysmdda
-	name = "штора"
+	name = "занавеска"
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "shtora-open"
 	icon_type = "shtora"
+	color = null
+	alpha = 240
+
+/obj/structure/curtain/cataclysmdda/window
+	name = "штора"
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "curtain-open"
+	icon_type = "curtain"
 	color = null
 	alpha = 255
 
