@@ -13,8 +13,8 @@
 	var/attached_proc
 
 	// Flavor text crimes used in build_weapon_text()
-	var/list/crimes = list("Assaults", "Third Degree Murders", "Robberies", "Terrorist Attacks", "Different Felonies", "Felinies", "Counts of Tax Evasion", "Mutinies")
-	var/list/victims = list("a human", "a moth", "a felinid", "a lizard", "a particularly resilient slime", "a syndicate agent", "a clown", "a mime", "a mortal foe", "an innocent bystander")
+	var/list/crimes = list("Нападениях", "Убийствах", "Ограблениях", "Террористических актах", "Различных проступках", "Случаях уклонения от налогов", "Мятежах")
+	var/list/victims = list("человека", "моль", "фелинида", "ящера", "агента синдиката", "клоуна", "мима", "противника", "мимокрокодила")
 
 /datum/element/weapon_description/Attach(datum/target, attached_proc)
 	. = ..()
@@ -44,7 +44,7 @@
 	SIGNAL_HANDLER
 
 	if(item.force >= 5 || item.throwforce >= 5 || item.override_notes || item.offensive_notes || attached_proc) /// Only show this tag for items that could feasibly be weapons, shields, or those that have special notes
-		examine_texts += span_notice("It appears to have an ever-updating bluespace <a href='?src=[REF(item)];examine=1'>warning label.</a>")
+		examine_texts += span_notice("\nНа [item.ru_na()] есть обновляющася блюспейс <a href='?src=[REF(item)];examine=1'>этикетка.</a>")
 
 /**
  *
@@ -77,22 +77,22 @@
 	var/list/readout = list("") // Readout is used to store the text block output to the user so it all can be sent in one message
 
 	// Meaningless flavor text. The number of crimes is constantly changing because of the complex Nanotrasen legal system and the esoteric nature of time itself!
-	readout += "[span_warning("WARNING:")] This item has been marked as dangerous by the NT legal team because of its use in [span_warning("[rand(2,99)] [crimes[rand(1, crimes.len)]]")] in the past hour.\n"
+	readout += "[span_warning("ВНИМАНИЕ:")] Этот предмет был обзначен NT как потенциально опасный ввиду его использования в [span_warning("[rand(2,99)] [crimes[rand(1, crimes.len)]]")] за прошедший час.\n"
 
 	// Doesn't show the base notes for items that have the override notes variable set to true
 	if(!source.override_notes)
 		// Make sure not to divide by 0 on accident
 		if(source.force > 0)
-			readout += "Our extensive research has shown that it takes a mere [span_warning("[HITS_TO_CRIT(source.force)] hit\s")] to beat down [victims[rand(1, victims.len)]] with no armor."
+			readout += "Наши исследования показали, что нужно ударить всего [span_warning("[HITS_TO_CRIT(source.force)] раз")] чтобы отправить в нокаут [victims[rand(1, victims.len)]] без брони."
 		else
-			readout += "Our extensive research found that you couldn't beat anyone to death with this if you tried."
+			readout += "Согласно нашим исследованиям, этим нельзя никому навредить."
 
 		if(source.throwforce > 0)
-			readout += "If you decide to throw this object instead, one will take [span_warning("[HITS_TO_CRIT(source.throwforce)] hit\s")] before collapsing."
+			readout += "В случае с бросками, понадобится бросить [span_warning("[HITS_TO_CRIT(source.throwforce)] раз")]."
 		else
-			readout += "If you decide to throw this object instead, then you will have trouble damaging anything."
+			readout += "В случае с бросками, эта штука не сможет никому навредить."
 		if(source.armour_penetration > 0 || source.block_chance > 0)
-			readout += "This item has proven itself [span_warning("[weapon_tag_convert(source.armour_penetration)]")] of piercing armor and [span_warning("[weapon_tag_convert(source.block_chance)]")] of blocking attacks."
+			readout += "Предмет имеет [span_warning("[weapon_tag_convert(source.armour_penetration)]")] пробивную характеристику и [span_warning("[weapon_tag_convert(source.block_chance)]")] возможность блокирования ударов."
 	// Custom manual notes
 	if(source.offensive_notes)
 		readout += source.offensive_notes
@@ -115,14 +115,14 @@
 /datum/element/weapon_description/proc/weapon_tag_convert(tag_val)
 	switch(tag_val)
 		if(0)
-			return "INCAPABLE"
+			return "нулевую"
 		if(1 to 25)
-			return "BARELY CAPABLE"
+			return "незначительную"
 		if(26 to 50)
-			return "CAPABLE"
+			return "стандартную"
 		if(51 to 75)
-			return "VERY CAPABLE"
+			return "выдающуюся"
 		if(76 to INFINITY)
-			return "EXTREMELY CAPABLE"
+			return "крайне выдающуюся"
 		else
-			return "STRANGELY CAPABLE"
+			return "странную"

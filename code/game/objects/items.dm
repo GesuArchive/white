@@ -202,6 +202,11 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 
 	var/canMouseDown = FALSE
 
+	/// Used in obj/item/examine to give additional notes on what the weapon does, separate from the predetermined output variables
+	var/offensive_notes
+	/// Used in obj/item/examine to determines whether or not to detail an item's statistics even if it does not meet the force requirements
+	var/override_notes = FALSE
+
 /obj/item/Initialize()
 
 	if(attack_verb_continuous)
@@ -224,6 +229,16 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 			hitsound = 'sound/items/welder.ogg'
 		if(damtype == BRUTE)
 			hitsound = "swing_hit"
+
+	add_weapon_description()
+
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_ITEM, src)
+	if(LAZYLEN(embedding))
+		updateEmbedding()
+
+/// Adds the weapon_description element, which shows the 'warning label' for especially dangerous objects. Override this for item types with special notes.
+/obj/item/proc/add_weapon_description()
+	AddElement(/datum/element/weapon_description)
 
 /obj/item/Destroy()
 	item_flags &= ~DROPDEL	//prevent reqdels
