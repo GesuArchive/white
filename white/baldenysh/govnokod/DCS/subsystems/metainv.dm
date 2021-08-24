@@ -36,7 +36,7 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainventory
 	var/owner_ckey
-	var/slots_max = 15
+	var/slots_max = 24
 	var/active_loadout = 1
 	var/list/datum/metainv_loadout/loadout_list = list()
 	var/list/datum/metainv_object/obj_list = list()

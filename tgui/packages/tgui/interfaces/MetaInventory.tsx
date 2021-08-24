@@ -275,8 +275,8 @@ const MetaInvItems = (act, objects:Array<MetaInvObj>, slots:number) => {
       <Stack.Item key={row}>
         <Stack fill>
         {range(0, COLUMNS).map(column => {
-          const curID = row * slotRows + column;
-          const curItem: MetaInvObj = objects[curID];
+          const curID = row * COLUMNS + column + 1;
+          const curItem: MetaInvObj = objects[curID-1];
           return (
             <Stack.Item
               key={column}
