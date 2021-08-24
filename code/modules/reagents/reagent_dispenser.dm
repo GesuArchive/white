@@ -210,13 +210,12 @@
 	reagent_id = /datum/reagent/consumable/ethanol/beer
 
 /obj/structure/reagent_dispensers/beerkeg/attack_animal(mob/living/simple_animal/M)
-	. = ..()
-	if(.)
-		return
 	if(isdog(M))
 		explosion(src.loc,0,3,5,7,10)
 		if(!QDELETED(src))
 			qdel(src)
+		return TRUE
+	. = ..()
 
 /obj/structure/reagent_dispensers/beerkeg/blob_act(obj/structure/blob/B)
 	explosion(src.loc,0,3,5,7,10)
