@@ -314,9 +314,9 @@ type MetaInvLoadout = Record<string, string>;
 export const MetaInventory = (props, context) => {
   const { act, data } = useBackend<MetaInvData>(context);
 
-  const slotRows = Math.round(data.slots/COLUMNS);
+  const slotRows = Math.ceil(data.slots/COLUMNS);
   return (
-    <Window title={`Инвентарь`} width={50*(COLUMNS+1)} height={50*(ROWS+1) + 50*(slotRows+2)}>
+    <Window title={`Инвентарь`} width={50*(COLUMNS+1)} height={50*(ROWS+1) + 50*(slotRows+1)}>
       <Window.Content>
         <Stack fill vertical>
           <Stack.Item>
