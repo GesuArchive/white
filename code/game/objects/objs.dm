@@ -46,9 +46,6 @@
 	/// broadcasted to as long as the other guys network is on the same branch or above.
 	var/network_id = null
 
-	///List of object types that the item can be anchored on top of, such as a table
-	var/list/anchorables = null
-
 /obj/vv_edit_var(vname, vval)
 	if(vname == NAMEOF(src, obj_flags))
 		if ((obj_flags & DANGEROUS_POSSESSION) && !(vval & DANGEROUS_POSSESSION))
@@ -62,10 +59,7 @@
 		armor = getArmor()
 	else if (!istype(armor, /datum/armor))
 		stack_trace("Invalid type [armor.type] found in .armor during /obj Initialize()")
-	if(obj_integrity == null)
-		obj_integrity = max_integrity
-	if(anchorables)
-		anchorables = string_list(anchorables)
+	obj_integrity = max_integrity
 
 	. = ..() //Do this after, else mat datums is mad.
 
@@ -78,6 +72,7 @@
 				obj_flags &= ~string_to_objflag[flag]
 			else
 				obj_flags |= string_to_objflag[flag]
+
 	if((obj_flags & ON_BLUEPRINTS) && isturf(loc))
 		var/turf/T = loc
 		T.add_blueprints_preround(src)
