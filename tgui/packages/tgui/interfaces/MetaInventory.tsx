@@ -268,17 +268,15 @@ const ItemSlot = (slotid, item:MetaInvObj, act) => {
 };
 
 const MetaInvItems = (act, objects:Array<MetaInvObj>, slots:number) => {
-  const slotRows = Math.round(slots/COLUMNS);
-
-  return ( {}
-    /*
-    <Stack fill vertical>
+  const slotRows = Math.ceil(slots/COLUMNS);
+  return (
+  <Stack fill vertical>
     {range(0, slotRows).map(row => (
       <Stack.Item key={row}>
         <Stack fill>
         {range(0, COLUMNS).map(column => {
-          const curID = row * slotRows + column;
-          const curItem: MetaInvObj = data.objects[curID];
+          const curID = row * COLUMNS + column + 1;
+          const curItem: MetaInvObj = objects[curID-1];
           return (
             <Stack.Item
               key={column}
@@ -287,16 +285,16 @@ const MetaInvItems = (act, objects:Array<MetaInvObj>, slots:number) => {
                 height: BUTTON_DIMENSIONS,
               }}
             >
-              {(curID <= data.slots - 1) ? ItemSlot(curID, curItem, act) : null}
+              {(curID <= slots) ? ItemSlot(curID, curItem, act) : null}
             </Stack.Item>
           );
         })}
         </Stack>
       </Stack.Item>
     ))}
-  </Stack>
-  */
-  );
+  </Stack>);
+
+
 };
 
 type MetaInvData = {
@@ -316,16 +314,16 @@ type MetaInvLoadout = Record<string, string>;
 export const MetaInventory = (props, context) => {
   const { act, data } = useBackend<MetaInvData>(context);
 
-  const slotRows = Math.round(data.slots/COLUMNS);
+  const slotRows = Math.ceil(data.slots/COLUMNS);
   return (
-    <Window title={`Инвентарь`} width={50*(COLUMNS+1)} height={50*(ROWS+1) + 50*(slotRows+2)}>
+    <Window title={`Инвентарь`} width={50*(COLUMNS+1)} height={50*(ROWS+1) + 50*(slotRows+1)}>
       <Window.Content>
         <Stack fill vertical>
           <Stack.Item>
             {MetaInvLoadout(act, data.loadout, data.objects)}
           </Stack.Item>
           <Stack.Item>
-            {/*MetaInvItems(act, data.objects, data.slots)*/}
+            {MetaInvItems(act, data.objects, data.slots)}
           </Stack.Item>
         </Stack>
       </Window.Content>

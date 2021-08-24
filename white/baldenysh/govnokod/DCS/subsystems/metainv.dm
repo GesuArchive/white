@@ -36,7 +36,7 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainventory
 	var/owner_ckey
-	var/slots_max = 15
+	var/slots_max = 24
 	var/active_loadout = 1
 	var/list/datum/metainv_loadout/loadout_list = list()
 	var/list/datum/metainv_object/obj_list = list()
@@ -88,12 +88,10 @@ SUBSYSTEM_DEF(metainv)
 /datum/metainventory/ui_assets(mob/user)
 	return list(get_asset_datum(/datum/asset/simple/inventory))
 
-//похуй что говнокод лютый, зато меньше ебли с реактом и тайпскриптом
 /datum/metainventory/ui_data(mob/user)
 	var/list/data = list()
 
 	data["objects"] = list()
-
 	for(var/datum/metainv_object/MO in obj_list)
 		var/list/res = list()
 		var/obj/O = text2path(MO.object_path_txt)
