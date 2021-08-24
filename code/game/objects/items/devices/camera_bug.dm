@@ -1,7 +1,7 @@
 
-#define BUGMODE_LIST	0
-#define BUGMODE_MONITOR	1
-#define BUGMODE_TRACK	2
+#define BUGMODE_LIST 0
+#define BUGMODE_MONITOR 1
+#define BUGMODE_TRACK 2
 
 
 
@@ -9,11 +9,11 @@
 	name = "camera bug"
 	desc = "For illicit snooping through the camera network."
 	icon = 'icons/obj/device.dmi'
-	icon_state	= "camera_bug"
-	w_class		= WEIGHT_CLASS_TINY
-	inhand_icon_state	= "camera_bug"
-	throw_speed	= 4
-	throw_range	= 20
+	icon_state = "camera_bug"
+	w_class = WEIGHT_CLASS_TINY
+	inhand_icon_state = "camera_bug"
+	throw_speed = 4
+	throw_range = 20
 	item_flags = NOBLUDGEON
 
 	var/obj/machinery/camera/current = null
@@ -31,11 +31,12 @@
 	var/last_found = null
 	var/last_seen = null
 
-/obj/item/camera_bug/New()
-	..()
+/obj/item/camera_bug/Initialize()
+	. = ..()
 	START_PROCESSING(SSobj, src)
 
 /obj/item/camera_bug/Destroy()
+	STOP_PROCESSING(SSobj, src)
 	get_cameras()
 	for(var/cam_tag in bugged_cameras)
 		var/datum/weakref/camera_ref = bugged_cameras[cam_tag]
@@ -67,7 +68,7 @@
 	var/turf/T_user = get_turf(user.loc)
 	var/turf/T_current = get_turf(current)
 	if(T_user.z != T_current.z || !current.can_use())
-		to_chat(user, "<span class='danger'>[capitalize(src.name)] has lost the signal.</span>")
+		to_chat(user, span_danger("[src] has lost the signal."))
 		current = null
 		user.unset_machine()
 		return FALSE
@@ -119,7 +120,7 @@
 				return .(cameras)
 		if(BUGMODE_TRACK)
 			if(tracking)
-				html = "Tracking '[tracked_name]' <a href='?[REF(src)];mode=0'>\[Cancel Tracking\]</a> <a href='?src=[REF(src)];view'>\[Cancel camera view\]</a><br>"
+				html = "Tracking '[tracked_name]'  <a href='?[REF(src)];mode=0'>\[Cancel Tracking\]</a>  <a href='?src=[REF(src)];view'>\[Cancel camera view\]</a><br>"
 				if(last_found)
 					var/time_diff = round((world.time - last_seen) / 150)
 					var/datum/weakref/camera_ref = bugged_cameras[last_found]
@@ -312,7 +313,7 @@
 	var/turf/T_cam = get_turf(C)
 	var/turf/T_bug = get_turf(loc)
 	if(!T_bug || T_cam.z != T_bug.z)
-		to_chat(usr, "<span class='warning'>You can't get a signal!</span>")
+		to_chat(usr, span_warning("You can't get a signal!"))
 		return FALSE
 	return TRUE
 
