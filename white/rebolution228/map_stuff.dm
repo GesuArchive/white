@@ -651,6 +651,18 @@
 	name = "кувшинка"
 	icon_state = "koovshin"
 
+/obj/structure/flora/cataclysmdda/decoration/nature/wheat
+	name = "пшеница"
+	icon_state = "wheat1"
+	opacity = 1
+	layer = ABOVE_MOB_LAYER
+	mouse_opacity = 0
+
+/obj/structure/flora/cataclysmdda/decoration/nature/wheat/Initialize()
+	. = ..()
+	icon_state = "[icon_state][rand(1,4)]"
+
+
 //Trees
 
 /obj/structure/flora/tree/cataclysmdda
