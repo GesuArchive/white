@@ -777,12 +777,6 @@
 	dv = 3
 
 //Structure
-/obj/structure/barricade/wooden/dark
-	name = "деревянная баррикада"
-	desc = "Вход заборонен."
-	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
-	icon_state = "barricade"
-
 /obj/structure/cataclysmdda
 	name = "structure"
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
@@ -790,6 +784,22 @@
 	can_be_unanchored = FALSE
 	opacity = 0
 	density = 1
+	var/sheetType = /obj/item/stack/sheet/iron
+	var/sheetAmount = 1
+
+/obj/structure/cataclysmdda/deconstruct(disassembled = TRUE)
+	var/turf/T = get_turf(src)
+	if(disassembled)
+		new sheetType(T, sheetAmount)
+	else
+		new sheetType(T, max(sheetAmount - 2, 1))
+	qdel(src)
+
+/obj/structure/barricade/wooden/dark
+	name = "деревянная баррикада"
+	desc = "Вход заборонен."
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "barricade"
 
 /obj/item/device/flashlight/slamp/cataclysmdda
 	name = "напольный светильник"
@@ -821,6 +831,8 @@
 	density = 0
 	max_integrity = 150
 	obj_integrity = 150
+	sheetType = /obj/item/stack/sheet/iron
+	sheetAmount = 7
 
 /obj/structure/cataclysmdda/bath/another
 	icon_state = "bath2"
@@ -855,9 +867,10 @@
 	desc = "Долбит нормально."
 	icon_state = "bassiebut"
 	anchored = 1
-	max_integrity = 150
-	obj_integrity = 150
-	custom_materials = list(/datum/material/iron = 1000)
+	max_integrity = 100
+	obj_integrity = 100
+	sheetType = /obj/item/stack/sheet/iron
+	sheetAmount = 4
 
 /obj/structure/trash_pile/hay
 	name = "стог сена"
@@ -871,11 +884,12 @@
 	icon_state = "minefield"
 	max_integrity = 25
 	obj_integrity = 25
-	custom_materials = list(/datum/material/wood = 1000)
+	sheetType = /obj/item/stack/sheet/mineral/wood
+	sheetAmount = 1
 
 /obj/structure/cataclysmdda/antenna
 	name = "спутниковая антенна"
-	desc = "Используется для приёма	различных радиосигналов между станциями через спутники."
+	desc = "Используется для приёма различных радиосигналов между станциями через спутники."
 	icon_state = "antenn"
 	max_integrity = 100
 	obj_integrity = 100
@@ -888,7 +902,8 @@
 	obj_integrity = 200
 	opacity = 0
 	density = 1
-	custom_materials = list(/datum/material/iron = 5000)
+	sheetType = /obj/item/stack/sheet/iron
+	sheetAmount = 7
 
 /obj/structure/cataclysmdda/penek
 	name = "пенек"
@@ -896,15 +911,18 @@
 	icon_state = "penek"
 	max_integrity = 25
 	obj_integrity = 25
-
+	sheetType = /obj/item/grown/log/tree
+	sheetAmount = 4
+/*
 /obj/structure/cataclysmdda/washingmachine
 	name = "стиральная машинка"
 	desc = "Производитель этих стиральных машин дал обещание, что они будут работать. Когда-нибудь."
 	icon_state = "washingmachine"
 	max_integrity = 200
 	obj_integrity = 200
-	custom_materials = list(/datum/material/iron = 2000)
-
+	sheetType = /obj/item/stack/sheet/iron
+	sheetAmount = 2
+*/
 /obj/structure/bed/cataclysmdda
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "bed"
@@ -932,7 +950,6 @@
 	anchored = 1
 	can_be_unanchored = FALSE
 
-
 /obj/structure/grille/cataclysmdda
 	name = "решетка"
 	desc = "Крепкая решетка."
@@ -952,7 +969,8 @@
 	icon_state = "bookshelf"
 	max_integrity = 80
 	obj_integrity = 80
-	custom_materials = list(/datum/material/wood = 3000)
+	sheetType = /obj/item/stack/sheet/mineral/wood
+	sheetAmount = 3
 */
 /obj/structure/cataclysmdda/veshalka
 	name = "вешалка"
@@ -960,7 +978,8 @@
 	icon_state = "veshalka"
 	max_integrity = 25
 	obj_integrity = 25
-	custom_materials = list(/datum/material/iron = 1000)
+	sheetType = /obj/item/stack/sheet/mineral/wood
+	sheetAmount = 3
 
 /obj/structure/mineral_door/wood/cataclysmdda
 	name = "деревянная дверь"
@@ -980,7 +999,9 @@
 	obj_integrity = 50
 	opacity = 0
 	density = 1
-	custom_materials = list(/datum/material/iron = 2000)
+	sheetType = /obj/item/stack/sheet/mineral/wood
+	sheetAmount = 7
+
 
 /obj/structure/rack/cataclysmdda
 	name = "деревянный стеллаж"
@@ -990,7 +1011,7 @@
 	max_integrity = 100
 	pass_flags_self = null
 
-/obj/structure/rack/cataclysmdda/enternaiment
+/obj/structure/rack/cataclysmdda/entertaiment
 	name = "entertaiment center"
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "7,33"
