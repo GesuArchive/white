@@ -857,8 +857,7 @@
 	anchored = 1
 	max_integrity = 150
 	obj_integrity = 150
-	buildstacktype = /obj/item/stack/sheet/iron
-	buildstackamount = 2
+	custom_materials = list(/datum/material/iron = 1000)
 
 /obj/structure/trash_pile/hay
 	name = "стог сена"
@@ -872,8 +871,7 @@
 	icon_state = "minefield"
 	max_integrity = 25
 	obj_integrity = 25
-	buildstacktype = /obj/item/stack/sheet/mineral/wood
-	buildstackamount = 1
+	custom_materials = list(/datum/material/wood = 1000)
 
 /obj/structure/cataclysmdda/antenna
 	name = "спутниковая антенна"
@@ -890,8 +888,7 @@
 	obj_integrity = 200
 	opacity = 0
 	density = 1
-	buildstacktype = /obj/item/stack/sheet/iron
-	buildstackamount = 5
+	custom_materials = list(/datum/material/iron = 5000)
 
 /obj/structure/cataclysmdda/penek
 	name = "пенек"
@@ -906,8 +903,7 @@
 	icon_state = "washingmachine"
 	max_integrity = 200
 	obj_integrity = 200
-	buildstacktype = /obj/item/stack/sheet/iron
-	buildstackamount = 2
+	custom_materials = list(/datum/material/iron = 2000)
 
 /obj/structure/bed/cataclysmdda
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
@@ -964,8 +960,7 @@
 	icon_state = "veshalka"
 	max_integrity = 25
 	obj_integrity = 25
-	buildstacktype = /obj/item/stack/sheet/mineral/wood
-	buildstackamount = 1
+	custom_materials = list(/datum/material/iron = 1000)
 
 /obj/structure/mineral_door/wood/cataclysmdda
 	name = "деревянная дверь"
@@ -985,8 +980,7 @@
 	obj_integrity = 50
 	opacity = 0
 	density = 1
-	buildstacktype = /obj/item/stack/sheet/mineral/wood
-	buildstackamount = 2
+	custom_materials = list(/datum/material/iron = 2000)
 
 /obj/structure/rack/cataclysmdda
 	name = "деревянный стеллаж"
