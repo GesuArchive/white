@@ -429,6 +429,7 @@
 	explosion_block = 1
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE)
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE)
+	baseturfs = /turf/open/floor/plating/beach/sand
 
 /turf/closed/wall/cataclysmdda/wooden
 	name = "деревянная стена"
@@ -446,7 +447,6 @@
 	icon = 'white/rebolution228/icons/cataclysmdda/wall03.dmi'
 	icon_state = "wallb-0"
 	base_icon_state = "wallb"
-	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 	sheet_type = null
 	hardness = 100
 	explosion_block = 1
@@ -823,6 +823,21 @@
 	icon_state = "shtora1-open"
 	icon_type = "shtora1"
 
+/obj/structure/curtain/cataclysmdda/alt/update_icon()
+	if(!open)
+		icon_state = "[icon_type]-closed"
+		layer = WALL_OBJ_LAYER
+		density = FALSE
+		open = FALSE
+		if(opaque_closed)
+			set_opacity(TRUE)
+	else
+		icon_state = "[icon_type]-open"
+		layer = SIGN_LAYER
+		density = FALSE
+		open = TRUE
+		set_opacity(FALSE)
+
 /obj/structure/cataclysmdda/bath
 	name = "ванна"
 	desc = "Вода не включена в стоимость."
@@ -1096,8 +1111,6 @@
 /obj/structure/chair/wood/cataclysmdda
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "thastool"
-	resistance_flags = FLAMMABLE
-	max_integrity = 70
 	buildstacktype = /obj/item/stack/sheet/mineral/wood
 	buildstackamount = 3
 	item_chair = /obj/item/chair/wood/cataclysmdda
@@ -1108,7 +1121,7 @@
 	lefthand_file = 'icons/mob/inhands/misc/chairs_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/chairs_righthand.dmi'
 	inhand_icon_state = "woodenchair"
-	origin_type = /obj/structure/chair/stool/bar/cataclysmdda
+	origin_type = /obj/structure/chair/wood/cataclysmdda
 
 /obj/structure/chair/comfy/cataclysmdda
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
