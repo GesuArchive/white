@@ -400,20 +400,22 @@
 	var/weld = TRUE
 	var/created = FALSE //prevents creation of more then one locker if it has multiple hits
 	var/locker_suck = TRUE
-	var/obj/structure/closet/decay/locker_temp_instance
+	var/datum/weakref/locker_ref
 
 /obj/projectile/magic/locker/Initialize()
 	. = ..()
-	locker_temp_instance = new(src)
+	var/obj/structure/closet/decay/locker_temp_instance = new(src)
+	locker_ref = WEAKREF(locker_temp_instance)
 
 /obj/projectile/magic/locker/prehit_pierce(atom/A)
 	. = ..()
 	if(isliving(A) && locker_suck)
 		var/mob/living/M = A
-		if(M.anti_magic_check())			// no this doesn't check if ..() returned to phase through do I care no it's magic ain't gotta explain shit
-			M.visible_message("<span class='warning'>[capitalize(src.name)] распадается при контакте с [A]!</span>")
+		if(M.anti_magic_check()) // no this doesn't check if ..() returned to phase through do I care no it's magic ain't gotta explain shit
+			M.visible_message(span_warning("[src] vanishes on contact with [A]!"))
 			return PROJECTILE_DELETE_WITHOUT_HITTING
-		if(!locker_temp_instance.insertion_allowed(M))
+		var/obj/structure/closet/decay/locker_temp_instance = locker_ref.resolve()
+		if(!locker_temp_instance?.insertion_allowed(M))
 			return
 		M.forceMove(src)
 		return PROJECTILE_PIERCE_PHASE
@@ -422,6 +424,9 @@
 	if(created)
 		return ..()
 	if(LAZYLEN(contents))
+		var/obj/structure/closet/decay/locker_temp_instance = locker_ref.resolve()
+		if(!locker_temp_instance)
+			return ..()
 		for(var/atom/movable/AM in contents)
 			locker_temp_instance.insert(AM)
 		locker_temp_instance.welded = weld
@@ -431,6 +436,7 @@
 
 /obj/projectile/magic/locker/Destroy()
 	locker_suck = FALSE
+	RemoveElement(/datum/element/connect_loc, projectile_connections) //We do this manually so the forcemoves don't "hit" us. This behavior is kinda dumb, someone refactor this
 	for(var/atom/movable/AM in contents)
 		AM.forceMove(get_turf(src))
 	. = ..()
