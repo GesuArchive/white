@@ -1,11 +1,11 @@
 /obj/structure/closet/cabinet
-	name = "ящик для документов"
+	name = "деревянный шкаф"
 	desc = "Винтаж всегда в моде."
 	icon_state = "cabinet"
 	resistance_flags = FLAMMABLE
 	open_sound = 'sound/machines/wooden_closet_open.ogg'
 	close_sound = 'sound/machines/wooden_closet_close.ogg'
-	open_sound_volume = 25
+	open_sound_volume = 30
 	close_sound_volume = 50
 	max_integrity = 70
 

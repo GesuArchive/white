@@ -428,7 +428,7 @@
 	slicing_duration = 150
 	explosion_block = 1
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE)
-	canSmoothWith = list(SMOOTH_GROUP_WALLS)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE)
 
 /turf/closed/wall/cataclysmdda/wooden
 	name = "деревянная стена"
@@ -475,6 +475,7 @@
 	floor_tile = /obj/item/stack/tile/plasteel
 	flags_1 = NONE
 	baseturfs = /turf/open/floor/plating/beach/sand
+	slowdown = 0
 
 /turf/open/floor/plasteel/tile/white
 	icon_state = "tile2"
@@ -488,7 +489,6 @@
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_SAND
-	slowdown = 1
 
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt
 	icon_state = "block2"
@@ -544,7 +544,7 @@
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_SAND
-	slowdown = 1
+	slowdown = 0.5
 
 /turf/open/floor/grass/cataclysmdda/dirt/proc/changeicon()
 	icon_state = "dirt[rand(1,4)]"
@@ -791,13 +791,15 @@
 	opacity = 0
 	density = 1
 
-/obj/structure/cataclysmdda/lamp
+/obj/item/device/flashlight/slamp/cataclysmdda
 	name = "напольный светильник"
 	desc = "Прикольно светится."
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "lomp"
-	max_integrity = 50
-	obj_integrity = 50
+	inhand_icon_state = "slamp"
+	density = 1
+	opacity = 0
+	color = null
 
 /obj/structure/curtain/cataclysmdda
 	name = "штора"
@@ -816,6 +818,7 @@
 	desc = "Вода не включена в стоимость."
 	icon_state = "bath"
 	anchored = 1
+	density = 0
 	max_integrity = 150
 	obj_integrity = 150
 
@@ -854,6 +857,8 @@
 	anchored = 1
 	max_integrity = 150
 	obj_integrity = 150
+	buildstacktype = /obj/item/stack/sheet/iron
+	buildstackamount = 2
 
 /obj/structure/trash_pile/hay
 	name = "стог сена"
@@ -867,6 +872,8 @@
 	icon_state = "minefield"
 	max_integrity = 25
 	obj_integrity = 25
+	buildstacktype = /obj/item/stack/sheet/mineral/wood
+	buildstackamount = 1
 
 /obj/structure/cataclysmdda/antenna
 	name = "спутниковая антенна"
@@ -883,7 +890,8 @@
 	obj_integrity = 200
 	opacity = 0
 	density = 1
-	custom_materials = list(/datum/material/iron = 5000)
+	buildstacktype = /obj/item/stack/sheet/iron
+	buildstackamount = 5
 
 /obj/structure/cataclysmdda/penek
 	name = "пенек"
@@ -898,7 +906,8 @@
 	icon_state = "washingmachine"
 	max_integrity = 200
 	obj_integrity = 200
-	custom_materials = list(/datum/material/iron = 5000)
+	buildstacktype = /obj/item/stack/sheet/iron
+	buildstackamount = 2
 
 /obj/structure/bed/cataclysmdda
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
@@ -955,7 +964,8 @@
 	icon_state = "veshalka"
 	max_integrity = 25
 	obj_integrity = 25
-	custom_materials = list(/datum/material/wood = 1000)
+	buildstacktype = /obj/item/stack/sheet/mineral/wood
+	buildstackamount = 1
 
 /obj/structure/mineral_door/wood/cataclysmdda
 	name = "деревянная дверь"
@@ -965,6 +975,7 @@
 	closeSound = 'sound/effects/doorcreaky.ogg'
 	sheetType = /obj/item/stack/sheet/mineral/wood
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE)
 
 /obj/structure/cataclysmdda/kitchencloset
 	name = "кухонный шкаф"
@@ -974,23 +985,47 @@
 	obj_integrity = 50
 	opacity = 0
 	density = 1
-	custom_materials = list(/datum/material/wood = 1000)
+	buildstacktype = /obj/item/stack/sheet/mineral/wood
+	buildstackamount = 2
 
 /obj/structure/rack/cataclysmdda
 	name = "деревянный стеллаж"
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "shelf"
+	obj_integrity = 100
 	max_integrity = 100
-	max_integrity = 100
-	custom_materials = list(/datum/material/wood = 1000)
+	pass_flags_self = null
 
 /obj/structure/rack/cataclysmdda/enternaiment
 	name = "entertaiment center"
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "7,33"
+	obj_integrity = 100
 	max_integrity = 100
-	max_integrity = 100
-	custom_materials = list(/datum/material/wood = 2000)
+
+/obj/structure/rack/cataclysmdda/deconstruct(disassembled = TRUE)
+	if(!(flags_1&NODECONSTRUCT_1))
+		density = FALSE
+		var/obj/item/stack/sheet/mineral/wood/dropwood = new(loc)
+		transfer_fingerprints_to(dropwood)
+	qdel(src)
+
+/obj/structure/rack/cataclysmdda/metal
+	name = "металлический стеллаж"
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "shelf2"
+	max_integrity = 150
+	max_integrity = 150
+
+/obj/structure/rack/cataclysmdda/metal/alt
+	icon_state = "shelf3"
+
+/obj/structure/rack/cataclysmdda/metal/deconstruct(disassembled = TRUE)
+	if(!(flags_1&NODECONSTRUCT_1))
+		density = FALSE
+		var/obj/item/stack/sheet/iron/dropmetal = new(loc)
+		transfer_fingerprints_to(dropmetal)
+	qdel(src)
 
 /obj/structure/barricade/wooden/fence
 	name = "деревянный забор"
@@ -1003,21 +1038,9 @@
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "door_closed"
 
-/obj/structure/rack/cataclysmdda/metal
-	name = "металлический стеллаж"
-	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
-	icon_state = "shelf2"
-	max_integrity = 150
-	max_integrity = 150
-	custom_materials = list(/datum/material/iron = 2000)
-
 /obj/structure/filingcabinet/cataclysmdda
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "8,33"
-
-/obj/structure/rack/cataclysmdda/metal/alt
-	icon_state = "shelf3"
-
 
 /obj/structure/chair/stool/bar/cataclysmdda
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
@@ -1032,27 +1055,25 @@
 	inhand_icon_state = "stool_bar"
 	origin_type = /obj/structure/chair/stool/bar/cataclysmdda
 
-/obj/structure/table/cataclysmdda
-	name = "стол"
-	desc = "Обычный деревянный слегка пошарпанный стол."
-	icon = 'white/rebolution228/icons/cataclysmdda/cata_table01.dmi'
-	base_icon_state = "reinforced_table"
-	icon_state = "reinforced_table-0"
-
 /obj/structure/dresser/cataclysmdda
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "dresser"
 
-/obj/structure/table/cataclysmdda/desk
+/obj/structure/table/wood/cataclysmdda
 	name = "стол"
-	desc = "Обычный деревянный слегка пошарпанный стол."
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_table01.dmi'
+	base_icon_state = "reinforced_table"
+	icon_state = "reinforced_table-0"
+
+/obj/structure/table/wood/cataclysmdda/desk
+	name = "стол"
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_table02.dmi'
 	base_icon_state = "reinforced_table"
 	icon_state = "reinforced_table-0"
 
-/obj/structure/table/cataclysmdda/sci
+/obj/structure/table/wood/cataclysmdda/sci
 	name = "стол"
-	desc = "Обычный деревянный слегка пошарпанный стол."
+	desc = "Обычный деревянный, слегка пошарпанный стол."
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_table03.dmi'
 	base_icon_state = "reinforced_table"
 	icon_state = "reinforced_table-0"
@@ -1064,7 +1085,15 @@
 	max_integrity = 70
 	buildstacktype = /obj/item/stack/sheet/mineral/wood
 	buildstackamount = 3
-	item_chair = null
+	item_chair = /obj/item/chair/wood/cataclysmdda
+
+/obj/item/chair/wood/cataclysmdda
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
+	icon_state = "thastool_item"
+	lefthand_file = 'icons/mob/inhands/misc/chairs_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/chairs_righthand.dmi'
+	inhand_icon_state = "woodenchair"
+	origin_type = /obj/structure/chair/stool/bar/cataclysmdda
 
 /obj/structure/chair/comfy/cataclysmdda
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
@@ -1072,7 +1101,7 @@
 	color = null
 
 /obj/effect/turf_decal/cataclysmdda
-	name = null
+	name = "Пидрила"
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_decals.dmi'
 	icon_state = null
 	mouse_opacity = 0
