@@ -109,6 +109,7 @@
 	sound_environment = SOUND_ENVIRONMENT_PLAIN
 	ambience_index = AMBIENCE_NONE
 	map_generator = /datum/map_generator/forest_generator
+	env_temp_relative = 3
 
 /area/partyhard/outdoors/Entered(atom/movable/AM)
 	. = ..()
@@ -116,6 +117,10 @@
 		var/mob/M = AM
 		if(M.client)
 			addtimer(CALLBACK(M.client, /client/proc/play_partyhard_ambience), 300)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(!H.GetComponent(/datum/component/realtemp))
+			H.AddComponent(/datum/component/realtemp)
 
 /client/proc/play_partyhard_ambience()
 	var/area/A = get_area(mob)
