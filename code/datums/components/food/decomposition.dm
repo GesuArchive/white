@@ -104,7 +104,7 @@
 	var/obj/decomp = parent //Lets us spawn things at decomp
 	new /obj/effect/decal/cleanable/ants(decomp.loc)
 	new /obj/item/food/badrecipe/moldy(decomp.loc)
-	decomp.visible_message("<span class='notice'>[capitalize(decomp)] покрывается плесенью и муравьями! Фу!</span>")
+	decomp.visible_message("<span class='notice'>[capitalize(decomp.name)] покрывается плесенью и муравьями! Фу!</span>")
 	qdel(decomp)
 	return
 
