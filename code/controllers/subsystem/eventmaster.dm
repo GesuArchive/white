@@ -125,10 +125,8 @@ SUBSYSTEM_DEF(eventmaster)
 		if(prob(25))
 			SSweather.run_weather(/datum/weather/just_rain)
 		current_time = new_time
-		action_area.cut_overlay(action_area.lighting_overlay)
-		action_area.lighting_overlay_colour = new_color
-		action_area.lighting_overlay_opacity = new_alpha
-		action_area.add_overlay(action_area.lighting_overlay)
+		action_area.set_lighting_overlay_color(new_color)
+		action_area.set_lighting_overlay_opacity(new_alpha)
 		to_chat(world, "<span class='greenannounce'><b>[station_time_timestamp("hh:mm")]</b> - [new_time].</span>")
 
 /client/proc/force_evenmaster_rules()

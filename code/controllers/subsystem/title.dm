@@ -86,6 +86,9 @@ SUBSYSTEM_DEF(title)
 			var/mob/dead/new_player/player = i
 			if(player.ready == PLAYER_READY_TO_PLAY)
 				var/role_thing = "Неизвестно"
+				if(GLOB.disable_fucking_station_shit_please)
+					role_thing = "Выживший"
+					continue
 				if(player.client.prefs.job_preferences["Assistant"])
 					role_thing = "Ассистент"
 				else

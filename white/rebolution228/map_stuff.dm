@@ -609,6 +609,15 @@
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "plant"
 
+/obj/structure/flora/cataclysmdda/decoration/attackby(obj/item/I, mob/living/user, params)
+	. = ..()
+	if(I.sharpness == SHARP_EDGED)
+		new /obj/item/stack/sheet/cloth(get_turf(src))
+		user.visible_message("<span class='notice'><b>[user]</b> нарезает <b>[src]</b> на нитки и быстро сплетает из него куски ткани при помощи <b>[I]</b>.</span>", \
+			"<span class='notice'>Нарезаю <b>[src]</b> на нитки и быстро сплетаю из него куски ткани при помощи <b>[I]</b>.</span>", \
+			"<span class='hear'>Слышу как что-то режет ткань.</span>")
+		qdel(src)
+
 /obj/structure/flora/cataclysmdda/decoration/nature
 	icon_state = "plant"
 

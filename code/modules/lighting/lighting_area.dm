@@ -33,6 +33,26 @@
 
 	return TRUE
 
+// ???
+
+/area/proc/set_lighting_overlay_color(color_to)
+	if(color_to && lighting_overlay)
+		cut_overlay(lighting_overlay)
+		lighting_overlay.color = color_to
+		add_overlay(lighting_overlay)
+		return TRUE
+	return FALSE
+
+/area/proc/set_lighting_overlay_opacity(opacity_to)
+	if(opacity_to && lighting_overlay)
+		cut_overlay(lighting_overlay)
+		lighting_overlay.alpha = opacity_to
+		add_overlay(lighting_overlay)
+		return TRUE
+	return FALSE
+
+// why
+
 /area/vv_edit_var(var_name, var_value)
 	switch(var_name)
 		if(NAMEOF(src, dynamic_lighting))

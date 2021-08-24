@@ -10,7 +10,7 @@
 		{
 			"Mining": true,
 			"Gravity": true,
-			"Linkage": "Self",
+			"Linkage": null,
 			"Baseturf": "/turf/open/floor/plating/grass"
 		}
 	],
