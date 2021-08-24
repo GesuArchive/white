@@ -77,12 +77,10 @@
 			back_ref = WEAKREF(M.buffer)
 			to_chat(user, span_notice("You link [src] with [M.buffer]."))
 			M.buffer = null
-			to_chat(user, "<span class='notice'>You link [src] with [back].</span>")
 		else if(istype(M.buffer, /obj/machinery/bsa/front))
 			front_ref = WEAKREF(M.buffer)
 			to_chat(user, span_notice("You link [src] with [M.buffer]."))
 			M.buffer = null
-			to_chat(user, "<span class='notice'>You link [src] with [front].</span>")
 	else
 		to_chat(user, "<span class='warning'>[I] data buffer is empty!</span>")
 	return TRUE

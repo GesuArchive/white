@@ -18,6 +18,10 @@
 	id = "[rand(1000, 9999)]"
 	link_power_station()
 
+	AddComponent(/datum/component/usb_port, list(
+		/obj/item/circuit_component/teleporter_control_console,
+	))
+
 /obj/machinery/computer/teleporter/Destroy()
 	if (power_station)
 		power_station.teleporter_console = null
@@ -123,64 +127,79 @@
 	return TRUE
 
 /obj/machinery/computer/teleporter/proc/reset_regime()
-	target = null
+	set_teleport_target(null)
 	if(regime_set == "Teleporter")
 		regime_set = "Gate"
 	else
 		regime_set = "Teleporter"
 
-/obj/machinery/computer/teleporter/proc/set_target(mob/user)
-	var/list/L = list()
-	var/list/areaindex = list()
-	if(regime_set == "Teleporter")
-		for(var/obj/item/beacon/R in GLOB.teleportbeacons)
-			if(is_eligible(R))
-				if(R.renamed)
-					L[avoid_assoc_duplicate_keys("[R.name] ([get_area(R)])", areaindex)] = R
-				else
-					var/area/A = get_area(R)
-					L[avoid_assoc_duplicate_keys(A.name, areaindex)] = R
+/// Gets a list of targets to teleport to.
+/// List is an assoc list of descriptors to locations.
+/obj/machinery/computer/teleporter/proc/get_targets()
+	var/list/targets = list()
+	var/list/area_index = list()
 
-		for(var/obj/item/implant/tracking/I in GLOB.tracked_implants)
-			if(!I.imp_in || !isliving(I.loc) || !I.allow_teleport)
+	if (regime_set == "Teleporter")
+		for (var/obj/item/beacon/beacon as anything in GLOB.teleportbeacons)
+			if (!is_eligible(beacon))
 				continue
+
+			if(beacon.renamed)
+				targets[avoid_assoc_duplicate_keys("[beacon.name] ([get_area(beacon)])", area_index)] = beacon
 			else
-				var/mob/living/M = I.loc
-				if(M.stat == DEAD)
-					if(M.timeofdeath + I.lifespan_postmortem < world.time)
-						continue
-				if(is_eligible(I))
-					L[avoid_assoc_duplicate_keys("[M.real_name] ([get_area(M)])", areaindex)] = I
+				var/area/area = get_area(beacon)
+				targets[avoid_assoc_duplicate_keys(area.name, area_index)] = beacon
 
-		var/desc = input("Please select a location to lock in.", "Locking Computer") as null|anything in sortList(L)
-		set_teleport_target(L[desc])
-		var/turf/T = get_turf(L[desc])
-		log_game("[key_name(user)] has set the teleporter target to [L[desc]] at [AREACOORD(T)]")
+		for (var/obj/item/implant/tracking/tracking_implant in GLOB.tracked_implants)
+			if (!tracking_implant.imp_in || !isliving(tracking_implant.loc) || !tracking_implant.allow_teleport)
+				continue
 
+			var/mob/living/implanted = tracking_implant.loc
+			if (implanted.stat == DEAD && implanted.timeofdeath + tracking_implant.lifespan_postmortem < world.time)
+				continue
+
+			if (is_eligible(tracking_implant))
+				targets[avoid_assoc_duplicate_keys("[implanted.real_name] ([get_area(implanted)])", area_index)] = tracking_implant
 	else
-		var/list/S = power_station.linked_stations
-		for(var/obj/machinery/teleport/station/R in S)
-			if(is_eligible(R) && R.teleporter_hub)
-				var/area/A = get_area(R)
-				L[avoid_assoc_duplicate_keys(A.name, areaindex)] = R
-		if(!L.len)
-			to_chat(user, "<span class='alert'>No active connected stations located.</span>")
+		for (var/obj/machinery/teleport/station/station as anything in power_station.linked_stations)
+			if (is_eligible(station) && station.teleporter_hub)
+				var/area/area = get_area(station)
+				targets[avoid_assoc_duplicate_keys(area.name, area_index)] = station
+
+	return targets
+
+/// Given a target station, will power and link it.
+/obj/machinery/computer/teleporter/proc/lock_in_station(obj/machinery/teleport/station/target_station)
+	target_station.linked_stations |= power_station
+	target_station.set_machine_stat(target_station.machine_stat & ~NOPOWER)
+	if(target_station.teleporter_hub)
+		target_station.teleporter_hub.set_machine_stat(target_station.teleporter_hub.machine_stat & ~NOPOWER)
+		target_station.teleporter_hub.update_icon()
+	if(target_station.teleporter_console)
+		target_station.teleporter_console.set_machine_stat(target_station.teleporter_console.machine_stat & ~NOPOWER)
+		target_station.teleporter_console.update_icon()
+
+/obj/machinery/computer/teleporter/proc/set_target(mob/user)
+	var/list/targets = get_targets()
+
+	if (regime_set == "Teleporter")
+		var/desc = input("Please select a location to lock in.", "Locking Computer") as null|anything in sortList(targets)
+		set_teleport_target(targets[desc])
+		var/turf/target_turf = get_turf(targets[desc])
+		log_game("[key_name(user)] has set the teleporter target to [targets[desc]] at [AREACOORD(target_turf)]")
+	else
+		if (targets.len == 0)
+			to_chat(user, span_alert("No active connected stations located."))
 			return
-		var/desc = input("Please select a station to lock in.", "Locking Computer") as null|anything in sortList(L)
-		var/obj/machinery/teleport/station/target_station = L[desc]
+
+		var/desc = input("Please select a station to lock in.", "Locking Computer") as null|anything in sortList(targets)
+		var/obj/machinery/teleport/station/target_station = targets[desc]
 		if(!target_station || !target_station.teleporter_hub)
 			return
-		var/turf/T = get_turf(target_station)
-		log_game("[key_name(user)] has set the teleporter target to [target_station] at [AREACOORD(T)]")
-		target = target_station.teleporter_hub
-		target_station.linked_stations |= power_station
-		target_station.set_machine_stat(target_station.machine_stat & ~NOPOWER)
-		if(target_station.teleporter_hub)
-			target_station.teleporter_hub.set_machine_stat(target_station.teleporter_hub.machine_stat & ~NOPOWER)
-			target_station.teleporter_hub.update_icon()
-		if(target_station.teleporter_console)
-			target_station.teleporter_console.set_machine_stat(target_station.teleporter_console.machine_stat & ~NOPOWER)
-			target_station.teleporter_console.update_icon()
+		var/turf/target_station_turf = get_turf(target_station)
+		log_game("[key_name(user)] has set the teleporter target to [target_station] at [AREACOORD(target_station_turf)]")
+		set_teleport_target(target_station.teleporter_hub)
+		lock_in_station(target_station)
 
 /obj/machinery/computer/teleporter/proc/is_eligible(atom/movable/AM)
 	var/turf/T = get_turf(AM)
@@ -195,7 +214,7 @@
 
 /obj/item/circuit_component/teleporter_control_console
 	display_name = "Teleporter Control Console"
-	desc = "Used to control a linked teleportation Hub and Station. НЕ РАБОТАЕТ НАХУЙ, НАДО ОБНОВЛЕНИЕ ТЕЛЕПОРТЕРОВ ВМЕРЖИВАТЬ."
+	desc = "Used to control a linked teleportation Hub and Station."
 	circuit_flags = CIRCUIT_FLAG_OUTPUT_SIGNAL
 
 	var/datum/port/input/new_target
@@ -207,7 +226,7 @@
 	var/datum/port/output/on_fail
 
 	var/obj/machinery/computer/teleporter/attached_console
-/* это надо обновление телепортеров вмерживать еще
+
 /obj/item/circuit_component/teleporter_control_console/Initialize()
 	. = ..()
 
@@ -283,4 +302,3 @@
 		target_names |= target
 
 	possible_targets.set_output(target_names)
-*/

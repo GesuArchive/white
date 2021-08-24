@@ -250,7 +250,7 @@
 			timer_end(forced = TRUE)
 		if("flash")
 			investigate_log("[key_name(usr)] has flashed cell [id]", INVESTIGATE_RECORDS)
-			user.log_message("[key_name(usr)] has flashed cell [id]", LOG_ATTACK)
+			//user.log_message("[key_name(usr)] has flashed cell [id]", LOG_ATTACK)
 			for(var/datum/weakref/flash_ref as anything in flashers)
 				var/obj/machinery/flasher/flasher = flash_ref.resolve()
 				if(!flasher)
