@@ -82,9 +82,8 @@ type MetaInvData = {
   slots: number;
 };
 
-export const MetaInventory = (props, context) => {
-  const { act, data } = useBackend<MetaInvData>(context);
-
+const MetaInvLoadout = (loadoutprops, loadoutcontext) => {
+  const { act, data } = useBackend<MetaInvData>(loadoutcontext);
   const gridSpots = new Map<GridSpotKey, string>();
 
   for (const slotkey of Object.keys(data.loadout)) {
@@ -93,121 +92,132 @@ export const MetaInventory = (props, context) => {
     }
   }
 
+  return (
+    <Stack fill vertical>
+      {range(0, ROWS).map(row => (
+        <Stack.Item key={row}>
+          <Stack fill>
+            {range(0, COLUMNS).map(column => {
+              const key = getGSK([row, column]);
+              const keyAtSpot = gridSpots.get(key);
 
+              if (!keyAtSpot) {
+                return (
+                  <Stack.Item
+                    key={key}
+                    style={{
+                      width: BUTTON_DIMENSIONS,
+                      height: BUTTON_DIMENSIONS,
+                    }}
+                  />
+                );
+              }
+
+              const item_uid = data.loadout[keyAtSpot];
+              const item = (item_uid && item_uid !== "0") ? data.items[item_uid] : null;
+              const slot = SLOTS[keyAtSpot];
+
+              let content;
+              let tooltip;
+
+              if (item === null) {
+                tooltip = slot.displayName;
+              } else if ("name" in item) {
+
+
+                content = (
+                  <Box
+                    as="img"
+                    src={`data:image/jpeg;base64,${item.icon}`}
+                    height="100%"
+                    width="100%"
+                    style={{
+                      "-ms-interpolation-mode": "nearest-neighbor",
+                      "vertical-align": "middle",
+                    }}
+                  />
+                );
+
+                tooltip = item.name;
+              }
+
+
+              return (
+                <Stack.Item
+                  key={key}
+                  style={{
+                    width: BUTTON_DIMENSIONS,
+                    height: BUTTON_DIMENSIONS,
+                  }}
+                >
+                  <Box
+                    style={{
+                      position: "relative",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  >
+                    <Button
+                      onClick={() => {
+                        act("use", {
+                          key: keyAtSpot,
+                        });
+                      }}
+                      fluid
+                      tooltip={tooltip}
+                      style={{
+                        background: undefined,
+                        position: "relative",
+                        width: "100%",
+                        height: "100%",
+                        padding: 0,
+                      }}
+                    >
+                      {slot.image && (
+                        <Box
+                          as="img"
+                          src={resolveAsset("inventory-" + slot.image)}
+                          opacity={0.7}
+                          style={{
+                            position: "absolute",
+                            width: "32px",
+                            height: "32px",
+                            left: "50%",
+                            top: "50%",
+                            transform:
+                              "translateX(-50%) translateY(-50%) scale(0.8)",
+                          }}
+                        />
+                      )}
+
+                      <Box style={{ position: "relative" }}>
+                        {content}
+                      </Box>
+
+                      {slot.additionalComponent}
+                    </Button>
+                  </Box>
+                </Stack.Item>
+              );
+            })}
+          </Stack>
+        </Stack.Item>
+      ))}
+    </Stack>
+  )
+};
+
+export const MetaInventory = (props, context) => {
+  const { act, data } = useBackend<MetaInvData>(context);
   return (
     <Window title={`Инвентарь`} width={50*(COLUMNS+1)} height={50*(ROWS+1)}>
       <Window.Content>
-        <Stack fill vertical>
-          {range(0, ROWS).map(row => (
-            <Stack.Item key={row}>
-              <Stack fill>
-                {range(0, COLUMNS).map(column => {
-                  const key = getGSK([row, column]);
-                  const keyAtSpot = gridSpots.get(key);
-
-                  if (!keyAtSpot) {
-                    return (
-                      <Stack.Item
-                        key={key}
-                        style={{
-                          width: BUTTON_DIMENSIONS,
-                          height: BUTTON_DIMENSIONS,
-                        }}
-                      />
-                    );
-                  }
-
-                  const item_uid = data.loadout[keyAtSpot];
-                  const item = (item_uid && item_uid !== "0") ? data.items[item_uid] : null;
-                  const slot = SLOTS[keyAtSpot];
-
-                  let content;
-                  let tooltip;
-
-                  if (item === null) {
-                    tooltip = slot.displayName;
-                  } else if ("name" in item) {
+        <MetaInvLoadout
+          loadoutprops={props}
+          loadoutcontext={context}
+        />
 
 
-                    content = (
-                      <Box
-                        as="img"
-                        src={`data:image/jpeg;base64,${item.icon}`}
-                        height="100%"
-                        width="100%"
-                        style={{
-                          "-ms-interpolation-mode": "nearest-neighbor",
-                          "vertical-align": "middle",
-                        }}
-                      />
-                    );
-
-                    tooltip = item.name;
-                  }
-
-
-                  return (
-                    <Stack.Item
-                      key={key}
-                      style={{
-                        width: BUTTON_DIMENSIONS,
-                        height: BUTTON_DIMENSIONS,
-                      }}
-                    >
-                      <Box
-                        style={{
-                          position: "relative",
-                          width: "100%",
-                          height: "100%",
-                        }}
-                      >
-                        <Button
-                          onClick={() => {
-                            act("use", {
-                              key: keyAtSpot,
-                            });
-                          }}
-                          fluid
-                          tooltip={tooltip}
-                          style={{
-                            background: undefined,
-                            position: "relative",
-                            width: "100%",
-                            height: "100%",
-                            padding: 0,
-                          }}
-                        >
-                          {slot.image && (
-                            <Box
-                              as="img"
-                              src={resolveAsset("inventory-" + slot.image)}
-                              opacity={0.7}
-                              style={{
-                                position: "absolute",
-                                width: "32px",
-                                height: "32px",
-                                left: "50%",
-                                top: "50%",
-                                transform:
-                                  "translateX(-50%) translateY(-50%) scale(0.8)",
-                              }}
-                            />
-                          )}
-
-                          <Box style={{ position: "relative" }}>
-                            {content}
-                          </Box>
-
-                          {slot.additionalComponent}
-                        </Button>
-                      </Box>
-                    </Stack.Item>
-                  );
-                })}
-              </Stack>
-            </Stack.Item>
-          ))}
-        </Stack>
       </Window.Content>
     </Window>
   );
