@@ -26,4 +26,4 @@
 	immunity_type = WEATHER_STORM
 
 /datum/weather/just_rain/weather_act(mob/living/L)
-	L.adjust_bodytemperature(-rand(1,2))
+	L.adjust_bodytemperature(-rand(5, 10))
