@@ -16,15 +16,12 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	var/forced_tension = FALSE
 
 /datum/component/battletension
-	var/mob/living/carbon/human/owner
-
 	var/tension = 0
 	var/sound/bm
 
 /datum/component/battletension/Initialize()
-	if(ishuman(parent))
+	if(ismob(parent))
 		START_PROCESSING(SSbtension, src)
-		owner = parent
 
 /datum/component/battletension/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ATOM_BULLET_ACT, .proc/bulletact_react)
@@ -37,12 +34,14 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 /datum/component/battletension/Destroy()
 	stop_bm()
-
 	STOP_PROCESSING(SSbtension, src)
-	owner = null
 	return ..()
 
 /datum/component/battletension/process()
+	var/mob/owner = parent
+	if(!owner)
+		qdel(src)
+		return
 	if(!owner.client)
 		return
 	if((!bm || !bm.file) && is_enabled())
@@ -90,6 +89,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 /datum/component/battletension/proc/bulletact_react(datum/source, obj/projectile/P, def_zone)
 	SIGNAL_HANDLER
+	var/mob/owner = parent
 	var/area/AR = get_area(P)
 
 	if(!AR)
@@ -110,6 +110,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 /datum/component/battletension/proc/attackby_react(datum/source, obj/item/I, mob/user)
 	SIGNAL_HANDLER
+	var/mob/owner = parent
 	var/area/AR = get_area(user)
 
 	AR.area_tension += I.force * 1.2
@@ -125,6 +126,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		BT.create_tension(I.force * 1.2)
 
 /datum/component/battletension/proc/is_enabled()
+	var/mob/owner = parent
 	if((!owner || !owner.client || !owner.client.prefs.btprefsnew) && !SSbtension.forced_tension)
 		return FALSE
 	return TRUE
@@ -132,15 +134,14 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 /datum/component/battletension/proc/create_tension(amount)
 	if(!is_enabled())
 		return
-
 	amount = round(amount)
-
 	if(tension)
 		tension += amount
 	else
 		tension = amount
 
 /datum/component/battletension/proc/stop_bm()
+	var/mob/owner = parent
 	if(bm)
 		bm.volume = 0
 		SEND_SOUND(owner, bm)
@@ -148,6 +149,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		bm = null
 
 /datum/component/battletension/proc/pick_sound(soundpath)
+	var/mob/owner = parent
 	stop_bm()
 
 	var/sound/S
@@ -180,6 +182,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	SEND_SOUND(owner, bm)
 
 /datum/component/battletension/Topic(href,href_list)
+	var/mob/owner = parent
 	if(usr != owner)
 		return
 	if(href_list["switch"])
@@ -187,6 +190,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		return
 
 /datum/component/battletension/proc/get_sound_list()
+	var/mob/owner = parent
 	if(!owner || !owner.client || !owner.client.prefs)
 		return
 
