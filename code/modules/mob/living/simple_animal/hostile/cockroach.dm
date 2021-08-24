@@ -22,7 +22,6 @@
 	melee_damage_lower = 0
 	melee_damage_upper = 0
 	obj_damage = 0
-	ventcrawler = VENTCRAWLER_ALWAYS
 	gold_core_spawnable = FRIENDLY_SPAWN
 	verb_say = "chitters"
 	verb_ask = "chitters inquisitively"
@@ -40,6 +39,7 @@
 	. = ..()
 	add_cell_sample()
 	make_squashable()
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 	time_to_hunt = rand(5,10)
 
 /mob/living/simple_animal/hostile/cockroach/proc/make_squashable()
@@ -89,7 +89,7 @@
 	..()
 
 /mob/living/simple_animal/hostile/cockroach/ex_act() //Explosions are a terrible way to handle a cockroach.
-	return
+	return FALSE
 
 /mob/living/simple_animal/hostile/cockroach/hauberoach
 	name = "hauberoach"
@@ -119,7 +119,7 @@
 	if(!istype(living_target))
 		return FALSE //We failed to run the invoke. Might be because we're a structure. Let the squashable element handle it then!
 	if(!HAS_TRAIT(living_target, TRAIT_PIERCEIMMUNE))
-		living_target.visible_message("<span class='danger'>[living_target] steps onto [cockroach] spike!</span>", "<span class='userdanger'>You step onto [cockroach] spike!</span>")
+		living_target.visible_message(span_danger("[living_target] steps onto [cockroach]'s spike!"), span_userdanger("You step onto [cockroach]'s spike!"))
 		return TRUE
-	living_target.visible_message("<span class='notice'>[living_target] squashes [cockroach], not even noticing its spike.</span>", "<span class='notice'>You squashed [cockroach], not even noticing its spike.</span>")
+	living_target.visible_message(span_notice("[living_target] squashes [cockroach], not even noticing its spike."), span_notice("You squashed [cockroach], not even noticing its spike."))
 	return FALSE

@@ -52,7 +52,7 @@
 			for(var/datum/reagent/R in reagents.reagent_list)
 				if(R in M.known_reagent_sounds)
 					continue
-				M.known_reagent_sounds += R.special_sound
+				M.known_reagent_sounds += R
 				SEND_SOUND(M, R.special_sound)
 				break
 
