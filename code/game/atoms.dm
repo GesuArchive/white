@@ -442,6 +442,7 @@
 
 ///Take air from the passed in gas mixture datum
 /atom/proc/assume_air(datum/gas_mixture/giver)
+	qdel(giver)
 	return null
 
 ///Remove air from this atom

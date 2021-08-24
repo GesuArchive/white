@@ -73,6 +73,7 @@
 	QDEL_NULL(parent)
 
 	releaseAirToTurf()
+	QDEL_NULL(air_temporary)
 
 	var/turf/T = loc
 	for(var/obj/machinery/meter/meter in T)
