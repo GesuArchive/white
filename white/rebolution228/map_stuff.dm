@@ -829,6 +829,29 @@
 	icon_type = "curtain"
 	color = null
 	alpha = 255
+	opaque_closed = TRUE
+	flags_1 = ON_BORDER_1
+	//тока дир к окну не забудь выставить......
+
+/obj/structure/curtain/cataclysmdda/window/Initialize()
+	. = ..()
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_EXIT = .proc/on_exit,
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/structure/curtain/cataclysmdda/window/CanAllowThrough(atom/movable/mover, border_dir)
+	. = ..()
+	if(!(border_dir == dir))
+		return TRUE
+
+/obj/structure/curtain/cataclysmdda/window/proc/on_exit(datum/source, atom/movable/leaving, direction)
+	SIGNAL_HANDLER
+	if(leaving == src)
+		return
+	if(direction == dir && density)
+		leaving.Bump(src)
+		return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/structure/curtain/cataclysmdda/alt
 	icon_state = "shtora1-open"
