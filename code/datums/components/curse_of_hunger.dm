@@ -112,8 +112,22 @@
 		return
 	else if(!isturf(cursed_item.loc))
 		cursed_item.forceMove(get_turf(cursed_item))
+
+	var/list/slot_priority = cursed_item.slot_equipment_priority
+	if(!slot_priority)
+		slot_priority = list( \
+			ITEM_SLOT_BACK, ITEM_SLOT_ID,\
+			ITEM_SLOT_ICLOTHING, ITEM_SLOT_OCLOTHING,\
+			ITEM_SLOT_MASK, ITEM_SLOT_HEAD, ITEM_SLOT_NECK,\
+			ITEM_SLOT_FEET, ITEM_SLOT_GLOVES,\
+			ITEM_SLOT_EARS, ITEM_SLOT_EYES,\
+			ITEM_SLOT_BELT, ITEM_SLOT_SUITSTORE,\
+			ITEM_SLOT_LPOCKET, ITEM_SLOT_RPOCKET,\
+			ITEM_SLOT_DEX_STORAGE\
+		)
+
 	//only taking the most reasonable slot is fine since it unequips what is there to equip itself.
-	cursed_item.AddElement(/datum/element/cursed, cursed_item.slot_equipment_priority[1])
+	cursed_item.AddElement(/datum/element/cursed, slot_priority[1])
 	cursed_item.visible_message(span_warning("[cursed_item] начинает двигаться сам по себе..."))
 
 /datum/component/curse_of_hunger/process(delta_time)
