@@ -431,6 +431,9 @@
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE)
 	baseturfs = /turf/open/floor/plating/beach/sand
 
+/turf/closed/wall/cataclysmdda/blue
+	color = LIGHT_COLOR_DARK_BLUE
+
 /turf/closed/wall/cataclysmdda/wooden
 	name = "деревянная стена"
 	icon = 'white/rebolution228/icons/cataclysmdda/wall02.dmi'

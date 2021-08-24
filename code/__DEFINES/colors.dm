@@ -148,7 +148,7 @@
 /// Saturated blue. rgb(51, 117, 248)
 #define LIGHT_COLOR_DARK_BLUE  "#6496FA"
 /// Diluted, mid-warmth pink. rgb(225, 125, 225)
-#define LIGHT_COLOR_PINK       "#E17DE1"
+#define LIGHT_COLOR_PINK       "#3375F8"
 /// Dimmed yellow, leaning kaki. rgb(225, 225, 125)
 #define LIGHT_COLOR_YELLOW     "#E1E17D"
 /// Clear brown, mostly dim. rgb(150, 100, 50)
