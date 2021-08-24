@@ -36,7 +36,7 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainventory
 	var/owner_ckey
-	var/slots_max = 30
+	var/slots_max = 15
 	var/active_loadout = 1
 	var/list/datum/metainv_loadout/loadout_list = list()
 	var/list/datum/metainv_object/obj_list = list()
@@ -88,10 +88,12 @@ SUBSYSTEM_DEF(metainv)
 /datum/metainventory/ui_assets(mob/user)
 	return list(get_asset_datum(/datum/asset/simple/inventory))
 
+//похуй что говнокод лютый, зато меньше ебли с реактом и тайпскриптом
 /datum/metainventory/ui_data(mob/user)
 	var/list/data = list()
 
-	data["items"] = list()
+	data["itemsArray"] = list()
+	data["itemsIDAssoc"] = list()
 	for(var/datum/metainv_object/MO in obj_list)
 		var/list/res = list()
 		var/obj/O = text2path(MO.object_path_txt)
@@ -101,7 +103,8 @@ SUBSYSTEM_DEF(metainv)
 		res["icon"] = icon2base64(icon(mo_icon, mo_icon_state))
 		res["name"] = mo_name
 
-		data["items"]["[MO.uid]"] = res
+		data["itemsIDAssoc"]["[MO.uid]"] = res
+		data["itemsArray"] += list(res)
 
 	var/datum/metainv_loadout/cur_loadout = loadout_list[active_loadout]
 	data["loadout"] = cur_loadout.loadout_slots
@@ -141,6 +144,12 @@ SUBSYSTEM_DEF(metainv)
 	var/datum/metainv_object/uniform = new
 	uniform.uid = 5
 	uniform.object_path_txt = "/obj/item/clothing/under/rank/engineering/atmospheric_technician"
+
+	var/datum/metainv_object/tarelka = new
+	tarelka.uid = 6
+	tarelka.object_path_txt = "/obj/item/clothing/mask/gas/tarelka"
+
+	obj_list += tarelka
 
 	obj_list += uniform
 	obj_list += bimba
