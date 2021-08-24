@@ -160,7 +160,7 @@ const MetaInvLoadout = (loadoutprops, loadoutcontext) => {
                   >
                     <Button
                       onClick={() => {
-                        act("use", {
+                        act("loadoutSlotClick", {
                           key: keyAtSpot,
                         });
                       }}

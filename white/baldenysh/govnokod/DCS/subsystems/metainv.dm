@@ -114,8 +114,16 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainventory/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
-	if (.)
+	if(.)
 		return
+
+	switch(action)
+		if("loadoutSlotClick")
+			//var/clicked_slot_str = params["key"]
+			. = TRUE
+		if("invSlotClick")
+			//var/clicked_obj_id = params["key"]
+			. = TRUE
 
 /datum/metainventory/ui_status(mob/user)
 	return UI_INTERACTIVE
