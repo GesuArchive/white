@@ -117,10 +117,10 @@
 		var/mob/M = AM
 		if(M.client)
 			addtimer(CALLBACK(M.client, /client/proc/play_partyhard_ambience), 300)
-	if(ishuman(AM))
-		var/mob/living/carbon/human/H = AM
-		if(!H.GetComponent(/datum/component/realtemp))
-			H.AddComponent(/datum/component/realtemp)
+		if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			if(!H.GetComponent(/datum/component/realtemp))
+				H.AddComponent(/datum/component/realtemp)
 
 /client/proc/play_partyhard_ambience()
 	var/area/A = get_area(mob)
