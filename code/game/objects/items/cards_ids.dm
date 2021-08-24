@@ -1035,7 +1035,7 @@
 
 	var/list/regions = list()
 
-	var/obj/item/card/id/target_card = theft_target.resolve()
+	var/obj/item/card/id/target_card = theft_target?.resolve()
 	if(target_card)
 		var/list/tgui_region_data = SSid_access.all_region_access_tgui
 		for(var/region in SSid_access.station_regions)
@@ -1044,7 +1044,7 @@
 	data["accesses"] = regions
 	data["ourAccess"] = access
 	data["ourTrimAccess"] = trim ? trim.access : list()
-	data["theftAccess"] = target_card.access.Copy()
+	data["theftAccess"] = target_card ? target_card.access.Copy() : list()
 	data["wildcardSlots"] = wildcard_slots
 	data["selectedList"] = access
 	data["trimAccess"] = list()
