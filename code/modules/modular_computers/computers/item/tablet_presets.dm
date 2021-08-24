@@ -58,12 +58,12 @@
 
 /obj/item/modular_computer/tablet/preset/advanced/engineering/Initialize()
 	. = ..()
-	var/obj/item/computer_hardware/hard_drive/small/hard_drive = find_hardware_by_name("твердотельный накопитель")
+	var/obj/item/computer_hardware/hard_drive/small/hard_drive = find_hardware_by_type(/obj/item/computer_hardware/hard_drive/small)
 	hard_drive.store_file(new /datum/computer_file/program/supermatter_monitor)
 
 /obj/item/modular_computer/tablet/preset/advanced/command/Initialize()
 	. = ..()
-	var/obj/item/computer_hardware/hard_drive/small/hard_drive = find_hardware_by_name("твердотельный накопитель")
+	var/obj/item/computer_hardware/hard_drive/small/hard_drive = find_hardware_by_type(/obj/item/computer_hardware/hard_drive/small)
 	install_component(new /obj/item/computer_hardware/sensorpackage)
 	install_component(new /obj/item/computer_hardware/card_slot/secondary)
 	hard_drive.store_file(new /datum/computer_file/program/budgetorders)
@@ -71,7 +71,7 @@
 
 /obj/item/modular_computer/tablet/preset/advanced/command/engineering/Initialize()
 	. = ..()
-	var/obj/item/computer_hardware/hard_drive/small/hard_drive = find_hardware_by_name("твердотельный накопитель")
+	var/obj/item/computer_hardware/hard_drive/small/hard_drive = find_hardware_by_type(/obj/item/computer_hardware/hard_drive/small)
 	hard_drive.store_file(new /datum/computer_file/program/supermatter_monitor)
 
 /// Given by the syndicate as part of the contract uplink bundle - loads in the Contractor Uplink.

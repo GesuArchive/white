@@ -65,3 +65,10 @@
 		if(O.name == name)
 			return O
 	return null
+
+/obj/item/modular_computer/proc/find_hardware_by_type(typepath)
+	for(var/i in all_components)
+		var/obj/O = all_components[i]
+		if(istype(O, typepath))
+			return O
+	return null
