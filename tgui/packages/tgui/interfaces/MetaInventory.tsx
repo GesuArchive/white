@@ -277,13 +277,15 @@ const ItemSlot = (slotid, item:MetaInvObj, act) => {
 const MetaInvItems = (itemsprops, itemscontext) => {
   const { act, data } = useBackend<MetaInvData>(itemscontext);
 
+  const slotRows = Math.round(data.slots/COLUMNS);
+
   return (
     <Stack fill vertical>
-    {range(0, ROWS).map(row => (
+    {range(0, slotRows).map(row => (
       <Stack.Item key={row}>
         <Stack fill>
         {range(0, COLUMNS).map(column => {
-          const curID = row * ROWS + column;
+          const curID = row * slotRows + column;
           const curItem: MetaInvObj = data.itemsArray[curID];
           return (
             <Stack.Item
