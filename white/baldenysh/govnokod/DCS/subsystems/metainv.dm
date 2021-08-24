@@ -92,8 +92,8 @@ SUBSYSTEM_DEF(metainv)
 /datum/metainventory/ui_data(mob/user)
 	var/list/data = list()
 
-	data["itemsArray"] = list()
-	data["itemsIDAssoc"] = list()
+	data["objects"] = list()
+
 	for(var/datum/metainv_object/MO in obj_list)
 		var/list/res = list()
 		var/obj/O = text2path(MO.object_path_txt)
@@ -102,9 +102,9 @@ SUBSYSTEM_DEF(metainv)
 		var/mo_icon_state = (MO.var_overrides && MO.var_overrides["icon_state"]) ? MO.var_overrides["icon_state"] : initial(O.icon_state)
 		res["icon"] = icon2base64(icon(mo_icon, mo_icon_state))
 		res["name"] = mo_name
+		res["uid"] = "[MO.uid]"
 
-		data["itemsIDAssoc"]["[MO.uid]"] = res
-		data["itemsArray"] += list(res)
+		data["objects"] += list(res)
 
 	var/datum/metainv_loadout/cur_loadout = loadout_list[active_loadout]
 	data["loadout"] = cur_loadout.loadout_slots

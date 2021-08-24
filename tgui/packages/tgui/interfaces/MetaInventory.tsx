@@ -71,23 +71,16 @@ const SLOTS: Record<
   "-7": { displayName: "пол", gridSpot: getGSK([4, 6]), image: "pocket.png" },
 };
 
-type MetaInvObj = {
-  name: string;
-  icon: string;
-};
+const MetaInvLoadout = (act, loadout:MetaInvLoadout, objects:Array<MetaInvObj>) => {
 
-type MetaInvData = {
-  itemsArray: Array<MetaInvObj>;
-  itemsIDAssoc: Record<string, MetaInvObj>;
-  loadout: Record<string, string>;
-  slots: number;
-};
+  const ID2ObjAssoc = objects.reduce((res, obj) => {
+    res[obj.uid] = obj;
+    return res;
+  });
 
-const MetaInvLoadout = (loadoutprops, loadoutcontext) => {
-  const { act, data } = useBackend<MetaInvData>(loadoutcontext);
   const gridSpots = new Map<GridSpotKey, string>();
 
-  for (const slotkey of Object.keys(data.loadout)) {
+  for (const slotkey of Object.keys(loadout)) {
     if (SLOTS[slotkey]) {
       gridSpots.set(SLOTS[slotkey].gridSpot, slotkey);
     }
@@ -114,8 +107,8 @@ const MetaInvLoadout = (loadoutprops, loadoutcontext) => {
                 );
               }
 
-              const item_uid = data.loadout[keyAtSpot];
-              const item = (item_uid && item_uid !== "0") ? data.itemsIDAssoc[item_uid] : null;
+              const item_uid = loadout[keyAtSpot];
+              const item = (item_uid && item_uid !== "0") ? ID2ObjAssoc[item_uid] : null;
               const slot = SLOTS[keyAtSpot];
 
               let content;
@@ -274,19 +267,18 @@ const ItemSlot = (slotid, item:MetaInvObj, act) => {
    );
 };
 
-const MetaInvItems = (itemsprops, itemscontext) => {
-  const { act, data } = useBackend<MetaInvData>(itemscontext);
+const MetaInvItems = (act, objects:Array<MetaInvObj>, slots:number) => {
+  const slotRows = Math.round(slots/COLUMNS);
 
-  const slotRows = Math.round(data.slots/COLUMNS);
-
-  return (
+  return ( {}
+    /*
     <Stack fill vertical>
     {range(0, slotRows).map(row => (
       <Stack.Item key={row}>
         <Stack fill>
         {range(0, COLUMNS).map(column => {
           const curID = row * slotRows + column;
-          const curItem: MetaInvObj = data.itemsArray[curID];
+          const curItem: MetaInvObj = data.objects[curID];
           return (
             <Stack.Item
               key={column}
@@ -303,29 +295,37 @@ const MetaInvItems = (itemsprops, itemscontext) => {
       </Stack.Item>
     ))}
   </Stack>
+  */
   );
 };
+
+type MetaInvData = {
+  objects: Array<MetaInvObj>;
+  loadout: MetaInvLoadout;
+  slots: number;
+};
+
+type MetaInvObj = {
+  uid: string;
+  name: string;
+  icon: string;
+};
+
+type MetaInvLoadout = Record<string, string>;
 
 export const MetaInventory = (props, context) => {
   const { act, data } = useBackend<MetaInvData>(context);
 
   const slotRows = Math.round(data.slots/COLUMNS);
-
   return (
     <Window title={`Инвентарь`} width={50*(COLUMNS+1)} height={50*(ROWS+1) + 50*(slotRows+2)}>
       <Window.Content>
         <Stack fill vertical>
           <Stack.Item>
-            <MetaInvLoadout
-              loadoutprops={props}
-              loadoutcontext={context}
-            />
+            {MetaInvLoadout(act, data.loadout, data.objects)}
           </Stack.Item>
           <Stack.Item>
-            <MetaInvItems
-              itemsprops={props}
-              itemscontext={context}
-            />
+            {/*MetaInvItems(act, data.objects, data.slots)*/}
           </Stack.Item>
         </Stack>
       </Window.Content>
