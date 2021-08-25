@@ -313,6 +313,7 @@
 /obj/structure/cataclysmdda/oven,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
