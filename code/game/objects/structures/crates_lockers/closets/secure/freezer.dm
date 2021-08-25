@@ -120,5 +120,4 @@
 	req_access = list()
 
 /obj/structure/closet/secure_closet/freezer/empty/PopulateContents()
-	..()
-	new null(src) // хочешь стать программистом? да ебись ты в рот! ПОЙТИ НАХУЙ
+	return
