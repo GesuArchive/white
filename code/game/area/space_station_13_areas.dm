@@ -25,7 +25,9 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "space"
 	requires_power = TRUE
 	always_unpowered = TRUE
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	static_lighting = FALSE
+	base_lighting_color = COLOR_WHITE
+	base_lighting_alpha = 255
 	power_light = FALSE
 	power_equip = FALSE
 	power_environ = FALSE
@@ -40,14 +42,14 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 /area/space/nearstation
 	icon_state = "space_near"
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED //DYNAMIC_LIGHTING_IFSTARLIGHT
+	area_flags = UNIQUE_AREA | NO_ALERTS | AREA_USES_STARLIGHT
 	enabled_area_tension = FALSE
 
 /area/start
 	name = "Лобби"
 	icon_state = "start"
 	requires_power = FALSE
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	static_lighting = FALSE
 	has_gravity = STANDARD_GRAVITY
 	enabled_area_tension = FALSE
 
@@ -73,7 +75,9 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_ASTEROID
 
 /area/asteroid/nearstation
-	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	static_lighting = FALSE
+	base_lighting_alpha = 255
+	base_lighting_color = COLOR_WHITE
 	ambience_index = AMBIENCE_RUINS
 	ambientsounds = RUINS
 	always_unpowered = FALSE
@@ -738,8 +742,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 /area/solar
 	requires_power = FALSE
-	dynamic_lighting = DYNAMIC_LIGHTING_IFSTARLIGHT
-	area_flags = UNIQUE_AREA
+	area_flags = UNIQUE_AREA | AREA_USES_STARLIGHT
 	flags_1 = NONE
 	ambience_index = AMBIENCE_ENGI
 	airlock_wires = /datum/wires/airlock/engineering

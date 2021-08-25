@@ -17,7 +17,7 @@
 	plane = PLANE_SPACE
 	layer = SPACE_LAYER
 	light_power = 0.25
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	always_lit = TRUE
 	bullet_bounce_sound = null
 	vis_flags = VIS_INHERIT_ID	//when this be added to vis_contents of something it be associated with something on clicking, important for visualisation of turf in openspace and interraction with openspace that show you turf.
 
@@ -50,6 +50,25 @@
 	if(flags_1 & INITIALIZED_1)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
+
+	if (length(smoothing_groups))
+		sortTim(smoothing_groups) //In case it's not properly ordered, let's avoid duplicate entries with the same values.
+		SET_BITFLAG_LIST(smoothing_groups)
+	if (length(canSmoothWith))
+		sortTim(canSmoothWith)
+		if(canSmoothWith[length(canSmoothWith)] > MAX_S_TURF) //If the last element is higher than the maximum turf-only value, then it must scan turf contents for smoothing targets.
+			smoothing_flags |= SMOOTH_OBJ
+		SET_BITFLAG_LIST(canSmoothWith)
+
+
+	if(requires_activation)
+		SSair.add_to_active(src, TRUE)
+
+	if (light_system == STATIC_LIGHT && light_power && light_range)
+		update_light()
+
+	if (opacity)
+		directional_opacity = ALL_CARDINALS
 
 	var/turf/T = SSmapping.get_turf_above(src)
 	if(T)

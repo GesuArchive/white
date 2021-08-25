@@ -5,7 +5,7 @@
 /area/shuttle
 	name = "Шаттл"
 	requires_power = FALSE
-	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	static_lighting = TRUE
 	has_gravity = STANDARD_GRAVITY
 	always_unpowered = FALSE
 	// Loading the same shuttle map at a different time will produce distinct area instances.
@@ -64,7 +64,7 @@
 
 /area/shuttle/hunter
 	name = "Охотник"
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	static_lighting = FALSE
 
 ////////////////////////////White Ship////////////////////////////
 
@@ -99,7 +99,7 @@
 /area/shuttle/transit
 	name = "Гиперпространство"
 	desc = "Уииииииииииии"
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	static_lighting = FALSE
 	area_flags = NO_ALERTS | HIDDEN_AREA
 
 /area/shuttle/arrival
@@ -160,7 +160,7 @@
 	name = "Симулятор средневековья"
 	icon_state = "shuttlectf"
 	area_flags = NOTELEPORT
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	static_lighting = FALSE
 
 /area/shuttle/escape/arena
 	name = "Арена"
