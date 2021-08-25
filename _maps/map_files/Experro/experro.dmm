@@ -24,6 +24,10 @@
 /obj/item/flashlight/lamp/lavalamp,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"af" = (
+/obj/item/trash/syndi_cakes,
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/outdoors)
 "ag" = (
 /obj/structure/table/wood/cataclysmdda,
 /obj/item/newspaper,
@@ -34,6 +38,11 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"ai" = (
+/obj/effect/turf_decal/cataclysmdda/asphaltpaint,
+/obj/item/trash/chips,
+/turf/open/floor/asphalt,
+/area/partyhard/outdoors)
 "ak" = (
 /obj/structure/cataclysmdda/tablichka,
 /turf/open/floor/asphalt,
@@ -738,7 +747,7 @@
 /obj/item/food/bread/meat,
 /obj/item/food/cakeslice/bsvc,
 /obj/item/food/fried_chicken,
-/obj/item/food/grown/banana/bombanana,
+/obj/item/food/grown/banana,
 /obj/item/grown/snapcorn,
 /obj/item/food/grown/tomato,
 /obj/item/food/grown/pumpkin,
@@ -970,6 +979,10 @@
 /obj/machinery/door/poddoor/shutters,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"em" = (
+/obj/item/trash/can,
+/turf/open/floor/grass/cataclysmdda,
+/area/partyhard/outdoors)
 "er" = (
 /obj/structure/cataclysmdda/kitchencloset,
 /obj/item/reagent_containers/food/drinks/bottle/lizardwine{
@@ -1166,6 +1179,10 @@
 /obj/structure/chair/sofa/right,
 /turf/open/floor/plasteel/tile/white,
 /area/partyhard/indoors)
+"fh" = (
+/obj/item/trash/can,
+/turf/open/floor/asphalt,
+/area/partyhard/outdoors)
 "fi" = (
 /obj/structure/table/wood/poker,
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -1330,6 +1347,10 @@
 "fN" = (
 /obj/structure/fence/door,
 /turf/open/floor/grass/cataclysmdda/dirt,
+/area/partyhard/outdoors)
+"fO" = (
+/obj/item/trash/popcorn,
+/turf/open/floor/asphalt,
 /area/partyhard/outdoors)
 "fP" = (
 /obj/structure/table/wood/cataclysmdda,
@@ -1964,6 +1985,10 @@
 /obj/effect/decal/cleanable/garbage,
 /turf/open/floor/grass/cataclysmdda/dirt,
 /area/partyhard/indoors)
+"il" = (
+/obj/item/trash/cheesie,
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/outdoors)
 "im" = (
 /obj/structure/grille/cataclysmdda,
 /turf/open/floor/plasteel/tile/monofloor,
@@ -2910,6 +2935,10 @@
 /obj/item/clothing/suit/armor/vest,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"mG" = (
+/obj/item/trash/raisins,
+/turf/open/floor/asphalt,
+/area/partyhard/outdoors)
 "mJ" = (
 /obj/structure/table/wood/cataclysmdda/desk,
 /obj/item/stack/medical/gauze/improvised,
@@ -3885,8 +3914,8 @@
 /obj/item/food/burger,
 /obj/item/food/cubannachos,
 /obj/item/food/grown/apple,
-/obj/item/food/grown/banana/bombanana,
-/obj/item/food/grown/banana/bombanana,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
 /obj/item/food/grown/citrus/orange,
 /obj/item/food/meat/slab/pig,
 /obj/item/reagent_containers/food/condiment/milk,
@@ -4223,6 +4252,10 @@
 /obj/structure/railing{
 	dir = 1
 	},
+/turf/open/floor/grass/cataclysmdda,
+/area/partyhard/outdoors)
+"sl" = (
+/obj/item/trash/can/food/beans,
 /turf/open/floor/grass/cataclysmdda,
 /area/partyhard/outdoors)
 "sm" = (
@@ -5167,6 +5200,10 @@
 /obj/structure/flora/tree/cataclysmdda/sosna,
 /turf/open/floor/grass/cataclysmdda,
 /area/partyhard/outdoors)
+"wz" = (
+/obj/item/trash/cheesie,
+/turf/open/floor/asphalt,
+/area/partyhard/outdoors)
 "wA" = (
 /obj/structure/dresser,
 /turf/open/floor/plasteel/grimy,
@@ -5494,6 +5531,10 @@
 /obj/item/reagent_containers/food/drinks/bottle,
 /turf/open/floor/plasteel/tile/white,
 /area/partyhard/indoors)
+"xP" = (
+/obj/item/trash/syndi_cakes,
+/turf/open/floor/grass/cataclysmdda/dirt,
+/area/partyhard/outdoors)
 "xT" = (
 /obj/structure/chair/wood/cataclysmdda{
 	dir = 8
@@ -6287,6 +6328,10 @@
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"Bo" = (
+/obj/item/trash/sosjerky,
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/outdoors)
 "Bp" = (
 /obj/structure/chair/sofa/corp,
 /turf/open/floor/plasteel/tile/monofloor,
@@ -6316,6 +6361,10 @@
 /obj/item/clothing/accessory/medal/gold/heroism,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"Bx" = (
+/obj/item/trash/chips,
+/turf/open/floor/asphalt,
+/area/partyhard/outdoors)
 "By" = (
 /obj/structure/table/wood/cataclysmdda,
 /obj/item/camera/coom,
@@ -6337,6 +6386,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/partyhard/indoors)
+"BB" = (
+/obj/item/trash/syndi_cakes,
+/turf/open/floor/asphalt,
+/area/partyhard/outdoors)
 "BD" = (
 /obj/structure/bookcase/random,
 /turf/open/floor/carpet,
@@ -6417,6 +6470,10 @@
 /obj/item/modular_computer/laptop,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"BS" = (
+/obj/item/trash/boritos,
+/turf/open/floor/asphalt,
+/area/partyhard/outdoors)
 "BT" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/light/small,
@@ -7522,6 +7579,10 @@
 /obj/item/clothing/head/kitty,
 /turf/open/floor/plasteel/tile/white,
 /area/partyhard/indoors)
+"GQ" = (
+/obj/item/trash/chips,
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/outdoors)
 "GT" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
 /obj/item/gun/ballistic/shotgun/automatic/combat,
@@ -7731,6 +7792,10 @@
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"HM" = (
+/obj/item/trash/candy,
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/outdoors)
 "HN" = (
 /obj/structure/table/wood/cataclysmdda,
 /obj/item/radio/off,
@@ -7879,6 +7944,10 @@
 "IA" = (
 /turf/open/floor/plasteel/monofloor,
 /area/partyhard/indoors)
+"IE" = (
+/obj/item/storage/bag/trash,
+/turf/open/floor/grass/cataclysmdda,
+/area/partyhard/outdoors)
 "IF" = (
 /obj/item/device/flashlight/slamp/cataclysmdda,
 /obj/machinery/light/small{
@@ -8932,6 +9001,10 @@
 /obj/item/computer_hardware/battery,
 /turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
+"Nn" = (
+/obj/item/trash/can,
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/outdoors)
 "No" = (
 /obj/structure/lattice,
 /obj/effect/turf_decal/weather/side,
@@ -10269,6 +10342,10 @@
 "Tp" = (
 /turf/open/floor/asphalt,
 /area/partyhard/indoors)
+"Tr" = (
+/obj/item/trash/semki,
+/turf/open/floor/asphalt,
+/area/partyhard/outdoors)
 "Tt" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
 /obj/item/reagent_containers/food/condiment/soysauce,
@@ -10933,6 +11010,10 @@
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"WF" = (
+/obj/item/trash/pistachios,
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/outdoors)
 "WG" = (
 /turf/open/floor/grass/cataclysmdda,
 /area/partyhard/indoors)
@@ -11178,6 +11259,10 @@
 	},
 /turf/open/floor/plasteel/tile/white,
 /area/partyhard/indoors)
+"XL" = (
+/obj/item/trash/candy,
+/turf/open/floor/asphalt,
+/area/partyhard/outdoors)
 "XM" = (
 /obj/structure/table/wood/cataclysmdda/sci,
 /obj/item/reagent_containers/food/drinks/beer,
@@ -39695,7 +39780,7 @@ uA
 LQ
 VW
 uD
-uD
+em
 uD
 uD
 uD
@@ -46014,7 +46099,7 @@ uD
 uD
 uD
 uD
-uD
+UL
 uD
 uD
 by
@@ -46032,7 +46117,7 @@ uD
 uD
 uD
 uD
-oO
+Bo
 oO
 oO
 yq
@@ -47048,7 +47133,7 @@ yq
 yq
 yq
 yq
-yq
+fO
 yq
 yq
 yq
@@ -48790,7 +48875,7 @@ yq
 yq
 yq
 yq
-yq
+fh
 yq
 yq
 yq
@@ -50577,7 +50662,7 @@ yq
 yq
 yq
 yq
-yq
+mG
 yq
 yq
 yq
@@ -50908,7 +50993,7 @@ yq
 yq
 yq
 yq
-oO
+WF
 oO
 oO
 oO
@@ -51346,7 +51431,7 @@ oO
 oO
 oO
 oO
-oO
+af
 oO
 oO
 oO
@@ -52003,7 +52088,7 @@ uD
 WS
 bA
 WN
-bA
+xP
 uD
 uD
 WS
@@ -59350,7 +59435,7 @@ yq
 yq
 yq
 yq
-yq
+Bx
 yq
 yq
 yq
@@ -59425,7 +59510,7 @@ oO
 oO
 oO
 WS
-uD
+QW
 uD
 uD
 uD
@@ -60804,7 +60889,7 @@ WN
 uD
 uD
 bA
-uD
+em
 WN
 uD
 bA
@@ -61138,7 +61223,7 @@ uD
 bA
 uD
 Ly
-uD
+IE
 WS
 uD
 uD
@@ -62238,7 +62323,7 @@ yq
 yq
 yq
 oO
-oO
+GQ
 oO
 uD
 uD
@@ -63923,7 +64008,7 @@ oO
 oO
 oO
 yq
-yq
+BS
 yq
 yq
 aO
@@ -65041,7 +65126,7 @@ uD
 uD
 uD
 oO
-oO
+il
 oO
 yq
 yq
@@ -66464,7 +66549,7 @@ yq
 oO
 oO
 oO
-uD
+sl
 uD
 uD
 uD
@@ -67448,7 +67533,7 @@ yq
 yq
 aO
 aO
-yq
+BB
 yq
 yq
 yq
@@ -72044,7 +72129,7 @@ oO
 oO
 oO
 oO
-oO
+GQ
 oO
 oO
 oO
@@ -72096,7 +72181,7 @@ yq
 oO
 oO
 oO
-oO
+HM
 oO
 oO
 oO
@@ -75241,7 +75326,7 @@ yq
 yq
 yq
 yq
-yq
+XL
 yq
 yq
 yq
@@ -77323,7 +77408,7 @@ oO
 oO
 oO
 oO
-oO
+Bo
 oO
 oO
 oO
@@ -78361,7 +78446,7 @@ yq
 aO
 aO
 yq
-yq
+Tr
 yq
 yq
 oO
@@ -79476,7 +79561,7 @@ oO
 oO
 oO
 yq
-yq
+fh
 yq
 yq
 yq
@@ -80192,7 +80277,7 @@ yq
 oO
 oO
 oO
-uD
+em
 by
 BF
 ff
@@ -84055,7 +84140,7 @@ yq
 yq
 yq
 yq
-aO
+ai
 aO
 yq
 yq
@@ -86459,7 +86544,7 @@ aO
 yq
 yq
 yq
-yq
+fh
 oO
 oO
 oO
@@ -92795,7 +92880,7 @@ yq
 yq
 yq
 yq
-yq
+Bx
 oO
 oO
 oO
@@ -93871,7 +93956,7 @@ oO
 oO
 oO
 oO
-oO
+Bo
 oO
 oO
 oO
@@ -93921,7 +94006,7 @@ oO
 oO
 oO
 oO
-oO
+WF
 oO
 oO
 oO
@@ -94590,7 +94675,7 @@ yq
 yq
 yq
 yq
-yq
+fh
 yq
 yq
 yq
@@ -96750,7 +96835,7 @@ yq
 yq
 yq
 yq
-yq
+XL
 yq
 yq
 yq
@@ -97008,7 +97093,7 @@ uD
 uD
 uD
 oO
-oO
+il
 oO
 yq
 yq
@@ -98120,7 +98205,7 @@ oO
 oO
 oO
 oO
-oO
+af
 oO
 oO
 oO
@@ -98838,7 +98923,7 @@ oO
 yq
 yq
 yq
-yq
+wz
 yq
 yq
 yq
@@ -98847,7 +98932,7 @@ yq
 yq
 oO
 oO
-oO
+Nn
 uD
 uD
 uD
@@ -99826,7 +99911,7 @@ oO
 oO
 yq
 yq
-yq
+mG
 yq
 yq
 yq
@@ -103003,7 +103088,7 @@ yq
 yq
 yq
 yq
-yq
+fO
 yq
 yq
 oO
@@ -103699,7 +103784,7 @@ oO
 yq
 yq
 yq
-yq
+fO
 yq
 yq
 yq
