@@ -843,7 +843,7 @@
 	alpha = 255
 	opaque_closed = TRUE
 	flags_1 = ON_BORDER_1
-	//тока дир к окну не забудь выставить......
+	//вставь в окно и выстави дир внутрь здания.........
 
 /obj/structure/curtain/cataclysmdda/window/Initialize()
 	. = ..()
@@ -851,6 +851,36 @@
 		COMSIG_ATOM_EXIT = .proc/on_exit,
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/structure/curtain/cataclysmdda/window/attack_hand(mob/user)
+	var/obj/blocker = get_reach_blocker(user)
+	if(blocker)
+		return blocker.attack_hand(user)
+	return ..()
+
+/obj/structure/curtain/cataclysmdda/window/attack_paw(mob/user)
+	return attack_hand(user)
+
+/obj/structure/curtain/cataclysmdda/window/attack_generic(mob/user, damage_amount = 0, damage_type = BRUTE, damage_flag = 0, sound_effect = 1)
+	var/obj/blocker = get_reach_blocker(user)
+	if(blocker)
+		return blocker.attack_generic(user, damage_amount, damage_type, damage_flag, sound_effect)
+	return ..()
+
+/obj/structure/curtain/cataclysmdda/window/attackby(obj/item/I, mob/living/user, params)
+	var/obj/blocker = get_reach_blocker(user)
+	if(blocker)
+		return blocker.attackby(I, user, params)
+	return ..()
+
+/obj/structure/curtain/cataclysmdda/window/proc/get_reach_blocker(mob/user)
+	var/checking_dir = get_dir(user, src)
+	if(!(checking_dir & dir))
+		return
+	checking_dir = REVERSE_DIR(checking_dir)
+	for(var/obj/blocker in loc)
+		if(!blocker.CanPass(user, checking_dir))
+			return blocker
 
 /obj/structure/curtain/cataclysmdda/window/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
