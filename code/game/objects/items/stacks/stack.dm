@@ -478,7 +478,7 @@
 
 /obj/item/stack/Moved()
 	. = ..()
-	if(!throwing)
+	if(!throwing && isturf(loc))
 		for(var/obj/item/stack/item_stack in loc)
 			if(item_stack == src)
 				continue
