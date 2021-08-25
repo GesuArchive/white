@@ -1,8 +1,3 @@
-#define GLOW_ID "glow"
-#define PLANT_TYPE_ID "plant_type"
-#define TEMP_CHANGE_ID "temperature_change"
-#define CONTENTS_CHANGE_ID "contents_change"
-
 /datum/plant_gene
 	var/name
 	var/mutability_flags = PLANT_GENE_EXTRACTABLE | PLANT_GENE_REMOVABLE ///These flags tells the genemodder if we want the gene to be extractable, only removable or neither.
@@ -669,8 +664,3 @@
 		var/amt = max(oxy, 9)
 		T.air.adjust_moles(/datum/gas/carbon_dioxide, amt * 2)
 		T.air.adjust_moles(/datum/gas/oxygen, -amt)
-
-#undef GLOW_ID
-#undef PLANT_TYPE_ID
-#undef TEMP_CHANGE_ID
-#undef CONTENTS_CHANGE_ID
