@@ -201,7 +201,7 @@ const MetaInvLoadout=(act,loadout:MetaInvLoadout,objects:Array<MetaInvObj>)=>{
   );
 };
 
-const ItemSlot = (slotid, item:MetaInvObj, act) => {
+const ItemSlot = (act, slotid:number, item:MetaInvObj, active_slot:number) => {
   let content;
   let tooltip;
 
@@ -238,7 +238,9 @@ const ItemSlot = (slotid, item:MetaInvObj, act) => {
         fluid
         tooltip={tooltip}
         style={{
-          background: undefined,
+          background: slotid == active_slot
+                              ? "hsl(39, 73%, 30%)"
+                              : undefined,
           position: "relative",
           width: "100%",
           height: "100%",
@@ -267,7 +269,7 @@ const ItemSlot = (slotid, item:MetaInvObj, act) => {
   );
 };
 
-const MetaInvItems = (act, objects:Array<MetaInvObj>, slots:number) => {
+const MetaInvItems = (act, objects:Array<MetaInvObj>, slots:number, active_slot:number) => {
   const slotRows = Math.ceil(slots/COLUMNS);
   return (
     <Stack fill vertical>
@@ -285,7 +287,7 @@ const MetaInvItems = (act, objects:Array<MetaInvObj>, slots:number) => {
                     height: BUTTON_DIMENSIONS,
                   }}
                 >
-                  {(curID <= slots) ? ItemSlot(curID, curItem, act) : null}
+                  {(curID <= slots) ? ItemSlot(act, curID, curItem, active_slot) : null}
                 </Stack.Item>
               );
             })}
@@ -301,6 +303,7 @@ type MetaInvData = {
   objects: Array<MetaInvObj>;
   loadout: MetaInvLoadout;
   slots: number;
+  active_slot: number;
 };
 
 type MetaInvObj = {
@@ -326,7 +329,7 @@ export const MetaInventory = (props, context) => {
             {MetaInvLoadout(act, data.loadout, data.objects)}
           </Stack.Item>
           <Stack.Item>
-            {MetaInvItems(act, data.objects, data.slots)}
+            {MetaInvItems(act, data.objects, data.slots, data.active_slot)}
           </Stack.Item>
         </Stack>
       </Window.Content>

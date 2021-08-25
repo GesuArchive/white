@@ -37,6 +37,7 @@ SUBSYSTEM_DEF(metainv)
 /datum/metainventory
 	var/owner_ckey
 	var/slots_max = 24
+	var/active_slot = 0
 	var/active_loadout = 1
 	var/list/datum/metainv_loadout/loadout_list = list()
 	var/list/datum/metainv_object/obj_list = list()
@@ -106,7 +107,7 @@ SUBSYSTEM_DEF(metainv)
 
 	var/datum/metainv_loadout/cur_loadout = loadout_list[active_loadout]
 	data["loadout"] = cur_loadout.loadout_slots
-
+	data["active_slot"] = active_slot
 	data["slots"] = slots_max
 	return data
 
@@ -120,7 +121,8 @@ SUBSYSTEM_DEF(metainv)
 			//var/clicked_slot_str = params["key"]
 			. = TRUE
 		if("invSlotClick")
-			//var/clicked_obj_id = params["key"]
+			var/clicked_slot_id = params["key"]
+			active_slot = clicked_slot_id
 			. = TRUE
 
 /datum/metainventory/ui_status(mob/user)
