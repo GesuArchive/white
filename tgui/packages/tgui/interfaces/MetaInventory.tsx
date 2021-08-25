@@ -72,11 +72,7 @@ const SLOTS: Record<
 };
 
 const MetaInvLoadout=(act,loadout:MetaInvLoadout,objects:Array<MetaInvObj>)=>{
-
-  const ID2ObjAssoc = objects.reduce((res, obj) => {
-    res[obj.uid] = obj;
-    return res;
-  });
+  const ID2ObjAssoc = objects.reduce((acc, obj) => (acc[obj.uid] = obj, acc), {} as Record<string, MetaInvObj>)
 
   const gridSpots = new Map<GridSpotKey, string>();
 
@@ -108,7 +104,7 @@ const MetaInvLoadout=(act,loadout:MetaInvLoadout,objects:Array<MetaInvObj>)=>{
               }
 
               const item_uid = loadout[keyAtSpot];
-              const item = (item_uid && item_uid !== "0") ? ID2ObjAssoc[item_uid] : null;
+              const item:MetaInvObj = (item_uid && item_uid !== "0" ) ? ID2ObjAssoc[item_uid] : null;
               const slot = SLOTS[keyAtSpot];
 
               let content;

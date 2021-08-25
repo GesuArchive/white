@@ -118,12 +118,21 @@ SUBSYSTEM_DEF(metainv)
 
 	switch(action)
 		if("loadoutSlotClick")
-			//var/clicked_slot_str = params["key"]
-			. = TRUE
+			var/clicked_slot_key = params["key"]
+			var/datum/metainv_loadout/a_loadout = loadout_list[active_loadout]
+			if(active_slot)
+				var/datum/metainv_object/MO = obj_list[active_slot]
+				if(MO)
+					a_loadout.clear_uid(MO.uid)
+					a_loadout.set_slot(clicked_slot_key, MO.uid)
+					active_slot = 0
+					return TRUE
+			a_loadout.set_slot(clicked_slot_key, "0")
+			return TRUE
 		if("invSlotClick")
 			var/clicked_slot_id = params["key"]
 			active_slot = clicked_slot_id
-			. = TRUE
+			return TRUE
 
 /datum/metainventory/ui_status(mob/user)
 	return UI_INTERACTIVE
@@ -194,6 +203,12 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainv_loadout/proc/set_slot(slot, uid)
 	loadout_slots["[slot]"] = "[uid]"
+
+/datum/metainv_loadout/proc/clear_uid(uid)
+	for(var/slot in loadout_slots)
+		if(loadout_slots[slot] == "[uid]")
+			loadout_slots[slot] = "0"
+			return
 
 /datum/metainv_loadout/proc/get_slot_to_metaobj_assoc()
 	. = list()
