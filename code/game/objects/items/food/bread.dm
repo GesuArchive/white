@@ -263,6 +263,9 @@
 
 
 /obj/item/food/deepfryholder/Initialize(mapload, obj/item/fried)
+	if(!fried)
+		stack_trace("A deepfried object was created with no fried target")
+		return INITIALIZE_HINT_QDEL
 	. = ..()
 	name = fried.name //We'll determine the other stuff when it's actually removed
 	appearance = fried.appearance
@@ -295,7 +298,6 @@
 /obj/item/food/deepfryholder/proc/On_Consume(eater, feeder)
 	if(contents)
 		QDEL_LIST(contents)
-
 
 /obj/item/food/deepfryholder/proc/fry(cook_time = 30)
 	switch(cook_time)
