@@ -71,7 +71,7 @@ const SLOTS: Record<
   "-7": { displayName: "пол", gridSpot: getGSK([4, 6]), image: "pocket.png" },
 };
 
-const MetaInvLoadout = (act, loadout:MetaInvLoadout, objects:Array<MetaInvObj>) => {
+const MetaInvLoadout=(act,loadout:MetaInvLoadout,objects:Array<MetaInvObj>)=>{
 
   const ID2ObjAssoc = objects.reduce((res, obj) => {
     res[obj.uid] = obj;
@@ -221,78 +221,78 @@ const ItemSlot = (slotid, item:MetaInvObj, act) => {
     tooltip = item.name;
   }
 
-   return (
-      <Box
+  return (
+    <Box
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "100%",
+      }}
+    >
+      <Button
+        onClick={() => {
+          act("invSlotClick", {
+            key: slotid,
+          });
+        }}
+        fluid
+        tooltip={tooltip}
         style={{
+          background: undefined,
           position: "relative",
           width: "100%",
           height: "100%",
+          padding: 0,
         }}
       >
-        <Button
-          onClick={() => {
-            act("invSlotClick", {
-              key: slotid,
-            });
-          }}
-          fluid
-          tooltip={tooltip}
+        <Box
+          as="img"
+          src={resolveAsset("inventory-pocket.png")}
+          opacity={0.7}
           style={{
-            background: undefined,
-            position: "relative",
-            width: "100%",
-            height: "100%",
-            padding: 0,
-          }}
-        >
-          <Box
-            as="img"
-            src={resolveAsset("inventory-pocket.png")}
-            opacity={0.7}
-            style={{
-              position: "absolute",
-              width: "32px",
-              height: "32px",
-              left: "50%",
-              top: "50%",
-              transform:
+            position: "absolute",
+            width: "32px",
+            height: "32px",
+            left: "50%",
+            top: "50%",
+            transform:
                 "translateX(-50%) translateY(-50%) scale(0.8)",
-            }}
-          />
-          <Box style={{ position: "relative" }}>
-            {content}
-          </Box>
-        </Button>
-      </Box>
-   );
+          }}
+        />
+        <Box style={{ position: "relative" }}>
+          {content}
+        </Box>
+      </Button>
+    </Box>
+  );
 };
 
 const MetaInvItems = (act, objects:Array<MetaInvObj>, slots:number) => {
   const slotRows = Math.ceil(slots/COLUMNS);
   return (
-  <Stack fill vertical>
-    {range(0, slotRows).map(row => (
-      <Stack.Item key={row}>
-        <Stack fill>
-        {range(0, COLUMNS).map(column => {
-          const curID = row * COLUMNS + column + 1;
-          const curItem: MetaInvObj = objects[curID-1];
-          return (
-            <Stack.Item
-              key={column}
-              style={{
-                width: BUTTON_DIMENSIONS,
-                height: BUTTON_DIMENSIONS,
-              }}
-            >
-              {(curID <= slots) ? ItemSlot(curID, curItem, act) : null}
-            </Stack.Item>
-          );
-        })}
-        </Stack>
-      </Stack.Item>
-    ))}
-  </Stack>);
+    <Stack fill vertical>
+      {range(0, slotRows).map(row => (
+        <Stack.Item key={row}>
+          <Stack fill>
+            {range(0, COLUMNS).map(column => {
+              const curID = row * COLUMNS + column + 1;
+              const curItem: MetaInvObj = objects[curID-1];
+              return (
+                <Stack.Item
+                  key={column}
+                  style={{
+                    width: BUTTON_DIMENSIONS,
+                    height: BUTTON_DIMENSIONS,
+                  }}
+                >
+                  {(curID <= slots) ? ItemSlot(curID, curItem, act) : null}
+                </Stack.Item>
+              );
+            })}
+          </Stack>
+        </Stack.Item>
+      ))}
+    </Stack>);
 
 
 };
@@ -316,7 +316,10 @@ export const MetaInventory = (props, context) => {
 
   const slotRows = Math.ceil(data.slots/COLUMNS);
   return (
-    <Window title={`Инвентарь`} width={50*(COLUMNS+1)} height={50*(ROWS+1) + 50*(slotRows+1)}>
+    <Window
+      title={`Инвентарь`}
+      width={50*(COLUMNS+1)}
+      height={50*(ROWS+1) + 50*(slotRows+1)}>
       <Window.Content>
         <Stack fill vertical>
           <Stack.Item>
