@@ -46,6 +46,8 @@
 #define PLANT_GENE_MUTATABLE (1<<1)
 /// Plant genes that can be graftable. Used in formatting text, as they need to be set to be graftable anyways.
 #define PLANT_GENE_GRAFTABLE (1<<2)
+// this flag is used to tell the DNA modifier if a plant gene cannot be extracted.
+#define PLANT_GENE_EXTRACTABLE	(1<<3)
 
 /// -- Flags for seeds. --
 /// Allows a plant to wild mutate (mutate on haravest) at a certain instability.

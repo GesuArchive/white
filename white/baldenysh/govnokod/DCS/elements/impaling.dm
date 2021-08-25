@@ -45,7 +45,7 @@
 		return
 	var/move_target = get_ranged_target_turf(C, dir, 5)
 	RegisterSignal(C, COMSIG_MOVABLE_IMPACT, .proc/impale)
-	C.throw_at(move_target, throw_range, 5, force = throw_force)
+	C.throw_at(move_target, throw_range, 5, spin=FALSE, force = throw_force)
 	addtimer(CALLBACK(src, .proc/unreg_throw, C), 3 SECONDS) //ну а хули, такие же смешные костыли и в генетических мутациях есть
 
 /datum/element/impaling/proc/unreg_throw(atom/thrown)

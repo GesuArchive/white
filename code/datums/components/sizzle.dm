@@ -23,4 +23,3 @@
 	sizzling = new(grill_marks)
 	sizzling.alpha = sizzlealpha
 	food.add_overlay(sizzling)
-

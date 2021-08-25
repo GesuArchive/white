@@ -1,25 +1,25 @@
 /datum/component/impaled
 	var/obj/impaled_by
-	var/atom/impaled_to
+	var/impaling_dir
 
 /datum/component/impaled/Initialize(obj/imp_by, atom/imp_to)
 	if(!iscarbon(parent))
 		return COMPONENT_INCOMPATIBLE
 	impaled_by = imp_by
-	impaled_to = imp_to
+	impaling_dir = get_dir(imp_to, parent)
 
 /datum/component/impaled/RegisterWithParent()
 	var/mob/living/carbon/C = parent
 	C.Paralyze(10 SECONDS)
 	var/obj/structure/wall_stuck_thing/ST = new(get_turf(C))
-	ST.dir = get_dir(impaled_to, C)
-	if(ST.dir & SOUTH)
+	ST.dir = impaling_dir
+	if(impaling_dir & SOUTH)
 		ST.layer = ABOVE_ALL_MOB_LAYER
 	ST.name = impaled_by.name
 	impaled_by.forceMove(ST)
 	ST.impaler = impaled_by
 	ST.buckle_mob(C, force=1)
-	set_offsets(ST.dir)
+	set_offsets(impaling_dir)
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/on_moved)
 	RegisterSignal(parent, COMSIG_MOVABLE_UNBUCKLE, .proc/on_unbuckle)
 
