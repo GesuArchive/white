@@ -54,7 +54,7 @@
 		AddToGrill(new_pancake)
 		if(griddled_objects.len >= max_items)
 			break
-	visible_message(span_notice("[exposing_reagent] begins to cook on [src]."))
+	visible_message(span_notice("[exposing_reagent] начинает жариться на [src]."))
 	return NONE
 
 /obj/machinery/griddle/crowbar_act(mob/living/user, obj/item/I)
@@ -64,7 +64,7 @@
 
 /obj/machinery/griddle/attackby(obj/item/I, mob/user, params)
 	if(griddled_objects.len >= max_items)
-		to_chat(user, span_notice("[src] can't fit more items!"))
+		to_chat(user, span_notice("[src] полон!"))
 		return
 	var/list/modifiers = params2list(params)
 	//Center the icon where the user clicked.
@@ -74,7 +74,7 @@
 		//Clamp it so that the icon never moves more than 16 pixels in either direction (thus leaving the table turf)
 		I.pixel_x = clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -(world.icon_size/2), world.icon_size/2)
 		I.pixel_y = clamp(text2num(LAZYACCESS(modifiers, ICON_Y)) - 16, -(world.icon_size/2), world.icon_size/2)
-		to_chat(user, span_notice("You place [I] on [src]."))
+		to_chat(user, span_notice("Кладу [I] на [src]."))
 		AddToGrill(I, user)
 		update_icon()
 	else

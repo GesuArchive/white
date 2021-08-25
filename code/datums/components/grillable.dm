@@ -70,13 +70,17 @@
 	var/atom/original_object = parent
 	var/atom/grilled_result = new cook_result(original_object.loc)
 
+	if(istype(grilled_result, /obj/item/food))
+		var/obj/item/food/F = grilled_result
+		F.MakeEdible()
+
 	if(original_object.custom_materials)
 		grilled_result.set_custom_materials(original_object.custom_materials, 1)
 
 	grilled_result.pixel_x = original_object.pixel_x
 	grilled_result.pixel_y = original_object.pixel_y
 
-	grill_source.visible_message("<span class='[positive_result ? "notice" : "warning"]'>[parent] превращается в [grilled_result]!</span>")
+	grill_source.visible_message("<span class='[positive_result ? "notice" : "warning"]'>[capitalize(original_object.name)] превращается в [grilled_result]!</span>")
 	SEND_SIGNAL(parent, COMSIG_GRILL_COMPLETED, grilled_result)
 	currently_grilling = FALSE
 	qdel(parent)
