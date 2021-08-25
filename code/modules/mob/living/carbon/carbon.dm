@@ -1097,7 +1097,7 @@
 	. = ..()
 
 	wash_poo()
-	unglitch_me()
+	RemoveElement(/datum/element/glitch)
 	// Wash equipped stuff that cannot be covered
 	for(var/obj/item/held_thing in held_items)
 		if(held_thing.wash(clean_types))

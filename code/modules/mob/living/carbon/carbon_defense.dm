@@ -481,9 +481,8 @@
 		else if(bodytemperature < BODYTEMP_COLD_DAMAGE_LIMIT)
 			to_chat(M, "<span class='warning'>Чувствую холод при объятиях с <b>[M]</b>.</span>")
 
-		if(HAS_TRAIT(M, TRAIT_HACKER) && glitched)
-			unglitch_me()
-			to_chat(src, "<span class='notice'>Мне стало легче!</span>")
+		if(HAS_TRAIT(M, TRAIT_HACKER))
+			RemoveElement(/datum/element/glitch)
 
 		if(HAS_TRAIT(M, TRAIT_FRIENDLY))
 			var/datum/component/mood/hugger_mood = M.GetComponent(/datum/component/mood)
