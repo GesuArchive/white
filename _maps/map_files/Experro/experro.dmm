@@ -146,6 +146,7 @@
 /obj/item/bedsheet/black,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -154,6 +155,7 @@
 /obj/structure/chair/sofa/left,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -187,6 +189,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -245,6 +248,7 @@
 /obj/structure/table/wood/cataclysmdda,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /obj/item/storage/fancy/donut_box,
@@ -354,6 +358,7 @@
 /obj/structure/chair/comfy/black,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -383,6 +388,7 @@
 /obj/structure/sink/kitchen/cataclysmdda,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -501,6 +507,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -584,6 +591,7 @@
 /obj/structure/rospilovo/televizor,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -647,6 +655,7 @@
 /obj/item/kitchen/knife/butcher,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/tile,
@@ -672,6 +681,7 @@
 /obj/item/lead_pipe,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -691,6 +701,7 @@
 "cZ" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/blue,
@@ -754,6 +765,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -928,6 +940,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/tile,
@@ -935,6 +948,7 @@
 "eh" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /obj/structure/closet/cabinet,
@@ -967,6 +981,7 @@
 /obj/structure/chair/stool/bar/cataclysmdda,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -1038,6 +1053,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -1099,6 +1115,7 @@
 /obj/structure/cataclysmdda/kitchencloset,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -1218,6 +1235,7 @@
 /obj/item/binoculars,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -1248,6 +1266,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -1298,6 +1317,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/plasteel/tile/monofloor,
@@ -1487,6 +1507,7 @@
 /obj/item/storage/toolbox/electrical,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/blue,
@@ -1673,6 +1694,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -1704,6 +1726,7 @@
 /obj/structure/sink/kitchen/cataclysmdda,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -1757,6 +1780,7 @@
 /obj/item/kirbyplants/random,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -2042,6 +2066,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -2143,6 +2168,7 @@
 "jm" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/carpet/purple,
@@ -2236,6 +2262,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -2267,6 +2294,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -2530,6 +2558,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -2556,6 +2585,7 @@
 /obj/item/kirbyplants/random,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -2707,6 +2737,7 @@
 /obj/structure/chair/wood/cataclysmdda,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -2953,6 +2984,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -3054,6 +3086,7 @@
 "nw" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/plasteel/tile/monofloor,
@@ -3199,6 +3232,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -3384,6 +3418,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -3424,6 +3459,7 @@
 /obj/structure/table/wood/cataclysmdda,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -3473,6 +3509,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/tile,
@@ -3491,6 +3528,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -3680,6 +3718,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -3735,6 +3774,7 @@
 /obj/item/trash/plate,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/tile,
@@ -3783,6 +3823,7 @@
 "qD" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -3863,6 +3904,7 @@
 /obj/structure/cataclysmdda/bassboost,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/carpet,
@@ -3897,6 +3939,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -3914,6 +3957,7 @@
 /obj/structure/chair/wood/cataclysmdda,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/tile,
@@ -3937,6 +3981,7 @@
 /obj/structure/chair/sofa,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -3989,6 +4034,7 @@
 /obj/structure/cataclysmdda/kitchencloset,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -4221,6 +4267,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -4275,6 +4322,7 @@
 /obj/structure/chair/comfy/black,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -4432,6 +4480,7 @@
 /obj/structure/cataclysmdda/oven,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/plasteel/tile,
@@ -4462,6 +4511,7 @@
 /obj/structure/cataclysmdda/kitchencloset,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -4505,6 +4555,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet{
@@ -4645,6 +4696,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -4785,6 +4837,7 @@
 /obj/structure/table/wood/cataclysmdda/sci,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /obj/item/reagent_containers/food/drinks/bottle/whiskey,
@@ -4847,6 +4900,7 @@
 /obj/item/kitchen/rollingpin,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -4866,6 +4920,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/carpet/orange,
@@ -4986,6 +5041,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -5121,6 +5177,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/plasteel/grimy,
@@ -5222,6 +5279,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -5251,6 +5309,7 @@
 "wX" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -5301,6 +5360,7 @@
 "xn" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/carpet,
@@ -5363,6 +5423,7 @@
 /obj/item/storage/photo_album,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/carpet/royalblack,
@@ -5406,6 +5467,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/carpet/red,
@@ -5415,6 +5477,7 @@
 /obj/item/lipstick/jade,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet{
@@ -5610,6 +5673,7 @@
 "yG" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/carpet,
@@ -5680,6 +5744,7 @@
 /obj/item/bedsheet/blue,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -5745,6 +5810,7 @@
 "zj" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -5763,6 +5829,7 @@
 /obj/structure/chair/comfy/beige,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -5815,6 +5882,7 @@
 /obj/structure/sink/kitchen/cataclysmdda,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -5880,6 +5948,7 @@
 "zG" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/carpet/purple,
@@ -5922,6 +5991,7 @@
 /obj/item/boombox,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -5930,6 +6000,7 @@
 /obj/structure/sink/kitchen/cataclysmdda,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/plasteel/tile,
@@ -6140,6 +6211,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -6191,6 +6263,7 @@
 /obj/item/bedsheet/brown,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -6247,6 +6320,7 @@
 /obj/item/camera/coom,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/carpet/royalblue,
@@ -6332,6 +6406,7 @@
 /obj/item/food/cookie/sugar/spookyskull,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -6518,6 +6593,7 @@
 "CE" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/tile,
@@ -6699,6 +6775,7 @@
 "Dt" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -6748,6 +6825,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -6824,6 +6902,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -6913,6 +6992,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -7268,6 +7348,7 @@
 "Gd" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -7285,6 +7366,7 @@
 /obj/structure/chair/sofa/left,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -7336,6 +7418,7 @@
 /obj/item/storage/pill_bottle/dice,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/carpet/royalblack,
@@ -7344,6 +7427,7 @@
 /obj/structure/chair/sofa/right,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -7587,6 +7671,7 @@
 /obj/item/food/popcorn,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -7640,6 +7725,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -7730,6 +7816,7 @@
 "Ij" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/tile/monofloor,
@@ -7745,6 +7832,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -7804,6 +7892,7 @@
 /obj/item/bikehorn/airhorn,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/carpet,
@@ -7818,6 +7907,7 @@
 /obj/structure/sink/kitchen/cataclysmdda,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -7826,6 +7916,7 @@
 /obj/structure/cataclysmdda/kitchencloset,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -7939,6 +8030,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -8040,6 +8132,7 @@
 /obj/item/instrument/piano_synth/headphones,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -8084,6 +8177,7 @@
 /obj/structure/sink/kitchen/cataclysmdda,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/plasteel/tile,
@@ -8133,6 +8227,7 @@
 "JW" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -8360,6 +8455,7 @@
 "Lj" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/carpet/red,
@@ -8397,6 +8493,7 @@
 "Lq" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -8513,6 +8610,7 @@
 /obj/structure/sink/kitchen/cataclysmdda,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -8597,6 +8695,7 @@
 /obj/structure/table/wood/cataclysmdda,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -8670,6 +8769,7 @@
 /obj/item/food/grown/cabbage,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -8996,6 +9096,7 @@
 /obj/structure/table/wood/cataclysmdda,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /obj/item/newspaper,
@@ -9079,6 +9180,7 @@
 /obj/item/kitchen/fork,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -9131,6 +9233,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/carpet/orange,
@@ -9138,6 +9241,7 @@
 "ON" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/carpet/royalblack,
@@ -9188,6 +9292,7 @@
 /obj/item/kitchen/knife,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -9220,6 +9325,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -9228,6 +9334,7 @@
 /obj/structure/cataclysmdda/oven,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -9336,6 +9443,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -9499,6 +9607,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -9534,6 +9643,7 @@
 /obj/structure/cataclysmdda/veshalka,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -9810,6 +9920,7 @@
 /obj/item/device/flashlight/slamp/cataclysmdda,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -9886,6 +9997,7 @@
 /obj/structure/cataclysmdda/oven,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/plasteel/tile,
@@ -9902,6 +10014,7 @@
 /obj/structure/cataclysmdda/oven,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -10141,6 +10254,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = -32;
+	dir = 8;
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -10195,6 +10309,7 @@
 /obj/item/modular_computer/laptop/preset/civilian,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -10225,6 +10340,7 @@
 "TJ" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/carpet/royalblue,
@@ -10258,6 +10374,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -10541,8 +10658,9 @@
 	pixel_y = -32
 	},
 /obj/structure/curtain/cataclysmdda/window{
-	base_pixel_x = -32;
-	pixel_x = -32
+	base_pixel_y = -32;
+	dir = 2;
+	pixel_y = -32
 	},
 /obj/item/gun/ballistic/rifle/boltaction,
 /obj/item/storage/toolbox/ammo,
@@ -10578,6 +10696,7 @@
 /obj/item/modular_computer/tablet/preset,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -10756,6 +10875,7 @@
 /obj/item/bedsheet/random,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/carpet,
@@ -10807,6 +10927,7 @@
 /obj/structure/cataclysmdda/kitchencloset,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -10831,6 +10952,7 @@
 /obj/item/flashlight/lamp,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -10877,6 +10999,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -10923,6 +11046,7 @@
 "Xh" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/blue,
@@ -11014,6 +11138,7 @@
 /obj/item/book/manual/wiki/security_space_law,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = 32;
+	dir = 1;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -11047,6 +11172,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -11205,8 +11331,9 @@
 	pixel_y = 32
 	},
 /obj/structure/curtain/cataclysmdda/window{
-	base_pixel_x = -32;
-	pixel_x = -32
+	base_pixel_y = 32;
+	dir = 1;
+	pixel_y = 32
 	},
 /turf/open/floor/plasteel/tile/white,
 /area/partyhard/indoors)
@@ -11273,6 +11400,7 @@
 /obj/structure/closet/crate/bin,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -11296,6 +11424,7 @@
 "YW" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /obj/structure/closet/cabinet,
@@ -11373,6 +11502,7 @@
 "Zk" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/plasteel/grimy,
@@ -11385,6 +11515,7 @@
 "Zn" = (
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/carpet/green,
@@ -11399,6 +11530,7 @@
 /obj/structure/table/wood/cataclysmdda,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -11417,6 +11549,7 @@
 /obj/item/flashlight/lamp/green,
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_x = 32;
+	dir = 4;
 	pixel_x = 32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
@@ -11427,6 +11560,7 @@
 	},
 /obj/structure/curtain/cataclysmdda/window{
 	base_pixel_y = -32;
+	dir = 2;
 	pixel_y = -32
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
