@@ -1,9 +1,9 @@
-
+/*
 /obj/item/clothing/head/beret/blue
 	name = "blue beret"
 	icon_state = "beret_blue"
 	inhand_icon_state = "beret_blue"
-/*
+
 /obj/item/clothing/head/zhan_scarf
 	name = "zhan scarf"
 	desc = "Uneque scarf"
