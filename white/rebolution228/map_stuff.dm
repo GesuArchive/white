@@ -482,6 +482,9 @@
 	baseturfs = /turf/open/indestructible/cataclysmdda/sand
 	slowdown = 0
 
+/turf/open/floor/plating/baseturfsand // костыль и мне похуй
+	baseturfs = /turf/open/indestructible/cataclysmdda/sand
+
 /turf/open/floor/plasteel/tile/white
 	icon_state = "tile2"
 	base_icon_state = "tile2"
@@ -528,7 +531,7 @@
 	footstep = FOOTSTEP_SAND
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	heavyfootstep = FOOTSTEP_SAND
 
 /turf/open/floor/grass/cataclysmdda
 	name = "трава"
@@ -538,6 +541,10 @@
 	base_icon_state = "grass0"
 	baseturfs = /turf/open/indestructible/cataclysmdda/sand
 	slowdown = 2
+	footstep = FOOTSTEP_GRASS
+	barefootstep = FOOTSTEP_GRASS
+	clawfootstep = FOOTSTEP_GRASS
+	heavyfootstep = FOOTSTEP_GRASS
 
 /turf/open/floor/grass/cataclysmdda/Initialize()
 	. = ..()
@@ -667,7 +674,7 @@
 
 /obj/structure/flora/cataclysmdda/decoration/nature/wheat
 	name = "пшеница"
-	icon_state = "wheat1"
+	icon_state = "wheat"
 	opacity = 1
 	layer = ABOVE_MOB_LAYER
 	mouse_opacity = 0

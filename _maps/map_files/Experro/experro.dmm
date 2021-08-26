@@ -14,7 +14,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/grey,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -154,14 +154,14 @@
 "aL" = (
 /obj/effect/decal/cleanable/glass,
 /obj/effect/spawner/scatter/grime,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "aM" = (
 /obj/structure/window/fulltile,
 /obj/structure/curtain/cataclysmdda/window{
 	dir = 2
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "aN" = (
 /obj/structure/window/fulltile,
@@ -198,7 +198,7 @@
 /obj/structure/curtain/cataclysmdda/window{
 	dir = 1
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "aY" = (
 /obj/machinery/atmospherics/components/unary/tank/air,
@@ -293,7 +293,7 @@
 "bz" = (
 /obj/structure/cataclysmdda/kitchencloset,
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -449,7 +449,7 @@
 "ch" = (
 /obj/structure/closet/secure_closet/freezer/empty,
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -480,7 +480,7 @@
 "cm" = (
 /obj/structure/table/wood/cataclysmdda/desk,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -525,7 +525,7 @@
 	dir = 8
 	},
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -620,7 +620,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/random,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -724,7 +724,7 @@
 "dB" = (
 /obj/structure/chair/comfy/black,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -822,7 +822,7 @@
 /obj/structure/table/wood/cataclysmdda,
 /obj/item/coin/silver,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -1016,7 +1016,7 @@
 /obj/structure/mopbucket,
 /obj/item/mop,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -1241,7 +1241,7 @@
 /area/partyhard/outdoors)
 "fU" = (
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -1395,7 +1395,7 @@
 /area/partyhard/indoors)
 "gs" = (
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -1447,7 +1447,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 4
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "gH" = (
 /obj/structure/table/wood/cataclysmdda/sci,
@@ -1679,7 +1679,7 @@
 	pixel_x = 13
 	},
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -1845,7 +1845,7 @@
 /area/partyhard/outdoors)
 "ih" = (
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -1931,7 +1931,7 @@
 /area/partyhard/indoors)
 "iF" = (
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -2209,7 +2209,7 @@
 "ka" = (
 /obj/structure/chair/wood/cataclysmdda,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -2220,7 +2220,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "kd" = (
 /obj/structure/closet/cabinet,
@@ -2237,7 +2237,7 @@
 "ke" = (
 /obj/structure/table/wood/cataclysmdda/sci,
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -2256,7 +2256,7 @@
 /area/partyhard/indoors)
 "kg" = (
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -2274,7 +2274,7 @@
 "kj" = (
 /obj/effect/decal/cleanable/ants,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "kk" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2317,7 +2317,7 @@
 "kp" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -2350,7 +2350,7 @@
 	dir = 4
 	},
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -2381,7 +2381,7 @@
 "kB" = (
 /obj/structure/chair/sofa/corp,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -2531,7 +2531,7 @@
 "lp" = (
 /obj/structure/sink/kitchen/cataclysmdda,
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -2643,7 +2643,7 @@
 /area/partyhard/indoors)
 "lQ" = (
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -3019,7 +3019,7 @@
 	},
 /obj/item/lighter,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -3042,7 +3042,7 @@
 /area/partyhard/indoors)
 "nT" = (
 /obj/structure/rack/cataclysmdda/entertaiment,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "nU" = (
 /obj/structure/trash_pile,
@@ -3162,7 +3162,7 @@
 /area/partyhard/indoors)
 "om" = (
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -3203,7 +3203,7 @@
 "ow" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/chair/plastic,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "ox" = (
 /obj/structure/table/wood/cataclysmdda,
@@ -3218,7 +3218,7 @@
 /area/partyhard/indoors)
 "oE" = (
 /obj/structure/window/fulltile,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "oF" = (
 /obj/structure/chair/wood/cataclysmdda{
@@ -3249,7 +3249,7 @@
 "oQ" = (
 /obj/structure/chair/stool/bar/cataclysmdda,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -3282,7 +3282,7 @@
 	},
 /obj/item/food/popcorn,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -3656,7 +3656,7 @@
 /area/partyhard/indoors)
 "qQ" = (
 /obj/structure/chair/stool/bar/cataclysmdda,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "qR" = (
 /obj/structure/closet/secure_closet/freezer/empty,
@@ -3745,7 +3745,7 @@
 "ri" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/glass,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "rj" = (
 /obj/structure/chair/comfy/black{
@@ -3908,7 +3908,7 @@
 /area/partyhard/indoors)
 "rX" = (
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -4019,7 +4019,7 @@
 "sv" = (
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "sw" = (
 /obj/effect/spawner/randomarcade{
@@ -4041,7 +4041,7 @@
 /area/partyhard/indoors)
 "sD" = (
 /obj/effect/spawner/lootdrop/gross_decal_spawner,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "sE" = (
 /obj/structure/closet/secure_closet/freezer/empty,
@@ -4066,7 +4066,7 @@
 	pixel_y = 13
 	},
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -4115,7 +4115,7 @@
 	pixel_y = 13
 	},
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -4149,7 +4149,7 @@
 /area/partyhard/indoors)
 "tg" = (
 /obj/structure/window/reinforced/fulltile,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "tk" = (
 /obj/structure/closet/crate/bin,
@@ -4162,7 +4162,7 @@
 	dir = 8;
 	id = "vorotadva"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "tn" = (
 /obj/structure/table/wood/cataclysmdda,
@@ -4186,7 +4186,7 @@
 	dir = 4
 	},
 /obj/structure/trash_pile,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "ts" = (
 /obj/structure/chair/plastic{
@@ -4335,7 +4335,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/weather/side,
 /obj/effect/decal/cleanable/poo,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "ua" = (
 /obj/item/kirbyplants{
@@ -4360,7 +4360,7 @@
 "ue" = (
 /obj/structure/closet/cabinet,
 /obj/item/storage/backpack/satchel/flat,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "uf" = (
 /obj/structure/table/wood/cataclysmdda/desk,
@@ -4472,7 +4472,7 @@
 "uB" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/shreds,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "uC" = (
 /obj/machinery/light,
@@ -4542,7 +4542,7 @@
 	pixel_y = 20
 	},
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -4622,7 +4622,7 @@
 "vh" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/trash/cheesie,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "vi" = (
 /obj/structure/table/wood/cataclysmdda,
@@ -4634,7 +4634,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/grey,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -4655,7 +4655,7 @@
 /area/partyhard/indoors)
 "vm" = (
 /obj/structure/table/wood/cataclysmdda/desk,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "vn" = (
 /obj/structure/flora/tree/cataclysmdda/oreh,
@@ -4752,7 +4752,7 @@
 /area/partyhard/indoors)
 "vI" = (
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -4813,7 +4813,7 @@
 "wb" = (
 /obj/structure/flora/cataclysmdda/decoration/nature,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -5171,7 +5171,7 @@
 /area/partyhard/indoors)
 "xw" = (
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -5217,7 +5217,7 @@
 "xG" = (
 /obj/structure/filingcabinet/cataclysmdda,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -5329,7 +5329,7 @@
 "yf" = (
 /obj/structure/flora/cataclysmdda/decoration/houseplant,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -5337,7 +5337,7 @@
 /area/partyhard/indoors)
 "yh" = (
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -5359,7 +5359,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 1
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "yl" = (
 /obj/structure/table/wood/cataclysmdda/sci,
@@ -5525,7 +5525,7 @@
 /area/partyhard/indoors)
 "yV" = (
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -5549,7 +5549,7 @@
 "yY" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/spawner/lootdrop/gross_decal_spawner,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "yZ" = (
 /obj/structure/chair/sofa/left{
@@ -5803,7 +5803,7 @@
 /area/partyhard/indoors)
 "Al" = (
 /obj/effect/decal/cleanable/shreds,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "Am" = (
 /obj/structure/barricade/wooden/fence{
@@ -5832,7 +5832,7 @@
 /obj/item/reagent_containers/food/drinks/beer,
 /obj/item/reagent_containers/food/drinks/bottle/applejack,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -5921,7 +5921,7 @@
 "AS" = (
 /obj/effect/spawner/randomarcade,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -5947,7 +5947,7 @@
 	layer = 4;
 	opacity = 1
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "Bd" = (
 /obj/structure/railing{
@@ -5981,7 +5981,7 @@
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "Bk" = (
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "Bm" = (
 /obj/structure/table/wood/poker,
@@ -6062,7 +6062,7 @@
 "BA" = (
 /obj/structure/sink/kitchen/cataclysmdda,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "BB" = (
 /obj/item/trash/syndi_cakes,
@@ -6093,7 +6093,7 @@
 "BK" = (
 /obj/effect/decal/cleanable/poo,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "BL" = (
 /obj/structure/sign/warning/securearea{
@@ -6163,7 +6163,7 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -6306,7 +6306,7 @@
 /obj/item/clothing/head/soft/black,
 /obj/item/instrument/piano_synth/headphones/spacepods,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -6325,7 +6325,7 @@
 /area/partyhard/indoors)
 "CG" = (
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -6417,7 +6417,7 @@
 	dir = 8
 	},
 /obj/effect/spawner/lootdrop/gross_decal_spawner,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "Dc" = (
 /obj/structure/flora/cataclysmdda/decoration/houseplant/alt,
@@ -6506,7 +6506,7 @@
 "Dv" = (
 /obj/structure/closet/crate/box,
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -6533,7 +6533,7 @@
 	dir = 8
 	},
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -6750,7 +6750,7 @@
 /obj/structure/curtain/cataclysmdda/window{
 	dir = 8
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "Em" = (
 /obj/structure/table/wood/cataclysmdda/sci,
@@ -6776,7 +6776,7 @@
 /area/partyhard/indoors)
 "Er" = (
 /obj/effect/decal/cleanable/poo,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "Ev" = (
 /obj/machinery/light/small{
@@ -6819,7 +6819,7 @@
 	pixel_y = 11
 	},
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -6872,7 +6872,7 @@
 "ET" = (
 /obj/structure/table/wood/cataclysmdda/sci,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -6991,7 +6991,7 @@
 "Fp" = (
 /obj/structure/table/wood/cataclysmdda/desk,
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -7108,7 +7108,7 @@
 "FY" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/bonfire,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "FZ" = (
 /obj/structure/chair/sofa/left{
@@ -7446,7 +7446,7 @@
 "Hw" = (
 /obj/structure/rack/cataclysmdda/entertaiment,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -7498,7 +7498,7 @@
 "HR" = (
 /obj/structure/chair/sofa/right,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "HS" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
@@ -7527,7 +7527,7 @@
 "HW" = (
 /obj/item/trash/cheesie,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "HX" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
@@ -7625,7 +7625,7 @@
 "IF" = (
 /obj/structure/cataclysmdda/lamp,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -7802,7 +7802,7 @@
 	dir = 4
 	},
 /obj/item/trash/can/food/peaches,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "JC" = (
 /obj/structure/sink{
@@ -7918,7 +7918,7 @@
 /obj/structure/curtain/cataclysmdda/window{
 	dir = 4
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "JY" = (
 /obj/structure/closet/secure_closet/freezer/empty,
@@ -8053,7 +8053,7 @@
 "KF" = (
 /obj/structure/cataclysmdda/kitchencloset,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -8063,7 +8063,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 6
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "KL" = (
 /obj/structure/mineral_door/wood/cataclysmdda,
@@ -8078,7 +8078,7 @@
 	dir = 4
 	},
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -8112,7 +8112,7 @@
 "La" = (
 /obj/structure/bookcase/random,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -8161,7 +8161,7 @@
 	req_access_txt = "32"
 	},
 /obj/effect/mapping_helpers/airlock/locked,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "Ln" = (
 /obj/structure/closet/crate/shkaf,
@@ -8171,7 +8171,7 @@
 /area/partyhard/indoors)
 "Lo" = (
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -8201,7 +8201,7 @@
 	pixel_x = -32
 	},
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -8297,7 +8297,7 @@
 /area/partyhard/indoors)
 "Mc" = (
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -8348,7 +8348,7 @@
 /area/partyhard/indoors)
 "Mk" = (
 /obj/effect/decal/cleanable/ants,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "Mm" = (
 /obj/structure/chair/sofa/right,
@@ -8369,7 +8369,7 @@
 /area/partyhard/indoors)
 "Mq" = (
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -8417,7 +8417,7 @@
 	pixel_y = 9
 	},
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -8529,7 +8529,7 @@
 /area/partyhard/indoors)
 "MU" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "MV" = (
 /obj/structure/cataclysmdda/bath/another{
@@ -8727,7 +8727,7 @@
 /area/partyhard/outdoors)
 "NW" = (
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -8738,7 +8738,7 @@
 	dir = 4
 	},
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -8772,7 +8772,7 @@
 "Oi" = (
 /obj/effect/spawner/lootdrop/gross_decal_spawner,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -8827,7 +8827,7 @@
 /area/partyhard/outdoors)
 "Or" = (
 /obj/structure/grille/cataclysmdda,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "Os" = (
 /obj/structure/window{
@@ -8876,7 +8876,7 @@
 "OD" = (
 /obj/structure/table/wood/cataclysmdda/desk,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -9179,7 +9179,7 @@
 /obj/structure/table/wood/cataclysmdda/sci,
 /obj/item/storage/firstaid/emergency,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -9225,7 +9225,7 @@
 /obj/structure/table/wood/cataclysmdda/sci,
 /obj/item/storage/pill_bottle/happiness,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -9294,7 +9294,7 @@
 /area/partyhard/indoors)
 "QD" = (
 /obj/item/trash/can,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "QE" = (
 /obj/machinery/light/small{
@@ -9525,7 +9525,7 @@
 "RD" = (
 /obj/structure/window/fulltile,
 /obj/structure/curtain/cataclysmdda/window,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "RE" = (
 /obj/structure/flora/cataclysmdda/decoration/nature,
@@ -9605,7 +9605,7 @@
 /obj/structure/rack,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -9741,7 +9741,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 8
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "SG" = (
 /obj/structure/table/wood/cataclysmdda,
@@ -9772,7 +9772,7 @@
 	dir = 8
 	},
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -9809,7 +9809,7 @@
 "SV" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/trash/can/food/peaches/maint,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "SW" = (
 /obj/structure/table/wood/cataclysmdda/desk,
@@ -10201,7 +10201,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 8
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "UN" = (
 /obj/effect/turf_decal/weather/side{
@@ -10226,7 +10226,7 @@
 	dir = 1
 	},
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -10237,7 +10237,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 4
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "UY" = (
 /obj/structure/table/wood/cataclysmdda/sci,
@@ -10526,7 +10526,7 @@
 	dir = 8;
 	id = "analnayapizda"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "WJ" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
@@ -10671,7 +10671,7 @@
 /area/partyhard/outdoors)
 "Xw" = (
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -10684,7 +10684,7 @@
 "XA" = (
 /obj/item/trash/pistachios,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "XB" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
@@ -10705,7 +10705,7 @@
 	pixel_y = 15
 	},
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -10828,7 +10828,7 @@
 "Yi" = (
 /obj/structure/bookcase/random,
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -10902,7 +10902,7 @@
 /obj/structure/chair/plastic{
 	dir = 8
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "YA" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
@@ -10911,7 +10911,7 @@
 /area/partyhard/indoors)
 "YB" = (
 /obj/machinery/light/small{
-	base_pixel_y = 19;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -10920,7 +10920,7 @@
 "YC" = (
 /obj/structure/window/fulltile,
 /obj/structure/grille/cataclysmdda,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "YD" = (
 /obj/structure/rack/cataclysmdda/metal,
@@ -10978,7 +10978,7 @@
 	pixel_y = 8
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "YY" = (
 /obj/structure/fence/door,
@@ -11051,7 +11051,7 @@
 /area/partyhard/indoors)
 "Zv" = (
 /obj/effect/decal/cleanable/glass,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "ZC" = (
 /obj/effect/spawner/randomarcade{
@@ -11061,7 +11061,7 @@
 /area/partyhard/indoors)
 "ZD" = (
 /obj/effect/decal/cleanable/cum,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "ZF" = (
 /obj/structure/closet,
@@ -11085,7 +11085,7 @@
 	icon_state = "plant-18"
 	},
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -11096,7 +11096,7 @@
 	dir = 4
 	},
 /obj/effect/spawner/lootdrop/gross_decal_spawner,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "ZK" = (
 /obj/item/food/meat/slab/human/mutant/zombie,
@@ -11120,7 +11120,7 @@
 /area/partyhard/indoors)
 "ZR" = (
 /obj/structure/cataclysmdda/lamp,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "ZS" = (
 /obj/structure/chair/wood/cataclysmdda,
@@ -11128,12 +11128,12 @@
 /area/partyhard/indoors)
 "ZT" = (
 /obj/machinery/light{
-	base_pixel_y = 18;
+	base_pixel_y = 0;
 	dir = 1;
 	pixel_y = 18
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "ZU" = (
 /obj/item/newspaper/old,
