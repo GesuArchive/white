@@ -40,4 +40,4 @@
 
 /obj/item/clothing/suit/armor/vest/fieldmedic/examine(mob/user)
 	. = ..()
-	. += "<hr>Alt+ЛКМ по [src] чтобы расстегнуть халат."
+	. += "<hr>ПКМ по [src] чтобы расстегнуть халат."

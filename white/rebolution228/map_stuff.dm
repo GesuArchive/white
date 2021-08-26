@@ -675,6 +675,7 @@
 /obj/structure/flora/cataclysmdda/decoration/nature/wheat
 	name = "пшеница"
 	icon_state = "wheat"
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	opacity = 1
 	layer = ABOVE_MOB_LAYER
 	mouse_opacity = 0
