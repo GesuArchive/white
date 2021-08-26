@@ -156,16 +156,19 @@
 	name = "полосатый красный шарф"
 	icon_state = "stripedredscarf"
 	custom_price = PAYCHECK_ASSISTANT * 0.2
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/neck/stripedgreenscarf
 	name = "полосатый зелёный шарф"
 	icon_state = "stripedgreenscarf"
 	custom_price = PAYCHECK_ASSISTANT * 0.2
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/neck/stripedbluescarf
 	name = "полосатый синий шарф"
 	icon_state = "stripedbluescarf"
 	custom_price = PAYCHECK_ASSISTANT * 0.2
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/neck/petcollar
 	name = "ошейник"

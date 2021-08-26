@@ -1065,6 +1065,9 @@
 	sheetType = /obj/item/stack/sheet/mineral/wood
 	sheetAmount = 7
 
+/obj/structure/cataclysmdda/kitchencloset/Initialize()
+	. = ..()
+	AddElement(/datum/element/climbable) 
 
 /obj/structure/rack/cataclysmdda
 	name = "деревянный стеллаж"

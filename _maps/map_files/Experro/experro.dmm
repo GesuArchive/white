@@ -150,6 +150,11 @@
 	},
 /turf/closed/wall/cataclysmdda/wooden,
 /area/partyhard/indoors)
+"aL" = (
+/obj/effect/decal/cleanable/glass,
+/obj/effect/spawner/scatter/grime,
+/turf/open/floor/plating,
+/area/partyhard/indoors)
 "aM" = (
 /obj/structure/window/fulltile,
 /obj/structure/curtain/cataclysmdda/window{
@@ -539,6 +544,10 @@
 	dir = 10
 	},
 /area/partyhard/indoors)
+"cB" = (
+/obj/item/trash/can/food/beans,
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/outdoors)
 "cC" = (
 /obj/item/storage/box/beanbag,
 /obj/item/storage/box/beanbag,
@@ -900,22 +909,22 @@
 /area/partyhard/indoors)
 "ex" = (
 /obj/structure/table/wood/cataclysmdda/sci,
-/obj/item/suppressor/specialoffer,
-/obj/item/ammo_box/c45{
-	pixel_x = -4;
-	pixel_y = -2
-	},
-/obj/item/ammo_box/c9mm{
-	pixel_x = -2;
-	pixel_y = -6
-	},
 /obj/item/ammo_box/c10mm,
-/obj/item/ammo_box/a357{
-	pixel_x = 2
+/obj/item/ammo_box/c10mm,
+/obj/item/ammo_box/c10mm,
+/obj/item/ammo_box/c10mm,
+/obj/item/ammo_box/c10mm,
+/obj/item/ammo_box/c10mm,
+/obj/item/ammo_box/c10mm,
+/obj/item/ammo_box/c10mm,
+/obj/item/ammo_box/c10mm,
+/obj/item/ammo_box/c10mm,
+/obj/item/ammo_box/c10mm,
+/obj/item/ammo_box/c10mm,
+/obj/item/ammo_box/c10mm,
+/obj/structure/window{
+	dir = 8
 	},
-/obj/item/ammo_box/n762,
-/obj/item/ammo_box/magazine/m9mm,
-/obj/item/ammo_box/c38,
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
 "ez" = (
@@ -1099,6 +1108,7 @@
 /obj/item/gun/ballistic/crossbow/energy,
 /obj/item/gun/ballistic/automatic/pistol/m1911,
 /obj/item/gun/ballistic/automatic/pistol/traumatic,
+/obj/item/gun/ballistic/automatic/ak47,
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
 "fs" = (
@@ -1430,13 +1440,42 @@
 /area/partyhard/indoors)
 "gH" = (
 /obj/structure/table/wood/cataclysmdda/sci,
-/obj/item/storage/box/lethalshot,
-/obj/item/storage/box/lethalshot,
-/obj/item/storage/box/lethalshot,
-/obj/item/ammo_box/magazine/m50,
-/obj/item/ammo_box/magazine/m9mm,
-/obj/item/storage/toolbox/ammo,
-/obj/item/ammo_box/c38,
+/obj/item/ammo_box/c38{
+	pixel_x = -10;
+	pixel_y = -5
+	},
+/obj/item/ammo_box/c38{
+	pixel_x = -10
+	},
+/obj/item/ammo_box/c38{
+	pixel_x = -10;
+	pixel_y = 5
+	},
+/obj/item/ammo_box/c38{
+	pixel_x = -10;
+	pixel_y = 10
+	},
+/obj/item/ammo_box/c38/dumdum,
+/obj/item/ammo_box/c38/dumdum,
+/obj/item/ammo_box/c38/dumdum,
+/obj/item/ammo_box/a357{
+	pixel_x = 5;
+	pixel_y = 10
+	},
+/obj/item/ammo_box/a357{
+	pixel_x = 5;
+	pixel_y = -10
+	},
+/obj/item/ammo_box/a357{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/obj/item/ammo_box/a357{
+	pixel_x = 5
+	},
+/obj/structure/window{
+	dir = 8
+	},
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
 "gJ" = (
@@ -1761,6 +1800,16 @@
 /obj/item/soap/homemade,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"id" = (
+/obj/structure/rack/cataclysmdda/metal/alt,
+/obj/item/storage/belt/bandolier/double,
+/turf/open/floor/wood/cataclysmdda/parquet,
+/area/partyhard/indoors)
+"ie" = (
+/obj/structure/rack/cataclysmdda/metal/alt,
+/obj/item/gun/ballistic/automatic/columbine,
+/turf/open/floor/wood/cataclysmdda/parquet,
+/area/partyhard/indoors)
 "if" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/accessory/pocketprotector/full,
@@ -1886,6 +1935,10 @@
 	},
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/blue,
 /area/partyhard/indoors)
+"iI" = (
+/obj/item/trash/waffles,
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/outdoors)
 "iJ" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
 /obj/item/reagent_containers/food/drinks/bottle/wine{
@@ -1975,6 +2028,7 @@
 	dir = 8
 	},
 /obj/item/storage/belt/military/army,
+/obj/item/storage/belt/bandolier,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "jh" = (
@@ -2323,6 +2377,10 @@
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"kG" = (
+/obj/structure/closet/crate/bin,
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/outdoors)
 "kH" = (
 /obj/machinery/door/window,
 /turf/open/floor/plasteel/tile/white,
@@ -2479,8 +2537,18 @@
 /turf/open/floor/carpet/royalblack,
 /area/partyhard/indoors)
 "lv" = (
-/obj/structure/displaycase,
 /obj/item/gun/ballistic/automatic/pistol/deagle/gold,
+/obj/structure/table/glass,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "lw" = (
@@ -3212,14 +3280,9 @@
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "ph" = (
-/obj/structure/table/wood/cataclysmdda/sci,
-/obj/item/ammo_box/magazine/uzim9mm,
-/obj/item/ammo_box/c45,
-/obj/item/ammo_box/c10mm{
-	pixel_x = -8;
-	pixel_y = 5
-	},
-/obj/item/ammo_box/c38,
+/obj/structure/closet/crate/shkaf,
+/obj/item/gun/ballistic/automatic/pistol/deagle,
+/obj/item/gun/ballistic/automatic/pistol/m1911,
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
 "pi" = (
@@ -3761,12 +3824,22 @@
 /area/partyhard/indoors)
 "rR" = (
 /obj/structure/table/wood/cataclysmdda/sci,
-/obj/item/storage/box/lethalshot,
-/obj/item/storage/box/lethalshot,
-/obj/item/ammo_box/magazine/m10mm,
-/obj/item/ammo_box/magazine/m9mm,
-/obj/item/ammo_box/magazine/m45,
-/obj/item/ammo_box/c38,
+/obj/structure/window{
+	dir = 8
+	},
+/obj/item/ammo_box/magazine/ak47mag{
+	pixel_x = -6;
+	pixel_y = -6
+	},
+/obj/item/ammo_box/magazine/ak47mag{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/item/ammo_box/magazine/ak47mag{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/ammo_box/magazine/ak47mag,
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
 "rS" = (
@@ -3840,14 +3913,21 @@
 /area/partyhard/indoors)
 "sh" = (
 /obj/structure/table/wood/cataclysmdda/sci,
-/obj/item/ammo_box/c45,
-/obj/item/ammo_box/c9mm{
-	pixel_x = 1;
-	pixel_y = 6
+/obj/item/ammo_box/c9mm,
+/obj/item/ammo_box/c9mm,
+/obj/item/ammo_box/c9mm,
+/obj/item/ammo_box/c9mm,
+/obj/item/ammo_box/c9mm,
+/obj/item/ammo_box/c9mm,
+/obj/item/ammo_box/c9mm,
+/obj/item/ammo_box/c9mm,
+/obj/item/ammo_box/c9mm,
+/obj/item/ammo_box/c9mm,
+/obj/item/ammo_box/c9mm,
+/obj/item/ammo_box/c9mm,
+/obj/structure/window{
+	dir = 8
 	},
-/obj/item/ammo_box/c10mm,
-/obj/item/ammo_box/magazine/m10mm,
-/obj/item/ammo_box/c38,
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
 "sj" = (
@@ -4009,6 +4089,7 @@
 "tc" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
 /obj/item/storage/belt/military,
+/obj/item/storage/belt/bandolier,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "te" = (
@@ -4020,6 +4101,12 @@
 /obj/structure/window/reinforced/fulltile,
 /turf/open/floor/plating,
 /area/partyhard/indoors)
+"tk" = (
+/obj/structure/closet/crate/bin,
+/obj/item/trash/can,
+/obj/item/trash/chips,
+/turf/open/floor/asphalt,
+/area/partyhard/outdoors)
 "tl" = (
 /obj/machinery/door/poddoor/shutters{
 	dir = 8;
@@ -4492,6 +4579,13 @@
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"vk" = (
+/obj/structure/closet/crate/bin,
+/obj/item/trash/popcorn,
+/obj/item/trash/syndi_cakes,
+/obj/item/trash/sosjerky,
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/outdoors)
 "vl" = (
 /obj/structure/chair/sofa/right{
 	dir = 8
@@ -4614,6 +4708,10 @@
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"vO" = (
+/obj/item/trash/bee,
+/turf/open/floor/asphalt,
+/area/partyhard/outdoors)
 "vQ" = (
 /obj/structure/bed,
 /obj/item/bedsheet/random,
@@ -4815,9 +4913,92 @@
 /turf/open/floor/plasteel/tile/white,
 /area/partyhard/indoors)
 "wO" = (
-/obj/structure/closet/crate/shkaf,
-/obj/item/gun/ballistic/automatic/mini_uzi,
-/obj/item/gun/ballistic/automatic/pistol/makarov,
+/obj/structure/table/wood/cataclysmdda/sci,
+/obj/item/ammo_box/magazine/m10mm,
+/obj/item/ammo_box/magazine/m10mm,
+/obj/item/ammo_box/magazine/m10mm,
+/obj/item/ammo_box/magazine/m10mm,
+/obj/item/ammo_box/magazine/m10mm,
+/obj/item/ammo_box/magazine/m10mm,
+/obj/item/ammo_box/magazine/m10mm/ap,
+/obj/item/ammo_box/magazine/m10mm/ap,
+/obj/item/ammo_box/magazine/m10mm/hp,
+/obj/item/ammo_box/magazine/m10mm/hp,
+/obj/item/ammo_box/magazine/m10mm/fire,
+/obj/item/ammo_box/magazine/m10mm/fire,
+/obj/item/ammo_box/magazine/m10mm,
+/obj/item/ammo_box/magazine/m45{
+	pixel_x = 9
+	},
+/obj/item/ammo_box/magazine/m45{
+	pixel_x = 9
+	},
+/obj/item/ammo_box/magazine/m45{
+	pixel_x = 9
+	},
+/obj/item/ammo_box/magazine/m45{
+	pixel_x = 9
+	},
+/obj/item/ammo_box/magazine/m45{
+	pixel_x = 9
+	},
+/obj/item/ammo_box/magazine/m45{
+	pixel_x = 9
+	},
+/obj/item/ammo_box/magazine/m45{
+	pixel_x = 9
+	},
+/obj/item/ammo_box/magazine/m45{
+	pixel_x = 9
+	},
+/obj/item/ammo_box/magazine/m45{
+	pixel_x = 9
+	},
+/obj/item/ammo_box/magazine/m45{
+	pixel_x = 9
+	},
+/obj/item/ammo_box/magazine/m45{
+	pixel_x = 9
+	},
+/obj/structure/window{
+	dir = 8
+	},
+/obj/item/ammo_box/magazine/m9mm_aps{
+	pixel_x = -3
+	},
+/obj/item/ammo_box/magazine/m9mm_aps{
+	pixel_x = -3
+	},
+/obj/item/ammo_box/magazine/m9mm_aps{
+	pixel_x = -3
+	},
+/obj/item/ammo_box/magazine/m9mm_aps{
+	pixel_x = -3
+	},
+/obj/item/ammo_box/magazine/m9mm_aps{
+	pixel_x = -3
+	},
+/obj/item/ammo_box/magazine/m9mm_aps{
+	pixel_x = -3
+	},
+/obj/item/ammo_box/magazine/m9mm_aps/ap{
+	pixel_y = -3
+	},
+/obj/item/ammo_box/magazine/m9mm_aps/ap{
+	pixel_y = -3
+	},
+/obj/item/ammo_box/magazine/m9mm_aps/ap{
+	pixel_y = -3
+	},
+/obj/item/ammo_box/magazine/m9mm_aps/ap{
+	pixel_y = -3
+	},
+/obj/item/ammo_box/magazine/m10mm/rifle,
+/obj/item/ammo_box/magazine/m10mm/rifle,
+/obj/item/ammo_box/magazine/m10mm/rifle,
+/obj/item/ammo_box/magazine/m10mm/rifle,
+/obj/item/ammo_box/magazine/m10mm/rifle,
+/obj/item/ammo_box/magazine/m10mm/rifle,
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
 "wP" = (
@@ -4976,6 +5157,10 @@
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"xH" = (
+/obj/structure/closet/crate/bin,
+/turf/open/floor/grass/cataclysmdda,
+/area/partyhard/outdoors)
 "xI" = (
 /obj/structure/closet/cabinet,
 /obj/item/kitchen/knife/combat,
@@ -5245,6 +5430,10 @@
 	},
 /turf/open/floor/grass/cataclysmdda,
 /area/partyhard/indoors)
+"yP" = (
+/obj/item/trash/bee,
+/turf/open/floor/grass/cataclysmdda,
+/area/partyhard/outdoors)
 "yR" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/shoes/sneakers/black,
@@ -5761,8 +5950,18 @@
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "Bu" = (
-/obj/structure/displaycase,
 /obj/item/clothing/accessory/medal/gold/heroism,
+/obj/structure/table/glass,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "Bx" = (
@@ -6224,6 +6423,13 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/partyhard/indoors)
+"Dw" = (
+/obj/structure/closet/crate/bin,
+/obj/item/trash/raisins,
+/obj/item/trash/can/food/beans,
+/obj/item/reagent_containers/pill/salicylic,
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/outdoors)
 "Dy" = (
 /obj/structure/table/wood/cataclysmdda,
 /obj/item/reagent_containers/food/drinks/mug{
@@ -6274,9 +6480,84 @@
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/blue,
 /area/partyhard/indoors)
 "DL" = (
-/obj/structure/closet/crate/shkaf,
-/obj/item/gun/ballistic/automatic/pistol/deagle,
-/obj/item/gun/ballistic/automatic/pistol/m1911,
+/obj/structure/table/wood/cataclysmdda/sci,
+/obj/item/ammo_box/magazine/uzim9mm{
+	pixel_x = -10
+	},
+/obj/item/ammo_box/magazine/uzim9mm{
+	pixel_x = -10
+	},
+/obj/item/ammo_box/magazine/uzim9mm{
+	pixel_x = -10
+	},
+/obj/item/ammo_box/magazine/uzim9mm{
+	pixel_x = -10
+	},
+/obj/item/ammo_box/magazine/uzim9mm{
+	pixel_x = -10
+	},
+/obj/item/ammo_box/magazine/uzim9mm{
+	pixel_x = -10
+	},
+/obj/item/ammo_box/magazine/m50{
+	pixel_x = -3
+	},
+/obj/item/ammo_box/magazine/m50{
+	pixel_x = -3
+	},
+/obj/item/ammo_box/magazine/m50{
+	pixel_x = -3
+	},
+/obj/item/ammo_box/magazine/m50{
+	pixel_x = -3
+	},
+/obj/item/ammo_box/magazine/m50{
+	pixel_x = -3
+	},
+/obj/item/ammo_box/magazine/m50{
+	pixel_x = -3
+	},
+/obj/item/ammo_box/magazine/m9mm,
+/obj/item/ammo_box/magazine/m9mm,
+/obj/item/ammo_box/magazine/m9mm,
+/obj/item/ammo_box/magazine/m9mm,
+/obj/item/ammo_box/magazine/m9mm,
+/obj/item/ammo_box/magazine/m9mm/hp,
+/obj/item/ammo_box/magazine/m9mm/hp,
+/obj/item/ammo_box/magazine/m9mm/fire,
+/obj/item/ammo_box/magazine/m9mm/ap,
+/obj/item/ammo_box/magazine/m9mm/ap,
+/obj/item/ammo_box/magazine/m9mm,
+/obj/item/ammo_box/magazine/traumatic{
+	pixel_x = 8
+	},
+/obj/item/ammo_box/magazine/traumatic{
+	pixel_x = 8
+	},
+/obj/item/ammo_box/magazine/traumatic{
+	pixel_x = 8
+	},
+/obj/item/ammo_box/magazine/traumatic{
+	pixel_x = 8
+	},
+/obj/item/ammo_box/magazine/traumatic{
+	pixel_x = 8
+	},
+/obj/item/ammo_box/magazine/traumatic{
+	pixel_x = 8
+	},
+/obj/item/ammo_box/magazine/traumatic{
+	pixel_x = 8
+	},
+/obj/item/ammo_box/magazine/traumatic{
+	pixel_x = 8
+	},
+/obj/item/ammo_box/magazine/traumatic{
+	pixel_x = 8
+	},
+/obj/structure/window{
+	dir = 4
+	},
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
 "DM" = (
@@ -6472,16 +6753,20 @@
 /area/partyhard/indoors)
 "EQ" = (
 /obj/structure/table/wood/cataclysmdda/sci,
-/obj/item/ammo_box/c9mm{
-	pixel_x = -10
+/obj/item/ammo_box/c45,
+/obj/item/ammo_box/c45,
+/obj/item/ammo_box/c45,
+/obj/item/ammo_box/c45,
+/obj/item/ammo_box/c45,
+/obj/item/ammo_box/c45,
+/obj/item/ammo_box/c45,
+/obj/item/ammo_box/c45,
+/obj/item/ammo_box/c45,
+/obj/item/ammo_box/c45,
+/obj/item/ammo_box/c45,
+/obj/structure/window{
+	dir = 8
 	},
-/obj/item/ammo_box/c9mm{
-	pixel_x = -2;
-	pixel_y = 8
-	},
-/obj/item/ammo_box/c10mm,
-/obj/item/ammo_box/a357,
-/obj/item/ammo_box/magazine/m45,
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
 "ES" = (
@@ -6534,18 +6819,12 @@
 /area/partyhard/indoors)
 "Fb" = (
 /obj/structure/table/wood/cataclysmdda/sci,
-/obj/item/suppressor,
-/obj/item/ammo_box/c45{
-	pixel_x = 5;
-	pixel_y = 2
+/obj/item/storage/toolbox/ammo,
+/obj/item/storage/toolbox/ammo,
+/obj/item/storage/toolbox/ammo,
+/obj/structure/window{
+	dir = 8
 	},
-/obj/item/ammo_box/c9mm,
-/obj/item/ammo_box/c10mm{
-	pixel_x = -5
-	},
-/obj/item/ammo_box/magazine/m50,
-/obj/item/ammo_box/magazine/m45,
-/obj/item/ammo_box/c38,
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
 "Fc" = (
@@ -7168,6 +7447,10 @@
 /obj/item/device/flashlight/slamp/cataclysmdda,
 /turf/open/floor/carpet,
 /area/partyhard/indoors)
+"Ib" = (
+/obj/item/trash/popcorn,
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/outdoors)
 "Ic" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
 /obj/item/clothing/suit/jacket,
@@ -7497,17 +7780,9 @@
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "JP" = (
-/obj/structure/table/wood/cataclysmdda/sci,
-/obj/item/ammo_box/magazine/uzim9mm,
-/obj/item/ammo_box/c45,
-/obj/item/ammo_box/c9mm{
-	pixel_x = 9;
-	pixel_y = -1
-	},
-/obj/item/ammo_box/c10mm,
-/obj/item/ammo_box/a357,
-/obj/item/ammo_box/magazine/m10mm,
-/obj/item/ammo_box/c38,
+/obj/structure/closet/crate/shkaf,
+/obj/item/gun/ballistic/automatic/mini_uzi,
+/obj/item/gun/ballistic/automatic/pistol/makarov,
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
 "JR" = (
@@ -8073,12 +8348,25 @@
 /area/partyhard/indoors)
 "ML" = (
 /obj/structure/table/wood/cataclysmdda/sci,
-/obj/item/storage/box/lethalshot,
-/obj/item/storage/box/lethalshot,
-/obj/item/storage/box/lethalshot,
-/obj/item/ammo_box/magazine/m50,
-/obj/item/ammo_box/magazine/m10mm,
-/obj/item/storage/toolbox/ammo,
+/obj/item/storage/box/rubbershot,
+/obj/item/storage/box/rubbershot,
+/obj/item/storage/box/rubbershot,
+/obj/item/storage/box/rubbershot,
+/obj/item/storage/box/rubbershot,
+/obj/item/storage/box/rubbershot{
+	pixel_y = -4
+	},
+/obj/item/storage/box/rubbershot,
+/obj/item/storage/box/rubbershot{
+	pixel_y = -2
+	},
+/obj/item/storage/box/rubbershot,
+/obj/item/storage/box/rubbershot{
+	pixel_y = 4
+	},
+/obj/structure/window{
+	dir = 8
+	},
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
 "MN" = (
@@ -8377,6 +8665,13 @@
 	},
 /turf/open/floor/asphalt,
 /area/partyhard/indoors)
+"Ok" = (
+/obj/structure/closet/crate/bin,
+/obj/item/trash/chips,
+/obj/item/trash/energybar,
+/obj/item/reagent_containers/pill/lsd,
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/outdoors)
 "Ol" = (
 /obj/structure/table/wood/cataclysmdda,
 /obj/item/newspaper,
@@ -8545,6 +8840,12 @@
 /obj/effect/turf_decal/weather/side,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"OY" = (
+/obj/structure/closet/crate/bin,
+/obj/item/trash/can,
+/obj/item/trash/raisins,
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/outdoors)
 "Pa" = (
 /obj/structure/table/wood/cataclysmdda,
 /obj/item/reagent_containers/food/drinks/shaker{
@@ -8922,6 +9223,8 @@
 /obj/structure/railing/corner{
 	dir = 1
 	},
+/obj/structure/closet/crate/bin,
+/obj/item/trash/candy,
 /turf/open/floor/asphalt,
 /area/partyhard/outdoors)
 "QO" = (
@@ -10031,10 +10334,22 @@
 	dir = 4
 	},
 /obj/structure/table/wood/cataclysmdda/sci,
+/obj/item/storage/box/lethalshot{
+	pixel_y = -4
+	},
+/obj/item/storage/box/lethalshot{
+	pixel_y = -2
+	},
+/obj/item/storage/box/lethalshot{
+	pixel_y = 4
+	},
 /obj/item/storage/box/lethalshot,
-/obj/item/ammo_box/magazine/m9mm,
-/obj/item/ammo_box/magazine/m45,
-/obj/item/ammo_box/c38,
+/obj/item/storage/box/lethalshot{
+	pixel_y = 2
+	},
+/obj/structure/window{
+	dir = 8
+	},
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
 "Ww" = (
@@ -42521,7 +42836,7 @@ bA
 Zd
 sN
 uL
-Zv
+aL
 Er
 Bk
 uT
@@ -43290,7 +43605,7 @@ uA
 tV
 VW
 bK
-oE
+Ek
 VW
 Cq
 uA
@@ -43986,22 +44301,22 @@ UE
 uD
 VW
 VW
-oE
-oE
+Ek
+Ek
 VW
-oE
-oE
+Ek
+Ek
 VW
 VW
 by
 by
 VW
 VW
-oE
-oE
+Ek
+Ek
 VW
-oE
-oE
+Ek
+Ek
 VW
 VW
 uD
@@ -46432,7 +46747,7 @@ yq
 yq
 yq
 yq
-yq
+Bx
 yq
 yq
 yq
@@ -53458,7 +53773,7 @@ yq
 yq
 yq
 yq
-oO
+iI
 oO
 oO
 yq
@@ -53853,7 +54168,7 @@ rT
 ve
 Un
 ff
-oO
+OY
 oO
 oO
 oO
@@ -53878,7 +54193,7 @@ yq
 oO
 oO
 oO
-uD
+xH
 ff
 AU
 dc
@@ -54185,7 +54500,7 @@ eH
 gK
 Wc
 ff
-oO
+kG
 bA
 uD
 bA
@@ -57689,7 +58004,7 @@ yq
 yq
 yq
 yq
-oO
+Dw
 oE
 ui
 tQ
@@ -59430,7 +59745,7 @@ uD
 uD
 uD
 oO
-oO
+Bo
 oO
 yq
 yq
@@ -61906,7 +62221,7 @@ yq
 yq
 yq
 yq
-oO
+Ib
 oO
 oO
 bA
@@ -63326,7 +63641,7 @@ uA
 uA
 ha
 gR
-kN
+id
 tc
 kN
 jf
@@ -66848,7 +67163,7 @@ uA
 kN
 kN
 uA
-kN
+ie
 cG
 uA
 uA
@@ -69005,7 +69320,7 @@ yq
 yq
 yq
 yq
-yq
+vO
 yq
 yq
 yq
@@ -69368,7 +69683,7 @@ oO
 oO
 uD
 bA
-uD
+yP
 by
 by
 by
@@ -71850,7 +72165,7 @@ oO
 oO
 oO
 oO
-oO
+cB
 oO
 oO
 oO
@@ -72092,7 +72407,7 @@ yq
 yq
 yq
 yq
-yq
+XL
 yq
 yq
 yq
@@ -73932,7 +74247,7 @@ aO
 yq
 yq
 yq
-yq
+wz
 yq
 yq
 yq
@@ -74581,6 +74896,7 @@ yq
 yq
 yq
 yq
+XL
 yq
 yq
 yq
@@ -74668,8 +74984,7 @@ yq
 yq
 yq
 yq
-yq
-yq
+XL
 yq
 yq
 yq
@@ -74933,7 +75248,7 @@ yq
 yq
 yq
 yq
-yq
+XL
 yq
 yq
 yq
@@ -75299,7 +75614,7 @@ yq
 yq
 yq
 yq
-yq
+BB
 yq
 yq
 yq
@@ -75948,7 +76263,7 @@ oO
 oO
 oO
 oO
-oO
+WF
 oO
 oO
 oO
@@ -86186,7 +86501,7 @@ oO
 oO
 yq
 yq
-yq
+fh
 yq
 yq
 yq
@@ -86611,7 +86926,7 @@ yq
 yq
 yq
 yq
-oO
+Nn
 oO
 oO
 uD
@@ -91526,7 +91841,7 @@ uD
 uD
 uD
 uD
-oO
+Ok
 oO
 oO
 yq
@@ -99296,7 +99611,7 @@ yq
 yq
 yq
 aO
-yq
+tk
 yq
 Nh
 yq
@@ -99931,7 +100246,7 @@ oO
 oO
 dN
 oO
-oO
+vk
 oO
 oO
 oO
