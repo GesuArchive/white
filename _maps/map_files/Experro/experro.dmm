@@ -3347,7 +3347,7 @@
 "ps" = (
 /obj/machinery/vending/chetverochka,
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
-/area/partyhard/outdoors)
+/area/partyhard/indoors)
 "pt" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
 /obj/item/folder/blue,
@@ -4750,14 +4750,6 @@
 /obj/item/clothing/mask/balaclava/swat,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
-"vI" = (
-/obj/machinery/light/small{
-	base_pixel_y = 0;
-	dir = 1;
-	pixel_y = 19
-	},
-/turf/open/floor/grass/cataclysmdda,
-/area/partyhard/outdoors)
 "vJ" = (
 /obj/structure/rack/cataclysmdda/entertaiment,
 /obj/item/storage/crayons,
@@ -6828,7 +6820,7 @@
 "EJ" = (
 /obj/effect/spawner/randomsnackvend,
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
-/area/partyhard/outdoors)
+/area/partyhard/indoors)
 "EK" = (
 /obj/structure/closet/cabinet,
 /obj/item/storage/backpack/satchel,
@@ -10680,7 +10672,7 @@
 "Xx" = (
 /obj/effect/spawner/randomcolavend,
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
-/area/partyhard/outdoors)
+/area/partyhard/indoors)
 "XA" = (
 /obj/item/trash/pistachios,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -89206,7 +89198,7 @@ uA
 uA
 uA
 ff
-vI
+iF
 bA
 uD
 uD
@@ -90614,7 +90606,7 @@ uA
 uA
 qR
 ff
-vI
+iF
 uD
 uD
 uD
