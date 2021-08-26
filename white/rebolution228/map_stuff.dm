@@ -518,6 +518,16 @@
 	icon_state = "sand"
 	base_icon_state = "sand"
 
+/turf/open/indestructible/cataclysmdda/sand
+	name = "песок"
+	icon = 'white/rebolution228/icons/cataclysmdda/cata_floors.dmi'
+	icon_state = "sand"
+	base_icon_state = "sand"
+	footstep = FOOTSTEP_SAND
+	barefootstep = FOOTSTEP_SAND
+	clawfootstep = FOOTSTEP_SAND
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+
 /turf/open/floor/grass/cataclysmdda
 	name = "трава"
 	desc = "В ней классно валяться."
@@ -816,14 +826,16 @@
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "barricade"
 
-/obj/item/device/flashlight/slamp/cataclysmdda
+/obj/structure/cataclysmdda/lamp
 	name = "напольный светильник"
 	desc = "Прикольно светится."
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	icon_state = "lomp"
-	inhand_icon_state = "slamp"
 	density = 1
 	opacity = 0
+	max_integrity = 70
+	sheetType = list(/obj/item/shard, /obj/item/stack/sheet/iron)
+	sheetAmount = 3
 	color = null
 
 /obj/structure/curtain/cataclysmdda
@@ -844,6 +856,7 @@
 	opaque_closed = TRUE
 	flags_1 = ON_BORDER_1
 	interaction_flags_atom = NONE
+	max_integrity = 120
 	//вставь в окно и выстави дир внутрь здания.........
 
 /obj/structure/curtain/cataclysmdda/window/Initialize()
