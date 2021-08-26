@@ -1142,15 +1142,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		winset(src, "default.Shift", "is-disabled=true")
 		winset(src, "default.ShiftUp", "is-disabled=true")
 
-
-/client/proc/update_ambience_pref()
-	if(prefs.toggles & SOUND_AMBIENCE)
-		if(SSambience.ambience_listening_clients[src] > world.time)
-			return // If already properly set we don't want to reset the timer.
-		SSambience.ambience_listening_clients[src] = world.time + 10 SECONDS //Just wait 10 seconds before the next one aight mate? cheers.
-	else
-		SSambience.ambience_listening_clients -= src
-
 /// Checks if this client has met the days requirement passed in, or if
 /// they are exempt from it.
 /// Returns the number of days left, or 0.
