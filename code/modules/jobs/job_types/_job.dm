@@ -136,7 +136,9 @@
 		for(var/i in roundstart_experience)
 			experiencer.mind.adjust_experience(i, roundstart_experience[i], TRUE)
 
-	if(!ishuman(H))
+	if(!ishuman(H)) //а оно неработает лол
+		return
+	if(istype(src, /datum/job/ai) || istype(src, /datum/job/cyborg)) //воттакк надо тупа прикол валера говнокодер
 		return
 	var/mob/living/carbon/human/human = H
 	var/list/gear_leftovers = list()
