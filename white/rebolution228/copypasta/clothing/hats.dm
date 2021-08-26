@@ -70,3 +70,13 @@
 	worn_icon = 'white/rebolution228/icons/clothing/mob/hats_mob.dmi'
 	icon_state = "secmedsoft"
 	soft_type = "secmed"
+
+// синий берет
+
+
+/obj/item/clothing/head/beret/blue
+	name = "синий берет"
+	desc = "Простой синий берет. На деле он голубой, но кого это волнует?"
+	icon = 'white/rebolution228/icons/clothing/hats.dmi'
+	worn_icon = 'white/rebolution228/icons/clothing/mob/hats_mob.dmi'
+	icon_state = "blueberet"
