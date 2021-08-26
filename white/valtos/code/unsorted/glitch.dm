@@ -25,13 +25,11 @@
 	master.remove_filter("glitch_shadow_1")
 	master.remove_filter("glitch_shadow_2")
 	master.remove_filter("glitch_displace")
-	if(isliving(source))
-		to_chat(source, "<span class='notice'>Мне стало легче!</span>")
 	return ..()
 
 /datum/element/glitch/proc/get_examine_name(datum/source, mob/user, list/override)
 	SIGNAL_HANDLER
-	override[EXAMINE_POSITION_BEFORE] = "<small class='hypnophrase'>(в глитчах)</small> "
+	. = "<small class='hypnophrase'>[capitalize(src.name)]</small>"
 	return COMPONENT_EXNAME_CHANGED
 
 /obj/item/gun/magic/glitch

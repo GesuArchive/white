@@ -94,32 +94,39 @@ SUBSYSTEM_DEF(eventmaster)
 	var/new_time = station_time()
 	var/new_color
 	var/new_alpha
+	var/new_temp
 
 	switch(new_time)
 		if(CYCLE_SUNRISE 	to CYCLE_MORNING   - 1)
 			new_time  = "рассвет"
 			new_color = "#ffd1b3"
 			new_alpha = 55
+			new_temp = -2
 		if (CYCLE_MORNING 	to CYCLE_DAYTIME   - 1)
 			new_time = "утро"
 			new_color = "#fff2e6"
 			new_alpha = 125
+			new_temp = 10
 		if (CYCLE_DAYTIME 	to CYCLE_AFTERNOON - 1)
 			new_time = "день"
 			new_color = "#FFFFFF"
 			new_alpha = 225
+			new_temp = 15
 		if (CYCLE_AFTERNOON to CYCLE_SUNSET    - 1)
 			new_time = "вечер"
 			new_color = "#fff2e6"
 			new_alpha = 150
+			new_temp = 10
 		if (CYCLE_SUNSET 	to CYCLE_NIGHTTIME - 1)
 			new_time = "закат"
 			new_color = "#ffcccc"
 			new_alpha = 90
+			new_temp = -5
 		else
 			new_time = "ночь"
 			new_color = "#00111a"
 			new_alpha = 3
+			new_temp = -5
 
 	if(new_time != current_time)
 		if(prob(25))
@@ -127,6 +134,7 @@ SUBSYSTEM_DEF(eventmaster)
 		current_time = new_time
 		action_area.set_lighting_overlay_color(new_color)
 		action_area.set_lighting_overlay_opacity(new_alpha)
+		action_area.env_temp_relative = new_temp
 		to_chat(world, "<span class='greenannounce'><b>[station_time_timestamp("hh:mm")]</b> - [new_time].</span>")
 
 /client/proc/force_evenmaster_rules()
