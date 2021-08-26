@@ -18,9 +18,10 @@
 	. = ..()
 	update_desc()
 
-/obj/item/stack/spacecash/proc/update_desc()
+/obj/item/stack/spacecash/update_desc()
 	var/total_worth = get_item_credit_value()
 	desc = "Этот в номинале [total_worth] кредит[get_num_string(total_worth)]."
+	return ..()
 
 /obj/item/stack/spacecash/get_item_credit_value()
 	return (amount*value)
