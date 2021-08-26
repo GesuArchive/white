@@ -54,9 +54,15 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainventory
 	var/owner_ckey
+	//слоты
 	var/slots_max = 24
+	//временные слоты
+	var/temp_slots = 0
+	//нажатый в интерфейсе слот инвентаря (не лоудаута)
 	var/active_slot = 0
+	//активный лоудаут
 	var/active_loadout = 1
+
 	var/list/datum/metainv_loadout/loadout_list = list()
 	var/list/datum/metainv_object/obj_list = list()
 
@@ -128,7 +134,7 @@ SUBSYSTEM_DEF(metainv)
 	var/datum/metainv_loadout/cur_loadout = loadout_list[active_loadout]
 	data["loadout"] = cur_loadout.loadout_slots
 	data["active_slot"] = active_slot
-	data["slots"] = slots_max
+	data["slots"] = slots_max + temp_slots
 	return data
 
 /datum/metainventory/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
