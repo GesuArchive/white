@@ -95,8 +95,8 @@ export const Panel = (props, context) => {
                   color="grey"
                   selected={audio.visible}
                   icon="music"
-                  tooltip="Music player"
-                  tooltipPosition="Плеер"
+                  tooltip="Плеер"
+                  tooltipPosition="bottom-start"
                   onClick={() => audio.toggle()} />
               </Stack.Item>
               <Stack.Item>
