@@ -1,29 +1,77 @@
 SUBSYSTEM_DEF(metainv)
 	name = "МетаИнвентарь"
-	flags = SS_NO_FIRE //хз потом убрать если дроп кейсов со временем прикрутить припрет
+	flags = SS_NO_FIRE
 	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
-	init_order = 5
+	init_order = 76 //после ачивок
 
-	var/datum/metainventory/test/AMONGUS
-
-	var/list/datum/metainventory/inventories = list()
+	var/list/inventories = list()
 	var/list/categories = list()
 
 /datum/controller/subsystem/metainv/Initialize()
 	. = ..()
 	load_categories()
-	AMONGUS = new
+	RegisterSignal(SSdcs, COMSIG_GLOB_JOB_AFTER_SPAWN, .proc/on_job_after_spawn)
+
+/datum/controller/subsystem/metainv/proc/on_job_after_spawn(datum/source, datum/job/job, mob/living/spawned, mob/newplayer)
+	if(!spawned || istype(job, /datum/job/ai) || istype(job, /datum/job/cyborg)) //русские идут домой рантаймить
+		return
+	var/ckey = spawned.ckey ? spawned.ckey : newplayer.ckey
+	var/datum/metainventory/MI = get_inv(ckey)
+	var/datum/metainv_loadout/ML = MI.loadout_list[MI.active_loadout]
+	ML.equip_carbon(spawned)
+
+/datum/controller/subsystem/metainv/proc/metashop2metainv(client/C)
+	if(!C || !LAZYLEN(C.prefs.purchased_gear))
+		return
+	var/datum/metainventory/MI = get_inv(C.ckey)
+	for(var/gear in C.prefs.purchased_gear)
+		var/datum/gear/G = GLOB.gear_datums[gear]
+		if(!G || !G.path)
+			continue
+		var/datum/metainv_object/MO = new(G.path)
+		if(G.allowed_roles)
+			LAZYADDASSOC(MO.metadata, "role_whitelist", G.allowed_roles)
+		if(G.species_whitelist)
+			LAZYADDASSOC(MO.metadata, "species_whitelist", G.species_whitelist)
+		if(G.species_blacklist)
+			LAZYADDASSOC(MO.metadata, "species_blacklist", G.species_blacklist)
+		MI.obj_list += MO
+		MI.temp_slots++
+
+/datum/controller/subsystem/metainv/proc/add_initial_items(ckey, datum/metainventory/MI)
+	var/mob/M = get_mob_by_ckey(ckey)
+	var/client/C = M.client
+	if(C)
+		if(check_rights_for(C, R_ADMIN))
+			add_test_items(MI)
+		//меташоп надо выпилить
+		metashop2metainv(M.client)
+
+/datum/controller/subsystem/metainv/proc/add_test_items(datum/metainventory/MI)
+	var/datum/metainv_object/bimba = new("/obj/machinery/nuclearbomb")
+	bimba.var_overrides = list("name" = "Українська бiмба", "throwforce" = 999)
+	var/datum/metainv_object/stels = new("/obj/item/stack/sheet/mineral/wood")
+	stels.var_overrides = list("amount" = 15)
+	var/datum/metainv_object/uniform = new("/obj/item/clothing/under/rank/engineering/atmospheric_technician")
+	MI.obj_list += uniform
+	MI.obj_list += bimba
+	MI.obj_list += stels
 
 /datum/controller/subsystem/metainv/proc/get_inv(ckey)
+	if(!ckey)
+		CRASH("Попытка вернуть инвентарь без сикея!")
 	if(inventories[ckey])
 		. = inventories[ckey]
 	else
 		var/json_file = file("data/player_saves/[ckey[1]]/[ckey]/metainv.json")
 		if(!fexists(json_file))
-			. = new /datum/metainventory
+			var/datum/metainventory/NMI = new
+			NMI.loadout_list += new /datum/metainv_loadout(NMI)
+			. = NMI
 		else
 			. = r_json_decode(json_file)
 		inventories[ckey] = .
+		add_initial_items(ckey, .)
 
 /datum/controller/subsystem/metainv/proc/save_inv(ckey)
 	var/datum/metainventory/MI = inventories?[ckey]
@@ -31,8 +79,8 @@ SUBSYSTEM_DEF(metainv)
 		WRITE_FILE("data/player_saves/[ckey[1]]/[ckey]/metainv.json", json_encode(inventories[ckey]))
 		return TRUE
 
+//нахуй не нужны пока всякие дропы не будут впилены, как и сохранения впринципе
 /datum/controller/subsystem/metainv/proc/load_categories()
-
 /datum/controller/subsystem/metainv/proc/save_categories()
 
 /datum/controller/subsystem/metainv/proc/get_new_uid(cid, typepath)
@@ -45,6 +93,9 @@ SUBSYSTEM_DEF(metainv)
 	if("[cid]" != "0")
 		save_categories()
 
+/datum/controller/subsystem/metainv/proc/open_inventory(client/C)
+	var/datum/metainventory/MI = get_inv(C.ckey)
+	MI.ui_interact(C.mob)
 
 ////////////////////////////////////////////////////////////////////
 
@@ -53,9 +104,8 @@ SUBSYSTEM_DEF(metainv)
 #define METAINVENTORY_SLOT_TURF(num) 	(-2-num)
 
 /datum/metainventory
-	var/owner_ckey
 	//слоты
-	var/slots_max = 24
+	var/slots_max = 16
 	//временные слоты
 	var/temp_slots = 0
 	//нажатый в интерфейсе слот инвентаря (не лоудаута)
@@ -68,7 +118,6 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainventory/serialize_list(list/options)
 	. = list()
-	.["ckey"] = owner_ckey
 	.["slots"] = slots_max
 	.["objs"] = list()
 	for(var/datum/metainv_object/MO in obj_list)
@@ -81,9 +130,8 @@ SUBSYSTEM_DEF(metainv)
 	.["a_loadout"] = active_loadout
 
 /datum/metainventory/deserialize_list(list/input, list/options)
-	if(!input["ckey"] || !input["slots"] || !input["objs"] || !input["loadouts"])
+	if(!input["slots"] || !input["objs"] || !input["loadouts"])
 		return
-	owner_ckey = input["ckey"]
 	slots_max = input["slots"]
 	for(var/json_obj in input["objs"])
 		var/datum/metainv_object/MO = new
@@ -93,11 +141,6 @@ SUBSYSTEM_DEF(metainv)
 		ML.inv = src
 		loadout_list += ML.deserialize_json(json_loadout)
 	active_loadout = input?["a_loadout"]
-
-
-/datum/metainventory/proc/create_all_objects(atom/location)
-	for(var/datum/metainv_object/MO in obj_list)
-		MO.create_object(location)
 
 /datum/metainventory/proc/get_id_to_metaobj_assoc()
 	. = list()
@@ -163,39 +206,6 @@ SUBSYSTEM_DEF(metainv)
 /datum/metainventory/ui_status(mob/user)
 	return UI_INTERACTIVE
 
-/datum/metainventory/proc/ui_data_json()
-	return json_encode(ui_data())
-
-
-////////////////////////////////
-
-/datum/metainventory/test
-	owner_ckey = "imposter"
-
-/datum/metainventory/test/New()
-	. = ..()
-	var/datum/metainv_object/bimba = new("/obj/machinery/nuclearbomb")
-	bimba.var_overrides = list("name" = "Українська бiмба", "throwforce" = 999)
-
-	var/datum/metainv_object/stels = new("/obj/item/stack/sheet/mineral/wood")
-	stels.var_overrides = list("amount" = 15)
-
-	var/datum/metainv_object/uniform = new("/obj/item/clothing/under/rank/engineering/atmospheric_technician")
-
-	var/datum/metainv_object/tarelka = new("/obj/item/clothing/mask/gas/tarelka")
-
-	obj_list += tarelka
-	obj_list += uniform
-	obj_list += bimba
-	obj_list += stels
-
-	var/datum/metainv_loadout/ML = new
-	ML.set_slot(METAINVENTORY_SLOT_HAND_R, stels.get_id())
-	ML.set_slot(ITEM_SLOT_ICLOTHING, uniform.get_id())
-	ML.set_slot(METAINVENTORY_SLOT_TURF(3), bimba.get_id())
-	ML.inv = src
-	loadout_list += ML
-
 ////////////////////////////////////////////////////////////////////
 
 /datum/metainv_loadout
@@ -203,8 +213,11 @@ SUBSYSTEM_DEF(metainv)
 	//слоты лоудаута, в качестве ключей используются дефайны инвентаря типа ITEM_SLOT_ICLOTHING, плюс дефайны метаинвентаря выше для рук и прочего
 	var/list/loadout_slots
 
-/datum/metainv_loadout/New()
+/datum/metainv_loadout/New(datum/metainventory/MI)
 	. = ..()
+	if(!MI)
+		CRASH("Лоадаут создан без инвентаря")
+	inv = MI
 	build_slots()
 
 /datum/metainv_loadout/proc/build_slots()
@@ -266,7 +279,7 @@ SUBSYSTEM_DEF(metainv)
 			equip_metaobj_to_invslot(target, (1<<i), MO)
 
 /datum/metainv_loadout/proc/equip_metaobj_to_invslot(mob/living/target, slot, datum/metainv_object/MO)
-	if(MO && istype(MO))
+	if(MO && istype(MO) && MO.can_create_for(target))
 		var/obj/item/I = MO.create_object(get_turf(target))
 		var/obj/item/unequipped = target.get_item_by_slot(slot)
 		if(target.dropItemToGround(unequipped, force = FALSE, silent = TRUE, invdrop = FALSE))
@@ -324,6 +337,38 @@ SUBSYSTEM_DEF(metainv)
 	for(var/varname in var_overrides)
 		O.vars[varname] = var_overrides[varname]
 	return O
+
+/datum/metainv_object/proc/can_create_for(mob/living/L, silent = FALSE)
+	if(!metadata)
+		return TRUE
+	var/obj/O = text2path(object_path_txt)
+	var/obj_name = (var_overrides && var_overrides["name"]) ? var_overrides["name"] : initial(O.name)
+	if(metadata["role_whitelist"] || metadata["role_blacklist"])
+		if(!L.mind || !L.mind.assigned_role)
+			return FALSE
+		if(metadata["role_whitelist"] && !(L.mind.assigned_role in metadata["role_whitelist"]))
+			if(!silent)
+				to_chat(L, span_warning("Должность не позволяет мне иметь [obj_name]!"))
+			return FALSE
+		if(metadata["role_blacklist"] && (L.mind.assigned_role in metadata["role_blacklist"]))
+			if(!silent)
+				to_chat(L, span_warning("Должность не позволяет мне иметь [obj_name]!"))
+			return FALSE
+	if(metadata["species_whitelist"] || metadata["species_blacklist"])
+		if(!ishuman(L))
+			return FALSE
+		var/mob/living/carbon/human/H = L
+		if(!H.dna) //хуманы без днк это борги и ии ебаные, какого-то хуя они ими становятся уже после становления хуманом при спавне за профу
+			return FALSE
+		if(metadata["species_whitelist"] && !(H.dna.species.id in metadata["species_whitelist"]))
+			if(!silent)
+				to_chat(L, span_warning("Раса не позволяет мне иметь [obj_name]!"))
+			return FALSE
+		if(metadata["species_blacklist"] && (H.dna.species.id in metadata["species_blacklist"]))
+			if(!silent)
+				to_chat(L, span_warning("Раса не позволяет мне иметь [obj_name]!"))
+			return FALSE
+	return TRUE
 
 /datum/metainv_object/serialize_list(list/options)
 	if(!cid)
