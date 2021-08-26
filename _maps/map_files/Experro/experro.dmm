@@ -14,6 +14,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/grey,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -292,6 +293,7 @@
 "bz" = (
 /obj/structure/cataclysmdda/kitchencloset,
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -447,6 +449,7 @@
 "ch" = (
 /obj/structure/closet/secure_closet/freezer/empty,
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -477,6 +480,7 @@
 "cm" = (
 /obj/structure/table/wood/cataclysmdda/desk,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -521,6 +525,7 @@
 	dir = 8
 	},
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -615,6 +620,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/random,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -718,6 +724,7 @@
 "dB" = (
 /obj/structure/chair/comfy/black,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -815,6 +822,7 @@
 /obj/structure/table/wood/cataclysmdda,
 /obj/item/coin/silver,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -1008,6 +1016,7 @@
 /obj/structure/mopbucket,
 /obj/item/mop,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -1232,6 +1241,7 @@
 /area/partyhard/outdoors)
 "fU" = (
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -1385,6 +1395,7 @@
 /area/partyhard/indoors)
 "gs" = (
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -1668,6 +1679,7 @@
 	pixel_x = 13
 	},
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -1833,6 +1845,7 @@
 /area/partyhard/outdoors)
 "ih" = (
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -1918,6 +1931,7 @@
 /area/partyhard/indoors)
 "iF" = (
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -2195,6 +2209,7 @@
 "ka" = (
 /obj/structure/chair/wood/cataclysmdda,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -2222,6 +2237,7 @@
 "ke" = (
 /obj/structure/table/wood/cataclysmdda/sci,
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -2240,6 +2256,7 @@
 /area/partyhard/indoors)
 "kg" = (
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -2300,6 +2317,7 @@
 "kp" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -2332,6 +2350,7 @@
 	dir = 4
 	},
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -2362,6 +2381,7 @@
 "kB" = (
 /obj/structure/chair/sofa/corp,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -2511,6 +2531,7 @@
 "lp" = (
 /obj/structure/sink/kitchen/cataclysmdda,
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -2622,6 +2643,7 @@
 /area/partyhard/indoors)
 "lQ" = (
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -2997,6 +3019,7 @@
 	},
 /obj/item/lighter,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -3139,6 +3162,7 @@
 /area/partyhard/indoors)
 "om" = (
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -3225,6 +3249,7 @@
 "oQ" = (
 /obj/structure/chair/stool/bar/cataclysmdda,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -3257,6 +3282,7 @@
 	},
 /obj/item/food/popcorn,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -3882,6 +3908,7 @@
 /area/partyhard/indoors)
 "rX" = (
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -4039,6 +4066,7 @@
 	pixel_y = 13
 	},
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -4087,6 +4115,7 @@
 	pixel_y = 13
 	},
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -4513,6 +4542,7 @@
 	pixel_y = 20
 	},
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -4604,6 +4634,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/grey,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -4721,6 +4752,7 @@
 /area/partyhard/indoors)
 "vI" = (
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -4781,6 +4813,7 @@
 "wb" = (
 /obj/structure/flora/cataclysmdda/decoration/nature,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -5138,6 +5171,7 @@
 /area/partyhard/indoors)
 "xw" = (
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -5183,6 +5217,7 @@
 "xG" = (
 /obj/structure/filingcabinet/cataclysmdda,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -5275,7 +5310,7 @@
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
 "ya" = (
-/obj/item/device/flashlight/slamp/cataclysmdda,
+/obj/structure/cataclysmdda/lamp,
 /turf/open/floor/carpet/purple,
 /area/partyhard/indoors)
 "yb" = (
@@ -5294,6 +5329,7 @@
 "yf" = (
 /obj/structure/flora/cataclysmdda/decoration/houseplant,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -5301,6 +5337,7 @@
 /area/partyhard/indoors)
 "yh" = (
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -5488,6 +5525,7 @@
 /area/partyhard/indoors)
 "yV" = (
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -5794,6 +5832,7 @@
 /obj/item/reagent_containers/food/drinks/beer,
 /obj/item/reagent_containers/food/drinks/bottle/applejack,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -5882,6 +5921,7 @@
 "AS" = (
 /obj/effect/spawner/randomarcade,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -6123,6 +6163,7 @@
 	dir = 4
 	},
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -6265,6 +6306,7 @@
 /obj/item/clothing/head/soft/black,
 /obj/item/instrument/piano_synth/headphones/spacepods,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -6283,6 +6325,7 @@
 /area/partyhard/indoors)
 "CG" = (
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -6294,7 +6337,7 @@
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "CI" = (
-/obj/item/device/flashlight/slamp/cataclysmdda,
+/obj/structure/cataclysmdda/lamp,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "CK" = (
@@ -6463,6 +6506,7 @@
 "Dv" = (
 /obj/structure/closet/crate/box,
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -6489,6 +6533,7 @@
 	dir = 8
 	},
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -6774,6 +6819,7 @@
 	pixel_y = 11
 	},
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -6826,6 +6872,7 @@
 "ET" = (
 /obj/structure/table/wood/cataclysmdda/sci,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -6944,6 +6991,7 @@
 "Fp" = (
 /obj/structure/table/wood/cataclysmdda/desk,
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -7398,6 +7446,7 @@
 "Hw" = (
 /obj/structure/rack/cataclysmdda/entertaiment,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -7494,7 +7543,7 @@
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
 /area/partyhard/outdoors)
 "HZ" = (
-/obj/item/device/flashlight/slamp/cataclysmdda,
+/obj/structure/cataclysmdda/lamp,
 /turf/open/floor/carpet,
 /area/partyhard/indoors)
 "Ib" = (
@@ -7529,7 +7578,7 @@
 /turf/open/floor/plasteel,
 /area/partyhard/indoors)
 "In" = (
-/obj/item/device/flashlight/slamp/cataclysmdda,
+/obj/structure/cataclysmdda/lamp,
 /turf/open/floor/carpet/orange,
 /area/partyhard/indoors)
 "Iq" = (
@@ -7574,8 +7623,9 @@
 /turf/open/floor/grass/cataclysmdda,
 /area/partyhard/outdoors)
 "IF" = (
-/obj/item/device/flashlight/slamp/cataclysmdda,
+/obj/structure/cataclysmdda/lamp,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -8003,6 +8053,7 @@
 "KF" = (
 /obj/structure/cataclysmdda/kitchencloset,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -8027,6 +8078,7 @@
 	dir = 4
 	},
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -8060,6 +8112,7 @@
 "La" = (
 /obj/structure/bookcase/random,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -8118,6 +8171,7 @@
 /area/partyhard/indoors)
 "Lo" = (
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -8147,6 +8201,7 @@
 	pixel_x = -32
 	},
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -8242,6 +8297,7 @@
 /area/partyhard/indoors)
 "Mc" = (
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -8313,6 +8369,7 @@
 /area/partyhard/indoors)
 "Mq" = (
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -8360,6 +8417,7 @@
 	pixel_y = 9
 	},
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -8669,6 +8727,7 @@
 /area/partyhard/outdoors)
 "NW" = (
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -8679,6 +8738,7 @@
 	dir = 4
 	},
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -8712,6 +8772,7 @@
 "Oi" = (
 /obj/effect/spawner/lootdrop/gross_decal_spawner,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -8815,6 +8876,7 @@
 "OD" = (
 /obj/structure/table/wood/cataclysmdda/desk,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -9117,6 +9179,7 @@
 /obj/structure/table/wood/cataclysmdda/sci,
 /obj/item/storage/firstaid/emergency,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -9162,6 +9225,7 @@
 /obj/structure/table/wood/cataclysmdda/sci,
 /obj/item/storage/pill_bottle/happiness,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -9541,6 +9605,7 @@
 /obj/structure/rack,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -9577,6 +9642,13 @@
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"Sm" = (
+/obj/machinery/light/small{
+	brightness = 3;
+	dir = 8
+	},
+/turf/open/genturf,
+/area/partyhard/outdoors)
 "Sn" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/rank/civilian/curator,
@@ -9700,6 +9772,7 @@
 	dir = 8
 	},
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -10153,6 +10226,7 @@
 	dir = 1
 	},
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -10597,6 +10671,7 @@
 /area/partyhard/outdoors)
 "Xw" = (
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -10630,6 +10705,7 @@
 	pixel_y = 15
 	},
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -10752,6 +10828,7 @@
 "Yi" = (
 /obj/structure/bookcase/random,
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -10834,6 +10911,7 @@
 /area/partyhard/indoors)
 "YB" = (
 /obj/machinery/light/small{
+	base_pixel_y = 19;
 	dir = 1;
 	pixel_y = 19
 	},
@@ -10941,7 +11019,7 @@
 /turf/open/floor/grass/cataclysmdda,
 /area/partyhard/outdoors)
 "Zh" = (
-/obj/item/device/flashlight/slamp/cataclysmdda,
+/obj/structure/cataclysmdda/lamp,
 /turf/open/floor/carpet/green,
 /area/partyhard/indoors)
 "Zi" = (
@@ -11007,6 +11085,7 @@
 	icon_state = "plant-18"
 	},
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -11040,7 +11119,7 @@
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "ZR" = (
-/obj/item/device/flashlight/slamp/cataclysmdda,
+/obj/structure/cataclysmdda/lamp,
 /turf/open/floor/plating,
 /area/partyhard/indoors)
 "ZS" = (
@@ -11049,6 +11128,7 @@
 /area/partyhard/indoors)
 "ZT" = (
 /obj/machinery/light{
+	base_pixel_y = 18;
 	dir = 1;
 	pixel_y = 18
 	},
@@ -25696,7 +25776,7 @@ sS
 sS
 sS
 sS
-sS
+Sm
 sS
 sS
 sS
