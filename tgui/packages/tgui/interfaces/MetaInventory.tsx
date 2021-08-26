@@ -72,7 +72,7 @@ const SLOTS: Record<
 };
 
 const MetaInvLoadout=(act,loadout:MetaInvLoadout,objects:Array<MetaInvObj>)=>{
-  const ID2ObjAssoc = objects.reduce((acc, obj) => (acc[obj.uid] = obj, acc), {} as Record<string, MetaInvObj>)
+  const ID2ObjAssoc = objects.reduce((acc, obj) => (acc[obj.id] = obj, acc), {} as Record<string, MetaInvObj>)
 
   const gridSpots = new Map<GridSpotKey, string>();
 
@@ -103,8 +103,8 @@ const MetaInvLoadout=(act,loadout:MetaInvLoadout,objects:Array<MetaInvObj>)=>{
                 );
               }
 
-              const item_uid = loadout[keyAtSpot];
-              const item:MetaInvObj = (item_uid && item_uid !== "0" ) ? ID2ObjAssoc[item_uid] : null;
+              const item_id = loadout[keyAtSpot];
+              const item:MetaInvObj = (item_id && item_id !== "0" ) ? ID2ObjAssoc[item_id] : null;
               const slot = SLOTS[keyAtSpot];
 
               let content;
@@ -153,7 +153,7 @@ const MetaInvLoadout=(act,loadout:MetaInvLoadout,objects:Array<MetaInvObj>)=>{
                           key: keyAtSpot,
                         });
                       }}
-                      fluid
+                      flid
                       tooltip={tooltip}
                       style={{
                         background: undefined,
@@ -197,7 +197,7 @@ const MetaInvLoadout=(act,loadout:MetaInvLoadout,objects:Array<MetaInvObj>)=>{
   );
 };
 
-const ItemSlot = (act, slotid:number, item:MetaInvObj, active_slot:number) => {
+const ItemSlot = (act, slotID:number, item:MetaInvObj, active_slot:number) => {
   let content;
   let tooltip;
 
@@ -228,13 +228,13 @@ const ItemSlot = (act, slotid:number, item:MetaInvObj, active_slot:number) => {
       <Button
         onClick={() => {
           act("invSlotClick", {
-            key: slotid,
+            key: slotID,
           });
         }}
-        fluid
+        flid
         tooltip={tooltip}
         style={{
-          background: slotid == active_slot
+          background: slotID == active_slot
                               ? "hsl(39, 73%, 30%)"
                               : undefined,
           position: "relative",
@@ -273,8 +273,8 @@ const MetaInvItems = (act, objects:Array<MetaInvObj>, slots:number, active_slot:
         <Stack.Item key={row}>
           <Stack fill>
             {range(0, COLUMNS).map(column => {
-              const curID = row * COLUMNS + column + 1;
-              const curItem: MetaInvObj = objects[curID-1];
+              const cur_num = row * COLUMNS + column + 1;
+              const curItem: MetaInvObj = objects[cur_num-1];
               return (
                 <Stack.Item
                   key={column}
@@ -283,7 +283,7 @@ const MetaInvItems = (act, objects:Array<MetaInvObj>, slots:number, active_slot:
                     height: BUTTON_DIMENSIONS,
                   }}
                 >
-                  {(curID <= slots) ? ItemSlot(act, curID, curItem, active_slot) : null}
+                  {(cur_num <= slots) ? ItemSlot(act, cur_num, curItem, active_slot) : null}
                 </Stack.Item>
               );
             })}
@@ -303,7 +303,7 @@ type MetaInvData = {
 };
 
 type MetaInvObj = {
-  uid: string;
+  id: string;
   name: string;
   icon: string;
 };
