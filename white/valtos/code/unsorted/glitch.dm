@@ -29,7 +29,7 @@
 
 /datum/element/glitch/proc/get_examine_name(datum/source, mob/user, list/override)
 	SIGNAL_HANDLER
-	. = "<small class='hypnophrase'>[capitalize(src.name)]</small>"
+	. = "<small class='hypnophrase'>[capitalize(master.name)]</small>"
 	return COMPONENT_EXNAME_CHANGED
 
 /obj/item/gun/magic/glitch
