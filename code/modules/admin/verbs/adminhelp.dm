@@ -518,6 +518,9 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 
 // Used for methods where input via arg doesn't work
 /client/proc/get_adminhelp()
+	if(adminhelptimerid)
+		to_chat(usr, "<span class='danger'>Пока нельзя...</span>", confidential = TRUE)
+		return
 	var/msg = input(src, "Опишите вашу проблему или вопрос максимально подробно.", "Ахелп") as message|null
 	adminhelp(msg)
 
