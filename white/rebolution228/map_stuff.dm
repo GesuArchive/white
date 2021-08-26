@@ -429,7 +429,7 @@
 	explosion_block = 1
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE)
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE)
-	baseturfs = /turf/open/floor/plating/beach/sand
+	baseturfs = /turf/open/indestructible/cataclysmdda/sand
 
 /turf/closed/wall/cataclysmdda/blue
 	color = LIGHT_COLOR_DARK_BLUE
@@ -462,12 +462,14 @@
 	desc = "Деревянный пол, уложенный в стиле 'ёлочки'. Подозрительно как-то напоминает о домашнем уюте."
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_floors.dmi'
 	icon_state = "wooden1"
+	baseturfs = /turf/open/indestructible/cataclysmdda/sand
 
 /turf/open/floor/wood/cataclysmdda
 	name = "деревянный пол"
 	desc = "Простой непримечательный деревянный пол. У вас возникает ощущение, что когда-нибудь этот пол провалится над вами."
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_floors.dmi'
 	icon_state = "wooden2"
+	baseturfs = /turf/open/indestructible/cataclysmdda/sand
 
 /turf/open/floor/plasteel/tile
 	name = "плитка"
@@ -477,7 +479,7 @@
 	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
 	floor_tile = /obj/item/stack/tile/plasteel
 	flags_1 = NONE
-	baseturfs = /turf/open/floor/plating/beach/sand
+	baseturfs = /turf/open/indestructible/cataclysmdda/sand
 	slowdown = 0
 
 /turf/open/floor/plasteel/tile/white
@@ -534,7 +536,7 @@
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_floors.dmi'
 	icon_state = "grass0"
 	base_icon_state = "grass0"
-	baseturfs = /turf/open/floor/plating/beach/sand
+	baseturfs = /turf/open/indestructible/cataclysmdda/sand
 	slowdown = 2
 
 /turf/open/floor/grass/cataclysmdda/Initialize()
@@ -558,6 +560,7 @@
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_SAND
 	slowdown = 0.5
+	baseturfs = /turf/open/indestructible/cataclysmdda/sand
 
 /turf/open/floor/grass/cataclysmdda/dirt/proc/changeicon()
 	icon_state = "dirt[rand(1,4)]"
@@ -585,6 +588,7 @@
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_SAND
 	slowdown = 0
+	baseturfs = /turf/open/indestructible/cataclysmdda/sand
 
 /turf/open/floor/asphalt/Initialize()
 	. = ..()
@@ -834,9 +838,8 @@
 	density = 1
 	opacity = 0
 	max_integrity = 70
-	sheetType = list(/obj/item/shard, /obj/item/stack/sheet/iron)
+	sheetType = /obj/item/stack/rods
 	sheetAmount = 3
-	color = null
 
 /obj/structure/curtain/cataclysmdda
 	name = "занавеска"
