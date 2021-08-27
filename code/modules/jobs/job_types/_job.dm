@@ -138,6 +138,7 @@
 		for(var/i in roundstart_experience)
 			experiencer.mind.adjust_experience(i, roundstart_experience[i], TRUE)
 
+	/* щас вмержу новые жобки и эта хуйня пропадет один хуй
 	if(!ishuman(H)) //а оно неработает лол
 		return
 	if(istype(src, /datum/job/ai) || istype(src, /datum/job/cyborg)) //воттакк надо тупа прикол валера говнокодер
@@ -205,6 +206,7 @@
 
 			to_chat(M, "<span class='danger'>Что-то пришлось оставить...</span>")
 			qdel(item)
+	*/
 
 	// новый год 2021
 	//var/obj/item/stack/garland_pack/fifty/garl = new(get_turf(H))

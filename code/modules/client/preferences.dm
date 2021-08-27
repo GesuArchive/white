@@ -472,11 +472,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "</table></td></table>"
 
 		if(1) //Loadout
-			if(check_rights_for(user.client, R_ADMIN))
-				if(SSmetainv)
-					SSmetainv.open_inventory(user.client)
-				else
-					to_chat(user, span_warning("Инвентарь еще не загружен, попробуйте позже!"))
+			if(SSmetainv)
+				SSmetainv.open_inventory(user.client)
+			else
+				to_chat(user, span_warning("Инвентарь еще не загружен, попробуйте позже!"))
 
 			var/list/type_blacklist = list()
 			if(equipped_gear && equipped_gear.len)
@@ -2008,6 +2007,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					user.client.view_size.setZoomMode()
 
 				if("save")
+					if(SSmetainv)
+						SSmetainv.save_inv(user.client.ckey)
+
 					save_preferences()
 					save_character()
 

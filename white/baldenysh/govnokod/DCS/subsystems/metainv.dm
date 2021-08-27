@@ -2,7 +2,7 @@ SUBSYSTEM_DEF(metainv)
 	name = "МетаИнвентарь"
 	flags = SS_NO_FIRE
 	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
-	init_order = 76 //после ачивок
+	init_order = 75
 
 	var/list/inventories = list()
 	var/list/categories = list()
@@ -66,23 +66,24 @@ SUBSYSTEM_DEF(metainv)
 	if(!ckey)
 		CRASH("Попытка вернуть инвентарь без сикея!")
 	if(inventories[ckey])
-		. = inventories[ckey]
+		return inventories[ckey]
 	else
+		var/datum/metainventory/newMI = new
 		var/json_file = file("data/player_saves/[ckey[1]]/[ckey]/metainv.json")
-		if(!fexists(json_file))
-			var/datum/metainventory/NMI = new
-			NMI.loadout_list += new /datum/metainv_loadout(NMI)
-			. = NMI
+		if(fexists(json_file))
+			newMI.deserialize_json(file2text(json_file))
 		else
-			. = r_json_decode(json_file)
-		inventories[ckey] = .
-		add_initial_items(ckey, .)
+			newMI.loadout_list += new /datum/metainv_loadout(newMI)
+		inventories[ckey] = newMI
+		add_initial_items(ckey, newMI)
+		return newMI
 
 /datum/controller/subsystem/metainv/proc/save_inv(ckey)
 	if(!inventories[ckey])
-		return
+		return FALSE
 	var/datum/metainventory/MI = inventories[ckey]
-	WRITE_FILE("data/player_saves/[ckey[1]]/[ckey]/metainv.json", MI.serialize_json())
+	WRITE_FILE(file("data/player_saves/[ckey[1]]/[ckey]/metainv.json"), MI.serialize_json())
+	return TRUE
 
 //нахуй не нужны пока всякие дропы не будут впилены, как и сохранения впринципе
 /datum/controller/subsystem/metainv/proc/load_categories()
@@ -132,7 +133,8 @@ SUBSYSTEM_DEF(metainv)
 	.["loadouts"] = list()
 	for(var/datum/metainv_loadout/ML in loadout_list)
 		.["loadouts"] += ML.serialize_json()
-	.["a_loadout"] = active_loadout
+	if(active_loadout != 1)
+		.["a_loadout"] = active_loadout
 
 /datum/metainventory/deserialize_list(list/input, list/options)
 	if(!input["slots"] || !input["objs"] || !input["loadouts"])
@@ -142,10 +144,15 @@ SUBSYSTEM_DEF(metainv)
 		var/datum/metainv_object/MO = new
 		obj_list += MO.deserialize_json(json_obj)
 	for(var/json_loadout in input["loadouts"])
-		var/datum/metainv_loadout/ML = new
-		ML.inv = src
+		var/datum/metainv_loadout/ML = new(src)
 		loadout_list += ML.deserialize_json(json_loadout)
-	active_loadout = input?["a_loadout"]
+	active_loadout = input["a_loadout"] ? input["a_loadout"] : 1
+
+	if(!length(loadout_list))
+		stack_trace("Десериализация лоудаута по пизде")
+		var/datum/metainv_loadout/ML = new(src)
+		loadout_list += ML
+		active_loadout = 1
 
 /datum/metainventory/proc/get_id_to_metaobj_assoc()
 	. = list()
@@ -221,7 +228,7 @@ SUBSYSTEM_DEF(metainv)
 /datum/metainv_loadout/New(datum/metainventory/MI)
 	. = ..()
 	if(!MI)
-		CRASH("Лоадаут создан без инвентаря")
+		CRASH("Лоудаут создан без инвентаря")
 	inv = MI
 	build_slots()
 
@@ -258,7 +265,7 @@ SUBSYSTEM_DEF(metainv)
 			if(MO)
 				.[slot] = MO
 
-/datum/metainv_loadout/proc/equip_carbon(mob/living/carbon/target)
+/datum/metainv_loadout/proc/equip_carbon(mob/living/carbon/target, silent = FALSE)
 	if(!target || !istype(target))
 		return
 	var/turf/T = get_turf(target)
@@ -280,15 +287,18 @@ SUBSYSTEM_DEF(metainv)
 	for(var/i = 0; i < SLOTS_AMT; i++)
 		var/datum/metainv_object/MO = equipped["[1<<i]"]
 		if(MO)
-			equip_metaobj_to_invslot(target, (1<<i), MO)
+			equip_metaobj_to_invslot(target, (1<<i), MO, silent)
 
-/datum/metainv_loadout/proc/equip_metaobj_to_invslot(mob/living/target, slot, datum/metainv_object/MO)
+/datum/metainv_loadout/proc/equip_metaobj_to_invslot(mob/living/target, slot, datum/metainv_object/MO, silent = FALSE)
 	if(MO && istype(MO) && MO.can_create_for(target))
 		var/obj/item/I = MO.create_object(get_turf(target))
 		var/obj/item/unequipped = target.get_item_by_slot(slot)
 		if(target.dropItemToGround(unequipped, force = FALSE, silent = TRUE, invdrop = FALSE))
 			if(!target.equip_to_slot_if_possible(I, slot, bypass_equip_delay_self = TRUE))
 				target.equip_to_slot_if_possible(unequipped, slot, bypass_equip_delay_self = TRUE)
+				if(!silent)
+					to_chat(target, span_warning("Пришлось оставить [I]!"))
+				qdel(I)
 
 /datum/metainv_loadout/serialize_list(list/options)
 	. = list()
