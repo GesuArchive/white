@@ -90,6 +90,7 @@
 	circuit = /obj/item/circuitboard/computer/mining_shuttle/common
 	shuttleId = "mining_common"
 	possible_destinations = "commonmining_home;lavaland_common_away;landing_zone_dock;mining_public"
+	req_access = list()
 
 
 /**********************Mining car (Crate like thing, not the rail car)**************************/
