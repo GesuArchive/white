@@ -126,7 +126,7 @@ SUBSYSTEM_DEF(metainv)
 		add_single_obj(input)
 	else if(islist(input))
 		for(var/datum/metainv_object/MO in input)
-		add_single_obj(MO)
+			add_single_obj(MO)
 	else
 		CRASH("Произошло хуевое добавление объектов в инвентарь")
 		return FALSE
