@@ -13,6 +13,8 @@ SUBSYSTEM_DEF(metainv)
 	RegisterSignal(SSdcs, COMSIG_GLOB_JOB_AFTER_SPAWN, .proc/on_job_after_spawn)
 
 /datum/controller/subsystem/metainv/proc/on_job_after_spawn(datum/source, datum/job/job, mob/living/spawned, client/player_client)
+	if(length(player_client.prefs.equipped_gear))
+		return
 	if(!spawned || istype(job, /datum/job/ai) || istype(job, /datum/job/cyborg)) //русские идут домой рантаймить
 		return
 	var/ckey = spawned.ckey ? spawned.ckey : player_client.ckey
