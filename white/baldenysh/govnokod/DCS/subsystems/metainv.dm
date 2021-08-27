@@ -53,6 +53,11 @@ SUBSYSTEM_DEF(metainv)
 	var/datum/metainv_object/stels = new("/obj/item/stack/sheet/mineral/wood")
 	stels.var_overrides = list("amount" = 15)
 	var/datum/metainv_object/uniform = new("/obj/item/clothing/under/rank/engineering/atmospheric_technician")
+	var/datum/metainv_object/restcase = new("/obj/item/storage/briefcase/surgery")
+	restcase.metadata = list()
+	restcase.metadata["role_whitelist"] = list("Field Medic", "Paramedic", "Medical Doctor", "Chief Medical Officer")
+
+	MI.obj_list += restcase
 	MI.obj_list += uniform
 	MI.obj_list += bimba
 	MI.obj_list += stels
@@ -74,10 +79,10 @@ SUBSYSTEM_DEF(metainv)
 		add_initial_items(ckey, .)
 
 /datum/controller/subsystem/metainv/proc/save_inv(ckey)
-	var/datum/metainventory/MI = inventories?[ckey]
-	if(MI && MI?.obj_list.len)
-		WRITE_FILE("data/player_saves/[ckey[1]]/[ckey]/metainv.json", json_encode(inventories[ckey]))
-		return TRUE
+	if(!inventories[ckey])
+		return
+	var/datum/metainventory/MI = inventories[ckey]
+	WRITE_FILE("data/player_saves/[ckey[1]]/[ckey]/metainv.json", MI.serialize_json())
 
 //нахуй не нужны пока всякие дропы не будут впилены, как и сохранения впринципе
 /datum/controller/subsystem/metainv/proc/load_categories()
@@ -262,15 +267,14 @@ SUBSYSTEM_DEF(metainv)
 
 	for(var/i in 1 to 5)
 		var/datum/metainv_object/turf_obj = equipped["[METAINVENTORY_SLOT_TURF(i)]"]
-		if(turf_obj)
+		if(turf_obj && turf_obj.can_create_for(target))
 			turf_obj.create_object(T)
 
 	var/datum/metainv_object/l_hand_metaobj = equipped["[METAINVENTORY_SLOT_HAND_L]"]
-	if(l_hand_metaobj)
+	if(l_hand_metaobj && l_hand_metaobj.can_create_for(target))
 		target.put_in_l_hand(l_hand_metaobj.create_object(T))
-
 	var/datum/metainv_object/r_hand_metaobj = equipped["[METAINVENTORY_SLOT_HAND_R]"]
-	if(r_hand_metaobj)
+	if(r_hand_metaobj && r_hand_metaobj.can_create_for(target))
 		target.put_in_r_hand(r_hand_metaobj.create_object(T))
 
 	for(var/i = 0; i < SLOTS_AMT; i++)
