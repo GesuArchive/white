@@ -56,7 +56,9 @@ SUBSYSTEM_DEF(metainv)
 	var/datum/metainv_object/restcase = new("/obj/item/storage/briefcase/surgery")
 	restcase.metadata = list()
 	restcase.metadata["role_whitelist"] = list("Field Medic", "Paramedic", "Medical Doctor", "Chief Medical Officer")
+	var/datum/metainv_object/icontest = new("/obj/item/clothing/suit/armor/hos/ranger")
 
+	MI.obj_list += icontest
 	MI.obj_list += restcase
 	MI.obj_list += uniform
 	MI.obj_list += bimba
@@ -183,7 +185,7 @@ SUBSYSTEM_DEF(metainv)
 		var/mo_name = (MO.var_overrides && MO.var_overrides["name"]) ? MO.var_overrides["name"] : initial(O.name)
 		var/mo_icon = (MO.var_overrides && MO.var_overrides["icon"]) ? MO.var_overrides["icon"] : initial(O.icon)
 		var/mo_icon_state = (MO.var_overrides && MO.var_overrides["icon_state"]) ? MO.var_overrides["icon_state"] : initial(O.icon_state)
-		res["icon"] = icon2base64(icon(mo_icon, mo_icon_state))
+		res["icon"] = icon2base64(getFlatIcon(image(icon=mo_icon,icon_state=mo_icon_state), defdir = SOUTH, no_anim = TRUE))
 		res["name"] = mo_name
 		res["id"] = "[MO.get_id()]"
 
