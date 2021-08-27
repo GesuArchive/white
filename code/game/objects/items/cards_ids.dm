@@ -551,14 +551,14 @@
 	. += "<hr><span class='notice'><i>Здесь ещё какая-то информация, стоит всмотреться...</i></span>"
 
 /obj/item/card/id/examine_more(mob/user)
-	var/list/msg = list("<span class='notice'><i>Осматриваю <b>[src]</b> ближе и вижу следующее...</i></span>")
+	var/list/msg = list("<span class='notice'><i>Осматриваю <b>[src]</b> ближе и вижу следующее...</i></span><hr>")
 
 	if(registered_age)
-		msg += "\nВладелец карты в возрасте <b>[registered_age]</b> лет. [(registered_age < AGE_MINOR) ? "Тут есть голографическая полоса, которая гласит <b><span class='danger'>'СТАЖИРОВКА: НЕ ПРОДАВАТЬ АЛКОГОЛЬ ИЛИ ТАБАК'</span></b> в самом низу карты." : ""]"
+		msg += "Владелец карты в возрасте <b>[registered_age]</b> лет. [(registered_age < AGE_MINOR) ? "Тут есть голографическая полоса, которая гласит <b><span class='danger'>'СТАЖИРОВКА: НЕ ПРОДАВАТЬ АЛКОГОЛЬ ИЛИ ТАБАК'</span></b> в самом низу карты." : ""]"
 	if(mining_points)
-		msg += "\nВау, здесь же есть [mining_points] шахтёрских очков на разные штуки из шахтёрского инвентаря."
+		msg += "Вау, здесь же есть [mining_points] шахтёрских очков на разные штуки из шахтёрского инвентаря."
 	if(registered_account)
-		msg += "\nПривязанный аккаунт принадлежит '[registered_account.account_holder]' и сообщает о балансе в размере <b>[registered_account.account_balance] кредит[get_num_string(registered_account.account_balance)]</b>."
+		msg += "Привязанный аккаунт принадлежит '[registered_account.account_holder]' и сообщает о балансе в размере <b>[registered_account.account_balance] кредит[get_num_string(registered_account.account_balance)]</b>."
 		if(registered_account.account_job)
 			var/datum/bank_account/D = SSeconomy.get_dep_account(registered_account.account_job.paycheck_department)
 			if(D)
@@ -573,7 +573,7 @@
 		if(registered_account.account_holder == user.real_name)
 			msg += "\n<span class='boldnotice'>Если ты потеряешь эту ID-карту, ты можешь запросто переподключить свой счёт используя ПКМ на своей новой карте.</span>"
 	else
-		msg += "\n<span class='info'>Похоже здесь не привязан аккаунт. ПКМ для привязки аккаунта поможет.</span>"
+		msg += "<span class='info'>Похоже здесь не привязан аккаунт. ПКМ для привязки аккаунта поможет.</span>"
 
 	return msg
 
