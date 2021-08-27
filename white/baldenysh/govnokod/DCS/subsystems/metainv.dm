@@ -124,13 +124,12 @@ SUBSYSTEM_DEF(metainv)
 /datum/metainventory/proc/add_objects(input)
 	if(istype(input, /datum/metainv_object))
 		add_single_obj(input)
-		SStgui.update_uis(src)
-		return TRUE
-	if(!islist(input))
+	else if(islist(input))
+		for(var/datum/metainv_object/MO in input)
+		add_single_obj(MO)
+	else
 		CRASH("Произошло хуевое добавление объектов в инвентарь")
 		return FALSE
-	for(var/datum/metainv_object/MO in input)
-		add_single_obj(MO)
 	SStgui.update_uis(src)
 	return TRUE
 
