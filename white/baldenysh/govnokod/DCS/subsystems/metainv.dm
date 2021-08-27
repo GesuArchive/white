@@ -79,8 +79,11 @@ SUBSYSTEM_DEF(metainv)
 /datum/controller/subsystem/metainv/proc/save_inv(ckey)
 	if(!inventories[ckey])
 		return FALSE
+	var/inv_file = file("data/player_saves/[ckey[1]]/[ckey]/metainv.json")
+	if(fexists(inv_file))
+		fdel(inv_file)
 	var/datum/metainventory/MI = inventories[ckey]
-	WRITE_FILE(file("data/player_saves/[ckey[1]]/[ckey]/metainv.json"), MI.serialize_json())
+	WRITE_FILE(inv_file, MI.serialize_json())
 	return TRUE
 
 //нахуй не нужны пока всякие дропы не будут впилены, как и сохранения впринципе
