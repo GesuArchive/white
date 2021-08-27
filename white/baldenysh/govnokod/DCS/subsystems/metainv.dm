@@ -122,6 +122,8 @@ SUBSYSTEM_DEF(metainv)
 	var/list/datum/metainv_loadout/loadout_list = list()
 	var/list/datum/metainv_object/obj_list = list()
 
+//надо впилить проки для добавления и удаления предметов и штоб SStgui.update_uis(src) вызывалось при них
+
 /datum/metainventory/serialize_list(list/options)
 	. = list()
 	.["slots"] = slots_max
