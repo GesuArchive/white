@@ -68,9 +68,9 @@ SUBSYSTEM_DEF(metainv)
 		return inventories[ckey]
 	else
 		var/datum/metainventory/newMI = new
-		var/json_file = file("data/player_saves/[ckey[1]]/[ckey]/metainv.json")
-		if(fexists(json_file))
-			newMI.deserialize_json("[file2text(json_file)]")
+		var/json_file_path = "data/player_saves/[ckey[1]]/[ckey]/metainv.json"
+		if(fexists(json_file_path))
+			newMI.deserialize_json("[file2text(json_file_path)]")
 		if(!length(newMI.loadout_list))
 			newMI.loadout_list += new /datum/metainv_loadout(newMI)
 			newMI.active_loadout = 1
@@ -81,11 +81,11 @@ SUBSYSTEM_DEF(metainv)
 /datum/controller/subsystem/metainv/proc/save_inv(ckey)
 	if(!inventories[ckey])
 		return FALSE
-	var/inv_file = file("data/player_saves/[ckey[1]]/[ckey]/metainv.json")
-	if(fexists(inv_file))
-		fdel(inv_file)
+	var/inv_file_path = "data/player_saves/[ckey[1]]/[ckey]/metainv.json"
+	if(fexists(inv_file_path))
+		fdel(inv_file_path)
 	var/datum/metainventory/MI = inventories[ckey]
-	WRITE_FILE(inv_file, MI.serialize_json())
+	text2file("[MI.serialize_json()]", inv_file_path)
 	return TRUE
 
 //нахуй не нужны пока всякие дропы не будут впилены, как и сохранения впринципе
@@ -176,6 +176,7 @@ SUBSYSTEM_DEF(metainv)
 		var/datum/metainv_loadout/ML = new(src)
 		loadout_list += ML.deserialize_json(json_loadout)
 	active_loadout = input["a_loadout"] ? input["a_loadout"] : 1
+	return src
 
 /datum/metainventory/proc/get_id_to_metaobj_assoc()
 	. = list()
