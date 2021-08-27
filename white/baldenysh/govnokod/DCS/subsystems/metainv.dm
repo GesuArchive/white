@@ -24,6 +24,7 @@ SUBSYSTEM_DEF(metainv)
 	if(!C || !LAZYLEN(C.prefs.purchased_gear))
 		return
 	var/datum/metainventory/MI = get_inv(C.ckey)
+	var/list/to_add = list()
 	for(var/gear in C.prefs.purchased_gear)
 		var/datum/gear/G = GLOB.gear_datums[gear]
 		if(!G || !G.path)
@@ -35,8 +36,8 @@ SUBSYSTEM_DEF(metainv)
 			LAZYADDASSOC(MO.metadata, "species_whitelist", G.species_whitelist)
 		if(G.species_blacklist)
 			LAZYADDASSOC(MO.metadata, "species_blacklist", G.species_blacklist)
-		MI.obj_list += MO
-		MI.temp_slots++
+		to_add += MO
+	MI.add_objects(to_add)
 
 /datum/controller/subsystem/metainv/proc/add_initial_items(ckey, datum/metainventory/MI)
 	var/mob/M = get_mob_by_ckey(ckey)
@@ -58,11 +59,7 @@ SUBSYSTEM_DEF(metainv)
 	restcase.metadata["role_whitelist"] = list("Field Medic", "Paramedic", "Medical Doctor", "Chief Medical Officer")
 	var/datum/metainv_object/icontest = new("/obj/item/clothing/suit/armor/hos/ranger")
 
-	MI.obj_list += icontest
-	MI.obj_list += restcase
-	MI.obj_list += uniform
-	MI.obj_list += bimba
-	MI.obj_list += stels
+	MI.add_objects(list(icontest, restcase, uniform, bimba, stels))
 
 /datum/controller/subsystem/metainv/proc/get_inv(ckey)
 	if(!ckey)
@@ -112,7 +109,7 @@ SUBSYSTEM_DEF(metainv)
 #define METAINVENTORY_SLOT_TURF(num) 	(-2-num)
 
 /datum/metainventory
-	//слоты
+	//слоты (можно впилить чтоб их допкупать можно было)
 	var/slots_max = 16
 	//временные слоты
 	var/temp_slots = 0
@@ -120,11 +117,29 @@ SUBSYSTEM_DEF(metainv)
 	var/active_slot = 0
 	//активный лоудаут
 	var/active_loadout = 1
-
+	//лоудауты (переключение не впилено, но как будет - можно тож докупание впилить)
 	var/list/datum/metainv_loadout/loadout_list = list()
+	//вся фигня в инвентаре
 	var/list/datum/metainv_object/obj_list = list()
 
-//надо впилить проки для добавления и удаления предметов и штоб SStgui.update_uis(src) вызывалось при них
+//для добавления объектов использовать этот прок, принимает объект или лист объектов
+/datum/metainventory/proc/add_objects(input)
+	if(istype(input, /datum/metainv_object))
+		add_single_obj(input)
+		SStgui.update_uis(src)
+		return TRUE
+	if(!islist(input))
+		CRASH("Произошло хуевое добавление объектов в инвентарь")
+		return FALSE
+	for(var/datum/metainv_object/MO in input)
+		add_single_obj(MO)
+	SStgui.update_uis(src)
+	return TRUE
+
+/datum/metainventory/proc/add_single_obj(datum/metainv_object/MO)
+	if(!MO.cid)
+		temp_slots++
+	obj_list += MO
 
 /datum/metainventory/serialize_list(list/options)
 	. = list()
@@ -324,7 +339,7 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainv_object
 	//айди категории, выдается при регистарции в подсистеме
-	//нулевая категория для объектов, выдающихся каждый раз заново всякими ачивками, меташопами или просто на раунд, она не сохраняется
+	//нулевая категория для объектов, выдающихся каждый раз заново всякими ачивками, меташопами или просто на раунд, она не сохраняется и объекты в ней не занимаю место
 	var/cid = 0
 	//тип объекта в текстовом виде (пример - "/obj/machinery/nuclearbomb")
 	var/object_path_txt
