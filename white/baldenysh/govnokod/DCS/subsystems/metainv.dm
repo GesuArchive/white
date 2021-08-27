@@ -135,7 +135,7 @@ SUBSYSTEM_DEF(metainv)
 		for(var/datum/metainv_object/MO in input)
 			add_single_obj(MO)
 	else
-		CRASH("Произошло хуевое добавление объектов в инвентарь")
+		stack_trace("Произошло хуевое добавление объектов в инвентарь")
 		return FALSE
 	SStgui.update_uis(src)
 	return TRUE
