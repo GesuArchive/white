@@ -273,7 +273,7 @@ SUBSYSTEM_DEF(metainv)
 	if(r_hand_metaobj)
 		target.put_in_r_hand(r_hand_metaobj.create_object(T))
 
-	for(var/i = 1; i < SLOTS_AMT; i++)
+	for(var/i = 0; i < SLOTS_AMT; i++)
 		var/datum/metainv_object/MO = equipped["[1<<i]"]
 		if(MO)
 			equip_metaobj_to_invslot(target, (1<<i), MO)
