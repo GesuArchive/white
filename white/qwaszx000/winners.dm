@@ -117,9 +117,8 @@
 			coomers += user.name
 
 /obj/structure/statue/gold/robust/examine_more(mob/user)
-	. = ..()
 	if(coomers)
-		. += "<hr><b>Уважение проявили:</b> <i>[english_list(coomers)]</i>."
+		return "<hr><b>Уважение проявили:</b> <i>[english_list(coomers)]</i>."
 
 /obj/structure/sign/plaques/robust
 	name = "Портрет: Richard Jenkins"

@@ -91,7 +91,7 @@
 			msg += event.description
 	else
 		msg += "<span class='nicegreen'>Да как-то всё равно на всё в данный момент.<span>\n"
-	to_chat(user, msg)
+	to_chat(user, "<div class='examine_block'>[msg]</div>")
 
 ///Called after moodevent/s have been added/removed.
 /datum/component/mood/proc/update_mood()

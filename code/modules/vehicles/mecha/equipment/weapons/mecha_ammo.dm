@@ -12,11 +12,12 @@
 	var/load_audio = 'sound/weapons/gun/general/mag_bullet_insert.ogg'
 	var/ammo_type
 
-/obj/item/mecha_ammo/proc/update_name()
+/obj/item/mecha_ammo/update_name()
 	if(!rounds)
 		name = "empty ammo box"
 		desc = "An exosuit ammuniton box that has since been emptied. Please recycle."
 		icon_state = "empty"
+	return ..()
 
 /obj/item/mecha_ammo/attack_self(mob/user)
 	..()

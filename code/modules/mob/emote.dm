@@ -62,7 +62,7 @@
 			)
 			if(prob(75))
 				flippy_mcgee.adjustBruteLoss(5)
-				if(prob(10))
+				if(prob(50))
 					var/obj/item/bodypart/neckflip = flippy_mcgee.get_bodypart(BODY_ZONE_HEAD)
 					neckflip.force_wound_upwards(/datum/wound/blunt/critical)
 		else

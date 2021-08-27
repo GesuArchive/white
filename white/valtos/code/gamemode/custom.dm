@@ -109,7 +109,7 @@
 	sound_environment = SOUND_ENVIRONMENT_PLAIN
 	ambience_index = AMBIENCE_NONE
 	map_generator = /datum/map_generator/forest_generator
-	env_temp_relative = 3
+	env_temp_relative = -5
 
 /area/partyhard/outdoors/Entered(atom/movable/AM)
 	. = ..()

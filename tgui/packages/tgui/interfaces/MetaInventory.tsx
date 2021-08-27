@@ -316,7 +316,7 @@ export const MetaInventory = (props, context) => {
   const slotRows = Math.ceil(data.slots/COLUMNS);
   return (
     <Window
-      title={`Инвентарь`}
+      title={`Инвентарь (не забудь сохранить в основном меню)`}
       width={50*(COLUMNS+1)}
       height={50*(ROWS+1) + 50*(slotRows+1)}>
       <Window.Content>
