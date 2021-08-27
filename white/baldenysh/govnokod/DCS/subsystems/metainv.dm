@@ -12,10 +12,10 @@ SUBSYSTEM_DEF(metainv)
 	load_categories()
 	RegisterSignal(SSdcs, COMSIG_GLOB_JOB_AFTER_SPAWN, .proc/on_job_after_spawn)
 
-/datum/controller/subsystem/metainv/proc/on_job_after_spawn(datum/source, datum/job/job, mob/living/spawned, mob/newplayer)
+/datum/controller/subsystem/metainv/proc/on_job_after_spawn(datum/source, datum/job/job, mob/living/spawned, client/player_client)
 	if(!spawned || istype(job, /datum/job/ai) || istype(job, /datum/job/cyborg)) //русские идут домой рантаймить
 		return
-	var/ckey = spawned.ckey ? spawned.ckey : newplayer.ckey
+	var/ckey = spawned.ckey ? spawned.ckey : player_client.ckey
 	var/datum/metainventory/MI = get_inv(ckey)
 	var/datum/metainv_loadout/ML = MI.loadout_list[MI.active_loadout]
 	ML.equip_carbon(spawned)
@@ -166,6 +166,7 @@ SUBSYSTEM_DEF(metainv)
 	if (!ui)
 		ui = new(user, src, "MetaInventory")
 		ui.open()
+		ui.set_autoupdate(FALSE)
 
 /datum/metainventory/ui_assets(mob/user)
 	return list(get_asset_datum(/datum/asset/simple/inventory))
