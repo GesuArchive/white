@@ -24,7 +24,6 @@ SUBSYSTEM_DEF(metainv)
 	if(!C || !LAZYLEN(C.prefs.purchased_gear))
 		return
 	var/datum/metainventory/MI = get_inv(C.ckey)
-	var/list/to_add = list()
 	for(var/gear in C.prefs.purchased_gear)
 		var/datum/gear/G = GLOB.gear_datums[gear]
 		if(!G || !G.path)
@@ -36,8 +35,7 @@ SUBSYSTEM_DEF(metainv)
 			LAZYADDASSOC(MO.metadata, "species_whitelist", G.species_whitelist)
 		if(G.species_blacklist)
 			LAZYADDASSOC(MO.metadata, "species_blacklist", G.species_blacklist)
-		to_add += MO
-	MI.add_objects(to_add)
+		MI.add_objects(MO)
 
 /datum/controller/subsystem/metainv/proc/add_initial_items(ckey, datum/metainventory/MI)
 	var/mob/M = get_mob_by_ckey(ckey)
