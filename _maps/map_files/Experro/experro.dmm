@@ -175,7 +175,7 @@
 /turf/open/floor/asphalt,
 /area/partyhard/outdoors)
 "aP" = (
-/obj/structure/closet/secure_closet/freezer/fridge/open,
+/obj/structure/closet/secure_closet/freezer/empty,
 /obj/item/reagent_containers/food/drinks/waterbottle/large,
 /obj/item/reagent_containers/food/drinks/bottle/whiskey,
 /obj/item/food/shaurma,
@@ -222,6 +222,13 @@
 /obj/structure/chair/wood/cataclysmdda,
 /obj/item/trash/sosjerky,
 /turf/open/floor/wood/cataclysmdda/parquet,
+/area/partyhard/indoors)
+"bd" = (
+/obj/machinery/light/small{
+	brightness = 3;
+	dir = 8
+	},
+/turf/open/floor/plasteel/checker,
 /area/partyhard/indoors)
 "be" = (
 /obj/structure/closet/secure_closet/freezer/empty,
@@ -305,6 +312,12 @@
 "bC" = (
 /obj/structure/cataclysmdda/oven,
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda,
+/area/partyhard/indoors)
+"bD" = (
+/obj/machinery/vending/cola/pwr_game{
+	onstation = 0
+	},
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
 /area/partyhard/indoors)
 "bG" = (
 /obj/structure/chair/sofa/right{
@@ -474,7 +487,9 @@
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "cl" = (
-/obj/machinery/vending/cigarette,
+/obj/machinery/vending/cigarette{
+	onstation = 0
+	},
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "cm" = (
@@ -636,6 +651,7 @@
 /obj/structure/rack/cataclysmdda/metal,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/lead_pipe,
+/obj/item/storage/firstaid/regular,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "cT" = (
@@ -645,10 +661,22 @@
 /obj/structure/window/reinforced,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/partyhard/indoors)
+"cX" = (
+/obj/machinery/light/small{
+	base_pixel_y = 0;
+	dir = 1;
+	pixel_y = 19
+	},
+/turf/open/floor/plasteel/tile,
+/area/partyhard/indoors)
 "cY" = (
 /obj/structure/table/wood/cataclysmdda/sci,
 /obj/item/trash/tray,
 /turf/open/floor/wood/cataclysmdda/parquet,
+/area/partyhard/indoors)
+"cZ" = (
+/obj/structure/table/wood/cataclysmdda/sci,
+/turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "da" = (
 /obj/effect/turf_decal/weather/side{
@@ -697,6 +725,13 @@
 /area/partyhard/indoors)
 "dp" = (
 /obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/wood/cataclysmdda/parquet,
+/area/partyhard/indoors)
+"dq" = (
+/obj/structure/chair/wood/cataclysmdda{
+	dir = 4
+	},
+/obj/machinery/light/small,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "dw" = (
@@ -799,7 +834,9 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/effect/spawner/randomcolavend,
+/obj/machinery/vending/cola/sodie{
+	onstation = 0
+	},
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
 /area/partyhard/indoors)
 "dR" = (
@@ -1023,6 +1060,10 @@
 /obj/item/fireaxe,
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda,
 /area/partyhard/indoors)
+"eL" = (
+/obj/item/clothing/head/cone,
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/outdoors)
 "eO" = (
 /obj/structure/table/wood/cataclysmdda/desk,
 /obj/item/bouquet/sunflower,
@@ -1629,6 +1670,9 @@
 "hq" = (
 /obj/structure/rack/cataclysmdda/metal,
 /obj/effect/spawner/lootdrop/maintenance/two,
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 50
+	},
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/blue,
 /area/partyhard/indoors)
 "hr" = (
@@ -2308,6 +2352,10 @@
 /obj/structure/cataclysmdda/kitchencloset,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"kn" = (
+/obj/item/clothing/suit/caution,
+/turf/open/floor/plasteel,
+/area/partyhard/indoors)
 "ko" = (
 /obj/structure/cataclysmdda/bath/another{
 	dir = 8
@@ -2633,7 +2681,7 @@
 /obj/item/clothing/glasses/night,
 /obj/item/gun/ballistic/automatic/asval,
 /obj/item/radio/off,
-/turf/open/floor/wood/cataclysmdda/parquet,
+/turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "lO" = (
 /obj/structure/cataclysmdda/bath/another{
@@ -2650,7 +2698,9 @@
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "lR" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/machinery/vending/snack/teal{
+	onstation = 0
+	},
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "lS" = (
@@ -2723,6 +2773,37 @@
 /obj/effect/spawner/randomarcade,
 /turf/open/floor/light/colour_cycle/dancefloor_b,
 /area/partyhard/indoors)
+"mm" = (
+/obj/structure/closet/crate/box,
+/obj/item/clothing/suit/jacket,
+/obj/item/clothing/suit/jacket{
+	desc = "This looks awfully familiar...";
+	icon_state = "curator"
+	},
+/obj/item/clothing/suit/jacket{
+	desc = "All the class of a trenchcoat without the security fibers.";
+	icon_state = "detective";
+	name = "trenchcoat"
+	},
+/obj/item/clothing/suit/jacket/leather/overcoat,
+/obj/item/clothing/suit/jacket/leather,
+/obj/item/clothing/suit/jacket/letterman_red,
+/obj/item/clothing/suit/jacket/letterman,
+/obj/item/clothing/suit/jacket/puffer,
+/obj/item/clothing/suit/jacket/miljacket,
+/obj/item/clothing/suit/cheongsam_red,
+/obj/item/clothing/suit/cheongsam_blue,
+/obj/item/clothing/suit/chaplainsuit/studentuni,
+/obj/item/clothing/suit/cowl/robe,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/clothing/suit/hooded/wintercoat/cargo,
+/obj/item/clothing/suit/hooded/wintercoat/hydro,
+/obj/item/clothing/suit/hooded/wintercoat/science,
+/obj/item/clothing/suit/hooded/wintercoat/medical,
+/obj/item/clothing/suit/hooded/wintercoat/security,
+/obj/item/clothing/suit/ianshirt,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/partyhard/indoors)
 "mn" = (
 /obj/structure/cataclysmdda/kitchencloset,
 /obj/machinery/microwave{
@@ -2753,7 +2834,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 8
 	},
-/turf/open/floor/wood/cataclysmdda/parquet,
+/turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "mx" = (
 /obj/machinery/light{
@@ -2969,6 +3050,10 @@
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"nD" = (
+/obj/item/clothing/head/cone,
+/turf/open/floor/asphalt,
+/area/partyhard/outdoors)
 "nF" = (
 /obj/machinery/light/small,
 /obj/effect/turf_decal/weather/side{
@@ -2997,11 +3082,16 @@
 /turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "nJ" = (
-/obj/effect/turf_decal/weather/side{
-	dir = 4
+/obj/docking_port/stationary{
+	dir = 8;
+	dwidth = 2;
+	height = 13;
+	id = "ferry_home";
+	name = "City";
+	width = 5
 	},
-/turf/open/floor/wood/cataclysmdda/parquet,
-/area/partyhard/indoors)
+/turf/open/floor/grass/cataclysmdda/dirt,
+/area/partyhard/outdoors)
 "nK" = (
 /obj/effect/spawner/lootdrop/gross_decal_spawner,
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
@@ -3362,6 +3452,9 @@
 "pw" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
 /obj/item/stack/ore/gold,
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 50
+	},
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/blue,
 /area/partyhard/indoors)
 "py" = (
@@ -3514,6 +3607,12 @@
 /obj/item/reagent_containers/food/drinks/britcup,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"qd" = (
+/obj/machinery/vending/snack/blue{
+	onstation = 0
+	},
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/indoors)
 "qf" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
 /obj/item/folder,
@@ -3611,7 +3710,7 @@
 /obj/item/clothing/head/helmet/blueshirt,
 /obj/item/grenade/c4,
 /obj/item/radio/off,
-/turf/open/floor/wood/cataclysmdda/parquet,
+/turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "qG" = (
 /obj/structure/table/wood/cataclysmdda/sci,
@@ -3799,7 +3898,7 @@
 /obj/item/clothing/suit/armor/opvest/spetsnaz,
 /obj/item/clothing/glasses/night,
 /obj/item/radio/off,
-/turf/open/floor/wood/cataclysmdda/parquet,
+/turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "ry" = (
 /obj/structure/bed,
@@ -3814,7 +3913,9 @@
 /turf/open/water/cataclysmdda,
 /area/partyhard/outdoors)
 "rE" = (
-/obj/machinery/vending/sovietsoda,
+/obj/machinery/vending/sovietsoda{
+	onstation = 0
+	},
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -3874,19 +3975,13 @@
 /obj/structure/window{
 	dir = 8
 	},
-/obj/item/ammo_box/magazine/ak47mag{
-	pixel_x = -6;
-	pixel_y = -6
+/obj/item/suppressor/specialoffer,
+/obj/item/suppressor/specialoffer{
+	pixel_y = 4
 	},
-/obj/item/ammo_box/magazine/ak47mag{
-	pixel_x = -3;
-	pixel_y = -3
+/obj/item/suppressor/specialoffer{
+	pixel_y = 8
 	},
-/obj/item/ammo_box/magazine/ak47mag{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/ammo_box/magazine/ak47mag,
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
 "rS" = (
@@ -3921,7 +4016,7 @@
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "rZ" = (
-/obj/structure/closet/secure_closet/freezer/fridge/open,
+/obj/structure/closet/secure_closet/freezer/empty,
 /obj/item/reagent_containers/food/condiment/milk,
 /obj/item/reagent_containers/food/condiment/milk,
 /obj/item/reagent_containers/food/condiment/mayonnaise,
@@ -4028,7 +4123,10 @@
 /turf/open/floor/light/colour_cycle/dancefloor_b,
 /area/partyhard/indoors)
 "sx" = (
-/obj/machinery/vending/security,
+/obj/machinery/vending/security{
+	onstation = 0;
+	req_access = null
+	},
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
 "sB" = (
@@ -4110,6 +4208,12 @@
 "sS" = (
 /turf/open/genturf,
 /area/partyhard/outdoors)
+"sW" = (
+/obj/machinery/vending/cola/starkist{
+	onstation = 0
+	},
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/indoors)
 "sZ" = (
 /obj/structure/toilet{
 	pixel_y = 13
@@ -4222,7 +4326,7 @@
 /obj/item/ammo_box/magazine/ak74m,
 /obj/item/ammo_box/magazine/m75,
 /obj/item/ammo_box/magazine/m75,
-/turf/open/floor/wood/cataclysmdda/parquet,
+/turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "tv" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
@@ -4240,7 +4344,7 @@
 /obj/item/clothing/suit/armor/opvest/spetsnaz,
 /obj/item/gun/ballistic/automatic/ak74m/gp25,
 /obj/item/radio/off,
-/turf/open/floor/wood/cataclysmdda/parquet,
+/turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "tC" = (
 /obj/structure/toilet{
@@ -4256,7 +4360,7 @@
 "tF" = (
 /obj/structure/table/wood/cataclysmdda,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
-/turf/open/floor/wood/cataclysmdda/parquet,
+/turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "tH" = (
 /turf/open/floor/plasteel/dark/side{
@@ -4412,7 +4516,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 1
 	},
-/obj/item/storage/firstaid/emergency,
+/obj/item/storage/firstaid/regular,
 /turf/open/floor/plasteel/tile/white,
 /area/partyhard/indoors)
 "un" = (
@@ -4723,6 +4827,11 @@
 	pixel_y = 2
 	},
 /obj/item/food/salad/ricepork,
+/obj/machinery/light/small{
+	base_pixel_y = 0;
+	dir = 1;
+	pixel_y = 19
+	},
 /turf/open/floor/plasteel/tile/white,
 /area/partyhard/indoors)
 "vD" = (
@@ -4772,6 +4881,11 @@
 /obj/item/bedsheet/random,
 /turf/open/floor/carpet/red,
 /area/partyhard/indoors)
+"vR" = (
+/obj/structure/rack/cataclysmdda/metal/alt,
+/obj/item/clothing/suit/hooded/wintercoat,
+/turf/open/floor/plasteel/dark,
+/area/partyhard/indoors)
 "vS" = (
 /obj/machinery/light,
 /obj/effect/spawner/lootdrop/gross_decal_spawner,
@@ -4788,6 +4902,11 @@
 /obj/structure/rack/cataclysmdda,
 /obj/item/reagent_containers/food/condiment/soysauce,
 /obj/item/reagent_containers/food/condiment/flour,
+/obj/machinery/light{
+	base_pixel_y = 0;
+	dir = 1;
+	pixel_y = 18
+	},
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "vW" = (
@@ -4980,8 +5099,6 @@
 /obj/item/ammo_box/magazine/m10mm/ap,
 /obj/item/ammo_box/magazine/m10mm/hp,
 /obj/item/ammo_box/magazine/m10mm/hp,
-/obj/item/ammo_box/magazine/m10mm/fire,
-/obj/item/ammo_box/magazine/m10mm/fire,
 /obj/item/ammo_box/magazine/m10mm,
 /obj/item/ammo_box/magazine/m45{
 	pixel_x = 9
@@ -5136,6 +5253,12 @@
 	},
 /turf/open/floor/grass/cataclysmdda,
 /area/partyhard/outdoors)
+"xl" = (
+/obj/effect/baseturf_helper/asteroid/snow{
+	baseturf = /turf/open/indestructible/cataclysmdda/sand
+	},
+/turf/closed/wall/cataclysmdda,
+/area/partyhard/indoors)
 "xm" = (
 /obj/structure/sink/kitchen/cataclysmdda{
 	dir = 1
@@ -5169,6 +5292,14 @@
 	},
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
 /area/partyhard/outdoors)
+"xx" = (
+/obj/machinery/light/small{
+	base_pixel_y = 0;
+	dir = 1;
+	pixel_y = 19
+	},
+/turf/open/floor/carpet,
+/area/partyhard/indoors)
 "xy" = (
 /obj/structure/bookcase/random,
 /turf/open/floor/plasteel/grimy,
@@ -5193,6 +5324,7 @@
 	pixel_x = 9;
 	pixel_y = 9
 	},
+/obj/machinery/light/small,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "xE" = (
@@ -5469,7 +5601,7 @@
 /obj/structure/table/wood/cataclysmdda/sci,
 /obj/item/gun/ballistic/automatic/gyropistol,
 /obj/item/ammo_box/magazine/m75,
-/turf/open/floor/wood/cataclysmdda/parquet,
+/turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "yL" = (
 /obj/structure/railing{
@@ -5578,7 +5710,7 @@
 /obj/structure/table/wood/cataclysmdda/sci,
 /obj/item/clothing/suit/armor/opvest/spetsnaz,
 /obj/item/grenade/c4,
-/turf/open/floor/wood/cataclysmdda/parquet,
+/turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "zm" = (
 /obj/structure/closet/crate/bin,
@@ -5728,7 +5860,9 @@
 /turf/open/genturf,
 /area/partyhard/outdoors)
 "zU" = (
-/obj/machinery/vending/autodrobe/all_access,
+/obj/machinery/vending/autodrobe/all_access{
+	onstation = 0
+	},
 /turf/open/floor/plasteel,
 /area/partyhard/indoors)
 "zW" = (
@@ -5810,8 +5944,9 @@
 /area/partyhard/outdoors)
 "Aq" = (
 /obj/machinery/door/poddoor/shutters{
-	max_integrity = 500;
-	name = "Armory Shutters"
+	max_integrity = 700;
+	name = "Armory Shutters";
+	obj_integrity = null
 	},
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/blue,
 /area/partyhard/indoors)
@@ -5849,7 +5984,7 @@
 "Aw" = (
 /obj/structure/table/wood/cataclysmdda/sci,
 /obj/item/ammo_box/magazine/asval,
-/turf/open/floor/wood/cataclysmdda/parquet,
+/turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "Ax" = (
 /obj/structure/flora/cataclysmdda/decoration/houseplant/alt3,
@@ -5865,6 +6000,10 @@
 	},
 /turf/open/floor/grass/cataclysmdda,
 /area/partyhard/outdoors)
+"AD" = (
+/obj/structure/table/wood/cataclysmdda,
+/turf/open/floor/plasteel/tile,
+/area/partyhard/indoors)
 "AF" = (
 /turf/open/floor/plasteel/checker,
 /area/partyhard/indoors)
@@ -5933,6 +6072,10 @@
 /obj/effect/spawner/lootdrop/maintenance/three,
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/blue,
 /area/partyhard/indoors)
+"AZ" = (
+/obj/structure/closet/secure_closet/freezer/empty,
+/turf/open/floor/plasteel/tile,
+/area/partyhard/indoors)
 "Bb" = (
 /obj/structure/window/fulltile,
 /obj/structure/barricade/wooden/crude{
@@ -5952,7 +6095,7 @@
 /obj/structure/table/wood/cataclysmdda/sci,
 /obj/item/clothing/under/pants/camo,
 /obj/machinery/light/small,
-/turf/open/floor/wood/cataclysmdda/parquet,
+/turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "Bh" = (
 /obj/structure/table/wood/cataclysmdda,
@@ -6142,6 +6285,16 @@
 "BT" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/light/small,
+/obj/structure/rack,
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 50
+	},
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 50
+	},
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 50
+	},
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/blue,
 /area/partyhard/indoors)
 "BU" = (
@@ -6172,6 +6325,23 @@
 /area/partyhard/indoors)
 "Ca" = (
 /obj/structure/closet/crate/box,
+/obj/item/clothing/head/beanie/rasta,
+/obj/item/clothing/head/beanie/red,
+/obj/item/clothing/head/beanie/striped,
+/obj/item/clothing/head/beanie/stripedblue,
+/obj/item/clothing/head/beanie/stripedred,
+/obj/item/clothing/head/beanie/stripedgreen,
+/obj/item/clothing/head/beanie/yellow,
+/obj/item/clothing/head/beanie/green,
+/obj/item/clothing/head/beanie/darkblue,
+/obj/item/clothing/head/beanie/black,
+/obj/item/clothing/head/beret,
+/obj/item/clothing/head/beret/black,
+/obj/item/clothing/head/beret/blue,
+/obj/item/clothing/head/canada,
+/obj/item/clothing/head/cap/elite,
+/obj/item/clothing/head/flatcap,
+/obj/item/clothing/head/flatcap,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/partyhard/indoors)
 "Cb" = (
@@ -6496,7 +6666,6 @@
 /turf/open/floor/plasteel/tile/white,
 /area/partyhard/indoors)
 "Dv" = (
-/obj/structure/closet/crate/box,
 /obj/machinery/light{
 	base_pixel_y = 0;
 	dir = 1;
@@ -6606,7 +6775,6 @@
 /obj/item/ammo_box/magazine/m9mm,
 /obj/item/ammo_box/magazine/m9mm/hp,
 /obj/item/ammo_box/magazine/m9mm/hp,
-/obj/item/ammo_box/magazine/m9mm/fire,
 /obj/item/ammo_box/magazine/m9mm/ap,
 /obj/item/ammo_box/magazine/m9mm/ap,
 /obj/item/ammo_box/magazine/m9mm,
@@ -6654,7 +6822,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 1
 	},
-/turf/open/floor/wood/cataclysmdda/parquet,
+/turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "DQ" = (
 /obj/machinery/button/door{
@@ -6754,7 +6922,7 @@
 /area/partyhard/indoors)
 "Eo" = (
 /obj/machinery/power/smes/magical,
-/turf/open/floor/plasteel/tile,
+/turf/open/floor/plasteel/tile/white,
 /area/partyhard/indoors)
 "Ep" = (
 /obj/structure/chair/sofa/corp/left{
@@ -6818,7 +6986,9 @@
 /turf/open/floor/plasteel/tile/white,
 /area/partyhard/indoors)
 "EJ" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/machinery/vending/snack/orange{
+	onstation = 0
+	},
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
 /area/partyhard/indoors)
 "EK" = (
@@ -7056,6 +7226,10 @@
 "FB" = (
 /obj/item/device/flashlight/slamp,
 /turf/open/floor/wood/cataclysmdda/parquet,
+/area/partyhard/indoors)
+"FD" = (
+/obj/structure/mineral_door/wood/cataclysmdda,
+/turf/open/floor/plasteel/monofloor,
 /area/partyhard/indoors)
 "FG" = (
 /obj/structure/closet/crate/shkaf,
@@ -7399,6 +7573,7 @@
 /area/partyhard/indoors)
 "Hl" = (
 /obj/machinery/vending/medical{
+	onstation = 0;
 	req_access = null
 	},
 /turf/open/floor/plasteel/tile/white,
@@ -7473,6 +7648,10 @@
 /obj/structure/flora/cataclysmdda/decoration/houseplant/alt4,
 /turf/open/floor/grass/cataclysmdda/dirt,
 /area/partyhard/outdoors)
+"HK" = (
+/obj/structure/closet/crate/bin,
+/turf/open/floor/plasteel/tile,
+/area/partyhard/indoors)
 "HM" = (
 /obj/item/trash/candy,
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
@@ -7635,6 +7814,15 @@
 /obj/item/blacksmith/tongs,
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/blue,
 /area/partyhard/indoors)
+"IM" = (
+/obj/structure/chair/comfy/black{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/wood/cataclysmdda/parquet,
+/area/partyhard/indoors)
 "IO" = (
 /obj/structure/cataclysmdda/oven,
 /obj/machinery/light/small{
@@ -7653,6 +7841,9 @@
 "IU" = (
 /obj/structure/closet/crate,
 /obj/item/stack/ore/iron,
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 50
+	},
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/blue,
 /area/partyhard/indoors)
 "IV" = (
@@ -8225,6 +8416,10 @@
 /area/partyhard/indoors)
 "LG" = (
 /obj/structure/closet/secure_closet/medical1,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
 /turf/open/floor/plasteel/tile/white,
 /area/partyhard/indoors)
 "LH" = (
@@ -8272,6 +8467,12 @@
 /obj/item/stack/medical/suture/emergency,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"LV" = (
+/obj/machinery/vending/cola/red{
+	onstation = 0
+	},
+/turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
+/area/partyhard/indoors)
 "LW" = (
 /obj/structure/closet/secure_closet/freezer/empty,
 /obj/item/reagent_containers/food/condiment/mayonnaise,
@@ -8307,6 +8508,9 @@
 /obj/item/reagent_containers/food/condiment/milk,
 /obj/item/reagent_containers/food/condiment/soymilk,
 /obj/item/food/rationpack,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "Me" = (
@@ -8775,7 +8979,7 @@
 /obj/structure/rospilovo/radio{
 	pixel_y = 14
 	},
-/turf/open/floor/wood/cataclysmdda/parquet,
+/turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "Ol" = (
 /obj/structure/table/wood/cataclysmdda,
@@ -8819,6 +9023,7 @@
 /area/partyhard/outdoors)
 "Or" = (
 /obj/structure/grille/cataclysmdda,
+/obj/structure/window/reinforced/fulltile,
 /turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "Os" = (
@@ -8944,7 +9149,7 @@
 /area/partyhard/indoors)
 "OX" = (
 /obj/effect/turf_decal/weather/side,
-/turf/open/floor/wood/cataclysmdda/parquet,
+/turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "OY" = (
 /obj/structure/closet/crate/bin,
@@ -9248,7 +9453,9 @@
 /turf/open/floor/plasteel/tile/white,
 /area/partyhard/indoors)
 "Qs" = (
-/obj/machinery/vending/clothing,
+/obj/machinery/vending/clothing{
+	onstation = 0
+	},
 /turf/open/floor/plasteel,
 /area/partyhard/indoors)
 "Qt" = (
@@ -9325,6 +9532,21 @@
 /obj/item/book/manual/wiki/chemistry,
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
+"QL" = (
+/obj/structure/closet/crate/box,
+/obj/item/clothing/glasses/sunglasses/reagent,
+/obj/item/clothing/glasses/sunglasses/garb,
+/obj/item/clothing/glasses/sunglasses/gar,
+/obj/item/clothing/glasses/sunglasses,
+/obj/item/clothing/glasses/regular/jamjar,
+/obj/item/clothing/glasses/regular/circle,
+/obj/item/clothing/glasses/regular,
+/obj/item/clothing/glasses/red,
+/obj/item/clothing/glasses/prism_glasses,
+/obj/item/clothing/glasses/orange,
+/obj/item/clothing/glasses/cold,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/partyhard/indoors)
 "QM" = (
 /obj/structure/closet/crate/trashcart,
 /obj/item/reagent_containers/pill/speedrun,
@@ -9398,12 +9620,6 @@
 "QZ" = (
 /obj/structure/chair/stool/bar/cataclysmdda,
 /turf/open/floor/wood/cataclysmdda/parquet,
-/area/partyhard/indoors)
-"Ra" = (
-/obj/structure/closet,
-/obj/item/stock_parts/cell/hyper,
-/obj/item/inducer,
-/turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "Rb" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
@@ -9495,8 +9711,7 @@
 /area/partyhard/indoors)
 "Rw" = (
 /obj/structure/closet,
-/obj/item/storage/belt/utility/chief/full,
-/turf/open/floor/plasteel/tile,
+/turf/open/floor/plasteel/tile/white,
 /area/partyhard/indoors)
 "Rx" = (
 /obj/structure/chair/sofa,
@@ -9552,6 +9767,45 @@
 "RL" = (
 /obj/structure/rack/cataclysmdda,
 /turf/open/floor/wood/cataclysmdda/parquet,
+/area/partyhard/indoors)
+"RN" = (
+/obj/structure/closet/crate/box,
+/obj/item/clothing/under/color/black,
+/obj/item/clothing/under/color/blue,
+/obj/item/clothing/under/color/brown,
+/obj/item/clothing/under/color/darkblue,
+/obj/item/clothing/under/color/darkgreen,
+/obj/item/clothing/under/color/green,
+/obj/item/clothing/under/color/grey,
+/obj/item/clothing/under/color/jumpskirt/black,
+/obj/item/clothing/under/color/jumpskirt/blue,
+/obj/item/clothing/under/color/jumpskirt/brown,
+/obj/item/clothing/under/color/jumpskirt/darkblue,
+/obj/item/clothing/under/color/jumpskirt/darkgreen,
+/obj/item/clothing/under/color/jumpskirt/green,
+/obj/item/clothing/under/color/jumpskirt/grey,
+/obj/item/clothing/under/color/jumpskirt/lightbrown,
+/obj/item/clothing/under/color/jumpskirt/lightpurple,
+/obj/item/clothing/under/color/jumpskirt/maroon,
+/obj/item/clothing/under/color/jumpskirt/orange,
+/obj/item/clothing/under/color/jumpskirt/pink,
+/obj/item/clothing/under/color/jumpskirt/rainbow,
+/obj/item/clothing/under/color/jumpskirt/red,
+/obj/item/clothing/under/color/jumpskirt/white,
+/obj/item/clothing/under/color/jumpskirt/yellow,
+/obj/item/clothing/under/color/orange,
+/obj/item/clothing/under/color/pink,
+/obj/item/clothing/under/color/red,
+/obj/item/clothing/under/costume/dutch,
+/obj/item/clothing/under/costume/sharovari,
+/obj/item/clothing/under/dress/sailor,
+/obj/item/clothing/under/dress/skirt,
+/obj/item/clothing/under/dress/blacktango,
+/obj/item/clothing/under/dress/skirt/plaid/purple,
+/obj/item/clothing/under/dress/skirt/plaid/blue,
+/obj/item/clothing/under/dress/skirt/plaid/green,
+/obj/item/clothing/under/dress/sundress,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/partyhard/indoors)
 "RQ" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
@@ -9756,6 +10010,21 @@
 /obj/item/clothing/head/beanie/black,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"SL" = (
+/obj/structure/closet/crate/box,
+/obj/item/clothing/gloves/arbiter/undertaker,
+/obj/item/clothing/gloves/botanic_leather,
+/obj/item/clothing/gloves/color/black,
+/obj/item/clothing/gloves/color/black,
+/obj/item/clothing/gloves/color/grey,
+/obj/item/clothing/gloves/color/grey,
+/obj/item/clothing/gloves/color/plasmaman/black,
+/obj/item/clothing/gloves/color/plasmaman/black,
+/obj/item/clothing/gloves/color/rainbow,
+/obj/item/clothing/gloves/fingerless,
+/obj/item/clothing/gloves/fingerless,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/partyhard/indoors)
 "SO" = (
 /obj/structure/toilet{
 	pixel_y = 13
@@ -9815,7 +10084,7 @@
 	dir = 4
 	},
 /obj/machinery/light/small,
-/turf/open/floor/plasteel/tile,
+/turf/open/floor/plasteel/tile/white,
 /area/partyhard/indoors)
 "Ta" = (
 /obj/effect/turf_decal/stripes{
@@ -9845,6 +10114,11 @@
 	dir = 8
 	},
 /turf/open/floor/light/colour_cycle/dancefloor_a,
+/area/partyhard/indoors)
+"Tf" = (
+/obj/structure/chair/sofa,
+/obj/item/clothing/head/festive,
+/turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "Tg" = (
 /obj/structure/cataclysmdda/kitchencloset,
@@ -9951,6 +10225,33 @@
 /obj/effect/spawner/lootdrop/gross_decal_spawner,
 /turf/open/floor/grass/cataclysmdda/dirt,
 /area/partyhard/outdoors)
+"TJ" = (
+/obj/structure/closet/crate/box,
+/obj/item/clothing/head/bandana,
+/obj/item/clothing/mask/bandana,
+/obj/item/clothing/mask/bandana/black,
+/obj/item/clothing/mask/bandana/black,
+/obj/item/clothing/mask/bandana/black,
+/obj/item/clothing/mask/bandana/blue,
+/obj/item/clothing/mask/bandana/blue,
+/obj/item/clothing/mask/bandana/blue,
+/obj/item/clothing/mask/bandana/gold,
+/obj/item/clothing/mask/bandana/gold,
+/obj/item/clothing/mask/bandana/gold,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/skull,
+/obj/item/clothing/mask/bandana/skull,
+/obj/item/clothing/mask/bandana/skull,
+/obj/item/clothing/mask/bandana/red,
+/obj/item/clothing/mask/bandana/red,
+/obj/item/clothing/mask/bandana/red,
+/obj/item/clothing/mask/fakemoustache,
+/obj/item/clothing/mask/gas/anonist,
+/obj/item/clothing/mask/gas/mime,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/partyhard/indoors)
 "TN" = (
 /obj/structure/chair/pew,
 /turf/open/floor/grass/cataclysmdda,
@@ -10114,6 +10415,12 @@
 "Uw" = (
 /obj/structure/bed/roller,
 /turf/open/floor/plasteel/tile/monofloor,
+/area/partyhard/indoors)
+"Ux" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Military Outpost"
+	},
+/turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "Uy" = (
 /obj/structure/sink{
@@ -10347,6 +10654,12 @@
 	},
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"VG" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/plasteel/tile/white,
+/area/partyhard/indoors)
 "VH" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/genturf,
@@ -10436,7 +10749,9 @@
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
 "Wl" = (
-/obj/effect/spawner/randomcolavend,
+/obj/machinery/vending/cola/shamblers{
+	onstation = 0
+	},
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
 "Wp" = (
@@ -10548,7 +10863,7 @@
 	dir = 4
 	},
 /obj/machinery/light/small,
-/turf/open/floor/plasteel/tile,
+/turf/open/floor/plasteel/tile/white,
 /area/partyhard/indoors)
 "WR" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
@@ -10670,7 +10985,9 @@
 /turf/open/floor/carpet/red,
 /area/partyhard/indoors)
 "Xx" = (
-/obj/effect/spawner/randomcolavend,
+/obj/machinery/vending/coffee{
+	onstation = 0
+	},
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
 /area/partyhard/indoors)
 "XA" = (
@@ -10886,6 +11203,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/partyhard/indoors)
+"Yv" = (
+/obj/item/clothing/suit/caution,
+/turf/open/floor/wood/cataclysmdda/parquet,
+/area/partyhard/indoors)
 "Yw" = (
 /turf/closed/wall/cataclysmdda/redbrick,
 /area/partyhard/indoors)
@@ -11024,6 +11345,11 @@
 /obj/item/food/meat/slab,
 /obj/item/food/meatball,
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda,
+/area/partyhard/indoors)
+"Zk" = (
+/obj/structure/table/wood/cataclysmdda/sci,
+/obj/item/storage/firstaid/regular,
+/turf/open/floor/plasteel/tile/white,
 /area/partyhard/indoors)
 "Zl" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
@@ -17807,8 +18133,8 @@ sS
 sS
 sS
 sS
-sS
-sS
+Wb
+Wb
 Wb
 Wb
 Wb
@@ -18161,7 +18487,7 @@ sS
 sS
 sS
 sS
-sS
+Wb
 Wb
 Wb
 Wb
@@ -18867,7 +19193,7 @@ sS
 sS
 sS
 sS
-sS
+Wb
 Wb
 Wb
 Wb
@@ -19219,7 +19545,7 @@ sS
 sS
 sS
 sS
-sS
+Wb
 Wb
 Wb
 Wb
@@ -52628,7 +52954,7 @@ bA
 bA
 bA
 rJ
-hL
+rJ
 rJ
 rJ
 rJ
@@ -52900,7 +53226,7 @@ uA
 tY
 tQ
 ff
-EJ
+qd
 oO
 oO
 oO
@@ -53252,7 +53578,7 @@ uA
 ff
 hd
 ff
-Xx
+bD
 oO
 oO
 oO
@@ -53604,7 +53930,7 @@ uA
 ff
 ff
 ff
-Xx
+sW
 oO
 oO
 oO
@@ -54393,7 +54719,7 @@ rJ
 rJ
 rJ
 rJ
-hL
+rJ
 rJ
 rJ
 rJ
@@ -54756,7 +55082,7 @@ rJ
 rJ
 rJ
 rJ
-hL
+rJ
 rJ
 rJ
 rJ
@@ -56414,7 +56740,7 @@ OO
 tH
 AF
 AF
-AF
+bd
 AF
 AF
 pq
@@ -56496,7 +56822,6 @@ sS
 sS
 uD
 bA
-hL
 rJ
 rJ
 rJ
@@ -56520,7 +56845,8 @@ rJ
 rJ
 rJ
 rJ
-hL
+rJ
+rJ
 bA
 sS
 sS
@@ -60020,7 +60346,7 @@ uD
 uD
 rJ
 rJ
-hL
+rJ
 rJ
 rJ
 rJ
@@ -60372,7 +60698,6 @@ uD
 uD
 bA
 rJ
-hL
 rJ
 rJ
 rJ
@@ -60393,7 +60718,8 @@ rJ
 rJ
 rJ
 rJ
-hL
+rJ
+rJ
 bA
 uD
 sS
@@ -64548,7 +64874,7 @@ WN
 uD
 uD
 aM
-Fe
+Tf
 uA
 IZ
 br
@@ -65213,7 +65539,7 @@ Tg
 ff
 lA
 uA
-nC
+IM
 uA
 wI
 ff
@@ -65222,7 +65548,7 @@ PE
 wL
 ff
 st
-tQ
+us
 xm
 ff
 kd
@@ -65571,7 +65897,7 @@ HZ
 ff
 MV
 wo
-tQ
+uC
 ff
 ff
 bK
@@ -66277,7 +66603,7 @@ ff
 bK
 ff
 ff
-uA
+kg
 Sa
 Sa
 Sa
@@ -67323,7 +67649,7 @@ uA
 uA
 uA
 uA
-uA
+Cg
 uA
 Cq
 Cq
@@ -68741,7 +69067,7 @@ nt
 nt
 WC
 Yw
-MI
+gs
 MI
 MI
 MI
@@ -69437,7 +69763,7 @@ uA
 Pi
 Tv
 jH
-uA
+hl
 uA
 nt
 Gr
@@ -70469,7 +70795,7 @@ oO
 oO
 oO
 ps
-Xx
+LV
 oO
 oO
 oO
@@ -70486,7 +70812,7 @@ yq
 WN
 uD
 Yw
-uA
+kg
 uA
 uA
 uA
@@ -73041,7 +73367,7 @@ yq
 yq
 yq
 yq
-yq
+nD
 yq
 yq
 yq
@@ -75153,7 +75479,7 @@ yq
 yq
 yq
 yq
-yq
+nD
 yq
 yq
 yq
@@ -77930,7 +78256,7 @@ sQ
 Ka
 ff
 tQ
-tQ
+Zk
 aV
 uD
 bA
@@ -78048,8 +78374,8 @@ uD
 uD
 uD
 uD
-uD
-uD
+bA
+bA
 uD
 uD
 uD
@@ -78400,13 +78726,13 @@ uD
 WN
 uD
 uD
-uD
-uD
-uD
-uD
 bA
-uD
-uD
+bA
+bA
+bA
+bA
+bA
+bA
 uD
 uD
 uD
@@ -78752,14 +79078,14 @@ uD
 uD
 uD
 uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
+bA
+bA
+bA
+nJ
+bA
+bA
+bA
+bA
 uD
 uD
 uD
@@ -79104,15 +79430,15 @@ uD
 uD
 uD
 uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 uD
 uD
 uD
@@ -79455,19 +79781,19 @@ uD
 uD
 uD
 uD
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 uD
 uD
-WN
 uD
-uD
-WN
-uD
-uD
-uD
-uD
-uD
-uD
-WN
 uD
 uD
 uD
@@ -79807,16 +80133,16 @@ uD
 uD
 uD
 uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 uD
 uD
 uD
@@ -80160,18 +80486,18 @@ uD
 uD
 uD
 uD
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 uD
 uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
+bA
 uD
 uD
 uD
@@ -80512,16 +80838,16 @@ uD
 uD
 uD
 uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-WN
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 uD
 uD
 uD
@@ -80864,16 +81190,16 @@ uD
 uD
 uD
 uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 uD
 uD
 uD
@@ -81216,16 +81542,16 @@ uD
 uD
 bA
 uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-WN
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 uD
 uD
 uD
@@ -81568,15 +81894,15 @@ uD
 uD
 uD
 uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 uD
 uD
 uD
@@ -81920,15 +82246,15 @@ uD
 uD
 uD
 uD
-uD
-uD
-uD
 bA
-uD
-uD
 bA
-uD
-uD
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 uD
 uD
 uD
@@ -82273,13 +82599,13 @@ uD
 uD
 uD
 uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 uD
 uD
 uD
@@ -82625,13 +82951,13 @@ uD
 uD
 uD
 uD
-uD
-uD
-uD
-uD
-uD
-uD
-uD
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 uD
 uD
 uD
@@ -82977,10 +83303,10 @@ uD
 uD
 uD
 uD
-uD
-uD
-uD
-uD
+bA
+bA
+bA
+bA
 uD
 uD
 uD
@@ -83329,9 +83655,9 @@ uD
 uD
 uD
 uD
-uD
-uD
-uD
+bA
+bA
+bA
 uD
 uD
 uD
@@ -83807,7 +84133,7 @@ dc
 FA
 ff
 uA
-uA
+Yv
 uA
 uA
 uA
@@ -87391,13 +87717,13 @@ Yw
 WN
 by
 Yw
-Sa
+xx
 Sa
 Sa
 uA
 xD
 ff
-Sa
+xx
 Sa
 Sa
 zs
@@ -88805,7 +89131,7 @@ Sw
 uA
 uA
 uA
-uA
+bb
 uA
 uA
 uA
@@ -89513,7 +89839,7 @@ uA
 bK
 uA
 uA
-rY
+dq
 Yw
 uD
 uD
@@ -90568,7 +90894,7 @@ CO
 uA
 ff
 yS
-ov
+fl
 Au
 Yw
 uD
@@ -90842,7 +91168,7 @@ uA
 uA
 uA
 ff
-xw
+ih
 yq
 yq
 yq
@@ -91264,7 +91590,7 @@ WN
 by
 Yw
 vE
-tQ
+VG
 wZ
 uA
 uA
@@ -91898,7 +92224,7 @@ uA
 uA
 uA
 ff
-xw
+ih
 yq
 yq
 yq
@@ -93081,7 +93407,7 @@ oO
 oO
 oO
 oO
-oO
+eL
 oO
 oO
 oO
@@ -93658,7 +93984,7 @@ ff
 ff
 ff
 ff
-xw
+ih
 yq
 yq
 yq
@@ -93786,7 +94112,7 @@ yq
 yq
 yq
 yq
-yq
+nD
 yq
 yq
 yq
@@ -95195,7 +95521,7 @@ yq
 yq
 yq
 yq
-yq
+nD
 yq
 yq
 yq
@@ -95418,7 +95744,7 @@ MI
 MI
 vu
 ff
-xw
+ih
 yq
 yq
 yq
@@ -95658,7 +95984,7 @@ rJ
 rJ
 rJ
 rJ
-hL
+rJ
 rJ
 rJ
 rJ
@@ -96602,7 +96928,7 @@ yq
 yq
 yq
 yq
-yq
+nD
 yq
 yq
 yq
@@ -96826,7 +97152,7 @@ MI
 MI
 vu
 ff
-xw
+ih
 yq
 yq
 yq
@@ -97425,7 +97751,7 @@ rJ
 rJ
 rJ
 rJ
-hL
+rJ
 rJ
 bA
 uD
@@ -97658,7 +97984,7 @@ oO
 oO
 oO
 oO
-oO
+eL
 oO
 oO
 oO
@@ -98234,7 +98560,7 @@ MI
 MI
 vu
 ff
-xw
+ih
 yq
 yq
 yq
@@ -100096,18 +100422,18 @@ oO
 oO
 uD
 uD
+xl
+ff
+tg
+tg
+tg
+tg
+tg
+tg
 ff
 ff
-tg
-tg
-tg
-tg
-tg
-tg
-ff
-ff
-bK
-bK
+FD
+FD
 ff
 ff
 tg
@@ -100456,7 +100782,7 @@ zP
 zP
 zP
 zP
-zP
+kn
 Nt
 IA
 IA
@@ -101278,7 +101604,7 @@ sS
 sS
 bA
 uD
-hL
+rJ
 rJ
 rJ
 rJ
@@ -103038,7 +103364,7 @@ sS
 sS
 sS
 uD
-hL
+rJ
 rJ
 rJ
 rJ
@@ -105026,9 +105352,9 @@ WS
 uD
 ff
 Ca
-Ca
-Ca
-Ca
+QL
+SL
+TJ
 vB
 JJ
 vA
@@ -105729,14 +106055,14 @@ bA
 uD
 uD
 ff
-Ca
-Ai
+mm
+RN
 Ai
 Ai
 wU
 Vp
 KA
-Vp
+vR
 Vp
 vA
 Vp
@@ -117567,7 +117893,7 @@ jl
 jl
 jl
 jl
-kD
+Ux
 jl
 jl
 jl
@@ -117916,15 +118242,15 @@ WS
 uD
 jl
 Ok
-eE
-bb
+iG
+fl
 DP
 rT
 OX
-uA
-uA
-uA
-yl
+ov
+ov
+ov
+cZ
 jl
 uD
 uD
@@ -118267,16 +118593,16 @@ uD
 uD
 uD
 jl
-EP
-eE
-uA
-uA
-uA
-uA
-uA
-uA
-uA
-yl
+AD
+iG
+ov
+ov
+ov
+ov
+ov
+ov
+ov
+cZ
 jl
 uD
 uD
@@ -118620,15 +118946,15 @@ uD
 uD
 jl
 tF
-rY
-uA
-uA
-uA
-uA
-uA
-uA
-uA
-yl
+ZN
+ov
+ov
+ov
+ov
+ov
+ov
+ov
+cZ
 jl
 bA
 uD
@@ -118971,16 +119297,16 @@ uD
 uD
 uD
 jl
-zm
-uA
-uA
-uA
-uA
-uA
-uM
-uA
-uA
-be
+HK
+ov
+ov
+ov
+ov
+ov
+Ke
+ov
+ov
+AZ
 jl
 uD
 Th
@@ -119325,7 +119651,7 @@ jl
 jl
 jl
 jl
-bK
+yE
 jl
 jl
 jl
@@ -119675,10 +120001,10 @@ jl
 lN
 rx
 tt
-uA
-uA
-uA
-uA
+ov
+ov
+ov
+ov
 yE
 ov
 Ke
@@ -120024,10 +120350,10 @@ NE
 uD
 BF
 jl
-lQ
-uA
-uA
-uA
+cX
+ov
+ov
+ov
 yK
 jl
 jl
@@ -120377,15 +120703,15 @@ uD
 hs
 jl
 mw
-uA
-uA
-uA
+ov
+ov
+ov
 zl
 jl
 Eo
-ov
-ov
-Ra
+tQ
+tQ
+Rw
 jl
 Wa
 ov
@@ -120727,16 +121053,16 @@ uD
 fZ
 uD
 uD
-kD
+Ux
 nz
-uA
-uA
-uA
+ov
+ov
+ov
 Aw
 jl
-ov
-Ke
-ov
+tQ
+VG
+tQ
 Rw
 jl
 VN
@@ -120744,7 +121070,7 @@ Wz
 Zl
 ov
 Gx
-kD
+Ux
 uD
 uD
 fZ
@@ -121080,10 +121406,10 @@ NE
 uD
 iw
 jl
-nJ
-uA
-uA
-uA
+Gy
+ov
+ov
+ov
 Bf
 jl
 jl
@@ -121435,9 +121761,9 @@ jl
 qE
 lN
 tB
-uA
-uA
-uA
+ov
+ov
+ov
 jl
 zm
 cn
@@ -121789,14 +122115,14 @@ jl
 jl
 jl
 jl
-bK
+yE
 jl
 uA
 uA
 jl
-yE
+tY
 jl
-yE
+tY
 jl
 jl
 jl
