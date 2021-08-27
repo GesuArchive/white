@@ -68,9 +68,10 @@ SUBSYSTEM_DEF(metainv)
 		var/datum/metainventory/newMI = new
 		var/json_file = file("data/player_saves/[ckey[1]]/[ckey]/metainv.json")
 		if(fexists(json_file))
-			newMI.deserialize_json(file2text(json_file))
-		else
+			newMI.deserialize_json("[file2text(json_file)]")
+		if(!length(newMI.loadout_list))
 			newMI.loadout_list += new /datum/metainv_loadout(newMI)
+			newMI.active_loadout = 1
 		inventories[ckey] = newMI
 		add_initial_items(ckey, newMI)
 		return newMI
@@ -133,7 +134,11 @@ SUBSYSTEM_DEF(metainv)
 	SStgui.update_uis(src)
 	return TRUE
 
+//этот прок за пределами метаинвентаря не трогать
 /datum/metainventory/proc/add_single_obj(datum/metainv_object/MO)
+	if(!MO)
+		stack_trace("Попытка добавить в инвентарь объект без объекта...")
+		return
 	if(!MO.cid)
 		temp_slots++
 	obj_list += MO
@@ -158,17 +163,11 @@ SUBSYSTEM_DEF(metainv)
 	slots_max = input["slots"]
 	for(var/json_obj in input["objs"])
 		var/datum/metainv_object/MO = new
-		obj_list += MO.deserialize_json(json_obj)
+		add_single_obj(MO.deserialize_json(json_obj))
 	for(var/json_loadout in input["loadouts"])
 		var/datum/metainv_loadout/ML = new(src)
 		loadout_list += ML.deserialize_json(json_loadout)
 	active_loadout = input["a_loadout"] ? input["a_loadout"] : 1
-
-	if(!length(loadout_list))
-		stack_trace("Десериализация лоудаута по пизде")
-		var/datum/metainv_loadout/ML = new(src)
-		loadout_list += ML
-		active_loadout = 1
 
 /datum/metainventory/proc/get_id_to_metaobj_assoc()
 	. = list()
