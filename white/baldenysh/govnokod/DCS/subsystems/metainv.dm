@@ -69,8 +69,9 @@ SUBSYSTEM_DEF(metainv)
 		var/json_file = file("data/player_saves/[ckey[1]]/[ckey]/metainv.json")
 		if(fexists(json_file))
 			newMI.deserialize_json(file2text(json_file))
-		else
+		if(!length(newMI.loadout_list))
 			newMI.loadout_list += new /datum/metainv_loadout(newMI)
+			newMI.active_loadout = 1
 		inventories[ckey] = newMI
 		add_initial_items(ckey, newMI)
 		return newMI
