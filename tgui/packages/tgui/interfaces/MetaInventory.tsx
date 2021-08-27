@@ -317,7 +317,7 @@ export const MetaInventory = (props, context) => {
   return (
     <Window
       title={`Инвентарь (не забудь сохранить в меню)`}
-      width={50*(COLUMNS+1) + 10}
+      width={50*(COLUMNS+1) + 5}
       height={50*(ROWS+1) + 50*(slotRows+1)}>
       <Window.Content>
         <Stack fill vertical>
