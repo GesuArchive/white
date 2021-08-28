@@ -56,8 +56,7 @@ export const Autolathe = (props, context) => {
                           }}
                           value={materialsmax - filteredmaterial.mineral_amount}
                           maxValue={materialsmax}
-                          color="black"
-                          backgroundColor={filteredmaterial.matcolour}>
+                          color="black">
                           <div style={{ transform: 'scaleX(-1)' }}>{filteredmaterial.mineral_amount + ' см³'}</div>
                         </ProgressBar>
                       </LabeledList.Item>

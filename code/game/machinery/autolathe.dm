@@ -84,8 +84,7 @@
 		var/mineral_count = materials.materials[mat_id]
 		var/list/material_data = list(
 			name = M.name,
-			mineral_amount = mineral_count,
-			matcolour = M.greyscale_colors,
+			mineral_amount = mineral_count
 		)
 		data["materials"] += list(material_data)
 	if(selected_category != "Ничего" && !length(matching_designs))
@@ -128,7 +127,7 @@
 					m10 = TRUE
 				var/datum/component/material_container/mats = GetComponent(/datum/component/material_container)
 				for(var/datum/material/mat in D.materials)
-					max_multiplier = min(50, round(mats.get_material_amount(mat)/(D.materials[mat] * creation_efficiency)))
+					max_multiplier = min(50, round(mats.get_material_amount(mat)/(D.materials[mat])))
 
 		var/list/design = list(
 			name = D.name,
@@ -247,7 +246,7 @@
 		wires.interact(user)
 		return TRUE
 
-	if(user.combat_mode) //so we can hit the machine
+	if(user.a_intent == INTENT_HARM) //so we can hit the machine
 		return ..()
 
 	if(machine_stat)
