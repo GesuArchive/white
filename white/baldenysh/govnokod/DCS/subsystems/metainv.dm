@@ -1,3 +1,6 @@
+#define METAINVENTORY_PERSONAL_INVENTORY_PATH(ckey) "data/player_saves/[ckey[1]]/[ckey]/metainv.json"
+#define METAINVENTORY_CATEGORIES_PATH "data/metainv/categories.json"
+
 SUBSYSTEM_DEF(metainv)
 	name = "МетаИнвентарь"
 	flags = SS_NO_FIRE
@@ -69,9 +72,8 @@ SUBSYSTEM_DEF(metainv)
 		return inventories[ckey]
 	else
 		var/datum/metainventory/newMI = new
-		var/json_file_path = "data/player_saves/[ckey[1]]/[ckey]/metainv.json"
-		if(fexists(json_file_path))
-			newMI.deserialize_json("[file2text(json_file_path)]")
+		if(fexists(METAINVENTORY_PERSONAL_INVENTORY_PATH(ckey)))
+			newMI.deserialize_json("[file2text(METAINVENTORY_PERSONAL_INVENTORY_PATH(ckey))]")
 		if(!length(newMI.loadout_list))
 			newMI.loadout_list += new /datum/metainv_loadout(newMI)
 			newMI.active_loadout = 1
@@ -82,16 +84,20 @@ SUBSYSTEM_DEF(metainv)
 /datum/controller/subsystem/metainv/proc/save_inv(ckey)
 	if(!inventories[ckey])
 		return FALSE
-	var/inv_file_path = "data/player_saves/[ckey[1]]/[ckey]/metainv.json"
-	if(fexists(inv_file_path))
-		fdel(inv_file_path)
+	if(fexists(METAINVENTORY_PERSONAL_INVENTORY_PATH(ckey)))
+		fdel(METAINVENTORY_PERSONAL_INVENTORY_PATH(ckey))
 	var/datum/metainventory/MI = inventories[ckey]
-	text2file("[MI.serialize_json()]", inv_file_path)
+	text2file("[MI.serialize_json()]", METAINVENTORY_PERSONAL_INVENTORY_PATH(ckey))
 	return TRUE
 
-//нахуй не нужны пока всякие дропы не будут впилены, как и сохранения впринципе
 /datum/controller/subsystem/metainv/proc/load_categories()
+	if(fexists(METAINVENTORY_CATEGORIES_PATH))
+		categories = json_decode(file2text(METAINVENTORY_CATEGORIES_PATH))
+
 /datum/controller/subsystem/metainv/proc/save_categories()
+	if(fexists(METAINVENTORY_CATEGORIES_PATH))
+		fdel(METAINVENTORY_CATEGORIES_PATH)
+	text2file(json_encode(categories), METAINVENTORY_CATEGORIES_PATH)
 
 /datum/controller/subsystem/metainv/proc/get_new_uid(cid, typepath)
 	if(!cid || "[cid]" == "0")
