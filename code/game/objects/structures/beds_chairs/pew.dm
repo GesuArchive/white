@@ -84,7 +84,7 @@
 
 /obj/structure/chair/pew/CanPass(atom/movable/mover, border_dir)
 	. = ..()
-	if(border_dir & dir)
+	if(border_dir & invertDir(dir))
 		return . || mover.throwing || mover.movement_type & (FLYING | FLOATING)
 	return TRUE
 
@@ -94,7 +94,7 @@
 	if(leaving == src)
 		return // Let's not block ourselves.
 
-	if(!(direction & dir))
+	if(!(direction & invertDir(dir)))
 		return
 
 	if (!density)

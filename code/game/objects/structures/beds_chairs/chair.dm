@@ -126,7 +126,7 @@
 	if(has_buckled_mobs() && dir == NORTH)
 		layer = ABOVE_MOB_LAYER
 	else
-		layer = OBJ_LAYER
+		layer = initial(layer)
 
 /obj/structure/chair/post_buckle_mob(mob/living/M)
 	. = ..()
