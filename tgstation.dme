@@ -3845,6 +3845,7 @@
 #include "white\baldenysh\govnokod\items\clothing\gloves\mechlink_gloves.dm"
 #include "white\baldenysh\govnokod\items\clothing\masks\cheap_breathmask.dm"
 #include "white\baldenysh\govnokod\items\foods\food.dm"
+#include "white\baldenysh\govnokod\items\melee\zwei.dm"
 #include "white\baldenysh\govnokod\items\storage\blister.dm"
 #include "white\baldenysh\govnokod\items\storage\pillpack.dm"
 #include "white\baldenysh\govnokod\machines\generator.dm"
