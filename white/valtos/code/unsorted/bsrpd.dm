@@ -5,7 +5,7 @@
 /obj/item/pipe_dispenser/bluespace
 	name = "Блюспейс-RPD"
 	desc = "Пример, когда технологии позволяют не свариться в собственном соку при постройке очередного двигателя."
-	icon = 'white/valtos/icons/bsrpd.dmi'
+	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "bsrpd"
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
