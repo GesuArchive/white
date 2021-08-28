@@ -115,10 +115,7 @@
 /obj/machinery/vending/terminal/proc/GetIconForProduct(datum/data/vending_product/P)
 	if(GLOB.terminal_icon_cache[P.product_path])
 		return GLOB.terminal_icon_cache[P.product_path]
-
-	var/product = new P.product_path()
-	GLOB.terminal_icon_cache[P.product_path] = icon2base64(getFlatIcon(product, no_anim = TRUE))
-	qdel(product)
+	GLOB.terminal_icon_cache[P.product_path] = icon2base64(getFlatIcon(path2image(P.product_path), no_anim = TRUE))
 	return GLOB.terminal_icon_cache[P.product_path]
 
 /obj/machinery/vending/terminal/Topic(href, href_list)

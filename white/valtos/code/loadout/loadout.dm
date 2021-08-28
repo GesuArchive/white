@@ -117,7 +117,5 @@ GLOBAL_LIST_EMPTY(gear_datums)
 /datum/gear/proc/get_base64_icon_html()
 	if(icon_base64)
 		return "<img class='icon icon-misc' src='data:image/png;base64,[icon_base64]'>"
-	var/product = new path()
-	icon_base64 = icon2base64(getFlatIcon(product, no_anim = TRUE))
-	qdel(product)
+	icon_base64 = icon2base64(getFlatIcon(path2image(path), no_anim = TRUE))
 	return "<img class='icon icon-misc' src='data:image/png;base64,[icon_base64]'>"

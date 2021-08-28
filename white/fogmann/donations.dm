@@ -324,10 +324,7 @@ GLOBAL_LIST_EMPTY(donators)
 /datum/donator/proc/GetIconForProduct(datum/donate_info/P)
 	if(GLOB.donate_icon_cache[P.path_to])
 		return GLOB.donate_icon_cache[P.path_to]
-
-	var/product = new P.path_to()
-	GLOB.donate_icon_cache[P.path_to] = icon2base64(getFlatIcon(product, no_anim = TRUE))
-	qdel(product)
+	GLOB.donate_icon_cache[P.path_to] = icon2base64(getFlatIcon(path2image(P.path_to), no_anim = TRUE))
 	return GLOB.donate_icon_cache[P.path_to]
 
 GLOBAL_VAR_INIT(ohshitfuck, FALSE)

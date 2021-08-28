@@ -208,7 +208,7 @@ SUBSYSTEM_DEF(metainv)
 		if(MO.var_overrides && MO.var_overrides["icon"] && MO.var_overrides["icon_state"])
 			I = image(icon = initial(MO.var_overrides["icon"]), icon_state = initial(MO.var_overrides["icon_state"]))
 		else
-			I = atomType2Image(text2path(MO.object_path_txt))
+			I = path2image(text2path(MO.object_path_txt))
 
 		res["icon"] = icon2base64(getFlatIcon(I, defdir = SOUTH, no_anim = TRUE))
 		res["name"] = mo_name

@@ -1,6 +1,6 @@
-/proc/atomType2Image(atomType)
+/proc/path2image(atomType)
 	if(!ispath(atomType, /atom))
-		stack_trace("В atomType2Image подан неверный аргумент")
+		stack_trace("В path2image подан неверный аргумент")
 		return
 	var/atom/A = atomType
 	if(initial(A.greyscale_config) && initial(A.greyscale_colors))
