@@ -29,6 +29,6 @@
 	requires_power = TRUE
 	ambience_index = AMBIENCE_MINING
 	outdoors = TRUE
-	lighting_overlay_colour = "#93c3cf"
-	lighting_overlay_opacity = 60
+	base_lighting_color = "#93c3cf"
+	base_lighting_alpha = 60
 	luminosity = 1

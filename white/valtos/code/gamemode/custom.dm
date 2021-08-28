@@ -103,8 +103,8 @@
 	power_light = FALSE
 	requires_power = TRUE
 	outdoors = TRUE
-	lighting_overlay_colour = "#ffd1b3"
-	lighting_overlay_opacity = 55
+	base_lighting_color = "#ffd1b3"
+	base_lighting_alpha = 55
 	luminosity = 1
 	sound_environment = SOUND_ENVIRONMENT_PLAIN
 	ambience_index = AMBIENCE_NONE
@@ -147,8 +147,8 @@
 	sound_environment = SOUND_ENVIRONMENT_PSYCHOTIC
 	ambience_index = AMBIENCE_NONE
 	luminosity = 1
-	lighting_overlay_colour = "#ffd1b3"
-	lighting_overlay_opacity = 100
+	base_lighting_color = "#ffd1b3"
+	base_lighting_alpha = 100
 
 /area/partyhard/outdoors/unexplored
 	icon_state = "2f"

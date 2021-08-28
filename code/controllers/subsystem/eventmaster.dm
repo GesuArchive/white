@@ -132,8 +132,7 @@ SUBSYSTEM_DEF(eventmaster)
 		if(prob(25))
 			SSweather.run_weather(/datum/weather/just_rain)
 		current_time = new_time
-		action_area.set_lighting_overlay_color(new_color)
-		action_area.set_lighting_overlay_opacity(new_alpha)
+		action_area.set_base_lighting(new_color, new_alpha)
 		action_area.env_temp_relative = new_temp
 		to_chat(world, "<span class='greenannounce'><b>[station_time_timestamp("hh:mm")]</b> - [new_time].</span>")
 
