@@ -3784,6 +3784,7 @@
 #include "white\baldenysh\govnokod\outfits.dm"
 #include "white\baldenysh\govnokod\ui.dm"
 #include "white\baldenysh\govnokod\_defines\signals.dm"
+#include "white\baldenysh\govnokod\_helpers\icons.dm"
 #include "white\baldenysh\govnokod\_helpers\mafs.dm"
 #include "white\baldenysh\govnokod\_helpers\mouse.dm"
 #include "white\baldenysh\govnokod\_helpers\procs.dm"

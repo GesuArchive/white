@@ -207,10 +207,8 @@ SUBSYSTEM_DEF(metainv)
 		var/image/I
 		if(MO.var_overrides && MO.var_overrides["icon"] && MO.var_overrides["icon_state"])
 			I = image(icon = initial(MO.var_overrides["icon"]), icon_state = initial(MO.var_overrides["icon_state"]))
-		else if(initial(O.greyscale_config) && initial(O.greyscale_colors))
-			I = image(icon = SSgreyscale.GetColoredIconByType(initial(O.greyscale_config), initial(O.greyscale_colors)), icon_state = initial(O.icon_state))
 		else
-			I = image(icon = initial(O.icon), icon_state = initial(O.icon_state))
+			I = atomType2Image(text2path(MO.object_path_txt))
 
 		res["icon"] = icon2base64(getFlatIcon(I, defdir = SOUTH, no_anim = TRUE))
 		res["name"] = mo_name
