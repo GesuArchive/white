@@ -1,4 +1,4 @@
-/obj/item/zwei
+/obj/item/melee/zwei
 	name = "цвай"
 	desc = "вхен зе претендер ис мислидинг."
 	icon = 'white/baldenysh/icons/obj/weapons/melee.dmi'
@@ -22,33 +22,38 @@
 	reach = 2
 	custom_materials = list(/datum/material/iron = 10000)
 
-/obj/item/zwei/Initialize()
+/obj/item/melee/zwei/Initialize()
 	. = ..()
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)
 	update_icon()
 
-/obj/item/zwei/ComponentInitialize()
+/obj/item/melee/zwei/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/two_handed, force_unwielded=5, force_wielded=40)
 
-/obj/item/zwei/proc/rebuild_icon(wielded = FALSE)
+/obj/item/melee/zwei/proc/rebuild_icon(wielded = FALSE)
 	if(!iscarbon(loc))
 		return
-	//var/mob/living/carbon/C = loc
-	//cut_overlays()
+	var/mob/living/carbon/C = loc
 	inhand_icon_state = "gs_zwei[wielded ? "_wielded" : ""]"
-	//хз неебу как накатить оверлеи на иконку в руках, но надо
-	//add_overlay(image(icon = C.get_held_index_of_item(src) % 2 ? lefthand_file : righthand_file, icon_state = inhand_icon_state + "_grip"))
-	update_icon()
+	//надо заменить это говно на GAGS, но пока похуй
+	//оно еще и не работает, пиздец
+	var/lhand = C.get_held_index_of_item(src) % 2
+	var/image/newImg = image(icon = lhand ? lefthand_file : righthand_file, icon_state = inhand_icon_state)
+	newImg.add_overlay(image(icon = lhand ? lefthand_file : righthand_file, icon_state = inhand_icon_state + "_grip"))
+	if(lhand)
+		lefthand_file = newImg
+	else
+		righthand_file = newImg
 
-/obj/item/zwei/proc/on_wield(obj/item/source, mob/user)
+/obj/item/melee/zwei/proc/on_wield(obj/item/source, mob/user)
 	rebuild_icon(TRUE)
 
-/obj/item/zwei/proc/on_unwield(obj/item/source, mob/user)
+/obj/item/melee/zwei/proc/on_unwield(obj/item/source, mob/user)
 	rebuild_icon(FALSE)
 
-/obj/item/zwei/afterattack(atom/target, mob/user, proximity)
+/obj/item/melee/zwei/afterattack(atom/target, mob/user, proximity)
 	. = ..()
 	if(!proximity)
 		return
