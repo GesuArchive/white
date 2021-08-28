@@ -51,6 +51,7 @@ SUBSYSTEM_DEF(metainv)
 /datum/controller/subsystem/metainv/proc/add_test_items(datum/metainventory/MI)
 	var/datum/metainv_object/bimba = new("/obj/machinery/nuclearbomb")
 	bimba.var_overrides = list("name" = "Українська бiмба", "throwforce" = 999)
+	var/datum/metainv_object/bimba2 = new("/obj/machinery/nuclearbomb")
 	var/datum/metainv_object/stels = new("/obj/item/stack/sheet/mineral/wood")
 	stels.var_overrides = list("amount" = 15)
 	var/datum/metainv_object/uniform = new("/obj/item/clothing/under/rank/engineering/atmospheric_technician")
@@ -59,7 +60,7 @@ SUBSYSTEM_DEF(metainv)
 	restcase.metadata["role_whitelist"] = list("Field Medic", "Paramedic", "Medical Doctor", "Chief Medical Officer")
 	var/datum/metainv_object/icontest = new("/obj/item/clothing/suit/armor/hos/ranger")
 	var/datum/metainv_object/gstest = new("/obj/item/clothing/shoes/sneakers/purple")
-	MI.add_objects(list(icontest, restcase, uniform, bimba, stels, gstest))
+	MI.add_objects(list(icontest, bimba2, restcase, uniform, bimba, stels, gstest))
 
 /datum/controller/subsystem/metainv/proc/get_inv(ckey)
 	if(!ckey)
@@ -349,7 +350,7 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainv_object
 	//айди категории, выдается при регистарции в подсистеме
-	//нулевая категория для объектов, выдающихся каждый раз заново всякими ачивками, меташопами или просто на раунд, она не сохраняется и объекты в ней не занимаю место
+	//нулевая категория для объектов, выдающихся каждый раз заново всякими ачивками, меташопами или просто на раунд. она не сохраняется, объекты в ней не занимаю место и существуют в единственном экземпляре
 	var/cid = 0
 	//тип объекта в текстовом виде (пример - "/obj/machinery/nuclearbomb")
 	var/object_path_txt
@@ -373,6 +374,8 @@ SUBSYSTEM_DEF(metainv)
 	uid = SSmetainv.get_new_uid(category, obj_typepath)
 
 /datum/metainv_object/proc/get_id()
+	if(!cid)
+		return "[cid]:[object_path_txt]"
 	return "[cid]:[object_path_txt]:[uid]"
 
 /datum/metainv_object/proc/create_object(atom/location)
