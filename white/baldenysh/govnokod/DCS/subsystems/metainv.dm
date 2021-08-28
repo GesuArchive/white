@@ -58,8 +58,8 @@ SUBSYSTEM_DEF(metainv)
 	restcase.metadata = list()
 	restcase.metadata["role_whitelist"] = list("Field Medic", "Paramedic", "Medical Doctor", "Chief Medical Officer")
 	var/datum/metainv_object/icontest = new("/obj/item/clothing/suit/armor/hos/ranger")
-
-	MI.add_objects(list(icontest, restcase, uniform, bimba, stels))
+	var/datum/metainv_object/gstest = new("/obj/item/clothing/shoes/sneakers/purple")
+	MI.add_objects(list(icontest, restcase, uniform, bimba, stels, gstest))
 
 /datum/controller/subsystem/metainv/proc/get_inv(ckey)
 	if(!ckey)
@@ -203,9 +203,16 @@ SUBSYSTEM_DEF(metainv)
 		var/list/res = list()
 		var/obj/O = text2path(MO.object_path_txt)
 		var/mo_name = (MO.var_overrides && MO.var_overrides["name"]) ? MO.var_overrides["name"] : initial(O.name)
-		var/mo_icon = (MO.var_overrides && MO.var_overrides["icon"]) ? MO.var_overrides["icon"] : initial(O.icon)
-		var/mo_icon_state = (MO.var_overrides && MO.var_overrides["icon_state"]) ? MO.var_overrides["icon_state"] : initial(O.icon_state)
-		res["icon"] = icon2base64(getFlatIcon(image(icon=mo_icon,icon_state=mo_icon_state), defdir = SOUTH, no_anim = TRUE))
+
+		var/image/I
+		if(MO.var_overrides && MO.var_overrides["icon"] && MO.var_overrides["icon_state"])
+			I = image(icon = initial(MO.var_overrides["icon"]), icon_state = initial(MO.var_overrides["icon_state"]))
+		else if(initial(O.greyscale_config) && initial(O.greyscale_colors))
+			I = image(icon = SSgreyscale.GetColoredIconByType(initial(O.greyscale_config), initial(O.greyscale_colors)), icon_state = initial(O.icon_state))
+		else
+			I = image(icon = initial(O.icon), icon_state = initial(O.icon_state))
+
+		res["icon"] = icon2base64(getFlatIcon(I, defdir = SOUTH, no_anim = TRUE))
 		res["name"] = mo_name
 		res["id"] = "[MO.get_id()]"
 
