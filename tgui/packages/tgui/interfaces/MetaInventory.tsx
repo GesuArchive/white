@@ -110,11 +110,9 @@ const MetaInvLoadout=(act,loadout:MetaInvLoadout,objects:Array<MetaInvObj>)=>{
               let content;
               let tooltip;
 
-              if (item === null) {
+              if (item === null || item === undefined) {
                 tooltip = slot.displayName;
               } else if ("name" in item) {
-
-
                 content = (
                   <Box
                     as="img"
@@ -127,7 +125,6 @@ const MetaInvLoadout=(act,loadout:MetaInvLoadout,objects:Array<MetaInvObj>)=>{
                     }}
                   />
                 );
-
                 tooltip = item.name;
               }
 

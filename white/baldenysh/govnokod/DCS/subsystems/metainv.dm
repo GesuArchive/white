@@ -94,14 +94,15 @@ SUBSYSTEM_DEF(metainv)
 /datum/controller/subsystem/metainv/proc/save_categories()
 
 /datum/controller/subsystem/metainv/proc/get_new_uid(cid, typepath)
+	if(!cid || "[cid]" == "0")
+		return 0
 	if(!categories["[cid]"])
 		categories["[cid]"] = list()
 		if(!categories["[cid]"]["[typepath]"])
 			categories["[cid]"]["[typepath]"] = 0
 	categories["[cid]"]["[typepath]"] += 1
 	. = categories["[cid]"]["[typepath]"]
-	if("[cid]" != "0")
-		save_categories()
+	save_categories()
 
 /datum/controller/subsystem/metainv/proc/open_inventory(client/C)
 	if(!SSticker || SSticker.current_state < GAME_STATE_PREGAME)
