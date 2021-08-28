@@ -174,10 +174,10 @@ export const Autolathe = (props, context) => {
                       )}
                       <Table.Cell>
                         <Button.Input
-                          content={"[Макс:" + design.maxmult + ']'}
+                          content={"Макс: " + design.maxmult}
                           maxValue={design.maxmult}
                           disabled={design.buildable}
-                          backgroundColor={design.buildable ? '#999999' : 'default'}
+                          backgroundColor={design.buildable ? '#333333' : 'default'}
                           onCommit={(e, value) => act('make', {
                             id: design.id,
                             multiplier: value,
