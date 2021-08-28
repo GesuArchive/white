@@ -248,6 +248,7 @@
 		if (bolt_type == BOLT_TYPE_OPEN && !bolt_locked)
 			chamber_round(TRUE)
 		update_icon()
+		SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 		return TRUE
 	else
 		to_chat(user, "<span class='warning'>Не могу убрать <b>[src.name]</b> из своей руки!</span>")
@@ -276,6 +277,7 @@
 	if (display_message)
 		to_chat(user, "<span class='notice'>Вытаскиваю [magazine_wording] из <b>[src.name]</b>.</span>")
 	update_icon()
+	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 
 /obj/item/gun/ballistic/can_shoot()
 	return chambered
