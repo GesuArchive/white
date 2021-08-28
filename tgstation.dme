@@ -4287,6 +4287,7 @@
 #include "white\valtos\code\unsorted\emotes_panel.dm"
 #include "white\valtos\code\unsorted\enernet.dm"
 #include "white\valtos\code\unsorted\fireworkgun.dm"
+#include "white\valtos\code\unsorted\flipped_table.dm"
 #include "white\valtos\code\unsorted\glitch.dm"
 #include "white\valtos\code\unsorted\great_stuff.dm"
 #include "white\valtos\code\unsorted\ipc.dm"
