@@ -19,12 +19,6 @@
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/structure/flippedtable/CanPass(atom/movable/mover, border_dir)
-	. = ..()
-	if(border_dir & dir)
-		return . || mover.throwing || mover.movement_type & (FLYING | FLOATING)
-	return TRUE
-
 /obj/structure/flippedtable/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
 	var/attempted_dir = get_dir(loc, target)
