@@ -1,0 +1,64 @@
+#define BSRPD_CAPAC_MAX 500
+#define BSRPD_CAPAC_USE 10
+#define BSRPD_CAPAC_NEW 250
+
+/obj/item/pipe_dispenser/bluespace
+	name = "Блюспейс-RPD"
+	desc = "Пример, когда технологии позволяют не свариться в собственном соку при постройке очередного двигателя."
+	icon = 'white/valtos/icons/bsrpd.dmi'
+	icon_state = "bsrpd"
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
+	inhand_icon_state = "bsrpd"
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	custom_materials = null
+	var/bs_capac = BSRPD_CAPAC_MAX
+	var/bs_use = BSRPD_CAPAC_USE
+	var/bs_prog = 0
+
+/obj/item/pipe_dispenser/bluespace/attackby(obj/item/item, mob/user, param)
+	if(istype(item, /obj/item/stack/sheet/bluespace_crystal))
+		if(BSRPD_CAPAC_NEW > (BSRPD_CAPAC_MAX - bs_capac) || bs_use == 0)
+			to_chat(user, "<span class='warning'>Не могу больше зарядить [src]!</span>")
+			return
+		item.use(1)
+		to_chat(user, "<span class='notice'>Перезаряжаю блюспейс-конденсатор внутри [src]</span>")
+		bs_capac += BSRPD_CAPAC_NEW
+		return
+	if(istype(item, /obj/item/assembly/signaler/anomaly/bluespace))
+		if(bs_use)
+			to_chat(user, "<span class='notice'>Вставляю [item] в [src]; теперь эта штука будет работать намного дольше!</span>")
+			bs_use = 0
+			qdel(item)
+		else
+			to_chat(user, "<span class='warning'>Куда заряжать [src] больше то!</span>")
+		return
+	return ..()
+
+/obj/item/pipe_dispenser/bluespace/examine(mob/user)
+	. = ..()
+	if(user.Adjacent(src))
+		. += "<hr>На данный момент имеет [bs_use == 0 ? "infinite" : bs_capac / bs_use] зарядов в остатке."
+		if(bs_use != 0)
+			. += "\nБлюспейс-ядро не установлено."
+	else
+		. += "<hr>Не могу разглядеть заряд отсюда."
+
+/obj/item/pipe_dispenser/bluespace/afterattack(atom/target, mob/user, prox)
+	if(prox) // If we are in proximity to the target, don't use charge and don't call this shitcode.
+		return ..()
+	if(bs_capac < (bs_use * (bs_prog + 1)))
+		to_chat(user, "<span class='warning'>Ох, [src] не имеет заряда.</span>")
+		return FALSE
+	bs_prog++ // So people can't just spam click and get more uses
+	user.Beam(target, icon_state = "rped_upgrade", time = 1 SECONDS)
+	if(pre_attack(target, user))
+		bs_prog--
+		bs_capac -= bs_use
+		return TRUE
+	bs_prog--
+	return FALSE
+
+#undef BSRPD_CAPAC_MAX
+#undef BSRPD_CAPAC_USE
+#undef BSRPD_CAPAC_NEW
