@@ -555,7 +555,7 @@
 	if(has_buckled_mobs() && dir == NORTH)
 		layer = ABOVE_MOB_LAYER
 	else
-		layer = OBJ_LAYER
+		layer = initial(layer)
 
 /obj/machinery/painmachine/post_buckle_mob(mob/living/M)
 	. = ..()

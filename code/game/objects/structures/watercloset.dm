@@ -758,6 +758,7 @@
 	layer = SIGN_LAYER
 	density = FALSE
 	open = TRUE
+	playsound(loc, 'sound/effects/curtain.ogg', 50, TRUE)
 	set_opacity(FALSE)
 
 /obj/structure/curtain/cloth/fancy/mechanical/proc/close()
@@ -765,6 +766,7 @@
 	layer = WALL_OBJ_LAYER
 	density = TRUE
 	open = FALSE
+	playsound(loc, 'sound/effects/curtain.ogg', 50, TRUE)
 	if(opaque_closed)
 		set_opacity(TRUE)
 

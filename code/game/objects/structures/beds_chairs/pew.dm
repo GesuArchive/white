@@ -8,6 +8,17 @@
 	buildstacktype = /obj/item/stack/sheet/mineral/wood
 	buildstackamount = 3
 	item_chair = null
+	layer = ABOVE_MOB_LAYER
+	flags_1 = ON_BORDER_1
+	density = TRUE
+
+/obj/structure/chair/pew/Initialize()
+	. = ..()
+	if(density && flags_1 & ON_BORDER_1) // blocks normal movement from and to the direction it's facing.
+		var/static/list/loc_connections = list(
+			COMSIG_ATOM_EXIT = .proc/on_exit,
+		)
+		AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/chair/pew/left
 	name = "левый край деревянной скамьи"
@@ -70,3 +81,33 @@
 /obj/structure/chair/pew/right/post_unbuckle_mob()
 	. = ..()
 	update_rightpewarmrest()
+
+/obj/structure/chair/pew/CanPass(atom/movable/mover, border_dir)
+	. = ..()
+	if(border_dir & dir)
+		return . || mover.throwing || mover.movement_type & (FLYING | FLOATING)
+	return TRUE
+
+/obj/structure/chair/pew/proc/on_exit(datum/source, atom/movable/leaving, direction)
+	SIGNAL_HANDLER
+
+	if(leaving == src)
+		return // Let's not block ourselves.
+
+	if(!(direction & dir))
+		return
+
+	if (!density)
+		return
+
+	if (leaving.throwing)
+		return
+
+	if (leaving.movement_type & (PHASING | FLYING | FLOATING))
+		return
+
+	if (leaving.move_force >= MOVE_FORCE_EXTREMELY_STRONG)
+		return
+
+	leaving.Bump(src)
+	return COMPONENT_ATOM_BLOCK_EXIT
