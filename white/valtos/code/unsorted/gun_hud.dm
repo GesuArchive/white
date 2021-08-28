@@ -173,7 +173,7 @@ Check the gun_hud.dmi for all available icons you can use.
 */
 
 /atom/movable/screen/ammo_counter
-	name = "счётчик заряда"
+	name = "счётчик"
 	icon = 'white/valtos/icons/gun_hud.dmi'
 	icon_state = "backing"
 	screen_loc = ui_ammocounter

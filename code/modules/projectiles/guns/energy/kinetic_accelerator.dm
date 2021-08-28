@@ -149,6 +149,7 @@
 	else
 		to_chat(loc, "<span class='warning'>[capitalize(src.name)] тихо перезаряжается.</span>")
 	update_icon()
+	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 	overheat = FALSE
 
 /obj/item/gun/energy/kinetic_accelerator/update_overlays()

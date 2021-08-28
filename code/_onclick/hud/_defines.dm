@@ -180,4 +180,4 @@
 #define ui_wanted_lvl "NORTH,11"
 
 //Ammo HUD
-#define ui_ammocounter "EAST-1:10,CENTER-5:6"
+#define ui_ammocounter "EAST-1:12,CENTER-5:8"
