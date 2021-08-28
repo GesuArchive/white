@@ -55,7 +55,7 @@
 
 /area/centcom/outdoors
 	name = "ЦК: Поверхность"
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	static_lighting = TRUE
 	has_gravity = TRUE
 
 /area/centcom/supplypod/supplypod_temp_holding

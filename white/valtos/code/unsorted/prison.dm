@@ -3,7 +3,7 @@
 /area/prisonv2
 	name = "Тюрьма СССР"
 	icon_state = "brig"
-	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	static_lighting = FALSE
 	requires_power = TRUE
 	has_gravity = TRUE
 	area_flags = NOTELEPORT

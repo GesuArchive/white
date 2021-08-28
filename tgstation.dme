@@ -3940,8 +3940,6 @@
 #include "white\hule\aspects\ss.dm"
 #include "white\hule\battletension\bt_comp.dm"
 #include "white\hule\custom_ghosts\custom_ghosts.dm"
-#include "white\hule\cyberspess\vr_human.dm"
-#include "white\hule\cyberspess\vr_sleeper.dm"
 #include "white\hule\gateway\prikolwoods.dm"
 #include "white\hule\gateway\prikolwoods_flora.dm"
 #include "white\hule\gateway\prikolwoods_mapgen.dm"

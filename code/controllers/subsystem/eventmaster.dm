@@ -52,8 +52,6 @@ SUBSYSTEM_DEF(eventmaster)
 			action_area.luminosity = 1
 			second_area.luminosity = 1
 			adjust_areas_light()
-			action_area.set_dynamic_lighting(DYNAMIC_LIGHTING_IFSTARLIGHT)
-			second_area.set_dynamic_lighting(DYNAMIC_LIGHTING_IFSTARLIGHT)
 			to_chat(world, "Свет готов!")
 			to_chat(world, "Готово!")
 			return TRUE

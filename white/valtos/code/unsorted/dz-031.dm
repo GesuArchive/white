@@ -20,7 +20,6 @@
 	icon_state = "open"
 	plane = PLANE_SPACE
 	layer = SPACE_LAYER
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
 	vis_flags = VIS_INHERIT_ID
 	blocks_air = FALSE
 

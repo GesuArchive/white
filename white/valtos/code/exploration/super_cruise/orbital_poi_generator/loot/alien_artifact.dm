@@ -58,7 +58,7 @@
 	has_gravity = STANDARD_GRAVITY
 	ambience_index = AMBIENCE_NONE
 	sound_environment = SOUND_ENVIRONMENT_DRUGGED
-	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	static_lighting = FALSE
 
 /area/tear_in_reality/Initialize()
 	. = ..()

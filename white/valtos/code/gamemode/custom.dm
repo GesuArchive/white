@@ -95,7 +95,7 @@
 /area/partyhard/outdoors
 	icon_state = "1f"
 	name = "пустоши"
-	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	static_lighting = TRUE
 	always_unpowered = TRUE
 //	//poweralm = FALSE
 	power_environ = FALSE
@@ -136,7 +136,7 @@
 /area/partyhard/indoors
 	icon_state = "5f"
 	name = "помещения"
-	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	static_lighting = FALSE
 	always_unpowered = FALSE
 ///	//poweralm = FALSE
 	power_environ = FALSE
@@ -193,7 +193,7 @@
 	requires_power = TRUE
 	ambientsounds = RUINS
 	outdoors = TRUE
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	static_lighting = TRUE
 
 /area/shuttle/partyhard
 	name = "Station Elevator"
@@ -311,7 +311,7 @@
 	power_light = TRUE
 	requires_power = TRUE
 	ambientsounds = MINING
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	static_lighting = TRUE
 	outdoors = TRUE
 
 /area/thetaMining/underground
@@ -324,4 +324,4 @@
 	power_equip = FALSE
 	power_light = FALSE
 	ambientsounds = MINING
-	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	static_lighting = FALSE

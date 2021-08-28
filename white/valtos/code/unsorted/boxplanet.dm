@@ -9,7 +9,7 @@
 /area/boxplanet/surface
 	name = "Поверхность"
 	outdoors = TRUE
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	static_lighting = TRUE
 	icon_state = "explored"
 	always_unpowered = TRUE
 	//poweralm = FALSE

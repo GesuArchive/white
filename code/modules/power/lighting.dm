@@ -36,7 +36,7 @@
 	if(!..())
 		return
 	var/area/A = get_area(user)
-	if(!local_area.static_lighting)
+	if(!A.static_lighting)
 		to_chat(user, "<span class='warning'>Не могу установить [src] здесь!</span>")
 		return
 	return TRUE

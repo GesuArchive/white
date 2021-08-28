@@ -776,7 +776,7 @@
 /area/duel
 	icon_state = "duel"
 	area_flags = NO_ALERTS | ABDUCTOR_PROOF | BLOCK_SUICIDE | HIDDEN_AREA | NOTELEPORT | UNIQUE_AREA
-	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	static_lighting = FALSE
 	requires_power = FALSE
 	has_gravity = STANDARD_GRAVITY
 /area/duel/arena

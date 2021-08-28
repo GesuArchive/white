@@ -1,7 +1,7 @@
 /area/awaymission/vietnam
 	name = "Дикие джунгли"
 	icon_state = "unexplored"
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	static_lighting = TRUE
 	map_generator = /datum/map_generator/jungle_generator
 	ambientsounds = AWAY_MISSION
 	enabled_area_tension = FALSE
@@ -9,7 +9,7 @@
 /area/awaymission/vietnam/dark
 	name = "Тёмное джунглевое место"
 	icon_state = "unexplored"
-	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	static_lighting = FALSE
 	ambientsounds = AWAY_MISSION
 	requires_power = FALSE
 
@@ -381,7 +381,7 @@
 	name = "Тёмное подземелье"
 	icon_state = "unexplored"
 	outdoors = TRUE
-	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	static_lighting = FALSE
 	ambientsounds = AWAY_MISSION
 	requires_power = FALSE
 	sound_environment = SOUND_ENVIRONMENT_CAVE

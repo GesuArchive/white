@@ -1,7 +1,7 @@
 /area/trading_outpost
 	name = "Trading Outpost"
 	icon_state = "centcom"
-	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	static_lighting = FALSE
 	requires_power = TRUE
 	has_gravity = STANDARD_GRAVITY
 	area_flags = NOTELEPORT
