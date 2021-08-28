@@ -352,6 +352,10 @@
 	zone_select.update_icon()
 	static_inventory += zone_select
 
+	ammo_counter = new /atom/movable/screen/ammo_counter()
+	ammo_counter.hud = src
+	infodisplay += ammo_counter
+
 	for(var/atom/movable/screen/inventory/inv in (static_inventory + toggleable_inventory))
 		if(inv.slot_id)
 			inv.hud = src
