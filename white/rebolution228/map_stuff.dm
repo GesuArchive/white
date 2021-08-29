@@ -674,7 +674,7 @@
 
 /obj/structure/flora/cataclysmdda/decoration/nature/wheat
 	name = "пшеница"
-	icon_state = "wheat"
+	icon_state = "wheat1"
 	icon = 'white/rebolution228/icons/cataclysmdda/cata_objects.dmi'
 	opacity = 1
 	layer = ABOVE_MOB_LAYER
@@ -682,7 +682,7 @@
 
 /obj/structure/flora/cataclysmdda/decoration/nature/wheat/Initialize()
 	. = ..()
-	icon_state = "[icon_state][rand(1,4)]"
+	icon_state = "wheat[rand(1,4)]"
 
 
 //Trees
