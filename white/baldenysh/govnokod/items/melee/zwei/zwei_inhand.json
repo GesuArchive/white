@@ -1,0 +1,29 @@
+{
+	"gs_zwei": [
+		{
+			"type": "icon_state",
+			"icon_state": "gs_zwei",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "gs_zwei_grip",
+			"blend_mode": "overlay"
+		}
+	],
+
+	"gs_zwei_wielded": [
+		{
+			"type": "icon_state",
+			"icon_state": "gs_zwei_wielded",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "gs_zwei_wielded_grip",
+			"blend_mode": "overlay"
+		}
+	]
+}

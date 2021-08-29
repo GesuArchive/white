@@ -22,30 +22,24 @@
 	reach = 2
 	custom_materials = list(/datum/material/iron = 10000)
 
+	greyscale_colors = "#bdc9ff"
+	greyscale_config = /datum/greyscale_config/zwei
+	//greyscale_config_worn = /datum/greyscale_config/zwei_worn
+	//greyscale_config_inhand_left = /datum/greyscale_config/zwei_inhand_left
+	greyscale_config_inhand_right = /datum/greyscale_config/zwei_inhand_right
+
 /obj/item/melee/zwei/Initialize()
 	. = ..()
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)
-	update_icon()
 
 /obj/item/melee/zwei/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/two_handed, force_unwielded=5, force_wielded=40)
 
 /obj/item/melee/zwei/proc/rebuild_icon(wielded = FALSE)
-	if(!iscarbon(loc))
-		return
-	var/mob/living/carbon/C = loc
 	inhand_icon_state = "gs_zwei[wielded ? "_wielded" : ""]"
-	//надо заменить это говно на GAGS, но пока похуй
-	//оно еще и не работает, пиздец
-	var/lhand = C.get_held_index_of_item(src) % 2
-	var/image/newImg = image(icon = lhand ? lefthand_file : righthand_file, icon_state = inhand_icon_state)
-	newImg.add_overlay(image(icon = lhand ? lefthand_file : righthand_file, icon_state = inhand_icon_state + "_grip"))
-	if(lhand)
-		lefthand_file = newImg
-	else
-		righthand_file = newImg
+	update_icon()
 
 /obj/item/melee/zwei/proc/on_wield(obj/item/source, mob/user)
 	rebuild_icon(TRUE)
@@ -58,3 +52,29 @@
 	if(!proximity)
 		return
 	user.changeNext_move(3 SECONDS)
+
+/datum/greyscale_config/zwei
+	name = "Zwei"
+	icon_file = 'white/baldenysh/icons/obj/weapons/melee.dmi'
+	json_config = 'white/baldenysh/govnokod/items/melee/zwei/zwei.json'
+/*
+/datum/greyscale_config/zwei_worn
+	name = "Worn Zwei"
+	icon_file = 'icons/mob/clothing/feet.dmi'
+	json_config = 'white/baldenysh/govnokod/items/melee/zwei/zwei_worn.json'
+
+/datum/greyscale_config/zwei_inhand_left
+	name = "Held Zwei, Left"
+	icon_file = 'white/baldenysh/icons/mob/inhands/weapons/melee64x64_lefthand.dmi'
+	json_config = 'white/baldenysh/govnokod/items/melee/zwei/zwei_lefthand.json'
+*/
+/datum/greyscale_config/zwei_inhand_right
+	name = "Held Zwei, Right"
+	icon_file = 'white/baldenysh/icons/mob/inhands/weapons/melee64x64_righthand.dmi'
+	json_config = 'white/baldenysh/govnokod/items/melee/zwei/zwei_inhand.json'
+/*
+/datum/greyscale_config/zwei_inhand_right_wielded
+	name = "Held Zwei, Right, Wielded"
+	icon_file = 'white/baldenysh/icons/mob/inhands/weapons/melee64x64_righthand.dmi'
+	json_config = 'white/baldenysh/govnokod/items/melee/zwei/zwei_inhand.json'
+*/
