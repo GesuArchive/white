@@ -20,10 +20,23 @@ SUBSYSTEM_DEF(metainv)
 		return
 	if(!spawned || istype(job, /datum/job/ai) || istype(job, /datum/job/cyborg)) //русские идут домой рантаймить
 		return
+	if(!is_station_level(spawned.z))
+		RegisterSignal(spawned, COMSIG_MOVABLE_Z_CHANGED, .proc/equip_kostil)
+		return
 	var/ckey = spawned.ckey ? spawned.ckey : player_client.ckey
 	var/datum/metainventory/MI = get_inv(ckey)
 	var/datum/metainv_loadout/ML = MI.loadout_list[MI.active_loadout]
 	ML.equip_carbon(spawned)
+
+//чтоб костылей не было надо пофикшенные тгшные джобки, но там мержить пиздец просто плюс приколы вайта не в отдельном файле
+/datum/controller/subsystem/metainv/proc/equip_kostil(datum/source, old_z, new_z)
+	var/mob/living/L = source
+	if(!is_station_level(L.z))
+		return
+	UnregisterSignal(source, COMSIG_MOVABLE_Z_CHANGED)
+	var/datum/metainventory/MI = get_inv(L.ckey)
+	var/datum/metainv_loadout/ML = MI.loadout_list[MI.active_loadout]
+	ML.equip_carbon(L)
 
 /datum/controller/subsystem/metainv/proc/metashop2metainv(client/C)
 	if(!C || !LAZYLEN(C.prefs.purchased_gear))
@@ -377,7 +390,6 @@ SUBSYSTEM_DEF(metainv)
 /datum/metainv_object/New(obj_typepath, category = 0)
 	. = ..()
 	if(!obj_typepath || !isnum(category))
-		stack_trace("Подражатель уже среди нас")
 		return
 	if(!istext(obj_typepath))
 		obj_typepath = "[obj_typepath]"
