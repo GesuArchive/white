@@ -4,7 +4,7 @@
 	icon = 'white/baldenysh/icons/obj/weapons/melee.dmi'
 	icon_state = "gs_dagger" //pohui
 	inhand_icon_state = "gs_zwei"
-	//lefthand_file = 'white/baldenysh/icons/mob/inhands/weapons/melee64x64_lefthand.dmi' //pohui
+	lefthand_file = 'white/baldenysh/icons/mob/inhands/weapons/melee64x64_lefthand.dmi'
 	righthand_file = 'white/baldenysh/icons/mob/inhands/weapons/melee64x64_righthand.dmi'
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
@@ -14,18 +14,17 @@
 	throwforce = 15
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
-	block_chance = 20
+	block_chance = 30
 	sharpness = SHARP_EDGED
 	max_integrity = 150
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
 	resistance_flags = FIRE_PROOF
 	reach = 2
 	custom_materials = list(/datum/material/iron = 10000)
-
-	greyscale_colors = "#bdc9ff"
+	greyscale_colors = "#bdc9ff#ffbb00#1d1550"
 	greyscale_config = /datum/greyscale_config/zwei
 	//greyscale_config_worn = /datum/greyscale_config/zwei_worn
-	//greyscale_config_inhand_left = /datum/greyscale_config/zwei_inhand_left
+	greyscale_config_inhand_left = /datum/greyscale_config/zwei_inhand_left
 	greyscale_config_inhand_right = /datum/greyscale_config/zwei_inhand_right
 
 /obj/item/melee/zwei/Initialize()
@@ -42,9 +41,13 @@
 	update_icon()
 
 /obj/item/melee/zwei/proc/on_wield(obj/item/source, mob/user)
+	block_chance = 30
+	wound_bonus = 30
 	rebuild_icon(TRUE)
 
 /obj/item/melee/zwei/proc/on_unwield(obj/item/source, mob/user)
+	block_chance = 0
+	wound_bonus = 0
 	rebuild_icon(FALSE)
 
 /obj/item/melee/zwei/afterattack(atom/target, mob/user, proximity)
@@ -62,12 +65,12 @@
 	name = "Worn Zwei"
 	icon_file = 'icons/mob/clothing/feet.dmi'
 	json_config = 'white/baldenysh/govnokod/items/melee/zwei/zwei_worn.json'
-
+*/
 /datum/greyscale_config/zwei_inhand_left
 	name = "Held Zwei, Left"
 	icon_file = 'white/baldenysh/icons/mob/inhands/weapons/melee64x64_lefthand.dmi'
-	json_config = 'white/baldenysh/govnokod/items/melee/zwei/zwei_lefthand.json'
-*/
+	json_config = 'white/baldenysh/govnokod/items/melee/zwei/zwei_inhand.json'
+
 /datum/greyscale_config/zwei_inhand_right
 	name = "Held Zwei, Right"
 	icon_file = 'white/baldenysh/icons/mob/inhands/weapons/melee64x64_righthand.dmi'
