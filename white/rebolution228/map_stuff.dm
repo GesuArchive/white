@@ -992,6 +992,10 @@
 	sheetType = /obj/item/stack/sheet/iron
 	sheetAmount = 7
 
+/obj/structure/cataclysmdda/oven/Initialize()
+	. = ..()
+	AddElement(/datum/element/climbable)
+
 /obj/structure/cataclysmdda/penek
 	name = "пенек"
 	desc = "При осмотре этого пенька вы потеряли где-то свои 1000 рублей."
