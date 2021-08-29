@@ -2,12 +2,12 @@
 	name = "цвай"
 	desc = "вхен зе претендер ис мислидинг."
 	icon = 'white/baldenysh/icons/obj/weapons/melee.dmi'
-	icon_state = "gs_dagger" //pohui
-	inhand_icon_state = "gs_zwei"
+	icon_state = "gs_zwei"
 	lefthand_file = 'white/baldenysh/icons/mob/inhands/weapons/melee64x64_lefthand.dmi'
 	righthand_file = 'white/baldenysh/icons/mob/inhands/weapons/melee64x64_righthand.dmi'
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
+	inhand_icon_state = "gs_zwei_inhand"
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_HUGE
 	force = 5
@@ -37,7 +37,7 @@
 	AddComponent(/datum/component/two_handed, force_unwielded=5, force_wielded=40)
 
 /obj/item/melee/zwei/proc/rebuild_icon(wielded = FALSE)
-	inhand_icon_state = "gs_zwei[wielded ? "_wielded" : ""]"
+	inhand_icon_state = "gs_zwei_inhand[wielded ? "_wielded" : ""]"
 	update_icon()
 
 /obj/item/melee/zwei/proc/on_wield(obj/item/source, mob/user)
