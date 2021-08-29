@@ -40,7 +40,7 @@ SUBSYSTEM_DEF(metainv)
 			LAZYADDASSOC(MO.metadata, "species_whitelist", G.species_whitelist)
 		if(G.species_blacklist)
 			LAZYADDASSOC(MO.metadata, "species_blacklist", G.species_blacklist)
-		MI.add_objects(MO)
+		MI.add_object(MO)
 
 /datum/controller/subsystem/metainv/proc/add_initial_items(ckey, datum/metainventory/MI)
 	var/mob/M = get_mob_by_ckey(ckey)
@@ -63,7 +63,7 @@ SUBSYSTEM_DEF(metainv)
 	restcase.metadata["role_whitelist"] = list("Field Medic", "Paramedic", "Medical Doctor", "Chief Medical Officer")
 	var/datum/metainv_object/icontest = new("/obj/item/clothing/suit/armor/hos/ranger")
 	var/datum/metainv_object/gstest = new("/obj/item/clothing/shoes/sneakers/purple")
-	MI.add_objects(list(icontest, bimba2, restcase, uniform, bimba, stels, gstest))
+	MI.add_object(list(icontest, bimba2, restcase, uniform, bimba, stels, gstest))
 
 /datum/controller/subsystem/metainv/proc/get_inv(ckey)
 	if(!ckey)
@@ -117,6 +117,12 @@ SUBSYSTEM_DEF(metainv)
 	var/datum/metainventory/MI = get_inv(C.ckey)
 	MI.ui_interact(C.mob)
 
+/datum/controller/subsystem/metainv/proc/add_real_item_test(ckey, typepath_txt)
+	var/datum/metainventory/MI = get_inv(ckey)
+	var/datum/metainv_object/MO = new(typepath_txt, 1)
+	MI.add_object(MO)
+	save_inv(ckey)
+
 ////////////////////////////////////////////////////////////////////
 
 #define METAINVENTORY_SLOT_HAND_L 		-1
@@ -138,7 +144,7 @@ SUBSYSTEM_DEF(metainv)
 	var/list/datum/metainv_object/obj_list = list()
 
 //для добавления объектов использовать этот прок, принимает объект или лист объектов
-/datum/metainventory/proc/add_objects(input)
+/datum/metainventory/proc/add_object(input)
 	if(istype(input, /datum/metainv_object))
 		add_single_obj(input)
 	else if(islist(input))
