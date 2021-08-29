@@ -72,9 +72,3 @@
 	name = "Held Zwei, Right"
 	icon_file = 'white/baldenysh/icons/mob/inhands/weapons/melee64x64_righthand.dmi'
 	json_config = 'white/baldenysh/govnokod/items/melee/zwei/zwei_inhand.json'
-/*
-/datum/greyscale_config/zwei_inhand_right_wielded
-	name = "Held Zwei, Right, Wielded"
-	icon_file = 'white/baldenysh/icons/mob/inhands/weapons/melee64x64_righthand.dmi'
-	json_config = 'white/baldenysh/govnokod/items/melee/zwei/zwei_inhand.json'
-*/
