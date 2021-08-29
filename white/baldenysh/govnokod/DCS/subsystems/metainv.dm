@@ -376,10 +376,12 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/metainv_object/New(obj_typepath, category = 0)
 	. = ..()
+	/*
 	if(!obj_typepath || !isnum(category))
 		stack_trace("Подражатель уже среди нас")
 		qdel(src)
 		return
+	*/
 	if(!istext(obj_typepath))
 		obj_typepath = "[obj_typepath]"
 	cid = category
