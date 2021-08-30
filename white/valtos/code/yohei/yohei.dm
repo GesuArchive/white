@@ -258,7 +258,7 @@
 	. = ..()
 	var/obj/item/radio/R = H.ears
 	R.set_frequency(FREQ_YOHEI)
-	R.freqlock = TRUE
+	R.freqlock = FALSE
 	R.independent = TRUE
 	if(GLOB.yohei_main_controller)
 		var/obj/lab_monitor/yohei/LM = GLOB.yohei_main_controller
