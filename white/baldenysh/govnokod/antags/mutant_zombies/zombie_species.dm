@@ -212,6 +212,8 @@
 	animate(src, transform = final, time = 5, loop = 0)
 
 /proc/is_infectable(mob/living/carbon/human/H)
+	if(!H.ckey)
+		return FALSE
 	if(!H.get_bodypart(BODY_ZONE_HEAD))
 		return FALSE
 	if(H.getorganslot(ORGAN_SLOT_ZOMBIE))
