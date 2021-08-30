@@ -612,6 +612,14 @@
 	planetary_atmos = FALSE
 	slowdown = 3
 
+/turf/open/water/cataclysmdda/Entered(atom/movable/AM)
+	. = ..()
+	AM.add_overlay("water_overlay")
+
+/turf/open/water/cataclysmdda/Exited(atom/movable/AM, atom/newLoc)
+	. = ..()
+	AM.cut_overlay("water_overlay")
+
 /turf/open/floor/carpet/tentfloor
 	name = "пол палатки"
 	desc = "Мягкий пол."
