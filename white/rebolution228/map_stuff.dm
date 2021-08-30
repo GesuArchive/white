@@ -618,7 +618,7 @@
 		var/mob/living/carbon/C = AM
 		C.update_water_overlay()
 		if(ishuman(AM))
-			var/mob/living/carbon/human/H = A
+			var/mob/living/carbon/human/H = AM
 			H.wash()
 			H.wash_poo()
 			if(H.fire_stacks)
