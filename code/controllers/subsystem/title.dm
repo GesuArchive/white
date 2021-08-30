@@ -87,7 +87,7 @@ SUBSYSTEM_DEF(title)
 			if(player.ready == PLAYER_READY_TO_PLAY)
 				var/role_thing = "Неизвестно"
 				if(GLOB.disable_fucking_station_shit_please)
-					caa["Выживший"] += "[player.key]"
+					caa["Выживший"] += list(player.key)
 					continue
 				if(player.client.prefs.job_preferences["Assistant"])
 					role_thing = "Ассистент"
