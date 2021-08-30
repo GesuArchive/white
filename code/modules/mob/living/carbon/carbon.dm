@@ -1283,3 +1283,16 @@
 /mob/living/carbon/proc/attach_rot(mapload)
 	SIGNAL_HANDLER
 	AddComponent(/datum/component/rot, 6 MINUTES, 10 MINUTES, 1)
+
+/mob/living/carbon/proc/update_water_overlay()
+	if(src.loc && istype(src.loc, /turf/open/water))
+		remove_overlay(BODY_FRONT_LAYER)
+		var/icon/I
+		var/turf/T = get_turf(src)
+
+		I = icon(T.icon, "water_overlay")
+
+		overlays_standing[BODY_FRONT_LAYER] = mutable_appearance(I, "", -BODY_FRONT_LAYER)
+		apply_overlay(BODY_FRONT_LAYER)
+	else
+		remove_overlay(BODY_FRONT_LAYER)

@@ -614,11 +614,23 @@
 
 /turf/open/water/cataclysmdda/Entered(atom/movable/AM)
 	. = ..()
-	AM.add_overlay("water_overlay")
+	if(iscarbon(AM))
+		var/mob/living/carbon/C = AM
+		C.update_water_overlay()
+		if(ishuman(AM))
+			var/mob/living/carbon/human/H = A
+			H.wash()
+			H.wash_poo()
+			if(H.fire_stacks)
+				H.fire_stacks = 0
+				H.extinguish_mob()
+
 
 /turf/open/water/cataclysmdda/Exited(atom/movable/AM, atom/newLoc)
 	. = ..()
-	AM.cut_overlay("water_overlay")
+	if(iscarbon(AM))
+		var/mob/living/carbon/C = AM
+		C.update_water_overlay()
 
 /turf/open/floor/carpet/tentfloor
 	name = "пол палатки"
