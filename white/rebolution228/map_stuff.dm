@@ -629,7 +629,7 @@
 
 /turf/open/water/cataclysmdda/proc/update_water_overlay()
 	if(contents.len)
-		add_overlay(mutable_appearance(icon, "water_overlay", ABOVE_MOB_LAYER, plane))
+		add_overlay(mutable_appearance(icon, "water_overlay", ABOVE_MOB_LAYER, ABOVE_MOB_LAYER))
 	else
 		cut_overlays()
 
