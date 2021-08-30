@@ -8,8 +8,6 @@
 	layer = ABOVE_ALL_MOB_LAYER // Overhead
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/recycler
-	idle_power_usage = 5000
-	active_power_usage = 20000
 	var/safety_mode = FALSE // Temporarily stops machine if it detects a mob
 	var/icon_name = "grinder-o"
 	var/bloody = FALSE
@@ -21,22 +19,27 @@
 	var/frabbs = 0
 
 /obj/machinery/recycler/Initialize()
-	AddComponent(/datum/component/butchering/recycler, 1, amount_produced,amount_produced/5)
-	var/list/allowed_materials = list(/datum/material/iron,
-									/datum/material/glass,
-									/datum/material/silver,
-									/datum/material/plasma,
-									/datum/material/gold,
-									/datum/material/diamond,
-									/datum/material/plastic,
-									/datum/material/uranium,
-									/datum/material/bananium,
-									/datum/material/titanium,
-									/datum/material/bluespace
-									)
+	var/list/allowed_materials = list(
+		/datum/material/iron,
+		/datum/material/glass,
+		/datum/material/silver,
+		/datum/material/plasma,
+		/datum/material/gold,
+		/datum/material/diamond,
+		/datum/material/plastic,
+		/datum/material/uranium,
+		/datum/material/bananium,
+		/datum/material/titanium,
+		/datum/material/bluespace
+	)
 	AddComponent(/datum/component/material_container, allowed_materials, INFINITY, MATCONTAINER_NO_INSERT|BREAKDOWN_FLAGS_RECYCLER)
+	AddComponent(/datum/component/butchering/recycler, 1, amount_produced,amount_produced/5)
 	. = ..()
-	update_icon()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/recycler/LateInitialize()
+	. = ..()
+	update_appearance(UPDATE_ICON)
 	req_one_access = SSid_access.get_region_access_list(list(REGION_ALL_STATION, REGION_CENTCOM))
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = .proc/on_entered,
@@ -60,7 +63,7 @@
 
 /obj/machinery/recycler/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>Reclaiming <b>[amount_produced]%</b> of materials salvaged.</span>\n"
+	. += span_notice("Reclaiming <b>[amount_produced]%</b> of materials salvaged.")
 	. += {"The power light is [(machine_stat & NOPOWER) ? "off" : "on"].
 	The safety-mode light is [safety_mode ? "on" : "off"].
 	The safety-sensors status light is [obj_flags & EMAGGED ? "off" : "on"]."}
@@ -88,16 +91,16 @@
 	obj_flags |= EMAGGED
 	if(safety_mode)
 		safety_mode = FALSE
-		update_icon()
+		update_appearance()
 	playsound(src, "sparks", 75, TRUE, SILENCED_SOUND_EXTRARANGE)
-	to_chat(user, "<span class='notice'>You use the cryptographic sequencer on [src].</span>")
+	to_chat(user, span_notice("You use the cryptographic sequencer on [src]."))
 
 /obj/machinery/recycler/update_icon_state()
-	..()
 	var/is_powered = !(machine_stat & (BROKEN|NOPOWER))
 	if(safety_mode)
 		is_powered = FALSE
 	icon_state = icon_name + "[is_powered]" + "[(bloody ? "bld" : "")]" // add the blood tag at the end
+	return ..()
 
 /obj/machinery/recycler/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
@@ -158,7 +161,6 @@
 	if(not_eaten)
 		playsound(src, 'sound/machines/buzz-sigh.ogg', (50 + not_eaten*5), FALSE, not_eaten, ignore_walls = (not_eaten - 10)) // Ditto.
 	if(!ismob(AM0))
-		AM0.moveToNullspace()
 		qdel(AM0)
 	else // Lets not move a mob to nullspace and qdel it, yes?
 		for(var/i in AM0.contents)
@@ -186,13 +188,13 @@
 /obj/machinery/recycler/proc/emergency_stop()
 	playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
 	safety_mode = TRUE
-	update_icon()
+	update_appearance()
 	addtimer(CALLBACK(src, .proc/reboot), SAFETY_COOLDOWN)
 
 /obj/machinery/recycler/proc/reboot()
 	playsound(src, 'sound/machines/ping.ogg', 50, FALSE)
 	safety_mode = FALSE
-	update_icon()
+	update_appearance()
 
 /obj/machinery/recycler/proc/crush_living(mob/living/L)
 
@@ -210,7 +212,7 @@
 
 	if(!bloody && !issilicon(L))
 		bloody = TRUE
-		update_icon()
+		update_appearance()
 
 	// Instantly lie down, also go unconscious from the pain, before you die.
 	L.Unconscious(100)
