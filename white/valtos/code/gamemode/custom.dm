@@ -148,7 +148,7 @@
 	ambience_index = AMBIENCE_NONE
 	luminosity = 1
 	base_lighting_color = "#ffd1b3"
-	base_lighting_alpha = 100
+	base_lighting_alpha = 3
 
 /area/partyhard/outdoors/unexplored
 	icon_state = "2f"
