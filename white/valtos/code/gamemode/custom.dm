@@ -136,17 +136,12 @@
 /area/partyhard/indoors
 	icon_state = "5f"
 	name = "помещения"
-	static_lighting = FALSE
 	always_unpowered = FALSE
-///	//poweralm = FALSE
-	power_environ = FALSE
-	power_equip = FALSE
-	power_light = FALSE
 	requires_power = FALSE
+	static_lighting = TRUE
 	outdoors = FALSE
-	sound_environment = SOUND_ENVIRONMENT_PSYCHOTIC
+	sound_environment = SOUND_ENVIRONMENT_ROOM
 	ambience_index = AMBIENCE_NONE
-	luminosity = 1
 	base_lighting_color = "#ffd1b3"
 	base_lighting_alpha = 3
 
