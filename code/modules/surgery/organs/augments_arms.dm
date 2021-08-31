@@ -99,9 +99,9 @@
 	if(!active_item || (active_item in src))
 		return
 
-	owner?.visible_message(span_notice("[owner] retracts [active_item] back into [owner.p_their()] [zone == BODY_ZONE_R_ARM ? "right" : "left"] arm."),
-		span_notice("[active_item] snaps back into your [zone == BODY_ZONE_R_ARM ? "right" : "left"] arm."),
-		span_hear("You hear a short mechanical noise."))
+	owner?.visible_message(span_notice("owner] втягивает [active_item] обратно в [owner.ru_ego()] [zone == BODY_ZONE_R_ARM ? "правую" : "левую"] руку."),
+		span_notice("[capitalize(active_item)] возвращается в мою [zone == BODY_ZONE_R_ARM ? "правую" : "левую"] руку."),
+		span_hear("Слышу короткий механический шелчок."))
 
 	owner.transferItemToLoc(active_item, src, TRUE)
 	active_item = null
@@ -139,9 +139,9 @@
 			for(var/i in failure_message)
 				to_chat(owner, i)
 			return
-	owner.visible_message(span_notice("[owner] extends [active_item] from [owner.p_their()] [zone == BODY_ZONE_R_ARM ? "right" : "left"] arm."),
-		span_notice("You extend [active_item] from your [zone == BODY_ZONE_R_ARM ? "right" : "left"] arm."),
-		span_hear("You hear a short mechanical noise."))
+	owner.visible_message(span_notice("[owner] вытягивает [active_item] из [owner.ru_ego()] [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] руки."),
+		span_notice("Вытягиваю [active_item] из моей [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] руки."),
+		span_hear("Слышу короткий механический шелчок."))
 	playsound(get_turf(owner), extend_sound, 50, TRUE)
 
 /obj/item/organ/cyberimp/arm/ui_action_click()
