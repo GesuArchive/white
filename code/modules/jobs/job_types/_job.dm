@@ -214,6 +214,13 @@
 	if(head_announce)
 		announce_head(H, head_announce)
 
+/mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
+	return
+
+/mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
+	//dna.species.pre_equip_species_outfit(equipping, src, visual_only)
+	equipOutfit(equipping.outfit, visual_only)
+
 /datum/job/proc/override_latejoin_spawn(mob/living/carbon/human/H)		//Return TRUE to force latejoining to not automatically place the person in latejoin shuttle/whatever.
 	return FALSE
 

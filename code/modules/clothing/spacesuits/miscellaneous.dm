@@ -402,7 +402,7 @@ Contains:
 	if(helm?.berserk_active)
 		return
 	return ..()
-
+/*
 #define MAX_BERSERK_CHARGE 100
 #define PROJECTILE_HIT_MULTIPLIER 1.5
 #define DAMAGE_TO_CHARGE_SCALE 0.25
@@ -487,7 +487,7 @@ Contains:
 #undef CHARGE_DRAINED_PER_SECOND
 #undef BERSERK_MELEE_ARMOR_ADDED
 #undef BERSERK_ATTACK_SPEED_MODIFIER
-
+*/
 /obj/item/clothing/head/helmet/space/fragile
 	name = "emergency космошлем"
 	desc = "A bulky, air-tight helmet meant to protect the user during emergency situations. It doesn't look very durable."

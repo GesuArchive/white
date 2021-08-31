@@ -100,7 +100,7 @@
 
 	glasses = /obj/item/clothing/glasses/sunglasses
 	uniform = /obj/item/clothing/under/syndicate
-	suit = /obj/item/clothing/suit/space/hostile_environment
+	suit = /obj/item/clothing/suit/space/hardsuit/hostile_environment
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat/maggloves
 	head = /obj/item/clothing/head/soft/black

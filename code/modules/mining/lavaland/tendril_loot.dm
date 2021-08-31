@@ -806,7 +806,7 @@
 	icon_state = "cursed_katana_organ"
 	status = ORGAN_ORGANIC
 	organ_flags = ORGAN_FROZEN|ORGAN_UNREMOVABLE
-	items_to_create = list(/obj/item/cursed_katana)
+	items_list = list(/obj/item/cursed_katana)
 	extend_sound = 'sound/items/unsheath.ogg'
 	retract_sound = 'sound/items/sheath.ogg'
 
