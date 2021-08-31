@@ -41,7 +41,7 @@
 /datum/station_trait/galactic_grant/on_round_start()
 	var/datum/bank_account/cargo_bank = SSeconomy.get_dep_account(ACCOUNT_CAR)
 	cargo_bank.adjust_money(rand(2000, 5000))
-
+/*
 /datum/station_trait/premium_internals_box
 	name = "Premium internals boxes"
 	trait_type = STATION_TRAIT_POSITIVE
@@ -49,7 +49,7 @@
 	show_in_report = TRUE
 	report_message = "The internals boxes for your crew have been filled with bonus equipment."
 	trait_to_give = STATION_TRAIT_PREMIUM_INTERNALS
-
+*/
 /datum/station_trait/bountiful_bounties
 	name = "Bountiful bounties"
 	trait_type = STATION_TRAIT_POSITIVE
@@ -104,7 +104,7 @@
 
 	spawned.equip_to_slot_or_del(new scarf_type(spawned), ITEM_SLOT_NECK, initial = FALSE)
 
-
+/*
 /datum/station_trait/filled_maint
 	name = "Filled up maintenance"
 	trait_type = STATION_TRAIT_POSITIVE
@@ -113,7 +113,7 @@
 	report_message = "Our workers accidentaly forgot more of their personal belongings in the maintenace areas."
 	blacklist = list(/datum/station_trait/empty_maint)
 	trait_to_give = STATION_TRAIT_FILLED_MAINT
-
+*/
 /datum/station_trait/quick_shuttle
 	name = "Quick Shuttle"
 	trait_type = STATION_TRAIT_POSITIVE

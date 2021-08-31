@@ -16,7 +16,7 @@
 
 /datum/station_trait/distant_supply_lines/on_round_start()
 	SSeconomy.pack_price_modifier *= 1.2
-
+/*
 /datum/station_trait/late_arrivals
 	name = "Late Arrivals"
 	trait_type = STATION_TRAIT_NEGATIVE
@@ -34,7 +34,7 @@
 	report_message = "Sorry for that, we missed your station by a few miles, so we just launched you towards your station in pods. Hope you don't mind!"
 	trait_to_give = STATION_TRAIT_RANDOM_ARRIVALS
 	blacklist = list(/datum/station_trait/late_arrivals, /datum/station_trait/hangover)
-
+*/
 /datum/station_trait/hangover
 	name = "Hangover"
 	trait_type = STATION_TRAIT_NEGATIVE
@@ -42,7 +42,7 @@
 	show_in_report = TRUE
 	report_message = "Ohh....Man....That mandatory office party from last shift...God that was awesome..I woke up in some random toilet 3 sectors away..."
 	trait_to_give = STATION_TRAIT_HANGOVER
-	blacklist = list(/datum/station_trait/late_arrivals, /datum/station_trait/random_spawns)
+	//blacklist = list(/datum/station_trait/late_arrivals, /datum/station_trait/random_spawns)
 
 /datum/station_trait/hangover/New()
 	. = ..()
@@ -79,7 +79,7 @@
 	for(var/obj/machinery/power/apc/apc as anything in GLOB.apcs_list)
 		if(is_station_level(apc.z) && prob(60))
 			apc.overload_lighting()
-
+/*
 /datum/station_trait/empty_maint
 	name = "Cleaned out maintenance"
 	trait_type = STATION_TRAIT_NEGATIVE
@@ -88,7 +88,7 @@
 	report_message = "Our workers cleaned out most of the junk in the maintenace areas."
 	blacklist = list(/datum/station_trait/filled_maint)
 	trait_to_give = STATION_TRAIT_EMPTY_MAINT
-
+*/
 
 /datum/station_trait/overflow_job_bureaucracy
 	name = "Overflow bureaucracy mistake"
