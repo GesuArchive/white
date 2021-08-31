@@ -14,7 +14,7 @@
 /datum/component/ammo_hud/proc/wake_up(datum/source, mob/user, slot)
 	SIGNAL_HANDLER
 
-	RegisterSignal(parent, list(COMSIG_PARENT_PREQDELETED, COMSIG_ITEM_DROPPED), .proc/turn_off)
+	RegisterSignal(parent, list(COMSIG_PARENT_PREQDELETED, COMSIG_ITEM_DROPPED), .proc/turn_off, override = TRUE)
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
