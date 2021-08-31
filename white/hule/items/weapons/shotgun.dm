@@ -80,7 +80,7 @@ obj/item/gun/ballistic/shotgun/makeshift/update_icon()
 		if(81 to INFINITY)
 			.+= "Вас кто-то очень сильно недолюбливает." //admemes
 
-
+/*
 /obj/item/gun/ballistic/shotgun/makeshift/afterattack()
 	..()
 
@@ -91,15 +91,6 @@ obj/item/gun/ballistic/shotgun/makeshift/update_icon()
 /obj/item/gun/ballistic/shotgun/makeshift/shoot_live_shot(mob/living/user)
 	..()
 	rack()
-
-/obj/item/gun/ballistic/shotgun/makeshift/can_shoot()
-	.=..()
-	if(jammed)
-		playsound(src, "gun_dry_fire", 30, 1)
-		to_chat(usr, "<span class='warning'>The [src] is jammed and won't shoot until fixed with a wrench.</span>")
-		return FALSE
-
-
 
 /obj/item/gun/ballistic/shotgun/makeshift/attackby(obj/item/A, mob/user, params)
 
@@ -140,6 +131,7 @@ obj/item/gun/ballistic/shotgun/makeshift/update_icon()
 			else
 				to_chat(usr, "<span class='notice'>You unjam the [src].</span>")
 	..()
+*/
 
 /obj/item/gun/ballistic/shotgun/makeshift/chad
 	debug = 1

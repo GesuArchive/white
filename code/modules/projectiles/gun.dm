@@ -82,10 +82,6 @@
 	var/extra_damage = 0				//Number to add to individual bullets.
 	var/extra_penetration = 0			//Number to add to armor penetration of individual bullets.
 
-	var/jammed = FALSE
-	var/jam_chance = 0
-
-
 /obj/item/gun/Initialize()
 	. = ..()
 	if(pin)
@@ -93,6 +89,7 @@
 	if(gun_light)
 		alight = new(src)
 	build_zooming()
+	makeJamming()
 
 /obj/item/gun/Destroy()
 	if(isobj(pin)) //Can still be the initial path, then we skip
@@ -132,11 +129,6 @@
 
 /obj/item/gun/examine(mob/user)
 	. = ..()
-	if(jammed)
-		. += "<hr>"
-		. += "<span class='danger'><big>СТВОЛ ЗАКЛИНИЛО!</big></span>"
-		. += "\n<span class='info'>Можно попытаться починить его используя ПКМ.</span>"
-
 	if(!pinless)
 		. += "<hr>"
 		if(pin)
@@ -234,6 +226,7 @@
 		return
 	if(firing_burst)
 		return
+
 	if(flag) //It's adjacent, is the user, or is on the user's person
 		if(target in user.contents) //can't shoot stuff inside us.
 			return
@@ -272,7 +265,7 @@
 	//DUAL (or more!) WIELDING
 	var/bonus_spread = 0
 	var/loop_counter = 0
-	if(ishuman(user) && user.a_intent == INTENT_HARM)
+	if(ishuman(user) && (user.a_intent == INTENT_HARM))
 		var/mob/living/carbon/human/H = user
 		for(var/obj/item/gun/G in H.held_items)
 			if(G == src || G.weapon_weight >= WEAPON_MEDIUM)
@@ -357,7 +350,8 @@
 	if(user)
 		SEND_SIGNAL(user, COMSIG_MOB_FIRED_GUN, src, target, params, zone_override)
 
-	SEND_SIGNAL(src, COMSIG_GUN_FIRED, user, target, params, zone_override)
+	if(SEND_SIGNAL(src, COMSIG_GUN_FIRED, user, target, params, zone_override) & COMSIG_GUN_FIRED_CANCEL)
+		return
 
 	add_fingerprint(user)
 
@@ -758,23 +752,3 @@
 
 #undef FIRING_PIN_REMOVAL_DELAY
 #undef DUALWIELD_PENALTY_EXTRA_MULTIPLIER
-
-//эту хуету бы в елемент..........
-/obj/item/gun/proc/check_jammed(mob/living/user)
-	if(!jammed)
-		if(prob(jam_chance))
-			to_chat(user, "<span class='userdanger'>ЗАКЛИНИЛО!</span>")
-			jammed = TRUE
-			return TRUE
-		return FALSE
-	else
-		return TRUE
-
-/obj/item/gun/attack_hand_secondary(mob/user, list/modifiers)
-	if(jammed)
-		if(do_after(user, 1 SECONDS, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE)))
-			to_chat(user, "<span class='notice'>Удалось починить [src.name].</span>")
-			playsound(get_turf(src), 'sound/weapons/gun/general/slide_lock_1.ogg', 100)
-			jammed = FALSE
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-	return ..()

@@ -10,8 +10,6 @@
 
 	recoil = 0.75
 
-	jam_chance = 0.5
-
 	///sound when inserting magazine
 	var/load_sound = 'sound/weapons/gun/general/magazine_insert_full.ogg'
 	///sound when inserting an empty magazine
@@ -110,6 +108,9 @@
 		chamber_round(replace_new_round = TRUE)
 	update_icon()
 	//RegisterSignal(src, COMSIG_ITEM_RECHARGED, .proc/instant_reload)
+
+/obj/item/gun/ballistic/makeJamming()
+	AddElement(/datum/element/jamming, 0.5)
 
 /obj/item/gun/ballistic/add_weapon_description()
 	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_ballistic)
@@ -351,12 +352,6 @@
 	return ..()
 
 /obj/item/gun/ballistic/AltClick(mob/user)
-	if(jammed)
-		if(do_after(user, 2.5 SECONDS, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE)))
-			to_chat(user, "<span class='notice'>Удалось починить [src.name].</span>")
-			rack()
-			jammed = FALSE
-			return
 	if (unique_reskin && !current_skin && user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
 		reskin_obj(user)
 		return

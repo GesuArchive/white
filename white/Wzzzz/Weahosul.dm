@@ -67,20 +67,23 @@
 	knife_x_offset = 27
 	knife_y_offset = 13
 
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/makeJamming() //прикручиваеца в инишалайзе
+	return
+
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/Initialize()
 	. = ..()
 	switch(rand(1, 3))
 		if(1)
 			name = "старая [name]"
-			jam_chance = 25
+			AddElement(/datum/element/jamming, 25)
 			extra_damage = 10
 		if(2)
 			name = "старая ржавая [name]"
-			jam_chance = 50
+			AddElement(/datum/element/jamming, 50)
 			extra_damage = 7
 		if(3)
 			name = "старая ржавая погнутая [name]"
-			jam_chance = 75
+			AddElement(/datum/element/jamming, 75)
 			extra_damage = 3
 
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/empty

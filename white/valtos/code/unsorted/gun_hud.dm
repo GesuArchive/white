@@ -67,7 +67,7 @@
 		else
 			indicator = "burst"
 
-		if(pew.jammed)
+		if(pew.GetComponent(/datum/component/jammed))
 			indicator = "jam"
 
 		switch(length(rounds))

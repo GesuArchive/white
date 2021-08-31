@@ -6,8 +6,6 @@
 
 	pickup_sound = 'white/valtos/sounds/lasercock.wav'
 
-	jam_chance = 0.1
-
 	var/obj/item/stock_parts/cell/cell //What type of power cell this uses
 	var/cell_type = /obj/item/stock_parts/cell
 	var/modifystate = FALSE ///if the weapon has custom icons for individual ammo types it can switch between. ie disabler beams, taser, laser/lethals, ect.
@@ -23,6 +21,9 @@
 	var/charge_delay = 8
 	var/use_cyborg_cell = FALSE //whether the gun's cell drains the cyborg user's cell to recharge
 	var/dead_cell = FALSE //set to true so the gun is given an empty cell
+
+/obj/item/gun/energy/makeJamming()
+	AddElement(/datum/element/jamming/energy, 0.1, /datum/component/jammed/energy)
 
 /obj/item/gun/energy/emp_act(severity)
 	. = ..()
@@ -283,23 +284,3 @@
 			cell.use(E.e_cost)
 			. = "<span class='danger'>[user] непринужденно зажигает [A.loc == user ? "[user.ru_ego()] [A.name]" : A] при помощи [src]. Вот блин.</span>"
 
-/obj/item/gun/energy/check_jammed(mob/living/user)
-	if(!jammed)
-		if(prob(jam_chance))
-			to_chat(user, "<span class='userdanger'>КРИТИЧЕСКАЯ ОШИБКА!</span>")
-			playsound(get_turf(src), 'sound/weapons/gun/general/empty_alarm.ogg', 100)
-			jammed = TRUE
-			return TRUE
-		return FALSE
-	else
-		if(prob(15))
-			if(prob(5))
-				user.visible_message("<span class='danger'>[user] совершает глупую ошибку!</span>")
-				playsound(get_turf(src), 'white/valtos/sounds/explo.ogg', 80)
-				spawn(1 SECONDS)
-					empulse(get_turf(src), rand(1, 4), rand(4, 8))
-					explosion(get_turf(src), -1, 0, 1, 2)
-					qdel(src)
-			else
-				electrocute_mob(user, cell, src)
-		return TRUE
