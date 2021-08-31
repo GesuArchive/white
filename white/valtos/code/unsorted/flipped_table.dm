@@ -35,7 +35,7 @@
 	else if(border_dir != dir)
 		return TRUE
 
-/obj/structure/flippedtable/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
+/obj/structure/flippedtable/proc/on_exit(datum/source, atom/movable/leaving, direction)
 	SIGNAL_HANDLER
 
 	if(table_type == /obj/structure/table/glass) //Glass table, jolly ranchers pass
