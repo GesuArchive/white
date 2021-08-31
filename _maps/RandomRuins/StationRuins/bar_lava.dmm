@@ -152,6 +152,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
+"fQ" = (
+/obj/structure/chair/stool{
+	pixel_y = 8
+	},
+/obj/item/ashtray,
+/turf/open/floor/mineral/plastitanium,
+/area/crew_quarters/bar)
 "fR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -389,6 +396,7 @@
 /area/crew_quarters/bar)
 "kS" = (
 /obj/structure/chair,
+/obj/item/ashtray,
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
 "kX" = (
@@ -502,6 +510,7 @@
 "pQ" = (
 /obj/structure/table,
 /obj/item/clothing/mask/cigarette/cigar,
+/obj/item/ashtray,
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
 "pW" = (
@@ -1172,6 +1181,16 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/crew_quarters/bar)
+"PL" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "barmanpriv";
+	name = "bar shutters"
+	},
+/obj/machinery/door/firedoor,
+/obj/item/ashtray,
+/turf/open/floor/light,
+/area/crew_quarters/bar)
 "PY" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -1494,9 +1513,9 @@ dO
 xo
 zF
 zF
-sC
+PL
 tf
-Xh
+fQ
 rU
 Gr
 Gr

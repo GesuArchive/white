@@ -17,7 +17,7 @@
 
 /obj/item/reagent_containers/food/drinks/thermos
 	name = "винтажный термос"
-	desc = "Старый, металлический термос со слабым блеском."
+	desc = "Старый металлический термос со слабым блеском."
 	icon = 'white/rebolution228/icons/obj/items.dmi'
 	icon_state = "thermos"
 	inhand_icon_state = "thermos"
@@ -52,3 +52,78 @@
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
 	force = 7
 	throwforce = 5
+
+
+// ashtray
+
+/obj/item/ashtray
+	name = "пепельница"
+	desc = "Простая стеклянная пепельница для использованных сигарет."
+	icon = 'white/rebolution228/icons/obj/items.dmi'
+	icon_state = "ashtray"
+	var/max_butts = 10
+	var/empty_desc = ""
+	var/health = 20
+	
+
+/obj/item/ashtray/attackby(obj/item/W as obj, mob/user as mob, params)
+	if (istype(W,/obj/item/cigbutt) || istype(W,/obj/item/clothing/mask/cigarette) || istype(W, /obj/item/match))
+		if (contents.len >= max_butts)
+			to_chat(user,"Пепельница полная.")
+			return
+		W.loc = src
+
+		if (istype(W,/obj/item/clothing/mask/cigarette))
+			var/obj/item/clothing/mask/cigarette/cig = W
+			if (cig.lit == 1)
+				user.visible_message("<span class='notice'>[user] тушит [cig] об пепельницу.</span>")
+				var/obj/item/butt = new cig.type_butt(src)
+				cig.transfer_fingerprints_to(butt)
+				del(cig)
+			else if (cig.lit == 0)
+				to_chat(user, "<span class='danger'><font size=+4>ДОЛБОЁБ ЕБАНЫЙ ПЕПЕЛЬНИЦА ЭТО НЕ ПАЧКА СИГАРЕТ ПИДОРАС</font></span>")
+				return
+
+		add_fingerprint(user)
+		update_icon()
+	else
+		health = max(0,health - W.force)
+		user << "Вы ударяете [src] при помощи [W]."
+		if (health < 1)
+			die()
+	return
+
+/obj/item/ashtray/throw_impact(atom/hit_atom)
+	if (health > 0)
+		health = max(0,health - 3)
+		if(health < 1)
+			die()
+			return
+		if(contents.len)
+			to_chat(src, "<span class='warning'>Пепельница разбивается об [hit_atom]!</span>")
+		for (var/obj/item/O in contents)
+			O.loc = src.loc
+		update_icon()
+	return ..()
+
+/obj/item/ashtray/proc/die()
+	src.visible_message("<span class='danger'>Пепельница разбивается, раскидывая свое содержимое!</span>")
+	playsound(src, "shatter", 30, 1)
+	new /obj/item/shard(src.loc)
+	new /obj/effect/decal/cleanable/ash(src.loc)
+	for (var/obj/item/O in contents)
+		O.loc = src.loc
+		O.pixel_y = rand(-5, 5)
+		O.pixel_x = rand(-6, 6)
+	qdel(src)
+
+/obj/item/ashtray/update_icon()
+	if (contents.len == max_butts)
+		icon_state = "ashtray_full"
+		desc = "[initial(desc)] Пепельница заполнена."
+	else if (contents.len > 0)
+		icon_state = "ashtray_half"
+		desc = "[initial(desc)] Пепельница наполовину заполнена."
+	else
+		icon_state = "ashtray"
+	return ..()
