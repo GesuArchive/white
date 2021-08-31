@@ -50,9 +50,17 @@
 /mob/living/carbon/human/ZImpactDamage(turf/T, levels)
 	if(!HAS_TRAIT(src, TRAIT_FREERUNNING) || levels > 1) // falling off one level
 		return ..()
-	visible_message("<span class='danger'>[capitalize(src.name)] makes a hard landing on [T] but remains unharmed from the fall.</span>", \
-					"<span class='userdanger'>You brace for the fall. You make a hard landing on [T] but remain unharmed.</span>")
-	Knockdown(levels * 50)
+	if(isfelinid(src))
+		var/obj/item/bodypart/left_leg = get_bodypart(BODY_ZONE_L_LEG)
+		var/obj/item/bodypart/right_leg = get_bodypart(BODY_ZONE_R_LEG)
+		if(!left_leg || !right_leg || left_leg.bodypart_disabled || right_leg.bodypart_disabled)
+			return ..()
+		visible_message("<span class='notice'>[capitalize(src.name)] ловко приземляется на [T]!</span>", \
+			"<span class='warning'>Лечу вниз на [levels] уров[levels > 1 ? "ней" : "ень"] прямо в [T] мягко приземляясь при этом!</span>")
+	else
+		visible_message("<span class='danger'>[capitalize(src.name)] влетает в [T], но остаётся в целости.</span>", \
+						"<span class='userdanger'>Падаю... и влетаю в [T], но остаюсь в целости.</span>")
+		Knockdown(levels * 50)
 
 /mob/living/carbon/human/prepare_data_huds()
 	//Update med hud images...
