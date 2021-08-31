@@ -1015,6 +1015,56 @@
 
 	return ..()
 
+
+/obj/item/card/id/advanced/chameleon/pre_attack_secondary(atom/target, mob/living/user, params)
+	// If we're attacking a human, we want it to be covert. We're not ATTACKING them, we're trying
+	// to sneakily steal their accesses by swiping our agent ID card near them. As a result, we
+	// return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN to cancel any part of the following the attack chain.
+	if(istype(target, /mob/living/carbon/human))
+		to_chat(user, "<span class='notice'>You covertly start to scan [target] with \the [src], hoping to pick up a wireless ID card signal...</span>")
+
+		if(!do_mob(user, target, 2 SECONDS))
+			to_chat(user, "<span class='notice'>The scan was interrupted.</span>")
+			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+		var/mob/living/carbon/human/human_target = target
+
+		var/list/target_id_cards = human_target.get_all_contents_type(/obj/item/card/id)
+
+		if(!length(target_id_cards))
+			to_chat(user, "<span class='notice'>The scan failed to locate any ID cards.</span>")
+			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+		var/selected_id = pick(target_id_cards)
+		to_chat(user, "<span class='notice'>You successfully sync your [src] with \the [selected_id].</span>")
+		theft_target = WEAKREF(selected_id)
+		ui_interact(user)
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+	if(istype(target, /obj/item))
+		var/obj/item/target_item = target
+
+		to_chat(user, "<span class='notice'>You covertly start to scan [target] with your [src], hoping to pick up a wireless ID card signal...</span>")
+
+		var/list/target_id_cards = target_item.get_all_contents_type(/obj/item/card/id)
+
+		var/target_item_id = target_item.GetID()
+
+		if(target_item_id)
+			target_id_cards |= target_item_id
+
+		if(!length(target_id_cards))
+			to_chat(user, "<span class='notice'>The scan failed to locate any ID cards.</span>")
+			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+		var/selected_id = pick(target_id_cards)
+		to_chat(user, "<span class='notice'>You successfully sync your [src] with \the [selected_id].</span>")
+		theft_target = WEAKREF(selected_id)
+		ui_interact(user)
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+	return ..()
+
 /obj/item/card/id/advanced/chameleon/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)

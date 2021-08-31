@@ -204,6 +204,17 @@
 		for(var/obj/O in contents)
 			O.emp_act(severity)
 
+/obj/item/gun/attack_secondary(mob/living/victim, mob/living/user, params)
+	if (user.GetComponent(/datum/component/gunpoint))
+		to_chat(user, span_warning("You are already holding someone up!"))
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	if (user == victim)
+		to_chat(user,span_warning("You can't hold yourself up!"))
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+	user.AddComponent(/datum/component/gunpoint, victim, src)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
 /obj/item/gun/afterattack(atom/target, mob/living/user, flag, params, aimed) // aiming component
 	. = ..()
 	if(QDELETED(target))
