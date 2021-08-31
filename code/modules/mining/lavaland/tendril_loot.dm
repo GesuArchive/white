@@ -809,6 +809,7 @@
 	items_list = list(/obj/item/cursed_katana)
 	extend_sound = 'sound/items/unsheath.ogg'
 	retract_sound = 'sound/items/sheath.ogg'
+	contents = newlist(/obj/item/cursed_katana)
 
 /obj/item/organ/cyberimp/arm/katana/attack_self(mob/user, modifiers)
 	. = ..()
