@@ -3834,7 +3834,6 @@
 #include "white\baldenysh\govnokod\DCS\components\funny_movement\human_rocket.dm"
 #include "white\baldenysh\govnokod\DCS\components\guns\fullerauto.dm"
 #include "white\baldenysh\govnokod\DCS\components\guns\jammed.dm"
-#include "white\baldenysh\govnokod\DCS\components\melee\melee_defense.dm"
 #include "white\baldenysh\govnokod\DCS\components\pamoyka\aoe_combat.dm"
 #include "white\baldenysh\govnokod\DCS\elements\border_reach_check.dm"
 #include "white\baldenysh\govnokod\DCS\elements\impaling.dm"
