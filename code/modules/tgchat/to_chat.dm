@@ -25,7 +25,7 @@
 	if(!target)
 		return
 	if(!html && !text)
-		CRASH("Empty or null string in to_chat proc call.")
+		return // just ignore them
 	if(target == world)
 		target = GLOB.clients
 
