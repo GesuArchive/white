@@ -840,6 +840,16 @@ GLOBAL_LIST_EMPTY(PDAs)
 /obj/item/pda/proc/create_message(mob/living/U, obj/item/pda/P)
 	send_message(U,list(P))
 
+/obj/item/pda/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
+
+	if(id)
+		remove_id(user)
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	else
+		remove_pen(user)
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
 /obj/item/pda/AltClick(mob/user)
 	..()
 
