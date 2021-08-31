@@ -209,12 +209,12 @@
 	to_chat(user, "<span class='danger'>Мой удар [hulk_verb] <b>[src]</b>!</span>")
 	apply_damage(15, BRUTE, wound_bonus=10)
 
-/mob/living/carbon/human/attack_hand(mob/user)
-	if(..())	//to allow surgery to return properly.
+/mob/living/carbon/human/attack_hand(mob/user, list/modifiers)
+	if(..()) //to allow surgery to return properly.
 		return
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		dna.species.spec_attack_hand(H, src)
+		dna.species.spec_attack_hand(H, src, null, modifiers)
 
 /mob/living/carbon/human/attack_paw(mob/living/carbon/human/M)
 	var/dam_zone = pick(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
