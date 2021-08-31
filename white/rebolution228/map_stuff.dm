@@ -631,7 +631,7 @@
 	if(contents.len)
 		add_overlay(mutable_appearance(icon, "water_overlay", ABOVE_MOB_LAYER, ABOVE_MOB_LAYER))
 	else
-		cut_overlays()
+		cut_overlay(mutable_appearance(icon, "water_overlay", ABOVE_MOB_LAYER, ABOVE_MOB_LAYER))
 
 /turf/open/floor/carpet/tentfloor
 	name = "пол палатки"
