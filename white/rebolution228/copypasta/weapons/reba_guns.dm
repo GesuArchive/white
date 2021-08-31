@@ -385,7 +385,8 @@
 	pin = /obj/item/firing_pin
 	fire_delay = 2 // enter ur number here
 	burst_size = 1 // here too
-	spread = 25 // and here
+	spread = 10 // and here
+	semicd = 0
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_LIGHT
 
@@ -410,11 +411,11 @@
 	if(fuller_auto)
 		var/datum/component/automatic_fire_funny/D = GetComponent(/datum/component/automatic_fire_funny)
 		D.autofire_shot_delay = 0.1
-		spread = 40
+		spread = 10
 	else
 		var/datum/component/automatic_fire_funny/D = GetComponent(/datum/component/automatic_fire_funny)
 		D.autofire_shot_delay = 1
-		spread = 25
+		spread = 30
 
 /obj/item/ammo_box/magazine/hs010
 	name = "HS 010 Magazine"
