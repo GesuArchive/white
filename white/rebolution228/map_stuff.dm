@@ -625,10 +625,7 @@
 
 /turf/open/water/cataclysmdda/Exited(atom/movable/AM, atom/newLoc)
 	. = ..()
-	update_water_overlay()
-
-/turf/open/water/cataclysmdda/proc/update_water_overlay()
-	if(contents.len)
+	if(ismob(AM))
 		add_overlay(mutable_appearance(icon, "water_overlay", ABOVE_MOB_LAYER, ABOVE_MOB_LAYER))
 	else
 		cut_overlay(mutable_appearance(icon, "water_overlay", ABOVE_MOB_LAYER, ABOVE_MOB_LAYER))
