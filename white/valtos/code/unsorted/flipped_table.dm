@@ -19,9 +19,8 @@
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/structure/flippedtable/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/structure/flippedtable/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
-	var/attempted_dir = get_dir(loc, target)
 	if(table_type == /obj/structure/table/glass) //Glass table, jolly ranchers pass
 		if(istype(mover) && (mover.pass_flags & PASSGLASS))
 			return TRUE
@@ -31,9 +30,9 @@
 		if(P.trajectory && angle2dir_cardinal(P.trajectory.angle) == dir)
 			return TRUE
 		return FALSE
-	if(attempted_dir == dir)
+	if(border_dir == dir)
 		return FALSE
-	else if(attempted_dir != dir)
+	else if(border_dir != dir)
 		return TRUE
 
 /obj/structure/flippedtable/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
@@ -46,7 +45,8 @@
 	if(istype(leaving, /obj/projectile))
 		return
 
-	if(get_dir(leaving.loc, new_location) == dir)
+	if(direction == dir && density)
+		leaving.Bump(src)
 		return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/structure/flippedtable/AltClick(mob/user)
