@@ -5,11 +5,11 @@
 //COMSIG_GUN_FIRED
 	#define COMSIG_GUN_FIRED_CANCEL (1<<0)
 
-//старые сигналы обновления иконки до фигни типа update_appearance, в случае дупликейт дефинишна оставить ети
+/*
 #define COMSIG_ATOM_UPDATE_ICON "atom_update_icon"
 	#define COMSIG_ATOM_NO_UPDATE_ICON_STATE	(1<<0)
 	#define COMSIG_ATOM_NO_UPDATE_OVERLAYS		(1<<1)
-
+*/
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////редфоks
