@@ -1338,6 +1338,7 @@
 /area/ai_monitored/nuke_storage)
 "alv" = (
 /obj/structure/table/wood,
+/obj/item/ashtray,
 /turf/open/floor/wood,
 /area/maintenance/port/aft)
 "alF" = (
@@ -9836,6 +9837,7 @@
 /area/library/artgallery)
 "aNR" = (
 /obj/structure/table/wood,
+/obj/item/ashtray,
 /turf/open/floor/carpet,
 /area/hallway/secondary/entry)
 "aNS" = (
@@ -44210,6 +44212,13 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry)
+"vjC" = (
+/obj/item/ashtray{
+	pixel_x = -6;
+	pixel_y = -4
+	},
+/turf/open/openspace/airless,
+/area/space)
 "vkD" = (
 /obj/effect/landmark/event_spawn,
 /obj/structure/cable,
@@ -87653,7 +87662,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+vjC
 aaa
 aaa
 aaa

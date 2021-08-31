@@ -9759,6 +9759,10 @@
 	pixel_x = -6;
 	pixel_y = 9
 	},
+/obj/item/ashtray{
+	pixel_x = 6;
+	pixel_y = 8
+	},
 /turf/open/floor/wood,
 /area/maintenance/bottom_station_maints/north)
 "CH" = (
@@ -14352,7 +14356,7 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/space/cashmoney,
+/obj/item/ashtray,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge)
 "Qn" = (
