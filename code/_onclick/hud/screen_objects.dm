@@ -166,11 +166,10 @@
 	if(!icon_empty)
 		icon_empty = icon_state
 
-	if(hud?.mymob && slot_id && icon_full)
-		if(hud.mymob.get_item_by_slot(slot_id))
-			icon_state = icon_full
-		else
-			icon_state = icon_empty
+	if(!hud?.mymob || !slot_id || !icon_full)
+		return ..()
+	icon_state = hud.mymob.get_item_by_slot(slot_id) ? icon_full : icon_empty
+	return ..()
 
 /atom/movable/screen/inventory/proc/add_overlays()
 	var/mob/user = hud?.mymob
@@ -388,7 +387,7 @@
 			icon_state = "running"
 		if(MOVE_INTENT_CRAWL)
 			icon_state = "crawling"
-
+	return ..()
 
 /atom/movable/screen/mov_intent/proc/toggle(mob/user)
 	if(isobserver(user))
@@ -399,6 +398,7 @@
 	name = "stop pulling"
 	icon = 'icons/hud/screen_midnight.dmi'
 	icon_state = "pull"
+	base_icon_state = "pull"
 
 /atom/movable/screen/pull/Click()
 	if(isobserver(usr))
@@ -406,10 +406,8 @@
 	usr.stop_pulling()
 
 /atom/movable/screen/pull/update_icon_state()
-	if(hud?.mymob?.pulling)
-		icon_state = "pull"
-	else
-		icon_state = "pull0"
+	icon_state = "[base_icon_state][hud?.mymob?.pulling ? null : 0]"
+	return ..()
 
 /atom/movable/screen/resist
 	name = "Сопротивляться"
@@ -427,6 +425,7 @@
 	name = "rest"
 	icon = 'icons/hud/screen_midnight.dmi'
 	icon_state = "act_rest"
+	base_icon_state = "act_rest"
 	layer = HUD_LAYER
 	plane = HUD_PLANE
 
@@ -438,11 +437,10 @@
 /atom/movable/screen/rest/update_icon_state()
 	var/mob/living/user = hud?.mymob
 	if(!istype(user))
-		return
-	if(!user.resting)
-		icon_state = "act_rest"
-	else
-		icon_state = "act_rest0"
+		return ..()
+	icon_state = "[base_icon_state][user.resting ? 0 : null]"
+	return ..()
+
 
 /atom/movable/screen/storage
 	name = "storage"

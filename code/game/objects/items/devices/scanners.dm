@@ -142,6 +142,9 @@ GENE SCANNER
 
 	add_fingerprint(user)
 
+/obj/item/healthanalyzer/attack_secondary(mob/living/victim, mob/living/user, params)
+	chemscan(user, victim)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 // Used by the PDA medical scanner too
 /proc/healthscan(mob/user, mob/living/M, mode = SCANNER_VERBOSE, advanced = FALSE)

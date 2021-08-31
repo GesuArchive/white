@@ -1969,7 +1969,7 @@
  * It is also used to process martial art attacks by nonhumans, even against humans
  * Human vs human attacks are handled in species code right now.
  */
-/mob/living/proc/apply_martial_art(mob/living/target)
+/mob/living/proc/apply_martial_art(mob/living/target, modifiers, is_grab = FALSE)
 	if(HAS_TRAIT(target, TRAIT_MARTIAL_ARTS_IMMUNE))
 		return FALSE
 	var/datum/martial_art/style = mind?.martial_art
