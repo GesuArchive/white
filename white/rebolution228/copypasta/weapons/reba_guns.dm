@@ -383,10 +383,9 @@
 	righthand_file = 'white/rebolution228/icons/weapons/guns_inhand_right.dmi'
 	mag_type = /obj/item/ammo_box/magazine/hs010
 	pin = /obj/item/firing_pin
-	fire_delay = 2 // enter ur number here
-	burst_size = 1 // here too
-	spread = 10 // and here
-	semicd = 0
+	fire_delay = 0
+	burst_size = 1
+	spread = 10
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_LIGHT
 
@@ -397,6 +396,7 @@
 	load_sound = 'white/baldenysh/sounds/eyedc/hs_reload_02.wav'
 	load_empty_sound = 'white/baldenysh/sounds/eyedc/hs_reload_02.wav'
 
+	actions_types = list()
 	can_suppress = FALSE
 	var/fuller_auto = FALSE
 
