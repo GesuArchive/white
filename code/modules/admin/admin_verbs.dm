@@ -538,7 +538,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 			var/flash_range = input("Flash range (in tiles):") as null|num
 			if(flash_range == null)
 				return
-			if(range_devastation > GLOB.MAX_EX_DEVESTATION_RANGE || range_heavy > GLOB.MAX_EX_HEAVY_RANGE || range_light > GLOB.MAX_EX_LIGHT_RANGE || range_flash > GLOB.MAX_EX_FLASH_RANGE)
+			if(devastation_range > GLOB.MAX_EX_DEVESTATION_RANGE || heavy_impact_range > GLOB.MAX_EX_HEAVY_RANGE || light_impact_range > GLOB.MAX_EX_LIGHT_RANGE || flash_range > GLOB.MAX_EX_FLASH_RANGE)				if(tgui_alert(usr, "Bomb is bigger than the maxcap. Continue?",,list("Yes","No")) != "Yes")
 				if(tgui_alert(usr, "Bomb is bigger than the maxcap. Continue?",,list("Yes","No")) != "Yes")
 					return
 			epicenter = mob.loc //We need to reupdate as they may have moved again
@@ -671,19 +671,13 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	set category = "Дбг"
 	printAllCards()
 
-/client/proc/give_spell(mob/T in GLOB.mob_list)
-	set category = "Адм.Веселье"
+/client/proc/give_spell(mob/spell_recipient in GLOB.mob_list)
+	set category = "Admin.Fun"
 	set name = "Give Spell"
 	set desc = "Gives a spell to a mob."
 
 	var/list/spell_list = list()
 	var/type_length = length_char("/obj/effect/proc_holder/spell") + 2
-	/*
-	for(var/A in GLOB.spells)
-		spell_list[copytext_char("[A]", type_length)] = A
-	var/obj/effect/proc_holder/spell/S = input("Choose the spell to give to that guy", "ABRAKADABRA") as null|anything in sortList(spell_list)
-	if(!S)
-	*/
 	for(var/spell in GLOB.spells)
 		spell_list[copytext_char("[spell]", type_length)] = spell
 	var/spell_desc = input("Choose the spell to give to that guy", "ABRAKADABRA") as null|anything in sortList(spell_list)
@@ -693,19 +687,25 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	var/robeless = (tgui_alert(usr, "Would you like to force this spell to be robeless?", "Robeless Casting?", list("Force Robeless", "Use Spell Setting")) == "Force Robeless")
 
 	if(QDELETED(spell_recipient))
-		to_chat(usr, "<span class='warning'>The intended spell recipient no longer exists.</span>")
+		to_chat(usr, span_warning("The intended spell recipient no longer exists."))
 		return
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Give Spell") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	log_admin("[key_name(usr)] gave [key_name(T)] the spell [S].")
-	message_admins(span_adminnotice("[key_name_admin(usr)] gave [key_name_admin(T)] the spell [S].") )
+	log_admin("[key_name(usr)] gave [key_name(spell_recipient)] the spell [spell_desc][robeless ? " (Forced robeless)" : ""].")
+	message_admins(span_adminnotice("[key_name_admin(usr)] gave [key_name_admin(spell_recipient)] the spell [spell_desc][spell_desc][robeless ? " (Forced robeless)" : ""]."))
 
-	S = spell_list[S]
-	if(T.mind)
-		T.mind.AddSpell(new S)
+	var/spell_path = spell_list[spell_desc]
+	var/obj/effect/proc_holder/spell/new_spell = new spell_path()
+
+	if(robeless)
+		new_spell.clothes_req = FALSE
+		new_spell.cult_req = FALSE
+
+	if(spell_recipient.mind)
+		spell_recipient.mind.AddSpell(new_spell)
 	else
-		T.AddSpell(new S)
-		message_admins(span_danger("Spells given to mindless mobs will not be transferred in mindswap or cloning!") )
+		spell_recipient.AddSpell(new_spell)
+		message_admins(span_danger("Spells given to mindless mobs will not be transferred in mindswap or cloning!"))
 
 /client/proc/remove_spell(mob/T in GLOB.mob_list)
 	set category = "Адм.Веселье"
