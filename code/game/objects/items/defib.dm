@@ -609,7 +609,9 @@
 					user.visible_message("<span class='notice'>[req_defib ? "[defib]" : "[src]"] pings: Resuscitation successful.</span>")
 					playsound(src, 'sound/machines/defib_success.ogg', 50, FALSE)
 					H.set_heartattack(FALSE)
-					H.grab_ghost()
+					if(!(H.grab_ghost())) //sosanie
+						H.ice_cream_mob = TRUE
+						H.ice_cream_check()
 					H.revive(full_heal = FALSE, admin_revive = FALSE)
 					H.emote("gasp")
 					H.Jitter(100)

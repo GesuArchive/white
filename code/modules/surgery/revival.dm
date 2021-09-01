@@ -62,7 +62,9 @@
 		"<span class='notice'>[user] send a powerful shock to [target] brain with [tool]...</span>",
 		"<span class='notice'>[user] send a powerful shock to [target] brain with [tool]...</span>")
 	playsound(get_turf(target), 'sound/magic/lightningbolt.ogg', 50, TRUE)
-	target.grab_ghost()
+	if(!(H.grab_ghost())) //sosanie
+		H.ice_cream_mob = TRUE
+		H.ice_cream_check()
 	target.adjustOxyLoss(-50, 0)
 	target.updatehealth()
 	if(target.revive(full_heal = FALSE, admin_revive = FALSE))
