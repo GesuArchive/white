@@ -406,8 +406,10 @@
 	//Time to see if they need medical help!
 	if(stationary_mode && !Adjacent(C)) //YOU come to ME, BRO
 		return FALSE
-	if(C.stat == DEAD || (HAS_TRAIT(C, TRAIT_FAKEDEATH)))
-		return FALSE	//welp too late for them!
+
+	if(!stationary_mode)
+		if(C.stat == DEAD || (HAS_TRAIT(C, TRAIT_FAKEDEATH)))
+			return FALSE	//welp too late for them!
 
 	if(!(loc == C.loc) && !(isturf(C.loc) && isturf(loc)))
 		return FALSE
