@@ -414,7 +414,7 @@
 		to_chat(src, text="You are unable to succumb to death! This life continues.", type=MESSAGE_TYPE_INFO)
 		return FALSE
 	if(!whispered)
-		var/response = tgui_alert(usr, "Преждевременный выход из тела отбирает у меня право на донос.\nОно мне нужно?", "Ты УВЕРЕН?", "Да", "Нет")
+		var/response = tgui_alert(usr, "Преждевременный выход из тела отбирает у меня право на донос.\nОно мне нужно?", "Ты УВЕРЕН?", list("Да", "Нет"))
 		if(response == "Нет")
 			to_chat(src, span_boldnotice("Пока ещё живу.") )
 			return

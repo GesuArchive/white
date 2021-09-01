@@ -24,7 +24,7 @@
 		to_chat(usr,span_warning("Руки <b>[src]</b> полны.") )
 		return
 
-	switch(alert(src,"[usr] хочет дать мне [I]. Взять?",,"Да","Нет"))
+	switch(alert(src,"[usr] хочет дать мне [I]. Взять?",,list("Да","Нет")))
 		if("Да")
 			if(!I || !usr)
 				return

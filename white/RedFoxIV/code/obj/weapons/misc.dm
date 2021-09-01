@@ -837,12 +837,12 @@
 	if(duel_status == DUEL_PENDING)
 		if(duelists.Find(user))
 			CRASH("A ghost tried to join a duel when he already was in the list of duelists. WTF?")
-		var/alert = tgui_alert(usr, "Точно хочешь поучавствовать в дуэли на [bet] метакэша?",,"Да","Нет")
+		var/alert = tgui_alert(usr, "Точно хочешь поучавствовать в дуэли на [bet] метакэша?",,list("Да","Нет"))
 		if(alert == "Да")
 			spawn_user()
 		return
 
-	var/ghost_role = tgui_alert(usr, "Точно хочешь начать дуэль? (Ты не сможешь вернуться в своё прошлое тело, так что выбирай с умом!)",,"Да","Нет")
+	var/ghost_role = tgui_alert(usr, "Точно хочешь начать дуэль? (Ты не сможешь вернуться в своё прошлое тело, так что выбирай с умом!)",,list("Да","Нет"))
 	if(ghost_role == "Нет" || !loc || QDELETED(user))
 		return
 	var/betinput = input("Сколько метакэша готов поставить? (Не меньше 50!)", "1XBET", 50) as num

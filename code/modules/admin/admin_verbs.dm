@@ -555,7 +555,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	if(isnull(rtime))
 		rtime = 0
 	rtime = clamp(rtime,0,6.9)
-	var/ass = tgui_alert(usr, "Ты уверен?","SECURE. CONTAIN. PROTECT.", "Да.","Нет.")
+	var/ass = tgui_alert(usr, "Ты уверен?","SECURE. CONTAIN. PROTECT.", list("Да.","Нет."))
 	if(ass=="Нет.")
 		return
 

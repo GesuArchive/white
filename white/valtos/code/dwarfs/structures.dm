@@ -202,7 +202,7 @@
 /obj/structure/dwarf_altar/proc/summon_dwarf(mob/user)
 	if(!active)
 		return FALSE
-	var/dwarf_ask = tgui_alert(usr, "Стать дворфом?", "КОПАТЬ?", "Да", "Нет")
+	var/dwarf_ask = tgui_alert(usr, "Стать дворфом?", "КОПАТЬ?", list("Да", "Нет"))
 	if(dwarf_ask == "Нет" || !src || QDELETED(src) || QDELETED(user))
 		return FALSE
 	if(!active)
@@ -239,7 +239,7 @@
 			to_chat(user, span_warning("Алтарь не готов!") )
 			return
 		var/mob/living/carbon/human/M = user
-		var/dwarf_ask = tgui_alert(M, "Стать дворфом?", "КОПАТЬ?", "Да", "Нет")
+		var/dwarf_ask = tgui_alert(M, "Стать дворфом?", "КОПАТЬ?", list("Да", "Нет"))
 		if(dwarf_ask == "Нет" || !src || QDELETED(src) || QDELETED(M))
 			return FALSE
 		if(!active)

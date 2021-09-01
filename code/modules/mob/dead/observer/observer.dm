@@ -392,7 +392,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(usr, span_warning("Да я как бы уже!") )
 		return FALSE
 
-	var/response = tgui_alert(usr, "Отменяем возможность возраждаться? Это нельзя отменить и лишает тебя права голоса на этот раунда.","Умираем?","НХВ",list("Я передумал"))
+	var/response = tgui_alert(usr, "Отменяем возможность возраждаться? Это нельзя отменить и лишает тебя права голоса на этот раунда.","Умираем?",list("НХВ","Я передумал"))
 	if(response != "НХВ")
 		return
 

@@ -42,7 +42,7 @@
 	cost = 100500
 
 /datum/gear/ooc/purge_this_shit/purchase(var/client/C)
-	var/fuck_everyone = tgui_alert(usr,"Это действие приведёт обнулению ВСЕГО метакэша. Ты уверен?","Очищение","Да","Нет")
+	var/fuck_everyone = tgui_alert(usr,"Это действие приведёт обнулению ВСЕГО метакэша. Ты уверен?","Очищение",list("Да","Нет"))
 	if (fuck_everyone == "Да")
 		var/datum/db_query/purge_shit = SSdbcore.NewQuery("UPDATE [format_table_name("player")] SET metacoins = '0'")
 		purge_shit.warn_execute()
