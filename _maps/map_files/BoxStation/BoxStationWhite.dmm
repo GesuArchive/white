@@ -44212,13 +44212,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry)
-"vjC" = (
-/obj/item/ashtray{
-	pixel_x = -6;
-	pixel_y = -4
-	},
-/turf/open/openspace/airless,
-/area/space)
 "vkD" = (
 /obj/effect/landmark/event_spawn,
 /obj/structure/cable,
@@ -87662,7 +87655,7 @@ aaa
 aaa
 aaa
 aaa
-vjC
+aaa
 aaa
 aaa
 aaa
