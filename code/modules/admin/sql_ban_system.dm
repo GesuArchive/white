@@ -16,6 +16,11 @@
 					return TRUE //they're banned from at least one role, no need to keep checking
 		else if(roles in C.ban_cache)
 			return TRUE
+
+		if(ROLE_OPERATIVE in roles) //:flushed:
+			if(!C.holder && (C.get_exp_living(TRUE)/60 < 150))
+				return TRUE
+
 	else
 		var/values = list(
 			"player_ckey" = player_ckey,
