@@ -144,7 +144,7 @@
 		ui = new(user, src, "Sleeper", name)
 		ui.open()
 
-/obj/machinery/sleeper/AltClick(mob/user)
+/obj/machinery/sleeper/attackby_secondary(obj/item/weapon, mob/user, params)
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return
 	if(state_open)

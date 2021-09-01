@@ -324,7 +324,7 @@
 	repetition++
 	addtimer(CALLBACK(src, /obj/item/extinguisher/proc/move_chair, B, movementdirection, repetition), timer_seconds)
 
-/obj/item/extinguisher/AltClick(mob/user)
+/obj/item/extinguisher/attackby_secondary(obj/item/weapon, mob/user, params)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 		return
 	if(!user.is_holding(src))

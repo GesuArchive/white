@@ -784,7 +784,7 @@
 	to_chat(user, "<span class='notice'>[self_sustaining ? "activate" : "deactivated"] [src] функцию автороста[self_sustaining ? ", maintaining the tray's health while using high amounts of power" : ""].")
 	update_icon()
 
-/obj/machinery/hydroponics/AltClick(mob/user)
+/obj/machinery/hydroponics/attackby_secondary(obj/item/weapon, mob/user, params)
 	. = ..()
 	if(!anchored)
 		update_icon()

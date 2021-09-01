@@ -26,7 +26,7 @@
 		update_icon()
 	return ..()
 
-/obj/machinery/atmospherics/components/binary/temperature_gate/AltClick(mob/user)
+/obj/machinery/atmospherics/components/binary/temperature_gate/attackby_secondary(obj/item/weapon, mob/user, params)
 	if(can_interact(user))
 		target_temperature = max_temperature
 		investigate_log("was set to [target_temperature] K by [key_name(user)]", INVESTIGATE_ATMOS)

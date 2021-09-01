@@ -7,7 +7,7 @@
 	density = FALSE
 	can_buckle = 1
 
-/obj/structure/sacrificealtar/AltClick(mob/living/user)
+/obj/structure/sacrificealtar/attackby_secondary(obj/item/weapon, mob/living/user, params)
 	..()
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
 		return

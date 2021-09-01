@@ -117,7 +117,7 @@
 	. = ..()
 	. += "<hr><span class='notice'>ПКМ для установки боевого клича.</span>"
 
-/obj/item/spear/explosive/AltClick(mob/user)
+/obj/item/spear/explosive/attackby_secondary(obj/item/weapon, mob/user, params)
 	if(user.canUseTopic(src, BE_CLOSE))
 		..()
 		if(istype(user) && loc == user)

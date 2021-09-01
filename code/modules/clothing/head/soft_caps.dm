@@ -21,7 +21,7 @@
 	flip(usr)
 
 
-/obj/item/clothing/head/soft/AltClick(mob/user)
+/obj/item/clothing/head/soft/attackby_secondary(obj/item/weapon, mob/user, params)
 	..()
 	if(user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		flip(user)

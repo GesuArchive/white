@@ -21,7 +21,7 @@
 		update_icon()
 	return ..()
 
-/obj/machinery/atmospherics/components/trinary/filter/AltClick(mob/user)
+/obj/machinery/atmospherics/components/trinary/filter/attackby_secondary(obj/item/weapon, mob/user, params)
 	if(can_interact(user))
 		transfer_rate = MAX_TRANSFER_RATE
 		investigate_log("was set to [transfer_rate] L/s by [key_name(user)]", INVESTIGATE_ATMOS)

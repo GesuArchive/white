@@ -105,7 +105,7 @@
 	to_chat(user, "<span class='notice'>You send a disposal transmission signal to [src].</span>")
 	do_the_dishes(TRUE)
 
-/obj/machinery/dish_drive/AltClick(mob/living/user)
+/obj/machinery/dish_drive/attackby_secondary(obj/item/weapon, mob/living/user, params)
 	if(user.canUseTopic(src, !issilicon(user)))
 		do_the_dishes(TRUE)
 

@@ -14,7 +14,7 @@
 
 
 
-/obj/machinery/computer/prisoner/AltClick(mob/user)
+/obj/machinery/computer/prisoner/attackby_secondary(obj/item/weapon, mob/user, params)
 	id_eject(user)
 	return ..()
 

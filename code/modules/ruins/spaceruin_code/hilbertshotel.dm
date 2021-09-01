@@ -315,7 +315,7 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	if(get_dist(get_turf(src), get_turf(user)) <= 1)
 		promptExit(user)
 
-/turf/closed/indestructible/hoteldoor/AltClick(mob/user)
+/turf/closed/indestructible/hoteldoor/attackby_secondary(obj/item/weapon, mob/user, params)
 	. = ..()
 	if(get_dist(get_turf(src), get_turf(user)) <= 1)
 		to_chat(user, "<span class='notice'>You peak through the door's bluespace peephole...</span>")

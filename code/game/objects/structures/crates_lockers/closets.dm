@@ -521,7 +521,7 @@
 	broken = TRUE //applies to secure lockers only
 	open()
 
-/obj/structure/closet/AltClick(mob/user)
+/obj/structure/closet/attackby_secondary(obj/item/weapon, mob/user, params)
 	..()
 	if(!user.canUseTopic(src, BE_CLOSE) || !isturf(loc))
 		return

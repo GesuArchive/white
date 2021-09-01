@@ -510,7 +510,7 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 		set_on(!on)
 	return ..()
 
-/obj/machinery/atmospherics/components/unary/cryo_cell/AltClick(mob/user)
+/obj/machinery/atmospherics/components/unary/cryo_cell/attackby_secondary(obj/item/weapon, mob/user, params)
 	if(can_interact(user))
 		if(state_open)
 			close_machine()

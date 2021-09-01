@@ -88,7 +88,7 @@
 	update_icon()
 	return TRUE
 
-/obj/machinery/portable_atmospherics/AltClick(mob/living/user)
+/obj/machinery/portable_atmospherics/attackby_secondary(obj/item/weapon, mob/living/user, params)
 	. = ..()
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)) || !can_interact(user))
 		return

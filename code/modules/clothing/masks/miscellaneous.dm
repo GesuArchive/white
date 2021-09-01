@@ -87,7 +87,7 @@
 /obj/item/clothing/mask/bandana/attack_self(mob/user)
 	adjustmask(user)
 
-/obj/item/clothing/mask/bandana/AltClick(mob/user)
+/obj/item/clothing/mask/bandana/attackby_secondary(obj/item/weapon, mob/user, params)
 	. = ..()
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user

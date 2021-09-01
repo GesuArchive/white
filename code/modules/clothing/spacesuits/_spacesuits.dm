@@ -164,7 +164,7 @@
 	return ..()
 
 /// Open the cell cover when ALT+Click on the suit
-/obj/item/clothing/suit/space/AltClick(mob/living/user)
+/obj/item/clothing/suit/space/attackby_secondary(obj/item/weapon, mob/living/user, params)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		return ..()
 	toggle_spacesuit_cell(user)

@@ -21,7 +21,7 @@
 /obj/item/clothing/mask/breath/attack_self(mob/user)
 	adjustmask(user)
 
-/obj/item/clothing/mask/breath/AltClick(mob/user)
+/obj/item/clothing/mask/breath/attackby_secondary(obj/item/weapon, mob/user, params)
 	..()
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		adjustmask(user)

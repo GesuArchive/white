@@ -31,7 +31,7 @@
 	updateSelfDialog()
 	. = ..()
 
-/obj/item/implantpad/AltClick(mob/user)
+/obj/item/implantpad/attackby_secondary(obj/item/weapon, mob/user, params)
 	..()
 	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return

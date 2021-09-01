@@ -30,7 +30,7 @@
 	if (I.GetID())
 		togglelock(user)
 
-/obj/machinery/computer/price_controller/AltClick(mob/user)
+/obj/machinery/computer/price_controller/attackby_secondary(obj/item/weapon, mob/user, params)
 	..()
 	if(!user.canUseTopic(src, !issilicon(user)) || !isturf(loc))
 		return

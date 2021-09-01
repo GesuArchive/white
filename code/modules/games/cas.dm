@@ -131,7 +131,7 @@
 	flipped = !flipped
 	update_icon()
 
-/obj/item/toy/cards/singlecard/cas/AltClick(mob/living/user)
+/obj/item/toy/cards/singlecard/cas/attackby_secondary(obj/item/weapon, mob/living/user, params)
 	if(!ishuman(user) || !user.canUseTopic(src, BE_CLOSE))
 		return
 	Flip()

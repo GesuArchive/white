@@ -61,7 +61,7 @@
 	ui_interact(usr)
 
 ///Enable the machine
-/obj/machinery/chem_recipe_debug/AltClick(mob/living/user)
+/obj/machinery/chem_recipe_debug/attackby_secondary(obj/item/weapon, mob/living/user, params)
 	. = ..()
 	if(processing)
 		say("currently processing reaction [index]: [cached_reactions[index]] of [cached_reactions.len]")

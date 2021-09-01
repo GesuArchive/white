@@ -614,7 +614,6 @@
 
 /turf/open/water/cataclysmdda/Entered(atom/movable/AM)
 	. = ..()
-//	update_water_overlay() хули оно рантаймит блядь чините
 	if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
 		H.wash()

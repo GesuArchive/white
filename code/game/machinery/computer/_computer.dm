@@ -117,7 +117,7 @@
 			C.forceMove(loc)
 	qdel(src)
 
-/obj/machinery/computer/AltClick(mob/user)
+/obj/machinery/computer/attackby_secondary(obj/item/weapon, mob/user, params)
 	. = ..()
 	if(!user.canUseTopic(src, !issilicon(user)) || !is_operational)
 		return

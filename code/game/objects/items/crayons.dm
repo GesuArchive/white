@@ -155,7 +155,7 @@
 		ui = new(user, src, "Crayon", name)
 		ui.open()
 
-/obj/item/toy/crayon/spraycan/AltClick(mob/user)
+/obj/item/toy/crayon/spraycan/attackby_secondary(obj/item/weapon, mob/user, params)
 	if(has_cap && user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 		is_capped = !is_capped
 		to_chat(user, "<span class='notice'>Крышка на [src.name] теперь [is_capped ? "есть" : "убрана"].</span>")

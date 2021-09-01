@@ -158,7 +158,7 @@
 		attach_victim(O,user)
 	useLock = FALSE
 
-/obj/structure/bloodsucker/vassalrack/AltClick(mob/user)
+/obj/structure/bloodsucker/vassalrack/attackby_secondary(obj/item/weapon, mob/user, params)
 	if (!has_buckled_mobs() || !isliving(user) || useLock)
 		return
 	// Attempt Release (Owner vs Non Owner)
@@ -528,7 +528,7 @@
 			set_light(0)
 		update_icon()
 
-/obj/structure/bloodsucker/candelabrum/AltClick(mob/user)
+/obj/structure/bloodsucker/candelabrum/attackby_secondary(obj/item/weapon, mob/user, params)
 	// Bloodsuckers can turn their candles on from a distance. SPOOOOKY.
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = user.mind.has_antag_datum(ANTAG_DATUM_BLOODSUCKER)
 	if (istype(bloodsuckerdatum))

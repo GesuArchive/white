@@ -181,7 +181,7 @@
 	to_chat(user, "<span class='notice'>You remove [src] from the wall.</span>")
 
 
-/obj/machinery/defibrillator_mount/AltClick(mob/living/carbon/user)
+/obj/machinery/defibrillator_mount/attackby_secondary(obj/item/weapon, mob/living/carbon/user, params)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
 		return
 	if(!defib)

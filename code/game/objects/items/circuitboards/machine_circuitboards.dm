@@ -1084,7 +1084,7 @@
 	suction = !suction
 	to_chat(user, "<span class='notice'>You [suction ? "enable" : "disable"] the board's suction function.</span>")
 
-/obj/item/circuitboard/machine/dish_drive/AltClick(mob/living/user)
+/obj/item/circuitboard/machine/dish_drive/attackby_secondary(obj/item/weapon, mob/living/user, params)
 	if(!user.Adjacent(src))
 		return
 	transmit = !transmit

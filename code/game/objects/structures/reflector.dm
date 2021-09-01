@@ -165,7 +165,7 @@
 		setAngle(SIMPLIFY_DEGREES(new_angle))
 	return TRUE
 
-/obj/structure/reflector/AltClick(mob/user)
+/obj/structure/reflector/attackby_secondary(obj/item/weapon, mob/user, params)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		return
 	else if(finished)

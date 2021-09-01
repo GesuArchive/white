@@ -61,7 +61,7 @@
 	else
 		return ..()
 
-/obj/structure/closet/crate/secure/loot/AltClick(mob/living/user)
+/obj/structure/closet/crate/secure/loot/attackby_secondary(obj/item/weapon, mob/living/user, params)
 	if(!user.canUseTopic(src, BE_CLOSE))
 		return
 	return attack_hand(user) //this helps you not blow up so easily by overriding unlocking which results in an immediate boom.

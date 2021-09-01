@@ -62,7 +62,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	update_icon()
 	addtimer(CALLBACK(src, .proc/check_success), askDelay)
 
-/obj/item/mmi/posibrain/AltClick(mob/living/user)
+/obj/item/mmi/posibrain/attackby_secondary(obj/item/weapon, mob/living/user, params)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
 		return
 	var/input_seed = stripped_input(user, "Выбрать бы число", "Выбираем число", ask_role, MAX_NAME_LEN)

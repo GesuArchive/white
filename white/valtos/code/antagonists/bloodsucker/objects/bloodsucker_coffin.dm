@@ -190,7 +190,7 @@
 
 
 
-/obj/structure/closet/crate/coffin/AltClick(mob/user)
+/obj/structure/closet/crate/coffin/attackby_secondary(obj/item/weapon, mob/user, params)
 	// Distance Check (Inside Of)
 	if (user in src) // user.Adjacent(src)
 		LockMe(user, !locked)

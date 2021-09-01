@@ -85,7 +85,7 @@
 		else
 			to_chat(user, "<span class='warning'>[capitalize(src.name)] не может найти руду в зоне!</span>")
 
-/obj/machinery/deepcore/drill/AltClick(mob/user)
+/obj/machinery/deepcore/drill/attackby_secondary(obj/item/weapon, mob/user, params)
 	. = ..()
 	if(active)
 		to_chat(user, "<span class='warning'>Не могу выключить пока [src.name] активен!</span>")
@@ -455,7 +455,7 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 			. += " целое ничего. [pick(30;"Удивительно.", 30;"Поразительно.", 30;"Интересно.", 10;"Охуеть не встать.")]"
 	else
 		. += "Воронка находится в процессе выброса руд."
-/obj/machinery/deepcore/hopper/AltClick(mob/user)
+/obj/machinery/deepcore/hopper/attackby_secondary(obj/item/weapon, mob/user, params)
 	if(!active)
 		to_chat(user, "<span class='alert'>Turn on the hopper bfore flushing the materials!</span>")
 		return

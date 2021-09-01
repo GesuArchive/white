@@ -139,7 +139,7 @@
 	else
 		to_chat(user, "<span class='warning'>[capitalize(src.name)] пустой!</span>")
 
-/obj/machinery/aug_manipulator/AltClick(mob/living/user)
+/obj/machinery/aug_manipulator/attackby_secondary(obj/item/weapon, mob/living/user, params)
 	..()
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return

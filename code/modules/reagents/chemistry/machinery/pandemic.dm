@@ -36,7 +36,7 @@
 			. += "It has a beaker inside it."
 		. += "\n<span class='info'>ПКМ to eject [is_close ? beaker : "the beaker"].</span>"
 
-/obj/machinery/computer/pandemic/AltClick(mob/user)
+/obj/machinery/computer/pandemic/attackby_secondary(obj/item/weapon, mob/user, params)
 	. = ..()
 	if(user.canUseTopic(src, BE_CLOSE))
 		eject_beaker()

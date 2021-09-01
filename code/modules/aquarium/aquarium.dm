@@ -91,7 +91,7 @@
 	. = ..()
 	. += "<span class='notice'>ПКМ to [panel_open ? "close" : "open"] the control panel.</span>"
 
-/obj/structure/aquarium/AltClick(mob/user)
+/obj/structure/aquarium/attackby_secondary(obj/item/weapon, mob/user, params)
 	if(!user.canUseTopic(src, BE_CLOSE))
 		return ..()
 	panel_open = !panel_open

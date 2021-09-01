@@ -108,7 +108,7 @@
 
 //Toggle exosuits for different aesthetic styles (hoodies, suit jacket buttons, etc)
 
-/obj/item/clothing/suit/toggle/AltClick(mob/user)
+/obj/item/clothing/suit/toggle/attackby_secondary(obj/item/weapon, mob/user, params)
 	..()
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		return

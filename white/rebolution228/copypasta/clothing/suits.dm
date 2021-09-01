@@ -10,7 +10,7 @@
 	dog_fashion = /datum/dog_fashion/back
 
 
-/obj/item/clothing/suit/armor/vest/fieldmedic/AltClick(mob/user)
+/obj/item/clothing/suit/armor/vest/fieldmedic/attackby_secondary(obj/item/weapon, mob/user, params)
 	..()
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		return
@@ -62,8 +62,8 @@
 	desc = "Простая серая кофточка. Неплохо защитит от ветра."
 	icon_state = "greyhoodie"
 	inhand_icon_state = "gy_suit"
-	
-/obj/item/clothing/suit/jacket/hoodie/AltClick(mob/user)
+
+/obj/item/clothing/suit/jacket/hoodie/attackby_secondary(obj/item/weapon, mob/user, params)
 	..()
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		return

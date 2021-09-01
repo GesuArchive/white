@@ -30,7 +30,7 @@
 		update_icon()
 	return ..()
 
-/obj/machinery/atmospherics/components/unary/outlet_injector/AltClick(mob/user)
+/obj/machinery/atmospherics/components/unary/outlet_injector/attackby_secondary(obj/item/weapon, mob/user, params)
 	if(can_interact(user))
 		volume_rate = MAX_TRANSFER_RATE
 		investigate_log("was set to [volume_rate] L/s by [key_name(user)]", INVESTIGATE_ATMOS)

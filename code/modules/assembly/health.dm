@@ -30,7 +30,7 @@
 	update_icon()
 	return secured
 
-/obj/item/assembly/health/AltClick(mob/living/user)
+/obj/item/assembly/health/attackby_secondary(obj/item/weapon, mob/living/user, params)
 	if(alarm_health == HEALTH_THRESHOLD_CRIT)
 		alarm_health = HEALTH_THRESHOLD_DEAD
 		to_chat(user, "<span class='notice'>You toggle [src] to \"detect death\" mode.</span>")

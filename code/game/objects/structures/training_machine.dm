@@ -172,7 +172,7 @@
 		attached_item.throw_at(destination, 4, 1)
 	on_attached_delete()
 
-/obj/structure/training_machine/AltClick(mob/user)
+/obj/structure/training_machine/attackby_secondary(obj/item/weapon, mob/user, params)
 	. = ..()
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, NO_TK, FLOOR_OKAY))
 		return
@@ -392,7 +392,7 @@
 	if (!.)
 		check_hit(hit_atom)
 
-/obj/item/training_toolbox/AltClick(mob/user)
+/obj/item/training_toolbox/attackby_secondary(obj/item/weapon, mob/user, params)
 	. = ..()
 	to_chat(user, "<span class='notice'>You push the 'Lap' button on the toolbox's display.</span>")
 	lap_hits = initial(lap_hits)

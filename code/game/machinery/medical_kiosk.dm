@@ -103,7 +103,7 @@
 		return
 	return ..()
 
-/obj/machinery/medical_kiosk/AltClick(mob/living/carbon/user)
+/obj/machinery/medical_kiosk/attackby_secondary(obj/item/weapon, mob/living/carbon/user, params)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
 		return
 	if(!scanner_wand)

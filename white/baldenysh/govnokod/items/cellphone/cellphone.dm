@@ -44,7 +44,7 @@
 			return
 		InsertID(idcard)
 
-/obj/item/cellphone/AltClick(mob/user)
+/obj/item/cellphone/attackby_secondary(obj/item/weapon, mob/user, params)
 	..()
 	RemoveID()
 

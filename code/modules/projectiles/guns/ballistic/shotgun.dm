@@ -104,7 +104,7 @@
 	else
 		to_chat(user, "<span class='notice'>Труба 'А'.</span>")
 
-/obj/item/gun/ballistic/shotgun/automatic/dual_tube/AltClick(mob/living/user)
+/obj/item/gun/ballistic/shotgun/automatic/dual_tube/attackby_secondary(obj/item/weapon, mob/living/user, params)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 		return
 	rack()
@@ -171,7 +171,7 @@
 	can_be_sawn_off  = TRUE
 	pb_knockback = 3 // it's a super shotgun!
 
-/obj/item/gun/ballistic/shotgun/doublebarrel/AltClick(mob/user)
+/obj/item/gun/ballistic/shotgun/doublebarrel/attackby_secondary(obj/item/weapon, mob/user, params)
 	. = ..()
 	if(unique_reskin && !current_skin && user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
 		reskin_obj(user)
@@ -264,7 +264,7 @@
 	. = ..()
 	hook = new /obj/item/gun/magic/hook/bounty(src)
 
-/obj/item/gun/ballistic/shotgun/doublebarrel/hook/AltClick(mob/user)
+/obj/item/gun/ballistic/shotgun/doublebarrel/hook/attackby_secondary(obj/item/weapon, mob/user, params)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 		return
 	if(toggled)

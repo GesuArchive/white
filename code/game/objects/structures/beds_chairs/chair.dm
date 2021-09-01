@@ -461,7 +461,7 @@
 	if(has_gravity())
 		playsound(src, 'sound/machines/clockcult/integration_cog_install.ogg', 50, TRUE)
 
-/obj/structure/chair/bronze/AltClick(mob/user)
+/obj/structure/chair/bronze/attackby_secondary(obj/item/weapon, mob/user, params)
 	turns = 0
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		return

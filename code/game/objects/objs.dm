@@ -321,7 +321,7 @@
 	if(unique_reskin && !current_skin)
 		. += "<hr><span class='smallnotice'>ПКМ по предмету, чтобы изменить облик.</span>"
 
-/obj/AltClick(mob/user)
+/obj/attackby_secondary(obj/item/weapon, mob/user, params)
 	. = ..()
 	if(unique_reskin && !current_skin && user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
 		reskin_obj(user)

@@ -29,7 +29,7 @@
 	. = ..()
 	AddComponent(/datum/component/automatic_fire_funny, 0.01)
 
-/obj/item/gun/ballistic/automatic/fallout/railgun/AltClick(mob/user)
+/obj/item/gun/ballistic/automatic/fallout/railgun/attackby_secondary(obj/item/weapon, mob/user, params)
 	. = ..()
 	if(user?.client?.holder)
 		fatality_mode = !fatality_mode

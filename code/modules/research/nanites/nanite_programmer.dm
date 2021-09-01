@@ -55,7 +55,7 @@
 	disk = null
 	program = null
 
-/obj/machinery/nanite_programmer/AltClick(mob/user)
+/obj/machinery/nanite_programmer/attackby_secondary(obj/item/weapon, mob/user, params)
 	if(disk && user.canUseTopic(src, !issilicon(user)))
 		to_chat(user, "<span class='notice'>You take out [disk] from [src].</span>")
 		eject(user)

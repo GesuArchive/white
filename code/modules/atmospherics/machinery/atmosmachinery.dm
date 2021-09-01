@@ -501,9 +501,9 @@
 
 	//PLACEHOLDER COMMENT FOR ME TO READD THE 1 (?) DS DELAY THAT WAS IMPLEMENTED WITH A... TIMER?
 
-/obj/machinery/atmospherics/AltClick(mob/living/L)
-	if(istype(L) && is_type_in_list(src, GLOB.ventcrawl_machinery))
-		L.handle_ventcrawl(src)
+/obj/machinery/atmospherics/attackby_secondary(obj/item/weapon, mob/living/user, params)
+	if(istype(user) && is_type_in_list(src, GLOB.ventcrawl_machinery))
+		user.handle_ventcrawl(src)
 		return
 	..()
 

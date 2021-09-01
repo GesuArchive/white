@@ -305,7 +305,7 @@
 		return
 	return ..()
 
-/obj/item/stack/medical/mesh/AltClick(mob/living/user)
+/obj/item/stack/medical/mesh/attackby_secondary(obj/item/weapon, mob/living/user, params)
 	if(!is_open)
 		to_chat(user, "<span class='warning'>Надо бы открыть <b>[src]</b> сначала.</span>")
 		return

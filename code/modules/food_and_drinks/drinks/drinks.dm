@@ -335,7 +335,7 @@
 	else
 		. += "<hr><span class='notice'>The cap has been taken off. ПКМ to put a cap on.</span>"
 
-/obj/item/reagent_containers/food/drinks/waterbottle/AltClick(mob/user)
+/obj/item/reagent_containers/food/drinks/waterbottle/attackby_secondary(obj/item/weapon, mob/user, params)
 	. = ..()
 	if(cap_lost)
 		to_chat(user, "<span class='warning'>The cap seems to be missing! Where did it go?</span>")

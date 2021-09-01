@@ -61,7 +61,7 @@
 		. += span_notice("The wire panel is [open_panel ? "opened" : "closed"]. The display reads:")
 		. += "[readout()]"
 
-/obj/item/taperecorder/AltClick(mob/user)
+/obj/item/taperecorder/attackby_secondary(obj/item/weapon, mob/user, params)
 	. = ..()
 	play()
 

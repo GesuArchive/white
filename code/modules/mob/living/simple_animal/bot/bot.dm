@@ -312,7 +312,7 @@
 /mob/living/simple_animal/bot/interact(mob/user)
 	show_controls(user)
 
-/mob/living/simple_animal/bot/AltClick(mob/user)
+/mob/living/simple_animal/bot/attackby_secondary(obj/item/weapon, mob/user, params)
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return
 	unlock_with_id(user)

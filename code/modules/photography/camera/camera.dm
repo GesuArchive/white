@@ -67,7 +67,7 @@
 	picture_size_x = min(clamp(desired_x, picture_size_x_min, picture_size_x_max), CAMERA_PICTURE_SIZE_HARD_LIMIT)
 	picture_size_y = min(clamp(desired_y, picture_size_y_min, picture_size_y_max), CAMERA_PICTURE_SIZE_HARD_LIMIT)
 
-/obj/item/camera/AltClick(mob/user)
+/obj/item/camera/attackby_secondary(obj/item/weapon, mob/user, params)
 	if(!user.canUseTopic(src, BE_CLOSE))
 		return
 	adjust_zoom(user)

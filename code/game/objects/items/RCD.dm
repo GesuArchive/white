@@ -1132,7 +1132,7 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 	else
 		create_machine(A, user)
 
-/obj/item/construction/plumbing/AltClick(mob/user)
+/obj/item/construction/plumbing/attackby_secondary(obj/item/weapon, mob/user, params)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
 		return
 

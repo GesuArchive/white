@@ -82,7 +82,7 @@
 			for(var/datum/reagent/R in beaker.reagents.reagent_list)
 				. += "<span class='notice'>- [R.volume] единиц [R.name].</span>"
 
-/obj/machinery/reagentgrinder/AltClick(mob/user)
+/obj/machinery/reagentgrinder/attackby_secondary(obj/item/weapon, mob/user, params)
 	. = ..()
 	if(!can_interact(user) || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return

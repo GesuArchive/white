@@ -153,7 +153,7 @@ Borg Hypospray
 	if(empty)
 		. += "<span class='warning'>На данный момент внутри пусто! Подождите немного до момента как внутри синтезируется больше вещества.</span>"
 
-/obj/item/reagent_containers/borghypo/AltClick(mob/living/user)
+/obj/item/reagent_containers/borghypo/attackby_secondary(obj/item/weapon, mob/living/user, params)
 	. = ..()
 	if(user.stat == DEAD || user != loc)
 		return //IF YOU CAN HEAR ME SET MY TRANSFER AMOUNT TO 1
