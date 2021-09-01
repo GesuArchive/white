@@ -221,7 +221,7 @@
 
 ///Returns death message for mob examine text
 /mob/living/carbon/human/proc/generate_death_examine_text()
-	var/mob/dead/observer/ghost = get_ghost(TRUE, TRUE)
+	//var/mob/dead/observer/ghost = get_ghost(TRUE, TRUE)
 	var/t_on = ru_who(TRUE)
 	if(key || !getorgan(/obj/item/organ/brain))
 		return "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и души...</span>\n" //Default death message
